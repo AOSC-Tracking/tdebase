@@ -136,7 +136,7 @@ void ModuleTreeView::fill(ModuleTreeItem *parent, const TQString &parentPath)
 TQSize ModuleTreeView::tqsizeHint() const
 {
     return TQListView::tqsizeHint().boundedTo( 
-	TQSize( fontMetrics().maxWidth()*35, QWIDGETSIZE_MAX) );
+	TQSize( fontMetrics().maxWidth()*35, TQWIDGETSIZE_MAX) );
 }
 
 void ModuleTreeView::makeSelected(ConfigModule *module)

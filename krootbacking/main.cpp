@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 	args->clear();
 
 	TQObject* mainWin = new KRootBacking();
-	TQTimer *timer = new QTimer( mainWin );
+	TQTimer *timer = new TQTimer( mainWin );
         TQObject::connect( timer, SIGNAL(timeout()), mainWin, SLOT(start()) );
         timer->start( 100, TRUE ); // 100ms single shot timer
 

@@ -27,7 +27,7 @@ License. See the file "COPYING" for the exact licensing terms.
 namespace KWinInternal
 {
 
-bool SessionManaged::saveState( QSessionManager& sm )
+bool SessionManaged::saveState( TQSessionManager& sm )
     {
     // If the session manager is ksmserver, save stacking
     // order, active window, active desktop etc. in phase 1,
@@ -53,7 +53,7 @@ bool SessionManaged::saveState( QSessionManager& sm )
     }
 
 // I bet this is broken, just like everywhere else in KDE
-bool SessionManaged::commitData( QSessionManager& sm )
+bool SessionManaged::commitData( TQSessionManager& sm )
     {
     if ( !sm.isPhase2() )
         Workspace::self()->sessionSaveStarted();

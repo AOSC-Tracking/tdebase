@@ -110,7 +110,7 @@ public:
      *
      * Saving history on session save
      */
-    virtual bool commitData( QSessionManager& ) {
+    virtual bool commitData( TQSessionManager& ) {
         klipper->saveSession();
         return true;
     }
@@ -119,7 +119,7 @@ private:
 };
 
 extern bool qt_qclipboard_bailout_hack;
-#if KDE_IS_VERSION( 3, 9, 0 )
+#if KDE_IS_VERSION( 15, 0, 0 )
 #error Check status of #80072 with Qt4.
 #endif
 

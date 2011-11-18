@@ -79,7 +79,7 @@ class ContainerAreaLayout : public TQLayout
 
         ContainerAreaLayout(TQWidget* parent);
 
-        void addItem(QLayoutItem* item);
+        void addItem(TQLayoutItem* item);
         void insertIntoFreeSpace(TQWidget* item, TQPoint insertionPoint);
         TQStringList listItems() const;
         TQWidget* widgetAt(int index) const;

@@ -29,7 +29,7 @@
     <entry name="DateFont" type="Font" key="Font">
       <label>Font for the clock.</label>
       <code>
-QFont defFont=KGlobalSettings::generalFont();
+TQFont defFont=KGlobalSettings::generalFont();
 defFont.setPointSize(8);
       </code>
       <default code="true">defFont</default>

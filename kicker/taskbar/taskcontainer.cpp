@@ -733,7 +733,7 @@ void TaskContainer::drawButton(TQPainter *p)
             KImageEffect::blend(img, timg, *taskBar->blendGradient(size()), KImageEffect::Red);
 
             // End painting before assigning the pixmap
-            QPaintDevice* opd = p->device();
+            TQPaintDevice* opd = p->device();
             p->end();
             pm->convertFromImage(img);
             p->tqbegin(opd ,this);

@@ -243,7 +243,7 @@ TQLayoutItem* ContainerAreaLayout::takeAt(int index) {
 }
 #endif // USE_QT4
 
-void ContainerAreaLayout::addItem(QLayoutItem* item)
+void ContainerAreaLayout::addItem(TQLayoutItem* item)
 {
     m_items.append(new ContainerAreaLayoutItem(static_cast<TQLayoutItem*>(item), this));
 }

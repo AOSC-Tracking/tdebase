@@ -154,7 +154,7 @@
     </connection>
 </connections>
 <forwards>
-    <forward>class QListViewItem;</forward>
+    <forward>class TQListViewItem;</forward>
 </forwards>
 <Q_SLOTS>
     <slot access="protected" specifier="pure virtual">copy_pressed()</slot>

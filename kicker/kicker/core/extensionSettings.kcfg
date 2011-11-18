@@ -30,7 +30,7 @@
 
 <entry name="XineramaScreen" type="Int">
       <label>Primary xinerama screen</label>
-      <default code="true">QApplication::desktop()->primaryScreen()</default>
+      <default code="true">TQApplication::desktop()->primaryScreen()</default>
    </entry>
 
 <entry name="HideButtonSize" type="Int" >

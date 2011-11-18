@@ -166,7 +166,7 @@ private:
     struct VkbdWindow
         {
         WId id;
-        QRect rect;
+        TQRect rect;
         };
     TQValueList< VkbdWindow > mVkbdWindows;
     WId         mVkbdLastEventWindow;

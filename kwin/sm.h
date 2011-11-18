@@ -80,8 +80,8 @@ class SessionManaged
     : public KSessionManaged
     {
     public:
-        virtual bool saveState( QSessionManager& sm );
-        virtual bool commitData( QSessionManager& sm );
+        virtual bool saveState( TQSessionManager& sm );
+        virtual bool commitData( TQSessionManager& sm );
     };
 
 } // namespace

@@ -47,7 +47,7 @@ public:
 
   void commitData(TQSessionManager& sm) {
     if (mainWidget()->isHidden()) {
-      sm.setRestartHint( QSessionManager::RestartNever );
+      sm.setRestartHint( TQSessionManager::RestartNever );
       return;
     }
     closed_by_sm = true;

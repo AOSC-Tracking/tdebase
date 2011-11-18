@@ -213,7 +213,7 @@ KWinbindGreeter::~KWinbindGreeter()
 		delete domainCombo;
 		return;
 	}
-	TQLayoutIterator it = TQT_TQLAYOUT(static_cast<QLayoutItem *>(layoutItem))->iterator();
+	TQLayoutIterator it = TQT_TQLAYOUT(layoutItem)->iterator();
 	for (TQLayoutItem *itm = it.current(); itm; itm = ++it)
 		delete itm->widget();
 	delete layoutItem;

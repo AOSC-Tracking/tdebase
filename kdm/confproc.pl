@@ -212,7 +212,7 @@ my %th = (
   "list" => [ "C_TYPE_ARGV", "", "char\t**", "TQStringList\t", "GetCfgStrArr", "GetCfgQStrList" ]
 );
 
-my @tl = ("QFont\t", "TQStringList\t", "TQString\t", "char\t**", "char\t*", "int\t", "bool\t");
+my @tl = ("TQFont\t", "TQStringList\t", "TQString\t", "char\t**", "char\t*", "int\t", "bool\t");
 
 sub init_defs($)
 {
@@ -444,7 +444,7 @@ while (<INFILE>) {
             } else { # greeter(-c)?
               my ($typ, $gtr, $isc);
               if ($isfn) {
-                $typ = "QFont\t";
+                $typ = "TQFont\t";
                 $gtr = "Str2Font( GetCfgQStr( ".$kid." ) )";
                 $isc = 0;
               } elsif ($user eq "greeter" && $cppget) {

@@ -153,7 +153,7 @@ private:
     KConfig*	    _config;
     DragIndicator*  _dragIndicator;
     BaseContainer*  _dragMoveAC;
-    QPoint	    _dragMoveOffset;
+    TQPoint	    _dragMoveOffset;
     TQPopupMenu*     m_opMenu;
     KRootPixmap*    _rootPixmap;
     bool            _transparent;

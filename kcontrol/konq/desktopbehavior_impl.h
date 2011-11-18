@@ -22,6 +22,7 @@
 #define desktopbehavior_h
 
 #include "desktopbehavior.h"
+#include "tqlistview.h"
 #include <kconfig.h>
 #include <kcmodule.h>
 
