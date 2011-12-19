@@ -121,7 +121,7 @@ void KMenuEdit::slotChangeView()
 #endif
 
     // disabling the updates prevents unnecessary redraws
-    tqsetUpdatesEnabled( false );
+    setUpdatesEnabled( false );
     guiFactory()->removeClient( this );
 
     delete m_actionDelete;

@@ -89,7 +89,7 @@ Dtime::Dtime(TQWidget * parent, const char *name)
   TQVBoxLayout *l1 = new TQVBoxLayout( dateBox, KDialog::spacingHint() );
 
   cal = new KDatePicker( dateBox );
-  cal->setMinimumSize(cal->tqsizeHint());
+  cal->setMinimumSize(cal->sizeHint());
   l1->addWidget( cal );
   TQWhatsThis::add( cal, i18n("Here you can change the system date's day of the month, month and year.") );
 
@@ -120,7 +120,7 @@ Dtime::Dtime(TQWidget * parent, const char *name)
 
   TQLabel *dots1 = new TQLabel(":", timeBox);
   dots1->setMinimumWidth( 7 );
-  dots1->tqsetAlignment( TQLabel::AlignCenter );
+  dots1->setAlignment( TQLabel::AlignCenter );
   v3->addMultiCellWidget(dots1, 0, 1, 3, 3 );
 
   minute = new HMSTimeWidget( timeBox );
@@ -132,7 +132,7 @@ Dtime::Dtime(TQWidget * parent, const char *name)
 
   TQLabel *dots2 = new TQLabel(":", timeBox);
   dots2->setMinimumWidth( 7 );
-  dots2->tqsetAlignment( TQLabel::AlignCenter );
+  dots2->setAlignment( TQLabel::AlignCenter );
   v3->addMultiCellWidget(dots2, 0, 1, 5, 5 );
 
   second = new HMSTimeWidget( timeBox );
@@ -382,8 +382,8 @@ void Kclock::paintEvent( TQPaintEvent * )
   TQPointArray pts;
   TQPoint cp = rect().center();
   int d = QMIN(width(),height());
-  TQColor hands =  tqcolorGroup().dark();
-  TQColor shadow =  tqcolorGroup().text();
+  TQColor hands =  colorGroup().dark();
+  TQColor shadow =  colorGroup().text();
   paint.setPen( shadow );
   paint.setBrush( shadow );
   paint.setViewport(4,4,width(),height());

@@ -54,7 +54,7 @@ TopLevel::TopLevel( const TQString &destDir, TQWidget *parent, const char *name 
                                     "applications on your system and adds "
                                     "them to the KDE menu system. "
                                     "Click 'Scan' to begin, select the desired applications and then click 'Apply'."), this);
-  label->tqsetAlignment( AlignAuto | WordBreak );
+  label->setAlignment( AlignAuto | WordBreak );
   layout->addWidget( label );
 
   layout->addSpacing( 5 );

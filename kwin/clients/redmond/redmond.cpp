@@ -149,7 +149,7 @@ static void create_pixmaps ()
     defaultMenuPix = new TQPixmap(kdelogo);
 
     // buttons (active/inactive, sunken/unsunken)
-	TQColorGroup g = options()->tqcolorGroup(KDecoration::ColorButtonBg, true);
+	TQColorGroup g = options()->colorGroup(KDecoration::ColorButtonBg, true);
     TQColor c = g.background();
     btnPix1->resize(normalTitleHeight, normalTitleHeight-2);
     btnDownPix1->resize(normalTitleHeight, normalTitleHeight-2);
@@ -172,7 +172,7 @@ static void create_pixmaps ()
         KPixmapEffect::gradient(*miniBtnDownPix1, c.dark(130), c.light(130),
                                 KPixmapEffect::VerticalGradient);
 
-        g = options()->tqcolorGroup(KDecoration::ColorButtonBg, false);
+        g = options()->colorGroup(KDecoration::ColorButtonBg, false);
         c = g.background();
         KPixmapEffect::gradient(*iBtnPix1, c.light(130), c.dark(130),
                                 KPixmapEffect::VerticalGradient);
@@ -188,7 +188,7 @@ static void create_pixmaps ()
         miniBtnPix1->fill(c.rgb());
         miniBtnDownPix1->fill(c.rgb());
 
-        g = options()->tqcolorGroup(KDecoration::ColorButtonBg, false);
+        g = options()->colorGroup(KDecoration::ColorButtonBg, false);
         c = g.background();
         iBtnPix1->fill(c.rgb());
         iBtnDownPix1->fill(c.rgb());
@@ -196,13 +196,13 @@ static void create_pixmaps ()
         iMiniBtnDownPix1->fill(c.rgb());
     }
 
-    g = options()->tqcolorGroup(KDecoration::ColorButtonBg, true);
+    g = options()->colorGroup(KDecoration::ColorButtonBg, true);
     drawButtonFrame(btnPix1, g, false);
     drawButtonFrame(btnDownPix1, g, true);
     drawButtonFrame(miniBtnPix1, g, false);
     drawButtonFrame(miniBtnDownPix1, g, true);
 
-    g = options()->tqcolorGroup(KDecoration::ColorButtonBg, false);
+    g = options()->colorGroup(KDecoration::ColorButtonBg, false);
     drawButtonFrame(iBtnPix1, g, false);
     drawButtonFrame(iBtnDownPix1, g, true);
     drawButtonFrame(iMiniBtnPix1, g, false);
@@ -491,7 +491,7 @@ void RedmondDeco::paintEvent( TQPaintEvent* )
 
     // Draw part of the frame that is the frame color
     // ==============================================
-    TQColorGroup g = options()->tqcolorGroup(KDecoration::ColorFrame, isActive());
+    TQColorGroup g = options()->colorGroup(KDecoration::ColorFrame, isActive());
     p.setPen( g.background() );
     p.drawLine( x, y, x2-1, y );
     p.drawLine( x, y, x, y2-1 );

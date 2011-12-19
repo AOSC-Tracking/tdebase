@@ -293,7 +293,7 @@ void Workspace::setupWindowShortcut( Client* c )
     client_keys_client = c;
     connect( client_keys_dialog, TQT_SIGNAL( dialogDone( bool )), TQT_SLOT( setupWindowShortcutDone( bool )));
     TQRect r = clientArea( ScreenArea, c );
-    TQSize size = client_keys_dialog->tqsizeHint();
+    TQSize size = client_keys_dialog->sizeHint();
     TQPoint pos = c->pos() + c->clientPos();
     if( pos.x() + size.width() >= r.right())
         pos.setX( r.right() - size.width());
@@ -1045,8 +1045,8 @@ void Workspace::showWindowMenu( const TQRect &pos, Client* cl )
     else
         {
 	TQRect area = clientArea(ScreenArea, TQPoint(x, y), currentDesktop());
-        clientPopupAboutToShow(); // needed for tqsizeHint() to be correct :-/
-	int popupHeight = p->tqsizeHint().height();
+        clientPopupAboutToShow(); // needed for sizeHint() to be correct :-/
+	int popupHeight = p->sizeHint().height();
 	if (y + popupHeight < area.height())
 	    p->exec( TQPoint( x, y ) );
 	else

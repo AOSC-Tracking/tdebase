@@ -117,7 +117,7 @@ class ButtonSource : public KListView
 		ButtonSource(TQWidget *parent = 0, const char* name = 0);
 		virtual ~ButtonSource();
 
-		TQSize tqsizeHint() const;
+		TQSize sizeHint() const;
 
 		void hideAllButtons();
 		void showAllButtons();

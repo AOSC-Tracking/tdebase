@@ -91,7 +91,7 @@ KasTaskPopup::KasTaskPopup( KasTaskItem *item, const char *name )
     }
 
     KPixmapEffect::gradient( titleBg, 
-                             Qt::black, tqcolorGroup().mid(),
+                             Qt::black, colorGroup().mid(),
                              KPixmapEffect::DiagonalGradient );
 
     connect( item->task(), TQT_SIGNAL( thumbnailChanged() ), TQT_SLOT( refresh() ) );

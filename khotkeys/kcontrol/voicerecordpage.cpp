@@ -31,7 +31,7 @@ VoiceRecordPage::VoiceRecordPage( const TQString &voiceid_P, TQWidget *parent, c
 	  _message = i18n("Enter a code for the sound (e.g. the word you are saying) and record the same word twice.");
 
     _label = new TQLabel(_message, this, "label");
-    _label->tqsetAlignment(TQLabel::AlignLeft | TQLabel::WordBreak |
+    _label->setAlignment(TQLabel::AlignLeft | TQLabel::WordBreak |
                         TQLabel::AlignVCenter);
 	
 	_lineEdit = new KLineEdit( this );

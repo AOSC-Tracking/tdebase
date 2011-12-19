@@ -53,7 +53,7 @@ NotificationDialog::NotificationDialog( KFileItem medium, NotifierSettings *sett
 
 	updateActionsListBox();
 
-	resize( TQSize(400,400).expandedTo( tqminimumSizeHint() ) );
+	resize( TQSize(400,400).expandedTo( minimumSizeHint() ) );
 
 
 	m_actionWatcher = new KDirWatch();

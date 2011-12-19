@@ -238,7 +238,7 @@ void KStylePage::saveIcons(bool curSettings) {
 	for (KIcon::Group i=KIcon::FirstGroup; i<KIcon::LastGroup; i++) {
 		if (groups[i] == 0L)
 			break;
-		KGlobal::config()->setGroup(TQString::tqfromLatin1(groups[i]) + "Icons");
+		KGlobal::config()->setGroup(TQString::fromLatin1(groups[i]) + "Icons");
 		KGlobal::config()->writeEntry("Size", icontheme.defaultSize(i));
 	}
 	KGlobal::config()->sync();
@@ -428,12 +428,12 @@ void KStylePage::getAvailability() {
 		else if (*it == "Light, 3rd revision") kde_light_exist = true;
 	}
 	// and disable the ListItems, if they are not.
-	if ( !(kde_plastik_exist || kde_light_exist) ) kde->tqsetVisible(false);
-	if ( !(kde_hc_exist || kde_def_exist) ) classic->tqsetVisible(false);
-	if (!kde_keramik_exist || TQPixmap::defaultDepth() <= 8) keramik->tqsetVisible(false);
-	if (!cde_exist) cde->tqsetVisible(false);
-	if (!win_exist) win->tqsetVisible(false);
-	if (!platinum_exist) platinum->tqsetVisible(false);
+	if ( !(kde_plastik_exist || kde_light_exist) ) kde->setVisible(false);
+	if ( !(kde_hc_exist || kde_def_exist) ) classic->setVisible(false);
+	if (!kde_keramik_exist || TQPixmap::defaultDepth() <= 8) keramik->setVisible(false);
+	if (!cde_exist) cde->setVisible(false);
+	if (!win_exist) win->setVisible(false);
+	if (!platinum_exist) platinum->setVisible(false);
 
 	// test, wich KWin-styles are available
 	kwin_keramik_exist = kwin_system_exist = kwin_plastik_exist
@@ -542,7 +542,7 @@ void KStylePage::switchPrevStyle() {
 	// go ahead
 	setStyleRecursive( stylePreview, palette, style );
 	// this flickers, but reliably draws the widgets corretly.
-	stylePreview->resize( stylePreview->tqsizeHint() );
+	stylePreview->resize( stylePreview->sizeHint() );
 
 	delete appliedStyle;
 	appliedStyle = style;

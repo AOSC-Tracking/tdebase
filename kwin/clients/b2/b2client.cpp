@@ -419,7 +419,7 @@ void B2Client::init()
 
     titleLayout->addSpacing(3);
 
-    TQColor c = options()->tqcolorGroup(KDecoration::ColorTitleBar, isActive()).
+    TQColor c = options()->colorGroup(KDecoration::ColorTitleBar, isActive()).
         color(TQColorGroup::Button);
 
     for (int i = 0; i < BtnCount; i++) {
@@ -635,7 +635,7 @@ void B2Client::paintEvent(TQPaintEvent* e)
     int bb = mustDrawHandle() ? 4 : 0;
     int bDepth = thickness + bb;
 
-    TQColorGroup fillColor = options()->tqcolorGroup(frameColorGroup, isActive());
+    TQColorGroup fillColor = options()->colorGroup(frameColorGroup, isActive());
     TQBrush fillBrush(options()->color(frameColorGroup, isActive()));
 
     // outer frame rect
@@ -859,7 +859,7 @@ void B2Client::activeChange()
     widget()->tqrepaint(false);
     titlebar->tqrepaint(false);
 
-    TQColor c = options()->tqcolorGroup(
+    TQColor c = options()->colorGroup(
 	    KDecoration::ColorTitleBar, isActive()).color(TQColorGroup::Button);
 
     for (int i = 0; i < BtnCount; i++)
@@ -881,7 +881,7 @@ void B2Client::shadeChange()
     }
 }
 
-TQSize B2Client::tqminimumSize() const
+TQSize B2Client::minimumSize() const
 {
     int left, right, top, bottom;
     borders(left, right, top, bottom);
@@ -960,8 +960,8 @@ void B2Client::unobscureTitlebar()
 static void redraw_pixmaps()
 {
     int i;
-    TQColorGroup aGrp = options()->tqcolorGroup(KDecoration::ColorButtonBg, true);
-    TQColorGroup iGrp = options()->tqcolorGroup(KDecoration::ColorButtonBg, false);
+    TQColorGroup aGrp = options()->colorGroup(KDecoration::ColorButtonBg, true);
+    TQColorGroup iGrp = options()->colorGroup(KDecoration::ColorButtonBg, false);
 
     // close
     drawB2Rect(PIXMAP_A(P_CLOSE), aGrp.button(), false);
@@ -1222,7 +1222,7 @@ B2Button::B2Button(B2Client *_client, TQWidget *parent,
 }
 
 
-TQSize B2Button::tqsizeHint() const
+TQSize B2Button::sizeHint() const
 {
     return TQSize(buttonSize, buttonSize);
 }
@@ -1363,7 +1363,7 @@ void B2Titlebar::drawTitlebar(TQPainter &p, bool state)
 
     // titlebar fill
     const TQColorGroup cg =
-	options()->tqcolorGroup(KDecoration::ColorTitleBar, state);
+	options()->colorGroup(KDecoration::ColorTitleBar, state);
     TQBrush brush(cg.background());
     if (gradient) brush.setPixmap(*gradient);
     qDrawShadeRect(&p, 1, 1, t.right() - 1, t.height() - 1,

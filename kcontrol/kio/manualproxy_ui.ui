@@ -137,7 +137,7 @@
                     <property name="name">
                         <cstring>sbHttp</cstring>
                     </property>
-                    <property name="tqmaximumSize">
+                    <property name="maximumSize">
                         <size>
                             <width>32767</width>
                             <height>32767</height>
@@ -160,7 +160,7 @@
                     <property name="sizeType">
                         <enum>Minimum</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>51</width>
                             <height>20</height>
@@ -280,7 +280,7 @@ Reverse the use of the exception list. Checking this box will result in the prox
                             <property name="sizeType">
                                 <enum>Expanding</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>20</width>
                                     <height>114</height>

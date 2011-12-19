@@ -191,7 +191,7 @@ bool KateExternalToolsCommand::exec (Kate::View *view, const TQString &cmd, TQSt
 // 		kdDebug(13001)<<"KateExternalToolsCommand::exec: Could not get view widget"<<endl;
 		return false;
 	}
-  KateMDI::MainWindow *dmw=tqt_dynamic_cast<KateMDI::MainWindow*>(wv->tqtopLevelWidget());
+  KateMDI::MainWindow *dmw=tqt_dynamic_cast<KateMDI::MainWindow*>(wv->topLevelWidget());
 	if (!dmw) {
 // 		kdDebug(13001)<<"KateExternalToolsCommand::exec: Could not get main window"<<endl;
 		return false;
@@ -439,7 +439,7 @@ KateExternalToolServiceEditor::KateExternalToolServiceEditor( KateExternalTool *
   leName = new TQLineEdit( w );
   lo->addWidget( leName, 1, 2 );
   l = new TQLabel( leName, i18n("&Label:"), w );
-  l->tqsetAlignment( l->tqalignment()|Qt::AlignRight );
+  l->setAlignment( l->tqalignment()|Qt::AlignRight );
   lo->addWidget( l, 1, 1 );
   if ( tool ) leName->setText( tool->name );
   TQWhatsThis::add( leName, i18n(
@@ -454,7 +454,7 @@ KateExternalToolServiceEditor::KateExternalToolServiceEditor( KateExternalTool *
   teCommand = new TQTextEdit( w );
   lo->addMultiCellWidget( teCommand, 2, 2, 2, 3 );
   l = new TQLabel( teCommand, i18n("S&cript:"), w );
-  l->tqsetAlignment( Qt::AlignTop|Qt::AlignRight );
+  l->setAlignment( Qt::AlignTop|Qt::AlignRight );
   lo->addWidget( l, 2, 1 );
   if ( tool ) teCommand->setText( tool->command );
   TQWhatsThis::add( teCommand, i18n(
@@ -477,7 +477,7 @@ KateExternalToolServiceEditor::KateExternalToolServiceEditor( KateExternalTool *
   leExecutable = new TQLineEdit( w );
   lo->addMultiCellWidget( leExecutable, 3, 3, 2, 3 );
   l = new TQLabel( leExecutable, i18n("&Executable:"), w );
-  l->tqsetAlignment( l->tqalignment()|Qt::AlignRight );
+  l->setAlignment( l->tqalignment()|Qt::AlignRight );
   lo->addWidget( l, 3, 1 );
   if ( tool ) leExecutable->setText( tool->tryexec );
   TQWhatsThis::add( leExecutable, i18n(
@@ -488,7 +488,7 @@ KateExternalToolServiceEditor::KateExternalToolServiceEditor( KateExternalTool *
   leMimetypes = new TQLineEdit( w );
   lo->addWidget( leMimetypes, 4, 2 );
   l = new TQLabel( leMimetypes, i18n("&Mime types:"), w );
-  l->tqsetAlignment( l->tqalignment()|Qt::AlignRight );
+  l->setAlignment( l->tqalignment()|Qt::AlignRight );
   lo->addWidget( l, 4, 1 );
   if ( tool ) leMimetypes->setText( tool->mimetypes.join("; ") );
   TQWhatsThis::add( leMimetypes, i18n(
@@ -506,7 +506,7 @@ KateExternalToolServiceEditor::KateExternalToolServiceEditor( KateExternalTool *
   cmbSave = new TQComboBox(w);
   lo->addMultiCellWidget( cmbSave, 5, 5, 2, 3 );
   l = new TQLabel( cmbSave, i18n("&Save:"), w );
-  l->tqsetAlignment( l->tqalignment()|Qt::AlignRight );
+  l->setAlignment( l->tqalignment()|Qt::AlignRight );
   lo->addWidget( l, 5, 1 );
   TQStringList sl;
   sl << i18n("None") << i18n("Current Document") << i18n("All Documents");
@@ -521,7 +521,7 @@ KateExternalToolServiceEditor::KateExternalToolServiceEditor( KateExternalTool *
   leCmdLine = new TQLineEdit( w );
   lo->addMultiCellWidget( leCmdLine, 6, 6, 2, 3 );
   l = new TQLabel( leCmdLine, i18n("&Command line name:"), w );
-  l->tqsetAlignment( l->tqalignment()|Qt::AlignRight );
+  l->setAlignment( l->tqalignment()|Qt::AlignRight );
   lo->addWidget( l, 6, 1 );
   if ( tool ) leCmdLine->setText( tool->cmdname );
   TQWhatsThis::add( leCmdLine, i18n(

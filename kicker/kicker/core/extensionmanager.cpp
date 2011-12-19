@@ -371,7 +371,7 @@ void ExtensionManager::updateMenubar()
     KMenuBar tmpmenu;
     tmpmenu.insertItem("KDE Rocks!");
     m_menubarPanel->setSize(KPanelExtension::SizeCustom,
-                            tmpmenu.tqsizeHint().height());
+                            tmpmenu.sizeHint().height());
     m_menubarPanel->writeConfig();
 
     emit desktopIconsAreaChanged(desktopIconsArea(m_menubarPanel->xineramaScreen()),

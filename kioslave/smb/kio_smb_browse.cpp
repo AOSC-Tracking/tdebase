@@ -409,7 +409,7 @@ void SMBSlave::listDir( const KURL& kurl )
                    udsentry.append(atom);
 
                    atom.m_uds = KIO::UDS_MIME_TYPE;
-                   atom.m_str = TQString::tqfromLatin1("application/x-smb-server");
+                   atom.m_str = TQString::fromLatin1("application/x-smb-server");
                    udsentry.append(atom);
                }
 
@@ -429,7 +429,7 @@ void SMBSlave::listDir( const KURL& kurl )
                udsentry.append(atom);
 
                atom.m_uds = KIO::UDS_MIME_TYPE;
-               atom.m_str = TQString::tqfromLatin1("application/x-smb-workgroup");
+               atom.m_str = TQString::fromLatin1("application/x-smb-workgroup");
                udsentry.append(atom);
 
                atom.m_uds = KIO::UDS_URL;

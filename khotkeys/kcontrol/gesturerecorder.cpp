@@ -20,7 +20,7 @@ namespace KHotKeys
 GestureRecorder::GestureRecorder(TQWidget *parent, const char *name)
   : TQFrame(parent, name), _mouseButtonDown(false)
     {
-    setBackgroundColor( tqcolorGroup().base());
+    setBackgroundColor( colorGroup().base());
     setFrameStyle(TQFrame::Sunken | TQFrame::Panel);
     setLineWidth(2);
     setMidLineWidth(0);

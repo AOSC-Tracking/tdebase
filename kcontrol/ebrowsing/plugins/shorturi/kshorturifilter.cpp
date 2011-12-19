@@ -43,7 +43,7 @@
 #define IPv6_PATTERN    "^\\[.*\\]"
 #define ENV_VAR_PATTERN "\\$[a-zA-Z_][a-zA-Z0-9_]*"
 
-#define QFL1(x) TQString::tqfromLatin1(x)
+#define QFL1(x) TQString::fromLatin1(x)
 
  /**
   * IMPORTANT:
@@ -164,13 +164,13 @@ bool KShortURIFilter::filterURI( KURIFilterData& data ) const
 
   if (!isMalformed &&
       (url.protocol().length() == 4) &&
-      (url.protocol() != TQString::tqfromLatin1("http")) &&
+      (url.protocol() != TQString::fromLatin1("http")) &&
       (url.protocol()[0]=='h') &&
       (url.protocol()[1]==url.protocol()[2]) &&
       (url.protocol()[3]=='p'))
   {
      // Handle "encrypted" URLs like: h++p://www.kde.org
-     url.setProtocol( TQString::tqfromLatin1("http"));
+     url.setProtocol( TQString::fromLatin1("http"));
      setFilteredURI( data, url);
      setURIType( data, KURIFilterData::NET_PROTOCOL );
      return true;
@@ -210,11 +210,11 @@ bool KShortURIFilter::filterURI( KURIFilterData& data ) const
   }
 
   // Detect UNC style (aka windows SMB) URLs
-  if ( cmd.startsWith( TQString::tqfromLatin1( "\\\\") ) )
+  if ( cmd.startsWith( TQString::fromLatin1( "\\\\") ) )
   {
     // make sure path is unix style
     cmd.replace('\\', '/');
-    cmd.prepend( TQString::tqfromLatin1( "smb:" ) );
+    cmd.prepend( TQString::fromLatin1( "smb:" ) );
     setFilteredURI( data, KURL( cmd ));
     setURIType( data, KURIFilterData::NET_PROTOCOL );
     return true;
@@ -379,7 +379,7 @@ bool KShortURIFilter::filterURI( KURIFilterData& data ) const
     u.setRef(ref);
     u.setQuery(query);
 
-    if (kapp && !kapp->authorizeURLAction( TQString::tqfromLatin1("open"), KURL(), u))
+    if (kapp && !kapp->authorizeURLAction( TQString::fromLatin1("open"), KURL(), u))
     {
       // No authorisation, we pretend it's a file will get
       // an access denied error later on.
@@ -514,7 +514,7 @@ bool KShortURIFilter::filterURI( KURIFilterData& data ) const
     u.setPath(path);
     u.setRef(ref);
 
-    if (kapp && !kapp->authorizeURLAction( TQString::tqfromLatin1("open"), KURL(), u))
+    if (kapp && !kapp->authorizeURLAction( TQString::fromLatin1("open"), KURL(), u))
     {
       // No authorisation, we pretend it exists and will get
       // an access denied error later on.

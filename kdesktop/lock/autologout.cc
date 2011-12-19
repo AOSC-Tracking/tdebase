@@ -55,7 +55,7 @@ AutoLogout::AutoLogout(LockProcess *parent) : TQDialog(parent, "password dialog"
     TQLabel *infoLabel = new TQLabel(i18n("<qt>To prevent being logged out, resume using this session by moving the mouse or pressing a key.</qt>"), frame);
 
     mStatusLabel = new TQLabel("<b> </b>", frame);
-    mStatusLabel->tqsetAlignment(TQLabel::AlignCenter);
+    mStatusLabel->setAlignment(TQLabel::AlignCenter);
 
     TQLabel *mProgressLabel = new TQLabel("Time Remaining:", frame);
     mProgressRemaining = new TQProgressBar(frame);

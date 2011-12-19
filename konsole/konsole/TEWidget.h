@@ -98,7 +98,7 @@ public:
     void updateImageSize();
     void setSize(int cols, int lins);
     void setFixedSize(int cols, int lins);
-    TQSize tqsizeHint() const;
+    TQSize sizeHint() const;
 
     void setWordCharacters(TQString wc);
     TQString wordCharacters() { return word_characters; }

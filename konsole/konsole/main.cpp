@@ -271,7 +271,7 @@ extern "C" int KDE_EXPORT kdemain(int argc, char* argv[])
 
   TQString term = "";
   if(args->isSet("tn")) {
-    term=TQString::tqfromLatin1(args->getOption("tn"));
+    term=TQString::fromLatin1(args->getOption("tn"));
   }
   login_shell = args->isSet("ls");
 
@@ -591,7 +591,7 @@ extern "C" int KDE_EXPORT kdemain(int argc, char* argv[])
  //// Temporary code, waiting for Qt to do this properly
 
   // Delete all toplevel widgets that have WDestructiveClose
-  TQWidgetList *list = TQApplication::tqtopLevelWidgets();
+  TQWidgetList *list = TQApplication::topLevelWidgets();
   // remove all toplevel widgets that have a parent (i.e. they
   // got WTopLevel explicitly), they'll be deleted by the parent
   list->first();

@@ -457,7 +457,7 @@ void WorkSheet::dropEvent( TQDropEvent *e )
   }
 }
 
-TQSize WorkSheet::tqsizeHint() const
+TQSize WorkSheet::sizeHint() const
 {
   return TQSize( 200,150 );
 }
@@ -531,7 +531,7 @@ void WorkSheet::replaceDisplay( uint row, uint column, KSGRD::SensorDisplay* new
     mDisplayList[ row ][ column ]->show();
   }
 
-  setMinimumSize(tqsizeHint());
+  setMinimumSize(sizeHint());
 
   setModified( true );
 }

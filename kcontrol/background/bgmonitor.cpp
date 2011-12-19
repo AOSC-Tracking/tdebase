@@ -157,7 +157,7 @@ void BGMonitorArrangement::setPixmap( const KPixmap & pm )
 BGMonitorLabel::BGMonitorLabel(TQWidget *parent, const char *name)
     : TQLabel(parent, name)
 {
-    tqsetAlignment(AlignCenter);
+    setAlignment(AlignCenter);
     setScaledContents(true);
     setPixmap( TQPixmap( locate("data",  "kcontrol/pics/monitor.png") ) );
     m_pBGMonitor = new BGMonitor(this);
@@ -168,8 +168,8 @@ BGMonitorLabel::BGMonitorLabel(TQWidget *parent, const char *name)
 
 void BGMonitorLabel::updateMonitorGeometry()
 {
-    double scaleX = double(width()) / double(tqsizeHint().width());
-    double scaleY = double(height()) / double(tqsizeHint().height());
+    double scaleX = double(width()) / double(sizeHint().width());
+    double scaleY = double(height()) / double(sizeHint().height());
     
     kdDebug() << k_funcinfo << " Setting geometry to " << TQRect( int(23*scaleX), int(14*scaleY), int(151*scaleX), int(115*scaleY) ) << endl;
     m_pBGMonitor->setGeometry( int(23*scaleX), int(14*scaleY), int(151*scaleX), int(115*scaleY) );
@@ -189,7 +189,7 @@ void BGMonitorLabel::resizeEvent( TQResizeEvent * e )
 BGMonitor::BGMonitor(TQWidget *parent, const char *name)
     : TQLabel(parent, name)
 {
-    tqsetAlignment(AlignCenter);
+    setAlignment(AlignCenter);
     setScaledContents(true);
     setAcceptDrops(true);
 }

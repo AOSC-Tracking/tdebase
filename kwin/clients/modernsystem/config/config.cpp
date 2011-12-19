@@ -59,11 +59,11 @@ ModernSysConfig::ModernSysConfig(KConfig* conf, TQWidget* parent) : TQObject(par
 
 	bool rtl = kapp->reverseLayout();
 	label1 = new TQLabel(i18n("Small"), hbox);
-	label1->tqsetAlignment(rtl ? AlignRight : AlignLeft);
+	label1->setAlignment(rtl ? AlignRight : AlignLeft);
 	label2 = new TQLabel(i18n("Medium"), hbox);
-	label2->tqsetAlignment(AlignHCenter);
+	label2->setAlignment(AlignHCenter);
 	label3 = new TQLabel(i18n("Large"), hbox);
-	label3->tqsetAlignment(rtl ? AlignLeft : AlignRight);
+	label3->setAlignment(rtl ? AlignLeft : AlignRight);
 	
 	vbox->addWidget(handleBox);
 	vbox->addStretch(1);

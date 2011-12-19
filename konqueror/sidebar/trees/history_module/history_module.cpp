@@ -54,7 +54,7 @@ KonqSidebarHistoryModule::KonqSidebarHistoryModule( KonqSidebarTree * parentTree
     connect( s_settings, TQT_SIGNAL( settingsChanged() ), TQT_SLOT( slotSettingsChanged() ));
 
     m_dict.setAutoDelete( true );
-    m_currentTime = TQDateTime::tqcurrentDateTime();
+    m_currentTime = TQDateTime::currentDateTime();
 
     KConfig *kc = KGlobal::config();
     KConfigGroupSaver cs( kc, "HistorySettings" );
@@ -132,7 +132,7 @@ void KonqSidebarHistoryModule::slotCreateItems()
     KonqHistoryEntry *entry;
     KonqHistoryList entries( KonqHistoryManager::kself()->entries() );
     KonqHistoryIterator it( entries );
-    m_currentTime = TQDateTime::tqcurrentDateTime();
+    m_currentTime = TQDateTime::currentDateTime();
 
     // the group item and the item of the serverroot '/' get a fav-icon
     // if available. All others get the protocol icon.
@@ -171,7 +171,7 @@ void KonqSidebarHistoryModule::slotEntryAdded( const KonqHistoryEntry *entry )
     if ( !m_initialized )
 	return;
 
-    m_currentTime = TQDateTime::tqcurrentDateTime();
+    m_currentTime = TQDateTime::currentDateTime();
     KonqSidebarHistoryGroupItem *group = getGroupItem( entry->url );
     KonqSidebarHistoryItem *item = group->findChild( entry );
     if ( !item )

@@ -121,14 +121,14 @@ void RunApplet::resizeEvent(TQResizeEvent*)
 	    _input->reparent(this, TQPoint(0,0), true);
 	    _label->setGeometry(0,0, width(), _label->height());
 
-	    if(height() >= _input->tqsizeHint().height() + _label->height())
+	    if(height() >= _input->sizeHint().height() + _label->height())
 		{
-                    int inputVOffset = height() - _input->tqsizeHint().height() - 2;
-                    int labelHeight = _label->tqsizeHint().height();
+                    int inputVOffset = height() - _input->sizeHint().height() - 2;
+                    int labelHeight = _label->sizeHint().height();
 		    _label->setGeometry(0, inputVOffset - labelHeight,
                                         width(), labelHeight);
 		    _input->setGeometry(0, inputVOffset,
-					width(), _input->tqsizeHint().height());
+					width(), _input->sizeHint().height());
 		    _label->show();
 		}
 	    else
@@ -138,7 +138,7 @@ void RunApplet::resizeEvent(TQResizeEvent*)
                     // make it as high as the combobox naturally wants to be
                     // but no taller than the panel is!
                     // don't forget to center it vertically either.
-                    int newHeight = _input->tqsizeHint().height();
+                    int newHeight = _input->sizeHint().height();
                     if (newHeight > height())
                         newHeight = height();
 		    _input->setGeometry(0, (height() - newHeight) / 2,
@@ -184,7 +184,7 @@ void RunApplet::setButtonText()
 
 int RunApplet::widthForHeight(int ) const
 {
-    return _label->tqsizeHint().width();
+    return _label->sizeHint().width();
 }
 
 int RunApplet::heightForWidth(int ) const

@@ -86,8 +86,8 @@ QueryDlg::QueryDlg(LockProcess *parent)
     KUser user;
 
     mStatusLabel = new TQLabel( "<b> </b>", frame );
-    //mStatusLabel->tqsetAlignment( TQLabel::AlignCenter );
-    mStatusLabel->tqsetAlignment( TQLabel::AlignLeft );
+    //mStatusLabel->setAlignment( TQLabel::AlignCenter );
+    mStatusLabel->setAlignment( TQLabel::AlignLeft );
 
     KSeparator *sep = new KSeparator( KSeparator::HLine, frame );
 

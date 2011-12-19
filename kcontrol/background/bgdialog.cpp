@@ -142,7 +142,7 @@ BGDialog::BGDialog(TQWidget* parent, KConfig* _config, bool _multidesktop)
    }
 
    // background image settings
-   TQIconSet iconSet = SmallIconSet(TQString::tqfromLatin1("fileopen"));
+   TQIconSet iconSet = SmallIconSet(TQString::fromLatin1("fileopen"));
    TQPixmap pixMap = iconSet.pixmap( TQIconSet::Small, TQIconSet::Normal );
    m_urlWallpaperButton->setIconSet( iconSet );
    m_urlWallpaperButton->setFixedSize( pixMap.width()+8, pixMap.height()+8 );
@@ -414,14 +414,14 @@ void BGDialog::slotIdentifyScreens()
       screenLabel->setFrameStyle(TQFrame::Panel);
       screenLabel->setFrameShadow(TQFrame::Plain);
 
-      screenLabel->tqsetAlignment(Qt::AlignCenter);
+      screenLabel->setAlignment(Qt::AlignCenter);
       screenLabel->setNum(int(s + 1));
         // BUGLET: we should not allow the identification to be entered again
         //         until the timer fires.
       TQTimer::singleShot(1500, screenLabel, TQT_SLOT(close()));
 
       TQPoint screenCenter(TQApplication::desktop()->screenGeometry(s).center());
-      TQRect targetGeometry(TQPoint(0,0),screenLabel->tqsizeHint());
+      TQRect targetGeometry(TQPoint(0,0),screenLabel->sizeHint());
       targetGeometry.moveCenter(screenCenter);
 
       screenLabel->setGeometry(targetGeometry);
@@ -1004,7 +1004,7 @@ void BGDialog::slotSetupMulti()
 {
     KBackgroundRenderer *r = eRenderer();
 
-    BGMultiWallpaperDialog dlg(r, tqtopLevelWidget());
+    BGMultiWallpaperDialog dlg(r, topLevelWidget());
     if (dlg.exec() == TQDialog::Accepted) {
         r->stop();
         m_slideShowRandom = r->multiWallpaperMode();
@@ -1182,7 +1182,7 @@ void BGDialog::slotAdvanced()
     KBackgroundRenderer *r = eRenderer();
 
     m_previewUpdates = false;
-    BGAdvancedDialog dlg(r, tqtopLevelWidget(), m_multidesktop);
+    BGAdvancedDialog dlg(r, topLevelWidget(), m_multidesktop);
 
     if (!m_pMonitorArrangement->isEnabled()) {
        dlg.makeReadOnly();

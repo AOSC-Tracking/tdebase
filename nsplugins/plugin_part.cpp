@@ -307,7 +307,7 @@ bool PluginPart::openURL(const KURL &url)
         _widget = inst;
     } else {
         TQLabel *label = new TQLabel( i18n("Unable to load Netscape plugin for %1").arg(url.url()), _canvas );
-        label->tqsetAlignment( AlignCenter | WordBreak );
+        label->setAlignment( AlignCenter | WordBreak );
         _widget = label;
     }
 

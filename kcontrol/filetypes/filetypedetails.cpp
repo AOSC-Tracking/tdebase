@@ -100,7 +100,7 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
   m_autoEmbed->layout()->setSpacing( KDialog::spacingHint() );
   secondLayout->addWidget( m_autoEmbed, 1 );
 
-  m_autoEmbed->tqsetSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType)3, (TQSizePolicy::SizeType)0, m_autoEmbed->sizePolicy().hasHeightForWidth() ) );
+  m_autoEmbed->setSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType)3, (TQSizePolicy::SizeType)0, m_autoEmbed->sizePolicy().hasHeightForWidth() ) );
 
   // The order of those three items is very important. If you change it, fix typeslistitem.cpp !
   new TQRadioButton( i18n("Show file in embedded viewer"), m_autoEmbed );
@@ -120,7 +120,7 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
   secondLayout->addSpacing(10);
 
   embedServiceListWidget = new KServiceListWidget( KServiceListWidget::SERVICELIST_SERVICES, secondWidget );
-  embedServiceListWidget->setMinimumHeight( serviceListWidget->tqsizeHint().height() );
+  embedServiceListWidget->setMinimumHeight( serviceListWidget->sizeHint().height() );
   connect( embedServiceListWidget, TQT_SIGNAL(changed(bool)), this, TQT_SIGNAL(changed(bool)));
   secondLayout->addWidget(embedServiceListWidget, 3);
 

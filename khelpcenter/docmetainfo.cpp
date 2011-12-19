@@ -108,7 +108,7 @@ TQString DocMetaInfo::languageName( const TQString &langcode )
   if ( langcode == "en" ) return i18n("English");
 
   TQString cfgfile = locate( "locale",
-      TQString::tqfromLatin1( "%1/entry.desktop" ).arg( langcode ) );
+      TQString::fromLatin1( "%1/entry.desktop" ).arg( langcode ) );
 
   kdDebug() << "-- langcode: " << langcode << " cfgfile: " << cfgfile << endl;
   

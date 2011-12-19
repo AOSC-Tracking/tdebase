@@ -2606,7 +2606,7 @@ int Workspace::topMenuHeight() const
         { // simply create a dummy menubar and use its preffered height as the menu height
         KMenuBar tmpmenu;
         tmpmenu.insertItem( "dummy" );
-        topmenu_height = tmpmenu.tqsizeHint().height();
+        topmenu_height = tmpmenu.sizeHint().height();
         }
     return topmenu_height;
     }

@@ -39,7 +39,7 @@ DomainListView::DomainListView(KConfig *config,const TQString &title,
   layout()->setSpacing(0);
   layout()->setMargin(0);
   TQGridLayout* thisLayout = new TQGridLayout(tqlayout());
-  thisLayout->tqsetAlignment(Qt::AlignTop);
+  thisLayout->setAlignment(Qt::AlignTop);
   thisLayout->setSpacing(KDialog::spacingHint());
   thisLayout->setMargin(KDialog::marginHint());
 

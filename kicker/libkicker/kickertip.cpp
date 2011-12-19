@@ -392,8 +392,8 @@ void KickerTip::displayInternal()
 
     // draw background
     TQPainter bufferPainter(&m_pixmap);
-    bufferPainter.setPen(tqcolorGroup().foreground());
-    bufferPainter.setBrush(tqcolorGroup().background());
+    bufferPainter.setPen(colorGroup().foreground());
+    bufferPainter.setBrush(colorGroup().background());
     //bufferPainter.drawRoundRect(0, 0, width, height, 1600 / width, 1600 / height);
     drawRoundRect(bufferPainter, TQRect(0, 0, width, height));
 
@@ -409,13 +409,13 @@ void KickerTip::displayInternal()
     if (KickerSettings::mouseOversShowText())
     {
         // draw text shadow
-        TQColorGroup cg = tqcolorGroup();
+        TQColorGroup cg = colorGroup();
         cg.setColor(TQColorGroup::Text, cg.background().dark(115));
         int shadowOffset = TQApplication::reverseLayout() ? -1 : 1;
         m_richText->draw(&bufferPainter, textX + shadowOffset, textY + 1, TQRect(), cg);
 
         // draw text
-        cg = tqcolorGroup();
+        cg = colorGroup();
         m_richText->draw(&bufferPainter, textX, textY, rect(), cg);
     }
 }

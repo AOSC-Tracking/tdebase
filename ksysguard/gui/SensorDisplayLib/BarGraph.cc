@@ -52,7 +52,7 @@ BarGraph::BarGraph( TQWidget *parent, const char *name )
 
   // Anything smaller than this does not make sense.
   setMinimumSize( 16, 16 );
-  tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Expanding,
+  setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding,
                  TQSizePolicy::Expanding, false ) );
 }
 
@@ -111,7 +111,7 @@ void BarGraph::paintEvent( TQPaintEvent* )
 
   /* Draw white line along the bottom and the right side of the
    * widget to create a 3D like look. */
-  p.setPen( TQColor( tqcolorGroup().light() ) );
+  p.setPen( TQColor( colorGroup().light() ) );
   p.drawLine( 0, h - 1, w - 1, h - 1 );
   p.drawLine( w - 1, 0, w - 1, h - 1 );
 

@@ -51,22 +51,22 @@ void HideButton::drawButton(TQPainter *p)
 {
     if (m_arrow == Qt::LeftArrow)
     {
-        p->setPen(tqcolorGroup().mid());
+        p->setPen(colorGroup().mid());
         p->drawLine(width()-1, 0, width()-1, height());
     }
     else if (m_arrow == Qt::RightArrow)
     {
-        p->setPen(tqcolorGroup().mid());
+        p->setPen(colorGroup().mid());
         p->drawLine(0, 0, 0, height());
     }
     else if (m_arrow == Qt::UpArrow)
     {
-        p->setPen(tqcolorGroup().mid());
+        p->setPen(colorGroup().mid());
         p->drawLine(0, height()-1, width(), height()-1);
     }
     else if (m_arrow == Qt::DownArrow)
     {
-        p->setPen(tqcolorGroup().mid());
+        p->setPen(colorGroup().mid());
         p->drawLine(0, 0, width(), 0);
     }
 

@@ -170,7 +170,7 @@ void sanity_check( int argc, char* argv[] )
     qmsg.sprintf(msg.data(), path.data());
     qmsg = msg_pre+qmsg+msg_post;
     TQMessageBox::critical(0, "KDE Installation Problem!",
-        TQString::tqfromLatin1(qmsg.data()));
+        TQString::fromLatin1(qmsg.data()));
     exit(255);
   }
 }
@@ -218,7 +218,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char* argv[] )
     only_local = false;
 #endif
 
-    KSMServer *server = new KSMServer( TQString::tqfromLatin1(wm), only_local);
+    KSMServer *server = new KSMServer( TQString::fromLatin1(wm), only_local);
     kapp->dcopClient()->setDefaultObject( server->objId() );
 
     IceSetIOErrorHandler( IoErrorHandler );

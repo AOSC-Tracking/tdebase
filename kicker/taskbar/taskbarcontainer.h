@@ -48,7 +48,7 @@ public:
     void popupDirectionChange( KPanelApplet::Direction );
     void preferences();
     //FIXME: don't use Position, use Orientation
-    TQSize tqsizeHint( KPanelExtension::Position, TQSize maxSize ) const;
+    TQSize sizeHint( KPanelExtension::Position, TQSize maxSize ) const;
     void setBackground();
 
 k_dcop:

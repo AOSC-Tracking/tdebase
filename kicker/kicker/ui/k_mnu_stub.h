@@ -53,7 +53,7 @@ public:
     void popup(const TQPoint &pos, int indexAtPoint = -1);
     void selectFirstItem();
     void resize(int, int);
-    TQSize tqsizeHint() const;
+    TQSize sizeHint() const;
     bool highlightMenuItem( const TQString &menuId );
     void clearRecentMenuItems();
     void initialize();

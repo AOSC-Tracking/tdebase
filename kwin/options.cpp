@@ -383,7 +383,7 @@ int Options::electricBorderDelay()
 
 bool Options::checkIgnoreFocusStealing( const Client* c )
     {
-    return ignoreFocusStealingClasses.contains(TQString::tqfromLatin1(c->resourceClass()));
+    return ignoreFocusStealingClasses.contains(TQString::fromLatin1(c->resourceClass()));
     }
 
 Options::MouseCommand Options::wheelToMouseCommand( MouseWheelCommand com, int delta )

@@ -145,17 +145,17 @@ WebButton::drawButton(TQPainter *p)
   TQPen highlightPen;
 
   if (isDown() )
-    highlightPen = TQPen(tqcolorGroup().light());
+    highlightPen = TQPen(colorGroup().light());
 
   else
   {
     if (mouseOver_)
-      highlightPen = TQPen(tqcolorGroup().highlight());
+      highlightPen = TQPen(colorGroup().highlight());
     else
       highlightPen = TQPen(NoPen);
   }
 
-  p->fillRect(rect(), tqcolorGroup().background());
+  p->fillRect(rect(), colorGroup().background());
 
   Position position_;
   if (0 == mapToParent(rect().topLeft() ).x() )

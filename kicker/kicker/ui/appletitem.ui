@@ -20,13 +20,13 @@
             <verstretch>0</verstretch>
         </sizepolicy>
     </property>
-    <property name="tqminimumSize">
+    <property name="minimumSize">
         <size>
             <width>0</width>
             <height>0</height>
         </size>
     </property>
-    <property name="tqmaximumSize">
+    <property name="maximumSize">
         <size>
             <width>32767</width>
             <height>80</height>
@@ -105,7 +105,7 @@
                     <property name="name">
                         <cstring>itemPixmap</cstring>
                     </property>
-                    <property name="tqminimumSize">
+                    <property name="minimumSize">
                         <size>
                             <width>64</width>
                             <height>64</height>

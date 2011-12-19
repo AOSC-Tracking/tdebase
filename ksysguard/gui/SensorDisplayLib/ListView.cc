@@ -105,7 +105,7 @@ int PrivateListViewItem::compare( TQListViewItem *item, int col, bool ascending 
 PrivateListView::PrivateListView(TQWidget *parent, const char *name)
 	: TQListView(parent, name)
 {
-	TQColorGroup cg = tqcolorGroup();
+	TQColorGroup cg = colorGroup();
 
 	cg.setColor(TQColorGroup::Link, KSGRD::Style->firstForegroundColor());
 	cg.setColor(TQColorGroup::Text, KSGRD::Style->secondForegroundColor());
@@ -116,8 +116,8 @@ PrivateListView::PrivateListView(TQWidget *parent, const char *name)
 
 void PrivateListView::update(const TQString& answer)
 {
-	tqsetUpdatesEnabled(false);
-	viewport()->tqsetUpdatesEnabled(false);
+	setUpdatesEnabled(false);
+	viewport()->setUpdatesEnabled(false);
 
 	int vpos = verticalScrollBar()->value();
 	int hpos = horizontalScrollBar()->value();
@@ -143,8 +143,8 @@ void PrivateListView::update(const TQString& answer)
 	verticalScrollBar()->setValue(vpos);
 	horizontalScrollBar()->setValue(hpos);
 
-	viewport()->tqsetUpdatesEnabled(true);
-	tqsetUpdatesEnabled(true);
+	viewport()->setUpdatesEnabled(true);
+	setUpdatesEnabled(true);
 
 	triggerUpdate();
 }
@@ -290,12 +290,12 @@ ListView::restoreSettings(TQDomElement& element)
 {
 	addSensor(element.attribute("hostName"), element.attribute("sensorName"), (element.attribute("sensorType").isEmpty() ? "listview" : element.attribute("sensorType")), element.attribute("title"));
 
-	TQColorGroup tqcolorGroup = monitor->tqcolorGroup();
-	tqcolorGroup.setColor(TQColorGroup::Link, restoreColor(element, "gridColor", KSGRD::Style->firstForegroundColor()));
-	tqcolorGroup.setColor(TQColorGroup::Text, restoreColor(element, "textColor", KSGRD::Style->secondForegroundColor()));
-	tqcolorGroup.setColor(TQColorGroup::Base, restoreColor(element, "backgroundColor", KSGRD::Style->backgroundColor()));
+	TQColorGroup colorGroup = monitor->colorGroup();
+	colorGroup.setColor(TQColorGroup::Link, restoreColor(element, "gridColor", KSGRD::Style->firstForegroundColor()));
+	colorGroup.setColor(TQColorGroup::Text, restoreColor(element, "textColor", KSGRD::Style->secondForegroundColor()));
+	colorGroup.setColor(TQColorGroup::Base, restoreColor(element, "backgroundColor", KSGRD::Style->backgroundColor()));
 
-	monitor->setPalette(TQPalette(tqcolorGroup, tqcolorGroup, tqcolorGroup));
+	monitor->setPalette(TQPalette(colorGroup, colorGroup, colorGroup));
 
 	SensorDisplay::restoreSettings(element);
 
@@ -311,10 +311,10 @@ ListView::saveSettings(TQDomDocument& doc, TQDomElement& element, bool save)
 	element.setAttribute("sensorName", sensors().tqat(0)->name());
 	element.setAttribute("sensorType", sensors().tqat(0)->type());
 
-	TQColorGroup tqcolorGroup = monitor->tqcolorGroup();
-	saveColor(element, "gridColor", tqcolorGroup.color(TQColorGroup::Link));
-	saveColor(element, "textColor", tqcolorGroup.color(TQColorGroup::Text));
-	saveColor(element, "backgroundColor", tqcolorGroup.color(TQColorGroup::Base));
+	TQColorGroup colorGroup = monitor->colorGroup();
+	saveColor(element, "gridColor", colorGroup.color(TQColorGroup::Link));
+	saveColor(element, "textColor", colorGroup.color(TQColorGroup::Text));
+	saveColor(element, "backgroundColor", colorGroup.color(TQColorGroup::Base));
 
 	SensorDisplay::saveSettings(doc, element);
 
@@ -331,10 +331,10 @@ ListView::configureSettings()
 	Q_CHECK_PTR(lvs);
 	connect(lvs, TQT_SIGNAL(applyClicked()), TQT_SLOT(applySettings()));
 
-	TQColorGroup tqcolorGroup = monitor->tqcolorGroup();
-	lvs->setGridColor(tqcolorGroup.color(TQColorGroup::Link));
-	lvs->setTextColor(tqcolorGroup.color(TQColorGroup::Text));
-	lvs->setBackgroundColor(tqcolorGroup.color(TQColorGroup::Base));
+	TQColorGroup colorGroup = monitor->colorGroup();
+	lvs->setGridColor(colorGroup.color(TQColorGroup::Link));
+	lvs->setTextColor(colorGroup.color(TQColorGroup::Text));
+	lvs->setBackgroundColor(colorGroup.color(TQColorGroup::Base));
 	lvs->setTitle(title());
 
 	if (lvs->exec())
@@ -347,11 +347,11 @@ ListView::configureSettings()
 void
 ListView::applySettings()
 {
-	TQColorGroup tqcolorGroup = monitor->tqcolorGroup();
-	tqcolorGroup.setColor(TQColorGroup::Link, lvs->gridColor());
-	tqcolorGroup.setColor(TQColorGroup::Text, lvs->textColor());
-	tqcolorGroup.setColor(TQColorGroup::Base, lvs->backgroundColor());
-	monitor->setPalette(TQPalette(tqcolorGroup, tqcolorGroup, tqcolorGroup));
+	TQColorGroup colorGroup = monitor->colorGroup();
+	colorGroup.setColor(TQColorGroup::Link, lvs->gridColor());
+	colorGroup.setColor(TQColorGroup::Text, lvs->textColor());
+	colorGroup.setColor(TQColorGroup::Base, lvs->backgroundColor());
+	monitor->setPalette(TQPalette(colorGroup, colorGroup, colorGroup));
 
 	setTitle(lvs->title());
 
@@ -361,11 +361,11 @@ ListView::applySettings()
 void
 ListView::applyStyle()
 {
-	TQColorGroup tqcolorGroup = monitor->tqcolorGroup();
-	tqcolorGroup.setColor(TQColorGroup::Link, KSGRD::Style->firstForegroundColor());
-	tqcolorGroup.setColor(TQColorGroup::Text, KSGRD::Style->secondForegroundColor());
-	tqcolorGroup.setColor(TQColorGroup::Base, KSGRD::Style->backgroundColor());
-	monitor->setPalette(TQPalette(tqcolorGroup, tqcolorGroup, tqcolorGroup));
+	TQColorGroup colorGroup = monitor->colorGroup();
+	colorGroup.setColor(TQColorGroup::Link, KSGRD::Style->firstForegroundColor());
+	colorGroup.setColor(TQColorGroup::Text, KSGRD::Style->secondForegroundColor());
+	colorGroup.setColor(TQColorGroup::Base, KSGRD::Style->backgroundColor());
+	monitor->setPalette(TQPalette(colorGroup, colorGroup, colorGroup));
 
 	setModified(true);
 }

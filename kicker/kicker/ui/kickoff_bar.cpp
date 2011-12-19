@@ -58,8 +58,8 @@ void KickoffTabBar::paint(TQPainter* p, TQTab* t, bool selected) const
     //selection flags
     if(t->rect().contains(mapFromGlobal(TQCursor::pos())))
         flags |= TQStyle::Style_MouseOver;
-    tqstyle().tqdrawControl( TQStyle::CE_TabBarTab, p, this, t->rect(),
-            tqcolorGroup(), flags, TQStyleOption(t) );
+    tqstyle().drawControl( TQStyle::CE_TabBarTab, p, this, t->rect(),
+            colorGroup(), flags, TQStyleOption(t) );
 
     paintLabel( p, t->rect(), t, t->identifier() == keyboardFocusTab() );
 }
@@ -70,7 +70,7 @@ void KickoffTabBar::paintLabel(TQPainter* p, const TQRect& br, TQTab* t, bool ha
     TQRect r = br;
 
     bool selected = m_tabsActivated && (currentTab() == t->identifier());
-    int vframe = tqstyle().tqpixelMetric( TQStyle::PM_TabBarTabVSpace, this );
+    int vframe = tqstyle().pixelMetric( TQStyle::PM_TabBarTabVSpace, this );
 
     p->setFont( font() );
     TQFontMetrics fm = p->fontMetrics();
@@ -116,14 +116,14 @@ void KickoffTabBar::paintLabel(TQPainter* p, const TQRect& br, TQTab* t, bool ha
  //       flags |= TQStyle::Style_Sunken;
     if(t->rect().contains(mapFromGlobal(TQCursor::pos())))
         flags |= TQStyle::Style_MouseOver;
-    tqstyle().tqdrawControl( TQStyle::CE_TabBarLabel, p, this, rt,
-            t->isEnabled() ? tqcolorGroup(): tqpalette().disabled(),
+    tqstyle().drawControl( TQStyle::CE_TabBarLabel, p, this, rt,
+            t->isEnabled() ? colorGroup(): tqpalette().disabled(),
             flags, TQStyleOption(t) );
 }
 
-TQSize KickoffTabBar::tqsizeHint() const
+TQSize KickoffTabBar::sizeHint() const
 {
-    TQSize s = TQTabBar::tqsizeHint();
+    TQSize s = TQTabBar::sizeHint();
 
     return s;
 }
@@ -135,9 +135,9 @@ void KickoffTabBar::layoutTabs()
     TQFontMetrics fm = fontMetrics();
     int fh = ((KickerSettings::kickoffTabBarFormat() != KickerSettings::IconOnly) ? fm.height() : 0) + 4;
 
-    int hframe = tqstyle().tqpixelMetric( TQStyle::PM_TabBarTabHSpace, this );
-    int vframe = tqstyle().tqpixelMetric( TQStyle::PM_TabBarTabVSpace, this );
-    int overlap = tqstyle().tqpixelMetric( TQStyle::PM_TabBarTabOverlap, this );
+    int hframe = tqstyle().pixelMetric( TQStyle::PM_TabBarTabHSpace, this );
+    int vframe = tqstyle().pixelMetric( TQStyle::PM_TabBarTabVSpace, this );
+    int overlap = tqstyle().pixelMetric( TQStyle::PM_TabBarTabOverlap, this );
 
     TQSize s;
     for (int t = 0; t < count(); ++t)

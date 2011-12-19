@@ -94,14 +94,14 @@ KDMUsersWidget::KDMUsersWidget(TQWidget *parent, const char *name)
     TQLabel *minlab = new TQLabel( i18n("Below:"), minGroup );
     leminuid = new KLineEdit( minGroup );
     minlab->setBuddy( leminuid );
-    leminuid->tqsetSizePolicy( sp_ign_fix );
+    leminuid->setSizePolicy( sp_ign_fix );
     leminuid->setValidator( valid );
     connect( leminuid, TQT_SIGNAL(textChanged( const TQString & )), TQT_SLOT(slotChanged()) );
     connect( leminuid, TQT_SIGNAL(textChanged( const TQString & )), TQT_SLOT(slotMinMaxChanged()) );
     TQLabel *maxlab = new TQLabel( i18n("Above:"), minGroup );
     lemaxuid = new KLineEdit( minGroup );
     maxlab->setBuddy( lemaxuid );
-    lemaxuid->tqsetSizePolicy( sp_ign_fix );
+    lemaxuid->setSizePolicy( sp_ign_fix );
     lemaxuid->setValidator( valid );
     connect(lemaxuid, TQT_SIGNAL(textChanged( const TQString & )), TQT_SLOT(slotChanged()) );
     connect(lemaxuid, TQT_SIGNAL(textChanged( const TQString & )), TQT_SLOT(slotMinMaxChanged()) );
@@ -168,7 +168,7 @@ KDMUsersWidget::KDMUsersWidget(TQWidget *parent, const char *name)
     userbutton = new TQPushButton( hlpw );
     userbutton->setAcceptDrops( true );
     userbutton->installEventFilter( this ); // for drag and drop
-    uint sz = tqstyle().tqpixelMetric( TQStyle::PM_ButtonMargin ) * 2 + 48;
+    uint sz = tqstyle().pixelMetric( TQStyle::PM_ButtonMargin ) * 2 + 48;
     userbutton->setFixedSize( sz, sz );
     connect( userbutton, TQT_SIGNAL(clicked()),
 	     TQT_SLOT(slotUserButtonClicked()) );
@@ -457,11 +457,11 @@ void KDMUsersWidget::load()
     cbusrsrt->setChecked(config->readBoolEntry("SortUsers", true));
 
     TQString ps = config->readEntry( "FaceSource" );
-    if (ps == TQString::tqfromLatin1("UserOnly"))
+    if (ps == TQString::fromLatin1("UserOnly"))
 	rbusronly->setChecked(true);
-    else if (ps == TQString::tqfromLatin1("PreferUser"))
+    else if (ps == TQString::fromLatin1("PreferUser"))
 	rbprefusr->setChecked(true);
-    else if (ps == TQString::tqfromLatin1("PreferAdmin"))
+    else if (ps == TQString::fromLatin1("PreferAdmin"))
 	rbprefadm->setChecked(true);
     else
 	rbadmonly->setChecked(true);

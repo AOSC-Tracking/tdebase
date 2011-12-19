@@ -24,15 +24,15 @@ public:
     void setDragging(bool drag);
     void setEnableDrag(bool enable);
     void deleteContents();
-    void tqsetUpdatesEnabled(bool enable);
+    void setUpdatesEnabled(bool enable);
 };
 
 QuickButtonGroup::Index QuickButtonGroup::findDescriptor(const TQString &desc)
 {   return findProperty(desc, std::mem_fun(&QuickButton::url));}
 
-inline void QuickButtonGroup::tqsetUpdatesEnabled(bool enable)
+inline void QuickButtonGroup::setUpdatesEnabled(bool enable)
 {   for (QuickButtonGroup::iterator i=begin();i!=end();++i) {
-        (*i)->tqsetUpdatesEnabled(enable);
+        (*i)->setUpdatesEnabled(enable);
         if (enable) { (*i)->update();}
     }
 }

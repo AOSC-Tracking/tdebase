@@ -77,9 +77,9 @@ TQString KonqAboutPageFactory::loadFile( const TQString& file )
     res = t.read();
 
     // otherwise all embedded objects are referenced as about:/...
-    TQString basehref = TQString::tqfromLatin1("<BASE HREF=\"file:") +
+    TQString basehref = TQString::fromLatin1("<BASE HREF=\"file:") +
 		       file.left( file.findRev( '/' )) +
-		       TQString::tqfromLatin1("/\">\n");
+		       TQString::fromLatin1("/\">\n");
     TQRegExp reg("<head>");
     reg.setCaseSensitive(FALSE);
     res.replace(reg, "<head>\n\t" + basehref);
@@ -507,32 +507,32 @@ void KonqAboutPage::urlSelected( const TQString &url, int button, int state, con
         return;
     }
 
-    if ( url == TQString::tqfromLatin1("launch.html") )
+    if ( url == TQString::fromLatin1("launch.html") )
     {
         emit browserExtension()->openURLNotify();
 	serve( KonqAboutPageFactory::launch(), "konqueror" );
         return;
     }
-    else if ( url == TQString::tqfromLatin1("intro.html") )
+    else if ( url == TQString::fromLatin1("intro.html") )
     {
         emit browserExtension()->openURLNotify();
         serve( KonqAboutPageFactory::intro(), "konqueror" );
         return;
     }
-    else if ( url == TQString::tqfromLatin1("specs.html") )
+    else if ( url == TQString::fromLatin1("specs.html") )
     {
         emit browserExtension()->openURLNotify();
 	serve( KonqAboutPageFactory::specs(), "konqueror" );
         return;
     }
-    else if ( url == TQString::tqfromLatin1("tips.html") )
+    else if ( url == TQString::fromLatin1("tips.html") )
     {
         emit browserExtension()->openURLNotify();
         serve( KonqAboutPageFactory::tips(), "konqueror" );
         return;
     }
 
-    else if ( url == TQString::tqfromLatin1("config:/disable_overview") )
+    else if ( url == TQString::fromLatin1("config:/disable_overview") )
     {
 	if ( KMessageBox::questionYesNo( widget(),
 					 i18n("Do you want to disable showing "

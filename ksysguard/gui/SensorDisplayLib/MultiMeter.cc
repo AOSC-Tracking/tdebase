@@ -53,7 +53,7 @@ MultiMeter::MultiMeter(TQWidget* parent, const char* name,
 	Q_CHECK_PTR(lcd);
 	lcd->setSegmentStyle(TQLCDNumber::Filled);
 	setDigitColor(KSGRD::Style->backgroundColor());
-	lcd->tqsetSizePolicy(TQSizePolicy(TQSizePolicy::Expanding,
+	lcd->setSizePolicy(TQSizePolicy(TQSizePolicy::Expanding,
 					   TQSizePolicy::Expanding, false));
 
 	setBackgroundColor(KSGRD::Style->backgroundColor());

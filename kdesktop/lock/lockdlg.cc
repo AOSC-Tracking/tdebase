@@ -140,7 +140,7 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
     }
 
     mStatusLabel = new TQLabel( "<b> </b>", frame );
-    mStatusLabel->tqsetAlignment( TQLabel::AlignCenter );
+    mStatusLabel->setAlignment( TQLabel::AlignCenter );
 
     mLayoutButton = new TQPushButton( frame );
     mLayoutButton->setFlat( true );
@@ -268,7 +268,7 @@ void PasswordDlg::setLayoutText( const TQString &txt )
 {
     mLayoutButton->setText( txt );
     TQSize sz = mLayoutButton->fontMetrics().size( 0, txt );
-    int mrg = mLayoutButton->tqstyle().tqpixelMetric( TQStyle::PM_ButtonMargin ) * 2;
+    int mrg = mLayoutButton->tqstyle().pixelMetric( TQStyle::PM_ButtonMargin ) * 2;
     mLayoutButton->setFixedSize( sz.width() + mrg, sz.height() + mrg );
 }
 
@@ -577,7 +577,7 @@ void PasswordDlg::gplugMsgBox( TQMessageBox::Icon type, const TQString &text )
     TQLabel *label2 = new TQLabel( text, winFrame );
     KPushButton *button = new KPushButton( KStdGuiItem::ok(), winFrame );
     button->setDefault( true );
-    button->tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Preferred ) );
+    button->setSizePolicy( TQSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Preferred ) );
     connect( button, TQT_SIGNAL( clicked() ), TQT_SLOT( accept() ) );
 
     TQGridLayout *grid = new TQGridLayout( winFrame, 2, 2, 10 );
@@ -788,9 +788,9 @@ void PasswordDlg::slotSwitchUser()
             ns++;
         }
         int fw = lv->frameWidth() * 2;
-        TQSize hds( lv->header()->tqsizeHint() );
+        TQSize hds( lv->header()->sizeHint() );
         lv->setMinimumWidth( fw + hds.width() +
-            (ns > 10 ? tqstyle().tqpixelMetric(TQStyle::PM_ScrollBarExtent) : 0 ) );
+            (ns > 10 ? tqstyle().pixelMetric(TQStyle::PM_ScrollBarExtent) : 0 ) );
         lv->setFixedHeight( fw + hds.height() +
             itm->height() * (ns < 6 ? 6 : ns > 10 ? 10 : ns) );
         lv->header()->adjustHeaderSize();

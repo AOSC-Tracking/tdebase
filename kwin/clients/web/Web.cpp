@@ -231,7 +231,7 @@ WebClient::paintEvent(TQPaintEvent * pe)
   TQPainter p(widget());
 
   p.setPen(Qt::black);
-  p.setBrush(options()->tqcolorGroup(ColorFrame, isActive()).background());
+  p.setBrush(options()->colorGroup(ColorFrame, isActive()).background());
 
   p.setClipRegion(pe->region() - titleRect);
 

@@ -163,16 +163,16 @@ void KEnvVarProxyDlg::autoDetectPressed()
   setHighLight (mDlg->lbNoProxy, false);
 
   // Detect HTTP proxy settings...
-  found |= autoDetectProxySetting (TQString::tqfromLatin1(ENV_HTTP_PROXY), mEnvVarsMap["http"]);
+  found |= autoDetectProxySetting (TQString::fromLatin1(ENV_HTTP_PROXY), mEnvVarsMap["http"]);
 
   // Detect HTTPS proxy settings...
-  found |= autoDetectProxySetting (TQString::tqfromLatin1(ENV_HTTPS_PROXY), mEnvVarsMap["https"]);
+  found |= autoDetectProxySetting (TQString::fromLatin1(ENV_HTTPS_PROXY), mEnvVarsMap["https"]);
 
   // Detect FTP proxy settings...
-  found |= autoDetectProxySetting (TQString::tqfromLatin1(ENV_FTP_PROXY), mEnvVarsMap["ftp"]);
+  found |= autoDetectProxySetting (TQString::fromLatin1(ENV_FTP_PROXY), mEnvVarsMap["ftp"]);
 
   // Detect the NO_PROXY settings...
-  found |= autoDetectProxySetting (TQString::tqfromLatin1(NO_PROXY), mEnvVarsMap["noProxy"]);
+  found |= autoDetectProxySetting (TQString::fromLatin1(NO_PROXY), mEnvVarsMap["noProxy"]);
 
   if ( !found )
   {

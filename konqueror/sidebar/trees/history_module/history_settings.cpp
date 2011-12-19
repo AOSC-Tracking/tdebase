@@ -56,8 +56,8 @@ void KonqSidebarHistorySettings::readSettings(bool global)
     m_valueYoungerThan = config->readNumEntry("Value youngerThan", 1 );
     m_valueOlderThan = config->readNumEntry("Value olderThan", 2 );
 
-    TQString minutes = TQString::tqfromLatin1("minutes");
-    TQString days = TQString::tqfromLatin1("days");
+    TQString minutes = TQString::fromLatin1("minutes");
+    TQString days = TQString::fromLatin1("days");
     TQString metric = config->readEntry("Metric youngerThan", days );
     m_metricYoungerThan = (metric == days) ? DAYS : MINUTES;
     metric = config->readEntry("Metric olderThan", days );
@@ -83,8 +83,8 @@ void KonqSidebarHistorySettings::applySettings()
     config->writeEntry("Value youngerThan", m_valueYoungerThan );
     config->writeEntry("Value olderThan", m_valueOlderThan );
 
-    TQString minutes = TQString::tqfromLatin1("minutes");
-    TQString days = TQString::tqfromLatin1("days");
+    TQString minutes = TQString::fromLatin1("minutes");
+    TQString days = TQString::fromLatin1("days");
     config->writeEntry("Metric youngerThan", m_metricYoungerThan == DAYS ?
 			  days : minutes );
     config->writeEntry("Metric olderThan", m_metricOlderThan == DAYS ?

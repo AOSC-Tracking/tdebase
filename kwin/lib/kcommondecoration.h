@@ -234,7 +234,7 @@ class KWIN_EXPORT KCommonDecoration : public KDecoration
         virtual void borders( int& left, int& right, int& top, int& bottom ) const;
         virtual void show();
         virtual void resize(const TQSize& s);
-        virtual TQSize tqminimumSize() const;
+        virtual TQSize minimumSize() const;
         virtual void maximizeChange();
         virtual void desktopChange();
         virtual void shadeChange();
@@ -348,7 +348,7 @@ class KWIN_EXPORT KCommonDecorationButton : public TQButton
          */
         ButtonState lastMousePress() const { return m_lastMouse; }
 
-        TQSize tqsizeHint() const;
+        TQSize sizeHint() const;
 
     protected:
         void setToggleButton(bool toggle);

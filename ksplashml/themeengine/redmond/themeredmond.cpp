@@ -199,11 +199,11 @@ void ThemeRedmond::_initUi()
     kdmconfig->setGroup("X-*-Greeter");
     TQString userPicsDir = kdmconfig->readEntry( "FaceDir", KGlobal::dirs()->resourceDirs("data").last() + "kdm/faces" ) + '/';
     TQString fs = kdmconfig->readEntry( "FaceSource" );
-    if (fs == TQString::tqfromLatin1("UserOnly"))
+    if (fs == TQString::fromLatin1("UserOnly"))
       faceSource = fUserOnly;
-    else if (fs == TQString::tqfromLatin1("PreferUser"))
+    else if (fs == TQString::fromLatin1("PreferUser"))
       faceSource = fUserFirst;
-    else if (fs == TQString::tqfromLatin1("PreferAdmin"))
+    else if (fs == TQString::fromLatin1("PreferAdmin"))
       faceSource = fAdminFirst;
     else
       faceSource = fAdminOnly; // Admin Only

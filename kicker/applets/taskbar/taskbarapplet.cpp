@@ -82,7 +82,7 @@ int TaskbarApplet::widthForHeight(int h) const
     KPanelExtension::Position d = orientation() == Qt::Horizontal ?
                                   KPanelExtension::Top :
                                   KPanelExtension::Left;
-    return container->tqsizeHint(d, TQSize(200, h)).width();
+    return container->sizeHint(d, TQSize(200, h)).width();
 }
 
 int TaskbarApplet::heightForWidth(int w) const
@@ -97,7 +97,7 @@ int TaskbarApplet::heightForWidth(int w) const
     KPanelExtension::Position d = orientation() == Qt::Horizontal ?
                                   KPanelExtension::Top :
                                   KPanelExtension::Left;
-    return container->tqsizeHint(d, TQSize(w, 200)).height();
+    return container->sizeHint(d, TQSize(w, 200)).height();
 }
 
 void TaskbarApplet::preferences()

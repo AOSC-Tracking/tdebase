@@ -109,7 +109,7 @@ class runMenuWidget : public TQWidget, public QMenuItem
             l2->setBuddy(this);
             runLayout->addWidget(l2);*/
             m_runEdit = new KHistoryCombo(this);
-            m_runEdit->tqsetSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Preferred);
+            m_runEdit->setSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Preferred);
             runLayout->addWidget(m_runEdit, 10);
             runLayout->addSpacing(KDialog::spacingHint());
 
@@ -143,7 +143,7 @@ class runMenuWidget : public TQWidget, public QMenuItem
             TQPainter p(this);
             TQRect r(rect());
             // ew, nasty hack. may result in coredumps due to horrid C-style cast???
-            kapp->style().tqdrawControl(TQStyle::CE_PopupMenuItem, &p, m_menu, r, palette().active(), TQStyle::Style_Enabled,
+            kapp->style().drawControl(TQStyle::CE_PopupMenuItem, &p, m_menu, r, palette().active(), TQStyle::Style_Enabled,
                                       TQStyleOption(static_cast<TQMenuItem*>(this), 0, KIcon::SizeMedium ));
             p.drawPixmap(KDialog::spacingHint(), 1, icon);
             p.drawText((KDialog::spacingHint() * 2) + KIcon::SizeMedium, textRect.height() + ((height() - textRect.height()) / 2), i18n("Run:"));
@@ -736,13 +736,13 @@ void TOM::setMaximumSize(int w, int h)
 
 TQRect TOM::sideImageRect()
 {
-    return TQStyle::tqvisualRect( TQRect( frameWidth(), frameWidth(), m_sidePixmap.width(),
+    return TQStyle::visualRect( TQRect( frameWidth(), frameWidth(), m_sidePixmap.width(),
                                       height() - 2*frameWidth() ), this );
 }
 
 void TOM::resizeEvent(TQResizeEvent * e)
 {
-    setFrameRect( TQStyle::tqvisualRect( TQRect( m_sidePixmap.width(), 0,
+    setFrameRect( TQStyle::visualRect( TQRect( m_sidePixmap.width(), 0,
                                       width() - m_sidePixmap.width(), height() ), this ) );
 }
 
@@ -757,7 +757,7 @@ void TOM::paintEvent(TQPaintEvent * e)
 
     tqstyle().tqdrawPrimitive( TQStyle::PE_PanelPopup, &p,
                            TQRect( 0, 0, width(), height() ),
-                           tqcolorGroup(), TQStyle::Style_Default,
+                           colorGroup(), TQStyle::Style_Default,
                            TQStyleOption( frameWidth(), 0 ) );
 
     TQRect r = sideImageRect();

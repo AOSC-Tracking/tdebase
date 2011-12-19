@@ -296,18 +296,18 @@ bool GetInfo_Partitions (TQListView *lbox)
 
 		// convert to strings
 		vv[0] = KIO::convertSize(big[0]);
-		vv[1] = TQString::tqfromLatin1("%1 (%2%%)")
+		vv[1] = TQString::fromLatin1("%1 (%2%%)")
 				.arg(KIO::convertSize(big[1]))
 				.arg(mnt->f_blocks ? mnt->f_bavail*100/mnt->f_blocks : 0);
 
 		// FIXME: these two are large enough to punctuate
 		vv[2] = TQString::number(mnt->f_files);
-		vv[3] = TQString::tqfromLatin1("%1 (%2%%) ")
+		vv[3] = TQString::fromLatin1("%1 (%2%%) ")
 				.arg(mnt->f_ffree)
 				.arg(mnt->f_files ? mnt->f_ffree*100/mnt->f_files : 0);
 
 		vv[4] = TQString::null;
-#define MNTF(x) if (mnt->f_flags & MNT_##x) vv[4] += TQString::tqfromLatin1(#x " ");
+#define MNTF(x) if (mnt->f_flags & MNT_##x) vv[4] += TQString::fromLatin1(#x " ");
 		MNTF(ASYNC)
 		MNTF(DEFEXPORTED)
 		MNTF(EXKERB)

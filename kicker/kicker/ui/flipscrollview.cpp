@@ -57,7 +57,7 @@ void BackFrame::drawContents( TQPainter *p )
 {
     TQColor gray( 230, 230, 230 );
     if ( mouse_inside )
-        p->fillRect( 3, 3, width() - 6, height() - 6, tqcolorGroup().color( TQColorGroup::Highlight ) );
+        p->fillRect( 3, 3, width() - 6, height() - 6, colorGroup().color( TQColorGroup::Highlight ) );
     else
         p->fillRect( 3, 3, width() - 6, height() - 6, gray );
     p->setPen( gray.dark(110) );

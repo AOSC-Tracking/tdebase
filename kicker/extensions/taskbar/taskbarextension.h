@@ -49,7 +49,7 @@ public:
 		      int actions = 0, TQWidget *parent = 0, const char *name = 0 );
     ~TaskBarExtension();
 
-    TQSize tqsizeHint( Position, TQSize maxSize ) const;
+    TQSize sizeHint( Position, TQSize maxSize ) const;
     Position preferedPosition() const { return Bottom; }
 
 protected:

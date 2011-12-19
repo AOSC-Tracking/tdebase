@@ -262,7 +262,7 @@ bool TrashImpl::createInfo( const TQString& origPath, int& trashId, TQString& fi
         info += KURL::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath ), m_mibEnum ).latin1();
     info += "\n";
     info += "DeletionDate=";
-    info += TQDateTime::tqcurrentDateTime().toString( Qt::ISODate ).latin1();
+    info += TQDateTime::currentDateTime().toString( Qt::ISODate ).latin1();
     info += "\n";
     size_t sz = info.size() - 1; // avoid trailing 0 from QCString
 
@@ -429,7 +429,7 @@ bool TrashImpl::directRename( const TQString& src, const TQString& dest )
     kdDebug() << k_funcinfo << src << " -> " << dest << endl;
     if ( ::rename( TQFile::encodeName( src ), TQFile::encodeName( dest ) ) != 0 ) {
         if (errno == EXDEV) {
-            error( KIO::ERR_UNSUPPORTED_ACTION, TQString::tqfromLatin1("rename") );
+            error( KIO::ERR_UNSUPPORTED_ACTION, TQString::fromLatin1("rename") );
         } else {
             if (( errno == EACCES ) || (errno == EPERM)) {
                 error( KIO::ERR_ACCESS_DENIED, dest );

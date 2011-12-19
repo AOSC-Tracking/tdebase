@@ -101,8 +101,8 @@ void KonqTextViewWidget::slotNewItems( const KFileItemList & entries )
 
    if ( !viewport()->isUpdatesEnabled() )
    {
-      viewport()->tqsetUpdatesEnabled( true );
-      tqsetUpdatesEnabled( true );
+      viewport()->setUpdatesEnabled( true );
+      setUpdatesEnabled( true );
       triggerUpdate();
    }
    slotUpdateBackground();
@@ -146,8 +146,8 @@ void KonqTextViewWidget::setComplete()
 
    if ( !isUpdatesEnabled() || !viewport()->isUpdatesEnabled() )
    {
-      viewport()->tqsetUpdatesEnabled( true );
-      tqsetUpdatesEnabled( true );
+      viewport()->setUpdatesEnabled( true );
+      setUpdatesEnabled( true );
       triggerUpdate();
    }
 }

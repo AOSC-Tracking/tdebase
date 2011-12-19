@@ -443,12 +443,12 @@ KdmItem::statusChanged()
 // BEGIN protected inheritable
 
 TQSize
-KdmItem::tqsizeHint()
+KdmItem::sizeHint()
 {
 	if (myWidget)
 		return myWidget->size();
 	if (myLayoutItem)
-		return myLayoutItem->tqsizeHint();
+		return myLayoutItem->sizeHint();
 	int w = pos.wType == DTpixel ? kAbs( pos.width ) : -1,
 	    h = pos.hType == DTpixel ? kAbs( pos.height ) : -1;
 	return TQSize( w, h );
@@ -457,7 +457,7 @@ KdmItem::tqsizeHint()
 TQRect
 KdmItem::placementHint( const TQRect &parentRect )
 {
-	TQSize hintedSize = tqsizeHint();
+	TQSize hintedSize = sizeHint();
 	TQSize boxHint;
 
 	int x = parentRect.left(),
@@ -474,7 +474,7 @@ KdmItem::placementHint( const TQRect &parentRect )
 		else {
 			if (!boxManager)
 				return parentRect;
-			boxHint = boxManager->tqsizeHint();
+			boxHint = boxManager->sizeHint();
 		}
 		kdDebug() << timestamp() << " boxHint " << boxHint << endl;
 	}

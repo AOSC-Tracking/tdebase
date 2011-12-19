@@ -112,7 +112,7 @@ KWrite::KWrite (KTextEditor::Document *doc)
 
   // init with more usefull size, stolen from konq :)
   if (!initialGeometrySet())
-    resize( TQSize(700, 480).expandedTo(tqminimumSizeHint()));
+    resize( TQSize(700, 480).expandedTo(minimumSizeHint()));
 
   // call it as last thing, must be sure everything is already set up ;)
   setAutoSaveSettings ();

@@ -59,7 +59,7 @@ KLocaleConfig::KLocaleConfig(KLocale *locale,
            this, TQT_SLOT(changedCountry(const TQString &)) );
 
   m_labLang = new TQLabel(this, I18N_NOOP("Languages:"));
-  m_labLang->tqsetAlignment( AlignTop );
+  m_labLang->setAlignment( AlignTop );
 
   m_languages = new TQListBox(this);
   connect(m_languages, TQT_SIGNAL(selectionChanged()),
@@ -270,7 +270,7 @@ void KLocaleConfig::loadLanguageList()
         it != first.end();
         ++it )
   {
-    TQString str = locate("locale", TQString::tqfromLatin1("%1/entry.desktop")
+    TQString str = locate("locale", TQString::fromLatin1("%1/entry.desktop")
                          .arg(*it));
     if (!str.isNull())
       prilang << str;
@@ -278,7 +278,7 @@ void KLocaleConfig::loadLanguageList()
 
   // add all languages to the list
   TQStringList alllang = KGlobal::dirs()->findAllResources("locale",
-                               TQString::tqfromLatin1("*/entry.desktop"), 
+                               TQString::fromLatin1("*/entry.desktop"), 
                                false, true);
   TQStringList langlist = prilang;
   if (langlist.count() > 0)
@@ -293,7 +293,7 @@ void KLocaleConfig::loadLanguageList()
     if ((*it).isNull())
     {
       m_addLanguage->insertSeparator();
-      submenu = TQString::tqfromLatin1("other");
+      submenu = TQString::fromLatin1("other");
       m_addLanguage->insertSubmenu(m_locale->translate("Other"),
                                    submenu, TQString::null, -1);
       menu_index = -2; // first entries should _not_ be sorted
@@ -322,13 +322,13 @@ void KLocaleConfig::loadCountryList()
   KLocale *lsave = KGlobal::_locale;
   KGlobal::_locale = m_locale;
 
-  TQString sub = TQString::tqfromLatin1("l10n/");
+  TQString sub = TQString::fromLatin1("l10n/");
 
   // clear the list
   m_comboCountry->clear();
 
   TQStringList regionlist = KGlobal::dirs()->findAllResources("locale",
-                                 sub + TQString::tqfromLatin1("*.desktop"), 
+                                 sub + TQString::fromLatin1("*.desktop"), 
                                  false, true );
 
   for ( TQStringList::ConstIterator it = regionlist.begin();
@@ -352,7 +352,7 @@ void KLocaleConfig::loadCountryList()
                                    m_locale->translate("without name"));
 
     TQString map( locate( "locale",
-                          TQString::tqfromLatin1( "l10n/%1.png" )
+                          TQString::fromLatin1( "l10n/%1.png" )
                           .arg(tag) ) );
     TQIconSet icon;
     if ( !map.isNull() )
@@ -362,7 +362,7 @@ void KLocaleConfig::loadCountryList()
 
   // add all languages to the list
   TQStringList countrylist = KGlobal::dirs()->findAllResources
-    ("locale", sub + TQString::tqfromLatin1("*/entry.desktop"), false, true);
+    ("locale", sub + TQString::fromLatin1("*/entry.desktop"), false, true);
 
   for ( TQStringList::ConstIterator it = countrylist.begin();
         it != countrylist.end(); ++it )
@@ -381,7 +381,7 @@ void KLocaleConfig::loadCountryList()
     int menu_index = submenu.isEmpty() ? -1 : -2;
 
     TQString flag( locate( "locale",
-                          TQString::tqfromLatin1( "l10n/%1/flag.png" )
+                          TQString::fromLatin1( "l10n/%1/flag.png" )
                           .arg(tag) ) );
     TQIconSet icon( KGlobal::iconLoader()->loadIconSet(flag, KIcon::Small) );
     m_comboCountry->insertItem( icon, name, tag, submenu, menu_index );
@@ -399,7 +399,7 @@ void KLocaleConfig::readLocale(const TQString &path, TQString &name,
   KGlobal::_locale = m_locale;
 
   // read the name
-  TQString filepath = TQString::tqfromLatin1("%1%2/entry.desktop")
+  TQString filepath = TQString::fromLatin1("%1%2/entry.desktop")
     .arg(sub)
     .arg(path);
 
@@ -419,7 +419,7 @@ void KLocaleConfig::save()
 
   config->writeEntry("Country", m_locale->country(), true, true);
   if ( m_locale->languageList().isEmpty() )
-    config->writeEntry("Language", TQString::tqfromLatin1(""), true, true);
+    config->writeEntry("Language", TQString::fromLatin1(""), true, true);
   else
     config->writeEntry("Language",
                        m_locale->languageList(), ':', true, true);
@@ -502,7 +502,7 @@ void KLocaleConfig::slotTranslate()
 TQStringList KLocaleConfig::languageList() const
 {
   TQString fileName = locate("locale",
-                            TQString::tqfromLatin1("l10n/%1/entry.desktop")
+                            TQString::fromLatin1("l10n/%1/entry.desktop")
                             .arg(m_locale->country()));
 
   KSimpleConfig entry(fileName);

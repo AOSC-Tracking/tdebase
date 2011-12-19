@@ -1137,7 +1137,7 @@ void konsolePart::showShellInDir( const TQString& dir )
   {
       TQString text = dir;
       KRun::shellQuote(text);
-      text = TQString::tqfromLatin1("cd ") + text + '\n';
+      text = TQString::fromLatin1("cd ") + text + '\n';
       te->emitText( text );
   };
 }

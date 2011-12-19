@@ -1289,7 +1289,7 @@ void Konsole::setColLin(int columns, int lines)
        te->setSize(columns, lines);
     adjustSize();
     if (b_fixedSize)
-      setFixedSize(tqsizeHint());
+      setFixedSize(sizeHint());
     notifySize(columns, lines);  // set menu items
   }
 }
@@ -1437,7 +1437,7 @@ void Konsole::slotSaveSessionsProfile()
       TQString::null, &ok, this );
   if ( ok ) {
     TQString path = locateLocal( "data",
-        TQString::tqfromLatin1( "konsole/profiles/" ) + prof,
+        TQString::fromLatin1( "konsole/profiles/" ) + prof,
         KGlobal::instance() );
 
     if ( TQFile::exists( path ) )
@@ -1927,7 +1927,7 @@ void Konsole::slotToggleMenubar() {
   if (b_fixedSize)
   {
      adjustSize();
-     setFixedSize(tqsizeHint());
+     setFixedSize(sizeHint());
   }
   if (!showMenubar->isChecked()) {
     setCaption(i18n("Use the right mouse button to bring back the menu"));
@@ -2007,7 +2007,7 @@ void Konsole::slotSelectTabbar() {
   if (b_fixedSize)
   {
      adjustSize();
-     setFixedSize(tqsizeHint());
+     setFixedSize(sizeHint());
   }
 }
 
@@ -3498,7 +3498,7 @@ void Konsole::addScreenSession(const TQString &path, const TQString &socket)
   co->writeEntry("Name", socket);
   TQString txt = i18n("Screen is a program controlling screens!", "Screen at %1").arg(socket);
   co->writeEntry("Comment", txt);
-  co->writePathEntry("Exec", TQString::tqfromLatin1("SCREENDIR=%1 screen -r %2")
+  co->writePathEntry("Exec", TQString::fromLatin1("SCREENDIR=%1 screen -r %2")
     .arg(path).arg(socket));
   TQString icon = "konsole";
   cmd_serial++;

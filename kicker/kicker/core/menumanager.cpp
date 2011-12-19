@@ -156,8 +156,8 @@ void MenuManager::kmenuAccelActivated()
             r = desktop->geometry();
         else
             r = desktop->screenGeometry(desktop->screenNumber(TQCursor::pos()));
-        // kMenu->rect() is not valid before showing, use tqsizeHint()
-        p = r.center() - TQRect( TQPoint( 0, 0 ), m_kmenu->tqsizeHint()).center();
+        // kMenu->rect() is not valid before showing, use sizeHint()
+        p = r.center() - TQRect( TQPoint( 0, 0 ), m_kmenu->sizeHint()).center();
         m_kmenu->popup(p);
 
         // when the cursor is in the area where the menu pops up,
@@ -170,8 +170,8 @@ void MenuManager::kmenuAccelActivated()
     {
         // We need the kmenu's size to place it at the right position.
         // We cannot rely on the popup menu's current size(), if it wasn't
-        // shown before, so we resize it here according to its tqsizeHint().
-        const TQSize size = m_kmenu->tqsizeHint();
+        // shown before, so we resize it here according to its sizeHint().
+        const TQSize size = m_kmenu->sizeHint();
         m_kmenu->resize(size.width(),size.height());
 
         PanelPopupButton* button = findKButtonFor(m_kmenu->widget());

@@ -296,7 +296,7 @@ void KDIconView::initConfig( bool init )
     m_bSortDirectoriesFirst = KDesktopSettings::directoriesFirst();
     m_itemsAlwaysFirst = KDesktopSettings::alwaysFirstItems(); // Distributor plug-in
 
-    if (KProtocolInfo::isKnownProtocol(TQString::tqfromLatin1("media")))
+    if (KProtocolInfo::isKnownProtocol(TQString::fromLatin1("media")))
         m_enableMedia=KDesktopSettings::mediaEnabled();
     else
         m_enableMedia=false;
@@ -960,20 +960,20 @@ bool KDIconView::isDesktopFile( KFileItem * _item ) const
     return false;
 
   // return true if desktop file
-  return ( (_item->mimetype() == TQString::tqfromLatin1("application/x-desktop"))
-       || (_item->mimetype() == TQString::tqfromLatin1("media/builtin-mydocuments"))
-       || (_item->mimetype() == TQString::tqfromLatin1("media/builtin-mycomputer"))
-       || (_item->mimetype() == TQString::tqfromLatin1("media/builtin-mynetworkplaces"))
-       || (_item->mimetype() == TQString::tqfromLatin1("media/builtin-printers"))
-       || (_item->mimetype() == TQString::tqfromLatin1("media/builtin-trash"))
-       || (_item->mimetype() == TQString::tqfromLatin1("media/builtin-webbrowser")) );
+  return ( (_item->mimetype() == TQString::fromLatin1("application/x-desktop"))
+       || (_item->mimetype() == TQString::fromLatin1("media/builtin-mydocuments"))
+       || (_item->mimetype() == TQString::fromLatin1("media/builtin-mycomputer"))
+       || (_item->mimetype() == TQString::fromLatin1("media/builtin-mynetworkplaces"))
+       || (_item->mimetype() == TQString::fromLatin1("media/builtin-printers"))
+       || (_item->mimetype() == TQString::fromLatin1("media/builtin-trash"))
+       || (_item->mimetype() == TQString::fromLatin1("media/builtin-webbrowser")) );
 }
 
 TQString KDIconView::stripDesktopExtension( const TQString & text )
 {
-    if (text.right(7) == TQString::tqfromLatin1(".kdelnk"))
+    if (text.right(7) == TQString::fromLatin1(".kdelnk"))
       return text.left(text.length() - 7);
-    else if (text.right(8) == TQString::tqfromLatin1(".desktop"))
+    else if (text.right(8) == TQString::fromLatin1(".desktop"))
       return text.left(text.length() - 8);
     return text;
 }
@@ -1047,7 +1047,7 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
   bool firstRun = (count() == 0);  // no icons yet, this seems to be the initial loading
 
   // delay updates until all new items have been created
-  tqsetUpdatesEnabled( false );
+  setUpdatesEnabled( false );
   TQRect area = iconArea();
   setIconArea( TQRect(  0, 0, -1, -1 ) );
 
@@ -1150,7 +1150,7 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
   if ( m_autoAlign )
       lineupIcons();
 
-  tqsetUpdatesEnabled( true );
+  setUpdatesEnabled( true );
 }
 
 // -----------------------------------------------------------------------------

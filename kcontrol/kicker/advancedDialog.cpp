@@ -51,7 +51,7 @@ advancedDialog::advancedDialog(TQWidget* parent, const char* name)
     layout->addWidget(m_advancedWidget);
     layout->addStretch();
 
-    setMinimumSize( tqsizeHint() );
+    setMinimumSize( sizeHint() );
 
     connect(m_advancedWidget->handles, TQT_SIGNAL(clicked(int)),
             this, TQT_SLOT(changed()));
@@ -92,7 +92,7 @@ void advancedDialog::load()
 
     int defaultHideButtonSize = c.readNumEntry("HideButtonSize", 14);
     m_advancedWidget->hideButtonSize->setValue(defaultHideButtonSize);
-    TQColor color = c.readColorEntry( "TintColor", &tqcolorGroup().mid() );
+    TQColor color = c.readColorEntry( "TintColor", &colorGroup().mid() );
     m_advancedWidget->tintColorB->setColor( color );
     int tintValue = c.readNumEntry( "TintValue", 33 );
     m_advancedWidget->tintSlider->setValue( tintValue );

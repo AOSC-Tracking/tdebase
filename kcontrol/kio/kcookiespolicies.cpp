@@ -392,7 +392,7 @@ void KCookiesPolicies::save()
 
   while( at )
   {
-    domainConfig.append(TQString::tqfromLatin1("%1:%2").arg(KIDNA::toAscii(at->text(0))).arg(m_pDomainPolicy[at]));
+    domainConfig.append(TQString::fromLatin1("%1:%2").arg(KIDNA::toAscii(at->text(0))).arg(m_pDomainPolicy[at]));
     at = at->nextSibling();
   }
 

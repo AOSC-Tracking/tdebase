@@ -117,7 +117,7 @@ AppletContainer::AppletContainer(const AppletInfo& info,
     _valid = true;
 
     _applet->setPosition((KPanelApplet::Position)KickerLib::directionToPosition(popupDirection()));
-    _applet->tqsetAlignment((KPanelApplet::Alignment)tqalignment());
+    _applet->setAlignment((KPanelApplet::Alignment)tqalignment());
 
     _actions = _applet->actions();
     _type = _applet->type();
@@ -275,14 +275,14 @@ void AppletContainer::slotRemoved(KConfig* config)
 
 void AppletContainer::activateWindow()
 {
-    KWin::forceActiveWindow(tqtopLevelWidget()->winId());
+    KWin::forceActiveWindow(topLevelWidget()->winId());
 }
 
 void AppletContainer::focusRequested(bool focus)
 {
     if (focus)
     {
-        KWin::forceActiveWindow(tqtopLevelWidget()->winId());
+        KWin::forceActiveWindow(topLevelWidget()->winId());
     }
 
     emit maintainFocus(focus);
@@ -361,7 +361,7 @@ void AppletContainer::alignmentChange(KPanelExtension::Alignment a)
         return;
     }
 
-    _applet->tqsetAlignment( (KPanelApplet::Alignment)a );
+    _applet->setAlignment( (KPanelApplet::Alignment)a );
 }
 
 int AppletContainer::widthForHeight(int h) const

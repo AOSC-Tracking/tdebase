@@ -128,7 +128,7 @@ GUIClient::GUIClient ( MainWindow *mw )
 
   if ( domDocument().documentElement().isNull() )
   {
-    TQString completeDescription = TQString::tqfromLatin1( guiDescription )
+    TQString completeDescription = TQString::fromLatin1( guiDescription )
           .arg( actionListName );
 
     setXML( completeDescription, false /*merge*/ );
@@ -239,7 +239,7 @@ ToolView::~ToolView ()
   m_mainWin->toolViewDeleted (this);
 }
 
-void ToolView::tqsetVisible (bool vis)
+void ToolView::setVisible (bool vis)
 {
   if (m_visible == vis)
     return;
@@ -380,7 +380,7 @@ bool Sidebar::showWidget (ToolView *widget)
     {
       it.current()->hide();
       setTab (it.currentKey(), false);
-      it.current()->tqsetVisible(false);
+      it.current()->setVisible(false);
     }
 
   setTab (m_widgetToId[widget], true);
@@ -388,7 +388,7 @@ bool Sidebar::showWidget (ToolView *widget)
   m_ownSplit->show ();
   widget->show ();
 
-  widget->tqsetVisible (true);
+  widget->setVisible (true);
 
   return true;
 }
@@ -420,7 +420,7 @@ bool Sidebar::hideWidget (ToolView *widget)
   if (!anyVis)
     m_ownSplit->hide ();
 
-  widget->tqsetVisible (false);
+  widget->setVisible (false);
 
   return true;
 }
@@ -618,7 +618,7 @@ void Sidebar::restoreSession (KConfig *config)
     ToolView *tv = m_toolviews[i];
 
     tv->persistent = config->readBoolEntry (TQString ("Kate-MDI-ToolView-%1-Persistent").arg(tv->id), false);
-    tv->tqsetVisible (config->readBoolEntry (TQString ("Kate-MDI-ToolView-%1-Visible").arg(tv->id), false));
+    tv->setVisible (config->readBoolEntry (TQString ("Kate-MDI-ToolView-%1-Visible").arg(tv->id), false));
 
     if (!anyVis)
       anyVis = tv->visible();

@@ -41,7 +41,7 @@
 
 #include "kremoteencodingplugin.h"
 
-#define DATA_KEY	TQString::tqfromLatin1("Charset")
+#define DATA_KEY	TQString::fromLatin1("Charset")
 
 KRemoteEncodingPlugin::KRemoteEncodingPlugin(TQObject * parent,
 					     const char *name,

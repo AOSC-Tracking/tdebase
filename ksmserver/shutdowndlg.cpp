@@ -650,7 +650,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
     TQFrame* frame = new TQFrame( this );
     frame->setFrameStyle( TQFrame::StyledPanel | TQFrame::Raised );
-    frame->setLineWidth( tqstyle().tqpixelMetric( TQStyle::PM_DefaultFrameWidth, frame ) );
+    frame->setLineWidth( tqstyle().pixelMetric( TQStyle::PM_DefaultFrameWidth, frame ) );
 	// we need to set the minimum size for the logout box, since it
 	// gets too small if there isn't all options available
 	frame->setMinimumWidth(400);
@@ -691,7 +691,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 	{
 		// first line of buttons
 		hbuttonbox = new TQHBoxLayout( hbox, factor * KDialog::spacingHint() );
-		hbuttonbox->tqsetAlignment( Qt::AlignHCenter );
+		hbuttonbox->setAlignment( Qt::AlignHCenter );
 		// End session
 		FlatButton* btnLogout = new FlatButton( frame );
 		btnLogout->setTextLabel( TQString("&") + i18n("Log out"), false );
@@ -711,12 +711,12 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		hbox->addWidget( lfrm, AlignCenter );
 
 		buttonlay = new TQVBoxLayout( hbox, factor * KDialog::spacingHint() );
-		buttonlay->tqsetAlignment( Qt::AlignHCenter );
+		buttonlay->setAlignment( Qt::AlignHCenter );
 
 		TQLabel* icon = new TQLabel( lfrm );
 		icon->setPixmap( UserIcon( "shutdownkonq" ) );
-		lfrm->setFixedSize( icon->tqsizeHint());
-		icon->setFixedSize( icon->tqsizeHint());
+		lfrm->setFixedSize( icon->sizeHint());
+		icon->setFixedSize( icon->sizeHint());
 
 		buttonlay->addStretch( 1 );
 		// End session
@@ -832,7 +832,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			// bottom buttons
 			TQHBoxLayout* hbuttonbox2 = new TQHBoxLayout( vbox, factor * KDialog::spacingHint() );
-			hbuttonbox2->tqsetAlignment( Qt::AlignHCenter );
+			hbuttonbox2->setAlignment( Qt::AlignHCenter );
 			
 			// Reboot
 			FlatButton* btnReboot = new FlatButton( frame );
@@ -882,7 +882,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			// cancel buttonbox
 			TQHBoxLayout* hbuttonbox3 = new TQHBoxLayout( vbox, factor * KDialog::spacingHint() );
-			hbuttonbox3->tqsetAlignment( Qt::AlignRight );
+			hbuttonbox3->setAlignment( Qt::AlignRight );
 
 			// Back to Desktop
 			KSMPushButton* btnBack = new KSMPushButton( KStdGuiItem::cancel(), frame );
@@ -969,7 +969,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		{
 			// cancel buttonbox
 			TQHBoxLayout* hbuttonbox3 = new TQHBoxLayout( vbox, factor * KDialog::spacingHint() );
-			hbuttonbox3->tqsetAlignment( Qt::AlignRight );
+			hbuttonbox3->setAlignment( Qt::AlignRight );
 
 			// Back to Desktop
 			KSMPushButton* btnBack = new KSMPushButton( KStdGuiItem::cancel(), frame );
@@ -1100,7 +1100,7 @@ bool KSMShutdownDlg::confirmShutdown( bool maysd, KApplication::ShutdownType& sd
                                             maysd, sdtype );
 
     // Show dialog (will save the background in showEvent)
-    TQSize sh = l->tqsizeHint();
+    TQSize sh = l->sizeHint();
     TQRect rect = KGlobalSettings::desktopGeometry(TQCursor::pos());
 
     l->move(rect.x() + (rect.width() - sh.width())/2,
@@ -1230,7 +1230,7 @@ bool KSMDelayedMessageBox::showTicker( KApplication::ShutdownType sdtype, const 
 {
     kapp->enableStyles();
     KSMDelayedMessageBox msg( sdtype, bootOption, confirmDelay );
-    TQSize sh = msg.tqsizeHint();
+    TQSize sh = msg.sizeHint();
     TQRect rect = KGlobalSettings::desktopGeometry(TQCursor::pos());
 
     msg.move(rect.x() + (rect.width() - sh.width())/2,

@@ -181,8 +181,8 @@ void KonqInfoListViewWidget::rebuildView()
 
     if ( !viewport()->isUpdatesEnabled() )
     {
-        viewport()->tqsetUpdatesEnabled( true );
-        tqsetUpdatesEnabled( true );
+        viewport()->setUpdatesEnabled( true );
+        setUpdatesEnabled( true );
         triggerUpdate();
     }
 }
@@ -215,8 +215,8 @@ void KonqInfoListViewWidget::slotNewItems( const KFileItemList& list)
 
     if ( !viewport()->isUpdatesEnabled() )
     {
-        viewport()->tqsetUpdatesEnabled( true );
-        tqsetUpdatesEnabled( true );
+        viewport()->setUpdatesEnabled( true );
+        setUpdatesEnabled( true );
         triggerUpdate();
     }
 

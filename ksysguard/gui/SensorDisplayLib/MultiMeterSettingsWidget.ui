@@ -96,7 +96,7 @@
                                 <property name="sizeType">
                                     <enum>Expanding</enum>
                                 </property>
-                                <property name="tqsizeHint">
+                                <property name="sizeHint">
                                     <size>
                                         <width>20</width>
                                         <height>20</height>
@@ -121,7 +121,7 @@
                                 <property name="enabled">
                                     <bool>false</bool>
                                 </property>
-                                <property name="tqminimumSize">
+                                <property name="minimumSize">
                                     <size>
                                         <width>70</width>
                                         <height>0</height>
@@ -162,7 +162,7 @@
                                 <property name="sizeType">
                                     <enum>Expanding</enum>
                                 </property>
-                                <property name="tqsizeHint">
+                                <property name="sizeHint">
                                     <size>
                                         <width>20</width>
                                         <height>20</height>
@@ -187,7 +187,7 @@
                                 <property name="enabled">
                                     <bool>false</bool>
                                 </property>
-                                <property name="tqminimumSize">
+                                <property name="minimumSize">
                                     <size>
                                         <width>70</width>
                                         <height>0</height>
@@ -377,8 +377,8 @@
         <property type="Bool">enabled</property>
         <property type="Rect">geometry</property>
         <property type="SizePolicy">sizePolicy</property>
-        <property type="Size">tqminimumSize</property>
-        <property type="Size">tqmaximumSize</property>
+        <property type="Size">minimumSize</property>
+        <property type="Size">maximumSize</property>
         <property type="Size">sizeIncrement</property>
         <property type="Size">baseSize</property>
         <property type="Color">paletteForegroundColor</property>

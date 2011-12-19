@@ -32,7 +32,7 @@ public:
     KickoffTabBar(TQWidget* parent, const char* name);
 
     void deactivateTabs(bool b);
-    virtual TQSize tqsizeHint() const;
+    virtual TQSize sizeHint() const;
 
 protected:
     virtual void paint(TQPainter*, TQTab*, bool) const;

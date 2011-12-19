@@ -169,10 +169,10 @@ KFMsgBox::KFMsgBox( TQWidget *parent, TQMessageBox::Icon type, const TQString &t
 	TQLabel *label2 = new TQLabel( text, this );
 	TQRect d = KGlobalSettings::desktopGeometry(this);
 	if ( label2->fontMetrics().size( 0, text).width() > d.width() * 3 / 5) 
-		label2->tqsetAlignment(TQt::WordBreak | TQt::AlignAuto );
+		label2->setAlignment(TQt::WordBreak | TQt::AlignAuto );
 	KPushButton *button = new KPushButton( KStdGuiItem::ok(), this );
 	button->setDefault( true );
-	button->tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Preferred ) );
+	button->setSizePolicy( TQSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Preferred ) );
 	connect( button, TQT_SIGNAL(clicked()), TQT_SLOT(accept()) );
 
 	TQGridLayout *grid = new TQGridLayout( this, 2, 2, 10 );

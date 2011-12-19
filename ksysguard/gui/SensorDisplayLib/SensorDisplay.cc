@@ -66,7 +66,7 @@ SensorDisplay::SensorDisplay( TQWidget *parent, const char *name,
   if(!nf) {
     mFrame = new TQGroupBox( 2, Qt::Vertical, "", this, "displayFrame");
     mFrame->setFlat(true);
-    mFrame->tqsetAlignment(Qt::AlignHCenter);
+    mFrame->setAlignment(Qt::AlignHCenter);
     mFrame->setInsideMargin(2);
 
     setTitle( title );

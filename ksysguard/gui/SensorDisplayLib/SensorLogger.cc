@@ -50,7 +50,7 @@ LogSensor::LogSensor(TQListView *parent)
 	pixmap_waiting = UserIcon( "waiting" );
 
 	lvi->setPixmap(0, pixmap_waiting);
-	lvi->setTextColor(monitor->tqcolorGroup().text());
+	lvi->setTextColor(monitor->colorGroup().text());
 
 	monitor->insertItem(lvi);
 }
@@ -72,7 +72,7 @@ void
 LogSensor::stopLogging(void)
 {
 	lvi->setPixmap(0, pixmap_waiting);
-	lvi->setTextColor(monitor->tqcolorGroup().text());
+	lvi->setTextColor(monitor->colorGroup().text());
 	lvi->tqrepaint();
 	timerOff();
 }
@@ -104,7 +104,7 @@ LogSensor::answerReceived(int id, const TQString& answer)
 			{
 				timerOff();
 				lowerLimitActive = false;
-				lvi->setTextColor(monitor->tqcolorGroup().foreground());
+				lvi->setTextColor(monitor->colorGroup().foreground());
 				lvi->tqrepaint();
 				KNotifyClient::event(monitor->winId(), "sensor_alarm", TQString("sensor '%1' at '%2' reached lower limit").arg(sensorName).arg(hostName));
 				timerOn();
@@ -112,13 +112,13 @@ LogSensor::answerReceived(int id, const TQString& answer)
 			{
 				timerOff();
 				upperLimitActive = false;
-				lvi->setTextColor(monitor->tqcolorGroup().foreground());
+				lvi->setTextColor(monitor->colorGroup().foreground());
 				lvi->tqrepaint();
 				KNotifyClient::event(monitor->winId(), "sensor_alarm", TQString("sensor '%1' at '%2' reached upper limit").arg(sensorName).arg(hostName));
 				timerOn();
 			}
-			TQDate date = TQT_TQDATE_OBJECT(TQDateTime::tqcurrentDateTime().date());
-			TQTime time = TQT_TQTIME_OBJECT(TQDateTime::tqcurrentDateTime().time());
+			TQDate date = TQT_TQDATE_OBJECT(TQDateTime::currentDateTime().date());
+			TQTime time = TQT_TQTIME_OBJECT(TQDateTime::currentDateTime().time());
 
 			stream << TQString("%1 %2 %3 %4 %5: %6\n").arg(date.shortMonthName(date.month())).arg(date.day()).arg(time.toString()).arg(hostName).arg(sensorName).arg(value);
 		}
@@ -139,7 +139,7 @@ SensorLogger::SensorLogger(TQWidget *parent, const char *name, const TQString& t
 	monitor->addColumn(i18n("Host Name"));
 	monitor->addColumn(i18n("Log File"));
 
-	TQColorGroup cgroup = monitor->tqcolorGroup();
+	TQColorGroup cgroup = monitor->colorGroup();
 	cgroup.setColor(TQColorGroup::Text, KSGRD::Style->firstForegroundColor());
 	cgroup.setColor(TQColorGroup::Base, KSGRD::Style->backgroundColor());
 	cgroup.setColor(TQColorGroup::Foreground, KSGRD::Style->alarmColor());
@@ -232,7 +232,7 @@ SensorLogger::editSensor(LogSensor* sensor)
 void
 SensorLogger::configureSettings()
 {
-	TQColorGroup cgroup = monitor->tqcolorGroup();
+	TQColorGroup cgroup = monitor->colorGroup();
 
 	sls = new SensorLoggerSettings(this, "SensorLoggerSettings");
 	Q_CHECK_PTR(sls);
@@ -254,7 +254,7 @@ SensorLogger::configureSettings()
 void
 SensorLogger::applySettings()
 {
-	TQColorGroup cgroup = monitor->tqcolorGroup();
+	TQColorGroup cgroup = monitor->colorGroup();
 
 	setTitle(sls->title());
 
@@ -269,7 +269,7 @@ SensorLogger::applySettings()
 void
 SensorLogger::applyStyle(void)
 {
-	TQColorGroup cgroup = monitor->tqcolorGroup();
+	TQColorGroup cgroup = monitor->colorGroup();
 
 	cgroup.setColor(TQColorGroup::Text, KSGRD::Style->firstForegroundColor());
 	cgroup.setColor(TQColorGroup::Base, KSGRD::Style->backgroundColor());
@@ -282,7 +282,7 @@ SensorLogger::applyStyle(void)
 bool
 SensorLogger::restoreSettings(TQDomElement& element)
 {
-	TQColorGroup cgroup = monitor->tqcolorGroup();
+	TQColorGroup cgroup = monitor->colorGroup();
 
 	cgroup.setColor(TQColorGroup::Text, restoreColor(element, "textColor", Qt::green));
 	cgroup.setColor(TQColorGroup::Base, restoreColor(element, "backgroundColor", Qt::black));
@@ -319,9 +319,9 @@ SensorLogger::restoreSettings(TQDomElement& element)
 bool
 SensorLogger::saveSettings(TQDomDocument& doc, TQDomElement& element, bool save)
 {
-	saveColor(element, "textColor", monitor->tqcolorGroup().text());
-	saveColor(element, "backgroundColor", monitor->tqcolorGroup().base());
-	saveColor(element, "alarmColor", monitor->tqcolorGroup().foreground());
+	saveColor(element, "textColor", monitor->colorGroup().text());
+	saveColor(element, "backgroundColor", monitor->colorGroup().base());
+	saveColor(element, "alarmColor", monitor->colorGroup().foreground());
 
 	for (LogSensor* sensor = logSensors.first(); sensor != 0; sensor = logSensors.next())
 	{

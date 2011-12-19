@@ -44,7 +44,7 @@ KFindPart::KFindPart( TQWidget * parentWidget, const char *widgetName,
 
     kdDebug() << "KFindPart::KFindPart " << this << endl;
     m_kfindWidget = new Kfind( parentWidget, widgetName );
-    m_kfindWidget->setMaximumHeight(m_kfindWidget->tqminimumSizeHint().height());
+    m_kfindWidget->setMaximumHeight(m_kfindWidget->minimumSizeHint().height());
     const KFileItem *item = ((KonqDirPart*)parent)->currentItem();
     kdDebug() << "Kfind: currentItem:  " << ( item ? item->url().path().local8Bit() : TQString("null") ) << endl;
     TQDir d;

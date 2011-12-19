@@ -182,7 +182,7 @@ void KListDebugDialog::activateArea( TQCString area, bool activate )
   for ( ; it.current() ; ++it )
   {
       if ( area == (*it)->name()  // debug area code = cb's name
-          || (*it)->text().find( TQString::tqfromLatin1(area) ) != -1 ) // area name included in cb text
+          || (*it)->text().find( TQString::fromLatin1(area) ) != -1 ) // area name included in cb text
       {
           (*it)->setChecked( activate );
           return;

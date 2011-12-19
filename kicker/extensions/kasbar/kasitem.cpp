@@ -301,7 +301,7 @@ void KasItem::paintFrame( TQPainter *p )
    if ( !frame )
        return;
 
-   qDrawShadePanel(p, 0, 0, extent(), extent(), tqcolorGroup(), false, 2);
+   qDrawShadePanel(p, 0, 0, extent(), extent(), colorGroup(), false, 2);
 
    TQPen pen;
    

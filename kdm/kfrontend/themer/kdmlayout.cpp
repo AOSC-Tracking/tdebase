@@ -74,7 +74,7 @@ KdmLayoutBox::update( const TQRect &parentGeometry, bool force )
 	// Check if box size was computed. If not compute it
 	// TODO check if this prevents updating changing items
 //	if (!hintedSize.isValid())
-//		tqsizeHint();
+//		sizeHint();
 
 //	kdDebug() << this << " hintedSize " << hintedSize << endl;
 
@@ -114,30 +114,30 @@ KdmLayoutBox::update( const TQRect &parentGeometry, bool force )
 			if ((*it)->isExplicitlyHidden())
 				continue;
 
-			TQRect temp = childrenRect, tqitemRect;
+			TQRect temp = childrenRect, itemRect;
 			if (box.isVertical) {
 				temp.setHeight( 0 );
-				tqitemRect = (*it)->placementHint( temp );
-				temp.setHeight( tqitemRect.height() );
-				childrenRect.setTop( childrenRect.top() + tqitemRect.size().height() + box.spacing );
+				itemRect = (*it)->placementHint( temp );
+				temp.setHeight( itemRect.height() );
+				childrenRect.setTop( childrenRect.top() + itemRect.size().height() + box.spacing );
 			} else {
 				temp.setWidth( 0 );
-				tqitemRect = (*it)->placementHint( temp );
-				kdDebug() << this << " placementHint " << *it << " " << temp << " " << tqitemRect << endl;
-				temp.setWidth( tqitemRect.width() );
-				childrenRect.setLeft( childrenRect.left() + tqitemRect.size().width() + box.spacing );
+				itemRect = (*it)->placementHint( temp );
+				kdDebug() << this << " placementHint " << *it << " " << temp << " " << itemRect << endl;
+				temp.setWidth( itemRect.width() );
+				childrenRect.setLeft( childrenRect.left() + itemRect.size().width() + box.spacing );
 				kdDebug() << timestamp() << " childrenRect after " << *it << " " << childrenRect << endl;
 			}
-			tqitemRect = (*it)->placementHint( temp );
-			kdDebug() << this << " placementHint2 " << *it << " " << temp << " " << tqitemRect << endl;
-			(*it)->setGeometry( tqitemRect, force );
+			itemRect = (*it)->placementHint( temp );
+			kdDebug() << this << " placementHint2 " << *it << " " << temp << " " << itemRect << endl;
+			(*it)->setGeometry( itemRect, force );
 		}
 	}
 }
 
 //FIXME truly experimental (is so close to greeter_geometry.c)
 TQSize
-KdmLayoutBox::tqsizeHint()
+KdmLayoutBox::sizeHint()
 {
 	// Sum up area taken by children
 	int w = 0, h = 0;

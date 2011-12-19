@@ -136,7 +136,7 @@ static TQString removeMultipleExtension(const KURL &url)
     TQString fname(url.fileName());
     int     pos;
 
-    if(-1!=(pos=fname.findRev(TQString::tqfromLatin1(constMultipleExtension))))
+    if(-1!=(pos=fname.findRev(TQString::fromLatin1(constMultipleExtension))))
         fname=fname.left(pos);
 
     return fname;
@@ -292,7 +292,7 @@ static bool createFolderUDSEntry(KIO::UDSEntry &entry, const TQString &name, con
                                                 ? KFI_KIO_FONTS_PROTOCOL"/system-folder" 
                                                 : KFI_KIO_FONTS_PROTOCOL"/folder");
         addAtom(entry, KIO::UDS_GUESSED_MIME_TYPE, 0, "application/octet-stream");
-        TQString url(KFI_KIO_FONTS_PROTOCOL+TQString::tqfromLatin1(":/"));
+        TQString url(KFI_KIO_FONTS_PROTOCOL+TQString::fromLatin1(":/"));
         return true;
     }
     else if (sys && !Misc::root())   // Default system fonts folder does not actually exist yet!
@@ -393,15 +393,15 @@ static bool createFontUDSEntry(KIO::UDSEntry &entry, const TQString &name, TQVal
             addAtom(entry, KIO::UDS_MIME_TYPE, 0, KMimeType::findByPath(path, 0, true)->name());
             addAtom(entry, KIO::UDS_GUESSED_MIME_TYPE, 0, "application/octet-stream");
 
-            TQString url(KFI_KIO_FONTS_PROTOCOL+TQString::tqfromLatin1(":/"));
+            TQString url(KFI_KIO_FONTS_PROTOCOL+TQString::fromLatin1(":/"));
 
             if(!Misc::root())
             {
                 url+=sys ? i18n(KFI_KIO_FONTS_SYS) : i18n(KFI_KIO_FONTS_USER);
-                url+=TQString::tqfromLatin1("/");
+                url+=TQString::fromLatin1("/");
             }
             if(multiple)
-                url+=name+TQString::tqfromLatin1(constMultipleExtension);
+                url+=name+TQString::fromLatin1(constMultipleExtension);
             else
                 url+=Misc::getFile(path);
             addAtom(entry, KIO::UDS_URL, 0, url);
@@ -1185,7 +1185,7 @@ bool CKioFonts::putReal(const TQString &destOrig, const TQCString &destOrigC, bo
 
     if (markPartial)
     {
-        TQString  destPart(destOrig+TQString::tqfromLatin1(".part"));
+        TQString  destPart(destOrig+TQString::fromLatin1(".part"));
         TQCString destPartC(TQFile::encodeName(destPart));
 
         dest = destPart;
@@ -2385,8 +2385,8 @@ bool CKioFonts::checkAllowed(const KURL &u)
 
         if(ds==TQString(TQChar('/')+i18n(KFI_KIO_FONTS_USER)+TQChar('/')) ||
            ds==TQString(TQChar('/')+i18n(KFI_KIO_FONTS_SYS)+TQChar('/')) ||
-           ds==TQString(TQChar('/')+TQString::tqfromLatin1(KFI_KIO_FONTS_USER)+TQChar('/')) ||
-           ds==TQString(TQChar('/')+TQString::tqfromLatin1(KFI_KIO_FONTS_SYS)+TQChar('/')))
+           ds==TQString(TQChar('/')+TQString::fromLatin1(KFI_KIO_FONTS_USER)+TQChar('/')) ||
+           ds==TQString(TQChar('/')+TQString::fromLatin1(KFI_KIO_FONTS_SYS)+TQChar('/')))
         {
             error(KIO::ERR_SLAVE_DEFINED, i18n("Sorry, you cannot rename, move, copy, or delete either \"%1\" or \"%2\".")
                   .arg(i18n(KFI_KIO_FONTS_USER)).arg(i18n(KFI_KIO_FONTS_SYS))); \

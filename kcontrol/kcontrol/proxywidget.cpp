@@ -120,7 +120,7 @@ public:
     ~ProxyContentWidget(){}
 
     // this should be really done by qscrollview in AutoOneFit mode!
-    TQSize tqsizeHint() const { return tqminimumSizeHint(); }
+    TQSize sizeHint() const { return minimumSizeHint(); }
 };
 
 
@@ -144,7 +144,7 @@ ProxyView::ProxyView(KCModule *_client, const TQString&, TQWidget *parent, bool 
   }
   client->reparent(contentWidget,0,TQPoint(0,0),true);
   vbox->addWidget( client );
-  vbox->activate(); // make sure we have a proper tqminimumSizeHint
+  vbox->activate(); // make sure we have a proper minimumSizeHint
   addChild(contentWidget);
 }
 

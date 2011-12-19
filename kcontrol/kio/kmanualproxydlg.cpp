@@ -52,7 +52,7 @@ KManualProxyDlg::KManualProxyDlg( TQWidget* parent, const char* name )
     mDlg->pbCopyDown->setPixmap( BarIcon("down", KIcon::SizeSmall) );
     TQSizePolicy sizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Fixed,
                             mDlg->pbCopyDown->sizePolicy().hasHeightForWidth() );
-    mDlg->pbCopyDown->tqsetSizePolicy( sizePolicy );
+    mDlg->pbCopyDown->setSizePolicy( sizePolicy );
 
     init();
 }

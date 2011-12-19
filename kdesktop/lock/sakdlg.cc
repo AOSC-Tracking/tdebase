@@ -87,7 +87,7 @@ SAKDlg::SAKDlg(LockProcess *parent)
     KUser user;
 
     mStatusLabel = new TQLabel( "<b> </b>", frame );
-    mStatusLabel->tqsetAlignment( TQLabel::AlignVCenter );
+    mStatusLabel->setAlignment( TQLabel::AlignVCenter );
 
     TQVBoxLayout *unlockDialogLayout = new TQVBoxLayout( this );
     unlockDialogLayout->addWidget( frame );

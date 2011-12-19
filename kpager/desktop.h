@@ -74,7 +74,7 @@ public:
 
 	static void removeCachedPixmap(int nWin) { m_windowPixmaps.remove(nWin); };
 
-  TQSize tqsizeHint() const;
+  TQSize sizeHint() const;
 
   /**
    * active is a bool that specifies if the frame is the active

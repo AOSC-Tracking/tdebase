@@ -184,7 +184,7 @@ TQString CurrentMgr::makeTimeStr(int b)
 {
     TQDateTime dt;
     dt.setTime_t(b);
-    return (dt.daysTo(TQDateTime::tqcurrentDateTime()) > 31)
+    return (dt.daysTo(TQDateTime::currentDateTime()) > 31)
         ? KGlobal::locale()->formatDate(TQT_TQDATE_OBJECT(dt.date()), false)
         : KGlobal::locale()->formatDateTime(dt, false);
 }
@@ -233,11 +233,11 @@ KEBApp::KEBApp(
 
     vsplitter->setOrientation(Qt::Vertical);
     vsplitter->setSizes(TQValueList<int>() << h << 380
-                                          << m_bkinfo->tqsizeHint().height() );
+                                          << m_bkinfo->sizeHint().height() );
 
     setCentralWidget(vsplitter);
-    resize(ListView::self()->widget()->tqsizeHint().width(),
-           vsplitter->tqsizeHint().height());
+    resize(ListView::self()->widget()->sizeHint().width(),
+           vsplitter->sizeHint().height());
 
     createActions();
     if (m_browser)

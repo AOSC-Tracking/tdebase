@@ -78,10 +78,10 @@ TrashProtocol::TrashProtocol( const TQCString& protocol, const TQCString &pool, 
 {
     struct passwd *user = getpwuid( getuid() );
     if ( user )
-        m_userName = TQString::tqfromLatin1(user->pw_name);
+        m_userName = TQString::fromLatin1(user->pw_name);
     struct group *grp = getgrgid( getgid() );
     if ( grp )
-        m_groupName = TQString::tqfromLatin1(grp->gr_name);
+        m_groupName = TQString::fromLatin1(grp->gr_name);
 }
 
 TrashProtocol::~TrashProtocol()

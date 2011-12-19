@@ -54,7 +54,7 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
 	, m_help(new KHelpMenu(this, KGlobal::instance()->aboutData(), false, actionCollection()))
 {
 	setPixmap(KSystemTray::loadSizedIcon("randr", width()));
-	tqsetAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+	setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 	connect(this, TQT_SIGNAL(quitSelected()), this, TQT_SLOT(_quit()));
 	TQToolTip::add(this, i18n("Screen resize & rotate"));
 	my_parent = parent;

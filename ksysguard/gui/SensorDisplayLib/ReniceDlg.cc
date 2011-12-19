@@ -43,7 +43,7 @@ ReniceDlg::ReniceDlg(TQWidget* parent, const char* name, int currentPPrio,
 			   "the number is the higher the priority.\n\n"
 			   "Please enter the desired nice level:").arg(pid);
 	message = new TQLabel(msg, page);
-	message->setMinimumSize(message->tqsizeHint());
+	message->setMinimumSize(message->sizeHint());
 	vLay->addWidget(message);
 
 	/*

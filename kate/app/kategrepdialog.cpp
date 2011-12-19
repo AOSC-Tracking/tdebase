@@ -100,7 +100,7 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
   loInput->setColStretch(1, 20);
 
   TQLabel *lPattern = new TQLabel(i18n("Pattern:"), this);
-  lPattern->setFixedSize(lPattern->tqsizeHint());
+  lPattern->setFixedSize(lPattern->sizeHint());
   loInput->addWidget(lPattern, 0, 0, Qt::AlignRight | Qt::AlignVCenter);
 
   TQBoxLayout *loPattern = new TQHBoxLayout( 4 );
@@ -112,22 +112,22 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
   cmbPattern->setInsertionPolicy(TQComboBox::NoInsertion);
   lPattern->setBuddy(cmbPattern);
   cmbPattern->setFocus();
-  cmbPattern->setMinimumSize(cmbPattern->tqsizeHint());
+  cmbPattern->setMinimumSize(cmbPattern->sizeHint());
   loPattern->addWidget( cmbPattern );
 
   cbCasesensitive = new TQCheckBox(i18n("Case sensitive"), this);
-  cbCasesensitive->setMinimumWidth(cbCasesensitive->tqsizeHint().width());
+  cbCasesensitive->setMinimumWidth(cbCasesensitive->sizeHint().width());
   cbCasesensitive->setChecked(config->readBoolEntry("CaseSensitive", true));
   loPattern->addWidget(cbCasesensitive);
 
   cbRegex = new TQCheckBox( i18n("Regular expression"), this );
-  cbRegex->setMinimumWidth( cbRegex->tqsizeHint().width() );
+  cbRegex->setMinimumWidth( cbRegex->sizeHint().width() );
   cbRegex->setChecked( config->readBoolEntry( "Regex", true ) );
   loPattern->addWidget( cbRegex );
   loPattern->setStretchFactor( cmbPattern, 100 );
 
   TQLabel *lTemplate = new TQLabel(i18n("Template:"), this);
-  lTemplate->setFixedSize(lTemplate->tqsizeHint());
+  lTemplate->setFixedSize(lTemplate->sizeHint());
   loInput->addWidget(lTemplate, 1, 0, Qt::AlignRight | Qt::AlignVCenter);
 
   TQBoxLayout *loTemplate = new TQHBoxLayout(4);
@@ -136,7 +136,7 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
   leTemplate = new KLineEdit(this);
   lTemplate->setBuddy(leTemplate);
   leTemplate->setText(strTemplate[0]);
-  leTemplate->setMinimumSize(leTemplate->tqsizeHint());
+  leTemplate->setMinimumSize(leTemplate->sizeHint());
   loTemplate->addWidget(leTemplate);
 
   KComboBox *cmbTemplate = new KComboBox(false, this);
@@ -146,19 +146,19 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
   loTemplate->addWidget(cmbTemplate);
 
   TQLabel *lFiles = new TQLabel(i18n("Files:"), this);
-  lFiles->setFixedSize(lFiles->tqsizeHint());
+  lFiles->setFixedSize(lFiles->sizeHint());
   loInput->addWidget(lFiles, 2, 0, Qt::AlignRight | Qt::AlignVCenter);
 
   cmbFiles = new KComboBox(true, this);
   lFiles->setBuddy(TQT_TQWIDGET(cmbFiles->focusProxy()));
-  cmbFiles->setMinimumSize(cmbFiles->tqsizeHint());
+  cmbFiles->setMinimumSize(cmbFiles->sizeHint());
   cmbFiles->setInsertionPolicy(TQComboBox::NoInsertion);
   cmbFiles->setDuplicatesEnabled(false);
   cmbFiles->insertStringList(lastSearchFiles);
   loInput->addWidget(cmbFiles, 2, 1);
 
   TQLabel *lDir = new TQLabel(i18n("Folder:"), this);
-  lDir->setFixedSize(lDir->tqsizeHint());
+  lDir->setFixedSize(lDir->sizeHint());
   loInput->addWidget(lDir, 3, 0, Qt::AlignRight | Qt::AlignVCenter);
 
   TQBoxLayout *loDir = new TQHBoxLayout(3);
@@ -176,7 +176,7 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
   lDir->setBuddy(cmbDir);
 
   cbRecursive = new TQCheckBox(i18n("Recursive"), this);
-  cbRecursive->setMinimumWidth(cbRecursive->tqsizeHint().width());
+  cbRecursive->setMinimumWidth(cbRecursive->sizeHint().width());
   cbRecursive->setChecked(config->readBoolEntry("Recursive", true));
   loDir->addWidget(cbRecursive);
 

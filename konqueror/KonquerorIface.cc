@@ -251,18 +251,18 @@ bool KonquerorIface::processCanBeReused( int screen )
     TQStringList allowed_parts = KonqSettings::safeParts();
     bool all_parts_allowed = false;
     
-    if( allowed_parts.count() == 1 && allowed_parts.first() == TQString::tqfromLatin1( "SAFE" ))
+    if( allowed_parts.count() == 1 && allowed_parts.first() == TQString::fromLatin1( "SAFE" ))
     {
         allowed_parts.clear();
         // is duplicated in client/kfmclient.cc
-        allowed_parts << TQString::tqfromLatin1( "konq_iconview.desktop" )
-                      << TQString::tqfromLatin1( "konq_multicolumnview.desktop" )
-                      << TQString::tqfromLatin1( "konq_sidebartng.desktop" )
-                      << TQString::tqfromLatin1( "konq_infolistview.desktop" )
-                      << TQString::tqfromLatin1( "konq_treeview.desktop" )
-                      << TQString::tqfromLatin1( "konq_detailedlistview.desktop" );
+        allowed_parts << TQString::fromLatin1( "konq_iconview.desktop" )
+                      << TQString::fromLatin1( "konq_multicolumnview.desktop" )
+                      << TQString::fromLatin1( "konq_sidebartng.desktop" )
+                      << TQString::fromLatin1( "konq_infolistview.desktop" )
+                      << TQString::fromLatin1( "konq_treeview.desktop" )
+                      << TQString::fromLatin1( "konq_detailedlistview.desktop" );
     }
-    else if( allowed_parts.count() == 1 && allowed_parts.first() == TQString::tqfromLatin1( "ALL" ))
+    else if( allowed_parts.count() == 1 && allowed_parts.first() == TQString::fromLatin1( "ALL" ))
     {
         allowed_parts.clear();
         all_parts_allowed = true;

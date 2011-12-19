@@ -252,8 +252,8 @@ NPError g_NPN_GetURL(NPP instance, const char *url, const char *target)
 
    NSPluginInstance *inst = static_cast<NSPluginInstance*>(instance->ndata);
    if (inst) {
-      inst->requestURL( TQString::tqfromLatin1(url), TQString::null,
-                        TQString::tqfromLatin1(target), 0 );
+      inst->requestURL( TQString::fromLatin1(url), TQString::null,
+                        TQString::fromLatin1(target), 0 );
    }
 
    return NPERR_NO_ERROR;
@@ -267,8 +267,8 @@ NPError g_NPN_GetURLNotify(NPP instance, const char *url, const char *target,
    NSPluginInstance *inst = static_cast<NSPluginInstance*>(instance->ndata);
    if (inst) {
       kdDebug(1431) << "g_NPN_GetURLNotify: ndata=" << (void*)inst << endl;
-      inst->requestURL( TQString::tqfromLatin1(url), TQString::null,
-                        TQString::tqfromLatin1(target), notifyData, true );
+      inst->requestURL( TQString::fromLatin1(url), TQString::null,
+                        TQString::fromLatin1(target), notifyData, true );
    }
 
    return NPERR_NO_ERROR;
@@ -318,7 +318,7 @@ NPError g_NPN_PostURLNotify(NPP instance, const char* url, const char* target,
                break;
             }
 
-            TQString thisLine = TQString::tqfromLatin1(previousStart, &buf[l-1] - previousStart).stripWhiteSpace();
+            TQString thisLine = TQString::fromLatin1(previousStart, &buf[l-1] - previousStart).stripWhiteSpace();
 
             previousStart = &buf[l];
             previousCR = true;
@@ -360,9 +360,9 @@ NPError g_NPN_PostURLNotify(NPP instance, const char* url, const char* target,
    }
 
    NSPluginInstance *inst = static_cast<NSPluginInstance*>(instance->ndata);
-   if (inst && !inst->normalizedURL(TQString::tqfromLatin1(url)).isNull()) {
-      inst->postURL( TQString::tqfromLatin1(url), postdata, args.contentType(),
-                     TQString::tqfromLatin1(target), notifyData, args, true );
+   if (inst && !inst->normalizedURL(TQString::fromLatin1(url)).isNull()) {
+      inst->postURL( TQString::fromLatin1(url), postdata, args.contentType(),
+                     TQString::fromLatin1(target), notifyData, args, true );
    } else {
       // Unsupported / insecure
       return NPERR_INVALID_URL;
@@ -415,7 +415,7 @@ NPError g_NPN_PostURL(NPP instance, const char* url, const char* target,
                break;
             }
 
-            TQString thisLine = TQString::tqfromLatin1(previousStart, &buf[l-1] - previousStart).stripWhiteSpace();
+            TQString thisLine = TQString::fromLatin1(previousStart, &buf[l-1] - previousStart).stripWhiteSpace();
 
             previousStart = &buf[l];
             previousCR = true;
@@ -457,9 +457,9 @@ NPError g_NPN_PostURL(NPP instance, const char* url, const char* target,
    }
 
    NSPluginInstance *inst = static_cast<NSPluginInstance*>(instance->ndata);
-   if (inst && !inst->normalizedURL(TQString::tqfromLatin1(url)).isNull()) {
-      inst->postURL( TQString::tqfromLatin1(url), postdata, args.contentType(),
-                     TQString::tqfromLatin1(target), 0L, args, false );
+   if (inst && !inst->normalizedURL(TQString::fromLatin1(url)).isNull()) {
+      inst->postURL( TQString::fromLatin1(url), postdata, args.contentType(),
+                     TQString::fromLatin1(target), 0L, args, false );
    } else {
       // Unsupported / insecure
       return NPERR_INVALID_URL;

@@ -36,7 +36,7 @@
                             <verstretch>0</verstretch>
                         </sizepolicy>
                     </property>
-                    <property name="tqminimumSize">
+                    <property name="minimumSize">
                         <size>
                             <width>150</width>
                             <height>0</height>
@@ -120,7 +120,7 @@
                             <verstretch>0</verstretch>
                         </sizepolicy>
                     </property>
-                    <property name="tqminimumSize">
+                    <property name="minimumSize">
                         <size>
                             <width>150</width>
                             <height>0</height>
@@ -160,7 +160,7 @@
                     <verstretch>0</verstretch>
                 </sizepolicy>
             </property>
-            <property name="tqminimumSize">
+            <property name="minimumSize">
                 <size>
                     <width>170</width>
                     <height>430</height>
@@ -189,7 +189,7 @@
             <property name="sizeType">
                 <enum>Fixed</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>20</width>
                     <height>30</height>

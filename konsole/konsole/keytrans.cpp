@@ -362,7 +362,7 @@ void KeyTrans::readConfig()
 ;
       TQBuffer* newbuf;
       newbuf = new TQBuffer();
-      newbuf->tqsetBufferFromCopy(txt);
+      newbuf->setBuffer(txt);
       buf=TQT_TQIODEVICE(newbuf);
    }
    else

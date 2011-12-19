@@ -50,7 +50,7 @@ KDMConvenienceWidget::KDMConvenienceWidget(TQWidget *parent, const char *name)
 
     alGroup = new TQVGroupBox( i18n("Enable Au&to-Login"), this );
     alGroup->setCheckable( true );
-    alGroup->tqsetSizePolicy( vpref );
+    alGroup->setSizePolicy( vpref );
 
     TQWhatsThis::add( alGroup, i18n("Turn on the auto-login feature."
 	" This applies only to KDM's graphical login."
@@ -92,7 +92,7 @@ KDMConvenienceWidget::KDMConvenienceWidget(TQWidget *parent, const char *name)
 
 
     puGroup = new TQVButtonGroup(i18n("Preselect User"), this );
-    puGroup->tqsetSizePolicy( vpref );
+    puGroup->setSizePolicy( vpref );
 
     connect(puGroup, TQT_SIGNAL(clicked(int)), TQT_SLOT(slotPresChanged()));
     connect(puGroup, TQT_SIGNAL(clicked(int)), TQT_SLOT(slotChanged()));

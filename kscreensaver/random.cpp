@@ -271,7 +271,7 @@ KRandomSetup::KRandomSetup( TQWidget *parent, const char *name )
 	manipulateScreen = new TQCheckBox(i18n("Use screen savers that manipulate the screen"), main);
 	grid->addWidget(manipulateScreen, 1, 0);
 
-	setMinimumSize( tqsizeHint() );
+	setMinimumSize( sizeHint() );
 
 	KConfig config("krandom.kssrc");
 	config.setGroup("Settings");

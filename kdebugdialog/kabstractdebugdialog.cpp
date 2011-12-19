@@ -52,11 +52,11 @@ void KAbstractDebugDialog::buildButtons( TQVBoxLayout * topLayout )
   pCancelButton = new KPushButton( KStdGuiItem::cancel(), this );
   hbox->addWidget( pCancelButton );
 
-  int w1 = pHelpButton->tqsizeHint().width();
-  int w2 = pOKButton->tqsizeHint().width();
-  int w3 = pCancelButton->tqsizeHint().width();
+  int w1 = pHelpButton->sizeHint().width();
+  int w2 = pOKButton->sizeHint().width();
+  int w3 = pCancelButton->sizeHint().width();
   int w4 = QMAX( w1, QMAX( w2, w3 ) );
-  int w5 = pApplyButton->tqsizeHint().width();
+  int w5 = pApplyButton->sizeHint().width();
   w4 = QMAX(w4, w5);
 
   pHelpButton->setFixedWidth( w4 );

@@ -99,7 +99,7 @@ KonqCombo::KonqCombo( TQWidget *parent, const char *name )
 	    m_pageSecurity( KonqMainWindow::NotCrypted )
 {
     setInsertionPolicy( NoInsertion );
-    tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed ));
+    setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed ));
 
     Q_ASSERT( s_config );
 
@@ -272,14 +272,14 @@ void KonqCombo::updateItem( const TQPixmap& pix, const TQString& t, int index, c
     listBox()->changeItem( item, index );
 
     /*
-    tqsetUpdatesEnabled( false );
-    lineEdit()->tqsetUpdatesEnabled( false );
+    setUpdatesEnabled( false );
+    lineEdit()->setUpdatesEnabled( false );
 
     removeItem( index );
     insertItem( pix, t, index );
 
-    tqsetUpdatesEnabled( true );
-    lineEdit()->tqsetUpdatesEnabled( true );
+    setUpdatesEnabled( true );
+    lineEdit()->setUpdatesEnabled( true );
     update();
     */
 }
@@ -301,12 +301,12 @@ void KonqCombo::updatePixmaps()
 {
     saveState();
 
-    tqsetUpdatesEnabled( false );
+    setUpdatesEnabled( false );
     KonqPixmapProvider *prov = KonqPixmapProvider::self();
     for ( int i = 1; i < count(); i++ ) {
         updateItem( prov->pixmapFor( text( i ) ), text( i ), i, titleOfURL( text( i ) ) );
     }
-    tqsetUpdatesEnabled( true );
+    setUpdatesEnabled( true );
     tqrepaint();
 
     restoreState();
@@ -521,15 +521,15 @@ void KonqCombo::slotRemoved( const TQString& item )
 
 void KonqCombo::removeURL( const TQString& url )
 {
-    tqsetUpdatesEnabled( false );
-    lineEdit()->tqsetUpdatesEnabled( false );
+    setUpdatesEnabled( false );
+    lineEdit()->setUpdatesEnabled( false );
 
     removeFromHistory( url );
     applyPermanent();
     setTemporary( currentText() );
 
-    tqsetUpdatesEnabled( true );
-    lineEdit()->tqsetUpdatesEnabled( true );
+    setUpdatesEnabled( true );
+    lineEdit()->setUpdatesEnabled( true );
     update();
 }
 
@@ -540,7 +540,7 @@ void KonqCombo::mousePressEvent( TQMouseEvent *e )
     if ( e->button() == Qt::LeftButton && pixmap( currentItem()) ) {
         // check if the pixmap was clicked
         int x = e->pos().x();
-        int x0 = TQStyle::tqvisualRect( tqstyle().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxEditField ), this ).x();
+        int x0 = TQStyle::visualRect( tqstyle().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxEditField ), this ).x();
 
         if ( x > x0 + 2 && x < lineEdit()->x() ) {
             m_dragStart = e->pos();
@@ -551,7 +551,7 @@ void KonqCombo::mousePressEvent( TQMouseEvent *e )
     if ( e->button() == Qt::LeftButton && m_pageSecurity!=KonqMainWindow::NotCrypted ) {
         // check if the lock icon was clicked
         int x = e->pos().x();
-        int x0 = TQStyle::tqvisualRect( tqstyle().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxArrow ), this ).x();
+        int x0 = TQStyle::visualRect( tqstyle().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxArrow ), this ).x();
         if ( x < x0 )
             emit showPageSecurity();
 
@@ -605,7 +605,7 @@ void KonqCombo::paintEvent( TQPaintEvent *pe )
 
     TQLineEdit *edit = lineEdit();
     TQRect re = tqstyle().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxEditField );
-    re = TQStyle::tqvisualRect(re, this);
+    re = TQStyle::visualRect(re, this);
     
     if ( m_pageSecurity!=KonqMainWindow::NotCrypted ) {
         TQColor color(245, 246, 190);
@@ -723,8 +723,8 @@ void KonqComboListBoxPixmap::paint( TQPainter *painter )
         pmWidth = pm->width() + 5;
     }
 
-    int entryWidth = listBox()->width() - listBox()->tqstyle().tqpixelMetric( TQStyle::PM_ScrollBarExtent ) -
-                     2 * listBox()->tqstyle().tqpixelMetric( TQStyle::PM_DefaultFrameWidth );
+    int entryWidth = listBox()->width() - listBox()->tqstyle().pixelMetric( TQStyle::PM_ScrollBarExtent ) -
+                     2 * listBox()->tqstyle().pixelMetric( TQStyle::PM_DefaultFrameWidth );
     int titleWidth = ( entryWidth / 3 ) - 1;
     int urlWidth = entryWidth - titleWidth - pmWidth - 2;
 
@@ -884,7 +884,7 @@ void KonqComboCompletionBox::setItems( const TQStringList& items )
             triggerUpdate( false );
     }
 
-    if ( isVisible() && size().height() != tqsizeHint().height() )
+    if ( isVisible() && size().height() != sizeHint().height() )
         sizeAndPosition();
 
     blockSignals( block );

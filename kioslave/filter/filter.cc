@@ -56,7 +56,7 @@ int kdemain( int argc, char ** argv)
 FilterProtocol::FilterProtocol( const TQCString & protocol, const TQCString &pool, const TQCString &app )
  : KIO::SlaveBase( protocol, pool, app )
 {
-    TQString mimetype = TQString::tqfromLatin1("application/x-") + TQString::tqfromLatin1(protocol);
+    TQString mimetype = TQString::fromLatin1("application/x-") + TQString::fromLatin1(protocol);
     filter = KFilterBase::findFilterByMimeType( mimetype );
     Q_ASSERT(filter);
 }
@@ -157,7 +157,7 @@ void FilterProtocol::get( const KURL & )
 
 void FilterProtocol::put( const KURL &/*url*/, int, bool /*_overwrite*/, bool /*_resume*/ )
 {
-  error( KIO::ERR_UNSUPPORTED_ACTION, TQString::tqfromLatin1("put"));
+  error( KIO::ERR_UNSUPPORTED_ACTION, TQString::fromLatin1("put"));
 }
 
 void FilterProtocol::setSubURL(const KURL &url)

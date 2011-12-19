@@ -73,15 +73,15 @@ void KFileIVIDesktop::calcRect( const TQString& _text )
 
     int spread = shadowThickness();
     TQRect itemTextRect = textRect();
-    TQRect tqitemRect = rect();
+    TQRect itemRect = rect();
 
     itemTextRect.setBottom( itemTextRect.bottom() + spread );
     itemTextRect.setRight( itemTextRect.right() + spread );
-    tqitemRect.setBottom( tqitemRect.bottom() + spread );
-    tqitemRect.setRight( tqitemRect.right() + spread );
+    itemRect.setBottom( itemRect.bottom() + spread );
+    itemRect.setRight( itemRect.right() + spread );
 
     setTextRect( itemTextRect );
-    setItemRect( tqitemRect );
+    setItemRect( itemRect );
 }
 
 void KFileIVIDesktop::paintItem( TQPainter *p, const TQColorGroup &cg)

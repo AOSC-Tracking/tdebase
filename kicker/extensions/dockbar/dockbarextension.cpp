@@ -60,7 +60,7 @@ DockBarExtension::DockBarExtension(const TQString& configFile, Type type,
     kwin_module = new KWinModule(TQT_TQOBJECT(this));
     connect( kwin_module, TQT_SIGNAL( windowAdded(WId) ), TQT_SLOT( windowAdded(WId) ) );
     setMinimumSize(DockContainer::sz(), DockContainer::sz());
-    tqsetSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding);
+    setSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding);
     loadContainerConfig();
 }
 
@@ -77,7 +77,7 @@ DockBarExtension::~DockBarExtension()
     if (dragging_container) delete dragging_container;
 }
 
-TQSize DockBarExtension::tqsizeHint(Position p, TQSize) const
+TQSize DockBarExtension::sizeHint(Position p, TQSize) const
 {
     if (p == Left || p == Right)
 	return TQSize(DockContainer::sz(), DockContainer::sz() * containers.count());

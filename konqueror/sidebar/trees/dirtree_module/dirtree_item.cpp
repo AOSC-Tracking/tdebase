@@ -163,7 +163,7 @@ void KonqSidebarDirTreeItem::itemSelected()
         bInTrash = true;
 
     TQMimeSource *data = TQApplication::tqclipboard()->data();
-    bool paste = ( data->tqencodedData( data->format() ).size() != 0 );
+    bool paste = ( data->encodedData( data->format() ).size() != 0 );
 
     tree()->enableActions( true, true, paste, true && !bInTrash, true, true );
 }

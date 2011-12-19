@@ -93,7 +93,7 @@ KasBar::KasBar( Orientation o, TQWidget *parent, const char *name, WFlags f )
      rootPix( 0 ),
      enableTint_( false ),
      tintAmount_( 0.1 ), 
-     tintColour_( tqcolorGroup().mid() ),
+     tintColour_( colorGroup().mid() ),
      useMask_( true ),
      res(0)
 {
@@ -122,7 +122,7 @@ KasBar::KasBar( Orientation o, KasBar *master, TQWidget *parent, const char *nam
      rootPix( 0 ),
      enableTint_( false ),
      tintAmount_( 0.1 ), 
-     tintColour_( tqcolorGroup().mid() ),
+     tintColour_( colorGroup().mid() ),
      useMask_( true ),
      res(0)
 {
@@ -375,7 +375,7 @@ void KasBar::setDetached( bool detach )
     emit detachedChanged( detached );
 }
 
-TQSize KasBar::tqsizeHint( Orientation o,  TQSize sz )
+TQSize KasBar::sizeHint( Orientation o,  TQSize sz )
 {
     if ( o == Qt::Horizontal )
 	setBoxesPerLine( sz.width() / itemExtent() );
@@ -414,7 +414,7 @@ void KasBar::updateLayout()
     if ( !isUpdatesEnabled() )
 	return;
     bool updates = isUpdatesEnabled();
-    tqsetUpdatesEnabled( false );
+    setUpdatesEnabled( false );
 
 // This is for testing a rectangular layout
 //    boxesPerLine_ = (uint) ceil(sqrt( items.count() ));
@@ -443,9 +443,9 @@ void KasBar::updateLayout()
        resize( sz );
    }
 
-   tqsetUpdatesEnabled( updates );
+   setUpdatesEnabled( updates );
 
-   TQWidget *top = tqtopLevelWidget();
+   TQWidget *top = topLevelWidget();
    TQRegion mask;
 
    KasItem *i;

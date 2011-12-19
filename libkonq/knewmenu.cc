@@ -545,7 +545,7 @@ void KURLDesktopFileDlg::initDialog( const TQString& textFileName, const TQStrin
 
     TQLabel * label = new TQLabel( textFileName, fileNameBox );
     m_leFileName = new KLineEdit( fileNameBox, 0L );
-    m_leFileName->setMinimumWidth(m_leFileName->tqsizeHint().width() * 3);
+    m_leFileName->setMinimumWidth(m_leFileName->sizeHint().width() * 3);
     label->setBuddy(m_leFileName);  // please "scheck" style
     m_leFileName->setText( defaultName );
     m_leFileName->setSelection(0, m_leFileName->text().length()); // autoselect
@@ -559,7 +559,7 @@ void KURLDesktopFileDlg::initDialog( const TQString& textFileName, const TQStrin
     m_urlRequester = new KURLRequester( defaultUrl, urlBox, "urlRequester" );
     m_urlRequester->setMode( KFile::File | KFile::Directory );
 
-    m_urlRequester->setMinimumWidth( m_urlRequester->tqsizeHint().width() * 3 );
+    m_urlRequester->setMinimumWidth( m_urlRequester->sizeHint().width() * 3 );
     connect( m_urlRequester->lineEdit(), TQT_SIGNAL(textChanged(const TQString&)),
              TQT_SLOT(slotURLTextChanged(const TQString&)) );
     label->setBuddy(m_urlRequester);  // please "scheck" style

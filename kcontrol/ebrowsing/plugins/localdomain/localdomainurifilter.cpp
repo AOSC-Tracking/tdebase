@@ -41,7 +41,7 @@ LocalDomainURIFilter::LocalDomainURIFilter( TQObject *parent, const char *name,
     : KURIFilterPlugin( parent, name ? name : "localdomainurifilter", 1.0 ),
       DCOPObject( "LocalDomainURIFilterIface" ),
       last_time( 0 ),
-      m_hostPortPattern( TQString::tqfromLatin1(HOSTPORT_PATTERN) )
+      m_hostPortPattern( TQString::fromLatin1(HOSTPORT_PATTERN) )
 {
     configure();
 }
@@ -56,7 +56,7 @@ bool LocalDomainURIFilter::filterURI( KURIFilterData& data ) const
     if( m_hostPortPattern.exactMatch( cmd ) && 
         isLocalDomainHost( cmd ) )
     {
-        cmd.prepend( TQString::tqfromLatin1("http://") );
+        cmd.prepend( TQString::fromLatin1("http://") );
         setFilteredURI( data, KURL( cmd ) );
         setURIType( data, KURIFilterData::NET_PROTOCOL );
         
@@ -76,7 +76,7 @@ bool LocalDomainURIFilter::isLocalDomainHost( TQString& cmd ) const
 
     if( !(host == last_host && last_time > time( NULL ) - 5 ) ) {
 
-        TQString helper = KStandardDirs::findExe(TQString::tqfromLatin1( "klocaldomainurifilterhelper" ));
+        TQString helper = KStandardDirs::findExe(TQString::fromLatin1( "klocaldomainurifilterhelper" ));
         if( helper.isEmpty())
             return last_result = false;
 

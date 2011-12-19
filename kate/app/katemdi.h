@@ -146,7 +146,7 @@ class ToolView : public TQVBox
 
     Sidebar *sidebar () { return m_sidebar; }
 
-    void tqsetVisible (bool vis);
+    void setVisible (bool vis);
 
   public:
     bool visible () const;

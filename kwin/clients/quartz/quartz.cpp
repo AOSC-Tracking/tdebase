@@ -291,18 +291,18 @@ void QuartzHandler::drawBlocks( KPixmap *pi, KPixmap &p, const TQColor &c1, cons
 void QuartzHandler::createPixmaps()
 {
     // Obtain titlebar blend colours, and create the block stuff on pixmaps.
-    TQColorGroup g2 = options()->tqcolorGroup(ColorTitleBlend, true);
+    TQColorGroup g2 = options()->colorGroup(ColorTitleBlend, true);
     TQColor c2 = g2.background();
-    g2 = options()->tqcolorGroup(ColorTitleBar, true );
+    g2 = options()->colorGroup(ColorTitleBar, true );
     TQColor c = g2.background().light(130);
 
 	titleBlocks = new KPixmap();
     titleBlocks->resize( normalTitleHeight*25/18, normalTitleHeight );
     drawBlocks( titleBlocks, *titleBlocks, c, c2 );
 
-    g2 = options()->tqcolorGroup(ColorTitleBlend, false);
+    g2 = options()->colorGroup(ColorTitleBlend, false);
     c2 = g2.background();
-    g2 = options()->tqcolorGroup(ColorTitleBar, false );
+    g2 = options()->colorGroup(ColorTitleBar, false );
     c = g2.background().light(130);
 
 	ititleBlocks = new KPixmap();
@@ -313,9 +313,9 @@ void QuartzHandler::createPixmaps()
 	TQColorGroup g;
 	TQPainter p;
 
-	g = options()->tqcolorGroup( onAllDesktopsButtonOnLeft ? ColorTitleBar : ColorTitleBlend, true );
+	g = options()->colorGroup( onAllDesktopsButtonOnLeft ? ColorTitleBar : ColorTitleBlend, true );
 	c = onAllDesktopsButtonOnLeft ? TQColor(g.background().light(130)) : g.background();
-	g2 = options()->tqcolorGroup( ColorButtonBg, true );
+	g2 = options()->colorGroup( ColorButtonBg, true );
 
 	pinUpPix = new KPixmap();
 	pinUpPix->resize(16, 16);
@@ -335,9 +335,9 @@ void QuartzHandler::createPixmaps()
 
 
 	// Inactive pins
-	g = options()->tqcolorGroup( onAllDesktopsButtonOnLeft ? ColorTitleBar : ColorTitleBlend, false );
+	g = options()->colorGroup( onAllDesktopsButtonOnLeft ? ColorTitleBar : ColorTitleBlend, false );
 	c = onAllDesktopsButtonOnLeft ? TQColor(g.background().light(130)) : g.background();
-	g2 = options()->tqcolorGroup( ColorButtonBg, false );
+	g2 = options()->colorGroup( ColorButtonBg, false );
 
 	ipinUpPix = new KPixmap();
 	ipinUpPix->resize(16, 16);
@@ -675,9 +675,9 @@ void QuartzClient::paintEvent( TQPaintEvent* )
     // Draw part of the frame that is the title color
 
 	if( coloredFrame )
-    	g = options()->tqcolorGroup(ColorTitleBar, isActive());
+    	g = options()->colorGroup(ColorTitleBar, isActive());
 	else
-		g = options()->tqcolorGroup(ColorFrame, isActive());
+		g = options()->colorGroup(ColorFrame, isActive());
 
     // Draw outer highlights and lowlights
     p.setPen( g.light().light(120) );

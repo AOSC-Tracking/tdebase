@@ -110,7 +110,7 @@
                     <verstretch>1</verstretch>
                 </sizepolicy>
             </property>
-            <property name="tqmaximumSize">
+            <property name="maximumSize">
                 <size>
                     <width>32767</width>
                     <height>32767</height>
@@ -141,7 +141,7 @@
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>284</width>
                             <height>20</height>

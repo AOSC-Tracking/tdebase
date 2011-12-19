@@ -62,7 +62,7 @@ KLocaleApplication::KLocaleApplication(TQWidget *parent, const char* /*name*/,
   m_nullConfig = new KConfig(TQString::null, false, false);
   m_globalConfig = new KConfig(TQString::null, false, true);
 
-  m_locale = new KLocale(TQString::tqfromLatin1("kcmlocale"), m_nullConfig);
+  m_locale = new KLocale(TQString::fromLatin1("kcmlocale"), m_nullConfig);
   TQVBoxLayout *l = new TQVBoxLayout(this, 0, KDialog::spacingHint());
   l->setAutoAdd(TRUE);
 
@@ -162,7 +162,7 @@ void KLocaleApplication::load( bool useDefaults )
 {
 	m_globalConfig->setReadDefaults( useDefaults );
 	m_globalConfig->reparseConfiguration();
-	*m_locale = KLocale(TQString::tqfromLatin1("kcmlocale"), m_globalConfig);
+	*m_locale = KLocale(TQString::fromLatin1("kcmlocale"), m_globalConfig);
 	
 	emit localeChanged();
 	emit languageChanged();
@@ -180,7 +180,7 @@ void KLocaleApplication::save()
                             "language of all programs, you will have to "
                             "logout first."),
                            m_locale->translate("Applying Language Settings"),
-                           TQString::tqfromLatin1("LanguageChangesApplyOnlyToNewlyStartedPrograms"));
+                           TQString::fromLatin1("LanguageChangesApplyOnlyToNewlyStartedPrograms"));
   // restore the old global locale
   KGlobal::_locale = lsave;
 

@@ -302,7 +302,7 @@ KMenu::KMenu()
     m_searchInternet->setPixmap(0,icon);
     setTabOrder(m_kcommand, m_searchResultsWidget);
 
-    m_kerryInstalled = !KStandardDirs::findExe(TQString::tqfromLatin1("kerry")).isEmpty();
+    m_kerryInstalled = !KStandardDirs::findExe(TQString::fromLatin1("kerry")).isEmpty();
     m_isShowing = false;
 
     if (!m_kerryInstalled) {
@@ -421,7 +421,7 @@ void KMenu::setupUi()
 {
     m_stacker = new TQWidgetStack( this, "m_stacker" );
     m_stacker->setGeometry( TQRect( 90, 260, 320, 220 ) );
-    m_stacker->tqsetSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType)3, (TQSizePolicy::SizeType)3, 1, 1, m_stacker->sizePolicy().hasHeightForWidth() ) );
+    m_stacker->setSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType)3, (TQSizePolicy::SizeType)3, 1, 1, m_stacker->sizePolicy().hasHeightForWidth() ) );
     m_stacker->setPaletteBackgroundColor( TQColor( 255, 255, 255 ) );
    // m_stacker->setFocusPolicy( TQ_StrongFocus );
     m_stacker->setLineWidth( 0 );
@@ -522,7 +522,7 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
                 m_sloppySourceClicked = true;
 
             if (!m_sloppyTimer.isActive() || m_sloppySource != raiseRect) {
-                int timeout= tqstyle().tqstyleHint(TQStyle::SH_PopupMenu_SubMenuPopupDelay);
+                int timeout= tqstyle().styleHint(TQStyle::SH_PopupMenu_SubMenuPopupDelay);
                 if (m_sloppySourceClicked)
                     timeout = 3000;
                 m_sloppyTimer.start(timeout);
@@ -1699,14 +1699,14 @@ void KMenu::setOrientation(MenuOrientation orientation)
         TQWidget *footer = m_footer->mainWidget();
         TQPixmap pix( 64, footer->height() );
         TQPainter p( &pix );
-        p.fillRect( 0, 0, 64, footer->height(), m_branding->tqcolorGroup().brush( TQColorGroup::Base ) );
+        p.fillRect( 0, 0, 64, footer->height(), m_branding->colorGroup().brush( TQColorGroup::Base ) );
         p.fillRect( 0, m_orientation == BottomUp ? footer->height() - 2 : 0,
                 64, 3, KNewButton::self()->borderColor() );
         p.end();
         footer->setPaletteBackgroundPixmap( pix );
     }
 
-    resizeEvent(new TQResizeEvent(tqsizeHint(), tqsizeHint()));
+    resizeEvent(new TQResizeEvent(sizeHint(), sizeHint()));
 }
 
 void KMenu::showMenu()
@@ -1762,7 +1762,7 @@ void KMenu::paintEvent(TQPaintEvent * e)
 
     const BackgroundMode bgmode = backgroundMode();
     const TQColorGroup::ColorRole crole = TQPalette::backgroundRoleFromMode( bgmode );
-    p.setBrush( tqcolorGroup().brush( crole ) );
+    p.setBrush( colorGroup().brush( crole ) );
 
     p.drawRect( 0, 0, width(), height() );
     int ypos = m_search->mainWidget()->geometry().bottom();
@@ -1923,7 +1923,7 @@ void KMenu::createNewProgramList()
     m_seenPrograms = KickerSettings::firstSeenApps();
     m_newInstalledPrograms.clear();
 
-    m_tqcurrentDate = TQDate::currentDate().toString(Qt::ISODate);
+    m_currentDate = TQDate::currentDate().toString(Qt::ISODate);
 
     bool initialize = (m_seenPrograms.count() == 0);
 
@@ -1978,7 +1978,7 @@ void KMenu::createNewProgramList(TQString relPath)
                             if (!found) {
                                 m_seenProgramsChanged=true;
                                 m_seenPrograms+=shortStorageId;
-                                m_seenPrograms+=m_tqcurrentDate;
+                                m_seenPrograms+=m_currentDate;
                                 if (m_newInstalledPrograms.find(s->storageId())==m_newInstalledPrograms.end())
                                   m_newInstalledPrograms+=s->storageId();
                             }
@@ -2744,7 +2744,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
         m_popupPath.path = kitem->path();
         m_popupPath.icon = kitem->icon();
 
-        if (m_popupPath.path.startsWith(locateLocal("data", TQString::tqfromLatin1("RecentDocuments/")))) {
+        if (m_popupPath.path.startsWith(locateLocal("data", TQString::fromLatin1("RecentDocuments/")))) {
                KDesktopFile df(m_popupPath.path,true);
                m_popupPath.path=df.readURL();
         }
@@ -2936,7 +2936,7 @@ void KMenu::slotContextMenu(int selected)
         case EditMenu:
 	    accept();
             proc = new KProcess(TQT_TQOBJECT(this));
-            *proc << KStandardDirs::findExe(TQString::tqfromLatin1("kmenuedit"));
+            *proc << KStandardDirs::findExe(TQString::fromLatin1("kmenuedit"));
             *proc << "/"+m_popupPath.menuPath.section('/',-200,-2) << m_popupPath.menuPath.section('/', -1);
             proc->start();
 	    break;
@@ -3074,24 +3074,24 @@ void KMenu::resizeEvent ( TQResizeEvent * e )
         // put the search widget at the top of the menu and give it its desired
         // height
         m_search->mainWidget()->setGeometry( 0, ypos, width(),
-                m_search->tqminimumSize().height() );
-        left_height -= m_search->tqminimumSize().height();
-        ypos += m_search->tqminimumSize().height();
+                m_search->minimumSize().height() );
+        left_height -= m_search->minimumSize().height();
+        ypos += m_search->minimumSize().height();
 
         // place the footer widget at the bottom of the menu and give it its desired
         // height
-        m_footer->mainWidget()->setGeometry( 0, height() - m_footer->tqminimumSize().height(),
-                width(), m_footer->tqminimumSize().height() );
-        left_height -= m_footer->tqminimumSize().height();
+        m_footer->mainWidget()->setGeometry( 0, height() - m_footer->minimumSize().height(),
+                width(), m_footer->minimumSize().height() );
+        left_height -= m_footer->minimumSize().height();
 
         // place the button box above the footer widget, horizontal placement
         // has the width of the edge graphics subtracted
         m_tabBar->setGeometry(button_box_left.width(),
-                height() - m_footer->tqminimumSize().height() -
-                m_tabBar->tqsizeHint().height(),
+                height() - m_footer->minimumSize().height() -
+                m_tabBar->sizeHint().height(),
                 width() - button_box_left.width(),
-                m_tabBar->tqsizeHint().height() );
-        left_height -= m_tabBar->tqsizeHint().height();
+                m_tabBar->sizeHint().height() );
+        left_height -= m_tabBar->sizeHint().height();
 
         // place the main (stacker) widget below the search widget,
         // in the remaining vertical space
@@ -3105,28 +3105,28 @@ void KMenu::resizeEvent ( TQResizeEvent * e )
         // place the 'footer' widget at the top of the menu and give it
         // its desired height
         m_footer->mainWidget()->setGeometry( 0,
-                ypos /*height() - m_footer->tqminimumSize().height()*/,
+                ypos /*height() - m_footer->minimumSize().height()*/,
                 width(),
-                m_footer->tqminimumSize().height() );
-        ypos += m_footer->tqminimumSize().height();
-        left_height -= m_footer->tqminimumSize().height();
+                m_footer->minimumSize().height() );
+        ypos += m_footer->minimumSize().height();
+        left_height -= m_footer->minimumSize().height();
 
         // place the button box next at the top of the menu.
         // has the width of the edge graphics subtracted
         m_tabBar->setGeometry(button_box_left.width(), ypos, width() - button_box_left.width(),
-                m_tabBar->tqsizeHint().height());
+                m_tabBar->sizeHint().height());
 
-        ypos += m_tabBar->tqsizeHint().height();
-        left_height -= m_tabBar->tqsizeHint().height();
+        ypos += m_tabBar->sizeHint().height();
+        left_height -= m_tabBar->sizeHint().height();
 
         // put the search widget above the footer widget
         // height
         m_search->mainWidget()->setGeometry( 0,
-                height() - m_search->tqminimumSize().height(),
+                height() - m_search->minimumSize().height(),
                 width(),
-                m_search->tqminimumSize().height()
+                m_search->minimumSize().height()
                 );
-        left_height -= m_search->tqminimumSize().height();
+        left_height -= m_search->minimumSize().height();
 
         // place the main (stacker) widget below the button box,
         // in the remaining vertical space
@@ -3167,14 +3167,14 @@ void KMenu::mouseMoveEvent ( TQMouseEvent * e )
     if ( hasMouseTracking() && m_isresizing ) {
         m_stacker->setMinimumSize( TQSize(0, 0) );
         m_stacker->setMaximumSize( TQSize(32000, 32000) );
-        int newWidth = QMAX( e->x() - x(), tqminimumSizeHint().width() );
+        int newWidth = QMAX( e->x() - x(), minimumSizeHint().width() );
         if ( m_orientation == BottomUp ) {
-          int newHeight = QMAX( height() - e->y(), tqminimumSizeHint().height() + 10 );
+          int newHeight = QMAX( height() - e->y(), minimumSizeHint().height() + 10 );
           int newY = y() + height() - newHeight;
           setGeometry( x(), newY, newWidth, newHeight);
         }
         else {
-          setGeometry( x(), y(), newWidth, QMAX( e->y(), tqminimumSizeHint().height() + 10 ));
+          setGeometry( x(), y(), newWidth, QMAX( e->y(), minimumSizeHint().height() + 10 ));
         }
     }
 }
@@ -3331,7 +3331,7 @@ void KMenu::updateRecentlyUsedApps(KService::Ptr &service)
     RecentlyLaunchedApps::the().m_bNeedToUpdate = true;
 }
 
-TQSize KMenu::tqsizeHint() const
+TQSize KMenu::sizeHint() const
 {
 #warning FIXME
     // this should be only for the inner area so layout changes do not break it
@@ -3339,28 +3339,28 @@ TQSize KMenu::tqsizeHint() const
 
     const int height = kMin(KickerSettings::kMenuHeight(), TQApplication::desktop()->screen()->height()-50);
     TQSize wanted(width, height);
-    kdDebug() << "show " << tqminimumSizeHint() << " " << m_stacker->tqminimumSizeHint() << " "
-              << m_searchFrame->tqminimumSizeHint() << " " << wanted << endl;
+    kdDebug() << "show " << minimumSizeHint() << " " << m_stacker->minimumSizeHint() << " "
+              << m_searchFrame->minimumSizeHint() << " " << wanted << endl;
     bool isDefault = wanted.isNull();
-    wanted = wanted.expandedTo(tqminimumSizeHint());
+    wanted = wanted.expandedTo(minimumSizeHint());
     if ( isDefault )
-        wanted.setHeight( wanted.height() + ( m_favoriteView->goodHeight() - m_stacker->tqminimumSizeHint().height() ) );
+        wanted.setHeight( wanted.height() + ( m_favoriteView->goodHeight() - m_stacker->minimumSizeHint().height() ) );
 
     return wanted;
 }
 
-TQSize KMenu::tqminimumSizeHint() const
+TQSize KMenu::minimumSizeHint() const
 {
     TQSize minsize;
-    minsize.setWidth( minsize.width() + m_tabBar->tqsizeHint().width() );
+    minsize.setWidth( minsize.width() + m_tabBar->sizeHint().width() );
     minsize.setWidth( QMAX( minsize.width(),
-                            m_search->tqminimumSize().width() ) );
+                            m_search->minimumSize().width() ) );
     minsize.setWidth( QMAX( minsize.width(),
-                            m_search->tqminimumSize().width() ) );
+                            m_search->minimumSize().width() ) );
 
     minsize.setHeight( minsize.height() +
-                       m_search->tqminimumSize().height() +
-                       m_footer->tqminimumSize().height() +
+                       m_search->minimumSize().height() +
+                       m_footer->minimumSize().height() +
                        180 ); // 180 is a very rough guess for 32 icon size
     return minsize;
 }
@@ -3558,7 +3558,7 @@ void KMenu::slotFavDropped(TQDropEvent * ev, TQListViewItem *after )
         else
         {
             TQString uri = item.m_path;
-            if (uri.startsWith(locateLocal("data", TQString::tqfromLatin1("RecentDocuments/")))) {
+            if (uri.startsWith(locateLocal("data", TQString::fromLatin1("RecentDocuments/")))) {
                KDesktopFile df(uri,true);
                uri=df.readURL();
             }

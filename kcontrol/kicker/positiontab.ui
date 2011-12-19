@@ -66,7 +66,7 @@
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>342</width>
                             <height>20</height>
@@ -104,7 +104,7 @@
                             <property name="sizeType">
                                 <enum>Expanding</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>20</width>
                                     <height>0</height>
@@ -123,7 +123,7 @@
                                     <verstretch>0</verstretch>
                                 </sizepolicy>
                             </property>
-                            <property name="tqminimumSize">
+                            <property name="minimumSize">
                                 <size>
                                     <width>151</width>
                                     <height>115</height>
@@ -149,7 +149,7 @@
                             <property name="sizeType">
                                 <enum>Expanding</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>20</width>
                                     <height>0</height>
@@ -176,7 +176,7 @@
                             <property name="sizeType">
                                 <enum>Expanding</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>20</width>
                                     <height>0</height>
@@ -235,7 +235,7 @@
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>0</width>
                             <height>101</height>
@@ -357,7 +357,7 @@ how it is positioned on the screen and how much of the screen it should use.</st
             <property name="sizeType">
                 <enum>Expanding</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>16</width>
                     <height>16</height>
@@ -426,7 +426,7 @@ how it is positioned on the screen and how much of the screen it should use.</st
                     <property name="sizeType">
                         <enum>Fixed</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>30</width>
                             <height>40</height>
@@ -538,7 +538,7 @@ how it is positioned on the screen and how much of the screen it should use.</st
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>20</width>
                             <height>0</height>
@@ -555,7 +555,7 @@ how it is positioned on the screen and how much of the screen it should use.</st
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>21</width>
                             <height>0</height>
@@ -590,13 +590,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
@@ -624,13 +624,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
@@ -658,13 +658,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
@@ -702,13 +702,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
@@ -736,13 +736,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
@@ -770,13 +770,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
@@ -814,13 +814,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
@@ -848,13 +848,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
@@ -882,13 +882,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>32</width>
                                             <height>16</height>
@@ -926,13 +926,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
@@ -960,13 +960,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
@@ -994,13 +994,13 @@ how it is positioned on the screen and how much of the screen it should use.</st
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>16</width>
                                             <height>24</height>

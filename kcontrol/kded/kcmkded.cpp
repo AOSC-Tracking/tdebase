@@ -149,7 +149,7 @@ void KDEDConfig::load( bool useDefaults ) {
 
 	TQStringList files;
 	KGlobal::dirs()->findAllResources( "services",
-			TQString::tqfromLatin1( "kded/*.desktop" ),
+			TQString::fromLatin1( "kded/*.desktop" ),
 			true, true, files );
 
 	TQListViewItem* item = 0L;
@@ -187,7 +187,7 @@ void KDEDConfig::save() {
 
 	TQStringList files;
 	KGlobal::dirs()->findAllResources( "services",
-			TQString::tqfromLatin1( "kded/*.desktop" ),
+			TQString::fromLatin1( "kded/*.desktop" ),
 			true, true, files );
 
 	KConfig kdedrc("kdedrc", false, false);

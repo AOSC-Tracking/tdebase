@@ -20,7 +20,7 @@
             <verstretch>0</verstretch>
         </sizepolicy>
     </property>
-    <property name="tqminimumSize">
+    <property name="minimumSize">
         <size>
             <width>0</width>
             <height>0</height>
@@ -204,7 +204,7 @@ is configured with 'Browse local network' option above.</string>
                                 <property name="sizeType">
                                     <enum>Expanding</enum>
                                 </property>
-                                <property name="tqsizeHint">
+                                <property name="sizeHint">
                                     <size>
                                         <width>130</width>
                                         <height>21</height>
@@ -264,7 +264,7 @@ is configured with 'Browse local network' option above.</string>
                                 <property name="sizeType">
                                     <enum>Expanding</enum>
                                 </property>
-                                <property name="tqsizeHint">
+                                <property name="sizeHint">
                                     <size>
                                         <width>90</width>
                                         <height>20</height>
@@ -281,7 +281,7 @@ is configured with 'Browse local network' option above.</string>
                                 <property name="sizeType">
                                     <enum>Expanding</enum>
                                 </property>
-                                <property name="tqsizeHint">
+                                <property name="sizeHint">
                                     <size>
                                         <width>90</width>
                                         <height>21</height>
@@ -300,7 +300,7 @@ is configured with 'Browse local network' option above.</string>
                         <property name="sizeType">
                             <enum>Expanding</enum>
                         </property>
-                        <property name="tqsizeHint">
+                        <property name="sizeHint">
                             <size>
                                 <width>50</width>
                                 <height>110</height>

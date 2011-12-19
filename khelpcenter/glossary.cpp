@@ -49,7 +49,7 @@ class SectionItem : public KListViewItem
 		{
 				KListViewItem::setOpen(open);
 				
-				setPixmap( 0, SmallIcon( TQString::tqfromLatin1( open ? "contents" : "contents2" ) ) );
+				setPixmap( 0, SmallIcon( TQString::fromLatin1( open ? "contents" : "contents2" ) ) );
 
 		}
 };
@@ -92,7 +92,7 @@ Glossary::Glossary( TQWidget *parent ) : KListView( parent )
 
 	m_cacheFile = locateLocal( "cache", "help/glossary.xml" );
 
-	m_sourceFile = View::View::langLookup( TQString::tqfromLatin1( "khelpcenter/glossary/index.docbook" ) );
+	m_sourceFile = View::View::langLookup( TQString::fromLatin1( "khelpcenter/glossary/index.docbook" ) );
 
 	m_config = kapp->config();
 	m_config->setGroup( "Glossary" );
@@ -150,10 +150,10 @@ void Glossary::rebuildGlossaryCache()
 	connect( meinproc, TQT_SIGNAL( processExited( KProcess * ) ),
 	         this, TQT_SLOT( meinprocExited( KProcess * ) ) );
 
-	*meinproc << locate( "exe", TQString::tqfromLatin1( "meinproc" ) );
-	*meinproc << TQString::tqfromLatin1( "--output" ) << m_cacheFile;
-	*meinproc << TQString::tqfromLatin1( "--stylesheet" )
-	          << locate( "data", TQString::tqfromLatin1( "khelpcenter/glossary.xslt" ) );
+	*meinproc << locate( "exe", TQString::fromLatin1( "meinproc" ) );
+	*meinproc << TQString::fromLatin1( "--output" ) << m_cacheFile;
+	*meinproc << TQString::fromLatin1( "--stylesheet" )
+	          << locate( "data", TQString::fromLatin1( "khelpcenter/glossary.xslt" ) );
 	*meinproc << m_sourceFile;
 
 	meinproc->start( KProcess::NotifyOnExit );
@@ -189,21 +189,21 @@ void Glossary::buildGlossaryTree()
 	if ( !doc.setContent( &cacheFile ) )
 		return;
 
-	TQDomNodeList sectionNodes = doc.documentElement().elementsByTagName( TQString::tqfromLatin1( "section" ) );
+	TQDomNodeList sectionNodes = doc.documentElement().elementsByTagName( TQString::fromLatin1( "section" ) );
 	for ( unsigned int i = 0; i < sectionNodes.count(); i++ ) {
 		TQDomElement sectionElement = sectionNodes.item( i ).toElement();
-		TQString title = sectionElement.attribute( TQString::tqfromLatin1( "title" ) );
+		TQString title = sectionElement.attribute( TQString::fromLatin1( "title" ) );
 		SectionItem *topicSection = new SectionItem( m_byTopicItem, title );
 
-		TQDomNodeList entryNodes = sectionElement.elementsByTagName( TQString::tqfromLatin1( "entry" ) );
+		TQDomNodeList entryNodes = sectionElement.elementsByTagName( TQString::fromLatin1( "entry" ) );
 		for ( unsigned int j = 0; j < entryNodes.count(); j++ ) {
 			TQDomElement entryElement = entryNodes.item( j ).toElement();
 			
-			TQString entryId = entryElement.attribute( TQString::tqfromLatin1( "id" ) );
+			TQString entryId = entryElement.attribute( TQString::fromLatin1( "id" ) );
 			if ( entryId.isNull() )
 				continue;
 				
-			TQDomElement termElement = childElement( entryElement, TQString::tqfromLatin1( "term" ) );
+			TQDomElement termElement = childElement( entryElement, TQString::fromLatin1( "term" ) );
 			TQString term = termElement.text().simplifyWhiteSpace();
 
 			EntryItem *entry = new EntryItem(topicSection, term, entryId );
@@ -221,19 +221,19 @@ void Glossary::buildGlossaryTree()
 
 			new EntryItem( alphabSection, term, entryId );
 
-			TQDomElement definitionElement = childElement( entryElement, TQString::tqfromLatin1( "definition" ) );
+			TQDomElement definitionElement = childElement( entryElement, TQString::fromLatin1( "definition" ) );
 			TQString definition = definitionElement.text().simplifyWhiteSpace();
 
 			GlossaryEntryXRef::List seeAlso;
 
-			TQDomElement referencesElement = childElement( entryElement, TQString::tqfromLatin1( "references" ) );
-			TQDomNodeList referenceNodes = referencesElement.elementsByTagName( TQString::tqfromLatin1( "reference" ) );
+			TQDomElement referencesElement = childElement( entryElement, TQString::fromLatin1( "references" ) );
+			TQDomNodeList referenceNodes = referencesElement.elementsByTagName( TQString::fromLatin1( "reference" ) );
 			if ( referenceNodes.count() > 0 )
 				for ( unsigned int k = 0; k < referenceNodes.count(); k++ ) {
 					TQDomElement referenceElement = referenceNodes.item( k ).toElement();
 
-					TQString term = referenceElement.attribute( TQString::tqfromLatin1( "term" ) );
-					TQString id = referenceElement.attribute( TQString::tqfromLatin1( "id" ) );
+					TQString term = referenceElement.attribute( TQString::fromLatin1( "term" ) );
+					TQString id = referenceElement.attribute( TQString::fromLatin1( "id" ) );
 					
 					seeAlso += GlossaryEntryXRef( term, id );
 				}
@@ -279,10 +279,10 @@ TQString Glossary::entryToHtml( const GlossaryEntry &entry )
         GlossaryEntryXRef::List::ConstIterator it = seeAlsos.begin();
         GlossaryEntryXRef::List::ConstIterator end = seeAlsos.end();
         for (; it != end; ++it) {
-            seeAlso += TQString::tqfromLatin1("<a href=\"glossentry:");
+            seeAlso += TQString::fromLatin1("<a href=\"glossentry:");
             seeAlso += (*it).id();
-            seeAlso += TQString::tqfromLatin1("\">") + (*it).term();
-            seeAlso += TQString::tqfromLatin1("</a>, ");
+            seeAlso += TQString::fromLatin1("\">") + (*it).term();
+            seeAlso += TQString::fromLatin1("</a>, ");
         }
         seeAlso = seeAlso.left(seeAlso.length() - 2);
     }

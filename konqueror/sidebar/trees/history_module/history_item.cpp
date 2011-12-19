@@ -129,7 +129,7 @@ void KonqSidebarHistoryItem::paintCell( TQPainter *p, const TQColorGroup & cg,
 				 int column, int width, int tqalignment )
 {
     TQDateTime dt;
-    TQDateTime current = TQDateTime::tqcurrentDateTime();
+    TQDateTime current = TQDateTime::currentDateTime();
 
     if ( s_settings->m_metricYoungerThan == KonqSidebarHistorySettings::DAYS )
 	dt = TQT_TQDATETIME_OBJECT(current.addDays( - s_settings->m_valueYoungerThan ));

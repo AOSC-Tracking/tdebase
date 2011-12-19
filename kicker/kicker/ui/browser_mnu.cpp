@@ -429,7 +429,7 @@ void PanelBrowserMenu::dragMoveEvent(TQDragMoveEvent *ev)
 void PanelBrowserMenu::dropEvent( TQDropEvent *ev )
 {
     KURL u( path() );
-    KFileItem item( u, TQString::tqfromLatin1( "inode/directory" ),  KFileItem::Unknown );
+    KFileItem item( u, TQString::fromLatin1( "inode/directory" ),  KFileItem::Unknown );
     KonqOperations::doDrop( &item, u, ev, this );
     KPanelMenu::dropEvent(ev);
     // ### TODO: Update list

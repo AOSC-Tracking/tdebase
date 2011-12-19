@@ -80,18 +80,18 @@ StatisticsView::StatisticsView(TQWidget *parent,KConfig *config, const char *nam
    hostLe->setText("*");
    
    viewStatistics->setMinimumSize(375,200);
-   connectionsL->setMinimumSize(connectionsL->tqsizeHint());
-   filesL->setMinimumSize(filesL->tqsizeHint());
-   eventL->setMinimumSize(eventL->tqsizeHint());
-   eventCb->setMinimumSize(eventCb->tqsizeHint());
-   hostL->setMinimumSize(hostL->tqsizeHint());
-   hostLe->setMinimumSize(120,hostLe->tqsizeHint().height());
-   serviceL->setMinimumSize(serviceL->tqsizeHint());
-   serviceLe->setMinimumSize(120,serviceLe->tqsizeHint().height());
-   calcButton->setMinimumSize(calcButton->tqsizeHint());
-   clearButton->setMinimumSize(clearButton->tqsizeHint());
-   expandedInfoCb->setMinimumSize(expandedInfoCb->tqsizeHint());
-   expandedUserCb->setMinimumSize(expandedUserCb->tqsizeHint());
+   connectionsL->setMinimumSize(connectionsL->sizeHint());
+   filesL->setMinimumSize(filesL->sizeHint());
+   eventL->setMinimumSize(eventL->sizeHint());
+   eventCb->setMinimumSize(eventCb->sizeHint());
+   hostL->setMinimumSize(hostL->sizeHint());
+   hostLe->setMinimumSize(120,hostLe->sizeHint().height());
+   serviceL->setMinimumSize(serviceL->sizeHint());
+   serviceLe->setMinimumSize(120,serviceLe->sizeHint().height());
+   calcButton->setMinimumSize(calcButton->sizeHint());
+   clearButton->setMinimumSize(clearButton->sizeHint());
+   expandedInfoCb->setMinimumSize(expandedInfoCb->sizeHint());
+   expandedUserCb->setMinimumSize(expandedUserCb->sizeHint());
    
    TQVBoxLayout *topLayout=new TQVBoxLayout(this, KDialog::marginHint(),
       KDialog::spacingHint());

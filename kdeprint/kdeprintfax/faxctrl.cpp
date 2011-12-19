@@ -291,7 +291,7 @@ static TQString replaceTags( const TQString& s, const TQString& tags, KdeprintFa
 				if (v.isEmpty())
 					v = getenv("FAXSERVER");
 				if (v.isEmpty())
-					v = TQString::tqfromLatin1("localhost");
+					v = TQString::fromLatin1("localhost");
 				v = processTag( match, v );
 			}
 			else if (isTag( match, "%page" ))
@@ -491,7 +491,7 @@ void FaxCtrl::filter()
 			m_tempfiles.append(tmp);
 			m_process->clearArguments();
 			*m_process << locate("data","kdeprintfax/anytops") << "-m" << KProcess::quote(locate("data","kdeprintfax/faxfilters"))
-				<< TQString::tqfromLatin1("--mime=%1").arg(mimeType)
+				<< TQString::fromLatin1("--mime=%1").arg(mimeType)
 				<< "-p" << pageSize()
 				<<  KProcess::quote(m_files[0]) << KProcess::quote(tmp);
 			if (!m_process->start(KProcess::NotifyOnExit, KProcess::AllOutput))
@@ -617,7 +617,7 @@ void FaxCtrl::slotPrintLog()
 		KPrinter printer;
 		printer.setDocName( i18n( "Fax log" ) );
 		printer.setDocFileName( "faxlog" );
-		if ( printer.setup( m_logview->tqtopLevelWidget(), i18n( "Fax Log" ) ) )
+		if ( printer.setup( m_logview->topLevelWidget(), i18n( "Fax Log" ) ) )
 		{
 			TQPainter painter( &printer );
 			TQPaintDeviceMetrics metric( &printer );
@@ -634,7 +634,7 @@ void FaxCtrl::slotPrintLog()
 			richText.setWidth( &painter, body.width() );
 			do
 			{
-				richText.draw( &painter, body.left(), body.top(), view, m_logview->tqcolorGroup() );
+				richText.draw( &painter, body.left(), body.top(), view, m_logview->colorGroup() );
 				view.moveBy( 0, body.height() );
 				painter.translate( 0, -body.height() );
 				if ( view.top() >= richText.height() )

@@ -91,7 +91,7 @@ void KlipperApplet::preferences()
 
 void KlipperApplet::help()
 {
-    kapp->invokeHelp(TQString::null, TQString::tqfromLatin1("klipper"));
+    kapp->invokeHelp(TQString::null, TQString::fromLatin1("klipper"));
 }
 
 void KlipperApplet::about()

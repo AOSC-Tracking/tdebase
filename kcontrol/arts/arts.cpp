@@ -499,7 +499,7 @@ void KArtsModule::updateWidgets()
 	if (item >= 0)
 	{
 		audioIO = audioIOList.tqat(item)->name;
-		bool jack = (audioIO == TQString::tqfromLatin1("jack"));
+		bool jack = (audioIO == TQString::fromLatin1("jack"));
 		if(jack)
 		{
 			customRate->setChecked(false);
@@ -620,39 +620,39 @@ TQString KArtsModule::createArgs(bool netTrans,
 	TQString args;
 
 	if(fragmentCount)
-		args += TQString::tqfromLatin1(" -F %1").arg(fragmentCount);
+		args += TQString::fromLatin1(" -F %1").arg(fragmentCount);
 
 	if(fragmentSize)
-		args += TQString::tqfromLatin1(" -S %1").arg(fragmentSize);
+		args += TQString::fromLatin1(" -S %1").arg(fragmentSize);
 
 	if (!audioIO.isEmpty())
-		args += TQString::tqfromLatin1(" -a %1").arg(audioIO);
+		args += TQString::fromLatin1(" -a %1").arg(audioIO);
 
 	if (duplex)
-		args += TQString::tqfromLatin1(" -d");
+		args += TQString::fromLatin1(" -d");
 
 	if (netTrans)
-		args += TQString::tqfromLatin1(" -n");
+		args += TQString::fromLatin1(" -n");
 
 	if (!deviceName.isEmpty())
-		args += TQString::tqfromLatin1(" -D ") + deviceName;
+		args += TQString::fromLatin1(" -D ") + deviceName;
 
 	if (rate)
-		args += TQString::tqfromLatin1(" -r %1").arg(rate);
+		args += TQString::fromLatin1(" -r %1").arg(rate);
 
 	if (bits)
-		args += TQString::tqfromLatin1(" -b %1").arg(bits);
+		args += TQString::fromLatin1(" -b %1").arg(bits);
 
 	if (autoSuspend && suspendTime)
-		args += TQString::tqfromLatin1(" -s %1").arg(suspendTime);
+		args += TQString::fromLatin1(" -s %1").arg(suspendTime);
 
 	if (!addOptions.isEmpty())
 		args += TQChar(' ') + addOptions;
 
-	args += TQString::tqfromLatin1(" -m artsmessage");
-	args += TQString::tqfromLatin1(" -c drkonqi");
-	args += TQString::tqfromLatin1(" -l 3");
-	args += TQString::tqfromLatin1(" -f");
+	args += TQString::fromLatin1(" -m artsmessage");
+	args += TQString::fromLatin1(" -c drkonqi");
+	args += TQString::fromLatin1(" -l 3");
+	args += TQString::fromLatin1(" -f");
 
 	return args;
 }

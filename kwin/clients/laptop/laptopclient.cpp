@@ -157,7 +157,7 @@ static void create_pixmaps()
                                 KPixmapEffect::VerticalGradient);
     }
     // buttons (active/inactive, sunken/unsunken, 2 sizes each)
-    TQColorGroup g = options()->tqcolorGroup(KDecoration::ColorButtonBg, true);
+    TQColorGroup g = options()->colorGroup(KDecoration::ColorButtonBg, true);
     TQColor c = g.background();
     btnPix1 = new KPixmap;
     btnPix1->resize(btnWidth1, titleHeight);
@@ -184,7 +184,7 @@ static void create_pixmaps()
                                 KPixmapEffect::DiagonalGradient);
         KPixmapEffect::gradient(*btnDownPix2, c.dark(130), c.light(120),
                                 KPixmapEffect::DiagonalGradient);
-        g = options()->tqcolorGroup(KDecoration::ColorButtonBg, false);
+        g = options()->colorGroup(KDecoration::ColorButtonBg, false);
         c = g.background();
         KPixmapEffect::gradient(*iBtnPix1, c.light(120), c.dark(130),
                                 KPixmapEffect::DiagonalGradient);
@@ -200,20 +200,20 @@ static void create_pixmaps()
         btnDownPix1->fill(c.rgb());
         btnPix2->fill(c.rgb());
         btnDownPix2->fill(c.rgb());
-        g = options()->tqcolorGroup(KDecoration::ColorButtonBg, false);
+        g = options()->colorGroup(KDecoration::ColorButtonBg, false);
         c = g.background();
         iBtnPix1->fill(c.rgb());
         iBtnDownPix1->fill(c.rgb());
         iBtnPix2->fill(c.rgb());
         iBtnDownPix2->fill(c.rgb());
     }
-    g = options()->tqcolorGroup(KDecoration::ColorButtonBg, true);
+    g = options()->colorGroup(KDecoration::ColorButtonBg, true);
     c = g.background();
     drawButtonFrame(btnPix1, g, false);
     drawButtonFrame(btnDownPix1, g, true);
     drawButtonFrame(btnPix2, g, false);
     drawButtonFrame(btnDownPix2, g, true);
-    g = options()->tqcolorGroup(KDecoration::ColorButtonBg, false);
+    g = options()->colorGroup(KDecoration::ColorButtonBg, false);
     c = g.background();
     drawButtonFrame(iBtnPix1, g, false);
     drawButtonFrame(iBtnDownPix1, g, true);
@@ -314,7 +314,7 @@ void LaptopButton::drawButton(TQPainter *p)
         }
     }
     else{
-        TQColorGroup g = options()->tqcolorGroup(KDecoration::ColorButtonBg, decoration()->isActive());
+        TQColorGroup g = options()->colorGroup(KDecoration::ColorButtonBg, decoration()->isActive());
         int w = width();
         int h = height();
         p->fillRect(1, 1, w-2, h-2, isDown() ? g.mid() : g.button());
@@ -469,7 +469,7 @@ void LaptopClient::captionChange()
 void LaptopClient::paintEvent( TQPaintEvent* )
 {
     TQPainter p(widget());
-    TQColorGroup g = options()->tqcolorGroup(KDecoration::ColorFrame, isActive());
+    TQColorGroup g = options()->colorGroup(KDecoration::ColorFrame, isActive());
 
     TQRect r(widget()->rect());
     p.setPen(Qt::black);
@@ -546,7 +546,7 @@ void LaptopClient::paintEvent( TQPaintEvent* )
 
         p.setFont(options()->font(false, isToolWindow() ));
         TQFontMetrics fm(options()->font(false));
-        g = options()->tqcolorGroup(KDecoration::ColorTitleBar, false);
+        g = options()->colorGroup(KDecoration::ColorTitleBar, false);
         if(iUpperGradient)
             p.drawTiledPixmap(r.x()+((r.width()-fm.width(caption()))/2)-4,
                               r.y(), fm.width(caption())+8, r.height()-1,
@@ -564,7 +564,7 @@ void LaptopClient::paintEvent( TQPaintEvent* )
         p.setPen(options()->color(KDecoration::ColorFont, false));
         p.drawText(r.x(), r.y(), r.width(), r.height()-1,
                    AlignCenter, caption() );
-        g = options()->tqcolorGroup(KDecoration::ColorFrame, true);
+        g = options()->colorGroup(KDecoration::ColorFrame, true);
         p.setPen(g.background());
         p.drawPoint(r.x(), r.y());
         p.drawPoint(r.right(), r.y());
@@ -629,7 +629,7 @@ void LaptopClient::updateActiveBuffer( )
 
     p.setFont(options()->font(true, isToolWindow() ));
     TQFontMetrics fm(options()->font(true));
-    TQColorGroup g = options()->tqcolorGroup(KDecoration::ColorTitleBar, true);
+    TQColorGroup g = options()->colorGroup(KDecoration::ColorTitleBar, true);
     if(aUpperGradient)
         p.drawTiledPixmap(r.x()+((r.width()-fm.width(caption()))/2)-4,
                           r.y(), fm.width(caption())+8, r.height()-1,
@@ -647,7 +647,7 @@ void LaptopClient::updateActiveBuffer( )
     p.setPen(options()->color(KDecoration::ColorFont, true));
     p.drawText(r.x(), r.y(), r.width(), r.height()-1,
                AlignCenter, caption() );
-    g = options()->tqcolorGroup(KDecoration::ColorFrame, true);
+    g = options()->colorGroup(KDecoration::ColorFrame, true);
     p.setPen(g.background());
     p.drawPoint(r.x(), r.y());
     p.drawPoint(r.right(), r.y());

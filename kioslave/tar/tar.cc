@@ -125,7 +125,7 @@ bool ArchiveProtocol::checkNewFile( const KURL & url, TQString & path, KIO::Erro
                     path.truncate( len - 1 );
             }
             else
-                path = TQString::tqfromLatin1("/");
+                path = TQString::fromLatin1("/");
             kdDebug(7109) << "Found. archiveFile=" << archiveFile << " path=" << path << endl;
             break;
         }
@@ -248,9 +248,9 @@ void ArchiveProtocol::listDir( const KURL & url )
 
     if ( path.isEmpty() )
     {
-        KURL redir( url.protocol() + TQString::tqfromLatin1( ":/") );
+        KURL redir( url.protocol() + TQString::fromLatin1( ":/") );
         kdDebug( 7109 ) << "url.path()==" << url.path() << endl;
-        redir.setPath( url.path() + TQString::tqfromLatin1("/") );
+        redir.setPath( url.path() + TQString::fromLatin1("/") );
         kdDebug( 7109 ) << "ArchiveProtocol::listDir: redirection " << redir.url() << endl;
         redirection( redir );
         finished();
@@ -360,7 +360,7 @@ void ArchiveProtocol::stat( const KURL & url )
     const KArchiveEntry* archiveEntry;
     if ( path.isEmpty() )
     {
-        path = TQString::tqfromLatin1( "/" );
+        path = TQString::fromLatin1( "/" );
         archiveEntry = root;
     } else {
         path = TQString::fromLocal8Bit(remoteEncoding()->encode(path));

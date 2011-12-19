@@ -1499,7 +1499,7 @@ bool TaskDrag::canDecode(const TQMimeSource* e)
 
 Task::List TaskDrag::decode( const TQMimeSource* e )
 {
-    TQByteArray data(e->tqencodedData("taskbar/task"));
+    TQByteArray data(e->encodedData("taskbar/task"));
     Task::List tasks;
 
     if (data.size())

@@ -264,7 +264,7 @@ bool Client::manage( Window w, bool isMapped )
         usePosition = true;
     if( !rules()->checkIgnoreGeometry( !usePosition ))
         {
-        bool ignorePPosition = ( options->ignorePositionClasses.contains(TQString::tqfromLatin1(resourceClass())));
+        bool ignorePPosition = ( options->ignorePositionClasses.contains(TQString::fromLatin1(resourceClass())));
 
         if ( ( (xSizeHint.flags & PPosition) && !ignorePPosition ) ||
              (xSizeHint.flags & USPosition) ) 

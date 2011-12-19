@@ -211,7 +211,7 @@ void PanelKMenu::paletteChanged()
     if (!loadSidePixmap())
     {
         sidePixmap = sideTilePixmap = TQPixmap();
-        setMinimumSize( tqsizeHint() );
+        setMinimumSize( sizeHint() );
     }
 }
 
@@ -584,7 +584,7 @@ void PanelKMenu::showMenu()
 
 TQRect PanelKMenu::sideImageRect()
 {
-    return TQStyle::tqvisualRect( TQRect( frameWidth(), frameWidth(), sidePixmap.width(),
+    return TQStyle::visualRect( TQRect( frameWidth(), frameWidth(), sidePixmap.width(),
                                       height() - 2*frameWidth() ), this );
 }
 
@@ -595,21 +595,21 @@ void PanelKMenu::resizeEvent(TQResizeEvent * e)
 
     PanelServiceMenu::resizeEvent(e);
 
-    setFrameRect( TQStyle::tqvisualRect( TQRect( sidePixmap.width(), 0,
+    setFrameRect( TQStyle::visualRect( TQRect( sidePixmap.width(), 0,
                                       width() - sidePixmap.width(), height() ), this ) );
 }
 
 //Workaround Qt3.3.x sizing bug, by ensuring we're always wide enough.
 void PanelKMenu::resize(int width, int height)
 {
-    width = kMax(width, tqmaximumSize().width());
+    width = kMax(width, maximumSize().width());
     PanelServiceMenu::resize(width, height);
 }
 
-TQSize PanelKMenu::tqsizeHint() const
+TQSize PanelKMenu::sizeHint() const
 {
-    TQSize s = PanelServiceMenu::tqsizeHint();
-//    kdDebug(1210) << "PanelKMenu::tqsizeHint()" << endl;
+    TQSize s = PanelServiceMenu::sizeHint();
+//    kdDebug(1210) << "PanelKMenu::sizeHint()" << endl;
 //    kdDebug(1210) << s.width() << ", " << s.height() << endl;
     return s;
 }
@@ -626,7 +626,7 @@ void PanelKMenu::paintEvent(TQPaintEvent * e)
 
     tqstyle().tqdrawPrimitive( TQStyle::PE_PanelPopup, &p,
                            TQRect( 0, 0, width(), height() ),
-                           tqcolorGroup(), TQStyle::Style_Default,
+                           colorGroup(), TQStyle::Style_Default,
                            TQStyleOption( frameWidth(), 0 ) );
 
     TQRect r = sideImageRect();

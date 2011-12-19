@@ -86,7 +86,7 @@ KateDocManager::~KateDocManager ()
       {
         m_metaInfos->setGroup(*it);
         TQDateTime last = m_metaInfos->readDateTimeEntry("Time", def);
-        if (last.daysTo(TQDateTime::tqcurrentDateTime()) > m_daysMetaInfos)
+        if (last.daysTo(TQDateTime::currentDateTime()) > m_daysMetaInfos)
           m_metaInfos->deleteGroup(*it);
       }
       delete def;
@@ -583,7 +583,7 @@ void KateDocManager::saveMetaInfos(Kate::Document *doc)
     m_metaInfos->setGroup(doc->url().prettyURL());
     doc->writeSessionConfig(m_metaInfos);
     m_metaInfos->writeEntry("MD5", (const char *)md5);
-    m_metaInfos->writeEntry("Time", TQDateTime::tqcurrentDateTime());
+    m_metaInfos->writeEntry("Time", TQDateTime::currentDateTime());
     m_metaInfos->sync();
   }
 }

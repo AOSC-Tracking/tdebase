@@ -154,8 +154,8 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	preview = new KDecorationPreview( this );
 	previewLayout->addWidget(preview);
 
-	preview->tqsetSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding);
-	tabWidget->tqsetSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Maximum);
+	preview->setSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding);
+	tabWidget->setSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Maximum);
 
 	// Page 3 (Window Shadows)
 	TQHBox *inactiveShadowColourHBox, *shadowColourHBox;

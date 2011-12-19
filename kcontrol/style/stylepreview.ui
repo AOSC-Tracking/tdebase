@@ -29,7 +29,7 @@
             <property name="sizeType">
                 <enum>Expanding</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>20</width>
                     <height>50</height>
@@ -177,7 +177,7 @@
                                 <property name="sizeType">
                                     <enum>Expanding</enum>
                                 </property>
-                                <property name="tqsizeHint">
+                                <property name="sizeHint">
                                     <size>
                                         <width>40</width>
                                         <height>20</height>
@@ -196,13 +196,13 @@
                                         <verstretch>0</verstretch>
                                     </sizepolicy>
                                 </property>
-                                <property name="tqminimumSize">
+                                <property name="minimumSize">
                                     <size>
                                         <width>0</width>
                                         <height>0</height>
                                     </size>
                                 </property>
-                                <property name="tqmaximumSize">
+                                <property name="maximumSize">
                                     <size>
                                         <width>200</width>
                                         <height>32767</height>
@@ -224,13 +224,13 @@
                                         <verstretch>0</verstretch>
                                     </sizepolicy>
                                 </property>
-                                <property name="tqminimumSize">
+                                <property name="minimumSize">
                                     <size>
                                         <width>0</width>
                                         <height>0</height>
                                     </size>
                                 </property>
-                                <property name="tqmaximumSize">
+                                <property name="maximumSize">
                                     <size>
                                         <width>200</width>
                                         <height>32767</height>
@@ -250,7 +250,7 @@
                                 <property name="sizeType">
                                     <enum>Expanding</enum>
                                 </property>
-                                <property name="tqsizeHint">
+                                <property name="sizeHint">
                                     <size>
                                         <width>30</width>
                                         <height>20</height>

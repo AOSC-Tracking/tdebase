@@ -77,7 +77,7 @@ void DesktopButton::dragEnterEvent( TQDragEnterEvent *ev )
 void DesktopButton::dropEvent( TQDropEvent *ev )
 {
     KURL dPath (  KGlobalSettings::desktopPath() );
-    KFileItem item( dPath, TQString::tqfromLatin1( "inode/directory" ), KFileItem::Unknown );
+    KFileItem item( dPath, TQString::fromLatin1( "inode/directory" ), KFileItem::Unknown );
     KonqOperations::doDrop( &item, dPath, ev, this );
     PanelButton::dropEvent(ev);
 }

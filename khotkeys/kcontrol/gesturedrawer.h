@@ -31,7 +31,7 @@ class GestureDrawer : public TQFrame
 
         void setData(const TQString &data);
 
-        virtual TQSize tqsizeHint() const { return TQSize(30, 30); }
+        virtual TQSize sizeHint() const { return TQSize(30, 30); }
 
     protected:
         void paintEvent(TQPaintEvent *ev);

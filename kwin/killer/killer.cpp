@@ -55,7 +55,7 @@ int main( int argc, char* argv[] )
     bool pid_ok = false;
     pid_t pid = args->getOption( "pid" ).toULong( &pid_ok );
     TQString caption = TQString::fromUtf8( args->getOption( "windowname" ));
-    TQString appname = TQString::tqfromLatin1( args->getOption( "applicationname" ));
+    TQString appname = TQString::fromLatin1( args->getOption( "applicationname" ));
     bool id_ok = false;
     Window id = args->getOption( "wid" ).toULong( &id_ok );
     bool time_ok = false;

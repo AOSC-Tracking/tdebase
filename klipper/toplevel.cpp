@@ -327,7 +327,7 @@ void KlipperWidget::showPopupMenu( TQPopupMenu *menu )
 {
     Q_ASSERT( menu != 0L );
 
-    TQSize size = menu->tqsizeHint(); // geometry is not valid until it's shown
+    TQSize size = menu->sizeHint(); // geometry is not valid until it's shown
     if (bPopupAtMouse) {
         TQPoint g = TQCursor::pos();
         if ( size.height() < g.y() )
@@ -1013,13 +1013,13 @@ TQString KlipperWidget::getClipboardHistoryItem(int i)
 //
 bool KlipperWidget::ignoreClipboardChanges() const
 {
-    TQWidget *tqfocusWidget = tqApp->tqfocusWidget();
-    if ( tqfocusWidget )
+    TQWidget *focusWidget = tqApp->focusWidget();
+    if ( focusWidget )
     {
-        if ( tqfocusWidget->inherits( TQSPINBOX_OBJECT_NAME_STRING ) ||
-             (tqfocusWidget->parentWidget() &&
-              tqfocusWidget->inherits(TQLINEEDIT_OBJECT_NAME_STRING) &&
-              tqfocusWidget->parentWidget()->inherits(TQSPINWIDGET_OBJECT_NAME_STRING)) )
+        if ( focusWidget->inherits( TQSPINBOX_OBJECT_NAME_STRING ) ||
+             (focusWidget->parentWidget() &&
+              focusWidget->inherits(TQLINEEDIT_OBJECT_NAME_STRING) &&
+              focusWidget->parentWidget()->inherits(TQSPINWIDGET_OBJECT_NAME_STRING)) )
         {
             return true;
         }

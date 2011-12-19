@@ -743,7 +743,7 @@ KDisplayConfig::KDisplayConfig(TQWidget *parent, const char *name, const TQStrin
 	m_randrsimple = new KRandrSimpleAPI();
 
 	TQVBoxLayout *layout = new TQVBoxLayout(this, KDialog::marginHint(), KDialog::spacingHint());
-	systemconfig = new KSimpleConfig( TQString::tqfromLatin1( KDE_CONFDIR "/kdisplay/kdisplayconfigrc" ));
+	systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdisplay/kdisplayconfigrc" ));
 	systemconfig->setFileWriteMode(0644);
 
 	KAboutData *about =

@@ -387,7 +387,7 @@ void KonqSidebarBookmarkModule::slotOpenTab()
     else
 	return;
 
-    DCOPRef ref(kapp->dcopClient()->appId(), tree()->tqtopLevelWidget()->name());
+    DCOPRef ref(kapp->dcopClient()->appId(), tree()->topLevelWidget()->name());
 
     if (bookmark.isGroup()) {
         KBookmarkGroup group = bookmark.toGroup();
@@ -490,7 +490,7 @@ void KonqSidebarBookmarkModule::fillGroup( KonqSidebarTreeItem * parentItem, KBo
                     item->setOpen(false);
             }
             else if ( bk.isSeparator() )
-                item->tqsetVisible( false );
+                item->setVisible( false );
             else
                 item->setExpandable( false );
     }

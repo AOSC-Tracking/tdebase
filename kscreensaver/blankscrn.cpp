@@ -69,7 +69,7 @@ KBlankSetup::KBlankSetup( TQWidget *parent, const char *name )
 	grid->setRowStretch( 2, 10 );
 	grid->setRowStretch( 3, 20 );
 
-	setMinimumSize( tqsizeHint() );
+	setMinimumSize( sizeHint() );
 }
 
 // read settings from config file

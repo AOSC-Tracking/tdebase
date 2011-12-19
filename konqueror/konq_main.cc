@@ -76,7 +76,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
     while ( KonqMainWindow::canBeRestored( n ) )
     {
       TQString className = KMainWindow::classNameOfToplevel( n );
-      if( className == TQString::tqfromLatin1( "KonqMainWindow" ))
+      if( className == TQString::fromLatin1( "KonqMainWindow" ))
           (new KonqMainWindow( KURL(), false ) )->restore( n );
       else
           kdWarning() << "Unknown class " << className << " in session saved data!" << endl;
@@ -104,7 +104,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
        TQString profile = TQString::fromLocal8Bit(args->getOption("profile"));
        TQString profilePath = profile;
        if (profile[0] != '/')
-           profilePath = locate( "data", TQString::tqfromLatin1("konqueror/profiles/")+profile );
+           profilePath = locate( "data", TQString::fromLatin1("konqueror/profiles/")+profile );
        TQString url;
        TQStringList filesToSelect;
        if (args->count() == 1)
@@ -150,7 +150,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
              {
                  // By default try to open in webbrowser mode. People can use "konqueror ." to get a filemanager.
                  TQString profile = "webbrowsing";
-                 TQString profilePath = locate( "data", TQString::tqfromLatin1("konqueror/profiles/")+profile );
+                 TQString profilePath = locate( "data", TQString::fromLatin1("konqueror/profiles/")+profile );
                  if ( !profilePath.isEmpty() ) {
                      KonqMisc::createBrowserWindowFromProfile( profilePath, profile );
                  } else {

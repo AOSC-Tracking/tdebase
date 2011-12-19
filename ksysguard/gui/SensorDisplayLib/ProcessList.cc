@@ -297,8 +297,8 @@ ProcessList::update(const TQString& list)
 	/* Disable painting to avoid flickering effects,
 	 * especially when in tree view mode.
 	 * Ditto for the scrollbar. */
-	tqsetUpdatesEnabled(false);
-	viewport()->tqsetUpdatesEnabled(false);
+	setUpdatesEnabled(false);
+	viewport()->setUpdatesEnabled(false);
 
 	pl.clear();
 
@@ -349,8 +349,8 @@ ProcessList::update(const TQString& list)
 	horizontalScrollBar()->setValue(hpos);
 
 	// Re-enable painting, and force an update.
-	tqsetUpdatesEnabled(true);
-	viewport()->tqsetUpdatesEnabled(true);
+	setUpdatesEnabled(true);
+	viewport()->setUpdatesEnabled(true);
 
 	triggerUpdate();
 

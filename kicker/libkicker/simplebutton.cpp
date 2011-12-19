@@ -71,22 +71,22 @@ void SimpleButton::setOrientation(Qt::Orientation orientation)
     update();
 }
 
-TQSize SimpleButton::tqsizeHint() const
+TQSize SimpleButton::sizeHint() const
 {
     const TQPixmap* pm = pixmap();
 
     if (!pm)
-        return TQButton::tqsizeHint();
+        return TQButton::sizeHint();
     else
         return TQSize(pm->width() + BUTTON_MARGIN, pm->height() + BUTTON_MARGIN);
 }
 
-TQSize SimpleButton::tqminimumSizeHint() const
+TQSize SimpleButton::minimumSizeHint() const
 {
     const TQPixmap* pm = pixmap();
 
     if (!pm)
-        return TQButton::tqminimumSizeHint();
+        return TQButton::minimumSizeHint();
     else
         return TQSize(pm->width(), pm->height());
 }
@@ -99,7 +99,7 @@ void SimpleButton::drawButton( TQPainter *p )
         if (m_highlight || isDown() || isOn()) {
             int flags = TQStyle::Style_Default | TQStyle::Style_Enabled;
             if (isDown() || isOn()) flags |= TQStyle::Style_Down;
-            tqstyle().tqdrawPrimitive(TQStyle::PE_ButtonTool, p, r, tqcolorGroup(), flags);
+            tqstyle().tqdrawPrimitive(TQStyle::PE_ButtonTool, p, r, colorGroup(), flags);
         }
     }
 
@@ -229,7 +229,7 @@ SimpleArrowButton::SimpleArrowButton(TQWidget *parent, Qt::ArrowType arrow, cons
     _inside = false;
 }
 
-TQSize SimpleArrowButton::tqsizeHint() const
+TQSize SimpleArrowButton::sizeHint() const
 {
     return TQSize( 12, 12 );
 }
@@ -263,7 +263,7 @@ void SimpleArrowButton::drawButton( TQPainter *p )
 
     int flags = TQStyle::Style_Default | TQStyle::Style_Enabled;
     if (isDown() || isOn())	flags |= TQStyle::Style_Down;
-    tqstyle().tqdrawPrimitive(pe, p, r, tqcolorGroup(), flags);
+    tqstyle().tqdrawPrimitive(pe, p, r, colorGroup(), flags);
 
     if (m_forceStandardCursor) {
         SimpleButton::drawButton(p);

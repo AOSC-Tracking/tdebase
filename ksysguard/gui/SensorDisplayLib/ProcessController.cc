@@ -98,11 +98,11 @@ ProcessController::ProcessController(TQWidget* parent, const char* name, const T
 	cbFilter->insertItem(i18n("System Processes"), 1);
 	cbFilter->insertItem(i18n("User Processes"), 2);
 	cbFilter->insertItem(i18n("Own Processes"), 3);
-	cbFilter->setMinimumSize(cbFilter->tqsizeHint());
+	cbFilter->setMinimumSize(cbFilter->sizeHint());
 	// Create the check box to switch between tree view and list view.
 	xbTreeView = new TQCheckBox(i18n("&Tree"), this, "xbTreeView");
 	Q_CHECK_PTR(xbTreeView);
-	xbTreeView->setMinimumSize(xbTreeView->tqsizeHint());
+	xbTreeView->setMinimumSize(xbTreeView->sizeHint());
 	connect(xbTreeView, TQT_SIGNAL(toggled(bool)),
 			this, TQT_SLOT(setTreeView(bool)));
 
@@ -116,13 +116,13 @@ ProcessController::ProcessController(TQWidget* parent, const char* name, const T
 	bRefresh = new KPushButton( KGuiItem(  i18n( "&Refresh" ), "reload" ),
             this, "bRefresh" );
 	Q_CHECK_PTR(bRefresh);
-	bRefresh->setMinimumSize(bRefresh->tqsizeHint());
+	bRefresh->setMinimumSize(bRefresh->sizeHint());
 	connect(bRefresh, TQT_SIGNAL(clicked()), this, TQT_SLOT(updateList()));
 
 	// Create the 'Kill' button.
 	bKill = new KPushButton(i18n("&Kill"), this, "bKill");
 	Q_CHECK_PTR(bKill);
-	bKill->setMinimumSize(bKill->tqsizeHint());
+	bKill->setMinimumSize(bKill->sizeHint());
 	connect(bKill, TQT_SIGNAL(clicked()), this, TQT_SLOT(killProcess()));
 	/* Disable the kill button until we know that the daemon supports the
 	 * kill command. */
@@ -147,7 +147,7 @@ ProcessController::ProcessController(TQWidget* parent, const char* name, const T
 
 	setPlotterWidget(pList);
 
-	setMinimumSize(tqsizeHint());
+	setMinimumSize(sizeHint());
 	fixTabOrder(); 
 }
 

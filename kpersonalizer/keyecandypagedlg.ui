@@ -28,7 +28,7 @@
                     <verstretch>0</verstretch>
                 </sizepolicy>
             </property>
-            <property name="tqminimumSize">
+            <property name="minimumSize">
                 <size>
                     <width>170</width>
                     <height>430</height>
@@ -222,7 +222,7 @@ If you have a fast, new processor, you might want to turn them all on, but for t
                     <verstretch>0</verstretch>
                 </sizepolicy>
             </property>
-            <property name="tqminimumSize">
+            <property name="minimumSize">
                 <size>
                     <width>0</width>
                     <height>120</height>

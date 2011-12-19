@@ -92,9 +92,9 @@ class AppletHandleDrag : public TQWidget
     public:
         AppletHandleDrag(AppletHandle* parent);
 
-        TQSize tqminimumSizeHint() const;
-        TQSize tqminimumSize() const { return tqminimumSizeHint(); }
-        TQSize tqsizeHint() const { return tqminimumSize(); }
+        TQSize minimumSizeHint() const;
+        TQSize minimumSize() const { return minimumSizeHint(); }
+        TQSize sizeHint() const { return minimumSize(); }
         TQSizePolicy sizePolicy() const;
 
     protected:
@@ -113,9 +113,9 @@ class AppletHandleButton : public SimpleArrowButton
     
     public:
         AppletHandleButton(AppletHandle *parent);
-        TQSize tqminimumSizeHint() const;
-        TQSize tqminimumSize() const { return tqminimumSizeHint(); }
-        TQSize tqsizeHint() const { return tqminimumSize(); }
+        TQSize minimumSizeHint() const;
+        TQSize minimumSize() const { return minimumSizeHint(); }
+        TQSize sizeHint() const { return minimumSize(); }
         TQSizePolicy sizePolicy() const;
 
     private:

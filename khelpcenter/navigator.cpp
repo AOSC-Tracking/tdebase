@@ -262,8 +262,8 @@ void Navigator::insertIOSlaveDocs( const TQString &name, NavigatorItem *topItem 
 
 void Navigator::insertAppletDocs( NavigatorItem *topItem )
 {
-  TQDir appletDir( locate( "data", TQString::tqfromLatin1( "kicker/applets/" ) ) );
-  appletDir.setNameFilter( TQString::tqfromLatin1( "*.desktop" ) );
+  TQDir appletDir( locate( "data", TQString::fromLatin1( "kicker/applets/" ) ) );
+  appletDir.setNameFilter( TQString::fromLatin1( "*.desktop" ) );
 
   TQStringList files = appletDir.entryList( TQDir::Files | TQDir::Readable );
   TQStringList::ConstIterator it = files.begin();

@@ -347,7 +347,7 @@ BeagleUtil::timestringToBeagleTimestamp(TQString timestring)
     //kdDebug () << "datetime string:" << timestring << endl;
     // FIXME: error check timestring format
     if (timestring.isNull () || timestring.stripWhiteSpace () == "" || timestring.length() != 8 )
-        return beagle_timestamp_new_from_unix_time (TQDateTime::tqcurrentDateTime ().toTime_t ());
+        return beagle_timestamp_new_from_unix_time (TQDateTime::currentDateTime ().toTime_t ());
     //TQDateTime dt = TQDateTime::fromString (timestring, Qt::ISODate);
     struct tm tm_time;
     time_t timet_time;

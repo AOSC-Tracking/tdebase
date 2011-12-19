@@ -52,7 +52,7 @@ TQString KXftConfig::contractHome(TQString path)
             unsigned int len = home.length();
 
             if(path.length() == len || path[len] == '/')
-                return path.replace(0, len, TQString::tqfromLatin1("~"));
+                return path.replace(0, len, TQString::fromLatin1("~"));
         }
     }
 

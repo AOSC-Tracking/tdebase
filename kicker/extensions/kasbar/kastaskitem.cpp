@@ -173,14 +173,14 @@ void KasTaskItem::updateTask(bool geometryChangeOnly)
     }
 
     bool updates = kasbar()->isUpdatesEnabled();
-    kasbar()->tqsetUpdatesEnabled( false );
+    kasbar()->setUpdatesEnabled( false );
 
     setProgress( kasbar()->showProgress() ? 0 : -1 );
     setText( task_->visibleIconicName() );
     setModified( task_->isModified() );
     setActive( task_->isActive() );
 
-    kasbar()->tqsetUpdatesEnabled( updates );
+    kasbar()->setUpdatesEnabled( updates );
     update();
 }
 
@@ -422,7 +422,7 @@ TQWidget *KasTaskItem::createTaskProps( TQObject *target, TQWidget *parent, bool
     taskprops->addColumn( i18n("Value") );
 
     // Create List Items
-    TQMetaObject *mo = target->tqmetaObject();
+    TQMetaObject *mo = target->metaObject();
     for ( int i = 0; i < mo->numProperties( recursive ); i++ ) {
 	const TQMetaProperty *p = mo->property(i, recursive);
 
@@ -456,7 +456,7 @@ TQString KasTaskItem::expandMacros( const TQString &format, TQObject *data )
 TQWidget *KasTaskItem::createX11Props( TQWidget *parent )
 {
     TQVBox *vb2 = new TQVBox( parent );
-    vb2->tqsetSizePolicy( TQSizePolicy::Minimum, TQSizePolicy::Preferred );
+    vb2->setSizePolicy( TQSizePolicy::Minimum, TQSizePolicy::Preferred );
     vb2->setSpacing( KDialog::spacingHint() );
     vb2->setMargin( KDialog::marginHint() );
 

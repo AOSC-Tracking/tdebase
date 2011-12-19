@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 
 	KConfig *konfig;
 	if (file.isEmpty())
-	   konfig = new KConfig(TQString::tqfromLatin1("kdeglobals"), false, false);
+	   konfig = new KConfig(TQString::fromLatin1("kdeglobals"), false, false);
 	else
 	   konfig = new KConfig(file, false, false);
 

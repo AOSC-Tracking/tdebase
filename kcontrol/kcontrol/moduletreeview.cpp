@@ -133,9 +133,9 @@ void ModuleTreeView::fill(ModuleTreeItem *parent, const TQString &parentPath)
 
 
 
-TQSize ModuleTreeView::tqsizeHint() const
+TQSize ModuleTreeView::sizeHint() const
 {
-    return TQListView::tqsizeHint().boundedTo( 
+    return TQListView::sizeHint().boundedTo( 
 	TQSize( fontMetrics().maxWidth()*35, TQWIDGETSIZE_MAX) );
 }
 

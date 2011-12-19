@@ -161,7 +161,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	gbWidgetStyle->layout()->setSpacing( KDialog::spacingHint() );
 
 	gbWidgetStyleLayout = new TQVBoxLayout( gbWidgetStyle->tqlayout() );
-	gbWidgetStyleLayout->tqsetAlignment( Qt::AlignTop );
+	gbWidgetStyleLayout->setAlignment( Qt::AlignTop );
 	hbLayout = new TQHBoxLayout( KDialog::spacingHint(), "hbLayout" );
 
 	cbStyle = new KComboBox( gbWidgetStyle, "cbStyle" );
@@ -169,7 +169,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	hbLayout->addWidget( cbStyle );
 
 	pbConfigStyle = new TQPushButton( i18n("Con&figure..."), gbWidgetStyle );
-	pbConfigStyle->tqsetSizePolicy( TQSizePolicy::Maximum, TQSizePolicy::Minimum );
+	pbConfigStyle->setSizePolicy( TQSizePolicy::Maximum, TQSizePolicy::Minimum );
 	pbConfigStyle->setEnabled( FALSE );
 	hbLayout->addWidget( pbConfigStyle );
 
@@ -296,16 +296,16 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	box1->setSpacing( KDialog::spacingHint() );
 	box1->setMargin( 0 );
 	TQLabel* lbl = new TQLabel( i18n("0%"), box1 );
-	lbl->tqsetAlignment( AlignLeft );
+	lbl->setAlignment( AlignLeft );
 	lbl = new TQLabel( i18n("50%"), box1 );
-	lbl->tqsetAlignment( AlignHCenter );
+	lbl->setAlignment( AlignHCenter );
 	lbl = new TQLabel( i18n("100%"), box1 );
-	lbl->tqsetAlignment( AlignRight );
+	lbl->setAlignment( AlignRight );
 
 	lblMenuEffectType = new TQLabel( comboMenuEffectType, i18n("Menu trans&lucency type:"), menuContainer );
-	lblMenuEffectType->tqsetAlignment( AlignBottom | AlignLeft );
+	lblMenuEffectType->setAlignment( AlignBottom | AlignLeft );
 	lblMenuOpacity    = new TQLabel( slOpacity, i18n("Menu &opacity:"), menuContainer );
-	lblMenuOpacity->tqsetAlignment( AlignBottom | AlignLeft );
+	lblMenuOpacity->setAlignment( AlignBottom | AlignLeft );
 
 	menuContainerLayout->addWidget( lblMenuEffectType, 0, 0 );
 	menuContainerLayout->addWidget( comboMenuEffectType, 1, 0 );
@@ -844,7 +844,7 @@ void KCMStyle::switchStyle(const TQString& styleName, bool force)
 	setStyleRecursive( stylePreview, style );
 
 	// this flickers, but reliably draws the widgets correctly.
-	stylePreview->resize( stylePreview->tqsizeHint() );
+	stylePreview->resize( stylePreview->sizeHint() );
 
 	delete appliedStyle;
 	appliedStyle = style;

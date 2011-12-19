@@ -38,7 +38,7 @@ public:
     ~TaskMenuItem();
 
     void paint(TQPainter*, const TQColorGroup&, bool, bool, int, int, int, int);
-    TQSize tqsizeHint();
+    TQSize sizeHint();
     void setAttentionState(bool state) { m_attentionState = state; }
 
 private:

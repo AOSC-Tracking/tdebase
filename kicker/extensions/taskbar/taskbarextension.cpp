@@ -123,17 +123,17 @@ void TaskBarExtension::preferences()
     m_container->preferences();
 }
 
-TQSize TaskBarExtension::tqsizeHint(Position p, TQSize maxSize) const
+TQSize TaskBarExtension::sizeHint(Position p, TQSize maxSize) const
 {
     if (p == Left || p == Right)
         maxSize.setWidth(sizeInPixels());
     else
         maxSize.setHeight(sizeInPixels());
 
-//    kdDebug(1210) << "TaskBarExtension::tqsizeHint( Position, TQSize )" << endl;
+//    kdDebug(1210) << "TaskBarExtension::sizeHint( Position, TQSize )" << endl;
 //    kdDebug(1210) << " width: " << size.width() << endl;
 //    kdDebug(1210) << "height: " << size.height() << endl;
-    return m_container->tqsizeHint(p, maxSize);
+    return m_container->sizeHint(p, maxSize);
 }
 
 void TaskBarExtension::configure()

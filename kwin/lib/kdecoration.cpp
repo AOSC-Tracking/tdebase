@@ -388,7 +388,7 @@ const TQFont& KDecorationOptions::font(bool active, bool small) const
         return(active ? d->activeFont : d->inactiveFont);
 }
 
-const TQColorGroup& KDecorationOptions::tqcolorGroup(ColorType type, bool active) const
+const TQColorGroup& KDecorationOptions::colorGroup(ColorType type, bool active) const
 {
     int idx = type + (active ? 0 : NUM_COLORS);
     if(d->cg[idx])

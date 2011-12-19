@@ -65,8 +65,8 @@ KICCConfig::KICCConfig(TQWidget *parent, const char *name, const TQStringList &)
 {
 
   TQVBoxLayout *layout = new TQVBoxLayout(this, KDialog::marginHint(), KDialog::spacingHint());
-  config = new KSimpleConfig( TQString::tqfromLatin1( "kiccconfigrc" ));
-  systemconfig = new KSimpleConfig( TQString::tqfromLatin1( KDE_CONFDIR "/kicc/kiccconfigrc" ));
+  config = new KSimpleConfig( TQString::fromLatin1( "kiccconfigrc" ));
+  systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kicc/kiccconfigrc" ));
 
   KAboutData *about =
   new KAboutData(I18N_NOOP("kcmiccconfig"), I18N_NOOP("KDE ICC Profile Control Module"),

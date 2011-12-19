@@ -93,12 +93,12 @@ void KrashConfig :: readConfig()
 
   // maybe we should check if it's relative?
   TQString configname = config->readEntry("ConfigName",
-                                         TQString::tqfromLatin1("enduser"));
+                                         TQString::fromLatin1("enduser"));
 
   TQString debuggername = config->readEntry("Debugger",
-                                           TQString::tqfromLatin1("gdb"));
+                                           TQString::fromLatin1("gdb"));
 
-  KConfig debuggers(TQString::tqfromLatin1("debuggers/%1rc").arg(debuggername),
+  KConfig debuggers(TQString::fromLatin1("debuggers/%1rc").arg(debuggername),
                     true, false, "appdata");
 
   debuggers.setGroup("General");
@@ -112,7 +112,7 @@ void KrashConfig :: readConfig()
   m_neededInValidBacktraceRegExp = debuggers.readEntry("NeededInValidBacktraceRegExp");
   m_kcrashRegExp = debuggers.readEntry("KCrashRegExp");
 
-  KConfig preset(TQString::tqfromLatin1("presets/%1rc").arg(configname),
+  KConfig preset(TQString::fromLatin1("presets/%1rc").arg(configname),
                  true, false, "appdata");
 
   preset.setGroup("ErrorDescription");
@@ -138,7 +138,7 @@ void KrashConfig :: readConfig()
   TQString str = TQString::number(m_signalnum);
   // use group unknown if signal not found
   if (!preset.hasGroup(str))
-    str = TQString::tqfromLatin1("unknown");
+    str = TQString::fromLatin1("unknown");
   preset.setGroup(str);
   m_signalName = preset.readEntry("Name");
   if (b)
@@ -149,13 +149,13 @@ void KrashConfig :: readConfig()
 void KrashConfig :: expandString(TQString &str, bool shell, const TQString &tempFile) const
 {
   TQMap<TQString,TQString> map;
-  map[TQString::tqfromLatin1("appname")] = TQString::tqfromLatin1(appName());
-  map[TQString::tqfromLatin1("execname")] = startedByKdeinit() ? TQString::tqfromLatin1("kdeinit") : m_execname;
-  map[TQString::tqfromLatin1("signum")] = TQString::number(signalNumber());
-  map[TQString::tqfromLatin1("signame")] = signalName();
-  map[TQString::tqfromLatin1("progname")] = programName();
-  map[TQString::tqfromLatin1("pid")] = TQString::number(pid());
-  map[TQString::tqfromLatin1("tempfile")] = tempFile;
+  map[TQString::fromLatin1("appname")] = TQString::fromLatin1(appName());
+  map[TQString::fromLatin1("execname")] = startedByKdeinit() ? TQString::fromLatin1("kdeinit") : m_execname;
+  map[TQString::fromLatin1("signum")] = TQString::number(signalNumber());
+  map[TQString::fromLatin1("signame")] = signalName();
+  map[TQString::fromLatin1("progname")] = programName();
+  map[TQString::fromLatin1("pid")] = TQString::number(pid());
+  map[TQString::fromLatin1("tempfile")] = tempFile;
   if (shell)
     str = KMacroExpander::expandMacrosShellQuote( str, map );
   else

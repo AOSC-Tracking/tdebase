@@ -338,7 +338,7 @@ void WidgetCanvas::drawSampleWidgets()
 
     smplw.resize(width(), height());
     //smplw.fill( parentWidget()->back() );
-    smplw.fill( parentWidget()->tqcolorGroup().mid() );
+    smplw.fill( parentWidget()->colorGroup().mid() );
 
     // Actually start painting in
 
@@ -567,9 +567,9 @@ void WidgetCanvas::drawSampleWidgets()
 	popup->setItemEnabled( id, false );
 
 	// HACK: Force Layouting
-	//Sad Eagle: tqsizeHint() forces layouting too, and it's a lot less visible
-	//popup->tqsizeHint(); // Breaks with Qt 3.3
-	popup->resize(popup->tqsizeHint());
+	//Sad Eagle: sizeHint() forces layouting too, and it's a lot less visible
+	//popup->sizeHint(); // Breaks with Qt 3.3
+	popup->resize(popup->sizeHint());
 
 	pm = TQPixmap::grabWidget( popup );
 	delete popup;
@@ -585,7 +585,7 @@ void WidgetCanvas::drawSampleWidgets()
     // Valance
 
     qDrawWinPanel ( &paint, 0, 0, width(), height(),
-                    parentWidget()->tqcolorGroup(), TRUE, 0);
+                    parentWidget()->colorGroup(), TRUE, 0);
 
     // Stop the painting
 

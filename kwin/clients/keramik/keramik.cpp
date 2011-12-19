@@ -832,14 +832,14 @@ void KeramikButton::drawButton( TQPainter *p )
 
 	if ( isDown() ) {
 		// Pressed
-		p->drawPixmap( TQPoint(), *pix, TQStyle::tqvisualRect( TQRect(2*size, 0, size, size), pix->rect() ) );
+		p->drawPixmap( TQPoint(), *pix, TQStyle::visualRect( TQRect(2*size, 0, size, size), pix->rect() ) );
 		p->translate( TQApplication::reverseLayout() ? -1 : 1,  1 );
 	} else if ( hover )
 		// Mouse over
-		p->drawPixmap( TQPoint(), *pix, TQStyle::tqvisualRect( TQRect(size, 0, size, size), pix->rect() ) );
+		p->drawPixmap( TQPoint(), *pix, TQStyle::visualRect( TQRect(size, 0, size, size), pix->rect() ) );
 	else
 		// Normal
-		p->drawPixmap( TQPoint(), *pix, TQStyle::tqvisualRect( TQRect(0, 0, size, size), pix->rect() ) );
+		p->drawPixmap( TQPoint(), *pix, TQStyle::visualRect( TQRect(0, 0, size, size), pix->rect() ) );
 
 
 	// Draw the button deco on the bevel
@@ -1280,7 +1280,7 @@ void KeramikClient::updateCaptionBuffer()
 		( clientHandler->showAppIcons() ? 16 + iconSpacing : 0 );
 
 	int xpos = QMAX( (captionRect.width() - tw) / 3, 8 );
-	TQRect tr = TQStyle::tqvisualRect( TQRect(xpos, 1, captionRect.width() - xpos - 10,
+	TQRect tr = TQStyle::visualRect( TQRect(xpos, 1, captionRect.width() - xpos - 10,
 				captionRect.height() - 4), captionBuffer.rect() );
 
 	//p.setPen( Qt::red ); // debug
@@ -1289,7 +1289,7 @@ void KeramikClient::updateCaptionBuffer()
 	// Application icon
 	if ( clientHandler->showAppIcons() )
 	{
-		TQRect iconRect = TQStyle::tqvisualRect( TQRect(tr.x(),
+		TQRect iconRect = TQStyle::visualRect( TQRect(tr.x(),
 					1 + (captionRect.height() - 4 - 16) / 2, 16, 16), tr );
 		TQRect r( icon->rect() );
 		r.moveCenter( iconRect.center() );
@@ -1349,7 +1349,7 @@ void KeramikClient::calculateCaptionRect()
 		cw += 16 + 4; // icon width + space
 
 	cw = QMIN( cw, titlebar->geometry().width() );
-	captionRect = TQStyle::tqvisualRect( TQRect(titlebar->geometry().x(), (largeCaption ? 0 : titleBaseY),
+	captionRect = TQStyle::visualRect( TQRect(titlebar->geometry().x(), (largeCaption ? 0 : titleBaseY),
 				cw, clientHandler->titleBarHeight(largeCaption) ),
 				titlebar->geometry() );
 }
@@ -1794,9 +1794,9 @@ void KeramikClient::borders( int& left, int& right, int& top, int& bottom ) cons
 }
 
 
-TQSize KeramikClient::tqminimumSize() const
+TQSize KeramikClient::minimumSize() const
 {
-	return widget()->tqminimumSize();
+	return widget()->minimumSize();
 }
 
 

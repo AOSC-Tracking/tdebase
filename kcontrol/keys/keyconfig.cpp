@@ -170,7 +170,7 @@ void KKeyModule::init( bool isGlobal, bool _bSeriesOnly, bool bSeriesNone )
   topLayout->addRowSpacing(3, 15);
   topLayout->addMultiCellWidget(kc, 5, 5, 0, 1);
 
-  setMinimumSize(topLayout->tqsizeHint());
+  setMinimumSize(topLayout->sizeHint());
 }
 
 KKeyModule::~KKeyModule (){

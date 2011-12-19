@@ -404,7 +404,7 @@ void MANProtocol::output(const char *insert)
     {
         m_outputBuffer.close();
         data(m_outputBuffer.buffer());
-        m_outputBuffer.tqsetBufferFromCopy(TQByteArray());
+        m_outputBuffer.setBuffer(TQByteArray());
         m_outputBuffer.open(IO_WriteOnly);
     }
 }
@@ -505,7 +505,7 @@ void MANProtocol::get(const KURL& url )
 
        m_outputBuffer.close();
        data(m_outputBuffer.buffer());
-       m_outputBuffer.tqsetBufferFromCopy(TQByteArray());
+       m_outputBuffer.setBuffer(TQByteArray());
        // tell we are done
        data(TQByteArray());
     }

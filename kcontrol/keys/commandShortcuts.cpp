@@ -83,13 +83,13 @@ void CommandShortcutsModule::initGUI()
     label->setText(i18n("<qt>Below is a list of known commands which you may assign keyboard shortcuts to. "
                         "To edit, add or remove entries from this list use the "
                         "<a href=\"launchMenuEditor\">KDE menu editor</a>.</qt>"));
-    label->tqsetSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Minimum);
+    label->setSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Minimum);
     disconnect(label, TQT_SIGNAL(linkClicked(const TQString &)), label, TQT_SLOT(openLink(const TQString &)));
     connect(label, TQT_SIGNAL(linkClicked(const TQString &)), this, TQT_SLOT(launchMenuEditor()));
     mainLayout->addWidget(label);
 
     m_tree = new AppTreeView(this, "appTreeView");
-    m_tree->tqsetSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Expanding);
+    m_tree->setSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Expanding);
     mainLayout->setStretchFactor(m_tree, 10);
     mainLayout->addWidget(m_tree);
     TQWhatsThis::add(m_tree,

@@ -145,7 +145,7 @@ void ShortcutsModule::initGUI()
 
 	m_pcbSchemes = new KComboBox( this );
 	m_pcbSchemes->setMinimumWidth( 100 );
-	m_pcbSchemes->tqsetSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Fixed );
+	m_pcbSchemes->setSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Fixed );
 	connect( m_pcbSchemes, TQT_SIGNAL(activated(int)), TQT_SLOT(slotSelectScheme(int)) );
 	pHLayout->addWidget( m_pcbSchemes );
 
@@ -190,10 +190,10 @@ void ShortcutsModule::initGUI()
 	m_pListGeneral = new KAccelShortcutList( m_actionsGeneral, true );
 
 	m_pkcGeneral = new KKeyChooser( m_pListGeneral, this, KKeyChooser::Global, false );
-	m_pkcGeneral->resize (m_pkcGeneral->tqsizeHint() );
+	m_pkcGeneral->resize (m_pkcGeneral->sizeHint() );
 	if (system("xmodmap 1> /dev/null 2> /dev/null") == 0) {
 		m_useRmWinKeys = new TQCheckBox( i18n("Use Win key as modifier (uncheck to bind Win key to Menu)"), this );
-		m_useRmWinKeys->resize( m_useRmWinKeys->tqsizeHint() );
+		m_useRmWinKeys->resize( m_useRmWinKeys->sizeHint() );
 		m_useRmWinKeys->setChecked( m_bUseRmWinKeys );
 		pVLayout->addWidget( m_useRmWinKeys, 1, 0 );
 		connect( m_useRmWinKeys, TQT_SIGNAL(clicked()), TQT_SLOT(slotUseRmWinKeysClicked()) );

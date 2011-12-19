@@ -49,7 +49,7 @@ public:
 
   void setURL( const KURL & url );
 
-  virtual TQSize tqsizeHint() const;
+  virtual TQSize sizeHint() const;
 
 public slots:
   void setFocus();

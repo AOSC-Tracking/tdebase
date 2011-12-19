@@ -69,7 +69,7 @@ class ToolTip : public TQToolTip
       KateFileListItem *item = ((KateFileListItem*)i);
       if ( ! item ) return;
 
-      tip( m_listView->tqitemRect( i ), m_listView->tooltip( item, 0 ) );
+      tip( m_listView->itemRect( i ), m_listView->tooltip( item, 0 ) );
 
     }
 

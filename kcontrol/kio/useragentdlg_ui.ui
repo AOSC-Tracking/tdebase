@@ -117,7 +117,7 @@ By default, only minimal identification information is sent to remote sites. The
                             <property name="sizeType">
                                 <enum>Fixed</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>16</width>
                                     <height>20</height>
@@ -310,7 +310,7 @@ By default, only minimal identification information is sent to remote sites. The
                             <property name="sizeType">
                                 <enum>Expanding</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>21</width>
                                     <height>16</height>

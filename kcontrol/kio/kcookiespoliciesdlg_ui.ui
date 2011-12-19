@@ -161,7 +161,7 @@ To add a new policy, simply click on the &lt;b&gt;Add...&lt;/b&gt; button and su
                     <property name="sizeType">
                         <enum>MinimumExpanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>20</width>
                             <height>16</height>

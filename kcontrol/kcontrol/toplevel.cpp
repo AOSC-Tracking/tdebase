@@ -142,7 +142,7 @@ TopLevel::TopLevel(const char* name)
   // help widget
   _help = new HelpWidget(_dock);
 
-  _stack->tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding ) );
+  _stack->setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding ) );
 
  // Restore sizes
   config->setGroup("General");

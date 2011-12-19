@@ -78,8 +78,8 @@ PanelExeDialog::PanelExeDialog(const TQString& title, const TQString& descriptio
             this, TQT_SLOT(slotIconChanged(TQString)));
 
     // leave decent space for the commandline
-    resize(tqsizeHint().width() > 300 ? tqsizeHint().width() : 300,
-           tqsizeHint().height());
+    resize(sizeHint().width() > 300 ? sizeHint().width() : 300,
+           sizeHint().height());
 }
 
 void PanelExeDialog::slotOk()

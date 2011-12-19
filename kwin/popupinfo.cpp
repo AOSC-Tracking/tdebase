@@ -76,7 +76,7 @@ void PopupInfo::paintEvent( TQPaintEvent* )
     {
     TQPainter p( this );
     tqstyle().tqdrawPrimitive( TQStyle::PE_Panel, &p, TQRect( 0, 0, width(), height() ),
-          tqcolorGroup(), TQStyle::Style_Default );
+          colorGroup(), TQStyle::Style_Default );
     paintContents();
     }
 
@@ -90,7 +90,7 @@ void PopupInfo::paintContents()
     TQPainter p( this );
     TQRect r( 6, 6, width()-12, height()-12 );
 
-    p.fillRect( r, tqcolorGroup().brush( TQColorGroup::Background ) );
+    p.fillRect( r, colorGroup().brush( TQColorGroup::Background ) );
 
     /*
     p.setPen(Qt::white);

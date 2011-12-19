@@ -58,7 +58,7 @@ KBehaviourOptions::KBehaviourOptions(KConfig *config, TQString group, TQWidget *
     winPixmap->setFrameStyle( TQFrame::StyledPanel | TQFrame::Sunken );
     winPixmap->setPixmap(TQPixmap(locate("data",
                                         "kcontrol/pics/onlyone.png")));
-    winPixmap->setFixedSize( winPixmap->tqsizeHint() );
+    winPixmap->setFixedSize( winPixmap->sizeHint() );
 
 
    // ----
@@ -103,7 +103,7 @@ KBehaviourOptions::KBehaviourOptions(KConfig *config, TQString group, TQWidget *
     TQHBox *hboxpreview = new TQHBox(vbox);
     TQWidget* spacer = new TQWidget( hboxpreview );
     spacer->setMinimumSize( 20, 0 );
-    spacer->tqsetSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Minimum );
+    spacer->setSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Minimum );
 
     cbShowPreviewsInTips = new TQCheckBox( i18n( "Show &previews in file tips" ), hboxpreview );
     connect(cbShowPreviewsInTips, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));

@@ -104,7 +104,7 @@ KonqProfileDlg::KonqProfileDlg( KonqViewManager *manager, const TQString & prese
             TQT_SLOT( slotItemRenamed( TQListViewItem * ) ) );
 
   loadAllProfiles( preselectProfile );
-  m_pListView->setMinimumSize( m_pListView->tqsizeHint() );
+  m_pListView->setMinimumSize( m_pListView->sizeHint() );
 
   m_cbSaveURLs = new TQCheckBox( i18n("Save &URLs in profile"), box );
   m_cbSaveURLs->setChecked( KonqSettings::saveURLInProfile() );
@@ -121,7 +121,7 @@ KonqProfileDlg::KonqProfileDlg( KonqViewManager *manager, const TQString & prese
   enableButton( BTN_RENAME, m_pListView->selectedItem ()!=0 );
   enableButton( BTN_DELETE, m_pListView->selectedItem ()!=0 );
 
-  resize( tqsizeHint() );
+  resize( sizeHint() );
 }
 
 KonqProfileDlg::~KonqProfileDlg()

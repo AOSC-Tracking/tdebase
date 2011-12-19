@@ -194,7 +194,7 @@ print_extension_list(const char *ext, TQListViewItem *l1)
 
    if (!ext || !ext[0])
       return;
-   TQString qext = TQString::tqfromLatin1(ext);
+   TQString qext = TQString::fromLatin1(ext);
    TQListViewItem *l2 = NULL;
 
    i = j = 0;

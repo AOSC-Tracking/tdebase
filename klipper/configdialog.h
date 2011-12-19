@@ -237,11 +237,11 @@ public:
     ListView( ConfigDialog* configWidget, TQWidget *parent, const char *name )
 	: KListView( parent, name ), _configWidget( configWidget ),
           _regExpEditor(0L) {}
-    // TQListView has a weird idea of a tqsizeHint...
-    virtual TQSize tqsizeHint () const {
-	int w = tqminimumSizeHint().width();
+    // TQListView has a weird idea of a sizeHint...
+    virtual TQSize sizeHint () const {
+	int w = minimumSizeHint().width();
 	int h = header()->height();
-	h += viewport()->tqsizeHint().height();
+	h += viewport()->sizeHint().height();
 	h += horizontalScrollBar()->height();
 	
 	TQListViewItem *item = firstChild();

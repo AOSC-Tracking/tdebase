@@ -133,7 +133,7 @@ protected:
 
   TQString currentGroup() const {
       return isDefaultProperties() ? 
-          TQString::tqfromLatin1("Settings") : TQString::tqfromLatin1("URL properties");
+          TQString::fromLatin1("Settings") : TQString::fromLatin1("URL properties");
   }
 
 private:

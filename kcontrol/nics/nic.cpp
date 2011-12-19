@@ -298,21 +298,21 @@ TQString flags_tos (unsigned int flags)
 
   if (flags & IFF_BROADCAST) {
     if (tmp.length()) {
-      tmp += TQString::tqfromLatin1(", ");
+      tmp += TQString::fromLatin1(", ");
     }
     tmp += i18n("Broadcast");
   }
   
   if (flags & IFF_MULTICAST) {
     if (tmp.length()) {
-      tmp += TQString::tqfromLatin1(", ");
+      tmp += TQString::fromLatin1(", ");
     }
     tmp += i18n("Multicast");
   }
   
   if (flags & IFF_LOOPBACK) {
     if (tmp.length()) {
-      tmp += TQString::tqfromLatin1(", ");
+      tmp += TQString::fromLatin1(", ");
     }
     tmp += i18n("Loopback");
   }

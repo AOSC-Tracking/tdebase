@@ -277,7 +277,7 @@ void KateViewSpaceContainer::activateView ( Kate::View *view )
     setActiveView (view);
     m_viewList.findRef (view);
 
-    mainWindow()->toolBar ()->tqsetUpdatesEnabled (false);
+    mainWindow()->toolBar ()->setUpdatesEnabled (false);
 
     if (m_viewManager->guiMergedView)
       mainWindow()->guiFactory()->removeClient (m_viewManager->guiMergedView );
@@ -287,7 +287,7 @@ void KateViewSpaceContainer::activateView ( Kate::View *view )
     if (!m_blockViewCreationAndActivation)
       mainWindow()->guiFactory ()->addClient( view );
 
-    mainWindow()->toolBar ()->tqsetUpdatesEnabled (true);
+    mainWindow()->toolBar ()->setUpdatesEnabled (true);
 
     statusMsg();
 

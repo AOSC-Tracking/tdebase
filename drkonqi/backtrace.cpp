@@ -175,7 +175,7 @@ void BackTrace::processBacktrace()
         --len;
         }
       m_strBt.remove( pos, len );
-      m_strBt.insert( pos, TQString::tqfromLatin1( "[KCrash handler]\n" ));
+      m_strBt.insert( pos, TQString::fromLatin1( "[KCrash handler]\n" ));
       }
     }
 }

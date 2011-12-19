@@ -48,7 +48,7 @@ KonqHistoryManager::KonqHistoryManager( TQObject *parent, const char *name )
 
     m_history.setAutoDelete( true );
     m_filename = locateLocal( "data",
-			      TQString::tqfromLatin1("konqueror/konq_history" ));
+			      TQString::fromLatin1("konqueror/konq_history" ));
 
     if ( !kapp->dcopClient()->isAttached() )
 	kapp->dcopClient()->attach();
@@ -295,7 +295,7 @@ void KonqHistoryManager::addToHistory( bool pending, const KURL& _url,
     // konqueror's window caption).
     if ( !pending && u != title )
 	entry.title = title;
-    entry.firstVisited = TQDateTime::tqcurrentDateTime();
+    entry.firstVisited = TQDateTime::currentDateTime();
     entry.lastVisited = entry.firstVisited;
 
     // always remove from pending if available, otherwise the else branch leaks
@@ -342,7 +342,7 @@ void KonqHistoryManager::insert( const TQString& url )
     // Local URL -> add to history
     KonqHistoryEntry entry;
     entry.url = u;
-    entry.firstVisited = TQDateTime::tqcurrentDateTime();
+    entry.firstVisited = TQDateTime::currentDateTime();
     entry.lastVisited = entry.firstVisited;
     emitAddToHistory( entry );
 }
@@ -589,7 +589,7 @@ void KonqHistoryManager::notifyRemove( KURL::List urls, TQCString )
 // compatibility fallback, try to load the old completion history
 bool KonqHistoryManager::loadFallback()
 {
-    TQString file = locateLocal( "config", TQString::tqfromLatin1("konq_history"));
+    TQString file = locateLocal( "config", TQString::fromLatin1("konq_history"));
     if ( file.isEmpty() )
 	return false;
 
@@ -646,7 +646,7 @@ KonqHistoryEntry * KonqHistoryManager::createFallbackEntry(const TQString& item)
 	entry->url = u;
 	entry->numberOfTimesVisited = weight;
 	// to make it not expire immediately...
-	entry->lastVisited = TQDateTime::tqcurrentDateTime();
+	entry->lastVisited = TQDateTime::currentDateTime();
     }
 
     return entry;

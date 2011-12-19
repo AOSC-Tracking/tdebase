@@ -87,7 +87,7 @@ void Kate::DockViewBase::init( const TQString &prefix, const TQString &title )
 {
   setSpacing( 4 );
   d->header = new TQWidget( this );
-  d->header->tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed, true ) );
+  d->header->setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed, true ) );
   TQHBoxLayout *lo = new TQHBoxLayout( d->header );
   lo->setSpacing( 6 );
   lo->insertSpacing( 0, 6 ); 

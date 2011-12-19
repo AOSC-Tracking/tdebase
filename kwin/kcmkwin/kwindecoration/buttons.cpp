@@ -123,7 +123,7 @@ TQPixmap bitmapPixmap(const TQBitmap& bm, const TQColor& color)
 ButtonSource::ButtonSource(TQWidget *parent, const char* name)
 	: KListView(parent, name)
 {
-	tqsetSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding);
+	setSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding);
 
 	setResizeMode(TQListView::AllColumns);
 	setDragEnabled(true);
@@ -140,19 +140,19 @@ ButtonSource::~ButtonSource()
 {
 }
 
-TQSize ButtonSource::tqsizeHint() const
+TQSize ButtonSource::sizeHint() const
 {
-	// make the tqsizeHint height a bit smaller than the one of TQListView...
+	// make the sizeHint height a bit smaller than the one of TQListView...
 
 	if ( cachedSizeHint().isValid() )
 		return cachedSizeHint();
 
 	constPolish();
 
-	TQSize s( header()->tqsizeHint() );
+	TQSize s( header()->sizeHint() );
 
 	if ( verticalScrollBar()->isVisible() )
-		s.setWidth( s.width() + tqstyle().tqpixelMetric(TQStyle::PM_ScrollBarExtent) );
+		s.setWidth( s.width() + tqstyle().pixelMetric(TQStyle::PM_ScrollBarExtent) );
 	s += TQSize(frameWidth()*2,frameWidth()*2);
 
 	// size hint: 4 lines of text...
@@ -167,7 +167,7 @@ void ButtonSource::hideAllButtons()
 {
 	TQListViewItemIterator it(this);
 	while (it.current() ) {
-		it.current()->tqsetVisible(false);
+		it.current()->setVisible(false);
 		++it;
 	}
 }
@@ -176,7 +176,7 @@ void ButtonSource::showAllButtons()
 {
 	TQListViewItemIterator it(this);
 	while (it.current() ) {
-		it.current()->tqsetVisible(true);
+		it.current()->setVisible(true);
 		++it;
 	}
 }
@@ -187,7 +187,7 @@ void ButtonSource::showButton( TQChar btn )
 	while (it.current() ) {
 		ButtonSourceItem *item = dynamic_cast<ButtonSourceItem*>(it.current() );
 		if (item && item->button().type == btn) {
-			it.current()->tqsetVisible(true);
+			it.current()->setVisible(true);
 			return;
 		}
 		++it;
@@ -200,7 +200,7 @@ void ButtonSource::hideButton( TQChar btn )
 	while (it.current() ) {
 		ButtonSourceItem *item = dynamic_cast<ButtonSourceItem*>(it.current() );
 		if (item && item->button().type == btn && !item->button().duplicate) {
-			it.current()->tqsetVisible(false);
+			it.current()->setVisible(false);
 			return;
 		}
 		++it;
@@ -218,7 +218,7 @@ TQDragObject *ButtonSource::dragObject()
 
 	if (i) {
 		ButtonDrag *bd = new ButtonDrag(i->button(), viewport(), "button_drag");
-		bd->setPixmap(bitmapPixmap(i->button().icon, tqcolorGroup().foreground() ));
+		bd->setPixmap(bitmapPixmap(i->button().icon, colorGroup().foreground() ));
 		return bd;
 	}
 
@@ -487,7 +487,7 @@ void ButtonDropSite::mousePressEvent( TQMouseEvent* e )
 	m_selected = buttonAt(e->pos() );
 	if (m_selected) {
 		ButtonDrag *bd = new ButtonDrag(m_selected->button(), this);
-		bd->setPixmap(bitmapPixmap(m_selected->button().icon, tqcolorGroup().foreground() ) );
+		bd->setPixmap(bitmapPixmap(m_selected->button().icon, colorGroup().foreground() ) );
 		bd->dragMove();
 	}
 }
@@ -581,9 +581,9 @@ bool ButtonDropSite::removeSelectedButton()
 void ButtonDropSite::drawButtonList(TQPainter *p, const ButtonList& btns, int offset)
 {
 	for (ButtonList::const_iterator it = btns.begin(); it != btns.end(); ++it) {
-		TQRect tqitemRect = (*it)->rect;
-		if (tqitemRect.isValid() ) {
-			(*it)->draw(p, tqcolorGroup(), tqitemRect);
+		TQRect itemRect = (*it)->rect;
+		if (itemRect.isValid() ) {
+			(*it)->draw(p, colorGroup(), itemRect);
 		}
 		offset += (*it)->width();
 	}
@@ -675,11 +675,11 @@ ButtonPositionWidget::ButtonPositionWidget(TQWidget *parent, const char* name)
       m_factory(0)
 {
 	TQVBoxLayout *layout = new TQVBoxLayout(this, 0, KDialog::spacingHint() );
-	tqsetSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Maximum);
+	setSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Maximum);
 
 	TQLabel* label = new TQLabel( this );
 	m_dropSite = new ButtonDropSite( this );
-	label->tqsetAlignment( int( TQLabel::WordBreak ) );
+	label->setAlignment( int( TQLabel::WordBreak ) );
 	label->setText( i18n( "To add or remove titlebar buttons, simply <i>drag</i> items "
 		"between the available item list and the titlebar preview. Similarly, "
 		"drag items within the titlebar preview to re-position them.") );

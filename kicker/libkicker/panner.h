@@ -39,7 +39,7 @@ public:
     Panner( TQWidget* parent, const char* name = 0 );
     ~Panner();
 
-    TQSize tqminimumSizeHint() const { return TQWidget::tqminimumSizeHint(); }
+    TQSize minimumSizeHint() const { return TQWidget::minimumSizeHint(); }
 
     Qt::Orientation orientation() const { return _orient; }
     virtual void setOrientation(Qt::Orientation orientation);

@@ -814,7 +814,7 @@ void TEWidget::setImage(const ca* const newimg, int lines, int columns)
   int y,x,len;
   const TQPixmap* pm = backgroundPixmap();
   TQPainter paint;
-  tqsetUpdatesEnabled(false);
+  setUpdatesEnabled(false);
   paint.begin( this );
 
   TQPoint tL  = contentsRect().topLeft();
@@ -926,7 +926,7 @@ void TEWidget::setImage(const ca* const newimg, int lines, int columns)
   }
   drawFrame( &paint );
   paint.end();
-  tqsetUpdatesEnabled(true);
+  setUpdatesEnabled(true);
   if ( hasBlinker && !blinkT->isActive()) blinkT->start(1000); // 1000 ms
   if (!hasBlinker && blinkT->isActive()) { blinkT->stop(); blinking = false; }
   free(dirtyMask);
@@ -954,7 +954,7 @@ void TEWidget::setImage(const ca* const newimg, int lines, int columns)
         mResizeLabel = new TQLabel(i18n("Size: XXX x XXX"), mResizeWidget);
         l->addWidget(mResizeLabel, 1, AlignCenter);
         mResizeWidget->setMinimumWidth(mResizeLabel->fontMetrics().width(i18n("Size: XXX x XXX"))+20);
-        mResizeWidget->setMinimumHeight(mResizeLabel->tqsizeHint().height()+20);
+        mResizeWidget->setMinimumHeight(mResizeLabel->sizeHint().height()+20);
         mResizeTimer = new TQTimer(this);
         connect(mResizeTimer, TQT_SIGNAL(timeout()), mResizeWidget, TQT_SLOT(hide()));
      }
@@ -993,7 +993,7 @@ void TEWidget::paintEvent( TQPaintEvent* pe )
 {
   const TQPixmap* pm = backgroundPixmap();
   TQPainter paint;
-  tqsetUpdatesEnabled(false);
+  setUpdatesEnabled(false);
   paint.begin( this );
   paint.setBackgroundMode( Qt::TransparentMode );
 
@@ -1051,7 +1051,7 @@ void TEWidget::paintEvent( TQPaintEvent* pe )
   erase( er );
 
   paint.end();
-  tqsetUpdatesEnabled(true);
+  setUpdatesEnabled(true);
 }
 
 void TEWidget::print(TQPainter &paint, bool friendly, bool exact)
@@ -1185,9 +1185,9 @@ void TEWidget::propagateSize()
   if (isFixedSize)
   {
      setSize(columns, lines);
-     TQFrame::setFixedSize(tqsizeHint());
+     TQFrame::setFixedSize(sizeHint());
      parentWidget()->adjustSize();
-     parentWidget()->setFixedSize(parentWidget()->tqsizeHint());
+     parentWidget()->setFixedSize(parentWidget()->sizeHint());
      return;
   }
   if (image)
@@ -1880,7 +1880,7 @@ void TEWidget::doScroll(int lines)
 bool TEWidget::eventFilter( TQObject *obj, TQEvent *e )
 {
   if ( (e->type() == TQEvent::Accel ||
-       e->type() == TQEvent::AccelAvailable ) && tqApp->tqfocusWidget() == this )
+       e->type() == TQEvent::AccelAvailable ) && tqApp->focusWidget() == this )
   {
       TQT_TQKEYEVENT( e )->ignore();
       return false;
@@ -2104,7 +2104,7 @@ void TEWidget::clearImage()
 
 void TEWidget::calcGeometry()
 {
-  scrollbar->resize(TQApplication::tqstyle().tqpixelMetric(TQStyle::PM_ScrollBarExtent),
+  scrollbar->resize(TQApplication::tqstyle().pixelMetric(TQStyle::PM_ScrollBarExtent),
                     contentsRect().height());
   switch(scrollLoc)
   {
@@ -2177,7 +2177,7 @@ void TEWidget::setFixedSize(int cols, int lins)
   TQFrame::setFixedSize(m_size);
 }
 
-TQSize TEWidget::tqsizeHint() const
+TQSize TEWidget::sizeHint() const
 {
   return m_size;
 }
@@ -2242,7 +2242,7 @@ void TEWidget::dropEvent(TQDropEvent* event)
         TQString tmp;
         if (url.isLocalFile()) {
           tmp = url.path(); // local URL : remove protocol. This helps "ln" & "cd" and doesn't harm the others
-        } else if ( url.protocol() == TQString::tqfromLatin1( "mailto" ) ) {
+        } else if ( url.protocol() == TQString::fromLatin1( "mailto" ) ) {
 	  justPaste = true;
 	  break;
 	} else {

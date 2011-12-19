@@ -151,7 +151,7 @@ KonqIconViewWidget::KonqIconViewWidget( TQWidget * parent, const char * name, WF
     m_LineupMode = LineupBoth;
     // emit our signals
     slotSelectionChanged();
-    m_iconPositionGroupPrefix = TQString::tqfromLatin1( "IconPosition::" );
+    m_iconPositionGroupPrefix = TQString::fromLatin1( "IconPosition::" );
     KonqUndoManager::incRef();
 }
 
@@ -308,7 +308,7 @@ void KonqIconViewWidget::slotOnItem( TQIconViewItem *_item )
                         if (!hasPixmap && backgroundMode() != NoBackground)
                            d->m_movie->setBackgroundColor( viewport()->backgroundColor() );
                         d->m_movie->connectUpdate( this, TQT_SLOT( slotMovieUpdate(const TQRect &) ) );
-                        d->m_movie->connectqStatus( TQT_TQOBJECT(this), TQT_SLOT( slotMovieStatus(int) ) );
+                        d->m_movie->connecStatus( TQT_TQOBJECT(this), TQT_SLOT( slotMovieStatus(int) ) );
                         d->movieFileName = d->pActiveItem->mouseOverAnimation();
                         d->pActiveItem->setAnimated( true );
                     }
@@ -349,7 +349,7 @@ void KonqIconViewWidget::slotOnItem( TQIconViewItem *_item )
         d->pSoundPlayer->mimeTypes().contains(
             item->item()->mimetype())
         && KGlobalSettings::showFilePreview(item->item()->url())
-        && tqtopLevelWidget() == kapp->activeWindow())
+        && topLevelWidget() == kapp->activeWindow())
     {
         d->pSoundItem = item;
         d->bSoundItemClicked = false;
@@ -653,7 +653,7 @@ void KonqIconViewWidget::setIcons( int size, const TQStringList& stopImagePrevie
     // or bottom icons exceed the size of the viewport.. here we prevent the tqrepaint
     // event that will be triggered in that case.
     bool prevUpdatesState = viewport()->isUpdatesEnabled();
-    viewport()->tqsetUpdatesEnabled( false );
+    viewport()->setUpdatesEnabled( false );
 
     // Do this even if size didn't change, since this is used by refreshMimeTypes...
     for ( TQIconViewItem *it = firstItem(); it; it = it->nextItem() ) {
@@ -673,7 +673,7 @@ void KonqIconViewWidget::setIcons( int size, const TQStringList& stopImagePrevie
     }
 
     // Restore viewport update to previous state
-    viewport()->tqsetUpdatesEnabled( prevUpdatesState );
+    viewport()->setUpdatesEnabled( prevUpdatesState );
 
     if ( ( sizeChanged || previewSizeChanged || oldGridX != gridX() ||
          !stopImagePreviewFor.isEmpty() ) && autoArrange() )
@@ -995,7 +995,7 @@ void KonqIconViewWidget::contentsDragEnterEvent( TQDragEnterEvent *e )
 {
     if ( e->provides( "text/uri-list" ) )
     {
-        TQByteArray payload = e->tqencodedData( "text/uri-list" );
+        TQByteArray payload = e->encodedData( "text/uri-list" );
         if ( !payload.size() )
             kdError() << "Empty data !" << endl;
         // Cache the URLs, since we need them every time we move over a file
@@ -1221,7 +1221,7 @@ void KonqIconViewWidget::contentsMouseMoveEvent( TQMouseEvent *e )
         // The following call is SO expensive (the ::widgetAt call eats up to 80%
         // of the mouse move cpucycles!), so it's mandatory to place that function
         // under strict checks, such as d->pSoundPlayer->isPlaying()
-        if ( TQApplication::widgetAt( TQCursor::pos() ) != tqtopLevelWidget() )
+        if ( TQApplication::widgetAt( TQCursor::pos() ) != topLevelWidget() )
         {
             if (d->pSoundPlayer)
                 d->pSoundPlayer->stop();

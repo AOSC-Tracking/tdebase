@@ -120,7 +120,7 @@ public:
 	void mouseEvent( int x, int y, bool pressed = false, bool released = false );
 
 	/**
-	 * Similar to tqsizeHint(..), this returns the area of the item
+	 * Similar to sizeHint(..), this returns the area of the item
 	 * given the @p parentGeometry. The default implementation
 	 * takes into account geometric constraints and layoutings.
 	 * @param parentGeometry the geometry of the caller item or a
@@ -181,7 +181,7 @@ protected:
 	 * @return (-1,-1) if no size can be determined (so it should
 	 * default to parent's size).
 	 */
-	virtual TQSize tqsizeHint();
+	virtual TQSize sizeHint();
 
 	/**
 	 * Low level graphical function to paint the item.

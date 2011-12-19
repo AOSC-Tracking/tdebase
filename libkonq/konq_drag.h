@@ -44,7 +44,7 @@ public:
     virtual ~KonqIconDrag() {}
 
     const char* format( int i ) const;
-    TQByteArray tqencodedData( const char* mime ) const;
+    TQByteArray encodedData( const char* mime ) const;
 
     void append( const TQIconDragItem &item, const TQRect &pr,
                  const TQRect &tr, const TQString &url );
@@ -72,7 +72,7 @@ public:
     virtual ~KonqIconDrag2() {}
 
     virtual const char* format( int i ) const;
-    virtual TQByteArray tqencodedData( const char* mime ) const;
+    virtual TQByteArray encodedData( const char* mime ) const;
 
     void append( const TQIconDragItem &item, const TQRect &pr,
                  const TQRect &tr, const TQString &url, const KURL &mostLocalURL );
@@ -107,7 +107,7 @@ public:
     virtual ~KonqDrag() {}
 
     virtual const char* format( int i ) const;
-    virtual TQByteArray tqencodedData( const char* mime ) const;
+    virtual TQByteArray encodedData( const char* mime ) const;
 
     void setMoveSelection( bool move ) { m_bCutSelection = move; }
 

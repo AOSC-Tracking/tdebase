@@ -81,7 +81,7 @@ int ContainerAreaLayoutItem::heightForWidth(int w) const
     }
     else
     {
-        return item->tqsizeHint().height();
+        return item->sizeHint().height();
     }
 }
 
@@ -94,7 +94,7 @@ int ContainerAreaLayoutItem::widthForHeight(int h) const
     }
     else
     {
-        return item->tqsizeHint().width();
+        return item->sizeHint().width();
     }
 }
 
@@ -415,7 +415,7 @@ TQWidget* ContainerAreaLayout::widgetAt(int index) const
     return m_items[index]->item->widget();
 }
 
-TQSize ContainerAreaLayout::tqsizeHint() const
+TQSize ContainerAreaLayout::sizeHint() const
 {
     const int size = KickerLib::sizeValue(KPanelExtension::SizeSmall);
 
@@ -429,7 +429,7 @@ TQSize ContainerAreaLayout::tqsizeHint() const
     }
 }
 
-TQSize ContainerAreaLayout::tqminimumSize() const
+TQSize ContainerAreaLayout::minimumSize() const
 {
     const int size = KickerLib::sizeValue(KPanelExtension::SizeTiny);
 

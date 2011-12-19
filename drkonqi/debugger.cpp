@@ -60,9 +60,9 @@ KrashDebugger :: KrashDebugger (const KrashConfig *krashconf, TQWidget *parent, 
   TQWidget *w = new TQWidget( this );
   ( new TQHBoxLayout( w, 0, KDialog::marginHint() ) )->setAutoAdd( true );
   m_status = new TQLabel( w );
-  m_status->tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Preferred ) );
+  m_status->setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Preferred ) );
   //m_copyButton = new KPushButton( KStdGuiItem::copy(), w );
-  KGuiItem item( i18n( "C&opy" ), TQString::tqfromLatin1( "editcopy" ) );
+  KGuiItem item( i18n( "C&opy" ), TQString::fromLatin1( "editcopy" ) );
   m_copyButton = new KPushButton( item, w );
   connect( m_copyButton, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotCopy() ) );
   m_copyButton->setEnabled( false );
@@ -109,7 +109,7 @@ void KrashDebugger :: slotSave()
   }
   else
   {
-    TQString defname = m_krashconf->execName() + TQString::tqfromLatin1( ".kcrash" );
+    TQString defname = m_krashconf->execName() + TQString::fromLatin1( ".kcrash" );
     if( defname.contains( '/' ))
         defname = defname.mid( defname.findRev( '/' ) + 1 );
     TQString filename = KFileDialog::getSaveFileName(defname, TQString::null, this, i18n("Select Filename"));
@@ -208,7 +208,7 @@ void KrashDebugger :: startDebugger()
 bool KrashDebugger::performChecks( TQString* msg )
 {
   bool ret = true;
-  KConfig kdedcfg( TQString::tqfromLatin1( "kdedrc" ), true );
+  KConfig kdedcfg( TQString::fromLatin1( "kdedrc" ), true );
   kdedcfg.setGroup( "General" );
   if( kdedcfg.readBoolEntry( "DelayedCheck", false ))
   {

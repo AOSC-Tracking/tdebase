@@ -147,7 +147,7 @@ void CfgEmailClient::load(KConfig *)
 	kmailCB->setChecked(useKMail);
 	otherCB->setChecked(!useKMail);
 	txtEMailClient->setText(emailClient);
-	txtEMailClient->setFixedHeight(txtEMailClient->tqsizeHint().height());
+	txtEMailClient->setFixedHeight(txtEMailClient->sizeHint().height());
 	chkRunTerminal->setChecked((pSettings->getSetting(KEMailSettings::ClientTerminal) == "true"));
 
 	emit changed(false);
@@ -169,9 +169,9 @@ void CfgEmailClient::selectEmailClient()
 	TQString client = dlg.text();
 
 	// get the preferred Terminal Application 
-	KConfigGroup confGroup( KGlobal::config(), TQString::tqfromLatin1("General") );
-	TQString preferredTerminal = confGroup.readPathEntry("TerminalApplication", TQString::tqfromLatin1("konsole"));
-	preferredTerminal += TQString::tqfromLatin1(" -e ");
+	KConfigGroup confGroup( KGlobal::config(), TQString::fromLatin1("General") );
+	TQString preferredTerminal = confGroup.readPathEntry("TerminalApplication", TQString::fromLatin1("konsole"));
+	preferredTerminal += TQString::fromLatin1(" -e ");
 	
 	int len = preferredTerminal.length();
 	bool b = client.left(len) == preferredTerminal;
@@ -393,7 +393,7 @@ ComponentChooser::ComponentChooser(TQWidget *parent, const char *name):
 		ServiceChooser->insertItem(new MyListBoxItem(cfg.readEntry("Name",i18n("Unknown")),(*it)));
 
 	}
-	ServiceChooser->setFixedWidth(ServiceChooser->tqsizeHint().width());
+	ServiceChooser->setFixedWidth(ServiceChooser->sizeHint().width());
 	ServiceChooser->sort();
 	connect(ServiceChooser,TQT_SIGNAL(highlighted(TQListBoxItem*)),this,TQT_SLOT(slotServiceSelected(TQListBoxItem*)));
 	ServiceChooser->setSelected(0,true);
@@ -410,7 +410,7 @@ void ComponentChooser::slotServiceSelected(TQListBoxItem* it) {
 	KSimpleConfig cfg(static_cast<MyListBoxItem*>(it)->File);
 
 	ComponentDescription->setText(cfg.readEntry("Comment",i18n("No description available")));
-	ComponentDescription->setMinimumSize(ComponentDescription->tqsizeHint());
+	ComponentDescription->setMinimumSize(ComponentDescription->sizeHint());
 
 
 	TQString cfgType=cfg.readEntry("configurationType");
@@ -461,7 +461,7 @@ void ComponentChooser::slotServiceSelected(TQListBoxItem* it) {
 		delete configWidget;
 		configWidget=newConfigWidget;
 		connect(configWidget,TQT_SIGNAL(changed(bool)),this,TQT_SLOT(emitChanged(bool)));
-	        configContainer->setMinimumSize(configWidget->tqsizeHint());
+	        configContainer->setMinimumSize(configWidget->sizeHint());
 	}
 	
 	if (configWidget)

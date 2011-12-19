@@ -447,7 +447,7 @@ const char* HALBackend::findMediumUdiFromUdi(const char* udi)
 void HALBackend::ResetProperties(const char* mediumUdi, bool allowNotification)
 {
     kdDebug(1219) << "HALBackend::setProperties" << endl;
-    if ( TQString::tqfromLatin1( mediumUdi ).startsWith( "/org/kde/" ) )
+    if ( TQString::fromLatin1( mediumUdi ).startsWith( "/org/kde/" ) )
     {
         const Medium *cmedium = m_mediaList.findById(mediumUdi);
         if ( cmedium )

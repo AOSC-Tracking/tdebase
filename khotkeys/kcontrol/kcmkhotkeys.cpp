@@ -272,14 +272,14 @@ void Module::set_gestures_exclude( Windowdef_list* windows )
 
 void Module::import()
     {
-    TQString file = KFileDialog::getOpenFileName( TQString::null, "*.khotkeys", tqtopLevelWidget(),
+    TQString file = KFileDialog::getOpenFileName( TQString::null, "*.khotkeys", topLevelWidget(),
         i18n( "Select File with Actions to Be Imported" ));
     if( file.isEmpty())
         return;
     KSimpleConfig cfg( file, true );
     if( !settings.import( cfg, true ))
         {
-        KMessageBox::error( tqtopLevelWidget(),
+        KMessageBox::error( topLevelWidget(),
             i18n( "Import of the specified file failed. Most probably the file is not a valid "
                 "file with actions." ));
         return;

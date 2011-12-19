@@ -50,15 +50,15 @@ KHTMLSearchConfig::KHTMLSearchConfig(TQWidget *parent, const char *name)
   TQLabel *l = new TQLabel(i18n("The fulltext search feature makes use of the "
                   "ht://dig HTML search engine. "
                   "You can get ht://dig at the"), gb);
-  l->tqsetAlignment(TQLabel::WordBreak);
-  l->setMinimumSize(l->tqsizeHint());
+  l->setAlignment(TQLabel::WordBreak);
+  l->setMinimumSize(l->sizeHint());
   grid->addMultiCellWidget(l, 1, 1, 0, 1);
   TQWhatsThis::add( gb, i18n( "Information about where to get the ht://dig package." ) );
 
   KURLLabel *url = new KURLLabel(gb);
   url->setURL("http://www.htdig.org");
   url->setText(i18n("ht://dig home page"));
-  url->tqsetAlignment(TQLabel::AlignHCenter);
+  url->setAlignment(TQLabel::AlignHCenter);
   grid->addMultiCellWidget(url, 2,2, 0, 1);
   connect(url, TQT_SIGNAL(leftClickedURL(const TQString&)),
       this, TQT_SLOT(urlClicked(const TQString&)));
@@ -157,7 +157,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(TQWidget *parent, const char *name)
 
   runButton = new TQPushButton(i18n("Generate Index..."), this);
   TQWhatsThis::add( runButton, i18n( "Click this button to generate the index for the fulltext search." ) );
-  runButton->setFixedSize(runButton->tqsizeHint());
+  runButton->setFixedSize(runButton->sizeHint());
   vbox->addWidget(runButton, AlignRight);
   connect(runButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(generateIndex()));
 
@@ -179,14 +179,14 @@ void KHTMLSearchConfig::loadLanguages()
 
   // add all languages to the list
   TQStringList langs = KGlobal::dirs()->findAllResources("locale",
-							TQString::tqfromLatin1("*/entry.desktop"));
+							TQString::fromLatin1("*/entry.desktop"));
   langs.sort();
 
   for (TQStringList::ConstIterator it = langs.begin(); it != langs.end(); ++it)
     {
       KSimpleConfig entry(*it);
-      entry.setGroup(TQString::tqfromLatin1("KCM Locale"));
-      TQString name = entry.readEntry(TQString::tqfromLatin1("Name"), KGlobal::locale()->translate("without name"));
+      entry.setGroup(TQString::fromLatin1("KCM Locale"));
+      TQString name = entry.readEntry(TQString::fromLatin1("Name"), KGlobal::locale()->translate("without name"));
 
       TQString path = *it;
       int index = path.findRev('/');

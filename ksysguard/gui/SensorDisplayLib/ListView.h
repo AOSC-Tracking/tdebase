@@ -58,7 +58,7 @@ public:
 	PrivateListViewItem(PrivateListView *parent = 0);
 
 	void paintCell(TQPainter *p, const TQColorGroup &, int column, int width, int tqalignment) {
-		TQColorGroup cgroup = _parent->tqcolorGroup();
+		TQColorGroup cgroup = _parent->colorGroup();
 		TQListViewItem::paintCell(p, cgroup, column, width, tqalignment);
 		p->setPen(cgroup.color(TQColorGroup::Link));
 		p->drawLine(0, height() - 1, width - 1, height() - 1);

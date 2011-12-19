@@ -1436,7 +1436,7 @@ void fishProtocol::run() {
                 if (rc > 0) {
                     int noff = received(buf,rc+offset);
                     if (noff > 0) memmove(buf,buf+offset+rc-noff,noff);
-                    //myDebug( << "left " << noff << " bytes: " << TQString::tqfromLatin1(buf,offset) << endl);
+                    //myDebug( << "left " << noff << " bytes: " << TQString::fromLatin1(buf,offset) << endl);
                     offset = noff;
                 } else {
                     if (errno == EINTR)

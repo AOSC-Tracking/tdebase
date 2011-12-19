@@ -80,7 +80,7 @@ static const TQString HexStr(unsigned long val, int digits )
 {
     TQString hexstr;
     int i;
-    hexstr = TQString::tqfromLatin1("0x%1").arg(val, digits, 16/*=HEX*/);
+    hexstr = TQString::fromLatin1("0x%1").arg(val, digits, 16/*=HEX*/);
     for (i=hexstr.length()-1; i>0; --i)
      if (hexstr[i]==' ')
          hexstr[i] = '0';
@@ -167,7 +167,7 @@ static TQListViewItem* XServer_fill_screen_info( TQListViewItem *lBox, TQListVie
         for (i = 0; i < ndepths; i++) {
             txt = txt + Value(depths[i]);
             if (i < ndepths - 1)
-                txt = txt + TQString::tqfromLatin1(", ");
+                txt = txt + TQString::fromLatin1(", ");
         }
 
         last = new TQListViewItem(item, last, i18n("Depths (%1)").arg(ndepths,-1), txt);
@@ -204,7 +204,7 @@ static TQListViewItem* XServer_fill_screen_info( TQListViewItem *lBox, TQListVie
 		    &width, &height);
     last = new TQListViewItem(item, last, i18n("Largest Cursor"),
 		(width == 65535 && height == 65535)
-		? i18n("unlimited") : TQString::tqfromLatin1("%1 x %2").arg(width).arg(height));
+		? i18n("unlimited") : TQString::fromLatin1("%1 x %2").arg(width).arg(height));
 
     last = new TQListViewItem(item, last, i18n("Current Input Event Mask"),
 		HexStr((unsigned long)EventMaskOfScreen(s),HEXDIGITS));
@@ -272,12 +272,12 @@ static bool GetInfo_XServer_Generic( TQListView *lBox )
     last = new TQListViewItem(next, i18n("Name of the Display"),
 		DisplayString(dpy));
 
-    last = new TQListViewItem(next, last, i18n("Vendor String"), TQString::tqfromLatin1(ServerVendor(dpy)));
+    last = new TQListViewItem(next, last, i18n("Vendor String"), TQString::fromLatin1(ServerVendor(dpy)));
     last = new TQListViewItem(next, last, i18n("Vendor Release Number"),
 		Value((int)VendorRelease(dpy)));
 
     last = new TQListViewItem(next, last, i18n("Version Number"),
-		TQString::tqfromLatin1("%1.%2").arg((int)ProtocolVersion(dpy))
+		TQString::fromLatin1("%1.%2").arg((int)ProtocolVersion(dpy))
     		                  .arg((int)ProtocolRevision(dpy)));
 
     last = item = new TQListViewItem(next, last, i18n("Available Screens"));
@@ -294,7 +294,7 @@ static bool GetInfo_XServer_Generic( TQListView *lBox )
     int extCount;
     char **extensions = XListExtensions( dpy, &extCount );
     for ( i = 0; i < extCount; i++ ) {
-       item = new TQListViewItem( last, item, TQString::tqfromLatin1( extensions[i] ) );
+       item = new TQListViewItem( last, item, TQString::fromLatin1( extensions[i] ) );
     }
     XFreeExtensionList( extensions );
 
@@ -356,7 +356,7 @@ void KInfoListWidget::load()
         retrieve-function. If the function wants the widget to show
         another string, then it change *GetInfo_ErrorString ! */
     ErrorString = i18n("No information available about %1.").arg(title)
-		    + TQString::tqfromLatin1("\n\n") + DEFAULT_ERRORSTRING;
+		    + TQString::fromLatin1("\n\n") + DEFAULT_ERRORSTRING;
     GetInfo_ErrorString = &ErrorString;  /* save the address of ErrorString */
 
     sorting_allowed = true; 	/* the functions may set that */
@@ -425,7 +425,7 @@ KInfoListWidget::KInfoListWidget(const TQString &_title, TQWidget *parent, const
     TQWhatsThis::add( lBox, i18n( "This list displays system information on the selected category." ) );
     NoInfoText  = new TQLabel(widgetStack);
     widgetStack->addWidget(NoInfoText, 1);
-    NoInfoText->tqsetAlignment(AlignCenter | WordBreak);
+    NoInfoText->setAlignment(AlignCenter | WordBreak);
     widgetStack->raiseWidget(NoInfoText);
     load();
 }

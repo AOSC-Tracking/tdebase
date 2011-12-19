@@ -178,33 +178,33 @@ extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
 */
 static bool startNewKonqueror( TQString url, TQString mimetype, const TQString& profile )
 {
-    KConfig cfg( TQString::tqfromLatin1( "konquerorrc" ), true );
+    KConfig cfg( TQString::fromLatin1( "konquerorrc" ), true );
     cfg.setGroup( "Reusing" );
     TQStringList allowed_parts;
     // is duplicated in ../KonquerorIface.cc
-    allowed_parts << TQString::tqfromLatin1( "konq_iconview.desktop" )
-                  << TQString::tqfromLatin1( "konq_multicolumnview.desktop" )
-                  << TQString::tqfromLatin1( "konq_sidebartng.desktop" )
-                  << TQString::tqfromLatin1( "konq_infolistview.desktop" )
-                  << TQString::tqfromLatin1( "konq_treeview.desktop" )
-                  << TQString::tqfromLatin1( "konq_detailedlistview.desktop" );
+    allowed_parts << TQString::fromLatin1( "konq_iconview.desktop" )
+                  << TQString::fromLatin1( "konq_multicolumnview.desktop" )
+                  << TQString::fromLatin1( "konq_sidebartng.desktop" )
+                  << TQString::fromLatin1( "konq_infolistview.desktop" )
+                  << TQString::fromLatin1( "konq_treeview.desktop" )
+                  << TQString::fromLatin1( "konq_detailedlistview.desktop" );
     if( cfg.hasKey( "SafeParts" )
-        && cfg.readEntry( "SafeParts" ) != TQString::tqfromLatin1( "SAFE" ))
+        && cfg.readEntry( "SafeParts" ) != TQString::fromLatin1( "SAFE" ))
         allowed_parts = cfg.readListEntry( "SafeParts" );
-    if( allowed_parts.count() == 1 && allowed_parts.first() == TQString::tqfromLatin1( "ALL" ))
+    if( allowed_parts.count() == 1 && allowed_parts.first() == TQString::fromLatin1( "ALL" ))
 	return false; // all parts allowed
     if( url.isEmpty())
     {
         if( profile.isEmpty())
             return true;
-	TQString profilepath = locate( "data", TQString::tqfromLatin1("konqueror/profiles/") + profile );
+	TQString profilepath = locate( "data", TQString::fromLatin1("konqueror/profiles/") + profile );
 	if( profilepath.isEmpty())
 	    return true;
 	KConfig cfg( profilepath, true );
 	cfg.setDollarExpansion( true );
         cfg.setGroup( "Profile" );
-	TQMap< TQString, TQString > entries = cfg.entryMap( TQString::tqfromLatin1( "Profile" ));
-	TQRegExp urlregexp( TQString::tqfromLatin1( "^View[0-9]*_URL$" ));
+	TQMap< TQString, TQString > entries = cfg.entryMap( TQString::fromLatin1( "Profile" ));
+	TQRegExp urlregexp( TQString::fromLatin1( "^View[0-9]*_URL$" ));
 	TQStringList urls;
 	for( TQMap< TQString, TQString >::ConstIterator it = entries.begin();
 	     it != entries.end();
@@ -218,16 +218,16 @@ static bool startNewKonqueror( TQString url, TQString mimetype, const TQString& 
 	if( urls.count() != 1 )
 	    return true;
 	url = urls.first();
-	mimetype = TQString::tqfromLatin1( "" );
+	mimetype = TQString::fromLatin1( "" );
     }
     if( mimetype.isEmpty())
 	mimetype = KMimeType::findByURL( KURL( url ) )->name();
-    KTrader::OfferList offers = KTrader::self()->query( mimetype, TQString::tqfromLatin1( "KParts/ReadOnlyPart" ),
+    KTrader::OfferList offers = KTrader::self()->query( mimetype, TQString::fromLatin1( "KParts/ReadOnlyPart" ),
 	TQString::null, TQString::null );
     KService::Ptr serv;
     if( offers.count() > 0 )
         serv = offers.first();
-    return serv == NULL || !allowed_parts.contains( serv->desktopEntryName() + TQString::tqfromLatin1(".desktop") );
+    return serv == NULL || !allowed_parts.contains( serv->desktopEntryName() + TQString::fromLatin1(".desktop") );
 }
 
 static int currentScreen()
@@ -248,7 +248,7 @@ static int currentScreen()
 // when reusing a preloaded konqy, make sure your always use a DCOP call which opens a profile !
 static TQCString getPreloadedKonqy()
 {
-    KConfig cfg( TQString::tqfromLatin1( "konquerorrc" ), true );
+    KConfig cfg( TQString::fromLatin1( "konquerorrc" ), true );
     cfg.setGroup( "Reusing" );
     if( cfg.readNumEntry( "MaxPreloadCount", 1 ) == 0 )
         return "";
@@ -301,8 +301,8 @@ bool clientApp::createNewWindow(const KURL & url, bool newTab, bool tempFile, co
     // check if user wants to use external browser
     // ###### this option seems to have no GUI and to be redundant with BrowserApplication now.
     // ###### KDE4: remove
-    KConfig config( TQString::tqfromLatin1("kfmclientrc"));
-    config.setGroup( TQString::tqfromLatin1("Settings"));
+    KConfig config( TQString::fromLatin1("kfmclientrc"));
+    config.setGroup( TQString::fromLatin1("Settings"));
     TQString strBrowser = config.readPathEntry("ExternalBrowser");
     if (!strBrowser.isEmpty())
     {
@@ -314,7 +314,7 @@ bool clientApp::createNewWindow(const KURL & url, bool newTab, bool tempFile, co
         return true;
     }
 
-    if (url.protocol().startsWith(TQString::tqfromLatin1("http")))
+    if (url.protocol().startsWith(TQString::fromLatin1("http")))
     {
         config.setGroup("General");
         if (!config.readEntry("BrowserApplication").isEmpty())
@@ -330,7 +330,7 @@ bool clientApp::createNewWindow(const KURL & url, bool newTab, bool tempFile, co
         }
     }
 
-    KConfig cfg( TQString::tqfromLatin1( "konquerorrc" ), true );
+    KConfig cfg( TQString::fromLatin1( "konquerorrc" ), true );
     cfg.setGroup( "FMSettings" );
     if ( newTab || cfg.readBoolEntry( "KonquerorTabforExternalURL", false ) )
     {
@@ -361,7 +361,7 @@ bool clientApp::createNewWindow(const KURL & url, bool newTab, bool tempFile, co
     {
         TQString error;
         /* Well, we can't pass a mimetype through startServiceByDesktopPath !
-        if ( KApplication::startServiceByDesktopPath( TQString::tqfromLatin1("konqueror.desktop"),
+        if ( KApplication::startServiceByDesktopPath( TQString::fromLatin1("konqueror.desktop"),
                                                       url.url(), &error ) > 0 )
         {
             kdError() << "Couldn't start konqueror from konqueror.desktop: " << error << endl;
@@ -391,8 +391,8 @@ bool clientApp::openProfile( const TQString & profileName, const TQString & url,
   if( appId.isEmpty())
   {
     TQString error;
-    if ( KApplication::startServiceByDesktopPath( TQString::tqfromLatin1("konqueror.desktop"),
-        TQString::tqfromLatin1("--silent"), &error, &appId, NULL, startup_id_str ) > 0 )
+    if ( KApplication::startServiceByDesktopPath( TQString::fromLatin1("konqueror.desktop"),
+        TQString::fromLatin1("--silent"), &error, &appId, NULL, startup_id_str ) > 0 )
     {
       kdError() << "Couldn't start konqueror from konqueror.desktop: " << error << endl;
       return false;
@@ -401,7 +401,7 @@ bool clientApp::openProfile( const TQString & profileName, const TQString & url,
       // so when we arrive here, konq is up and running already, and appId contains the identification
   }
 
-  TQString profile = locate( "data", TQString::tqfromLatin1("konqueror/profiles/") + profileName );
+  TQString profile = locate( "data", TQString::fromLatin1("konqueror/profiles/") + profileName );
   if ( profile.isEmpty() )
   {
       fprintf( stderr, "%s", i18n("Profile %1 not found\n").tqarg(profileName).local8Bit().data() );
@@ -479,7 +479,7 @@ bool clientApp::doIt()
     }
     if ( argc == 3 )
     {
-      return createNewWindow( args->url(1), command == "newTab", tempFile, TQString::tqfromLatin1(args->arg(2)) );
+      return createNewWindow( args->url(1), command == "newTab", tempFile, TQString::fromLatin1(args->arg(2)) );
     }
   }
   else if ( command == "openProfile" )
@@ -529,7 +529,7 @@ bool clientApp::doIt()
     {
       KURL::List urls;
       urls.append( args->url(1) );
-      const KTrader::OfferList offers = KTrader::self()->query( TQString::fromLocal8Bit( args->arg( 2 ) ), TQString::tqfromLatin1( "Application" ), TQString::null, TQString::null );
+      const KTrader::OfferList offers = KTrader::self()->query( TQString::fromLocal8Bit( args->arg( 2 ) ), TQString::fromLatin1( "Application" ), TQString::null, TQString::null );
       if (offers.isEmpty()) return 1;
       KService::Ptr serv = offers.first();
       return KRun::run( *serv, urls );

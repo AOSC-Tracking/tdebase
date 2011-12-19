@@ -30,7 +30,7 @@ public:
     ~KWMThemeClient(){;}
     void init();
     void resize( const TQSize& s );
-    TQSize tqminimumSize() const;
+    TQSize minimumSize() const;
     void borders( int& left, int& right, int& top, int& bottom ) const;
 protected:
     void doShape();

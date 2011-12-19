@@ -163,7 +163,7 @@ QuickButton::QuickButton(const TQString &u, KAction* configAction,
 
     TQToolTip::add(this, _qurl->name());
     resize(int(DEFAULT_ICON_DIM),int(DEFAULT_ICON_DIM));
-    TQBrush bgbrush(tqcolorGroup().brush(TQColorGroup::Background));
+    TQBrush bgbrush(colorGroup().brush(TQColorGroup::Background));
 
     QuickAddAppsMenu *addAppsMenu = new QuickAddAppsMenu(
         parent, this, _qurl->url());

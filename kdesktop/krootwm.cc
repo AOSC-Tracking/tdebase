@@ -636,8 +636,8 @@ void KRootWm::slotWindowList() {
   windowListMenu->init();
   disconnect( windowListMenu, TQT_SIGNAL( aboutToShow() ),
            this, TQT_SLOT( slotWindowListAboutToShow() ) ); // avoid calling init() twice
-  // windowListMenu->rect() is not valid before showing, use tqsizeHint()
-  windowListMenu->popup(r.center() - TQRect( TQPoint( 0, 0 ), windowListMenu->tqsizeHint()).center());
+  // windowListMenu->rect() is not valid before showing, use sizeHint()
+  windowListMenu->popup(r.center() - TQRect( TQPoint( 0, 0 ), windowListMenu->sizeHint()).center());
   windowListMenu->selectActiveWindow(); // make the popup more useful
   connect( windowListMenu, TQT_SIGNAL( aboutToShow() ),
            this, TQT_SLOT( slotWindowListAboutToShow() ) );
@@ -656,7 +656,7 @@ void KRootWm::slotSwitchUser() {
   slotPopulateSessions();
   disconnect( sessionsMenu, TQT_SIGNAL( aboutToShow() ),
            this, TQT_SLOT( slotPopulateSessions() ) ); // avoid calling init() twice
-  sessionsMenu->popup(r.center() - TQRect( TQPoint( 0, 0 ), sessionsMenu->tqsizeHint()).center());
+  sessionsMenu->popup(r.center() - TQRect( TQPoint( 0, 0 ), sessionsMenu->sizeHint()).center());
   connect( sessionsMenu, TQT_SIGNAL( aboutToShow() ),
            TQT_SLOT( slotPopulateSessions() ) );
 }

@@ -232,11 +232,11 @@ void KPersonalizer::setBeforeSession(){
 
 /** there seems to be a bug in TQWizard, that makes this evil hack necessary */
 void KPersonalizer::setPosition() {
-	TQSize hint = countrypage->tqsizeHint();
-	TQSize os_size = ospage->tqsizeHint();
-	TQSize candy_size = eyecandy->tqsizeHint();
-	TQSize style_size = stylepage->tqsizeHint();
-	TQSize refine_size = refinepage->tqsizeHint();
+	TQSize hint = countrypage->sizeHint();
+	TQSize os_size = ospage->sizeHint();
+	TQSize candy_size = eyecandy->sizeHint();
+	TQSize style_size = stylepage->sizeHint();
+	TQSize refine_size = refinepage->sizeHint();
 
 	// get the width of the broadest child-widget
 	if ( hint.width() < os_size.width() )

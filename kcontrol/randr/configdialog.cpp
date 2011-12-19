@@ -60,7 +60,7 @@ void ConfigDialog::show()
 {
     if ( !isVisible() ) {
 	KWinModule module(0, KWinModule::INFO_DESKTOP);
-	TQSize s1 = tqsizeHint();
+	TQSize s1 = sizeHint();
 	TQSize s2 = module.workArea().size();
 	int w = s1.width();
 	int h = s1.height();

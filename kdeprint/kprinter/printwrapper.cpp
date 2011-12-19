@@ -66,7 +66,7 @@ void showmsgdialog(const TQString& msg, int type = 0)
 
 void showmsgconsole(const TQString& msg, int type = 0)
 {
-	TQString	errmsg = TQString::tqfromLatin1("%1 : ").arg((type == 0 ? i18n("Print info") : (type == 1 ? i18n("Print warning") : i18n("Print error"))));
+	TQString	errmsg = TQString::fromLatin1("%1 : ").arg((type == 0 ? i18n("Print info") : (type == 1 ? i18n("Print warning") : i18n("Print error"))));
 	kdDebug() << errmsg << msg << endl;
 }
 

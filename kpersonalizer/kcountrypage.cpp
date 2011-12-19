@@ -76,7 +76,7 @@ KCountryPage::~KCountryPage(){
 
 void KCountryPage::loadCountryList(KLanguageButton *combo) {
 
-	TQString sub = TQString::tqfromLatin1("l10n/");
+	TQString sub = TQString::fromLatin1("l10n/");
 
 	// clear the list
 	combo->clear();
@@ -86,8 +86,8 @@ void KCountryPage::loadCountryList(KLanguageButton *combo) {
 
 	for ( TQStringList::ConstIterator it = regionfiles.begin(); it != regionfiles.end(); ++it ) {
 		KSimpleConfig entry(*it);
-		entry.setGroup(TQString::tqfromLatin1("KCM Locale"));
-		TQString name = entry.readEntry(TQString::tqfromLatin1("Name"), i18n("without name"));
+		entry.setGroup(TQString::fromLatin1("KCM Locale"));
+		TQString name = entry.readEntry(TQString::fromLatin1("Name"), i18n("without name"));
 
 		TQString tag = *it;
 		int index;
@@ -113,8 +113,8 @@ void KCountryPage::loadCountryList(KLanguageButton *combo) {
 
 	for ( TQStringList::ConstIterator it = countrylist.begin(); it != countrylist.end(); ++it ) {
 		KSimpleConfig entry(*it);
-		entry.setGroup(TQString::tqfromLatin1("KCM Locale"));
-		TQString name = entry.readEntry(TQString::tqfromLatin1("Name"), i18n("without name"));
+		entry.setGroup(TQString::fromLatin1("KCM Locale"));
+		TQString name = entry.readEntry(TQString::fromLatin1("Name"), i18n("without name"));
 		TQString submenu = '-' + entry.readEntry("Region");
 
 		TQString tag = *it;
@@ -123,7 +123,7 @@ void KCountryPage::loadCountryList(KLanguageButton *combo) {
 		index = tag.findRev('/');
 		tag = tag.mid(index+1);
 
-		TQPixmap flag( locate( "locale", TQString::tqfromLatin1("l10n/%1/flag.png").arg(tag) ) );
+		TQPixmap flag( locate( "locale", TQString::fromLatin1("l10n/%1/flag.png").arg(tag) ) );
 		TQIconSet icon( flag );
 		combo->insertItem( icon, name, tag, submenu );
 	}
@@ -138,7 +138,7 @@ void KCountryPage::fillLanguageMenu(KLanguageButton *combo) {
 	for ( it = langlist.begin(); it != langlist.end(); ++it ) {
 		if ((*it).isNull()) {
 			combo->insertSeparator();
-			submenu = TQString::tqfromLatin1("all");
+			submenu = TQString::fromLatin1("all");
 			combo->insertSubmenu(i18n("All"), submenu, TQString::null);
 			continue;
 		}
@@ -151,9 +151,9 @@ bool KCountryPage::save(KLanguageButton *comboCountry, KLanguageButton *comboLan
 	kdDebug() << "KCountryPage::save()" << endl;
 	KConfigBase *config = KGlobal::config();
 
-	config->setGroup(TQString::tqfromLatin1("Locale"));
-	config->writeEntry(TQString::tqfromLatin1("Country"), comboCountry->current(), true, true);
-	config->writeEntry(TQString::tqfromLatin1("Language"), comboLang->current(), true, true);
+	config->setGroup(TQString::fromLatin1("Locale"));
+	config->writeEntry(TQString::fromLatin1("Country"), comboCountry->current(), true, true);
+	config->writeEntry(TQString::fromLatin1("Language"), comboLang->current(), true, true);
 	config->sync();
 
 	// only make the system reload the language, if the selected one deferes from the old saved one.
@@ -167,7 +167,7 @@ bool KCountryPage::save(KLanguageButton *comboCountry, KLanguageButton *comboLan
 			kapp->dcopClient()->attach();
 		// ksycoca needs to be rebuilt
 		KProcess proc;
-		proc << TQString::tqfromLatin1("kbuildsycoca");
+		proc << TQString::fromLatin1("kbuildsycoca");
 		proc.start(KProcess::DontCare);
 		kdDebug() << "KLocaleConfig::save : sending signal to kdesktop" << endl;
 		// inform kicker and kdeskop about the new language
@@ -182,10 +182,10 @@ bool KCountryPage::save(KLanguageButton *comboCountry, KLanguageButton *comboLan
 
 void KCountryPage::setLangForCountry(const TQString &country) {
 	KSimpleConfig ent(locate("locale", "l10n/" + country + "/entry.desktop"), true);
-	ent.setGroup(TQString::tqfromLatin1("KCM Locale"));
-	langs = ent.readListEntry(TQString::tqfromLatin1("Languages"));
+	ent.setGroup(TQString::fromLatin1("KCM Locale"));
+	langs = ent.readListEntry(TQString::fromLatin1("Languages"));
 
-	TQString lang = TQString::tqfromLatin1("en_US");
+	TQString lang = TQString::fromLatin1("en_US");
 	// use the first INSTALLED langauge in the list, or default to C
 	for ( TQStringList::Iterator it = langs.begin(); it != langs.end(); ++it ) {
 		if (cb_language->contains(*it)) {

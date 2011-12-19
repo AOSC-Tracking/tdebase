@@ -258,7 +258,7 @@ void ExtensionProxy::dock(const TQCString& callbackID)
 bool ExtensionProxy::process(const TQCString &fun, const TQByteArray &data,
                           TQCString& replyType, TQByteArray &replyData)
 {
-    if ( fun == "tqsizeHint(int,TQSize)" )
+    if ( fun == "sizeHint(int,TQSize)" )
 	{
 	    TQDataStream dataStream( data, IO_ReadOnly );
 	    int pos;
@@ -272,7 +272,7 @@ bool ExtensionProxy::process(const TQCString &fun, const TQByteArray &data,
 	    if(!_extension)
 		reply << maxSize;
 	    else
-		reply << _extension->tqsizeHint((KPanelExtension::Position)pos, maxSize);
+		reply << _extension->sizeHint((KPanelExtension::Position)pos, maxSize);
 
 	    return true;
 	}
@@ -287,14 +287,14 @@ bool ExtensionProxy::process(const TQCString &fun, const TQByteArray &data,
 	    }
 	    return true;
 	}
-    else if ( fun == "tqsetAlignment(int)" )
+    else if ( fun == "setAlignment(int)" )
 	{
 	    TQDataStream dataStream( data, IO_ReadOnly );
 	    int tqalignment;
 	    dataStream >> tqalignment;
 
 	    if(_extension) {
-		_extension->tqsetAlignment( (KPanelExtension::Alignment)tqalignment );
+		_extension->setAlignment( (KPanelExtension::Alignment)tqalignment );
 	    }
 	    return true;
 	}

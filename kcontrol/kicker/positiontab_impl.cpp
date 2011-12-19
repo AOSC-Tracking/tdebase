@@ -60,7 +60,7 @@ PositionTab::PositionTab(TQWidget *parent, const char* name)
 {
     TQPixmap monitor(locate("data", "kcontrol/pics/monitor.png"));
     m_monitorImage->setPixmap(monitor);
-    m_monitorImage->setFixedSize(m_monitorImage->tqsizeHint());
+    m_monitorImage->setFixedSize(m_monitorImage->sizeHint());
 
     m_pretendDesktop = new TQWidget(m_monitorImage, "pretendBG");
     m_pretendDesktop->setGeometry(offsetX, offsetY, maxX, maxY);
@@ -696,14 +696,14 @@ void PositionTab::showIdentify()
         screenLabel->setFrameStyle(TQFrame::Panel);
         screenLabel->setFrameShadow(TQFrame::Plain);
 
-        screenLabel->tqsetAlignment(Qt::AlignCenter);
+        screenLabel->setAlignment(Qt::AlignCenter);
         screenLabel->setNum(s + 1);
         // BUGLET: we should not allow the identification to be entered again
         //         until the timer fires.
         TQTimer::singleShot(1500, screenLabel, TQT_SLOT(close()));
 
         TQPoint screenCenter(TQApplication::desktop()->screenGeometry(s).center());
-        TQRect targetGeometry(TQPoint(0,0),screenLabel->tqsizeHint());
+        TQRect targetGeometry(TQPoint(0,0),screenLabel->sizeHint());
         targetGeometry.moveCenter(screenCenter);
 
         screenLabel->setGeometry(targetGeometry);

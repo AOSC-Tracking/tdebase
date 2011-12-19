@@ -12,7 +12,7 @@
             <height>613</height>
         </rect>
     </property>
-    <property name="tqminimumSize">
+    <property name="minimumSize">
         <size>
             <width>0</width>
             <height>450</height>
@@ -227,7 +227,7 @@ Recommended if you want sound.</string>
                             <property name="sizeType">
                                 <enum>Expanding</enum>
                             </property>
-                            <property name="tqsizeHint">
+                            <property name="sizeHint">
                                 <size>
                                     <width>173</width>
                                     <height>20</height>
@@ -256,7 +256,7 @@ Recommended if you want sound.</string>
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>40</width>
                             <height>20</height>
@@ -289,7 +289,7 @@ Recommended if you want sound.</string>
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>40</width>
                             <height>20</height>
@@ -308,7 +308,7 @@ Recommended if you want sound.</string>
             <property name="sizeType">
                 <enum>Expanding</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>20</width>
                     <height>0</height>

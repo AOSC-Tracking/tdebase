@@ -856,7 +856,7 @@ KGVerify::getConf( void *, const char *key, const TQVariant &dflt )
 	if (!qstrcmp( key, "EchoMode" ))
 		return TQVariant( _echoMode );
 	else {
-		TQString fkey = TQString::tqfromLatin1( key ) + '=';
+		TQString fkey = TQString::fromLatin1( key ) + '=';
 		for (TQStringList::ConstIterator it = _pluginOptions.begin();
 		     it != _pluginOptions.end(); ++it)
 			if ((*it).startsWith( fkey ))
@@ -930,7 +930,7 @@ KGStdVerify::KGStdVerify( KGVerifyHandler *_handler, TQWidget *_parent,
 	, failedLabelState( 0 )
 {
 	grid = new TQGridLayout;
-	grid->tqsetAlignment( AlignCenter );
+	grid->setAlignment( AlignCenter );
 
 	failedLabel = new TQLabel( parent );
 	failedLabel->setFont( _failFont );
@@ -959,7 +959,7 @@ KGStdVerify::slotPluginSelected( int id )
 		return;
 	if (id != curPlugin) {
 		plugMenu->setItemChecked( curPlugin, false );
-		parent->tqsetUpdatesEnabled( false );
+		parent->setUpdatesEnabled( false );
 		grid->removeItem( greet->getLayoutItem() );
 		Debug( "delete %s\n", pName.data() );
 		delete greet;
@@ -967,7 +967,7 @@ KGStdVerify::slotPluginSelected( int id )
 		handler->verifyPluginChanged( id );
 		if (running)
 			start();
-		parent->tqsetUpdatesEnabled( true );
+		parent->setUpdatesEnabled( true );
 	}
 }
 
@@ -1087,10 +1087,10 @@ KGChTok::KGChTok( TQWidget *_parent, const TQString &user,
 {
 	TQSizePolicy fp( TQSizePolicy::Fixed, TQSizePolicy::Fixed );
 	okButton = new KPushButton( KStdGuiItem::ok(), this );
-	okButton->tqsetSizePolicy( fp );
+	okButton->setSizePolicy( fp );
 	okButton->setDefault( true );
 	cancelButton = new KPushButton( KStdGuiItem::cancel(), this );
-	cancelButton->tqsetSizePolicy( fp );
+	cancelButton->setSizePolicy( fp );
 
 	verify = new KGStdVerify( this, this, cancelButton, user, pluginList, func, ctx );
 	verify->selectPlugin( curPlugin );

@@ -87,7 +87,7 @@ Minicli::Minicli( TQWidget *parent, const char *name)
   mainLayout->addWidget(m_dlg);
 
   m_dlg->lbRunIcon->setPixmap(DesktopIcon("kmenu"));
-  m_dlg->lbComment->tqsetAlignment( TQt::WordBreak );
+  m_dlg->lbComment->setAlignment( TQt::WordBreak );
 
   m_dlg->cbCommand->setDuplicatesEnabled( false );
   m_dlg->cbCommand->setTrapReturnKey( true );
@@ -182,7 +182,7 @@ void Minicli::setCommand(const TQString& command)
   }
 }
 
-TQSize Minicli::tqsizeHint() const
+TQSize Minicli::sizeHint() const
 {
   int maxWidth = tqApp->desktop()->screenGeometry((TQWidget*)this).width();
   if (maxWidth < 603)
@@ -784,7 +784,7 @@ void Minicli::slotAdvanced()
 
     // Set the focus back to the widget that had it to begin with, i.e.
     // do not put the focus on the "Options" button.
-    m_FocusWidget = tqfocusWidget();
+    m_FocusWidget = focusWidget();
 
     if( m_FocusWidget )
       m_FocusWidget->setFocus();
@@ -846,7 +846,7 @@ void Minicli::parseLine( bool final )
 void Minicli::setIcon ()
 {
   if( m_iconName.isEmpty() || m_iconName == "unknown" || m_iconName == "kde" )
-    m_iconName = TQString::tqfromLatin1("kmenu");
+    m_iconName = TQString::fromLatin1("kmenu");
 
   TQPixmap icon = DesktopIcon( m_iconName );
 
@@ -891,9 +891,9 @@ void Minicli::updateAuthLabel()
       m_prevChecked = m_dlg->cbRunAsOther->isChecked();
       m_prevCached = true;
     }
-    if (m_dlg->leUsername->text() != TQString::tqfromLatin1("root"))
+    if (m_dlg->leUsername->text() != TQString::fromLatin1("root"))
       m_dlg->lePassword->setText(TQString::null);
-    m_dlg->leUsername->setText(TQString::tqfromLatin1("root"));
+    m_dlg->leUsername->setText(TQString::fromLatin1("root"));
     m_dlg->cbRunAsOther->setChecked(true);
     m_dlg->cbRunAsOther->setEnabled(false);
     m_dlg->leUsername->setEnabled(false);
@@ -938,7 +938,7 @@ void Minicli::slotTerminal(bool enable)
   if (enable)
   {
     m_prevIconName = m_iconName;
-    m_iconName = TQString::tqfromLatin1( "konsole" );
+    m_iconName = TQString::fromLatin1( "konsole" );
     setIcon();
   }
   else if (!m_prevIconName.isEmpty())

@@ -251,14 +251,14 @@ int tryCheck(int write_fd, const TQString &absFile)
         NPError err = func_GetValue( 0, NPPVpluginNameString,
                                      (void*)&buf );
         if ( err==NPERR_NO_ERROR )
-            name = TQString::tqfromLatin1( buf );
+            name = TQString::fromLatin1( buf );
         kdDebug() << "name = " << name << endl;
 
         // get name
         NPError nperr = func_GetValue( 0, NPPVpluginDescriptionString,
                                      (void*)&buf );
         if ( nperr==NPERR_NO_ERROR )
-            description = TQString::tqfromLatin1( buf );
+            description = TQString::fromLatin1( buf );
         kdDebug() << "description = " << description << endl;
     }
     else

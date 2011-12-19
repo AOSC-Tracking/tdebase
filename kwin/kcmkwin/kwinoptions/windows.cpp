@@ -110,7 +110,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, KConfig *_config, TQWidget * paren
     //iTLabel = new TQLabel(i18n("  Allowed overlap:\n"
     //                         "(% of desktop space)"),
     //             plcBox);
-    //iTLabel->tqsetAlignment(AlignTop|AlignHCenter);
+    //iTLabel->setAlignment(AlignTop|AlignHCenter);
     //pLay->addWidget(iTLabel,1,1);
 
     //interactiveTrigger = new TQSpinBox(0, 500, 1, plcBox);
@@ -192,8 +192,8 @@ KFocusConfig::KFocusConfig (bool _standAlone, KConfig *_config, TQWidget * paren
     connect(clickRaiseOn,TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(clickRaiseOnTog(bool)));
     fLay->addWidget(clickRaiseOn);
 
-//     fLay->addColSpacing(0,QMAX(autoRaiseOn->tqsizeHint().width(),
-//                                clickRaiseOn->tqsizeHint().width()) + 15);
+//     fLay->addColSpacing(0,QMAX(autoRaiseOn->sizeHint().width(),
+//                                clickRaiseOn->sizeHint().width()) + 15);
 
     TQWhatsThis::add( autoRaiseOn, i18n("When this option is enabled, a window in the background will automatically"
                                        " come to the front when the mouse pointer has been over it for some time.") );
@@ -573,7 +573,7 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, KConfig *_config, TQWidget *
     //iTLabel = new TQLabel(i18n("  Allowed overlap:\n"
     //                         "(% of desktop space)"),
     //             plcBox);
-    //iTLabel->tqsetAlignment(AlignTop|AlignHCenter);
+    //iTLabel->setAlignment(AlignTop|AlignHCenter);
     //pLay->addWidget(iTLabel,1,1);
 
     //interactiveTrigger = new TQSpinBox(0, 500, 1, plcBox);
@@ -877,11 +877,11 @@ KMovingConfig::KMovingConfig (bool _standAlone, KConfig *_config, TQWidget *pare
     connect(minimizeAnimSlider, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(setMinimizeAnimSpeed(int)));
 
     minimizeAnimSlowLabel= new TQLabel(i18n("Slow"),windowsBox);
-    minimizeAnimSlowLabel->tqsetAlignment(Qt::AlignTop|Qt::AlignLeft);
+    minimizeAnimSlowLabel->setAlignment(Qt::AlignTop|Qt::AlignLeft);
     rLay->addWidget(minimizeAnimSlowLabel,1,1);
 
     minimizeAnimFastLabel= new TQLabel(i18n("Fast"),windowsBox);
-    minimizeAnimFastLabel->tqsetAlignment(Qt::AlignTop|Qt::AlignRight);
+    minimizeAnimFastLabel->setAlignment(Qt::AlignTop|Qt::AlignRight);
     rLay->addWidget(minimizeAnimFastLabel,1,2);
 
     wtstr = i18n("Here you can set the speed of the animation shown when windows are"
@@ -940,7 +940,7 @@ KMovingConfig::KMovingConfig (bool _standAlone, KConfig *_config, TQWidget *pare
     //iTLabel = new TQLabel(i18n("  Allowed overlap:\n"
     //                         "(% of desktop space)"),
     //             plcBox);
-    //iTLabel->tqsetAlignment(AlignTop|AlignHCenter);
+    //iTLabel->setAlignment(AlignTop|AlignHCenter);
     //pLay->addWidget(iTLabel,1,1);
 
     //interactiveTrigger = new TQSpinBox(0, 500, 1, plcBox);

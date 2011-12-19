@@ -66,7 +66,7 @@ public:
                        TQWidget *parent = 0);
     virtual ~ExtensionContainer();
 
-    virtual TQSize tqsizeHint(KPanelExtension::Position, const TQSize &maxSize) const;
+    virtual TQSize sizeHint(KPanelExtension::Position, const TQSize &maxSize) const;
 
     const AppletInfo& info() const { return _info; }
 
@@ -101,7 +101,7 @@ public:
     bool reserveStrut() const;
 
     KPanelExtension::Alignment tqalignment() const;
-    void tqsetAlignment(KPanelExtension::Alignment a) { arrange( position(), a, xineramaScreen() ); }
+    void setAlignment(KPanelExtension::Alignment a) { arrange( position(), a, xineramaScreen() ); }
 
     TQRect currentGeometry() const;
     TQRect initialGeometry(KPanelExtension::Position p, KPanelExtension::Alignment a,

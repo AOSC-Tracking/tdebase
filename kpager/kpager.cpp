@@ -76,7 +76,7 @@ KPagerMainWindow::KPagerMainWindow(TQWidget *parent, const char *name)
     if (w > 0 && h > 0)
         resize(w,h);
     else
-        resize(m_pPager->tqsizeHint());
+        resize(m_pPager->sizeHint());
     //  resize(cfg->readNumEntry(lWidth(),200),cfg->readNumEntry(lHeight(),90));
 
     int xpos=cfg->readNumEntry("xPos",-1);
@@ -91,7 +91,7 @@ KPagerMainWindow::KPagerMainWindow(TQWidget *parent, const char *name)
 //	  rect.pos.y+rect.size.height-m_pPager->height());
 // antonio:The above lines don't work. I should look at them when I have
 // more time
-        move(kapp->desktop()->width()-m_pPager->tqsizeHint().width()-5,kapp->desktop()->height()-m_pPager->tqsizeHint().height()-25);
+        move(kapp->desktop()->width()-m_pPager->sizeHint().width()-5,kapp->desktop()->height()-m_pPager->sizeHint().height()-25);
     }
 
     // Set the wm flags to this window
@@ -652,12 +652,12 @@ void KPager::slotGrabWindows()
     m_desktops[m_currentDesktop-1]->tqrepaint();
 }
 
-TQSize KPager::tqsizeHint() const
+TQSize KPager::sizeHint() const
 {
     int n=m_desktops.count();
     int w=-1,h=-1;
 
-    TQSize size=m_desktops[0]->tqsizeHint();
+    TQSize size=m_desktops[0]->sizeHint();
     int wDsk=size.width();
     int hDsk=size.height();
     switch (m_layoutType)

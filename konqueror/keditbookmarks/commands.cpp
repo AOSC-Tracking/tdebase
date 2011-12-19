@@ -643,13 +643,13 @@ KEBMacroCommand* CmdGen::insertMimeSource(
     bool modified = false;
     const char *format = 0;
     for (int i = 0; format = data->format(i), format; i++) {
-        // qt docs don't say if tqencodedData(blah) where
+        // qt docs don't say if encodedData(blah) where
         // blah is not a stored mimetype should return null
         // or not. so, we search. sucky...
         if (strcmp(format, "GALEON_BOOKMARK") == 0) { 
             modified = true;
             TQStoredDrag *mydrag = new TQStoredDrag("application/x-xbel");
-            mydrag->setEncodedData(data->tqencodedData("GALEON_BOOKMARK"));
+            mydrag->setEncodedData(data->encodedData("GALEON_BOOKMARK"));
             data = mydrag;
             break;
         } else if( strcmp(format, "application/x-xbel" )==0) {

@@ -79,7 +79,7 @@ LogFile::addSensor(const TQString& hostName, const TQString& sensorName, const T
 
 void LogFile::configureSettings(void)
 {
-	TQColorGroup cgroup = monitor->tqcolorGroup();
+	TQColorGroup cgroup = monitor->colorGroup();
 
 	lfs = new LogFileSettings(this);
 	Q_CHECK_PTR(lfs);
@@ -147,7 +147,7 @@ void LogFile::settingsRuleListSelected(int index)
 
 void LogFile::applySettings(void)
 {
-	TQColorGroup cgroup = monitor->tqcolorGroup();
+	TQColorGroup cgroup = monitor->colorGroup();
 
 	cgroup.setColor(TQColorGroup::Text, lfs->fgColor->color());
 	cgroup.setColor(TQColorGroup::Base, lfs->bgColor->color());
@@ -166,7 +166,7 @@ void LogFile::applySettings(void)
 void
 LogFile::applyStyle()
 {
-	TQColorGroup cgroup = monitor->tqcolorGroup();
+	TQColorGroup cgroup = monitor->colorGroup();
 
 	cgroup.setColor(TQColorGroup::Text, KSGRD::Style->firstForegroundColor());
 	cgroup.setColor(TQColorGroup::Base, KSGRD::Style->backgroundColor());
@@ -179,7 +179,7 @@ bool
 LogFile::restoreSettings(TQDomElement& element)
 {
 	TQFont font;
-	TQColorGroup cgroup = monitor->tqcolorGroup();
+	TQColorGroup cgroup = monitor->colorGroup();
 
 	cgroup.setColor(TQColorGroup::Text, restoreColor(element, "textColor", Qt::green));
 	cgroup.setColor(TQColorGroup::Base, restoreColor(element, "backgroundColor", Qt::black));
@@ -212,8 +212,8 @@ LogFile::saveSettings(TQDomDocument& doc, TQDomElement& element, bool save)
 
 	element.setAttribute("font", monitor->font().toString());
 
-	saveColor(element, "textColor", monitor->tqcolorGroup().text());
-	saveColor(element, "backgroundColor", monitor->tqcolorGroup().base());
+	saveColor(element, "textColor", monitor->colorGroup().text());
+	saveColor(element, "backgroundColor", monitor->colorGroup().base());
 
 	for (TQStringList::Iterator it = filterRules.begin();
 		 it != filterRules.end(); it++)

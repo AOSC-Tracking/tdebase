@@ -22,7 +22,7 @@ class Decoration
 	virtual MousePosition mousePosition( const TQPoint& p ) const;
 	virtual void borders( int& left, int& right, int& top, int& bottom ) const;
 	virtual void resize( const TQSize& s );
-	virtual TQSize tqminimumSize() const;
+	virtual TQSize minimumSize() const;
         virtual void activeChange() {};
         virtual void captionChange() {};
         virtual void maximizeChange() {};

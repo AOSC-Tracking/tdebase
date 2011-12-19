@@ -277,7 +277,7 @@ void KDMAppearanceWidget::makeReadOnly()
 void KDMAppearanceWidget::loadLanguageList(KLanguageButton *combo)
 {
   TQStringList langlist = KGlobal::dirs()->findAllResources("locale",
-			TQString::tqfromLatin1("*/entry.desktop"));
+			TQString::fromLatin1("*/entry.desktop"));
   langlist.sort();
   for ( TQStringList::ConstIterator it = langlist.begin();
 	it != langlist.end(); ++it )
@@ -287,9 +287,9 @@ void KDMAppearanceWidget::loadLanguageList(KLanguageButton *combo)
     TQString nid = fpath.mid(index + 1);
 
     KSimpleConfig entry(*it);
-    entry.setGroup(TQString::tqfromLatin1("KCM Locale"));
-    TQString name = entry.readEntry(TQString::tqfromLatin1("Name"), i18n("without name"));
-    combo->insertLanguage(nid, name, TQString::tqfromLatin1("l10n/"), TQString::null);
+    entry.setGroup(TQString::fromLatin1("KCM Locale"));
+    TQString name = entry.readEntry(TQString::fromLatin1("Name"), i18n("without name"));
+    combo->insertLanguage(nid, name, TQString::fromLatin1("l10n/"), TQString::null);
   }
 }
 
@@ -343,7 +343,7 @@ void KDMAppearanceWidget::loadGuiStyles(KBackedComboBox *combo)
 bool KDMAppearanceWidget::setLogo(TQString logo)
 {
     TQString flogo = logo.isEmpty() ?
-                    locate("data", TQString::tqfromLatin1("kdm/pics/kdelogo.png") ) :
+                    locate("data", TQString::fromLatin1("kdm/pics/kdelogo.png") ) :
                     logo;
     TQImage p(flogo);
     if (p.isNull())
@@ -351,7 +351,7 @@ bool KDMAppearanceWidget::setLogo(TQString logo)
     if (p.width() > 100 || p.height() > 100)
         p = p.smoothScale(100, 100, TQ_ScaleMin);
     logobutton->setPixmap(p);
-    uint bd = tqstyle().tqpixelMetric( TQStyle::PM_ButtonMargin ) * 2;
+    uint bd = tqstyle().pixelMetric( TQStyle::PM_ButtonMargin ) * 2;
     logobutton->setFixedSize(p.width() + bd, p.height() + bd);
     logopath = logo;
     return true;
@@ -361,7 +361,7 @@ bool KDMAppearanceWidget::setLogo(TQString logo)
 void KDMAppearanceWidget::slotLogoButtonClicked()
 {
     KImageIO::registerFormats();
-    KFileDialog dialogue(locate("data", TQString::tqfromLatin1("kdm/pics/")),
+    KFileDialog dialogue(locate("data", TQString::fromLatin1("kdm/pics/")),
 			 KImageIO::pattern( KImageIO::Reading ),
 			 this, 0, true);
     dialogue.setOperationMode( KFileDialog::Opening );

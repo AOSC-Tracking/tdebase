@@ -20,7 +20,7 @@ GeometryTip::GeometryTip( const XSizeHints* xSizeHints, bool save_under ):
     setIndent(0);
     setLineWidth(1);
     setFrameStyle( TQFrame::Raised | TQFrame::StyledPanel );
-    tqsetAlignment( AlignCenter | AlignTop );
+    setAlignment( AlignCenter | AlignTop );
     sizeHints = xSizeHints;
     if( save_under )
         {

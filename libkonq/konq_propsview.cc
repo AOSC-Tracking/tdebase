@@ -474,7 +474,7 @@ void KonqPropsView::setBgColor( const TQColor & color )
 const TQColor & KonqPropsView::bgColor( TQWidget * widget ) const
 {
     if ( !m_bgColor.isValid() )
-        return widget->tqcolorGroup().base();
+        return widget->colorGroup().base();
     else
         return m_bgColor;
 }
@@ -501,7 +501,7 @@ void KonqPropsView::setTextColor( const TQColor & color )
 const TQColor & KonqPropsView::textColor( TQWidget * widget ) const
 {
     if ( !m_textColor.isValid() )
-        return widget->tqcolorGroup().text();
+        return widget->colorGroup().text();
     else
         return m_textColor;
 }

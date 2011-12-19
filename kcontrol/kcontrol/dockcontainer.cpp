@@ -131,7 +131,7 @@ DockContainer::DockContainer(TQWidget *parent)
   , _module(0L)
 {
   _busyw = new TQLabel(i18n("<big><b>Loading...</b></big>"), this);
-  _busyw->tqsetAlignment(AlignCenter);
+  _busyw->setAlignment(AlignCenter);
   _busyw->setTextFormat(RichText);
   _busyw->setGeometry(0,0, width(), height());
   addWidget( _busyw );
@@ -221,7 +221,7 @@ i18n("There are unsaved changes in the active module.\n"
 
   ProxyWidget *widget = loadModule( module );
 
-  KCGlobal::repairAccels( tqtopLevelWidget() );
+  KCGlobal::repairAccels( topLevelWidget() );
   return ( widget!=0 );
 }
 

@@ -110,8 +110,8 @@ KateMainWindow::KateMainWindow (KConfig *sconfig, const TQString &sgroup)
     if (sconfig)
     {
       sconfig->setGroup (sgroup);
-      size.setWidth (sconfig->readNumEntry( TQString::tqfromLatin1("Width %1").arg(desk.width()), 0 ));
-      size.setHeight (sconfig->readNumEntry( TQString::tqfromLatin1("Height %1").arg(desk.height()), 0 ));
+      size.setWidth (sconfig->readNumEntry( TQString::fromLatin1("Width %1").arg(desk.width()), 0 ));
+      size.setHeight (sconfig->readNumEntry( TQString::fromLatin1("Height %1").arg(desk.height()), 0 ));
     }
 
     // if thats fails, try to reuse size
@@ -131,8 +131,8 @@ KateMainWindow::KateMainWindow (KConfig *sconfig, const TQString &sgroup)
       {
         // first try global app config
         KateApp::self()->config()->setGroup ("MainWindow");
-        size.setWidth (KateApp::self()->config()->readNumEntry( TQString::tqfromLatin1("Width %1").arg(desk.width()), 0 ));
-        size.setHeight (KateApp::self()->config()->readNumEntry( TQString::tqfromLatin1("Height %1").arg(desk.height()), 0 ));
+        size.setWidth (KateApp::self()->config()->readNumEntry( TQString::fromLatin1("Width %1").arg(desk.width()), 0 ));
+        size.setHeight (KateApp::self()->config()->readNumEntry( TQString::fromLatin1("Height %1").arg(desk.height()), 0 ));
 
         if (size.isEmpty())
           size = TQSize (kMin (700, desk.width()), kMin(480, desk.height()));

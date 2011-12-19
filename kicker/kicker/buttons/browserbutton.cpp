@@ -103,7 +103,7 @@ void BrowserButton::dropEvent( TQDropEvent *ev )
 {
     KURL path ( topMenu->path() );
     _menuTimer->stop();
-    KFileItem item( path, TQString::tqfromLatin1( "inode/directory" ), KFileItem::Unknown );
+    KFileItem item( path, TQString::fromLatin1( "inode/directory" ), KFileItem::Unknown );
     KonqOperations::doDrop( &item, path, ev, this );
     PanelButton::dropEvent(ev);
 }

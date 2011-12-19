@@ -96,7 +96,7 @@ class UserListView : public KListView {
 		: KListView( parent, name )
 		, themed(_them), cachedSizeHint( -1, 0 )
 	{
-		tqsetSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Ignored );
+		setSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Ignored );
 		header()->hide();
 		addColumn( TQString::null );
 		setColumnAlignment( 0, AlignVCenter );
@@ -122,10 +122,10 @@ class UserListView : public KListView {
         return sum;
     }
 public:
-	virtual TQSize tqsizeHint() const
+	virtual TQSize sizeHint() const
 	{
 	  if (themed)
-            return KListView::tqsizeHint();
+            return KListView::sizeHint();
 
 		if (!cachedSizeHint.isValid()) {
 			constPolish();
@@ -136,7 +136,7 @@ public:
 					maxw = thisw;
 			}
 			cachedSizeHint.setWidth(
-				tqstyle().tqpixelMetric( TQStyle::PM_ScrollBarExtent ) +
+				tqstyle().pixelMetric( TQStyle::PM_ScrollBarExtent ) +
 				frameWidth() * 2 + maxw );
 		}
 		return cachedSizeHint;
@@ -157,7 +157,7 @@ public:
         kdDebug() << "paintEmpty " << rect << endl;
         TQRect devRect = p->xForm( rect );
         kdDebug() << "paintEmpty2 " << devRect << endl;
-        p->tqdrawPixmap(0, 0, *pm, devRect.left(), devRect.top() );
+        p->drawPixmap(0, 0, *pm, devRect.left(), devRect.top() );
     }
 
     TQPixmap background;
@@ -890,14 +890,14 @@ KStdGreeter::KStdGreeter()
 		               i18n("This display requires no X authorization.\n"
 		                    "This means that anybody can connect to it,\n"
 		                    "open windows on it or intercept your input.") );
-		complainLabel->tqsetAlignment( AlignCenter );
+		complainLabel->setAlignment( AlignCenter );
 		complainLabel->setFont( _failFont );
 		complainLabel->setPaletteForegroundColor( Qt::red );
 		inner_box->addWidget( complainLabel );
 	}
 	if (!_greetString.isEmpty()) {
 		TQLabel *welcomeLabel = new TQLabel( _greetString, this );
-		welcomeLabel->tqsetAlignment( AlignCenter );
+		welcomeLabel->setAlignment( AlignCenter );
 		welcomeLabel->setFont( _greetFont );
 		inner_box->addWidget( welcomeLabel );
 	}

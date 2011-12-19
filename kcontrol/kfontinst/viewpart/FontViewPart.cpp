@@ -88,7 +88,7 @@ CFontViewPart::CFontViewPart(TQWidget *parent, const char *name)
     setInstance(new KInstance("kfontview"));
 
     itsPreview=new CFontPreview(previewFrame, "FontViewPart::Preview");
-    itsPreview->tqsetSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
+    itsPreview->setSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
     itsFaceLabel=new TQLabel(i18n("Face:"), itsToolsFrame);
     itsFaceSelector=new KIntNumInput(1, itsToolsFrame);
     itsInstallButton=new TQPushButton(i18n("Install..."), itsToolsFrame, "button");

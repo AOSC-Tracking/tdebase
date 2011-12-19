@@ -46,7 +46,7 @@ PanelDrag::~PanelDrag()
 
 bool PanelDrag::decode(const TQMimeSource* e, BaseContainer** container)
 {
-    TQByteArray a = e->tqencodedData("application/basecontainerptr");
+    TQByteArray a = e->encodedData("application/basecontainerptr");
 
     if (a.size() != PANELDRAG_BUFSIZE)
     {
@@ -73,7 +73,7 @@ bool PanelDrag::canDecode(const TQMimeSource *e)
         return false;
     }
 
-    TQByteArray a = e->tqencodedData("application/basecontainerptr");
+    TQByteArray a = e->encodedData("application/basecontainerptr");
     if (a.size() != PANELDRAG_BUFSIZE)
     {
         return false;
@@ -91,7 +91,7 @@ bool PanelDrag::canDecode(const TQMimeSource *e)
     return true;
 }
 
-TQByteArray PanelDrag::tqencodedData(const char * mimeType) const
+TQByteArray PanelDrag::encodedData(const char * mimeType) const
 {
     if (TQString("application/basecontainerptr") == mimeType &&
         a.size() == PANELDRAG_BUFSIZE)
@@ -136,7 +136,7 @@ const char * AppletInfoDrag::format(int i) const
     return 0;
 }
 
-TQByteArray AppletInfoDrag::tqencodedData(const char* mimeType) const
+TQByteArray AppletInfoDrag::encodedData(const char* mimeType) const
 {
     if (TQString("application/appletinfo") == mimeType)
     {
@@ -158,7 +158,7 @@ bool AppletInfoDrag::canDecode(const TQMimeSource * e)
 
 bool AppletInfoDrag::decode(const TQMimeSource* e, AppletInfo& container)
 {
-    TQByteArray a = e->tqencodedData("application/appletinfo");
+    TQByteArray a = e->encodedData("application/appletinfo");
 
     if (a.isEmpty())
     {

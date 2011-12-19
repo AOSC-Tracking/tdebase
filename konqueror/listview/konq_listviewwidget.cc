@@ -107,7 +107,7 @@ KonqBaseListViewWidget::KonqBaseListViewWidget( KonqListView *parent, TQWidget *
 {
    kdDebug(1202) << "+KonqBaseListViewWidget" << endl;
 
-   m_dirLister->setMainWindow(tqtopLevelWidget());
+   m_dirLister->setMainWindow(topLevelWidget());
 
    m_bTopLevelComplete  = true;
 
@@ -489,7 +489,7 @@ void KonqBaseListViewWidget::contentsMouseMoveEvent( TQMouseEvent *e )
          emit m_pBrowserView->setStatusBarText( item->item()->getStatusBarInfo() );
          m_pBrowserView->emitMouseOver( item->item() );
 
-         vp.setY( tqitemRect( item ).y() );
+         vp.setY( itemRect( item ).y() );
          TQRect rect( viewportToContents( vp ), TQSize(20, item->height()) );
          m_fileTip->setItem( item->item(), rect, item->pixmap( 0 ) );
          m_fileTip->setPreview( KGlobalSettings::showFilePreview( item->item()->url() ) );
@@ -553,7 +553,7 @@ void KonqBaseListViewWidget::drawRubber( TQPainter *p )
    pt = contentsToViewport( pt );
    tqstyle().tqdrawPrimitive( TQStyle::PE_RubberBand, p,
                           TQRect( pt.x(), pt.y(), m_rubber->width(), m_rubber->height() ),
-                          tqcolorGroup(), TQStyle::Style_Default, tqcolorGroup().base() );
+                          colorGroup(), TQStyle::Style_Default, colorGroup().base() );
    
 }
 
@@ -591,9 +591,9 @@ void KonqBaseListViewWidget::slotAutoScroll()
    {
          TQRect rect;
       if ( allColumnsShowFocus() )
-          rect = tqitemRect( cur );
+          rect = itemRect( cur );
       else {
-          rect = tqitemRect( cur );
+          rect = itemRect( cur );
           rect.setWidth( executeArea( cur ) );
       }
   
@@ -623,7 +623,7 @@ void KonqBaseListViewWidget::slotAutoScroll()
 	    {
                setSelected( cur, true );
                changed = TRUE;
-               rr = rr.unite( tqitemRect( cur ) );
+               rr = rr.unite( itemRect( cur ) );
 	    }
          } 
 	 else 
@@ -631,7 +631,7 @@ void KonqBaseListViewWidget::slotAutoScroll()
             if ( cur->isSelected() )
 	    {
                changed = TRUE;
-               rr = rr.unite( tqitemRect( cur ) );
+               rr = rr.unite( itemRect( cur ) );
 	    }
 	    
 	    if ( !m_selected || !m_selected->contains( (KonqBaseListViewItem*)cur ) )
@@ -659,7 +659,7 @@ void KonqBaseListViewWidget::slotAutoScroll()
 	    {
                setSelected( cur, true );
                changed = TRUE;
-               rr = rr.unite( tqitemRect( cur ) );
+               rr = rr.unite( itemRect( cur ) );
 	    }
 	 }
 	 else 
@@ -667,7 +667,7 @@ void KonqBaseListViewWidget::slotAutoScroll()
             if ( cur->isSelected() )
 	    {
                changed = TRUE;
-              rr = rr.unite( tqitemRect( cur ) );
+              rr = rr.unite( itemRect( cur ) );
 	    }
 
             if ( !m_selected || !m_selected->contains( (KonqBaseListViewItem*)cur ) )
@@ -985,7 +985,7 @@ void KonqBaseListViewWidget::slotReturnPressed( TQListViewItem *_item )
 	 if (_item->pixmap(0) != 0)
 	 {
 	   // Rect of the TQListViewItem's pixmap area.
-           TQRect rect = _item->listView()->tqitemRect(_item);
+           TQRect rect = _item->listView()->itemRect(_item);
 
 	   // calculate nesting depth
 	   int nestingDepth = 0;
@@ -1111,7 +1111,7 @@ bool KonqBaseListViewWidget::openURL( const KURL &url )
       args.yOffset = contentsY();
       m_pBrowserView->extension()->setURLArgs( args );
 
-      if ( currentItem() && tqitemRect( currentItem() ).isValid() )
+      if ( currentItem() && itemRect( currentItem() ).isValid() )
          m_itemToGoTo = currentItem()->text(0);
 
       m_pBrowserView->m_filesToSelect.clear();
@@ -1192,8 +1192,8 @@ void KonqBaseListViewWidget::setComplete()
 
    if ( !isUpdatesEnabled() || !viewport()->isUpdatesEnabled() )
    {
-      viewport()->tqsetUpdatesEnabled( true );
-      tqsetUpdatesEnabled( true );
+      viewport()->setUpdatesEnabled( true );
+      setUpdatesEnabled( true );
       triggerUpdate();
    }
 
@@ -1237,8 +1237,8 @@ void KonqBaseListViewWidget::slotClear()
    m_pBrowserView->resetCount();
    m_pBrowserView->lstPendingMimeIconItems().clear();
 
-   viewport()->tqsetUpdatesEnabled( false );
-   tqsetUpdatesEnabled( false );
+   viewport()->setUpdatesEnabled( false );
+   setUpdatesEnabled( false );
    clear();
 }
 
@@ -1268,8 +1268,8 @@ void KonqBaseListViewWidget::slotNewItems( const KFileItemList & entries )
 
    if ( !viewport()->isUpdatesEnabled() )
    {
-      viewport()->tqsetUpdatesEnabled( true );
-      tqsetUpdatesEnabled( true );
+      viewport()->setUpdatesEnabled( true );
+      setUpdatesEnabled( true );
       triggerUpdate();
    }
    slotUpdateBackground();
@@ -1314,8 +1314,8 @@ void KonqBaseListViewWidget::slotDeleteItem( KFileItem * _fileitem )
   // OK, but this code also gets activated when deleting a hidden file... (dfaure)
   if ( !viewport()->isUpdatesEnabled() )
   {
-    viewport()->tqsetUpdatesEnabled( true );
-    tqsetUpdatesEnabled( true );
+    viewport()->setUpdatesEnabled( true );
+    setUpdatesEnabled( true );
     triggerUpdate();
   }
   slotUpdateBackground();

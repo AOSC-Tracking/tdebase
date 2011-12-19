@@ -75,14 +75,14 @@ AppletHandle::AppletHandle(AppletContainer* parent)
 
 int AppletHandle::heightForWidth( int /* w */ ) const
 {
-    int size = tqstyle().tqpixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
+    int size = tqstyle().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
 
     return size;
 }
 
 int AppletHandle::widthForHeight( int /* h */ ) const
 {
-    int size = tqstyle().tqpixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
+    int size = tqstyle().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
 
     return size;
 }
@@ -282,7 +282,7 @@ void AppletHandle::checkHandleHover()
 
 bool AppletHandle::onMenuButton(const TQPoint& point) const
 {
-    return m_menuButton && (tqchildAt(mapFromGlobal(point)) == m_menuButton);
+    return m_menuButton && (childAt(mapFromGlobal(point)) == m_menuButton);
 }
 
 void AppletHandle::toggleMenuButtonOff()
@@ -308,9 +308,9 @@ AppletHandleDrag::AppletHandleDrag(AppletHandle* parent)
    setBackgroundOrigin( AncestorOrigin );
 }
 
-TQSize AppletHandleDrag::tqminimumSizeHint() const
+TQSize AppletHandleDrag::minimumSizeHint() const
 {
-    int wh = tqstyle().tqpixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
+    int wh = tqstyle().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
 
     if (m_parent->orientation() == Qt::Horizontal)
     {
@@ -368,7 +368,7 @@ void AppletHandleDrag::paintEvent(TQPaintEvent *)
         TQRect r = rect();
     
         tqstyle().tqdrawPrimitive(TQStyle::PE_DockWindowHandle, &p, r,
-                            tqcolorGroup(), flags);
+                            colorGroup(), flags);
     }
     else
     {
@@ -382,9 +382,9 @@ AppletHandleButton::AppletHandleButton(AppletHandle *parent)
 {
 }
 
-TQSize AppletHandleButton::tqminimumSizeHint() const
+TQSize AppletHandleButton::minimumSizeHint() const
 {
-    int height = tqstyle().tqpixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
+    int height = tqstyle().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
     int width = height;
 
     if (m_parent->orientation() == Qt::Horizontal)

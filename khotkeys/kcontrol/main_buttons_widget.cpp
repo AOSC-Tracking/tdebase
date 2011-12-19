@@ -38,7 +38,7 @@ Main_buttons_widget::Main_buttons_widget( TQWidget* parent_P, const char* name_P
         module, TQT_SLOT( changed()));
     connect( delete_action_button, TQT_SIGNAL( clicked()),
         module, TQT_SLOT( changed()));
-    setMaximumHeight( tqsizeHint().height()); // it gets too high and I have no idea why
+    setMaximumHeight( sizeHint().height()); // it gets too high and I have no idea why
     }
 
 void Main_buttons_widget::enable_delete( bool enable_P )

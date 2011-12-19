@@ -65,7 +65,7 @@ KSGAppletSettings::KSGAppletSettings( TQWidget *parent, const char *name )
   topLayout->addWidget( mInterval, 2, 1 );
   label->setBuddy( mInterval );
 
-  resize( TQSize( 250, 130 ).expandedTo( tqminimumSizeHint() ) );
+  resize( TQSize( 250, 130 ).expandedTo( minimumSizeHint() ) );
 
   KAcceleratorManager::manage( page );
 }

@@ -60,11 +60,11 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     pages[0] = new TQWidget( this, "page1" );
 
     nameBox = new KComboBox(TRUE, pages[0], "combo1");
-    nameBox->tqsetSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Fixed);  // allow smaller than widest entry
+    nameBox->setSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Fixed);  // allow smaller than widest entry
     TQLabel * namedL = new TQLabel(nameBox, i18n("&Named:"), pages[0], "named");
     TQToolTip::add( namedL, i18n("You can use wildcard matching and \";\" for separating multiple names") );
     dirBox  = new KComboBox(TRUE, pages[0], "combo2");
-    dirBox->tqsetSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Fixed);  // allow smaller than widest entry
+    dirBox->setSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Fixed);  // allow smaller than widest entry
     TQLabel * lookinL = new TQLabel(dirBox, i18n("Look &in:"), pages[0], "named");
     subdirsCb  = new TQCheckBox(i18n("Include &subfolders"), pages[0]);
     caseSensCb  = new TQCheckBox(i18n("Case s&ensitive search"), pages[0]);
@@ -187,7 +187,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     sizeUnitBox ->setCurrentItem(1);
 
     int tmp = sizeEdit->fontMetrics().width(" 000000000 ");
-    sizeEdit->setMinimumSize(tmp, sizeEdit->tqsizeHint().height());
+    sizeEdit->setMinimumSize(tmp, sizeEdit->sizeHint().height());
 
     m_usernameBox->setDuplicatesEnabled(FALSE);
     m_groupBox->setDuplicatesEnabled(FALSE);
@@ -245,7 +245,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     pages[2] = new TQWidget( this, "page3" );
 
     typeBox =new KComboBox(FALSE, pages[2], "typeBox");
-    typeBox->tqsetSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Fixed);  // allow smaller than widest entry
+    typeBox->setSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Fixed);  // allow smaller than widest entry
     TQLabel * typeL   =new TQLabel(typeBox, i18n("File &type:"), pages[2], "type");
     textEdit=new KLineEdit(pages[2], "textEdit" );
     TQLabel * textL   =new TQLabel(textEdit, i18n("C&ontaining text:"), pages[2], "text");
@@ -315,7 +315,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
 
     // Layout
     tmp = sizeEdit->fontMetrics().width(" 00000 ");
-    sizeEdit->setMinimumSize(tmp, sizeEdit->tqsizeHint().height());
+    sizeEdit->setMinimumSize(tmp, sizeEdit->sizeHint().height());
 
     TQGridLayout *grid2 = new TQGridLayout( pages[2], 5, 4,
 					  KDialog::marginHint(),
@@ -854,13 +854,13 @@ static void save_pattern(TQComboBox *obj,
   conf->writePathEntry(entry, sl);
 }
 
-TQSize KfindTabWidget::tqsizeHint() const
+TQSize KfindTabWidget::sizeHint() const
 {
   // #44662: avoid a huge default size when the comboboxes have very large items
   // Like in minicli, we changed the combobox size policy so that they can resize down,
   // and then we simply provide a reasonable size hint for the whole window, depending
   // on the screen width.
-  TQSize sz = TQTabWidget::tqsizeHint();
+  TQSize sz = TQTabWidget::sizeHint();
   KfindTabWidget* me = const_cast<KfindTabWidget*>( this );
   const int screenWidth = tqApp->desktop()->screenGeometry(me).width();
   if ( sz.width() > screenWidth / 2 )

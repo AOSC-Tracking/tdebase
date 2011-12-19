@@ -315,7 +315,7 @@ static TQStringList getQStringListProperty(WId w, Atom prop)
 	if (!data)
 	    return result;
         for (int i=0; i<(int)nitems; i++) {
-            result << TQString::tqfromLatin1( (const char*)data + i );
+            result << TQString::fromLatin1( (const char*)data + i );
             while(data[i]) i++;
         }
         XFree(data);
@@ -363,7 +363,7 @@ TQString KSMServer::windowWmClientMachine(WId w)
             }
         }
     }
-    return TQString::tqfromLatin1(result);
+    return TQString::fromLatin1(result);
 }
 
 WId KSMServer::windowWmClientLeader(WId w)

@@ -635,7 +635,7 @@ void KIO_Print::showPrinterInfo(KMPrinter *printer)
 		mimeType("text/html");
 
 		TQString	content;
-		if (!loadTemplate(TQString::tqfromLatin1("printer.template"), content))
+		if (!loadTemplate(TQString::fromLatin1("printer.template"), content))
 		{
 			error(KIO::ERR_INTERNAL, i18n("Unable to load template %1").arg("printer.template"));
 			return;
@@ -676,7 +676,7 @@ void KIO_Print::showClassInfo(KMPrinter *printer)
 		mimeType("text/html");
 
 		TQString	content;
-		if (!loadTemplate(TQString::tqfromLatin1("class.template"), content))
+		if (!loadTemplate(TQString::fromLatin1("class.template"), content))
 		{
 			error(KIO::ERR_INTERNAL, i18n("Unable to load template %1").arg("class.template"));
 			return;
@@ -686,7 +686,7 @@ void KIO_Print::showClassInfo(KMPrinter *printer)
 		TQStringList	members(printer->members());
 		for (TQStringList::ConstIterator it=members.begin(); it!=members.end(); ++it)
 		{
-			memberContent.append(TQString::tqfromLatin1("<li><a href=\"print:/printers/%1\">%2</a></li>\n").arg(*it).arg(*it));
+			memberContent.append(TQString::fromLatin1("<li><a href=\"print:/printers/%1\">%2</a></li>\n").arg(*it).arg(*it));
 		}
 		memberContent.append("</ul>\n");
 
@@ -719,7 +719,7 @@ void KIO_Print::showSpecialInfo(KMPrinter *printer)
 	mimeType("text/html");
 
 	TQString	content;
-	if (!loadTemplate(TQString::tqfromLatin1("pseudo.template"), content))
+	if (!loadTemplate(TQString::fromLatin1("pseudo.template"), content))
 	{
 		error(KIO::ERR_INTERNAL, i18n("Unable to load template %1").arg("pseudo.template"));
 		return;
@@ -755,7 +755,7 @@ void KIO_Print::showSpecialInfo(KMPrinter *printer)
 
 bool KIO_Print::loadTemplate(const TQString& filename, TQString& buffer)
 {
-	TQFile	f(locate("data", TQString::tqfromLatin1("kdeprint/template/")+filename));
+	TQFile	f(locate("data", TQString::fromLatin1("kdeprint/template/")+filename));
 	if (f.exists() && f.open(IO_ReadOnly))
 	{
 		TQTextStream	t(&f);
@@ -820,7 +820,7 @@ void KIO_Print::showJobs(KMPrinter *prt, bool completed)
 	}
 
 	TQString	content;
-	if (!loadTemplate(TQString::tqfromLatin1("jobs.template"), content))
+	if (!loadTemplate(TQString::fromLatin1("jobs.template"), content))
 	{
 		error(KIO::ERR_INTERNAL, i18n("Unable to load template %1").arg("pseudo.template"));
 		return;
@@ -891,7 +891,7 @@ void KIO_Print::showDriver(KMPrinter *prt)
 	mimeType("text/html");
 
 	TQString	content;
-	if (!loadTemplate(TQString::tqfromLatin1("driver.template"), content))
+	if (!loadTemplate(TQString::fromLatin1("driver.template"), content))
 	{
 		error(KIO::ERR_INTERNAL, i18n("Unable to load template %1").arg("pseudo.template"));
 		return;

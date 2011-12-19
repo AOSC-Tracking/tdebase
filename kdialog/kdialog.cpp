@@ -241,9 +241,9 @@ static int directCommand(KCmdLineArgs *args)
 
         TQString text = TQString::fromLocal8Bit(args->getOption( option ));
         int pos;
-        while ((pos = text.find( TQString::tqfromLatin1("\\n") )) >= 0)
+        while ((pos = text.find( TQString::fromLatin1("\\n") )) >= 0)
         {
-            text.replace(pos, 2, TQString::tqfromLatin1("\n"));
+            text.replace(pos, 2, TQString::fromLatin1("\n"));
         }
 
         if ( type == KMessageBox::WarningContinueCancel ) {
@@ -597,43 +597,43 @@ static int directCommand(KCmdLineArgs *args)
             contextStr = TQString::fromLocal8Bit(args->arg(0));
         }
         KIcon::Group group = KIcon::NoGroup;
-        if ( groupStr == TQString::tqfromLatin1( "Desktop" ) )
+        if ( groupStr == TQString::fromLatin1( "Desktop" ) )
             group = KIcon::Desktop;
-        else if ( groupStr == TQString::tqfromLatin1( "Toolbar" ) )
+        else if ( groupStr == TQString::fromLatin1( "Toolbar" ) )
             group = KIcon::Toolbar;
-        else if ( groupStr == TQString::tqfromLatin1( "MainToolbar" ) )
+        else if ( groupStr == TQString::fromLatin1( "MainToolbar" ) )
             group = KIcon::MainToolbar;
-        else if ( groupStr == TQString::tqfromLatin1( "Small" ) )
+        else if ( groupStr == TQString::fromLatin1( "Small" ) )
             group = KIcon::Small;
-        else if ( groupStr == TQString::tqfromLatin1( "Panel" ) )
+        else if ( groupStr == TQString::fromLatin1( "Panel" ) )
             group = KIcon::Panel;
-        else if ( groupStr == TQString::tqfromLatin1( "User" ) )
+        else if ( groupStr == TQString::fromLatin1( "User" ) )
             group = KIcon::User;
         KIcon::Context context = KIcon::Any;
         // From kicontheme.cpp
-        if ( contextStr == TQString::tqfromLatin1( "Devices" ) )
+        if ( contextStr == TQString::fromLatin1( "Devices" ) )
             context = KIcon::Device;
-        else if ( contextStr == TQString::tqfromLatin1( "MimeTypes" ) )
+        else if ( contextStr == TQString::fromLatin1( "MimeTypes" ) )
             context = KIcon::MimeType;
-        else if ( contextStr == TQString::tqfromLatin1( "FileSystems" ) )
+        else if ( contextStr == TQString::fromLatin1( "FileSystems" ) )
             context = KIcon::FileSystem;
-        else if ( contextStr == TQString::tqfromLatin1( "Applications" ) )
+        else if ( contextStr == TQString::fromLatin1( "Applications" ) )
             context = KIcon::Application;
-        else if ( contextStr == TQString::tqfromLatin1( "Actions" ) )
+        else if ( contextStr == TQString::fromLatin1( "Actions" ) )
             context = KIcon::Action;
-        else if ( contextStr == TQString::tqfromLatin1( "Animations" ) )
+        else if ( contextStr == TQString::fromLatin1( "Animations" ) )
             context = KIcon::Animation;
-        else if ( contextStr == TQString::tqfromLatin1( "Categories" ) )
+        else if ( contextStr == TQString::fromLatin1( "Categories" ) )
             context = KIcon::Category;
-        else if ( contextStr == TQString::tqfromLatin1( "Emblems" ) )
+        else if ( contextStr == TQString::fromLatin1( "Emblems" ) )
             context = KIcon::Emblem;
-        else if ( contextStr == TQString::tqfromLatin1( "Emotes" ) )
+        else if ( contextStr == TQString::fromLatin1( "Emotes" ) )
             context = KIcon::Emote;
-        else if ( contextStr == TQString::tqfromLatin1( "International" ) )
+        else if ( contextStr == TQString::fromLatin1( "International" ) )
             context = KIcon::International;
-        else if ( contextStr == TQString::tqfromLatin1( "Places" ) )
+        else if ( contextStr == TQString::fromLatin1( "Places" ) )
             context = KIcon::Place;
-        else if ( contextStr == TQString::tqfromLatin1( "Status" ) )
+        else if ( contextStr == TQString::fromLatin1( "Status" ) )
             context = KIcon::StatusIcon;
 
 	KIconDialog dlg(0, "icon dialog");

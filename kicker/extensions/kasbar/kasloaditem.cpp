@@ -95,7 +95,7 @@ void KasLoadItem::paint( TQPainter *p )
 
     KasItem::paint( p );
 
-    TQColor light = kasbar()->tqcolorGroup().highlight();
+    TQColor light = kasbar()->colorGroup().highlight();
     TQColor dark = light.dark();
 
     KPixmap pix;
@@ -103,7 +103,7 @@ void KasLoadItem::paint( TQPainter *p )
     KPixmapEffect::gradient( pix, light, dark, KPixmapEffect::DiagonalGradient );
     p->drawPixmap( 2, extent()-2-h, pix );
 
-    p->setPen( kasbar()->tqcolorGroup().mid() );
+    p->setPen( kasbar()->colorGroup().mid() );
     for ( double pos = 0.2 ; pos < 1.0 ; pos += 0.2 ) {
 	int ypos = (int) floor((extent()-2) - (dh*maxValue*pos));
 	p->drawLine( 2, ypos, extent()-3, ypos );

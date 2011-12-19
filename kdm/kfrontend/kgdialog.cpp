@@ -134,7 +134,7 @@ void
 KGDialog::slotActivateMenu( int id )
 {
 	TQPopupMenu *cmnu = optMenu->findItem( id )->popup();
-	TQSize sh( cmnu->tqsizeHint() / 2 );
+	TQSize sh( cmnu->sizeHint() / 2 );
 	cmnu->exec( geometry().center() - TQPoint( sh.width(), sh.height() ) );
 }
 

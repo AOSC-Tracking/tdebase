@@ -96,7 +96,7 @@ void KateFileSelectorToolBarParent::resizeEvent ( TQResizeEvent * )
 {
 	if (m_tb)
 	{
-		setMinimumHeight(m_tb->tqsizeHint().height());
+		setMinimumHeight(m_tb->sizeHint().height());
 		m_tb->resize(width(),height());
 	}
 }
@@ -123,7 +123,7 @@ KateFileSelector::KateFileSelector( KateMainWindow *mainWindow,
   tqInstallMsgHandler( oldHandler );
 
   cmbPath = new KURLComboBox( KURLComboBox::Directories, true, this, "path combo" );
-  cmbPath->tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed ));
+  cmbPath->setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed ));
   KURLCompletion* cmpl = new KURLCompletion(KURLCompletion::DirCompletion);
   cmbPath->setCompletionObject( cmpl );
   cmbPath->setAutoDeleteCompletionObject( true );
@@ -157,7 +157,7 @@ KateFileSelector::KateFileSelector( KateMainWindow *mainWindow,
   btnFilter->setIconSet( SmallIconSet("filter" ) );
   btnFilter->setToggleButton( true );
   filter = new KHistoryCombo( true, filterBox, "filter");
-  filter->tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed ));
+  filter->setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed ));
   filterBox->setStretchFactor(filter, 2);
   connect( btnFilter, TQT_SIGNAL( clicked() ), this, TQT_SLOT( btnFilterClick() ) );
 
@@ -354,7 +354,7 @@ void KateFileSelector::setDir( KURL u )
   newurl.setPath(pathstr);
 
   if ( !kateFileSelectorIsReadable ( newurl ) )
-    newurl.cd(TQString::tqfromLatin1(".."));
+    newurl.cd(TQString::fromLatin1(".."));
 
   if ( !kateFileSelectorIsReadable (newurl) )
      newurl.setPath( TQDir::homeDirPath() );

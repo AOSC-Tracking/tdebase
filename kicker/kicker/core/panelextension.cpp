@@ -100,7 +100,7 @@ void PanelExtension::populateContainerArea()
 {
     _containerArea->show();
 
-    if (ExtensionManager::the()->isMainPanel(tqtopLevelWidget()))
+    if (ExtensionManager::the()->isMainPanel(topLevelWidget()))
     {
         setObjId("Panel");
         _containerArea->initialize(true);
@@ -139,7 +139,7 @@ void PanelExtension::positionChange(Position p)
     _containerArea->setPosition(p);
 }
 
-TQSize PanelExtension::tqsizeHint(Position p, TQSize maxSize) const
+TQSize PanelExtension::sizeHint(Position p, TQSize maxSize) const
 {
     TQSize size;
 

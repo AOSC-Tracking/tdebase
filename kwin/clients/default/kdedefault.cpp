@@ -328,7 +328,7 @@ void KDEDefaultHandler::createPixmaps()
 	TQPainter p;
 
 	// Active pins
-	g = options()->tqcolorGroup( ColorButtonBg, true );
+	g = options()->colorGroup( ColorButtonBg, true );
 	pinUpPix  = new KPixmap();
 	pinUpPix->resize(16, 16);
 	p.begin( pinUpPix );
@@ -346,7 +346,7 @@ void KDEDefaultHandler::createPixmaps()
 	pinDownPix->setMask( TQBitmap(16, 16, pindown_mask_bits, true) );
 
 	// Inactive pins
-	g = options()->tqcolorGroup( ColorButtonBg, false );
+	g = options()->colorGroup( ColorButtonBg, false );
 	ipinUpPix = new KPixmap();
 	ipinUpPix->resize(16, 16);
 	p.begin( ipinUpPix );
@@ -404,25 +404,25 @@ void KDEDefaultHandler::createPixmaps()
 	irightBtnDownPix[false]->resize(toolTitleHeight, toolTitleHeight);
 
 	// Draw the button state pixmaps
-	g = options()->tqcolorGroup( ColorTitleBar, true );
+	g = options()->colorGroup( ColorTitleBar, true );
 	drawButtonBackground( leftBtnUpPix[true], g, false );
 	drawButtonBackground( leftBtnDownPix[true], g, true );
 	drawButtonBackground( leftBtnUpPix[false], g, false );
 	drawButtonBackground( leftBtnDownPix[false], g, true );
 
-	g = options()->tqcolorGroup( ColorButtonBg, true );
+	g = options()->colorGroup( ColorButtonBg, true );
 	drawButtonBackground( rightBtnUpPix[true], g, false );
 	drawButtonBackground( rightBtnDownPix[true], g, true );
 	drawButtonBackground( rightBtnUpPix[false], g, false );
 	drawButtonBackground( rightBtnDownPix[false], g, true );
 
-	g = options()->tqcolorGroup( ColorTitleBar, false );
+	g = options()->colorGroup( ColorTitleBar, false );
 	drawButtonBackground( ileftBtnUpPix[true], g, false );
 	drawButtonBackground( ileftBtnDownPix[true], g, true );
 	drawButtonBackground( ileftBtnUpPix[false], g, false );
 	drawButtonBackground( ileftBtnDownPix[false], g, true );
 
-	g = options()->tqcolorGroup( ColorButtonBg, false );
+	g = options()->colorGroup( ColorButtonBg, false );
 	drawButtonBackground( irightBtnUpPix[true], g, false );
 	drawButtonBackground( irightBtnDownPix[true], g, true );
 	drawButtonBackground( irightBtnUpPix[false], g, false );
@@ -909,7 +909,7 @@ void KDEDefaultClient::paintEvent( TQPaintEvent* )
 	p.drawRect(x,y,w,h);
 
     // Draw part of the frame that is the titlebar color
-	g = options()->tqcolorGroup(ColorTitleBar, isActive());
+	g = options()->colorGroup(ColorTitleBar, isActive());
 	p.setPen(g.light());
 	p.drawLine(x+1, y+1, rightOffset-1, y+1);
 	p.drawLine(x+1, y+1, x+1, leftFrameStart+borderWidth-4);
@@ -929,7 +929,7 @@ void KDEDefaultClient::paintEvent( TQPaintEvent* )
 	p.drawLine(x+borderWidth-2, y+titleHeight+3, x+borderWidth-2, leftFrameStart-2);
 
     // Fill out the border edges
-    g = options()->tqcolorGroup(ColorFrame, isActive());
+    g = options()->colorGroup(ColorFrame, isActive());
     p.setPen(g.light());
     p.drawLine(rightOffset, y+1, x2-1, y+1);
     p.drawLine(x+1, leftFrameStart+borderWidth-3, x+1, y2-1);

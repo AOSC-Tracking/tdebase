@@ -372,14 +372,14 @@ bool AppletProxy::process(const TQCString &fun, const TQByteArray &data,
 	    }
 	    return true;
 	}
-    else if ( fun == "tqsetAlignment(int)" )
+    else if ( fun == "setAlignment(int)" )
 	{
 	    TQDataStream dataStream( data, IO_ReadOnly );
 	    int tqalignment;
 	    dataStream >> tqalignment;
 
 	    if(_applet) {
-		_applet->tqsetAlignment( (KPanelApplet::Alignment)tqalignment );
+		_applet->setAlignment( (KPanelApplet::Alignment)tqalignment );
 	    }
 	    return true;
 	}

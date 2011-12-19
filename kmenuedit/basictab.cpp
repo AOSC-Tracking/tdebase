@@ -468,8 +468,8 @@ void BasicTab::slotCapturedShortcut(const KShortcut& cut)
     if (signalsBlocked())
        return;
 
-    if( KKeyChooser::checkGlobalShortcutsConflict( cut, true, tqtopLevelWidget())
-        || KKeyChooser::checkStandardShortcutsConflict( cut, true, tqtopLevelWidget()))
+    if( KKeyChooser::checkGlobalShortcutsConflict( cut, true, topLevelWidget())
+        || KKeyChooser::checkStandardShortcutsConflict( cut, true, topLevelWidget()))
         return;
 
     if ( KHotKeys::present() )

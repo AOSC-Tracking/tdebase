@@ -138,7 +138,7 @@ KdmLabel::setText( const TQString &txt )
 }
 
 TQSize
-KdmLabel::tqsizeHint()
+KdmLabel::sizeHint()
 {
 	// choose the correct label class
 	struct LabelStruct::LabelClass *l = &label.normal;
@@ -268,7 +268,7 @@ KdmLabel::lookupText( const TQString &t )
 	m['s'] = KThemedGreeter::timedUser;
 	// xgettext:no-c-format
 	KGlobal::locale()->setDateFormat( i18n("date format", "%a %d %B") );
-	m['c'] = KGlobal::locale()->formatDateTime( TQDateTime::tqcurrentDateTime(), false, false );
+	m['c'] = KGlobal::locale()->formatDateTime( TQDateTime::currentDateTime(), false, false );
 
 	return KMacroExpander::expandMacros( text, m );
 }

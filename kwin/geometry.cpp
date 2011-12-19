@@ -1120,7 +1120,7 @@ TQSize Client::sizeForClientSize( const TQSize& wsize, Sizemode mode, bool nofra
     TQSize max_size = maxSize();
     if( decoration != NULL )
         {
-        TQSize decominsize = decoration->tqminimumSize();
+        TQSize decominsize = decoration->minimumSize();
         TQSize border_size( border_left + border_right, border_top + border_bottom );
         if( border_size.width() > decominsize.width()) // just in case
             decominsize.setWidth( border_size.width());

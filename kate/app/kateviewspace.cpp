@@ -67,9 +67,9 @@ protected:
   void paintEvent( TQPaintEvent *e )
   {
     TQPainter p( this );
-    p.setPen( tqcolorGroup().shadow() );
+    p.setPen( colorGroup().shadow() );
     p.drawLine( e->rect().left(), 0, e->rect().right(), 0 );
-    p.setPen( ((KateViewSpace*)parentWidget())->isActiveSpace() ? tqcolorGroup().light() : tqcolorGroup().midlight() );
+    p.setPen( ((KateViewSpace*)parentWidget())->isActiveSpace() ? colorGroup().light() : colorGroup().midlight() );
     p.drawLine( e->rect().left(), 1, e->rect().right(), 1 );
   }
 };
@@ -309,29 +309,29 @@ KateVSStatusBar::KateVSStatusBar ( KateViewSpace *parent, const char *name )
 {
   m_lineColLabel = new TQLabel( this );
   addWidget( m_lineColLabel, 0, false );
-  m_lineColLabel->tqsetAlignment( Qt::AlignCenter );
+  m_lineColLabel->setAlignment( Qt::AlignCenter );
   m_lineColLabel->installEventFilter( this );
 
   m_modifiedLabel = new TQLabel( TQString("   "), this );
   addWidget( m_modifiedLabel, 0, false );
-  m_modifiedLabel->tqsetAlignment( Qt::AlignCenter );
+  m_modifiedLabel->setAlignment( Qt::AlignCenter );
   m_modifiedLabel->installEventFilter( this );
 
   m_insertModeLabel = new TQLabel( i18n(" INS "), this );
   addWidget( m_insertModeLabel, 0, false );
-  m_insertModeLabel->tqsetAlignment( Qt::AlignCenter );
+  m_insertModeLabel->setAlignment( Qt::AlignCenter );
   m_insertModeLabel->installEventFilter( this );
 
   m_selectModeLabel = new TQLabel( i18n(" NORM "), this );
   addWidget( m_selectModeLabel, 0, false );
-  m_selectModeLabel->tqsetAlignment( Qt::AlignCenter );
+  m_selectModeLabel->setAlignment( Qt::AlignCenter );
   m_selectModeLabel->installEventFilter( this );
 
   m_fileNameLabel=new KSqueezedTextLabel( this );
   addWidget( m_fileNameLabel, 1, true );
   m_fileNameLabel->setMinimumSize( 0, 0 );
-  m_fileNameLabel->tqsetSizePolicy(TQSizePolicy( TQSizePolicy::Ignored, TQSizePolicy::Fixed ));
-  m_fileNameLabel->tqsetAlignment( /*Qt::AlignRight*/Qt::AlignLeft );
+  m_fileNameLabel->setSizePolicy(TQSizePolicy( TQSizePolicy::Ignored, TQSizePolicy::Fixed ));
+  m_fileNameLabel->setAlignment( /*Qt::AlignRight*/Qt::AlignLeft );
   m_fileNameLabel->installEventFilter( this );
 
   installEventFilter( this );
@@ -396,7 +396,7 @@ void KateVSStatusBar::modifiedChanged()
 
 void KateVSStatusBar::showMenu()
 {
-   KMainWindow* mainWindow = static_cast<KMainWindow*>( tqtopLevelWidget() );
+   KMainWindow* mainWindow = static_cast<KMainWindow*>( topLevelWidget() );
    TQPopupMenu* menu = static_cast<TQPopupMenu*>( mainWindow->factory()->container("viewspace_popup", mainWindow ) );
 
    if (menu)

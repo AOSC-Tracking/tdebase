@@ -49,7 +49,7 @@ KDecorationPreview::KDecorationPreview( TQWidget* parent, const char* name )
                                    "Most probably there\n"
                                    "was a problem loading the plugin." ), this );
 
-    no_preview->tqsetAlignment( AlignCenter );
+    no_preview->setAlignment( AlignCenter );
 
     setMinimumSize( 100, 100 );
     no_preview->resize( size());
@@ -127,15 +127,15 @@ void KDecorationPreview::positionPreviews()
 
     // Resize the active window
     size = TQSize( width() - xoffset, height() - titleBarHeight )
-                .expandedTo( deco[Active]->tqminimumSize() );
+                .expandedTo( deco[Active]->minimumSize() );
     geometry = TQRect( TQPoint( 0, titleBarHeight ), size );
-    deco[Active]->widget()->setGeometry( TQStyle::tqvisualRect( geometry, this ) );
+    deco[Active]->widget()->setGeometry( TQStyle::visualRect( geometry, this ) );
 
     // Resize the inactive window
     size = TQSize( width() - xoffset, height() - titleBarHeight )
-                .expandedTo( deco[Inactive]->tqminimumSize() );
+                .expandedTo( deco[Inactive]->minimumSize() );
     geometry = TQRect( TQPoint( xoffset, 0 ), size );
-    deco[Inactive]->widget()->setGeometry( TQStyle::tqvisualRect( geometry, this ) );
+    deco[Inactive]->widget()->setGeometry( TQStyle::visualRect( geometry, this ) );
     }
 
 void KDecorationPreview::setPreviewMask( const TQRegion& reg, int mode, bool active )

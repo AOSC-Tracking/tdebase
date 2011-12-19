@@ -20,7 +20,7 @@
             <verstretch>0</verstretch>
         </sizepolicy>
     </property>
-    <property name="tqminimumSize">
+    <property name="minimumSize">
         <size>
             <width>640</width>
             <height>480</height>
@@ -80,13 +80,13 @@
                                             <verstretch>0</verstretch>
                                         </sizepolicy>
                                     </property>
-                                    <property name="tqminimumSize">
+                                    <property name="minimumSize">
                                         <size>
                                             <width>40</width>
                                             <height>40</height>
                                         </size>
                                     </property>
-                                    <property name="tqmaximumSize">
+                                    <property name="maximumSize">
                                         <size>
                                             <width>40</width>
                                             <height>40</height>
@@ -117,7 +117,7 @@
                                             <property name="sizeType">
                                                 <enum>Minimum</enum>
                                             </property>
-                                            <property name="tqsizeHint">
+                                            <property name="sizeHint">
                                                 <size>
                                                     <width>20</width>
                                                     <height>20</height>
@@ -147,7 +147,7 @@
                                             <property name="sizeType">
                                                 <enum>Minimum</enum>
                                             </property>
-                                            <property name="tqsizeHint">
+                                            <property name="sizeHint">
                                                 <size>
                                                     <width>20</width>
                                                     <height>21</height>

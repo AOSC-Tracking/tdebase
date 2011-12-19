@@ -290,7 +290,7 @@ const TQPixmap &PlastikHandler::pixmap(Pixmaps type, bool active, bool toolWindo
             } else {
                 pm = new TQPixmap(1, titleBarTileHeight);
                 painter.begin(pm);
-                painter.tqdrawPixmap(0, 0, gradient, 0,2);
+                painter.drawPixmap(0, 0, gradient, 0,2);
                 if (m_coloredBorder) {
                     painter.setPen(getColor(TitleGradient3, active).dark(110) );
                 } else {

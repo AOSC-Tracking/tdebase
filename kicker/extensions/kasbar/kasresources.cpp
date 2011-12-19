@@ -308,7 +308,7 @@ KPixmap KasResources::activeBg()
    if ( actBg.isNull() ) {
       actBg.resize( kasbar->itemExtent(), kasbar->itemExtent() );
       KPixmapEffect::gradient( actBg,
-			       kasbar->tqcolorGroup().light(), kasbar->tqcolorGroup().mid(),
+			       kasbar->colorGroup().light(), kasbar->colorGroup().mid(),
 			       KPixmapEffect::DiagonalGradient );
    }
 
@@ -320,7 +320,7 @@ KPixmap KasResources::inactiveBg()
    if ( inactBg.isNull() ) {
       inactBg.resize( kasbar->itemExtent(), kasbar->itemExtent() );
       KPixmapEffect::gradient( inactBg,
-			       kasbar->tqcolorGroup().mid(), kasbar->tqcolorGroup().dark(),
+			       kasbar->colorGroup().mid(), kasbar->colorGroup().dark(),
 			       KPixmapEffect::DiagonalGradient );
    }
 

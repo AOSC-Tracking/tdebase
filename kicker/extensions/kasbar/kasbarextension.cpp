@@ -153,7 +153,7 @@ TQSize KasBarExtension::detachedSize()
 
 }
 
-TQSize KasBarExtension::tqsizeHint(Position p, TQSize maxSize ) const
+TQSize KasBarExtension::sizeHint(Position p, TQSize maxSize ) const
 {
    Orientation o = Qt::Horizontal;
 
@@ -167,7 +167,7 @@ TQSize KasBarExtension::tqsizeHint(Position p, TQSize maxSize ) const
 	   return TQSize( 0, kasbar->itemExtent()/2 );
    }
 
-   return kasbar->tqsizeHint( o, maxSize );
+   return kasbar->sizeHint( o, maxSize );
 }
 
 void KasBarExtension::positionChange( Position /* position */)

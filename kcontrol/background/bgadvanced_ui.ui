@@ -91,7 +91,7 @@
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>20</width>
                             <height>20</height>
@@ -138,7 +138,7 @@
                     <property name="enabled">
                         <bool>false</bool>
                     </property>
-                    <property name="tqminimumSize">
+                    <property name="minimumSize">
                         <size>
                             <width>400</width>
                             <height>0</height>
@@ -223,7 +223,7 @@ You can also remove programs from this list clicking on the &lt;b&gt;Remove&lt;/
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>220</width>
                             <height>20</height>
@@ -376,7 +376,7 @@ You can also remove programs from this list clicking on the &lt;b&gt;Remove&lt;/
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>20</width>
                             <height>20</height>
@@ -395,7 +395,7 @@ You can also remove programs from this list clicking on the &lt;b&gt;Remove&lt;/
             <property name="sizeType">
                 <enum>Expanding</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>20</width>
                     <height>16</height>

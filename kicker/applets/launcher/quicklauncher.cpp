@@ -770,8 +770,8 @@ void QuickLauncher::refreshContents()
 
     unsigned index;
     TQPoint pos;
-    tqsetUpdatesEnabled(false);
-    m_buttons->tqsetUpdatesEnabled(false);
+    setUpdatesEnabled(false);
+    m_buttons->setUpdatesEnabled(false);
     for (index = 0; index < m_buttons->size(); index++)
     {
         pos = m_manager->pos(index);
@@ -791,9 +791,9 @@ void QuickLauncher::refreshContents()
         m_dragButtons->setDragging(true);
     }
     m_buttons->show();
-    tqsetUpdatesEnabled(true);
+    setUpdatesEnabled(true);
     update();
-    m_buttons->tqsetUpdatesEnabled(true);
+    m_buttons->setUpdatesEnabled(true);
     updateGeometry();
     emit updateLayout();
     updateStickyHighlightLayer();

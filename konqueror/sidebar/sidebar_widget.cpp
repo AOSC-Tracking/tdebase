@@ -252,7 +252,7 @@ Sidebar_Widget::Sidebar_Widget(TQWidget *parent, KParts::ReadOnlyPart *par, cons
 	m_buttons.setAutoDelete(true);
 	m_hasStoredUrl = false;
 	m_latestViewed = -1;
-	tqsetSizePolicy(TQSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding));
+	setSizePolicy(TQSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding));
 
 	TQSplitter *splitterWidget = splitter();
 	if (splitterWidget) {
@@ -262,7 +262,7 @@ Sidebar_Widget::Sidebar_Widget(TQWidget *parent, KParts::ReadOnlyPart *par, cons
 	}
 		
 	m_area = new KDockArea(this);
-	m_area->tqsetSizePolicy(TQSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding));
+	m_area->setSizePolicy(TQSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding));
 	m_mainDockWidget = m_area->createDockWidget("free", 0);
 	m_mainDockWidget->setWidget(new TQWidget(m_mainDockWidget));
 	m_area->setMainDockWidget(m_mainDockWidget);
@@ -675,7 +675,7 @@ void Sidebar_Widget::stdAction(const char *handlestd)
 
 	kdDebug() << "Try calling >active< module's (" << mod->module->className() << ") slot " << handlestd << endl;
 
-	int id = mod->module->tqmetaObject()->findSlot( handlestd );
+	int id = mod->module->metaObject()->findSlot( handlestd );
   	if ( id == -1 )
 		return;
 	kdDebug() << "Action slot was found, it will be called now" << endl;
@@ -1049,7 +1049,7 @@ void Sidebar_Widget::collapseExpandSidebar()
 	if (m_visibleViews.count()==0)
 	{
 		m_somethingVisible = false;
-		parentWidget()->setMaximumWidth(tqminimumSizeHint().width());
+		parentWidget()->setMaximumWidth(minimumSizeHint().width());
 		updateGeometry();
 		emit panelHasBeenExpanded(false);
 	} else {
@@ -1060,11 +1060,11 @@ void Sidebar_Widget::collapseExpandSidebar()
 	}
 }
 
-TQSize Sidebar_Widget::tqsizeHint() const
+TQSize Sidebar_Widget::sizeHint() const
 {
         if (m_somethingVisible)
            return TQSize(m_savedWidth,200);
-        return tqminimumSizeHint();
+        return minimumSizeHint();
 }
 
 void Sidebar_Widget::dockWidgetHasUndocked(KDockWidget* wid)
@@ -1195,50 +1195,50 @@ void Sidebar_Widget::popupMenu( KXMLGUIClient *client,
 
 void Sidebar_Widget::connectModule(TQObject *mod)
 {
-	if (mod->tqmetaObject()->findSignal("started(KIO::Job*)") != -1) {
+	if (mod->metaObject()->findSignal("started(KIO::Job*)") != -1) {
 		connect(mod,TQT_SIGNAL(started(KIO::Job *)),this, TQT_SIGNAL(started(KIO::Job*)));
 	}
 
-	if (mod->tqmetaObject()->findSignal("completed()") != -1) {
+	if (mod->metaObject()->findSignal("completed()") != -1) {
 		connect(mod,TQT_SIGNAL(completed()),this,TQT_SIGNAL(completed()));
 	}
 
-	if (mod->tqmetaObject()->findSignal("popupMenu(const " TQPOINT_OBJECT_NAME_STRING "&,const KURL&,const " TQSTRING_OBJECT_NAME_STRING "&,mode_t)") != -1) {
+	if (mod->metaObject()->findSignal("popupMenu(const " TQPOINT_OBJECT_NAME_STRING "&,const KURL&,const " TQSTRING_OBJECT_NAME_STRING "&,mode_t)") != -1) {
 		connect(mod,TQT_SIGNAL(popupMenu( const TQPoint &, const KURL &,
 			const TQString &, mode_t)),this,TQT_SLOT(popupMenu( const
 			TQPoint &, const KURL&, const TQString &, mode_t)));
 	}
 
-	if (mod->tqmetaObject()->findSignal("popupMenu(KXMLGUIClient*,const " TQPOINT_OBJECT_NAME_STRING " &,const KURL&,const " TQSTRING_OBJECT_NAME_STRING "&,mode_t)") != -1) {
+	if (mod->metaObject()->findSignal("popupMenu(KXMLGUIClient*,const " TQPOINT_OBJECT_NAME_STRING " &,const KURL&,const " TQSTRING_OBJECT_NAME_STRING "&,mode_t)") != -1) {
 		connect(mod,TQT_SIGNAL(popupMenu( KXMLGUIClient *, const TQPoint &,
 			const KURL &,const TQString &, mode_t)),this,
 			TQT_SLOT(popupMenu( KXMLGUIClient *, const TQPoint &,
 			const KURL &,const TQString &, mode_t)));
 	}
 
-	if (mod->tqmetaObject()->findSignal("popupMenu(const " TQPOINT_OBJECT_NAME_STRING "&,const KFileItemList&)") != -1) {
+	if (mod->metaObject()->findSignal("popupMenu(const " TQPOINT_OBJECT_NAME_STRING "&,const KFileItemList&)") != -1) {
 		connect(mod,TQT_SIGNAL(popupMenu( const TQPoint &, const KFileItemList & )),
 			this,TQT_SLOT(popupMenu( const TQPoint &, const KFileItemList & )));
 	}
 
-	if (mod->tqmetaObject()->findSignal("openURLRequest(const KURL&,const KParts::URLArgs&)") != -1) {
+	if (mod->metaObject()->findSignal("openURLRequest(const KURL&,const KParts::URLArgs&)") != -1) {
 		connect(mod,TQT_SIGNAL(openURLRequest( const KURL &, const KParts::URLArgs &)),
 			this,TQT_SLOT(openURLRequest( const KURL &, const KParts::URLArgs &)));
 	}
 
-	if (mod->tqmetaObject()->findSignal("submitFormRequest(const char*,const " TQSTRING_OBJECT_NAME_STRING "&,const " TQBYTEARRAY_OBJECT_NAME_STRING "&,const " TQSTRING_OBJECT_NAME_STRING "&,const " TQSTRING_OBJECT_NAME_STRING "&,const " TQSTRING_OBJECT_NAME_STRING "&)") != -1) {
+	if (mod->metaObject()->findSignal("submitFormRequest(const char*,const " TQSTRING_OBJECT_NAME_STRING "&,const " TQBYTEARRAY_OBJECT_NAME_STRING "&,const " TQSTRING_OBJECT_NAME_STRING "&,const " TQSTRING_OBJECT_NAME_STRING "&,const " TQSTRING_OBJECT_NAME_STRING "&)") != -1) {
 		connect(mod,
 			TQT_SIGNAL(submitFormRequest(const char*,const TQString&,const TQByteArray&,const TQString&,const TQString&,const TQString&)),
 			this,
 			TQT_SLOT(submitFormRequest(const char*,const TQString&,const TQByteArray&,const TQString&,const TQString&,const TQString&)));
 	}
 
-	if (mod->tqmetaObject()->findSignal("enableAction(const char*,bool)") != -1) {
+	if (mod->metaObject()->findSignal("enableAction(const char*,bool)") != -1) {
 		connect(mod,TQT_SIGNAL(enableAction( const char *, bool)),
 			this,TQT_SLOT(enableAction(const char *, bool)));
 	}
 
-	if (mod->tqmetaObject()->findSignal("createNewWindow(const KURL&,const KParts::URLArgs&)") != -1) {
+	if (mod->metaObject()->findSignal("createNewWindow(const KURL&,const KParts::URLArgs&)") != -1) {
 		connect(mod,TQT_SIGNAL(createNewWindow( const KURL &, const KParts::URLArgs &)),
 			this,TQT_SLOT(createNewWindow( const KURL &, const KParts::URLArgs &)));
 	}

@@ -39,14 +39,14 @@ KLanguageCombo::KLanguageCombo (TQWidget * parent, const char *name)
 
 void KLanguageCombo::insertLanguage(const TQString& path, const TQString& name, const TQString& sub, const TQString &submenu, int index)
 {
-  TQString output = name + TQString::tqfromLatin1(" (") + path + TQString::tqfromLatin1(")");
-  TQPixmap flag(locate("locale", sub + path + TQString::tqfromLatin1("/flag.png")));
+  TQString output = name + TQString::fromLatin1(" (") + path + TQString::fromLatin1(")");
+  TQPixmap flag(locate("locale", sub + path + TQString::fromLatin1("/flag.png")));
   insertItem(TQIconSet(flag), output, path, submenu, index);
 }
 
 void KLanguageCombo::changeLanguage(const TQString& name, int i)
 {
   if (i < 0 || i >= count()) return;
-  TQString output = name + TQString::tqfromLatin1(" (") + tag(i) + TQString::tqfromLatin1(")");
+  TQString output = name + TQString::fromLatin1(" (") + tag(i) + TQString::fromLatin1(")");
   changeItem(output, i);
 }

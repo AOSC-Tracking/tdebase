@@ -90,7 +90,7 @@ class WorkSheet : public TQWidget, public KSGRD::SensorBoard
     void titleChanged( TQWidget *sheet );
 
   protected:
-    virtual TQSize tqsizeHint() const;
+    virtual TQSize sizeHint() const;
     void dragEnterEvent( TQDragEnterEvent* );
     void dropEvent( TQDropEvent* );
     void customEvent( TQCustomEvent* );

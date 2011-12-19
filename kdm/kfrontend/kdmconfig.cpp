@@ -72,7 +72,7 @@ Str2Font( const TQString &aValue )
 	TQFont aRetFont;
 	TQString chStr;
 
-	TQStringList sl = TQStringList::split( TQString::tqfromLatin1(","), aValue );
+	TQStringList sl = TQStringList::split( TQString::fromLatin1(","), aValue );
 
 	if (sl.count() == 1) {
 		/* X11 font spec */
@@ -160,7 +160,7 @@ decodeSess( dpySpec *sess, TQString &user, TQString &loc )
 			sess->vt ?
 				TQString("vt%1").arg( sess->vt ) :
 #endif
-				TQString::tqfromLatin1( *sess->from ? sess->from : sess->display );
+				TQString::fromLatin1( *sess->from ? sess->from : sess->display );
 	} else {
 		user =
 			!sess->user ?
@@ -174,6 +174,6 @@ decodeSess( dpySpec *sess, TQString &user, TQString &loc )
 			sess->vt ?
 				TQString("%1, vt%2").arg( sess->display ).arg( sess->vt ) :
 #endif
-				TQString::tqfromLatin1( sess->display );
+				TQString::fromLatin1( sess->display );
 	}
 }

@@ -53,7 +53,7 @@ DancingBars::DancingBars( TQWidget *parent, const char *name, const TQString &ti
   else
     mPlotter = new BarGraph( frame() );
 
-  setMinimumSize( tqsizeHint() );
+  setMinimumSize( sizeHint() );
 
   /* All RMB clicks to the mPlotter widget will be handled by 
    * SensorDisplay::eventFilter. */
@@ -231,12 +231,12 @@ void DancingBars::resizeEvent( TQResizeEvent* )
     frame()->setGeometry( 0, 0, width(), height() );
 }
 
-TQSize DancingBars::tqsizeHint()
+TQSize DancingBars::sizeHint()
 {
   if ( noFrame() )
-    return ( mPlotter->tqsizeHint() );
+    return ( mPlotter->sizeHint() );
   else
-    return ( frame()->tqsizeHint() );
+    return ( frame()->sizeHint() );
 }
 
 void DancingBars::answerReceived( int id, const TQString &answer )

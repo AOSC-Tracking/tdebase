@@ -138,7 +138,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
 
     mSaverListView = new TQListView( mSaverGroup );
     mSaverListView->setMinimumHeight( 120 );
-    mSaverListView->tqsetSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Expanding);
+    mSaverListView->setSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Expanding);
     mSaverListView->addColumn("");
     mSaverListView->header()->hide();
     mSelected = -1;
@@ -221,14 +221,14 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mWaitLockEdit->setSuffix(i18n(" sec"));
     mWaitLockEdit->setValue(mLockTimeout/1000);
     mWaitLockEdit->setEnabled(mEnabled && mLock);
-    if ( mWaitLockEdit->tqsizeHint().width() <
-         mWaitEdit->tqsizeHint().width() ) {
-        mWaitLockEdit->setFixedWidth( mWaitEdit->tqsizeHint().width() );
-        mWaitEdit->setFixedWidth( mWaitEdit->tqsizeHint().width() );
+    if ( mWaitLockEdit->sizeHint().width() <
+         mWaitEdit->sizeHint().width() ) {
+        mWaitLockEdit->setFixedWidth( mWaitEdit->sizeHint().width() );
+        mWaitEdit->setFixedWidth( mWaitEdit->sizeHint().width() );
     }
     else {
-        mWaitEdit->setFixedWidth( mWaitLockEdit->tqsizeHint().width() );
-        mWaitLockEdit->setFixedWidth( mWaitLockEdit->tqsizeHint().width() );
+        mWaitEdit->setFixedWidth( mWaitLockEdit->sizeHint().width() );
+        mWaitLockEdit->setFixedWidth( mWaitLockEdit->sizeHint().width() );
     }
     connect(mWaitLockEdit, TQT_SIGNAL(valueChanged(int)),
             this, TQT_SLOT(slotLockTimeoutChanged(int)));
@@ -246,7 +246,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
         new TQVBoxLayout(topLayout, KDialog::spacingHint());
 
     mMonitorLabel = new TQLabel( this );
-    mMonitorLabel->tqsetAlignment( AlignCenter );
+    mMonitorLabel->setAlignment( AlignCenter );
     mMonitorLabel->setPixmap( TQPixmap(locate("data",
                          "kcontrol/pics/monitor.png")));
     rightColumnLayout->addWidget(mMonitorLabel, 0);
@@ -256,7 +256,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     advancedLayout->addWidget( new TQWidget( this ) );
     TQPushButton* advancedBt = new TQPushButton(
         i18n( "Advanced &Options" ), this, "advancedBtn" );
-    advancedBt->tqsetSizePolicy( TQSizePolicy(
+    advancedBt->setSizePolicy( TQSizePolicy(
         TQSizePolicy::Fixed, TQSizePolicy::Fixed) );
     connect( advancedBt, TQT_SIGNAL( clicked() ),
              this, TQT_SLOT( slotAdvanced() ) );
@@ -739,7 +739,7 @@ void KScreenSaver::slotSetup()
 //
 void KScreenSaver::slotAdvanced()
 {
-   KScreenSaverAdvancedDialog dlg( tqtopLevelWidget() );
+   KScreenSaverAdvancedDialog dlg( topLevelWidget() );
    if ( dlg.exec() ) {
        mChanged = true;
        emit changed(true);

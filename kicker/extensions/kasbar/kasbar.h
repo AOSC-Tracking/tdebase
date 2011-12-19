@@ -152,7 +152,7 @@ public:
 
    bool isDrag() const { return inDrag; }
 
-   TQSize tqsizeHint( Qt::Orientation,  TQSize max );
+   TQSize sizeHint( Qt::Orientation,  TQSize max );
 
    //
    // Look and feel options

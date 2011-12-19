@@ -522,7 +522,7 @@ void KCommonDecoration::resize( const TQSize& s )
     widget()->resize( s );
 }
 
-TQSize KCommonDecoration::tqminimumSize() const
+TQSize KCommonDecoration::minimumSize() const
 {
     const int minWidth = QMAX(layoutMetric(LM_TitleEdgeLeft), layoutMetric(LM_BorderLeft))
             +QMAX(layoutMetric(LM_TitleEdgeRight), layoutMetric(LM_BorderRight))
@@ -946,7 +946,7 @@ void KCommonDecorationButton::setSize(const TQSize &s)
     }
 }
 
-TQSize KCommonDecorationButton::tqsizeHint() const
+TQSize KCommonDecorationButton::sizeHint() const
 {
     return m_size;
 }

@@ -110,7 +110,7 @@ void BaseContainer::slotRemoved(KConfig* config)
     config->sync();
 }
 
-void BaseContainer::tqsetAlignment(KPanelExtension::Alignment a)
+void BaseContainer::setAlignment(KPanelExtension::Alignment a)
 {
     if (_tqalignment == a)
     {

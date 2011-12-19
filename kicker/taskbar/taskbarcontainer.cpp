@@ -135,7 +135,7 @@ void TaskBarContainer::configure()
         windowListButton->setPixmap(kapp->iconLoader()->loadIcon(icon,
                                                                  KIcon::Panel,
                                                                  16));
-        windowListButton->setMinimumSize(windowListButton->tqsizeHint());
+        windowListButton->setMinimumSize(windowListButton->sizeHint());
         layout->insertWidget(0, windowListButton);
         windowListButton->show();
     }
@@ -230,7 +230,7 @@ void TaskBarContainer::popupDirectionChange(KPanelApplet::Direction d)
         windowListButton->setPixmap(kapp->iconLoader()->loadIcon(icon,
                                                                  KIcon::Panel,
                                                                  16));
-        windowListButton->setMinimumSize(windowListButton->tqsizeHint());
+        windowListButton->setMinimumSize(windowListButton->sizeHint());
     }
 }
 
@@ -249,13 +249,13 @@ void TaskBarContainer::showWindowListMenu()
             pos.setX( pos.x() + width() );
             break;
         case KPanelApplet::Left:
-            pos.setX( pos.x() - windowListMenu->tqsizeHint().width() );
+            pos.setX( pos.x() - windowListMenu->sizeHint().width() );
             break;
         case KPanelApplet::Down:
             pos.setY( pos.y() + height() );
             break;
         case KPanelApplet::Up:
-            pos.setY( pos.y() - windowListMenu->tqsizeHint().height() );
+            pos.setY( pos.y() - windowListMenu->sizeHint().height() );
         default:
             break;
     }
@@ -277,9 +277,9 @@ void TaskBarContainer::reconnectWindowListButton()
     connect( windowListButton, TQT_SIGNAL( pressed() ), TQT_SLOT( showWindowListMenu() ) );
 }
 
-TQSize TaskBarContainer::tqsizeHint( KPanelExtension::Position p, TQSize maxSize) const
+TQSize TaskBarContainer::sizeHint( KPanelExtension::Position p, TQSize maxSize) const
 {
-    TQSize size = taskBar->tqsizeHint( p, maxSize );
+    TQSize size = taskBar->sizeHint( p, maxSize );
     if ( (p == KPanelExtension::Left || p == KPanelExtension::Right) && showWindowListButton ) {
         return TQSize( size.width(), size.height() + WINDOWLISTBUTTON_SIZE );
     }

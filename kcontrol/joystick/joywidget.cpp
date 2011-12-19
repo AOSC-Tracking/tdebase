@@ -56,7 +56,7 @@ JoyWidget::JoyWidget(TQWidget *parent, const char *name)
     TQLabel *icon = new TQLabel(messageBox);
     icon->setPixmap(KGlobal::iconLoader()->loadIcon("messagebox_warning", KIcon::NoGroup,
                                                     KIcon::SizeMedium, KIcon::DefaultState, 0, true));
-    icon->setFixedSize(icon->tqsizeHint());
+    icon->setFixedSize(icon->sizeHint());
     message = new TQLabel(messageBox);
     messageBox->hide();
   }

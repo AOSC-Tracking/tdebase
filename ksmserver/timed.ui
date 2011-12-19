@@ -110,7 +110,7 @@
                                             <property name="sizeType">
                                                 <enum>MinimumExpanding</enum>
                                             </property>
-                                            <property name="tqsizeHint">
+                                            <property name="sizeHint">
                                                 <size>
                                                     <width>20</width>
                                                     <height>2</height>
@@ -129,7 +129,7 @@
                                                     <verstretch>0</verstretch>
                                                 </sizepolicy>
                                             </property>
-                                            <property name="tqminimumSize">
+                                            <property name="minimumSize">
                                                 <size>
                                                     <width>48</width>
                                                     <height>48</height>
@@ -149,7 +149,7 @@
                                             <property name="sizeType">
                                                 <enum>MinimumExpanding</enum>
                                             </property>
-                                            <property name="tqsizeHint">
+                                            <property name="sizeHint">
                                                 <size>
                                                     <width>20</width>
                                                     <height>2</height>
@@ -229,7 +229,7 @@ after X automatically.</string>
                                             <property name="sizeType">
                                                 <enum>Preferred</enum>
                                             </property>
-                                            <property name="tqsizeHint">
+                                            <property name="sizeHint">
                                                 <size>
                                                     <width>30</width>
                                                     <height>0</height>
@@ -258,7 +258,7 @@ after X automatically.</string>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
                                     </property>
-                                    <property name="tqsizeHint">
+                                    <property name="sizeHint">
                                         <size>
                                             <width>90</width>
                                             <height>20</height>
@@ -286,7 +286,7 @@ after X automatically.</string>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
                                     </property>
-                                    <property name="tqsizeHint">
+                                    <property name="sizeHint">
                                         <size>
                                             <width>90</width>
                                             <height>20</height>
@@ -319,7 +319,7 @@ after X automatically.</string>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
                                     </property>
-                                    <property name="tqsizeHint">
+                                    <property name="sizeHint">
                                         <size>
                                             <width>90</width>
                                             <height>20</height>

@@ -321,14 +321,14 @@ static sasl_callback_t callbacks[] = {
       cmd = mUngetSASLResponse;
       mUngetSASLResponse = 0;
     } else if ( mFirstTime ) {
-      TQString firstCommand = "AUTH " + TQString::tqfromLatin1( mMechusing );
+      TQString firstCommand = "AUTH " + TQString::fromLatin1( mMechusing );
 
       tmp.setRawData( mOut, mOutlen );
       KCodecs::base64Encode( tmp, challenge );
       tmp.resetRawData( mOut, mOutlen );
       if ( !challenge.isEmpty() ) {
         firstCommand += " ";
-        firstCommand += TQString::tqfromLatin1( challenge.data(), challenge.size() );
+        firstCommand += TQString::fromLatin1( challenge.data(), challenge.size() );
       }
       cmd = firstCommand.latin1();
 

@@ -146,10 +146,10 @@ bool KonqFMSettings::shouldEmbed( const TQString & serviceType ) const
     kdDebug(1203) << "KonqFMSettings::shouldEmbed : serviceTypeGroup=" << serviceTypeGroup << endl;
     if ( serviceTypeGroup == "inode" || serviceTypeGroup == "Browser" || serviceTypeGroup == "Konqueror" )
         return true; //always embed mimetype inode/*, Browser/* and Konqueror/*
-    TQMap<TQString, TQString>::ConstIterator it = m_embedMap.find( TQString::tqfromLatin1("embed-")+serviceTypeGroup );
+    TQMap<TQString, TQString>::ConstIterator it = m_embedMap.find( TQString::fromLatin1("embed-")+serviceTypeGroup );
     if ( it != m_embedMap.end() ) {
         kdDebug(1203) << "KonqFMSettings::shouldEmbed: " << it.data() << endl;
-        return it.data() == TQString::tqfromLatin1("true");
+        return it.data() == TQString::fromLatin1("true");
     }
     // 3 - if no config found, use default.
     // Note: if you change those defaults, also change kcontrol/filetypes/typeslistitem.cpp !

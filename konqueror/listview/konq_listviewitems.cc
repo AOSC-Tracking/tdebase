@@ -421,7 +421,7 @@ KonqBaseListViewItem::~KonqBaseListViewItem()
 
 TQRect KonqBaseListViewItem::rect() const
 {
-    TQRect r = m_pListViewWidget->tqitemRect(this);
+    TQRect r = m_pListViewWidget->itemRect(this);
     return TQRect( m_pListViewWidget->viewportToContents( r.topLeft() ), TQSize( r.width(), r.height() ) );
 }
 

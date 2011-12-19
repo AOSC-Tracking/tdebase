@@ -101,7 +101,7 @@ IndexProgressDialog::IndexProgressDialog( TQWidget *parent )
   topLayout->setSpacing( spacingHint() );
 
   mLabel = new TQLabel( this );
-  mLabel->tqsetAlignment( AlignHCenter );
+  mLabel->setAlignment( AlignHCenter );
   topLayout->addWidget( mLabel );
 
   mProgressBar = new TQProgressBar( this );

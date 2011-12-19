@@ -133,11 +133,11 @@ void TESession::ptyError()
 {
   // FIXME:  sh->error() is always empty
   if ( sh->error().isEmpty() )
-    KMessageBox::error( te->tqtopLevelWidget(),
+    KMessageBox::error( te->topLevelWidget(),
        i18n("Konsole is unable to open a PTY (pseudo teletype).  It is likely that this is due to an incorrect configuration of the PTY devices.  Konsole needs to have read/write access to the PTY devices."), 
        i18n("A Fatal Error Has Occurred") );
   else
-    KMessageBox::error(te->tqtopLevelWidget(), sh->error());
+    KMessageBox::error(te->topLevelWidget(), sh->error());
   emit done(this);
 }
 
@@ -645,7 +645,7 @@ void TESession::startZModem(const TQString &zmodem, const TQString &dir, const T
   connect( sh,TQT_SIGNAL(block_in(const char*,int)), this, TQT_SLOT(zmodemRcvBlock(const char*,int)) );
   connect( sh,TQT_SIGNAL(buffer_empty()), this, TQT_SLOT(zmodemContinue()));
 
-  zmodemProgress = new ZModemDialog(te->tqtopLevelWidget(), false,
+  zmodemProgress = new ZModemDialog(te->topLevelWidget(), false,
                                     i18n("ZModem Progress"));
 
   connect(zmodemProgress, TQT_SIGNAL(user1Clicked()),
@@ -767,7 +767,7 @@ QCStringList TESession::functionsDynamic()
 void TESession::onRcvBlock( const char* buf, int len )
 {
     em->onRcvBlock( buf, len );
-    emit receivedData( TQString::tqfromLatin1( buf, len ) );
+    emit receivedData( TQString::fromLatin1( buf, len ) );
 }
 
 void TESession::print( TQPainter &paint, bool friendly, bool exact )

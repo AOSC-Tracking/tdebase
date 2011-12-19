@@ -97,7 +97,7 @@ public slots:
     virtual void setPopupDirection(KPanelApplet::Direction d) { _dir = d; }
     virtual void setOrientation(KPanelExtension::Orientation o) { _orient = o; }
 
-    void tqsetAlignment(KPanelExtension::Alignment a);
+    void setAlignment(KPanelExtension::Alignment a);
 
 signals:
     void removeme(BaseContainer*);

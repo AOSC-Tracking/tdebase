@@ -311,7 +311,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   TQWhatsThis::add( flashScreen, i18n("The screen will turn to a custom color for the amount of time specified below.") );
   hbox->addSpacing(12);
   colorButton = new KColorButton(grp);
-  colorButton->setFixedWidth(colorButton->tqsizeHint().height()*2);
+  colorButton->setFixedWidth(colorButton->sizeHint().height()*2);
   hbox->addWidget(colorButton);
   hbox->addStretch();
   TQWhatsThis::add( colorButton, i18n("Click here to choose the color used for the \"flash screen\" visible bell.") );
@@ -388,7 +388,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   hbox = new TQHBoxLayout(vvbox, KDialog::spacingHint());
   hbox->addStretch(1);
   kNotifyModifiersButton = new TQPushButton(i18n("Configure System Notification..."), grp);
-  kNotifyModifiersButton->tqsetSizePolicy(TQSizePolicy::Fixed, TQSizePolicy::Fixed);
+  kNotifyModifiersButton->setSizePolicy(TQSizePolicy::Fixed, TQSizePolicy::Fixed);
   hbox->addWidget(kNotifyModifiersButton);
 
   connect(stickyKeys, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
@@ -536,7 +536,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   hbox = new TQHBoxLayout(vvbox, KDialog::spacingHint());
   hbox->addStretch(1);
   kNotifyAccessXButton = new TQPushButton(i18n("Configure System Notification..."), grp);
-  kNotifyAccessXButton->tqsetSizePolicy(TQSizePolicy::Fixed, TQSizePolicy::Fixed);
+  kNotifyAccessXButton->setSizePolicy(TQSizePolicy::Fixed, TQSizePolicy::Fixed);
   hbox->addWidget(kNotifyAccessXButton);
 
   connect(gestures, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));

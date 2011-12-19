@@ -164,7 +164,7 @@ void ThemeDefault::_initUi()
       mProgressBar->setPaletteBackgroundPixmap( blimage );
 
       bottom_label->setFixedWidth( QMAX(blimage.width(),tlimage.width()) );
-      bottom_label->setFixedHeight( mLabel->tqsizeHint().height()+4 );
+      bottom_label->setFixedHeight( mLabel->sizeHint().height()+4 );
 
       // 3 pixels of whitespace between the label and the progressbar.
       mLabel->resize( bottom_label->width(), bottom_label->height() );
@@ -274,7 +274,7 @@ TQPixmap ThemeDefault::updateBarPixmap( int state )
     p.drawPixmap(0, 0, *mInactivePixmap, 0, 0, tmp.width()-offs );
   else
 #endif
-    p.tqdrawPixmap(offs, 0, *mInactivePixmap, offs, 0);
+    p.drawPixmap(offs, 0, *mInactivePixmap, offs, 0);
   return tmp ;
 }
 

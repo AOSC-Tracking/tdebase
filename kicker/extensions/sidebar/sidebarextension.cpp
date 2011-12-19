@@ -94,7 +94,7 @@ void SidebarExtension::needLayoutUpdate(bool exp) {
 		m_currentWidth=24;
 		m_resizeHandle->hide();
 	}
-	tqtopLevelWidget()->setFixedWidth(m_currentWidth);
+	topLevelWidget()->setFixedWidth(m_currentWidth);
 	emit updateLayout();
 }
 
@@ -117,7 +117,7 @@ bool SidebarExtension::eventFilter( TQObject *, TQEvent *e ) {
 		return true;
 	} else if (e->type()==TQEvent::MouseButtonRelease) {
 		m_resizing=false;
-		m_expandedSize=tqtopLevelWidget()->width();
+		m_expandedSize=topLevelWidget()->width();
 		needLayoutUpdate(true);
 		return true;
 	} else if (e->type()==TQEvent::MouseMove) {
@@ -126,14 +126,14 @@ bool SidebarExtension::eventFilter( TQObject *, TQEvent *e ) {
 			if (p==Left) {
 				int diff=((TQMouseEvent*)e)->globalX()-m_x;
 					if (abs(diff)>3) {
-						tqtopLevelWidget()->setFixedWidth(tqtopLevelWidget()->width()+diff);
+						topLevelWidget()->setFixedWidth(topLevelWidget()->width()+diff);
 						m_x=((TQMouseEvent*)e)->globalX();
 					}
 			} else if (p==Right) {
 				int diff=((TQMouseEvent*)e)->globalX()-m_x;
 					if (abs(diff)>3) {
-						tqtopLevelWidget()->setFixedWidth(tqtopLevelWidget()->width()-diff);
-						tqtopLevelWidget()->move(tqtopLevelWidget()->x()+diff,tqtopLevelWidget()->y());
+						topLevelWidget()->setFixedWidth(topLevelWidget()->width()-diff);
+						topLevelWidget()->move(topLevelWidget()->x()+diff,topLevelWidget()->y());
 						m_x=((TQMouseEvent*)e)->globalX();
 					}
 			}
@@ -148,7 +148,7 @@ KPanelExtension::Position SidebarExtension::preferedPosition() const {
 	return KPanelExtension::Left;
 }
 
-TQSize SidebarExtension::tqsizeHint(Position, TQSize maxSize ) const
+TQSize SidebarExtension::sizeHint(Position, TQSize maxSize ) const
 {
 	return TQSize(m_currentWidth,maxSize.height());
 }

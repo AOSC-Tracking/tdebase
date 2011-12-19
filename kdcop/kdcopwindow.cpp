@@ -114,7 +114,7 @@ DCOPBrowserApplicationItem::DCOPBrowserApplicationItem
 {
   setExpandable(true);
   setText(0, TQString::fromUtf8(app_));
-  setPixmap(0,  KGlobal::iconLoader()->loadIcon( TQString::tqfromLatin1( "exec" ), KIcon::Small ));
+  setPixmap(0,  KGlobal::iconLoader()->loadIcon( TQString::fromLatin1( "exec" ), KIcon::Small ));
 
 
 	/* Get the icon:  we use the icon from a mainwindow in that class.

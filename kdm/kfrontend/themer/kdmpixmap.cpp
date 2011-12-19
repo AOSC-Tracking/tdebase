@@ -107,7 +107,7 @@ KdmPixmap::KdmPixmap( KdmItem *parent, const TQDomNode &node, const char *name )
 }
 
 TQSize
-KdmPixmap::tqsizeHint()
+KdmPixmap::sizeHint()
 {
 	// choose the correct pixmap class
 	PixmapStruct::PixmapClass * pClass = &pixmap.normal;
@@ -118,7 +118,7 @@ KdmPixmap::tqsizeHint()
 	// use the pixmap size as the size hint
 	if (!pClass->pixmap.isNull())
 		return pClass->pixmap.size();
-	return KdmItem::tqsizeHint();
+	return KdmItem::sizeHint();
 }
 
 void

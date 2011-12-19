@@ -404,16 +404,16 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
             // transparent windows get an 1 pixel frame...
             if (on)
             {
-                bp->setPen(tqcolorGroup().midlight());
+                bp->setPen(colorGroup().midlight());
             }
             else if (down)
             {
-                bp->setPen(KickerLib::blendColors(tqcolorGroup().mid(),
-                                                 tqcolorGroup().midlight()));
+                bp->setPen(KickerLib::blendColors(colorGroup().mid(),
+                                                 colorGroup().midlight()));
             }
             else
             {
-                bp->setPen(tqcolorGroup().dark());
+                bp->setPen(colorGroup().dark());
             }
 
             bp->drawRect(0, 0, w, h);
@@ -424,16 +424,16 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
 
             if (on)
             {
-                background = tqcolorGroup().brush(TQColorGroup::Midlight);
+                background = colorGroup().brush(TQColorGroup::Midlight);
             }
             else if (down)
             {
-                background = TQBrush(KickerLib::blendColors(tqcolorGroup().mid(),
-                                                    tqcolorGroup().midlight()));
+                background = TQBrush(KickerLib::blendColors(colorGroup().mid(),
+                                                    colorGroup().midlight()));
             }
             else
             {
-                background = tqcolorGroup().brush(TQColorGroup::Mid);
+                background = colorGroup().brush(TQColorGroup::Mid);
             }
 
             bp->fillRect(0, 0, w, h, background);
@@ -462,12 +462,12 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
 
                 if (kwin->activeWindow() == info->win())
                 {
-                    TQBrush brush = tqcolorGroup().brush(TQColorGroup::Highlight);
-                    qDrawShadeRect(bp, r, tqcolorGroup(), false, 1, 0, &brush);
+                    TQBrush brush = colorGroup().brush(TQColorGroup::Highlight);
+                    qDrawShadeRect(bp, r, colorGroup(), false, 1, 0, &brush);
                 }
                 else
                 {
-                    TQBrush brush = tqcolorGroup().brush(TQColorGroup::Button);
+                    TQBrush brush = colorGroup().brush(TQColorGroup::Button);
 
                     if (on)
                     {
@@ -475,7 +475,7 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
                     }
 
                     bp->fillRect(r, brush);
-                    qDrawShadeRect(bp, r, tqcolorGroup(), true, 1, 0);
+                    qDrawShadeRect(bp, r, colorGroup(), true, 1, 0);
                 }
 
                 if (m_pager->windowIcons() && r.width() > 15 && r.height() > 15)
@@ -498,11 +498,11 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
         // makes it look a bit more finished.
         if (on)
         {
-            bp->setPen(tqcolorGroup().midlight());
+            bp->setPen(colorGroup().midlight());
         }
         else
         {
-            bp->setPen(tqcolorGroup().mid());
+            bp->setPen(colorGroup().mid());
         }
 
         bp->drawRect(0, 0, w, h);
@@ -515,7 +515,7 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
         
         if (transparent || liveBkgnd)
         {
-            bp->setPen(on ? tqcolorGroup().midlight() : tqcolorGroup().buttonText());
+            bp->setPen(on ? colorGroup().midlight() : colorGroup().buttonText());
             m_pager->shadowEngine()->drawText(*bp, TQRect(0, 0, w, h), AlignCenter, label, size());
         }
         else
@@ -523,7 +523,7 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
     }
     
     if (m_inside)
-        KickerLib::drawBlendedRect(bp, TQRect(1, 1, width() - 2, height() - 2), tqcolorGroup().foreground());
+        KickerLib::drawBlendedRect(bp, TQRect(1, 1, width() - 2, height() - 2), colorGroup().foreground());
 }
 
 void KMiniPagerButton::mousePressEvent(TQMouseEvent * e)
@@ -586,9 +586,9 @@ void KMiniPagerButton::mouseMoveEvent(TQMouseEvent* e)
         TQPixmap windowImage(ww, wh);
         TQPainter bp(&windowImage, this);
 
-        bp.setPen(tqcolorGroup().foreground());
+        bp.setPen(colorGroup().foreground());
         bp.drawRect(0, 0, ww, wh);
-        bp.fillRect(1, 1, ww - 2, wh - 2, tqcolorGroup().background());
+        bp.fillRect(1, 1, ww - 2, wh - 2, colorGroup().background());
 
         Task::List tasklist;
         tasklist.append(m_currentWindow);

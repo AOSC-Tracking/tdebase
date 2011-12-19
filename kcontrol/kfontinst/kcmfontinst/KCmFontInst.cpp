@@ -114,7 +114,7 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
         itsSplitter=new TQSplitter(this);
         fontsFrame=new TQFrame(itsSplitter),
         itsPreview=(KParts::ReadOnlyPart *)factory->create(TQT_TQOBJECT(itsSplitter), "kcmfontinst", "KParts::ReadOnlyPart");
-        itsSplitter->tqsetSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
+        itsSplitter->setSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
 
         TQValueList<int> sizes(itsConfig.readIntListEntry(CFG_SPLITTER_SIZES));
 
@@ -130,7 +130,7 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
     {
 #endif
         fontsFrame=new TQFrame(this);
-        fontsFrame->tqsetSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
+        fontsFrame->setSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
 #ifdef HAVE_XFT
     }
 #endif
@@ -141,7 +141,7 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
     bool        showBitmap(itsConfig.readBoolEntry(CFG_SHOW_BITMAP, false));
 
     fontsFrame->setLineWidth(0);
-    toolbar->tqsetSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::Minimum);
+    toolbar->setSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::Minimum);
     toolbar->setMovingEnabled(false);
 
     TQString previousPath=itsConfig.readEntry(CFG_PATH);
@@ -152,12 +152,12 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
     itsDirOp->setMinimumSize(TQSize(96, 64));
     setMimeTypes(showBitmap);
     itsDirOp->dirLister()->setMainWindow(this);
-    itsDirOp->tqsetSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
+    itsDirOp->setSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
     fontsLayout->addMultiCellWidget(itsDirOp, 0, 0, 0, 1);
 
     KPushButton *button=new KPushButton(KGuiItem(i18n("Add Fonts..."), "newfont"), fontsFrame);
     connect(button, TQT_SIGNAL(clicked()), TQT_SLOT(addFonts()));
-    button->tqsetSizePolicy(TQSizePolicy::Minimum, TQSizePolicy::Minimum);
+    button->setSizePolicy(TQSizePolicy::Minimum, TQSizePolicy::Minimum);
     fontsLayout->addWidget(button, 1, 0);
     TQT_TQLAYOUT(fontsLayout)->addItem(new TQSpacerItem(4, 4, TQSizePolicy::Expanding, TQSizePolicy::Minimum));
 

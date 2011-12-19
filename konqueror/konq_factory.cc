@@ -42,7 +42,7 @@ KonqViewFactory::KonqViewFactory( KLibFactory *factory, const TQStringList &args
     : m_factory( factory ), m_args( args ), m_createBrowser( createBrowser )
 {
     if ( m_createBrowser )
-        m_args << TQString::tqfromLatin1( "Browser/View" );
+        m_args << TQString::fromLatin1( "Browser/View" );
 }
 
 KParts::ReadOnlyPart *KonqViewFactory::create( TQWidget *parentWidget, const char *widgetName,

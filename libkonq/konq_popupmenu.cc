@@ -355,7 +355,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
     m_pluginList.setAutoDelete( true );
     m_ownActions.setHighlightingEnabled( true );
 
-    attrName = TQString::tqfromLatin1( "name" );
+    attrName = TQString::fromLatin1( "name" );
 
     prepareXMLGUIStuff();
     m_builder = new KonqPopupMenuGUIBuilder( this );
@@ -1157,7 +1157,7 @@ void KonqPopupMenu::addPlugins()
     //search for a plugin with the right protocol
     KTrader::OfferList plugin_offers;
     unsigned int pluginCount = 0;
-    plugin_offers = KTrader::self()->query( m_sMimeType.isNull() ? TQString::tqfromLatin1( "all/all" ) : m_sMimeType, "'KonqPopupMenu/Plugin' in ServiceTypes");
+    plugin_offers = KTrader::self()->query( m_sMimeType.isNull() ? TQString::fromLatin1( "all/all" ) : m_sMimeType, "'KonqPopupMenu/Plugin' in ServiceTypes");
     if ( plugin_offers.isEmpty() )
         return; // no plugins installed do not bother about it
 
@@ -1176,7 +1176,7 @@ void KonqPopupMenu::addPlugins()
         if ( !plugin )
             continue;
         // This make the kuick plugin insert its stuff above "Properties"
-        TQString pluginClientName = TQString::tqfromLatin1( "Plugin%1" ).arg( pluginCount );
+        TQString pluginClientName = TQString::fromLatin1( "Plugin%1" ).arg( pluginCount );
         addMerge( pluginClientName );
         plugin->domDocument().documentElement().setAttribute( "name", pluginClientName );
         m_pluginList.append( plugin );

@@ -50,7 +50,7 @@ KdmClock::KdmClock( TQWidget *parent, const char *name )
 	mBorder = false;//config->readNumEntry( "border", FALSE );
 
 	//config->setGroup( "Font" );
-	mFont.setFamily( TQString::tqfromLatin1("Utopia")/*config->readEntry( "Family", "Utopia")*/ );
+	mFont.setFamily( TQString::fromLatin1("Utopia")/*config->readEntry( "Family", "Utopia")*/ );
 	mFont.setPointSize( 51/*config->readNumEntry( "Point Size", 51)*/ );
 	mFont.setWeight( 75/*config->readNumEntry( "Weight", 75)*/ );
 	mFont.setItalic( TRUE/*config->readNumEntry( "Italic",TRUE )*/ );

@@ -54,7 +54,7 @@ class DancingBars : public KSGRD::SensorDisplay
 
     void updateSamples( const TQMemArray<double> &samples );
 
-    virtual TQSize tqsizeHint();
+    virtual TQSize sizeHint();
 
     virtual void answerReceived( int id, const TQString &answer );
 

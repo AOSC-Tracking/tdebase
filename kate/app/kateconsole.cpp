@@ -57,8 +57,8 @@ void KateConsole::loadConsoleIfNeeded()
 {
   if (m_part) return;
 
-  if (!tqtopLevelWidget() || !parentWidget()) return;
-  if (!tqtopLevelWidget() || !isVisibleTo(tqtopLevelWidget())) return;
+  if (!topLevelWidget() || !parentWidget()) return;
+  if (!topLevelWidget() || !isVisibleTo(topLevelWidget())) return;
 
   KLibFactory *factory = KLibLoader::self()->factory("libkonsolepart");
 

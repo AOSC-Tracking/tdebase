@@ -83,8 +83,8 @@ class ContainerAreaLayout : public TQLayout
         void insertIntoFreeSpace(TQWidget* item, TQPoint insertionPoint);
         TQStringList listItems() const;
         TQWidget* widgetAt(int index) const;
-        TQSize tqsizeHint() const;
-        TQSize tqminimumSize() const;
+        TQSize sizeHint() const;
+        TQSize minimumSize() const;
         TQLayoutIterator iterator();
         void setGeometry(const TQRect& rect);
 

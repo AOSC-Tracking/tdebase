@@ -42,7 +42,7 @@ public:
 
 protected:
 	// reimplemented; returns the minimum size of rendered text
-	virtual TQSize tqsizeHint();
+	virtual TQSize sizeHint();
 
 	// draw the label
 	virtual void drawContents( TQPainter *p, const TQRect &r );

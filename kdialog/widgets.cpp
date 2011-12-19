@@ -218,7 +218,7 @@ bool Widgets::checkList(TQWidget *parent, const TQString& title, const TQString&
   table.setCurrentItem(0); // This is to circumvent a Qt bug
 
   for (unsigned int i=0; i+2<args.count(); i += 3) {
-    table.setSelected( i/3, args[i+2] == TQString::tqfromLatin1("on") );
+    table.setSelected( i/3, args[i+2] == TQString::fromLatin1("on") );
   }
 
   handleXGeometry(&box);
@@ -233,7 +233,7 @@ bool Widgets::checkList(TQWidget *parent, const TQString& title, const TQString&
     } else {
       for (unsigned int i=0; i<table.count(); i++)
         if (table.isSelected(i))
-          rs += TQString::tqfromLatin1("\"") + tags[i] + TQString::tqfromLatin1("\" ");
+          rs += TQString::fromLatin1("\"") + tags[i] + TQString::fromLatin1("\" ");
       result.append(rs);
     }
   }
@@ -260,7 +260,7 @@ bool Widgets::radioBox(TQWidget *parent, const TQString& title, const TQString& 
   table.insertStringList(entries);
 
   for (unsigned int i=0; i+2<args.count(); i += 3) {
-    table.setSelected( i/3, args[i+2] == TQString::tqfromLatin1("on") );
+    table.setSelected( i/3, args[i+2] == TQString::fromLatin1("on") );
   }
 
   handleXGeometry(&box);

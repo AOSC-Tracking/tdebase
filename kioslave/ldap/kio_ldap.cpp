@@ -166,8 +166,8 @@ void LDAPProtocol::controlsFromMetaData( LDAPControl ***serverctrls,
 {
   TQString oid; bool critical; TQByteArray value;
   int i = 0;
-  while ( hasMetaData( TQString::tqfromLatin1("SERVER_CTRL%1").arg(i) ) ) {
-    TQCString val = metaData( TQString::tqfromLatin1("SERVER_CTRL%1").arg(i) ).utf8();
+  while ( hasMetaData( TQString::fromLatin1("SERVER_CTRL%1").arg(i) ) ) {
+    TQCString val = metaData( TQString::fromLatin1("SERVER_CTRL%1").arg(i) ).utf8();
     LDIF::splitControl( val, oid, critical, value );
     kdDebug(7125) << "server ctrl #" << i << " value: " << val << 
       " oid: " << oid << " critical: " << critical << " value: " << 
@@ -176,8 +176,8 @@ void LDAPProtocol::controlsFromMetaData( LDAPControl ***serverctrls,
     i++;
   }
   i = 0;
-  while ( hasMetaData( TQString::tqfromLatin1("CLIENT_CTRL%1").arg(i) ) ) {
-    TQCString val = metaData( TQString::tqfromLatin1("CLIENT_CTRL%1").arg(i) ).utf8();
+  while ( hasMetaData( TQString::fromLatin1("CLIENT_CTRL%1").arg(i) ) ) {
+    TQCString val = metaData( TQString::fromLatin1("CLIENT_CTRL%1").arg(i) ).utf8();
     LDIF::splitControl( val, oid, critical, value );
     kdDebug(7125) << "client ctrl #" << i << " value: " << val << 
       " oid: " << oid << " critical: " << critical << " value: " << 
@@ -519,7 +519,7 @@ void LDAPProtocol::fillAuthInfo( AuthInfo &info )
   info.url.setPort( mPort );
   info.url.setUser( mUser );
   info.caption = i18n("LDAP Login");
-  info.comment = TQString::tqfromLatin1( mProtocol ) + "://" + mHost + ":" + 
+  info.comment = TQString::fromLatin1( mProtocol ) + "://" + mHost + ":" + 
     TQString::number( mPort );
   info.commentLabel = i18n("site:");
   info.username = mAuthSASL ? mUser : mBindName;

@@ -163,7 +163,7 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, KConfig *_conf
   combo->insertItem(i18n("Lower"));
   combo->insertItem(i18n("On All Desktops"));
   combo->insertItem(i18n("Nothing"));
-  combo->tqsetSizePolicy(TQSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::Fixed));
+  combo->setSizePolicy(TQSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::Fixed));
   connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
   hlayout->addWidget(combo);
   coTiDbl = combo;
@@ -188,7 +188,7 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, KConfig *_conf
   comboW->insertItem(i18n("Move to Previous/Next Desktop"));  
   comboW->insertItem(i18n("Change Opacity"));  
   comboW->insertItem(i18n("Nothing"));  
-  comboW->tqsetSizePolicy(TQSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::Fixed));
+  comboW->setSizePolicy(TQSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::Fixed));
   connect(comboW, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
   hlayoutW->addWidget(comboW);
   coTiAct4 = comboW;
@@ -235,7 +235,7 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, KConfig *_conf
 
 
   label = new TQLabel(i18n("Active"), grid);
-  label->tqsetAlignment(AlignCenter);
+  label->setAlignment(AlignCenter);
   TQWhatsThis::add( label, i18n("In this column you can customize mouse clicks into the titlebar"
                                " or the frame of an active window.") );
 
@@ -292,7 +292,7 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, KConfig *_conf
   if ( leftHandedMouse ) tqSwap(txtButton1, txtButton3);
 
   label = new TQLabel(i18n("Inactive"), grid);
-  label->tqsetAlignment(AlignCenter);
+  label->setAlignment(AlignCenter);
   TQWhatsThis::add( label, i18n("In this column you can customize mouse clicks into the titlebar"
                                " or the frame of an inactive window.") );
 
@@ -356,14 +356,14 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, KConfig *_conf
 
     TQLabel * label = new TQLabel(strMouseButton[b], box);
     TQWhatsThis::add( label,    txtButton[b] );
-    label   ->tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Minimum ));
+    label   ->setSizePolicy( TQSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Minimum ));
 
     coMax[b] = new ToolTipComboBox(box, tbl_Max);
     for (int t = 0; t < 3; ++t) coMax[b]->insertItem(maxButtonPixmaps[t]);
     connect(coMax[b], TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
     connect(coMax[b], TQT_SIGNAL(activated(int)), coMax[b], TQT_SLOT(changed()));
     TQWhatsThis::add( coMax[b], txtButton[b] );
-    coMax[b]->tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Minimum ));
+    coMax[b]->setSizePolicy( TQSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Minimum ));
   }
 
   connect(kapp, TQT_SIGNAL(kdisplayPaletteChanged()), TQT_SLOT(paletteChanged()));

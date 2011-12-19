@@ -131,7 +131,7 @@ ColorSchema::ColorSchema(const TQString& pathname)
 ,lastRead(new TQDateTime())
 {
   //start with a valid time, aleXXX
-  *lastRead = TQDateTime::tqcurrentDateTime();
+  *lastRead = TQDateTime::currentDateTime();
   TQString fPath = pathname.startsWith("/") ? pathname : locate("data", "konsole/"+pathname);
   if (fPath.isEmpty() || !TQFile::exists(fPath))
   {
@@ -313,7 +313,7 @@ bool ColorSchema::rereadSchemaFile()
 
   char line[100];
 
-  *lastRead = TQDateTime::tqcurrentDateTime();
+  *lastRead = TQDateTime::currentDateTime();
 
   while (fscanf(sysin,"%80[^\n]\n",line) > 0)
   {
@@ -615,7 +615,7 @@ bool ColorSchemaList::checkSchemas()
   // now.
   //
   //
-  TQDateTime now = TQDateTime::tqcurrentDateTime();
+  TQDateTime now = TQDateTime::currentDateTime();
 
 
   r = updateAllSchemaTimes(now);

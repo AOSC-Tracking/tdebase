@@ -70,7 +70,7 @@ PolicyDlg::PolicyDlg (const TQString& caption, TQWidget *parent,
   connect(m_dlgUI->leDomain, TQT_SIGNAL(textChanged(const TQString&)),
     TQT_SLOT(slotTextChanged(const TQString&)));
 
-  setFixedSize (tqsizeHint());
+  setFixedSize (sizeHint());
   m_dlgUI->leDomain->setFocus ();
 }
 

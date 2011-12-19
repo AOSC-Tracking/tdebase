@@ -196,16 +196,16 @@ void KonqFrameTabs::saveConfig( KConfig* config, const TQString &prefix, bool sa
   TQString newPrefix;
   for (KonqFrameBase* it = m_pChildFrameList->first(); it; it = m_pChildFrameList->next())
     {
-      newPrefix = TQString::tqfromLatin1( it->frameType() ) + "T" + TQString::number(i);
+      newPrefix = TQString::fromLatin1( it->frameType() ) + "T" + TQString::number(i);
       strlst.append( newPrefix );
       newPrefix.append( '_' );
       it->saveConfig( config, newPrefix, saveURLs, docContainer, id, depth + i );
       i++;
     }
 
-  config->writeEntry( TQString::tqfromLatin1( "Children" ).prepend( prefix ), strlst );
+  config->writeEntry( TQString::fromLatin1( "Children" ).prepend( prefix ), strlst );
 
-  config->writeEntry( TQString::tqfromLatin1( "activeChildIndex" ).prepend( prefix ),
+  config->writeEntry( TQString::fromLatin1( "activeChildIndex" ).prepend( prefix ),
                       currentPageIndex() );
 }
 

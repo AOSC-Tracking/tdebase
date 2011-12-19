@@ -124,7 +124,7 @@ DesktopBehavior::DesktopBehavior(KConfig *config, TQWidget *parent, const char *
    */
   bool leftHandedMouse = ( KGlobalSettings::mouseSettings().handed == KGlobalSettings::KMouseSettings::LeftHanded);
 
-  m_bHasMedia = KProtocolInfo::isKnownProtocol(TQString::tqfromLatin1("media"));
+  m_bHasMedia = KProtocolInfo::isKnownProtocol(TQString::fromLatin1("media"));
 
   connect(desktopMenuGroup, TQT_SIGNAL(clicked(int)), this, TQT_SIGNAL(changed()));
   connect(iconsEnabledBox, TQT_SIGNAL(clicked()), this, TQT_SLOT(enableChanged()));
@@ -241,9 +241,9 @@ void DesktopBehavior::setMediaListViewEnabled(bool enabled)
         it; it=static_cast<DesktopBehaviorMediaItem *>(it->nextSibling()))
     {
         if (it->mimeType().startsWith("media/builtin-") == false)
-            it->tqsetVisible(enabled);
+            it->setVisible(enabled);
         else
-            it->tqsetVisible(TRUE);
+            it->setVisible(TRUE);
     }
 }
 

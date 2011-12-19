@@ -103,8 +103,8 @@ void Panner::setupButtons()
         {
             _luSB->setArrowType(Qt::LeftArrow);
             _rdSB->setArrowType(Qt::RightArrow);
-            _luSB->tqsetSizePolicy(TQSizePolicy(TQSizePolicy::Minimum, TQSizePolicy::Expanding));
-            _rdSB->tqsetSizePolicy(TQSizePolicy(TQSizePolicy::Minimum, TQSizePolicy::Expanding));
+            _luSB->setSizePolicy(TQSizePolicy(TQSizePolicy::Minimum, TQSizePolicy::Expanding));
+            _rdSB->setSizePolicy(TQSizePolicy(TQSizePolicy::Minimum, TQSizePolicy::Expanding));
             TQToolTip::add(_luSB, i18n("Scroll left"));
             TQToolTip::add(_rdSB, i18n("Scroll right"));
             setMinimumSize(24, 0);
@@ -117,8 +117,8 @@ void Panner::setupButtons()
         {
             _luSB->setArrowType(Qt::UpArrow);
             _rdSB->setArrowType(Qt::DownArrow);
-            _luSB->tqsetSizePolicy(TQSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Minimum));
-            _rdSB->tqsetSizePolicy(TQSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Minimum));
+            _luSB->setSizePolicy(TQSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Minimum));
+            _rdSB->setSizePolicy(TQSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Minimum));
             TQToolTip::add(_luSB, i18n("Scroll up"));
             TQToolTip::add(_rdSB, i18n("Scroll down"));
             setMinimumSize(0, 24);

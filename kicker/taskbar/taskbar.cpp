@@ -66,7 +66,7 @@ TaskBar::TaskBar( TQWidget *parent, const char *name )
     blocklayout = true;
     
     // init
-    tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding ) );
+    setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding ) );
 
     // setup animation frames
     for (int i = 1; i < 11; i++)
@@ -160,7 +160,7 @@ KTextShadowEngine *TaskBar::textShadowEngine()
 }
 
 
-TQSize TaskBar::tqsizeHint() const
+TQSize TaskBar::sizeHint() const
 {
     // get our minimum height based on the minimum button height or the
     // height of the font in use, which is largest
@@ -171,7 +171,7 @@ TQSize TaskBar::tqsizeHint() const
     return TQSize(BUTTON_MIN_WIDTH, minButtonHeight);
 }
 
-TQSize TaskBar::tqsizeHint( KPanelExtension::Position p, TQSize maxSize) const
+TQSize TaskBar::sizeHint( KPanelExtension::Position p, TQSize maxSize) const
 {
     // get our minimum height based on the minimum button height or the
     // height of the font in use, which is largest
@@ -898,9 +898,9 @@ void TaskBar::propagateMouseEvent( TQMouseEvent* e )
 {
     if ( !isTopLevel()  )
     {
-        TQMouseEvent me( e->type(), mapTo( tqtopLevelWidget(), e->pos() ),
+        TQMouseEvent me( e->type(), mapTo( topLevelWidget(), e->pos() ),
                         e->globalPos(), e->button(), e->state() );
-        TQApplication::sendEvent( tqtopLevelWidget(), &me );
+        TQApplication::sendEvent( topLevelWidget(), &me );
     }
 }
 

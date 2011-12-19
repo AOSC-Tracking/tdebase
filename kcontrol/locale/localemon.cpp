@@ -131,7 +131,7 @@ void KLocaleConfigMoney::save()
   KConfigGroupSaver saver(config, "Locale");
 
   KSimpleConfig ent(locate("locale",
-                           TQString::tqfromLatin1("l10n/%1/entry.desktop")
+                           TQString::fromLatin1("l10n/%1/entry.desktop")
                            .arg(m_locale->country())), true);
   ent.setGroup("KCM Locale");
 
@@ -139,24 +139,24 @@ void KLocaleConfigMoney::save()
   int i;
   bool b;
 
-  str = ent.readEntry("CurrencySymbol", TQString::tqfromLatin1("$"));
+  str = ent.readEntry("CurrencySymbol", TQString::fromLatin1("$"));
   config->deleteEntry("CurrencySymbol", false, true);
   if (str != m_locale->currencySymbol())
     config->writeEntry("CurrencySymbol",
                        m_locale->currencySymbol(), true, true);
 
-  str = ent.readEntry("MonetaryDecimalSymbol", TQString::tqfromLatin1("."));
+  str = ent.readEntry("MonetaryDecimalSymbol", TQString::fromLatin1("."));
   config->deleteEntry("MonetaryDecimalSymbol", false, true);
   if (str != m_locale->monetaryDecimalSymbol())
     config->writeEntry("MonetaryDecimalSymbol",
                        m_locale->monetaryDecimalSymbol(), true, true);
 
-  str = ent.readEntry("MonetaryThousandsSeparator", TQString::tqfromLatin1(","));
-  str.replace(TQString::tqfromLatin1("$0"), TQString());
+  str = ent.readEntry("MonetaryThousandsSeparator", TQString::fromLatin1(","));
+  str.replace(TQString::fromLatin1("$0"), TQString());
   config->deleteEntry("MonetaryThousandsSeparator", false, true);
   if (str != m_locale->monetaryThousandsSeparator())
     config->writeEntry("MonetaryThousandsSeparator",
-                       TQString::tqfromLatin1("$0%1$0")
+                       TQString::fromLatin1("$0%1$0")
                        .tqarg(m_locale->monetaryThousandsSeparator()),
                        true, true);
 

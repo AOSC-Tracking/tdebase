@@ -243,7 +243,7 @@ LockProcess::LockProcess(bool child, bool useBlankOnly)
 
     TQStringList dmopt =
         TQStringList::split(TQChar(','),
-                            TQString::tqfromLatin1( ::getenv( "XDM_MANAGED" )));
+                            TQString::fromLatin1( ::getenv( "XDM_MANAGED" )));
     for (TQStringList::ConstIterator it = dmopt.begin(); it != dmopt.end(); ++it)
         if ((*it).startsWith("method="))
             mMethod = (*it).mid(7);
@@ -1194,7 +1194,7 @@ void LockProcess::stopSaver()
 TQVariant LockProcess::getConf(void *ctx, const char *key, const TQVariant &dflt)
 {
     LockProcess *that = (LockProcess *)ctx;
-    TQString fkey = TQString::tqfromLatin1( key ) + '=';
+    TQString fkey = TQString::fromLatin1( key ) + '=';
     for (TQStringList::ConstIterator it = that->mPluginOptions.begin();
          it != that->mPluginOptions.end(); ++it)
         if ((*it).startsWith( fkey ))
@@ -1931,7 +1931,7 @@ void LockProcess::msgBox( TQMessageBox::Icon type, const TQString &txt )
     TQLabel *label2 = new TQLabel( txt, winFrame );
     KPushButton *button = new KPushButton( KStdGuiItem::ok(), winFrame );
     button->setDefault( true );
-    button->tqsetSizePolicy( TQSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Preferred ) );
+    button->setSizePolicy( TQSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Preferred ) );
     connect( button, TQT_SIGNAL( clicked() ), &box, TQT_SLOT( accept() ) );
 
     TQVBoxLayout *vbox = new TQVBoxLayout( &box );

@@ -206,7 +206,7 @@ void KSshProcess::removeSignalHandlers() {
 KSshProcess::KSshProcess() 
             : mVersion(UNKNOWN_VER), mConnected(false), 
         mRunning(false), mConnectState(0) {
-    mSshPath = KStandardDirs::findExe(TQString::tqfromLatin1("ssh"));
+    mSshPath = KStandardDirs::findExe(TQString::fromLatin1("ssh"));
     kdDebug(KSSHPROC) << "KSshProcess::KSshProcess(): ssh path [" << 
 		mSshPath << "]" << endl;
         
@@ -292,7 +292,7 @@ TQString KSshProcess::versionStr() {
             return TQString::null;
     }
 
-    return TQString::tqfromLatin1(versionStrs[mVersion]);
+    return TQString::fromLatin1(versionStrs[mVersion]);
 }
 */
 
@@ -776,7 +776,7 @@ bool KSshProcess::connect() {
                     i18n("Error encountered while talking to ssh.");
                 mConnectState = STATE_FATAL;
             }
-            else if( line.find(TQString::tqfromLatin1(passwordPrompt[mVersion]), 0, false) != -1 ) {
+            else if( line.find(TQString::fromLatin1(passwordPrompt[mVersion]), 0, false) != -1 ) {
                 mConnectState = STATE_TRY_PASSWD;
             }
             else if( line.find(passphrasePrompt[mVersion]) != -1 ) {

@@ -47,12 +47,12 @@ const char* KonqIconDrag::format( int i ) const
     else return 0;
 }
 
-TQByteArray KonqIconDrag::tqencodedData( const char* mime ) const
+TQByteArray KonqIconDrag::encodedData( const char* mime ) const
 {
     TQByteArray a;
     TQCString mimetype( mime );
     if ( mimetype == "application/x-qiconlist" )
-        a = TQIconDrag::tqencodedData( mime );
+        a = TQIconDrag::encodedData( mime );
     else if ( mimetype == "text/uri-list" ) {
         TQCString s = urls.join( "\r\n" ).latin1();
         if( urls.count() > 0 )
@@ -145,7 +145,7 @@ const char* KonqIconDrag2::format( int i ) const
     return KonqIconDrag::format( i );
 }
 
-TQByteArray KonqIconDrag2::tqencodedData( const char* mime ) const
+TQByteArray KonqIconDrag2::encodedData( const char* mime ) const
 {
     TQCString mimetype( mime );
     if ( mimetype == "application/x-kde-urilist" )
@@ -164,7 +164,7 @@ TQByteArray KonqIconDrag2::tqencodedData( const char* mime ) const
         a[c] = 0;
         return a;
     }
-    return KonqIconDrag::tqencodedData( mime );
+    return KonqIconDrag::encodedData( mime );
 }
 
 //
@@ -223,7 +223,7 @@ const char* KonqDrag::format( int i ) const
     else return 0;
 }
 
-TQByteArray KonqDrag::tqencodedData( const char* mime ) const
+TQByteArray KonqDrag::encodedData( const char* mime ) const
 {
     TQByteArray a;
     TQCString mimetype( mime );
@@ -243,7 +243,7 @@ TQByteArray KonqDrag::tqencodedData( const char* mime ) const
     }
     else if ( mimetype == "application/x-kde-urilist" )
     {
-        return TQUriDrag::tqencodedData( "text/uri-list" );
+        return TQUriDrag::encodedData( "text/uri-list" );
     }
     else if ( mimetype == "application/x-kde-cutselection" )
     {
@@ -271,7 +271,7 @@ TQByteArray KonqDrag::tqencodedData( const char* mime ) const
 
 bool KonqDrag::decodeIsCutSelection( const TQMimeSource *e )
 {
-  TQByteArray a = e->tqencodedData( "application/x-kde-cutselection" );
+  TQByteArray a = e->encodedData( "application/x-kde-cutselection" );
   if ( a.isEmpty() )
     return false;
   else

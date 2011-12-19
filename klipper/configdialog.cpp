@@ -66,7 +66,7 @@ void ConfigDialog::show()
 {
     if ( !isVisible() ) {
 	KWinModule module(0, KWinModule::INFO_DESKTOP);
-	TQSize s1 = tqsizeHint();
+	TQSize s1 = sizeHint();
 	TQSize s2 = module.workArea().size();
 	int w = s1.width();
 	int h = s1.height();
@@ -299,13 +299,13 @@ ActionWidget::ActionWidget( const ActionList *list, ConfigDialog* configWidget, 
     connect( delActionButton, TQT_SIGNAL( clicked() ), TQT_SLOT( slotDeleteAction() ));
 
     TQLabel *label = new TQLabel(i18n("Click on a highlighted item's column to change it. \"%s\" in a command will be replaced with the clipboard contents."), box);
-    label->tqsetAlignment( WordBreak | AlignLeft | AlignVCenter );
+    label->setAlignment( WordBreak | AlignLeft | AlignVCenter );
 
     box->setStretchFactor( label, 5 );
 
     box = new TQHBox( this );
     TQPushButton *advanced = new TQPushButton( i18n("Advanced..."), box );
-    advanced->setFixedSize( advanced->tqsizeHint() );
+    advanced->setFixedSize( advanced->sizeHint() );
     connect( advanced, TQT_SIGNAL( clicked() ), TQT_SLOT( slotAdvanced() ));
     (void) new TQWidget( box ); // spacer
 
@@ -410,8 +410,8 @@ void ActionWidget::slotAdvanced()
     AdvancedWidget *widget = new AdvancedWidget( box );
     widget->setWMClasses( m_wmClasses );
 
-    dlg.resize( dlg.tqsizeHint().width(),
-                dlg.tqsizeHint().height() +40); // or we get an ugly scrollbar :(
+    dlg.resize( dlg.sizeHint().width(),
+                dlg.sizeHint().height() +40); // or we get an ugly scrollbar :(
 
     if ( dlg.exec() == TQDialog::Accepted ) {
         m_wmClasses = widget->wmClasses();

@@ -80,7 +80,7 @@ static void applyGtkStyles(bool active, int version)
    TQStringList list = TQStringList::split(':', TQFile::decodeName(gtkrc));
    if (list.count() == 0)
    {
-      list.append(TQString::tqfromLatin1(sysGtkrc(version)));
+      list.append(TQString::fromLatin1(sysGtkrc(version)));
       list.append(TQDir::homeDirPath()+userGtkrc(version));
    }
    list.remove(gtkkde);
@@ -347,7 +347,7 @@ static void createGtkrc( bool exportColors, const TQColorGroup& cg, int version 
             "# Appearance & Themes -> Colors in the Control Center and disable the checkbox\n"
             "# \"Apply colors to non-KDE applications\"\n"
             "#\n"
-            "#\n").arg(TQDateTime::tqcurrentDateTime().toString());
+            "#\n").arg(TQDateTime::currentDateTime().toString());
 
     t << "style \"default\"" << endl;
     t << "{" << endl;
@@ -590,7 +590,7 @@ void runRdb( uint flags )
     // Qt-only apps without adversely affecting ourselves.
 
     // Cheat and use the current timestamp, since we just saved to qtrc.
-    TQDateTime settingsstamp = TQDateTime::tqcurrentDateTime();
+    TQDateTime settingsstamp = TQDateTime::currentDateTime();
 
     static Atom qt_settings_timestamp = 0;
     if (!qt_settings_timestamp) {

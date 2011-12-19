@@ -117,7 +117,7 @@ The actual browser identification text that will be sent to the remote machine.
             <property name="sizeType">
                 <enum>MinimumExpanding</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>21</width>
                     <height>16</height>
@@ -142,7 +142,7 @@ The actual browser identification text that will be sent to the remote machine.
                     <property name="sizeType">
                         <enum>MinimumExpanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>29</width>
                             <height>20</height>

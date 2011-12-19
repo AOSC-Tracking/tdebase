@@ -146,7 +146,7 @@ TQString KSMClient::program() const
     SmProp* p = property( SmProgram );
     if ( !p || qstrcmp( p->type, SmARRAY8) || p->num_vals < 1)
         return TQString::null;
-    return TQString::tqfromLatin1( (const char*) p->vals[0].value );
+    return TQString::fromLatin1( (const char*) p->vals[0].value );
 }
 
 TQStringList KSMClient::restartCommand() const
@@ -156,7 +156,7 @@ TQStringList KSMClient::restartCommand() const
     if ( !p || qstrcmp( p->type, SmLISTofARRAY8) || p->num_vals < 1)
         return result;
     for ( int i = 0; i < p->num_vals; i++ )
-        result +=TQString::tqfromLatin1( (const char*) p->vals[i].value );
+        result +=TQString::fromLatin1( (const char*) p->vals[i].value );
     return result;
 }
 
@@ -167,7 +167,7 @@ TQStringList KSMClient::discardCommand() const
     if ( !p || qstrcmp( p->type, SmLISTofARRAY8) || p->num_vals < 1)
         return result;
     for ( int i = 0; i < p->num_vals; i++ )
-        result +=TQString::tqfromLatin1( (const char*) p->vals[i].value );
+        result +=TQString::fromLatin1( (const char*) p->vals[i].value );
     return result;
 }
 
@@ -184,7 +184,7 @@ TQString KSMClient::userId() const
     SmProp* p = property( SmUserID );
     if ( !p || qstrcmp( p->type, SmARRAY8) || p->num_vals < 1)
         return TQString::null;
-    return TQString::tqfromLatin1( (const char*) p->vals[0].value );
+    return TQString::fromLatin1( (const char*) p->vals[0].value );
 }
 
 

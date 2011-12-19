@@ -175,10 +175,10 @@ KDModule::KDModule(TQWidget *parent, const char *name, const TQStringList &)
 
   struct stat st;
   if( stat( KDE_CONFDIR "/kdm/kdmdistrc" ,&st ) == 0) {
-    config = new KSimpleConfig( TQString::tqfromLatin1( KDE_CONFDIR "/kdm/kdmdistrc" ));
+    config = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdm/kdmdistrc" ));
   }
   else {
-    config = new KSimpleConfig( TQString::tqfromLatin1( KDE_CONFDIR "/kdm/kdmrc" ));
+    config = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdm/kdmrc" ));
   }
 
   TQVBoxLayout *top = new TQVBoxLayout(this);

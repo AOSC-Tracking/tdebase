@@ -33,7 +33,7 @@
                     <verstretch>0</verstretch>
                 </sizepolicy>
             </property>
-            <property name="tqminimumSize">
+            <property name="minimumSize">
                 <size>
                     <width>170</width>
                     <height>430</height>
@@ -136,7 +136,7 @@ Trinity allows you to customize its behavior according to your needs.</string>
             <property name="sizeType">
                 <enum>Fixed</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>22</width>
                     <height>10</height>
@@ -153,7 +153,7 @@ Trinity allows you to customize its behavior according to your needs.</string>
             <property name="sizeType">
                 <enum>Fixed</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>22</width>
                     <height>16</height>

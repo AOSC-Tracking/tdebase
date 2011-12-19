@@ -148,7 +148,7 @@ namespace Keramik {
 			virtual Position mousePosition( const TQPoint& p ) const;
 		    	virtual void borders( int& left, int& right, int& top, int& bottom ) const;
 			virtual void resize( const TQSize& s );
-			virtual TQSize tqminimumSize() const;
+			virtual TQSize minimumSize() const;
 			virtual bool eventFilter( TQObject* o, TQEvent* e );
 			virtual void activeChange();
 			virtual void captionChange();

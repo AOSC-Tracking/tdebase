@@ -59,7 +59,7 @@ public:
     int insertClientMenu(KickerClientMenu *p);
     void removeClientMenu(int id);
 
-    virtual TQSize tqsizeHint() const;
+    virtual TQSize sizeHint() const;
     virtual void setMinimumSize(const TQSize &);
     virtual void setMaximumSize(const TQSize &);
     virtual void setMinimumSize(int, int);

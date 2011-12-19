@@ -33,7 +33,7 @@ void KDateCombo::initObject(const TQDate & date, TQWidget *, const char *)
   popupFrame = new KPopupFrame(this, "popupFrame");
   popupFrame->installEventFilter(this);
   datePicker = new KDatePicker(popupFrame, date, "datePicker");
-  datePicker->setMinimumSize(datePicker->tqsizeHint());
+  datePicker->setMinimumSize(datePicker->sizeHint());
   datePicker->installEventFilter(this);
   popupFrame->setMainWidget(datePicker);
   setDate(date);
@@ -57,9 +57,9 @@ TQDate & KDateCombo::string2Date(const TQString & str, TQDate *qd)
   return *qd = KGlobal::locale()->readDate(str);
 }
 
-TQDate & KDateCombo::getDate(TQDate *tqcurrentDate)
+TQDate & KDateCombo::getDate(TQDate *currentDate)
 {
-  return string2Date(currentText(), tqcurrentDate);
+  return string2Date(currentText(), currentDate);
 }
 
 bool KDateCombo::setDate(const TQDate & newDate)

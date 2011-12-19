@@ -43,10 +43,10 @@ KShellCommandDialog::KShellCommandDialog(const TQString& title, const TQString& 
    closeButton= new KPushButton(KStdGuiItem::close(), buttonsBox);
    closeButton->setDefault(true);
 
-   label->resize(label->tqsizeHint());
-   m_shell->resize(m_shell->tqsizeHint());
-   closeButton->setFixedSize(closeButton->tqsizeHint());
-   cancelButton->setFixedSize(cancelButton->tqsizeHint());
+   label->resize(label->sizeHint());
+   m_shell->resize(m_shell->sizeHint());
+   closeButton->setFixedSize(closeButton->sizeHint());
+   cancelButton->setFixedSize(cancelButton->sizeHint());
 
    box->addWidget(label,0);
    box->addWidget(m_shell,1);

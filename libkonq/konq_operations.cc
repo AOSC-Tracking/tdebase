@@ -76,7 +76,7 @@ KonqOperations::~KonqOperations()
 
 void KonqOperations::editMimeType( const TQString & mimeType )
 {
-  TQString keditfiletype = TQString::tqfromLatin1("keditfiletype");
+  TQString keditfiletype = TQString::fromLatin1("keditfiletype");
   KRun::runCommand( keditfiletype + " " + KProcess::quote(mimeType),
                     keditfiletype, keditfiletype /*unused*/);
 }

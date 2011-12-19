@@ -161,7 +161,7 @@ Select the search engine to use for input boxes that provide automatic lookup se
                     <property name="sizeType">
                         <enum>Expanding</enum>
                     </property>
-                    <property name="tqsizeHint">
+                    <property name="sizeHint">
                         <size>
                             <width>21</width>
                             <height>170</height>

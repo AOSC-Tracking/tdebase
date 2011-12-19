@@ -528,8 +528,8 @@ void KonqView::slotStarted( KIO::Job * job )
       // Manage passwords properly...
       if (m_pMainWindow)
       {
-        kdDebug(7035) << "slotStarted: Window ID = " << m_pMainWindow->tqtopLevelWidget()->winId() << endl;
-        job->setWindow (m_pMainWindow->tqtopLevelWidget ());
+        kdDebug(7035) << "slotStarted: Window ID = " << m_pMainWindow->topLevelWidget()->winId() << endl;
+        job->setWindow (m_pMainWindow->topLevelWidget ());
       }
 
       connect( job, TQT_SIGNAL( percent( KIO::Job *, unsigned long ) ), this, TQT_SLOT( slotPercent( KIO::Job *, unsigned long ) ) );
@@ -1077,7 +1077,7 @@ bool KonqView::callExtensionMethod( const char *methodName )
   if ( !obj ) // not all views have a browser extension !
     return false;
 
-  int id = obj->tqmetaObject()->findSlot( methodName );
+  int id = obj->metaObject()->findSlot( methodName );
   if ( id == -1 )
     return false;
   TQUObject o[ 1 ];
@@ -1092,7 +1092,7 @@ bool KonqView::callExtensionBoolMethod( const char *methodName, bool value )
   if ( !obj ) // not all views have a browser extension !
     return false;
 
-  int id = obj->tqmetaObject()->findSlot( methodName );
+  int id = obj->metaObject()->findSlot( methodName );
   if ( id == -1 )
     return false;
   TQUObject o[ 2 ];
@@ -1109,7 +1109,7 @@ bool KonqView::callExtensionStringMethod( const char *methodName, TQString value
   if ( !obj ) // not all views have a browser extension !
     return false;
 
-  int id = obj->tqmetaObject()->findSlot( methodName );
+  int id = obj->metaObject()->findSlot( methodName );
   if ( id == -1 )
     return false;
   TQUObject o[ 2 ];
@@ -1126,7 +1126,7 @@ bool KonqView::callExtensionURLMethod( const char *methodName, const KURL& value
   if ( !obj ) // not all views have a browser extension !
     return false;
 
-  int id = obj->tqmetaObject()->findSlot( methodName );
+  int id = obj->metaObject()->findSlot( methodName );
   if ( id == -1 )
     return false;
   TQUObject o[ 2 ];

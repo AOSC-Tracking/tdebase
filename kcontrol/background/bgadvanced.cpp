@@ -432,7 +432,7 @@ KProgramEditDialog::KProgramEditDialog(const TQString &program, TQWidget *parent
     m_RefreshEdit->setRange(5, 60);
     m_RefreshEdit->setSteps(5, 10);
     m_RefreshEdit->setSuffix(i18n(" min"));
-    m_RefreshEdit->setFixedSize(m_RefreshEdit->tqsizeHint());
+    m_RefreshEdit->setFixedSize(m_RefreshEdit->sizeHint());
     lbl->setBuddy(m_RefreshEdit);
     grid->addWidget(m_RefreshEdit, 5, 1, Qt::AlignLeft);
 

@@ -205,7 +205,7 @@ public:
      * @param type   The requested color type.
      * @param active Whether to return the color for active or inactive windows.
      */
-    const TQColorGroup& tqcolorGroup(ColorType type, bool active=true) const;
+    const TQColorGroup& colorGroup(ColorType type, bool active=true) const;
     /**
      * Returns the active or inactive decoration font.
      * The changed flags for this setting is SettingFont.
@@ -594,7 +594,7 @@ class KWIN_EXPORT KDecoration
 	 * Note that the returned size shouldn't be too large, because it will be
 	 * used to keep the decorated window at least as large.
 	 */
-	virtual TQSize tqminimumSize() const = 0;
+	virtual TQSize minimumSize() const = 0;
 	/**
 	 * This function is called whenever the window either becomes or stops being active.
 	 * Use isActive() to find out the current state.

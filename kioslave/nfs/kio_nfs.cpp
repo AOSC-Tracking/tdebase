@@ -807,7 +807,7 @@ void NFSProtocol::completeAbsoluteLinkUDSEntry(UDSEntry& entry, const TQCString&
       struct passwd *user = getpwuid( uid );
       if ( user )
       {
-         m_usercache.insert( uid, new TQString(TQString::tqfromLatin1(user->pw_name)) );
+         m_usercache.insert( uid, new TQString(TQString::fromLatin1(user->pw_name)) );
          atom.m_str = user->pw_name;
       }
       else
@@ -825,7 +825,7 @@ void NFSProtocol::completeAbsoluteLinkUDSEntry(UDSEntry& entry, const TQCString&
       struct group *grp = getgrgid( gid );
       if ( grp )
       {
-         m_groupcache.insert( gid, new TQString(TQString::tqfromLatin1(grp->gr_name)) );
+         m_groupcache.insert( gid, new TQString(TQString::fromLatin1(grp->gr_name)) );
          atom.m_str = grp->gr_name;
       }
       else
