@@ -857,7 +857,7 @@ void POP3Protocol::get(const KURL & url)
   TQString cmd, path = url.path();
   int maxCommands = (metaData("pipelining") == "on") ? MAX_COMMANDS : 1;
 
-  if (path.tqat(0) == '/')
+  if (path.at(0) == '/')
     path.remove(0, 1);
   if (path.isEmpty()) {
     POP3_DEBUG << "We should be a dir!!" << endl;
@@ -1207,7 +1207,7 @@ void POP3Protocol::stat(const KURL & url)
 {
   TQString _path = url.path();
 
-  if (_path.tqat(0) == '/')
+  if (_path.at(0) == '/')
     _path.remove(0, 1);
 
   UDSEntry entry;
@@ -1244,7 +1244,7 @@ void POP3Protocol::del(const KURL & url, bool /*isfile */ )
   }
 
   TQString _path = url.path();
-  if (_path.tqat(0) == '/') {
+  if (_path.at(0) == '/') {
     _path.remove(0, 1);
   }
 

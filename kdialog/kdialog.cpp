@@ -492,7 +492,7 @@ static int directCommand(KCmdLineArgs *args)
             filter = TQString::fromLocal8Bit(args->arg(0));
         }
 	// copied from KFileDialog::getSaveFileName(), so we can add geometry
-	bool specialDir = ( startDir.tqat(0) == ':' );
+	bool specialDir = ( startDir.at(0) == ':' );
 	KFileDialog dlg( specialDir ? startDir : TQString::null, filter, 0, "filedialog", true );
 	if ( !specialDir )
 	    dlg.setSelection( startDir );

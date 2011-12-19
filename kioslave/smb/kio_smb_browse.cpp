@@ -199,7 +199,7 @@ KURL SMBSlave::checkURL(const KURL& kurl) const
         if (surl.length() == 5) // just the above
             return kurl; // unchanged
 
-        if (surl.tqat(5) != '/') {
+        if (surl.at(5) != '/') {
             surl = "smb://" + surl.mid(5);
             kdDebug(KIO_SMB) << "checkURL return1 " << surl << " " << KURL(surl) << endl;
             return KURL(surl);
@@ -349,7 +349,7 @@ void SMBSlave::listDir( const KURL& kurl )
            TQString comment = TQString::fromUtf8( dirp->comment );
            if ( dirp->smbc_type == SMBC_SERVER || dirp->smbc_type == SMBC_WORKGROUP ) {
                atom.m_str = dirpName.lower();
-               atom.m_str.tqat( 0 ) = dirpName.tqat( 0 ).upper();
+               atom.m_str.at( 0 ) = dirpName.at( 0 ).upper();
                if ( !comment.isEmpty() && dirp->smbc_type == SMBC_SERVER )
                    atom.m_str += " (" + comment + ")";
            } else

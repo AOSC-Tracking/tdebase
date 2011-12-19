@@ -1219,10 +1219,10 @@ void KDisplayConfig::setGammaLabels() {
 	screendata->gamma_blue = floorf(screendata->gamma_blue * 10 + 0.5) / 10;
 
 	// Set the labels
-	base->gammaAllLabel->setText(TQString("%1").tqarg(((float)base->gammaAllSlider->value())/10.0, 0, 'f', 1));
-	base->gammaRedLabel->setText(TQString("%1").tqarg(((float)base->gammaRedSlider->value())/10.0, 0, 'f', 1));
-	base->gammaGreenLabel->setText(TQString("%1").tqarg(((float)base->gammaGreenSlider->value())/10.0, 0, 'f', 1));
-	base->gammaBlueLabel->setText(TQString("%1").tqarg(((float)base->gammaBlueSlider->value())/10.0, 0, 'f', 1));
+	base->gammaAllLabel->setText(TQString("%1").arg(((float)base->gammaAllSlider->value())/10.0, 0, 'f', 1));
+	base->gammaRedLabel->setText(TQString("%1").arg(((float)base->gammaRedSlider->value())/10.0, 0, 'f', 1));
+	base->gammaGreenLabel->setText(TQString("%1").arg(((float)base->gammaGreenSlider->value())/10.0, 0, 'f', 1));
+	base->gammaBlueLabel->setText(TQString("%1").arg(((float)base->gammaBlueSlider->value())/10.0, 0, 'f', 1));
 }
 
 void KDisplayConfig::gammaSetAverageAllSlider() {

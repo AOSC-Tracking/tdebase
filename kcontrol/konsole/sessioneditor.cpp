@@ -340,8 +340,8 @@ void SessionEditor::saveCurrent()
   else
     co->writeEntry("Font",fontCombo->currentItem()-1);
   co->writeEntry("Term",termLine->text());
-  co->writeEntry("KeyTab",*keytabFilename.tqat(keytabCombo->currentItem()));
-  co->writeEntry("Schema",*schemaFilename.tqat(schemaCombo->currentItem()));
+  co->writeEntry("KeyTab",*keytabFilename.at(keytabCombo->currentItem()));
+  co->writeEntry("Schema",*schemaFilename.at(schemaCombo->currentItem()));
   co->sync();
   delete co;
   sesMod=false;

@@ -185,7 +185,7 @@ void KonsoleMenu::initialize()
                 screenList.append(TQFile::decodeName(entry->d_name));
                 insertItem(SmallIconSet("konsole"),
                            i18n("Screen is a program controlling screens!",
-                                "Screen at %1").tqarg(entry->d_name), id);
+                                "Screen at %1").arg(entry->d_name), id);
                 id++;
             }
         }

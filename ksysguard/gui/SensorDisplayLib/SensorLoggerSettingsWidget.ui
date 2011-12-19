@@ -61,7 +61,7 @@
             <property name="title">
                 <string>Colors</string>
             </property>
-            <property name="tqalignment">
+            <property name="alignment">
                 <set>WordBreak|AlignVCenter|AlignLeft</set>
             </property>
             <property name="vAlign" stdset="0">

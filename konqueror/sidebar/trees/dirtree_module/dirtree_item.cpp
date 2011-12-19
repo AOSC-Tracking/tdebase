@@ -108,7 +108,7 @@ bool KonqSidebarDirTreeItem::hasStandardIcon()
     return m_fileItem->iconName() == "folder";
 }
 
-void KonqSidebarDirTreeItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg, int _column, int _width, int _tqalignment )
+void KonqSidebarDirTreeItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg, int _column, int _width, int _alignment )
 {
     if (m_fileItem->isLink())
     {
@@ -116,7 +116,7 @@ void KonqSidebarDirTreeItem::paintCell( TQPainter *_painter, const TQColorGroup 
         f.setItalic( TRUE );
         _painter->setFont( f );
     }
-    TQListViewItem::paintCell( _painter, _cg, _column, _width, _tqalignment );
+    TQListViewItem::paintCell( _painter, _cg, _column, _width, _alignment );
 }
 
 KURL KonqSidebarDirTreeItem::externalURL() const

@@ -76,7 +76,7 @@ bool is_vt_active() {
 		if (intFound == false) {
 			return true;
 		}
-		curConsole = TQString("vt%1").tqarg(curConsoleNum);;
+		curConsole = TQString("vt%1").arg(curConsoleNum);;
 		TQStringList sessionList = TQStringList::split('\t', output, false);
 		for ( TQStringList::Iterator it = sessionList.begin(); it != sessionList.end(); ++it ) {
 			TQStringList sessionInfoList = TQStringList::split(',', *it, true);

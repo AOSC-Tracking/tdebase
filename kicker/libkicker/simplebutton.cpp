@@ -202,7 +202,7 @@ void SimpleButton::enterEvent( TQEvent *e )
     if (KickerSettings::showMouseOverEffects())
         m_highlight = true;
 
-    tqrepaint( false );
+    repaint( false );
     TQButton::enterEvent( e );
 }
 
@@ -210,7 +210,7 @@ void SimpleButton::leaveEvent( TQEvent *e )
 {
     m_highlight = false;
 
-    tqrepaint( false );
+    repaint( false );
     TQButton::enterEvent( e );
 }
 

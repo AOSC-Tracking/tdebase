@@ -31,7 +31,7 @@
             <property name="text">
                 <string>Please choose the way your computer should look by selecting one of the items below.</string>
             </property>
-            <property name="tqalignment">
+            <property name="alignment">
                 <set>WordBreak|AlignVCenter|AlignLeft</set>
             </property>
             <property name="wordwrap" stdset="0">

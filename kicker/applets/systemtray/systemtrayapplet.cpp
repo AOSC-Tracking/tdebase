@@ -388,7 +388,7 @@ void SystemTrayApplet::checkAutoRetract()
         return;
     }
 
-    if (!tqgeometry().contains(mapFromGlobal(TQCursor::pos())))
+    if (!geometry().contains(mapFromGlobal(TQCursor::pos())))
     {
         m_autoRetractTimer->stop();
         if (m_autoRetract)

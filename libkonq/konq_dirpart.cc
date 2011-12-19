@@ -301,7 +301,7 @@ void KonqDirPart::slotBackgroundSettings()
         m_pProps->setBgPixmapFile( dlg->pixmapFile() );
         }
         m_pProps->applyColors( scrollWidget()->viewport() );
-        scrollWidget()->viewport()->tqrepaint();
+        scrollWidget()->viewport()->repaint();
     }
     
     delete dlg;

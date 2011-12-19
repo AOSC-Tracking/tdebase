@@ -238,7 +238,7 @@ void KKeyModule::defaults()
 
   uint ind = sList->currentItem();
 
-  if ( !d.remove( *sFileList->tqat( ind ) ) ) {
+  if ( !d.remove( *sFileList->at( ind ) ) ) {
     KMessageBox::sorry( 0,
                         i18n("This key scheme could not be removed.\n"
                              "Perhaps you do not have permission to alter the file "
@@ -247,7 +247,7 @@ void KKeyModule::defaults()
   }
 
   sList->removeItem( ind );
-  sFileList->remove( sFileList->tqat(ind) );
+  sFileList->remove( sFileList->at(ind) );
 }*/
 
 void KKeyModule::slotKeyChange()
@@ -258,7 +258,7 @@ void KKeyModule::slotKeyChange()
 
 /*void KKeyModule::slotSave( )
 {
-    KSimpleConfig config(*sFileList->tqat( sList->currentItem() ) );
+    KSimpleConfig config(*sFileList->at( sList->currentItem() ) );
     //  global=true is necessary in order to
     //  let both 'Global Shortcuts' and 'Shortcut Sequences' be
     //  written to the same scheme file.
@@ -281,7 +281,7 @@ void KKeyModule::readScheme( int index )
   else {
     KConfigBase* config = 0;
     if( index == 0 )	config = new KConfig( "kdeglobals" );
-    //else		config = new KSimpleConfig( *sFileList->tqat( index ), true );
+    //else		config = new KSimpleConfig( *sFileList->at( index ), true );
 
     actions.readActions( (index == 0) ? KeySet : KeyScheme, config );
     kc->listSync();
@@ -416,8 +416,8 @@ void KKeyModule::readScheme( int index )
   // Set various appropriate for the scheme
 
   if ( indx < nSysSchemes ||
-       (*sFileList->tqat(indx)).contains( "/global-" ) ||
-       (*sFileList->tqat(indx)).contains( "/app-" ) ) {
+       (*sFileList->at(indx)).contains( "/global-" ) ||
+       (*sFileList->at(indx)).contains( "/app-" ) ) {
     removeBt->setEnabled( FALSE );
   } else {
     removeBt->setEnabled( TRUE );

@@ -70,7 +70,7 @@
                             <property name="scaledContents">
                                 <bool>true</bool>
                             </property>
-                            <property name="tqalignment">
+                            <property name="alignment">
                                 <set>AlignTop</set>
                             </property>
                         </widget>
@@ -109,7 +109,7 @@
                         <string>&lt;p&gt;&lt;b&gt;%1&lt;/b&gt; is an encrypted storage device.&lt;/p&gt;
 &lt;p&gt;Please enter the password to decrypt the storage device.&lt;/p&gt;</string>
                     </property>
-                    <property name="tqalignment">
+                    <property name="alignment">
                         <set>WordBreak|AlignTop</set>
                     </property>
                 </widget>
@@ -189,7 +189,7 @@
                     <property name="text">
                         <string></string>
                     </property>
-                    <property name="tqalignment">
+                    <property name="alignment">
                         <set>WordBreak|AlignTop</set>
                     </property>
                 </widget>

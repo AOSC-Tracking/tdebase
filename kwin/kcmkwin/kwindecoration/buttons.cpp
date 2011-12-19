@@ -572,7 +572,7 @@ bool ButtonDropSite::removeSelectedButton()
 		delete m_selected;
 		m_selected = 0;
 		recalcItemGeometry();
-		update(); // tqrepaint...
+		update(); // repaint...
 	}
 
 	return succ;

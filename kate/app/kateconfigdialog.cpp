@@ -332,12 +332,12 @@ void KateConfigDialog::removePluginPage (Kate::Plugin *plugin)
 
   for (uint i=0; i<pluginPages.count(); i++)
   {
-    if  ( pluginPages.tqat(i)->plugin == plugin )
+    if  ( pluginPages.at(i)->plugin == plugin )
     {
-      TQWidget *w = pluginPages.tqat(i)->page->parentWidget();
-      delete pluginPages.tqat(i)->page;
+      TQWidget *w = pluginPages.at(i)->page->parentWidget();
+      delete pluginPages.at(i)->page;
       delete w;
-      pluginPages.remove(pluginPages.tqat(i));
+      pluginPages.remove(pluginPages.at(i));
       i--;
     }
   }
@@ -415,7 +415,7 @@ void KateConfigDialog::slotApply()
   //
   for (uint i=0; i<editorPages.count(); i++)
   {
-    editorPages.tqat(i)->apply();
+    editorPages.at(i)->apply();
   }
 
   v->getDoc()->writeConfig(config);
@@ -425,7 +425,7 @@ void KateConfigDialog::slotApply()
   //
   for (uint i=0; i<pluginPages.count(); i++)
   {
-    pluginPages.tqat(i)->page->apply();
+    pluginPages.at(i)->page->apply();
   }
 
   config->sync();

@@ -440,7 +440,7 @@ void KColorScheme::sliderValueChanged( int val )
 
 void KColorScheme::slotSave( )
 {
-    KColorSchemeEntry *entry = mSchemeList->tqat(sList->currentItem()-nSysSchemes);
+    KColorSchemeEntry *entry = mSchemeList->at(sList->currentItem()-nSysSchemes);
     if (!entry) return;
     sCurrentScheme = entry->path;
     KSimpleConfig *config = new KSimpleConfig(sCurrentScheme );
@@ -482,7 +482,7 @@ void KColorScheme::slotSave( )
 void KColorScheme::slotRemove()
 {
     uint ind = sList->currentItem();
-    KColorSchemeEntry *entry = mSchemeList->tqat(ind-nSysSchemes);
+    KColorSchemeEntry *entry = mSchemeList->at(ind-nSysSchemes);
     if (!entry) return;
 
     if (unlink(TQFile::encodeName(entry->path).data())) {
@@ -497,7 +497,7 @@ void KColorScheme::slotRemove()
     mSchemeList->remove(entry);
 
     ind = sList->currentItem();
-    entry = mSchemeList->tqat(ind-nSysSchemes);
+    entry = mSchemeList->at(ind-nSysSchemes);
     if (!entry) return;
     removeBt->setEnabled(entry ? entry->local : false);
 }
@@ -795,7 +795,7 @@ void KColorScheme::readScheme( int index )
       config->setGroup("General");
     } else {
       // Open scheme file
-      KColorSchemeEntry *entry = mSchemeList->tqat(sList->currentItem()-nSysSchemes);
+      KColorSchemeEntry *entry = mSchemeList->at(sList->currentItem()-nSysSchemes);
       if (!entry) return;
       sCurrentScheme = entry->path;
       config = new KSimpleConfig(sCurrentScheme, true);
@@ -941,7 +941,7 @@ void KColorScheme::slotPreviewScheme(int indx)
        removeBt->setEnabled(false);
     else
     {
-       KColorSchemeEntry *entry = mSchemeList->tqat(indx-nSysSchemes);
+       KColorSchemeEntry *entry = mSchemeList->at(indx-nSysSchemes);
        removeBt->setEnabled(entry ? entry->local : false);
     }
 

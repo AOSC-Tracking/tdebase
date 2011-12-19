@@ -70,9 +70,9 @@ TQString KonqPixmapProvider::iconNameFor( const TQString& url )
     else
     {
         KURL u;
-        if ( url.tqat(0) == '~' )
+        if ( url.at(0) == '~' )
 	    u.setPath( KShell::tildeExpand( url ) );
-        else if ( url.tqat(0) == '/' )
+        else if ( url.at(0) == '/' )
 	    u.setPath( url );
         else
 	    u = url;
@@ -166,7 +166,7 @@ TQPixmap KonqPixmapProvider::loadIcon( const TQString& url, const TQString& icon
 	return SmallIcon( icon, size );
 
     KURL u;
-    if ( url.tqat(0) == '/' )
+    if ( url.at(0) == '/' )
 	u.setPath( url );
     else
 	u = url;

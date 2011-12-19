@@ -39,13 +39,13 @@ ClickLineEdit::~ClickLineEdit() {}
 void ClickLineEdit::setClickMessage( const TQString &msg )
 {
   mClickMessage = msg;
-  tqrepaint();
+  repaint();
 }
 
 void ClickLineEdit::setText( const TQString &txt )
 {
   mDrawClickMsg = txt.isEmpty();
-  tqrepaint();
+  repaint();
   KLineEdit::setText( txt );
 }
 
@@ -67,7 +67,7 @@ void ClickLineEdit::focusInEvent( TQFocusEvent *ev )
   if ( mDrawClickMsg == true ) 
   { 
     mDrawClickMsg = false;
-    tqrepaint();
+    repaint();
   }
   TQLineEdit::focusInEvent( ev );
 }
@@ -77,7 +77,7 @@ void ClickLineEdit::focusOutEvent( TQFocusEvent *ev )
   if ( text().isEmpty() )
   {
     mDrawClickMsg = true;
-    tqrepaint();
+    repaint();
   }
   TQLineEdit::focusOutEvent( ev );
 }

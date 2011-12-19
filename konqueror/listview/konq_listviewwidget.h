@@ -177,7 +177,7 @@ protected slots:
    virtual void slotRedirection( const KURL & );
    void slotPopupMenu( TQListViewItem *, const TQPoint&, int );
 
-   // forces a tqrepaint on column size changes / branch expansion
+   // forces a repaint on column size changes / branch expansion
    // when there is a background pixmap
    void slotUpdateBackground();
 

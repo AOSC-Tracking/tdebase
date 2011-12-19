@@ -1356,7 +1356,7 @@ TQPixmap Task::thumbnail(int maxDimension)
     Picture picture = XRenderCreatePicture(dpy, m_windowPixmap, format,
                                            CPSubwindowMode, &picAttr);
 
-    // Get tqshaped windows handled correctly.
+    // Get shaped windows handled correctly.
     XserverRegion region = XFixesCreateRegionFromWindow(dpy, m_frameId,
                                                         WindowRegionBounding);
     XFixesSetPictureClipRegion(dpy, picture, 0, 0, region);

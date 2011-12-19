@@ -450,7 +450,7 @@ void WorkSheet::dropEvent( TQDropEvent *e )
      * event and replace or add sensor. */
     for ( uint r = 0; r < mRows; ++r )
       for ( uint c = 0; c < mColumns; ++c )
-        if ( mDisplayList[ r ][ c ]->tqgeometry().contains( e->pos() ) ) {
+        if ( mDisplayList[ r ][ c ]->geometry().contains( e->pos() ) ) {
           addDisplay( hostName, sensorName, sensorType, sensorDescr, r, c );
           return;
         }

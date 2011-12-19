@@ -47,7 +47,7 @@ class ExtensionInfo
         // Configuration settings
         TQString  _name;
         int      _position;
-        int      _tqalignment;
+        int      _alignment;
         int      _xineramaScreen;
         int      _size;
         int      _customSize;
@@ -67,7 +67,7 @@ class ExtensionInfo
         // Original settings to ensure that we can figure out
         // what has changed externally to the panel vs within the panel
         int      _orig_position;
-        int      _orig_tqalignment;
+        int      _orig_alignment;
         int      _orig_size;
         int      _orig_customSize;
 

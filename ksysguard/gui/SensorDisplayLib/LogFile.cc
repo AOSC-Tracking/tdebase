@@ -51,7 +51,7 @@ LogFile::LogFile(TQWidget *parent, const char *name, const TQString& title)
 
 LogFile::~LogFile(void)
 {
-	sendRequest(sensors().tqat(0)->hostName(), TQString("logfile_unregister %1" ).arg(logFileID), 43);
+	sendRequest(sensors().at(0)->hostName(), TQString("logfile_unregister %1" ).arg(logFileID), 43);
 }
 
 bool
@@ -64,10 +64,10 @@ LogFile::addSensor(const TQString& hostName, const TQString& sensorName, const T
 
 	TQString sensorID = sensorName.right(sensorName.length() - (sensorName.findRev("/") + 1));
 
-	sendRequest(sensors().tqat(0)->hostName(), TQString("logfile_register %1" ).arg(sensorID), 42);
+	sendRequest(sensors().at(0)->hostName(), TQString("logfile_register %1" ).arg(sensorID), 42);
 
 	if (title.isEmpty())
-		setTitle(sensors().tqat(0)->hostName() + ":" + sensorID);
+		setTitle(sensors().at(0)->hostName() + ":" + sensorID);
 	else
 		setTitle(title);
 
@@ -206,9 +206,9 @@ LogFile::restoreSettings(TQDomElement& element)
 bool
 LogFile::saveSettings(TQDomDocument& doc, TQDomElement& element, bool save)
 {
-	element.setAttribute("hostName", sensors().tqat(0)->hostName());
-	element.setAttribute("sensorName", sensors().tqat(0)->name());
-	element.setAttribute("sensorType", sensors().tqat(0)->type());
+	element.setAttribute("hostName", sensors().at(0)->hostName());
+	element.setAttribute("sensorName", sensors().at(0)->name());
+	element.setAttribute("sensorType", sensors().at(0)->type());
 
 	element.setAttribute("font", monitor->font().toString());
 
@@ -234,8 +234,8 @@ LogFile::saveSettings(TQDomDocument& doc, TQDomElement& element, bool save)
 void
 LogFile::updateMonitor()
 {
-	sendRequest(sensors().tqat(0)->hostName(),
-				TQString("%1 %2" ).arg(sensors().tqat(0)->name()).arg(logFileID), 19);
+	sendRequest(sensors().at(0)->hostName(),
+				TQString("%1 %2" ).arg(sensors().at(0)->name()).arg(logFileID), 19);
 }
 
 void

@@ -150,7 +150,7 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     connect(tab1->slAutoSelect, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
     connect(tab1->cbVisualActivate, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
 
-    connect(tab1->cb_pointertqshape, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(tab1->cb_pointershape, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
 
     connect(tab1->singleClick, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
     connect(tab1->singleClick, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotClick()));
@@ -506,7 +506,7 @@ void MouseConfig::load( bool useDefaults )
 
   tab1->singleClick->setChecked( settings->singleClick );
   tab1->doubleClick->setChecked(!settings->singleClick);
-  tab1->cb_pointertqshape->setChecked(settings->changeCursor);
+  tab1->cb_pointershape->setChecked(settings->changeCursor);
   tab1->cbAutoSelect->setChecked( settings->autoSelectDelay >= 0 );
   if ( settings->autoSelectDelay < 0 )
      tab1->slAutoSelect->setValue( 0 );
@@ -564,7 +564,7 @@ void MouseConfig::save()
   settings->autoSelectDelay = tab1->cbAutoSelect->isChecked()? tab1->slAutoSelect->value():-1;
   settings->visualActivate = tab1->cbVisualActivate->isChecked();
 //  settings->changeCursor = tab1->singleClick->isChecked();
-  settings->changeCursor = tab1->cb_pointertqshape->isChecked();
+  settings->changeCursor = tab1->cb_pointershape->isChecked();
   settings->reverseScrollPolarity = tab1->cbScrollPolarity->isChecked();
 
   settings->apply();

@@ -342,8 +342,8 @@ void KateViewSpaceContainer::activateNextView()
   if (i >= m_viewSpaceList.count())
     i=0;
 
-  setActiveSpace (m_viewSpaceList.tqat(i));
-  activateView(m_viewSpaceList.tqat(i)->currentView());
+  setActiveSpace (m_viewSpaceList.at(i));
+  activateView(m_viewSpaceList.at(i)->currentView());
 }
 
 void KateViewSpaceContainer::activatePrevView()
@@ -353,8 +353,8 @@ void KateViewSpaceContainer::activatePrevView()
   if (i < 0)
     i=m_viewSpaceList.count()-1;
 
-  setActiveSpace (m_viewSpaceList.tqat(i));
-  activateView(m_viewSpaceList.tqat(i)->currentView());
+  setActiveSpace (m_viewSpaceList.at(i));
+  activateView(m_viewSpaceList.at(i)->currentView());
 }
 
 void KateViewSpaceContainer::closeViews(uint documentNumber)
@@ -363,7 +363,7 @@ void KateViewSpaceContainer::closeViews(uint documentNumber)
 
     for (uint z=0 ; z < m_viewList.count(); z++)
     {
-      Kate::View* current = m_viewList.tqat(z);
+      Kate::View* current = m_viewList.at(z);
       if ( current->getDoc()->documentNumber() == documentNumber )
       {
         closeList.append (current);
@@ -644,7 +644,7 @@ void KateViewSpaceContainer::restoreViewConfiguration (KConfig *config, const TQ
   {
     // send all views + their gui to **** ;)
     for (uint i=0; i < m_viewList.count(); i++)
-      mainWindow()->guiFactory ()->removeClient (m_viewList.tqat(i));
+      mainWindow()->guiFactory ()->removeClient (m_viewList.at(i));
 
     m_viewList.clear ();
 
@@ -658,7 +658,7 @@ void KateViewSpaceContainer::restoreViewConfiguration (KConfig *config, const TQ
   // finally, make the correct view active.
   config->setGroup (group);
 /*
-  KateViewSpace *vs = m_viewSpaceList.tqat( config->readNumEntry("Active ViewSpace") );
+  KateViewSpace *vs = m_viewSpaceList.at( config->readNumEntry("Active ViewSpace") );
   if ( vs )
     activateSpace( vs->currentView() );
   */

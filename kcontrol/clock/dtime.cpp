@@ -293,7 +293,7 @@ void Dtime::save()
     proc << ntpUtility << timeServer;
     proc.start( KProcess::Block );
     if( proc.exitStatus() != 0 ){
-      KMessageBox::error( this, i18n(TQString("Unable to contact time server: %1.").tqarg(timeServer).latin1()));
+      KMessageBox::error( this, i18n(TQString("Unable to contact time server: %1.").arg(timeServer).latin1()));
       setDateTimeAuto->setChecked( false );
     }
     else {
@@ -368,7 +368,7 @@ TQString Dtime::quickHelp() const
 void Kclock::setTime(const TQTime &time)
 {
   this->time = time;
-  tqrepaint();
+  repaint();
 }
 
 void Kclock::paintEvent( TQPaintEvent * )

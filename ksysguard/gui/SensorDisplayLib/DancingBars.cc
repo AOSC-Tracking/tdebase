@@ -94,11 +94,11 @@ void DancingBars::configureSettings()
   TQValueList< TQStringList > list;
   for ( uint i = mBars - 1; i < mBars; i-- ) {
     TQStringList entry;
-    entry << sensors().tqat( i )->hostName();
-    entry << KSGRD::SensorMgr->translateSensor( sensors().tqat( i )->name() );
+    entry << sensors().at( i )->hostName();
+    entry << KSGRD::SensorMgr->translateSensor( sensors().at( i )->name() );
     entry << mPlotter->footers[ i ];
-    entry << KSGRD::SensorMgr->translateUnit( sensors().tqat( i )->unit() );
-    entry << ( sensors().tqat( i )->isOk() ? i18n( "OK" ) : i18n( "Error" ) );
+    entry << KSGRD::SensorMgr->translateUnit( sensors().at( i )->unit() );
+    entry << ( sensors().at( i )->isOk() ? i18n( "OK" ) : i18n( "Error" ) );
 
     list.append( entry );
   }
@@ -135,8 +135,8 @@ void DancingBars::applySettings()
   for ( uint i = 0; i < sensors().count(); i++ ) {
     bool found = false;
     for ( it = list.begin(); it != list.end(); ++it ) {
-      if ( (*it)[ 0 ] == sensors().tqat( i )->hostName() &&
-           (*it)[ 1 ] == KSGRD::SensorMgr->translateSensor( sensors().tqat( i )->name() ) ) {
+      if ( (*it)[ 0 ] == sensors().at( i )->hostName() &&
+           (*it)[ 1 ] == KSGRD::SensorMgr->translateSensor( sensors().at( i )->name() ) ) {
         mPlotter->footers[ i ] = (*it)[ 2 ];
         found = true;
         break;
@@ -147,7 +147,7 @@ void DancingBars::applySettings()
       removeSensor( i );
   }
 
-  tqrepaint();
+  repaint();
   setModified( true );
 }
 
@@ -158,7 +158,7 @@ void DancingBars::applyStyle()
   mPlotter->backgroundColor = KSGRD::Style->backgroundColor();
   mPlotter->fontSize = KSGRD::Style->fontSize();
 
-  tqrepaint();
+  repaint();
   setModified( true );
 }
 
@@ -185,8 +185,8 @@ bool DancingBars::addSensor( const TQString &hostName, const TQString &name,
   TQString tooltip;
   for ( uint i = 0; i < mBars; ++i ) {
     tooltip += TQString( "%1%2:%3" ).arg( i != 0 ? "\n" : "" )
-                                   .arg( sensors().tqat( i )->hostName() )
-                                   .arg( sensors().tqat( i )->name() );
+                                   .arg( sensors().at( i )->hostName() )
+                                   .arg( sensors().at( i )->name() );
   }
   TQToolTip::remove( mPlotter );
   TQToolTip::add( mPlotter, tooltip );
@@ -209,8 +209,8 @@ bool DancingBars::removeSensor( uint pos )
   TQString tooltip;
   for ( uint i = 0; i < mBars; ++i ) {
     tooltip += TQString( "%1%2:%3" ).arg( i != 0 ? "\n" : "" )
-                                   .arg( sensors().tqat( i )->hostName() )
-                                   .arg( sensors().tqat( i )->name() );
+                                   .arg( sensors().at( i )->hostName() )
+                                   .arg( sensors().at( i )->name() );
   }
   TQToolTip::remove( mPlotter );
   TQToolTip::add( mPlotter, tooltip );
@@ -272,7 +272,7 @@ void DancingBars::answerReceived( int id, const TQString &answer )
         mPlotter->changeRange( info.min(), info.max() );
 			}
 
-    sensors().tqat( id - 100 )->setUnit( info.unit() );
+    sensors().at( id - 100 )->setUnit( info.unit() );
 	}
 }
 
@@ -331,9 +331,9 @@ bool DancingBars::saveSettings( TQDomDocument &doc, TQDomElement &element,
   for ( uint i = 0; i < mBars; ++i ) {
     TQDomElement beam = doc.createElement( "beam" );
     element.appendChild( beam );
-    beam.setAttribute( "hostName", sensors().tqat( i )->hostName() );
-    beam.setAttribute( "sensorName", sensors().tqat( i )->name() );
-    beam.setAttribute( "sensorType", sensors().tqat( i )->type() );
+    beam.setAttribute( "hostName", sensors().at( i )->hostName() );
+    beam.setAttribute( "sensorName", sensors().at( i )->name() );
+    beam.setAttribute( "sensorType", sensors().at( i )->type() );
     beam.setAttribute( "sensorDescr", mPlotter->footers[ i ] );
   }
 

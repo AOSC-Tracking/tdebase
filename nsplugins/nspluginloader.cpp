@@ -130,7 +130,7 @@ void NSPluginInstance::windowChanged(WId w)
     setBackgroundMode(w == 0 ? TQWidget::PaletteBackground : TQWidget::NoBackground);
     if (w == 0) {
         // FIXME: Put a notice here to tell the user that it crashed.
-        tqrepaint();
+        repaint();
     }
 }
 

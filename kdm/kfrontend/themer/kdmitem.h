@@ -96,7 +96,7 @@ public:
 
 	/**
 	 * Fixup the geometry of an item and its children (even if fixed
-	 * or boxed ones). Note that this will generate tqrepaint signals
+	 * or boxed ones). Note that this will generate repaint signals
 	 * when needed. The default implementation should fit all needs.
 	 */
 	virtual void setGeometry( const TQRect &newGeometry, bool force );
@@ -109,7 +109,7 @@ public:
 	void paint( TQPainter *painter, const TQRect &boundaries );
 
 	/**
-	 * Update representation of contents and tqrepaint.
+	 * Update representation of contents and repaint.
 	 */
 	virtual void update();
 
@@ -195,7 +195,7 @@ protected:
 
 	/**
 	 * Called when item changes its 'state' variable. This must
-	 * handle item's tqrepaint.
+	 * handle item's repaint.
 	 */
 	virtual void statusChanged();
 

@@ -218,14 +218,14 @@ void KonqFrameTabs::copyHistory( KonqFrameBase *other )
 
   for (uint i = 0; i < m_pChildFrameList->count(); i++ )
     {
-      m_pChildFrameList->tqat(i)->copyHistory( static_cast<KonqFrameTabs *>( other )->m_pChildFrameList->tqat(i) );
+      m_pChildFrameList->at(i)->copyHistory( static_cast<KonqFrameTabs *>( other )->m_pChildFrameList->at(i) );
     }
 }
 
 void KonqFrameTabs::printFrameInfo( const TQString& spaces )
 {
   kdDebug(1202) << spaces << "KonqFrameTabs " << this << " visible="
-                << TQString("%1").tqarg(isVisible()) << " activeChild="
+                << TQString("%1").arg(isVisible()) << " activeChild="
                 << m_pActiveChild << endl;
 
   if (!m_pActiveChild)
@@ -234,7 +234,7 @@ void KonqFrameTabs::printFrameInfo( const TQString& spaces )
   KonqFrameBase* child;
   int childFrameCount = m_pChildFrameList->count();
   for (int i = 0 ; i < childFrameCount ; i++) {
-    child = m_pChildFrameList->tqat(i);
+    child = m_pChildFrameList->at(i);
     if (child != 0L)
       child->printFrameInfo(spaces + "  ");
     else
@@ -346,7 +346,7 @@ void KonqFrameTabs::moveTabForward( int index )
 
 void KonqFrameTabs::slotMovedTab( int from, int to )
 {
-  KonqFrameBase* fromFrame = m_pChildFrameList->tqat( from );
+  KonqFrameBase* fromFrame = m_pChildFrameList->at( from );
   m_pChildFrameList->remove( fromFrame );
   m_pChildFrameList->insert( to, fromFrame );
 

@@ -228,7 +228,7 @@ KPanelApplet* AppletProxy::loadApplet(const AppletInfo& info)
 
 void AppletProxy::repaintApplet(TQWidget* widget) 
 {
-    widget->tqrepaint();
+    widget->repaint();
  
     const TQObjectList children = widget->childrenListObject();
 
@@ -375,11 +375,11 @@ bool AppletProxy::process(const TQCString &fun, const TQByteArray &data,
     else if ( fun == "setAlignment(int)" )
 	{
 	    TQDataStream dataStream( data, IO_ReadOnly );
-	    int tqalignment;
-	    dataStream >> tqalignment;
+	    int alignment;
+	    dataStream >> alignment;
 
 	    if(_applet) {
-		_applet->setAlignment( (KPanelApplet::Alignment)tqalignment );
+		_applet->setAlignment( (KPanelApplet::Alignment)alignment );
 	    }
 	    return true;
 	}
@@ -435,7 +435,7 @@ bool AppletProxy::process(const TQCString &fun, const TQByteArray &data,
             if(_applet)
                 if ( _bg.isNull() ) { // no transparency
 		    _applet->unsetPalette();
-		    _applet->tqrepaint();
+		    _applet->repaint();
 		}
                 else { //transparency
 		    _applet->blockSignals(true);

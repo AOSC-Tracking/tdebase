@@ -171,8 +171,8 @@ public:
     void paintModified( TQPainter *p );
 
 public slots:
-    void tqrepaint();
-    void tqrepaint( bool erase );
+    void repaint();
+    void repaint( bool erase );
     void update();
 
     void setActive( bool yes );

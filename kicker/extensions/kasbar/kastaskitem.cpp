@@ -135,7 +135,7 @@ TQPixmap KasTaskItem::icon()
 
 	TQPixmap thumb = task_->thumbnail();
 	TQSize sz = thumb.size();
-	sz.tqscale( sizes[kasbar()->itemSize()], sizes[kasbar()->itemSize()], TQSize::ScaleMin );
+	sz.scale( sizes[kasbar()->itemSize()], sizes[kasbar()->itemSize()], TQSize::ScaleMin );
 
 	TQImage img = thumb.convertToImage();
 	img = img.smoothScale( sz );

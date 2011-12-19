@@ -63,7 +63,7 @@
                 <string>&lt;P&gt;Trinity offers many visually appealing special effects, such as smoothed fonts, previews in the file manager and animated menus. All this beauty, however, comes at a small performance cost. &lt;/P&gt;
 If you have a fast, new processor, you might want to turn them all on, but for those of us with slower processors, starting off with less eye candy helps to keep your desktop more responsive.</string>
             </property>
-            <property name="tqalignment">
+            <property name="alignment">
                 <set>WordBreak|AlignTop|AlignLeft</set>
             </property>
             <property name="vAlign" stdset="0">
@@ -98,7 +98,7 @@ If you have a fast, new processor, you might want to turn them all on, but for t
                     <property name="textFormat">
                         <enum>PlainText</enum>
                     </property>
-                    <property name="tqalignment">
+                    <property name="alignment">
                         <set>AlignCenter</set>
                     </property>
                     <property name="hAlign" stdset="0">
@@ -136,7 +136,7 @@ If you have a fast, new processor, you might want to turn them all on, but for t
                         <string>Fast Processor
 (more effects)</string>
                     </property>
-                    <property name="tqalignment">
+                    <property name="alignment">
                         <set>AlignCenter</set>
                     </property>
                     <property name="hAlign" stdset="0">

@@ -23,7 +23,7 @@
             <property name="text">
                 <string>In order to trigger a spoken action, you have to press the key (or combination of keys) configured below, speak the command and then press the same key again once you have finished speaking.</string>
             </property>
-            <property name="tqalignment">
+            <property name="alignment">
                 <set>WordBreak|AlignVCenter</set>
             </property>
         </widget>

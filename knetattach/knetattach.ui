@@ -145,7 +145,7 @@
                 <property name="text">
                     <string>Select the type of network folder you wish to connect to and press the Next button.</string>
                 </property>
-                <property name="tqalignment">
+                <property name="alignment">
                     <set>WordBreak|AlignVCenter</set>
                 </property>
             </widget>
@@ -186,7 +186,7 @@
                 <property name="text">
                     <string>Enter a name for this &lt;i&gt;%1&lt;/i&gt; as well as the server address, port and folder path to use and press the Next button.</string>
                 </property>
-                <property name="tqalignment">
+                <property name="alignment">
                     <set>WordBreak|AlignVCenter</set>
                 </property>
             </widget>

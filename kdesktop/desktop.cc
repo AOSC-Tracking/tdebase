@@ -159,7 +159,7 @@ KDesktop::KDesktop( bool x_root_hack, bool wait_for_kded ) :
   kapp->dcopClient()->connectDCOPSignal(kicker_name, kicker_name, "desktopIconsAreaChanged(TQRect, int)",
                                         "KDesktopIface", "desktopIconsAreaChanged(TQRect, int)", false);
 
-  // Dont tqrepaint on configuration changes during construction
+  // Dont repaint on configuration changes during construction
   m_bInit = true;
 
   // It's the child widget that gets the focus, not us
@@ -1179,7 +1179,7 @@ void KDesktop::addIcon(const TQString & _url, const TQString & _dest, int x, int
 
 void KDesktop::removeIcon(const TQString &_url)
 {
-	if (_url.tqat(0) != '/') {
+	if (_url.at(0) != '/') {
 		qDebug("removeIcon with relative path not supported for now");
 		return;
 	}

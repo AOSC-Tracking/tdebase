@@ -293,7 +293,7 @@ void KfindWindow::deleteFiles()
   // Iterate on all selected elements
   TQPtrList<TQListViewItem> selected = selectedItems();
   for ( uint i = 0; i < selected.count(); i++ ) {
-    KfFileLVI *item = (KfFileLVI *) selected.tqat(i);
+    KfFileLVI *item = (KfFileLVI *) selected.at(i);
     KFileItem file = item->fileitem;
 
     KIO::NetAccess::del(file.url(), this);
@@ -335,7 +335,7 @@ void KfindWindow::resizeEvent(TQResizeEvent *e)
 {
   KListView::resizeEvent(e);
   resetColumns(false);
-  clipper()->tqrepaint();
+  clipper()->repaint();
 }
 
 TQDragObject * KfindWindow::dragObject()
@@ -346,7 +346,7 @@ TQDragObject * KfindWindow::dragObject()
   // create a list of URIs from selection
   for ( uint i = 0; i < selected.count(); i++ )
   {
-    KfFileLVI *item = (KfFileLVI *) selected.tqat( i );
+    KfFileLVI *item = (KfFileLVI *) selected.at( i );
     if (item)
     {
       uris.append( item->fileitem.url() );

@@ -373,7 +373,7 @@ void TabBox::drawContents( TQPainter * )
     pix.fill(this, 0, 0);
 
     TQPainter p;
-    p.tqbegin(&pix, this);
+    p.begin(&pix, this);
 
     TQPixmap* menu_pix = kwin_get_menu_pix_hack();
 
@@ -696,7 +696,7 @@ void TabBox::handleMouseEvent( XEvent* e )
     if( e->type != ButtonPress )
         return;
     TQPoint pos( e->xbutton.x_root, e->xbutton.y_root );
-    if( !tqgeometry().contains( pos ))
+    if( !geometry().contains( pos ))
         {
         workspace()->closeTabBox();  // click outside closes tab
         return;

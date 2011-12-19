@@ -58,7 +58,7 @@ class Kbd
             TQValueList< KShortcut > shortcuts;
             bool active;
             };
-        TQMap< Kbd_receiver*, Receiver_data > tqreceivers;
+        TQMap< Kbd_receiver*, Receiver_data > receivers;
         TQMap< KShortcut, int > grabs;
         KGlobalAccel* kga;
     };

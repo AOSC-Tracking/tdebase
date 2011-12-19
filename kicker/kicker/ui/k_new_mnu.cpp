@@ -1131,7 +1131,7 @@ void KMenu::fillMenu(KServiceGroup::Ptr&
             }
 
             // Ignore dotfiles.
-            if ((g->name().tqat(0) == '.'))
+            if ((g->name().at(0) == '.'))
             {
                 continue;
             }
@@ -3625,7 +3625,7 @@ void KMenu::slotFavDropped(TQDropEvent * ev, TQListViewItem *after )
                 df.writeEntry("Encoding", "UTF-8");
                 df.writeEntry("Type","Link");
                 df.writeEntry("Name", item->name());
-                df.writeEntry("GenericName", i18n("Directory: %1").tqarg(kurl.upURL().path()));
+                df.writeEntry("GenericName", i18n("Directory: %1").arg(kurl.upURL().path()));
                 df.writeEntry("Icon", item->iconName());
                 df.writeEntry("URL", text);
 

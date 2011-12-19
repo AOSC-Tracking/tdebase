@@ -169,7 +169,7 @@ static TQString findFileName(const TQString* tmpl,bool universal, const TQString
 
 void addBackEnd::activatedAddMenu(int id)
 {
-	kdDebug() << "activatedAddMenu: " << TQString("%1").tqarg(id) << endl;
+	kdDebug() << "activatedAddMenu: " << TQString("%1").arg(id) << endl;
 	if (((uint)id) == libNames.size())
 		doRollBack();
 	if(((uint)id) >= libNames.size())
@@ -178,13 +178,13 @@ void addBackEnd::activatedAddMenu(int id)
 	KLibLoader *loader = KLibLoader::self();
 
         // try to load the library
-	TQString libname = *libNames.tqat(id);
+	TQString libname = *libNames.at(id);
         KLibrary *lib = loader->library(TQFile::encodeName(libname));
         if (lib)
        	{
 		// get the create_ function
 		TQString factory("add_");
-		factory = factory+(*libNames.tqat(id));
+		factory = factory+(*libNames.at(id));
 		void *add = lib->symbol(TQFile::encodeName(factory));
 
 		if (add)
@@ -194,7 +194,7 @@ void addBackEnd::activatedAddMenu(int id)
 			TQMap<TQString,TQString> map;
 			func = (bool (*)(TQString*, TQString*, TQMap<TQString,TQString> *)) add;
 			TQString *tmp = new TQString("");
-			if (func(tmp,libParam.tqat(id),&map))
+			if (func(tmp,libParam.at(id),&map))
 			{
 				TQString myFile = findFileName(tmp,m_universal,m_currentProfile);
 
@@ -219,7 +219,7 @@ void addBackEnd::activatedAddMenu(int id)
 			delete tmp;
 		}
 	} else {
-		kdWarning() << "libname:" << libNames.tqat(id)
+		kdWarning() << "libname:" << libNames.at(id)
 			<< " doesn't specify a library!" << endl;
 	}
 }
@@ -574,7 +574,7 @@ void Sidebar_Widget::activatedMenu(int id)
 			{
 				int tmpViewID=m_latestViewed;
 				for (uint i=0; i<m_buttons.count(); i++) {
-					ButtonInfo *button = m_buttons.tqat(i);
+					ButtonInfo *button = m_buttons.at(i);
 					if ((int) i != tmpViewID)
 					{
 						if (button->dock && button->dock->isVisibleTo(this))
@@ -598,7 +598,7 @@ void Sidebar_Widget::activatedMenu(int id)
 					m_mainDockWidget->show();
 					if ((tmpLatestViewed>=0) && (tmpLatestViewed < (int) m_buttons.count()))
 					{
-						ButtonInfo *button = m_buttons.tqat(tmpLatestViewed);
+						ButtonInfo *button = m_buttons.at(tmpLatestViewed);
 						if (button && button->dock)
 						{
 							m_noUpdate=true;
@@ -694,7 +694,7 @@ void Sidebar_Widget::updateButtons()
 	{
 		for (uint i = 0; i < m_buttons.count(); i++)
 		{
-			ButtonInfo *button = m_buttons.tqat(i);
+			ButtonInfo *button = m_buttons.at(i);
 			if (button->dock)
 			{
 				m_noUpdate = true;
@@ -742,7 +742,7 @@ void Sidebar_Widget::createButtons()
 
 	for (uint i = 0; i < m_buttons.count(); i++)
 	{
-		ButtonInfo *button = m_buttons.tqat(i);
+		ButtonInfo *button = m_buttons.at(i);
 		if (m_openViews.contains(button->file))
 		{
 			m_buttonBar->setTab(i,true);
@@ -763,7 +763,7 @@ bool Sidebar_Widget::openURL(const class KURL &url)
 	if (url.protocol()=="sidebar")
 	{
 		for (unsigned int i=0;i<m_buttons.count();i++)
-			if (m_buttons.tqat(i)->file==url.path())
+			if (m_buttons.at(i)->file==url.path())
 			{
 				KMultiTabBarTab *tab = m_buttonBar->tab(i);
 				if (!tab->isOn())
@@ -778,7 +778,7 @@ bool Sidebar_Widget::openURL(const class KURL &url)
         bool ret = false;
 	for (unsigned int i=0;i<m_buttons.count();i++)
 	{
-		ButtonInfo *button = m_buttons.tqat(i);
+		ButtonInfo *button = m_buttons.at(i);
 		if (button->dock)
 		{
 			if ((button->dock->isVisibleTo(this)) && (button->module))
@@ -845,7 +845,7 @@ bool Sidebar_Widget::eventFilter(TQObject *obj, TQEvent *ev)
 			{
 				if (bt==m_buttonBar->tab(i))
 				{
-					m_currentButton = m_buttons.tqat(i);
+					m_currentButton = m_buttons.at(i);
 					break;
 				}
 			}
@@ -953,7 +953,7 @@ bool Sidebar_Widget::createView( ButtonInfo *data)
 
 void Sidebar_Widget::showHidePage(int page)
 {
-	ButtonInfo *info = m_buttons.tqat(page);
+	ButtonInfo *info = m_buttons.at(page);
 	if (!info->dock)
 	{
 		if (m_buttonBar->isTabRaised(page))
@@ -1072,7 +1072,7 @@ void Sidebar_Widget::dockWidgetHasUndocked(KDockWidget* wid)
 	kdDebug()<<" Sidebar_Widget::dockWidgetHasUndocked(KDockWidget*)"<<endl;
 	for (unsigned int i=0;i<m_buttons.count();i++)
 	{
-		ButtonInfo *button = m_buttons.tqat(i);
+		ButtonInfo *button = m_buttons.at(i);
 		if (button->dock==wid)
 		{
 			if (m_buttonBar->isTabRaised(i))
@@ -1255,7 +1255,7 @@ Sidebar_Widget::~Sidebar_Widget()
 	m_noUpdate = true;
 	for (uint i=0;i<m_buttons.count();i++)
 	{
-		ButtonInfo *button = m_buttons.tqat(i);
+		ButtonInfo *button = m_buttons.at(i);
 		if (button->dock)
 			button->dock->undock();
 	}

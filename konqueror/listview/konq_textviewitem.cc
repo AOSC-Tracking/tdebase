@@ -200,7 +200,7 @@ void KonqTextViewItem::updateContents()
    };
 }
 
-void KonqTextViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg, int _column, int _width, int _tqalignment )
+void KonqTextViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg, int _column, int _width, int _alignment )
 {
    TQColorGroup cg( _cg );
    cg.setColor(TQColorGroup::Text, static_cast<KonqTextViewWidget *>(listView())->colors[type]);
@@ -208,7 +208,7 @@ void KonqTextViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg,
 //   cg.setColor(TQColorGroup::HighlightedText, static_cast<KonqTextViewWidget *>(listView())->highlight[type]);
 //   cg.setColor(TQColorGroup::Highlight, Qt::darkGray);
 
-   KListViewItem::paintCell( _painter, cg, _column, _width, _tqalignment );
+   KListViewItem::paintCell( _painter, cg, _column, _width, _alignment );
 }
 
 /*void KonqTextViewItem::paintFocus( TQPainter *_p, const TQColorGroup &_cg, const TQRect &_r )

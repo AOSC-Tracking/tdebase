@@ -32,7 +32,7 @@
                 <string>&lt;h3&gt;Finished&lt;/h3&gt;
 &lt;p&gt;After closing this dialog you can always restart this Wizard by choosing the entry &lt;b&gt;Desktop Settings Wizard&lt;/b&gt; from the Settings menu.&lt;/p&gt;</string>
             </property>
-            <property name="tqalignment">
+            <property name="alignment">
                 <set>WordBreak|AlignVCenter|AlignLeft</set>
             </property>
             <property name="wordwrap" stdset="0">
@@ -80,7 +80,7 @@
                     <property name="text">
                         <string>You can refine the settings you made by starting the Trinity Control Center by choosing the entry &lt;b&gt;Control Center&lt;/b&gt; in the K menu.</string>
                     </property>
-                    <property name="tqalignment">
+                    <property name="alignment">
                         <set>WordBreak|AlignTop|AlignLeft</set>
                     </property>
                 </widget>
@@ -132,7 +132,7 @@
             <property name="text">
                 <string>You can also start the Trinity Control Center using the button below.</string>
             </property>
-            <property name="tqalignment">
+            <property name="alignment">
                 <set>WordBreak|AlignCenter</set>
             </property>
         </widget>

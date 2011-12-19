@@ -42,7 +42,7 @@ void HelpWidget::setText(const TQString& docPath, const TQString& text)
     helptext = text;
   else
     helptext = (text + i18n("<p>Use the \"What's This?\" (Shift+F1) to get help on specific options.</p><p>To read the full manual click <a href=\"%1\">here</a>.</p>")
-		      .tqarg(static_cast<const char *>(docPath.local8Bit())));
+		      .arg(static_cast<const char *>(docPath.local8Bit())));
 }
 
 void HelpWidget::setBaseText()

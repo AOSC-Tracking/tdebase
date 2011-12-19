@@ -33,7 +33,7 @@ void GestureDrawer::setData(const TQString &data)
     {
     _data = data;
 
-    tqrepaint();
+    repaint();
     }
 
 void GestureDrawer::paintEvent(TQPaintEvent *ev)

@@ -297,7 +297,7 @@ void KArtsModule::load( bool useDefaults )
 	{
 		if(a->name == audioIO)		// first item: "autodetect"
 		  {
-			hardware->audioIO->setCurrentItem(audioIOList.tqat() + 1);
+			hardware->audioIO->setCurrentItem(audioIOList.at() + 1);
 			break;
 		  }
 
@@ -334,7 +334,7 @@ void KArtsModule::saveParams( void )
 	int item = hardware->audioIO->currentItem() - 1;	// first item: "default"
 
 	if (item >= 0) {
-		audioIO = audioIOList.tqat(item)->name;
+		audioIO = audioIOList.at(item)->name;
 	}
 
 	TQString dev = customDevice->isChecked() ? deviceName->text() : TQString::null;
@@ -498,7 +498,7 @@ void KArtsModule::updateWidgets()
 	int item = hardware->audioIO->currentItem() - 1;	// first item: "default"
 	if (item >= 0)
 	{
-		audioIO = audioIOList.tqat(item)->name;
+		audioIO = audioIOList.at(item)->name;
 		bool jack = (audioIO == TQString::fromLatin1("jack"));
 		if(jack)
 		{

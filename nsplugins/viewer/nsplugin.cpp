@@ -138,7 +138,7 @@ void g_NPN_ForceRedraw(NPP /*instance*/)
 }
 
 
-// tqinvalidate rect
+// invalidate rect
 void g_NPN_InvalidateRect(NPP /*instance*/, NPRect* /*invalidRect*/)
 {
    // http://devedge.netscape.com/library/manuals/2002/plugin/1.0/npn_api7.html#999503
@@ -147,7 +147,7 @@ void g_NPN_InvalidateRect(NPP /*instance*/, NPRect* /*invalidRect*/)
 }
 
 
-// tqinvalidate region
+// invalidate region
 void g_NPN_InvalidateRegion(NPP /*instance*/, NPRegion /*invalidRegion*/)
 {
    // http://devedge.netscape.com/library/manuals/2002/plugin/1.0/npn_api8.html#999528

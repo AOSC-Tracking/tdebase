@@ -69,10 +69,10 @@ namespace Web {
     0xff, 0x81, 0x81, 0xff, 0x81, 0xff, 0x81, 0xff
   };
 
-WebButton::WebButton(ButtonType type, WebClient *parent, const char *name, bool tqshape)
+WebButton::WebButton(ButtonType type, WebClient *parent, const char *name, bool shape)
   : KCommonDecorationButton (type, parent, name),
     mouseOver_  (false),
-    tqshape_      (tqshape),
+    shape_      (shape),
     deco_       (parent)
 {
   setBackgroundMode(NoBackground);
@@ -127,7 +127,7 @@ void WebButton::reset(unsigned long changed)
 WebButton::enterEvent(TQEvent * e)
 {
   mouseOver_ = true;
-  tqrepaint();
+  repaint();
   TQButton::enterEvent(e);
 }
 
@@ -135,7 +135,7 @@ WebButton::enterEvent(TQEvent * e)
 WebButton::leaveEvent(TQEvent * e)
 {
   mouseOver_ = false;
-  tqrepaint();
+  repaint();
   TQButton::leaveEvent(e);
 }
 
@@ -174,7 +174,7 @@ WebButton::drawButton(TQPainter *p)
 
         p->drawLine(0, 0, width(), 0);
         p->drawLine(0, 1, 0, height() - 1);
-        if (tqshape_)
+        if (shape_)
         {
           p->drawPoint(3, 1);
           p->drawPoint(4, 1);
@@ -187,11 +187,11 @@ WebButton::drawButton(TQPainter *p)
         p->setBrush(NoBrush);
         p->setPen(highlightPen);
 
-        if (tqshape_)
+        if (shape_)
           p->setClipRegion(TQRegion(rect()) - TQRect(0, 0, 6, 6));
 
         p->drawRect(2, 2, width() - 4, height() - 4);
-        if (tqshape_)
+        if (shape_)
         {
           p->setClipRect(rect());
           p->drawPoint(4, 3);
@@ -210,7 +210,7 @@ WebButton::drawButton(TQPainter *p)
         p->setPen(Qt::black);
         p->drawLine(0, 0, width(), 0);
         p->drawLine(width() - 1, 1, width() - 1, height() - 1);
-        if (tqshape_)
+        if (shape_)
         {
           p->drawPoint(width() - 5, 1);
           p->drawPoint(width() - 4, 1);
@@ -223,11 +223,11 @@ WebButton::drawButton(TQPainter *p)
         p->setBrush(NoBrush);
         p->setPen(highlightPen);
 
-        if (tqshape_)
+        if (shape_)
           p->setClipRegion(TQRegion(rect()) - TQRect(width() - 6, 0, 6, 6));
 
         p->drawRect(2, 2, width() - 4, height() - 4);
-        if (tqshape_)
+        if (shape_)
         {
           p->setClipRect(rect());
           p->drawPoint(width() - 5, 3);

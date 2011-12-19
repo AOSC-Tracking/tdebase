@@ -157,7 +157,7 @@ void KLocaleConfigMoney::save()
   if (str != m_locale->monetaryThousandsSeparator())
     config->writeEntry("MonetaryThousandsSeparator",
                        TQString::fromLatin1("$0%1$0")
-                       .tqarg(m_locale->monetaryThousandsSeparator()),
+                       .arg(m_locale->monetaryThousandsSeparator()),
                        true, true);
 
   i = ent.readNumEntry("FracDigits", 2);

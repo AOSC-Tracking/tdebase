@@ -1055,7 +1055,7 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
   KURL desktop_URL = desktopURL();
   if (desktop_URL.isLocalFile())
     desktopPath = desktop_URL.path();
-  // We have new items, so we'll need to tqrepaint in slotCompleted
+  // We have new items, so we'll need to repaint in slotCompleted
   m_bNeedRepaint = true;
   kdDebug(1214) << "KDIconView::slotNewItems count=" << entries.count() << endl;
   KFileItemListIterator it(entries);
@@ -1198,7 +1198,7 @@ void KDIconView::slotRefreshItems( const KFileItemList & entries )
     }
     else
     {
-        // In case we replace a big icon with a small one, need to tqrepaint.
+        // In case we replace a big icon with a small one, need to repaint.
         updateContents();
         // Can't do that with m_bNeedRepaint since slotCompleted isn't called
         m_bNeedRepaint = false;
@@ -1305,7 +1305,7 @@ void KDIconView::slotCompleted()
     if (!m_hasExistingPos)
         rearrangeIcons();
 
-//    kdDebug(1204) << "KDIconView::slotCompleted save:" << m_bNeedSave << " tqrepaint:" << m_bNeedRepaint << endl;
+//    kdDebug(1204) << "KDIconView::slotCompleted save:" << m_bNeedSave << " repaint:" << m_bNeedRepaint << endl;
     if ( m_bNeedSave )
     {
         // Done here because we want to align icons only once initially, and each time new icons appear.
@@ -1317,7 +1317,7 @@ void KDIconView::slotCompleted()
     }
     if ( m_bNeedRepaint )
     {
-        viewport()->tqrepaint();
+        viewport()->repaint();
         m_bNeedRepaint = false;
     }
 }
@@ -1471,7 +1471,7 @@ void KDIconView::contentsDropEvent( TQDropEvent * e )
     bool isImmutable = KGlobal::config()->isImmutable();
 
     if ( (isColorDrag || isImageDrag) && !isUrlDrag ) {
-        // Hack to clear the drag tqshape
+        // Hack to clear the drag shape
         bool bMovable = itemsMovable();
         bool bSignals = signalsBlocked();
         setItemsMovable(false);
@@ -1519,7 +1519,7 @@ void KDIconView::contentsDropEvent( TQDropEvent * e )
     if( adjustedAnyItems )
     {
         // Make sure the viewport isn't unnecessarily resized by now,
-        // then schedule a tqrepaint to remove any garbage pixels.
+        // then schedule a repaint to remove any garbage pixels.
         resizeContents( width(), height() );
         viewport()->update();
     }
@@ -1541,7 +1541,7 @@ void KDIconView::updateWorkArea( const TQRect &wr )
 {
     m_gotIconsArea = true;  // now we have it!
 
-    if (( iconArea() == wr ) && (m_needDesktopAlign == false)) return;  // nothing changed; avoid tqrepaint/saveIconPosition ...
+    if (( iconArea() == wr ) && (m_needDesktopAlign == false)) return;  // nothing changed; avoid repaint/saveIconPosition ...
 
     TQRect oldArea = iconArea();
     setIconArea( wr );
@@ -1593,8 +1593,8 @@ void KDIconView::updateWorkArea( const TQRect &wr )
             }
         }
         if ( needRepaint ) {
-            viewport()->tqrepaint( FALSE );
-            tqrepaint( FALSE );
+            viewport()->repaint( FALSE );
+            repaint( FALSE );
             saveIconPositions();
         }
     }
@@ -1718,7 +1718,7 @@ void KDIconView::moveToFreePosition(TQIconViewItem *item )
     TQRect rect=item->rect();
     if (m_bVertAlign)
     {
-	kdDebug(1214)<<"moveToFreePosition for vertical tqalignment"<<endl;
+	kdDebug(1214)<<"moveToFreePosition for vertical alignment"<<endl;
 
 	rect.moveTopLeft(TQPoint(spacing(),spacing()));
       do

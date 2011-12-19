@@ -93,7 +93,7 @@ void History::createEntry()
   Entry * current = m_entries.current();
   if (current)
   {
-    m_entries.tqat( m_entries.count() - 1 ); // go to last one
+    m_entries.at( m_entries.count() - 1 ); // go to last one
     for ( ; m_entries.current() != current ; )
     {
       if ( !m_entries.removeLast() ) { // and remove from the end (faster and easier)
@@ -101,7 +101,7 @@ void History::createEntry()
         return;
       }
       else
-        m_entries.tqat( m_entries.count() - 1 );
+        m_entries.at( m_entries.count() - 1 );
     }
     // Now current is the current again.
 
@@ -111,7 +111,7 @@ void History::createEntry()
 
   // Append a new entry
   m_entries.append( new Entry ); // made current
-  Q_ASSERT( m_entries.tqat() == (int) m_entries.count() - 1 );
+  Q_ASSERT( m_entries.at() == (int) m_entries.count() - 1 );
 }
 
 void History::updateCurrentEntry( View *view )
@@ -199,9 +199,9 @@ void History::goHistory( int steps )
   Entry *current = m_entries.current();
   if ( current && !current->view ) m_entries.remove();
 
-  int newPos = m_entries.tqat() + steps;
+  int newPos = m_entries.at() + steps;
 
-  current = m_entries.tqat( newPos );
+  current = m_entries.at( newPos );
   if ( !current ) {
     kdError() << "No History entry at position " << newPos << endl;
     return;
@@ -276,14 +276,14 @@ void History::fillGoMenu()
     // Second case: big history, in one or both directions
   {
     // Assume both directions first (in this case we place the current URL in the middle)
-    m_goMenuHistoryStartPos = m_entries.tqat() + 4;
+    m_goMenuHistoryStartPos = m_entries.at() + 4;
 
     // Forward not big enough ?
-    if ( m_entries.tqat() > (int)m_entries.count() - 4 )
+    if ( m_entries.at() > (int)m_entries.count() - 4 )
       m_goMenuHistoryStartPos = m_entries.count() - 1;
   }
   Q_ASSERT( m_goMenuHistoryStartPos >= 0 && (uint)m_goMenuHistoryStartPos < m_entries.count() );
-  m_goMenuHistoryCurrentPos = m_entries.tqat(); // for slotActivated
+  m_goMenuHistoryCurrentPos = m_entries.at(); // for slotActivated
   fillHistoryPopup( goMenu, false, false, true, m_goMenuHistoryStartPos );
 }
 
@@ -314,7 +314,7 @@ void History::fillHistoryPopup( TQPopupMenu *popup, bool onlyBack, bool onlyForw
   TQPtrListIterator<Entry> it( m_entries );
   if (onlyBack || onlyForward)
   {
-    it += m_entries.tqat(); // Jump to current item
+    it += m_entries.at(); // Jump to current item
     if ( !onlyForward ) --it; else ++it; // And move off it
   } else if ( startPos )
     it += startPos; // Jump to specified start pos
@@ -339,12 +339,12 @@ void History::fillHistoryPopup( TQPopupMenu *popup, bool onlyBack, bool onlyForw
 
 bool History::canGoBack() const
 {
-  return m_entries.tqat() > 0;
+  return m_entries.at() > 0;
 }
 
 bool History::canGoForward() const
 {
-  return m_entries.tqat() != static_cast<int>( m_entries.count() ) - 1;
+  return m_entries.at() != static_cast<int>( m_entries.count() ) - 1;
 }
 
 #include "history.moc"

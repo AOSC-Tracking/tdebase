@@ -1074,7 +1074,7 @@ void TaskBar::activateNextTask(bool forward)
     TaskContainer::List::iterator it;
     for (int i = 0; i < numContainers; ++i)
     {
-        it = forward ? list.tqat(i) : list.tqat(numContainers - i - 1);
+        it = forward ? list.at(i) : list.at(numContainers - i - 1);
 
         if (it != list.end() && (*it)->activateNextTask(forward, forcenext))
         {
@@ -1087,7 +1087,7 @@ void TaskBar::activateNextTask(bool forward)
         // moving forward from the last, or backward from the first, loop around
         for (int i = 0; i < numContainers; ++i)
         {
-            it = forward ? list.tqat(i) : list.tqat(numContainers - i - 1);
+            it = forward ? list.at(i) : list.at(numContainers - i - 1);
 
             if (it != list.end() && (*it)->activateNextTask(forward, forcenext))
             {
@@ -1101,7 +1101,7 @@ void TaskBar::activateNextTask(bool forward)
     forcenext = true; // select first
     for (int i = 0; i < numContainers; ++i)
     {
-        it = forward ? list.tqat(i) : list.tqat(numContainers - i - 1);
+        it = forward ? list.at(i) : list.at(numContainers - i - 1);
 
         if (it == list.end())
         {

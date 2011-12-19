@@ -77,7 +77,7 @@ void Tzone::currentZone()
     time_t now = time(0);
     tzset();
     strftime(result.data(), result.size(), "%Z", localtime(&now));
-    m_local->setText(localZone.tqarg(KTimezoneWidget::displayName(m_zoneDb.local())).tqarg(static_cast<const char *>(result)));
+    m_local->setText(localZone.arg(KTimezoneWidget::displayName(m_zoneDb.local())).arg(static_cast<const char *>(result)));
 }
 
 // FIXME: Does the logic in this routine actually work correctly? For example,

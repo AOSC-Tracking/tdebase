@@ -60,7 +60,7 @@ public:
     static void setSettings( KonqSidebarHistorySettings *s ) { s_settings = s; }
 
     virtual void paintCell( TQPainter *, const TQColorGroup & cg, int column, 
-			    int width, int tqalignment );
+			    int width, int alignment );
 
 private:
     const KonqHistoryEntry *m_entry;

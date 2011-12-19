@@ -166,9 +166,9 @@ MultiMeter::restoreSettings(TQDomElement& element)
 bool
 MultiMeter::saveSettings(TQDomDocument& doc, TQDomElement& element, bool save)
 {
-	element.setAttribute("hostName", sensors().tqat(0)->hostName());
-	element.setAttribute("sensorName", sensors().tqat(0)->name());
-	element.setAttribute("sensorType", sensors().tqat(0)->type());
+	element.setAttribute("hostName", sensors().at(0)->hostName());
+	element.setAttribute("sensorName", sensors().at(0)->name());
+	element.setAttribute("sensorType", sensors().at(0)->type());
 	element.setAttribute("showUnit", showUnit());
 	element.setAttribute("lowerLimitActive", (int) lowerLimitActive);
 	element.setAttribute("lowerLimit", (int) lowerLimit);
@@ -225,7 +225,7 @@ MultiMeter::applySettings()
 	alarmDigitColor = mms->alarmDigitColor();
 	setBackgroundColor(mms->meterBackgroundColor());
 
-	tqrepaint();
+	repaint();
 	setModified(true);
 }
 
@@ -234,7 +234,7 @@ MultiMeter::applyStyle()
 {
 	normalDigitColor = KSGRD::Style->firstForegroundColor();
 	setBackgroundColor(KSGRD::Style->backgroundColor());
-	tqrepaint();
+	repaint();
 	setModified(true);
 }
 

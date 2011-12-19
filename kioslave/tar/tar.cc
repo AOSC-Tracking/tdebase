@@ -504,7 +504,7 @@ void ArchiveProtocol::get( const KURL & url )
         if ( !firstRead )
         {
             bufferSize = kMin( maxSize, fileSize );
-            buffer.tqresize( bufferSize, TQGArray::SpeedOptim );
+            buffer.resize( bufferSize, TQGArray::SpeedOptim );
         }
         const TQ_LONG read = io->readBlock( buffer.data(), buffer.size() ); // Avoid to use bufferSize here, in case something went wrong.
         if ( read != bufferSize )

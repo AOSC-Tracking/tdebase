@@ -83,7 +83,7 @@ void KTagComboBox::internalActivate( int index )
   if (current == index) return;
   current = index;
   emit activated( index );
-  tqrepaint();
+  repaint();
 }
 
 void KTagComboBox::internalHighlight( int index )
@@ -211,7 +211,7 @@ bool KTagComboBox::containsTag( const TQString &str ) const
 
 TQString KTagComboBox::currentTag() const
 {
-  return *tags->tqat(currentItem());
+  return *tags->at(currentItem());
 }
 
 TQString KTagComboBox::tag(int i) const
@@ -221,7 +221,7 @@ TQString KTagComboBox::tag(int i) const
     kdDebug() << "KTagComboBox::tag(), unknown tag " << i << endl;
     return TQString::null;
   }
-  return *tags->tqat(i);
+  return *tags->at(i);
 }
 
 int KTagComboBox::currentItem() const
@@ -233,7 +233,7 @@ void KTagComboBox::setCurrentItem(int i)
 {
   if (i < 0 || i >= count()) return;
   current = i;
-  tqrepaint();
+  repaint();
 }
 
 void KTagComboBox::setCurrentItem(const TQString &code)

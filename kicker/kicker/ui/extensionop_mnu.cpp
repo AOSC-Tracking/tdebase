@@ -59,7 +59,7 @@ PanelExtensionOpMenu::PanelExtensionOpMenu(const TQString& extension, int action
 
     if (!Kicker::the()->isImmutable() && (actions & KPanelExtension::Preferences)) {
 	insertSeparator();
-	insertItem(SmallIcon("configure"), i18n("&Configure %1...").tqarg(extension), Preferences);
+	insertItem(SmallIcon("configure"), i18n("&Configure %1...").arg(extension), Preferences);
     }
 
     adjustSize();

@@ -140,7 +140,7 @@ bool KFileMediaPlugin::readInfo(KFileMetaInfo &info, uint /*what*/)
 
 			group = appendGroup(info, "mediumSummary");
 
-			appendItem(group, "percent", TQString("%1%").tqarg(percent));
+			appendItem(group, "percent", TQString("%1%").arg(percent));
 
 			TQPixmap bar(150, 20);
 			TQPainter p(&bar);

@@ -225,7 +225,7 @@ void AddAppletVisualFeedback::swoopCloser()
 void AddAppletVisualFeedback::internalUpdate()
 {
     m_dirty = true;
-    tqrepaint(false);
+    repaint(false);
 }
 
 #include "addappletvisualfeedback.moc"

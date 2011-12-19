@@ -66,7 +66,7 @@ void KDecorationPreview::performRepaintTest(int n)
     deco->captionChange();
     positionPreviews(0);
     for (int i = 0; i < n; ++i) {
-        deco->widget()->tqrepaint();
+        deco->widget()->repaint();
         kapp->processEvents();
     }
 }
@@ -79,7 +79,7 @@ void KDecorationPreview::performCaptionTest(int n)
     for (int i = 0; i < n; ++i) {
         bridge->setCaption(caption.arg(i) );
         deco->captionChange();
-        deco->widget()->tqrepaint();
+        deco->widget()->repaint();
         kapp->processEvents();
     }
 }

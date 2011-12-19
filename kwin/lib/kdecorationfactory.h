@@ -56,7 +56,7 @@ class KWIN_EXPORT KDecorationFactory
 	 * The argument specifies what has changed, using the SettingXXX masks.
 	 * It should be determined whether the decorations need to be completely
 	 * remade, in which case true should be returned, or whether only e.g.
-	 * a tqrepaint will be sufficient, in which case false should be returned,
+	 * a repaint will be sufficient, in which case false should be returned,
 	 * and resetDecorations() can be called to reset all decoration objects.
 	 * Note that true should be returned only when really necessary.
 	 */

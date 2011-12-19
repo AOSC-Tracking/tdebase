@@ -59,7 +59,7 @@ void KickerClientMenu::insertItem( TQString text, int id )
 TQCString KickerClientMenu::insertMenu( TQPixmap icon, TQString text, int id )
 {
     TQString subname("%1-submenu%2");
-    TQCString subid = subname.tqarg(static_cast<const char *>(objId())).tqarg(id).local8Bit();
+    TQCString subid = subname.arg(static_cast<const char *>(objId())).arg(id).local8Bit();
     KickerClientMenu *sub = new KickerClientMenu(this, subid);
     int globalid = TQPopupMenu::insertItem( icon, text, sub, id);
     setItemParameter( globalid, id );

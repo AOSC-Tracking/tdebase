@@ -73,7 +73,7 @@ LogSensor::stopLogging(void)
 {
 	lvi->setPixmap(0, pixmap_waiting);
 	lvi->setTextColor(monitor->colorGroup().text());
-	lvi->tqrepaint();
+	lvi->repaint();
 	timerOff();
 }
 
@@ -105,7 +105,7 @@ LogSensor::answerReceived(int id, const TQString& answer)
 				timerOff();
 				lowerLimitActive = false;
 				lvi->setTextColor(monitor->colorGroup().foreground());
-				lvi->tqrepaint();
+				lvi->repaint();
 				KNotifyClient::event(monitor->winId(), "sensor_alarm", TQString("sensor '%1' at '%2' reached lower limit").arg(sensorName).arg(hostName));
 				timerOn();
 			} else if (upperLimitActive && value > upperLimit)
@@ -113,7 +113,7 @@ LogSensor::answerReceived(int id, const TQString& answer)
 				timerOff();
 				upperLimitActive = false;
 				lvi->setTextColor(monitor->colorGroup().foreground());
-				lvi->tqrepaint();
+				lvi->repaint();
 				KNotifyClient::event(monitor->winId(), "sensor_alarm", TQString("sensor '%1' at '%2' reached upper limit").arg(sensorName).arg(hostName));
 				timerOn();
 			}

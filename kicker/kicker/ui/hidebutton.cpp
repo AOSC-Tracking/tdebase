@@ -173,14 +173,14 @@ void HideButton::slotIconChanged(int group)
     }
 
     generateIcons();
-    tqrepaint(false);
+    repaint(false);
 }
 
 void HideButton::enterEvent(TQEvent *e)
 {
     m_highlight = true;
 
-    tqrepaint(false);
+    repaint(false);
     TQButton::enterEvent(e);
 }
 
@@ -188,7 +188,7 @@ void HideButton::leaveEvent(TQEvent *e)
 {
     m_highlight = false;
 
-    tqrepaint(false);
+    repaint(false);
     TQButton::enterEvent(e);
 }
 

@@ -178,7 +178,7 @@ static int startApp()
     TQString file = TQFile::decodeName(args->getOption("f"));
     if (change_uid && !file.isEmpty())
     {
-        if (file.tqat(0) != '/')
+        if (file.at(0) != '/')
         {
             KStandardDirs dirs;
             dirs.addKDEDefaults();

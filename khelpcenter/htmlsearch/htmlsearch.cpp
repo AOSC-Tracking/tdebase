@@ -28,7 +28,7 @@ TQString HTMLSearch::dataPath(const TQString& _lang)
 
 void HTMLSearch::scanDir(const TQString& dir)
 {
-    assert( dir.tqat( dir.length() - 1 ) == '/' );
+    assert( dir.at( dir.length() - 1 ) == '/' );
 
     TQStringList::ConstIterator it;
 
@@ -83,7 +83,7 @@ bool HTMLSearch::saveFilesList(const TQString& _lang)
     TQStringList add = config->readListEntry("Paths");
     TQStringList::Iterator it;
     for (it = add.begin(); it != add.end(); ++it) {
-        if ( ( *it ).tqat( ( *it ).length() - 1 ) != '/' )
+        if ( ( *it ).at( ( *it ).length() - 1 ) != '/' )
             ( *it ) += '/';
         dirs.append(*it);
     }

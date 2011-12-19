@@ -233,7 +233,7 @@ void KNewMenu::fillMenu()
 
             if ( !bSkip )
             {
-                Entry entry = *(s_templatesList->tqat( i-1 ));
+                Entry entry = *(s_templatesList->at( i-1 ));
 
                 // The best way to identify the "Create Directory", "Link to Location", "Link to Application" was the template
                 if ( (*templ).templatePath.endsWith( "emptydir" ) )
@@ -378,7 +378,7 @@ void KNewMenu::slotNewFile()
 
     emit activated(); // for KDIconView::slotNewMenuActivated()
 
-    Entry entry = *(s_templatesList->tqat( id - 1 ));
+    Entry entry = *(s_templatesList->at( id - 1 ));
     //kdDebug(1203) << TQString("sFile = %1").arg(sFile) << endl;
 
     if ( !TQFile::exists( entry.templatePath ) ) {

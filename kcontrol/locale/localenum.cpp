@@ -109,7 +109,7 @@ void KLocaleConfigNumber::save()
   if (str != m_locale->thousandsSeparator())
     config->writeEntry("ThousandsSeparator",
 		       TQString::fromLatin1("$0%1$0")
-		       .tqarg(m_locale->thousandsSeparator()), true, true);
+		       .arg(m_locale->thousandsSeparator()), true, true);
 
   str = ent.readEntry("PositiveSign");
   config->deleteEntry("PositiveSign", false, true);

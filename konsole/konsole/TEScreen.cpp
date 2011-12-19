@@ -1023,7 +1023,7 @@ void TEScreen::clearEntireScreen()
 }
 
 /*! fill screen with 'E'
-    This is to aid screen tqalignment
+    This is to aid screen alignment
 */
 
 void TEScreen::helpAlign()

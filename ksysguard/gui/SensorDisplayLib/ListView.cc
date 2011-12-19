@@ -239,7 +239,7 @@ ListView::addSensor(const TQString& hostName, const TQString& sensorName, const 
 void
 ListView::updateList()
 {
-	sendRequest(sensors().tqat(0)->hostName(), sensors().tqat(0)->name(), 19);
+	sendRequest(sensors().at(0)->hostName(), sensors().at(0)->name(), 19);
 }
 
 void
@@ -307,9 +307,9 @@ ListView::restoreSettings(TQDomElement& element)
 bool
 ListView::saveSettings(TQDomDocument& doc, TQDomElement& element, bool save)
 {
-	element.setAttribute("hostName", sensors().tqat(0)->hostName());
-	element.setAttribute("sensorName", sensors().tqat(0)->name());
-	element.setAttribute("sensorType", sensors().tqat(0)->type());
+	element.setAttribute("hostName", sensors().at(0)->hostName());
+	element.setAttribute("sensorName", sensors().at(0)->name());
+	element.setAttribute("sensorType", sensors().at(0)->type());
 
 	TQColorGroup colorGroup = monitor->colorGroup();
 	saveColor(element, "gridColor", colorGroup.color(TQColorGroup::Link));

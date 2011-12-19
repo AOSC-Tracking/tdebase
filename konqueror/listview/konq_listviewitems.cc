@@ -173,7 +173,7 @@ void KonqListViewItem::setActive( bool active )
     if ( m_bActive == active )
         return;
 
-    //#### Optimize away tqrepaint if possible, like the iconview does?
+    //#### Optimize away repaint if possible, like the iconview does?
     KonqBaseListViewItem::setActive( active );
     int iconSize = m_pListViewWidget->iconSize();
     iconSize = iconSize ? iconSize : KGlobal::iconLoader()->currentSize( KIcon::Small ); // Default = small
@@ -203,7 +203,7 @@ void KonqListViewItem::setPixmap( int column, const TQPixmap& pm )
    int newWidth = pm.isNull() ? 0 : pm.width();
    int newHeight = pm.isNull() ? 0 : pm.height();
 
-   // If the height or width have changed then we're going to have to tqrepaint
+   // If the height or width have changed then we're going to have to repaint
    // this whole thing.  Fortunately since most of the calls are coming from
    // setActive() this is the uncommon case.
 
@@ -234,7 +234,7 @@ const TQPixmap* KonqListViewItem::pixmap( int column ) const
    if ((int)m_pixmaps.count() <= column)
       return 0;
 
-   TQPixmap *pm = m_pixmaps.tqat( column, &ok );
+   TQPixmap *pm = m_pixmaps.at( column, &ok );
    if( !ok )
       return 0;
    return pm;
@@ -294,7 +294,7 @@ int KonqBaseListViewItem::compare( TQListViewItem* item, int col, bool ascending
    }
 }
 
-void KonqListViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg, int _column, int _width, int _tqalignment )
+void KonqListViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg, int _column, int _width, int _alignment )
 {
     TQColorGroup cg( _cg );
 
@@ -330,7 +330,7 @@ void KonqListViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg,
         _width = newWidth;
     }
 
-    KListViewItem::paintCell( _painter, cg, _column, _width, _tqalignment );
+    KListViewItem::paintCell( _painter, cg, _column, _width, _alignment );
 }
 
 void KonqListViewItem::paintFocus( TQPainter * _painter, const TQColorGroup & cg, const TQRect & _r )

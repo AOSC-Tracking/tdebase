@@ -151,7 +151,7 @@ static Rules* findRule( const TQValueList< Rules* >& rules, Window wid, bool who
     Rules* ret = new Rules;
     if( whole_app )
         {
-        ret->description = i18n( "Application settings for %1" ).tqarg( static_cast<const char *>(wmclass_class) );
+        ret->description = i18n( "Application settings for %1" ).arg( static_cast<const char *>(wmclass_class) );
         // TODO maybe exclude some types? If yes, then also exclude them above
         // when searching.
         ret->types = NET::AllTypesMask; 
@@ -175,7 +175,7 @@ static Rules* findRule( const TQValueList< Rules* >& rules, Window wid, bool who
             }
         return ret;
         }
-    ret->description = i18n( "Window settings for %1" ).tqarg( static_cast<const char *>(wmclass_class) );
+    ret->description = i18n( "Window settings for %1" ).arg( static_cast<const char *>(wmclass_class) );
     if( type == NET::Unknown )
         ret->types = NET::NormalMask;
     else

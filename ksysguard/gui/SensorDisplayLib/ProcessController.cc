@@ -213,13 +213,13 @@ ProcessController::addSensor(const TQString& hostName,
 void
 ProcessController::updateList()
 {
-	sendRequest(sensors().tqat(0)->hostName(), "ps", 2);
+	sendRequest(sensors().at(0)->hostName(), "ps", 2);
 }
 
 void
 ProcessController::killProcess(int pid, int sig)
 {
-	sendRequest(sensors().tqat(0)->hostName(),
+	sendRequest(sensors().at(0)->hostName(),
 				TQString("kill %1 %2" ).arg(pid).arg(sig), 3);
 
 	if ( !timerOn() )
@@ -269,7 +269,7 @@ ProcessController::killProcess()
 	// send kill signal to all seleted processes
 	TQValueListConstIterator<int> it;
 	for (it = selectedPIds.begin(); it != selectedPIds.end(); ++it)
-		sendRequest(sensors().tqat(0)->hostName(), TQString("kill %1 %2" ).arg(*it)
+		sendRequest(sensors().at(0)->hostName(), TQString("kill %1 %2" ).arg(*it)
 					.arg(MENU_ID_SIGKILL), 3);
 
 	if ( !timerOn())
@@ -283,9 +283,9 @@ void
 ProcessController::reniceProcess(const TQValueList<int> &pids, int niceValue)
 {
 	for( TQValueList<int>::ConstIterator it = pids.constBegin(), end = pids.constEnd(); it != end; ++it )
-		sendRequest(sensors().tqat(0)->hostName(),
+		sendRequest(sensors().at(0)->hostName(),
 					TQString("setpriority %1 %2" ).arg(*it).arg(niceValue), 5);
-	sendRequest(sensors().tqat(0)->hostName(), "ps", 2);  //update the display afterwards
+	sendRequest(sensors().at(0)->hostName(), "ps", 2);  //update the display afterwards
 }
 
 void
@@ -401,7 +401,7 @@ ProcessController::answerReceived(int id, const TQString& answer)
 void
 ProcessController::sensorError(int, bool err)
 {
-	if (err == sensors().tqat(0)->isOk())
+	if (err == sensors().at(0)->isOk())
 	{
 		if (!err)
 		{
@@ -409,15 +409,15 @@ ProcessController::sensorError(int, bool err)
 			 * (re-)established we need to requests the full set of
 			 * properties again, since the back-end might be a new
 			 * one. */
-			sendRequest(sensors().tqat(0)->hostName(), "test kill", 4);
-			sendRequest(sensors().tqat(0)->hostName(), "ps?", 1);
-			sendRequest(sensors().tqat(0)->hostName(), "ps", 2);
+			sendRequest(sensors().at(0)->hostName(), "test kill", 4);
+			sendRequest(sensors().at(0)->hostName(), "ps?", 1);
+			sendRequest(sensors().at(0)->hostName(), "ps", 2);
 		}
 
 		/* This happens only when the sensorOk status needs to be changed. */
-		sensors().tqat(0)->setIsOk( !err );
+		sensors().at(0)->setIsOk( !err );
 	}
-	setSensorOk(sensors().tqat(0)->isOk());
+	setSensorOk(sensors().at(0)->isOk());
 }
 
 bool
@@ -452,9 +452,9 @@ ProcessController::restoreSettings(TQDomElement& element)
 bool
 ProcessController::saveSettings(TQDomDocument& doc, TQDomElement& element, bool save)
 {
-	element.setAttribute("hostName", sensors().tqat(0)->hostName());
-	element.setAttribute("sensorName", sensors().tqat(0)->name());
-	element.setAttribute("sensorType", sensors().tqat(0)->type());
+	element.setAttribute("hostName", sensors().at(0)->hostName());
+	element.setAttribute("sensorName", sensors().at(0)->name());
+	element.setAttribute("sensorType", sensors().at(0)->type());
 	element.setAttribute("tree", (uint) xbTreeView->isChecked());
 	element.setAttribute("filter", cbFilter->currentItem());
 	element.setAttribute("sortColumn", pList->getSortColumn());

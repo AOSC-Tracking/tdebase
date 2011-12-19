@@ -125,17 +125,17 @@ public:
   /**
    * @return true if view can go back
    */
-  bool canGoBack()const { return m_lstHistory.tqat() > 0; }
+  bool canGoBack()const { return m_lstHistory.at() > 0; }
 
   /**
    * @return true if view can go forward
    */
-  bool canGoForward()const { return m_lstHistory.tqat() != ((int)m_lstHistory.count())-1; }
+  bool canGoForward()const { return m_lstHistory.at() != ((int)m_lstHistory.count())-1; }
 
   /**
    * @return the position in the history
    */
-  int historyPos() const { return m_lstHistory.tqat(); }
+  int historyPos() const { return m_lstHistory.at(); }
 
   uint historyLength() { return m_lstHistory.count(); }
 
@@ -149,7 +149,7 @@ public:
    */
   void restoreHistory();
 
-  void setHistoryPos(int newPos) { m_lstHistory.tqat( newPos ); }
+  void setHistoryPos(int newPos) { m_lstHistory.at( newPos ); }
 
   /**
    * @return the history of this view

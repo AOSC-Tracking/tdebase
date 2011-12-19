@@ -190,7 +190,7 @@ bool qt_set_socket_handler( int sockfd, int type, TQObject *obj, bool enable )
           }
 #endif
           if ( p )
-              _notifiers[type].insert( _notifiers[type].tqat(), sn );
+              _notifiers[type].insert( _notifiers[type].at(), sn );
           else
               _notifiers[type].append( sn );
       }

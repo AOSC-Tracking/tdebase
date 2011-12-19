@@ -1611,8 +1611,8 @@ void KonqViewManager::loadItem( KConfig &cfg, KonqFrameContainerBase *parent,
       if (cfg.readBoolEntry( TQString::fromLatin1( "docContainer" ).prepend( prefix ), false ))
         m_pDocContainer = newContainer;
 
-      loadItem( cfg, newContainer, childList.tqat(0), defaultURL, openURL );
-      loadItem( cfg, newContainer, childList.tqat(1), defaultURL, openURL );
+      loadItem( cfg, newContainer, childList.at(0), defaultURL, openURL );
+      loadItem( cfg, newContainer, childList.at(1), defaultURL, openURL );
 
       newContainer->setSizes( sizes );
 

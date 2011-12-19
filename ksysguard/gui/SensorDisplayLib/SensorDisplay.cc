@@ -219,14 +219,14 @@ void SensorDisplay::sensorError( int sensorId, bool err )
   if ( sensorId >= (int)mSensors.count() || sensorId < 0 )
     return;
 
-  if ( err == mSensors.tqat( sensorId )->isOk() ) {
+  if ( err == mSensors.at( sensorId )->isOk() ) {
     // this happens only when the sensorOk status needs to be changed.
-		mSensors.tqat( sensorId )->setIsOk( !err );
+		mSensors.at( sensorId )->setIsOk( !err );
 	}
 
   bool ok = true;
   for ( uint i = 0; i < mSensors.count(); ++i )
-    if ( !mSensors.tqat( i )->isOk() ) {
+    if ( !mSensors.at( i )->isOk() ) {
       ok = false;
       break;
     }
@@ -524,7 +524,7 @@ void SensorDisplay::reorderSensors(const TQValueList<int> &orderOfSensors)
 {
   TQPtrList<SensorProperties> newSensors;
   for ( uint i = 0; i < orderOfSensors.count(); ++i ) {
-    newSensors.append( mSensors.tqat(orderOfSensors[i] ));
+    newSensors.append( mSensors.at(orderOfSensors[i] ));
   }
 
   mSensors.setAutoDelete( false );

@@ -557,7 +557,7 @@
                             <property name="text">
                                 <string>Fast</string>
                             </property>
-                            <property name="tqalignment">
+                            <property name="alignment">
                                 <set>AlignVCenter|AlignRight</set>
                             </property>
                             <property name="hAlign" stdset="0">
@@ -598,7 +598,7 @@
                             <property name="text">
                                 <string>Medium</string>
                             </property>
-                            <property name="tqalignment">
+                            <property name="alignment">
                                 <set>AlignCenter</set>
                             </property>
                             <property name="hAlign" stdset="0">

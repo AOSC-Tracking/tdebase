@@ -213,7 +213,7 @@ void KasGroupItem::paint( TQPainter *p )
     int ypos = 16;
 
     for ( int i = 0; ( i < (int) items.count() ) && ( i < microsPerCol ); i++ ) {
-	Task::Ptr t = items.tqat( i );
+	Task::Ptr t = items.at( i );
 
 	if( t->isIconified() )
 	    p->drawPixmap( xpos, ypos, res->microMinIcon() );

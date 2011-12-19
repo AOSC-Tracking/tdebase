@@ -243,8 +243,8 @@ void KGreeter::handleInputPipe(void) {
 	currentDisplay = TQString(getenv("DISPLAY"));
 	currentDisplay = currentDisplay.replace(":", "");
 	displayNumber = currentDisplay.toInt();
-	mPipeFilename = TQString(FIFO_FILE).tqarg(displayNumber);
-	::unlink((TQString(FIFO_SAK_FILE).tqarg(displayNumber)).ascii());
+	mPipeFilename = TQString(FIFO_FILE).arg(displayNumber);
+	::unlink((TQString(FIFO_SAK_FILE).arg(displayNumber)).ascii());
 
 	/* Create the FIFOs if they do not exist */
 	umask(0);
@@ -338,12 +338,12 @@ class UserListViewItem : public KListViewItem {
 		parent->cachedSizeHint.setWidth( -1 );
 	}
 
-        virtual void paintCell(TQPainter *p, const TQColorGroup &cg, int column, int width, int tqalignment)
+        virtual void paintCell(TQPainter *p, const TQColorGroup &cg, int column, int width, int alignment)
     {
       if (((UserListView*)listView())->themed)
-        TQListViewItem::paintCell(p, cg, column, width, tqalignment);
+        TQListViewItem::paintCell(p, cg, column, width, alignment);
       else
-	KListViewItem::paintCell(p, cg, column, width, tqalignment);
+	KListViewItem::paintCell(p, cg, column, width, alignment);
     }
 
 	TQString login;
@@ -422,7 +422,7 @@ KGreeter::insertUser( const TQImage &default_pix,
             if ( randomFace.isNull() ) {
                 TQStringList::size_type index = 0;
                 for ( size_t i = 0; i < username.length(); ++i )
-                    index += ( 0x7f - username.tqat( i ).latin1() ) % 37;
+                    index += ( 0x7f - username.at( i ).latin1() ) % 37;
                 randomFace = randomFaces[ index % randomFaces.count() ];
             }
             p.load( _faceDir + "/../pics/users/" + randomFace + ".png" );

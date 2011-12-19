@@ -69,7 +69,7 @@ KateDocManager::~KateDocManager ()
 {
   // save config
   if (!m_docList.isEmpty())
-    m_docList.tqat(0)->writeConfig(KateApp::self()->config());
+    m_docList.at(0)->writeConfig(KateApp::self()->config());
 
   if (m_saveMetaInfos)
   {
@@ -150,7 +150,7 @@ void KateDocManager::deleteDoc (Kate::Document *doc)
 
 Kate::Document *KateDocManager::document (uint n)
 {
-  return m_docList.tqat(n);
+  return m_docList.at(n);
 }
 
 Kate::Document *KateDocManager::activeDocument ()
@@ -234,7 +234,7 @@ bool KateDocManager::isOpen(KURL url)
 Kate::Document *KateDocManager::openURL (const KURL& url,const TQString &encoding, uint *id, bool isTempFile)
 {
   // special handling if still only the first initial doc is there
-  if (!documentList().isEmpty() && (documentList().count() == 1) && (!documentList().tqat(0)->isModified() && documentList().tqat(0)->url().isEmpty()))
+  if (!documentList().isEmpty() && (documentList().count() == 1) && (!documentList().at(0)->isModified() && documentList().at(0)->url().isEmpty()))
   {
     Kate::Document* doc = documentList().getFirst();
 
@@ -354,7 +354,7 @@ bool KateDocManager::closeAllDocuments(bool closeURL)
   }
 
   while (!docs.isEmpty() && res)
-    if (! closeDocument(docs.tqat(0),closeURL) )
+    if (! closeDocument(docs.at(0),closeURL) )
       res = false;
     else
       docs.remove ((uint)0);
@@ -364,7 +364,7 @@ bool KateDocManager::closeAllDocuments(bool closeURL)
     KateApp::self()->mainWindow(i)->viewManager()->setViewActivationBlocked(false);
 
     for (uint s=0; s < KateApp::self()->mainWindow(i)->viewManager()->containers()->count(); s++)
-      KateApp::self()->mainWindow(i)->viewManager()->containers()->tqat(s)->activateView (m_docList.tqat(0)->documentNumber());
+      KateApp::self()->mainWindow(i)->viewManager()->containers()->at(s)->activateView (m_docList.at(0)->documentNumber());
   }
 
   return res;

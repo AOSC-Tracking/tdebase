@@ -259,7 +259,7 @@ void KonqBaseListViewWidget::readProtocolConfig( const KURL & url )
       //search the column in confColumns
       for ( unsigned int j = 0; j < NumberOfAtoms; j++ )
       {
-         if ( confColumns[j].name == *lstColumns.tqat(i) )
+         if ( confColumns[j].name == *lstColumns.at(i) )
          {
             confColumns[j].displayThisOne = true;
             confColumns[j].displayInColumn = currentColumn;
@@ -268,7 +268,7 @@ void KonqBaseListViewWidget::readProtocolConfig( const KURL & url )
             currentColumn++;
 
             if ( i < lstColumnWidths.count() )
-               confColumns[j].width = *lstColumnWidths.tqat(i);
+               confColumns[j].width = *lstColumnWidths.at(i);
             else
             {
                // Default Column widths

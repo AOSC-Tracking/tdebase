@@ -379,7 +379,7 @@ void URLGrabber::slotKillPopupMenu()
 {
     if ( myMenu && myMenu->isVisible() )
     {
-        if ( myMenu->tqgeometry().contains( TQCursor::pos() ) &&
+        if ( myMenu->geometry().contains( TQCursor::pos() ) &&
              myPopupKillTimeout > 0 )
         {
             myPopupKillTimer->start( 1000 * myPopupKillTimeout, true );

@@ -518,11 +518,11 @@ void KBackgroundManager::setPixmap(KPixmap *pm, int hash, int desk)
     {
        TQScrollView* sv = dynamic_cast<TQScrollView*>( m_pDesktop );
        if ( sv ) {
-         // Qt eats tqrepaint events in this case :-((
+         // Qt eats repaint events in this case :-((
          sv->viewport()->update();
        }
        m_pDesktop->setErasePixmap(*ep);
-       m_pDesktop->tqrepaint();
+       m_pDesktop->repaint();
        static bool root_cleared = false;
        if( !root_cleared )
        { // clear the root window pixmap set by kdm
@@ -923,7 +923,7 @@ void KBackgroundManager::setWallpaper(int desk, TQString wallpaper, int mode)
 void KBackgroundManager::repaintBackground()
 {
     if (m_pDesktop)
-       m_pDesktop->tqrepaint();
+       m_pDesktop->repaint();
     else
         TQT_TQWIDGET(KApplication::desktop()->screen())->erase();
 }

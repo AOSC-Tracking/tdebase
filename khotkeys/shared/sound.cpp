@@ -93,7 +93,7 @@ void Sound::load(const TQString& filename)
 		TQ_INT32 nb=0;
 		for(uint k=0;k<BytePS;k++)
 		{
-			nb |= (SoundData.tqat(f*BytePS+k)&0x000000FF) << (k*8);
+			nb |= (SoundData.at(f*BytePS+k)&0x000000FF) << (k*8);
 		}
 		if(nb & (1 << (BytePS*8 -1)) )
 			nb = nb-(1<<BytePS*8);
@@ -129,11 +129,11 @@ void Sound::save(const TQString& filename) const
 	
 	for(unsigned long int f=0;f<data.size();f++)
 	{
-		TQ_UINT16 val= (signed short int) ( (data.tqat(f) * ((double)(1<<13)/(signed)max)  ) );
-		SoundData.tqat( 2*f )=   val & 0x00FF;
-		SoundData.tqat(2*f+1)=  (val & 0xFF00) >> 8;
+		TQ_UINT16 val= (signed short int) ( (data.at(f) * ((double)(1<<13)/(signed)max)  ) );
+		SoundData.at( 2*f )=   val & 0x00FF;
+		SoundData.at(2*f+1)=  (val & 0xFF00) >> 8;
 		
-//		kdDebug( 1217 ) << k_funcinfo << data.tqat(f) << " / " << max << " = " << val << "  |  " <<   SoundData[ 2*f ] << " "<< SoundData[ 2*f+1 ] <<  endl;
+//		kdDebug( 1217 ) << k_funcinfo << data.at(f) << " / " << max << " = " << val << "  |  " <<   SoundData[ 2*f ] << " "<< SoundData[ 2*f+1 ] <<  endl;
 	}
 
 	TQ_UINT16 NumberOfChannels=2;

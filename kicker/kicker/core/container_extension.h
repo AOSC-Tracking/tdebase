@@ -86,7 +86,7 @@ public:
 
     KPanelExtension::Orientation orientation() const;
     KPanelExtension::Position position() const;
-    void setPosition(KPanelExtension::Position p) { arrange( p, tqalignment(), xineramaScreen() ); }
+    void setPosition(KPanelExtension::Position p) { arrange( p, alignment(), xineramaScreen() ); }
 
     int xineramaScreen() const;
     void setXineramaScreen(int screen);
@@ -100,7 +100,7 @@ public:
     void unhideIfHidden(int showForHowManyMS = 0);
     bool reserveStrut() const;
 
-    KPanelExtension::Alignment tqalignment() const;
+    KPanelExtension::Alignment alignment() const;
     void setAlignment(KPanelExtension::Alignment a) { arrange( position(), a, xineramaScreen() ); }
 
     TQRect currentGeometry() const;

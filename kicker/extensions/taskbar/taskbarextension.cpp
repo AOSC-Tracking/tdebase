@@ -155,7 +155,7 @@ void TaskBarExtension::setBackgroundTheme()
         }
         else
         {
-            m_rootPixmap->tqrepaint(true);
+            m_rootPixmap->repaint(true);
         }
 
         double tint = double(KickerSettings::tintValue()) / 100;

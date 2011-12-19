@@ -315,7 +315,7 @@ void ExtensionContainer::readConfig()
     }
 
     positionChange(position());
-    alignmentChange(tqalignment());
+    alignmentChange(alignment());
     setSize(static_cast<KPanelExtension::Size>(m_settings.size()),
             m_settings.customSize());
 
@@ -523,7 +523,7 @@ void ExtensionContainer::moveMe()
     }
 
     UserRectSel::PanelStrut newStrut = UserRectSel::select(rects, rect().center(), m_highlightColor);
-    arrange(newStrut.m_pos, newStrut.m_tqalignment, newStrut.m_screen);
+    arrange(newStrut.m_pos, newStrut.m_alignment, newStrut.m_screen);
 
     _is_lmb_down = false;
 
@@ -788,7 +788,7 @@ void ExtensionContainer::autoHide(bool hide)
     blockUserInput(true);
 
     TQPoint oldpos = pos();
-    TQRect newextent = initialGeometry( position(), tqalignment(), xineramaScreen(), hide, Unhidden );
+    TQRect newextent = initialGeometry( position(), alignment(), xineramaScreen(), hide, Unhidden );
     TQPoint newpos = newextent.topLeft();
 
     if (hide)
@@ -900,7 +900,7 @@ void ExtensionContainer::animatedHide(bool left)
     }
 
     TQPoint oldpos = pos();
-    TQRect newextent = initialGeometry(position(), tqalignment(), xineramaScreen(), false, newState);
+    TQRect newextent = initialGeometry(position(), alignment(), xineramaScreen(), false, newState);
     TQPoint newpos(newextent.topLeft());
 
     if (newState != Unhidden)
@@ -987,7 +987,7 @@ bool ExtensionContainer::reserveStrut() const
     return !m_extension || m_extension->reserveStrut();
 }
 
-KPanelExtension::Alignment ExtensionContainer::tqalignment() const
+KPanelExtension::Alignment ExtensionContainer::alignment() const
 {
     // KConfigXT really needs to get support for vars that are enums that
     // are defined in other classes
@@ -1005,7 +1005,7 @@ void ExtensionContainer::updateWindowManager()
         int w = 0;
         int h = 0;
 
-        TQRect geom = initialGeometry(position(), tqalignment(), xineramaScreen());
+        TQRect geom = initialGeometry(position(), alignment(), xineramaScreen());
         TQRect virtRect(TQApplication::desktop()->geometry());
         TQRect screenRect(TQApplication::desktop()->screenGeometry(xineramaScreen()));
 
@@ -1590,7 +1590,7 @@ KPanelExtension::Position ExtensionContainer::position() const
 
 void ExtensionContainer::resetLayout()
 {
-    TQRect g = initialGeometry(position(), tqalignment(), xineramaScreen(),
+    TQRect g = initialGeometry(position(), alignment(), xineramaScreen(),
                               autoHidden(), userHidden());
 
     // Disable the layout while we rearrange the panel.
@@ -1997,12 +1997,12 @@ void ExtensionContainer::setXineramaScreen(int screen)
         return;
     }
 
-    arrange(position(),tqalignment(), screen);
+    arrange(position(),alignment(), screen);
 }
 
 TQRect ExtensionContainer::currentGeometry() const
 {
-    return initialGeometry(position(), tqalignment(), xineramaScreen(),
+    return initialGeometry(position(), alignment(), xineramaScreen(),
                            autoHidden(), userHidden());
 }
 

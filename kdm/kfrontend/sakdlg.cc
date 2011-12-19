@@ -157,8 +157,8 @@ void SAKDlg::handleInputPipe(void) {
 	currentDisplay = TQString(getenv("DISPLAY"));
 	currentDisplay = currentDisplay.replace(":", "");
 	displayNumber = currentDisplay.toInt();
-	mPipeFilename = TQString(FIFO_SAK_FILE).tqarg(displayNumber);
-	::unlink((TQString(FIFO_FILE).tqarg(displayNumber)).ascii());
+	mPipeFilename = TQString(FIFO_SAK_FILE).arg(displayNumber);
+	::unlink((TQString(FIFO_FILE).arg(displayNumber)).ascii());
 
 	/* Create the FIFOs if they do not exist */
 	umask(0);

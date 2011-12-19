@@ -272,8 +272,8 @@ void KateFileList::slotModChanged (Kate::Document *doc)
 
     for ( uint i=0; i <  m_editHistory.count(); i++ )
     {
-      m_editHistory.tqat( i )->setEditHistPos( i+1 );
-      repaintItem(  m_editHistory.tqat( i ) );
+      m_editHistory.at( i )->setEditHistPos( i+1 );
+      repaintItem(  m_editHistory.at( i ) );
     }
   }
   else
@@ -334,7 +334,7 @@ void KateFileList::slotViewChanged ()
 //   int p = 0;
 //   if (  m_viewHistory.count() )
 //   {
-//     int p =  m_viewHistory.findRef( item ); // only tqrepaint items that needs it
+//     int p =  m_viewHistory.findRef( item ); // only repaint items that needs it
 //   }
 
   m_viewHistory.removeRef( item );
@@ -342,8 +342,8 @@ void KateFileList::slotViewChanged ()
 
   for ( uint i=0; i <  m_viewHistory.count(); i++ )
   {
-    m_viewHistory.tqat( i )->setViewHistPos( i+1 );
-    repaintItem(  m_viewHistory.tqat( i ) );
+    m_viewHistory.at( i )->setViewHistPos( i+1 );
+    repaintItem(  m_viewHistory.at( i ) );
   }
 
 }
@@ -616,7 +616,7 @@ void KFLConfigPage::apply()
   m_filelist->m_editShade = kcbEditShade->color();
   m_filelist->m_enableBgShading = cbEnableShading->isChecked();
   m_filelist->setSortType( cmbSort->currentItem() );
-  // tqrepaint the affected items
+  // repaint the affected items
   m_filelist->triggerUpdate();
 }
 

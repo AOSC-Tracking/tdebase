@@ -307,7 +307,7 @@ void KonqCombo::updatePixmaps()
         updateItem( prov->pixmapFor( text( i ) ), text( i ), i, titleOfURL( text( i ) ) );
     }
     setUpdatesEnabled( true );
-    tqrepaint();
+    repaint();
 
     restoreState();
 }
@@ -646,7 +646,7 @@ void KonqCombo::paintEvent( TQPaintEvent *pe )
 void KonqCombo::setPageSecurity( int pageSecurity )
 {
     m_pageSecurity = pageSecurity;
-    tqrepaint();
+    repaint();
 }
 
 bool KonqCombo::hasSufficientContrast(const TQColor &c1, const TQColor &c2)
@@ -850,7 +850,7 @@ void KonqComboCompletionBox::setItems( const TQStringList& items )
         insertStringList( items );
     else {
         //Keep track of whether we need to change anything,
-        //so we can avoid a tqrepaint for identical updates,
+        //so we can avoid a repaint for identical updates,
         //to reduce flicker
         bool dirty = false;
 

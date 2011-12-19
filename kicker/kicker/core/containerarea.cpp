@@ -1441,7 +1441,7 @@ void ContainerArea::setBackground()
         }
         else
         {
-            _rootPixmap->tqrepaint(true);
+            _rootPixmap->repaint(true);
         }
 
         double tint = double(KickerSettings::tintValue()) / 100;
@@ -1725,7 +1725,7 @@ void ContainerArea::setPosition(KPanelExtension::Position p)
     setBackground();
 
     // container extension repaints for us!
-    //tqrepaint();
+    //repaint();
 }
 
 void ContainerArea::setAlignment(KPanelExtension::Alignment a)
@@ -1900,9 +1900,9 @@ TQStringList ContainerArea::listContainers() const
     return m_layout->listItems();
 }
 
-void ContainerArea::tqrepaint()
+void ContainerArea::repaint()
 {
-    Panner::tqrepaint();
+    Panner::repaint();
 }
 
 void ContainerArea::showAddAppletDialog()

@@ -54,8 +54,8 @@ void SMBSlave::special( const TQByteArray & data)
          TQString share,host;
          if (sl.count()>=2)
          {
-            host=(*sl.tqat(0)).mid(2);
-            share=(*sl.tqat(1));
+            host=(*sl.at(0)).mid(2);
+            share=(*sl.at(1));
             kdDebug(KIO_SMB)<<"special() host -"<< host <<"- share -" << share <<"-"<<endl;
          }
 

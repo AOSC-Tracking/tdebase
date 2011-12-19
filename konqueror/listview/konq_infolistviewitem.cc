@@ -206,7 +206,7 @@ void KonqInfoListViewItem::setDisabled( bool disabled )
     setPixmap( 0, m_fileitem->pixmap( iconSize, state() ) );
 }
 
-void KonqInfoListViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg, int _column, int _width, int _tqalignment )
+void KonqInfoListViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg, int _column, int _width, int _alignment )
 {
     TQColorGroup cg( _cg );
 
@@ -242,7 +242,7 @@ void KonqInfoListViewItem::paintCell( TQPainter *_painter, const TQColorGroup & 
         _width = newWidth;
     }
 
-    KListViewItem::paintCell( _painter, cg, _column, _width, _tqalignment );
+    KListViewItem::paintCell( _painter, cg, _column, _width, _alignment );
 }
 
 void KonqInfoListViewItem::paintFocus( TQPainter * _painter, const TQColorGroup & cg, const TQRect & _r )

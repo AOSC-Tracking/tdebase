@@ -564,7 +564,7 @@ void TEWidget::drawTextFixed(TQPainter &paint, int x, int y,
   int w;
   for(unsigned int i=0;i<str.length();i++)
   {
-    drawstr = str.tqat(i);
+    drawstr = str.at(i);
     // Add double of the width if next c is 0;
     if ((attr+nc+1)->c) // This may access image[image_size] See makeImage()
     {
@@ -1072,7 +1072,7 @@ void TEWidget::print(TQPainter &paint, bool friendly, bool exact)
      pm.fill();
 
      TQPainter pm_paint;
-     pm_paint.tqbegin(&pm, TQT_TQWIDGET(this));
+     pm_paint.begin(&pm, TQT_TQWIDGET(this));
      paintContents(pm_paint, contentsRect(), true);
      pm_paint.end();
      paint.drawPixmap(0, 0, pm);
@@ -1159,14 +1159,14 @@ void TEWidget::blinkEvent()
 {
   blinking = !blinking;
   isBlinkEvent = true;
-  tqrepaint(false);
+  repaint(false);
   isBlinkEvent = false;
 }
 
 void TEWidget::blinkCursorEvent()
 {
   cursorBlinking = !cursorBlinking;
-  tqrepaint(cursorRect, true);
+  repaint(cursorRect, true);
 }
 
 /* ------------------------------------------------------------------------- */
@@ -1742,14 +1742,14 @@ void TEWidget::mouseTripleClickEvent(TQMouseEvent* ev)
 
 void TEWidget::focusInEvent( TQFocusEvent * )
 {
-  tqrepaint(cursorRect, true);  // *do* erase area, to get rid of the
+  repaint(cursorRect, true);  // *do* erase area, to get rid of the
                               // hollow cursor rectangle.
 }
 
 
 void TEWidget::focusOutEvent( TQFocusEvent * )
 {
-  tqrepaint(cursorRect, true);  // don't erase area
+  repaint(cursorRect, true);  // don't erase area
 }
 
 bool TEWidget::focusNextPrevChild( bool next )
@@ -1860,7 +1860,7 @@ void TEWidget::onClearSelection()
 
 //FIXME: an `eventFilter' has been installed instead of a `keyPressEvent'
 //       due to a bug in `QT' or the ignorance of the author to prevent
-//       tqrepaint events being emitted to the screen whenever one leaves
+//       repaint events being emitted to the screen whenever one leaves
 //       or reenters the screen to/from another application.
 //
 //   Troll says one needs to change focusInEvent() and focusOutEvent(),
@@ -1984,7 +1984,7 @@ void TEWidget::imEndEvent( TQIMEvent *e )
   m_imPreeditLength = 0;
 
   m_isIMEdit = m_isIMSel = false;
-  tqrepaint( repaintRect, true );
+  repaint( repaintRect, true );
 }
 
 // Override any Ctrl+<key> accelerator when pressed with the keyboard

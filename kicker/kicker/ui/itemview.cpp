@@ -145,7 +145,7 @@ void KMenuItem::setIcon(const TQString& icon, int size)
 void KMenuItem::setHasChildren( bool flag )
 {
     m_has_children = flag;
-    tqrepaint();
+    repaint();
 }
 
 void KMenuItem::setup()
@@ -197,7 +197,7 @@ void KMenuItem::paintCell(TQPainter* p, const TQColorGroup & cg, int column, int
             else
                 listview->m_lastOne = static_cast<KMenuItem*>( itemBelow() );
             listview->m_old_contentY = -1;
-            tqrepaint();
+            repaint();
         }
     }
 }
@@ -350,7 +350,7 @@ void KMenuItem::paintCellInter(TQPainter* p, const TQColorGroup & cg, int column
     {
         // the listview caches paint events
         m_old_width = width;
-        tqrepaint();
+        repaint();
     }
 }
 
@@ -975,7 +975,7 @@ void ItemView::viewportPaintEvent ( TQPaintEvent * pe )
 
     if ( m_lastOne && m_old_contentY != contentsY() ) {
         m_old_contentY = contentsY();
-        m_lastOne->tqrepaint();
+        m_lastOne->repaint();
     }
 }
 

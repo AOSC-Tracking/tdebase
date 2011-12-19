@@ -306,7 +306,7 @@ typedef bool (*NPRemovePropertyFunctionPtr)(NPObject *npobj,
 
     NPInvalidateFunctionPtr is called by the scripting environment
     when the native code is shutdown.  Any attempt to message a
-    NPObject instance after the tqinvalidate callback has been
+    NPObject instance after the invalidate callback has been
     called will result in undefined behavior, even if the native code
     is still retaining those NPObject instances.  (The runtime
     will typically return immediately, with 0 or NULL, from an attempt
@@ -318,7 +318,7 @@ struct NPClass
     uint32_t structVersion;
     NPAllocateFunctionPtr allocate;
     NPDeallocateFunctionPtr deallocate;
-    NPInvalidateFunctionPtr tqinvalidate;
+    NPInvalidateFunctionPtr invalidate;
     NPHasMethodFunctionPtr hasMethod;
     NPInvokeFunctionPtr invoke;
     NPInvokeDefaultFunctionPtr invokeDefault;

@@ -57,8 +57,8 @@ static void prepareDialog( TQWidget* w, long parent, const TQCString& wmclass1, 
     KWin::setState( w->winId(), NET::Modal );
     KWin::WindowInfo info = KWin::windowInfo( parent, (unsigned long)NET::WMGeometry );
     if( info.valid())
-        w->move( info.tqgeometry().x() + ( info.tqgeometry().width() - w->width())/2,
-            info.tqgeometry().y() + ( info.tqgeometry().height()- w->height())/2 );
+        w->move( info.geometry().x() + ( info.geometry().width() - w->width())/2,
+            info.geometry().y() + ( info.geometry().height()- w->height())/2 );
     }
     
 // duped in qtkde

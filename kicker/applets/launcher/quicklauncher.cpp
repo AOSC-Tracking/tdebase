@@ -1097,7 +1097,7 @@ void QuickLauncher::updateStickyHighlightLayer()
             }
         }
     }
-    tqrepaint();
+    repaint();
 }
 
 void QuickLauncher::paintEvent(TQPaintEvent* e)

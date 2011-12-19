@@ -532,8 +532,8 @@ ProcessList::deleteLeaves(void)
 	{
 		unsigned int i;
 		for (i = 0; i < pl.count() &&
-				 (!isLeafProcess(pl.tqat(i)->pid()) ||
-				  matchesFilter(pl.tqat(i))); i++)
+				 (!isLeafProcess(pl.at(i)->pid()) ||
+				  matchesFilter(pl.at(i))); i++)
 			;
 		if (i == pl.count())
 			return;
@@ -546,7 +546,7 @@ bool
 ProcessList::isLeafProcess(int pid)
 {
 	for (unsigned int i = 0; i < pl.count(); i++)
-		if (pl.tqat(i)->ppid() == pid)
+		if (pl.at(i)->ppid() == pid)
 			return (false);
 
 	return (true);

@@ -120,31 +120,31 @@ KCommonDecorationButton *WebClient::createButton(ButtonType type)
 {
     switch (type) {
         case MenuButton:
-            return new WebButton(MenuButton, this, "menu", tqshape_);
+            return new WebButton(MenuButton, this, "menu", shape_);
 
         case OnAllDesktopsButton:
-            return new WebButton(OnAllDesktopsButton, this, "on_all_desktops", tqshape_);
+            return new WebButton(OnAllDesktopsButton, this, "on_all_desktops", shape_);
 
         case HelpButton:
-            return new WebButton(HelpButton, this, "help", tqshape_);
+            return new WebButton(HelpButton, this, "help", shape_);
 
         case MinButton:
-            return new WebButton(MinButton, this, "minimize", tqshape_);
+            return new WebButton(MinButton, this, "minimize", shape_);
 
         case MaxButton:
-            return new WebButton(MaxButton, this, "maximize", tqshape_);
+            return new WebButton(MaxButton, this, "maximize", shape_);
 
         case CloseButton:
-            return new WebButton(CloseButton, this, "close", tqshape_);
+            return new WebButton(CloseButton, this, "close", shape_);
 
         case AboveButton:
-            return new WebButton(AboveButton, this, "above", tqshape_);
+            return new WebButton(AboveButton, this, "above", shape_);
 
         case BelowButton:
-            return new WebButton(BelowButton, this, "below", tqshape_);
+            return new WebButton(BelowButton, this, "below", shape_);
 
         case ShadeButton:
-            return new WebButton(ShadeButton, this, "shade", tqshape_);
+            return new WebButton(ShadeButton, this, "shade", shape_);
 
         default:
             return 0;
@@ -185,7 +185,7 @@ WebClient::init()
 
   KConfig c("kwinwebrc");
   c.setGroup("General");
-  tqshape_ = c.readBoolEntry("Shape", true);
+  shape_ = c.readBoolEntry("Shape", true);
 
   KCommonDecoration::init();
 }
@@ -195,8 +195,8 @@ WebClient::reset( unsigned long changed )
 {
   if (changed & SettingColors)
   {
-    // tqrepaint the whole thing
-    widget()->tqrepaint(false);
+    // repaint the whole thing
+    widget()->repaint(false);
   } else if (changed & SettingFont) {
     // font has changed -- update title height
     // title height
@@ -206,7 +206,7 @@ WebClient::reset( unsigned long changed )
     if (0 != titleHeight_ % 2)
       titleHeight_ += 1;
 
-    widget()->tqrepaint(false);
+    widget()->repaint(false);
   }
 
   KCommonDecoration::reset(changed);
@@ -241,7 +241,7 @@ WebClient::paintEvent(TQPaintEvent * pe)
 
   p.fillRect(titleRect, options()->color(ColorTitleBar, isActive()));
 
-  if (tqshape_)
+  if (shape_)
   {
     int r(width());
     int b(height());
@@ -288,7 +288,7 @@ WebClient::paintEvent(TQPaintEvent * pe)
 
 void WebClient::updateWindowShape()
 {
-  if (!tqshape_)
+  if (!shape_)
     return;
 
   TQRegion mask(0, 0, width(), height());

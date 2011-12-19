@@ -96,7 +96,7 @@ void MenuPreview::createPixmaps()
 
 void MenuPreview::blendPixmaps()
 {
-	// Rebuild pixmaps, and tqrepaint
+	// Rebuild pixmaps, and repaint
 	if (pixBlended && pixBackground) 
 	{
 		if (mode == Blend && pixOverlay) {
@@ -121,7 +121,7 @@ void MenuPreview::setOpacity( int opacity )
 	if ((int)(menuOpacity*100) != opacity) {
 		menuOpacity = opacity/100.0;
 		blendPixmaps();
-		tqrepaint( false );
+		repaint( false );
 	}
 }
 
@@ -130,7 +130,7 @@ void MenuPreview::setPreviewMode( PreviewMode pvm )
 	if (mode != pvm) {
 		mode = pvm;
 		blendPixmaps();
-		tqrepaint( false );
+		repaint( false );
 	}
 }
 

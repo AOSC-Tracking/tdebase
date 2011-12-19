@@ -352,8 +352,8 @@ void KonqFrame::printFrameInfo( const TQString& spaces )
 {
    TQString className = "NoPart";
    if (part()) className = part()->widget()->className();
-   kdDebug(1202) << spaces << "KonqFrame " << this << " visible=" << TQString("%1").tqarg(isVisible()) << " containing view "
-                 << childView() << " visible=" << TQString("%1").tqarg(isVisible())
+   kdDebug(1202) << spaces << "KonqFrame " << this << " visible=" << TQString("%1").arg(isVisible()) << " containing view "
+                 << childView() << " visible=" << TQString("%1").arg(isVisible())
                  << " and part " << part() << " whose widget is a " << className << endl;
 }
 
@@ -463,7 +463,7 @@ KonqFrame::paintEvent( TQPaintEvent* )
 #ifdef USE_QT4
    #warning [INFO] Repaint call disabled in Qt4 to prevent recursive repaint (which otherwise occurs for unknown reasons)
 #else // USE_QT4
-   m_pStatusBar->tqrepaint();
+   m_pStatusBar->repaint();
 #endif // USE_QT4
 }
 
@@ -580,7 +580,7 @@ KonqFrameBase* KonqFrameContainer::otherChild( KonqFrameBase* child )
 
 void KonqFrameContainer::printFrameInfo( const TQString& spaces )
 {
-        kdDebug(1202) << spaces << "KonqFrameContainer " << this << " visible=" << TQString("%1").tqarg(isVisible())
+        kdDebug(1202) << spaces << "KonqFrameContainer " << this << " visible=" << TQString("%1").arg(isVisible())
                       << " activeChild=" << m_pActiveChild << endl;
         if (!m_pActiveChild)
             kdDebug(1202) << "WARNING: " << this << " has a null active child!" << endl;

@@ -218,7 +218,7 @@ void CreateCommand::unexecute() {
     KBookmark bk = CurrentMgr::bookmarkAt(m_to);
     Q_ASSERT(!bk.isNull() && !bk.parentGroup().isNull());
 
-    ListView::self()->tqinvalidate(bk.address());
+    ListView::self()->invalidate(bk.address());
 
     bk.parentGroup().deleteBookmark(bk);
 }

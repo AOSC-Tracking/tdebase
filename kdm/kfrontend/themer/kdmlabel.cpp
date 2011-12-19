@@ -116,7 +116,7 @@ KdmLabel::setTextInt( const TQString &txt)
 	if (cAccel != -1) {
 	  cText.remove('&');
 	  myAccel = new TQAccel(parentWidget());
-	  myAccel->insertItem(ALT + UNICODE_ACCEL + cText.tqat(cAccel).lower().tqunicode());
+	  myAccel->insertItem(ALT + UNICODE_ACCEL + cText.at(cAccel).lower().tqunicode());
 	  connect(myAccel, TQT_SIGNAL(activated(int)), TQT_SLOT(slotAccel()));
 	}
 }
@@ -177,8 +177,8 @@ KdmLabel::drawContents( TQPainter *p, const TQRect &/*r*/  )
 	  TQFont f(l->font);
 	  f.setUnderline(true);
 	  p->setFont ( f );
-	  p->drawText( tarea, AlignLeft | SingleLine, TQString(cText.tqat(cAccel)));
-	  tarea.rLeft() += fm.width(cText.tqat(cAccel));
+	  p->drawText( tarea, AlignLeft | SingleLine, TQString(cText.at(cAccel)));
+	  tarea.rLeft() += fm.width(cText.at(cAccel));
 	  p->setFont( l->font );
 	  p->drawText( tarea, AlignLeft | SingleLine, right);
         } else {

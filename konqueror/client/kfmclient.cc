@@ -404,7 +404,7 @@ bool clientApp::openProfile( const TQString & profileName, const TQString & url,
   TQString profile = locate( "data", TQString::fromLatin1("konqueror/profiles/") + profileName );
   if ( profile.isEmpty() )
   {
-      fprintf( stderr, "%s", i18n("Profile %1 not found\n").tqarg(profileName).local8Bit().data() );
+      fprintf( stderr, "%s", i18n("Profile %1 not found\n").arg(profileName).local8Bit().data() );
       ::exit( 0 );
   }
   KonquerorIface_stub konqy( appId, "KonquerorIface" );
@@ -630,7 +630,7 @@ bool clientApp::doIt()
   }
   else
   {
-    fprintf( stderr, "%s", i18n("Syntax Error: Unknown command '%1'\n").tqarg(TQString::fromLocal8Bit(command)).local8Bit().data() );
+    fprintf( stderr, "%s", i18n("Syntax Error: Unknown command '%1'\n").arg(TQString::fromLocal8Bit(command)).local8Bit().data() );
     return false;
   }
   return true;

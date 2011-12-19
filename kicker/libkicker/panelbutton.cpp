@@ -438,7 +438,7 @@ void PanelButton::enterEvent(TQEvent* e)
     if (!m_highlight && m_disableHighlighting == FALSE)
     {
         m_highlight = true;
-        tqrepaint(false);
+        repaint(false);
     }
 
     TQButton::enterEvent(e);
@@ -449,7 +449,7 @@ void PanelButton::leaveEvent(TQEvent* e)
     if (m_highlight)
     {
         m_highlight = false;
-        tqrepaint(false);
+        repaint(false);
     }
 
     TQButton::leaveEvent(e);
@@ -558,7 +558,7 @@ void PanelButton::drawButton(TQPainter *p)
     }
     else if (isDown() || isOn())
     {
-        // Draw tqshapes to indicate the down state.
+        // Draw shapes to indicate the down state.
         tqstyle().tqdrawPrimitive(TQStyle::PE_Panel, p, rect(), colorGroup(), TQStyle::Style_Sunken);
     }
 

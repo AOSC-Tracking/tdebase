@@ -109,7 +109,7 @@
                     <property name="frameShape">
                         <enum>Box</enum>
                     </property>
-                    <property name="tqalignment">
+                    <property name="alignment">
                         <set>AlignCenter</set>
                     </property>
                 </widget>

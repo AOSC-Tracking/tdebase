@@ -52,7 +52,7 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
         TQString text = isButton ? (isMenu ? i18n("&Move %1 Menu") :
                                             i18n("&Move %1 Button")) :
                                   i18n("&Move %1");
-        insertItem(SmallIcon("move"), text.tqarg(titleText), Move);
+        insertItem(SmallIcon("move"), text.arg(titleText), Move);
 
         // we look for a container area to see if we can add containers
         // this is part of the kiosk support in kicker, allowing
@@ -76,7 +76,7 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
             text = isButton ? (isMenu ? i18n("&Remove %1 Menu") :
                                         i18n("&Remove %1 Button")) :
                               i18n("&Remove %1");
-            insertItem(SmallIcon("remove"), text.tqarg(titleText), Remove);
+            insertItem(SmallIcon("remove"), text.arg(titleText), Remove);
             needSeparator = true;
         }
     }
@@ -103,7 +103,7 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
                                                      KIcon::Small, 0,
                                                      KIcon::DefaultState,
                                                      0, true));
-        insertItem(iconPix, i18n("&About %1").tqarg( titleText ), About);
+        insertItem(iconPix, i18n("&About %1").arg( titleText ), About);
         needSeparator = !(actions & KPanelApplet::Help);
     }
 
@@ -123,12 +123,12 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
         if (isButton)
         {
             insertItem(SmallIcon("configure"),
-                       i18n("&Configure %1 Button...").tqarg(titleText), Preferences);
+                       i18n("&Configure %1 Button...").arg(titleText), Preferences);
         }
         else
         {
             insertItem(SmallIcon("configure"),
-                       i18n("&Configure %1...").tqarg(titleText), Preferences);
+                       i18n("&Configure %1...").arg(titleText), Preferences);
         }
         needSeparator = true;
     }

@@ -233,9 +233,9 @@ void TaskContainer::setLastActivated()
 
 void TaskContainer::animationTimerFired()
 {
-    if (!frames.isEmpty() && taskBar->showIcon() && frames.tqat(currentFrame) != frames.end())
+    if (!frames.isEmpty() && taskBar->showIcon() && frames.at(currentFrame) != frames.end())
     {
-        TQPixmap *pm = *frames.tqat(currentFrame);
+        TQPixmap *pm = *frames.at(currentFrame);
 
         // draw pixmap
         if ( pm && !pm->isNull() ) {
@@ -477,7 +477,7 @@ void TaskContainer::paintEvent( TQPaintEvent* )
     }
 
     TQPainter p;
-    p.tqbegin(pm ,this);
+    p.begin(pm ,this);
     drawButton(&p);
     p.end();
 
@@ -736,7 +736,7 @@ void TaskContainer::drawButton(TQPainter *p)
             TQPaintDevice* opd = p->device();
             p->end();
             pm->convertFromImage(img);
-            p->tqbegin(opd ,this);
+            p->begin(opd ,this);
         }
         else
         {
@@ -754,9 +754,9 @@ void TaskContainer::drawButton(TQPainter *p)
         }
     }
 
-    if (!frames.isEmpty() && m_startup && frames.tqat(currentFrame) != frames.end())
+    if (!frames.isEmpty() && m_startup && frames.at(currentFrame) != frames.end())
     {
-        TQPixmap *anim = *frames.tqat(currentFrame);
+        TQPixmap *anim = *frames.at(currentFrame);
 
         if (anim && !anim->isNull())
         {
@@ -830,13 +830,13 @@ TQString TaskContainer::name()
         // in common, and then use everything UP TO that as the name in the button
         while (i < maxLength)
         {
-            TQChar check = match.tqat(i).lower();
+            TQChar check = match.at(i).lower();
             Task::List::iterator itEnd = m_filteredTasks.end();
             for (Task::List::iterator it = m_filteredTasks.begin(); it != itEnd; ++it)
             {
                 // we're doing a lot of Utf8 -> TQString conversions here
                 // by repeatedly calling visibleIconicName() =/
-                if (check != (*it)->visibleName().tqat(i).lower())
+                if (check != (*it)->visibleName().at(i).lower())
                 {
                     if (i > 0)
                     {
@@ -856,7 +856,7 @@ TQString TaskContainer::name()
         }
 
         // strip trailing crap
-        while (i > 0 && !match.tqat(i).isLetterOrNumber())
+        while (i > 0 && !match.at(i).isLetterOrNumber())
         {
             --i;
         }

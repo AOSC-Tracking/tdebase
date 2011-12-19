@@ -152,7 +152,7 @@ KateSaveModifiedDialog::KateSaveModifiedDialog(TQWidget *parent, TQPtrList<Kate:
 		m_documentRoot=new TQListViewItem(m_list,i18n("Documents"));
 		const uint docCnt=documents.count();
 		for (uint i=0;i<docCnt;i++) {
-			new KateSaveModifiedDocumentCheckListItem(m_documentRoot,documents.tqat(i));
+			new KateSaveModifiedDocumentCheckListItem(m_documentRoot,documents.at(i));
 		}
 		m_documentRoot->setOpen(true);
 	} else m_documentRoot=0;

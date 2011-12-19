@@ -157,8 +157,8 @@ bool KMiniPagerButton::shouldPaintWindow( KWin::WindowInfo *info ) const
         TQRect r = mapGeometryToViewport(*info);
 
         if (!info->hasState(NET::Sticky) &&
-            !TQApplication::desktop()->tqgeometry().contains(r.topLeft()) &&
-            !TQApplication::desktop()->tqgeometry().contains(r.topRight()))
+            !TQApplication::desktop()->geometry().contains(r.topLeft()) &&
+            !TQApplication::desktop()->geometry().contains(r.topRight()))
             return false;
     }
 

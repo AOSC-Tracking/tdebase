@@ -100,9 +100,9 @@ void PanelRemoveExtensionMenu::slotExec( int id )
     {
         ExtensionManager::the()->removeAllContainers();
     }
-    else if (m_containers.tqat(id) != m_containers.end())
+    else if (m_containers.at(id) != m_containers.end())
     {
-        ExtensionManager::the()->removeContainer(*m_containers.tqat(id));
+        ExtensionManager::the()->removeContainer(*m_containers.at(id));
     }
 }
 

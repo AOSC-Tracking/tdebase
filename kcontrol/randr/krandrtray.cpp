@@ -205,7 +205,7 @@ void KRandRSystemTray::contextMenuAboutToShow(KPopupMenu* menu)
 				/*lastIndex = menu->insertItem(i18n("Screen %1").arg(s+1));
 				menu->setItemEnabled(lastIndex, false);*/
 			} else {
-				KPopupMenu* subMenu = new KPopupMenu(menu, TQString("screen%1").tqarg(s+1).latin1());
+				KPopupMenu* subMenu = new KPopupMenu(menu, TQString("screen%1").arg(s+1).latin1());
 				m_screenPopups.append(subMenu);
 				populateMenu(subMenu);
 				lastIndex = menu->insertItem(i18n("Screen %1").arg(s+1), subMenu);

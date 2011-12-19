@@ -577,7 +577,7 @@ void konsolePart::readProperties()
   s_kconfigSchema=config->readEntry("schema");
   ColorSchema* sch = colors->find(schema.isEmpty() ? s_kconfigSchema : schema);
   if (!sch) {
-    sch=(ColorSchema*)colors->tqat(0);  //the default one
+    sch=(ColorSchema*)colors->at(0);  //the default one
   }
   if (sch->hasSchemaFileChanged()) sch->rereadSchemaFile();
   s_schema = sch->relPath();
@@ -591,7 +591,7 @@ void konsolePart::readProperties()
         rootxpm = new KRootPixmap(TQT_TQWIDGET(te));
       rootxpm->setFadeEffect(sch->tr_x(), TQColor(sch->tr_r(), sch->tr_g(), sch->tr_b()));
       rootxpm->start();
-      rootxpm->tqrepaint(true);
+      rootxpm->repaint(true);
     }
     else {
       te->setBlendColor(tqRgba(sch->tr_r(), sch->tr_g(), sch->tr_b(), int(sch->tr_x() * 255)));
@@ -604,7 +604,7 @@ void konsolePart::readProperties()
       delete rootxpm;
       rootxpm=0;
     }
-    pixmap_menu_activated(sch->tqalignment());
+    pixmap_menu_activated(sch->alignment());
   }
 
   te->setBellMode(n_bell);
@@ -737,7 +737,7 @@ void konsolePart::updateSchemaMenu()
 
   m_schema->clear();
   for (int i = 0; i < (int) colors->count(); i++)  {
-    ColorSchema* s = (ColorSchema*)colors->tqat(i);
+    ColorSchema* s = (ColorSchema*)colors->at(i);
     TQString title=s->title();
     m_schema->insertItem(title.replace('&',"&&"),s->numb(),0);
   }
@@ -752,7 +752,7 @@ void konsolePart::setSchema(int numb)
   ColorSchema* s = colors->find(numb);
   if (!s) {
     kdWarning() << "No schema found. Using default." << endl;
-    s=(ColorSchema*)colors->tqat(0);
+    s=(ColorSchema*)colors->at(0);
   }
   if (s->numb() != numb)  {
     kdWarning() << "No schema with number " << numb << endl;
@@ -785,7 +785,7 @@ void konsolePart::setSchema(ColorSchema* s)
         rootxpm = new KRootPixmap(TQT_TQWIDGET(te));
       rootxpm->setFadeEffect(s->tr_x(), TQColor(s->tr_r(), s->tr_g(), s->tr_b()));
       rootxpm->start();
-      rootxpm->tqrepaint(true);
+      rootxpm->repaint(true);
     }
     else {
       te->setBlendColor(tqRgba(s->tr_r(), s->tr_g(), s->tr_b(), int(s->tr_x() * 255)));
@@ -798,7 +798,7 @@ void konsolePart::setSchema(ColorSchema* s)
       delete rootxpm;
       rootxpm=0;
     }
-    pixmap_menu_activated(s->tqalignment());
+    pixmap_menu_activated(s->alignment());
   }
 
   te->setColorTable(s->table());
@@ -809,8 +809,8 @@ void konsolePart::notifySize(int /* columns */, int /* lines */)
 {
   ColorSchema *sch=colors->find(s_schema);
 
-  if (sch && sch->tqalignment() >= 3)
-    pixmap_menu_activated(sch->tqalignment());
+  if (sch && sch->alignment() >= 3)
+    pixmap_menu_activated(sch->alignment());
 }
 
 void konsolePart::pixmap_menu_activated(int item)

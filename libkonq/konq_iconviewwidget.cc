@@ -308,7 +308,7 @@ void KonqIconViewWidget::slotOnItem( TQIconViewItem *_item )
                         if (!hasPixmap && backgroundMode() != NoBackground)
                            d->m_movie->setBackgroundColor( viewport()->backgroundColor() );
                         d->m_movie->connectUpdate( this, TQT_SLOT( slotMovieUpdate(const TQRect &) ) );
-                        d->m_movie->connecStatus( TQT_TQOBJECT(this), TQT_SLOT( slotMovieStatus(int) ) );
+                        d->m_movie->connectStatus( TQT_TQOBJECT(this), TQT_SLOT( slotMovieStatus(int) ) );
                         d->movieFileName = d->pActiveItem->mouseOverAnimation();
                         d->pActiveItem->setAnimated( true );
                     }
@@ -331,7 +331,7 @@ void KonqIconViewWidget::slotOnItem( TQIconViewItem *_item )
         else // No change in current item
         {
             // No effect. If we want to underline on hover, we should
-            // force the IVI to tqrepaint here, though!
+            // force the IVI to repaint here, though!
             d->pActiveItem = 0L;
             d->pFileTip->setItem( 0L );
         }
@@ -650,7 +650,7 @@ void KonqIconViewWidget::setIcons( int size, const TQStringList& stopImagePrevie
 
     // Disable repaints that can be triggered by ivi->setIcon(). Since icons are
     // resized in-place, if the icon size is increasing it can happens that the right
-    // or bottom icons exceed the size of the viewport.. here we prevent the tqrepaint
+    // or bottom icons exceed the size of the viewport.. here we prevent the repaint
     // event that will be triggered in that case.
     bool prevUpdatesState = viewport()->isUpdatesEnabled();
     viewport()->setUpdatesEnabled( false );
@@ -677,7 +677,7 @@ void KonqIconViewWidget::setIcons( int size, const TQStringList& stopImagePrevie
 
     if ( ( sizeChanged || previewSizeChanged || oldGridX != gridX() ||
          !stopImagePreviewFor.isEmpty() ) && autoArrange() )
-        arrangeItemsInGrid( true ); // take new grid into account and tqrepaint
+        arrangeItemsInGrid( true ); // take new grid into account and repaint
     else
         viewport()->update(); //Repaint later..
 }
@@ -1249,7 +1249,7 @@ void KonqIconViewWidget::contentsDropEvent( TQDropEvent * ev )
   if ( !i && (ev->action() == TQDropEvent::Copy || ev->action() == TQDropEvent::Link)
           && ev->source() && ev->source() == viewport())
   {
-    // First we need to call TQIconView though, to clear the drag tqshape
+    // First we need to call TQIconView though, to clear the drag shape
     bool bMovable = itemsMovable();
     setItemsMovable(false); // hack ? call it what you want :-)
     KIconView::contentsDropEvent( ev );
@@ -1488,7 +1488,7 @@ void KonqIconViewWidget::insertInGrid(TQIconViewItem *item)
         y = QMAX(y, i->y() + i->height());
     }
 
-    TQMemArray<TQRect> rects = r.tqrects();
+    TQMemArray<TQRect> rects = r.rects();
     TQMemArray<TQRect>::Iterator it = rects.begin();
     bool foundPlace = FALSE;
     for (; it != rects.end(); ++it)
@@ -1730,12 +1730,12 @@ void KonqIconViewWidget::lineupIcons()
         }
     }
 
-    // tqrepaint
+    // repaint
     if ( newItemWidth )
         updateContents();
     else {
         // Repaint only repaintRegion...
-        TQMemArray<TQRect> rects = repaintRegion.tqrects();
+        TQMemArray<TQRect> rects = repaintRegion.rects();
         for ( uint l = 0; l < rects.count(); l++ ) {
             kdDebug( 1203 ) << "Repainting (" << rects[l].x() << ","
                             << rects[l].y() << ")\n";
@@ -1794,7 +1794,7 @@ void KonqIconViewWidget::lineupIcons( TQIconView::Arrangement arrangement )
     }
 
     // Repaint only repaintRegion...
-    TQMemArray<TQRect> rects = repaintRegion.tqrects();
+    TQMemArray<TQRect> rects = repaintRegion.rects();
     for ( uint l = 0; l < rects.count(); l++ ) {
         kdDebug( 1203 ) << "Repainting (" << rects[l].x() << ","
                         << rects[l].y() << ")\n";

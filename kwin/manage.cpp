@@ -319,7 +319,7 @@ bool Client::manage( Window w, bool isMapped )
         keepInArea( area, partial_keep_in_area );
 
     XShapeSelectInput( qt_xdisplay(), window(), ShapeNotifyMask );
-    is_tqshape = Shape::hasShape( window());
+    is_shape = Shape::hasShape( window());
     updateShape();
 	
     //CT extra check for stupid jdk 1.3.1. But should make sense in general

@@ -558,7 +558,7 @@ void PositionTab::switchPanel(int panelItem)
     m_customSpinbox->setValue(m_panelInfo->_customSize);
     m_sizeGroup->setEnabled(m_panelInfo->_resizeable);
     m_panelPos = m_panelInfo->_position;
-    m_panelAlign = m_panelInfo->_tqalignment;
+    m_panelAlign = m_panelInfo->_alignment;
     if(m_panelInfo->_xineramaScreen >= 0 && m_panelInfo->_xineramaScreen < TQApplication::desktop()->numScreens())
         m_xineramaScreenComboBox->setCurrentItem(m_panelInfo->_xineramaScreen);
     else if(m_panelInfo->_xineramaScreen == -2) /* the All Screens option: qt uses -1 for default, so -2 for all */
@@ -672,7 +672,7 @@ void PositionTab::storeInfo()
     }
 
     m_panelInfo->_position = m_panelPos;
-    m_panelInfo->_tqalignment = m_panelAlign;
+    m_panelInfo->_alignment = m_panelAlign;
     if(m_xineramaScreenComboBox->currentItem() == m_xineramaScreenComboBox->count()-1)
         m_panelInfo->_xineramaScreen = -2; /* all screens */
     else

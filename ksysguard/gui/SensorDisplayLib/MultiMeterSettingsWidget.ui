@@ -334,14 +334,14 @@
         <slot access="public" specifier="">update()</slot>
         <slot access="public" specifier="">update(int,int,int,int)</slot>
         <slot access="public" specifier="">update(const QRect&amp;)</slot>
-        <slot access="public" specifier="">tqrepaint()</slot>
-        <slot access="public" specifier="">tqrepaint(bool)</slot>
-        <slot access="public" specifier="">tqrepaint(int,int,int,int)</slot>
-        <slot access="public" specifier="">tqrepaint(int,int,int,int,bool)</slot>
-        <slot access="public" specifier="">tqrepaint(const QRect&amp;)</slot>
-        <slot access="public" specifier="">tqrepaint(const QRect&amp;,bool)</slot>
-        <slot access="public" specifier="">tqrepaint(const QRegion&amp;)</slot>
-        <slot access="public" specifier="">tqrepaint(const QRegion&amp;,bool)</slot>
+        <slot access="public" specifier="">repaint()</slot>
+        <slot access="public" specifier="">repaint(bool)</slot>
+        <slot access="public" specifier="">repaint(int,int,int,int)</slot>
+        <slot access="public" specifier="">repaint(int,int,int,int,bool)</slot>
+        <slot access="public" specifier="">repaint(const QRect&amp;)</slot>
+        <slot access="public" specifier="">repaint(const QRect&amp;,bool)</slot>
+        <slot access="public" specifier="">repaint(const QRegion&amp;)</slot>
+        <slot access="public" specifier="">repaint(const QRegion&amp;,bool)</slot>
         <slot access="public" specifier="">show()</slot>
         <slot access="public" specifier="">hide()</slot>
         <slot access="public" specifier="">setShown(bool)</slot>

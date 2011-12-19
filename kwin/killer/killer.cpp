@@ -71,7 +71,7 @@ int main( int argc, char* argv[] )
 	"<qt>Window with title \"<b>%2</b>\" is not responding. "
 	"This window belongs to application <b>%1</b> (PID=%3, hostname=%4).<p>"
 	"Do you wish to terminate this application? (All unsaved data in this application will be lost.)</qt>" )
-	.tqarg( appname ).tqarg( caption ).tqarg( pid ).tqarg( static_cast<const char *>(hostname) );
+	.arg( appname ).arg( caption ).arg( pid ).arg( static_cast<const char *>(hostname) );
     app.updateUserTimestamp( timestamp );
     if( KMessageBox::warningYesNoWId( id, question, TQString::null, i18n("Terminate"), i18n("Keep Running") ) == KMessageBox::Yes )
         {    

@@ -43,7 +43,7 @@ class ContainerAreaLayoutIterator : public TQGLayoutIterator
 
         TQLayoutItem* current()
         {
-            return m_idx < int(m_list->count()) ? (*m_list->tqat(m_idx))->item : 0;
+            return m_idx < int(m_list->count()) ? (*m_list->at(m_idx))->item : 0;
         }
 
         TQLayoutItem* next()
@@ -55,7 +55,7 @@ class ContainerAreaLayoutIterator : public TQGLayoutIterator
         TQLayoutItem* takeCurrent()
         {
             TQLayoutItem* item = 0;
-            ContainerAreaLayout::ItemList::iterator b = m_list->tqat(m_idx);
+            ContainerAreaLayout::ItemList::iterator b = m_list->at(m_idx);
             if (b != m_list->end())
             {
                 ContainerAreaLayoutItem* layoutItem = *b;
@@ -223,7 +223,7 @@ int ContainerAreaLayout::count() const {
     \reimp
 */
 TQLayoutItem* ContainerAreaLayout::itemAt(int index) const {
-	return index >= 0 && index < m_items.count() ? (*m_items.tqat(index))->item : 0;
+	return index >= 0 && index < m_items.count() ? (*m_items.at(index))->item : 0;
 }
 
 /*!
@@ -232,8 +232,8 @@ TQLayoutItem* ContainerAreaLayout::itemAt(int index) const {
 TQLayoutItem* ContainerAreaLayout::takeAt(int index) {
 	if (index < 0 || index >= m_items.count())
 		return 0;
-	ContainerAreaLayoutItem *b = *m_items.tqat(index);
-	m_items.remove(m_items.tqat(index));
+	ContainerAreaLayoutItem *b = *m_items.at(index);
+	m_items.remove(m_items.at(index));
 	TQLayoutItem *item = b->item;
 	b->item = 0;
 	delete b;

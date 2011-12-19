@@ -158,12 +158,12 @@ TQValueList<KBookmark> ListView::itemsToBookmarks(const TQValueVector<KEBListVie
     return bookmarks;
 }
 
-void ListView::tqinvalidate(const TQString & address)
+void ListView::invalidate(const TQString & address)
 {
-    tqinvalidate(getItemAtAddress(address));
+    invalidate(getItemAtAddress(address));
 }
 
-void ListView::tqinvalidate(TQListViewItem * item)
+void ListView::invalidate(TQListViewItem * item)
 {
     if(item->isSelected())
     {
@@ -181,7 +181,7 @@ void ListView::tqinvalidate(TQListViewItem * item)
     TQListViewItem * child = item->firstChild();
     while(child)
     {
-        //tqinvalidate(child);
+        //invalidate(child);
         child = child->nextSibling();
     }
 }
@@ -277,7 +277,7 @@ void ListView::deselectAllChildren(KEBListViewItem *item)
             else
                 deselectAllChildren(child);
         }
-        child->tqrepaint();
+        child->repaint();
         child = static_cast<KEBListViewItem *>(child->nextSibling());
     }
 }

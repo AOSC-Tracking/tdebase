@@ -150,7 +150,7 @@ protected:
       int numb()                       {if (!m_fileRead) rereadSchemaFile();return m_numb;};
       const TQString& title()           {if (!m_fileRead) rereadSchemaFile();return m_title;};
       const TQString& imagePath()       {if (!m_fileRead) rereadSchemaFile();return m_imagePath;};
-      int tqalignment()                  {if (!m_fileRead) rereadSchemaFile();return m_tqalignment;};
+      int alignment()                  {if (!m_fileRead) rereadSchemaFile();return m_alignment;};
       const ColorEntry* table()        {if (!m_fileRead) rereadSchemaFile();return m_table;};
       bool useTransparency()           {if (!m_fileRead) rereadSchemaFile();return m_useTransparency;};
       double tr_x()                    {if (!m_fileRead) rereadSchemaFile();return m_tr_x;};
@@ -162,7 +162,7 @@ protected:
    private:
       int        m_numb;
       int	     m_tr_r, m_tr_g, m_tr_b;
-      int        m_tqalignment;
+      int        m_alignment;
       TQString    m_title;
       TQString    m_imagePath;
       ColorEntry m_table[TABLE_COLORS];
@@ -188,7 +188,7 @@ public:
 	const ColorSchema *at(unsigned int i)
 		{ return TQPtrList<ColorSchema>::at(i); } ;
 #ifdef USE_QT4
-	const ColorSchema *tqat(unsigned int i)
+	const ColorSchema *at(unsigned int i)
 		{ return at(i); } ;
 #endif // USE_QT4
 

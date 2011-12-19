@@ -789,7 +789,7 @@ Please note that on slow machines this may cause a "lag" between the event causi
                                         <property name="text">
                                             <string>Ma&amp;ximum speed:</string>
                                         </property>
-                                        <property name="tqalignment">
+                                        <property name="alignment">
                                             <set>AlignVCenter|AlignRight</set>
                                         </property>
                                         <property name="buddy" stdset="0">
@@ -806,7 +806,7 @@ Please note that on slow machines this may cause a "lag" between the event causi
                                         <property name="text">
                                             <string>Acceleration &amp;time:</string>
                                         </property>
-                                        <property name="tqalignment">
+                                        <property name="alignment">
                                             <set>AlignVCenter|AlignRight</set>
                                         </property>
                                         <property name="buddy" stdset="0">
@@ -944,7 +944,7 @@ Please note that on slow machines this may cause a "lag" between the event causi
                                         <property name="text">
                                             <string>&amp;Repeat interval:</string>
                                         </property>
-                                        <property name="tqalignment">
+                                        <property name="alignment">
                                             <set>AlignVCenter|AlignRight</set>
                                         </property>
                                         <property name="buddy" stdset="0">
@@ -992,7 +992,7 @@ Please note that on slow machines this may cause a "lag" between the event causi
                                         <property name="text">
                                             <string>Acceleration &amp;profile:</string>
                                         </property>
-                                        <property name="tqalignment">
+                                        <property name="alignment">
                                             <set>AlignVCenter|AlignRight</set>
                                         </property>
                                         <property name="buddy" stdset="0">
@@ -1087,7 +1087,7 @@ Please note that on slow machines this may cause a "lag" between the event causi
                                         <property name="text">
                                             <string>&amp;Acceleration delay:</string>
                                         </property>
-                                        <property name="tqalignment">
+                                        <property name="alignment">
                                             <set>AlignVCenter|AlignRight</set>
                                         </property>
                                         <property name="buddy" stdset="0">

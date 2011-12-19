@@ -335,7 +335,7 @@ int DockBarExtension::findContainerAtPoint(const TQPoint& p)
          it != containers.constEnd();
          ++it, ++i)
     {
-        if ((*it)->tqgeometry().contains(p))
+        if ((*it)->geometry().contains(p))
         {
             return i;
         }
@@ -350,7 +350,7 @@ void DockBarExtension::mousePressEvent(TQMouseEvent *e ) {
         mclic_pos = e->pos();
     } else if (e->button() == Qt::RightButton) {
         int pos = findContainerAtPoint(e->pos());
-        if (pos != -1) containers.tqat(pos)->popupMenu(e->globalPos());
+        if (pos != -1) containers.at(pos)->popupMenu(e->globalPos());
     }
 }
 
@@ -374,7 +374,7 @@ void DockBarExtension::mouseMoveEvent(TQMouseEvent *e) {
             int pos = findContainerAtPoint(e->pos());
             original_container = 0;
             if (pos > -1) {
-                original_container = containers.tqat(pos);
+                original_container = containers.at(pos);
                 mclic_dock_pos = e->pos() - original_container->pos();
                 dragged_container_original_pos = pos;
                 dragging_container = new DockContainer(original_container->command(), 0, original_container->resName(), original_container->resClass(), true);

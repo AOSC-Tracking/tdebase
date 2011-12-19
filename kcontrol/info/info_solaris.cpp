@@ -184,10 +184,10 @@ bool GetInfo_Partitions( TQListView *lBox ) {
 	lBox->addColumn( i18n( "Mount Point" ));
 	lBox->addColumn( i18n( "FS Type" ));
 	lBox->addColumn( i18n( "Total Size" ));
-	// XXX: FIXME: how do I set column tqalignment correctly?
+	// XXX: FIXME: how do I set column alignment correctly?
 	lBox->setColumnAlignment( 3, 2 );
 	lBox->addColumn( i18n( "Free Size" ));
-	// XXX: FIXME: how do I set column tqalignment correctly?
+	// XXX: FIXME: how do I set column alignment correctly?
 	lBox->setColumnAlignment( 4, 2 );
 	lBox->addColumn( i18n( "Mount Time" ));
 	lBox->addColumn( i18n( "Mount Options" ));

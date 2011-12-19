@@ -327,7 +327,7 @@ void WidgetCanvas::drawSampleWidgets()
 #ifndef __osf__
     TQPainter::redirect( vertScrollBar, &pm );
 #endif
-    vertScrollBar->tqrepaint();
+    vertScrollBar->repaint();
     TQPainter::redirect( vertScrollBar, 0 );
     vertScrollBar->hide();
 
@@ -592,5 +592,5 @@ void WidgetCanvas::drawSampleWidgets()
     hotspots[ spot++ ] =
         HotSpot( TQRect( 0, 0, width(), height() ), CSM_Background ); // ?
 
-    tqrepaint( FALSE );
+    repaint( FALSE );
 }

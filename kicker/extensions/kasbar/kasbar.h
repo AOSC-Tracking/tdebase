@@ -120,7 +120,7 @@ public:
    void remove( KasItem *i );
    void clear();
    KasItem *take( KasItem *i ) { return items.take( indexOf(i) ); }
-   KasItem *itemAt( uint i ) { return items.tqat( i ); }
+   KasItem *itemAt( uint i ) { return items.at( i ); }
    int indexOf( KasItem *i ) { return items.find( i ); }
 
    KasItemList *itemList() { return &items; }

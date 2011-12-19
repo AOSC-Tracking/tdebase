@@ -720,7 +720,7 @@ TQString KTheme::getProperty( TQDomElement parent, const TQString & tag,
     else
     {
         kdWarning() << TQString( "No such property found: %1->%2->%3" )
-            .tqarg( parent.tagName() ).tqarg( tag ).tqarg( attr ) << endl;
+            .arg( parent.tagName() ).arg( tag ).arg( attr ) << endl;
         return TQString::null;
     }
 }

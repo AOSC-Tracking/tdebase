@@ -56,7 +56,7 @@ public:
    void setTmpStatus(const TQString &);
    void restoreStatus();
 
-   void paintCell(TQPainter *p, const TQColorGroup &cg, int column, int width, int tqalignment);
+   void paintCell(TQPainter *p, const TQColorGroup &cg, int column, int width, int alignment);
    void setSelected ( bool s );
 
    virtual void setOpen(bool);
@@ -140,8 +140,8 @@ public:
    // selected item stuff
    void selected(KEBListViewItem * item, bool s);
    
-   void tqinvalidate(const TQString & address);
-   void tqinvalidate(TQListViewItem * item);
+   void invalidate(const TQString & address);
+   void invalidate(TQListViewItem * item);
    void fixUpCurrent(const TQString & address);
 
    KEBListViewItem * firstSelected() const;

@@ -688,7 +688,7 @@ void KFonts::load()
 void KFonts::load( bool useDefaults )
 {
   for ( uint i = 0; i < fontUseList.count(); i++ )
-    fontUseList.tqat( i )->readFont( useDefaults );
+    fontUseList.at( i )->readFont( useDefaults );
 
   useAA_original = useAA = aaSettings->load( useDefaults ) ? AAEnabled : AADisabled;
   cbAA->setCurrentItem( useAA );
@@ -779,7 +779,7 @@ void KFonts::slotApplyFontDiff()
   if (ret == KDialog::Accepted && fontDiffFlags)
   {
     for ( int i = 0; i < (int) fontUseList.count(); i++ )
-      fontUseList.tqat( i )->applyFontDiff( font,fontDiffFlags );
+      fontUseList.at( i )->applyFontDiff( font,fontDiffFlags );
     emit changed(true);
   }
 }

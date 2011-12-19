@@ -117,7 +117,7 @@ AppletContainer::AppletContainer(const AppletInfo& info,
     _valid = true;
 
     _applet->setPosition((KPanelApplet::Position)KickerLib::directionToPosition(popupDirection()));
-    _applet->setAlignment((KPanelApplet::Alignment)tqalignment());
+    _applet->setAlignment((KPanelApplet::Alignment)alignment());
 
     _actions = _applet->actions();
     _type = _applet->type();

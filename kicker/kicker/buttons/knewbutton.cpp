@@ -286,7 +286,7 @@ void KNewButton::drawEye()
         }
         m_active_pixmap = pixmap.xForm(matrix);
 
-        tqrepaint(false);
+        repaint(false);
     }
 #undef eye_x
 #undef eye_y

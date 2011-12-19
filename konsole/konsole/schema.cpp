@@ -169,7 +169,7 @@ ColorSchema::ColorSchema(KConfig& c)
 
   m_title = c.readEntry("Title",i18n("[no title]"));
   m_imagePath = c.readEntry("ImagePath");
-  m_tqalignment = c.readNumEntry("ImageAlignment",1);
+  m_alignment = c.readNumEntry("ImageAlignment",1);
   m_useTransparency = c.readBoolEntry("UseTransparency",false);
 
   m_tr_r = c.readNumEntry("TransparentR",0);
@@ -203,7 +203,7 @@ void ColorSchema::clearSchema()
   }
   m_title     = i18n("[no title]");
   m_imagePath = "";
-  m_tqalignment = 1;
+  m_alignment = 1;
   m_useTransparency = false;
   m_tr_x = 0.0;
   m_tr_r = 0;
@@ -216,7 +216,7 @@ void ColorSchema::setDefaultSchema()
   m_numb = 0;
   m_title = i18n("Konsole Default");
   m_imagePath = ""; // background pixmap
-  m_tqalignment = 1;  // none
+  m_alignment = 1;  // none
   m_useTransparency = false; // not use pseudo-transparency by default
   m_tr_r = m_tr_g = m_tr_b = 0; // just to be on the safe side
   m_tr_x = 0.0;
@@ -273,7 +273,7 @@ void ColorSchema::writeConfig(const TQString& path) const
   c.setGroup("SchemaGeneral");
   c.writeEntry("Title",m_title);
   c.writeEntry("ImagePath",m_imagePath);
-  c.writeEntry("ImageAlignment",m_tqalignment);
+  c.writeEntry("ImageAlignment",m_alignment);
   c.writeEntry("UseTransparency",m_useTransparency);
 
   c.writeEntry("TransparentR",m_tr_r);
@@ -334,7 +334,7 @@ bool ColorSchema::rereadSchemaFile()
 
         TQString qline(line);
         m_imagePath = locate("wallpaper", qline.mid( qline.find(" ",7)+1 ) );
-        m_tqalignment = attr;
+        m_alignment = attr;
       }
       if (!strncmp(line,"transparency",12))
       { float rx;

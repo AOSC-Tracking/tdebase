@@ -365,7 +365,7 @@ void KMiniPager::updateDesktopLayout(int o, int x, int y)
     if( m_desktopLayoutOwner == NULL )
     { // must own manager selection before setting global desktop layout
         int screen = DefaultScreen( qt_xdisplay());
-        m_desktopLayoutOwner = new KSelectionOwner( TQString( "_NET_DESKTOP_LAYOUT_S%1" ).tqarg( screen ).latin1(),
+        m_desktopLayoutOwner = new KSelectionOwner( TQString( "_NET_DESKTOP_LAYOUT_S%1" ).arg( screen ).latin1(),
             screen, TQT_TQOBJECT(this) );
         if( !m_desktopLayoutOwner->claim( false ))
         {
@@ -865,7 +865,7 @@ void KMiniPager::slotDesktopNamesChanged()
     {
         TQString name = m_kwin->desktopName(i);
         (*it)->setDesktopName(name);
-        (*it)->tqrepaint();
+        (*it)->repaint();
         TQToolTip::remove((*it));
         TQToolTip::add((*it), name);
     }

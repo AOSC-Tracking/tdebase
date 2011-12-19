@@ -103,7 +103,7 @@ public slots:
     void setPosition(KPanelExtension::Position p);
     void setAlignment(KPanelExtension::Alignment a);
     void slotSaveContainerConfig();
-    void tqrepaint();
+    void repaint();
     void showAddAppletDialog();
     void addAppletDialogDone();
 

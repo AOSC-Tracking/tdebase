@@ -65,7 +65,7 @@
                     <property name="textFormat">
                         <enum>RichText</enum>
                     </property>
-                    <property name="tqalignment">
+                    <property name="alignment">
                         <set>WordBreak|AlignTop</set>
                     </property>
                 </widget>
@@ -87,7 +87,7 @@
                     <property name="textFormat">
                         <enum>RichText</enum>
                     </property>
-                    <property name="tqalignment">
+                    <property name="alignment">
                         <set>WordBreak|AlignTop</set>
                     </property>
                 </widget>
@@ -117,7 +117,7 @@
                     <property name="text">
                         <string></string>
                     </property>
-                    <property name="tqalignment">
+                    <property name="alignment">
                         <set>AlignTop</set>
                     </property>
                 </widget>

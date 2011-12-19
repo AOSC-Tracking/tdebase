@@ -138,7 +138,7 @@ KdmPixmap::fullPath( const TQString &fileName)
 		return TQString::null;
 
 	TQString fullName = fileName;
-	if (fullName.tqat( 0 ) != '/')
+	if (fullName.at( 0 ) != '/')
 		fullName = baseDir() + "/" + fileName;
 	return fullName;
 }
@@ -177,7 +177,7 @@ KdmPixmap::loadPixmap( PixmapStruct::PixmapClass *pClass )
   TQString ext = fullpath.right(fullpath.length() - index);
   fullpath = fullpath.left(index);
   kdDebug() << timestamp() << " ext " << ext << " " << fullpath << endl;
-  TQString testpath = TQString("-%1x%2").tqarg(area.width()).arg(area.height()) + ext;
+  TQString testpath = TQString("-%1x%2").arg(area.width()).arg(area.height()) + ext;
   kdDebug() << timestamp() << " testing for " << fullpath + testpath << endl;
   if (KStandardDirs::exists(fullpath + testpath)) 
     pClass->pixmap.load(fullpath + testpath);

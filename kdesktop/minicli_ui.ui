@@ -405,7 +405,7 @@
                                     <property name="text">
                                         <string>High</string>
                                     </property>
-                                    <property name="tqalignment">
+                                    <property name="alignment">
                                         <set>AlignVCenter|AlignRight</set>
                                     </property>
                                     <property name="whatsThis" stdset="0">
@@ -527,7 +527,7 @@
             <property name="text">
                 <string></string>
             </property>
-            <property name="tqalignment">
+            <property name="alignment">
                 <set>AlignCenter</set>
             </property>
         </widget>
@@ -568,7 +568,7 @@
             <property name="text">
                 <string>Enter the name of the application you want to run or the URL you want to view</string>
             </property>
-            <property name="tqalignment">
+            <property name="alignment">
                 <set>WordBreak|AlignVCenter</set>
             </property>
         </widget>

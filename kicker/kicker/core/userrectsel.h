@@ -43,17 +43,17 @@ class UserRectSel : public TQWidget
                 PanelStrut()
                     : m_screen(-1),
                       m_pos(KPanelExtension::Bottom),
-                      m_tqalignment(KPanelExtension::LeftTop)
+                      m_alignment(KPanelExtension::LeftTop)
                 {
                 }
 
                 PanelStrut(const TQRect& rect, int XineramaScreen,
                            KPanelExtension::Position pos,
-                           KPanelExtension::Alignment tqalignment)
+                           KPanelExtension::Alignment alignment)
                     : m_rect(rect),
                       m_screen(XineramaScreen),
                       m_pos(pos),
-                      m_tqalignment(tqalignment)
+                      m_alignment(alignment)
                 {
                 }
 
@@ -61,7 +61,7 @@ class UserRectSel : public TQWidget
                 {
                     return m_screen == rhs.m_screen &&
                            m_pos == rhs.m_pos &&
-                           m_tqalignment == rhs.m_tqalignment;
+                           m_alignment == rhs.m_alignment;
                 }
 
                 bool operator!=(const PanelStrut& rhs)
@@ -72,7 +72,7 @@ class UserRectSel : public TQWidget
                 TQRect m_rect;
                 int m_screen;
                 KPanelExtension::Position m_pos;
-                KPanelExtension::Alignment m_tqalignment;
+                KPanelExtension::Alignment m_alignment;
         };
 
         typedef TQValueVector<PanelStrut> RectList;

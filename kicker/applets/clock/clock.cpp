@@ -827,7 +827,7 @@ void FuzzyClock::drawContents(TQPainter *p)
           }
           if (phStart >= 0)
               newTimeStr.replace(phStart, phLength, hourNames[realHour]);
-          newTimeStr.replace(0, 1, TQString(newTimeStr.tqat(0).upper()));
+          newTimeStr.replace(0, 1, TQString(newTimeStr.at(0).upper()));
       }
     } else if (_prefs->fuzzyness() == 3) {
         newTimeStr = dayTime[_time.hour() / 3];
@@ -1020,7 +1020,7 @@ int ClockApplet::widthForHeight(int h) const
                 // if the date format STARTS with a year, assume it's in descending
                 // order and should therefore PRECEED the date.
                 TQString dateFormat = KGlobal::locale()->dateFormatShort();
-                dateFirst = dateFormat.tqat(1) == 'y' || dateFormat.tqat(1) == 'Y';
+                dateFirst = dateFormat.at(1) == 'y' || dateFormat.at(1) == 'Y';
             }
 
             if (dateFirst)
@@ -1272,7 +1272,7 @@ void ClockApplet::reconfigure()
     _clock->widget()->installEventFilter(this);   // catch mouse clicks
     _clock->widget()->show();
 
-    _clock->forceUpdate(); /* force tqrepaint */
+    _clock->forceUpdate(); /* force repaint */
 
     if (showDayOfWeek)
     {
@@ -1623,7 +1623,7 @@ void ClockApplet::showZone(int z)
     zone->setZone(z);
     TZoffset = zone->calc_TZ_offset( zone->zone() );
     updateDateLabel();
-    _clock->forceUpdate(); /* force tqrepaint */
+    _clock->forceUpdate(); /* force repaint */
 }
 
 void ClockApplet::nextZone()

@@ -41,7 +41,7 @@ static void usage(char *name)
 {
 	puts(i18n("Usage: %1 [-setup] [args]\n"
 				"Starts a random screen saver.\n"
-				"Any arguments (except -setup) are passed on to the screen saver.").tqarg( name ).local8Bit().data());
+				"Any arguments (except -setup) are passed on to the screen saver.").arg( name ).local8Bit().data());
 }
 
 static const char appName[] = "random";
@@ -201,7 +201,7 @@ int main(int argc, char *argv[])
 
 	KRandomSequence rnd;
 	int indx = rnd.getLong(saverFileList.count());
-	TQString filename = *(saverFileList.tqat(indx));
+	TQString filename = *(saverFileList.at(indx));
 
 	KDesktopFile config(filename, true);
 

@@ -402,12 +402,12 @@ void KWMThemeClient::drawTitle(TQPainter &dest)
 void KWMThemeClient::resizeEvent( TQResizeEvent* )
 {
     doShape();
-    widget()->tqrepaint();
+    widget()->repaint();
 }
 
 void KWMThemeClient::captionChange()
 {
-    widget()->tqrepaint( titlebar->geometry(), false );
+    widget()->repaint( titlebar->geometry(), false );
 }
 
 void KWMThemeClient::paintEvent( TQPaintEvent *)
@@ -576,10 +576,10 @@ void KWMThemeClient::paintEvent( TQPaintEvent *)
 void KWMThemeClient::doShape()
 {
 
-    TQBitmap tqshapemask(width(), height());
-    tqshapemask.fill(color0);
+    TQBitmap shapemask(width(), height());
+    shapemask.fill(color0);
     TQPainter p;
-    p.begin(&tqshapemask);
+    p.begin(&shapemask);
     p.setBrush(color1);
     p.setPen(color1);
     int x,y;
@@ -740,14 +740,14 @@ void KWMThemeClient::doShape()
         }
     }
     p.fillRect(maxExtent-1, maxExtent-1, width()-2*maxExtent+2, height()-2*maxExtent+2, color1);
-    setMask(tqshapemask);
+    setMask(shapemask);
 }
 
 
 void KWMThemeClient::showEvent(TQShowEvent *)
 {
     doShape();
-    widget()->tqrepaint(false);
+    widget()->repaint(false);
 }
 
 void KWMThemeClient::mouseDoubleClickEvent( TQMouseEvent * e )

@@ -269,7 +269,7 @@ void AppletHandle::checkHandleHover()
 {
     if (!m_handleHoverTimer ||
         (m_menuButton && m_menuButton->isOn()) ||
-        m_applet->tqgeometry().contains(m_applet->mapToParent(
+        m_applet->geometry().contains(m_applet->mapToParent(
                                       m_applet->mapFromGlobal(TQCursor::pos()))))
     {
         return;

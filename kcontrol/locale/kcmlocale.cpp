@@ -174,12 +174,12 @@ void KLocaleConfig::slotAddLanguage(const TQString & code)
   // If it's already in list, just move it (delete the old, then insert a new)
   int oldPos = languageList.findIndex( code );
   if ( oldPos != -1 )
-    languageList.remove( languageList.tqat(oldPos) );
+    languageList.remove( languageList.at(oldPos) );
 
   if ( oldPos != -1 && oldPos < pos )
     --pos;
 
-  TQStringList::Iterator it = languageList.tqat( pos );
+  TQStringList::Iterator it = languageList.at( pos );
 
   languageList.insert( it, code );
 
@@ -195,7 +195,7 @@ void KLocaleConfig::slotRemoveLanguage()
   TQStringList languageList = m_locale->languageList();
   int pos = m_languages->currentItem();
 
-  TQStringList::Iterator it = languageList.tqat( pos );
+  TQStringList::Iterator it = languageList.at( pos );
 
   if ( it != languageList.end() )
     {
@@ -214,8 +214,8 @@ void KLocaleConfig::slotLanguageUp()
   TQStringList languageList = m_locale->languageList();
   int pos = m_languages->currentItem();
 
-  TQStringList::Iterator it1 = languageList.tqat( pos - 1 );
-  TQStringList::Iterator it2 = languageList.tqat( pos );
+  TQStringList::Iterator it1 = languageList.at( pos - 1 );
+  TQStringList::Iterator it2 = languageList.at( pos );
 
   if ( it1 != languageList.end() && it2 != languageList.end()  )
   {
@@ -236,8 +236,8 @@ void KLocaleConfig::slotLanguageDown()
   TQStringList languageList = m_locale->languageList();
   int pos = m_languages->currentItem();
 
-  TQStringList::Iterator it1 = languageList.tqat( pos );
-  TQStringList::Iterator it2 = languageList.tqat( pos + 1 );
+  TQStringList::Iterator it1 = languageList.at( pos );
+  TQStringList::Iterator it2 = languageList.at( pos + 1 );
 
   if ( it1 != languageList.end() && it2 != languageList.end()  )
     {

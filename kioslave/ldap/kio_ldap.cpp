@@ -197,7 +197,7 @@ int LDAPProtocol::asyncSearch( LDAPUrl &usrc )
   if ( count > 0 ) {
     attrs = static_cast<char**>( malloc((count+1) * sizeof(char*)) );
     for (int i=0; i<count; i++)
-      attrs[i] = strdup( (*usrc.attributes().tqat(i)).utf8() );
+      attrs[i] = strdup( (*usrc.attributes().at(i)).utf8() );
     attrs[count] = 0;
   }  
   

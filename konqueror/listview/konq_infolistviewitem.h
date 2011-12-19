@@ -56,7 +56,7 @@ class KonqInfoListViewItem : public KonqBaseListViewItem
       virtual ~KonqInfoListViewItem() { }
 
       virtual void paintCell( TQPainter *_painter, const TQColorGroup & cg,
-                              int column, int width, int tqalignment );
+                              int column, int width, int alignment );
       virtual void paintFocus( TQPainter * _painter, const TQColorGroup & cg, const TQRect & r );
       virtual void updateContents();
       virtual void setDisabled( bool disabled );

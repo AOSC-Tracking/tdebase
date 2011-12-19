@@ -544,10 +544,10 @@ void KateMainWindow::editKeys()
   TQPtrList<Kate::Document>  l=KateDocManager::self()->documentList();
   for (uint i=0;i<l.count();i++) {
 //     kdDebug(13001)<<"reloading Keysettings for document "<<i<<endl;
-    l.tqat(i)->reloadXML();
-    TQPtrList<class KTextEditor::View> l1=l.tqat(i)->views ();//KTextEditor::Document
+    l.at(i)->reloadXML();
+    TQPtrList<class KTextEditor::View> l1=l.at(i)->views ();//KTextEditor::Document
     for (uint i1=0;i1<l1.count();i1++) {
-      l1.tqat(i1)->reloadXML();
+      l1.at(i1)->reloadXML();
 //       kdDebug(13001)<<"reloading Keysettings for view "<<i<<"/"<<i1<<endl;
     }
   }

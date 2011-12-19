@@ -243,7 +243,7 @@ void KRootWm::initConfig()
     if (s == s_choices[c])
       { rightButtonChoice = (menuChoice) c; break; }
 
-  // Read configuration for icons tqalignment
+  // Read configuration for icons alignment
   if ( m_bDesktopEnabled ) {
     bool startup = true; m_pDesktop->iconView()->setAutoAlign( KDesktopSettings::autoLineUpIcons() ); 
     if ( kapp->authorize( "editable_desktop_icons" ) ) {

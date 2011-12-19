@@ -148,7 +148,7 @@ bool KBackgroundPattern::isAvailable()
     if (m_Pattern.isEmpty())
        return false;
     TQString file = m_Pattern;
-    if (file.tqat(0) != '/')
+    if (file.at(0) != '/')
         file = m_pDirs->findResource("dtop_pattern", file);
     TQFileInfo fi(file);
     return (fi.exists());
@@ -895,7 +895,7 @@ void KBackgroundSettings::randomizeWallpaperFiles()
    tmpList.pop_front();
    while(tmpList.count())
    {
-      randomList.insert(randomList.tqat(
+      randomList.insert(randomList.at(
          rseq.getLong(randomList.count()+1)),
          1, tmpList.front());
 
@@ -985,7 +985,7 @@ bool KBackgroundSettings::discardCurrentWallpaper()
     {
        return false;
     }
-    m_WallpaperFiles.remove(m_WallpaperFiles.tqat(m_CurrentWallpaper));
+    m_WallpaperFiles.remove(m_WallpaperFiles.at(m_CurrentWallpaper));
     --m_CurrentWallpaper;
     changeWallpaper();
 

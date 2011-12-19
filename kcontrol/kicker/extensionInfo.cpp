@@ -125,7 +125,7 @@ void ExtensionInfo::load()
     c.setGroup("General");
 
     _position       = c.readNumEntry ("Position",            _position);
-    _tqalignment      = c.readNumEntry ("Alignment",           _tqalignment);
+    _alignment      = c.readNumEntry ("Alignment",           _alignment);
     _xineramaScreen = c.readNumEntry ("XineramaScreen",      _xineramaScreen);
     _showLeftHB     = c.readBoolEntry("ShowLeftHideButton",  _showLeftHB);
     _showRightHB    = c.readBoolEntry("ShowRightHideButton", _showRightHB);
@@ -147,7 +147,7 @@ void ExtensionInfo::load()
     }
 
     _orig_position = _position;
-    _orig_tqalignment = _tqalignment;
+    _orig_alignment = _alignment;
     _orig_size = _size;
     _orig_customSize = _customSize;
 
@@ -170,10 +170,10 @@ void ExtensionInfo::configChanged()
         _orig_position = _position = position;
     }
 
-    int tqalignment = c.readNumEntry ("Alignment", TQApplication::reverseLayout() ? 2 : 0);
-    if (tqalignment != _tqalignment && tqalignment != _orig_tqalignment)
+    int alignment = c.readNumEntry ("Alignment", TQApplication::reverseLayout() ? 2 : 0);
+    if (alignment != _alignment && alignment != _orig_alignment)
     {
-        _orig_tqalignment = _tqalignment = tqalignment;
+        _orig_alignment = _alignment = alignment;
     }
 
     if (_resizeable)
@@ -197,7 +197,7 @@ void ExtensionInfo::setDefaults()
 {
     // defaults
     _position       = 3;
-    _tqalignment      = TQApplication::reverseLayout() ? 2 : 0;
+    _alignment      = TQApplication::reverseLayout() ? 2 : 0;
     _xineramaScreen = TQApplication::desktop()->primaryScreen();
     _size           = 2;
     _showLeftHB     = false;
@@ -225,7 +225,7 @@ void ExtensionInfo::save()
     c.setGroup("General");
 
     c.writeEntry("Position",            _position);
-    c.writeEntry("Alignment",           _tqalignment);
+    c.writeEntry("Alignment",           _alignment);
     c.writeEntry("XineramaScreen",      _xineramaScreen);
     c.writeEntry("ShowLeftHideButton",  _showLeftHB);
     c.writeEntry("ShowRightHideButton", _showRightHB);
@@ -251,7 +251,7 @@ void ExtensionInfo::save()
     }
 
     _orig_position = _position;
-    _orig_tqalignment = _tqalignment;
+    _orig_alignment = _alignment;
     _orig_size = _size;
     _orig_customSize = _customSize;
 

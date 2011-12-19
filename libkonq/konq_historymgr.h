@@ -327,7 +327,7 @@ protected:
 private slots:
     /**
      * Called by the updateTimer to emit the KParts::HistoryProvider::updated()
-     * signal so that khtml can tqrepaint the updated links.
+     * signal so that khtml can repaint the updated links.
      */
     void slotEmitUpdated();
 

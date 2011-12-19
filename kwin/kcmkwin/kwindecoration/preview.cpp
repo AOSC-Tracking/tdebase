@@ -150,7 +150,7 @@ void KDecorationPreview::setPreviewMask( const TQRegion& reg, int mode, bool act
         }
     else
         {
-        TQMemArray< TQRect > rects = reg.tqrects();
+        TQMemArray< TQRect > rects = reg.rects();
         XRectangle* xrects = new XRectangle[ rects.count() ];
         for( unsigned int i = 0;
              i < rects.count();
@@ -166,7 +166,7 @@ void KDecorationPreview::setPreviewMask( const TQRegion& reg, int mode, bool act
         delete[] xrects;
         }
     if( active )
-        mask = reg; // keep tqshape of the active window for unobscuredRegion()
+        mask = reg; // keep shape of the active window for unobscuredRegion()
     }
 
 TQRect KDecorationPreview::windowGeometry( bool active ) const

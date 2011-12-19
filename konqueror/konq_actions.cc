@@ -48,12 +48,12 @@ void KonqBidiHistoryAction::fillHistoryPopup( const TQPtrList<HistoryEntry> &his
 {
   assert ( popup ); // kill me if this 0... :/
 
-  //kdDebug(1202) << "fillHistoryPopup position: " << history.tqat() << endl;
+  //kdDebug(1202) << "fillHistoryPopup position: " << history.at() << endl;
   HistoryEntry * current = history.current();
   TQPtrListIterator<HistoryEntry> it( history );
   if (onlyBack || onlyForward)
   {
-      it += history.tqat(); // Jump to current item
+      it += history.at(); // Jump to current item
       if ( !onlyForward ) --it; else ++it; // And move off it
   } else if ( startPos )
       it += startPos; // Jump to specified start pos
@@ -75,7 +75,7 @@ void KonqBidiHistoryAction::fillHistoryPopup( const TQPtrList<HistoryEntry> &his
           break;
       if ( !onlyForward ) --it; else ++it;
   }
-  //kdDebug(1202) << "After fillHistoryPopup position: " << history.tqat() << endl;
+  //kdDebug(1202) << "After fillHistoryPopup position: " << history.at() << endl;
 }
 
 ///////////////////////////////
@@ -116,7 +116,7 @@ void KonqBidiHistoryAction::fillGoMenu( const TQPtrList<HistoryEntry> & history 
     if (history.isEmpty())
         return; // nothing to do
 
-    //kdDebug(1202) << "fillGoMenu position: " << history.tqat() << endl;
+    //kdDebug(1202) << "fillGoMenu position: " << history.at() << endl;
     if ( m_firstIndex == 0 ) // should never happen since done in plug
         m_firstIndex = m_goMenu->count();
     else
@@ -136,10 +136,10 @@ void KonqBidiHistoryAction::fillGoMenu( const TQPtrList<HistoryEntry> & history 
     // Second case: big history, in one or both directions
     {
         // Assume both directions first (in this case we place the current URL in the middle)
-        m_startPos = history.tqat() + 4;
+        m_startPos = history.at() + 4;
 
         // Forward not big enough ?
-        if ( history.tqat() > (int)history.count() - 4 )
+        if ( history.at() > (int)history.count() - 4 )
           m_startPos = history.count() - 1;
     }
     Q_ASSERT( m_startPos >= 0 && (uint)m_startPos < history.count() );
@@ -148,7 +148,7 @@ void KonqBidiHistoryAction::fillGoMenu( const TQPtrList<HistoryEntry> & history 
         kdWarning() << "m_startPos=" << m_startPos << " history.count()=" << history.count() << endl;
         return;
     }
-    m_currentPos = history.tqat(); // for slotActivated
+    m_currentPos = history.at(); // for slotActivated
     KonqBidiHistoryAction::fillHistoryPopup( history, m_goMenu, false, false, true, m_startPos );
 }
 
@@ -444,7 +444,7 @@ void KonqMostOftenURLSAction::slotFillMenu()
     m_popupList.clear();
 
     int id = s_mostEntries->count() -1;
-    KonqHistoryEntry *entry = s_mostEntries->tqat( id );
+    KonqHistoryEntry *entry = s_mostEntries->at( id );
     while ( entry ) {
 	// we take either title, typedURL or URL (in this order)
 	TQString text = entry->title.isEmpty() ? (entry->typedURL.isEmpty() ?
@@ -459,7 +459,7 @@ void KonqMostOftenURLSAction::slotFillMenu()
         // This prevents crashes when another process tells us to remove an entry.
         m_popupList.prepend( entry->url );
 
-	entry = (id > 0) ? s_mostEntries->tqat( --id ) : 0L;
+	entry = (id > 0) ? s_mostEntries->at( --id ) : 0L;
     }
     setEnabled( !s_mostEntries->isEmpty() );
     Q_ASSERT( s_mostEntries->count() == m_popupList.count() );

@@ -101,10 +101,10 @@ void FancyPlotter::configureSettings()
   for ( uint i = 0; i < mBeams; ++i ) {
     TQStringList entry;
     entry << TQString::number(i);
-    entry << sensors().tqat( i )->hostName();
-    entry << KSGRD::SensorMgr->translateSensor( sensors().tqat( i )->name() );
-    entry << KSGRD::SensorMgr->translateUnit( sensors().tqat( i )->unit() );
-    entry << ( sensors().tqat( i )->isOk() ? i18n( "OK" ) : i18n( "Error" ) );
+    entry << sensors().at( i )->hostName();
+    entry << KSGRD::SensorMgr->translateSensor( sensors().at( i )->name() );
+    entry << KSGRD::SensorMgr->translateUnit( sensors().at( i )->unit() );
+    entry << ( sensors().at( i )->isOk() ? i18n( "OK" ) : i18n( "Error" ) );
     entry << ( mPlotter->beamColors()[ i ].name() );
 
     list.append( entry );
@@ -214,10 +214,10 @@ bool FancyPlotter::addSensor( const TQString &hostName, const TQString &name,
   if ( type != "integer" && type != "float" )
     return false;
 
-  if ( mBeams > 0 && hostName != sensors().tqat( 0 )->hostName() ) {
+  if ( mBeams > 0 && hostName != sensors().at( 0 )->hostName() ) {
     KMessageBox::sorry( this, TQString( "All sensors of this display need "
                                        "to be from the host %1!" )
-                        .arg( sensors().tqat( 0 )->hostName() ) );
+                        .arg( sensors().at( 0 )->hostName() ) );
 
     /* We have to enforce this since the answers to value requests
      * need to be received in order. */
@@ -238,8 +238,8 @@ bool FancyPlotter::addSensor( const TQString &hostName, const TQString &name,
   TQString tooltip;
   for ( uint i = 0; i < mBeams; ++i ) {
     tooltip += TQString( "%1%2:%3" ).arg( i != 0 ? "\n" : "" )
-                                   .arg( sensors().tqat( mBeams - i - 1 )->hostName() )
-                                   .arg( sensors().tqat( mBeams - i - 1  )->name() );
+                                   .arg( sensors().at( mBeams - i - 1 )->hostName() )
+                                   .arg( sensors().at( mBeams - i - 1  )->name() );
   }
 
   TQToolTip::remove( TQT_TQWIDGET(mPlotter) );
@@ -263,8 +263,8 @@ bool FancyPlotter::removeSensor( uint pos )
   TQString tooltip;
   for ( uint i = 0; i < mBeams; ++i ) {
     tooltip += TQString( "%1%2:%3" ).arg( i != 0 ? "\n" : "" )
-                                   .arg( sensors().tqat( mBeams - i - 1 )->hostName() )
-                                   .arg( sensors().tqat( mBeams - i - 1  )->name() );
+                                   .arg( sensors().at( mBeams - i - 1 )->hostName() )
+                                   .arg( sensors().at( mBeams - i - 1  )->name() );
   }
 
   TQToolTip::remove( TQT_TQWIDGET(mPlotter) );
@@ -319,7 +319,7 @@ void FancyPlotter::answerReceived( int id, const TQString &answer )
       if ( info.min() == 0.0 && info.max() == 0.0 )
         mPlotter->setUseAutoRange( true );
     }
-    sensors().tqat( id - 100 )->setUnit( info.unit() );
+    sensors().at( id - 100 )->setUnit( info.unit() );
   }
 }
 
@@ -405,9 +405,9 @@ bool FancyPlotter::saveSettings( TQDomDocument &doc, TQDomElement &element,
   for ( uint i = 0; i < mBeams; ++i ) {
     TQDomElement beam = doc.createElement( "beam" );
     element.appendChild( beam );
-    beam.setAttribute( "hostName", sensors().tqat( i )->hostName() );
-    beam.setAttribute( "sensorName", sensors().tqat( i )->name() );
-    beam.setAttribute( "sensorType", sensors().tqat( i )->type() );
+    beam.setAttribute( "hostName", sensors().at( i )->hostName() );
+    beam.setAttribute( "sensorName", sensors().at( i )->name() );
+    beam.setAttribute( "sensorType", sensors().at( i )->type() );
     saveColor( beam, "color", mPlotter->beamColors()[ i ] );
   }
 

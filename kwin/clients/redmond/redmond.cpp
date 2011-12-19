@@ -294,7 +294,7 @@ void RedmondButton::setPixmap( const TQPixmap &p )
 	deco.resize(0, 0);
 	pix = p;
 
-	tqrepaint(false);
+	repaint(false);
 }
 
 

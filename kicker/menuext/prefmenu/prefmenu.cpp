@@ -113,7 +113,7 @@ void PrefMenu::insertMenuItem(KService::Ptr& s,
     }
 
     // ignore dotfiles.
-    if ((serviceName.tqat(0) == '.'))
+    if ((serviceName.at(0) == '.'))
     {
         return;
     }
@@ -290,7 +290,7 @@ void PrefMenu::initialize()
             }
 
             // Ignore dotfiles.
-            if ((g->name().tqat(0) == '.'))
+            if ((g->name().at(0) == '.'))
             {
                 continue;
             }

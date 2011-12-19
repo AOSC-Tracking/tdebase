@@ -449,7 +449,7 @@
                     <property name="scaledContents">
                         <bool>true</bool>
                     </property>
-                    <property name="tqalignment">
+                    <property name="alignment">
                         <set>AlignCenter</set>
                     </property>
                     <property name="hAlign" stdset="0">

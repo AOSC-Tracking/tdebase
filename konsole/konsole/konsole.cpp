@@ -1158,7 +1158,7 @@ void Konsole::makeBasicGUI()
               TQT_TQOBJECT(this), TQT_SLOT(nextSession()), m_shortcuts, "next_session");
 
   for (int i=1;i<13;i++) { // Due to 12 function keys?
-     new KAction(i18n("Switch to Session %1").tqarg(i), 0, TQT_TQOBJECT(this), TQT_SLOT(switchToSession()), m_shortcuts, TQString(TQString().sprintf("switch_to_session_%02d", i)).latin1());
+     new KAction(i18n("Switch to Session %1").arg(i), 0, TQT_TQOBJECT(this), TQT_SLOT(switchToSession()), m_shortcuts, TQString(TQString().sprintf("switch_to_session_%02d", i)).latin1());
   }
 
   new KAction(i18n("Enlarge Font"), 0, TQT_TQOBJECT(this), TQT_SLOT(biggerFont()), m_shortcuts, "bigger_font");
@@ -1313,7 +1313,7 @@ void Konsole::slotTabContextMenu(TQWidget* _te, const TQPoint & pos)
    if (!m_menuCreated)
       makeGUI();
 
-  m_contextMenuSession = sessions.tqat( tabwidget->indexOf( _te ) );
+  m_contextMenuSession = sessions.at( tabwidget->indexOf( _te ) );
 
   m_tabDetachSession->setEnabled( tabwidget->count()>1 );
 
@@ -1384,12 +1384,12 @@ void Konsole::slotTabSetViewOptions(int mode)
   for(int i = 0; i < tabwidget->count(); i++) {
 
     TQWidget *page = tabwidget->page(i);
-    TQIconSet icon = iconSetForSession(sessions.tqat(i));
+    TQIconSet icon = iconSetForSession(sessions.at(i));
     TQString title;
     if (b_matchTabWinTitle)
-      title = sessions.tqat(i)->fullTitle();
+      title = sessions.at(i)->fullTitle();
     else
-      title = sessions.tqat(i)->Title();
+      title = sessions.at(i)->Title();
 
     title=title.replace('&',"&&");
     switch(mode) {
@@ -1622,7 +1622,7 @@ void Konsole::readProperties(KConfig* config, const TQString &schema, bool globa
       ColorSchema* sch = colors->find(schema.isEmpty() ? s_kconfigSchema : schema);
       if (!sch)
       {
-         sch = (ColorSchema*)colors->tqat(0);  //the default one
+         sch = (ColorSchema*)colors->at(0);  //the default one
          kdWarning() << "Could not find schema named " <<s_kconfigSchema<<"; using "<<sch->relPath()<<endl;
          s_kconfigSchema = sch->relPath();
       }
@@ -1650,7 +1650,7 @@ void Konsole::readProperties(KConfig* config, const TQString &schema, bool globa
              delete rootxpms[te];
              rootxpms.remove(te);
            }
-           pixmap_menu_activated(sch->tqalignment());
+           pixmap_menu_activated(sch->alignment());
         }
 
         te->setColorTable(sch->table()); //FIXME: set twice here to work around a bug
@@ -1886,7 +1886,7 @@ void Konsole::updateSchemaMenu()
   m_schema->clear();
   for (int i = 0; i < (int) colors->count(); i++)
   {
-     ColorSchema* s = (ColorSchema*)colors->tqat(i);
+     ColorSchema* s = (ColorSchema*)colors->at(i);
     assert( s );
     TQString title=s->title();
     m_schema->insertItem(title.replace('&',"&&"),s->numb(),0);
@@ -2002,7 +2002,7 @@ void Konsole::slotSelectTabbar() {
 /* FIXME: Still necessary ? */
       TQPtrDictIterator<KRootPixmap> it(rootxpms);
       for (;it.current();++it)
-        it.current()->tqrepaint(true);
+        it.current()->repaint(true);
 
   if (b_fixedSize)
   {
@@ -2129,7 +2129,7 @@ void Konsole::reparseConfiguration()
   ColorSchema* sch = colors->find(s_kconfigSchema);
   if (!sch)
   {
-     sch = (ColorSchema*)colors->tqat(0);  //the default one
+     sch = (ColorSchema*)colors->at(0);  //the default one
      kdWarning() << "Could not find schema named " <<s_kconfigSchema<<"; using "<<sch->relPath()<<endl;
      s_kconfigSchema = sch->relPath();
   }
@@ -2500,7 +2500,7 @@ TQString Konsole::sessionId(const int position)
   if (position<=0 || position>(int)sessions.count())
     return "";
 
-  return sessions.tqat(position-1)->SessionId();
+  return sessions.at(position-1)->SessionId();
 }
 
 void Konsole::listSessions()
@@ -2526,7 +2526,7 @@ void Konsole::activateSession(int position)
 {
   if (position<0 || position>=(int)sessions.count())
     return;
-  activateSession( sessions.tqat(position) );
+  activateSession( sessions.at(position) );
 }
 
 void Konsole::activateSession(TQWidget* w)
@@ -2586,11 +2586,11 @@ void Konsole::activateSession(TESession *s)
   // Set the required schema variables for the current session
   ColorSchema* cs = colors->find( se->schemaNo() );
   if (!cs)
-      cs = (ColorSchema*)colors->tqat(0);  //the default one
+      cs = (ColorSchema*)colors->at(0);  //the default one
   s_schema = cs->relPath();
   curr_schema = cs->numb();
   pmPath = cs->imagePath();
-  n_render = cs->tqalignment();
+  n_render = cs->alignment();
 
 // BR 106464 temporary fix... 
 //  only 2 sessions opened, 2nd session viewable, right-click on 1st tab and 
@@ -2632,7 +2632,7 @@ void Konsole::activateSession(TESession *s)
   if (monitorSilence) monitorSilence->setChecked( se->isMonitorSilence() );
   masterMode->setChecked( se->isMasterMode() );
   sessions.find(se);
-  uint position=sessions.tqat();
+  uint position=sessions.at();
   if (m_moveSessionLeft) m_moveSessionLeft->setEnabled(position>0);
   if (m_moveSessionRight) m_moveSessionRight->setEnabled(position<sessions.count()-1);
 }
@@ -2871,7 +2871,7 @@ TQString Konsole::newSession(KSimpleConfig *co, TQString program, const TQStrLis
 
   ColorSchema* schema = colors->find(sch);
   if (!schema)
-      schema=(ColorSchema*)colors->tqat(0);  //the default one
+      schema=(ColorSchema*)colors->at(0);  //the default one
   int schmno = schema->numb();
 
   if (sessions.count()==1 && n_tabbar!=TabNone)
@@ -3063,7 +3063,7 @@ void Konsole::doneSession(TESession* s)
     se = 0;
     if (sessions.count())
     {
-      se = sessions.tqat(sessionIndex ? sessionIndex - 1 : 0);
+      se = sessions.at(sessionIndex ? sessionIndex - 1 : 0);
 
       session2action.find(se)->setChecked(true);
       //FIXME: this Timer stupidity originated from the connected
@@ -3081,7 +3081,7 @@ void Konsole::doneSession(TESession* s)
   }
   else {
     sessions.find(se);
-    uint position=sessions.tqat();
+    uint position=sessions.at();
     m_moveSessionLeft->setEnabled(position>0);
     m_moveSessionRight->setEnabled(position<sessions.count()-1);
   }
@@ -3135,7 +3135,7 @@ void Konsole::slotMovedTab(int from, int to)
 void Konsole::moveSessionLeft()
 {
   sessions.find(se);
-  uint position=sessions.tqat();
+  uint position=sessions.at();
   if (position==0)
     return;
 
@@ -3167,7 +3167,7 @@ void Konsole::moveSessionLeft()
 void Konsole::moveSessionRight()
 {
   sessions.find(se);
-  uint position=sessions.tqat();
+  uint position=sessions.at();
 
   if (position==sessions.count()-1)
     return;
@@ -3570,7 +3570,7 @@ void Konsole::setSchema(int numb, TEWidget* tewidget)
   ColorSchema* s = colors->find(numb);
   if (!s)
   {
-    s = (ColorSchema*)colors->tqat(0);
+    s = (ColorSchema*)colors->at(0);
     kdWarning() << "No schema with serial #"<<numb<<", using "<<s->relPath()<<" (#"<<s->numb()<<")." << endl;
     s_kconfigSchema = s->relPath();
   }
@@ -3587,7 +3587,7 @@ void Konsole::setSchema(const TQString & path)
   ColorSchema* s = colors->find(path);
   if (!s)
   {
-     s = (ColorSchema*)colors->tqat(0);  //the default one
+     s = (ColorSchema*)colors->at(0);  //the default one
      kdWarning() << "No schema with the name " <<path<<", using "<<s->relPath()<<endl;
      s_kconfigSchema = s->relPath();
   }
@@ -3639,7 +3639,7 @@ void Konsole::setSchema(ColorSchema* s, TEWidget* tewidget)
         delete rootxpms[tewidget];
         rootxpms.remove(tewidget);
       }
-       pixmap_menu_activated(s->tqalignment(), tewidget);
+       pixmap_menu_activated(s->alignment(), tewidget);
        tewidget->setBlendColor(tqRgba(0, 0, 0, 0xff));
   }
 
@@ -3718,7 +3718,7 @@ void Konsole::detachSession(TESession* _se) {
     if (se_previous)
       se = se_previous;
     else
-      se = sessions.tqat(sessionIndex ? sessionIndex - 1 : 0);
+      se = sessions.at(sessionIndex ? sessionIndex - 1 : 0);
     session2action.find(se)->setChecked(true);
     TQTimer::singleShot(1,this,TQT_SLOT(activateSession()));
   }
@@ -3992,7 +3992,7 @@ void Konsole::slotOpenSelection()
 
   m_filterData = new KURIFilterData( selectedURL );
   KURIFilter::self()->filterURI( *(m_filterData) );
-  m_openSelection->insertItem( SmallIconSet( m_filterData->iconName() ),i18n( "%1" ).tqarg(m_filterData->uri().url()), 1 );
+  m_openSelection->insertItem( SmallIconSet( m_filterData->iconName() ),i18n( "%1" ).arg(m_filterData->uri().url()), 1 );
 
   connect(m_openSelection, TQT_SIGNAL(activated(int)), TQT_SLOT(slotOpenURI(int)));
 }
@@ -4207,7 +4207,7 @@ void Konsole::toggleBidi()
   TQPtrList<TEWidget> tes = activeTEs();
   for (TEWidget *_te = tes.first(); _te; _te = tes.next()) {
     _te->setBidiEnabled(b_bidiEnabled);
-    _te->tqrepaint();
+    _te->repaint();
   }
 }
 

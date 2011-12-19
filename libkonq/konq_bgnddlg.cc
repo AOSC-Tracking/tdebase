@@ -142,7 +142,7 @@ void KonqBgndDialog::initPictures()
         TQStringList::ConstIterator it;
         for ( it = list.begin(); it != list.end(); it++ )
             m_comboPicture->comboBox()->insertItem(
-                ( (*it).tqat(0) == '/' ) ?    // if absolute path
+                ( (*it).at(0) == '/' ) ?    // if absolute path
                 KURL( *it ).fileName() :  // then only fileName
                 *it );
     }

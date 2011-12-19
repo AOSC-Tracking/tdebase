@@ -150,7 +150,7 @@ extern "C"
 		{
 			int id=names.findIndex( item );
 			if (id==-1) return false;
-			KSimpleConfig ksc2(*list.tqat(id));
+			KSimpleConfig ksc2(*list.at(id));
 			ksc2.setGroup("Desktop Entry");
 		        map->insert("Type","Link");
 			map->insert("Icon",ksc2.readEntry("Icon"));

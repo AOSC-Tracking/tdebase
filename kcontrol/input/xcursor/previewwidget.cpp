@@ -303,7 +303,7 @@ void PreviewWidget::setTheme( const TQString &theme )
 	current = -1;
 	setFixedSize( ( maxWidth + cursorSpacing ) * numCursors, kMax( maxHeight, minHeight ) );
 	setUpdatesEnabled( true );
-	tqrepaint( false );
+	repaint( false );
 }
 
 

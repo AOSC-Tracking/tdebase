@@ -76,19 +76,19 @@ KdmClock::KdmClock( TQWidget *parent, const char *name )
 	//setBackgroundOrigin( WindowOrigin );
 	mBackgroundBrush = backgroundBrush();
 	setBackgroundMode( NoBackground );
-	tqrepaint();
+	repaint();
 }
 
 
 void KdmClock::showEvent( TQShowEvent * )
 {
-	tqrepaint();
+	repaint();
 }
 
 
 void KdmClock::timeout()
 {
-	tqrepaint();
+	repaint();
 }
 
 void KdmClock::paintEvent( TQPaintEvent * )

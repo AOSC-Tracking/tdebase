@@ -1905,7 +1905,7 @@ public:
         return (index >= 0) && (index < (int)items.count());
     }
     TABLEITEM &at(int index) {
-        return *items.tqat(index);
+        return *items.at(index);
     }
 
     TABLEROW *copyLayout() const;

@@ -1070,7 +1070,7 @@ DECALN.sect Command
 DECALN.code HSH|8|
 DECALN.text
   Causes the VT100 to fill it's screen with
-  uppercase Es for screen focus and tqalignment.
+  uppercase Es for screen focus and alignment.
 DECALN.table.XPS
   Subcode|Emulation|Scope|Operation|Args|Meaning
   N/A|VT100|scr|helpAlign||see above

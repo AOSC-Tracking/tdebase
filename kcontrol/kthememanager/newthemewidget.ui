@@ -88,7 +88,7 @@
             <property name="text">
                 <string>Co&amp;mment:</string>
             </property>
-            <property name="tqalignment">
+            <property name="alignment">
                 <set>AlignTop</set>
             </property>
             <property name="buddy" stdset="0">

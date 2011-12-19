@@ -481,15 +481,15 @@ class KWIN_EXPORT KDecoration
 	void performWindowOperation( WindowOperation op );
 	/**
 	 * If the decoration is non-rectangular, this function needs to be called
-	 * to set the tqshape of the decoration.
+	 * to set the shape of the decoration.
 	 *
-	 * @param reg  The tqshape of the decoration.
+	 * @param reg  The shape of the decoration.
 	 * @param mode The X11 values Unsorted, YSorted, YXSorted and YXBanded that specify
 	 *             the sorting of the rectangles, default value is Unsorted.
 	 */
         void setMask( const TQRegion& reg, int mode = 0 );
 	/**
-	 * This convenience function resets the tqshape mask.
+	 * This convenience function resets the shape mask.
 	 */
         void clearMask(); // convenience
 	/**

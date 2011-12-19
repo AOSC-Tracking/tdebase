@@ -684,7 +684,7 @@ void KCommonDecoration::resizeEvent(TQResizeEvent */*e*/)
 
     updateWindowShape();
     // FIXME: don't update() here! this would result in two paintEvent()s
-    // because there is already "something" else triggering the tqrepaint...
+    // because there is already "something" else triggering the repaint...
 //     widget()->update();
 }
 

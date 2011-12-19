@@ -78,7 +78,7 @@ bool BarGraph::removeBar( uint idx )
   }
 
   samples.resize( --bars );
-  footers.remove( footers.tqat( idx ) );
+  footers.remove( footers.at( idx ) );
   update();
 
   return true;
@@ -103,7 +103,7 @@ void BarGraph::paintEvent( TQPaintEvent* )
 
   TQPixmap pm( w, h );
   TQPainter p;
-  p.tqbegin( &pm, this );
+  p.begin( &pm, this );
   p.setFont( TQFont( p.font().family(), fontSize ) );
   TQFontMetrics fm( p.font() );
 

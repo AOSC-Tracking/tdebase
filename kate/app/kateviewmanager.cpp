@@ -316,7 +316,7 @@ uint KateViewManager::viewCount ()
 {
   uint viewCount=0;
   for (uint i=0;i<m_viewSpaceContainerList.count();i++) {
-    viewCount+=m_viewSpaceContainerList.tqat(i)->viewCount();
+    viewCount+=m_viewSpaceContainerList.at(i)->viewCount();
   }
   return viewCount;
 
@@ -326,7 +326,7 @@ uint KateViewManager::viewSpaceCount ()
 {
   uint viewSpaceCount=0;
   for (uint i=0;i<m_viewSpaceContainerList.count();i++) {
-    viewSpaceCount+=m_viewSpaceContainerList.tqat(i)->viewSpaceCount();
+    viewSpaceCount+=m_viewSpaceContainerList.at(i)->viewSpaceCount();
   }
   return viewSpaceCount;
 }
@@ -334,7 +334,7 @@ uint KateViewManager::viewSpaceCount ()
 void KateViewManager::setViewActivationBlocked (bool block)
 {
   for (uint i=0;i<m_viewSpaceContainerList.count();i++)
-    m_viewSpaceContainerList.tqat(i)->m_blockViewCreationAndActivation=block;
+    m_viewSpaceContainerList.at(i)->m_blockViewCreationAndActivation=block;
 }
 
 void KateViewManager::activateNextView()
@@ -354,7 +354,7 @@ void KateViewManager::activatePrevView()
 void KateViewManager::closeViews(uint documentNumber)
 {
   for (uint i=0;i<m_viewSpaceContainerList.count();i++) {
-    m_viewSpaceContainerList.tqat(i)->closeViews(documentNumber);
+    m_viewSpaceContainerList.at(i)->closeViews(documentNumber);
   }
   tabChanged(m_currentContainer);
 }
@@ -454,7 +454,7 @@ void KateViewManager::setShowFullPath( bool enable )
 {
   showFullPath=enable;
   for (uint i=0;i<m_viewSpaceContainerList.count();i++) {
-    m_viewSpaceContainerList.tqat(i)->setShowFullPath(enable);
+    m_viewSpaceContainerList.at(i)->setShowFullPath(enable);
   }
   m_mainWindow->slotWindowActivated ();
  }
@@ -477,7 +477,7 @@ void KateViewManager::saveViewConfiguration(KConfig *config,const TQString& grp)
   config->writeEntry("ViewSpaceContainers",m_viewSpaceContainerList.count());
   config->writeEntry("Active ViewSpaceContainer", m_mainWindow->tabWidget()->currentPageIndex());
   for (uint i=0;i<m_viewSpaceContainerList.count();i++) {
-    m_viewSpaceContainerList.tqat(i)->saveViewConfiguration(config,group+TQString(":ViewSpaceContainer-%1:").arg(i));
+    m_viewSpaceContainerList.at(i)->saveViewConfiguration(config,group+TQString(":ViewSpaceContainer-%1:").arg(i));
   }
 }
 
@@ -495,10 +495,10 @@ void KateViewManager::restoreViewConfiguration (KConfig *config, const TQString&
   uint tabCount=config->readNumEntry("ViewSpaceContainers",0);
   int activeOne=config->readNumEntry("Active ViewSpaceContainer",0);
   if (tabCount==0) return;
-  m_viewSpaceContainerList.tqat(0)->restoreViewConfiguration(config,group+TQString(":ViewSpaceContainer-0:"));
+  m_viewSpaceContainerList.at(0)->restoreViewConfiguration(config,group+TQString(":ViewSpaceContainer-0:"));
   for (uint i=1;i<tabCount;i++) {
     slotNewTab();
-    m_viewSpaceContainerList.tqat(i)->restoreViewConfiguration(config,group+TQString(":ViewSpaceContainer-%1:").arg(i));
+    m_viewSpaceContainerList.at(i)->restoreViewConfiguration(config,group+TQString(":ViewSpaceContainer-%1:").arg(i));
   }
 
   if (activeOne != m_mainWindow->tabWidget()->currentPageIndex())

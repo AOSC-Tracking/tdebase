@@ -70,7 +70,7 @@ void KateTabWidget::insertTab ( TQWidget * child, const TQString & label, int in
   KTabWidget::insertTab(child,label,index);
   showPage(child);
   maybeShow();
-  tabBar()->tqrepaint();
+  tabBar()->repaint();
 }
 
 void KateTabWidget::insertTab ( TQWidget * child, const TQIconSet & iconset, const TQString & label, int index )
@@ -78,7 +78,7 @@ void KateTabWidget::insertTab ( TQWidget * child, const TQIconSet & iconset, con
   KTabWidget::insertTab(child,iconset,label,index);
   showPage(child);
   maybeShow();
-  tabBar()->tqrepaint();
+  tabBar()->repaint();
 }
 
 void KateTabWidget::insertTab ( TQWidget * child, TQTab * tab, int index)
@@ -86,7 +86,7 @@ void KateTabWidget::insertTab ( TQWidget * child, TQTab * tab, int index)
   KTabWidget::insertTab(child,tab,index);
   showPage(child);
   maybeShow();
-  tabBar()->tqrepaint();
+  tabBar()->repaint();
 }
 
 void KateTabWidget::removePage ( TQWidget * w )

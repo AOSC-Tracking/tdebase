@@ -77,7 +77,7 @@ int PingServer( struct _XDisplay *dpy );
 void setup_modifiers( struct _XDisplay *mdpy, int numlock );
 void restore_modifiers( void );
 
-void setCursor( struct _XDisplay *mdpy, int window, int tqshape );
+void setCursor( struct _XDisplay *mdpy, int window, int shape );
 
 
 extern int rfd; /* for select() loops */

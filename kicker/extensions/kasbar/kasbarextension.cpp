@@ -141,7 +141,7 @@ void KasBarExtension::showEvent( TQShowEvent */*se*/ )
 {
     updateGeometry();
     resize( kasbar->size() );
-    tqrepaint( true );
+    repaint( true );
 }
 
 TQSize KasBarExtension::detachedSize()

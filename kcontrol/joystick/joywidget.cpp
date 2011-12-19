@@ -170,7 +170,7 @@ void JoyWidget::init()
 
     // we found one
 
-    device->insertItem(TQString("%1 (%2)").tqarg(joy->text()).tqarg(joy->device()));
+    device->insertItem(TQString("%1 (%2)").arg(joy->text()).arg(joy->device()));
 
     // display values for first device
     if ( first )

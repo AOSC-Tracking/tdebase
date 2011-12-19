@@ -700,11 +700,11 @@ restore_modifiers( void )
 }
 
 void
-setCursor( Display *mdpy, int window, int tqshape )
+setCursor( Display *mdpy, int window, int shape )
 {
 	Cursor xcursor;
 
-	if ((xcursor = XCreateFontCursor( mdpy, tqshape ))) {
+	if ((xcursor = XCreateFontCursor( mdpy, shape ))) {
 		XDefineCursor( mdpy, window, xcursor );
 		XFreeCursor( mdpy, xcursor );
 		XFlush( mdpy );

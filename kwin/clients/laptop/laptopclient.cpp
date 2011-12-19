@@ -293,7 +293,7 @@ void LaptopButton::setBitmap(const unsigned char *bitmap)
         deco.fill(Qt::color0);
     }
     deco.setMask(deco);
-    tqrepaint();
+    repaint();
 }
 
 void LaptopButton::drawButton(TQPainter *p)

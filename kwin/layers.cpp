@@ -87,7 +87,7 @@ void Workspace::updateClientLayer( Client* c )
     if( c->layer() == c->belongsToLayer())
         return;
     StackingUpdatesBlocker blocker( this );
-    c->invalidateLayer(); // tqinvalidate, will be updated when doing restacking
+    c->invalidateLayer(); // invalidate, will be updated when doing restacking
     for( ClientList::ConstIterator it = c->transients().begin();
          it != c->transients().end();
          ++it )

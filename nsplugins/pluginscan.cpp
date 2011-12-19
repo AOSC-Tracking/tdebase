@@ -346,7 +346,7 @@ void scanDirectory( TQString dir, TQStringList &mimeInfoList,
         // open the library and ask for the mimetype
         kdDebug(1433) << " - opening " << absFile << endl;
 
-        cache.tqdevice()->flush();
+        cache.device()->flush();
         // fork, so that a crash in the plugin won't stop the scanning of other plugins
         int pipes[2];
         if (pipe(pipes) != 0) continue;

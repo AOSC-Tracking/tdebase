@@ -270,7 +270,7 @@ void FlipScrollView::slotScrollTimer()
         if (!mSelectMenuPath.isEmpty()) {
             if (mSelectMenuPath=="kicker:/goup/") {
                 currentView()->setSelected(currentView()->firstChild(),true);
-                currentView()->firstChild()->tqrepaint();
+                currentView()->firstChild()->repaint();
             }
             else {
                 TQListViewItem * child = currentView()->firstChild();
@@ -278,8 +278,8 @@ void FlipScrollView::slotScrollTimer()
                     KMenuItem* kitem = dynamic_cast<KMenuItem*>(child);
                     if (kitem && kitem->menuPath()==mSelectMenuPath) {
                         currentView()->setSelected(child,true);
-                        kdDebug() << "child tqrepaint\n";
-                        child->tqrepaint();
+                        kdDebug() << "child repaint\n";
+                        child->repaint();
                         break;
                     }
                     child = child->nextSibling();

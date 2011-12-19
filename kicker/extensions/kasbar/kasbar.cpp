@@ -102,7 +102,7 @@ KasBar::KasBar( Orientation o, TQWidget *parent, const char *name, WFlags f )
     setMouseTracking( true );
     setMaxBoxes( 0 );
 
-    connect( this, TQT_SIGNAL( configChanged() ), TQT_SLOT( tqrepaint() ) );
+    connect( this, TQT_SIGNAL( configChanged() ), TQT_SLOT( repaint() ) );
 }
 
 KasBar::KasBar( Orientation o, KasBar *master, TQWidget *parent, const char *name, WFlags f )
@@ -130,7 +130,7 @@ KasBar::KasBar( Orientation o, KasBar *master, TQWidget *parent, const char *nam
     items.setAutoDelete( true );
     setMouseTracking( true );
     setMaxBoxes( 0 );
-    connect( master_, TQT_SIGNAL( configChanged() ), TQT_SLOT( tqrepaint() ) );
+    connect( master_, TQT_SIGNAL( configChanged() ), TQT_SLOT( repaint() ) );
 }
 
 KasBar::~KasBar()
@@ -255,7 +255,7 @@ void KasBar::setTint( bool enable )
       }
 
       emit configChanged();
-      tqrepaint( true );
+      repaint( true );
    }
 }
 
@@ -269,7 +269,7 @@ void KasBar::setTint( double amount, TQColor color )
       emit configChanged();
 
       if ( rootPix->isAvailable() )
-	rootPix->tqrepaint( true );
+	rootPix->repaint( true );
    }
 }
 
@@ -451,24 +451,24 @@ void KasBar::updateLayout()
    KasItem *i;
    if ( orient == Qt::Horizontal ) {
        for ( i = items.first(); i; i = items.next() ) {
-	   int x = (items.tqat() % c) * itemExtent();
+	   int x = (items.at() % c) * itemExtent();
 
 	   if ( direction_ == TQBoxLayout::RightToLeft )
 	       x = width() - x - itemExtent();
 
-	   i->setPos( x, (items.tqat() / c) * itemExtent() );
+	   i->setPos( x, (items.at() / c) * itemExtent() );
 	   i->update();
 	   mask = mask.unite( TQRegion( TQRect( i->pos(), TQSize(itemExtent(),itemExtent()) ) ) );
        }
    }
    else {
        for ( i = items.first(); i; i = items.next() ) {
-	   int y = (items.tqat() / r) * itemExtent();
+	   int y = (items.at() / r) * itemExtent();
 
 	   if ( direction_ == TQBoxLayout::BottomToTop )
 	       y = height() - y - itemExtent();
 
-	   i->setPos( (items.tqat() % r) * itemExtent(), y );
+	   i->setPos( (items.at() % r) * itemExtent(), y );
 	   i->update();
 	   mask = mask.unite( TQRegion( TQRect( i->pos(), TQSize(itemExtent(),itemExtent()) ) ) );
        }
@@ -658,7 +658,7 @@ void KasBar::repaintItem(KasItem *i, bool erase )
 
     paintBackground( &p, TQRect( pos, TQSize( itemExtent(), itemExtent() ) ) );
     i->paint( &p, pos.x(), pos.y() );
-    tqrepaint( TQRect( pos, TQSize( itemExtent(), itemExtent()  ) ), transparent_ || erase );
+    repaint( TQRect( pos, TQSize( itemExtent(), itemExtent()  ) ), transparent_ || erase );
 }
 
 KasItem* KasBar::itemAt(const TQPoint &p)

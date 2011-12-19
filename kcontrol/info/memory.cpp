@@ -288,7 +288,7 @@ bool KMemoryWidget::Display_Graph(int widgetindex,
     TQPixmap pm(width, height);
     TQPainter paint;
 
-    paint.tqbegin(&pm, this);
+    paint.begin(&pm, this);
 
     TQPen pen(TQColor(0, 0, 0));
 

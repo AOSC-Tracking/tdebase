@@ -158,13 +158,13 @@ bool TextCreator::create(const TQString &path, int width, int height, TQImage &i
                 }
 
                 // check for newlines in the text (unix,dos)
-                TQChar ch = text.tqat( i );
+                TQChar ch = text.at( i );
                 if ( ch == '\n' )
                 {
                     newLine = true;
                     continue;
                 }
-                else if ( ch == '\r' && text.tqat(i+1) == '\n' )
+                else if ( ch == '\r' && text.at(i+1) == '\n' )
                 {
                     newLine = true;
                     i++; // skip the next character (\n) as well

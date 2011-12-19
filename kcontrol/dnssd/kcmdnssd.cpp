@@ -124,7 +124,7 @@ void KCMDnssd::load()
 	while (avahiStatus.isRunning()) {
 	  kapp->processEvents();
 	}
-	int exitStatus = avahiStatus.exiStatus();
+	int exitStatus = avahiStatus.exitStatus();
 	if (exitStatus == 0) { // disabled
 	  enableZeroconf->setChecked(false);
 	} else if (exitStatus == 1) { // enabled 

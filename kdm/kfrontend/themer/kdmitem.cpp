@@ -280,7 +280,7 @@ KdmItem::setGeometry( const TQRect &newGeometry, bool force )
 	if (fixedManager && !fixedManager->isEmpty())
 		fixedManager->update( newGeometry, force );
 
-	// TODO send *selective* tqrepaint signal
+	// TODO send *selective* repaint signal
 }
 
 void
@@ -299,7 +299,7 @@ KdmItem::paint( TQPainter *p, const TQRect &rect )
               if ((_compositor.isEmpty()) || (!argb_visual_available)) {
                 // Software blend only (no compositing support)
                 TQPixmap copy( myWidget->size() );
-                kdDebug() <<  myWidget->tqgeometry() << " " << area << " " << myWidget->size() << endl;
+                kdDebug() <<  myWidget->geometry() << " " << area << " " << myWidget->size() << endl;
                 bitBlt( &copy, TQPoint( 0, 0), p->device(), myWidget->geometry(), TQt::CopyROP );
                 // Lighten it slightly
                 TQImage lightVersion;
@@ -592,7 +592,7 @@ KdmItem::parseAttribute( const TQString &s, int &val, enum DataType &dType )
 	} else {		// int value
 		dType = DTpixel;
 		TQString sCopy = s;
-		if (sCopy.tqat( 0 ) == '-') {
+		if (sCopy.at( 0 ) == '-') {
 			sCopy.remove( 0, 1 );
 			dType = DTnpixel;
 		}
@@ -616,7 +616,7 @@ KdmItem::parseFont( const TQString &s, TQFont &font )
 void
 KdmItem::parseColor( const TQString &s, TQColor &color )
 {
-	if (s.tqat( 0 ) != '#')
+	if (s.at( 0 ) != '#')
 		return;
 	bool ok;
 	TQString sCopy = s;

@@ -547,12 +547,12 @@ void KasItem::paint( TQPainter *p, int x, int y )
     p->restore();
 }
 
-void KasItem::tqrepaint()
+void KasItem::repaint()
 {
-   tqrepaint( true );
+   repaint( true );
 }
 
-void KasItem::tqrepaint( bool erase )
+void KasItem::repaint( bool erase )
 {
    if ( kas->isVisible() )
        kas->repaintItem( this, erase );

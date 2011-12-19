@@ -162,7 +162,7 @@ void StyleSettings::setSensorColors( const TQValueList<TQColor> &list )
 
   for ( uint i = 0; i < list.count(); ++i ) {
     TQPixmap pm( 12, 12 );
-		pm.fill( *list.tqat( i ) );
+		pm.fill( *list.at( i ) );
     mColorListBox->insertItem( pm, i18n( "Color %1" ).arg( i ) );
 	}
 }

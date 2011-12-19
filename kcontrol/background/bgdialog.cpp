@@ -441,14 +441,14 @@ void BGDialog::initUI()
    else {
       for (unsigned i = 0; i < (m_numDesks/m_numViewports); ++i) {
          for (unsigned j = 0; j < m_numViewports; ++j) {
-            m_comboDesktop->insertItem(i18n("Desktop %1 Viewport %2").tqarg(i+1).tqarg(j+1));
+            m_comboDesktop->insertItem(i18n("Desktop %1 Viewport %2").arg(i+1).arg(j+1));
          }
       }
    }
    
    // Screens
    for (unsigned i = 0; i < m_numScreens; ++i)
-      m_comboScreen->insertItem( i18n("Screen %1").tqarg(TQString::number(i+1)) );
+      m_comboScreen->insertItem( i18n("Screen %1").arg(TQString::number(i+1)) );
 
    // Patterns
    m_comboPattern->insertItem(i18n("Single Color"));

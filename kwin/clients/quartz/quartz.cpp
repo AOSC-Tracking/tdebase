@@ -437,7 +437,7 @@ void QuartzButton::setBitmap(const unsigned char *bitmap)
 	if (bitmap) {
 		deco = new TQBitmap(10, 10, bitmap, true);
 		deco->setMask( *deco );
-		tqrepaint( false );
+		repaint( false );
 	}
 }
 
@@ -643,8 +643,8 @@ void QuartzClient::reset( unsigned long changed )
 {
 	if (changed & SettingColors || changed & SettingFont)
 	{
-		// tqrepaint the whole thing
-		widget()->tqrepaint(false);
+		// repaint the whole thing
+		widget()->repaint(false);
 	}
 
 	KCommonDecoration::reset(changed);

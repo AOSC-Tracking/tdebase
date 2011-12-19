@@ -348,7 +348,7 @@ void PanelKMenu::initialize()
     if (clients.count() > 0) {
         TQIntDictIterator<KickerClientMenu> it(clients);
         while (it){
-            if (it.current()->text.tqat(0) != '.')
+            if (it.current()->text.at(0) != '.')
                 insertItem(
                     it.current()->icon,
                     it.current()->text,
@@ -419,10 +419,10 @@ void PanelKMenu::repairDisplay(void) {
         displayRepairTimer->stop();
 
         // Now do a nasty hack to prevent search bar merging into the side image
-        // This forces a layout/tqrepaint of the qpopupmenu
-        tqrepaint();			// This ensures that the side bar image was applied
+        // This forces a layout/repaint of the qpopupmenu
+        repaint();			// This ensures that the side bar image was applied
         styleChange(tqstyle());		// This forces a call to the private function updateSize(TRUE) inside the qpopupmenu.
-        update();			// This repaints the entire popup menu to apply the widget size/tqalignment changes made above
+        update();			// This repaints the entire popup menu to apply the widget size/alignment changes made above
     }
 }
 

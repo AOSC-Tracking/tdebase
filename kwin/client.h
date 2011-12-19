@@ -214,8 +214,8 @@ class Client : public TQObject, public KDecorationDefines
         // window to be redrawn.
         friend void Workspace::updateOverlappingShadows(WId);
 
-    // tqshape extensions
-        bool tqshape() const;
+    // shape extensions
+        bool shape() const;
         void updateShape();
 
         void setGeometry( int x, int y, int w, int h, ForceGeometry_t force = NormalGeometrySet );
@@ -501,7 +501,7 @@ class Client : public TQObject, public KDecorationDefines
         uint active :1;
         uint deleting : 1; // true when doing cleanup and destroying the client
         uint keep_above : 1; // NET::KeepAbove (was stays_on_top)
-        uint is_tqshape :1;
+        uint is_shape :1;
         uint skip_taskbar :1;
         uint original_skip_taskbar :1; // unaffected by KWin
         uint Pdeletewindow :1; // does the window understand the DeleteWindow protocol?
@@ -570,7 +570,7 @@ class Client : public TQObject, public KDecorationDefines
         TQMemArray<double> activeOpacityCache;
         TQMemArray<double> inactiveOpacityCache;
         TQMemArray<double>* opacityCache;
-        TQRegion tqshapeBoundingRegion;
+        TQRegion shapeBoundingRegion;
         TQTimer* shadowDelayTimer;
         bool shadowMe;
 
@@ -797,9 +797,9 @@ inline bool Client::keepBelow() const
     return keep_below;
     }
 
-inline bool Client::tqshape() const
+inline bool Client::shape() const
     {
-    return is_tqshape;
+    return is_shape;
     }
 
 

@@ -240,7 +240,7 @@ unsigned long KDEDefaultHandler::readConfig( bool update )
                     || new_useGradients != useGradients
                     || new_titleHeight != normalTitleHeight
                     || new_toolTitleHeight != toolTitleHeight )
-                        changed |= SettingColors; // just recreate the pixmaps and tqrepaint
+                        changed |= SettingColors; // just recreate the pixmaps and repaint
         }
 
         showGrabBar             = new_showGrabBar;
@@ -720,7 +720,7 @@ void KDEDefaultButton::drawButton(TQPainter *p)
 void KDEDefaultButton::enterEvent(TQEvent *e)
 {
 	isMouseOver=true;
-	tqrepaint(false);
+	repaint(false);
 	TQButton::enterEvent(e);
 }
 
@@ -728,7 +728,7 @@ void KDEDefaultButton::enterEvent(TQEvent *e)
 void KDEDefaultButton::leaveEvent(TQEvent *e)
 {
 	isMouseOver=false;
-	tqrepaint(false);
+	repaint(false);
 	TQButton::leaveEvent(e);
 }
 
@@ -856,7 +856,7 @@ void KDEDefaultClient::init()
 
 void KDEDefaultClient::reset( unsigned long changed)
 {
-    widget()->tqrepaint();
+    widget()->repaint();
 
 	KCommonDecoration::reset(changed);
 }

@@ -109,7 +109,7 @@ KMiscHTMLOptions::KMiscHTMLOptions(KConfig *config, TQString group, TQWidget *pa
     TQVGroupBox *bgMouse = new TQVGroupBox( i18n("Mouse Beha&vior"), this );
 
     m_cbCursor = new TQCheckBox(i18n("Chan&ge cursor over links"), bgMouse );
-    TQWhatsThis::add( m_cbCursor, i18n("If this option is set, the tqshape of the cursor will change "
+    TQWhatsThis::add( m_cbCursor, i18n("If this option is set, the shape of the cursor will change "
        "(usually to a hand) if it is moved over a hyperlink.") );
     connect(m_cbCursor, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
 

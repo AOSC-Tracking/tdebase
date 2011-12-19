@@ -290,11 +290,11 @@ bool ExtensionProxy::process(const TQCString &fun, const TQByteArray &data,
     else if ( fun == "setAlignment(int)" )
 	{
 	    TQDataStream dataStream( data, IO_ReadOnly );
-	    int tqalignment;
-	    dataStream >> tqalignment;
+	    int alignment;
+	    dataStream >> alignment;
 
 	    if(_extension) {
-		_extension->setAlignment( (KPanelExtension::Alignment)tqalignment );
+		_extension->setAlignment( (KPanelExtension::Alignment)alignment );
 	    }
 	    return true;
 	}

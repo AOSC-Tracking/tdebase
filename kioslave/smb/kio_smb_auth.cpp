@@ -121,7 +121,7 @@ bool SMBSlave::checkPassword(SMBUrl &url)
     int index = share.find('/', 1);
     if (index > 1)
         share = share.left(index);
-    if (share.tqat(0) == '/')
+    if (share.at(0) == '/')
         share = share.mid(1);
     info.url.setPath("/" + share);
     info.verifyPath = true;
