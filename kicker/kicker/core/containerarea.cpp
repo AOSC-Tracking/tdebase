@@ -1958,7 +1958,7 @@ void DragIndicator::paintEvent(TQPaintEvent*)
 {
     TQPainter painter(this);
     TQRect rect(0, 0, width(), height());
-    tqstyle().tqdrawPrimitive( TQStyle::PE_FocusRect, &painter, rect, colorGroup(),
+    style().tqdrawPrimitive( TQStyle::PE_FocusRect, &painter, rect, colorGroup(),
                            TQStyle::Style_Default, colorGroup().base() );
 }
 

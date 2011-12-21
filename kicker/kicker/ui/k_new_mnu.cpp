@@ -522,7 +522,7 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
                 m_sloppySourceClicked = true;
 
             if (!m_sloppyTimer.isActive() || m_sloppySource != raiseRect) {
-                int timeout= tqstyle().styleHint(TQStyle::SH_PopupMenu_SubMenuPopupDelay);
+                int timeout= style().styleHint(TQStyle::SH_PopupMenu_SubMenuPopupDelay);
                 if (m_sloppySourceClicked)
                     timeout = 3000;
                 m_sloppyTimer.start(timeout);

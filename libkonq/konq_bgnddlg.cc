@@ -48,9 +48,9 @@ KonqBgndDialog::KonqBgndDialog( TQWidget* parent,
 
     m_buttonGroup = new TQButtonGroup( i18n("Background"), page );
     m_buttonGroup->setColumnLayout( 0, Qt::Vertical );
-    m_buttonGroup->tqlayout()->setMargin( KDialog::marginHint() );
-    m_buttonGroup->tqlayout()->setSpacing( KDialog::spacingHint() );
-    TQGridLayout* groupLayout = new TQGridLayout( m_buttonGroup->tqlayout() );
+    m_buttonGroup->layout()->setMargin( KDialog::marginHint() );
+    m_buttonGroup->layout()->setSpacing( KDialog::spacingHint() );
+    TQGridLayout* groupLayout = new TQGridLayout( m_buttonGroup->layout() );
     groupLayout->setAlignment( Qt::AlignTop );
     mainLayout->addWidget( m_buttonGroup );
 

@@ -580,7 +580,7 @@ struct JNINativeInterface_ {
       (JNIEnv *env, jclass clazz, jfieldID fieldID, jdouble value);
 
     jstring (JNICALL *NewString)
-      (JNIEnv *env, const jchar *tqunicode, jsize len);
+      (JNIEnv *env, const jchar *unicode, jsize len);
     jsize (JNICALL *GetStringLength)
       (JNIEnv *env, jstring str);
     const jchar *(JNICALL *GetStringChars)
@@ -1508,8 +1508,8 @@ struct JNIEnv_ {
       functions->SetStaticDoubleField(this,clazz,fieldID,value);
     }
 
-    jstring NewString(const jchar *tqunicode, jsize len) {
-        return functions->NewString(this,tqunicode,len);
+    jstring NewString(const jchar *unicode, jsize len) {
+        return functions->NewString(this,unicode,len);
     }
     jsize GetStringLength(jstring str) {
         return functions->GetStringLength(this,str);

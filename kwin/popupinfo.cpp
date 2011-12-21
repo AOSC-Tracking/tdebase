@@ -75,7 +75,7 @@ void PopupInfo::reset()
 void PopupInfo::paintEvent( TQPaintEvent* )
     {
     TQPainter p( this );
-    tqstyle().tqdrawPrimitive( TQStyle::PE_Panel, &p, TQRect( 0, 0, width(), height() ),
+    style().tqdrawPrimitive( TQStyle::PE_Panel, &p, TQRect( 0, 0, width(), height() ),
           colorGroup(), TQStyle::Style_Default );
     paintContents();
     }

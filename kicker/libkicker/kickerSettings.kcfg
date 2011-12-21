@@ -81,7 +81,7 @@
 
 <entry name="TintColor" type="Color" >
       <label>The tint color used to colorize transparent panels</label>
-      <default code="true">(TQApplication::tqpalette().active().mid())</default>
+      <default code="true">(TQApplication::palette().active().mid())</default>
       <whatsthis>This option sets the color to use when tinting transparent panels</whatsthis>
    </entry>
 

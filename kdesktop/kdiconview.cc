@@ -159,7 +159,7 @@ KDIconView::KDIconView( TQWidget *parent, const char* name )
     // Initialize media handler
     mMediaListView = new TQListView();
 
-    connect( TQApplication::tqclipboard(), TQT_SIGNAL(dataChanged()),
+    connect( TQApplication::clipboard(), TQT_SIGNAL(dataChanged()),
              this, TQT_SLOT(slotClipboardDataChanged()) );
 
     setURL( desktopURL() ); // sets m_url
@@ -1327,7 +1327,7 @@ void KDIconView::slotClipboardDataChanged()
     // This is very related to KonqDirPart::slotClipboardDataChanged
 
     KURL::List lst;
-    TQMimeSource *data = TQApplication::tqclipboard()->data();
+    TQMimeSource *data = TQApplication::clipboard()->data();
     if ( data->provides( "application/x-kde-cutselection" ) && data->provides( "text/uri-list" ) )
         if ( KonqDrag::decodeIsCutSelection( data ) )
             (void) KURLDrag::decode( data, lst );

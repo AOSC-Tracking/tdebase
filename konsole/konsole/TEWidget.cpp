@@ -193,10 +193,10 @@ void TEWidget::setColorTable(const ColorEntry table[])
    xterm fonts have these at 0x00..0x1f.
 
    QT's iso mapping leaves 0x00..0x7f without any changes. But the graphicals
-   come in here as proper tqunicode characters.
+   come in here as proper unicode characters.
 
    We treat non-iso10646 fonts as VT100 extended and do the requiered mapping
-   from tqunicode to 0x00..0x1f. The remaining translation is then left to the
+   from unicode to 0x00..0x1f. The remaining translation is then left to the
    QCodec.
 */
 
@@ -215,7 +215,7 @@ unsigned short vt100_graphics[32] =
 /*
 static TQChar vt100extended(TQChar c)
 {
-  switch (c.tqunicode())
+  switch (c.unicode())
   {
     case 0x25c6 : return  1;
     case 0x2592 : return  2;
@@ -391,7 +391,7 @@ TEWidget::TEWidget(TQWidget *parent, const char *name)
   // konsole in opaque mode.
   bY = bX = 1;
 
-  cb = TQApplication::tqclipboard();
+  cb = TQApplication::clipboard();
   TQObject::connect( (TQObject*)cb, TQT_SIGNAL(selectionChanged()),
                     this, TQT_SLOT(onClearSelection()) );
 
@@ -441,7 +441,7 @@ TEWidget::~TEWidget()
 /* ------------------------------------------------------------------------- */
 
 /**
- A table for emulating the simple (single width) tqunicode drawing chars.
+ A table for emulating the simple (single width) unicode drawing chars.
  It represents the 250x - 257x glyphs. If it's zero, we can't use it.
  if it's not, it's encoded as follows: imagine a 5x5 grid where the points are numbered
  0 to 24 left to top, top to bottom. Each point is represented by the corresponding bit.
@@ -578,7 +578,7 @@ void TEWidget::drawTextFixed(TQPainter &paint, int x, int y,
     }
 
     //Check for line-drawing char
-    if (isLineChar(drawstr[0].tqunicode()))
+    if (isLineChar(drawstr[0].unicode()))
     {
         uchar code = drawstr[0].cell();
         if (LineChars[code])
@@ -1803,8 +1803,8 @@ void TEWidget::emitText(TQString text)
 void TEWidget::emitSelection(bool useXselection,bool appendReturn)
 // Paste Clipboard by simulating keypress events
 {
-  TQApplication::tqclipboard()->setSelectionMode( useXselection );
-  TQString text = TQApplication::tqclipboard()->text();
+  TQApplication::clipboard()->setSelectionMode( useXselection );
+  TQString text = TQApplication::clipboard()->text();
   if(appendReturn)
     text.append("\r");
   if ( ! text.isEmpty() )
@@ -1814,13 +1814,13 @@ void TEWidget::emitSelection(bool useXselection,bool appendReturn)
     emit keyPressedSignal(&e); // expose as a big fat keypress event
     emit clearSelectionSignal();
   }
-  TQApplication::tqclipboard()->setSelectionMode( false );
+  TQApplication::clipboard()->setSelectionMode( false );
 }
 
 void TEWidget::setSelection(const TQString& t)
 {
   // Disconnect signal while WE set the clipboard
-  TQClipboard *cb = TQApplication::tqclipboard();
+  TQClipboard *cb = TQApplication::clipboard();
   TQObject::disconnect( cb, TQT_SIGNAL(selectionChanged()),
                      this, TQT_SLOT(onClearSelection()) );
 
@@ -2104,7 +2104,7 @@ void TEWidget::clearImage()
 
 void TEWidget::calcGeometry()
 {
-  scrollbar->resize(TQApplication::tqstyle().pixelMetric(TQStyle::PM_ScrollBarExtent),
+  scrollbar->resize(TQApplication::style().pixelMetric(TQStyle::PM_ScrollBarExtent),
                     contentsRect().height());
   switch(scrollLoc)
   {
@@ -2268,7 +2268,7 @@ void TEWidget::dropEvent(TQDropEvent* event)
 void TEWidget::doDrag()
 {
   dragInfo.state = diDragging;
-  dragInfo.dragObject = new TQTextDrag(TQApplication::tqclipboard()->text(TQClipboard::Selection), this);
+  dragInfo.dragObject = new TQTextDrag(TQApplication::clipboard()->text(TQClipboard::Selection), this);
   dragInfo.dragObject->dragCopy();
   // Don't delete the TQTextDrag object.  Qt will delete it when it's done with it.
 }

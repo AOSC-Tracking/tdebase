@@ -247,7 +247,7 @@ KEBApp::KEBApp(
 
     m_dcopIface = new KBookmarkEditorIface();
 
-    connect(kapp->tqclipboard(), TQT_SIGNAL( dataChanged() ),
+    connect(kapp->clipboard(), TQT_SIGNAL( dataChanged() ),
                                TQT_SLOT( slotClipboardDataChanged() ));
 
     ListView::self()->connectSignals();
@@ -319,7 +319,7 @@ void KEBApp::slotClipboardDataChanged() {
     // kdDebug() << "KEBApp::slotClipboardDataChanged" << endl;
     if (!m_readOnly) {
         m_canPaste = KBookmarkDrag::canDecode(
-                        kapp->tqclipboard()->data(TQClipboard::Clipboard));
+                        kapp->clipboard()->data(TQClipboard::Clipboard));
         updateActions();
     }
 }

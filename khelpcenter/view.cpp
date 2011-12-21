@@ -62,7 +62,7 @@ View::~View()
 
 void View::copySelectedText()
 {
-  kapp->tqclipboard()->setText( selectedText() );
+  kapp->clipboard()->setText( selectedText() );
 }
 
 bool View::openURL( const KURL &url )
@@ -276,7 +276,7 @@ void View::showMenu( const TQString& url, const TQPoint& pos)
 
 void View::slotCopyLink()
 {
-  TQApplication::tqclipboard()->setText(mCopyURL);
+  TQApplication::clipboard()->setText(mCopyURL);
 }
 
 bool View::prevPage(bool checkOnly)

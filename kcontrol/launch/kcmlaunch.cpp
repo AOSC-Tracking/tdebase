@@ -57,10 +57,10 @@ LaunchConfig::LaunchConfig(TQWidget * parent, const char * name, const TQStringL
      "given in the section 'Startup indication timeout'"));
 
     GroupBox1->setColumnLayout(0, Qt::Vertical );
-    GroupBox1->tqlayout()->setSpacing( 0 );
-    GroupBox1->tqlayout()->setMargin( 0 );
+    GroupBox1->layout()->setSpacing( 0 );
+    GroupBox1->layout()->setMargin( 0 );
     Form1Layout->addWidget( GroupBox1 );
-    TQGridLayout* GroupBox1Layout = new TQGridLayout( GroupBox1->tqlayout(), 3, 2 );
+    TQGridLayout* GroupBox1Layout = new TQGridLayout( GroupBox1->layout(), 3, 2 );
     GroupBox1Layout->setSpacing( 6 );
     GroupBox1Layout->setMargin( 11 );
     GroupBox1Layout->setColStretch( 1, 1 );
@@ -97,10 +97,10 @@ LaunchConfig::LaunchConfig(TQWidget * parent, const char * name, const TQStringL
      "given in the section 'Startup indication timeout'"));
 
     GroupBox2->setColumnLayout( 0, Qt::Vertical );
-    GroupBox2->tqlayout()->setSpacing( 0 );
-    GroupBox2->tqlayout()->setMargin( 0 );
+    GroupBox2->layout()->setSpacing( 0 );
+    GroupBox2->layout()->setMargin( 0 );
     Form1Layout->addWidget( GroupBox2 );
-    TQGridLayout* GroupBox2Layout = new TQGridLayout( GroupBox2->tqlayout(), 2, 2 );
+    TQGridLayout* GroupBox2Layout = new TQGridLayout( GroupBox2->layout(), 2, 2 );
     GroupBox2Layout->setSpacing( 6 );
     GroupBox2Layout->setMargin( 11 );
     GroupBox2Layout->setColStretch( 1, 1 );

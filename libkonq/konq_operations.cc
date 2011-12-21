@@ -124,7 +124,7 @@ void KonqOperations::doPaste( TQWidget * parent, const KURL & destURL, const TQP
 {
     // move or not move ?
     bool move = false;
-    TQMimeSource *data = TQApplication::tqclipboard()->data();
+    TQMimeSource *data = TQApplication::clipboard()->data();
     if ( data->provides( "application/x-kde-cutselection" ) ) {
       move = KonqDrag::decodeIsCutSelection( data );
       kdDebug(1203) << "move (from clipboard data) = " << move << endl;

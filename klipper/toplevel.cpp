@@ -142,7 +142,7 @@ KlipperWidget::KlipperWidget( TQWidget *parent, KConfig* config )
 
     updateTimestamp(); // read initial X user time
     setBackgroundMode( X11ParentRelative );
-    clip = kapp->tqclipboard();
+    clip = kapp->clipboard();
 
     connect( &m_overflowClearTimer, TQT_SIGNAL( timeout()), TQT_SLOT( slotClearOverflow()));
     m_overflowClearTimer.start( 1000 );

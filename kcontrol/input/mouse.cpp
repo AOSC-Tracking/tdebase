@@ -291,7 +291,7 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
   TQBoxLayout *vbox = new TQVBoxLayout(mouse, KDialog::marginHint(),
     KDialog::spacingHint());
 
-  TQVBoxLayout *vvbox = new TQVBoxLayout(mouse->tqlayout(), KDialog::spacingHint());
+  TQVBoxLayout *vvbox = new TQVBoxLayout(mouse->layout(), KDialog::spacingHint());
 
   mouseKeys = new TQCheckBox(i18n("&Move pointer with keyboard (using the num pad)"), mouse);
   vvbox->addWidget(mouseKeys);

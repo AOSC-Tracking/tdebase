@@ -135,7 +135,7 @@ JSPoliciesFrame::JSPoliciesFrame(JSPolicies *policies, const TQString &title,
   setColumnLayout(0, Qt::Vertical);
   layout()->setSpacing(0);
   layout()->setMargin(0);
-  TQGridLayout *this_layout = new TQGridLayout(tqlayout(),5,10+is_per_domain*2);
+  TQGridLayout *this_layout = new TQGridLayout(layout(),5,10+is_per_domain*2);
   this_layout->setAlignment(Qt::AlignTop);
   this_layout->setSpacing(3);
   this_layout->setMargin(11);

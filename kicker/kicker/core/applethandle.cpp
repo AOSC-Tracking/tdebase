@@ -75,14 +75,14 @@ AppletHandle::AppletHandle(AppletContainer* parent)
 
 int AppletHandle::heightForWidth( int /* w */ ) const
 {
-    int size = tqstyle().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
+    int size = style().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
 
     return size;
 }
 
 int AppletHandle::widthForHeight( int /* h */ ) const
 {
-    int size = tqstyle().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
+    int size = style().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
 
     return size;
 }
@@ -310,7 +310,7 @@ AppletHandleDrag::AppletHandleDrag(AppletHandle* parent)
 
 TQSize AppletHandleDrag::minimumSizeHint() const
 {
-    int wh = tqstyle().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
+    int wh = style().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
 
     if (m_parent->orientation() == Qt::Horizontal)
     {
@@ -367,7 +367,7 @@ void AppletHandleDrag::paintEvent(TQPaintEvent *)
     
         TQRect r = rect();
     
-        tqstyle().tqdrawPrimitive(TQStyle::PE_DockWindowHandle, &p, r,
+        style().tqdrawPrimitive(TQStyle::PE_DockWindowHandle, &p, r,
                             colorGroup(), flags);
     }
     else
@@ -384,7 +384,7 @@ AppletHandleButton::AppletHandleButton(AppletHandle *parent)
 
 TQSize AppletHandleButton::minimumSizeHint() const
 {
-    int height = tqstyle().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
+    int height = style().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
     int width = height;
 
     if (m_parent->orientation() == Qt::Horizontal)

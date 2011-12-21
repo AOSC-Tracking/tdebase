@@ -214,7 +214,7 @@ int string_width( const TQString &txt )
   int w = 0;
 
   for ( uint i = 1; i < txt.length(); ++i ) {
-    w += konsole_wcwidth(txt[i].tqunicode());
+    w += konsole_wcwidth(txt[i].unicode());
   }
  return w;
 }

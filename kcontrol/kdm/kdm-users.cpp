@@ -168,7 +168,7 @@ KDMUsersWidget::KDMUsersWidget(TQWidget *parent, const char *name)
     userbutton = new TQPushButton( hlpw );
     userbutton->setAcceptDrops( true );
     userbutton->installEventFilter( this ); // for drag and drop
-    uint sz = tqstyle().pixelMetric( TQStyle::PM_ButtonMargin ) * 2 + 48;
+    uint sz = style().pixelMetric( TQStyle::PM_ButtonMargin ) * 2 + 48;
     userbutton->setFixedSize( sz, sz );
     connect( userbutton, TQT_SIGNAL(clicked()),
 	     TQT_SLOT(slotUserButtonClicked()) );

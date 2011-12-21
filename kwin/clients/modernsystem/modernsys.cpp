@@ -570,7 +570,7 @@ void ModernSys::paintEvent( TQPaintEvent* )
     TQPainter p( widget() );
     TQRect t = titleRect(); // titlebar->geometry();
 
-    TQBrush fillBrush(widget()->colorGroup().tqbrush(TQColorGroup::Background).pixmap() ?
+    TQBrush fillBrush(widget()->colorGroup().brush(TQColorGroup::Background).pixmap() ?
                      widget()->colorGroup().brush(TQColorGroup::Background) :
                      options()->colorGroup(ColorFrame, isActive()).
                      brush(TQColorGroup::Button));

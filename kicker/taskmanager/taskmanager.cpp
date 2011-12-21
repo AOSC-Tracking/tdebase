@@ -1375,7 +1375,7 @@ TQPixmap Task::thumbnail(int maxDimension)
     int thumbnailHeight = (int)(winAttr.height * factor);
 
     TQPixmap thumbnail(thumbnailWidth, thumbnailHeight);
-    thumbnail.fill(TQApplication::tqpalette().active().background());
+    thumbnail.fill(TQApplication::palette().active().background());
 
 #if 0 // TQImage::smoothScale() scaling
     TQPixmap full(winAttr.width, winAttr.height);

@@ -109,8 +109,8 @@ ClipboardPoll::ClipboardPoll( TQWidget* parent )
     
 void ClipboardPoll::initPolling()
 {
-    connect( kapp->tqclipboard(), TQT_SIGNAL( selectionChanged() ), TQT_SLOT(qtSelectionChanged()));
-    connect( kapp->tqclipboard(), TQT_SIGNAL( dataChanged() ), TQT_SLOT( qtClipboardChanged() ));
+    connect( kapp->clipboard(), TQT_SIGNAL( selectionChanged() ), TQT_SLOT(qtSelectionChanged()));
+    connect( kapp->clipboard(), TQT_SIGNAL( dataChanged() ), TQT_SLOT( qtClipboardChanged() ));
     connect( &timer, TQT_SIGNAL( timeout()), TQT_SLOT( timeout()));
     timer.start( 1000, false );
     selection.atom = XA_PRIMARY;
@@ -147,7 +147,7 @@ bool ClipboardPoll::x11Event( XEvent* e )
     if( xfixes_event_base != -1 && e->type == xfixes_event_base + XFixesSelectionNotify )
     {
         XFixesSelectionNotifyEvent* ev = reinterpret_cast< XFixesSelectionNotifyEvent* >( e );
-        if( ev->selection == XA_PRIMARY && !kapp->tqclipboard()->ownsSelection())
+        if( ev->selection == XA_PRIMARY && !kapp->clipboard()->ownsSelection())
         {
 #ifdef NOISY_KLIPPER_
             kdDebug() << "SELECTION CHANGED (XFIXES)" << endl;
@@ -155,7 +155,7 @@ bool ClipboardPoll::x11Event( XEvent* e )
             SET_QT_X_TIME(ev->timestamp);
             emit clipboardChanged( true );
         }
-        else if( ev->selection == xa_clipboard && !kapp->tqclipboard()->ownsClipboard())
+        else if( ev->selection == xa_clipboard && !kapp->clipboard()->ownsClipboard())
         {
 #ifdef NOISY_KLIPPER_
             kdDebug() << "CLIPBOARD CHANGED (XFIXES)" << endl;
@@ -218,13 +218,13 @@ void ClipboardPoll::updateQtOwnership( SelectionData& data )
 void ClipboardPoll::timeout()
 {
     KlipperWidget::updateTimestamp();
-    if( !kapp->tqclipboard()->ownsSelection() && checkTimestamp( selection ) ) {
+    if( !kapp->clipboard()->ownsSelection() && checkTimestamp( selection ) ) {
 #ifdef NOISY_KLIPPER_
         kdDebug() << "SELECTION CHANGED" << endl;
 #endif
         emit clipboardChanged( true );
     }
-    if( !kapp->tqclipboard()->ownsClipboard() && checkTimestamp( clipboard ) ) {
+    if( !kapp->clipboard()->ownsClipboard() && checkTimestamp( clipboard ) ) {
 #ifdef NOISY_KLIPPER_
         kdDebug() << "CLIPBOARD CHANGED" << endl;
 #endif

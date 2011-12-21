@@ -136,7 +136,7 @@ public:
 					maxw = thisw;
 			}
 			cachedSizeHint.setWidth(
-				tqstyle().pixelMetric( TQStyle::PM_ScrollBarExtent ) +
+				style().pixelMetric( TQStyle::PM_ScrollBarExtent ) +
 				frameWidth() * 2 + maxw );
 		}
 		return cachedSizeHint;

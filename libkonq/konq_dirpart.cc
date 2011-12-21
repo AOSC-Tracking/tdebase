@@ -133,7 +133,7 @@ KonqDirPart::KonqDirPart( TQObject *parent, const char *name )
     resetCount();
     //m_bMultipleItemsSelected = false;
 
-    connect( TQApplication::tqclipboard(), TQT_SIGNAL(dataChanged()), this, TQT_SLOT(slotClipboardDataChanged()) );
+    connect( TQApplication::clipboard(), TQT_SIGNAL(dataChanged()), this, TQT_SLOT(slotClipboardDataChanged()) );
 
     actionCollection()->setHighlightingEnabled( true );
 
@@ -418,7 +418,7 @@ void KonqDirPart::slotClipboardDataChanged()
     // This is very related to KDIconView::slotClipboardDataChanged
 
     KURL::List lst;
-    TQMimeSource *data = TQApplication::tqclipboard()->data();
+    TQMimeSource *data = TQApplication::clipboard()->data();
     if ( data->provides( "application/x-kde-cutselection" ) && data->provides( "text/uri-list" ) )
         if ( KonqDrag::decodeIsCutSelection( data ) )
             (void) KURLDrag::decode( data, lst );

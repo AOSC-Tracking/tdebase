@@ -160,7 +160,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	gbWidgetStyle->layout()->setMargin( KDialog::marginHint() );
 	gbWidgetStyle->layout()->setSpacing( KDialog::spacingHint() );
 
-	gbWidgetStyleLayout = new TQVBoxLayout( gbWidgetStyle->tqlayout() );
+	gbWidgetStyleLayout = new TQVBoxLayout( gbWidgetStyle->layout() );
 	gbWidgetStyleLayout->setAlignment( Qt::AlignTop );
 	hbLayout = new TQHBoxLayout( KDialog::spacingHint(), "hbLayout" );
 
@@ -195,7 +195,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	gbPreview->layout()->setSpacing( KDialog::spacingHint() );
 	gbPreview->setFlat( true );
 	stylePreview = new StylePreview( gbPreview );
-	gbPreview->tqlayout()->add( stylePreview );
+	gbPreview->layout()->add( stylePreview );
 
 	page1Layout->addWidget( gbWidgetStyle );
 	page1Layout->addWidget( gbPreview );
@@ -804,7 +804,7 @@ void KCMStyle::loadStyle( KConfig& config )
 			break;
 		else if ( id.contains( cfgStyle ) )
 			break;
-		else if ( id.contains( TQApplication::tqstyle().className() ) )
+		else if ( id.contains( TQApplication::style().className() ) )
 			break;
 		item = 0;
 	}

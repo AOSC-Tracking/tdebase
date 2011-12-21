@@ -666,7 +666,7 @@ void SchemaEditor::readSchema(int num)
 		    continue;
 		if (!(0 <= bo && bo <= 1))
 		    continue;
-		color[fi] = kapp->tqpalette().active().text();
+		color[fi] = kapp->palette().active().text();
 		transparent[fi] = tr;
 		bold[fi] = bo;
 		type[fi] = 1;
@@ -681,7 +681,7 @@ void SchemaEditor::readSchema(int num)
 		    continue;
 		if (!(0 <= bo && bo <= 1))
 		    continue;
-		color[fi] = kapp->tqpalette().active().base();
+		color[fi] = kapp->palette().active().base();
 		transparent[fi] = tr;
 		bold[fi] = bo;
 		type[fi] = 2;

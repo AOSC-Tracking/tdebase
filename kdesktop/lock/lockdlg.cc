@@ -268,7 +268,7 @@ void PasswordDlg::setLayoutText( const TQString &txt )
 {
     mLayoutButton->setText( txt );
     TQSize sz = mLayoutButton->fontMetrics().size( 0, txt );
-    int mrg = mLayoutButton->tqstyle().pixelMetric( TQStyle::PM_ButtonMargin ) * 2;
+    int mrg = mLayoutButton->style().pixelMetric( TQStyle::PM_ButtonMargin ) * 2;
     mLayoutButton->setFixedSize( sz.width() + mrg, sz.height() + mrg );
 }
 
@@ -790,7 +790,7 @@ void PasswordDlg::slotSwitchUser()
         int fw = lv->frameWidth() * 2;
         TQSize hds( lv->header()->sizeHint() );
         lv->setMinimumWidth( fw + hds.width() +
-            (ns > 10 ? tqstyle().pixelMetric(TQStyle::PM_ScrollBarExtent) : 0 ) );
+            (ns > 10 ? style().pixelMetric(TQStyle::PM_ScrollBarExtent) : 0 ) );
         lv->setFixedHeight( fw + hds.height() +
             itm->height() * (ns < 6 ? 6 : ns > 10 ? 10 : ns) );
         lv->header()->adjustHeaderSize();

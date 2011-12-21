@@ -783,7 +783,7 @@ void TEScreen::compose(TQString compose)
   TQChar c(image[lastPos].c);
   compose.prepend(c);
   compose.compose();
-  image[lastPos].c = compose[0].tqunicode();
+  image[lastPos].c = compose[0].unicode();
 }
 
 // Region commands -------------------------------------------------------------

@@ -82,7 +82,7 @@ KMiscHTMLOptions::KMiscHTMLOptions(KConfig *config, TQString group, TQWidget *pa
     // Tabbed Browsing
 
     TQGroupBox *bgTabbedBrowsing = new TQGroupBox( 0, Qt::Vertical, i18n("Tabbed Browsing"), this );
-    TQVBoxLayout *laygroup = new TQVBoxLayout(bgTabbedBrowsing->tqlayout(), KDialog::spacingHint() );
+    TQVBoxLayout *laygroup = new TQVBoxLayout(bgTabbedBrowsing->layout(), KDialog::spacingHint() );
 
     m_pShowMMBInTabs = new TQCheckBox( i18n( "Open &links in new tab instead of in new window" ), bgTabbedBrowsing );
     TQWhatsThis::add( m_pShowMMBInTabs, i18n("This will open a new tab instead of a new window in various situations, "

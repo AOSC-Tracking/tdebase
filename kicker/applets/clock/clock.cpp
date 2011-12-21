@@ -86,23 +86,23 @@ KConfigDialogSingle::KConfigDialogSingle(Zone *zone, TQWidget *parent,
     settings = new SettingsWidgetImp(prefs, zone, 0, "General");
     connect(TQT_TQOBJECT(settings->kcfg_Type), TQT_SIGNAL(activated(int)), TQT_SLOT(selectPage(int)));
 
-    settings->kcfg_PlainBackgroundColor->setDefaultColor(KApplication::tqpalette().active().background());
-    settings->kcfg_DateBackgroundColor->setDefaultColor(KApplication::tqpalette().active().background());
+    settings->kcfg_PlainBackgroundColor->setDefaultColor(KApplication::palette().active().background());
+    settings->kcfg_DateBackgroundColor->setDefaultColor(KApplication::palette().active().background());
 
     // Digital
     digitalPage = new DigitalWidget(0, "DigitalClock");
     settings->widgetStack->addWidget(digitalPage, 1);
-    digitalPage->kcfg_DigitalBackgroundColor->setDefaultColor(KApplication::tqpalette().active().background());
+    digitalPage->kcfg_DigitalBackgroundColor->setDefaultColor(KApplication::palette().active().background());
 
     // Analog
     analogPage = new AnalogWidget(0, "AnalogClock");
     settings->widgetStack->addWidget(analogPage, 2);
-    analogPage->kcfg_AnalogBackgroundColor->setDefaultColor(KApplication::tqpalette().active().background());
+    analogPage->kcfg_AnalogBackgroundColor->setDefaultColor(KApplication::palette().active().background());
 
     // Fuzzy
     fuzzyPage = new FuzzyWidget(0, "FuzzyClock");
     settings->widgetStack->addWidget(fuzzyPage, 3);
-    fuzzyPage->kcfg_FuzzyBackgroundColor->setDefaultColor(KApplication::tqpalette().active().background());
+    fuzzyPage->kcfg_FuzzyBackgroundColor->setDefaultColor(KApplication::palette().active().background());
 
     connect(TQT_TQOBJECT(settings->kcfg_PlainShowDate), TQT_SIGNAL(toggled(bool)),
             TQT_SLOT(dateToggled()));
@@ -386,7 +386,7 @@ void DigitalClock::paintEvent(TQPaintEvent*)
         p.drawTiledPixmap(0, 0, width(), height(), lcdPattern);
     }
     else if (_prefs->digitalBackgroundColor() !=
-             KApplication::tqpalette().active().background())
+             KApplication::palette().active().background())
     {
         p.fillRect(0, 0, width(), height(), _prefs->digitalBackgroundColor());
     }
@@ -553,7 +553,7 @@ void AnalogClock::paintEvent( TQPaintEvent * )
 
         paint.drawTiledPixmap(0, 0, spWidth, spHeight, lcdPattern);
     }
-    else if (_prefs->analogBackgroundColor() != KApplication::tqpalette().active().background())
+    else if (_prefs->analogBackgroundColor() != KApplication::palette().active().background())
     {
         _spPx->fill(_prefs->analogBackgroundColor());
     }
@@ -1169,7 +1169,7 @@ void ClockApplet::preferences(bool timezone)
 
 void ClockApplet::updateFollowBackground()
 {
-    TQColor globalBgroundColor = KApplication::tqpalette().active().background();
+    TQColor globalBgroundColor = KApplication::palette().active().background();
     TQColor bgColor;
     
     switch (_prefs->type())
@@ -1306,7 +1306,7 @@ void ClockApplet::setTimerTo60()
 
 void ClockApplet::setBackground()
 {
-    TQColor globalBgroundColor = KApplication::tqpalette().active().background();
+    TQColor globalBgroundColor = KApplication::palette().active().background();
     TQColor fgColor, bgColor;
     
     if (!_clock)
@@ -1371,7 +1371,7 @@ void ClockApplet::globalPaletteChange()
     if (!m_dateFollowBackgroundSetting && !m_followBackgroundSetting)
         return;
     
-    TQColor globalBgroundColor = KApplication::tqpalette().active().background();
+    TQColor globalBgroundColor = KApplication::palette().active().background();
     
     if (m_dateFollowBackgroundSetting)
         _prefs->setDateBackgroundColor(globalBgroundColor);
@@ -1605,7 +1605,7 @@ void ClockApplet::slotCopyMenuActivated( int id )
 {
     TQPopupMenu *m = (TQPopupMenu *) sender();
     TQString s = m->text(id);
-    TQApplication::tqclipboard()->setText(s);
+    TQApplication::clipboard()->setText(s);
 }
 
 TQTime ClockApplet::clockGetTime()

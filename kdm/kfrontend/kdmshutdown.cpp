@@ -276,7 +276,7 @@ KDMShutdown::KDMShutdown( int _uid, TQWidget *_parent )
 		freeStrArr( tlist );
 		targets->setCurrentItem( oldTarget == -1 ? defaultTarget : oldTarget );
 		TQHBoxLayout *hb = new TQHBoxLayout( hlp, 0, KDsh );
-		int spc = kapp->tqstyle().pixelMetric( TQStyle::PM_ExclusiveIndicatorWidth )
+		int spc = kapp->style().pixelMetric( TQStyle::PM_ExclusiveIndicatorWidth )
 		          + howGroup->insideSpacing();
 		hb->addSpacing( spc );
 		hb->addWidget( targets );
@@ -484,7 +484,7 @@ KDMSlimShutdown::KDMSlimShutdown( TQWidget *_parent )
 			lfrm->setFrameStyle( TQFrame::NoFrame );
 		else
 			lfrm->setFrameStyle( TQFrame::StyledPanel | TQFrame::Raised );
-		lfrm->setLineWidth( tqstyle().pixelMetric( TQStyle::PM_DefaultFrameWidth, lfrm ) );
+		lfrm->setLineWidth( style().pixelMetric( TQStyle::PM_DefaultFrameWidth, lfrm ) );
 		// we need to set the minimum size for the logout box, since it
 		// gets too small if there all options are not available
 		lfrm->setMinimumSize(300,120);

@@ -93,7 +93,7 @@ namespace KioSMTP {
 
   static bool isUsAscii( const TQString & s ) {
     for ( uint i = 0 ; i < s.length() ; ++i )
-      if ( s[i].tqunicode() > 127 ) return false;
+      if ( s[i].unicode() > 127 ) return false;
     return true;
   }
 

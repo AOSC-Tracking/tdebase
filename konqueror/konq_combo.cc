@@ -540,7 +540,7 @@ void KonqCombo::mousePressEvent( TQMouseEvent *e )
     if ( e->button() == Qt::LeftButton && pixmap( currentItem()) ) {
         // check if the pixmap was clicked
         int x = e->pos().x();
-        int x0 = TQStyle::visualRect( tqstyle().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxEditField ), this ).x();
+        int x0 = TQStyle::visualRect( style().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxEditField ), this ).x();
 
         if ( x > x0 + 2 && x < lineEdit()->x() ) {
             m_dragStart = e->pos();
@@ -551,7 +551,7 @@ void KonqCombo::mousePressEvent( TQMouseEvent *e )
     if ( e->button() == Qt::LeftButton && m_pageSecurity!=KonqMainWindow::NotCrypted ) {
         // check if the lock icon was clicked
         int x = e->pos().x();
-        int x0 = TQStyle::visualRect( tqstyle().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxArrow ), this ).x();
+        int x0 = TQStyle::visualRect( style().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxArrow ), this ).x();
         if ( x < x0 )
             emit showPageSecurity();
 
@@ -604,7 +604,7 @@ void KonqCombo::paintEvent( TQPaintEvent *pe )
     TQComboBox::paintEvent( pe );
 
     TQLineEdit *edit = lineEdit();
-    TQRect re = tqstyle().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxEditField );
+    TQRect re = style().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxEditField );
     re = TQStyle::visualRect(re, this);
     
     if ( m_pageSecurity!=KonqMainWindow::NotCrypted ) {
@@ -723,8 +723,8 @@ void KonqComboListBoxPixmap::paint( TQPainter *painter )
         pmWidth = pm->width() + 5;
     }
 
-    int entryWidth = listBox()->width() - listBox()->tqstyle().pixelMetric( TQStyle::PM_ScrollBarExtent ) -
-                     2 * listBox()->tqstyle().pixelMetric( TQStyle::PM_DefaultFrameWidth );
+    int entryWidth = listBox()->width() - listBox()->style().pixelMetric( TQStyle::PM_ScrollBarExtent ) -
+                     2 * listBox()->style().pixelMetric( TQStyle::PM_DefaultFrameWidth );
     int titleWidth = ( entryWidth / 3 ) - 1;
     int urlWidth = entryWidth - titleWidth - pmWidth - 2;
 

@@ -46,7 +46,7 @@ public:
     {
         p->save();
         TQRect r(x, y, w, h);
-        kapp->tqstyle().tqdrawPrimitive(TQStyle::PE_HeaderSectionMenu,
+        kapp->style().tqdrawPrimitive(TQStyle::PE_HeaderSectionMenu,
                                     p, r, cg);
 
         if (!m_desktopName.isEmpty())
@@ -73,7 +73,7 @@ public:
     {
       TQSize size = TQFontMetrics(m_font).size(AlignHCenter, m_desktopName);
       size.setHeight(size.height() +
-                     (kapp->tqstyle().pixelMetric(TQStyle::PM_DefaultFrameWidth) * 2 + 1));
+                     (kapp->style().pixelMetric(TQStyle::PM_DefaultFrameWidth) * 2 + 1));
       return size;
     }
 

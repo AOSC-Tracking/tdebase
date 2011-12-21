@@ -54,7 +54,7 @@ ButtonDrag::ButtonDrag( Button btn, TQWidget* parent, const char* name)
 	TQDataStream stream(data, IO_WriteOnly);
 	stream << btn.name;
 	stream << btn.icon;
-	stream << btn.type.tqunicode();
+	stream << btn.type.unicode();
 	stream << (int) btn.duplicate;
 	stream << (int) btn.supported;
 	setEncodedData( data );
@@ -152,7 +152,7 @@ TQSize ButtonSource::sizeHint() const
 	TQSize s( header()->sizeHint() );
 
 	if ( verticalScrollBar()->isVisible() )
-		s.setWidth( s.width() + tqstyle().pixelMetric(TQStyle::PM_ScrollBarExtent) );
+		s.setWidth( s.width() + style().pixelMetric(TQStyle::PM_ScrollBarExtent) );
 	s += TQSize(frameWidth()*2,frameWidth()*2);
 
 	// size hint: 4 lines of text...

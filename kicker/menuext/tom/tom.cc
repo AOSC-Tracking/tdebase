@@ -755,7 +755,7 @@ void TOM::paintEvent(TQPaintEvent * e)
 
     TQPainter p(this);
 
-    tqstyle().tqdrawPrimitive( TQStyle::PE_PanelPopup, &p,
+    style().tqdrawPrimitive( TQStyle::PE_PanelPopup, &p,
                            TQRect( 0, 0, width(), height() ),
                            colorGroup(), TQStyle::Style_Default,
                            TQStyleOption( frameWidth(), 0 ) );

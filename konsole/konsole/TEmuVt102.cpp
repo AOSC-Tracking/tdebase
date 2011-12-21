@@ -307,7 +307,7 @@ void TEmuVt102::initTokenizer()
 #define ESC 27
 #define CNTL(c) ((c)-'@')
 
-// process an incoming tqunicode character
+// process an incoming unicode character
 
 void TEmuVt102::onRcvChar(int cc)
 { int i;

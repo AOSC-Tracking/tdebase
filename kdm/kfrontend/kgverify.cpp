@@ -150,7 +150,7 @@ KGVerify::pluginName() const
 	TQString name( greetPlugins[pluginList[curPlugin]].library->fileName() );
 	uint st = name.findRev( '/' ) + 1;
 	uint en = name.find( '.', st );
-	if (en - st > 7 && TQConstString( name.tqunicode() + st, 7 ).string() == "kgreet_")
+	if (en - st > 7 && TQConstString( name.unicode() + st, 7 ).string() == "kgreet_")
 		st += 7;
 	return name.mid( st, en - st );
 }
@@ -163,7 +163,7 @@ showWidgets( TQLayoutItem *li )
 
 	if ((w = li->widget()))
 		w->show();
-	else if ((l = li->tqlayout())) {
+	else if ((l = li->layout())) {
 		TQLayoutIterator it = l->iterator();
 		for (TQLayoutItem *itm = it.current(); itm; itm = ++it)
 			 showWidgets( itm );

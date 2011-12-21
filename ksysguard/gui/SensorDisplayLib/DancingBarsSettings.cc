@@ -48,7 +48,7 @@ DancingBarsSettings::DancingBarsSettings( TQWidget* parent, const char* name )
   TQGridLayout *pageLayout = new TQGridLayout( page, 3, 1, 0, spacingHint() );
 
   TQGroupBox *groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Title" ), page );
-  TQGridLayout *boxLayout = new TQGridLayout( groupBox->tqlayout(), 1, 1 );
+  TQGridLayout *boxLayout = new TQGridLayout( groupBox->layout(), 1, 1 );
 
   mTitle = new KLineEdit( groupBox );
   TQWhatsThis::add( mTitle, i18n( "Enter the title of the display here." ) );
@@ -57,7 +57,7 @@ DancingBarsSettings::DancingBarsSettings( TQWidget* parent, const char* name )
   pageLayout->addWidget( groupBox, 0, 0 );
 
   groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Display Range" ), page );
-  boxLayout = new TQGridLayout( groupBox->tqlayout(), 1, 5 );
+  boxLayout = new TQGridLayout( groupBox->layout(), 1, 5 );
   boxLayout->setColStretch( 2, 1 );
 
   TQLabel *label = new TQLabel( i18n( "Minimum value:" ), groupBox );
@@ -85,7 +85,7 @@ DancingBarsSettings::DancingBarsSettings( TQWidget* parent, const char* name )
   pageLayout = new TQGridLayout( page, 3, 1, 0, spacingHint() );
 
   groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Alarm for Minimum Value" ), page );
-  boxLayout = new TQGridLayout( groupBox->tqlayout(), 1, 4 );
+  boxLayout = new TQGridLayout( groupBox->layout(), 1, 4 );
   boxLayout->setColStretch( 1, 1 );
 
   mUseLowerLimit = new TQCheckBox( i18n( "Enable alarm" ), groupBox );
@@ -103,7 +103,7 @@ DancingBarsSettings::DancingBarsSettings( TQWidget* parent, const char* name )
   pageLayout->addWidget( groupBox, 0, 0 );
 
   groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Alarm for Maximum Value" ), page );
-  boxLayout = new TQGridLayout( groupBox->tqlayout(), 1, 4 );
+  boxLayout = new TQGridLayout( groupBox->layout(), 1, 4 );
   boxLayout->setColStretch( 1, 1 );
 
   mUseUpperLimit = new TQCheckBox( i18n( "Enable alarm" ), groupBox );

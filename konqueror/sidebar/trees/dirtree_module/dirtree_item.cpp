@@ -162,7 +162,7 @@ void KonqSidebarDirTreeItem::itemSelected()
     if ( m_fileItem->url().directory(false) == KGlobalSettings::trashPath() )
         bInTrash = true;
 
-    TQMimeSource *data = TQApplication::tqclipboard()->data();
+    TQMimeSource *data = TQApplication::clipboard()->data();
     bool paste = ( data->encodedData( data->format() ).size() != 0 );
 
     tree()->enableActions( true, true, paste, true && !bInTrash, true, true );
@@ -197,7 +197,7 @@ void KonqSidebarDirTreeItem::paste()
 {
     // move or not move ?
     bool move = false;
-    TQMimeSource *data = TQApplication::tqclipboard()->data();
+    TQMimeSource *data = TQApplication::clipboard()->data();
     if ( data->provides( "application/x-kde-cutselection" ) ) {
         move = KonqDrag::decodeIsCutSelection( data );
         kdDebug(1201) << "move (from clipboard data) = " << move << endl;

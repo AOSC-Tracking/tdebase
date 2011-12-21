@@ -1211,7 +1211,7 @@ void KDCOPWindow::slotCopy()
 	// below list view.  If there is nothing selected from
 	// the below menu then tell the tree to copy its current
 	// selection as text.
-	TQClipboard *clipboard = TQApplication::tqclipboard();
+	TQClipboard *clipboard = TQApplication::clipboard();
 	if (mainView->lb_replyData->count()!= 0)
 	{
 

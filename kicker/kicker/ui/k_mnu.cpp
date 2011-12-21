@@ -421,7 +421,7 @@ void PanelKMenu::repairDisplay(void) {
         // Now do a nasty hack to prevent search bar merging into the side image
         // This forces a layout/repaint of the qpopupmenu
         repaint();			// This ensures that the side bar image was applied
-        styleChange(tqstyle());		// This forces a call to the private function updateSize(TRUE) inside the qpopupmenu.
+        styleChange(style());		// This forces a call to the private function updateSize(TRUE) inside the qpopupmenu.
         update();			// This repaints the entire popup menu to apply the widget size/alignment changes made above
     }
 }
@@ -624,7 +624,7 @@ void PanelKMenu::paintEvent(TQPaintEvent * e)
     TQPainter p(this);
     p.setClipRegion(e->region());
 
-    tqstyle().tqdrawPrimitive( TQStyle::PE_PanelPopup, &p,
+    style().tqdrawPrimitive( TQStyle::PE_PanelPopup, &p,
                            TQRect( 0, 0, width(), height() ),
                            colorGroup(), TQStyle::Style_Default,
                            TQStyleOption( frameWidth(), 0 ) );

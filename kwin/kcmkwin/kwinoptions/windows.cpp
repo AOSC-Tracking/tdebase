@@ -124,7 +124,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, KConfig *_config, TQWidget * paren
     fcsBox = new TQButtonGroup(i18n("Focus"),this);
     fcsBox->setColumnLayout( 0, Qt::Horizontal );
 
-    TQBoxLayout *fLay = new TQVBoxLayout(fcsBox->tqlayout(),
+    TQBoxLayout *fLay = new TQVBoxLayout(fcsBox->layout(),
         KDialog::spacingHint());
 
     TQBoxLayout *cLay = new TQHBoxLayout(fLay);
@@ -236,7 +236,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, KConfig *_config, TQWidget * paren
 
     kbdBox = new TQButtonGroup(i18n("Navigation"), this);
     kbdBox->setColumnLayout( 0, Qt::Horizontal );
-    TQVBoxLayout *kLay = new TQVBoxLayout(kbdBox->tqlayout(), KDialog::spacingHint());
+    TQVBoxLayout *kLay = new TQVBoxLayout(kbdBox->layout(), KDialog::spacingHint());
 
     altTabPopup = new TQCheckBox( i18n("Show window list while switching windows"), kbdBox );
     kLay->addWidget( altTabPopup );
@@ -831,7 +831,7 @@ KMovingConfig::KMovingConfig (bool _standAlone, KConfig *_config, TQWidget *pare
     windowsBox = new TQButtonGroup(i18n("Windows"), this);
     windowsBox->setColumnLayout( 0, Qt::Horizontal );
 
-    TQBoxLayout *wLay = new TQVBoxLayout (windowsBox->tqlayout(), KDialog::spacingHint());
+    TQBoxLayout *wLay = new TQVBoxLayout (windowsBox->layout(), KDialog::spacingHint());
 
     TQBoxLayout *bLay = new TQVBoxLayout;
     wLay->addLayout(bLay);

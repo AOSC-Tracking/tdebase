@@ -109,7 +109,7 @@ void PopupProxy::tryInsertItem( HistoryItem const * const item,
     Q_ASSERT( id != -1 ); // Be sure that the item was inserted.
     TQMenuItem* mi = proxy_for_menu->findItem( id );
     int fontheight = TQFontMetrics( proxy_for_menu->fontMetrics()  ).height();
-    int itemheight = proxy_for_menu->tqstyle().tqsizeFromContents(TQStyle::CT_PopupMenuItem,
+    int itemheight = proxy_for_menu->style().tqsizeFromContents(TQStyle::CT_PopupMenuItem,
                                                               proxy_for_menu,
                                                               TQSize( 0, fontheight ),
                                                               TQStyleOption(mi,10,0) ).height();

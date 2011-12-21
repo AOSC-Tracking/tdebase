@@ -112,13 +112,13 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	TQWhatsThis::add( cBorder, i18n( "Use this combobox to change the border size of the decoration." ));
 	lBorder->hide();
 	cBorder->hide();
-	TQHBoxLayout *borderSizeLayout = new TQHBoxLayout(pluginSettingsGrp->tqlayout() );
+	TQHBoxLayout *borderSizeLayout = new TQHBoxLayout(pluginSettingsGrp->layout() );
 	borderSizeLayout->addWidget(lBorder);
 	borderSizeLayout->addWidget(cBorder);
 	borderSizeLayout->addStretch();
 
 	pluginConfigWidget = new TQVBox(pluginSettingsGrp);
-	pluginSettingsGrp->tqlayout()->add( pluginConfigWidget );
+	pluginSettingsGrp->layout()->add( pluginConfigWidget );
 
 	// Page 2 (Button Selector)
 	TQWidget* buttonPage = new TQWidget( tabWidget );

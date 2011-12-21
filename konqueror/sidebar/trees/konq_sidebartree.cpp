@@ -1031,8 +1031,8 @@ void KonqSidebarTree::slotCopyLocation()
 {
     if (!m_currentTopLevelItem) return;
     KURL url = m_currentTopLevelItem->externalURL();
-    kapp->tqclipboard()->setData( new KURLDrag(url, 0), TQClipboard::Selection );
-    kapp->tqclipboard()->setData( new KURLDrag(url, 0), TQClipboard::Clipboard );
+    kapp->clipboard()->setData( new KURLDrag(url, 0), TQClipboard::Selection );
+    kapp->clipboard()->setData( new KURLDrag(url, 0), TQClipboard::Clipboard );
 }
 
 ///////////////////////////////////////////////////////////////////

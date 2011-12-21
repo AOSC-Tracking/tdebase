@@ -20,11 +20,11 @@
   <group name="Date">
     <entry name="DateForegroundColor" type="Color" key="Foreground_Color">
       <label>Foreground color.</label>
-      <default code="true">KApplication::tqpalette().active().text()</default>
+      <default code="true">KApplication::palette().active().text()</default>
     </entry>
     <entry name="DateBackgroundColor" type="Color" key="Background_Color">
       <label>Foreground color.</label>
-      <default code="true">KApplication::tqpalette().active().background()</default>
+      <default code="true">KApplication::palette().active().background()</default>
     </entry>
     <entry name="DateFont" type="Font" key="Font">
       <label>Font for the clock.</label>
@@ -63,11 +63,11 @@ defFont.setBold(true);
     </entry>
     <entry name="PlainForegroundColor" type="Color" key="Foreground_Color">
       <label>Foreground color.</label>
-      <default code="true">KApplication::tqpalette().active().text()</default>
+      <default code="true">KApplication::palette().active().text()</default>
     </entry>
     <entry name="PlainBackgroundColor" type="Color" key="Background_Color">
       <label>Background color.</label>
-      <default code="true">KApplication::tqpalette().active().background()</default>
+      <default code="true">KApplication::palette().active().background()</default>
     </entry>
   </group>
   <group name="Digital">
@@ -89,15 +89,15 @@ defFont.setBold(true);
     </entry>
     <entry name="DigitalForegroundColor" type="Color" key="Foreground_Color">
       <label>Foreground color.</label>
-      <default code="true">KApplication::tqpalette().active().text()</default>
+      <default code="true">KApplication::palette().active().text()</default>
     </entry>
     <entry name="DigitalBackgroundColor" type="Color" key="Background_Color">
       <label>Background color.</label>
-      <default code="true">KApplication::tqpalette().active().background()</default>
+      <default code="true">KApplication::palette().active().background()</default>
     </entry>
     <entry name="DigitalShadowColor" type="Color" key="Shadow_Color">
       <label>Shadow color.</label>
-      <default code="true">KApplication::tqpalette().active().mid()</default>
+      <default code="true">KApplication::palette().active().mid()</default>
     </entry>
     <entry name="DigitalBlink" type="Bool" key="Blink">
       <label>Blink</label>
@@ -127,15 +127,15 @@ defFont.setBold(true);
     </entry>
     <entry name="AnalogForegroundColor" type="Color" key="Foreground_Color">
       <label>Foreground color.</label>
-      <default code="true">KApplication::tqpalette().active().text()</default>
+      <default code="true">KApplication::palette().active().text()</default>
     </entry>
     <entry name="AnalogBackgroundColor" type="Color" key="Background_Color">
       <label>Background color.</label>
-      <default code="true">KApplication::tqpalette().active().background()</default>
+      <default code="true">KApplication::palette().active().background()</default>
     </entry>
     <entry name="AnalogShadowColor" type="Color" key="Shadow_Color">
       <label>Shadow color.</label>
-      <default code="true">KApplication::tqpalette().active().mid()</default>
+      <default code="true">KApplication::palette().active().mid()</default>
     </entry>
     <entry name="AnalogLCDStyle" type="Bool" key="LCD_Style">
       <label>LCD Style</label>
@@ -168,11 +168,11 @@ defFont=KGlobalSettings::generalFont();
     </entry>
     <entry name="FuzzyForegroundColor" type="Color" key="Foreground_Color">
       <label>Foreground color.</label>
-      <default code="true">KApplication::tqpalette().active().text()</default>
+      <default code="true">KApplication::palette().active().text()</default>
     </entry>
     <entry name="FuzzyBackgroundColor" type="Color" key="Background_Color">
       <label>Background color.</label>
-      <default code="true">KApplication::tqpalette().active().background()</default>
+      <default code="true">KApplication::palette().active().background()</default>
     </entry>
     <entry name="Fuzzyness" type="Int">
       <label>Fuzzyness</label>

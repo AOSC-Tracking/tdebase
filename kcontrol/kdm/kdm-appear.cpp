@@ -228,7 +228,7 @@ KDMAppearanceWidget::KDMAppearanceWidget(TQWidget *parent, const char *name)
   loadLanguageList(langcombo);
   connect(langcombo, TQT_SIGNAL(activated(const TQString &)), TQT_SLOT(changed()));
   label = new TQLabel(langcombo, i18n("Languag&e:"), group);
-  TQGridLayout *hbox = new TQGridLayout( group->tqlayout(), 2, 2, KDialog::spacingHint() );
+  TQGridLayout *hbox = new TQGridLayout( group->layout(), 2, 2, KDialog::spacingHint() );
   hbox->setColStretch(1, 1);
   hbox->addWidget(label, 1, 0);
   hbox->addWidget(langcombo, 1, 1);
@@ -244,7 +244,7 @@ KDMAppearanceWidget::KDMAppearanceWidget(TQWidget *parent, const char *name)
 
   sakbox = new TQCheckBox( i18n("Enable Secure Attention Key"), group );
   connect( sakbox, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()) );
-  TQGridLayout *hbox2 = new TQGridLayout( group->tqlayout(), 2, 2, KDialog::spacingHint() );
+  TQGridLayout *hbox2 = new TQGridLayout( group->layout(), 2, 2, KDialog::spacingHint() );
   hbox2->setColStretch(1, 1);
   hbox2->addWidget(sakbox, 1, 0);
   wtstr = i18n("Here you can enable or disable the Secure Attention Key [SAK] anti-spoofing measure.");
@@ -351,7 +351,7 @@ bool KDMAppearanceWidget::setLogo(TQString logo)
     if (p.width() > 100 || p.height() > 100)
         p = p.smoothScale(100, 100, TQ_ScaleMin);
     logobutton->setPixmap(p);
-    uint bd = tqstyle().pixelMetric( TQStyle::PM_ButtonMargin ) * 2;
+    uint bd = style().pixelMetric( TQStyle::PM_ButtonMargin ) * 2;
     logobutton->setFixedSize(p.width() + bd, p.height() + bd);
     logopath = logo;
     return true;

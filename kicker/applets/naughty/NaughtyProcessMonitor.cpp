@@ -255,7 +255,7 @@ NaughtyProcessMonitor::processName(ulong pid) const
   }
 
  // Now strip 'kdeinit:' prefix.
-  TQString tqunicode(TQString::fromLocal8Bit(s));
+  TQString unicode(TQString::fromLocal8Bit(s));
 
 #elif defined(__OpenBSD__)
   int mib[4] ;
@@ -280,12 +280,12 @@ NaughtyProcessMonitor::processName(ulong pid) const
   }
   
  // Now strip 'kdeinit:' prefix.
-  TQString tqunicode(TQString::fromLocal8Bit(argv[0]));
+  TQString unicode(TQString::fromLocal8Bit(argv[0]));
 
   free (argv) ;
 #endif
 
-  TQStringList parts(TQStringList::split(' ', tqunicode));
+  TQStringList parts(TQStringList::split(' ', unicode));
 
   TQString processName = parts[0] == "kdeinit:" ? parts[1] : parts[0];
 

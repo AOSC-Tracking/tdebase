@@ -650,7 +650,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
     TQFrame* frame = new TQFrame( this );
     frame->setFrameStyle( TQFrame::StyledPanel | TQFrame::Raised );
-    frame->setLineWidth( tqstyle().pixelMetric( TQStyle::PM_DefaultFrameWidth, frame ) );
+    frame->setLineWidth( style().pixelMetric( TQStyle::PM_DefaultFrameWidth, frame ) );
 	// we need to set the minimum size for the logout box, since it
 	// gets too small if there isn't all options available
 	frame->setMinimumWidth(400);

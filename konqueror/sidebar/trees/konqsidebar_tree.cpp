@@ -76,14 +76,14 @@ void KonqSidebar_Tree::cut()
 {
     TQDragObject * drag = static_cast<KonqSidebarTreeItem*>(tree->selectedItem())->dragObject( 0L, true );
     if (drag)
-        TQApplication::tqclipboard()->setData( drag );
+        TQApplication::clipboard()->setData( drag );
 }
 
 void KonqSidebar_Tree::copy()
 {
     TQDragObject * drag = static_cast<KonqSidebarTreeItem*>(tree->selectedItem())->dragObject( 0L );
     if (drag)
-        TQApplication::tqclipboard()->setData( drag );
+        TQApplication::clipboard()->setData( drag );
 }
 
 void KonqSidebar_Tree::paste()

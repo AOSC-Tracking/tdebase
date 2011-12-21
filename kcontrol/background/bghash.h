@@ -8,7 +8,7 @@
 static int TQHash(TQString key)
 {
     int g, h = 0;
-    const TQChar *p = key.tqunicode();
+    const TQChar *p = key.unicode();
     for (unsigned i=0; i < key.length(); i++) {
         h = (h << 4) + p[i].cell();
         if ((g = (h & 0xf0000000)))

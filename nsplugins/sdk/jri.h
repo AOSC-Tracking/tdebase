@@ -341,8 +341,8 @@ typedef const JRIEnvInterface*	JRIEnv;
 #define JRI_SetStaticFieldDouble(env, clazz, fieldID, value)	\
 	(((*(env))->SetStaticFieldDouble)(env, JRI_SetStaticFieldDouble_op, clazz, fieldID, value))
 
-#define JRI_NewString(env, tqunicode, len)	\
-	(((*(env))->NewString)(env, JRI_NewString_op, tqunicode, len))
+#define JRI_NewString(env, unicode, len)	\
+	(((*(env))->NewString)(env, JRI_NewString_op, unicode, len))
 
 #define JRI_GetStringLength(env, string)	\
 	(((*(env))->GetStringLength)(env, JRI_GetStringLength_op, string))

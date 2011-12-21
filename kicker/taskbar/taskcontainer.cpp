@@ -314,7 +314,7 @@ TQSizePolicy TaskContainer::sizePolicy() const
 void TaskContainer::resizeEvent( TQResizeEvent * )
 {
     // calculate the icon rect
-    TQRect br( tqstyle().subRect( TQStyle::SR_PushButtonContents, this ) );
+    TQRect br( style().subRect( TQStyle::SR_PushButtonContents, this ) );
     iconRect = TQStyle::visualRect( TQRect(br.x() + 2, (height() - 16) / 2, 16, 16), this );
 }
 
@@ -533,7 +533,7 @@ void TaskContainer::drawButton(TQPainter *p)
 
     font.setBold(active);
 
-    TQColorGroup colors = tqpalette().active();
+    TQColorGroup colors = palette().active();
     
     if (TaskBarSettings::useCustomColors())
     {
@@ -582,20 +582,20 @@ void TaskContainer::drawButton(TQPainter *p)
 
     bool sunken = isDown() || (alwaysDrawButtons && (active || aboutToActivate));
     bool reverse = TQApplication::reverseLayout();
-    TQRect br(tqstyle().subRect(TQStyle::SR_PushButtonContents, this));
-    TQPoint shift = TQPoint(tqstyle().pixelMetric(TQStyle::PM_ButtonShiftHorizontal),
-                          tqstyle().pixelMetric(TQStyle::PM_ButtonShiftVertical));
+    TQRect br(style().subRect(TQStyle::SR_PushButtonContents, this));
+    TQPoint shift = TQPoint(style().pixelMetric(TQStyle::PM_ButtonShiftHorizontal),
+                          style().pixelMetric(TQStyle::PM_ButtonShiftVertical));
 
     // draw button background
     if (drawButton)
     {
         if (KickerSettings::showDeepButtons()) {
-            tqstyle().tqdrawPrimitive(TQStyle::PE_ButtonBevel, p,
+            style().tqdrawPrimitive(TQStyle::PE_ButtonBevel, p,
                               TQRect(1, 1, width()-3, height()-2),
                               colors, sunken ? TQStyle::Style_On : TQStyle::Style_Raised);
         }
         else {
-            tqstyle().tqdrawPrimitive(TQStyle::PE_ButtonTool, p,
+            style().tqdrawPrimitive(TQStyle::PE_ButtonTool, p,
                               TQRect(1, 1, width()-2, height()-2),
                               colors, sunken ? TQStyle::Style_Down : TQStyle::Style_Raised);
         }
@@ -794,7 +794,7 @@ void TaskContainer::drawButton(TQPainter *p)
             flags |= TQStyle::Style_Down;
         }
 
-        tqstyle().tqdrawPrimitive(e, p, ar, colors, flags);
+        style().tqdrawPrimitive(e, p, ar, colors, flags);
     }
     
     // draw mouse over frame in transparent mode

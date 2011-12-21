@@ -551,7 +551,7 @@ void KonqBaseListViewWidget::drawRubber( TQPainter *p )
 
    TQPoint pt( m_rubber->x(), m_rubber->y() );
    pt = contentsToViewport( pt );
-   tqstyle().tqdrawPrimitive( TQStyle::PE_RubberBand, p,
+   style().tqdrawPrimitive( TQStyle::PE_RubberBand, p,
                           TQRect( pt.x(), pt.y(), m_rubber->width(), m_rubber->height() ),
                           colorGroup(), TQStyle::Style_Default, colorGroup().base() );
    

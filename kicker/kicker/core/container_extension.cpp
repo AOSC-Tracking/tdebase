@@ -1408,11 +1408,11 @@ void ExtensionContainer::paintEvent(TQPaintEvent *e)
         // KPanelExtension::Left/Right don't seem to draw the separators at all!
         if (position() == KPanelExtension::Left) {
             rect = TQRect(width()-2,0,PANEL_RESIZE_HANDLE_WIDTH,height());
-            tqstyle().tqdrawPrimitive( TQStyle::PE_Separator, &p, rect, colorGroup(), TQStyle::Style_Horizontal );
+            style().tqdrawPrimitive( TQStyle::PE_Separator, &p, rect, colorGroup(), TQStyle::Style_Horizontal );
         }
         else if (position() == KPanelExtension::Right) {
             rect = TQRect(0,0,PANEL_RESIZE_HANDLE_WIDTH,height());
-            tqstyle().tqdrawPrimitive( TQStyle::PE_Separator, &p, rect, colorGroup(), TQStyle::Style_Horizontal );
+            style().tqdrawPrimitive( TQStyle::PE_Separator, &p, rect, colorGroup(), TQStyle::Style_Horizontal );
         }
         else if (position() == KPanelExtension::Top) {
             // Nastiness to both vertically flip the PE_Separator
@@ -1422,12 +1422,12 @@ void ExtensionContainer::paintEvent(TQPaintEvent *e)
             rect = TQRect(0,0,width(),PANEL_RESIZE_HANDLE_WIDTH);
             TQColorGroup darkcg = colorGroup();
             darkcg.setColor(TQColorGroup::Light, colorGroup().dark());
-            tqstyle().tqdrawPrimitive( TQStyle::PE_Separator, &myp, rect, darkcg, TQStyle::Style_Default );
+            style().tqdrawPrimitive( TQStyle::PE_Separator, &myp, rect, darkcg, TQStyle::Style_Default );
             p.drawPixmap(0,height()-2,inv_pm);
         }
         else {
             rect = TQRect(0,0,width(),PANEL_RESIZE_HANDLE_WIDTH);
-            tqstyle().tqdrawPrimitive( TQStyle::PE_Separator, &p, rect, colorGroup(), TQStyle::Style_Default );
+            style().tqdrawPrimitive( TQStyle::PE_Separator, &p, rect, colorGroup(), TQStyle::Style_Default );
         }
     }
 }

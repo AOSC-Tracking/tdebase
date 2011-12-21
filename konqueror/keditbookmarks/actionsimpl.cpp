@@ -345,7 +345,7 @@ void ActionsImpl::slotCopy() {
     TQValueList<KBookmark> bookmarks
         = ListView::self()->itemsToBookmarks(ListView::self()->selectedItemsMap());
     KBookmarkDrag* data = KBookmarkDrag::newDrag(bookmarks, 0 /* not this ! */);
-    kapp->tqclipboard()->setData(data, TQClipboard::Clipboard);
+    kapp->clipboard()->setData(data, TQClipboard::Clipboard);
 }
 
 void ActionsImpl::slotPaste() {
@@ -353,7 +353,7 @@ void ActionsImpl::slotPaste() {
     KEBMacroCommand *mcmd =
         CmdGen::insertMimeSource(
                             i18n("Paste"),
-                            kapp->tqclipboard()->data(TQClipboard::Clipboard),
+                            kapp->clipboard()->data(TQClipboard::Clipboard),
                             ListView::self()->userAddress());
     CmdHistory::self()->didCommand(mcmd);
 }

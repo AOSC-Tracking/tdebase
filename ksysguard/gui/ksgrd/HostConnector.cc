@@ -59,7 +59,7 @@ HostConnector::HostConnector( TQWidget *parent, const char *name )
 
   TQButtonGroup *group = new TQButtonGroup( 0, Qt::Vertical,
                                           i18n( "Connection Type" ), page );
-  TQGridLayout *groupLayout = new TQGridLayout( group->tqlayout(), 4, 4,
+  TQGridLayout *groupLayout = new TQGridLayout( group->layout(), 4, 4,
       spacingHint() );
   groupLayout->setAlignment( Qt::AlignTop );
 

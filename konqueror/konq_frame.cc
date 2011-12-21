@@ -274,7 +274,7 @@ void KonqFrameStatusBar::updateActiveStatus()
 
     bool hasFocus = m_pParentKonqFrame->isActivePart();
 
-    const TQColorGroup& activeCg = kapp->tqpalette().active();
+    const TQColorGroup& activeCg = kapp->palette().active();
     setPaletteBackgroundColor( hasFocus ? activeCg.midlight() : activeCg.mid() );
 
     static TQPixmap indicator_viewactive( UserIcon( "indicator_viewactive" ) );

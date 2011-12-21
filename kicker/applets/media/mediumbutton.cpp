@@ -145,7 +145,7 @@ void MediumButton::slotCopy()
 {
     KonqDrag * obj = KonqDrag::newDrag(mFileItem.url(), false);
     
-    TQApplication::tqclipboard()->setData( obj );
+    TQApplication::clipboard()->setData( obj );
 }
 
 void MediumButton::dragEnterEvent(TQDragEnterEvent* e)

@@ -1969,7 +1969,7 @@ void Workspace::slotGrabWindow()
                 }
             }
 
-        TQClipboard *cb = TQApplication::tqclipboard();
+        TQClipboard *cb = TQApplication::clipboard();
         cb->setPixmap( snapshot );
         }
     else
@@ -1982,7 +1982,7 @@ void Workspace::slotGrabWindow()
 void Workspace::slotGrabDesktop()
     {
     TQPixmap p = TQPixmap::grabWindow( qt_xrootwin() );
-    TQClipboard *cb = TQApplication::tqclipboard();
+    TQClipboard *cb = TQApplication::clipboard();
     cb->setPixmap( p );
     }
 

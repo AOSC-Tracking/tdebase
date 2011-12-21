@@ -1147,14 +1147,14 @@ void KonqIconViewWidget::cutSelection()
     kdDebug(1203) << " -- KonqIconViewWidget::cutSelection() -- " << endl;
     KonqIconDrag * obj = konqDragObject( /* no parent ! */ );
     obj->setMoveSelection( true );
-    TQApplication::tqclipboard()->setData( obj );
+    TQApplication::clipboard()->setData( obj );
 }
 
 void KonqIconViewWidget::copySelection()
 {
     kdDebug(1203) << " -- KonqIconViewWidget::copySelection() -- " << endl;
     KonqIconDrag * obj = konqDragObject( /* no parent ! */ );
-    TQApplication::tqclipboard()->setData( obj );
+    TQApplication::clipboard()->setData( obj );
 }
 
 void KonqIconViewWidget::pasteSelection()

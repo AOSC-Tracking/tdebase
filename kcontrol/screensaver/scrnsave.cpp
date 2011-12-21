@@ -133,7 +133,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mSaverGroup->setColumnLayout( 0, Qt::Horizontal );
     vLayout->addWidget(mSaverGroup);
     vLayout->setStretchFactor( mSaverGroup, 10 );
-    TQBoxLayout *groupLayout = new TQVBoxLayout( mSaverGroup->tqlayout(),
+    TQBoxLayout *groupLayout = new TQVBoxLayout( mSaverGroup->layout(),
         KDialog::spacingHint() );
 
     mSaverListView = new TQListView( mSaverGroup );
@@ -162,7 +162,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mSettingsGroup = new TQGroupBox( i18n("Settings"), this );
     mSettingsGroup->setColumnLayout( 0, Qt::Vertical );
     leftColumnLayout->addWidget( mSettingsGroup );
-    groupLayout = new TQVBoxLayout( mSettingsGroup->tqlayout(),
+    groupLayout = new TQVBoxLayout( mSettingsGroup->layout(),
         KDialog::spacingHint() );
 
     mEnabledCheckBox = new TQCheckBox(i18n(

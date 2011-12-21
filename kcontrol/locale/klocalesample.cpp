@@ -45,7 +45,7 @@ KLocaleSample::KLocaleSample(KLocale *locale,
   lay->setAutoAdd(TRUE);
 
   // Whatever the color scheme is, we want black text
-  TQColorGroup a = tqpalette().active();
+  TQColorGroup a = palette().active();
   a.setColor(TQColorGroup::Foreground, Qt::black);
   TQPalette pal(a, a, a);
 
