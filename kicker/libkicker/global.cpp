@@ -328,7 +328,7 @@ void colorize(TQImage& image)
 {
     KConfig *config = KGlobal::config();
     config->setGroup("WM");
-    TQColor color = TQApplication::tqpalette().active().highlight();
+    TQColor color = TQApplication::palette().active().highlight();
     TQColor activeTitle = config->readColorEntry("activeBackground", &color);
     TQColor inactiveTitle = config->readColorEntry("inactiveBackground", &color);
 
@@ -336,7 +336,7 @@ void colorize(TQImage& image)
     int h1, s1, v1, h2, s2, v2, h3, s3, v3;
     activeTitle.hsv(&h1, &s1, &v1);
     inactiveTitle.hsv(&h2, &s2, &v2);
-    TQApplication::tqpalette().active().background().hsv(&h3, &s3, &v3);
+    TQApplication::palette().active().background().hsv(&h3, &s3, &v3);
 
     if ( (kAbs(h1-h3)+kAbs(s1-s3)+kAbs(v1-v3) < kAbs(h2-h3)+kAbs(s2-s3)+kAbs(v2-v3)) &&
             ((kAbs(h1-h3)+kAbs(s1-s3)+kAbs(v1-v3) < 32) || (s1 < 32)) && (s2 > s1))

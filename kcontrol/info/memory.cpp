@@ -342,7 +342,7 @@ bool KMemoryWidget::Display_Graph(int widgetindex,
     /* draw surrounding box */
     paint.setPen(pen);
     TQRect r = graph->rect();
-    qDrawShadePanel(&paint, r.x(), r.y(), r.width(), r.height(), tqpalette().active(), true, 1);
+    qDrawShadePanel(&paint, r.x(), r.y(), r.width(), r.height(), palette().active(), true, 1);
     paint.end();
     bitBlt(graph, 0, 0, &pm);
 

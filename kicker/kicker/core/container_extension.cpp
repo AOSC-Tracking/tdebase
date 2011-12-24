@@ -1378,7 +1378,7 @@ void ExtensionContainer::updateHighlightColor()
 {
     KConfig *config = KGlobal::config();
     config->setGroup("WM");
-    TQColor color = TQApplication::tqpalette().active().highlight();
+    TQColor color = TQApplication::palette().active().highlight();
     m_highlightColor = config->readColorEntry("activeBackground", &color);
     update();
 }
