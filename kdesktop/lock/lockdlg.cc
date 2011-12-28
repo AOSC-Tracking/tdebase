@@ -115,7 +115,7 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
         frame->setFrameStyle( TQFrame::Panel | TQFrame::Raised );
     frame->setLineWidth( 2 );
 
-    TQLabel *pixLabel;
+    TQLabel *pixLabel = NULL;
     if (!trinity_desktop_lock_use_system_modal_dialogs) {
         pixLabel = new TQLabel( frame, "pixlabel" );
         pixLabel->setPixmap(DesktopIcon("lock"));
@@ -134,7 +134,7 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
                 i18n("<nobr><b>The session was locked by %1</b><br>").arg( user.fullName() ), frame );
     }
 
-    TQLabel *lockDTLabel;
+    TQLabel *lockDTLabel = NULL;
     if ((trinity_desktop_lock_use_system_modal_dialogs) && (!m_lockStartDT.isNull())) {
         lockDTLabel = new TQLabel(i18n("This session has been locked since %1").arg(m_lockStartDT.toString()), frame);
     }

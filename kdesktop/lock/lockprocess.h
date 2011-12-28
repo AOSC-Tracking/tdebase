@@ -74,6 +74,7 @@ public slots:
     void doDesktopResizeFinish();
     void doFunctionKeyBroadcast();
     void slotPaintBackground(const TQPixmap &pm);
+    void slotForcePaintBackground();
 
 protected:
     virtual bool x11Event(XEvent *);
@@ -181,6 +182,7 @@ private:
     bool        mForceReject;
     TQDialog     *currentDialog;
 
+    TQTimer*    mEnsureScreenHiddenTimer;
     TQTimer*    mForceContinualLockDisplayTimer;
     TQTimer*    mEnsureVRootWindowSecurityTimer;
     TQTimer*    mHackDelayStartupTimer;
