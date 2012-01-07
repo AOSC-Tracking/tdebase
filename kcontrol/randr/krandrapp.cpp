@@ -28,13 +28,20 @@
 KRandRApp::KRandRApp()
 	: m_tray(new KRandRSystemTray(0L, "RANDRTray"))
 {
+	connect(&m_eventMergingTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(handleX11ConfigChangeEvent()));
 	m_tray->show();
+}
+
+void KRandRApp::handleX11ConfigChangeEvent()
+{
+	m_eventMergingTimer.stop();
+	m_tray->configChanged();
 }
 
 bool KRandRApp::x11EventFilter(XEvent* e)
 {
 	if (e->type == m_tray->screenChangeNotifyEvent()) {
-		m_tray->configChanged();
+		m_eventMergingTimer.start(1000, TRUE);
 	}
 	return KApplication::x11EventFilter( e );
 }

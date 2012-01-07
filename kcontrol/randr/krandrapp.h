@@ -19,6 +19,7 @@
 #ifndef KRANDRAPP_H
 #define KRANDRAPP_H
 
+#include <tqtimer.h>
 #include <kuniqueapplication.h>
 
 class KRandRSystemTray;
@@ -32,8 +33,12 @@ public:
 
 	virtual bool x11EventFilter(XEvent * e);
 
+private slots:
+	void handleX11ConfigChangeEvent();
+
 private:
 	KRandRSystemTray*	m_tray;
+	TQTimer			m_eventMergingTimer;
 };
 
 #endif
