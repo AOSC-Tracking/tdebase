@@ -112,10 +112,31 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   TQWhatsThis::add(cb_fullPath,i18n("If this option is checked, the full document path will be shown in the window caption."));
   connect( cb_fullPath, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
 
+  // sort filelist if desired
+   cb_sortFiles = new TQCheckBox(bgStartup);
+   cb_sortFiles->setText(i18n("Sort &files alphabetically in the file list"));
+   cb_sortFiles->setChecked(parent->filelist->sortType() == KateFileList::sortByName);
+   TQWhatsThis::add( cb_sortFiles, i18n(
+         "If this is checked, the files in the file list will be sorted alphabetically.") );
+   connect( cb_sortFiles, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
 
   // GROUP with the one below: "Behavior"
   bgStartup = new TQButtonGroup( 1, Qt::Horizontal, i18n("&Behavior"), frGeneral );
   lo->addWidget( bgStartup );
+
+  // number of recent files
+  TQHBox *hbNrf = new TQHBox( bgStartup );
+  TQLabel *lNrf = new TQLabel( i18n("&Number of recent files:"), hbNrf );
+  sb_numRecentFiles = new TQSpinBox( 0, 1000, 1, hbNrf );
+  sb_numRecentFiles->setValue( mainWindow->fileOpenRecent->maxItems() );
+  lNrf->setBuddy( sb_numRecentFiles );
+  TQString numRecentFileHelpString ( i18n(
+        "<qt>Sets the number of recent files remembered by Kate.<p><strong>NOTE: </strong>"
+        "If you set this lower than the current value, the list will be truncated and "
+        "some items forgotten.</qt>") );
+  TQWhatsThis::add( lNrf, numRecentFileHelpString );
+  TQWhatsThis::add( sb_numRecentFiles, numRecentFileHelpString );
+  connect( sb_numRecentFiles, TQT_SIGNAL( valueChanged ( int ) ), this, TQT_SLOT( slotChanged() ) );
 
   // sync the konsole ?
   cb_syncKonsole = new TQCheckBox(bgStartup);
@@ -388,6 +409,10 @@ void KateConfigDialog::slotApply()
     mainWindow->modNotification = cb_modNotifications->isChecked();
 
     mainWindow->syncKonsole = cb_syncKonsole->isChecked();
+    mainWindow->filelist->setSortType(cb_sortFiles->isChecked() ? KateFileList::sortByName : KateFileList::sortByID);
+
+    config->writeEntry( "Number of recent files", sb_numRecentFiles->value() );
+    mainWindow->fileOpenRecent->setMaxItems( sb_numRecentFiles->value() );
 
     fileSelConfigPage->apply();
 
