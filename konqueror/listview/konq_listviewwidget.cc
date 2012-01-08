@@ -1009,9 +1009,12 @@ void KonqBaseListViewWidget::slotReturnPressed( TQListViewItem *_item )
 	   // gather pixmap
 	   TQPixmap *pix = new TQPixmap(*(_item->pixmap(0)));
 
-	   // call the icon effect
-           KIconEffect::visualActivate(viewport(), rect, pix);
-	 
+	   // call the icon effect if enabled
+	   if (KGlobalSettings::showKonqIconActivationEffect() == true) {
+	       KIconEffect::visualActivate(viewport(), rect, pix);
+	   }
+
+	   // clean up
 	   delete(pix);
 	 }
    }
