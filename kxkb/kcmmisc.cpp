@@ -344,6 +344,21 @@ int xkb_set_off()
     return 1;
     }
 
+int xkb_state()
+    {
+    unsigned int mask;
+    unsigned int numlockState;
+    XkbStateRec xkbState;
+    if( !xkb_init())
+        return 0;
+    mask = xkb_numlock_mask();
+    if( mask == 0 )
+        return 0;
+    XkbGetState( dpy, XkbUseCoreKbd, &xkbState);
+    numlockState = xkbState.locked_mods & mask;
+    return numlockState;
+    }
+
 int xkb_toggle()
     {
     unsigned int mask;
@@ -443,7 +458,14 @@ void numlock_toggle()
         return;
 #endif
 #ifdef HAVE_XTEST
+#ifdef HAVE_XKB
+    if (xkb_state())
+        xtest_set_on();
+    else
+        xtest_set_off();
+#else // HAVE_XKB
     xtest_toggle();
+#endif // HAVE_XKB
 #endif
     }
 // This code is taken from xset utility from XFree 4.3 (http://www.xfree86.org/)
