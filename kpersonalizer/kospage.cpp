@@ -142,7 +142,7 @@ void KOSPage::writeKDE(){
 	ckcmdisplay->writeEntry("macStyle", false, true, true);
 
 	cglobal->setGroup("KDE");
-	cglobal->writeEntry("SingleClick", true, true, true);
+	cglobal->writeEntry("SingleClick", false, true, true);
 
 	claunch->setGroup("FeedbackStyle");
 	claunch->writeEntry("BusyCursor", false);
@@ -351,8 +351,8 @@ void KOSPage::slotKDEDescription(){
 	textview_ospage->setText(i18n(
 	"<b>Window activation:</b> <i>Focus on click</i><br>"
 	"<b>Titlebar double-click:</b> <i>Shade window</i><br>"
-	"<b>Mouse selection:</b> <i>Single click</i><br>"
-	"<b>Application startup notification:</b> <i>busy cursor</i><br>"
+	"<b>Mouse selection:</b> <i>Double click</i><br>"
+	"<b>Application startup notification:</b> <i>none</i><br>"
 	"<b>Keyboard scheme:</b> <i>Trinity default</i><br>"
 	));
 }
@@ -376,7 +376,7 @@ void KOSPage::slotWindowsDescription(){
 	"<b>Window activation:</b> <i>Focus on click</i><br>"
 	"<b>Titlebar double-click:</b> <i>Maximize window</i><br>"
 	"<b>Mouse selection:</b> <i>Double click</i><br>"
-	"<b>Application startup notification:</b> <i>busy cursor</i><br>"
+	"<b>Application startup notification:</b> <i>none</i><br>"
 	"<b>Keyboard scheme:</b> <i>Windows</i><br>"
 	));
 }
@@ -400,7 +400,7 @@ void KOSPage::getUserDefaults(){
 	b_MacMenuBar = ckcmdisplay->readBoolEntry("macStyle", false);
 
 	cglobal->setGroup("KDE");
-	b_SingleClick = cglobal->readBoolEntry("SingleClick", true);
+	b_SingleClick = cglobal->readBoolEntry("SingleClick", false);
 
 	claunch->setGroup("FeedbackStyle");
 	b_BusyCursor = claunch->readBoolEntry("BusyCursor", false);
