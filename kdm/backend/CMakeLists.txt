@@ -43,6 +43,6 @@ tde_add_executable( kdm
     process.c protodpy.c reset.c resource.c rpcauth.c
     server.c session.c sessreg.c socket.c streams.c
     util.c xdmauth.c xdmcp.c
-  LINK X11 ${XAU_LIBRARIES} ${DBUS_TQT_LIBRARIES} ${PAM_LIBRARY} ${XDMCP_LIBRARIES}
+  LINK X11 ${XAU_LIBRARIES} ${DBUS_TQT_LIBRARIES} ${CRYPT_LIBRARY} ${PAM_LIBRARY} ${XDMCP_LIBRARIES}
   DESTINATION ${BIN_INSTALL_DIR}
 )

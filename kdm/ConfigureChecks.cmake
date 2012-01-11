@@ -27,6 +27,16 @@ check_function_exists( login_getclass HAVE_LOGIN_GETCLASS )
 check_function_exists( auth_timeok HAVE_AUTH_TIMEOK )
 tde_restore( CMAKE_REQUIRED_LIBRARIES )
 
+check_function_exists( crypt LIBC_HAVE_CRYPT )
+if( LIBC_HAVE_CRYPT )
+  set( HAVE_CRYPT 1 CACHE INTERNAL "" FORCE )
+else( )
+  check_library_exists( crypt crypt "" HAVE_CRYPT )
+  if( HAVE_CRYPT )
+    set( CRYPT_LIBRARY crypt )
+  endif( )
+endif( )
+
 check_include_file( lastlog.h HAVE_LASTLOG_H )
 check_include_file( termio.h HAVE_TERMIO_H )
 
