@@ -1700,8 +1700,6 @@ void KMenu::setOrientation(MenuOrientation orientation)
         TQPixmap pix( 64, footer->height() );
         TQPainter p( &pix );
         p.fillRect( 0, 0, 64, footer->height(), m_branding->colorGroup().brush( TQColorGroup::Base ) );
-        p.fillRect( 0, m_orientation == BottomUp ? footer->height() - 2 : 0,
-                64, 3, KNewButton::self()->borderColor() );
         p.end();
         footer->setPaletteBackgroundPixmap( pix );
     }
@@ -3500,7 +3498,8 @@ void KMenu::updateMedia()
         }
         m_systemView->insertItem( iconName, userLabel.isEmpty() ? label : userLabel,
                                   descr, "system:/media/" + name, nId++, -1 );
-
+        ++it;
+        ++it;
         ++it; // skip separator
     }
 }
