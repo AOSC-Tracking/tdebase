@@ -8,7 +8,7 @@ METASOURCES = AUTO
 
 EXTRA_DIST = LICENSE
 
-bin_PROGRAMS = drkonqi
+bin_PROGRAMS = drkonqi crashtest
 
 # Libraries:
 AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_KDECORE) $(LIB_KDEUI) -lkdefx $(LIB_KIO) -lktexteditor

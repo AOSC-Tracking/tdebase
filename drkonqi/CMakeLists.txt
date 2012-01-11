@@ -34,3 +34,14 @@ tde_add_executable( drkonqi AUTOMOC
   LINK kio-shared
   DESTINATION ${BIN_INSTALL_DIR}
 )
+
+##### crashtest (executable) ######################
+
+if( BUILD_CRASHTEST )
+  tde_add_executable( crashtest AUTOMOC
+    SOURCES
+      crashtest.cpp
+    LINK kio-shared
+    DESTINATION ${BIN_INSTALL_DIR}
+  )
+endif( BUILD_CRASHTEST )

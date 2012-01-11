@@ -133,6 +133,7 @@ option( BUILD_KXKB "Build kxkb"  ${BUILD_ALL} )
 option( BUILD_TSAK "Build tsak"  ${BUILD_ALL} )
 option( BUILD_KROOTBACKING "Build krootbacking"  ${BUILD_ALL} )
 option( BUILD_TQT3INTEGRATION "Build tqt3integration"  ${BUILD_ALL} )
+option( BUILD_CRASHTEST "Build crash test program"  ${BUILD_ALL} )
 
 
 ##### set PKG_CONFIG_PATH #######################
