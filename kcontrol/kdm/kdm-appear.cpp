@@ -473,7 +473,7 @@ void KDMAppearanceWidget::load()
   config->setGroup("X-*-Greeter");
 
   // Read the greeting string
-  greetstr_lined->setText(config->readEntry("GreetString", i18n("Welcome to Kubuntu at %n")));
+  greetstr_lined->setText(config->readEntry("GreetString", i18n("Welcome to %n")));
 
   // Regular logo or clock
   TQString logoArea = config->readEntry("LogoArea", "Logo" );
@@ -522,7 +522,7 @@ void KDMAppearanceWidget::load()
 
 void KDMAppearanceWidget::defaults()
 {
-  greetstr_lined->setText( i18n("Welcome to Kubuntu at %n") );
+  greetstr_lined->setText( i18n("Welcome to %n") );
   logoRadio->setChecked( true );
   slotAreaRadioClicked( KdmLogo );
   setLogo( "" );
