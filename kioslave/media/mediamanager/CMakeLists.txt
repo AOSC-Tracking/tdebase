@@ -20,6 +20,7 @@ include_directories(
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
   ${HAL_INCLUDE_DIRS}
+  ${DBUS_TQT_INCLUDE_DIRS}
 )
 
 link_directories(
