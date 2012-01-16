@@ -76,7 +76,7 @@ KNewButton::KNewButton( TQWidget* parent )
         setTextColor(KickerSettings::buttonTextColor());
     }    
     
-    tqrepaint();
+    repaint();
 }
 
 KNewButton::~KNewButton()
