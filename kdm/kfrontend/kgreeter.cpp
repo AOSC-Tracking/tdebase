@@ -273,6 +273,9 @@ void KGreeter::handleInputPipe(void) {
 		readbuf[numread] = 0;
 		readbuf[2047] = 0;
 		inputcommand += readbuf;
+		if (!tqApp->hasPendingEvents()) {
+			usleep(500);
+		}
 		tqApp->processEvents();
 	}
 	if (closingDown) {
@@ -508,11 +511,11 @@ KGreeter::insertUsers(int limit_users)
                 int count = 0;
 		for (setpwent(); (ps = getpwent()) != 0;) {
 			if (*ps->pw_dir && *ps->pw_shell &&
-			    (ps->pw_uid >= (unsigned)_lowUserId ||
-			     !ps->pw_uid && _showRoot) &&
-			    ps->pw_uid <= (unsigned)_highUserId &&
-			    !noUsers.hasUser( ps->pw_name ) &&
-			    !noUsers.hasGroup( ps->pw_gid ))
+			    ((ps->pw_uid >= (unsigned)_lowUserId) ||
+			     ((!ps->pw_uid) && _showRoot)) &&
+			    (ps->pw_uid <= (unsigned)_highUserId) &&
+			    (!noUsers.hasUser( ps->pw_name )) &&
+			    (!noUsers.hasGroup( ps->pw_gid )))
 			{
 				TQString username( TQFile::decodeName( ps->pw_name ) );
 				if (!dupes.find( username )) {
@@ -574,7 +577,7 @@ KGreeter::insertUsers(int limit_users)
 			for (setpwent(); (ps = getpwent()) != 0;) {
 				if (*ps->pw_dir && *ps->pw_shell &&
 				    (ps->pw_uid >= (unsigned)_lowUserId ||
-				     !ps->pw_uid && _showRoot) &&
+				     ((!ps->pw_uid) && _showRoot)) &&
 				    ps->pw_uid <= (unsigned)_highUserId &&
 				    (users.hasUser( ps->pw_name ) ||
 				     users.hasGroup( ps->pw_gid )))
