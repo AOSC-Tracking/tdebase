@@ -60,6 +60,7 @@ check baghira.sf.net for more infos
 #include <signal.h>
 #include <time.h>
 #include <unistd.h>
+#include <libgen.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
@@ -397,7 +398,7 @@ void delete_pid_file()
         int chars = readlink("/proc/self/exe", me, sizeof(me));
         me[chars] = 0;
         me[2047] = 0;
-	execl(me, NULL);
+	execl(me, basename(me), (char*)NULL);
     }
 #endif
 }

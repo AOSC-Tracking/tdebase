@@ -23,5 +23,6 @@ link_directories(
 
 tde_add_executable( tsak
   SOURCES main.cpp
+  LINK udev
   DESTINATION ${BIN_INSTALL_DIR}
 )
