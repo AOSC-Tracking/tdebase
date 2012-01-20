@@ -326,10 +326,8 @@ static int signal_pipe[2];
 static void sigterm_handler(int)
 {
     if (!trinity_desktop_lock_in_sec_dlg) {
-        char tmp = 'T';
-        if (::write( signal_pipe[1], &tmp, 1) == -1) {
-            // Error handler to shut up gcc warnings
-        }
+        // Exit uncleanly
+        exit(1);
     }
 }
 
@@ -522,7 +520,7 @@ void LockProcess::setupSignals()
     sigaddset(&(act.sa_mask), SIGQUIT);
     act.sa_flags = 0;
     sigaction(SIGQUIT, &act, 0L);
-    // exit cleanly on SIGTERM
+    // exit uncleanly on SIGTERM
     act.sa_handler= sigterm_handler;
     sigemptyset(&(act.sa_mask));
     sigaddset(&(act.sa_mask), SIGTERM);

@@ -114,6 +114,7 @@ protected:
 
 private:
     KProcess*   mSAKProcess;
+    bool        mTerminationRequested;
 };
 
 #endif

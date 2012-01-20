@@ -36,10 +36,11 @@ bool trinity_lockeng_sak_available = TRUE;
 // a newly started process.
 //
 SaverEngine::SaverEngine()
-    : KScreensaverIface(),
-      TQWidget(),
+    : TQWidget(),
+      KScreensaverIface(),
       mBlankOnly(false),
-      mSAKProcess(NULL)
+      mSAKProcess(NULL),
+      mTerminationRequested(false)
 {
     // Save X screensaver parameters
     XGetScreenSaver(qt_xdisplay(), &mXTimeout, &mXInterval,
@@ -340,6 +341,7 @@ void SaverEngine::stopLockProcess()
     kdDebug(1204) << "SaverEngine: stopping lock" << endl;
     emitDCOPSignal("KDE_stop_screensaver()", TQByteArray());
 
+    mTerminationRequested=true;
     mLockProcess.kill();
 
     if (mEnabled)
@@ -357,7 +359,33 @@ void SaverEngine::stopLockProcess()
 
 void SaverEngine::lockProcessExited()
 {
+printf("Lock process exited\n\r"); fflush(stdout);
+    bool abnormalExit = false;
     kdDebug(1204) << "SaverEngine: lock exited" << endl;
+    if (mLockProcess.normalExit() == false) {
+        abnormalExit = true;
+    }
+    else {
+        if (mLockProcess.exitStatus() != 0) {
+            abnormalExit = true;
+        }
+    }
+    if (mTerminationRequested == true) {
+        abnormalExit = false;
+    }
+    if (abnormalExit == true) {
+        // PROBABLE HACKING ATTEMPT DETECTED
+        // Terminate the TDE session ASAP!
+        // Values are explained at http://lists.kde.org/?l=kde-linux&m=115770988603387
+        TQByteArray data;
+        TQDataStream arg(data, IO_WriteOnly);
+        arg << (int)0 << (int)0 << (int)2;
+        if ( ! kapp->dcopClient()->send("ksmserver", "default", "logout(int,int,int)", data) ) {
+            // Someone got to DCOP before we did
+            // Try an emergency system logout
+            system("logout");
+        }
+    }
     if (trinity_lockeng_sak_available == TRUE) {
         handleSecureDialog();
     }
