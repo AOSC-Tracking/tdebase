@@ -44,6 +44,15 @@ if( WITH_HAL )
 endif( )
 
 
+# udev (tsak)
+if( BUILD_TSAK )
+  pkg_search_module( UDEV libudev )
+  if( NOT UDEV_FOUND )
+    tde_message_fatal( "udev is required, but was not found on your system" )
+  endif( )
+endif( )
+
+
 # xrender (kdesktop, konsole, kcontrol, kicker, kwin)
 if( WITH_XRENDER OR BUILD_KDESKTOP OR BUILD_KONSOLE OR BUILD_KCONTROL OR BUILD_KICKER )
   pkg_search_module( XRENDER xrender )

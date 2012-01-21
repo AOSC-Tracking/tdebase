@@ -282,7 +282,9 @@ void broadcast_sak()
 	// I highly doubt there are more than 255 VTs active at once...
 	int i;
 	for (i=0;i<255;i++) {
-		write(mPipe_fd_out, "SAK\n\r", 6);
+		if (write(mPipe_fd_out, "SAK\n\r", 6) < 0) {
+			fprintf(stderr, "Unable to send SAK signal to clients\n");
+		}
 	}
 }
 
@@ -344,7 +346,7 @@ int main (int argc, char *argv[])
 	struct input_event ev[64];
 	struct input_event event;
 	struct input_event revev;
-	struct uinput_user_dev devinfo={0};
+	struct uinput_user_dev devinfo={{0},{0}};
 	int devout[MAX_KEYBOARDS], rd, i, value, size = sizeof (struct input_event);
 	char name[256] = "Unknown";
 	bool ctrl_down = false;
@@ -451,9 +453,11 @@ int main (int argc, char *argv[])
 						strncat(devinfo.name, "+tsak", UINPUT_MAX_NAME_SIZE-1);
 						fprintf(stderr, "%s\n", devinfo.name);
 						ioctl(keyboard_fds[current_keyboard], EVIOCGID, &devinfo.id);
-						
+
 						copy_features(keyboard_fds[current_keyboard], devout[current_keyboard]);
-						write(devout[current_keyboard],&devinfo,sizeof(devinfo));
+						if (write(devout[current_keyboard],&devinfo,sizeof(devinfo)) < 0) {
+							fprintf(stderr, "Unable to write to output device\n");
+						}
 						if (ioctl(devout[current_keyboard],UI_DEV_CREATE)<0) {
 							fprintf(stderr, "Unable to create input device with UI_DEV_CREATE\n");
 							if (established)
@@ -463,7 +467,7 @@ int main (int argc, char *argv[])
 						}
 						else {
 							fprintf(stderr, "Device created.\n");
-	
+
 							if (established == false) {
 								int i=fork();
 								if (i<0) return 9; // fork failed
@@ -473,13 +477,13 @@ int main (int argc, char *argv[])
 								}
 								setupLockingPipe();
 							}
-	
+
 							established = true;
-	
+
 							if (testrun == true) {
 								return 0;
 							}
-					
+
 							while (1) {
 								if ((rd = read (keyboard_fds[current_keyboard], ev, size * 2)) < size) {
 									fprintf(stderr, "Read failed.\n");
@@ -490,12 +494,14 @@ int main (int argc, char *argv[])
 								int rrd = read(devout[current_keyboard], &revev, size);
 								if (rrd >= size) {
 									if (revev.type == EV_LED) {
-										write(keyboard_fds[current_keyboard], &revev, sizeof(revev));
+										if (write(keyboard_fds[current_keyboard], &revev, sizeof(revev)) < 0) {
+											fprintf(stderr, "Unable to replicate LED event\n");
+										}
 									}
 								}
-								
+
 								value = ev[0].value;
-								
+
 								if (value != ' ' && ev[1].value == 0 && ev[1].type == 1){ // Read the key release event
 									if (keycode[(ev[1].code)]) {
 										if (strcmp(keycode[(ev[1].code)], "<control>") == 0) ctrl_down = false;
@@ -508,20 +514,24 @@ int main (int argc, char *argv[])
 										if (strcmp(keycode[(ev[1].code)], "<alt>") == 0) alt_down = true;
 									}
 								}
-						
+
 								hide_event = false;
 								if (keycode[(ev[1].code)]) {
 									if (alt_down && ctrl_down && (strcmp(keycode[(ev[1].code)], "<del>") == 0)) {
 										hide_event = true;
 									}
 								}
-						
+
 								if ((hide_event == false) && (ev[0].type != EV_LED) && (ev[1].type != EV_LED)) {
 									// Pass the event on...
 									event = ev[0];
-									write(devout[current_keyboard], &event, sizeof event);
+									if (write(devout[current_keyboard], &event, sizeof event) < 0) {
+										fprintf(stderr, "Unable to replicate keyboard event!\n");
+									}
 									event = ev[1];
-									write(devout[current_keyboard], &event, sizeof event);
+									if (write(devout[current_keyboard], &event, sizeof event) < 0) {
+										fprintf(stderr, "Unable to replicate keyboard event!\n");
+									}
 								}
 								if (hide_event == true) {
 									// Let anyone listening to our interface know that an SAK keypress was received
