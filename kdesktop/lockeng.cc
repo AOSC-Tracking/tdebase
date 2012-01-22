@@ -372,6 +372,7 @@ printf("Lock process exited\n\r"); fflush(stdout);
     }
     if (mTerminationRequested == true) {
         abnormalExit = false;
+        mTerminationRequested = false;
     }
     if (abnormalExit == true) {
         // PROBABLE HACKING ATTEMPT DETECTED

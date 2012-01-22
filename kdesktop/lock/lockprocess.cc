@@ -630,6 +630,8 @@ void LockProcess::startSecureDialog()
 		return;
 	}
 
+	setGeometry(0, 0, mRootWidth, mRootHeight);
+
 	int ret;
 	SecureDlg inDlg( this );
 	inDlg.setRetInt(&ret);

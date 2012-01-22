@@ -181,14 +181,14 @@ int main( int argc, char **argv )
             rt = process.runSecureDialog();
         }
         else {
-            return 1;
+            return 0;
         }
     }
     else {
         rt = process.defaultSave();
     }
     if (!rt) {
-        return 1;
+        return 0;
     }
 
     if( sig )
