@@ -61,6 +61,7 @@ private:
   KProcess *m_proc;
   const KrashConfig *m_krashconf;
   KTempFile *m_temp;
+  KTempFile *m_temp_cmd;
   TQString m_strBt;
 };
 #endif

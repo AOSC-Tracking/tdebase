@@ -42,7 +42,7 @@
 BackTrace::BackTrace(const KrashConfig *krashconf, TQObject *parent,
                      const char *name)
   : TQObject(parent, name),
-    m_krashconf(krashconf), m_temp(0)
+    m_krashconf(krashconf), m_temp(NULL), m_temp_cmd(NULL)
 {
   m_proc = new KProcess;
 }
@@ -64,6 +64,7 @@ BackTrace::~BackTrace()
   }
 
   delete m_temp;
+  delete m_temp_cmd;
 }
 
 void BackTrace::start()
@@ -92,14 +93,25 @@ void BackTrace::start()
   ::write(handle, "\n", 1);
   ::fsync(handle);
 
+  // build the debugger command
+  TQString str = m_krashconf->debuggerBatch();
+  m_krashconf->expandString(str, true, m_temp->name());
+
+  // write the debugger command
+  m_temp_cmd = new KTempFile(TQString::null, TQString::null, 0700);
+  m_temp_cmd->setAutoDelete(TRUE);
+  handle = m_temp_cmd->handle();
+  const char* dbgcommand = str.latin1();
+  ::write(handle, dbgcommand, strlen(dbgcommand)); // the command to execute the debugger
+  ::write(handle, "\n", 1);
+  ::fsync(handle);
+  m_temp_cmd->close();
+
   // start the debugger
   m_proc = new KProcess;
   m_proc->setUseShell(true);
 
-  TQString str = m_krashconf->debuggerBatch();
-  m_krashconf->expandString(str, true, m_temp->name());
-
-  *m_proc << str;
+  *m_proc << "kdesu -t --comment \"" << i18n("Administrative access is required to generate a backtrace") << "\" -c \"" << m_temp_cmd->name() << "\"";
 
   connect(m_proc, TQT_SIGNAL(receivedStdout(KProcess*, char*, int)),
           TQT_SLOT(slotReadInput(KProcess*, char*, int)));
@@ -112,9 +124,16 @@ void BackTrace::start()
 void BackTrace::slotReadInput(KProcess *, char* buf, int buflen)
 {
   TQString newstr = TQString::fromLocal8Bit(buf, buflen);
-  m_strBt.append(newstr);
-
-  emit append(newstr);
+  newstr.replace("\n\n", "\n");
+  if (m_strBt.isEmpty()) {
+    if (newstr == "\n") {
+      newstr = "";
+    }
+  }
+  if (!newstr.startsWith(": ")) {
+    m_strBt.append(newstr);
+    emit append(newstr);
+  }
 }
 
 void BackTrace::slotProcessExited(KProcess *proc)
