@@ -215,6 +215,7 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
         mNewSessButton->hide();
 
     installEventFilter(this);
+    setFixedSize( sizeHint() );
 
     mFailedTimerId = 0;
     mTimeoutTimerId = startTimer(PASSDLG_HIDE_TIMEOUT);
@@ -598,6 +599,7 @@ void PasswordDlg::show()
 {
     TQDialog::show();
     TQApplication::flushX();
+    setFixedSize( sizeHint() );
 }
 
 void PasswordDlg::slotStartNewSession()
@@ -817,6 +819,8 @@ void PasswordDlg::slotSwitchUser()
     btn = new KPushButton( KStdGuiItem::cancel(), winFrame );
     connect( btn, TQT_SIGNAL(clicked()), &dialog, TQT_SLOT(reject()) );
     vbox2->addWidget( btn );
+
+    dialog.setFixedSize( dialog.sizeHint() );
 
     int ret = static_cast< LockProcess* >(parent())->execDialog( &dialog );
     if (ret != TQDialog::Rejected) {

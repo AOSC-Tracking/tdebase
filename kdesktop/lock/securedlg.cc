@@ -144,6 +144,7 @@ SecureDlg::SecureDlg(LockProcess *parent)
     mSwitchButton->setFixedWidth(btnSize);
 
     installEventFilter(this);
+    setFixedSize( sizeHint() );
 }
 
 SecureDlg::~SecureDlg()

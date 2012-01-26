@@ -45,8 +45,9 @@ bool trinity_desktop_lock_forced = FALSE;
 
 bool MyApp::x11EventFilter( XEvent *ev )
 {
-    if (ev->type == XKeyPress || ev->type == ButtonPress)
+    if (ev->type == XKeyPress || ev->type == ButtonPress) {
         emit activity();
+    }
     else if (ev->type == MotionNotify) {
         time_t tick = time( 0 );
         if (tick != lastTick) {

@@ -99,6 +99,7 @@ InfoDlg::InfoDlg(LockProcess *parent)
     frameLayout->addLayout( layStatus, 1, 1 );
 
     installEventFilter(this);
+    setFixedSize( sizeHint() );
 }
 
 InfoDlg::~InfoDlg()

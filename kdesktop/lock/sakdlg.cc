@@ -102,6 +102,7 @@ SAKDlg::SAKDlg(LockProcess *parent)
     mStatusLabel->setText("<b>" + i18n("Press Ctrl+Alt+Del to begin.") + "</b><p>" + i18n("This process helps keep your password secure.") + "<br>" + i18n("It prevents unauthorized users from emulating the login screen."));
 
     installEventFilter(this);
+    setFixedSize( sizeHint() );
 
     mSAKProcess = new KProcess;
     *mSAKProcess << "kdmtsak";

@@ -118,6 +118,7 @@ QueryDlg::QueryDlg(LockProcess *parent)
     connect(ok, TQT_SIGNAL(clicked()), TQT_SLOT(slotOK()));
 
     installEventFilter(this);
+    setFixedSize( sizeHint() );
 }
 
 QueryDlg::~QueryDlg()

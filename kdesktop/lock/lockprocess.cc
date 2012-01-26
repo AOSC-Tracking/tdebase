@@ -4,7 +4,7 @@
 //
 // Copyright (c) 1999 Martin R. Jones <mjones@kde.org>
 // Copyright (c) 2003 Oswald Buddenhagen <ossi@kde.org>
-// Copyright (c) 2010-2011 Timothy Pearson <kb9vqf@pearsoncomputing.net>
+// Copyright (c) 2010-2012 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 //
 
 //kdesktop keeps running and checks user inactivity
@@ -111,6 +111,10 @@ Status DPMSInfo ( Display *, CARD16 *, BOOL * );
 #define LOCK_GRACE_DEFAULT          5000
 #define AUTOLOGOUT_DEFAULT          600
 
+// FIXME
+// This should be defined if Qt 3.4.0 or higher is in use
+// #define KEEP_MOUSE_UNGRABBED 1
+
 // These lines are taken on 10/2009 from X.org (X11/XF86keysym.h), defining some special multimedia keys
 #define XF86XK_AudioMute 0x1008FF12
 #define XF86XK_AudioRaiseVolume 0x1008FF13
@@ -183,6 +187,10 @@ LockProcess::LockProcess(bool child, bool useBlankOnly)
       mBackingStartupDelayTimer(0),
       m_startupStatusDialog(NULL)
 {
+#ifdef KEEP_MOUSE_UNGRABBED
+    setNFlags(WX11DisableMove|WX11DisableClose|WX11DisableShade|WX11DisableMinimize|WX11DisableMaximize);
+#endif
+
     setupSignals();
     setupPipe();
 
@@ -267,7 +275,11 @@ LockProcess::LockProcess(bool child, bool useBlankOnly)
 #endif
 
 #if (QT_VERSION-0 >= 0x030200) // XRANDR support
-  connect( kapp->desktop(), TQT_SIGNAL( resized( int )), TQT_SLOT( desktopResized()));
+    connect( kapp->desktop(), TQT_SIGNAL( resized( int )), TQT_SLOT( desktopResized()));
+#endif
+
+#ifdef KEEP_MOUSE_UNGRABBED
+    setEnabled(false);
 #endif
 
     greetPlugin.library = 0;
@@ -874,7 +886,6 @@ void LockProcess::createSaverWindow()
     // this is a security risk and has been deactivated--welcome to the 21st century folks!
     // setBackgroundMode(TQWidget::NoBackground);
 
-    setCursor( tqblankCursor );
     setGeometry(0, 0, mRootWidth, mRootHeight);
 
     kdDebug(1204) << "Saver window Id: " << winId() << endl;
@@ -884,7 +895,6 @@ void LockProcess::desktopResized()
 {
     mBusy = true;
     suspend();
-    setCursor( tqblankCursor );
 
     // Get root window size
     XWindowAttributes rootAttr;
@@ -1087,6 +1097,7 @@ bool LockProcess::grabInput()
         }
     }
 
+#ifndef KEEP_MOUSE_UNGRABBED
     if (!grabMouse())
     {
         usleep(100000);
@@ -1096,6 +1107,7 @@ bool LockProcess::grabInput()
             return false;
         }
     }
+#endif
 
     lockXF86();
 
@@ -1150,7 +1162,6 @@ bool LockProcess::startSaver()
 	createSaverWindow();
 	move(0, 0);
 	show();
-	setCursor( tqblankCursor );
 
 	raise();
 	XSync(qt_xdisplay(), False);
@@ -1313,6 +1324,8 @@ void LockProcess::repaintRootWindowIfNeeded()
 
 bool LockProcess::startHack()
 {
+    setCursor( tqblankCursor );
+
     if ((mEnsureVRootWindowSecurityTimer) && (!mEnsureVRootWindowSecurityTimer->isActive())) mEnsureVRootWindowSecurityTimer->start(250, FALSE);
 
     if (currentDialog || (!mDialogs.isEmpty()))
@@ -1429,6 +1442,7 @@ void LockProcess::stopHack()
             mHackProc.kill(SIGKILL);
         }
     }
+    setCursor( tqarrowCursor );
 }
 
 //---------------------------------------------------------------------------
@@ -1730,7 +1744,6 @@ void LockProcess::doFunctionKeyBroadcast() {
             mDialogControlLock = false;
         }
     }
-    setCursor( tqblankCursor );
 
     DCOPRef ref( "*", "MainApplication-Interface");
     ref.send("sendFakeKey", DCOPArg(mkeyCode , "unsigned int"));
