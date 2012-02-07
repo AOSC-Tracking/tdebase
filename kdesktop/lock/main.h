@@ -32,6 +32,7 @@ protected:
     bool x11EventFilter( XEvent * );
 signals:
     void activity();
+    void mouseInteraction(XEvent *event);
 private:
     time_t lastTick;
 };      

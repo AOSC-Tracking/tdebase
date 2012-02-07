@@ -94,6 +94,7 @@ private slots:
     bool closeCurrentWindow();
     void repaintRootWindowIfNeeded();
     void startSecureDialog();
+    void slotMouseActivity(XEvent *event);
 
 private:
     void configure();
@@ -197,6 +198,12 @@ private:
     KSMModalDialog* m_startupStatusDialog;
 
     TQDateTime mlockDateTime;
+
+    bool m_mouseDown;
+    int m_mousePrevX;
+    int m_mousePrevY;
+    int m_dialogPrevX;
+    int m_dialogPrevY;
 };
 
 #endif

@@ -111,8 +111,8 @@ Status DPMSInfo ( Display *, CARD16 *, BOOL * );
 #define LOCK_GRACE_DEFAULT          5000
 #define AUTOLOGOUT_DEFAULT          600
 
-// FIXME
-// This should be defined if Qt 3.4.0 or higher is in use
+// Setting this define is INSECURE
+// Use it for debugging purposes ONLY
 // #define KEEP_MOUSE_UNGRABBED 1
 
 // These lines are taken on 10/2009 from X.org (X11/XF86keysym.h), defining some special multimedia keys
@@ -185,7 +185,12 @@ LockProcess::LockProcess(bool child, bool useBlankOnly)
       mHackStartupEnabled(true),
       m_rootPixmap(NULL),
       mBackingStartupDelayTimer(0),
-      m_startupStatusDialog(NULL)
+      m_startupStatusDialog(NULL),
+      m_mouseDown(0),
+      m_mousePrevX(0),
+      m_mousePrevY(0),
+      m_dialogPrevX(0),
+      m_dialogPrevY(0)
 {
 #ifdef KEEP_MOUSE_UNGRABBED
     setNFlags(WX11DisableMove|WX11DisableClose|WX11DisableShade|WX11DisableMinimize|WX11DisableMaximize);
@@ -207,6 +212,8 @@ LockProcess::LockProcess(bool child, bool useBlankOnly)
 
     mEnsureVRootWindowSecurityTimer = new TQTimer( this );
     connect( mEnsureVRootWindowSecurityTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(repaintRootWindowIfNeeded()) );
+
+    connect(tqApp, TQT_SIGNAL(mouseInteraction(XEvent *)), TQT_SLOT(slotMouseActivity(XEvent *)));
 
     mHackDelayStartupTimeout = trinity_desktop_lock_delay_screensaver_start?KDesktopSettings::timeout()*1000:10*1000;
     mHackStartupEnabled = trinity_desktop_lock_delay_screensaver_start?KDesktopSettings::screenSaverEnabled():true;
@@ -2198,6 +2205,66 @@ void LockProcess::sendVkbdFocusInOut( WId window, Time t )
         e.xcrossing.state = 0;
         XSendEvent( qt_xdisplay(), mVkbdLastEventWindow, False, 0, &e );
     }
+}
+
+void LockProcess::slotMouseActivity(XEvent *event)
+{
+	bool inFrame = 0;
+	bool inDialog = 0;
+	XButtonEvent *be = (XButtonEvent *) event;
+	XMotionEvent *me = (XMotionEvent *) event;
+	if (event->type == ButtonPress) {
+		// Get geometry including window frame/titlebar
+		TQRect fgeom = mDialogs.first()->frameGeometry();
+		TQRect wgeom = mDialogs.first()->geometry();
+
+		if (((be->x_root > fgeom.x()) && (be->y_root > fgeom.y())) && ((be->x_root < (fgeom.x()+fgeom.width())) && (be->y_root < (fgeom.y()+fgeom.height())))) {
+			inFrame = 1;
+		}
+		if (((be->x_root > wgeom.x()) && (be->y_root > wgeom.y())) && ((be->x_root < (wgeom.x()+wgeom.width())) && (be->y_root < (wgeom.y()+wgeom.height())))) {
+			inDialog = 1;
+		}
+
+		// Clicked inside dialog; set focus
+		if (inFrame == TRUE) {
+			WId window = mDialogs.first()->winId();
+			XSetInputFocus(qt_xdisplay(), window, RevertToParent, CurrentTime);
+			fakeFocusIn(window);
+			// Why this needs to be repeated I have no idea...
+			XSetInputFocus(qt_xdisplay(), window, RevertToParent, CurrentTime);
+			fakeFocusIn(window);
+		}
+
+		// Clicked inside window handle (or border); drag window
+		if ((inFrame == TRUE) && (inDialog == FALSE)) {
+			TQPoint oldPoint = mDialogs.first()->pos();
+			m_mouseDown = 1;
+			m_dialogPrevX = oldPoint.x();
+			m_dialogPrevY = oldPoint.y();
+			m_mousePrevX = be->x_root;
+			m_mousePrevY = be->y_root;
+			XChangeActivePointerGrab( qt_xdisplay(), GRABEVENTS, TQCursor(tqsizeAllCursor).handle(), CurrentTime);
+		}
+	}
+
+	// Drag the window...
+	if (event->type == MotionNotify) {
+		if (m_mouseDown == TRUE) {
+			int deltaX = me->x_root - m_mousePrevX;
+			int deltaY = me->y_root - m_mousePrevY;
+			m_dialogPrevX = m_dialogPrevX + deltaX;
+			m_dialogPrevY = m_dialogPrevY + deltaY;
+			mDialogs.first()->move(m_dialogPrevX, m_dialogPrevY);
+
+			m_mousePrevX = me->x_root;
+			m_mousePrevY = me->y_root;
+		}
+	}
+
+	if (event->type == ButtonRelease) {
+		m_mouseDown = 0;
+		XChangeActivePointerGrab( qt_xdisplay(), GRABEVENTS, TQCursor(tqarrowCursor).handle(), CurrentTime);
+	}
 }
 
 #include "lockprocess.moc"
