@@ -1,6 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 1999 David Faure
    Copyright (c) 2003 Oswald Buddenhagen <ossi@kde.org>
+   Copyright (c) 2010-2012 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -42,6 +43,13 @@ bool trinity_desktop_lock_delay_screensaver_start = FALSE;
 bool trinity_desktop_lock_use_sak = FALSE;
 
 bool trinity_desktop_lock_forced = FALSE;
+
+bool signalled_forcelock;
+bool signalled_dontlock;
+bool signalled_securedialog;
+bool signalled_blank;
+bool signalled_run;
+bool in_internal_mode = FALSE;
 
 bool MyApp::x11EventFilter( XEvent *ev )
 {

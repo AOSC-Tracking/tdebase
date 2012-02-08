@@ -1,8 +1,9 @@
 //===========================================================================
 //
-// This file is part of the KDE project
+// This file is part of the TDE project
 //
 // Copyright (c) 1999 Martin R. Jones <mjones@kde.org>
+// Copyright (c) 2012 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 //
 
 
@@ -29,6 +30,14 @@ extern xautolock_corner_t xautolock_corners[ 4 ];
 
 bool trinity_lockeng_sak_available = TRUE;
 
+SaverEngine* m_masterSaverEngine = NULL;
+static void sigusr1_handler(int)
+{
+    if (m_masterSaverEngine) {
+        m_masterSaverEngine->lockProcessWaiting();
+    }
+}
+
 //===========================================================================
 //
 // Screen saver engine. Doesn't handle the actual screensaver window,
@@ -42,6 +51,16 @@ SaverEngine::SaverEngine()
       mSAKProcess(NULL),
       mTerminationRequested(false)
 {
+    struct sigaction act;
+
+    // handle SIGUSR1
+    m_masterSaverEngine = this;
+    act.sa_handler= sigusr1_handler;
+    sigemptyset(&(act.sa_mask));
+    sigaddset(&(act.sa_mask), SIGUSR1);
+    act.sa_flags = 0;
+    sigaction(SIGUSR1, &act, 0L);
+
     // Save X screensaver parameters
     XGetScreenSaver(qt_xdisplay(), &mXTimeout, &mXInterval,
                     &mXBlanking, &mXExposures);
@@ -60,6 +79,19 @@ SaverEngine::SaverEngine()
     TQTimer::singleShot( 0, this, TQT_SLOT(handleSecureDialog()) );
 
     configure();
+
+    mLockProcess.clearArguments();
+    TQString path = KStandardDirs::findExe( "kdesktop_lock" );
+    if( path.isEmpty())
+    {
+	kdDebug( 1204 ) << "Can't find kdesktop_lock!" << endl;
+    }
+    mLockProcess << path;
+    mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
+    if (mLockProcess.start() == false )
+    {
+	kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
+    }
 }
 
 //---------------------------------------------------------------------------
@@ -68,6 +100,10 @@ SaverEngine::SaverEngine()
 //
 SaverEngine::~SaverEngine()
 {
+    if (mState == Waiting) {
+        kill(mLockProcess.pid(), SIGKILL);
+    }
+
     mLockProcess.detach(); // don't kill it if we crash
     delete mXAutoLock;
 
@@ -86,9 +122,9 @@ void SaverEngine::lock()
     {
         mSAKProcess->kill(SIGTERM);
         ok = startLockProcess( ForceLock );
-// It takes a while for kdesktop_lock to start and lock the screen.
-// Therefore delay the DCOP call until it tells kdesktop that the locking is in effect.
-// This is done only for --forcelock .
+        // It takes a while for kdesktop_lock to start and lock the screen.
+        // Therefore delay the DCOP call until it tells kdesktop that the locking is in effect.
+        // This is done only for --forcelock .
         if( ok && mState != Saving )
         {
             DCOPClientTransaction* trans = kapp->dcopClient()->beginTransaction();
@@ -283,40 +319,42 @@ bool SaverEngine::startLockProcess( LockType lock_type )
     kdDebug(1204) << "SaverEngine: starting saver" << endl;
     emitDCOPSignal("KDE_start_screensaver()", TQByteArray());
 
-    if (mLockProcess.isRunning())
-    {
-        stopLockProcess();
+    if (!mLockProcess.isRunning()) {
+	mLockProcess.clearArguments();
+	TQString path = KStandardDirs::findExe( "kdesktop_lock" );
+	if( path.isEmpty())
+	{
+	    kdDebug( 1204 ) << "Can't find kdesktop_lock!" << endl;
+	    return false;
+	}
+	mLockProcess << path;
+	mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
+        if (mLockProcess.start() == false )
+	{
+	    kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
+	    return false;
+	}
     }
-    mLockProcess.clearArguments();
-    TQString path = KStandardDirs::findExe( "kdesktop_lock" );
-    if( path.isEmpty())
-    {
-	kdDebug( 1204 ) << "Can't find kdesktop_lock!" << endl;
-	return false;
-    }
-    mLockProcess << path;
+
     switch( lock_type )
     {
 	case ForceLock:
-    	    mLockProcess << TQString( "--forcelock" );
+    	    mLockProcess.kill(SIGUSR1);		// Request forcelock
 	  break;
 	case DontLock:
-	    mLockProcess << TQString( "--dontlock" );
+    	    mLockProcess.kill(SIGUSR2);		// Request dontlock
 	  break;
 	case SecureDialog:
-	    mLockProcess << TQString( "--securedialog" );
+    	    mLockProcess.kill(SIGWINCH);	// Request secure dialog
 	  break;
 	default:
 	  break;
     }
-    if (mBlankOnly)
-	    mLockProcess << TQString( "--blank" );
-
-    if (mLockProcess.start() == false )
-    {
-	kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
-	return false;
+    if (mBlankOnly) {
+	    mLockProcess.kill(SIGTTIN);		// Request blanking
     }
+
+    mLockProcess.kill(SIGTTOU);			// Start lock
     XSetScreenSaver(qt_xdisplay(), 0, mXInterval,  PreferBlanking, mXExposures);
 
     mState = Preparing;
@@ -359,9 +397,7 @@ void SaverEngine::stopLockProcess()
 
 void SaverEngine::lockProcessExited()
 {
-printf("Lock process exited\n\r"); fflush(stdout);
     bool abnormalExit = false;
-    kdDebug(1204) << "SaverEngine: lock exited" << endl;
     if (mLockProcess.normalExit() == false) {
         abnormalExit = true;
     }
@@ -387,6 +423,28 @@ printf("Lock process exited\n\r"); fflush(stdout);
             system("logout");
         }
     }
+    else {
+        // Restart the lock process
+        if (!mLockProcess.isRunning()) {
+            mLockProcess.clearArguments();
+            TQString path = KStandardDirs::findExe( "kdesktop_lock" );
+            if( path.isEmpty())
+            {
+                kdDebug( 1204 ) << "Can't find kdesktop_lock!" << endl;
+            }
+            mLockProcess << path;
+            mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
+            if (mLockProcess.start() == false )
+            {
+                kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
+            }
+        }
+    }
+}
+
+void SaverEngine::lockProcessWaiting()
+{
+    kdDebug(1204) << "SaverEngine: lock exited" << endl;
     if (trinity_lockeng_sak_available == TRUE) {
         handleSecureDialog();
     }

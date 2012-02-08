@@ -78,6 +78,9 @@ public:
      */
     virtual void saverLockReady();
 
+public slots:
+    void lockProcessWaiting();
+
 protected slots:
     void idleTimeout();
     void lockProcessExited();
