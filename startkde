@@ -1,51 +1,78 @@
 #!/bin/sh
 #
-#  DEFAULT TRINITY STARTUP SCRIPT ( KDE-3.5.12 )
+#  DEFAULT TRINITY STARTUP SCRIPT
 #
 
+# This block may not be appropriate for all systems.
+# It should work for command line logins but graphical
+# login managers may source these files already.
+# Multiple sourcing is not a problem when the files are only
+# containers for environment variables and such.
+if [ -r /etc/xprofile ]; then
+  source /etc/xprofile
+fi
+if [ -r $HOME/.xprofile ]; then
+  source $HOME/.xprofile
+fi
+
 echo "[startkde] Starting startkde." 1>&2
+echo "[startkde] This script is $0" 1>&2
+
+# Avoid any possible conflict with KDE4. Therefore within this script
+# use full path names to all binaries used.
+
+# The binaries for TDE are located in the same place as this script.
+# To determine that location use the following method rather than presuming
+# the existence of $KDEDIR. That environment variable might not be
+# defined or defined to point to KDE4 binaries.
+BIN_DIR="`dirname \`readlink -f $0\``"
+# Do not use kde-config to determine the version. That command creates a
+# profile directory in the root of the file system. Refer to Bug Report 293.
+if [ -x $BIN_DIR/konqueror ]; then
+  KDE_VERSION="`$BIN_DIR/konqueror --version | grep KDE | awk '{print $2}'`"
+  echo "[startkde] TDE version is $KDE_VERSION" 1>&2
+  KDEDIR=`echo $BIN_DIR | sed 's|/bin||'`
+  echo "[startkde] TDE base directory is $KDEDIR" 1>&2
+else
+  echo "[startkde] Unable to determine TDE base directory."
+  echo "[startkde] This script should be installed in the same directory."
+  echo "[startkde] Exiting."
+  exit 1
+fi
+unset BIN_DIR
 
 # When the X server dies we get a HUP signal from xinit. We must ignore it
 # because we still need to do some cleanup.
 trap '[startkde] echo GOT SIGHUP' HUP
 
-# Check if a KDE session is already running.
+# Check if a TDE session is already running.
 if kcheckrunning >/dev/null 2>&1; then
-	echo "[startkde] KDE seems to be already running on this display."
-	xmessage -geometry 500x100 "KDE seems to be already running on this display." > /dev/null 2>/dev/null
-	exit 1
+  echo "[startkde] TDE seems to be already running on this display."
+  xmessage -center -geometry 500x100 "TDE seems to be already running on this display." > /dev/null 2>/dev/null
+  exit 1
 fi
 
 # Set the background color.
 # The standard X background is nasty, causing moire effects and exploding
-# people's heads. We use colours from the standard KDE palette for those with
+# people's heads. We use colours from the standard TDE palette for those with
 # palettised displays.
 if test -z "$XDM_MANAGED" || echo "$XDM_MANAGED" | grep ",auto" > /dev/null; then
   xsetroot -solid "#618DCC" # sky blue
 fi
 
-# Unset this for Darwin since it will screw up KDE's dynamic-loading
+# Unset this for Darwin since it will screw up TDE's dynamic-loading
 unset DYLD_FORCE_FLAT_NAMESPACE
 
 # Check whether prelinking is enabled. If so, exporting KDE_IS_PRELINKED improves
-# loading KDE. The $KDE_IS_PRELINKED variable might already be set on some systems
+# loading TDE. The $KDE_IS_PRELINKED variable might already be set on some systems
 # through /etc/profile.d, so first check whether the variable exists.
-if [ -z $KDE_IS_PRELINKED ]; then
+if [ "$KDE_IS_PRELINKED" = "" ]; then
   if [ -r /etc/default/prelink ]; then
     . /etc/default/prelink
     if [ "$PRELINKING" == "yes" ]; then
       export KDE_IS_PRELINKED=1
     fi
   fi
-fi
-
-# In case we have been started with full pathname spec without being in PATH.
-bindir=`echo "$0" | sed -n 's,^\(/.*\)/[^/][^/]*$,\1,p'`
-if [ -n "$bindir" ]; then
-  case $PATH in
-    $bindir|$bindir:*|*:$bindir|*:$bindir:*) ;;
-    *) PATH=$bindir:$PATH; export PATH;;
-  esac
 fi
 
 # Boot sequence:
@@ -62,28 +89,24 @@ fi
 #
 # * Then ksmserver is started which takes control of the rest of the startup sequence
 
-# The user's personal KDE directory usually is $HOME/.kde or $HOME/.trinity.
-# This setting may be overridden by setting $KDEHOME.
-# Must be careful here because $HOME/.kde was used commonly in the pre-KDE4
-# days for the user's KDE3 profile, but now with KDE4 common on systems,
-# $HOME/.kde might point to KDE4 profile settings. Further, the existence
-# of KDE4 does not mean all people have KDE4 installed and might want to keep
-# $HOME/.kde as their preferred profile location for Trinity KDE.
+# The user's personal TDE directory usually is $HOME/.trinity.
+# This setting may be overridden by setting $KDEHOME. When migrating profiles
+# must be careful here because $HOME/.kde was used commonly in the pre-KDE4
+# days for the user's TDE profile, but now with KDE4 common on systems,
+# $HOME/.kde might point to KDE4 profile settings. The existence of KDE4
+# does not mean all people are using KDE4.
 
-if [ -n "$KDEHOME" ]; then
+if [ "$KDEHOME" != "" ]; then
   echo "[startkde] KDEHOME is preset to $KDEHOME." 1>&2
   export KDEHOME=$KDEHOME
 else
   # $KDEHOME is NOT already preset in the environment. Try to help.
   # This might be overkill but does provide flexibility.
+  # This script and kstandardirs.h and kstandardirs.cpp must match.
+  # The latter two must be edited/patched before compiling.
   echo "[startkde] KDEHOME is not set." 1>&2
   if [ -d $HOME/.trinity ]; then
     # OK, this one is obvious.
-    export KDEHOME=$HOME/.trinity
-  elif [ -d $HOME/.trinity ]; then
-    # Looks like the user had an old version of Trinity installed at last login
-    echo "[startkde] Migrating old ~/.trinity directory to new ~/.trinity name." 1>&2
-    mv $HOME/.trinity $HOME/.trinity
     export KDEHOME=$HOME/.trinity
   elif [ -f /usr/bin/kde4-config ]; then
     # Looks like KDE4 is installed.
@@ -95,13 +118,10 @@ else
       export KDEHOME=$HOME/.trinity
     fi
   elif [ -f /opt/trinity/bin/kde-config ]; then
-    # Looks like KDE3 or Trinity is installed and playing second fiddle to KDE4.
-    export KDEHOME=$HOME/.trinity
-  elif [ -f /opt/trinity/bin/kde-config ]; then
-    # Looks like KDE3 or Trinity is installed and playing second fiddle to KDE4.
+    # Looks like Trinity is installed.
     export KDEHOME=$HOME/.trinity
   elif [ -f /usr/bin/kde-config ] && [ -d $HOME/.kde ]; then
-    # Looks like KDE3 or Trinity is installed and not playing second fiddle to KDE4.
+    # Looks like Trinity is installed and not playing second fiddle to KDE4.
     export KDEHOME=$HOME/.kde
   else
     # Resort to this and hope for the best!
@@ -110,66 +130,122 @@ else
   echo "[startkde] Set KDEHOME to $KDEHOME." 1>&2
 fi
 
-# Run a quick test for root.
-if [ -z "$KDEROOTHOME" ] && [ "$UID" = "0" ]; then
-  echo "[startkde] User ID is $UID. Setting KDEROOTHOME to $KDEHOME."
-  export KDEROOTHOME=$KDEHOME
+# Do we want to run this script from here in such an automated manner?
+# Or leave the script to be run only at the user's discretion?
+# The migratekde3 script as written (in draft) requires user intervention,
+# which to succeed in TDE needs something like KDialog. Refer to the
+# commentary in migratekde3 for more details.
+# if [ -x $KDEDIR/migratekde3 ]; then
+#   sh $KDEDIR/migratekde3
+# fi
+
+# kdesu needs something to find root's TDE profile. Set the KDEROOTHOME variable
+# here as last resort. /root/.trinity is a safe presumption. If an admin wants
+# a different location then set the KDEROOTHOME variable elsewhere.
+if [ "$KDEROOTHOME" = "" ]; then
+  export KDEROOTHOME=/root/.trinity
+  echo "[startkde] Setting KDEROOTHOME to $KDEROOTHOME."
 fi
 
 # Modify the following environment variables only as necessary.
-if [ -d /opt/trinity/games ]; then
-  export PATH=/opt/trinity/games:$PATH
-fi
-if [ -d /opt/trinity/bin ]; then
-  export PATH=/opt/trinity/bin:$PATH
-fi
-if [ -d /opt/trinity/games ]; then
-  export PATH=/opt/trinity/games:$PATH
-fi
-if [ -d /opt/trinity/bin ]; then
-  export PATH=/opt/trinity/bin:$PATH
-fi
-if [ -d /opt/trinity/share ]; then
-  export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/trinity/share/:/usr/share/
-fi
-if [ -d /opt/trinity/share ]; then
-  export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/trinity/share/:/usr/share/
-fi
-if [ -d /opt/trinity/etc/xdg ]; then
-  export XDG_CONFIG_DIRS=$XDG_CONFIG_DIRS:/opt/trinity/etc/xdg/:/etc/xdg/
-fi
-if [ -d /opt/trinity/etc/xdg ]; then
-  export XDG_CONFIG_DIRS=$XDG_CONFIG_DIRS:/opt/trinity/etc/xdg/:/etc/xdg/
-fi
-if [ -d /opt/trinity/share/man ]; then
-  export MANPATH=/opt/trinity/share/man:$MANPATH
-fi
-if [ -d /opt/trinity/share/man ]; then
-  export MANPATH=/opt/trinity/share/man:$MANPATH
-fi
-if [ -d /opt/trinity ]; then
-  if [ -n "$KDEDIRS" ]; then
-    export KDEDIRS=$KDEDIRS:/opt/trinity/:/usr/
-  else
-    export KDEDIRS=/opt/trinity/:/usr/
+if [ -d $KDEDIR/games ]; then
+  if [ "`echo $PATH | grep \"$KDEDIR/games\"`" = "" ]; then
+    # Respect the traditional path order. Don't blindly place $KDEDIR/games
+    # first in the path. Only place $KDEDIR/games before /usr/games. If packagers
+    # are adding $KDEDIR/games elsewhere, then they need to ensure the traditional
+    # search patch is respected.
+    # Is there a way we can check that $KDEDIR/games is always placed only just before
+    # /usr/games in the search path?
+    if [ "`echo $PATH | grep \"^\\(.*:\\)\\?/usr/games\\(:.*\\)\\?$\"`" != "" ]; then
+      export PATH="`echo $PATH | sed \"s|^\\(.*:\\)\\?/usr/games\\(:.*\\)\\?$|\\1$KDEDIR/games:/usr/games\\2|\"`"
+    else
+      export PATH=$KDEDIR/games:$PATH
+    fi
   fi
 fi
-if [ -d /opt/trinity ]; then
-  if [ -n "$KDEDIRS" ]; then
-    export KDEDIRS=$KDEDIRS:/opt/trinity/:/usr/
+if [ -d $KDEDIR/bin ]; then
+  if [ "`echo $PATH | grep \"$KDEDIR/bin\"`" = "" ]; then
+    # Respect the traditional path order. Don't blindly place $KDEDIR/bin
+    # first in the path. Only place $KDEDIR/bin before /usr/bin. This order is
+    # consistent with kdelibs/kdesu/stub.cpp. If packagers are adding $KDEDIR/bin
+    # elsewhere, then they need to ensure the traditional search patch is respected.
+    # Is there a way we can check that $KDEDIR/bin is always placed only just before
+    # /usr/bin in the search path?
+    if [ "`echo $PATH | grep \"^\\(.*:\\)\\?/usr/bin\\(:.*\\)\\?$\"`" != "" ]; then
+      export PATH="`echo $PATH | sed \"s|^\\(.*:\\)\\?/usr/bin\\(:.*\\)\\?$|\\1$KDEDIR/bin:/usr/bin\\2|\"`"
+    else
+      export PATH=$KDEDIR/bin:$PATH
+    fi
+  fi
+fi
+
+if [ "$XDG_CONFIG_DIRS" = "" ]; then
+  if [ -d /etc/xdg ]; then
+    XDG_CONFIG_DIRS=/etc/xdg
+  fi
+fi
+if [ -d /etc/trinity/xdg ]; then
+  TDE_XDG_DIR="/etc/trinity/xdg"
+elif [ -d /etc/tde/xdg ]; then
+  TDE_XDG_DIR="/etc/tde/xdg"
+elif [ -d $KDEDIR/xdg ]; then
+  TDE_XDG_DIR="$KDEDIR/xdg"
+elif [ -d $KDEDIR/etc/xdg ]; then
+  TDE_XDG_DIR="$KDEDIR/etc/xdg"
+elif [ -d $KDEDIR/etc/trinity/xdg ]; then
+  TDE_XDG_DIR="$KDEDIR/etc/trinity/xdg"
+elif [ -d $KDEDIR/etc/tde/xdg ]; then
+  TDE_XDG_DIR="$KDEDIR/etc/tde/xdg"
+elif [ -d $KDEDIR/trinity/xdg ]; then
+  TDE_XDG_DIR="$KDEDIR/trinity/xdg"
+elif [ -d $KDEDIR/tde/xdg ]; then
+  TDE_XDG_DIR="$KDEDIR/tde/xdg"
+fi
+if [ -d $TDE_XDG_DIR ]; then
+  if [ "`echo $XDG_CONFIG_DIRS | grep \"$TDE_XDG_DIR\"`" = "" ]; then
+    if [ "$XDG_CONFIG_DIRS" = "" ]; then
+      XDG_CONFIG_DIRS=$TDE_XDG_DIR
+    else
+      XDG_CONFIG_DIRS=$XDG_CONFIG_DIRS:$TDE_XDG_DIR
+    fi
+  fi
+fi
+if [ "$XDG_CONFIG_DIRS" != "" ]; then
+  export XDG_CONFIG_DIRS
+fi
+
+# Explicitly set $XDG_DATA_DIRS only when Trinity is not installed in /usr.
+# Explicitly declaring $XDG_DATA_DIRS will override the default search path of /usr/share.
+if [ "$KDEDIR" != "/usr" ] && [ -d $KDEDIR/share ]; then
+  if [ "$XDG_DATA_DIRS" = "" ]; then
+    # Ensure the standard location of /usr/share is included.
+    XDG_DATA_DIRS=/usr/share
   else
-    export KDEDIRS=/opt/trinity/:/usr/
+    if [ "`echo $XDG_DATA_DIRS | grep \"/usr/share\"`" = "" ]; then
+      XDG_DATA_DIRS=/usr/share:$XDG_DATA_DIRS
+    fi
+  fi
+  if [ "`echo $XDG_DATA_DIRS | grep \"$KDEDIR/share\"`" = "" ]; then
+    XDG_DATA_DIRS=$XDG_DATA_DIRS:$KDEDIR/share
+  fi
+  export XDG_DATA_DIRS
+fi
+if [ -d $KDEDIR/share/man ]; then
+  if [ "`echo $MANPATH | grep \"$KDEDIR/share/man\"`" = "" ]; then
+    export MANPATH=$KDEDIR/share/man:$MANPATH
   fi
 fi
 
 test -n "$KDEHOME" && kdehome=`echo "$KDEHOME" | sed "s,^~/,$HOME/,"`
-echo "[startkde] kdehome: $kdehome" 1>&2
 
 # Allow interested applications, such as the Plasma control wrapper,
-# to know that this is a Trinity desktop and not a KDE one.
+# to know that this is a Trinity desktop and not a TDE one.
 export DESKTOP_SESSION=trinity
 
 # Please see kstartupconfig source for usage.
+if [ ! -d "$HOME/.trinity" ]; then
+  echo "[startkde] Creating $HOME/.trinity." 1>&2
+fi
 mkdir -m 700 -p $kdehome
 mkdir -m 700 -p $kdehome/share
 mkdir -m 700 -p $kdehome/share/config
@@ -185,9 +261,9 @@ kcmrandrrc [Screen2]
 kcmrandrrc [Screen3]
 kcmfonts General forceFontDPI 0
 EOF
-kstartupconfig
+$KDEDIR/bin/kstartupconfig
 if test $? -ne 0; then
-  xmessage -geometry 500x100 "Could not start kstartupconfig. Check your installation."
+  xmessage -center -geometry 500x100 "Could not start kstartupconfig. Check your installation."
 fi
 # $kdehome/share/config/startupconfig should exist but avoid script failure if not.
 if [ -r $kdehome/share/config/startupconfig ]; then
@@ -208,84 +284,84 @@ fi
 
 # XCursor mouse theme needs to be applied here to work even for kded or ksmserver.
 if test -n "$kcminputrc_mouse_cursortheme" -o -n "$kcminputrc_mouse_cursorsize" ; then
-    kapplymousetheme "$kcminputrc_mouse_cursortheme" "$kcminputrc_mouse_cursorsize"
-    if test $? -eq 10; then
-        export XCURSOR_THEME=default
-    elif test -n "$kcminputrc_mouse_cursortheme"; then
-        export XCURSOR_THEME="$kcminputrc_mouse_cursortheme"
-    fi
-    if test -n "$kcminputrc_mouse_cursorsize"; then
-        export XCURSOR_SIZE="$kcminputrc_mouse_cursorsize"
-    fi
+  kapplymousetheme "$kcminputrc_mouse_cursortheme" "$kcminputrc_mouse_cursorsize"
+  if test $? -eq 10; then
+    export XCURSOR_THEME=default
+  elif test -n "$kcminputrc_mouse_cursortheme"; then
+    export XCURSOR_THEME="$kcminputrc_mouse_cursortheme"
+  fi
+  if test -n "$kcminputrc_mouse_cursorsize"; then
+    export XCURSOR_SIZE="$kcminputrc_mouse_cursorsize"
+  fi
 fi
 
 if test "$kcmrandrrc_display_applyonstartup" = "true"; then
-    # 4 screens is hopefully enough
-    for scrn in 0 1 2 3; do
-        args=
-        width="\$kcmrandrrc_screen${scrn}_width" ; eval "width=$width"
-        height="\$kcmrandrrc_screen${scrn}_height" ; eval "height=$height"
-        if test -n "${width}" -a -n "${height}"; then
-            args="$args -s ${width}x${height}"
-        fi
-        refresh="\$kcmrandrrc_screen${scrn}_refresh" ; eval "refresh=$refresh"
-        if test -n "${refresh}"; then
-            args="$args -r ${refresh}"
-        fi
-        rotation="\$kcmrandrrc_screen${scrn}_rotation" ; eval "rotation=$rotation"
-        if test -n "${rotation}"; then
-            case "${rotation}" in
-                0)
-                    args="$args -o 0"
-                    ;;
-                90)
-                    args="$args -o 1"
-                    ;;
-                180)
-                    args="$args -o 2"
-                    ;;
-                270)
-                    args="$args -o 3"
-                    ;;
-            esac
-        fi
-        reflectx="\$kcmrandrrc_screen${scrn}_reflectx" ; eval "reflectx=$reflectx"
-        if test "${refrectx}" = "true"; then
-            args="$args -x"
-        fi
-        reflecty="\$kcmrandrrc_screen${scrn}_reflecty" ; eval "reflecty=$reflecty"
-        if test "${refrecty}" = "true"; then
-            args="$args -y"
-        fi
-        if test -n "$args"; then
-            xrandr $args
-        fi
-    done
+  # 4 screens is hopefully enough
+  for scrn in 0 1 2 3; do
+    args=
+    width="\$kcmrandrrc_screen${scrn}_width" ; eval "width=$width"
+    height="\$kcmrandrrc_screen${scrn}_height" ; eval "height=$height"
+    if test -n "${width}" -a -n "${height}"; then
+      args="$args -s ${width}x${height}"
+    fi
+    refresh="\$kcmrandrrc_screen${scrn}_refresh" ; eval "refresh=$refresh"
+    if test -n "${refresh}"; then
+      args="$args -r ${refresh}"
+    fi
+    rotation="\$kcmrandrrc_screen${scrn}_rotation" ; eval "rotation=$rotation"
+    if test -n "${rotation}"; then
+      case "${rotation}" in
+        0)
+          args="$args -o 0"
+          ;;
+        90)
+          args="$args -o 1"
+          ;;
+        180)
+          args="$args -o 2"
+          ;;
+        270)
+          args="$args -o 3"
+          ;;
+      esac
+    fi
+    reflectx="\$kcmrandrrc_screen${scrn}_reflectx" ; eval "reflectx=$reflectx"
+    if test "${refrectx}" = "true"; then
+      args="$args -x"
+    fi
+    reflecty="\$kcmrandrrc_screen${scrn}_reflecty" ; eval "reflecty=$reflecty"
+    if test "${refrecty}" = "true"; then
+      args="$args -y"
+    fi
+    if test -n "$args"; then
+      xrandr $args
+    fi
+  done
 fi
 
 dl=$DESKTOP_LOCKED
 unset DESKTOP_LOCKED # Don't want it in the environment
 
-# Launch splash that doesn't need any KDE libraries here, before
-# KDE libraries are loaded into memory (which may take some time
+# Launch splash that doesn't need any TDE libraries here, before
+# TDE libraries are loaded into memory (which may take some time
 # with cold caches). Makes the splash appear sooner.
 # If kpersonalizer needs to be run splash will be started only later.
 if test -z "$dl" && test "$kpersonalizerrc_general_firstlogin" != "true"; then
-    case "$ksplashrc_ksplash_theme" in
-      Simple)
-         ksplashsimple
-         ;;
-      *)
-         ;;
-    esac
+  case "$ksplashrc_ksplash_theme" in
+    Simple)
+      ksplashsimple
+      ;;
+    *)
+      ;;
+  esac
 fi
 
 if test "$kcmfonts_general_forcefontdpi" -eq 120; then
-    xrdb -quiet -merge -nocpp <<EOF
+  xrdb -quiet -merge -nocpp <<EOF
 Xft.dpi: 120
 EOF
 elif test "$kcmfonts_general_forcefontdpi" -eq 96; then
-    xrdb -quiet -merge -nocpp <<EOF
+  xrdb -quiet -merge -nocpp <<EOF
 Xft.dpi: 96
 EOF
 fi
@@ -321,10 +397,10 @@ then
 fi
 
 # Source scripts found in <localprefix>/env/*.sh and <prefixes>/env/*.sh
-# (where <localprefix> is $KDEHOME or ~/.trinity, and <prefixes> is where KDE is installed)
+# (where <localprefix> is $KDEHOME or ~/.trinity, and <prefixes> is where TDE is installed)
 #
 # This is where you can define environment variables that will be available to
-# all KDE programs, so this is where you can run agents using e.g. eval `ssh-agent`
+# all TDE programs, so this is where you can run agents using e.g. eval `ssh-agent`
 # or eval `gpg-agent --daemon`.
 # Note: if you do that, you should also put "ssh-agent -k" as a shutdown script
 #
@@ -340,9 +416,9 @@ for prefix in `echo "$exepath" | sed -n -e 's,/bin[^/]*/,/env/,p'`; do
   done
 done
 
-# Activate the kde font directories.
+# Activate the TDE font directories.
 #
-# There are 4 directories that may be used for supplying fonts for KDE.
+# There are 4 directories that may be used for supplying fonts for TDE.
 #
 # There are two system directories. These belong to the administrator.
 # There are two user directories, where the user may add her own fonts.
@@ -365,25 +441,25 @@ kde_fontpaths=$usr_fdir/fontpaths
 do_usr_fdir=1
 do_usr_odir=1
 if test -r "$kde_fontpaths" ; then
-    savifs=$IFS
-    IFS="
+  savifs=$IFS
+  IFS="
 "
-    for fpath in `grep -v '^[ 	]*#' < "$kde_fontpaths"` ; do
-        rfpath=`echo $fpath | sed "s:^~:$HOME:g"`
-        if test -s "$rfpath"/fonts.dir; then
-            xset fp+ "$rfpath"
-            if test "$rfpath" = "$usr_fdir"; then
-                do_usr_fdir=0
-            fi
-            if test "$rfpath" = "$usr_odir"; then
-                do_usr_odir=0
-            fi
-        fi
-    done
-    IFS=$savifs
+  for fpath in `grep -v '^[   ]*#' < "$kde_fontpaths"` ; do
+    rfpath=`echo $fpath | sed "s:^~:$HOME:g"`
+    if test -s "$rfpath"/fonts.dir; then
+      xset fp+ "$rfpath"
+      if test "$rfpath" = "$usr_fdir"; then
+        do_usr_fdir=0
+      fi
+      if test "$rfpath" = "$usr_odir"; then
+        do_usr_odir=0
+      fi
+    fi
+  done
+  IFS=$savifs
 fi
 
-if [ ! -n "$KDEDIR" ]; then
+if [ "$KDEDIR" = "" ]; then
   export KDEDIR=`echo "$KDEDIRS" | sed -e 's/:.*//'`
 fi
 
@@ -412,9 +488,11 @@ else
   fi
 fi
 
-if [ -n $KGTK_PRELOAD ]; then
-  if [ -e /usr/lib/libnspr4.so ]; then
-    KGTK_NSPR_PRELOAD="/usr/lib/libnspr4.so:"
+if [ "$KGTK_PRELOAD" != "" ]; then
+  if [ -e /usr/lib64/libnspr4.so ]; then
+    KGTK_NSPR_PRELOAD="/usr/lib64/libnspr4.so:"
+  elif [ -e /usr/lib/libnspr4.so ]; then
+    KGTK_NSPR_PRELOAD="/usr/libnspr4.so:"
   fi
   export LD_PRELOAD=$KGTK_PRELOAD:$KGTK_NSPR_PRELOAD$LD_PRELOAD
 fi
@@ -438,7 +516,7 @@ xset fp rehash
 
 # Set a left cursor instead of the standard X11 "X" cursor, since I've heard
 # from some users that they're confused and don't know what to do. This is
-# especially necessary on slow machines, where starting KDE takes one or two
+# especially necessary on slow machines, where starting TDE takes one or two
 # minutes until anything appears on the screen.
 #
 # If the user has overwritten fonts, the cursor font may be different now
@@ -446,7 +524,7 @@ xset fp rehash
 #
 xsetroot -cursor_name left_ptr
 
-# Get Ghostscript to look into user's KDE fonts dir for additional Fontmap
+# Get Ghostscript to look into user's TDE fonts dir for additional Fontmap
 if test -n "$GS_LIB" ; then
   GS_LIB=$usr_fdir:$GS_LIB
   export GS_LIB
@@ -455,23 +533,23 @@ else
   export GS_LIB
 fi
 
-# Link "tmp" "socket" and "cache" resources to directory in /tmp
+# Link "tmp" "socket" and "cache" resources to directory in $TMP
 # Creates:
-# - a directory /tmp/kde-$USER and links $KDEHOME/tmp-$HOSTNAME to it.
-# - a directory /tmp/ksocket-$USER and links $KDEHOME/socket-$HOSTNAME to it.
-# - a directory /var/tmp/kdecache-$USER and links $KDEHOME/cache-$HOSTNAME to it.
-# Note: temporary locations can be overriden through the KDETMP and KDEVARTMP
+# - a directory $TMP/kde-$USER and is linked from $KDEHOME/tmp-$HOSTNAME to it.
+# - a directory $TMP/ksocket-$USER and is linked from $KDEHOME/socket-$HOSTNAME to it.
+# - a directory /var/tmp/kdecache-$USER and is linked from $KDEHOME/cache-$HOSTNAME to it.
+# Note: temporary locations can be overridden through the KDETMP and KDEVARTMP
 # environment variables.
 for resource in tmp cache socket; do
   if ! lnusertemp $resource >/dev/null; then
     echo "[startkde] Call to lnusertemp failed (temporary directories full?). Check your installation." 1>&2
-    xmessage -geometry 600x100 "Call to lnusertemp failed (temporary directories full?). Check your installation."
+    xmessage -center -geometry 600x100 "Call to lnusertemp failed (temporary directories full?). Check your installation."
     exit 1
   fi
 done
 
 # In case of dcop sockets left by a previous session, cleanup.
-dcopserver_shutdown
+$KDEDIR/bin/dcopserver_shutdown
 
 echo '[startkde] Starting Trinity...'  1>&2
 
@@ -481,19 +559,19 @@ $KDEDIR/bin/kdetcompmgr
 # Run KPersonalizer before the session if this is the first login.
 if test "$kpersonalizerrc_general_firstlogin" = "true"; then
   if [ ! -x $KDEDIR/bin/kpersonalizer ]; then
-    echo "[startkde] kpersonalizer not found! Please install it in order to properly configure your user profile." 1>&2
+    echo "[startkde] kpersonalizer not found! Please install in order to properly configure your user profile." 1>&2
   else
     # start only dcopserver, don't start whole kdeinit (takes too long)
     echo "[startkde] Running kpersonalizer..." 1>&2
-    dcopserver
-    kwin --lock &
-    kpersonalizer --before-session
+    $KDEDIR/bin/dcopserver
+    $KDEDIR/bin/kwin --lock &
+    $KDEDIR/bin/kpersonalizer --before-session
     # handle kpersonalizer restarts (language change)
     while test $? -eq 1; do
-        kpersonalizer --r --before-session
+      $KDEDIR/bin/kpersonalizer --r --before-session
     done
-    dcopquit kwin
-    dcopserver_shutdown --wait
+    $KDEDIR/bin/dcopquit kwin
+    $KDEDIR/bin/dcopserver_shutdown --wait
   fi
 fi
 
@@ -508,25 +586,24 @@ if test -z "$dl"; then
   # the splashscreen and progress indicator
   case "$ksplashrc_ksplash_theme" in
     None)
-       ;; # nothing
+      ;; # nothing
     Simple)
-       if test "$kpersonalizerrc_general_firstlogin" = "true"; then
-           ksplashsimple
-       fi # otherwise started earlier
-       ;;
+      if test "$kpersonalizerrc_general_firstlogin" = "true"; then
+        $KDEDIR/bin/ksplashsimple
+      fi # otherwise started earlier
+      ;;
     *)
-       ksplash --nodcop
-       ;;
+      $KDEDIR/bin/ksplash --nodcop
+      ;;
   esac
 fi
 
-# Mark that full KDE session is running (e.g. Konqueror preloading works only
-# with full KDE running). The TDE_FULL_SESSION property can be detected by
+# Mark that full TDE session is running (e.g. Konqueror preloading works only
+# with full TDE running). The TDE_FULL_SESSION property can be detected by
 # any X client connected to the same X session, even if not launched
-# directly from the KDE session but e.g. using "ssh -X", kdesu. $TDE_FULL_SESSION
+# directly from the TDE session but e.g. using "ssh -X", kdesu. $TDE_FULL_SESSION
 # however guarantees that the application is launched in the same environment
-# like the KDE session and that e.g. KDE utilities/libraries are available.
-# TDE_FULL_SESSION property is also only available since KDE 3.5.5.
+# like the TDE session and that e.g. TDE utilities/libraries are available.
 # The matching tests are:
 #   For $TDE_FULL_SESSION:
 #     if test -n "$TDE_FULL_SESSION"; then ... whatever
@@ -534,8 +611,8 @@ fi
 #     xprop -root | grep "^TDE_FULL_SESSION" >/dev/null 2>/dev/null
 #     if test $? -eq 0; then ... whatever
 #
-# Additionally there is (since KDE 3.5.7) $KDE_SESSION_UID with the uid
-# of the user running the KDE session. It should be rarely needed (e.g.
+# Additionally there is $KDE_SESSION_UID with the uid of the user
+# running the TDE session. It should be rarely needed (for example,
 # after sudo to prevent desktop-wide functionality in the new user's kded).
 #
 TDE_FULL_SESSION=true
@@ -548,18 +625,21 @@ echo "[startkde] KDE_SESSION_UID: $KDE_SESSION_UID" 1>&2
 
 # We set LD_BIND_NOW to increase the efficiency of kdeinit.
 # kdeinit unsets this variable before loading applications.
-LD_BIND_NOW=true start_kdeinit_wrapper --new-startup +kcminit_startup
+LD_BIND_NOW=true $KDEDIR/bin/start_kdeinit_wrapper --new-startup +kcminit_startup
 if test $? -ne 0; then
   # Startup error
   echo '[startkde] Could not start kdeinit. Check your installation.' 1>&2
-  xmessage -geometry 500x100 "Could not start kdeinit. Check your installation."
+  xmessage -center -geometry 500x100 "Could not start kdeinit. Check your installation."
 fi
 echo "[startkde] kdeinit started successfully." 1>&2
 
 # If the session should be locked from the start (locked autologin),
-# lock now and do the rest of the KDE startup underneath the locker.
+# lock now and do the rest of the TDE startup underneath the locker.
+# FIXME
+# kdesktop needs to be notified of this locker process somehow so that
+# it does not attempt to launch its own locker process on startup!
 if test -n "$dl"; then
-  kwrapper kdesktop_lock --forcelock &
+  $KDEDIR/bin/kwrapper kdesktop_lock --forcelock &
   # Give it some time for starting up. This is somewhat unclean; some
   # notification would be better.
   sleep 1
@@ -576,27 +656,27 @@ fi
 # started, any problems thereafter, e.g. ksmserver failing to initialize,
 # will remain undetected.
 test -n "$KDEWM" && KDEWM="--windowmanager $KDEWM"
-kwrapper ksmserver $KDEWM
+$KDEDIR/bin/kwrapper ksmserver $KDEWM
 if test $? -eq 255; then
   # Startup error
   echo '[startkde] Could not start ksmserver. Check your installation.' 1>&2
-  xmessage -geometry 500x100 "Could not start ksmserver. Check your installation."
+  xmessage -center -geometry 500x100 "Could not start ksmserver. Check your installation."
 fi
 
 # wait if there's any crashhandler shown
-while dcop | grep -q ^drkonqi- ; do
-    sleep 5
+while $KDEDIR/bin/dcop | grep -q ^drkonqi- ; do
+  sleep 5
 done
 
 echo '[startkde] Shutting down Trinity...'  1>&2
 
 # Clean up
-kdeinit_shutdown
-dcopserver_shutdown --wait
-artsshell -q terminate
+$KDEDIR/bin/kdeinit_shutdown
+$KDEDIR/bin/dcopserver_shutdown --wait
+$KDEDIR/bin/artsshell -q terminate
 # KDE4 support
 if [ -f /usr/bin/kdeinit4_shutdown ]; then
-  kde4 kdeinit4_shutdown 2>/dev/null
+  /usr/bin/kde4 kdeinit4_shutdown 2>/dev/null
 fi
 
 echo '[startkde] Running Trinity shutdown scripts...'  1>&2
