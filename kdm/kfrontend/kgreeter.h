@@ -75,7 +75,7 @@ class KGreeter : public KGDialog, public KGVerifyHandler {
 	void handleInputPipe();
 
   public:
-	TQString curUser, dName;
+	TQString curUser, curWMSession, dName;
 
   protected:
         void readFacesList();

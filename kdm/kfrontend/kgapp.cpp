@@ -257,6 +257,7 @@ kg_main( const char *argv0 )
 
 	XSetIOErrorHandler( xIOErr );
 	TQString login_user;
+	TQString login_session_wm;
 
 	Display *dpy = qt_xdisplay();
 
@@ -409,6 +410,7 @@ kg_main( const char *argv0 )
 		Debug( "left event loop\n" );
 
 		login_user = static_cast<KGreeter*>(dialog)->curUser;
+		login_session_wm = static_cast<KGreeter*>(dialog)->curWMSession;
 
 		if (rslt != ex_greet) {
 			delete dialog;
@@ -451,8 +453,13 @@ kg_main( const char *argv0 )
 		delete comp;
 	}
 	if (kwin) {
-		kwin->closeStdin();
-		kwin->detach();
+		if (login_session_wm.endsWith("/startkde") || (login_session_wm == "failsafe")) {
+			kwin->closeStdin();
+			kwin->detach();
+		}
+		else {
+			kwin->kill();
+		}
 		delete kwin;
 	}
 	delete proc;

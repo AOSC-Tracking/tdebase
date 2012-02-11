@@ -842,10 +842,12 @@ KGreeter::verifyOk()
 		GSendInt( G_PutDmrc );
 		GSendStr( "Session" );
 		GSendStr( sessionTypes[curSel].type.utf8() );
+		curWMSession = sessionTypes[curSel].type.utf8();
 	} else if (!prevValid) {
 		GSendInt( G_PutDmrc );
 		GSendStr( "Session" );
 		GSendStr( "default" );
+		curWMSession = sessionTypes[curSel].type.utf8();
 	}
 	GSendInt( G_Ready );
 	closingDown = true;
