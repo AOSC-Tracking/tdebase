@@ -97,10 +97,10 @@ public:
         LowerOp,
         FullScreenOp,
         NoBorderOp,
-	ShadowOp,
         NoOp,
         SetupWindowShortcutOp,
-        ApplicationRulesOp     ///< @since 3.5
+        ApplicationRulesOp,    ///< @since 3.5
+        ShadowOp               ///< @since 3.5.12
         };
     /**
      * Basic color types that should be recognized by all decoration styles.
