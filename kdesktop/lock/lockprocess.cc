@@ -1082,7 +1082,7 @@ bool LockProcess::grabMouse()
 {
     int rv = XGrabPointer( qt_xdisplay(), TQApplication::desktop()->winId(),
             True, GRABEVENTS, GrabModeAsync, GrabModeAsync, None,
-            TQCursor(tqblankCursor).handle(), CurrentTime );
+            TQCursor(tqbusyCursor).handle(), CurrentTime );
 
     return (rv == GrabSuccess);
 }
@@ -1662,7 +1662,7 @@ int LockProcess::execDialog( TQDialog *dlg )
     mDialogs.remove( dlg );
     if( mDialogs.isEmpty() ) {
         XChangeActivePointerGrab( qt_xdisplay(), GRABEVENTS,
-                TQCursor(tqblankCursor).handle(), CurrentTime);
+                TQCursor(tqbusyCursor).handle(), CurrentTime);
         if (trinity_desktop_lock_use_system_modal_dialogs) {
             // Slight delay before screensaver resume to allow the dialog window to fully disappear
             if (hackResumeTimer == NULL) {
