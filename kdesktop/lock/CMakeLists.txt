@@ -2,6 +2,8 @@
 #
 #  (C) 2010-2011 Serghei Amelian
 #  serghei (DOT) amelian (AT) gmail.com
+#  (C) 2012 Timothy Pearson
+#  kb9vqf (AT) pearsoncomputing.net
 #
 #  Improvements and feedback are welcome
 #
@@ -35,6 +37,6 @@ set( ${target}_SRCS
 
 tde_add_executable( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
-  LINK kdesktopsettings-static dmctl-static kio-shared Xext ${GL_LIBRARY} "-z\ now"
+  LINK kdesktopsettings-static dmctl-static kio-shared Xext ${GL_LIBRARY} "${LINKER_IMMEDIATE_BINDING_FLAGS}"
   DESTINATION ${BIN_INSTALL_DIR}
 )
