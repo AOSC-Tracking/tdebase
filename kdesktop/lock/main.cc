@@ -53,6 +53,9 @@ bool in_internal_mode = FALSE;
 
 bool MyApp::x11EventFilter( XEvent *ev )
 {
+    if (ev->type == ButtonPress || ev->type == ButtonRelease || ev->type == MotionNotify) {
+        emit mouseInteraction(ev);
+    }
     if (ev->type == XKeyPress || ev->type == ButtonPress) {
         emit activity();
     }
