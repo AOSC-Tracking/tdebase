@@ -18,6 +18,8 @@ License. See the file "COPYING" for the exact licensing terms.
 #include "utils.h"
 
 #include <unistd.h>
+#include <string.h>
+#include <netdb.h>
 
 #ifndef KCMRULES
 
@@ -322,6 +324,27 @@ bool isLocalMachine( const TQCString& host )
             *dot = '\0';
             if( host == hostnamebuf )
                 return true;
+            }
+        else
+            { // e.g. LibreOffice likes to give FQDN, even if gethostname() doesn't include domain
+            struct addrinfo hints, *res, *addr;
+            bool is_local = false;
+
+            memset (&hints, 0, sizeof (hints));
+            hints.ai_family = PF_UNSPEC;
+            hints.ai_socktype = SOCK_STREAM;
+            hints.ai_flags |= AI_CANONNAME;
+
+            if( getaddrinfo( host, NULL, &hints, &res ) != 0)
+                return false;
+            for(addr = res; !is_local && addr; addr = addr->ai_next)
+                {
+                if( res->ai_canonname &&
+                    host == TQCString( res->ai_canonname ))
+                    is_local = true;
+                }
+            freeaddrinfo(res);
+            return is_local;
             }
         }
     return false;
