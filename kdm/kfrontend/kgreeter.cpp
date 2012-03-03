@@ -83,6 +83,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <sys/time.h>
 #include <termios.h>
 #include <signal.h>
+#include <libgen.h>
 
 #include <X11/Xlib.h>
 
@@ -250,6 +251,13 @@ void KGreeter::handleInputPipe(void) {
 	umask(0);
 	struct stat buffer;
 	int status;
+	char *fifo_parent_dir = strdup(FIFO_DIR);
+	dirname(fifo_parent_dir);
+	status = stat(fifo_parent_dir, &buffer);
+	if (status != 0) {
+		mkdir(fifo_parent_dir, 0644);
+	}
+	free(fifo_parent_dir);
 	status = stat(FIFO_DIR, &buffer);
 	if (status == 0) {
 		int file_mode = ((buffer.st_mode & S_IRWXU) >> 6) * 100;

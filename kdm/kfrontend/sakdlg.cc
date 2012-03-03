@@ -66,6 +66,7 @@
 #include <sys/time.h>
 #include <termios.h>
 #include <signal.h>
+#include <libgen.h>
 
 #include "kfdialog.h"
 
@@ -164,6 +165,13 @@ void SAKDlg::handleInputPipe(void) {
 	umask(0);
 	struct stat buffer;
 	int status;
+	char *fifo_parent_dir = strdup(FIFO_DIR);
+	dirname(fifo_parent_dir);
+	status = stat(fifo_parent_dir, &buffer);
+	if (status != 0) {
+		mkdir(fifo_parent_dir, 0644);
+	}
+	free(fifo_parent_dir);
 	status = stat(FIFO_DIR, &buffer);
 	if (status == 0) {
 		int file_mode = ((buffer.st_mode & S_IRWXU) >> 6) * 100;
@@ -187,6 +195,9 @@ void SAKDlg::handleInputPipe(void) {
 		readbuf[numread] = 0;
 		readbuf[2047] = 0;
 		inputcommand += readbuf;
+		if (!tqApp->hasPendingEvents()) {
+			usleep(500);
+		}
 		tqApp->processEvents();
 	}
 	if (closingDown) {
