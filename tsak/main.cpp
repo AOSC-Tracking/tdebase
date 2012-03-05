@@ -357,6 +357,9 @@ int main (int argc, char *argv[])
 	int current_keyboard;
 	bool can_proceed;
 
+	// Ignore SIGPIPE
+	signal(SIGPIPE, SIG_IGN);
+
 	for (i=0; i<MAX_KEYBOARDS; i++) {
 		child_pids[i] = 0;
 	}
