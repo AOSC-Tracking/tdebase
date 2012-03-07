@@ -2726,6 +2726,14 @@ void KonqMainWindow::slotPopupThisWindow()
     openURL( 0L, popupItems.getFirst()->url() );
 }
 
+void KonqMainWindow::slotPopupNewTabAtFront()
+{
+    KConfig *config = KGlobal::config();
+    KConfigGroupSaver cs( config, TQString::fromLatin1("FMSettings") );
+    bool openAfterCurrentPage = config->readBoolEntry( "OpenAfterCurrentPage", false );
+    popupNewTab(true, openAfterCurrentPage);
+}
+
 void KonqMainWindow::slotPopupNewTab()
 {
     bool openAfterCurrentPage = KonqSettings::openAfterCurrentPage();
@@ -4782,8 +4790,14 @@ void KonqMainWindow::slotPopupMenu( KXMLGUIClient *client, const TQPoint &_globa
       else
         tab_new_x = "tab_new_bg" ;
 
-      actNewTab = new KAction( i18n( "Open in &New Tab" ), tab_new_x, 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupNewTab() ), konqyMenuClient->actionCollection(), "openintab" );
-      actNewTab->setToolTip( i18n( "Open the document in a new tab" ) );
+      KAction *actNewTab = new KAction( i18n( "Open in &Background Tab" ), "tab_new_bg", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupNewTab() ), actionCollection(), "openintab" );
+      actNewTab->setStatusText( i18n( "Open the document in a new background tab" ) );
+      KAction *actNewTabFront = new KAction( i18n( "Open in &New Tab" ), "tab_new", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupNewTabAtFront() ), actionCollection(), "openintabfront" );
+      actNewTabFront->setStatusText( i18n( "Open the document in a new foreground tab" ) );
+      actNewTab = new KAction( i18n( "Open in &Background Tab" ), tab_new_x, 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupNewTab() ), konqyMenuClient->actionCollection(), "openintab" );
+      actNewTabFront = new KAction( i18n( "Open in &New Tab" ), tab_new_x, 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupNewTabAtFront() ), konqyMenuClient->actionCollection(), "openintabfront" );
+      actNewTab->setToolTip( i18n( "Open the document in a new background tab" ) );
+      actNewTabFront->setToolTip( i18n( "Open the document in a new foreground tab" ) );
       doTabHandling = true;
   }
 

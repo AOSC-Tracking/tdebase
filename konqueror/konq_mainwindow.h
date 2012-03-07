@@ -444,6 +444,7 @@ protected slots:
   void slotPopupNewWindow();
   void slotPopupThisWindow();
   void slotPopupNewTab();
+  void slotPopupNewTabAtFront();
   void slotPopupNewTabRight();
   void slotPopupPasteTo();
   void slotRemoveView();

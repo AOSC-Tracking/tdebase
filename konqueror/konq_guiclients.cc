@@ -104,8 +104,8 @@ PopupMenuGUIClient::PopupMenuGUIClient( KonqMainWindow *mainWindow,
         openInSameWindow.setAttribute( "name", "sameview" );
         openInSameWindow.setAttribute( "group", "tabhandling" );
         menu.appendChild( openInSameWindow );
-        
-	TQDomElement openInWindow = m_doc.createElement( "action" );
+
+        TQDomElement openInWindow = m_doc.createElement( "action" );
         openInWindow.setAttribute( "name", "newview" );
         openInWindow.setAttribute( "group", "tabhandling" );
         menu.appendChild( openInWindow );
@@ -114,6 +114,11 @@ PopupMenuGUIClient::PopupMenuGUIClient( KonqMainWindow *mainWindow,
         openInTabElement.setAttribute( "name", "openintab" );
         openInTabElement.setAttribute( "group", "tabhandling" );
         menu.appendChild( openInTabElement );
+
+        TQDomElement openInTabFrontElement = m_doc.createElement( "action" );
+        openInTabFrontElement.setAttribute( "name", "openintabfront" );
+        openInTabFrontElement.setAttribute( "group", "tabhandling" );
+        menu.appendChild( openInTabFrontElement );
 
         TQDomElement separatorElement = m_doc.createElement( "separator" );
         separatorElement.setAttribute( "group", "tabhandling" );
