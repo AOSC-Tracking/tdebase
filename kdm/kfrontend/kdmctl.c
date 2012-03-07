@@ -45,7 +45,7 @@ openctl( int fd, int err, const char *ctl, const char *dpy )
 	if (!connect( fd, (struct sockaddr *)&sa, sizeof(sa) ))
 		return 1;
 	if (err)
-		fprintf( stderr, "Cannot connect socket '%s'.\n", sa.sun_path );
+		fprintf( stderr, "[kdmctl] Cannot connect socket '%s'.\n", sa.sun_path );
 	return 0;
 }
 
@@ -58,9 +58,7 @@ readcfg( const char *cfg )
 	char buf[1024];
 
 	if (!(fp = fopen( cfg, "r" ))) {
-		fprintf( stderr,
-		         "Cannot open kdm config file '%s'.\n",
-		         cfg );
+		fprintf( stderr, "[kdmctl] Cannot open kdm config file '%s'.\n", cfg );
 		return 0;
 	}
 	ctl = "/var/run/xdmctl";
@@ -90,7 +88,7 @@ exe( int fd, const char *in, int len )
 	char buf[4096];
 
 	if (write( fd, in, len ) != len) {
-		fprintf( stderr, "Cannot send command\n" );
+		fprintf( stderr, "[kdmctl] Cannot send command\n" );
 		return 1;
 	}
 	do {
@@ -138,7 +136,7 @@ run( int fd, char **argv )
 		buf[len++] = '\n';
 		return exe( fd, buf, len );
 	  bad:
-		fprintf( stderr, "Command too long\n" );
+		fprintf( stderr, "[kdmctl] Command too long\n" );
 		return 1;
 	}
 }
@@ -201,20 +199,20 @@ main( int argc, char **argv )
 		} else if (!strcmp( ptr, "c" ) || !strcmp( ptr, "config" )) {
 			if (!argv[1]) {
 			  needarg:
-				fprintf( stderr, "Option '%s' needs argument.\n",
+				fprintf( stderr, "[kdmctl] Option '%s' needs argument.\n",
 				         ptr );
 				return 1;
 			}
 			cfg = *++argv;
 		} else {
-			fprintf( stderr, "Unknown option '%s'.\n", ptr );
+			fprintf( stderr, "[kdmctl] Unknown option '%s'.\n", ptr );
 			return 1;
 		}
 	}
 	if ((!ctl || !*ctl) && *cfg)
 		ctl = readcfg( cfg );
 	if ((fd = socket( PF_UNIX, SOCK_STREAM, 0 )) < 0) {
-		fprintf( stderr, "Cannot create UNIX socket\n" );
+		fprintf( stderr, "[kdmctl] Cannot create UNIX socket\n" );
 		return 1;
 	}
 	if (dpy && (ptr = strchr( dpy, ':' )) && (ptr = strchr( ptr, '.' )))
@@ -226,7 +224,7 @@ main( int argc, char **argv )
 		if (!openctl( fd, 0, "/var/run/xdmctl", dpy ) &&
 		    !openctl( fd, 0, "/var/run", dpy ))
 		{
-			fprintf( stderr, "No command socket found.\n" );
+			fprintf( stderr, "[kdmctl] No command socket found.\n" );
 			return 1;
 		}
 	}
