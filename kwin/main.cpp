@@ -60,7 +60,7 @@ int x11ErrorHandler(Display *d, XErrorEvent *e)
          )
         && (e->error_code == BadAccess)) 
         {
-        fputs(i18n("kwin: it looks like there's already a window manager running. kwin not started.\n").local8Bit(), stderr);
+        fputs(i18n("[kwin] it looks like there's already a window manager running. kwin not started.\n").local8Bit(), stderr);
         exit(1);
         }
 
@@ -71,11 +71,11 @@ int x11ErrorHandler(Display *d, XErrorEvent *e)
     sprintf(number, "%d", e->request_code);
     XGetErrorDatabaseText(d, "XRequest", number, "<unknown>", req, sizeof(req));
 
-    fprintf(stderr, "kwin: %s(0x%lx): %s\n", req, e->resourceid, msg);
+    fprintf(stderr, "[kwin] %s(0x%lx): %s\n", req, e->resourceid, msg);
 
     if (initting) 
         {
-        fputs(i18n("kwin: failure during initialization; aborting").local8Bit(), stderr);
+        fputs(i18n("[kwin] failure during initialization; aborting").local8Bit(), stderr);
         exit(1);
         }
     return 0;
@@ -129,19 +129,19 @@ Application::Application( )
                 XFree ( (void *) data);
                 if( !owner.claim( true, true ))
                     {
-                    fputs(i18n("kwin: unable to claim manager selection, another wm running? (try using --replace)\n").local8Bit(), stderr);
+                    fputs(i18n("[kwin] unable to claim manager selection, another wm running? (try using --replace)\n").local8Bit(), stderr);
                     ::exit(1);
                     }
                 }
             else
                 {
-                fputs(i18n("kwin: unable to claim manager selection, another wm running? (try using --replace)\n").local8Bit(), stderr);
+                fputs(i18n("[kwin] unable to claim manager selection, another wm running? (try using --replace)\n").local8Bit(), stderr);
                 ::exit(1);
                 }
             }
         else
             {
-            fputs(i18n("kwin: unable to claim manager selection, another wm running? (try using --replace)\n").local8Bit(), stderr);
+            fputs(i18n("[kwin] unable to claim manager selection, another wm running? (try using --replace)\n").local8Bit(), stderr);
             ::exit(1);
             }
         }
@@ -299,9 +299,9 @@ KDE_EXPORT int kdemain( int argc, char * argv[] )
                 if (putenv( strdup(envir.data())) ) 
                     {
                     fprintf(stderr,
-                            "%s: WARNING: unable to set DISPLAY environment variable\n",
+                            "[kwin] %s: WARNING: unable to set DISPLAY environment variable\n",
                             argv[0]);
-                    perror("putenv()");
+                    perror("[kwin] putenv()");
                     }
                 }
             }
