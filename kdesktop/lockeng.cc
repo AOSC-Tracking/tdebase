@@ -247,7 +247,10 @@ void SaverEngine::handleSecureDialog()
 void SaverEngine::slotSAKProcessExited()
 {
     int retcode = mSAKProcess->exitStatus();
-    if ((retcode != 0) && (mSAKProcess->normalExit())) trinity_lockeng_sak_available = FALSE;
+    if ((retcode != 0) && (mSAKProcess->normalExit())) {
+        trinity_lockeng_sak_available = FALSE;
+        printf("[kdesktop] SAK driven secure dialog is not available for use (retcode %d).  Check tdmtsak for proper functionality.\n", retcode); fflush(stdout);
+    }
 
     if ((mSAKProcess->normalExit()) && (trinity_lockeng_sak_available == TRUE)) {
         bool ok = true;

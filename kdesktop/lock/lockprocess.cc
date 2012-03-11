@@ -141,6 +141,7 @@ extern bool trinity_desktop_lock_forced;
 bool trinity_desktop_lock_autohide_lockdlg = TRUE;
 bool trinity_desktop_lock_closing_windows = FALSE;
 bool trinity_desktop_lock_in_sec_dlg = FALSE;
+bool trinity_desktop_hack_active = FALSE;
 
 #define ENABLE_CONTINUOUS_LOCKDLG_DISPLAY \
 if (!mForceContinualLockDisplayTimer->isActive()) mForceContinualLockDisplayTimer->start(100, FALSE); \
@@ -1080,9 +1081,16 @@ bool LockProcess::grabKeyboard()
 //
 bool LockProcess::grabMouse()
 {
+    HANDLE cursorHandle;
+    if (trinity_desktop_hack_active) {
+       cursorHandle = TQCursor(tqblankCursor).handle();
+    }
+    else {
+       cursorHandle = TQCursor(tqbusyCursor).handle();
+    }
     int rv = XGrabPointer( qt_xdisplay(), TQApplication::desktop()->winId(),
             True, GRABEVENTS, GrabModeAsync, GrabModeAsync, None,
-            TQCursor(tqbusyCursor).handle(), CurrentTime );
+            cursorHandle, CurrentTime );
 
     return (rv == GrabSuccess);
 }
@@ -1331,7 +1339,10 @@ void LockProcess::repaintRootWindowIfNeeded()
 
 bool LockProcess::startHack()
 {
+    trinity_desktop_hack_active = TRUE;
+
     setCursor( tqblankCursor );
+    XChangeActivePointerGrab( qt_xdisplay(), GRABEVENTS, TQCursor(tqblankCursor).handle(), CurrentTime);
 
     if ((mEnsureVRootWindowSecurityTimer) && (!mEnsureVRootWindowSecurityTimer->isActive())) mEnsureVRootWindowSecurityTimer->start(250, FALSE);
 
@@ -1401,7 +1412,7 @@ bool LockProcess::startHack()
 #endif
  		        //bitBlt(this, 0, 0, &mOriginal);
  		        DISABLE_CONTINUOUS_LOCKDLG_DISPLAY
-			if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced) {	
+			if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced) {
 				// Close any active dialogs
 				if (closeCurrentWindow()) {
 					TQTimer::singleShot( 0, this, SLOT(closeCurrentWindow()) );
@@ -1450,6 +1461,8 @@ void LockProcess::stopHack()
         }
     }
     setCursor( tqarrowCursor );
+
+    trinity_desktop_hack_active = FALSE;
 }
 
 //---------------------------------------------------------------------------
@@ -1458,6 +1471,7 @@ void LockProcess::hackExited(KProcess *)
 {
 	// Hack exited while we're supposed to be saving the screen.
 	// Make sure the saver window is black.
+	trinity_desktop_hack_active = FALSE;
 	usleep(100);
 	TQApplication::syncX();
 	if (!trinity_desktop_lock_use_system_modal_dialogs) {
@@ -1656,13 +1670,24 @@ int LockProcess::execDialog( TQDialog *dlg )
         erase();
     }
     else bitBlt(this, 0, 0, &backingPixmap);
+    // dlg->exec may generate BadMatch errors, so make sure they are silently ignored
+    int (*oldHandler)(Display *, XErrorEvent *);
+    oldHandler = XSetErrorHandler(ignoreXError);
     int rt = dlg->exec();
+    XSetErrorHandler(oldHandler);
     while (mDialogControlLock == true) usleep(100000);
     currentDialog = NULL;
     mDialogs.remove( dlg );
     if( mDialogs.isEmpty() ) {
+        HANDLE cursorHandle;
+        if (trinity_desktop_hack_active) {
+           cursorHandle = TQCursor(tqblankCursor).handle();
+        }
+        else {
+           cursorHandle = TQCursor(tqbusyCursor).handle();
+        }
         XChangeActivePointerGrab( qt_xdisplay(), GRABEVENTS,
-                TQCursor(tqbusyCursor).handle(), CurrentTime);
+                cursorHandle, CurrentTime);
         if (trinity_desktop_lock_use_system_modal_dialogs) {
             // Slight delay before screensaver resume to allow the dialog window to fully disappear
             if (hackResumeTimer == NULL) {
@@ -2050,7 +2075,12 @@ void LockProcess::windowAdded( WId w )
 
 void LockProcess::windowAdded( WId w, bool managed )
 {
+    // KWin::windowInfo may generate BadWindow errors, so make sure they are silently ignored
+    int (*oldHandler)(Display *, XErrorEvent *);
+    oldHandler = XSetErrorHandler(ignoreXError);
     KWin::WindowInfo info = KWin::windowInfo( w, 0, NET::WM2WindowClass );
+    XSetErrorHandler(oldHandler);
+
     if( info.windowClassClass().lower() != "xvkbd" )
         return;
     // Unmanaged windows (i.e. popups) don't currently work anyway, since they
