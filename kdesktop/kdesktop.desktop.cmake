@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=kdesktop
+Exec=@TDE_BIN_DIR@/kdesktop
 X-DCOP-ServiceType=wait
 Name=KDE Desktop
 Name[af]=KDE Werkskerm
