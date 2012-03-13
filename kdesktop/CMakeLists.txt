@@ -50,7 +50,7 @@ install( FILES
 
 configure_file( kdesktop.desktop.cmake kdesktop.desktop @ONLY )
 
-install( FILES kdesktop.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
+install( FILES ${CMAKE_CURRENT_BINARY_DIR}/kdesktop.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
 install( FILES kdesktop_custom_menu1 kdesktop_custom_menu2 DESTINATION ${CONFIG_INSTALL_DIR} )
 install( FILES kdesktopSetAsBackground.desktop DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus )
 install( FILES kdesktop.kcfg klaunch.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
