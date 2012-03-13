@@ -158,9 +158,9 @@ void sanity_check( int argc, char* argv[] )
   {
     const char *msg_pre =
              "The following installation problem was detected\n"
-             "while trying to start KDE:"
+             "while trying to start TDE:"
              "\n\n    ";
-    const char *msg_post = "\n\nKDE is unable to start.\n";
+    const char *msg_post = "\n\nTDE is unable to start.\n";
     fputs(msg_pre, stderr);
     fprintf(stderr, msg.data(), path.data());
     fputs(msg_post, stderr);
@@ -169,7 +169,7 @@ void sanity_check( int argc, char* argv[] )
     TQCString qmsg(256+path.length());
     qmsg.sprintf(msg.data(), path.data());
     qmsg = msg_pre+qmsg+msg_post;
-    TQMessageBox::critical(0, "KDE Installation Problem!",
+    TQMessageBox::critical(0, "TDE Installation Problem!",
         TQString::fromLatin1(qmsg.data()));
     exit(255);
   }
@@ -198,7 +198,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char* argv[] )
     kapp->dcopClient()->registerAs("ksmserver", false);
     if (!kapp->dcopClient()->isRegistered())
     {
-       qWarning("Could not register with DCOPServer. Aborting.");
+       qWarning("[KSMServer] Could not register with DCOPServer. Aborting.");
        return 1;
     }
 
@@ -213,7 +213,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char* argv[] )
      * does nothing on this platform, as here the default is reversed)
      */
     if (!only_local) {
-        qWarning("--[no]local is not supported on your platform. Sorry.");
+        qWarning("[KSMServer] --[no]local is not supported on your platform. Sorry.");
     }
     only_local = false;
 #endif
