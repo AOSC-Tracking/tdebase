@@ -169,13 +169,13 @@ void KCMUserAccount::load()
 			_mw->btnChangeFace->setPixmap( _facePixmap );
 	}
 
-	if ( _facePerm >= userFirst )
+	if ( _facePerm == userFirst )
 	{
 		// If the user's choice takes preference
 		_facePixmap = TQPixmap( KCFGUserAccount::faceFile() );
 
 		// The user has no face, should we check for the admin's setting?
-		if ( _facePixmap.isNull() && _facePerm == userFirst )
+		if ( _facePixmap.isNull() )
 			_facePixmap = TQPixmap( _userPicsDir + _ku->loginName() + ".face.icon" );
 
 		if ( _facePixmap.isNull() )
@@ -183,7 +183,7 @@ void KCMUserAccount::load()
 
 		_mw->btnChangeFace->setPixmap( _facePixmap );
 	}
-	else if ( _facePerm <= adminOnly )
+	else if ( _facePerm == adminOnly )
 	{
 		// Admin only
 		_facePixmap = TQPixmap( _userPicsDir + _ku->loginName() + ".face.icon" );
@@ -249,7 +249,7 @@ void KCMUserAccount::save()
 
 void KCMUserAccount::changeFace(const TQPixmap &pix)
 {
-  if ( _facePerm < userFirst )
+  if ( _facePerm != userFirst )
     return; // If the user isn't allowed to change their face, don't!
 
   if ( pix.isNull() ) {
@@ -264,7 +264,7 @@ void KCMUserAccount::changeFace(const TQPixmap &pix)
 
 void KCMUserAccount::slotFaceButtonClicked()
 {
-  if ( _facePerm < userFirst )
+  if ( _facePerm != userFirst )
   {
     KMessageBox::sorry( this, i18n("Your administrator has disallowed changing your image.") );
     return;
@@ -295,10 +295,9 @@ bool KCMUserAccount::eventFilter(TQObject *, TQEvent *e)
 
 	if (e->type() == TQEvent::Drop)
 	{
-		if ( _facePerm < userFirst )
+		if ( _facePerm != userFirst )
 		{
-			KMessageBox::sorry( this, i18n("Your administrator "
-				"has disallowed changing your image.") );
+			KMessageBox::sorry( this, i18n("Your administrator has disallowed changing your image.") );
 			return true;
 		}
 
