@@ -89,4 +89,4 @@ GenericName[zh_CN]=打印任务
 GenericName[zh_TW]=列印工作
 
 X-DCOP-ServiceType=Unique
-Categories=Qt;KDE;Utility;X-KDE-Utilities-Peripherals;
+Categories=Qt;KDE;Utility
