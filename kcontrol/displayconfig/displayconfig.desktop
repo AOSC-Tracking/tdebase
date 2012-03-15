@@ -1,23 +1,25 @@
 [Desktop Entry]
-Exec=kcmshell displayconfig
+Categories=Qt;KDE;X-KDE-settings-system;
+Comment=Configure display
+Comment[en_US]=Configure display
+DocPath=kcontrol/displayconfig.html
+Exec[$e]=kcmshell displayconfig
+GenericName=
+GenericName[en_US]=
 Icon=background
+Keywords=monitor,resolution,display
+MimeType=
+Name=Monitor & Display
+Name[en_US]=Monitor & Display
+NoDisplay=false
+Path[$e]=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
 Type=Application
-DocPath=kcontrol/displayconfig/index.html
-
+X-DCOP-ServiceType=
 X-KDE-Library=displayconfig
 X-KDE-ParentApp=kcontrol
 X-KDE-RootOnly=true
 X-KDE-SubstituteUID=true
-
-Categories=Qt;KDE;X-KDE-settings-peripherals;
-Comment=Configure display
-Comment[en_US]=Configure display
-DocPath=kcontrol/displayconfig.html
-GenericName=
-GenericName[en_US]=
-Keywords=monitor,resolution,display
-MimeType=
-Name=Monitor and Display
-Name[en_US]=Monitor and Display
-
-NoDisplay=false
+X-KDE-Username=

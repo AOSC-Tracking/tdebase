@@ -3,7 +3,7 @@ Exec=kcmshell dma
 Icon=kcmmemory
 Type=Application
 DocPath=kinfocenter/dma/index.html
-Categories=Qt;KDE;X-KDE-settings-hardware;
+Categories=Qt;KDE;X-KDE-settings-information;
 
 
 X-KDE-Library=info

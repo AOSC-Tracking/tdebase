@@ -240,5 +240,5 @@ Keywords[vi]=Âm thanh,âm,Bo mạch âm thanh,Midi,OSS,Thông tin Hệ thống
 Keywords[wa]=Son,Audiocåte son,MIDI,OSS,informåcion do sistinme
 Keywords[zh_CN]=Sound,Audio,Soundcard,MIDI,OSS,System Information,音频,音响,声卡,系统信息
 Keywords[zh_TW]=Sound,Audio,Soundcard,Midi,OSS,系統資訊
-Categories=Qt;KDE;X-KDE-settings-hardware;
+Categories=Qt;KDE;X-KDE-settings-information;
 

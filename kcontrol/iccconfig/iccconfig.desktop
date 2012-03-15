@@ -9,7 +9,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-RootOnly=true
 X-KDE-SubstituteUID=true
 
-Categories=Qt;KDE;X-KDE-settings-peripherals;
+Categories=Qt;KDE;X-KDE-settings-hardware;
 Comment=Configure display ICC profile
 Comment[en_US]=Configure display ICC profile
 DocPath=kcontrol/iccconfig.html
@@ -19,3 +19,5 @@ Keywords=ICC,display,color,profile
 MimeType=
 Name=ICC Color Profile
 Name[en_US]=ICC Color Profile
+
+NoDisplay=false

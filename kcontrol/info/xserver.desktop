@@ -224,4 +224,4 @@ Keywords[wa]=X,X-Server,XServer,sierveu X,XFree86,håynaedje,Display,cåte videy
 Keywords[zh_CN]=X,X-Server,XServer,XFree86,Display,VideoCard,System InformationX 服务器,显示器,显卡,系统信息
 Keywords[zh_TW]=X,X-Server,XServer,XFree86,Display,VideoCard,System Information,X 伺服器,X伺服器,顯示器,顯示卡,系統資訊
 
-Categories=Qt;KDE;X-KDE-settings-hardware;
+Categories=Qt;KDE;X-KDE-settings-information;

@@ -237,4 +237,4 @@ Keywords[zh_CN]=USB,devices,viewer,control,设备,查看器,控制
 Keywords[zh_TW]=USB,devices,viewer,control,裝置,檢視器,控制
 Keywords[zu]=USB,amathukuzi ananjongo,umbukisi,lawula
 
-Categories=Qt;KDE;X-KDE-settings-hardware;
+Categories=Qt;KDE;X-KDE-settings-information;

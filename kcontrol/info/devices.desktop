@@ -3,7 +3,7 @@ Exec=kcmshell devices
 Icon=kcmdevices
 Type=Application
 DocPath=kinfocenter/devices/index.html
-Categories=Qt;KDE;X-KDE-settings-hardware;
+Categories=Qt;KDE;X-KDE-settings-information;
 
 
 X-KDE-Library=info

@@ -46,12 +46,19 @@
 		</Menu>
 	</Menu>
 	<Menu>
-		<Name>Peripherals</Name>
-		<Directory>kde-settings-peripherals.directory</Directory><!-- Rename KDE4? -->
+		<Name>Hardware</Name>
+		<Directory>kde-settings-hardware.directory</Directory>
 		<Include>
-			<Category>X-KDE-settings-peripherals</Category><!-- Remove KDE4 -->
+			<Category>X-KDE-settings-peripherals</Category>
 			<Category>X-KDE-settings-hardware</Category>
 		</Include>
+		<Menu>
+			<Name>Information</Name>
+			<Directory>kde-settings-information.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-information</Category>
+			</Include>
+		</Menu>
 	</Menu>
 	<Menu>
 		<Name>PowerControl</Name>

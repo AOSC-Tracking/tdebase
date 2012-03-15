@@ -216,5 +216,5 @@ Keywords[wa]=1394,IEEE 1394,Firewire,éndjins,håyneu,contrôle,corwaitaedje
 Keywords[zh_CN]=1394,Firewire,devices,viewer,control,设备,查看器,控制,火线
 Keywords[zh_TW]=1394,Firewire,devices,viewer,control,裝置,檢視器,控制
 
-Categories=Qt;KDE;X-KDE-settings-hardware;
+Categories=Qt;KDE;X-KDE-settings-information;
 
