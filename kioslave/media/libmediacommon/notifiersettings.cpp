@@ -109,7 +109,7 @@ TQValueList<NotifierAction*> NotifierSettings::actionsForMimetype( const TQStrin
 	return result;
 }
 
-bool NotifierSettings::tqaddAction( NotifierServiceAction *action )
+bool NotifierSettings::addAction( NotifierServiceAction *action )
 {
 	if ( !m_idMap.contains( action->id() ) )
 	{

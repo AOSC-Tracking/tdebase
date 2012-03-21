@@ -45,8 +45,8 @@ public:
   TQDomElement DomElement( ) const; // KDE4: s/D/d/
 
 protected:
-  void tqaddAction( KAction *action, const TQDomElement &menu = TQDomElement() );
-  void tqaddAction( const char *name, const TQDomElement &menu = TQDomElement() );
+  void addAction( KAction *action, const TQDomElement &menu = TQDomElement() );
+  void addAction( const char *name, const TQDomElement &menu = TQDomElement() );
   void addSeparator( const TQDomElement &menu = TQDomElement() );
   /// only add a separator if an action is added afterwards
   void addPendingSeparator();

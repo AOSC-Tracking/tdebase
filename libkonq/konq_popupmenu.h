@@ -210,7 +210,7 @@ public:
   * Constructor
   * If you want to insert a dynamic item or menu to konqpopupmenu
   * this class is the right choice.
-  * Create a KAction and use _popup->tqaddAction(new KAction );
+  * Create a KAction and use _popup->addAction(new KAction );
   * If you want to create a submenu use _popup->addGroup( );
   */
   KonqPopupMenuPlugin( KonqPopupMenu *_popup, const char *name ); // this should also be the parent

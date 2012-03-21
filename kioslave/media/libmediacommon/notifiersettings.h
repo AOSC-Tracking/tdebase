@@ -36,7 +36,7 @@ public:
 	TQValueList<NotifierAction*> actions();
 	TQValueList<NotifierAction*> actionsForMimetype( const TQString &mimetype );
 	
-	bool tqaddAction( NotifierServiceAction *action );
+	bool addAction( NotifierServiceAction *action );
 	bool deleteAction( NotifierServiceAction *action );
 
 	void setAutoAction( const TQString &mimetype, NotifierAction *action );

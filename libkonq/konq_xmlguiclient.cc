@@ -70,12 +70,12 @@ TQDomDocument KonqXMLGUIClient::domDocument() const
   return m_doc;
 }
 
-void KonqXMLGUIClient::tqaddAction( KAction *act, const TQDomElement &menu )
+void KonqXMLGUIClient::addAction( KAction *act, const TQDomElement &menu )
 {
-  tqaddAction( act->name(), menu );
+  addAction( act->name(), menu );
 }
 
-void KonqXMLGUIClient::tqaddAction( const char *name, const TQDomElement &menu )
+void KonqXMLGUIClient::addAction( const char *name, const TQDomElement &menu )
 {
   static const TQString& tagAction = KGlobal::staticQString( "action" );
 

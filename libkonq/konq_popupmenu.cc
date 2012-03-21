@@ -291,7 +291,7 @@ int KonqPopupMenu::insertServices(const ServiceList& list,
                 act->setIconSet( pix );
             }
 
-            tqaddAction( act, menu ); // Add to toplevel menu
+            addAction( act, menu ); // Add to toplevel menu
 
             m_mapPopupServices[ id++ ] = *it;
             ++count;
@@ -497,7 +497,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
             m_pMenuNew->slotCheckUpToDate();
             m_pMenuNew->setPopupFiles( m_lstPopupURLs );
 
-            tqaddAction( m_pMenuNew );
+            addAction( m_pMenuNew );
 
             addSeparator();
         }
@@ -506,31 +506,31 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
             if (d->m_itemFlags & KParts::BrowserExtension::ShowCreateDirectory)
             {
                 KAction *actNewDir = new KAction( i18n( "Create &Folder..." ), "folder_new", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupNewDir() ), &m_ownActions, "newdir" );
-                tqaddAction( actNewDir );
+                addAction( actNewDir );
                 addSeparator();
             }
         }
     } else if ( isIntoTrash ) {
         // Trashed item, offer restoring
         act = new KAction( i18n( "&Restore" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupRestoreTrashedItems() ), &m_ownActions, "restore" );
-        tqaddAction( act );
+        addAction( act );
     }
 
     if (d->m_itemFlags & KParts::BrowserExtension::ShowNavigationItems)
     {
         if (d->m_itemFlags & KParts::BrowserExtension::ShowUp)
-            tqaddAction( "up" );
-        tqaddAction( "back" );
-        tqaddAction( "forward" );
+            addAction( "up" );
+        addAction( "back" );
+        addAction( "forward" );
         if (d->m_itemFlags & KParts::BrowserExtension::ShowReload)
-            tqaddAction( "reload" );
+            addAction( "reload" );
         addSeparator();
     }
 
     // "open in new window" is either provided by us, or by the tabhandling group
     if (actNewWindow)
     {
-        tqaddAction( actNewWindow );
+        addAction( actNewWindow );
         addSeparator();
     }
     addGroup( "tabhandling" ); // includes a separator
@@ -539,21 +539,21 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
     {
         if ( !currentDir && sReading ) {
             if ( sDeleting ) {
-                tqaddAction( "cut" );
+                addAction( "cut" );
             }
-            tqaddAction( "copy" );
+            addAction( "copy" );
         }
 
         if ( S_ISDIR(mode) && sWriting ) {
             if ( currentDir )
-                tqaddAction( "paste" );
+                addAction( "paste" );
             else
-                tqaddAction( "pasteto" );
+                addAction( "pasteto" );
         }
         if ( !currentDir )
         {
             if ( m_lstItems.count() == 1 && sMoving )
-                tqaddAction( "rename" );
+                addAction( "rename" );
 
             bool addTrash = false;
             bool addDel = false;
@@ -576,9 +576,9 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
             }
 
             if ( addTrash )
-                tqaddAction( "trash" );
+                addAction( "trash" );
             if ( addDel )
-                tqaddAction( "del" );
+                addAction( "del" );
         }
     }
     if ( isCurrentTrash )
@@ -587,7 +587,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         KSimpleConfig trashConfig( "trashrc", true );
         trashConfig.setGroup( "Status" );
         act->setEnabled( !trashConfig.readBoolEntry( "Empty", true ) );
-        tqaddAction( act );
+        addAction( act );
     }
     addGroup( "editactions" );
 
@@ -620,7 +620,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         if (m_lstItems.count() > 1)
             act->setEnabled(false);
         if (kapp->authorizeKAction("bookmarks"))
-            tqaddAction( act );
+            addAction( act );
         if (bIsLink)
             addGroup( "linkactions" );
     }
@@ -903,7 +903,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
                     act = new KAction( actionName, (*it)->pixmap( KIcon::Small ), 0,
                                        TQT_TQOBJECT(this), TQT_SLOT( slotRunService() ),
                                        &m_ownActions, nam.prepend( "appservice_" ) );
-                    tqaddAction( act, menu );
+                    addAction( act, menu );
 
                     m_mapPopup[ id++ ] = *it;
                 }
@@ -919,12 +919,12 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
                     openWithActionName = i18n( "&Open With..." );
                 }
                 KAction *openWithAct = new KAction( openWithActionName, 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupOpenWith() ), &m_ownActions, "openwith" );
-                tqaddAction( openWithAct, menu );
+                addAction( openWithAct, menu );
             }
             else // no app offers -> Open With...
             {
                 act = new KAction( i18n( "&Open With..." ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupOpenWith() ), &m_ownActions, "openwith" );
-                tqaddAction( act );
+                addAction( act );
             }
 
         }
@@ -979,7 +979,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
     {
         act = new KAction( i18n( "&Properties" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupProperties() ),
                            &m_ownActions, "properties" );
-        tqaddAction( act );
+        addAction( act );
     }
 
     while ( !m_menuElement.lastChild().isNull() &&
@@ -993,7 +993,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
             addSeparator();
             act = new KAction( i18n("Share"), 0, TQT_TQOBJECT(this), TQT_SLOT( slotOpenShareFileDialog() ),
                                &m_ownActions, "sharefile" );
-            tqaddAction( act );
+            addAction( act );
         }
     }
 

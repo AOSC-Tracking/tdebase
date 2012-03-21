@@ -159,7 +159,7 @@ void NotifierModule::slotAdd()
 	
 	if ( value == TQDialog::Accepted )
 	{
-		m_settings.tqaddAction( action );
+		m_settings.addAction( action );
 		updateListBox();
 		emit changed( true );
 	}
