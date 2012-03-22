@@ -242,7 +242,7 @@ Workspace::Workspace( bool restore )
         strcat(filename, home);
         strcat(filename, configfile);
 
-        printf("reading '%s' as kompmgr pidfile\n\n", filename);
+        printf("[kwin-workspace] reading '%s' as kompmgr pidfile\n\n", filename);
 
         // Now that we did all that by way of introduction...read the file!
         FILE *pFile;
@@ -1094,7 +1094,7 @@ void Workspace::slotReconfigure()
         strcat(filename, home);
         strcat(filename, configfile);
 
-        printf("reading '%s' as kompmgr pidfile\n\n", filename);
+        printf("[kwin-workspace] reading '%s' as kompmgr pidfile\n\n", filename);
 
         // Now that we did all that by way of introduction...read the file!
         FILE *pFile;
