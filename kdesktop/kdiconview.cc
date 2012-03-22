@@ -1141,6 +1141,15 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
             kdDebug(1214)<<"Using saved position"<<endl;
         }
       }
+      else
+      {
+            // Not found, we'll need to save the new pos
+            kdDebug(1214)<<"slotNewItems(): New item without position information, try to find a sane location"<<endl;
+
+            moveToFreePosition(fileIVI);
+
+            m_bNeedSave = true;
+      }
     }
   }
 
