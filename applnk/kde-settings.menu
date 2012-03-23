@@ -46,8 +46,8 @@
 		</Menu>
 	</Menu>
 	<Menu>
-		<Name>Hardware</Name>
-		<Directory>kde-settings-hardware.directory</Directory>
+		<Name>Peripherals</Name>
+		<Directory>kde-settings-peripherals.directory</Directory>
 		<Include>
 			<Category>X-KDE-settings-peripherals</Category>
 			<Category>X-KDE-settings-hardware</Category>
