@@ -83,6 +83,7 @@ void MediaManager::loadBackends()
 #ifdef COMPILE_HALBACKEND
     if ( MediaManagerSettings::self()->halBackendEnabled() )
     {
+        m_mediaList.blockSignals(false);
         m_halbackend = new HALBackend(m_mediaList, this);
         if (m_halbackend->InitHal())
         {
@@ -97,6 +98,7 @@ void MediaManager::loadBackends()
         {
             delete m_halbackend;
             m_halbackend = 0;
+            m_mediaList.blockSignals(true);
         }
     }
 #endif // COMPILE_HALBACKEND
