@@ -442,6 +442,10 @@ void KMiniPager::wheelEvent( TQWheelEvent* e )
 {
     int newDesk;
     int desktops = KWin::numberOfDesktops();
+   
+
+    if(cycleWindow()){
+
     if (m_kwin->numberOfViewports(0).width() * m_kwin->numberOfViewports(0).height() > 1 )
         desktops = m_kwin->numberOfViewports(0).width() * m_kwin->numberOfViewports(0).height();
     if (e->delta() < 0)
@@ -452,8 +456,9 @@ void KMiniPager::wheelEvent( TQWheelEvent* e )
     {
         newDesk = (desktops + m_curDesk - 2) % desktops + 1;
     }
-
+  
     slotButtonSelected(newDesk);
+    }
 }
 
 void KMiniPager::drawButtons()
@@ -729,6 +734,7 @@ void KMiniPager::aboutToShowContextMenu()
 
     showMenu->insertItem(i18n("&Window Thumbnails"), WindowThumbnails);
     showMenu->insertItem(i18n("&Window Icons"), WindowIcons);
+    showMenu->insertItem(i18n("&Cycle on Wheel"), Cycle);
 
     showMenu->insertTitle(i18n("Text Label"));
     showMenu->insertItem(i18n("Desktop N&umber"),
@@ -760,6 +766,7 @@ void KMiniPager::aboutToShowContextMenu()
 
     m_contextMenu->setItemChecked(WindowThumbnails, m_settings->preview());
     m_contextMenu->setItemChecked(WindowIcons, m_settings->icons());
+    m_contextMenu->setItemChecked(Cycle, m_settings->cycle());
     m_contextMenu->setItemEnabled(WindowIcons, m_settings->preview());
     m_contextMenu->setItemEnabled(RenameDesktop,
                                   m_settings->labelType() ==
@@ -812,11 +819,12 @@ void KMiniPager::contextMenuActivated(int result)
             m_settings->setPreview(!m_settings->preview());
             TaskManager::the()->trackGeometry();
             break;
-
+        case Cycle:
+             m_settings->setCycle(!m_settings->cycle());
+            break;
         case WindowIcons:
             m_settings->setIcons(!m_settings->icons());
             break;
-
         case PagerSettings::EnumBackgroundType::BgPlain + bgOffset:
             m_settings->setBackgroundType(PagerSettings::EnumBackgroundType::BgPlain);
             break;

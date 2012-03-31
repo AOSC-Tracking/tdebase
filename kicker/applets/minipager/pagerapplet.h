@@ -64,14 +64,16 @@ public:
     void setActive( WId active ) { m_activeWindow = active; }
     WId activeWindow() { return m_activeWindow; }
 
-    enum ConfigOptions { LaunchExtPager = 96, WindowThumbnails,
+    enum ConfigOptions { LaunchExtPager = 96, WindowThumbnails, Cycle,
                          WindowIcons, ConfigureDesktops, RenameDesktop };
     int labelType() const { return m_settings->labelType(); }
 
     int bgType() const { return m_settings->backgroundType(); }
 
     bool desktopPreview() const { return m_settings->preview(); }
+    bool cycleWindow() const { return m_settings->cycle(); }
     bool windowIcons() const { return m_settings->icons(); }
+
 
     Orientation orientation() const { return KPanelApplet::orientation(); }
     Direction popupDirection() { return KPanelApplet::popupDirection(); }

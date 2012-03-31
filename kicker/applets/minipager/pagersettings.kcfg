@@ -49,10 +49,15 @@
             <label>Show desktop preview?</label>
             <default>true</default>
         </entry>
-
+        
         <entry name="Icons" type="Bool">
             <label>Show window icons in previews?</label>
             <default>true</default>
+        </entry>
+        
+        <entry name="Cycle" type="Bool">
+          <label>Cycle through desktops with wheel?</label>
+          <default>true</default>
         </entry>
     </group>
 </kcfg>
