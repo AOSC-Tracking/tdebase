@@ -27,7 +27,7 @@ link_directories(
 ##### other data ################################
 
 install( FILES minipagerapplet.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
-
+install( FILES pagersettings.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 
 ##### minipager_panelapplet (module) ############
 
