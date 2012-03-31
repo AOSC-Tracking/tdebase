@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Link
-Path=$( kxdglauncher --getpath --xdgname DOCUMENTS )
+URL=$( kxdglauncher --getpath --xdgname DOCUMENTS )
 Icon=folder_man
 Name=Documents Folder
 Name[af]=Dokument Gids
