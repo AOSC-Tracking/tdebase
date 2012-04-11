@@ -178,6 +178,17 @@ if [ -d $KDEDIR/bin ]; then
     fi
   fi
 fi
+if [ -d $KDEDIR/share/man ]; then
+  if [ -x /usr/bin/manpath ]; then
+    if [ "`manpath -q | grep \"$KDEDIR/share/man\"`" = "" ]; then
+      export MANPATH=$KDEDIR/share/man:$MANPATH
+    fi
+  else
+    if [ "`echo $MANPATH | grep \"$KDEDIR/share/man\"`" = "" ]; then
+      export MANPATH=$KDEDIR/share/man:$MANPATH
+    fi
+  fi
+fi
 
 if [ "$XDG_CONFIG_DIRS" = "" ]; then
   if [ -d /etc/xdg ]; then
@@ -206,7 +217,7 @@ if [ -d $TDE_XDG_DIR ]; then
     if [ "$XDG_CONFIG_DIRS" = "" ]; then
       XDG_CONFIG_DIRS=$TDE_XDG_DIR
     else
-      XDG_CONFIG_DIRS=$XDG_CONFIG_DIRS:$TDE_XDG_DIR
+      XDG_CONFIG_DIRS=$TDE_XDG_DIR:$XDG_CONFIG_DIRS
     fi
   fi
 fi
@@ -216,24 +227,33 @@ fi
 
 # Explicitly set $XDG_DATA_DIRS only when Trinity is not installed in /usr.
 # Explicitly declaring $XDG_DATA_DIRS will override the default search path of /usr/share.
+# Explicitly declaring $XDG_DATA_DIRS will override $KDEDIRS, which must then be
+# explicitly identified in the $XDG_DATA_DIRS string to remain useful.
+# The $KDEDIR variable is intended to be singular and $KDEDIRS plural. When $KDEDIRS
+# exists in the environment then parse that variable into separate directories.
+# $KDEDIRS should contain whatever is set in $KDEDIR. Therefore any additional directories
+# set in $KDEDIRS are intended to override data files found in $KDEDIR. Those additional
+# directories should be placed before $KDEDIR and before /usr/share.
 if [ "$KDEDIR" != "/usr" ] && [ -d $KDEDIR/share ]; then
   if [ "$XDG_DATA_DIRS" = "" ]; then
     # Ensure the standard location of /usr/share is included.
     XDG_DATA_DIRS=/usr/share
   else
     if [ "`echo $XDG_DATA_DIRS | grep \"/usr/share\"`" = "" ]; then
-      XDG_DATA_DIRS=/usr/share:$XDG_DATA_DIRS
+      XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share
     fi
   fi
   if [ "`echo $XDG_DATA_DIRS | grep \"$KDEDIR/share\"`" = "" ]; then
-    XDG_DATA_DIRS=$XDG_DATA_DIRS:$KDEDIR/share
+    XDG_DATA_DIRS=$KDEDIR/share:$XDG_DATA_DIRS
+  fi
+  if [ "$KDEDIRS" != "" ]; then
+    for i in `seq \`echo $KDEDIRS | awk -F : '{print NF}'\` -1 1`; do
+      if [ "`echo $XDG_DATA_DIRS | grep \"\`echo $KDEDIRS | cut -d: -f${i}\`\"`" = "" ]; then
+        XDG_DATA_DIRS=`echo $KDEDIRS | cut -d: -f${i}`/share:$XDG_DATA_DIRS
+      fi
+    done
   fi
   export XDG_DATA_DIRS
-fi
-if [ -d $KDEDIR/share/man ]; then
-  if [ "`echo $MANPATH | grep \"$KDEDIR/share/man\"`" = "" ]; then
-    export MANPATH=$KDEDIR/share/man:$MANPATH
-  fi
 fi
 
 test -n "$KDEHOME" && kdehome=`echo "$KDEHOME" | sed "s,^~/,$HOME/,"`
