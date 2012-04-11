@@ -332,7 +332,7 @@ these numbers when saving a session in
 </varlistentry>
 
 <varlistentry>
-<term><filename class="directory">share/doc/HTML</filename></term>
+<term><filename class="directory">share/doc/tde/HTML</filename></term>
 <listitem><para>This directory contains documentation for &kde;
 applications. Documentation is categorized by language and the
 application it belongs to. Normally at least two files can be found in
