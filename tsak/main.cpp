@@ -330,14 +330,20 @@ class PipeHandler
 public:
 	PipeHandler();
 	~PipeHandler();
+
+	bool active;
 };
 
 PipeHandler::PipeHandler()
 {
+	active = false;
 }
 
 PipeHandler::~PipeHandler()
 {
+	if (active) {
+		tearDownPipe();
+	}
 	tearDownLockingPipe();
 }
 
@@ -388,6 +394,8 @@ int main (int argc, char *argv[])
 	}
 
 	while (1) {
+		controlpipe.active = true;
+
 		if ((getuid ()) != 0) {
 			printf ("You are not root! This WILL NOT WORK!\nDO NOT attempt to bypass security restrictions, e.g. by changing keyboard permissions or owner, if you want the SAK system to remain secure...\n");
 			return 5;
@@ -405,7 +413,9 @@ int main (int argc, char *argv[])
 				sleep(1);
 			else {
 				int i=fork();
-				if (i<0) return 12; // fork failed
+				if (i<0) {
+					return 12; // fork failed
+				}
 				if (i>0) {
 					return 4;
 				}
@@ -545,9 +555,12 @@ int main (int argc, char *argv[])
 
 				// fork udev monitor process
 				int i=fork();
-				if (i<0) return 10; // fork failed
+				if (i<0) {
+					return 10; // fork failed
+				}
 				if (i>0) {
 					// Terminate parent
+					controlpipe.active = false;
 					return 0;
 				}
 
