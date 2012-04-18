@@ -156,7 +156,7 @@ int find_keyboards() {
 	for (i=0; i<MAX_KEYBOARDS; i++) {
 		keyboard_fds[i] = 0;
 	}
-	
+
 	for (i=0; i<MAX_INPUT_NODE; i++) {
 		snprintf(filename,sizeof(filename), "/dev/input/event%d", i);
 
@@ -203,7 +203,7 @@ void tearDownLockingPipe()
 bool setFileLock(int fd, bool close_on_failure)
 {
 	struct flock fl;
-	
+
 	fl.l_type = F_WRLCK;
 	fl.l_whence = SEEK_SET;
 	fl.l_start = 0;
@@ -245,10 +245,10 @@ bool setupPipe()
 	/* Create the FIFOs if they do not exist */
 	umask(0);
 	mkdir(FIFO_DIR,0644);
-	
+
 	mknod(FIFO_FILE_OUT, S_IFIFO|0600, 0);
 	chmod(FIFO_FILE_OUT, 0600);
-	
+
 	mPipe_fd_out = open(FIFO_FILE_OUT, O_RDWR | O_NONBLOCK);
 	if (mPipe_fd_out > -1) {
 		mPipeOpen_out = true;
@@ -263,10 +263,10 @@ bool setupLockingPipe()
 	/* Create the FIFOs if they do not exist */
 	umask(0);
 	mkdir(FIFO_DIR,0644);
-	
+
 	mknod(FIFO_LOCKFILE_OUT, S_IFIFO|0600, 0);
 	chmod(FIFO_LOCKFILE_OUT, 0600);
-	
+
 	mPipe_lockfd_out = open(FIFO_LOCKFILE_OUT, O_RDWR | O_NONBLOCK);
 	if (mPipe_lockfd_out > -1) {
 		// Set the exclusive file lock
@@ -321,7 +321,7 @@ void restart_tsak()
 	me[2047] = 0;
 	execl(me, basename(me), (char*)NULL);
 #else
-	_exit(0);	
+	_exit(0);
 #endif
 }
 
@@ -392,7 +392,7 @@ int main (int argc, char *argv[])
 			printf ("You are not root! This WILL NOT WORK!\nDO NOT attempt to bypass security restrictions, e.g. by changing keyboard permissions or owner, if you want the SAK system to remain secure...\n");
 			return 5;
 		}
-	
+
 		// Find keyboards
 		find_keyboards();
 		if (keyboard_fd_num == 0) {
@@ -421,7 +421,7 @@ int main (int argc, char *argv[])
 				// Print Device Name
 				ioctl (keyboard_fds[current_keyboard], EVIOCGNAME (sizeof (name)), name);
 				fprintf(stderr, "Reading from keyboard: (%s)\n", name);
-			
+
 				// Create filtered virtual output device
 				devout[current_keyboard]=open("/dev/misc/uinput",O_RDWR|O_NONBLOCK);
 				if (devout[current_keyboard]<0) {
@@ -488,7 +488,7 @@ int main (int argc, char *argv[])
 							}
 
 							while (1) {
-								if ((rd = read (keyboard_fds[current_keyboard], ev, size * 2)) < size) {
+								if ((rd = read (keyboard_fds[current_keyboard], ev, size)) < size) {
 									fprintf(stderr, "Read failed.\n");
 									break;
 								}
@@ -505,33 +505,31 @@ int main (int argc, char *argv[])
 
 								value = ev[0].value;
 
-								if (value != ' ' && ev[1].value == 0 && ev[1].type == 1){ // Read the key release event
-									if (keycode[(ev[1].code)]) {
-										if (strcmp(keycode[(ev[1].code)], "<control>") == 0) ctrl_down = false;
-										if (strcmp(keycode[(ev[1].code)], "<alt>") == 0) alt_down = false;
+								if (ev[0].value == 0 && ev[0].type == 1) { // Read the key release event
+									if (keycode[(ev[0].code)]) {
+										if (strcmp(keycode[(ev[0].code)], "<control>") == 0) ctrl_down = false;
+										if (strcmp(keycode[(ev[0].code)], "<alt>") == 0) alt_down = false;
 									}
 								}
-								if (value != ' ' && ev[1].value == 1 && ev[1].type == 1){ // Read the key press event
-									if (keycode[(ev[1].code)]) {
-										if (strcmp(keycode[(ev[1].code)], "<control>") == 0) ctrl_down = true;
-										if (strcmp(keycode[(ev[1].code)], "<alt>") == 0) alt_down = true;
+								if (ev[0].value == 1 && ev[0].type == 1) { // Read the key press event
+									if (keycode[(ev[0].code)]) {
+										if (strcmp(keycode[(ev[0].code)], "<control>") == 0) ctrl_down = true;
+										if (strcmp(keycode[(ev[0].code)], "<alt>") == 0) alt_down = true;
 									}
 								}
 
 								hide_event = false;
-								if (keycode[(ev[1].code)]) {
-									if (alt_down && ctrl_down && (strcmp(keycode[(ev[1].code)], "<del>") == 0)) {
-										hide_event = true;
+								if (ev[0].value == 1 && ev[0].type == 1) { // Read the key press event
+									if (keycode[(ev[0].code)]) {
+										if (alt_down && ctrl_down && (strcmp(keycode[(ev[0].code)], "<del>") == 0)) {
+											hide_event = true;
+										}
 									}
 								}
 
 								if ((hide_event == false) && (ev[0].type != EV_LED) && (ev[1].type != EV_LED)) {
 									// Pass the event on...
 									event = ev[0];
-									if (write(devout[current_keyboard], &event, sizeof event) < 0) {
-										fprintf(stderr, "Unable to replicate keyboard event!\n");
-									}
-									event = ev[1];
 									if (write(devout[current_keyboard], &event, sizeof event) < 0) {
 										fprintf(stderr, "Unable to replicate keyboard event!\n");
 									}
@@ -580,7 +578,7 @@ int main (int argc, char *argv[])
 				mon = udev_monitor_new_from_netlink(udev, "udev");
 				udev_monitor_filter_add_match_subsystem_devtype(mon, "input", NULL);
 				udev_monitor_enable_receiving(mon);
-	
+
 				while (1) {
 					// Watch for input from the monitoring process
 					dev = udev_monitor_receive_device(mon);
@@ -599,7 +597,7 @@ int main (int argc, char *argv[])
 						// Print name of keyboard
 						hotplug_fd = open(filename, O_RDWR|O_SYNC);
 						ioctl(hotplug_fd, EVIOCGBIT(EV_KEY, sizeof(key_bitmask)), key_bitmask);
-					
+
 						/* We assume that anything that has an alphabetic key in the
 							QWERTYUIOP range in it is the main keyboard. */
 						for (j = KEY_Q; j <= KEY_P; j++) {
@@ -623,7 +621,8 @@ int main (int argc, char *argv[])
 						}
 					}
 					else {
-						fprintf(stderr, "No Device from receive_device(). An error occured.\n");
+						fprintf(stderr, "No Device from receive_device().  A udev error has occurred; terminating hotplug monitoring process.\n");
+						return 11;
 					}
 				}
 
