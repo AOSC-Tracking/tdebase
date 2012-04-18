@@ -207,7 +207,7 @@ fmtstr( OutCh dopr_outch, void *bp,
 {
 	int padlen, strln, curcol;
 #ifdef PRINT_QUOTES
-	int lastcol;
+	int lastcol = 0;
 #endif
 	char ch;
 
@@ -295,9 +295,9 @@ DoPr( OutCh dopr_outch, void *bp, const char *format, va_list args )
 	void *arptr;
 #endif
 	unsigned long value;
-	int radix, min, max, flags, cflags, errn;
+	int radix = 0, min, max, flags, cflags, errn;
 #ifdef PRINT_ARRAYS
-	int arlen;
+	int arlen = 0;
 	unsigned aridx;
 	char sch;
 #endif

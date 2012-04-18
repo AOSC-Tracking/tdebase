@@ -65,6 +65,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <pwd.h>
 
+#define TSAK_FIFO_FILE "/tmp/ksocket-global/tsak"
+
 bool argb_visual_available = false;
 bool has_kwin = false;
 bool is_themed = false;
@@ -197,6 +199,9 @@ kg_main( const char *argv0 )
 		tsak = new KProcess;
 		*tsak << TQCString( argv0, strrchr( argv0, '/' ) - argv0 + 2 ) + "tsak";
 		tsak->start(KProcess::Block, KProcess::AllOutput);
+	}
+	else {
+		remove(TSAK_FIFO_FILE);
 	}
 	if (tsak) {
 		tsak->closeStdin();

@@ -945,10 +945,6 @@ static int maxTTY, TTYmask;
 static void
 getInitTab( void )
 {
-	File it;
-	char *p, *eol, *ep;
-	int tty;
-
 	if (maxTTY)
 		return;
 	if (!maxTTY) {
