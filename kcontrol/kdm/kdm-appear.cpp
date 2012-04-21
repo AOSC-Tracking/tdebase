@@ -21,7 +21,9 @@
 
 #include <unistd.h>
 #include <sys/types.h>
-
+#include <stdlib.h>
+#include <sys/types.h>
+#include <signal.h>
 
 #include <tqbuttongroup.h>
 #include <tqlabel.h>
@@ -47,11 +49,14 @@
 #include "kdm-appear.h"
 #include "kbackedcombobox.h"
 
+#include "config.h"
+
 extern KSimpleConfig *config;
 
+#define TSAK_LOCKFILE "/tmp/ksocket-global/tsak.lock"
 
 KDMAppearanceWidget::KDMAppearanceWidget(TQWidget *parent, const char *name)
-  : TQWidget(parent, name)
+  : TQWidget(parent, name), sakwarning(0)
 {
   TQString wtstr;
 
@@ -247,6 +252,13 @@ KDMAppearanceWidget::KDMAppearanceWidget(TQWidget *parent, const char *name)
   TQGridLayout *hbox2 = new TQGridLayout( group->layout(), 2, 2, KDialog::spacingHint() );
   hbox2->setColStretch(1, 1);
   hbox2->addWidget(sakbox, 1, 0);
+  if (getuid() == 0 && config->checkConfigFilesWritable( true )) {
+    if (system(KDE_BINDIR "/tsak checkdeps") != 0) {
+      sakbox->setEnabled(false);
+      sakwarning = new TQLabel( i18n("Secure Attention Key support is not available on your system.  Please check for the presence of evdev and uinput."), group );
+      hbox2->addWidget(sakwarning, 2, 0);
+    }
+  }
   wtstr = i18n("Here you can enable or disable the Secure Attention Key [SAK] anti-spoofing measure.");
   TQWhatsThis::add( sakbox, wtstr );
 
@@ -465,6 +477,21 @@ void KDMAppearanceWidget::save()
   config->writeEntry("Language", langcombo->current());
 
   config->writeEntry("UseSAK", sakbox->isChecked());
+
+  // Enable/disable tsak as needed
+  if (sakbox->isChecked()) {
+    system(KDE_BINDIR "/tsak");
+  }
+  else {
+    // Get PID
+    TQFile file(TSAK_LOCKFILE);
+    if (file.open(IO_ReadOnly)) {
+      TQTextStream stream(&file);
+      unsigned long tsakpid = stream.readLine().toULong();
+      file.close();
+      kill(tsakpid, SIGTERM);
+    }
+  }
 }
 
 
@@ -516,7 +543,12 @@ void KDMAppearanceWidget::load()
   langcombo->setCurrentItem(config->readEntry("Language", "C"));
 
   // See if the SAK is enabled
-  sakbox->setChecked(config->readBoolEntry("UseSAK", true));
+  if (sakwarning) {
+    sakbox->setChecked(config->readBoolEntry("UseSAK", true));
+  }
+  else {
+    sakbox->setChecked(false);
+  }
 }
 
 

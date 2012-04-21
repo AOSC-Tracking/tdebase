@@ -91,6 +91,7 @@ private:
 	KBackedComboBox    *echocombo;
 	KLanguageButton *langcombo;
 	TQCheckBox    *sakbox;
+	TQLabel    *sakwarning;
 
 };
 

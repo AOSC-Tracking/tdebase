@@ -21,6 +21,7 @@ License along with tsak. If not, see http://www.gnu.org/licenses/.
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <exception>
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
@@ -37,6 +38,8 @@ License along with tsak. If not, see http://www.gnu.org/licenses/.
 #include <signal.h>
 #include <libudev.h>
 #include <libgen.h>
+
+using namespace std;
 
 #define FIFO_DIR "/tmp/ksocket-global"
 #define FIFO_FILE_OUT "/tmp/ksocket-global/tsak"
@@ -92,6 +95,38 @@ const char *keycode[256] =
 int bit_set(size_t i, const byte* a)
 {
   return a[i/CHAR_BIT] & (1 << i%CHAR_BIT);
+}
+
+/* exception handling */
+struct exit_exception {
+	int c;
+	exit_exception(int c):c(c) { }
+};
+
+/* signal handler */
+void signal_callback_handler(int signum)
+{
+	// Terminate program
+	throw exit_exception(signum);
+	exit(signum);
+}
+
+/*  termination handler */
+void tsak_friendly_termination() {
+	int i;
+
+	// Close down all child processes
+	for (i=0; i<MAX_KEYBOARDS; i++) {
+		if (child_pids[i] != 0) {
+			kill(child_pids[i], SIGTERM);
+		}
+	}
+
+	// Wait for process termination
+	sleep(1);
+
+	fprintf(stderr, "tsak terminated by external request\n");
+	exit(17);
 }
 
 // --------------------------------------------------------------------------------------
@@ -258,17 +293,24 @@ bool setupPipe()
 	return setFileLock(mPipe_fd_out, true);
 }
 
-bool setupLockingPipe()
+bool setupLockingPipe(bool writepid)
 {
 	/* Create the FIFOs if they do not exist */
 	umask(0);
 	mkdir(FIFO_DIR,0644);
 
-	mknod(FIFO_LOCKFILE_OUT, S_IFIFO|0600, 0);
+	mknod(FIFO_LOCKFILE_OUT, 0600, 0);
 	chmod(FIFO_LOCKFILE_OUT, 0600);
 
 	mPipe_lockfd_out = open(FIFO_LOCKFILE_OUT, O_RDWR | O_NONBLOCK);
 	if (mPipe_lockfd_out > -1) {
+		if (writepid) {
+			// Write my PID to the file
+			pid_t tsakpid = getpid();
+			char pidstring[1024];
+			sprintf(pidstring, "%d", tsakpid);
+			write(mPipe_lockfd_out, pidstring, strlen(pidstring));
+		}
 		// Set the exclusive file lock
 		return setFileLock(mPipe_lockfd_out, true);
 	}
@@ -343,8 +385,8 @@ PipeHandler::~PipeHandler()
 {
 	if (active) {
 		tearDownPipe();
+		tearDownLockingPipe();
 	}
-	tearDownLockingPipe();
 }
 
 int main (int argc, char *argv[])
@@ -360,290 +402,318 @@ int main (int argc, char *argv[])
 	bool hide_event = false;
 	bool established = false;
 	bool testrun = false;
+	bool depcheck = false;
 	int current_keyboard;
 	bool can_proceed;
 
 	// Ignore SIGPIPE
 	signal(SIGPIPE, SIG_IGN);
 
-	for (i=0; i<MAX_KEYBOARDS; i++) {
-		child_pids[i] = 0;
-	}
+	// Register signal handlers
+	// Register signal and signal handler
+	signal(SIGINT, signal_callback_handler);
+	signal(SIGTERM, signal_callback_handler);
 
-	if (argc == 2) {
-		if (strcmp(argv[1], "checkactive") == 0) {
-			testrun = true;
-		}
-	}
+	set_terminate(tsak_friendly_termination);
 
-	// Check for existing file locks
-	if (!checkFileLock()) {
-		fprintf(stderr, "Another instance of this program is already running [1]\n");
-		return 8;
-	}
-	if (!setupLockingPipe()) {
-		fprintf(stderr, "Another instance of this program is already running [2]\n");
-		return 8;
-	}
-
-	// Create the output pipe
-	PipeHandler controlpipe;
-	if (!setupPipe()) {
-		fprintf(stderr, "Another instance of this program is already running\n");
-		return 8;
-	}
-
-	while (1) {
-		controlpipe.active = true;
-
-		if ((getuid ()) != 0) {
-			printf ("You are not root! This WILL NOT WORK!\nDO NOT attempt to bypass security restrictions, e.g. by changing keyboard permissions or owner, if you want the SAK system to remain secure...\n");
-			return 5;
+	try {
+		for (i=0; i<MAX_KEYBOARDS; i++) {
+			child_pids[i] = 0;
 		}
 
-		// Find keyboards
-		find_keyboards();
-		if (keyboard_fd_num == 0) {
-			printf ("Could not find any usable keyboard(s)!\n");
-			// Make sure everyone knows we physically can't detect a SAK 
-			// Before we do this we broadcast one so that active dialogs are updated appropriately
-			// Also, we keep watching for a keyboard to be added via a forked child process...
-			broadcast_sak();
-			if (established)
-				sleep(1);
-			else {
-				int i=fork();
-				if (i<0) {
-					return 12; // fork failed
-				}
-				if (i>0) {
-					return 4;
-				}
-				sleep(1);
-				restart_tsak();
+		if (argc == 2) {
+			if (strcmp(argv[1], "checkactive") == 0) {
+				testrun = true;
+			}
+			if (strcmp(argv[1], "checkdeps") == 0) {
+				depcheck = true;
 			}
 		}
-		else {
-			fprintf(stderr, "Found %d keyboard(s)\n", keyboard_fd_num);
 
-			can_proceed = true;
-			for (current_keyboard=0;current_keyboard<keyboard_fd_num;current_keyboard++) {
-				// Print Device Name
-				ioctl (keyboard_fds[current_keyboard], EVIOCGNAME (sizeof (name)), name);
-				fprintf(stderr, "Reading from keyboard: (%s)\n", name);
+		if (depcheck == false) {
+			// Check for existing file locks
+			if (!checkFileLock()) {
+				fprintf(stderr, "Another instance of this program is already running [1]\n");
+				return 8;
+			}
+			if (!setupLockingPipe(true)) {
+				fprintf(stderr, "Another instance of this program is already running [2]\n");
+				return 8;
+			}
+		}
 
-				// Create filtered virtual output device
-				devout[current_keyboard]=open("/dev/misc/uinput",O_RDWR|O_NONBLOCK);
-				if (devout[current_keyboard]<0) {
-					devout[current_keyboard]=open("/dev/uinput",O_RDWR|O_NONBLOCK);
-					if (devout[current_keyboard]<0) {
-						perror("open(\"/dev/misc/uinput\")");
+		// Create the output pipe
+		PipeHandler controlpipe;
+		if (depcheck == false) {
+			if (!setupPipe()) {
+				fprintf(stderr, "Another instance of this program is already running\n");
+				return 8;
+			}
+		}
+
+		while (1) {
+			if (depcheck == false) {
+				controlpipe.active = true;
+			}
+
+			if ((getuid ()) != 0) {
+				printf ("You are not root! This WILL NOT WORK!\nDO NOT attempt to bypass security restrictions, e.g. by changing keyboard permissions or owner, if you want the SAK system to remain secure...\n");
+				return 5;
+			}
+
+			// Find keyboards
+			find_keyboards();
+			if (keyboard_fd_num == 0) {
+				printf ("Could not find any usable keyboard(s)!\n");
+				if (depcheck == true) {
+					return 50;
+				}
+				// Make sure everyone knows we physically can't detect a SAK
+				// Before we do this we broadcast one so that active dialogs are updated appropriately
+				// Also, we keep watching for a keyboard to be added via a forked child process...
+				broadcast_sak();
+				if (established)
+					sleep(1);
+				else {
+					int i=fork();
+					if (i<0) {
+						return 12; // fork failed
 					}
-				}
-				if (devout[current_keyboard]<0) {
-					can_proceed = false;
-					fprintf(stderr, "Unable to open /dev/uinput or /dev/misc/uinput (char device 10:223).\nPossible causes:\n 1) Device node does not exist\n 2) Kernel not compiled with evdev [INPUT_EVDEV] and uinput [INPUT_UINPUT] user level driver support\n 3) Permission denied.\n");
-					perror("open(\"/dev/uinput\")");
-					if (established)
-						sleep(1);
-					else
-						return 3;
+					if (i>0) {
+						return 4;
+					}
+					sleep(1);
+					restart_tsak();
 				}
 			}
+			else {
+				fprintf(stderr, "Found %d keyboard(s)\n", keyboard_fd_num);
 
-			if (can_proceed == true) {
+				can_proceed = true;
 				for (current_keyboard=0;current_keyboard<keyboard_fd_num;current_keyboard++) {
-					if(ioctl(keyboard_fds[current_keyboard], EVIOCGRAB, 2) < 0) {
-						close(keyboard_fds[current_keyboard]);
-						fprintf(stderr, "Failed to grab exclusive input device lock");
+					// Print Device Name
+					ioctl (keyboard_fds[current_keyboard], EVIOCGNAME (sizeof (name)), name);
+					fprintf(stderr, "Reading from keyboard: (%s)\n", name);
+
+					// Create filtered virtual output device
+					devout[current_keyboard]=open("/dev/misc/uinput",O_RDWR|O_NONBLOCK);
+					if (devout[current_keyboard]<0) {
+						devout[current_keyboard]=open("/dev/uinput",O_RDWR|O_NONBLOCK);
+						if (devout[current_keyboard]<0) {
+							perror("open(\"/dev/misc/uinput\")");
+						}
+					}
+					if (devout[current_keyboard]<0) {
+						can_proceed = false;
+						fprintf(stderr, "Unable to open /dev/uinput or /dev/misc/uinput (char device 10:223).\nPossible causes:\n 1) Device node does not exist\n 2) Kernel not compiled with evdev [INPUT_EVDEV] and uinput [INPUT_UINPUT] user level driver support\n 3) Permission denied.\n");
+						perror("open(\"/dev/uinput\")");
 						if (established)
 							sleep(1);
 						else
-							return 1;
-					}
-					else {
-						ioctl(keyboard_fds[current_keyboard], EVIOCGNAME(UINPUT_MAX_NAME_SIZE), devinfo.name);
-						strncat(devinfo.name, "+tsak", UINPUT_MAX_NAME_SIZE-1);
-						fprintf(stderr, "%s\n", devinfo.name);
-						ioctl(keyboard_fds[current_keyboard], EVIOCGID, &devinfo.id);
-
-						copy_features(keyboard_fds[current_keyboard], devout[current_keyboard]);
-						if (write(devout[current_keyboard],&devinfo,sizeof(devinfo)) < 0) {
-							fprintf(stderr, "Unable to write to output device\n");
-						}
-						if (ioctl(devout[current_keyboard],UI_DEV_CREATE)<0) {
-							fprintf(stderr, "Unable to create input device with UI_DEV_CREATE\n");
-							if (established)
-								sleep(1);
-							else
-								return 2;
-						}
-						else {
-							fprintf(stderr, "Device created.\n");
-
-							if (established == false) {
-								int i=fork();
-								if (i<0) return 9; // fork failed
-								if (i>0) {
-									child_pids[current_keyboard] = i;
-									continue;
-								}
-								setupLockingPipe();
-							}
-
-							established = true;
-
-							if (testrun == true) {
-								return 0;
-							}
-
-							while (1) {
-								if ((rd = read (keyboard_fds[current_keyboard], ev, size)) < size) {
-									fprintf(stderr, "Read failed.\n");
-									break;
-								}
-
-								// Replicate LED events from the virtual keyboard to the physical keyboard
-								int rrd = read(devout[current_keyboard], &revev, size);
-								if (rrd >= size) {
-									if (revev.type == EV_LED) {
-										if (write(keyboard_fds[current_keyboard], &revev, sizeof(revev)) < 0) {
-											fprintf(stderr, "Unable to replicate LED event\n");
-										}
-									}
-								}
-
-								value = ev[0].value;
-
-								if (ev[0].value == 0 && ev[0].type == 1) { // Read the key release event
-									if (keycode[(ev[0].code)]) {
-										if (strcmp(keycode[(ev[0].code)], "<control>") == 0) ctrl_down = false;
-										if (strcmp(keycode[(ev[0].code)], "<alt>") == 0) alt_down = false;
-									}
-								}
-								if (ev[0].value == 1 && ev[0].type == 1) { // Read the key press event
-									if (keycode[(ev[0].code)]) {
-										if (strcmp(keycode[(ev[0].code)], "<control>") == 0) ctrl_down = true;
-										if (strcmp(keycode[(ev[0].code)], "<alt>") == 0) alt_down = true;
-									}
-								}
-
-								hide_event = false;
-								if (ev[0].value == 1 && ev[0].type == 1) { // Read the key press event
-									if (keycode[(ev[0].code)]) {
-										if (alt_down && ctrl_down && (strcmp(keycode[(ev[0].code)], "<del>") == 0)) {
-											hide_event = true;
-										}
-									}
-								}
-
-								if ((hide_event == false) && (ev[0].type != EV_LED) && (ev[1].type != EV_LED)) {
-									// Pass the event on...
-									event = ev[0];
-									if (write(devout[current_keyboard], &event, sizeof event) < 0) {
-										fprintf(stderr, "Unable to replicate keyboard event!\n");
-									}
-								}
-								if (hide_event == true) {
-									// Let anyone listening to our interface know that an SAK keypress was received
-									broadcast_sak();
-								}
-							}
-						}
+							return 3;
 					}
 				}
-
-				// fork udev monitor process
-				int i=fork();
-				if (i<0) {
-					return 10; // fork failed
-				}
-				if (i>0) {
-					// Terminate parent
-					controlpipe.active = false;
+				if (depcheck == true) {
 					return 0;
 				}
 
-				// Prevent multiple process instances from starting
-				setupLockingPipe();
-
-				// Wait a little bit so that udev hotplug can stabilize before we start monitoring
-				sleep(1);
-
-				fprintf(stderr, "Hotplug monitoring process started\n");
-
-				// Monitor for hotplugged keyboards
-				int j;
-				int hotplug_fd;
-				bool is_new_keyboard;
-				struct udev *udev;
-				struct udev_device *dev;
-				struct udev_monitor *mon;
-
-				// Create the udev object
-				udev = udev_new();
-				if (!udev) {
-					fprintf(stderr, "Cannot connect to udev interface\n");
-					return 11;
-				}
-
-				// Set up a udev monitor to monitor input devices
-				mon = udev_monitor_new_from_netlink(udev, "udev");
-				udev_monitor_filter_add_match_subsystem_devtype(mon, "input", NULL);
-				udev_monitor_enable_receiving(mon);
-
-				while (1) {
-					// Watch for input from the monitoring process
-					dev = udev_monitor_receive_device(mon);
-					if (dev) {
-						// If a keyboard was removed we need to restart...
-						if (strcmp(udev_device_get_action(dev), "remove") == 0) {
-							udev_device_unref(dev);
-							udev_unref(udev);
-							restart_tsak();
+				if (can_proceed == true) {
+					for (current_keyboard=0;current_keyboard<keyboard_fd_num;current_keyboard++) {
+						if(ioctl(keyboard_fds[current_keyboard], EVIOCGRAB, 2) < 0) {
+							close(keyboard_fds[current_keyboard]);
+							fprintf(stderr, "Failed to grab exclusive input device lock");
+							if (established)
+								sleep(1);
+							else
+								return 1;
 						}
+						else {
+							ioctl(keyboard_fds[current_keyboard], EVIOCGNAME(UINPUT_MAX_NAME_SIZE), devinfo.name);
+							strncat(devinfo.name, "+tsak", UINPUT_MAX_NAME_SIZE-1);
+							fprintf(stderr, "%s\n", devinfo.name);
+							ioctl(keyboard_fds[current_keyboard], EVIOCGID, &devinfo.id);
 
-						is_new_keyboard = false;
-						snprintf(filename,sizeof(filename), "%s", udev_device_get_devnode(dev));
-						udev_device_unref(dev);
+							copy_features(keyboard_fds[current_keyboard], devout[current_keyboard]);
+							if (write(devout[current_keyboard],&devinfo,sizeof(devinfo)) < 0) {
+								fprintf(stderr, "Unable to write to output device\n");
+							}
+							if (ioctl(devout[current_keyboard],UI_DEV_CREATE)<0) {
+								fprintf(stderr, "Unable to create input device with UI_DEV_CREATE\n");
+								if (established)
+									sleep(1);
+								else
+									return 2;
+							}
+							else {
+								fprintf(stderr, "Device created.\n");
 
-						// Print name of keyboard
-						hotplug_fd = open(filename, O_RDWR|O_SYNC);
-						ioctl(hotplug_fd, EVIOCGBIT(EV_KEY, sizeof(key_bitmask)), key_bitmask);
+								if (established == false) {
+									int i=fork();
+									if (i<0) return 9; // fork failed
+									if (i>0) {
+										child_pids[current_keyboard] = i;
+										continue;
+									}
+									setupLockingPipe(false);
+								}
 
-						/* We assume that anything that has an alphabetic key in the
-							QWERTYUIOP range in it is the main keyboard. */
-						for (j = KEY_Q; j <= KEY_P; j++) {
-							if (TestBit(j, key_bitmask)) {
-								is_new_keyboard = true;
+								established = true;
+
+								if (testrun == true) {
+									return 0;
+								}
+
+								while (1) {
+									if ((rd = read (keyboard_fds[current_keyboard], ev, size)) < size) {
+										fprintf(stderr, "Read failed.\n");
+										break;
+									}
+
+									// Replicate LED events from the virtual keyboard to the physical keyboard
+									int rrd = read(devout[current_keyboard], &revev, size);
+									if (rrd >= size) {
+										if (revev.type == EV_LED) {
+											if (write(keyboard_fds[current_keyboard], &revev, sizeof(revev)) < 0) {
+												fprintf(stderr, "Unable to replicate LED event\n");
+											}
+										}
+									}
+
+									value = ev[0].value;
+
+									if (ev[0].value == 0 && ev[0].type == 1) { // Read the key release event
+										if (keycode[(ev[0].code)]) {
+											if (strcmp(keycode[(ev[0].code)], "<control>") == 0) ctrl_down = false;
+											if (strcmp(keycode[(ev[0].code)], "<alt>") == 0) alt_down = false;
+										}
+									}
+									if (ev[0].value == 1 && ev[0].type == 1) { // Read the key press event
+										if (keycode[(ev[0].code)]) {
+											if (strcmp(keycode[(ev[0].code)], "<control>") == 0) ctrl_down = true;
+											if (strcmp(keycode[(ev[0].code)], "<alt>") == 0) alt_down = true;
+										}
+									}
+
+									hide_event = false;
+									if (ev[0].value == 1 && ev[0].type == 1) { // Read the key press event
+										if (keycode[(ev[0].code)]) {
+											if (alt_down && ctrl_down && (strcmp(keycode[(ev[0].code)], "<del>") == 0)) {
+												hide_event = true;
+											}
+										}
+									}
+
+									if ((hide_event == false) && (ev[0].type != EV_LED) && (ev[1].type != EV_LED)) {
+										// Pass the event on...
+										event = ev[0];
+										if (write(devout[current_keyboard], &event, sizeof event) < 0) {
+											fprintf(stderr, "Unable to replicate keyboard event!\n");
+										}
+									}
+									if (hide_event == true) {
+										// Let anyone listening to our interface know that an SAK keypress was received
+										broadcast_sak();
+									}
+								}
 							}
 						}
-						ioctl (hotplug_fd, EVIOCGNAME (sizeof (name)), name);
-						close(hotplug_fd);
-
-						// Ensure that we do not detect our own tsak faked keyboards
-						if (str_ends_with(name, "+tsak") == 1) {
-							is_new_keyboard = false;
-						}
-
-						// If a keyboard was added we need to restart...
-						if (is_new_keyboard == true) {
-							fprintf(stderr, "Hotplugged new keyboard: (%s)\n", name);
-							udev_unref(udev);
-							restart_tsak();
-						}
 					}
-					else {
-						fprintf(stderr, "No Device from receive_device().  A udev error has occurred; terminating hotplug monitoring process.\n");
+
+					// fork udev monitor process
+					int i=fork();
+					if (i<0) {
+						return 10; // fork failed
+					}
+					if (i>0) {
+						// Terminate parent
+						controlpipe.active = false;
+						return 0;
+					}
+
+					// Prevent multiple process instances from starting
+					setupLockingPipe(true);
+
+					// Wait a little bit so that udev hotplug can stabilize before we start monitoring
+					sleep(1);
+
+					fprintf(stderr, "Hotplug monitoring process started\n");
+
+					// Monitor for hotplugged keyboards
+					int j;
+					int hotplug_fd;
+					bool is_new_keyboard;
+					struct udev *udev;
+					struct udev_device *dev;
+					struct udev_monitor *mon;
+
+					// Create the udev object
+					udev = udev_new();
+					if (!udev) {
+						fprintf(stderr, "Cannot connect to udev interface\n");
 						return 11;
 					}
+
+					// Set up a udev monitor to monitor input devices
+					mon = udev_monitor_new_from_netlink(udev, "udev");
+					udev_monitor_filter_add_match_subsystem_devtype(mon, "input", NULL);
+					udev_monitor_enable_receiving(mon);
+
+					while (1) {
+						// Watch for input from the monitoring process
+						dev = udev_monitor_receive_device(mon);
+						if (dev) {
+							// If a keyboard was removed we need to restart...
+							if (strcmp(udev_device_get_action(dev), "remove") == 0) {
+								udev_device_unref(dev);
+								udev_unref(udev);
+								restart_tsak();
+							}
+
+							is_new_keyboard = false;
+							snprintf(filename,sizeof(filename), "%s", udev_device_get_devnode(dev));
+							udev_device_unref(dev);
+
+							// Print name of keyboard
+							hotplug_fd = open(filename, O_RDWR|O_SYNC);
+							ioctl(hotplug_fd, EVIOCGBIT(EV_KEY, sizeof(key_bitmask)), key_bitmask);
+
+							/* We assume that anything that has an alphabetic key in the
+								QWERTYUIOP range in it is the main keyboard. */
+							for (j = KEY_Q; j <= KEY_P; j++) {
+								if (TestBit(j, key_bitmask)) {
+									is_new_keyboard = true;
+								}
+							}
+							ioctl (hotplug_fd, EVIOCGNAME (sizeof (name)), name);
+							close(hotplug_fd);
+
+							// Ensure that we do not detect our own tsak faked keyboards
+							if (str_ends_with(name, "+tsak") == 1) {
+								is_new_keyboard = false;
+							}
+
+							// If a keyboard was added we need to restart...
+							if (is_new_keyboard == true) {
+								fprintf(stderr, "Hotplugged new keyboard: (%s)\n", name);
+								udev_unref(udev);
+								restart_tsak();
+							}
+						}
+						else {
+							fprintf(stderr, "No Device from receive_device().  A udev error has occurred; terminating hotplug monitoring process.\n");
+							return 11;
+						}
+					}
+
+					udev_unref(udev);
+
+					fprintf(stderr, "Hotplug monitoring process terminated\n");
 				}
-
-				udev_unref(udev);
-
-				fprintf(stderr, "Hotplug monitoring process terminated\n");
 			}
 		}
+	}
+	catch(exit_exception& e) {
+		exit(e.c);
 	}
 
 	return 6;
