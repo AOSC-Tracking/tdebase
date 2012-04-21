@@ -355,9 +355,9 @@ Trash</guimenuitem> and <guimenuitem>Delete</guimenuitem>.</para>
 <quote><guimenuitem>Move to Trash</guimenuitem></quote> and
 <quote><guimenuitem>Delete</guimenuitem></quote> options.</para>
 
-<para><keycap>Del</keycap> will move the selected item or items to Trash.</para>
+<para><keycap>Delete</keycap> will move the selected item or items to Trash.</para>
 
-<para><keycombo action="simul">&Shift;<keycap>Del</keycap></keycombo>
+<para><keycombo action="simul">&Shift;<keycap>Delete</keycap></keycombo>
 will really, truly and irrevocably delete the selected item or
 items.</para>
 

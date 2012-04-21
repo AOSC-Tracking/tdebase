@@ -18,9 +18,9 @@
 <title>The &kdm; Handbook</title>
 
 <authorgroup>
-<author>
-&Oswald.Buddenhagen; &Oswald.Buddenhagen.mail;
-</author><!-- 
+<corpauthor>
+The &kde; Documentation Team
+</corpauthor><!-- 
 <othercredit role="developer">
 &Oswald.Buddenhagen; &Oswald.Buddenhagen.mail;
 <contrib>Developer</contrib>
@@ -49,16 +49,21 @@
 <holder>&Lauri.Watts;</holder>
 </copyright>
 
-<date>2003-03-01</date>
-<releaseinfo>0.05.02</releaseinfo>
+<copyright>
+<year>2011</year>
+<holder>The TDE Documentation Team</holder>
+</copyright>
+
+<date>2011-11-01</date>
+<releaseinfo>3.5.13</releaseinfo>
 
 <abstract>
-<para>This document describes &kdm; the &kde; Display Manager. &kdm;
+<para>This document describes &kdm;, the &kde; Display Manager. &kdm;
 is also known as the <quote>Login Manager</quote>.</para>
 </abstract>
 
 <keywordset>
-<keyword>KDE</keyword>
+<keyword>TDE</keyword>
 <keyword>kdm</keyword>
 <keyword>xdm</keyword>
 <keyword>display manager</keyword>
@@ -72,13 +77,13 @@ is also known as the <quote>Login Manager</quote>.</para>
 
 <para>&kdm; provides a graphical interface that allows you to log in to a
 system. It prompts for login (username) and password, authenticates the user
-and starts a <quote>session</quote>.  &kdm; is superior to &xdm;, the X
+and starts a <quote>session</quote>. &kdm; is superior to &xdm;, the X
 Display Manager, in a number of ways.</para>
 
 </chapter>
 
 <!-- Chapters to write -->
-<!-- * Just enough config to get it to run and login to KDE 
+<!-- * Just enough config to get it to run and login to TDE 
      * Adding more session types (GNOME, etc)
      * Adding other customizations to XSession (ssh/gpg-agent, etc)
      * Further customization to KDM (via the kcontrol module, and by 
@@ -136,7 +141,7 @@ look in their documentation for the correct command.</para>
 </procedure>
 
 <para>At this point, typing <userinput><command>startx</command></userinput>
-on the commandline should start X, with a &kde; session.  The next task is
+on the commandline should start X, with a &kde; session. The next task is
 to try &kdm;.</para>
 
 <para>As <systemitem class="username">root</systemitem>, type
@@ -153,9 +158,9 @@ open a &kde; session for your user.</para>
 above for each of them.</para>
 
 <note>
-<para>This is a quick guide to getting up and running only.  You probably
+<para>This is a quick guide to getting up and running only. You probably
 will want to customize &kdm; further, for example, to hide the names of the
-system accounts, to allow further sessions, and much more.  Please read
+system accounts, to allow further sessions, and much more. Please read
 through the rest of this manual to find out how to do these things.</para>
 </note>
 
@@ -164,8 +169,15 @@ through the rest of this manual to find out how to do these things.</para>
 <chapter id="login"> 
 <title>The Login Window</title> 
 
-<para> The user interface to &kdm; consists of two dialog boxes.  The main
-dialog box has these controls:</para>
+<para>The &kdm; interface consists of two dialog boxes: a login dialog
+and a shutdown dialog.</para>
+
+<note><para>The &kdm; interface might be protected by the Trinity Secure Access
+Key (SAK) mechanism. When the SAK is enabled, users are prompted to press
+<keycombo action="simul">&Ctrl; &Alt;<keycap>Delete</keycap></keycombo>
+to obtain access to the &kdm; interface.</para></note>
+
+<para>The main login dialog box has these controls:</para>
 
 <itemizedlist> 
 <listitem>
@@ -296,43 +308,41 @@ main &kdm; dialog box. </para>
 <para>This chapter assumes that &kdm; is already up and running on your
 system, and that you simply want to change its behavior in some way.</para>
 
-<para>When &kdm; starts up, it reads its configuration from the folder
+<para>Upon starting, &kdm; reads its configuration from the folder
 <filename class="directory">$KDEDIR/share/config/kdm/</filename> (this may
 be <filename class="directory">/etc/trinity/kdm/</filename> or something else
 on your system).</para>
 
 <para>The main configuration file is &kdmrc;; all other files are
 referenced from there and could be stored under any name anywhere on
-the system - but usually that would not make much sense for obvious
+the system. Usually that would not make much sense for obvious
 reasons (one particular exception is referencing configuration files
-of an already installed &xdm; - however when a new &kdm; is installed,
+of an already installed &xdm;. However, when a new &kdm; is installed,
 it will import settings from those files if it finds an already installed
 &xdm;).</para>
 
 <para>Since &kdm; must run before any user is logged in, it is not
 associated with any particular user. Therefore, it is not possible to have
-user-specific configuration files; all users share the common &kdmrc;.  It
+user-specific configuration files; all users share the common &kdmrc;. It
 follows from this that the configuration of &kdm; can only be altered by
-those users that have write access to
+those users who have write access to
 <filename>$<envar>KDEDIR</envar>/share/config/kdm/kdmrc</filename> (normally
 restricted to system administrators logged in as <systemitem
 class="username">root</systemitem>).</para>
 
 <para>You can view the &kdmrc; file currently in use on your system, and you
-can configure &kdm; by editing this file. Alternatively, you can use the
+can configure &kdm; by editing that file. Alternately, you can use the
 graphical configuration tool provided by the &kcontrolcenter; (under
 <menuchoice><guisubmenu>System Administration</guisubmenu><guimenuitem>Login
-Manager</guimenuitem></menuchoice>), which is described in <ulink
-url="help:/kcontrol/login-manager.html">the &kcontrolcenter; help files</ulink>.
+Manager</guimenuitem></menuchoice>), which is described in the next section.
 </para>
 
-<para>The remainder of this chapter describes configuration of &kdm;
-via the &kcontrolcenter; module, and the <link linkend="kdm-files">next
+<para>The remainder of this chapter describes configuring &kdm;
+using the &kcontrolcenter; module, and the <link linkend="kdm-files">next
 chapter</link> describes the options available in &kdmrc; itself. If
 you only need to configure for local users, the &kcontrolcenter; module
-should be sufficient for your needs.  If you need to configure remote
-logins, or have multiple &kdm; sessions running, you will need to read
-on.</para>
+should be sufficient for your needs. If you need to configure remote
+logins, or have multiple &kdm; sessions running, you will need to continue reading.</para>
 
 <sect1 id="kdm-kcontrol-module">
 <sect1info>
@@ -346,14 +356,15 @@ on.</para>
 <title>The Login Manager &kcontrolcenter; Module</title>
 
 <para>Using this module, you can configure the &kde; graphical login
-manager, &kdm;.  You can change how the login screen looks, who has
+manager, &kdm;. You can change how the login screen looks, who has
 access using the login manager and who can shutdown the
 computer.</para>
 
 <note><para>All settings will be written to the configuration file
 &kdmrc;, which in its original state has many comments to help you
-configure &kdm;.  Using this &kcontrolcenter; module will strip these
-comments from the file.  All available options in &kdmrc; are covered
+configure &kdm;. Using this &kcontrolcenter; module will strip these
+comments from the file. Consider making a backup of &kdmrc; before
+making changes. All available options in &kdmrc; are covered
 in <xref linkend="kdm-files"/>.</para>
 
 <para>The options listed in this chapter are cross referenced with
@@ -376,8 +387,8 @@ linkend="kdmconfig-convenience"><guilabel>Convenience</guilabel></link>.</para>
 the window.</para>
 
 <note><para>If you are not currently logged in as a superuser, you
-will need to click the <guibutton>Administrator Mode...</guibutton>
-Button. You will then be asked for a superuser password.  Entering a
+will need to select the <guibutton>Administrator Mode...</guibutton>
+Button. You will then be asked for a superuser password. Entering a
 correct password will allow you to modify the settings of this
 module.</para></note>
 
@@ -388,15 +399,15 @@ module.</para></note>
 &kde;'s graphical login manager.</para>
 
 <para>The <guilabel>Greeting:</guilabel> is the title of the login
- screen.  Setting this is especially useful if you have many servers users
- may log in to.  You may use various placeholders, which are described
+ screen. Setting this is especially useful if you have many servers users
+ may log in to. You may use various placeholders, which are described
  along with the corresponding key
  <link linkend="option-greetstring"><option>GreetString</option></link>
  in &kdmrc;.
 </para>
 
 <para>You can then choose to show either the current system time, a logo or
-nothing special in the login box.  Make your choice in the radio buttons
+nothing special in the login box. Make your choice in the radio buttons
 labeled <guilabel>Logo area:</guilabel>. This corresponds to <link
 linkend="option-logoarea"><option>LogoArea</option></link> in &kdmrc;</para>
 
@@ -417,9 +428,9 @@ dialog.</para>
 <filename>$<envar>KDEDIR</envar>/share/apps/kdm/pics/kdelogo.xpm</filename>
 will be displayed.</para>
 
-<para>Normally the login box is centered on the screen.  Use the
+<para>Normally the login box is centered on the screen. Use the
 <guilabel>Position:</guilabel> options if you want it to appear
-elsewhere on the screen.  You can specify the relative position
+elsewhere on the screen. You can specify the relative position
 (percentage of the screen size) for the center of the login window,
 relative to the top left of the display, in the fields labeled
 <guilabel>X:</guilabel> and <guilabel>Y:</guilabel> respectively.
@@ -439,18 +450,61 @@ linkend="option-colorscheme"><option>ColorScheme</option></link> in
 your login box, corresponding to setting <option>Language</option> in
 &kdmrc;.</para>
 
+<para>In this same section &kdm; can be configured to use a <guilabel>Secure
+Attention Key</guilabel> (SAK). A Secure Attention Key is a special key press
+to which only certain privileged applications are able to respond, such as the
+login and screen unlock dialogs. This mechanism prevents a malevolent user
+from creating an exact copy of the login screen to "sniff" or "phish" passwords
+or other sensitive information. The unprivileged copy is unable to detect the
+SAK key press, thereby providing a visible difference in operation to the
+user.</para>
+
+<para>When the Trinity SAK is enabled, users are prompted to press
+<keycombo action="simul">&Ctrl; &Alt;<keycap>Delete</keycap></keycombo>
+before sensitive information is requested.
+
+<screenshot>
+<screeninfo>The Trinity Secure Attention Key dialog</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="tsak.png" format="PNG"/>
+</imageobject>
+<textobject><phrase>The Trinity Secure Attention Key dialog</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+
+<para>When SAK is enabled, and the
+<keycombo action="simul">&Ctrl; &Alt;<keycap>Delete</keycap></keycombo>
+dialog does not appear before sensitive information is requested, someone might
+be attempting to "phish" for that information. A prudent course of action would
+be to terminate the active X11 session via <keycombo action="simul">&Ctrl; &Alt;
+<keycap>Backspace</keycap></keycombo> or any other distribution-specific key press
+for this action, thereby restoring control to the kernel and base system.</para>
+
+<para>Generally, using the Trinity SAK is a good idea when supporting many
+graphical login accounts on a machine. For example, in enterprise environments
+or computer laboratories. When only one graphical login account is used, or
+only a few accounts in a controlled environment, such as with a home computer,
+Trinity SAK will not provide tangible benefits over the standard login
+methods.</para>
+
+<note><para>Trinity SAK requires evdev to be running and the Linux uinput kernel
+module to be loaded.</para></note>
+
 </sect2>
 
 <sect2 id="kdmconfig-font">
 <title>Font</title>
 
 <para>From this section of the module you can change the fonts used in the
-login window.  Only fonts available to all users are available here, not
+login window. Only fonts available to all users are available here, not
 fonts you have installed on a per user basis.</para>
 
 <para>You can select three different font styles from the drop down box
 (<guilabel>General:</guilabel>, <guilabel>Failures:</guilabel>,
-<guilabel>Greeting:</guilabel>).  When you click on the
+<guilabel>Greeting:</guilabel>). When you click on the
 <guibutton>Choose...</guibutton> button a dialog appears from which you can
 select the new characteristics for the font style.</para>
 
@@ -492,8 +546,8 @@ background image and its placement from the options on the tab labeled
 the color buttons and select a new color.</para>
 
 <para>The drop down box above the color buttons provides you with several
-different blend effects.  Choose one from the list, and it will be
-previewed on the small monitor at the top of the window.  Your choices
+different blend effects. Choose one from the list, and it will be
+previewed on the small monitor at the top of the window. Your choices
 are:</para>
 
 <variablelist>
@@ -507,24 +561,24 @@ covered with this one color.</para></listitem>
 <term>Pattern</term>
 <listitem><para>By choosing this mode, you select two colors (using both color
 buttons). </para> <para>You then select a pattern by clicking
-<guilabel>Setup</guilabel>.  This opens a new dialog window, which gives you
-the opportunity to select a pattern.  Simply click once on the pattern of your
+<guilabel>Setup</guilabel>. This opens a new dialog window, which gives you
+the opportunity to select a pattern. Simply click once on the pattern of your
 choice, then click on <guilabel>OK</guilabel>, and &kde; will render the pattern
-you selected using the two colors you selected.  For more on patterns, see the
+you selected using the two colors you selected. For more on patterns, see the
 section <ulink url="help:/kcontrol/background/index.html#bkgnd-patterns">Background: Adding, Removing and Modifying
 Patterns</ulink>.</para></listitem>
 </varlistentry>
 <varlistentry>
 <term>Background Program</term>
 <listitem><para>By selecting this option, you can have &kde; use an external
-program to determine the background.  This can be any program of your choosing.
+program to determine the background. This can be any program of your choosing.
 For more information on this option, see the section entitled <ulink
 url="help:/kcontrol/background/index.html#bkgnd-programs">Background: Using an external program</ulink>.</para></listitem>
 </varlistentry>
 <varlistentry>
 <term>Horizontal Gradient</term>
 <listitem><para>By choosing this mode, you select two colors (using both color
-buttons).  &kde; will then start with the color selected by <guilabel>Color
+buttons). &kde; will then start with the color selected by <guilabel>Color
 1</guilabel> on the left edge of the screen, and slowly transform into the
 color selected by <guilabel>Color 2</guilabel> by the time it gets to the
 right edge of the screen.</para></listitem>
@@ -532,7 +586,7 @@ right edge of the screen.</para></listitem>
 <varlistentry>
 <term>Vertical Gradient</term>
 <listitem><para>By choosing this mode, you select two colors (using both color
-buttons).  &kde; will then start with the color selected by <guilabel>Color
+buttons). &kde; will then start with the color selected by <guilabel>Color
 1</guilabel> on the top edge of the screen, and slowly transform into the color
 selected by <guilabel>Color 2</guilabel> as it moves to the bottom of the
 screen.</para></listitem>
@@ -540,7 +594,7 @@ screen.</para></listitem>
 <varlistentry>
 <term>Pyramid Gradient</term>
 <listitem><para>By choosing this mode, you select two colors (using both color
-buttons).  &kde; will then start with the color selected by <guilabel>Color
+buttons). &kde; will then start with the color selected by <guilabel>Color
 1</guilabel> in each corner of the screen, and slowly transform into the color
 selected by <guilabel>Color 2</guilabel> as it moves to the center of the
 screen.</para></listitem> 
@@ -548,7 +602,7 @@ screen.</para></listitem>
 <varlistentry>
 <term>Pipecross Gradient</term>
 <listitem><para>By choosing this mode, you select two colors (using both color
-buttons).  &kde; will then start with the color selected by <guilabel>Color
+buttons). &kde; will then start with the color selected by <guilabel>Color
 1</guilabel> in each corner of the screen, and slowly transform into the color
 selected by <guilabel>Color 2</guilabel> as it moves to the center of the
 screen. The <quote>shape</quote> of this gradient is  different then the pyramid
@@ -557,7 +611,7 @@ gradient.</para></listitem>
 <varlistentry>
 <term>Elliptic Gradient</term>
 <listitem><para>By choosing this mode, you select two colors (using both color
-buttons).  &kde; will then start with the color selected by <guilabel>Color
+buttons). &kde; will then start with the color selected by <guilabel>Color
 2</guilabel> in the center of the screen, and slowly transform into the color
 selected by <guilabel>Color 1</guilabel> as it moves to the edges, in an
 elliptical pattern.</para></listitem> 
@@ -565,7 +619,7 @@ elliptical pattern.</para></listitem>
 </variablelist>
 
 <para>The setup button is only needed for if you select <guilabel>Background
-program</guilabel> or <guilabel>Patterns</guilabel>.  In these instances,
+program</guilabel> or <guilabel>Patterns</guilabel>. In these instances,
 another window will appear to configure the specifics.</para>
 <para><emphasis>Wallpaper</emphasis></para>
 <para>To select a new background image first, click on the
@@ -577,11 +631,11 @@ selector.</para>
 <variablelist>
 <varlistentry>
 <term>No wallpaper</term> 
-<listitem><para>No image is displayed.  Just the background colors.</para>
+<listitem><para>No image is displayed. Just the background colors.</para>
 </listitem></varlistentry>
 <varlistentry>
 <term>Centered</term> 
-<listitem><para>The image will be centered on the screen.  The background colors
+<listitem><para>The image will be centered on the screen. The background colors
 will be present anywhere the image does not cover.</para> </listitem>
 </varlistentry>
 <varlistentry>
@@ -598,14 +652,14 @@ duplicated upward, downward to the right, and to the left.</para> </listitem>
 </varlistentry>
 <varlistentry>
 <term>Centered Maxpect</term>
-<listitem><para>The image will be placed in the center of the screen.  It will
+<listitem><para>The image will be placed in the center of the screen. It will
 be scaled to fit the desktop, but it will not change the aspect ratio of the
-original image.  This will provide you with an image that is not distorted.
+original image. This will provide you with an image that is not distorted.
 </para> </listitem>
 </varlistentry>
 <varlistentry>
 <term>Scaled</term>
-<listitem><para>The image will be scaled to fit the desktop.  It will be
+<listitem><para>The image will be scaled to fit the desktop. It will be
 stretched to fit all four corners.</para> </listitem>
 </varlistentry>
 </variablelist>
@@ -620,7 +674,7 @@ stretched to fit all four corners.</para> </listitem>
 <itemizedlist>
 <listitem>
 <para><guilabel>Nobody</guilabel>: No one can shutdown the computer using
-&kdm;.  You must be logged in, and execute a command.</para>
+&kdm;. You must be logged in, and execute a command.</para>
 </listitem>
 <listitem>
 <para><guilabel>Everybody</guilabel>:  Everyone can shutdown the computer using
@@ -639,14 +693,14 @@ shutdown command for the <guilabel>Local:</guilabel> and
 define the exact shutdown command.</para> <para>The
 <guilabel>Halt:</guilabel> command defaults to <!-- Are these defaults still
 correct? they disagree with what's in --> <!-- kdmrc -->
-<command>/sbin/halt</command>.  The <guilabel>Restart:</guilabel> command
+<command>/sbin/halt</command>. The <guilabel>Restart:</guilabel> command
 defaults to
 <command>/sbin/reboot</command>.</para>
 
 <para>When <guilabel>Show boot options</guilabel> is enabled, &kdm;
 will on reboot offer you options for the lilo boot manager. For this
 feature to work, you will need to supply the correct paths to your
-<command>lilo</command> command and to lilo's map file.  Note that this
+<command>lilo</command> command and to lilo's map file. Note that this
 option is not available on all operating systems.</para>
 
 </sect2>
@@ -658,7 +712,7 @@ option is not available on all operating systems.</para>
 login window.</para>
 
 <para>You may disable the user list in &kdm; entirely in the
-<guilabel>Show Users</guilabel> section.  You can choose from:</para>
+<guilabel>Show Users</guilabel> section. You can choose from:</para>
 
 <variablelist>
 <varlistentry>
@@ -685,18 +739,18 @@ listed.</para>
 
 <para>Independently of the users you specify by name, you can use the
 <guilabel>System UIDs</guilabel> to specify a range of valid
-<acronym>UID</acronym>s that are shown in the list.  By default user
+<acronym>UID</acronym>s that are shown in the list. By default user
 id's under 1000, which are often system or daemon users, and user id's
 over 65000, are not shown.</para>
 
 <para>You can also enable the <guilabel>Sort users</guilabel>
-checkbox, to have the user list sorted alphabetically.  If this is
+checkbox, to have the user list sorted alphabetically. If this is
 disabled, users will appear in the order they are listed in the
-password file.  &kdm; will also autocomplete user names if you enable the
+password file. &kdm; will also autocomplete user names if you enable the
 <guilabel>Autocompletion</guilabel> option.</para>
 
 <para>If you choose to show users, then the login window will show
-images (which you select), of a list of users.  When someone is ready
+images (which you select), of a list of users. When someone is ready
 to login, they may select their user name/image, enter their password,
 and they are granted access.</para>
 
@@ -704,12 +758,12 @@ and they are granted access.</para>
 for those images.</para>
 
 <para>You can configure the admin picture here, for each user on the
-system.  Depending on the order selected above, users may be able to
+system. Depending on the order selected above, users may be able to
 override your selection.</para>
 
 <para>If you choose not to show users, then the login window will be
-more traditional.  Users will need to type their username and password
-to gain entrance.  This is the preferred way if you have many users on
+more traditional. Users will need to type their username and password
+to gain entrance. This is the preferred way if you have many users on
 this terminal.</para>
 
 </sect2>
@@ -725,13 +779,13 @@ login or disabling passwords.</para>
 options. Every option in the <guilabel>Convenience</guilabel> tab is
 well-suited to seriously compromise your system security. Practically,
 these options are only to be used in a completely non-critical
-environment, &eg; a private computer at home.  </para></important>
+environment, &eg; a private computer at home. </para></important>
 
 <sect3 id="loginmanager-convenience-autologin">
 <title>Automatic Login</title>
 
 <para>Automatic login will give anyone access to a certain account on
-your system without doing any authentication.  You can enable it using
+your system without doing any authentication. You can enable it using
 the option <guilabel>Enable Auto-login</guilabel>.</para>
 
 <para>You can choose the account to be used for automatic login from
@@ -748,7 +802,7 @@ having to provide their password. Enable this feature using the
 
 <para>Below this option you'll see a list of users on the system.
 Enable password-less login for specific users by checking the checkbox
-next to the login names.  By default, this feature is disabled for
+next to the login names. By default, this feature is disabled for
 all users.</para>
 
 <important><para>Again, this option should only be used in a safe
@@ -762,7 +816,7 @@ when &kdm; starts. The default is <guilabel>None</guilabel>, but you
 can choose <guilabel>Previous</guilabel> to have &kdm; default to the
 last successfully logged in user, or you can
 <guilabel>Specify</guilabel> a particular user to always be selected
-from the list.  You can also have &kdm; set the focus to the password
+from the list. You can also have &kdm; set the focus to the password
 field, so that when you reach the &kdm; login screen, you can type the
 password immediately.</para>
 
@@ -793,7 +847,7 @@ allow graphical login.</para>
 
 <para>The fundamental thing that controls whether your computer boots to a
 terminal prompt (console mode) or a graphical login prompt is the default
-runlevel.  The runlevel is set by the program <application> <ulink
+runlevel. The runlevel is set by the program <application> <ulink
 url="man:init">/sbin/init</ulink></application> under the control of the
 configuration file <filename>/etc/inittab</filename>. The default runlevels
 used by different &UNIX; systems (and different &Linux; distributions) vary,
@@ -860,7 +914,7 @@ command:</para>
 </screen>
 
 <para>If you get a &kdm; login dialog and you are able to log in,
-things are going well.  The main thing that can go wrong here is that
+things are going well. The main thing that can go wrong here is that
 the run-time linker might not find the shared &Qt; or &kde; libraries.
 If you have a binary distribution of the &kde; libraries, make sure
 &kdm; is installed where the libraries believe &kde; is installed and
@@ -954,7 +1008,7 @@ graphical &kdm; login dialog.</para>
 
 <para>If this step is unsuccessful the most likely problem is that the
 environment used at boot time differs from the environment that you used for
-testing at the command line.  If you are trying to get two versions of &kde;
+testing at the command line. If you are trying to get two versions of &kde;
 to co-exist, be particularly careful that the settings you use for your
 <envar>PATH</envar> and <envar>LD_LIBRARY_PATH</envar> environment variables
 are consistent, and that the startup scripts are not over-riding them in
@@ -968,7 +1022,7 @@ some way.</para>
 <title>Supporting multiple window managers</title>
 
 <para>&kdm; detects most available window manager and desktop environments when
-it is run.  Installing a new one should make it automatically available in
+it is run. Installing a new one should make it automatically available in
 the &kdm; main dialog <guilabel>Session Type:</guilabel>.</para>
 
 <para>If you have a very new window manager, or something that &kdm; does
@@ -1031,9 +1085,9 @@ purposes.
 <para>To override a session type, copy the .desktop file from the data dir
 to the config dir and edit it at will. Removing the shipped session types
 can be accomplished by <quote>shadowing</quote> them with .desktop files
-containing Hidden=true.  For the magic session types no .desktop files exist
+containing Hidden=true. For the magic session types no .desktop files exist
 by default, but &kdm; pretends they would, so you can override them like any
-other type.  I guess you already know how to add a new session type by
+other type. I guess you already know how to add a new session type by
 now. ;-)</para>
 
 </chapter>
@@ -1042,20 +1096,20 @@ now. ;-)</para>
 <title>Using &kdm; for Remote Logins (&XDMCP;)</title>
 
 <para>&XDMCP; is the Open Group standard, the <quote>X Display Manager
-Control Protocol</quote>.  This is used to set up connections between
+Control Protocol</quote>. This is used to set up connections between
 remote systems over the network.</para>
 
 <para>&XDMCP; is useful in multiuser situations where there are users
 with workstations and a more powerful server that can provide the
-resources to run multiple X sessions.  For example, &XDMCP; is a good
+resources to run multiple X sessions. For example, &XDMCP; is a good
 way to reuse old computers - a Pentium or even 486 computer with 16 Mb
 RAM is sufficient to run X itself, and using &XDMCP; such a computer can
-run a full modern &kde; session from a server.  For the server part,
+run a full modern &kde; session from a server. For the server part,
 once a single &kde; (or other environment) session is running, running
 another one requires very few extra resources.</para>
 
 <para>However, allowing another method of login to your machine
-obviously has security implications.  You should run this service only
+obviously has security implications. You should run this service only
 if you need to allow remote X Servers to start login sessions on your
 system. Users with a single &UNIX; computer should not need to run
 this.</para>
@@ -1079,8 +1133,8 @@ addressing and security; the sockets all have the file name
 <literal>rw-rw-rw-</literal> (0666). This is because some systems don't care
 for the file permission of the socket files.</para>
 
-<para>There are two types of sockets: the global one (dmctl) and the
-per-display ones (dmctl-&lt;display&gt;).</para>
+<para>There are two types of sockets: the global one (kdmctl) and the
+per-display ones (kdmctl-&lt;display&gt;).</para>
 
 <para>The global one's subdir is owned by root, the subdirs of the per-display
 ones' are owned by the user currently owning the session (root or the
@@ -1201,9 +1255,9 @@ are available at this time</para>
 <term><command>list</command> [<parameter>all</parameter> |
 <parameter>alllocal</parameter>]</term>
 <listitem>
-<para>Return a list of running sessions.  By default all active sessions are
-listed.  if <parameter>all</parameter> is specified, passive sessions are
-listed as well.  If <parameter>alllocal</parameter> is specified, passive
+<para>Return a list of running sessions. By default all active sessions are
+listed. if <parameter>all</parameter> is specified, passive sessions are
+listed as well. If <parameter>alllocal</parameter> is specified, passive
 sessions are listed as well, but all incoming remote sessions are
 skipped.</para>
 <para>Each session entry is a comma separated tuple of:</para>
@@ -1272,14 +1326,14 @@ socket.</para>
 <para>An OS choice for the next boot may be specified from the list returned
 by <command>listbootoptions</command></para>
 <para>Shutdowns requested from per-display sockets are executed when the
-current sessino on that display exits.  Such a request may pop up a dialog
+current sessino on that display exits. Such a request may pop up a dialog
 asking for confirmation and/or authentication</para>
 <para><parameter>start</parameter> is the time for which the shutdown is
-scheduled.  If it starts with a plus-sign, the current time is added.  Zero
+scheduled. If it starts with a plus-sign, the current time is added. Zero
 means immediately.</para>
 <para><parameter>end</parameter> is the latest time at which the shutdown
-should be performed if active sessions are still running.  If it starts with
-a plus-sign, the start time is added.  -1 means wait infinitely.  If end is
+should be performed if active sessions are still running. If it starts with
+a plus-sign, the start time is added. -1 means wait infinitely. If end is
 through and active sessions are still running, &kdm; can do one of the
 following:</para>
 <itemizedlist>
@@ -1288,7 +1342,7 @@ shutdown</para></listitem>
 <listitem><para><parameter>force</parameter> - shut down
 nonetheless</para></listitem>
 <listitem><para><parameter>forcemy</parameter> - shut down nonetheless if
-all active sessions belong to the requesting user.  Only for per-display sockets.</para></listitem>
+all active sessions belong to the requesting user. Only for per-display sockets.</para></listitem>
 </itemizedlist>
 <para><parameter>start</parameter> and <parameter>end</parameter> are
 specified in seconds since the &UNIX; epoch.</para>
@@ -1297,7 +1351,7 @@ cancel</parameter>, <parameter>forcenow</parameter> for <parameter>0 0
 force</parameter> and <parameter>schedule</parameter> for <parameter>0
 -1</parameter>.</para>
 <para><parameter>ask</parameter> attempts an immediate shutdown and
-interacts with the user if active sessions are still running.  Only for
+interacts with the user if active sessions are still running. Only for
 per-display sockets.</para>
 </listitem>
 </varlistentry>
@@ -1378,9 +1432,9 @@ fi</programlisting>
 <sect1 id="dm-themes">
 <title>Themes</title>
 
-&kdm; has limited support for desktop manager themes.  You may enable them
+&kdm; has limited support for desktop manager themes. You may enable them
 by adding <userinput>UseTheme=true</userinput> to <filename>kdmrc</filename>
-and <userinput>Theme=/path/to/theme.xml</userinput>.  
+and <userinput>Theme=/path/to/theme.xml</userinput>. 
 </sect1>
 -->
 </chapter>
@@ -1405,8 +1459,8 @@ General Public License: look at the source code.
 <para>&kdm; is derived from, and includes code from,
 &xdm; (C) Keith Packard, MIT X Consortium.</para>
 
-<para>&kdm; 0.1 was written by &Matthias.Ettrich;.  Later versions till &kde;
-2.0.x were written by &Steffen.Hansen;.  Some new features for &kde; 2.1.x and
+<para>&kdm; 0.1 was written by &Matthias.Ettrich;. Later versions till &kde;
+2.0.x were written by &Steffen.Hansen;. Some new features for &kde; 2.1.x and
 a major rewrite for &kde; 2.2.x made by &Oswald.Buddenhagen;.</para>
 
 <para>Other parts of the &kdm; code are copyright by the authors, and
@@ -1428,7 +1482,7 @@ Zumstein<email>zumstein@ssd.ethz.ch</email>. Last update August 9,
 
 <listitem><para>Documentation revised for &kde; 2 by &Neal.Crook; &Neal.Crook.mail;. Last update August 6, 2000</para></listitem>
 
-<listitem><para>Documentation extended and revised for &kde; 2.2 by &Oswald.Buddenhagen; &Oswald.Buddenhagen.mail;.  Last update August,
+<listitem><para>Documentation extended and revised for &kde; 2.2 by &Oswald.Buddenhagen; &Oswald.Buddenhagen.mail;. Last update August,
 2001</para></listitem>
 
 </itemizedlist></para>
@@ -1457,7 +1511,7 @@ which the user sees.</para>
 <glossentry>
 <glossterm id="gloss-entropy">entropy</glossterm>
 <glossdef><para>The entropy of a system is the measure of its
-unpredictability.  This is used during the generation of random numbers.</para></glossdef>
+unpredictability. This is used during the generation of random numbers.</para></glossdef>
 </glossentry>
 
 </glossary>
