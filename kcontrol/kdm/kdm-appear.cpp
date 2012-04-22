@@ -476,7 +476,9 @@ void KDMAppearanceWidget::save()
 
   config->writeEntry("Language", langcombo->current());
 
-  config->writeEntry("UseSAK", sakbox->isChecked());
+  if (!sakwarning) {
+    config->writeEntry("UseSAK", sakbox->isChecked());
+  }
 
   // Enable/disable tsak as needed
   if (sakbox->isChecked()) {
