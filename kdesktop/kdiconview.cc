@@ -1560,8 +1560,9 @@ void KDIconView::updateWorkArea( const TQRect &wr )
     kdDebug(1204) << "  oldArea:                     " << oldArea.x() << "," << oldArea.y()
               << " " << oldArea.width() << "x" << oldArea.height() << endl;
 
-    if ( m_autoAlign )
-        int dummy = 0; //lineupIcons();
+    if ( m_autoAlign ) {
+        //lineupIcons();
+    }
     else {
         bool needRepaint = false;
         TQIconViewItem* item;

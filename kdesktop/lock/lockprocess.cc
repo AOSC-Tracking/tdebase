@@ -658,6 +658,10 @@ void LockProcess::startSecureDialog()
 	mBusy = true;
 	execDialog( &inDlg );
 	mBusy = false;
+	bool forcecontdisp = mForceContinualLockDisplayTimer->isActive();
+	if (forcecontdisp) {
+		DISABLE_CONTINUOUS_LOCKDLG_DISPLAY
+	}
 	trinity_desktop_lock_in_sec_dlg = false;
 	if (ret == 0) {
 		kapp->quit();
@@ -690,6 +694,9 @@ void LockProcess::startSecureDialog()
 	}
 	// FIXME
 	// Handle remaining two cases (logoff menu and switch user)
+	if (forcecontdisp) {
+		ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+	}
 	stopSaver();
 }
 
@@ -1495,17 +1502,21 @@ void LockProcess::hackExited(KProcess *)
 
 void LockProcess::displayLockDialogIfNeeded()
 {
-	if (m_startupStatusDialog) { m_startupStatusDialog->closeSMDialog(); m_startupStatusDialog=NULL; }
-	if (trinity_desktop_lock_use_system_modal_dialogs) {
-		if (!mBusy) {
-			mBusy = true;
-			if (mLocked) {
-				if (checkPass()) {
-					stopSaver();
-					kapp->quit();
+	if (m_startupStatusDialog) {
+		m_startupStatusDialog->closeSMDialog(); m_startupStatusDialog=NULL;
+	}
+	if (!trinity_desktop_lock_in_sec_dlg) {
+		if (trinity_desktop_lock_use_system_modal_dialogs) {
+			if (!mBusy) {
+				mBusy = true;
+				if (mLocked) {
+					if (checkPass()) {
+						stopSaver();
+						kapp->quit();
+					}
 				}
+				mBusy = false;
 			}
-			mBusy = false;
 		}
 	}
 }

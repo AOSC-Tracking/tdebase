@@ -207,7 +207,7 @@
       <label>Device Types to exclude</label>
       <whatsthis>The device types which you do not want to see on the desktop.</whatsthis>
       <!-- kdiconview.cc:261 -->
-      <!--     QString tmpList=config->readEntry("exclude","media/hdd_mounted,media/hdd_unmounted,media/floppy_unmounted,media/cdrom_unmounted,media/floppy5_unmounted"); -->
+      <!--     TQString tmpList=config->readEntry("exclude","media/hdd_mounted,media/hdd_unmounted,media/floppy_unmounted,media/cdrom_unmounted,media/floppy5_unmounted"); -->
     </entry>
   </group>
   <group name="KDE"> 
@@ -353,7 +353,7 @@
       <label></label>
       <whatsthis></whatsthis>
       <!-- minicli.cpp:191 -->
-      <!--   QStringList histList = config->readPathListEntry("History"); -->
+      <!--   TQStringList histList = config->readPathListEntry("History"); -->
       <!-- minicli.cpp:242 -->
       <!--   config->writePathEntry( "History", m_dlg->cbCommand->historyItems() ); -->
     </entry>
@@ -406,7 +406,7 @@
       <label></label>
       <whatsthis></whatsthis>
       <!-- minicli.cpp:204 -->
-      <!--   QStringList compList = config->readPathListEntry("CompletionItems"); -->
+      <!--   TQStringList compList = config->readPathListEntry("CompletionItems"); -->
       <!-- minicli.cpp:244 -->
       <!--   config->writePathEntry( "CompletionItems", m_dlg->cbCommand->completionObject()->items() ); -->
     </entry>

@@ -252,19 +252,21 @@ int main( int argc, char **argv )
             }
         }
 
-        if (args->isSet( "forcelock" ) || (signalled_forcelock == TRUE))
+        if (args->isSet( "forcelock" ) || (signalled_forcelock == TRUE)) {
             trinity_desktop_lock_forced = TRUE;
+        }
 
         LockProcess process(child, (args->isSet( "blank" ) || (signalled_blank == TRUE)));
-        if (!child)
+        if (!child) {
             process.setChildren(child_sockets);
-        else
+        }
+        else {
             process.setParent(parent_connection);
+        }
 
         bool rt;
         bool sig = false;
-        if( !child && (args->isSet( "forcelock" ) || (signalled_forcelock == TRUE)))
-        {
+        if( (!child && (args->isSet( "forcelock" )) || (signalled_forcelock == TRUE))) {
             rt = process.lock();
             sig = true;
         }

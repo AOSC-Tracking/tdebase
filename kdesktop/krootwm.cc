@@ -245,7 +245,7 @@ void KRootWm::initConfig()
 
   // Read configuration for icons alignment
   if ( m_bDesktopEnabled ) {
-    bool startup = true; m_pDesktop->iconView()->setAutoAlign( KDesktopSettings::autoLineUpIcons() ); 
+    m_pDesktop->iconView()->setAutoAlign( KDesktopSettings::autoLineUpIcons() );
     if ( kapp->authorize( "editable_desktop_icons" ) ) {
         m_pDesktop->iconView()->setItemsMovable( !KDesktopSettings::lockIcons() );
         KToggleAction *aLockIcons = static_cast<KToggleAction*>(m_actionCollection->action("lock_icons"));
