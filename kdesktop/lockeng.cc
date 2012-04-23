@@ -34,7 +34,7 @@ SaverEngine* m_masterSaverEngine = NULL;
 static void sigusr1_handler(int)
 {
     if (m_masterSaverEngine) {
-        m_masterSaverEngine->lockProcessWaiting();
+        m_masterSaverEngine->slotLockProcessWaiting();
     }
 }
 
@@ -443,6 +443,13 @@ void SaverEngine::lockProcessExited()
             }
         }
     }
+}
+
+void SaverEngine::slotLockProcessWaiting()
+{
+    // lockProcessWaiting cannot be called directly from a signal handler, as it will hang in certain obscure circumstances
+    // Instead we use a single-shot timer to immediately call lockProcessWaiting once control has returned to the Qt main loop
+    TQTimer::singleShot(0, this, SLOT(lockProcessWaiting()));
 }
 
 void SaverEngine::lockProcessWaiting()

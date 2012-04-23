@@ -266,7 +266,7 @@ int main( int argc, char **argv )
 
         bool rt;
         bool sig = false;
-        if( (!child && (args->isSet( "forcelock" )) || (signalled_forcelock == TRUE))) {
+        if( (((!child) && (args->isSet( "forcelock" ))) || (signalled_forcelock == TRUE))) {
             rt = process.lock();
             sig = true;
         }

@@ -79,11 +79,12 @@ public:
     virtual void saverLockReady();
 
 public slots:
-    void lockProcessWaiting();
+    void slotLockProcessWaiting();
 
 protected slots:
     void idleTimeout();
     void lockProcessExited();
+    void lockProcessWaiting();
 
 private slots:
     void handleSecureDialog();

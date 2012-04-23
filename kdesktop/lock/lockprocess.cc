@@ -664,6 +664,7 @@ void LockProcess::startSecureDialog()
 	}
 	trinity_desktop_lock_in_sec_dlg = false;
 	if (ret == 0) {
+		trinity_desktop_lock_closing_windows = 1;
 		kapp->quit();
 	}
 	if (ret == 1) {
@@ -687,6 +688,7 @@ void LockProcess::startSecureDialog()
 		mBusy = false;
 	}
 	if (ret == 2) {
+		trinity_desktop_lock_closing_windows = 1;
 		if (system("ksysguard &") == -1) {
                     // Error handler to shut up gcc warnings
                 }
