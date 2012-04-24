@@ -481,11 +481,7 @@ void sftpProtocol::setHost (const TQString& h, int port, const TQString& user, c
     if( port > 0 )
         mPort = port;
     else {
-        struct servent *pse;
-        if( (pse = getservbyname("ssh", "tcp") ) == NULL )
-            mPort = 22;
-        else
-            mPort = ntohs(pse->s_port);
+        mPort = -1;
     }
 
     mUsername = user;
