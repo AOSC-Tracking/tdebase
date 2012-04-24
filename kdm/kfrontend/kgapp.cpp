@@ -192,6 +192,7 @@ kg_main( const char *argv0 )
 	KProcess *tsak = 0;
 	KProcess *proc = 0;
 	KProcess *comp = 0;
+	KProcess *dcop = 0;
 	KProcess *kwin = 0;
 
 	trinity_desktop_lock_use_sak = _useSAK;
@@ -317,6 +318,13 @@ kg_main( const char *argv0 )
 	}
 
 	if (!_windowManager.isEmpty()) {
+		if (_windowManager == "kwin") {
+			// Special case
+			// Start DCOP...
+			dcop = new KProcess;
+			*dcop << TQCString( argv0, strrchr( argv0, '/' ) - argv0 + 2 ) + "dcopserver" << TQCString("--suicide");
+			dcop->start();
+		}
 		kwin = new KProcess;
 		*kwin << TQCString( argv0, strrchr( argv0, '/' ) - argv0 + 2 ) + _windowManager.ascii();
 		kwin->start();
@@ -462,11 +470,14 @@ kg_main( const char *argv0 )
 		if (login_session_wm.endsWith("/startkde") || (login_session_wm == "failsafe")) {
 			kwin->closeStdin();
 			kwin->detach();
+			dcop->detach();
 		}
 		else {
 			kwin->kill();
+			dcop->kill();
 		}
 		delete kwin;
+		delete dcop;
 	}
 	delete proc;
 	UnsecureDisplay( dpy );
