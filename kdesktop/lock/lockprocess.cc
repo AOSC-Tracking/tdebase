@@ -674,6 +674,8 @@ void LockProcess::startSecureDialog()
 		// the screensaver kicks in because the user moved the mouse after
 		// selecting "lock screen", that looks really untidy.
 		mBusy = true;
+		// Make sure the cursor is not showing busy status
+		setCursor( tqarrowCursor );
 		if (startLock())
 		{
 			if (trinity_desktop_lock_delay_screensaver_start) {
@@ -694,8 +696,13 @@ void LockProcess::startSecureDialog()
                 }
 		kapp->quit();
 	}
+	if (ret == 3) {
+		trinity_desktop_lock_closing_windows = 1;
+		DCOPRef("ksmserver","ksmserver").send("logout", -1, 0, 1);
+		kapp->quit();
+	}
 	// FIXME
-	// Handle remaining two cases (logoff menu and switch user)
+	// Handle remaining case (switch user)
 	if (forcecontdisp) {
 		ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
 	}

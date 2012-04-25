@@ -102,7 +102,6 @@ SecureDlg::SecureDlg(LockProcess *parent)
 
     mShutdownButton = new TQPushButton( frame );
     mShutdownButton->setText(i18n("Logoff Menu"));
-    mShutdownButton->setEnabled(false); // FIXME
 
     mSwitchButton = new TQPushButton( frame );
     mSwitchButton->setText(i18n("Switch User"));
