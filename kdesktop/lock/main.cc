@@ -29,6 +29,7 @@
 #include <kdebug.h>
 #include <kglobalsettings.h>
 #include <dcopref.h>
+#include <ksimpleconfig.h>
 
 #include <kdmtsak.h>
 
@@ -199,7 +200,19 @@ int main( int argc, char **argv )
 
         trinity_desktop_lock_use_system_modal_dialogs = !KDesktopSettings::useUnmanagedLockWindows();
         trinity_desktop_lock_delay_screensaver_start = KDesktopSettings::delaySaverStart();
-        trinity_desktop_lock_use_sak = KDesktopSettings::useTDESAK();
+
+        // RAJA
+        struct stat st;
+        KSimpleConfig* tdmconfig;
+        if( stat( KDE_CONFDIR "/kdm/kdmdistrc" , &st ) == 0) {
+            tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdm/kdmdistrc" ));
+        }
+        else {
+            tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdm/kdmrc" ));
+        }
+        tdmconfig->setGroup("X-*-Greeter");
+        trinity_desktop_lock_use_sak = tdmconfig->readBoolEntry("UseSAK", true);
+        delete tdmconfig;
 
         if (args->isSet( "internal" )) {
             while (signalled_run == FALSE) {

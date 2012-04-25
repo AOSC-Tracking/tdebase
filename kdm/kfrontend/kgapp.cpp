@@ -385,7 +385,9 @@ kg_main( const char *argv0 )
 					is_themed = false;
 					has_kwin = has_kwin_bkp;
 					delete tgrt;
-					checkSAK(app);
+					if (trinity_desktop_lock_use_sak) {
+						checkSAK(app);
+					}
 					dialog = new KStdGreeter;
 #ifdef WITH_XRANDR
 					dialog->move(dialog->x() + primaryScreenPosition.x(), dialog->y() + primaryScreenPosition.y());
@@ -398,7 +400,9 @@ kg_main( const char *argv0 )
 				}
 				XSetErrorHandler( (XErrorHandler)0 );
 			} else {
-				checkSAK(app);
+				if (trinity_desktop_lock_use_sak) {
+					checkSAK(app);
+				}
 				dialog = new KStdGreeter;
 #ifdef WITH_XRANDR
 				dialog->move(dialog->x() + primaryScreenPosition.x(), dialog->y() + primaryScreenPosition.y());

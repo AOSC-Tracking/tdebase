@@ -311,13 +311,6 @@
       <!-- /home/paco/cvsroot/kdebase/kdesktop/lock/lockprocess.cc:336 -->
       <!--     mSaver = config.readEntry("UseUnmanagedLockWindows"); -->
     </entry>
-    <entry key="UseTDESAK" type="Bool">
-      <default>true</default>
-      <label></label>
-      <whatsthis>Set to true to enable usage of the Trinity SAK anti-spoofing system</whatsthis>
-      <!-- /home/paco/cvsroot/kdebase/kdesktop/lock/lockprocess.cc:336 -->
-      <!--     mSaver = config.readEntry("UseTDESAK"); -->
-    </entry>
     <entry key="ShowLockDateTime" type="Bool">
       <default>true</default>
       <label></label>

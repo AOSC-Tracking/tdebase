@@ -125,7 +125,7 @@ KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* kwinModule
     if (m_numberOfViewports < 1) {
         m_numberOfViewports = 1;
     }
-    for (unsigned j=0;j<(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);j++) {
+    for (signed j=0;j<(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);j++) {
         renderBackground(j);
     }
 }
@@ -250,7 +250,7 @@ void KBackgroundManager::configure()
     if (m_numberOfViewports < 1) {
         m_numberOfViewports = 1;
     }
-    for (unsigned j=0;j<(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);j++) {
+    for (signed j=0;j<(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);j++) {
         renderBackground(j);
     }
 }
@@ -350,7 +350,7 @@ void KBackgroundManager::slotChangeDesktop(int desk)
 	desk--;
 
     // Lazy initialisation of # of desktops
-    if ((m_pKwinmodule->numberOfDesktops() * m_numberOfViewports) >= m_Renderer.size())
+    if ((unsigned)(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports) >= m_Renderer.size())
         slotChangeNumberOfDesktops( m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);
 
     int edesk = effectiveDesktop();
@@ -410,7 +410,7 @@ void KBackgroundManager::slotChangeViewport(int desk, const TQPoint& viewport)
         desk--;
 
     // Lazy initialisation of # of desktops
-    if ((m_pKwinmodule->numberOfDesktops() * m_numberOfViewports) >= m_Renderer.size())
+    if ((unsigned)(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports) >= m_Renderer.size())
         slotChangeNumberOfDesktops( m_pKwinmodule->numberOfDesktops() * m_numberOfViewports );
 
     int edesk = effectiveDesktop();
@@ -963,7 +963,7 @@ void KBackgroundManager::desktopResized()
     if (m_numberOfViewports < 1) {
         m_numberOfViewports = 1;
     }
-    for (unsigned j=0;j<(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);j++) {
+    for (signed j=0;j<(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);j++) {
         renderBackground(j);
     }
 }
