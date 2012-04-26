@@ -698,7 +698,7 @@ void LockProcess::startSecureDialog()
 	}
 	if (ret == 3) {
 		trinity_desktop_lock_closing_windows = 1;
-		DCOPRef("ksmserver","ksmserver").send("logout", -1, 0, 1);
+		DCOPRef("ksmserver","ksmserver").send("logout", (int)KApplication::ShutdownConfirmYes, (int)KApplication::ShutdownTypeNone, (int)KApplication::ShutdownModeInteractive);
 		kapp->quit();
 	}
 	// FIXME
