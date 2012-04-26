@@ -307,21 +307,21 @@
     <entry key="UseUnmanagedLockWindows" type="Bool">
       <default>false</default>
       <label></label>
-      <whatsthis></whatsthis>
+      <whatsthis>When enabled this restores the old style unmanaged window behavior of desktop locking.</whatsthis>
       <!-- /home/paco/cvsroot/kdebase/kdesktop/lock/lockprocess.cc:336 -->
       <!--     mSaver = config.readEntry("UseUnmanagedLockWindows"); -->
     </entry>
     <entry key="ShowLockDateTime" type="Bool">
       <default>true</default>
       <label></label>
-      <whatsthis>Set to true to enable display of the date and time of desktop lock as an additional intrusion detection measure</whatsthis>
+      <whatsthis>When enabled the date and time when the desktop was locked is displayed as an additional intrusion detection measure.</whatsthis>
       <!-- /home/paco/cvsroot/kdebase/kdesktop/lock/lockprocess.cc:336 -->
       <!--     mSaver = config.readEntry("ShowLockDateTime"); -->
     </entry>
     <entry key="DelaySaverStart" type="Bool">
       <default>true</default>
       <label></label>
-      <whatsthis></whatsthis>
+      <whatsthis>When disabled the screensaver starts immediately when locking the desktop.</whatsthis>
       <!-- /home/paco/cvsroot/kdebase/kdesktop/lock/lockprocess.cc:336 -->
       <!--     mSaver = config.readEntry("UseUnmanagedLockWindows"); -->
     </entry>
