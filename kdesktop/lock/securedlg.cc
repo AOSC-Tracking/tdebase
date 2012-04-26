@@ -101,11 +101,11 @@ SecureDlg::SecureDlg(LockProcess *parent)
     mTaskButton = new TQPushButton( frame );
     mTaskButton->setText(i18n("Task Manager"));
 
-    mCancelButton = new TQPushButton( frame );
-    mCancelButton->setText(i18n("Cancel"));
-
     mShutdownButton = new TQPushButton( frame );
     mShutdownButton->setText(i18n("Logoff Menu"));
+
+    mCancelButton = new TQPushButton( frame );
+    mCancelButton->setText(i18n("Cancel"));
 
     mSwitchButton = new TQPushButton( frame );
     mSwitchButton->setText(i18n("Switch User"));
