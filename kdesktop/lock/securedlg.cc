@@ -87,6 +87,10 @@ SecureDlg::SecureDlg(LockProcess *parent)
     KUser user;
 
     mLogonStatus = new TQLabel( frame );
+    TQString userString = user.fullName();
+    if (userString == "") {
+        userString = user.loginName();
+    }
     mLogonStatus->setText(i18n("'%1' is currently logged on").arg( user.fullName() ));
 
     KSeparator *sep = new KSeparator( KSeparator::HLine, frame );
