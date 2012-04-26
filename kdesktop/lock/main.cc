@@ -201,7 +201,6 @@ int main( int argc, char **argv )
         trinity_desktop_lock_use_system_modal_dialogs = !KDesktopSettings::useUnmanagedLockWindows();
         trinity_desktop_lock_delay_screensaver_start = KDesktopSettings::delaySaverStart();
 
-        // RAJA
         struct stat st;
         KSimpleConfig* tdmconfig;
         if( stat( KDE_CONFDIR "/kdm/kdmdistrc" , &st ) == 0) {
@@ -212,7 +211,11 @@ int main( int argc, char **argv )
         }
         tdmconfig->setGroup("X-*-Greeter");
         trinity_desktop_lock_use_sak = tdmconfig->readBoolEntry("UseSAK", true);
-        delete tdmconfig;
+
+        LockProcess process;
+
+        // Start loading core functions, such as the desktop wallpaper interface
+        app.processEvents();
 
         if (args->isSet( "internal" )) {
             while (signalled_run == FALSE) {
@@ -265,11 +268,25 @@ int main( int argc, char **argv )
             }
         }
 
+        // Reload settings to make sure they reflect reality
+        KDesktopSettings::self()->readConfig();
+        tdmconfig->reparseConfiguration();
+        trinity_desktop_lock_use_system_modal_dialogs = !KDesktopSettings::useUnmanagedLockWindows();
+        trinity_desktop_lock_delay_screensaver_start = KDesktopSettings::delaySaverStart();
+        if (trinity_desktop_lock_use_system_modal_dialogs) {
+            trinity_desktop_lock_use_sak = tdmconfig->readBoolEntry("UseSAK", true);
+        }
+        else {
+            trinity_desktop_lock_use_sak = false; // If SAK is enabled with unmanaged windows, the SAK dialog will never close and will "burn in" the screen
+        }
+
+        delete tdmconfig;
+
         if (args->isSet( "forcelock" ) || (signalled_forcelock == TRUE)) {
             trinity_desktop_lock_forced = TRUE;
         }
 
-        LockProcess process(child, (args->isSet( "blank" ) || (signalled_blank == TRUE)));
+        process.init(child, (args->isSet( "blank" ) || (signalled_blank == TRUE)));
         if (!child) {
             process.setChildren(child_sockets);
         }

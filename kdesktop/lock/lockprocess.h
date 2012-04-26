@@ -48,8 +48,10 @@ class LockProcess
 {
     Q_OBJECT
 public:
-    LockProcess(bool child_saver = false, bool useBlankOnly = false);
+    LockProcess();
     ~LockProcess();
+
+    void init(bool child_saver = false, bool useBlankOnly = false);
 
     bool lock();
 

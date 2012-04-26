@@ -156,12 +156,10 @@ trinity_desktop_lock_autohide_lockdlg = TRUE;
 // Screen saver handling process.  Handles screensaver window,
 // starting screensaver hacks, and password entry.
 //
-LockProcess::LockProcess(bool child, bool useBlankOnly)
+LockProcess::LockProcess()
     : TQWidget(0L, "saver window", (trinity_desktop_lock_use_system_modal_dialogs?((WFlags)(WStyle_StaysOnTop|WStyle_Customize|WStyle_NoBorder)):((WFlags)WX11BypassWM))),
       mOpenGLVisual(0),
-      child_saver(child),
       mParent(0),
-      mUseBlankOnly(useBlankOnly),
       mShowLockDateTime(false),
       mSuspended(false),
       mVisibility(false),
@@ -200,9 +198,6 @@ LockProcess::LockProcess(bool child, bool useBlankOnly)
     setupSignals();
     setupPipe();
 
-    mShowLockDateTime = KDesktopSettings::showLockDateTime();
-    mlockDateTime = TQDateTime::currentDateTime();
-
     kapp->installX11EventFilter(this);
 
     mForceContinualLockDisplayTimer = new TQTimer( this );
@@ -216,8 +211,11 @@ LockProcess::LockProcess(bool child, bool useBlankOnly)
 
     connect(tqApp, TQT_SIGNAL(mouseInteraction(XEvent *)), TQT_SLOT(slotMouseActivity(XEvent *)));
 
-    mHackDelayStartupTimeout = trinity_desktop_lock_delay_screensaver_start?KDesktopSettings::timeout()*1000:10*1000;
-    mHackStartupEnabled = trinity_desktop_lock_delay_screensaver_start?KDesktopSettings::screenSaverEnabled():true;
+    // Try to get the root pixmap
+    if (!m_rootPixmap) m_rootPixmap = new KRootPixmap(this);
+    m_rootPixmap->setCustomPainting(true);
+    connect(m_rootPixmap, TQT_SIGNAL(backgroundUpdated(const TQPixmap &)), this, TQT_SLOT(slotPaintBackground(const TQPixmap &)));
+    m_rootPixmap->start();
 
     // Get root window size
     XWindowAttributes rootAttr;
@@ -339,6 +337,23 @@ LockProcess::~LockProcess()
 
     mPipeOpen = false;
     mPipeOpen_out = false;
+}
+
+//---------------------------------------------------------------------------
+//
+// Initialization for startup
+// This is where instance settings should be set--all objects should have already been created in the constructor above
+//
+void LockProcess::init(bool child, bool useBlankOnly)
+{
+    child_saver = child;
+    mUseBlankOnly = useBlankOnly;
+
+    mShowLockDateTime = KDesktopSettings::showLockDateTime();
+    mlockDateTime = TQDateTime::currentDateTime();
+
+    mHackDelayStartupTimeout = trinity_desktop_lock_delay_screensaver_start?KDesktopSettings::timeout()*1000:10*1000;
+    mHackStartupEnabled = trinity_desktop_lock_delay_screensaver_start?KDesktopSettings::screenSaverEnabled():true;
 }
 
 static int signal_pipe[2];

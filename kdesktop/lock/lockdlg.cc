@@ -225,8 +225,15 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
 
     DCOPRef kxkb("kxkb", "kxkb");
     if( !kxkb.isNull() ) {
-        layoutsList = kxkb.call("getLayoutsList");
-        TQString currentLayout = kxkb.call("getCurrentLayout");
+        DCOPReply reply = kxkb.call("getLayoutsList");
+        if (reply.isValid()) {
+            layoutsList = reply;
+        }
+        reply = kxkb.call("getCurrentLayout");
+        TQString currentLayout;
+        if (reply.isValid()) {
+             reply.get(currentLayout);
+        }
         if( !currentLayout.isEmpty() && layoutsList.count() > 1 ) {
             currLayout = layoutsList.find(currentLayout);
             if (currLayout == layoutsList.end())

@@ -371,7 +371,7 @@ kg_main( const char *argv0 )
 			if ((cmd != G_GreetTimed && !_autoLoginAgain) ||
 			    _autoLoginUser.isEmpty())
 				_autoLoginDelay = 0;
-			if (_useTheme && !_theme.isEmpty()) {
+			if (_useTheme && !_theme.isEmpty() && !trinity_desktop_lock_use_sak) {
 				// Qt4 has a nasty habit of generating BadWindow errors in normal operation, so we simply ignore them
 				// This also prevents the user from being dropped to a console login if Xorg glitches or is buggy
 				XSetErrorHandler( ignoreXError );
