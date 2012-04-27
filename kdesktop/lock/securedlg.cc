@@ -91,7 +91,12 @@ SecureDlg::SecureDlg(LockProcess *parent)
     if (userString == "") {
         userString = user.loginName();
     }
-    mLogonStatus->setText(i18n("'%1' is currently logged on").arg( user.fullName() ));
+    if (userString != "") {
+        mLogonStatus->setText(i18n("'%1' is currently logged on").arg( user.fullName() ));
+    }
+    else {
+        mLogonStatus->setText(i18n("You are currently logged on"));	// We should never get here, and this message is somewhat obtuse, but it is better than displaying two qotation marks with no text between them...
+    }
 
     KSeparator *sep = new KSeparator( KSeparator::HLine, frame );
 

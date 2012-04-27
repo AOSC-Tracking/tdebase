@@ -1542,6 +1542,7 @@ void LockProcess::displayLockDialogIfNeeded()
 				mBusy = true;
 				if (mLocked) {
 					if (checkPass()) {
+						trinity_desktop_lock_closing_windows = true;
 						stopSaver();
 						kapp->quit();
 					}
@@ -1882,6 +1883,7 @@ bool LockProcess::x11Event(XEvent *event)
             else {
                 if (!mLocked || checkPass())
                 {
+                    trinity_desktop_lock_closing_windows = true;
                     stopSaver();
                     kapp->quit();
                 }
