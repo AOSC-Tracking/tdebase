@@ -607,14 +607,14 @@ KWinbindGreeter::slotEndDomainList()
 
     TQString current = domainCombo->currentText();
 
-    for (int i = 0; i < domainList.count(); ++i) {
-        if (i < domainCombo->count())
+    for (unsigned int i = 0; i < domainList.count(); ++i) {
+        if (i < (uint)domainCombo->count())
             domainCombo->changeItem(domainList[i], i);
         else
             domainCombo->insertItem(domainList[i], i);
     }
 
-    while (domainCombo->count() > domainList.count())
+    while ((uint)domainCombo->count() > domainList.count())
         domainCombo->removeItem(domainCombo->count()-1);
 
     domainCombo->setCurrentItem( current );

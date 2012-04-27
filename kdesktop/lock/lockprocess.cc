@@ -1636,6 +1636,18 @@ bool LockProcess::checkPass()
             return 0;
 
         if (trinity_desktop_lock_use_sak) {
+            // Verify SAK operational status
+            KProcess* checkSAKProcess = new KProcess;
+            *checkSAKProcess << "kdmtsak" << "check";
+            checkSAKProcess->start(KProcess::Block, KProcess::NoCommunication);
+            int retcode = checkSAKProcess->exitStatus();
+            delete checkSAKProcess;
+            if (retcode != 0) {
+                trinity_desktop_lock_use_sak = false;
+            }
+        }
+
+        if (trinity_desktop_lock_use_sak) {
             // Wait for SAK press before continuing...
             SAKDlg inDlg( this );
             execDialog( &inDlg );

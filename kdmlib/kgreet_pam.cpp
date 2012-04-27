@@ -354,7 +354,6 @@ KPamGreeter::textPrompt( const char *prompt, bool echo, bool nonBlocking )
         }
         else if (m_themer) {
             kg_debug("themer found!");
-	    KdmItem *pw_label = 0;
 
             KdmLabel *kdmlabel = static_cast<KdmLabel*>(m_themer->findNode("pw-label"));
             if (kdmlabel) {

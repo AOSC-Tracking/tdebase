@@ -108,7 +108,6 @@ void signal_callback_handler(int signum)
 {
 	// Terminate program
 	throw exit_exception(signum);
-	exit(signum);
 }
 
 /*  termination handler */
@@ -395,7 +394,7 @@ int main (int argc, char *argv[])
 	struct input_event event;
 	struct input_event revev;
 	struct uinput_user_dev devinfo={{0},{0}};
-	int devout[MAX_KEYBOARDS], rd, i, value, size = sizeof (struct input_event);
+	int devout[MAX_KEYBOARDS], rd, i, size = sizeof (struct input_event);
 	char name[256] = "Unknown";
 	bool ctrl_down = false;
 	bool alt_down = false;
@@ -579,8 +578,6 @@ int main (int argc, char *argv[])
 										}
 									}
 
-									value = ev[0].value;
-
 									if (ev[0].value == 0 && ev[0].type == 1) { // Read the key release event
 										if (keycode[(ev[0].code)]) {
 											if (strcmp(keycode[(ev[0].code)], "<control>") == 0) ctrl_down = false;
@@ -713,7 +710,7 @@ int main (int argc, char *argv[])
 		}
 	}
 	catch(exit_exception& e) {
-		exit(e.c);
+		tsak_friendly_termination();
 	}
 
 	return 6;

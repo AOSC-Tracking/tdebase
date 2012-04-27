@@ -121,9 +121,13 @@ int main (int argc, char *argv[])
 	int verifier_result = tde_sak_verify_calling_process();
 
 	bool isdm = false;
+	bool checkonly = false;
 	if (argc == 2) {
 		if (strcmp(argv[1], "dm") == 0) {
 			isdm = true;
+		}
+		if (strcmp(argv[1], "check") == 0) {
+			checkonly = true;
 		}
 	}
 
@@ -139,6 +143,14 @@ int main (int argc, char *argv[])
 			// OK, the calling process is authorized to retrieve SAK data
 			// First, flush the buffer
 			mPipe_fd = open(FIFO_FILE, O_RDONLY | O_NONBLOCK);
+			if (checkonly) {
+				if (mPipe_fd < 0) {
+					return 6;	// SAK not available
+				}
+				else {
+					return 0;
+				}
+			}
 			numread = 1;
 			while (numread > 0) {
 				numread = read(mPipe_fd, readbuf, 6);
