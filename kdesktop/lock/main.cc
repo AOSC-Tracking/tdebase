@@ -277,7 +277,8 @@ int main( int argc, char **argv )
             trinity_desktop_lock_use_sak = tdmconfig->readBoolEntry("UseSAK", true);
         }
         else {
-            trinity_desktop_lock_use_sak = false; // If SAK is enabled with unmanaged windows, the SAK dialog will never close and will "burn in" the screen
+            trinity_desktop_lock_use_sak = false;			// If SAK is enabled with unmanaged windows, the SAK dialog will never close and will "burn in" the screen
+            trinity_desktop_lock_delay_screensaver_start = false;	// If trinity_desktop_lock_delay_screensaver_start is true with unmanaged windows, the lock dialog may never appear
         }
 
         delete tdmconfig;
