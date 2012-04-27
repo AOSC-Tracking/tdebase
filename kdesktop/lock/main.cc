@@ -269,7 +269,7 @@ int main( int argc, char **argv )
         }
 
         // Reload settings to make sure they reflect reality
-        KDesktopSettings::self()->readConfig();
+        KDesktopSettings::self()->config()->reparseConfiguration();
         tdmconfig->reparseConfiguration();
         trinity_desktop_lock_use_system_modal_dialogs = !KDesktopSettings::useUnmanagedLockWindows();
         trinity_desktop_lock_delay_screensaver_start = KDesktopSettings::delaySaverStart();

@@ -263,8 +263,6 @@ LockProcess::LockProcess()
         if ((*it).startsWith("method="))
             mMethod = (*it).mid(7);
 
-    configure();
-
 #ifdef HAVE_DPMS
     if (mDPMSDepend) {
         BOOL on;
@@ -354,6 +352,8 @@ void LockProcess::init(bool child, bool useBlankOnly)
 
     mHackDelayStartupTimeout = trinity_desktop_lock_delay_screensaver_start?KDesktopSettings::timeout()*1000:10*1000;
     mHackStartupEnabled = trinity_desktop_lock_delay_screensaver_start?KDesktopSettings::screenSaverEnabled():true;
+
+    configure();
 }
 
 static int signal_pipe[2];
@@ -689,6 +689,7 @@ void LockProcess::startSecureDialog()
 		// the screensaver kicks in because the user moved the mouse after
 		// selecting "lock screen", that looks really untidy.
 		mBusy = true;
+		trinity_desktop_lock_forced = true;
 		// Make sure the cursor is not showing busy status
 		setCursor( tqarrowCursor );
 		if (startLock())
@@ -699,10 +700,18 @@ void LockProcess::startSecureDialog()
 			else {
 				TQTimer::singleShot(1000, this, TQT_SLOT(slotDeadTimePassed()));
 			}
+			if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced && trinity_desktop_lock_use_system_modal_dialogs) {
+				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+			}
+			else {
+				startHack();
+			}
 			return;
 		}
 		stopSaver();
 		mBusy = false;
+		return;
 	}
 	if (ret == 2) {
 		trinity_desktop_lock_closing_windows = 1;
@@ -1212,7 +1221,7 @@ bool LockProcess::startSaver()
 	raise();
 	XSync(qt_xdisplay(), False);
 	setVRoot( winId(), winId() );
-	if (!(trinity_desktop_lock_delay_screensaver_start && (trinity_desktop_lock_forced || trinity_desktop_lock_in_sec_dlg))) {
+	if ((!(trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced)) && (!trinity_desktop_lock_in_sec_dlg)) {
 		if (backingPixmap.isNull())
 			setBackgroundColor(black);
 		else
@@ -1224,8 +1233,6 @@ bool LockProcess::startSaver()
 		// Try to get the root pixmap
 		if (!m_rootPixmap) m_rootPixmap = new KRootPixmap(this);
 		m_rootPixmap->setCustomPainting(true);
-		connect(m_rootPixmap, TQT_SIGNAL(backgroundUpdated(const TQPixmap &)), this, TQT_SLOT(slotPaintBackground(const TQPixmap &)));
-		m_rootPixmap->start();
 		// Sometimes KRootPixmap fails...make sure the desktop is hidden regardless
 		if (!mEnsureScreenHiddenTimer) {
 			mEnsureScreenHiddenTimer = new TQTimer( this );
