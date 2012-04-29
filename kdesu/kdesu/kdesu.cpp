@@ -62,7 +62,7 @@ static KCmdLineOptions options[] = {
     { "t", I18N_NOOP("Enable terminal output (no password keeping)"), 0 },
     { "p <prio>", I18N_NOOP("Set priority value: 0 <= prio <= 100, 0 is lowest"), "50" },
     { "r", I18N_NOOP("Use realtime scheduling"), 0 },
-    { "newdcop", I18N_NOOP("Create a new dcopserver instance (this can break your current TDE session)"), 0 },
+    { "nonewdcop", I18N_NOOP("Let command use existing dcopserver"), 0 },
     { "noignorebutton", I18N_NOOP("Do not display ignore button"), 0 },
     { "i <icon name>", I18N_NOOP("Specify icon to use in the password dialog"), 0},
     { "d", I18N_NOOP("Do not show the command to be run in the dialog"), 0},
