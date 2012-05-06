@@ -31,7 +31,7 @@ BIN_DIR="`dirname \`readlink -f $0\``"
 if [ -x $BIN_DIR/konqueror ]; then
   KDE_VERSION="`$BIN_DIR/konqueror --version | grep KDE | awk '{print $2}'`"
   echo "[startkde] TDE version is $KDE_VERSION" 1>&2
-  KDEDIR=`echo $BIN_DIR | sed 's|/bin||'`
+  export KDEDIR=${BIN_DIR%/bin}
   echo "[startkde] TDE base directory is $KDEDIR" 1>&2
 else
   echo "[startkde] Unable to determine TDE base directory."
@@ -477,10 +477,6 @@ if test -r "$kde_fontpaths" ; then
     fi
   done
   IFS=$savifs
-fi
-
-if [ "$KDEDIR" = "" ]; then
-  export KDEDIR=`echo "$KDEDIRS" | sed -e 's/:.*//'`
 fi
 
 echo "[startkde] KDEDIR: $KDEDIR" 1>&2
