@@ -1,5 +1,6 @@
 /* This file is part of the KDE Project
    Copyright (c) 2004-2005 Jérôme Lodewyck <jerome dot lodewyck at normalesup dot org>
+   Copyright (c) 2006 Valentine Sinitsyn <e_val@inbox.ru>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -56,9 +57,7 @@ TQString libhal_device_get_property_QString(LibHalContext *ctx, const char* udi,
 {
     char*   _ppt_string;
     TQString _ppt_QString;
-    DBusError error;
-    dbus_error_init(&error);
-    _ppt_string = libhal_device_get_property_string(ctx, udi, key, &error);
+    _ppt_string = libhal_device_get_property_string(ctx, udi, key, NULL);
     if ( _ppt_string )
         _ppt_QString = _ppt_string;
     libhal_free_string(_ppt_string);
@@ -929,7 +928,16 @@ TQStringList HALBackend::mountoptions(const TQString &name)
     }
 
     KConfig config("mediamanagerrc");
-    config.setGroup(name);
+    
+    bool use_defaults = true;    
+    if (config.hasGroup(name)) 
+    {
+	config.setGroup(name);
+	use_defaults = config.readBoolEntry("use_defaults", false);
+    }
+    
+    if (use_defaults)
+	config.setGroup("DefaultOptions");    
 
     char ** array = libhal_device_get_property_strlist(m_halContext, volume_udi.latin1(), "volume.mount.valid_options", NULL);
     TQMap<TQString,bool> valids;
@@ -944,6 +952,8 @@ TQStringList HALBackend::mountoptions(const TQString &name)
     libhal_free_string_array(array);
     TQStringList result;
     TQString tmp;
+    
+    result << TQString("use_defaults=%1").arg(use_defaults ? "true" : "false");    
 
     TQString fstype = libhal_device_get_property_QString(m_halContext, volume_udi.latin1(), "volume.fstype");
     if (fstype.isNull())
@@ -956,9 +966,18 @@ TQStringList HALBackend::mountoptions(const TQString &name)
         removable = libhal_device_get_property_bool(m_halContext, drive_udi.latin1(), "storage.removable", NULL)
                      || libhal_device_get_property_bool(m_halContext, drive_udi.latin1(), "storage.hotpluggable", NULL);
 
-    config.setGroup(drive_udi);
-    bool value = config.readBoolEntry("automount", false);
-    config.setGroup(name);
+    bool value;
+    if (use_defaults)
+    {
+	value = config.readBoolEntry("automount", false);
+    }
+    else
+    {
+	QString current_group = config.group();
+	config.setGroup(drive_udi);
+	value = config.readBoolEntry("automount", false);
+	config.setGroup(current_group);
+    }
 
     if (libhal_device_get_property_bool(m_halContext, volume_udi.latin1(), "volume.disc.is_blank", NULL)
         || libhal_device_get_property_bool(m_halContext, volume_udi.latin1(), "volume.disc.is_vcd", NULL)
@@ -1083,7 +1102,7 @@ bool HALBackend::setMountoptions(const TQString &name, const TQStringList &optio
 
     TQMap<TQString,TQString> valids = MediaManagerUtils::splitOptions(options);
 
-    const char *names[] = { "ro", "quiet", "atime", "uid", "utf8", "flush", "sync", 0 };
+    const char *names[] = { "use_defaults", "ro", "quiet", "atime", "uid", "utf8", "flush", "sync", 0 };
     for (int index = 0; names[index]; ++index)
         if (valids.contains(names[index]))
             config.writeEntry(names[index], valids[names[index]] == "true");

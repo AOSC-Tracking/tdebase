@@ -12,6 +12,9 @@
             <height>480</height>
         </rect>
     </property>
+    <property name="caption">
+        <string>ManagerModuleView</string>
+    </property>
     <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -49,6 +52,245 @@
                 <string>Select this if you want to enable application autostart after mounting a device.</string>
             </property>
         </widget>
+        <widget class="TQGroupBox">
+            <property name="name">
+                <cstring>groupbox_mount</cstring>
+            </property>
+            <property name="title">
+                <string>Mount options</string>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="TQLabel">
+                    <property name="name">
+                        <cstring>textLabel3</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Here you can specify default mount options for your storage media. Please note that some options are not supported for certain filesystems and/or medium. You will be able to redefine all these options on per-volume basis later, using Properties dialog of the corresponding volume.&lt;br&gt;
+Some of the options are tristate. Leave them "undefined" to let KDE choose the best value depending on your media.</string>
+                    </property>
+                    <property name="alignment">
+                        <set>WordBreak|AlignVCenter</set>
+                    </property>
+                </widget>
+                <widget class="TQLayoutWidget">
+                    <property name="name">
+                        <cstring>layout30</cstring>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="TQCheckBox" row="1" column="0">
+                            <property name="name">
+                                <cstring>option_ro</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Read only</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>By default, mount all file systems read-only.</string>
+                            </property>
+                        </widget>
+                        <widget class="TQCheckBox" row="2" column="1">
+                            <property name="name">
+                                <cstring>option_uid</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Mount as user</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Mount this file system as user.</string>
+                            </property>
+                        </widget>
+                        <widget class="TQCheckBox" row="0" column="1">
+                            <property name="name">
+                                <cstring>option_flush</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Flushed IO</string>
+                            </property>
+                            <property name="tristate">
+                                <bool>true</bool>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Always flush all data to the hot plug devices immediately and don't cache it.</string>
+                            </property>
+                        </widget>
+                        <widget class="TQCheckBox" row="3" column="0">
+                            <property name="name">
+                                <cstring>option_sync</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Synchronous</string>
+                            </property>
+                            <property name="tristate">
+                                <bool>true</bool>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>All I/O to the file system should be done synchronously.</string>
+                            </property>
+                        </widget>
+                        <widget class="TQCheckBox" row="2" column="0">
+                            <property name="name">
+                                <cstring>option_quiet</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Quiet</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Attempts to chown or chmod files do not return errors, although they fail. Use with caution!</string>
+                            </property>
+                        </widget>
+                        <widget class="TQCheckBox" row="1" column="1">
+                            <property name="name">
+                                <cstring>option_utf8</cstring>
+                            </property>
+                            <property name="text">
+                                <string>UTF-8 charset</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>UTF8 is the filesystem safe 8-bit encoding of Unicode that is used by the console. It can be be enabled for the filesystem with this option.</string>
+                            </property>
+                        </widget>
+                        <widget class="TQLayoutWidget" row="3" column="1" rowspan="2" colspan="1">
+                            <property name="name">
+                                <cstring>layout29</cstring>
+                            </property>
+                            <grid>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="TQLabel" row="1" column="0">
+                                    <property name="name">
+                                        <cstring>text_shortname</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Short names:</string>
+                                    </property>
+                                    <property name="buddy" stdset="0">
+                                        <cstring>option_shortname</cstring>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>&lt;h2&gt;Defines  the  behaviour  for  creation and display of filenames which fit into 8.3 characters. If a long name for a file exists, it will always be preferred display.&lt;/h2&gt;
+
+&lt;h3&gt;&lt;b&gt;Lower&lt;/b&gt;&lt;/h3&gt;
+Force the short name to lower case upon display; store a long name when the short name is not all upper case.
+
+&lt;h3&gt;&lt;b&gt;Windows 95&lt;/b&gt;&lt;/h3&gt;
+Force the short name to upper case upon display; store a long name when the short name is not all upper case.
+
+&lt;h3&gt;&lt;b&gt;Windows NT&lt;/b&gt;&lt;/h3&gt;
+Display the shortname as is; store a long name when the short name is not all lower case or all upper case.
+
+&lt;h3&gt;&lt;b&gt;Mixed&lt;/b&gt;&lt;/h3&gt;
+Display the short name as is; store a long name when the short name is not all upper case.</string>
+                                    </property>
+                                </widget>
+                                <widget class="TQComboBox" row="0" column="1">
+                                    <item>
+                                        <property name="text">
+                                            <string>All Data</string>
+                                        </property>
+                                    </item>
+                                    <item>
+                                        <property name="text">
+                                            <string>Ordered</string>
+                                        </property>
+                                    </item>
+                                    <item>
+                                        <property name="text">
+                                            <string>Writeback</string>
+                                        </property>
+                                    </item>
+                                    <property name="name">
+                                        <cstring>option_journaling</cstring>
+                                    </property>
+                                    <property name="currentItem">
+                                        <number>1</number>
+                                    </property>
+                                </widget>
+                                <widget class="TQLabel" row="0" column="0">
+                                    <property name="name">
+                                        <cstring>text_journaling</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Journaling:</string>
+                                    </property>
+                                    <property name="buddy" stdset="0">
+                                        <cstring>option_journaling</cstring>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>&lt;h2&gt;Specifies  the journalling mode for file data. Metadata is always journaled. &lt;/h2&gt;
+           
+&lt;h3&gt;&lt;b&gt;All Data&lt;/b&gt;&lt;/h3&gt;
+           All  data  is  committed into the journal prior to being written into the main file system. This is the slowest variant with the highest data security.
+
+&lt;h3&gt;&lt;b&gt;Ordered&lt;/b&gt;&lt;/h3&gt;
+           All data is forced directly out to the main  file system prior to its metadata being committed to the journal.
+
+&lt;h3&gt;&lt;b&gt;Write Back&lt;/b&gt;&lt;/h3&gt;
+           Data ordering is not preserved - data may be written into the main file system after its metadata has been committed to the journal.  This is rumoured to  be the  highest-throughput option.  It guarantees internal file system integrity,  however it can allow old data to appear in files after  a  crash  and  journal recovery.</string>
+                                    </property>
+                                </widget>
+                                <widget class="TQComboBox" row="1" column="1">
+                                    <item>
+                                        <property name="text">
+                                            <string>Lower</string>
+                                        </property>
+                                    </item>
+                                    <item>
+                                        <property name="text">
+                                            <string>Windows 95</string>
+                                        </property>
+                                    </item>
+                                    <item>
+                                        <property name="text">
+                                            <string>Windows NT</string>
+                                        </property>
+                                    </item>
+                                    <item>
+                                        <property name="text">
+                                            <string>Mixed</string>
+                                        </property>
+                                    </item>
+                                    <property name="name">
+                                        <cstring>option_shortname</cstring>
+                                    </property>
+                                </widget>
+                            </grid>
+                        </widget>
+                        <widget class="TQCheckBox" row="0" column="0">
+                            <property name="name">
+                                <cstring>option_automount</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Mount automatically</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>By default, mount all file systems automatically.</string>
+                            </property>
+                        </widget>
+                        <widget class="TQCheckBox" row="4" column="0">
+                            <property name="name">
+                                <cstring>option_atime</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Access time updates</string>
+                            </property>
+                            <property name="tristate">
+                                <bool>true</bool>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Update inode access time for each access.</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </vbox>
+        </widget>
         <spacer>
             <property name="name">
                 <cstring>spacer1</cstring>
@@ -62,11 +304,40 @@
             <property name="sizeHint">
                 <size>
                     <width>21</width>
-                    <height>360</height>
+                    <height>130</height>
                 </size>
             </property>
         </spacer>
     </vbox>
 </widget>
+<connections>
+    <connection>
+        <sender>kcfg_HalBackendEnabled</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>groupbox_mount</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>kcfg_HalBackendEnabled</tabstop>
+    <tabstop>kcfg_CdPollingEnabled</tabstop>
+    <tabstop>kcfg_AutostartEnabled</tabstop>
+    <tabstop>option_automount</tabstop>
+    <tabstop>option_ro</tabstop>
+    <tabstop>option_quiet</tabstop>
+    <tabstop>option_sync</tabstop>
+    <tabstop>option_atime</tabstop>
+    <tabstop>option_flush</tabstop>
+    <tabstop>option_utf8</tabstop>
+    <tabstop>option_uid</tabstop>
+    <tabstop>option_journaling</tabstop>
+    <tabstop>option_shortname</tabstop>
+</tabstops>
+<includes>
+    <include location="local" impldecl="in implementation">managermoduleview.ui.h</include>
+</includes>
+<functions>
+    <function access="private" specifier="non virtual">init()</function>
+</functions>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

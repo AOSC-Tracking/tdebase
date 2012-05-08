@@ -1,5 +1,6 @@
 /* This file is part of the KDE Project
    Copyright (c) 2005 Kévin Ottens <ervin ipsquad net>
+   Copyright (c) 2006 Valentine Sinitsyn <e_val@inbox.ru>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -19,7 +20,10 @@
 #ifndef _MANAGERMODULE_H_
 #define _MANAGERMODULE_H_
 
+#include <tqmap.h>
 #include <kcmodule.h>
+
+class ManagerModuleView;
 
 class ManagerModule : public KCModule
 {
@@ -28,7 +32,18 @@ class ManagerModule : public KCModule
 public:
 	ManagerModule( TQWidget* parent = 0, const char* name = 0);
 
+	void load();
 	void save();
+	void defaults();
+	
+private:
+	void rememberSettings();
+
+	ManagerModuleView *view;
+	TQMap<TQObject *, int> settings;
+	
+private slots:
+	void emitChanged();	
 };
 
 #endif

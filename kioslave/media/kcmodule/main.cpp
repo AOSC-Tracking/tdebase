@@ -67,6 +67,7 @@ MediaModule::MediaModule( TQWidget *parent, const char *name, const TQStringList
 	                                    I18N_NOOP("(c) 2005 Jean-Remy Falleri"));
 	about->addAuthor("Jean-Remy Falleri", I18N_NOOP("Maintainer"), "jr.falleri@laposte.net");
 	about->addAuthor("Kevin Ottens", 0, "ervin ipsquad net");
+	about->addAuthor("Valentine Sinitsyn", 0, "e_val@inbox.ru");
 	about->addCredit("Achim Bohnet", I18N_NOOP("Help for the application design"));
 
 	setAboutData( about );

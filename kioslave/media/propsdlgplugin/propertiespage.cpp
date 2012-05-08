@@ -140,12 +140,23 @@ PropertiesPage::PropertiesPage(TQWidget* parent, const TQString &_id)
     option_automount->setChecked(options["automount"] == "true");
     connect( option_automount, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );
 
+    bool has_groupbox_specific = true;
     if (!options.contains("journaling") &&
 	!options.contains("shortname") &&
 	!options.contains("uid") &&
 	!options.contains("utf8") &&
-	!options.contains("flush"))
+	!options.contains("flush")) {
       groupbox_specific->hide();
+      has_groupbox_specific = false;
+    }
+
+    // The order is important - we want groupboxes to hide automatically depending on use_defaults
+    // but don't want to emit changed() until user actually changes something.
+    connect( option_defaults, TQT_SIGNAL( toggled(bool) ), groupbox_generic, SLOT( setHidden(bool) ) );
+    if (has_groupbox_specific)
+      connect( option_defaults, TQT_SIGNAL( toggled(bool) ), groupbox_specific, SLOT( setHidden(bool) ) );
+    option_defaults->setChecked(options["use_defaults"] == "true");
+    connect( option_defaults, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );    
 
   } else {
 
@@ -198,6 +209,7 @@ bool PropertiesPage::save()
     }
   result << TQString("mountpoint=%1").arg(mp);
   result << TQString("automount=%1").arg(option_automount->isChecked() ? "true" : "false");
+  result << TQString("use_defaults=%1").arg(option_defaults->isChecked() ? "true" : "false");
 
   kdDebug() << result << endl;
 
