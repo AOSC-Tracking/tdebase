@@ -187,6 +187,7 @@ public:
 				const char* message
 				);
 
+	TQStringList getHALmountoptions(TQString udi);
 /* HAL and DBus structures */
 private:
 	/**

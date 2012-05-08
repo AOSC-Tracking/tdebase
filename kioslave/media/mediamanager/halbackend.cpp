@@ -873,6 +873,33 @@ void HALBackend::hal_device_condition(LibHalContext *ctx, const char *udi,
     s_HALBackend->DeviceCondition(udi, condition_name);
 }
 
+TQStringList HALBackend::getHALmountoptions(TQString udi)
+{
+    const char*   _ppt_string;
+    LibHalVolume* volume;
+    LibHalDrive* drive;
+
+    TQString _ppt_TQString;
+
+    volume = libhal_volume_from_udi( m_halContext, udi.latin1() );
+    if( volume )
+        drive = libhal_drive_from_udi( m_halContext, libhal_volume_get_storage_device_udi( volume ) );
+    else
+        drive = libhal_drive_from_udi( m_halContext, udi.latin1() );
+
+    if( !drive )
+           return TQString::null;
+
+    if( volume )
+       _ppt_string = libhal_volume_policy_get_mount_options ( drive, volume, NULL );
+    else
+       _ppt_string = libhal_drive_policy_get_mount_options ( drive, NULL );
+
+    _ppt_TQString = TQString(_ppt_string ? _ppt_string : "");
+
+   return TQStringList::split(",",_ppt_TQString);
+}
+
 TQStringList HALBackend::mountoptions(const TQString &name)
 {
     const Medium* medium = m_mediaList.findById(name);
@@ -1472,10 +1499,26 @@ TQString HALBackend::mount(const Medium *medium)
             soptions << TQString("data=ordered");
     }
 
+    TQStringList hal_mount_options = getHALmountoptions(medium->id());
+    for (TQValueListIterator<TQString> it=hal_mount_options.begin();it!=hal_mount_options.end();it++)
+    {
+       soptions << *it;
+       kdDebug()<<"HALOption: "<<*it<<endl;
+       if ((*it).startsWith("iocharset="))
+       {
+           soptions.remove("utf8");
+           kdDebug()<<"\"iocharset=\" found. Removing \"utf8\" from options."<<endl;
+       }
+    }
+
+
     const char **options = new const char*[soptions.size() + 1];
     uint noptions = 0;
     for (TQStringList::ConstIterator it = soptions.begin(); it != soptions.end(); ++it, ++noptions)
+    {
         options[noptions] = (*it).latin1();
+        kdDebug()<<"Option: "<<*it<<endl;
+    }
     options[noptions] = NULL;
 
     TQString qerror = i18n("Cannot mount encrypted drives!");
