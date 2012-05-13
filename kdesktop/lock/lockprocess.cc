@@ -351,7 +351,7 @@ void LockProcess::init(bool child, bool useBlankOnly)
     mlockDateTime = TQDateTime::currentDateTime();
 
     mHackDelayStartupTimeout = trinity_desktop_lock_delay_screensaver_start?KDesktopSettings::timeout()*1000:10*1000;
-    mHackStartupEnabled = trinity_desktop_lock_delay_screensaver_start?KDesktopSettings::screenSaverEnabled():true;
+    mHackStartupEnabled = trinity_desktop_lock_use_system_modal_dialogs?KDesktopSettings::screenSaverEnabled():true;
 
     configure();
 }
@@ -705,7 +705,17 @@ void LockProcess::startSecureDialog()
 				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 			}
 			else {
-				startHack();
+				if (mHackStartupEnabled == true) {
+					startHack();
+				}
+				else {
+					if (trinity_desktop_lock_use_system_modal_dialogs == true) {
+						ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+					}
+					else {
+						startHack();
+					}
+				}
 			}
 			return;
 		}
@@ -790,8 +800,13 @@ void LockProcess::configure()
     if (mPriority > 19) mPriority = 19;
 
     mSaver = KDesktopSettings::saver();
-    if (mSaver.isEmpty() || mUseBlankOnly)
+    if (mSaver.isEmpty() || mUseBlankOnly) {
         mSaver = "KBlankscreen.desktop";
+    }
+    if (KDesktopSettings::screenSaverEnabled() == false) {
+        mSaver = "";
+        mSaverExec = "";
+    }
 
     readSaver();
 
@@ -984,7 +999,17 @@ void LockProcess::doDesktopResizeFinish()
         if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
     }
     else {
-        startHack();
+	if (mHackStartupEnabled == true) {
+	        startHack();
+	}
+	else {
+		if (trinity_desktop_lock_use_system_modal_dialogs == true) {
+			ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+		}
+		else {
+			startHack();
+		}
+	}
     }
 
     mBusy = false;
@@ -1221,11 +1246,13 @@ bool LockProcess::startSaver()
 	raise();
 	XSync(qt_xdisplay(), False);
 	setVRoot( winId(), winId() );
-	if ((!(trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced)) && (!trinity_desktop_lock_in_sec_dlg)) {
-		if (backingPixmap.isNull())
+	if (((!(trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced)) && (!trinity_desktop_lock_in_sec_dlg)) && mHackStartupEnabled) {
+		if (backingPixmap.isNull()) {
 			setBackgroundColor(black);
-		else
+		}
+		else {
 			setBackgroundPixmap(backingPixmap);
+		}
 		setGeometry(0, 0, mRootWidth, mRootHeight);
 		erase();
 	}
@@ -1247,7 +1274,17 @@ bool LockProcess::startSaver()
 			if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 		}
 		else {
-			startHack();
+			if (mHackStartupEnabled == true) {
+				startHack();
+			}
+			else {
+				if (trinity_desktop_lock_use_system_modal_dialogs == true) {
+					ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+				}
+				else {
+					startHack();
+				}
+			}
 		}
 	}
 	return true;
@@ -1387,10 +1424,12 @@ bool LockProcess::startHack()
     if (currentDialog || (!mDialogs.isEmpty()))
     {
         // no resuming with dialog visible or when not visible
-	if (backingPixmap.isNull())
+	if (backingPixmap.isNull()) {
 		setBackgroundColor(black);
-	else
+	}
+	else {
 		setBackgroundPixmap(backingPixmap);
+	}
 	setGeometry(0, 0, mRootWidth, mRootHeight);
 	erase();
         return false;
@@ -1434,10 +1473,12 @@ bool LockProcess::startHack()
 
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
 			// Make sure we have a nice clean display to start with!
-			if (backingPixmap.isNull())
+			if (backingPixmap.isNull()) {
 				setBackgroundColor(black);
-			else
+			}
+			else {
 				setBackgroundPixmap(backingPixmap);
+			}
 			setGeometry(0, 0, mRootWidth, mRootHeight);
 			erase();
 			mSuspended = false;
@@ -1467,10 +1508,12 @@ bool LockProcess::startHack()
 		usleep(100);
 		TQApplication::syncX();
 		if (!trinity_desktop_lock_use_system_modal_dialogs) {
-			if (backingPixmap.isNull())
+			if (backingPixmap.isNull()) {
 				setBackgroundColor(black);
-			else
+			}
+			else {
 				setBackgroundPixmap(backingPixmap);
+			}
 		}
 		if (backingPixmap.isNull()) {
 			setGeometry(0, 0, mRootWidth, mRootHeight);
@@ -1513,10 +1556,12 @@ void LockProcess::hackExited(KProcess *)
 	usleep(100);
 	TQApplication::syncX();
 	if (!trinity_desktop_lock_use_system_modal_dialogs) {
-		if (backingPixmap.isNull())
+		if (backingPixmap.isNull()) {
 			setBackgroundColor(black);
-		else
+		}
+		else {
 			setBackgroundPixmap(backingPixmap);
+		}
 	}
 	if (backingPixmap.isNull()) {
 		setGeometry(0, 0, mRootWidth, mRootHeight);
@@ -1598,10 +1643,12 @@ void LockProcess::resume( bool force )
     }
     if( !force && (!mDialogs.isEmpty() || !mVisibility )) {
         // no resuming with dialog visible or when not visible
-	if (backingPixmap.isNull())
+	if (backingPixmap.isNull()) {
 		setBackgroundColor(black);
-	else
+	}
+	else {
 		setBackgroundPixmap(backingPixmap);
+	}
 	setGeometry(0, 0, mRootWidth, mRootHeight);
 	erase();
         return;
@@ -1797,7 +1844,7 @@ void LockProcess::slotPaintBackground(const TQPixmap &rpm)
 	}
 
 	backingPixmap = pm;
-	if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced) {
+	if ((trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced) || (!mHackStartupEnabled)) {
 		setBackgroundPixmap(backingPixmap);
 		setGeometry(0, 0, mRootWidth, mRootHeight);
 		erase();
