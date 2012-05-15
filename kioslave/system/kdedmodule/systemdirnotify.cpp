@@ -36,6 +36,9 @@ SystemDirNotify::SystemDirNotify()
 void SystemDirNotify::init()
 {
 	if( mInited )
+		// FIXME Work around a probable race condition by inserting printf delay before following
+		// code is executed -- the root cause of the race needs investigation and resolution.
+		printf("[systemdirnotify] SystemDirNotify::init(mInited)");
 		return;
 	mInited = true;
 	KGlobal::dirs()->addResourceType("system_entries",
