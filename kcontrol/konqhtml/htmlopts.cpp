@@ -299,7 +299,7 @@ void KMiscHTMLOptions::load( bool useDefaults )
     KConfig kdeglobals("kdeglobals", true, false);
     kdeglobals.setReadDefaults( useDefaults );
 	 kdeglobals.setGroup("KDE");
-    bool smoothScrolling = kdeglobals.readBoolEntry("SmoothScroll", DEFAULT_SMOOTHSCROLL);
+    bool smoothScrolling = kdeglobals.readBoolEntry("SmoothScrolling", DEFAULT_SMOOTHSCROLL);
     if (smoothScrolling)
 	m_pSmoothScrollingCombo->setCurrentItem( SmoothScrollingAlways );
     else
@@ -374,13 +374,13 @@ void KMiscHTMLOptions::save()
     switch(m_pSmoothScrollingCombo->currentItem())
     {
       case SmoothScrollingAlways:
-        kdeglobals.writeEntry( "SmoothScroll", true );
+        kdeglobals.writeEntry( "SmoothScrolling", true );
         break;
       case SmoothScrollingNever:
-        kdeglobals.writeEntry( "SmoothScroll", false );
+        kdeglobals.writeEntry( "SmoothScrolling", false );
         break;
       // case SmoothScrollingWhenEfficient:
-        // kdeglobals.writeEntry( "SmoothScroll", somethingelse );
+        // kdeglobals.writeEntry( "SmoothScrolling", somethingelse );
         // break;
     }
     kdeglobals.sync();
