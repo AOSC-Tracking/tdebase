@@ -162,6 +162,9 @@
   <Action name="file_close"/>
   <Action name="file_close_all"/>
   <Separator/>
+  <Action name="filelist_move_up"/>
+  <Action name="filelist_move_down"/>
+  <Separator/>
   <Action name="filelist_sortby"/>
 </Menu>
 

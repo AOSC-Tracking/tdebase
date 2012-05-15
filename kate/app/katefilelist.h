@@ -90,7 +90,8 @@ class KateFileList : public KListView
     enum sorting {
       sortByID = 0,
       sortByName = 1,
-      sortByURL = 2
+      sortByURL = 2,
+      sortManual = 3
     };
 
     TQString tooltip( TQListViewItem *item, int );
@@ -111,6 +112,8 @@ class KateFileList : public KListView
 
   public slots:
     void setSortType (int s);
+    void moveFileUp();
+    void moveFileDown();
     void slotNextDocument();
     void slotPrevDocument();
 
@@ -151,12 +154,16 @@ class KateFileList : public KListView
     KAction* windowNext;
     KAction* windowPrev;
     KSelectAction* sortAction;
+    KAction* listMoveFileUp;
+    KAction* listMoveFileDown;
 
     TQPtrList<KateFileListItem> m_viewHistory;
     TQPtrList<KateFileListItem> m_editHistory;
 
     TQColor m_viewShade, m_editShade;
     bool m_enableBgShading;
+
+    TQListViewItem *m_clickedMenuItem;
 
     class ToolTip *m_tooltip;
 };

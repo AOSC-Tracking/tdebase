@@ -138,8 +138,14 @@ void KateFileList::setupActions ()
   windowPrev = KStdAction::forward(TQT_TQOBJECT(this), TQT_SLOT(slotNextDocument()), m_main->actionCollection());
   sortAction = new KSelectAction( i18n("Sort &By"), 0,
       m_main->actionCollection(), "filelist_sortby"  );
+  listMoveFileUp = new KAction( i18n("Move File Up"), 0, m_main->actionCollection(), "filelist_move_up" );
+  listMoveFileUp->setShortcut(KShortcut(CTRL + SHIFT + Key_Comma));
+  listMoveFileDown = new KAction( i18n("Move File Down"), 0, m_main->actionCollection(), "filelist_move_down" );
+  listMoveFileDown->setShortcut(KShortcut(CTRL + SHIFT + Key_Period));
+  connect( listMoveFileUp, TQT_SIGNAL(activated()), TQT_TQOBJECT(this), TQT_SLOT(moveFileUp()) );
+  connect( listMoveFileDown, TQT_SIGNAL(activated()), TQT_TQOBJECT(this), TQT_SLOT(moveFileDown()) );
   TQStringList l;
-  l << i18n("Opening Order") << i18n("Document Name") << i18n("URL");
+  l << i18n("Opening Order") << i18n("Document Name") << i18n("URL") << i18n("Manual Placement");
   sortAction->setItems( l );
   connect( sortAction, TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(setSortType(int)) );
 }
@@ -353,10 +359,25 @@ void KateFileList::slotMenu ( TQListViewItem *item, const TQPoint &p, int /*col*
   if (!item)
     return;
 
+  m_clickedMenuItem = item;
+  if (m_clickedMenuItem->itemAbove()) {
+    listMoveFileUp->setEnabled(true);
+  }
+  else {
+    listMoveFileUp->setEnabled(false);
+  }
+  if (m_clickedMenuItem->itemBelow()) {
+    listMoveFileDown->setEnabled(true);
+  }
+  else {
+    listMoveFileDown->setEnabled(false);
+  }
+
   TQPopupMenu *menu = (TQPopupMenu*) ((viewManager->mainWindow())->factory()->container("filelist_popup", viewManager->mainWindow()));
 
-  if (menu)
+  if (menu) {
     menu->exec(p);
+  }
 }
 
 TQString KateFileList::tooltip( TQListViewItem *item, int )
@@ -385,7 +406,45 @@ TQString KateFileList::tooltip( TQListViewItem *item, int )
 void KateFileList::setSortType (int s)
 {
   m_sort = s;
-  updateSort ();
+  if (m_sort == KateFileList::sortManual) {
+    setSorting( -1, true );
+  }
+  else {
+    setSorting( 0, true );
+    updateSort ();
+  }
+}
+
+void KateFileList::moveFileUp()
+{
+  if (m_clickedMenuItem) {
+    sortAction->setCurrentItem(KateFileList::sortManual);
+    setSortType(KateFileList::sortManual);
+    TQListViewItem* nitemabove = m_clickedMenuItem->itemAbove();
+    if (nitemabove) {
+      nitemabove = nitemabove->itemAbove();
+      if (nitemabove) {
+        m_clickedMenuItem->moveItem(nitemabove);
+      }
+      else {
+        // Qt made this hard
+        nitemabove = m_clickedMenuItem->itemAbove();
+        nitemabove->moveItem(m_clickedMenuItem);
+      }
+    }
+  }
+}
+
+void KateFileList::moveFileDown()
+{
+  if (m_clickedMenuItem) {
+    sortAction->setCurrentItem(KateFileList::sortManual);
+    setSortType(KateFileList::sortManual);
+    TQListViewItem* nitemabove = m_clickedMenuItem->itemBelow();
+    if (nitemabove) {
+      m_clickedMenuItem->moveItem(nitemabove);
+    }
+  }
 }
 
 void KateFileList::updateSort ()
@@ -441,6 +500,11 @@ KateFileListItem::KateFileListItem( TQListView* lv,
     m_edithistpos( 0 ),
     m_docNumber( _doc->documentNumber() )
 {
+  // Move this document to the end of the list where it belongs
+  TQListViewItem* lastitem = lv->lastItem();
+  if (lastitem) {
+    moveItem(lastitem);
+  }
 }
 
 KateFileListItem::~KateFileListItem()
