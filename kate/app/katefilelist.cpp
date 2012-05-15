@@ -139,9 +139,9 @@ void KateFileList::setupActions ()
   sortAction = new KSelectAction( i18n("Sort &By"), 0,
       m_main->actionCollection(), "filelist_sortby"  );
   listMoveFileUp = new KAction( i18n("Move File Up"), 0, m_main->actionCollection(), "filelist_move_up" );
-  listMoveFileUp->setShortcut(KShortcut(CTRL + SHIFT + Key_Comma));
+  //listMoveFileUp->setShortcut(KShortcut(CTRL + SHIFT + Key_Comma));
   listMoveFileDown = new KAction( i18n("Move File Down"), 0, m_main->actionCollection(), "filelist_move_down" );
-  listMoveFileDown->setShortcut(KShortcut(CTRL + SHIFT + Key_Period));
+  //listMoveFileDown->setShortcut(KShortcut(CTRL + SHIFT + Key_Period));
   connect( listMoveFileUp, TQT_SIGNAL(activated()), TQT_TQOBJECT(this), TQT_SLOT(moveFileUp()) );
   connect( listMoveFileDown, TQT_SIGNAL(activated()), TQT_TQOBJECT(this), TQT_SLOT(moveFileDown()) );
   TQStringList l;
