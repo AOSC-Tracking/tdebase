@@ -102,7 +102,7 @@ KateFileList::KateFileList (KateMainWindow *main,
   addColumn("Document Name");
 
   setSelectionMode( TQListView::Single );
-  setSorting( 0, true );
+  setSortType(KateFileList::sortByID);
   setShowToolTips( false );
 
   setupActions ();
@@ -408,9 +408,13 @@ void KateFileList::setSortType (int s)
   m_sort = s;
   if (m_sort == KateFileList::sortManual) {
     setSorting( -1, true );
+    setDragEnabled(true);
+    setAcceptDrops(true);
   }
   else {
     setSorting( 0, true );
+    setDragEnabled(false);
+    setAcceptDrops(false);
     updateSort ();
   }
 }
