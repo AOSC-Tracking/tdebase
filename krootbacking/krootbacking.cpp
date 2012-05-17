@@ -54,6 +54,8 @@ public:
 KRootBacking::KRootBacking()
     : TQObject(KApplication::desktop(), "KRootBacking" ), m_Desk(0), m_timeout(0)
 {
+    enableExports();
+
     init();
 }
 

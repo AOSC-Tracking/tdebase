@@ -97,6 +97,13 @@ public slots:
     void slotSetBackgroundPixmap(const TQPixmap &);
 
 private:
+	/**
+	* Asks KDesktop to export the desktop background as a KSharedPixmap.
+	* This method uses DCOP to call KBackgroundIface/setExport(int).
+	*/
+	void enableExports();
+
+private:
     static KSMShutdownIPFeedback * s_pSelf;
     KSMShutdownIPFeedback();
     int m_currentY;

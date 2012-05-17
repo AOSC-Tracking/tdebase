@@ -189,24 +189,6 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
         // shall we save the session on logout?
         saveSession = ( config->readEntry( "loginMode", "restorePreviousLogout" ) == "restorePreviousLogout" );
 
-        if (showFancyLogout) {
-            KSMShutdownIPFeedback::showit(); // hide the UGLY logout process from the user
-            shutdownNotifierIPDlg = KSMShutdownIPDlg::showShutdownIP();
-            while (!KSMShutdownIPFeedback::ispainted()) {
-                tqApp->processEvents();
-            }
-        }
-
-        // synchronize any folders that were requested for shutdown sync
-        if (shutdownNotifierIPDlg) {
-            static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Synchronizing remote folders").append("..."));
-        }
-        KRsync krs(this, "");
-        krs.executeLogoutAutoSync();
-        if (shutdownNotifierIPDlg) {
-            static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Saving your settings..."));
-        }
-
         if ( saveSession )
             sessionGroup = TQString("Session: ") + SESSION_PREVIOUS_LOGOUT;
 
@@ -252,9 +234,9 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
             completeShutdownOrCheckpoint();
     }
     else {
-        if (showFancyLogout) {
-            KSMShutdownIPFeedback::stop();
-        }
+       if (showFancyLogout) {
+           KSMShutdownIPFeedback::stop();
+       }
     }
     dialogActive = false;
 }
@@ -501,6 +483,25 @@ void KSMServer::completeShutdownOrCheckpoint()
     }
     if ( waitForPhase2 )
         return;
+
+    bool showFancyLogout = KConfigGroup(KGlobal::config(), "Logout").readBoolEntry("showFancyLogout", true);
+    if (showFancyLogout) {
+        KSMShutdownIPFeedback::showit(); // hide the UGLY logout process from the user
+        shutdownNotifierIPDlg = KSMShutdownIPDlg::showShutdownIP();
+        while (!KSMShutdownIPFeedback::ispainted()) {
+            tqApp->processEvents();
+        }
+    }
+
+    // synchronize any folders that were requested for shutdown sync
+    if (shutdownNotifierIPDlg) {
+        static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Synchronizing remote folders").append("..."));
+    }
+    KRsync krs(this, "");
+    krs.executeLogoutAutoSync();
+    if (shutdownNotifierIPDlg) {
+        static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Saving your settings..."));
+    }
 
     if ( saveSession )
         storeSession();

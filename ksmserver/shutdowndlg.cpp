@@ -519,6 +519,11 @@ KSMShutdownIPFeedback::KSMShutdownIPFeedback()
 : TQWidget( 0L, "systemmodaldialogclass", Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_StaysOnTop ), m_timeout(0), m_isPainted(false), m_sharedRootPixmap(NULL), mPixmapTimeout(0)
 
 {
+	setShown(false);
+	hide();
+
+	enableExports();
+
 	m_sharedRootPixmap = new KRootPixmap(this);
 	m_sharedRootPixmap->setCustomPainting(true);
 	connect(m_sharedRootPixmap, TQT_SIGNAL(backgroundUpdated(const TQPixmap &)), this, TQT_SLOT(slotSetBackgroundPixmap(const TQPixmap &)));
@@ -545,13 +550,34 @@ KSMShutdownIPFeedback::KSMShutdownIPFeedback()
 	setBackgroundPixmap( m_root );
 	setGeometry( TQApplication::desktop()->geometry() );
 	setBackgroundMode( TQWidget::NoBackground );
-
-	setShown(true);
 }
 
 void KSMShutdownIPFeedback::showNow()
 {
+	setShown(true);
+
 	TQTimer::singleShot( 0, this, SLOT(slotPaintEffect()) );
+}
+
+void KSMShutdownIPFeedback::enableExports()
+{
+#ifdef Q_WS_X11
+	kdDebug(270) << k_lineinfo << "activating background exports.\n";
+	DCOPClient *client = kapp->dcopClient();
+	if (!client->isAttached()) {
+		client->attach();
+	}
+	TQByteArray data;
+	TQDataStream args( data, IO_WriteOnly );
+	args << 1;
+	
+	TQCString appname( "kdesktop" );
+	int screen_number = DefaultScreen(qt_xdisplay());
+	if ( screen_number )
+	appname.sprintf("kdesktop-screen-%d", screen_number );
+	
+	client->send( appname, "KBackgroundIface", "setExport(int)", data );
+#endif
 }
 
 KSMShutdownIPFeedback::~KSMShutdownIPFeedback()
