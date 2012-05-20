@@ -37,6 +37,12 @@ static void sigusr1_handler(int)
         m_masterSaverEngine->slotLockProcessWaiting();
     }
 }
+static void sigusr2_handler(int)
+{
+    if (m_masterSaverEngine) {
+        m_masterSaverEngine->slotLockProcessFullyActivated();
+    }
+}
 
 //===========================================================================
 //
@@ -60,6 +66,14 @@ SaverEngine::SaverEngine()
     sigaddset(&(act.sa_mask), SIGUSR1);
     act.sa_flags = 0;
     sigaction(SIGUSR1, &act, 0L);
+
+    // handle SIGUSR2
+    m_masterSaverEngine = this;
+    act.sa_handler= sigusr2_handler;
+    sigemptyset(&(act.sa_mask));
+    sigaddset(&(act.sa_mask), SIGUSR2);
+    act.sa_flags = 0;
+    sigaction(SIGUSR2, &act, 0L);
 
     // Save X screensaver parameters
     XGetScreenSaver(qt_xdisplay(), &mXTimeout, &mXInterval,
@@ -118,7 +132,7 @@ SaverEngine::~SaverEngine()
 void SaverEngine::lock()
 {
     bool ok = true;
-    if (mState == Waiting)
+    if (mState != Saving)
     {
         mSAKProcess->kill(SIGTERM);
         ok = startLockProcess( ForceLock );
@@ -237,6 +251,27 @@ bool SaverEngine::isBlanked()
   return (mState != Waiting);
 }
 
+void SaverEngine::enableExports()
+{
+#ifdef Q_WS_X11
+	kdDebug(270) << k_lineinfo << "activating background exports.\n";
+	DCOPClient *client = kapp->dcopClient();
+	if (!client->isAttached()) {
+		client->attach();
+	}
+	TQByteArray data;
+	TQDataStream args( data, IO_WriteOnly );
+	args << 1;
+	
+	TQCString appname( "kdesktop" );
+	int screen_number = DefaultScreen(qt_xdisplay());
+	if ( screen_number )
+	appname.sprintf("kdesktop-screen-%d", screen_number );
+	
+	client->send( appname, "KBackgroundIface", "setExport(int)", data );
+#endif
+}
+
 //---------------------------------------------------------------------------
 void SaverEngine::handleSecureDialog()
 {
@@ -316,8 +351,10 @@ void SaverEngine::setBlankOnly( bool blankOnly )
 //
 bool SaverEngine::startLockProcess( LockType lock_type )
 {
-    if (mState != Waiting)
+    if (mState == Saving)
         return true;
+
+    enableExports();
 
     kdDebug(1204) << "SaverEngine: starting saver" << endl;
     emitDCOPSignal("KDE_start_screensaver()", TQByteArray());
@@ -450,6 +487,11 @@ void SaverEngine::slotLockProcessWaiting()
     // lockProcessWaiting cannot be called directly from a signal handler, as it will hang in certain obscure circumstances
     // Instead we use a single-shot timer to immediately call lockProcessWaiting once control has returned to the Qt main loop
     TQTimer::singleShot(0, this, SLOT(lockProcessWaiting()));
+}
+
+void SaverEngine::slotLockProcessFullyActivated()
+{
+    mState = Saving;
 }
 
 void SaverEngine::lockProcessWaiting()

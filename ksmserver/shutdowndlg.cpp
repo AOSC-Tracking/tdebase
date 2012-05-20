@@ -665,14 +665,17 @@ void KSMShutdownIPFeedback::slotPaintEffect()
 //////
 
 KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
-                                bool maysd, KApplication::ShutdownType sdtype )
-  : TQDialog( parent, 0, TRUE, (WFlags)WType_Popup ), targets(0)
+                                bool maysd, KApplication::ShutdownType sdtype, int* selection )
+  : TQDialog( parent, 0, TRUE, (WFlags)WType_Popup ), targets(0), m_selection(selection)
     // this is a WType_Popup on purpose. Do not change that! Not
     // having a popup here has severe side effects.
 
 {
     TQVBoxLayout* vbox = new TQVBoxLayout( this );
 
+	if (m_selection) {
+		*m_selection = 0;
+	}
 
     TQFrame* frame = new TQFrame( this );
     frame->setFrameStyle( TQFrame::StyledPanel | TQFrame::Raised );
@@ -1069,17 +1072,15 @@ void KSMShutdownDlg::slotHalt()
 
 void KSMShutdownDlg::slotSuspend()
 {
-#ifdef COMPILE_HALBACKEND
-    if (m_lockOnResume) {
-        DCOPRef("kdesktop", "KScreensaverIface").send("lock");
-    }
+    *m_selection = 1;	// Suspend
 
-    if (m_dbusConn) 
+#ifdef COMPILE_HALBACKEND
+    if (m_dbusConn)
     {
         DBusMessage *msg = dbus_message_new_method_call(
                               "org.freedesktop.Hal",
-                              "/org/freedesktop/Hal/devices/computer", 
-                              "org.freedesktop.Hal.Device.SystemPowerManagement", 
+                              "/org/freedesktop/Hal/devices/computer",
+                              "org.freedesktop.Hal.Device.SystemPowerManagement",
                               "Suspend");
 
         int wakeup=0;
@@ -1089,41 +1090,37 @@ void KSMShutdownDlg::slotSuspend()
 
         dbus_message_unref(msg);
     }
-
-    reject(); // continue on resume
 #endif
+    reject(); // continue on resume
 }
 
 void KSMShutdownDlg::slotHibernate()
 {
-#ifdef COMPILE_HALBACKEND
-    if (m_lockOnResume) {
-        DCOPRef("kdesktop", "KScreensaverIface").send("lock");
-    }
+    *m_selection = 2;	// Hibernate
 
-    if (m_dbusConn) 
+#ifdef COMPILE_HALBACKEND
+    if (m_dbusConn)
     {
         DBusMessage *msg = dbus_message_new_method_call(
                               "org.freedesktop.Hal",
-                              "/org/freedesktop/Hal/devices/computer", 
-                              "org.freedesktop.Hal.Device.SystemPowerManagement", 
+                              "/org/freedesktop/Hal/devices/computer",
+                              "org.freedesktop.Hal.Device.SystemPowerManagement",
                               "Hibernate");
 
         dbus_connection_send(m_dbusConn, msg, NULL);
 
         dbus_message_unref(msg);
     }
-
-    reject(); // continue on resume
 #endif
+    reject(); // continue on resume
 }
 
-bool KSMShutdownDlg::confirmShutdown( bool maysd, KApplication::ShutdownType& sdtype, TQString& bootOption )
+bool KSMShutdownDlg::confirmShutdown( bool maysd, KApplication::ShutdownType& sdtype, TQString& bootOption, int* selection )
 {
     kapp->enableStyles();
     KSMShutdownDlg* l = new KSMShutdownDlg( 0,
                                             //KSMShutdownFeedback::self(),
-                                            maysd, sdtype );
+                                            maysd, sdtype, selection );
 
     // Show dialog (will save the background in showEvent)
     TQSize sh = l->sizeHint();

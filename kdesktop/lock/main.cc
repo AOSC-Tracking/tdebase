@@ -331,6 +331,10 @@ int main( int argc, char **argv )
         }
         else {
             pid_t kdesktop_pid = atoi(args->getOption( "internal" ));
+            if (kill(kdesktop_pid, SIGUSR2) < 0) {
+                // The controlling kdesktop process probably died.  Commit suicide...
+                return 12;
+            }
             app.exec();
             if (kill(kdesktop_pid, SIGUSR1) < 0) {
                 // The controlling kdesktop process probably died.  Commit suicide...

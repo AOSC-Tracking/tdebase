@@ -80,6 +80,7 @@ public:
 
 public slots:
     void slotLockProcessWaiting();
+    void slotLockProcessFullyActivated();
 
 protected slots:
     void idleTimeout();
@@ -89,6 +90,11 @@ protected slots:
 private slots:
     void handleSecureDialog();
     void slotSAKProcessExited();
+
+    /**
+     * Enable wallpaper exports
+     */
+    void enableExports();
 
 protected:
     enum LockType { DontLock, DefaultLock, ForceLock, SecureDialog };

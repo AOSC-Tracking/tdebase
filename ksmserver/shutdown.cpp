@@ -169,14 +169,24 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
 
     dialogActive = true;
     if ( !logoutConfirmed ) {
+        int selection;
         KSMShutdownFeedback::start(); // make the screen gray
         logoutConfirmed =
-            KSMShutdownDlg::confirmShutdown( maysd, sdtype, bopt );
+            KSMShutdownDlg::confirmShutdown( maysd, sdtype, bopt, &selection );
         // ###### We can't make the screen remain gray while talking to the apps,
         // because this prevents interaction ("do you want to save", etc.)
         // TODO: turn the feedback widget into a list of apps to be closed,
         // with an indicator of the current status for each.
         KSMShutdownFeedback::stop(); // make the screen become normal again
+        if (selection != 0) {
+		// respect lock on resume & disable suspend/hibernate settings
+		// from power-manager
+		KConfig config("power-managerrc");
+		bool lockOnResume = config.readBoolEntry("lockOnResume", true);
+		if (lockOnResume) {
+			DCOPRef("kdesktop", "KScreensaverIface").send("lock");
+		}
+        }
     }
 
     if ( logoutConfirmed ) {
