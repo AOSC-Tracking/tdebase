@@ -38,6 +38,15 @@
 #include <X11/Xlib.h>
 #include <fixx11h.h>
 
+#define OPEN_TDMCONFIG_AND_SET_GROUP									\
+if( stat( KDE_CONFDIR "/kdm/kdmdistrc" , &st ) == 0) {							\
+	tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdm/kdmdistrc" ));		\
+}													\
+else {													\
+	tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdm/kdmrc" ));		\
+}													\
+tdmconfig->setGroup("X-*-Greeter");
+
 // [FIXME] Add GUI configuration checkboxes for these three settings (see kdesktoprc [ScreenSaver] UseUnmanagedLockWindows, DelaySaverStart, and UseTDESAK)
 bool trinity_desktop_lock_use_system_modal_dialogs = FALSE;
 bool trinity_desktop_lock_delay_screensaver_start = FALSE;
@@ -203,13 +212,7 @@ int main( int argc, char **argv )
 
         struct stat st;
         KSimpleConfig* tdmconfig;
-        if( stat( KDE_CONFDIR "/kdm/kdmdistrc" , &st ) == 0) {
-            tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdm/kdmdistrc" ));
-        }
-        else {
-            tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdm/kdmrc" ));
-        }
-        tdmconfig->setGroup("X-*-Greeter");
+	OPEN_TDMCONFIG_AND_SET_GROUP
         trinity_desktop_lock_use_sak = tdmconfig->readBoolEntry("UseSAK", true);
 
         LockProcess process;
@@ -270,7 +273,8 @@ int main( int argc, char **argv )
 
         // Reload settings to make sure they reflect reality
         KDesktopSettings::self()->config()->reparseConfiguration();
-        tdmconfig->reparseConfiguration();
+        delete tdmconfig;
+	OPEN_TDMCONFIG_AND_SET_GROUP
         trinity_desktop_lock_use_system_modal_dialogs = !KDesktopSettings::useUnmanagedLockWindows();
         trinity_desktop_lock_delay_screensaver_start = KDesktopSettings::delaySaverStart();
         if (trinity_desktop_lock_use_system_modal_dialogs) {
