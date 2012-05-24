@@ -204,15 +204,9 @@ int main( int argc, char **argv )
         app.disableSessionManagement();
         KGlobal::locale()->insertCatalogue("libdmctl");
 
-        // we need to read from the right rc file - possibly taking screen number in account
-        KDesktopSettings::instance("kdesktoprc");
-
-        trinity_desktop_lock_use_system_modal_dialogs = !KDesktopSettings::useUnmanagedLockWindows();
-        trinity_desktop_lock_delay_screensaver_start = KDesktopSettings::delaySaverStart();
-
         struct stat st;
         KSimpleConfig* tdmconfig;
-	OPEN_TDMCONFIG_AND_SET_GROUP
+        OPEN_TDMCONFIG_AND_SET_GROUP
         trinity_desktop_lock_use_sak = tdmconfig->readBoolEntry("UseSAK", true);
 
         LockProcess process;
@@ -271,10 +265,10 @@ int main( int argc, char **argv )
             }
         }
 
-        // Reload settings to make sure they reflect reality
-        KDesktopSettings::self()->config()->reparseConfiguration();
-        delete tdmconfig;
-	OPEN_TDMCONFIG_AND_SET_GROUP
+        // load settings here so that they actually reflect reality
+        // there is no way to force a reload once KDesktopSettings::instance has been called!
+        // we need to read from the right rc file - possibly taking screen number in account
+        KDesktopSettings::instance("kdesktoprc");
         trinity_desktop_lock_use_system_modal_dialogs = !KDesktopSettings::useUnmanagedLockWindows();
         trinity_desktop_lock_delay_screensaver_start = KDesktopSettings::delaySaverStart();
         if (trinity_desktop_lock_use_system_modal_dialogs) {

@@ -157,7 +157,7 @@ trinity_desktop_lock_autohide_lockdlg = TRUE;
 // starting screensaver hacks, and password entry.
 //
 LockProcess::LockProcess()
-    : TQWidget(0L, "saver window", (trinity_desktop_lock_use_system_modal_dialogs?((WFlags)(WStyle_StaysOnTop|WStyle_Customize|WStyle_NoBorder)):((WFlags)WX11BypassWM))),
+    : TQWidget(0L, "saver window", ((WFlags)(WStyle_StaysOnTop|WStyle_Customize|WStyle_NoBorder))),
       mOpenGLVisual(0),
       mParent(0),
       mShowLockDateTime(false),
@@ -344,6 +344,10 @@ LockProcess::~LockProcess()
 //
 void LockProcess::init(bool child, bool useBlankOnly)
 {
+    if (!trinity_desktop_lock_use_system_modal_dialogs) {
+        setWFlags((WFlags)WX11BypassWM);
+    }
+
     child_saver = child;
     mUseBlankOnly = useBlankOnly;
 
@@ -1260,12 +1264,13 @@ bool LockProcess::startSaver()
 		// Try to get the root pixmap
 		if (!m_rootPixmap) m_rootPixmap = new KRootPixmap(this);
 		m_rootPixmap->setCustomPainting(true);
+		m_rootPixmap->start();
 		// Sometimes KRootPixmap fails...make sure the desktop is hidden regardless
 		if (!mEnsureScreenHiddenTimer) {
 			mEnsureScreenHiddenTimer = new TQTimer( this );
 			connect( mEnsureScreenHiddenTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotForcePaintBackground()) );
+			mEnsureScreenHiddenTimer->start(2000, true);
 		}
-		mEnsureScreenHiddenTimer->start(2000, true);
 	}
 
 	if (trinity_desktop_lock_in_sec_dlg == FALSE) {
@@ -1818,7 +1823,13 @@ void LockProcess::slotForcePaintBackground()
 
 void LockProcess::slotPaintBackground(const TQPixmap &rpm)
 {
-	mEnsureScreenHiddenTimer->stop();
+	if (mEnsureScreenHiddenTimer) {
+		mEnsureScreenHiddenTimer->stop();
+	}
+	else {
+		mEnsureScreenHiddenTimer = new TQTimer( this );
+		connect( mEnsureScreenHiddenTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotForcePaintBackground()) );
+	}
 
 	TQPixmap pm = rpm;
 
