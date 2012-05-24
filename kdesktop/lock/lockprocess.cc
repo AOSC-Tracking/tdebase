@@ -182,6 +182,7 @@ LockProcess::LockProcess()
       mHackDelayStartupTimer(NULL),
       mHackDelayStartupTimeout(0),
       mHackStartupEnabled(true),
+      mResizingDesktopLock(false),
       m_rootPixmap(NULL),
       mBackingStartupDelayTimer(0),
       m_startupStatusDialog(NULL),
@@ -961,7 +962,10 @@ void LockProcess::createSaverWindow()
 void LockProcess::desktopResized()
 {
     mBusy = true;
-    suspend();
+    mHackDelayStartupTimer->stop();
+    stopHack();
+    DISABLE_CONTINUOUS_LOCKDLG_DISPLAY
+    mResizingDesktopLock = true;
 
     // Get root window size
     XWindowAttributes rootAttr;
@@ -987,36 +991,36 @@ void LockProcess::desktopResized()
 
 void LockProcess::doDesktopResizeFinish()
 {
-    stopHack();
+	while (mDialogControlLock == true) usleep(100000);
+	mDialogControlLock = true;
+	if (closeCurrentWindow()) {
+		TQTimer::singleShot( 0, this, SLOT(doDesktopResizeFinish()) );
+		mDialogControlLock = false;
+		return;
+	}
+	mDialogControlLock = false;
 
-    while (mDialogControlLock == true) usleep(100000);
-    mDialogControlLock = true;
-    if (closeCurrentWindow()) {
-        TQTimer::singleShot( 0, this, SLOT(doDesktopResizeFinish()) );
-        mDialogControlLock = false;
-    }
-    mDialogControlLock = false;
-
-    // Restart the hack as the window size is now different
-    if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced && trinity_desktop_lock_use_system_modal_dialogs) {
-        ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-        if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
-    }
-    else {
-	if (mHackStartupEnabled == true) {
-	        startHack();
+	// Restart the hack as the window size is now different
+	if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced && trinity_desktop_lock_use_system_modal_dialogs) {
+		ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+		if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 	}
 	else {
-		if (trinity_desktop_lock_use_system_modal_dialogs == true) {
-			ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-		}
-		else {
+		if (mHackStartupEnabled == true) {
 			startHack();
 		}
+		else {
+			if (trinity_desktop_lock_use_system_modal_dialogs == true) {
+				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+			}
+			else {
+				startHack();
+			}
+		}
 	}
-    }
 
-    mBusy = false;
+        mResizingDesktopLock = false;
+	mBusy = false;
 }
 
 //---------------------------------------------------------------------------
@@ -1801,7 +1805,9 @@ int LockProcess::execDialog( TQDialog *dlg )
                 hackResumeTimer = new TQTimer( this );
                 connect( hackResumeTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(resumeUnforced()) );
             }
-            hackResumeTimer->start( 10, TRUE );
+            if (mResizingDesktopLock == false) {
+                hackResumeTimer->start( 10, TRUE );
+            }
         }
         else {
             resume( false );
@@ -1976,7 +1982,25 @@ bool LockProcess::x11Event(XEvent *event)
                 else
                 {
                     mSuspendTimer.stop();
-                    resume( false );
+                    if (mResizingDesktopLock == false) {
+			if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced && trinity_desktop_lock_use_system_modal_dialogs) {
+				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+			}
+			else {
+				if (mHackStartupEnabled == true) {
+					resume( false );
+				}
+				else {
+					if (trinity_desktop_lock_use_system_modal_dialogs == true) {
+						ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+					}
+					else {
+						resume( false );
+					}
+				}
+			}
+                    }
                 }
                 if (event->xvisibility.state != VisibilityUnobscured)
                     stayOnTop();
@@ -2076,7 +2100,9 @@ void LockProcess::checkDPMSActive()
        suspend();
     } else if ( mSuspended )
     {
-        resume( true );
+        if (mResizingDesktopLock == false) {
+            resume( true );
+        }
     }
 #endif
 }

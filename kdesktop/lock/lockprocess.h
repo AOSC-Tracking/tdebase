@@ -192,6 +192,7 @@ private:
 
     int         mHackDelayStartupTimeout;
     bool        mHackStartupEnabled;
+    bool        mResizingDesktopLock;
 
     TQPixmap    backingPixmap;
     KRootPixmap  *m_rootPixmap;
