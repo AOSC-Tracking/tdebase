@@ -145,11 +145,13 @@ bool trinity_desktop_hack_active = FALSE;
 
 #define ENABLE_CONTINUOUS_LOCKDLG_DISPLAY \
 if (!mForceContinualLockDisplayTimer->isActive()) mForceContinualLockDisplayTimer->start(100, FALSE); \
-trinity_desktop_lock_autohide_lockdlg = FALSE;
+trinity_desktop_lock_autohide_lockdlg = FALSE; \
+mHackDelayStartupTimer->stop();
 
 #define DISABLE_CONTINUOUS_LOCKDLG_DISPLAY \
 mForceContinualLockDisplayTimer->stop(); \
-trinity_desktop_lock_autohide_lockdlg = TRUE;
+trinity_desktop_lock_autohide_lockdlg = TRUE; \
+mHackDelayStartupTimer->stop();
 
 //===========================================================================
 //
@@ -716,6 +718,7 @@ void LockProcess::startSecureDialog()
 				else {
 					if (trinity_desktop_lock_use_system_modal_dialogs == true) {
 						ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+						if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 					}
 					else {
 						startHack();
@@ -744,6 +747,7 @@ void LockProcess::startSecureDialog()
 	// Handle remaining case (switch user)
 	if (forcecontdisp) {
 		ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+		if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 	}
 	stopSaver();
 }
@@ -1012,6 +1016,7 @@ void LockProcess::doDesktopResizeFinish()
 		else {
 			if (trinity_desktop_lock_use_system_modal_dialogs == true) {
 				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 			}
 			else {
 				startHack();
@@ -1289,6 +1294,7 @@ bool LockProcess::startSaver()
 			else {
 				if (trinity_desktop_lock_use_system_modal_dialogs == true) {
 					ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+					if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 				}
 				else {
 					startHack();
@@ -1531,6 +1537,7 @@ bool LockProcess::startHack()
 		else bitBlt(this, 0, 0, &backingPixmap);
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
 			ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+			if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 		}
 	}
     }
@@ -1994,6 +2001,7 @@ bool LockProcess::x11Event(XEvent *event)
 				else {
 					if (trinity_desktop_lock_use_system_modal_dialogs == true) {
 						ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+						if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 					}
 					else {
 						resume( false );
