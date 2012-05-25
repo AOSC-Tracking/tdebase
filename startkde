@@ -69,7 +69,7 @@ unset DYLD_FORCE_FLAT_NAMESPACE
 if [ "$KDE_IS_PRELINKED" = "" ]; then
   if [ -r /etc/default/prelink ]; then
     . /etc/default/prelink
-    if [ "$PRELINKING" == "yes" ]; then
+    if [ "$PRELINKING" = "yes" ]; then
       export KDE_IS_PRELINKED=1
     fi
   fi
@@ -389,7 +389,7 @@ fi
 # Configuration of the gtk_qt_engine if not already set.
 
 if test -n "$KDEDIRS"; then
-  kdedirs_first=`echo "$KDEDIRS" | sed -e 's/:.*//'`
+  kdedirs_first=${KDEDIRS%%:*}
   KGTK_RC_ENGINE=$kdedirs_first/share/kgtk/gtk-qt-engine.rc.sh
   KGTK_RC_KDE1=$kdedirs_first/share/kgtk/.gtkrc-2.0-kde4
   KGTK_RC_KDE2=$kdedirs_first/share/kgtk/.gtkrc-2.0-kde-kde4
@@ -483,7 +483,7 @@ echo "[startkde] KDEDIR: $KDEDIR" 1>&2
 echo "[startkde] KDEDIRS: $KDEDIRS" 1>&2
 
 if test -n "$KDEDIRS"; then
-  kdedirs_first=`echo "$KDEDIRS" | sed -e 's/:.*//'`
+  kdedirs_first=${KDEDIRS%%:*}
   sys_odir=$kdedirs_first/share/fonts/override
   sys_fdir=$kdedirs_first/share/fonts
 else
@@ -492,7 +492,7 @@ else
 fi
 
 if test -n "$KDEDIRS"; then
-  kdedirs_first=`echo "$KDEDIRS" | sed -e 's/:.*//'`
+  kdedirs_first=${KDEDIRS%%:*}
   echo "[startkde] kdedirs_first: $kdedirs_first"
   if [ -r $kdedirs_first/share/kgtk/preload ]; then
     echo "[startkde] Reading from $kdedirs_first/share/kgtk/preload"
@@ -508,7 +508,7 @@ if [ "$KGTK_PRELOAD" != "" ]; then
   if [ -e /usr/lib64/libnspr4.so ]; then
     KGTK_NSPR_PRELOAD="/usr/lib64/libnspr4.so:"
   elif [ -e /usr/lib/libnspr4.so ]; then
-    KGTK_NSPR_PRELOAD="/usr/libnspr4.so:"
+    KGTK_NSPR_PRELOAD="/usr/lib/libnspr4.so:"
   fi
   export LD_PRELOAD=$KGTK_PRELOAD:$KGTK_NSPR_PRELOAD$LD_PRELOAD
 fi
@@ -635,7 +635,7 @@ TDE_FULL_SESSION=true
 export TDE_FULL_SESSION
 xprop -root -f TDE_FULL_SESSION 8t -set TDE_FULL_SESSION true
 echo "[startkde] TDE_FULL_SESSION: $TDE_FULL_SESSION" 1>&2
-KDE_SESSION_UID=$UID
+KDE_SESSION_UID=`id -u`
 export KDE_SESSION_UID
 echo "[startkde] KDE_SESSION_UID: $KDE_SESSION_UID" 1>&2
 
