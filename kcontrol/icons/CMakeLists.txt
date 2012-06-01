@@ -14,6 +14,7 @@ include_directories(
   ${CMAKE_BINARY_DIR}
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
+  ${LIBART_INCLUDE_DIRS}
 )
 
 link_directories(
@@ -30,6 +31,6 @@ install( FILES uninstall.desktop DESTINATION ${APPS_INSTALL_DIR}/Settings/LookNF
 
 tde_add_kpart( kcm_icons AUTOMOC
   SOURCES iconthemes.cpp icons.cpp main.cpp
-  LINK kio-shared
+  LINK kio-shared ${LIBART_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

@@ -16,6 +16,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/kdmlib
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
+  ${LIBART_INCLUDE_DIRS}
 )
 
 link_directories(
@@ -38,4 +39,5 @@ tde_add_library( kdmthemer STATIC_PIC AUTOMOC
   SOURCES
     kdmthemer.cpp kdmitem.cpp kdmpixmap.cpp
     kdmrect.cpp kdmlabel.cpp kdmlayout.cpp
+  LINK ${LIBART_LIBRARIES}
 )

@@ -197,6 +197,16 @@ else( )
   set( WITHOUT_ARTS 1 )
 endif( )
 
+# libart
+
+if( WITH_LIBART )
+  pkg_search_module( LIBART libart-2.0 )
+  if( NOT LIBART_FOUND )
+    message(FATAL_ERROR "\nlibart-2.0 support are requested, but not found on your system" )
+  endif( NOT LIBART_FOUND )
+  set( HAVE_LIBART 1 )
+endif( WITH_LIBART )
+
 
 # required stuff
 find_package( TQt )
