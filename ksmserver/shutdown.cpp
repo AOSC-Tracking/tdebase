@@ -495,7 +495,7 @@ void KSMServer::completeShutdownOrCheckpoint()
         return;
 
     bool showFancyLogout = KConfigGroup(KGlobal::config(), "Logout").readBoolEntry("showFancyLogout", true);
-    if (showFancyLogout) {
+    if (showFancyLogout && state != Checkpoint) {
         KSMShutdownIPFeedback::showit(); // hide the UGLY logout process from the user
         shutdownNotifierIPDlg = KSMShutdownIPDlg::showShutdownIP();
         while (!KSMShutdownIPFeedback::ispainted()) {
