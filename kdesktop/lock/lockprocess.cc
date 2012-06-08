@@ -2391,7 +2391,7 @@ void LockProcess::slotMouseActivity(XEvent *event)
 	bool inDialog = 0;
 	XButtonEvent *be = (XButtonEvent *) event;
 	XMotionEvent *me = (XMotionEvent *) event;
-	if (event->type == ButtonPress) {
+	if ((event->type == ButtonPress) && (mDialogs.first())) {
 		// Get geometry including window frame/titlebar
 		TQRect fgeom = mDialogs.first()->frameGeometry();
 		TQRect wgeom = mDialogs.first()->geometry();
@@ -2432,7 +2432,7 @@ void LockProcess::slotMouseActivity(XEvent *event)
 			int deltaY = me->y_root - m_mousePrevY;
 			m_dialogPrevX = m_dialogPrevX + deltaX;
 			m_dialogPrevY = m_dialogPrevY + deltaY;
-			mDialogs.first()->move(m_dialogPrevX, m_dialogPrevY);
+			if (mDialogs.first()) mDialogs.first()->move(m_dialogPrevX, m_dialogPrevY);
 
 			m_mousePrevX = me->x_root;
 			m_mousePrevY = me->y_root;
