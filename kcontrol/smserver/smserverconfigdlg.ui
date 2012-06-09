@@ -62,6 +62,17 @@
                         <string>O&amp;ffer shutdown options</string>
                     </property>
                 </widget>
+                <widget class="TQCheckBox">
+                    <property name="name">
+                        <cstring>showLogoutStatusDialog</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Show logout stat&amp;us dialog</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Check this option if you want to see a dialog box showing the logout status.</string>
+                    </property>
+                </widget>
             </vbox>
         </widget>
         <widget class="TQButtonGroup">
@@ -202,6 +213,12 @@
 <connections>
     <connection>
         <sender>confirmLogoutCheck</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SMServerConfigDlg</receiver>
+        <slot>configChanged()</slot>
+    </connection>
+    <connection>
+        <sender>showLogoutStatusDialog</sender>
         <signal>toggled(bool)</signal>
         <receiver>SMServerConfigDlg</receiver>
         <slot>configChanged()</slot>

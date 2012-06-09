@@ -160,10 +160,10 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
     if (sdmode == KApplication::ShutdownModeDefault)
         sdmode = KApplication::ShutdownModeInteractive;
 
-    // shall we show a nice fancy logout screen?
-    bool showFancyLogout = KConfigGroup(KGlobal::config(), "Logout").readBoolEntry("showFancyLogout", true);
+    // shall we show a logout status dialog box?
+    bool showLogoutStatusDlg = KConfigGroup(KGlobal::config(), "Logout").readBoolEntry("showLogoutStatusDlg", true);
 
-    if (showFancyLogout) {
+    if (showLogoutStatusDlg) {
         KSMShutdownIPFeedback::start();
     }
 
@@ -204,7 +204,7 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
 
         // Set the real desktop background to black so that exit looks
         // clean regardless of what was on "our" desktop.
-        if (!showFancyLogout) {
+        if (!showLogoutStatusDlg) {
             TQT_TQWIDGET(kapp->desktop())->setBackgroundColor( Qt::black );
         }
         state = Shutdown;
@@ -244,7 +244,7 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
             completeShutdownOrCheckpoint();
     }
     else {
-       if (showFancyLogout) {
+       if (showLogoutStatusDlg) {
            KSMShutdownIPFeedback::stop();
        }
     }
@@ -494,8 +494,8 @@ void KSMServer::completeShutdownOrCheckpoint()
     if ( waitForPhase2 )
         return;
 
-    bool showFancyLogout = KConfigGroup(KGlobal::config(), "Logout").readBoolEntry("showFancyLogout", true);
-    if (showFancyLogout && state != Checkpoint) {
+    bool showLogoutStatusDlg = KConfigGroup(KGlobal::config(), "Logout").readBoolEntry("showLogoutStatusDlg", true);
+    if (showLogoutStatusDlg && state != Checkpoint) {
         KSMShutdownIPFeedback::showit(); // hide the UGLY logout process from the user
         shutdownNotifierIPDlg = KSMShutdownIPDlg::showShutdownIP();
         while (!KSMShutdownIPFeedback::ispainted()) {

@@ -92,6 +92,9 @@ void SMServerConfig::load(bool useDefaults )
   }
   dialog->excludeLineedit->setText( c->readEntry("excludeApps"));
 
+  c->setGroup("Logout");
+  dialog->showLogoutStatusDialog->setChecked(c->readBoolEntry("showLogoutStatusDlg", true));
+
   delete c;
 
   emit changed(useDefaults);
@@ -103,6 +106,7 @@ void SMServerConfig::save()
   c->setGroup("General");
   c->writeEntry( "confirmLogout", dialog->confirmLogoutCheck->isChecked());
   c->writeEntry( "offerShutdown", dialog->offerShutdownCheck->isChecked());
+
   TQString s = "restorePreviousLogout";
   if ( dialog->emptySessionRadio->isChecked() )
       s = "default";
@@ -117,6 +121,8 @@ void SMServerConfig::save()
                      int(KApplication::ShutdownTypeReboot) :
                      int(KApplication::ShutdownTypeNone));
   c->writeEntry("excludeApps", dialog->excludeLineedit->text());
+  c->setGroup("Logout");
+  c->writeEntry( "showLogoutStatusDlg", dialog->showLogoutStatusDialog->isChecked());
   c->sync();
   delete c;
 
