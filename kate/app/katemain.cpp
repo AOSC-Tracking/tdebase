@@ -231,7 +231,24 @@ extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
         else
           wRef.call("restore");
       }
+      // The --use parameter forces Kate to use a single session window to host
+      // all opened files. Generally, that parameter works. Yet when a file is
+      // opened into Kate externally, such as from Konqueror, Kate will pop
+      // forward (raise) but not grab the focus (show). The following snippet
+      // resolves that problem. For whatever reason the hide call is needed
+      // before the raise and show otherwise the snippet fails. Some extra glue
+      // might be needed. With Kate open:
+      // "Right-click" on the title bar
+      // Select Advanced
+      // Select Special Application Settings (Not Special Window Settings)
+      // Select the Workarounds tab
+      // Enable the Focus stealing prevention check box
+      // Select the Force option
+      // Select the None option
+
+      wRef.call( "hide" );
       wRef.call( "raise" );
+      wRef.call( "show" );
 
       // stop startup notification
       KStartupInfo::appStarted(  );
