@@ -1,5 +1,8 @@
 #define VERSION "@VERSION@"
 
+// Defined if compiler supports long long type.
+#cmakedefine HAVE_LONG_LONG 1
+
 // konsole
 #cmakedefine HAVE_PROC_CWD 1
 

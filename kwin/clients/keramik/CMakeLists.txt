@@ -42,22 +42,11 @@ tde_add_kpart( kwin3_keramik AUTOMOC
 
 ##### tiles.h (header) ##########################
 
-set( pics
-  pics/caption-large-left.png pics/caption-small-right.png
-  pics/titlebar-center.png pics/titlebutton-square.png
-  pics/border-left.png pics/caption-large-right.png
-  pics/grabbar-center.png pics/titlebar-left.png
-  pics/border-right.png pics/caption-small-center.png
-  pics/grabbar-left.png pics/titlebar-right.png
-  pics/caption-large-center.png pics/caption-small-left.png
-  pics/grabbar-right.png pics/titlebutton-round.png
-  pics/bottom-left.png pics/bottom-right.png pics/bottom-center.png
-  pics/titlebutton-square-large.png pics/titlebutton-square-huge.png
-  pics/titlebutton-round-large.png pics/titlebutton-round-huge.png )
+file(GLOB _pics "${CMAKE_CURRENT_SOURCE_DIR}/pics/*.png" )
 
 add_custom_command( OUTPUT tiles.h
-  COMMAND ${CMAKE_CURRENT_BINARY_DIR}/embedtool ${pics}
-  DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/embedtool ${pics} )
+  COMMAND ${CMAKE_CURRENT_BINARY_DIR}/embedtool ${_pics}
+  DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/embedtool ${_pics} )
 
 tde_add_executable( embedtool
   SOURCES embedtool.cpp
