@@ -130,6 +130,26 @@ if( WITH_XTEST )
 endif( )
 
 
+# xscreensaver ()
+if( WITH_XSCREENSAVER )
+  check_library_exists( Xss XScreenSaverQueryInfo "" HAVE_XSSLIB )
+  if( HAVE_XSSLIB )
+    pkg_search_module( XSS xscrnsaver )
+  else( )
+    check_library_exists( Xext XScreenSaverQueryInfo "" HAVE_XSSLIB )
+    if( HAVE_XSSLIB )
+      pkg_search_module( XSS xext )
+    endif( )
+  endif( )
+  check_include_file( X11/extensions/scrnsaver.h HAVE_XSCREENSAVER_H )
+  if( HAVE_XSSLIB AND HAVE_XSCREENSAVER_H )
+    set( HAVE_XSCREENSAVER 1 )
+  else( )
+    tde_message_fatal( "xscreensaver is requested, but was not found on your system" )
+  endif( )
+endif( )
+
+
 # GL
 if( BUILD_KDESKTOP OR BUILD_KCONTROL OR BUILD_KSCREENSAVER )
 check_library_exists( GL glXChooseVisual "" HAVE_GLXCHOOSEVISUAL )
