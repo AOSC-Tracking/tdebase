@@ -103,7 +103,7 @@ int main( int argc, char **argv)
 			TQDir myqdir;
 			if (myqdir.exists(getDocumentPath(), TRUE) == true) {
 				if (args->isSet( "getpath" ) == true) {
-					printf("%s\n\r", getDocumentPath().ascii());
+					printf("%s\n\r", (const char *)getDocumentPath().local8Bit());
 					return 0;
 				}
 				else {
@@ -140,7 +140,7 @@ int main( int argc, char **argv)
 							config.writeEntry("XDG_DOCUMENTS_DIR", TQString("\"") + xdgModifiedDirectory + TQString("\""), true);
 							config.sync();
 							if (args->isSet( "getpath" ) == true) {
-								printf("%s\n\r", getDocumentPath().ascii());
+								printf("%s\n\r", (const char *)getDocumentPath().local8Bit());
 								return 0;
 							}
 							else {
