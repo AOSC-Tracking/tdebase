@@ -274,7 +274,7 @@ static int startApp()
 
     // Try to exec the command with kdesud.
     bool keep = !args->isSet("n") && have_daemon;
-    bool terminal = true;
+    bool terminal = args->isSet("t");
     bool new_dcop = args->isSet("newdcop");
     bool withIgnoreButton = args->isSet("ignorebutton");
     
@@ -360,7 +360,7 @@ static int startApp()
         KStartupInfoData data;
         data.setSilent( KStartupInfoData::Yes );
         KStartupInfo::sendChange( id, data );
-        KDEsuDialog dlg(user, auth_user, keep && !terminal,icon, withIgnoreButton);
+        KDEsuDialog dlg(user, auth_user, keep && !terminal,icon, withIgnoreButton, timeout);
 	if (prompt)
 	    dlg.addLine(i18n("Command:"), command);
         if ((priority != 50) || (scheduler != SuProcess::SchedNormal))
