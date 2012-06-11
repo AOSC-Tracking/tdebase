@@ -43,7 +43,7 @@ KDEsuDialog::KDEsuDialog(TQCString user, TQCString auth_user, bool enableKeep,co
 	}
     }
     setPrompt(prompt);
-    setKeepWarning(i18n("<qt>The stored password will be:<br> * Kept for up to %1 hours<br> * Destroyed on logout").arg(timeout));
+    setKeepWarning(i18n("<qt>The stored password will be:<br> * Kept for up to %1 minutes<br> * Destroyed on logout").arg(timeout/60));
 
     if( withIgnoreButton )
 	setButtonText(User1, i18n("&Ignore"));
