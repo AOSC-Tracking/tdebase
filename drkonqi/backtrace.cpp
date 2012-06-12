@@ -107,11 +107,31 @@ void BackTrace::start()
   ::fsync(handle);
   m_temp_cmd->close();
 
+  // determine if yama has been used to prevent ptrace as normal user
+  bool need_root_access = false;
+  TQFile yamactl("/proc/sys/kernel/yama/ptrace_scope");
+  if (yamactl.exists()) {
+    if (yamactl.open(IO_ReadOnly)) {
+      TQTextStream stream(&yamactl);
+      TQString line;
+      line = stream.readLine();
+      if (line.toInt() != 0) {
+        need_root_access = true;
+      }
+      yamactl.close();
+    }
+  }
+
   // start the debugger
   m_proc = new KProcess;
   m_proc->setUseShell(true);
 
-  *m_proc << "kdesu -t --comment \"" << i18n("Administrative access is required to generate a backtrace") << "\" -c \"" << m_temp_cmd->name() << "\"";
+  if (need_root_access == false) {
+    *m_proc << m_temp_cmd->name();
+  }
+  else {
+    *m_proc << "kdesu -t --comment \"" << i18n("Administrative access is required to generate a backtrace") << "\" -c \"" << m_temp_cmd->name() << "\"";
+  }
 
   connect(m_proc, TQT_SIGNAL(receivedStdout(KProcess*, char*, int)),
           TQT_SLOT(slotReadInput(KProcess*, char*, int)));
