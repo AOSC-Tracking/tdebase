@@ -273,6 +273,8 @@ void PanelKMenu::initialize()
         connect(searchEdit, TQT_SIGNAL(textChanged(const TQString&)),
             this, TQT_SLOT( slotUpdateSearch( const TQString&)));
         insertItem(hbox, searchLineID, 0);
+    } else {
+        searchEdit = NULL;
     }
 
     //TQToolTip::add(clearButton, i18n("Clear Search"));
