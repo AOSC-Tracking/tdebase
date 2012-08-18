@@ -25,6 +25,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/khotkeys/kcontrol
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
+  ${ARTS_INCLUDE_DIRS}
 )
 
 link_directories(
