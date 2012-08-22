@@ -195,7 +195,11 @@ kg_main( const char *argv0 )
 	KProcess *dcop = 0;
 	KProcess *kwin = 0;
 
+#ifdef BUILD_TSAK
 	trinity_desktop_lock_use_sak = _useSAK;
+#else
+	trinity_desktop_lock_use_sak = false;
+#endif
 	if (trinity_desktop_lock_use_sak) {
 		tsak = new KProcess;
 		*tsak << TQCString( argv0, strrchr( argv0, '/' ) - argv0 + 2 ) + "tsak";

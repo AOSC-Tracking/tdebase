@@ -207,8 +207,11 @@ int main( int argc, char **argv )
         struct stat st;
         KSimpleConfig* tdmconfig;
         OPEN_TDMCONFIG_AND_SET_GROUP
+#ifdef BUILD_TSAK
         trinity_desktop_lock_use_sak = tdmconfig->readBoolEntry("UseSAK", true);
-
+#else
+        trinity_desktop_lock_use_sak = false;
+#endif
         LockProcess process;
 
         // Start loading core functions, such as the desktop wallpaper interface
@@ -272,7 +275,11 @@ int main( int argc, char **argv )
         trinity_desktop_lock_use_system_modal_dialogs = !KDesktopSettings::useUnmanagedLockWindows();
         trinity_desktop_lock_delay_screensaver_start = KDesktopSettings::delaySaverStart();
         if (trinity_desktop_lock_use_system_modal_dialogs) {
+#ifdef BUILD_TSAK
             trinity_desktop_lock_use_sak = tdmconfig->readBoolEntry("UseSAK", true);
+#else
+            trinity_desktop_lock_use_sak = false;
+#endif
         }
         else {
             trinity_desktop_lock_use_sak = false;			// If SAK is enabled with unmanaged windows, the SAK dialog will never close and will "burn in" the screen

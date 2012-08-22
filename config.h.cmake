@@ -174,3 +174,6 @@
 
 // kdm, kcontrol
 #cmakedefine WITH_XRANDR "@WITH_XRANDR@"
+
+// tsak
+#cmakedefine BUILD_TSAK "@BUILD_TSAK@"
