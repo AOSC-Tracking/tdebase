@@ -36,7 +36,9 @@ License along with tsak. If not, see http://www.gnu.org/licenses/.
 #include <sys/time.h>
 #include <termios.h>
 #include <signal.h>
+extern "C" {
 #include <libudev.h>
+}
 #include <libgen.h>
 
 using namespace std;
