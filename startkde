@@ -180,7 +180,7 @@ if [ -d $KDEDIR/bin ]; then
 fi
 if [ -d $KDEDIR/share/man ]; then
   if [ -x /usr/bin/manpath ]; then
-    if [ "`manpath -q | grep \"$KDEDIR/share/man\"`" = "" ]; then
+    if [ "`manpath 2>/dev/null | grep \"$KDEDIR/share/man\"`" = "" ]; then
       export MANPATH=$KDEDIR/share/man:$MANPATH
     fi
   else
