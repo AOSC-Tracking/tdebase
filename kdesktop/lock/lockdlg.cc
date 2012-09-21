@@ -573,9 +573,19 @@ void PasswordDlg::gplugActivity()
 
 void PasswordDlg::gplugMsgBox( TQMessageBox::Icon type, const TQString &text )
 {
-    TQDialog dialog( this, 0, true, (WFlags)WX11BypassWM );
+    TQDialog dialog( this, 0, true, (trinity_desktop_lock_use_system_modal_dialogs?((WFlags)WStyle_StaysOnTop):((WFlags)WX11BypassWM)) );
+    if (trinity_desktop_lock_use_system_modal_dialogs) {
+        // Signal that we do not want any window controls to be shown at all
+        Atom kde_wm_system_modal_notification;
+        kde_wm_system_modal_notification = XInternAtom(qt_xdisplay(), "_KDE_WM_MODAL_SYS_NOTIFICATION", False);
+        XChangeProperty(qt_xdisplay(), dialog.winId(), kde_wm_system_modal_notification, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
+    }
+    dialog.setCaption(i18n("Authentication Subsystem Notice"));
     TQFrame *winFrame = new TQFrame( &dialog );
-    winFrame->setFrameStyle( TQFrame::WinPanel | TQFrame::Raised );
+    if (trinity_desktop_lock_use_system_modal_dialogs)
+        winFrame->setFrameStyle( TQFrame::NoFrame );
+    else
+        winFrame->setFrameStyle( TQFrame::WinPanel | TQFrame::Raised );
     winFrame->setLineWidth( 2 );
     TQVBoxLayout *vbox = new TQVBoxLayout( &dialog );
     vbox->addWidget( winFrame );

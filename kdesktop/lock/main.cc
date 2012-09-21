@@ -76,6 +76,30 @@ bool MyApp::x11EventFilter( XEvent *ev )
             emit activity();
         }
     }
+    else if (ev->type == MapNotify) {
+        // HACK
+        // Close all tooltips and notification windows
+        XMapEvent map_event = ev->xmap;
+        XWindowAttributes childAttr;
+        Window childTransient;
+        if (XGetWindowAttributes(map_event.display, map_event.window, &childAttr) && XGetTransientForHint(map_event.display, map_event.window, &childTransient)) {
+            if((childAttr.map_state == IsViewable) && (childAttr.override_redirect) && (childTransient)) {
+                XUnmapWindow(map_event.display, map_event.window);
+            }
+        }
+    }
+    else if (ev->type == CreateNotify) {
+        // HACK
+        // Close all tooltips and notification windows
+        XCreateWindowEvent create_event = ev->xcreatewindow;
+        XWindowAttributes childAttr;
+        Window childTransient;
+        if (XGetWindowAttributes(create_event.display, create_event.window, &childAttr) && XGetTransientForHint(create_event.display, create_event.window, &childTransient)) {
+            if ((childAttr.override_redirect) && (childTransient)) {
+                XDestroyWindow(create_event.display, create_event.window);
+            }
+        }
+    }
     return KApplication::x11EventFilter( ev );
 }
 

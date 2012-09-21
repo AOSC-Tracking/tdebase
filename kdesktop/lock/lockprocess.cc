@@ -960,6 +960,27 @@ void LockProcess::createSaverWindow()
 
     setGeometry(0, 0, mRootWidth, mRootHeight);
 
+    // HACK
+    // Close all tooltips and notification windows
+    {
+        Window rootWindow = RootWindow(x11Display(), x11Screen());
+        Window parent;
+        Window* children = NULL;
+        unsigned int noOfChildren = 0;
+        XWindowAttributes childAttr;
+        Window childTransient;
+
+        if (XQueryTree(x11Display(), rootWindow, &rootWindow, &parent, &children, &noOfChildren) && noOfChildren>0 ) {
+            for (unsigned int i=0; i<noOfChildren; i++) {
+                if (XGetWindowAttributes(x11Display(), children[i], &childAttr) && XGetTransientForHint(x11Display(), children[i], &childTransient)) {
+                    if ((childAttr.map_state == IsViewable) && (childAttr.override_redirect) && (childTransient)) {
+                        XUnmapWindow(x11Display(), children[i]);
+                    }
+                }
+            }
+        }
+    }
+
     kdDebug(1204) << "Saver window Id: " << winId() << endl;
 }
 
@@ -2162,9 +2183,19 @@ void LockProcess::unlockXF86()
 
 void LockProcess::msgBox( TQMessageBox::Icon type, const TQString &txt )
 {
-    TQDialog box( 0, "messagebox", true, (WFlags)WX11BypassWM );
+    TQDialog box( 0, "messagebox", true, (trinity_desktop_lock_use_system_modal_dialogs?((WFlags)WStyle_StaysOnTop):((WFlags)WX11BypassWM)) );
+    if (trinity_desktop_lock_use_system_modal_dialogs) {
+        // Signal that we do not want any window controls to be shown at all
+        Atom kde_wm_system_modal_notification;
+        kde_wm_system_modal_notification = XInternAtom(qt_xdisplay(), "_KDE_WM_MODAL_SYS_NOTIFICATION", False);
+        XChangeProperty(qt_xdisplay(), box.winId(), kde_wm_system_modal_notification, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
+    }
+    box.setCaption(i18n("Authentication Subsystem Notice"));
     TQFrame *winFrame = new TQFrame( &box );
-    winFrame->setFrameStyle( TQFrame::WinPanel | TQFrame::Raised );
+    if (trinity_desktop_lock_use_system_modal_dialogs)
+        winFrame->setFrameStyle( TQFrame::NoFrame );
+    else
+        winFrame->setFrameStyle( TQFrame::WinPanel | TQFrame::Raised );
     winFrame->setLineWidth( 2 );
     TQLabel *label1 = new TQLabel( winFrame );
     label1->setPixmap( TQMessageBox::standardIcon( type ) );
@@ -2264,8 +2295,10 @@ void LockProcess::windowAdded( WId w, bool managed )
     int y = XDisplayHeight( qt_xdisplay(), qt_xscreen()) - attr_geom.height;
     if( managed ) {
         XSetWindowAttributes attr;
-        attr.override_redirect = True;
-        XChangeWindowAttributes( qt_xdisplay(), w, CWOverrideRedirect, &attr );
+        if (!trinity_desktop_lock_use_system_modal_dialogs) {
+            attr.override_redirect = True;
+            XChangeWindowAttributes( qt_xdisplay(), w, CWOverrideRedirect, &attr );
+        }
         XReparentWindow( qt_xdisplay(), w, qt_xrootwin(), x, y );
         XMapWindow( qt_xdisplay(), w );
     }
