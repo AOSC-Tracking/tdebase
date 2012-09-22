@@ -47,6 +47,8 @@ else {													\
 }													\
 tdmconfig->setGroup("X-*-Greeter");
 
+TQXLibWindowList trinity_desktop_lock_hidden_window_list;
+
 // [FIXME] Add GUI configuration checkboxes for these three settings (see kdesktoprc [ScreenSaver] UseUnmanagedLockWindows, DelaySaverStart, and UseTDESAK)
 bool trinity_desktop_lock_use_system_modal_dialogs = FALSE;
 bool trinity_desktop_lock_delay_screensaver_start = FALSE;
@@ -78,16 +80,43 @@ bool MyApp::x11EventFilter( XEvent *ev )
     }
     else if (ev->type == MapNotify) {
         // HACK
-        // Close all tooltips and notification windows
+        // Hide all tooltips and notification windows
         XMapEvent map_event = ev->xmap;
         XWindowAttributes childAttr;
         Window childTransient;
         if (XGetWindowAttributes(map_event.display, map_event.window, &childAttr) && XGetTransientForHint(map_event.display, map_event.window, &childTransient)) {
             if((childAttr.map_state == IsViewable) && (childAttr.override_redirect) && (childTransient)) {
-                XUnmapWindow(map_event.display, map_event.window);
+                if (!trinity_desktop_lock_hidden_window_list.contains(map_event.window)) {
+                    trinity_desktop_lock_hidden_window_list.append(map_event.window);
+                }
+                XLowerWindow(map_event.display, map_event.window);
             }
         }
     }
+    else if (ev->type == VisibilityNotify) {
+        // HACK
+        // Hide all tooltips and notification windows
+        XVisibilityEvent visibility_event = ev->xvisibility;
+        XWindowAttributes childAttr;
+        Window childTransient;
+        if ((visibility_event.state == VisibilityUnobscured) || (visibility_event.state == VisibilityPartiallyObscured)) {
+            if (XGetWindowAttributes(visibility_event.display, visibility_event.window, &childAttr) && XGetTransientForHint(visibility_event.display, visibility_event.window, &childTransient)) {
+                if((childAttr.map_state == IsViewable) && (childAttr.override_redirect) && (childTransient)) {
+                    if (!trinity_desktop_lock_hidden_window_list.contains(visibility_event.window)) {
+                        trinity_desktop_lock_hidden_window_list.append(visibility_event.window);
+                    }
+                    XLowerWindow(visibility_event.display, visibility_event.window);
+                }
+            }
+        }
+    }
+    else if (ev->type == DestroyNotify) {
+        XDestroyWindowEvent destroy_event = ev->xdestroywindow;
+        if (trinity_desktop_lock_hidden_window_list.contains(destroy_event.window)) {
+            trinity_desktop_lock_hidden_window_list.remove(destroy_event.window);
+        }
+    }
+#if 0
     else if (ev->type == CreateNotify) {
         // HACK
         // Close all tooltips and notification windows
@@ -100,6 +129,7 @@ bool MyApp::x11EventFilter( XEvent *ev )
             }
         }
     }
+#endif
     return KApplication::x11EventFilter( ev );
 }
 
@@ -113,6 +143,14 @@ static KCmdLineOptions options[] =
    { "internal <pid>", I18N_NOOP("TDE internal command for background process loading"), 0 },
    KCmdLineLastOption
 };
+
+void restore_hidden_override_redirect_windows() {
+    TQXLibWindowList::iterator it;
+    for (it = trinity_desktop_lock_hidden_window_list.begin(); it != trinity_desktop_lock_hidden_window_list.end(); ++it) {
+        Window win = *it;
+        XRaiseWindow(qt_xdisplay(), win);
+    }
+}
 
 static void sigusr1_handler(int)
 {
@@ -356,7 +394,10 @@ int main( int argc, char **argv )
         }
 
         if (in_internal_mode == FALSE) {
-            return app.exec();
+            trinity_desktop_lock_hidden_window_list.clear();
+            int ret = app.exec();
+            restore_hidden_override_redirect_windows();
+            return ret;
         }
         else {
             pid_t kdesktop_pid = atoi(args->getOption( "internal" ));
@@ -364,7 +405,9 @@ int main( int argc, char **argv )
                 // The controlling kdesktop process probably died.  Commit suicide...
                 return 12;
             }
+            trinity_desktop_lock_hidden_window_list.clear();
             app.exec();
+            restore_hidden_override_redirect_windows();
             if (kill(kdesktop_pid, SIGUSR1) < 0) {
                 // The controlling kdesktop process probably died.  Commit suicide...
                 return 12;

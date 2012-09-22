@@ -138,6 +138,8 @@ extern bool trinity_desktop_lock_delay_screensaver_start;
 extern bool trinity_desktop_lock_use_sak;
 extern bool trinity_desktop_lock_forced;
 
+extern TQXLibWindowList trinity_desktop_lock_hidden_window_list;
+
 bool trinity_desktop_lock_autohide_lockdlg = TRUE;
 bool trinity_desktop_lock_closing_windows = FALSE;
 bool trinity_desktop_lock_in_sec_dlg = FALSE;
@@ -961,7 +963,7 @@ void LockProcess::createSaverWindow()
     setGeometry(0, 0, mRootWidth, mRootHeight);
 
     // HACK
-    // Close all tooltips and notification windows
+    // Hide all tooltips and notification windows
     {
         Window rootWindow = RootWindow(x11Display(), x11Screen());
         Window parent;
@@ -974,7 +976,10 @@ void LockProcess::createSaverWindow()
             for (unsigned int i=0; i<noOfChildren; i++) {
                 if (XGetWindowAttributes(x11Display(), children[i], &childAttr) && XGetTransientForHint(x11Display(), children[i], &childTransient)) {
                     if ((childAttr.map_state == IsViewable) && (childAttr.override_redirect) && (childTransient)) {
-                        XUnmapWindow(x11Display(), children[i]);
+                        if (!trinity_desktop_lock_hidden_window_list.contains(children[i])) {
+                            trinity_desktop_lock_hidden_window_list.append(children[i]);
+                        }
+                        XLowerWindow(x11Display(), children[i]);
                     }
                 }
             }

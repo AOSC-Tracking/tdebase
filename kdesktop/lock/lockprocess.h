@@ -38,6 +38,8 @@ struct GreeterPluginHandle {
 #define FIFO_FILE_OUT "/tmp/ksocket-global/kdesktoplockcontrol_out"
 #define PIPE_CHECK_INTERVAL 50
 
+typedef TQValueList<Window> TQXLibWindowList;
+
 //===========================================================================
 //
 // Screen saver handling process.  Handles screensaver window,
