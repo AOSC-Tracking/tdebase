@@ -90,6 +90,7 @@ bool MyApp::x11EventFilter( XEvent *ev )
                     trinity_desktop_lock_hidden_window_list.append(map_event.window);
                 }
                 XLowerWindow(map_event.display, map_event.window);
+                XFlush(map_event.display);
             }
         }
     }
@@ -106,7 +107,24 @@ bool MyApp::x11EventFilter( XEvent *ev )
                         trinity_desktop_lock_hidden_window_list.append(visibility_event.window);
                     }
                     XLowerWindow(visibility_event.display, visibility_event.window);
+                    XFlush(visibility_event.display);
                 }
+            }
+        }
+    }
+    else if (ev->type == CreateNotify) {
+        // HACK
+        // Close all tooltips and notification windows
+        XCreateWindowEvent create_event = ev->xcreatewindow;
+        XWindowAttributes childAttr;
+        Window childTransient;
+        if (XGetWindowAttributes(create_event.display, create_event.window, &childAttr) && XGetTransientForHint(create_event.display, create_event.window, &childTransient)) {
+            if ((childAttr.override_redirect) && (childTransient)) {
+                if (!trinity_desktop_lock_hidden_window_list.contains(create_event.window)) {
+                    trinity_desktop_lock_hidden_window_list.append(create_event.window);
+                }
+                XLowerWindow(create_event.display, create_event.window);
+                XFlush(create_event.display);
             }
         }
     }

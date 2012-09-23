@@ -980,6 +980,7 @@ void LockProcess::createSaverWindow()
                             trinity_desktop_lock_hidden_window_list.append(children[i]);
                         }
                         XLowerWindow(x11Display(), children[i]);
+                        XFlush(x11Display());
                     }
                 }
             }
