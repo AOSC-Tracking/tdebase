@@ -323,7 +323,14 @@
       <label></label>
       <whatsthis>When disabled the screensaver starts immediately when locking the desktop.</whatsthis>
       <!-- /home/paco/cvsroot/kdebase/kdesktop/lock/lockprocess.cc:336 -->
-      <!--     mSaver = config.readEntry("UseUnmanagedLockWindows"); -->
+      <!--     mSaver = config.readEntry("DelaySaverStart"); -->
+    </entry>
+    <entry key="HideActiveWindowsFromSaver" type="Bool">
+      <default>true</default>
+      <label></label>
+      <whatsthis>When enabled all active windows are hidden from the screensaver, showing only the desktop background as a result.</whatsthis>
+      <!-- /home/paco/cvsroot/kdebase/kdesktop/lock/lockprocess.cc:336 -->
+      <!--     mSaver = config.readEntry("HideActiveWindowsFromSaver"); -->
     </entry>
     <entry key="PluginsUnlock" type="StringList">
       <default></default>

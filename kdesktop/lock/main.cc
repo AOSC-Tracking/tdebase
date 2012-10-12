@@ -53,6 +53,7 @@ TQXLibWindowList trinity_desktop_lock_hidden_window_list;
 bool trinity_desktop_lock_use_system_modal_dialogs = FALSE;
 bool trinity_desktop_lock_delay_screensaver_start = FALSE;
 bool trinity_desktop_lock_use_sak = FALSE;
+bool trinity_desktop_lock_hide_active_windows = FALSE;
 
 bool trinity_desktop_lock_forced = FALSE;
 
@@ -195,6 +196,11 @@ static void sigusr5_handler(int)
     signalled_run = TRUE;
 }
 
+static int trapXErrors(Display *, XErrorEvent *)
+{
+    return 0;
+}
+
 // -----------------------------------------------------------------------------
 
 int main( int argc, char **argv )
@@ -208,6 +214,8 @@ int main( int argc, char **argv )
     putenv(strdup("SESSION_MANAGER="));
 
     KApplication::disableAutoDcopRegistration(); // not needed
+
+    XSetErrorHandler(trapXErrors);
 
     while (1 == 1) {
         signalled_forcelock = FALSE;
@@ -365,6 +373,7 @@ int main( int argc, char **argv )
             trinity_desktop_lock_use_sak = false;			// If SAK is enabled with unmanaged windows, the SAK dialog will never close and will "burn in" the screen
             trinity_desktop_lock_delay_screensaver_start = false;	// If trinity_desktop_lock_delay_screensaver_start is true with unmanaged windows, the lock dialog may never appear
         }
+        trinity_desktop_lock_hide_active_windows = KDesktopSettings::hideActiveWindowsFromSaver();
 
         delete tdmconfig;
 

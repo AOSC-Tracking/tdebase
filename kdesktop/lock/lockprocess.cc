@@ -111,6 +111,8 @@ Status DPMSInfo ( Display *, CARD16 *, BOOL * );
 #define LOCK_GRACE_DEFAULT          5000
 #define AUTOLOGOUT_DEFAULT          600
 
+#define DESKTOP_WALLPAPER_OBTAIN_TIMEOUT_MS	3000
+
 // Setting this define is INSECURE
 // Use it for debugging purposes ONLY
 // #define KEEP_MOUSE_UNGRABBED 1
@@ -136,6 +138,7 @@ extern Atom qt_wm_state;
 extern bool trinity_desktop_lock_use_system_modal_dialogs;
 extern bool trinity_desktop_lock_delay_screensaver_start;
 extern bool trinity_desktop_lock_use_sak;
+extern bool trinity_desktop_lock_hide_active_windows;
 extern bool trinity_desktop_lock_forced;
 
 extern TQXLibWindowList trinity_desktop_lock_hidden_window_list;
@@ -218,8 +221,8 @@ LockProcess::LockProcess()
 
     // Try to get the root pixmap
     if (!m_rootPixmap) m_rootPixmap = new KRootPixmap(this);
-    m_rootPixmap->setCustomPainting(true);
     connect(m_rootPixmap, TQT_SIGNAL(backgroundUpdated(const TQPixmap &)), this, TQT_SLOT(slotPaintBackground(const TQPixmap &)));
+    m_rootPixmap->setCustomPainting(true);
     m_rootPixmap->start();
 
     // Get root window size
@@ -1286,6 +1289,27 @@ bool LockProcess::startSaver()
 	raise();
 	XSync(qt_xdisplay(), False);
 	setVRoot( winId(), winId() );
+
+	if (!trinity_desktop_lock_hide_active_windows) {
+		if (m_rootPixmap) m_rootPixmap->stop();
+		TQPixmap rootWinSnapShot = TQPixmap::grabWindow(TQApplication::desktop()->winId());
+		slotPaintBackground(rootWinSnapShot);
+	}
+	else {
+		// Sometimes KRootPixmap fails...make sure the desktop is hidden regardless
+		if (backingPixmap.isNull()) {
+			if (!mEnsureScreenHiddenTimer) {
+				mEnsureScreenHiddenTimer = new TQTimer( this );
+				connect( mEnsureScreenHiddenTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotForcePaintBackground()) );
+				mEnsureScreenHiddenTimer->start(DESKTOP_WALLPAPER_OBTAIN_TIMEOUT_MS, true);
+			}
+	
+			while ((backingPixmap.isNull()) && (mEnsureScreenHiddenTimer->isActive())) {
+				kapp->processEvents();
+			}
+		}
+	}
+
 	if (((!(trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced)) && (!trinity_desktop_lock_in_sec_dlg)) && mHackStartupEnabled) {
 		if (backingPixmap.isNull()) {
 			setBackgroundColor(black);
@@ -1295,18 +1319,6 @@ bool LockProcess::startSaver()
 		}
 		setGeometry(0, 0, mRootWidth, mRootHeight);
 		erase();
-	}
-	if (trinity_desktop_lock_use_system_modal_dialogs) {
-		// Try to get the root pixmap
-		if (!m_rootPixmap) m_rootPixmap = new KRootPixmap(this);
-		m_rootPixmap->setCustomPainting(true);
-		m_rootPixmap->start();
-		// Sometimes KRootPixmap fails...make sure the desktop is hidden regardless
-		if (!mEnsureScreenHiddenTimer) {
-			mEnsureScreenHiddenTimer = new TQTimer( this );
-			connect( mEnsureScreenHiddenTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotForcePaintBackground()) );
-			mEnsureScreenHiddenTimer->start(2000, true);
-		}
 	}
 
 	if (trinity_desktop_lock_in_sec_dlg == FALSE) {
@@ -1433,6 +1445,9 @@ void LockProcess::closeDialogAndStartHack()
     if (closeCurrentWindow()) {
         TQTimer::singleShot( 0, this, SLOT(closeDialogAndStartHack()) );
     }
+    else {
+        resume(true);
+    }
 }
 
 void LockProcess::repaintRootWindowIfNeeded()
@@ -1512,7 +1527,6 @@ bool LockProcess::startHack()
 
 	if (!mForbidden)
 	{
-
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
 			// Make sure we have a nice clean display to start with!
 			if (backingPixmap.isNull()) {
@@ -1686,14 +1700,19 @@ void LockProcess::resume( bool force )
     }
     if( !force && (!mDialogs.isEmpty() || !mVisibility )) {
         // no resuming with dialog visible or when not visible
-	if (backingPixmap.isNull()) {
-		setBackgroundColor(black);
+	if (trinity_desktop_lock_use_system_modal_dialogs) {
+		if (backingPixmap.isNull()) {
+			setBackgroundColor(black);
+		}
+		else {
+			setBackgroundPixmap(backingPixmap);
+		}
+		setGeometry(0, 0, mRootWidth, mRootHeight);
+		erase();
 	}
 	else {
-		setBackgroundPixmap(backingPixmap);
+		setGeometry(0, 0, mRootWidth, mRootHeight);
 	}
-	setGeometry(0, 0, mRootWidth, mRootHeight);
-	erase();
         return;
     }
     if ((mSuspended) && (mHackProc.isRunning()))
@@ -1810,11 +1829,15 @@ int LockProcess::execDialog( TQDialog *dlg )
     }
     mDialogs.prepend( dlg );
     fakeFocusIn( dlg->winId());
-    if (backingPixmap.isNull() && trinity_desktop_lock_use_system_modal_dialogs) {
-        setGeometry(0, 0, mRootWidth, mRootHeight);
-        erase();
+    if (trinity_desktop_lock_use_system_modal_dialogs) {
+        if (backingPixmap.isNull()) {
+            setGeometry(0, 0, mRootWidth, mRootHeight);
+            erase();
+        }
+        else {
+            bitBlt(this, 0, 0, &backingPixmap);
+        }
     }
-    else bitBlt(this, 0, 0, &backingPixmap);
     // dlg->exec may generate BadMatch errors, so make sure they are silently ignored
     int (*oldHandler)(Display *, XErrorEvent *);
     oldHandler = XSetErrorHandler(ignoreXError);
@@ -2011,15 +2034,15 @@ bool LockProcess::x11Event(XEvent *event)
             {  // mVisibility == false means the screensaver is not visible at all
                // e.g. when switched to text console
                 mVisibility = !(event->xvisibility.state == VisibilityFullyObscured);
-                if(!mVisibility)
+                if(!mVisibility) {
                     mSuspendTimer.start(2000, true);
+                }
                 else
                 {
                     mSuspendTimer.stop();
                     if (mResizingDesktopLock == false) {
 			if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced && trinity_desktop_lock_use_system_modal_dialogs) {
-				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+				// Do nothing
 			}
 			else {
 				if (mHackStartupEnabled == true) {
@@ -2037,8 +2060,9 @@ bool LockProcess::x11Event(XEvent *event)
 			}
                     }
                 }
-                if (event->xvisibility.state != VisibilityUnobscured)
+                if (event->xvisibility.state != VisibilityUnobscured) {
                     stayOnTop();
+                }
             }
             break;
 
