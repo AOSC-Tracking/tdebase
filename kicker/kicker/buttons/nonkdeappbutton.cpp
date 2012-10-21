@@ -41,7 +41,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // our own definition
 #include "nonkdeappbutton.h"
 
-// we include the "tqmoc" file so that the KDE build system knows to create it
+// we include the "moc" file so that the KDE build system knows to create it
 #include "nonkdeappbutton.moc"
 
 // this is one of the two constructors. gets called when creating a new button
