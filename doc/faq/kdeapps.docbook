@@ -73,8 +73,8 @@ for a dialup connection.  Try changing it to a smaller value like
 <userinput>296</userinput>
 or <userinput>576</userinput>.</para></listitem>
 <listitem><para>Check in your <filename
-class="directory">$<envar>HOME</envar>/.kde/share/config</filename> for the 
-<filename>kppprc</filename>.  Ensure the correct modem speed is
+class="directory">$<envar>HOME</envar>/.trinity/share/config</filename> for the
+<filename>kppprc</filename>. Ensure the correct modem speed is
 actually defined there.</para></listitem>
 </itemizedlist></listitem>
 </varlistentry>

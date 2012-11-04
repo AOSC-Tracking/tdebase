@@ -32,7 +32,7 @@ Plugins</guibutton> button or automatically each time &kde; starts up.</para>
 role="extension">.so</literal> files containing plugin code. It examines every
 such file to find out which <acronym>MIME</acronym> types the plugin
 supports. It then creates <acronym>MIME</acronym> type definitions for &kde; in
-the user's <filename class="directory"> ~/.kde/share/mimelnk</filename>
+the user's <filename class="directory"> ~/.trinity/share/mimelnk</filename>
 folder to make other applications aware of them.</para>
 
 <para>The <guilabel>Plugins</guilabel> page shows you the &Netscape; plugins

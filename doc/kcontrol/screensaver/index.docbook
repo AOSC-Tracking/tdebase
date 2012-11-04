@@ -169,7 +169,7 @@ no grace period.</para>
 <para>To alter the grace period setting, you need to manually edit the 
 configuration file.  To do so:</para>
 <para>
-<prompt>$</prompt> <command>cd <filename>~/.kde/share/config</filename>
+<prompt>$</prompt> <command>cd <filename>~/.trinity/share/config</filename>
 </command>
 </para>
 <para>Now, using a text editor (the example uses &kate;, the &kde; text editor), 

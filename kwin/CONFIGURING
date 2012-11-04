@@ -36,7 +36,7 @@ To create such window-specific setting automatically without a need of doing
 it manually for every user (for example when doing a large deployment), follow
 these steps:
 
-- Back up your $KDEHOME/share/config/kwinrulesrc ($KDEHOME usually being $HOME/.kde)
+- Back up your $KDEHOME/share/config/kwinrulesrc ($KDEHOME usually being $HOME/.trinity)
  and remove it
 - Run 'dcop kwin default reconfigure'
 - Create manually all window-specific settings that should be included (see above)

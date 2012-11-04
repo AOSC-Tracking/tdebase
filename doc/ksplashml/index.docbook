@@ -86,7 +86,7 @@ your tastes, you can learn how to customize the appearance of
 
 <para>To use themes from <ulink
 url="http://www.kde-look.org">KDE-Look</ulink>, extract them to
-<filename>~/.kde/share/apps/ksplash/Themes/</filename> for a single user, or
+<filename>~/.trinity/share/apps/ksplash/Themes/</filename> for a single user, or
 to
 <filename>$<envar>KDEDIR</envar>/share/apps/ksplash/Themes/</filename>
 to make them available to all users of your system.</para>
@@ -146,7 +146,7 @@ it.</para>
 the theme to be recognized by &ksplash;, it should be stored in a
 folder called <filename class="directory">MyCoolTheme</filename>
 under <filename
-class="directory">~/.kde/apps/ksplash/Themes/</filename>. It should
+class="directory">~/.trinity/apps/ksplash/Themes/</filename>. It should
 have a file called <filename>Theme.rc</filename>, containing the
 settings of the theme. You can specify large numbers of special things
 to theme, change the plugin engine to use, and so on. You do not have
@@ -178,7 +178,7 @@ by assigning key-value pairs as in the example file above.</para>
 
 <important>
 <para>Ensure that the name of the directory that contains the theme files
-(<filename class="directory">~/.kde/apps/ksplash/Themes/MyCoolTheme</filename>
+(<filename class="directory">~/.trinity/apps/ksplash/Themes/MyCoolTheme</filename>
 in this example) and the identifier (<literal>[KSplash Theme:
 MyCoolTheme]</literal> in this example) of the theme in the
 <filename>Theme.rc</filename> file are identical. Otherwise, &ksplash; will not

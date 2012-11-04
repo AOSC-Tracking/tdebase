@@ -96,7 +96,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
 
     puts(i18n("  kfmclient openProfile 'profile' ['url']\n"
                 "            # Opens a window using the given profile.\n"
-                "            #   'profile' is a file under ~/.kde/share/apps/konqueror/profiles.\n"
+                "            #   'profile' is a file under ~/.trinity/share/apps/konqueror/profiles.\n"
                 "            #   'url' is an optional URL to open.\n\n").local8Bit());
 
     puts(i18n("  kfmclient openProperties 'url'\n"

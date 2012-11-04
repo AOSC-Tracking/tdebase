@@ -330,7 +330,7 @@ static TQString color( const TQColor& col )
 
 static void createGtkrc( bool exportColors, const TQColorGroup& cg, int version )
 {
-    // lukas: why does it create in ~/.kde/share/config ???
+    // lukas: why does it create in ~/.trinity/share/config ???
     // pfeiffer: so that we don't overwrite the user's gtkrc.
     // it is found via the GTK_RC_FILES environment variable.
     KSaveFile saveFile( locateLocal( "config", 2==version?"gtkrc-2.0":"gtkrc" ) ); 

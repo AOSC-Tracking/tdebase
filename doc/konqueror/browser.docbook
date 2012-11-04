@@ -448,7 +448,7 @@ OverridenPorts=CommaSeparatedListOfAllowedPorts
 </userinput></screen>
 to <filename>$KDEDIR/share/config/kio_httprc
 </filename> or 
-<filename>~/.kde/share/config/kio_httprc</filename>.</para>
+<filename>~/.trinity/share/config/kio_httprc</filename>.</para>
 <para>For example
 <screen><userinput>OverridenPorts=23,15
 </userinput></screen> 

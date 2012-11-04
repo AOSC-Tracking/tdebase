@@ -82,7 +82,7 @@ main view or <mousebutton>right</mousebutton> click to bring up a menu with
 a wider range of possibilities.</para>
 <para>The folders shown in the <guilabel>Network</guilabel> page are held in 
 the folder <filename class="directory">
-~/.kde/share/apps/konqsidebartng/virtual_folders/remote/</filename>, and you can make 
+~/.trinity/share/apps/konqsidebartng/virtual_folders/remote/</filename>, and you can make 
 new ones just as you would make any other subfolder. The items within 
 these folders are held as <literal role="extension">.desktop</literal> files 
 and can be created with &konqueror;'s <menuchoice><guisubmenu>Create New</guisubmenu>

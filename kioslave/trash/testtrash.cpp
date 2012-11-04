@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
 
 TQString TestTrash::homeTmpDir() const
 {
-    return TQDir::homeDirPath() + "/.kde/testtrash/";
+    return TQDir::homeDirPath() + "/.trinity/testtrash/";
 }
 
 TQString TestTrash::readOnlyDirPath() const

@@ -40,7 +40,7 @@ stores all its files in a directory tree with a fixed structure.
 class="directory">/opt/trinity</filename>).</para></listitem>
 <listitem><para>One at the user level in the user's home directory
 (usually <filename class="directory">
-~/.kde</filename>)</para></listitem>
+~/.trinity</filename>)</para></listitem>
 </itemizedlist>
 
 <para>As a system administrator you can create additional trees. Such
@@ -51,7 +51,7 @@ linkend="user-profiles">profiles</link></para>
 
 <itemizedlist>
 <listitem><para><filename
-class="directory">$<envar>HOME</envar>/.kde</filename></para></listitem>
+class="directory">$<envar>HOME</envar>/.trinity</filename></para></listitem>
 <listitem><para><filename
 class="directory">/opt/trinity</filename>. (This is
 &SuSE;-specific; other distributions may use
@@ -81,7 +81,7 @@ the following files are searched:</para>
 
 <itemizedlist>
 <listitem><para><filename
-class="directory">$<envar>HOME</envar>/.kde/share/mimelnk/text/plain.desktop</filename></para></listitem>
+class="directory">$<envar>HOME</envar>/.trinity/share/mimelnk/text/plain.desktop</filename></para></listitem>
 <listitem><para><filename
 class="directory">/opt/trinity/share/mimelnk/text/plain.desktop</filename></para></listitem>
 <listitem><para><filename
@@ -89,7 +89,7 @@ class="directory">/etc/opt/trinity/share/mimelnk/text/plain.desktop</filename></
 </itemizedlist>
 
 <para>If a user makes a change, the change is written to <filename
-class="directory">$<envar>HOME</envar>/.kde/share/mimelnk/text/plain.desktop</filename></para>
+class="directory">$<envar>HOME</envar>/.trinity/share/mimelnk/text/plain.desktop</filename></para>
 </informalexample>
 
 <para>For configuration files the story is slightly different. If
@@ -102,7 +102,7 @@ which value is used for the key.</para>
 <informalexample><para>
 For example, if the following two files exist, with these contents:</para>
 <variablelist>
-<varlistentry><term><filename>$<envar>HOME</envar>/.kde/share/config/foobar</filename></term>
+<varlistentry><term><filename>$<envar>HOME</envar>/.trinity/share/config/foobar</filename></term>
 <listitem><programlisting>
 Color=red
 Shape=circle
@@ -143,13 +143,13 @@ Position=10,10
 
 <seglistitem>
 <seg><envar>KDEHOME</envar></seg>
-<seg><filename class="directory">~/.kde</filename></seg>
+<seg><filename class="directory">~/.trinity</filename></seg>
 <seg></seg>
 </seglistitem>
 
 <seglistitem>
 <seg><envar>KDEROOTHOME</envar></seg>
-<seg><filename class="directory">/root/.kde</filename></seg>
+<seg><filename class="directory">/root/.trinity</filename></seg>
 <seg>Different variable to prevent
 root writing to $KDEHOME of the user after running
 <command>su</command>.</seg>
@@ -209,7 +209,7 @@ prefixes=/opt/kde_staff
 <para>This creates a profile named <quote>staff</quote> that adds the
 <filename class="directory">/opt/kde_staff</filename> directory
 tree. (Note that &SuSE; &Linux; uses
-<filename>/etc/trinityrc</filename> instead of
+<filename>/etc/kde3rc</filename> instead of
 <filename>/etc/kderc</filename>. Now that we have a named profile it
 can be assigned to users.</para>
 
@@ -543,7 +543,7 @@ precedence.  If a key in a certain group is defined multiple times in a
 single file, the value of the last entry is used.</para>
 
 <informalexample>
-<para>If <filename>$<envar>HOME</envar>/.kde/share/config/foobar</filename>
+<para>If <filename>$<envar>HOME</envar>/.trinity/share/config/foobar</filename>
 contains:
 <programlisting>
 [MyGroup]
@@ -568,7 +568,7 @@ Position=10,10
 
 <informalexample>
 <para>If
-	<filename>$<envar>HOME</envar>/.kde/share/config/foobar</filename>
+	<filename>$<envar>HOME</envar>/.trinity/share/config/foobar</filename>
 	contains
 <programlisting>
 [MyGroup]
@@ -622,7 +622,7 @@ Color[$i]=blue
 
 <informalexample>
 <para>If
-	<filename>$<envar>HOME</envar>/.kde/share/config/foobar</filename>
+	<filename>$<envar>HOME</envar>/.trinity/share/config/foobar</filename>
 	contains:
 <programlisting>
 [MyGroup]
@@ -645,7 +645,7 @@ Position=10,10
 </informalexample>
 
 <informalexample><para>If
-	<filename>$<envar>HOME</envar>/.kde/share/config/foobar</filename>
+	<filename>$<envar>HOME</envar>/.trinity/share/config/foobar</filename>
 	contains:
 <programlisting>
 [MyGroup]
@@ -1166,13 +1166,13 @@ or have to install some programs to a different prefix than the rest of
 </varlistentry>
 
 <varlistentry><term><envar>$KDEHOME</envar></term><listitem><para>If
-not set, &kde; uses <filename class="directory">~/.kde</filename> as
+not set, &kde; uses <filename class="directory">~/.trinity</filename> as
 the directory where personal data is stored.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry><term>$<envar>KDEROOTHOME</envar></term><listitem><para>If
-not set, &kde; uses <filename class="directory">~root/.kde</filename>
+not set, &kde; uses <filename class="directory">~root/.trinity</filename>
 as the directory for <systemitem class="username">root</systemitem>'s
 personal data. Was introduced to prevent &kde; from accidently
 overwriting user data with root permissions when the user runs a &kde;
@@ -1830,7 +1830,7 @@ NoDisplay=true
 the directory structures in <filename
 class="directory">$<envar>KDEDIR</envar>/share/applnk</filename>
 (system wide) and <filename
-class="directory">$<envar>HOME</envar>/.kde/share/applnk</filename>
+class="directory">$<envar>HOME</envar>/.trinity/share/applnk</filename>
 (user specific). This is observed unless the <literal role="extension">.desktop</literal> file has a  <varname>Categories</varname>= line. In that case the categories determine the location in the menu.</para>
 </sect2>
 
@@ -1960,7 +1960,7 @@ role="extension">.gif</literal> files.
 
 <para>A user can change file association in the
 &kcontrolcenter;. These changes are stored in
-<filename>$<envar>HOME</envar>/.kde/share/config/profilerc</filename>.
+<filename>$<envar>HOME</envar>/.trinity/share/config/profilerc</filename>.
 To use the same settings for multiple users, store these settings in
 user profile directory or the global &kde; config directory to use as
 default for multiple users.</para>

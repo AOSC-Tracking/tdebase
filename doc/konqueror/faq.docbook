@@ -37,7 +37,7 @@ helps.</para></answer>
 <qandaentry>
 <question><para>Where does &konqueror; keep all its configuration
 data?</para></question>
-<answer><para>Generally in the <filename>~/.kde</filename> folder (this may 
+<answer><para>Generally in the <filename>~/.trinity</filename> folder (this may 
 be <filename>~/.trinity</filename> on your system, depending on how &kde; 3 
 was installed). Don't alter these files unless you really know what you are 
 doing.</para>
@@ -45,30 +45,30 @@ doing.</para>
 <itemizedlist>
 
 <listitem><para>The <filename
-class="directory">~/.kde/share/apps/konqueror/profiles</filename> folder
+class="directory">~/.trinity/share/apps/konqueror/profiles</filename> folder
 holds individual files containing settings for each of your <link
 linkend="save-settings">profiles.  </link></para></listitem>
 
 <listitem><para>Your bookmarks are held in <filename
-class="directory">~/.kde/share/apps/konqueror/bookmarks.xml</filename></para></listitem>
+class="directory">~/.trinity/share/apps/konqueror/bookmarks.xml</filename></para></listitem>
 <listitem><para>Cookies are held in <filename
-class="directory">~/.kde/share/apps/kcookiejar/cookies</filename></para></listitem>
+class="directory">~/.trinity/share/apps/kcookiejar/cookies</filename></para></listitem>
 <listitem><para>Your history, as used for the auto-completion feature,  is in
-<filename>~/.kde/share/config/konq_history</filename></para></listitem>
+<filename>~/.trinity/share/config/konq_history</filename></para></listitem>
 
 <listitem><para>In the folder <filename
-class="directory">~/.kde/share/config/</filename> the files
+class="directory">~/.trinity/share/config/</filename> the files
 <filename>konqiconviewrc</filename>, <filename>konqlistviewrc</filename> and
 <filename>konquerorrc</filename> hold a whole lot of general configuration
 settings.</para></listitem>
 
 <listitem><para>The folder
-<filename class="directory">~/.kde/share/cache/http/</filename> 
+<filename class="directory">~/.trinity/share/cache/http/</filename> 
 contains the browser cache.</para></listitem>
 
 <listitem><para>The Navigation Panel uses the files and subfolders in
 <filename
-class="directory">~/.kde/share/apps/konqsidebartng</filename></para></listitem>
+class="directory">~/.trinity/share/apps/konqsidebartng</filename></para></listitem>
 </itemizedlist>
 
 <para>Any folder specific view settings are put into <literal

@@ -3,7 +3,7 @@
 The keytabs offered in the Options/Keyboard menu are
 taken from from configurations files with a *.keytab
 pattern either located in $KDEDIR/share/apps/konsole
-or ~/.kde/share/apps/konsole.
+or ~/.trinity/share/apps/konsole.
 
 Keytabs allow to configure the behavior of konsole
 on keyboard events, especially for functions keys.

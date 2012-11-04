@@ -80,7 +80,7 @@ users may have different print subsystems in use, if those do exist on
 the computer and are compliant with each other.  Their settings are
 stored in the <filename>kdeprintrc</filename>.  This file is unique to
 every user, and is normally installed in
-<filename>$<envar>HOME</envar>/.kde/share/config/kdeprintrc</filename>.</para>
+<filename>$<envar>HOME</envar>/.trinity/share/config/kdeprintrc</filename>.</para>
 
 <warning>
 <para>This file is not intended to be directly editable, and all

@@ -654,7 +654,7 @@ folder. You can get there in &konqueror; by choosing
 <menuchoice><guimenu>Go</guimenu>
 <guimenuitem>Applications</guimenuitem></menuchoice>. Then create a single icon
 on your desktop to open your Applications folder, which is usually in
-<filename class="directory">~/.kde/share/applnk</filename>.</para>
+<filename class="directory">~/.trinity/share/applnk</filename>.</para>
 
 <para>To put an application link icon into the panel, first create it in the
 Applications folder then drag the icon onto a clear area of the

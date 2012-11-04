@@ -12,7 +12,7 @@ associate it with the relevant file types.
 
 How
 ===
-Create a file ~/.kde/share/apps/konqueror/servicemenus/something.desktop
+Create a file ~/.trinity/share/apps/konqueror/servicemenus/something.desktop
 and write into it something like (without the comments) :
 
 [Desktop Entry]

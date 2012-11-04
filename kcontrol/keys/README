@@ -1,5 +1,5 @@
 CHANGES V0.2
-- Global keys stored by default in ~/.kde/share/config/kdeglobals 
+- Global keys stored by default in ~/.trinity/share/config/kdeglobals 
   [Global Keys] group
 - KKeyDialog checks new key choices against exising bindings for the widget
 and against entries in .kderc [Global Keys]

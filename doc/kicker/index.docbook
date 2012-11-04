@@ -2328,8 +2328,8 @@ another picture?
 </question>
 <answer>
 <para>
-Look for <filename>$HOME/.kde/share/apps/kicker/pics/go.png</filename>
-and <filename>$HOME/.kde/share/apps/kicker/pics/mini/go.png</filename>
+Look for <filename>$HOME/.trinity/share/apps/kicker/pics/go.png</filename>
+and <filename>$HOME/.trinity/share/apps/kicker/pics/mini/go.png</filename>
 and replace them. Do not forget to flatten the replacements to one
 layer, or else you will not see anything.  Create the folders if
 they do not already exist. Then restart &kicker;.

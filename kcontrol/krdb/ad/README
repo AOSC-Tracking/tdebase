@@ -39,7 +39,7 @@ $(KDEDIR)/share/apps/kdisplay/app-defaults
 
 or
 
-$(HOME)/.kde/share/apps/kdisplay/app-defaults
+$(HOME)/.trinity/share/apps/kdisplay/app-defaults
 
 so that it is available to krdb for reading. If you want to
 override a system file simply copy it to your user
