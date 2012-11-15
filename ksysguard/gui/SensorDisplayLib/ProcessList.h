@@ -170,6 +170,10 @@ signals:
 
 	void listModified(bool);
 
+protected:
+	void keyPressEvent(TQKeyEvent *e);
+	void keyReleaseEvent(TQKeyEvent *e);
+
 private:
 	// items of table header RMB popup menu
 	enum
@@ -244,6 +248,8 @@ private:
 	bool killSupported;
 	bool treeViewEnabled;
 	bool openAll;
+	bool ctrlKeyDown;
+	bool shiftKeyDown;
 
 	/* The following lists are primarily used to store table specs between
 	 * load() and the actual table creation in addColumn(). */

@@ -228,6 +228,8 @@ ProcessList::ProcessList(TQWidget *parent, const char* name)
 	 * settings. */
 	connect(header(), TQT_SIGNAL(clicked(int)), this, TQT_SLOT(sortingChanged(int)));
 
+	ctrlKeyDown = false;
+	shiftKeyDown = false;
 	treeViewEnabled = false;
 	openAll = true;
 
@@ -294,65 +296,68 @@ ProcessList::getSelectedAsStrings()
 bool
 ProcessList::update(const TQString& list)
 {
-	/* Disable painting to avoid flickering effects,
-	 * especially when in tree view mode.
-	 * Ditto for the scrollbar. */
-	setUpdatesEnabled(false);
-	viewport()->setUpdatesEnabled(false);
-
-	pl.clear();
-
-	// Convert ps answer in a list of tokenized lines
-	KSGRD::SensorTokenizer procs(list, '\n');
-	for (unsigned int i = 0; i < procs.count(); i++)
+	if ((!shiftKeyDown) && (!ctrlKeyDown))
 	{
-		KSGRD::SensorPSLine* line = new KSGRD::SensorPSLine(procs[i]);
-		if (line->count() != (uint) columns())
+		/* Disable painting to avoid flickering effects,
+		* especially when in tree view mode.
+		* Ditto for the scrollbar. */
+		setUpdatesEnabled(false);
+		viewport()->setUpdatesEnabled(false);
+	
+		pl.clear();
+	
+		// Convert ps answer in a list of tokenized lines
+		KSGRD::SensorTokenizer procs(list, '\n');
+		for (unsigned int i = 0; i < procs.count(); i++)
 		{
+			KSGRD::SensorPSLine* line = new KSGRD::SensorPSLine(procs[i]);
+			if (line->count() != (uint) columns())
+			{
 #if 0
-			// This is needed for debugging only.
-			kdDebug(1215) << list << endl;
-			TQString l;
-			for (uint j = 0; j < line->count(); j++)
-				l += (*line)[j] + "|";
-			kdDebug(1215) << "Incomplete ps line:" << l << endl;
+				// This is needed for debugging only.
+				kdDebug(1215) << list << endl;
+				TQString l;
+				for (uint j = 0; j < line->count(); j++)
+					l += (*line)[j] + "|";
+				kdDebug(1215) << "Incomplete ps line:" << l << endl;
 #endif
-			return (false);
+				return (false);
+			}
+			else
+				pl.append(line);
 		}
+	
+		int currItemPos = itemPos(currentItem());
+		int vpos = verticalScrollBar()->value();
+		int hpos = horizontalScrollBar()->value();
+	
+		updateMetaInfo();
+
+		clear();
+	
+		if (treeViewEnabled)
+			buildTree();
 		else
-			pl.append(line);
-	}
-
-	int currItemPos = itemPos(currentItem());
-	int vpos = verticalScrollBar()->value();
-	int hpos = horizontalScrollBar()->value();
-
-	updateMetaInfo();
-
-	clear();
-
-	if (treeViewEnabled)
-		buildTree();
-	else
-		buildList();
-
-	TQListViewItemIterator it( this );
-	while ( it.current() ) {
-		if ( itemPos( it.current() ) == currItemPos ) {
-			setCurrentItem( it.current() );
-			break;
+			buildList();
+	
+		TQListViewItemIterator it( this );
+		while ( it.current() ) {
+			if ( itemPos( it.current() ) == currItemPos ) {
+				setCurrentItem( it.current() );
+				break;
+			}
+			++it;
 		}
-		++it;
+	
+		verticalScrollBar()->setValue(vpos);
+		horizontalScrollBar()->setValue(hpos);
+	
+		// Re-enable painting, and force an update.
+		setUpdatesEnabled(true);
+		viewport()->setUpdatesEnabled(true);
+	
+		triggerUpdate();
 	}
-
-	verticalScrollBar()->setValue(vpos);
-	horizontalScrollBar()->setValue(hpos);
-
-	// Re-enable painting, and force an update.
-	setUpdatesEnabled(true);
-	viewport()->setUpdatesEnabled(true);
-
-	triggerUpdate();
 
 	return (true);
 }
@@ -360,7 +365,7 @@ ProcessList::update(const TQString& list)
 void
 ProcessList::setTreeView(bool tv)
 {
-	if (treeViewEnabled = tv)
+	if ((treeViewEnabled = tv))
 	{
 		savedWidth[0] = columnWidth(0);
 		openAll = true;
@@ -936,6 +941,30 @@ ProcessList::selectAllChilds(int pid, bool select)
 			selectAllChilds(currPId, select);
 		}
 	}
+}
+
+void
+ProcessList::keyPressEvent(TQKeyEvent *e)
+{
+	if (e->key() == Key_Shift) {
+		shiftKeyDown = true;
+	}
+	if (e->key() == Key_Control) {
+		ctrlKeyDown = true;
+	}
+	KListView::keyPressEvent(e);
+}
+
+void
+ProcessList::keyReleaseEvent(TQKeyEvent *e)
+{
+	if (e->key() == Key_Shift) {
+		shiftKeyDown = false;
+	}
+	if (e->key() == Key_Control) {
+		ctrlKeyDown = false;
+	}
+	KListView::keyReleaseEvent(e);
 }
 
 #include "ProcessList.moc"
