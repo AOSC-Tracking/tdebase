@@ -375,7 +375,7 @@ void restart_tsak()
 		if (child_pids[i] != 0) {
 			kill(child_pids[i], SIGKILL);
 		}
-		if (child_pids[i] != 0) {
+		if (child_led_pids[i] != 0) {
 			kill(child_led_pids[i], SIGKILL);
 		}
 	}
