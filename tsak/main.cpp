@@ -47,7 +47,9 @@ using namespace std;
 #define FIFO_FILE_OUT "/tmp/ksocket-global/tsak"
 #define FIFO_LOCKFILE_OUT "/tmp/ksocket-global/tsak.lock"
 
-#define MAX_KEYBOARDS 64
+// WARNING
+// MAX_KEYBOARDS must be greater than or equal to MAX_INPUT_NODE
+#define MAX_KEYBOARDS 128
 #define MAX_INPUT_NODE 128
 
 #define TestBit(bit, array) (array[(bit) / 8] & (1 << ((bit) % 8)))
@@ -68,6 +70,7 @@ sigset_t block_mask;
 int keyboard_fd_num;
 int keyboard_fds[MAX_KEYBOARDS];
 int child_pids[MAX_KEYBOARDS];
+int child_led_pids[MAX_KEYBOARDS];
 
 const char *keycode[256] =
 {
@@ -121,6 +124,9 @@ void tsak_friendly_termination() {
 		if (child_pids[i] != 0) {
 			kill(child_pids[i], SIGTERM);
 		}
+		if (child_led_pids[i] != 0) {
+			kill(child_led_pids[i], SIGTERM);
+		}
 	}
 
 	// Wait for process termination
@@ -149,6 +155,31 @@ int str_ends_with(const char * str, const char * suffix) {
   return 0 == strncmp( str + str_len - suffix_len, suffix, suffix_len );
 }
 // --------------------------------------------------------------------------------------
+
+/*
+ * Set a file descriptor to blocking or non-blocking mode.
+ *
+ * @param fd The file descriptor
+ * @param blocking 0:non-blocking mode, 1:blocking mode
+ *
+ * @return 1:success, 0:failure.
+ */
+int fd_set_blocking(int fd, int blocking)
+{
+	/* Save the current flags */
+	int flags = fcntl(fd, F_GETFL, 0);
+	if (flags == -1) {
+		return 0;
+	}
+	
+	if (blocking) {
+		flags &= ~O_NONBLOCK;
+	}
+	else {
+		flags |= O_NONBLOCK;
+	}
+	return fcntl(fd, F_SETFL, flags) != -1;
+}
 
 /* Assign features (supported axes and keys) of the physical input device (devin)
  * to the virtual input device (devout) */
@@ -194,28 +225,30 @@ int find_keyboards() {
 	}
 
 	for (i=0; i<MAX_INPUT_NODE; i++) {
-		snprintf(filename,sizeof(filename), "/dev/input/event%d", i);
+		snprintf(filename, sizeof(filename), "/dev/input/event%d", i);
 
 		fd = open(filename, O_RDWR|O_SYNC);
-		ioctl(fd, EVIOCGBIT(EV_KEY, sizeof(key_bitmask)), key_bitmask);
-
-		// Ensure that we do not detect our own tsak faked keyboards
-		ioctl (fd, EVIOCGNAME (sizeof (name)), name);
-		if (str_ends_with(name, "+tsak") == 0) {
-			/* We assume that anything that has an alphabetic key in the
-				QWERTYUIOP range in it is the main keyboard. */
-			for (j = KEY_Q; j <= KEY_P; j++) {
-				if (TestBit(j, key_bitmask)) {
-					keyboard_fds[keyboard_fd_num] = fd;
+		if (fd >= 0) {
+			ioctl(fd, EVIOCGBIT(EV_KEY, sizeof(key_bitmask)), key_bitmask);
+	
+			// Ensure that we do not detect our own tsak faked keyboards
+			ioctl (fd, EVIOCGNAME(sizeof(name)), name);
+			if (str_ends_with(name, "+tsak") == 0) {
+				/* We assume that anything that has an alphabetic key in the
+					QWERTYUIOP range in it is the main keyboard. */
+				for (j = KEY_Q; j <= KEY_P; j++) {
+					if (TestBit(j, key_bitmask)) {
+						keyboard_fds[keyboard_fd_num] = fd;
+					}
 				}
 			}
-		}
-
-		if (keyboard_fds[keyboard_fd_num] == 0) {
-			close (fd);
-		}
-		else {
-			keyboard_fd_num++;
+	
+			if (keyboard_fds[keyboard_fd_num] == 0) {
+				close(fd);
+			}
+			else {
+				keyboard_fd_num++;
+			}
 		}
 	}
 	return 0;
@@ -342,6 +375,9 @@ void restart_tsak()
 		if (child_pids[i] != 0) {
 			kill(child_pids[i], SIGKILL);
 		}
+		if (child_pids[i] != 0) {
+			kill(child_led_pids[i], SIGKILL);
+		}
 	}
 
 	// Wait for process termination
@@ -420,6 +456,7 @@ int main (int argc, char *argv[])
 	try {
 		for (i=0; i<MAX_KEYBOARDS; i++) {
 			child_pids[i] = 0;
+			child_led_pids[i] = 0;
 		}
 
 		if (argc == 2) {
@@ -513,6 +550,7 @@ int main (int argc, char *argv[])
 						else
 							return 3;
 					}
+					fd_set_blocking(devout[current_keyboard], true);
 				}
 				if (depcheck == true) {
 					return 0;
@@ -523,10 +561,12 @@ int main (int argc, char *argv[])
 						if(ioctl(keyboard_fds[current_keyboard], EVIOCGRAB, 2) < 0) {
 							close(keyboard_fds[current_keyboard]);
 							fprintf(stderr, "Failed to grab exclusive input device lock");
-							if (established)
+							if (established) {
 								sleep(1);
-							else
+							}
+							else {
 								return 1;
+							}
 						}
 						else {
 							ioctl(keyboard_fds[current_keyboard], EVIOCGNAME(UINPUT_MAX_NAME_SIZE), devinfo.name);
@@ -564,20 +604,28 @@ int main (int argc, char *argv[])
 									return 0;
 								}
 
-								while (1) {
-									if ((rd = read (keyboard_fds[current_keyboard], ev, size)) < size) {
-										fprintf(stderr, "Read failed.\n");
-										break;
-									}
-
-									// Replicate LED events from the virtual keyboard to the physical keyboard
-									int rrd = read(devout[current_keyboard], &revev, size);
-									if (rrd >= size) {
-										if (revev.type == EV_LED) {
-											if (write(keyboard_fds[current_keyboard], &revev, sizeof(revev)) < 0) {
-												fprintf(stderr, "Unable to replicate LED event\n");
+								int i=fork();
+								if (i<0) return 9; // fork failed
+								if (i>0) {
+									child_led_pids[current_keyboard] = i;
+									while (1) {
+										// Replicate LED events from the virtual keyboard to the physical keyboard
+										int rrd = read(devout[current_keyboard], &revev, size);
+										if (rrd >= size) {
+											if (revev.type == EV_LED) {
+												if (write(keyboard_fds[current_keyboard], &revev, sizeof(revev)) < 0) {
+													fprintf(stderr, "Unable to replicate LED event\n");
+												}
 											}
 										}
+									}
+									return 0;
+								}
+
+								while (1) {
+									if ((rd = read(keyboard_fds[current_keyboard], ev, size)) < size) {
+										fprintf(stderr, "Read failed.\n");
+										break;
 									}
 
 									if (ev[0].value == 0 && ev[0].type == 1) { // Read the key release event
