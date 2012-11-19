@@ -58,6 +58,7 @@
 #include <tqimage.h>
 #include <tqregexp.h>
 #include <tqpainter.h>
+#include <tqeventloop.h>
 
 #include <tqdatetime.h>
 
@@ -1303,9 +1304,19 @@ bool LockProcess::startSaver()
 				connect( mEnsureScreenHiddenTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotForcePaintBackground()) );
 				mEnsureScreenHiddenTimer->start(DESKTOP_WALLPAPER_OBTAIN_TIMEOUT_MS, true);
 			}
-	
+
+			int exitTimer = 0;
 			while ((backingPixmap.isNull()) && (mEnsureScreenHiddenTimer->isActive())) {
-				kapp->processEvents();
+				kapp->eventLoop()->processEvents(TQEventLoop::ExcludeUserInput);
+
+				// HACK
+				// Work around an issue with the underlying system whereby the TQTimer sometimes fails to time out!
+				// This issue was reported in Bug #1288
+				usleep(100);
+				exitTimer++;
+				if (exitTimer > (DESKTOP_WALLPAPER_OBTAIN_TIMEOUT_MS*10)) {
+					break;
+				}
 			}
 		}
 	}
