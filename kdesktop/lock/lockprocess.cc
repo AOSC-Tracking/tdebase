@@ -1315,6 +1315,7 @@ bool LockProcess::startSaver()
 				usleep(100);
 				exitTimer++;
 				if (exitTimer > (DESKTOP_WALLPAPER_OBTAIN_TIMEOUT_MS*10)) {
+					printf("[WARNING] The Qt3 timer event loop appears to have hung.  Aborting wait for desktop background!\n\r"); fflush(stdout);
 					break;
 				}
 			}
