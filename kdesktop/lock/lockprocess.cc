@@ -18,6 +18,8 @@
 
 #include <config.h>
 
+#include <execinfo.h>
+
 #include "lockprocess.h"
 #include "lockdlg.h"
 #include "infodlg.h"
@@ -129,9 +131,29 @@ static Window gVRootData = 0;
 static Atom   gXA_VROOT;
 static Atom   gXA_SCREENSAVER_VERSION;
 
+void print_trace()
+{
+	void *array[10];
+	size_t size;
+	char **strings;
+	size_t i;
+
+	size = backtrace (array, 10);
+	strings = backtrace_symbols (array, size);
+
+	printf ("[kdesktop_lock] Obtained %zd stack frames.\n\r", size);
+
+	for (i = 0; i < size; i++) {
+		printf ("[kdesktop_lock] %s\n\r", strings[i]);
+	}
+
+	free (strings);
+}
+
 static void segv_handler(int)
 {
 	printf("[kdesktop_lock] WARNING: A fatal exception was encountered.  Trapping and ignoring it so as not to compromise desktop security...\n\r");
+	print_trace();
 	sleep(1);
 }
 
