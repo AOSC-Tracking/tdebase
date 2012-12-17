@@ -1,0 +1,476 @@
+#!/bin/sh
+#
+# Overall, this script works quite nicely, but please help to
+# make this script more robust!
+
+# Testers: need help to ensure this script remains POSIX compliant.
+# Some distros do not use bash as a default shell.
+
+#===============================================================
+# This is a modest attempt to migrate a KDE3 profile to Trinity.
+# If $HOME/.trinity exists then skip this one-time migration.
+
+# Can this script be run from within starttde?
+# Challenge: to run this script from within starttde requires
+# graphical dialog boxes. When is the underlying TDE system
+# sufficiently operational in the starttde script to use KDialog?
+# If KDialog is unavailable then that leaves xmessage, which is
+# ugly although possibly adequate.
+
+# If KDialog is unavailable until after $HOME/.trinity exists, such
+# as after running KPersonalizer, then this script will not help.
+# Also, KPersonalizer automatically creates a skeleton profile directory
+# when launched, as does some command line tools such as kconf_update.
+#
+# Additionally, this script was written mainly from a command line
+# login perspective. This script and concept needs testing and
+# improvements to support graphical login systems.
+
+#===============================================================
+# Known Quirks:
+# When testing the same user account between two different systems, such
+# as a real and virtual machine or two different physical machines,
+# after a migration KMix is always muted because the sound devices differ.
+
+# Not sure, but forced window sizes saved in kwinrulesc seem to break after
+# a migration.
+#===============================================================
+
+Wait_For_Response () {
+unset response
+# -r Backslash does not act as an escape character.
+# -p Display "PROMPT" without a trailing newline, before attempting to read any input.
+while true; do
+  read -r -p "$1 (y/n): " yn
+  case $yn in
+    [Yy]* ) response=y; break;;
+    [Nn]* ) response=n; break;;
+    * ) echo "Please answer yes (y/Y) or no (n/N).";;
+  esac
+done
+}
+
+Proceed_From_Response () {
+if [ "$response" = "n" -o "$response" = "N" ]; then
+  echo "Exiting."
+  echo
+  exit 0
+else
+  echo "Continuing."
+  echo
+fi
+}
+
+# Need help here to make the disk space test more robust!
+disk_space_test () {
+echo
+echo "Testing available disk space."
+# Find the remaining space on the partition.
+AVAILABLE="`df $HOME/$KDE3_PROFILE | grep '\/' | awk '{print $4}'`"
+# Find the size of the profile directory.
+PROFILE_SIZE="`du -s $HOME/$KDE3_PROFILE | awk '{print $1}'`"
+# Determine remaining partition space after migrating.
+REMAINING_SPACE=$(($AVAILABLE - $PROFILE_SIZE))
+# Convert to human friendly numbers (MBs).
+PROFILE_SIZE=$(( ${PROFILE_SIZE} / 1024 ))
+REMAINING_SPACE=$(( $REMAINING_SPACE / 1024 ))
+# Let the user know the results.
+echo "Remaining disk space: ${REMAINING_SPACE} MB"
+echo "Space required for new profile: ${PROFILE_SIZE} MB"
+# If obvious insufficient space then inform and quit.
+if [ $PROFILE_SIZE -gt $REMAINING_SPACE ]; then
+  echo "Insufficient disk space. Exiting."
+  echo
+  exit 0
+else
+  echo "Sufficient disk space exists. Continuing."
+  echo
+fi
+# Ask whether to proceed.
+# Wait_For_Response "Migrate?"
+# Proceed_From_Response
+# User wants to migrate.
+echo "Migrating an existing KDE3 profile directory:" 1>&2
+echo "Copying \$HOME/$KDE3_PROFILE to \$HOME/.trinity." 1>&2
+cp -a $HOME/$KDE3_PROFILE $HOME/.trinity
+}
+
+# Require a backup of the profile.
+if [ "$1" = "backup" ]; then
+  BACKUP="true"
+fi
+
+# Avoid any possible conflict with KDE4. Therefore within this script
+# use full path names to all binaries used.
+
+# The binaries for TDE are located in the same place as this script.
+# To determine that location use the following method rather than presuming
+# the existence of $TDEDIR. That environment variable might not be
+# defined or defined to point to KDE4 binaries.
+BIN_DIR="`dirname \`readlink -f $0\``"
+if [ -x $BIN_DIR/tde-config ]; then
+  TDE_VERSION="`$BIN_DIR/tde-config --version | grep TDE | awk '{print $2}'`"
+  echo "Trinity Desktop Environment version is $TDE_VERSION" 1>&2
+  export TDEDIR=${BIN_DIR%/bin}
+  echo "Trinity Desktop Environment base directory is $TDEDIR" 1>&2
+else
+  # This might be a Trinity version before kde-config was renamed to tde-config.
+  # Don't use kde-config because of a bug that always creates a $TDEHOME directory.
+  if [ -x $BIN_DIR/konqueror ]; then
+    TDE_VERSION="`$BIN_DIR/konqueror --version | grep KDE | awk '{print $2}'`"
+    echo "Trinity Desktop Environment version is $TDE_VERSION" 1>&2
+    export TDEDIR=${BIN_DIR%/bin}
+    echo "Trinity Desktop Environment base directory is $TDEDIR" 1>&2
+  else
+    echo "Unable to determine the TDE bin directory, where this script should be installed."
+    echo "This script should be installed in the same directory."
+    echo "Exiting."
+    exit 1
+  fi
+fi
+unset BIN_DIR
+
+echo
+echo "This script migrates an existing KDE3 profile directory."
+echo "The definition of a KDE3 profile directory includes some"
+echo "older Trinity profile directories."
+echo
+echo "The KDE3 profile directory will be copied/duplicated"
+echo "and then cleaned/scrubbed to remove remnants of KDE3."
+echo "KMail config files will be scrubbed but not the mail files."
+echo "Likewise with other data files, such as for Amarok, Basket,"
+echo "Juk, KGet, KNotes, and Kopete."
+echo "The result is a new Trinity profile directory. :-)"
+echo
+
+# We need to make this first test more robust. Some TDE tools create
+# a skeleton profile directory ($TDEHOME/share/config) with no files.
+# Thus, the mere existence of $HOME/.trinity will cause this script
+# to terminate despite an existing profile directory possibly being
+# nothing more than a skeleton. Possibly like the KDE4 profile directory
+# test below, we can test for several knowable TDE files that also don't
+# exist in KDE4. If those files don't exist then presume a skeleton
+# profile directory.
+# Do not migrate when $TDEHOME is a sym link to another profile directory.
+# Trinity should have full reign within its own profile directory
+# (limited to administrative locking), but an error check is a
+# conservative approach.
+TDEHOME_LINK="`readlink \"$HOME/.trinity\"`"
+if [ "$TDEHOME_LINK" != "" ]; then
+  echo "Warning! The profile directory $HOME/.trinity is a" 1>&2
+  echo "sym link to $TDEHOME_LINK!" 1>&2
+  echo "Please break this sym link to perform the profile migration." 1>&2
+  echo
+  Wait_For_Response "Break the sym link now and continue with migrating?"
+  Proceed_From_Response
+  unlink "$HOME/.trinity" 2>/dev/null
+  if [ "`readlink \"$HOME/.trinity\"`" != "" ]; then
+    echo "Unable to break the sym link. Check your file and directory privileges. Quitting."
+    unset KDE3_PROFILE
+    unset TDEHOME_LINK
+    exit 0
+  fi
+fi
+
+# Trap when the user runs this script while in a Trinity session.
+# Most files can be updated "live" but some can't, such as kdeglobals.
+if [ "$TDE_FULL_SESSION" != "" ] || [ "$TDE_SESSION_UID" != "" ] || [ -f $HOME/.DCOPserver_`uname -n`__* ]; then
+  MESSAGE="You are running this script while a Trinity session is active.\nMost files can be updated \"live\" but some cannot, such as kdeglobals.\n\nThis script might complete successfully and might not. Probably not. :-)"
+  # Are we in X? Display an X dialog explaining breakage.
+  printf "%b" "$MESSAGE\n"
+  Wait_For_Response "Continue?"
+  Proceed_From_Response
+fi
+
+if [ -d "$HOME/.trinity" ] && [ "$BACKUP" = "true" ]; then
+  echo "$HOME/.trinity already exists." 1>&2
+  echo "User requested a backup copy."
+  if [ -d $HOME/.trinity.old ]; then
+    echo "Creating backup copy $HOME/.trinity.old2..." 1>&2
+    cp -a $HOME/.trinity $HOME/.trinity.old2
+  else
+  echo "Creating backup copy $HOME/.trinity.old..." 1>&2
+    cp -a $HOME/.trinity $HOME/.trinity.old
+  fi
+  echo
+  KDE3_PROFILE=".trinity"
+elif [ -d "$HOME/.trinity" ]; then
+  echo "$HOME/.trinity already exists." 1>&2
+  echo "No migration required, but running to update an older Trinity profile." 1>&2
+  echo
+  KDE3_PROFILE=".trinity"
+else
+  echo "$HOME/.trinity does not exist." 1>&2
+  # If $HOME/.kde3 or $HOME/.kdemod3 exists, probably safe to presume a profile from KDE3 or a previous Trinity.
+  if [ -d "$HOME/.kde3" ]; then
+    echo "Found $HOME/.kde3."
+    KDE3_PROFILE=".kde3"
+    disk_space_test
+  elif [ -d "$HOME/.kdemod3" ]; then
+    echo "Found $HOME/.kdemod3."
+    KDE3_PROFILE=".kdemod3"
+    disk_space_test
+  elif [ -d "$HOME/.kde" ]; then
+    # This is tricky --- ensure this profile directory is NOT KDE4.
+    echo "Found $HOME/.kde."
+    if [ ! -d $HOME/.kde/share/kde4 ] && \
+      [ ! -f $HOME/.kde/share/config/nepomukserverrc ] && \
+      [ ! -f $HOME/.kde/share/config/phonondevicesrc ] && \
+      [ ! -f $HOME/.kde/share/config/plasma-desktop-appletsrc ] && \
+      [ ! -f $HOME/.kde/share/config/specialmailcollectionsrc ]; then
+      # That was five different tests. Probably not a KDE4 profile. There is a chance
+      # the user's KDE3 profile got contaminated testing KDE4. If that is the case then
+      # too bad --- the safe route here is not to migrate. Otherwise if this 5-point
+      # test passes then migrate the profile.
+      KDE3_PROFILE=".kde"
+      echo "$HOME/$KDE3_PROFILE does not look like a KDE4 profile directory."
+      disk_space_test
+    else
+        echo "$HOME/.kde probably is a KDE4 profile directory."
+    fi
+  else
+    echo "Found no KDE3 profile directory to migrate." 1>&2
+  fi
+fi
+
+if [ -n "$KDE3_PROFILE" ] && [ -d "$KDE3_PROFILE" ]; then
+  # Remove KDE3 remnants.
+
+  echo "Cleaning temp file locations." 1>&2
+  # All three directories are for temporary files. The cache directory is
+  # intended for persistent temporary data (is expected to remain across reboots
+  # and shutdowns). The other two directories are for non-persistent data and
+  # can be deleted across reboots and shutdowns.
+  CACHE_DIR="`readlink $HOME/.trinity/cache-\`uname -n\``"
+  SOCKET_DIR="`readlink $HOME/.trinity/socket-\`uname -n\``"
+  TMP_DIR="`readlink $HOME/.trinity/tmp-\`uname -n\``"
+  # Delete the non-persistent temporary directories. This is safe at any time.
+  unlink $HOME/.trinity/socket-`uname -n` 2>/dev/null
+  unlink $HOME/.trinity/tmp-`uname -n` 2>/dev/null
+  if [ "$SOCKET_DIR" != "" ]; then
+    rm -fr $SOCKET_DIR 2>/dev/null
+  fi
+  if [ "$TMP_DIR" != "" ]; then
+    rm -fr $TMP_DIR 2>/dev/null
+  fi
+  # Remove the ksycoca files from the cache directory. The KDE3 and Trinity
+  # cache directories will be linked to the same location, but deleting the
+  # ksycoca files is non-destructive.
+  rm -f $HOME/.trinity/cache-`uname -n`/ksycoca* 2>/dev/null
+
+  # Fix config files.
+  # Exclude KMail mail files --- we don't want to touch those files.
+  # I'm using maildir --- do these commands work for mbox too?
+  echo "Cleaning config files (but not files with user data, e.g. KMail mail files. :-))" 1>&2
+  echo "Cleaning, first pass..." 1>&2
+  KDE3_PROFILE_R=$(echo $KDE3_PROFILE | sed "s|\.|\\\\.|g")
+  find $HOME/.trinity \
+       -path $HOME/.trinity/share/apps/amarok/albumcovers -prune -o \
+       -path $HOME/.trinity/share/apps/basket/baskets -prune -o \
+       -path $HOME/.trinity/share/apps/juk/covers -prune -o \
+       -path $HOME/.trinity/share/apps/kget/logs -prune -o \
+       -path $HOME/.trinity/share/apps/kmail/autosave -prune -o \
+       -path $HOME/.trinity/share/apps/kmail/dimap -prune -o \
+       -path $HOME/.trinity/share/apps/kmail/imap -prune -o \
+       -path $HOME/.trinity/share/apps/kmail/mail -prune -o \
+       -path $HOME/.trinity/share/apps/kmail/search -prune -o \
+       -path $HOME/.trinity/share/apps/knotes -prune -o \
+       -path $HOME/.trinity/share/apps/kopete/logs -prune -o \
+       -type f -print0 | \
+    xargs -r0 grep -ZIFl "/${KDE3_PROFILE}" | \
+    xargs -r0 sed -i "s|/${KDE3_PROFILE_R}|/\.trinity|g"
+  EXIT_CODE="$?"
+  if [ "$EXIT_CODE" = "0" ]; then
+    echo "Done." 1>&2
+  else
+    echo "There was an error with the first pass." 1>&2
+  fi
+  # What if $TDEDIR is not defined? Bummer.
+  if [ -z "$TDEDIR" ]; then
+    echo "The \$TDEDIR environment variable does not exist. Cannot complete the second pass." 1>&2
+  else
+    echo "Cleaning, second pass..." 1>&2
+    find $HOME/.trinity \
+         -path $HOME/.trinity/share/apps/amarok/albumcovers -prune -o \
+         -path $HOME/.trinity/share/apps/basket/baskets -prune -o \
+         -path $HOME/.trinity/share/apps/juk/covers -prune -o \
+         -path $HOME/.trinity/share/apps/kget/logs -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/autosave -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/dimap -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/imap -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/mail -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/search -prune -o \
+         -path $HOME/.trinity/share/apps/knotes -prune -o \
+         -path $HOME/.trinity/share/apps/kopete/logs -prune -o \
+         -type f -print0 | \
+      xargs -r0 grep -ZIFl "/opt/kde/" | \
+      xargs -r0 sed -i "s|/opt/kde/|${TDEDIR}/|g"
+    EXIT_CODE_1="$?"
+    find $HOME/.trinity \
+         -path $HOME/.trinity/share/apps/amarok/albumcovers -prune -o \
+         -path $HOME/.trinity/share/apps/basket/baskets -prune -o \
+         -path $HOME/.trinity/share/apps/juk/covers -prune -o \
+         -path $HOME/.trinity/share/apps/kget/logs -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/autosave -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/dimap -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/imap -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/mail -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/search -prune -o \
+         -path $HOME/.trinity/share/apps/knotes -prune -o \
+         -path $HOME/.trinity/share/apps/kopete/logs -prune -o \
+         -type f -print0 | \
+      xargs -r0 grep -ZIFl "/opt/kde3/" | \
+      xargs -r0 sed -i "s|/opt/kde3/|${TDEDIR}/|g"
+    EXIT_CODE_2="$?"
+    if [ "$EXIT_CODE_1" = "0" ] && [ "$EXIT_CODE_2" = "0" ]; then
+      echo "Done." 1>&2
+    else
+      echo "There was an error with the second pass." 1>&2
+  fi
+    echo "Cleaning, third pass..." 1>&2
+    # Prevent an anomaly with the kicker Firefox icon. Firefox likely is installed to /usr.
+    # The following update will change that to /opt/trinity. We need to restore that location.
+    KICKER_FIREFOX="$HOME/$KDE3_PROFILE/share/apps/kicker/mozilla-firefox.desktop"
+    if [ -e "$KICKER_FIREFOX" ]; then
+      FIREFOX_PNG_LOCATION="`grep \"Icon=\" \"$KICKER_FIREFOX\"`"
+    fi
+    find $HOME/.trinity \
+         -path $HOME/.trinity/share/apps/amarok/albumcovers -prune -o \
+         -path $HOME/.trinity/share/apps/basket/baskets -prune -o \
+         -path $HOME/.trinity/share/apps/juk/covers -prune -o \
+         -path $HOME/.trinity/share/apps/kget/logs -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/autosave -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/dimap -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/imap -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/mail -prune -o \
+         -path $HOME/.trinity/share/apps/kmail/search -prune -o \
+         -path $HOME/.trinity/share/apps/knotes -prune -o \
+         -path $HOME/.trinity/share/apps/kopete/logs -prune -o \
+         -type f -print0 | \
+      xargs -r0 grep -ZIFl "/usr/share/" | \
+      xargs -r0 sed -i "s|/usr/share/|${TDEDIR}/share/|g"
+    if [ "$?" = "0" ]; then
+      if [ "$FIREFOX_PNG_LOCATION" != "" ]; then
+        FIREFOX_PNG_LOCATION_NEW="`grep \"Icon=\" \"$HOME/.trinity/share/apps/kicker/mozilla-firefox.desktop\"`"
+        FIREFOX_PNG_LOCATION_NEW_R=$(echo $FIREFOX_PNG_LOCATION_NEW | sed "s|\.|\\\\.|g")
+        sed -i "s|$FIREFOX_PNG_LOCATION_NEW_R|$FIREFOX_PNG_LOCATION|" $HOME/.trinity/share/apps/kicker/mozilla-firefox.desktop
+      fi
+      echo "Done." 1>&2
+    else
+      echo "There was an error with the third pass." 1>&2
+    fi
+  fi
+  # Need to update files in $HOME/.trinity/Autostart.
+  # Some files might be *.desktop files and can be cleaned in place.
+  # Some files might be sym links to a previous KDE3 location.
+  # Recreate those links to the correct Trinity location.
+  # This needs improvement for apps not in /usr/bin.
+  echo "Attempting to update *.desktop files in Autostart." 1>&2
+  find $HOME/.trinity/Autostart -! -type l -type f -print0 | \
+    xargs -r0 grep -ZIFl "/usr/bin/" | \
+    xargs -r0 sed -i "s|/usr/bin/|${TDEDIR}/bin/|g"
+  echo "Attempting to update sym links in Autostart." 1>&2
+  ( cd $HOME/.trinity/Autostart
+    for i in `find . -type l`; do
+      LINK="`readlink $i`"
+      echo "Found a sym link to $LINK." 1>&2
+      LINK_PATH="`dirname $LINK`"
+      LINK_NAME="`basename $LINK`"
+      if [ -n "`echo $LINK_PATH | grep \"/usr\"`" ]; then
+        echo "Sym link points to /usr." 1>&2
+        NEW_LINK_PATH="`echo $LINK_PATH | sed \"s|/usr|${TDEDIR}|\"`"
+      elif [ -n "`echo $LINK_PATH | grep \"/opt/kde\"`" ]; then
+        echo "Sym link points to /opt/kde." 1>&2
+        NEW_LINK_PATH="`echo $LINK_PATH | sed \"s|/opt/kde|${TDEDIR}|\"`"
+      elif [ -n "`echo $LINK_PATH | grep \"/opt/kde3\"`" ]; then
+        echo "Sym link points to /opt/kde3." 1>&2
+        NEW_LINK_PATH="`echo $LINK_PATH | sed \"s|/opt/kde3|${TDEDIR}|\"`"
+      elif [ -n "`echo $LINK_PATH | grep \"${TDEDIR}\"`" ]; then
+        echo "Sym link points to ${TDEDIR}." 1>&2
+      else
+        echo "Cannot establish a path for a new link." 1>&2
+      fi
+      if [ "$NEW_LINK_PATH" != "" ] && [ "$LINK_NAME" != "" ]; then
+        unlink $i
+        echo "Attempting to create a sym link to $NEW_LINK_PATH/$LINK_NAME." 1>&2
+        ln -sf $NEW_LINK_PATH/$LINK_NAME $LINK_NAME
+        if [ "$?" = "0" ]; then
+          echo "Link created." 1>&2
+        else
+          echo "There was an error with creating the link." 1>&2
+        fi
+      else
+        echo "Not updating the link."
+      fi
+    done
+    if [ -f kmix.desktop ]; then
+      $TDEDIR/bin/kwriteconfig --file kmixrc --key Autostart --type bool "true"
+    fi
+    rm -f kmix.desktop
+  )
+
+  # Ensure all KDED services are accounted for in the user's profile. Any that are missing
+  # are defaulted to not auto-loading (false). Refer to bug report 1210. This same test is
+  # performed in the r14-xdg-update script.
+  if [ -d $HOME/.trinity/share/services/kded ]; then
+    if [ "`find $HOME/.trinity/share/services/kded -name *.desktop`" != "" ]; then
+      echo "Validating KDED services."
+      for i in `/bin/ls -1 $HOME/.trinity/share/services/kded/*.desktop`; do
+        SERVICE_NAME=`basename $i`
+        if [ ! -f $TDEDIR/share/services/kded/$SERVICE_NAME ]; then
+          $TDEDIR/bin/kwriteconfig --file $i --group "Desktop Entry" --key "X-KDE-Kded-autoload" --type bool "false"
+        fi
+      done
+    fi
+  fi
+
+  # Preserve kicker/panel icons.
+  if [ -r $HOME/.trinity/share/config/kickerrc ]; then
+    echo "Updating kicker/panel customizations in kickerrc."
+    if [ -r "$HOME/.trinity/share/config/kickerrc" ]; then
+      sed -i "s|/usr/share/|${TDEDIR}/share/|g" "$HOME/.trinity/share/config/kickerrc" 2>/dev/null
+    else
+      echo "kickerrc does not exist."
+    fi
+  fi
+
+  echo "Renaming some configuration files and directories."
+  # Note: The only rebranding that occurred before starting the R14 branch was krita. All other
+  # rebranding updates belong in the r14-xdg-update script.
+  if [ ! -f $HOME/.trinity/share/config/chalkrc ] && [ -f $HOME/.trinity/share/config/kritarc -o -d $HOME/.trinity/share/apps/krita ]; then
+    echo "  krita->chalk"
+    mv $HOME/.trinity/share/config/kritarc $HOME/.trinity/share/config/chalkrc 2>/dev/null
+    mv $HOME/.trinity/share/apps/krita $HOME/.trinity/share/apps/chalk 2>/dev/null
+  fi
+  # Note: Don't run kconf_update, which is run automatically when starting TDE.
+  # Note: Don't run any profile R14 updates: starttde does that through the r14-xdg-update script.
+  echo
+  echo "Done!" 1>&2
+  echo
+  echo "If any button icons to non Trinity apps in the kicker/panel"
+  echo "or system tray are incorrect, select the correct icon from the"
+  echo "button's configure menu option. The button's path to the app should"
+  echo "remain correct. (Note: please report any such anomalies.)"
+fi
+echo
+
+unset KDE3_PROFILE
+unset KDE3_PROFILE_R
+unset TDEHOME_LINK
+unset KICKER_FIREFOX
+unset FIREFOX_PNG_LOCATION
+unset FIREFOX_PNG_LOCATION_NEW
+unset FIREFOX_PNG_LOCATION_NEW_R
+unset SERVICE_NAME
+unset NEW_LINK_PATH
+unset LINK_NAME
+unset AVAILABLE
+unset PROFILE_SIZE
+unset REMAINING_SPACE
+unset BIN_DIR
+unset TDE_VERSION
+unset TDEHOME_LINK
+unset CACHE_DIR
+unset SOCKET_DIR
+unset TMP_DIR
+unset EXIT_CODE

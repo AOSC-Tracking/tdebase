@@ -211,6 +211,7 @@ tde_conditional_add_subdirectory( BUILD_TQT3INTEGRATION tqt3integration )
 
 if( BUILD_STARTKDE )
   install( PROGRAMS startkde DESTINATION ${BIN_INSTALL_DIR} )
+  install( PROGRAMS migratekde3 DESTINATION ${BIN_INSTALL_DIR} )
 endif()
 
 
