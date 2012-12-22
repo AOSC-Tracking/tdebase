@@ -661,6 +661,9 @@ void Client::minimize( bool avoid_animation )
     if ( !isMinimizable() || isMinimized())
         return;
 
+    if (isShade()) // NETWM restriction - KWindowInfo::isMinimized() == Hidden && !Shaded
+        info->setState(0, NET::Shaded);
+
     Notify::raise( Notify::Minimize );
 
     // SELI mainClients().isEmpty() ??? - and in unminimize() too
@@ -680,6 +683,9 @@ void Client::unminimize( bool avoid_animation )
     {
     if( !isMinimized())
         return;
+
+    if (isShade()) // NETWM restriction - KWindowInfo::isMinimized() == Hidden && !Shaded
+        info->setState(NET::Shaded, NET::Shaded);
 
     Notify::raise( Notify::UnMinimize );
     minimized = false;
@@ -941,7 +947,7 @@ void Client::setShade( ShadeMode mode )
             workspace()->requestFocus( this );
         }
     checkMaximizeGeometry();
-    info->setState( isShade() ? NET::Shaded : 0, NET::Shaded );
+    info->setState( (isShade() && !isMinimized()) ? NET::Shaded : 0, NET::Shaded );
     info->setState( isShown( false ) ? 0 : NET::Hidden, NET::Hidden );
     updateVisibility();
     updateAllowedActions();
