@@ -1769,9 +1769,15 @@ void LockProcess::resume( bool force )
 //
 bool LockProcess::checkPass()
 {
+    if (!mDialogs.isEmpty()) {
+        // Another dialog is already shown
+        // Abort!
+        return 0;
+    }
     if (mInfoMessageDisplayed == false) {
-        if (mAutoLogout)
+        if (mAutoLogout) {
             killTimer(mAutoLogoutTimerId);
+        }
 
         // Make sure we never launch the SAK or login dialog if windows are being closed down
         // Otherwise we can get stuck in an irrecoverable state where any attempt to show the login screen is instantly aborted
