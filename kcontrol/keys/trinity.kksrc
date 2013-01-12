@@ -85,6 +85,7 @@ Reboot without Confirmation=none
 Show Klipper Popup-Menu=Alt+Ctrl+V
 Show Taskmanager=Ctrl+Escape
 Show Window List=Alt+F5
+Start Screen Saver=Alt+Ctrl+S
 Switch One Desktop Down=none
 Switch One Desktop to the Left=none
 Switch One Desktop to the Right=none

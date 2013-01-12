@@ -31,6 +31,12 @@
 		DEF2( I18N_NOOP("Lock Session"), ALT+CTRL+Qt::Key_L, WIN+Qt::Key_ScrollLock, KRootWm::self(), TQT_SLOT(slotLock()) );
 #ifndef NOSLOTS
 	}
+	if (kapp->authorize("start_screensaver"))
+	{
+#endif
+		DEF2( I18N_NOOP("Start Screen Saver"), ALT+CTRL+Qt::Key_S, WIN+Qt::Key_S, KRootWm::self(), TQT_SLOT(slotSave()) );
+#ifndef NOSLOTS
+	}
 	if (kapp->authorize("logout"))
 	{
 #endif

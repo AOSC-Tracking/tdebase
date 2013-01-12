@@ -824,6 +824,11 @@ void KRootWm::slotLock() {
 }
 
 
+void KRootWm::slotSave() {
+    kapp->dcopClient()->send(kdesktop_name, "KScreensaverIface", "save()", TQString(""));
+}
+
+
 void KRootWm::slotLogout() {
     m_pDesktop->logout(KApplication::ShutdownConfirmDefault, KApplication::ShutdownTypeDefault);
 }

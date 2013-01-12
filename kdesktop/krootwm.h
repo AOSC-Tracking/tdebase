@@ -115,6 +115,7 @@ public slots:
   void slotWindowList();
   void slotLock();
   void slotLogout();
+  void slotSave();
   void slotSwitchUser();
   void slotPopulateSessions();
   void slotSessionActivated( int );
