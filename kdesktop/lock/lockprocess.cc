@@ -16,6 +16,10 @@
 //crashes (e.g. because it's set to multiple wallpapers and
 //some image will be corrupted).
 
+#define protected public
+#include <tqwidget.h>
+#undef protected
+
 #include <config.h>
 
 #include <execinfo.h>
@@ -220,7 +224,8 @@ LockProcess::LockProcess()
       m_mousePrevX(0),
       m_mousePrevY(0),
       m_dialogPrevX(0),
-      m_dialogPrevY(0)
+      m_dialogPrevY(0),
+      m_maskWidget(NULL)
 {
 #ifdef KEEP_MOUSE_UNGRABBED
     setNFlags(WX11DisableMove|WX11DisableClose|WX11DisableShade|WX11DisableMinimize|WX11DisableMaximize);
@@ -232,15 +237,8 @@ LockProcess::LockProcess()
     kapp->installX11EventFilter(this);
 
     mForceContinualLockDisplayTimer = new TQTimer( this );
-    connect( mForceContinualLockDisplayTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(displayLockDialogIfNeeded()) );
-
     mHackDelayStartupTimer = new TQTimer( this );
-    connect( mHackDelayStartupTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(closeDialogAndStartHack()) );
-
     mEnsureVRootWindowSecurityTimer = new TQTimer( this );
-    connect( mEnsureVRootWindowSecurityTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(repaintRootWindowIfNeeded()) );
-
-    connect(tqApp, TQT_SIGNAL(mouseInteraction(XEvent *)), TQT_SLOT(slotMouseActivity(XEvent *)));
 
     // Try to get the root pixmap
     if (!m_rootPixmap) m_rootPixmap = new KRootPixmap(this);
@@ -248,18 +246,14 @@ LockProcess::LockProcess()
     m_rootPixmap->setCustomPainting(true);
     m_rootPixmap->start();
 
-    // Get root window size
+    // Get root window attributes
     XWindowAttributes rootAttr;
-    XGetWindowAttributes(qt_xdisplay(), RootWindow(qt_xdisplay(),
-                        qt_xscreen()), &rootAttr);
-    mRootWidth = rootAttr.width;
-    mRootHeight = rootAttr.height;
+    XGetWindowAttributes(qt_xdisplay(), RootWindow(qt_xdisplay(), qt_xscreen()), &rootAttr);
     { // trigger creation of QToolTipManager, it does XSelectInput() on the root window
         TQWidget w;
         TQToolTip::add( &w, "foo" );
     }
-    XSelectInput( qt_xdisplay(), qt_xrootwin(),
-        SubstructureNotifyMask | rootAttr.your_event_mask );
+    XSelectInput( qt_xdisplay(), qt_xrootwin(), SubstructureNotifyMask | rootAttr.your_event_mask );
 
     // Add non-KDE path
     KGlobal::dirs()->addResourceType("scrsav",
@@ -282,36 +276,12 @@ LockProcess::LockProcess()
     gXA_VROOT = XInternAtom (qt_xdisplay(), "__SWM_VROOT", False);
     gXA_SCREENSAVER_VERSION = XInternAtom (qt_xdisplay(), "_SCREENSAVER_VERSION", False);
 
-    connect(&mHackProc, TQT_SIGNAL(processExited(KProcess *)),
-                        TQT_SLOT(hackExited(KProcess *)));
-
-    connect(&mSuspendTimer, TQT_SIGNAL(timeout()), TQT_SLOT(suspend()));
-
     TQStringList dmopt =
         TQStringList::split(TQChar(','),
                             TQString::fromLatin1( ::getenv( "XDM_MANAGED" )));
     for (TQStringList::ConstIterator it = dmopt.begin(); it != dmopt.end(); ++it)
         if ((*it).startsWith("method="))
             mMethod = (*it).mid(7);
-
-#ifdef HAVE_DPMS
-    if (mDPMSDepend) {
-        BOOL on;
-        CARD16 state;
-        DPMSInfo(qt_xdisplay(), &state, &on);
-        if (on)
-        {
-            connect(&mCheckDPMS, TQT_SIGNAL(timeout()), TQT_SLOT(checkDPMSActive()));
-            // we can save CPU if we stop it as quickly as possible
-            // but we waste CPU if we check too often -> so take 10s
-            mCheckDPMS.start(10000);
-        }
-    }
-#endif
-
-#if (QT_VERSION-0 >= 0x030200) // XRANDR support
-    connect( kapp->desktop(), TQT_SIGNAL( resized( int )), TQT_SLOT( desktopResized()));
-#endif
 
 #ifdef KEEP_MOUSE_UNGRABBED
     setEnabled(false);
@@ -375,6 +345,39 @@ LockProcess::~LockProcess()
 //
 void LockProcess::init(bool child, bool useBlankOnly)
 {
+    // Get root window size
+    XWindowAttributes rootAttr;
+    XGetWindowAttributes(qt_xdisplay(), RootWindow(qt_xdisplay(), qt_xscreen()), &rootAttr);
+    mRootWidth = rootAttr.width;
+    mRootHeight = rootAttr.height;
+
+    // Connect all signals
+    connect( mForceContinualLockDisplayTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(displayLockDialogIfNeeded()) );
+    connect( mHackDelayStartupTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(closeDialogAndStartHack()) );
+    connect( mEnsureVRootWindowSecurityTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(repaintRootWindowIfNeeded()) );
+    connect(tqApp, TQT_SIGNAL(mouseInteraction(XEvent *)), TQT_SLOT(slotMouseActivity(XEvent *)));
+    connect(&mHackProc, TQT_SIGNAL(processExited(KProcess *)), TQT_SLOT(hackExited(KProcess *)));
+    connect(&mSuspendTimer, TQT_SIGNAL(timeout()), TQT_SLOT(suspend()));
+
+#ifdef HAVE_DPMS
+    if (mDPMSDepend) {
+        BOOL on;
+        CARD16 state;
+        DPMSInfo(qt_xdisplay(), &state, &on);
+        if (on)
+        {
+            connect(&mCheckDPMS, TQT_SIGNAL(timeout()), TQT_SLOT(checkDPMSActive()));
+            // we can save CPU if we stop it as quickly as possible
+            // but we waste CPU if we check too often -> so take 10s
+            mCheckDPMS.start(10000);
+        }
+    }
+#endif
+
+#if (QT_VERSION-0 >= 0x030200) // XRANDR support
+    connect( kapp->desktop(), TQT_SIGNAL( resized( int )), TQT_SLOT( desktopResized()));
+#endif
+
     if (!trinity_desktop_lock_use_system_modal_dialogs) {
         setWFlags((WFlags)WX11BypassWM);
     }
@@ -444,6 +447,11 @@ void LockProcess::timerEvent(TQTimerEvent *ev)
 		AutoLogout autologout(this);
 		execDialog(&autologout);
 	}
+}
+
+void LockProcess::resizeEvent(TQResizeEvent *)
+{
+	//
 }
 
 void LockProcess::setupPipe()
@@ -1018,20 +1026,55 @@ void LockProcess::createSaverWindow()
 
 void LockProcess::desktopResized()
 {
+    // Get root window size
+    XWindowAttributes rootAttr;
+    XGetWindowAttributes(qt_xdisplay(), RootWindow(qt_xdisplay(), qt_xscreen()), &rootAttr);
+    if ((rootAttr.width == mRootWidth) && (rootAttr.height == mRootHeight)) {
+        return;
+    }
+    mRootWidth = rootAttr.width;
+    mRootHeight = rootAttr.height;
+
     mBusy = true;
     mHackDelayStartupTimer->stop();
     stopHack();
     DISABLE_CONTINUOUS_LOCKDLG_DISPLAY
     mResizingDesktopLock = true;
 
-    // Get root window size
-    XWindowAttributes rootAttr;
-    XGetWindowAttributes(qt_xdisplay(), RootWindow(qt_xdisplay(), qt_xscreen()), &rootAttr);
-    mRootWidth = rootAttr.width;
-    mRootHeight = rootAttr.height;
+    backingPixmap = TQPixmap();
+
+    if (trinity_desktop_lock_use_system_modal_dialogs) {
+        // Temporarily hide the entire screen with a new override redirect window
+        if (m_maskWidget) {
+        	m_maskWidget->setGeometry(0, 0, mRootWidth, mRootHeight);
+        }
+        else {
+        	int flags = CWOverrideRedirect;
+        	Visual* visual = CopyFromParent;
+        	XSetWindowAttributes attrs;
+        	attrs.override_redirect = 1;
+        	Window maskWindow = XCreateWindow(x11Display(), RootWindow( x11Display(), x11Screen()), 0, 0, mRootWidth, mRootHeight, 0, x11Depth(), InputOutput, visual, flags, &attrs);
+        	m_maskWidget = new TQWidget();
+        	m_maskWidget->create(maskWindow);
+        	m_maskWidget->setBackgroundColor(TQt::black);
+        	m_maskWidget->erase();
+        	m_maskWidget->show();
+        }
+	XSync(qt_xdisplay(), False);
+
+	if (mEnsureScreenHiddenTimer) {
+		mEnsureScreenHiddenTimer->stop();
+	}
+	else {
+		mEnsureScreenHiddenTimer = new TQTimer( this );
+		connect( mEnsureScreenHiddenTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotForcePaintBackground()) );
+	}
+	mEnsureScreenHiddenTimer->start(DESKTOP_WALLPAPER_OBTAIN_TIMEOUT_MS, true);
+    }
 
     // Resize the background widget
     setGeometry(0, 0, mRootWidth, mRootHeight);
+    XSync(qt_xdisplay(), False);
 
     // Black out the background widget to hide ugly resize tiling artifacts
     setBackgroundColor(black);
@@ -1048,7 +1091,9 @@ void LockProcess::desktopResized()
 
 void LockProcess::doDesktopResizeFinish()
 {
-	while (mDialogControlLock == true) usleep(100000);
+	while (mDialogControlLock == true) {
+		usleep(100000);
+	}
 	mDialogControlLock = true;
 	if (closeCurrentWindow()) {
 		TQTimer::singleShot( 0, this, SLOT(doDesktopResizeFinish()) );
@@ -1058,7 +1103,7 @@ void LockProcess::doDesktopResizeFinish()
 	mDialogControlLock = false;
 
 	// Restart the hack as the window size is now different
-	if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced && trinity_desktop_lock_use_system_modal_dialogs) {
+	if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_use_system_modal_dialogs) {
 		ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
 		if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 	}
@@ -1934,6 +1979,13 @@ void LockProcess::slotPaintBackground(const TQPixmap &rpm)
 		connect( mEnsureScreenHiddenTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotForcePaintBackground()) );
 	}
 
+	// Only remove the mask widget once the resize is 100% complete!
+	if (m_maskWidget) {
+		delete m_maskWidget;
+		m_maskWidget = NULL;
+		XSync(qt_xdisplay(), False);
+	}
+
 	TQPixmap pm = rpm;
 
 	if (TQPaintDevice::x11AppDepth() == 32) {
@@ -2107,8 +2159,9 @@ bool LockProcess::x11Event(XEvent *event)
             break;
 
         case ConfigureNotify: // from SubstructureNotifyMask on the root window
-            if(event->xconfigure.event == qt_xrootwin())
+            if(event->xconfigure.event == qt_xrootwin()) {
                 stayOnTop();
+            }
             for( TQValueList< VkbdWindow >::Iterator it = mVkbdWindows.begin();
                  it != mVkbdWindows.end();
                  ++it ) {

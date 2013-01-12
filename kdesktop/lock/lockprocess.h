@@ -83,6 +83,7 @@ public slots:
 protected:
     virtual bool x11Event(XEvent *);
     virtual void timerEvent(TQTimerEvent *);
+    virtual void resizeEvent(TQResizeEvent *);
 
 private slots:
     void hackExited(KProcess *);
@@ -209,6 +210,8 @@ private:
     int m_mousePrevY;
     int m_dialogPrevX;
     int m_dialogPrevY;
+
+    TQWidget* m_maskWidget;
 };
 
 #endif

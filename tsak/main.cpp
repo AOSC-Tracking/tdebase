@@ -1,6 +1,6 @@
 /*
 Copyright 2010 Adam Marchetti
-Copyright 2011-2012 Timothy Pearson <kb9vqf@pearsoncomputing.net>
+Copyright 2011-2013 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 
 This file is part of tsak, the TDE Secure Attention Key daemon
 
@@ -132,7 +132,7 @@ void tsak_friendly_termination() {
 	// Wait for process termination
 	sleep(1);
 
-	fprintf(stderr, "tsak terminated by external request\n");
+	fprintf(stderr, "[tsak] tsak terminated by external request\n");
 	exit(17);
 }
 
@@ -359,7 +359,7 @@ void broadcast_sak()
 	int i;
 	for (i=0;i<255;i++) {
 		if (write(mPipe_fd_out, "SAK\n\r", 6) < 0) {
-			fprintf(stderr, "Unable to send SAK signal to clients\n");
+			fprintf(stderr, "[tsak] Unable to send SAK signal to clients\n");
 		}
 	}
 }
@@ -368,7 +368,7 @@ void restart_tsak()
 {
 	int i;
 
-	fprintf(stderr, "Forcibly terminating...\n");
+	fprintf(stderr, "[tsak] Forcibly terminating...\n");
 
 	// Close down all child processes
 	for (i=0; i<MAX_KEYBOARDS; i++) {
@@ -386,7 +386,7 @@ void restart_tsak()
 	// Release all exclusive keyboard locks
 	for (int current_keyboard=0;current_keyboard<keyboard_fd_num;current_keyboard++) {
 		if(ioctl(keyboard_fds[current_keyboard], EVIOCGRAB, 0) < 0) {
-			fprintf(stderr, "Failed to release exclusive input device lock");
+			fprintf(stderr, "[tsak] Failed to release exclusive input device lock");
 		}
 		close(keyboard_fds[current_keyboard]);
 	}
@@ -471,11 +471,11 @@ int main (int argc, char *argv[])
 		if (depcheck == false) {
 			// Check for existing file locks
 			if (!checkFileLock()) {
-				fprintf(stderr, "Another instance of this program is already running [1]\n");
+				fprintf(stderr, "[tsak] Another instance of this program is already running [1]\n");
 				return 8;
 			}
 			if (!setupLockingPipe(true)) {
-				fprintf(stderr, "Another instance of this program is already running [2]\n");
+				fprintf(stderr, "[tsak] Another instance of this program is already running [2]\n");
 				return 8;
 			}
 		}
@@ -484,7 +484,7 @@ int main (int argc, char *argv[])
 		PipeHandler controlpipe;
 		if (depcheck == false) {
 			if (!setupPipe()) {
-				fprintf(stderr, "Another instance of this program is already running\n");
+				fprintf(stderr, "[tsak] Another instance of this program is already running\n");
 				return 8;
 			}
 		}
@@ -525,13 +525,13 @@ int main (int argc, char *argv[])
 				}
 			}
 			else {
-				fprintf(stderr, "Found %d keyboard(s)\n", keyboard_fd_num);
+				fprintf(stderr, "[tsak] Found %d keyboard(s)\n", keyboard_fd_num);
 
 				can_proceed = true;
 				for (current_keyboard=0;current_keyboard<keyboard_fd_num;current_keyboard++) {
 					// Print Device Name
 					ioctl (keyboard_fds[current_keyboard], EVIOCGNAME (sizeof (name)), name);
-					fprintf(stderr, "Reading from keyboard: (%s)\n", name);
+					fprintf(stderr, "[tsak] Reading from keyboard: (%s)\n", name);
 
 					// Create filtered virtual output device
 					devout[current_keyboard]=open("/dev/misc/uinput",O_RDWR|O_NONBLOCK);
@@ -543,7 +543,7 @@ int main (int argc, char *argv[])
 					}
 					if (devout[current_keyboard]<0) {
 						can_proceed = false;
-						fprintf(stderr, "Unable to open /dev/uinput or /dev/misc/uinput (char device 10:223).\nPossible causes:\n 1) Device node does not exist\n 2) Kernel not compiled with evdev [INPUT_EVDEV] and uinput [INPUT_UINPUT] user level driver support\n 3) Permission denied.\n");
+						fprintf(stderr, "[tsak] Unable to open /dev/uinput or /dev/misc/uinput (char device 10:223).\nPossible causes:\n 1) Device node does not exist\n 2) Kernel not compiled with evdev [INPUT_EVDEV] and uinput [INPUT_UINPUT] user level driver support\n 3) Permission denied.\n");
 						perror("open(\"/dev/uinput\")");
 						if (established)
 							sleep(1);
@@ -560,7 +560,7 @@ int main (int argc, char *argv[])
 					for (current_keyboard=0;current_keyboard<keyboard_fd_num;current_keyboard++) {
 						if(ioctl(keyboard_fds[current_keyboard], EVIOCGRAB, 2) < 0) {
 							close(keyboard_fds[current_keyboard]);
-							fprintf(stderr, "Failed to grab exclusive input device lock");
+							fprintf(stderr, "[tsak] Failed to grab exclusive input device lock");
 							if (established) {
 								sleep(1);
 							}
@@ -571,22 +571,22 @@ int main (int argc, char *argv[])
 						else {
 							ioctl(keyboard_fds[current_keyboard], EVIOCGNAME(UINPUT_MAX_NAME_SIZE), devinfo.name);
 							strncat(devinfo.name, "+tsak", UINPUT_MAX_NAME_SIZE-1);
-							fprintf(stderr, "%s\n", devinfo.name);
+							fprintf(stderr, "[tsak] %s\n", devinfo.name);
 							ioctl(keyboard_fds[current_keyboard], EVIOCGID, &devinfo.id);
 
 							copy_features(keyboard_fds[current_keyboard], devout[current_keyboard]);
 							if (write(devout[current_keyboard],&devinfo,sizeof(devinfo)) < 0) {
-								fprintf(stderr, "Unable to write to output device\n");
+								fprintf(stderr, "[tsak] Unable to write to output device\n");
 							}
 							if (ioctl(devout[current_keyboard],UI_DEV_CREATE)<0) {
-								fprintf(stderr, "Unable to create input device with UI_DEV_CREATE\n");
+								fprintf(stderr, "[tsak] Unable to create input device with UI_DEV_CREATE\n");
 								if (established)
 									sleep(1);
 								else
 									return 2;
 							}
 							else {
-								fprintf(stderr, "Device created.\n");
+								fprintf(stderr, "[tsak] Device created.\n");
 
 								if (established == false) {
 									int i=fork();
@@ -614,7 +614,7 @@ int main (int argc, char *argv[])
 										if (rrd >= size) {
 											if (revev.type == EV_LED) {
 												if (write(keyboard_fds[current_keyboard], &revev, sizeof(revev)) < 0) {
-													fprintf(stderr, "Unable to replicate LED event\n");
+													fprintf(stderr, "[tsak] Unable to replicate LED event\n");
 												}
 											}
 										}
@@ -624,7 +624,7 @@ int main (int argc, char *argv[])
 
 								while (1) {
 									if ((rd = read(keyboard_fds[current_keyboard], ev, size)) < size) {
-										fprintf(stderr, "Read failed.\n");
+										fprintf(stderr, "[tsak] Read failed.\n");
 										break;
 									}
 
@@ -654,7 +654,7 @@ int main (int argc, char *argv[])
 										// Pass the event on...
 										event = ev[0];
 										if (write(devout[current_keyboard], &event, sizeof event) < 0) {
-											fprintf(stderr, "Unable to replicate keyboard event!\n");
+											fprintf(stderr, "[tsak] Unable to replicate keyboard event!\n");
 										}
 									}
 									if (hide_event == true) {
@@ -683,7 +683,7 @@ int main (int argc, char *argv[])
 					// Wait a little bit so that udev hotplug can stabilize before we start monitoring
 					sleep(1);
 
-					fprintf(stderr, "Hotplug monitoring process started\n");
+					fprintf(stderr, "[tsak] Hotplug monitoring process started\n");
 
 					// Monitor for hotplugged keyboards
 					int j;
@@ -696,7 +696,7 @@ int main (int argc, char *argv[])
 					// Create the udev object
 					udev = udev_new();
 					if (!udev) {
-						fprintf(stderr, "Cannot connect to udev interface\n");
+						fprintf(stderr, "[tsak] Cannot connect to udev interface\n");
 						return 11;
 					}
 
@@ -707,6 +707,21 @@ int main (int argc, char *argv[])
 
 					while (1) {
 						// Watch for input from the monitoring process
+						fd_set readfds;
+						FD_ZERO(&readfds);
+						FD_SET(udev_monitor_get_fd(mon), &readfds);
+						int fdcount = select(udev_monitor_get_fd(mon)+1, &readfds, NULL, NULL, NULL);
+						if (fdcount < 0) {
+							if (errno == EINTR) {
+								fprintf(stderr, "[tsak] Signal caught in hotplug monitoring process; ignoring\n");
+							}
+							else {
+								fprintf(stderr, "[tsak] Select failed on udev file descriptor in hotplug monitoring process\n");
+							}
+							usleep(1000);
+							continue;
+						}
+
 						dev = udev_monitor_receive_device(mon);
 						if (dev) {
 							// If a keyboard was removed we need to restart...
@@ -741,20 +756,20 @@ int main (int argc, char *argv[])
 
 							// If a keyboard was added we need to restart...
 							if (is_new_keyboard == true) {
-								fprintf(stderr, "Hotplugged new keyboard: (%s)\n", name);
+								fprintf(stderr, "[tsak] Hotplugged new keyboard: (%s)\n", name);
 								udev_unref(udev);
 								restart_tsak();
 							}
 						}
 						else {
-							fprintf(stderr, "No Device from receive_device().  A udev error has occurred; terminating hotplug monitoring process.\n");
-							return 11;
+							fprintf(stderr, "[tsak] No device from receive_device().  A udev error has occurred; terminating hotplug monitoring process.\n");
+							return 12;
 						}
 					}
 
 					udev_unref(udev);
 
-					fprintf(stderr, "Hotplug monitoring process terminated\n");
+					fprintf(stderr, "[tsak] Hotplug monitoring process terminated\n");
 				}
 			}
 		}
