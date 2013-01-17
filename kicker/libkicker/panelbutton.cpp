@@ -310,8 +310,8 @@ int PanelButton::widthForHeight(int height) const
         //f.setPixelSize(KMIN(height, KMAX(int(float(height) * m_fontPercent), 16)));
         TQFontMetrics fm(f);
 
-        //rc += fm.width(m_buttonText) + KMIN(25, KMAX(5, fm.width('m') / 2));
-        rc += fm.width(m_buttonText);
+        rc += fm.width(m_buttonText) + ((KMIN(25, KMAX(5, fm.width('m') / 2)))/2);
+        //rc += fm.width(m_buttonText);
     }
 
     return rc;
@@ -372,7 +372,7 @@ bool PanelButton::hasText() const
 
 void PanelButton::setButtonText(const TQString& text)
 {
-    m_buttonText = " " + text;
+    m_buttonText = text;
     update();
 }
 
@@ -623,7 +623,16 @@ void PanelButton::drawButtonLabel(TQPainter *p, int voffset, bool drawArrow)
     TQPixmap icon = labelIcon();
     bool active = isDown() || isOn();
 
-    if (active)
+    int offsetX = 0;
+    int offsetY = 0;
+
+    if (active && KickerSettings::showDeepButtons())
+    {
+        offsetX = style().pixelMetric(TQStyle::PM_ButtonShiftHorizontal);
+        offsetY = style().pixelMetric(TQStyle::PM_ButtonShiftVertical);
+    }
+
+    if (active && !KickerSettings::showDeepButtons())
     {
         icon = TQImage(icon.convertToImage()).smoothScale(icon.width() - 2,
                                                  icon.height() - 2);
@@ -643,7 +652,7 @@ void PanelButton::drawButtonLabel(TQPainter *p, int voffset, bool drawArrow)
         TQFont f = font();
 
         double fontPercent = m_fontPercent;
-        if (active)
+        if (active && !KickerSettings::showDeepButtons())
         {
             fontPercent *= .8;
         }
@@ -658,7 +667,7 @@ void PanelButton::drawButtonLabel(TQPainter *p, int voffset, bool drawArrow)
         if (!reverse && !icon.isNull())
         {
             /* Draw icon */
-            p->drawPixmap(3, y+voffset, icon);
+            p->drawPixmap(offsetX+3, offsetY+y+voffset, icon);
         }
 
         int tX = reverse ? 3 : icon.width() + KMIN(25, KMAX(5, fm.width('m') / 2));
@@ -677,7 +686,7 @@ void PanelButton::drawButtonLabel(TQPainter *p, int voffset, bool drawArrow)
         pixPainter.begin(&textPixmap);
         pixPainter.setPen(m_textColor);
         pixPainter.setFont(p->font()); // get the font from the root painter
-        pixPainter.drawText(tX, tY, m_buttonText, -1, rtl);
+        pixPainter.drawText(offsetX+tX, offsetY+tY, m_buttonText, -1, rtl);
         pixPainter.end();
 
         if (!s_textShadowEngine)
@@ -692,15 +701,15 @@ void PanelButton::drawButtonLabel(TQPainter *p, int voffset, bool drawArrow)
 
         // draw shadow
         TQImage img = s_textShadowEngine->makeShadow(textPixmap, shadCol);
-        p->drawImage(0, 0, img);
+        p->drawImage(offsetX, offsetY, img);
         p->save();
         p->setPen(m_textColor);
-        p->drawText(tX, tY+voffset, m_buttonText, -1, rtl);
+        p->drawText(offsetX+tX, offsetY+tY+voffset, m_buttonText, -1, rtl);
         p->restore();
 
         if (reverse && !icon.isNull())
         {
-            p->drawPixmap(w - icon.width() - 3, y+voffset, icon);
+            p->drawPixmap(offsetX + w - icon.width() - 3, offsetY+y+voffset, icon);
         }
 
         p->restore();
@@ -712,7 +721,7 @@ void PanelButton::drawButtonLabel(TQPainter *p, int voffset, bool drawArrow)
            x = (width()  - icon.width()) / 2;
         else if (m_iconAlignment & AlignRight)
            x = (width() - icon.width());
-        p->drawPixmap(x, y+voffset, icon);
+        p->drawPixmap(offsetX+x, offsetY+y+voffset, icon);
     }
 
     if (m_drawArrow && (m_highlight || active) && drawArrow)
