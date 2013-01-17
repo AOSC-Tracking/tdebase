@@ -198,6 +198,8 @@ void MenuTab::menuStyleChanged()
 
 void MenuTab::save()
 {
+    bool forceRestart = false;
+
     KSharedConfig::Ptr c = KSharedConfig::openConfig(KickerConfig::the()->configName());
 
     c->setGroup("menus");
@@ -230,15 +232,17 @@ void MenuTab::save()
     c->writeEntry("OpenOnHover", m_openOnHover->isChecked());
     c->sync();
 
-    if (kmenusetting != oldkmenusetting)
-        DCOPRef ("kicker", "default").call("restart()");
+    if (kmenusetting != oldkmenusetting) {
+        forceRestart = true;
+    }
 
     c->setGroup("KMenu");
     bool sidepixmapsetting = kcfg_UseSidePixmap->isChecked();
     bool oldsidepixmapsetting = c->readBoolEntry("UseSidePixmap", true);
 
-    if (sidepixmapsetting != oldsidepixmapsetting)
-        DCOPRef ("kicker", "default").call("restart()");
+    if (sidepixmapsetting != oldsidepixmapsetting) {
+        forceRestart = true;
+    }
 
     // Save KMenu settings
     c->setGroup("KMenu");
@@ -253,6 +257,10 @@ void MenuTab::save()
     config->sync();
 
     if (m_kmenu_button_changed == true) {
+        forceRestart = true;
+    }
+
+    if (forceRestart) {
         DCOPRef ("kicker", "default").call("restart()");
     }
 }
