@@ -489,7 +489,17 @@ void KDIconView::setAutoAlign( bool b )
 
     // Auto line-up icons
     if ( b ) {
-         if (!KRootWm::self()->startup) lineupIcons(); else KRootWm::self()->startup = false;
+        // set maxItemWidth to ensure sane initial icon layout before the auto align code is fully activated
+        int sz = iconSize() ? iconSize() : KGlobal::iconLoader()->currentSize( KIcon::Desktop );
+        setMaxItemWidth( QMAX( QMAX( sz, previewIconSize( iconSize() ) ), KonqFMSettings::settings()->iconTextWidth() ) );
+        setFont( font() );  // Force calcRect()
+
+        if (!KRootWm::self()->startup) {
+            lineupIcons();
+        }
+        else {
+            KRootWm::self()->startup = false;
+        }
         connect( this, TQT_SIGNAL( iconMoved() ),
                  this, TQT_SLOT( lineupIcons() ) );
     }
@@ -1061,6 +1071,9 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
   KFileItemListIterator it(entries);
   KFileIVI* fileIVI = 0L;
 
+  typedef TQValueList<KFileIVI*> KFileIVIList;
+  KFileIVIList newItemsList;
+
   // Ensure that the saved positions had a chance to be loaded
   if (!m_dotDirectory) {
       initDotDirectories();
@@ -1131,14 +1144,56 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
         fileIVI->move( x, y );
         if ( (!firstRun) && (!isFreePosition( fileIVI )) && (!m_needDesktopAlign) ) // if we can't put it there, then let TQIconView decide
         {
-            kdDebug(1214)<<"slotNewItems() pos was not free :-("<<endl;
-            fileIVI->move( oldPos.x(), oldPos.y() );
-            m_dotDirectory->deleteGroup( group );
-            m_bNeedSave = true;
+            if (!isFreePosition( fileIVI ))
+            {
+                // Find the offending icon and move it out of the way; saved positions have precedence!
+                TQRect r = fileIVI->rect();
+                TQIconViewItem *it = firstItem();
+                for (; it; it = it->nextItem() )
+                {
+                    if ( !it->rect().isValid() || it == fileIVI )
+                    {
+                        continue;
+                    }
+
+                    if ( it->intersects( r ) )
+                    {
+                        moveToFreePosition(it);
+                    }
+                }
+            }
+            else {
+                kdDebug(1214)<<"slotNewItems() pos was not free :-("<<endl;
+                fileIVI->move( oldPos.x(), oldPos.y() );
+                m_dotDirectory->deleteGroup( group );
+                m_bNeedSave = true;
+            }
         }
         else
         {
-            kdDebug(1214)<<"Using saved position"<<endl;
+            if (!isFreePosition( fileIVI ))
+            {
+                kdDebug(1214)<<"slotNewItems() pos was not free :-("<<endl;
+                // Find the offending icon and move it out of the way; saved positions have precedence!
+                TQRect r = fileIVI->rect();
+                TQIconViewItem *it = firstItem();
+                for (; it; it = it->nextItem() )
+                {
+                    if ( !it->rect().isValid() || it == fileIVI )
+                    {
+                        continue;
+                    }
+
+                    if ( it->intersects( r ) )
+                    {
+                        moveToFreePosition(it);
+                    }
+                }
+            }
+            else
+            {
+                kdDebug(1214)<<"Using saved position"<<endl;
+            }
         }
       }
       else
@@ -1146,18 +1201,26 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
             // Not found, we'll need to save the new pos
             kdDebug(1214)<<"slotNewItems(): New item without position information, try to find a sane location"<<endl;
 
-            moveToFreePosition(fileIVI);
-
-            m_bNeedSave = true;
+            newItemsList.append(fileIVI);
       }
     }
+  }
+
+  KFileIVIList::iterator newitemit;
+  for ( newitemit = newItemsList.begin(); newitemit != newItemsList.end(); ++newitemit )
+  {
+      fileIVI = (*newitemit);
+      moveToFreePosition(fileIVI);
+      m_bNeedSave = true;
   }
 
   setIconArea( area );
 
   // align on grid
   if ( m_autoAlign )
+  {
       lineupIcons();
+  }
 
   setUpdatesEnabled( true );
 }
@@ -1677,10 +1740,14 @@ bool KDIconView::isFreePosition( const TQIconViewItem *item ) const
     for (; it; it = it->nextItem() )
     {
         if ( !it->rect().isValid() || it == item )
+        {
             continue;
+        }
 
         if ( it->intersects( r ) )
+        {
             return false;
+        }
     }
 
     return true;
