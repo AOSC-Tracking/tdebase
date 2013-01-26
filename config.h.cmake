@@ -110,6 +110,7 @@
 
 // kdesktop
 #cmakedefine KSCREENSAVER_PAM_SERVICE "@KSCREENSAVER_PAM_SERVICE@"
+#cmakedefine WITH_KDESKTOP_LOCK_BACKTRACE 1
 
 // kdm
 #cmakedefine XBINDIR "@XBINDIR@"

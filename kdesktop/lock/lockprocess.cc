@@ -137,6 +137,7 @@ static Atom   gXA_SCREENSAVER_VERSION;
 
 void print_trace()
 {
+#ifdef WITH_KDESKTOP_LOCK_BACKTRACE
 	void *array[10];
 	size_t size;
 	char **strings;
@@ -152,6 +153,7 @@ void print_trace()
 	}
 
 	free (strings);
+#endif
 }
 
 static void segv_handler(int)

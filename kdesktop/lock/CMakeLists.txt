@@ -32,11 +32,16 @@ set( target kdesktop_lock )
 
 set( ${target}_SRCS
   lockprocess.cc lockdlg.cc infodlg.cc querydlg.cc sakdlg.cc
-  securedlg.cc autologout.cc main.cc backtrace_symbols.c
+  securedlg.cc autologout.cc main.cc
 )
+
+if( WITH_KDESKTOP_LOCK_BACKTRACE )
+  list( APPEND ${target}_SRCS backtrace_symbols.c )
+  set( BACKTRACE_LIBRARY bfd )
+endif( )
 
 tde_add_executable( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
-  LINK kdesktopsettings-static dmctl-static kio-shared Xext bfd ${GL_LIBRARY} "${LINKER_IMMEDIATE_BINDING_FLAGS}"
+  LINK kdesktopsettings-static dmctl-static kio-shared Xext ${BACKTRACE_LIBRARY} ${GL_LIBRARY} "${LINKER_IMMEDIATE_BINDING_FLAGS}"
   DESTINATION ${BIN_INSTALL_DIR}
 )

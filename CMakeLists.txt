@@ -22,6 +22,7 @@ set( VERSION "3.5.13" )
 
 include( FindPkgConfig )
 include( CheckIncludeFile )
+include( CheckIncludeFiles )
 include( CheckCSourceRuns )
 include( CheckCXXSourceCompiles )
 include( CheckLibraryExists )
@@ -79,6 +80,7 @@ option( WITH_XINERAMA "Enable xinerama extension support" OFF )
 option( WITH_ARTS "Enable aRts support" OFF )
 option( WITH_I8K "Enable Dell laptop support (ksysguard)" OFF )
 option( WITH_HAL "Enable HAL support" OFF )
+option( WITH_KDESKTOP_LOCK_BACKTRACE "Enable backtrace in kdesktop_lock exception handler"  OFF )
 
 
 ##### user requested modules ####################
