@@ -9,7 +9,12 @@
 #
 #################################################
 
-check_include_file( libsmbclient.h HAVE_LIBSMBCLIENT_H )
+pkg_search_module ( SMBCLIENT smbclient )
+if( SMBCLIENT_FOUND ) 
+  set( HAVE_LIBSMBCLIENT_H 1 )
+else( )
+  check_include_file( libsmbclient.h HAVE_LIBSMBCLIENT_H )
+endif( )
 
 if( HAVE_LIBSMBCLIENT_H )
   set( SMBCLIENT_LIBRARIES smbclient )

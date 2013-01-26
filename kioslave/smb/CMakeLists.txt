@@ -16,6 +16,7 @@ include_directories(
   ${CMAKE_BINARY_DIR}
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
+  ${SMBCLIENT_INCLUDE_DIRS}
 )
 
 link_directories(
