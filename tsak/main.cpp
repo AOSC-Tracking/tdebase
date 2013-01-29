@@ -432,7 +432,10 @@ int main (int argc, char *argv[])
 	struct input_event event;
 	struct input_event revev;
 	struct uinput_user_dev devinfo={{0},{0}};
-	int devout[MAX_KEYBOARDS], rd, i, size = sizeof (struct input_event);
+	int devout[MAX_KEYBOARDS];
+	int rd;
+	int i;
+	int size = sizeof (struct input_event);
 	char name[256] = "Unknown";
 	bool ctrl_down = false;
 	bool alt_down = false;
@@ -593,7 +596,30 @@ int main (int argc, char *argv[])
 									if (i<0) return 9; // fork failed
 									if (i>0) {
 										child_pids[current_keyboard] = i;
-										continue;
+
+										int i=fork();
+										if (i<0) return 9; // fork failed
+										if (i>0) {
+											child_led_pids[current_keyboard] = i;
+											continue;
+										}
+
+										if (testrun == true) {
+											return 0;
+										}
+
+										while (1) {
+											// Replicate LED events from the virtual keyboard to the physical keyboard
+											int rrd = read(devout[current_keyboard], &revev, size);
+											if (rrd >= size) {
+												if ((revev.type == EV_LED) || (revev.type == EV_MSC)) {
+													if (write(keyboard_fds[current_keyboard], &revev, sizeof(revev)) < 0) {
+														fprintf(stderr, "[tsak] Unable to replicate LED event\n");
+													}
+												}
+											}
+										}
+										return 0;
 									}
 									setupLockingPipe(false);
 								}
@@ -601,24 +627,6 @@ int main (int argc, char *argv[])
 								established = true;
 
 								if (testrun == true) {
-									return 0;
-								}
-
-								int i=fork();
-								if (i<0) return 9; // fork failed
-								if (i>0) {
-									child_led_pids[current_keyboard] = i;
-									while (1) {
-										// Replicate LED events from the virtual keyboard to the physical keyboard
-										int rrd = read(devout[current_keyboard], &revev, size);
-										if (rrd >= size) {
-											if (revev.type == EV_LED) {
-												if (write(keyboard_fds[current_keyboard], &revev, sizeof(revev)) < 0) {
-													fprintf(stderr, "[tsak] Unable to replicate LED event\n");
-												}
-											}
-										}
-									}
 									return 0;
 								}
 
