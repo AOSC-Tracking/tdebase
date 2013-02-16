@@ -1749,6 +1749,7 @@ void LockProcess::suspend()
         else {
             TQString hackStatus;
             mHackProc.kill(SIGSTOP);
+            mSuspended = true;
 #if 0
             // wait for the stop signal to take effect
             while (hackStatus != "T") {
@@ -1771,7 +1772,6 @@ void LockProcess::suspend()
         TQApplication::syncX();
         mSavedScreen = TQPixmap::grabWindow( winId());
     }
-    mSuspended = true;
 }
 
 void LockProcess::resume( bool force )
