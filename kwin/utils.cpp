@@ -339,8 +339,8 @@ bool isLocalMachine( const TQCString& host )
                 return false;
             for(addr = res; !is_local && addr; addr = addr->ai_next)
                 {
-                if( res->ai_canonname &&
-                    host == TQCString( res->ai_canonname ))
+                if( addr->ai_canonname &&
+                    host == TQCString( addr->ai_canonname ))
                     is_local = true;
                 }
             freeaddrinfo(res);
