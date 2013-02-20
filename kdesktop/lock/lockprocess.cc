@@ -1847,8 +1847,9 @@ bool LockProcess::checkPass()
             // Wait for SAK press before continuing...
             SAKDlg inDlg( this );
             execDialog( &inDlg );
-            if (trinity_desktop_lock_closing_windows)
+            if (trinity_desktop_lock_closing_windows) {
                 return 0;
+            }
         }
 
         showVkbd();
@@ -2030,7 +2031,9 @@ void LockProcess::cleanupPopup()
 {
     TQWidget *dlg = (TQWidget *)sender();
     mDialogs.remove( dlg );
-    fakeFocusIn( mDialogs.first()->winId() );
+    if ( mDialogs.isEmpty() ) {
+        fakeFocusIn( mDialogs.first()->winId() );
+    }
 }
 
 void LockProcess::doFunctionKeyBroadcast() {
@@ -2549,7 +2552,7 @@ void LockProcess::slotMouseActivity(XEvent *event)
 	bool inDialog = 0;
 	XButtonEvent *be = (XButtonEvent *) event;
 	XMotionEvent *me = (XMotionEvent *) event;
-	if ((event->type == ButtonPress) && (mDialogs.first())) {
+	if ((event->type == ButtonPress) && (!mDialogs.isEmpty())) {
 		// Get geometry including window frame/titlebar
 		TQRect fgeom = mDialogs.first()->frameGeometry();
 		TQRect wgeom = mDialogs.first()->geometry();
@@ -2590,7 +2593,7 @@ void LockProcess::slotMouseActivity(XEvent *event)
 			int deltaY = me->y_root - m_mousePrevY;
 			m_dialogPrevX = m_dialogPrevX + deltaX;
 			m_dialogPrevY = m_dialogPrevY + deltaY;
-			if (mDialogs.first()) mDialogs.first()->move(m_dialogPrevX, m_dialogPrevY);
+			if (!mDialogs.isEmpty()) mDialogs.first()->move(m_dialogPrevX, m_dialogPrevY);
 
 			m_mousePrevX = me->x_root;
 			m_mousePrevY = me->y_root;
