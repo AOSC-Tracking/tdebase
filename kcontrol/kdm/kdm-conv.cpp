@@ -154,6 +154,11 @@ KDMConvenienceWidget::KDMConvenienceWidget(TQWidget *parent, const char *name)
 	" circumventing a password-secured screen lock possible.") );
     connect(cbarlen, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
 
+    allowRootLogin = new TQCheckBox(i18n("Allow &Root Login"), btGroup);
+    TQWhatsThis::add( allowRootLogin, i18n("When set this allows root logins directly in KDM. "
+    "This is discouraged by some people. Use with caution.") );
+    connect(allowRootLogin, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
+
     TQGridLayout *main = new TQGridLayout(this, 5, 2, 10);
     main->addWidget(paranoia, 0, 0);
     main->addWidget(alGroup, 1, 0);
@@ -183,6 +188,7 @@ void KDMConvenienceWidget::makeReadOnly()
     ((TQWidget*)npGroup->child("qt_groupbox_checkbox"))->setEnabled(false);
     npuserlv->setEnabled(false);
     cbarlen->setEnabled(false);
+    allowRootLogin->setEnabled(false);
     npRadio->setEnabled(false);
     ppRadio->setEnabled(false);
     spRadio->setEnabled(false);
@@ -213,6 +219,7 @@ void KDMConvenienceWidget::save()
 
     config->setGroup("X-*-Core");
     config->writeEntry( "AutoReLogin", cbarlen->isChecked() );
+    config->writeEntry( "AllowRootLogin", allowRootLogin->isChecked() );
 
     config->setGroup("X-:*-Greeter");
     config->writeEntry( "PreselectUser", npRadio->isChecked() ? "None" :
@@ -241,6 +248,7 @@ void KDMConvenienceWidget::load()
 
     config->setGroup("X-*-Core");
     cbarlen->setChecked(config->readBoolEntry( "AutoReLogin", false) );
+    allowRootLogin->setChecked(config->readBoolEntry( "AllowRootLogin", false) );
 
     config->setGroup("X-:*-Greeter");
     TQString presstr = config->readEntry( "PreselectUser", "None" );
@@ -266,6 +274,7 @@ void KDMConvenienceWidget::defaults()
     npRadio->setChecked(true);
     npGroup->setChecked(false);
     cbarlen->setChecked(false);
+    allowRootLogin->setChecked(false);
     cbjumppw->setChecked(false);
     autoUser = "";
     preselUser = "";

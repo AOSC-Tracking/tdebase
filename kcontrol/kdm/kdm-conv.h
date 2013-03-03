@@ -69,7 +69,7 @@ private slots:
 
 private:
 	TQGroupBox	*alGroup, *puGroup, *npGroup, *btGroup;
-	TQCheckBox	*againcb, *cbarlen, *cbjumppw, *autoLockCheck;
+	TQCheckBox	*againcb, *cbarlen, *cbjumppw, *autoLockCheck, *allowRootLogin;
 	TQRadioButton	*npRadio, *ppRadio, *spRadio;
 	KComboBox	*userlb, *puserlb;
 	TQSpinBox	*delaysb;
