@@ -80,6 +80,15 @@ KBehaviourOptions::KBehaviourOptions(KConfig *config, TQString group, TQWidget *
                                           " separate window.") );
 
 
+    // ----
+
+    cbShowArchivesAsFolders = new TQCheckBox( i18n( "Show archived &files as folders" ), vbox );
+    connect(cbShowArchivesAsFolders, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+
+    TQWhatsThis::add( cbShowArchivesAsFolders, i18n("Checking this option will list archived"
+                                          " files as folders when using tree view.") );
+
+
     // --
 
     cbShowTips = new TQCheckBox( i18n( "Show file &tips" ), vbox );
@@ -202,7 +211,7 @@ void KBehaviourOptions::load( bool useDefaults )
     cbShowPreviewsInTips->setChecked( showPreviewsIntips );
 
     cbRenameDirectlyIcon->setChecked( g_pConfig->readBoolEntry("RenameIconDirectly",  DEFAULT_RENAMEICONDIRECTLY ) );
-    
+
     KConfig globalconfig("kdeglobals", true, false);
     globalconfig.setGroup( "KDE" );
     cbShowDeleteCommand->setChecked( globalconfig.readBoolEntry("ShowDeleteCommand", false) );
@@ -214,12 +223,15 @@ void KBehaviourOptions::load( bool useDefaults )
 
     KConfig config("uiserverrc");
     config.setGroup( "UIServer" );
-
     cbListProgress->setChecked( config.readBoolEntry( "ShowList", false ) );
 
     g_pConfig->setGroup( "Trash" );
     cbMoveToTrash->setChecked( g_pConfig->readBoolEntry("ConfirmTrash", DEFAULT_CONFIRMTRASH) );
     cbDelete->setChecked( g_pConfig->readBoolEntry("ConfirmDelete", DEFAULT_CONFIRMDELETE) );
+
+    KConfig sidebarconfig("konqsidebartng.rc");
+    sidebarconfig.setGroup( "" );
+    cbShowArchivesAsFolders->setChecked( sidebarconfig.readBoolEntry( "ShowArchivesAsFolders", false ) );
 
 	 emit changed( useDefaults );
 }
@@ -241,12 +253,17 @@ void KBehaviourOptions::save()
 //    g_pConfig->writeEntry( "FileTipsItems", sbToolTip->value() );
 
     g_pConfig->writeEntry( "RenameIconDirectly", cbRenameDirectlyIcon->isChecked());
-    
+
+    KConfig sidebarconfig("konqsidebartng.rc");
+    sidebarconfig.setGroup( "" );
+    sidebarconfig.writeEntry( "ShowArchivesAsFolders", cbShowArchivesAsFolders->isChecked() );
+    sidebarconfig.sync();
+
     KConfig globalconfig("kdeglobals", false, false);
     globalconfig.setGroup( "KDE" );
     globalconfig.writeEntry( "ShowDeleteCommand", cbShowDeleteCommand->isChecked());
     globalconfig.sync();
-    
+
     g_pConfig->setGroup( "Trash" );
     g_pConfig->writeEntry( "ConfirmTrash", cbMoveToTrash->isChecked());
     g_pConfig->writeEntry( "ConfirmDelete", cbDelete->isChecked());
@@ -257,6 +274,7 @@ void KBehaviourOptions::save()
     config.setGroup( "UIServer" );
     config.writeEntry( "ShowList", cbListProgress->isChecked() );
     config.sync();
+
     // Tell the running server
     if ( kapp->dcopClient()->isApplicationRegistered( "kio_uiserver" ) )
     {

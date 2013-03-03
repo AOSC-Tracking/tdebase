@@ -55,6 +55,7 @@ private:
 
   TQCheckBox *cbNewWin;
   TQCheckBox *cbListProgress;
+  TQCheckBox *cbShowArchivesAsFolders;
 
   TQLabel *winPixmap;
 
