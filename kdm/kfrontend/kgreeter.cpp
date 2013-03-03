@@ -618,6 +618,7 @@ void
 KGreeter::putSession( const TQString &type, const TQString &name, bool hid, const char *exe )
 {
 	int prio = exe ? (!strcmp( exe, "default" ) ? 0 :
+	                  !strcmp( exe, "custom" ) ? 1 :
 	                  !strcmp( exe, "failsafe" ) ? 3 : 2) : 2;
 	for (uint i = 0; i < sessionTypes.size(); i++)
 		if (sessionTypes[i].type == type) {
@@ -645,6 +646,7 @@ KGreeter::insertSessions()
 			}
 	}
 	putSession( "default", i18n("Default"), false, "default" );
+	putSession( "custom", i18n("Custom"), false, "custom" );
 	putSession( "failsafe", i18n("Failsafe"), false, "failsafe" );
 	qBubbleSort( sessionTypes );
 	for (uint i = 0; i < sessionTypes.size() && !sessionTypes[i].hid; i++) {
