@@ -56,6 +56,20 @@
                 </widget>
                 <widget class="TQCheckBox">
                     <property name="name">
+                        <cstring>showFancyFadeAway</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Show fancy &amp;logout fadeaway</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Check this option if you want to see a fancy fadeaway when displaying a logout confirmation dialog box.</string>
+                    </property>
+                </widget>
+                <widget class="TQCheckBox">
+                    <property name="name">
                         <cstring>offerShutdownCheck</cstring>
                     </property>
                     <property name="text">
@@ -213,6 +227,18 @@
 <connections>
     <connection>
         <sender>confirmLogoutCheck</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SMServerConfigDlg</receiver>
+        <slot>configChanged()</slot>
+    </connection>
+    <connection>
+        <sender>confirmLogoutCheck</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>showFancyFadeAway</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>showFancyFadeAway</sender>
         <signal>toggled(bool)</signal>
         <receiver>SMServerConfigDlg</receiver>
         <slot>configChanged()</slot>
