@@ -11,20 +11,20 @@ if test "$1" = "-q"; then
 fi
 
 if test "$1" = "--help"; then
-   echo "Usage: $0 <name> where name is a device or a mountpoint."
-   exit 0
+  echo "Usage: $0 <name> where name is a device or a mountpoint."
+  exit 0
 fi
 
 if test -z "$1"; then
   for dev in /dev/cdrom /dev/dvd /dev/dvdram /dev/cdrecorder; do
-     if test -e $dev; then
-        lp=`readlink $dev`
-	if test -n "$lp"; then
-	    device=/dev/$lp
-	else
-	    device=$dev
-        fi
-        break
+    if test -e $dev; then
+      lp=`readlink $dev`
+      if test -n "$lp"; then
+        device=/dev/$lp
+      else
+        device=$dev
+      fi
+      break
     fi
   done
 else
@@ -33,32 +33,31 @@ fi
 
 udi=`dcop kded mediamanager properties $device 2>/dev/null | head -n 1 `
 if test -n "$udi"; then
-    dcop kded mediamanager unmount "$udi" >/dev/null 2>&1
+  dcop kded mediamanager unmount "$udi" >/dev/null 2>&1
 fi
 
-  # Checking for stuff in the PATH is ugly with sh.
-  # I guess this is the reason for making this a kde app...
-  OS=`uname -s`
-  case "$OS" in
-    OpenBSD)
-      cdio -f $1 eject >/dev/null 2>&1
-      ;;
-    *BSD)
-      dev=`echo $1 | sed -E -e 's#/dev/##' -e 's/([0-9])./\1/'`
-      cdcontrol -f $dev eject >/dev/null 2>&1
-      ;;
-    *)
-      # Warning, it has to be either eject 2.0.x or >=2.1.5
-      # Otherwise it doesn't work as expected (it requires a
-      # fstab entry for no reason).
-      eject $1 >/dev/null 2>&1
-      ;;
-  esac
-  if test $? -eq 0; then
-#    dcop kdesktop default refreshIcons
-    exit 0
-  elif test $quiet -eq 0; then
-    kdialog --title "KDE Eject" --error "Eject $1 failed!"
-  fi
-
+# Checking for stuff in the PATH is ugly with sh.
+# I guess this is the reason for making this a kde app...
+OS=`uname -s`
+case "$OS" in
+  OpenBSD)
+    cdio -f $device eject #>/dev/null 2>&1
+    ;;
+  *BSD)
+    dev=`echo $device | sed -E -e 's#/dev/##' -e 's/([0-9])./\1/'`
+    cdcontrol -f $dev eject #>/dev/null 2>&1
+    ;;
+  *)
+    # Warning, it has to be either eject 2.0.x or >=2.1.5
+    # Otherwise it doesn't work as expected (it requires a
+    # fstab entry for no reason).
+    eject -v $device #>/dev/null 2>&1
+    ;;
+esac
+if test $? -eq 0; then
+  #dcop kdesktop default refreshIcons
+  exit 0
+elif test $quiet -eq 0; then
+  kdialog --title "KDE Eject" --error "Eject $device failed!"
+fi
 exit 1
