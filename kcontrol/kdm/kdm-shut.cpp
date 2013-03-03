@@ -45,7 +45,6 @@ KDMSessionsWidget::KDMSessionsWidget(TQWidget *parent, const char *name)
 {
       TQString wtstr;
 
-
       TQGroupBox *group0 = new TQGroupBox( i18n("Allow Shutdown"), this );
 
       sdlcombo = new TQComboBox( FALSE, group0 );
@@ -101,6 +100,11 @@ KDMSessionsWidget::KDMSessionsWidget(TQWidget *parent, const char *name)
       TQWhatsThis::add( bm_label, wtstr );
       TQWhatsThis::add( bm_combo, wtstr );
 
+      tsbox = new TQCheckBox( i18n("Restart X-Server with session exit"), this );
+      connect( tsbox, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()) );
+      wtstr = i18n("Whether the login manager should restart the local X-Server after a session exit instead of resetting. Use this when the X-Server leaks memory, crashes the system on reset attempts, or otherwise exhibits display issues.");
+      TQWhatsThis::add( tsbox, wtstr );
+
       TQBoxLayout *main = new TQVBoxLayout( this, 10 );
       TQGridLayout *lgroup0 = new TQGridLayout( group0, 1, 1, 10);
       TQGridLayout *lgroup1 = new TQGridLayout( group1, 1, 1, 10);
@@ -109,6 +113,7 @@ KDMSessionsWidget::KDMSessionsWidget(TQWidget *parent, const char *name)
       main->addWidget(group0);
       main->addWidget(group1);
       main->addWidget(group4);
+      main->addWidget(tsbox);
       main->addStretch();
 
       lgroup0->addRowSpacing(0, group0->fontMetrics().height()/2);
@@ -149,6 +154,7 @@ void KDMSessionsWidget::makeReadOnly()
     shutdown_lined->button()->setEnabled(false);
 
     bm_combo->setEnabled(false);
+    tsbox->setEnabled(false);
 }
 
 void KDMSessionsWidget::writeSD(TQComboBox *combo)
@@ -166,6 +172,7 @@ void KDMSessionsWidget::save()
 {
     config->setGroup("X-:*-Core");
     writeSD(sdlcombo);
+    config->writeEntry( "TerminateServer", tsbox->isChecked() );
 
     config->setGroup("X-*-Core");
     writeSD(sdrcombo);
@@ -194,6 +201,8 @@ void KDMSessionsWidget::load()
 {
   config->setGroup("X-:*-Core");
   readSD(sdlcombo, "All");
+  tsbox->setChecked(config->readBoolEntry("TerminateServer", false));
+
 
   config->setGroup("X-*-Core");
   readSD(sdrcombo, "Root");

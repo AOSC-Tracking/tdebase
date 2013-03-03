@@ -56,6 +56,7 @@ private:
 	TQLabel		*sdllabel, *sdrlabel;
 	KURLRequester	*restart_lined, *shutdown_lined;
 	KBackedComboBox	*bm_combo;
+	TQCheckBox	*tsbox;
 };
 
 
