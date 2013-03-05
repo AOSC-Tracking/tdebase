@@ -231,7 +231,7 @@ void KBehaviourOptions::load( bool useDefaults )
 
     KConfig sidebarconfig("konqsidebartng.rc");
     sidebarconfig.setGroup( "" );
-    cbShowArchivesAsFolders->setChecked( sidebarconfig.readBoolEntry( "ShowArchivesAsFolders", false ) );
+    cbShowArchivesAsFolders->setChecked( sidebarconfig.readBoolEntry( "ShowArchivesAsFolders", true ) );
 
 	 emit changed( useDefaults );
 }
