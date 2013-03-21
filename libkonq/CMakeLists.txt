@@ -14,6 +14,7 @@ project( libkonq )
 
 add_subdirectory( pics )
 add_subdirectory( favicons )
+add_subdirectory( servicemenus )
 
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
