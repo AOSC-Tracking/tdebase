@@ -4,6 +4,7 @@
 //
 // Copyright (c) 1999 Martin R. Jones <mjones@kde.org>
 // Copyright (c) 2003 Oswald Buddenhagen <ossi@kde.org>
+// Copyright (c) 2010-2013 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 //
 
 #ifndef __LOCKENG_H__

@@ -4,7 +4,7 @@
 //
 // Copyright (c) 1999 Martin R. Jones <mjones@kde.org>
 // Copyright (c) 2003 Oswald Buddenhagen <ossi@kde.org>
-// Copyright (c) 2010-2012 Timothy Pearson <kb9vqf@pearsoncomputing.net>
+// Copyright (c) 2010-2013 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 //
 
 //kdesktop keeps running and checks user inactivity
@@ -1364,31 +1364,6 @@ bool LockProcess::startSaver()
 		if (m_rootPixmap) m_rootPixmap->stop();
 		TQPixmap rootWinSnapShot = TQPixmap::grabWindow(TQApplication::desktop()->winId());
 		slotPaintBackground(rootWinSnapShot);
-	}
-	else {
-		// Sometimes KRootPixmap fails...make sure the desktop is hidden regardless
-		if (backingPixmap.isNull()) {
-			if (!mEnsureScreenHiddenTimer) {
-				mEnsureScreenHiddenTimer = new TQTimer( this );
-				connect( mEnsureScreenHiddenTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotForcePaintBackground()) );
-				mEnsureScreenHiddenTimer->start(DESKTOP_WALLPAPER_OBTAIN_TIMEOUT_MS, true);
-			}
-
-			int exitTimer = 0;
-			while ((backingPixmap.isNull()) && (mEnsureScreenHiddenTimer->isActive())) {
-				kapp->eventLoop()->processEvents(TQEventLoop::ExcludeUserInput);
-
-				// HACK
-				// Work around an issue with the underlying system whereby the TQTimer sometimes fails to time out!
-				// This issue was reported in Bug #1288
-				usleep(100);
-				exitTimer++;
-				if (exitTimer > (DESKTOP_WALLPAPER_OBTAIN_TIMEOUT_MS*10)) {
-					printf("[WARNING] The Qt3 timer event loop appears to have hung.  Aborting wait for desktop background!\n\r"); fflush(stdout);
-					break;
-				}
-			}
-		}
 	}
 
 	if (((!(trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced)) && (!trinity_desktop_lock_in_sec_dlg)) && mHackStartupEnabled) {
