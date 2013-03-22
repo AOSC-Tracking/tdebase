@@ -110,6 +110,7 @@ private:
     void saveVRoot();
     void setVRoot(Window win, Window rw);
     void removeVRoot(Window win);
+    void setTransparentBackgroundARGB();
     bool grabKeyboard();
     bool grabMouse();
     bool grabInput();
@@ -195,6 +196,7 @@ private:
 
     int         mHackDelayStartupTimeout;
     bool        mHackStartupEnabled;
+    bool        mOverrideHackStartupEnabled;
     bool        mResizingDesktopLock;
 
     TQPixmap    backingPixmap;

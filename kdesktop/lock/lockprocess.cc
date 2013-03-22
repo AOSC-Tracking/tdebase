@@ -222,6 +222,7 @@ LockProcess::LockProcess()
       mHackDelayStartupTimer(NULL),
       mHackDelayStartupTimeout(0),
       mHackStartupEnabled(true),
+      mOverrideHackStartupEnabled(false),
       mResizingDesktopLock(false),
       m_rootPixmap(NULL),
       mBackingStartupDelayTimer(0),
@@ -687,6 +688,7 @@ void LockProcess::slotDeadTimePassed()
 bool LockProcess::defaultSave()
 {
     mLocked = false;
+    mOverrideHackStartupEnabled = true;
     if (startSaver()) {
         if (mLockGrace >= 0)
             TQTimer::singleShot(mLockGrace, this, TQT_SLOT(startLock()));
@@ -857,16 +859,19 @@ void LockProcess::configure()
     if (mSaver.isEmpty() || mUseBlankOnly) {
         mSaver = "KBlankscreen.desktop";
     }
-    if (KDesktopSettings::screenSaverEnabled() == false) {
-        mSaver = "";
-        mSaverExec = "";
+    if (!trinity_desktop_lock_use_system_modal_dialogs) {
+        if (KDesktopSettings::screenSaverEnabled() == false) {
+            mSaver = "";
+            mSaverExec = "";
+        }
     }
 
     readSaver();
 
     mPlugins = KDesktopSettings::pluginsUnlock();
-    if (mPlugins.isEmpty())
+    if (mPlugins.isEmpty()) {
         mPlugins = TQStringList("classic");
+    }
     mPluginOptions = KDesktopSettings::pluginOptions();
 }
 
@@ -1108,7 +1113,7 @@ void LockProcess::desktopResized()
 
     // Black out the background widget to hide ugly resize tiling artifacts
     if (argb_visual) {
-        setErasePixmap(TQPixmap());
+        setTransparentBackgroundARGB();
     }
     else {
         setBackgroundColor(black);
@@ -1360,17 +1365,10 @@ void LockProcess::ungrabInput()
 
 //---------------------------------------------------------------------------
 //
-// Start the screen saver.
+// Set a fully transparent ARGB background image.
 //
-bool LockProcess::startSaver()
+void LockProcess::setTransparentBackgroundARGB()
 {
-	if (!child_saver && !grabInput())
-	{
-		kdWarning(1204) << "LockProcess::startSaver() grabInput() failed!!!!" << endl;
-		return false;
-	}
-	mBusy = false;
-
 	// eliminate nasty flicker on first show
 	TQImage m_grayImage = TQImage( TQApplication::desktop()->width(), TQApplication::desktop()->height(), 32 );
 	m_grayImage = m_grayImage.convertDepth(32);
@@ -1385,6 +1383,23 @@ bool LockProcess::startSaver()
 	p.drawImage( 0, 0, m_grayImage );
 	p.end();
 	setBackgroundPixmap( m_root );
+}
+
+//---------------------------------------------------------------------------
+//
+// Start the screen saver.
+//
+bool LockProcess::startSaver()
+{
+	if (!child_saver && !grabInput())
+	{
+		kdWarning(1204) << "LockProcess::startSaver() grabInput() failed!!!!" << endl;
+		return false;
+	}
+	mBusy = false;
+
+	// eliminate nasty flicker on first show
+	setTransparentBackgroundARGB();
 
 	saveVRoot();
 
@@ -1406,9 +1421,9 @@ bool LockProcess::startSaver()
 		slotPaintBackground(rootWinSnapShot);
 	}
 
-	if (((!(trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced)) && (!trinity_desktop_lock_in_sec_dlg)) && mHackStartupEnabled) {
+	if (((!(trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced)) && (!trinity_desktop_lock_in_sec_dlg)) && (mHackStartupEnabled || mOverrideHackStartupEnabled)) {
 		if (argb_visual) {
-			setErasePixmap(TQPixmap());
+			setTransparentBackgroundARGB();
 		}
 		else {
 			if (backingPixmap.isNull()) {
@@ -1428,7 +1443,8 @@ bool LockProcess::startSaver()
 			if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
 		}
 		else {
-			if (mHackStartupEnabled == true) {
+			if (mHackStartupEnabled || mOverrideHackStartupEnabled) {
+				mOverrideHackStartupEnabled = false;
 				startHack();
 			}
 			else {
@@ -1575,7 +1591,7 @@ void LockProcess::repaintRootWindowIfNeeded()
 	if (trinity_desktop_lock_use_system_modal_dialogs) {
 		if (!mHackProc.isRunning()) {
 			if (argb_visual) {
-				setErasePixmap(TQPixmap());
+				setTransparentBackgroundARGB();
 				erase();
 			}
 			else {
@@ -1608,7 +1624,7 @@ bool LockProcess::startHack()
     {
         // no resuming with dialog visible or when not visible
 	if (argb_visual) {
-		setErasePixmap(TQPixmap());
+		setTransparentBackgroundARGB();
 	}
 	else {
 		if (backingPixmap.isNull()) {
@@ -1661,7 +1677,7 @@ bool LockProcess::startHack()
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
 			// Make sure we have a nice clean display to start with!
 			if (argb_visual) {
-				setErasePixmap(TQPixmap());
+				setTransparentBackgroundARGB();
 			}
 			else {
 				if (backingPixmap.isNull()) {
@@ -1701,7 +1717,7 @@ bool LockProcess::startHack()
 		TQApplication::syncX();
 		if (!trinity_desktop_lock_use_system_modal_dialogs) {
 			if (argb_visual) {
-				setErasePixmap(TQPixmap());
+				setTransparentBackgroundARGB();
 			}
 			else {
 				if (backingPixmap.isNull()) {
@@ -1713,7 +1729,7 @@ bool LockProcess::startHack()
 			}
 		}
 		if (argb_visual) {
-			setErasePixmap(TQPixmap());
+			setTransparentBackgroundARGB();
 			erase();
 		}
 		else {
@@ -1763,7 +1779,7 @@ void LockProcess::hackExited(KProcess *)
 	TQApplication::syncX();
 	if (!trinity_desktop_lock_use_system_modal_dialogs) {
 		if (argb_visual) {
-			setErasePixmap(TQPixmap());
+			setTransparentBackgroundARGB();
 		}
 		else {
 			if (backingPixmap.isNull()) {
@@ -1775,7 +1791,7 @@ void LockProcess::hackExited(KProcess *)
 		}
 	}
 	if (argb_visual) {
-		setErasePixmap(TQPixmap());
+		setTransparentBackgroundARGB();
 	}
 	else {
 		if (backingPixmap.isNull()) {
@@ -1863,7 +1879,7 @@ void LockProcess::resume( bool force )
         // no resuming with dialog visible or when not visible
 	if (trinity_desktop_lock_use_system_modal_dialogs) {
 		if (argb_visual) {
-			setErasePixmap(TQPixmap());
+			setTransparentBackgroundARGB();
 		}
 		else {
 			if (backingPixmap.isNull()) {

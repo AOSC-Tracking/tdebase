@@ -307,15 +307,12 @@ int main( int argc, char **argv )
             }
         }
 
-// FIXME
-// Composite should be enabled where possible, however using ARGB visuals seems to cause problems
-// with XScreenSaver hacks (they do not display).
-// #ifdef COMPOSITE
-//         MyApp app(KApplication::openX11RGBADisplay());
-//         argb_visual = app.isX11CompositionAvailable();
-// #else
+#ifdef COMPOSITE
+        MyApp app(KApplication::openX11RGBADisplay());
+        argb_visual = app.isX11CompositionAvailable();
+#else
         MyApp app;
-// #endif
+#endif
 
         kdDebug() << "app " << kdesktop_screen_number << " " << starting_screen << " " << child << " " << child_sockets.count() << " " << parent_connection << endl;
         app.disableSessionManagement();
