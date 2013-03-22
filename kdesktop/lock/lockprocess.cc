@@ -172,6 +172,8 @@ extern bool trinity_desktop_lock_use_sak;
 extern bool trinity_desktop_lock_hide_active_windows;
 extern bool trinity_desktop_lock_forced;
 
+extern bool argb_visual;
+
 extern TQXLibWindowList trinity_desktop_lock_hidden_window_list;
 
 bool trinity_desktop_lock_autohide_lockdlg = TRUE;
@@ -238,17 +240,24 @@ LockProcess::LockProcess()
     setupSignals();
     setupPipe();
 
+    // Signal that we want to be transparent to the desktop, not to windows behind us...
+    Atom kde_wm_transparent_to_desktop;
+    kde_wm_transparent_to_desktop = XInternAtom(qt_xdisplay(), "_KDE_TRANSPARENT_TO_DESKTOP", False);
+    XChangeProperty(qt_xdisplay(), winId(), kde_wm_transparent_to_desktop, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
+
     kapp->installX11EventFilter(this);
 
     mForceContinualLockDisplayTimer = new TQTimer( this );
     mHackDelayStartupTimer = new TQTimer( this );
     mEnsureVRootWindowSecurityTimer = new TQTimer( this );
 
-    // Try to get the root pixmap
-    if (!m_rootPixmap) m_rootPixmap = new KRootPixmap(this);
-    connect(m_rootPixmap, TQT_SIGNAL(backgroundUpdated(const TQPixmap &)), this, TQT_SLOT(slotPaintBackground(const TQPixmap &)));
-    m_rootPixmap->setCustomPainting(true);
-    m_rootPixmap->start();
+    if (!argb_visual) {
+        // Try to get the root pixmap
+        if (!m_rootPixmap) m_rootPixmap = new KRootPixmap(this);
+        connect(m_rootPixmap, TQT_SIGNAL(backgroundUpdated(const TQPixmap &)), this, TQT_SLOT(slotPaintBackground(const TQPixmap &)));
+        m_rootPixmap->setCustomPainting(true);
+        m_rootPixmap->start();
+    }
 
     // Get root window attributes
     XWindowAttributes rootAttr;
@@ -971,8 +980,26 @@ void LockProcess::createSaverWindow()
 
     attrs.override_redirect = 1;
     hide();
-    Window w = XCreateWindow( x11Display(), RootWindow( x11Display(), x11Screen()),
-        x(), y(), width(), height(), 0, x11Depth(), InputOutput, visual, flags, &attrs );
+
+    if (argb_visual) {
+        attrs.background_pixel = 0;
+        attrs.border_pixel = 0;
+        flags |= CWBackPixel;
+        flags |= CWBorderPixel;
+        if (!(flags & CWColormap)) {
+            XVisualInfo vinfo;
+            if (!XMatchVisualInfo( x11Display(), x11Screen(), 32, TrueColor, &vinfo )) {
+                printf("[ERROR] Unable to locate matching X11 Visual; this application will not function correctly!\n\r");
+            }
+            else {
+                visual = vinfo.visual;
+                attrs.colormap = XCreateColormap( x11Display(), RootWindow( x11Display(), x11Screen()), visual, AllocNone );
+                flags |= CWColormap;
+            }
+        }
+    }
+
+    Window w = XCreateWindow( x11Display(), RootWindow( x11Display(), x11Screen()), x(), y(), width(), height(), 0, x11Depth(), InputOutput, visual, flags, &attrs );
     create( w );
 
     // Some xscreensaver hacks check for this property
@@ -982,10 +1009,13 @@ void LockProcess::createSaverWindow()
                      (unsigned char *) version, strlen(version));
 
     XSetWindowAttributes attr;
-    attr.event_mask = KeyPressMask | ButtonPressMask | PointerMotionMask |
-                        VisibilityChangeMask | ExposureMask;
-    XChangeWindowAttributes(qt_xdisplay(), winId(),
-                            CWEventMask, &attr);
+    attr.event_mask = KeyPressMask | ButtonPressMask | PointerMotionMask | VisibilityChangeMask | ExposureMask;
+    XChangeWindowAttributes(qt_xdisplay(), winId(), CWEventMask, &attr);
+
+    // Signal that we want to be transparent to the desktop, not to windows behind us...
+    Atom kde_wm_transparent_to_desktop;
+    kde_wm_transparent_to_desktop = XInternAtom(qt_xdisplay(), "_KDE_TRANSPARENT_TO_DESKTOP", False);
+    XChangeProperty(qt_xdisplay(), w, kde_wm_transparent_to_desktop, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
 
     // erase();
 
@@ -1077,7 +1107,12 @@ void LockProcess::desktopResized()
     XSync(qt_xdisplay(), False);
 
     // Black out the background widget to hide ugly resize tiling artifacts
-    setBackgroundColor(black);
+    if (argb_visual) {
+        setErasePixmap(TQPixmap());
+    }
+    else {
+        setBackgroundColor(black);
+    }
     erase();
 
     // This slot needs to be able to execute very rapidly so as to prevent the user's desktop from ever
@@ -1203,28 +1238,35 @@ void LockProcess::saveVRoot()
 //
 void LockProcess::setVRoot(Window win, Window vr)
 {
-    if (gVRoot)
+    if (gVRoot) {
         removeVRoot(gVRoot);
+    }
 
     unsigned long rw = RootWindowOfScreen(ScreenOfDisplay(qt_xdisplay(), qt_xscreen()));
     unsigned long vroot_data[1] = { vr };
 
-    Window rootReturn, parentReturn, *children;
+    Window rootReturn;
+    Window parentReturn;
+    Window *children = NULL;
     unsigned int numChildren;
     Window top = win;
     while (1) {
-        XQueryTree(qt_xdisplay(), top , &rootReturn, &parentReturn,
-                                 &children, &numChildren);
-        if (children)
+        if (XQueryTree(qt_xdisplay(), top, &rootReturn, &parentReturn, &children, &numChildren) == 0) {
+            printf("[WARNING] XQueryTree() failed!\n\r"); fflush(stdout);
+            break;
+        }
+        if (children) {
             XFree((char *)children);
+        }
         if (parentReturn == rw) {
             break;
-        } else
+        }
+        else {
             top = parentReturn;
+        }
     }
 
-    XChangeProperty(qt_xdisplay(), top, gXA_VROOT, XA_WINDOW, 32,
-                     PropModeReplace, (unsigned char *)vroot_data, 1);
+    XChangeProperty(qt_xdisplay(), top, gXA_VROOT, XA_WINDOW, 32, PropModeReplace, (unsigned char *)vroot_data, 1);
 }
 
 //---------------------------------------------------------------------------
@@ -1365,11 +1407,16 @@ bool LockProcess::startSaver()
 	}
 
 	if (((!(trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced)) && (!trinity_desktop_lock_in_sec_dlg)) && mHackStartupEnabled) {
-		if (backingPixmap.isNull()) {
-			setBackgroundColor(black);
+		if (argb_visual) {
+			setErasePixmap(TQPixmap());
 		}
 		else {
-			setBackgroundPixmap(backingPixmap);
+			if (backingPixmap.isNull()) {
+				setBackgroundColor(black);
+			}
+			else {
+				setBackgroundPixmap(backingPixmap);
+			}
 		}
 		setGeometry(0, 0, mRootWidth, mRootHeight);
 		erase();
@@ -1527,13 +1574,19 @@ void LockProcess::repaintRootWindowIfNeeded()
 {
 	if (trinity_desktop_lock_use_system_modal_dialogs) {
 		if (!mHackProc.isRunning()) {
-			if (backingPixmap.isNull()) {
-				setBackgroundColor(black);
-				setGeometry(0, 0, mRootWidth, mRootHeight);
+			if (argb_visual) {
+				setErasePixmap(TQPixmap());
 				erase();
 			}
 			else {
-				bitBlt(this, 0, 0, &backingPixmap);
+				if (backingPixmap.isNull()) {
+					setBackgroundColor(black);
+					setGeometry(0, 0, mRootWidth, mRootHeight);
+					erase();
+				}
+				else {
+					bitBlt(this, 0, 0, &backingPixmap);
+				}
 			}
 		}
 		if (currentDialog == NULL) {
@@ -1554,11 +1607,16 @@ bool LockProcess::startHack()
     if (currentDialog || (!mDialogs.isEmpty()))
     {
         // no resuming with dialog visible or when not visible
-	if (backingPixmap.isNull()) {
-		setBackgroundColor(black);
+	if (argb_visual) {
+		setErasePixmap(TQPixmap());
 	}
 	else {
-		setBackgroundPixmap(backingPixmap);
+		if (backingPixmap.isNull()) {
+			setBackgroundColor(black);
+		}
+		else {
+			setBackgroundPixmap(backingPixmap);
+		}
 	}
 	setGeometry(0, 0, mRootWidth, mRootHeight);
 	erase();
@@ -1602,11 +1660,16 @@ bool LockProcess::startHack()
 	{
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
 			// Make sure we have a nice clean display to start with!
-			if (backingPixmap.isNull()) {
-				setBackgroundColor(black);
+			if (argb_visual) {
+				setErasePixmap(TQPixmap());
 			}
 			else {
-				setBackgroundPixmap(backingPixmap);
+				if (backingPixmap.isNull()) {
+					setBackgroundColor(black);
+				}
+				else {
+					setBackgroundPixmap(backingPixmap);
+				}
 			}
 			setGeometry(0, 0, mRootWidth, mRootHeight);
 			erase();
@@ -1637,18 +1700,31 @@ bool LockProcess::startHack()
 		usleep(100);
 		TQApplication::syncX();
 		if (!trinity_desktop_lock_use_system_modal_dialogs) {
-			if (backingPixmap.isNull()) {
-				setBackgroundColor(black);
+			if (argb_visual) {
+				setErasePixmap(TQPixmap());
 			}
 			else {
-				setBackgroundPixmap(backingPixmap);
+				if (backingPixmap.isNull()) {
+					setBackgroundColor(black);
+				}
+				else {
+					setBackgroundPixmap(backingPixmap);
+				}
 			}
 		}
-		if (backingPixmap.isNull()) {
-			setGeometry(0, 0, mRootWidth, mRootHeight);
+		if (argb_visual) {
+			setErasePixmap(TQPixmap());
 			erase();
 		}
-		else bitBlt(this, 0, 0, &backingPixmap);
+		else {
+			if (backingPixmap.isNull()) {
+				setGeometry(0, 0, mRootWidth, mRootHeight);
+				erase();
+			}
+			else {
+				bitBlt(this, 0, 0, &backingPixmap);
+			}
+		}
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
 			ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
 			if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
@@ -1686,18 +1762,30 @@ void LockProcess::hackExited(KProcess *)
 	usleep(100);
 	TQApplication::syncX();
 	if (!trinity_desktop_lock_use_system_modal_dialogs) {
-		if (backingPixmap.isNull()) {
-			setBackgroundColor(black);
+		if (argb_visual) {
+			setErasePixmap(TQPixmap());
 		}
 		else {
-			setBackgroundPixmap(backingPixmap);
+			if (backingPixmap.isNull()) {
+				setBackgroundColor(black);
+			}
+			else {
+				setBackgroundPixmap(backingPixmap);
+			}
 		}
 	}
-	if (backingPixmap.isNull()) {
-		setGeometry(0, 0, mRootWidth, mRootHeight);
-		erase();
+	if (argb_visual) {
+		setErasePixmap(TQPixmap());
 	}
-	else bitBlt(this, 0, 0, &backingPixmap);
+	else {
+		if (backingPixmap.isNull()) {
+			setGeometry(0, 0, mRootWidth, mRootHeight);
+			erase();
+		}
+		else {
+			bitBlt(this, 0, 0, &backingPixmap);
+		}
+	}
 	if (!mSuspended) {
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
 			ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
@@ -1774,11 +1862,16 @@ void LockProcess::resume( bool force )
     if( !force && (!mDialogs.isEmpty() || !mVisibility )) {
         // no resuming with dialog visible or when not visible
 	if (trinity_desktop_lock_use_system_modal_dialogs) {
-		if (backingPixmap.isNull()) {
-			setBackgroundColor(black);
+		if (argb_visual) {
+			setErasePixmap(TQPixmap());
 		}
 		else {
-			setBackgroundPixmap(backingPixmap);
+			if (backingPixmap.isNull()) {
+				setBackgroundColor(black);
+			}
+			else {
+				setBackgroundPixmap(backingPixmap);
+			}
 		}
 		setGeometry(0, 0, mRootWidth, mRootHeight);
 		erase();
@@ -1966,6 +2059,13 @@ void LockProcess::slotForcePaintBackground()
 
 void LockProcess::slotPaintBackground(const TQPixmap &rpm)
 {
+	if (argb_visual) {
+		if (mEnsureScreenHiddenTimer) {
+			mEnsureScreenHiddenTimer->stop();
+		}
+		return;
+	}
+
 	if (mEnsureScreenHiddenTimer) {
 		mEnsureScreenHiddenTimer->stop();
 	}

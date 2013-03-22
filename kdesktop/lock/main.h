@@ -28,6 +28,7 @@ class MyApp : public KApplication {
     Q_OBJECT
 public:
     MyApp() : KApplication(), lastTick( 0 ) {}
+    MyApp(Display *display, Qt::HANDLE visual = 0, Qt::HANDLE colormap = 0, bool allowStyles=true) : KApplication(display, visual, colormap, allowStyles), lastTick( 0 ) {}
 protected:
     bool x11EventFilter( XEvent * );
 signals:

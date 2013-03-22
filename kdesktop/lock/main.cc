@@ -19,6 +19,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include <config.h>
+
 #include "lockprocess.h"
 #include "main.h"
 #include "kdesktopsettings.h"
@@ -35,8 +37,19 @@
 
 #include <stdlib.h>
 
-#include <X11/Xlib.h>
-#include <fixx11h.h>
+#if defined(Q_WS_X11) && defined(HAVE_XRENDER) && TQT_VERSION >= 0x030300
+#define COMPOSITE
+#endif
+
+#ifdef COMPOSITE
+# include <X11/Xlib.h>
+# include <X11/extensions/Xrender.h>
+# include <fixx11h.h>
+# include <dlfcn.h>
+#else
+# include <X11/Xlib.h>
+# include <fixx11h.h>
+#endif
 
 #define OPEN_TDMCONFIG_AND_SET_GROUP									\
 if( stat( KDE_CONFDIR "/kdm/kdmdistrc" , &st ) == 0) {							\
@@ -63,6 +76,38 @@ bool signalled_securedialog;
 bool signalled_blank;
 bool signalled_run;
 bool in_internal_mode = FALSE;
+
+bool argb_visual = FALSE;
+
+static void sigusr1_handler(int)
+{
+    signalled_forcelock = TRUE;
+}
+
+static void sigusr2_handler(int)
+{
+    signalled_dontlock = TRUE;
+}
+
+static void sigusr3_handler(int)
+{
+    signalled_securedialog = TRUE;
+}
+
+static void sigusr4_handler(int)
+{
+    signalled_blank = TRUE;
+}
+
+static void sigusr5_handler(int)
+{
+    signalled_run = TRUE;
+}
+
+static int trapXErrors(Display *, XErrorEvent *)
+{
+    return 0;
+}
 
 bool MyApp::x11EventFilter( XEvent *ev )
 {
@@ -119,6 +164,10 @@ bool MyApp::x11EventFilter( XEvent *ev )
         XCreateWindowEvent create_event = ev->xcreatewindow;
         XWindowAttributes childAttr;
         Window childTransient;
+
+        // XGetWindowAttributes may generate BadWindow errors, so make sure they are silently ignored
+        int (*oldHandler)(Display *, XErrorEvent *);
+        oldHandler = XSetErrorHandler(trapXErrors);
         if (XGetWindowAttributes(create_event.display, create_event.window, &childAttr) && XGetTransientForHint(create_event.display, create_event.window, &childTransient)) {
             if ((childAttr.override_redirect) && (childTransient)) {
                 if (!trinity_desktop_lock_hidden_window_list.contains(create_event.window)) {
@@ -128,6 +177,7 @@ bool MyApp::x11EventFilter( XEvent *ev )
                 XFlush(create_event.display);
             }
         }
+        XSetErrorHandler(oldHandler);
     }
     else if (ev->type == DestroyNotify) {
         XDestroyWindowEvent destroy_event = ev->xdestroywindow;
@@ -169,36 +219,6 @@ void restore_hidden_override_redirect_windows() {
         Window win = *it;
         XRaiseWindow(qt_xdisplay(), win);
     }
-}
-
-static void sigusr1_handler(int)
-{
-    signalled_forcelock = TRUE;
-}
-
-static void sigusr2_handler(int)
-{
-    signalled_dontlock = TRUE;
-}
-
-static void sigusr3_handler(int)
-{
-    signalled_securedialog = TRUE;
-}
-
-static void sigusr4_handler(int)
-{
-    signalled_blank = TRUE;
-}
-
-static void sigusr5_handler(int)
-{
-    signalled_run = TRUE;
-}
-
-static int trapXErrors(Display *, XErrorEvent *)
-{
-    return 0;
 }
 
 // -----------------------------------------------------------------------------
@@ -287,7 +307,16 @@ int main( int argc, char **argv )
             }
         }
 
+// FIXME
+// Composite should be enabled where possible, however using ARGB visuals seems to cause problems
+// with XScreenSaver hacks (they do not display).
+// #ifdef COMPOSITE
+//         MyApp app(KApplication::openX11RGBADisplay());
+//         argb_visual = app.isX11CompositionAvailable();
+// #else
         MyApp app;
+// #endif
+
         kdDebug() << "app " << kdesktop_screen_number << " " << starting_screen << " " << child << " " << child_sockets.count() << " " << parent_connection << endl;
         app.disableSessionManagement();
         KGlobal::locale()->insertCatalogue("libdmctl");
