@@ -495,7 +495,11 @@ kg_main( const char *argv0 )
 	UnsecureDisplay( dpy );
 	restore_modifiers();
 
+	// Qt4 has a nasty habit of generating BadWindow errors in normal operation, so we simply ignore them
+	// This also prevents the user from being dropped to a console login if Xorg glitches or is buggy
+	XSetErrorHandler( ignoreXError );
 	XSetInputFocus( qt_xdisplay(), PointerRoot, PointerRoot, CurrentTime );
+	XSetErrorHandler( (XErrorHandler)0 );
 
 	delete app;
 }
