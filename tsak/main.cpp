@@ -386,9 +386,18 @@ void restart_tsak()
 	// Release all exclusive keyboard locks
 	for (int current_keyboard=0;current_keyboard<keyboard_fd_num;current_keyboard++) {
 		if(ioctl(keyboard_fds[current_keyboard], EVIOCGRAB, 0) < 0) {
-			fprintf(stderr, "[tsak] Failed to release exclusive input device lock");
+			fprintf(stderr, "[tsak] Failed to release exclusive input device lock\n");
 		}
 		close(keyboard_fds[current_keyboard]);
+	}
+
+	// Unset the exclusive file lock
+	if (mPipe_fd_out != -1) {
+		struct flock fl;
+		if (fcntl(mPipe_fd_out, F_UNLCK, &fl) == -1) {
+			fprintf(stderr, "[tsak] Failed to release exclusive pipe lock\n");
+		}
+		close(mPipe_fd_out);
 	}
 
 #if 1
@@ -498,14 +507,14 @@ int main (int argc, char *argv[])
 			}
 
 			if ((getuid ()) != 0) {
-				printf ("You are not root! This WILL NOT WORK!\nDO NOT attempt to bypass security restrictions, e.g. by changing keyboard permissions or owner, if you want the SAK system to remain secure...\n");
+				printf ("[tsak] You are not root! This WILL NOT WORK!\nDO NOT attempt to bypass security restrictions, e.g. by changing keyboard permissions or owner, if you want the SAK system to remain secure...\n");
 				return 5;
 			}
 
 			// Find keyboards
 			find_keyboards();
 			if (keyboard_fd_num == 0) {
-				printf ("Could not find any usable keyboard(s)!\n");
+				printf ("[tsak] Could not find any usable keyboard(s)!\n");
 				if (depcheck == true) {
 					return 50;
 				}
@@ -658,10 +667,10 @@ int main (int argc, char *argv[])
 										}
 									}
 
-									if ((hide_event == false) && (ev[0].type != EV_LED) && (ev[1].type != EV_LED)) {
+									if ((hide_event == false) && (ev[0].type != EV_LED) && (ev[0].type != EV_MSC)) {
 										// Pass the event on...
 										event = ev[0];
-										if (write(devout[current_keyboard], &event, sizeof event) < 0) {
+										if (write(devout[current_keyboard], &event, sizeof(event)) < 0) {
 											fprintf(stderr, "[tsak] Unable to replicate keyboard event!\n");
 										}
 									}
