@@ -244,16 +244,16 @@ void TaskBar::configure()
     m_currentScreen = -1;    // Show all screens or re-get our screen
     m_showOnlyCurrentScreen = (TaskBarSettings::showCurrentScreenOnly() &&
                               TQApplication::desktop()->isVirtualDesktop() &&
-                              TQApplication::desktop()->numScreens() > 1) || (TQApplication::desktop()->numScreens() < 2);
+                              TQApplication::desktop()->numScreens() > 1);
 
     // we need to watch geometry issues if we aren't showing windows when we
     // are paying attention to the current Xinerama screen
+    // disconnect first in case we've been here before
+    // to avoid multiple connections
+    disconnect(TaskManager::the(), TQT_SIGNAL(windowChangedGeometry(Task::Ptr)),
+                this, TQT_SLOT(windowChangedGeometry(Task::Ptr)));
     if (m_showOnlyCurrentScreen)
     {
-        // disconnect first in case we've been here before
-        // to avoid multiple connections
-        disconnect(TaskManager::the(), TQT_SIGNAL(windowChangedGeometry(Task::Ptr)),
-                    this, TQT_SLOT(windowChangedGeometry(Task::Ptr)));
         connect(TaskManager::the(), TQT_SIGNAL(windowChangedGeometry(Task::Ptr)),
                  this, TQT_SLOT(windowChangedGeometry(Task::Ptr)));
     }
