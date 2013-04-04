@@ -34,6 +34,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqstyle.h>
 #include <tqgrid.h>
 #include <tqpainter.h>
+#include <tqimage.h>
 
 #include <dcopclient.h>
 #include <kapplication.h>

@@ -276,8 +276,8 @@ void PlainClock::paintEvent(TQPaintEvent *)
 void PlainClock::drawContents(TQPainter *p)
 {
     TQRect tr(0, 0, width(), height());
-    
-    if (!KickerSettings::transparent())
+
+    if (!KickerSettings::transparent() || !_prefs->transparentUseShadow())
         p->drawText(tr, AlignCenter, _timeStr);
     else
         _applet->shadowEngine()->drawText(*p, tr, AlignCenter, _timeStr, size());
@@ -851,9 +851,9 @@ void FuzzyClock::drawContents(TQPainter *p)
 
     p->setFont(_prefs->fuzzyFont());
     p->setPen(_prefs->fuzzyForegroundColor());
-    
+
     TQRect tr;
-    
+
     if (_applet->getOrientation() == Qt::Vertical)
     {
         p->rotate(90);
@@ -861,12 +861,12 @@ void FuzzyClock::drawContents(TQPainter *p)
     }
     else
         tr = TQRect(4, 2, width() - 8, height() - 4);
-        
-    if (!KickerSettings::transparent())
+
+    if (!KickerSettings::transparent() || !_prefs->transparentUseShadow())
         p->drawText(tr, AlignCenter, _timeStr);
     else
         _applet->shadowEngine()->drawText(*p, tr, AlignCenter, _timeStr, size());
-    
+
     alreadyDrawing = false;
 }
 

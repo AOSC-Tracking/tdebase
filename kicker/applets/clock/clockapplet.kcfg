@@ -52,6 +52,10 @@ defFont.setPointSize(8);
       <label>Show frame.</label>
       <default>false</default>
     </entry>
+    <entry name="TransparentUseShadow" type="Bool" key="Use_Shadow">
+      <label>Use shadow.</label>
+      <default>false</default>
+    </entry>
     <entry name="PlainFont" type="Font" key="Font">
       <label>Font for the clock.</label>
       <code>

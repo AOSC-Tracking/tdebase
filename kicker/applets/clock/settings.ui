@@ -178,6 +178,14 @@
                                                 <string>&amp;Frame</string>
                                             </property>
                                         </widget>
+                                        <widget class="TQCheckBox">
+                                            <property name="name">
+                                                <cstring>kcfg_TransparentUseShadow</cstring>
+                                            </property>
+                                            <property name="text">
+                                                <string>&amp;Shadow</string>
+                                            </property>
+                                        </widget>
                                         <spacer>
                                             <property name="name">
                                                 <cstring>spacer14</cstring>
