@@ -162,20 +162,16 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mSettingsGroup = new TQGroupBox( i18n("Settings"), this );
     mSettingsGroup->setColumnLayout( 0, Qt::Vertical );
     leftColumnLayout->addWidget( mSettingsGroup );
-    groupLayout = new TQVBoxLayout( mSettingsGroup->layout(),
-        KDialog::spacingHint() );
+    TQGridLayout *settingsGroupLayout = new TQGridLayout( mSettingsGroup->layout(), 4, 2, KDialog::spacingHint() );
 
-    mEnabledCheckBox = new TQCheckBox(i18n(
-        "Start a&utomatically"), mSettingsGroup);
+    mEnabledCheckBox = new TQCheckBox(i18n("Start a&utomatically"), mSettingsGroup);
     mEnabledCheckBox->setChecked(mEnabled);
-    TQWhatsThis::add( mEnabledCheckBox, i18n(
-        "Automatically start the screen saver after a period of inactivity.") );
-    connect(mEnabledCheckBox, TQT_SIGNAL(toggled(bool)),
-            this, TQT_SLOT(slotEnable(bool)));
-    groupLayout->addWidget(mEnabledCheckBox);
+    TQWhatsThis::add( mEnabledCheckBox, i18n("Automatically start the screen saver after a period of inactivity.") );
+    connect(mEnabledCheckBox, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotEnable(bool)));
+    settingsGroupLayout->addWidget(mEnabledCheckBox, 0, 0);
 
     TQBoxLayout *hbox = new TQHBoxLayout();
-    groupLayout->addLayout(hbox);
+    settingsGroupLayout->addLayout(hbox, 1, 0);
     hbox->addSpacing(30);
     mActivateLbl = new TQLabel(i18n("After:"), mSettingsGroup);
     mActivateLbl->setEnabled(mEnabled);
@@ -191,29 +187,23 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mActivateLbl->setBuddy(mWaitEdit);
     hbox->addWidget(mWaitEdit);
     hbox->addStretch(1);
-    TQString wtstr = i18n(
-        "The period of inactivity "
-        "after which the screen saver should start.");
+    TQString wtstr = i18n("The period of inactivity after which the screen saver should start.");
     TQWhatsThis::add( mActivateLbl, wtstr );
     TQWhatsThis::add( mWaitEdit, wtstr );
 
-    mLockCheckBox = new TQCheckBox( i18n(
-        "&Require password to stop"), mSettingsGroup );
+    mLockCheckBox = new TQCheckBox( i18n("&Require password to stop"), mSettingsGroup );
     mLockCheckBox->setEnabled( mEnabled );
     mLockCheckBox->setChecked( mLock );
-    connect( mLockCheckBox, TQT_SIGNAL( toggled( bool ) ),
-             this, TQT_SLOT( slotLock( bool ) ) );
-    groupLayout->addWidget(mLockCheckBox);
-    TQWhatsThis::add( mLockCheckBox, i18n(
-        "Prevent potential unauthorized use by requiring a password"
-        " to stop the screen saver.") );
+    connect( mLockCheckBox, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotLock( bool ) ) );
+    settingsGroupLayout->addWidget(mLockCheckBox, 2, 0);
+    TQWhatsThis::add( mLockCheckBox, i18n("Prevent potential unauthorized use by requiring a password to stop the screen saver.") );
+
     hbox = new TQHBoxLayout();
-    groupLayout->addLayout(hbox);
+    settingsGroupLayout->addLayout(hbox, 3, 0);
     hbox->addSpacing(30);
     mLockLbl = new TQLabel(i18n("After:"), mSettingsGroup);
     mLockLbl->setEnabled(mEnabled && mLock);
-    TQWhatsThis::add( mLockLbl, i18n(
-        "The amount of time, after the screen saver has started, to ask for the unlock password.") );
+    TQWhatsThis::add( mLockLbl, i18n("The amount of time, after the screen saver has started, to ask for the unlock password.") );
     hbox->addWidget(mLockLbl);
     mWaitLockEdit = new TQSpinBox(mSettingsGroup);
     mWaitLockEdit->setSteps(1, 10);
@@ -230,25 +220,48 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
         mWaitEdit->setFixedWidth( mWaitLockEdit->sizeHint().width() );
         mWaitLockEdit->setFixedWidth( mWaitLockEdit->sizeHint().width() );
     }
-    connect(mWaitLockEdit, TQT_SIGNAL(valueChanged(int)),
-            this, TQT_SLOT(slotLockTimeoutChanged(int)));
+    connect(mWaitLockEdit, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(slotLockTimeoutChanged(int)));
     mLockLbl->setBuddy(mWaitLockEdit);
     hbox->addWidget(mWaitLockEdit);
     hbox->addStretch(1);
-    TQString wltstr = i18n(
-        "Choose the period "
-        "after which the display will be locked. ");
+    TQString wltstr = i18n("Choose the period after which the display will be locked. ");
     TQWhatsThis::add( mLockLbl, wltstr );
     TQWhatsThis::add( mWaitLockEdit, wltstr );
 
+    mDelaySaverStartCheckBox = new TQCheckBox( i18n("&Delay saver start after lock"), mSettingsGroup );
+    mDelaySaverStartCheckBox->setEnabled( true );
+    mDelaySaverStartCheckBox->setChecked( mDelaySaverStart );
+    connect( mDelaySaverStartCheckBox, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotDelaySaverStart( bool ) ) );
+    settingsGroupLayout->addWidget(mDelaySaverStartCheckBox, 0, 1);
+    TQWhatsThis::add( mDelaySaverStartCheckBox, i18n("When manually locking the screen, wait to start the screen saver until the configured start delay has elapsed.") );
+
+    mUseTSAKCheckBox = new TQCheckBox( i18n("&Use Secure Attention Key"), mSettingsGroup );
+    mUseTSAKCheckBox->setEnabled( true );
+    mUseTSAKCheckBox->setChecked( mUseTSAK );
+    connect( mUseTSAKCheckBox, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotUseTSAK( bool ) ) );
+    settingsGroupLayout->addWidget(mUseTSAKCheckBox, 1, 1);
+    TQWhatsThis::add( mUseTSAKCheckBox, i18n("Require Secure Attention Key prior to displaying the unlock dialog.") );
+
+    mUseUnmanagedLockWindowsCheckBox = new TQCheckBox( i18n("Use &legacy lock windows"), mSettingsGroup );
+    mUseUnmanagedLockWindowsCheckBox->setEnabled( true );
+    mUseUnmanagedLockWindowsCheckBox->setChecked( mUseUnmanagedLockWindows );
+    connect( mUseUnmanagedLockWindowsCheckBox, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotUseUnmanagedLockWindows( bool ) ) );
+    settingsGroupLayout->addWidget(mUseUnmanagedLockWindowsCheckBox, 2, 1);
+    TQWhatsThis::add( mUseUnmanagedLockWindowsCheckBox, i18n("Use old-style unmanaged X11 lock windows.") );
+
+    mHideActiveWindowsFromSaverCheckBox = new TQCheckBox( i18n("&Hide active windows from saver"), mSettingsGroup );
+    mHideActiveWindowsFromSaverCheckBox->setEnabled( true );
+    mHideActiveWindowsFromSaverCheckBox->setChecked( mHideActiveWindowsFromSaver );
+    connect( mHideActiveWindowsFromSaverCheckBox, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotHideActiveWindowsFromSaver( bool ) ) );
+    settingsGroupLayout->addWidget(mHideActiveWindowsFromSaverCheckBox, 3, 1);
+    TQWhatsThis::add( mHideActiveWindowsFromSaverCheckBox, i18n("Hide all active windows from the screen saver and use the desktop background as the screen saver input.") );
+
     // right column
-    TQBoxLayout* rightColumnLayout =
-        new TQVBoxLayout(topLayout, KDialog::spacingHint());
+    TQBoxLayout* rightColumnLayout = new TQVBoxLayout(topLayout, KDialog::spacingHint());
 
     mMonitorLabel = new TQLabel( this );
     mMonitorLabel->setAlignment( AlignCenter );
-    mMonitorLabel->setPixmap( TQPixmap(locate("data",
-                         "kcontrol/pics/monitor.png")));
+    mMonitorLabel->setPixmap( TQPixmap(locate("data", "kcontrol/pics/monitor.png")));
     rightColumnLayout->addWidget(mMonitorLabel, 0);
     TQWhatsThis::add( mMonitorLabel, i18n("A preview of the selected screen saver.") );
 
@@ -292,6 +305,8 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     setAboutData( about );
 
     mSaverList.setAutoDelete(true);
+
+    processLockouts();
 }
 
 //---------------------------------------------------------------------------
@@ -396,6 +411,10 @@ void KScreenSaver::readSettings( bool useDefaults )
     mTimeout = config->readNumEntry("Timeout", 300);
     mLockTimeout = config->readNumEntry("LockGrace", 60000);
     mLock = config->readBoolEntry("Lock", false);
+    mDelaySaverStart = config->readBoolEntry("DelaySaverStart", true);
+    mUseTSAK = config->readBoolEntry("UseTDESAK", true);
+    mUseUnmanagedLockWindows = config->readBoolEntry("UseUnmanagedLockWindows", false);
+    mHideActiveWindowsFromSaver = config->readBoolEntry("HideActiveWindowsFromSaver", true);
     mSaver = config->readEntry("Saver");
 
     if (mTimeout < 60) mTimeout = 60;
@@ -444,6 +463,10 @@ void KScreenSaver::save()
     config->writeEntry("Timeout", mTimeout);
     config->writeEntry("LockGrace", mLockTimeout);
     config->writeEntry("Lock", mLock);
+    config->writeEntry("DelaySaverStart", mDelaySaverStart);
+    config->writeEntry("UseTDESAK", mUseTSAK);
+    config->writeEntry("UseUnmanagedLockWindows", mUseUnmanagedLockWindows);
+    config->writeEntry("HideActiveWindowsFromSaver", mHideActiveWindowsFromSaver);
 
     if ( !mSaver.isEmpty() )
         config->writeEntry("Saver", mSaver);
@@ -620,15 +643,24 @@ void KScreenSaver::slotPreviewExited(KProcess *)
 void KScreenSaver::slotEnable(bool e)
 {
     mEnabled = e;
-    mActivateLbl->setEnabled( e );
-    mWaitEdit->setEnabled( e );
-    mLockCheckBox->setEnabled( e );
-    mLockLbl->setEnabled( e && mLock );
-    mWaitLockEdit->setEnabled( e && mLock );
+    processLockouts();
     mChanged = true;
     emit changed(true);
 }
 
+//---------------------------------------------------------------------------
+//
+void KScreenSaver::processLockouts()
+{
+    mActivateLbl->setEnabled( mEnabled );
+    mWaitEdit->setEnabled( mEnabled );
+    mLockCheckBox->setEnabled( mEnabled );
+    mDelaySaverStartCheckBox->setEnabled( mEnabled && !mUseUnmanagedLockWindows );
+    mUseTSAKCheckBox->setEnabled( !mUseUnmanagedLockWindows );
+    mHideActiveWindowsFromSaverCheckBox->setEnabled( !mUseUnmanagedLockWindows );
+    mLockLbl->setEnabled( mEnabled && mLock );
+    mWaitLockEdit->setEnabled( mEnabled && mLock );
+}
 
 //---------------------------------------------------------------------------
 //
@@ -845,6 +877,46 @@ void KScreenSaver::slotLock( bool l )
     mLock = l;
     mLockLbl->setEnabled( l );
     mWaitLockEdit->setEnabled( l );
+    mChanged = true;
+    emit changed(true);
+}
+
+//---------------------------------------------------------------------------
+//
+void KScreenSaver::slotDelaySaverStart( bool d )
+{
+    mDelaySaverStart = d;
+    processLockouts();
+    mChanged = true;
+    emit changed(true);
+}
+
+//---------------------------------------------------------------------------
+//
+void KScreenSaver::slotUseTSAK( bool u )
+{
+    mUseTSAK = u;
+    processLockouts();
+    mChanged = true;
+    emit changed(true);
+}
+
+//---------------------------------------------------------------------------
+//
+void KScreenSaver::slotUseUnmanagedLockWindows( bool u )
+{
+    mUseUnmanagedLockWindows = u;
+    processLockouts();
+    mChanged = true;
+    emit changed(true);
+}
+
+//---------------------------------------------------------------------------
+//
+void KScreenSaver::slotHideActiveWindowsFromSaver( bool h )
+{
+    mHideActiveWindowsFromSaver = h;
+    processLockouts();
     mChanged = true;
     emit changed(true);
 }

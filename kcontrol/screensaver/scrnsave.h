@@ -56,6 +56,11 @@ protected slots:
     void slotTimeoutChanged( int );
     void slotLockTimeoutChanged( int );
     void slotLock( bool );
+    void slotDelaySaverStart( bool );
+    void slotUseTSAK( bool );
+    void slotUseUnmanagedLockWindows( bool );
+    void slotHideActiveWindowsFromSaver( bool );
+    void processLockouts();
     void slotSetupDone(KProcess*);
     // when selecting a new screensaver, the old preview will
     // be killed. -- This callback is responsible for restarting the
@@ -94,6 +99,10 @@ protected:
     TQTimer      *mLoadTimer;
     TQGroupBox   *mSaverGroup;
     TQGroupBox   *mSettingsGroup;
+    TQCheckBox   *mDelaySaverStartCheckBox;
+    TQCheckBox   *mUseTSAKCheckBox;
+    TQCheckBox   *mUseUnmanagedLockWindowsCheckBox;
+    TQCheckBox   *mHideActiveWindowsFromSaverCheckBox;
 
     int         mSelected;
     int         mPrevSelected;
@@ -106,8 +115,12 @@ protected:
     int         mLockTimeout;
     bool        mLock;
     bool        mEnabled;
-    TQString     mSaver;
+    TQString    mSaver;
     bool        mImmutable;
+    bool        mDelaySaverStart;
+    bool        mUseTSAK;
+    bool        mUseUnmanagedLockWindows;
+    bool        mHideActiveWindowsFromSaver;
 };
 
 #endif
