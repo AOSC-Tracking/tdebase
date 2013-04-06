@@ -29,6 +29,7 @@
 #include <kaccel.h>
 #include <kservice.h>
 #include <kprocess.h>
+#include <kmessagebox.h>
 
 #include "windows.h"
 #include "action_data.h"
@@ -153,7 +154,10 @@ void Command_url_action::execute()
                 KService::Ptr service = KService::serviceByDesktopName( cmd );
                 if( service != NULL )
                     {
-                    KRun::run( *service, KURL::List());
+                    if (!KRun::run( *service, KURL::List()))
+                    {
+                        KMessageBox::sorry(0, "<qt>" + i18n("KHotKeys was unable to execute") + " '" + cmd + "'<p>" + i18n("Please verify existence of the service") + "</qt>", i18n("Unable to launch service!"));
+                    }
                   break;
                     }
                 }
@@ -166,11 +170,12 @@ void Command_url_action::execute()
             if( !KRun::runCommand(
                 cmd + ( uri.hasArgsAndOptions() ? uri.argsAndOptions() : "" ),
                 cmd, uri.iconName())) {
-                // CHECKME ?
+                KMessageBox::sorry(0, "<qt>" + i18n("KHotKeys was unable to execute") + " '" + cmd + "'<p>" + i18n("Please verify existence and permissions of the executable file") + "</qt>", i18n("Unable to launch program"));
              }
           break;
             }
         default: // error
+		KMessageBox::sorry(0, "<qt>" + i18n("KHotKeys was unable to execute") + " '" + cmd + "'<p>" + i18n("Please verify existence and permissions of the executable file") + "</qt>", i18n("Unable to launch program"));
           return;
         }
     timeout.start( 1000, true ); // 1sec timeout
