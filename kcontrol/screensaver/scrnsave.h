@@ -121,6 +121,8 @@ protected:
     bool        mUseTSAK;
     bool        mUseUnmanagedLockWindows;
     bool        mHideActiveWindowsFromSaver;
+
+    KSimpleConfig* mTDMConfig;
 };
 
 #endif

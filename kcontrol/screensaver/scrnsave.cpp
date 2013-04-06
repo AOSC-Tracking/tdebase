@@ -16,6 +16,7 @@
 
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 
 #include <tqbuttongroup.h>
 #include <tqcheckbox.h>
@@ -41,12 +42,22 @@
 #include <kprocess.h>
 #include <kservicegroup.h>
 #include <kstandarddirs.h>
+#include <ksimpleconfig.h>
 
 #include <X11/Xlib.h>
 
 #include "scrnsave.h"
 
 #include <fixx11h.h>
+
+#define OPEN_TDMCONFIG_AND_SET_GROUP									\
+if( stat( KDE_CONFDIR "/kdm/kdmdistrc" , &st ) == 0) {							\
+	mTDMConfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdm/kdmdistrc" ));		\
+}													\
+else {													\
+	mTDMConfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kdm/kdmrc" ));		\
+}													\
+mTDMConfig->setGroup("X-*-Greeter");
 
 template class TQPtrList<SaverConfig>;
 
@@ -80,6 +91,9 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mPrevSelected = -2;
     mMonitor = 0;
     mTesting = false;
+
+    struct stat st;
+    OPEN_TDMCONFIG_AND_SET_GROUP
 
     // Add non-KDE path
     KGlobal::dirs()->addResourceType("scrsav",
@@ -354,6 +368,8 @@ KScreenSaver::~KScreenSaver()
     delete mTestProc;
     delete mSetupProc;
     delete mTestWin;
+
+    delete mTDMConfig;
 }
 
 //---------------------------------------------------------------------------
@@ -655,9 +671,30 @@ void KScreenSaver::processLockouts()
     mActivateLbl->setEnabled( mEnabled );
     mWaitEdit->setEnabled( mEnabled );
     mLockCheckBox->setEnabled( mEnabled );
-    mDelaySaverStartCheckBox->setEnabled( mEnabled && !mUseUnmanagedLockWindows );
-    mUseTSAKCheckBox->setEnabled( !mUseUnmanagedLockWindows );
-    mHideActiveWindowsFromSaverCheckBox->setEnabled( !mUseUnmanagedLockWindows );
+    if (mEnabled && !mUseUnmanagedLockWindows) {
+        mDelaySaverStartCheckBox->setEnabled( true );
+        mDelaySaverStartCheckBox->setChecked( mDelaySaverStart );
+    }
+    else {
+        mDelaySaverStartCheckBox->setEnabled( false );
+        mDelaySaverStartCheckBox->setChecked( false );
+    }
+    if (!mUseUnmanagedLockWindows && mTDMConfig->readBoolEntry("UseSAK", true)) {
+        mUseTSAKCheckBox->setEnabled( true );
+        mUseTSAKCheckBox->setChecked( mUseTSAK );
+    }
+    else {
+        mUseTSAKCheckBox->setEnabled( false );
+        mUseTSAKCheckBox->setChecked( false );
+    }
+    if (!mUseUnmanagedLockWindows) {
+        mHideActiveWindowsFromSaverCheckBox->setEnabled( true );
+        mHideActiveWindowsFromSaverCheckBox->setChecked( mHideActiveWindowsFromSaver );
+    }
+    else {
+        mHideActiveWindowsFromSaverCheckBox->setEnabled( false );
+        mHideActiveWindowsFromSaverCheckBox->setChecked( false );
+    }
     mLockLbl->setEnabled( mEnabled && mLock );
     mWaitLockEdit->setEnabled( mEnabled && mLock );
 }
@@ -885,7 +922,7 @@ void KScreenSaver::slotLock( bool l )
 //
 void KScreenSaver::slotDelaySaverStart( bool d )
 {
-    mDelaySaverStart = d;
+    if (mDelaySaverStartCheckBox->isEnabled()) mDelaySaverStart = d;
     processLockouts();
     mChanged = true;
     emit changed(true);
@@ -895,7 +932,7 @@ void KScreenSaver::slotDelaySaverStart( bool d )
 //
 void KScreenSaver::slotUseTSAK( bool u )
 {
-    mUseTSAK = u;
+    if (mUseTSAKCheckBox->isEnabled()) mUseTSAK = u;
     processLockouts();
     mChanged = true;
     emit changed(true);
@@ -905,7 +942,7 @@ void KScreenSaver::slotUseTSAK( bool u )
 //
 void KScreenSaver::slotUseUnmanagedLockWindows( bool u )
 {
-    mUseUnmanagedLockWindows = u;
+    if (mUseUnmanagedLockWindowsCheckBox->isEnabled()) mUseUnmanagedLockWindows = u;
     processLockouts();
     mChanged = true;
     emit changed(true);
@@ -915,7 +952,7 @@ void KScreenSaver::slotUseUnmanagedLockWindows( bool u )
 //
 void KScreenSaver::slotHideActiveWindowsFromSaver( bool h )
 {
-    mHideActiveWindowsFromSaver = h;
+    if (mHideActiveWindowsFromSaverCheckBox->isEnabled()) mHideActiveWindowsFromSaver = h;
     processLockouts();
     mChanged = true;
     emit changed(true);

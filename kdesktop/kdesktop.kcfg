@@ -332,6 +332,13 @@
       <!-- /home/paco/cvsroot/kdebase/kdesktop/lock/lockprocess.cc:336 -->
       <!--     mSaver = config.readEntry("HideActiveWindowsFromSaver"); -->
     </entry>
+    <entry key="UseTDESAK" type="Bool">
+      <default>true</default>
+      <label></label>
+      <whatsthis>When enabled, the Trinity Secure Attention Key (TSAK) system will be used to secure the screen locker.  This requires system wide TSAK support to be enabled prior to use.</whatsthis>
+      <!-- /home/paco/cvsroot/kdebase/kdesktop/lock/lockprocess.cc:336 -->
+      <!--     mSaver = config.readEntry("UseTDESAK"); -->
+    </entry>
     <entry key="PluginsUnlock" type="StringList">
       <default></default>
       <label></label>
