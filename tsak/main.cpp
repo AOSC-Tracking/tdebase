@@ -234,11 +234,16 @@ int find_keyboards() {
 			// Ensure that we do not detect our own tsak faked keyboards
 			ioctl (fd, EVIOCGNAME(sizeof(name)), name);
 			if (str_ends_with(name, "+tsak") == 0) {
-				/* We assume that anything that has an alphabetic key in the
-					QWERTYUIOP range in it is the main keyboard. */
-				for (j = KEY_Q; j <= KEY_P; j++) {
-					if (TestBit(j, key_bitmask)) {
-						keyboard_fds[keyboard_fd_num] = fd;
+				// Do not attempt to use virtual keyboards per Bug 1275
+				struct input_id input_info;
+				ioctl (fd, EVIOCGID, &input_info);
+				if ((input_info.vendor != 0) && (input_info.product != 0)) {
+					/* We assume that anything that has an alphabetic key in the
+						QWERTYUIOP range in it is the main keyboard. */
+					for (j = KEY_Q; j <= KEY_P; j++) {
+						if (TestBit(j, key_bitmask)) {
+							keyboard_fds[keyboard_fd_num] = fd;
+						}
 					}
 				}
 			}
