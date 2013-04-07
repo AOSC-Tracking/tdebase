@@ -62,7 +62,8 @@ ExtensionManager::ExtensionManager()
     : TQObject(0, "ExtensionManager"),
       m_menubarPanel(0),
       m_mainPanel(0),
-      m_panelCounter(-1)
+      m_panelCounter(-1),
+      m_loadingContainers(false)
 {
 }
 
@@ -86,6 +87,8 @@ ExtensionManager::~ExtensionManager()
 
 void ExtensionManager::initialize()
 {
+    m_loadingContainers = true;
+
 //    kdDebug(1210) << "ExtensionManager::loadContainerConfig()" << endl;
     KConfig* config = KGlobal::config();
     PluginManager* pm = PluginManager::the();
@@ -136,6 +139,13 @@ void ExtensionManager::initialize()
     TQStringList::iterator itEnd = elist.end();
     for (TQStringList::iterator it = elist.begin(); it !=  elist.end(); ++it)
     {
+        // last container?
+        TQStringList::iterator lastcheck(it);
+        lastcheck++;
+        if (lastcheck == elist.end()) {
+            m_loadingContainers = false;
+        }
+
         // extension id
         TQString extensionId(*it);
 
@@ -166,6 +176,7 @@ void ExtensionManager::initialize()
             kapp->processEvents();
         }
     }
+    m_loadingContainers = false;
 
     pm->clearUntrustedLists();
     connect(Kicker::the(), TQT_SIGNAL(configurationChanged()), TQT_SLOT(configurationChanged()));
@@ -219,7 +230,9 @@ void ExtensionManager::configureMenubar(bool duringInit)
         delete m_menubarPanel;
         m_menubarPanel = 0;
 
-        emit desktopIconsAreaChanged(desktopIconsArea(screen), screen);
+        if (!m_loadingContainers) {
+            emit desktopIconsAreaChanged(desktopIconsArea(screen), screen);
+        }
     }
 }
 
@@ -374,8 +387,10 @@ void ExtensionManager::updateMenubar()
                             tmpmenu.sizeHint().height());
     m_menubarPanel->writeConfig();
 
-    emit desktopIconsAreaChanged(desktopIconsArea(m_menubarPanel->xineramaScreen()),
-                                 m_menubarPanel->xineramaScreen());
+    if (!m_loadingContainers) {
+        emit desktopIconsAreaChanged(desktopIconsArea(m_menubarPanel->xineramaScreen()),
+                                     m_menubarPanel->xineramaScreen());
+    }
 }
 
 bool ExtensionManager::isMainPanel(const TQWidget* panel) const
@@ -425,8 +440,10 @@ void ExtensionManager::addContainer(ExtensionContainer* e)
     connect(e, TQT_SIGNAL(removeme(ExtensionContainer*)),
             this, TQT_SLOT(removeContainer(ExtensionContainer*)));
 
-    emit desktopIconsAreaChanged(desktopIconsArea(e->xineramaScreen()),
-                                 e->xineramaScreen());
+    if (!m_loadingContainers) {
+        emit desktopIconsAreaChanged(desktopIconsArea(e->xineramaScreen()),
+                                     e->xineramaScreen());
+    }
 }
 
 void ExtensionManager::removeContainer(ExtensionContainer* e)
@@ -441,8 +458,10 @@ void ExtensionManager::removeContainer(ExtensionContainer* e)
     e->deleteLater(); // Wait till we return to the main event loop
     saveContainerConfig();
 
-    emit desktopIconsAreaChanged(desktopIconsArea(e->xineramaScreen()),
-                                 e->xineramaScreen());
+    if (!m_loadingContainers) {
+        emit desktopIconsAreaChanged(desktopIconsArea(e->xineramaScreen()),
+                                     e->xineramaScreen());
+    }
 }
 
 void ExtensionManager::removeAllContainers()
@@ -766,8 +785,10 @@ void ExtensionManager::extensionSizeChanged(ExtensionContainer *extension)
       return;
   }
 
-  emit desktopIconsAreaChanged(desktopIconsArea(extension->xineramaScreen()),
-                               extension->xineramaScreen());
+  if (!m_loadingContainers) {
+      emit desktopIconsAreaChanged(desktopIconsArea(extension->xineramaScreen()),
+                                   extension->xineramaScreen());
+  }
 }
 
 #include "extensionmanager.moc"

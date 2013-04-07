@@ -85,6 +85,7 @@ private:
     ExtensionContainer* m_menubarPanel;
     ExtensionContainer* m_mainPanel;
     int m_panelCounter;
+    bool m_loadingContainers;
     static ExtensionManager* m_self;
 };
 

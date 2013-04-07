@@ -346,7 +346,8 @@ void KDesktop::slotNoKicker()
     kdDebug(1204) << "KDesktop::slotNoKicker ... kicker did not respond" << endl;
     // up till now, we got no desktopIconsArea from kicker - probably
     // it's not running, so use the area from KWinModule
-    m_pIconView->updateWorkArea(kwinModule()->workArea(kwinModule()->currentDesktop()));
+    TQRect area = kwinModule()->workArea(kwinModule()->currentDesktop());
+    m_pIconView->updateWorkArea(area);
 }
 
 void
@@ -908,8 +909,9 @@ void KDesktop::desktopIconsAreaChanged(const TQRect &area, int screen)
 
     // This is pretty broken, mixes Xinerama and non-Xinerama multihead
     // and generally doesn't seem to be required anyway => ignore screen.
-    if ( /*(screen == kdesktop_screen_number) &&*/ m_pIconView )
+    if ( /*(screen == kdesktop_screen_number) &&*/ m_pIconView ) {
         m_pIconView->updateWorkArea(area);
+    }
 }
 
 void KDesktop::slotSwitchDesktops(int delta)
@@ -1120,7 +1122,9 @@ void KDesktop::desktopResized()
             res >> area;
         }
         else
+        {
             area = kwinModule()->workArea(kwinModule()->currentDesktop());
+        }
 
         m_pIconView->updateWorkArea(area);
         m_pIconView->startDirLister();

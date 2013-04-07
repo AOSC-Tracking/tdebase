@@ -214,11 +214,13 @@ void KDIconView::initDotDirectories()
 
     TQString prefix = iconPositionGroupPrefix();
     TQString dotFileName = locateLocal("appdata", "IconPositions");
-    if (kdesktop_screen_number != 0)
-       dotFileName += "_Desktop" + TQString::number(kdesktop_screen_number);
+    if (kdesktop_screen_number != 0) {
+        dotFileName += "_Desktop" + TQString::number(kdesktop_screen_number);
+    }
 
-    if (m_dotDirectory && !m_bEditableDesktopIcons)
-      m_dotDirectory->rollback(false); // Don't save positions
+    if (m_dotDirectory && !m_bEditableDesktopIcons) {
+        m_dotDirectory->rollback(false); // Don't save positions
+    }
 
     delete m_dotDirectory;
 
@@ -261,7 +263,7 @@ void KDIconView::initDotDirectories()
                     int x,y;
                     readIconPosition(&dotDir, x, y);
                     m_dotDirectory->writeEntry( X_w, x );
-                    m_dotDirectory->writeEntry( Y_h, y ); // Not persistant!
+                    m_dotDirectory->writeEntry( Y_h, y ); // Not persistent!
                  }
               }
            }
@@ -351,8 +353,9 @@ void KDIconView::start()
 {
     // We can only start once
     Q_ASSERT(!m_dirLister);
-    if (m_dirLister)
+    if (m_dirLister) {
         return;
+    }
 
     kdDebug(1204) << "KDIconView::start" << endl;
 
@@ -361,16 +364,12 @@ void KDIconView::start()
 
     m_bNeedSave = false;
 
-    connect( m_dirLister, TQT_SIGNAL( clear() ), this, TQT_SLOT( slotClear() ) );
-    connect( m_dirLister, TQT_SIGNAL( started(const KURL&) ),
-             this, TQT_SLOT( slotStarted(const KURL&) ) );
-    connect( m_dirLister, TQT_SIGNAL( completed() ), this, TQT_SLOT( slotCompleted() ) );
-    connect( m_dirLister, TQT_SIGNAL( newItems( const KFileItemList & ) ),
-             this, TQT_SLOT( slotNewItems( const KFileItemList & ) ) );
-    connect( m_dirLister, TQT_SIGNAL( deleteItem( KFileItem * ) ),
-             this, TQT_SLOT( slotDeleteItem( KFileItem * ) ) );
-    connect( m_dirLister, TQT_SIGNAL( refreshItems( const KFileItemList & ) ),
-             this, TQT_SLOT( slotRefreshItems( const KFileItemList & ) ) );
+    connect( m_dirLister, TQT_SIGNAL( clear() ),                               this, TQT_SLOT( slotClear() ) );
+    connect( m_dirLister, TQT_SIGNAL( started(const KURL&) ),                  this, TQT_SLOT( slotStarted(const KURL&) ) );
+    connect( m_dirLister, TQT_SIGNAL( completed() ),                           this, TQT_SLOT( slotCompleted() ) );
+    connect( m_dirLister, TQT_SIGNAL( newItems( const KFileItemList & ) ),     this, TQT_SLOT( slotNewItems( const KFileItemList & ) ) );
+    connect( m_dirLister, TQT_SIGNAL( deleteItem( KFileItem * ) ),             this, TQT_SLOT( slotDeleteItem( KFileItem * ) ) );
+    connect( m_dirLister, TQT_SIGNAL( refreshItems( const KFileItemList & ) ), this, TQT_SLOT( slotRefreshItems( const KFileItemList & ) ) );
 
     // Start the directory lister !
     m_dirLister->setShowingDotFiles( m_bShowDot );
@@ -381,37 +380,32 @@ void KDIconView::start()
 
 void KDIconView::configureMedia()
 {
-    kdDebug(1204) << "***********KDIconView::configureMedia() " <<endl;
-    m_dirLister->setMimeExcludeFilter(m_excludedMedia);
-    m_dirLister->emitChanges();
-    updateContents();
-    if (m_enableMedia)
-    {
-    	for (KURL::List::Iterator it1=m_mergeDirs.begin();it1!=m_mergeDirs.end();++it1)
-	    {
-	    	if ((*it1).url()=="media:/") return;
-	    }
-    	m_mergeDirs.append(KURL("media:/"));
-    	m_dirLister->openURL(KURL("media:/"),true);
-    }
-    else
-    {
-            for (KURL::List::Iterator it2=m_mergeDirs.begin();it2!=m_mergeDirs.end();++it2)
-	    {
-		if ((*it2).url()=="media:/")
-		{
-			  delete m_dirLister;
-			  m_dirLister=0;
-			  start();
-//			m_mergeDirs.remove(it2);
-//			m_dirLister->stop("media");
-			return;
+	kdDebug(1204) << "***********KDIconView::configureMedia() " <<endl;
+	m_dirLister->setMimeExcludeFilter(m_excludedMedia);
+	m_dirLister->emitChanges();
+	updateContents();
+	if (m_enableMedia) {
+		for (KURL::List::Iterator it1=m_mergeDirs.begin();it1!=m_mergeDirs.end();++it1) {
+			if ((*it1).url()=="media:/") {
+				return;
+			}
 		}
-
-	    }
-	    return;
-    }
-
+		m_mergeDirs.append(KURL("media:/"));
+		m_dirLister->openURL(KURL("media:/"),true);
+	}
+	else {
+		for (KURL::List::Iterator it2=m_mergeDirs.begin();it2!=m_mergeDirs.end();++it2) {
+			if ((*it2).url()=="media:/") {
+				delete m_dirLister;
+				m_dirLister=0;
+				start();
+// 				m_mergeDirs.remove(it2);
+// 				m_dirLister->stop("media");
+				return;
+			}
+		}
+		return;
+	}
 }
 
 void KDIconView::createActions()
@@ -1611,69 +1605,73 @@ void KDIconView::viewportWheelEvent( TQWheelEvent * e )
 
 void KDIconView::updateWorkArea( const TQRect &wr )
 {
-    m_gotIconsArea = true;  // now we have it!
-
-    if (( iconArea() == wr ) && (m_needDesktopAlign == false)) return;  // nothing changed; avoid repaint/saveIconPosition ...
-
-    TQRect oldArea = iconArea();
-    setIconArea( wr );
-
-    kdDebug(1204) << "KDIconView::updateWorkArea wr: " << wr.x() << "," << wr.y()
-              << " " << wr.width() << "x" << wr.height() << endl;
-    kdDebug(1204) << "  oldArea:                     " << oldArea.x() << "," << oldArea.y()
-              << " " << oldArea.width() << "x" << oldArea.height() << endl;
-
-    if ( m_autoAlign ) {
-        //lineupIcons();
-    }
-    else {
-        bool needRepaint = false;
-        TQIconViewItem* item;
-        int dx, dy;
-
-        dx = wr.left() - oldArea.left();
-        dy = wr.top() - oldArea.top();
-
-        if ( dx != 0 || dy != 0 ) {
-          if ( (dx > 0) || (dy > 0) ) // the iconArea was shifted right/down; less space now
-              for ( item = firstItem(); item; item = item->nextItem() ) {
-                  // check if there is any item inside the now unavailable area
-                  // If so, we have to move _all_ items
-                  // If not, we don't have to move any item (avoids bug:117868)
-                  if ( (item->x() < wr.x()) || (item->y() < wr.y()) ) {
-                    needRepaint = true;
-                    break;
-                  }
-              }
-          else  // the iconArea was shifted left/up; more space now - use it
-              needRepaint = true;
-
-            if ( needRepaint )
-                for ( item = firstItem(); item; item = item->nextItem() )
-                    item->moveBy( dx, dy );
-        }
-
-        for ( item = firstItem(); item; item = item->nextItem() ) {
-            TQRect r( item->rect() );
-            int dx = 0, dy = 0;
-            if ( r.bottom() > wr.bottom() )
-                dy = wr.bottom() - r.bottom() - 1;
-            if ( r.right() > wr.right() )
-                dx = wr.right() - r.right() - 1;
-            if ( dx != 0 || dy != 0 ) {
-                needRepaint = true;
-                item->moveBy( dx, dy );
-            }
-        }
-        if ( needRepaint ) {
-            viewport()->repaint( FALSE );
-            repaint( FALSE );
-            saveIconPositions();
-        }
-    }
-
-    m_needDesktopAlign = false;
-    lineupIcons();
+	m_gotIconsArea = true;  // now we have it!
+	
+	if (( iconArea() == wr ) && (m_needDesktopAlign == false)) {
+		// nothing changed; avoid repaint/saveIconPosition ...
+		return;
+	}
+	
+	TQRect oldArea = iconArea();
+	setIconArea( wr );
+	
+	kdDebug(1204) << "KDIconView::updateWorkArea wr: " << wr.x() << "," << wr.y() << " " << wr.width() << "x" << wr.height() << endl;
+	kdDebug(1204) << "  oldArea:                     " << oldArea.x() << "," << oldArea.y() << " " << oldArea.width() << "x" << oldArea.height() << endl;
+	
+	bool needRepaint = false;
+	TQIconViewItem* item;
+	int dx, dy;
+	
+	dx = wr.left() - oldArea.left();
+	dy = wr.top() - oldArea.top();
+	
+	if ( dx != 0 || dy != 0 ) {
+		if ( (dx > 0) || (dy > 0) ) {
+			// the iconArea was shifted right/down; less space now
+			for ( item = firstItem(); item; item = item->nextItem() ) {
+				// check if there is any item inside the now unavailable area
+				// If so, we have to move _all_ items
+				// If not, we don't have to move any item (avoids bug:117868)
+				if ( (item->x() < wr.x()) || (item->y() < wr.y()) ) {
+					needRepaint = true;
+					break;
+				}
+			}
+		}
+		else {
+			// the iconArea was shifted left/up; more space now - use it
+			needRepaint = true;
+		}
+	
+		if ( needRepaint ) {
+			for ( item = firstItem(); item; item = item->nextItem() ) {
+				item->moveBy( dx, dy );
+			}
+		}
+	}
+	
+	for ( item = firstItem(); item; item = item->nextItem() ) {
+		TQRect r( item->rect() );
+		int dx = 0, dy = 0;
+		if ( r.bottom() > wr.bottom() ) {
+			dy = wr.bottom() - r.bottom() - 1;
+		}
+		if ( r.right() > wr.right() ) {
+			dx = wr.right() - r.right() - 1;
+		}
+		if ( dx != 0 || dy != 0 ) {
+			needRepaint = true;
+			item->moveBy( dx, dy );
+		}
+	}
+	if ( needRepaint ) {
+		viewport()->repaint( FALSE );
+		repaint( FALSE );
+		saveIconPositions();
+	}
+	
+	m_needDesktopAlign = false;
+	lineupIcons();
 }
 
 void KDIconView::setupSortKeys()
@@ -1926,13 +1924,15 @@ void KDIconView::saveIconPositions()
 {
   kdDebug(1214) << "KDIconView::saveIconPositions" << endl;
 
-  if (!m_bEditableDesktopIcons)
+  if (!m_bEditableDesktopIcons) {
     return; // Don't save position
+  }
 
   TQString prefix = iconPositionGroupPrefix();
   TQIconViewItem *it = firstItem();
-  if ( !it )
+  if ( !it ) {
     return; // No more icons. Maybe we're closing and they've been removed already
+  }
 
   while ( it )
   {
@@ -1951,8 +1951,9 @@ void KDIconView::saveIconPositions()
 
 void KDIconView::update( const TQString &_url )
 {
-	if (m_dirLister)
+	if (m_dirLister) {
 		m_dirLister->updateDirectory( _url );
+	}
 }
 
 
