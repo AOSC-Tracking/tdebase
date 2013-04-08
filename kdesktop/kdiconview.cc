@@ -1136,9 +1136,9 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
 
         TQRect oldPos = fileIVI->rect();
         fileIVI->move( x, y );
-        if ( (!firstRun) && (!isFreePosition( fileIVI )) && (!m_needDesktopAlign) ) // if we can't put it there, then let TQIconView decide
+        if ( (!firstRun) && (!isFreePosition( fileIVI, area )) && (!m_needDesktopAlign) ) // if we can't put it there, then let TQIconView decide
         {
-            if (!isFreePosition( fileIVI ))
+            if (!isFreePosition( fileIVI, area ))
             {
                 // Find the offending icon and move it out of the way; saved positions have precedence!
                 TQRect r = fileIVI->rect();
@@ -1152,7 +1152,7 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
 
                     if ( it->intersects( r ) )
                     {
-                        moveToFreePosition(it);
+                        moveToFreePosition(it, area);
                     }
                 }
             }
@@ -1165,7 +1165,7 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
         }
         else
         {
-            if (!isFreePosition( fileIVI ))
+            if (!isFreePosition( fileIVI, area ))
             {
                 kdDebug(1214)<<"slotNewItems() pos was not free :-("<<endl;
                 // Find the offending icon and move it out of the way; saved positions have precedence!
@@ -1180,7 +1180,7 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
 
                     if ( it->intersects( r ) )
                     {
-                        moveToFreePosition(it);
+                        moveToFreePosition(it, area);
                     }
                 }
             }
@@ -1194,7 +1194,6 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
       {
             // Not found, we'll need to save the new pos
             kdDebug(1214)<<"slotNewItems(): New item without position information, try to find a sane location"<<endl;
-
             newItemsList.append(fileIVI);
       }
     }
@@ -1204,7 +1203,7 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
   for ( newitemit = newItemsList.begin(); newitemit != newItemsList.end(); ++newitemit )
   {
       fileIVI = (*newitemit);
-      moveToFreePosition(fileIVI);
+      moveToFreePosition(fileIVI, area);
       m_bNeedSave = true;
   }
 
@@ -1731,39 +1730,53 @@ void KDIconView::setupSortKeys()
     }
 }
 
-bool KDIconView::isFreePosition( const TQIconViewItem *item ) const
+bool KDIconView::isFreePosition( const TQIconViewItem *item, const TQRect &currentIconArea ) const
 {
-    TQRect r = item->rect();
-    TQIconViewItem *it = firstItem();
-    for (; it; it = it->nextItem() )
-    {
-        if ( !it->rect().isValid() || it == item )
-        {
-            continue;
-        }
+	TQRect r = item->rect();
+	TQRect area = currentIconArea;
+	if (area.isNull()) area = iconArea();
 
-        if ( it->intersects( r ) )
-        {
-            return false;
-        }
-    }
-
-    return true;
+	// If the proposed item rect is not contained by the desktop, by definition the item position is not free!
+	if (!area.contains(r, FALSE)) {
+		return false;
+	}
+	
+	TQIconViewItem *it = firstItem();
+	for (; it; it = it->nextItem() ) {
+		if ( !it->rect().isValid() || it == item ) {
+			continue;
+		}
+		
+		if ( it->intersects( r ) ) {
+			return false;
+		}
+	}
+	
+	return true;
 }
 
-bool KDIconView::isFreePosition( const TQIconViewItem *item ,const TQRect& rect) const
+bool KDIconView::isFreePosition( const TQIconViewItem *item, const TQRect& rect, const TQRect& currentIconArea) const
 {
-    TQIconViewItem *it = firstItem();
-    for (; it; it = it->nextItem() )
-    {
-        if ( !rect.isValid() || it == item )
-            continue;
+	TQRect area = currentIconArea;
+	if (area.isNull()) area = iconArea();
 
-        if ( it->intersects( rect ) )
-            return false;
-    }
+	// If the proposed item rect is not contained by the desktop, by definition the item position is not free!
+	if (!area.contains(rect, FALSE)) {
+		return false;
+	}
 
-    return true;
+	TQIconViewItem *it = firstItem();
+	for (; it; it = it->nextItem() ) {
+		if ( !rect.isValid() || it == item ) {
+			continue;
+		}
+		
+		if ( it->intersects( rect ) ) {
+			return false;
+		}
+	}
+	
+	return true;
 }
 
 void KDIconView::setLastIconPosition( const TQPoint &_pos )
@@ -1771,64 +1784,60 @@ void KDIconView::setLastIconPosition( const TQPoint &_pos )
     m_lastDeletedIconPos = _pos;
 }
 
-void KDIconView::moveToFreePosition(TQIconViewItem *item )
+void KDIconView::moveToFreePosition(TQIconViewItem *item, const TQRect &currentIconArea)
 {
-    bool success;
-    // It may be that a file has been renamed. In this case,
-    // m_lastDeletedIconPos is the position to use for this "apparently new" item.
-    // (We rely on deleteItem being now emitted before newItems).
-    if ( !m_lastDeletedIconPos.isNull() )
-        // Problem is: I'd like to compare those two file's attributes
-        // (size, creation time, modification time... etc.) but since renaming
-        // is done by kpropsdlg, all of those can have changed (and creation time
-        // is different since the new file is a copy!)
-    {
-        kdDebug(1214) << "Moving " << item->text() << " to position of last deleted icon." << endl;
-        item->move( m_lastDeletedIconPos );
-        m_lastDeletedIconPos = TQPoint();
-        return;
-    }
+	bool success = false;
+	// It may be that a file has been renamed. In this case,
+	// m_lastDeletedIconPos is the position to use for this "apparently new" item.
+	// (We rely on deleteItem being now emitted before newItems).
+	if ( !m_lastDeletedIconPos.isNull() ) {
+		// Problem is: I'd like to compare those two file's attributes
+		// (size, creation time, modification time... etc.) but since renaming
+		// is done by kpropsdlg, all of those can have changed (and creation time
+		// is different since the new file is a copy!)
+		kdDebug(1214) << "Moving " << item->text() << " to position of last deleted icon." << endl;
+		item->move( m_lastDeletedIconPos );
+		m_lastDeletedIconPos = TQPoint();
+		return;
+	}
+	
+	//try to find a free place to put the item, honouring the m_bVertAlign property
+	TQRect rect=item->rect();
+	if (m_bVertAlign) {
+		kdDebug(1214)<<"moveToFreePosition for vertical alignment"<<endl;
+	
+		rect.moveTopLeft(TQPoint(currentIconArea.x()+spacing(),currentIconArea.y()+spacing()));
+		do {
+			success=false;
+			while (rect.bottom()<(currentIconArea.y()+currentIconArea.height())) {
+				if (!isFreePosition(item,rect,currentIconArea)) {
+					rect.moveBy(0,rect.height()+spacing());
+				}
+				else {
+					success=true;
+					break;
+				}
+			}
+		
+			if (!success) {
+				rect.moveTopLeft(TQPoint(rect.right()+spacing(),spacing()));
+			}
+			else {
+				break;
+			}
+		} while (item->rect().right()<(currentIconArea.x()+currentIconArea.width()));
 
-    //try to find a free place to put the item, honouring the m_bVertAlign property
-    TQRect rect=item->rect();
-    if (m_bVertAlign)
-    {
-	kdDebug(1214)<<"moveToFreePosition for vertical alignment"<<endl;
-
-	rect.moveTopLeft(TQPoint(spacing(),spacing()));
-      do
-      {
-          success=false;
-          while (rect.bottom()<height())
-          {
-   	     if (!isFreePosition(item,rect))
-		{
-	                rect.moveBy(0,rect.height()+spacing());
+		if (success) {
+			item->move(rect.x(),rect.y());
 		}
-	     else
-	      {
-                 success=true;
-                 break;
-	      }
-          }
-
-          if (!success)
-          {
-		rect.moveTopLeft(TQPoint(rect.right()+spacing(),spacing()));
-          } else break;
-      }
-      while (item->rect().right()<width());
-      if (success)
-	item->move(rect.x(),rect.y());
-      else
-        item->move(width()-spacing()-item->rect().width(),height()-spacing()-item->rect().height());
-
-    }
-
+		else {
+			item->move(width()-spacing()-item->rect().width(),height()-spacing()-item->rect().height());
+		}
+	}
 }
 
 
-TQPoint KDIconView::findPlaceForIconCol( int column, int dx, int dy)
+TQPoint KDIconView::findPlaceForIconCol( int column, int dx, int dy, const TQRect &currentIconArea )
 {
     if (column < 0)
         return TQPoint();
@@ -1843,16 +1852,18 @@ TQPoint KDIconView::findPlaceForIconCol( int column, int dx, int dy)
 
     while ( rect.bottom() < viewport()->height() - spacing() )
     {
-        if ( !isFreePosition(0,rect) )
+        if ( !isFreePosition(0,rect,currentIconArea) ) {
             rect.moveBy(0, rect.height());
-        else
+        }
+        else {
             return rect.topLeft();
+        }
     }
 
     return TQPoint();
 }
 
-TQPoint KDIconView::findPlaceForIconRow( int row, int dx, int dy )
+TQPoint KDIconView::findPlaceForIconRow( int row, int dx, int dy, const TQRect &currentIconArea )
 {
     if (row < 0)
         return TQPoint();
@@ -1867,7 +1878,7 @@ TQPoint KDIconView::findPlaceForIconRow( int row, int dx, int dy )
 
     while (rect.right() < viewport()->width() - spacing())
     {
-        if (!isFreePosition(0,rect))
+        if (!isFreePosition(0,rect,currentIconArea))
             rect.moveBy(rect.width()+spacing(), 0);
         else
             return rect.topLeft();
@@ -1876,7 +1887,7 @@ TQPoint KDIconView::findPlaceForIconRow( int row, int dx, int dy )
     return TQPoint();
 }
 
-TQPoint KDIconView::findPlaceForIcon( int column, int row)
+TQPoint KDIconView::findPlaceForIcon( int column, int row, const TQRect &currentIconArea )
 {
     int dx = gridXValue(), dy = 0;
     TQIconViewItem *item = firstItem();
@@ -1895,7 +1906,7 @@ TQPoint KDIconView::findPlaceForIcon( int column, int row)
         do {
             delta++;
             res = findPlaceForIconCol(column + (delta / 2) * (-2 * (delta % 2) + 1),
-                                      dx, dy);
+                                      dx, dy, currentIconArea);
             if (delta / 2 > QMAX(max_cols - column, column))
                 return res;
         } while (res.isNull());
@@ -1909,7 +1920,7 @@ TQPoint KDIconView::findPlaceForIcon( int column, int row)
         do {
             delta++;
             res = findPlaceForIconRow(row + (delta / 2) * (-2 * (delta % 2) + 1),
-                                      dx, dy);
+                                      dx, dy, currentIconArea);
             if (delta / 2 > QMAX(max_rows - row, row))
                 return res;
         } while (res.isNull());

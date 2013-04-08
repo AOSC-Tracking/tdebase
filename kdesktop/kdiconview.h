@@ -110,9 +110,9 @@ public:
 
     void startDirLister();
 
-    TQPoint findPlaceForIconCol( int column, int dx, int dy );
-    TQPoint findPlaceForIconRow( int row, int dx, int dy );
-    TQPoint findPlaceForIcon( int column, int row );
+    TQPoint findPlaceForIconCol( int column, int dx, int dy, const TQRect &currentIconArea );
+    TQPoint findPlaceForIconRow( int row, int dx, int dy, const TQRect &currentIconArea );
+    TQPoint findPlaceForIcon( int column, int row, const TQRect &currentIconArea = TQRect() );
 
 protected slots:
 
@@ -173,9 +173,9 @@ protected:
     bool makeFriendlyText( KFileIVI *fileIVI );
     static TQString stripDesktopExtension( const TQString & text );
     bool isDesktopFile( KFileItem * _item ) const;
-    bool isFreePosition( const TQIconViewItem *item ) const;
-    bool isFreePosition( const TQIconViewItem *item, const TQRect& rect ) const;
-    void moveToFreePosition(TQIconViewItem *item );
+    bool isFreePosition( const TQIconViewItem *item, const TQRect &currentIconArea ) const;
+    bool isFreePosition( const TQIconViewItem *item, const TQRect& rect, const TQRect &currentIconArea ) const;
+    void moveToFreePosition(TQIconViewItem *item, const TQRect &currentIconArea );
 
     bool deleteGlobalDesktopFiles();
     void removeBuiltinIcon(TQString iconName);
