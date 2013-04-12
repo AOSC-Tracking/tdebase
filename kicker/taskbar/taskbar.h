@@ -90,6 +90,7 @@ protected slots:
     void slotActivatePreviousTask();
     void slotSettingsChanged(int);
     void reLayout();
+    void reSort();
 
 protected:
     void reLayoutEventually();
@@ -129,6 +130,7 @@ private:
     KTextShadowEngine* m_textShadowEngine;
     TQTimer m_relayoutTimer;
     bool m_ignoreUpdates;
+    bool m_sortByAppPrev;
     TQImage m_blendGradient;
 };
 

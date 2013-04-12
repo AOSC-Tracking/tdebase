@@ -67,6 +67,7 @@ TaskBar::TaskBar( TQWidget *parent, const char *name )
     
     // init
     setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding ) );
+    m_sortByAppPrev = TaskBarSettings::sortByApp();
 
     // setup animation frames
     for (int i = 1; i < 11; i++)
@@ -273,6 +274,11 @@ void TaskBar::configure()
         }
     }
 
+    if (m_sortByAppPrev != TaskBarSettings::sortByApp()) {
+        m_sortByAppPrev = TaskBarSettings::sortByApp();
+        reSort();
+    }
+
     TaskManager::the()->setXCompositeEnabled(TaskBarSettings::showThumbnails());
 
     reLayoutEventually();
@@ -370,6 +376,24 @@ void TaskBar::add(Startup::Ptr startup)
     connect(container, TQT_SIGNAL(showMe(TaskContainer*)), this, TQT_SLOT(showTaskContainer(TaskContainer*)));
 }
 
+void TaskBar::reSort()
+{
+    TaskContainer::List originalContainers = containers;
+    TaskContainer::Iterator it = originalContainers.begin();
+    for (; it != originalContainers.end(); ++it)
+    {
+        removeChild(*it);
+    }
+    containers.clear();
+    it = originalContainers.begin();
+    for (; it != originalContainers.end(); ++it)
+    {
+        showTaskContainer(*it);
+    }
+    reLayoutEventually();
+    emit containerCountChanged();
+}
+
 void TaskBar::showTaskContainer(TaskContainer* container)
 {
     TaskContainer::List::iterator it = m_hiddenContainers.find(container);
@@ -403,6 +427,16 @@ void TaskBar::showTaskContainer(TaskContainer* container)
                         break;
                     }
                 }
+                break;
+            }
+        }
+
+        // alphabetize containers
+        it = containers.begin();
+        for (; it != containers.end(); ++it)
+        {
+            TaskContainer* c = *it;
+            if (TQString::localeAwareCompare(container->id().lower(), c->id().lower()) < 0) {
                 break;
             }
         }
