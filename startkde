@@ -16,23 +16,43 @@ if [ -r $HOME/.xprofile ]; then
 fi
 
 # Some functions to parse and check path correctly ...
+# Usage: is_in_path PATH /usr/bin
 is_in_path() {
-  search="$1"; ifs="$IFS"; IFS=":"; set $PATH; IFS="$ifs"
+  var="$1"; search="$2";
+  if eval test -z \$$1; then return 1; fi
+  ifs="$IFS"; IFS=":"; eval set \$$var; IFS="$ifs"
   for i in $*; do
     [ "${i}" = "${search}" ] && return 0
   done
   return 1
 }
 
-# Usage: place_before_in_path /opt/trinity/games /usr/games
+# Usage: place_before_in_path PATH /opt/trinity/games /usr/games
 place_before_in_path() {
-  insert="$1"; before="$2"; ifs="$IFS"; IFS=":"; set $PATH; IFS="$ifs"
+  var="$1"; insert="$2";
+  if eval test -z \$$1; then
+    eval export $var=${insert}
+  else
+    before="$3"; ifs="$IFS"; IFS=":"; eval set \$$var; IFS="$ifs"
+    NPATH=""
+    for i in $*; do
+      [ "${i}" = "${before}" ] && NPATH="${NPATH}:${insert}"
+      NPATH="${NPATH}:${i}"
+    done
+    eval export $var=${NPATH#:}
+  fi
+}
+
+# Usage: remove_from_path PATH /opt/trinity/games
+remove_from_path() {
+  var="$1"; remove="$2";
+  if eval test -z \$$1; then return 1; fi
+  ifs="$IFS"; IFS=":"; eval set \$$var; IFS="$ifs"
   NPATH=""
   for i in $*; do
-    [ "${i}" = "${before}" ] && NPATH="${NPATH}:${insert}"
-    NPATH="${NPATH}:${i}"
+    [ "${i}" != "${remove}" ] && NPATH="${NPATH}:${i}"
   done
-  export PATH=${NPATH#:}
+  eval export $var=${NPATH#:}
 }
 
 echo "[startkde] Starting startkde." 1>&2
@@ -154,30 +174,30 @@ fi
 
 # Modify the following environment variables only as necessary.
 if [ -d $KDEDIR/games ]; then
-  if ! is_in_path "$KDEDIR/games" ; then
+  if ! is_in_path PATH "$KDEDIR/games" ; then
     # Respect the traditional path order. Don't blindly place $KDEDIR/games
     # first in the path. Only place $KDEDIR/games before /usr/games. If packagers
     # are adding $KDEDIR/games elsewhere, then they need to ensure the traditional
     # search patch is respected.
     # Is there a way we can check that $KDEDIR/games is always placed only just before
     # /usr/games in the search path?
-    if is_in_path "/usr/games"; then
-      place_before_in_path "$KDEDIR/games" "/usr/games"
+    if is_in_path PATH "/usr/games"; then
+      place_before_in_path PATH "$KDEDIR/games" "/usr/games"
     else
       export PATH=$KDEDIR/games:$PATH
     fi
   fi
 fi
 if [ -d $KDEDIR/bin ]; then
-  if ! is_in_path "$KDEDIR/bin" ]; then
+  if ! is_in_path PATH "$KDEDIR/bin" ]; then
     # Respect the traditional path order. Don't blindly place $KDEDIR/bin
     # first in the path. Only place $KDEDIR/bin before /usr/bin. This order is
     # consistent with kdelibs/kdesu/stub.cpp. If packagers are adding $KDEDIR/bin
     # elsewhere, then they need to ensure the traditional search patch is respected.
     # Is there a way we can check that $KDEDIR/bin is always placed only just before
     # /usr/bin in the search path?
-    if is_in_path "/usr/bin"; then
-      place_before_in_path "$KDEDIR/bin" "/usr/bin"
+    if is_in_path PATH "/usr/bin"; then
+      place_before_in_path PATH "$KDEDIR/bin" "/usr/bin"
     else
       export PATH=$KDEDIR/bin:$PATH
     fi
@@ -240,31 +260,33 @@ fi
 # set in $KDEDIRS are intended to override data files found in $KDEDIR. Those additional
 # directories should be placed before $KDEDIR and before /usr/share.
 if [ "$KDEDIR" != "/usr" ] && [ -d $KDEDIR/share ]; then
-  if [ "$XDG_DATA_DIRS" = "" ]; then
-    # Ensure the standard location of /usr/share is included.
-    XDG_DATA_DIRS=/usr/share
-  else
-    if [ "`echo $XDG_DATA_DIRS | grep \"/usr/share\"`" = "" ]; then
-      XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share
-    fi
+  # If '/usr/share' is not already here, we include it at the last position.
+  if ! is_in_path XDG_DATA_DIRS "/usr/share"; then
+    XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share
   fi
-  if [ "`echo $XDG_DATA_DIRS | grep \"$KDEDIR/share\"`" = "" ]; then
-    XDG_DATA_DIRS=$KDEDIR/share:$XDG_DATA_DIRS
-  fi
+
+  # Ensure that $KDEDIR/share is always before '/usr/share'.
+  remove_from_path XDG_DATA_DIRS $KDEDIR/share
+  place_before_in_path XDG_DATA_DIRS "$KDEDIR/share" "/usr/share"
+
+  # Adds supplementary directories from KDEDIRS, if any, before KDEDIR.
   if [ "$KDEDIRS" != "" ]; then
-    for i in `seq \`echo $KDEDIRS | awk -F : '{print NF}'\` -1 1`; do
-      if [ "`echo $XDG_DATA_DIRS | grep \"\`echo $KDEDIRS | cut -d: -f${i}\`\"`" = "" ]; then
-        XDG_DATA_DIRS=`echo $KDEDIRS | cut -d: -f${i}`/share:$XDG_DATA_DIRS
+    ifs="$IFS"; IFS=":"; set $KDEDIRS; IFS="$ifs"
+    for dir in $*; do
+      if ! is_in_path XDG_DATA_DIRS "$dir/share" && [ -d "$dir/share" ]; then
+        XDG_DATA_DIRS=$dir/share:$XDG_DATA_DIRS
       fi
     done
   fi
   export XDG_DATA_DIRS
 fi
 
+echo "[startkde] XDG_DATA_DIRS: $XDG_DATA_DIRS" 1>&2
+
 test -n "$KDEHOME" && kdehome=`echo "$KDEHOME" | sed "s,^~/,$HOME/,"`
 
 # Allow interested applications, such as the Plasma control wrapper,
-# to know that this is a Trinity desktop and not a TDE one.
+# to know that this is a Trinity desktop and not a KDE one.
 export DESKTOP_SESSION=trinity
 
 # Please see kstartupconfig source for usage.
