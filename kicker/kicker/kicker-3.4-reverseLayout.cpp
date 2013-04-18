@@ -124,7 +124,11 @@ int main(int argc, char** argv)
     {
         if (it2.data().desktopFile == "childpanelextension.desktop")
         {
-            childPanelConfigFiles << it2.data().configFile;
+            // Prevent infinite recursion
+            if (it2.data().configFile != "kickerrc")
+            {
+                childPanelConfigFiles << it2.data().configFile;
+            }
         }
     }
 
