@@ -362,16 +362,18 @@ void LockProcess::init(bool child, bool useBlankOnly)
     connect(&mSuspendTimer, TQT_SIGNAL(timeout()), TQT_SLOT(suspend()));
 
 #ifdef HAVE_DPMS
-    if (mDPMSDepend) {
+    //if the user  decided that the screensaver should run independent from
+    //dpms, we shouldn't check for it, aleXXX
+    if (KDesktopSettings::dpmsDependent()) {
         BOOL on;
         CARD16 state;
-        DPMSInfo(qt_xdisplay(), &state, &on);
-        if (on)
-        {
-            connect(&mCheckDPMS, TQT_SIGNAL(timeout()), TQT_SLOT(checkDPMSActive()));
-            // we can save CPU if we stop it as quickly as possible
-            // but we waste CPU if we check too often -> so take 10s
-            mCheckDPMS.start(10000);
+        if (DPMSInfo(qt_xdisplay(), &state, &on)) {
+            if (on) {
+                connect(&mCheckDPMS, TQT_SIGNAL(timeout()), TQT_SLOT(checkDPMSActive()));
+                // we can save CPU if we stop it as quickly as possible
+                // but we waste CPU if we check too often -> so take 10s
+                mCheckDPMS.start(10000);
+            }
         }
     }
 #endif
@@ -835,12 +837,6 @@ void LockProcess::configure()
         mAutoLogoutTimeout = KDesktopSettings::autoLogoutTimeout();
         mAutoLogoutTimerId = startTimer(mAutoLogoutTimeout * 1000); // in milliseconds
     }
-
-#ifdef HAVE_DPMS
-    //if the user  decided that the screensaver should run independent from
-    //dpms, we shouldn't check for it, aleXXX
-    mDPMSDepend = KDesktopSettings::dpmsDependent();
-#endif
 
     mPriority = KDesktopSettings::priority();
     if (mPriority < 0) mPriority = 0;
