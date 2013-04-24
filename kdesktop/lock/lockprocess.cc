@@ -130,6 +130,8 @@ Status DPMSInfo ( Display *, CARD16 *, BOOL * );
 #define XF86XK_AudioLowerVolume 0x1008FF11
 #define XF86XK_Display 0x1008FF59
 
+#define DPMS_MONITOR_BLANKED(x) ((x == DPMSModeStandby) || (x == DPMSModeSuspend) || (x == DPMSModeOff))
+
 static Window gVRoot = 0;
 static Window gVRootData = 0;
 static Atom   gXA_VROOT;
@@ -362,7 +364,7 @@ void LockProcess::init(bool child, bool useBlankOnly)
     connect(&mSuspendTimer, TQT_SIGNAL(timeout()), TQT_SLOT(suspend()));
 
 #ifdef HAVE_DPMS
-    //if the user  decided that the screensaver should run independent from
+    //if the user decided that the screensaver should run independent from
     //dpms, we shouldn't check for it, aleXXX
     if (KDesktopSettings::dpmsDependent()) {
         BOOL on;
@@ -1491,15 +1493,34 @@ bool LockProcess::startLock()
 
 void LockProcess::closeDialogAndStartHack()
 {
-    // Close any active dialogs
-    DISABLE_CONTINUOUS_LOCKDLG_DISPLAY
-    mSuspended = true;
-    if (closeCurrentWindow()) {
-        TQTimer::singleShot( 0, this, SLOT(closeDialogAndStartHack()) );
-    }
-    else {
-        resume(true);
-    }
+#ifdef HAVE_DPMS
+	if (KDesktopSettings::dpmsDependent()) {
+		BOOL on;
+		CARD16 state;
+		if (DPMSInfo(qt_xdisplay(), &state, &on)) {
+			//kdDebug() << "checkDPMSActive " << on << " " << state << endl;
+			if (DPMS_MONITOR_BLANKED(state)) {
+				// Make sure saver will attempt to start again after DPMS wakeup
+				// This is related to Bug 1475
+				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
+				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+				// Should not start saver here, because the DPMS check method below would turn it right back off!
+				// This is related to Bug 1475
+				return;
+			}
+		}
+	}
+#endif
+
+	// Close any active dialogs
+	DISABLE_CONTINUOUS_LOCKDLG_DISPLAY
+	mSuspended = true;
+	if (closeCurrentWindow()) {
+		TQTimer::singleShot( 0, this, SLOT(closeDialogAndStartHack()) );
+	}
+	else {
+		resume(true);
+	}
 }
 
 void LockProcess::repaintRootWindowIfNeeded()
@@ -2219,19 +2240,21 @@ void LockProcess::stayOnTop()
 void LockProcess::checkDPMSActive()
 {
 #ifdef HAVE_DPMS
-    BOOL on;
-    CARD16 state;
-    DPMSInfo(qt_xdisplay(), &state, &on);
-    //kdDebug() << "checkDPMSActive " << on << " " << state << endl;
-    if (state == DPMSModeStandby || state == DPMSModeSuspend || state == DPMSModeOff)
-    {
-       suspend();
-    } else if ( mSuspended )
-    {
-        if (mResizingDesktopLock == false) {
-            resume( true );
-        }
-    }
+	if (KDesktopSettings::dpmsDependent()) {
+		BOOL on;
+		CARD16 state;
+		if (DPMSInfo(qt_xdisplay(), &state, &on)) {
+			//kdDebug() << "checkDPMSActive " << on << " " << state << endl;
+			if (DPMS_MONITOR_BLANKED(state)) {
+				suspend();
+			}
+			else if (mSuspended) {
+				if (mResizingDesktopLock == false) {
+					resume( true );
+				}
+			}
+		}
+	}
 #endif
 }
 
