@@ -193,8 +193,9 @@ KGreeter::KGreeter( bool framed )
 		connect( userView, TQT_SIGNAL(doubleClicked( TQListViewItem * )),
 		         TQT_SLOT(accept()) );
 	}
-	if (_userCompletion)
+	if (_userCompletion) {
 		userList = new TQStringList;
+	}
 
         sessMenu = new TQPopupMenu( this );
 	connect( sessMenu, TQT_SIGNAL(activated( int )),
@@ -374,10 +375,14 @@ KGreeter::insertUser( const TQImage &default_pix,
                 return;
         }
 
-	if (userList)
+	if (userList) {
 		userList->append( username );
-	if (!userView)
+	}
+	if (!userView) {
+		seteuid(0);
+		setegid(0);
 		return;
+	}
 
 	int dp = 0, nd = 0;
 	if (_faceSource == FACE_USER_ONLY ||
@@ -396,8 +401,9 @@ KGreeter::insertUser( const TQImage &default_pix,
 		int fd, ico;
 		if ((fd = open( fn.data(), O_RDONLY | O_NONBLOCK )) < 0) {
 			fn.truncate( fn.length() - 5 );
-			if ((fd = open( fn.data(), O_RDONLY | O_NONBLOCK )) < 0)
+			if ((fd = open( fn.data(), O_RDONLY | O_NONBLOCK )) < 0) {
 				continue;
+			}
 			ico = 0;
 		} else
 			ico = 1;
@@ -405,8 +411,7 @@ KGreeter::insertUser( const TQImage &default_pix,
 		f.open( IO_ReadOnly, fd );
 		int fs = f.size();
 		if (fs > (ico ? FILE_LIMIT_ICON : FILE_LIMIT_IMAGE) * 1000) {
-			LogWarn( "%s exceeds file size limit (%dkB)\n",
-			         fn.data(), ico ? FILE_LIMIT_ICON : FILE_LIMIT_IMAGE );
+			LogWarn( "%s exceeds file size limit (%dkB)\n", fn.data(), ico ? FILE_LIMIT_ICON : FILE_LIMIT_IMAGE );
 			continue;
 		}
 		TQByteArray fc( fs );
@@ -423,8 +428,9 @@ KGreeter::insertUser( const TQImage &default_pix,
 		}
 		p = ir.image();
 		TQSize ns( 48, 48 );
-		if (p.size() != ns)
+		if (p.size() != ns) {
 			p = p.convertDepth( 32 ).smoothScale( ns, TQ_ScaleMin );
+		}
 		break;
 	} while (--nd >= 0);
 
@@ -439,8 +445,9 @@ KGreeter::insertUser( const TQImage &default_pix,
             p.load( _faceDir + "/../pics/users/" + randomFace + ".png" );
         }
 
-        if ( p.isNull() )
+        if ( p.isNull() ) {
             p = default_pix;
+	}
 
 	TQString realname = KStringHandler::from8Bit( ps->pw_gecos );
 	realname.truncate( realname.find( ',' ) );
@@ -499,8 +506,9 @@ KGreeter::insertUsers(int limit_users)
 {
 	struct passwd *ps;
 
-	if (!(ps = getpwnam( "nobody" )))
+	if (!(ps = getpwnam( "nobody" ))) {
 		return;
+	}
 
 	TQImage default_pix;
 	if (userView) {
