@@ -88,6 +88,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "shutdowndlg.h"
 #include "client.h"
 
+// #define PROFILE_SHUTDOWN 1
+
+#ifdef PROFILE_SHUTDOWN
+	#define SHUTDOWN_MARKER(x) printf("[ksmserver] '%s' [%s]\n\r", x, TQTime::currentTime().toString("hh:mm:ss:zzz").ascii()); fflush(stdout);
+#else // PROFILE_SHUTDOWN
+	#define SHUTDOWN_MARKER(x)
+#endif // PROFILE_SHUTDOWN
+
 void KSMServer::logout( int confirm, int sdtype, int sdmode )
 {
     shutdown( (KApplication::ShutdownConfirm)confirm,
@@ -190,7 +198,7 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
     }
 
     if ( logoutConfirmed ) {
-
+	SHUTDOWN_MARKER("Shutdown initiated");
 	shutdownType = sdtype;
 	shutdownMode = sdmode;
 	bootOption = bopt;
@@ -199,8 +207,9 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
         // shall we save the session on logout?
         saveSession = ( config->readEntry( "loginMode", "restorePreviousLogout" ) == "restorePreviousLogout" );
 
-        if ( saveSession )
+        if ( saveSession ) {
             sessionGroup = TQString("Session: ") + SESSION_PREVIOUS_LOGOUT;
+        }
 
         // Set the real desktop background to black so that exit looks
         // clean regardless of what was on "our" desktop.
@@ -211,6 +220,7 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
         wmPhase1WaitingCount = 0;
         saveType = saveSession?SmSaveBoth:SmSaveGlobal;
 	performLegacySessionSave();
+	SHUTDOWN_MARKER("Legacy save complete");
         startProtection();
         for ( KSMClient* c = clients.first(); c; c = clients.next() ) {
             c->resetState();
@@ -240,8 +250,9 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
                 SmsSaveYourself( c->connection(), saveType,
                              true, SmInteractStyleAny, false );
         }
-        if ( clients.isEmpty() )
+        if ( clients.isEmpty() ) {
             completeShutdownOrCheckpoint();
+        }
     }
     else {
        if (showLogoutStatusDlg) {
@@ -474,12 +485,15 @@ void KSMServer::protectionTimeout()
 
 void KSMServer::completeShutdownOrCheckpoint()
 {
-    if ( state != Shutdown && state != Checkpoint )
+    SHUTDOWN_MARKER("completeShutdownOrCheckpoint");
+    if ( state != Shutdown && state != Checkpoint ) {
         return;
+    }
 
     for ( KSMClient* c = clients.first(); c; c = clients.next() ) {
-        if ( !c->saveYourselfDone && !c->waitForPhase2 )
+        if ( !c->saveYourselfDone && !c->waitForPhase2 ) {
             return; // not done yet
+        }
     }
 
     // do phase 2
@@ -491,8 +505,10 @@ void KSMServer::completeShutdownOrCheckpoint()
             waitForPhase2 = true;
         }
     }
-    if ( waitForPhase2 )
+    if ( waitForPhase2 ) {
         return;
+    }
+    SHUTDOWN_MARKER("Phase 2 complete");
 
     bool showLogoutStatusDlg = KConfigGroup(KGlobal::config(), "Logout").readBoolEntry("showLogoutStatusDlg", true);
     if (showLogoutStatusDlg && state != Checkpoint) {
@@ -513,10 +529,14 @@ void KSMServer::completeShutdownOrCheckpoint()
         static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Saving your settings..."));
     }
 
-    if ( saveSession )
+    if ( saveSession ) {
         storeSession();
-    else
+        SHUTDOWN_MARKER("Session stored");
+    }
+    else {
         discardSession();
+        SHUTDOWN_MARKER("Session discarded");
+    }
 
     if ( state == Shutdown ) {
         bool waitForKNotify = true;
@@ -532,8 +552,9 @@ void KSMServer::completeShutdownOrCheckpoint()
         }
         // event() can return -1 if KNotifyClient short-circuits and avoids KNotify
         logoutSoundEvent = KNotifyClient::event( 0, "exitkde" ); // KDE says good bye
-        if( logoutSoundEvent <= 0 )
+        if( logoutSoundEvent <= 0 ) {
             waitForKNotify = false;
+        }
         if( waitForKNotify ) {
             state = WaitingForKNotify;
             knotifyTimeoutTimer.start( 20000, true );
@@ -546,15 +567,17 @@ void KSMServer::completeShutdownOrCheckpoint()
         }
         state = Idle;
     }
+    SHUTDOWN_MARKER("Fully shutdown");
 }
 
 void KSMServer::startKilling()
 {
+    SHUTDOWN_MARKER("startKilling");
     knotifyTimeoutTimer.stop();
     // kill all clients
     state = Killing;
     for ( KSMClient* c = clients.first(); c; c = clients.next() ) {
-        if( isWM( c ) || isCM( c ) ) // kill the WM and CM as the last one in order to reduce flicker
+        if( isWM( c ) || isCM( c ) || isNotifier( c ) ) // kill the WM and CM as the last one in order to reduce flicker.  Also wait to kill knotify to avoid logout delays
             continue;
         kdDebug( 1218 ) << "completeShutdown: client " << c->program() << "(" << c->clientId() << ")" << endl;
         SmsDie( c->connection() );
@@ -568,12 +591,13 @@ void KSMServer::startKilling()
 
 void KSMServer::completeKilling()
 {
+    SHUTDOWN_MARKER("completeKilling");
     kdDebug( 1218 ) << "KSMServer::completeKilling clients.count()=" <<
         clients.count() << endl;
     if( state == Killing ) {
         bool wait = false;
         for( KSMClient* c = clients.first(); c; c = clients.next()) {
-            if( isWM( c ) || isCM( c ) )
+            if( isWM( c ) || isCM( c ) || isNotifier( c ) )
                 continue;
             wait = true; // still waiting for clients to go away
         }
@@ -585,6 +609,7 @@ void KSMServer::completeKilling()
 
 void KSMServer::killWM()
 {
+    SHUTDOWN_MARKER("killWM");
     state = KillingWM;
     bool iswm = false;
     if (shutdownNotifierIPDlg) {
@@ -600,6 +625,9 @@ void KSMServer::killWM()
         if( isCM( c )) {
             SmsDie( c->connection() );
         }
+        if( isNotifier( c )) {
+            SmsDie( c->connection() );
+        }
     }
     if( iswm ) {
         completeKillingWM();
@@ -611,6 +639,7 @@ void KSMServer::killWM()
 
 void KSMServer::completeKillingWM()
 {
+    SHUTDOWN_MARKER("completeKillingWM");
     kdDebug( 1218 ) << "KSMServer::completeKillingWM clients.count()=" <<
         clients.count() << endl;
     if( state == KillingWM ) {
@@ -622,18 +651,26 @@ void KSMServer::completeKillingWM()
 // shutdown is fully complete
 void KSMServer::killingCompleted()
 {
+    SHUTDOWN_MARKER("killingCompleted");
     kapp->quit();
 }
 
 // called when KNotify performs notification for logout (not when sound is finished though)
 void KSMServer::notifySlot(TQString event ,TQString app,TQString,TQString,TQString,int present,int,int,int)
 {
-    if( state != WaitingForKNotify )
+    SHUTDOWN_MARKER("notifySlot");
+    if( state != WaitingForKNotify ) {
+        SHUTDOWN_MARKER("notifySlot state != WaitingForKNotify");
         return;
-    if( event != "exitkde" || app != "ksmserver" )
+    }
+    if( event != "exitkde" || app != "ksmserver" ) {
+        SHUTDOWN_MARKER("notifySlot event != \"exitkde\" || app != \"ksmserver\"");
         return;
-    if( present & KNotifyClient::Sound ) // logoutSoundFinished() will be called
+    }
+    if( present & KNotifyClient::Sound ) { // logoutSoundFinished() will be called
+        SHUTDOWN_MARKER("notifySlot present & KNotifyClient::Sound");
         return;
+    }
     startKilling();
 }
 
@@ -641,23 +678,30 @@ void KSMServer::notifySlot(TQString event ,TQString app,TQString,TQString,TQStri
 // emitted in KNotify only after the sound is finished playing.
 void KSMServer::logoutSoundFinished( int event, int )
 {
-    if( state != WaitingForKNotify )
+    SHUTDOWN_MARKER("logoutSoundFinished");
+    if( state != WaitingForKNotify ) {
         return;
-    if( event != logoutSoundEvent )
+    }
+    if( event != logoutSoundEvent ) {
         return;
+    }
     startKilling();
 }
 
 void KSMServer::knotifyTimeout()
 {
-    if( state != WaitingForKNotify )
+    SHUTDOWN_MARKER("knotifyTimeout");
+    if( state != WaitingForKNotify ) {
         return;
+    }
     startKilling();
 }
 
 void KSMServer::timeoutQuit()
 {
+    SHUTDOWN_MARKER("timeoutQuit");
     for (KSMClient *c = clients.first(); c; c = clients.next()) {
+        SHUTDOWN_MARKER(TQString("SmsDie timeout, client %1 (%2)").arg(c->program()).arg(c->clientId()).ascii());
         kdWarning( 1218 ) << "SmsDie timeout, client " << c->program() << "(" << c->clientId() << ")" << endl;
     }
     killWM();
@@ -665,6 +709,7 @@ void KSMServer::timeoutQuit()
 
 void KSMServer::timeoutWMQuit()
 {
+    SHUTDOWN_MARKER("timeoutWMQuit");
     if( state == KillingWM ) {
         kdWarning( 1218 ) << "SmsDie WM timeout" << endl;
     }

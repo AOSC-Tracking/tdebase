@@ -927,6 +927,16 @@ bool KSMServer::isCM( const TQString& program ) const
     return (program == "kompmgr");
 }
 
+bool KSMServer::isNotifier( const KSMClient* client ) const
+{
+    return isNotifier( client->program());
+}
+
+bool KSMServer::isNotifier( const TQString& program ) const
+{
+    return (program == "knotify");
+}
+
 bool KSMServer::defaultSession() const
 {
     return sessionGroup.isEmpty();

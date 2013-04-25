@@ -142,11 +142,13 @@ private:
         const TQString& clientMachine = TQString::null,
         const TQString& userId = TQString::null );
     void executeCommand( const TQStringList& command );
-    
+
     bool isWM( const KSMClient* client ) const;
     bool isWM( const TQString& program ) const;
     bool isCM( const KSMClient* client ) const;
     bool isCM( const TQString& program ) const;
+    bool isNotifier( const KSMClient* client ) const;
+    bool isNotifier( const TQString& program ) const;
     bool defaultSession() const; // empty session
     void setupXIOErrorHandler();
 
