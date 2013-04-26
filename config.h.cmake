@@ -178,3 +178,6 @@
 
 // tsak
 #cmakedefine BUILD_TSAK "@BUILD_TSAK@"
+
+// Defined when wanting ksmserver shutdown debugging timing markers in .xsession-errors
+#cmakedefine BUILD_PROFILE_SHUTDOWN 1

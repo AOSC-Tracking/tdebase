@@ -88,10 +88,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "shutdowndlg.h"
 #include "client.h"
 
-// #define PROFILE_SHUTDOWN 1
+#ifdef BUILD_PROFILE_SHUTDOWN
+#define PROFILE_SHUTDOWN 1
+#endif
 
 #ifdef PROFILE_SHUTDOWN
-	#define SHUTDOWN_MARKER(x) printf("[ksmserver] '%s' [%s]\n\r", x, TQTime::currentTime().toString("hh:mm:ss:zzz").ascii()); fflush(stdout);
+	#define SHUTDOWN_MARKER(x) printf("[ksmserver] '%s' [%s]\n", x, TQTime::currentTime().toString("hh:mm:ss:zzz").ascii()); fflush(stdout);
 #else // PROFILE_SHUTDOWN
 	#define SHUTDOWN_MARKER(x)
 #endif // PROFILE_SHUTDOWN
