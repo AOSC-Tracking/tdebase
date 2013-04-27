@@ -103,7 +103,7 @@ int main( int argc, char **argv)
 			TQDir myqdir;
 			if (myqdir.exists(getDocumentPath(), TRUE) == true) {
 				if (args->isSet( "getpath" ) == true) {
-					printf("%s\n\r", (const char *)getDocumentPath().local8Bit());
+					printf("%s\n", (const char *)getDocumentPath().local8Bit());
 					return 0;
 				}
 				else {
@@ -140,7 +140,7 @@ int main( int argc, char **argv)
 							config.writeEntry("XDG_DOCUMENTS_DIR", TQString("\"") + xdgModifiedDirectory + TQString("\""), true);
 							config.sync();
 							if (args->isSet( "getpath" ) == true) {
-								printf("%s\n\r", (const char *)getDocumentPath().local8Bit());
+								printf("%s\n", (const char *)getDocumentPath().local8Bit());
 								return 0;
 							}
 							else {
@@ -164,12 +164,12 @@ int main( int argc, char **argv)
 			}
 		}
 		else {
-			printf("[kxdglauncher] XDG variable not recognized\n\r");
+			printf("[kxdglauncher] XDG variable not recognized\n");
 			return 1;
 		}
 	}
 	else {
-		printf("[kxdglauncher] Please specify the desired XDG variable name with --xdgname\n\r");
+		printf("[kxdglauncher] Please specify the desired XDG variable name with --xdgname\n");
 		return 1;
 	}
 }

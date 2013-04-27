@@ -392,7 +392,7 @@ void delete_pid_file()
 
 #if WORK_AROUND_FGLRX
     if ((my_exit_code == 3) && (restartOnSigterm)) {
-        printf("kompmgr lost connection to X server, restarting...\n\r"); fflush(stdout);
+        printf("kompmgr lost connection to X server, restarting...\n"); fflush(stdout);
         sleep(1);
         char me[2048];
         int chars = readlink("/proc/self/exe", me, sizeof(me));
@@ -413,7 +413,7 @@ void handle_siguser (int sig)
     if (sig == SIGUSR1) {
         char newuid[1024];
 #ifndef NDEBUG
-        printf("Enter the new user ID:\n\r"); fflush(stdout);
+        printf("Enter the new user ID:\n"); fflush(stdout);
 #endif
         char *eof;
         newuid[0] = '\0';
@@ -421,7 +421,7 @@ void handle_siguser (int sig)
         eof = fgets(newuid, sizeof(newuid), stdin);
         uidnum = atoi(newuid);
 #ifndef NDEBUG
-        printf("Setting kompmgr process uid to %d...\n\r", uidnum); fflush(stdout);
+        printf("Setting kompmgr process uid to %d...\n", uidnum); fflush(stdout);
 #endif
 
         my_exit_code=4;
@@ -1425,7 +1425,7 @@ paint_all (Display *dpy, XserverRegion region)
 		t = w;
 	}
 #if DEBUG_WINDOWS
-	printf("window count: %d\n\r", window_count);
+	printf("window count: %d\n", window_count);
 #endif
 #if DEBUG_REPAINT
 	printf ("\n");

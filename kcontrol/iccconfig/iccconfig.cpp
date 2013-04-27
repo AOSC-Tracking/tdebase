@@ -390,7 +390,7 @@ void KICCConfig::save()
 		errorstr = randrsimple->clearIccConfiguration();
 	}
 	if (errorstr != "") {
-		KMessageBox::error(this, TQString("Unable to apply ICC configuration:\n\r%1").arg(errorstr));
+		KMessageBox::error(this, TQString("Unable to apply ICC configuration:\n%1").arg(errorstr));
 	}
 
 	emit changed(false);

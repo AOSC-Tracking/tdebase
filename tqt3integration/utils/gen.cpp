@@ -137,7 +137,7 @@ void openInputFile( const TQString& filename )
     {
     check( input_file == NULL );
     input_file = new TQFile( filename );
-    printf("[INFO] Reading bindings definitions from file %s\n\r", filename.ascii());
+    printf("[INFO] Reading bindings definitions from file %s\n", filename.ascii());
     if( !input_file->open( IO_ReadOnly ))
         error();
     input_stream = new TQTextStream( input_file );

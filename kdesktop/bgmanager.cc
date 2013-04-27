@@ -599,7 +599,7 @@ void KBackgroundManager::slotImageDone(int desk)
     if (current)
     {
         //KPixmap * viewport_background = new KPixmap(TQPixmap(pm->width()*s.width(), pm->height()*s.height()));
-        //printf("slotImageDone(): x: %d y: %d\n\r", viewport_background->size().width(), viewport_background->size().height());
+        //printf("slotImageDone(): x: %d y: %d\n", viewport_background->size().width(), viewport_background->size().height());
         //setPixmap(viewport_background, r->hash(), desk);
         //delete viewport_background;
         

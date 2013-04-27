@@ -59,7 +59,7 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
 	TQToolTip::add(this, i18n("Screen resize & rotate"));
 	my_parent = parent;
 
-	//printf("Reading configuration...\n\r");
+	//printf("Reading configuration...\n");
 	globalKeys = new KGlobalAccel(TQT_TQOBJECT(this));
 	KGlobalAccel* keys = globalKeys;
 #include "krandrbindings.cpp"
@@ -408,7 +408,7 @@ void KRandRSystemTray::populateMenu(KPopupMenu* menu)
 void KRandRSystemTray::slotResolutionChanged(int parameter)
 {
 	if (currentScreen()->currentSize() == parameter) {
-		//printf("This resolution is already in use; applying again...\n\r");
+		//printf("This resolution is already in use; applying again...\n");
 		currentScreen()->proposeSize(parameter);
 		currentScreen()->applyProposed();
 		return;
@@ -568,8 +568,8 @@ void KRandRSystemTray::slotCycleDisplays()
 		}
 	}
 
-	//printf("Active: %d\n\r", current_on_index);
-	//printf("Max: %d\n\r", max_index);
+	//printf("Active: %d\n", current_on_index);
+	//printf("Max: %d\n", max_index);
 
 	if ((current_on_index == -1) && (max_index == -1)) {
 		// There is no connected display available!  ABORT
@@ -677,7 +677,7 @@ void KRandRSystemTray::findPrimaryDisplay()
 
 		output_name = output_info->name;
 		output_id = randr_screen_info->outputs[i]->id;
-		//printf("ACTIVE CHECK: Found output %s\n\r", output_name);
+		//printf("ACTIVE CHECK: Found output %s\n", output_name);
 
 		randr_screen_info->cur_crtc = randr_screen_info->outputs[i]->cur_crtc;
 		randr_screen_info->cur_output = randr_screen_info->outputs[i];
@@ -708,7 +708,7 @@ void KRandRSystemTray::addOutputMenu(KPopupMenu* menu)
 
 			output_name = output_info->name;
 			output_id = randr_screen_info->outputs[i]->id;
-			//printf("ON: Found output %s\n\r", output_name);
+			//printf("ON: Found output %s\n", output_name);
 
 			lastIndex = menu->insertItem(i18n("%1 (Active)").arg(output_name));
 			menu->setItemChecked(lastIndex, true);
@@ -731,7 +731,7 @@ void KRandRSystemTray::addOutputMenu(KPopupMenu* menu)
 
 			output_name = output_info->name;
 			output_id = randr_screen_info->outputs[i]->id;
-			//printf("CONNECTED, NOT ON: Found output %s\n\r", output_name);
+			//printf("CONNECTED, NOT ON: Found output %s\n", output_name);
 
 			lastIndex = menu->insertItem(i18n("%1 (Connected, Inactive)").arg(output_name));
 			menu->setItemChecked(lastIndex, false);
@@ -754,7 +754,7 @@ void KRandRSystemTray::addOutputMenu(KPopupMenu* menu)
 
 			output_name = output_info->name;
 			output_id = randr_screen_info->outputs[i]->id;
-			//printf("DISCONNECTED, NOT ON: Found output %s\n\r", output_name);
+			//printf("DISCONNECTED, NOT ON: Found output %s\n", output_name);
 
 			lastIndex = menu->insertItem(i18n("%1 (Disconnected, Inactive)").arg(output_name));
 			menu->setItemChecked(lastIndex, false);
@@ -798,7 +798,7 @@ void KRandRSystemTray::slotOutputChanged(int parameter)
 	}
 
 	if (!randr_screen_info->outputs[parameter]->cur_crtc) {
-		//printf("Screen was off, turning it on...\n\r");
+		//printf("Screen was off, turning it on...\n");
 
 		randr_screen_info->cur_crtc = randr_screen_info->outputs[parameter]->cur_crtc;
 		randr_screen_info->cur_output = randr_screen_info->outputs[parameter];
@@ -814,7 +814,7 @@ void KRandRSystemTray::slotOutputChanged(int parameter)
 	}
 	else {
 		if (num_outputs_on > 1) {
-			//printf("Screen was on, turning it off...\n\r");
+			//printf("Screen was on, turning it off...\n");
 			randr_screen_info->cur_crtc = randr_screen_info->outputs[parameter]->cur_crtc;
 			randr_screen_info->cur_output = randr_screen_info->outputs[parameter];
 			randr_screen_info->cur_output->auto_set = 0;

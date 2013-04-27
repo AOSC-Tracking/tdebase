@@ -246,7 +246,7 @@ void KRootBacking::updateBackground( KSharedPixmap *spm )
     filename.prepend("/tmp/kde-");
     filename.append("/krootbacking.png");
     pm.save(filename, "PNG");
-    printf("%s\n\r", filename.ascii()); fflush(stdout);
+    printf("%s\n", filename.ascii()); fflush(stdout);
     exit(0);
 }
 

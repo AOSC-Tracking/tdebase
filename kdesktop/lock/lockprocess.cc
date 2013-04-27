@@ -148,10 +148,10 @@ void print_trace()
 	size = backtrace (array, 10);
 	strings = backtrace_symbols (array, size);
 
-	printf ("[kdesktop_lock] Obtained %zd stack frames.\n\r", size);
+	printf ("[kdesktop_lock] Obtained %zd stack frames.\n", size);
 
 	for (i = 0; i < size; i++) {
-		printf ("[kdesktop_lock] %s\n\r", strings[i]);
+		printf ("[kdesktop_lock] %s\n", strings[i]);
 	}
 
 	free (strings);
@@ -160,7 +160,7 @@ void print_trace()
 
 static void segv_handler(int)
 {
-	printf("[kdesktop_lock] WARNING: A fatal exception was encountered.  Trapping and ignoring it so as not to compromise desktop security...\n\r");
+	printf("[kdesktop_lock] WARNING: A fatal exception was encountered.  Trapping and ignoring it so as not to compromise desktop security...\n");
 	print_trace();
 	sleep(1);
 }
@@ -1961,7 +1961,7 @@ void LockProcess::slotForcePaintBackground()
 	TQPixmap blankPixmap(mRootWidth, mRootHeight);
 	blankPixmap.fill(Qt::black);
 	slotPaintBackground(blankPixmap);
-	printf("[WARNING] Unable to obtain desktop wallpaper in a timely manner.  High system load or possibly a TDE bug!\n\r"); fflush(stdout);
+	printf("[WARNING] Unable to obtain desktop wallpaper in a timely manner.  High system load or possibly a TDE bug!\n"); fflush(stdout);
 }
 
 void LockProcess::slotPaintBackground(const TQPixmap &rpm)
