@@ -81,6 +81,13 @@ else
 fi
 unset BIN_DIR
 
+# KDEDIRS
+if is_in_path KDEDIRS "/usr" && ! is_in_path PATH KDEDIRS "${KDEDIR}"; then
+  echo "[startkde] KDEDIRS is currently set to: ${KDEDIRS}" 1>&2
+  echo "[startkde] Adding KDEDIR in KDEDIRS" 1>&2
+  place_before_in_path KDEDIRS "${KDEDIR}" "/usr"
+fi
+
 # When the X server dies we get a HUP signal from xinit. We must ignore it
 # because we still need to do some cleanup.
 trap '[startkde] echo GOT SIGHUP' HUP
