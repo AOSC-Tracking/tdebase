@@ -938,6 +938,7 @@ void LockProcess::createSaverWindow()
 {
     Visual* visual = CopyFromParent;
     XSetWindowAttributes attrs;
+    XVisualInfo* info = NULL;
     int flags = trinity_desktop_lock_use_system_modal_dialogs?0:CWOverrideRedirect;
 #ifdef HAVE_GLXCHOOSEVISUAL
     if( mOpenGLVisual )
@@ -963,22 +964,40 @@ void LockProcess::createSaverWindow()
         #undef G
         #undef B
         };
-        for( unsigned int i = 0;
-             i < sizeof( attribs ) / sizeof( attribs[ 0 ] );
-             ++i )
-        {
-            if( XVisualInfo* info = glXChooseVisual( x11Display(), x11Screen(), attribs[ i ] ))
-            {
-                visual = info->visual;
-                static Colormap colormap = 0;
-                if( colormap != 0 )
-                    XFreeColormap( x11Display(), colormap );
-                colormap = XCreateColormap( x11Display(), RootWindow( x11Display(), x11Screen()), visual, AllocNone );
-                attrs.colormap = colormap;
-                flags |= CWColormap;
-                XFree( info );
+        for( unsigned int i = 0; i < sizeof( attribs ) / sizeof( attribs[ 0 ] ); ++i ) {
+            int n_glxfb_configs;
+            GLXFBConfig *fbc = glXChooseFBConfig( x11Display(), x11Screen(), attribs[ i ], &n_glxfb_configs);
+            if (!fbc) {
+                n_glxfb_configs = 0;
+            }
+            for( int j = 0; j < n_glxfb_configs; j++ ) {
+                info = glXGetVisualFromFBConfig(x11Display(), fbc[j]);
+                if( info ) {
+                    if (argb_visual) {
+                        if (info->depth < 32) {
+                            XFree( info );
+                            info = NULL;
+                            continue;
+                        }
+                    }
+                    visual = info->visual;
+                    static Colormap colormap = 0;
+                    if( colormap != 0 ) {
+                        XFreeColormap( x11Display(), colormap );
+                    }
+                    colormap = XCreateColormap( x11Display(), RootWindow( x11Display(), x11Screen()), visual, AllocNone );
+                    attrs.colormap = colormap;
+                    flags |= CWColormap;
+                    break;
+                }
+            }
+            if (flags & CWColormap) {
                 break;
             }
+        }
+        if ( !info )
+        {
+            printf("[WARNING] Unable to locate matching X11 GLX Visual; this OpenGL application may not function correctly!\n");
         }
     }
 #endif
@@ -987,21 +1006,37 @@ void LockProcess::createSaverWindow()
     hide();
 
     if (argb_visual) {
+        // The GL visual selection can return a visual with invalid depth
+        // Check for this and use a fallback visual if needed
+        if (info && (info->depth < 32)) {
+            printf("[WARNING] Unable to locate matching X11 GLX Visual; this OpenGL application may not function correctly!\n");
+            XFree( info );
+            info = NULL;
+            flags &= ~CWColormap;
+        }
+
         attrs.background_pixel = 0;
         attrs.border_pixel = 0;
         flags |= CWBackPixel;
         flags |= CWBorderPixel;
         if (!(flags & CWColormap)) {
-            XVisualInfo vinfo;
-            if (!XMatchVisualInfo( x11Display(), x11Screen(), 32, TrueColor, &vinfo )) {
-                printf("[ERROR] Unable to locate matching X11 Visual; this application will not function correctly!\n\r");
+            if (!info) {
+                info = new XVisualInfo;
+                if (!XMatchVisualInfo( x11Display(), x11Screen(), 32, TrueColor, info )) {
+                    printf("[ERROR] Unable to locate matching X11 Visual; this application will not function correctly!\n");
+                    free(info);
+                    info = NULL;
+                }
             }
-            else {
-                visual = vinfo.visual;
+            if (info) {
+                visual = info->visual;
                 attrs.colormap = XCreateColormap( x11Display(), RootWindow( x11Display(), x11Screen()), visual, AllocNone );
                 flags |= CWColormap;
             }
         }
+    }
+    if (info) {
+        XFree( info );
     }
 
     Window w = XCreateWindow( x11Display(), RootWindow( x11Display(), x11Screen()), x(), y(), width(), height(), 0, x11Depth(), InputOutput, visual, flags, &attrs );
