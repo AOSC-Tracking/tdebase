@@ -128,12 +128,15 @@ class TrayEmbed : public QXEmbed
     Q_OBJECT
 public:
     TrayEmbed( bool kdeTray, TQWidget* parent = NULL );
+    ~TrayEmbed();
     bool kdeTray() const { return kde_tray; }
     void setBackground();
     void getIconSize(int defaultIconSize);
 private:
     bool kde_tray;
     TQWidget *m_scaledWidget;
+    TQTimer* m_ensureBackgroundSetTimer;
+    int m_ensureBackgroundSetTimerCount;
 private slots:
     void ensureBackgroundSet();
 };

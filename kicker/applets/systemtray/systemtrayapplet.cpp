@@ -1130,11 +1130,18 @@ void SystemTrayApplet::setBackground()
 
 
 TrayEmbed::TrayEmbed( bool kdeTray, TQWidget* parent )
-    : QXEmbed( parent ), kde_tray( kdeTray )
+    : QXEmbed( parent ), kde_tray( kdeTray ), m_ensureBackgroundSetTimerCount(0)
 {
+    m_ensureBackgroundSetTimer = new TQTimer();
+    connect(m_ensureBackgroundSetTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(ensureBackgroundSet()));
     hide();
     m_scaledWidget = new TQWidget(parent);
     m_scaledWidget->hide();
+}
+
+TrayEmbed::~TrayEmbed()
+{
+    delete m_ensureBackgroundSetTimer;
 }
 
 void TrayEmbed::getIconSize(int defaultIconSize)
@@ -1170,6 +1177,7 @@ void TrayEmbed::setBackground()
     if (!isHidden())
     {
         XClearArea(x11Display(), embeddedWinId(), 0, 0, 0, 0, True);
+        m_ensureBackgroundSetTimerCount = 0;
         ensureBackgroundSet();
     }
 }
@@ -1182,7 +1190,7 @@ void TrayEmbed::ensureBackgroundSet()
 		// This is a nasty little hack to make sure that tray icons / applications which do not match our QXEmbed native depth are still displayed properly,
 		// i.e without irritating white/grey borders where the tray icon's transparency is supposed to be...
 		// Essentially it converts a 24 bit Xlib Pixmap to a 32 bit Xlib Pixmap
-	
+
 		TQPixmap bg(width(), height());
 
 		// Get the RGB background image
@@ -1212,5 +1220,16 @@ void TrayEmbed::ensureBackgroundSet()
 		XSetWindowBackgroundPixmap(x11Display(), embeddedWinId(), argbpixmap);
 		XFreePixmap(x11Display(), argbpixmap);
 		XFreeGC(x11Display(), gc);
+
+		// Repaint
+		XClearArea(x11Display(), embeddedWinId(), 0, 0, 0, 0, True);
+
+		// HACK
+		// Clear background artifacts in first available timeslot after initial icon display
+		if (m_ensureBackgroundSetTimerCount < 1) {
+			m_ensureBackgroundSetTimerCount++;
+			m_ensureBackgroundSetTimer->stop();
+			m_ensureBackgroundSetTimer->start(0, TRUE);
+		}
 	}
 }
