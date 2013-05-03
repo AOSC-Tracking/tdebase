@@ -78,6 +78,7 @@ bool signalled_run;
 bool in_internal_mode = FALSE;
 
 bool argb_visual = FALSE;
+pid_t kdesktop_pid = -1;
 
 static void sigusr1_handler(int)
 {
@@ -449,8 +450,8 @@ int main( int argc, char **argv )
             return ret;
         }
         else {
-            pid_t kdesktop_pid = atoi(args->getOption( "internal" ));
-            if (kill(kdesktop_pid, SIGUSR2) < 0) {
+            kdesktop_pid = atoi(args->getOption( "internal" ));
+            if (kill(kdesktop_pid, 0) < 0) {
                 // The controlling kdesktop process probably died.  Commit suicide...
                 return 12;
             }

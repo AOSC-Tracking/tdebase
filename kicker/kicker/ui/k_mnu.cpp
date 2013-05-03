@@ -448,9 +448,14 @@ extern int kicker_screen_number;
 void PanelKMenu::slotLock()
 {
     TQCString appname( "kdesktop" );
-    if ( kicker_screen_number )
+    if ( kicker_screen_number ) {
         appname.sprintf("kdesktop-screen-%d", kicker_screen_number);
-    kapp->dcopClient()->send(appname, "KScreensaverIface", "lock()", TQString(""));
+    }
+    TQCString replyType;
+    TQByteArray replyData;
+    // Block here until lock is complete
+    // If this is not done the desktop of the locked session will be shown after VT switch until the lock fully engages!
+    kapp->dcopClient()->call(appname, "KScreensaverIface", "lock()", TQCString(""), replyType, replyData);
 }
 
 void PanelKMenu::slotLogout()
@@ -520,8 +525,9 @@ void PanelKMenu::doNewSession( bool lock )
     if (result==KMessageBox::Cancel)
         return;
 
-    if (lock)
+    if (lock) {
         slotLock();
+    }
 
     DM().startReserve();
 }

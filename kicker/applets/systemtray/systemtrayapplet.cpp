@@ -1130,10 +1130,8 @@ void SystemTrayApplet::setBackground()
 
 
 TrayEmbed::TrayEmbed( bool kdeTray, TQWidget* parent )
-    : QXEmbed( parent ), kde_tray( kdeTray ), m_ensureBackgroundSetTimerCount(0)
+    : QXEmbed( parent ), kde_tray( kdeTray )
 {
-    m_ensureBackgroundSetTimer = new TQTimer();
-    connect(m_ensureBackgroundSetTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(ensureBackgroundSet()));
     hide();
     m_scaledWidget = new TQWidget(parent);
     m_scaledWidget->hide();
@@ -1141,7 +1139,7 @@ TrayEmbed::TrayEmbed( bool kdeTray, TQWidget* parent )
 
 TrayEmbed::~TrayEmbed()
 {
-    delete m_ensureBackgroundSetTimer;
+    //
 }
 
 void TrayEmbed::getIconSize(int defaultIconSize)
@@ -1164,20 +1162,19 @@ void TrayEmbed::setBackground()
 {
     const TQPixmap *pbg = parentWidget()->backgroundPixmap();
 
-    if (pbg)
-    {
+    if (pbg) {
         TQPixmap bg(width(), height());
         bg.fill(parentWidget(), pos());
         setPaletteBackgroundPixmap(bg);
         setBackgroundOrigin(WidgetOrigin);
     }
-    else
+    else {
         unsetPalette();
+    }
 
     if (!isHidden())
     {
         XClearArea(x11Display(), embeddedWinId(), 0, 0, 0, 0, True);
-        m_ensureBackgroundSetTimerCount = 0;
         ensureBackgroundSet();
     }
 }
@@ -1211,8 +1208,7 @@ void TrayEmbed::ensureBackgroundSet()
 				int g = int( tqGreen( l ) );
 				int b = int( tqBlue( l ) );
 				int a = int( tqAlpha( l ) );
-				ls[x] = tqRgba( r, g, b, a );
-				XSetForeground(x11Display(), gc, (r << 16) | (g << 8) | b );
+				XSetForeground(x11Display(), gc, (a << 24) | (r << 16) | (g << 8) | b );
 				XDrawPoint(x11Display(), argbpixmap, gc, x, y);
 			}
 		}
@@ -1223,13 +1219,5 @@ void TrayEmbed::ensureBackgroundSet()
 
 		// Repaint
 		XClearArea(x11Display(), embeddedWinId(), 0, 0, 0, 0, True);
-
-		// HACK
-		// Clear background artifacts in first available timeslot after initial icon display
-		if (m_ensureBackgroundSetTimerCount < 1) {
-			m_ensureBackgroundSetTimerCount++;
-			m_ensureBackgroundSetTimer->stop();
-			m_ensureBackgroundSetTimer->start(0, TRUE);
-		}
 	}
 }

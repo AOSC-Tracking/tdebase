@@ -135,8 +135,6 @@ public:
 private:
     bool kde_tray;
     TQWidget *m_scaledWidget;
-    TQTimer* m_ensureBackgroundSetTimer;
-    int m_ensureBackgroundSetTimerCount;
 private slots:
     void ensureBackgroundSet();
 };

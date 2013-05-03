@@ -133,6 +133,7 @@ private:
     void windowAdded( WId window, bool managed );
     void resume( bool force );
     static TQVariant getConf(void *ctx, const char *key, const TQVariant &dflt);
+    void fullyOnline();
 
     bool        mLocked;
     int         mLockGrace;
@@ -198,6 +199,7 @@ private:
     bool        mHackStartupEnabled;
     bool        mOverrideHackStartupEnabled;
     bool        mResizingDesktopLock;
+    bool        mFullyOnlineSent;
 
     TQPixmap    backingPixmap;
     KRootPixmap  *m_rootPixmap;
