@@ -1237,6 +1237,7 @@ void KonqIconViewWidget::contentsMouseMoveEvent( TQMouseEvent *e )
 void KonqIconViewWidget::contentsDropEvent( TQDropEvent * ev )
 {
   TQIconViewItem *i = findItem( ev->pos() );
+  KURL::List uriList;
 
     if ( ev->source() != viewport() &&
          !i && m_rootItem && !m_rootItem->isWritable() ) {
@@ -1247,7 +1248,9 @@ void KonqIconViewWidget::contentsDropEvent( TQDropEvent * ev )
   // Short-circuit TQIconView if Ctrl is pressed, so that it's possible
   // to drop a file into its own parent widget to copy it.
   if ( !i && (ev->action() == TQDropEvent::Copy || ev->action() == TQDropEvent::Link)
-          && ev->source() && ev->source() == viewport())
+          && ev->source() && ev->source() == viewport()
+          && KURLDrag::decode(ev, uriList) && !uriList.isEmpty()
+          && uriList.first().upURL().url(1) == url().url(1))
   {
     // First we need to call TQIconView though, to clear the drag shape
     bool bMovable = itemsMovable();
