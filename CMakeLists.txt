@@ -220,6 +220,16 @@ if( BUILD_STARTKDE )
 endif()
 
 
+##### Determine whether older manpage support is used ##########
+
+if( EXISTS "/usr/sbin/makewhatis" )
+  set( WITH_MAKEWHATIS "1" )
+  message( STATUS "Selected makewhatis for kio-man on your system" )
+else()
+  message( STATUS "Selected man-db for kio-man on your system" )
+endif()
+
+
 ##### write configure files #####################
 
 configure_file( config.h.cmake config.h @ONLY )

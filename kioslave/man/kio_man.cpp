@@ -46,6 +46,8 @@
 #include <kfilterbase.h>
 #include <kfilterdev.h>
 
+#include "config.h"
+
 using namespace KIO;
 
 MANProtocol *MANProtocol::_self = 0;
@@ -569,6 +571,26 @@ char *MANProtocol::readManPage(const char *_filename)
         }
         lastdir = filename.left(filename.findRev('/'));
     
+#ifdef WITH_MAKEWHATIS
+        TQIODevice *fd= KFilterDev::deviceForFile(filename);
+
+        if ( !fd || !fd->open(IO_ReadOnly))
+        {
+           delete fd;
+           return 0;
+        }
+        TQByteArray array(fd->readAll());
+        kdDebug(7107) << "read " << array.size() << endl;
+        fd->close();
+        delete fd;
+
+        if (array.isEmpty())
+            return 0;
+
+        const int len = array.size();
+        buf = new char[len + 4];
+        tqmemmove(buf + 1, array.data(), len);
+#else
         myStdStream = TQString::null;
         KProcess proc;
         /* TODO: detect availability of 'man --recode' so that this can go
@@ -583,6 +605,7 @@ char *MANProtocol::readManPage(const char *_filename)
         const int len = cstr.size()-1;
         buf = new char[len + 4];
         tqmemmove(buf + 1, cstr.data(), len);
+#endif
         buf[0]=buf[len]='\n'; // Start and end with a end of line
         buf[len+1]=buf[len+2]='\0'; // Two NUL characters at end
     }
