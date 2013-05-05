@@ -216,6 +216,7 @@ private:
     int m_dialogPrevY;
 
     TQWidget* m_maskWidget;
+    Window m_saverRootWindow;
 };
 
 #endif

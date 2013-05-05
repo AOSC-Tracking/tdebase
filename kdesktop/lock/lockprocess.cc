@@ -137,6 +137,10 @@ static Window gVRootData = 0;
 static Atom   gXA_VROOT;
 static Atom   gXA_SCREENSAVER_VERSION;
 
+Atom kde_wm_system_modal_notification = 0;
+Atom kde_wm_transparent_to_desktop = 0;
+Atom kde_wm_transparent_to_black = 0;
+
 void print_trace()
 {
 #ifdef WITH_KDESKTOP_LOCK_BACKTRACE
@@ -234,7 +238,8 @@ LockProcess::LockProcess()
       m_mousePrevY(0),
       m_dialogPrevX(0),
       m_dialogPrevY(0),
-      m_maskWidget(NULL)
+      m_maskWidget(NULL),
+      m_saverRootWindow(0)
 {
 #ifdef KEEP_MOUSE_UNGRABBED
     setNFlags(WX11DisableMove|WX11DisableClose|WX11DisableShade|WX11DisableMinimize|WX11DisableMaximize);
@@ -243,10 +248,10 @@ LockProcess::LockProcess()
     setupSignals();
     setupPipe();
 
-    // Signal that we want to be transparent to the desktop, not to windows behind us...
-    Atom kde_wm_transparent_to_desktop;
+    // Set up atoms
+    kde_wm_system_modal_notification = XInternAtom(qt_xdisplay(), "_KDE_WM_MODAL_SYS_NOTIFICATION", False);
     kde_wm_transparent_to_desktop = XInternAtom(qt_xdisplay(), "_KDE_TRANSPARENT_TO_DESKTOP", False);
-    XChangeProperty(qt_xdisplay(), winId(), kde_wm_transparent_to_desktop, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
+    kde_wm_transparent_to_black = XInternAtom(qt_xdisplay(), "_KDE_TRANSPARENT_TO_BLACK", False);
 
     kapp->installX11EventFilter(this);
 
@@ -1041,8 +1046,8 @@ void LockProcess::createSaverWindow()
         XFree( info );
     }
 
-    Window w = XCreateWindow( x11Display(), RootWindow( x11Display(), x11Screen()), x(), y(), width(), height(), 0, x11Depth(), InputOutput, visual, flags, &attrs );
-    create( w );
+    m_saverRootWindow = XCreateWindow( x11Display(), RootWindow( x11Display(), x11Screen()), x(), y(), width(), height(), 0, x11Depth(), InputOutput, visual, flags, &attrs );
+    create( m_saverRootWindow );
 
     // Some xscreensaver hacks check for this property
     const char *version = "KDE 2.0";
@@ -1055,9 +1060,7 @@ void LockProcess::createSaverWindow()
     XChangeWindowAttributes(qt_xdisplay(), winId(), CWEventMask, &attr);
 
     // Signal that we want to be transparent to the desktop, not to windows behind us...
-    Atom kde_wm_transparent_to_desktop;
-    kde_wm_transparent_to_desktop = XInternAtom(qt_xdisplay(), "_KDE_TRANSPARENT_TO_DESKTOP", False);
-    XChangeProperty(qt_xdisplay(), w, kde_wm_transparent_to_desktop, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
+    XChangeProperty(qt_xdisplay(), m_saverRootWindow, kde_wm_transparent_to_desktop, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
 
     // erase();
 
@@ -1716,6 +1719,11 @@ bool LockProcess::startHack()
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
 			// Make sure we have a nice clean display to start with!
 			if (argb_visual) {
+				// Signal that we want to be transparent to a black background...
+				if (m_saverRootWindow) {
+					XChangeProperty(qt_xdisplay(), m_saverRootWindow, kde_wm_transparent_to_black, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
+					XClearArea(qt_xdisplay(), m_saverRootWindow, 0, 0, 0, 0, True);
+				}
 				setTransparentBackgroundARGB();
 			}
 			else {
@@ -1830,6 +1838,10 @@ void LockProcess::hackExited(KProcess *)
 		}
 	}
 	if (argb_visual) {
+		if (m_saverRootWindow) {
+			XDeleteProperty(qt_xdisplay(), m_saverRootWindow, kde_wm_transparent_to_black);
+			XClearArea(qt_xdisplay(), m_saverRootWindow, 0, 0, 0, 0, True);
+		}
 		setTransparentBackgroundARGB();
 	}
 	else {
@@ -2463,8 +2475,6 @@ void LockProcess::msgBox( TQMessageBox::Icon type, const TQString &txt )
     TQDialog box( 0, "messagebox", true, (trinity_desktop_lock_use_system_modal_dialogs?((WFlags)WStyle_StaysOnTop):((WFlags)WX11BypassWM)) );
     if (trinity_desktop_lock_use_system_modal_dialogs) {
         // Signal that we do not want any window controls to be shown at all
-        Atom kde_wm_system_modal_notification;
-        kde_wm_system_modal_notification = XInternAtom(qt_xdisplay(), "_KDE_WM_MODAL_SYS_NOTIFICATION", False);
         XChangeProperty(qt_xdisplay(), box.winId(), kde_wm_system_modal_notification, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
     }
     box.setCaption(i18n("Authentication Subsystem Notice"));

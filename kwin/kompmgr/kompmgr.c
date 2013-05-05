@@ -163,6 +163,9 @@ typedef struct _win {
 
     /* setting whether a window will be transparent to the desktop or the windows below it */
     Bool		show_root_tile;
+
+    /* setting whether a window will be transparent to a black background or something else */
+    Bool		show_black_background;
 } win;
 
 typedef struct _conv {
@@ -228,6 +231,7 @@ Atom            dimAtom;
 Atom            deskChangeAtom;
 Atom            winTypeAtom;
 Atom            winTDETTDAtom;
+Atom            winTDETTBAtom;
 Atom            winType[NUM_WINTYPES];
 double          winTypeOpacity[NUM_WINTYPES];
 Bool            winTypeShadow[NUM_WINTYPES];
@@ -1038,6 +1042,12 @@ static char *backgroundProps[] = {
 	0,
 };
 
+static Bool
+determine_window_transparent_to_black(Display *dpy, Window w);
+
+static Bool
+determine_window_transparent_to_desktop(Display *dpy, Window w);
+
 static Picture
 root_tile (Display *dpy)
 {
@@ -1554,7 +1564,18 @@ paint_all (Display *dpy, XserverRegion region)
 			   background pixmap entirely here is the place to do it; simply
 			   draw the new background onto rootBuffer before continuing! */
 			if (w->isInFade == False) {
-				if (w->show_root_tile == True) {
+				// HACK
+				// For an unknown reason the PropertyNotify event handler is not
+				// fired when either the show_black_background or show_root_tile
+				// control atoms are changed.  This works around the problem but
+				// causes an unquantified, likely relatively low, performance loss.
+				w->show_black_background = determine_window_transparent_to_black(dpy, w->id);
+				if (w->show_black_background == True) {
+					XRenderComposite (dpy, PictOpSrc, blackPicture, None, rootBuffer,
+							x, y, x, y, 
+							x, y, wid, hei);
+				}
+				else if (w->show_root_tile == True) {
 					XRenderComposite (dpy, PictOpSrc, rootTile, None, rootBuffer,
 							x, y, x, y, 
 							x, y, wid, hei);
@@ -1765,8 +1786,9 @@ map_win (Display *dpy, Window id, unsigned long sequence, Bool fade)
 	win		*w = find_win (dpy, id);
 	Drawable	back;
 
-	if (!w)
+	if (!w) {
 		return;
+	}
 
 	w->a.map_state = IsViewable;
 
@@ -1775,6 +1797,8 @@ map_win (Display *dpy, Window id, unsigned long sequence, Bool fade)
 
 	/* This needs to be here since we don't get PropertyNotify when unmapped */
 	w->opacity = get_opacity_prop (dpy, w, OPAQUE);
+	w->show_root_tile = determine_window_transparent_to_desktop(dpy, id);
+	w->show_black_background = determine_window_transparent_to_black(dpy, id);
 	determine_mode (dpy, w);
 
 	w->windowType = determine_wintype (dpy, w->id, w->id);
@@ -1804,8 +1828,9 @@ map_win (Display *dpy, Window id, unsigned long sequence, Bool fade)
 #endif
 	w->a_prev = w->a;
 
-	if (fade && winTypeFade[w->windowType])
+	if (fade && winTypeFade[w->windowType]) {
 		set_fade (dpy, w, 0, get_opacity_prop(dpy, w, OPAQUE)*1.0/OPAQUE, fade_in_step, 0, False, True, True, True);
+	}
 }
 
 static void
@@ -2133,6 +2158,28 @@ get_window_transparent_to_desktop(Display * dpy, Window w)
 	return False;
 }
 
+static Bool
+get_window_transparent_to_black(Display * dpy, Window w)
+{
+	Atom actual;
+	int format;
+	unsigned long n, left;
+
+	unsigned char *data;
+	int result = XGetWindowProperty (dpy, w, winTDETTBAtom, 0L, 1L, False,
+			XA_ATOM, &actual, &format,
+			&n, &left, &data);
+
+	if (result == Success && data != None && format == 32 )
+	{
+		Atom a;
+		a = *(long*)data;
+		XFree ( (void *) data);
+		return True;
+	}
+	return False;
+}
+
 	static void
 determine_mode(Display *dpy, win *w)
 {
@@ -2193,8 +2240,9 @@ determine_window_transparent_to_desktop (Display *dpy, Window w)
 	Bool         type;
 
 	type = get_window_transparent_to_desktop (dpy, w);
-	if (type == True)
+	if (type == True) {
 		return True;
+	}
 
 	if (!XQueryTree (dpy, w, &root_return, &parent_return, &children,
 				&nchildren))
@@ -2208,6 +2256,41 @@ determine_window_transparent_to_desktop (Display *dpy, Window w)
 	for (i = 0;i < nchildren;i++)
 	{
 		type = determine_window_transparent_to_desktop (dpy, children[i]);
+		if (type == True)
+			return True;
+	}
+
+	if (children)
+		XFree ((void *)children);
+
+	return False;
+}
+
+static Bool
+determine_window_transparent_to_black (Display *dpy, Window w)
+{
+	Window       root_return, parent_return;
+	Window      *children = NULL;
+	unsigned int nchildren, i;
+	Bool         type;
+
+	type = get_window_transparent_to_black (dpy, w);
+	if (type == True) {
+		return True;
+	}
+
+	if (!XQueryTree (dpy, w, &root_return, &parent_return, &children,
+				&nchildren))
+	{
+		/* XQueryTree failed. */
+		if (children)
+			XFree ((void *)children);
+		return False;
+	}
+
+	for (i = 0;i < nchildren;i++)
+	{
+		type = determine_window_transparent_to_black (dpy, children[i]);
 		if (type == True)
 			return True;
 	}
@@ -2288,6 +2371,7 @@ add_win (Display *dpy, Window id, Window prev)
 	new->shadowSize = 100;
 	new->decoHash = 0;
 	new->show_root_tile = determine_window_transparent_to_desktop(dpy, id);
+	new->show_black_background = determine_window_transparent_to_black(dpy, id);
 
 	new->windowType = determine_wintype (dpy, new->id, new->id);
 	if ((new->windowType < 0) || (new->windowType > NUM_WINTYPES)) new->windowType = WINTYPE_NORMAL;
@@ -3350,6 +3434,7 @@ main (int argc, char **argv)
         deskChangeAtom = XInternAtom (dpy, DESKCHANGE_PROP, False);
 	winTypeAtom = XInternAtom (dpy, "_NET_WM_WINDOW_TYPE", False);
 	winTDETTDAtom = XInternAtom (dpy, "_KDE_TRANSPARENT_TO_DESKTOP", False);
+	winTDETTBAtom = XInternAtom (dpy, "_KDE_TRANSPARENT_TO_BLACK", False);
 	winType[WINTYPE_DESKTOP] = XInternAtom (dpy, "_NET_WM_WINDOW_TYPE_DESKTOP", False);
 	winType[WINTYPE_DOCK] = XInternAtom (dpy, "_NET_WM_WINDOW_TYPE_DOCK", False);
 	winType[WINTYPE_TOOLBAR] = XInternAtom (dpy, "_NET_WM_WINDOW_TYPE_TOOLBAR", False);
@@ -3414,8 +3499,9 @@ main (int argc, char **argv)
 	allDamage = None;
 	clipChanged = True;
 	XGrabServer (dpy);
-	if (autoRedirect)
+	if (autoRedirect) {
 		XCompositeRedirectSubwindows (dpy, root, CompositeRedirectAutomatic);
+	}
 	else
 	{
         int dummy;
@@ -3439,8 +3525,9 @@ main (int argc, char **argv)
 	XUngrabServer (dpy);
 	ufd.fd = ConnectionNumber (dpy);
 	ufd.events = POLLIN;
-	if (!autoRedirect)
+	if (!autoRedirect) {
 		paint_all (dpy, None);
+	}
 
         /* Under no circumstances should these two lines EVER be moved earlier in main() than this point */
         atexit(delete_pid_file);
@@ -3450,8 +3537,9 @@ main (int argc, char **argv)
 	{
 		/*	dump_wins (); */
 		do {
-			if (autoRedirect)
+			if (autoRedirect) {
 				XFlush (dpy);
+			}
 			if (!QLength (dpy))
 			{
 				if (poll (&ufd, 1, fade_timeout()) == 0)
@@ -3462,8 +3550,9 @@ main (int argc, char **argv)
 			}
 
 			XNextEvent (dpy, &ev);
-			if ((ev.type & 0x7f) != KeymapNotify)
+			if ((ev.type & 0x7f) != KeymapNotify) {
 				discard_ignore (dpy, ev.xany.serial);
+			}
 #if DEBUG_EVENTS
 			printf ("event %10.10s serial 0x%08x window 0x%08x\n",
 					ev_name(&ev), ev_serial (&ev), ev_window (&ev));
@@ -3661,14 +3750,30 @@ main (int argc, char **argv)
 								w->extents = win_extents (dpy, w);
 							}
 						}
-		}
-                else if (ev.xproperty.atom == deskChangeAtom)
-                {
-                    /*just set global variable*/
-                    unsigned int tmp = get_deskchange_prop(dpy, ev.xproperty.window);
-                    printf("desk change, state:%d\n",tmp);
-                }
-                break;
+					}
+					else if (ev.xproperty.atom == deskChangeAtom)
+					{
+						/*just set global variable*/
+						unsigned int tmp = get_deskchange_prop(dpy, ev.xproperty.window);
+						printf("desk change, state:%d\n",tmp);
+					}
+					else if (ev.xproperty.atom == winTDETTDAtom)
+					{
+						win * w = find_win(dpy, ev.xproperty.window);
+						if (w)
+						{
+							w->show_root_tile = determine_window_transparent_to_desktop(dpy, ev.xproperty.window);
+						}
+					}
+					else if (ev.xproperty.atom == winTDETTBAtom)
+					{
+						win * w = find_win(dpy, ev.xproperty.window);
+						if (w)
+						{
+							w->show_black_background = determine_window_transparent_to_black(dpy, ev.xproperty.window);
+						}
+					}
+					break;
 	    default:
 		if (ev.type == damage_event + XDamageNotify)
                 {
