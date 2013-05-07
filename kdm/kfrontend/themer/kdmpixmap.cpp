@@ -304,21 +304,8 @@ KdmPixmap::drawContents( TQPainter *p, const TQRect &r )
 		// Convert pixmap from premultiplied alpha to normal alpha
 		{
 			if (scaledImage.isNull()) scaledImage = pClass->readyPixmap;
-			if (!scaledImage.isNull()) scaledImage = scaledImage.convertDepth( 32 );
-			int w = scaledImage.width();
-			int h = scaledImage.height();
-	
-			for (int y = 0; y < h; ++y) {
-				QRgb *ls = (QRgb *)scaledImage.scanLine( y );
-				for (int x = 0; x < w; ++x) {
-					QRgb l = ls[x];
-					float alpha_adjust = (tqAlpha( l )/256.0);
-					int r = int( tqRed( l ) * alpha_adjust );
-					int g = int( tqGreen( l ) * alpha_adjust );
-					int b = int( tqBlue( l ) * alpha_adjust );
-					int a = int( tqAlpha( l ) * 1 );
-					ls[x] = tqRgba( r, g, b, a );
-				}
+			if (!scaledImage.isNull()) {
+				scaledImage = KImageEffect::convertToPremultipliedAlpha(scaledImage);
 			}
 		}
 

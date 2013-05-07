@@ -194,7 +194,11 @@ void KSMServer::shutdownInternal( KApplication::ShutdownConfirm confirm,
 		KConfig config("power-managerrc");
 		bool lockOnResume = config.readBoolEntry("lockOnResume", true);
 		if (lockOnResume) {
-			DCOPRef("kdesktop", "KScreensaverIface").send("lock");
+			TQCString replyType;
+			TQByteArray replyData;
+			// Block here until lock is complete
+			// If this is not done the desktop of the locked session will be shown after suspend/hibernate until the lock fully engages!
+			DCOPRef("kdesktop", "KScreensaverIface").call("lock()");
 		}
         }
     }
