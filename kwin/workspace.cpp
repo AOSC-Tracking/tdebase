@@ -58,9 +58,14 @@ KProcess* kompmgr = 0;
 KSelectionOwner* kompmgr_selection;
 
 bool allowKompmgrRestart = TRUE;
+extern bool disable_kwin_composition_manager;
 
 bool supportsCompMgr()
 {
+    if (disable_kwin_composition_manager) {
+        return false;
+    }
+
     int i;
 
     bool damageExt = XQueryExtension(qt_xdisplay(), "DAMAGE", &i, &i, &i);
@@ -212,8 +217,9 @@ Workspace::Workspace( bool restore )
     connect( kapp->desktop(), TQT_SIGNAL( resized( int )), TQT_SLOT( desktopResized()));
 #endif
 
-    if (!supportsCompMgr())
+    if (!supportsCompMgr()) {
         options->useTranslucency = false;
+    }
 
     // start kompmgr - i wanted to put this into main.cpp, but that would prevent dcop support, as long as Application was no dcop_object
     if (options->useTranslucency)

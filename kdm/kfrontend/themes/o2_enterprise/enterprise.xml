@@ -6,7 +6,7 @@
 		<pos width="100%" x="0" y="0" height="100%" />
 	</item>
 	<item type="pixmap" >
-		<normal file="Dialog.png" />
+		<normal alpha="1.0" file="Dialog.png" />
 		<pos width="640" x="50%" y="50%" anchor="c" height="400" />
 		<item type="label" id="clock" >
 			<normal color="#000000" font="Sans 10" />

@@ -57,8 +57,9 @@ KdmRect::init( const TQDomNode &node, const char * )
 	rect.hasBorder = false;
 
 	// A rect can have no properties (defaults to parent ones)
-	if (node.isNull())
+	if (node.isNull()) {
 		return;
+	}
 
 	// Read RECT ID
 	TQDomNode n = node;
@@ -75,18 +76,22 @@ KdmRect::init( const TQDomNode &node, const char * )
 			parseColor( el.attribute( "color", TQString::null ), rect.normal.color );
 			rect.normal.alpha = el.attribute( "alpha", "1.0" ).toFloat();
 			parseFont( el.attribute( "font", "Sans 14" ), rect.normal.font );
-		} else if (tagName == "active") {
+		}
+		else if (tagName == "active") {
 			rect.active.present = true;
 			parseColor( el.attribute( "color", TQString::null ), rect.active.color );
 			rect.active.alpha = el.attribute( "alpha", "1.0" ).toFloat();
 			parseFont( el.attribute( "font", "Sans 14" ), rect.active.font );
-		} else if (tagName == "prelight") {
+		}
+		else if (tagName == "prelight") {
 			rect.prelight.present = true;
 			parseColor( el.attribute( "color", TQString::null ), rect.prelight.color );
 			rect.prelight.alpha = el.attribute( "alpha", "1.0" ).toFloat();
 			parseFont( el.attribute( "font", "Sans 14" ), rect.prelight.font );
-		} else if (tagName == "border")
+		}
+		else if (tagName == "border") {
 			rect.hasBorder = true;
+		}
 	}
 }
 
@@ -95,18 +100,22 @@ KdmRect::drawContents( TQPainter *p, const TQRect &r )
 {
 	// choose the correct rect class
 	RectStruct::RectClass *rClass = &rect.normal;
-	if (state == Sactive && rect.active.present)
+	if (state == Sactive && rect.active.present) {
 		rClass = &rect.active;
-	if (state == Sprelight && rect.prelight.present)
+	}
+	if (state == Sprelight && rect.prelight.present) {
 		rClass = &rect.prelight;
+	}
 
-	if (rClass->alpha <= 0 || !rClass->color.isValid())
+	if (rClass->alpha <= 0 || !rClass->color.isValid()) {
 		return;
+	}
 
-	if (rClass->alpha == 1)
+	if (rClass->alpha == 1) {
 		p->fillRect( area, TQBrush( rClass->color ) );
+	}
 	else {
-// 		if ((_compositor.isEmpty()) || (!argb_visual_available)) {
+// 		if (!argb_visual_available) {
 			// Software blend only (no compositing support)
 			TQRect backRect = r;
 			backRect.moveBy( area.x(), area.y() );
@@ -127,11 +136,13 @@ void
 KdmRect::statusChanged()
 {
 	KdmItem::statusChanged();
-	if (!rect.active.present && !rect.prelight.present)
+	if (!rect.active.present && !rect.prelight.present) {
 		return;
+	}
 	if ((state == Sprelight && !rect.prelight.present) ||
-	    (state == Sactive && !rect.active.present))
+	    (state == Sactive && !rect.active.present)) {
 		return;
+	}
 	needUpdate();
 }
 

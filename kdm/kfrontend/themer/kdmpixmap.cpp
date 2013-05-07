@@ -69,7 +69,7 @@ KdmPixmap::KdmPixmap( KdmItem *parent, const TQDomNode &node, const char *name )
 			pixmap.normal.alpha = el.attribute( "alpha", "1.0" ).toFloat();
 
 			if (el.attribute( "file", "" ) == "@@@KDMBACKGROUND@@@") {
-				if ((_compositor.isEmpty()) || (!argb_visual_available)) {
+				if (!argb_visual_available) {
 					// Software blend only (no compositing support)
 					// Use the preset KDM background...
 					KStandardDirs *m_pDirs = KGlobal::dirs();
@@ -111,13 +111,16 @@ KdmPixmap::sizeHint()
 {
 	// choose the correct pixmap class
 	PixmapStruct::PixmapClass * pClass = &pixmap.normal;
-	if (state == Sactive && pixmap.active.present)
+	if (state == Sactive && pixmap.active.present) {
 		pClass = &pixmap.active;
-	if (state == Sprelight && pixmap.prelight.present)
+	}
+	if (state == Sprelight && pixmap.prelight.present) {
 		pClass = &pixmap.prelight;
+	}
 	// use the pixmap size as the size hint
-	if (!pClass->pixmap.isNull())
+	if (!pClass->pixmap.isNull()) {
 		return pClass->pixmap.size();
+	}
 	return KdmItem::sizeHint();
 }
 
@@ -134,12 +137,14 @@ KdmPixmap::setGeometry( const TQRect &newGeometry, bool force )
 TQString
 KdmPixmap::fullPath( const TQString &fileName)
 {
-        if (fileName.isEmpty())
+        if (fileName.isEmpty()) {
 		return TQString::null;
+	}
 
 	TQString fullName = fileName;
-	if (fullName.at( 0 ) != '/')
+	if (fullName.at( 0 ) != '/') {
 		fullName = baseDir() + "/" + fileName;
+	}
 	return fullName;
 }
 
@@ -170,20 +175,22 @@ KdmPixmap::renderSvg( PixmapStruct::PixmapClass *pClass, const TQRect &area )
 void
 KdmPixmap::loadPixmap( PixmapStruct::PixmapClass *pClass )
 {
-  TQString fullpath = pClass->fullpath;
-
-  kdDebug() << timestamp() << " load " << fullpath << endl;
-  int index = fullpath.findRev('.');
-  TQString ext = fullpath.right(fullpath.length() - index);
-  fullpath = fullpath.left(index);
-  kdDebug() << timestamp() << " ext " << ext << " " << fullpath << endl;
-  TQString testpath = TQString("-%1x%2").arg(area.width()).arg(area.height()) + ext;
-  kdDebug() << timestamp() << " testing for " << fullpath + testpath << endl;
-  if (KStandardDirs::exists(fullpath + testpath)) 
-    pClass->pixmap.load(fullpath + testpath);
-  else
-    pClass->pixmap.load( fullpath + ext );
-  kdDebug() << timestamp() << " done\n";
+	TQString fullpath = pClass->fullpath;
+	
+	kdDebug() << timestamp() << " load " << fullpath << endl;
+	int index = fullpath.findRev('.');
+	TQString ext = fullpath.right(fullpath.length() - index);
+	fullpath = fullpath.left(index);
+	kdDebug() << timestamp() << " ext " << ext << " " << fullpath << endl;
+	TQString testpath = TQString("-%1x%2").arg(area.width()).arg(area.height()) + ext;
+	kdDebug() << timestamp() << " testing for " << fullpath + testpath << endl;
+	if (KStandardDirs::exists(fullpath + testpath)) {
+		pClass->pixmap.load(fullpath + testpath);
+	}
+	else {
+		pClass->pixmap.load( fullpath + ext );
+	}
+	kdDebug() << timestamp() << " done\n";
 }
 
 void
@@ -191,16 +198,19 @@ KdmPixmap::drawContents( TQPainter *p, const TQRect &r )
 {
 	// choose the correct pixmap class
 	PixmapStruct::PixmapClass *pClass = &pixmap.normal;
-	if (state == Sactive && pixmap.active.present)
+	if (state == Sactive && pixmap.active.present) {
 		pClass = &pixmap.active;
-	if (state == Sprelight && pixmap.prelight.present)
+	}
+	if (state == Sprelight && pixmap.prelight.present) {
 		pClass = &pixmap.prelight;
+	}
 
 	kdDebug() << "draw " << id << " " << pClass->pixmap.isNull() << endl;
  
 	if (pClass->pixmap.isNull()) {
-	        if (pClass->fullpath.isEmpty())	// if neither is set, we're empty
+	        if (pClass->fullpath.isEmpty()) {	// if neither is set, we're empty
 			return;
+		}
 		
 		if (!pClass->fullpath.endsWith( ".svg" ) ) {
 		  loadPixmap(pClass);
@@ -230,21 +240,20 @@ KdmPixmap::drawContents( TQPainter *p, const TQRect &r )
 
 
 	if (pClass->readyPixmap.isNull()) {
-	  
 		bool haveTint = pClass->tint.rgb() != 0xFFFFFF;
 		bool haveAlpha = pClass->alpha < 1.0;
 
 		TQImage scaledImage;
-		
-		// use the loaded pixmap or a scaled version if needed
 
+		// use the loaded pixmap or a scaled version if needed
 		kdDebug() << timestamp() << " prepare readyPixmap " << pClass->fullpath << " " << area.size() << " " << pClass->pixmap.size() << endl;
 		if (area.size() != pClass->pixmap.size()) {
 			if (pClass->fullpath.endsWith( ".svg" )) {
 				kdDebug() << timestamp() << " renderSVG\n";
 				renderSvg( pClass, area );
 				scaledImage = pClass->pixmap.convertToImage();
-			} else {
+			}
+			else {
 				kdDebug() << timestamp() << " convertFromImage smoothscale\n";
 				if (pClass->pixmap.isNull()) {
 					scaledImage = TQImage();
@@ -256,20 +265,22 @@ KdmPixmap::drawContents( TQPainter *p, const TQRect &r )
 				}
 				kdDebug() << timestamp() << " done\n";
 			}
-		} else {
-		  if (haveTint || haveAlpha)
-                  {
-			scaledImage = pClass->pixmap.convertToImage();
-                        // enforce rgba values for the latter
-                        if (!scaledImage.isNull()) scaledImage = scaledImage.convertDepth( 32 );
-                  }
-		  else
-		    pClass->readyPixmap = pClass->pixmap;
+		}
+		else {
+			if (haveTint || haveAlpha) {
+				scaledImage = pClass->pixmap.convertToImage();
+				// enforce rgba values for the latter
+				if (!scaledImage.isNull()) {
+					scaledImage = scaledImage.convertDepth( 32 );
+				}
+			}
+			else {
+				pClass->readyPixmap = pClass->pixmap;
+			}
 		}
 
 		if (haveTint || haveAlpha) {
 			// blend image(pix) with the given tint
-
 			if (!scaledImage.isNull()) scaledImage = scaledImage.convertDepth( 32 );
 			int w = scaledImage.width();
 			int h = scaledImage.height();
@@ -290,18 +301,13 @@ KdmPixmap::drawContents( TQPainter *p, const TQRect &r )
 				}
 			}
 		}
-		if ((_compositor.isEmpty()) || (!argb_visual_available)) {
-			// Software blend only (no compositing support)
-		}
-		else {
-			// We have a compositor!
-			// Apply the alpha in the same manner as above, exept we are now
-			// using the hardware blending engine for all painting
-			scaledImage = pClass->readyPixmap;
+		// Convert pixmap from premultiplied alpha to normal alpha
+		{
+			if (scaledImage.isNull()) scaledImage = pClass->readyPixmap;
 			if (!scaledImage.isNull()) scaledImage = scaledImage.convertDepth( 32 );
 			int w = scaledImage.width();
 			int h = scaledImage.height();
-
+	
 			for (int y = 0; y < h; ++y) {
 				QRgb *ls = (QRgb *)scaledImage.scanLine( y );
 				for (int x = 0; x < w; ++x) {
@@ -317,8 +323,8 @@ KdmPixmap::drawContents( TQPainter *p, const TQRect &r )
 		}
 
 		if (!scaledImage.isNull()) {
-		  kdDebug() << timestamp() << " convertFromImage " << id << " " << area << endl;
-		  pClass->readyPixmap.convertFromImage( scaledImage );
+			kdDebug() << timestamp() << " convertFromImage " << id << " " << area << endl;
+			pClass->readyPixmap.convertFromImage( scaledImage );
 		}
 	}
 	kdDebug() << timestamp() << " Pixmap::drawContents " << pClass->readyPixmap.size() << " " << px << " " << py << " " << sx << " " << sy << " " << sw << " " << sh << endl;
@@ -329,11 +335,13 @@ void
 KdmPixmap::statusChanged()
 {
 	KdmItem::statusChanged();
-	if (!pixmap.active.present && !pixmap.prelight.present)
+	if (!pixmap.active.present && !pixmap.prelight.present) {
 		return;
+	}
 	if ((state == Sprelight && !pixmap.prelight.present) ||
-	    (state == Sactive && !pixmap.active.present))
+	    (state == Sactive && !pixmap.active.present)) {
 		return;
+	}
 	needUpdate();
 }
 

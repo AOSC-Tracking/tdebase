@@ -44,6 +44,7 @@ Options* options;
 Atoms* atoms;
 
 int screen_number = -1;
+bool disable_kwin_composition_manager = false;
 
 static bool initting = FALSE;
 
@@ -95,8 +96,13 @@ Application::Application( )
         config()->reparseConfiguration();
         }
 
-    if (screen_number == -1)
+    if (screen_number == -1) {
         screen_number = DefaultScreen(qt_xdisplay());
+    }
+
+    if (args->isSet( "disablecompositionmanager" )) {
+        disable_kwin_composition_manager = true;
+    }
 
     if( !owner.claim( args->isSet( "replace" ), true ))
         {
@@ -234,6 +240,7 @@ static KCmdLineOptions args[] =
     {
         { "lock", I18N_NOOP("Disable configuration options"), 0 },
         { "replace", I18N_NOOP("Replace already-running ICCCM2.0-compliant window manager"), 0 },
+        { "disablecompositionmanager", I18N_NOOP("Do not start composition manager"), 0 },
         KCmdLineLastOption
     };
 

@@ -161,12 +161,14 @@ KdmThemer::widgetEvent( TQEvent *e )
 			TQRect paintRect = TQT_TQPAINTEVENT(e)->rect();
 			kdDebug() << timestamp() << " paint on: " << paintRect << endl;
 
-			if ((_compositor.isEmpty()) || (!argb_visual_available)) {
+			if (!argb_visual_available) {
 				// Software blend only (no compositing support)
-				if (!backBuffer)
+				if (!backBuffer) {
 					backBuffer = new TQPixmap( widget()->size() );
-				if (backBuffer->size() != widget()->size())
+				}
+				if (backBuffer->size() != widget()->size()) {
 					backBuffer->resize( widget()->size() );
+				}
 	
 				TQPainter p;
 				p.begin( backBuffer );
@@ -177,17 +179,27 @@ KdmThemer::widgetEvent( TQEvent *e )
 			}
 			else {
 				// We have compositing support!
+				if (!backBuffer) {
+					backBuffer = new TQPixmap( widget()->size(), 32 );
+				}
+				if (backBuffer->size() != widget()->size()) {
+					backBuffer->resize( widget()->size() );
+				}
+
 				TQRgb blend_color = tqRgba(0, 0, 0, 0);   // RGBA
 				float alpha = tqAlpha(blend_color) / 255.;
 				int pixel = tqAlpha(blend_color) << 24 |
 						int(tqRed(blend_color) * alpha) << 16 |
 						int(tqGreen(blend_color) * alpha) << 8  |
 						int(tqBlue(blend_color) * alpha);
-				TQPainter p1;
-				p1.begin( widget() );
-				p1.fillRect( paintRect, TQColor(blend_color, pixel) );
-				rootItem->paint( &p1, paintRect );
-				p1.end();
+
+				TQPainter p;
+				p.begin( backBuffer );
+				p.fillRect( paintRect, TQColor(blend_color, pixel) );
+				rootItem->paint( &p, paintRect );
+				p.end();
+
+				bitBlt( widget(), paintRect.topLeft(), backBuffer, paintRect );
 			}
 
 		}
@@ -238,13 +250,15 @@ KdmThemer::generateItems( KdmItem *parent, const TQDomNode &node )
 		TQString tagName = el.tagName();
 
 		if (tagName == "item") {
-			if (!willDisplay( subnode ))
+			if (!willDisplay( subnode )) {
 				continue;
+			}
 			TQString id = el.attribute("id");
 			if (id.startsWith("plugin-specific-")) {
-			        id = id.mid(strlen("plugin-specific-"));
-			        if (!_pluginsLogin.contains(id))
-			               continue;
+				id = id.mid(strlen("plugin-specific-"));
+				if (!_pluginsLogin.contains(id)) {
+					continue;
+				}
 			}
 
 			// It's a new item. Draw it
@@ -252,33 +266,40 @@ KdmThemer::generateItems( KdmItem *parent, const TQDomNode &node )
 
 			KdmItem *newItem = 0;
 
-			if (type == "label")
+			if (type == "label") {
 				newItem = new KdmLabel( parent, subnode );
-			else if (type == "pixmap")
+			}
+			else if (type == "pixmap") {
 				newItem = new KdmPixmap( parent, subnode );
-			else if (type == "rect")
+			}
+			else if (type == "rect") {
 				newItem = new KdmRect( parent, subnode );
+			}
 			else if (type == "entry" || type == "list") {
 				newItem = new KdmRect( parent, subnode );
 				newItem->setType( type );
 			}
 			//	newItem = new KdmEntry( parent, subnode );
-			else if (type == "svg")
+			else if (type == "svg") {
 				newItem = new KdmPixmap( parent, subnode );
+			}
 			if (newItem) {
 				generateItems( newItem, subnode );
-				if (el.attribute( "button", "false" ) == "true")
+				if (el.attribute( "button", "false" ) == "true") {
 					newItem->inheritFromButton( newItem );
+				}
 			}
 		} else if (tagName == "box") {
-			if (!willDisplay( subnode ))
+			if (!willDisplay( subnode )) {
 				continue;
+			}
 			// It's a new box. Draw it
 			parent->setBoxLayout( subnode );
 			generateItems( parent, subnode );
 		} else if (tagName == "fixed") {
-			if (!willDisplay( subnode ))
+			if (!willDisplay( subnode )) {
 				continue;
+			}
 			// It's a new box. Draw it
 			parent->setFixedLayout( subnode );
 			generateItems( parent, subnode );
@@ -336,8 +357,9 @@ KdmThemer::showStructure( TQObject *obj )
 
 	const TQObjectList wlist = obj->childrenListObject();
 	static int counter = 0;
-	if (counter == 0)
+	if (counter == 0) {
 		kdDebug() << timestamp() << " \n\n<=======  Widget tree =================" << endl;
+	}
 	if (!wlist.isEmpty()) {
 		counter++;
 		TQObjectListIterator it( wlist );
@@ -358,47 +380,56 @@ KdmThemer::showStructure( TQObject *obj )
 		}
 		counter--;
 	}
-	if (counter == 0)
+	if (counter == 0) {
 		kdDebug() << timestamp() << " \n\n<=======  Widget tree =================\n\n" << endl;
+	}
 }
 
 void
 KdmThemer::slotActivated( const TQString &id )
 {
-  TQString toactivate;
-  if (id == "username-label")
-    toactivate = "user-entry";
-  else if (id == "password-label")
-    toactivate = "pw-entry";
-  else
-    return;
-
-  KdmItem *item = findNode(toactivate);
-  if (!item || !item->widget())
-    return;
-
-  item->widget()->setFocus();
-  TQLineEdit *le = (TQLineEdit*)item->widget()->qt_cast(TQLINEEDIT_OBJECT_NAME_STRING);
-  if (le)
-    le->selectAll();
+	TQString toactivate;
+	if (id == "username-label") {
+		toactivate = "user-entry";
+	}
+	else if (id == "password-label") {
+		toactivate = "pw-entry";
+	}
+	else {
+		return;
+	}
+	
+	KdmItem *item = findNode(toactivate);
+	if (!item || !item->widget()) {
+		return;
+	}
+	
+	item->widget()->setFocus();
+	TQLineEdit *le = (TQLineEdit*)item->widget()->qt_cast(TQLINEEDIT_OBJECT_NAME_STRING);
+	if (le) {
+		le->selectAll();
+	}
 }
 
 void
 KdmThemer::slotPaintRoot()
 {
-  KdmItem *back_item = findNode("background");
-  if (!back_item)
-    return;
-
-  TQRect screen = TQApplication::desktop()->screenGeometry(0);
-  TQPixmap pm(screen.size());
-
-  TQPainter painter( &pm, true );
-  back_item->paint( &painter, back_item->rect());
-  painter.end();
-
-  TQT_TQWIDGET(TQApplication::desktop()->screen())->setErasePixmap(pm);
-  TQT_TQWIDGET(TQApplication::desktop()->screen())->erase();
+	KdmItem *back_item = findNode("background");
+	
+	TQRect screen = TQApplication::desktop()->screenGeometry(0);
+	TQPixmap pm(screen.size());
+	
+	if (back_item) {
+		TQPainter painter( &pm, true );
+		back_item->paint( &painter, back_item->rect());
+		painter.end();
+	}
+	else {
+		pm.fill(TQt::black);
+	}
+	
+	TQT_TQWIDGET(TQApplication::desktop()->screen())->setErasePixmap(pm);
+	TQT_TQWIDGET(TQApplication::desktop()->screen())->erase();
 }
 
 #include "kdmthemer.moc"

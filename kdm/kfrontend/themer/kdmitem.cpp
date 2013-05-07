@@ -286,17 +286,18 @@ KdmItem::setGeometry( const TQRect &newGeometry, bool force )
 void
 KdmItem::paint( TQPainter *p, const TQRect &rect )
 {
-	if (isHidden())
+	if (isHidden()) {
 		return;
+	}
 
 	if (myWidget || (myLayoutItem && myLayoutItem->widget())) {
-            // KListView because it's missing a Q_OBJECT'
+            // KListView because it's missing a Q_OBJECT
             // FIXME: This is a nice idea in theory, but in practice it is
             // very confusing for the user not to see the empty list box
             // delineated from the rest of the greeter.
             // Maybe set a darker version of the background instead of an exact copy?
             if ( myWidget && myWidget->isA( "KListView" ) ) {
-              if ((_compositor.isEmpty()) || (!argb_visual_available)) {
+              if (!argb_visual_available) {
                 // Software blend only (no compositing support)
                 TQPixmap copy( myWidget->size() );
                 kdDebug() <<  myWidget->geometry() << " " << area << " " << myWidget->size() << endl;
@@ -371,13 +372,15 @@ KdmItem::paint( TQPainter *p, const TQRect &rect )
 	p->drawRect( area );
 #endif
 
-	if (myLayoutItem)
+	if (myLayoutItem) {
 		return;
+	}
 
 	// Dispatch paint events to children
 	TQValueList<KdmItem *>::Iterator it;
-	for (it = m_children.begin(); it != m_children.end(); ++it)
+	for (it = m_children.begin(); it != m_children.end(); ++it) {
 		(*it)->paint( p, rect );
+	}
 
 
 }
