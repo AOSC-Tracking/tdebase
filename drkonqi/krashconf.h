@@ -66,6 +66,7 @@ public:
   TQString frameRegExp() const { return m_frameRegExp; }
   TQString neededInValidBacktraceRegExp() const { return m_neededInValidBacktraceRegExp; }
   TQString kcrashRegExp() const { return m_kcrashRegExp; }
+  TQString kcrashRegExpSingle() const { return m_kcrashRegExpSingle; }
   bool showBacktrace() const { return m_showbacktrace; };
   bool showDebugger() const { return m_showdebugger && !m_debugger.isNull(); };
   bool showBugReport() const { return m_showbugreport; };
@@ -108,6 +109,7 @@ private:
   TQString m_frameRegExp;
   TQString m_neededInValidBacktraceRegExp;
   TQString m_kcrashRegExp;
+  TQString m_kcrashRegExpSingle;
 };
 
 #endif
