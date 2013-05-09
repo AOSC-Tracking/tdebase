@@ -12,6 +12,7 @@
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_BINARY_DIR}
   ${CMAKE_BINARY_DIR}/kicker/kicker/core
   ${CMAKE_BINARY_DIR}/kicker/libkicker
   ${CMAKE_SOURCE_DIR}/kicker/libkicker
@@ -19,6 +20,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/kicker/kicker/buttons
   ${CMAKE_SOURCE_DIR}/kdmlib
   ${CMAKE_SOURCE_DIR}/libkonq
+  ${DBUS_TQT_INCLUDE_DIRS}
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
 )
@@ -54,5 +56,5 @@ set( ${target}_SRCS
 tde_add_library( ${target} STATIC_PIC AUTOMOC
   SOURCES ${${target}_SRCS}
   DEPENDENCIES kicker_core-static kickermain-static
-  LINK dmctl-static kickoffsearch_interfaces-shared
+  LINK dmctl-static kickoffsearch_interfaces-shared ${DBUS_TQT_LIBRARIES} ${HAL_LIBRARIES}
 )

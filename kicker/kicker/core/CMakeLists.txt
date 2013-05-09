@@ -17,6 +17,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/kicker/libkicker
   ${CMAKE_SOURCE_DIR}/kicker/kicker/ui
   ${CMAKE_SOURCE_DIR}/kicker/kicker/buttons
+  ${DBUS_TQT_INCLUDE_DIRS}
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
 )

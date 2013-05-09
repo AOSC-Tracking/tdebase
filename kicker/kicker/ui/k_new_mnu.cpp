@@ -101,6 +101,18 @@
 #include "k_new_mnu.moc"
 #include "kickoff_bar.h"
 
+#include "config.h"
+
+#ifndef NO_QT3_DBUS_SUPPORT
+/* We acknowledge the the dbus API is unstable */
+#define DBUS_API_SUBJECT_TO_CHANGE
+#include <dbus/connection.h>
+#endif // NO_QT3_DBUS_SUPPORT
+
+#ifdef COMPILE_HALBACKEND
+#include <hal/libhal.h>
+#endif
+
 #define WAIT_BEFORE_QUERYING 700
 
 #define IDS_PER_CATEGORY 20
@@ -415,6 +427,38 @@ KMenu::KMenu()
     search_tab_top_left.load( locate("data", "kicker/pics/search-tab-top-left.png" ) );
     search_tab_top_right.load( locate("data", "kicker/pics/search-tab-top-right.png" ) );
     search_tab_top_center.load( locate("data", "kicker/pics/search-tab-top-center.png" ) );
+    
+#ifdef COMPILE_HALBACKEND
+    m_halCtx = NULL;
+    m_halCtx = libhal_ctx_new();
+
+    DBusError error;
+    dbus_error_init(&error);
+    m_dbusConn = dbus_connection_open_private(DBUS_SYSTEM_BUS, &error);
+    if (!m_dbusConn) {
+        dbus_error_free(&error);
+        libhal_ctx_free(m_halCtx);
+        m_halCtx = NULL;
+    } else {
+        dbus_bus_register(m_dbusConn, &error);
+        if (dbus_error_is_set(&error)) {
+            dbus_error_free(&error);
+            libhal_ctx_free(m_halCtx);
+            m_dbusConn = NULL;
+            m_halCtx = NULL;
+        } else {
+            libhal_ctx_set_dbus_connection(m_halCtx, m_dbusConn);
+            if (!libhal_ctx_init(m_halCtx, &error)) {
+                if (dbus_error_is_set(&error)) {
+                    dbus_error_free(&error);
+                }
+                libhal_ctx_free(m_halCtx);
+                m_dbusConn = NULL;
+                m_halCtx = NULL;
+            }
+        }
+    }
+#endif
 }
 
 void KMenu::setupUi()
@@ -437,6 +481,15 @@ KMenu::~KMenu()
 
     clearSubmenus();
     delete m_filterData;
+
+#ifdef COMPILE_HALBACKEND
+    if (m_halCtx) {
+        DBusError error;
+        dbus_error_init(&error);
+        libhal_ctx_shutdown(m_halCtx, &error);
+        libhal_ctx_free(m_halCtx);
+    }
+#endif
 }
 
 bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
@@ -2620,7 +2673,7 @@ void KMenu::slotStartURL(const TQString& u)
 
         kapp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
     }
-#ifdef KDELIBS_SUSE
+#ifdef COMPILE_HALBACKEND
     else if ( u == "kicker:/suspend_disk" ) {
         slotSuspend( 1 );
     }
@@ -3667,96 +3720,91 @@ int KMenu::max_items(int category) const
     return 5;
 }
 
-#define DBUS_HAL_INTERFACE             "org.freedesktop.Hal"
-#define DBUS_HAL_SYSTEM_POWER_INTERFACE        "org.freedesktop.Hal.Device.SystemPowerManagement"
-#define HAL_UDI_COMPUTER               "/org/freedesktop/Hal/devices/computer"
-
-#ifdef KDELIBS_SUSE
-#include <liblazy.h>
-#endif
-
 void KMenu::insertSuspendOption( int &nId, int &index )
 {
-#ifdef KDELIBS_SUSE
-    int supported = -1;
-    bool suspend_ram, suspend_disk, standby;
+    bool suspend_ram = false;
+    bool standby = false;
+    bool suspend_disk = false;
+#ifdef COMPILE_HALBACKEND
+    suspend_ram = libhal_device_get_property_bool(m_halCtx,
+        "/org/freedesktop/Hal/devices/computer",
+        "power_management.can_suspend", 
+        NULL);
 
-    liblazy_hal_get_property_bool(HAL_UDI_COMPUTER, "power_management.can_suspend", &supported);
-    if (supported == 1)
-        suspend_ram = true;
-    else
-        suspend_ram = false;
-	liblazy_hal_get_property_bool(HAL_UDI_COMPUTER, "power_management.can_standby", &supported);
-	if (supported == 1)
-	     standby = true;
-	else
-	     standby = false;
-	liblazy_hal_get_property_bool(HAL_UDI_COMPUTER, "power_management.can_hibernate", &supported);
-	if (supported == 1)
-	     suspend_disk = true;
-	else
-	     suspend_disk = false;
+    standby = libhal_device_get_property_bool(m_halCtx,
+        "/org/freedesktop/Hal/devices/computer",
+        "power_management.can_standby", 
+        NULL);
 
-	if (liblazy_hal_is_caller_privileged("org.freedesktop.hal.power-management.hibernate") != 1)
-	     suspend_disk = false;
-	if (liblazy_hal_is_caller_privileged("org.freedesktop.hal.power-management.suspend") != 1)
-	     suspend_ram = false;
-	if (liblazy_hal_is_caller_privileged("org.freedesktop.hal.power-management.standby") != 1)
-	    standby = false;
-
-	if ( ! ( standby + suspend_ram + suspend_disk ) )
-            return;
-
-        i18n("Suspend Computer");
-
-        if ( suspend_disk )
-            m_exitView->leftView()->insertItem( "suspend2disk", i18n( "Suspend to Disk" ),
-                                                i18n( "Pause without logging out" ), "kicker:/suspend_disk", nId++, index++ );
-
-        if ( suspend_ram )
-            m_exitView->leftView()->insertItem( "suspend2ram", i18n( "Suspend to RAM" ),
-                                                i18n( "Pause without logging out" ), "kicker:/suspend_ram", nId++, index++ );
-
-        if ( standby )
-            m_exitView->leftView()->insertItem( "player_pause", i18n( "Standby" ),
-                                                i18n( "Pause without logging out" ), "kicker:/standby", nId++, index++ );
+    suspend_disk = libhal_device_get_property_bool(m_halCtx,
+        "/org/freedesktop/Hal/devices/computer",
+        "power_management.can_hibernate", 
+        NULL);
 #endif
+
+    if ( suspend_disk ) {
+        m_exitView->leftView()->insertItem(
+            "suspend2disk",
+            i18n( "Suspend to Disk" ),
+            i18n( "Pause without logging out" ),
+            "kicker:/suspend_disk", nId++, index++ );
+    }
+    
+    if ( suspend_ram ) {
+        m_exitView->leftView()->insertItem(
+            "suspend2ram",
+            i18n( "Suspend to RAM" ),
+            i18n( "Pause without logging out" ),
+            "kicker:/suspend_ram", nId++, index++ );
+    }
+
+    if ( standby ) {
+        m_exitView->leftView()->insertItem(
+            "player_pause",
+            i18n( "Standby" ),
+            i18n( "Pause without logging out" ),
+            "kicker:/standby", nId++, index++ );
+    }
 }
 
 void KMenu::slotSuspend(int id)
 {
-#ifdef KDELIBS_SUSE
-    int error = 0;
-    int wake = 0;
-    DBusMessage *reply = 0;
+    bool error = true;
+#ifdef COMPILE_HALBACKEND
+    DBusMessage* msg = NULL;
 
-    if (id == 1) {
-        error = liblazy_dbus_system_send_method_call(DBUS_HAL_INTERFACE,
-                                                     HAL_UDI_COMPUTER,
-                                                     DBUS_HAL_SYSTEM_POWER_INTERFACE,
-                                                     "Hibernate",
-                                                     &reply,
-                                                     DBUS_TYPE_INVALID);
-    } else if (id == 2)
-        error = liblazy_dbus_system_send_method_call(DBUS_HAL_INTERFACE,
-                                                     HAL_UDI_COMPUTER,
-                                                     DBUS_HAL_SYSTEM_POWER_INTERFACE,
-                                                     "Suspend",
-                                                     &reply,
-                                                     DBUS_TYPE_INT32,
-                                                     &wake,
-                                                     DBUS_TYPE_INVALID);
-    else if (id == 3)
-        error = liblazy_dbus_system_send_method_call(DBUS_HAL_INTERFACE,
-                                                     HAL_UDI_COMPUTER,
-                                                     DBUS_HAL_SYSTEM_POWER_INTERFACE,
-                                                     "Standby",
-                                                     &reply,
-                                                     DBUS_TYPE_INVALID);
-    else
-        return;
-    if (error)
+    if (m_dbusConn) {
+        if (id == 1) {
+            msg = dbus_message_new_method_call(
+                              "org.freedesktop.Hal",
+                              "/org/freedesktop/Hal/devices/computer",
+                              "org.freedesktop.Hal.Device.SystemPowerManagement",
+                              "Hibernate");
+        } else if (id == 2) {
+            msg = dbus_message_new_method_call(
+                              "org.freedesktop.Hal",
+                              "/org/freedesktop/Hal/devices/computer",
+                              "org.freedesktop.Hal.Device.SystemPowerManagement",
+                              "Suspend");
+            int wakeup=0;
+            dbus_message_append_args(msg, DBUS_TYPE_INT32, &wakeup, DBUS_TYPE_INVALID);
+        } else if (id == 3) {
+            msg = dbus_message_new_method_call(
+                              "org.freedesktop.Hal",
+                              "/org/freedesktop/Hal/devices/computer",
+                              "org.freedesktop.Hal.Device.SystemPowerManagement",
+                              "Standby");
+        } else {
+            return;
+        }
+
+        if(dbus_connection_send(m_dbusConn, msg, NULL)) {
+            error = false;
+        }
+        dbus_message_unref(msg);
+    }
 #endif
+    if (error)
         KMessageBox::error(this, i18n("Suspend failed"));
 
 }
