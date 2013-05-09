@@ -128,39 +128,77 @@ TQSize KickoffTabBar::sizeHint() const
     return s;
 }
 
-void KickoffTabBar::layoutTabs()
+TQSize KickoffTabBar::minimumSizeHint() const
 {
-    TQTabBar::layoutTabs();
+    TQSize s;
 
     TQFontMetrics fm = fontMetrics();
     int fh = ((KickerSettings::kickoffTabBarFormat() != KickerSettings::IconOnly) ? fm.height() : 0) + 4;
 
     int hframe = style().pixelMetric( TQStyle::PM_TabBarTabHSpace, this );
     int vframe = style().pixelMetric( TQStyle::PM_TabBarTabVSpace, this );
-    int overlap = style().pixelMetric( TQStyle::PM_TabBarTabOverlap, this );
 
-    TQSize s;
-    for (int t = 0; t < count(); ++t)
-    {
+    for (int t = 0; t < count(); ++t) {
         TQTab* tab = tabAt(t);
-        if (tab->iconSet())
+        if (tab->iconSet()) {
             s = s.expandedTo(tab->iconSet()->pixmap(TQIconSet::Large, TQIconSet::Normal).size());
+        }
     }
 
-    int x = 0;
+    // Every tab must have identical height and width.
+    // We check every tab minimum height and width and we keep the
+    // biggest one as reference. Smaller tabs will be expanded to match
+    // the same size.
+    int mw = 0;
+    int mh = 0;
     for (int t = 0; t < count(); ++t) {
         TQTab* tab = tabAt(TQApplication::reverseLayout() ? count() - t - 1 : t);
-        int h = fh;
-        if (tab->iconSet())
-            h += 4 + s.height() + 4;
-        TQRect r = tab->rect();
 
-        int fw = fm.size( TQt::SingleLine|TQt::ShowPrefix, tab->text() ).width();
-        int iw = 0;
-        if ( tab->iconSet() != 0 )
-            iw = tab->iconSet()->pixmap( TQIconSet::Large, TQIconSet::Normal ).width();
-        int w = QMAX(iw, fw + 6 + 6 ) + hframe;
+        // Checks tab minimum height
+        int h = fh;
+        if (tab->iconSet()) {
+            h += 4 + s.height() + 4;
+        }
         h += ((KickerSettings::kickoffTabBarFormat() != KickerSettings::IconOnly) ? fm.height() : 0) + vframe;
+
+        // Checks tab minimum width (font)
+        int fw = fm.size( TQt::SingleLine|TQt::ShowPrefix, tab->text() ).width();
+
+        // Checks tab minimum width (icon)
+        int iw = 0;
+        if ( tab->iconSet()) {
+            iw = tab->iconSet()->pixmap( TQIconSet::Large, TQIconSet::Normal ).width();
+        }
+
+        // Final width for this tab
+        int w = QMAX(iw, fw) + hframe;
+
+        mw = QMAX(mw, w);
+        mh = QMAX(mh, h);
+    }
+
+    s.setWidth(mw * count());
+    s.setHeight(mh);
+    return (s);
+}
+
+void KickoffTabBar::layoutTabs()
+{
+    TQSize s;
+    TQSize st = minimumSizeHint();
+
+    TQTabBar::layoutTabs();
+    int overlap = style().pixelMetric( TQStyle::PM_TabBarTabOverlap, this );
+
+    int x = 0;
+    int h = st.height();
+
+    for (int t = 0; t < count(); ++t) {
+        TQTab* tab = tabAt(TQApplication::reverseLayout() ? count() - t - 1 : t);
+
+        int w = QMAX(st.width() / count(), parentWidget()->width() / count());
+
+        TQRect r = tab->rect();
         tab->setRect(TQRect(TQPoint(x, 0), style().tqsizeFromContents(TQStyle::CT_TabBarTab, this,
                     TQSize(w, h), TQStyleOption(tab))));
         x += tab->rect().width() - overlap;

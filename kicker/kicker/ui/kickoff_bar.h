@@ -33,6 +33,7 @@ public:
 
     void deactivateTabs(bool b);
     virtual TQSize sizeHint() const;
+    virtual TQSize minimumSizeHint() const;
 
 protected:
     virtual void paint(TQPainter*, TQTab*, bool) const;

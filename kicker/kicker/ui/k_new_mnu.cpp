@@ -3327,7 +3327,7 @@ TQSize KMenu::sizeHint() const
 TQSize KMenu::minimumSizeHint() const
 {
     TQSize minsize;
-    minsize.setWidth( minsize.width() + m_tabBar->sizeHint().width() );
+    minsize.setWidth( minsize.width() + m_tabBar->minimumSizeHint().width()  );
     minsize.setWidth( QMAX( minsize.width(),
                             m_search->minimumSize().width() ) );
     minsize.setWidth( QMAX( minsize.width(),
