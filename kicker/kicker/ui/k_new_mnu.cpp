@@ -2583,22 +2583,11 @@ void KMenu::slotStartURL(const TQString& u)
         slotLock();
     }
     else if ( u == "kicker:/logout" ) {
-#ifdef KDELIBS_SUSE
         TQByteArray params;
         TQDataStream stream(params, IO_WriteOnly);
         stream << 0 << -1 << "";
 
         kapp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
-#else
-        DCOPRef mediamanager("ksmserver", "ksmserver");
-        DCOPReply reply = mediamanager.call( "logoutTimed", (int)KApplication::ShutdownTypeNone, (int)KApplication::ShutdownModeDefault );
-	if (!reply.isValid() && KMessageBox::Continue==KMessageBox::warningContinueCancel(this, i18n("Do you really want to end the session?"),
-                                                                                          i18n("Logout Confirmation"), KGuiItem(i18n("Logout"),"undo")))
-            kapp->requestShutDown( KApplication::ShutdownConfirmNo,
-                                   KApplication::ShutdownTypeNone,
-                                   KApplication::ShutdownModeDefault );
-
-#endif
     }
     else if ( u == "kicker:/runcommand" )
     {
@@ -2609,34 +2598,18 @@ void KMenu::slotStartURL(const TQString& u)
          runUserCommand();
     }
     else if ( u == "kicker:/shutdown" ) {
-#ifdef KDELIBS_SUSE
         TQByteArray params;
         TQDataStream stream(params, IO_WriteOnly);
         stream << 2 << -1 << "";
 
         kapp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
-#else
-        if (KMessageBox::Continue==KMessageBox::warningContinueCancel(this, i18n("Do you really want to turn off the computer?"),
-                                                                      i18n("Shutdown Confirmation"), KGuiItem(i18n("Shutdown"),"exit")))
-            kapp->requestShutDown( KApplication::ShutdownConfirmNo,
-                                   KApplication::ShutdownTypeHalt,
-                                   KApplication::ShutdownModeDefault );
-#endif
     }
     else if ( u == "kicker:/restart" ) {
-#ifdef KDELIBS_SUSE
         TQByteArray params;
         TQDataStream stream(params, IO_WriteOnly);
         stream << 1 << -1 << TQString();
 
         kapp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
-#else
-        if (KMessageBox::Continue==KMessageBox::warningContinueCancel(this, i18n("Do you really want to reset the computer and boot (another operating system)?"),
-                                                                      i18n("Restart Confirmation"), KGuiItem(i18n("Restart"),"reload")))
-            kapp->requestShutDown( KApplication::ShutdownConfirmNo,
-                                   KApplication::ShutdownTypeReboot,
-                                   KApplication::ShutdownModeDefault );
-#endif
     }
 #ifdef KDELIBS_SUSE
     else if ( u == "kicker:/suspend_disk" ) {
@@ -2664,7 +2637,6 @@ void KMenu::slotStartURL(const TQString& u)
     else if ( u.startsWith("kicker:/switchuser_") )
         DM().lockSwitchVT( u.mid(19).toInt() );
     else if ( u.startsWith("kicker:/restart_") ) {
-#ifdef KDELIBS_SUSE
         TQStringList rebootOptions;
         int def, cur;
         DM().bootOptions( rebootOptions, def, cur );
@@ -2674,9 +2646,6 @@ void KMenu::slotStartURL(const TQString& u)
         stream << 1 << -1 << rebootOptions[u.mid(16).toInt()];
 
         kapp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
-#else
-        KMessageBox::error( this, TQString( "Sorry, not implemented." ));
-#endif
     }
 #warning restart entry not supported
 #if 0
