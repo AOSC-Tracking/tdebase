@@ -139,7 +139,10 @@ void KMenuItem::setDescription(const TQString& txt)
 void KMenuItem::setIcon(const TQString& icon, int size)
 {
     m_icon = icon;
-    TQListViewItem::setPixmap(0, KGlobal::iconLoader()->loadIcon(icon, KIcon::Panel, size ));
+    TQPixmap pixmap = KGlobal::iconLoader()->loadIcon(icon, KIcon::Panel, size, KIcon::DefaultState, 0L, true);
+    if (!pixmap.isNull()) {
+        TQListViewItem::setPixmap(0, pixmap);
+    }
 }
 
 void KMenuItem::setHasChildren( bool flag )
