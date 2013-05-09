@@ -294,7 +294,7 @@ KMenu::KMenu()
 
     m_searchResultsWidget = new ItemView (m_searchWidget, "m_searchResultsWidget");
     m_searchResultsWidget->setItemMargin(4);
-    m_searchResultsWidget->setIconSize(16);
+//    m_searchResultsWidget->setIconSize(16);
     m_searchActions = new ItemView (m_searchWidget, "m_searchActions");
     m_searchActions->setFocusPolicy(TQ_NoFocus);
     m_searchActions->setItemMargin(4);
