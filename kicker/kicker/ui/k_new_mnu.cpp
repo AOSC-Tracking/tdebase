@@ -1342,6 +1342,15 @@ void KMenu::insertStaticItems()
 
     m_systemView->insertSeparator( nId++, i18n("Applications"), index++);
 
+#ifdef KICKOFF_DIST_CONFIG_SHORTCUT1
+    KService::Ptr kdcs1 = KService::serviceByStorageId(KICKOFF_DIST_CONFIG_SHORTCUT1);
+    m_systemView->insertMenuItem(kdcs1, nId++, index++);
+#endif
+#ifdef KICKOFF_DIST_CONFIG_SHORTCUT2
+    KService::Ptr kdcs2 = KService::serviceByStorageId(KICKOFF_DIST_CONFIG_SHORTCUT2);
+    m_systemView->insertMenuItem(kdcs2, nId++, index++);
+#endif
+
     KService::Ptr p = KService::serviceByStorageId("KControl.desktop");
     m_systemView->insertMenuItem(p, nId++, index++);
 

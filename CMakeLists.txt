@@ -229,6 +229,27 @@ else()
   message( STATUS "Selected man-db for kio-man on your system" )
 endif()
 
+##### Checks for a distribution-specific 1st menu item, generally a control center
+if(EXISTS "/usr/share/applications/YaST.desktop")
+  set( KICKOFF_DIST_CONFIG_SHORTCUT1 "/usr/share/applications/YaST.desktop" )
+endif()
+if(EXISTS "/usr/share/applications/mageia-drakconf.desktop")
+  set( KICKOFF_DIST_CONFIG_SHORTCUT1 "/usr/share/applications/mageia-drakconf.desktop" )
+endif()
+if(EXISTS "/usr/share/applications/pclinuxos-drakconf.desktop")
+  set( KICKOFF_DIST_CONFIG_SHORTCUT1 "/usr/share/applications/pclinuxos-drakconf.desktop" )
+endif()
+if(EXISTS "/usr/share/applications/mandriva-drakconf.desktop")
+  set( KICKOFF_DIST_CONFIG_SHORTCUT1 "/usr/share/applications/mandriva-drakconf.desktop" )
+endif()
+
+##### Checks for a distribution-specific 2nd menu item, generally a shortcut to graphical package manager
+if(EXISTS "/usr/share/applications/package-manager.desktop")
+  set( KICKOFF_DIST_CONFIG_SHORTCUT2 "/usr/share/applications/package-manager.desktop" )
+endif()
+if(EXISTS "/usr/share/applications/rpmdrake.desktop")
+  set( KICKOFF_DIST_CONFIG_SHORTCUT2 "/usr/share/applications/rpmdrake.desktop" )
+endif()
 
 ##### write configure files #####################
 
