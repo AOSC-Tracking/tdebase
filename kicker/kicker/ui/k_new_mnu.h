@@ -181,6 +181,7 @@ protected:
 //    void raiseStackWidget(TQWidget *view);
 
     bool runCommand();
+    void runUserCommand();
 
     void setupUi();
 

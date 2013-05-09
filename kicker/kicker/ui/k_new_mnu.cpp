@@ -1342,11 +1342,15 @@ void KMenu::insertStaticItems()
 
     m_systemView->insertSeparator( nId++, i18n("Applications"), index++);
 
-    KService::Ptr p = KService::serviceByStorageId("/usr/share/applications/YaST.desktop");
+    KService::Ptr p = KService::serviceByStorageId("KControl.desktop");
     m_systemView->insertMenuItem(p, nId++, index++);
 
-    m_systemView->insertItem( "info", i18n( "System Information" ),
-                              "sysinfo:/",  "sysinfo:/", nId++, index++ );
+    // run command
+    if (kapp->authorize("run_command"))
+    {
+        m_systemView->insertItem( "run", i18n("Run Command..."),
+                   "", "kicker:/runusercommand", nId++, index++ );
+    }
 
     m_systemView->insertSeparator( nId++, i18n("System Folders"), index++ );
 
@@ -2600,6 +2604,10 @@ void KMenu::slotStartURL(const TQString& u)
     {
          runCommand();
     }
+    else if ( u == "kicker:/runusercommand" )
+    {
+         runUserCommand();
+    }
     else if ( u == "kicker:/shutdown" ) {
 #ifdef KDELIBS_SUSE
         TQByteArray params;
@@ -3773,6 +3781,18 @@ void KMenu::slotSuspend(int id)
 #endif
         KMessageBox::error(this, i18n("Suspend failed"));
 
+}
+
+void KMenu::runUserCommand()
+{
+    TQByteArray data;
+    TQCString appname( "kdesktop" );
+    if ( kicker_screen_number )
+        appname.sprintf("kdesktop-screen-%d", kicker_screen_number);
+
+    kapp->updateRemoteUserTimestamp( appname );
+    kapp->dcopClient()->send( appname, "KDesktopIface",
+                              "popupExecuteCommand()", data );
 }
 
 // vim:cindent:sw=4:
