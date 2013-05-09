@@ -1,0 +1,10 @@
+[Protocol]
+exec=kio_filter
+protocol=lzma
+mimetype=application/x-lzma
+input=stream
+output=stream
+reading=true
+source=false
+DocPath=kioslave/lzma.html
+Icon=ark

@@ -1,0 +1,10 @@
+[Protocol]
+exec=kio_filter
+protocol=xz
+mimetype=application/x-xz
+input=stream
+output=stream
+reading=true
+source=false
+DocPath=kioslave/xz.html
+Icon=ark
