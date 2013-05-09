@@ -22,7 +22,7 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES gzip.protocol bzip.protocol bzip2.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+install( FILES gzip.protocol bzip.protocol bzip2.protocol xz.protocol lzma.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
 
 
 ##### kio_filter (module) #######################

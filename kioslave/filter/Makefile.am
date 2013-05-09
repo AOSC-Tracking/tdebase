@@ -16,6 +16,12 @@ protocoldir = $(kde_servicesdir)
 if include_BZIP2
 BZIP2FILES=bzip.protocol bzip2.protocol
 endif
+if include_XZ
+XZPROTOCOL=xz.protocol
+endif
+if include_LZMA
+LZMAPROTOCOL=lzma.protocol
+endif
 
-protocol_DATA = gzip.protocol $(BZIP2FILES)
+protocol_DATA = gzip.protocol $(BZIP2FILES) $(XZPROTOCOL) $(LZMAPROTOCOL)
 

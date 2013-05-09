@@ -70,6 +70,10 @@ void stripExtension( TQString *name )
         pos -= 4;
     else if ( name->find(".bz", -3) != -1 )
         pos -= 3;
+    else if ( name->find(".xz", -3) != -1 )
+        pos -= 3;
+    else if ( name->find(".lzma", -5) != -1 )
+        pos -= 5;
 
     if ( pos > 0 )
         pos = name->findRev('.', pos-1);
@@ -476,13 +480,19 @@ void MANProtocol::get(const KURL& url )
     {
        pageFound=false;
        //check for the case that there is foo.1 and foo.1.gz found:
-       // ### TODO make it more generic (other extensions)
-       if ((foundPages.count()==2) &&
-           (((foundPages[0]+".gz") == foundPages[1]) ||
-            (foundPages[0] == (foundPages[1]+".gz"))))
-          pageFound=true;
-       else
+       if (foundPages.count()==2) {
+          TQString foundPage0 = foundPages[0];
+          TQString foundPage1 = foundPages[1];
+
+          stripExtension(&foundPage0);
+          stripExtension(&foundPage1);
+          if(foundPage0 == foundPage1) {
+             pageFound=true;
+          }
+       }
+       if (!pageFound) {
           outputMatchingPages(foundPages);
+       }
     }
     //yes, we found exactly one man page
 
@@ -1335,6 +1345,12 @@ void MANProtocol::showIndex(const TQString& section)
 	    end -= 2;
 	else if ( len >= 4 && strcmp( end-3, ".bz2" ) == 0 )
 	    end -= 4;
+	else if ( len >= 3 && strcmp( end-2, ".bz" ) == 0 )
+	    end -= 3;
+	else if ( len >= 3 && strcmp( end-2, ".xz" ) == 0 )
+	    end -= 3;
+	else if ( len >= 5 && strcmp( end-4, ".lzma" ) == 0 )
+	    end -= 5;
 
 	while ( end >= begin && *end != '.' )
 	    end--;
