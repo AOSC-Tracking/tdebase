@@ -15,12 +15,6 @@
     <property name="caption">
         <string>KMenu</string>
     </property>
-    <property name="frameShadow" stdset="0">
-        <string>MShadow</string>
-    </property>
-    <property name="frameShape" stdset="0">
-        <string>MShape</string>
-    </property>
     <widget class="TQLayoutWidget">
         <property name="name">
             <cstring>m_search</cstring>
