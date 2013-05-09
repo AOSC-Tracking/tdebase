@@ -410,20 +410,19 @@ void KTheme::apply()
             desktopConf.writeEntry( "DeskNum", desktopElem.attribute( "number", "0" ).toUInt() );
 
             desktopConf.setGroup( TQString( "Desktop%1" ).arg( i ) );
-            desktopConf.writeEntry( "BackgroundMode", getProperty( desktopElem, "mode", "id" ) );
-            desktopConf.writeEntry( "Color1", TQColor( getProperty( desktopElem, "color1", "rgb" ) ) );
-            desktopConf.writeEntry( "Color2", TQColor( getProperty( desktopElem, "color2", "rgb" ) ) );
-            desktopConf.writeEntry( "BlendMode", getProperty( desktopElem, "blending", "mode" ) );
-            desktopConf.writeEntry( "BlendBalance", getProperty( desktopElem, "blending", "balance" ) );
-            desktopConf.writeEntry( "ReverseBlending",
-                                    static_cast<bool>( getProperty( desktopElem, "blending", "reverse" ).toUInt() ) );
-            desktopConf.writeEntry( "Pattern", getProperty( desktopElem, "pattern", "name" ) );
-            desktopConf.writeEntry( "Wallpaper",
-                                    unprocessFilePath( "desktop", getProperty( desktopElem, "wallpaper", "url" ) ) );
-            desktopConf.writeEntry( "WallpaperMode", getProperty( desktopElem, "wallpaper", "mode" ) );
+            if (getProperty( desktopElem, "mode", "id" ) != TQString::null)          desktopConf.writeEntry( "BackgroundMode", getProperty( desktopElem, "mode", "id" ) );
+            if (getProperty( desktopElem, "color1", "rgb" ) != TQString::null)       desktopConf.writeEntry( "Color1", TQColor( getProperty( desktopElem, "color1", "rgb" ) ) );
+            if (getProperty( desktopElem, "color2", "rgb" ) != TQString::null)       desktopConf.writeEntry( "Color2", TQColor( getProperty( desktopElem, "color2", "rgb" ) ) );
+            if (getProperty( desktopElem, "blending", "mode" ) != TQString::null)    desktopConf.writeEntry( "BlendMode", getProperty( desktopElem, "blending", "mode" ) );
+            if (getProperty( desktopElem, "blending", "balance" ) != TQString::null) desktopConf.writeEntry( "BlendBalance", getProperty( desktopElem, "blending", "balance" ) );
+            if (getProperty( desktopElem, "blending", "reverse" ) != TQString::null) desktopConf.writeEntry( "ReverseBlending", static_cast<bool>( getProperty( desktopElem, "blending", "reverse" ).toUInt() ) );
+            if (getProperty( desktopElem, "pattern", "name" ) != TQString::null)     desktopConf.writeEntry( "Pattern", getProperty( desktopElem, "pattern", "name" ) );
+            if (getProperty( desktopElem, "wallpaper", "url" ) != TQString::null)    desktopConf.writeEntry( "Wallpaper", unprocessFilePath( "desktop", getProperty( desktopElem, "wallpaper", "url" ) ) );
+            if (getProperty( desktopElem, "wallpaper", "mode" ) != TQString::null)   desktopConf.writeEntry( "WallpaperMode", getProperty( desktopElem, "wallpaper", "mode" ) );
 
-            if ( common )
+            if ( common ) {
                 break;          // stop here
+            }
         }
     }
 
@@ -439,8 +438,9 @@ void KTheme::apply()
     desktopConf.sync();         // TODO sync and signal only if <desktop> elem present
     // reconfigure kdesktop. kdesktop will notify all clients
     DCOPClient *client = kapp->dcopClient();
-    if ( !client->isAttached() )
+    if ( !client->isAttached() ) {
         client->attach();
+    }
     client->send("kdesktop", "KBackgroundIface", "configure()", TQString(""));
     // FIXME Xinerama
 
@@ -457,29 +457,36 @@ void KTheme::apply()
         {
             TQDomElement iconSubElem = iconList.item( i ).toElement();
             TQString object = iconSubElem.attribute( "object" );
-            if ( object == "desktop" )
+            if ( object == "desktop" ) {
                 iconConf->setGroup( "DesktopIcons" );
-            else if ( object == "mainToolbar" )
+            }
+            else if ( object == "mainToolbar" ) {
                 iconConf->setGroup( "MainToolbarIcons" );
-            else if ( object == "panel" )
+            }
+            else if ( object == "panel" ) {
                 iconConf->setGroup( "PanelIcons" );
-            else if ( object == "small" )
+            }
+            else if ( object == "small" ) {
                 iconConf->setGroup( "SmallIcons" );
-            else if ( object == "toolbar" )
+            }
+            else if ( object == "toolbar" ) {
                 iconConf->setGroup( "ToolbarIcons" );
+            }
 
             TQString iconName = iconSubElem.tagName();
-            if ( iconName.contains( "Color" ) )
-            {
+            if ( iconName.contains( "Color" ) ) {
                 TQColor iconColor = TQColor( iconSubElem.attribute( "rgb" ) );
                 iconConf->writeEntry( iconName, iconColor, true, true );
             }
-            else if ( iconName.contains( "Value" ) || iconName == "Size" )
+            else if ( iconName.contains( "Value" ) || iconName == "Size" ) {
                 iconConf->writeEntry( iconName, iconSubElem.attribute( "value" ).toUInt(), true, true );
-            else if ( iconName.contains( "Effect" ) )
+            }
+            else if ( iconName.contains( "Effect" ) ) {
                 iconConf->writeEntry( iconName, iconSubElem.attribute( "name" ), true, true );
-            else
+            }
+            else {
                 iconConf->writeEntry( iconName, static_cast<bool>( iconSubElem.attribute( "value" ).toUInt() ), true, true );
+            }
         }
         iconConf->sync();
 
@@ -576,21 +583,22 @@ void KTheme::apply()
         KConfig kwinConf( "kwinrc" );
         kwinConf.setGroup( "Style" );
         TQString type = wmElem.attribute( "type" );
-        if ( type == "builtin" )
+        if ( type == "builtin" ) {
             kwinConf.writeEntry( "PluginLib", wmElem.attribute( "name" ) );
+        }
         //else // TODO support custom themes
         TQDomNodeList buttons = wmElem.elementsByTagName ("buttons");
         if ( buttons.count() > 0 )
         {
             kwinConf.writeEntry( "CustomButtonPositions", true );
-            kwinConf.writeEntry( "ButtonsOnLeft", getProperty( wmElem, "buttons", "left" ) );
-            kwinConf.writeEntry( "ButtonsOnRight", getProperty( wmElem, "buttons", "right" ) );
+            if (getProperty( wmElem, "buttons", "left" ) != TQString::null)  kwinConf.writeEntry( "ButtonsOnLeft", getProperty( wmElem, "buttons", "left" ) );
+            if (getProperty( wmElem, "buttons", "right" ) != TQString::null) kwinConf.writeEntry( "ButtonsOnRight", getProperty( wmElem, "buttons", "right" ) );
         }
         else
         {
             kwinConf.writeEntry( "CustomButtonPositions", false );
         }
-        kwinConf.writeEntry( "BorderSize", getProperty( wmElem, "border", "size" ) );
+        if (getProperty( wmElem, "border", "size" ) != TQString::null) kwinConf.writeEntry( "BorderSize", getProperty( wmElem, "border", "size" ) );
 
         kwinConf.sync();
         client->send( "kwin", "", "reconfigure()", TQString("") );
@@ -603,8 +611,8 @@ void KTheme::apply()
     {
         KConfig konqConf( "konquerorrc" );
         konqConf.setGroup( "Settings" );
-        konqConf.writeEntry( "BgImage", unprocessFilePath( "konqueror", getProperty( konqElem, "wallpaper", "url" ) ) );
-        konqConf.writeEntry( "BgColor", TQColor( getProperty( konqElem, "bgcolor", "rgb" ) ) );
+        if (getProperty( konqElem, "wallpaper", "url" ) != TQString::null) konqConf.writeEntry( "BgImage", unprocessFilePath( "konqueror", getProperty( konqElem, "wallpaper", "url" ) ) );
+        if (getProperty( konqElem, "bgcolor", "rgb" ) != TQString::null)   konqConf.writeEntry( "BgColor", TQColor( getProperty( konqElem, "bgcolor", "rgb" ) ) );
 
         konqConf.sync();
         client->send("konqueror*", "KonquerorIface", "reparseConfiguration()", TQString("")); // FIXME seems not to work :(
@@ -621,18 +629,13 @@ void KTheme::apply()
         if ( !kickerBgUrl.isEmpty() )
         {
             kickerConf.writeEntry( "UseBackgroundTheme", true );
-            kickerConf.writeEntry( "BackgroundTheme", unprocessFilePath( "panel", kickerBgUrl ) );
-            kickerConf.writeEntry( "ColorizeBackground",
-                                   static_cast<bool>( getProperty( panelElem, "background", "colorize" ).toUInt() ) );
+            if (getProperty( panelElem, "panel", kickerBgUrl ) != TQString::null)       kickerConf.writeEntry( "BackgroundTheme", unprocessFilePath( "panel", kickerBgUrl ) );
+            if (getProperty( panelElem, "background", "colorize" ) != TQString::null)   kickerConf.writeEntry( "ColorizeBackground", static_cast<bool>( getProperty( panelElem, "background", "colorize" ).toUInt() ) );
         }
-        kickerConf.writeEntry( "Transparent",
-                               static_cast<bool>( getProperty( panelElem, "transparent", "value" ).toUInt() ) );
-
-        kickerConf.writeEntry( "Position", static_cast<int> (getProperty( panelElem, "position", "value" ).toUInt() ));
-
-        kickerConf.writeEntry( "ShowLeftHideButton", static_cast<bool>( getProperty( panelElem, "showlefthidebutton", "value").toInt()));
-
-        kickerConf.writeEntry( "ShowRightHideButton", static_cast<bool>( getProperty( panelElem, "showrighthidebutton", "value").toInt()));
+        if (getProperty( panelElem, "transparent", "value" ) != TQString::null)         kickerConf.writeEntry( "Transparent", static_cast<bool>( getProperty( panelElem, "transparent", "value" ).toUInt() ) );
+        if (getProperty( panelElem, "position", "value" ) != TQString::null)            kickerConf.writeEntry( "Position", static_cast<int> (getProperty( panelElem, "position", "value" ).toUInt() ));
+        if (getProperty( panelElem, "showlefthidebutton", "value" ) != TQString::null)  kickerConf.writeEntry( "ShowLeftHideButton", static_cast<bool>( getProperty( panelElem, "showlefthidebutton", "value").toInt()));
+        if (getProperty( panelElem, "showrighthidebutton", "value" ) != TQString::null) kickerConf.writeEntry( "ShowRightHideButton", static_cast<bool>( getProperty( panelElem, "showrighthidebutton", "value").toInt()));
 
         kickerConf.sync();
         client->send("kicker", "Panel", "configure()", TQString(""));
