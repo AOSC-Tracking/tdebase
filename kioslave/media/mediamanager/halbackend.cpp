@@ -1299,10 +1299,14 @@ static TQString mount_priv(const char *udi, const char *mount_point, const char 
 TQString HALBackend::listUsingProcesses(const Medium* medium)
 {
     TQString proclist, fullmsg;
-    TQString cmdline = TQString("/usr/bin/env fuser -vm %1 2>&1").arg(KProcess::quote(medium->mountPoint()));
-    FILE *fuser = popen(cmdline.latin1(), "r");
+    TQString fuserpath = KStandardDirs::findExe("fuser", TQString("/sbin:/usr/sbin:") + getenv( "PATH" ));
+    FILE *fuser = NULL;
 
     uint counter = 0;
+    if (!fuserpath.isEmpty()) {
+        TQString cmdline = TQString("/usr/bin/env %1 -vm %2 2>&1").arg(fuserpath, KProcess::quote(medium->mountPoint()));
+        fuser = popen(cmdline.latin1(), "r");
+    }
     if (fuser) {
         proclist += "<pre>";
         TQTextIStream is(fuser);
@@ -1336,10 +1340,14 @@ TQString HALBackend::listUsingProcesses(const Medium* medium)
 TQString HALBackend::killUsingProcesses(const Medium* medium)
 {
     TQString proclist, fullmsg;
-    TQString cmdline = TQString("/usr/bin/env fuser -vmk %1 2>&1").arg(KProcess::quote(medium->mountPoint()));
-    FILE *fuser = popen(cmdline.latin1(), "r");
+    TQString fuserpath = KStandardDirs::findExe("fuser", TQString("/sbin:/usr/sbin:") + getenv( "PATH" ));
+    FILE *fuser = NULL;
 
     uint counter = 0;
+    if (!fuserpath.isEmpty()) {
+        TQString cmdline = TQString("/usr/bin/env %1 -vmk %2 2>&1").arg(fuserpath, KProcess::quote(medium->mountPoint()));
+        fuser = popen(cmdline.latin1(), "r");
+    }
     if (fuser) {
         proclist += "<pre>";
         TQTextIStream is(fuser);
