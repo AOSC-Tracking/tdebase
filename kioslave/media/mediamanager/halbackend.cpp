@@ -1746,7 +1746,9 @@ TQString HALBackend::unmount(const TQString &_udi)
     kdDebug() << "unmount queued for " << udi << endl;
 
     dbus_message_unref (dmesg);
-    dbus_message_unref (reply);
+    if (reply) {
+      dbus_message_unref (reply);
+    }
 
     medium->setHalMounted(false);
     ResetProperties(medium->id().latin1());
