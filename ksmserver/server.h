@@ -233,6 +233,7 @@ private:
     TQStringList excludeApps;
 
     WindowMap legacyWindows;
+    int initialClientCount;
 };
 
 #endif

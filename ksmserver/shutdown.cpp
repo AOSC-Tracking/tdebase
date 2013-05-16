@@ -561,13 +561,30 @@ void KSMServer::completeShutdownOrCheckpoint()
         if( logoutSoundEvent <= 0 ) {
             waitForKNotify = false;
         }
+        initialClientCount = clients.count();
+        if (shutdownNotifierIPDlg) {
+            TQString nextClientToKill;
+            for( KSMClient* c = clients.first(); c; c = clients.next()) {
+                if( isWM( c ) || isCM( c ) || isNotifier( c ) ) {
+                    continue;
+                }
+                nextClientToKill = c->program();
+            }
+            if (nextClientToKill == "") {
+                static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Closing applications (%1/%2)...").arg(initialClientCount-clients.count()).arg(initialClientCount));
+            }
+            else {
+                static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Closing applications (%1/%2, %3)...").arg(initialClientCount-clients.count()).arg(initialClientCount).arg(nextClientToKill));
+            }
+        }
         if( waitForKNotify ) {
             state = WaitingForKNotify;
             knotifyTimeoutTimer.start( 20000, true );
             return;
         }
         startKilling();
-    } else if ( state == Checkpoint ) {
+    }
+    else if ( state == Checkpoint ) {
         for ( KSMClient* c = clients.first(); c; c = clients.next() ) {
             SmsSaveComplete( c->connection());
         }
@@ -589,8 +606,7 @@ void KSMServer::startKilling()
         SmsDie( c->connection() );
     }
 
-    kdDebug( 1218 ) << " We killed all clients. We have now clients.count()=" <<
-       clients.count() << endl;
+    kdDebug( 1218 ) << " We killed all clients. We have now clients.count()=" << clients.count() << endl;
     completeKilling();
     TQTimer::singleShot( 10000, this, TQT_SLOT( timeoutQuit() ) );
 }
@@ -598,17 +614,33 @@ void KSMServer::startKilling()
 void KSMServer::completeKilling()
 {
     SHUTDOWN_MARKER("completeKilling");
-    kdDebug( 1218 ) << "KSMServer::completeKilling clients.count()=" <<
-        clients.count() << endl;
+    kdDebug( 1218 ) << "KSMServer::completeKilling clients.count()=" << clients.count() << endl;
     if( state == Killing ) {
         bool wait = false;
+        TQString nextClientToKill;
         for( KSMClient* c = clients.first(); c; c = clients.next()) {
-            if( isWM( c ) || isCM( c ) || isNotifier( c ) )
+            if( isWM( c ) || isCM( c ) || isNotifier( c ) ) {
                 continue;
+            }
+            nextClientToKill = c->program();
             wait = true; // still waiting for clients to go away
         }
-        if( wait )
+        if( wait ) {
+            if (shutdownNotifierIPDlg) {
+                if (nextClientToKill == "") {
+                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Closing applications (%1/%2)...").arg(initialClientCount-clients.count()).arg(initialClientCount));
+                }
+                else {
+                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Closing applications (%1/%2, %3)...").arg(initialClientCount-clients.count()).arg(initialClientCount).arg(nextClientToKill));
+                }
+            }
             return;
+        }
+        else {
+            if (shutdownNotifierIPDlg) {
+                static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Terminating services..."));
+            }
+        }
         killWM();
     }
 }
@@ -639,18 +671,19 @@ void KSMServer::killWM()
         completeKillingWM();
         TQTimer::singleShot( 5000, this, TQT_SLOT( timeoutWMQuit() ) );
     }
-    else
+    else {
         killingCompleted();
+    }
 }
 
 void KSMServer::completeKillingWM()
 {
     SHUTDOWN_MARKER("completeKillingWM");
-    kdDebug( 1218 ) << "KSMServer::completeKillingWM clients.count()=" <<
-        clients.count() << endl;
+    kdDebug( 1218 ) << "KSMServer::completeKillingWM clients.count()=" << clients.count() << endl;
     if( state == KillingWM ) {
-        if( clients.isEmpty())
+        if( clients.isEmpty()) {
             killingCompleted();
+        }
     }
 }
 
