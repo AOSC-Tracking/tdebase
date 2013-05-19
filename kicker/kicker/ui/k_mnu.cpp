@@ -472,9 +472,10 @@ void PanelKMenu::slotPopulateSessions()
     sessionsMenu->clear();
     if (kapp->authorize("start_new_session") && (p = dm.numReserve()) >= 0)
     {
-        if (kapp->authorize("lock_screen"))
-	  sessionsMenu->insertItem(/*SmallIconSet("lockfork"),*/ i18n("Lock Current && Start New Session"), 100 );
-        sessionsMenu->insertItem(SmallIconSet("fork"), i18n("Start New Session"), 101 );
+        if (kapp->authorize("lock_screen")) {
+            sessionsMenu->insertItem(SmallIconSet("lock"), i18n("Lock Current && Start New Session"), 100 );
+        }
+        sessionsMenu->insertItem(SmallIconSet("switchuser"), i18n("Start New Session"), 101 );
         if (!p) {
             sessionsMenu->setItemEnabled( 100, false );
             sessionsMenu->setItemEnabled( 101, false );
