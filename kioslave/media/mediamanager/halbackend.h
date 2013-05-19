@@ -34,6 +34,7 @@
 #include <tqobject.h>
 #include <tqstringlist.h>
 #include <tqstring.h>
+#include <tqregexp.h>
 
 #include <config.h>
 

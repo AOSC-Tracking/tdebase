@@ -545,7 +545,17 @@ void HALBackend::setVolumeProperties(Medium* medium)
     char* name = libhal_volume_policy_compute_display_name(halDrive, halVolume, m_halStoragePolicy);
     TQString volume_name = TQString::fromUtf8(name);
     TQString media_name = volume_name;
-    medium->setLabel(media_name);
+    /* media_name contains something like "501M Removable Media" or "Blank CD-R"
+       The former needs special handling for correct translation
+    */
+    if (media_name.find(TQRegExp("^[0-9]+\\.?[0-9]*[KMGT] (Removable )?Media$")) > -1) {
+        TQString pattern = media_name.section(" ", 1);
+        media_name.replace(pattern, i18n(pattern.ascii()));
+        medium->setLabel(media_name);
+    } else {
+        medium->setLabel(i18n(media_name.ascii()));
+    }
+
     free(name);
 
     TQString mimeType;
