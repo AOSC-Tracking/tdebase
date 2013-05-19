@@ -156,7 +156,7 @@ KonqSidebarTree::KonqSidebarTree( KonqSidebar_Tree *parent, TQWidget *parentWidg
     connect( this, TQT_SIGNAL( mouseButtonPressed(int, TQListViewItem*, const TQPoint&, int)),
              this, TQT_SLOT( slotMouseButtonPressed(int, TQListViewItem*, const TQPoint&, int)) );
     connect( this, TQT_SIGNAL( mouseButtonClicked( int, TQListViewItem*, const TQPoint&, int ) ),
-	     this, TQT_SLOT( slotMouseButtonClicked( int, TQListViewItem*, const TQPoint&, int ) ) );
+	     this, TQT_SLOT( slotSidebarMouseButtonClicked( int, TQListViewItem*, const TQPoint&, int ) ) );
     connect( this, TQT_SIGNAL( returnPressed( TQListViewItem * ) ),
              this, TQT_SLOT( slotDoubleClicked( TQListViewItem * ) ) );
     connect( this, TQT_SIGNAL( selectionChanged() ),
@@ -475,8 +475,9 @@ void KonqSidebarTree::slotExecuted( TQListViewItem *item )
     args.serviceType = dItem->externalMimeType();
     args.trustedSource = true;
     KURL externalURL = dItem->externalURL();
-    if ( !externalURL.isEmpty() )
+    if ( !externalURL.isEmpty() ) {
 	openURLRequest( externalURL, args );
+    }
 }
 
 void KonqSidebarTree::slotMouseButtonPressed( int _button, TQListViewItem* _item, const TQPoint&, int col )
@@ -492,7 +493,10 @@ void KonqSidebarTree::slotMouseButtonPressed( int _button, TQListViewItem* _item
     }
 }
 
-void KonqSidebarTree::slotMouseButtonClicked(int _button, TQListViewItem* _item, const TQPoint&, int col)
+// This is named slotSidebarMouseButtonClicked() so as not to conflict with slotMouseButtonClicked()
+// If the same name is used, both slots will be disconnected whenever mouse settings are loaded
+// See klistview.cpp slotSettingsChanged() and Bug 1515 for details
+void KonqSidebarTree::slotSidebarMouseButtonClicked(int _button, TQListViewItem* _item, const TQPoint&, int col)
 {
     KonqSidebarTreeItem * item = static_cast<KonqSidebarTreeItem*>(_item);
     if(_item && col < 2)

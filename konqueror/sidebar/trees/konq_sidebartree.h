@@ -135,7 +135,7 @@ private slots:
     void slotDoubleClicked( TQListViewItem *item );
     void slotExecuted( TQListViewItem *item );
     void slotMouseButtonPressed(int _button, TQListViewItem* _item, const TQPoint&, int col);
-    void slotMouseButtonClicked(int _button, TQListViewItem* _item, const TQPoint&, int col);
+    void slotSidebarMouseButtonClicked(int _button, TQListViewItem* _item, const TQPoint&, int col);
     void slotSelectionChanged();
 
     void slotAnimation();
