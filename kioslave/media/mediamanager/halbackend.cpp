@@ -595,19 +595,16 @@ void HALBackend::setVolumeProperties(Medium* medium)
         medium->setIconName(TQString::null);
 
         /* check if the disc id a vcd or a video dvd */
-        DiscType type = LinuxCDPolling::identifyDiscType(libhal_volume_get_device_file(halVolume));
-        switch (type)
-        {
-        case DiscType::VCD:
+        if (libhal_device_get_property_bool(m_halContext, udi, "volume.disc.is_vcd", NULL)) {
             mimeType = "media/vcd";
-            break;
-        case DiscType::SVCD:
-            mimeType = "media/svcd";
-            break;
-        case DiscType::DVD:
-            mimeType = "media/dvdvideo";
-            break;
         }
+        else if (libhal_device_get_property_bool(m_halContext, udi, "volume.disc.is_svcd", NULL)) {
+            mimeType = "media/svcd";
+        }
+        else if (libhal_device_get_property_bool(m_halContext, udi, "volume.disc.is_videodvd", NULL)) {
+            mimeType = "media/dvdvideo";
+        }
+
     }
     else
     {
