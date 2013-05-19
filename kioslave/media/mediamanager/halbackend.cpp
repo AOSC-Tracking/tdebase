@@ -536,7 +536,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
         kdDebug(1219) << "HALBackend::setVolumeProperties : normal volume" << endl;
         medium->mountableState(
             libhal_volume_get_device_file(halVolume),		/* Device node */
-            libhal_volume_get_mount_point(halVolume),		/* Mount point */
+            TQString::fromUtf8(libhal_volume_get_mount_point(halVolume)),	/* Mount point */
             libhal_volume_get_fstype(halVolume),		/* Filesystem type */
             libhal_volume_is_mounted(halVolume) );		/* Mounted ? */
     }
