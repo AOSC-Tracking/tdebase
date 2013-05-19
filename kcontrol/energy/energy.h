@@ -44,6 +44,7 @@ private slots:
     void slotChangeStandby(int);
     void slotChangeSuspend(int);
     void slotChangeOff(int);
+    void slotLaunchKPowersave();
     void openURL(const TQString &);
 
 private:
@@ -54,7 +55,7 @@ private:
     static void applySettings(bool, int, int, int);
     friend void init_energy();
 
-    bool m_bChanged, m_bDPMS, m_bEnabled, m_bMaintainSanity;
+    bool m_bChanged, m_bDPMS, m_bKPowersave, m_bEnabled, m_bMaintainSanity;
     int m_Standby, m_Suspend, m_Off;
     int m_StandbyDesired, m_SuspendDesired, m_OffDesired;
 

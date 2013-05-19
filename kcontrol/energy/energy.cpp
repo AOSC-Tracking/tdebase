@@ -26,6 +26,7 @@
 #include <tqlabel.h>
 #include <tqlayout.h>
 #include <tqwhatsthis.h>
+#include <tqpushbutton.h>
 
 #include <kconfig.h>
 #include <kcursor.h>
@@ -36,6 +37,7 @@
 #include <krun.h>
 #include <kstandarddirs.h>
 #include <kurllabel.h>
+#include <dcopref.h>
 
 #include <X11/X.h>
 #include <X11/Xlib.h>
@@ -140,6 +142,7 @@ KEnergy::KEnergy(TQWidget *parent, const char *name)
     m_Suspend = DFLT_SUSPEND;
     m_Off = DFLT_OFF;
     m_bDPMS = false;
+    m_bKPowersave = false;
     m_bMaintainSanity = true;
 
     setQuickHelp( i18n("<h1>Display Power Control</h1> If your display supports"
@@ -154,6 +157,13 @@ KEnergy::KEnergy(TQWidget *parent, const char *name)
 #ifdef HAVE_DPMS
     int dummy;
     m_bDPMS = DPMSQueryExtension(qt_xdisplay(), &dummy, &dummy);
+
+    DCOPRef kpowersave("kpowersave", "KPowersaveIface");
+    DCOPReply managingDPMS = kpowersave.call("currentSchemeManagesDPMS()");
+    if (managingDPMS.isValid()) {
+        m_bKPowersave = managingDPMS;
+        m_bDPMS = !m_bKPowersave;
+    }
 #endif
 
     TQVBoxLayout *top = new TQVBoxLayout(this, 0, KDialog::spacingHint());
@@ -162,14 +172,24 @@ KEnergy::KEnergy(TQWidget *parent, const char *name)
 
     TQLabel *lbl;
     if (m_bDPMS) {
-    m_pCBEnable= new TQCheckBox(i18n("&Enable display power management" ), this);
-    connect(m_pCBEnable, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChangeEnable(bool)));
-    hbox->addWidget(m_pCBEnable);
+        KGlobal::locale()->insertCatalogue("kpowersave");
+        // ### these i18n strings need to be synced with kpowersave !!
+        m_pCBEnable= new TQCheckBox(i18n("&Enable display power management" ), this);
+        connect(m_pCBEnable, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChangeEnable(bool)));
+        hbox->addWidget(m_pCBEnable);
+
         TQWhatsThis::add( m_pCBEnable, i18n("Check this option to enable the"
            " power saving features of your display.") );
+        // ###
+    } else if(m_bKPowersave) {
+        m_pCBEnable = new TQCheckBox(i18n("&Enable specific display power management"), this);
+        hbox->addWidget(m_pCBEnable);
+        m_bEnabled = false;
+        m_pCBEnable->setChecked(true);
+        m_pCBEnable->setEnabled(false);
     } else {
         lbl = new TQLabel(i18n("Your display does not support power saving."), this);
-         hbox->addWidget(lbl);
+        hbox->addWidget(lbl);
     }
 
     KURLLabel *logo = new KURLLabel(this);
@@ -183,6 +203,7 @@ connect(logo, TQT_SIGNAL(leftClickedURL(const TQString&)), TQT_SLOT(openURL(cons
     hbox->addWidget(logo);
 
     // Sliders
+    if (!m_bKPowersave) {
     m_pStandbySlider = new KIntNumInput(m_Standby, this);
     m_pStandbySlider->setLabel(i18n("&Standby after:"));
     m_pStandbySlider->setRange(0, 120, 10);
@@ -217,6 +238,16 @@ connect(logo, TQT_SIGNAL(leftClickedURL(const TQString&)), TQT_SLOT(openURL(cons
        " after which the display should be powered off. This is the"
        " greatest level of power saving that can be achieved while the"
        " display is still physically turned on.") );
+
+    } else {
+        m_pStandbySlider = 0;
+        m_pSuspendSlider = 0;
+        m_pOffSlider = 0;
+        TQPushButton* btnKPowersave = new TQPushButton(this);
+        btnKPowersave->setText(i18n("Configure KPowersave..."));
+        connect(btnKPowersave, TQT_SIGNAL(clicked()), TQT_SLOT(slotLaunchKPowersave()));
+        top->addWidget(btnKPowersave);
+    }
 
     top->addStretch();
 
@@ -270,7 +301,9 @@ void KEnergy::defaults()
 
 void KEnergy::readSettings()
 {
-    m_bEnabled = m_pConfig->readBoolEntry("displayEnergySaving", false);
+    if (m_bDPMS) {
+        m_bEnabled = m_pConfig->readBoolEntry("displayEnergySaving", false);
+    }
     m_Standby = m_pConfig->readNumEntry("displayStandby", DFLT_STANDBY);
     m_Suspend = m_pConfig->readNumEntry("displaySuspend", DFLT_SUSPEND);
     m_Off = m_pConfig->readNumEntry("displayPowerOff", DFLT_OFF);
@@ -298,19 +331,29 @@ void KEnergy::writeSettings()
 }
 
 
+void KEnergy::slotLaunchKPowersave()
+{
+    DCOPRef r("kpowersave", "KPowersaveIface");
+    r.send("openConfigureDialog()");
+}
+
+
 void KEnergy::showSettings()
 {
     m_bMaintainSanity = false;
 
-    if (m_bDPMS)
-    m_pCBEnable->setChecked(m_bEnabled);
+    if (m_bDPMS) {
+        m_pCBEnable->setChecked(m_bEnabled);
+    }
 
-    m_pStandbySlider->setEnabled(m_bEnabled);
-    m_pStandbySlider->setValue(m_Standby);
-    m_pSuspendSlider->setEnabled(m_bEnabled);
-    m_pSuspendSlider->setValue(m_Suspend);
-    m_pOffSlider->setEnabled(m_bEnabled);
-    m_pOffSlider->setValue(m_Off);
+    if (!m_bKPowersave) {
+        m_pStandbySlider->setEnabled(m_bEnabled);
+        m_pStandbySlider->setValue(m_Standby);
+        m_pSuspendSlider->setEnabled(m_bEnabled);
+        m_pSuspendSlider->setValue(m_Suspend);
+        m_pOffSlider->setEnabled(m_bEnabled);
+        m_pOffSlider->setValue(m_Off);
+    }
 
     m_bMaintainSanity = true;
 }
