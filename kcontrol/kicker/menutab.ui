@@ -173,6 +173,20 @@
                         </widget>
                         <widget class="TQCheckBox">
                             <property name="name">
+                                <cstring>kcfg_UseTooltip</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Show T&amp;ooltip</string>
+                            </property>
+                            <property name="checked">
+                                <bool>false</bool>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>&lt;qt&gt;When this option is selected a tooltip will appear on the KMenu items.</string>
+                            </property>
+                        </widget>
+                        <widget class="TQCheckBox">
+                            <property name="name">
                                 <cstring>kcfg_UseSidePixmap</cstring>
                             </property>
                             <property name="text">

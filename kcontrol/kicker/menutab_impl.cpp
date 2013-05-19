@@ -170,10 +170,12 @@ void MenuTab::load( bool useDefaults )
 
 void MenuTab::menuStyleChanged()
 {
+    // Classic K Menu	
     if (m_comboMenuStyle->currentItem()==1) {
        m_openOnHover->setEnabled(false);
        m_subMenus->setEnabled(true);
        kcfg_UseSidePixmap->setEnabled(true);
+       kcfg_UseTooltip->setEnabled(true);
        kcfg_MenuEntryFormat->setEnabled(true);
        kcfg_RecentVsOften->setEnabled(true);
        m_showFrequent->setEnabled(true);
@@ -182,10 +184,13 @@ void MenuTab::menuStyleChanged()
        maxrecentdocs->setEnabled(true);
        kcfg_NumVisibleEntries->setEnabled(true);
     }
+    
+    // Kickoff Menu
     else {
        m_openOnHover->setEnabled(true);
        m_subMenus->setEnabled(false);
        kcfg_UseSidePixmap->setEnabled(false);
+       kcfg_UseTooltip->setEnabled(false);
        kcfg_MenuEntryFormat->setEnabled(false);
        kcfg_RecentVsOften->setEnabled(false);
        m_showFrequent->setEnabled(false);
@@ -241,6 +246,13 @@ void MenuTab::save()
     bool oldsidepixmapsetting = c->readBoolEntry("UseSidePixmap", true);
 
     if (sidepixmapsetting != oldsidepixmapsetting) {
+        forceRestart = true;
+    }
+
+    bool tooltipsetting = kcfg_UseTooltip->isChecked();
+    bool oldtooltipsetting = c->readBoolEntry("UseTooltip", false);
+
+    if (tooltipsetting != oldtooltipsetting) {
         forceRestart = true;
     }
 

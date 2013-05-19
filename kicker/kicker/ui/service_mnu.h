@@ -81,6 +81,7 @@ protected slots:
     virtual void slotClear();
     virtual void configChanged();
     virtual void slotClose();
+    void slotSetTooltip(int id);
     void slotDragObjectDestroyed();
 
     // for use in Add Applicaton To Panel

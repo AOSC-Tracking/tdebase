@@ -27,6 +27,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqpixmap.h>
 #include <tqimage.h>
 #include <tqmap.h>
+#include <tqtooltip.h>
 
 #include <dcopclient.h>
 #include <kapplication.h>
@@ -70,6 +71,7 @@ PanelServiceMenu::PanelServiceMenu(const TQString & label, const TQString & relP
     connect(KSycoca::self(), TQT_SIGNAL(databaseChanged()),
             TQT_SLOT(slotClearOnClose()));
     connect(this, TQT_SIGNAL(aboutToHide()), this, TQT_SLOT(slotClose()));
+    connect(this, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(slotSetTooltip(int)));
 }
 
 PanelServiceMenu::~PanelServiceMenu()
@@ -1004,5 +1006,21 @@ void PanelServiceMenu::updateRecentlyUsedApps(KService::Ptr &service)
     RecentlyLaunchedApps::the().appLaunched(strItem);
     RecentlyLaunchedApps::the().save();
     RecentlyLaunchedApps::the().m_bNeedToUpdate = true;
+}
+
+void PanelServiceMenu::slotSetTooltip(int id)
+{
+    TQToolTip::remove(this);
+    if (KickerSettings::useTooltip() && entryMap_.contains(id) && entryMap_[id]->isType(KST_KService)) {
+        KService::Ptr s(static_cast<KService *>(entryMap_[id].data()));
+        TQString text;
+        if (!s->genericName().isEmpty()) {
+            text = s->genericName();
+        }
+        if (text.isEmpty() && !s->comment().isEmpty()) {
+          text = s->comment();
+        }
+        TQToolTip::add(this, i18n(text.utf8()));
+    }
 }
 
