@@ -550,10 +550,10 @@ void HALBackend::setVolumeProperties(Medium* medium)
     */
     if (media_name.find(TQRegExp("^[0-9]+\\.?[0-9]*[KMGT] (Removable )?Media$")) > -1) {
         TQString pattern = media_name.section(" ", 1);
-        media_name.replace(pattern, i18n(pattern.ascii()));
+        media_name.replace(pattern, i18n(pattern.utf8()));
         medium->setLabel(media_name);
     } else {
-        medium->setLabel(i18n(media_name.ascii()));
+        medium->setLabel(i18n(media_name.utf8()));
     }
 
     free(name);
