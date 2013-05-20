@@ -182,7 +182,7 @@
                                 <bool>false</bool>
                             </property>
                             <property name="whatsThis" stdset="0">
-                                <string>&lt;qt&gt;When this option is selected a tooltip will appear on the KMenu items.</string>
+                                <string>&lt;qt&gt;When this option is selected, a tooltip appears when hovering the mouse pointer over Application Launcher Menu items. Enabling this option also requires that tooltips are enabled in the Panels->Appearance configuration dialog.</string>
                             </property>
                         </widget>
                         <widget class="TQCheckBox">
