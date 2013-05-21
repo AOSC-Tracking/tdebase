@@ -257,6 +257,7 @@ kg_main( const char *argv0 )
 			}
 		}
 	}
+	XSync( qt_xdisplay(), False );
 	XSetErrorHandler( (XErrorHandler)0 );
 
 	GreeterApp *app;
@@ -413,6 +414,7 @@ kg_main( const char *argv0 )
 					dialog->move(primaryScreenPosition.x(), primaryScreenPosition.y());
 #endif
 				}
+				XSync( qt_xdisplay(), False );
 				XSetErrorHandler( (XErrorHandler)0 );
 			} else {
 				if (trinity_desktop_lock_use_sak) {
@@ -439,6 +441,7 @@ kg_main( const char *argv0 )
 		// This also prevents the user from being dropped to a console login if Xorg glitches or is buggy
 		XSetErrorHandler( ignoreXError );
 		rslt = dialog->exec();
+		XSync( qt_xdisplay(), False );
 		XSetErrorHandler( (XErrorHandler)0 );
 		Debug( "left event loop\n" );
 
@@ -510,6 +513,7 @@ kg_main( const char *argv0 )
 	// This also prevents the user from being dropped to a console login if Xorg glitches or is buggy
 	XSetErrorHandler( ignoreXError );
 	XSetInputFocus( qt_xdisplay(), PointerRoot, PointerRoot, CurrentTime );
+	XSync( qt_xdisplay(), False );
 	XSetErrorHandler( (XErrorHandler)0 );
 
 	delete app;
