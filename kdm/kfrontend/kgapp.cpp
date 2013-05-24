@@ -394,7 +394,10 @@ kg_main( const char *argv0 )
 				KThemedGreeter *tgrt;
 				bool has_kwin_bkp = has_kwin;
 				is_themed = true;
-				has_kwin = false;	// [FIXME] The themed greeter is built on the assumption that there is no window manager available (i.e. it keeps stealing focus) and needs to be repaired.
+				if (has_kwin) {
+					has_kwin = false;	// [FIXME] The themed greeter is built on the assumption that there is no window manager available (i.e. it keeps stealing focus) and needs to be repaired.
+					kwin->kill(SIGKILL);
+				}
 				dialog = tgrt = new KThemedGreeter;
 				kdDebug() << timestamp() << " themed" << endl;
 				if (!tgrt->isOK()) {
