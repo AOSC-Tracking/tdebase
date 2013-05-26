@@ -112,6 +112,7 @@ void KrashConfig :: readConfig()
   m_neededInValidBacktraceRegExp = debuggers.readEntry("NeededInValidBacktraceRegExp");
   m_kcrashRegExp = debuggers.readEntry("KCrashRegExp");
   m_kcrashRegExpSingle = debuggers.readEntry("KCrashRegExpSingle");
+  m_threadRegExp = debuggers.readEntry("ThreadRegExp");
 
   KConfig preset(TQString::fromLatin1("presets/%1rc").arg(configname),
                  true, false, "appdata");
