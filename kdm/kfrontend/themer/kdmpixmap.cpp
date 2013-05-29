@@ -102,7 +102,7 @@ KdmPixmap::KdmPixmap( KdmItem *parent, const TQDomNode &node, const char *name )
 	if (((pos.wType == DTnone && pos.hType != DTnone) ||
 	     (pos.wType != DTnone && pos.hType == DTnone) ||
 	     (pos.wType == DTnone && pos.hType == DTnone)) &&
-	    !pixmap.normal.fullpath.endsWith( ".svg" ))
+	    !pixmap.normal.fullpath.isEmpty())
 	  loadPixmap( &pixmap.normal );
 }
 
@@ -177,6 +177,13 @@ KdmPixmap::loadPixmap( PixmapStruct::PixmapClass *pClass )
 {
 	TQString fullpath = pClass->fullpath;
 	
+	if (pClass->fullpath.endsWith( ".svg" ) || pClass->fullpath.endsWith( ".svgz" )) {
+		kdDebug() << timestamp() << " renderSVG\n";
+		renderSvg( pClass, area );
+		kdDebug() << timestamp() << " done\n";
+		return;
+	}
+
 	kdDebug() << timestamp() << " load " << fullpath << endl;
 	int index = fullpath.findRev('.');
 	TQString ext = fullpath.right(fullpath.length() - index);
@@ -196,6 +203,18 @@ KdmPixmap::loadPixmap( PixmapStruct::PixmapClass *pClass )
 void
 KdmPixmap::drawContents( TQPainter *p, const TQRect &r )
 {
+	// ensure load normal pixmap
+	if (!argb_visual_available && pixmap.normal.pixmap.isNull()) {
+		if(!pixmap.normal.fullpath.isEmpty()) {
+			loadPixmap( &pixmap.normal );
+		}
+		if(pixmap.normal.pixmap.isNull()) {
+			// use black area as fallback
+			pixmap.normal.pixmap = TQPixmap( area.width(), area.height() );
+			pixmap.normal.pixmap.fill(TQt::black);
+		}
+	}
+
 	// choose the correct pixmap class
 	PixmapStruct::PixmapClass *pClass = &pixmap.normal;
 	if (state == Sactive && pixmap.active.present) {
@@ -211,14 +230,8 @@ KdmPixmap::drawContents( TQPainter *p, const TQRect &r )
 	        if (pClass->fullpath.isEmpty()) {	// if neither is set, we're empty
 			return;
 		}
-		
-		if (!pClass->fullpath.endsWith( ".svg" ) ) {
-		  loadPixmap(pClass);
-		} else {
-		  kdDebug() << timestamp() << " renderSVG\n";
-		  renderSvg( pClass, area );
-		  kdDebug() << timestamp() << " done\n";
-		}
+
+		loadPixmap(pClass);
 	}
 
 	int px = area.left() + r.left();
@@ -248,7 +261,7 @@ KdmPixmap::drawContents( TQPainter *p, const TQRect &r )
 		// use the loaded pixmap or a scaled version if needed
 		kdDebug() << timestamp() << " prepare readyPixmap " << pClass->fullpath << " " << area.size() << " " << pClass->pixmap.size() << endl;
 		if (area.size() != pClass->pixmap.size()) {
-			if (pClass->fullpath.endsWith( ".svg" )) {
+			if (pClass->fullpath.endsWith( ".svg" ) || pClass->fullpath.endsWith( ".svgz" )) {
 				kdDebug() << timestamp() << " renderSVG\n";
 				renderSvg( pClass, area );
 				scaledImage = pClass->pixmap.convertToImage();
