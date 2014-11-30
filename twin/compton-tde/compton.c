@@ -3009,32 +3009,32 @@ calc_dim(session_t *ps, win *w) {
  */
 static void
 win_determine_fade(session_t *ps, win *w) {
+  // To prevent it from being overwritten by last-paint value if the window is
+  // unmapped on next frame, write w->fade_last as well
   if (UNSET != w->fade_force) {
 #ifdef DEBUG_FADE
       printf_dbgf("(%#010lx): fade forced\n", w->id);
 #endif
-      w->fade = w->fade_force;
+      w->fade_last = w->fade = w->fade_force;
   }
   else if (ps->o.no_fading_openclose && (w->in_openclose || w->destroyed)) {
 #ifdef DEBUG_FADE
     printf_dbgf("(): no_fading_openclose and in_openclose\n");
 #endif
-    w->fade = false;
+    w->fade_last = w->fade = false;
   }
   else if (ps->o.no_fading_opacitychange && (!w->in_openclose)) {
 #ifdef DEBUG_FADE
     printf_dbgf("(): no_fading_opacitychange and !in_openclose\n");
 #endif
-    w->fade = false;
+    w->fade_last = w->fade = false;
   }
   else if (ps->o.no_fading_destroyed_argb && w->destroyed
       && WMODE_ARGB == w->mode && w->client_win && w->client_win != w->id) {
 #ifdef DEBUG_FADE
     printf_dbgf("(): no_fading_destroyed_argb\n");
 #endif
-    w->fade = false;
-    // Prevent it from being overwritten by last-paint value
-    w->fade_last = false;
+    w->fade_last = w->fade = false;
   }
   // Ignore other possible causes of fading state changes after window
   // gets unmapped
