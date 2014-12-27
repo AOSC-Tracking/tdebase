@@ -1275,7 +1275,7 @@ void ControlPipeHandlerObject::run(void) {
 			TQApplication::eventLoop()->exit(-1);
 			return;
 		}
-	
+
 		if ((mKGreeterParent && (mKGreeterParent->isShown())) || (mSAKDlgParent && (mSAKDlgParent->isShown()))) {
 			char readbuf[2048];
 			int displayNumber;
@@ -1291,7 +1291,7 @@ void ControlPipeHandlerObject::run(void) {
 				mPipeFilename = TQString(FIFO_SAK_FILE).arg(displayNumber);
 				::unlink((TQString(FIFO_FILE).arg(displayNumber)).ascii());
 			}
-		
+
 			/* Create the FIFOs if they do not exist */
 			umask(0);
 			struct stat buffer;
@@ -1306,20 +1306,35 @@ void ControlPipeHandlerObject::run(void) {
 			free(fifo_dir);
 			status = stat(FIFO_DIR, &buffer);
 			if (status == 0) {
+				int dir_mode = ((buffer.st_mode & S_IRWXU) >> 6) * 100;
+				dir_mode = dir_mode + ((buffer.st_mode & S_IRWXG) >> 3) * 10;
+				dir_mode = dir_mode + ((buffer.st_mode & S_IRWXO) >> 0) * 1;
+				if ((dir_mode != 700 && dir_mode != 600) || (buffer.st_uid != 0) || (buffer.st_gid != 0)) {
+					printf("[WARNING] Possible security breach!  Please check permissions on " FIFO_DIR " (must be 700 and owned by root/root, got %d %d/%d).  Not listening for login credentials on remote control socket.\n", dir_mode, buffer.st_uid, buffer.st_gid); fflush(stdout);
+					TQApplication::eventLoop()->exit(-1);
+					return;
+				}
+			}
+			else {
+				mkdir(FIFO_DIR, 0700);
+			}
+			status = stat(mPipeFilename.ascii(), &buffer);
+			if (status == 0) {
 				int file_mode = ((buffer.st_mode & S_IRWXU) >> 6) * 100;
 				file_mode = file_mode + ((buffer.st_mode & S_IRWXG) >> 3) * 10;
 				file_mode = file_mode + ((buffer.st_mode & S_IRWXO) >> 0) * 1;
 				if ((file_mode != 600) || (buffer.st_uid != 0) || (buffer.st_gid != 0)) {
 					::unlink(mPipeFilename.ascii());
-					printf("[WARNING] Possible security breach!  Please check permissions on " FIFO_DIR " (must be 600 and owned by root/root, got %d %d/%d).  Not listening for login credentials on remote control socket.\n", file_mode, buffer.st_uid, buffer.st_gid); fflush(stdout);
+					printf("[WARNING] Possible security breach!  Please check permissions on %s (must be 600 and owned by root/root, got %d %d/%d).  Not listening for login credentials on remote control socket.\n", mPipeFilename.ascii(), file_mode, buffer.st_uid, buffer.st_gid); fflush(stdout);
 					TQApplication::eventLoop()->exit(-1);
 					return;
 				}
 			}
-			mkdir(FIFO_DIR,0700);
-			mknod(mPipeFilename.ascii(), S_IFIFO|0600, 0);
-			chmod(mPipeFilename.ascii(), 0600);
-		
+			else {
+				mknod(mPipeFilename.ascii(), S_IFIFO|0600, 0);
+				chmod(mPipeFilename.ascii(), 0600);
+			}
+
 			mPipe_fd = ::open(mPipeFilename.ascii(), O_RDONLY | O_NONBLOCK);
 			int numread;
 			int retval;
