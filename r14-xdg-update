@@ -3,7 +3,7 @@
 # A script to perform R14.0.0 XDG compliance updates.
 
 SCRIPT_NAME="`basename \`readlink -f $0\``"
-SCRIPT_VERSION=201412080
+SCRIPT_VERSION=201412270
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -937,6 +937,13 @@ if [ "$R14_VERSION" -lt "201309150" ]; then
   fi
   if [ $($TDEDIR/bin/kreadconfig --file kickerrc --group "General" --key "MenubarPanelBlurred" --default false) = "false" ]; then
     $TDEDIR/bin/kwriteconfig --file kickerrc --group "General" --key "MenubarPanelBlurred" --type bool "false"
+  fi
+fi
+
+if [ "$R14_VERSION" -lt "201412270" ]; then
+  if [ ! -d $PROFILE_DIR/share/apps/tdeabc ] && [ -d $PROFILE_DIR/share/apps/kabc ]; then
+    Log "  kabc->tdeabc"
+    mv $PROFILE_DIR/share/apps/kabc $PROFILE_DIR/share/apps/tdeabc 2>/dev/null
   fi
 fi
 

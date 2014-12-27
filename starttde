@@ -326,6 +326,7 @@ if [ -d "$tdehome" ]; then
   fi
   if [ "$R14_UPDATED" != "true" ] || [ "$R14_VERSION" -lt "$R14_SCRIPT" ]; then
     if [ -e $TDEDIR/bin/r14-xdg-update ]; then
+      echo "[starttde] Running $TDEDIR/bin/r14-xdg-update script." 1>&2
       sh $TDEDIR/bin/r14-xdg-update
       EXIT_CODE="$?"
     else
