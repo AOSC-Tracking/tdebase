@@ -1,5 +1,5 @@
 [Desktop Entry]
-X-TDE-ServiceTypes=media/removable_mounted,media/removable_mounted_decrypted,media/cdrom_mounted,media/cdrom_mounted_decrypted,media/cd-r_mounted,media/cd-r_mounted_decrypted,media/cd-rw_mounted,media/cd-rw_mounted_decrypted,media/dvd_mounted,media/dvd_mounted_decrypted,media/floppy5_mounted,media/floppy_mounted,media/hdd_mounted,media/hdd_mounted_decrypted,media/nfs_mounted,media/smb_mounted,media/zip_mounted,media/vcd,media/svcd,media/dvdvideo
+X-TDE-ServiceTypes=media/removable_mounted,media/removable_mounted_decrypted,media/cdrom_mounted,media/cdrom_mounted_decrypted,media/cd-r_mounted,media/cd-r_mounted_decrypted,media/cd-rw_mounted,media/cd-rw_mounted_decrypted,media/dvd_mounted,media/dvd_mounted_decrypted,media/floppy5_mounted,media/floppy_mounted,media/hdd_mounted,media/hdd_mounted_decrypted,media/nfs_mounted,media/smb_mounted,media/zip_mounted,media/vcd,media/svcd,media/dvdvideo,media/camera_mounted
 Actions=MediaUnmount;
 X-TDE-Priority=TopLevel
 X-TDE-MediaNotifierHide=true
