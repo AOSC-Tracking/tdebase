@@ -142,8 +142,9 @@
 #include <dbus/dbus.h>
 #endif
 
-// libGL
 #ifdef CONFIG_VSYNC_OPENGL
+
+// libGL
 #if defined(CONFIG_VSYNC_OPENGL_GLSL) || defined(CONFIG_VSYNC_OPENGL_FBO)
 #define GL_GLEXT_PROTOTYPES
 #endif
@@ -158,6 +159,8 @@
 
 #ifndef GLX_BACK_BUFFER_AGE_EXT
 #define GLX_BACK_BUFFER_AGE_EXT 0x20F4
+#endif
+
 #endif
 
 // === Macros ===
@@ -2601,8 +2604,6 @@ c2_matchd(session_t *ps, win *w, const c2_lptr_t *condlst,
 #endif
 
 ///@}
-
-#endif
 
 /**
  * @brief Dump the given data to a file.
