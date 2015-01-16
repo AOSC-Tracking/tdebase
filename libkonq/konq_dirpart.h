@@ -129,6 +129,11 @@ public:
     void deleteItem( KFileItem * fileItem );
 
     /**
+     * Refresh the items
+     */
+    void refreshItems(const KFileItemList &entries);
+
+    /**
      * Show the counts for the directory in the status bar
      */
     void emitTotalCount();
@@ -220,13 +225,19 @@ signals:
      * Emitted as the part is updated with new items.
      * Useful for informing plugins of changes in view.
      */
-    void itemsAdded( const KFileItemList& );
+    void itemsAdded(const KFileItemList &);
 
     /**
      * Emitted as the part is updated with these items.
      * Useful for informing plugins of changes in view.
      */
-    void itemRemoved( const KFileItem* );
+    void itemRemoved(const KFileItem *);
+
+    /**
+     * Emitted when items need to be refreshed (for example when
+     * a file is renamed)
+     */
+    void itemsRefresh(const KFileItemList &);
 
     /**
      * Emitted with the list of filtered-out items whenever

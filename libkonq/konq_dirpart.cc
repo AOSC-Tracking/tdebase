@@ -440,20 +440,25 @@ void KonqDirPart::updatePasteAction() // KDE4: merge into method above
     emit m_extension->enableAction( "paste", paste );
 }
 
-void KonqDirPart::newItems( const KFileItemList & entries )
+void KonqDirPart::newItems(const KFileItemList &entries)
 {
     d->dirSizeDirty = true;
     if ( m_findPart ) {
         emitTotalCount();
     }
 
-    emit itemsAdded( entries );
+    emit itemsAdded(entries);
 }
 
-void KonqDirPart::deleteItem( KFileItem * fileItem )
+void KonqDirPart::deleteItem(KFileItem * fileItem)
 {
     d->dirSizeDirty = true;
-    emit itemRemoved( fileItem );
+    emit itemRemoved(fileItem);
+}
+
+void KonqDirPart::refreshItems(const KFileItemList &entries)
+{
+    emit itemsRefresh(entries);
 }
 
 void KonqDirPart::emitTotalCount()

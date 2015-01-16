@@ -1228,6 +1228,7 @@ void KonqKfmIconView::slotRefreshItems( const KFileItemList& entries )
             m_pIconView->updateContents();
         }
     }
+   KonqDirPart::refreshItems(entries);  // Pass refresh command to KonqDirPart too
 }
 
 void KonqKfmIconView::slotClear()

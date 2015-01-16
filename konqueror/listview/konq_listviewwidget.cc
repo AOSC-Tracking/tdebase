@@ -1376,6 +1376,7 @@ void KonqBaseListViewWidget::slotRefreshItems( const KFileItemList & entries )
          }
    }
 
+   m_pBrowserView->refreshItems(entries);  // Pass refresh command to KonqDirPart too
    reportItemCounts();
 }
 
