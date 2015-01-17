@@ -34,7 +34,7 @@ git reflog expire --all --expire-unreachable=0
 git repack -A -d
 git prune
 
-cd ..
+cd ../..
 
 cd compton-tde
 git remote add -f compton-update $TDEBASE_WORKING_DIRECTORY/twin/TEMP/compton-tde
@@ -44,3 +44,4 @@ bash
 git read-tree --prefix=twin/compton-tde/ -u compton-update/master
 git commit -m "Merge compton changes"
 git pull -s subtree compton-update master
+git remote rm compton-update
