@@ -6,5 +6,5 @@ input=stream
 output=stream
 reading=true
 source=false
-DocPath=tdeioslave/bzip/index.html
+X-DocPath=tdeioslave/bzip/index.html
 Icon=ark

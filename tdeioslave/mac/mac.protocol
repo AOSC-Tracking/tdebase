@@ -70,4 +70,4 @@ Description[wa]=On tdeioslave po MacOS HFS + pårticions
 Description[zh_CN]=MacOS HFS+ 分区的 TDEIO 仆人
 Description[zh_TW]=用於 MacOS HFS+ 分割區的 tdeioslave
 Icon=mac
-DocPath=tdeioslave/mac/index.html
+X-DocPath=tdeioslave/mac/index.html

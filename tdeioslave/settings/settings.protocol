@@ -13,4 +13,4 @@ moving=false
 Icon=kcontrol
 maxInstances=2
 Class=:local
-DocPath=tdeioslave/settings/index.html
+X-DocPath=tdeioslave/settings/index.html

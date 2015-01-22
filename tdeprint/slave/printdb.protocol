@@ -12,4 +12,4 @@ moving=false
 linking=false
 Icon=application-postscript
 defaultMimetype=application/octet-stream
-DocPath=tdeioslave/printdb/index.html
+X-DocPath=tdeioslave/printdb/index.html

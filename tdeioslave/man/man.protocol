@@ -7,6 +7,6 @@ reading=true
 listing=Name
 defaultMimetype=text/html
 determineMimetypeFromExtension=false
-DocPath=tdeioslave/man/index.html
+X-DocPath=tdeioslave/man/index.html
 Icon=application-x-troff-man
 Class=:local

@@ -71,4 +71,4 @@ Description[vi]=A tdeioslave (đày tớ vào ra TDE) cho giao thức NXFISH
 Description[wa]=On tdeioslave pol protocole NXFISH
 Description[zh_CN]=NXFISH 协议的 TDEIO 仆人
 Description[zh_TW]=用於 NXFISH 通訊協定的 tdeioslave
-DocPath=tdeioslave/nxfish/index.html
+X-DocPath=tdeioslave/nxfish/index.html

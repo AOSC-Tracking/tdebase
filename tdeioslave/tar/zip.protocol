@@ -7,6 +7,6 @@ output=filesystem
 listing=Name,Type,Size,Date,Access,Owner,Group,Link
 reading=true
 source=true
-DocPath=tdeioslave/zip/index.html
+X-DocPath=tdeioslave/zip/index.html
 Icon=application-vnd.tde.overlay.zip
 Class=:local

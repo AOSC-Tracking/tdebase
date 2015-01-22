@@ -13,4 +13,4 @@ moving=false
 Icon=kmenu
 maxInstances=2
 Class=:local
-DocPath=tdeioslave/programs/index.html
+X-DocPath=tdeioslave/programs/index.html

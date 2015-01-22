@@ -13,5 +13,5 @@ deleting=true
 #moving=true
 mimetype=text/plain
 determineMimetypeFromExtension=false
-DocPath=tdeioslave/ldap/index.html
+X-DocPath=tdeioslave/ldap/index.html
 Icon=kaddressbook

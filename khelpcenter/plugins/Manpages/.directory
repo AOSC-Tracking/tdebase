@@ -13,7 +13,7 @@ Name[es]=Páginas de manual de Unix
 Name[et]=UNIX-i manuaalileheküljed
 Name[fo]=Unix-handbøkur ("man"-snið)
 Name[fr]=Pages du manuel UNIX
-Name[hi]=यूनिक्स निर्देशिका पृष्�
+Name[hi]=यूनिक्स निर्देशिका पृष्��
 Name[hr]=UNIX priručnici
 Name[hu]=UNIX man oldalak
 Name[is]=Síður UNIX handbóka
@@ -51,7 +51,7 @@ Name[xh]=UNIX amaphepha esandla
 Name[zh_TW]=UNIX 手冊
 Name[zu]=Amakhasi Ezincwadi zesandla ze-UNIX
 
-DocPath=man:/
+X-DocPath=man:/
 
 Icon=text-x-generic2
 

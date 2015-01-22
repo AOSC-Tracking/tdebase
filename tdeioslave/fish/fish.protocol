@@ -78,4 +78,4 @@ Description[vi]=A tdeioslave (đày tớ vào ra TDE) cho giao thức FISH
 Description[wa]=On tdeioslave pol protocole FISH
 Description[zh_CN]=FISH 协议的 TDEIO 仆人
 Description[zh_TW]=用於 FISH 通訊協定的 tdeioslave
-DocPath=tdeioslave/fish/index.html
+X-DocPath=tdeioslave/fish/index.html

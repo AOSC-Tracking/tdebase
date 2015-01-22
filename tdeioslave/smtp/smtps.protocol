@@ -13,4 +13,4 @@ makedir=false
 linking=false
 moving=false
 Icon=folder_outbox
-DocPath=tdeioslave/smtp/index.html
+X-DocPath=tdeioslave/smtp/index.html

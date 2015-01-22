@@ -6,6 +6,6 @@ output=filesystem
 reading=true
 defaultMimetype=text/html
 determineMimetypeFromExtension=false
-DocPath=tdeioslave/info/index.html
+X-DocPath=tdeioslave/info/index.html
 Icon=help_index
 Class=:local

@@ -79,6 +79,6 @@ Description[vi]=A tdeioslave (đày tớ vào ra TDE) cho sftp
 Description[wa]=On tdeioslave po sftp
 Description[zh_CN]=sftp 的 tdeioslave
 Description[zh_TW]=sftp 的 tdeioslave
-DocPath=tdeioslave/sftp/index.html
+X-DocPath=tdeioslave/sftp/index.html
 Icon=ftp
 Class=:internet

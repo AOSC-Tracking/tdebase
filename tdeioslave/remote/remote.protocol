@@ -12,6 +12,6 @@ linking=true
 moving=true
 Icon=network
 maxInstances=4
-DocPath=tdeioslave/remote/index.html
+X-DocPath=tdeioslave/remote/index.html
 Class=:local
 deleteRecursive=true

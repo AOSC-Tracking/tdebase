@@ -16,4 +16,4 @@ Icon=font-x-generic
 defaultMimetype=application/octet-stream
 maxInstances=1
 Class=:local
-DocPath=tdeioslave/fonts/index.html
+X-DocPath=tdeioslave/fonts/index.html

@@ -5,5 +5,5 @@ input=none
 output=stream
 reading=true
 defaultMimetype=text/html
-DocPath=tdeioslave/finger/index.html
+X-DocPath=tdeioslave/finger/index.html
 Icon=tdmconfig

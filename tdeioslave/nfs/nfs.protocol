@@ -10,5 +10,5 @@ makedir=true
 deleting=true
 linking=true
 moving=true
-DocPath=tdeioslave/nfs/index.html
+X-DocPath=tdeioslave/nfs/index.html
 Icon=nfs_mount

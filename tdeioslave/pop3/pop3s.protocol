@@ -12,5 +12,5 @@ source=true
 makedir=false
 linking=false
 moving=false
-DocPath=tdeioslave/pop3/index.html
+X-DocPath=tdeioslave/pop3/index.html
 Icon=folder_inbox
