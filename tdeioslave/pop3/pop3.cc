@@ -735,7 +735,7 @@ bool POP3Protocol::pop3_open()
                 i18n("Your POP3 server claims to "
                      "support TLS but negotiation "
                      "was unsuccessful. You can "
-                     "disable TLS in KDE using the "
+                     "disable TLS in TDE using the "
                      "crypto settings module."));
         }
         closeConnection();

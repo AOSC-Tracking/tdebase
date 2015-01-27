@@ -186,7 +186,7 @@ static sasl_callback_t callbacks[] = {
 			i18n("Your SMTP server claims to "
 			     "support TLS, but negotiation "
 			     "was unsuccessful.\nYou can "
-			     "disable TLS in KDE using the "
+			     "disable TLS in TDE using the "
 			     "crypto settings module."),
 			i18n("Connection Failed"));
     return false;
