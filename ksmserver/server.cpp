@@ -771,8 +771,8 @@ void KSMServer::processData( int /*socket*/ )
             SmsConn smsConn = it.current()->connection();
             deleteClient( it.current() );
             SmsCleanUp( smsConn );
+            (void) IceCloseConnection( iceConn );
         }
-        (void) IceCloseConnection( iceConn );
     }
 }
 
