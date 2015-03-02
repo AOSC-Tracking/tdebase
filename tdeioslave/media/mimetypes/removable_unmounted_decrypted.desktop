@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=usbpendrive_unmount_decrypt
+Icon=media-flash-usb_decrypt
 Type=MimeType
 MimeType=media/removable_unmounted_decrypted
 Comment=Unmounted Decrypted Removable Medium

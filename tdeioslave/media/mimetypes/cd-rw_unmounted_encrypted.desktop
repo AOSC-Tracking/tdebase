@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=cdwriter_unmount_encrypt
+Icon=media-optical-cdwriter_encrypt
 Type=MimeType
 MimeType=media/cd-rw_unmounted_encrypted
 Comment=Unmounted Encrypted CD-RW

@@ -68,6 +68,6 @@ Comment[vi]=Đĩa Video DVD
 Comment[wa]=Plake videyo DVD
 Comment[zh_CN]=DVD 影碟
 Comment[zh_TW]=DVD 視訊光碟
-Icon=dvd_unmount
+Icon=media-optical-dvd
 
 X-TDE-IsAlso=inode/directory

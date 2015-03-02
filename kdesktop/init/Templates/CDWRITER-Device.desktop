@@ -3,8 +3,8 @@ MountPoint=
 Dev=
 ReadOnly=0
 Type=FSDevice
-Icon=cdwriter_mount
-UnmountIcon=cdwriter_unmount
+Icon=media-optical-cdwriter-mounted
+UnmountIcon=media-optical-cdwriter
 Actions=Eject;
 X-TDE-Priority=TopLevel
 [Desktop Action Eject]

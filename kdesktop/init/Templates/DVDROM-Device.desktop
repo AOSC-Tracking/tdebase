@@ -3,8 +3,8 @@ MountPoint=
 Dev=
 ReadOnly=false
 Type=FSDevice
-Icon=dvd_mount
-UnmountIcon=dvd_unmount
+Icon=media-optical-dvd-mounted
+UnmountIcon=media-optical-dvd
 Actions=Eject;
 X-TDE-Priority=TopLevel
 [Desktop Action Eject]

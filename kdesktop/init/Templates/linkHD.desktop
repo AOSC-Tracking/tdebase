@@ -154,4 +154,4 @@ Comment[zh_TW]=新硬碟設備
 Comment[zu]=I-diski Elukhuni Entsha
 Type=Link
 URL=.source/HD.desktop
-Icon=hdd_unmount
+Icon=drive-harddisk

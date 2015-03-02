@@ -3,5 +3,5 @@ MountPoint=
 Dev=
 ReadOnly=false
 Type=FSDevice
-Icon=hdd_mount
-UnmountIcon=hdd_unmount
+Icon=drive-harddisk-mounted
+UnmountIcon=drive-harddisk

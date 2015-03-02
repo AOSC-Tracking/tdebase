@@ -1,5 +1,5 @@
 [Desktop Entry]
-Icon=usbpendrive_unmount
+Icon=media-flash-usb
 Type=MimeType
 MimeType=media/removable_unmounted
 Comment=Unmounted Removable Medium

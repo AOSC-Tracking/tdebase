@@ -3,8 +3,8 @@ MountPoint=
 Dev=
 ReadOnly=false
 Type=FSDevice
-Icon=zip_mount
-UnmountIcon=zip_unmount
+Icon=media-floppy-zip-mounted
+UnmountIcon=media-floppy-zip
 Actions=Eject;
 X-TDE-Priority=TopLevel
 [Desktop Action Eject]

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=dvd_mount_decrypt
+Icon=media-optical-dvd-mounted_decrypt
 Type=MimeType
 MimeType=media/dvd_mounted_decrypted
 Comment=Mounted Decrypted DVD

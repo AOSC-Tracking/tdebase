@@ -59,7 +59,7 @@ Comment[vi]=CD Nhạc
 Comment[wa]=Plake lazer CD odio
 Comment[zh_CN]=音频 CD
 Comment[zh_TW]=音樂 CD
-Icon=cdaudio_unmount
+Icon=media-optical-cdaudio
 
 X-TDE-AutoEmbed=true
 X-TDE-IsAlso=inode/directory

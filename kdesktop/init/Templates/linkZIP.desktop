@@ -147,4 +147,4 @@ Comment[zh_CN]=新建 ZIP 设备
 Comment[zh_TW]=新 ZIP 設備
 Type=Link
 URL=.source/ZIP-Device.desktop
-Icon=zip_unmount
+Icon=media-floppy-zip
