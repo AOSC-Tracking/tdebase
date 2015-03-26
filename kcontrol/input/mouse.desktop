@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=tdecmshell mouse
-Icon=mouse
+Icon=input-mouse
 Type=Application
 X-DocPath=kcontrol/mouse/index.html
 
