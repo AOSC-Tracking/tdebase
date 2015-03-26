@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=tdecmshell keyboard_layout
-Icon=keyboard
+Icon=input-keyboard
 Type=Application
 X-DocPath=kxkb/index.html
 
