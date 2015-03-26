@@ -121,5 +121,5 @@ Comment[vi]=Thêm nút khoá màn hình và đăng xuất khỏi phiên làm vi�
 Comment[wa]=Radjout des botons po serer l' waitroûle a clé et dislodjî del session
 Comment[zh_CN]=添加锁定屏幕和注销会话的按钮
 Comment[zh_TW]=加入用來鎖定螢幕與登出作業階段的按鈕
-Icon=system-log-out
+Icon=computer-log-out
 X-TDE-Library=lockout_panelapplet

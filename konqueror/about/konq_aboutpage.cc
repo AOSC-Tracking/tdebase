@@ -101,7 +101,7 @@ TQString KonqAboutPageFactory::launch()
   TDEIconLoader *iconloader = TDEGlobal::iconLoader();
   int iconSize = iconloader->currentSize(TDEIcon::Desktop);
   TQString home_icon_path = iconloader->iconPath("kfm_home", TDEIcon::Desktop );
-  TQString storage_icon_path = iconloader->iconPath("system", TDEIcon::Desktop );
+  TQString storage_icon_path = iconloader->iconPath("computer", TDEIcon::Desktop );
   TQString remote_icon_path = iconloader->iconPath("network", TDEIcon::Desktop );
   TQString wastebin_icon_path = iconloader->iconPath("trashcan_full", TDEIcon::Desktop );
   TQString applications_icon_path = iconloader->iconPath("kmenu", TDEIcon::Desktop );

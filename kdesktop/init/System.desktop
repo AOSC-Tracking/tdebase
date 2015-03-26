@@ -144,6 +144,6 @@ GenericName[wa]=Plaeces do sistinme
 GenericName[zh_CN]=系统定位
 GenericName[zh_TW]=系統位置
 URL=system:/
-Icon=system
+Icon=computer
 Type=Link
 OnlyShowIn=TDE;

@@ -265,7 +265,7 @@ KMenu::KMenu()
     if (KickerSettings::kickoffTabBarFormat() != KickerSettings::LabelOnly) {
 	m_tabs[FavoriteTab]->setIconSet(BarIcon("bookmark", tab_icon_size));
 	m_tabs[HistoryTab]->setIconSet(BarIcon("recently_used", tab_icon_size));
-	m_tabs[ComputerTab]->setIconSet(BarIcon("system", tab_icon_size));
+	m_tabs[ComputerTab]->setIconSet(BarIcon("computer", tab_icon_size));
 	m_tabs[ApplicationsTab]->setIconSet(BarIcon("player_playlist", tab_icon_size));
 	m_tabs[LeaveTab]->setIconSet(BarIcon("leave", tab_icon_size));
     }

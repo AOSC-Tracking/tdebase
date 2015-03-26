@@ -3852,9 +3852,9 @@ void KonqMainWindow::initActions()
   connect( m_paHome, TQT_SIGNAL( activated( TDEAction::ActivationReason, TQt::ButtonState) ), TQT_TQOBJECT(this),
 	   TQT_SLOT( slotHome(TDEAction::ActivationReason, TQt::ButtonState) ) );
 
-  (void) new TDEAction( i18n( "S&ystem" ), "system", 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoSystem() ), actionCollection(), "go_system" );
+  (void) new TDEAction( i18n( "S&ystem" ), "computer", 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoSystem() ), actionCollection(), "go_system" );
   (void) new TDEAction( i18n( "App&lications" ), "kmenu", 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoApplications() ), actionCollection(), "go_applications" );
-  (void) new TDEAction( i18n( "&Storage Media" ), "system", 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoMedia() ), actionCollection(), "go_media" );
+  (void) new TDEAction( i18n( "&Storage Media" ), "computer", 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoMedia() ), actionCollection(), "go_media" );
   (void) new TDEAction( i18n( "&Network Folders" ), "network", 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoNetworkFolders() ), actionCollection(), "go_network_folders" );
   (void) new TDEAction( i18n( "Sett&ings" ), "kcontrol", 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoSettings() ), actionCollection(), "go_settings" );
   //(void) new TDEAction( i18n( "Sidebar Configuration" ), 0, this, TQT_SLOT( slotGoDirTree() ), actionCollection(), "go_dirtree" );

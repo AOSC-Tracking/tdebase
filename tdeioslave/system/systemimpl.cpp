@@ -204,7 +204,7 @@ void SystemImpl::createTopLevelEntry(TDEIO::UDSEntry &entry) const
 	addAtom(entry, TDEIO::UDS_FILE_TYPE, S_IFDIR);
 	addAtom(entry, TDEIO::UDS_ACCESS, 0555);
 	addAtom(entry, TDEIO::UDS_MIME_TYPE, 0, "inode/system_directory");
-	addAtom(entry, TDEIO::UDS_ICON_NAME, 0, "system");
+	addAtom(entry, TDEIO::UDS_ICON_NAME, 0, "computer");
 }
 
 TQString SystemImpl::readPathINL(TQString filename)

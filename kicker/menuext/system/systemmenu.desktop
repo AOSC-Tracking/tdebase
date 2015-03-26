@@ -122,6 +122,6 @@ Comment[vi]=Thực đơn chứa các liên kết hệ thống quan trọng
 Comment[wa]=Dressêye des impôrtantès plaeces do sistinmes
 Comment[zh_CN]=重要系统位置的菜单
 Comment[zh_TW]=重要系統位置選單
-Icon=system
+Icon=computer
 
 X-TDE-Library=kickermenu_systemmenu

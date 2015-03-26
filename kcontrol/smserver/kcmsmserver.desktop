@@ -1,5 +1,5 @@
 [Desktop Entry]
-Icon=system-log-out
+Icon=computer-log-out
 Type=Application
 X-DocPath=kcontrol/kcmsmserver/index.html
 Exec=tdecmshell kcmsmserver

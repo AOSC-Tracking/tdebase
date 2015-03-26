@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 X-DocPath=kcontrol/media/index.html
-Icon=system
+Icon=computer
 Exec=tdecmshell media
 X-TDE-Library=media
 X-TDE-FactoryName=media

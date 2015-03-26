@@ -153,6 +153,6 @@ Comment[xh]=I applet yeqela lenjongo ethile yendlela yetreyi yokusebenza
 Comment[zh_CN]=系统托盘小程序
 Comment[zh_TW]=系統匣 (system tray) 面板小程式
 Comment[zu]=I-applet yewindi lemininingwane yetreyi lesistimu
-Icon=systemtray
+Icon=computertray
 X-TDE-Library=systemtray_panelapplet
 X-TDE-UniqueApplet=true
