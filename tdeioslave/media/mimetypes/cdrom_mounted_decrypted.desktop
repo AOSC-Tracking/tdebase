@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-optical-cdrom-mounted_decrypt
+Icon=media-optical-cdrom-decrypted-mounted
 Type=MimeType
 MimeType=media/cdrom_mounted_decrypted
 Comment=Mounted Decrypted CD-ROM

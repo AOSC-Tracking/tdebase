@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=drive-harddisk_decrypt
+Icon=drive-harddisk-decrypted
 Type=MimeType
 MimeType=media/hdd_unmounted_decrypted
 Comment=Unmounted Decrypted Hard Disk Volume
