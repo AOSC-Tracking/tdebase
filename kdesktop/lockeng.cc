@@ -48,21 +48,21 @@ bool trinity_lockeng_sak_available = TRUE;
 SaverEngine* m_masterSaverEngine = NULL;
 static void sigusr1_handler(int)
 {
-    if (m_masterSaverEngine) {
-        m_masterSaverEngine->slotLockProcessWaiting();
-    }
+	if (m_masterSaverEngine) {
+		m_masterSaverEngine->slotLockProcessWaiting();
+	}
 }
 static void sigusr2_handler(int)
 {
-    if (m_masterSaverEngine) {
-        m_masterSaverEngine->slotLockProcessFullyActivated();
-    }
+	if (m_masterSaverEngine) {
+		m_masterSaverEngine->slotLockProcessFullyActivated();
+	}
 }
 static void sigttin_handler(int)
 {
-    if (m_masterSaverEngine) {
-        m_masterSaverEngine->slotLockProcessReady();
-    }
+	if (m_masterSaverEngine) {
+		m_masterSaverEngine->slotLockProcessReady();
+	}
 }
 
 //===========================================================================
@@ -72,73 +72,73 @@ static void sigttin_handler(int)
 // a newly started process.
 //
 SaverEngine::SaverEngine()
-    : TQWidget(),
-      KScreensaverIface(),
-      mBlankOnly(false),
-      mSAKProcess(NULL),
-      mTerminationRequested(false),
-      mSaverProcessReady(false),
-      dBusLocal(0),
-      dBusWatch(0),
-      systemdSession(0)
+	: TQWidget(),
+	  KScreensaverIface(),
+	  mBlankOnly(false),
+	  mSAKProcess(NULL),
+	  mTerminationRequested(false),
+	  mSaverProcessReady(false),
+	  dBusLocal(0),
+	  dBusWatch(0),
+	  systemdSession(0)
 {
-    // handle SIGUSR1
-    m_masterSaverEngine = this;
-    mSignalAction.sa_handler= sigusr1_handler;
-    sigemptyset(&(mSignalAction.sa_mask));
-    sigaddset(&(mSignalAction.sa_mask), SIGUSR1);
-    mSignalAction.sa_flags = 0;
-    sigaction(SIGUSR1, &mSignalAction, 0L);
+	// handle SIGUSR1
+	m_masterSaverEngine = this;
+	mSignalAction.sa_handler= sigusr1_handler;
+	sigemptyset(&(mSignalAction.sa_mask));
+	sigaddset(&(mSignalAction.sa_mask), SIGUSR1);
+	mSignalAction.sa_flags = 0;
+	sigaction(SIGUSR1, &mSignalAction, 0L);
 
-    // handle SIGUSR2
-    m_masterSaverEngine = this;
-    mSignalAction.sa_handler= sigusr2_handler;
-    sigemptyset(&(mSignalAction.sa_mask));
-    sigaddset(&(mSignalAction.sa_mask), SIGUSR2);
-    mSignalAction.sa_flags = 0;
-    sigaction(SIGUSR2, &mSignalAction, 0L);
+	// handle SIGUSR2
+	m_masterSaverEngine = this;
+	mSignalAction.sa_handler= sigusr2_handler;
+	sigemptyset(&(mSignalAction.sa_mask));
+	sigaddset(&(mSignalAction.sa_mask), SIGUSR2);
+	mSignalAction.sa_flags = 0;
+	sigaction(SIGUSR2, &mSignalAction, 0L);
 
-    // handle SIGTTIN
-    m_masterSaverEngine = this;
-    mSignalAction.sa_handler= sigttin_handler;
-    sigemptyset(&(mSignalAction.sa_mask));
-    sigaddset(&(mSignalAction.sa_mask), SIGTTIN);
-    mSignalAction.sa_flags = 0;
-    sigaction(SIGTTIN, &mSignalAction, 0L);
+	// handle SIGTTIN
+	m_masterSaverEngine = this;
+	mSignalAction.sa_handler= sigttin_handler;
+	sigemptyset(&(mSignalAction.sa_mask));
+	sigaddset(&(mSignalAction.sa_mask), SIGTTIN);
+	mSignalAction.sa_flags = 0;
+	sigaction(SIGTTIN, &mSignalAction, 0L);
 
-    // Save X screensaver parameters
-    XGetScreenSaver(tqt_xdisplay(), &mXTimeout, &mXInterval,
-                    &mXBlanking, &mXExposures);
+	// Save X screensaver parameters
+	XGetScreenSaver(tqt_xdisplay(), &mXTimeout, &mXInterval,
+					&mXBlanking, &mXExposures);
 
-    mState = Waiting;
-    mXAutoLock = 0;
-    mEnabled = false;
+	mState = Waiting;
+	mXAutoLock = 0;
+	mEnabled = false;
 
-    connect(&mLockProcess, TQT_SIGNAL(processExited(TDEProcess *)),
-                        TQT_SLOT(lockProcessExited()));
+	connect(&mLockProcess, TQT_SIGNAL(processExited(TDEProcess *)),
+						TQT_SLOT(lockProcessExited()));
 
-    mSAKProcess = new TDEProcess;
-    *mSAKProcess << "tdmtsak";
-    connect(mSAKProcess, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(slotSAKProcessExited()));
+	mSAKProcess = new TDEProcess;
+	*mSAKProcess << "tdmtsak";
+	connect(mSAKProcess, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(slotSAKProcessExited()));
 
-    TQTimer::singleShot( 0, this, TQT_SLOT(handleSecureDialog()) );
+	TQTimer::singleShot( 0, this, TQT_SLOT(handleSecureDialog()) );
 
-    configure();
+	configure();
 
-    mLockProcess.clearArguments();
-    TQString path = TDEStandardDirs::findExe( "kdesktop_lock" );
-    if( path.isEmpty())
-    {
-	kdDebug( 1204 ) << "Can't find kdesktop_lock!" << endl;
-    }
-    mLockProcess << path;
-    mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
-    if (mLockProcess.start() == false )
-    {
-	kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
-    }
+	mLockProcess.clearArguments();
+	TQString path = TDEStandardDirs::findExe( "kdesktop_lock" );
+	if( path.isEmpty())
+	{
+		kdDebug( 1204 ) << "Can't find kdesktop_lock!" << endl;
+	}
+	mLockProcess << path;
+	mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
+	if (mLockProcess.start() == false )
+	{
+		kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
+	}
 
-    dBusConnect();
+	dBusConnect();
 }
 
 //---------------------------------------------------------------------------
@@ -147,18 +147,18 @@ SaverEngine::SaverEngine()
 //
 SaverEngine::~SaverEngine()
 {
-    if (mState == Waiting) {
-        kill(mLockProcess.pid(), SIGKILL);
-    }
+	if (mState == Waiting) {
+		kill(mLockProcess.pid(), SIGKILL);
+	}
 
-    mLockProcess.detach(); // don't kill it if we crash
-    delete mXAutoLock;
+	mLockProcess.detach(); // don't kill it if we crash
+	delete mXAutoLock;
 
-    dBusClose();
+	dBusClose();
 
-    // Restore X screensaver parameters
-    XSetScreenSaver(tqt_xdisplay(), mXTimeout, mXInterval, mXBlanking,
-                    mXExposures);
+	// Restore X screensaver parameters
+	XSetScreenSaver(tqt_xdisplay(), mXTimeout, mXInterval, mXBlanking,
+					mXExposures);
 }
 
 //---------------------------------------------------------------------------
@@ -167,7 +167,7 @@ SaverEngine::~SaverEngine()
 //
 void SaverEngine::lock()
 {
-    lockScreen(true);
+	lockScreen(true);
 }
 
 //---------------------------------------------------------------------------
@@ -176,126 +176,126 @@ void SaverEngine::lock()
 //
 void SaverEngine::lockScreen(bool DCOP)
 {
-    bool ok = true;
-    if (mState != Saving)
-    {
-        ok = startLockProcess( ForceLock );
-        // It takes a while for kdesktop_lock to start and lock the screen.
-        // Therefore delay the DCOP call until it tells kdesktop that the locking is in effect.
-        // This is done only for --forcelock .
-        if( ok && mState != Saving )
-        {
-            if (DCOP) {
-                DCOPClientTransaction* trans = kapp->dcopClient()->beginTransaction();
-                if (trans) {
-                    mLockTransactions.append( trans );
-                }
-            }
-        }
-    }
-    else
-    {
-        mLockProcess.kill( SIGHUP );
-    }
+	bool ok = true;
+	if (mState != Saving)
+	{
+		ok = startLockProcess( ForceLock );
+		// It takes a while for kdesktop_lock to start and lock the screen.
+		// Therefore delay the DCOP call until it tells kdesktop that the locking is in effect.
+		// This is done only for --forcelock .
+		if( ok && mState != Saving )
+		{
+			if (DCOP) {
+				DCOPClientTransaction* trans = kapp->dcopClient()->beginTransaction();
+				if (trans) {
+					mLockTransactions.append( trans );
+				}
+			}
+		}
+	}
+	else
+	{
+		mLockProcess.kill( SIGHUP );
+	}
 }
 
 void SaverEngine::processLockTransactions()
 {
-    for( TQValueVector< DCOPClientTransaction* >::ConstIterator it = mLockTransactions.begin();
-         it != mLockTransactions.end();
-         ++it )
-    {
-        TQCString replyType = "void";
-        TQByteArray arr;
-        kapp->dcopClient()->endTransaction( *it, replyType, arr );
-    }
-    mLockTransactions.clear();
+	for( TQValueVector< DCOPClientTransaction* >::ConstIterator it = mLockTransactions.begin();
+		 it != mLockTransactions.end();
+		 ++it )
+	{
+		TQCString replyType = "void";
+		TQByteArray arr;
+		kapp->dcopClient()->endTransaction( *it, replyType, arr );
+	}
+	mLockTransactions.clear();
 }
 
 void SaverEngine::saverLockReady()
 {
-    if( mState != Engaging )
-    {
-	kdDebug( 1204 ) << "Got unexpected saverReady()" << endl;
-    }
-    kdDebug( 1204 ) << "Saver Lock Ready" << endl;
-    processLockTransactions();
+	if( mState != Engaging )
+	{
+		kdDebug( 1204 ) << "Got unexpected saverReady()" << endl;
+	}
+	kdDebug( 1204 ) << "Saver Lock Ready" << endl;
+	processLockTransactions();
 }
 
 //---------------------------------------------------------------------------
 void SaverEngine::save()
 {
-    if (mState == Waiting)
-    {
-        startLockProcess( DefaultLock );
-    }
+	if (mState == Waiting)
+	{
+		startLockProcess( DefaultLock );
+	}
 }
 
 //---------------------------------------------------------------------------
 void SaverEngine::quit()
 {
-    if (mState == Saving || mState == Engaging)
-    {
-        stopLockProcess();
-    }
+	if (mState == Saving || mState == Engaging)
+	{
+		stopLockProcess();
+	}
 }
 
 //---------------------------------------------------------------------------
 bool SaverEngine::isEnabled()
 {
-  return mEnabled;
+	return mEnabled;
 }
 
 //---------------------------------------------------------------------------
 bool SaverEngine::enable( bool e )
 {
-    if ( e == mEnabled )
+	if ( e == mEnabled )
 	return true;
 
-    // If we aren't in a suitable state, we will not reconfigure.
-    if (mState != Waiting)
-        return false;
+	// If we aren't in a suitable state, we will not reconfigure.
+	if (mState != Waiting)
+		return false;
 
-    mEnabled = e;
+	mEnabled = e;
 
-    if (mEnabled)
-    {
-	if ( !mXAutoLock ) {
-	    mXAutoLock = new XAutoLock();
-	    connect(mXAutoLock, TQT_SIGNAL(timeout()), TQT_SLOT(idleTimeout()));
-	}
-        mXAutoLock->setTimeout(mTimeout);
-        mXAutoLock->setDPMS(true);
-	//mXAutoLock->changeCornerLockStatus( mLockCornerTopLeft, mLockCornerTopRight, mLockCornerBottomLeft, mLockCornerBottomRight);
-
-        // We'll handle blanking
-        XSetScreenSaver(tqt_xdisplay(), mTimeout + 10, mXInterval, PreferBlanking, mXExposures);
-        kdDebug() << "XSetScreenSaver " << mTimeout + 10 << endl;
-
-        mXAutoLock->start();
-
-        kdDebug(1204) << "Saver Engine started, timeout: " << mTimeout << endl;
-    }
-    else
-    {
-	if (mXAutoLock)
+	if (mEnabled)
 	{
-	    delete mXAutoLock;
-	    mXAutoLock = 0;
+		if ( !mXAutoLock ) {
+			mXAutoLock = new XAutoLock();
+			connect(mXAutoLock, TQT_SIGNAL(timeout()), TQT_SLOT(idleTimeout()));
+		}
+			mXAutoLock->setTimeout(mTimeout);
+			mXAutoLock->setDPMS(true);
+		//mXAutoLock->changeCornerLockStatus( mLockCornerTopLeft, mLockCornerTopRight, mLockCornerBottomLeft, mLockCornerBottomRight);
+	
+			// We'll handle blanking
+			XSetScreenSaver(tqt_xdisplay(), mTimeout + 10, mXInterval, PreferBlanking, mXExposures);
+			kdDebug() << "XSetScreenSaver " << mTimeout + 10 << endl;
+	
+			mXAutoLock->start();
+	
+			kdDebug(1204) << "Saver Engine started, timeout: " << mTimeout << endl;
+	}
+	else
+	{
+		if (mXAutoLock)
+		{
+			delete mXAutoLock;
+			mXAutoLock = 0;
+		}
+	
+		XForceScreenSaver(tqt_xdisplay(), ScreenSaverReset );
+		XSetScreenSaver(tqt_xdisplay(), 0, mXInterval,  PreferBlanking, DontAllowExposures);
+		kdDebug(1204) << "Saver Engine disabled" << endl;
 	}
 
-        XForceScreenSaver(tqt_xdisplay(), ScreenSaverReset );
-        XSetScreenSaver(tqt_xdisplay(), 0, mXInterval,  PreferBlanking, DontAllowExposures);
-        kdDebug(1204) << "Saver Engine disabled" << endl;
-    }
-
-    return true;
+	return true;
 }
 
 //---------------------------------------------------------------------------
 bool SaverEngine::isBlanked()
 {
-  return (mState != Waiting);
+	return (mState != Waiting);
 }
 
 void SaverEngine::enableExports()
@@ -312,8 +312,9 @@ void SaverEngine::enableExports()
 	
 	TQCString appname( "kdesktop" );
 	int screen_number = DefaultScreen(tqt_xdisplay());
-	if ( screen_number )
-	appname.sprintf("kdesktop-screen-%d", screen_number );
+	if ( screen_number ) {
+		appname.sprintf("kdesktop-screen-%d", screen_number );
+	}
 	
 	client->send( appname, "KBackgroundIface", "setExport(int)", data );
 #endif
@@ -322,36 +323,36 @@ void SaverEngine::enableExports()
 //---------------------------------------------------------------------------
 void SaverEngine::handleSecureDialog()
 {
-    // Wait for SAK press
-    if (!mSAKProcess->isRunning()) mSAKProcess->start();
+	// Wait for SAK press
+	if (!mSAKProcess->isRunning()) mSAKProcess->start();
 }
 
 void SaverEngine::slotSAKProcessExited()
 {
-    int retcode = mSAKProcess->exitStatus();
-    if ((retcode != 0) && (mSAKProcess->normalExit())) {
-        trinity_lockeng_sak_available = FALSE;
-        printf("[kdesktop] SAK driven secure dialog is not available for use (retcode %d).  Check tdmtsak for proper functionality.\n", retcode); fflush(stdout);
-    }
+	int retcode = mSAKProcess->exitStatus();
+	if ((retcode != 0) && (mSAKProcess->normalExit())) {
+		trinity_lockeng_sak_available = FALSE;
+		printf("[kdesktop] SAK driven secure dialog is not available for use (retcode %d).  Check tdmtsak for proper functionality.\n", retcode); fflush(stdout);
+	}
 
-    if (mState == Preparing) {
-        return;
-    }
+	if (mState == Preparing) {
+		return;
+	}
 
-    if ((mSAKProcess->normalExit()) && (trinity_lockeng_sak_available == TRUE)) {
-        bool ok = true;
-        if (mState == Waiting)
-        {
-            ok = startLockProcess( SecureDialog );
-            if( ok && mState != Saving )
-            {
-            }
-        }
-        else
-        {
-            mLockProcess.kill( SIGHUP );
-        }
-    }
+	if ((mSAKProcess->normalExit()) && (trinity_lockeng_sak_available == TRUE)) {
+		bool ok = true;
+		if (mState == Waiting)
+		{
+			ok = startLockProcess( SecureDialog );
+			if( ok && mState != Saving )
+			{
+			}
+		}
+		else
+		{
+			mLockProcess.kill( SIGHUP );
+		}
+	}
 }
 
 //---------------------------------------------------------------------------
@@ -360,29 +361,30 @@ void SaverEngine::slotSAKProcessExited()
 //
 void SaverEngine::configure()
 {
-    // If we aren't in a suitable state, we will not reconfigure.
-    if (mState != Waiting)
-        return;
+	// If we aren't in a suitable state, we will not reconfigure.
+	if (mState != Waiting) {
+		return;
+	}
 
-    // create a new config obj to ensure we read the latest options
-    KDesktopSettings::self()->readConfig();
+	// create a new config obj to ensure we read the latest options
+	KDesktopSettings::self()->readConfig();
 
-    bool e  = KDesktopSettings::screenSaverEnabled();
-    mTimeout = KDesktopSettings::timeout();
+	bool e = KDesktopSettings::screenSaverEnabled();
+	mTimeout = KDesktopSettings::timeout();
 
-    mEnabled = !e;   // force the enable()
+	mEnabled = !e;   // force the enable()
 
-    int action;
-    action = KDesktopSettings::actionTopLeft();
-    xautolock_corners[0] = applyManualSettings(action);
-    action = KDesktopSettings::actionTopRight();
-    xautolock_corners[1] = applyManualSettings(action);
-    action = KDesktopSettings::actionBottomLeft();
-    xautolock_corners[2] = applyManualSettings(action);
-    action = KDesktopSettings::actionBottomRight();
-    xautolock_corners[3] = applyManualSettings(action);
+	int action;
+	action = KDesktopSettings::actionTopLeft();
+	xautolock_corners[0] = applyManualSettings(action);
+	action = KDesktopSettings::actionTopRight();
+	xautolock_corners[1] = applyManualSettings(action);
+	action = KDesktopSettings::actionBottomLeft();
+	xautolock_corners[2] = applyManualSettings(action);
+	action = KDesktopSettings::actionBottomRight();
+	xautolock_corners[3] = applyManualSettings(action);
 
-    enable( e );
+	enable( e );
 }
 
 //---------------------------------------------------------------------------
@@ -398,33 +400,31 @@ void SaverEngine::setBlankOnly( bool blankOnly )
 
 bool SaverEngine::restartDesktopLockProcess()
 {
-    if (!mLockProcess.isRunning()) {
-        mSaverProcessReady = false;
-	mLockProcess.clearArguments();
-	TQString path = TDEStandardDirs::findExe( "kdesktop_lock" );
-	if( path.isEmpty())
-	{
-	    kdDebug( 1204 ) << "Can't find kdesktop_lock!" << endl;
-	    return false;
+	if (!mLockProcess.isRunning()) {
+		mSaverProcessReady = false;
+		mLockProcess.clearArguments();
+		TQString path = TDEStandardDirs::findExe( "kdesktop_lock" );
+		if (path.isEmpty()) {
+			kdDebug( 1204 ) << "Can't find kdesktop_lock!" << endl;
+			return false;
+		}
+		mLockProcess << path;
+		mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
+		if (mLockProcess.start() == false) {
+			kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
+			return false;
+		}
+		// Wait for the saver process to signal ready...
+		int count = 0;
+		while (!mSaverProcessReady) {
+			count++;
+			usleep(100);
+			if (count > 100) {
+				return false;
+			}
+		}
 	}
-	mLockProcess << path;
-	mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
-        if (mLockProcess.start() == false )
-	{
-	    kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
-	    return false;
-	}
-        // Wait for the saver process to signal ready...
-        int count = 0;
-        while (!mSaverProcessReady) {
-            count++;
-            usleep(100);
-            if (count > 100) {
-                return false;
-            }
-        }
-    }
-    return true;
+	return true;
 }
 
 //---------------------------------------------------------------------------
@@ -433,56 +433,55 @@ bool SaverEngine::restartDesktopLockProcess()
 //
 bool SaverEngine::startLockProcess( LockType lock_type )
 {
-    int ret;
+	int ret;
 
-    if (mState == Saving) {
-        return true;
-    }
+	if (mState == Saving) {
+		return true;
+	}
 
-    mState = Preparing;
-    mSAKProcess->kill(SIGTERM);
+	mState = Preparing;
+	mSAKProcess->kill(SIGTERM);
 
-    enableExports();
+	enableExports();
 
-    kdDebug(1204) << "SaverEngine: starting saver" << endl;
-    emitDCOPSignal("KDE_start_screensaver()", TQByteArray());
+	kdDebug(1204) << "SaverEngine: starting saver" << endl;
+	emitDCOPSignal("KDE_start_screensaver()", TQByteArray());
 
-    if (!restartDesktopLockProcess()) {
-        mState = Waiting;
-        return false;
-    }
+	if (!restartDesktopLockProcess()) {
+		mState = Waiting;
+		return false;
+	}
 
-    switch( lock_type )
-    {
-	case ForceLock:
-    	    mLockProcess.kill(SIGUSR1);		// Request forcelock
-	  break;
-	case DontLock:
-    	    mLockProcess.kill(SIGUSR2);		// Request dontlock
-	  break;
-	case SecureDialog:
-    	    mLockProcess.kill(SIGWINCH);	// Request secure dialog
-	  break;
-	default:
-	  break;
-    }
-    if (mBlankOnly) {
-	    mLockProcess.kill(SIGTTIN);		// Request blanking
-    }
+	switch( lock_type )
+	{
+		case ForceLock:
+			mLockProcess.kill(SIGUSR1);		// Request forcelock
+			break;
+		case DontLock:
+			mLockProcess.kill(SIGUSR2);		// Request dontlock
+			break;
+		case SecureDialog:
+			mLockProcess.kill(SIGWINCH);	// Request secure dialog
+			break;
+		default:
+			break;
+	}
+	if (mBlankOnly) {
+		mLockProcess.kill(SIGTTIN);		// Request blanking
+	}
 
-    ret = mLockProcess.kill(SIGTTOU);			// Start lock
-    if (!ret) {
-	    mState = Waiting;
-	    return false;
-    }
-    XSetScreenSaver(tqt_xdisplay(), 0, mXInterval,  PreferBlanking, mXExposures);
+	ret = mLockProcess.kill(SIGTTOU);			// Start lock
+	if (!ret) {
+		mState = Waiting;
+		return false;
+	}
+	XSetScreenSaver(tqt_xdisplay(), 0, mXInterval,  PreferBlanking, mXExposures);
 
-    mState = Engaging;
-    if (mXAutoLock)
-    {
-        mXAutoLock->stop();
-    }
-    return true;
+	mState = Engaging;
+	if (mXAutoLock) {
+		mXAutoLock->stop();
+	}
+	return true;
 }
 
 //---------------------------------------------------------------------------
@@ -491,129 +490,125 @@ bool SaverEngine::startLockProcess( LockType lock_type )
 //
 void SaverEngine::stopLockProcess()
 {
-    if (mState == Waiting)
-    {
-        kdWarning(1204) << "SaverEngine::stopSaver() saver not active" << endl;
-        return;
-    }
-    kdDebug(1204) << "SaverEngine: stopping lock" << endl;
-    emitDCOPSignal("KDE_stop_screensaver()", TQByteArray());
+	if (mState == Waiting) {
+		kdWarning(1204) << "SaverEngine::stopSaver() saver not active" << endl;
+		return;
+	}
+	kdDebug(1204) << "SaverEngine: stopping lock" << endl;
+	emitDCOPSignal("KDE_stop_screensaver()", TQByteArray());
 
-    mTerminationRequested=true;
-    mLockProcess.kill();
+	mTerminationRequested = true;
+	mLockProcess.kill();
 
-    if (mEnabled)
-    {
-        if (mXAutoLock)
-        {
-            mXAutoLock->start();
-        }
-        XForceScreenSaver(tqt_xdisplay(), ScreenSaverReset );
-        XSetScreenSaver(tqt_xdisplay(), mTimeout + 10, mXInterval, PreferBlanking, mXExposures);
-    }
-    processLockTransactions();
-    mState = Waiting;
+	if (mEnabled) {
+		if (mXAutoLock) {
+			mXAutoLock->start();
+		}
+		XForceScreenSaver(tqt_xdisplay(), ScreenSaverReset );
+		XSetScreenSaver(tqt_xdisplay(), mTimeout + 10, mXInterval, PreferBlanking, mXExposures);
+	}
+	processLockTransactions();
+	mState = Waiting;
 
-    if( systemdSession && systemdSession->canSend() ) {
-	TQValueList<TQT_DBusData> params;
-	params << TQT_DBusData::fromBool(false);
-	TQT_DBusMessage reply = systemdSession->sendWithReply("SetIdleHint", params);
-    }
+	if( systemdSession && systemdSession->canSend() ) {
+		TQValueList<TQT_DBusData> params;
+		params << TQT_DBusData::fromBool(false);
+		TQT_DBusMessage reply = systemdSession->sendWithReply("SetIdleHint", params);
+	}
 }
 
 void SaverEngine::recoverFromHackingAttempt()
 {
-    // Try to relaunch saver with forcelock
-    if (!startLockProcess( ForceLock )) {
-        // Terminate the TDE session ASAP!
-        // Values are explained at http://lists.kde.org/?l=kde-linux&m=115770988603387
-        TQByteArray data;
-        TQDataStream arg(data, IO_WriteOnly);
-        arg << (int)0 << (int)0 << (int)2;
-        if ( ! kapp->dcopClient()->send("ksmserver", "default", "logout(int,int,int)", data) ) {
-            // Someone got to DCOP before we did
-            // Try an emergency system logout
-            system("logout");
-        }
-    }
+	// Try to relaunch saver with forcelock
+	if (!startLockProcess(ForceLock)) {
+		// Terminate the TDE session ASAP!
+		// Values are explained at http://lists.kde.org/?l=kde-linux&m=115770988603387
+		TQByteArray data;
+		TQDataStream arg(data, IO_WriteOnly);
+		arg << (int)0 << (int)0 << (int)2;
+		if (!kapp->dcopClient()->send("ksmserver", "default", "logout(int,int,int)", data)) {
+			// Someone got to DCOP before we did
+			// Try an emergency system logout
+			system("logout");
+		}
+	}
 }
 
 void SaverEngine::lockProcessExited()
 {
-    bool abnormalExit = false;
-    if (mLockProcess.normalExit() == false) {
-        abnormalExit = true;
-    }
-    else {
-        if (mLockProcess.exitStatus() != 0) {
-            abnormalExit = true;
-        }
-    }
-    if (mTerminationRequested == true) {
-        abnormalExit = false;
-        mTerminationRequested = false;
-    }
-    if (abnormalExit == true) {
-        // PROBABLE HACKING ATTEMPT DETECTED
-        restartDesktopLockProcess();
-        mState = Waiting;
-        TQTimer::singleShot( 100, this, SLOT(recoverFromHackingAttempt()) );
-    }
-    else {
-        // Restart the lock process
-        restartDesktopLockProcess();
-    }
+	bool abnormalExit = false;
+	if (mLockProcess.normalExit() == false) {
+		abnormalExit = true;
+	}
+	else {
+		if (mLockProcess.exitStatus() != 0) {
+			abnormalExit = true;
+		}
+	}
+	if (mTerminationRequested == true) {
+		abnormalExit = false;
+		mTerminationRequested = false;
+	}
+	if (abnormalExit == true) {
+		// PROBABLE HACKING ATTEMPT DETECTED
+		restartDesktopLockProcess();
+		mState = Waiting;
+		TQTimer::singleShot( 100, this, SLOT(recoverFromHackingAttempt()) );
+	}
+	else {
+		// Restart the lock process
+		restartDesktopLockProcess();
+	}
 }
 
 void SaverEngine::slotLockProcessWaiting()
 {
-    // lockProcessWaiting cannot be called directly from a signal handler, as it will hang in certain obscure circumstances
-    // Instead we use a single-shot timer to immediately call lockProcessWaiting once control has returned to the Qt main loop
-    TQTimer::singleShot(0, this, SLOT(lockProcessWaiting()));
+	// lockProcessWaiting cannot be called directly from a signal handler, as it will hang in certain obscure circumstances
+	// Instead we use a single-shot timer to immediately call lockProcessWaiting once control has returned to the Qt main loop
+	TQTimer::singleShot(0, this, SLOT(lockProcessWaiting()));
 }
 
 void SaverEngine::slotLockProcessFullyActivated()
 {
-    mState = Saving;
+	mState = Saving;
 
-    if( systemdSession && systemdSession->canSend() ) {
-	TQValueList<TQT_DBusData> params;
-	params << TQT_DBusData::fromBool(true);
-	TQT_DBusMessage reply = systemdSession->sendWithReply("SetIdleHint", params);
-    }
+	if( systemdSession && systemdSession->canSend() ) {
+		TQValueList<TQT_DBusData> params;
+		params << TQT_DBusData::fromBool(true);
+		TQT_DBusMessage reply = systemdSession->sendWithReply("SetIdleHint", params);
+	}
 }
 
 void SaverEngine::slotLockProcessReady()
 {
-    mSaverProcessReady = true;
+	mSaverProcessReady = true;
 }
 
 void SaverEngine::lockProcessWaiting()
 {
-    kdDebug(1204) << "SaverEngine: lock exited" << endl;
-    if (trinity_lockeng_sak_available == TRUE) {
-        handleSecureDialog();
-    }
-    if( mState == Waiting )
-	return;
-    emitDCOPSignal("KDE_stop_screensaver()", TQByteArray());
-    if (mEnabled)
-    {
-        if (mXAutoLock)
-        {
-            mXAutoLock->start();
-        }
-        XForceScreenSaver(tqt_xdisplay(), ScreenSaverReset );
-        XSetScreenSaver(tqt_xdisplay(), mTimeout + 10, mXInterval, PreferBlanking, mXExposures);
-    }
-    processLockTransactions();
-    mState = Waiting;
+	kdDebug(1204) << "SaverEngine: lock exited" << endl;
+	if (trinity_lockeng_sak_available == TRUE) {
+		handleSecureDialog();
+	}
+	if( mState == Waiting ) {
+		return;
+	}
+	emitDCOPSignal("KDE_stop_screensaver()", TQByteArray());
+	if (mEnabled) {
+		if (mXAutoLock) {
+			mXAutoLock->start();
+		}
+		XForceScreenSaver(tqt_xdisplay(), ScreenSaverReset );
+		XSetScreenSaver(tqt_xdisplay(), mTimeout + 10, mXInterval, PreferBlanking, mXExposures);
+	}
+	processLockTransactions();
+	mState = Waiting;
 
-    if( systemdSession && systemdSession->canSend() ) {
-	TQValueList<TQT_DBusData> params;
-	params << TQT_DBusData::fromBool(false);
-	TQT_DBusMessage reply = systemdSession->sendWithReply("SetIdleHint", params);
-    }
+	if( systemdSession && systemdSession->canSend() ) {
+		TQValueList<TQT_DBusData> params;
+		params << TQT_DBusData::fromBool(false);
+		TQT_DBusMessage reply = systemdSession->sendWithReply("SetIdleHint", params);
+	}
 }
 
 //---------------------------------------------------------------------------
@@ -622,33 +617,27 @@ void SaverEngine::lockProcessWaiting()
 //
 void SaverEngine::idleTimeout()
 {
-    // disable X screensaver
-    XForceScreenSaver(tqt_xdisplay(), ScreenSaverReset );
-    XSetScreenSaver(tqt_xdisplay(), 0, mXInterval, PreferBlanking, DontAllowExposures);
-    startLockProcess( DefaultLock );
+	// disable X screensaver
+	XForceScreenSaver(tqt_xdisplay(), ScreenSaverReset );
+	XSetScreenSaver(tqt_xdisplay(), 0, mXInterval, PreferBlanking, DontAllowExposures);
+	startLockProcess( DefaultLock );
 }
 
 xautolock_corner_t SaverEngine::applyManualSettings(int action)
 {
-	if (action == 0)
-	{
+	if (action == 0) {
 		kdDebug() << "no lock" << endl;
 		return ca_nothing;
 	}
-	else
-	if (action == 1)
-	{
+	else if (action == 1) {
 		kdDebug() << "lock screen" << endl;
 		return ca_forceLock;
 	}
-	else
-	if (action == 2)
-	{
+	else if (action == 2) {
 		kdDebug() << "prevent lock" << endl;
 		return ca_dontLock;
 	}
-	else
-	{
+	else{
 		kdDebug() << "no lock nothing" << endl;
 		return ca_nothing;
 	}
@@ -694,9 +683,9 @@ void SaverEngine::dBusClose() {
 bool SaverEngine::dBusConnect() {
 	dBusConn = TQT_DBusConnection::addConnection(TQT_DBusConnection::SystemBus, DBUS_CONN_NAME);
 	if( !dBusConn.isConnected() ) {
-	    kdError() << "Failed to open connection to system message bus: " << dBusConn.lastError().message() << endl;
-	    TQTimer::singleShot(4000, this, TQT_SLOT(dBusReconnect()));
-	    return false;
+		kdError() << "Failed to open connection to system message bus: " << dBusConn.lastError().message() << endl;
+		TQTimer::singleShot(4000, this, TQT_SLOT(dBusReconnect()));
+		return false;
 	}
 
 	// watcher for Disconnect signal
