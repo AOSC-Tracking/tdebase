@@ -89,7 +89,7 @@ public:
 	 * Called by KDesktop to wait for saver engage
 	 * @internal
 	 */
-	void waitForLockEngage();
+	bool waitForLockEngage();
 
 public slots:
 	void slotLockProcessWaiting();
@@ -125,6 +125,7 @@ protected:
 	enum SaverState { Waiting, Preparing, Engaging, Saving };
 	enum LockType { DontLock, DefaultLock, ForceLock, SecureDialog };
 	bool startLockProcess( LockType lock_type );
+	bool waitForLockProcessStart();
 	void stopLockProcess();
 	bool handleKeyPress(XKeyEvent *xke);
 	void processLockTransactions();

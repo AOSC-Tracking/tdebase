@@ -911,7 +911,9 @@ void KRootWm::doNewSession( bool lock )
 
     if (lock) {
         m_pSaver->lockScreen();
-        m_pSaver->waitForLockEngage();
+        if (!m_pSaver->waitForLockEngage()) {
+            return;
+        }
     }
 
     DM().startReserve();

@@ -415,13 +415,9 @@ bool SaverEngine::restartDesktopLockProcess()
 			return false;
 		}
 		// Wait for the saver process to signal ready...
-		int count = 0;
-		while (!mSaverProcessReady) {
-			count++;
-			usleep(100);
-			if (count > 100) {
-				return false;
-			}
+		if (!waitForLockProcessStart()) {
+			kdDebug( 1204 ) << "Failed to initialize kdesktop_lock (unexpected termination)!" << endl;
+			return false;
 		}
 	}
 	return true;
@@ -797,7 +793,27 @@ void SaverEngine::handleDBusSignal(const TQT_DBusMessage& msg) {
 	}
 }
 
-void SaverEngine::waitForLockEngage() {
+bool SaverEngine::waitForLockProcessStart() {
+	sigset_t new_mask;
+	sigset_t orig_mask;
+
+	// wait for SIGUSR1, SIGUSR2, SIGTTIN, SIGCHLD
+	sigemptyset(&new_mask);
+	sigaddset(&new_mask, SIGUSR1);
+	sigaddset(&new_mask, SIGUSR2);
+	sigaddset(&new_mask, SIGTTIN);
+	sigaddset(&new_mask, SIGCHLD);
+
+	sigprocmask(SIG_BLOCK, &new_mask, &orig_mask);
+	while ((mLockProcess.isRunning()) && (!mSaverProcessReady)) {
+		sigsuspend(&orig_mask);
+	}
+	sigprocmask(SIG_UNBLOCK, &new_mask, NULL);
+
+	return mLockProcess.isRunning();
+}
+
+bool SaverEngine::waitForLockEngage() {
 	sigset_t new_mask;
 	sigset_t orig_mask;
 
@@ -808,8 +824,10 @@ void SaverEngine::waitForLockEngage() {
 	sigaddset(&new_mask, SIGTTIN);
 
 	sigprocmask(SIG_BLOCK, &new_mask, &orig_mask);
-	while ((mState != Waiting) && (mState != Saving)) {
+	while ((mLockProcess.isRunning()) && (mState != Waiting) && (mState != Saving)) {
 		sigsuspend(&orig_mask);
 	}
 	sigprocmask(SIG_UNBLOCK, &new_mask, NULL);
+
+	return mLockProcess.isRunning();
 }
