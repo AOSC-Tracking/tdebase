@@ -127,6 +127,7 @@ public slots:
   void slotLockNNewSession();
 
 signals:
+  void initializeHelperThread();
   void terminateHelperThread();
   void asyncLock();
   void asyncLockAndDoNewSession();
@@ -192,6 +193,7 @@ class KRootWmThreadHelperObject : public TQObject
 	TQ_OBJECT
 
 	public slots:
+		void initializeThread();
 		void terminateThread();
 		void slotLock();
 		void lockAndDoNewSession();

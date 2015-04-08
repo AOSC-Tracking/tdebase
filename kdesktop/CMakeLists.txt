@@ -95,7 +95,7 @@ set( ${target}_SRCS
 tde_add_tdeinit_executable( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
   LINK
-    kdesktopsettings-static bgnd-static dmctl-static
+    pthread kdesktopsettings-static bgnd-static dmctl-static
     konq-shared tdeutils-shared
     ${XRENDER_LIBRARIES} ${XCURSOR_LIBRARIES} Xext ${DL_LIBRARIES}
     ${XSS_LIBRARIES} ${DBUS_1_TQT_LIBRARIES}

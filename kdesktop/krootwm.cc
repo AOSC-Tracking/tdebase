@@ -77,10 +77,12 @@ KRootWm::KRootWm(KDesktop* _desktop) : TQObject(_desktop), startup(FALSE)
   m_helperThread->start();
   m_threadHelperObject = new KRootWmThreadHelperObject;
   m_threadHelperObject->moveToThread(m_helperThread);
+  connect(this, TQT_SIGNAL(initializeHelperThread()), m_threadHelperObject, TQT_SLOT(initializeThread()));
   connect(this, TQT_SIGNAL(terminateHelperThread()), m_threadHelperObject, TQT_SLOT(terminateThread()));
   connect(this, TQT_SIGNAL(asyncLock()), m_threadHelperObject, TQT_SLOT(slotLock()));
   connect(this, TQT_SIGNAL(asyncLockAndDoNewSession()), m_threadHelperObject, TQT_SLOT(lockAndDoNewSession()));
   connect(this, TQT_SIGNAL(asyncSlotSessionActivated(int)), m_threadHelperObject, TQT_SLOT(slotSessionActivated(int)));
+  initializeHelperThread();
 
   s_rootWm = this;
   m_actionCollection = new TDEActionCollection(_desktop, this, "KRootWm::m_actionCollection");
@@ -878,6 +880,16 @@ void KRootWm::slotPopulateSessions()
             if ((*it).self)
                 sessionsMenu->setItemChecked( id, true );
         }
+}
+
+void KRootWmThreadHelperObject::initializeThread() {
+	// Prevent kdesktop_lock signals from being handled by the wrong (non-GUI) thread
+	sigset_t set;
+	sigemptyset(&set);
+	sigaddset(&set, SIGUSR1);
+	sigaddset(&set, SIGUSR2);
+	sigaddset(&set, SIGTTIN);
+	pthread_sigmask(SIG_BLOCK, &set, NULL);
 }
 
 void KRootWmThreadHelperObject::terminateThread() {
