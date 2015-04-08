@@ -82,31 +82,29 @@ SaverEngine::SaverEngine()
       dBusWatch(0),
       systemdSession(0)
 {
-    struct sigaction act;
-
     // handle SIGUSR1
     m_masterSaverEngine = this;
-    act.sa_handler= sigusr1_handler;
-    sigemptyset(&(act.sa_mask));
-    sigaddset(&(act.sa_mask), SIGUSR1);
-    act.sa_flags = 0;
-    sigaction(SIGUSR1, &act, 0L);
+    mSignalAction.sa_handler= sigusr1_handler;
+    sigemptyset(&(mSignalAction.sa_mask));
+    sigaddset(&(mSignalAction.sa_mask), SIGUSR1);
+    mSignalAction.sa_flags = 0;
+    sigaction(SIGUSR1, &mSignalAction, 0L);
 
     // handle SIGUSR2
     m_masterSaverEngine = this;
-    act.sa_handler= sigusr2_handler;
-    sigemptyset(&(act.sa_mask));
-    sigaddset(&(act.sa_mask), SIGUSR2);
-    act.sa_flags = 0;
-    sigaction(SIGUSR2, &act, 0L);
+    mSignalAction.sa_handler= sigusr2_handler;
+    sigemptyset(&(mSignalAction.sa_mask));
+    sigaddset(&(mSignalAction.sa_mask), SIGUSR2);
+    mSignalAction.sa_flags = 0;
+    sigaction(SIGUSR2, &mSignalAction, 0L);
 
     // handle SIGTTIN
     m_masterSaverEngine = this;
-    act.sa_handler= sigttin_handler;
-    sigemptyset(&(act.sa_mask));
-    sigaddset(&(act.sa_mask), SIGTTIN);
-    act.sa_flags = 0;
-    sigaction(SIGTTIN, &act, 0L);
+    mSignalAction.sa_handler= sigttin_handler;
+    sigemptyset(&(mSignalAction.sa_mask));
+    sigaddset(&(mSignalAction.sa_mask), SIGTTIN);
+    mSignalAction.sa_flags = 0;
+    sigaction(SIGTTIN, &mSignalAction, 0L);
 
     // Save X screensaver parameters
     XGetScreenSaver(tqt_xdisplay(), &mXTimeout, &mXInterval,
@@ -164,22 +162,35 @@ SaverEngine::~SaverEngine()
 }
 
 //---------------------------------------------------------------------------
-
+//
 // This should be called only using DCOP.
+//
 void SaverEngine::lock()
+{
+    lockScreen(true);
+}
+
+//---------------------------------------------------------------------------
+//
+// Lock the screen
+//
+void SaverEngine::lockScreen(bool DCOP)
 {
     bool ok = true;
     if (mState != Saving)
     {
-        mSAKProcess->kill(SIGTERM);
         ok = startLockProcess( ForceLock );
         // It takes a while for kdesktop_lock to start and lock the screen.
         // Therefore delay the DCOP call until it tells kdesktop that the locking is in effect.
         // This is done only for --forcelock .
         if( ok && mState != Saving )
         {
-            DCOPClientTransaction* trans = kapp->dcopClient()->beginTransaction();
-            mLockTransactions.append( trans );
+            if (DCOP) {
+                DCOPClientTransaction* trans = kapp->dcopClient()->beginTransaction();
+                if (trans) {
+                    mLockTransactions.append( trans );
+                }
+            }
         }
     }
     else
@@ -203,7 +214,7 @@ void SaverEngine::processLockTransactions()
 
 void SaverEngine::saverLockReady()
 {
-    if( mState != Preparing )
+    if( mState != Engaging )
     {
 	kdDebug( 1204 ) << "Got unexpected saverReady()" << endl;
     }
@@ -216,7 +227,6 @@ void SaverEngine::save()
 {
     if (mState == Waiting)
     {
-        mSAKProcess->kill(SIGTERM);
         startLockProcess( DefaultLock );
     }
 }
@@ -224,7 +234,7 @@ void SaverEngine::save()
 //---------------------------------------------------------------------------
 void SaverEngine::quit()
 {
-    if (mState == Saving || mState == Preparing)
+    if (mState == Saving || mState == Engaging)
     {
         stopLockProcess();
     }
@@ -324,6 +334,10 @@ void SaverEngine::slotSAKProcessExited()
         printf("[kdesktop] SAK driven secure dialog is not available for use (retcode %d).  Check tdmtsak for proper functionality.\n", retcode); fflush(stdout);
     }
 
+    if (mState == Preparing) {
+        return;
+    }
+
     if ((mSAKProcess->normalExit()) && (trinity_lockeng_sak_available == TRUE)) {
         bool ok = true;
         if (mState == Waiting)
@@ -419,9 +433,14 @@ bool SaverEngine::restartDesktopLockProcess()
 //
 bool SaverEngine::startLockProcess( LockType lock_type )
 {
+    int ret;
+
     if (mState == Saving) {
         return true;
     }
+
+    mState = Preparing;
+    mSAKProcess->kill(SIGTERM);
 
     enableExports();
 
@@ -429,6 +448,7 @@ bool SaverEngine::startLockProcess( LockType lock_type )
     emitDCOPSignal("KDE_start_screensaver()", TQByteArray());
 
     if (!restartDesktopLockProcess()) {
+        mState = Waiting;
         return false;
     }
 
@@ -450,10 +470,14 @@ bool SaverEngine::startLockProcess( LockType lock_type )
 	    mLockProcess.kill(SIGTTIN);		// Request blanking
     }
 
-    mLockProcess.kill(SIGTTOU);			// Start lock
+    ret = mLockProcess.kill(SIGTTOU);			// Start lock
+    if (!ret) {
+	    mState = Waiting;
+	    return false;
+    }
     XSetScreenSaver(tqt_xdisplay(), 0, mXInterval,  PreferBlanking, mXExposures);
 
-    mState = Preparing;
+    mState = Engaging;
     if (mXAutoLock)
     {
         mXAutoLock->stop();
@@ -601,7 +625,6 @@ void SaverEngine::idleTimeout()
     // disable X screensaver
     XForceScreenSaver(tqt_xdisplay(), ScreenSaverReset );
     XSetScreenSaver(tqt_xdisplay(), 0, mXInterval, PreferBlanking, DontAllowExposures);
-    mSAKProcess->kill(SIGTERM);
     startLockProcess( DefaultLock );
 }
 
@@ -771,7 +794,7 @@ void SaverEngine::handleDBusSignal(const TQT_DBusMessage& msg) {
 	 && msg.path() == systemdSession->path()
 	 && msg.interface() == SYSTEMD_LOGIN1_SESSION_IFACE
 	 && msg.member() == "Lock") {
-		lock();
+		lockScreen();
 		return;
 	}
 
@@ -783,4 +806,21 @@ void SaverEngine::handleDBusSignal(const TQT_DBusMessage& msg) {
 		// unlock?
 		return;
 	}
+}
+
+void SaverEngine::waitForLockEngage() {
+	sigset_t new_mask;
+	sigset_t orig_mask;
+
+	// wait for SIGUSR1, SIGUSR2, SIGTTIN
+	sigemptyset(&new_mask);
+	sigaddset(&new_mask, SIGUSR1);
+	sigaddset(&new_mask, SIGUSR2);
+	sigaddset(&new_mask, SIGTTIN);
+
+	sigprocmask(SIG_BLOCK, &new_mask, &orig_mask);
+	while ((mState != Waiting) && (mState != Saving)) {
+		sigsuspend(&orig_mask);
+	}
+	sigprocmask(SIG_UNBLOCK, &new_mask, NULL);
 }

@@ -981,8 +981,6 @@ void LockProcess::createSaverWindow()
         }
     }
 
-    fullyOnline();
-
     kdDebug(1204) << "Saver window Id: " << winId() << endl;
 }
 
@@ -1319,6 +1317,7 @@ void LockProcess::saverReadyIfNeeded()
 		// Make sure the desktop is hidden before notifying the desktop that the saver is running
 		m_notifyReadyRequested = false;
 		saverReady();
+		fullyOnline();
 	}
 }
 
@@ -1405,6 +1404,7 @@ bool LockProcess::startSaver(bool notify_ready)
 			}
 		}
 	}
+
 	return true;
 }
 

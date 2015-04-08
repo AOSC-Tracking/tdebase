@@ -40,6 +40,7 @@ class StartupId;
 class KDIconView;
 class Minicli;
 class TDEActionCollection;
+class SaverEngine;
 
 class KRootWidget : public TQObject
 {
@@ -68,7 +69,7 @@ public:
 
   enum WheelDirection { Forward = 0, Reverse };
 
-  KDesktop(bool x_root_hack, bool wait_for_kded );
+  KDesktop(SaverEngine*, bool x_root_hack, bool wait_for_kded );
   ~KDesktop();
 
   // Implementation of the DCOP interface
@@ -195,6 +196,8 @@ private:
 
   KDIconView *m_pIconView;
   KRootWidget *m_pRootWidget;
+
+  SaverEngine *m_pSaver;
 
   Minicli *m_miniCli;
 

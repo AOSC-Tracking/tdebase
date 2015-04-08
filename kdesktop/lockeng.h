@@ -82,6 +82,17 @@ public:
      */
     virtual void saverLockReady();
 
+    /**
+     * @internal
+     */
+    void lockScreen(bool DCOP = false);
+
+    /**
+     * Called by KDesktop to wait for saver engage
+     * @internal
+     */
+    void waitForLockEngage();
+
 public slots:
     void slotLockProcessWaiting();
     void slotLockProcessFullyActivated();
@@ -113,6 +124,7 @@ private:
     void onDBusServiceUnregistered(const TQString&);
 
 protected:
+    enum SaverState { Waiting, Preparing, Engaging, Saving };
     enum LockType { DontLock, DefaultLock, ForceLock, SecureDialog };
     bool startLockProcess( LockType lock_type );
     void stopLockProcess();
@@ -121,12 +133,11 @@ protected:
     xautolock_corner_t applyManualSettings(int);
 
 protected:
-    enum State { Waiting, Preparing, Saving };
     bool        mEnabled;
 
-    State       mState;
+    SaverState  mState;
     XAutoLock   *mXAutoLock;
-    TDEProcess    mLockProcess;
+    TDEProcess  mLockProcess;
     int		mTimeout;
 
     // the original X screensaver parameters
@@ -142,6 +153,7 @@ private:
     TDEProcess*   mSAKProcess;
     bool        mTerminationRequested;
     bool        mSaverProcessReady;
+    struct sigaction	mSignalAction;
     TQT_DBusConnection	dBusConn;
     TQT_DBusProxy*	dBusLocal;
     TQT_DBusProxy*	dBusWatch;

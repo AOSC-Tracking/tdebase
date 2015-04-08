@@ -283,7 +283,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
     TDESelectionOwner kde_running( "_KDE_RUNNING", 0 );
     kde_running.claim( false );
 
-    KDesktop desktop( x_root_hack, wait_for_kded );
+    KDesktop desktop( &saver, x_root_hack, wait_for_kded );
 
     args->clear();
 

@@ -33,6 +33,7 @@ typedef XID Window;
 
 class KMenuBar;
 class KDesktop;
+class SaverEngine;
 class TQPopupMenu;
 class KCMultiDialog;
 class KNewMenu;
@@ -66,7 +67,7 @@ class KRootWm: public TQObject {
   Q_OBJECT
 
 public:
-  KRootWm(KDesktop*);
+  KRootWm(SaverEngine*, KDesktop*);
   ~KRootWm();
 
   bool startup;
@@ -126,14 +127,8 @@ public slots:
   void slotOpenTerminal();
   void slotLockNNewSession();
 
-signals:
-  void initializeHelperThread();
-  void terminateHelperThread();
-  void asyncLock();
-  void asyncLockAndDoNewSession();
-  void asyncSlotSessionActivated(int vt);
-
 private:
+  SaverEngine* m_pSaver;
   KDesktop* m_pDesktop;
 
   // The five root menus :
@@ -176,28 +171,12 @@ private:
 
   static KRootWm * s_rootWm;
 
-  TQEventLoopThread* m_helperThread;
-  KRootWmThreadHelperObject* m_threadHelperObject;
-
-
 private slots:
 
   void slotMenuItemActivated(int);
   void slotFileNewAboutToShow();
   void slotWindowListAboutToShow();
   void slotConfigClosed();
-};
-
-class KRootWmThreadHelperObject : public TQObject
-{
-	TQ_OBJECT
-
-	public slots:
-		void initializeThread();
-		void terminateThread();
-		void slotLock();
-		void lockAndDoNewSession();
-		void slotSessionActivated(int vt);
 };
 
 #endif

@@ -134,12 +134,14 @@ bool KRootWidget::eventFilter ( TQObject *, TQEvent * e )
 KDesktop::WheelDirection KDesktop::m_eWheelDirection = KDesktop::m_eDefaultWheelDirection;
 const char* KDesktop::m_wheelDirectionStrings[2] = { "Forward", "Reverse" };
 
-KDesktop::KDesktop( bool x_root_hack, bool wait_for_kded ) :
+KDesktop::KDesktop( SaverEngine* saver, bool x_root_hack, bool wait_for_kded ) :
     TQWidget( 0L, "desktop", (WFlags)(WResizeNoErase | ( x_root_hack ? (WStyle_Customize | WStyle_NoBorder) : 0)) ),
     KDesktopIface(),
     // those two WStyle_ break kdesktop when the root-hack isn't used (no Dnd)
    startup_id( NULL ), m_waitForKicker(0)
 {
+  m_pSaver = saver;
+
   NETRootInfo i( tqt_xdisplay(), NET::Supported );
   m_wmSupport = i.isSupported( NET::WM2ShowingDesktop );
 
@@ -249,7 +251,7 @@ KDesktop::initRoot()
      if (!m_bInit)
      {
         delete KRootWm::self();
-        KRootWm* krootwm = new KRootWm( this ); // handler for root menu (used by kdesktop on RMB click)
+        KRootWm* krootwm = new KRootWm( m_pSaver, this ); // handler for root menu (used by kdesktop on RMB click)
         keys->setSlot("Lock Session", krootwm, TQT_SLOT(slotLock()));
         keys->updateConnections();
      }
@@ -327,7 +329,7 @@ KDesktop::initRoot()
      {
         m_pIconView->start();
         delete KRootWm::self();
-        KRootWm* krootwm = new KRootWm( this ); // handler for root menu (used by kdesktop on RMB click)
+        KRootWm* krootwm = new KRootWm( m_pSaver, this ); // handler for root menu (used by kdesktop on RMB click)
         keys->setSlot("Lock Session", krootwm, TQT_SLOT(slotLock()));
         keys->updateConnections();
      }
@@ -395,7 +397,7 @@ KDesktop::slotStart()
 
   // Global keys
   keys = new TDEGlobalAccel( TQT_TQOBJECT(this) );
-  (void) new KRootWm( this );
+  (void) new KRootWm( m_pSaver, this );
 
 #include "kdesktopbindings.cpp"
 

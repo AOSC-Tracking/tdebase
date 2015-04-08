@@ -380,6 +380,7 @@ int main( int argc, char **argv )
             kdesktop_pid = atoi(args->getOption( "internal" ));
             while (signalled_run == FALSE) {
                 sigset_t new_mask;
+                sigset_t orig_mask;
                 struct sigaction act;
 
                 in_internal_mode = TRUE;
@@ -438,7 +439,11 @@ int main( int argc, char **argv )
 		app->processEvents();
 
                 // wait for SIGUSR1, SIGUSR2, SIGWINCH, SIGTTIN, or SIGTTOU
-                sigsuspend(&new_mask);
+		sigprocmask(SIG_BLOCK, &new_mask, &orig_mask);
+		if (signalled_run != TRUE) {
+			sigsuspend(&orig_mask);
+		}
+		sigprocmask(SIG_UNBLOCK, &new_mask, NULL);
 
 		// Reenable reception of X11 events on the root window
 		XSelectInput( tqt_xdisplay(), tqt_xrootwin(), rootAttr.your_event_mask );
