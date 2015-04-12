@@ -18,6 +18,7 @@
 #include <tdelocale.h>
 #include <tqfile.h>
 #include <tqtimer.h>
+#include <tqeventloop.h>
 #include <dcopclient.h>
 #include <assert.h>
 
@@ -49,13 +50,13 @@ SaverEngine* m_masterSaverEngine = NULL;
 static void sigusr1_handler(int)
 {
 	if (m_masterSaverEngine) {
-		m_masterSaverEngine->slotLockProcessWaiting();
+		m_masterSaverEngine->m_threadHelperObject->slotLockProcessWaiting();
 	}
 }
 static void sigusr2_handler(int)
 {
 	if (m_masterSaverEngine) {
-		m_masterSaverEngine->slotLockProcessFullyActivated();
+		m_masterSaverEngine->m_threadHelperObject->slotLockProcessFullyActivated();
 	}
 }
 static void sigttin_handler(int)
@@ -114,6 +115,14 @@ SaverEngine::SaverEngine()
 	mXAutoLock = 0;
 	mEnabled = false;
 
+	m_helperThread = new TQEventLoopThread;
+	m_helperThread->start();
+	m_threadHelperObject = new SaverEngineThreadHelperObject;
+	m_threadHelperObject->moveToThread(m_helperThread);
+	connect(this, TQT_SIGNAL(terminateHelperThread()), m_threadHelperObject, TQT_SLOT(terminateThread()));
+	connect(m_threadHelperObject, TQT_SIGNAL(lockProcessWaiting()), this, TQT_SLOT(lockProcessWaiting()));
+	connect(m_threadHelperObject, TQT_SIGNAL(lockProcessFullyActivated()), this, TQT_SLOT(lockProcessFullyActivated()));
+
 	connect(&mLockProcess, TQT_SIGNAL(processExited(TDEProcess *)),
 						TQT_SLOT(lockProcessExited()));
 
@@ -138,6 +147,13 @@ SaverEngine::SaverEngine()
 		kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
 	}
 
+	// Prevent kdesktop_lock signals from being handled by the wrong (GUI) thread
+	sigemptyset(&mThreadBlockSet);
+	sigaddset(&mThreadBlockSet, SIGUSR1);
+	sigaddset(&mThreadBlockSet, SIGUSR2);
+	sigaddset(&mThreadBlockSet, SIGTTIN);
+	pthread_sigmask(SIG_BLOCK, &mThreadBlockSet, NULL);
+
 	dBusConnect();
 }
 
@@ -159,6 +175,11 @@ SaverEngine::~SaverEngine()
 	// Restore X screensaver parameters
 	XSetScreenSaver(tqt_xdisplay(), mXTimeout, mXInterval, mXBlanking,
 					mXExposures);
+
+	terminateHelperThread();
+	m_helperThread->wait();
+	delete m_threadHelperObject;
+	delete m_helperThread;
 }
 
 //---------------------------------------------------------------------------
@@ -557,14 +578,19 @@ void SaverEngine::lockProcessExited()
 	}
 }
 
-void SaverEngine::slotLockProcessWaiting()
+void SaverEngineThreadHelperObject::slotLockProcessWaiting()
 {
 	// lockProcessWaiting cannot be called directly from a signal handler, as it will hang in certain obscure circumstances
 	// Instead we use a single-shot timer to immediately call lockProcessWaiting once control has returned to the Qt main loop
-	TQTimer::singleShot(0, this, SLOT(lockProcessWaiting()));
+	lockProcessWaiting();
 }
 
-void SaverEngine::slotLockProcessFullyActivated()
+void SaverEngineThreadHelperObject::slotLockProcessFullyActivated()
+{
+	lockProcessFullyActivated();
+}
+
+void SaverEngine::lockProcessFullyActivated()
 {
 	mState = Saving;
 
@@ -795,7 +821,8 @@ void SaverEngine::handleDBusSignal(const TQT_DBusMessage& msg) {
 
 bool SaverEngine::waitForLockProcessStart() {
 	sigset_t new_mask;
-	sigset_t orig_mask;
+	sigset_t empty_mask;
+	sigemptyset(&empty_mask);
 
 	// wait for SIGUSR1, SIGUSR2, SIGTTIN, SIGCHLD
 	sigemptyset(&new_mask);
@@ -804,30 +831,32 @@ bool SaverEngine::waitForLockProcessStart() {
 	sigaddset(&new_mask, SIGTTIN);
 	sigaddset(&new_mask, SIGCHLD);
 
-	sigprocmask(SIG_BLOCK, &new_mask, &orig_mask);
+	pthread_sigmask(SIG_BLOCK, &new_mask, NULL);
 	while ((mLockProcess.isRunning()) && (!mSaverProcessReady)) {
-		sigsuspend(&orig_mask);
+		sigsuspend(&empty_mask);
 	}
-	sigprocmask(SIG_UNBLOCK, &new_mask, NULL);
+	pthread_sigmask(SIG_UNBLOCK, &new_mask, NULL);
 
 	return mLockProcess.isRunning();
 }
 
 bool SaverEngine::waitForLockEngage() {
-	sigset_t new_mask;
-	sigset_t orig_mask;
+	sigset_t empty_mask;
+	sigemptyset(&empty_mask);
 
 	// wait for SIGUSR1, SIGUSR2, SIGTTIN
-	sigemptyset(&new_mask);
-	sigaddset(&new_mask, SIGUSR1);
-	sigaddset(&new_mask, SIGUSR2);
-	sigaddset(&new_mask, SIGTTIN);
-
-	sigprocmask(SIG_BLOCK, &new_mask, &orig_mask);
+	pthread_sigmask(SIG_BLOCK, &mThreadBlockSet, NULL);
 	while ((mLockProcess.isRunning()) && (mState != Waiting) && (mState != Saving)) {
-		sigsuspend(&orig_mask);
+		sigsuspend(&empty_mask);
 	}
-	sigprocmask(SIG_UNBLOCK, &new_mask, NULL);
+	pthread_sigmask(SIG_UNBLOCK, &mThreadBlockSet, NULL);
 
 	return mLockProcess.isRunning();
+}
+
+void SaverEngineThreadHelperObject::terminateThread() {
+	TQEventLoop* eventLoop = TQApplication::eventLoop();
+	if (eventLoop) {
+		eventLoop->exit(0);
+	}
 }
