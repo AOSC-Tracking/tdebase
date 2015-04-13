@@ -2842,6 +2842,13 @@ void ControlPipeHandlerObject::run(void) {
 	mThreadID = pthread_self();
 	mRunning = true;
 
+	sigset_t new_mask;
+	sigemptyset(&new_mask);
+	sigaddset(&new_mask, SIGUSR1);
+
+	// Unblock SIGUSR1
+	pthread_sigmask(SIG_UNBLOCK, &new_mask, NULL);
+
 	int display_number = atoi(TQString(XDisplayString(tqt_xdisplay())).replace(":","").ascii());
 
 	if (display_number < 0) {

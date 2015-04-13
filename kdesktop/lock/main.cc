@@ -378,52 +378,52 @@ int main( int argc, char **argv )
 
         if (args->isSet( "internal" )) {
             kdesktop_pid = atoi(args->getOption( "internal" ));
+            sigset_t new_mask;
+            sigset_t orig_mask;
+            struct sigaction act;
+
+            in_internal_mode = TRUE;
+
+            // handle SIGUSR1
+            act.sa_handler= sigusr1_handler;
+            sigemptyset(&(act.sa_mask));
+            sigaddset(&(act.sa_mask), SIGUSR1);
+            act.sa_flags = 0;
+            sigaction(SIGUSR1, &act, 0L);
+            // handle SIGUSR2
+            act.sa_handler= sigusr2_handler;
+            sigemptyset(&(act.sa_mask));
+            sigaddset(&(act.sa_mask), SIGUSR2);
+            act.sa_flags = 0;
+            sigaction(SIGUSR2, &act, 0L);
+            // handle SIGWINCH (an ersatz SIGUSR3)
+            act.sa_handler= sigusr3_handler;
+            sigemptyset(&(act.sa_mask));
+            sigaddset(&(act.sa_mask), SIGWINCH);
+            act.sa_flags = 0;
+            sigaction(SIGWINCH, &act, 0L);
+            // handle SIGTTIN (an ersatz SIGUSR4)
+            act.sa_handler= sigusr4_handler;
+            sigemptyset(&(act.sa_mask));
+            sigaddset(&(act.sa_mask), SIGTTIN);
+            act.sa_flags = 0;
+            sigaction(SIGTTIN, &act, 0L);
+            // handle SIGTTOU (an ersatz SIGUSR5)
+            act.sa_handler= sigusr5_handler;
+            sigemptyset(&(act.sa_mask));
+            sigaddset(&(act.sa_mask), SIGTTOU);
+            act.sa_flags = 0;
+            sigaction(SIGTTOU, &act, 0L);
+
+            // initialize the signal masks
+            sigemptyset(&new_mask);
+            sigaddset(&new_mask,SIGUSR1);
+            sigaddset(&new_mask,SIGUSR2);
+            sigaddset(&new_mask,SIGWINCH);
+            sigaddset(&new_mask,SIGTTIN);
+            sigaddset(&new_mask,SIGTTOU);
+
             while (signalled_run == FALSE) {
-                sigset_t new_mask;
-                sigset_t orig_mask;
-                struct sigaction act;
-
-                in_internal_mode = TRUE;
-
-                // handle SIGUSR1
-                act.sa_handler= sigusr1_handler;
-                sigemptyset(&(act.sa_mask));
-                sigaddset(&(act.sa_mask), SIGUSR1);
-                act.sa_flags = 0;
-                sigaction(SIGUSR1, &act, 0L);
-                // handle SIGUSR2
-                act.sa_handler= sigusr2_handler;
-                sigemptyset(&(act.sa_mask));
-                sigaddset(&(act.sa_mask), SIGUSR2);
-                act.sa_flags = 0;
-                sigaction(SIGUSR2, &act, 0L);
-                // handle SIGWINCH (an ersatz SIGUSR3)
-                act.sa_handler= sigusr3_handler;
-                sigemptyset(&(act.sa_mask));
-                sigaddset(&(act.sa_mask), SIGWINCH);
-                act.sa_flags = 0;
-                sigaction(SIGWINCH, &act, 0L);
-                // handle SIGTTIN (an ersatz SIGUSR4)
-                act.sa_handler= sigusr4_handler;
-                sigemptyset(&(act.sa_mask));
-                sigaddset(&(act.sa_mask), SIGTTIN);
-                act.sa_flags = 0;
-                sigaction(SIGTTIN, &act, 0L);
-                // handle SIGTTOU (an ersatz SIGUSR5)
-                act.sa_handler= sigusr5_handler;
-                sigemptyset(&(act.sa_mask));
-                sigaddset(&(act.sa_mask), SIGTTOU);
-                act.sa_flags = 0;
-                sigaction(SIGTTOU, &act, 0L);
-
-                // initialize the signal masks
-                sigfillset(&new_mask);
-                sigdelset(&new_mask,SIGUSR1);
-                sigdelset(&new_mask,SIGUSR2);
-                sigdelset(&new_mask,SIGWINCH);
-                sigdelset(&new_mask,SIGTTIN);
-                sigdelset(&new_mask,SIGTTOU);
-
                 // let kdesktop know the saver process is ready
                 if (kill(kdesktop_pid, SIGTTIN) < 0) {
                     // The controlling kdesktop process probably died.  Commit suicide...
@@ -448,6 +448,9 @@ int main( int argc, char **argv )
 		// Reenable reception of X11 events on the root window
 		XSelectInput( tqt_xdisplay(), tqt_xrootwin(), rootAttr.your_event_mask );
             }
+
+	    // Block reception of all signals in this thread
+	    sigprocmask(SIG_BLOCK, &new_mask, NULL);
         }
 
         // (re)load settings here so that they actually reflect reality
