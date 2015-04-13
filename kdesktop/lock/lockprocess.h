@@ -56,12 +56,18 @@ class ControlPipeHandlerObject : public TQObject
 
 	public slots:
 		void run();
+		void terminateThread();
 	
 	signals:
 		void processCommand(TQString);
 
 	public:
 		LockProcess* mParent;
+
+	private:
+		bool mRunning;
+		bool mTerminate;
+		pthread_t mThreadID;
 };
 
 //===========================================================================
@@ -93,6 +99,9 @@ public:
 
     void msgBox( TQMessageBox::Icon type, const TQString &txt );
     int execDialog( TQDialog* dlg );
+
+signals:
+    void terminateHelperThread();
 
 public slots:
     void quitSaver();

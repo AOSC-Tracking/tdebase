@@ -81,6 +81,7 @@
 
 #ifdef __linux__
 #include <linux/stat.h>
+#include <pthread.h>
 #endif
 
 #include <X11/Xlib.h>
@@ -304,7 +305,7 @@ LockProcess::LockProcess()
 //
 LockProcess::~LockProcess()
 {
-    mControlPipeHandlerThread->terminate();
+    mControlPipeHandler->terminateThread();
     mControlPipeHandlerThread->wait();
     delete mControlPipeHandler;
 //     delete mControlPipeHandlerThread;
@@ -2828,6 +2829,9 @@ void LockProcess::saverReady() {
 //
 ControlPipeHandlerObject::ControlPipeHandlerObject() : TQObject() {
 	mParent = NULL;
+	mRunning = false;
+	mTerminate = false;
+	mThreadID = 0L;
 }
 
 ControlPipeHandlerObject::~ControlPipeHandlerObject() {
@@ -2835,10 +2839,14 @@ ControlPipeHandlerObject::~ControlPipeHandlerObject() {
 }
 
 void ControlPipeHandlerObject::run(void) {
+	mThreadID = pthread_self();
+	mRunning = true;
+
 	int display_number = atoi(TQString(XDisplayString(tqt_xdisplay())).replace(":","").ascii());
 
 	if (display_number < 0) {
 		printf("[kdesktop_lock] Warning: unable to create control socket.  Interactive logon modules may not function properly.\n");
+		mRunning = false;
 		TQApplication::eventLoop()->exit(-1);
 		return;
 	}
@@ -2869,6 +2877,7 @@ void ControlPipeHandlerObject::run(void) {
 
 	if (!mParent->mPipeOpen) {
 		printf("[kdesktop_lock] Warning: unable to create control socket '%s'.  Interactive logon modules may not function properly.\n", fifo_file);
+		mRunning = false;
 		TQApplication::eventLoop()->exit(-1);
 		return;
 	}
@@ -2880,7 +2889,7 @@ void ControlPipeHandlerObject::run(void) {
 	FD_SET(mParent->mPipe_fd, &rfds);
 	TQByteArray readbuf(128);
 
-	while (mParent->mPipeOpen) {
+	while (mParent->mPipeOpen && !mTerminate) {
 		TQString inputcommand = "";
 
 		// Wait for mParent->mPipe_fd to receive input
@@ -2900,8 +2909,16 @@ void ControlPipeHandlerObject::run(void) {
 		}
 	}
 
+	mRunning = false;
 	TQApplication::eventLoop()->exit(0);
 	return;
+}
+
+void ControlPipeHandlerObject::terminateThread() {
+	if (mRunning) {
+		mTerminate = true;
+		pthread_kill(mThreadID, SIGUSR1);
+	}
 }
 
 #include "lockprocess.moc"
