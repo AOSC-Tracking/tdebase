@@ -218,6 +218,11 @@ void handle_siguser (int sig)
 
         init_alpha_picts(ps_g);
         init_filters(ps_g);
+
+        /* Force update for all mapped windows */
+        for (win *w = ps_g->list; w; w = w->next) {
+            win_on_wtype_change(ps_g, w);
+        }
     }
 }
 
