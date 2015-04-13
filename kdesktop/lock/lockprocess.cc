@@ -1376,6 +1376,7 @@ bool LockProcess::startSaver(bool notify_ready)
 		if (notify_ready) {
 			m_notifyReadyRequested = false;
 			saverReady();
+			fullyOnline();
 		}
 	}
 	else {
