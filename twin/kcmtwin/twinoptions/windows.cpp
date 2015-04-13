@@ -1333,7 +1333,7 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
   dockWindowOpacity->setRange(0,100);
   dockWindowOpacity->setSuffix("%");
   gLay->addWidget(dockWindowOpacity,3,1);
-  
+
   vLay->addSpacing(11);
 
   keepAboveAsActive = new TQCheckBox(i18n("Treat 'keep above' windows as active ones"),tGroup);
@@ -1364,7 +1364,7 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
 //   sGroup->setCheckable(TRUE);
   TQVBoxLayout *vLay2 = new TQVBoxLayout (sGroup,11,6);
   vLay2->addSpacing(11); // to get the proper gb top offset
-  useShadows = new TQCheckBox(i18n("Use shadows (standard effects should be disabled in the Styles module if this is checked)"),sGroup);
+  useShadows = new TQCheckBox(i18n("Use shadows on windows (standard effects should be disabled in the Styles module if this is checked)"),sGroup);
   vLay2->addWidget(useShadows);
   useShadowsOnMenuWindows = new TQCheckBox(i18n("Use shadows on menus (requires menu fade effect to be disabled in the Styles module)"),sGroup);
   vLay2->addWidget(useShadowsOnMenuWindows);
@@ -1562,7 +1562,7 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
 
 void KTranslucencyConfig::processShadowLockouts()
 {
-    bool enabled = (useShadows->isChecked() || useShadowsOnMenuWindows->isChecked() || useShadowsOnToolTipWindows->isChecked());
+    bool enabled = (useShadows->isChecked() || useShadowsOnMenuWindows->isChecked() || useShadowsOnToolTipWindows->isChecked() || useShadowsOnDockWindows->isChecked());
 
     dockWindowShadowSize->setEnabled(enabled);
     menuWindowShadowSize->setEnabled(enabled);
@@ -1572,8 +1572,6 @@ void KTranslucencyConfig::processShadowLockouts()
     shadowTopOffset->setEnabled(enabled);
     shadowLeftOffset->setEnabled(enabled);
     shadowColor->setEnabled(enabled);
-
-    useShadowsOnDockWindows->setEnabled(useShadows->isChecked());
 }
 
 void KTranslucencyConfig::resetKompmgr()
@@ -1790,7 +1788,7 @@ void KTranslucencyConfig::save( void )
       stream << "greyscale-background = " << ((greyscaleBackground->isChecked() && useOpenGL->isChecked())?"true":"false") << ";\n";
 
       // Global settings
-      stream << "no-dock-shadow = " << (shadows && shadowsOnDockWindows?"false":"true") << ";\n";
+      stream << "no-dock-shadow = " << (shadowsOnDockWindows?"false":"true") << ";\n";
       stream << "no-dnd-shadow = true;\n";
       stream << "clear-shadow = true;\n";
       stream << "shadow-ignore-shaped = false;\n";
