@@ -872,7 +872,11 @@ void KRootWm::slotPopulateSessions()
 void KRootWm::slotSessionActivated( int ent )
 {
     if (ent > 0 && !sessionsMenu->isItemChecked( ent )) {
-        DM().lockSwitchVT( ent );
+        m_pSaver->lockScreen();
+        if (!m_pSaver->waitForLockEngage()) {
+            return;
+        }
+        DM().switchVT( ent );
     }
 }
 
