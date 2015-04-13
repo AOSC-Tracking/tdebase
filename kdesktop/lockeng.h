@@ -106,6 +106,16 @@ public:
 	 */
 	bool waitForLockEngage();
 
+	/**
+	 * @internal
+	 */
+	void lockScreenAndDoNewSession();
+
+	/**
+	 * @internal
+	 */
+	void lockScreenAndSwitchSession(int vt);
+
 signals:
 	void terminateHelperThread();
 	void asyncLock();
@@ -175,6 +185,8 @@ private:
 	TDEProcess* mSAKProcess;
 	bool mTerminationRequested;
 	bool mSaverProcessReady;
+	bool mNewVTAfterLockEngage;
+	int mSwitchVTAfterLockEngage;
 	struct sigaction mSignalAction;
 	TQT_DBusConnection dBusConn;
 	TQT_DBusProxy* dBusLocal;

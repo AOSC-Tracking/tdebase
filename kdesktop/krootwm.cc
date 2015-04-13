@@ -83,7 +83,6 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
   customMenu2 = 0;
   m_configDialog = 0;
 
-
   // Creates the new menu
   menuBar = 0; // no menubar yet
   menuNew = 0;
@@ -825,7 +824,6 @@ void KRootWm::slotCascadeWindows() {
 
 void KRootWm::slotLock() {
 	m_pSaver->lockScreen();
-	m_pSaver->waitForLockEngage();
 }
 
 
@@ -872,11 +870,7 @@ void KRootWm::slotPopulateSessions()
 void KRootWm::slotSessionActivated( int ent )
 {
     if (ent > 0 && !sessionsMenu->isItemChecked( ent )) {
-        m_pSaver->lockScreen();
-        if (!m_pSaver->waitForLockEngage()) {
-            return;
-        }
-        DM().switchVT( ent );
+        m_pSaver->lockScreenAndSwitchSession(ent);
     }
 }
 
@@ -914,13 +908,11 @@ void KRootWm::doNewSession( bool lock )
         return;
 
     if (lock) {
-        m_pSaver->lockScreen();
-        if (!m_pSaver->waitForLockEngage()) {
-            return;
-        }
+        m_pSaver->lockScreenAndDoNewSession();
     }
-
-    DM().startReserve();
+    else {
+        DM().startReserve();
+    }
 }
 
 void KRootWm::slotMenuItemActivated(int /* item */ )

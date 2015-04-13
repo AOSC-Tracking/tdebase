@@ -22,6 +22,8 @@
 #include <dcopclient.h>
 #include <assert.h>
 
+#include <dmctl.h>
+
 #include <dbus/dbus-shared.h>
 #include <tqdbusdata.h>
 #include <tqdbuserror.h>
@@ -79,6 +81,8 @@ SaverEngine::SaverEngine()
 	  mSAKProcess(NULL),
 	  mTerminationRequested(false),
 	  mSaverProcessReady(false),
+	  mNewVTAfterLockEngage(false),
+	  mSwitchVTAfterLockEngage(-1),
 	  dBusLocal(0),
 	  dBusWatch(0),
 	  systemdSession(0)
@@ -599,6 +603,15 @@ void SaverEngine::lockProcessFullyActivated()
 		params << TQT_DBusData::fromBool(true);
 		TQT_DBusMessage reply = systemdSession->sendWithReply("SetIdleHint", params);
 	}
+
+	if (mNewVTAfterLockEngage) {
+		DM().startReserve();
+		mNewVTAfterLockEngage = false;
+	}
+	else if (mSwitchVTAfterLockEngage != -1) {
+		DM().switchVT(mSwitchVTAfterLockEngage);
+		mSwitchVTAfterLockEngage = -1;
+	}
 }
 
 void SaverEngine::slotLockProcessReady()
@@ -852,6 +865,16 @@ bool SaverEngine::waitForLockEngage() {
 	pthread_sigmask(SIG_UNBLOCK, &mThreadBlockSet, NULL);
 
 	return mLockProcess.isRunning();
+}
+
+void SaverEngine::lockScreenAndDoNewSession() {
+	mNewVTAfterLockEngage = true;
+	lockScreen();
+}
+
+void SaverEngine::lockScreenAndSwitchSession(int vt) {
+	mSwitchVTAfterLockEngage = vt;
+	lockScreen();
 }
 
 void SaverEngineThreadHelperObject::terminateThread() {

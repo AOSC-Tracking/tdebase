@@ -1991,8 +1991,8 @@ int LockProcess::execDialog( TQDialog *dlg )
         else {
             bitBlt(this, 0, 0, &backingPixmap);
         }
+        saverReadyIfNeeded();
     }
-    saverReadyIfNeeded();
     // dlg->exec may generate BadMatch errors, so make sure they are silently ignored
     int (*oldHandler)(Display *, XErrorEvent *);
     oldHandler = XSetErrorHandler(ignoreXError);
@@ -2091,7 +2091,7 @@ void LockProcess::slotPaintBackground(const TQPixmap &rpm)
 		setGeometry(0, 0, mRootWidth, mRootHeight);
 		erase();
 	}
-	saverReadyIfNeeded();
+//	saverReadyIfNeeded();
 }
 
 void LockProcess::preparePopup()
