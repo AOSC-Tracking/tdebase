@@ -837,15 +837,13 @@ bool SaverEngine::waitForLockProcessStart() {
 	sigset_t empty_mask;
 	sigemptyset(&empty_mask);
 
-	// wait for SIGUSR1, SIGUSR2, SIGTTIN, SIGCHLD
+	// ensure that SIGCHLD is not subjec to a race condition
 	sigemptyset(&new_mask);
-	sigaddset(&new_mask, SIGUSR1);
-	sigaddset(&new_mask, SIGUSR2);
-	sigaddset(&new_mask, SIGTTIN);
 	sigaddset(&new_mask, SIGCHLD);
 
 	pthread_sigmask(SIG_BLOCK, &new_mask, NULL);
 	while ((mLockProcess.isRunning()) && (!mSaverProcessReady)) {
+		// wait for any signal to arrive
 		sigsuspend(&empty_mask);
 	}
 	pthread_sigmask(SIG_UNBLOCK, &new_mask, NULL);
@@ -858,11 +856,10 @@ bool SaverEngine::waitForLockEngage() {
 	sigemptyset(&empty_mask);
 
 	// wait for SIGUSR1, SIGUSR2, SIGTTIN
-	pthread_sigmask(SIG_BLOCK, &mThreadBlockSet, NULL);
 	while ((mLockProcess.isRunning()) && (mState != Waiting) && (mState != Saving)) {
+		// wait for any signal to arrive
 		sigsuspend(&empty_mask);
 	}
-	pthread_sigmask(SIG_UNBLOCK, &mThreadBlockSet, NULL);
 
 	return mLockProcess.isRunning();
 }

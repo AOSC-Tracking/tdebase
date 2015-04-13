@@ -2092,7 +2092,6 @@ void LockProcess::slotPaintBackground(const TQPixmap &rpm)
 		setGeometry(0, 0, mRootWidth, mRootHeight);
 		erase();
 	}
-//	saverReadyIfNeeded();
 }
 
 void LockProcess::preparePopup()
