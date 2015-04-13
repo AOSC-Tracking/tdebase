@@ -1370,9 +1370,12 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
   vLay2->addWidget(useShadowsOnMenuWindows);
   useShadowsOnToolTipWindows = new TQCheckBox(i18n("Use shadows on tooltips"),sGroup);
   vLay2->addWidget(useShadowsOnToolTipWindows);
+  useShadowsOnDockWindows = new TQCheckBox(i18n("Use shadows on panels"),sGroup);
+  vLay2->addWidget(useShadowsOnDockWindows);
   if (TDECompositor != "compton-tde") {
       useShadowsOnMenuWindows->hide();
       useShadowsOnToolTipWindows->hide();
+      useShadowsOnDockWindows->hide();
   }
 
   vLay2->addSpacing(11);
@@ -1498,6 +1501,7 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
   connect(useShadows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
   connect(useShadowsOnMenuWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
   connect(useShadowsOnToolTipWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+  connect(useShadowsOnDockWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
   connect(removeShadowsOnResize, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
   connect(removeShadowsOnMove, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
 
@@ -1523,6 +1527,7 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
   connect(useShadows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(processShadowLockouts()));
   connect(useShadowsOnMenuWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(processShadowLockouts()));
   connect(useShadowsOnToolTipWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(processShadowLockouts()));
+  connect(useShadowsOnDockWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(processShadowLockouts()));
 
   load();
 
@@ -1539,6 +1544,7 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
   connect(useShadows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
   connect(useShadowsOnMenuWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
   connect(useShadowsOnToolTipWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
+  connect(useShadowsOnDockWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
   connect(inactiveWindowShadowSize, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(resetKompmgr()));
   connect(baseShadowSize, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(resetKompmgr()));
   connect(shadowTopOffset, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(resetKompmgr()));
@@ -1566,12 +1572,15 @@ void KTranslucencyConfig::processShadowLockouts()
     shadowTopOffset->setEnabled(enabled);
     shadowLeftOffset->setEnabled(enabled);
     shadowColor->setEnabled(enabled);
+
+    useShadowsOnDockWindows->setEnabled(useShadows->isChecked());
 }
 
 void KTranslucencyConfig::resetKompmgr()
 {
     resetKompmgr_ = TRUE;
 }
+
 void KTranslucencyConfig::load( void )
 {
 
@@ -1619,6 +1628,7 @@ void KTranslucencyConfig::load( void )
   useShadows->setChecked(conf_.readEntry("Compmode","").compare("CompClientShadows") == 0);
   useShadowsOnMenuWindows->setChecked(conf_.readBoolEntry("ShadowsOnMenuWindows",TRUE));
   useShadowsOnToolTipWindows->setChecked(conf_.readBoolEntry("ShadowsOnToolTipWindows",TRUE));
+  useShadowsOnDockWindows->setChecked(conf_.readBoolEntry("ShadowsOnDockWindows",FALSE));
   shadowTopOffset->setValue(-1*(conf_.readNumEntry("ShadowOffsetY",0)));
   shadowLeftOffset->setValue(-1*(conf_.readNumEntry("ShadowOffsetX",0)));
 
@@ -1688,6 +1698,7 @@ void KTranslucencyConfig::save( void )
   conf_->writeEntry("Compmode",useShadows->isChecked()?"CompClientShadows":"");
   conf_->writeEntry("ShadowsOnMenuWindows",useShadowsOnMenuWindows->isChecked());
   conf_->writeEntry("ShadowsOnToolTipWindows",useShadowsOnToolTipWindows->isChecked());
+  conf_->writeEntry("ShadowsOnDockWindows",useShadowsOnDockWindows->isChecked());
   conf_->writeEntry("DisableARGB",disableARGB->isChecked());
   conf_->writeEntry("useOpenGL",useOpenGL->isChecked());
   conf_->writeEntry("blurBackground",blurBackground->isChecked());
@@ -1739,6 +1750,7 @@ void KTranslucencyConfig::save( void )
       bool shadows = useShadows->isChecked();
       bool shadowsOnMenuWindows = useShadowsOnMenuWindows->isChecked();
       bool shadowsOnToolTipWindows = useShadowsOnToolTipWindows->isChecked();
+      bool shadowsOnDockWindows = useShadowsOnDockWindows->isChecked();
       stream << "fading = " << ((fadeWindows || fadeMenuWindows || fadeOpacity)?"true":"false") << ";\n";
       stream << "no-fading-opacitychange = " << (fadeOpacity?"false":"true") << ";\n";
       stream << "no-fading-openclose = " << ((fadeWindows||fadeMenuWindows)?"false":"true") << ";\n";
@@ -1759,7 +1771,7 @@ void KTranslucencyConfig::save( void )
       stream << "  combo = { shadow = false; fade = " << (fadeWindows?"true":"false") << "; no-fading-openclose = " << (fadeWindows?"false":"true") << "; };" << "\n";
       stream << "  desktop = { shadow = false; fade = " << (fadeWindows?"true":"false") << "; no-fading-openclose = " << (fadeWindows?"false":"true") << "; };" << "\n";
       stream << "  dnd = { shadow = false; fade = " << (fadeWindows?"true":"false") << "; no-fading-openclose = " << (fadeWindows?"false":"true") << "; };" << "\n";
-      stream << "  dock = { shadow = false; fade = " << (fadeWindows?"true":"false") << "; no-fading-openclose = " << (fadeWindows?"false":"true") << "; };" << "\n";
+      stream << "  dock = { shadow = " << (shadowsOnDockWindows?"true":"false") << "; fade = " << (fadeWindows?"true":"false") << "; no-fading-openclose = " << (fadeWindows?"false":"true") << "; };" << "\n";
       stream << "};" << "\n";
 
       stream << "fade-in-step = " << (fadeInSpeed->value()/1000.0) << ";\n";
@@ -1778,7 +1790,7 @@ void KTranslucencyConfig::save( void )
       stream << "greyscale-background = " << ((greyscaleBackground->isChecked() && useOpenGL->isChecked())?"true":"false") << ";\n";
 
       // Global settings
-      stream << "no-dock-shadow = true;\n";
+      stream << "no-dock-shadow = " << (shadows && shadowsOnDockWindows?"false":"true") << ";\n";
       stream << "no-dnd-shadow = true;\n";
       stream << "clear-shadow = true;\n";
       stream << "shadow-ignore-shaped = false;\n";
@@ -1837,6 +1849,7 @@ void KTranslucencyConfig::defaults()
   useShadows->setChecked(FALSE);
   useShadowsOnMenuWindows->setChecked(TRUE);
   useShadowsOnToolTipWindows->setChecked(TRUE);
+  useShadowsOnDockWindows->setChecked(FALSE);
   removeShadowsOnMove->setChecked(FALSE);
   removeShadowsOnResize->setChecked(FALSE);
   shadowColor->setColor(Qt::black);

@@ -269,6 +269,7 @@ private:
   TQCheckBox *useShadows;
   TQCheckBox *useShadowsOnMenuWindows;
   TQCheckBox *useShadowsOnToolTipWindows;
+  TQCheckBox *useShadowsOnDockWindows;
   TQCheckBox *removeShadowsOnResize;
   TQCheckBox *removeShadowsOnMove;
   TQGroupBox *sGroup;
