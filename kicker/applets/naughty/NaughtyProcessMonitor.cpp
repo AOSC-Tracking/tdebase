@@ -25,7 +25,7 @@
 #include <sys/proc.h>
 #include <sys/sysctl.h>
 #include <sys/ucred.h>
-#include <sys/dkstat.h>
+#include <sys/sched.h>
 #include <stdlib.h>
 #endif
 

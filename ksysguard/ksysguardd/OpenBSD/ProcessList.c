@@ -33,6 +33,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <sys/user.h>
+#include <errno.h>
 #include <unistd.h>
 #include <signal.h>
 

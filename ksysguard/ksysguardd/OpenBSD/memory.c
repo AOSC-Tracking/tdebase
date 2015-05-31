@@ -22,7 +22,8 @@
 
 #include <sys/param.h>
 #include <sys/sysctl.h>
-#include <sys/dkstat.h>
+#include <sys/sched.h>
+#include <sys/vmmeter.h>
 #include <sys/swap.h>
 
 #include <limits.h>
