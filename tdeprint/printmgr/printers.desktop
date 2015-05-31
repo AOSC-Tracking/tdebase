@@ -3,7 +3,6 @@ Exec=tdecmshell printers
 Icon=printmgr
 Type=Application
 X-DocPath=tdeprint/index.html
-MimeType=print/manager;
 
 X-TDE-ModuleType=Library
 X-TDE-Library=printmgr
