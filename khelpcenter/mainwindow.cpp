@@ -330,7 +330,6 @@ void MainWindow::viewUrl( const KURL &url, const KParts::URLArgs &args )
             // Ensure that changing the handbook section works by forcing a reload of the page,
             // thereby allowing the help tdeioslave to re-parse the fragment identifier
             urlArgs.reload = true;
-            mDoc->gotoAnchor("");
         }
     }
     mDoc->browserExtension()->setURLArgs( urlArgs );
