@@ -329,15 +329,15 @@ void LayoutConfig::save()
 }
 
 
-TQString LayoutConfig::handbookSection() const
+TQString LayoutConfig::handbookDocPath() const
 {
  	int index = widget->tabWidget->currentPageIndex();
  	if (index == 0)
-		return "layout-config";
+		return "kxkb/layout-config.html";
 	else if (index == 1)
-		return "switching-config";
+		return "kxkb/switching-config.html";
 	else if (index == 2)
-		return "xkboptions-config";
+		return "kxkb/xkboptions-config.html";
 	else
  		return TQString::null;
 }

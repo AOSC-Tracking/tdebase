@@ -26,7 +26,7 @@ public:
   void save();
   void defaults();
   void initUI();
-  virtual TQString handbookSection() const;
+  virtual TQString handbookDocPath() const;
   
 protected:
   TQString createOptionString();
