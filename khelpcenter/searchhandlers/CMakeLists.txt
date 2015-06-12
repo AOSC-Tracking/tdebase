@@ -16,6 +16,7 @@ if( NOT DEFINED HTDIG_SEARCH_BINARY )
     HINTS
       /srv/www/cgi-bin
       /usr/lib/cgi-bin
+      /usr/local/www/cgi-bin
   )
   if( HTDIG_SEARCH_BINARY )
     message( STATUS "Looking for htsearch - ${HTDIG_SEARCH_BINARY}" )

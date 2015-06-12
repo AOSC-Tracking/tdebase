@@ -44,7 +44,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <limits.h>
 #include <sys/stat.h>
 #include <sys/param.h>
-#ifdef BSD
+#if defined(BSD) && !defined(HAVE_UTMPX)
 # include <utmp.h>
 #endif
 
@@ -1537,8 +1537,13 @@ edit_startup( File *file )
 "fi\n") |
 #else
 # ifdef BSD
+#   ifdef HAVE_UTMPX
+			delstr( file, "\n"
+"exec sessreg -a -l $DISPLAY -x */Xservers $USER\n" ) |
+#   else
 			delstr( file, "\n"
 "exec sessreg -a -l $DISPLAY -x */Xservers -u " _PATH_UTMP " $USER\n" ) |
+#   endif
 # endif
 #endif /* _AIX */
 			delstr( file, "\n"
@@ -1586,8 +1591,13 @@ edit_reset( File *file )
 "fi\n" ) |
 #else
 # ifdef BSD
+#   ifdef HAVE_UTMPX
+		delstr( file, "\n"
+"exec sessreg -d -l $DISPLAY -x */Xservers $USER\n" ) |
+#   else
 		delstr( file, "\n"
 "exec sessreg -d -l $DISPLAY -x */Xservers -u " _PATH_UTMP " $USER\n" ) |
+#   endif
 # endif
 #endif /* _AIX */
 		delstr( file, "\n"

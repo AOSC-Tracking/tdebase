@@ -41,6 +41,7 @@ bin/xscreensaver-hacks hacks)
     /usr/share/xscreensaver/
     /usr/local/kde/
     /usr/local/xscreensaver/
+    /usr/local/share/xscreensaver/
     /usr/openwin/lib/xscreensaver/
     /etc/
   )

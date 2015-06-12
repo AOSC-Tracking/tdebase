@@ -40,7 +40,7 @@ tde_add_kpart( kcm_keyboard AUTOMOC
     extension.cpp x11helper.cpp rules.cpp kxkbconfig.cpp
     pixmap.cpp kcmlayout.cpp kcmlayoutwidget.ui
     kcmmisc.cpp kcmmiscwidget.ui
-  LINK tdeio-shared xkbfile ${XTEST_LIBRARIES}
+  LINK tdeio-shared ${XKBFILE_LIBRARIES} ${XTEST_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
 
@@ -52,5 +52,5 @@ tde_add_tdeinit_executable( kxkb AUTOMOC
     extension.cpp x11helper.cpp rules.cpp kxkbconfig.cpp
     pixmap.cpp layoutmap.cpp kxkb.cpp kxkbtraywindow.cpp
     kxkb.skel
-  LINK tdeui-shared xkbfile
+  LINK tdeui-shared ${XKBFILE_LIBRARIES}
 )

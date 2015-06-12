@@ -81,8 +81,8 @@
 
 #ifdef __linux__
 #include <linux/stat.h>
-#include <pthread.h>
 #endif
+#include <pthread.h>
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>

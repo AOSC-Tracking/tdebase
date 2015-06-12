@@ -45,7 +45,7 @@
 #include <pwd.h>
 #include <errno.h>
 
-#ifndef __OpenBSD__
+#if !defined(__OpenBSD__) && !defined(__FreeBSD__)
 #include <sys/prctl.h>
 #endif
 #include <sys/time.h>
@@ -251,7 +251,7 @@ int create_socket()
 
 int main(int argc, char *argv[])
 {
-#ifndef __OpenBSD__
+#if !defined(__OpenBSD__) && !defined(__FreeBSD__)
     prctl(PR_SET_DUMPABLE, 0);
 #endif
 

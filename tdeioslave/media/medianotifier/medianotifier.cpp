@@ -19,7 +19,7 @@
 
 #include "medianotifier.h"
 
-#ifdef __OpenBSD__
+#if defined (__OpenBSD__) || defined(__FreeBSD__)
 #include <sys/statvfs.h>
 #include <sys/param.h>
 #include <sys/mount.h>
