@@ -17,7 +17,8 @@
 #include <tqptrlist.h>
 
 #ifdef Q_OS_FREEBSD
-#include <dev/usb/usb.h>
+#include <libusb20.h>
+#include <dev/usb/usb_ioctl.h>
 #endif
 
 class USBDB;
@@ -26,7 +27,7 @@ class USBDB;
 class USBDevice
 {
 public:
-  
+
   USBDevice();
 
   void parseLine(TQString line);
@@ -66,7 +67,7 @@ private:
   unsigned int _vendorID, _prodID, _revMajor, _revMinor;
 
 #ifdef Q_OS_FREEBSD
-  void collectData( int fd, int level, usb_device_info &di, int parent );
+  void collectData(struct libusb20_backend *, struct libusb20_device *);
   TQStringList _devnodes;
 #endif
 };

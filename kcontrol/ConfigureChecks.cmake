@@ -47,12 +47,12 @@ endif( )
 
 ##### check for libusb ##########################
 
-if( WITH_LIBUSB )
-  pkg_search_module( LIBUSB libusb )
+if( WITH_LIBUSB OR ${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD" )
+  pkg_search_module( LIBUSB libusb libusb-2.0 )
   if( LIBUSB_FOUND )
     set( HAVE_LIBUSB 1 CACHE INTERNAL "" FORCE )
   else( )
-    tde_message_fatal( "libusb are requested, but not found on your system" )
+    tde_message_fatal( "libusb is required, but not found on your system" )
   endif( )
 endif( )
 

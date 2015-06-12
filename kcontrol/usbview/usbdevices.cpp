@@ -230,9 +230,9 @@ TQString USBDevice::dump()
 	if ( _devnodes.count() > 1 )
 		for ( TQStringList::Iterator it = _devnodes.at(1); it != _devnodes.end(); ++it )
 			r += "<tr><td></td><td>" + *it + "</td></tr>";
-#else  
+#else
   r += i18n("<tr><td><i>Max. Packet Size</i></td><td>%1</td></tr>").arg(_maxPacketSize);
-#endif  
+#endif
   r += "<tr><td></td></tr>";
 
   if (_hasBW)
@@ -318,18 +318,26 @@ bool USBDevice::parseSys(TQString dname)
 
 /*
  * FreeBSD support by Markus Brueffer <markus@brueffer.de>
+ * libusb20 support by Hans Petter Selasky <hselasky@freebsd.org>
  *
  * Basic idea and some code fragments were taken from FreeBSD's usbdevs(8), 
  * originally developed for NetBSD, so this code should work with no or 
  * only little modification on NetBSD.
  */
 
-void USBDevice::collectData( int fd, int level, usb_device_info &di, int parent)
+void USBDevice::collectData(struct libusb20_backend *pbe,
+    struct libusb20_device *pdev)
 {
+	char tempbuf[32];
+	struct usb_device_info di;
+
+	if (libusb20_dev_get_info(pdev, &di))
+		memset(&di, 0, sizeof(di));
+
 	// determine data for this device
-	_level        = level;
-	_parent       = parent;
-	
+	_level        = 0;
+	_parent       = 0;
+
 	_bus          = di.udi_bus;
 	_device       = di.udi_addr;
 	_product      = TQString::fromLatin1(di.udi_product);
@@ -343,89 +351,57 @@ void USBDevice::collectData( int fd, int level, usb_device_info &di, int parent)
 	_prot         = di.udi_protocol;
 	_power        = di.udi_power;
 	_channels     = di.udi_nports;
-	
+
 	// determine the speed
-#if __FreeBSD_version > 490102
 	switch (di.udi_speed) {
-		case USB_SPEED_LOW:  _speed = 1.5;   break;
-		case USB_SPEED_FULL: _speed = 12.0;  break;
-		case USB_SPEED_HIGH: _speed = 480.0; break;
+		case LIBUSB20_SPEED_LOW:  _speed = 1.5;   break;
+		case LIBUSB20_SPEED_FULL: _speed = 12.0;  break;
+		case LIBUSB20_SPEED_HIGH: _speed = 480.0; break;
+		case LIBUSB20_SPEED_VARIABLE: _speed = 480.0; break;
+		case LIBUSB20_SPEED_SUPER: _speed = 4800.0; break;
+		default: _speed = 480.0; break;
 	}
-#else
-	_speed = di.udi_lowspeed ? 1.5 : 12.0;
-#endif
 
 	// Get all attached devicenodes
-	for ( int i = 0; i < USB_MAX_DEVNAMES; ++i )
-		if ( di.udi_devnames[i][0] )
-			_devnodes << di.udi_devnames[i];
+	for (int i = 0; i < 32; ++i) {
+	    if (libusb20_dev_get_iface_desc(pdev, i, tempbuf, sizeof(tempbuf)) == 0) {
+		_devnodes << tempbuf;
+	    } else {
+		break;
+	    }
+	}
 
 	// For compatibility, split the revision number
 	sscanf( di.udi_release, "%x.%x", &_revMajor, &_revMinor );
 
-	// Cycle through the attached devices if there are any
-	for ( int p = 0; p < di.udi_nports; ++p ) {
-		// Get data for device
-		struct usb_device_info di2;
-
-		di2.udi_addr = di.udi_ports[p];
-		
-		if ( di2.udi_addr >= USB_MAX_DEVICES )
-			continue;
-			
-		if ( ioctl(fd, USB_DEVICEINFO, &di2) == -1 )
-			continue;
-
-		// Only add the device if we didn't detect it, yet
-		if (!find( di2.udi_bus, di2.udi_addr ) )
-		{
-			USBDevice *device = new USBDevice();
-			device->collectData( fd, level + 1, di2, di.udi_addr );
-		}
-	}
 }
-
-
 
 bool USBDevice::parse(TQString fname)
 {
-	static bool showErrorMessage = true;
-	bool error = false;
+	struct libusb20_backend *pbe;
+	struct libusb20_device *pdev;
+
 	_devices.clear();
-	
-	TQFile controller("/dev/usb0");
-	int i = 1;
-	while ( controller.exists() )
-	{
-		// If the devicenode exists, continue with further inspection
-		if ( controller.open(IO_ReadOnly) )
-		{
-			for ( int addr = 1; addr < USB_MAX_DEVICES; ++addr ) 
-			{
-				struct usb_device_info di;
-				
-				di.udi_addr = addr;
-				if ( ioctl(controller.handle(), USB_DEVICEINFO, &di) != -1 )
-				{
-					if (!find( di.udi_bus, di.udi_addr ) )
-					{
-						USBDevice *device = new USBDevice();
-						device->collectData( controller.handle(), 0, di, 0);
-					}
-				}
-			}
-			controller.close();
-		} else {
-			error = true;
-		}
-		controller.setName( TQString::fromLocal8Bit("/dev/usb%1").arg(i++) );
+
+	pbe = libusb20_be_alloc_default();
+	if (pbe == NULL)
+	    return (false);
+
+	pdev = NULL;
+
+	while ((pdev = libusb20_be_device_foreach(pbe, pdev))) {
+	    USBDevice *device = new USBDevice();
+	    device->collectData(pbe, pdev);
 	}
-	
-	if ( showErrorMessage && error ) {
-		showErrorMessage = false;
-		KMessageBox::error( 0, i18n("Could not open one or more USB controller. Make sure, you have read access to all USB controllers that should be listed here."));
-	}
-	
+
+	libusb20_be_free(pbe);
+
 	return true;
+}
+
+bool USBDevice::parseSys(TQString)
+{
+	// sysfs is not available on FreeBSD
+	return 0;
 }
 #endif

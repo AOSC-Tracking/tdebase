@@ -40,3 +40,7 @@ tde_add_kpart( kcm_usb AUTOMOC
   LINK tdeui-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
+
+if( ${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD" )
+  target_link_libraries( kcm_usb-module ${LIBUSB_LIBRARIES} )
+endif( )
