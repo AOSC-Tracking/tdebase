@@ -40,6 +40,6 @@ set( target tdeio_fish )
 
 tde_add_kpart( ${target} AUTOMOC
   SOURCES fish.cpp
-  LINK tdeio-shared util
+  LINK tdeio-shared ${LIB_UTIL}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
