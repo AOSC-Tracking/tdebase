@@ -176,9 +176,9 @@ tree:</para>
 icon  -- mdash; or if you have already <quote>selected</quote> it (see below)  -- mdash; then just press
 <keycap>Enter</keycap>.</para></listitem>
 <listitem><para>To go up the folder tree you can click on the <guiicon>Up
-</guiicon> button in the Toolbar, use<keycombo action="simul">&Alt;<keysym>Up Arrow</keysym></keycombo>, or use the Menubar
+</guiicon> button in the Toolbar, use <keycombo action="simul">&Alt;<keysym>Up Arrow</keysym></keycombo>, use the Menubar
 <menuchoice><guimenu>Go</guimenu><guimenuitem>Up</guimenuitem></menuchoice>
-option.</para></listitem>
+option or just double click with the &LMB; on an empty area, i.e. not over an item name.</para></listitem>
 </itemizedlist>
 
 <para>To <quote>select</quote> a file or folder in the displayed folder

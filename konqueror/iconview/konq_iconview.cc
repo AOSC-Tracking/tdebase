@@ -348,6 +348,8 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
              this, TQT_SLOT( slotMouseButtonClicked(int, TQIconViewItem*, const TQPoint&)) );
     connect( m_pIconView, TQT_SIGNAL( contextMenuRequested(TQIconViewItem*, const TQPoint&)),
              this, TQT_SLOT( slotContextMenuRequested(TQIconViewItem*, const TQPoint&)) );
+    connect( m_pIconView, TQT_SIGNAL( mouseDoubleClicked(TQIconViewItem*)),
+             this, TQT_SLOT( slotDoubleClicked(TQIconViewItem*)) );
 
     // Signals needed to implement the spring loading folders behavior
     connect( m_pIconView, TQT_SIGNAL( held( TQIconViewItem * ) ),
@@ -861,6 +863,20 @@ void KonqKfmIconView::slotMouseButtonClicked(int _button, TQIconViewItem* _item,
         mmbClicked( _item ? static_cast<KFileIVI*>(_item)->item() : 0L );
 }
 
+void KonqKfmIconView::slotDoubleClicked(TQIconViewItem *_item)
+{ 
+    if (!_item)
+    {
+        KParts::URLArgs args;
+        args.trustedSource = true;
+        KURL upURL = m_dirLister->url().upURL();
+        if (!upURL.isEmpty())
+	{  
+	m_extension->openURLRequest(upURL, args);
+	}
+    }
+}
+  
 void KonqKfmIconView::slotStarted()
 {
     // Only emit started if this comes after openURL, i.e. it's not for an update.

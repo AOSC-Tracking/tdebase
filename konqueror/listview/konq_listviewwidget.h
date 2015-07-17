@@ -214,6 +214,7 @@ protected:
    virtual void contentsMouseReleaseEvent( TQMouseEvent *e );
    virtual void contentsMouseMoveEvent( TQMouseEvent *e );
    virtual void contentsWheelEvent( TQWheelEvent * e );
+   virtual void contentsMouseDoubleClickEvent( TQMouseEvent *e );
 
    virtual void leaveEvent( TQEvent *e );
 

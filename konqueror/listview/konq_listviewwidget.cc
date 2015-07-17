@@ -522,6 +522,32 @@ void KonqBaseListViewWidget::contentsWheelEvent( TQWheelEvent *e )
    TDEListView::contentsWheelEvent( e );
 }
 
+void KonqBaseListViewWidget::contentsMouseDoubleClickEvent(TQMouseEvent *e)
+{
+	if (m_rubber) {
+		TQRect r(m_rubber->normalize());
+		delete m_rubber;
+		m_rubber = NULL;
+		repaintContents(r, false);
+	}
+		
+	TQPoint vp = contentsToViewport(e->pos());
+	KonqBaseListViewItem* item = isExecuteArea(vp) ?
+		static_cast<KonqBaseListViewItem*>(itemAt(vp)) : NULL;
+
+	if (item)	{
+    TDEListView::contentsMouseDoubleClickEvent(e);
+	}
+	else {
+    KParts::URLArgs args;
+    args.trustedSource = true;
+    KURL upURL = m_dirLister->url().upURL();
+    if (!upURL.isEmpty()) {  
+	    m_pBrowserView->extension()->openURLRequest(upURL, args);
+	  }
+	}
+}
+
 void KonqBaseListViewWidget::leaveEvent( TQEvent *e )
 {
    if ( m_activeItem != 0 )

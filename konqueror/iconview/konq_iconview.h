@@ -97,6 +97,7 @@ protected slots:
   void slotReturnPressed( TQIconViewItem *item );
   void slotMouseButtonPressed(int, TQIconViewItem*, const TQPoint&);
   void slotMouseButtonClicked(int, TQIconViewItem*, const TQPoint&);
+  void slotDoubleClicked(TQIconViewItem*);
   void slotContextMenuRequested(TQIconViewItem*, const TQPoint&);
   void slotOnItem( TQIconViewItem *item );
   void slotOnViewport();
