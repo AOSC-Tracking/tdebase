@@ -60,6 +60,7 @@ class KateConsole;
 class KateDocManager;
 class KateFileList;
 class KateFileSelector;
+class KateSessionPanel;
 class KateMainWindow;
 class KatePluginIface;
 class KatePluginManager;

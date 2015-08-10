@@ -198,6 +198,7 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
 
     KateFileList *filelist;
     KateFileSelector *fileselector;
+    KateSessionPanel *sessionpanel;
 
     TDEActionMenu* documentOpenWith;
 

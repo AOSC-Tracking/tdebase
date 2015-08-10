@@ -31,6 +31,7 @@
 #include "kateapp.h"
 #include "katefileselector.h"
 #include "katefilelist.h"
+#include "katesessionpanel.h"
 #include "kategrepdialog.h"
 #include "katemailfilesdialog.h"
 #include "katemainwindowiface.h"
@@ -217,6 +218,9 @@ void KateMainWindow::setupMainWindow ()
   fileselector = new KateFileSelector( this, m_viewManager, t, "operator");
   connect(fileselector->dirOperator(),TQT_SIGNAL(fileSelected(const KFileItem*)),this,TQT_SLOT(fileSelected(const KFileItem*)));
 
+  KateMDI::ToolView *st = createToolView("kate_sessionpanel", KMultiTabBar::Left, SmallIcon("view_choose"), i18n("Sessions"));
+  sessionpanel = new KateSessionPanel( this, m_viewManager, st, "sessionpanel");
+
   // ONLY ALLOW SHELL ACCESS IF ALLOWED ;)
   if (KateApp::self()->authorize("shell_access"))
   {
@@ -302,7 +306,7 @@ void KateMainWindow::setupActions()
   slotWindowActivated ();
 
   // session actions
-  new TDEAction(i18n("Menu entry Session->New", "&New"), "document-new", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionNew()), actionCollection(), "sessions_new");
+  new TDEAction(i18n("Menu entry Session->New", "&New"), "list-add", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionNew()), actionCollection(), "sessions_new");
   new TDEAction(i18n("&Open..."), "document-open", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionOpen()), actionCollection(), "sessions_open");
   new TDEAction(i18n("&Save"), "document-save", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionSave()), actionCollection(), "sessions_save");
   new TDEAction(i18n("Save &As..."), "document-save-as", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionSaveAs()), actionCollection(), "sessions_save_as");
@@ -434,7 +438,7 @@ void KateMainWindow::saveOptions ()
   config->writeEntry("Show Full Path in Title", m_viewManager->getShowFullPath());
   config->writeEntry("Sync Konsole", syncKonsole);
   config->writeEntry("UseInstance", useInstance);
-  
+
   fileOpenRecent->saveEntries(config, "Recent Files");
   fileselector->writeConfig(config, "fileselector");
   filelist->writeConfig(config, "Filelist");
@@ -482,7 +486,7 @@ void KateMainWindow::documentMenuAboutToShow()
   TQListViewItem * item = filelist->firstChild();
   while( item ) {
     // would it be saner to use the screen width as a limit that some random number??
-    TQString name = KStringHandler::rsqueeze( ((KateFileListItem *)item)->document()->docName(), 150 ); 
+    TQString name = KStringHandler::rsqueeze( ((KateFileListItem *)item)->document()->docName(), 150 );
     Kate::Document* doc = ((KateFileListItem *)item)->document();
     documentMenu->insertItem (
           doc->isModified() ? i18n("'document name [*]', [*] means modified", "%1 [*]").arg(name) : name,

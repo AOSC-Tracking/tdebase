@@ -38,8 +38,8 @@ set( ${target}_SRCS
   kbookmarkhandler.cpp katedocmanageriface.skel kateappIface.cpp
   kateappIface.skel katedocmanageriface.cpp kateexternaltools.cpp
   katesavemodifieddialog.cpp kateviewspacecontainer.cpp
-  katemwmodonhddialog.cpp katesession.cpp katemdi.cpp
-  katetabwidget.cpp
+  katemwmodonhddialog.cpp katesession.cpp katesessionpanel.cpp
+  katemdi.cpp katetabwidget.cpp
 )
 
 tde_add_library( ${target} SHARED AUTOMOC
