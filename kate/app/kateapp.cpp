@@ -75,7 +75,7 @@ KateApp::KateApp (TDECmdLineArgs *args)
   m_pluginManager = new KatePluginManager (TQT_TQOBJECT(this));
 
   // session manager up
-  m_sessionManager = new KateSessionManager (TQT_TQOBJECT(this));
+  m_sessionManager = new OldKateSessionManager (TQT_TQOBJECT(this));
 
   // application dcop interface
   m_obj = new KateAppDCOPIface (this);
@@ -147,7 +147,7 @@ void KateApp::restoreKate ()
   // activate again correct session!!!
   sessionConfig()->setGroup("General");
   TQString lastSession (sessionConfig()->readEntry ("Last Session", "default.katesession"));
-  sessionManager()->activateSession (new KateSession (sessionManager(), lastSession, ""), false, false, false);
+  sessionManager()->activateSession (new OldKateSession (sessionManager(), lastSession, ""), false, false, false);
 
   m_docManager->restoreDocumentList (sessionConfig());
 
@@ -294,7 +294,7 @@ KateDocManager *KateApp::documentManager ()
   return m_docManager;
 }
 
-KateSessionManager *KateApp::sessionManager ()
+OldKateSessionManager *KateApp::sessionManager ()
 {
   return m_sessionManager;
 }

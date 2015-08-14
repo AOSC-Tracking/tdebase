@@ -48,12 +48,12 @@
 #include <unistd.h>
 #include <time.h>
 
-bool operator<( const KateSession::Ptr& a, const KateSession::Ptr& b )
+bool operator<( const OldKateSession::Ptr& a, const OldKateSession::Ptr& b )
 {
   return a->sessionName().lower() < b->sessionName().lower();
 }
 
-KateSession::KateSession (KateSessionManager *manager, const TQString &fileName, const TQString &name)
+OldKateSession::OldKateSession (OldKateSessionManager *manager, const TQString &fileName, const TQString &name)
   : m_sessionFileRel (fileName)
   , m_sessionName (name)
   , m_documents (0)
@@ -64,7 +64,7 @@ KateSession::KateSession (KateSessionManager *manager, const TQString &fileName,
   init ();
 }
 
-void KateSession::init ()
+void OldKateSession::init ()
 {
   // given file exists, use it to load some stuff ;)
   if (!m_sessionFileRel.isEmpty() && TDEGlobal::dirs()->exists(sessionFile ()))
@@ -113,18 +113,18 @@ void KateSession::init ()
   }
 }
 
-KateSession::~KateSession ()
+OldKateSession::~OldKateSession ()
 {
   delete m_readConfig;
   delete m_writeConfig;
 }
 
-TQString KateSession::sessionFile () const
+TQString OldKateSession::sessionFile () const
 {
   return m_manager->sessionsDir() + "/" + m_sessionFileRel;
 }
 
-bool KateSession::create (const TQString &name, bool force)
+bool OldKateSession::create (const TQString &name, bool force)
 {
   if (!force && (name.isEmpty() || !m_sessionFileRel.isEmpty()))
     return false;
@@ -162,7 +162,7 @@ bool KateSession::create (const TQString &name, bool force)
   return true;
 }
 
-bool KateSession::rename (const TQString &name)
+bool OldKateSession::rename (const TQString &name)
 {
   if (name.isEmpty () || m_sessionFileRel.isEmpty() || m_sessionFileRel == "default.katesession")
     return false;
@@ -177,7 +177,7 @@ bool KateSession::rename (const TQString &name)
   return true;
 }
 
-TDEConfig *KateSession::configRead ()
+TDEConfig *OldKateSession::configRead ()
 {
   if (m_sessionFileRel.isEmpty())
     return 0;
@@ -188,7 +188,7 @@ TDEConfig *KateSession::configRead ()
   return m_readConfig = new KSimpleConfig (sessionFile (), true);
 }
 
-TDEConfig *KateSession::configWrite ()
+TDEConfig *OldKateSession::configWrite ()
 {
   if (m_sessionFileRel.isEmpty())
     return 0;
@@ -203,10 +203,10 @@ TDEConfig *KateSession::configWrite ()
   return m_writeConfig;
 }
 
-KateSessionManager::KateSessionManager (TQObject *parent)
+OldKateSessionManager::OldKateSessionManager (TQObject *parent)
  : TQObject (parent)
  , m_sessionsDir (locateLocal( "data", "kate/sessions"))
- , m_activeSession (new KateSession (this, "", ""))
+ , m_activeSession (new OldKateSession (this, "", ""))
 {
   kdDebug() << "LOCAL SESSION DIR: " << m_sessionsDir << endl;
 
@@ -214,21 +214,21 @@ KateSessionManager::KateSessionManager (TQObject *parent)
   TDEGlobal::dirs()->makeDir (m_sessionsDir);
 }
 
-KateSessionManager::~KateSessionManager()
+OldKateSessionManager::~OldKateSessionManager()
 {
 }
 
-KateSessionManager *KateSessionManager::self()
+OldKateSessionManager *OldKateSessionManager::self()
 {
   return KateApp::self()->sessionManager ();
 }
 
-void KateSessionManager::dirty (const TQString &)
+void OldKateSessionManager::dirty (const TQString &)
 {
   updateSessionList ();
 }
 
-void KateSessionManager::updateSessionList ()
+void OldKateSessionManager::updateSessionList ()
 {
   m_sessionList.clear ();
 
@@ -238,7 +238,7 @@ void KateSessionManager::updateSessionList ()
   bool foundDefault = false;
   for (unsigned int i=0; i < dir.count(); ++i)
   {
-    KateSession *session = new KateSession (this, dir[i], "");
+    OldKateSession *session = new OldKateSession (this, dir[i], "");
     m_sessionList.append (session);
 
     kdDebug () << "FOUND SESSION: " << session->sessionName() << " FILE: " << session->sessionFile() << endl;
@@ -249,12 +249,12 @@ void KateSessionManager::updateSessionList ()
 
   // add default session, if not there
   if (!foundDefault)
-    m_sessionList.append (new KateSession (this, "default.katesession", i18n("Default Session")));
+    m_sessionList.append (new OldKateSession (this, "default.katesession", i18n("Default Session")));
 
   qHeapSort(m_sessionList);
 }
 
-void KateSessionManager::activateSession (KateSession::Ptr session, bool closeLast, bool saveLast, bool loadNew)
+void OldKateSessionManager::activateSession (OldKateSession::Ptr session, bool closeLast, bool saveLast, bool loadNew)
 {
   // don't reload.
   // ### comparing the pointers directly is b0rk3d :(
@@ -342,18 +342,18 @@ void KateSessionManager::activateSession (KateSession::Ptr session, bool closeLa
   }
 }
 
-KateSession::Ptr KateSessionManager::createSession (const TQString &name)
+OldKateSession::Ptr OldKateSessionManager::createSession (const TQString &name)
 {
-  KateSession::Ptr s = new KateSession (this, "", "");
+  OldKateSession::Ptr s = new OldKateSession (this, "", "");
   s->create (name);
 
   return s;
 }
 
-KateSession::Ptr KateSessionManager::giveSession (const TQString &name)
+OldKateSession::Ptr OldKateSessionManager::giveSession (const TQString &name)
 {
   if (name.isEmpty())
-    return new KateSession (this, "", "");
+    return new OldKateSession (this, "", "");
 
   updateSessionList();
 
@@ -366,7 +366,7 @@ KateSession::Ptr KateSessionManager::giveSession (const TQString &name)
   return createSession (name);
 }
 
-bool KateSessionManager::saveActiveSession (bool tryAsk, bool rememberAsLast)
+bool OldKateSessionManager::saveActiveSession (bool tryAsk, bool rememberAsLast)
 {
   if (tryAsk)
   {
@@ -437,7 +437,7 @@ bool KateSessionManager::saveActiveSession (bool tryAsk, bool rememberAsLast)
   return true;
 }
 
-bool KateSessionManager::chooseSession ()
+bool OldKateSessionManager::chooseSession ()
 {
   bool success = true;
 
@@ -452,18 +452,18 @@ bool KateSessionManager::chooseSession ()
   // uhh, just open last used session, show no chooser
   if (sesStart == "last")
   {
-    activateSession (new KateSession (this, lastSession, ""), false, false);
+    activateSession (new OldKateSession (this, lastSession, ""), false, false);
     return success;
   }
 
   // start with empty new session
   if (sesStart == "new")
   {
-    activateSession (new KateSession (this, "", ""), false, false);
+    activateSession (new OldKateSession (this, "", ""), false, false);
     return success;
   }
 
-  KateSessionChooser *chooser = new KateSessionChooser (0, lastSession);
+  OldKateSessionChooser *chooser = new OldKateSessionChooser (0, lastSession);
 
   bool retry = true;
   int res = 0;
@@ -473,9 +473,9 @@ bool KateSessionManager::chooseSession ()
 
     switch (res)
     {
-      case KateSessionChooser::resultOpen:
+      case OldKateSessionChooser::resultOpen:
       {
-        KateSession::Ptr s = chooser->selectedSession ();
+        OldKateSession::Ptr s = chooser->selectedSession ();
 
         if (!s)
         {
@@ -489,13 +489,13 @@ bool KateSessionManager::chooseSession ()
       }
 
       // exit the app lateron
-      case KateSessionChooser::resultQuit:
+      case OldKateSessionChooser::resultQuit:
         success = false;
         retry = false;
         break;
 
       default:
-        activateSession (new KateSession (this, "", ""), false, false);
+        activateSession (new OldKateSession (this, "", ""), false, false);
         retry = false;
         break;
     }
@@ -506,9 +506,9 @@ bool KateSessionManager::chooseSession ()
   {
     c->setGroup("General");
 
-    if (res == KateSessionChooser::resultOpen)
+    if (res == OldKateSessionChooser::resultOpen)
       c->writeEntry ("Startup Session", "last");
-    else if (res == KateSessionChooser::resultNew)
+    else if (res == OldKateSessionChooser::resultNew)
       c->writeEntry ("Startup Session", "new");
 
     c->sync ();
@@ -519,24 +519,24 @@ bool KateSessionManager::chooseSession ()
   return success;
 }
 
-void KateSessionManager::sessionNew ()
+void OldKateSessionManager::sessionNew ()
 {
-  activateSession (new KateSession (this, "", ""));
+  activateSession (new OldKateSession (this, "", ""));
 }
 
-void KateSessionManager::sessionOpen ()
+void OldKateSessionManager::sessionOpen ()
 {
-  KateSessionOpenDialog *chooser = new KateSessionOpenDialog (0);
+  OldKateSessionOpenDialog *chooser = new OldKateSessionOpenDialog (0);
 
   int res = chooser->exec ();
 
-  if (res == KateSessionOpenDialog::resultCancel)
+  if (res == OldKateSessionOpenDialog::resultCancel)
   {
     delete chooser;
     return;
   }
 
-  KateSession::Ptr s = chooser->selectedSession ();
+  OldKateSession::Ptr s = chooser->selectedSession ();
 
   if (s)
     activateSession (s);
@@ -544,7 +544,7 @@ void KateSessionManager::sessionOpen ()
   delete chooser;
 }
 
-void KateSessionManager::sessionSave ()
+void OldKateSessionManager::sessionSave ()
 {
   // if the active session is valid, just save it :)
   if (saveActiveSession ())
@@ -566,7 +566,7 @@ void KateSessionManager::sessionSave ()
   saveActiveSession ();
 }
 
-void KateSessionManager::sessionSaveAs ()
+void OldKateSessionManager::sessionSaveAs ()
 {
   bool ok = false;
   TQString name = KInputDialog::getText (i18n("Specify New Name for Current Session"), i18n("Session name:"), "", &ok);
@@ -585,9 +585,9 @@ void KateSessionManager::sessionSaveAs ()
 }
 
 
-void KateSessionManager::sessionManage ()
+void OldKateSessionManager::sessionManage ()
 {
-  KateSessionManageDialog *dlg = new KateSessionManageDialog (0);
+  OldKateSessionManageDialog *dlg = new OldKateSessionManageDialog (0);
 
   dlg->exec ();
 
@@ -596,10 +596,10 @@ void KateSessionManager::sessionManage ()
 
 //BEGIN CHOOSER DIALOG
 
-class KateSessionChooserItem : public TQListViewItem
+class OldKateSessionChooserItem : public TQListViewItem
 {
   public:
-    KateSessionChooserItem (TDEListView *lv, KateSession::Ptr s)
+    OldKateSessionChooserItem (TDEListView *lv, OldKateSession::Ptr s)
      : TQListViewItem (lv, s->sessionName())
      , session (s)
     {
@@ -608,10 +608,10 @@ class KateSessionChooserItem : public TQListViewItem
       setText (1, docs);
     }
 
-    KateSession::Ptr session;
+    OldKateSession::Ptr session;
 };
 
-KateSessionChooser::KateSessionChooser (TQWidget *parent, const TQString &lastSession)
+OldKateSessionChooser::OldKateSessionChooser (TQWidget *parent, const TQString &lastSession)
  : KDialogBase (  parent
                   , ""
                   , true
@@ -648,10 +648,10 @@ KateSessionChooser::KateSessionChooser (TQWidget *parent, const TQString &lastSe
   connect (m_sessions, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(selectionChanged()));
   connect (m_sessions, TQT_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint &, int)), this, TQT_SLOT(slotUser2()));
 
-  KateSessionList &slist (KateSessionManager::self()->sessionList());
+  OldKateSessionList &slist (OldKateSessionManager::self()->sessionList());
   for (unsigned int i=0; i < slist.count(); ++i)
   {
-    KateSessionChooserItem *item = new KateSessionChooserItem (m_sessions, slist[i]);
+    OldKateSessionChooserItem *item = new OldKateSessionChooserItem (m_sessions, slist[i]);
 
     if (slist[i]->sessionFileRelative() == lastSession)
       m_sessions->setSelected (item, true);
@@ -665,13 +665,13 @@ KateSessionChooser::KateSessionChooser (TQWidget *parent, const TQString &lastSe
   selectionChanged ();
 }
 
-KateSessionChooser::~KateSessionChooser ()
+OldKateSessionChooser::~OldKateSessionChooser ()
 {
 }
 
-KateSession::Ptr KateSessionChooser::selectedSession ()
+OldKateSession::Ptr OldKateSessionChooser::selectedSession ()
 {
-  KateSessionChooserItem *item = (KateSessionChooserItem *) m_sessions->selectedItem ();
+  OldKateSessionChooserItem *item = (OldKateSessionChooserItem *) m_sessions->selectedItem ();
 
   if (!item)
     return 0;
@@ -679,27 +679,27 @@ KateSession::Ptr KateSessionChooser::selectedSession ()
   return item->session;
 }
 
-bool KateSessionChooser::reopenLastSession ()
+bool OldKateSessionChooser::reopenLastSession ()
 {
   return m_useLast->isChecked ();
 }
 
-void KateSessionChooser::slotUser2 ()
+void OldKateSessionChooser::slotUser2 ()
 {
   done (resultOpen);
 }
 
-void KateSessionChooser::slotUser3 ()
+void OldKateSessionChooser::slotUser3 ()
 {
   done (resultNew);
 }
 
-void KateSessionChooser::slotUser1 ()
+void OldKateSessionChooser::slotUser1 ()
 {
   done (resultQuit);
 }
 
-void KateSessionChooser::selectionChanged ()
+void OldKateSessionChooser::selectionChanged ()
 {
   enableButton (KDialogBase::User2, m_sessions->selectedItem ());
 }
@@ -708,7 +708,7 @@ void KateSessionChooser::selectionChanged ()
 
 //BEGIN OPEN DIALOG
 
-KateSessionOpenDialog::KateSessionOpenDialog (TQWidget *parent)
+OldKateSessionOpenDialog::OldKateSessionOpenDialog (TQWidget *parent)
  : KDialogBase (  parent
                   , ""
                   , true
@@ -737,22 +737,22 @@ KateSessionOpenDialog::KateSessionOpenDialog (TQWidget *parent)
 
   connect (m_sessions, TQT_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint &, int)), this, TQT_SLOT(slotUser2()));
 
-  KateSessionList &slist (KateSessionManager::self()->sessionList());
+  OldKateSessionList &slist (OldKateSessionManager::self()->sessionList());
   for (unsigned int i=0; i < slist.count(); ++i)
   {
-    new KateSessionChooserItem (m_sessions, slist[i]);
+    new OldKateSessionChooserItem (m_sessions, slist[i]);
   }
 
   setResult (resultCancel);
 }
 
-KateSessionOpenDialog::~KateSessionOpenDialog ()
+OldKateSessionOpenDialog::~OldKateSessionOpenDialog ()
 {
 }
 
-KateSession::Ptr KateSessionOpenDialog::selectedSession ()
+OldKateSession::Ptr OldKateSessionOpenDialog::selectedSession ()
 {
-  KateSessionChooserItem *item = (KateSessionChooserItem *) m_sessions->selectedItem ();
+  OldKateSessionChooserItem *item = (OldKateSessionChooserItem *) m_sessions->selectedItem ();
 
   if (!item)
     return 0;
@@ -760,12 +760,12 @@ KateSession::Ptr KateSessionOpenDialog::selectedSession ()
   return item->session;
 }
 
-void KateSessionOpenDialog::slotUser1 ()
+void OldKateSessionOpenDialog::slotUser1 ()
 {
   done (resultCancel);
 }
 
-void KateSessionOpenDialog::slotUser2 ()
+void OldKateSessionOpenDialog::slotUser2 ()
 {
   done (resultOk);
 }
@@ -774,7 +774,7 @@ void KateSessionOpenDialog::slotUser2 ()
 
 //BEGIN MANAGE DIALOG
 
-KateSessionManageDialog::KateSessionManageDialog (TQWidget *parent)
+OldKateSessionManageDialog::OldKateSessionManageDialog (TQWidget *parent)
  : KDialogBase (  parent
                   , ""
                   , true
@@ -821,27 +821,27 @@ KateSessionManageDialog::KateSessionManageDialog (TQWidget *parent)
   selectionChanged ();
 }
 
-KateSessionManageDialog::~KateSessionManageDialog ()
+OldKateSessionManageDialog::~OldKateSessionManageDialog ()
 {
 }
 
-void KateSessionManageDialog::slotUser1 ()
+void OldKateSessionManageDialog::slotUser1 ()
 {
   done (0);
 }
 
 
-void KateSessionManageDialog::selectionChanged ()
+void OldKateSessionManageDialog::selectionChanged ()
 {
-  KateSessionChooserItem *item = (KateSessionChooserItem *) m_sessions->selectedItem ();
+  OldKateSessionChooserItem *item = (OldKateSessionChooserItem *) m_sessions->selectedItem ();
 
   m_rename->setEnabled (item && item->session->sessionFileRelative() != "default.katesession");
   m_del->setEnabled (item && item->session->sessionFileRelative() != "default.katesession");
 }
 
-void KateSessionManageDialog::rename ()
+void OldKateSessionManageDialog::rename ()
 {
-  KateSessionChooserItem *item = (KateSessionChooserItem *) m_sessions->selectedItem ();
+  OldKateSessionChooserItem *item = (OldKateSessionChooserItem *) m_sessions->selectedItem ();
 
   if (!item || item->session->sessionFileRelative() == "default.katesession")
     return;
@@ -862,43 +862,43 @@ void KateSessionManageDialog::rename ()
   updateSessionList ();
 }
 
-void KateSessionManageDialog::del ()
+void OldKateSessionManageDialog::del ()
 {
-  KateSessionChooserItem *item = (KateSessionChooserItem *) m_sessions->selectedItem ();
+  OldKateSessionChooserItem *item = (OldKateSessionChooserItem *) m_sessions->selectedItem ();
 
   if (!item || item->session->sessionFileRelative() == "default.katesession")
     return;
 
   TQFile::remove (item->session->sessionFile());
-  KateSessionManager::self()->updateSessionList ();
+  OldKateSessionManager::self()->updateSessionList ();
   updateSessionList ();
 }
 
-void KateSessionManageDialog::updateSessionList ()
+void OldKateSessionManageDialog::updateSessionList ()
 {
   m_sessions->clear ();
 
-  KateSessionList &slist (KateSessionManager::self()->sessionList());
+  OldKateSessionList &slist (OldKateSessionManager::self()->sessionList());
   for (unsigned int i=0; i < slist.count(); ++i)
   {
-    new KateSessionChooserItem (m_sessions, slist[i]);
+    new OldKateSessionChooserItem (m_sessions, slist[i]);
   }
 }
 
 //END MANAGE DIALOG
 
 
-KateSessionsAction::KateSessionsAction(const TQString& text, TQObject* parent, const char* name )
+OldKateSessionsAction::OldKateSessionsAction(const TQString& text, TQObject* parent, const char* name )
   : TDEActionMenu(text, parent, name)
 {
   connect(popupMenu(),TQT_SIGNAL(aboutToShow()),this,TQT_SLOT(slotAboutToShow()));
 }
 
-void KateSessionsAction::slotAboutToShow()
+void OldKateSessionsAction::slotAboutToShow()
 {
   popupMenu()->clear ();
 
-  KateSessionList &slist (KateSessionManager::self()->sessionList());
+  OldKateSessionList &slist (OldKateSessionManager::self()->sessionList());
   for (unsigned int i=0; i < slist.count(); ++i)
   {
       popupMenu()->insertItem (
@@ -908,13 +908,13 @@ void KateSessionsAction::slotAboutToShow()
   }
 }
 
-void KateSessionsAction::openSession (int i)
+void OldKateSessionsAction::openSession (int i)
 {
-  KateSessionList &slist (KateSessionManager::self()->sessionList());
+  OldKateSessionList &slist (OldKateSessionManager::self()->sessionList());
 
   if ((uint)i >= slist.count())
     return;
 
-  KateSessionManager::self()->activateSession(slist[(uint)i]);
+  OldKateSessionManager::self()->activateSession(slist[(uint)i]);
 }
 // kate: space-indent on; indent-width 2; replace-tabs on; mixed-indent off;

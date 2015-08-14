@@ -46,7 +46,7 @@ void KateSessionPanelToolBarParent::resizeEvent (TQResizeEvent*)
 KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *viewManager,
     TQWidget *parent, const char *name)
     : TQVBox(parent, name), m_mainWin(mainWindow), m_viewManager(viewManager),
-      m_sessionManager(KateSessionManager::self()), m_actionCollection(new TDEActionCollection(this))
+      m_sessionManager(OldKateSessionManager::self()), m_actionCollection(new TDEActionCollection(this))
 {
   // Toolbar
   setup_toolbar();

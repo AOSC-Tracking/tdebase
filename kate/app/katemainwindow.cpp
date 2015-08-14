@@ -306,14 +306,14 @@ void KateMainWindow::setupActions()
   slotWindowActivated ();
 
   // session actions
-  new TDEAction(i18n("Menu entry Session->New", "&New"), "list-add", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionNew()), actionCollection(), "sessions_new");
-  new TDEAction(i18n("&Open..."), "document-open", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionOpen()), actionCollection(), "sessions_open");
-  new TDEAction(i18n("&Save"), "document-save", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionSave()), actionCollection(), "sessions_save");
-  new TDEAction(i18n("Save &As..."), "document-save-as", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionSaveAs()), actionCollection(), "sessions_save_as");
-  new TDEAction(i18n("&Manage..."), "view_choose", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionManage()), actionCollection(), "sessions_manage");
+  new TDEAction(i18n("Menu entry Session->New", "&New"), "list-add", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionNew()), actionCollection(), "sessions_new");
+  new TDEAction(i18n("&Open..."), "document-open", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionOpen()), actionCollection(), "sessions_open");
+  new TDEAction(i18n("&Save"), "document-save", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionSave()), actionCollection(), "sessions_save");
+  new TDEAction(i18n("Save &As..."), "document-save-as", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionSaveAs()), actionCollection(), "sessions_save_as");
+  new TDEAction(i18n("&Manage..."), "view_choose", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionManage()), actionCollection(), "sessions_manage");
 
   // quick open menu ;)
-  new KateSessionsAction (i18n("&Quick Open"), actionCollection(), "sessions_list");
+  new OldKateSessionsAction (i18n("&Quick Open"), actionCollection(), "sessions_list");
 }
 
 KateTabWidget *KateMainWindow::tabWidget ()

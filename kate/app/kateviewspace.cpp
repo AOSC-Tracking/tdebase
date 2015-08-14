@@ -114,7 +114,7 @@ void KateViewSpace::addView(Kate::View* v, bool show)
     {
       TQString vgroup = TQString("%1 %2").arg(m_group).arg(fn);
 
-      KateSession::Ptr as = KateSessionManager::self()->activeSession ();
+      OldKateSession::Ptr as = OldKateSessionManager::self()->activeSession ();
       if ( as->configRead() && as->configRead()->hasGroup( vgroup ) )
       {
         as->configRead()->setGroup( vgroup );

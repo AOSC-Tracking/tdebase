@@ -33,7 +33,7 @@
 
 class KateMainWindow;
 class KateViewManager;
-class KateSessionManager;
+class OldKateSessionManager;
 class TDEActionCollection;
 
 
@@ -80,7 +80,7 @@ class KateSessionPanel : public TQVBox
 
     KateMainWindow *m_mainWin;
     KateViewManager *m_viewManager;
-    KateSessionManager *m_sessionManager;
+    OldKateSessionManager *m_sessionManager;
     TDEActionCollection *m_actionCollection;
 
     TDEToolBar  *m_toolbar;

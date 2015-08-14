@@ -29,7 +29,7 @@
 #include <tqobject.h>
 #include <tqvaluelist.h>
 
-class KateSessionManager;
+class OldKateSessionManager;
 
 class KDirWatch;
 class TDEListView;
@@ -37,13 +37,13 @@ class KPushButton;
 
 class TQCheckBox;
 
-class KateSession  : public TDEShared
+class OldKateSession  : public TDEShared
 {
   public:
     /**
      * Define a Shared-Pointer type
      */
-    typedef TDESharedPtr<KateSession> Ptr;
+    typedef TDESharedPtr<OldKateSession> Ptr;
 
   public:
     /**
@@ -52,7 +52,7 @@ class KateSession  : public TDEShared
      * @param name session name
      * @param manager pointer to the manager
      */
-    KateSession (KateSessionManager *manager, const TQString &fileName, const TQString &name);
+    OldKateSession (OldKateSessionManager *manager, const TQString &fileName, const TQString &name);
 
     /**
      * init the session object, after construction or create
@@ -62,7 +62,7 @@ class KateSession  : public TDEShared
     /**
      * destruct me
      */
-    ~KateSession ();
+    ~OldKateSession ();
 
     /**
      * session filename, absolute, calculated out of relative filename + session dir
@@ -143,9 +143,9 @@ class KateSession  : public TDEShared
     unsigned int m_documents;
 
     /**
-     * KateSessionMananger
+     * OldKateSessionMananger
      */
-    KateSessionManager *m_manager;
+    OldKateSessionManager *m_manager;
 
     /**
      * simpleconfig to read from
@@ -158,27 +158,27 @@ class KateSession  : public TDEShared
     KSimpleConfig *m_writeConfig;
 };
 
-typedef TQValueList<KateSession::Ptr> KateSessionList;
+typedef TQValueList<OldKateSession::Ptr> OldKateSessionList;
 
-class KateSessionManager : public TQObject
+class OldKateSessionManager : public TQObject
 {
   Q_OBJECT
 
   public:
-    KateSessionManager(TQObject *parent);
-    ~KateSessionManager();
+    OldKateSessionManager(TQObject *parent);
+    ~OldKateSessionManager();
 
     /**
      * allow access to this :)
      * @return instance of the session manager
      */
-    static KateSessionManager *self();
+    static OldKateSessionManager *self();
 
     /**
      * allow access to the session list
      * kept up to date by watching the dir
      */
-    inline KateSessionList & sessionList () { updateSessionList (); return m_sessionList; }
+    inline OldKateSessionList & sessionList () { updateSessionList (); return m_sessionList; }
 
     /**
      * activate a session
@@ -189,20 +189,20 @@ class KateSessionManager : public TQObject
      * @param saveLast try to save last session or not?
      * @param loadNew load new session stuff?
      */
-    void activateSession (KateSession::Ptr session, bool closeLast = true, bool saveLast = true, bool loadNew = true);
+    void activateSession (OldKateSession::Ptr session, bool closeLast = true, bool saveLast = true, bool loadNew = true);
 
     /**
      * create a new session
      * @param name session name
      */
-    KateSession::Ptr createSession (const TQString &name);
+    OldKateSession::Ptr createSession (const TQString &name);
 
     /**
      * return session with given name
      * if no existing session matches, create new one with this name
      * @param name session name
      */
-    KateSession::Ptr giveSession (const TQString &name);
+    OldKateSession::Ptr giveSession (const TQString &name);
 
     /**
      * save current session
@@ -218,7 +218,7 @@ class KateSessionManager : public TQObject
      * sessionFile == empty means we have no session around for this instance of kate
      * @return session active atm
      */
-    inline KateSession::Ptr activeSession () { return m_activeSession; }
+    inline OldKateSession::Ptr activeSession () { return m_activeSession; }
 
     /**
      * session dir
@@ -277,23 +277,23 @@ class KateSessionManager : public TQObject
     /**
      * list of current available sessions
      */
-    KateSessionList m_sessionList;
+    OldKateSessionList m_sessionList;
 
     /**
      * current active session
      */
-    KateSession::Ptr m_activeSession;
+    OldKateSession::Ptr m_activeSession;
 };
 
-class KateSessionChooser : public KDialogBase
+class OldKateSessionChooser : public KDialogBase
 {
   Q_OBJECT
 
   public:
-    KateSessionChooser (TQWidget *parent, const TQString &lastSession);
-    ~KateSessionChooser ();
+    OldKateSessionChooser (TQWidget *parent, const TQString &lastSession);
+    ~OldKateSessionChooser ();
 
-    KateSession::Ptr selectedSession ();
+    OldKateSession::Ptr selectedSession ();
 
     bool reopenLastSession ();
 
@@ -330,15 +330,15 @@ class KateSessionChooser : public KDialogBase
     TQCheckBox *m_useLast;
 };
 
-class KateSessionOpenDialog : public KDialogBase
+class OldKateSessionOpenDialog : public KDialogBase
 {
   Q_OBJECT
 
   public:
-    KateSessionOpenDialog (TQWidget *parent);
-    ~KateSessionOpenDialog ();
+    OldKateSessionOpenDialog (TQWidget *parent);
+    ~OldKateSessionOpenDialog ();
 
-    KateSession::Ptr selectedSession ();
+    OldKateSession::Ptr selectedSession ();
 
     enum {
       resultOk,
@@ -360,13 +360,13 @@ class KateSessionOpenDialog : public KDialogBase
     TDEListView *m_sessions;
 };
 
-class KateSessionManageDialog : public KDialogBase
+class OldKateSessionManageDialog : public KDialogBase
 {
   Q_OBJECT
 
   public:
-    KateSessionManageDialog (TQWidget *parent);
-    ~KateSessionManageDialog ();
+    OldKateSessionManageDialog (TQWidget *parent);
+    ~OldKateSessionManageDialog ();
 
   protected slots:
     /**
@@ -401,13 +401,13 @@ class KateSessionManageDialog : public KDialogBase
     KPushButton *m_del;
 };
 
-class KateSessionsAction : public TDEActionMenu
+class OldKateSessionsAction : public TDEActionMenu
 {
   Q_OBJECT
 
   public:
-    KateSessionsAction(const TQString& text, TQObject* parent = 0, const char* name = 0);
-    ~KateSessionsAction (){;};
+    OldKateSessionsAction(const TQString& text, TQObject* parent = 0, const char* name = 0);
+    ~OldKateSessionsAction (){;};
 
   public  slots:
     void slotAboutToShow();
