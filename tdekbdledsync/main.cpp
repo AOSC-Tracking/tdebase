@@ -404,13 +404,11 @@ int main() {
 
 				if (x11_vt_num == vtstat.v_active) {
 					// Get Virtual Core keyboard status
-					if (XkbGetIndicatorState(display, XkbUseCoreKbd, &states) != Success) {
+					if (XkbGetState(display, XkbUseCoreKbd, &state) != Success) {
 						fprintf(stderr, "[tdekbdledsync] Unable to query X11 Virtual Core keyboard!\n");
 						releaseLock(lockfd, lockFileName);
 						return -7;
 					}
-
-					XkbGetState(display, XkbUseCoreKbd, &state);
 
 					caps_lock_set = (state.mods & caps_lock_mask);
 					num_lock_set = (state.mods & num_lock_mask);
