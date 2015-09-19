@@ -440,6 +440,11 @@ int main() {
 						}
 					}
 				}
+				else {
+					// Ensure the X server is still alive
+					// If the X server has terminated, this will fail and the program will terminate
+					XSync(display, False);
+				}
 
 				// Check the hotplug monitoring process to see if any keyboards were added or removed
 				fd_set readfds;
