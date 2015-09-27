@@ -48,6 +48,271 @@
 #include <unistd.h>
 #include <time.h>
 
+// String constants
+namespace
+{
+  // Kate session
+  const char *KS_COUNT    = "Count";
+  const char *KS_DOCCOUNT = "Document count";
+  const char *KS_DOCLIST  = "Document list";
+  const char *KS_GENERAL  = "General";
+  const char *KS_NAME     = "Name";
+  const char *KS_OPENDOC  = "Open Documents";
+  const char *KS_READONLY = "ReadOnly";
+  const char *KS_UNNAMED  = "Unnamed";
+
+  // Kate session manager
+  const char *KSM_DIR     = "kate/sessions";
+  const char *KSM_FILE    = "sessions.list";
+  const char *KSM_SESSIONS_COUNT = "Sessions count";
+  const char *KSM_SESSIONS_LIST  = "Sessions list";
+}
+
+KateSession::KateSession(const TQString &sessionName, const TQString &filename, bool isFullName) :
+  m_sessionName(sessionName), m_filename(filename), m_isFullName(isFullName),
+  m_readOnly(false), m_docCount(0), m_documents(), m_config(NULL)
+{
+  if (m_isFullName && TDEGlobal::dirs()->exists(m_filename))
+  {
+    // Create config object if the session file already exists
+    m_config = new KSimpleConfig(m_filename, m_readOnly);
+    m_config->setGroup(KS_GENERAL);
+    // Session name
+    if (m_sessionName.isEmpty())
+    {
+      m_sessionName = m_config->readEntry(KS_NAME, i18n(KS_UNNAMED));
+    }
+    // Read only
+    m_readOnly = m_config->readBoolEntry(KS_READONLY, false);
+    m_config->setReadOnly(m_readOnly);
+    // Document list
+    if (m_config->hasGroup(KS_DOCLIST))
+    {
+      // Read new style document list (from TDE R14.1.0)
+      m_config->setGroup(KS_DOCLIST);
+      m_docCount = m_config->readNumEntry(KS_DOCCOUNT, 0);
+      for (int i=0; i<m_docCount; ++i)
+      {
+        TQString urlStr = m_config->readEntry(TQString("URL_%1").arg(i));
+        if (!urlStr.isEmpty())
+        {
+          // Filter out empty URLs
+          m_documents.append(urlStr);
+        }
+      }
+    }
+    else
+    {
+      // Create document list from old session configuration
+      // to effortlessly import existing sessions
+      m_config->setGroup(KS_OPENDOC);
+      m_docCount = m_config->readNumEntry(KS_COUNT, 0);
+      for (int i=0; i<m_docCount; ++i)
+      {
+        m_config->setGroup(TQString("Document %1").arg(i));
+        TQString urlStr = m_config->readEntry("URL");
+        if (!urlStr.isEmpty())
+        {
+          // Filter out empty URLs
+          m_documents.append(urlStr);
+        }
+      }
+    }
+    // Update document count again, in case empty URLs were found
+    m_docCount = static_cast<int>(m_documents.count());
+  }
+  if (m_sessionName.isEmpty())
+  {
+    m_sessionName = i18n(KS_UNNAMED);
+  }
+  if (m_docCount == 0)
+  {
+    m_documents.clear();
+  }
+}
+
+//------------------------------------
+KateSession::~KateSession()
+{
+  if (m_config)
+  {
+    delete m_config;
+  }
+}
+
+//------------------------------------
+void KateSession::setSessionName(const TQString &sessionName)
+{
+  m_sessionName = sessionName;
+  if (m_sessionName.isEmpty())
+  {
+    m_sessionName = i18n(KS_UNNAMED);
+  }
+}
+
+//------------------------------------
+void KateSession::setReadOnly(bool readOnly)
+{
+  if (!m_readOnly && readOnly)
+  {
+    // When a session is turned read only, make sure the current
+    // status is first saved to disk
+    save();
+  }
+  m_readOnly = readOnly;
+  if (m_config)
+  {
+    m_config->setReadOnly(m_readOnly);
+  }
+}
+
+//------------------------------------
+void KateSession::save()
+{
+  if (m_readOnly)
+    return;
+
+  if (!m_isFullName)
+  {
+    // create a new session filename
+    int s = time(0);
+    TQCString tname;
+    TQString tmpName;
+    while (true)
+    {
+      tname.setNum(s++);
+      KMD5 md5(tname);
+      tmpName = m_filename + TQString("%1.katesession").arg(md5.hexDigest().data());
+      if (!TDEGlobal::dirs()->exists(tmpName))
+      {
+        m_filename = tmpName;
+        m_isFullName = true;
+        break;
+      }
+    }
+  }
+
+  if (!m_config)
+  {
+    m_config = new KSimpleConfig(m_filename);
+  }
+  if (m_config->hasGroup(KS_GENERAL))
+  {
+    m_config->deleteGroup(KS_GENERAL);
+  }
+  m_config->setGroup(KS_GENERAL);
+  m_config->writeEntry(KS_NAME, m_sessionName);
+  m_config->writeEntry(KS_READONLY, m_readOnly);
+
+  if (m_config->hasGroup(KS_DOCLIST))
+  {
+    m_config->deleteGroup(KS_DOCLIST);
+  }
+  m_config->setGroup(KS_DOCLIST);
+  m_config->writeEntry(KS_DOCCOUNT, m_docCount);
+  for (int i=0; i<m_docCount; ++i)
+  {
+    m_config->writeEntry(TQString("URL_%1").arg(i), m_documents[i]);
+  }
+
+  m_config->sync();
+}
+
+//------------------------------------
+KateSessionManager *KateSessionManager::ksm_instance = NULL;
+
+//------------------------------------
+KateSessionManager* KateSessionManager::self()
+{
+  if (!KateSessionManager::ksm_instance)
+  {
+    KateSessionManager::ksm_instance = new KateSessionManager();
+  }
+  return KateSessionManager::ksm_instance;
+}
+
+//------------------------------------
+KateSessionManager::KateSessionManager() :
+  m_baseDir(locateLocal("data", KSM_DIR)+"/"), m_configFile(m_baseDir + KSM_FILE),
+  m_sessionsCount(0), m_sessions(), m_config(NULL)
+{
+  m_sessions.setAutoDelete(true);
+
+  if (TDEGlobal::dirs()->exists(m_configFile))
+  {
+    // Read new style configuration (from TDE R14.1.0)
+    m_config = new KSimpleConfig(m_configFile);
+    m_config->setGroup(KSM_SESSIONS_LIST);
+    m_sessionsCount = m_config->readNumEntry(KSM_SESSIONS_COUNT, 0);
+    for (int i=0; i<m_sessionsCount; ++i)
+    {
+      TQString urlStr = m_config->readEntry(TQString("URL_%1").arg(i));
+      if (!urlStr.isEmpty() && TDEGlobal::dirs()->exists(urlStr))
+      {
+        // Filter out empty URLs or non existing sessions
+        m_sessions.append(new KateSession(TQString::null, urlStr, true));
+      }
+    }
+  }
+  else
+  {
+    // Create sessions list from session files
+    // to effortlessly import existing sessions
+    TQDir sessionDir(m_baseDir, "*.katesession");
+    for (unsigned int i=0; i<sessionDir.count(); ++i)
+    {
+      m_sessions.append(new KateSession(TQString::null, m_baseDir+sessionDir[i], true));
+    }
+  }
+  m_sessionsCount = static_cast<int>(m_sessions.count());
+}
+
+//------------------------------------
+KateSessionManager::~KateSessionManager()
+{
+  saveConfig();
+  if (m_config)
+  {
+    delete m_config;
+  }
+  if (!m_sessions.isEmpty())
+  {
+    m_sessions.clear();
+  }
+}
+
+//------------------------------------
+void KateSessionManager::saveConfig()
+{
+  if (!m_config)
+  {
+    m_config = new KSimpleConfig(m_configFile);
+  }
+  if (m_config->hasGroup(KSM_SESSIONS_LIST))
+  {
+    m_config->deleteGroup(KSM_SESSIONS_LIST);
+  }
+  m_config->setGroup(KSM_SESSIONS_LIST);
+  m_config->writeEntry(KSM_SESSIONS_COUNT, m_sessionsCount);
+  for (int i=0; i<m_sessionsCount; ++i)
+  {
+    // Save the session first, to make sure a new session has an associated file
+    m_sessions[i]->save();
+    m_config->writeEntry(TQString("URL_%1").arg(i), m_sessions[i]->getSessionFilename());
+  }
+  m_config->sync();
+}
+
+
+
+
+
+
+//------------------------------------
+//------------------------------------
+//------------------------------------
+//------------------------------------
+// Michele - to be removed with OldKateSession
 bool operator<( const OldKateSession::Ptr& a, const OldKateSession::Ptr& b )
 {
   return a->sessionName().lower() < b->sessionName().lower();

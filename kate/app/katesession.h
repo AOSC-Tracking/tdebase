@@ -27,9 +27,11 @@
 #include <tdeaction.h>
 
 #include <tqobject.h>
+#include <tqptrlist.h>
 #include <tqvaluelist.h>
+#include <tqstringlist.h>
 
-class OldKateSessionManager;
+class OldKateSessionManager;  // Michele - to be removed with OldKateSession
 
 class KDirWatch;
 class TDEListView;
@@ -37,6 +39,111 @@ class KPushButton;
 
 class TQCheckBox;
 
+class KateSession
+{
+  public:
+
+    /**
+     * create a new session and read the config from fileName if it exists
+     * @param sessionName session name
+     * @param fileName file where session config is saved to/restored from
+     * @param isFullName true  -> filename is a full filename, used to load/save the session configuration
+     *                   false -> filename is a folder name. This is used for new unsaved sessions
+     *                            to inject the location where the configuration file should be saved
+     */
+    KateSession(const TQString &sessionName, const TQString &fileName, bool isFullName);
+
+    /**
+     * Destructor
+     */
+	 ~KateSession();
+
+		/**
+     * Returns the session name
+     */
+		const TQString& getSessionName() const { return m_sessionName; }
+		/**
+     * Set the new session name
+     * @param sessionName the new session name
+     */
+		void setSessionName(const TQString &sessionName);
+
+		/**
+     * Returns whether the session is read only or not
+     */
+		bool isReadOnly() const { return m_readOnly; }
+		/**
+     * Set session read only status
+     * @param readOnly if true, the session config can not be saved to file
+     */
+		void setReadOnly(bool readOnly);
+
+		/**
+     * Returns the session filename
+     */
+		const TQString& getSessionFilename() const { return m_filename; }
+
+    /**
+     * Save session info
+     * @return true if the session config is saved, false otherwise
+     */
+	  void save();
+
+
+  private:
+    TQString       m_sessionName;
+    TQString       m_filename;
+    bool           m_isFullName;   // true  -> m_filename is a full filename
+                                   // false -> m_filename is a folder name.
+    bool           m_readOnly;
+    int	 					 m_docCount;		 // number of documents in the session
+    TQStringList   m_documents;    // document URLs
+    KSimpleConfig *m_config;       // session config
+
+};
+
+
+//------------------------------------
+class KateSessionManager
+{
+  public:
+
+    /**
+     * get a pointer to the unique KateSessionManager instance.
+     * If the manager does not exist yet, create it.
+     */
+    static KateSessionManager* self();
+
+    /**
+     * Destructor
+     */
+	 ~KateSessionManager();
+
+    /**
+     * Save session manager info
+     */
+	  void saveConfig();
+
+
+  private:
+    KateSessionManager();
+
+    TQString m_baseDir;       					// folder where session files are stored
+    TQString m_configFile;     					// file where the session list config is stored
+    int m_sessionsCount;	     					// number of sessions
+    TQPtrList<KateSession> m_sessions;  // session list
+    KSimpleConfig *m_config;        		// session manager config
+
+		static KateSessionManager *ksm_instance;  // the only KateSessionManager instance
+};
+
+
+
+
+
+//------------------------------------
+//------------------------------------
+//------------------------------------
 class OldKateSession  : public TDEShared
 {
   public:
