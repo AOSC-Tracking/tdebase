@@ -157,10 +157,10 @@ void SAKDlg::processInputPipeCommand(TQString command) {
 
 SAKDlg::~SAKDlg()
 {
-    if ((mSAKProcess) && (mSAKProcess->isRunning())) {
-        mSAKProcess->kill(SIGTERM);
-        delete mSAKProcess;
-    }
+	if ((mSAKProcess) && (mSAKProcess->isRunning())) {
+		mSAKProcess->kill(SIGKILL);
+		delete mSAKProcess;
+	}
 
     mControlPipeHandlerThread->terminate();
     mControlPipeHandlerThread->wait();

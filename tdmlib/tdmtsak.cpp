@@ -1,6 +1,6 @@
 /*
    This file is part of the TDE project
-   Copyright (C) 2011 Timothy Pearson <kb9vqf@pearsoncomputing.net>
+   Copyright (C) 2011 - 2015 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -18,9 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "tdmtsak.h"
-
 #include <tqstringlist.h>
+
+#include "dmctl.h"
+
+#include "tdmtsak.h"
 
 #define FIFO_FILE "/tmp/tdesocket-global/tsak"
 
@@ -44,15 +46,17 @@ bool is_vt_local() {
 		return false;
 	}
 	else {
-		TQString cvtName = "";
-		TQString output = exec("tdmctl list");
-		TQStringList sessionList = TQStringList::split('\t', output, false);
-		// See if the current session is local
-		for ( TQStringList::Iterator it = sessionList.begin(); it != sessionList.end(); ++it ) {
-			TQStringList sessionInfoList = TQStringList::split(',', *it, true);
-			if ((*(sessionInfoList.at(0))).startsWith(":")) {
-				if (TQString(currentDisplay).startsWith(*(sessionInfoList.at(0)))) {
-					return true;
+		DM dm;
+		SessList sess;
+		if (dm.localSessions(sess)) {
+			TQString user, loc;
+			for (SessList::ConstIterator it = sess.begin(); it != sess.end(); ++it) {
+				DM::sess2Str2(*it, user, loc);
+				TQStringList sessionInfoList = TQStringList::split(',', loc, true);
+				if ((*(sessionInfoList.at(0))).startsWith(":")) {
+					if (TQString(currentDisplay).startsWith(*(sessionInfoList.at(0)))) {
+						return true;
+					}
 				}
 			}
 		}
@@ -68,44 +72,54 @@ bool is_vt_active() {
 		return true;
 	}
 	else {
+		DM dm;
+		SessList sess;
 		TQString cvtName = "";
-		TQString output = exec("tdmctl list");
-		TQString curConsole = exec("fgconsole");
-		bool intFound;
-		int curConsoleNum = curConsole.toInt(&intFound);
-		if (intFound == false) {
+		TQString curConsole;
+		int curConsoleNum = dm.activeVT();
+		if (curConsoleNum < 0) {
 			return true;
 		}
-		curConsole = TQString("vt%1").arg(curConsoleNum);;
-		TQStringList sessionList = TQStringList::split('\t', output, false);
-		for ( TQStringList::Iterator it = sessionList.begin(); it != sessionList.end(); ++it ) {
-			TQStringList sessionInfoList = TQStringList::split(',', *it, true);
-			if ((*(sessionInfoList.at(0))).startsWith(":")) {
-				if ((*(sessionInfoList.at(1))) == TQString(curConsole)) {
-					cvtName = (*(sessionInfoList.at(0)));
-				}
-			}
-		}
-		if (cvtName != "") {
-			if (TQString(currentDisplay).startsWith(cvtName)) {
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-		else {
-			// See if the current session is local
-			// If it is, then the VT is not currently active and the SAK must be requested later when it is active
-			for ( TQStringList::Iterator it = sessionList.begin(); it != sessionList.end(); ++it ) {
-				TQStringList sessionInfoList = TQStringList::split(',', *it, true);
+		curConsole = TQString("vt%1").arg(curConsoleNum);
+		if (dm.localSessions(sess)) {
+			TQString user, loc;
+			for (SessList::ConstIterator it = sess.begin(); it != sess.end(); ++it) {
+				DM::sess2Str2(*it, user, loc);
+				TQStringList sessionInfoList = TQStringList::split(',', loc, true);
 				if ((*(sessionInfoList.at(0))).startsWith(":")) {
-					if (TQString(currentDisplay).startsWith(*(sessionInfoList.at(0)))) {
-						return false;
+					if ((*(sessionInfoList.at(1))).stripWhiteSpace() == TQString(curConsole)) {
+						cvtName = (*(sessionInfoList.at(0)));
 					}
 				}
 			}
-			// Hmm, not local
+			if (cvtName != "") {
+				if (TQString(currentDisplay).startsWith(cvtName)) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+			else {
+				// See if the current session is local
+				// If it is, then the VT is not currently active and the SAK must be requested later when it is active
+				for (SessList::ConstIterator it = sess.begin(); it != sess.end(); ++it) {
+					DM::sess2Str2(*it, user, loc);
+					if ((*it).self) {
+						TQStringList sessionInfoList = TQStringList::split(',', loc, true);
+						if ((*(sessionInfoList.at(1))).startsWith(" vt")) {
+							// Local and inactive
+							return false;
+						}
+					}
+				}
+				// Hmm, not local
+				// Do not reject the SAK
+				return true;
+			}
+		}
+		else {
+			// Failure!
 			// Do not reject the SAK
 			return true;
 		}

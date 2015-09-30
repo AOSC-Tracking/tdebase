@@ -119,11 +119,11 @@ void SAKDlg::slotSAKProcessExited()
 
 SAKDlg::~SAKDlg()
 {
-    if ((mSAKProcess) && (mSAKProcess->isRunning())) {
-        mSAKProcess->kill(SIGTERM);
-        delete mSAKProcess;
-    }
-    hide();
+	if ((mSAKProcess) && (mSAKProcess->isRunning())) {
+		mSAKProcess->kill(SIGKILL);
+		delete mSAKProcess;
+	}
+	hide();
 }
 
 void SAKDlg::closeDialogForced()

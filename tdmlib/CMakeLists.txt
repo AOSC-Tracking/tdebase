@@ -77,7 +77,7 @@ endif( )
 if( BUILD_TSAK )
   tde_add_executable( tdmtsak
     SOURCES tdmtsak.cpp
-    LINK ${TQT_LIBRARIES}
+    LINK ${TQT_LIBRARIES} tdecore-shared dmctl-static
     DESTINATION ${BIN_INSTALL_DIR}
     SETUID
     DESCRIPTION "Secure Attention Key interface for TDM"
