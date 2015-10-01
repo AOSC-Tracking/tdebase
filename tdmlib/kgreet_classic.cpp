@@ -402,22 +402,32 @@ KClassicGreeter::failed()
 void // virtual
 KClassicGreeter::revive()
 {
-	// assert( !running );
-	setActive2( true );
+	// assert(!running);
+	setActive2(true);
 	if (authTok) {
-		passwd1Edit->erase();
-		passwd2Edit->erase();
-		passwd1Edit->setFocus();
-	} else {
+		if (passwd1Edit) {
+			passwd1Edit->erase();
+		}
+		if (passwd2Edit) {
+			passwd2Edit->erase();
+		}
+		if (passwd1Edit) {
+			passwd1Edit->setFocus();
+		}
+	}
+	else {
 		passwdEdit->erase();
-		if (loginEdit && loginEdit->isEnabled())
+		if (loginEdit && loginEdit->isEnabled()) {
 			passwdEdit->setEnabled( true );
+		}
 		else {
 			setActive( true );
-			if (loginEdit && loginEdit->text().isEmpty())
+			if (loginEdit && loginEdit->text().isEmpty()) {
 				loginEdit->setFocus();
-			else
+			}
+			else {
 				passwdEdit->setFocus();
+			}
 		}
 	}
 }
