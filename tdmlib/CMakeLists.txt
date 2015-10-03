@@ -67,7 +67,7 @@ if( BUILD_KICKER OR BUILD_KDESKTOP OR BUILD_TDM OR
 
   tde_add_library( dmctl STATIC_PIC
     SOURCES dmctl.cpp
-    LINK Xau
+    LINK tdecore-shared Xau
   )
 
 endif( )
@@ -77,7 +77,7 @@ endif( )
 if( BUILD_TSAK )
   tde_add_executable( tdmtsak
     SOURCES tdmtsak.cpp
-    LINK ${TQT_LIBRARIES} tdecore-shared dmctl-static
+    LINK ${TQT_LIBRARIES} dmctl-static
     DESTINATION ${BIN_INSTALL_DIR}
     SETUID
     DESCRIPTION "Secure Attention Key interface for TDM"
