@@ -541,7 +541,7 @@ kg_main( const char *argv0 )
 	}
 	if (twin) {
 		if (twin->isRunning()) {
-			if (login_session_wm.endsWith("/starttde") || (login_session_wm == "failsafe")) {
+			if ((login_session_wm == "tde") || (login_session_wm == "trinity") || (login_session_wm == "failsafe")) {
 				twin->closeStdin();
 				twin->detach();
 				dcop->detach();
