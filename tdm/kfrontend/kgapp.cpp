@@ -520,7 +520,8 @@ kg_main( const char *argv0 )
 	}
 	if (comp) {
 		if (comp->isRunning()) {
-			if (_compositor == TDE_COMPOSITOR_BINARY) {
+			if (((login_session_wm == "tde") || (login_session_wm == "trinity") || (login_session_wm == "failsafe")) &&
+			    (_compositor == TDE_COMPOSITOR_BINARY)) {
 				// Change process UID
 				// Get user UID
 				passwd* userinfo = getpwnam(login_user.ascii());
@@ -533,9 +534,12 @@ kg_main( const char *argv0 )
 					comp->writeStdin(newuid.ascii(), newuid.length());
 					usleep(50000);	// Give the above function some time to execute.  Note that on REALLY slow systems this could fail, leaving kompmgr running as root.  TODO: Look into ways to make this more robust.
 				}
+				comp->closeStdin();
+				comp->detach();
 			}
-			comp->closeStdin();
-			comp->detach();
+			else {
+				comp->kill();
+			}
 		}
 		delete comp;
 	}
