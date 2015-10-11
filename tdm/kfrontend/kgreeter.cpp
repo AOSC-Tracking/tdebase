@@ -735,15 +735,18 @@ KGreeter::slotLoadPrevWM()
 		    }
 		  }
 
-			for (uint i = 0; i < sessionTypes.count() && !sessionTypes[i].hid; i++)
+			for (uint i = 0; i < sessionTypes.count() && !sessionTypes[i].hid; i++) {
 				if (sessionTypes[i].type == sess) {
 					free( sess );
 					setPrevWM( i );
+					curWMSession = sessionTypes[i].type.utf8();
 					return;
 				}
-			if (curSel == -1)
+			}
+			if (curSel == -1) {
 				MsgBox( sorrybox, i18n("Your saved session type '%1' is not valid any more.\n"
 				                       "Please select a new one, otherwise 'default' will be used.").arg( sess ) );
+			}
 			free( sess );
 			prevValid = false;
 		}
