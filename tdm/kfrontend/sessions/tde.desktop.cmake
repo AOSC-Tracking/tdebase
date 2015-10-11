@@ -3,6 +3,7 @@ Encoding=UTF-8
 Type=XSession
 Exec=@TDE_BIN_DIR@/starttde
 TryExec=@TDE_BIN_DIR@/starttde
+DesktopNames=Trinity
 Name=TDE
 Name[hi]=केडीई
 Name[mn]=КДЭ
