@@ -480,7 +480,7 @@ void TDMAppearanceWidget::save()
     config->setGroup("X-:*-Greeter");
     config->writeEntry("UseSAK", sakbox->isChecked());
     config->setGroup("X-*-Greeter");
-    config->writeEntry("UseSAK", sakbox->isChecked());
+    config->deleteEntry("UseSAK");
   }
 
   // Enable/disable tsak as needed
