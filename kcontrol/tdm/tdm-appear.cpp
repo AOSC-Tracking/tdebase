@@ -477,12 +477,9 @@ void TDMAppearanceWidget::save()
   config->writeEntry("Language", langcombo->current());
 
   if (!sakwarning) {
-    if (config->hasGroup("X-:*-Greeter")) {
-      config->setGroup("X-:*-Greeter");
-    }
-    else {
-      config->setGroup("X-*-Greeter");
-    }
+    config->setGroup("X-:*-Greeter");
+    config->writeEntry("UseSAK", sakbox->isChecked());
+    config->setGroup("X-*-Greeter");
     config->writeEntry("UseSAK", sakbox->isChecked());
   }
 
