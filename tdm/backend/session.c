@@ -807,6 +807,10 @@ systemEnv( const char *user )
 	env = baseEnv( user );
 	if (td->authFile)
 		env = setEnv( env, "XAUTHORITY", td->authFile );
+	char *lang = getenv("LANG");
+	if (lang != NULL) {
+		env = setEnv( env, "LANG", lang );
+	}
 	env = setEnv( env, "PATH", td->systemPath );
 	env = setEnv( env, "SHELL", td->systemShell );
 	return env;

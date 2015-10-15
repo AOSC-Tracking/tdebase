@@ -779,7 +779,12 @@ main( int argc ATTR_UNUSED, char **argv )
 		LogPanic( "Cannot save $HOME\n" );
 	atexit( cleanup );
 
-	setenv( "LC_ALL", _language, 1 );
+	if ( getenv( "LANG" ) == NULL ) {
+		setenv( "LC_ALL", _language, 1 );
+	}
+	else {
+		setenv( "LC_ALL", getenv( "LANG" ), 1 );
+	}
 
 	kg_main( argv[0] );
 
