@@ -48,6 +48,9 @@
 #include <unistd.h>
 #include <time.h>
 
+// FIXME general: need to keep doc list and current session's m_documents in synchro
+//       all the time (doc open, doc closed, doc renamed)
+
 // String constants
 namespace
 {
@@ -65,6 +68,7 @@ namespace
   const char *KSM_DIR     = "kate/sessions";
   const char *KSM_FILE    = "sessions.list";
   const char *KSM_SESSIONS_COUNT = "Sessions count";
+  const char *KSM_ACTIVE_SESSION_ID = "Active session id";
   const char *KSM_SESSIONS_LIST  = "Sessions list";
 }
 
@@ -125,10 +129,7 @@ KateSession::KateSession(const TQString &sessionName, const TQString &filename, 
   {
     m_sessionName = i18n(KS_UNNAMED);
   }
-  if (m_docCount == 0)
-  {
-    m_documents.clear();
-  }
+  // FIXME: needs to make sure doc list and m_documents are in synchro here
 }
 
 //------------------------------------
@@ -153,12 +154,6 @@ void KateSession::setSessionName(const TQString &sessionName)
 //------------------------------------
 void KateSession::setReadOnly(bool readOnly)
 {
-  if (!m_readOnly && readOnly)
-  {
-    // When a session is turned read only, make sure the current
-    // status is first saved to disk
-    save();
-  }
   m_readOnly = readOnly;
   if (m_config)
   {
@@ -167,7 +162,7 @@ void KateSession::setReadOnly(bool readOnly)
 }
 
 //------------------------------------
-void KateSession::save()
+void KateSession::save(bool saveDocList)
 {
   if (m_readOnly)
     return;
@@ -196,6 +191,7 @@ void KateSession::save()
   {
     m_config = new KSimpleConfig(m_filename);
   }
+
   if (m_config->hasGroup(KS_GENERAL))
   {
     m_config->deleteGroup(KS_GENERAL);
@@ -214,8 +210,24 @@ void KateSession::save()
   {
     m_config->writeEntry(TQString("URL_%1").arg(i), m_documents[i]);
   }
+  if (saveDocList)
+  {
+    KateDocManager::self()->saveDocumentList(m_config);
+  }
 
   m_config->sync();
+}
+
+//------------------------------------
+void KateSession::activate()
+{
+  KateDocManager::self()->closeAllDocuments();
+  Kate::Document::setOpenErrorDialogsActivated(false);
+  if (m_config)
+  {
+    KateApp::self()->documentManager()->restoreDocumentList(m_config);
+  }
+  Kate::Document::setOpenErrorDialogsActivated(true);
 }
 
 //------------------------------------
@@ -234,7 +246,7 @@ KateSessionManager* KateSessionManager::self()
 //------------------------------------
 KateSessionManager::KateSessionManager() :
   m_baseDir(locateLocal("data", KSM_DIR)+"/"), m_configFile(m_baseDir + KSM_FILE),
-  m_sessionsCount(0), m_sessions(), m_config(NULL)
+  m_sessionsCount(0), m_activeSessionId(-1), m_sessions(), m_config(NULL)
 {
   m_sessions.setAutoDelete(true);
 
@@ -244,6 +256,7 @@ KateSessionManager::KateSessionManager() :
     m_config = new KSimpleConfig(m_configFile);
     m_config->setGroup(KSM_SESSIONS_LIST);
     m_sessionsCount = m_config->readNumEntry(KSM_SESSIONS_COUNT, 0);
+    m_activeSessionId = m_config->readNumEntry(KSM_ACTIVE_SESSION_ID, -1);
     for (int i=0; i<m_sessionsCount; ++i)
     {
       TQString urlStr = m_config->readEntry(TQString("URL_%1").arg(i));
@@ -265,6 +278,11 @@ KateSessionManager::KateSessionManager() :
     }
   }
   m_sessionsCount = static_cast<int>(m_sessions.count());
+  if (m_activeSessionId < 0 || m_activeSessionId >= m_sessionsCount)
+  {
+    m_activeSessionId = 0;  // Invalid active session was detected. Use first in the list
+  }
+  m_sessions[m_activeSessionId]->activate();
 }
 
 //------------------------------------
@@ -294,13 +312,35 @@ void KateSessionManager::saveConfig()
   }
   m_config->setGroup(KSM_SESSIONS_LIST);
   m_config->writeEntry(KSM_SESSIONS_COUNT, m_sessionsCount);
+  m_config->writeEntry(KSM_ACTIVE_SESSION_ID, m_activeSessionId);
   for (int i=0; i<m_sessionsCount; ++i)
   {
     // Save the session first, to make sure a new session has an associated file
-    m_sessions[i]->save();
+    m_sessions[i]->save(i == m_activeSessionId);
     m_config->writeEntry(TQString("URL_%1").arg(i), m_sessions[i]->getSessionFilename());
   }
   m_config->sync();
+}
+
+//------------------------------------
+bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
+{
+  if (sessionId == m_activeSessionId)
+  {
+    return true;
+  }
+
+  // First check if all documents can be closed safely
+  if (KateApp::self()->activeMainWindow())
+  {
+    if (!KateApp::self()->activeMainWindow()->queryClose_internal())
+      return false;
+  }
+
+  m_sessions[m_activeSessionId]->save(true);
+  m_sessions[sessionId]->activate();
+  m_activeSessionId = sessionId;
+  return true;
 }
 
 
@@ -485,7 +525,7 @@ OldKateSessionManager::~OldKateSessionManager()
 
 OldKateSessionManager *OldKateSessionManager::self()
 {
-  return KateApp::self()->sessionManager ();
+  return KateApp::self()->oldSessionManager ();
 }
 
 void OldKateSessionManager::dirty (const TQString &)

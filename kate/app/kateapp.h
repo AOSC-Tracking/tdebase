@@ -27,6 +27,7 @@
 #include <tqvaluelist.h>
 
 class OldKateSessionManager;
+class KateSessionManager;
 class KateAppDCOPIface;
 
 namespace Kate {
@@ -128,7 +129,8 @@ class KDE_EXPORT KateApp : public TDEApplication
      * accessor to session manager
      * @return session manager instance
      */
-    OldKateSessionManager *sessionManager ();
+    OldKateSessionManager *oldSessionManager ();
+    KateSessionManager *sessionManager();
 
   /**
    * window management
@@ -222,7 +224,9 @@ class KDE_EXPORT KateApp : public TDEApplication
     /**
      * session manager
      */
-    OldKateSessionManager *m_sessionManager;
+    OldKateSessionManager *m_oldSessionManager;
+    KateSessionManager *m_sessionManager;
+
 
     /**
      * known main windows

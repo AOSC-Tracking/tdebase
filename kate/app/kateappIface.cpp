@@ -91,14 +91,14 @@ bool KateAppDCOPIface::openInput (TQString text)
 
 bool KateAppDCOPIface::activateSession (TQString session)
 {
-  m_app->sessionManager()->activateSession (m_app->sessionManager()->giveSession (session));
+  m_app->oldSessionManager()->activateSession (m_app->oldSessionManager()->giveSession (session));
 
   return true;
 }
 
 const TQString & KateAppDCOPIface::session() const
 {
-  return m_app->sessionManager()->activeSession()->sessionName();
+  return m_app->oldSessionManager()->activeSession()->sessionName();
 }
 
 // kate: space-indent on; indent-width 2; replace-tabs on;

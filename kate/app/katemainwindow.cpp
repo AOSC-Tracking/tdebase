@@ -370,7 +370,7 @@ bool KateMainWindow::queryClose()
   // and save docs if we really close down !
   if ( queryClose_internal () )
   {
-    KateApp::self()->sessionManager()->saveActiveSession(true, true);
+    KateApp::self()->oldSessionManager()->saveActiveSession(true, true);
 
     // detach the dcopClient
     KateApp::self()->dcopClient()->detach();
@@ -824,7 +824,7 @@ void KateMainWindow::updateCaption (Kate::Document *doc)
     c = m_viewManager->activeView()->getDoc()->url().prettyURL();
   }
 
-  TQString sessName = KateApp::self()->sessionManager()->activeSession()->sessionName();
+  TQString sessName = KateApp::self()->oldSessionManager()->activeSession()->sessionName();
   if ( !sessName.isEmpty() )
     sessName = TQString("%1: ").arg( sessName );
 
@@ -858,7 +858,7 @@ void KateMainWindow::saveGlobalProperties( TDEConfig* sessionConfig )
   KateDocManager::self()->saveDocumentList (sessionConfig);
 
   sessionConfig->setGroup("General");
-  sessionConfig->writeEntry ("Last Session", KateApp::self()->sessionManager()->activeSession()->sessionFileRelative());
+  sessionConfig->writeEntry ("Last Session", KateApp::self()->oldSessionManager()->activeSession()->sessionFileRelative());
 }
 
 // kate: space-indent on; indent-width 2; replace-tabs on;

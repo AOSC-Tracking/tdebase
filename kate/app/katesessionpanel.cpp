@@ -25,6 +25,7 @@
 
 #include <kiconloader.h>
 #include <tdelocale.h>
+#include <tqlistview.h>
 
 
 void KateSessionPanelToolBarParent::setToolBar(TDEToolBar *tbar)
@@ -46,23 +47,41 @@ void KateSessionPanelToolBarParent::resizeEvent (TQResizeEvent*)
 KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *viewManager,
     TQWidget *parent, const char *name)
     : TQVBox(parent, name), m_mainWin(mainWindow), m_viewManager(viewManager),
-      m_sessionManager(OldKateSessionManager::self()), m_actionCollection(new TDEActionCollection(this))
+      m_sessionManager(KateSessionManager::self()), m_actionCollection(new TDEActionCollection(this)),
+      m_columnSessionId(0), m_columnPixmap(0)
 {
   // Toolbar
   setup_toolbar();
 
   // Listview
   m_listview = new TDEListView(this);
-  m_listview->setRootIsDecorated(true);
-  m_listview->setSorting(-1);
+  m_listview->header()->hide();
+  m_listview->addColumn("Session name");
+  m_columnSessionId = m_listview->addColumn("Session id", 0);
+  m_columnPixmap = m_listview->addColumn("Pixmap", 24);
+  m_listview->setColumnAlignment(2, TQt::AlignCenter);
   m_listview->setMinimumWidth(m_listview->sizeHint().width());
+  m_listview->setSorting(-1);
+  //m_listview->setRootIsDecorated(true);  // to enable after inserting doc list
+
+  TQPtrList<KateSession>& sessions = m_sessionManager->getSessionsList();
+  for (int idx = sessions.count()-1;  idx >= 0;  --idx)
+  {
+  	new TDEListViewItem(m_listview, sessions[idx]->getSessionName(), TQString("%1").arg(idx));
+  	if (idx == m_sessionManager->getActiveSessionId())
+  	{
+  	  m_listview->setSelected(m_listview->firstChild(), true);
+  	  m_listview->firstChild()->setPixmap(m_columnPixmap, SmallIcon("ok"));
+  	}
+  }
+
 }
 
 //-------------------------------------------
 void KateSessionPanel::setup_toolbar()
 {
   // Toolbar widget and frame
-  KateSessionPanelToolBarParent *tbarParent=new KateSessionPanelToolBarParent(this);
+  KateSessionPanelToolBarParent *tbarParent = new KateSessionPanelToolBarParent(this);
   m_toolbar = new TDEToolBar(tbarParent, "Kate Session Panel Toolbar", true);
   tbarParent->setToolBar(m_toolbar);
   m_toolbar->setMovingEnabled(false);
@@ -71,8 +90,10 @@ void KateSessionPanel::setup_toolbar()
   m_toolbar->setIconSize(16);
   m_toolbar->setEnableContextMenu(false);
 
+//FIXME : uncomment and activate as long as the new session manager gets fixed
   // Toolbar actions
   TDEAction *a;
+/*
   a = new TDEAction(i18n("New"), SmallIcon("list-add"), 0,
           TQT_TQOBJECT(m_sessionManager), TQT_SLOT(sessionNew()), m_actionCollection, "session_new");
   a->setWhatsThis(i18n("Create a new session."));
@@ -99,12 +120,12 @@ void KateSessionPanel::setup_toolbar()
   a->plug(m_toolbar);
 
   m_toolbar->insertLineSeparator();
-
+*/
   a = new TDEAction(i18n("Activate"), SmallIcon("forward"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(sessionActivate()), m_actionCollection, "session_activate");
   a->setWhatsThis(i18n("Activate the selected session."));
   a->plug(m_toolbar);
-
+/*
 	TDEToggleAction *tglA = new TDEToggleAction(i18n("Toggle read only"), SmallIcon("encrypted"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(sessionToggleReadOnly()), m_actionCollection, "session_toggle_read_only");
   tglA->setWhatsThis(i18n("Toggle read only status for the selected session.<p>"
@@ -122,18 +143,7 @@ void KateSessionPanel::setup_toolbar()
           TQT_TQOBJECT(this), TQT_SLOT(sessionMoveDown()), m_actionCollection, "session_move_down");
   a->setWhatsThis(i18n("Move down the selected session."));
   a->plug(m_toolbar);
-
-  m_toolbar->insertLineSeparator();
-
-  a = new TDEAction(i18n("Open"), SmallIcon("document-open"), 0,
-          TQT_TQOBJECT(m_sessionManager), TQT_SLOT(sessionOpen()), m_actionCollection, "session_open");
-  a->setWhatsThis(i18n("Switch to another session chosen from a list of existing ones."));
-  a->plug(m_toolbar);
-
-  a = new TDEAction(i18n("Manage"), SmallIcon("view_choose"), 0,
-          TQT_TQOBJECT(m_sessionManager), TQT_SLOT(sessionManage()), m_actionCollection, "session_manage");
-  a->setWhatsThis(i18n("Manage existing sessions."));
-  a->plug(m_toolbar);
+*/
 }
 
 //-------------------------------------------
@@ -163,7 +173,24 @@ void KateSessionPanel::deleteSession()
 //-------------------------------------------
 void KateSessionPanel::sessionActivate()
 {
-//TODO
+  TQListViewItem *newSessionItem = m_listview->selectedItem();
+  int currSessionId = m_sessionManager->getActiveSessionId();
+  if (!newSessionItem)
+    return;
+  int newSessionId = newSessionItem->text(m_columnSessionId).toInt();
+  if (newSessionId != currSessionId)
+  {
+    if (!m_sessionManager->activateSession(newSessionId))
+    	return;
+
+    TQListViewItem *item = m_listview->firstChild();
+    for (int idx = 0;  idx < currSessionId;  ++idx)
+		{
+		  item = item->nextSibling();
+		}
+		item->setPixmap(m_columnPixmap, TQPixmap());
+		newSessionItem->setPixmap(m_columnPixmap, SmallIcon("ok"));
+  }
 }
 
 //-------------------------------------------

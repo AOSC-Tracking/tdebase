@@ -59,7 +59,7 @@ class KateSession
 	 ~KateSession();
 
 		/**
-     * Returns the session name
+     * @return the session name
      */
 		const TQString& getSessionName() const { return m_sessionName; }
 		/**
@@ -69,7 +69,7 @@ class KateSession
 		void setSessionName(const TQString &sessionName);
 
 		/**
-     * Returns whether the session is read only or not
+     * @return whether the session is read only or not
      */
 		bool isReadOnly() const { return m_readOnly; }
 		/**
@@ -79,16 +79,20 @@ class KateSession
 		void setReadOnly(bool readOnly);
 
 		/**
-     * Returns the session filename
+     * @return the session filename
      */
 		const TQString& getSessionFilename() const { return m_filename; }
 
     /**
      * Save session info
-     * @return true if the session config is saved, false otherwise
+     * @param saveDocList if true, save also the information about the documents currently open
      */
-	  void save();
+	  void save(bool saveDocList);
 
+    /**
+     * Activate the session
+     */
+	  void activate();
 
   private:
     TQString       m_sessionName;
@@ -124,6 +128,28 @@ class KateSessionManager
      */
 	  void saveConfig();
 
+    /**
+     * @return the active session id
+     */
+	  int getActiveSessionId() const { return m_activeSessionId; }
+
+    /**
+     * @return a reference to the active session
+     */
+	  KateSession* getActiveSession() { return m_sessions[m_activeSessionId]; }
+
+    /**
+     * @return a reference to the sessions list
+     */
+	  TQPtrList<KateSession>& getSessionsList() { return m_sessions; }
+
+    /**
+     * Activates the selected session.
+     * @param sessionId the id of the session to activate
+     * @param saveCurr if true, save the current session before activating the new one
+     * @return whether the session was activated or not
+     */
+    bool activateSession(int sessionId, bool saveCurr = true);
 
   private:
     KateSessionManager();
@@ -131,6 +157,7 @@ class KateSessionManager
     TQString m_baseDir;       					// folder where session files are stored
     TQString m_configFile;     					// file where the session list config is stored
     int m_sessionsCount;	     					// number of sessions
+    int m_activeSessionId;              // index of the active session
     TQPtrList<KateSession> m_sessions;  // session list
     KSimpleConfig *m_config;        		// session manager config
 

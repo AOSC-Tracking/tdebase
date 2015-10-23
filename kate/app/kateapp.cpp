@@ -75,7 +75,8 @@ KateApp::KateApp (TDECmdLineArgs *args)
   m_pluginManager = new KatePluginManager (TQT_TQOBJECT(this));
 
   // session manager up
-  m_sessionManager = new OldKateSessionManager (TQT_TQOBJECT(this));
+  m_oldSessionManager = new OldKateSessionManager (TQT_TQOBJECT(this));
+  m_sessionManager = KateSessionManager::self();
 
   // application dcop interface
   m_obj = new KateAppDCOPIface (this);
@@ -105,14 +106,11 @@ KateApp::KateApp (TDECmdLineArgs *args)
 
 KateApp::~KateApp ()
 {
-  // cu dcop interface
-  delete m_obj;
-
-  // cu plugin manager
-  delete m_pluginManager;
-
-  // delete this now, or we crash
-  delete m_docManager;
+  delete m_obj;            // cu dcop interface
+  delete m_pluginManager;  // cu plugin manager
+  delete m_sessionManager; // delete session manager
+  delete m_oldSessionManager; // delete session manager
+  delete m_docManager;     // delete document manager. Do this now, or we crash
 }
 
 KateApp *KateApp::self ()
@@ -147,8 +145,7 @@ void KateApp::restoreKate ()
   // activate again correct session!!!
   sessionConfig()->setGroup("General");
   TQString lastSession (sessionConfig()->readEntry ("Last Session", "default.katesession"));
-  sessionManager()->activateSession (new OldKateSession (sessionManager(), lastSession, ""), false, false, false);
-
+  oldSessionManager()->activateSession (new OldKateSession (oldSessionManager(), lastSession, ""), false, false, false);
   m_docManager->restoreDocumentList (sessionConfig());
 
   Kate::Document::setOpenErrorDialogsActivated (true);
@@ -170,12 +167,12 @@ bool KateApp::startupKate ()
   // user specified session to open
   if (m_args->isSet ("start"))
   {
-    sessionManager()->activateSession (sessionManager()->giveSession (TQString::fromLocal8Bit(m_args->getOption("start"))), false, false);
+    oldSessionManager()->activateSession (oldSessionManager()->giveSession (TQString::fromLocal8Bit(m_args->getOption("start"))), false, false);
   }
   else
   {
     // let the user choose session if possible
-    if (!sessionManager()->chooseSession ())
+    if (!oldSessionManager()->chooseSession ())
     {
       // we will exit kate now, notify the rest of the world we are done
       TDEStartupInfo::appStarted (startupId());
@@ -272,7 +269,7 @@ void KateApp::shutdownKate (KateMainWindow *win)
   if (!win->queryClose_internal())
     return;
 
-  sessionManager()->saveActiveSession(true, true);
+  oldSessionManager()->saveActiveSession(true, true);
 
   // detach the dcopClient
   dcopClient()->detach();
@@ -294,7 +291,12 @@ KateDocManager *KateApp::documentManager ()
   return m_docManager;
 }
 
-OldKateSessionManager *KateApp::sessionManager ()
+OldKateSessionManager *KateApp::oldSessionManager ()
+{
+  return m_oldSessionManager;
+}
+
+KateSessionManager* KateApp::sessionManager()
 {
   return m_sessionManager;
 }
