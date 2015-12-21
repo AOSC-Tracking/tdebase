@@ -2371,6 +2371,7 @@ SSL_CONST SSL_METHOD *meth;
 
   SSLv2Box->clear();
   SSLv3Box->clear();
+  CipherItem *item;
 
 #ifndef OPENSSL_NO_SSL2
   meth = SSLv2_client_method();
@@ -2381,7 +2382,6 @@ SSL_CONST SSL_METHOD *meth;
   ssl = SSL_new(ctx);
   if (!ssl) return false;
 
-  CipherItem *item;
   for (i=0; ; i++) {
     int j, k;
     SSL_CONST SSL_CIPHER *sc;
@@ -2400,10 +2400,9 @@ SSL_CONST SSL_METHOD *meth;
 
   if (ctx) SSL_CTX_free(ctx);
   if (ssl) SSL_free(ssl);
-#else
-  CipherItem *item;
 #endif
 
+# ifndef OPENSSL_NO_SSL3_METHOD
   // We repeat for SSLv3
   meth = SSLv3_client_method();
   SSLeay_add_ssl_algorithms();
@@ -2431,6 +2430,7 @@ SSL_CONST SSL_METHOD *meth;
 
   if (ctx) SSL_CTX_free(ctx);
   if (ssl) SSL_free(ssl);
+#endif
 
 return true;
 }
