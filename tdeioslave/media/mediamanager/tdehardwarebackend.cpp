@@ -728,13 +728,13 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			diskLabel = i18n("%1 Fixed Disk (%2)").arg(sdevice->deviceFriendlySize(), sdevice->deviceNode());
 		}
 
-		if (sdevice->isDiskOfType(TDEDiskDeviceType::USB)) {
+		if (sdevice->isDiskOfType(TDEDiskDeviceType::USB)
+		    || sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable)
+		    || sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)) {
 			mimeType = "media/removable" + MOUNT_SUFFIX;
 			if (useDefaultLabel) {
 				diskLabel = i18n("%1 Removable Device").arg(sdevice->deviceFriendlySize());
 			}
-
-			medium->needMounting();
 
 			if (sdevice->isDiskOfType(TDEDiskDeviceType::CompactFlash)) {
 				medium->setIconName("compact_flash" + MOUNT_ICON_SUFFIX);
