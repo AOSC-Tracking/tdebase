@@ -735,35 +735,32 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			if (useDefaultLabel) {
 				diskLabel = i18n("%1 Removable Device").arg(sdevice->deviceFriendlySize());
 			}
+		}
 
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::CompactFlash)) {
-				medium->setIconName("compact_flash" + MOUNT_ICON_SUFFIX);
+		if (sdevice->isDiskOfType(TDEDiskDeviceType::CompactFlash)) {
+			medium->setIconName("compact_flash" + MOUNT_ICON_SUFFIX);
+		}
+		if (sdevice->isDiskOfType(TDEDiskDeviceType::MemoryStick)) {
+			medium->setIconName("memory_stick" + MOUNT_ICON_SUFFIX);
+		}
+		if (sdevice->isDiskOfType(TDEDiskDeviceType::SmartMedia)) {
+			medium->setIconName("smart_media" + MOUNT_ICON_SUFFIX);
+		}
+		if (sdevice->isDiskOfType(TDEDiskDeviceType::SDMMC)) {
+			medium->setIconName("sd_mmc" + MOUNT_ICON_SUFFIX);
+		}
+		if (sdevice->isDiskOfType(TDEDiskDeviceType::MediaDevice)) {
+			medium->setIconName("ipod" + MOUNT_ICON_SUFFIX);
+			if (sdevice->vendorModel().upper().contains("IPOD") && KProtocolInfo::isKnownProtocol( TQString("ipod") ) ) {
+				medium->unmountableState( "ipod:/" );
+				medium->mountableState(!sdevice->mountPath().isNull());
 			}
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::MemoryStick)) {
-				medium->setIconName("memory_stick" + MOUNT_ICON_SUFFIX);
-			}
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::SmartMedia)) {
-				medium->setIconName("smart_media" + MOUNT_ICON_SUFFIX);
-			}
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::SDMMC)) {
-				medium->setIconName("sd_mmc" + MOUNT_ICON_SUFFIX);
-			}
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::MediaDevice)) {
-				medium->setIconName("ipod" + MOUNT_ICON_SUFFIX);
-
-				if (sdevice->vendorModel().upper().contains("IPOD") && KProtocolInfo::isKnownProtocol( TQString("ipod") ) )
-				{
-					medium->unmountableState( "ipod:/" );
-					medium->mountableState(!sdevice->mountPath().isNull());
-				}
-			}
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::Tape)) {
-				medium->setIconName("magnetic_tape" + MOUNT_ICON_SUFFIX);
-			}
-			if (medium->isMounted() && TQFile::exists(medium->mountPoint() + "/dcim"))
-			{
-				mimeType = "media/camera" + MOUNT_SUFFIX;
-			}
+		}
+		if (sdevice->isDiskOfType(TDEDiskDeviceType::Tape)) {
+			medium->setIconName("magnetic_tape" + MOUNT_ICON_SUFFIX);
+		}
+		if (medium->isMounted() && TQFile::exists(medium->mountPoint() + "/dcim")) {
+			mimeType = "media/camera" + MOUNT_SUFFIX;
 		}
 	}
 
