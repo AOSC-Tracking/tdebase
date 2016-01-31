@@ -163,7 +163,8 @@ void TDEBackend::AddDevice(TDEStorageDevice * sdevice, bool allowNotification)
 		/* We also don't display devices that underlie other devices;
 		*  e.g. the raw partition of a device mapper volume
 		*/
-		else if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::UsedByDevice)) {
+		else if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::UsedByDevice)
+			 || (sdevice->fileSystemUsage().upper() == "RAID")) {
 			//
 		}
 		else {
