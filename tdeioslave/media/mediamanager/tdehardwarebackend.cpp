@@ -45,6 +45,10 @@
 	(medium->isMounted() ? TQString("_mount") : TQString("_unmount")) +									\
 	(medium->isEncrypted() ? (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "_decrypt" : "_encrypt") : "" )			\
 	)
+#define MOUNTED_ICON_SUFFIX (															\
+	(medium->isMounted() ? TQString("-mounted") : TQString("")) +									\
+	(medium->isEncrypted() ? (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "-decrypted" : "-encrypted") : "" )			\
+	)
 
 #define CHECK_FOR_AND_EXECUTE_AUTOMOUNT(udi, medium, allowNotification) {									\
 		TQMap<TQString,TQString> options = MediaManagerUtils::splitOptions(mountoptions(udi));						\
@@ -739,16 +743,16 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::CompactFlash)) {
-			medium->setIconName("compact_flash" + MOUNT_ICON_SUFFIX);
+			medium->setIconName("media-flash-compact_flash" + MOUNTED_ICON_SUFFIX);
 		}
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::MemoryStick)) {
-			medium->setIconName("memory_stick" + MOUNT_ICON_SUFFIX);
+			medium->setIconName("media-flash-memory_stick" + MOUNTED_ICON_SUFFIX);
 		}
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::SmartMedia)) {
-			medium->setIconName("smart_media" + MOUNT_ICON_SUFFIX);
+			medium->setIconName("media-flash-smart_media" + MOUNTED_ICON_SUFFIX);
 		}
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::SDMMC)) {
-			medium->setIconName("sd_mmc" + MOUNT_ICON_SUFFIX);
+			medium->setIconName("media-flash-sd_mmc" + MOUNTED_ICON_SUFFIX);
 		}
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::MediaDevice)) {
 			medium->setIconName("ipod" + MOUNT_ICON_SUFFIX);
@@ -758,7 +762,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			}
 		}
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::Tape)) {
-			medium->setIconName("magnetic_tape" + MOUNT_ICON_SUFFIX);
+			medium->setIconName("media-tape" + MOUNTED_ICON_SUFFIX);
 		}
 		if (medium->isMounted() && TQFile::exists(medium->mountPoint() + "/dcim")) {
 			mimeType = "media/camera" + MOUNT_SUFFIX;

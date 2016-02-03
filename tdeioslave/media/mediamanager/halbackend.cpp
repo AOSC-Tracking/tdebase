@@ -48,6 +48,10 @@
     (medium->isMounted() ? TQString("_mount") : TQString("_unmount")) +   \
     (medium->isEncrypted() ? (halClearVolume ? "_decrypt" : "_encrypt") : "" )      \
     )
+#define MOUNTED_ICON_SUFFIX   (                                                              \
+    (medium->isMounted() ? TQString("-mounted") : TQString("")) +   \
+    (medium->isEncrypted() ? (halClearVolume ? "-decrypted" : "-encrypted") : "" )      \
+    )
 
 /* Static instance of this class, for static HAL callbacks */
 static HALBackend* s_HALBackend;
@@ -616,16 +620,16 @@ void HALBackend::setVolumeProperties(Medium* medium)
             medium->needMounting();
             switch (libhal_drive_get_type(halDrive)) {
             case LIBHAL_DRIVE_TYPE_COMPACT_FLASH:
-                medium->setIconName("compact_flash" + MOUNT_ICON_SUFFIX);
+                medium->setIconName("media-flash-compact_flash" + MOUNTED_ICON_SUFFIX);
                 break;
             case LIBHAL_DRIVE_TYPE_MEMORY_STICK:
-                medium->setIconName("memory_stick" + MOUNT_ICON_SUFFIX);
+                medium->setIconName("media-flash-memory_stick" + MOUNTED_ICON_SUFFIX);
                 break;
             case LIBHAL_DRIVE_TYPE_SMART_MEDIA:
-                medium->setIconName("smart_media" + MOUNT_ICON_SUFFIX);
+                medium->setIconName("media-flash-smart_media" + MOUNTED_ICON_SUFFIX);
                 break;
             case LIBHAL_DRIVE_TYPE_SD_MMC:
-                medium->setIconName("sd_mmc" + MOUNT_ICON_SUFFIX);
+                medium->setIconName("media-flash-sd_mmc" + MOUNTED_ICON_SUFFIX);
                 break;
             case LIBHAL_DRIVE_TYPE_PORTABLE_AUDIO_PLAYER:
             {
@@ -654,7 +658,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
                 break;
             }
             case LIBHAL_DRIVE_TYPE_TAPE:
-                medium->setIconName(TQString::null); //FIXME need icon
+                medium->setIconName("media-tape" + MOUNTED_ICON_SUFFIX);
                 break;
             default:
                 medium->setIconName(TQString::null);
