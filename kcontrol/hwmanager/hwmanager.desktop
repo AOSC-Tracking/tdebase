@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=tdecmshell hwmanager
-Icon=background
+Icon=hwinfo
 Type=Application
 X-DocPath=kcontrol/hwmanager/index.html
 
