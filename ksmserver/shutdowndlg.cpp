@@ -379,7 +379,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 				float doFancyLogoutFadeBackTime = 0;
 				if ( m_greyImageCreated == false ) {
 					m_greyImageCreated = true;
-	
+
 					// eliminate nasty flicker on first show
 					m_root.resize( width(), height() );
 					TQImage blendedImage = m_grayImage;
@@ -388,31 +388,31 @@ void KSMShutdownFeedback::slotPaintEffect()
 					blendedImage.setAlphaBuffer(false);
 					p.drawImage( 0, 0, blendedImage );
 					p.end();
-	
+
 					setBackgroundPixmap( m_root );
 					setGeometry( TQApplication::desktop()->geometry() );
 					setBackgroundMode( TQWidget::NoBackground );
-	
+
 					m_unfadedImage = m_grayImage.copy();
-	
+
 					register uchar * r = m_grayImage.bits();
 					uchar * end = m_grayImage.bits() + m_grayImage.numBytes();
-	
+
 					while ( r != end ) {
 						*reinterpret_cast<TQRgb*>(r) = tqRgba(0, 0, 0, 107);
 						r += 4;
 					}
-	
+
 					// start timer which is used for cpu-speed-independent fading
 					m_fadeTime.start();
 					m_rowsDone = 0;
 				}
-	
+
 				// return if fading is completely done...
 				if ( ( m_grayOpacity >= 1.0f && m_fadeBackwards == FALSE ) || ( m_grayOpacity <= 0.0f && m_fadeBackwards == TRUE ) ) {
 					return;
 				}
-	
+
 				if ( m_fadeBackwards == FALSE ) {
 					m_grayOpacity = m_fadeTime.elapsed() / doFancyLogoutFadeTime;
 					if ( m_grayOpacity > 1.0f )
@@ -423,23 +423,23 @@ void KSMShutdownFeedback::slotPaintEffect()
 					if ( m_grayOpacity < 0.0f )
 					m_grayOpacity = 0.0f;
 				}
-	
+
 				const int imgWidth = m_unfadedImage.width();
 				int imgHeight = m_unfadedImage.height();
 				int heightUnit = imgHeight / 3;
 				if( heightUnit < 1 )
 					heightUnit = 1;
-	
+
 				int y1 = static_cast<int>( imgHeight*m_grayOpacity - heightUnit + m_grayOpacity*heightUnit*2.0f );
 				if( y1 > imgHeight ) {
 					y1 = imgHeight;
 				}
-	
+
 				int y2 = y1+heightUnit;
 				if( y2 > imgHeight ) {
 					y2 = imgHeight;
 				}
-	
+
 				if( m_fadeBackwards == FALSE )
 				{
 					if( y1 > 0 && y1 < imgHeight && y1-m_rowsDone > 0 && m_rowsDone < imgHeight )
@@ -460,7 +460,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 						m_rowsDone = y2;
 					}
 				}
-	
+
 				int start_y1 = y1;
 				if( start_y1 < 0 ) {
 					start_y1 = 0;
@@ -481,7 +481,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 					}
 					bitBlt( this, 0, start_y1, &img );
 				}
-	
+
 				TQTimer::singleShot( 1, this, TQT_SLOT( slotPaintEffect() ) );
 			 }
 			 else {
@@ -492,18 +492,18 @@ void KSMShutdownFeedback::slotPaintEffect()
 					}
 					return;
 				}
-	
+
 				if ( m_currentY == 0 ) {
 					setBackgroundMode( TQWidget::NoBackground );
 					setGeometry( TQApplication::desktop()->geometry() );
 					m_root.resize( width(), height() ); // for the default logout
-	
+
 					KPixmap pixmap;
 					pixmap = TQPixmap(TQPixmap::grabWindow( tqt_xrootwin(), 0, 0, width(), height() ));
 					bitBlt( this, 0, 0, &pixmap );
 					bitBlt( &m_root, 0, 0, &pixmap );
 				}
-	
+
 				KPixmap pixmap;
 				pixmap = TQPixmap(TQPixmap::grabWindow( tqt_xrootwin(), 0, m_currentY, width(), 10 ));
 				TQImage image = pixmap.convertToImage();
@@ -1043,6 +1043,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			if (canFreeze && !disableSuspend)
 			{
 				KPushButton* btnFreeze = new KPushButton( KGuiItem( i18n("&Freeze Computer"), "suspend"), frame );
+				TQToolTip::add(btnFreeze, i18n("<qt><h3>Freeze Computer</h3><p>Put the computer in software sleep mode, allowing for some powersaving. The system can be reactivated in a really short time, almost instantly.</p></qt>"));
 				btnFreeze->setFont( btnFont );
 				buttonlay->addWidget( btnFreeze );
 				connect(btnFreeze, TQT_SIGNAL(clicked()), TQT_SLOT(slotFreeze()));
@@ -1051,6 +1052,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			if (canSuspend && !disableSuspend)
 			{
 				KPushButton* btnSuspend = new KPushButton( KGuiItem( i18n("&Suspend Computer"), "suspend"), frame );
+				TQToolTip::add(btnSuspend, i18n("<qt><h3>Suspend Computer</h3><p>Put the computer in a suspend-to-memory mode. The system is stopped and its state saved to memory.</p><p> This allows more powersaving than 'Freeze Computer' but requires longer time to reactivate the system.</p></qt>"));
 				btnSuspend->setFont( btnFont );
 				buttonlay->addWidget( btnSuspend );
 				connect(btnSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotSuspend()));
@@ -1059,6 +1061,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			if (canHibernate && !disableHibernate)
 			{
 				KPushButton* btnHibernate = new KPushButton( KGuiItem( i18n("&Hibernate Computer"), "hibernate"), frame );
+				TQToolTip::add(btnHibernate, i18n("<qt><h3>Hibernate Computer</h3><p>Put the computer in a suspend-to-disk mode. The system is stopped and its state saved to disk.</p><p>This offers the greatest powersaving but considerable time is required to reactivate the system again.</p></qt>"));
 				btnHibernate->setFont( btnFont );
 				buttonlay->addWidget( btnHibernate );
 				connect(btnHibernate, TQT_SIGNAL(clicked()), TQT_SLOT(slotHibernate()));
