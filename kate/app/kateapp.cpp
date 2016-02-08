@@ -75,7 +75,6 @@ KateApp::KateApp (TDECmdLineArgs *args)
   m_pluginManager = new KatePluginManager (TQT_TQOBJECT(this));
 
   // session manager up
-  m_oldSessionManager = new OldKateSessionManager (TQT_TQOBJECT(this));
   m_sessionManager = KateSessionManager::self();
 
   // application dcop interface
@@ -109,7 +108,6 @@ KateApp::~KateApp ()
   delete m_obj;            // cu dcop interface
   delete m_pluginManager;  // cu plugin manager
   delete m_sessionManager; // delete session manager
-  delete m_oldSessionManager; // delete session manager
   delete m_docManager;     // delete document manager. Do this now, or we crash
 }
 
@@ -137,24 +135,22 @@ TQString KateApp::kateVersion (bool fullVersion)
   return fullVersion ? TQString ("2.5.%1").arg(KDE::versionMajor()) : TQString ("%1.%2").arg(2.5);
 }
 
-void KateApp::restoreKate ()
+void KateApp::restoreKate()
 {
   // restore the nice files ;) we need it
-  Kate::Document::setOpenErrorDialogsActivated (false);
+  Kate::Document::setOpenErrorDialogsActivated(false);
 
-  // activate again correct session!!!
-  sessionConfig()->setGroup("General");
-  TQString lastSession (sessionConfig()->readEntry ("Last Session", "default.katesession"));
-  oldSessionManager()->activateSession (new OldKateSession (oldSessionManager(), lastSession, ""), false, false, false);
-  m_docManager->restoreDocumentList (sessionConfig());
+  // restore last session
+  sessionManager()->restoreLastSession();
+  m_docManager->restoreDocumentList(sessionConfig());
 
-  Kate::Document::setOpenErrorDialogsActivated (true);
+  Kate::Document::setOpenErrorDialogsActivated(true);
 
   // restore all windows ;)
   for (int n=1; TDEMainWindow::canBeRestored(n); n++)
     newMainWindow(sessionConfig(), TQString ("%1").arg(n));
 
-  // oh, no mainwindow, create one, should not happen, but make sure ;)
+  // no mainwindow, create one, should not happen, but make sure ;)
   if (mainWindows() == 0)
     newMainWindow ();
 
@@ -167,17 +163,24 @@ bool KateApp::startupKate ()
   // user specified session to open
   if (m_args->isSet ("start"))
   {
-    oldSessionManager()->activateSession (oldSessionManager()->giveSession (TQString::fromLocal8Bit(m_args->getOption("start"))), false, false);
+    // MIKE fixme: need to handle this functionality
+    sessionManager()->activateSession(
+        sessionManager()->getSessionIdFromName(TQString::fromLocal8Bit(m_args->getOption("start"))));
   }
   else
   {
+    // MIKE: for the time being just open last session.
+    // FIXME: need to add support for startup session options
+    sessionManager()->restoreLastSession();
+
+    // MIKE fixme: need to handle this functionality
     // let the user choose session if possible
-    if (!oldSessionManager()->chooseSession ())
+    /*if (!oldSessionManager()->chooseSession ())
     {
       // we will exit kate now, notify the rest of the world we are done
       TDEStartupInfo::appStarted (startupId());
       return false;
-    }
+    }*/
   }
 
   // oh, no mainwindow, create one, should not happen, but make sure ;)
@@ -264,12 +267,13 @@ bool KateApp::startupKate ()
   return true;
 }
 
-void KateApp::shutdownKate (KateMainWindow *win)
+void KateApp::shutdownKate(KateMainWindow *win)
 {
   if (!win->queryClose_internal())
     return;
 
-  oldSessionManager()->saveActiveSession(true, true);
+  // Save current session here to make sure all GUI elements are saved correctly
+  sessionManager()->saveActiveSession();
 
   // detach the dcopClient
   dcopClient()->detach();
@@ -289,11 +293,6 @@ KatePluginManager *KateApp::pluginManager()
 KateDocManager *KateApp::documentManager ()
 {
   return m_docManager;
-}
-
-OldKateSessionManager *KateApp::oldSessionManager ()
-{
-  return m_oldSessionManager;
 }
 
 KateSessionManager* KateApp::sessionManager()

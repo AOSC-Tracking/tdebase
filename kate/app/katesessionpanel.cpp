@@ -62,7 +62,8 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
   m_listview->setColumnAlignment(2, TQt::AlignCenter);
   m_listview->setMinimumWidth(m_listview->sizeHint().width());
   m_listview->setSorting(-1);
-  //m_listview->setRootIsDecorated(true);  // to enable after inserting doc list
+  //m_listview->setRootIsDecorated(true);  // MIKE to enable after inserting doc list
+  connect(m_listview, TQT_SIGNAL(executed(TQListViewItem*)), TQT_SLOT(itemExecuted(TQListViewItem*)));
 
   TQPtrList<KateSession>& sessions = m_sessionManager->getSessionsList();
   for (int idx = sessions.count()-1;  idx >= 0;  --idx)
@@ -209,4 +210,17 @@ void KateSessionPanel::sessionMoveUp()
 void KateSessionPanel::sessionMoveDown()
 {
 //TODO
+}
+
+void KateSessionPanel::itemExecuted(TQListViewItem *item)
+{
+	if (!item)
+	  return;
+
+  // First level items are sessions. Executing one, will switch to that session
+  if (!item->parent())
+  {
+    sessionActivate();
+    return;
+  }
 }

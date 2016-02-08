@@ -305,8 +305,9 @@ void KateMainWindow::setupActions()
 
   slotWindowActivated ();
 
+// MIKE to fix and enable again
   // session actions
-  new TDEAction(i18n("Menu entry Session->New", "&New"), "list-add", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionNew()), actionCollection(), "sessions_new");
+/*  new TDEAction(i18n("Menu entry Session->New", "&New"), "list-add", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionNew()), actionCollection(), "sessions_new");
   new TDEAction(i18n("&Open..."), "document-open", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionOpen()), actionCollection(), "sessions_open");
   new TDEAction(i18n("&Save"), "document-save", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionSave()), actionCollection(), "sessions_save");
   new TDEAction(i18n("Save &As..."), "document-save-as", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionSaveAs()), actionCollection(), "sessions_save_as");
@@ -314,6 +315,7 @@ void KateMainWindow::setupActions()
 
   // quick open menu ;)
   new OldKateSessionsAction (i18n("&Quick Open"), actionCollection(), "sessions_list");
+*/
 }
 
 KateTabWidget *KateMainWindow::tabWidget ()
@@ -370,7 +372,7 @@ bool KateMainWindow::queryClose()
   // and save docs if we really close down !
   if ( queryClose_internal () )
   {
-    KateApp::self()->oldSessionManager()->saveActiveSession(true, true);
+    KateApp::self()->sessionManager()->saveActiveSession();
 
     // detach the dcopClient
     KateApp::self()->dcopClient()->detach();
@@ -824,7 +826,7 @@ void KateMainWindow::updateCaption (Kate::Document *doc)
     c = m_viewManager->activeView()->getDoc()->url().prettyURL();
   }
 
-  TQString sessName = KateApp::self()->oldSessionManager()->activeSession()->sessionName();
+  TQString sessName = KateApp::self()->sessionManager()->getActiveSessionName();
   if ( !sessName.isEmpty() )
     sessName = TQString("%1: ").arg( sessName );
 
@@ -855,10 +857,8 @@ void KateMainWindow::readProperties(TDEConfig *config)
 
 void KateMainWindow::saveGlobalProperties( TDEConfig* sessionConfig )
 {
-  KateDocManager::self()->saveDocumentList (sessionConfig);
-
-  sessionConfig->setGroup("General");
-  sessionConfig->writeEntry ("Last Session", KateApp::self()->oldSessionManager()->activeSession()->sessionFileRelative());
+// MIKE do we still need this code here?
+//  KateDocManager::self()->saveDocumentList (sessionConfig);
 }
 
 // kate: space-indent on; indent-width 2; replace-tabs on;

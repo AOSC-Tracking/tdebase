@@ -74,6 +74,7 @@ class KateSessionPanel : public TQVBox
     void sessionToggleReadOnly();
     void sessionMoveUp();
     void sessionMoveDown();
+    void itemExecuted(TQListViewItem *item);
 
   private:
     void setup_toolbar();
