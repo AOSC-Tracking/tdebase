@@ -17,7 +17,6 @@
 */
 
 #include "katesession.h"
-#include "katesession.moc"
 
 #include "kateapp.h"
 #include "katemainwindow.h"
@@ -74,6 +73,7 @@ namespace
   const char *KSM_SESSIONS_LIST  = "Sessions list";
 }
 
+//BEGIN Kate session
 KateSession::KateSession(const TQString &sessionName, const TQString &filename, bool isFullName) :
   m_sessionName(sessionName), m_filename(filename), m_isFullName(isFullName),
   m_readOnly(false), m_docCount(0), m_documents(), m_config(NULL)
@@ -167,7 +167,9 @@ void KateSession::setReadOnly(bool readOnly)
 void KateSession::save(bool saveGUIInfo)
 {
   if (m_readOnly)
+  {
     return;
+  }
 
   // create a new session filename if needed
   if (!m_isFullName)
@@ -252,7 +254,7 @@ void KateSession::activate()
     int mwCount = m_config->readUnsignedNumEntry(KS_COUNT, 1);
     for (int i=0; i<mwCount; ++i)
     {
-      if (i >= KateApp::self()->mainWindows())
+      if (i >= (int)KateApp::self()->mainWindows())
       {
         KateApp::self()->newMainWindow(m_config, TQString("MainWindow%1").arg(i));
       }
@@ -267,6 +269,9 @@ void KateSession::activate()
   Kate::Document::setOpenErrorDialogsActivated(true);
 }
 
+//END Kate session
+
+//BEGIN KateSessionManager
 //------------------------------------
 KateSessionManager *KateSessionManager::ksm_instance = NULL;
 
@@ -345,6 +350,12 @@ KateSessionManager::~KateSessionManager()
 }
 
 //------------------------------------
+// FIXME Unnamed sessions should not be saved by default, to allow users who do not bother
+// about sessions to open-use-close Kate seemlessly.
+// FIXME An option need to be added to Configure Kate -> Sessions to allow Kate to ask about
+// saving unnamed sessions before closing the current session. Default value is off as per
+// point above.
+
 void KateSessionManager::saveConfig()
 {
   if (!m_config)
@@ -378,18 +389,20 @@ int KateSessionManager::getSessionIdFromName(const TQString &name)
     if (m_sessions[i]->getSessionName() == name)
       return i;
   }
-  
+
   return KateSessionManager::INVALID_SESSION;
 }
 
 //------------------------------------
+//FIXME: after a session switch, the session name on Kate window title bar displays
+//the previously activated session
 bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
 {
   if (sessionId < 0)
   {
     return false;
   }
-    
+
   if (!m_firstActivation && sessionId == m_activeSessionId)
   {
     return true;
@@ -410,10 +423,26 @@ bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
     }
   }
 
-  m_sessions[sessionId]->activate();
+  int oldSessionId = m_activeSessionId;
   m_activeSessionId = sessionId;
+  m_sessions[sessionId]->activate();
   m_firstActivation = false;
+  emit sessionActivated(m_activeSessionId, oldSessionId);
   return true;
+}
+
+//------------------------------------
+int KateSessionManager::newSession(const TQString &sessionName, bool activate)
+{
+  m_sessions.append(new KateSession(sessionName, m_baseDir, false));
+  ++m_sessionsCount;
+  int newSessionId = m_sessionsCount - 1;
+  emit sessionCreated(newSessionId);
+  if (activate)
+  {
+    activateSession(newSessionId, true);
+  }
+  return newSessionId;
 }
 
 //------------------------------------
@@ -426,6 +455,99 @@ bool KateSessionManager::restoreLastSession()
   // NOTE: m_activeSessionId contains the id of the last active session
   return activateSession(m_activeSessionId, false);
 }
+
+//-------------------------------------------
+void KateSessionManager::slotNewSession()
+{
+  // FIXME: allow the user to enter a session name first
+  // FIXME: allow the user to specify whether to switch to the new session or not
+  newSession(TQString::null, true);
+}
+
+//END KateSessionManager
+
+//BEGIN KateSessionChooser
+//-------------------------------------------
+KateSessionChooser::KateSessionChooser(TQWidget *parent)
+ : KDialogBase(parent, "", true, i18n("Session Chooser"),
+               KDialogBase::User1 | KDialogBase::User2 | KDialogBase::User3, KDialogBase::User2,
+               true, KStdGuiItem::quit(), KGuiItem(i18n("Open Session"), "document-open"),
+               KGuiItem(i18n("New Session"), "document-new")), m_sessionList(NULL), m_columnSessionId(0)
+{
+  TQHBox *page = new TQHBox(this);
+  page->setMinimumSize(400, 200);
+  setMainWidget(page);
+
+  TQHBox *hb = new TQHBox(page);
+  hb->setSpacing(KDialog::spacingHint());
+
+  TQLabel *label = new TQLabel(hb);
+  label->setPixmap(UserIcon("sessionchooser"));
+  label->setFrameStyle (TQFrame::Panel | TQFrame::Sunken);
+
+  TQVBox *vb = new TQVBox(hb);
+  vb->setSpacing (KDialog::spacingHint());
+
+  m_sessionList = new TDEListView(vb);
+  m_sessionList->addColumn(i18n("Session Name"));
+  m_columnSessionId = m_sessionList->addColumn("Session Id", 0);  // Non visible column
+  m_sessionList->header()->setResizeEnabled(false, m_columnSessionId);
+  m_sessionList->addColumn(i18n("Open Documents"));
+  m_sessionList->setSelectionMode(TQListView::Single);
+  m_sessionList->setAllColumnsShowFocus(true);
+  m_sessionList->setSorting(-1);
+  m_sessionList->setResizeMode(TQListView::LastColumn);
+
+  connect (m_sessionList, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()));
+  connect (m_sessionList, TQT_SIGNAL(executed(TQListViewItem*)), this, TQT_SLOT(slotUser2()));
+
+  TQPtrList<KateSession>& sessions = KateSessionManager::self()->getSessionsList();
+  for (int idx = sessions.count()-1;  idx >= 0;  --idx)
+  {
+    new TDEListViewItem(m_sessionList, sessions[idx]->getSessionName(), TQString("%1").arg(idx),
+                        TQString("%1").arg(sessions[idx]->getDocCount()));
+  }
+
+  setResult(RESULT_NO_OP);
+  slotSelectionChanged();  // update button status
+}
+
+//-------------------------------------------
+int KateSessionChooser::getSelectedSessionId()
+{
+  TQListViewItem *selectedItem = m_sessionList->selectedItem();
+  if (!selectedItem)
+    return KateSessionManager::INVALID_SESSION;
+
+  return selectedItem->text(m_columnSessionId).toInt();
+}
+
+//-------------------------------------------
+void KateSessionChooser::slotUser1()
+{
+  done(RESULT_QUIT_KATE);
+}
+
+//-------------------------------------------
+void KateSessionChooser::slotUser2()
+{
+  done(RESULT_OPEN_EXISTING);
+}
+
+//-------------------------------------------
+void KateSessionChooser::slotUser3()
+{
+  done(RESULT_OPEN_NEW);
+}
+
+//-------------------------------------------
+void KateSessionChooser::slotSelectionChanged()
+{
+  enableButton(KDialogBase::User2, m_sessionList->selectedItem());
+}
+
+//END KateSessionChooser
+
 
 
 
@@ -817,93 +939,10 @@ bool OldKateSessionManager::saveActiveSession (bool tryAsk, bool rememberAsLast)
   {
     TDEConfig *c = KateApp::self()->config();
     c->setGroup("General");
-    c->writeEntry ("Last Session", activeSession()->sessionFileRelative());
     c->sync ();
   }
 
   return true;
-}
-
-bool OldKateSessionManager::chooseSession ()
-{
-  bool success = true;
-
-  // app config
-  TDEConfig *c = KateApp::self()->config();
-  c->setGroup("General");
-
-  // get last used session, default to default session
-  TQString lastSession (c->readEntry ("Last Session", "default.katesession"));
-  TQString sesStart (c->readEntry ("Startup Session", "manual"));
-
-  // uhh, just open last used session, show no chooser
-  if (sesStart == "last")
-  {
-    activateSession (new OldKateSession (this, lastSession, ""), false, false);
-    return success;
-  }
-
-  // start with empty new session
-  if (sesStart == "new")
-  {
-    activateSession (new OldKateSession (this, "", ""), false, false);
-    return success;
-  }
-
-  OldKateSessionChooser *chooser = new OldKateSessionChooser (0, lastSession);
-
-  bool retry = true;
-  int res = 0;
-  while (retry)
-  {
-    res = chooser->exec ();
-
-    switch (res)
-    {
-      case OldKateSessionChooser::resultOpen:
-      {
-        OldKateSession::Ptr s = chooser->selectedSession ();
-
-        if (!s)
-        {
-          KMessageBox::error (chooser, i18n("No session selected to open."), i18n ("No Session Selected"));
-          break;
-        }
-
-        activateSession (s, false, false);
-        retry = false;
-        break;
-      }
-
-      // exit the app lateron
-      case OldKateSessionChooser::resultQuit:
-        success = false;
-        retry = false;
-        break;
-
-      default:
-        activateSession (new OldKateSession (this, "", ""), false, false);
-        retry = false;
-        break;
-    }
-  }
-
-  // write back our nice boolean :)
-  if (success && chooser->reopenLastSession ())
-  {
-    c->setGroup("General");
-
-    if (res == OldKateSessionChooser::resultOpen)
-      c->writeEntry ("Startup Session", "last");
-    else if (res == OldKateSessionChooser::resultNew)
-      c->writeEntry ("Startup Session", "new");
-
-    c->sync ();
-  }
-
-  delete chooser;
-
-  return success;
 }
 
 void OldKateSessionManager::sessionNew ()
@@ -998,98 +1037,6 @@ class OldKateSessionChooserItem : public TQListViewItem
     OldKateSession::Ptr session;
 };
 
-OldKateSessionChooser::OldKateSessionChooser (TQWidget *parent, const TQString &lastSession)
- : KDialogBase (  parent
-                  , ""
-                  , true
-                  , i18n ("Session Chooser")
-                  , KDialogBase::User1 | KDialogBase::User2 | KDialogBase::User3
-                  , KDialogBase::User2
-                  , true
-                  , KStdGuiItem::quit ()
-                  , KGuiItem (i18n ("Open Session"), "document-open")
-                  , KGuiItem (i18n ("New Session"), "document-new")
-                )
-{
-  TQHBox *page = new TQHBox (this);
-  page->setMinimumSize (400, 200);
-  setMainWidget(page);
-
-  TQHBox *hb = new TQHBox (page);
-  hb->setSpacing (KDialog::spacingHint());
-
-  TQLabel *label = new TQLabel (hb);
-  label->setPixmap (UserIcon("sessionchooser"));
-  label->setFrameStyle (TQFrame::Panel | TQFrame::Sunken);
-
-  TQVBox *vb = new TQVBox (hb);
-  vb->setSpacing (KDialog::spacingHint());
-
-  m_sessions = new TDEListView (vb);
-  m_sessions->addColumn (i18n("Session Name"));
-  m_sessions->addColumn (i18n("Open Documents"));
-  m_sessions->setResizeMode (TQListView::AllColumns);
-  m_sessions->setSelectionMode (TQListView::Single);
-  m_sessions->setAllColumnsShowFocus (true);
-
-  connect (m_sessions, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(selectionChanged()));
-  connect (m_sessions, TQT_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint &, int)), this, TQT_SLOT(slotUser2()));
-
-  OldKateSessionList &slist (OldKateSessionManager::self()->sessionList());
-  for (unsigned int i=0; i < slist.count(); ++i)
-  {
-    OldKateSessionChooserItem *item = new OldKateSessionChooserItem (m_sessions, slist[i]);
-
-    if (slist[i]->sessionFileRelative() == lastSession)
-      m_sessions->setSelected (item, true);
-  }
-
-  m_useLast = new TQCheckBox (i18n ("&Always use this choice"), vb);
-
-  setResult (resultNone);
-
-  // trigger action update
-  selectionChanged ();
-}
-
-OldKateSessionChooser::~OldKateSessionChooser ()
-{
-}
-
-OldKateSession::Ptr OldKateSessionChooser::selectedSession ()
-{
-  OldKateSessionChooserItem *item = (OldKateSessionChooserItem *) m_sessions->selectedItem ();
-
-  if (!item)
-    return 0;
-
-  return item->session;
-}
-
-bool OldKateSessionChooser::reopenLastSession ()
-{
-  return m_useLast->isChecked ();
-}
-
-void OldKateSessionChooser::slotUser2 ()
-{
-  done (resultOpen);
-}
-
-void OldKateSessionChooser::slotUser3 ()
-{
-  done (resultNew);
-}
-
-void OldKateSessionChooser::slotUser1 ()
-{
-  done (resultQuit);
-}
-
-void OldKateSessionChooser::selectionChanged ()
-{
-  enableButton (KDialogBase::User2, m_sessions->selectedItem ());
-}
 
 //END CHOOSER DIALOG
 
@@ -1304,4 +1251,7 @@ void OldKateSessionsAction::openSession (int i)
 
   OldKateSessionManager::self()->activateSession(slist[(uint)i]);
 }
+
+#include "katesession.moc"
+
 // kate: space-indent on; indent-width 2; replace-tabs on; mixed-indent off;

@@ -76,6 +76,9 @@ class KateSessionPanel : public TQVBox
     void sessionMoveDown();
     void itemExecuted(TQListViewItem *item);
 
+    void slotSessionActivated(int newSessionId, int oldSessionId);
+    void slotSessionCreated(int newSessionId);
+
   private:
     void setup_toolbar();
 

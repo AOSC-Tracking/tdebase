@@ -41,6 +41,7 @@ class KPushButton;
 
 class TQCheckBox;
 
+//BEGIN KateSession
 class KateSession
 {
 	public:
@@ -86,6 +87,11 @@ class KateSession
 		const TQString& getSessionFilename() const { return m_filename; }
 
 		/**
+		* @return the number of documents in the session
+		*/
+		int getDocCount() const { return m_docCount; }
+
+		/**
 		 * Save session info
 		 * @param saveGUIInfo if true, save also the information about the GUI elements
 		 */
@@ -116,17 +122,29 @@ class KateSession
 
 };
 
+//END KateSession
 
+//BEGIN KateSessionManager
+//FIXME (advanced)
+//There should be only one session manager regardless of how many instances of Kate are running.
+//Changes should propagate to all session panels. Different Kate instances should run different
+//sessions. If the user switches to a session already opened in another Kate instance, the current
+//session should be saved and then the focus switched to the other instance.
+//This would allow a safe use of multiple Kate instances without overwriting session information
+//among them. Currently the last instance to be closed will overwrite the information previously
+//saved by other Kate instances.
 //------------------------------------
-class KateSessionManager
+class KateSessionManager : public TQObject
 {
+  Q_OBJECT
+
 	public:
 
     enum
     {
       INVALID_SESSION = -1
     };
-    
+
 		/**
 		 * get a pointer to the unique KateSessionManager instance.
 		 * If the manager does not exist yet, create it.
@@ -158,14 +176,10 @@ class KateSessionManager
 		 */
 		KateSession* getActiveSession() { return m_sessions[m_activeSessionId]; }
 
-		/**
-		 * @return a reference to the sessions list
-		 */
-		TQPtrList<KateSession>& getSessionsList() { return m_sessions; }
-
     /**
-     * Returns the session id of the first session whose name matches the
-     * provided one
+     * Return the session id of the first session whose name matches the
+     * provided one. In case multiple sessions share the same name,
+     * the id of the first one found will be returned.
      * @param name the session name to look for
      * @return the session id of the matching session if it is found,
      *         otherwise KateSessionManager::INVALID_SESSION.
@@ -173,12 +187,25 @@ class KateSessionManager
     int getSessionIdFromName(const TQString &name);
 
 		/**
-		 * Activates the selected session.
+		 * @return a reference to the sessions list
+		 */
+		TQPtrList<KateSession>& getSessionsList() { return m_sessions; }
+
+		/**
+		 * Activate the selected session.
 		 * @param sessionId the id of the session to activate
 		 * @param saveCurr if true, save the current session before activating the new one
 		 * @return whether the session was activated or not
 		 */
 		bool activateSession(int sessionId, bool saveCurr = true);
+
+		/**
+		 * Create a new session and activate it if required
+		 * @param sessionName new session name
+		 * @param activate if true, activate the new session after creation
+		 * @return the id of the newly created session
+		 */
+		int newSession(const TQString &sessionName = TQString::null, bool activate = true);
 
     /**
      * Restore the last saved session. Can only be used before
@@ -191,6 +218,28 @@ class KateSessionManager
 		 * Saves the active session
 		 */
 		void saveActiveSession() { m_sessions[m_activeSessionId]->save(true); }
+
+  signals:
+		/**
+		 * Emitted once a session has been activated
+		 * @param newSessionId the id of the previous active session
+		 * @param oldSessionId the id of the new active session
+		 */
+		void sessionActivated(int newSessionId, int oldSessionId);
+
+		/**
+		 * Emitted once a session has been created
+		 * @param newSessionId the id of the new session
+		 */
+		void sessionCreated(int newSessionId);
+
+
+  public slots:
+		/**
+		 * Slot to create a new session
+		 */
+    void slotNewSession();
+
 
 	private:
 		KateSessionManager();
@@ -205,6 +254,42 @@ class KateSessionManager
 
 		static KateSessionManager *ksm_instance;  // the only KateSessionManager instance
 };
+
+//END KateSessionManager
+
+//BEGIN KateSessionChooser
+//------------------------------------
+class KateSessionChooser : public KDialogBase
+{
+	Q_OBJECT
+
+	public:
+		enum Result
+		{
+			RESULT_NO_OP = TQDialog::Rejected,
+			RESULT_OPEN_EXISTING,
+			RESULT_OPEN_NEW,
+			RESULT_QUIT_KATE
+		};
+
+		KateSessionChooser(TQWidget *parent);
+		KateSessionChooser() {}
+
+		int getSelectedSessionId();  //return the session id of the selected session
+
+	protected slots:
+
+		void slotUser1();   // open existing session
+		void slotUser2();   // open new session
+		void slotUser3();   // quit kate
+		void slotSelectionChanged();  // list selection has changed
+
+	protected:
+		TDEListView *m_sessionList;
+		int m_columnSessionId;
+};
+
+//BEGIN KateSessionChooser
 
 
 
@@ -461,51 +546,6 @@ class OldKateSessionManager : public TQObject
 		OldKateSession::Ptr m_activeSession;
 };
 
-class OldKateSessionChooser : public KDialogBase
-{
-		Q_OBJECT
-
-	public:
-		OldKateSessionChooser ( TQWidget *parent, const TQString &lastSession );
-		~OldKateSessionChooser ();
-
-		OldKateSession::Ptr selectedSession ();
-
-		bool reopenLastSession ();
-
-		enum
-		{
-			resultQuit = TQDialog::Rejected,
-			resultOpen,
-			resultNew,
-			resultNone
-		};
-
-	protected slots:
-		/**
-		 * open session
-		 */
-		void slotUser1 ();
-
-		/**
-		 * new session
-		 */
-		void slotUser2 ();
-
-		/**
-		 * quit kate
-		 */
-		void slotUser3 ();
-
-		/**
-		 * selection has changed
-		 */
-		void selectionChanged ();
-
-	private:
-		TDEListView *m_sessions;
-		TQCheckBox *m_useLast;
-};
 
 class OldKateSessionOpenDialog : public KDialogBase
 {

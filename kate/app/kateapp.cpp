@@ -158,29 +158,78 @@ void KateApp::restoreKate()
   // TDEStartupInfo::setNewStartupId( activeMainWindow(), startupId());
 }
 
-bool KateApp::startupKate ()
+bool KateApp::startupKate()
 {
-  // user specified session to open
-  if (m_args->isSet ("start"))
+  if (m_args->isSet("start"))
   {
-    // MIKE fixme: need to handle this functionality
-    sessionManager()->activateSession(
-        sessionManager()->getSessionIdFromName(TQString::fromLocal8Bit(m_args->getOption("start"))));
+    // the user has specified the session to open
+    TQCString sessName = m_args->getOption("start");
+    int sessId = sessionManager()->getSessionIdFromName(sessName);
+    if (sessId != KateSessionManager::INVALID_SESSION)
+    {
+      sessionManager()->activateSession(sessId);
+    }
+    else
+    {
+      int msgres = KMessageBox::warningYesNo(0, i18n("<p>The session '%1' could not be found."
+                   "<p>Do you want to start a new session?").arg(sessName),
+                   i18n("Session not found!"));
+      if (msgres == KMessageBox::Yes)
+      {
+        sessionManager()->newSession(TQString::null, true);
+      }
+      else
+      {
+        // Kate will exit now and notify it is done
+        TDEStartupInfo::appStarted(startupId());
+        return false;
+      }
+    }
   }
   else
   {
-    // MIKE: for the time being just open last session.
-    // FIXME: need to add support for startup session options
-    sessionManager()->restoreLastSession();
-
-    // MIKE fixme: need to handle this functionality
-    // let the user choose session if possible
-    /*if (!oldSessionManager()->chooseSession ())
+    // check Kate session startup options
+    TDEConfig *kateCfg = KateApp::self()->config();
+    kateCfg->setGroup("General");
+    if (kateCfg->hasKey("Last Session"))
     {
-      // we will exit kate now, notify the rest of the world we are done
-      TDEStartupInfo::appStarted (startupId());
-      return false;
-    }*/
+      // Delete no longer used entry (pre R14.1.0)
+      kateCfg->deleteEntry("Last Session");
+    }
+    TQString startupOption(kateCfg->readEntry("Startup Session", "manual"));
+    if (startupOption == "last")
+    {
+      sessionManager()->restoreLastSession();
+    }
+    else if (startupOption == "new")
+    {
+      sessionManager()->newSession(TQString::null, true);
+    }
+    else // startupOption == "manual"
+    {
+      KateSessionChooser *chooser = new KateSessionChooser(NULL);
+      int result = chooser->exec();
+      switch (result)
+      {
+        case KateSessionChooser::RESULT_OPEN_NEW:
+          sessionManager()->newSession(TQString::null, true);
+          break;
+
+        case KateSessionChooser::RESULT_OPEN_EXISTING:
+          if (!m_sessionManager->activateSession(chooser->getSelectedSessionId()))
+          {
+            // Open a new session in case of error
+            sessionManager()->newSession(TQString::null, true);
+          }
+          break;
+
+        default: // KateSessionChooser::RESULT_QUIT_KATE:
+          // Kate will exit now and notify it is done
+          TDEStartupInfo::appStarted(startupId());
+          return false;
+          break;
+      }
+    }
   }
 
   // oh, no mainwindow, create one, should not happen, but make sure ;)

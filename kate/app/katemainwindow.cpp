@@ -305,7 +305,7 @@ void KateMainWindow::setupActions()
 
   slotWindowActivated ();
 
-// MIKE to fix and enable again
+// FIXME to fix and enable again
   // session actions
 /*  new TDEAction(i18n("Menu entry Session->New", "&New"), "list-add", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionNew()), actionCollection(), "sessions_new");
   new TDEAction(i18n("&Open..."), "document-open", 0, TQT_TQOBJECT(OldKateSessionManager::self()), TQT_SLOT(sessionOpen()), actionCollection(), "sessions_open");
@@ -857,7 +857,7 @@ void KateMainWindow::readProperties(TDEConfig *config)
 
 void KateMainWindow::saveGlobalProperties( TDEConfig* sessionConfig )
 {
-// MIKE do we still need this code here?
+// FIXME do we still need this code here?
 //  KateDocManager::self()->saveDocumentList (sessionConfig);
 }
 

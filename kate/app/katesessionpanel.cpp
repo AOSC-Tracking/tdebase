@@ -57,13 +57,16 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
   m_listview = new TDEListView(this);
   m_listview->header()->hide();
   m_listview->addColumn("Session name");
-  m_columnSessionId = m_listview->addColumn("Session id", 0);
+  m_columnSessionId = m_listview->addColumn("Session id", 50);
+  m_listview->header()->setResizeEnabled(false, m_columnSessionId);
   m_columnPixmap = m_listview->addColumn("Pixmap", 24);
   m_listview->setColumnAlignment(2, TQt::AlignCenter);
   m_listview->setMinimumWidth(m_listview->sizeHint().width());
   m_listview->setSorting(-1);
-  //m_listview->setRootIsDecorated(true);  // MIKE to enable after inserting doc list
-  connect(m_listview, TQT_SIGNAL(executed(TQListViewItem*)), TQT_SLOT(itemExecuted(TQListViewItem*)));
+  //m_listview->setRootIsDecorated(true);  // FIXME to enable after inserting doc list
+  connect(m_listview, TQT_SIGNAL(executed(TQListViewItem*)), this, TQT_SLOT(itemExecuted(TQListViewItem*)));
+  connect(m_sessionManager, TQT_SIGNAL(sessionActivated(int, int)), this, TQT_SLOT(slotSessionActivated(int, int)));
+  connect(m_sessionManager, TQT_SIGNAL(sessionCreated(int)), this, TQT_SLOT(slotSessionCreated(int)));
 
   TQPtrList<KateSession>& sessions = m_sessionManager->getSessionsList();
   for (int idx = sessions.count()-1;  idx >= 0;  --idx)
@@ -94,12 +97,13 @@ void KateSessionPanel::setup_toolbar()
 //FIXME : uncomment and activate as long as the new session manager gets fixed
   // Toolbar actions
   TDEAction *a;
-/*
+
   a = new TDEAction(i18n("New"), SmallIcon("list-add"), 0,
-          TQT_TQOBJECT(m_sessionManager), TQT_SLOT(sessionNew()), m_actionCollection, "session_new");
+          TQT_TQOBJECT(m_sessionManager), TQT_SLOT(slotNewSession()),
+          m_actionCollection, "session_new");
   a->setWhatsThis(i18n("Create a new session."));
   a->plug(m_toolbar);
-
+/*
   a = new TDEAction(i18n("Save"), SmallIcon("document-save"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(saveSession()), m_actionCollection, "session_save");
   a->setWhatsThis(i18n("Save the current session."));
@@ -175,22 +179,14 @@ void KateSessionPanel::deleteSession()
 void KateSessionPanel::sessionActivate()
 {
   TQListViewItem *newSessionItem = m_listview->selectedItem();
-  int currSessionId = m_sessionManager->getActiveSessionId();
   if (!newSessionItem)
     return;
+
+  int currSessionId = m_sessionManager->getActiveSessionId();
   int newSessionId = newSessionItem->text(m_columnSessionId).toInt();
   if (newSessionId != currSessionId)
   {
-    if (!m_sessionManager->activateSession(newSessionId))
-    	return;
-
-    TQListViewItem *item = m_listview->firstChild();
-    for (int idx = 0;  idx < currSessionId;  ++idx)
-		{
-		  item = item->nextSibling();
-		}
-		item->setPixmap(m_columnPixmap, TQPixmap());
-		newSessionItem->setPixmap(m_columnPixmap, SmallIcon("ok"));
+    m_sessionManager->activateSession(newSessionId);
   }
 }
 
@@ -223,4 +219,30 @@ void KateSessionPanel::itemExecuted(TQListViewItem *item)
     sessionActivate();
     return;
   }
+}
+
+//-------------------------------------------
+void KateSessionPanel::slotSessionActivated(int newSessionId, int oldSessionId)
+{
+  // Move the active session marker
+	TQListViewItem *item = m_listview->firstChild();
+	for (int idx = 0;  idx < oldSessionId;  ++idx)
+	{
+		item = item->nextSibling();
+	}
+	item->setPixmap(m_columnPixmap, TQPixmap());
+
+	item = m_listview->firstChild();
+	for (int idx = 0;  idx < newSessionId;  ++idx)
+	{
+		item = item->nextSibling();
+	}
+	item->setPixmap(m_columnPixmap, SmallIcon("ok"));
+	m_listview->setSelected(item, true);
+}
+
+void KateSessionPanel::slotSessionCreated(int newSessionId)
+{
+  TQPtrList<KateSession>& sessions = m_sessionManager->getSessionsList();
+	new TDEListViewItem(m_listview, m_listview->lastItem(), sessions[newSessionId]->getSessionName(), TQString("%1").arg(newSessionId));
 }
