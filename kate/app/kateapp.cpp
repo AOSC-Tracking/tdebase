@@ -162,7 +162,8 @@ bool KateApp::startupKate()
 {
   if (m_args->isSet("start"))
   {
-    // the user has specified the session to open
+    // the user has specified the session to open. If the session does not exist,
+    // a new session with the specified name will be created
     TQCString sessName = m_args->getOption("start");
     int sessId = sessionManager()->getSessionIdFromName(sessName);
     if (sessId != KateSessionManager::INVALID_SESSION)
@@ -171,19 +172,7 @@ bool KateApp::startupKate()
     }
     else
     {
-      int msgres = KMessageBox::warningYesNo(0, i18n("<p>The session '%1' could not be found."
-                   "<p>Do you want to start a new session?").arg(sessName),
-                   i18n("Session not found!"));
-      if (msgres == KMessageBox::Yes)
-      {
-        sessionManager()->newSession(TQString::null, true);
-      }
-      else
-      {
-        // Kate will exit now and notify it is done
-        TDEStartupInfo::appStarted(startupId());
-        return false;
-      }
+      sessionManager()->newSession(sessName, true);
     }
   }
   else
@@ -203,7 +192,7 @@ bool KateApp::startupKate()
     }
     else if (startupOption == "new")
     {
-      sessionManager()->newSession(TQString::null, true);
+      sessionManager()->newSession();
     }
     else // startupOption == "manual"
     {
@@ -212,14 +201,14 @@ bool KateApp::startupKate()
       switch (result)
       {
         case KateSessionChooser::RESULT_OPEN_NEW:
-          sessionManager()->newSession(TQString::null, true);
+          sessionManager()->newSession();
           break;
 
         case KateSessionChooser::RESULT_OPEN_EXISTING:
           if (!m_sessionManager->activateSession(chooser->getSelectedSessionId()))
           {
             // Open a new session in case of error
-            sessionManager()->newSession(TQString::null, true);
+            sessionManager()->newSession();
           }
           break;
 

@@ -1,4 +1,6 @@
 /* This file is part of the KDE project
+   Copyright (C) 2015-2016 Michele Calgaro <micheleDOTcalgaro__AT__yahooDOTit>
+   partially based on previous work from
    Copyright (C) 2005 Christoph Cullmann <cullmann@kde.org>
 
    This library is free software; you can redistribute it and/or
@@ -32,14 +34,11 @@
 #include <tqstringlist.h>
 
 class KateViewSpace;
-
-class OldKateSessionManager;  // Michele - to be removed with OldKateSession
-
 class KDirWatch;
-class TDEListView;
 class KPushButton;
-
+class TDEListView;
 class TQCheckBox;
+
 
 //BEGIN KateSession
 class KateSession
@@ -82,9 +81,9 @@ class KateSession
 		void setReadOnly(bool readOnly);
 
 		/**
-		* @return the session filename
+		* @return the session filename if available, otherwise the null string
 		*/
-		const TQString& getSessionFilename() const { return m_filename; }
+		const TQString& getSessionFilename() const { return m_isFullName ? m_filename : TQString::null; }
 
 		/**
 		* @return the number of documents in the session
@@ -114,17 +113,18 @@ class KateSession
 		TQString       m_sessionName;
 		TQString       m_filename;
 		bool           m_isFullName;   // true  -> m_filename is a full filename
-		// false -> m_filename is a folder name.
+																	 // false -> m_filename is a folder name.
 		bool           m_readOnly;
-		int	 					 m_docCount;		 // number of documents in the session
+		int	 					 m_docCount;		 // number of documents in the session  // FIXME remove and use m_documents.count()
 		TQStringList   m_documents;    // document URLs
 		KSimpleConfig *m_config;       // session config
 
 };
-
 //END KateSession
 
+
 //BEGIN KateSessionManager
+//------------------------------------
 //FIXME (advanced)
 //There should be only one session manager regardless of how many instances of Kate are running.
 //Changes should propagate to all session panels. Different Kate instances should run different
@@ -133,7 +133,6 @@ class KateSession
 //This would allow a safe use of multiple Kate instances without overwriting session information
 //among them. Currently the last instance to be closed will overwrite the information previously
 //saved by other Kate instances.
-//------------------------------------
 class KateSessionManager : public TQObject
 {
   Q_OBJECT
@@ -219,6 +218,14 @@ class KateSessionManager : public TQObject
 		 */
 		void saveActiveSession() { m_sessions[m_activeSessionId]->save(true); }
 
+		/**
+		 * Delete the specified session
+		 * @param sessionId the id of the session to delete
+     * @return whether the session has been deleted or not
+		 */
+		bool deleteSession(int sessionId);
+
+
   signals:
 		/**
 		 * Emitted once a session has been activated
@@ -229,9 +236,15 @@ class KateSessionManager : public TQObject
 
 		/**
 		 * Emitted once a session has been created
-		 * @param newSessionId the id of the new session
+		 * @param sessionId the id of the new session
 		 */
-		void sessionCreated(int newSessionId);
+		void sessionCreated(int sessionId);
+
+		/**
+		 * Emitted once a session has been deleted
+		 * @param sessionId the id of the deleted session
+		 */
+		void sessionDeleted(int sessionId);
 
 
   public slots:
@@ -246,7 +259,7 @@ class KateSessionManager : public TQObject
 
 		TQString m_baseDir;       					// folder where session files are stored
 		TQString m_configFile;     					// file where the session list config is stored
-		int m_sessionsCount;	     					// number of sessions
+		int m_sessionsCount;	     					// number of sessions  // FIXME remove and use m_sessions.count()
 		int m_activeSessionId;              // index of the active session
     bool m_firstActivation;             // true until at least one session has been activated
 		TQPtrList<KateSession> m_sessions;  // session list
@@ -254,10 +267,12 @@ class KateSessionManager : public TQObject
 
 		static KateSessionManager *ksm_instance;  // the only KateSessionManager instance
 };
-
 //END KateSessionManager
 
+
 //BEGIN KateSessionChooser
+//FIXME subclass TQListViewItem adding a field containing the session id,
+//      then remove the m_columnSessionId column
 //------------------------------------
 class KateSessionChooser : public KDialogBase
 {
@@ -288,7 +303,6 @@ class KateSessionChooser : public KDialogBase
 		TDEListView *m_sessionList;
 		int m_columnSessionId;
 };
-
 //BEGIN KateSessionChooser
 
 
@@ -298,6 +312,7 @@ class KateSessionChooser : public KDialogBase
 //------------------------------------
 //------------------------------------
 //------------------------------------
+class OldKateSessionManager;
 class OldKateSession  : public TDEShared
 {
 	public:

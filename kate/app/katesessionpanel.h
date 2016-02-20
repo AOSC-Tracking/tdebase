@@ -1,5 +1,5 @@
 /* This file is part of the TDE project
-   Copyright (C) 2015 Michele Calgaro <micheleDOTcalgaro__AT__yahooDOTit>
+   Copyright (C) 2015-2016 Michele Calgaro <micheleDOTcalgaro__AT__yahooDOTit>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -37,6 +37,7 @@ class KateSessionManager;
 class TDEActionCollection;
 
 
+//BEGIN KateSessionPanelToolBarParent
 class KateSessionPanelToolBarParent: public TQFrame
 {
   Q_OBJECT
@@ -52,9 +53,13 @@ class KateSessionPanelToolBarParent: public TQFrame
   private:
     TDEToolBar *m_tbar;
 };
+//END KateSessionPanelToolBarParent
 
 
-
+//BEGIN KateSessionPanel
+//------------------------------------
+//FIXME subclass TQListViewItem adding a field containing the session id,
+//      then remove the m_columnSessionId column
 class KateSessionPanel : public TQVBox
 {
   Q_OBJECT
@@ -65,19 +70,22 @@ class KateSessionPanel : public TQVBox
                      TQWidget *parent=0, const char *name=0);
     ~KateSessionPanel() {}
 
+
   public slots:
     void saveSession();
     void saveSessionAs();
     void renameSession();
     void deleteSession();
-    void sessionActivate();
+    void activateSession();
     void sessionToggleReadOnly();
     void sessionMoveUp();
     void sessionMoveDown();
     void itemExecuted(TQListViewItem *item);
 
     void slotSessionActivated(int newSessionId, int oldSessionId);
-    void slotSessionCreated(int newSessionId);
+    void slotSessionCreated(int sessionId);
+    void slotSessionDeleted(int sessionId);
+
 
   private:
     void setup_toolbar();
@@ -91,7 +99,7 @@ class KateSessionPanel : public TQVBox
     int m_columnSessionId;
     int m_columnPixmap;
 };
+//END KateSessionPanel
 
 
 #endif //__KATE_SESSIONPANEL_H__
-// kate: space-indent on; indent-width 2; replace-tabs on;

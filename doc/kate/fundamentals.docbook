@@ -157,7 +157,7 @@ Shows license information.
 <listitem>
 <para>
 Starts &kate; with the session <parameter>name</parameter>. If the session does not exist,
-the user is prompted whether to start a new session or not.<p>
+a new session with the specified name is created.<p>
 If a &kate; instance running the specified session already exists, the specified files are
 loaded in that instance.
 </para>
@@ -522,8 +522,7 @@ session chooser, the specified session is loaded prior to the files specified
 on the command line. To open files from the command line in a new, unnamed
 session, configure kate to start a new session per default in the session page of
 the configuration dialog or use <option>--start</option> with an empty string:
-<replaceable>''</replaceable> (you will be prompted whether to create a new session
-or not).</para>
+<replaceable>''</replaceable>.</para>
 
 <para>Since &kate; 2.5.1 the <acronym>PID</acronym> of the current instance is
 exported to the environment variable <envar>KATE_PID</envar>. When opening files

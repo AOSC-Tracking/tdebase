@@ -1,4 +1,6 @@
 /* This file is part of the KDE project
+   Copyright (C) 2015-2016 Michele Calgaro <micheleDOTcalgaro__AT__yahooDOTit>
+   partially based on previous work from
    Copyright (C) 2005 Christoph Cullmann <cullmann@kde.org>
 
    This library is free software; you can redistribute it and/or
@@ -36,6 +38,7 @@
 #include <tdepopupmenu.h>
 
 #include <tqdir.h>
+#include <tqfile.h>
 #include <tqlabel.h>
 #include <tqlayout.h>
 #include <tqvbox.h>
@@ -268,8 +271,8 @@ void KateSession::activate()
 
   Kate::Document::setOpenErrorDialogsActivated(true);
 }
-
 //END Kate session
+
 
 //BEGIN KateSessionManager
 //------------------------------------
@@ -300,7 +303,7 @@ KateSessionManager::KateSessionManager() :
     m_sessionsCount = m_config->readNumEntry(KSM_SESSIONS_COUNT, 0);
     //FIXME : if m_sessionsCount == 0, create session list from existing session files
     m_activeSessionId = m_config->readNumEntry(KSM_ACTIVE_SESSION_ID, 0);
-    for (int i=0; i<m_sessionsCount; ++i)
+    for (int i=0;  i<m_sessionsCount; ++i)
     {
       TQString urlStr = m_config->readEntry(TQString("URL_%1").arg(i));
       if (!urlStr.isEmpty() && TDEGlobal::dirs()->exists(urlStr))
@@ -417,7 +420,7 @@ bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
       if (!KateApp::self()->activeMainWindow()->queryClose_internal())
         return false;
     }
-    if (saveCurr)
+    if (saveCurr && m_activeSessionId != INVALID_SESSION)
     {
       m_sessions[m_activeSessionId]->save(true);
     }
@@ -440,7 +443,7 @@ int KateSessionManager::newSession(const TQString &sessionName, bool activate)
   emit sessionCreated(newSessionId);
   if (activate)
   {
-    activateSession(newSessionId, true);
+    activateSession(newSessionId, m_activeSessionId != INVALID_SESSION);
   }
   return newSessionId;
 }
@@ -461,10 +464,43 @@ void KateSessionManager::slotNewSession()
 {
   // FIXME: allow the user to enter a session name first
   // FIXME: allow the user to specify whether to switch to the new session or not
-  newSession(TQString::null, true);
+  newSession();
 }
 
+//-------------------------------------------
+bool KateSessionManager::deleteSession(int sessionId)
+{
+  if (sessionId < 0 || sessionId >= m_sessionsCount)
+    return false;
+
+  // delete session file if it exists
+  const TQString &filename = m_sessions[sessionId]->getSessionFilename();
+  if (filename != TQString::null && TQFile::exists(filename))
+  {
+    TQFile::remove(filename);
+  }
+  // delete session
+  m_sessions.remove(sessionId);  // this also deletes the KateSession item since auto-deletion is enabled
+  --m_sessionsCount;
+  if (m_activeSessionId > sessionId)
+  {
+    --m_activeSessionId;
+  }
+  else if (m_activeSessionId == sessionId)
+  {
+    m_activeSessionId = INVALID_SESSION;
+  }
+  emit sessionDeleted(sessionId);
+  // if the active session was deleted, create a new unnamed session and activate it
+  if (m_activeSessionId == INVALID_SESSION)
+  {
+    newSession();
+  }
+
+  return true;
+}
 //END KateSessionManager
+
 
 //BEGIN KateSessionChooser
 //-------------------------------------------
@@ -545,7 +581,6 @@ void KateSessionChooser::slotSelectionChanged()
 {
   enableButton(KDialogBase::User2, m_sessionList->selectedItem());
 }
-
 //END KateSessionChooser
 
 
@@ -556,12 +591,6 @@ void KateSessionChooser::slotSelectionChanged()
 //------------------------------------
 //------------------------------------
 //------------------------------------
-// Michele - to be removed with OldKateSession
-bool operator<( const OldKateSession::Ptr& a, const OldKateSession::Ptr& b )
-{
-  return a->sessionName().lower() < b->sessionName().lower();
-}
-
 OldKateSession::OldKateSession (OldKateSessionManager *manager, const TQString &fileName, const TQString &name)
   : m_sessionFileRel (fileName)
   , m_sessionName (name)

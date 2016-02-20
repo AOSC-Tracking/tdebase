@@ -1,5 +1,5 @@
 /* This file is part of the TDE project
-   Copyright (C) 2015 Michele Calgaro <micheleDOTcalgaro__AT__yahooDOTit>
+   Copyright (C) 2015-2016 Michele Calgaro <micheleDOTcalgaro__AT__yahooDOTit>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -28,6 +28,7 @@
 #include <tqlistview.h>
 
 
+//BEGIN KateSessionPanelToolBarParent
 void KateSessionPanelToolBarParent::setToolBar(TDEToolBar *tbar)
 {
 	m_tbar = tbar;
@@ -42,7 +43,10 @@ void KateSessionPanelToolBarParent::resizeEvent (TQResizeEvent*)
 		m_tbar->resize(width(),height());
 	}
 }
+//END KateSessionPanelToolBarParent
 
+
+//BEGIN KateSessionPanel
 //-------------------------------------------
 KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *viewManager,
     TQWidget *parent, const char *name)
@@ -67,6 +71,7 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
   connect(m_listview, TQT_SIGNAL(executed(TQListViewItem*)), this, TQT_SLOT(itemExecuted(TQListViewItem*)));
   connect(m_sessionManager, TQT_SIGNAL(sessionActivated(int, int)), this, TQT_SLOT(slotSessionActivated(int, int)));
   connect(m_sessionManager, TQT_SIGNAL(sessionCreated(int)), this, TQT_SLOT(slotSessionCreated(int)));
+  connect(m_sessionManager, TQT_SIGNAL(sessionDeleted(int)), this, TQT_SLOT(slotSessionDeleted(int)));
 
   TQPtrList<KateSession>& sessions = m_sessionManager->getSessionsList();
   for (int idx = sessions.count()-1;  idx >= 0;  --idx)
@@ -118,16 +123,16 @@ void KateSessionPanel::setup_toolbar()
           TQT_TQOBJECT(this), TQT_SLOT(renameSession()), m_actionCollection, "session_rename");
   a->setWhatsThis(i18n("Rename the selected session."));
   a->plug(m_toolbar);
-
+*/
   a = new TDEAction(i18n("Delete"), SmallIcon("edit-delete"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(deleteSession()), m_actionCollection, "session_delete");
   a->setWhatsThis(i18n("Delete the selected session."));
   a->plug(m_toolbar);
 
   m_toolbar->insertLineSeparator();
-*/
+
   a = new TDEAction(i18n("Activate"), SmallIcon("forward"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(sessionActivate()), m_actionCollection, "session_activate");
+          TQT_TQOBJECT(this), TQT_SLOT(activateSession()), m_actionCollection, "session_activate");
   a->setWhatsThis(i18n("Activate the selected session."));
   a->plug(m_toolbar);
 /*
@@ -172,11 +177,16 @@ void KateSessionPanel::renameSession()
 //-------------------------------------------
 void KateSessionPanel::deleteSession()
 {
-//TODO
+  TQListViewItem *sessionItem = m_listview->selectedItem();
+  if (!sessionItem)
+    return;
+
+  //FIXME ask for user confirmation before proceeding
+  m_sessionManager->deleteSession(sessionItem->text(m_columnSessionId).toInt());
 }
 
 //-------------------------------------------
-void KateSessionPanel::sessionActivate()
+void KateSessionPanel::activateSession()
 {
   TQListViewItem *newSessionItem = m_listview->selectedItem();
   if (!newSessionItem)
@@ -216,7 +226,7 @@ void KateSessionPanel::itemExecuted(TQListViewItem *item)
   // First level items are sessions. Executing one, will switch to that session
   if (!item->parent())
   {
-    sessionActivate();
+    activateSession();
     return;
   }
 }
@@ -241,8 +251,32 @@ void KateSessionPanel::slotSessionActivated(int newSessionId, int oldSessionId)
 	m_listview->setSelected(item, true);
 }
 
-void KateSessionPanel::slotSessionCreated(int newSessionId)
+//-------------------------------------------
+void KateSessionPanel::slotSessionCreated(int sessionId)
 {
   TQPtrList<KateSession>& sessions = m_sessionManager->getSessionsList();
-	new TDEListViewItem(m_listview, m_listview->lastItem(), sessions[newSessionId]->getSessionName(), TQString("%1").arg(newSessionId));
+	new TDEListViewItem(m_listview, m_listview->lastItem(), sessions[sessionId]->getSessionName(),
+	                    TQString("%1").arg(sessionId));
 }
+
+//-------------------------------------------
+void KateSessionPanel::slotSessionDeleted(int sessionId)
+{
+	// delete item from listview
+	TQListViewItem *item = m_listview->firstChild();
+	int idx = 0;
+	for (;  idx < sessionId;  ++idx)
+	{
+		item = item->nextSibling();
+	}
+	TQListViewItem *nextItem = item->nextSibling();
+	delete item;
+	// update session id of all following items
+	item = nextItem;
+	while (item)
+  {
+  	item->setText(m_columnSessionId, TQString("%1").arg(idx++));
+		item = item->nextSibling();
+	}
+}
+//END KateSessionPanel
