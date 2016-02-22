@@ -30,11 +30,40 @@
 #include <tdetoolbar.h>
 #include <tdelistview.h>
 #include <tqframe.h>
+#include <tqlineedit.h>
+#include <tqcheckbox.h>
+#include <kdialogbase.h>
 
 class KateMainWindow;
 class KateViewManager;
 class KateSessionManager;
 class TDEActionCollection;
+
+
+//BEGIN KateSessionNameChooser
+class KateSessionNameChooser : public KDialogBase
+{
+	Q_OBJECT
+
+	public:
+
+		KateSessionNameChooser(TQWidget *parent);
+	 ~KateSessionNameChooser() {}
+
+		TQString getSessionName(); // return the session name typed by the user
+		bool getActivateFlag();     // return whether to switch to the new session or not
+
+	protected slots:
+
+		void slotUser1();          // create new session
+		void slotUser2();          // cancel
+		void slotTextChanged();    // session name has changed
+
+	protected:
+    TQLineEdit *m_sessionNameLE;
+    TQCheckBox *m_activateCB;
+};
+//BEGIN KateSessionNameChooser
 
 
 //BEGIN KateSessionPanelToolBarParent
@@ -56,10 +85,25 @@ class KateSessionPanelToolBarParent: public TQFrame
 //END KateSessionPanelToolBarParent
 
 
+//BEGIN KateSessionPanelItem
+class KateSessionPanelItem : public TDEListViewItem
+{
+  public:
+    KateSessionPanelItem(TQListView *listview, const TQString &sessionName, int sessionId)
+      : TDEListViewItem(listview, sessionName), m_sessionId(sessionId) {}
+    KateSessionPanelItem(TQListView *listview, TQListViewItem *after, const TQString &sessionName, int sessionId)
+      : TDEListViewItem(listview, after, sessionName), m_sessionId(sessionId) {}
+
+		int  getSessionId() { return m_sessionId; }
+		void setSessionId(int sessionId) { m_sessionId = sessionId; }
+
+	protected:
+    int m_sessionId;
+};
+//END KateSessionPanelItem
+
+
 //BEGIN KateSessionPanel
-//------------------------------------
-//FIXME subclass TQListViewItem adding a field containing the session id,
-//      then remove the m_columnSessionId column
 class KateSessionPanel : public TQVBox
 {
   Q_OBJECT
@@ -72,15 +116,16 @@ class KateSessionPanel : public TQVBox
 
 
   public slots:
-    void saveSession();
-    void saveSessionAs();
-    void renameSession();
-    void deleteSession();
-    void activateSession();
-    void sessionToggleReadOnly();
-    void sessionMoveUp();
-    void sessionMoveDown();
-    void itemExecuted(TQListViewItem *item);
+    void slotNewSession();
+    void slotSaveSession();
+    void slotSaveSessionAs();
+    void slotRenameSession();
+    void slotDeleteSession();
+    void slotActivateSession();
+    void slotSessionToggleReadOnly();
+    void slotSessionMoveUp();
+    void slotSessionMoveDown();
+    void slotItemExecuted(TQListViewItem *item);
 
     void slotSessionActivated(int newSessionId, int oldSessionId);
     void slotSessionCreated(int sessionId);
@@ -96,7 +141,6 @@ class KateSessionPanel : public TQVBox
     TDEActionCollection *m_actionCollection;
     TDEToolBar *m_toolbar;
     TDEListView *m_listview;
-    int m_columnSessionId;
     int m_columnPixmap;
 };
 //END KateSessionPanel

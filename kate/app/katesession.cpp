@@ -28,7 +28,6 @@
 #include <tdelocale.h>
 #include <kdebug.h>
 #include <kdirwatch.h>
-#include <tdelistview.h>
 #include <kinputdialog.h>
 #include <kiconloader.h>
 #include <tdemessagebox.h>
@@ -43,7 +42,6 @@
 #include <tqlayout.h>
 #include <tqvbox.h>
 #include <tqhbox.h>
-#include <tqcheckbox.h>
 #include <tqdatetime.h>
 #include <tqmap.h>
 
@@ -79,7 +77,7 @@ namespace
 //BEGIN Kate session
 KateSession::KateSession(const TQString &sessionName, const TQString &filename, bool isFullName) :
   m_sessionName(sessionName), m_filename(filename), m_isFullName(isFullName),
-  m_readOnly(false), m_docCount(0), m_documents(), m_config(NULL)
+  m_readOnly(false), m_documents(), m_config(NULL)
 {
   if (m_isFullName && TDEGlobal::dirs()->exists(m_filename))
   {
@@ -99,8 +97,8 @@ KateSession::KateSession(const TQString &sessionName, const TQString &filename, 
     {
       // Read new style document list (from TDE R14.1.0)
       m_config->setGroup(KS_DOCLIST);
-      m_docCount = m_config->readNumEntry(KS_DOCCOUNT, 0);
-      for (int i=0; i<m_docCount; ++i)
+      int docCount = m_config->readNumEntry(KS_DOCCOUNT, 0);
+      for (int i = 0;  i < docCount;  ++i)
       {
         TQString urlStr = m_config->readEntry(TQString("URL_%1").arg(i));
         if (!urlStr.isEmpty())
@@ -115,8 +113,8 @@ KateSession::KateSession(const TQString &sessionName, const TQString &filename, 
       // Create document list from old session configuration
       // to effortlessly import existing sessions
       m_config->setGroup(KS_OPENDOC);
-      m_docCount = m_config->readNumEntry(KS_COUNT, 0);
-      for (int i=0; i<m_docCount; ++i)
+      int docCount = m_config->readNumEntry(KS_COUNT, 0);
+      for (int i = 0;  i < docCount;  ++i)
       {
         m_config->setGroup(TQString("Document %1").arg(i));
         TQString urlStr = m_config->readEntry("URL");
@@ -127,8 +125,6 @@ KateSession::KateSession(const TQString &sessionName, const TQString &filename, 
         }
       }
     }
-    // Update document count again, in case empty URLs were found
-    m_docCount = static_cast<int>(m_documents.count());
   }
   if (m_sessionName.isEmpty())
   {
@@ -213,8 +209,8 @@ void KateSession::save(bool saveGUIInfo)
     m_config->deleteGroup(KS_DOCLIST);
   }
   m_config->setGroup(KS_DOCLIST);
-  m_config->writeEntry(KS_DOCCOUNT, m_docCount);
-  for (int i=0; i<m_docCount; ++i)
+  m_config->writeEntry(KS_DOCCOUNT, m_documents.count());
+  for (int i = 0;  i < (int)m_documents.count();  ++i)
   {
     m_config->writeEntry(TQString("URL_%1").arg(i), m_documents[i]);
   }
@@ -227,7 +223,7 @@ void KateSession::save(bool saveGUIInfo)
     int mwCount = KateApp::self()->mainWindows();
     m_config->setGroup(KS_OPEN_MAINWINDOWS);
     m_config->writeEntry(KS_COUNT, mwCount);
-    for (int i=0; i<mwCount; ++i)
+    for (int i = 0;  i < mwCount;  ++i)
     {
       m_config->setGroup(TQString("MainWindow%1").arg(i));
       KateApp::self()->mainWindow(i)->saveProperties(m_config);
@@ -291,19 +287,19 @@ KateSessionManager* KateSessionManager::self()
 //------------------------------------
 KateSessionManager::KateSessionManager() :
   m_baseDir(locateLocal("data", KSM_DIR)+"/"), m_configFile(m_baseDir + KSM_FILE),
-  m_sessionsCount(0), m_activeSessionId(0), m_firstActivation(true), m_sessions(), m_config(NULL)
+  m_activeSessionId(0), m_firstActivation(true), m_sessions(), m_config(NULL)
 {
   m_sessions.setAutoDelete(true);
 
+  int sessionsCount = 0;
   if (TDEGlobal::dirs()->exists(m_configFile))
   {
     // Read new style configuration (from TDE R14.1.0)
     m_config = new KSimpleConfig(m_configFile);
     m_config->setGroup(KSM_SESSIONS_LIST);
-    m_sessionsCount = m_config->readNumEntry(KSM_SESSIONS_COUNT, 0);
-    //FIXME : if m_sessionsCount == 0, create session list from existing session files
+    sessionsCount = m_config->readNumEntry(KSM_SESSIONS_COUNT, 0);
     m_activeSessionId = m_config->readNumEntry(KSM_ACTIVE_SESSION_ID, 0);
-    for (int i=0;  i<m_sessionsCount; ++i)
+    for (int i = 0;  i < sessionsCount;  ++i)
     {
       TQString urlStr = m_config->readEntry(TQString("URL_%1").arg(i));
       if (!urlStr.isEmpty() && TDEGlobal::dirs()->exists(urlStr))
@@ -318,18 +314,17 @@ KateSessionManager::KateSessionManager() :
     // Create sessions list from session files
     // to effortlessly import existing sessions
     TQDir sessionDir(m_baseDir, "*.katesession");
-    for (unsigned int i=0; i<sessionDir.count(); ++i)
+    for (unsigned int i = 0;  i < sessionDir.count();  ++i)
     {
       m_sessions.append(new KateSession(TQString::null, m_baseDir+sessionDir[i], true));
     }
   }
-  m_sessionsCount = static_cast<int>(m_sessions.count());
-  if (m_sessionsCount == 0)  // In the worst case, there is no valid session at all
+  sessionsCount = (int)m_sessions.count();
+  if (sessionsCount == 0)  // In the worst case, there is no valid session at all
   {
     m_sessions.append(new KateSession(TQString::null, m_baseDir, false));
-    ++m_sessionsCount;
   }
-  if (m_activeSessionId < 0 || m_activeSessionId >= m_sessionsCount)
+  if (m_activeSessionId < 0 || m_activeSessionId >= (int)m_sessions.count())
   {
     m_activeSessionId = 0;  // Invalid active session was detected. Use first in the list
   }
@@ -370,9 +365,9 @@ void KateSessionManager::saveConfig()
     m_config->deleteGroup(KSM_SESSIONS_LIST);
   }
   m_config->setGroup(KSM_SESSIONS_LIST);
-  m_config->writeEntry(KSM_SESSIONS_COUNT, m_sessionsCount);
+  m_config->writeEntry(KSM_SESSIONS_COUNT, m_sessions.count());
   m_config->writeEntry(KSM_ACTIVE_SESSION_ID, m_activeSessionId);
-  for (int i=0; i<m_sessionsCount; ++i)
+  for (int i = 0;  i < (int)m_sessions.count();  ++i)
   {
     // Save the session first, to make sure a new session has an associated file
     m_sessions[i]->save(false);
@@ -387,7 +382,7 @@ int KateSessionManager::getSessionIdFromName(const TQString &name)
   if (name.isEmpty())
     return KateSessionManager::INVALID_SESSION;
 
-  for (int i=0; i<m_sessionsCount; ++i)
+  for (int i = 0;  i < (int)m_sessions.count();  ++i)
   {
     if (m_sessions[i]->getSessionName() == name)
       return i;
@@ -397,8 +392,6 @@ int KateSessionManager::getSessionIdFromName(const TQString &name)
 }
 
 //------------------------------------
-//FIXME: after a session switch, the session name on Kate window title bar displays
-//the previously activated session
 bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
 {
   if (sessionId < 0)
@@ -438,8 +431,7 @@ bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
 int KateSessionManager::newSession(const TQString &sessionName, bool activate)
 {
   m_sessions.append(new KateSession(sessionName, m_baseDir, false));
-  ++m_sessionsCount;
-  int newSessionId = m_sessionsCount - 1;
+  int newSessionId = m_sessions.count() - 1;
   emit sessionCreated(newSessionId);
   if (activate)
   {
@@ -460,17 +452,9 @@ bool KateSessionManager::restoreLastSession()
 }
 
 //-------------------------------------------
-void KateSessionManager::slotNewSession()
-{
-  // FIXME: allow the user to enter a session name first
-  // FIXME: allow the user to specify whether to switch to the new session or not
-  newSession();
-}
-
-//-------------------------------------------
 bool KateSessionManager::deleteSession(int sessionId)
 {
-  if (sessionId < 0 || sessionId >= m_sessionsCount)
+  if (sessionId < 0 || sessionId >= (int)m_sessions.count())
     return false;
 
   // delete session file if it exists
@@ -481,7 +465,6 @@ bool KateSessionManager::deleteSession(int sessionId)
   }
   // delete session
   m_sessions.remove(sessionId);  // this also deletes the KateSession item since auto-deletion is enabled
-  --m_sessionsCount;
   if (m_activeSessionId > sessionId)
   {
     --m_activeSessionId;
@@ -508,7 +491,7 @@ KateSessionChooser::KateSessionChooser(TQWidget *parent)
  : KDialogBase(parent, "", true, i18n("Session Chooser"),
                KDialogBase::User1 | KDialogBase::User2 | KDialogBase::User3, KDialogBase::User2,
                true, KStdGuiItem::quit(), KGuiItem(i18n("Open Session"), "document-open"),
-               KGuiItem(i18n("New Session"), "document-new")), m_sessionList(NULL), m_columnSessionId(0)
+               KGuiItem(i18n("New Session"), "document-new")), m_listview(NULL)
 {
   TQHBox *page = new TQHBox(this);
   page->setMinimumSize(400, 200);
@@ -524,24 +507,22 @@ KateSessionChooser::KateSessionChooser(TQWidget *parent)
   TQVBox *vb = new TQVBox(hb);
   vb->setSpacing (KDialog::spacingHint());
 
-  m_sessionList = new TDEListView(vb);
-  m_sessionList->addColumn(i18n("Session Name"));
-  m_columnSessionId = m_sessionList->addColumn("Session Id", 0);  // Non visible column
-  m_sessionList->header()->setResizeEnabled(false, m_columnSessionId);
-  m_sessionList->addColumn(i18n("Open Documents"));
-  m_sessionList->setSelectionMode(TQListView::Single);
-  m_sessionList->setAllColumnsShowFocus(true);
-  m_sessionList->setSorting(-1);
-  m_sessionList->setResizeMode(TQListView::LastColumn);
+  m_listview = new TDEListView(vb);
+  m_listview->addColumn(i18n("Session Name"));
+  m_listview->addColumn(i18n("Open Documents"));
+  m_listview->setSelectionMode(TQListView::Single);
+  m_listview->setAllColumnsShowFocus(true);
+  m_listview->setSorting(-1);
+  m_listview->setResizeMode(TQListView::LastColumn);
 
-  connect (m_sessionList, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()));
-  connect (m_sessionList, TQT_SIGNAL(executed(TQListViewItem*)), this, TQT_SLOT(slotUser2()));
+  connect (m_listview, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()));
+  connect (m_listview, TQT_SIGNAL(executed(TQListViewItem*)), this, TQT_SLOT(slotUser2()));
 
   TQPtrList<KateSession>& sessions = KateSessionManager::self()->getSessionsList();
   for (int idx = sessions.count()-1;  idx >= 0;  --idx)
   {
-    new TDEListViewItem(m_sessionList, sessions[idx]->getSessionName(), TQString("%1").arg(idx),
-                        TQString("%1").arg(sessions[idx]->getDocCount()));
+    new KateSessionChooserItem(m_listview, sessions[idx]->getSessionName(),
+                               TQString("%1").arg(sessions[idx]->getDocCount()), idx);
   }
 
   setResult(RESULT_NO_OP);
@@ -551,11 +532,11 @@ KateSessionChooser::KateSessionChooser(TQWidget *parent)
 //-------------------------------------------
 int KateSessionChooser::getSelectedSessionId()
 {
-  TQListViewItem *selectedItem = m_sessionList->selectedItem();
+  KateSessionChooserItem *selectedItem = dynamic_cast<KateSessionChooserItem*>(m_listview->selectedItem());
   if (!selectedItem)
     return KateSessionManager::INVALID_SESSION;
 
-  return selectedItem->text(m_columnSessionId).toInt();
+  return selectedItem->getSessionId();
 }
 
 //-------------------------------------------
@@ -579,7 +560,7 @@ void KateSessionChooser::slotUser3()
 //-------------------------------------------
 void KateSessionChooser::slotSelectionChanged()
 {
-  enableButton(KDialogBase::User2, m_sessionList->selectedItem());
+  enableButton(KDialogBase::User2, m_listview->selectedItem());
 }
 //END KateSessionChooser
 

@@ -218,6 +218,7 @@ bool KateApp::startupKate()
           return false;
           break;
       }
+      delete chooser;
     }
   }
 

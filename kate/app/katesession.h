@@ -32,6 +32,7 @@
 #include <tqptrlist.h>
 #include <tqvaluelist.h>
 #include <tqstringlist.h>
+#include <tdelistview.h>
 
 class KateViewSpace;
 class KDirWatch;
@@ -88,7 +89,7 @@ class KateSession
 		/**
 		* @return the number of documents in the session
 		*/
-		int getDocCount() const { return m_docCount; }
+		int getDocCount() const { return m_documents.count(); }
 
 		/**
 		 * Save session info
@@ -115,7 +116,6 @@ class KateSession
 		bool           m_isFullName;   // true  -> m_filename is a full filename
 																	 // false -> m_filename is a folder name.
 		bool           m_readOnly;
-		int	 					 m_docCount;		 // number of documents in the session  // FIXME remove and use m_documents.count()
 		TQStringList   m_documents;    // document URLs
 		KSimpleConfig *m_config;       // session config
 
@@ -124,7 +124,6 @@ class KateSession
 
 
 //BEGIN KateSessionManager
-//------------------------------------
 //FIXME (advanced)
 //There should be only one session manager regardless of how many instances of Kate are running.
 //Changes should propagate to all session panels. Different Kate instances should run different
@@ -247,19 +246,11 @@ class KateSessionManager : public TQObject
 		void sessionDeleted(int sessionId);
 
 
-  public slots:
-		/**
-		 * Slot to create a new session
-		 */
-    void slotNewSession();
-
-
 	private:
 		KateSessionManager();
 
 		TQString m_baseDir;       					// folder where session files are stored
 		TQString m_configFile;     					// file where the session list config is stored
-		int m_sessionsCount;	     					// number of sessions  // FIXME remove and use m_sessions.count()
 		int m_activeSessionId;              // index of the active session
     bool m_firstActivation;             // true until at least one session has been activated
 		TQPtrList<KateSession> m_sessions;  // session list
@@ -270,10 +261,23 @@ class KateSessionManager : public TQObject
 //END KateSessionManager
 
 
+//BEGIN KateSessionChooserItem
+class KateSessionChooserItem : public TDEListViewItem
+{
+  public:
+    KateSessionChooserItem(TQListView *listview, const TQString &sessionName, const TQString &nDoc, int sessionId)
+      : TDEListViewItem(listview, sessionName, nDoc), m_sessionId(sessionId) {}
+
+		int  getSessionId() { return m_sessionId; }
+		void setSessionId(int sessionId) { m_sessionId = sessionId; }
+
+	protected:
+    int m_sessionId;
+};
+//END KateSessionChooserItem
+
+
 //BEGIN KateSessionChooser
-//FIXME subclass TQListViewItem adding a field containing the session id,
-//      then remove the m_columnSessionId column
-//------------------------------------
 class KateSessionChooser : public KDialogBase
 {
 	Q_OBJECT
@@ -288,9 +292,9 @@ class KateSessionChooser : public KDialogBase
 		};
 
 		KateSessionChooser(TQWidget *parent);
-		KateSessionChooser() {}
+	 ~KateSessionChooser() {}
 
-		int getSelectedSessionId();  //return the session id of the selected session
+		int getSelectedSessionId();  // return the session id of the selected session
 
 	protected slots:
 
@@ -300,11 +304,9 @@ class KateSessionChooser : public KDialogBase
 		void slotSelectionChanged();  // list selection has changed
 
 	protected:
-		TDEListView *m_sessionList;
-		int m_columnSessionId;
+		TDEListView *m_listview;
 };
 //BEGIN KateSessionChooser
-
 
 
 
