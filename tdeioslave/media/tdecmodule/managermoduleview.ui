@@ -184,6 +184,9 @@ Some of the options are tristate. Leave them "undefined" to let TDE choose the b
                                     <property name="whatsThis" stdset="0">
                                         <string>&lt;h2&gt;Defines  the  behaviour  for  creation and display of filenames which fit into 8.3 characters. If a long name for a file exists, it will always be preferred display.&lt;/h2&gt;
 
+&lt;h3&gt;&lt;b&gt;Default&lt;/b&gt;&lt;/h3&gt;
+Do not force a short name option at all.
+
 &lt;h3&gt;&lt;b&gt;Lower&lt;/b&gt;&lt;/h3&gt;
 Force the short name to lower case upon display; store a long name when the short name is not all upper case.
 
@@ -244,6 +247,11 @@ Display the short name as is; store a long name when the short name is not all u
                                     </property>
                                 </widget>
                                 <widget class="TQComboBox" row="1" column="1">
+                                    <item>
+                                        <property name="text">
+                                            <string>Default</string>
+                                        </property>
+                                    </item>
                                     <item>
                                         <property name="text">
                                             <string>Lower</string>

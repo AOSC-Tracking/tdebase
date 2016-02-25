@@ -1039,9 +1039,9 @@ TQStringList HALBackend::mountoptions(const TQString &name)
     if (valids.contains("shortname"))
     {
         TQString svalue = config.readEntry("shortname", "lower").lower();
-        if (svalue == "winnt")
+        if (svalue == "windows nt")
             result << "shortname=winnt";
-        else if (svalue == "win95")
+        else if (svalue == "windows 95")
             result << "shortname=win95";
         else if (svalue == "mixed")
             result << "shortname=mixed";

@@ -1042,16 +1042,17 @@ TQStringList TDEBackend::mountoptions(const TQString &name)
 
 	if (valids.contains("shortname")) {
 		TQString svalue = config.readEntry("shortname", "lower").lower();
-		if (svalue == "winnt") {
+		// If the user choose 'default', no shortname is added to the mount option list
+		if (svalue == "windows nt") {
 			result << "shortname=winnt";
 		}
-		else if (svalue == "win95") {
+		else if (svalue == "windows 95") {
 			result << "shortname=win95";
 		}
 		else if (svalue == "mixed") {
 			result << "shortname=mixed";
 		}
-		else {
+		else if (svalue == "lower"){
 			result << "shortname=lower";
 		}
 	}
