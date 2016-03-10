@@ -119,7 +119,7 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
     TQWidget *parent, const char *name)
     : TQVBox(parent, name), m_mainWin(mainWindow), m_viewManager(viewManager),
       m_sessionManager(KateSessionManager::self()), m_actionCollection(new TDEActionCollection(this)),
-      m_columnPixmap(0)
+      m_columnName(-1), m_columnPixmap(-1)
 {
   // Toolbar
   setup_toolbar();
@@ -127,7 +127,7 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
   // Listview
   m_listview = new TDEListView(this);
   m_listview->header()->hide();
-  m_listview->addColumn("Session name");
+  m_columnName = m_listview->addColumn("Session name");
   m_columnPixmap = m_listview->addColumn("Pixmap", 24);
   m_listview->addColumn("Dummy", 1);  // Dummy column, only for nice resizing
   m_listview->header()->setResizeEnabled(false, m_columnPixmap);
@@ -136,10 +136,18 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
   m_listview->setSorting(-1);
   m_listview->setResizeMode(TQListView::LastColumn);
   //m_listview->setRootIsDecorated(true);  // FIXME to enable after inserting doc list
-  connect(m_listview, TQT_SIGNAL(executed(TQListViewItem*)), this, TQT_SLOT(slotItemExecuted(TQListViewItem*)));
-  connect(m_sessionManager, TQT_SIGNAL(sessionActivated(int, int)), this, TQT_SLOT(slotSessionActivated(int, int)));
-  connect(m_sessionManager, TQT_SIGNAL(sessionCreated(int)), this, TQT_SLOT(slotSessionCreated(int)));
-  connect(m_sessionManager, TQT_SIGNAL(sessionDeleted(int)), this, TQT_SLOT(slotSessionDeleted(int)));
+  connect(m_listview, TQT_SIGNAL(executed(TQListViewItem*)),
+          this, TQT_SLOT(slotItemExecuted(TQListViewItem*)));
+  connect(m_sessionManager, TQT_SIGNAL(sessionActivated(int, int)),
+          this, TQT_SLOT(slotSessionActivated(int, int)));
+  connect(m_sessionManager, TQT_SIGNAL(sessionCreated(int)),
+          this, TQT_SLOT(slotSessionCreated(int)));
+  connect(m_sessionManager, TQT_SIGNAL(sessionDeleted(int)),
+          this, TQT_SLOT(slotSessionDeleted(int)));
+  connect(m_sessionManager, TQT_SIGNAL(sessionsSwapped(int, int)),
+          this, TQT_SLOT(slotSessionsSwapped(int, int)));
+  connect(m_listview, TQT_SIGNAL(itemRenamed(TQListViewItem*)),
+          this, TQT_SLOT(slotSessionRenamed(TQListViewItem*)));
 
   TQPtrList<KateSession>& sessions = m_sessionManager->getSessionsList();
   for (int idx = sessions.count()-1;  idx >= 0;  --idx)
@@ -185,12 +193,12 @@ void KateSessionPanel::setup_toolbar()
           TQT_TQOBJECT(this), TQT_SLOT(slotSaveSessionAs()), m_actionCollection, "session_save_as");
   a->setWhatsThis(i18n("Save the current session with a different name."));
   a->plug(m_toolbar);
-
+*/
   a = new TDEAction(i18n("Rename"), SmallIcon("edit_user"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotRenameSession()), m_actionCollection, "session_rename");
   a->setWhatsThis(i18n("Rename the selected session."));
   a->plug(m_toolbar);
-*/
+
   a = new TDEAction(i18n("Delete"), SmallIcon("edit-delete"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotDeleteSession()), m_actionCollection, "session_delete");
   a->setWhatsThis(i18n("Delete the selected session."));
@@ -210,6 +218,7 @@ void KateSessionPanel::setup_toolbar()
           "will not be saved when you exit Kate or switch to another session.<p>"
           "You can use this option to create template sessions that you wish to keep unchanged over time."));
   tglA->plug(m_toolbar);
+*/
 
   a = new TDEAction(i18n("Move Up"), SmallIcon("go-up"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotSessionMoveUp()), m_actionCollection, "session_move_up");
@@ -220,7 +229,6 @@ void KateSessionPanel::setup_toolbar()
           TQT_TQOBJECT(this), TQT_SLOT(slotSessionMoveDown()), m_actionCollection, "session_move_down");
   a->setWhatsThis(i18n("Move down the selected session."));
   a->plug(m_toolbar);
-*/
 }
 
 //-------------------------------------------
@@ -250,7 +258,11 @@ void KateSessionPanel::slotSaveSessionAs()
 //-------------------------------------------
 void KateSessionPanel::slotRenameSession()
 {
-//TODO
+  TQListViewItem *sessionItem = m_listview->selectedItem();
+  if (!sessionItem)
+    return;
+
+  m_listview->rename(m_listview->selectedItem(), m_columnName);
 }
 
 //-------------------------------------------
@@ -293,13 +305,21 @@ void KateSessionPanel::slotSessionToggleReadOnly()
 //-------------------------------------------
 void KateSessionPanel::slotSessionMoveUp()
 {
-//TODO
+  KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
+  if (!sessionItem)
+    return;
+
+  m_sessionManager->moveSessionBackward(sessionItem->getSessionId());
 }
 
 //-------------------------------------------
 void KateSessionPanel::slotSessionMoveDown()
 {
-//TODO
+  KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
+  if (!sessionItem)
+    return;
+
+  m_sessionManager->moveSessionForward(sessionItem->getSessionId());
 }
 
 void KateSessionPanel::slotItemExecuted(TQListViewItem *item)
@@ -362,5 +382,82 @@ void KateSessionPanel::slotSessionDeleted(int sessionId)
 	  dynamic_cast<KateSessionPanelItem*>(item)->setSessionId(idx++);
 		item = item->nextSibling();
 	}
+}
+
+//-------------------------------------------
+void KateSessionPanel::slotSessionsSwapped(int sessionIdMin, int sessionIdMax)
+{
+  if (sessionIdMin == sessionIdMax)
+  {
+  	return;
+  }
+
+	if (sessionIdMin > sessionIdMax)
+	{
+	  // this is not executed when the slot is connected to m_sessionManager's
+	  // sessionsSwapped(int, int) signal
+		int tmp = sessionIdMin;
+		sessionIdMin = sessionIdMax;
+		sessionIdMax = tmp;
+	}
+
+	TQListViewItem *selectedItem = m_listview->selectedItem();
+
+	// Looks for the previous siblings of the two items
+	TQListViewItem *siblMin(NULL), *siblMax(NULL), *itemMin(NULL), *itemMax(NULL);
+	TQListViewItem *currItem = m_listview->firstChild();
+	TQListViewItem *nextItem(NULL);
+	while (currItem)
+	{
+	  nextItem = currItem->nextSibling();
+		KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(nextItem);
+		if (sessionItem->getSessionId() == sessionIdMin)
+		{
+			siblMin = currItem;
+			itemMin = nextItem;
+		}
+		else if (sessionItem->getSessionId() == sessionIdMax)
+		{
+			siblMax = currItem;
+			itemMax = nextItem;
+			break;
+		}
+		currItem = nextItem;
+	}
+	if (!itemMin)
+	{
+		// The sessionIdMin item was the first of the list
+		itemMin = m_listview->firstChild();
+	}
+	// Remove the two items and place them in their new positions
+	m_listview->takeItem(itemMax);
+	m_listview->takeItem(itemMin);
+	m_listview->insertItem(itemMin);
+	m_listview->insertItem(itemMax);
+  itemMax->moveItem(siblMin);
+  if (siblMax != itemMin)
+  {
+  	itemMin->moveItem(siblMax);
+  }
+  else
+  {
+  	itemMin->moveItem(itemMax);
+  }
+  // Update item's session id
+  (dynamic_cast<KateSessionPanelItem*>(itemMax))->setSessionId(sessionIdMin);
+  (dynamic_cast<KateSessionPanelItem*>(itemMin))->setSessionId(sessionIdMax);
+
+  m_listview->setSelected(selectedItem, true);
+}
+
+//-------------------------------------------
+void KateSessionPanel::slotSessionRenamed(TQListViewItem *item)
+{
+  KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(item);
+  if (!sessionItem)
+  {
+    return;
+  }
+  m_sessionManager->renameSession(sessionItem->getSessionId(), sessionItem->text(m_columnName));
 }
 //END KateSessionPanel

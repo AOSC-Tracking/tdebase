@@ -145,11 +145,7 @@ KateSession::~KateSession()
 //------------------------------------
 void KateSession::setSessionName(const TQString &sessionName)
 {
-  m_sessionName = sessionName;
-  if (m_sessionName.isEmpty())
-  {
-    m_sessionName = i18n(KS_UNNAMED);
-  }
+  m_sessionName = sessionName.isEmpty() ? i18n(KS_UNNAMED) : sessionName;
 }
 
 //------------------------------------
@@ -455,7 +451,9 @@ bool KateSessionManager::restoreLastSession()
 bool KateSessionManager::deleteSession(int sessionId)
 {
   if (sessionId < 0 || sessionId >= (int)m_sessions.count())
+  {
     return false;
+  }
 
   // delete session file if it exists
   const TQString &filename = m_sessions[sessionId]->getSessionFilename();
@@ -481,6 +479,77 @@ bool KateSessionManager::deleteSession(int sessionId)
   }
 
   return true;
+}
+
+//-------------------------------------------
+void KateSessionManager::swapSessionsPosition(int sessionId1, int sessionId2)
+{
+  if (sessionId1 < 0 || sessionId1 >= (int)m_sessions.count() ||
+      sessionId2 < 0 || sessionId2 >= (int)m_sessions.count() ||
+      sessionId1 == sessionId2)
+  {
+    return;
+  }
+
+  int idxMin, idxMax;
+  if (sessionId1 < sessionId2)
+  {
+    idxMin = sessionId1;
+    idxMax = sessionId2;
+  }
+  else
+  {
+    idxMin = sessionId2;
+    idxMax = sessionId1;
+  }
+
+  KateSession *sessMax = m_sessions.take(idxMax);
+  KateSession *sessMin = m_sessions.take(idxMin);
+  m_sessions.insert(idxMin, sessMax);
+  m_sessions.insert(idxMax, sessMin);
+  if (m_activeSessionId == sessionId1)
+  {
+    m_activeSessionId = sessionId2;
+  }
+  else if (m_activeSessionId == sessionId2)
+  {
+    m_activeSessionId = sessionId1;
+  }
+
+  emit sessionsSwapped(idxMin, idxMax);
+}
+
+//-------------------------------------------
+void KateSessionManager::moveSessionForward(int sessionId)
+{
+  if (sessionId < 0 || sessionId >= ((int)m_sessions.count() - 1))
+  {
+    return;
+  }
+
+  swapSessionsPosition(sessionId, sessionId + 1);
+}
+
+//-------------------------------------------
+void KateSessionManager::moveSessionBackward(int sessionId)
+{
+  if (sessionId < 1 || sessionId >= (int)m_sessions.count())
+  {
+    return;
+  }
+
+  swapSessionsPosition(sessionId, sessionId - 1);
+}
+
+//-------------------------------------------
+void KateSessionManager::renameSession(int sessionId, const TQString &newSessionName)
+{
+  if (sessionId < 0 || sessionId >= (int)m_sessions.count())
+  {
+    return;
+  }
+
+  m_sessions[sessionId]->setSessionName(newSessionName);
 }
 //END KateSessionManager
 

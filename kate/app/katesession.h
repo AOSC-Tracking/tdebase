@@ -194,6 +194,7 @@ class KateSessionManager : public TQObject
 		 * @param sessionId the id of the session to activate
 		 * @param saveCurr if true, save the current session before activating the new one
 		 * @return whether the session was activated or not
+		 * @emit sessionActivated
 		 */
 		bool activateSession(int sessionId, bool saveCurr = true);
 
@@ -202,6 +203,7 @@ class KateSessionManager : public TQObject
 		 * @param sessionName new session name
 		 * @param activate if true, activate the new session after creation
 		 * @return the id of the newly created session
+		 * @emit sessionCreated
 		 */
 		int newSession(const TQString &sessionName = TQString::null, bool activate = true);
 
@@ -221,8 +223,28 @@ class KateSessionManager : public TQObject
 		 * Delete the specified session
 		 * @param sessionId the id of the session to delete
      * @return whether the session has been deleted or not
+     * @emit sessionDeleted
 		 */
 		bool deleteSession(int sessionId);
+
+		/**
+		 * Move the specified session forward in the session list (by one position)
+		 * @param sessionId the id of the session to move
+     */
+		void moveSessionForward(int sessionId);
+
+		/**
+		 * Move the specified session backward in the session list (by one position)
+		 * @param sessionId the id of the session to move
+     */
+		void moveSessionBackward(int sessionId);
+
+		/**
+		 * Rename the specified session
+		 * @param sessionId the id of the session to rename
+		 * @param newSessionName the new session name
+     */
+		void renameSession(int sessionId, const TQString &newSessionName);
 
 
   signals:
@@ -245,9 +267,25 @@ class KateSessionManager : public TQObject
 		 */
 		void sessionDeleted(int sessionId);
 
+		/**
+		 * Emitted once the position of the two sessions have been swapped
+		 * @param sessionIdMin the smallest id of the session couple
+		 * @param sessionIdMax the biggest id of the session couple
+		 */
+		void sessionsSwapped(int sessionIdMin, int sessionIdMax);
 
-	private:
+
+	protected:
 		KateSessionManager();
+
+		/**
+		 * Swap the position of the two specified sessions in the session list
+		 * @param sessionId1 the id of the first session
+		 * @param sessionId2 the id of the second session
+		 * @emit sessionsSwapped
+		 */
+		void swapSessionsPosition(int sessionId1, int sessionId2);
+
 
 		TQString m_baseDir;       					// folder where session files are stored
 		TQString m_configFile;     					// file where the session list config is stored

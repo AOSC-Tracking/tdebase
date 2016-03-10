@@ -130,6 +130,8 @@ class KateSessionPanel : public TQVBox
     void slotSessionActivated(int newSessionId, int oldSessionId);
     void slotSessionCreated(int sessionId);
     void slotSessionDeleted(int sessionId);
+    void slotSessionsSwapped(int sessionIdMin, int sessionIdMax);
+    void slotSessionRenamed(TQListViewItem *item);
 
 
   private:
@@ -141,6 +143,7 @@ class KateSessionPanel : public TQVBox
     TDEActionCollection *m_actionCollection;
     TDEToolBar *m_toolbar;
     TDEListView *m_listview;
+    int m_columnName;
     int m_columnPixmap;
 };
 //END KateSessionPanel
