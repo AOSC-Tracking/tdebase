@@ -91,7 +91,6 @@ KateSession::KateSession(const TQString &sessionName, const TQString &filename, 
     }
     // Read only
     m_readOnly = m_config->readBoolEntry(KS_READONLY, false);
-    m_config->setReadOnly(m_readOnly);
     // Document list
     if (m_config->hasGroup(KS_DOCLIST))
     {
@@ -149,19 +148,9 @@ void KateSession::setSessionName(const TQString &sessionName)
 }
 
 //------------------------------------
-void KateSession::setReadOnly(bool readOnly)
+void KateSession::save(bool saveGUIInfo, bool setReadOnly)
 {
-  m_readOnly = readOnly;
-  if (m_config)
-  {
-    m_config->setReadOnly(m_readOnly);
-  }
-}
-
-//------------------------------------
-void KateSession::save(bool saveGUIInfo)
-{
-  if (m_readOnly)
+  if (m_readOnly && !setReadOnly)
   {
     return;
   }
@@ -349,7 +338,6 @@ KateSessionManager::~KateSessionManager()
 // FIXME An option need to be added to Configure Kate -> Sessions to allow Kate to ask about
 // saving unnamed sessions before closing the current session. Default value is off as per
 // point above.
-
 void KateSessionManager::saveConfig()
 {
   if (!m_config)
@@ -370,6 +358,17 @@ void KateSessionManager::saveConfig()
     m_config->writeEntry(TQString("URL_%1").arg(i), m_sessions[i]->getSessionFilename());
   }
   m_config->sync();
+}
+
+//------------------------------------
+KateSession* KateSessionManager::getSessionFromId(int sessionId)
+{
+  if (sessionId < 0 || sessionId >= (int)m_sessions.count())
+  {
+    return NULL;
+  }
+
+  return m_sessions[sessionId];
 }
 
 //------------------------------------
@@ -445,6 +444,17 @@ bool KateSessionManager::restoreLastSession()
   }
   // NOTE: m_activeSessionId contains the id of the last active session
   return activateSession(m_activeSessionId, false);
+}
+
+//-------------------------------------------
+void KateSessionManager::saveSession(int sessionId)
+{
+  if (sessionId < 0 || sessionId >= (int)m_sessions.count())
+  {
+    return;
+  }
+  m_sessions[sessionId]->save(sessionId == m_activeSessionId);
+  emit sessionSaved(sessionId);
 }
 
 //-------------------------------------------
@@ -550,6 +560,19 @@ void KateSessionManager::renameSession(int sessionId, const TQString &newSession
   }
 
   m_sessions[sessionId]->setSessionName(newSessionName);
+}
+
+//-------------------------------------------
+void KateSessionManager::setSessionReadOnlyStatus(int sessionId, bool readOnly)
+{
+  if (sessionId < 0 || sessionId >= (int)m_sessions.count())
+  {
+    return;
+  }
+
+  m_sessions[sessionId]->setReadOnly(readOnly);
+  // Session is saved one last time when making it read only
+  m_sessions[sessionId]->save(sessionId == m_activeSessionId, true);
 }
 //END KateSessionManager
 

@@ -136,7 +136,12 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
   m_listview->setSorting(-1);
   m_listview->setResizeMode(TQListView::LastColumn);
   //m_listview->setRootIsDecorated(true);  // FIXME to enable after inserting doc list
+
+  connect(m_listview, TQT_SIGNAL(selectionChanged()),
+          this, TQT_SLOT(slotSelectionChanged()));
   connect(m_listview, TQT_SIGNAL(executed(TQListViewItem*)),
+          this, TQT_SLOT(slotItemExecuted(TQListViewItem*)));
+  connect(m_listview, TQT_SIGNAL(returnPressed(TQListViewItem*)),
           this, TQT_SLOT(slotItemExecuted(TQListViewItem*)));
   connect(m_sessionManager, TQT_SIGNAL(sessionActivated(int, int)),
           this, TQT_SLOT(slotSessionActivated(int, int)));
@@ -175,7 +180,6 @@ void KateSessionPanel::setup_toolbar()
   m_toolbar->setIconSize(16);
   m_toolbar->setEnableContextMenu(false);
 
-//FIXME : uncomment and activate as long as the new session manager gets fixed
   // Toolbar actions
   TDEAction *a;
 
@@ -183,7 +187,7 @@ void KateSessionPanel::setup_toolbar()
           TQT_TQOBJECT(this), TQT_SLOT(slotNewSession()), m_actionCollection, "session_new");
   a->setWhatsThis(i18n("Create a new session."));
   a->plug(m_toolbar);
-/*
+
   a = new TDEAction(i18n("Save"), SmallIcon("document-save"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotSaveSession()), m_actionCollection, "session_save");
   a->setWhatsThis(i18n("Save the current session."));
@@ -193,7 +197,7 @@ void KateSessionPanel::setup_toolbar()
           TQT_TQOBJECT(this), TQT_SLOT(slotSaveSessionAs()), m_actionCollection, "session_save_as");
   a->setWhatsThis(i18n("Save the current session with a different name."));
   a->plug(m_toolbar);
-*/
+
   a = new TDEAction(i18n("Rename"), SmallIcon("edit_user"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotRenameSession()), m_actionCollection, "session_rename");
   a->setWhatsThis(i18n("Rename the selected session."));
@@ -210,7 +214,7 @@ void KateSessionPanel::setup_toolbar()
           TQT_TQOBJECT(this), TQT_SLOT(slotActivateSession()), m_actionCollection, "session_activate");
   a->setWhatsThis(i18n("Activate the selected session."));
   a->plug(m_toolbar);
-/*
+
 	TDEToggleAction *tglA = new TDEToggleAction(i18n("Toggle read only"), SmallIcon("encrypted"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotSessionToggleReadOnly()), m_actionCollection, "session_toggle_read_only");
   tglA->setWhatsThis(i18n("Toggle read only status for the selected session.<p>"
@@ -218,7 +222,6 @@ void KateSessionPanel::setup_toolbar()
           "will not be saved when you exit Kate or switch to another session.<p>"
           "You can use this option to create template sessions that you wish to keep unchanged over time."));
   tglA->plug(m_toolbar);
-*/
 
   a = new TDEAction(i18n("Move Up"), SmallIcon("go-up"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotSessionMoveUp()), m_actionCollection, "session_move_up");
@@ -229,6 +232,8 @@ void KateSessionPanel::setup_toolbar()
           TQT_TQOBJECT(this), TQT_SLOT(slotSessionMoveDown()), m_actionCollection, "session_move_down");
   a->setWhatsThis(i18n("Move down the selected session."));
   a->plug(m_toolbar);
+
+  //FIXME add button to restore a modified session to its original if not yet saved to disk
 }
 
 //-------------------------------------------
@@ -246,13 +251,36 @@ void KateSessionPanel::slotNewSession()
 //-------------------------------------------
 void KateSessionPanel::slotSaveSession()
 {
-//TODO
+  KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
+  if (!sessionItem)
+  {
+    return;
+  }
+
+	int sessId = sessionItem->getSessionId();
+  const KateSession *ks = m_sessionManager->getSessionFromId(sessId);
+  if (!ks)
+  {
+    return;
+  }
+
+  if (ks->getSessionFilename().isEmpty())
+  {
+    // Session has never been saved before. Ask user for a session name first
+	  slotSaveSessionAs();
+  }
+  else
+  {
+	  m_sessionManager->saveSession(sessId);
+  	slotSelectionChanged();  // Update the toolbar button status
+  }
 }
 
 //-------------------------------------------
 void KateSessionPanel::slotSaveSessionAs()
 {
 //TODO
+	slotSelectionChanged();  // Update the toolbar button status
 }
 
 //-------------------------------------------
@@ -260,7 +288,9 @@ void KateSessionPanel::slotRenameSession()
 {
   TQListViewItem *sessionItem = m_listview->selectedItem();
   if (!sessionItem)
+  {
     return;
+  }
 
   m_listview->rename(m_listview->selectedItem(), m_columnName);
 }
@@ -270,7 +300,9 @@ void KateSessionPanel::slotDeleteSession()
 {
   KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
   if (!sessionItem)
+  {
     return;
+  }
 
   int result = KMessageBox::warningContinueCancel(this,
              	i18n("Do you really want to delete the session '%1'?").arg(sessionItem->text(0)),
@@ -286,7 +318,9 @@ void KateSessionPanel::slotActivateSession()
 {
   KateSessionPanelItem *newSessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
   if (!newSessionItem)
+  {
     return;
+  }
 
   int currSessionId = m_sessionManager->getActiveSessionId();
   int newSessionId = newSessionItem->getSessionId();
@@ -299,7 +333,16 @@ void KateSessionPanel::slotActivateSession()
 //-------------------------------------------
 void KateSessionPanel::slotSessionToggleReadOnly()
 {
-//TODO
+  KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
+  if (!sessionItem)
+  {
+    return;
+  }
+
+	m_sessionManager->setSessionReadOnlyStatus(sessionItem->getSessionId(),
+	       (dynamic_cast<TDEToggleAction*>(
+	       m_actionCollection->action("session_toggle_read_only")))->isChecked());
+ 	slotSelectionChanged();  // Update the toolbar button status
 }
 
 //-------------------------------------------
@@ -307,7 +350,9 @@ void KateSessionPanel::slotSessionMoveUp()
 {
   KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
   if (!sessionItem)
+  {
     return;
+  }
 
   m_sessionManager->moveSessionBackward(sessionItem->getSessionId());
 }
@@ -317,15 +362,20 @@ void KateSessionPanel::slotSessionMoveDown()
 {
   KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
   if (!sessionItem)
+  {
     return;
+  }
 
   m_sessionManager->moveSessionForward(sessionItem->getSessionId());
 }
 
+//-------------------------------------------
 void KateSessionPanel::slotItemExecuted(TQListViewItem *item)
 {
 	if (!item)
-	  return;
+  {
+    return;
+  }
 
   // First level items are sessions. Executing one, will switch to that session
   if (!item->parent())
@@ -333,6 +383,62 @@ void KateSessionPanel::slotItemExecuted(TQListViewItem *item)
     slotActivateSession();
     return;
   }
+}
+
+//-------------------------------------------
+void KateSessionPanel::slotSelectionChanged()
+{
+  KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
+	const KateSession *ks(NULL);
+  if (sessionItem)
+  {
+		ks = m_sessionManager->getSessionFromId(sessionItem->getSessionId());
+  }
+
+  TDEToggleAction *readOnlyAction = dynamic_cast<TDEToggleAction*>(
+	       					m_actionCollection->action("session_toggle_read_only"));
+  if (!sessionItem || !ks)
+  {
+    m_actionCollection->action("session_save")->setEnabled(false);
+    m_actionCollection->action("session_save_as")->setEnabled(false);
+    m_actionCollection->action("session_rename")->setEnabled(false);
+    m_actionCollection->action("session_delete")->setEnabled(false);
+    m_actionCollection->action("session_activate")->setEnabled(false);
+    m_actionCollection->action("session_move_up")->setEnabled(false);
+    m_actionCollection->action("session_move_down")->setEnabled(false);
+    readOnlyAction->setEnabled(false);
+    readOnlyAction->setChecked(false);
+  }
+	else
+	{
+		if (ks->isReadOnly())
+		{
+		  // Read only sessions can not be saved or renamed
+			m_actionCollection->action("session_save")->setEnabled(false);
+	    m_actionCollection->action("session_rename")->setEnabled(false);
+		}
+		else
+		{
+			m_actionCollection->action("session_save")->setEnabled(true);
+	    m_actionCollection->action("session_rename")->setEnabled(true);
+		}
+		if (ks->getSessionFilename().isEmpty())
+		{
+		  // Unstored sessions can not be made readonly
+		  readOnlyAction->setEnabled(false);
+	    readOnlyAction->setChecked(false);
+		}
+		else
+		{
+		  readOnlyAction->setEnabled(true);
+      readOnlyAction->setChecked(ks->isReadOnly());
+		}
+		m_actionCollection->action("session_save_as")->setEnabled(true);
+    m_actionCollection->action("session_delete")->setEnabled(true);
+    m_actionCollection->action("session_activate")->setEnabled(true);
+    m_actionCollection->action("session_move_up")->setEnabled(true);
+    m_actionCollection->action("session_move_down")->setEnabled(true);
+	}
 }
 
 //-------------------------------------------
@@ -458,6 +564,7 @@ void KateSessionPanel::slotSessionRenamed(TQListViewItem *item)
   {
     return;
   }
+
   m_sessionManager->renameSession(sessionItem->getSessionId(), sessionItem->text(m_columnName));
 }
 //END KateSessionPanel

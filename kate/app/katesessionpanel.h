@@ -127,12 +127,12 @@ class KateSessionPanel : public TQVBox
     void slotSessionMoveDown();
     void slotItemExecuted(TQListViewItem *item);
 
+    void slotSelectionChanged();
     void slotSessionActivated(int newSessionId, int oldSessionId);
     void slotSessionCreated(int sessionId);
     void slotSessionDeleted(int sessionId);
     void slotSessionsSwapped(int sessionIdMin, int sessionIdMax);
     void slotSessionRenamed(TQListViewItem *item);
-
 
   private:
     void setup_toolbar();

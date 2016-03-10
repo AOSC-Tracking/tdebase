@@ -42,6 +42,9 @@ class TQCheckBox;
 
 
 //BEGIN KateSession
+/**
+ * An object representing a Kate's session.
+ */
 class KateSession
 {
 	public:
@@ -65,6 +68,7 @@ class KateSession
 		* @return the session name
 		*/
 		const TQString& getSessionName() const { return m_sessionName; }
+
 		/**
 		* Set the new session name
 		* @param sessionName the new session name
@@ -75,11 +79,12 @@ class KateSession
 		* @return whether the session is read only or not
 		*/
 		bool isReadOnly() const { return m_readOnly; }
+
 		/**
 		* Set session read only status
-		* @param readOnly if true, the session config can not be saved to file
+		* @param readOnly if true, the session status can not be modified
 		*/
-		void setReadOnly(bool readOnly);
+		void setReadOnly(bool readOnly) { m_readOnly = readOnly; }
 
 		/**
 		* @return the session filename if available, otherwise the null string
@@ -94,21 +99,24 @@ class KateSession
 		/**
 		 * Save session info
 		 * @param saveGUIInfo if true, save also the information about the GUI elements
+		 * @param setReadOnly necessary to save a session that has to be turned to read only
 		 */
-		void save(bool saveGUIInfo);
+		void save(bool saveGUIInfo, bool setReadOnly = false);
 
 		/**
 		 * Activate the session
 		 */
 		void activate();
 
+
 	private:
 
 		friend class KateViewSpace;
+
 		/**
 		* @return the session config object
 		*/
-		TDEConfig* getConfig() { return m_config; }
+		TDEConfig* getConfig() const { return m_config; }
 
 
 		TQString       m_sessionName;
@@ -132,6 +140,12 @@ class KateSession
 //This would allow a safe use of multiple Kate instances without overwriting session information
 //among them. Currently the last instance to be closed will overwrite the information previously
 //saved by other Kate instances.
+/**
+ * The Kate session manager. It takes care of storing and retrieving each session object
+ * as well as providing methods to operate on them.
+ *
+ * @note The Kate session manager takes ownership of each session object it handles.
+ */
 class KateSessionManager : public TQObject
 {
   Q_OBJECT
@@ -173,6 +187,12 @@ class KateSessionManager : public TQObject
 		 * @return a reference to the active session
 		 */
 		KateSession* getActiveSession() { return m_sessions[m_activeSessionId]; }
+
+		/**
+		 * @param sessionId the id of the session to return
+		 * @return a reference to the specified session
+		 */
+		KateSession* getSessionFromId(int sessionId);
 
     /**
      * Return the session id of the first session whose name matches the
@@ -216,8 +236,16 @@ class KateSessionManager : public TQObject
 
 		/**
 		 * Saves the active session
+     * @emit sessionSaved (through invoked "void saveSession(int)" method)
 		 */
-		void saveActiveSession() { m_sessions[m_activeSessionId]->save(true); }
+		void saveActiveSession() { saveSession(m_activeSessionId); }
+
+		/**
+		 * Save the specified session
+		 * @param sessionId the id of the session to save
+     * @emit sessionSaved
+     */
+		void saveSession(int sessionId);
 
 		/**
 		 * Delete the specified session
@@ -246,6 +274,13 @@ class KateSessionManager : public TQObject
      */
 		void renameSession(int sessionId, const TQString &newSessionName);
 
+		/**
+		 * Set the read only status of the specified session
+		 * @param sessionId the id of the session to modify
+		 * @param readOnly the new read only status
+		 */
+		void setSessionReadOnlyStatus(int sessionId, bool readOnly);
+
 
   signals:
 		/**
@@ -260,6 +295,12 @@ class KateSessionManager : public TQObject
 		 * @param sessionId the id of the new session
 		 */
 		void sessionCreated(int sessionId);
+
+		/**
+		 * Emitted once a session has been saved
+		 * @param sessionId the id of the saved session
+		 */
+		void sessionSaved(int sessionId);
 
 		/**
 		 * Emitted once a session has been deleted
