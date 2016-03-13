@@ -202,7 +202,7 @@ void SaverEngine::lock()
 void SaverEngine::lockScreen(bool DCOP)
 {
 	bool ok = true;
-	if (mState != Saving)
+	if (mState == Waiting)
 	{
 		ok = startLockProcess( ForceLock );
 		// It takes a while for kdesktop_lock to start and lock the screen.
