@@ -49,7 +49,8 @@
 #include <time.h>
 
 // FIXME general: need to keep doc list and current session's m_documents in synchro
-//       all the time (doc open, doc closed, doc renamed)
+//       all the time (doc open, doc closed, doc renamed).
+//       To be done when doc list software is developed
 // FIXME add code to handle the various options in Configure Kate -> Application -> Sessions
 
 // String constants
@@ -63,8 +64,8 @@ namespace
   const char *KS_NAME     = "Name";
   const char *KS_OPENDOC  = "Open Documents";
   const char *KS_READONLY = "ReadOnly";
-  const char *KS_UNNAMED  = "Unnamed";
   const char *KS_OPEN_MAINWINDOWS = "Open MainWindows";
+  const char *KS_UNNAMED  = "Unnamed";
 
   // Kate session manager
   const char *KSM_DIR     = "kate/sessions";
@@ -75,21 +76,53 @@ namespace
 }
 
 //BEGIN Kate session
-KateSession::KateSession(const TQString &sessionName, const TQString &filename, bool isFullName) :
-  m_sessionName(sessionName), m_filename(filename), m_isFullName(isFullName),
+KateSession::KateSession(const KateSessionManager &manager, const TQString &sessionName, 
+                         const TQString &fileName) :
+  m_manager(manager), m_sessionName(sessionName), m_filename(fileName),
   m_readOnly(false), m_documents(), m_config(NULL)
 {
-  if (m_isFullName && TDEGlobal::dirs()->exists(m_filename))
+  load(false);
+}
+
+//------------------------------------
+KateSession::KateSession(const KateSession &session, const TQString &newSessionName) :
+  m_manager(session.m_manager), m_sessionName(newSessionName), m_filename(),
+  m_readOnly(false), m_documents(session.m_documents), m_config(NULL)
+{
+  createFilename();
+  m_config = dynamic_cast<KSimpleConfig*>(session.m_config->copyTo(m_filename));
+}
+
+//------------------------------------
+KateSession::~KateSession()
+{
+  if (m_config)
+  {
+    delete m_config;
+  }
+}
+
+//------------------------------------
+void KateSession::setSessionName(const TQString &sessionName)
+{
+  m_sessionName = sessionName.isEmpty() ? i18n(KS_UNNAMED) : sessionName;
+}
+
+//------------------------------------
+void KateSession::load(bool includeGUIInfo)
+{
+  if (m_config)
+  {
+    delete m_config;
+  }
+  
+  if (TDEGlobal::dirs()->exists(m_filename))
   {
     // Create config object if the session file already exists
     m_config = new KSimpleConfig(m_filename, m_readOnly);
     m_config->setGroup(KS_GENERAL);
-    // Session name
-    if (m_sessionName.isEmpty())
-    {
-      m_sessionName = m_config->readEntry(KS_NAME, i18n(KS_UNNAMED));
-    }
-    // Read only
+    // Session general properties
+    m_sessionName = m_config->readEntry(KS_NAME, i18n(KS_UNNAMED));
     m_readOnly = m_config->readBoolEntry(KS_READONLY, false);
     // Document list
     if (m_config->hasGroup(KS_DOCLIST))
@@ -125,26 +158,20 @@ KateSession::KateSession(const TQString &sessionName, const TQString &filename, 
       }
     }
   }
+  else
+  {
+    m_filename = TQString::null;
+  }
   if (m_sessionName.isEmpty())
   {
     m_sessionName = i18n(KS_UNNAMED);
   }
-  // FIXME: needs to make sure doc list and m_documents are in synchro here
-}
-
-//------------------------------------
-KateSession::~KateSession()
-{
-  if (m_config)
+    
+  // Update e all current documents if necessary
+  if (includeGUIInfo)
   {
-    delete m_config;
+    activate();
   }
-}
-
-//------------------------------------
-void KateSession::setSessionName(const TQString &sessionName)
-{
-  m_sessionName = sessionName.isEmpty() ? i18n(KS_UNNAMED) : sessionName;
 }
 
 //------------------------------------
@@ -156,23 +183,9 @@ void KateSession::save(bool saveGUIInfo, bool setReadOnly)
   }
 
   // create a new session filename if needed
-  if (!m_isFullName)
+  if (m_filename.isEmpty())
   {
-    int s = time(0);
-    TQCString tname;
-    TQString tmpName;
-    while (true)
-    {
-      tname.setNum(s++);
-      KMD5 md5(tname);
-      tmpName = m_filename + TQString("%1.katesession").arg(md5.hexDigest().data());
-      if (!TDEGlobal::dirs()->exists(tmpName))
-      {
-        m_filename = tmpName;
-        m_isFullName = true;
-        break;
-      }
-    }
+    createFilename();
   }
 
   // save session config info
@@ -252,6 +265,31 @@ void KateSession::activate()
 
   Kate::Document::setOpenErrorDialogsActivated(true);
 }
+
+//------------------------------------
+void KateSession::createFilename()
+{
+  // create a new session filename if needed
+  if (!m_filename.isEmpty())
+  {
+    return;
+  }
+  
+  int s = time(0);
+  TQCString tname;
+  TQString tmpName;
+  while (true)
+  {
+    tname.setNum(s++);
+    KMD5 md5(tname);
+    tmpName = m_manager.getBaseDir() + TQString("%1.katesession").arg(md5.hexDigest().data());
+    if (!TDEGlobal::dirs()->exists(tmpName))
+    {
+      m_filename = tmpName;
+      break;
+    }
+  }
+}
 //END Kate session
 
 
@@ -290,7 +328,7 @@ KateSessionManager::KateSessionManager() :
       if (!urlStr.isEmpty() && TDEGlobal::dirs()->exists(urlStr))
       {
         // Filter out empty URLs or non existing sessions
-        m_sessions.append(new KateSession(TQString::null, urlStr, true));
+        m_sessions.append(new KateSession(*this, TQString::null, urlStr));
       }
     }
   }
@@ -301,13 +339,13 @@ KateSessionManager::KateSessionManager() :
     TQDir sessionDir(m_baseDir, "*.katesession");
     for (unsigned int i = 0;  i < sessionDir.count();  ++i)
     {
-      m_sessions.append(new KateSession(TQString::null, m_baseDir+sessionDir[i], true));
+      m_sessions.append(new KateSession(*this, TQString::null, m_baseDir+sessionDir[i]));
     }
   }
   sessionsCount = (int)m_sessions.count();
   if (sessionsCount == 0)  // In the worst case, there is no valid session at all
   {
-    m_sessions.append(new KateSession(TQString::null, m_baseDir, false));
+    m_sessions.append(new KateSession(*this, TQString::null, TQString::null));
   }
   if (m_activeSessionId < 0 || m_activeSessionId >= (int)m_sessions.count())
   {
@@ -358,6 +396,17 @@ void KateSessionManager::saveConfig()
     m_config->writeEntry(TQString("URL_%1").arg(i), m_sessions[i]->getSessionFilename());
   }
   m_config->sync();
+}
+
+//------------------------------------
+const TQString& KateSessionManager::getSessionName(int sessionId)
+{
+  if (sessionId < 0 || sessionId >= (int)m_sessions.count())
+  {
+    return TQString::null;
+  }
+
+  return m_sessions[sessionId]->getSessionName();
 }
 
 //------------------------------------
@@ -425,9 +474,33 @@ bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
 //------------------------------------
 int KateSessionManager::newSession(const TQString &sessionName, bool activate)
 {
-  m_sessions.append(new KateSession(sessionName, m_baseDir, false));
+  m_sessions.append(new KateSession(*this, sessionName, TQString::null));
   int newSessionId = m_sessions.count() - 1;
   emit sessionCreated(newSessionId);
+  if (activate)
+  {
+    activateSession(newSessionId, m_activeSessionId != INVALID_SESSION);
+  }
+  return newSessionId;
+}
+
+//------------------------------------
+int KateSessionManager::cloneSession(int sessionId, const TQString &sessionName, bool activate)
+{
+  if (sessionId < 0 || sessionId >= (int)m_sessions.count())
+  {
+    return INVALID_SESSION;
+  }
+
+  m_sessions.append(new KateSession(*m_sessions[sessionId], sessionName));
+  int newSessionId = m_sessions.count() - 1;
+  emit sessionCreated(newSessionId);
+  
+  // If cloning the active session, the new session will contain the current status
+  // and the original session will be restored to the last saved state (save as... functionality)
+  m_sessions[newSessionId]->save(true);
+  reloadActiveSession();
+  
   if (activate)
   {
     activateSession(newSessionId, m_activeSessionId != INVALID_SESSION);
@@ -560,6 +633,7 @@ void KateSessionManager::renameSession(int sessionId, const TQString &newSession
   }
 
   m_sessions[sessionId]->setSessionName(newSessionName);
+  emit sessionRenamed(sessionId);
 }
 
 //-------------------------------------------

@@ -47,7 +47,7 @@ class KateSessionNameChooser : public KDialogBase
 
 	public:
 
-		KateSessionNameChooser(TQWidget *parent);
+		KateSessionNameChooser(TQWidget *parent, bool showSwitchTo);
 	 ~KateSessionNameChooser() {}
 
 		TQString getSessionName(); // return the session name typed by the user
@@ -62,6 +62,7 @@ class KateSessionNameChooser : public KDialogBase
 	protected:
     TQLineEdit *m_sessionNameLE;
     TQCheckBox *m_activateCB;
+    bool m_showSwitchTo;       // if true, display the m_activateCB checkbox
 };
 //BEGIN KateSessionNameChooser
 
@@ -121,6 +122,7 @@ class KateSessionPanel : public TQVBox
     void slotSaveSessionAs();
     void slotRenameSession();
     void slotDeleteSession();
+    void slotReloadSession();
     void slotActivateSession();
     void slotSessionToggleReadOnly();
     void slotSessionMoveUp();
@@ -132,7 +134,8 @@ class KateSessionPanel : public TQVBox
     void slotSessionCreated(int sessionId);
     void slotSessionDeleted(int sessionId);
     void slotSessionsSwapped(int sessionIdMin, int sessionIdMax);
-    void slotSessionRenamed(TQListViewItem *item);
+    void slotSessionRenamed(int sessionId);
+    void slotLVSessionRenamed(TQListViewItem *item);
 
   private:
     void setup_toolbar();

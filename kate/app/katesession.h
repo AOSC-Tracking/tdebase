@@ -39,6 +39,7 @@ class KDirWatch;
 class KPushButton;
 class TDEListView;
 class TQCheckBox;
+class KateSessionManager;
 
 
 //BEGIN KateSession
@@ -51,13 +52,19 @@ class KateSession
 
 		/**
 		 * create a new session and read the config from fileName if it exists
+		 * @param manager the session manager handling this session
 		 * @param sessionName session name
 		 * @param fileName file where session config is saved to/restored from
-		 * @param isFullName true  -> filename is a full filename, used to load/save the session configuration
-		 *                   false -> filename is a folder name. This is used for new unsaved sessions
-		 *                            to inject the location where the configuration file should be saved
 		 */
-		KateSession(const TQString &sessionName, const TQString &fileName, bool isFullName);
+		KateSession(const KateSessionManager &manager, const TQString &sessionName, const TQString &fileName);
+
+		/**
+		 * duplicate an existing session into a new one with the given new name.
+		 * If the existing session is read-only, the new one will *not* be read-only by default
+		 * @param session the existing session 
+		 * @param newSessionName the name of the new session
+		 */
+		KateSession(const KateSession &session, const TQString &newSessionName);
 
 		/**
 		 * Destructor
@@ -89,13 +96,19 @@ class KateSession
 		/**
 		* @return the session filename if available, otherwise the null string
 		*/
-		const TQString& getSessionFilename() const { return m_isFullName ? m_filename : TQString::null; }
+		const TQString& getSessionFilename() const { return m_filename; }
 
 		/**
 		* @return the number of documents in the session
 		*/
 		int getDocCount() const { return m_documents.count(); }
 
+		/**
+		 * Load session info from the saved file
+		 * @param includeGUIInfo if true, also load the information about the GUI elements
+		 */
+		void load(bool includeGUIInfo);
+		
 		/**
 		 * Save session info
 		 * @param saveGUIInfo if true, save also the information about the GUI elements
@@ -117,15 +130,18 @@ class KateSession
 		* @return the session config object
 		*/
 		TDEConfig* getConfig() const { return m_config; }
+    
+ 		/**
+		* create a new filename for a session object
+		*/
+		void createFilename();
 
-
+    const KateSessionManager &m_manager;  // The session manager that handles this session
 		TQString       m_sessionName;
 		TQString       m_filename;
-		bool           m_isFullName;   // true  -> m_filename is a full filename
-																	 // false -> m_filename is a folder name.
 		bool           m_readOnly;
-		TQStringList   m_documents;    // document URLs
-		KSimpleConfig *m_config;       // session config
+		TQStringList   m_documents;           // document URLs
+		KSimpleConfig *m_config;              // session config
 
 };
 //END KateSession
@@ -146,6 +162,9 @@ class KateSession
  *
  * @note The Kate session manager takes ownership of each session object it handles.
  */
+//FIXME update the sessions.list file when switching to another session or to a new session
+//FIXME create a new unnamed session and switch to another session. The first session is saved without
+//asking the user for a new session name. This is wrong.
 class KateSessionManager : public TQObject
 {
   Q_OBJECT
@@ -174,6 +193,11 @@ class KateSessionManager : public TQObject
 		void saveConfig();
 
 		/**
+		 * @return the session files folder name
+		 */
+		const TQString& getBaseDir() const { return m_baseDir; }
+		
+		/**
 		 * @return the active session id
 		 */
 		int getActiveSessionId() const { return m_activeSessionId; }
@@ -182,6 +206,12 @@ class KateSessionManager : public TQObject
 		 * @return the active session name
 		 */
 		const TQString& getActiveSessionName() /*FIXME const*/ { return m_sessions[m_activeSessionId]->getSessionName(); }
+
+		/**
+		 * @param sessionId the id of the session of interest
+		 * @return the name of the specified session
+		 */
+		const TQString& getSessionName(int sessionId) /*FIXME const*/;
 
 		/**
 		 * @return a reference to the active session
@@ -227,6 +257,21 @@ class KateSessionManager : public TQObject
 		 */
 		int newSession(const TQString &sessionName = TQString::null, bool activate = true);
 
+		/**
+		 * Create a new session and activate it if required
+		 * @param sessionId the id of the session to clone
+		 * @param sessionName the new session name
+		 * @param activate if true, activate the new session after creation
+		 * @return the id of the newly created session
+		 * @emit sessionCreated
+		 */
+		int cloneSession(int sessionId, const TQString &sessionName = TQString::null, bool activate = true);
+
+		/**
+		 * Restore the current active session to the last saved state
+		 */
+		void reloadActiveSession() { m_sessions[m_activeSessionId]->load(true); }
+
     /**
      * Restore the last saved session. Can only be used before
      * any other session has been activated, i.e. on Kate's startup
@@ -271,6 +316,7 @@ class KateSessionManager : public TQObject
 		 * Rename the specified session
 		 * @param sessionId the id of the session to rename
 		 * @param newSessionName the new session name
+     * @emit sessionRenamed
      */
 		void renameSession(int sessionId, const TQString &newSessionName);
 
@@ -280,7 +326,6 @@ class KateSessionManager : public TQObject
 		 * @param readOnly the new read only status
 		 */
 		void setSessionReadOnlyStatus(int sessionId, bool readOnly);
-
 
   signals:
 		/**
@@ -314,6 +359,12 @@ class KateSessionManager : public TQObject
 		 * @param sessionIdMax the biggest id of the session couple
 		 */
 		void sessionsSwapped(int sessionIdMin, int sessionIdMax);
+
+		/**
+		 * Emitted once a session has been renamed
+		 * @param sessionId the id of the new session
+		 */
+		void sessionRenamed(int sessionId);
 
 
 	protected:
@@ -385,7 +436,7 @@ class KateSessionChooser : public KDialogBase
 	protected:
 		TDEListView *m_listview;
 };
-//BEGIN KateSessionChooser
+//END KateSessionChooser
 
 
 

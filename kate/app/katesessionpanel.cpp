@@ -38,9 +38,10 @@ namespace
 
 //BEGIN KateSessionNameChooser
 //-------------------------------------------
-KateSessionNameChooser::KateSessionNameChooser(TQWidget *parent)
+KateSessionNameChooser::KateSessionNameChooser(TQWidget *parent, bool showSwitchTo)
  : KDialogBase(parent, "", true, i18n("Session Name Chooser"), KDialogBase::User1 | KDialogBase::User2,
-               KDialogBase::User2, true, KStdGuiItem::cancel(), KGuiItem(i18n("Continue"), "document-new"))
+               KDialogBase::User2, true, KStdGuiItem::cancel(), KGuiItem(i18n("Continue"), "document-new")),
+   m_showSwitchTo(showSwitchTo)          
 {
   TQHBox *page = new TQHBox(this);
   //page->setMinimumSize(300, 100);
@@ -53,13 +54,16 @@ KateSessionNameChooser::KateSessionNameChooser(TQWidget *parent)
   label->setText("Please type the new session name:");
 
   m_sessionNameLE = new TQLineEdit(vb);
-  m_sessionNameLE->setText(KS_UNNAMED);
+  m_sessionNameLE->setText(i18n(KS_UNNAMED));
   m_sessionNameLE->setFocus();
+  
+  if (m_showSwitchTo)
+  {
+		m_activateCB = new TQCheckBox(i18n("Switch to the new session"), vb, NULL);
+		m_activateCB->setChecked(true);
+	}
 
-  m_activateCB = new TQCheckBox(i18n("Switch to the new session"), vb, NULL);
-  m_activateCB->setChecked(true);
-
-  connect (m_sessionNameLE, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(slotTextChanged()));
+  connect(m_sessionNameLE, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(slotTextChanged()));
   slotTextChanged();  // update button status
 }
 
@@ -72,7 +76,11 @@ TQString KateSessionNameChooser::getSessionName()
 //-------------------------------------------
 bool KateSessionNameChooser::getActivateFlag()
 {
-  return m_activateCB->isChecked();
+  if (m_showSwitchTo)
+  {
+	  return m_activateCB->isChecked();
+	}
+	return false;
 }
 
 //-------------------------------------------
@@ -135,7 +143,7 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
   m_listview->setMinimumWidth(m_listview->sizeHint().width());
   m_listview->setSorting(-1);
   m_listview->setResizeMode(TQListView::LastColumn);
-  //m_listview->setRootIsDecorated(true);  // FIXME to enable after inserting doc list
+  //m_listview->setRootIsDecorated(true);  // FIXME disabled until doc list software is developed
 
   connect(m_listview, TQT_SIGNAL(selectionChanged()),
           this, TQT_SLOT(slotSelectionChanged()));
@@ -151,8 +159,10 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
           this, TQT_SLOT(slotSessionDeleted(int)));
   connect(m_sessionManager, TQT_SIGNAL(sessionsSwapped(int, int)),
           this, TQT_SLOT(slotSessionsSwapped(int, int)));
+  connect(m_sessionManager, TQT_SIGNAL(sessionRenamed(int)),
+          this, TQT_SLOT(slotSessionRenamed(int)));
   connect(m_listview, TQT_SIGNAL(itemRenamed(TQListViewItem*)),
-          this, TQT_SLOT(slotSessionRenamed(TQListViewItem*)));
+          this, TQT_SLOT(slotLVSessionRenamed(TQListViewItem*)));
 
   TQPtrList<KateSession>& sessions = m_sessionManager->getSessionsList();
   for (int idx = sessions.count()-1;  idx >= 0;  --idx)
@@ -190,12 +200,13 @@ void KateSessionPanel::setup_toolbar()
 
   a = new TDEAction(i18n("Save"), SmallIcon("document-save"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotSaveSession()), m_actionCollection, "session_save");
-  a->setWhatsThis(i18n("Save the current session."));
+  a->setWhatsThis(i18n("Save the selected session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Save as..."), SmallIcon("document-save-as"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotSaveSessionAs()), m_actionCollection, "session_save_as");
-  a->setWhatsThis(i18n("Save the current session with a different name."));
+  a->setWhatsThis(i18n("Save an unsaved session with a new name or clone an already saved session "
+                       "into a new session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Rename"), SmallIcon("edit_user"), 0,
@@ -206,6 +217,11 @@ void KateSessionPanel::setup_toolbar()
   a = new TDEAction(i18n("Delete"), SmallIcon("edit-delete"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotDeleteSession()), m_actionCollection, "session_delete");
   a->setWhatsThis(i18n("Delete the selected session."));
+  a->plug(m_toolbar);
+
+  a = new TDEAction(i18n("Reload"), SmallIcon("reload"), 0,
+          TQT_TQOBJECT(this), TQT_SLOT(slotReloadSession()), m_actionCollection, "session_reload");
+  a->setWhatsThis(i18n("Reload the last saved state of the selected session."));
   a->plug(m_toolbar);
 
   m_toolbar->insertLineSeparator();
@@ -232,14 +248,12 @@ void KateSessionPanel::setup_toolbar()
           TQT_TQOBJECT(this), TQT_SLOT(slotSessionMoveDown()), m_actionCollection, "session_move_down");
   a->setWhatsThis(i18n("Move down the selected session."));
   a->plug(m_toolbar);
-
-  //FIXME add button to restore a modified session to its original if not yet saved to disk
 }
 
 //-------------------------------------------
 void KateSessionPanel::slotNewSession()
 {
-	KateSessionNameChooser *nameChooser = new KateSessionNameChooser(this);
+	KateSessionNameChooser *nameChooser = new KateSessionNameChooser(this, true);
   int result = nameChooser->exec();
   if (result == TQDialog::Accepted)
   {
@@ -264,7 +278,7 @@ void KateSessionPanel::slotSaveSession()
     return;
   }
 
-  if (ks->getSessionFilename().isEmpty())
+  if (ks->getSessionFilename().isEmpty() && ks->getSessionName() == i18n(KS_UNNAMED))
   {
     // Session has never been saved before. Ask user for a session name first
 	  slotSaveSessionAs();
@@ -279,7 +293,46 @@ void KateSessionPanel::slotSaveSession()
 //-------------------------------------------
 void KateSessionPanel::slotSaveSessionAs()
 {
-//TODO
+  KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
+  if (!sessionItem)
+  {
+    return;
+  }
+	int sessId = sessionItem->getSessionId();
+  KateSession *ks = m_sessionManager->getSessionFromId(sessId);
+  if (!ks)
+  {
+    return;
+  }
+
+	// If the session was never saved before, the session will be saved with a new name.
+	// If the session was already saved once, it will be cloned into a new session.
+	bool cloneSession = true;
+	//FIXME replace ks->getSessionFilename().isEmpty() with a function that tests for m_fileExists
+  if (ks->getSessionFilename().isEmpty() && ks->getSessionName() == i18n(KS_UNNAMED))
+  {
+    // Session has never been saved before.
+	  cloneSession = false;
+  }
+	// Get new session name
+	KateSessionNameChooser *nameChooser = new KateSessionNameChooser(this, cloneSession);
+  int result = nameChooser->exec();
+  if (result == TQDialog::Accepted)
+  {
+  	if (!cloneSession)
+  	{
+  	  // Save unsaved session
+		  m_sessionManager->renameSession(sessId, nameChooser->getSessionName());
+		  m_sessionManager->saveSession(sessId);
+  	}
+  	else
+  	{
+  	  // Clone session
+  	  m_sessionManager->cloneSession(sessId, nameChooser->getSessionName(), nameChooser->getActivateFlag());
+  	}
+	}
+	
+  delete nameChooser;
 	slotSelectionChanged();  // Update the toolbar button status
 }
 
@@ -311,6 +364,24 @@ void KateSessionPanel::slotDeleteSession()
   {
 	  m_sessionManager->deleteSession(sessionItem->getSessionId());
 	}
+}
+
+//-------------------------------------------
+void KateSessionPanel::slotReloadSession()
+{
+  KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
+  if (!sessionItem)
+  {
+    return;
+  }
+	int sessId = sessionItem->getSessionId();
+  if (sessId != m_sessionManager->getActiveSessionId())
+  {
+    return;
+  }
+
+	// Restore active session to the last saved state
+	m_sessionManager->reloadActiveSession();
 }
 
 //-------------------------------------------
@@ -403,6 +474,7 @@ void KateSessionPanel::slotSelectionChanged()
     m_actionCollection->action("session_save_as")->setEnabled(false);
     m_actionCollection->action("session_rename")->setEnabled(false);
     m_actionCollection->action("session_delete")->setEnabled(false);
+    m_actionCollection->action("session_reload")->setEnabled(false);
     m_actionCollection->action("session_activate")->setEnabled(false);
     m_actionCollection->action("session_move_up")->setEnabled(false);
     m_actionCollection->action("session_move_down")->setEnabled(false);
@@ -416,11 +488,13 @@ void KateSessionPanel::slotSelectionChanged()
 		  // Read only sessions can not be saved or renamed
 			m_actionCollection->action("session_save")->setEnabled(false);
 	    m_actionCollection->action("session_rename")->setEnabled(false);
+      m_actionCollection->action("session_delete")->setEnabled(false);
 		}
 		else
 		{
 			m_actionCollection->action("session_save")->setEnabled(true);
 	    m_actionCollection->action("session_rename")->setEnabled(true);
+      m_actionCollection->action("session_delete")->setEnabled(true);
 		}
 		if (ks->getSessionFilename().isEmpty())
 		{
@@ -434,7 +508,8 @@ void KateSessionPanel::slotSelectionChanged()
       readOnlyAction->setChecked(ks->isReadOnly());
 		}
 		m_actionCollection->action("session_save_as")->setEnabled(true);
-    m_actionCollection->action("session_delete")->setEnabled(true);
+    m_actionCollection->action("session_reload")->setEnabled(
+              sessionItem->getSessionId() == m_sessionManager->getActiveSessionId());
     m_actionCollection->action("session_activate")->setEnabled(true);
     m_actionCollection->action("session_move_up")->setEnabled(true);
     m_actionCollection->action("session_move_down")->setEnabled(true);
@@ -459,6 +534,7 @@ void KateSessionPanel::slotSessionActivated(int newSessionId, int oldSessionId)
 	}
 	item->setPixmap(m_columnPixmap, SmallIcon("ok"));
 	m_listview->setSelected(item, true);
+ 	slotSelectionChanged();  // Update the toolbar button status
 }
 
 //-------------------------------------------
@@ -557,7 +633,18 @@ void KateSessionPanel::slotSessionsSwapped(int sessionIdMin, int sessionIdMax)
 }
 
 //-------------------------------------------
-void KateSessionPanel::slotSessionRenamed(TQListViewItem *item)
+void KateSessionPanel::slotSessionRenamed(int sessionId)
+{
+	TQListViewItem *item = m_listview->firstChild();
+	for (int idx = 0;  idx < sessionId;  ++idx)
+	{
+		item = item->nextSibling();
+	}
+	item->setText(m_columnName, m_sessionManager->getSessionName(sessionId));
+}
+
+//-------------------------------------------
+void KateSessionPanel::slotLVSessionRenamed(TQListViewItem *item)
 {
   KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(item);
   if (!sessionItem)
