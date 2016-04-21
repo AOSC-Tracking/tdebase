@@ -172,7 +172,7 @@ bool KateApp::startupKate()
     }
     else
     {
-      sessionManager()->newSession(sessName, true);
+      sessionManager()->newSession(sessName);
     }
   }
   else

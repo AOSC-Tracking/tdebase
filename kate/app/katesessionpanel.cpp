@@ -19,6 +19,7 @@
 #include "katesessionpanel.h"
 #include "katesessionpanel.moc"
 
+#include "kateapp.h"
 #include "katemainwindow.h"
 #include "kateviewmanager.h"
 #include "katesession.h"
@@ -195,7 +196,7 @@ void KateSessionPanel::setup_toolbar()
 
   a = new TDEAction(i18n("New"), SmallIcon("list-add"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotNewSession()), m_actionCollection, "session_new");
-  a->setWhatsThis(i18n("Create a new session."));
+  a->setWhatsThis(i18n("Create a new session and switch to it."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Save"), SmallIcon("document-save"), 0,
@@ -253,13 +254,20 @@ void KateSessionPanel::setup_toolbar()
 //-------------------------------------------
 void KateSessionPanel::slotNewSession()
 {
-	KateSessionNameChooser *nameChooser = new KateSessionNameChooser(this, true);
+	KateSessionNameChooser *nameChooser = new KateSessionNameChooser(this, false);
   int result = nameChooser->exec();
   if (result == TQDialog::Accepted)
   {
-	  m_sessionManager->newSession(nameChooser->getSessionName(), nameChooser->getActivateFlag());
+    int res = handleVolatileSession();
+    if (res == KMessageBox::Cancel)
+    {
+    	return;
+    }
+    else
+    {
+		  m_sessionManager->newSession(nameChooser->getSessionName(), res == KMessageBox::Yes);
+    }
 	}
-  delete nameChooser;
 }
 
 //-------------------------------------------
@@ -278,7 +286,7 @@ void KateSessionPanel::slotSaveSession()
     return;
   }
 
-  if (ks->getSessionFilename().isEmpty() && ks->getSessionName() == i18n(KS_UNNAMED))
+  if (ks->isStillVolatile())
   {
     // Session has never been saved before. Ask user for a session name first
 	  slotSaveSessionAs();
@@ -305,15 +313,9 @@ void KateSessionPanel::slotSaveSessionAs()
     return;
   }
 
-	// If the session was never saved before, the session will be saved with a new name.
-	// If the session was already saved once, it will be cloned into a new session.
-	bool cloneSession = true;
-	//FIXME replace ks->getSessionFilename().isEmpty() with a function that tests for m_fileExists
-  if (ks->getSessionFilename().isEmpty() && ks->getSessionName() == i18n(KS_UNNAMED))
-  {
-    // Session has never been saved before.
-	  cloneSession = false;
-  }
+	// If the session was never saved or named before, the session will be saved with a new name.
+	// If the session was already saved or named once, it will be cloned into a new session.
+	bool cloneSession = !ks->isStillVolatile();
 	// Get new session name
 	KateSessionNameChooser *nameChooser = new KateSessionNameChooser(this, cloneSession);
   int result = nameChooser->exec();
@@ -332,7 +334,6 @@ void KateSessionPanel::slotSaveSessionAs()
   	}
 	}
 	
-  delete nameChooser;
 	slotSelectionChanged();  // Update the toolbar button status
 }
 
@@ -358,11 +359,23 @@ void KateSessionPanel::slotDeleteSession()
   }
 
   int result = KMessageBox::warningContinueCancel(this,
-             	i18n("Do you really want to delete the session '%1'?").arg(sessionItem->text(0)),
+             	i18n("Do you really want to delete the session \"%1\"?").arg(sessionItem->text(0)),
 							i18n("Delete session"), KStdGuiItem::del());
   if (result == KMessageBox::Continue)
   {
-	  m_sessionManager->deleteSession(sessionItem->getSessionId());
+    int sessionId = sessionItem->getSessionId();
+    if (sessionId == m_sessionManager->getActiveSessionId())
+    {
+			// First check if all documents can be closed safely
+			if (KateApp::self()->activeMainWindow())
+			{
+				if (!KateApp::self()->activeMainWindow()->queryClose_internal())
+					return;
+			}
+		}
+		//FIXME add options to let user decide what to do when deleting the current session
+		//(open previous/next session, create new empty session)
+	  m_sessionManager->deleteSession(sessionId, KateSessionManager::INVALID_SESSION);
 	}
 }
 
@@ -397,7 +410,15 @@ void KateSessionPanel::slotActivateSession()
   int newSessionId = newSessionItem->getSessionId();
   if (newSessionId != currSessionId)
   {
-    m_sessionManager->activateSession(newSessionId);
+    int res = handleVolatileSession();
+    if (res == KMessageBox::Cancel)
+    {
+    	return;
+    }
+    else
+    {
+    	m_sessionManager->activateSession(newSessionId, res == KMessageBox::Yes);
+    }
   }
 }
 
@@ -520,12 +541,18 @@ void KateSessionPanel::slotSelectionChanged()
 void KateSessionPanel::slotSessionActivated(int newSessionId, int oldSessionId)
 {
   // Move the active session marker
-	TQListViewItem *item = m_listview->firstChild();
-	for (int idx = 0;  idx < oldSessionId;  ++idx)
-	{
-		item = item->nextSibling();
-	}
-	item->setPixmap(m_columnPixmap, TQPixmap());
+	TQListViewItem *item = NULL;
+  if (oldSessionId != KateSessionManager::INVALID_SESSION)
+  {
+    // Old volatile sessions may have already been deleted. 
+    // Remove the marker only for valid sessions.
+		item = m_listview->firstChild();
+		for (int idx = 0;  idx < oldSessionId;  ++idx)
+		{
+			item = item->nextSibling();
+		}
+		item->setPixmap(m_columnPixmap, TQPixmap());
+	}	
 
 	item = m_listview->firstChild();
 	for (int idx = 0;  idx < newSessionId;  ++idx)
@@ -653,5 +680,33 @@ void KateSessionPanel::slotLVSessionRenamed(TQListViewItem *item)
   }
 
   m_sessionManager->renameSession(sessionItem->getSessionId(), sessionItem->text(m_columnName));
+}
+
+//-------------------------------------------
+int KateSessionPanel::handleVolatileSession()
+{
+  const KateSession *ks = m_sessionManager->getActiveSession();
+  if (!ks || !ks->isStillVolatile())
+  {
+    return (!ks ? KMessageBox::No : KMessageBox::Yes);
+  }
+
+	int msgres = KMessageBox::warningYesNoCancel(this, i18n("<p>You are leaving a volatile session."
+									"<p>Do you want to save or discard it?").arg(ks->getSessionName()),
+									i18n("Close session"), KStdGuiItem::save(), KStdGuiItem::discard());
+	if (msgres == KMessageBox::Yes)
+	{
+		KateSessionNameChooser *nameChooser = new KateSessionNameChooser(this, false);
+		int result = nameChooser->exec();
+		if (result == TQDialog::Accepted)
+		{
+		  m_sessionManager->renameSession(m_sessionManager->getActiveSessionId(), nameChooser->getSessionName());
+  	}
+  	else
+		{
+		  msgres = KMessageBox::Cancel;
+  	}
+  }
+	return msgres;
 }
 //END KateSessionPanel

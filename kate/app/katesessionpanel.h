@@ -41,6 +41,7 @@ class TDEActionCollection;
 
 
 //BEGIN KateSessionNameChooser
+//FIXME create one single KateSessionNameChooser and reuse it all the time
 class KateSessionNameChooser : public KDialogBase
 {
 	Q_OBJECT
@@ -137,8 +138,19 @@ class KateSessionPanel : public TQVBox
     void slotSessionRenamed(int sessionId);
     void slotLVSessionRenamed(TQListViewItem *item);
 
-  private:
+  protected:
     void setup_toolbar();
+    
+		/* In case the current session is still volatile, asks the user whether
+		   he wants to save or discard the session.
+		   Returns one of the following:
+		   - KMessageBox::Cancel : the user wants to abort the current operation
+		   - KMessageBox::No     : the user wants to discard the session and continue
+		   - KMessageBox::Yes    : the user wants to save the session and continue
+		   In case the user decides to save the session, the function also sets
+		   the new session name provided in the dialog box.
+		*/
+    int handleVolatileSession();
 
     KateMainWindow *m_mainWin;
     KateViewManager *m_viewManager;

@@ -99,6 +99,12 @@ class KateSession
 		const TQString& getSessionFilename() const { return m_filename; }
 
 		/**
+		* @return whether the session is still volatile, i.e. it has never
+		*         been saved and never been named
+		*/
+		bool isStillVolatile() const;
+		
+		/**
 		* @return the number of documents in the session
 		*/
 		int getDocCount() const { return m_documents.count(); }
@@ -163,8 +169,6 @@ class KateSession
  * @note The Kate session manager takes ownership of each session object it handles.
  */
 //FIXME update the sessions.list file when switching to another session or to a new session
-//FIXME create a new unnamed session and switch to another session. The first session is saved without
-//asking the user for a new session name. This is wrong.
 class KateSessionManager : public TQObject
 {
   Q_OBJECT
@@ -186,11 +190,6 @@ class KateSessionManager : public TQObject
 		 * Destructor
 		 */
 		~KateSessionManager();
-
-		/**
-		 * Save session manager info
-		 */
-		void saveConfig();
 
 		/**
 		 * @return the session files folder name
@@ -249,13 +248,14 @@ class KateSessionManager : public TQObject
 		bool activateSession(int sessionId, bool saveCurr = true);
 
 		/**
-		 * Create a new session and activate it if required
+		 * Create a new session and activate it
 		 * @param sessionName new session name
-		 * @param activate if true, activate the new session after creation
+		 * @param saveCurr if true, save the current session before activating the new one
 		 * @return the id of the newly created session
 		 * @emit sessionCreated
+     * @emit sessionDeleted  (only when leaving an unstored and unnamed session)
 		 */
-		int newSession(const TQString &sessionName = TQString::null, bool activate = true);
+		int newSession(const TQString &sessionName = TQString::null, bool saveCurr = true);
 
 		/**
 		 * Create a new session and activate it if required
@@ -290,15 +290,18 @@ class KateSessionManager : public TQObject
 		 * @param sessionId the id of the session to save
      * @emit sessionSaved
      */
-		void saveSession(int sessionId);
+		void saveSession(int sessionId) { saveSession(sessionId, sessionId == m_activeSessionId); }
 
 		/**
 		 * Delete the specified session
 		 * @param sessionId the id of the session to delete
+		 * @param actSessId the id of the next session to activate.
+		 *        If INVALID_SESSION or invalid, create a new empty session.
+		 *        This is only meaningful when deleting the current active session.
      * @return whether the session has been deleted or not
      * @emit sessionDeleted
 		 */
-		bool deleteSession(int sessionId);
+		bool deleteSession(int sessionId, int actSessId);
 
 		/**
 		 * Move the specified session forward in the session list (by one position)
@@ -371,6 +374,12 @@ class KateSessionManager : public TQObject
 		KateSessionManager();
 
 		/**
+		 * Save session manager info
+		 * @param saveSessions if true, all sessions will be saved again
+		 */
+		void saveConfig(bool saveSessions);
+
+		/**
 		 * Swap the position of the two specified sessions in the session list
 		 * @param sessionId1 the id of the first session
 		 * @param sessionId2 the id of the second session
@@ -378,11 +387,20 @@ class KateSessionManager : public TQObject
 		 */
 		void swapSessionsPosition(int sessionId1, int sessionId2);
 
+		/**
+		 * Save the specified session
+		 * @param sessionId the id of the session to save
+		 * @param saveGUIInfo if true, save also the information about the GUI elements
+		 * @param setReadOnly necessary to save a session that has to be turned to read only
+     * @emit sessionSaved
+     */
+		void saveSession(int sessionId, bool saveGUIInfo, bool setReadOnly = false);
+
 
 		TQString m_baseDir;       					// folder where session files are stored
 		TQString m_configFile;     					// file where the session list config is stored
-		int m_activeSessionId;              // index of the active session
-    bool m_firstActivation;             // true until at least one session has been activated
+		int m_activeSessionId;              // id of the active session
+    int m_lastSessionId;                // id of the last active session before closing Kate
 		TQPtrList<KateSession> m_sessions;  // session list
 		KSimpleConfig *m_config;        		// session manager config
 
@@ -408,6 +426,7 @@ class KateSessionChooserItem : public TDEListViewItem
 
 
 //BEGIN KateSessionChooser
+//FIXME create one single KateSessionChooser and reuse it all the time
 class KateSessionChooser : public KDialogBase
 {
 	Q_OBJECT

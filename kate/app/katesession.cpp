@@ -71,7 +71,7 @@ namespace
   const char *KSM_DIR     = "kate/sessions";
   const char *KSM_FILE    = "sessions.list";
   const char *KSM_SESSIONS_COUNT = "Sessions count";
-  const char *KSM_ACTIVE_SESSION_ID = "Active session id";
+  const char *KSM_LAST_SESSION_ID = "Last session id";
   const char *KSM_SESSIONS_LIST  = "Sessions list";
 }
 
@@ -90,7 +90,12 @@ KateSession::KateSession(const KateSession &session, const TQString &newSessionN
   m_readOnly(false), m_documents(session.m_documents), m_config(NULL)
 {
   createFilename();
-  m_config = dynamic_cast<KSimpleConfig*>(session.m_config->copyTo(m_filename));
+  if (session.m_config)
+  {
+    m_config = new KSimpleConfig(m_filename);
+    session.m_config->copyTo(m_filename, m_config);
+    m_config->sync();
+  }
 }
 
 //------------------------------------
@@ -106,6 +111,12 @@ KateSession::~KateSession()
 void KateSession::setSessionName(const TQString &sessionName)
 {
   m_sessionName = sessionName.isEmpty() ? i18n(KS_UNNAMED) : sessionName;
+}
+
+//------------------------------------
+bool KateSession::isStillVolatile() const
+{ 
+  return m_filename.isEmpty() && m_sessionName == i18n(KS_UNNAMED); 
 }
 
 //------------------------------------
@@ -167,7 +178,7 @@ void KateSession::load(bool includeGUIInfo)
     m_sessionName = i18n(KS_UNNAMED);
   }
     
-  // Update e all current documents if necessary
+  // Update all current documents if necessary
   if (includeGUIInfo)
   {
     activate();
@@ -238,31 +249,31 @@ void KateSession::activate()
   {
     KateDocManager::self()->closeAllDocuments();
   }
+  
   Kate::Document::setOpenErrorDialogsActivated(false);
   if (m_config)
   {
     KateApp::self()->documentManager()->restoreDocumentList(m_config);
-  }
-
-  // load main windows info, if it exists
-  if (m_config && m_config->hasGroup(KS_OPEN_MAINWINDOWS))
-  {
-    m_config->setGroup(KS_OPEN_MAINWINDOWS);
-    int mwCount = m_config->readUnsignedNumEntry(KS_COUNT, 1);
-    for (int i=0; i<mwCount; ++i)
+    
+    // load main windows info, if it exists
+    if (m_config->hasGroup(KS_OPEN_MAINWINDOWS))
     {
-      if (i >= (int)KateApp::self()->mainWindows())
+      m_config->setGroup(KS_OPEN_MAINWINDOWS);
+      int mwCount = m_config->readUnsignedNumEntry(KS_COUNT, 1);
+      for (int i = 0;  i < mwCount;  ++i)
       {
-        KateApp::self()->newMainWindow(m_config, TQString("MainWindow%1").arg(i));
-      }
-      else
-      {
-        m_config->setGroup(TQString("MainWindow%1").arg(i));
-        KateApp::self()->mainWindow(i)->readProperties(m_config);
+        if (i >= (int)KateApp::self()->mainWindows())
+        {
+          KateApp::self()->newMainWindow(m_config, TQString("MainWindow%1").arg(i));
+        }
+        else
+        {
+          m_config->setGroup(TQString("MainWindow%1").arg(i));
+          KateApp::self()->mainWindow(i)->readProperties(m_config);
+        }
       }
     }
   }
-
   Kate::Document::setOpenErrorDialogsActivated(true);
 }
 
@@ -310,7 +321,7 @@ KateSessionManager* KateSessionManager::self()
 //------------------------------------
 KateSessionManager::KateSessionManager() :
   m_baseDir(locateLocal("data", KSM_DIR)+"/"), m_configFile(m_baseDir + KSM_FILE),
-  m_activeSessionId(0), m_firstActivation(true), m_sessions(), m_config(NULL)
+  m_activeSessionId(INVALID_SESSION), m_lastSessionId(INVALID_SESSION), m_sessions(), m_config(NULL)
 {
   m_sessions.setAutoDelete(true);
 
@@ -321,7 +332,7 @@ KateSessionManager::KateSessionManager() :
     m_config = new KSimpleConfig(m_configFile);
     m_config->setGroup(KSM_SESSIONS_LIST);
     sessionsCount = m_config->readNumEntry(KSM_SESSIONS_COUNT, 0);
-    m_activeSessionId = m_config->readNumEntry(KSM_ACTIVE_SESSION_ID, 0);
+    m_lastSessionId = m_config->readNumEntry(KSM_LAST_SESSION_ID, INVALID_SESSION);
     for (int i = 0;  i < sessionsCount;  ++i)
     {
       TQString urlStr = m_config->readEntry(TQString("URL_%1").arg(i));
@@ -347,19 +358,19 @@ KateSessionManager::KateSessionManager() :
   {
     m_sessions.append(new KateSession(*this, TQString::null, TQString::null));
   }
-  if (m_activeSessionId < 0 || m_activeSessionId >= (int)m_sessions.count())
+  if (m_lastSessionId < 0 || m_lastSessionId >= (int)m_sessions.count())
   {
-    m_activeSessionId = 0;  // Invalid active session was detected. Use first in the list
+    m_lastSessionId = 0;  // Invalid last session was detected. Use first in the list
   }
   //NOTE do not activate any session in the KateSessionManager costructor
   //     since Kate's main window may not be ready yet. The initial session
-  //     will be activated by KateApp::startupKate() or void KateApp::restoreKate()
+  //     will be activated by KateApp::startupKate() or KateApp::restoreKate()
 }
 
 //------------------------------------
 KateSessionManager::~KateSessionManager()
 {
-  saveConfig();
+  saveConfig(true);
   if (m_config)
   {
     delete m_config;
@@ -376,7 +387,7 @@ KateSessionManager::~KateSessionManager()
 // FIXME An option need to be added to Configure Kate -> Sessions to allow Kate to ask about
 // saving unnamed sessions before closing the current session. Default value is off as per
 // point above.
-void KateSessionManager::saveConfig()
+void KateSessionManager::saveConfig(bool saveSessions)
 {
   if (!m_config)
   {
@@ -388,11 +399,14 @@ void KateSessionManager::saveConfig()
   }
   m_config->setGroup(KSM_SESSIONS_LIST);
   m_config->writeEntry(KSM_SESSIONS_COUNT, m_sessions.count());
-  m_config->writeEntry(KSM_ACTIVE_SESSION_ID, m_activeSessionId);
+  m_config->writeEntry(KSM_LAST_SESSION_ID, m_activeSessionId);
   for (int i = 0;  i < (int)m_sessions.count();  ++i)
   {
-    // Save the session first, to make sure a new session has an associated file
-    m_sessions[i]->save(false);
+    //FIXME need to consider when sessions has to be saved.
+    if (saveSessions)
+    {
+      saveSession(i, false, false);
+    }  
     m_config->writeEntry(TQString("URL_%1").arg(i), m_sessions[i]->getSessionFilename());
   }
   m_config->sync();
@@ -424,7 +438,7 @@ KateSession* KateSessionManager::getSessionFromId(int sessionId)
 int KateSessionManager::getSessionIdFromName(const TQString &name)
 {
   if (name.isEmpty())
-    return KateSessionManager::INVALID_SESSION;
+    return INVALID_SESSION;
 
   for (int i = 0;  i < (int)m_sessions.count();  ++i)
   {
@@ -432,23 +446,24 @@ int KateSessionManager::getSessionIdFromName(const TQString &name)
       return i;
   }
 
-  return KateSessionManager::INVALID_SESSION;
+  return INVALID_SESSION;
 }
 
 //------------------------------------
 bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
 {
-  if (sessionId < 0)
+  if (sessionId < 0 || sessionId >= (int)m_sessions.count())
   {
     return false;
   }
 
-  if (!m_firstActivation && sessionId == m_activeSessionId)
+  if (sessionId == m_activeSessionId)
   {
     return true;
   }
 
-  if (!m_firstActivation)
+  int oldSessionId = m_activeSessionId;
+  if (m_activeSessionId != INVALID_SESSION)
   {
     // Do this only if a session has already been activated earlier,
     if (KateApp::self()->activeMainWindow())
@@ -457,30 +472,38 @@ bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
       if (!KateApp::self()->activeMainWindow()->queryClose_internal())
         return false;
     }
-    if (saveCurr && m_activeSessionId != INVALID_SESSION)
+    if (saveCurr) 
     {
-      m_sessions[m_activeSessionId]->save(true);
+      saveSession(m_activeSessionId, true);
+    }
+    else if (m_sessions[m_activeSessionId]->isStillVolatile())
+    {
+      // Automatically delete unstored and unnamed sessions when activating another one
+      m_sessions.remove(m_activeSessionId);  // this also deletes the KateSession item since auto-deletion is enabled
+      m_activeSessionId = INVALID_SESSION;
+      if (sessionId > oldSessionId)
+      {
+        --sessionId;
+      }
+      emit sessionDeleted(oldSessionId);
+      oldSessionId = INVALID_SESSION;
     }
   }
 
-  int oldSessionId = m_activeSessionId;
   m_activeSessionId = sessionId;
   m_sessions[sessionId]->activate();
-  m_firstActivation = false;
+  m_lastSessionId = INVALID_SESSION;
   emit sessionActivated(m_activeSessionId, oldSessionId);
   return true;
 }
 
 //------------------------------------
-int KateSessionManager::newSession(const TQString &sessionName, bool activate)
+int KateSessionManager::newSession(const TQString &sessionName, bool saveCurr)
 {
   m_sessions.append(new KateSession(*this, sessionName, TQString::null));
   int newSessionId = m_sessions.count() - 1;
   emit sessionCreated(newSessionId);
-  if (activate)
-  {
-    activateSession(newSessionId, m_activeSessionId != INVALID_SESSION);
-  }
+  activateSession(newSessionId, saveCurr);
   return newSessionId;
 }
 
@@ -498,9 +521,12 @@ int KateSessionManager::cloneSession(int sessionId, const TQString &sessionName,
   
   // If cloning the active session, the new session will contain the current status
   // and the original session will be restored to the last saved state (save as... functionality)
-  m_sessions[newSessionId]->save(true);
-  reloadActiveSession();
-  
+/*  saveSession(newSessionId, sessionId == m_activeSessionId);
+  if (sessionId == m_activeSessionId)
+  {
+    reloadActiveSession();
+  }
+*/  
   if (activate)
   {
     activateSession(newSessionId, m_activeSessionId != INVALID_SESSION);
@@ -511,27 +537,26 @@ int KateSessionManager::cloneSession(int sessionId, const TQString &sessionName,
 //------------------------------------
 bool KateSessionManager::restoreLastSession()
 {
-  if (!m_firstActivation)
+  if (m_activeSessionId != INVALID_SESSION)
   {
     return false;
   }
-  // NOTE: m_activeSessionId contains the id of the last active session
-  return activateSession(m_activeSessionId, false);
+  return activateSession(m_lastSessionId, false);
 }
 
 //-------------------------------------------
-void KateSessionManager::saveSession(int sessionId)
+void KateSessionManager::saveSession(int sessionId, bool saveGUIInfo, bool setReadOnly)
 {
   if (sessionId < 0 || sessionId >= (int)m_sessions.count())
   {
     return;
   }
-  m_sessions[sessionId]->save(sessionId == m_activeSessionId);
+  m_sessions[sessionId]->save(saveGUIInfo, setReadOnly);
   emit sessionSaved(sessionId);
 }
 
 //-------------------------------------------
-bool KateSessionManager::deleteSession(int sessionId)
+bool KateSessionManager::deleteSession(int sessionId, int actSessId)
 {
   if (sessionId < 0 || sessionId >= (int)m_sessions.count())
   {
@@ -555,10 +580,16 @@ bool KateSessionManager::deleteSession(int sessionId)
     m_activeSessionId = INVALID_SESSION;
   }
   emit sessionDeleted(sessionId);
-  // if the active session was deleted, create a new unnamed session and activate it
   if (m_activeSessionId == INVALID_SESSION)
   {
-    newSession();
+    if (m_sessions.count() > 0 && actSessId >= 0 && actSessId < (int)m_sessions.count())
+    {
+      activateSession(actSessId, false);
+    }
+    else
+    {
+      newSession();
+    }
   }
 
   return true;
@@ -646,7 +677,7 @@ void KateSessionManager::setSessionReadOnlyStatus(int sessionId, bool readOnly)
 
   m_sessions[sessionId]->setReadOnly(readOnly);
   // Session is saved one last time when making it read only
-  m_sessions[sessionId]->save(sessionId == m_activeSessionId, true);
+  saveSession(sessionId, sessionId == m_activeSessionId, true);
 }
 //END KateSessionManager
 
