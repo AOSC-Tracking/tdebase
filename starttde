@@ -581,7 +581,7 @@ if [ "$TGTK_PRELOAD" != "" ]; then
   elif [ -e /usr/lib/libnspr4.so ]; then
     TGTK_NSPR_PRELOAD="/usr/lib/libnspr4.so:"
   fi
-  export LD_PRELOAD=$TGTK_PRELOAD:$KGTK_NSPR_PRELOAD$LD_PRELOAD
+  export LD_PRELOAD=$TGTK_PRELOAD:$TGTK_NSPR_PRELOAD$LD_PRELOAD
 fi
 
 # We run mkfontdir on the user's font dirs (if we have permission) to pick
