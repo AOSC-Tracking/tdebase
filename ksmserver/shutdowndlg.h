@@ -44,6 +44,17 @@ class TDEAction;
 	#include <hal/libhal.h>
 #endif // COMPILE_HALBACKEND
 
+namespace SuspendType {
+enum SuspendType {
+	NotSpecified = 0,
+	Freeze,
+	Standby,
+	Suspend,
+	Hibernate,
+	HybridSuspend
+};
+};
+
 // The (singleton) widget that makes/fades the desktop gray.
 class KSMShutdownFeedback : public TQWidget
 {
@@ -76,7 +87,6 @@ private:
 	int    m_rowsDone;
 	KPixmapIO m_pmio;
 	bool m_greyImageCreated;
-
 };
 
 // The (singleton) widget that shows either pretty pictures or a black screen during logout
@@ -138,6 +148,7 @@ public slots:
 	void slotSuspend();
 	void slotHibernate();
 	void slotFreeze();
+	void slotHybridSuspend();
 
 protected:
 	~KSMShutdownDlg();

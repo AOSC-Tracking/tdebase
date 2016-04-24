@@ -229,7 +229,7 @@ void KSMServer::shutdownInternal( TDEApplication::ShutdownConfirm confirm,
         // TODO: turn the feedback widget into a list of apps to be closed,
         // with an indicator of the current status for each.
         KSMShutdownFeedback::stop(); // make the screen become normal again
-        if (selection != 0) {
+        if (selection != SuspendType::NotSpecified) {
 		// respect lock on resume & disable suspend/hibernate settings
 		// from power-manager
 		TDEConfig config("power-managerrc");
@@ -244,14 +244,19 @@ void KSMServer::shutdownInternal( TDEApplication::ShutdownConfirm confirm,
 #ifdef __TDE_HAVE_TDEHWLIB
 		TDERootSystemDevice* rootDevice = hwDevices->rootSystemDevice();
 		if (rootDevice) {
-			if (selection == 1) {	// Suspend
-				rootDevice->setPowerState(TDESystemPowerState::Suspend);
-			}
-			if (selection == 2) {	// Hibernate
-				rootDevice->setPowerState(TDESystemPowerState::Hibernate);
-			}
-			if (selection == 3) {	// Freeze
-				rootDevice->setPowerState(TDESystemPowerState::Freeze);
+			switch (selection) {
+				case SuspendType::Freeze:
+					rootDevice->setPowerState(TDESystemPowerState::Freeze);
+					break;
+				case SuspendType::Suspend:
+					rootDevice->setPowerState(TDESystemPowerState::Suspend);
+					break;
+				case SuspendType::Hibernate:
+					rootDevice->setPowerState(TDESystemPowerState::Hibernate);
+					break;
+				case SuspendType::HybridSuspend:
+					rootDevice->setPowerState(TDESystemPowerState::HybridSuspend);
+					break;
 			}
 		}
 #endif

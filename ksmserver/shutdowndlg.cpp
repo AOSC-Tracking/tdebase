@@ -707,7 +707,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 	TQVBoxLayout* vbox = new TQVBoxLayout( this );
 
 	if (m_selection) {
-		*m_selection = 0;
+		*m_selection = SuspendType::NotSpecified;
 	}
 
 	TQFrame* frame = new TQFrame( this );
@@ -766,7 +766,6 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 	}
 	else
 	{
-
 		// konqy
 		lfrm = new TQFrame( frame );
 		lfrm->setFrameStyle( TQFrame::Panel | TQFrame::Sunken );
@@ -810,6 +809,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		bool canFreeze = false;
 		bool canSuspend = false;
 		bool canHibernate = false;
+		bool canHybridSuspend = false;
 
 #if defined(COMPILE_HALBACKEND)
 		// Query HAL for suspend/resume support
@@ -865,6 +865,14 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			{
 				canHibernate = true;
 			}
+		
+			if (libhal_device_get_property_bool(m_halCtx,
+												"/org/freedesktop/Hal/devices/computer",
+												"power_management.can_suspend_hybrid",
+												NULL))
+			{
+				canHybridSuspend = true;
+			}
 		}
 #elif defined(__TDE_HAVE_TDEHWLIB) // COMPILE_HALBACKEND
 		TDERootSystemDevice* rootDevice = TDEGlobal::hardwareDevices()->rootSystemDevice();
@@ -872,11 +880,13 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			canFreeze = rootDevice->canFreeze();
 			canSuspend = rootDevice->canSuspend();
 			canHibernate = rootDevice->canHibernate();
+			canHybridSuspend = rootDevice->canHybridSuspend();
 		}
 		else {
 			canFreeze = false;
 			canSuspend = false;
 			canHibernate = false;
+			canHybridSuspend = false;
 		}
 #endif // COMPILE_HALBACKEND
 
@@ -890,7 +900,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				btnFreeze->setPixmap( DesktopIcon( "suspend") );
 				int i = btnFreeze->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnFreeze->setAccel( "ALT+" + btnFreeze->textLabel().lower()[i+1] ) ;
-				hbuttonbox->addWidget ( btnFreeze);
+				hbuttonbox->addWidget ( btnFreeze );
 				connect(btnFreeze, TQT_SIGNAL(clicked()), TQT_SLOT(slotFreeze()));
 			}
 
@@ -902,7 +912,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				btnSuspend->setPixmap( DesktopIcon( "suspend") );
 				int i = btnSuspend->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnSuspend->setAccel( "ALT+" + btnSuspend->textLabel().lower()[i+1] ) ;
-				hbuttonbox->addWidget ( btnSuspend);
+				hbuttonbox->addWidget ( btnSuspend );
 				connect(btnSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotSuspend()));
 			}
 
@@ -914,10 +924,22 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				btnHibernate->setPixmap( DesktopIcon( "hibernate") );
 				int i = btnHibernate->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnHibernate->setAccel( "ALT+" + btnHibernate->textLabel().lower()[i+1] ) ;
-				hbuttonbox->addWidget ( btnHibernate);
+				hbuttonbox->addWidget ( btnHibernate );
 				connect(btnHibernate, TQT_SIGNAL(clicked()), TQT_SLOT(slotHibernate()));
 			}
 
+			if (canHybridSuspend && !disableSuspend && !disableHibernate)
+			{
+				// Hybrid suspend
+				FlatButton* btnHybridSuspend = new FlatButton( frame );
+				btnHybridSuspend->setTextLabel( i18n("H&ybrid Suspend"), false );
+				btnHybridSuspend->setPixmap( DesktopIcon( "hibernate") );
+				int i = btnHybridSuspend->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
+				btnHybridSuspend->setAccel( "ALT+" + btnHybridSuspend->textLabel().lower()[i+1] ) ;
+				hbuttonbox->addWidget ( btnHybridSuspend );
+				connect(btnHybridSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotHybridSuspend()));
+			}
+			
 			// Separator (within buttonlay)
 			vbox->addWidget( new KSeparator( frame ) );
 
@@ -1043,7 +1065,9 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			if (canFreeze && !disableSuspend)
 			{
 				KPushButton* btnFreeze = new KPushButton( KGuiItem( i18n("&Freeze Computer"), "suspend"), frame );
-				TQToolTip::add(btnFreeze, i18n("<qt><h3>Freeze Computer</h3><p>Put the computer in software sleep mode, allowing for some powersaving. The system can be reactivated in a really short time, almost instantly.</p></qt>"));
+				TQToolTip::add(btnFreeze, i18n("<qt><h3>Freeze Computer</h3><p>Put the computer in software sleep mode,"
+				" allowing for some powersaving. The system can be reactivated in a really short time, almost"
+				" instantly.</p></qt>"));
 				btnFreeze->setFont( btnFont );
 				buttonlay->addWidget( btnFreeze );
 				connect(btnFreeze, TQT_SIGNAL(clicked()), TQT_SLOT(slotFreeze()));
@@ -1052,7 +1076,9 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			if (canSuspend && !disableSuspend)
 			{
 				KPushButton* btnSuspend = new KPushButton( KGuiItem( i18n("&Suspend Computer"), "suspend"), frame );
-				TQToolTip::add(btnSuspend, i18n("<qt><h3>Suspend Computer</h3><p>Put the computer in a suspend-to-memory mode. The system is stopped and its state saved to memory.</p><p> This allows more powersaving than 'Freeze Computer' but requires longer time to reactivate the system.</p></qt>"));
+				TQToolTip::add(btnSuspend, i18n("<qt><h3>Suspend Computer</h3><p>Put the computer in a suspend-to-memory mode."
+				" The system is stopped and its state saved to memory.</p><p> This allows more powersaving than 'Freeze"
+				" Computer' but requires longer time to reactivate the system.</p></qt>"));
 				btnSuspend->setFont( btnFont );
 				buttonlay->addWidget( btnSuspend );
 				connect(btnSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotSuspend()));
@@ -1061,12 +1087,25 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			if (canHibernate && !disableHibernate)
 			{
 				KPushButton* btnHibernate = new KPushButton( KGuiItem( i18n("&Hibernate Computer"), "hibernate"), frame );
-				TQToolTip::add(btnHibernate, i18n("<qt><h3>Hibernate Computer</h3><p>Put the computer in a suspend-to-disk mode. The system is stopped and its state saved to disk.</p><p>This offers the greatest powersaving but considerable time is required to reactivate the system again.</p></qt>"));
+				TQToolTip::add(btnHibernate, i18n("<qt><h3>Hibernate Computer</h3><p>Put the computer in a suspend-to-disk"
+				" mode. The system is stopped and its state saved to disk.</p><p>This offers the greatest powersaving but"
+				" considerable time is required to reactivate the system again.</p></qt>"));
 				btnHibernate->setFont( btnFont );
 				buttonlay->addWidget( btnHibernate );
 				connect(btnHibernate, TQT_SIGNAL(clicked()), TQT_SLOT(slotHibernate()));
 			}
 
+			if (canHybridSuspend && !disableSuspend && !disableHibernate)
+			{
+				KPushButton* btnHybridSuspend = new KPushButton( KGuiItem( i18n("&Hybrid Suspend"), "hibernate"), frame );
+				TQToolTip::add(btnHybridSuspend, i18n("<qt><h3>Hybrid Suspend</h3><p>Put the computer in both suspend-to-memory" " and suspend-to-disk mode. The system is stopped and its state saved to memory and to disk.</p><p>This offers" " the best of both 'Suspend' and 'Hibernate' combined together. The system is de facto in 'Suspend' mode but if"
+				" power is lost, work can still be resumed as if the system had been hibernated, preventing any data"
+				" loss.</p></qt>"));
+				btnHybridSuspend->setFont( btnFont );
+				buttonlay->addWidget( btnHybridSuspend );
+				connect(btnHybridSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotHybridSuspend()));
+			}
+			
 			buttonlay->addStretch( 1 );
 
 			// Separator
@@ -1076,9 +1115,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			KPushButton* btnBack = new KPushButton( KStdGuiItem::cancel(), frame );
 			buttonlay->addWidget( btnBack );
 			connect(btnBack, TQT_SIGNAL(clicked()), TQT_SLOT(reject()));
-
 		}
-
 	}
 	else {
 		// finish the dialog correctly
@@ -1105,11 +1142,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			connect(btnBack, TQT_SIGNAL(clicked()), TQT_SLOT(reject()));
 		}
-
-
 	}
-
-
 }
 
 
@@ -1161,7 +1194,7 @@ void KSMShutdownDlg::slotHalt()
 void KSMShutdownDlg::slotSuspend()
 {
 #ifndef COMPILE_HALBACKEND
-	*m_selection = 1;	// Suspend
+	*m_selection = SuspendType::Suspend;
 #else
 	if (m_dbusConn)
 	{
@@ -1185,7 +1218,7 @@ void KSMShutdownDlg::slotSuspend()
 void KSMShutdownDlg::slotHibernate()
 {
 #ifndef COMPILE_HALBACKEND
-	*m_selection = 2;	// Hibernate
+	*m_selection = SuspendType::Hibernate;
 #else
 	if (m_dbusConn)
 	{
@@ -1205,8 +1238,29 @@ void KSMShutdownDlg::slotHibernate()
 
 void KSMShutdownDlg::slotFreeze()
 {
-	*m_selection = 3;	// Freeze
-	reject();
+	*m_selection = SuspendType::Freeze;
+	reject(); // continue on resume
+}
+
+void KSMShutdownDlg::slotHybridSuspend()
+{
+#ifndef COMPILE_HALBACKEND
+	*m_selection = SuspendType::HybridSuspend;
+#else
+	if (m_dbusConn)
+	{
+		DBusMessage *msg = dbus_message_new_method_call(
+							  "org.freedesktop.Hal",
+							  "/org/freedesktop/Hal/devices/computer",
+							  "org.freedesktop.Hal.Device.SystemPowerManagement",
+							  "SuspendHybrid");
+
+		dbus_connection_send(m_dbusConn, msg, NULL);
+
+		dbus_message_unref(msg);
+	}
+#endif
+	reject(); // continue on resume
 }
 
 bool KSMShutdownDlg::confirmShutdown( bool maysd, bool mayrb, TDEApplication::ShutdownType& sdtype, TQString& bootOption, int* selection )
