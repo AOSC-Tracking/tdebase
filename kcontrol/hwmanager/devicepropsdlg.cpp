@@ -685,19 +685,22 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 					if ((*it) == TDESystemPowerState::Active) {
 						powerStatesString += i18n("Active<br>");
 					}
-					if ((*it) == TDESystemPowerState::Standby) {
+					else if ((*it) == TDESystemPowerState::Standby) {
 						powerStatesString += i18n("Standby<br>");
 					}
-					if ((*it) == TDESystemPowerState::Freeze) {
+					else if ((*it) == TDESystemPowerState::Freeze) {
 						powerStatesString += i18n("Freeze<br>");
 					}
-					if ((*it) == TDESystemPowerState::Suspend) {
+					else if ((*it) == TDESystemPowerState::Suspend) {
 						powerStatesString += i18n("Suspend<br>");
 					}
-					if ((*it) == TDESystemPowerState::Hibernate) {
+					else if ((*it) == TDESystemPowerState::Hibernate) {
 						powerStatesString += i18n("Hibernate<br>");
 					}
-					if ((*it) == TDESystemPowerState::PowerOff) {
+					else if ((*it) == TDESystemPowerState::HybridSuspend) {
+						powerStatesString += i18n("Hybrid Suspend<br>");
+					}
+					else if ((*it) == TDESystemPowerState::PowerOff) {
 						powerStatesString += i18n("Power Off<br>");
 					}
 				}
@@ -719,19 +722,22 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 					if ((*it) == TDESystemHibernationMethod::Unsupported) {
 						label = i18n("<none>");
 					}
-					if ((*it) == TDESystemHibernationMethod::Platform) {
+					else if ((*it) == TDESystemHibernationMethod::Platform) {
 						label = i18n("Platform");
 					}
-					if ((*it) == TDESystemHibernationMethod::Shutdown) {
+					else if ((*it) == TDESystemHibernationMethod::Suspend) {
+						label = i18n("Suspend");
+					}
+					else if ((*it) == TDESystemHibernationMethod::Shutdown) {
 						label = i18n("Shutdown");
 					}
-					if ((*it) == TDESystemHibernationMethod::Reboot) {
+					else if ((*it) == TDESystemHibernationMethod::Reboot) {
 						label = i18n("Reboot");
 					}
-					if ((*it) == TDESystemHibernationMethod::TestProc) {
+					else if ((*it) == TDESystemHibernationMethod::TestProc) {
 						label = i18n("Test Procedure");
 					}
-					if ((*it) == TDESystemHibernationMethod::Test) {
+					else if ((*it) == TDESystemHibernationMethod::Test) {
 						label = i18n("Test");
 					}
 					base->comboSystemHibernationMethod->insertItem(label, i);
@@ -745,6 +751,7 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 			base->labelSystemUserCanFreeze->setText((rdevice->canFreeze())?i18n("Yes"):i18n("No"));
 			base->labelSystemUserCanSuspend->setText((rdevice->canSuspend())?i18n("Yes"):i18n("No"));
 			base->labelSystemUserCanHibernate->setText((rdevice->canHibernate())?i18n("Yes"):i18n("No"));
+			base->labelSystemUserCanHybridSuspend->setText((rdevice->canHybridSuspend())?i18n("Yes"):i18n("No"));
 			base->labelSystemUserCanPowerOff->setText((rdevice->canPowerOff())?i18n("Yes"):i18n("No"));
 
 			base->labelSystemHibernationSpace->setText((rdevice->diskSpaceNeededForHibernation()<0)?i18n("<unknown>"):TDEHardwareDevices::bytesToFriendlySizeString(rdevice->diskSpaceNeededForHibernation()));

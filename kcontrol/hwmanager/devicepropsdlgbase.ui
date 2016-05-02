@@ -1508,7 +1508,20 @@
 							    <cstring>labelSystemUserCanHibernate</cstring>
 						    </property>
 					    </widget>
-					    <widget class="TQLabel" row="7" column="0" colspan="1">
+							<widget class="TQLabel" row="7" column="0" colspan="1">
+								<property name="name">
+									<cstring>unnamed</cstring>
+								</property>
+								<property name="text">
+									<string>User Can Request Hybrid Suspend</string>
+								</property>
+							</widget>
+							<widget class="TQLabel" row="7" column="1" colspan="1">
+								<property name="name">
+									<cstring>labelSystemUserCanHybridSuspend</cstring>
+								</property>
+							</widget>
+					    <widget class="TQLabel" row="8" column="0" colspan="1">
 						    <property name="name">
 							    <cstring>unnamed</cstring>
 						    </property>
@@ -1516,7 +1529,7 @@
 							    <string>User Can Request Shutdown</string>
 						    </property>
 					    </widget>
-					    <widget class="TQLabel" row="7" column="1" colspan="1">
+					    <widget class="TQLabel" row="8" column="1" colspan="1">
 						    <property name="name">
 							    <cstring>labelSystemUserCanPowerOff</cstring>
 						    </property>
