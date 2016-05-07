@@ -758,11 +758,11 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		FlatButton* btnLogout = new FlatButton( frame );
 		btnLogout->setTextLabel( TQString("&") + i18n("Log out"), false );
 		btnLogout->setPixmap( DesktopIcon( "back") );
+		TQToolTip::add( btnLogout, i18n( "<qt><p>Log out of the current session to login as a different user.</p></qt>" ) );
 		int i = btnLogout->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 		btnLogout->setAccel( "ALT+" + btnLogout->textLabel().lower()[i+1] ) ;
 		hbuttonbox->addWidget ( btnLogout );
 		connect(btnLogout, TQT_SIGNAL(clicked()), TQT_SLOT(slotLogout()));
-
 	}
 	else
 	{
@@ -786,8 +786,8 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 		buttonlay->addStretch( 1 );
 		// End session
-		KPushButton* btnLogout = new KPushButton( KGuiItem( i18n("&End Current Session"), "edit-undo"), frame );
-				TQToolTip::add( btnLogout, i18n( "<qt><h3>End Current Session</h3><p>Log out of the current session to login with a different user</p></qt>" ) );
+		KPushButton* btnLogout = new KPushButton( KGuiItem( i18n("&Log out"), "edit-undo"), frame );
+		TQToolTip::add( btnLogout, i18n( "<qt><p>Log out of the current session to login as a different user.</p></qt>" ) );
 		btnFont = btnLogout->font();
 		buttonlay->addWidget( btnLogout );
 		connect(btnLogout, TQT_SIGNAL(clicked()), TQT_SLOT(slotLogout()));
@@ -891,13 +891,16 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 #endif // COMPILE_HALBACKEND
 
 		if(doUbuntuLogout) {
-
+      // Ubuntu style logout window
 			if (canFreeze && !disableSuspend)
 			{
 				// Freeze
 				FlatButton* btnFreeze = new FlatButton( frame );
 				btnFreeze->setTextLabel( i18n("&Freeze"), false );
 				btnFreeze->setPixmap( DesktopIcon( "suspend") );
+				TQToolTip::add(btnFreeze, i18n("<qt><p>Put the computer in software idle mode,"
+				" allowing for some powersaving. The system can be reactivated in a really short time,"
+				" almost instantly.</p><p>This correspond to ACPI S0 mode.</p></qt>"));
 				int i = btnFreeze->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnFreeze->setAccel( "ALT+" + btnFreeze->textLabel().lower()[i+1] ) ;
 				hbuttonbox->addWidget ( btnFreeze );
@@ -908,8 +911,12 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			{
 				// Suspend
 				FlatButton* btnSuspend = new FlatButton( frame );
-				btnSuspend->setTextLabel( i18n("&Suspend"), false );
+				btnSuspend->setTextLabel( i18n("&Sleep"), false );
 				btnSuspend->setPixmap( DesktopIcon( "suspend") );
+				TQToolTip::add(btnSuspend, i18n("<qt><p>Put the computer in suspend-to-memory mode."
+				" The system is stopped and its state saved to memory.</p><p> This allows more powersaving than 'Freeze'"
+				" but requires longer time to reactivate the system.</p><p>This correspond to ACPI S3 mode.</p>"
+				"<p>Also known as Suspend-to-RAM mode.</p></qt>"));
 				int i = btnSuspend->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnSuspend->setAccel( "ALT+" + btnSuspend->textLabel().lower()[i+1] ) ;
 				hbuttonbox->addWidget ( btnSuspend );
@@ -922,6 +929,9 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				FlatButton* btnHibernate = new FlatButton( frame );
 				btnHibernate->setTextLabel( i18n("&Hibernate"), false );
 				btnHibernate->setPixmap( DesktopIcon( "hibernate") );
+				TQToolTip::add(btnHibernate, i18n("<qt><p>Put the computer in suspend-to-disk mode."
+				" The system is stopped and its state saved to disk.</p><p>This offers the greatest powersaving but"
+				" considerable time is required to reactivate the system again.</p><p>This correspond to ACPI S4 mode.</p><p>Also known as Suspend-to-Disk mode.</p></qt>"));
 				int i = btnHibernate->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnHibernate->setAccel( "ALT+" + btnHibernate->textLabel().lower()[i+1] ) ;
 				hbuttonbox->addWidget ( btnHibernate );
@@ -934,6 +944,12 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				FlatButton* btnHybridSuspend = new FlatButton( frame );
 				btnHybridSuspend->setTextLabel( i18n("H&ybrid Suspend"), false );
 				btnHybridSuspend->setPixmap( DesktopIcon( "hibernate") );
+				TQToolTip::add(btnHybridSuspend, i18n("<qt><p>Put the computer in both suspend-to-memory and"
+				" suspend-to-disk mode. The system is stopped and its state saved to memory and to disk.</p>"
+				"<p>This offers the best of both 'Sleep' and 'Hibernate' modes combined together. The system is"
+				" de facto in 'Sleep' mode but if power is lost, work can still be resumed as if the system"
+				" had been hibernated, preventing any data loss.</p><p>This correspond to ACPI S3+S4 mode.</p>"
+				"<p>Also known as Suspend-to-RAM + Suspend-to-Disk mode.</p></qt>"));
 				int i = btnHybridSuspend->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnHybridSuspend->setAccel( "ALT+" + btnHybridSuspend->textLabel().lower()[i+1] ) ;
 				hbuttonbox->addWidget ( btnHybridSuspend );
@@ -952,6 +968,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				FlatButton* btnReboot = new FlatButton( frame );
 				btnReboot->setTextLabel( i18n("&Restart"), false );
 				btnReboot->setPixmap( DesktopIcon( "reload") );
+				TQToolTip::add( btnReboot, i18n( "<qt><p>Log out of the current session and restart the computer.</p></qt>" ) );
 				int i = btnReboot->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnReboot->setAccel( "ALT+" + btnReboot->textLabel().lower()[i+1] ) ;
 				hbuttonbox2->addWidget ( btnReboot);
@@ -990,8 +1007,9 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			if (maysd) {
 				// Shutdown
 				FlatButton* btnHalt = new FlatButton( frame );
-				btnHalt->setTextLabel( i18n("&Turn Off"), false );
+				btnHalt->setTextLabel( i18n("&Shutdown"), false );
 				btnHalt->setPixmap( DesktopIcon( "system-log-out") );
+				TQToolTip::add( btnHalt, i18n( "<qt><p>Log out of the current session and turn off the computer.</p></qt>" ) );
 				int i = btnHalt->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnHalt->setAccel( "ALT+" + btnHalt->textLabel().lower()[i+1] ) ;
 				hbuttonbox2->addWidget ( btnHalt );
@@ -1013,10 +1031,11 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		}
 		else
 		{
+      // Standard style logout window
 			if (maysd) {
 				// Shutdown
-				KPushButton* btnHalt = new KPushButton( KGuiItem( i18n("&Turn Off Computer"), "system-log-out"), frame );
-				TQToolTip::add( btnHalt, i18n( "<qt><h3>Turn Off Computer</h3><p>Log out of the current session and turn off the computer</p></qt>" ) );
+				KPushButton* btnHalt = new KPushButton( KGuiItem( i18n("&Shutdown"), "system-log-out"), frame );
+				TQToolTip::add( btnHalt, i18n( "<qt><p>Log out of the current session and turn off the computer.</p></qt>" ) );
 				btnHalt->setFont( btnFont );
 				buttonlay->addWidget( btnHalt );
 				connect(btnHalt, TQT_SIGNAL(clicked()), TQT_SLOT(slotHalt()));
@@ -1027,8 +1046,8 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			if (mayrb) {
 				// Reboot
-				KSMDelayedPushButton* btnReboot = new KSMDelayedPushButton( KGuiItem( i18n("&Restart Computer"), "reload"), frame );
-				TQToolTip::add( btnReboot, i18n( "<qt><h3>Restart Computer</h3><p>Log out of the current session and restart the computer</p><p>Hold the mouse button or the space bar for a short while to get a list of options what to boot</p></qt>" ) );
+				KSMDelayedPushButton* btnReboot = new KSMDelayedPushButton( KGuiItem( i18n("&Restart"), "reload"), frame );
+				TQToolTip::add( btnReboot, i18n( "<qt><p>Log out of the current session and restart the computer.</p></qt>" ) );
 				btnReboot->setFont( btnFont );
 				buttonlay->addWidget( btnReboot );
 
@@ -1064,10 +1083,10 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			if (canFreeze && !disableSuspend)
 			{
-				KPushButton* btnFreeze = new KPushButton( KGuiItem( i18n("&Freeze Computer"), "suspend"), frame );
-				TQToolTip::add(btnFreeze, i18n("<qt><h3>Freeze Computer</h3><p>Put the computer in software sleep mode,"
-				" allowing for some powersaving. The system can be reactivated in a really short time, almost"
-				" instantly.</p></qt>"));
+				KPushButton* btnFreeze = new KPushButton( KGuiItem( i18n("&Freeze"), "suspend"), frame );
+				TQToolTip::add(btnFreeze, i18n("<qt><p>Put the computer in software idle mode,"
+				" allowing for some powersaving. The system can be reactivated in a really short time,"
+				" almost instantly.</p><p>This correspond to ACPI S0 mode.</p></qt>"));
 				btnFreeze->setFont( btnFont );
 				buttonlay->addWidget( btnFreeze );
 				connect(btnFreeze, TQT_SIGNAL(clicked()), TQT_SLOT(slotFreeze()));
@@ -1075,10 +1094,11 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			if (canSuspend && !disableSuspend)
 			{
-				KPushButton* btnSuspend = new KPushButton( KGuiItem( i18n("&Suspend Computer"), "suspend"), frame );
-				TQToolTip::add(btnSuspend, i18n("<qt><h3>Suspend Computer</h3><p>Put the computer in a suspend-to-memory mode."
-				" The system is stopped and its state saved to memory.</p><p> This allows more powersaving than 'Freeze"
-				" Computer' but requires longer time to reactivate the system.</p></qt>"));
+				KPushButton* btnSuspend = new KPushButton( KGuiItem( i18n("&Sleep"), "suspend"), frame );
+				TQToolTip::add(btnSuspend, i18n("<qt><p>Put the computer in suspend-to-memory mode."
+				" The system is stopped and its state saved to memory.</p><p> This allows more powersaving than 'Freeze'"
+				" but requires longer time to reactivate the system.</p><p>This correspond to ACPI S3 mode.</p>"
+				"<p>Also known as Suspend-to-RAM mode.</p></qt>"));
 				btnSuspend->setFont( btnFont );
 				buttonlay->addWidget( btnSuspend );
 				connect(btnSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotSuspend()));
@@ -1086,10 +1106,10 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			if (canHibernate && !disableHibernate)
 			{
-				KPushButton* btnHibernate = new KPushButton( KGuiItem( i18n("&Hibernate Computer"), "hibernate"), frame );
-				TQToolTip::add(btnHibernate, i18n("<qt><h3>Hibernate Computer</h3><p>Put the computer in a suspend-to-disk"
-				" mode. The system is stopped and its state saved to disk.</p><p>This offers the greatest powersaving but"
-				" considerable time is required to reactivate the system again.</p></qt>"));
+				KPushButton* btnHibernate = new KPushButton( KGuiItem( i18n("&Hibernate"), "hibernate"), frame );
+				TQToolTip::add(btnHibernate, i18n("<qt><p>Put the computer in suspend-to-disk mode."
+				" The system is stopped and its state saved to disk.</p><p>This offers the greatest powersaving but"
+				" considerable time is required to reactivate the system again.</p><p>This correspond to ACPI S4 mode.</p><p>Also known as Suspend-to-Disk mode.</p></qt>"));
 				btnHibernate->setFont( btnFont );
 				buttonlay->addWidget( btnHibernate );
 				connect(btnHibernate, TQT_SIGNAL(clicked()), TQT_SLOT(slotHibernate()));
@@ -1097,10 +1117,13 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			if (canHybridSuspend && !disableSuspend && !disableHibernate)
 			{
-				KPushButton* btnHybridSuspend = new KPushButton( KGuiItem( i18n("&Hybrid Suspend"), "hibernate"), frame );
-				TQToolTip::add(btnHybridSuspend, i18n("<qt><h3>Hybrid Suspend</h3><p>Put the computer in both suspend-to-memory" " and suspend-to-disk mode. The system is stopped and its state saved to memory and to disk.</p><p>This offers" " the best of both 'Suspend' and 'Hibernate' combined together. The system is de facto in 'Suspend' mode but if"
-				" power is lost, work can still be resumed as if the system had been hibernated, preventing any data"
-				" loss.</p></qt>"));
+				KPushButton* btnHybridSuspend = new KPushButton( KGuiItem( i18n("H&ybrid Suspend"), "hibernate"), frame );
+				TQToolTip::add(btnHybridSuspend, i18n("<qt><p>Put the computer in both suspend-to-memory and"
+				" suspend-to-disk mode. The system is stopped and its state saved to memory and to disk.</p>"
+				"<p>This offers the best of both 'Sleep' and 'Hibernate' modes combined together. The system is"
+				" de facto in 'Sleep' mode but if power is lost, work can still be resumed as if the system"
+				" had been hibernated, preventing any data loss.</p><p>This correspond to ACPI S3+S4 mode.</p>"
+				"<p>Also known as Suspend-to-RAM + Suspend-to-Disk mode.</p></qt>"));
 				btnHybridSuspend->setFont( btnFont );
 				buttonlay->addWidget( btnHybridSuspend );
 				connect(btnHybridSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotHybridSuspend()));

@@ -1356,11 +1356,11 @@ void KMenu::insertStaticExitItems()
 
     m_exitView->leftView()->insertSeparator( nId++, i18n("Session"), index++ );
     if (kapp->authorize("logout"))
-       m_exitView->leftView()->insertItem( "edit-undo", i18n( "Logout" ),
-                                   i18n( "End session" ), "kicker:/logout", nId++, index++ );
+       m_exitView->leftView()->insertItem( "edit-undo", i18n( "Log out" ),
+                                   i18n( "End current session" ), "kicker:/logout", nId++, index++ );
     if (kapp->authorize("lock_screen"))
        m_exitView->leftView()->insertItem( "system-lock-screen", i18n( "Lock" ),
-                                   i18n( "Lock screen" ), "kicker:/lock", nId++, index++ );
+                                   i18n( "Lock computer screen" ), "kicker:/lock", nId++, index++ );
 
     TDEConfig ksmserver("ksmserverrc", false, false);
     ksmserver.setGroup("General");
@@ -1391,11 +1391,11 @@ void KMenu::insertStaticExitItems()
     if ( maysd )
     {
         m_exitView->leftView()->insertSeparator( nId++, i18n("System"), index++ );
-        m_exitView->leftView()->insertItem( "system-log-out", i18n( "Shutdown Computer" ),
+        m_exitView->leftView()->insertItem( "system-log-out", i18n( "Shutdown" ),
                                    i18n( "Turn off computer" ), "kicker:/shutdown", nId++, index++ );
 
-        m_exitView->leftView()->insertItem( "reload", i18n( "&Restart Computer" ).replace("&",""),
-                                            i18n( "Restart and boot the default system" ),
+        m_exitView->leftView()->insertItem( "reload", i18n( "&Restart" ).replace("&",""),
+                                            i18n( "Restart computer and boot the default system" ),
                                             "kicker:/restart", nId++, index++ );
 
         insertSuspendOption(nId, index);
@@ -3857,7 +3857,7 @@ void KMenu::insertSuspendOption( int &nId, int &index )
         m_exitView->leftView()->insertItem(
             "suspend2ram",
             i18n( "Freeze" ),
-            i18n( "Pause without logging out" ),
+            i18n( "Put the computer in software idle mode" ),
             "kicker:/suspend_freeze", nId++, index++ );
     }
 
@@ -3872,24 +3872,24 @@ void KMenu::insertSuspendOption( int &nId, int &index )
     if ( suspend_ram && !disableSuspend ) {
         m_exitView->leftView()->insertItem(
             "suspend2ram",
+            i18n( "Sleep" ),
             i18n( "Suspend to RAM" ),
-            i18n( "Pause without logging out" ),
             "kicker:/suspend_ram", nId++, index++ );
     }
 
     if ( suspend_disk && !disableHibernate ) {
         m_exitView->leftView()->insertItem(
             "suspend2disk",
+            i18n( "Hibernate" ),
             i18n( "Suspend to Disk" ),
-            i18n( "Pause without logging out" ),
             "kicker:/suspend_disk", nId++, index++ );
     }
 
     if ( hybrid_suspend && !disableSuspend && !disableHibernate ) {
         m_exitView->leftView()->insertItem(
             "suspend2disk",
+            i18n( "Hybrid Suspend" ),
             i18n( "Suspend to RAM + Disk" ),
-            i18n( "Pause without logging out" ),
             "kicker:/hybrid_suspend", nId++, index++ );
     }
 }
