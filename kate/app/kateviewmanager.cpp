@@ -462,7 +462,6 @@ void KateViewManager::setShowFullPath( bool enable )
 /**
  * session config functions
  */
-// FIXME 3.0 - make those config goups more streamlined: "objN:objN..."
 void KateViewManager::saveViewConfiguration(TDEConfig *config,const TQString& grp)
 {
   // Use the same group name for view configuration as usual for sessions.

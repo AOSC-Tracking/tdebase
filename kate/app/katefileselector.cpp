@@ -413,7 +413,6 @@ void KateFileSelector::btnFilterClick()
   }
 }
 
-//FIXME crash on shutdown
 void KateFileSelector::setActiveDocumentDir()
 {
 //   kdDebug(13001)<<"KateFileSelector::setActiveDocumentDir()"<<endl;

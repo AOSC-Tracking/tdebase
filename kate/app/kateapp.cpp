@@ -83,6 +83,8 @@ KateApp::KateApp (TDECmdLineArgs *args)
   kdDebug()<<"Setting KATE_PID: '"<<getpid()<<"'"<<endl;
   ::setenv( "KATE_PID", TQString(TQString("%1").arg(getpid())).latin1(), 1 );
 
+  connect(this, TQT_SIGNAL(aboutToQuit()), this, TQT_SLOT(slotAboutToQuit()));
+
   // handle restore different
   if (isRestored())
   {
@@ -178,23 +180,16 @@ bool KateApp::startupKate()
   else
   {
     // check Kate session startup options
-    TDEConfig *kateCfg = KateApp::self()->config();
-    kateCfg->setGroup("General");
-    if (kateCfg->hasKey("Last Session"))
-    {
-      // Delete no longer used entry (pre R14.1.0)
-      kateCfg->deleteEntry("Last Session");
-    }
-    TQString startupOption(kateCfg->readEntry("Startup Session", "manual"));
-    if (startupOption == "last")
-    {
-      sessionManager()->restoreLastSession();
-    }
-    else if (startupOption == "new")
+    int startupOption = sessionManager()->getStartupOption();
+    if (startupOption == KateSessionManager::STARTUP_NEW)
     {
       sessionManager()->newSession();
     }
-    else // startupOption == "manual"
+    else if (startupOption == KateSessionManager::STARTUP_LAST)
+    {
+      sessionManager()->restoreLastSession();
+    }
+    else // startupOption == KateSessionManager::STARTUP_MANUAL
     {
       KateSessionChooser *chooser = new KateSessionChooser(NULL);
       int result = chooser->exec();
@@ -308,11 +303,8 @@ bool KateApp::startupKate()
 
 void KateApp::shutdownKate(KateMainWindow *win)
 {
-  if (!win->queryClose_internal())
+  if (!win->queryClose_internal() || !query_session_close())
     return;
-
-  // Save current session here to make sure all GUI elements are saved correctly
-  sessionManager()->saveActiveSession();
 
   // detach the dcopClient
   dcopClient()->detach();
@@ -322,6 +314,60 @@ void KateApp::shutdownKate(KateMainWindow *win)
     delete m_mainWindows[0];
 
   quit ();
+}
+
+bool KateApp::query_session_close()
+{
+  bool saveSessions = false;
+  int switchOption = m_sessionManager->getSwitchOption();
+  if (switchOption == KateSessionManager::SWITCH_SAVE)
+  {
+    saveSessions = true;
+  }
+  else if (switchOption == KateSessionManager::SWITCH_ASK)
+  {
+    KDialogBase *dlg = new KDialogBase(i18n("Save Sessions"),
+            KDialogBase::Yes | KDialogBase::No | KDialogBase::Cancel,
+            KDialogBase::Cancel, KDialogBase::Cancel, NULL, NULL, true, false,
+            KStdGuiItem::save(), KStdGuiItem::del(), KStdGuiItem::cancel());
+    bool dontAgain = false;
+    int res = KMessageBox::createKMessageBox(dlg, TQMessageBox::Warning,
+                    i18n("<p>Do you want to save the existing sessions?<p>!!NOTE!!"
+                         "<p>All existing sessions will be removed "
+                         "if you choose \"Delete\""), TQStringList(),
+                    i18n("Do not ask again"), &dontAgain, KMessageBox::Notify);
+    if (res == KDialogBase::Cancel)
+    {
+      return false;
+    }
+    if (dontAgain)
+    {
+      if (res == KDialogBase::No)
+      {
+        m_sessionManager->setSwitchOption(KateSessionManager::SWITCH_DISCARD);
+      }
+      else
+      {
+        m_sessionManager->setSwitchOption(KateSessionManager::SWITCH_SAVE);
+      }
+    }
+    if (res == KDialogBase::Yes)
+    {
+      saveSessions = true;
+    }
+  }
+  
+  if (saveSessions)
+  {    
+    m_sessionManager->saveActiveSession();
+  }
+  m_sessionManager->saveConfig(saveSessions);
+  return true;
+}
+
+void KateApp::reparse_config()
+{
+  emit optionsChanged();
 }
 
 KatePluginManager *KateApp::pluginManager()

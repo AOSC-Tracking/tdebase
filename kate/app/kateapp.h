@@ -100,7 +100,7 @@ class KDE_EXPORT KateApp : public TDEApplication
      * shutdown kate application
      * @param win mainwindow which is used for dialogs
      */
-    void shutdownKate (KateMainWindow *win);
+    void shutdownKate(KateMainWindow *win);
 
     /**
      * application should exit
@@ -108,8 +108,26 @@ class KDE_EXPORT KateApp : public TDEApplication
      */
     bool shouldExit () { return m_shouldExit; }
 
+    /**
+     * to be called when the application is about to quit
+     * @return should we exit?
+     */
+    bool query_session_close();
+    
+    /**
+     * called after the config dialog has been closed. The application
+     * can parse the new configuration and take appropriate actions if required
+     */
+    void reparse_config();
+    
+  signals:
+		/**
+		 * Emitted when the configuration has or may have been changed
+		 */
+		void optionsChanged();
+		    
   /**
-   * other accessors for global unique instances
+ 	 * other accessors for global unique instances
    */
   public:
     /**
@@ -223,7 +241,6 @@ class KDE_EXPORT KateApp : public TDEApplication
      * session manager
      */
     KateSessionManager *m_sessionManager;
-
 
     /**
      * known main windows

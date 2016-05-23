@@ -51,28 +51,39 @@
 // FIXME general: need to keep doc list and current session's m_documents in synchro
 //       all the time (doc open, doc closed, doc renamed).
 //       To be done when doc list software is developed
-// FIXME add code to handle the various options in Configure Kate -> Application -> Sessions
 
 // String constants
 namespace
 {
   // Kate session
-  const char *KS_COUNT    = "Count";
-  const char *KS_DOCCOUNT = "Document count";
-  const char *KS_DOCLIST  = "Document list";
-  const char *KS_GENERAL  = "General";
-  const char *KS_NAME     = "Name";
-  const char *KS_OPENDOC  = "Open Documents";
-  const char *KS_READONLY = "ReadOnly";
-  const char *KS_OPEN_MAINWINDOWS = "Open MainWindows";
-  const char *KS_UNNAMED  = "Unnamed";
+  const char *KS_COUNT             = "Count";
+  const char *KS_DOCCOUNT          = "Document count";
+  const char *KS_DOCLIST           = "Document list";
+  const char *KS_GENERAL           = "General";
+  const char *KS_NAME              = "Name";
+  const char *KS_OPENDOC           = "Open Documents";
+  const char *KS_READONLY          = "ReadOnly";
+  const char *KS_OPEN_MAINWINDOWS  = "Open MainWindows";
+  const char *KS_UNNAMED           = "Unnamed";
 
   // Kate session manager
-  const char *KSM_DIR     = "kate/sessions";
-  const char *KSM_FILE    = "sessions.list";
-  const char *KSM_SESSIONS_COUNT = "Sessions count";
-  const char *KSM_LAST_SESSION_ID = "Last session id";
-  const char *KSM_SESSIONS_LIST  = "Sessions list";
+  const char *KSM_DIR              = "kate/sessions";
+  const char *KSM_FILE             = "sessions.list";
+  const char *KSM_SESSIONS_COUNT   = "Sessions count";
+  const char *KSM_LAST_SESSION_ID  = "Last session id";
+  const char *KSM_SESSIONS_LIST    = "Sessions list";
+
+  // Kate app
+  const char *KAPP_GENERAL         = "General";
+  const char *KAPP_LAST_SESSION    = "Last Session";
+  const char *KAPP_STARTUP_SESSION = "Startup Session";
+  const char *KAPP_NEW             = "new";
+  const char *KAPP_LAST            = "last";
+  const char *KAPP_MANUAL          = "manual";
+  const char *KAPP_SESSION_EXIT    = "Session Exit";
+  const char *KAPP_DISCARD         = "discard";
+  const char *KAPP_SAVE            = "save";
+  const char *KAPP_ASK             = "ask";
 }
 
 //BEGIN Kate session
@@ -321,10 +332,14 @@ KateSessionManager* KateSessionManager::self()
 //------------------------------------
 KateSessionManager::KateSessionManager() :
   m_baseDir(locateLocal("data", KSM_DIR)+"/"), m_configFile(m_baseDir + KSM_FILE),
-  m_activeSessionId(INVALID_SESSION), m_lastSessionId(INVALID_SESSION), m_sessions(), m_config(NULL)
+  m_activeSessionId(INVALID_SESSION), m_lastSessionId(INVALID_SESSION), m_sessions(),
+  m_config(NULL), m_startupOption(STARTUP_NEW), m_switchOption(SWITCH_DISCARD)
 {
+  // Session startup and switch options
+  updateSessionOptions(SO_ALL);
+  
+  // Sessions configuration
   m_sessions.setAutoDelete(true);
-
   int sessionsCount = 0;
   if (TDEGlobal::dirs()->exists(m_configFile))
   {
@@ -362,6 +377,7 @@ KateSessionManager::KateSessionManager() :
   {
     m_lastSessionId = 0;  // Invalid last session was detected. Use first in the list
   }
+  
   //NOTE do not activate any session in the KateSessionManager costructor
   //     since Kate's main window may not be ready yet. The initial session
   //     will be activated by KateApp::startupKate() or KateApp::restoreKate()
@@ -370,25 +386,123 @@ KateSessionManager::KateSessionManager() :
 //------------------------------------
 KateSessionManager::~KateSessionManager()
 {
-  saveConfig(true);
   if (m_config)
   {
     delete m_config;
   }
-  if (!m_sessions.isEmpty())
+  m_sessions.clear();
+}
+
+//------------------------------------
+void KateSessionManager::updateSessionOptions(int optionType)
+{
+  // Session startup and switch options
+  TDEConfig *kateCfg = KateApp::self()->config();
+  kateCfg->setGroup(KAPP_GENERAL);
+  
+  if (optionType == SO_STARTUP || optionType == SO_ALL)
   {
-    m_sessions.clear();
+    if (kateCfg->hasKey(KAPP_LAST_SESSION))
+    {
+      // Delete no longer used entry (pre R14.1.0)
+      kateCfg->deleteEntry(KAPP_LAST_SESSION);
+    }
+    TQString startupOption(kateCfg->readEntry(KAPP_STARTUP_SESSION, KAPP_MANUAL));
+    if (startupOption == KAPP_LAST)
+    {
+      m_startupOption = STARTUP_LAST;
+    }
+    else if (startupOption == KAPP_NEW)
+    {
+      m_startupOption = STARTUP_NEW;
+    }
+    else // startupOption == "manual"
+    {
+      m_startupOption = STARTUP_MANUAL;
+    }
+  }
+  
+  if (optionType == SO_SWITCH || optionType == SO_ALL)
+  {
+    TQString switchOption(kateCfg->readEntry(KAPP_SESSION_EXIT, KAPP_ASK));
+    if (switchOption == KAPP_DISCARD)
+    {
+      m_switchOption = SWITCH_DISCARD;
+    }
+    else if (switchOption == KAPP_SAVE)
+    {
+      m_switchOption = SWITCH_SAVE;
+    }
+    else // switchOption == "ask"
+    {
+      m_switchOption = SWITCH_ASK;
+    }
   }
 }
 
 //------------------------------------
-// FIXME Unnamed sessions should not be saved by default, to allow users who do not bother
-// about sessions to open-use-close Kate seemlessly.
-// FIXME An option need to be added to Configure Kate -> Sessions to allow Kate to ask about
-// saving unnamed sessions before closing the current session. Default value is off as per
-// point above.
+void KateSessionManager::saveSessionOptions(int optionType)
+{
+  TDEConfig *kateCfg = KateApp::self()->config();
+  kateCfg->setGroup(KAPP_GENERAL);
+  if (optionType == SO_STARTUP || optionType == SO_ALL)
+  {
+    if (m_startupOption == STARTUP_LAST)
+    {
+      kateCfg->writeEntry(KAPP_STARTUP_SESSION, KAPP_LAST);
+    }
+    else if (m_startupOption == STARTUP_NEW)
+    {
+      kateCfg->writeEntry(KAPP_STARTUP_SESSION, KAPP_NEW);
+    }
+    else // m_startupOption == STARTUP_MANUAL
+    {
+      kateCfg->writeEntry(KAPP_STARTUP_SESSION, KAPP_MANUAL);
+    }
+  }
+  
+  if (optionType == SO_SWITCH || optionType == SO_ALL)
+  {
+    if (m_switchOption == SWITCH_DISCARD)
+    {
+      kateCfg->writeEntry(KAPP_SESSION_EXIT, KAPP_DISCARD);
+    }
+    else if (m_switchOption == SWITCH_SAVE)
+    {
+      kateCfg->writeEntry(KAPP_SESSION_EXIT, KAPP_SAVE);
+    }
+    else // m_switchOption == SWITCH_ASK
+    {
+      kateCfg->writeEntry(KAPP_SESSION_EXIT, KAPP_ASK);
+    }
+  }
+  kateCfg->sync();
+}
+
+//------------------------------------
 void KateSessionManager::saveConfig(bool saveSessions)
 {
+  // Session startup and switch options
+  updateSessionOptions(SO_ALL);
+  saveSessionOptions(SO_ALL);
+  
+  // Sessions configuration
+  if (!saveSessions)
+  {
+    // delete all session files if they exist
+    for (int i = 0;  i < (int)m_sessions.count();  ++i)
+    {
+      const TQString &filename = m_sessions[i]->getSessionFilename();
+      if (filename != TQString::null && TQFile::exists(filename))
+      {
+        TQFile::remove(filename);
+      }
+    }
+  
+    m_sessions.clear();
+    m_activeSessionId = INVALID_SESSION;
+  }
+  
   if (!m_config)
   {
     m_config = new KSimpleConfig(m_configFile);
@@ -402,14 +516,32 @@ void KateSessionManager::saveConfig(bool saveSessions)
   m_config->writeEntry(KSM_LAST_SESSION_ID, m_activeSessionId);
   for (int i = 0;  i < (int)m_sessions.count();  ++i)
   {
-    //FIXME need to consider when sessions has to be saved.
-    if (saveSessions)
-    {
-      saveSession(i, false, false);
-    }  
+    saveSession(i, false, false);
     m_config->writeEntry(TQString("URL_%1").arg(i), m_sessions[i]->getSessionFilename());
   }
   m_config->sync();
+}
+
+//------------------------------------
+const int KateSessionManager::getStartupOption()
+{
+  updateSessionOptions(SO_STARTUP);
+  return m_startupOption;
+}
+
+//------------------------------------
+const int KateSessionManager::getSwitchOption()
+{
+  updateSessionOptions(SO_SWITCH);
+  return m_switchOption;
+}
+
+//------------------------------------
+void KateSessionManager::setSwitchOption(int option)
+{ 
+  m_switchOption = (option == SWITCH_DISCARD || option == SWITCH_SAVE) ? option : SWITCH_ASK; 
+  saveSessionOptions(SO_SWITCH);
+  emit switchOptionChanged();
 }
 
 //------------------------------------
@@ -476,9 +608,14 @@ bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
     {
       saveSession(m_activeSessionId, true);
     }
-    else if (m_sessions[m_activeSessionId]->isStillVolatile())
+    else
     {
-      // Automatically delete unstored and unnamed sessions when activating another one
+      // Delete current session before activating the new one
+      const TQString &filename = m_sessions[m_activeSessionId]->getSessionFilename();
+      if (filename != TQString::null && TQFile::exists(filename))
+      {
+        TQFile::remove(filename);
+      }
       m_sessions.remove(m_activeSessionId);  // this also deletes the KateSession item since auto-deletion is enabled
       m_activeSessionId = INVALID_SESSION;
       if (sessionId > oldSessionId)
@@ -508,7 +645,7 @@ int KateSessionManager::newSession(const TQString &sessionName, bool saveCurr)
 }
 
 //------------------------------------
-int KateSessionManager::cloneSession(int sessionId, const TQString &sessionName, bool activate)
+int KateSessionManager::cloneSession(int sessionId, const TQString &sessionName, bool activate, bool deleteCurr)
 {
   if (sessionId < 0 || sessionId >= (int)m_sessions.count())
   {
@@ -521,15 +658,15 @@ int KateSessionManager::cloneSession(int sessionId, const TQString &sessionName,
   
   // If cloning the active session, the new session will contain the current status
   // and the original session will be restored to the last saved state (save as... functionality)
-/*  saveSession(newSessionId, sessionId == m_activeSessionId);
+  saveSession(newSessionId, sessionId == m_activeSessionId);
   if (sessionId == m_activeSessionId)
   {
     reloadActiveSession();
   }
-*/  
+  
   if (activate)
   {
-    activateSession(newSessionId, m_activeSessionId != INVALID_SESSION);
+    activateSession(newSessionId, m_activeSessionId != INVALID_SESSION && !deleteCurr);
   }
   return newSessionId;
 }

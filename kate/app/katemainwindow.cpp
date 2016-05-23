@@ -329,9 +329,9 @@ void KateMainWindow::slotDocumentCloseAll() {
 }
 
 bool KateMainWindow::queryClose_internal() {
-   uint documentCount=KateDocManager::self()->documents();
+  uint documentCount=KateDocManager::self()->documents();
 
-  if ( ! showModOnDiskPrompt() )
+  if ( !showModOnDiskPrompt() )
     return false;
 
   TQPtrList<Kate::Document> modifiedDocuments=KateDocManager::self()->modifiedDocumentList();
@@ -360,23 +360,22 @@ bool KateMainWindow::queryClose()
   // just test, not close them actually
   if (KateApp::self()->sessionSaving())
   {
-    return queryClose_internal ();
+    return queryClose_internal();
   }
 
   // normal closing of window
   // allow to close all windows until the last without restrictions
-  if ( KateApp::self()->mainWindows () > 1 )
-    return true;
-
-  // last one: check if we can close all documents, try run
-  // and save docs if we really close down !
-  if ( queryClose_internal () )
+  if (KateApp::self()->mainWindows() > 1)
   {
-    KateApp::self()->sessionManager()->saveActiveSession();
+    return true;
+  }
 
+  // last one: check if we can close all documents and sessions, try run
+  // and save docs if we really close down !
+  if (queryClose_internal() && KateApp::self()->query_session_close())
+  {
     // detach the dcopClient
     KateApp::self()->dcopClient()->detach();
-
     return true;
   }
 
@@ -403,7 +402,7 @@ void KateMainWindow::slotNewToolbarConfig()
 
 void KateMainWindow::slotFileQuit()
 {
-  KateApp::self()->shutdownKate (this);
+  KateApp::self()->shutdownKate(this);  
 }
 
 void KateMainWindow::readOptions ()
@@ -574,6 +573,9 @@ void KateMainWindow::slotConfigure()
   dlg->exec();
 
   delete dlg;
+  
+  // Inform Kate that options may have been changed
+  KateApp::self()->reparse_config();
 }
 
 KURL KateMainWindow::activeDocumentUrl()

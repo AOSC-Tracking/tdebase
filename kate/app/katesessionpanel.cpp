@@ -146,12 +146,17 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
   m_listview->setResizeMode(TQListView::LastColumn);
   //m_listview->setRootIsDecorated(true);  // FIXME disabled until doc list software is developed
 
+
   connect(m_listview, TQT_SIGNAL(selectionChanged()),
           this, TQT_SLOT(slotSelectionChanged()));
   connect(m_listview, TQT_SIGNAL(executed(TQListViewItem*)),
           this, TQT_SLOT(slotItemExecuted(TQListViewItem*)));
   connect(m_listview, TQT_SIGNAL(returnPressed(TQListViewItem*)),
           this, TQT_SLOT(slotItemExecuted(TQListViewItem*)));
+  connect(KateApp::self(), TQT_SIGNAL(optionsChanged()),
+          this, TQT_SLOT(slotSelectionChanged()));
+  connect(m_sessionManager, TQT_SIGNAL(switchOptionChanged()),
+          this, TQT_SLOT(slotSelectionChanged()));
   connect(m_sessionManager, TQT_SIGNAL(sessionActivated(int, int)),
           this, TQT_SLOT(slotSessionActivated(int, int)));
   connect(m_sessionManager, TQT_SIGNAL(sessionCreated(int)),
@@ -258,7 +263,7 @@ void KateSessionPanel::slotNewSession()
   int result = nameChooser->exec();
   if (result == TQDialog::Accepted)
   {
-    int res = handleVolatileSession();
+    int res = handleSessionSwitch();
     if (res == KMessageBox::Cancel)
     {
     	return;
@@ -312,9 +317,9 @@ void KateSessionPanel::slotSaveSessionAs()
   {
     return;
   }
-
+  
 	// If the session was never saved or named before, the session will be saved with a new name.
-	// If the session was already saved or named once, it will be cloned into a new session.
+	// Otherwise it will be cloned into a new session.
 	bool cloneSession = !ks->isStillVolatile();
 	// Get new session name
 	KateSessionNameChooser *nameChooser = new KateSessionNameChooser(this, cloneSession);
@@ -330,7 +335,20 @@ void KateSessionPanel::slotSaveSessionAs()
   	else
   	{
   	  // Clone session
-  	  m_sessionManager->cloneSession(sessId, nameChooser->getSessionName(), nameChooser->getActivateFlag());
+  	  bool activate = nameChooser->getActivateFlag();
+			int activeSessionId = m_sessionManager->getActiveSessionId();
+			int res = KMessageBox::Yes;
+			if (activate && sessId != activeSessionId)
+			{
+			  // Cloning another session and switching to it at the same time,
+			  // handle session switch correctly
+				res = handleSessionSwitch();
+				if (res == KMessageBox::Cancel)
+				{
+					return;
+				}
+			}
+	  	m_sessionManager->cloneSession(sessId, nameChooser->getSessionName(), activate, res == KMessageBox::No);
   	}
 	}
 	
@@ -410,7 +428,7 @@ void KateSessionPanel::slotActivateSession()
   int newSessionId = newSessionItem->getSessionId();
   if (newSessionId != currSessionId)
   {
-    int res = handleVolatileSession();
+    int res = handleSessionSwitch();
     if (res == KMessageBox::Cancel)
     {
     	return;
@@ -469,8 +487,10 @@ void KateSessionPanel::slotItemExecuted(TQListViewItem *item)
     return;
   }
 
-  // First level items are sessions. Executing one, will switch to that session
-  if (!item->parent())
+  // First level items are sessions. Executing one, will switch to that session.
+  // This is only allow when the 'Activate' toolbar button is enabled
+  if (!item->parent() && 
+      m_actionCollection->action("session_activate")->isEnabled())
   {
     slotActivateSession();
     return;
@@ -488,8 +508,9 @@ void KateSessionPanel::slotSelectionChanged()
   }
 
   TDEToggleAction *readOnlyAction = dynamic_cast<TDEToggleAction*>(
-	       					m_actionCollection->action("session_toggle_read_only"));
-  if (!sessionItem || !ks)
+				       					m_actionCollection->action("session_toggle_read_only"));
+  if (!sessionItem || !ks || 
+      m_sessionManager->getSwitchOption() == KateSessionManager::SWITCH_DISCARD)
   {
     m_actionCollection->action("session_save")->setEnabled(false);
     m_actionCollection->action("session_save_as")->setEnabled(false);
@@ -683,30 +704,63 @@ void KateSessionPanel::slotLVSessionRenamed(TQListViewItem *item)
 }
 
 //-------------------------------------------
-int KateSessionPanel::handleVolatileSession()
+int KateSessionPanel::handleSessionSwitch()
 {
   const KateSession *ks = m_sessionManager->getActiveSession();
-  if (!ks || !ks->isStillVolatile())
+  int switchOption = m_sessionManager->getSwitchOption();
+  if (!ks || switchOption == KateSessionManager::SWITCH_DISCARD)
   {
-    return (!ks ? KMessageBox::No : KMessageBox::Yes);
+    return KMessageBox::No;
+  }
+  
+  if (switchOption == KateSessionManager::SWITCH_ASK)
+  {
+    KDialogBase *dlg = new KDialogBase(i18n("Save Session"),
+            KDialogBase::Yes | KDialogBase::No | KDialogBase::Cancel,
+            KDialogBase::Cancel, KDialogBase::Cancel, NULL, NULL, true, false,
+            KStdGuiItem::save(), KStdGuiItem::del(), KStdGuiItem::cancel());
+    bool dontAgain = false;
+    int res = KMessageBox::createKMessageBox(dlg, TQMessageBox::Warning,
+                    i18n("<p>Do you want to save the current session?<p>!!NOTE!!"
+                         "<p>The session will be removed if you choose \"Delete\""), TQStringList(),
+                    i18n("Do not ask again"), &dontAgain, KMessageBox::Notify);
+    if (res == KDialogBase::Cancel)
+    {
+      return KMessageBox::Cancel;
+    }
+    if (dontAgain)
+    {
+      if (res == KDialogBase::No)
+      {
+        m_sessionManager->setSwitchOption(KateSessionManager::SWITCH_DISCARD);
+      }
+      else
+      {
+        m_sessionManager->setSwitchOption(KateSessionManager::SWITCH_SAVE);
+      }
+    }
+		if (res == KDialogBase::No)
+		{
+			return KMessageBox::No;
+		}
+  }
+  
+  // At this point the session needs to be saved. 
+  // Make sure to handle volatile sessions correctly.
+  if (ks->isStillVolatile())
+  {
+		KateSessionNameChooser *nameChooser = new KateSessionNameChooser(this, false);
+		int res = nameChooser->exec();
+		if (res == TQDialog::Accepted)
+		{
+			m_sessionManager->renameSession(m_sessionManager->getActiveSessionId(), nameChooser->getSessionName());
+		}
+		else
+		{
+			return KMessageBox::Cancel;
+		}
   }
 
-	int msgres = KMessageBox::warningYesNoCancel(this, i18n("<p>You are leaving a volatile session."
-									"<p>Do you want to save or discard it?").arg(ks->getSessionName()),
-									i18n("Close session"), KStdGuiItem::save(), KStdGuiItem::discard());
-	if (msgres == KMessageBox::Yes)
-	{
-		KateSessionNameChooser *nameChooser = new KateSessionNameChooser(this, false);
-		int result = nameChooser->exec();
-		if (result == TQDialog::Accepted)
-		{
-		  m_sessionManager->renameSession(m_sessionManager->getActiveSessionId(), nameChooser->getSessionName());
-  	}
-  	else
-		{
-		  msgres = KMessageBox::Cancel;
-  	}
-  }
-	return msgres;
+	return KMessageBox::Yes;
 }
 //END KateSessionPanel

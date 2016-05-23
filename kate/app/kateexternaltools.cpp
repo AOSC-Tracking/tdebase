@@ -172,7 +172,6 @@ void KateExternalToolsCommand::reload () {
         config.readListEntry( "mimetypes" ),
         config.readEntry( "acname", "" ),
         config.readEntry( "cmdname", "" ) );
-    // FIXME test for a command name first!
 	if ( t.hasexec && (!t.cmdname.isEmpty())) {
 		m_list.append("exttool-"+t.cmdname);
 		m_map.insert("exttool-"+t.cmdname,t.acname);

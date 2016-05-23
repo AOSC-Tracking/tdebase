@@ -156,7 +156,6 @@ KateSaveModifiedDialog::KateSaveModifiedDialog(TQWidget *parent, TQPtrList<Kate:
 		}
 		m_documentRoot->setOpen(true);
 	} else m_documentRoot=0;
-	//FIXME - Is this the best way?
 	connect(m_list, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(slotItemSelected()));
 	connect(m_list, TQT_SIGNAL(doubleClicked(TQListViewItem *)), TQT_SLOT(slotItemSelected()));
 	connect(m_list, TQT_SIGNAL(spacePressed(TQListViewItem *)), TQT_SLOT(slotItemSelected()));

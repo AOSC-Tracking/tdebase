@@ -154,13 +154,13 @@ class KateSession
 
 
 //BEGIN KateSessionManager
-//FIXME (advanced)
-//There should be only one session manager regardless of how many instances of Kate are running.
-//Changes should propagate to all session panels. Different Kate instances should run different
-//sessions. If the user switches to a session already opened in another Kate instance, the current
-//session should be saved and then the focus switched to the other instance.
-//This would allow a safe use of multiple Kate instances without overwriting session information
-//among them. Currently the last instance to be closed will overwrite the information previously
+//FIXME (advanced - multiple main windows or multiple Kate instances)
+//There should be only one session manager regardless of how many main windows of Kate are open.
+//Changes should propagate to all session panels. Different Kate main windows should run different
+//sessions. If the user switches to a session already opened in another Kate window, the other window
+//should be brought up to the screen (eventually ask user confirmation first).
+//This would allow a safe use of multiple Kate main windows/instances without overwriting session information
+//among them. Currently the last instance/main window to be closed will overwrite the information previously
 //saved by other Kate instances.
 /**
  * The Kate session manager. It takes care of storing and retrieving each session object
@@ -169,6 +169,11 @@ class KateSession
  * @note The Kate session manager takes ownership of each session object it handles.
  */
 //FIXME update the sessions.list file when switching to another session or to a new session
+//
+//FIXME create new unnamed session, choose 'save' as session switch option. Exit Kate. 
+//      Session is saved without asking for a name
+//FIXME improve getStartupOption/getSwitchOption/setSwitchOption using new signal
+//      KateApp::optionsChanged()
 class KateSessionManager : public TQObject
 {
   Q_OBJECT
@@ -180,6 +185,22 @@ class KateSessionManager : public TQObject
       INVALID_SESSION = -1
     };
 
+    // Session options on Kate startup
+    enum 
+    {
+      STARTUP_NEW = 0,    // New session
+      STARTUP_LAST,       // Use last session
+      STARTUP_MANUAL      // Manually choose a session
+    };
+		
+    // Session options on session switch or Kate shutdown
+    enum 
+    {
+      SWITCH_DISCARD = 0, // Don't save current session
+      SWITCH_SAVE,        // Save current session
+      SWITCH_ASK          // Ask user what to do
+    };
+		
 		/**
 		 * get a pointer to the unique KateSessionManager instance.
 		 * If the manager does not exist yet, create it.
@@ -191,6 +212,32 @@ class KateSessionManager : public TQObject
 		 */
 		~KateSessionManager();
 
+		/**
+		 * Save session manager info
+		 * @param saveSessions true  = sessions info will be saved
+		 *                     false = all sessions will be discarded
+		 */
+		void saveConfig(bool saveSessions);
+		
+		/**
+		 * @return the session startup option
+		 * The function checks the config file to see if there was any value update 
+		 */
+		const int getStartupOption();
+		
+		/**
+		 * @return the session switch option
+		 * The function checks the config file to see if there was any value update 
+		 */
+		const int getSwitchOption();
+		
+		/**
+		 * Set the new session switch preference
+		 * @param option the new option value. Defaults to SWITCH_ASK if the value is invalid.
+		 * @emit switchOptionChanged
+		 */
+		void setSwitchOption(int option);
+		
 		/**
 		 * @return the session files folder name
 		 */
@@ -262,10 +309,12 @@ class KateSessionManager : public TQObject
 		 * @param sessionId the id of the session to clone
 		 * @param sessionName the new session name
 		 * @param activate if true, activate the new session after creation
+		 * @param deleteCurr if true, delete the current session after switching
 		 * @return the id of the newly created session
 		 * @emit sessionCreated
 		 */
-		int cloneSession(int sessionId, const TQString &sessionName = TQString::null, bool activate = true);
+		int cloneSession(int sessionId, const TQString &sessionName = TQString::null, 
+		                 bool activate = true, bool deleteCurr = false);
 
 		/**
 		 * Restore the current active session to the last saved state
@@ -332,6 +381,11 @@ class KateSessionManager : public TQObject
 
   signals:
 		/**
+		 * Emitted when the session switch option has been set/changed
+		 */
+		void switchOptionChanged();
+		
+		/**
 		 * Emitted once a session has been activated
 		 * @param newSessionId the id of the previous active session
 		 * @param oldSessionId the id of the new active session
@@ -373,12 +427,26 @@ class KateSessionManager : public TQObject
 	protected:
 		KateSessionManager();
 
+    // Session options on Kate startup
+    enum 
+    {
+      SO_STARTUP = 0,     // session startup option only
+      SO_SWITCH,          // session switch option only
+      SO_ALL,             // session startup and switch options
+    };
+		
 		/**
-		 * Save session manager info
-		 * @param saveSessions if true, all sessions will be saved again
-		 */
-		void saveConfig(bool saveSessions);
-
+		 * Updated the session startup and switch options
+		 * @param optionType specifies which options needs to be updated
+     */
+		void updateSessionOptions(int optionType);
+		
+		/**
+		 * Save the session startup and switch options to the config file
+		 * @param optionType specifies which options needs to be saved
+     */
+		void saveSessionOptions(int optionType);
+		
 		/**
 		 * Swap the position of the two specified sessions in the session list
 		 * @param sessionId1 the id of the first session
@@ -403,7 +471,9 @@ class KateSessionManager : public TQObject
     int m_lastSessionId;                // id of the last active session before closing Kate
 		TQPtrList<KateSession> m_sessions;  // session list
 		KSimpleConfig *m_config;        		// session manager config
-
+		int m_startupOption;                // session option on Kate startup
+		int m_switchOption;                 // session option on session switch or Kate shutdown
+		
 		static KateSessionManager *ksm_instance;  // the only KateSessionManager instance
 };
 //END KateSessionManager
