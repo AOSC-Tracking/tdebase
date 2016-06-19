@@ -185,6 +185,7 @@ void KlipperPopup::rebuild( const TQString& filter ) {
     }
 
     TQRegExp filterexp( filter );
+    filterexp.setCaseSensitive(false);
     if ( filterexp.isValid() ) {
         m_filterWidget->setPaletteForegroundColor( paletteForegroundColor() );
     } else {
