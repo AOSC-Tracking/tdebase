@@ -558,9 +558,9 @@ void runRdb( uint flags )
 
   TDEProcess proc;
 #ifndef NDEBUG
-  proc << "xrdb" << "-merge" << "-nocpp" << tmpFile.name();
+  proc << "xrdb" << "-merge" << tmpFile.name();
 #else
-  proc << "xrdb" << "-quiet" << "-merge" << "-nocpp" << tmpFile.name();
+  proc << "xrdb" << "-quiet" << "-merge" << tmpFile.name();
 #endif
   proc.start( TDEProcess::Block, TDEProcess::Stdin );
 
