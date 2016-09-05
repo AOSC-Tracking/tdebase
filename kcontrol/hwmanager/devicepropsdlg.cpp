@@ -33,6 +33,7 @@
 #include <tqfiledialog.h>
 
 #include <kpassdlg.h>
+#include <kactivelabel.h>
 #include <kbuttonbox.h>
 #include <kcombobox.h>
 #include <tdelocale.h>
