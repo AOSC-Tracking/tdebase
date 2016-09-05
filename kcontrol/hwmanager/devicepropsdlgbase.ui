@@ -50,7 +50,7 @@
 						<cstring>iconDeviceType</cstring>
 					</property>
                     		</widget>
-				<widget class="KActiveLabel" row="0" column="2" colspan="1">
+				<widget class="TQLabel" row="0" column="2" colspan="1">
 					<property name="name">
 						<cstring>labelDeviceType</cstring>
 					</property>
