@@ -341,17 +341,21 @@ TQString assembleSwitchList(TDESwitchType::TDESwitchType switches) {
 	return (TDEEventDevice::friendlySwitchList(switches).join("<br>"));
 }
 
+static TQString formatDisplayString(TQString input) {
+	return TQStyleSheet::escape(input);
+}
+
 void DevicePropertiesDialog::populateDeviceInformation() {
 	if (m_device) {
 		base->labelDeviceType->setText(m_device->friendlyDeviceType());
 		base->iconDeviceType->setPixmap(m_device->icon(TDEIcon::SizeSmall));
-		base->labelDeviceName->setText(m_device->friendlyName());
-		base->labelDeviceNode->setText((m_device->deviceNode().isNull())?i18n("<none>"):m_device->deviceNode());
-		base->labelSystemPath->setText(m_device->systemPath());
-		base->labelSubsytemType->setText(m_device->subsystem());
-		base->labelDeviceDriver->setText((m_device->deviceDriver().isNull())?i18n("<none>"):m_device->deviceDriver());
-		base->labelDeviceClass->setText((m_device->PCIClass().isNull())?i18n("<n/a>"):m_device->PCIClass());
-		base->labelModalias->setText((m_device->moduleAlias().isNull())?i18n("<none>"):m_device->moduleAlias());
+		base->labelDeviceName->setText(formatDisplayString(m_device->friendlyName()));
+		base->labelDeviceNode->setText(formatDisplayString((m_device->deviceNode().isNull())?i18n("<none>"):m_device->deviceNode()));
+		base->labelSystemPath->setText(formatDisplayString(m_device->systemPath()));
+		base->labelSubsytemType->setText(formatDisplayString(m_device->subsystem()));
+		base->labelDeviceDriver->setText(formatDisplayString((m_device->deviceDriver().isNull())?i18n("<none>"):m_device->deviceDriver()));
+		base->labelDeviceClass->setText(formatDisplayString((m_device->PCIClass().isNull())?i18n("<n/a>"):m_device->PCIClass()));
+		base->labelModalias->setText(formatDisplayString((m_device->moduleAlias().isNull())?i18n("<none>"):m_device->moduleAlias()));
 
 		// These might be redundant
 		#if 0
@@ -363,7 +367,7 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 		base->labelVendorModel->hide();
 		base->stocklabelVendorModel->hide();
 		#endif
-		base->labelSerialNumber->setText((m_device->serialNumber().isNull())?i18n("<unknown>"):m_device->serialNumber());
+		base->labelSerialNumber->setText(formatDisplayString((m_device->serialNumber().isNull())?i18n("<unknown>"):m_device->serialNumber()));
 
 		if (m_device->subsystem() == "pci") {
 			base->labelBusID->setText(m_device->busID());
@@ -380,15 +384,15 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 
 			TQString mountPoint = sdevice->mountPath();
 			if (mountPoint == "") mountPoint = i18n("<none>");
-			base->labelDiskMountpoint->setText(mountPoint);
+			base->labelDiskMountpoint->setText(formatDisplayString(mountPoint));
 
 			TQString fsName = sdevice->fileSystemName();
 			if (fsName == "") fsName = i18n("<unknown>");
-			base->labelDiskFileSystemType->setText(fsName);
+			base->labelDiskFileSystemType->setText(formatDisplayString(fsName));
 
 			TQString volUUID = sdevice->diskUUID();
 			if (volUUID == "") volUUID = i18n("<none>");
-			base->labelDiskUUID->setText(volUUID);
+			base->labelDiskUUID->setText(formatDisplayString(volUUID));
 
 			// Show status
 			TQString status_text = "<qt>";
