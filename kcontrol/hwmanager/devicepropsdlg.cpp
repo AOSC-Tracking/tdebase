@@ -370,7 +370,7 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 		base->labelSerialNumber->setText(formatDisplayString((m_device->serialNumber().isNull())?i18n("<unknown>"):m_device->serialNumber()));
 
 		if (m_device->subsystem() == "pci") {
-			base->labelBusID->setText(m_device->busID());
+			base->labelBusID->setText(formatDisplayString(m_device->busID()));
 			base->labelBusID->show();
 			base->stocklabelBusID->show();
 		}
