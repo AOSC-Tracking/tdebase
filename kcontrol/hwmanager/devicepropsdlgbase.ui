@@ -50,7 +50,7 @@
 						<cstring>iconDeviceType</cstring>
 					</property>
                     		</widget>
-				<widget class="TQLabel" row="0" column="2" colspan="1">
+				<widget class="KActiveLabel" row="0" column="2" colspan="1">
 					<property name="name">
 						<cstring>labelDeviceType</cstring>
 					</property>
@@ -80,7 +80,7 @@
 						<string>Device Name:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="1" column="1" colspan="3">
+				<widget class="KActiveLabel" row="1" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelDeviceName</cstring>
 					</property>
@@ -93,7 +93,7 @@
 						<string>Device Node:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="2" column="1" colspan="3">
+				<widget class="KActiveLabel" row="2" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelDeviceNode</cstring>
 					</property>
@@ -106,7 +106,7 @@
 						<string>System Path:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="3" column="1" colspan="3">
+				<widget class="KActiveLabel" row="3" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelSystemPath</cstring>
 					</property>
@@ -119,7 +119,7 @@
 						<string>Subsystem Type:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="4" column="1" colspan="3">
+				<widget class="KActiveLabel" row="4" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelSubsytemType</cstring>
 					</property>
@@ -132,7 +132,7 @@
 						<string>Device Driver:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="5" column="1" colspan="3">
+				<widget class="KActiveLabel" row="5" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelDeviceDriver</cstring>
 					</property>
@@ -145,7 +145,7 @@
 						<string>Device Class:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="6" column="1" colspan="3">
+				<widget class="KActiveLabel" row="6" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelDeviceClass</cstring>
 					</property>
@@ -158,7 +158,7 @@
 						<string>Manufacturer:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="7" column="1" colspan="3">
+				<widget class="KActiveLabel" row="7" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelVendorName</cstring>
 					</property>
@@ -171,7 +171,7 @@
 						<string>Model:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="8" column="1" colspan="3">
+				<widget class="KActiveLabel" row="8" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelVendorModel</cstring>
 					</property>
@@ -184,7 +184,7 @@
 						<string>Serial Number:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="9" column="1" colspan="3">
+				<widget class="KActiveLabel" row="9" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelSerialNumber</cstring>
 					</property>
@@ -197,7 +197,7 @@
 						<string>Bus ID:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="10" column="1" colspan="3">
+				<widget class="KActiveLabel" row="10" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelBusID</cstring>
 					</property>
@@ -210,7 +210,7 @@
 						<string>Technical Details:</string>
 					</property>
 				</widget>
-				<widget class="TQLabel" row="11" column="1" colspan="3">
+				<widget class="KActiveLabel" row="11" column="1" colspan="3">
 					<property name="name">
 						<cstring>labelModalias</cstring>
 					</property>
@@ -266,7 +266,7 @@
 							    <string>Mountpoint:</string>
 						    </property>
 					    </widget>
-					    <widget class="TQLabel" row="0" column="1" colspan="1">
+					    <widget class="KActiveLabel" row="0" column="1" colspan="1">
 						    <property name="name">
 							    <cstring>labelDiskMountpoint</cstring>
 						    </property>
@@ -279,7 +279,7 @@
 							    <string>Filesystem Type:</string>
 						    </property>
 					    </widget>
-					    <widget class="TQLabel" row="1" column="1" colspan="1">
+					    <widget class="KActiveLabel" row="1" column="1" colspan="1">
 						    <property name="name">
 							    <cstring>labelDiskFileSystemType</cstring>
 						    </property>
@@ -292,7 +292,7 @@
 							    <string>Volume UUID:</string>
 						    </property>
 					    </widget>
-					    <widget class="TQLabel" row="2" column="1" colspan="1">
+					    <widget class="KActiveLabel" row="2" column="1" colspan="1">
 						    <property name="name">
 							    <cstring>labelDiskUUID</cstring>
 						    </property>
@@ -308,7 +308,7 @@
 							    <set>AlignTop|AlignLeft</set>
 						    </property>
 					    </widget>
-					    <widget class="TQLabel" row="3" column="1" colspan="1">
+					    <widget class="KActiveLabel" row="3" column="1" colspan="1">
 						    <property name="name">
 							    <cstring>labelDiskStatus</cstring>
 						    </property>

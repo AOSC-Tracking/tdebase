@@ -32,6 +32,7 @@
 #undef Unsorted // Required for --enable-final (tqdir.h)
 #include <tqfiledialog.h>
 
+#include <kactivelabel.h>
 #include <kbuttonbox.h>
 #include <kcombobox.h>
 #include <tdelocale.h>
