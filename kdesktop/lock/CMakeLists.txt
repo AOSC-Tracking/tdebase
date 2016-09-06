@@ -19,10 +19,12 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/kcheckpass
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
+  ${KRB5_INCLUDE_DIRS}
 )
 
 link_directories(
   ${TQT_LIBRARY_DIRS}
+  ${TDE_LIB_DIR}
 )
 
 
@@ -38,6 +40,7 @@ set( ${target}_SRCS
 tde_add_executable( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
   LINK kdesktopsettings-static dmctl-static tdeio-shared Xext
-    pthread ${GL_LIBRARIES} "${LINKER_IMMEDIATE_BINDING_FLAGS}"
+    pthread ${GL_LIBRARIES} ${LIBTDELDAP_LIBRARIES}
+    "${LINKER_IMMEDIATE_BINDING_FLAGS}"
   DESTINATION ${BIN_INSTALL_DIR}
 )

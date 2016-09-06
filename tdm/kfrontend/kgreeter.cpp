@@ -99,6 +99,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <X11/Xlib.h>
 
+#ifdef HAVE_KRB5
+#include <tde/libtdeldap.h>
+#endif
+
 #define FIFO_DIR "/tmp/tdesocket-global/tdm"
 #define FIFO_FILE "/tmp/tdesocket-global/tdm/tdmctl-%1"
 #define FIFO_SAK_FILE "/tmp/tdesocket-global/tdm/tdmctl-sak-%1"
@@ -437,9 +441,9 @@ class KCStringList : public TQValueList<TQCString> {
 	}
 };
 
-class UserList {
+class KGreeterUserList {
   public:
-	UserList( char **in );
+	KGreeterUserList( char **in );
 	bool hasUser( const char *str ) const { return users.contains( str ); }
 	bool hasGroup( gid_t gid ) const
 		{ return groups.find( gid ) != groups.end(); }
@@ -450,7 +454,7 @@ class UserList {
 	TQValueList<gid_t> groups;
 };
 
-UserList::UserList( char **in )
+KGreeterUserList::KGreeterUserList( char **in )
 {
 	struct group *grp;
 
@@ -485,7 +489,7 @@ KGreeter::insertUsers(int limit_users)
 			  default_pix.convertDepth( 32 ).smoothScale( ns, TQ_ScaleMin );
 	}
 	if (_showUsers == SHOW_ALL) {
-		UserList noUsers( _noUsers );
+		KGreeterUserList noUsers( _noUsers );
 		TQDict<int> dupes( 1000 );	// Potential crash risk with buffer overrun?
                 TQStringList toinsert;
                 int count = 0;
@@ -551,7 +555,7 @@ KGreeter::insertUsers(int limit_users)
                         insertUser( default_pix, *it, ps );
                 }
 	} else {
-		UserList users( _users );
+		KGreeterUserList users( _users );
 		if (users.hasGroups()) {
 			TQDict<int> dupes( 1000 );
 			for (setpwent(); (ps = getpwent()) != 0;) {
@@ -856,6 +860,13 @@ KGreeter::verifySetUser( const TQString &user )
 }
 
 void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
+#ifdef HAVE_KRB5
+	/* Make sure card logins are enabled before attempting one */
+	if (!LDAPManager::pkcsLoginEnabled()) {
+		return;
+	}
+#endif
+
 	TQString login_name = TQString::null;
 	X509CertificatePtrList certList = cdevice->cardX509Certificates();
 	if (certList.count() > 0) {

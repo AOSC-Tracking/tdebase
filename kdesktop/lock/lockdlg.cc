@@ -58,6 +58,10 @@
 #include <X11/Xatom.h>
 #include <fixx11h.h>
 
+#ifdef HAVE_KRB5
+#include <tde/libtdeldap.h>
+#endif
+
 #ifndef AF_LOCAL
 # define AF_LOCAL	AF_UNIX
 #endif
@@ -970,6 +974,13 @@ void PasswordDlg::capsLocked()
 }
 
 void PasswordDlg::attemptCardLogin() {
+#ifdef HAVE_KRB5
+	/* Make sure card logins are enabled before attempting one */
+	if (!LDAPManager::pkcsLoginEnabled()) {
+		return;
+	}
+#endif
+
 	if (mCardLoginInProgress) {
 		return;
 	}
