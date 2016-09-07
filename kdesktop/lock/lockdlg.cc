@@ -975,10 +975,13 @@ void PasswordDlg::capsLocked()
 
 void PasswordDlg::attemptCardLogin() {
 #ifdef HAVE_KRB5
-	/* Make sure card logins are enabled before attempting one */
+	// Make sure card logins are enabled before attempting one
 	if (!LDAPManager::pkcsLoginEnabled()) {
 		return;
 	}
+#else
+	// Don't enable card-based logins if Kerberos integration was disabled
+	return;
 #endif
 
 	if (mCardLoginInProgress) {
