@@ -22,11 +22,6 @@ link_directories(
 )
 
 
-##### other data ################################
-
-install( FILES khotkeys.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
-
-
 ##### kded_khotkeys (module) ####################
 
 tde_add_kpart( kded_khotkeys AUTOMOC

@@ -16,6 +16,3 @@ noinst_HEADERS = app.h kded.h
 INCLUDES = -I$(srcdir)/../shared $(all_includes)
 
 METASOURCES = AUTO
-
-servicesdir = $(kde_servicesdir)/kded
-services_DATA = khotkeys.desktop
