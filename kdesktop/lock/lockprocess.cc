@@ -1216,6 +1216,9 @@ bool LockProcess::grabKeyboard()
     int rv = XGrabKeyboard( tqt_xdisplay(), TQApplication::desktop()->winId(),
         True, GrabModeAsync, GrabModeAsync, CurrentTime );
 
+    if (rv != GrabSuccess) {
+        kdWarning(1204) << "LockProcess::grabKeyboard() failed: " << rv << endl;
+    }
     return (rv == GrabSuccess);
 }
 
@@ -1239,6 +1242,9 @@ bool LockProcess::grabMouse()
             True, GRABEVENTS, GrabModeAsync, GrabModeAsync, None,
             cursorHandle, CurrentTime );
 
+    if (rv != GrabSuccess) {
+        kdWarning(1204) << "LockProcess::grabMouse() failed: " << rv << endl;
+    }
     return (rv == GrabSuccess);
 }
 
