@@ -36,6 +36,9 @@
 // libr
 #cmakedefine HAVE_ELFICON 1
 
+// krb5
+#cmakedefine HAVE_KRB5 1
+
 // libconfig
 #cmakedefine HAVE_LIBCONFIG 1
 #cmakedefine HAVE_LIBCONFIG_OLD_API 1

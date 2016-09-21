@@ -433,6 +433,16 @@ if( WITH_HAL AND (BUILD_KSMSERVER OR BUILD_KICKER OR BUILD_TDEIOSLAVES) )
 
 endif( )
 
+# check for krb5
+if( WITH_KRB5 )
+  pkg_search_module( KRB5 krb5 )
+  if( NOT KRB5_FOUND )
+      message(FATAL_ERROR "\nKerberos support was requested, but krb5 was not found on your system" )
+  endif( NOT KRB5_FOUND )
+  set( HAVE_KRB5 1 )
+  set( LIBTDELDAP_LIBRARIES "tdeldap" )
+endif( )
+
 # check for libr
 if( WITH_ELFICON )
   pkg_search_module( LIBR libr )
