@@ -100,6 +100,7 @@ SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int ac
     m_clockApplet = new ClockApplet(configFile, KPanelApplet::Normal, KPanelApplet::Preferences, this, "clockapplet");
     updateClockGeometry();
     connect(m_clockApplet, TQT_SIGNAL(clockReconfigured()), this, TQT_SLOT(updateClockGeometry()));
+    connect(m_clockApplet, TQT_SIGNAL(updateLayout()), this, TQT_SLOT(updateClockGeometry()));
 
     setBackgroundOrigin(AncestorOrigin);
 
@@ -116,7 +117,17 @@ SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int ac
 void SystemTrayApplet::updateClockGeometry()
 {
     if (m_clockApplet)
-        m_clockApplet->setFixedSize(m_clockApplet->widthForHeight(height()-2),height()-2);
+    {
+        m_clockApplet->setPosition(position());
+			  if (orientation() == Qt::Horizontal)
+			  {
+	          m_clockApplet->setFixedSize(m_clockApplet->widthForHeight(height()),height());
+   			}
+			  else
+			  {
+	          m_clockApplet->setFixedSize(width(),m_clockApplet->heightForWidth(width()));
+ 			  }
+    }
 }
 
 void SystemTrayApplet::initialize()
