@@ -639,12 +639,13 @@ KGreeter::slotUserEntered()
 {
 	if (userView) {
 		TQListViewItem *item;
-		for (item = userView->firstChild(); item; item = item->nextSibling())
+		for (item = userView->firstChild(); item; item = item->nextSibling()) {
 			if (((UserListViewItem *)item)->login == curUser) {
 				userView->setSelected( item, true );
 				userView->ensureItemVisible( item );
 				goto oke;
 			}
+		}
 		userView->clearSelection();
 	}
   oke:
@@ -915,6 +916,7 @@ void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
 		if (!user_active && vt_active) {
 			// Select the correct user
 			verify->setUser(login_name);
+			userView->setEnabled(false);
 			verifySetUser(login_name);
 			verify->lockUserEntry(true);
 
@@ -936,6 +938,7 @@ void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
 
 void KGreeter::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) {
 	cardLoginUser = TQString::null;
+	userView->setEnabled(false);
 	verify->lockUserEntry(false);
         verify->requestAbort();
         verify->setPasswordPrompt(TQString::null);

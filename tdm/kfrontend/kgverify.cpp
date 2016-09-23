@@ -323,8 +323,10 @@ KGVerify::start()
 			if (!_autoLoginAgain)
 				_autoLoginDelay = 0, timeable = false;
 			return;
-		} else
+		}
+		else if (!cardLoginInProgress) {
 			applyPreset();
+		}
 	}
 	running = true;
 	Debug( "%s->start()\n", pName.data() );
