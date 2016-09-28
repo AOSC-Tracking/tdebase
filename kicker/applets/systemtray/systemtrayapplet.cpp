@@ -558,9 +558,9 @@ void SystemTrayApplet::embedWindow( WId w, bool kde_tray )
         delete emb;
         return;
     }
-    
+
     connect(emb, TQT_SIGNAL(embeddedWindowDestroyed()), TQT_SLOT(updateTrayWindows()));
-    emb->getIconSize(m_iconSize);
+    emb->setFixedSize(m_iconSize, m_iconSize);
 
     if (shouldHide(w))
     {
@@ -1151,22 +1151,6 @@ TrayEmbed::TrayEmbed( bool kdeTray, TQWidget* parent )
 TrayEmbed::~TrayEmbed()
 {
     //
-}
-
-void TrayEmbed::getIconSize(int defaultIconSize)
-{
-    TQSize minSize = minimumSizeHint();
-    
-    int width = minSize.width();
-    int height = minSize.height();
-    
-    if (width < 1 || width > defaultIconSize)
-        width = defaultIconSize;
-    if (height < 1 || height > defaultIconSize)
-        height = defaultIconSize;
-    
-    setFixedSize(width, height);
-    setBackground();
 }
 
 void TrayEmbed::setBackground()

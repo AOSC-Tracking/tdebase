@@ -131,7 +131,6 @@ public:
     ~TrayEmbed();
     bool kdeTray() const { return kde_tray; }
     void setBackground();
-    void getIconSize(int defaultIconSize);
 private:
     bool kde_tray;
     TQWidget *m_scaledWidget;
