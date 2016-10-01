@@ -916,7 +916,9 @@ void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
 		if (!user_active && vt_active) {
 			// Select the correct user
 			verify->setUser(login_name);
-			userView->setEnabled(false);
+			if (userView) {
+				userView->setEnabled(false);
+			}
 			verifySetUser(login_name);
 			verify->lockUserEntry(true);
 
