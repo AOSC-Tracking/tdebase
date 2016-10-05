@@ -640,6 +640,29 @@ $TDEDIR/bin/dcopserver_shutdown
 
 echo "[starttde] Starting Trinity..." 1>&2
 
+# Start tde_dbus_hardwarecontrol at background
+if [ -x $TDEDIR/bin/tde_dbus_hardwarecontrol ]; then
+ (
+  TDE_DBUS=$(dbus-send --system --print-reply --dest=org.freedesktop.DBus \
+             /org/freedesktop/DBus org.freedesktop.DBus.StartServiceByName \
+             string:org.trinitydesktop.hardwarecontrol \
+             uint32:0 | \
+             sed -n "s| *uint32 \([0-9]*\).*|\1|p")
+  case "$TDE_DBUS" in
+    2)
+        TDE_DBUS_STATE="running"
+        ;;
+    1)
+        TDE_DBUS_STATE="started"
+        ;;
+    *)
+        TDE_DBUS_STATE="not started"
+        ;;
+  esac
+  echo "[starttde] Trinity hardware control dbus daemon $TDE_DBUS_STATE." 1>&2
+ )&
+fi
+
 # Detect any running Xorg composition managers.
 $TDEDIR/bin/kdetcompmgr
 
