@@ -111,13 +111,21 @@ class KateSessionPanel : public TQVBox
 {
   Q_OBJECT
 
+ 	friend class KateMainWindow;
+ 	
   public:
 
     KateSessionPanel(KateMainWindow *mainWindow=0, KateViewManager *viewManager=0,
                      TQWidget *parent=0, const char *name=0);
     ~KateSessionPanel() {}
 
-
+  signals:
+		/**
+		 * Emitted when the session selection in the panel has changed
+		 */
+		void selectionChanged();
+  
+  
   public slots:
     void slotNewSession();
     void slotSaveSession();
@@ -131,7 +139,7 @@ class KateSessionPanel : public TQVBox
     void slotSessionMoveDown();
     void slotItemExecuted(TQListViewItem *item);
 
-    void slotSelectionChanged();
+    void slotSelectionChanged(); 		/** @emit selectionChanged */
     void slotSessionActivated(int newSessionId, int oldSessionId);
     void slotSessionCreated(int sessionId);
     void slotSessionDeleted(int sessionId);
@@ -153,8 +161,6 @@ class KateSessionPanel : public TQVBox
 		*/
     int handleSessionSwitch();
 
-    KateMainWindow *m_mainWin;
-    KateViewManager *m_viewManager;
     KateSessionManager *m_sessionManager;
     TDEActionCollection *m_actionCollection;
     TDEToolBar *m_toolbar;

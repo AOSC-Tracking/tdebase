@@ -126,9 +126,8 @@ void KateSessionPanelToolBarParent::resizeEvent (TQResizeEvent*)
 //-------------------------------------------
 KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *viewManager,
     TQWidget *parent, const char *name)
-    : TQVBox(parent, name), m_mainWin(mainWindow), m_viewManager(viewManager),
-      m_sessionManager(KateSessionManager::self()), m_actionCollection(new TDEActionCollection(this)),
-      m_columnName(-1), m_columnPixmap(-1)
+    : TQVBox(parent, name), m_sessionManager(KateSessionManager::self()), 
+      m_actionCollection(new TDEActionCollection(this)), m_columnName(-1), m_columnPixmap(-1)
 {
   // Toolbar
   setup_toolbar();
@@ -171,7 +170,7 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
           this, TQT_SLOT(slotLVSessionRenamed(TQListViewItem*)));
 
   TQPtrList<KateSession>& sessions = m_sessionManager->getSessionsList();
-  for (int idx = sessions.count()-1;  idx >= 0;  --idx)
+  for (int idx = sessions.count() - 1;  idx >= 0;  --idx)
   {
   	new KateSessionPanelItem(m_listview, sessions[idx]->getSessionName(), idx);
   	if (idx == m_sessionManager->getActiveSessionId())
@@ -444,14 +443,17 @@ void KateSessionPanel::slotActivateSession()
 void KateSessionPanel::slotSessionToggleReadOnly()
 {
   KateSessionPanelItem *sessionItem = dynamic_cast<KateSessionPanelItem*>(m_listview->selectedItem());
-  if (!sessionItem)
+	const KateSession *ks(NULL);
+  if (sessionItem)
+  {
+		ks = m_sessionManager->getSessionFromId(sessionItem->getSessionId());
+  }
+  if (!sessionItem || !ks)
   {
     return;
   }
-
-	m_sessionManager->setSessionReadOnlyStatus(sessionItem->getSessionId(),
-	       (dynamic_cast<TDEToggleAction*>(
-	       m_actionCollection->action("session_toggle_read_only")))->isChecked());
+  
+	m_sessionManager->setSessionReadOnlyStatus(sessionItem->getSessionId(), !ks->isReadOnly());
  	slotSelectionChanged();  // Update the toolbar button status
 }
 
@@ -549,13 +551,16 @@ void KateSessionPanel::slotSelectionChanged()
 		  readOnlyAction->setEnabled(true);
       readOnlyAction->setChecked(ks->isReadOnly());
 		}
+		int sessId = sessionItem->getSessionId();
+		int activeSessId = m_sessionManager->getActiveSessionId();
 		m_actionCollection->action("session_save_as")->setEnabled(true);
-    m_actionCollection->action("session_reload")->setEnabled(
-              sessionItem->getSessionId() == m_sessionManager->getActiveSessionId());
-    m_actionCollection->action("session_activate")->setEnabled(true);
-    m_actionCollection->action("session_move_up")->setEnabled(true);
-    m_actionCollection->action("session_move_down")->setEnabled(true);
+    m_actionCollection->action("session_reload")->setEnabled(sessId == activeSessId);
+    m_actionCollection->action("session_activate")->setEnabled(sessId != activeSessId);
+    m_actionCollection->action("session_move_up")->setEnabled(sessId > 0);
+    m_actionCollection->action("session_move_down")->setEnabled(sessId < (m_sessionManager->getSessionCount() - 1));
 	}
+
+	emit selectionChanged();
 }
 
 //-------------------------------------------

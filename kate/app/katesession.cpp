@@ -852,7 +852,7 @@ KateSessionChooser::KateSessionChooser(TQWidget *parent)
   connect (m_listview, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()));
   connect (m_listview, TQT_SIGNAL(executed(TQListViewItem*)), this, TQT_SLOT(slotUser2()));
 
-  TQPtrList<KateSession>& sessions = KateSessionManager::self()->getSessionsList();
+  TQPtrList<KateSession> &sessions = KateSessionManager::self()->getSessionsList();
   for (int idx = sessions.count()-1;  idx >= 0;  --idx)
   {
     new KateSessionChooserItem(m_listview, sessions[idx]->getSessionName(),

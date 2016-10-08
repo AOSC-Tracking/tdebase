@@ -245,6 +245,11 @@ class KateSessionManager : public TQObject
 		const TQString& getBaseDir() const { return m_baseDir; }
 		
 		/**
+		 * @return the number of existing sessions
+		 */
+		int getSessionCount() const { return m_sessions.count(); }
+		
+		/**
 		 * @return the active session id
 		 */
 		int getActiveSessionId() const { return m_activeSessionId; }
