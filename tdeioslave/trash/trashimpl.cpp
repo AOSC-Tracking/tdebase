@@ -18,6 +18,8 @@
 */
 
 #include "trashimpl.h"
+#include "discspaceutil.h"
+
 #include <tdelocale.h>
 #include <klargefile.h>
 #include <tdeio/global.h>
@@ -322,6 +324,9 @@ bool TrashImpl::deleteInfo( int trashId, const TQString& fileId )
 bool TrashImpl::moveToTrash( const TQString& origPath, int trashId, const TQString& fileId )
 {
     kdDebug() << k_funcinfo << endl;
+    if ( !adaptTrashSize( origPath, trashId ) )
+        return false;
+
     const TQString dest = filesPath( trashId, fileId );
     if ( !move( origPath, dest ) ) {
         // Maybe the move failed due to no permissions to delete source.
@@ -387,6 +392,9 @@ void TrashImpl::jobFinished(TDEIO::Job* job)
 bool TrashImpl::copyToTrash( const TQString& origPath, int trashId, const TQString& fileId )
 {
     kdDebug() << k_funcinfo << endl;
+    if ( !adaptTrashSize( origPath, trashId ) )
+        return false;
+
     const TQString dest = filesPath( trashId, fileId );
     if ( !copy( origPath, dest ) )
         return false;
@@ -956,6 +964,93 @@ bool TrashImpl::parseURL( const KURL& url, int& trashId, TQString& fileId, TQStr
     }
     fileId = path.mid( start, slashPos - start );
     relativePath = path.mid( slashPos + 1 );
+    return true;
+}
+
+bool TrashImpl::adaptTrashSize( const TQString& origPath, int trashId )
+{
+    TDEConfig config( "trashrc" );
+
+    const TQString trashPath = trashDirectoryPath( trashId );
+    config.setGroup( trashPath );
+
+    bool useTimeLimit = config.readBoolEntry( "UseTimeLimit", false );
+    bool useSizeLimit = config.readBoolEntry( "UseSizeLimit", true );
+    double percent = config.readDoubleNumEntry( "Percent", 10 );
+    int actionType = config.readNumEntry( "LimitReachedAction", 0 );
+
+    if ( useTimeLimit ) { // delete all files in trash older than X days
+        const int maxDays = config.readNumEntry( "Days", 7 );
+        const TQDateTime currentDate = TQDateTime::currentDateTime();
+
+        const TrashedFileInfoList trashedFiles = list();
+        for ( uint i = 0; i < trashedFiles.count(); ++i ) {
+            struct TrashedFileInfo info = trashedFiles[ i ];
+            if ( info.trashId != trashId )
+                continue;
+
+            if ( info.deletionDate.daysTo( currentDate ) > maxDays )
+              del( info.trashId, info.fileId );
+        }
+
+        return true;
+
+    }
+
+    if ( useSizeLimit ) { // check if size limit exceeded
+
+        // calculate size of the files to be put into the trash
+        unsigned long additionalSize = DiscSpaceUtil::sizeOfPath( origPath );
+
+        DiscSpaceUtil util( trashPath + "/files/" );
+        if ( util.usage( additionalSize ) >= percent ) {
+            if ( actionType == 0 ) { // warn the user only
+                m_lastErrorCode = TDEIO::ERR_SLAVE_DEFINED;
+                m_lastErrorMessage = i18n( "The trash has reached its maximum size!\nClean the trash manually." );
+                return false;
+            } else {
+                // before we start to remove any files from the trash,
+                // check whether the new file will fit into the trash
+                // at all...
+
+                unsigned long partitionSize = util.size(); // in kB
+                unsigned long fileSize = additionalSize/1024; // convert to kB
+
+                if ( ((double)fileSize*100/(double)partitionSize) >= percent ) {
+                    m_lastErrorCode = TDEIO::ERR_SLAVE_DEFINED;
+                    m_lastErrorMessage = i18n( "The file is too large to be trashed." );
+                    return false;
+                }
+
+                // the size of the to be trashed file is ok, so lets start removing
+                // some other files from the trash
+
+                TQDir dir( trashPath + "/files" );
+                const TQFileInfoList *infos = 0;
+                if ( actionType == 1 )  // delete oldest files first
+                    infos = dir.entryInfoList( TQDir::Files | TQDir::Dirs, TQDir::Time | TQDir::Reversed );
+                else if ( actionType == 2 ) // delete biggest files first
+                    infos = dir.entryInfoList( TQDir::Files | TQDir::Dirs, TQDir::Size );
+                else
+                    tqWarning( "Should never happen!" );
+
+                TQFileInfoListIterator it( *infos );
+                TQFileInfo *info;
+                bool deleteFurther = true;
+                while ( ((info = it.current()) != 0) && deleteFurther ) {
+
+                    if ( info->fileName() != "." && info->fileName() != ".." ) {
+                        del( trashId, info->fileName() ); // delete trashed file
+
+                        if ( util.usage( additionalSize ) < percent ) // check whether we have enough space now
+                            deleteFurther = false;
+                    }
+                    ++it;
+                }
+            }
+        }
+    }
+
     return true;
 }
 

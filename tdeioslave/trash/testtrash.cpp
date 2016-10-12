@@ -24,7 +24,7 @@
 #include "tdeio_trash.h"
 #include "testtrash.h"
 
-#include <config.h>
+// #include <config.h>
 
 #include <kurl.h>
 #include <tdelocale.h>
