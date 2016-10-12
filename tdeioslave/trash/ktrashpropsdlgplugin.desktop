@@ -2,5 +2,6 @@
 Type=Service
 Name=Trash Properties Page
 Name[bg]=Свойства на кошчето
+Name[it]=Proprietà del cestino
 X-TDE-Library=ktrashpropsdlgplugin
 X-TDE-ServiceTypes=KPropsDlg/Plugin,media/builtin-trash

@@ -1,4 +1,4 @@
-/* This file is part of the KDE project
+/* This file is part of the TDE project
    Copyright (C) 2004 David Faure <faure@kde.org>
 
    This library is free software; you can redistribute it and/or
@@ -23,8 +23,6 @@
 
 #include "tdeio_trash.h"
 #include "testtrash.h"
-
-// #include <config.h>
 
 #include <kurl.h>
 #include <tdelocale.h>

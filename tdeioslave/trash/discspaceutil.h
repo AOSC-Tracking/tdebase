@@ -1,5 +1,5 @@
 /*
-   This file is part of the KDE project
+   This file is part of the TDE project
 
    Copyright (C) 2008 Tobias Koenig <tokoe@kde.org>
 

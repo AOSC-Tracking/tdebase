@@ -1,4 +1,4 @@
-/* This file is part of the KDE project
+/* This file is part of the TDE project
    Copyright (C) 2004 David Faure <faure@kde.org>
 
    This library is free software; you can redistribute it and/or
@@ -1018,7 +1018,7 @@ bool TrashImpl::adaptTrashSize( const TQString& origPath, int trashId )
 
                 if ( ((double)fileSize*100/(double)partitionSize) >= percent ) {
                     m_lastErrorCode = TDEIO::ERR_SLAVE_DEFINED;
-                    m_lastErrorMessage = i18n( "The file is too large to be trashed." );
+                    m_lastErrorMessage = i18n( "The file is too big to be trashed because it exceeds the maximum size set for the trash bin." );
                     return false;
                 }
 

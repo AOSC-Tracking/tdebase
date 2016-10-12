@@ -1,5 +1,5 @@
 /*
-   This file is part of the KDE project
+   This file is part of the TDE project
 
    Copyright (C) 2008 Tobias Koenig <tokoe@kde.org>
 
@@ -102,9 +102,9 @@ void DiscSpaceUtil::done()
 void DiscSpaceUtil::calculateFullSize()
 {
   KDiskFreeSp *sp = KDiskFreeSp::findUsageInfo( mDirectory );
-  connect( sp, SIGNAL( foundMountPoint( const TQString&, unsigned long, unsigned long, unsigned long ) ),
-           this, SLOT( foundMountPoint( const TQString&, unsigned long, unsigned long, unsigned long ) ) );
-  connect( sp, SIGNAL( done() ), this, SLOT( done() ) );
+  connect( sp, TQT_SIGNAL( foundMountPoint( const TQString&, unsigned long, unsigned long, unsigned long ) ),
+           this, TQT_SLOT( foundMountPoint( const TQString&, unsigned long, unsigned long, unsigned long ) ) );
+  connect( sp, TQT_SIGNAL( done() ), this, TQT_SLOT( done() ) );
 
   tqApp->eventLoop()->enterLoop();
 }

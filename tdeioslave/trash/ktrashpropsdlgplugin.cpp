@@ -1,5 +1,5 @@
 /*
-   This file is part of the KDE project
+   This file is part of the TDE project
 
    Copyright (C) 2008 Tobias Koenig <tokoe@kde.org>
    Copyright (C) 2016 Emanoil Kotsev <deloptes@yahoo.com>
@@ -46,7 +46,6 @@ K_EXPORT_COMPONENT_FACTORY( ktrashpropsdlgplugin, Factory( "ktrashpropsdlgplugin
 KTrashPropsDlgPlugin::KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const char*, const TQStringList& )
   : KPropsDlgPlugin( dialog )
 {
-  kdDebug() << "KTrashPropsDlgPlugin::KTrashPropsDlgPlugin called" << endl;
   if ( dialog->items().count() != 1 )
     return;
 
@@ -55,13 +54,11 @@ KTrashPropsDlgPlugin::KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const cha
   if ( !KPropsDlgPlugin::isDesktopFile( item ) )
     return;
 
-  kdDebug() << "KPropsDlgPlugin::isDesktopFile( item ) passed" << endl;
   KDesktopFile deskFile( item->url().path(), true /* readonly */ );
 
   if ( deskFile.readURL() != "trash:/" )
     return;
 
-  kdDebug() << "deskFile.readURL() != \"trash:/\") passed" << endl;
   TDEGlobal::locale()->insertCatalogue( "tdeio_trash" );
 
   mTrashImpl = new TrashImpl();
@@ -83,22 +80,22 @@ KTrashPropsDlgPlugin::KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const cha
 
   useTypeChanged();
 
-  connect( mUseTimeLimit, SIGNAL( toggled( bool ) ),
-           this, SLOT( setDirty() ) );
-  connect( mUseTimeLimit, SIGNAL( toggled( bool ) ),
-           this, SLOT( useTypeChanged() ) );
-  connect( mDays, SIGNAL( valueChanged( int ) ),
-           this, SLOT( setDirty() ) );
-  connect( mUseSizeLimit, SIGNAL( toggled( bool ) ),
-           this, SLOT( setDirty() ) );
-  connect( mUseSizeLimit, SIGNAL( toggled( bool ) ),
-           this, SLOT( useTypeChanged() ) );
-  connect( mPercent, SIGNAL( valueChanged( double ) ),
-           this, SLOT( percentChanged( double ) ) );
-  connect( mPercent, SIGNAL( valueChanged( double ) ),
-           this, SLOT( setDirty() ) );
-  connect( mLimitReachedAction, SIGNAL( activated( int ) ),
-           this, SLOT( setDirty() ) );
+  connect( mUseTimeLimit, TQT_SIGNAL( toggled( bool ) ),
+           this, TQT_SLOT( setDirty() ) );
+  connect( mUseTimeLimit, TQT_SIGNAL( toggled( bool ) ),
+           this, TQT_SLOT( useTypeChanged() ) );
+  connect( mDays, TQT_SIGNAL( valueChanged( int ) ),
+           this, TQT_SLOT( setDirty() ) );
+  connect( mUseSizeLimit, TQT_SIGNAL( toggled( bool ) ),
+           this, TQT_SLOT( setDirty() ) );
+  connect( mUseSizeLimit, TQT_SIGNAL( toggled( bool ) ),
+           this, TQT_SLOT( useTypeChanged() ) );
+  connect( mPercent, TQT_SIGNAL( valueChanged( double ) ),
+           this, TQT_SLOT( percentChanged( double ) ) );
+  connect( mPercent, TQT_SIGNAL( valueChanged( double ) ),
+           this, TQT_SLOT( setDirty() ) );
+  connect( mLimitReachedAction, TQT_SIGNAL( activated( int ) ),
+           this, TQT_SLOT( setDirty() ) );
 
  trashChanged( 0 );
 }
@@ -130,9 +127,7 @@ void KTrashPropsDlgPlugin::percentChanged( double percent )
 
   double size = partitionSize*(percent/100.0);
 
-// Step should be depending on size
-// https://api.kde.org/3.5-api/kdelibs-apidocs/kdeui/html/classKDoubleSpinBox.html
-// https://api.kde.org/3.5-api/kdelibs-apidocs/kdeui/html/knuminput_8cpp_source.html
+	// FIXME It would be good if precision step depended on max HD size
   mPercent->setPrecision(3);
 
   TQString unit = i18n( "Byte" );
@@ -203,7 +198,6 @@ void KTrashPropsDlgPlugin::useTypeChanged()
 
 void KTrashPropsDlgPlugin::readConfig()
 {
-  kdDebug() << "KTrashPropsDlgPlugin::readConfig() called" << endl;
   TDEConfig config( "trashrc" );
   mConfigMap.clear();
 
@@ -224,7 +218,6 @@ void KTrashPropsDlgPlugin::readConfig()
 
 void KTrashPropsDlgPlugin::writeConfig()
 {
-  kdDebug() << "KTrashPropsDlgPlugin::writeConfig() called" << endl;
   TDEConfig config( "trashrc" );
 
   // first delete all existing groups
@@ -248,7 +241,6 @@ void KTrashPropsDlgPlugin::writeConfig()
 
 void KTrashPropsDlgPlugin::setupGui( TQFrame *frame )
 {
-  kdDebug() << "KTrashPropsDlgPlugin::setupGui( TQFrame *frame )" << endl;
   TQVBoxLayout *layout = new TQVBoxLayout( frame, 11, 6 );
 
   TrashImpl::TrashDirMap map = mTrashImpl->trashDirectories();
@@ -267,7 +259,7 @@ void KTrashPropsDlgPlugin::setupGui( TQFrame *frame )
 
     mountPoints->setCurrentItem( 0 );
 
-    connect( mountPoints, SIGNAL( highlighted( int ) ), SLOT( trashChanged( int ) ) );
+    connect( mountPoints, TQT_SIGNAL( highlighted( int ) ), TQT_SLOT( trashChanged( int ) ) );
   } else {
     mCurrentTrash = map[0];
   }

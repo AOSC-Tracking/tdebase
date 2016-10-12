@@ -1,4 +1,4 @@
-/* This file is part of the KDE project
+/* This file is part of the TDE project
  * Copyright (C) 2004 David Faure <faure@kde.org>
  *     Based on tdefile_txt.cpp by Nadeem Hasan <nhasan@kde.org>
  *
