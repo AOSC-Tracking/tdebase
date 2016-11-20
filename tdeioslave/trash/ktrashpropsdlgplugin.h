@@ -22,13 +22,14 @@
 #ifndef KTRASHPROPSDLGPLUGIN_H
 #define KTRASHPROPSDLGPLUGIN_H
 
-#include <kpropertiesdialog.h>
+#include "kpropertiesdialog.h"
 
 class KDoubleSpinBox;
 class TQCheckBox;
 class TQComboBox;
 class TQFrame;
 class TQLabel;
+class TQRadioButton;
 class TQSpinBox;
 class TrashImpl;
 
@@ -43,21 +44,29 @@ class KTrashPropsDlgPlugin : public KPropsDlgPlugin
     virtual void applyChanges();
 
   private slots:
-    void percentChanged( double );
+    void percentSizeChanged( double );
+		void fixedSizeChanged( double );
+		void fixedSizeUnitActivated ( int );
+		void rbPercentSizeToggled( bool );
+		void rbFixedSizeToggled( bool );
     void trashChanged( int );
     void useTypeChanged();
-
+  	
   private:
     void readConfig();
     void writeConfig();
     void setupGui( TQFrame *frame );
 
     TQCheckBox *mUseTimeLimit;
-    TQSpinBox *mDays;
+    TQSpinBox  *mDays;
     TQCheckBox *mUseSizeLimit;
-    TQWidget *mSizeWidget;
-    KDoubleSpinBox *mPercent;
-    TQLabel *mSizeLabel;
+    int        mSizeLimitType;
+    TQWidget   *mSizeWidget;
+    TQRadioButton *mRbPercentSize, *mRbFixedSize;
+    KDoubleSpinBox *mPercentSize;
+    KDoubleSpinBox *mFixedSize;
+    TQComboBox *mFixedSizeUnit;
+    TQLabel    *mSizeLabel;
     TQComboBox *mLimitReachedAction;
 
     TrashImpl *mTrashImpl;
@@ -67,7 +76,10 @@ class KTrashPropsDlgPlugin : public KPropsDlgPlugin
       bool useTimeLimit;
       int days;
       bool useSizeLimit;
+      int sizeLimitType;
       double percent;
+      double fixedSize;
+      int fixedSizeUnit;
       int actionType;
     } ConfigEntry;
 

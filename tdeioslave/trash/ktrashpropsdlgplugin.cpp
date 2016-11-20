@@ -22,13 +22,16 @@
 
 #include "ktrashpropsdlgplugin.h"
 #include "discspaceutil.h"
+#include "trash_constant.h"
 #include "trashimpl.h"
 
+#include <tqbuttongroup.h>
 #include <tqcheckbox.h>
 #include <tqcombobox.h>
 #include <tqlabel.h>
 #include <tqlayout.h>
 #include <tqlistbox.h>
+#include <tqradiobutton.h>
 #include <tqspinbox.h>
 
 #include <kdesktopfile.h>
@@ -39,6 +42,8 @@
 #include <knuminput.h>
 
 #include <kdebug.h>
+
+using namespace TrashConstant;
 
 typedef KGenericFactory<KTrashPropsDlgPlugin, KPropertiesDialog> Factory;
 K_EXPORT_COMPONENT_FACTORY( ktrashpropsdlgplugin, Factory( "ktrashpropsdlgplugin" ) )
@@ -69,14 +74,25 @@ KTrashPropsDlgPlugin::KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const cha
   TQFrame *frame = dialog->addPage( i18n( "Size Limits" ) );
   setupGui( frame );
 
-
   mUseTimeLimit->setChecked( mConfigMap[ mCurrentTrash ].useTimeLimit );
   mUseSizeLimit->setChecked( mConfigMap[ mCurrentTrash ].useSizeLimit );
+  mSizeLimitType = mConfigMap[ mCurrentTrash ].sizeLimitType;
+	if ( mSizeLimitType == SIZE_LIMIT_FIXED )
+	{
+		mRbFixedSize->setChecked( true );
+	}
+	else
+	{
+		mRbPercentSize->setChecked( true );
+	}
+	
   mDays->setValue( mConfigMap[ mCurrentTrash ].days );
-  mPercent->setValue( mConfigMap[ mCurrentTrash ].percent );
-  mPercent->setPrecision(3);
+  mPercentSize->setValue( mConfigMap[ mCurrentTrash ].percent );
+  mFixedSize->setValue( mConfigMap[ mCurrentTrash ].fixedSize );
+  mFixedSizeUnit->setCurrentItem( mConfigMap[ mCurrentTrash ].fixedSizeUnit );
   mLimitReachedAction->setCurrentItem( mConfigMap[ mCurrentTrash ].actionType );
-  percentChanged(mPercent->value());
+  percentSizeChanged(mPercentSize->value());
+  fixedSizeChanged(mFixedSize->value());
 
   useTypeChanged();
 
@@ -90,153 +106,32 @@ KTrashPropsDlgPlugin::KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const cha
            this, TQT_SLOT( setDirty() ) );
   connect( mUseSizeLimit, TQT_SIGNAL( toggled( bool ) ),
            this, TQT_SLOT( useTypeChanged() ) );
-  connect( mPercent, TQT_SIGNAL( valueChanged( double ) ),
-           this, TQT_SLOT( percentChanged( double ) ) );
-  connect( mPercent, TQT_SIGNAL( valueChanged( double ) ),
+  connect( mPercentSize, TQT_SIGNAL( valueChanged( double ) ),
+           this, TQT_SLOT( percentSizeChanged( double ) ) );
+  connect( mFixedSize, TQT_SIGNAL( valueChanged( double ) ),
+           this, TQT_SLOT( fixedSizeChanged( double ) ) );
+  connect( mPercentSize, TQT_SIGNAL( valueChanged( double ) ),
+           this, TQT_SLOT( setDirty() ) );
+  connect( mFixedSize, TQT_SIGNAL( valueChanged( double ) ),
+           this, TQT_SLOT( setDirty() ) );
+  connect( mFixedSizeUnit, TQT_SIGNAL( activated( int ) ),
+           this, TQT_SLOT( fixedSizeUnitActivated( int ) ) );
+  connect( mRbPercentSize, TQT_SIGNAL( toggled( bool ) ),
+           this, TQT_SLOT( rbPercentSizeToggled( bool ) ) );
+  connect( mRbPercentSize, TQT_SIGNAL( toggled( bool ) ),
+           this, TQT_SLOT( setDirty() ) );
+  connect( mRbFixedSize, TQT_SIGNAL( toggled( bool ) ),
+           this, TQT_SLOT( rbFixedSizeToggled( bool ) ) );
+  connect( mRbFixedSize, TQT_SIGNAL( toggled( bool ) ),
            this, TQT_SLOT( setDirty() ) );
   connect( mLimitReachedAction, TQT_SIGNAL( activated( int ) ),
            this, TQT_SLOT( setDirty() ) );
 
- trashChanged( 0 );
+  trashChanged( 0 );
 }
 
 KTrashPropsDlgPlugin::~KTrashPropsDlgPlugin()
 {
-}
-
-void KTrashPropsDlgPlugin::applyChanges()
-{
-  if ( !mCurrentTrash.isEmpty() ) {
-    ConfigEntry entry;
-    entry.useTimeLimit = mUseTimeLimit->isChecked();
-    entry.days = mDays->value();
-    entry.useSizeLimit = mUseSizeLimit->isChecked();
-    entry.percent = mPercent->value(),
-    entry.actionType = mLimitReachedAction->currentItem();
-    mConfigMap.insert( mCurrentTrash, entry );
-  }
-
-  writeConfig();
-}
-
-void KTrashPropsDlgPlugin::percentChanged( double percent )
-{
-  DiscSpaceUtil util( mCurrentTrash );
-
-  double partitionSize = util.size() * 1024.0; // convert to byte
-
-  double size = partitionSize*(percent/100.0);
-
-	// FIXME It would be good if precision step depended on max HD size
-  mPercent->setPrecision(3);
-
-  TQString unit = i18n( "Byte" );
-  if ( size > 1024 ) {
-    unit = i18n( "KByte" );
-    size = size/1024.0;
-    mPercent->setLineStep(0.001);
-  }
-  if ( size > 1024 ) {
-    unit = i18n( "MByte" );
-    size = size/1024.0;
-    mPercent->setLineStep(0.01);
-  }
-  if ( size > 1024 ) {
-    unit = i18n( "GByte" );
-    size = size/1024.0;
-    mPercent->setLineStep(0.1);
-  }
-  if ( size > 1024 ) {
-    unit = i18n( "TByte" );
-    size = size/1024.0;
-    mPercent->setLineStep(1);
-  }
-
-  mSizeLabel->setText( i18n( "(%1 %2)" ).arg( TQString::number( size, 'f', 2 ) ).arg( unit ) );
-
-}
-
-void KTrashPropsDlgPlugin::trashChanged( int value )
-{
-  const TrashImpl::TrashDirMap map = mTrashImpl->trashDirectories();
-
-  if ( !mCurrentTrash.isEmpty() ) {
-    ConfigEntry entry;
-    entry.useTimeLimit = mUseTimeLimit->isChecked();
-    entry.days = mDays->value();
-    entry.useSizeLimit = mUseSizeLimit->isChecked();
-    entry.percent = mPercent->value(),
-    entry.actionType = mLimitReachedAction->currentItem();
-    mConfigMap.insert( mCurrentTrash, entry );
-  }
-
-  mCurrentTrash = map[ value ];
-
-  if ( mConfigMap.contains( mCurrentTrash ) ) {
-    const ConfigEntry entry = mConfigMap[ mCurrentTrash ];
-    mUseTimeLimit->setChecked( entry.useTimeLimit );
-    mDays->setValue( entry.days );
-    mUseSizeLimit->setChecked( entry.useSizeLimit );
-    mPercent->setValue( entry.percent );
-    mLimitReachedAction->setCurrentItem( entry.actionType );
-  } else {
-    mUseTimeLimit->setChecked( false );
-    mDays->setValue( 7 );
-    mUseSizeLimit->setChecked( true );
-    mPercent->setValue( 10.0 );
-    mLimitReachedAction->setCurrentItem( 0 );
-  }
-
-  percentChanged( mPercent->value() );
-}
-
-void KTrashPropsDlgPlugin::useTypeChanged()
-{
-  mDays->setEnabled( mUseTimeLimit->isChecked() );
-  mSizeWidget->setEnabled( mUseSizeLimit->isChecked() );
-}
-
-void KTrashPropsDlgPlugin::readConfig()
-{
-  TDEConfig config( "trashrc" );
-  mConfigMap.clear();
-
-  const TQStringList groups = config.groupList();
-  for ( uint i = 0; i < groups.count(); ++i ) {
-    if ( groups[ i ].startsWith( "/" ) ) {
-      config.setGroup( groups[ i ] );
-      ConfigEntry entry;
-      entry.useTimeLimit = config.readBoolEntry( "UseTimeLimit", false );
-      entry.days = config.readNumEntry( "Days", 7 );
-      entry.useSizeLimit = config.readBoolEntry( "UseSizeLimit", true );
-      entry.percent = config.readDoubleNumEntry( "Percent", 10 );
-      entry.actionType = config.readNumEntry( "LimitReachedAction", 0 );
-      mConfigMap.insert( groups[ i ], entry );
-    }
-  }
-}
-
-void KTrashPropsDlgPlugin::writeConfig()
-{
-  TDEConfig config( "trashrc" );
-
-  // first delete all existing groups
-  const TQStringList groups = config.groupList();
-  for ( uint i = 0; i < groups.count(); ++i )
-    if ( groups[ i ].startsWith( "/" ) )
-      config.deleteGroup( groups[ i ] );
-
-  TQMapConstIterator<TQString, ConfigEntry> it;
-  for ( it = mConfigMap.begin(); it != mConfigMap.end(); ++it ) {
-    config.setGroup( it.key() );
-    config.writeEntry( "UseTimeLimit", it.data().useTimeLimit );
-    config.writeEntry( "Days", it.data().days );
-    config.writeEntry( "UseSizeLimit", it.data().useSizeLimit );
-    config.writeEntry( "Percent", it.data().percent );
-    config.writeEntry( "LimitReachedAction", it.data().actionType );
-  }
-
-  config.sync();
 }
 
 void KTrashPropsDlgPlugin::setupGui( TQFrame *frame )
@@ -280,29 +175,275 @@ void KTrashPropsDlgPlugin::setupGui( TQFrame *frame )
   sizeLayout->setColSpacing( 0, 30 );
   sizeLayout->addWidget( mSizeWidget, 1, 1 );
 
-  TQGridLayout *sizeWidgetLayout = new TQGridLayout( mSizeWidget, 2, 3, 11, 6 );
+  TQGridLayout *sizeWidgetLayout = new TQGridLayout( mSizeWidget, 3, 3, 11, 6 );
+  
+ 	mRbPercentSize = new TQRadioButton( i18n("&Percentage:"), mSizeWidget );
+ 	mRbFixedSize = new TQRadioButton( i18n("&Fixed size:"), mSizeWidget );
+ 	sizeWidgetLayout->addWidget( mRbPercentSize, 0, 0 );
+ 	sizeWidgetLayout->addWidget( mRbFixedSize, 1, 0 );
 
-  TQLabel *label = new TQLabel( i18n( "Maximum Size:" ), mSizeWidget );
-  sizeWidgetLayout->addWidget( label, 0, 0 );
-
-  mPercent = new KDoubleSpinBox( 0.001, 100, 1, 10, 3, mSizeWidget );
-  mPercent->setSuffix( " %" );
-  sizeWidgetLayout->addWidget( mPercent, 0, 1 );
-
+  mPercentSize = new KDoubleSpinBox( 0, 100, 0.1, 10, 2, mSizeWidget );
+  mPercentSize->setSuffix( " %" );
+  sizeWidgetLayout->addWidget( mPercentSize, 0, 1 );
   mSizeLabel = new TQLabel( mSizeWidget );
   sizeWidgetLayout->addWidget( mSizeLabel, 0, 2 );
 
-  label = new TQLabel( i18n( "When limit reached:" ), mSizeWidget );
-  sizeWidgetLayout->addWidget( label, 1, 0 );
+  mFixedSize = new KDoubleSpinBox( 0, 1024*1024, 1, 500, 2, mSizeWidget );
+  sizeWidgetLayout->addWidget( mFixedSize, 1, 1 );
+  mFixedSizeUnit = new TQComboBox( mSizeWidget );
+  mFixedSizeUnit->setEditable( false );
+  mFixedSizeUnit->insertItem( i18n( "Bytes" ), SIZE_ID_B );
+  mFixedSizeUnit->insertItem( i18n( "KBytes" ), SIZE_ID_KB );
+  mFixedSizeUnit->insertItem( i18n( "MBytes" ), SIZE_ID_MB );
+  mFixedSizeUnit->insertItem( i18n( "GBytes" ), SIZE_ID_GB );
+  mFixedSizeUnit->insertItem( i18n( "TBytes" ), SIZE_ID_TB );
+  mFixedSizeUnit->setCurrentItem( 2 );
+  sizeWidgetLayout->addWidget( mFixedSizeUnit, 1, 2 );
+  
+  TQLabel *label = new TQLabel( i18n( "When limit reached:" ), mSizeWidget );
+  sizeWidgetLayout->addWidget( label, 2, 0 );
 
   mLimitReachedAction = new TQComboBox( mSizeWidget );
   mLimitReachedAction->insertItem( i18n( "Warn me" ) );
   mLimitReachedAction->insertItem( i18n( "Delete oldest files from trash" ) );
   mLimitReachedAction->insertItem( i18n( "Delete biggest files from trash" ) );
-  sizeWidgetLayout->addMultiCellWidget( mLimitReachedAction, 1, 1, 1, 2 );
+  sizeWidgetLayout->addMultiCellWidget( mLimitReachedAction, 2, 2, 1, 2 );
 
   layout->addStretch();
+}
 
+void KTrashPropsDlgPlugin::applyChanges()
+{
+  if ( !mCurrentTrash.isEmpty() ) {
+    ConfigEntry entry;
+    entry.useTimeLimit = mUseTimeLimit->isChecked();
+    entry.days = mDays->value();
+    entry.useSizeLimit = mUseSizeLimit->isChecked();
+    if (mRbFixedSize->isChecked())
+    {
+    	entry.sizeLimitType = SIZE_LIMIT_FIXED;
+    }
+    else
+    {
+    	entry.sizeLimitType = SIZE_LIMIT_PERCENT;
+    }
+    entry.percent = mPercentSize->value();
+    entry.fixedSize = mFixedSize->value();
+    entry.fixedSizeUnit = mFixedSizeUnit->currentItem();
+    entry.actionType = mLimitReachedAction->currentItem();
+    mConfigMap.insert( mCurrentTrash, entry );
+  }
+
+  writeConfig();
+}
+
+void KTrashPropsDlgPlugin::percentSizeChanged( double percent )
+{
+  DiscSpaceUtil util( mCurrentTrash );
+  double partitionSize = util.size() * 1024.0; // convert to byte
+  double size = partitionSize*(percent/100.0);
+
+  TQString unit = i18n( "Bytes" );
+  if ( size >= 1024 ) {
+    unit = i18n( "KBytes" );
+    size = size/1024.0;
+  }
+  if ( size >= 1024 ) {
+    unit = i18n( "MBytes" );
+    size = size/1024.0;
+  }
+  if ( size >= 1024 ) {
+    unit = i18n( "GBytes" );
+    size = size/1024.0;
+  }
+  if ( size >= 1024 ) {
+    unit = i18n( "TBytes" );
+    size = size/1024.0;
+  }
+
+  mSizeLabel->setText( i18n( "(%1 %2)" ).arg( TQString::number( size, 'f', 2 ) ).arg( unit ) );
+}
+
+void KTrashPropsDlgPlugin::fixedSizeChanged( double value )
+{
+	int currItem = mFixedSizeUnit->currentItem();
+	if (value > 1023.999 && currItem >= SIZE_ID_TB)
+	{
+	  // Max limit 1024 TBytes
+		mFixedSizeUnit->setCurrentItem(SIZE_ID_TB);
+		mFixedSize->setValue(1024.0);
+	}
+	else if (value > 1023.999 && currItem < SIZE_ID_TB)
+	{
+		// Scale up to higher measure unit
+	  while (value > 1023.999 && currItem < SIZE_ID_TB)
+	  {
+			++currItem;
+			value /= 1024.0;
+		}
+		mFixedSizeUnit->setCurrentItem(currItem);
+		mFixedSize->setValue(value);
+	}
+	else if (value < 0.001)
+	{
+		// Scale down to lower measure unit
+	  int currItem = mFixedSizeUnit->currentItem();		
+	  if (currItem > SIZE_ID_B)
+	  {
+	  	mFixedSizeUnit->setCurrentItem(currItem - 1);
+	  	mFixedSize->setValue(1023.0);
+	  }
+	}
+	// Need to call this manually because "activated" is not emitted by "mFixedSizeUnit"
+	// when the index is changed programmatically (see TQComboBox API docs)
+	fixedSizeUnitActivated(mFixedSizeUnit->currentItem());
+}
+
+void KTrashPropsDlgPlugin::fixedSizeUnitActivated(int index)
+{
+	// Bytes can not be split into fractions
+	if (index == SIZE_ID_B)
+	{
+		mFixedSize->setPrecision(0);
+	}
+	else
+	{
+		mFixedSize->setPrecision(2);
+	}
+}
+    
+void KTrashPropsDlgPlugin::rbPercentSizeToggled( bool buttonOn)
+{
+	if (buttonOn)
+	{
+		mRbFixedSize->setChecked(false);
+		mSizeLimitType = SIZE_LIMIT_PERCENT;
+	}
+	else if (!mRbFixedSize->isChecked())
+	{
+		// Set the button back on if the user clicked it twice
+		mRbPercentSize->setChecked(true);
+	}
+}
+    
+void KTrashPropsDlgPlugin::rbFixedSizeToggled( bool buttonOn)
+{
+	if (buttonOn)
+	{
+		mRbPercentSize->setChecked(false);
+		mSizeLimitType = SIZE_LIMIT_FIXED;
+	}
+	else if (!mRbPercentSize->isChecked())
+	{
+		// Set the button back on if the user clicked it twice
+		mRbFixedSize->setChecked(true);
+	}
+}
+
+void KTrashPropsDlgPlugin::trashChanged( int value )
+{
+  const TrashImpl::TrashDirMap map = mTrashImpl->trashDirectories();
+
+  if ( !mCurrentTrash.isEmpty() ) {
+    ConfigEntry entry;
+    entry.useTimeLimit = mUseTimeLimit->isChecked();
+    entry.days = mDays->value();
+    entry.useSizeLimit = mUseSizeLimit->isChecked();
+    entry.sizeLimitType = mSizeLimitType;
+    entry.percent = mPercentSize->value(),
+    entry.fixedSize = mFixedSize->value();
+    entry.fixedSizeUnit = mFixedSizeUnit->currentItem();
+    entry.actionType = mLimitReachedAction->currentItem();
+    mConfigMap.insert( mCurrentTrash, entry );
+  }
+
+  mCurrentTrash = map[ value ];
+
+  if ( mConfigMap.contains( mCurrentTrash ) ) {
+    const ConfigEntry entry = mConfigMap[ mCurrentTrash ];
+    mUseTimeLimit->setChecked( entry.useTimeLimit );
+    mDays->setValue( entry.days );
+    mUseSizeLimit->setChecked( entry.useSizeLimit );
+		if ( mSizeLimitType == SIZE_LIMIT_FIXED )
+		{
+			mRbFixedSize->setChecked( true );
+		}
+		else
+		{
+			mRbPercentSize->setChecked( true );
+		}
+    mPercentSize->setValue( entry.percent );
+		mFixedSize->setValue( entry.fixedSize );
+		mFixedSizeUnit->setCurrentItem( entry.fixedSizeUnit );
+    mLimitReachedAction->setCurrentItem( entry.actionType );
+  } else {
+    mUseTimeLimit->setChecked( false );
+    mDays->setValue( 7 );
+    mUseSizeLimit->setChecked( true );
+    mRbPercentSize->setChecked( true );
+    mPercentSize->setValue( 10.0 );
+		mFixedSize->setValue( 500 );
+		mFixedSizeUnit->setCurrentItem( SIZE_ID_MB );
+    mLimitReachedAction->setCurrentItem( 0 );
+  }
+
+  percentSizeChanged( mPercentSize->value() );
+  fixedSizeChanged( mFixedSize->value() );
+}
+
+void KTrashPropsDlgPlugin::useTypeChanged()
+{
+  mDays->setEnabled( mUseTimeLimit->isChecked() );
+  mSizeWidget->setEnabled( mUseSizeLimit->isChecked() );
+}
+
+void KTrashPropsDlgPlugin::readConfig()
+{
+  TDEConfig config( "trashrc" );
+  mConfigMap.clear();
+
+  const TQStringList groups = config.groupList();
+  for ( uint i = 0; i < groups.count(); ++i ) {
+    if ( groups[ i ].startsWith( "/" ) ) {
+      config.setGroup( groups[ i ] );
+      ConfigEntry entry;
+      entry.useTimeLimit = config.readBoolEntry( "UseTimeLimit", false );
+      entry.days = config.readNumEntry( "Days", 7 );
+      entry.useSizeLimit = config.readBoolEntry( "UseSizeLimit", true );
+	    entry.sizeLimitType = config.readNumEntry( "SizeLimitType", SIZE_LIMIT_PERCENT );
+      entry.percent = config.readDoubleNumEntry( "Percent", 10 );
+      entry.fixedSize = config.readDoubleNumEntry( "FixedSize", 500 );
+      entry.fixedSizeUnit = config.readNumEntry( "FixedSizeUnit", SIZE_ID_MB );
+      entry.actionType = config.readNumEntry( "LimitReachedAction", 0 );
+      mConfigMap.insert( groups[ i ], entry );
+    }
+  }
+}
+
+void KTrashPropsDlgPlugin::writeConfig()
+{
+  TDEConfig config( "trashrc" );
+
+  // first delete all existing groups
+  const TQStringList groups = config.groupList();
+  for ( uint i = 0; i < groups.count(); ++i )
+    if ( groups[ i ].startsWith( "/" ) )
+      config.deleteGroup( groups[ i ] );
+
+  TQMapConstIterator<TQString, ConfigEntry> it;
+  for ( it = mConfigMap.begin(); it != mConfigMap.end(); ++it ) {
+    config.setGroup( it.key() );
+    config.writeEntry( "UseTimeLimit", it.data().useTimeLimit );
+    config.writeEntry( "Days", it.data().days );
+    config.writeEntry( "UseSizeLimit", it.data().useSizeLimit );
+    config.writeEntry( "SizeLimitType", it.data().sizeLimitType );
+    config.writeEntry( "Percent", it.data().percent );
+    config.writeEntry( "FixedSize", it.data().fixedSize );
+    config.writeEntry( "FixedSizeUnit", it.data().fixedSizeUnit );
+    config.writeEntry( "LimitReachedAction", it.data().actionType );
+  }
+
+  config.sync();
 }
 
 #include "ktrashpropsdlgplugin.moc"

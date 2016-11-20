@@ -51,9 +51,8 @@ void KTrashPlugin::makeMimeTypeInfo(const TQString& mimeType)
     KFileMimeTypeInfo::GroupInfo* group =
             addGroupInfo(info, "General", i18n("General"));
 
-    KFileMimeTypeInfo::ItemInfo* item;
-    item = addItemInfo(group, "OriginalPath", i18n("Original Path"), TQVariant::String);
-    item = addItemInfo(group, "DateOfDeletion", i18n("Date of Deletion"), TQVariant::DateTime);
+    addItemInfo(group, "OriginalPath", i18n("Original Path"), TQVariant::String);
+    addItemInfo(group, "DateOfDeletion", i18n("Date of Deletion"), TQVariant::DateTime);
 }
 
 bool KTrashPlugin::readInfo(KFileMetaInfo& info, uint)

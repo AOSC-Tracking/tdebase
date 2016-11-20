@@ -22,7 +22,6 @@
 
 #include <tdelocale.h>
 #include <klargefile.h>
-#include <tdeio/global.h>
 #include <tdeio/renamedlg.h>
 #include <tdeio/job.h>
 #include <kdebug.h>
@@ -34,8 +33,6 @@
 #include <kmountpoint.h>
 #include <tdefileitem.h>
 #include <tdeio/chmodjob.h>
-
-#include <dcopref.h>
 
 #include <tqapplication.h>
 #include <tqeventloop.h>
@@ -50,6 +47,8 @@
 #include <dirent.h>
 #include <stdlib.h>
 #include <errno.h>
+
+#include "trash_constant.h"
 
 TrashImpl::TrashImpl() :
     TQObject(),
@@ -976,7 +975,10 @@ bool TrashImpl::adaptTrashSize( const TQString& origPath, int trashId )
 
     bool useTimeLimit = config.readBoolEntry( "UseTimeLimit", false );
     bool useSizeLimit = config.readBoolEntry( "UseSizeLimit", true );
+		int  sizeLimitType = config.readNumEntry( "SizeLimitType", TrashConstant::SIZE_LIMIT_PERCENT );
     double percent = config.readDoubleNumEntry( "Percent", 10 );
+		double fixedSize = config.readDoubleNumEntry( "FixedSize", 500 );
+		int fixedSizeUnit = config.readNumEntry( "FixedSizeUnit", TrashConstant::SIZE_ID_MB );
     int actionType = config.readNumEntry( "LimitReachedAction", 0 );
 
     if ( useTimeLimit ) { // delete all files in trash older than X days
@@ -998,33 +1000,32 @@ bool TrashImpl::adaptTrashSize( const TQString& origPath, int trashId )
     }
 
     if ( useSizeLimit ) { // check if size limit exceeded
-
         // calculate size of the files to be put into the trash
         unsigned long additionalSize = DiscSpaceUtil::sizeOfPath( origPath );
-
-        DiscSpaceUtil util( trashPath + "/files/" );
-        if ( util.usage( additionalSize ) >= percent ) {
+        TQString trashPathName = trashPath + "/files/";
+        DiscSpaceUtil util( trashPathName );
+        unsigned long requiredTrashSpace = util.sizeOfPath(trashPathName) + additionalSize;
+        unsigned long trashLimit = 0;
+        if ( sizeLimitType == TrashConstant::SIZE_LIMIT_PERCENT)
+        {
+        	trashLimit = (unsigned long)(1024 * percent * util.size() / 100.0);
+        }
+        else if ( sizeLimitType == TrashConstant::SIZE_LIMIT_FIXED)
+        {
+        	double trashLimitTemp = fixedSize;
+        	while (fixedSizeUnit > TrashConstant::SIZE_ID_B)
+					{
+						trashLimitTemp *= 1024;
+						--fixedSizeUnit;
+					}
+	        trashLimit = (unsigned long)trashLimitTemp;
+        }
+        if ( requiredTrashSpace > trashLimit ) {
             if ( actionType == 0 ) { // warn the user only
                 m_lastErrorCode = TDEIO::ERR_SLAVE_DEFINED;
                 m_lastErrorMessage = i18n( "The trash has reached its maximum size!\nClean the trash manually." );
                 return false;
             } else {
-                // before we start to remove any files from the trash,
-                // check whether the new file will fit into the trash
-                // at all...
-
-                unsigned long partitionSize = util.size(); // in kB
-                unsigned long fileSize = additionalSize/1024; // convert to kB
-
-                if ( ((double)fileSize*100/(double)partitionSize) >= percent ) {
-                    m_lastErrorCode = TDEIO::ERR_SLAVE_DEFINED;
-                    m_lastErrorMessage = i18n( "The file is too big to be trashed because it exceeds the maximum size set for the trash bin." );
-                    return false;
-                }
-
-                // the size of the to be trashed file is ok, so lets start removing
-                // some other files from the trash
-
                 TQDir dir( trashPath + "/files" );
                 const TQFileInfoList *infos = 0;
                 if ( actionType == 1 )  // delete oldest files first
@@ -1038,11 +1039,9 @@ bool TrashImpl::adaptTrashSize( const TQString& origPath, int trashId )
                 TQFileInfo *info;
                 bool deleteFurther = true;
                 while ( ((info = it.current()) != 0) && deleteFurther ) {
-
                     if ( info->fileName() != "." && info->fileName() != ".." ) {
                         del( trashId, info->fileName() ); // delete trashed file
-
-                        if ( util.usage( additionalSize ) < percent ) // check whether we have enough space now
+                        if ( (util.sizeOfPath(trashPathName) + additionalSize) < trashLimit ) // check whether we have enough space now
                             deleteFurther = false;
                     }
                     ++it;

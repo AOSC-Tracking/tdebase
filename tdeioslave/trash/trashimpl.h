@@ -25,9 +25,6 @@
 
 #include <tqstring.h>
 #include <tqdatetime.h>
-#include <tqmap.h>
-#include <tqvaluelist.h>
-#include <tqstrlist.h>
 #include <assert.h>
 
 /**

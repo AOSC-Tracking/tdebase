@@ -22,6 +22,7 @@
 
 #include <tdeio/slavebase.h>
 #include "trashimpl.h"
+
 namespace TDEIO { class Job; }
 
 typedef TrashImpl::TrashedFileInfo TrashedFileInfo;
