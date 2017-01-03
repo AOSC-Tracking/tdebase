@@ -1875,9 +1875,6 @@ void KCryptoConfig::slotCAImport() {
         return;
 
 #ifdef HAVE_SSL
-#define sk_free KOSSL::self()->sk_free
-#define sk_num KOSSL::self()->sk_num
-#define sk_value KOSSL::self()->sk_value
 
 	// First try to load using the OpenSSL method
 	X509_STORE *certStore = KOSSL::self()->X509_STORE_new();
@@ -1887,8 +1884,8 @@ void KCryptoConfig::slotCAImport() {
 	    KOSSL::self()->X509_LOOKUP_load_file(certLookup,
 		                                 certFile.local8Bit(),
 						 X509_FILETYPE_PEM)) {
-		for (int i = 0; i < sk_X509_OBJECT_num(certStore->objs); i++) {
-			X509_OBJECT* x5o = sk_X509_OBJECT_value(certStore->objs, i);
+		for (int i = 0; i < KOSSL::self()->sk_num(certStore->objs); i++) {
+			X509_OBJECT* x5o = reinterpret_cast<X509_OBJECT*>(KOSSL::self()->sk_value(certStore->objs, i));
 			if (!x5o) continue;
 
 			if (x5o->type != X509_LU_X509) continue;
@@ -1957,7 +1954,7 @@ void KCryptoConfig::slotCAImport() {
 		qf.open(IO_ReadOnly);
 		qf.readLine(certtext, qf.size());
 
-		if (certStore) { KOSSL::self()->X509_STORE_free(certStore);
+		if (certStore) { KOSSL::self()->sk_free(certStore);
 				certStore = NULL; }
 
 		if (certtext.contains("-----BEGIN CERTIFICATE-----")) {
@@ -2029,12 +2026,9 @@ void KCryptoConfig::slotCAImport() {
 	}
 
 
-	if (certStore) KOSSL::self()->X509_STORE_free(certStore);
+	if (certStore) KOSSL::self()->sk_free(certStore);
 
 	configChanged();
-#undef sk_free
-#undef sk_num
-#undef sk_value
 #endif
 
         offerImportToKMail( certFile );
@@ -2356,80 +2350,75 @@ void KCryptoConfig::slotGeneratePersonal() {
 
 #ifdef HAVE_SSL
 
-#if OPENSSL_VERSION_NUMBER >= 0x10000000L
-#define SSL_CONST const
-#else
-#define SSL_CONST
-#endif
-
 // This gets all the available ciphers from OpenSSL
 bool KCryptoConfig::loadCiphers() {
-unsigned int i;
+unsigned int i, cnt;
 SSL_CTX *ctx;
 SSL *ssl;
-SSL_CONST SSL_METHOD *meth;
+SSL_METHOD *meth;
+STACK_OF(SSL_CIPHER)* sk;
 
   SSLv2Box->clear();
   SSLv3Box->clear();
   CipherItem *item;
 
 #ifndef OPENSSL_NO_SSL2
-  meth = SSLv2_client_method();
-  SSLeay_add_ssl_algorithms();
-  ctx = SSL_CTX_new(meth);
+  meth = KOSSL::self()->SSLv2_client_method();
+  ctx = KOSSL::self()->SSL_CTX_new(meth);
   if (ctx == NULL) return false;
 
-  ssl = SSL_new(ctx);
+  ssl = KOSSL::self()->SSL_new(ctx);
   if (!ssl) return false;
+  sk = KOSSL::self()->SSL_get_ciphers(ssl);
+  cnt = KOSSL::self()->sk_num(sk);
 
-  for (i=0; ; i++) {
+  for (i = 0; i < cnt; i++) {
     int j, k;
-    SSL_CONST SSL_CIPHER *sc;
-    sc = (meth->get_cipher)(i);
+    SSL_CIPHER *sc = reinterpret_cast<SSL_CIPHER*>(KOSSL::self()->sk_value(sk, i));
     if (!sc)
       break;
     // Leak of sc*?
-    TQString scn(sc->name);
+    TQString scn(KOSSL::self()->SSL_CIPHER_get_name(sc));
     if (scn.contains("ADH-") || scn.contains("NULL-") || scn.contains("DES-CBC3-SHA") || scn.contains("FZA-")) {
       continue;
     }
-    k = SSL_CIPHER_get_bits(sc, &j);
+    k = KOSSL::self()->SSL_CIPHER_get_bits(sc, &j);
 
-    item = new CipherItem( SSLv2Box, sc->name, k, j, this );
+    item = new CipherItem( SSLv2Box, scn, k, j, this );
   }
 
-  if (ctx) SSL_CTX_free(ctx);
-  if (ssl) SSL_free(ssl);
+  if (ctx) KOSSL::self()->SSL_CTX_free(ctx);
+  if (ssl) KOSSL::self()->SSL_free(ssl);
 #endif
 
 # ifndef OPENSSL_NO_SSL3_METHOD
   // We repeat for SSLv3
-  meth = SSLv3_client_method();
-  SSLeay_add_ssl_algorithms();
-  ctx = SSL_CTX_new(meth);
+  meth = KOSSL::self()->SSLv3_client_method();
+  ctx = KOSSL::self()->SSL_CTX_new(meth);
   if (ctx == NULL) return false;
 
-  ssl = SSL_new(ctx);
+  ssl = KOSSL::self()->SSL_new(ctx);
   if (!ssl) return false;
+  sk = KOSSL::self()->SSL_get_ciphers(ssl);
+  cnt = KOSSL::self()->sk_num(sk);
 
-  for (i=0; ; i++) {
+  for (i = 0; i < cnt; i++) {
     int j, k;
-    SSL_CONST SSL_CIPHER *sc;
-    sc = (meth->get_cipher)(i);
+    SSL_CIPHER *sc = reinterpret_cast<SSL_CIPHER*>(KOSSL::self()->sk_value(sk, i));
     if (!sc)
       break;
     // Leak of sc*?
-    TQString scn(sc->name);
+    TQString scn(KOSSL::self()->SSL_CIPHER_get_name(sc));
     if (scn.contains("ADH-") || scn.contains("NULL-") || scn.contains("DES-CBC3-SHA") || scn.contains("FZA-")) {
       continue;
     }
-    k = SSL_CIPHER_get_bits(sc, &j);
+    k = KOSSL::self()->SSL_CIPHER_get_bits(sc, &j);
 
-    item = new CipherItem( SSLv3Box, sc->name, k, j, this );
+    item = new CipherItem( SSLv3Box, scn, k, j, this );
   }
 
-  if (ctx) SSL_CTX_free(ctx);
-  if (ssl) SSL_free(ssl);
+  if (ctx) KOSSL::self()->SSL_CTX_free(ctx);
+  if (ssl) KOSSL::self()->SSL_free(ssl);
 #endif
 
 return true;
