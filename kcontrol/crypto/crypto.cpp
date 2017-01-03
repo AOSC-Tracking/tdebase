@@ -878,7 +878,7 @@ void KCryptoConfig::load( bool useDefaults )
 
   config->setGroup("SSLv2");
   mUseSSLv2->setChecked(config->readBoolEntry("Enabled", true));
-#ifdef OPENSSL_NO_SSL2
+#if OPENSSL_VERSION_NUMBER >= 0x10100000L || defined(OPENSSL_NO_SSL2)
   mUseSSLv2->setChecked(false);
   mUseSSLv2->setEnabled(false);
 #endif
@@ -933,7 +933,7 @@ void KCryptoConfig::load( bool useDefaults )
       item = static_cast<CipherItem *>(item->nextSibling());
   }
 
-#ifdef OPENSSL_NO_SSL2
+#if OPENSSL_VERSION_NUMBER >= 0x10100000L || defined(OPENSSL_NO_SSL2)
   SSLv2Box->setEnabled( false );
 #else
   SSLv2Box->setEnabled( mUseSSLv2->isChecked() );
@@ -1050,7 +1050,7 @@ void KCryptoConfig::save()
   config->writeEntry("Enabled", mUseTLS->isChecked());
 
   config->setGroup("SSLv2");
-#ifdef OPENSSL_NO_SSL2
+#if OPENSSL_VERSION_NUMBER >= 0x10100000L || defined(OPENSSL_NO_SSL2)
   config->writeEntry("Enabled", false);
 #else
   config->writeEntry("Enabled", mUseSSLv2->isChecked());
@@ -1293,7 +1293,7 @@ void KCryptoConfig::cwCompatible() {
   }
 
   mUseTLS->setChecked(true);
-#ifdef OPENSSL_NO_SSL2
+#if OPENSSL_VERSION_NUMBER >= 0x10100000L || defined(OPENSSL_NO_SSL2)
   mUseSSLv2->setChecked(false);
 #else
   mUseSSLv2->setChecked(true);
@@ -1354,7 +1354,7 @@ void KCryptoConfig::cwAll() {
   }
 
   mUseTLS->setChecked(true);
-#ifdef OPENSSL_NO_SSL2
+#if OPENSSL_VERSION_NUMBER >= 0x10100000L || defined(OPENSSL_NO_SSL2)
   mUseSSLv2->setChecked(false);
 #else
   mUseSSLv2->setChecked(true);
@@ -1884,13 +1884,14 @@ void KCryptoConfig::slotCAImport() {
 	    KOSSL::self()->X509_LOOKUP_load_file(certLookup,
 		                                 certFile.local8Bit(),
 						 X509_FILETYPE_PEM)) {
-		for (int i = 0; i < KOSSL::self()->sk_num(certStore->objs); i++) {
-			X509_OBJECT* x5o = reinterpret_cast<X509_OBJECT*>(KOSSL::self()->sk_value(certStore->objs, i));
+		STACK_OF(X509_OBJECT) *certStore_objs = KOSSL::self()->X509_STORE_get0_objects(certStore);
+		for (int i = 0; i < KOSSL::self()->OPENSSL_sk_num(certStore_objs); i++) {
+			X509_OBJECT* x5o = reinterpret_cast<X509_OBJECT*>(KOSSL::self()->OPENSSL_sk_value(certStore_objs, i));
 			if (!x5o) continue;
 
-			if (x5o->type != X509_LU_X509) continue;
+			if (KOSSL::self()->X509_OBJECT_get_type(x5o) != X509_LU_X509) continue;
 
-			X509 *x5 = x5o->data.x509;
+			X509 *x5 = KOSSL::self()->X509_OBJECT_get0_X509(x5o);
 			if (!x5) continue;
 
 			// Easier to use in this form
@@ -1954,7 +1955,7 @@ void KCryptoConfig::slotCAImport() {
 		qf.open(IO_ReadOnly);
 		qf.readLine(certtext, qf.size());
 
-		if (certStore) { KOSSL::self()->sk_free(certStore);
+		if (certStore) { KOSSL::self()->OPENSSL_sk_free(certStore);
 				certStore = NULL; }
 
 		if (certtext.contains("-----BEGIN CERTIFICATE-----")) {
@@ -2026,7 +2027,7 @@ void KCryptoConfig::slotCAImport() {
 	}
 
 
-	if (certStore) KOSSL::self()->sk_free(certStore);
+	if (certStore) KOSSL::self()->OPENSSL_sk_free(certStore);
 
 	configChanged();
 #endif
@@ -2362,7 +2363,7 @@ STACK_OF(SSL_CIPHER)* sk;
   SSLv3Box->clear();
   CipherItem *item;
 
-#ifndef OPENSSL_NO_SSL2
+#if OPENSSL_VERSION_NUMBER < 0x10100000L && !defined(OPENSSL_NO_SSL2)
   meth = KOSSL::self()->SSLv2_client_method();
   ctx = KOSSL::self()->SSL_CTX_new(meth);
   if (ctx == NULL) return false;
@@ -2370,11 +2371,11 @@ STACK_OF(SSL_CIPHER)* sk;
   ssl = KOSSL::self()->SSL_new(ctx);
   if (!ssl) return false;
   sk = KOSSL::self()->SSL_get_ciphers(ssl);
-  cnt = KOSSL::self()->sk_num(sk);
+  cnt = KOSSL::self()->OPENSSL_sk_num(sk);
 
   for (i = 0; i < cnt; i++) {
     int j, k;
-    SSL_CIPHER *sc = reinterpret_cast<SSL_CIPHER*>(KOSSL::self()->sk_value(sk, i));
+    SSL_CIPHER *sc = reinterpret_cast<SSL_CIPHER*>(KOSSL::self()->OPENSSL_sk_value(sk, i));
     if (!sc)
       break;
     // Leak of sc*?
@@ -2400,11 +2401,11 @@ STACK_OF(SSL_CIPHER)* sk;
   ssl = KOSSL::self()->SSL_new(ctx);
   if (!ssl) return false;
   sk = KOSSL::self()->SSL_get_ciphers(ssl);
-  cnt = KOSSL::self()->sk_num(sk);
+  cnt = KOSSL::self()->OPENSSL_sk_num(sk);
 
   for (i = 0; i < cnt; i++) {
     int j, k;
-    SSL_CIPHER *sc = reinterpret_cast<SSL_CIPHER*>(KOSSL::self()->sk_value(sk, i));
+    SSL_CIPHER *sc = reinterpret_cast<SSL_CIPHER*>(KOSSL::self()->OPENSSL_sk_value(sk, i));
     if (!sc)
       break;
     // Leak of sc*?
