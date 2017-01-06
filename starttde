@@ -731,7 +731,7 @@ fi
 #
 TDE_FULL_SESSION=true
 export TDE_FULL_SESSION
-xprop -root -f TDE_FULL_SESSION 8t -set TDE_FULL_SESSION true
+xprop -root -f TDE_FULL_SESSION 8s -set TDE_FULL_SESSION true
 echo "[starttde] TDE_FULL_SESSION: $TDE_FULL_SESSION" 1>&2
 TDE_SESSION_UID=`id -u`
 export TDE_SESSION_UID
