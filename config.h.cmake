@@ -3,6 +3,10 @@
 // Defined if you have fvisibility and fvisibility-inlines-hidden support.
 #cmakedefine __KDE_HAVE_GCC_VISIBILITY 1
 
+/* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
+   significant byte first (like Motorola and SPARC, unlike Intel). */
+#cmakedefine WORDS_BIGENDIAN @WORDS_BIGENDIAN@
+
 // Defined if compiler supports long long type.
 #cmakedefine HAVE_LONG_LONG 1
 
@@ -45,6 +49,13 @@
 
 // tdm, tdeioslave
 #cmakedefine HAVE_TERMIOS_H 1
+
+// drkonqi
+#cmakedefine HAVE_STDINT_H 1
+#cmakedefine HAVE_SYS_BITYPES_H
+
+// drkonqi, tdeioslave
+#cmakedefine HAVE_SYS_TYPES_H 1
 
 // tdeioslave/media
 #cmakedefine WITH_HAL 1

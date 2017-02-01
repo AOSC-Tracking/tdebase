@@ -14,6 +14,10 @@
 
 # required stuff
 tde_setup_architecture_flags( )
+
+include(TestBigEndian)
+test_big_endian(WORDS_BIGENDIAN)
+
 find_package( TQt )
 find_package( TDE )
 
@@ -31,15 +35,33 @@ if( NOT HAVE_LIBDL )
 endif( NOT HAVE_LIBDL )
 
 
+# stdint.h (drkonqi)
+if( BUILD_DRKONQI )
+  check_include_file( stdint.h HAVE_STDINT_H )
+endif( )
+
+
 # termios.h (tdm, tdeioslave)
 if( BUILD_TDM OR BUILD_TDEIOSLAVES )
   check_include_file( termios.h HAVE_TERMIOS_H )
 endif( )
 
 
+# sys/bitypes.h (drkonqi)
+if( BUILD_DRKONQI )
+  check_include_file( sys/bitypes.h HAVE_SYS_BITYPES_H )
+endif( )
+
+
 # sys/ioctl.h (tdeioslave/fish, kcontrol/info)
 if( BUILD_TDEIOSLAVES OR BUILD_KCONTROL )
   check_include_file( sys/ioctl.h HAVE_SYS_IOCTL_H )
+endif( )
+
+
+# sys/types.h (drkonqi, tdeioslave/smtp)
+if( BUILD_DRKONQI OR BUILD_TDEIOSLAVES )
+  check_include_file( sys/types.h HAVE_SYS_TYPES_H )
 endif( )
 
 
