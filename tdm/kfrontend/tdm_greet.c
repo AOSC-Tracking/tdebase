@@ -568,11 +568,16 @@ xkb_modifier_mask_work( XkbDescPtr xkb, const char *name )
 		return 0;
 	for (i = 0; i < XkbNumVirtualMods; i++) {
 		char *modStr = XGetAtomName( xkb->dpy, xkb->names->vmods[i] );
-		if (modStr != NULL && strcmp( name, modStr ) == 0) {
+		if( modStr == NULL ) {
+			continue;
+		}
+		if( strcmp( name, modStr ) == 0 ) {
 			unsigned int mask;
 			XkbVirtualModsToReal( xkb, 1 << i, &mask );
+			XFree(modStr);
 			return mask;
 		}
+		XFree(modStr);
 	}
 	return 0;
 }
