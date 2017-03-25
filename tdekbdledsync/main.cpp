@@ -467,11 +467,15 @@ int main() {
 				else {
 					dev = udev_monitor_receive_device(mon);
 					if (dev) {
+						int reload_keyboards = 0;
 						if (strcmp(udev_device_get_action(dev), "add") == 0) {
-							// Reload keyboards
-							break;
+							reload_keyboards = 1;
 						}
 						if (strcmp(udev_device_get_action(dev), "remove") == 0) {
+							reload_keyboards = 1;
+						}
+						udev_device_unref(dev);
+						if( reload_keyboards ) {
 							// Reload keyboards
 							break;
 						}
@@ -507,5 +511,7 @@ int main() {
 	}
 
 	releaseLock(lockfd, lockFileName);
+	udev_monitor_unref(mon);
+	udev_unref(udev);
 	return 0;
 }
