@@ -885,6 +885,10 @@ void KCryptoConfig::load( bool useDefaults )
 
   config->setGroup("SSLv3");
   mUseSSLv3->setChecked(config->readBoolEntry("Enabled", true));
+#if defined(OPENSSL_NO_SSL3)
+  mUseSSLv3->setChecked(false);
+  mUseSSLv3->setEnabled(false);
+#endif
 
   config->setGroup("Warnings");
   mWarnOnEnter->setChecked(config->readBoolEntry("OnEnter", false));
@@ -938,7 +942,11 @@ void KCryptoConfig::load( bool useDefaults )
 #else
   SSLv2Box->setEnabled( mUseSSLv2->isChecked() );
 #endif
+#if defined(OPENSSL_NO_SSL3)
+  SSLv3Box->setEnabled( false );
+#else
   SSLv3Box->setEnabled( mUseSSLv3->isChecked() );
+#endif
 
   TQStringList groups = policies->groupList();
 
@@ -1038,7 +1046,8 @@ void KCryptoConfig::load( bool useDefaults )
 void KCryptoConfig::save()
 {
 #ifdef HAVE_SSL
-  if (!mUseSSLv2->isChecked() &&
+  if (!mUseTLS->isChecked() &&
+      !mUseSSLv2->isChecked() &&
       !mUseSSLv3->isChecked())
     KMessageBox::information(this, i18n("If you do not select at least one"
                                        " SSL algorithm, either SSL will not"
@@ -1057,7 +1066,11 @@ void KCryptoConfig::save()
 #endif
 
   config->setGroup("SSLv3");
+#if defined(OPENSSL_NO_SSL3)
+  config->writeEntry("Enabled", false);
+#else
   config->writeEntry("Enabled", mUseSSLv3->isChecked());
+#endif
 
   config->setGroup("Warnings");
   config->writeEntry("OnEnter", mWarnOnEnter->isChecked());
@@ -1298,7 +1311,11 @@ void KCryptoConfig::cwCompatible() {
 #else
   mUseSSLv2->setChecked(true);
 #endif
+#if defined(OPENSSL_NO_SSL3)
+  mUseSSLv3->setChecked(false);
+#else
   mUseSSLv3->setChecked(true);
+#endif
   configChanged();
   #endif
 }
@@ -1359,7 +1376,11 @@ void KCryptoConfig::cwAll() {
 #else
   mUseSSLv2->setChecked(true);
 #endif
+#if defined(OPENSSL_NO_SSL3)
+  mUseSSLv3->setChecked(false);
+#else
   mUseSSLv3->setChecked(true);
+#endif
   configChanged();
   #endif
 }
