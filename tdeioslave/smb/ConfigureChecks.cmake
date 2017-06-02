@@ -18,7 +18,7 @@ endif( )
 
 if( HAVE_LIBSMBCLIENT_H )
   set( SMBCLIENT_LIBRARIES smbclient )
-  check_library_exists( ${SMBCLIENT_LIBRARIES} smbc_new_context "" HAVE_SMBCLIENT )
+  check_library_exists( ${SMBCLIENT_LIBRARIES} smbc_new_context "${SMBCLIENT_LIBRARY_DIRS}" HAVE_SMBCLIENT )
 endif( )
 
 if( NOT HAVE_LIBSMBCLIENT_H OR NOT HAVE_SMBCLIENT )

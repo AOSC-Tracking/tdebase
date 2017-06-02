@@ -21,6 +21,7 @@ include_directories(
 
 link_directories(
   ${TQT_LIBRARY_DIRS}
+  ${SMBCLIENT_LIBRARY_DIRS}
 )
 
 
