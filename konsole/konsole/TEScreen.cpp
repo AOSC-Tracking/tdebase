@@ -825,10 +825,22 @@ void TEScreen::scrollUp(int n)
 
 void TEScreen::scrollUp(int from, int n)
 {
-  if (n <= 0 || from + n > bmargin) return;
-  //FIXME: make sure `tmargin', `bmargin', `from', `n' is in bounds.
-  moveImage(loc(0,from),loc(0,from+n),loc(columns-1,bmargin));
-  clearImage(loc(0,bmargin-n+1),loc(columns-1,bmargin),' ');
+	if (n <= 0)
+	{
+		return;
+	}
+	if (from > bmargin)
+	{
+		return;
+	}
+	if ((from + n) > bmargin)
+	{
+		n = bmargin + 1 - from;
+	}
+
+	//FIXME: make sure `tmargin', `bmargin', `from', `n' is in bounds.
+	moveImage(loc(0, from), loc(0, from+n), loc(columns, bmargin));
+	clearImage(loc(0, bmargin-n+1), loc(columns-1, bmargin), ' ');
 }
 
 void TEScreen::scrollDown(int n)
