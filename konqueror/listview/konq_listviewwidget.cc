@@ -961,7 +961,7 @@ void KonqBaseListViewWidget::selectedItems( TQPtrList<KonqBaseListViewItem> *_li
 {
    iterator it = begin();
    for ( ; it != end(); it++ )
-      if ( it->isSelected() )
+      if ( it->isVisible() && it->isSelected() )
          _list->append( &*it );
 }
 
@@ -982,7 +982,7 @@ KFileItemList KonqBaseListViewWidget::selectedFileItems()
    KFileItemList list;
    iterator it = begin();
    for ( ; it != end(); it++ )
-      if ( it->isSelected() )
+      if ( it->isVisible() && it->isSelected() )
          list.append( it->item() );
    return list;
 }
@@ -993,7 +993,7 @@ KURL::List KonqBaseListViewWidget::selectedUrls( bool mostLocal )
    KURL::List list;
    iterator it = begin();
    for ( ; it != end(); it++ )
-      if ( it->isSelected() )
+      if ( it->isVisible() && it->isSelected() )
          list.append( mostLocal ? it->item()->mostLocalURL( dummy ) : it->item()->url() );
    return list;
 }
