@@ -389,17 +389,22 @@ void KonqListView::slotSelect()
 
    for (KonqBaseListViewWidget::iterator it = m_pListView->begin(); it != m_pListView->end(); it++ )
    {
-      if ((m_pListView->automaticSelection()) && (it->isSelected()))
-      {
+      if ((m_pListView->automaticSelection()) && (it->isSelected())) {
          it->setSelected(FALSE);
          //the following line is to prevent that more than one item were selected
          //and now get deselected and automaticSelection() was true, this shouldn't happen
          //but who knows, aleXXX
          m_pListView->deactivateAutomaticSelection();
-      };
-      if ( re.exactMatch( it->text(0) ) )
-         it->setSelected( TRUE);
-   };
+      }
+      if ( it->isVisible() ) {
+         if ( re.exactMatch( it->text(0) ) ) {
+            it->setSelected(TRUE);
+         }
+      }
+      else {
+         it->setSelected(FALSE);
+      }
+   }
    m_pListView->blockSignals( false );
    m_pListView->deactivateAutomaticSelection();
    emit m_pListView->selectionChanged();
@@ -418,9 +423,16 @@ void KonqListView::slotUnselect()
 
    m_pListView->blockSignals(TRUE);
 
-   for (KonqBaseListViewWidget::iterator it = m_pListView->begin(); it != m_pListView->end(); it++ )
-      if ( re.exactMatch( it->text(0) ) )
+   for (KonqBaseListViewWidget::iterator it = m_pListView->begin(); it != m_pListView->end(); it++ ) {
+      if ( it->isVisible() ) {
+         if ( re.exactMatch( it->text(0) ) ) {
+            it->setSelected(FALSE);
+         }
+      }
+      else {
          it->setSelected(FALSE);
+      }
+   }
 
    m_pListView->blockSignals(FALSE);
    m_pListView->deactivateAutomaticSelection();

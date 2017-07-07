@@ -555,10 +555,15 @@ void KonqKfmIconView::slotSelect()
         m_pIconView->blockSignals( true );
 
         TQIconViewItem *it = m_pIconView->firstItem();
-        while ( it )
-        {
-            if ( re.exactMatch( it->text() ) )
-                it->setSelected( true, true );
+        while ( it ) {
+            if ( it->isVisible() ) {
+                if ( re.exactMatch( it->text() ) ) {
+                    it->setSelected( true, true );
+                }
+            }
+            else {
+                    it->setSelected( false, true );
+            }
             it = it->nextItem();
         }
 
@@ -582,10 +587,15 @@ void KonqKfmIconView::slotUnselect()
         m_pIconView->blockSignals( true );
 
         TQIconViewItem *it = m_pIconView->firstItem();
-        while ( it )
-        {
-            if ( re.exactMatch( it->text() ) )
-                it->setSelected( false, true );
+        while ( it ) {
+            if ( it->isVisible() ) {
+                if ( re.exactMatch( it->text() ) ) {
+                    it->setSelected( false, true );
+                }
+            }
+            else {
+                    it->setSelected( false, true );
+            }
             it = it->nextItem();
         }
 
