@@ -902,7 +902,7 @@ KFileItemList KonqIconViewWidget::selectedFileItems()
 
     TQIconViewItem *it = firstItem();
     for (; it; it = it->nextItem() )
-        if ( it->isSelected() ) {
+        if ( it->isVisible() && it->isSelected() ) {
             KFileItem *fItem = (static_cast<KFileIVI *>(it))->item();
             lstItems.append( fItem );
         }
@@ -969,7 +969,7 @@ KonqIconDrag * KonqIconViewWidget::konqDragObject( TQWidget * dragSource )
     TQIconViewItem *primaryItem = currentItem();
     // Append all items to the drag object
     for ( TQIconViewItem *it = firstItem(); it; it = it->nextItem() ) {
-        if ( it->isSelected() ) {
+        if ( it->isVisible() && it->isSelected() ) {
           if (!primaryItem)
              primaryItem = it;
           KFileItem* fileItem = (static_cast<KFileIVI *>(it))->item();
@@ -1094,7 +1094,7 @@ void KonqIconViewWidget::slotSelectionChanged()
 
     for ( TQIconViewItem *it = firstItem(); it; it = it->nextItem() )
     {
-        if ( it->isSelected() )
+        if ( it->isVisible() && it->isSelected() )
         {
             iCount++;
             canCopy++;
@@ -1136,7 +1136,7 @@ void KonqIconViewWidget::renameSelectedItem()
     TQIconViewItem * item = 0L;
     TQIconViewItem *it = firstItem();
     for (; it; it = it->nextItem() )
-        if ( it->isSelected() && !item )
+        if ( it->isVisible() && it->isSelected() && !item )
         {
             item = it;
             break;
@@ -1184,7 +1184,7 @@ KURL::List KonqIconViewWidget::selectedUrls( UrlFlags flags ) const
     KURL::List lstURLs;
     bool dummy;
     for ( TQIconViewItem *it = firstItem(); it; it = it->nextItem() )
-        if ( it->isSelected() ) {
+        if ( it->isVisible() && it->isSelected() ) {
             KFileItem* item = (static_cast<KFileIVI *>( it ))->item();
             lstURLs.append( flags == MostLocalUrls ? item->mostLocalURL( dummy ) : item->url() );
         }
