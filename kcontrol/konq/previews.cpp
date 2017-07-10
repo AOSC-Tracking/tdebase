@@ -126,8 +126,8 @@ KPreviewOptions::KPreviewOptions( TQWidget *parent, const char */*name*/ )
 
     m_maxSize = new KDoubleNumInput( this );
     m_maxSize->setSuffix( i18n(" MB") );
-    m_maxSize->setRange( 0.02, 10, 0.02, true );
     m_maxSize->setPrecision( 1 );
+    m_maxSize->setRange( 0.2, 100, 0.2, true );
     label->setBuddy( m_maxSize );
     lay->addWidget( m_maxSize );
     connect( m_maxSize, TQT_SIGNAL( valueChanged(double) ), TQT_SLOT( changed() ) );
