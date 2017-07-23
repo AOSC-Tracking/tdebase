@@ -509,7 +509,7 @@ bool Client::isModalSystemNotification() const
     int format, result;
     unsigned long n, left;
     result = XGetWindowProperty(tqt_xdisplay(), window(), atoms->net_wm_system_modal_notification, 0L, 1L, False, XA_CARDINAL, &actual, &format, &n, &left, /*(unsigned char **)*/ &data);
-    if (result == Success && data != None && format == 32 )
+    if (result == Success && data && format == 32 )
         {
         return TRUE;
         }
@@ -2975,7 +2975,7 @@ bool Client::getWindowOpacity() //query translucency settings from X, returns tr
     int format, result;
     unsigned long n, left;
     result = XGetWindowProperty(tqt_xdisplay(), window(), atoms->net_wm_window_opacity, 0L, 1L, False, XA_CARDINAL, &actual, &format, &n, &left, /*(unsigned char **)*/ &data);
-    if (result == Success && data != None && format == 32 )
+    if (result == Success && data && format == 32 )
         {
         opacity_ = *reinterpret_cast< long* >( data );
         custom_opacity = true;
