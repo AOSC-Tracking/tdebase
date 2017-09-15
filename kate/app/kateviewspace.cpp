@@ -110,15 +110,16 @@ void KateViewSpace::addView(Kate::View* v, bool show)
   if ( !m_group.isEmpty() )
   {
     TQString fn = v->getDoc()->url().prettyURL();
-    if ( ! fn.isEmpty() )
+    if (!fn.isEmpty())
     {
       TQString vgroup = TQString("%1 %2").arg(m_group).arg(fn);
 
-      KateSession::Ptr as = KateSessionManager::self()->activeSession ();
-      if ( as->configRead() && as->configRead()->hasGroup( vgroup ) )
+      const KateSession *as = KateSessionManager::self()->getActiveSession();
+      TDEConfig *asCfg = as->getConfig();
+      if (asCfg && asCfg->hasGroup(vgroup))
       {
-        as->configRead()->setGroup( vgroup );
-        v->readSessionConfig ( as->configRead() );
+        asCfg->setGroup(vgroup);
+        v->readSessionConfig(asCfg);
       }
     }
   }

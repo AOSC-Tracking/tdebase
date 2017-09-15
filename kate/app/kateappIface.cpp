@@ -23,6 +23,8 @@
 #include "katedocmanager.h"
 #include "katemainwindow.h"
 
+// FIXME: review Kate's DCOP interface for session management when the new session code is ready
+
 KateAppDCOPIface::KateAppDCOPIface (KateApp *app) : DCOPObject ("KateApplication")
      , m_app (app)
 {
@@ -89,16 +91,15 @@ bool KateAppDCOPIface::openInput (TQString text)
   return m_app->openInput (text);
 }
 
-bool KateAppDCOPIface::activateSession (TQString session)
+bool KateAppDCOPIface::activateSession(TQString session)
 {
-  m_app->sessionManager()->activateSession (m_app->sessionManager()->giveSession (session));
-
+  m_app->sessionManager()->activateSession(m_app->sessionManager()->getSessionIdFromName(session));
   return true;
 }
 
-const TQString & KateAppDCOPIface::session() const
+const TQString& KateAppDCOPIface::session() const
 {
-  return m_app->sessionManager()->activeSession()->sessionName();
+  return m_app->sessionManager()->getActiveSessionName();
 }
 
 // kate: space-indent on; indent-width 2; replace-tabs on;

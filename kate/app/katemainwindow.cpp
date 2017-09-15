@@ -31,6 +31,7 @@
 #include "kateapp.h"
 #include "katefileselector.h"
 #include "katefilelist.h"
+#include "katesessionpanel.h"
 #include "kategrepdialog.h"
 #include "katemailfilesdialog.h"
 #include "katemainwindowiface.h"
@@ -217,6 +218,9 @@ void KateMainWindow::setupMainWindow ()
   fileselector = new KateFileSelector( this, m_viewManager, t, "operator");
   connect(fileselector->dirOperator(),TQT_SIGNAL(fileSelected(const KFileItem*)),this,TQT_SLOT(fileSelected(const KFileItem*)));
 
+  KateMDI::ToolView *st = createToolView("kate_sessionpanel", KMultiTabBar::Left, SmallIcon("view_choose"), i18n("Sessions"));
+  m_sessionpanel = new KateSessionPanel( this, m_viewManager, st, "sessionpanel");
+
   // ONLY ALLOW SHELL ACCESS IF ALLOWED ;)
   if (KateApp::self()->authorize("shell_access"))
   {
@@ -302,14 +306,29 @@ void KateMainWindow::setupActions()
   slotWindowActivated ();
 
   // session actions
-  new TDEAction(i18n("Menu entry Session->New", "&New"), "document-new", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionNew()), actionCollection(), "sessions_new");
-  new TDEAction(i18n("&Open..."), "document-open", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionOpen()), actionCollection(), "sessions_open");
-  new TDEAction(i18n("&Save"), "document-save", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionSave()), actionCollection(), "sessions_save");
-  new TDEAction(i18n("Save &As..."), "document-save-as", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionSaveAs()), actionCollection(), "sessions_save_as");
-  new TDEAction(i18n("&Manage..."), "view_choose", 0, TQT_TQOBJECT(KateSessionManager::self()), TQT_SLOT(sessionManage()), actionCollection(), "sessions_manage");
+  new TDEAction(i18n("&New"), "list-add", 0, 
+      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotNewSession()), actionCollection(), "session_new");
+  new TDEAction(i18n("&Save"), "document-save", 0, 
+      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSaveSession()), actionCollection(), "session_save");
+  new TDEAction(i18n("Save &As..."), "document-save-as", 0, 
+      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSaveSessionAs()), actionCollection(), "session_save_as");
+  new TDEAction(i18n("&Rename"), "edit_user", 0,
+      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotRenameSession()), actionCollection(), "session_rename");
+  new TDEAction(i18n("&Delete"), "edit-delete", 0,
+      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotDeleteSession()), actionCollection(), "session_delete");
+  new TDEAction(i18n("Re&load"), "reload", 0,
+      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotReloadSession()), actionCollection(), "session_reload");
+  new TDEAction(i18n("Acti&vate"), "forward", 0,
+      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotActivateSession()), actionCollection(), "session_activate");
+  new TDEToggleAction(i18n("Toggle read &only"), "encrypted", 0,
+      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSessionToggleReadOnly()), actionCollection(), "session_toggle_read_only");
+  new TDEAction(i18n("Move &Up"), "go-up", 0,
+      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSessionMoveUp()), actionCollection(), "session_move_up");
+  new TDEAction(i18n("Move Do&wn"), "go-down", 0,
+      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSessionMoveDown()), actionCollection(), "session_move_down");
+  new KateSessionListActionMenu(this, i18n("Sele&ct session"), actionCollection(), "session_list");
 
-  // quick open menu ;)
-  new KateSessionsAction (i18n("&Quick Open"), actionCollection(), "sessions_list");
+  connect(m_sessionpanel, TQT_SIGNAL(selectionChanged()), TQT_TQOBJECT(this), TQT_SLOT(slotSelectionChanged()));
 }
 
 KateTabWidget *KateMainWindow::tabWidget ()
@@ -323,9 +342,9 @@ void KateMainWindow::slotDocumentCloseAll() {
 }
 
 bool KateMainWindow::queryClose_internal() {
-   uint documentCount=KateDocManager::self()->documents();
+  uint documentCount=KateDocManager::self()->documents();
 
-  if ( ! showModOnDiskPrompt() )
+  if ( !showModOnDiskPrompt() )
     return false;
 
   TQPtrList<Kate::Document> modifiedDocuments=KateDocManager::self()->modifiedDocumentList();
@@ -354,23 +373,22 @@ bool KateMainWindow::queryClose()
   // just test, not close them actually
   if (KateApp::self()->sessionSaving())
   {
-    return queryClose_internal ();
+    return queryClose_internal();
   }
 
   // normal closing of window
   // allow to close all windows until the last without restrictions
-  if ( KateApp::self()->mainWindows () > 1 )
-    return true;
-
-  // last one: check if we can close all documents, try run
-  // and save docs if we really close down !
-  if ( queryClose_internal () )
+  if (KateApp::self()->mainWindows() > 1)
   {
-    KateApp::self()->sessionManager()->saveActiveSession(true, true);
+    return true;
+  }
 
+  // last one: check if we can close all documents and sessions, try run
+  // and save docs if we really close down !
+  if (queryClose_internal() && KateApp::self()->query_session_close())
+  {
     // detach the dcopClient
     KateApp::self()->dcopClient()->detach();
-
     return true;
   }
 
@@ -397,7 +415,7 @@ void KateMainWindow::slotNewToolbarConfig()
 
 void KateMainWindow::slotFileQuit()
 {
-  KateApp::self()->shutdownKate (this);
+  KateApp::self()->shutdownKate(this);  
 }
 
 void KateMainWindow::readOptions ()
@@ -434,7 +452,7 @@ void KateMainWindow::saveOptions ()
   config->writeEntry("Show Full Path in Title", m_viewManager->getShowFullPath());
   config->writeEntry("Sync Konsole", syncKonsole);
   config->writeEntry("UseInstance", useInstance);
-  
+
   fileOpenRecent->saveEntries(config, "Recent Files");
   fileselector->writeConfig(config, "fileselector");
   filelist->writeConfig(config, "Filelist");
@@ -482,7 +500,7 @@ void KateMainWindow::documentMenuAboutToShow()
   TQListViewItem * item = filelist->firstChild();
   while( item ) {
     // would it be saner to use the screen width as a limit that some random number??
-    TQString name = KStringHandler::rsqueeze( ((KateFileListItem *)item)->document()->docName(), 150 ); 
+    TQString name = KStringHandler::rsqueeze( ((KateFileListItem *)item)->document()->docName(), 150 );
     Kate::Document* doc = ((KateFileListItem *)item)->document();
     documentMenu->insertItem (
           doc->isModified() ? i18n("'document name [*]', [*] means modified", "%1 [*]").arg(name) : name,
@@ -568,6 +586,9 @@ void KateMainWindow::slotConfigure()
   dlg->exec();
 
   delete dlg;
+  
+  // Inform Kate that options may have been changed
+  KateApp::self()->reparse_config();
 }
 
 KURL KateMainWindow::activeDocumentUrl()
@@ -820,7 +841,7 @@ void KateMainWindow::updateCaption (Kate::Document *doc)
     c = m_viewManager->activeView()->getDoc()->url().prettyURL();
   }
 
-  TQString sessName = KateApp::self()->sessionManager()->activeSession()->sessionName();
+  TQString sessName = KateApp::self()->sessionManager()->getActiveSessionName();
   if ( !sessName.isEmpty() )
     sessName = TQString("%1: ").arg( sessName );
 
@@ -849,12 +870,68 @@ void KateMainWindow::readProperties(TDEConfig *config)
   config->setGroup(grp);
 }
 
-void KateMainWindow::saveGlobalProperties( TDEConfig* sessionConfig )
+//-------------------------------------------
+void KateMainWindow::slotSelectionChanged()
 {
-  KateDocManager::self()->saveDocumentList (sessionConfig);
+  TDEActionCollection *mwac = actionCollection();  // Main Window Action Collection
+  TDEActionPtrList actionList = m_sessionpanel->m_actionCollection->actions();
+  TDEActionPtrList::ConstIterator spa_it;
+  for (spa_it = actionList.begin(); spa_it != actionList.end(); ++spa_it)
+  {
+    TDEAction *a = mwac->action((*spa_it)->name());
+    TDEToggleAction *ta = dynamic_cast<TDEToggleAction*>(a);
+    if (ta)
+    {
+      ta->setChecked((dynamic_cast<TDEToggleAction*>(*spa_it))->isChecked());
+    }
+    if (a)
+    {
+      a->setEnabled((*spa_it)->isEnabled());
+    }  
+  }              
+}
 
-  sessionConfig->setGroup("General");
-  sessionConfig->writeEntry ("Last Session", KateApp::self()->sessionManager()->activeSession()->sessionFileRelative());
+//-------------------------------------------
+void KateMainWindow::activateSession(int sessionId)
+{
+  if (sessionId < 0 || sessionId == KateApp::self()->sessionManager()->getActiveSessionId())
+  {
+    return;
+  }
+  
+  // Select the required session in the session panel's listview
+  TQListViewItem *item = m_sessionpanel->m_listview->firstChild();
+  int idx = 0;
+  while (item && idx < sessionId)
+  {
+    item = item->nextSibling();
+    ++idx;
+  }
+  if (idx == sessionId && item)
+  {
+    // Required session item found, switch session with consistent behavior
+    m_sessionpanel->m_listview->setSelected(item, true);
+    m_sessionpanel->slotActivateSession();
+  }
+}
+
+//-------------------------------------------
+KateSessionListActionMenu::KateSessionListActionMenu(KateMainWindow *mw, const TQString &text, TQObject *parent, const char *name)
+  : TDEActionMenu(text, parent, name), m_mainWindow(mw)
+{
+  connect(popupMenu(), TQT_SIGNAL(aboutToShow()), this, TQT_SLOT(slotAboutToShow()));
+}
+
+//-------------------------------------------
+void KateSessionListActionMenu::slotAboutToShow()
+{
+  popupMenu()->clear();
+
+  TQPtrList<KateSession> &sessions = KateApp::self()->sessionManager()->getSessionsList();
+  for (int idx = 0;  idx < (int)sessions.count();  ++idx)
+  {
+    popupMenu()->insertItem(sessions[idx]->getSessionName(), m_mainWindow, TQT_SLOT(activateSession(int)), 0, idx);
+  }
 }
 
 // kate: space-indent on; indent-width 2; replace-tabs on;

@@ -75,13 +75,15 @@ KateApp::KateApp (TDECmdLineArgs *args)
   m_pluginManager = new KatePluginManager (TQT_TQOBJECT(this));
 
   // session manager up
-  m_sessionManager = new KateSessionManager (TQT_TQOBJECT(this));
+  m_sessionManager = KateSessionManager::self();
 
   // application dcop interface
   m_obj = new KateAppDCOPIface (this);
 
   kdDebug()<<"Setting KATE_PID: '"<<getpid()<<"'"<<endl;
   ::setenv( "KATE_PID", TQString(TQString("%1").arg(getpid())).latin1(), 1 );
+
+  connect(this, TQT_SIGNAL(aboutToQuit()), this, TQT_SLOT(slotAboutToQuit()));
 
   // handle restore different
   if (isRestored())
@@ -105,14 +107,10 @@ KateApp::KateApp (TDECmdLineArgs *args)
 
 KateApp::~KateApp ()
 {
-  // cu dcop interface
-  delete m_obj;
-
-  // cu plugin manager
-  delete m_pluginManager;
-
-  // delete this now, or we crash
-  delete m_docManager;
+  delete m_obj;            // cu dcop interface
+  delete m_pluginManager;  // cu plugin manager
+  delete m_sessionManager; // delete session manager
+  delete m_docManager;     // delete document manager. Do this now, or we crash
 }
 
 KateApp *KateApp::self ()
@@ -139,25 +137,22 @@ TQString KateApp::kateVersion (bool fullVersion)
   return fullVersion ? TQString ("2.5.%1").arg(KDE::versionMajor()) : TQString ("%1.%2").arg(2.5);
 }
 
-void KateApp::restoreKate ()
+void KateApp::restoreKate()
 {
   // restore the nice files ;) we need it
-  Kate::Document::setOpenErrorDialogsActivated (false);
+  Kate::Document::setOpenErrorDialogsActivated(false);
 
-  // activate again correct session!!!
-  sessionConfig()->setGroup("General");
-  TQString lastSession (sessionConfig()->readEntry ("Last Session", "default.katesession"));
-  sessionManager()->activateSession (new KateSession (sessionManager(), lastSession, ""), false, false, false);
+  // restore last session
+  sessionManager()->restoreLastSession();
+  m_docManager->restoreDocumentList(sessionConfig());
 
-  m_docManager->restoreDocumentList (sessionConfig());
-
-  Kate::Document::setOpenErrorDialogsActivated (true);
+  Kate::Document::setOpenErrorDialogsActivated(true);
 
   // restore all windows ;)
   for (int n=1; TDEMainWindow::canBeRestored(n); n++)
     newMainWindow(sessionConfig(), TQString ("%1").arg(n));
 
-  // oh, no mainwindow, create one, should not happen, but make sure ;)
+  // no mainwindow, create one, should not happen, but make sure ;)
   if (mainWindows() == 0)
     newMainWindow ();
 
@@ -165,21 +160,60 @@ void KateApp::restoreKate ()
   // TDEStartupInfo::setNewStartupId( activeMainWindow(), startupId());
 }
 
-bool KateApp::startupKate ()
+bool KateApp::startupKate()
 {
-  // user specified session to open
-  if (m_args->isSet ("start"))
+  if (m_args->isSet("start"))
   {
-    sessionManager()->activateSession (sessionManager()->giveSession (TQString::fromLocal8Bit(m_args->getOption("start"))), false, false);
+    // the user has specified the session to open. If the session does not exist,
+    // a new session with the specified name will be created
+    TQCString sessName = m_args->getOption("start");
+    int sessId = sessionManager()->getSessionIdFromName(sessName);
+    if (sessId != KateSessionManager::INVALID_SESSION)
+    {
+      sessionManager()->activateSession(sessId);
+    }
+    else
+    {
+      sessionManager()->newSession(sessName);
+    }
   }
   else
   {
-    // let the user choose session if possible
-    if (!sessionManager()->chooseSession ())
+    // check Kate session startup options
+    int startupOption = sessionManager()->getStartupOption();
+    if (startupOption == KateSessionManager::STARTUP_NEW)
     {
-      // we will exit kate now, notify the rest of the world we are done
-      TDEStartupInfo::appStarted (startupId());
-      return false;
+      sessionManager()->newSession();
+    }
+    else if (startupOption == KateSessionManager::STARTUP_LAST)
+    {
+      sessionManager()->restoreLastSession();
+    }
+    else // startupOption == KateSessionManager::STARTUP_MANUAL
+    {
+      KateSessionChooser *chooser = new KateSessionChooser(NULL);
+      int result = chooser->exec();
+      switch (result)
+      {
+        case KateSessionChooser::RESULT_OPEN_NEW:
+          sessionManager()->newSession();
+          break;
+
+        case KateSessionChooser::RESULT_OPEN_EXISTING:
+          if (!m_sessionManager->activateSession(chooser->getSelectedSessionId()))
+          {
+            // Open a new session in case of error
+            sessionManager()->newSession();
+          }
+          break;
+
+        default: // KateSessionChooser::RESULT_QUIT_KATE:
+          // Kate will exit now and notify it is done
+          TDEStartupInfo::appStarted(startupId());
+          return false;
+          break;
+      }
+      delete chooser;
     }
   }
 
@@ -267,12 +301,10 @@ bool KateApp::startupKate ()
   return true;
 }
 
-void KateApp::shutdownKate (KateMainWindow *win)
+void KateApp::shutdownKate(KateMainWindow *win)
 {
-  if (!win->queryClose_internal())
+  if (!win->queryClose_internal() || !query_session_close())
     return;
-
-  sessionManager()->saveActiveSession(true, true);
 
   // detach the dcopClient
   dcopClient()->detach();
@@ -282,6 +314,60 @@ void KateApp::shutdownKate (KateMainWindow *win)
     delete m_mainWindows[0];
 
   quit ();
+}
+
+bool KateApp::query_session_close()
+{
+  bool saveSessions = false;
+  int switchOption = m_sessionManager->getSwitchOption();
+  if (switchOption == KateSessionManager::SWITCH_SAVE)
+  {
+    saveSessions = true;
+  }
+  else if (switchOption == KateSessionManager::SWITCH_ASK)
+  {
+    KDialogBase *dlg = new KDialogBase(i18n("Save Sessions"),
+            KDialogBase::Yes | KDialogBase::No | KDialogBase::Cancel,
+            KDialogBase::Cancel, KDialogBase::Cancel, NULL, NULL, true, false,
+            KStdGuiItem::save(), KStdGuiItem::del(), KStdGuiItem::cancel());
+    bool dontAgain = false;
+    int res = KMessageBox::createKMessageBox(dlg, TQMessageBox::Warning,
+                    i18n("<p>Do you want to save the existing sessions?<p>!!NOTE!!"
+                         "<p>All existing sessions will be removed "
+                         "if you choose \"Delete\""), TQStringList(),
+                    i18n("Do not ask again"), &dontAgain, KMessageBox::Notify);
+    if (res == KDialogBase::Cancel)
+    {
+      return false;
+    }
+    if (dontAgain)
+    {
+      if (res == KDialogBase::No)
+      {
+        m_sessionManager->setSwitchOption(KateSessionManager::SWITCH_DISCARD);
+      }
+      else
+      {
+        m_sessionManager->setSwitchOption(KateSessionManager::SWITCH_SAVE);
+      }
+    }
+    if (res == KDialogBase::Yes)
+    {
+      saveSessions = true;
+    }
+  }
+  
+  if (saveSessions)
+  {    
+    m_sessionManager->saveActiveSession();
+  }
+  m_sessionManager->saveConfig(saveSessions);
+  return true;
+}
+
+void KateApp::reparse_config()
+{
+  emit optionsChanged();
 }
 
 KatePluginManager *KateApp::pluginManager()
@@ -294,7 +380,7 @@ KateDocManager *KateApp::documentManager ()
   return m_docManager;
 }
 
-KateSessionManager *KateApp::sessionManager ()
+KateSessionManager* KateApp::sessionManager()
 {
   return m_sessionManager;
 }

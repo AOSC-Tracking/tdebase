@@ -10,7 +10,7 @@ libkateinterfaces_la_SOURCES = kateapp.cpp kateconfigdialog.cpp kateconfigplugin
   katemailfilesdialog.cpp kbookmarkhandler.cpp \
   katedocmanageriface.skel kateappIface.cpp kateappIface.skel katedocmanageriface.cpp \
   kateexternaltools.cpp katesavemodifieddialog.cpp kateviewspacecontainer.cpp \
-  katemwmodonhddialog.cpp katesession.cpp katemdi.cpp katetabwidget.cpp
+  katemwmodonhddialog.cpp katesession.cpp katesessionpanel.cpp katemdi.cpp katetabwidget.cpp
 
 libkateinterfaces_la_LIBADD   = ../interfaces/libkateinterfacesprivate.la $(LIB_TDEUTILS) ../utils/libkateutils.la
 

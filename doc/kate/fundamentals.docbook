@@ -156,11 +156,10 @@ Shows license information.
 <option>-s</option> <option>--start</option> <parameter>name</parameter></userinput></term>
 <listitem>
 <para>
-Starts kate with the session <parameter>name</parameter>. The session is created
-if it does not exist already. If a &kate; instance running the specified session
-exists, the specified files are loaded in that instance. When used with the
-<option>--use</option> option, an instance running this session will be used as
-well.
+Starts &kate; with the session <parameter>name</parameter>. If the session does not exist,
+a new session with the specified name is created.
+If a &kate; instance running the specified session already exists, the specified files are
+loaded in that instance.
 </para>
 </listitem>
 </varlistentry>
@@ -170,7 +169,7 @@ well.
 <option>-u</option> <option>--use</option> <parameter>URL</parameter></userinput></term>
 <listitem>
 <para>
-Causes &kate; to use and existing instance if there is one. If you want all
+Causes &kate; to use an existing instance if there is one. If you want all
 documents to open in one kate instance, you can add this option to the default
 command in your &tde; application configuration, as well as create a shell alias
 in your command intepreter if it supports that.
@@ -307,7 +306,7 @@ flexibility.  In this section we'll look at three items:
 </term>
 <listitem>
 <para>
-Toggles the Documents on and off. If the Documents/Filesystem Browser side bar 
+Toggles the Documents on and off. If the Documents/Filesystem Browser side bar
 window is not open, &kate; will open the side bar window.</para>
 
 </listitem>

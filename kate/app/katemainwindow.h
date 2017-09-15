@@ -68,7 +68,6 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
   /**
    * Accessor methodes for interface and child objects
    */
-  public:
     Kate::MainWindow *mainWindow () { return m_mainWindow; }
     Kate::ToolViewManager *toolViewManager () { return m_toolViewManager; }
 
@@ -79,7 +78,6 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
   /**
    * various methodes to get some little info out of this
    */
-  public:
     /** Returns the URL of the current document.
      * anders: I add this for use from the file selector. */
     KURL activeDocumentUrl();
@@ -101,13 +99,26 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
      */
     KateTabWidget *tabWidget ();
 
-  public:
     void readProperties(TDEConfig *config);
     void saveProperties(TDEConfig *config);
-    void saveGlobalProperties( TDEConfig* sessionConfig );
 
-  public:
     bool queryClose_internal();
+
+    void openURL (const TQString &name=0L);
+  
+  public slots:
+    /**
+     * update "Sessions" menu status when selection in session panel has changed
+     */
+    void slotSelectionChanged();
+    
+    /**
+     * activate the specified session. When there is the need to activate a session
+     * from the outside (for example from DCOP), using this method assures that 
+     * the session activation is consistent with the behavior of the session panel
+     * @param sessionId the id of the session to activate
+     */
+    void activateSession(int sessionId);
 
   private:
     void setupMainWindow();
@@ -127,11 +138,11 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
     void dragEnterEvent( TQDragEnterEvent * );
     void dropEvent( TQDropEvent * );
 
+  private slots:
   /**
    * slots used for actions in the menus/toolbars
    * or internal signal connections
    */
-  private slots:
     void newWindow ();
 
     void slotConfigure();
@@ -163,17 +174,11 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
     void pluginHelp();
     void slotFullScreen(bool);
 
-  public:
-    void openURL (const TQString &name=0L);
-
-  private slots:
     void updateGrepDir (bool visible);
-
+    void slotDocumentCloseAll();
+  
   protected:
     bool event( TQEvent * );
-
-  private slots:
-    void slotDocumentCloseAll();
 
   private:
     static uint uniqueID;
@@ -198,6 +203,7 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
 
     KateFileList *filelist;
     KateFileSelector *fileselector;
+    KateSessionPanel *m_sessionpanel;
 
     TDEActionMenu* documentOpenWith;
 
@@ -211,6 +217,21 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
     bool m_modignore, m_grrr;
 
     KateTabWidget *m_tabWidget;
+};
+
+class KateSessionListActionMenu : public TDEActionMenu
+{
+  Q_OBJECT
+
+  public:
+    KateSessionListActionMenu(KateMainWindow *mw, const TQString &text, TQObject *parent = NULL, const char *name = NULL);
+   ~KateSessionListActionMenu() {}
+
+  public slots:
+    void slotAboutToShow();
+    
+  protected:
+    KateMainWindow *m_mainWindow;
 };
 
 #endif
