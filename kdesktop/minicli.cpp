@@ -294,7 +294,8 @@ void Minicli::clearHistory()
 void Minicli::accept()
 {
   TQString cmd = m_dlg->cbCommand->currentText().stripWhiteSpace();
-  if (!cmd.isEmpty() && (cmd[0].isNumber() || (cmd[0] == '(')) &&
+  if (!cmd.isEmpty() && (cmd[0].isNumber() || (cmd[0] == '(') ||
+      ((cmd[0] == '-') && cmd[1].isNumber())) &&
       (TQRegExp("[a-zA-Z\\]\\[]").search(cmd) == -1))
   {
      TQString result = calculate(cmd);
@@ -1082,7 +1083,7 @@ TQString Minicli::calculate(const TQString &exp)
    {
        { // scope for QTextStream
            TQTextStream ts(fs, IO_ReadOnly);
-           result = ts.read().stripWhiteSpace();
+           result = ts.read().stripWhiteSpace().replace( TQRegExp( "^(-?)(\\.[0-9])" ), "\\10\\2" );
        }
        pclose(fs);
    }
