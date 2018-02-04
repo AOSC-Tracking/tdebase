@@ -81,7 +81,8 @@ TEScreen::TEScreen(int l, int c)
     ef_fg(cacol()), ef_bg(cacol()), ef_re(0),
     sa_cuX(0), sa_cuY(0),
     sa_cu_re(0), sa_cu_fg(cacol()), sa_cu_bg(cacol()),
-    lastPos(-1)
+    lastPos(-1),
+    lastDrawnChar(0)
 {
   /*
     this->lines   = lines;
@@ -298,6 +299,26 @@ void TEScreen::insertChars(int n)
   int q = TQMAX(0,TQMIN(cuX+n,columns-1));
   moveImage(loc(q,cuY),loc(cuX,cuY),loc(p,cuY));
   clearImage(loc(cuX,cuY),loc(q-1,cuY),' ');
+}
+
+void TEScreen::repeatChars(int n)
+{
+    if (n == 0)
+    {
+        n = 1; // Default
+    }
+
+    // From ECMA-48 version 5, section 8.3.103:
+    // "If the character preceding REP is a control function or part of a
+    // control function, the effect of REP is not defined by this Standard."
+    //
+    // So, a "normal" program should always use REP immediately after a visible
+    // character (those other than escape sequences). So, lastDrawnChar can be
+    // safely used.
+    for (int i = 0; i < n; i++)
+    {
+        ShowCharacter(lastDrawnChar);
+    }
 }
 
 /*! delete `n' lines starting from (including) the cursor position.
@@ -761,6 +782,8 @@ void TEScreen::ShowCharacter(unsigned short c)
   image[i].r = ef_re;
   
   lastPos = i;
+
+  lastDrawnChar = c;
 
   cuX += w--;
 

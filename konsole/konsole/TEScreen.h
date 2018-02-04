@@ -83,6 +83,7 @@ public: // these are all `Screen' operations
     void eraseChars  (int n);
     void deleteChars (int n);
     void insertChars (int n);
+    void repeatChars (int n);
     void deleteLines (int n);
     void insertLines (int n);
     //
@@ -270,6 +271,9 @@ private: // helper
     
     // last position where we added a character
     int lastPos;
+
+    // used in REP (repeating char)
+    unsigned short lastDrawnChar;
 
     // modes
 

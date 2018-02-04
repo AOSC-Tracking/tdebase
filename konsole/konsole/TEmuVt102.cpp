@@ -267,7 +267,7 @@ void TEmuVt102::initTokenizer()
   for(i =  0;                      i < 256; i++) tbl[ i]  = 0;
   for(i =  0;                      i <  32; i++) tbl[ i] |= CTL;
   for(i = 32;                      i < 256; i++) tbl[ i] |= CHR;
-  for(s = (UINT8*)"@ABCDGHILMPSTXZcdfry"; *s; s++) tbl[*s] |= CPN;
+  for(s = (UINT8*)"@ABCDGHILMPSTXZbcdfry"; *s; s++) tbl[*s] |= CPN;
 // resize = \e[8;<row>;<col>t
   for(s = (UINT8*)"t"; *s; s++) tbl[*s] |= CPS;
   for(s = (UINT8*)"0123456789"        ; *s; s++) tbl[*s] |= DIG;
@@ -631,6 +631,7 @@ switch( N )
     case TY_CSI_PN('T'      ) : scr->scrollDown           (p         ); break;
     case TY_CSI_PN('X'      ) : scr->eraseChars           (p         ); break;
     case TY_CSI_PN('Z'      ) : scr->backTabulate         (p         ); break;
+    case TY_CSI_PN('b'      ) : scr->repeatChars          (p         ); break;
     case TY_CSI_PN('c'      ) :      reportTerminalType   (          ); break; //VT100
     case TY_CSI_PN('d'      ) : scr->setCursorY           (p         ); break; //LINUX
     case TY_CSI_PN('f'      ) : scr->setCursorYX          (p,       q); break; //VT100
