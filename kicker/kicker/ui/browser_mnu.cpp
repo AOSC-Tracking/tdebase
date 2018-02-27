@@ -513,10 +513,6 @@ void PanelBrowserMenu::slotMimeCheck()
 
 void PanelBrowserMenu::slotClear()
 {
-    // no need to watch any further
-    if (_dirWatch.contains(path()))
-        _dirWatch.removeDir( path() );
-
     // don't change menu if already visible
     if (isVisible()) {
         _dirty = true;
