@@ -683,10 +683,8 @@ bool TrashImpl::isEmpty() const
 void TrashImpl::fileAdded()
 {
     m_config.setGroup( "Status" );
-    if ( m_config.readBoolEntry( "Empty", true ) == true ) {
-        m_config.writeEntry( "Empty", false );
-        m_config.sync();
-    }
+    m_config.writeEntry( "Empty", false );
+    m_config.sync();
     // The apps showing the trash (e.g. kdesktop) will be notified
     // of this change when KDirNotify::FilesAdded("trash:/") is emitted,
     // which will be done by the job soon after this.
