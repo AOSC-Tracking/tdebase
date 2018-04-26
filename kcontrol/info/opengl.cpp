@@ -651,7 +651,7 @@ static bool GetInfo_OpenGL_Generic( TQListView *lBox )
 	 l2 = get_gl_info(dpy, scrnum, true, l1, l2);
 	 if (l2) l2->setOpen(true);
 
-	 if (IsDirect) l2 = get_gl_info(dpy, scrnum, false, l1, l2);
+	 if (IsDirect) l2 = get_gl_info(dpy, scrnum, true, l1, l2);
 
 //   TODO      print_visual_info(dpy, scrnum, mode);
       }
