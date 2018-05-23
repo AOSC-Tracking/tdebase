@@ -609,8 +609,7 @@ void KonqSidebarTree::scanDir( KonqSidebarTreeItem *parent, const TQString &path
             // Version 4 includes lan.desktop and floppy.desktop, Alex
             // Version 5 includes the audiocd browser
             // Version 6 includes the printmanager and lan browser
-            // Version 7 includes TDE specific changes to network places
-            const int currentVersion = 7;
+            const int currentVersion = 6;
             TQString key = TQString::fromLatin1("X-TDE-DirTreeVersionNumber");
             KSimpleConfig versionCfg( path + "/.directory" );
             int versionNumber = versionCfg.readNumEntry( key, 1 );
