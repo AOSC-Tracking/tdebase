@@ -3,7 +3,7 @@
 # A script to perform R14.0.0 XDG compliance updates.
 
 SCRIPT_NAME="`basename \`readlink -f $0\``"
-SCRIPT_VERSION=201412270
+SCRIPT_VERSION=201805230
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -947,6 +947,26 @@ if [ "$R14_VERSION" -lt "201412270" ]; then
   fi
 fi
 
+# Rename/remove old link files in Konqueror sidebar network panel. 
+# Updated links will be installed when the user open the panel from Konqueror
+if [ "$R14_VERSION" -lt "201805230" ]; then
+  if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop" ]; then
+    Log "  kde_ftp.desktop->tde_ftp.desktop"
+    mv "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop" \
+       "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/tde_ftp.desktop" 2>/dev/null
+  fi
+  if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop" ]; then
+    Log "  kde_web.desktop->tde_web.desktop"
+    mv "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop" \
+       "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/tde_web.desktop" 2>/dev/null
+  fi
+  if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/look_web.desktop" ]; then
+    Log "  Remove look_web.desktop"
+    rm "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/look_web.desktop" 2>/dev/null
+  fi
+fi
+
+
 # Perform some nominal update validations.
 # First clean house from any previous failures.
 if [ "$CACHE_DIR" = "" ]; then
@@ -1117,6 +1137,10 @@ unset R14_UPDATE_TEST3
 unset R14_UPDATE_TEST4
 unset R14_UPDATE_TEST5
 unset R14_UPDATE_TEST6
+unset R14_UPDATE_TEST7
+unset R14_UPDATE_TEST8
+unset R14_UPDATE_TEST9
+unset R14_UPDATE_TEST10
 unset KDEGLOBALS_KEY_VALUE
 unset TEST_NUM
 unset SCRIPT_NAME

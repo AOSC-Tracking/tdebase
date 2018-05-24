@@ -599,28 +599,26 @@ void KonqSidebarTree::scanDir( KonqSidebarTreeItem *parent, const TQString &path
 
     if ( isRoot )
     {
-        bool copyConfig = ( entries.count() == 0 && dirEntries.count() == 0 );
-        if (!copyConfig)
-        {
-            // Check version number
-            // Version 1 was the dirtree of KDE 2.0.x (no versioning at that time, so default)
-            // Version 2 includes the history
-            // Version 3 includes the bookmarks
-            // Version 4 includes lan.desktop and floppy.desktop, Alex
-            // Version 5 includes the audiocd browser
-            // Version 6 includes the printmanager and lan browser
-            const int currentVersion = 6;
-            TQString key = TQString::fromLatin1("X-TDE-DirTreeVersionNumber");
-            KSimpleConfig versionCfg( path + "/.directory" );
-            int versionNumber = versionCfg.readNumEntry( key, 1 );
-            kdDebug(1201) << "KonqSidebarTree::scanDir found version " << versionNumber << endl;
-            if ( versionNumber < currentVersion )
-            {
-                versionCfg.writeEntry( key, currentVersion );
-                versionCfg.sync();
-                copyConfig = true;
-            }
-        }
+        bool copyConfig = false;
+				// Check version number
+				// Version 1 was the dirtree of KDE 2.0.x (no versioning at that time, so default)				
+				// Version 2 includes the history
+				// Version 3 includes the bookmarks
+				// Version 4 includes lan.desktop and floppy.desktop, Alex
+				// Version 5 includes the audiocd browser
+				// Version 6 includes the printmanager and lan browser
+				// Version 7 includes update of network places
+				const int currentVersion = 7;
+				TQString key = TQString::fromLatin1("X-TDE-DirTreeVersionNumber");
+				KSimpleConfig versionCfg( path + "/.directory" );
+				int versionNumber = versionCfg.readNumEntry( key, 0 );
+				kdDebug(1201) << "KonqSidebarTree::scanDir found version " << versionNumber << endl;
+				if ( versionNumber < currentVersion )
+				{
+						versionCfg.writeEntry( key, currentVersion );
+						versionCfg.sync();
+						copyConfig = true;
+				}
         if (copyConfig)
         {
             // We will copy over the configuration for the dirtree, from the global directory
@@ -655,8 +653,7 @@ void KonqSidebarTree::scanDir( KonqSidebarTreeItem *parent, const TQString &path
         	        for (; eIt != eEnd; ++eIt )
                 	{
 	                    //kdDebug(1201) << "KonqSidebarTree::scanDir dirtree_dir contains " << *eIt << endl;
-        	            if ( *eIt != "." && *eIt != ".."
-                	         && !entries.contains( *eIt ) && !dirEntries.contains( *eIt ) )
+        	            if ( *eIt != "." && *eIt != "..")
 	                    { // we don't have that one yet -> copy it.
                 	        TQString cp("cp -R -- ");
         	                cp += TDEProcess::quote(dirtree_dir + *eIt);
