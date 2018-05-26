@@ -3,7 +3,7 @@
 # A script to perform R14.0.0 XDG compliance updates.
 
 SCRIPT_NAME="`basename \`readlink -f $0\``"
-SCRIPT_VERSION=201805230
+SCRIPT_VERSION=201805260
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -949,16 +949,26 @@ fi
 
 # Rename/remove old link files in Konqueror sidebar network panel. 
 # Updated links will be installed when the user open the panel from Konqueror
-if [ "$R14_VERSION" -lt "201805230" ]; then
+if [ "$R14_VERSION" -lt "201805260" ]; then
   if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop" ]; then
-    Log "  kde_ftp.desktop->tde_ftp.desktop"
-    mv "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop" \
-       "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/tde_ftp.desktop" 2>/dev/null
+    if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/tde_ftp.desktop" ]; then
+      Log "  Remove kde_ftp.desktop"
+      rm "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop"
+    else
+      Log "  kde_ftp.desktop->tde_ftp.desktop"
+      mv "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop" \
+         "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/tde_ftp.desktop" 2>/dev/null
+    fi
   fi
   if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop" ]; then
-    Log "  kde_web.desktop->tde_web.desktop"
-    mv "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop" \
-       "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/tde_web.desktop" 2>/dev/null
+    if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/tde_web.desktop" ]; then
+      Log "  Remove kde_web.desktop"
+      rm "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop"
+    else
+      Log "  kde_web.desktop->tde_web.desktop"
+      mv "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop" \
+         "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/tde_web.desktop" 2>/dev/null
+    fi
   fi
   if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/look_web.desktop" ]; then
     Log "  Remove look_web.desktop"
