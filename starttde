@@ -177,7 +177,7 @@ if [ "$TDEROOTHOME" = "" ]; then
 fi
 
 # Modify the following environment variables only as necessary.
-if [ -d $TDEDIR/games ]; then
+
   if ! is_in_path PATH "$TDEDIR/games" ; then
     # Respect the traditional path order. Don't blindly place $TDEDIR/games
     # first in the path. Only place $TDEDIR/games before /usr/games. If packagers
@@ -191,8 +191,7 @@ if [ -d $TDEDIR/games ]; then
       export PATH=$TDEDIR/games:$PATH
     fi
   fi
-fi
-if [ -d $TDEDIR/bin ]; then
+
   if ! is_in_path PATH "$TDEDIR/bin" ]; then
     # Respect the traditional path order. Don't blindly place $TDEDIR/bin
     # first in the path. Only place $TDEDIR/bin before /usr/bin. This order is
@@ -206,8 +205,7 @@ if [ -d $TDEDIR/bin ]; then
       export PATH=$TDEDIR/bin:$PATH
     fi
   fi
-fi
-if [ -d $TDEDIR/share/man ]; then
+
   if [ -x /usr/bin/manpath ]; then
     if [ "`manpath 2>/dev/null | grep \"$TDEDIR/share/man\"`" = "" ]; then
       export MANPATH=$TDEDIR/share/man:$MANPATH
@@ -217,7 +215,7 @@ if [ -d $TDEDIR/share/man ]; then
       export MANPATH=$TDEDIR/share/man:$MANPATH
     fi
   fi
-fi
+
 
 if [ "$XDG_CONFIG_DIRS" = "" ]; then
   if [ -d /etc/xdg ]; then
