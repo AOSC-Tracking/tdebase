@@ -580,6 +580,7 @@ bool LockProcess::defaultSave()
             TQTimer::singleShot(mLockGrace, this, TQT_SLOT(startLock()));
         return true;
     }
+    mOverrideHackStartupEnabled = false;
     return false;
 }
 
@@ -709,6 +710,7 @@ bool LockProcess::runSecureDialog()
 		return true;
 	}
 	else {
+		mInSecureDialog = false;
 		return false;
 	}
 }
