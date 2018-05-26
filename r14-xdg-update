@@ -953,7 +953,7 @@ if [ "$R14_VERSION" -lt "201805260" ]; then
   if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop" ]; then
     if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/tde_ftp.desktop" ]; then
       Log "  Remove kde_ftp.desktop"
-      rm "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop"
+      rm "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop" 2>/dev/null
     else
       Log "  kde_ftp.desktop->tde_ftp.desktop"
       mv "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/ftp/kde_ftp.desktop" \
@@ -963,7 +963,7 @@ if [ "$R14_VERSION" -lt "201805260" ]; then
   if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop" ]; then
     if [ -f "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/tde_web.desktop" ]; then
       Log "  Remove kde_web.desktop"
-      rm "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop"
+      rm "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop" 2>/dev/null
     else
       Log "  kde_web.desktop->tde_web.desktop"
       mv "$PROFILE_DIR/share/apps/konqsidebartng/virtual_folders/remote/web/kde_web.desktop" \
