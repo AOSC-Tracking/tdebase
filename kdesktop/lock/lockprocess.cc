@@ -596,6 +596,7 @@ bool LockProcess::defaultSave()
 		}
 		return true;
 	}
+	mOverrideHackStartupEnabled = false;
 	return false;
 }
 
@@ -725,6 +726,7 @@ bool LockProcess::runSecureDialog()
 		return true;
 	}
 	else {
+		mInSecureDialog = false;
 		return false;
 	}
 }
