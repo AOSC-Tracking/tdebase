@@ -75,7 +75,7 @@
                         <string>Get new themes...</string>
                     </property>
                     <property name="url" stdset="0">
-                        <string>http://themes.kde.org</string>
+                        <string>https://www.trinity-look.org/</string>
                     </property>
                     <property name="tipText">
                         <string>Go to the TDE themes website</string>
