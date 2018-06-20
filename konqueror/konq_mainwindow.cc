@@ -17,12 +17,6 @@
    along with this program; see the file COPYING.  If not, write to
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
-
-    --------------------------------------------------------------
-    Additional changes:
-    - 2013/10/17 Michele Calgaro
-      * add support for updating tab options at runtime (no need to restart Konqueror
-        or reload the profile
 */
 
 #include "konq_mainwindow.h"

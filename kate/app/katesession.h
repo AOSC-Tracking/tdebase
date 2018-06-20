@@ -1,6 +1,4 @@
 /* This file is part of the KDE project
-   Copyright (C) 2015-2016 Michele Calgaro <micheleDOTcalgaro__AT__yahooDOTit>
-   partially based on previous work from
    Copyright (C) 2005 Christoph Cullmann <cullmann@kde.org>
 
    This library is free software; you can redistribute it and/or

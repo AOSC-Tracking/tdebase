@@ -17,14 +17,6 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
     02110-1301  USA.
-
-    --------------------------------------------------------------
-    Additional changes:
-    - 2013/10/14 Michele Calgaro
-      add "scroll tabs on mouse wheel event" functionality
-    - 2013/10/19 Michele Calgaro
-      add "move session left/right" to tab popup menu
-
 */
 /* The material contained in here more or less directly orginates from    */
 /* kvt, which is copyright (c) 1996 by Matthias Ettrich <ettrich@kde.org> */

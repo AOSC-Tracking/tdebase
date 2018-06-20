@@ -20,11 +20,6 @@ AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 *****************************************************************
-
-    Additional changes:
-    - 2013/10/22 Michele Calgaro
-      * added support for display mode (Icons and Text, Text only, Icons only)
-        and removed "Show application icons"
 */
 
 #ifndef __taskbar_h__

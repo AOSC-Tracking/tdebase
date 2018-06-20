@@ -1,5 +1,5 @@
-/* This file is part of the TDE project
-   Copyright (C) 2016 Michele Calgaro <michele__DOT__calgaro__AT__yahoo__DOT__it
+/*
+   This file is part of the TDE project
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public

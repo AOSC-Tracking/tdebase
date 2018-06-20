@@ -17,13 +17,6 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
     MA  02110-1301, USA.
-
-    --------------------------------------------------------------
-    Additional changes:
-    - 2013/10/16 Michele Calgaro
-      add "scroll tabs on mouse wheel event" functionality
-    - 2013/10/18 Michele Calgaro
-      correctly enable/disable 'move tab left/right' in the tab popup menu
 */
 
 #include "konq_tabs.h"
