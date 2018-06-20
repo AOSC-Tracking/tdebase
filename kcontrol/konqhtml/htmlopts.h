@@ -5,9 +5,6 @@
 // (c) Sven Radej 1998
 // (c) David Faure 1998
 //
-// --------------------------------------------------------------
-// - 2013/10/16 Michele Calgaro
-//   Move some options to the 'advancedTabDialog' dialog
 
 #ifndef __KMISCHTML_OPTIONS_H
 #define __KMISCHTML_OPTIONS_H

@@ -5,9 +5,6 @@
 // (c) David Faure 1998
 // (c) 2001 Waldo Bastian <bastian@kde.org>
 //
-// --------------------------------------------------------------
-// - 2013/10/16 Michele Calgaro
-//   Move some options to the 'advancedTabDialog' dialog
 
 #include <tqlayout.h>//CT - 12Nov1998
 #include <tqwhatsthis.h>
