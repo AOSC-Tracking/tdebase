@@ -872,7 +872,11 @@ void LockProcess::createSaverWindow()
 				info = glXGetVisualFromFBConfig(x11Display(), fbc[j]);
 				if( info ) {
 					if (argb_visual) {
-						if (info->depth < 32) {
+						// Xorg can only use GPU compositing for ARGB32 8:8:8:8 visuals
+						// Ensure the selected visual is 8 bits per RGB
+						// Selecting a non-8-bit visual will result in stuttering and high
+						// CPU load, while Xorg tries to composite each frame on the CPU!
+						if ((info->depth < 32) || (info->bits_per_rgb != 8)) {
 							XFree( info );
 							info = NULL;
 							continue;
