@@ -161,8 +161,10 @@ void NotifierSettings::resetAutoAction( const TQString &mimetype )
 	if ( m_autoMimetypesMap.contains( mimetype ) )
 	{
 		NotifierAction *action = m_autoMimetypesMap[mimetype];
-		action->removeAutoMimetype( mimetype );
-		m_autoMimetypesMap.remove(mimetype);
+		if ( action ) {
+			action->removeAutoMimetype( mimetype );
+		}
+		m_autoMimetypesMap[mimetype] = 0L;
 	}
 }
 
