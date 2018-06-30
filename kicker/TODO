@@ -97,7 +97,7 @@ Unnasigned
       A popup menu should appear on drop like in Konqueror and KMail.
       Dropping on buttons like QuickBrowsers, the Home icon, etc should
       behave consistently and like dropping to a file manager window.
-      There are many DnD reports on bugs.kde.org which can provide
+      There are many DnD reports on bugs.trinitydesktop.org which can provide
       further inspiration.
 
 ++++  Systray icon layout

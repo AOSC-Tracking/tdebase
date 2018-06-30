@@ -3,7 +3,7 @@ Mailing list and bugzilla:
 
 The KWin mailing list is twin@kde.org . It's rather low traffic.
 
-The bugs.kde.org product for KWin is 'twin'. Currently the components are 'general' (KWin core),
+The bugs.trinitydesktop.org product for KWin is 'twin'. Currently the components are 'general' (KWin core),
 'decorations' (decoration plugins), 'compatibility' (problems with non-TDE WMs/apps) and
 'eyecandy' (transparency and similar effects).
 There are also two kcontrol components 'kcmtwindecoration' and 'kcmtwinoptions' related
