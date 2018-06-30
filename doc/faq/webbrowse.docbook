@@ -20,7 +20,7 @@ and the Explorer comes the Conqueror.</para>
 <qandaentry>
 <question><para>Can I run &konqueror; without running &tde;?</para></question>
 <answer><para>Yes. Install &Qt;, tdelibs, and tdebase. From your window manager launch &konqueror;. It should work just fine, but if it doesn't (&tde; developers don't often test that use case), report the problem to <ulink
-url="http://bugs.pearsoncomputing.net/">http://bugs.pearsoncomputing.net/</ulink>. Before reporting a bug, try running "tdeinit" before running &konqueror;. This is of course the same for any other &tde; application running in
+url="http://bugs.trinitydesktop.org/">http://bugs.pearsoncomputing.net/</ulink>. Before reporting a bug, try running "tdeinit" before running &konqueror;. This is of course the same for any other &tde; application running in
 a non &tde; setup.</para>
 </answer>
 </qandaentry>

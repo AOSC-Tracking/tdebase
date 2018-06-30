@@ -77,6 +77,6 @@ Name[xh]=TDE Uphendlo Lwenani Legciwane Isiseko se data Segciwane
 Name[zh_CN]=TDE 错误数据库按错误编号搜索
 Name[zh_TW]=TDE 臭蟲資料庫按錯誤編號搜索
 Name[zu]=Usesho lwe-TDE lwenombolo yegciwane lwesiqu sedata segciwane
-Query=http://bugs.pearsoncomputing.net/show_bug.cgi?id=\\{@}
+Query=http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
