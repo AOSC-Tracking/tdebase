@@ -29,7 +29,7 @@ manager?</para></question>
 <answer><para>Just install &Qt;, tdelibs and tdebase, and from your favorite
 window manager, launch &konqueror;. It should work just fine, but if it
 doesn't (&tde; developers don't test that case often), report it to <ulink
-url="http://bugs.trinitydesktop.org">http://bugs.kde.org</ulink> and try running
+url="http://bugs.trinitydesktop.org">http://bugs.trinitydesktop.org</ulink> and try running
 <application>tdeinit</application> before running &konqueror;; it usually
 helps.</para></answer>
 </qandaentry>
