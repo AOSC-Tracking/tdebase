@@ -148,13 +148,9 @@ void KateApp::restoreKate()
 
   Kate::Document::setOpenErrorDialogsActivated(true);
 
-  // restore all windows ;)
-  for (int n=1; TDEMainWindow::canBeRestored(n); n++)
-    newMainWindow(sessionConfig(), TQString ("%1").arg(n));
-
   // no mainwindow, create one, should not happen, but make sure ;)
   if (mainWindows() == 0)
-    newMainWindow ();
+    newMainWindow();
 
   // Do not notify about start there: this makes kicker crazy and kate go to a wrong desktop.
   // TDEStartupInfo::setNewStartupId( activeMainWindow(), startupId());
@@ -313,7 +309,7 @@ void KateApp::shutdownKate(KateMainWindow *win)
   while (!m_mainWindows.isEmpty())
     delete m_mainWindows[0];
 
-  quit ();
+  quit();
 }
 
 bool KateApp::query_session_close()
