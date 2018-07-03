@@ -29,8 +29,7 @@ install( FILES tdm.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 
 ##### kcm_tdm (module) ##########################
 
-set_source_files_properties( background.cpp PROPERTIES COMPILE_FLAGS -DKDE_CONFDIR=\\"${TDE_CONFIG_DIR}\\" )
-set_source_files_properties( main.cpp PROPERTIES COMPILE_FLAGS -DKDE_CONFDIR=\\"${TDE_CONFIG_DIR}\\" )
+set_property( SOURCE background.cpp main.cpp APPEND PROPERTY COMPILE_DEFINITIONS KDE_CONFDIR="${TDE_CONFIG_DIR}" )
 
 tde_add_kpart( kcm_tdm AUTOMOC
   SOURCES
