@@ -745,18 +745,6 @@ if test $? -ne 0; then
 fi
 echo "[starttde] tdeinit started successfully." 1>&2
 
-# If the session should be locked from the start (locked autologin),
-# lock now and do the rest of the TDE startup underneath the locker.
-# FIXME
-# kdesktop needs to be notified of this locker process somehow so that
-# it does not attempt to launch its own locker process on startup!
-if test -n "$dl"; then
-  $TDEDIR/bin/kwrapper kdesktop_lock --forcelock &
-  # Give it some time for starting up. This is somewhat unclean; some
-  # notification would be better.
-  sleep 1
-fi
-
 # Finally, give the session control to the session manager.
 # See tdebase/ksmserver for the description of the rest of the startup sequence.
 # When set, the TDEWM environment variable will be used as Trinity's

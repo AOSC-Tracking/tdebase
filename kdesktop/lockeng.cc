@@ -10,6 +10,7 @@
 #include <config.h>
 
 #include <stdlib.h>
+#include <sys/stat.h>
 
 #include <ksslcertificate.h>
 
@@ -19,6 +20,7 @@
 #include <kstandarddirs.h>
 #include <tdeapplication.h>
 #include <kservicegroup.h>
+#include <ksimpleconfig.h>
 #include <kdebug.h>
 #include <kuser.h>
 #include <tdelocale.h>
@@ -164,6 +166,30 @@ SaverEngine::SaverEngine()
 	sigaddset(&mThreadBlockSet, SIGUSR2);
 	sigaddset(&mThreadBlockSet, SIGTTIN);
 	pthread_sigmask(SIG_BLOCK, &mThreadBlockSet, NULL);
+
+	// Wait for the saver process to signal ready...
+	if (!waitForLockProcessStart()) {
+		kdDebug( 1204 ) << "Failed to initialize kdesktop_lock (unexpected termination)!" << endl;
+	}
+
+	// lock the desktop if required
+	KSimpleConfig *config;
+  struct stat st;
+  if (stat( KDE_CONFDIR "/tdm/tdmdistrc" , &st) == 0) {
+    config = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
+  }
+  else {
+    config = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
+  }
+  config->setGroup("X-:0-Core");
+  bool autoLoginEnable = config->readBoolEntry("AutoLoginEnable", false);
+  bool autoLoginLocked = config->readBoolEntry("AutoLoginLocked", false);
+  if (autoLoginEnable && autoLoginLocked) {
+		mLockProcess.kill(SIGTTOU);
+		mLockProcess.kill(SIGUSR1);
+	}
+	delete config;
+	config = NULL;
 
 	// Initialize SmartCard readers
 	TDEGenericDevice *hwdevice;
