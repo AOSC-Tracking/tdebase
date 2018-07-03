@@ -31,7 +31,7 @@ install( FILES displayconfig.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 
 ##### kcm_displayconfig (module) ####################
 
-set_source_files_properties( displayconfig.cpp PROPERTIES COMPILE_FLAGS -DKDE_CONFDIR=\\"${TDE_CONFIG_DIR}\\" )
+set_property( SOURCE displayconfig.cpp APPEND PROPERTY COMPILE_DEFINITIONS KDE_CONFDIR="${TDE_CONFIG_DIR}" )
 
 tde_add_kpart( kcm_displayconfig AUTOMOC
   SOURCES

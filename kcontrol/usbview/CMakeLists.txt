@@ -26,7 +26,7 @@ link_directories(
 install( FILES kcmusb.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 
 if( WITH_USBIDS )
-  set_source_files_properties( usbdb.cpp PROPERTIES COMPILE_FLAGS -DUSBIDS_FILE=\\"${WITH_USBIDS}\\" )
+  set_property( SOURCE usbdb.cpp APPEND PROPERTY COMPILE_DEFINITIONS USBIDS_FILE="${WITH_USBIDS}" )
 else( )
   install( FILES usb.ids DESTINATION ${DATA_INSTALL_DIR} )
 endif( )

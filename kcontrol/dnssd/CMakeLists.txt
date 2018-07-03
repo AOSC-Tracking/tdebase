@@ -27,7 +27,7 @@ install( FILES kcm_tdednssd.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 
 ##### kcm_tdednssd (module) #######################
 
-set_source_files_properties( kcmdnssd.cpp PROPERTIES COMPILE_FLAGS -DKDE_CONFDIR=\\"${TDE_CONFIG_DIR}\\" )
+set_property( SOURCE kcmdnssd.cpp APPEND PROPERTY COMPILE_DEFINITIONS KDE_CONFDIR="${TDE_CONFIG_DIR}" )
 
 tde_add_kpart( kcm_tdednssd AUTOMOC
   SOURCES configdialog.ui kcmdnssd.cpp

@@ -28,7 +28,7 @@ install( FILES iccconfig.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 
 ##### kcm_iccconfig (module) ####################
 
-set_source_files_properties( iccconfig.cpp PROPERTIES COMPILE_FLAGS -DKDE_CONFDIR=\\"${TDE_CONFIG_DIR}\\" )
+set_property( SOURCE iccconfig.cpp APPEND PROPERTY COMPILE_DEFINITIONS KDE_CONFDIR="${TDE_CONFIG_DIR}" )
 
 tde_add_kpart( kcm_iccconfig AUTOMOC
   SOURCES

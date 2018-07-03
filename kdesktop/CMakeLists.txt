@@ -81,8 +81,7 @@ tde_add_executable( kxdglauncher
 ##### kdesktop (tdeinit) ########################
 
 set( target kdesktop )
-set_source_files_properties( lockeng.cc PROPERTIES COMPILE_FLAGS -DKDE_CONFDIR=\\"${TDE_CONFIG_DIR}\\" )
-
+set_property( SOURCE lockeng.cc APPEND PROPERTY COMPILE_DEFINITIONS KDE_CONFDIR="${TDE_CONFIG_DIR}" )
 
 set( ${target}_SRCS
   main.cc krootwm.cc xautolock.cc kdiconview.cc init.cc
