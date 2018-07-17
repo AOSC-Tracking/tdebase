@@ -30,3 +30,5 @@ kded_mediamanager_la_LIBADD = $(LIB_TDESYCOCA) ../libmediacommon/libmediacommon.
 servicesdir = $(kde_servicesdir)/kded
 services_DATA = mediamanager.desktop
 
+autostart_DATA = mediabackend.desktop
+
