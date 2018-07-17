@@ -29,6 +29,7 @@ link_directories(
 ##### other data ################################
 
 install( FILES mediamanager.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
+install( FILES mediabackend.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
 
 
 ##### kded_mediamanager (module) ################
