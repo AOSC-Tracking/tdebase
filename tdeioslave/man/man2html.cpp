@@ -656,7 +656,7 @@ static void fill_old_character_definitions( void )
     for (size_t i = 0; i < sizeof(standardchar)/sizeof(CSTRDEF); i++)
     {
         const int nr = standardchar[i].nr;
-        const char temp[3] = { nr / 256, nr % 256, 0 };
+        const char temp[3] = { (char)(nr / 256), (char)(nr % 256), 0 };
         TQCString name( temp );
         s_characterDefinitionMap.insert( name, StringDefinition( standardchar[i].slen, standardchar[i].st ) );
     }
@@ -3713,7 +3713,7 @@ static char *scan_request(char *c)
                 }
                 case REQ_Fo: // mdoc(7) "Function definition Opening"
                 {
-                    char* font[2] = { "B", "R" };
+                    const char* font[2] = { "B", "R" };
                     c+=j;
                     if (*c=='\n') c++;
                     char *eol=strchr(c,'\n');
@@ -3748,7 +3748,7 @@ static char *scan_request(char *c)
                     // .Fc has no parameter
                     c+=j;
                     c=skip_till_newline(c);
-                    char* font[2] = { "B", "R" };
+                    const char* font[2] = { "B", "R" };
                     out_html(set_font(font[i&1]));
                     out_html(")");
                     out_html(set_font("R"));
@@ -3764,7 +3764,7 @@ static char *scan_request(char *c)
                 }
                 case REQ_Fa: // mdoc(7) "Function definition argument"
                 {
-                    char* font[2] = { "B", "R" };
+                    const char* font[2] = { "B", "R" };
                     c+=j;
                     if (*c=='\n') c++;
                     sl=fill_words(c, wordlist, &words, true, &c);

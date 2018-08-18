@@ -1670,7 +1670,7 @@ TQString HALBackend::unmount(const TQString &_udi)
     if (dbus_error_is_set(&error))
     {
         dbus_error_free(&error);
-        return false;
+        return TQString();
     }
 
     if (!(dmesg = dbus_message_new_method_call ("org.freedesktop.Hal", udi.latin1(),

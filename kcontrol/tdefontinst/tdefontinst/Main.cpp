@@ -69,22 +69,22 @@ static const char * getFile(const char *entry, const char **posibilities)
 
 static const char * constXConfigFiles[]=
 {   
-    "/etc/X11/"KFI_XORGCFG,
-    "/etc/X11/"KFI_XORGCFG"-4",
-    "/etc/"KFI_XORGCFG,
-    "/usr/X11R6/etc/X11/"KFI_XORGCFG,
-    "/usr/X11R6/etc/X11/"KFI_XORGCFG"-4",
-    "/usr/X11R6/lib/X11/"KFI_XORGCFG,
-    "/usr/X11R6/lib/X11/"KFI_XORGCFG"-4",
+    "/etc/X11/" KFI_XORGCFG,
+    "/etc/X11/" KFI_XORGCFG "-4",
+    "/etc/" KFI_XORGCFG,
+    "/usr/X11R6/etc/X11/" KFI_XORGCFG,
+    "/usr/X11R6/etc/X11/" KFI_XORGCFG "-4",
+    "/usr/X11R6/lib/X11/" KFI_XORGCFG,
+    "/usr/X11R6/lib/X11/" KFI_XORGCFG "-4",
 
-    "/etc/X11/"KFI_XF86CFG"-4",
-    "/etc/X11/"KFI_XF86CFG,
-    "/etc/"KFI_XF86CFG"-4",
-    "/etc/"KFI_XF86CFG,
-    "/usr/X11R6/etc/X11/"KFI_XF86CFG"-4",
-    "/usr/X11R6/etc/X11/"KFI_XF86CFG,
-    "/usr/X11R6/lib/X11/"KFI_XF86CFG"-4",
-    "/usr/X11R6/lib/X11/"KFI_XF86CFG,
+    "/etc/X11/" KFI_XF86CFG "-4",
+    "/etc/X11/" KFI_XF86CFG,
+    "/etc/" KFI_XF86CFG "-4",
+    "/etc/" KFI_XF86CFG,
+    "/usr/X11R6/etc/X11/" KFI_XF86CFG "-4",
+    "/usr/X11R6/etc/X11/" KFI_XF86CFG,
+    "/usr/X11R6/lib/X11/" KFI_XF86CFG "-4",
+    "/usr/X11R6/lib/X11/" KFI_XF86CFG,
 
     NULL
 };  
