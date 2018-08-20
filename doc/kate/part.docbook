@@ -353,8 +353,10 @@ additional options:</para>
 <varlistentry id="replace-use-placeholders">
 <term><guilabel>Use placeholders</guilabel></term>
 <listitem>
-<para>If enabled, any occurrence of <keycap>\N</keycap> where 
-<keycap>N</keycap> is an integer number, will be replaced 
+<para>When regular expressions are enabled, you can select part of the searched text by enclosing it
+within parenthesis. Placeholders allow you to insert such text in the replacement string, similar to
+how backreferences are used in sed. When enabled, any occurrence of <keycap>\N</keycap> (where
+<keycap>N</keycap> is an integer number, e.g. \1, \2, ...) will be replaced
 with the corresponding string capture (parenthesized substring)
 from the search pattern. A button for listing all available string captures
 will also be enabled. You can click on any of the available string captures
