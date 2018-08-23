@@ -55,7 +55,7 @@ private slots:
     void jobFinished( TDEIO::Job* job );
 
 private:
-    typedef enum CopyOrMove { Copy, Move };
+    enum CopyOrMove { Copy, Move };
     void copyOrMove( const KURL& src, const KURL& dest, bool overwrite, CopyOrMove action );
     void createTopLevelDirEntry(TDEIO::UDSEntry& entry);
     bool createUDSEntry( const TQString& physicalPath, const TQString& fileName, const TQString& url,
