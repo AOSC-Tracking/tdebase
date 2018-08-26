@@ -15,6 +15,7 @@ include_directories(
   ${CMAKE_BINARY_DIR}
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
+  ${TIRPC_INCLUDE_DIRS}
 )
 
 link_directories(
@@ -32,15 +33,15 @@ install( FILES nfs.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
 set( target tdeio_nfs )
 
 add_custom_command( OUTPUT mount_xdr.c
-  COMMAND rpcgen -c -o mount_xdr.c ${CMAKE_CURRENT_SOURCE_DIR}/mount.x
+  COMMAND ${RPCGEN_BINARY} -c -o mount_xdr.c ${CMAKE_CURRENT_SOURCE_DIR}/mount.x
   DEPENDS mount.x )
 
 add_custom_command( OUTPUT nfs_prot_xdr.c
-  COMMAND rpcgen -c -o nfs_prot_xdr.c ${CMAKE_CURRENT_SOURCE_DIR}/nfs_prot.x
+  COMMAND ${RPCGEN_BINARY} -c -o nfs_prot_xdr.c ${CMAKE_CURRENT_SOURCE_DIR}/nfs_prot.x
   DEPENDS nfs_prot.x )
 
 tde_add_kpart( ${target} AUTOMOC
   SOURCES tdeio_nfs.cpp mount_xdr.c nfs_prot_xdr.c
-  LINK tdeio-shared
+  LINK tdeio-shared ${TIRPC_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
