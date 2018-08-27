@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Exec=kdcop
-Icon=kdcop
+Icon=enhanced_browsing
 Terminal=false
 X-DocPath=kdcop/index.html
 X-TDE-StartupNotify=true
