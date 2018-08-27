@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=tdecmshell componentchooser
-Icon=application-vnd.tde.misc
+Icon=package_settings
 Type=Application
 X-TDE-Library=componentchooser
 X-TDE-ParentApp=kcontrol
