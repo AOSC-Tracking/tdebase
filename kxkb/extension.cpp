@@ -180,9 +180,10 @@ bool XKBExtension::setLayoutInternal(const TQString& model,
     p.start(TDEProcess::Block); 
 
     // reload system-wide hotkey-setup keycode -> keysym maps
-    if ( TQFile::exists( "/opt/trinity/share/apps/kxkb/system.xmodmap" ) ) {
+    TQString modmapFileName = TDEGlobal::dirs()->findResource( "data", "kxkb/system.xmodmap" );
+    if ( TQFile::exists( modmapFileName ) ) {
         TDEProcess pXmodmap;
-        pXmodmap << "xmodmap" << "/opt/trinity/share/apps/kxkb/system.xmodmap";
+        pXmodmap << "xmodmap" << modmapFileName;
         pXmodmap.start(TDEProcess::Block);
     }
 
