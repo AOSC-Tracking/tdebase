@@ -50,7 +50,7 @@ add_custom_command( OUTPUT config.ci
 
 ##### tdm_config (executable) ###################
 
-set_property( SOURCE tdm_config.c APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/config.ci )
+set_property( SOURCE tdm_greet.c APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/config.ci )
 
 tde_add_executable( tdm_config
   SOURCES tdm_config.c
