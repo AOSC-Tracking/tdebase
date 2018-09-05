@@ -80,9 +80,6 @@
 
 #include <kcrash.h>
 
-#ifdef __linux__
-#include <linux/stat.h>
-#endif
 #include <pthread.h>
 
 #include <X11/Xlib.h>
