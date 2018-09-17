@@ -9,7 +9,7 @@
 +#endif
 +
  #ifdef Q_WS_WIN
- #ifdef QT_THREAD_SUPPORT
+ #ifdef TQT_THREAD_SUPPORT
  #  include <private/qmutexpool_p.h>
 @@ -3428,7 +3432,11 @@ QString QFileDialog::getOpenFileName( co
      if ( workingDirectory->isNull() )
