@@ -1,7 +1,7 @@
 ## Makefile.am of tdebase/tdeioslave/thumbnail
 
 INCLUDES = $(all_includes) $(EXR_FLAGS)
-AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 METASOURCES = AUTO
 
 if have_xcursor

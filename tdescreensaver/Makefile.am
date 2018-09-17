@@ -4,7 +4,7 @@
 AM_CPPFLAGS = -UQT_NO_ASCII_CAST
 
 INCLUDES = $(GLINC) $(all_includes)
-AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 bin_PROGRAMS = krandom.kss kblankscrn.kss
 

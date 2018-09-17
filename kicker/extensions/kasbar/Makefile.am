@@ -37,9 +37,9 @@ EXTRA_DIST = $(lnk_DATA)
 
 bin_PROGRAMS = kasbar
 kasbar_SOURCES = kasbarapp.cpp
-kasbar_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+kasbar_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 kasbar_LDADD = 	libkasbar.la \
-		$(LIB_QT) $(LIB_TDECORE) $(LIB_TDEUI)
+		$(LIB_TQT) $(LIB_TDECORE) $(LIB_TDEUI)
 
 
 messages:

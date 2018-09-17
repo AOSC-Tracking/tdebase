@@ -7,8 +7,8 @@ noinst_PROGRAMS           = embedtool
 noinst_HEADERS            = tiles.h
 
 embedtool_SOURCES         = embedtool.cpp
-embedtool_LDADD           = $(LIB_QT)
-embedtool_LDFLAGS         = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+embedtool_LDADD           = $(LIB_TQT)
+embedtool_LDFLAGS         = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 kde_module_LTLIBRARIES    = twin3_keramik.la
 

@@ -29,7 +29,7 @@ test_commands_LDADD =  $(tdeio_smtp_la_LIBADD)
 test_commands_LDFLAGS = $(all_libraries)
 
 interactivesmtpserver_SOURCES = interactivesmtpserver.cc
-interactivesmtpserver_LDADD = $(LIB_QT)
+interactivesmtpserver_LDADD = $(LIB_TQT)
 interactivesmtpserver_LDFLAGS = $(all_libraries)
 interactivesmtpserver_METASOURCES = AUTO
 

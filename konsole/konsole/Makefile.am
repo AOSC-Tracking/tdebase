@@ -29,7 +29,7 @@ libkonsolepart_la_LIBADD = $(XTESTLIB) $(LIB_TDEPARTS)
 
 fontembedder_SOURCES = fontembedder.cpp
 fontembedder_LDFLAGS = $(all_libraries)
-fontembedder_LDADD = $(LIB_QT)
+fontembedder_LDADD = $(LIB_TQT)
 
 # kwrited kded module
 kded_kwrited_la_SOURCES = kwrited.cpp TEPty.cpp kwrited.skel
@@ -46,7 +46,7 @@ konsole_la_LIBADD = $(LIB_TDEUI) $(LIB_TDEIO) $(LIB_TDEPRINT) $(LIBUTIL) $(XTEST
 
 # kcmkonsole_SOURCES = kcmkonsole.cpp schema.cpp
 # kcmkonsole_LDADD   = $(LIB_TDEUI)
-# kcmkonsole_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+# kcmkonsole_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 noinst_HEADERS = TEWidget.h TEPty.h TEmulation.h TEmuVt102.h \
 	TECommon.h TEScreen.h konsole.h schema.h session.h konsole_wcwidth.h \

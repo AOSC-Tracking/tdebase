@@ -32,7 +32,7 @@ ksysguard_LDADD = \
 	ksgrd/libksgrd.la \
 	SensorDisplayLib/libsensordisplays.la \
 	$(LIB_TDEUI) $(LIB_TDEIO) $(LIB_TDEDNSSD)
-ksysguard_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+ksysguard_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 kpm_SOURCES = kpm.c
 

@@ -8,7 +8,7 @@ INCLUDES = $(all_includes)
 
 bin_PROGRAMS	= kstart
 kstart_SOURCES	= kstart.cpp
-kstart_LDFLAGS  = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+kstart_LDFLAGS  = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 kstart_LDADD    = $(LIB_TDECORE)
 METASOURCES =	kstart.moc 
 

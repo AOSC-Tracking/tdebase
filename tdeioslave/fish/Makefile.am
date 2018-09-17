@@ -1,7 +1,7 @@
 kde_module_LTLIBRARIES = tdeio_fish.la
 
 INCLUDES = $(all_includes)
-AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 tdeio_fish_la_SOURCES = fish.cpp
 tdeio_fish_la_LIBADD = $(LIB_TDESYCOCA) $(LIBUTIL) 

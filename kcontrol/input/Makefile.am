@@ -16,7 +16,7 @@ bin_PROGRAMS = kapplymousetheme
 
 kapplymousetheme_SOURCES = kapplymousetheme.cpp
 kapplymousetheme_LDFLAGS = $(all_libraries)
-kapplymousetheme_LDADD = $(LIB_XCURSOR) $(LIB_X11) $(LIB_QT)
+kapplymousetheme_LDADD = $(LIB_XCURSOR) $(LIB_X11) $(LIB_TQT)
 
 kde_module_LTLIBRARIES = kcm_input.la
 

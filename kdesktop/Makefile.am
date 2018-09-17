@@ -35,7 +35,7 @@ noinst_HEADERS = desktop.h bgmanager.h krootwm.h \
 
 kcheckrunning_SOURCES = kcheckrunning.cpp
 kcheckrunning_LDFLAGS = $(all_libraries)
-kcheckrunning_LDADD = $(LIB_X11) $(LIB_QT)
+kcheckrunning_LDADD = $(LIB_X11) $(LIB_TQT)
 
 kxdglauncher_SOURCES = kxdglauncher.cpp
 kxdglauncher_LDFLAGS = $(all_libraries)

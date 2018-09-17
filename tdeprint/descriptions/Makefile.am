@@ -6,7 +6,7 @@ INCLUDES = $(all_includes)
 EXTRA_PROGRAMS = sortthem
 
 sortthem_SOURCES = sortthem.cpp
-sortthem_LDFLAGS = $(all_libraries) $(LIB_QT)
+sortthem_LDFLAGS = $(all_libraries) $(LIB_TQT)
 
 printers.cpp: sortthem
 	: > printers.cpp

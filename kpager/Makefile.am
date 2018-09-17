@@ -6,7 +6,7 @@ kpager_SOURCES = desktop.cpp kpager.cpp config.cpp windowdrag.cpp \
 	kpagerIface.skel main.cpp  
 
 kpager_METASOURCES = AUTO
-kpager_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+kpager_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 kpager_LDADD = $(LIB_TDEUI)
 

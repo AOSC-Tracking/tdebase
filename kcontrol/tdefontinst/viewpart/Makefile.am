@@ -17,7 +17,7 @@ AM_CPPFLAGS = -I$(srcdir)/../lib -I$(srcdir)/../../fonts $(all_includes) $(LIBFR
 METASOURCES = AUTO
 
 tdefontview_LDADD = $(LIB_TDEPARTS)
-tdefontview_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+tdefontview_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 bin_PROGRAMS = tdefontview
 xdg_apps_DATA = tdefontview.desktop

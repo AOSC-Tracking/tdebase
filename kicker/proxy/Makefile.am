@@ -17,7 +17,7 @@ extensionproxy_la_LDFLAGS = $(all_libraries) $(KDE_RPATH) -module -avoid-version
 
 extensiondebugger_SOURCES = extensiondebugger.cpp
 extensiondebugger_LDADD = ../libkicker/libkickermain.la
-extensiondebugger_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+extensiondebugger_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 messages:
 	$(XGETTEXT) appletproxy.cpp -o $(podir)/appletproxy.pot

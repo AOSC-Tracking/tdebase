@@ -1,15 +1,15 @@
 ## Makefile.am of tdebase/tdeioslave/man
 
 INCLUDES= $(all_includes)
-AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 EXTRA_PROGRAMS = tdeio_man_test man2html
 
 ####### just for testing (j.habenicht@europemail.com, 15.02.2001)
 
 tdeio_man_test_SOURCES = tdeio_man_test.cpp
-tdeio_man_test_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
-tdeio_man_test_LDADD = man2html.lo tdeio_man.lo $(LIB_TDEIO) $(LIB_TDEUI) $(LIB_TDECORE) $(LIB_QT)
+tdeio_man_test_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+tdeio_man_test_LDADD = man2html.lo tdeio_man.lo $(LIB_TDEIO) $(LIB_TDEUI) $(LIB_TDECORE) $(LIB_TQT)
 
 ####### Files
 
@@ -38,8 +38,8 @@ messages:
 	$(XGETTEXT) *.cpp *.h -o $(podir)/tdeio_man.pot
 
 man2html_SOURCES = dummy.cpp
-man2html_LDADD = man2html_simple.o $(LIB_QT)
-man2html_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+man2html_LDADD = man2html_simple.o $(LIB_TQT)
+man2html_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 dummy.cpp:
 	echo > $@

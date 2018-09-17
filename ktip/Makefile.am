@@ -5,7 +5,7 @@ SUBDIRS = pics
 bin_PROGRAMS = ktip
 ktip_SOURCES = ktipwindow.cpp
 ktip_LDADD = $(LIB_TDEUI)
-ktip_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+ktip_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 METASOURCES = AUTO
 KDE_ICON = AUTO

@@ -3,7 +3,7 @@ SUBDIRS = kcm
 
 bin_PROGRAMS = tdepasswd
 tdepasswd_SOURCES = tdepasswd.cpp passwd.cpp passwddlg.cpp
-tdepasswd_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+tdepasswd_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 tdepasswd_LDADD = $(LIB_TDEIO)
 
 METASOURCES =  AUTO

@@ -12,7 +12,7 @@ tdeio_trash_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN) -no-undefined
 bin_PROGRAMS = ktrash
 ktrash_SOURCES = ktrash.cpp
 ktrash_LDADD = $(LIB_TDEIO)
-ktrash_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+ktrash_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 kde_services_DATA = trash.protocol
 

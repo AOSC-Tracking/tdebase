@@ -32,7 +32,7 @@ tdeconf_PROGRAMS = kicker-3.4-reverseLayout
 tdeconfdir = $(libdir)/tdeconf_update_bin
 
 kicker_3_4_reverseLayout_SOURCES = kicker-3.4-reverseLayout.cpp
-kicker_3_4_reverseLayout_LDADD   = $(LIB_QT) $(LIB_TDECORE)
+kicker_3_4_reverseLayout_LDADD   = $(LIB_TQT) $(LIB_TDECORE)
 kicker_3_4_reverseLayout_LDFLAGS = $(all_libraries)
 
 updatedir = $(kde_datadir)/tdeconf_update
