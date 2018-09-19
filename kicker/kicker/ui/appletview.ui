@@ -196,9 +196,10 @@
     <tabstop>appletFilter</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>
+<includes>
+    <include location="global" impldecl="in implementation">kpushbutton.h</include>
+</includes>
 <includehints>
     <includehint>tqscrollview.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-    <includehint>kpushbutton.h</includehint>
 </includehints>
 </UI>

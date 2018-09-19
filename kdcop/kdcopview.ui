@@ -138,12 +138,12 @@
 </images>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">tdelistbox.h</include>
+    <include location="global" impldecl="in implementation">tdelistviewsearchline.h</include>
 </includes>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 <includehints>
-    <includehint>tdelistviewsearchline.h</includehint>
     <includehint>kdcoplistview.h</includehint>
-    <includehint>tdelistbox.h</includehint>
 </includehints>
 </UI>

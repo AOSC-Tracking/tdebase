@@ -100,6 +100,8 @@ Select the desired policy:
 </widget>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">kcombobox.h</include>
+    <include location="global" impldecl="in implementation">klineedit.h</include>
 </includes>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>

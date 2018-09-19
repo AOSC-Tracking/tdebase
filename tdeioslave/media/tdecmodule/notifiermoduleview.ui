@@ -160,12 +160,9 @@
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>kcombobox.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-    <includehint>tdelistbox.h</includehint>
-</includehints>
+<includes>
+    <include location="global" impldecl="in implementation">kcombobox.h</include>
+    <include location="global" impldecl="in implementation">kpushbutton.h</include>
+    <include location="global" impldecl="in implementation">tdelistbox.h</include>
+</includes>
 </UI>

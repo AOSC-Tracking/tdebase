@@ -320,11 +320,8 @@ Recommended if you want sound.</string>
 <customwidgets>
 </customwidgets>
 <includes>
-    <include location="local" impldecl="in implementation">krichtextlabel.h</include>
+    <include location="global" impldecl="in implementation">knuminput.h</include>
+    <include location="global" impldecl="in implementation">krichtextlabel.h</include>
 </includes>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-</includehints>
 </UI>

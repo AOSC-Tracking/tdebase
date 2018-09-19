@@ -452,11 +452,8 @@ You can also remove programs from this list clicking on the &lt;b&gt;Remove&lt;/
 </tabstops>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">kcolorbutton.h</include>
 </includes>
 <layoutdefaults spacing="3" margin="6"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
-<includehints>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-</includehints>
 </UI>

@@ -345,11 +345,9 @@ By default, only minimal identification information is sent to remote sites. The
 </connections>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">klineedit.h</include>
+    <include location="global" impldecl="in implementation">tdelistview.h</include>
 </includes>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
-<includehints>
-    <includehint>klineedit.h</includehint>
-    <includehint>tdelistview.h</includehint>
-</includehints>
 </UI>

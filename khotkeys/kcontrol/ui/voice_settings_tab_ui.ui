@@ -101,7 +101,7 @@ make sure &lt;i&gt;Full duplex&lt;/i&gt; is checked in your &lt;i&gt;Sound Syste
 <customwidgets>
 </customwidgets>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>kkeybutton.h</includehint>
-</includehints>
+<includes>
+    <include location="global" impldecl="in implementation">kkeybutton.h</include>
+</includes>
 </UI>

@@ -128,10 +128,8 @@ Recommended is \{@}, since it removes all query variables (name=value) from the 
     <tabstop>cbCharset</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>klineedit.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>kcombobox.h</includehint>
-</includehints>
+<includes>
+    <include location="global" impldecl="in implementation">klineedit.h</include>
+    <include location="global" impldecl="in implementation">kcombobox.h</include>
+</includes>
 </UI>

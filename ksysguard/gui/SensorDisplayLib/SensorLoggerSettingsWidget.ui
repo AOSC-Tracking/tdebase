@@ -162,6 +162,7 @@
     </vbox>
 </widget>
 <includes>
+    <include location="global" impldecl="in implementation">kcolorbutton.h</include>
     <include location="global" impldecl="in implementation">kdialog.h</include>
     <include location="local" impldecl="in implementation">SensorLoggerSettingsWidget.ui.h</include>
 </includes>

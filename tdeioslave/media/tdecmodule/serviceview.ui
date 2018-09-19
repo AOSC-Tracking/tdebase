@@ -237,12 +237,11 @@
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>kicondialog.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>tdeactionselector.h</includehint>
-    <includehint>kactivelabel.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-</includehints>
+<includes>
+    <include location="global" impldecl="in implementation">kactivelabel.h</include>
+    <include location="global" impldecl="in implementation">kicondialog.h</include>
+    <include location="global" impldecl="in implementation">klineedit.h</include>
+    <include location="global" impldecl="in implementation">kpushbutton.h</include>
+    <include location="global" impldecl="in implementation">tdeactionselector.h</include>
+</includes>
 </UI>

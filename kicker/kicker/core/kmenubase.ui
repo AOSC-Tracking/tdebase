@@ -283,12 +283,10 @@
 </images>
 <includes>
     <include location="local" impldecl="in implementation">kmenubase.ui.h</include>
+    <include location="global" impldecl="in implementation">kcombobox.h</include>
 </includes>
 <functions>
     <function access="private" specifier="non virtual">init()</function>
 </functions>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>kcombobox.h</includehint>
-</includehints>
 </UI>

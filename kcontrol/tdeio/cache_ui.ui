@@ -184,4 +184,7 @@
     </connection>
 </connections>
 <layoutdefaults spacing="6" margin="11"/>
+<includes>
+    <include location="global" impldecl="in implementation">knuminput.h</include>
+</includes>
 </UI>
