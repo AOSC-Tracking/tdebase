@@ -172,4 +172,7 @@ Alternatively, you can click on the &lt;b&gt;"Auto Detect"&lt;/b&gt; button to a
     <tabstop>pbDetect</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>
+<includes>
+    <include location="global" impldecl="in implementation">klineedit.h</include>
+</includes>
 </UI>

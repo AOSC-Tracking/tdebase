@@ -419,8 +419,7 @@
     <tabstop>mediaListView</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>tdelistview.h</includehint>
-    <includehint>tdelistview.h</includehint>
-</includehints>
+<includes>
+    <include location="global" impldecl="in implementation">tdelistview.h</include>
+</includes>
 </UI>

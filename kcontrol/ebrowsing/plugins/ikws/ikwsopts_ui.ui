@@ -255,4 +255,7 @@ Select the search engine to use for input boxes that provide automatic lookup se
     <tabstop>cmbDelimiter</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>
+<includes>
+    <include location="global" impldecl="in implementation">kcombobox.h</include>
+</includes>
 </UI>

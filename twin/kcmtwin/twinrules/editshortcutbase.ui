@@ -161,4 +161,7 @@ For example "&lt;b&gt;Shift+Alt+(123) Shift+Ctrl+(ABC)&lt;/b&gt;" will first try
 </Q_SLOTS>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
+<includes>
+    <include location="global" impldecl="in implementation">klineedit.h</include>
+</includes>
 </UI>

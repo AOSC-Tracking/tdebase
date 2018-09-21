@@ -313,11 +313,9 @@ List of sites for which you have set a specific cookie policy. Specific policies
 </connections>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">tdelistview.h</include>
+    <include location="global" impldecl="in implementation">tdelistviewsearchline.h</include>
 </includes>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
-<includehints>
-    <includehint>tdelistview.h</includehint>
-    <includehint>tdelistviewsearchline.h</includehint>
-</includehints>
 </UI>

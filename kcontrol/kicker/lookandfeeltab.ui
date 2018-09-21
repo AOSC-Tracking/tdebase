@@ -617,6 +617,7 @@ This option is only active if 'Enable background image' is selected.</string>
     <tabstop>advancedOptionsButton</tabstop>
 </tabstops>
 <includes>
+    <include location="global" impldecl="in implementation">kcolorbutton.h</include>
     <include location="global" impldecl="in declaration">kcombobox.h</include>
     <include location="global" impldecl="in declaration">kurlrequester.h</include>
     <include location="global" impldecl="in implementation">kdialog.h</include>
@@ -629,17 +630,6 @@ This option is only active if 'Enable background image' is selected.</string>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 <includehints>
-    <includehint>kcombobox.h</includehint>
-    <includehint>kcombobox.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcombobox.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcombobox.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcolorbutton.h</includehint>
-    <includehint>kcombobox.h</includehint>
-    <includehint>kurlrequester.h</includehint>
     <includehint>klineedit.h</includehint>
     <includehint>kpushbutton.h</includehint>
 </includehints>

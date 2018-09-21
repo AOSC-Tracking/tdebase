@@ -274,8 +274,7 @@
     </connection>
 </connections>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-</includehints>
+<includes>
+    <include location="global" impldecl="in implementation">knuminput.h</include>
+</includes>
 </UI>

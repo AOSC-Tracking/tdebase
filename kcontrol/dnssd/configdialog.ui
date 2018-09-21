@@ -317,14 +317,9 @@ is configured with 'Browse local network' option above.</string>
 </Q_SLOTS>
 <includes>
     <include location="global" impldecl="in declaration">tdecmodule.h</include>
+    <include location="global" impldecl="in implementation">keditlistbox.h</include>
+    <include location="global" impldecl="in implementation">klineedit.h</include>
+    <include location="global" impldecl="in implementation">kpassdlg.h</include>
 </includes>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>tdecmodule.h</includehint>
-    <includehint>keditlistbox.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>kpassdlg.h</includehint>
-    <includehint>klineedit.h</includehint>
-</includehints>
 </UI>

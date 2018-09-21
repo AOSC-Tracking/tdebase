@@ -256,7 +256,8 @@ If you have a fast, new processor, you might want to turn them all on, but for t
     <slot>slotEyeCandySliderMoved(int)</slot>
 </Q_SLOTS>
 <includes>
-    <include location="local" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">tdelistview.h</include>
 </includes>
 <layoutdefaults spacing="3" margin="6"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>

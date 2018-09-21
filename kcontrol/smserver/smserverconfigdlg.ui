@@ -317,6 +317,7 @@
 </connections>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">klineedit.h</include>
 </includes>
 <Q_SLOTS>
     <slot>configChanged()</slot>

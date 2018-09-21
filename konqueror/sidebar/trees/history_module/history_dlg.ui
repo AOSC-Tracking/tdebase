@@ -223,17 +223,8 @@
 </widget>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">knuminput.h</include>
 </includes>
 <layoutdefaults spacing="6" margin="0"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
-<includehints>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-    <includehint>knuminput.h</includehint>
-</includehints>
 </UI>

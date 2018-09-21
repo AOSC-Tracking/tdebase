@@ -181,13 +181,11 @@
 </connections>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">ktextedit.h</include>
 </includes>
 <Q_SLOTS>
     <slot access="protected" specifier="pure virtual">modify_pressed()</slot>
 </Q_SLOTS>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
-<includehints>
-    <includehint>ktextedit.h</includehint>
-</includehints>
 </UI>
