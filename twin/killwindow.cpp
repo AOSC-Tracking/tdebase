@@ -9,9 +9,6 @@ You can Freely distribute this program under the GNU General Public
 License. See the file "COPYING" for the exact licensing terms.
 ******************************************************************/
 
-//#ifndef QT_CLEAN_NAMESPACE
-//#define QT_CLEAN_NAMESPACE
-//#endif
 #include "killwindow.h"
 #include <tqcursor.h>
 #include <X11/Xlib.h>

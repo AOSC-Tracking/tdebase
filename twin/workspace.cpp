@@ -9,8 +9,6 @@ You can Freely distribute this program under the GNU General Public
 License. See the file "COPYING" for the exact licensing terms.
 ******************************************************************/
 
-//#define QT_CLEAN_NAMESPACE
-
 #include "workspace.h"
 
 #include <tdeapplication.h>

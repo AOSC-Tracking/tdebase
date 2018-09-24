@@ -7,8 +7,6 @@ Copyright (C) 2000 Matthias Ettrich <ettrich@kde.org>
 #ifndef CLIENT_H
 #define CLIENT_H
 
-// needed to avoid clash with INT8 defined in X11/Xmd.h on solaris
-#define QT_CLEAN_NAMESPACE 1
 #include <tqobject.h>
 #include <tqstring.h>
 #include <tqstringlist.h>
