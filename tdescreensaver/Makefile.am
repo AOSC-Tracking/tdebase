@@ -1,7 +1,7 @@
 # Makefile.am for tdescreensaver.
 #
 
-AM_CPPFLAGS = -UQT_NO_ASCII_CAST
+AM_CPPFLAGS = -UTQT_NO_ASCII_CAST
 
 INCLUDES = $(GLINC) $(all_includes)
 AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor

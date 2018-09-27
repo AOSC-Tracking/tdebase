@@ -722,7 +722,7 @@
 
 2001-09-26 Wednesday 18:37  mueller
 
-	* fixes for QT_NO_COMPAT
+	* fixes for TQT_NO_COMPAT
 
 2001-09-01 Saturday 22:31  rich
 
