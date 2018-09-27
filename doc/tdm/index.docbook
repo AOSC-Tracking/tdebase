@@ -932,11 +932,11 @@ libraries.</para>
 <screen><command>export 
 <option>TDEDIR=<replaceable>/opt/tde</replaceable></option></command>
 <command>export 
-<option>QTDIR=<replaceable>/usr/lib/qt2</replaceable></option></command>
+<option>TQTDIR=<replaceable>/usr/lib/qt2</replaceable></option></command>
 <command>export 
-<option>PATH=<replaceable>$TDEDIR/bin:$QTDIR/bin:$PATH</replaceable></option></command>
+<option>PATH=<replaceable>$TDEDIR/bin:$TQTDIR/bin:$PATH</replaceable></option></command>
 <command>export 
-<option>LD_LIBRARY_PATH=<replaceable>$TDEDIR/lib:$QTDIR/lib</replaceable></option></command>
+<option>LD_LIBRARY_PATH=<replaceable>$TDEDIR/lib:$TQTDIR/lib</replaceable></option></command>
 </screen>
 
 <para>If you are still unsuccessful, try starting &xdm; instead, to

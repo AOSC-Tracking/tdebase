@@ -301,7 +301,7 @@ bool TDEShortURIFilter::filterURI( KURIFilterData& data ) const
 
   if ( expanded )
   {
-    // Look for #ref again, after $ and ~ expansion (testcase: $QTDIR/doc/html/functions.html#s)
+    // Look for #ref again, after $ and ~ expansion (testcase: $TQTDIR/doc/html/functions.html#s)
     // Can't use KURL here, setPath would escape it...
     int pos = path.find('#');
     if ( pos > -1 )

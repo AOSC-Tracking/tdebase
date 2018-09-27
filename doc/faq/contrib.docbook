@@ -89,10 +89,10 @@ on.</para>
 <application>cmake</application>.</para>
 <para>An excellent resource for learning &tde;
 programming is the &Qt; tutorials. These are installed along with &Qt;. To view them,
-open <filename>$<envar>QTDIR</envar>/doc/html/index.html</filename> in
+open <filename>$<envar>TQTDIR</envar>/doc/html/index.html</filename> in
 &konqueror; and bookmark the locatio. The tutorials
 can be found under "Using Qt". The source code for each lesson can be found in the <filename
-class="directory">$<envar>QTDIR</envar>/tutorial</filename>
+class="directory">$<envar>TQTDIR</envar>/tutorial</filename>
 directory.</para>
 <para>There is one thing everybody interested in
 programming for &tde; should do: please <emphasis>subscribe to the developers

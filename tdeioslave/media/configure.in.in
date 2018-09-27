@@ -114,7 +114,7 @@ if test "x$hal_test" = "xyes" ; then
     grep dbus_connection_setup_with_qt_main $dbusqt_incdir/dbus/connection.h \
     > /dev/null 2>&1 && have_qt_patch=1
     if test $have_qt_patch = 1 ; then
-      DBUSQT_INCS="-I$dbusqt_incdir"
+      DBUSTQT_INCS="-I$dbusqt_incdir"
       dbusqt_inc=FOUND
     fi
   fi
@@ -123,7 +123,7 @@ if test "x$hal_test" = "xyes" ; then
   AC_FIND_FILE(libdbus-qt-1.so, $search_libs, dbusqt_libdir)
 
   if test -r $dbusqt_libdir/libdbus-qt-1.so ; then
-    DBUSQT_LIBS="-L$dbusqt_libdir -ldbus-qt-1"
+    DBUSTQT_LIBS="-L$dbusqt_libdir -ldbus-qt-1"
     dbusqt_lib=FOUND
   fi
 
@@ -136,7 +136,7 @@ if test "x$hal_test" = "xyes" ; then
       grep dbus_connection_setup_with_qt_main $dbusqt_incdir/dbus/connection.h \
       > /dev/null 2>&1 && have_qt_patch=1
       if test $have_qt_patch = 1 ; then
-        DBUSQT_INCS="-I$dbusqt_incdir"
+        DBUSTQT_INCS="-I$dbusqt_incdir"
         dbusqt_inc=FOUND
       fi
     fi
@@ -145,7 +145,7 @@ if test "x$hal_test" = "xyes" ; then
     AC_FIND_FILE(libdbus-qt-1.so, $search_libs, dbusqt_libdir)
 
     if test -r $dbusqt_libdir/libdbus-qt-1.so ; then
-      DBUSQT_LIBS="-L$dbusqt_libdir -ldbus-qt-1"
+      DBUSTQT_LIBS="-L$dbusqt_libdir -ldbus-qt-1"
       dbusqt_lib=FOUND
     fi
 
@@ -159,8 +159,8 @@ if test "x$hal_test" = "xyes" ; then
     AC_MSG_RESULT(searched but not found)
   fi
 
-  AC_SUBST(DBUSQT_INCS)
-  AC_SUBST(DBUSQT_LIBS)
+  AC_SUBST(DBUSTQT_INCS)
+  AC_SUBST(DBUSTQT_LIBS)
 fi
 
 ########### Check if media HAL backend sould be compiled
