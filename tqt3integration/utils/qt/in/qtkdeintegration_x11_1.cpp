@@ -48,7 +48,7 @@ static TQCString findLibrary()
     if( getenv( "TQT_NO_KDE_INTEGRATION" ) == NULL
         || getenv( "TQT_NO_KDE_INTEGRATION" )[ 0 ] == '0' )
         {
-        return TQCString( TQTKDELIBDIR ) + "/libqtkde";
+        return TQCString( TQTKDELIBDIR ) + "/libtqtkde";
         }
     return "";
     }

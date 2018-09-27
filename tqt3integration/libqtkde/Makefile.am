@@ -1,8 +1,8 @@
-qtkdelib_LTLIBRARIES = libqtkde.la
+qtkdelib_LTLIBRARIES = libtqtkde.la
 
-libqtkde_la_SOURCES = qtkde.cpp
-libqtkde_la_LIBADD = -lDCOP
-libqtkde_la_LDFLAGS = $(all_libraries) -module -no-undefined -avoid-version
+libtqtkde_la_SOURCES = qtkde.cpp
+libtqtkde_la_LIBADD = -lDCOP
+libtqtkde_la_LDFLAGS = $(all_libraries) -module -no-undefined -avoid-version
 
 CLEANFILES = qtkde_functions.cpp
 

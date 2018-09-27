@@ -9,6 +9,6 @@
 #
 #################################################
 
-add_subdirectory( libqtkde )
+add_subdirectory( libtqtkde )
 add_subdirectory( module )
 add_subdirectory( utils )

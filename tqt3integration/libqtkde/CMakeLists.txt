@@ -22,7 +22,7 @@ link_directories(
   ${TQT_LIBRARY_DIRS}
 )
 
-##### libqtkde (shared) ####################
+##### libtqtkde (shared) ####################
 
 tde_add_library( qtkde SHARED AUTOMOC
   SOURCES qtkde.cpp
