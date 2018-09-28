@@ -60,8 +60,8 @@ static void prepareDialog( TQWidget* w, long parent, const TQCString& wmclass1, 
         w->move( info.geometry().x() + ( info.geometry().width() - w->width())/2,
             info.geometry().y() + ( info.geometry().height()- w->height())/2 );
     }
-    
-// duped in qtkde
+
+// duped in tqtkde
 static TQString getHostname()
     {
     char hostname[ 256 ];

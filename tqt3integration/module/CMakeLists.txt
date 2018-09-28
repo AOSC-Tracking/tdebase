@@ -22,9 +22,11 @@ link_directories(
   ${TQT_LIBRARY_DIRS}
 )
 
+
 ##### service desktop file(s) ##########################
 
 install( FILES kdeintegration.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
+
 
 ##### kded_kdeintegration (module) #####################
 

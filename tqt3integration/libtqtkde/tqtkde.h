@@ -18,18 +18,18 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef TQKDEINTEGRATION_H
-#define TQKDEINTEGRATION_H
+#ifndef _TQTKDE_H
+#define _TQTKDE_H
 
-#include <tqstringlist.h>
+#include <tqobject.h>
 
-class TQLibrary;
-class TQWidget;
-class TQColor;
-class TQFont;
-
-class TQKDEIntegration
+class tqtkde_EventLoop
+    : public TQObject
     {
-    public:
-        static bool enabled();
-// --- 
+    Q_OBJECT
+
+    public slots:
+        void block( bool );
+    };
+
+#endif

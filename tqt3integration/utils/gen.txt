@@ -218,7 +218,7 @@ ENDFUNCTION
 FUNCTION information
     RETURN_TYPE int
     DELAYED_RETURN
-    ONLY_QT
+    ONLY_TQT
     ARG parent
         TYPE long
         ORIG_TYPE TQWidget*
@@ -249,7 +249,7 @@ ENDFUNCTION
 FUNCTION question
     RETURN_TYPE int
     DELAYED_RETURN
-    ONLY_QT
+    ONLY_TQT
     ARG parent
         TYPE long
         ORIG_TYPE TQWidget*
@@ -280,7 +280,7 @@ ENDFUNCTION
 FUNCTION warning
     RETURN_TYPE int
     DELAYED_RETURN
-    ONLY_QT
+    ONLY_TQT
     ARG parent
         TYPE long
         ORIG_TYPE TQWidget*
@@ -311,7 +311,7 @@ ENDFUNCTION
 FUNCTION critical
     RETURN_TYPE int
     DELAYED_RETURN
-    ONLY_QT
+    ONLY_TQT
     ARG parent
         TYPE long
         ORIG_TYPE TQWidget*
@@ -387,7 +387,7 @@ ENDFUNCTION
 FUNCTION information
     RETURN_TYPE int
     DELAYED_RETURN
-    ONLY_QT
+    ONLY_TQT
     ARG parent
         TYPE long
         ORIG_TYPE TQWidget*
@@ -428,7 +428,7 @@ ENDFUNCTION
 FUNCTION question
     RETURN_TYPE int
     DELAYED_RETURN
-    ONLY_QT
+    ONLY_TQT
     ARG parent
         TYPE long
         ORIG_TYPE TQWidget*
@@ -469,7 +469,7 @@ ENDFUNCTION
 FUNCTION warning
     RETURN_TYPE int
     DELAYED_RETURN
-    ONLY_QT
+    ONLY_TQT
     ARG parent
         TYPE long
         ORIG_TYPE TQWidget*
@@ -510,7 +510,7 @@ ENDFUNCTION
 FUNCTION critical
     RETURN_TYPE int
     DELAYED_RETURN
-    ONLY_QT
+    ONLY_TQT
     ARG parent
         TYPE long
         ORIG_TYPE TQWidget*

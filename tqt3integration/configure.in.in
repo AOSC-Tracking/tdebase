@@ -1,5 +1,5 @@
-qtkdelibdir="\${kde_moduledir}/plugins/integration"
-KDE_EXPAND_MAKEVAR(ac_qtkdelibdir,qtkdelibdir)
-AC_SUBST(qtkdelibdir)
-AC_SUBST(ac_qtkdelibdir)
-dnl AC_OUTPUT(qtkdeintegration/utils/qt/in/qtkdeintegration_x11_0.cpp)
+tqtkdelibdir="\${kde_moduledir}/plugins/integration"
+KDE_EXPAND_MAKEVAR(ac_tqtkdelibdir,tqtkdelibdir)
+AC_SUBST(tqtkdelibdir)
+AC_SUBST(ac_tqtkdelibdir)
+dnl AC_OUTPUT(tqtkdeintegration/utils/tqt/in/tqtkdeintegration_x11_0.cpp)

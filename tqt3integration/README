@@ -1,10 +1,10 @@
-Qt/KDE UI integration. Makes Qt-only apps use several KDE dialogs without any modifications
-to these applications. Can be turned off by setting $QT_NO_KDE_INTEGRATION.
+TQt/KDE UI integration. Makes TQt-only apps use several KDE dialogs without any modifications
+to these applications. Can be turned off by setting $TQT_NO_KDE_INTEGRATION.
 
 Installation:
 Just plain make && make install.
-Additionally 'make generate' needs to be done in utils/, and Qt needs to be patched using the sources
-generated in utils/qt . Patch should be applied, the .cpp/.h files belong to src/kernel/ ,
+Additionally 'make generate' needs to be done in utils/, and TQt needs to be patched using the sources
+generated in utils/tqt . Patch should be applied, the .cpp/.h files belong to src/kernel/ ,
 the .h file additionally should go to include/private .
 
 

@@ -9,7 +9,7 @@
 #
 #################################################
 
-add_subdirectory( qt )
+add_subdirectory( tqt )
 
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
@@ -32,13 +32,18 @@ tde_add_executable( gen AUTOMOC
 )
 
 ADD_CUSTOM_COMMAND(
-  OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/qtkde_functions.cpp ${CMAKE_CURRENT_BINARY_DIR}/module_functions.cpp ${CMAKE_CURRENT_BINARY_DIR}/module_functions.h
-  COMMAND mkdir -p ${CMAKE_CURRENT_BINARY_DIR}/qt
+  OUTPUT
+    ${CMAKE_CURRENT_BINARY_DIR}/tqtkde_functions.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/module_functions.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/module_functions.h
+  COMMAND mkdir -p ${CMAKE_CURRENT_BINARY_DIR}/tqt
   COMMAND ${CMAKE_CURRENT_BINARY_DIR}/gen ${CMAKE_CURRENT_SOURCE_DIR}/gen.txt
-  COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/qt/in/qtkdeintegration_x11_0.cpp ${CMAKE_CURRENT_SOURCE_DIR}/qt/in/qtkdeintegration_x11_1.cpp ${CMAKE_CURRENT_BINARY_DIR}/qtkdeintegration_x11.cpp.gen ${CMAKE_CURRENT_SOURCE_DIR}/qt/in/qtkdeintegration_x11_2.cpp > ${CMAKE_CURRENT_BINARY_DIR}/qt/qtkdeintegration_x11.cpp
-  COMMAND cat ${CMAKE_CURRENT_SOURCE_DIR}/qt/in/qtkdeintegration_x11_p_1.h ${CMAKE_CURRENT_BINARY_DIR}/qtkdeintegration_x11_p.h.gen ${CMAKE_CURRENT_SOURCE_DIR}/qt/in/qtkdeintegration_x11_p_2.h > ${CMAKE_CURRENT_BINARY_DIR}/qt/qtkdeintegration_x11_p.h
-  COMMAND rm -f ${CMAKE_CURRENT_BINARY_DIR}/qtkdeintegration_x11.cpp.gen ${CMAKE_CURRENT_BINARY_DIR}/qtkdeintegration_x11_p.h.gen
-#  COMMAND cp -f ${CMAKE_CURRENT_SOURCE_DIR}/qt/in/qt.patch ${CMAKE_CURRENT_BINARY_DIR}/qt/
+  COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/tqt/in/tqtkdeintegration_x11_0.cpp ${CMAKE_CURRENT_SOURCE_DIR}/tqt/in/tqtkdeintegration_x11_1.cpp ${CMAKE_CURRENT_BINARY_DIR}/tqtkdeintegration_x11.cpp.gen ${CMAKE_CURRENT_SOURCE_DIR}/tqt/in/tqtkdeintegration_x11_2.cpp > ${CMAKE_CURRENT_BINARY_DIR}/tqt/tqtkdeintegration_x11.cpp
+  COMMAND cat ${CMAKE_CURRENT_SOURCE_DIR}/tqt/in/tqtkdeintegration_x11_p_1.h ${CMAKE_CURRENT_BINARY_DIR}/tqtkdeintegration_x11_p.h.gen ${CMAKE_CURRENT_SOURCE_DIR}/tqt/in/tqtkdeintegration_x11_p_2.h > ${CMAKE_CURRENT_BINARY_DIR}/tqt/tqtkdeintegration_x11_p.h
+  COMMAND rm -f ${CMAKE_CURRENT_BINARY_DIR}/tqtkdeintegration_x11.cpp.gen ${CMAKE_CURRENT_BINARY_DIR}/tqtkdeintegration_x11_p.h.gen
   DEPENDS gen
 )
-ADD_CUSTOM_TARGET(generate_tqt3_bindings DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/qtkde_functions.cpp)
+
+ADD_CUSTOM_TARGET( generate_tqt3_bindings
+  DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/tqtkde_functions.cpp
+)

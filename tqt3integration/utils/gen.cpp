@@ -31,8 +31,8 @@
 FUNCTION <name>
  RETURN_TYPE <type>
  DELAYED_RETURN   - use DCOP transaction in kded module, function will take some time to finish
- SKIP_QT - don't generate in qt file
- ONLY_QT - generate only in qt file
+ SKIP_TQT - don't generate in tqt file
+ ONLY_TQT - generate only in tqt file
  ADD_APPINFO - generate wmclass arguments
  ARG <name>
   TYPE <type>
@@ -44,7 +44,7 @@ FUNCTION <name>
   OUT_ARGUMENT
   CONVERSION <function>
   BACK_CONVERSION <function> - for out arguments
-  CREATE <function>  - doesn't exist in TQt, create in qtkde using function
+  CREATE <function>  - doesn't exist in TQt, create in tqtkde using function
   PARENT - the argument is a parent window to be used for windows
  ENDARG
 ENDFUNCTION
@@ -70,12 +70,12 @@ struct Arg
 
 struct Function
     {
-    Function() : delayed_return( false ), skip_qt( false ), only_qt( false ), add_appinfo( false ) {}
+    Function() : delayed_return( false ), skip_tqt( false ), only_tqt( false ), add_appinfo( false ) {}
     TQString name;
     TQString return_type;
     bool delayed_return;
-    bool skip_qt;
-    bool only_qt;
+    bool skip_tqt;
+    bool only_tqt;
     bool add_appinfo;
     TQValueList< Arg > args;
     void stripNonOutArguments();
@@ -274,10 +274,10 @@ void parseFunction( const TQString& details )
             }
         else if( line.startsWith( "DELAYED_RETURN" ))
             function.delayed_return = true;
-        else if( line.startsWith( "SKIP_QT" ))
-            function.skip_qt = true;
-        else if( line.startsWith( "ONLY_QT" ))
-            function.only_qt = true;
+        else if( line.startsWith( "SKIP_TQT" ))
+            function.skip_tqt = true;
+        else if( line.startsWith( "ONLY_TQT" ))
+            function.only_tqt = true;
         else if( line.startsWith( "ADD_APPINFO" ))
             function.add_appinfo = true;
         else if( line.startsWith( "ARG" ))
@@ -366,7 +366,7 @@ void generateFunction( TQTextStream& stream, const Function& function, const TQS
 
 void generateTQtH()
     {
-    TQFile file( "qtkdeintegration_x11_p.h.gen" );
+    TQFile file( "tqtkdeintegration_x11_p.h.gen" );
     if( !file.open( IO_WriteOnly ))
         error();
     TQTextStream stream( &file );
@@ -375,7 +375,7 @@ void generateTQtH()
          ++it )
         {
         Function f = *it;
-        if( f.skip_qt )
+        if( f.skip_tqt )
             continue;
         f.stripCreatedArguments();
         generateFunction( stream, f, f.name, 8,
@@ -386,7 +386,7 @@ void generateTQtH()
 
 void generateTQtCpp()
     {
-    TQFile file( "qtkdeintegration_x11.cpp.gen" );
+    TQFile file( "tqtkdeintegration_x11.cpp.gen" );
     if( !file.open( IO_WriteOnly ))
         error();
     TQTextStream stream( &file );
@@ -395,10 +395,10 @@ void generateTQtCpp()
          ++it )
         {
         Function f = *it;
-        if( f.only_qt )
+        if( f.only_tqt )
             continue;
         f.stripCreatedArguments();
-        generateFunction( stream, f, "(*qtkde_" + f.name + ")", 0,
+        generateFunction( stream, f, "(*tqtkde_" + f.name + ")", 0,
             true /*static*/, false /*orig type*/, false /*ignore deref*/, 0 /*ignore level*/ );
         stream << ";\n";
         }
@@ -422,19 +422,19 @@ void generateTQtCpp()
          ++it )
         {
         Function function = *it;
-        if( function.only_qt )
+        if( function.only_tqt )
             continue;
-        stream << makeIndent( 8 ) + "qtkde_" + function.name + " = (\n";
+        stream << makeIndent( 8 ) + "tqtkde_" + function.name + " = (\n";
         function.stripCreatedArguments();
         generateFunction( stream, function, "(*)", 12,
             false /*static*/, false /*orig type*/, false /*ignore deref*/, 0 /*ignore level*/ );
         stream << "\n" + makeIndent( 12 ) + ")\n";
         stream << makeIndent( 12 ) + "lib.resolve(\"" + (*it).name + "\");\n";
-        stream << makeIndent( 8 ) + "if( qtkde_" + (*it).name + " == NULL )\n";
+        stream << makeIndent( 8 ) + "if( tqtkde_" + (*it).name + " == NULL )\n";
         stream << makeIndent( 12 ) + "return;\n";
         }
     stream <<
-"        enable = qtkde_initializeIntegration();\n"
+"        enable = tqtkde_initializeIntegration();\n"
 "        }\n"
 "    }\n"
 "\n";
@@ -443,14 +443,14 @@ void generateTQtCpp()
          ++it1 )
         {
         Function function = *it1;
-        if( function.skip_qt || function.only_qt )
+        if( function.skip_tqt || function.only_tqt )
             continue;
         function.stripCreatedArguments();
         generateFunction( stream, function, "QKDEIntegration::" + function.name, 0,
             false /*static*/, true /*orig type*/, false /*ignore deref*/, 0 /*ignore level*/ );
         stream << "\n";
         stream << makeIndent( 4 ) + "{\n";
-        stream << makeIndent( 4 ) + "return qtkde_" + function.name + "(\n";
+        stream << makeIndent( 4 ) + "return tqtkde_" + function.name + "(\n";
         stream << makeIndent( 8 );
         bool need_comma = false;
         for( TQValueList< Arg >::ConstIterator it2 = function.args.begin();
@@ -490,7 +490,7 @@ void generateTQtKde()
          ++it1 )
         {
         const Function& function = *it1;
-        if( function.only_qt )
+        if( function.only_tqt )
             continue;
         Function stripped_function = function;
         stripped_function.stripCreatedArguments();
@@ -651,7 +651,7 @@ void generateKdeDcop( TQTextStream& stream )
          ++it1 )
         {
         const Function& function = *it1;
-        if( function.only_qt )
+        if( function.only_tqt )
             continue;
         stream << "    if( fun == \"" + function.name + "(";
         bool need_comma = false;
@@ -692,7 +692,7 @@ void generateKdeDcop( TQTextStream& stream )
          ++it1 )
         {
         const Function& function = *it1;
-        if( function.only_qt )
+        if( function.only_tqt )
             continue;
         stream << "    funcs << \"" + function.name + "(";
         bool need_comma = false;
@@ -730,7 +730,7 @@ void generateKdePreStub( TQTextStream& stream )
          ++it1 )
         {
         const Function& function = *it1;
-        if( function.only_qt )
+        if( function.only_tqt )
             continue;
         stream << "void Module::pre_" + function.name + "( const TQByteArray& "
             + ( function.args.isEmpty() ? "" : "data" )
@@ -803,7 +803,7 @@ void generateKdePostStub( TQTextStream& stream )
          ++it1 )
         {
         const Function& function = *it1;
-        if( function.only_qt )
+        if( function.only_tqt )
             continue;
         stream << "void Module::post_" + function.name + "( ";
         bool needs_comma = false;
@@ -842,7 +842,7 @@ void generateKdePostStub( TQTextStream& stream )
             stream << "    JobData job = jobs[ handle ];\n";
             stream << "    jobs.remove( handle );\n";
             stream << "    TQByteArray replyData;\n";
-            stream << "    TQCString replyType = \"qtkde\";\n";
+            stream << "    TQCString replyType = \"tqtkde\";\n";
             }
         bool return_data = false;
         for( TQValueList< Arg >::ConstIterator it2 = function.args.begin();
@@ -904,7 +904,7 @@ void generateKdeH()
          ++it1 )
         {
         const Function& function = *it1;
-        if( function.only_qt )
+        if( function.only_tqt )
             continue;
         Function real_function = function;
         if( function.delayed_return )

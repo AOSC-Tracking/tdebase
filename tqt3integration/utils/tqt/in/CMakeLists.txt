@@ -9,4 +9,4 @@
 #
 #################################################
 
-configure_file( qtkdeintegration_x11_0.cpp.cmake qtkdeintegration_x11_0.cpp @ONLY )
+configure_file( tqtkdeintegration_x11_0.cpp.cmake tqtkdeintegration_x11_0.cpp @ONLY )

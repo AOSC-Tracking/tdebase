@@ -23,28 +23,28 @@
 int TQKDEIntegration::information( TQWidget* parent, const TQString& caption,
     const TQString& text, int button0, int button1, int button2 )
     {
-    return qtkde_messageBox1(
+    return tqtkde_messageBox1(
         TQMessageBox::Information, parentToWinId( parent ), caption, text, button0, button1, button2 );
     }
 
 int TQKDEIntegration::question( TQWidget* parent, const TQString& caption,
     const TQString& text, int button0, int button1, int button2 )
     {
-    return qtkde_messageBox1(
+    return tqtkde_messageBox1(
         TQMessageBox::Question, parentToWinId( parent ), caption, text, button0, button1, button2 );
     }
 
 int TQKDEIntegration::warning( TQWidget* parent, const TQString& caption,
     const TQString& text, int button0, int button1, int button2 )
     {
-    return qtkde_messageBox1(
+    return tqtkde_messageBox1(
         TQMessageBox::Warning, parentToWinId( parent ), caption, text, button0, button1, button2 );
     }
 
 int TQKDEIntegration::critical( TQWidget* parent, const TQString& caption,
     const TQString& text, int button0, int button1, int button2 )
     {
-    return qtkde_messageBox1(
+    return tqtkde_messageBox1(
         TQMessageBox::Critical, parentToWinId( parent ), caption, text, button0, button1, button2 );
     }
 
@@ -52,7 +52,7 @@ int TQKDEIntegration::information( TQWidget* parent, const TQString& caption,
     const TQString& text, const TQString& button0Text, const TQString& button1Text, const TQString& button2Text,
     int defaultButton, int escapeButton )
     {
-    return qtkde_messageBox2(
+    return tqtkde_messageBox2(
         TQMessageBox::Information, parentToWinId( parent ), caption, text, button0Text, button1Text, button2Text, defaultButton, escapeButton );
     }
 
@@ -60,7 +60,7 @@ int TQKDEIntegration::question( TQWidget* parent, const TQString& caption,
     const TQString& text, const TQString& button0Text, const TQString& button1Text, const TQString& button2Text,
     int defaultButton, int escapeButton )
     {
-    return qtkde_messageBox2(
+    return tqtkde_messageBox2(
         TQMessageBox::Question, parentToWinId( parent ), caption, text, button0Text, button1Text, button2Text, defaultButton, escapeButton );
     }
 
@@ -68,7 +68,7 @@ int TQKDEIntegration::warning( TQWidget* parent, const TQString& caption,
     const TQString& text, const TQString& button0Text, const TQString& button1Text, const TQString& button2Text,
     int defaultButton, int escapeButton )
     {
-    return qtkde_messageBox2(
+    return tqtkde_messageBox2(
         TQMessageBox::Warning, parentToWinId( parent ), caption, text, button0Text, button1Text, button2Text, defaultButton, escapeButton );
     }
 
@@ -76,6 +76,6 @@ int TQKDEIntegration::critical( TQWidget* parent, const TQString& caption,
     const TQString& text, const TQString& button0Text, const TQString& button1Text, const TQString& button2Text,
     int defaultButton, int escapeButton )
     {
-    return qtkde_messageBox2(
+    return tqtkde_messageBox2(
         TQMessageBox::Critical, parentToWinId( parent ), caption, text, button0Text, button1Text, button2Text, defaultButton, escapeButton );
     }

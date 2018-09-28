@@ -22,10 +22,11 @@ link_directories(
   ${TQT_LIBRARY_DIRS}
 )
 
+
 ##### libtqtkde (shared) ####################
 
-tde_add_library( qtkde SHARED AUTOMOC
-  SOURCES qtkde.cpp
+tde_add_library( tqtkde SHARED AUTOMOC
+  SOURCES tqtkde.cpp
   VERSION 0.0.0
   LINK tdeui-shared
   DEPENDENCIES generate_tqt3_bindings
