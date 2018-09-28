@@ -85,7 +85,7 @@
 		<itemizedlist>
 			<listitem><para>In the User Guide <xref linkend="scripting-the-desktop"/> and <ulink url="help:/khelpcenter/adminguide#kdialog">The &tde; Administrator Guide</ulink></para></listitem>
 			<listitem><para>Other Documentation: <ulink
-	url="http://developer.kde.org/documentation/library/kdeqt/dcop.html">http://developer.kde.org/documentation/library/kdeqt/dcop.html</ulink></para></listitem>
+	url="http://developer.kde.org/documentation/library/kdetqt/dcop.html">http://developer.kde.org/documentation/library/kdetqt/dcop.html</ulink></para></listitem>
 		
 		</itemizedlist>
 	</listitem>
