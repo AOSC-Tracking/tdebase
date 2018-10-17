@@ -397,7 +397,7 @@ void KonqSidebarDirTreeModule::slotNewItems( const KFileItemList& entries )
     kdDebug(1201) << this << " KonqSidebarDirTreeModule::slotNewItems " << entries.count() << endl;
 
     Q_ASSERT(entries.count());
-    KFileItem * firstItem = const_cast<KFileItemList&>(entries).last(); // TQList sucks for constness
+    KFileItem * firstItem = const_cast<KFileItemList&>(entries).last(); // TQPtrList sucks for constness
 
     // Find parent item - it's the same for all the items
     KURL dir( firstItem->url().url(-1) );
