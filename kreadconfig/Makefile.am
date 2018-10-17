@@ -1,4 +1,4 @@
-AM_CPPFLAGS = -DQT_NO_CAST_ASCII 
+AM_CPPFLAGS = -DTQT_NO_CAST_ASCII 
 
 INCLUDES = $(all_includes)
 AM_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor

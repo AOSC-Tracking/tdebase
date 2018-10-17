@@ -1,4 +1,4 @@
-AM_CPPFLAGS = -DQT_NO_CAST_ASCII
+AM_CPPFLAGS = -DTQT_NO_CAST_ASCII
 
 kde_module_LTLIBRARIES = kded_konqy_preloader.la
 

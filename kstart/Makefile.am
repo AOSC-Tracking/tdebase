@@ -1,6 +1,6 @@
 ####### Fiddle here
 
-AM_CPPFLAGS = -DQT_NO_CAST_ASCII -DTQT_NO_COMPAT
+AM_CPPFLAGS = -DTQT_NO_CAST_ASCII -DTQT_NO_COMPAT
 
 INCLUDES = $(all_includes)
 

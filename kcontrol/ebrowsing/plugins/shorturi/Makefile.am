@@ -1,6 +1,6 @@
 ## Makefile.am of tdebase/kcontrol/ebrowsing/plugins/shorturi
 
-AM_CPPFLAGS   =  $(all_includes) -DQT_NO_CAST_ASCII
+AM_CPPFLAGS   =  $(all_includes) -DTQT_NO_CAST_ASCII
 
 kde_module_LTLIBRARIES = libtdeshorturifilter.la
 
