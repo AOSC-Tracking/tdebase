@@ -199,7 +199,7 @@ TQString KTheme::createYourself( bool pack )
     // 4.1 Global sounds
     TDEConfig * soundConf = new TDEConfig( "knotify.eventsrc", true );
     TQStringList stdEvents;
-    stdEvents << "cannotopenfile" << "catastrophe" << "exitkde" << "fatalerror"
+    stdEvents << "cannotopenfile" << "catastrophe" << "exittde" << "fatalerror"
               << "notification" << "printerror" << "starttde" << "warning"
               << "messageCritical" << "messageInformation" << "messageWarning"
               << "messageboxQuestion";

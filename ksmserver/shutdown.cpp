@@ -807,7 +807,7 @@ void KSMServer::completeShutdownOrCheckpoint()
             waitForKNotify = false;
         }
         // event() can return -1 if KNotifyClient short-circuits and avoids KNotify
-        logoutSoundEvent = KNotifyClient::event( 0, "exitkde" ); // KDE says good bye
+        logoutSoundEvent = KNotifyClient::event( 0, "exittde" ); // TDE says good bye
         if( logoutSoundEvent <= 0 ) {
             waitForKNotify = false;
         }
@@ -1008,8 +1008,8 @@ void KSMServer::notifySlot(TQString event ,TQString app,TQString,TQString,TQStri
         SHUTDOWN_MARKER("notifySlot state != WaitingForKNotify");
         return;
     }
-    if( event != "exitkde" || app != "ksmserver" ) {
-        SHUTDOWN_MARKER("notifySlot event != \"exitkde\" || app != \"ksmserver\"");
+    if( event != "exittde" || app != "ksmserver" ) {
+        SHUTDOWN_MARKER("notifySlot event != \"exittde\" || app != \"ksmserver\"");
         return;
     }
     if( present & KNotifyClient::Sound ) { // logoutSoundFinished() will be called
