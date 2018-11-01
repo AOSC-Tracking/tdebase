@@ -3,7 +3,7 @@
 # A script to perform R14.0.0 XDG compliance updates.
 
 SCRIPT_NAME="`basename \`readlink -f $0\``"
-SCRIPT_VERSION=201805260
+SCRIPT_VERSION=201811010
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -976,6 +976,21 @@ if [ "$R14_VERSION" -lt "201805260" ]; then
   fi
 fi
 
+# Rename startkde/exitkde events if possible
+if [ "$R14_VERSION" -lt "201811010" ]; then
+	if [ -f $PROFILE_DIR/share/config/knotify.eventsrc ]; then
+		if [    "`grep \"\[startkde\]\" $PROFILE_DIR/share/config/knotify.eventsrc`" ] && \
+			 [ -z "`grep \"\[starttde\]\" $PROFILE_DIR/share/config/knotify.eventsrc`" ]; then
+	    Log "  Rename startkde -> starttde"
+			sed -i "s|\[startkde\]|\[starttde\]|" $PROFILE_DIR/share/config/knotify.eventsrc
+		fi
+		if [    "`grep \"\[exitkde\]\" $PROFILE_DIR/share/config/knotify.eventsrc`" ] && \
+			[ -z "`grep \"\[exittde\]\" $PROFILE_DIR/share/config/knotify.eventsrc`" ]; then
+	    Log "  Rename exitkde -> exittde"
+			sed -i "s|\[exitkde\]|\[exittde\]|" $PROFILE_DIR/share/config/knotify.eventsrc
+		fi
+	fi
+fi
 
 # Perform some nominal update validations.
 # First clean house from any previous failures.
