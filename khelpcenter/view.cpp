@@ -137,7 +137,7 @@ void View::showAboutPage()
           .arg( i18n( "The Kicker Desktop Panel" ) )
           .arg( i18n( "The Trinity Control Center" ) )
           .arg( i18n( "The Konqueror File manager and Web Browser" ) )
-          .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
+          .arg( langLookup( "khelpcenter/tdelogo2.png" ) );
     begin( KURL( "about:khelpcenter" ) );
     write( res );
     end();

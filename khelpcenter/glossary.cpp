@@ -298,7 +298,7 @@ TQString Glossary::entryToHtml( const GlossaryEntry &entry )
            .arg( entry.term() )
            .arg( entry.definition() )
            .arg( seeAlso)
-           .arg( View::langLookup( "khelpcenter/kdelogo2.png" ) );
+           .arg( View::langLookup( "khelpcenter/tdelogo2.png" ) );
 }
 
 void Glossary::slotSelectGlossEntry( const TQString &id )
