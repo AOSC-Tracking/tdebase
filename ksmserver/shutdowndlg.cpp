@@ -911,7 +911,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			{
 				// Suspend
 				FlatButton* btnSuspend = new FlatButton( frame );
-				btnSuspend->setTextLabel( i18n("&Sleep"), false );
+				btnSuspend->setTextLabel( i18n("&Suspend"), false );
 				btnSuspend->setPixmap( DesktopIcon( "suspend") );
 				TQToolTip::add(btnSuspend, i18n("<qt><p>Put the computer in suspend-to-memory mode."
 				" The system is stopped and its state saved to memory.</p><p> This allows more powersaving than 'Freeze'"
@@ -946,8 +946,8 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				btnHybridSuspend->setPixmap( DesktopIcon( "hibernate") );
 				TQToolTip::add(btnHybridSuspend, i18n("<qt><p>Put the computer in both suspend-to-memory and"
 				" suspend-to-disk mode. The system is stopped and its state saved to memory and to disk.</p>"
-				"<p>This offers the best of both 'Sleep' and 'Hibernate' modes combined together. The system is"
-				" de facto in 'Sleep' mode but if power is lost, work can still be resumed as if the system"
+				"<p>This offers the best of both 'Suspend' and 'Hibernate' modes combined together. The system is"
+				" de facto in 'Suspend' mode but if power is lost, work can still be resumed as if the system"
 				" had been hibernated, preventing any data loss.</p><p>This correspond to ACPI S3+S4 mode.</p>"
 				"<p>Also known as Suspend-to-RAM + Suspend-to-Disk mode.</p></qt>"));
 				int i = btnHybridSuspend->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
@@ -1094,7 +1094,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			if (canSuspend && !disableSuspend)
 			{
-				KPushButton* btnSuspend = new KPushButton( KGuiItem( i18n("&Sleep"), "suspend"), frame );
+				KPushButton* btnSuspend = new KPushButton( KGuiItem( i18n("&Suspend"), "suspend"), frame );
 				TQToolTip::add(btnSuspend, i18n("<qt><p>Put the computer in suspend-to-memory mode."
 				" The system is stopped and its state saved to memory.</p><p> This allows more powersaving than 'Freeze'"
 				" but requires longer time to reactivate the system.</p><p>This correspond to ACPI S3 mode.</p>"
@@ -1120,8 +1120,8 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				KPushButton* btnHybridSuspend = new KPushButton( KGuiItem( i18n("H&ybrid Suspend"), "hibernate"), frame );
 				TQToolTip::add(btnHybridSuspend, i18n("<qt><p>Put the computer in both suspend-to-memory and"
 				" suspend-to-disk mode. The system is stopped and its state saved to memory and to disk.</p>"
-				"<p>This offers the best of both 'Sleep' and 'Hibernate' modes combined together. The system is"
-				" de facto in 'Sleep' mode but if power is lost, work can still be resumed as if the system"
+				"<p>This offers the best of both 'Suspend' and 'Hibernate' modes combined together. The system is"
+				" de facto in 'Suspend' mode but if power is lost, work can still be resumed as if the system"
 				" had been hibernated, preventing any data loss.</p><p>This correspond to ACPI S3+S4 mode.</p>"
 				"<p>Also known as Suspend-to-RAM + Suspend-to-Disk mode.</p></qt>"));
 				btnHybridSuspend->setFont( btnFont );

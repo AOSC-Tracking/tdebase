@@ -3872,7 +3872,7 @@ void KMenu::insertSuspendOption( int &nId, int &index )
     if ( suspend_ram && !disableSuspend ) {
         m_exitView->leftView()->insertItem(
             "suspend2ram",
-            i18n( "Sleep" ),
+            i18n( "Suspend" ),
             i18n( "Suspend to RAM" ),
             "kicker:/suspend_ram", nId++, index++ );
     }
