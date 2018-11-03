@@ -10,7 +10,7 @@
 #################################################
 
 install( FILES
-    kdelogo.png shutdown.jpg
+    tdelogo.png shutdown.jpg
   DESTINATION ${DATA_INSTALL_DIR}/tdm/pics )
 
 install( FILES
