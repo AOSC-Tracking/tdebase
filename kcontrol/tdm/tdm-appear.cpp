@@ -355,7 +355,7 @@ void TDMAppearanceWidget::loadGuiStyles(KBackedComboBox *combo)
 bool TDMAppearanceWidget::setLogo(TQString logo)
 {
     TQString flogo = logo.isEmpty() ?
-                    locate("data", TQString::fromLatin1("tdm/pics/kdelogo.png") ) :
+                    locate("data", TQString::fromLatin1("tdm/pics/tdelogo.png") ) :
                     logo;
     TQImage p(flogo);
     if (p.isNull())

@@ -2061,7 +2061,7 @@ Key: LogoPixmap
 Type: string
 Default: ""
 User: greeter(logo)
-Instance: */TDMDATA "/pics/kdelogo.png"
+Instance: */TDMDATA "/pics/tdelogo.png"
 Comment:
  The image to show when LogoArea=Logo.
 Description:
