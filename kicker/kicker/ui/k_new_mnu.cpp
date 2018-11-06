@@ -146,8 +146,8 @@ enum SuspendType {
 	Freeze,
 	Standby,
 	Suspend,
-	Hibernate,
-	HybridSuspend
+	HybridSuspend,
+	Hibernate
 };
 };
 
@@ -2745,11 +2745,11 @@ void KMenu::slotStartURL(const TQString& u)
     else if ( u == "kicker:/suspend_ram" ) {
         slotSuspend( SuspendType::Suspend );
     }
-    else if ( u == "kicker:/suspend_disk" ) {
-        slotSuspend( SuspendType::Hibernate );
-    }
     else if ( u == "kicker:/hybrid_suspend" ) {
         slotSuspend( SuspendType::HybridSuspend );
+    }
+    else if ( u == "kicker:/suspend_disk" ) {
+        slotSuspend( SuspendType::Hibernate );
     }
     else if ( u == "kicker:/savesession" ) {
         TQByteArray data;
@@ -3810,50 +3810,54 @@ int KMenu::max_items(int category) const
 
 void KMenu::insertSuspendOption( int &nId, int &index )
 {
-    bool suspend_ram = false;
-    bool suspend_freeze = false;
-    bool standby = false;
-    bool suspend_disk = false;
-    bool hybrid_suspend = false;
-#if defined(COMPILE_HALBACKEND)
-    suspend_ram = libhal_device_get_property_bool(m_halCtx,
-        "/org/freedesktop/Hal/devices/computer",
-        "power_management.can_suspend",
-        NULL);
+    bool canFreeze = false;
+    bool canStandby = false;
+    bool canSuspend = false;
+    bool canHybridSuspend = false;
+    bool canHibernate = false;
 
-    standby = libhal_device_get_property_bool(m_halCtx,
+#if defined(COMPILE_HALBACKEND)
+    canStandby = libhal_device_get_property_bool(m_halCtx,
         "/org/freedesktop/Hal/devices/computer",
         "power_management.can_standby",
         NULL);
 
-    suspend_disk = libhal_device_get_property_bool(m_halCtx,
+    canSuspend = libhal_device_get_property_bool(m_halCtx,
         "/org/freedesktop/Hal/devices/computer",
-        "power_management.can_hibernate",
+        "power_management.can_suspend",
         NULL);
 
-    hybrid_suspend = libhal_device_get_property_bool(m_halCtx,
+    canHybridSuspend = libhal_device_get_property_bool(m_halCtx,
         "/org/freedesktop/Hal/devices/computer",
         "power_management.can_suspend_hybrid",
+        NULL);
+
+    canHibernate = libhal_device_get_property_bool(m_halCtx,
+        "/org/freedesktop/Hal/devices/computer",
+        "power_management.can_hibernate",
         NULL);
 #elif defined(__TDE_HAVE_TDEHWLIB) // COMPILE_HALBACKEND
     TDERootSystemDevice* rootDevice = TDEGlobal::hardwareDevices()->rootSystemDevice();
     if (rootDevice) {
-        suspend_ram = rootDevice->canSuspend();
-        suspend_freeze = rootDevice->canFreeze();
-        standby = rootDevice->canStandby();
-        suspend_disk = rootDevice->canHibernate();
-        hybrid_suspend = rootDevice->canHybridSuspend();
+        canFreeze = rootDevice->canFreeze();
+        canStandby = rootDevice->canStandby();
+        canSuspend = rootDevice->canSuspend();
+        canHybridSuspend = rootDevice->canHybridSuspend();
+        canHibernate = rootDevice->canHibernate();
     }
 #endif
 
     m_exitView->leftView()->insertSeparator( nId++, i18n("Suspend"), index++ );
     
-    // respect disable suspend/hibernate settings from power-manager
+    // respect disable settings from power-manager
     TDEConfig config("power-managerrc");
+		bool disableFreeze = config.readBoolEntry("disableFreeze", false);
+    bool disableStandby = config.readBoolEntry("disableStandby", false);
     bool disableSuspend = config.readBoolEntry("disableSuspend", false);
+		bool disableHybridSuspend = config.readBoolEntry("disableHybridSuspend", false);
     bool disableHibernate = config.readBoolEntry("disableHibernate", false);
 
-    if ( suspend_freeze && !disableSuspend ) {
+    if ( canFreeze && !disableFreeze ) {
         m_exitView->leftView()->insertItem(
             "suspend2ram",
             i18n( "Freeze" ),
@@ -3861,7 +3865,7 @@ void KMenu::insertSuspendOption( int &nId, int &index )
             "kicker:/suspend_freeze", nId++, index++ );
     }
 
-    if ( standby && !disableSuspend ) {
+    if ( canStandby && !disableStandby ) {
         m_exitView->leftView()->insertItem(
             "media-playback-pause",
             i18n( "Standby" ),
@@ -3869,7 +3873,7 @@ void KMenu::insertSuspendOption( int &nId, int &index )
             "kicker:/standby", nId++, index++ );
     }
 
-    if ( suspend_ram && !disableSuspend ) {
+    if ( canSuspend && !disableSuspend ) {
         m_exitView->leftView()->insertItem(
             "suspend2ram",
             i18n( "Suspend" ),
@@ -3877,7 +3881,14 @@ void KMenu::insertSuspendOption( int &nId, int &index )
             "kicker:/suspend_ram", nId++, index++ );
     }
 
-    if ( suspend_disk && !disableHibernate ) {
+    if ( canHybridSuspend && !disableHybridSuspend ) {
+        m_exitView->leftView()->insertItem(
+            "suspend2disk",
+            i18n( "Hybrid Suspend" ),
+            i18n( "Suspend to RAM + Disk" ),
+            "kicker:/hybrid_suspend", nId++, index++ );
+    }
+    if ( canHibernate && !disableHibernate ) {
         m_exitView->leftView()->insertItem(
             "suspend2disk",
             i18n( "Hibernate" ),
@@ -3885,13 +3896,6 @@ void KMenu::insertSuspendOption( int &nId, int &index )
             "kicker:/suspend_disk", nId++, index++ );
     }
 
-    if ( hybrid_suspend && !disableSuspend && !disableHibernate ) {
-        m_exitView->leftView()->insertItem(
-            "suspend2disk",
-            i18n( "Hybrid Suspend" ),
-            i18n( "Suspend to RAM + Disk" ),
-            "kicker:/hybrid_suspend", nId++, index++ );
-    }
 }
 
 void KMenu::slotSuspend(int id)
@@ -3911,14 +3915,8 @@ void KMenu::slotSuspend(int id)
     DBusMessage* msg = NULL;
 
     if (m_dbusConn) {
-        // No Freeze support in HAL
-        if (id == SuspendType::Standby) {
-            msg = dbus_message_new_method_call(
-                              "org.freedesktop.Hal",
-                              "/org/freedesktop/Hal/devices/computer",
-                              "org.freedesktop.Hal.Device.SystemPowerManagement",
-                              "Standby");
-        } else if (id == SuspendType::Suspend) {
+        // No Freeze nor Standby support in HAL
+        if (id == SuspendType::Suspend) {
             msg = dbus_message_new_method_call(
                               "org.freedesktop.Hal",
                               "/org/freedesktop/Hal/devices/computer",
@@ -3926,12 +3924,6 @@ void KMenu::slotSuspend(int id)
                               "Suspend");
             int wakeup=0;
             dbus_message_append_args(msg, DBUS_TYPE_INT32, &wakeup, DBUS_TYPE_INVALID);
-        } else if (id == SuspendType::Hibernate) {
-            msg = dbus_message_new_method_call(
-                              "org.freedesktop.Hal",
-                              "/org/freedesktop/Hal/devices/computer",
-                              "org.freedesktop.Hal.Device.SystemPowerManagement",
-                              "Hibernate");
         } else if (id == SuspendType::HybridSuspend) {
             msg = dbus_message_new_method_call(
                               "org.freedesktop.Hal",
@@ -3940,6 +3932,12 @@ void KMenu::slotSuspend(int id)
                               "SuspendHybrid");
             int wakeup=0;
             dbus_message_append_args(msg, DBUS_TYPE_INT32, &wakeup, DBUS_TYPE_INVALID);
+        } else if (id == SuspendType::Hibernate) {
+            msg = dbus_message_new_method_call(
+                              "org.freedesktop.Hal",
+                              "/org/freedesktop/Hal/devices/computer",
+                              "org.freedesktop.Hal.Device.SystemPowerManagement",
+                              "Hibernate");
         } else {
             return;
         }
@@ -3958,10 +3956,10 @@ void KMenu::slotSuspend(int id)
             error = !rootDevice->setPowerState(TDESystemPowerState::Standby);
         } else if (id == SuspendType::Suspend) {
             error = !rootDevice->setPowerState(TDESystemPowerState::Suspend);
-        } else if (id == SuspendType::Hibernate) {
-            error = !rootDevice->setPowerState(TDESystemPowerState::Hibernate);
         } else if (id == SuspendType::HybridSuspend) {
             error = !rootDevice->setPowerState(TDESystemPowerState::HybridSuspend);
+        } else if (id == SuspendType::Hibernate) {
+            error = !rootDevice->setPowerState(TDESystemPowerState::Hibernate);
         } else {
             return;
         }
