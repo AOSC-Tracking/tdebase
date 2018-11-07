@@ -425,7 +425,7 @@ dialog.</para>
 </itemizedlist>
 
 <para>If you do not specify a logo the default
-<filename>$<envar>TDEDIR</envar>/share/apps/tdm/pics/kdelogo.xpm</filename>
+<filename>$<envar>TDEDIR</envar>/share/apps/tdm/pics/tdelogo.png</filename>
 will be displayed.</para>
 
 <para>Normally the login box is centered on the screen. Use the
