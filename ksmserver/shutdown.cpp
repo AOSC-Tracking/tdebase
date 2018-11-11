@@ -248,14 +248,17 @@ void KSMServer::shutdownInternal( TDEApplication::ShutdownConfirm confirm,
 				case SuspendType::Freeze:
 					rootDevice->setPowerState(TDESystemPowerState::Freeze);
 					break;
+				case SuspendType::Standby:
+					rootDevice->setPowerState(TDESystemPowerState::Standby);
+					break;
 				case SuspendType::Suspend:
 					rootDevice->setPowerState(TDESystemPowerState::Suspend);
 					break;
-				case SuspendType::Hibernate:
-					rootDevice->setPowerState(TDESystemPowerState::Hibernate);
-					break;
 				case SuspendType::HybridSuspend:
 					rootDevice->setPowerState(TDESystemPowerState::HybridSuspend);
+					break;
+				case SuspendType::Hibernate:
+					rootDevice->setPowerState(TDESystemPowerState::Hibernate);
 					break;
 			}
 		}
