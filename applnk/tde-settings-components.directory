@@ -82,5 +82,5 @@ Name[xh]=Izinto ze TDE
 Name[zh_CN]=TDE 组件
 Name[zh_TW]=TDE 元件
 Name[zu]= Amalunga e-TDE
-Icon=blockdevice
+Icon=kcmdf
 OnlyShowIn=TDE;
