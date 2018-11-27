@@ -280,16 +280,16 @@ KClassicGreeter::returnData()
 		                          KGreeterPluginHandler::IsUser );
 		break;
 	case 1:
-		handler->gplugReturnText( passwdEdit->password(),
+		handler->gplugReturnText( passwdEdit->password().utf8(),
 		                          KGreeterPluginHandler::IsPassword |
 		                          KGreeterPluginHandler::IsSecret );
 		break;
 	case 2:
-		handler->gplugReturnText( passwd1Edit->password(),
+		handler->gplugReturnText( passwd1Edit->password().utf8(),
 		                          KGreeterPluginHandler::IsSecret );
 		break;
 	default: // case 3:
-		handler->gplugReturnText( passwd2Edit->password(),
+		handler->gplugReturnText( passwd2Edit->password().utf8(),
 		                          KGreeterPluginHandler::IsNewPassword |
 		                          KGreeterPluginHandler::IsSecret );
 		break;

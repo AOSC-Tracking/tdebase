@@ -2719,7 +2719,7 @@ void LockProcess::slotMouseActivity(XEvent *event)
 void LockProcess::processInputPipeCommand(TQString inputcommand) {
 	TQCString command(inputcommand.ascii());
 	TQString to_display;
-	const char * pin_entry;
+	TQString pin_entry;
 
 	if (command[0] == 'C') {
 		while (mDialogControlLock == true) usleep(100000);
@@ -2807,7 +2807,8 @@ void LockProcess::processInputPipeCommand(TQString inputcommand) {
 			pin_entry = qryDlg.getEntry();
 			mInfoMessageDisplayed=false;
 			if (mPipeOpen_out == true) {
-				if (write(mPipe_fd_out, pin_entry, strlen(pin_entry)+1) == -1) {
+			  TQCString pin_entry_utf8 = pin_entry.utf8();  // utf8 length may differ from TQString length
+				if (write(mPipe_fd_out, pin_entry_utf8.data(), pin_entry_utf8.length()+1) == -1) {
 					// Error handler to shut up gcc warnings
 				}
 				if (write(mPipe_fd_out, "\n\r", 3) == -1) {
@@ -2896,7 +2897,7 @@ void LockProcess::signalPassDlgToAttemptCardAbort() {
 
 void LockProcess::cryptographicCardPinRequested(TQString prompt, TDECryptographicCardDevice* cdevice) {
 	TQCString password;
-	const char * pin_entry;
+	TQString pin_entry;
 
 	QueryDlg qryDlg(this);
 	qryDlg.updateLabel(prompt);

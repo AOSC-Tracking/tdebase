@@ -90,7 +90,8 @@ CryptPasswordDialog::~CryptPasswordDialog()
 
 TQByteArray CryptPasswordDialog::password() {
 	if (m_base->textPasswordButton->isOn() == true) {
-		m_password.duplicate(m_base->textPasswordEntry->password(), strlen(m_base->textPasswordEntry->password()));
+		TQCString pass = m_base->textPasswordEntry->password().utf8();
+		m_password.duplicate(pass, pass.length());
 		if (m_useCard) *m_useCard = false;
 	}
 	else if (m_base->filePasswordButton->isOn() == true) {
@@ -109,7 +110,7 @@ void CryptPasswordDialog::processLockouts() {
 		m_base->textPasswordEntry->setEnabled(true);
 		m_base->filePasswordURL->setEnabled(false);
 		m_base->textPasswordEntry->setFocus();
-		if (strlen(m_base->textPasswordEntry->password()) > 0) {
+		if (m_base->textPasswordEntry->password().length() > 0) {
 			enableButtonOK(true);
 		}
 		else {

@@ -1620,13 +1620,13 @@ void KCryptoConfig::slotYourImport() {
 
 #ifdef HAVE_SSL
 KSSLPKCS12 *cert = NULL;
-TQCString pass;
+TQString pass;
 
 TryImportPassAgain:
    int rc = KPasswordDialog::getPassword(pass, i18n("Certificate password"));
    if (rc != KPasswordDialog::Accepted) return;
 
-   cert = KSSLPKCS12::loadCertFile(certFile, TQString(pass));
+   cert = KSSLPKCS12::loadCertFile(certFile, pass);
 
    if (!cert) {
       rc = KMessageBox::warningYesNo(this, i18n("The certificate file could not be loaded. Try a different password?"), i18n("SSL"),i18n("Try"),i18n("Do Not Try"));
@@ -1681,7 +1681,7 @@ YourCertItem *x = static_cast<YourCertItem *>(yourSSLBox->selectedItem());
       pkcs = KSSLPKCS12::fromString(x->getPKCS(), x->getPassCache());
    if (!pkcs) {
       TQString pprompt = i18n("Enter the certificate password:");
-      TQCString oldpass;
+      TQString oldpass;
       do {
          int i = KPasswordDialog::getPassword(oldpass, pprompt);
          if (i != KPasswordDialog::Accepted) return;
@@ -1713,7 +1713,7 @@ TQString iss;
       pkcs = KSSLPKCS12::fromString(x->getPKCS(), x->getPassCache());
    if (!pkcs) {
       TQString pprompt = i18n("Enter the certificate password:");
-      TQCString oldpass;
+      TQString oldpass;
       do {
          int i = KPasswordDialog::getPassword(oldpass, pprompt);
          if (i != KPasswordDialog::Accepted) return;
@@ -1761,7 +1761,7 @@ TQString iss;
       pkcs = KSSLPKCS12::fromString(x->getPKCS(), x->getPassCache());
    if (!pkcs) {
       TQString pprompt = i18n("Enter the certificate password:");
-      TQCString oldpass;
+      TQString oldpass;
       do {
          int i = KPasswordDialog::getPassword(oldpass, pprompt);
          if (i != KPasswordDialog::Accepted) return;
@@ -1851,8 +1851,8 @@ TQString iss;
 
 
 void KCryptoConfig::slotYourPass() {
-YourCertItem *x = static_cast<YourCertItem *>(yourSSLBox->selectedItem());
-TQCString oldpass = "";
+   YourCertItem *x = static_cast<YourCertItem *>(yourSSLBox->selectedItem());
+   TQString oldpass = "";
    if (!x) return;
 
    KSSLPKCS12 *pkcs = KSSLPKCS12::fromString(x->getPKCS(), x->getPass());
@@ -1877,8 +1877,8 @@ TQCString oldpass = "";
 
       int i = kpd->exec();
       if (i == KPasswordDialog::Accepted) {
-         TQCString pass = kpd->password();
-         pkcs->changePassword(TQString(oldpass), TQString(pass));
+         TQString pass = kpd->password();
+         pkcs->changePassword(oldpass, pass);
          x->setPKCS(pkcs->toString());
          x->setPassCache(pass);
          configChanged();

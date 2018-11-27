@@ -65,7 +65,7 @@ bool Widgets::inputBox(TQWidget *parent, const TQString& title, const TQString& 
   return ok;
 }
 
-bool Widgets::passwordBox(TQWidget *parent, const TQString& title, const TQString& text, TQCString &result)
+bool Widgets::passwordBox(TQWidget *parent, const TQString& title, const TQString& text, TQString &result)
 {
   KPasswordDialog dlg( KPasswordDialog::Password, false, 0, parent );
 

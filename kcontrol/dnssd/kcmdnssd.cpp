@@ -169,7 +169,7 @@ bool KCMDnssd::saveMdnsd()
 {
 	mdnsdLines["zone"]=domainedit->text();
 	mdnsdLines["hostname"]=hostedit->text();
-	if (!secretedit->text().isEmpty()) mdnsdLines["secret-64"]=TQString(secretedit->password());
+	if (!secretedit->text().isEmpty()) mdnsdLines["secret-64"]=secretedit->password();
 		else mdnsdLines.remove("secret-64");
 	TQFile f(MDNSD_CONF);
 	bool newfile=!f.exists();

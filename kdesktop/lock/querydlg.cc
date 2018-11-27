@@ -133,7 +133,7 @@ void QueryDlg::slotOK()
 	close();
 }
 
-const char * QueryDlg::getEntry()
+TQString QueryDlg::getEntry()
 {
 	return pin_box->password();
 }

@@ -20,10 +20,10 @@ public:
     TDEpasswd1Dialog();
     ~TDEpasswd1Dialog();
 
-    static int getPassword(TQCString &password);
+    static int getPassword(TQString &password);
 
 protected:
-    bool checkPassword(const char *password);
+    bool checkPassword(const TQString &password);
 };
     
 
@@ -33,15 +33,15 @@ class TDEpasswd2Dialog
     Q_OBJECT
 
 public:
-    TDEpasswd2Dialog(const char *oldpass, TQCString user);
+    TDEpasswd2Dialog(const TQString &oldpass, const TQString &user);
     ~TDEpasswd2Dialog();
 
 protected:
-    bool checkPassword(const char *password);
+    bool checkPassword(const TQString &password);
     
 private:
-    const char *m_Pass;
-    TQCString m_User;
+    TQString m_Pass;
+    TQString m_User;
 };
     
 

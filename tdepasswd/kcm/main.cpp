@@ -209,7 +209,7 @@ void KCMUserAccount::save()
 	/* Save realname to /etc/passwd */
 	if ( _mw->leRealname->isModified() )
 	{
-		TQCString password;
+		TQString password;
 		int ret = KPasswordDialog::getPassword( password, i18n("Please enter "
 			"your password in order to save your settings:"));
 
@@ -221,7 +221,7 @@ void KCMUserAccount::save()
 		}
 
 		ChfnProcess *proc = new ChfnProcess();
-		ret = proc->exec(password, _mw->leRealname->text().ascii() );
+		ret = proc->exec(password.utf8(), _mw->leRealname->text().utf8() );
 		if ( ret )
 			{
 			if ( ret == ChfnProcess::PasswordError )

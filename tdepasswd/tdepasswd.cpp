@@ -47,21 +47,21 @@ int main(int argc, char **argv)
     KUniqueApplication app;
 
     KUser ku;
-    TQCString user;
+    TQString user;
     bool bRoot = ku.isSuperUser();
     TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
 
     if (args->count())
-	user = args->arg(0);
+	user = TQString(args->arg(0));
 
     /* You must be able to run "tdepasswd loginName" */
-    if ( !user.isEmpty() && user!=KUser().loginName().utf8() && !bRoot)
+    if ( !user.isEmpty() && user!=KUser().loginName() && !bRoot)
     {
         KMessageBox::sorry(0, i18n("You need to be root to change the password of other users."));
         return 0;
     }
 
-    TQCString oldpass;
+    TQString oldpass;
     if (!bRoot)
     {
         int result = TDEpasswd1Dialog::getPassword(oldpass);

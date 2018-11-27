@@ -21,7 +21,7 @@ public:
     enum ResultCodes { AsUser = 10 };
     
 protected:
-    bool checkPassword(const char *password);
+    bool checkPassword(const TQString &password);
     void slotUser1();
     
 private:

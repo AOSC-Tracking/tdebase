@@ -26,7 +26,7 @@ TDEpasswd1Dialog::~TDEpasswd1Dialog()
 }
 
 
-bool TDEpasswd1Dialog::checkPassword(const char *password)
+bool TDEpasswd1Dialog::checkPassword(const TQString &password)
 {
     PasswdProcess proc(0);
 
@@ -66,7 +66,7 @@ bool TDEpasswd1Dialog::checkPassword(const char *password)
 
 
 // static
-int TDEpasswd1Dialog::getPassword(TQCString &password)
+int TDEpasswd1Dialog::getPassword(TQString &password)
 {
     TDEpasswd1Dialog *dlg = new TDEpasswd1Dialog();
     int res = dlg->exec();
@@ -78,7 +78,7 @@ int TDEpasswd1Dialog::getPassword(TQCString &password)
 
 
 
-TDEpasswd2Dialog::TDEpasswd2Dialog(const char *oldpass, TQCString user)
+TDEpasswd2Dialog::TDEpasswd2Dialog(const TQString &oldpass, const TQString &user)
     : KPasswordDialog(NewPassword, false, Help)
 {
     m_Pass = oldpass;
@@ -88,7 +88,7 @@ TDEpasswd2Dialog::TDEpasswd2Dialog(const char *oldpass, TQCString user)
     if (m_User.isEmpty())
         setPrompt(i18n("Please enter your new password:"));
     else
-        setPrompt(i18n("Please enter the new password for user <b>%1</b>:").arg(static_cast<const char *>(m_User)));
+        setPrompt(i18n("Please enter the new password for user <b>%1</b>:").arg(m_User.utf8().data()));
 }
 
 
@@ -97,11 +97,12 @@ TDEpasswd2Dialog::~TDEpasswd2Dialog()
 }
 
 
-bool TDEpasswd2Dialog::checkPassword(const char *password)
+bool TDEpasswd2Dialog::checkPassword(const TQString &password)
 {
-    PasswdProcess proc(m_User);
+    PasswdProcess proc(m_User.utf8());
+    TQString edit_password = password;
 
-    if (strlen(password) > 8)
+    if (edit_password.length() > 8)
     {
 	switch(KMessageBox::warningYesNoCancel(this,
 		m_User.isEmpty() ?
@@ -118,7 +119,7 @@ bool TDEpasswd2Dialog::checkPassword(const char *password)
 		"truncatePassword"))
 	{
 	case KMessageBox::Yes :
-		const_cast<char *>(password)[8] = '\000';
+		edit_password.truncate(8);
 		break;
 	case KMessageBox::No :
 		break;
@@ -126,7 +127,7 @@ bool TDEpasswd2Dialog::checkPassword(const char *password)
 	}
     }
 
-    int ret = proc.exec(m_Pass, password);
+    int ret = proc.exec(m_Pass.utf8(), edit_password.utf8());
     switch (ret)
     {
     case 0:

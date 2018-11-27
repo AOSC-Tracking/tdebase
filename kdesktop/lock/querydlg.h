@@ -38,7 +38,7 @@ class QueryDlg : public TQDialog
 		void updateLabel( TQString &txt );
 		void setUnlockIcon();
 		void setWarningIcon();
-		const char * getEntry();
+		TQString getEntry();
 
 	private slots:
 		void slotOK();

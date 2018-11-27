@@ -67,11 +67,11 @@ TDEsuDialog::~TDEsuDialog()
 {
 }
 
-bool TDEsuDialog::checkPassword(const char *password)
+bool TDEsuDialog::checkPassword(const TQString &password)
 {
     SuProcess proc;
     proc.setUser(m_User);
-    int status = proc.checkInstall(password);
+    int status = proc.checkInstall(password.utf8());
     switch (status)
     {
     case -1:

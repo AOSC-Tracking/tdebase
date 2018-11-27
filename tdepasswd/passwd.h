@@ -25,7 +25,7 @@ public:
 
     enum Errors { PasswdNotFound=1, PasswordIncorrect, PasswordNotGood };
 
-    int checkCurrent(const char *oldpass);
+    int checkCurrent(const TQString &oldpass);
     int exec(const char *oldpass, const char *newpass, int check=0);
 
     TQCString error() { return m_Error; }

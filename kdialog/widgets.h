@@ -27,7 +27,7 @@
 namespace Widgets
 {
     bool inputBox(TQWidget *parent, const TQString& title, const TQString& text, const TQString& init, TQString &result);
-    bool passwordBox(TQWidget *parent, const TQString& title, const TQString& text, TQCString &result);
+    bool passwordBox(TQWidget *parent, const TQString& title, const TQString& text, TQString &result);
     int textBox(TQWidget *parent, int width, int height, const TQString& title, const TQString& file);
     int textInputBox(TQWidget *parent, int width, int height, const TQString& title, const TQStringList& args, TQCString &result);
     bool listBox(TQWidget *parent, const TQString& title, const TQString& text, const TQStringList& args, const TQString &defaultEntry, TQString &result);

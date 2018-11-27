@@ -229,7 +229,7 @@ void TDEHWManager::deviceChanged(TDEGenericDevice* device) {
 }
 
 void TDEHWManager::cryptographicCardPinRequested(TQString prompt, TDECryptographicCardDevice* cdevice) {
-	TQCString password;
+	TQString password;
 	int result = KPasswordDialog::getPassword(password, prompt);
 	if (result == KPasswordDialog::Accepted) {
 		cdevice->setProvidedPin(password);
