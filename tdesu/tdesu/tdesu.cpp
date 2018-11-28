@@ -391,7 +391,7 @@ static int startApp()
     }
     else if (keep && have_daemon)
     {
-        client.setPass(password.utf8(), timeout);
+        client.setPass(password.local8Bit(), timeout);
         client.setPriority(priority);
         client.setScheduler(scheduler);
         int result = client.exec(command, user, options, env);
@@ -415,7 +415,7 @@ static int startApp()
         proc.setPriority(priority);
         proc.setScheduler(scheduler);
         proc.setCommand(command);
-        int result = proc.exec(password.utf8());
+        int result = proc.exec(password.local8Bit());
         return result;
     }
     return -1;

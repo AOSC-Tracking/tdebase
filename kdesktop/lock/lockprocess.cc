@@ -2807,8 +2807,8 @@ void LockProcess::processInputPipeCommand(TQString inputcommand) {
 			pin_entry = qryDlg.getEntry();
 			mInfoMessageDisplayed=false;
 			if (mPipeOpen_out == true) {
-			  TQCString pin_entry_utf8 = pin_entry.utf8();  // utf8 length may differ from TQString length
-				if (write(mPipe_fd_out, pin_entry_utf8.data(), pin_entry_utf8.length()+1) == -1) {
+			  TQCString pin_entry_local8 = pin_entry.local8Bit();  // local 8 bit length may differ from TQString length
+				if (write(mPipe_fd_out, pin_entry_local8.data(), pin_entry_local8.length()+1) == -1) {
 					// Error handler to shut up gcc warnings
 				}
 				if (write(mPipe_fd_out, "\n\r", 3) == -1) {

@@ -325,16 +325,16 @@ KPamGreeter::returnData()
 					  KGreeterPluginHandler::IsUser );
 		break;
 	case 1:
-		handler->gplugReturnText( authEdit[0]->password().utf8(),
+		handler->gplugReturnText( authEdit[0]->password().local8Bit(),
 					  KGreeterPluginHandler::IsPassword |
 					  KGreeterPluginHandler::IsSecret );
 		break;
 	case 2:
-		handler->gplugReturnText( authEdit[1]->password().utf8(),
+		handler->gplugReturnText( authEdit[1]->password().local8Bit(),
 					  KGreeterPluginHandler::IsSecret );
 		break;
 	default: // case 3:
-		handler->gplugReturnText( authEdit[2]->password().utf8(),
+		handler->gplugReturnText( authEdit[2]->password().local8Bit(),
 					  KGreeterPluginHandler::IsNewPassword |
 					  KGreeterPluginHandler::IsSecret );
 		break;

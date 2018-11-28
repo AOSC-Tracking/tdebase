@@ -281,7 +281,7 @@ static int directCommand(TDECmdLineArgs *args)
     {
       TQString result;
       bool retcode = Widgets::passwordBox(0, title, TQString::fromLocal8Bit(args->getOption("password")), result);
-      cout << result.utf8() << endl;
+      cout << result.local8Bit().data() << endl;
       return retcode ? 0 : 1;
     }
 

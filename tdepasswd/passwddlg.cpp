@@ -88,7 +88,7 @@ TDEpasswd2Dialog::TDEpasswd2Dialog(const TQString &oldpass, const TQString &user
     if (m_User.isEmpty())
         setPrompt(i18n("Please enter your new password:"));
     else
-        setPrompt(i18n("Please enter the new password for user <b>%1</b>:").arg(m_User.utf8().data()));
+        setPrompt(i18n("Please enter the new password for user <b>%1</b>:").arg(m_User.local8Bit().data()));
 }
 
 
@@ -99,7 +99,7 @@ TDEpasswd2Dialog::~TDEpasswd2Dialog()
 
 bool TDEpasswd2Dialog::checkPassword(const TQString &password)
 {
-    PasswdProcess proc(m_User.utf8());
+    PasswdProcess proc(m_User.local8Bit());
     TQString edit_password = password;
 
     if (edit_password.length() > 8)
@@ -127,7 +127,7 @@ bool TDEpasswd2Dialog::checkPassword(const TQString &password)
 	}
     }
 
-    int ret = proc.exec(m_Pass.utf8(), edit_password.utf8());
+    int ret = proc.exec(m_Pass.local8Bit(), edit_password.local8Bit());
     switch (ret)
     {
     case 0:

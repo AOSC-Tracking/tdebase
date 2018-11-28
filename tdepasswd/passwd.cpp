@@ -66,7 +66,7 @@ PasswdProcess::~PasswdProcess()
 
 int PasswdProcess::checkCurrent(const TQString &oldpass)
 {
-    return exec(oldpass.utf8(), 0L, 1);
+    return exec(oldpass.local8Bit(), 0L, 1);
 }
     
 

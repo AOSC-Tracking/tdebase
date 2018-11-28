@@ -71,7 +71,7 @@ bool TDEsuDialog::checkPassword(const TQString &password)
 {
     SuProcess proc;
     proc.setUser(m_User);
-    int status = proc.checkInstall(password.utf8());
+    int status = proc.checkInstall(password.local8Bit());
     switch (status)
     {
     case -1:

@@ -483,7 +483,7 @@ int Minicli::runCommand()
         proc_checkpwd.setScheduler(m_iScheduler);
       }
 
-      if (proc_checkpwd.checkInstall(m_dlg->lePassword->password().utf8()) != 0)
+      if (proc_checkpwd.checkInstall(m_dlg->lePassword->password().local8Bit()) != 0)
       {
           KMessageBox::sorry(this, i18n("Incorrect password; please try again."));
         return 1;
@@ -534,7 +534,7 @@ int Minicli::runCommand()
     sigprocmask(SIG_BLOCK, &sset, 0L);
     proc.setTerminal(true);
     proc.setErase(true);
-    _exit(proc.exec(m_dlg->lePassword->password().utf8()));
+    _exit(proc.exec(m_dlg->lePassword->password().local8Bit()));
     return 0;
   }
   else

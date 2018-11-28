@@ -356,16 +356,16 @@ KWinbindGreeter::returnData()
 		                          KGreeterPluginHandler::IsUser );
 		break;
 	case 1:
-		handler->gplugReturnText( passwdEdit->password().utf8(),
+		handler->gplugReturnText( passwdEdit->password().local8Bit(),
 		                          KGreeterPluginHandler::IsPassword |
 		                          KGreeterPluginHandler::IsSecret );
 		break;
 	case 2:
-		handler->gplugReturnText( passwd1Edit->password().utf8(),
+		handler->gplugReturnText( passwd1Edit->password().local8Bit(),
 		                          KGreeterPluginHandler::IsSecret );
 		break;
 	default: // case 3:
-		handler->gplugReturnText( passwd2Edit->password().utf8(),
+		handler->gplugReturnText( passwd2Edit->password().local8Bit(),
 		                          KGreeterPluginHandler::IsNewPassword |
 		                          KGreeterPluginHandler::IsSecret );
 		break;

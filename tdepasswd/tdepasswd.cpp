@@ -52,7 +52,7 @@ int main(int argc, char **argv)
     TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
 
     if (args->count())
-	user = TQString(args->arg(0));
+	user = TQString::fromLocal8Bit(args->arg(0));
 
     /* You must be able to run "tdepasswd loginName" */
     if ( !user.isEmpty() && user!=KUser().loginName() && !bRoot)
