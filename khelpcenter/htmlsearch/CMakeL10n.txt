@@ -1,0 +1,17 @@
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "htmlsearch"
+    SOURCES
+        index.cpp
+        htmlsearch.cpp
+        progressdialog.cpp
+)
+
+tde_l10n_create_template(
+    CATALOG "kcmhtmlsearch"
+    SOURCES
+        kcmhtmlsearch.cpp
+        klangcombo.cpp
+        ktagcombobox.cpp
+)

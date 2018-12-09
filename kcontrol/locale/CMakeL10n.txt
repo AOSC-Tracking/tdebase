@@ -1,0 +1,33 @@
+##### upate TIMEZONES ###########################
+
+if( EXISTS /usr/share/zoneinfo/zone.tab )
+  message( STATUS "Update TIMEZONES list from system zone table" )
+  unset( _zone_list )
+  file( STRINGS /usr/share/zoneinfo/zone.tab _zone_tab REGEX "^[^#]" )
+  foreach( _zone_line ${_zone_tab} )
+    string( REGEX REPLACE "[ \t]+" ";" _zone_line ${_zone_line} )
+    if( "${_zone_line}" MATCHES ".*;.*;.*" )
+      list( GET _zone_line 2 _zone_name )
+      list( APPEND _zone_list ${_zone_name} )
+    endif( )
+  endforeach( )
+  list( SORT _zone_list )
+  file( WRITE ${CMAKE_CURRENT_SOURCE_DIR}/TIMEZONES "" )
+  foreach( _zone_name ${_zone_list} )
+    file( APPEND ${CMAKE_CURRENT_SOURCE_DIR}/TIMEZONES "i18n(\"${_zone_name}\");\n" )
+  endforeach( )
+endif( )
+
+
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "kcmlocale"
+    KEYWORDS translate
+)
+
+tde_l10n_create_template(
+    CATALOG "timezones"
+    SOURCES "TIMEZONES"
+    DESTINATION "${POT_SOURCE_DIR}/../tdelibs"
+)

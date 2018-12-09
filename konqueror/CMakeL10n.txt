@@ -1,0 +1,10 @@
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "konqueror"
+    EXCLUDES
+        "^client/"
+        "^kttsplugin/"
+)
+
+tde_l10n_auto_add_subdirectories( )

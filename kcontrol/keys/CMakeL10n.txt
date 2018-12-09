@@ -1,0 +1,13 @@
+##### create translation templates ##############
+
+file( STRINGS ${CMAKE_CURRENT_SOURCE_DIR}/keyconfig.cpp _keyconfig_includes REGEX "^.include .\\.\\." )
+unset( _keyconfig_sources )
+foreach( _keyconfig_include ${_keyconfig_includes} )
+  string( REGEX REPLACE ".*\"(.*)\"" "\\1" _keyconfig_include ${_keyconfig_include} )
+  list( APPEND _keyconfig_sources ${_keyconfig_include} )
+endforeach( )
+
+tde_l10n_create_template(
+    CATALOG "kcmkeys"
+    SOURCES "." ${_keyconfig_sources}
+)

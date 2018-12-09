@@ -1,0 +1,13 @@
+##### prepare category_list as a C source #######
+
+file( READ ${CMAKE_CURRENT_SOURCE_DIR}/category_list _category_list )
+string( REGEX REPLACE "\nX-TDE-Category=([^\n]*)" "\ni18n(\"Screen saver category\", \"\\1\");" _category_list ${_category_list} )
+file( WRITE ${CMAKE_CURRENT_SOURCE_DIR}/category_list.tde_l10n "${_category_list}" )
+
+
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "kcmscreensaver"
+    SOURCES "." "category_list.tde_l10n"
+)
