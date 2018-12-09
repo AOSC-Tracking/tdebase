@@ -1,0 +1,11 @@
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "appletproxy"
+    SOURCES "appletproxy.cpp"
+)
+
+tde_l10n_create_template(
+    CATALOG "extensionproxy"
+    SOURCES "extensionproxy.cpp"
+)

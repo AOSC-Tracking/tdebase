@@ -1,0 +1,14 @@
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "kaccess"
+    SOURCES
+        kaccess.cpp
+        main.cpp
+)
+
+tde_l10n_create_template(
+    CATALOG "kcmaccess"
+    SOURCES
+        kcmaccess.cpp
+)

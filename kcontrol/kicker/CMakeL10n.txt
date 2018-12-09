@@ -1,0 +1,28 @@
+##### prepare list of kicker tiles ##############
+
+file( GLOB _kicker_tile_files
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/../../kicker/data/tiles
+  ${CMAKE_CURRENT_SOURCE_DIR}/../../kicker/data/tiles/*_tiny_up.png
+)
+list( SORT _kicker_tile_files )
+file( WRITE ${CMAKE_CURRENT_SOURCE_DIR}/tiles.tde_l10n "" )
+foreach( _kicker_tile_file ${_kicker_tile_files} )
+  string( REGEX REPLACE "_tiny_up\\.png$" "" _kicker_tile ${_kicker_tile_file} )
+  string( REGEX REPLACE "[_ ]+" ";" _kicker_tile ${_kicker_tile} )
+  unset( _kicker_tile_name )
+  foreach( _kicker_tile_part ${_kicker_tile} )
+    string( SUBSTRING ${_kicker_tile_part} 0 1 _kicker_tile_first )
+    string( SUBSTRING ${_kicker_tile_part} 1 -1 _kicker_tile_rest )
+    string( TOUPPER ${_kicker_tile_first} _kicker_tile_first )
+    set( _kicker_tile_name "${_kicker_tile_name}${_kicker_tile_first}${_kicker_tile_rest} " )
+  endforeach( )
+  string( STRIP ${_kicker_tile_name} _kicker_tile_name )
+  file( APPEND ${CMAKE_CURRENT_SOURCE_DIR}/tiles.tde_l10n "i18n(\"${_kicker_tile_name}\");\n" )
+endforeach( )
+
+
+##### create translation templates ##############
+tde_l10n_create_template(
+    CATALOG "kcmkicker"
+    SOURCES "." "tiles.tde_l10n"
+)

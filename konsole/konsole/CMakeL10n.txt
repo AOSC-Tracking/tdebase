@@ -1,0 +1,36 @@
+##### prepare list of schemas ###################
+
+file( WRITE ${CMAKE_CURRENT_SOURCE_DIR}/schemas.tde_l10n "" )
+file( GLOB _konsole_schema_files
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/../other/*.[Ss]chema
+)
+list( SORT _konsole_schema_files )
+foreach( _konsole_schema_file ${_konsole_schema_files} )
+  file( STRINGS ${CMAKE_CURRENT_SOURCE_DIR}/${_konsole_schema_file} _konsole_schema_title REGEX "^title " )
+  if( _konsole_schema_title )
+    string( REGEX REPLACE "^title +(.*) *" "\\1" _konsole_schema_title ${_konsole_schema_title} )
+    file( APPEND ${CMAKE_CURRENT_SOURCE_DIR}/schemas.tde_l10n "i18n(\"${_konsole_schema_title}\");\n" )
+  endif( )
+endforeach( )
+
+file( GLOB _konsole_keytab_files
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/../other/*.[Kk]eytab
+)
+list( SORT _konsole_keytab_files )
+foreach( _konsole_keytab_file ${_konsole_keytab_files} )
+  file( STRINGS ${CMAKE_CURRENT_SOURCE_DIR}/${_konsole_keytab_file} _konsole_keytab_title REGEX "^keyboard " )
+  if( _konsole_keytab_title )
+    string( REGEX REPLACE "^keyboard +\"(.*)\" *" "\\1" _konsole_keytab_title ${_konsole_keytab_title} )
+    file( APPEND ${CMAKE_CURRENT_SOURCE_DIR}/schemas.tde_l10n "i18n(\"${_konsole_keytab_title}\");\n" )
+  endif( )
+endforeach( )
+
+
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "konsole"
+    SOURCES "." "schemas.tde_l10n" "../tips"
+)

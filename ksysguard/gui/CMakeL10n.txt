@@ -1,0 +1,8 @@
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "ksysguard"
+    ATTRIBUTES
+      "SystemLoad.sgrd:display,title"
+      "KSysGuardApplet.xml:display,title"
+)

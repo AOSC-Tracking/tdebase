@@ -1,0 +1,23 @@
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "kcmlayout"
+    SOURCES
+        kcmlayout.cpp
+        kcmmisc.cpp
+        kxkbbindings.cpp
+        pixmap.cpp
+        rules.cpp
+        *.ui
+)
+
+tde_l10n_create_template(
+    CATALOG "kxkb"
+    SOURCES
+        extension.cpp
+        kxkb.cpp
+        kxkbbindings.cpp
+        kxkbtraywindow.cpp
+        pixmap.cpp
+        rules.cpp
+)

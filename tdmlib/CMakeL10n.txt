@@ -1,0 +1,16 @@
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "kgreet_classic"
+    SOURCES "kgreet_classic.cpp"
+)
+
+tde_l10n_create_template(
+    CATALOG "kgreet_winbind"
+    SOURCES "kgreet_winbind.cpp"
+)
+
+tde_l10n_create_template(
+    CATALOG "libdmctl"
+    SOURCES "dmctl.cpp"
+)
