@@ -59,7 +59,7 @@
 #include <fixx11h.h>
 
 #ifdef HAVE_KRB5
-#include <tde/libtdeldap.h>
+#include <libtdeldap.h>
 #endif
 
 #ifndef AF_LOCAL

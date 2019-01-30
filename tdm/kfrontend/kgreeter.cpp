@@ -100,7 +100,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <X11/Xlib.h>
 
 #ifdef HAVE_KRB5
-#include <tde/libtdeldap.h>
+#include <libtdeldap.h>
 #endif
 
 #define FIFO_DIR "/tmp/tdesocket-global/tdm"

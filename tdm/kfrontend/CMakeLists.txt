@@ -21,6 +21,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/tdmlib
   ${CMAKE_SOURCE_DIR}/kcontrol/background
   ${TDE_INCLUDE_DIR}
+  ${TDE_INCLUDE_DIR}/tde
   ${TQT_INCLUDE_DIRS}
   ${KRB5_INCLUDE_DIRS}
 )
