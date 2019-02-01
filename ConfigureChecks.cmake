@@ -128,29 +128,9 @@ endif( )
 
 
 ##### check for gcc visibility support #########
-# FIXME
-# This should check for [T]Qt3 visibility support
 
 if( WITH_GCC_VISIBILITY )
-  if( NOT UNIX )
-    tde_message_fatal( "gcc visibility support was requested, but your system is not *NIX" )
-  endif( NOT UNIX )
-  tde_save_and_set( CMAKE_REQUIRED_INCLUDES "${TDE_INCLUDE_DIR}" )
-  check_cxx_source_compiles( "
-    #include <kdemacros.h>
-      #ifndef __KDE_HAVE_GCC_VISIBILITY
-      #error gcc visibility is not enabled in tdelibs
-      #endif
-      int main() { return 0; } "
-    HAVE_GCC_VISIBILITY
-  )
-  tde_restore( CMAKE_REQUIRED_INCLUDES )
-  if( NOT HAVE_GCC_VISIBILITY )
-    tde_message_fatal( "gcc visibility support was requested, but not supported in tdelibs" )
-  endif( NOT HAVE_GCC_VISIBILITY )
-  set( __KDE_HAVE_GCC_VISIBILITY 1 )
-  set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden")
-  set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden")
+  tde_setup_gcc_visibility( )
 endif( )
 
 
