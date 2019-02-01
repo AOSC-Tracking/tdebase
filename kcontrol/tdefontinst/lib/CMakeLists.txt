@@ -9,8 +9,6 @@
 #
 #################################################
 
-add_definitions( -D_LARGEFILE64_SOURCE )
-
 include_directories(
   ${CMAKE_BINARY_DIR}
   ${TDE_INCLUDE_DIR}

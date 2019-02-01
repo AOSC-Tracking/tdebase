@@ -16,11 +16,6 @@ if( NOT BUILD_LIBKONQ )
 endif( NOT BUILD_LIBKONQ )
 
 
-add_definitions(
-  -D_LARGEFILE64_SOURCE
-)
-
-
 add_subdirectory( client )
 add_subdirectory( iconview )
 add_subdirectory( listview )
