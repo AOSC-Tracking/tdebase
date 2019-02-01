@@ -29,8 +29,6 @@ set( HAVE_FREETYPE2 1 CACHE INTERNAL "" FORCE  )
 
 ##### compiler/linker settings ##################
 
-add_definitions( -D_LARGEFILE64_SOURCE )
-
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_BINARY_DIR}
