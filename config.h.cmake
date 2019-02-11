@@ -47,6 +47,9 @@
 // tdm, tdeioslave
 #cmakedefine HAVE_TERMIOS_H 1
 
+// tdeioslave/sftp, ksmserver, ksplashml
+#cmakedefine HAVE_SYS_TIME_H 1
+
 // drkonqi
 #cmakedefine HAVE_STDINT_H 1
 #cmakedefine HAVE_SYS_BITYPES_H

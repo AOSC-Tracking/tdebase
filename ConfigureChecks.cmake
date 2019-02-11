@@ -67,6 +67,12 @@ if( BUILD_DRKONQI OR BUILD_TDEIOSLAVES )
 endif( )
 
 
+# sys/time.h (tdeioslave/sftp, ksmserver, ksplashml)
+if( BUILD_KSMSERVER OR BUILD_KSPLASHML OR BUILD_TDEIOSLAVES)
+  check_include_file( sys/time.h HAVE_SYS_TIME_H )
+endif( )
+
+
 # pam
 if( WITH_PAM AND (BUILD_KCHECKPASS OR BUILD_TDM) )
   check_library_exists( pam pam_start "" HAVE_PAM )
