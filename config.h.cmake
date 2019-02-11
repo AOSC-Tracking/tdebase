@@ -49,6 +49,7 @@
 
 // tdeioslave/sftp, ksmserver, ksplashml
 #cmakedefine HAVE_SYS_TIME_H 1
+#cmakedefine TIME_WITH_SYS_TIME 1
 
 // drkonqi
 #cmakedefine HAVE_STDINT_H 1
