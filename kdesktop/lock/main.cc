@@ -332,7 +332,7 @@ int main( int argc, char **argv )
 #endif
 		}
 
-		TDELockFile lock(locateLocal("tmp", "kdesktop_lock_lockfile"));
+		TDELockFile lock(locateLocal("tmp", TQString("kdesktop_lock_lockfile.%1").arg(getenv("DISPLAY"))));
 		lock.setStaleTime(0);
 		TDELockFile::LockResult lockRet = lock.lock();
 		if (lockRet != TDELockFile::LockOK) {
