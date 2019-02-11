@@ -63,13 +63,13 @@ void ExtendedIntNumInput::setRange(int min, int max, int step, bool slider) {
 		this->min = min;
 		this->max = max;
 		sliderMax = (int)floor (0.5
-				+ 2*(log(max)-log(min)) / (log(max)-log(max-1)));
+				+ 2*(log((double)max)-log((double)min)) / (log((double)max)-log((double)max-1)));
 		m_slider->setRange(0, sliderMax);
 		m_slider->setSteps(step, sliderMax/10);
 		m_slider->setTickInterval(sliderMax/10);
 
-		double alpha  = sliderMax / (log(max) - log(min));
-		double logVal = alpha * (log(value())-log(min));
+		double alpha  = sliderMax / (log((double)max) - log((double)min));
+		double logVal = alpha * (log((double)value())-log((double)min));
 		m_slider->setValue ((int)floor (0.5 + logVal));
 
 		connect(m_slider, TQT_SIGNAL(valueChanged(int)),
@@ -86,8 +86,8 @@ void ExtendedIntNumInput::slotSpinValueChanged(int val)
 {
 
 	if(m_slider) {
-		double alpha  = sliderMax / (log(max) - log(min));
-		double logVal = alpha * (log(val)-log(min));
+		double alpha  = sliderMax / (log((double)max) - log((double)min));
+		double logVal = alpha * (log((double)val)-log((double)min));
 		m_slider->setValue ((int)floor (0.5 + logVal));
 	}
 
@@ -96,8 +96,8 @@ void ExtendedIntNumInput::slotSpinValueChanged(int val)
 
 void ExtendedIntNumInput::slotSliderValueChanged(int val)
 {
-	double alpha  = sliderMax / (log(max) - log(min));
-	double linearVal = exp (val/alpha + log(min));
+	double alpha  = sliderMax / (log((double)max) - log((double)min));
+	double linearVal = exp (val/alpha + log((double)min));
 	m_spin->setValue ((int)floor(0.5 + linearVal));
 }
 
