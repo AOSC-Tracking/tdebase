@@ -247,7 +247,8 @@ kg_main( const char *argv0 )
 		delete tsak;
 	}
 
-	if (trinity_desktop_synchronize_keyboard_lights) {
+	if (trinity_desktop_synchronize_keyboard_lights &&
+	    TQString(getenv("DISPLAY")).startsWith(":")) {
 		kbdl = new TDEProcess;
 		*kbdl << TQCString( argv0, strrchr( argv0, '/' ) - argv0 + 2 ) + "tdekbdledsync";
 		kbdl->start();
