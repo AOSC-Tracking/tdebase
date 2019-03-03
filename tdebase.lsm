@@ -1,7 +1,7 @@
 Begin4
 Title:          tdebase
-Version:        R14.0.5
-Entered-date:   2018-07-26
+Version:        R14.0.6
+Entered-date:   2019-03-03
 Description:    Base package of the Trinity Desktop Environment (TDE)
 Keywords:       TDE X11 desktop Qt
 Author:         http://www.kde.org/
