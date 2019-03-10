@@ -132,13 +132,28 @@ SaverEngine::SaverEngine()
 	connect(&mLockProcess, TQT_SIGNAL(processExited(TDEProcess *)),
 						TQT_SLOT(lockProcessExited()));
 
-	mSAKProcess = new TDEProcess;
-	*mSAKProcess << "tdmtsak";
-	connect(mSAKProcess, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(slotSAKProcessExited()));
-
-	TQTimer::singleShot( 0, this, TQT_SLOT(handleSecureDialog()) );
-
 	configure();
+
+	// Create SAK process only if SAK is enabled
+	KSimpleConfig *config;
+  struct stat st;
+  if (stat( KDE_CONFDIR "/tdm/tdmdistrc" , &st) == 0) {
+    config = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
+  }
+  else {
+    config = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
+  }
+	config->setGroup("X-:*-Greeter");
+	bool useSAKProcess = false;
+#ifdef BUILD_TSAK
+	useSAKProcess = config->readBoolEntry("UseSAK", false) && KDesktopSettings::useTDESAK();
+#endif
+	if (useSAKProcess) {
+		mSAKProcess = new TDEProcess;
+		*mSAKProcess << "tdmtsak";
+		connect(mSAKProcess, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(slotSAKProcessExited()));
+		TQTimer::singleShot( 0, this, TQT_SLOT(handleSecureDialog()) );
+	}
 
 	mLockProcess.clearArguments();
 	TQString path = TDEStandardDirs::findExe( "kdesktop_lock" );
@@ -166,14 +181,6 @@ SaverEngine::SaverEngine()
 	}
 
 	// lock the desktop if required
-	KSimpleConfig *config;
-  struct stat st;
-  if (stat( KDE_CONFDIR "/tdm/tdmdistrc" , &st) == 0) {
-    config = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
-  }
-  else {
-    config = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
-  }
   config->setGroup("X-:0-Core");
   bool autoLoginEnable = config->readBoolEntry("AutoLoginEnable", false);
   bool autoLoginLocked = config->readBoolEntry("AutoLoginLocked", false);
@@ -375,11 +382,17 @@ void SaverEngine::enableExports()
 void SaverEngine::handleSecureDialog()
 {
 	// Wait for SAK press
-	if (!mSAKProcess->isRunning()) mSAKProcess->start();
+	if (mSAKProcess && !mSAKProcess->isRunning()) {
+		mSAKProcess->start();
+	}
 }
 
 void SaverEngine::slotSAKProcessExited()
 {
+	if (!mSAKProcess) {
+		printf("[kdesktop] SAK process does not exist. Something went wrong. Ignoring...\n"); fflush(stdout);
+		return;
+	}
 	int retcode = mSAKProcess->exitStatus();
 	if ((retcode != 0) && (mSAKProcess->normalExit())) {
 		trinity_lockeng_sak_available = FALSE;
@@ -487,7 +500,9 @@ bool SaverEngine::startLockProcess( LockType lock_type )
 	}
 
 	mState = Preparing;
-	mSAKProcess->kill(SIGTERM);
+	if (mSAKProcess) {
+		mSAKProcess->kill(SIGTERM);
+	}
 
 	enableExports();
 
