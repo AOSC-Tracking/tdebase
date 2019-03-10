@@ -15,6 +15,7 @@ include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_BINARY_DIR}
   ${DBUS_INCLUDE_DIRS}
+  ${CMAKE_SOURCE_DIR}/tdm/kfrontend
 )
 
 link_directories(
@@ -27,7 +28,7 @@ add_custom_command( OUTPUT config.ci
   COMMAND perl -w ${CMAKE_SOURCE_DIR}/tdm/confproc.pl ${CMAKE_SOURCE_DIR}/tdm/config.def config.ci
   DEPENDS ${CMAKE_SOURCE_DIR}/tdm/confproc.pl ${CMAKE_SOURCE_DIR}/tdm/config.def )
 
-set_property( SOURCE auth.c APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/config.ci )
+set_property( SOURCE auth.c session.c APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/config.ci )
 
 if( WITH_XDMCP )
   set( XDMCP_LIBRARIES "Xdmcp" )

@@ -54,14 +54,6 @@
 # include <fixx11h.h>
 #endif
 
-#define OPEN_TDMCONFIG_AND_SET_GROUP									\
-if( stat( KDE_CONFDIR "/tdm/tdmdistrc" , &st ) == 0) {							\
-	tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));		\
-}													\
-else {													\
-	tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));		\
-}													\
-tdmconfig->setGroup("X-:*-Greeter");
 
 TQXLibWindowList trinity_desktop_lock_hidden_window_list;
 
@@ -376,7 +368,13 @@ int main( int argc, char **argv )
 
 		struct stat st;
 		KSimpleConfig* tdmconfig;
-		OPEN_TDMCONFIG_AND_SET_GROUP
+		if( stat( KDE_CONFDIR "/tdm/tdmdistrc" , &st ) == 0) {
+			tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
+		}
+		else {
+			tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
+		}
+		tdmconfig->setGroup("X-:*-Greeter");
 
 		// Create new LockProcess, which also spawns threads inheriting the blocked signal mask
 		trinity_desktop_lock_process = new LockProcess;

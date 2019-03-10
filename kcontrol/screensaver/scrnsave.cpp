@@ -46,19 +46,8 @@
 #include <ksimpleconfig.h>
 
 #include <X11/Xlib.h>
-
 #include "scrnsave.h"
-
 #include <fixx11h.h>
-
-#define OPEN_TDMCONFIG_AND_SET_GROUP									\
-if( stat( KDE_CONFDIR "/tdm/tdmdistrc" , &st ) == 0) {							\
-	mTDMConfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));		\
-}													\
-else {													\
-	mTDMConfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));		\
-}													\
-mTDMConfig->setGroup("X-:*-Greeter");
 
 template class TQPtrList<SaverConfig>;
 
@@ -94,7 +83,13 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mTesting = false;
 
     struct stat st;
-    OPEN_TDMCONFIG_AND_SET_GROUP
+    if( stat( KDE_CONFDIR "/tdm/tdmdistrc" , &st ) == 0) {
+			mTDMConfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
+		}
+		else {
+			mTDMConfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
+		}
+		mTDMConfig->setGroup("X-:*-Greeter");
 
     // Add non-TDE path
     TDEGlobal::dirs()->addResourceType("scrsav",

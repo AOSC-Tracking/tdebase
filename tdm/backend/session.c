@@ -34,6 +34,8 @@ from the copyright holder.
  * subdaemon event loop, etc.
  */
 
+
+#include "tdmconfig.h"
 #include "dm.h"
 #include "dm_error.h"
 
@@ -48,6 +50,8 @@ from the copyright holder.
 #ifdef WITH_CONSOLE_KIT
 #include "consolekit.h"
 #endif
+
+#define TSAK_FIFO_FILE "/tmp/tdesocket-global/tsak"
 
 struct display *td;
 const char *td_setup = "auto";
@@ -574,6 +578,27 @@ ManageSession( struct display *d )
 			CloseGreeter( TRUE );
 		}
 		goto regreet;
+	}
+
+	int start_tsak = 0;
+#ifdef BUILD_TSAK
+  start_tsak = d->useSAK;
+#endif
+  if (start_tsak) {
+		if (system(KDE_BINDIR "/tsak checkdeps") != 0) {
+			start_tsak = 0;
+		}
+	}
+  if (start_tsak) {
+		int ret_pid = fork();
+		if (ret_pid == 0) {
+			// Child process
+			system(KDE_BINDIR "/tsak");
+			exit(0);
+		}
+	}
+	else {
+		remove(TSAK_FIFO_FILE);
 	}
 
 	tdiff = time( 0 ) - td->hstent->lastExit - td->openDelay;
