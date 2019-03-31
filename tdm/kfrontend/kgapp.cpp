@@ -66,8 +66,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <pwd.h>
 
-#define TSAK_FIFO_FILE "/tmp/tdesocket-global/tsak"
-
 bool argb_visual_available = false;
 bool has_twin = false;
 bool is_themed = false;
@@ -215,7 +213,6 @@ kg_main( const char *argv0 )
 	TDEApplication::disableAutoDcopRegistration();
 	TDECrash::setSafer( true );
 
-	TDEProcess *tsak = 0;
 	TDEProcess *kbdl = 0;
 	TDEProcess *proc = 0;
 	TDEProcess *comp = 0;
@@ -227,25 +224,6 @@ kg_main( const char *argv0 )
 #else
 	trinity_desktop_lock_use_sak = false;
 #endif
- 	if (trinity_desktop_lock_use_sak) {
-		if (system(KDE_BINDIR "/tsak checkdeps") != 0) {
-			trinity_desktop_lock_use_sak = false;
-		}
-	}
-	if (trinity_desktop_lock_use_sak) {
-		tsak = new TDEProcess;
-		*tsak << TQCString( argv0, strrchr( argv0, '/' ) - argv0 + 2 ) + "tsak";
-		tsak->start(TDEProcess::Block, TDEProcess::AllOutput);
-	}
-	else {
-		remove(TSAK_FIFO_FILE);
-	}
-	if (tsak) {
-		tsak->closeStdin();
-		tsak->closeStdout();
-		tsak->detach();
-		delete tsak;
-	}
 
 	if (trinity_desktop_synchronize_keyboard_lights &&
 	    TQString(getenv("DISPLAY")).startsWith(":")) {

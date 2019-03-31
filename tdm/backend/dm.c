@@ -570,12 +570,12 @@ StartRemoteLogin( struct display *d )
 		/* Let's try again with some standard paths */
 		argv[0] = (char *)realloc(argv[0], strlen("/usr/X11R6/bin/X") + 1);
 		if (argv[0] != NULL) {
-			argv[0] = "/usr/X11R6/bin/X";
+			strcpy(argv[0], "/usr/X11R6/bin/X");
 			Debug( "exec %\"[s\n", argv );
 			(void)execv( argv[0], argv );
 			LogError( "X server %\"s cannot be executed\n", argv[0] );
 		
-			argv[0] = "/usr/bin/X"; /* Shorter than the previous file name */
+			strcpy(argv[0], "/usr/bin/X"); // Shorter than the previous file name
 			Debug( "exec %\"[s\n", argv );
 			(void)execv( argv[0], argv );
 			LogError( "X server %\"s cannot be executed\n", argv[0] );

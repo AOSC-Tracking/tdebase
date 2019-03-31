@@ -2011,10 +2011,11 @@ Description:
 Key: UseSAK
 Type: bool
 Default: false
+User: core
 User: greeter
 Instance: #:*/false
 Comment:
- SAK
+ Use SAK
 Description:
  If true then the SAK anti-spoofing dialog will be utilized
 
