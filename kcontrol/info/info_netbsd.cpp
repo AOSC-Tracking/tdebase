@@ -41,6 +41,7 @@
 #include <tqfontmetrics.h>
 #include <tqstrlist.h>
 #include <tqtextstream.h>
+#include <tqregexp.h>
 
 #include <kdebug.h>
 #include <tdeio/global.h> /* for TDEIO::convertSize() */
@@ -123,7 +124,7 @@ static bool GetDmesgInfo(TQListView *lBox, const char *filter,
 	}
 
 	TQListViewItem *olditem = NULL;
-	while(!(s = t->readLine().local8Bit()).isEmpty()) {
+	while(!(s = t->readLine().local8Bit()).isNull()) {
 		if (!seencpu) {
 			if (s.contains("cpu"))
 				seencpu = true;
@@ -134,9 +135,7 @@ static bool GetDmesgInfo(TQListView *lBox, const char *filter,
 			s.contains("WARNING: old BSD partition ID!"))
 			break;
 
-		if (!filter
-		    || (filter[0] == '^' && s.find(&filter[1]) == 0)
-		    || (filter[0] != '^' && s.contains(filter))) {
+		if (!filter || s.contains(TQRegExp(filter))) {
 			if (func)
 				func(lBox, s);
 			else
@@ -163,7 +162,7 @@ AddIRQLine(TQListView *lBox, TQString s)
 	int pos, irqnum;
 	char numstr[3];
 
-	pos = s.find(" irq ");
+	pos = s.find(TQRegExp("[ (]irq "));
 	irqnum = (pos < 0) ? 0 : atoi(&s.ascii()[pos+5]);
 	if (irqnum)
 		snprintf(numstr, 3, "%02d", irqnum);
@@ -181,7 +180,7 @@ bool GetInfo_IRQ (TQListView *lBox)
 	lBox->addColumn(i18n("Device"));
 	lBox->setSorting(0);
 	lBox->setShowSortIndicator(FALSE);
-	(void) GetDmesgInfo(lBox, " irq ", AddIRQLine);
+	(void) GetDmesgInfo(lBox, "[ (]irq ", AddIRQLine);
 	return true;
 }
 
@@ -265,9 +264,12 @@ bool GetInfo_SCSI (TQListView *lbox)
 bool GetInfo_Partitions (TQListView *lbox)
 {
 	int num; // number of mounts
-	// FIXME: older pkgsrc patches checked ST_RDONLY for this declaration
-	// what is ST_RDONLY and how does it affect getmntinfo?
+#ifdef HAVE_STATVFS
+	struct statvfs *mnt; // mount data pointer
+#else
 	struct statfs *mnt; // mount data pointer
+#endif
+	TQString MB(i18n("MB"));	/* "MB" = "Mega-Byte" */
 
 	// get mount info
 	if (!(num=getmntinfo(&mnt, MNT_WAIT))) {
@@ -290,24 +292,31 @@ bool GetInfo_Partitions (TQListView *lbox)
 		unsigned long long big[2];
 		TQString vv[5];
 
+#ifdef HAVE_STATVFS
+		big[0] = big[1] = mnt->f_frsize; // coerce the product
+#else
 		big[0] = big[1] = mnt->f_bsize; // coerce the product
+#endif
 		big[0] *= mnt->f_blocks;
 		big[1] *= mnt->f_bavail; // FIXME: use f_bfree if root?
 
 		// convert to strings
-		vv[0] = TDEIO::convertSize(big[0]);
-		vv[1] = TQString::fromLatin1("%1 (%2%%)")
-				.arg(TDEIO::convertSize(big[1]))
+		vv[0] = Value((int) (((big[0] / 1024) + 512) / 1024), 6) + MB;
+		vv[1] = TQString("%1 (%2%)")
+				.arg(Value((int) (((big[1] / 1024) + 512) / 1024), 6) + MB)
 				.arg(mnt->f_blocks ? mnt->f_bavail*100/mnt->f_blocks : 0);
 
-		// FIXME: these two are large enough to punctuate
-		vv[2] = TQString::number(mnt->f_files);
-		vv[3] = TQString::fromLatin1("%1 (%2%%) ")
+		vv[2] = TQString("%L1").arg(mnt->f_files);
+		vv[3] = TQString("%1 (%2%) ")
 				.arg(mnt->f_ffree)
 				.arg(mnt->f_files ? mnt->f_ffree*100/mnt->f_files : 0);
 
 		vv[4] = TQString::null;
+#ifdef HAVE_STATVFS
+#define MNTF(x) if (mnt->f_flag & ST_##x) vv[4] += TQString::fromLatin1(#x " ");
+#else
 #define MNTF(x) if (mnt->f_flags & MNT_##x) vv[4] += TQString::fromLatin1(#x " ");
+#endif
 		MNTF(ASYNC)
 		MNTF(DEFEXPORTED)
 		MNTF(EXKERB)
@@ -316,7 +325,9 @@ bool GetInfo_Partitions (TQListView *lbox)
 		MNTF(EXPORTED)
 		MNTF(EXPUBLIC)
 		MNTF(EXRDONLY)
+#ifndef HAVE_STATVFS
 		MNTF(IGNORE)
+#endif
 		MNTF(LOCAL)
 		MNTF(NOATIME)
 		MNTF(NOCOREDUMP)

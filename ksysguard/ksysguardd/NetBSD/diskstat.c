@@ -63,7 +63,11 @@ char *getMntPnt(const char *cmd)
 
 int numMntPnt(void)
 {
+#ifdef HAVE_STATVFS
+	struct statvfs *fs_info;
+#else
 	struct statfs *fs_info;
+#endif
 	int i, n, counter = 0;
 
 	n = getmntinfo(&fs_info, MNT_WAIT);
@@ -129,8 +133,13 @@ void exitDiskStat(void)
 
 int updateDiskStat(void)
 {
+#ifdef HAVE_STATVFS
+	struct statvfs *fs_info;
+	struct statvfs fs;
+#else
 	struct statfs *fs_info;
 	struct statfs fs;
+#endif
 	float percent;
 	int i, mntcount;
 	DiskInfo *disk_info;

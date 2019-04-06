@@ -20,6 +20,9 @@
 #include <libusb20.h>
 #include <dev/usb/usb_ioctl.h>
 #endif
+#ifdef Q_OS_NETBSD
+#include <dev/usb/usb.h>
+#endif
 
 class USBDB;
 
@@ -66,7 +69,7 @@ private:
 
   unsigned int _vendorID, _prodID, _revMajor, _revMinor;
 
-#ifdef Q_OS_FREEBSD
+#if defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
   void collectData(struct libusb20_backend *, struct libusb20_device *);
   TQStringList _devnodes;
 #endif

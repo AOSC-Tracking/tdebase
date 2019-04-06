@@ -22,7 +22,7 @@ void KMemoryWidget::update()
   int mib[2];
   size_t len;
 #ifdef UVM
-#if __NetBSD_Version__ > 499000100 /* 4.99.2+ */
+#if __NetBSD_Version__ > 106000000 /* 1.6+ */
   struct  uvmexp_sysctl uvmexp;
 #else
   struct  uvmexp uvmexp;
@@ -53,7 +53,7 @@ void KMemoryWidget::update()
 
 #ifdef UVM
   mib[0] = CTL_VM;
-#if __NetBSD_Version__ > 499000100 /* 4.99.2+ */
+#if __NetBSD_Version__ > 106000000 /* 1.6+ */
   mib[1] = VM_UVMEXP2;
 #else
   mib[1] = VM_UVMEXP;

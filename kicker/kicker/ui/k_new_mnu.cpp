@@ -95,7 +95,7 @@
 #include "flipscrollview.h"
 #include "itemview.h"
 #include <dmctl.h>
-#if defined(__OpenBSD__) || defined(__FreeBSD__)
+#if defined(__OpenBSD__) || defined(__FreeBSD__) || defined(__NetBSD__)
 #include <sys/statvfs.h>
 #include <sys/param.h>
 #include <sys/mount.h>
@@ -121,6 +121,10 @@
 
 #include <hal/libhal.h>
 #endif // COMPILE_HALBACKEND
+
+#ifdef __NetBSD__
+#define statfs statvfs
+#endif
 
 #define WAIT_BEFORE_QUERYING 700
 

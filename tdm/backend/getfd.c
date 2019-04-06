@@ -22,7 +22,7 @@ is_a_console(int fd) {
 	char arg;
 
 	arg = 0;
-#if defined(__OpenBSD__) || defined(__FreeBSD__)
+#if defined(__OpenBSD__) || defined(__FreeBSD__) || defined(__NetBSD__)
 	return arg;
 #else
 	return (ioctl(fd, KDGKBTYPE, &arg) == 0

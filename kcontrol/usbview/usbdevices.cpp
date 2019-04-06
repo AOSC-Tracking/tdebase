@@ -27,7 +27,7 @@
 
 #include <math.h>
 
-#ifdef Q_OS_FREEBSD
+#if defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
 #include <sys/ioctl.h>
 #include <sys/param.h>
 #endif
@@ -197,7 +197,7 @@ TQString USBDevice::dump()
   if (!prname.isEmpty())
     pr += "<td>(" + prname +")</td>";
   r += i18n("<tr><td><i>Protocol</i></td>%1</tr>").arg(pr);
-#ifndef Q_OS_FREEBSD
+#if !(defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD))
   r += i18n("<tr><td><i>USB Version</i></td><td>%1.%2</td></tr>")
     .arg(_verMajor,0,16)
     .arg(TQString::number(_verMinor,16).prepend('0').right(2));
@@ -221,7 +221,7 @@ TQString USBDevice::dump()
 
   r += i18n("<tr><td><i>Speed</i></td><td>%1 Mbit/s</td></tr>").arg(_speed);
   r += i18n("<tr><td><i>Channels</i></td><td>%1</td></tr>").arg(_channels);
-#ifdef Q_OS_FREEBSD
+#if defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
 	if ( _power )
 		r += i18n("<tr><td><i>Power Consumption</i></td><td>%1 mA</td></tr>").arg(_power);
 	else
@@ -249,7 +249,7 @@ TQString USBDevice::dump()
 }
 
 
-#ifndef Q_OS_FREEBSD
+#if !(defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD))
 bool USBDevice::parse(TQString fname)
 {
   _devices.clear();
@@ -325,18 +325,29 @@ bool USBDevice::parseSys(TQString dname)
  * only little modification on NetBSD.
  */
 
+#ifdef Q_OS_FREEBSD
 void USBDevice::collectData(struct libusb20_backend *pbe,
     struct libusb20_device *pdev)
+#else
+void USBDevice::collectData( int fd, int leve, usb_device_info &di, int parent)
+#endif
 {
+#ifdef Q_OS_FREEBSD
 	char tempbuf[32];
 	struct usb_device_info di;
 
 	if (libusb20_dev_get_info(pdev, &di))
 		memset(&di, 0, sizeof(di));
+#endif
 
 	// determine data for this device
+#ifdef Q_OS_FREEBSD
 	_level        = 0;
 	_parent       = 0;
+#else
+	_level        = level;
+	_parent       = parent;
+#endif
 
 	_bus          = di.udi_bus;
 	_device       = di.udi_addr;
@@ -354,15 +365,22 @@ void USBDevice::collectData(struct libusb20_backend *pbe,
 
 	// determine the speed
 	switch (di.udi_speed) {
+#ifdef Q_OS_FREEBSD
 		case LIBUSB20_SPEED_LOW:  _speed = 1.5;   break;
 		case LIBUSB20_SPEED_FULL: _speed = 12.0;  break;
 		case LIBUSB20_SPEED_HIGH: _speed = 480.0; break;
 		case LIBUSB20_SPEED_VARIABLE: _speed = 480.0; break;
 		case LIBUSB20_SPEED_SUPER: _speed = 4800.0; break;
 		default: _speed = 480.0; break;
+#else
+		case USB_SPEED_LOW:  _speed = 1.5;   break;
+		case USB_SPEED_FULL: _speed = 12.0;  break;
+		case USB_SPEED_HIGH: _speed = 480.0; break;
+#endif
 	}
 
 	// Get all attached devicenodes
+#ifdef Q_OS_FREEBSD
 	for (int i = 0; i < 32; ++i) {
 	    if (libusb20_dev_get_iface_desc(pdev, i, tempbuf, sizeof(tempbuf)) == 0) {
 		_devnodes << tempbuf;
@@ -370,19 +388,52 @@ void USBDevice::collectData(struct libusb20_backend *pbe,
 		break;
 	    }
 	}
+#else
+	for (int i = 0; i < USB_MAX_DEVNAMES; ++i)
+	    if ( di.udi_devnames[i][0] )
+		    _devnodes << di.udi_devnames[i];
+#endif
 
 	// For compatibility, split the revision number
 	sscanf( di.udi_release, "%x.%x", &_revMajor, &_revMinor );
 
+#ifndef Q_OS_FREEBSD
+	// Cycle through the attached devices if tehre are any
+	for (int p = 0; p < di.udi_nports; ++p) {
+		// Get data for device
+		struct usb_device_info di2;
+
+		di2.udi_addr = di.udi_ports[p];
+
+		if ( di2.udi_addr >= USB_MAX_DEVICES )
+			continue;
+
+		if ( ioctl(fd, USB_DEVICEINFO, &di2) == -1)
+			continue;
+
+		// Only add the device if we don't detect it, yet
+		if (!find( di2.udi_us, di2.udi_addr ) )
+		{
+			USBDevice *device = new USBDevice();
+			device->collectData( fd, level + 1, di2, di.udi_addr );
+		}
+	}
+#endif
 }
 
 bool USBDevice::parse(TQString fname)
 {
+#ifdef Q_OS_FREEBSD
 	struct libusb20_backend *pbe;
 	struct libusb20_device *pdev;
+#else
+	static bool showErrorMessage = true;
+	bool error = false;
+#endif
 
 	_devices.clear();
 
+#ifdef Q_OS_FREEBSD
 	pbe = libusb20_be_alloc_default();
 	if (pbe == NULL)
 	    return (false);
@@ -395,6 +446,42 @@ bool USBDevice::parse(TQString fname)
 	}
 
 	libusb20_be_free(pbe);
+#else
+	TQFile controller("?dev/usb0");
+	int i = 1;
+	while ( controller.exists() )
+	{
+		// If the deivicenode exists, continue with further inspection
+		if ( controller.open(IO_ReadOnly) )
+		{
+			for ( int addr = 1; addr < USB_MAX_DEVICES; ++addr )
+			{
+				struct usb_device_info di;
+
+				di.udi_addr = addr;
+				if ( ioctl(controller.handle(), USB_DEVICEINFO, &d1) != -1)
+				{
+					if (!find( di.udi_bus, di.udi_addr) )
+					{
+						USBDevice *device = new USBDevice();
+						device->collectData( controller.handle(), 0, di, 0);
+					}
+				}
+			}
+			controller.close();
+#ifndef Q_OS_NETBSD
+		} else {
+			error = true;
+#endif
+		}
+		controller.setName( TQString::formLocal8Bit("/dev/usb%1".arg(i++) );
+	}
+
+	if ( showErrorMessage && error ) {
+		showErroeMessage = false;
+		KMessageBox::error( 0, i18n("Could not open one or more USB controller, Make sure you have read access to all BSD controllers that shoudl be listed here."));
+	}
+#endif
 
 	return true;
 }

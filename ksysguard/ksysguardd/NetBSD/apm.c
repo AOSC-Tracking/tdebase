@@ -20,7 +20,7 @@
 
 
 #include <fcntl.h>
-#include <machine/apmvar.h>
+#include <dev/apm/apmio.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -97,4 +97,3 @@ printApmBatTimeInfo(const char* c)
 {
 	fprintf(CurrentClient, "Remaining battery time\t0\t0\tmin\n");
 }
-

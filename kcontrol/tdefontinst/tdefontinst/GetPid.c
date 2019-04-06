@@ -28,6 +28,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 */
 
+#ifdef __NetBSD__
+#define _KMEMUSER
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -173,7 +177,9 @@ unsigned int kfi_getPid(const char *proc, unsigned int ppid)
 #endif
 #include <sys/sysctl.h>
 #include <sys/time.h>
+#if defined(__FreeBSD__) || defined(__DragonFly__)
 #include <sys/user.h>
+#endif
 #include <unistd.h>
 unsigned int kfi_getPid(const char *proc, unsigned int ppid)
 {

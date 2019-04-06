@@ -11,6 +11,12 @@
 
 # FIXME seems that on freebsd is needed smth named LIB_KVM
 
+if ( ${CMAKE_SYSTEM_NAME} MATCHES "NetBSD" )
+  set( LIB_KVM "-lkvm")
+else()
+  set( LIB_KVM "")
+endif()
+
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_SOURCE_DIR}/kicker/libkicker
@@ -35,6 +41,6 @@ tde_add_kpart( naughty_panelapplet AUTOMOC
   SOURCES
     NaughtyProcessMonitor.cpp NaughtyConfigDialog.cpp
     NaughtyApplet.cpp
-  LINK kickermain-shared
+  LINK kickermain-shared ${LIB_KVM}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

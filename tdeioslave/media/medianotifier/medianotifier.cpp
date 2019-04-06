@@ -19,12 +19,15 @@
 
 #include "medianotifier.h"
 
-#if defined (__OpenBSD__) || defined(__FreeBSD__)
+#if defined (__OpenBSD__) || defined(__FreeBSD__) || defined(__NetBSD__)
 #include <sys/statvfs.h>
 #include <sys/param.h>
 #include <sys/mount.h>
 #else
 #include <sys/vfs.h>
+#endif
+#if defined(__NetBSD__)
+#define statfs statvfs
 #endif
 
 #include <tqfile.h>

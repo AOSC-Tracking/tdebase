@@ -79,6 +79,12 @@
 #else
 # define DEF_SERVER_CMD XBINDIR "/X"
 #endif
+
+#if defined(__NetBSD__) && !defined(__powerpc__)
+# define DEF_SERVER_ARGS "-nolisten tcp vt05"
+#else
+# define DEF_SERVER_ARGS "-nolisten tcp"
+#endif
 </code>
 
 # The contents of this section are copied mostly verbatim to the
@@ -1368,9 +1374,9 @@ Description:
 
 Key: ServerArgsLocal
 Type: string
-Default: "-nolisten tcp"
+Default: DEF_SERVER_ARGS
 User: core
-Instance: :*/"-deferglyphs 16 -nolisten tcp"
+Instance: :*/"-deferglyphs 16 " DEF_SERVER_ARGS
 Comment: &
 Description:
  Additional arguments for the &X-Server;s for local sessions.

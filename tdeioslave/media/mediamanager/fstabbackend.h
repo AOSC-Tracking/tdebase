@@ -25,7 +25,7 @@
 #include <tqstringlist.h>
 #include <tqmap.h>
 
-#ifdef Q_OS_FREEBSD
+#if defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
 #include <tqtimer.h>
 #endif
 
@@ -60,7 +60,7 @@ private:
 	TQStringList m_mtabIds;
         TQMap<TQString, TQString> m_mtabEntries;
 	TQStringList m_fstabIds;
-#ifdef Q_OS_FREEBSD
+#if defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
 	TQTimer m_mtabTimer;
 #endif
 };

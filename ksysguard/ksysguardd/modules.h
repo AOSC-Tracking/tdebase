@@ -55,6 +55,19 @@
 #include "netdev.h"
 #endif /* OSTYPE_FreeBSD */
 
+#ifdef OSTYPE_NetBSD
+#include "CPU.h"
+#include "Memory.h"
+#include "ProcessList.h"
+#ifdef HAVE_APMIO
+#include "apm.h"
+#endif
+#include "diskstat.h"
+#include "loadavg.h"
+#include "logfile.h"
+#include "netdev.h"
+#endif /* OSTYPE_NetBSD */
+
 #ifdef OSTYPE_Solaris
 #include "LoadAvg.h"
 #include "Memory.h"
@@ -119,6 +132,19 @@ struct SensorModul SensorModulList[] = {
   { "LogFile", initLogFile, exitLogFile, NULLIVFUNC, NULLVVFUNC, 0, NULLTIME },
   { "NetDev", initNetDev, exitNetDev, updateNetDev, checkNetDev, 0, NULLTIME },
 #endif /* OSTYPE_FreeBSD */
+
+#ifdef OSTYPE_NetBSD
+  { "CpuInfo", initCpuInfo, exitCpuInfo, updateCpuInfo, NULLVVFUNC, 0, NULLTIME },
+  { "Memory", initMemory, exitMemory, updateMemory, NULLVVFUNC, 0, NULLTIME },
+  { "ProcessList", initProcessList, exitProcessList, updateProcessList, NULLVVFUNC, 0, NULLTIME },
+#ifdef HAVE_APMIO
+  { "Apm", initApm, exitApm, updateApm, NULLVVFUNC, 0, NULLTIME },
+#endif
+  { "DiskStat", initDiskStat, exitDiskStat, updateDiskStat, checkDiskStat, 0, NULLTIME },
+  { "LoadAvg", initLoadAvg, exitLoadAvg, updateLoadAvg, NULLVVFUNC, 0, NULLTIME },
+  { "LogFile", initLogFile, exitLogFile, NULLIVFUNC, NULLVVFUNC, 0, NULLTIME },
+  { "NetDev", initNetDev, exitNetDev, updateNetDev, checkNetDev, 0, NULLTIME },
+#endif /* OSTYPE_NetBSD */
 
 #ifdef OSTYPE_Solaris
   { "LoadAvg", initLoadAvg, exitLoadAvg, updateLoadAvg, NULLVVFUNC, 0, NULLTIME },
