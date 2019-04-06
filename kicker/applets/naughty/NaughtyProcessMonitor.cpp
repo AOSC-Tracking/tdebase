@@ -20,13 +20,19 @@
 
 /* OpenBSD support by Jean-Yves Burlett <jean-yves@burlett.org> */
 
-#ifdef __OpenBSD__
+#if defined(__OpenBSD__) || defined(__NetBSD__)
 #include <sys/param.h>
+#include <sys/time.h>
 #include <sys/proc.h>
 #include <sys/sysctl.h>
 #include <sys/ucred.h>
 #include <sys/sched.h>
 #include <stdlib.h>
+#endif
+
+#ifdef __NetBSD__
+#include <kvm.h>
+#include <sys/sched.h>
 #endif
 
 #include <sys/types.h>
@@ -67,9 +73,12 @@ class NaughtyProcessMonitorPrivate
     TQTimer * timer_;
     TQMap<ulong, uint> loadMap_;
     TQMap<ulong, uint> scoreMap_;
-#ifdef __OpenBSD__
+#if defined(__OpenBSD__) || defined(__NetBSD__)
     TQMap<ulong, uint> cacheLoadMap_;
     TQMap<ulong, uid_t> uidMap_;
+#endif
+#ifdef __NetBSD__
+    kvm_t *kd;
 #endif
     uint oldLoad_;
     uint triggerLevel_;
@@ -95,11 +104,17 @@ NaughtyProcessMonitor::NaughtyProcessMonitor
   d->interval_ = interval * 1000;
   d->triggerLevel_ = triggerLevel;
   d->timer_ = new TQTimer(this, "NaughtyProcessMonitorPrivate::timer");
+#ifdef __NetBSD__
+  d->kd = kvm_open(NULL, NULL, NULL, KVM_NO_FILES, "kvm_open");
+#endif
   connect(d->timer_, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotTimeout()));
 }
 
 NaughtyProcessMonitor::~NaughtyProcessMonitor()
 {
+#ifdef __NetBSD__
+  kvm_close(d->kd);
+#endif
   delete d;
 }
 
@@ -219,7 +234,7 @@ NaughtyProcessMonitor::canKill(ulong pid) const
 //  uint d(l[4].toUInt());
 
   return geteuid() == a;
-#elif defined(__OpenBSD__)
+#elif defined(__OpenBSD__) || defined(__NetBSD__)
   // simply check if entry exists in the uid map and use it
   if (!d->uidMap_.contains(pid))
       return false ;
@@ -234,7 +249,7 @@ NaughtyProcessMonitor::canKill(ulong pid) const
   TQString
 NaughtyProcessMonitor::processName(ulong pid) const
 {
-#if defined(__linux__) || defined(__OpenBSD__)
+#if defined(__linux__) || defined(__OpenBSD__) || defined(__NetBSD__)
 #ifdef __linux__
   TQFile f("/proc/" + TQString::number(pid) + "/cmdline");
 
@@ -257,6 +272,29 @@ NaughtyProcessMonitor::processName(ulong pid) const
  // Now strip 'tdeinit:' prefix.
   TQString unicode(TQString::fromLocal8Bit(s));
 
+#elif defined(__NetBSD__)
+  struct kinfo_proc2 *p;
+  int len;
+  char **argv;
+
+  p = kvm_getproc2(d->kd, KERN_PROC_PID, pid,
+                  sizeof(struct kinfo_proc2), &len);
+  if (len < 1) {
+      return i18n("Unknown");
+  }
+
+  // Now strip 'tdeinit:' prefix.
+  TQString unicode(TQString::fromLocal8Bit(p->p_comm));
+
+  if (unicode == "tdeinit") {
+      argv = kvm_getargv2(d->kd, p, 100);
+      while (argv != NULL && (*argv == "tdeinit:")) {
+         argv++;
+      }
+      if (argv != NULL) {
+         unicode = *argv;
+      }
+  }
 #elif defined(__OpenBSD__)
   int mib[4] ;
   size_t size ;
@@ -328,9 +366,13 @@ NaughtyProcessMonitor::cpuLoad() const
   d->oldLoad_ = load;
 
   return (forgetThisOne ? 0 : diff);
-#elif defined(__OpenBSD__)
+#elif defined(__OpenBSD__) || defined(__NetBSD__)
   int mib[2] ;
+#ifdef __NetBSD__
+  u_int64_t cp_time[CPUSTATES] ;
+#else
   long cp_time[CPUSTATES] ;
+#endif
   size_t size ;
   uint load, diff ;
   bool forgetThisOne = 0 == d->oldLoad_;
@@ -338,9 +380,9 @@ NaughtyProcessMonitor::cpuLoad() const
   // fetch CPU time statistics
 
   mib[0] = CTL_KERN ;
-  mib[1] = KERN_CPTIME ;
+  mib[1] = KERN_CP_TIME ;
 
-  size = CPUSTATES * sizeof(long) ;
+  size = CPUSTATES * sizeof(cp_time[0]) ;
   
   if (-1 == sysctl (mib, 2, cp_time, &size, NULL, 0))
       return 0 ;
@@ -368,6 +410,31 @@ NaughtyProcessMonitor::pidList() const
       pl << (*it).toUInt();
 
   return pl;
+#elif defined(__NetBSD__)
+  struct kinfo_proc2 *kp;
+  int nentries;
+  int i;
+  TQValueList<ulong> l;
+
+  kp = kvm_getproc2(d->kd, KERN_PROC_ALL, 0,
+                  sizeof(struct kinfo_proc2), &nentries);
+
+  // time statictics and euid data are fetched only for proceses in
+  // the pidList, so, instead of doing on sysctl per process for
+  // getLoad and canKill calls, simply cache the data we already have.
+
+  d->cacheLoadMap_.clear();
+  d->uidMap_.clear();
+  for (i = 0; i < nentries; i++) {
+      i << (unsigned long) kp[i].p_pid;
+      d->cacheLoadMap_.insert (kp[i].p_pid,
+                              kp[i].p_cpticks);
+      d->uidMap_.insert (kp[i].p_pid,
+                        kp[i].p_uid);
+  }
+
+  return l;
+
 #elif defined(__OpenBSD__)
   int mib[3] ;
   int nprocs = 0, nentries ;
@@ -456,7 +523,7 @@ NaughtyProcessMonitor::getLoad(ulong pid, uint & load) const
   load = userTime + sysTime;
 
   return true;
-#elif defined(__OpenBSD__)
+#elif defined(__OpenBSD__) || defined(__NetBSD__)
   // use cache
   if (!d->cacheLoadMap_.contains(pid))
       return false ;
@@ -473,7 +540,7 @@ NaughtyProcessMonitor::getLoad(ulong pid, uint & load) const
   bool
 NaughtyProcessMonitor::kill(ulong pid) const
 {
-#if defined(__linux__) || defined(__OpenBSD__)
+#if defined(__linux__) || defined(__OpenBSD__) || defined(__NetBSD__)
   return 0 == ::kill(pid, SIGKILL);
 #else
   Q_UNUSED( pid );

@@ -60,6 +60,11 @@ SensorManager::SensorManager()
   mDict.insert( "used", new TQString( i18n( "Used Memory" ) ) );
   mDict.insert( "application", new TQString( i18n( "Application Memory" ) ) );
   mDict.insert( "free", new TQString( i18n( "Free Memory" ) ) );
+  mDict.insert( "active", new TQString( i18n( "Active Memory" ) ) );
+  mDict.insert( "inactive", new TQString( i18n( "Inactive Memory" ) ) );
+  mDict.insert( "wired", new TQString( i18n( "Wired Memory" ) ) );
+  mDict.insert( "execpages", new TQString( i18n( "Exec Pages" ) ) );
+  mDict.insert( "filepages", new TQString( i18n( "File Pages" ) ) );
   mDict.insert( "pscount", new TQString( i18n( "Process Count" ) ) );
   mDict.insert( "ps", new TQString( i18n( "Process Controller" ) ) );
   mDict.insert( "disk", new TQString( i18n( "Disk Throughput" ) ) );

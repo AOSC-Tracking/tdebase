@@ -69,7 +69,7 @@ FstabBackend::FstabBackend(MediaList &list, bool networkSharesOnly)
 
 	KDirWatch::self()->startScan();
 
-#ifdef Q_OS_FREEBSD
+#if defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
 	connect( &m_mtabTimer, TQT_SIGNAL( timeout() ),
 	         this, TQT_SLOT( handleMtabChange() ) );
 	m_mtabTimer.start(250);
@@ -180,7 +180,7 @@ bool inExclusionPattern(KMountPoint *mount, bool networkSharesOnly)
 void FstabBackend::handleMtabChange(bool allowNotification)
 {
 	TQStringList new_mtabIds;
-	KMountPoint::List mtab = KMountPoint::currentMountPoints();
+	KMountPoint::List mtab = KMountPoint::currentMountPoints(KMountPoint::NeedRealDeviceName);
 
 	KMountPoint::List::iterator it = mtab.begin();
 	KMountPoint::List::iterator end = mtab.end();
@@ -419,6 +419,8 @@ void FstabBackend::guess(const TQString &devNode, const TQString &mountPoint,
 	       || devNode.find("/dev/scd")!=-1 || devNode.find("/dev/sr")!=-1
 	       // FREEBSD SPECIFIC
 	       || devNode.find("/acd")!=-1 || devNode.find("/scd")!=-1
+	       // NETBSD SPECIFIC
+	       || devNode.find("/cd")!=-1 || devNode.find("/cd")!=-1
 	        )
 	{
 		mimeType = "media/cdrom";
