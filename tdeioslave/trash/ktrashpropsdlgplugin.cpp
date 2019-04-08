@@ -55,14 +55,17 @@ KTrashPropsDlgPlugin::KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const cha
     return;
 
   KFileItem *item = dialog->items().first();
+  KURL itemUrl = item->url();
+	if (!(itemUrl.protocol() == "trash" && item->name() == "."))
+	{
+	  // Check for a desktop file in case the protocol is not "trash"
+		if (!KPropsDlgPlugin::isDesktopFile(item))
+			return;
 
-  if ( !KPropsDlgPlugin::isDesktopFile( item ) )
-    return;
-
-  KDesktopFile deskFile( item->url().path(), true /* readonly */ );
-
-  if ( deskFile.readURL() != "trash:/" )
-    return;
+		KDesktopFile deskFile( itemUrl.path(), true /* readonly */ );
+		if ( deskFile.readURL() != "trash:/" )
+			return;
+	}
 
   TDEGlobal::locale()->insertCatalogue( "tdeio_trash" );
 

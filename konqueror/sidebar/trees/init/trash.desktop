@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Link
+URL=trash:/
+Icon=trashcan_empty
+Open=true
+X-TDE-TreeModule=Directory
+X-TDE-KonqSidebarModule=konqsidebar_tree
+
+Name=Trash Folder
+Name[cz]=Složka koše
+Name[it]=Cartella Cestino
+
+Comment=This folder displays the contents of your Trash Bin
+Comment[cz]=Tato složka zobrazuje obsah vašeho koše
+Comment[it]=Questa cartella visualizza il contenuto del tuo Cestino

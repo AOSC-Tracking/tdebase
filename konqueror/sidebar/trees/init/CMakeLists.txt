@@ -17,12 +17,12 @@ add_subdirectory( services )
 
 install( FILES
     home.desktop root.desktop history.desktop bookmarks.desktop
-    services.desktop remote.desktop system.desktop
+    services.desktop remote.desktop system.desktop trash.desktop
   DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/entries )
 
 install( FILES
     home.desktop root.desktop history.desktop bookmarks.desktop
-    services.desktop remote.desktop
+    services.desktop remote.desktop trash.desktop
   DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/kicker_entries )
 
 install( FILES

@@ -1,7 +1,8 @@
 [Desktop Entry]
 Type=Service
-Name=Trash Properties Page
+Name=Trash Properties
 Name[bg]=Свойства на кошчето
+Name[cz]=Vlastnosti koše
 Name[it]=Proprietà del cestino
 X-TDE-Library=ktrashpropsdlgplugin
-X-TDE-ServiceTypes=KPropsDlg/Plugin,media/builtin-trash
+X-TDE-ServiceTypes=KPropsDlg/Plugin,media/builtin-trash,inode/directory
