@@ -8,8 +8,10 @@ X-TDE-KonqSidebarModule=konqsidebar_tree
 
 Name=Trash Folder
 Name[cz]=Složka koše
+Name[fr]=Dossier Corbeille
 Name[it]=Cartella Cestino
 
 Comment=This folder displays the contents of your Trash Bin
 Comment[cz]=Tato složka zobrazuje obsah vašeho koše
+Comment[fr]=Ce dossier montre le contenu de votre corbeille
 Comment[it]=Questa cartella visualizza il contenuto del tuo Cestino

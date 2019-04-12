@@ -1,8 +1,6 @@
 /*
    This file is part of the TDE project
 
-   Copyright (C) 2008 Tobias Koenig <tokoe@kde.org>
-
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
    License as published by the Free Software Foundation; either
@@ -19,61 +17,63 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef KTRASHPROPSDLGPLUGIN_H
-#define KTRASHPROPSDLGPLUGIN_H
+#ifndef KTRASHPROPSWIDGET_H
+#define KTRASHPROPSWIDGET_H
 
 #include "kpropertiesdialog.h"
 
 class KDoubleSpinBox;
 class TQCheckBox;
 class TQComboBox;
-class TQFrame;
 class TQLabel;
 class TQRadioButton;
 class TQSpinBox;
 class TrashImpl;
-class KTrashPropsWidget;
 
-class KTrashPropsDlgPlugin : public KPropsDlgPlugin
+class KTrashPropsWidget : public TQWidget
 {
   Q_OBJECT
 
   public:
-    KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const char*, const TQStringList& );
-    ~KTrashPropsDlgPlugin();
+    KTrashPropsWidget(TQWidget *parent=0, const char *name=0);
+   ~KTrashPropsWidget();
 
-    virtual void applyChanges();
+	  void load();
+	  void save();
+	  void setDefaultValues();
 
-  private slots:
-    void percentSizeChanged( double );
-		void fixedSizeChanged( double );
-		void fixedSizeUnitActivated ( int );
-		void rbPercentSizeToggled( bool );
-		void rbFixedSizeToggled( bool );
-    void trashChanged( int );
+	signals:
+		void changed(bool state);
+
+  protected slots:
+		void setDirty();
+    void percentSizeChanged(double);
+		void fixedSizeChanged(double);
+		void fixedSizeUnitActivated (int);
+		void rbPercentSizeToggled(bool);
+		void rbFixedSizeToggled(bool);
+    void trashChanged(int);
     void useTypeChanged();
 
   private:
-		KTrashPropsWidget *policyWidget;
-
     void readConfig();
     void writeConfig();
-    void setupGui( TQFrame *frame );
+    void setupGui();
 
     TQCheckBox *mUseTimeLimit;
     TQSpinBox  *mDays;
     TQCheckBox *mUseSizeLimit;
-    int        mSizeLimitType;
-    TQWidget   *mSizeWidget;
+    int         mSizeLimitType;
     TQRadioButton *mRbPercentSize, *mRbFixedSize;
     KDoubleSpinBox *mPercentSize;
     KDoubleSpinBox *mFixedSize;
     TQComboBox *mFixedSizeUnit;
-    TQLabel    *mSizeLabel;
+    TQLabel    *mSizeLabel, *mLimitLabel;
     TQComboBox *mLimitReachedAction;
 
     TrashImpl *mTrashImpl;
     TQString mCurrentTrash;
+    bool inhibitChangedSignal;
 
     typedef struct {
       bool useTimeLimit;

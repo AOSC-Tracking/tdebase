@@ -26,19 +26,18 @@ link_directories(
 ##### other data ################################
 
 install( FILES ktrashpropsdlgplugin.desktop trash.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+install( FILES kcm_trash.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 
 
 ##### trashcommon (static) ######################
-
 set( target trashcommon )
 
 tde_add_library( ${target} STATIC_PIC AUTOMOC
-  SOURCES trashimpl.cpp discspaceutil.cpp 
+  SOURCES trashimpl.cpp discspaceutil.cpp ktrashpropswidget.cpp
 )
 
 
 ##### tdeio_trash (module) ########################
-
 set( target tdeio_trash )
 
 tde_add_kpart( ${target} AUTOMOC
@@ -47,8 +46,18 @@ tde_add_kpart( ${target} AUTOMOC
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
 
-##### ktrashpropsdlgplugin (module) ########################
 
+##### kcm_trash (module) ########################
+set( target kcm_trash )
+
+tde_add_kpart( ${target} AUTOMOC
+  SOURCES kcm_trash.cpp
+  LINK trashcommon-static tdeio-shared
+  DESTINATION ${PLUGIN_INSTALL_DIR}
+)
+
+
+##### ktrashpropsdlgplugin (module) ########################
 set( target ktrashpropsdlgplugin )
 
 tde_add_kpart( ${target} AUTOMOC
@@ -57,8 +66,8 @@ tde_add_kpart( ${target} AUTOMOC
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
 
-##### ktrash (executable) #######################
 
+##### ktrash (executable) #######################
 set( target ktrash )
 
 tde_add_executable( ${target}
@@ -66,6 +75,7 @@ tde_add_executable( ${target}
   LINK tdeio-shared
   DESTINATION ${BIN_INSTALL_DIR}
 )
+
 
 ##### testtrash (executable) #######################
 tde_add_executable( testtrash

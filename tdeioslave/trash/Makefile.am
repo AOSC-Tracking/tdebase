@@ -3,11 +3,15 @@ METASOURCES = AUTO
 
 SUBDIRS = . tdefile-plugin
 
-kde_module_LTLIBRARIES = tdeio_trash.la ktrashpropsdlgplugin.la
+kde_module_LTLIBRARIES = tdeio_trash.la kcm_trash ktrashpropsdlgplugin.la
 
 tdeio_trash_la_SOURCES = tdeio_trash.cpp
 tdeio_trash_la_LIBADD  = libtrashcommon.la $(LIB_TDEIO)
 tdeio_trash_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN) -no-undefined
+
+kcm_trash_la_SOURCES = kcm_trash.cpp
+kcm_trash_la_LIBADD  = libtrashcommon.la $(LIB_TDEIO)
+kcm_trash_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN) -no-undefined
 
 bin_PROGRAMS = ktrash
 ktrash_SOURCES = ktrash.cpp
@@ -17,7 +21,7 @@ ktrash_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) 
 kde_services_DATA = trash.protocol
 
 noinst_LTLIBRARIES = libtrashcommon.la
-libtrashcommon_la_SOURCES = trashimpl.cpp discspaceutil.cpp
+libtrashcommon_la_SOURCES = trashimpl.cpp discspaceutil.cpp ktrashpropswidget.cpp
 
 check_PROGRAMS = testtrash
 testtrash_SOURCES = testtrash.cpp
@@ -38,3 +42,5 @@ ktrashpropsdlgplugin_la_LIBADD = $(LIB_TDEIO)
 
 services_DATA = ktrashpropsdlgplugin.desktop
 servicesdir = $(kde_servicesdir)
+
+xdg_apps_DATA = kcm_trash.desktop

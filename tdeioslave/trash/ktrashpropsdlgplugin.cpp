@@ -21,6 +21,7 @@
 */
 
 #include "ktrashpropsdlgplugin.h"
+#include "ktrashpropswidget.h"
 #include "discspaceutil.h"
 #include "trash_constant.h"
 #include "trashimpl.h"
@@ -74,7 +75,9 @@ KTrashPropsDlgPlugin::KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const cha
 
   readConfig();
 
-  TQFrame *frame = dialog->addPage( i18n( "Size Limits" ) );
+  TQFrame *frame = dialog->addPage(i18n("Polic&y"));
+	policyWidget = NULL;
+
   setupGui( frame );
 
   mUseTimeLimit->setChecked( mConfigMap[ mCurrentTrash ].useTimeLimit );
