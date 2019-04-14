@@ -26,7 +26,7 @@ link_directories(
 ##### other data ################################
 
 install( FILES ktrashpropsdlgplugin.desktop trash.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
-install( FILES kcm_trash.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install( FILES kcmtrash.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 
 
 ##### trashcommon (static) ######################
@@ -51,7 +51,7 @@ tde_add_kpart( ${target} AUTOMOC
 set( target kcm_trash )
 
 tde_add_kpart( ${target} AUTOMOC
-  SOURCES kcm_trash.cpp
+  SOURCES kcmtrash.cpp
   LINK trashcommon-static tdeio-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

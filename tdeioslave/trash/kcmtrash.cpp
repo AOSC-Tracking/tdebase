@@ -16,7 +16,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "kcm_trash.h"
+#include "kcmtrash.h"
 #include "ktrashpropswidget.h"
 
 #include <tqlayout.h>
@@ -31,7 +31,7 @@ extern "C"
 {
   KDE_EXPORT TDECModule *create_trash(TQWidget *parent, const char *)
   {
-    return new TrashModule(parent, "trash");
+    return new TrashModule(parent, "kcmtrash");
   }
 }
 
@@ -39,13 +39,13 @@ extern "C"
 TrashModule::TrashModule(TQWidget *parent, const char *name)
 	: TDECModule(parent, name)
 {
-	TDEAboutData * about = new TDEAboutData("trash",
+	TDEAboutData * about = new TDEAboutData("kcmtrash",
 	                                    I18N_NOOP("Trash"), "1",
 	                                    I18N_NOOP("Trash Control Panel Module"),
 	                                    TDEAboutData::License_GPL_V2,
 	                                    I18N_NOOP("(c) 2019 Michele Calgaro"));
 	setAboutData( about );
-  TDEGlobal::locale()->insertCatalogue("trash");
+  TDEGlobal::locale()->insertCatalogue("tdeio_trash");
 
   tab = new TQTabWidget(this);
 
@@ -78,4 +78,4 @@ TQString TrashModule::quickHelp() const
               "for your Trash Bin size and clean up policy. ");
 }
 
-#include "kcm_trash.moc"
+#include "kcmtrash.moc"

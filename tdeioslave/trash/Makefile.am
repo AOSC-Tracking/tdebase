@@ -3,13 +3,13 @@ METASOURCES = AUTO
 
 SUBDIRS = . tdefile-plugin
 
-kde_module_LTLIBRARIES = tdeio_trash.la kcm_trash ktrashpropsdlgplugin.la
+kde_module_LTLIBRARIES = tdeio_trash.la kcm_trash.la ktrashpropsdlgplugin.la
 
 tdeio_trash_la_SOURCES = tdeio_trash.cpp
 tdeio_trash_la_LIBADD  = libtrashcommon.la $(LIB_TDEIO)
 tdeio_trash_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN) -no-undefined
 
-kcm_trash_la_SOURCES = kcm_trash.cpp
+kcm_trash_la_SOURCES = kcmtrash.cpp
 kcm_trash_la_LIBADD  = libtrashcommon.la $(LIB_TDEIO)
 kcm_trash_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN) -no-undefined
 
@@ -43,4 +43,4 @@ ktrashpropsdlgplugin_la_LIBADD = $(LIB_TDEIO)
 services_DATA = ktrashpropsdlgplugin.desktop
 servicesdir = $(kde_servicesdir)
 
-xdg_apps_DATA = kcm_trash.desktop
+xdg_apps_DATA = kcmtrash.desktop
