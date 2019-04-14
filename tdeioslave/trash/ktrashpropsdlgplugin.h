@@ -44,50 +44,8 @@ class KTrashPropsDlgPlugin : public KPropsDlgPlugin
 
     virtual void applyChanges();
 
-  private slots:
-    void percentSizeChanged( double );
-		void fixedSizeChanged( double );
-		void fixedSizeUnitActivated ( int );
-		void rbPercentSizeToggled( bool );
-		void rbFixedSizeToggled( bool );
-    void trashChanged( int );
-    void useTypeChanged();
-
   private:
 		KTrashPropsWidget *policyWidget;
-
-    void readConfig();
-    void writeConfig();
-    void setupGui( TQFrame *frame );
-
-    TQCheckBox *mUseTimeLimit;
-    TQSpinBox  *mDays;
-    TQCheckBox *mUseSizeLimit;
-    int        mSizeLimitType;
-    TQWidget   *mSizeWidget;
-    TQRadioButton *mRbPercentSize, *mRbFixedSize;
-    KDoubleSpinBox *mPercentSize;
-    KDoubleSpinBox *mFixedSize;
-    TQComboBox *mFixedSizeUnit;
-    TQLabel    *mSizeLabel;
-    TQComboBox *mLimitReachedAction;
-
-    TrashImpl *mTrashImpl;
-    TQString mCurrentTrash;
-
-    typedef struct {
-      bool useTimeLimit;
-      int days;
-      bool useSizeLimit;
-      int sizeLimitType;
-      double percent;
-      double fixedSize;
-      int fixedSizeUnit;
-      int actionType;
-    } ConfigEntry;
-
-    typedef TQMap<TQString, ConfigEntry> ConfigMap;
-    ConfigMap mConfigMap;
 };
 
 #endif
