@@ -36,6 +36,13 @@ namespace TrashConstant
   		SIZE_ID_GB = 3,
   		SIZE_ID_TB = 4
   	};
+
+    enum
+    {
+      ACTION_WARNING = 0,
+      ACTION_DELETE_OLDEST = 1,
+      ACTION_DELETE_BIGGEST = 2
+    };
 }
   	
 #endif

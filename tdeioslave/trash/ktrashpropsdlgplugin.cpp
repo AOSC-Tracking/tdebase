@@ -241,6 +241,13 @@ void KTrashPropsDlgPlugin::applyChanges()
   }
 
   writeConfig();
+
+  // Adjust trash size if necessary
+  TrashImpl::TrashDirMap trashDirs = mTrashImpl->trashDirectories();
+	for (TrashImpl::TrashDirMap::ConstIterator it = trashDirs.begin(); it != trashDirs.end(); ++it)
+	{
+		mTrashImpl->resizeTrash(it.key());
+	}
 }
 
 void KTrashPropsDlgPlugin::percentSizeChanged( double percent )
@@ -370,7 +377,7 @@ void KTrashPropsDlgPlugin::trashChanged( int value )
     mUseTimeLimit->setChecked( entry.useTimeLimit );
     mDays->setValue( entry.days );
     mUseSizeLimit->setChecked( entry.useSizeLimit );
-		if ( mSizeLimitType == SIZE_LIMIT_FIXED )
+		if ( entry.sizeLimitType == SIZE_LIMIT_FIXED )
 		{
 			mRbFixedSize->setChecked( true );
 		}
@@ -414,13 +421,13 @@ void KTrashPropsDlgPlugin::readConfig()
       config.setGroup( groups[ i ] );
       ConfigEntry entry;
       entry.useTimeLimit = config.readBoolEntry( "UseTimeLimit", false );
-      entry.days = config.readNumEntry( "Days", 7 );
+      entry.days = config.readNumEntry( "Days", 32000 );
       entry.useSizeLimit = config.readBoolEntry( "UseSizeLimit", true );
 	    entry.sizeLimitType = config.readNumEntry( "SizeLimitType", SIZE_LIMIT_PERCENT );
       entry.percent = config.readDoubleNumEntry( "Percent", 10 );
       entry.fixedSize = config.readDoubleNumEntry( "FixedSize", 500 );
       entry.fixedSizeUnit = config.readNumEntry( "FixedSizeUnit", SIZE_ID_MB );
-      entry.actionType = config.readNumEntry( "LimitReachedAction", 0 );
+      entry.actionType = config.readNumEntry( "LimitReachedAction", TrashConstant::ACTION_WARNING );
       mConfigMap.insert( groups[ i ], entry );
     }
   }

@@ -95,6 +95,9 @@ public:
     /// Move data from the old trash system to the new one
     void migrateOldTrash();
 
+		/// Resize the trash based on the current settings if necessary
+		void resizeTrash(int trashId);
+
     /// TDEIO error code
     int lastErrorCode() const { return m_lastErrorCode; }
     TQString lastErrorMessage() const { return m_lastErrorMessage; }

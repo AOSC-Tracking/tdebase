@@ -62,7 +62,6 @@ KTrashPropsWidget::KTrashPropsWidget(TQWidget *parent, const char *name)
 
   inhibitChangedSignal = true;
   load();
-  trashChanged(0);
 }
 
 KTrashPropsWidget::~KTrashPropsWidget()
@@ -90,11 +89,8 @@ void KTrashPropsWidget::setupGui()
     mountPoints->setCurrentItem(0);
     connect(mountPoints, TQT_SIGNAL(highlighted(int)), TQT_SLOT(trashChanged(int)));
   }
-  else
-  {
-    mCurrentTrash = map[0];
-  }
 
+  mCurrentTrash = map[0];
   mUseTimeLimit = new TQCheckBox(i18n("Delete files older than:"), this);
   wlayout->addMultiCellWidget(mUseTimeLimit, multiTrashRow + 0, multiTrashRow + 0, 0, 1);
   mDays = new TQSpinBox(1, 365, 1, this);
@@ -150,28 +146,36 @@ void KTrashPropsWidget::setDirty()
 
 void KTrashPropsWidget::load()
 {
-  readConfig();
+  inhibitChangedSignal = true;
 
-  mUseTimeLimit->setChecked(mConfigMap[mCurrentTrash].useTimeLimit);
-  mUseSizeLimit->setChecked(mConfigMap[mCurrentTrash].useSizeLimit);
-  mSizeLimitType = mConfigMap[mCurrentTrash].sizeLimitType;
-	if (mSizeLimitType == SIZE_LIMIT_FIXED)
+  readConfig();
+	if (mConfigMap.contains(mCurrentTrash))
 	{
-		mRbFixedSize->setChecked(true);
+		mUseTimeLimit->setChecked(mConfigMap[mCurrentTrash].useTimeLimit);
+		mUseSizeLimit->setChecked(mConfigMap[mCurrentTrash].useSizeLimit);
+		mSizeLimitType = mConfigMap[mCurrentTrash].sizeLimitType;
+		if (mSizeLimitType == SIZE_LIMIT_FIXED)
+		{
+			mRbFixedSize->setChecked(true);
+		}
+		else
+		{
+			mRbPercentSize->setChecked(true);
+		}
+		mDays->setValue(mConfigMap[mCurrentTrash].days);
+		mPercentSize->setValue(mConfigMap[mCurrentTrash].percent);
+		mFixedSize->setValue(mConfigMap[mCurrentTrash].fixedSize);
+		mFixedSizeUnit->setCurrentItem(mConfigMap[mCurrentTrash].fixedSizeUnit);
+		mLimitReachedAction->setCurrentItem(mConfigMap[mCurrentTrash].actionType);
+		percentSizeChanged(mPercentSize->value());
+		fixedSizeChanged(mFixedSize->value());
 	}
 	else
 	{
-		mRbPercentSize->setChecked(true);
+		setDefaultValues();
 	}
-  mDays->setValue(mConfigMap[mCurrentTrash].days);
-  mPercentSize->setValue(mConfigMap[mCurrentTrash].percent);
-  mFixedSize->setValue(mConfigMap[mCurrentTrash].fixedSize);
-  mFixedSizeUnit->setCurrentItem(mConfigMap[mCurrentTrash].fixedSizeUnit);
-  mLimitReachedAction->setCurrentItem(mConfigMap[mCurrentTrash].actionType);
-  percentSizeChanged(mPercentSize->value());
-  fixedSizeChanged(mFixedSize->value());
-  useTypeChanged();
 
+	useTypeChanged();
   inhibitChangedSignal = false;
 }
 
@@ -199,6 +203,13 @@ void KTrashPropsWidget::save()
   }
 
   writeConfig();
+
+  // Adjust trash size if necessary
+  TrashImpl::TrashDirMap trashDirs = mTrashImpl->trashDirectories();
+	for (TrashImpl::TrashDirMap::ConstIterator it = trashDirs.begin(); it != trashDirs.end(); ++it)
+	{
+		mTrashImpl->resizeTrash(it.key());
+	}
 }
 
 void KTrashPropsWidget::setDefaultValues()
@@ -214,7 +225,6 @@ void KTrashPropsWidget::setDefaultValues()
 	{
 		mRbPercentSize->setChecked(true);
 	}
-
   mDays->setValue(mConfigMap[mCurrentTrash].days);
   mPercentSize->setValue(1);
   mFixedSize->setValue(500);
@@ -363,7 +373,7 @@ void KTrashPropsWidget::trashChanged(int value)
     mUseTimeLimit->setChecked(entry.useTimeLimit);
     mDays->setValue(entry.days);
     mUseSizeLimit->setChecked(entry.useSizeLimit);
-		if (mSizeLimitType == SIZE_LIMIT_FIXED)
+		if (entry.sizeLimitType == SIZE_LIMIT_FIXED)
 		{
 			mRbFixedSize->setChecked(true);
 		}
@@ -419,13 +429,13 @@ void KTrashPropsWidget::readConfig()
       config.setGroup(groups[i]);
       ConfigEntry entry;
       entry.useTimeLimit = config.readBoolEntry("UseTimeLimit", false);
-      entry.days = config.readNumEntry("Days", 7);
+      entry.days = config.readNumEntry("Days", 32000);
       entry.useSizeLimit = config.readBoolEntry("UseSizeLimit", true);
 	    entry.sizeLimitType = config.readNumEntry("SizeLimitType", SIZE_LIMIT_PERCENT);
       entry.percent = config.readDoubleNumEntry("Percent", 10);
       entry.fixedSize = config.readDoubleNumEntry("FixedSize", 500);
       entry.fixedSizeUnit = config.readNumEntry("FixedSizeUnit", SIZE_ID_MB);
-      entry.actionType = config.readNumEntry("LimitReachedAction", 0);
+      entry.actionType = config.readNumEntry("LimitReachedAction", ACTION_WARNING);
       mConfigMap.insert(groups[i], entry);
     }
   }
