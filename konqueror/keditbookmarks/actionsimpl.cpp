@@ -429,9 +429,9 @@ void ActionsImpl::slotPrint() {
     s_part = KParts::ComponentFactory
                         ::createPartInstanceFromQuery<KParts::ReadOnlyPart>(
                                 "text/html", TQString::null);
-    s_part->setProperty("pluginsEnabled", TQVariant(false, 1));
-    s_part->setProperty("javaScriptEnabled", TQVariant(false, 1));
-    s_part->setProperty("javaEnabled", TQVariant(false, 1));
+    s_part->setProperty("pluginsEnabled", TQVariant(false));
+    s_part->setProperty("javaScriptEnabled", TQVariant(false));
+    s_part->setProperty("javaEnabled", TQVariant(false));
 
     // doc->openStream( "text/html", KURL() );
     // doc->writeStream( TQCString( "<HTML><BODY>FOO</BODY></HTML>" ) );

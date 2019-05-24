@@ -461,7 +461,7 @@ void KonqView::connectPart(  )
   if ( ext )
       urlDropHandling = ext->property( "urlDropHandling" );
   else
-      urlDropHandling = TQVariant( true, 0 );
+      urlDropHandling = TQVariant( true );
 
   // Handle url drops if
   //  a) either the property says "ok"

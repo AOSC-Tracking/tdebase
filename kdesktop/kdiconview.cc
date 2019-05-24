@@ -1797,7 +1797,7 @@ void KDIconView::updateWorkArea( const TQRect &wr )
 void KDIconView::setupSortKeys()
 {
     // can't use sorting in KFileIVI::setKey()
-    setProperty("sortDirectoriesFirst", TQVariant(false, 0));
+    setProperty("sortDirectoriesFirst", TQVariant(false));
 
     for (TQIconViewItem *it = firstItem(); it; it = it->nextItem())
     {
