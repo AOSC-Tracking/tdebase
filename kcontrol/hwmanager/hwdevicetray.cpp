@@ -300,11 +300,12 @@ void HwDeviceSystemTray::slotUnmountDevice(int parameter)
 		for (hwdevice = diskDeviceList.first(); hwdevice; hwdevice = diskDeviceList.next()) {
 			TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(hwdevice);
 			if ((sdevice->diskUUID() == uuid) || (sdevice->systemPath() == uuid)) {
-				if (sdevice->mountPath() != TQString::null) {
-					int retcode;
-					TQString errstr;
-					if (!sdevice->unmountDevice(&errstr, &retcode)) {
-						KMessageBox::error(0, i18n("<qt><b>Unable to eject device</b><p>Detailed error information:<br>%1 (code %2)</qt>").arg(errstr).arg(retcode), i18n("Eject Failed"));
+				if (!sdevice->mountPath().isEmpty()) {
+					TDEStorageOpResult unmountResult = sdevice->unmountDevice();
+					if (unmountResult["result"].toBool() == false) {
+						TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
+						TQString retcodeStr = unmountResult.contains("retCode") ? unmountResult["retCode"].asString() : "not available";
+						KMessageBox::error(0, i18n("<qt><b>Unable to eject device</b><p>Detailed error information:<br>%1 (error code %2)</qt>").arg(errStr).arg(retcodeStr), i18n("Eject Failed"));
 					}
 					return;
 				}

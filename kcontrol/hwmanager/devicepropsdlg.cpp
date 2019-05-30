@@ -879,21 +879,19 @@ void DevicePropertiesDialog::setHibernationMethod(int value) {
 
 void DevicePropertiesDialog::mountDisk() {
 	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
-
-	// FIXME
-	// This can only mount normal volumes
 	TQString qerror;
 	TQString diskLabel = sdevice->diskLabel();
 	if (diskLabel.isNull()) {
 		diskLabel = i18n("%1 Removable Device").arg(sdevice->deviceFriendlySize());
 	}
 	TDEStorageMountOptions mountOptions;
-	TQString mountMessages;
-	TQString mountedPath = sdevice->mountDevice(diskLabel, mountOptions, &mountMessages);
-	if (mountedPath.isNull()) {
+	TDEStorageOpResult mountResult = sdevice->mountDevice(diskLabel, mountOptions);
+	TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
+	if (mountedPath.isEmpty()) {
 		qerror = i18n("<qt>Unable to mount this device.<p>Potential reasons include:<br>Improper device and/or user privilege level<br>Corrupt data on storage device");
-		if (!mountMessages.isNull()) {
-			qerror.append(i18n("<p>Technical details:<br>").append(mountMessages));
+		TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
+		if (!errStr.isEmpty()) {
+			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 		}
 		qerror.append("</qt>");
 	}
@@ -910,13 +908,13 @@ void DevicePropertiesDialog::unmountDisk() {
 	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
 
 	TQString qerror;
-	TQString unmountMessages;
-	int unmountRetcode = 0;
-	if (!sdevice->unmountDevice(&unmountMessages, &unmountRetcode)) {
+	TDEStorageOpResult unmountResult = sdevice->unmountDevice();
+	if (unmountResult["result"].toBool() == false) {
 		// Unmount failed!
 		qerror = "<qt>" + i18n("Unfortunately, the device could not be unmounted.");
-		if (!unmountMessages.isNull()) {
-			qerror.append(i18n("<p>Technical details:<br>").append(unmountMessages));
+		TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
+		if (!errStr.isEmpty()) {
+			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 		}
 		qerror.append("</qt>");
 	}

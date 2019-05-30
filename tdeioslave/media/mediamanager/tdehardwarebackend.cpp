@@ -1233,12 +1233,13 @@ TQString TDEBackend::mount(const Medium *medium)
 
 	if (!medium->isEncrypted()) {
 		// normal volume
-		TQString mountMessages;
-		TQString mountedPath = sdevice->mountDevice(diskLabel, valids, &mountMessages);
-		if (mountedPath.isNull()) {
+		TDEStorageOpResult mountResult = sdevice->mountDevice(diskLabel, valids);
+		TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
+		if (mountedPath.isEmpty()) {
 			qerror = i18n("<qt>Unable to mount this device.<p>Potential reasons include:<br>Improper device and/or user privilege level<br>Corrupt data on storage device");
-			if (!mountMessages.isNull()) {
-				qerror.append(i18n("<p>Technical details:<br>").append(mountMessages));
+			TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
+			if (!errStr.isEmpty()) {
+				qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 			}
 			qerror.append("</qt>");
 		}
@@ -1285,17 +1286,16 @@ TQString TDEBackend::mount(const Medium *medium)
 				}
 
 				// mount encrypted volume with password
-				int mountRetcode;
-				TQString mountMessages;
-				TQString mountedPath = sdevice->mountEncryptedDevice(m_decryptionPassword, diskLabel, valids, &mountMessages, &mountRetcode);
-				if (mountedPath.isNull()) {
-					if (mountRetcode == 0) {
+				TDEStorageOpResult mountResult = sdevice->mountEncryptedDevice(m_decryptionPassword, diskLabel, valids);
+				TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
+				if (mountedPath.isEmpty()) {
+					if (mountResult.contains("retCode") && mountResult["retCode"].toInt() == 0) {
 						// Mounting was successful
 						// Because the TDE hardware backend is event driven it might take a little while for the new unencrypted mapped device to show up
 						// Wait up to 30 seconds for it to appear...
 						for (int i=0;i<300;i++) {
 							mountedPath = sdevice->mountPath();
-							if (!mountedPath.isNull()) {
+							if (!mountedPath.isEmpty()) {
 								break;
 							}
 							tqApp->processEvents(50);
@@ -1303,8 +1303,8 @@ TQString TDEBackend::mount(const Medium *medium)
 						}
 					}
 				}
-				if (mountedPath.isNull()) {
-					if (mountRetcode == 25600) {
+				if (mountedPath.isEmpty()) {
+					if (mountResult.contains("retCode") && mountResult["retCode"].toInt() == 25600) {
 						// Probable LUKS failure
 						// Retry
 						m_decryptDialog->setEnabled(true);
@@ -1312,8 +1312,9 @@ TQString TDEBackend::mount(const Medium *medium)
 					}
 					else {
 						qerror = i18n("<qt>Unable to mount this device.<p>Potential reasons include:<br>Improper device and/or user privilege level<br>Corrupt data on storage device<br>Incorrect encryption password");
-						if (!mountMessages.isNull()) {
-							qerror.append(i18n("<p>Technical details:<br>").append(mountMessages));
+						TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
+						if (!errStr.isEmpty()) {
+							qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 						}
 						qerror.append("</qt>");
 						continue_trying_to_decrypt = false;
@@ -1399,13 +1400,13 @@ TQString TDEBackend::unmount(const TQString &_udi)
 	TQString uid = sdevice->uniqueID();
 	TQString node = sdevice->deviceNode();
 
-	TQString unmountMessages;
-	int unmountRetcode = 0;
-	if (!sdevice->unmountDevice(&unmountMessages, &unmountRetcode)) {
+	TDEStorageOpResult unmountResult = sdevice->unmountDevice();
+	if (unmountResult["result"].toBool() == false) {
 		// Unmount failed!
 		qerror = "<qt>" + i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at <b>%4</b> could not be unmounted. ").arg("system:/media/" + medium->name(), medium->deviceNode(), medium->prettyLabel(), medium->prettyBaseURL().pathOrURL());
-		if (!unmountMessages.isNull()) {
-			qerror.append(i18n("<p>Technical details:<br>").append(unmountMessages));
+		TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
+		if (!errStr.isEmpty()) {
+			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 		}
 		qerror.append("</qt>");
 	}
@@ -1413,17 +1414,19 @@ TQString TDEBackend::unmount(const TQString &_udi)
 		qerror = "";
 	}
 
-	if (unmountRetcode == 1280) {
+	if (unmountResult.contains("retCode") && unmountResult["retCode"].toInt() == 1280) {
 		// Failed as BUSY
 		TQString processesUsingDev = listUsingProcesses(medium);
 		if (!processesUsingDev.isNull()) {
 			if (KMessageBox::warningYesNo(0, i18n("<qt>The device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at <b>%4</b> can not be unmounted at this time.<p>%5<p><b>Would you like to forcibly terminate these processes?</b><br><i>All unsaved data would be lost</i>").arg("system:/media/" + medium->name()).arg(medium->deviceNode()).arg(medium->prettyLabel()).arg(medium->prettyBaseURL().pathOrURL()).arg(processesUsingDev)) == KMessageBox::Yes) {
 				killUsingProcesses(medium);
-				if (!sdevice->unmountDevice(&unmountMessages, &unmountRetcode)) {
+				unmountResult = sdevice->unmountDevice();
+				if (unmountResult["result"].toBool() == false) {
 					// Unmount failed!
 					qerror = "<qt>" + i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at <b>%4</b> could not be unmounted. ").arg("system:/media/" + medium->name(), medium->deviceNode(), medium->prettyLabel(), medium->prettyBaseURL().pathOrURL());
-					if (!unmountMessages.isNull()) {
-						qerror.append(i18n("<p>Technical details:<br>").append(unmountMessages));
+					TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
+					if (!errStr.isEmpty()) {
+						qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 					}
 					qerror.append("</qt>");
 				}
