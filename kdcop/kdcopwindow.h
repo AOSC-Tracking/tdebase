@@ -8,6 +8,7 @@
 #define __KDCOPWINDOW_H__
 
 class DCOPClient;
+class TQListBoxItem;
 class TQListViewItem;
 class TDEAction;
 class TDESelectAction;
@@ -38,6 +39,8 @@ class KDCOPWindow : public TDEMainWindow
     void slotCopy();
     void slotMode();
     void slotReload();
+    void slotResultListContextMenu(TQListBoxItem *item, const TQPoint &point);
+
   private:
     void fillObjects( DCOPBrowserItem*, const char* app );
     void fillFunctions( DCOPBrowserItem*, const char* app, const char* obj );
