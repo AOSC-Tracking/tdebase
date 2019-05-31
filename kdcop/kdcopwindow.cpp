@@ -46,6 +46,7 @@
 #include <tqvbox.h>
 #include <tqimage.h>
 #include <tqheader.h>
+#include <tqpopupmenu.h>
 
 #include <kdebug.h>
 #include <kkeydialog.h>
@@ -296,20 +297,10 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
 //	mainView->lv->addColumn(i18n("Function"));
 	mainView->lv->setDragAutoScroll( FALSE );
 	mainView->lv->setRootIsDecorated( TRUE );
-  connect
-    (
-     mainView->lv,
-     TQT_SIGNAL(doubleClicked(TQListViewItem *)),
-     TQT_SLOT(slotCallFunction(TQListViewItem *))
-    );
-
-  connect
-    (
-     mainView->lv,
-     TQT_SIGNAL(currentChanged(TQListViewItem *)),
-     TQT_SLOT(slotCurrentChanged(TQListViewItem *))
-    );
-
+  connect(mainView->lv, TQT_SIGNAL(doubleClicked(TQListViewItem *)), TQT_SLOT(slotCallFunction(TQListViewItem *)));
+  connect(mainView->lv, TQT_SIGNAL(currentChanged(TQListViewItem *)), TQT_SLOT(slotCurrentChanged(TQListViewItem *)));
+  connect(mainView->lb_replyData, TQT_SIGNAL(contextMenuRequested(TQListBoxItem*, const TQPoint&)),
+          TQT_SLOT(slotResultListContextMenu(TQListBoxItem*, const TQPoint&)));
 
   // set up the actions
   KStdAction::quit( TQT_TQOBJECT(this), TQT_SLOT( close() ), actionCollection() );
@@ -1105,8 +1096,10 @@ bool KDCOPWindow::demarshal
 	isValid = false;
   }
 
-      if (!ret.isEmpty())
-      	theList->insertStringList(ret);
+	if (!ret.isEmpty())
+	{
+		theList->insertStringList(ret);
+	}
 	return isValid;
 }
 
@@ -1236,6 +1229,13 @@ void KDCOPWindow::slotMode()
 	kdDebug () << "Going to mode " << langmode->currentText() << endl;
 	// Tell lv what the current mode is here...
 	mainView->lv->setMode(langmode->currentText());
+}
+
+void KDCOPWindow::slotResultListContextMenu(TQListBoxItem *item, const TQPoint &point)
+{
+	TQPopupMenu* contextMenu = new TQPopupMenu(this);
+	contextMenu->insertItem(i18n("&Copy"), this, TQT_SLOT(slotCopy()));
+	contextMenu->exec(point);
 }
 
 #include "kdcopwindow.moc"
