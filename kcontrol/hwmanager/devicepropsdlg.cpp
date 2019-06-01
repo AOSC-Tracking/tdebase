@@ -885,7 +885,7 @@ void DevicePropertiesDialog::mountDisk() {
 		diskLabel = i18n("%1 Removable Device").arg(sdevice->deviceFriendlySize());
 	}
 	TDEStorageMountOptions mountOptions;
-	TDEStorageOpResult mountResult = sdevice->mountDevice(diskLabel, mountOptions);
+	TQStringVariantMap mountResult = sdevice->mountDevice(diskLabel, mountOptions);
 	TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
 	if (mountedPath.isEmpty()) {
 		qerror = i18n("<qt>Unable to mount this device.<p>Potential reasons include:<br>Improper device and/or user privilege level<br>Corrupt data on storage device");
@@ -908,7 +908,7 @@ void DevicePropertiesDialog::unmountDisk() {
 	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
 
 	TQString qerror;
-	TDEStorageOpResult unmountResult = sdevice->unmountDevice();
+	TQStringVariantMap unmountResult = sdevice->unmountDevice();
 	if (unmountResult["result"].toBool() == false) {
 		// Unmount failed!
 		qerror = "<qt>" + i18n("Unfortunately, the device could not be unmounted.");

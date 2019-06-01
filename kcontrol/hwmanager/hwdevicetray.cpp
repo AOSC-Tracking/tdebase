@@ -301,10 +301,10 @@ void HwDeviceSystemTray::slotUnmountDevice(int parameter)
 			TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(hwdevice);
 			if ((sdevice->diskUUID() == uuid) || (sdevice->systemPath() == uuid)) {
 				if (!sdevice->mountPath().isEmpty()) {
-					TDEStorageOpResult unmountResult = sdevice->unmountDevice();
+					TQStringVariantMap unmountResult = sdevice->unmountDevice();
 					if (unmountResult["result"].toBool() == false) {
 						TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
-						TQString retcodeStr = unmountResult.contains("retCode") ? unmountResult["retCode"].asString() : "not available";
+						TQString retcodeStr = unmountResult.contains("retCode") ? unmountResult["retCode"].toString() : "not available";
 						KMessageBox::error(0, i18n("<qt><b>Unable to eject device</b><p>Detailed error information:<br>%1 (error code %2)</qt>").arg(errStr).arg(retcodeStr), i18n("Eject Failed"));
 					}
 					return;

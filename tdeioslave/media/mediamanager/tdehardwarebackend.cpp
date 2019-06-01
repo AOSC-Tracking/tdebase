@@ -1233,7 +1233,7 @@ TQString TDEBackend::mount(const Medium *medium)
 
 	if (!medium->isEncrypted()) {
 		// normal volume
-		TDEStorageOpResult mountResult = sdevice->mountDevice(diskLabel, valids);
+		TQStringVariantMap mountResult = sdevice->mountDevice(diskLabel, valids);
 		TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
 		if (mountedPath.isEmpty()) {
 			qerror = i18n("<qt>Unable to mount this device.<p>Potential reasons include:<br>Improper device and/or user privilege level<br>Corrupt data on storage device");
@@ -1286,7 +1286,7 @@ TQString TDEBackend::mount(const Medium *medium)
 				}
 
 				// mount encrypted volume with password
-				TDEStorageOpResult mountResult = sdevice->mountEncryptedDevice(m_decryptionPassword, diskLabel, valids);
+				TQStringVariantMap mountResult = sdevice->mountEncryptedDevice(m_decryptionPassword, diskLabel, valids);
 				TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
 				if (mountedPath.isEmpty()) {
 					if (mountResult.contains("retCode") && mountResult["retCode"].toInt() == 0) {
@@ -1400,7 +1400,7 @@ TQString TDEBackend::unmount(const TQString &_udi)
 	TQString uid = sdevice->uniqueID();
 	TQString node = sdevice->deviceNode();
 
-	TDEStorageOpResult unmountResult = sdevice->unmountDevice();
+	TQStringVariantMap unmountResult = sdevice->unmountDevice();
 	if (unmountResult["result"].toBool() == false) {
 		// Unmount failed!
 		qerror = "<qt>" + i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at <b>%4</b> could not be unmounted. ").arg("system:/media/" + medium->name(), medium->deviceNode(), medium->prettyLabel(), medium->prettyBaseURL().pathOrURL());
