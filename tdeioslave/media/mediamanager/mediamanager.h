@@ -22,6 +22,7 @@
 #include <kdedmodule.h>
 #include <tqstring.h>
 #include <tqstringlist.h>
+#include <tqvariant.h>
 
 #include "medialist.h"
 #include "backendbase.h"
@@ -46,10 +47,10 @@ k_dcop:
 	TQStringList mountoptions(const TQString &name);
 	bool setMountoptions(const TQString &name, const TQStringList &options);
 
-	TQString mount(const TQString &uid);
-	TQString unmount(const TQString &uid);
-	TQString decrypt(const TQString &uid, const TQString &password);
-	TQString undecrypt(const TQString &uid);
+	TQStringVariantMap mount(const TQString &uid);
+	TQStringVariantMap unmount(const TQString &uid);
+	TQStringVariantMap decrypt(const TQString &uid, const TQString &password);
+	TQStringVariantMap undecrypt(const TQString &uid);
 
 	TQString nameForLabel(const TQString &label);
 	ASYNC setUserLabel(const TQString &name, const TQString &label);

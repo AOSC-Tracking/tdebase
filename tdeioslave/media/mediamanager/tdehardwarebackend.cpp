@@ -50,15 +50,6 @@
 	(medium->isEncrypted() ? (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "-decrypted" : "-encrypted") : "" )			\
 	)
 
-#define CHECK_FOR_AND_EXECUTE_AUTOMOUNT(udi, medium, allowNotification) {									\
-		TQMap<TQString,TQString> options = MediaManagerUtils::splitOptions(mountoptions(udi));						\
-		kdDebug(1219) << "automount " << options["automount"] << endl;									\
-		if (options["automount"] == "true" && allowNotification ) {									\
-			TQString error = mount(medium);												\
-			if (!error.isEmpty())													\
-			kdDebug(1219) << "error " << error << endl;										\
-		}																\
-	}
 
 /* Constructor */
 TDEBackend::TDEBackend(MediaList &list, TQObject* parent)
@@ -208,7 +199,15 @@ void TDEBackend::AddDevice(TDEStorageDevice * sdevice, bool allowNotification)
 			kdDebug(1219) << "TDEBackend::AddDevice inserted hard medium for " << sdevice->uniqueID() << endl;
 
 			// Automount if enabled
-			CHECK_FOR_AND_EXECUTE_AUTOMOUNT(sdevice->uniqueID(), medium, allowNotification)
+			TQMap<TQString,TQString> options = MediaManagerUtils::splitOptions(mountoptions(sdevice->uniqueID()));
+			kdDebug(1219) << "automount " << options["automount"] << endl;
+			if (options["automount"] == "true" && allowNotification ) {
+				TQStringVariantMap mountResult = mount(medium);
+				if (!mountResult["result"].toBool()) {
+					TQString error = mountResult.contains("errStr") ? mountResult["errStr"].toString() : i18n("Unknown mount error.");
+					kdDebug(1219) << "error " << error << endl;
+				}
+			}
 		}
 	}
 
@@ -251,7 +250,15 @@ void TDEBackend::AddDevice(TDEStorageDevice * sdevice, bool allowNotification)
 		kdDebug(1219) << "TDEBackend::AddDevice inserted optical medium for " << sdevice->uniqueID() << endl;
 
 		// Automount if enabled
-		CHECK_FOR_AND_EXECUTE_AUTOMOUNT(sdevice->uniqueID(), medium, allowNotification)
+		TQMap<TQString,TQString> options = MediaManagerUtils::splitOptions(mountoptions(sdevice->uniqueID()));
+		kdDebug(1219) << "automount " << options["automount"] << endl;
+		if (options["automount"] == "true" && allowNotification ) {
+			TQStringVariantMap mountResult = mount(medium);
+			if (!mountResult["result"].toBool()) {
+				TQString error = mountResult.contains("errStr") ? mountResult["errStr"].toString() : i18n("Unknown mount error.");
+				kdDebug(1219) << "error " << error << endl;
+			}
+		}
 	}
 
 	// Floppy & zip drives
@@ -1179,49 +1186,55 @@ void TDEBackend::slotPasswordCancel() {
 	m_decryptPasswordValid = true;
 }
 
-TQString TDEBackend::mount(const Medium *medium)
+TQStringVariantMap TDEBackend::mount(const Medium *medium)
 {
+	TQStringVariantMap result;
 	if (medium->isMounted()) {
-		return TQString(); // that was easy
+		result["result"] = true;
+		return result;
 	}
 
 	TQString mountPoint = isInFstab(medium);
-	if (!mountPoint.isNull())
+	if (!mountPoint.isEmpty())
 	{
 		struct mount_job_data data;
 		data.completed = false;
 		data.medium = medium;
 
-		TDEIO::Job *job = TDEIO::mount( false, 0, medium->deviceNode(), mountPoint );
-		connect(job, TQT_SIGNAL( result (TDEIO::Job *)), TQT_SLOT( slotResult( TDEIO::Job *)));
+		TDEIO::Job *job = TDEIO::mount(false, 0, medium->deviceNode(), mountPoint);
+		connect(job, TQT_SIGNAL(result(TDEIO::Job*)), TQT_SLOT(slotResult(TDEIO::Job*)));
 		mount_jobs[job] = &data;
 		// The caller expects the device to be mounted when the function
 		// completes. Thus block until the job completes.
 		while (!data.completed) {
 			kapp->eventLoop()->enterLoop();
 		}
-		// Return the error message (if any) to the caller
-		return (data.error) ? data.errorMessage : TQString::null;
-
+		if (!data.error) {
+			result["result"] = true;
+			return result;
+		}
+		else {
+			result["errStr"] = data.errorMessage; // Return the error message (if any) to the caller
+			result["result"] = false;
+			return result;
+		}
 	}
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
-
-	TDEStorageDevice * sdevice = hwdevices->findDiskByUID(medium->id());
+	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
 	if (!sdevice) {
-		return i18n("Internal error");
+		result["errStr"] = i18n("Internal error. Couldn't find medium.");
+		result["result"] = false;
+		return result;
 	}
 
-	TQString diskLabel;
-
 	TQMap<TQString,TQString> valids = MediaManagerUtils::splitOptions(mountoptions(medium->id()));
-
+	TQString diskLabel;
 	TQString mount_point = valids["mountpoint"];
 	if (mount_point.startsWith("/media/")) {
 		diskLabel = mount_point.mid(7);
 	}
-
-	if (diskLabel == "") {
+	if (diskLabel.isEmpty()) {
 		// Try to use a pretty mount point if possible
 		TQStringList pieces = TQStringList::split("/", sdevice->deviceNode(), FALSE);
 		TQString node = pieces[pieces.count()-1];
@@ -1229,22 +1242,17 @@ TQString TDEBackend::mount(const Medium *medium)
 		diskLabel.replace("/", "_");
 	}
 
-	TQString qerror = i18n("Cannot mount encrypted drives!");
-
+	TQString qerror;
 	if (!medium->isEncrypted()) {
 		// normal volume
 		TQStringVariantMap mountResult = sdevice->mountDevice(diskLabel, valids);
 		TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
 		if (mountedPath.isEmpty()) {
-			qerror = i18n("<qt>Unable to mount this device.<p>Potential reasons include:<br>Improper device and/or user privilege level<br>Corrupt data on storage device");
+			qerror = i18n("Unable to mount this device.");
 			TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
 			if (!errStr.isEmpty()) {
 				qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 			}
-			qerror.append("</qt>");
-		}
-		else {
-			qerror = "";
 		}
 	}
 	else {
@@ -1275,7 +1283,9 @@ TQString TDEBackend::mount(const Medium *medium)
 
 			if (m_decryptionPassword.isNull()) {
 				delete m_decryptDialog;
-				return TQString("Decryption aborted");
+				result["errStr"] = i18n("Decryption aborted");
+				result["result"] = false;
+				return result;
 			}
 			else {
 				// Just for some added fun, if udev emits a medium change event, which I then forward, with mounted==0, it stops the MediaProtocol::listDir method dead in its tracks,
@@ -1311,17 +1321,16 @@ TQString TDEBackend::mount(const Medium *medium)
 						continue_trying_to_decrypt = true;
 					}
 					else {
-						qerror = i18n("<qt>Unable to mount this device.<p>Potential reasons include:<br>Improper device and/or user privilege level<br>Corrupt data on storage device<br>Incorrect encryption password");
+						qerror = i18n("Cannot mount encrypted drives!");
+						qerror = i18n("Unable to mount this device.");
 						TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
 						if (!errStr.isEmpty()) {
 							qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 						}
-						qerror.append("</qt>");
 						continue_trying_to_decrypt = false;
 					}
 				}
 				else {
-					qerror = "";
 					continue_trying_to_decrypt = false;
 				}
 
@@ -1331,7 +1340,9 @@ TQString TDEBackend::mount(const Medium *medium)
 	}
 
 	if (!qerror.isEmpty()) {
-		return qerror;
+		result["errStr"] = qerror;
+		result["result"] = false;
+		return result;
 	}
 
 	ResetProperties(sdevice, false, true);
@@ -1340,29 +1351,36 @@ TQString TDEBackend::mount(const Medium *medium)
 		m_ignoreDeviceChangeEvents.remove(sdevice->uniqueID());
 	}
 
-	return TQString();
+	result["result"] = true;
+	return result;
 }
 
-TQString TDEBackend::mount(const TQString &_udi)
+TQStringVariantMap TDEBackend::mount(const TQString &id)
 {
-	const Medium* medium = m_mediaList.findById(_udi);
+	const Medium *medium = m_mediaList.findById(id);
 	if (!medium) {
-		return i18n("No such medium: %1").arg(_udi);
+		TQStringVariantMap result;
+		result["errStr"] = i18n("No such medium: %1").arg(id);
+		result["result"] = false;
+		return result;
 	}
-
 	return mount(medium);
 }
 
-TQString TDEBackend::unmount(const TQString &_udi)
+TQStringVariantMap TDEBackend::unmount(const TQString &id)
 {
-	const Medium* medium = m_mediaList.findById(_udi);
+	TQStringVariantMap result;
 
-	if ( !medium ) {
-		return i18n("No such medium: %1").arg(_udi);
+	const Medium* medium = m_mediaList.findById(id);
+	if (!medium) {
+		result["errStr"] = i18n("No such medium: %1").arg(id);
+		result["result"] = false;
+		return result;
 	}
 
 	if (!medium->isMounted()) {
-		return TQString(); // that was easy
+		result["result"] = true;
+		return result;
 	}
 
 	TQString mountPoint = isInFstab(medium);
@@ -1373,83 +1391,90 @@ TQString TDEBackend::unmount(const TQString &_udi)
 		data.medium = medium;
 
 		TDEIO::Job *job = TDEIO::unmount( medium->mountPoint(), false );
-		connect(job, TQT_SIGNAL( result (TDEIO::Job *)), TQT_SLOT( slotResult( TDEIO::Job *)));
+		connect(job, TQT_SIGNAL(result(TDEIO::Job*)), TQT_SLOT(slotResult(TDEIO::Job*)));
 		mount_jobs[job] = &data;
 		// The caller expects the device to be unmounted when the function
 		// completes. Thus block until the job completes.
 		while (!data.completed) {
 			kapp->eventLoop()->enterLoop();
 		}
-		// Return the error message (if any) to the caller
-		return (data.error) ? data.errorMessage : TQString::null;
+		if (!data.error) {
+			result["result"] = true;
+			return result;
+		}
+		else {
+			result["errStr"] = data.errorMessage; // Return the error message (if any) to the caller
+			result["result"] = false;
+			return result;
+		}
 	}
-
-	TQString udi = TQString::null;
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
-
-	TDEStorageDevice * sdevice = hwdevices->findDiskByUID(medium->id());
+	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
 	if (!sdevice) {
-		return i18n("Internal error");
+		result["errStr"] = i18n("Internal error. Couldn't find medium.");
+		result["result"] = false;
+		return result;
 	}
-
-	TQString qerror;
-	TQString origqerror;
 
 	// Save these for later
 	TQString uid = sdevice->uniqueID();
 	TQString node = sdevice->deviceNode();
 
+	TQString qerror;
 	TQStringVariantMap unmountResult = sdevice->unmountDevice();
 	if (unmountResult["result"].toBool() == false) {
 		// Unmount failed!
-		qerror = "<qt>" + i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at <b>%4</b> could not be unmounted. ").arg("system:/media/" + medium->name(), medium->deviceNode(), medium->prettyLabel(), medium->prettyBaseURL().pathOrURL());
+		qerror = i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at "
+		    "<b>%4</b> could not be unmounted. ").arg("system:/media/" + medium->name(), medium->deviceNode(),
+		    medium->prettyLabel(), medium->prettyBaseURL().pathOrURL());
 		TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
 		if (!errStr.isEmpty()) {
 			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 		}
-		qerror.append("</qt>");
-	}
-	else {
-		qerror = "";
 	}
 
 	if (unmountResult.contains("retCode") && unmountResult["retCode"].toInt() == 1280) {
 		// Failed as BUSY
 		TQString processesUsingDev = listUsingProcesses(medium);
 		if (!processesUsingDev.isNull()) {
-			if (KMessageBox::warningYesNo(0, i18n("<qt>The device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at <b>%4</b> can not be unmounted at this time.<p>%5<p><b>Would you like to forcibly terminate these processes?</b><br><i>All unsaved data would be lost</i>").arg("system:/media/" + medium->name()).arg(medium->deviceNode()).arg(medium->prettyLabel()).arg(medium->prettyBaseURL().pathOrURL()).arg(processesUsingDev)) == KMessageBox::Yes) {
+			if (KMessageBox::warningYesNo(0, i18n("<qt>The device <b>%1</b> (%2) named <b>'%3'</b> and currently "
+			    "mounted at <b>%4</b> can not be unmounted at this time.<p>%5<p><b>Would you like to forcibly "
+			    "terminate these processes?</b><br><i>All unsaved data would be lost</i>").arg("system:/media/" +
+			    medium->name()).arg(medium->deviceNode()).arg(medium->prettyLabel()).arg(medium->prettyBaseURL().pathOrURL())
+			    .arg(processesUsingDev)) == KMessageBox::Yes) {
 				killUsingProcesses(medium);
 				unmountResult = sdevice->unmountDevice();
 				if (unmountResult["result"].toBool() == false) {
 					// Unmount failed!
-					qerror = "<qt>" + i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at <b>%4</b> could not be unmounted. ").arg("system:/media/" + medium->name(), medium->deviceNode(), medium->prettyLabel(), medium->prettyBaseURL().pathOrURL());
+					qerror = i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at "
+					    "<b>%4</b> could not be unmounted. ").arg("system:/media/" + medium->name(), medium->deviceNode(),
+					    medium->prettyLabel(), medium->prettyBaseURL().pathOrURL());
 					TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
 					if (!errStr.isEmpty()) {
 						qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 					}
-					qerror.append("</qt>");
-				}
-				else {
-					qerror = "";
 				}
 			}
 		}
 	}
 
-	if (qerror != "") {
-		return qerror;
+	if (!qerror.isEmpty()) {
+		result["errStr"] = qerror;
+		result["result"] = false;
+		return result;
 	}
 
-	// There is a possibility that the storage device was unceremoniously removed from the system immediately after it was unmounted
-	// There is no reliable way to know if this happened either!
+	// There is a possibility that the storage device was unceremoniously removed from the system immediately
+	// after it was unmounted. There is no reliable way to know if this happened either!
 	// For now, see if the device node still exists
 	TQFileInfo checkDN(node);
 	if (!checkDN.exists()) {
 		m_mediaList.removeMedium(uid, true);
 	}
 
-	return TQString();
+	result["result"] = true;
+	return result;
 }
 
 void TDEBackend::slotResult(TDEIO::Job *job)

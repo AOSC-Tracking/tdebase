@@ -97,24 +97,34 @@ FstabBackend::~FstabBackend()
         KDirWatch::self()->removeFile(MTAB);
 }
 
-TQString FstabBackend::mount( const TQString &_udi )
+TQStringVariantMap FstabBackend::mount(const TQString &id)
 {
-    const Medium* medium = m_mediaList.findById(_udi);
-    if (!medium)
-        return i18n("No such medium: %1").arg(_udi);
-    TDEIO::Job* job = TDEIO::mount( false, 0, medium->deviceNode(), medium->mountPoint());
-    TDEIO::NetAccess::synchronousRun( job, 0 );
-    return TQString::null;
+		TQStringVariantMap result;
+    const Medium *medium = m_mediaList.findById(id);
+    if (!medium) {
+			result["errStr"] = i18n("No such medium: %1").arg(id);
+			result["result"] = false;
+			return result;
+		}
+    TDEIO::Job *job = TDEIO::mount(false, 0, medium->deviceNode(), medium->mountPoint());
+    TDEIO::NetAccess::synchronousRun(job, 0);
+		result["result"] = true;
+		return result;
 }
 
-TQString FstabBackend::unmount( const TQString &_udi )
+TQStringVariantMap FstabBackend::unmount(const TQString &id)
 {
-    const Medium* medium = m_mediaList.findById(_udi);
-    if (!medium)
-        return i18n("No such medium: %1").arg(_udi);
-    TDEIO::Job* job = TDEIO::unmount( medium->mountPoint(),  false);
-    TDEIO::NetAccess::synchronousRun( job, 0 );
-    return TQString::null;
+		TQStringVariantMap result;
+    const Medium *medium = m_mediaList.findById(id);
+    if (!medium) {
+			result["errStr"] = i18n("No such medium: %1").arg(id);
+			result["result"] = false;
+			return result;
+		}
+    TDEIO::Job *job = TDEIO::unmount(medium->mountPoint(), false);
+    TDEIO::NetAccess::synchronousRun(job, 0);
+		result["result"] = true;
+		return result;
 }
 
 void FstabBackend::slotDirty(const TQString &path)

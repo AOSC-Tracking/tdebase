@@ -73,15 +73,16 @@ MountHelper::MountHelper() : TDEApplication()
 	KURL url(args->url(0));
 	const Medium medium = findMedium(url);
 
-	if ( medium.id().isEmpty() )
+	if (medium.id().isEmpty())
 	{
-		if (m_errorStr.isEmpty())
+		if (m_errorStr.isEmpty()) {
 			m_errorStr+= i18n("%1 cannot be found.").arg(url.prettyURL());
+		}
 		TQTimer::singleShot(0, this, TQT_SLOT(error()) );
 		return;
 	}
 
-	if ( !medium.isMountable() && !args->isSet("e") && !args->isSet("s"))
+	if (!medium.isMountable() && !args->isSet("e") && !args->isSet("s"))
 	{
 		m_errorStr = i18n("%1 is not a mountable media.").arg(url.prettyURL());
 		TQTimer::singleShot(0, this, TQT_SLOT(error()) );
@@ -91,8 +92,7 @@ MountHelper::MountHelper() : TDEApplication()
 	TQString device = medium.deviceNode();
 	TQString mount_point = medium.mountPoint();
 
-	m_isCdrom = medium.mimeType().find("dvd")!=-1
-	         || medium.mimeType().find("cd")!=-1;
+	m_isCdrom = medium.mimeType().find("dvd") != -1 || medium.mimeType().find("cd") != -1;
 
 	if (args->isSet("d"))
 	{
@@ -127,14 +127,19 @@ MountHelper::MountHelper() : TDEApplication()
 	else if (args->isSet("u"))
 	{
 	  DCOPRef mediamanager("kded", "mediamanager");
-	  DCOPReply reply = mediamanager.call( "unmount", medium.id());
-	  if (reply.isValid())
-	    reply.get(m_errorStr);
-	  kdDebug() << "medium unmount " << m_errorStr << endl;
-	  if (m_errorStr.isNull())
+	  DCOPReply reply = mediamanager.call("unmount", medium.id());
+	  TQStringVariantMap unmountResult;
+	  if (reply.isValid()) {
+	    reply.get(unmountResult);
+    }
+	  if (unmountResult.contains("result") && unmountResult["result"].toBool()) {
 	    ::exit(0);
-	  else
+	  }
+	  else {
+			m_errorStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : i18n("Unknown unmount error.");
+		  kdDebug() << "medium unmount " << m_errorStr << endl;
 	    error();
+	  }
 	}
 	else if (args->isSet("s") || args->isSet("e"))
 	{
@@ -153,7 +158,11 @@ MountHelper::MountHelper() : TDEApplication()
 		{
 			DCOPReply reply = mediamanager.call( "unmount", medium.id());
 			if (reply.isValid()) {
-				reply.get(m_errorStr);
+			  TQStringVariantMap unmountResult;
+				reply.get(unmountResult);
+				if (unmountResult["result"].toBool()) {
+					reply.get(m_errorStr);
+				}
 			}
 		}
 
@@ -163,7 +172,11 @@ MountHelper::MountHelper() : TDEApplication()
 		{
 			DCOPReply reply = mediamanager.call( "undecrypt", medium.id());
 			if (reply.isValid()) {
-				reply.get(m_errorStr);
+			  TQStringVariantMap undecryptResult;
+				reply.get(undecryptResult);
+				if (undecryptResult["result"].toBool()) {
+					reply.get(m_errorStr);
+				}
 			}
 		}
 
@@ -177,13 +190,18 @@ MountHelper::MountHelper() : TDEApplication()
 	else
 	{
 	  DCOPRef mediamanager("kded", "mediamanager");
-	  DCOPReply reply = mediamanager.call( "mount", medium.id());
-	  if (reply.isValid())
-	    reply.get(m_errorStr);
-	  if (m_errorStr.isNull())
+	  DCOPReply reply = mediamanager.call("mount", medium.id());
+	  TQStringVariantMap mountResult;
+	  if (reply.isValid()) {
+	    reply.get(mountResult);
+	  }
+	  if (mountResult.contains("result") && mountResult["result"].toBool()) {
 	    ::exit(0);
-	  else
+	  }
+	  else {
+			m_errorStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : i18n("Unknown mount error.");
 	    error();
+	  }
 	}
 }
 
@@ -252,16 +270,18 @@ void MountHelper::slotSendPassword()
 	DCOPRef mediamanager("kded", "mediamanager");
 
 	DCOPReply reply = mediamanager.call( "decrypt", m_mediumId, dialog->getPassword() );
-	if (!reply.isValid()) {
-		m_errorStr = i18n("The TDE mediamanager is not running.");
+	TQStringVariantMap decryptResult;
+	if (reply.isValid()) {
+		reply.get(decryptResult);
+	}
+	if (decryptResult.contains("result") && decryptResult["result"].toBool()) {
+		::exit(0);
+	}
+	else {
+		m_errorStr = decryptResult.contains("errStr") ? decryptResult["errStr"].toString() : i18n("Unknown decrypt error.");
+		kdDebug() << "medium decrypt " << m_errorStr << endl;
+		emit signalPasswordError(m_errorStr);
 		error();
-	} else {
-		TQString errorMsg = reply;
-		if (errorMsg.isNull()) {
-			exit(0);
-		} else {
-			emit signalPasswordError(errorMsg);
-		}
 	}
 }
 

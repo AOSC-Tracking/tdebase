@@ -1,5 +1,5 @@
 /* This file is part of the KDE Project
-   Copyright (c) 2004 Kévin Ottens <ervin ipsquad net>
+   Copyright (c) 2004 KÃ©vin Ottens <ervin ipsquad net>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -23,7 +23,7 @@
 
 #include <tqobject.h>
 #include <tqstringlist.h>
-#include <tqmap.h>
+#include <tqvariant.h>
 
 #ifdef Q_OS_FREEBSD
 #include <tqtimer.h>
@@ -42,8 +42,8 @@ public:
                           TQString &mimeType, TQString &iconName,
 	                  TQString &label);
 
-	TQString mount(const TQString &id);
-	TQString unmount(const TQString &id);
+	TQStringVariantMap mount(const TQString &id);
+	TQStringVariantMap unmount(const TQString &id);
 
 private slots:
 	void slotDirty(const TQString &path);

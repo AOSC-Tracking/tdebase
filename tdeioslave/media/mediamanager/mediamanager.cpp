@@ -240,76 +240,119 @@ bool MediaManager::setMountoptions(const TQString &name, const TQStringList &opt
 #endif // COMPILE_HALBACKEND
 }
 
-TQString MediaManager::mount(const TQString &name)
+TQStringVariantMap MediaManager::mount(const TQString &uid)
 {
-#ifdef COMPILE_HALBACKEND
-	if (!m_halbackend)
-		return i18n("Feature only available with HAL");
-	return m_halbackend->mount(name);
-#else // COMPILE_HALBACKEND
-	#ifdef COMPILE_TDEHARDWAREBACKEND
-		if (!m_tdebackend)
-			return i18n("Feature only available with the TDE hardware backend");
-		return m_tdebackend->mount(name);
-	#else // COMPILE_TDEHARDWAREBACKEND
-		if ( !m_fstabbackend ) // lying :)
-			return i18n("Feature only available with HAL or TDE hardware backend");
-		return m_fstabbackend->mount( name );
-	#endif // COMPILE_TDEHARDWAREBACKEND
-#endif // COMPILE_HALBACKEND
+	TQStringVariantMap result;
+#ifdef COMPILE_TDEHARDWAREBACKEND
+	if (!m_tdebackend) {
+		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
+		result["result"] = false;
+		return result;
+	}
+	return m_tdebackend->mount(uid);
+#elif defined COMPILE_HALBACKEND
+	if (!m_halbackend) {
+		result["errStr"] = i18n("Feature only available with HAL");
+		result["result"] = false;
+		return result;
+	}
+	return m_halbackend->mount(uid);
+#else
+	if (!m_fstabbackend) {
+		result["errStr"] = i18n("Feature only available with HAL or TDE hardware backend");
+		result["result"] = false;
+		return result;
+	}
+	return m_fstabbackend->mount(uid);
+#endif
 }
 
-TQString MediaManager::unmount(const TQString &name)
+TQStringVariantMap MediaManager::unmount(const TQString &uid)
 {
-#ifdef COMPILE_HALBACKEND
-	if (!m_halbackend)
-		return i18n("Feature only available with HAL");
-	return m_halbackend->unmount(name);
-#else // COMPILE_HALBACKEND
-	#ifdef COMPILE_TDEHARDWAREBACKEND
-		if (!m_tdebackend)
-			return i18n("Feature only available with HAL or TDE hardware backend");
-		return m_tdebackend->unmount(name);
-	#else // COMPILE_TDEHARDWAREBACKEND
-		if ( !m_fstabbackend ) // lying :)
-			return i18n("Feature only available with HAL or TDE hardware backend");
-		return m_fstabbackend->unmount( name );
-	#endif // COMPILE_TDEHARDWAREBACKEND
-#endif // COMPILE_HALBACKEND
+	TQStringVariantMap result;
+#ifdef COMPILE_TDEHARDWAREBACKEND
+	if (!m_tdebackend) {
+		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
+		result["result"] = false;
+		return result;
+	}
+	return m_tdebackend->unmount(uid);
+#elif defined COMPILE_HALBACKEND
+	if (!m_halbackend) {
+		result["errStr"] = i18n("Feature only available with HAL");
+		result["result"] = false;
+		return result;
+	}
+	return m_halbackend->unmount(uid);
+#else
+	if (!m_fstabbackend) {
+		result["errStr"] = i18n("Feature only available with HAL or TDE hardware backend");
+		result["result"] = false;
+		return result;
+	}
+	return m_fstabbackend->unmount(uid);
+#endif
 }
 
-TQString MediaManager::decrypt(const TQString &name, const TQString &password)
+TQStringVariantMap MediaManager::decrypt(const TQString &uid, const TQString &password)
 {
-#ifdef COMPILE_HALBACKEND
-	if (!m_halbackend)
-		return i18n("Feature only available with HAL");
-	return m_halbackend->decrypt(name, password);
-#else // COMPILE_HALBACKEND
-// 	#ifdef COMPILE_TDEHARDWAREBACKEND
-// 		if (!m_tdebackend)
-// 			return i18n("Feature only available with HAL or TDE hardware backend");
-// 		return m_tdebackend->decrypt(name, password);
-// 	#else // COMPILE_TDEHARDWAREBACKEND
-		return i18n("Feature only available with HAL");
-// 	#endif // COMPILE_TDEHARDWAREBACKEND
-#endif // COMPILE_HALBACKEND
+	TQStringVariantMap result;
+/*
+#ifdef COMPILE_TDEHARDWAREBACKEND
+	if (!m_tdebackend) {
+		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
+		result["result"] = false;
+		return result;
+	}
+	return m_tdebackend->decrypt(uid, password);
+#elif defined COMPILE_HALBACKEND
+*/
+#if defined COMPILE_HALBACKEND
+	if (!m_halbackend) {
+		result["errStr"] = i18n("Feature only available with HAL");
+		result["result"] = false;
+		return result;
+	}
+	return m_halbackend->decrypt(uid, password);
+
+#else
+//	if (!m_fstabbackend) {
+		result["errStr"] = i18n("Feature only available with HAL or TDE hardware backend");
+		result["result"] = false;
+		return result;
+//	}
+//	return m_fstabbackend->decrypt(uid, password);
+#endif
 }
 
-TQString MediaManager::undecrypt(const TQString &name)
+TQStringVariantMap MediaManager::undecrypt(const TQString &uid)
 {
-#ifdef COMPILE_HALBACKEND
-	if (!m_halbackend)
-		return i18n("Feature only available with HAL");
-	return m_halbackend->undecrypt(name);
-#else // COMPILE_HALBACKEND
-// 	#ifdef COMPILE_TDEHARDWAREBACKEND
-// 		if (!m_tdebackend)
-// 			return i18n("Feature only available with HAL or TDE hardware backend");
-// 		return m_tdebackend->undecrypt(name);
-// 	#else // COMPILE_TDEHARDWAREBACKEND
-		return i18n("Feature only available with HAL");
-// 	#endif // COMPILE_TDEHARDWAREBACKEND
-#endif // COMPILE_HALBACKEND
+	TQStringVariantMap result;
+/*
+#ifdef COMPILE_TDEHARDWAREBACKEND
+	if (!m_tdebackend) {
+		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
+		result["result"] = false;
+		return result;
+	}
+	return m_tdebackend->undecrypt(uid);
+#elif defined COMPILE_HALBACKEND
+*/
+#if defined COMPILE_HALBACKEND
+	if (!m_halbackend) {
+		result["errStr"] = i18n("Feature only available with HAL");
+		result["result"] = false;
+		return result;
+	}
+	return m_halbackend->undecrypt(uid);
+#else
+//	if (!m_fstabbackend) {
+		result["errStr"] = i18n("Feature only available with HAL or TDE hardware backend");
+		result["result"] = false;
+		return result;
+//	}
+//	return m_fstabbackend->undecrypt(uid);
+#endif
 }
 
 TQString MediaManager::nameForLabel(const TQString &label)

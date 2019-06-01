@@ -83,11 +83,11 @@ public:
 
 	bool setMountoptions(const TQString &id, const TQStringList &options);
 
-	TQString mount(const TQString &id);
-	TQString mount(const Medium *medium);
-	TQString unmount(const TQString &id);
-	TQString decrypt(const TQString &id, const TQString &password);
-	TQString undecrypt(const TQString &id);
+	TQStringVariantMap mount(const TQString &id);
+	TQStringVariantMap mount(const Medium *medium);
+	TQStringVariantMap unmount(const TQString &id);
+	TQStringVariantMap decrypt(const TQString &id, const TQString &password);
+	TQStringVariantMap undecrypt(const TQString &id);
 
 private:
 	/**

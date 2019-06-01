@@ -266,12 +266,16 @@ bool MediaImpl::ensureMediumMounted(Medium &medium)
 
 		DCOPRef mediamanager("kded", "mediamanager");
 		DCOPReply reply = mediamanager.call( "mount", medium.id());
-		if (reply.isValid())
-		  reply.get(m_lastErrorMessage);
-		else
-		  m_lastErrorMessage = i18n("Internal Error");
-		if (!m_lastErrorMessage.isEmpty())
-		  m_lastErrorCode = TDEIO::ERR_SLAVE_DEFINED;
+		TQStringVariantMap mountResult;
+		if (reply.isValid()) {
+			reply.get(mountResult);
+		}
+		if (!mountResult.contains("result") || !mountResult["result"].toBool()) {
+			m_lastErrorMessage = mountResult.contains("errStr") ? mountResult["errStr"].toString() : i18n("Unknown mount error.");
+		}
+		if (!m_lastErrorMessage.isEmpty()) {
+			m_lastErrorCode = TDEIO::ERR_SLAVE_DEFINED;
+		}
 		else {
 		  tqApp->eventLoop()->enterLoop();
 		}

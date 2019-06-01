@@ -1449,10 +1449,13 @@ TQString HALBackend::isInFstab(const Medium *medium)
     return TQString::null;
 }
 
-TQString HALBackend::mount(const Medium *medium)
+TQStringVariantMap HALBackend::mount(const Medium *medium)
 {
-    if (medium->isMounted())
-        return TQString(); // that was easy
+    TQStringVariantMap result;
+    if (medium->isMounted()) {
+        result["result"] = true;
+        return result;
+    }
 
     TQString mountPoint = isInFstab(medium);
     if (!mountPoint.isNull())
@@ -1463,24 +1466,27 @@ TQString HALBackend::mount(const Medium *medium)
 
         kdDebug() << "triggering user mount " << medium->deviceNode() << " " << mountPoint << " " << medium->id() << endl;
         TDEIO::Job *job = TDEIO::mount( false, 0, medium->deviceNode(), mountPoint );
-        connect(job, TQT_SIGNAL( result (TDEIO::Job *)),
-                TQT_SLOT( slotResult( TDEIO::Job *)));
+        connect(job, TQT_SIGNAL(result(TDEIO::Job*)), TQT_SLOT(slotResult(TDEIO::Job*)));
         mount_jobs[job] = &data;
         // The caller expects the device to be mounted when the function
         // completes. Thus block until the job completes.
         while (!data.completed) {
             kapp->eventLoop()->enterLoop();
         }
-        // Return the error message (if any) to the caller
-        return (data.error) ? data.errorMessage : TQString::null;
-
-    } else if (medium->id().startsWith("/org/kde/") )
-	    return i18n("Permission denied");
-
-    TQStringList soptions;
+        if (!data.error) {
+            result["result"] = true;
+            return result;
+        }
+        else {
+            result["errStr"] = data.errorMessage; // Return the error message (if any) to the caller
+            result["result"] = false;
+            return result;
+        }
+    }
 
     kdDebug() << "mounting " << medium->id() << "..." << endl;
 
+    TQStringList soptions;
     TQMap<TQString,TQString> valids = MediaManagerUtils::splitOptions(mountoptions(medium->id()));
     if (valids["flush"] == "true")
         soptions << "flush";
@@ -1508,7 +1514,6 @@ TQString HALBackend::mount(const Medium *medium)
     if (medium->fsType() == "ntfs") {
         TQString fsLocale("locale=");
         fsLocale += setlocale(LC_ALL, "");
-
         soptions << fsLocale;
     }
 
@@ -1549,7 +1554,6 @@ TQString HALBackend::mount(const Medium *medium)
        }
     }
 
-
     const char **options = new const char*[soptions.size() + 1];
     uint noptions = 0;
     for (TQStringList::ConstIterator it = soptions.begin(); it != soptions.end(); ++it, ++noptions)
@@ -1559,13 +1563,13 @@ TQString HALBackend::mount(const Medium *medium)
     }
     options[noptions] = NULL;
 
-    TQString qerror = i18n("Cannot mount encrypted drives!");
-
+    TQString qerror;
     if (!medium->isEncrypted()) {
         // normal volume
     	qerror = mount_priv(medium->id().latin1(), mount_point.utf8(), options, noptions, dbus_connection);
     } else {
         // see if we have a clear volume
+        error = i18n("Cannot mount encrypted drives!");
         LibHalVolume* halVolume = libhal_volume_from_udi(m_halContext, medium->id().latin1());
         if (halVolume) {
             char* clearUdi = libhal_volume_crypto_get_clear_volume_udi(m_halContext, halVolume);
@@ -1579,45 +1583,59 @@ TQString HALBackend::mount(const Medium *medium)
 
     if (!qerror.isEmpty()) {
         kdError() << "mounting " << medium->id() << " returned " << qerror << endl;
-        return qerror;
+        result["errStr"] = qerror;
+        result["result"] = false;
+        return result;
     }
 
     medium->setHalMounted(true);
     ResetProperties(medium->id().latin1());
 
-    return TQString();
+    result["result"] = true;
+    return result;
 }
 
-TQString HALBackend::mount(const TQString &_udi)
+TQStringVariantMap HALBackend::mount(const TQString &id)
 {
-    const Medium* medium = m_mediaList.findById(_udi);
-    if (!medium)
-        return i18n("No such medium: %1").arg(_udi);
-
-    return mount(medium);
+	const Medium *medium = m_mediaList.findById(id);
+	if (!medium) {
+		TQStringVariantMap result;
+		result["errStr"] = i18n("No such medium: %1").arg(id);
+		result["result"] = false;
+		return result;
+	}
+	return mount(medium);
 }
 
-TQString HALBackend::unmount(const TQString &_udi)
+TQStringVariantMap HALBackend::unmount(const TQString &id)
 {
-    const Medium* medium = m_mediaList.findById(_udi);
+    TQStringVariantMap result;
+
+    const Medium* medium = m_mediaList.findById(id);
     if (!medium)
-    {   // now we get fancy: if the udi is no volume, it _might_ be a device with only one
+    {
+        // now we get fancy: if the udi is no volume, it _might_ be a device with only one
         // volume on it (think CDs) - so we're so nice to the caller to unmount that volume
-        LibHalDrive*  halDrive  = libhal_drive_from_udi(m_halContext, _udi.latin1());
+        LibHalDrive*  halDrive  = libhal_drive_from_udi(m_halContext, id.latin1());
         if (halDrive)
         {
             int numVolumes;
             char** volumes = libhal_drive_find_all_volumes(m_halContext, halDrive, &numVolumes);
             if (numVolumes == 1)
-                medium = m_mediaList.findById( volumes[0] );
+                medium = m_mediaList.findById(volumes[0]);
         }
     }
 
-    if ( !medium )
-        return i18n("No such medium: %1").arg(_udi);
+    if (!medium) {
+        result["errStr"] = i18n("No such medium: %1").arg(id);
+        result["result"] = false;
+        return result;
+    }
 
     if (!medium->isMounted())
-        return TQString(); // that was easy
+        result["result"] = true;
+        return result;
+    }
 
     TQString mountPoint = isInFstab(medium);
     if (!mountPoint.isNull())
@@ -1628,16 +1646,22 @@ TQString HALBackend::unmount(const TQString &_udi)
 
         kdDebug() << "triggering user unmount " << medium->deviceNode() << " " << mountPoint << endl;
         TDEIO::Job *job = TDEIO::unmount( medium->mountPoint(), false );
-        connect(job, TQT_SIGNAL( result (TDEIO::Job *)),
-                TQT_SLOT( slotResult( TDEIO::Job *)));
+        connect(job, TQT_SIGNAL(result(TDEIO::Job*)), TQT_SLOT(slotResult(TDEIO::Job*)));
         mount_jobs[job] = &data;
         // The caller expects the device to be unmounted when the function
         // completes. Thus block until the job completes.
         while (!data.completed) {
             kapp->eventLoop()->enterLoop();
         }
-        // Return the error message (if any) to the caller
-        return (data.error) ? data.errorMessage : TQString::null;
+        if (!data.error) {
+            result["result"] = true;
+            return result;
+        }
+        else {
+            result["errStr"] = data.errorMessage; // Return the error message (if any) to the caller
+            result["result"] = false;
+            return result;
+        }
     }
 
     DBusMessage *dmesg, *reply;
@@ -1660,7 +1684,9 @@ TQString HALBackend::unmount(const TQString &_udi)
     }
     if (udi.isNull()) {
         kdDebug() << "unmount failed: no udi" << endl;
-        return i18n("Internal Error");
+        result["errStr"] = i18n("Internal error");
+        result["result"] = false;
+        return result;
     }
 
     kdDebug() << "unmounting " << udi << "..." << endl;
@@ -1670,14 +1696,18 @@ TQString HALBackend::unmount(const TQString &_udi)
     if (dbus_error_is_set(&error))
     {
         dbus_error_free(&error);
-        return TQString();
+        result["errStr"] = i18n("Unknown error");
+        result["result"] = false;
+        return result;
     }
 
     if (!(dmesg = dbus_message_new_method_call ("org.freedesktop.Hal", udi.latin1(),
                                                 "org.freedesktop.Hal.Device.Volume",
                                                 "Unmount"))) {
         kdDebug() << "unmount failed for " << udi << ": could not create dbus message\n";
-        return i18n("Internal Error");
+        result["errStr"] = i18n("Internal error");
+        result["result"] = false;
+        return result;
     }
 
     options[0] = "force";
@@ -1688,7 +1718,9 @@ TQString HALBackend::unmount(const TQString &_udi)
     {
         kdDebug() << "unmount failed for " << udi << ": could not append args to dbus message\n";
         dbus_message_unref (dmesg);
-        return i18n("Internal Error");
+        result["errStr"] = i18n("Internal error");
+        result["result"] = false;
+        return result;
     }
 
     char thisunmounthasfailed = 0;
@@ -1704,14 +1736,14 @@ TQString HALBackend::unmount(const TQString &_udi)
             if (qerror.isEmpty()) {
                 dbus_message_unref(dmesg);
                 dbus_error_free(&error);
-                return TQString();
+                result["result"] = true;
+                return result;
             }
 
             // @todo handle unmount error message
         }
         
         kdDebug() << "unmount failed for " << udi << ": " << error.name << " " << error.message << endl;
-        qerror = "<qt>";
         qerror += "<p>" + i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and "
                        "currently mounted at <b>%4</b> could not be unmounted. ").arg(
                           "system:/media/" + medium->name(),
@@ -1750,7 +1782,9 @@ TQString HALBackend::unmount(const TQString &_udi)
         if (thisunmounthasfailed != 0) {
             dbus_message_unref (dmesg);
             dbus_error_free (&error);
-            return qerror;
+            result["errStr"] = qerror;
+            result["result"] = false;
+            return result;
         }
     }
 
@@ -1766,17 +1800,25 @@ TQString HALBackend::unmount(const TQString &_udi)
 
     while (dbus_connection_dispatch(dbus_connection) == DBUS_DISPATCH_DATA_REMAINS) ;
 
-    return TQString();
+    result["result"] = true;
+    return result;
 }
 
-TQString HALBackend::decrypt(const TQString &_udi, const TQString &password)
+TQStringVariantMap HALBackend::decrypt(const TQString &id, const TQString &password)
 {
-    const Medium* medium = m_mediaList.findById(_udi);
-    if (!medium)
-        return i18n("No such medium: %1").arg(_udi);
+    TQStringVariantMap result;
+
+    const Medium *medium = m_mediaList.findById(id);
+    if (!medium) {
+        result["errStr"] = i18n("No such medium: %1").arg(id);
+        result["result"] = false;
+        return result;
+    }
 
     if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull())
-        return TQString();
+        result["result"] = true;
+        return result;
+    }
 
     const char *udi = medium->id().latin1();
     DBusMessage *msg = NULL;
@@ -1790,7 +1832,9 @@ TQString HALBackend::decrypt(const TQString &_udi, const TQString &password)
                                         "Setup");
     if (msg == NULL) {
         kdDebug() << "decrypt failed for " << udi << ": could not create dbus message\n";
-        return i18n("Internal Error");
+        result["errStr"] = i18n("Internal error");
+        result["result"] = false;
+        return result;
     }
 
     TQCString pwdUtf8 = password.utf8();
@@ -1798,7 +1842,9 @@ TQString HALBackend::decrypt(const TQString &_udi, const TQString &password)
     if (!dbus_message_append_args (msg, DBUS_TYPE_STRING, &pwd_utf8, DBUS_TYPE_INVALID)) {
         kdDebug() << "decrypt failed for " << udi << ": could not append args to dbus message\n";
         dbus_message_unref (msg);
-        return i18n("Internal Error");
+        result["errStr"] = i18n("Internal error");
+        result["result"] = false;
+        return result;
     }
 
     dbus_error_init (&error);
@@ -1813,7 +1859,9 @@ TQString HALBackend::decrypt(const TQString &_udi, const TQString &password)
         dbus_error_free (&error);
         dbus_message_unref (msg);
         while (dbus_connection_dispatch(dbus_connection) == DBUS_DISPATCH_DATA_REMAINS) ;
-        return qerror;
+        result["errStr"] = qerror;
+        result["result"] = false;
+        return result;
     }
 
     dbus_message_unref (msg);
@@ -1821,17 +1869,25 @@ TQString HALBackend::decrypt(const TQString &_udi, const TQString &password)
 
     while (dbus_connection_dispatch(dbus_connection) == DBUS_DISPATCH_DATA_REMAINS) ;
 
-    return TQString();
+    result["result"] = true;
+    return result;
 }
 
-TQString HALBackend::undecrypt(const TQString &_udi)
+TQStringVariantMap HALBackend::undecrypt(const TQString &id)
 {
-    const Medium* medium = m_mediaList.findById(_udi);
-    if (!medium)
-        return i18n("No such medium: %1").arg(_udi);
+    TQStringVariantMap result;
 
-    if (!medium->isEncrypted() || medium->clearDeviceUdi().isNull())
-        return TQString();
+    const Medium *medium = m_mediaList.findById(id);
+    if (!medium) {
+        result["errStr"] = i18n("No such medium: %1").arg(id);
+        result["result"] = false;
+        return result;
+    }
+
+    if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull())
+        result["result"] = true;
+        return result;
+    }
 
     const char *udi = medium->id().latin1();
     DBusMessage *msg = NULL;
@@ -1845,13 +1901,17 @@ TQString HALBackend::undecrypt(const TQString &_udi)
                                         "Teardown");
     if (msg == NULL) {
         kdDebug() << "teardown failed for " << udi << ": could not create dbus message\n";
-        return i18n("Internal Error");
+        result["errStr"] = i18n("Internal error");
+        result["result"] = false;
+        return result;
     }
 
     if (!dbus_message_append_args (msg, DBUS_TYPE_INVALID)) {
         kdDebug() << "teardown failed for " << udi << ": could not append args to dbus message\n";
         dbus_message_unref (msg);
-        return i18n("Internal Error");
+        result["errStr"] = i18n("Internal error");
+        result["result"] = false;
+        return result;
     }
 
     dbus_error_init (&error);
@@ -1863,7 +1923,9 @@ TQString HALBackend::undecrypt(const TQString &_udi)
         dbus_error_free (&error);
         dbus_message_unref (msg);
         while (dbus_connection_dispatch(dbus_connection) == DBUS_DISPATCH_DATA_REMAINS) ;
-        return qerror;
+        result["errStr"] = qerror;
+        result["result"] = false;
+        return result;
     }
 
     dbus_message_unref (msg);
@@ -1873,7 +1935,8 @@ TQString HALBackend::undecrypt(const TQString &_udi)
 
     while (dbus_connection_dispatch(dbus_connection) == DBUS_DISPATCH_DATA_REMAINS) ;
 
-    return TQString();
+    result["result"] = true;
+    return result;
 }
 
 #include "halbackend.moc"
