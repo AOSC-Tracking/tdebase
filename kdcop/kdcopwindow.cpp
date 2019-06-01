@@ -872,11 +872,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
       TQDataStream reply(replyData, IO_ReadOnly);
       if (demarshal(replyType, reply, mainView->lb_replyData))
 	{
-      mainView->l_replyType->setText
-        (
-         i18n("<strong>%1</strong>")
-         .arg(TQString::fromUtf8(replyType))
-        );
+	mainView->l_replyType->setText(i18n("<strong>%1</strong>").arg(TQString::fromUtf8(replyType)));
 	mainView->lb_replyData->show();
 	}
 	else
@@ -914,12 +910,7 @@ void KDCOPWindow::slotFillApplications()
   TDEApplication::restoreOverrideCursor();
 }
 
-bool KDCOPWindow::demarshal
-(
- TQCString &   replyType,
- TQDataStream & reply,
- TQListBox	*theList
-)
+bool KDCOPWindow::demarshal(TQCString &replyType, TQDataStream &reply, TQListBox *theList)
 {
   TQStringList ret;
   TQPixmap pret;
@@ -1082,6 +1073,15 @@ bool KDCOPWindow::demarshal
 	reply >> r;
 	ret << r.toString();
   }
+  else if (replyType == "TQStringVariantMap")
+  {
+    TQStringVariantMap r;
+    reply >> r;
+    for (TQStringVariantMap::ConstIterator it(r.begin()); it != r.end(); ++it)
+    {
+      ret << it.key() + " : " + it.data().toString();
+    }
+  }
   else if (replyType == "DCOPRef")
   {
 	DCOPRef r;
@@ -1091,8 +1091,7 @@ bool KDCOPWindow::demarshal
   }
   else
   {
-    ret <<
-      i18n("Do not know how to demarshal %1").arg(TQString::fromUtf8(replyType));
+    ret << i18n("Do not know how to demarshal %1").arg(TQString::fromUtf8(replyType));
 	isValid = false;
   }
 
