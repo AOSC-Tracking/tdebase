@@ -1,5 +1,5 @@
 /* This file is part of the KDE Project
-   Copyright (c) 2004 Kévin Ottens <ervin ipsquad net>
+   Copyright (c) 2004 KÃ©vin Ottens <ervin ipsquad net>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -34,6 +34,7 @@ public:
 	const TQPtrList<Medium> list() const;
 	const Medium *findById(const TQString &id) const;
 	const Medium *findByName(const TQString &name) const;
+	const Medium *findByNode(const TQString &node) const;
 	const Medium *findByClearUdi(const TQString &name);
 
 public:
@@ -73,8 +74,9 @@ signals:
 
 private:
 	TQPtrList<Medium> m_media;
-	TQMap<TQString,Medium*> m_nameMap;
-	TQMap<TQString,Medium*> m_idMap;
+	TQMap<TQString, Medium*> m_idMap;
+	TQMap<TQString, Medium*> m_nameMap;
+	TQMap<TQString, Medium*> m_nodeMap;
 };
 
 #endif

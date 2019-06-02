@@ -52,6 +52,15 @@ const Medium *MediaList::findByName(const TQString &name) const
 	return m_nameMap[name];
 }
 
+const Medium *MediaList::findByNode(const TQString &node) const
+{
+	kdDebug(1219) << "MediaList::findByNode(" << node << ")" << endl;
+
+	if ( !m_nodeMap.contains(node) ) return 0L;
+
+	return m_nodeMap[node];
+}
+
 const Medium *MediaList::findByClearUdi(const TQString &name)
 {
 	kdDebug(1219) << "MediaList::findByClearUdi(" << name << ")" << endl;
@@ -64,7 +73,6 @@ const Medium *MediaList::findByClearUdi(const TQString &name)
 	return 0L;
 }
 
-
 TQString MediaList::addMedium(Medium *medium, bool allowNotification)
 {
 	kdDebug(1219) << "MediaList::addMedium(@" << medium->id() << ")" << endl;
@@ -73,6 +81,12 @@ TQString MediaList::addMedium(Medium *medium, bool allowNotification)
 	if (!m_nameMap.contains(name))
 	{
 		m_nameMap[name] = medium;
+	}
+
+	TQString node = medium->deviceNode();
+	if (!m_nodeMap.contains(node))
+	{
+		m_nodeMap[node] = medium;
 	}
 
 	TQString id = medium->id();
@@ -101,6 +115,7 @@ bool MediaList::removeMedium(const TQString &id, bool allowNotification)
 	Medium *medium = m_idMap[id];
 	m_idMap.remove(id);
 	m_nameMap.remove(medium->name());
+	m_nodeMap.remove(medium->deviceNode());
 
 	TQString name = medium->name();
 	m_media.remove(medium);

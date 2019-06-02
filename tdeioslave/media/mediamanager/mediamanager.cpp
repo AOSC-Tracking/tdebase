@@ -355,6 +355,54 @@ TQStringVariantMap MediaManager::undecrypt(const TQString &uid)
 #endif
 }
 
+TQStringVariantMap MediaManager::mountByNode(const TQString &deviceNode)
+{
+	const Medium *medium = m_mediaList.findByNode(deviceNode);
+	if (!medium) {
+		TQStringVariantMap result;
+		result["errStr"] = i18n("No such medium: %1").arg(deviceNode);
+		result["result"] = false;
+		return result;
+	}
+	return mount(medium->id());
+}
+
+TQStringVariantMap MediaManager::unmountByNode(const TQString &deviceNode)
+{
+	const Medium *medium = m_mediaList.findByNode(deviceNode);
+	if (!medium) {
+		TQStringVariantMap result;
+		result["errStr"] = i18n("No such medium: %1").arg(deviceNode);
+		result["result"] = false;
+		return result;
+	}
+	return unmount(medium->id());
+}
+
+TQStringVariantMap MediaManager::decryptByNode(const TQString &deviceNode, const TQString &password)
+{
+	const Medium *medium = m_mediaList.findByNode(deviceNode);
+	if (!medium) {
+		TQStringVariantMap result;
+		result["errStr"] = i18n("No such medium: %1").arg(deviceNode);
+		result["result"] = false;
+		return result;
+	}
+	return decrypt(medium->id(), password);
+}
+
+TQStringVariantMap MediaManager::undecryptByNode(const TQString &deviceNode)
+{
+	const Medium *medium = m_mediaList.findByNode(deviceNode);
+	if (!medium) {
+		TQStringVariantMap result;
+		result["errStr"] = i18n("No such medium: %1").arg(deviceNode);
+		result["result"] = false;
+		return result;
+	}
+	return undecrypt(medium->id());
+}
+
 TQString MediaManager::nameForLabel(const TQString &label)
 {
     const TQPtrList<Medium> media = m_mediaList.list();

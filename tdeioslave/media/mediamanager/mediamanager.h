@@ -52,6 +52,11 @@ k_dcop:
 	TQStringVariantMap decrypt(const TQString &uid, const TQString &password);
 	TQStringVariantMap undecrypt(const TQString &uid);
 
+	TQStringVariantMap mountByNode(const TQString &deviceNode);
+	TQStringVariantMap unmountByNode(const TQString &deviceNode);
+	TQStringVariantMap decryptByNode(const TQString &deviceNode, const TQString &password);
+	TQStringVariantMap undecryptByNode(const TQString &deviceNode);
+
 	TQString nameForLabel(const TQString &label);
 	ASYNC setUserLabel(const TQString &name, const TQString &label);
 
