@@ -30,5 +30,5 @@ tde_add_library( tqtkde SHARED AUTOMOC
   VERSION 0.0.0
   LINK tdeui-shared
   DEPENDENCIES generate_tqt3_bindings
-  DESTINATION "${PLUGIN_INSTALL_DIR}/plugins/integration/"
+  DESTINATION "${TQT_PLUGINS_DIR}/integration/"
 )
