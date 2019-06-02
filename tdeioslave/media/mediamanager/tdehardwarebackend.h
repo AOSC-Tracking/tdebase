@@ -71,8 +71,8 @@ public:
 	TQStringVariantMap mount(const TQString &id);
 	TQStringVariantMap mount(const Medium *medium);
 	TQStringVariantMap unmount(const TQString &id);
-// 	TQStringVariantMap decrypt(const TQString &id, const TQString &password);
-// 	TQStringVariantMap undecrypt(const TQString &id);
+// 	TQStringVariantMap unlock(const TQString &id, const TQString &password);
+// 	TQStringVariantMap lock(const TQString &id);
 
 private:
 	/**
@@ -138,7 +138,7 @@ private:
 	TQString driveUDIFromDeviceUID(TQString uuid);
 
 	// Decryption
-	Dialog* m_decryptDialog;
+	Dialog* m_unlockDialog;
 	TQString m_decryptionPassword;
 	bool m_decryptPasswordValid;
 

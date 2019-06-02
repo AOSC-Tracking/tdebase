@@ -1804,7 +1804,7 @@ TQStringVariantMap HALBackend::unmount(const TQString &id)
     return result;
 }
 
-TQStringVariantMap HALBackend::decrypt(const TQString &id, const TQString &password)
+TQStringVariantMap HALBackend::unlock(const TQString &id, const TQString &password)
 {
     TQStringVariantMap result;
 
@@ -1831,7 +1831,7 @@ TQStringVariantMap HALBackend::decrypt(const TQString &id, const TQString &passw
                                         "org.freedesktop.Hal.Device.Volume.Crypto",
                                         "Setup");
     if (msg == NULL) {
-        kdDebug() << "decrypt failed for " << udi << ": could not create dbus message\n";
+        kdDebug() << "unlock failed for " << udi << ": could not create dbus message\n";
         result["errStr"] = i18n("Internal error");
         result["result"] = false;
         return result;
@@ -1840,7 +1840,7 @@ TQStringVariantMap HALBackend::decrypt(const TQString &id, const TQString &passw
     TQCString pwdUtf8 = password.utf8();
     const char *pwd_utf8 = pwdUtf8;
     if (!dbus_message_append_args (msg, DBUS_TYPE_STRING, &pwd_utf8, DBUS_TYPE_INVALID)) {
-        kdDebug() << "decrypt failed for " << udi << ": could not append args to dbus message\n";
+        kdDebug() << "unlock failed for " << udi << ": could not append args to dbus message\n";
         dbus_message_unref (msg);
         result["errStr"] = i18n("Internal error");
         result["result"] = false;
@@ -1852,7 +1852,7 @@ TQStringVariantMap HALBackend::decrypt(const TQString &id, const TQString &passw
         dbus_error_is_set (&error))
     {
         TQString qerror = i18n("Internal Error");
-        kdDebug() << "decrypt failed for " << udi << ": " << error.name << " " << error.message << endl;
+        kdDebug() << "unlock failed for " << udi << ": " << error.name << " " << error.message << endl;
         if (strcmp (error.name, "org.freedesktop.Hal.Device.Volume.Crypto.SetupPasswordError") == 0) {
             qerror = i18n("Wrong password");
         }
@@ -1873,7 +1873,7 @@ TQStringVariantMap HALBackend::decrypt(const TQString &id, const TQString &passw
     return result;
 }
 
-TQStringVariantMap HALBackend::undecrypt(const TQString &id)
+TQStringVariantMap HALBackend::lock(const TQString &id)
 {
     TQStringVariantMap result;
 
@@ -1900,14 +1900,14 @@ TQStringVariantMap HALBackend::undecrypt(const TQString &id)
                                         "org.freedesktop.Hal.Device.Volume.Crypto",
                                         "Teardown");
     if (msg == NULL) {
-        kdDebug() << "teardown failed for " << udi << ": could not create dbus message\n";
+        kdDebug() << "lock failed for " << udi << ": could not create dbus message\n";
         result["errStr"] = i18n("Internal error");
         result["result"] = false;
         return result;
     }
 
     if (!dbus_message_append_args (msg, DBUS_TYPE_INVALID)) {
-        kdDebug() << "teardown failed for " << udi << ": could not append args to dbus message\n";
+        kdDebug() << "lock failed for " << udi << ": could not append args to dbus message\n";
         dbus_message_unref (msg);
         result["errStr"] = i18n("Internal error");
         result["result"] = false;
@@ -1919,7 +1919,7 @@ TQStringVariantMap HALBackend::undecrypt(const TQString &id)
         dbus_error_is_set (&error))
     {
         TQString qerror = i18n("Internal Error");
-        kdDebug() << "teardown failed for " << udi << ": " << error.name << " " << error.message << endl;
+        kdDebug() << "lock failed for " << udi << ": " << error.name << " " << error.message << endl;
         dbus_error_free (&error);
         dbus_message_unref (msg);
         while (dbus_connection_dispatch(dbus_connection) == DBUS_DISPATCH_DATA_REMAINS) ;

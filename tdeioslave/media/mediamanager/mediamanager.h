@@ -49,13 +49,13 @@ k_dcop:
 
 	TQStringVariantMap mount(const TQString &uid);
 	TQStringVariantMap unmount(const TQString &uid);
-	TQStringVariantMap decrypt(const TQString &uid, const TQString &password);
-	TQStringVariantMap undecrypt(const TQString &uid);
+	TQStringVariantMap unlock(const TQString &uid, const TQString &password);
+	TQStringVariantMap lock(const TQString &uid);
 
 	TQStringVariantMap mountByNode(const TQString &deviceNode);
 	TQStringVariantMap unmountByNode(const TQString &deviceNode);
-	TQStringVariantMap decryptByNode(const TQString &deviceNode, const TQString &password);
-	TQStringVariantMap undecryptByNode(const TQString &deviceNode);
+	TQStringVariantMap unlockByNode(const TQString &deviceNode, const TQString &password);
+	TQStringVariantMap lockByNode(const TQString &deviceNode);
 
 	TQString nameForLabel(const TQString &label);
 	ASYNC setUserLabel(const TQString &name, const TQString &label);

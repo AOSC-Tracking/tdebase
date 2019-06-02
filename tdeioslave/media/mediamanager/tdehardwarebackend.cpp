@@ -55,7 +55,7 @@
 TDEBackend::TDEBackend(MediaList &list, TQObject* parent)
     : TQObject()
     , BackendBase(list)
-    , m_decryptDialog(0)
+    , m_unlockDialog(0)
     , m_parent(parent)
 {
 	// Initialize the TDE device manager
@@ -929,7 +929,7 @@ TQStringList TDEBackend::mountoptions(const TQString &name)
 	}
 
 	if (medium->isEncrypted()) {
-		// if not decrypted yet then there are no mountoptions
+		// if not unlocked yet then there are no mountoptions
 		return TQStringList();
 	}
 
@@ -1177,7 +1177,7 @@ bool TDEBackend::setMountoptions(const TQString &name, const TQStringList &optio
 }
 
 void TDEBackend::slotPasswordReady() {
-	m_decryptionPassword = m_decryptDialog->getPassword();
+	m_decryptionPassword = m_unlockDialog->getPassword();
 	m_decryptPasswordValid = true;
 }
 
@@ -1267,22 +1267,22 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 		while (continue_trying_to_decrypt == true) {
 			m_decryptPasswordValid = false;
 
-			m_decryptDialog = new Dialog(sdevice->deviceNode(), iconName);
-			m_decryptDialog->show();
+			m_unlockDialog = new Dialog(sdevice->deviceNode(), iconName);
+			m_unlockDialog->show();
 
-			connect(m_decryptDialog, TQT_SIGNAL (user1Clicked()), this, TQT_SLOT (slotPasswordReady()));
-			connect(m_decryptDialog, TQT_SIGNAL (cancelClicked()), this, TQT_SLOT (slotPasswordCancel()));
-			connect(this, TQT_SIGNAL (signalDecryptionPasswordError(TQString)), m_decryptDialog, TQT_SLOT (slotDialogError(TQString)));
+			connect(m_unlockDialog, TQT_SIGNAL (user1Clicked()), this, TQT_SLOT (slotPasswordReady()));
+			connect(m_unlockDialog, TQT_SIGNAL (cancelClicked()), this, TQT_SLOT (slotPasswordCancel()));
+			connect(this, TQT_SIGNAL (signalDecryptionPasswordError(TQString)), m_unlockDialog, TQT_SLOT (slotDialogError(TQString)));
 
 			while (m_decryptPasswordValid == false) {
 				tqApp->processEvents();
 			}
 
-			m_decryptDialog->setEnabled(false);
+			m_unlockDialog->setEnabled(false);
 			tqApp->processEvents();
 
 			if (m_decryptionPassword.isNull()) {
-				delete m_decryptDialog;
+				delete m_unlockDialog;
 				result["errStr"] = i18n("Decryption aborted");
 				result["result"] = false;
 				return result;
@@ -1317,7 +1317,7 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 					if (mountResult.contains("retCode") && mountResult["retCode"].toInt() == 25600) {
 						// Probable LUKS failure
 						// Retry
-						m_decryptDialog->setEnabled(true);
+						m_unlockDialog->setEnabled(true);
 						continue_trying_to_decrypt = true;
 					}
 					else {
@@ -1334,7 +1334,7 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 					continue_trying_to_decrypt = false;
 				}
 
-				delete m_decryptDialog;
+				delete m_unlockDialog;
 			}
 		}
 	}

@@ -86,8 +86,8 @@ public:
 	TQStringVariantMap mount(const TQString &id);
 	TQStringVariantMap mount(const Medium *medium);
 	TQStringVariantMap unmount(const TQString &id);
-	TQStringVariantMap decrypt(const TQString &id, const TQString &password);
-	TQStringVariantMap undecrypt(const TQString &id);
+	TQStringVariantMap unlock(const TQString &id, const TQString &password);
+	TQStringVariantMap lock(const TQString &id);
 
 private:
 	/**

@@ -294,7 +294,7 @@ TQStringVariantMap MediaManager::unmount(const TQString &uid)
 #endif
 }
 
-TQStringVariantMap MediaManager::decrypt(const TQString &uid, const TQString &password)
+TQStringVariantMap MediaManager::unlock(const TQString &uid, const TQString &password)
 {
 	TQStringVariantMap result;
 /*
@@ -304,7 +304,7 @@ TQStringVariantMap MediaManager::decrypt(const TQString &uid, const TQString &pa
 		result["result"] = false;
 		return result;
 	}
-	return m_tdebackend->decrypt(uid, password);
+	return m_tdebackend->unlock(uid, password);
 #elif defined COMPILE_HALBACKEND
 */
 #if defined COMPILE_HALBACKEND
@@ -313,7 +313,7 @@ TQStringVariantMap MediaManager::decrypt(const TQString &uid, const TQString &pa
 		result["result"] = false;
 		return result;
 	}
-	return m_halbackend->decrypt(uid, password);
+	return m_halbackend->unlock(uid, password);
 
 #else
 //	if (!m_fstabbackend) {
@@ -321,11 +321,11 @@ TQStringVariantMap MediaManager::decrypt(const TQString &uid, const TQString &pa
 		result["result"] = false;
 		return result;
 //	}
-//	return m_fstabbackend->decrypt(uid, password);
+//	return m_fstabbackend->unlock(uid, password);
 #endif
 }
 
-TQStringVariantMap MediaManager::undecrypt(const TQString &uid)
+TQStringVariantMap MediaManager::lock(const TQString &uid)
 {
 	TQStringVariantMap result;
 /*
@@ -335,7 +335,7 @@ TQStringVariantMap MediaManager::undecrypt(const TQString &uid)
 		result["result"] = false;
 		return result;
 	}
-	return m_tdebackend->undecrypt(uid);
+	return m_tdebackend->lock(uid);
 #elif defined COMPILE_HALBACKEND
 */
 #if defined COMPILE_HALBACKEND
@@ -344,14 +344,14 @@ TQStringVariantMap MediaManager::undecrypt(const TQString &uid)
 		result["result"] = false;
 		return result;
 	}
-	return m_halbackend->undecrypt(uid);
+	return m_halbackend->lock(uid);
 #else
 //	if (!m_fstabbackend) {
 		result["errStr"] = i18n("Feature only available with HAL or TDE hardware backend");
 		result["result"] = false;
 		return result;
 //	}
-//	return m_fstabbackend->undecrypt(uid);
+//	return m_fstabbackend->lock(uid);
 #endif
 }
 
@@ -379,7 +379,7 @@ TQStringVariantMap MediaManager::unmountByNode(const TQString &deviceNode)
 	return unmount(medium->id());
 }
 
-TQStringVariantMap MediaManager::decryptByNode(const TQString &deviceNode, const TQString &password)
+TQStringVariantMap MediaManager::unlockByNode(const TQString &deviceNode, const TQString &password)
 {
 	const Medium *medium = m_mediaList.findByNode(deviceNode);
 	if (!medium) {
@@ -388,10 +388,10 @@ TQStringVariantMap MediaManager::decryptByNode(const TQString &deviceNode, const
 		result["result"] = false;
 		return result;
 	}
-	return decrypt(medium->id(), password);
+	return unlock(medium->id(), password);
 }
 
-TQStringVariantMap MediaManager::undecryptByNode(const TQString &deviceNode)
+TQStringVariantMap MediaManager::lockByNode(const TQString &deviceNode)
 {
 	const Medium *medium = m_mediaList.findByNode(deviceNode);
 	if (!medium) {
@@ -400,7 +400,7 @@ TQStringVariantMap MediaManager::undecryptByNode(const TQString &deviceNode)
 		result["result"] = false;
 		return result;
 	}
-	return undecrypt(medium->id());
+	return lock(medium->id());
 }
 
 TQString MediaManager::nameForLabel(const TQString &label)
