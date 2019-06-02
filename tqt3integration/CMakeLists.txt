@@ -9,6 +9,14 @@
 #
 #################################################
 
+
+##### configure checks ##########################
+
+include( ConfigureChecks.cmake )
+
+
+##### subdirectories ############################
+
 add_subdirectory( libqtkde )
 add_subdirectory( module )
 add_subdirectory( utils )
