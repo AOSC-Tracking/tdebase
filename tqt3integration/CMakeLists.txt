@@ -17,6 +17,6 @@ include( ConfigureChecks.cmake )
 
 ##### subdirectories ############################
 
-add_subdirectory( libtqtkde )
+add_subdirectory( libtqttde )
 add_subdirectory( module )
 add_subdirectory( utils )

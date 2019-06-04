@@ -30,7 +30,7 @@
 
 class DCOPClientTransaction;
 
-namespace KDEIntegration
+namespace TDEIntegration
 {
 
 class Module

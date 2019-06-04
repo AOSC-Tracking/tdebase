@@ -18,8 +18,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef TQKDEINTEGRATION_H
-#define TQKDEINTEGRATION_H
+#ifndef TQTDEINTEGRATION_H
+#define TQTDEINTEGRATION_H
 
 #include <tqstringlist.h>
 
@@ -28,7 +28,7 @@ class TQWidget;
 class TQColor;
 class TQFont;
 
-class TQKDEIntegration
+class TQTDEIntegration
     {
     public:
         static bool enabled();

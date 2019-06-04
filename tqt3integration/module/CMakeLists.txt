@@ -25,12 +25,12 @@ link_directories(
 
 ##### service desktop file(s) ##########################
 
-install( FILES kdeintegration.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
+install( FILES tdeintegration.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
 
 
-##### kded_kdeintegration (module) #####################
+##### kded_tdeintegration (module) #####################
 
-set( target kded_kdeintegration )
+set( target kded_tdeintegration )
 
 set( ${target}_SRCS
   module.cpp

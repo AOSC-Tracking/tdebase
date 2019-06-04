@@ -44,7 +44,7 @@ FUNCTION <name>
   OUT_ARGUMENT
   CONVERSION <function>
   BACK_CONVERSION <function> - for out arguments
-  CREATE <function>  - doesn't exist in TQt, create in tqtkde using function
+  CREATE <function>  - doesn't exist in TQt, create in tqttde using function
   PARENT - the argument is a parent window to be used for windows
  ENDARG
 ENDFUNCTION
@@ -366,7 +366,7 @@ void generateFunction( TQTextStream& stream, const Function& function, const TQS
 
 void generateTQtH()
     {
-    TQFile file( "tqtkdeintegration_x11_p.h.gen" );
+    TQFile file( "tqttdeintegration_x11_p.h.gen" );
     if( !file.open( IO_WriteOnly ))
         error();
     TQTextStream stream( &file );
@@ -386,7 +386,7 @@ void generateTQtH()
 
 void generateTQtCpp()
     {
-    TQFile file( "tqtkdeintegration_x11.cpp.gen" );
+    TQFile file( "tqttdeintegration_x11.cpp.gen" );
     if( !file.open( IO_WriteOnly ))
         error();
     TQTextStream stream( &file );
@@ -398,13 +398,13 @@ void generateTQtCpp()
         if( f.only_tqt )
             continue;
         f.stripCreatedArguments();
-        generateFunction( stream, f, "(*tqtkde_" + f.name + ")", 0,
+        generateFunction( stream, f, "(*tqttde_" + f.name + ")", 0,
             true /*static*/, false /*orig type*/, false /*ignore deref*/, 0 /*ignore level*/ );
         stream << ";\n";
         }
     stream <<
 "\n"
-"void TQKDEIntegration::initLibrary()\n"
+"void TQTDEIntegration::initLibrary()\n"
 "    {\n"
 "    if( !inited )\n"
 "        {\n"
@@ -424,17 +424,17 @@ void generateTQtCpp()
         Function function = *it;
         if( function.only_tqt )
             continue;
-        stream << makeIndent( 8 ) + "tqtkde_" + function.name + " = (\n";
+        stream << makeIndent( 8 ) + "tqttde_" + function.name + " = (\n";
         function.stripCreatedArguments();
         generateFunction( stream, function, "(*)", 12,
             false /*static*/, false /*orig type*/, false /*ignore deref*/, 0 /*ignore level*/ );
         stream << "\n" + makeIndent( 12 ) + ")\n";
         stream << makeIndent( 12 ) + "lib.resolve(\"" + (*it).name + "\");\n";
-        stream << makeIndent( 8 ) + "if( tqtkde_" + (*it).name + " == NULL )\n";
+        stream << makeIndent( 8 ) + "if( tqttde_" + (*it).name + " == NULL )\n";
         stream << makeIndent( 12 ) + "return;\n";
         }
     stream <<
-"        enable = tqtkde_initializeIntegration();\n"
+"        enable = tqttde_initializeIntegration();\n"
 "        }\n"
 "    }\n"
 "\n";
@@ -446,11 +446,11 @@ void generateTQtCpp()
         if( function.skip_tqt || function.only_tqt )
             continue;
         function.stripCreatedArguments();
-        generateFunction( stream, function, "QKDEIntegration::" + function.name, 0,
+        generateFunction( stream, function, "TQTDEIntegration::" + function.name, 0,
             false /*static*/, true /*orig type*/, false /*ignore deref*/, 0 /*ignore level*/ );
         stream << "\n";
         stream << makeIndent( 4 ) + "{\n";
-        stream << makeIndent( 4 ) + "return tqtkde_" + function.name + "(\n";
+        stream << makeIndent( 4 ) + "return tqttde_" + function.name + "(\n";
         stream << makeIndent( 8 );
         bool need_comma = false;
         for( TQValueList< Arg >::ConstIterator it2 = function.args.begin();
@@ -479,9 +479,9 @@ void generateTQt()
     generateTQtCpp();
     }
 
-void generateTQtKde()
+void generateTQtTDE()
     {
-    TQFile file( "tqtkde_functions.cpp" );
+    TQFile file( "tqttde_functions.cpp" );
     if( !file.open( IO_WriteOnly ))
         error();
     TQTextStream stream( &file );
@@ -552,7 +552,7 @@ void generateTQtKde()
                 }
             stream << ";\n";
             }
-        stream << "    if( !dcopClient()->call( \"kded\", \"kdeintegration\",\"" + function.name + "(";
+        stream << "    if( !dcopClient()->call( \"kded\", \"tdeintegration\",\"" + function.name + "(";
         bool need_comma = false;
         for( TQValueList< Arg >::ConstIterator it2 = function.args.begin();
              it2 != function.args.end();
@@ -640,7 +640,7 @@ void generateTQtKde()
         }
     }
     
-void generateKdeDcop( TQTextStream& stream )
+void genarateTDEDcop( TQTextStream& stream )
     {
     stream <<
 "bool Module::process(const TQCString &fun, const TQByteArray &data,\n"
@@ -717,13 +717,13 @@ void generateKdeDcop( TQTextStream& stream )
 "QCStringList Module::interfaces()\n"
 "    {\n"
 "    QCStringList ifaces = KDEDModule::interfaces();\n"
-"    ifaces << \"KDEIntegration\";\n"
+"    ifaces << \"TDEIntegration\";\n"
 "    return ifaces;\n"
 "    }\n"
 "\n";
     }
 
-void generateKdePreStub( TQTextStream& stream )
+void genarateTDEPreStub( TQTextStream& stream )
     {
     for( TQValueList< Function >::ConstIterator it1 = functions.begin();
          it1 != functions.end();
@@ -796,7 +796,7 @@ void generateKdePreStub( TQTextStream& stream )
         }
     }
 
-void generateKdePostStub( TQTextStream& stream )
+void genarateTDEPostStub( TQTextStream& stream )
     {
     for( TQValueList< Function >::ConstIterator it1 = functions.begin();
          it1 != functions.end();
@@ -842,7 +842,7 @@ void generateKdePostStub( TQTextStream& stream )
             stream << "    JobData job = jobs[ handle ];\n";
             stream << "    jobs.remove( handle );\n";
             stream << "    TQByteArray replyData;\n";
-            stream << "    TQCString replyType = \"tqtkde\";\n";
+            stream << "    TQCString replyType = \"tqttde\";\n";
             }
         bool return_data = false;
         for( TQValueList< Arg >::ConstIterator it2 = function.args.begin();
@@ -876,24 +876,24 @@ void generateKdePostStub( TQTextStream& stream )
         }
     }
 
-void generateKdeStubs( TQTextStream& stream )
+void genarateTDEStubs( TQTextStream& stream )
     {
-    generateKdePreStub( stream );
-    generateKdePostStub( stream );
+    genarateTDEPreStub( stream );
+    genarateTDEPostStub( stream );
 //    TODO udelat i predbezne deklarace pro skutecne funkce?
     }
 
-void generateKdeCpp()
+void genarateTDECpp()
     {
     TQFile file( "module_functions.cpp" );
     if( !file.open( IO_WriteOnly ))
         error();
     TQTextStream stream( &file );
-    generateKdeDcop( stream );
-    generateKdeStubs( stream );
+    genarateTDEDcop( stream );
+    genarateTDEStubs( stream );
     }
 
-void generateKdeH()
+void genarateTDEH()
     {
     TQFile file( "module_functions.h" );
     if( !file.open( IO_WriteOnly ))
@@ -944,17 +944,17 @@ void generateKdeH()
         }
     }
 
-void generateKde()
+void genarateTDE()
     {
-    generateKdeCpp();
-    generateKdeH();
+    genarateTDECpp();
+    genarateTDEH();
     }
 
 void generate()
     {
     generateTQt();
-    generateTQtKde();
-    generateKde();
+    generateTQtTDE();
+    genarateTDE();
     }
 
 int main (int argc, char *argv[])

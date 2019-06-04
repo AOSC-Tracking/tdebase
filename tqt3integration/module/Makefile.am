@@ -1,16 +1,16 @@
 INCLUDES= $(all_includes) 
 
-kde_module_LTLIBRARIES = kded_kdeintegration.la
+kde_module_LTLIBRARIES = kded_tdeintegration.la
 
-kded_kdeintegration_la_SOURCES = module.cpp
-kded_kdeintegration_la_METASOURCES = AUTO
-kded_kdeintegration_la_LDFLAGS = $(all_libraries) -module -avoid-version
-kded_kdeintegration_la_LIBADD = $(LIB_TDEIO)
+kded_tdeintegration_la_SOURCES = module.cpp
+kded_tdeintegration_la_METASOURCES = AUTO
+kded_tdeintegration_la_LDFLAGS = $(all_libraries) -module -avoid-version
+kded_tdeintegration_la_LIBADD = $(LIB_TDEIO)
 
 CLEANFILES = module_functions.cpp module_functions.h
 
 servicesdir = $(kde_servicesdir)/kded
-services_DATA = kdeintegration.desktop
+services_DATA = tdeintegration.desktop
 
 module.lo : module_functions.cpp module_functions.h
 

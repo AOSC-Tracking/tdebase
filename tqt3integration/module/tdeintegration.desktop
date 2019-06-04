@@ -4,8 +4,8 @@ Type=Service
 
 X-TDE-ServiceTypes=KDEDModule
 X-TDE-ModuleType=Library
-X-TDE-Library=kdeintegration
-X-TDE-Factory=kdeintegration
+X-TDE-Library=tdeintegration
+X-TDE-Factory=tdeintegration
 X-TDE-Kded-autoload=false
 X-TDE-Kded-load-on-demand=true
 

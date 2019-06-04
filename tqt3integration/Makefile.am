@@ -1,1 +1,1 @@
-SUBDIRS = libtqtkde module utils
+SUBDIRS = libtqttde module utils

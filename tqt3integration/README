@@ -1,5 +1,5 @@
-TQt/KDE UI integration. Makes TQt-only apps use several KDE dialogs without any modifications
-to these applications. Can be turned off by setting $TQT_NO_KDE_INTEGRATION.
+TQt/TDE UI integration. Makes TQt-only apps use several TDE dialogs without any modifications
+to these applications. Can be turned off by setting $TQT_NO_TDE_INTEGRATION.
 
 Installation:
 Just plain make && make install.

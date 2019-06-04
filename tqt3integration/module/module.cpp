@@ -38,13 +38,13 @@
 
 extern "C"
 { 
-    KDE_EXPORT KDEDModule *create_kdeintegration( const TQCString& obj )
+    KDE_EXPORT KDEDModule *create_tdeintegration( const TQCString& obj )
         {
-            return new KDEIntegration::Module( obj );
+            return new TDEIntegration::Module( obj );
         }
 };
 
-namespace KDEIntegration
+namespace TDEIntegration
 {
 
 static void prepareDialog( TQWidget* w, long parent, const TQCString& wmclass1, const TQCString& wmclass2 )
@@ -61,7 +61,7 @@ static void prepareDialog( TQWidget* w, long parent, const TQCString& wmclass1, 
             info.geometry().y() + ( info.geometry().height()- w->height())/2 );
     }
 
-// duped in tqtkde
+// duped in tqttde
 static TQString getHostname()
     {
     char hostname[ 256 ];

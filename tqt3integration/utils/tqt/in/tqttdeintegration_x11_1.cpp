@@ -18,7 +18,7 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "tqtkdeintegration_x11_p.h"
+#include "tqttdeintegration_x11_p.h"
 
 #include <tqcolordialog.h>
 #include <tqfiledialog.h>
@@ -29,10 +29,10 @@
 #include <tqapplication.h>
 #include <stdlib.h>
 
-bool TQKDEIntegration::inited = false;
-bool TQKDEIntegration::enable = false;
+bool TQTDEIntegration::inited = false;
+bool TQTDEIntegration::enable = false;
 
-bool TQKDEIntegration::enabled()
+bool TQTDEIntegration::enabled()
     {
     if( !inited )
         initLibrary();
@@ -45,10 +45,10 @@ static TQCString findLibrary()
         return "";
     if( getenv( "TDE_FULL_SESSION" )[ 0 ] != 't' && getenv( "TDE_FULL_SESSION" )[ 0 ] != '1' )
         return "";
-    if( getenv( "TQT_NO_KDE_INTEGRATION" ) == NULL
-        || getenv( "TQT_NO_KDE_INTEGRATION" )[ 0 ] == '0' )
+    if( getenv( "TQT_NO_TDE_INTEGRATION" ) == NULL
+        || getenv( "TQT_NO_TDE_INTEGRATION" )[ 0 ] == '0' )
         {
-        return TQCString( TQTKDELIBDIR ) + "/libtqtkde";
+        return TQCString( TQTTDELIBDIR ) + "/libtqttde";
         }
     return "";
     }

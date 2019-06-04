@@ -18,7 +18,7 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "tqtkde.h"
+#include "tqttde.h"
 
 #include <assert.h>
 #include <dcopclient.h>
@@ -89,7 +89,7 @@ static DCOPClient* dcopClient()
         dcop->bindToApp();
         if( !tqApp->inherits( "TDEApplication" )) // KApp takes care of input blocking
             {
-            static tqtkde_EventLoop* loop = new tqtkde_EventLoop;
+            static tqttde_EventLoop* loop = new tqttde_EventLoop;
             TQObject::connect( dcop, TQT_SIGNAL( blockUserInput( bool )), loop, TQT_SLOT( block( bool )));
             }
         }
@@ -122,7 +122,7 @@ static int input_filter( XEvent* e )
     return false;
     }
 
-void tqtkde_EventLoop::block( bool b )
+void tqttde_EventLoop::block( bool b )
     {
     if( b )
         old_filter = tqt_set_x11_event_filter( input_filter );
@@ -142,6 +142,6 @@ static TQString getHostname()
     return "";
     }
 
-#include "tqtkde_functions.cpp"
+#include "tqttde_functions.cpp"
 
-#include "tqtkde.moc"
+#include "tqttde.moc"

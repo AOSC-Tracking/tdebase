@@ -18,12 +18,12 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef _TQTKDE_H
-#define _TQTKDE_H
+#ifndef _TQTTDE_H
+#define _TQTTDE_H
 
 #include <tqobject.h>
 
-class tqtkde_EventLoop
+class tqttde_EventLoop
     : public TQObject
     {
     Q_OBJECT
