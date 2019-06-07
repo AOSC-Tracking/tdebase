@@ -69,38 +69,22 @@ TQString MediaList::addMedium(Medium *medium, bool allowNotification)
 {
 	kdDebug(1219) << "MediaList::addMedium(@" << medium->id() << ")" << endl;
 
-	TQString id = medium->id();
-	if ( m_idMap.contains(id) ) return TQString::null;
-
-	m_media.append( medium );
-	m_idMap[id] = medium;
-
 	TQString name = medium->name();
-	if ( !m_nameMap.contains(name) )
+	if (!m_nameMap.contains(name))
 	{
 		m_nameMap[name] = medium;
-
-		kdDebug(1219) << "MediaList emits mediumAdded(" << id << ", "
-		          << name << ")" << endl;
-		emit mediumAdded(id, name, allowNotification);
-
-		return name;
 	}
 
-	TQString base_name = name+"_";
-	int i = 1;
-
-	while ( m_nameMap.contains(base_name+TQString::number(i)) )
+	TQString id = medium->id();
+	if (m_idMap.contains(id))
 	{
-		i++;
+		return TQString::null;
 	}
 
-	name = base_name+TQString::number(i);
-	medium->setName(name);
-	m_nameMap[name] = medium;
+	m_media.append(medium);
+	m_idMap[id] = medium;
 
-	kdDebug(1219) << "MediaList emits mediumAdded(" << id << ", "
-	          << name << ")" << endl;
+	kdDebug(1219) << "MediaList emits mediumAdded(" << id << ", " << name << ")" << endl;
 	emit mediumAdded(id, name, allowNotification);
 	return name;
 }
@@ -109,14 +93,17 @@ bool MediaList::removeMedium(const TQString &id, bool allowNotification)
 {
 	kdDebug(1219) << "MediaList::removeMedium(" << id << ")" << endl;
 
-	if ( !m_idMap.contains(id) ) return false;
+	if (!m_idMap.contains(id))
+	{
+		return false;
+	}
 
 	Medium *medium = m_idMap[id];
-	TQString name = medium->name();
-
 	m_idMap.remove(id);
-	m_nameMap.remove( medium->name() );
-	m_media.remove( medium );
+	m_nameMap.remove(medium->name());
+
+	TQString name = medium->name();
+	m_media.remove(medium);
 
 	emit mediumRemoved(id, name, allowNotification);
 	return true;
