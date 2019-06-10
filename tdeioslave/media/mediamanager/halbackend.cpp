@@ -1417,7 +1417,6 @@ void HALBackend::slotResult(TDEIO::Job *job)
     if (job->error() == TDEIO::ERR_COULD_NOT_UNMOUNT) {
         TQString proclist(listUsingProcesses(medium));
 
-        qerror = "<qt>";
         qerror += "<p>" + i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and "
                        "currently mounted at <b>%4</b> could not be unmounted. ").arg(
                           "system:/media/" + medium->name(),
@@ -1430,7 +1429,6 @@ void HALBackend::slotResult(TDEIO::Job *job)
         if (!proclist.isEmpty()) {
             qerror += proclist;
         }
-        qerror += "</qt>";
     } else if (job->error()) {
         qerror = job->errorText();
     }

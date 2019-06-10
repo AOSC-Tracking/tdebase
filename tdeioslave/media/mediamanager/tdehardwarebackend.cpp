@@ -1441,7 +1441,7 @@ TQStringVariantMap TDEBackend::unmount(const TQString &id)
 		// Failed as BUSY
 		TQString processesUsingDev = listUsingProcesses(medium);
 		if (!processesUsingDev.isNull()) {
-			if (KMessageBox::warningYesNo(0, i18n("<qt>The device <b>%1</b> (%2) named <b>'%3'</b> and currently "
+			if (KMessageBox::warningYesNo(0, i18n("The device <b>%1</b> (%2) named <b>'%3'</b> and currently "
 			    "mounted at <b>%4</b> can not be unmounted at this time.<p>%5<p><b>Would you like to forcibly "
 			    "terminate these processes?</b><br><i>All unsaved data would be lost</i>").arg("system:/media/" +
 			    medium->name()).arg(medium->deviceNode()).arg(medium->prettyLabel()).arg(medium->prettyBaseURL().pathOrURL())
@@ -1480,6 +1480,91 @@ TQStringVariantMap TDEBackend::unmount(const TQString &id)
 	return result;
 }
 
+TQStringVariantMap TDEBackend::unlock(const TQString &id, const TQString &password)
+{
+	kdDebug(1219) << "TDEBackend::unlock for id " << id << endl;
+
+	TQStringVariantMap result;
+
+	const Medium* medium = m_mediaList.findById(id);
+	if (!medium) {
+		result["errStr"] = i18n("No such medium: %1").arg(id);
+		result["result"] = false;
+		return result;
+	}
+
+	if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull()) {
+		result["result"] = true;
+		return result;
+	}
+
+	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
+	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
+	if (!sdevice) {
+		result["errStr"] = i18n("Internal error. Couldn't find medium.");
+		result["result"] = false;
+		return result;
+	}
+
+	TQStringVariantMap unlockResult = sdevice->unlockDevice(password);
+	if (unlockResult["result"].toBool() == false) {
+		TQString qerror = i18n("Unable to unlock the device.");
+		TQString errStr = unlockResult.contains("errStr") ? unlockResult["errStr"].toString() : TQString::null;
+		if (!errStr.isEmpty()) {
+			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
+		result["errStr"] = qerror;
+		result["result"] = false;
+		return result;
+		}
+	}
+
+	result["result"] = unlockResult["unlockedDevice"];
+	result["result"] = true;
+	return result;
+}
+
+TQStringVariantMap TDEBackend::lock(const TQString &id)
+{
+	kdDebug(1219) << "TDEBackend::lock for id " << id << endl;
+
+	TQStringVariantMap result;
+
+	const Medium* medium = m_mediaList.findById(id);
+	if (!medium) {
+		result["errStr"] = i18n("No such medium: %1").arg(id);
+		result["result"] = false;
+		return result;
+	}
+
+	if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull()) {
+		result["result"] = true;
+		return result;
+	}
+
+	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
+	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
+	if (!sdevice) {
+		result["errStr"] = i18n("Internal error. Couldn't find medium.");
+		result["result"] = false;
+		return result;
+	}
+
+	TQStringVariantMap lockResult = sdevice->lockDevice();
+	if (lockResult["result"].toBool() == false) {
+		TQString qerror = i18n("Unable to lock the device.");
+		TQString errStr = lockResult.contains("errStr") ? lockResult["errStr"].toString() : TQString::null;
+		if (!errStr.isEmpty()) {
+			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
+		result["errStr"] = qerror;
+		result["result"] = false;
+		return result;
+		}
+	}
+
+	result["result"] = true;
+	return result;
+}
+
 void TDEBackend::slotResult(TDEIO::Job *job)
 {
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -1491,7 +1576,6 @@ void TDEBackend::slotResult(TDEIO::Job *job)
 	if (job->error() == TDEIO::ERR_COULD_NOT_UNMOUNT) {
 		TQString proclist(listUsingProcesses(medium));
 
-		qerror = "<qt>";
 		qerror += "<p>" + i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and "
 			"currently mounted at <b>%4</b> could not be unmounted. ").arg(
 				"system:/media/" + medium->name(),
@@ -1504,7 +1588,6 @@ void TDEBackend::slotResult(TDEIO::Job *job)
 		if (!proclist.isEmpty()) {
 			qerror += proclist;
 		}
-		qerror += "</qt>";
 	} else if (job->error()) {
 		qerror = job->errorText();
 	}

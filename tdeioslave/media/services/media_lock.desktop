@@ -1,0 +1,11 @@
+[Desktop Entry]
+X-TDE-ServiceTypes=media/removable_encrypted_unlocked,media/hdd_encrypted_unlocked,media/cdrom_encrypted_unlocked,media/cd-rw_encrypted_unlocked,media/dvd_encrypted_unlocked
+Actions=MediaLock;
+X-TDE-Priority=TopLevel
+X-TDE-MediaNotifierHide=true
+
+[Desktop Action MediaLock]
+Exec=tdeio_media_mounthelper -l %u
+Icon=encrypted
+Name=Lock
+

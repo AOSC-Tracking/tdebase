@@ -297,7 +297,6 @@ TQStringVariantMap MediaManager::unmount(const TQString &uid)
 TQStringVariantMap MediaManager::unlock(const TQString &uid, const TQString &password)
 {
 	TQStringVariantMap result;
-/*
 #ifdef COMPILE_TDEHARDWAREBACKEND
 	if (!m_tdebackend) {
 		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
@@ -306,8 +305,6 @@ TQStringVariantMap MediaManager::unlock(const TQString &uid, const TQString &pas
 	}
 	return m_tdebackend->unlock(uid, password);
 #elif defined COMPILE_HALBACKEND
-*/
-#if defined COMPILE_HALBACKEND
 	if (!m_halbackend) {
 		result["errStr"] = i18n("Feature only available with HAL");
 		result["result"] = false;
@@ -328,7 +325,6 @@ TQStringVariantMap MediaManager::unlock(const TQString &uid, const TQString &pas
 TQStringVariantMap MediaManager::lock(const TQString &uid)
 {
 	TQStringVariantMap result;
-/*
 #ifdef COMPILE_TDEHARDWAREBACKEND
 	if (!m_tdebackend) {
 		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
@@ -337,8 +333,6 @@ TQStringVariantMap MediaManager::lock(const TQString &uid)
 	}
 	return m_tdebackend->lock(uid);
 #elif defined COMPILE_HALBACKEND
-*/
-#if defined COMPILE_HALBACKEND
 	if (!m_halbackend) {
 		result["errStr"] = i18n("Feature only available with HAL");
 		result["result"] = false;
