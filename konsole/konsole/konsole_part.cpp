@@ -78,10 +78,18 @@ konsoleFactory::~konsoleFactory()
 
 KParts::Part *konsoleFactory::createPartObject(TQWidget *parentWidget, const char *widgetName,
                                          TQObject *parent, const char *name, const char *classname,
-                                         const TQStringList&)
+                                         const TQStringList &args)
 {
 //  kdDebug(1211) << "konsoleFactory::createPart parentWidget=" << parentWidget << " parent=" << parent << endl;
-  KParts::Part *obj = new konsolePart(parentWidget, widgetName, parent, name, classname);
+  KParts::Part *obj;
+  if (args.count() > 0)
+  {
+    obj = new konsolePart(parentWidget, widgetName, parent, name, classname, args[0]);
+  }
+  else
+  {
+    obj = new konsolePart(parentWidget, widgetName, parent, name, classname);
+  }
   return obj;
 }
 
@@ -97,7 +105,8 @@ TDEInstance *konsoleFactory::instance()
 
 #define DEFAULT_HISTORY_SIZE 1000
 
-konsolePart::konsolePart(TQWidget *_parentWidget, const char *widgetName, TQObject *parent, const char *name, const char *classname)
+konsolePart::konsolePart(TQWidget *_parentWidget, const char *widgetName, TQObject *parent, const char *name,
+       const char *classname, const TQString &title)
   : KParts::ReadOnlyPart(parent, name)
 ,te(0)
 ,se(0)
@@ -115,6 +124,7 @@ konsolePart::konsolePart(TQWidget *_parentWidget, const char *widgetName, TQObje
 ,m_signals(0)
 ,m_options(0)
 ,m_popupMenu(0)
+,s_title(title)
 ,b_useKonsoleSettings(false)
 ,b_autoDestroy(true)
 ,b_autoStartShell(true)
@@ -899,19 +909,24 @@ void konsolePart::slotSelectBell() {
 
 void konsolePart::slotSetEncoding()
 {
+  setEncoding(selectSetEncoding->currentText());
+  n_encoding = selectSetEncoding->currentItem();
+  se->setEncodingNo(selectSetEncoding->currentItem());
+}
+
+void konsolePart::setEncoding(const TQString &encoding)
+{
   if (!se) return;
 
   bool found;
-  TQString enc = TDEGlobal::charsets()->encodingForName(selectSetEncoding->currentText());
+  TQString enc = TDEGlobal::charsets()->encodingForName(encoding);
   TQTextCodec * qtc = TDEGlobal::charsets()->codecForName(enc, found);
   if(!found)
   {
-    kdDebug() << "Codec " << selectSetEncoding->currentText() << " not found!" << endl;
+    kdDebug() << "Codec " << encoding << " not found!" << endl;
     qtc = TQTextCodec::codecForLocale();
   }
 
-  n_encoding = selectSetEncoding->currentItem();
-  se->setEncodingNo(selectSetEncoding->currentItem());
   se->getEmulation()->setCodec(qtc);
 }
 
@@ -1105,7 +1120,14 @@ bool konsolePart::setPtyFd( int master_pty )
 void konsolePart::newSession()
 {
   if ( se ) delete se;
-  se = new TESession(te, "xterm", parentWidget->winId());
+  if (!s_title.isEmpty())
+  {
+    se = new TESession(te, "xterm", parentWidget->winId(), s_title);
+  }
+  else
+  {
+    se = new TESession(te, "xterm", parentWidget->winId());
+  }
   connect( se,TQT_SIGNAL(done(TESession*)),
            this,TQT_SLOT(doneSession(TESession*)) );
   connect( se,TQT_SIGNAL(openURLRequest(const TQString &)),
@@ -1120,6 +1142,14 @@ void konsolePart::newSession()
            this, TQT_SIGNAL( receivedData( const TQString& ) ) );
   connect( se, TQT_SIGNAL( forkedChild() ),
            this, TQT_SIGNAL( forkedChild() ));
+  connect( se, TQT_SIGNAL(getSessionSchema(TESession*, TQString &)),
+           this, TQT_SLOT(slotGetSessionSchema(TESession*, TQString &)));
+  connect( se, TQT_SIGNAL(setSessionSchema(TESession*, const TQString &)),
+           this, TQT_SLOT(slotSetSessionSchema(TESession*, const TQString &)));
+  connect( se, TQT_SIGNAL(setSessionEncoding(TESession*, const TQString &)),
+           this, TQT_SLOT(slotSetSessionEncoding(TESession*, const TQString &)));
+  connect( se, TQT_SIGNAL(updateSessionKeytab(TESession *, const TQString &)),
+           this, TQT_SLOT(slotUpdateSessionKeytab(TESession *, const TQString &)));
 
   // We ignore the following signals
   //connect( se, TQT_SIGNAL(renameSession(TESession*,const TQString&)),
@@ -1166,6 +1196,49 @@ void konsolePart::showShell()
 void konsolePart::sendInput( const TQString& text )
 {
     te->emitText( text );
+}
+
+void konsolePart::slotGetSessionSchema(TESession *session, TQString &schema)
+{
+  int no = session->schemaNo();
+  ColorSchema* s = colors->find( no );
+  schema = s->relPath();
+}
+
+void konsolePart::slotSetSessionSchema(TESession *session, const TQString &schema)
+{
+  ColorSchema* s = colors->find( schema );
+  setSchema(s);
+}
+
+void konsolePart::slotSetSessionEncoding(TESession *session, const TQString &encoding)
+{
+  setEncoding(encoding);
+  const TQStringList &items = selectSetEncoding->items();
+  int index = items.findIndex(encoding);
+  if (index < 0)
+  {
+    TQString descriptiveEncoding = TDEGlobal::charsets()->descriptiveNameForEncoding(encoding.lower());
+    if (!descriptiveEncoding.isEmpty())
+    {
+      index = items.findIndex(descriptiveEncoding);
+    }
+   if (index < 0)
+   {
+      if (encoding == TQTextCodec::codecForLocale()->name())
+      {
+        index = 0;
+      }
+    }
+  }
+  selectSetEncoding->setCurrentItem(index);
+  n_encoding = index;
+  se->setEncodingNo(index);
+}
+
+void konsolePart::slotUpdateSessionKeytab(TESession *, const TQString &)
+{
+	updateKeytabMenu();
 }
 
 #include "konsole_part.moc"

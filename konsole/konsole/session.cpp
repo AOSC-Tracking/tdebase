@@ -825,6 +825,7 @@ TQString TESession::keytab()
 void TESession::setKeytab(const TQString &keytab)
 {
    setKeymap(keytab);
+   emit updateSessionKeytab(this, keytab);
    emit updateSessionConfig(this);
 }
 

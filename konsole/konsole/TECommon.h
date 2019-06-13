@@ -149,8 +149,10 @@ inline bool operator != (cacol a, cacol b)
 inline const TQColor color256(UINT8 u, const ColorEntry* base)
 {
   //   0.. 16: system colors
-  if (u <   8) return base[u+2            ].color; u -= 8;
-  if (u <   8) return base[u+2+BASE_COLORS].color; u -= 8;
+  if (u <   8) return base[u+2            ].color;
+  u -= 8;
+  if (u <   8) return base[u+2+BASE_COLORS].color;
+  u -= 8;
 
   //  16..231: 6x6x6 rgb color cube
   if (u < 216) return TQColor(255*((u/36)%6)/5,

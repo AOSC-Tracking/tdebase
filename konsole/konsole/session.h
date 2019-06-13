@@ -166,6 +166,7 @@ signals:
   void setSessionEncoding(TESession *session, const TQString &encoding);
   void getSessionSchema(TESession *session, TQString &schema);
   void setSessionSchema(TESession *session, const TQString &schema);
+  void updateSessionKeytab(TESession *session, const TQString &keytab);
 
 private slots:
   void onRcvBlock( const char* buf, int len );

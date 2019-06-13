@@ -70,7 +70,8 @@ class konsolePart: public KParts::ReadOnlyPart, public TerminalInterface, public
 {
     Q_OBJECT
 	public:
-    konsolePart(TQWidget *parentWidget, const char *widgetName, TQObject * parent, const char *name, const char *classname = 0);
+    konsolePart(TQWidget *parentWidget, const char *widgetName, TQObject * parent, const char *name,
+                const char *classname = 0, const TQString &title = TQString::null);
     virtual ~konsolePart();
 
 signals:
@@ -122,6 +123,10 @@ signals:
     void slotUseKonsoleSettings();
     void slotWordSeps();
     void slotSetEncoding();
+    void slotGetSessionSchema(TESession *session, TQString &schema);
+    void slotSetSessionSchema(TESession *session, const TQString &schema);
+    void slotSetSessionEncoding(TESession *session, const TQString &encoding);
+    void slotUpdateSessionKeytab(TESession *session, const TQString &keytab);
     void biggerFont();
     void smallerFont();
 
@@ -136,6 +141,7 @@ signals:
 
     void setSchema(ColorSchema* s);
     void updateKeytabMenu();
+    void setEncoding(const TQString &encoding);
 
 	  bool doOpenStream( const TQString& );
   	bool doWriteStream( const TQByteArray& );
@@ -170,7 +176,8 @@ signals:
 
     TQFont       defaultFont;
 
-    TQString     pmPath; // pixmap path
+    TQString     pmPath;  // pixmap path
+    TQString     s_title; // session title
     TQString     s_schema;
     TQString     s_tdeconfigSchema;
     TQString     s_word_seps;			// characters that are considered part of a word
