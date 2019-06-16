@@ -40,18 +40,15 @@
 #include <kstandarddirs.h>
 #include <kprocess.h>
 
-#define MOUNT_SUFFIX    (                                                                       \
-    (medium->isMounted() ? TQString("_mounted") : TQString("_unmounted")) +   \
-    (medium->isEncrypted() ? (halClearVolume ? "_decrypted" : "_encrypted") : "" )          \
-    )
-#define MOUNT_ICON_SUFFIX   (                                                              \
-    (medium->isMounted() ? TQString("_mount") : TQString("_unmount")) +   \
-    (medium->isEncrypted() ? (halClearVolume ? "_decrypt" : "_encrypt") : "" )      \
-    )
-#define MOUNTED_ICON_SUFFIX   (                                                              \
-    (medium->isMounted() ? TQString("-mounted") : TQString("")) +   \
-    (medium->isEncrypted() ? (halClearVolume ? "-decrypted" : "-encrypted") : "" )      \
-    )
+#define MOUNT_SUFFIX (medium->isEncrypted() ? \
+	    (TQString("_encrypted") + (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "_unlocked" : "_locked")) : \
+      (medium->isMounted() ? TQString("_mounted") : TQString("_unmounted")))
+
+#define MOUNT_ICON_SUFFIX (medium->isMounted() ? TQString("_mount") : TQString("_unmount"))
+
+#define MOUNTED_ICON_SUFFIX (medium->isEncrypted() ? \
+	    (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "-unlocked" : "-locked") : \
+      (medium->isMounted() ? TQString("-mounted") : TQString("")))
 
 /* Static instance of this class, for static HAL callbacks */
 static HALBackend* s_HALBackend;
@@ -515,7 +512,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
         if (clearUdi != NULL) {
             kdDebug(1219) << "HALBackend::setVolumeProperties : crypto clear volume avail - " << clearUdi << endl;
             halClearVolume = libhal_volume_from_udi(m_halContext, clearUdi);
-            // ignore if halClearVolume is NULL -> just not decrypted in this case
+            // ignore if halClearVolume is NULL -> just not unlocked in this case
 	    clearUdiString = clearUdi;
 	    libhal_free_string(clearUdi);
         }
@@ -928,7 +925,7 @@ TQStringList HALBackend::mountoptions(const TQString &name)
 	        volume_udi = clearUdi;
 		libhal_free_string(clearUdi);
 	    } else {
-	        // if not decrypted yet then no mountoptions
+	        // if not unlocked yet then no mountoptions
 		return TQStringList();
 	    }
             libhal_volume_free(halVolume);
@@ -1569,7 +1566,7 @@ TQStringVariantMap HALBackend::mount(const Medium *medium)
     	qerror = mount_priv(medium->id().latin1(), mount_point.utf8(), options, noptions, dbus_connection);
     } else {
         // see if we have a clear volume
-        error = i18n("Cannot mount encrypted drives!");
+        error = i18n("Cannot mount encrypted locked drives!");
         LibHalVolume* halVolume = libhal_volume_from_udi(m_halContext, medium->id().latin1());
         if (halVolume) {
             char* clearUdi = libhal_volume_crypto_get_clear_volume_udi(m_halContext, halVolume);

@@ -49,7 +49,7 @@ tde_add_kpart( ${target} AUTOMOC
   SOURCES
     mediamanager.cpp mediamanager.skel medialist.cpp
     backendbase.cpp fstabbackend.cpp removablebackend.cpp
-    decryptdialog.ui dialog.cpp
+    unlockdialog.ui dialog.cpp
     mediadirnotify.cpp mediadirnotify.skel
     ${HAL_MEDIA_BACKEND} ${TDEHWBACKEND}
   LINK mediacommon-static tdeinit_kded-shared ${HAL_MEDIA_LIBRARIES}

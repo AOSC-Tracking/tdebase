@@ -126,7 +126,7 @@ bool MediaList::removeMedium(const TQString &id, bool allowNotification)
 
 bool MediaList::changeMediumState(const Medium &medium, bool allowNotification)
 {
-	kdDebug(1219) << "MediaList::changeMediumState(const Medium &)" << endl;
+	kdDebug(1219) << "MediaList::changeMediumState(const Medium &) for id " << medium.id() << endl;
 
 	if ( !m_idMap.contains(medium.id()) ) return false;
 

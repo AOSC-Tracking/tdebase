@@ -37,19 +37,15 @@
 
 #include "dialog.h"
 
-#define MOUNT_SUFFIX (																\
-	(medium->isMounted() ? TQString("_mounted") : TQString("_unmounted")) +									\
-	(medium->isEncrypted() ? (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "_decrypted" : "_encrypted") : "" )			\
-	)
-#define MOUNT_ICON_SUFFIX (															\
-	(medium->isMounted() ? TQString("_mount") : TQString("_unmount")) +									\
-	(medium->isEncrypted() ? (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "_decrypt" : "_encrypt") : "" )			\
-	)
-#define MOUNTED_ICON_SUFFIX (															\
-	(medium->isMounted() ? TQString("-mounted") : TQString("")) +									\
-	(medium->isEncrypted() ? (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "-decrypted" : "-encrypted") : "" )			\
-	)
+#define MOUNT_SUFFIX (medium->isEncrypted() ? \
+	    (TQString("_encrypted") + (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "_unlocked" : "_locked")) : \
+      (medium->isMounted() ? TQString("_mounted") : TQString("_unmounted")))
 
+#define MOUNT_ICON_SUFFIX (medium->isMounted() ? TQString("_mount") : TQString("_unmount"))
+
+#define MOUNTED_ICON_SUFFIX (medium->isEncrypted() ? \
+	    (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "-unlocked" : "-locked") : \
+      (medium->isMounted() ? TQString("-mounted") : TQString("")))
 
 /* Constructor */
 TDEBackend::TDEBackend(MediaList &list, TQObject* parent)
@@ -463,6 +459,8 @@ void TDEBackend::ResetProperties(TDEStorageDevice * sdevice, bool allowNotificat
 
 void TDEBackend::setVolumeProperties(Medium* medium)
 {
+	kdDebug(1219) << "TDEBackend::setVolumeProperties for " << medium->id() << endl;
+
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 
 	TDEStorageDevice * sdevice = hwdevices->findDiskByUID(medium->id());
@@ -1188,6 +1186,8 @@ void TDEBackend::slotPasswordCancel() {
 
 TQStringVariantMap TDEBackend::mount(const Medium *medium)
 {
+	kdDebug(1219) << "TDEBackend::mount for medium " << medium->name() << endl;
+
 	TQStringVariantMap result;
 	if (medium->isMounted()) {
 		result["result"] = true;
@@ -1301,7 +1301,7 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 				if (mountedPath.isEmpty()) {
 					if (mountResult.contains("retCode") && mountResult["retCode"].toInt() == 0) {
 						// Mounting was successful
-						// Because the TDE hardware backend is event driven it might take a little while for the new unencrypted mapped device to show up
+						// Because the TDE hardware backend is event driven it might take a little while for the new enlock mapped device to show up
 						// Wait up to 30 seconds for it to appear...
 						for (int i=0;i<300;i++) {
 							mountedPath = sdevice->mountPath();
@@ -1321,7 +1321,7 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 						continue_trying_to_decrypt = true;
 					}
 					else {
-						qerror = i18n("Cannot mount encrypted drives!");
+						qerror = i18n("Cannot mount encrypted locked drives!");
 						qerror = i18n("Unable to mount this device.");
 						TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
 						if (!errStr.isEmpty()) {
@@ -1357,6 +1357,8 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 
 TQStringVariantMap TDEBackend::mount(const TQString &id)
 {
+	kdDebug(1219) << "TDEBackend::mount for id " << id << endl;
+
 	const Medium *medium = m_mediaList.findById(id);
 	if (!medium) {
 		TQStringVariantMap result;
@@ -1369,6 +1371,8 @@ TQStringVariantMap TDEBackend::mount(const TQString &id)
 
 TQStringVariantMap TDEBackend::unmount(const TQString &id)
 {
+	kdDebug(1219) << "TDEBackend::unmount for id " << id << endl;
+
 	TQStringVariantMap result;
 
 	const Medium* medium = m_mediaList.findById(id);

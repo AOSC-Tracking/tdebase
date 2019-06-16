@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=drive-harddisk-locked
+Type=MimeType
+MimeType=media/hdd_encrypted_locked
+Comment=Encrypted Locked Hard Disk Volume
+Comment[de]=Verschlüsselte gesperrte Festplattenpartition
+Comment[it]=Disco criptato protetto
+Patterns=
+
+X-TDE-AutoEmbed=true
+X-TDE-IsAlso=inode/directory

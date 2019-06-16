@@ -104,8 +104,8 @@ MountHelper::MountHelper() : TDEApplication()
 		}
 		if (!medium.needDecryption())
 		{
-			m_errorStr = i18n("%1 is already decrypted.").arg(url.prettyURL());
-			TQTimer::singleShot(0, this, TQT_SLOT(error()) );
+			m_errorStr = i18n("%1 is already unlocked.").arg(url.prettyURL());
+			TQTimer::singleShot(0, this, TQT_SLOT(error()));
 			return;
 		}
 
@@ -166,9 +166,9 @@ MountHelper::MountHelper() : TDEApplication()
 			}
 		}
 
-		/* If this is a decrypted volume and there is no error yet
-		 * we try to teardown the decryption */
-		if (m_errorStr.isNull() && medium.isEncrypted() && !medium.clearDeviceUdi().isNull())
+		// If this is an unlocked encrypted volume and there is no error yet, we try to lock it
+		if (unmountResult.contains("result") && unmountResult["result"].toBool() &&
+		    medium.isEncrypted() && !medium.clearDeviceUdi().isNull())
 		{
 			DCOPReply reply = mediamanager.call( "undecrypt", medium.id());
 			if (reply.isValid()) {

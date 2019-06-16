@@ -1,9 +1,10 @@
-[Desktop Action Decrypt]
-Exec=tdeio_media_mounthelper -d %u
-Icon=decrypted
-Name=Decrypt
-Name[de]=Entschlüsseln
-
 [Desktop Entry]
-Actions=Decrypt
-X-TDE-ServiceTypes=media/removable_unmounted_encrypted,media/hdd_unmounted_encrypted,media/cdrom_unmounted_encrypted,media/cdwriter_unmounted_encrypted,media/dvd_unmounted_encrypted
+X-TDE-ServiceTypes=media/removable_encrypted_locked,media/hdd_encrypted_locked,media/cdrom_encrypted_locked,media/cdwriter_encrypted_locked,media/dvd_encrypted_locked
+Actions=MediaUnlock;
+X-TDE-Priority=TopLevel
+X-TDE-MediaNotifierHide=true
+
+[Desktop Action MediaUnlock]
+Exec=tdeio_media_mounthelper -k %u
+Icon=decrypted
+Name=Unlock

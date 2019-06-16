@@ -1,8 +1,8 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>DecryptDialog</class>
+<class>UnlockDialog</class>
 <widget class="TQWidget">
     <property name="name">
-        <cstring>DecryptDialog</cstring>
+        <cstring>UnlockDialog</cstring>
     </property>
     <property name="geometry">
         <rect>

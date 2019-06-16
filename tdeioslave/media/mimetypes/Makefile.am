@@ -4,20 +4,20 @@ mimetype_DATA = floppy_mounted.desktop floppy_unmounted.desktop \
                 floppy5_unmounted.desktop floppy5_mounted.desktop \
                 zip_mounted.desktop zip_unmounted.desktop \
                 hdd_mounted.desktop hdd_unmounted.desktop \
-                hdd_mounted_decrypted.desktop hdd_unmounted_encrypted.desktop \
-                hdd_unmounted_decrypted.desktop \
+                hdd_encrypted_locked.desktop \
+                hdd_encrypted_unlocked.desktop \
                 removable_mounted.desktop removable_unmounted.desktop \
-                removable_mounted_decrypted.desktop removable_unmounted_encrypted.desktop \
-                removable_unmounted_decrypted.desktop \
+                removable_encrypted_locked.desktop \
+                removable_encrypted_unlocked.desktop \
                 cdrom_mounted.desktop cdrom_unmounted.desktop \
-                cdrom_mounted_decrypted.desktop cdrom_unmounted_encrypted.desktop \
-                cdrom_unmounted_decrypted.desktop \
+                cdrom_encrypted_locked.desktop \
+                cdrom_encrypted_unlocked.desktop \
                 dvd_mounted.desktop dvd_unmounted.desktop \
-                dvd_mounted_decrypted.desktop dvd_unmounted_encrypted.desktop \
-                dvd_unmounted_decrypted.desktop \
+                dvd_encrypted_locked.desktop \
+                dvd_encrypted_unlocked.desktop \
                 cdwriter_mounted.desktop cdwriter_unmounted.desktop \
-                cdwriter_mounted_decrypted.desktop cdwriter_unmounted_encrypted.desktop \
-                cdwriter_unmounted_decrypted.desktop \
+                cdwriter_encrypted_locked.desktop \
+                cdwriter_encrypted_unlocked.desktop \
                 smb_mounted.desktop smb_unmounted.desktop \
                 nfs_mounted.desktop nfs_unmounted.desktop \
                 audiocd.desktop \

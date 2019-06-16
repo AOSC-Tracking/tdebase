@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=media-optical-cdwriter-locked
+Type=MimeType
+MimeType=media/cd-rw_encrypted_locked
+Comment=Encrypted Locked CD-RW
+Comment[de]=Verschlüsselte gesperrte CD-RW
+Comment[it]=CD-RW criptato protetto
+Patterns=
+
+X-TDE-AutoEmbed=true
+X-TDE-IsAlso=inode/directory

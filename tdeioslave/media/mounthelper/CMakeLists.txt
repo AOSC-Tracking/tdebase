@@ -26,7 +26,7 @@ link_directories(
 set( target tdeio_media_mounthelper )
 
 set( ${target}_SRCS
-  tdeio_media_mounthelper.cpp decryptdialog.ui dialog.cpp
+  tdeio_media_mounthelper.cpp unlockdialog.ui dialog.cpp
 )
 
 tde_add_executable( ${target} AUTOMOC

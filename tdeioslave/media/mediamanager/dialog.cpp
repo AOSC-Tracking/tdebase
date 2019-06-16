@@ -23,41 +23,41 @@
 #include "dialog.h"
 
 Dialog::Dialog(TQString url, TQString iconName) :
-	KDialogBase(NULL, "Dialog", true, "Decrypt Storage Device", (Cancel|User1), User1, false, KGuiItem(i18n("Decrypt"), "decrypted" ))
+	KDialogBase(NULL, "Unlock", true, "Unlock Storage Device", (Cancel|User1), User1, false, KGuiItem(i18n("Unlock"), "unlocked" ))
 {
-	decryptDialog = new DecryptDialog(this);
+	unlockDialog = new UnlockDialog(this);
 
-	decryptDialog->errorBox->hide();
-	decryptDialog->descLabel->setText(decryptDialog->descLabel->text().arg(url));
-	decryptDialog->descLabel->adjustSize();
-	decryptDialog->adjustSize();
+	unlockDialog->errorBox->hide();
+	unlockDialog->descLabel->setText(unlockDialog->descLabel->text().arg(url));
+	unlockDialog->descLabel->adjustSize();
+	unlockDialog->adjustSize();
 
 	enableButton( User1, false );
 
 	TQPixmap pixmap = TDEGlobal::iconLoader()->loadIcon(iconName, TDEIcon::NoGroup, TDEIcon::SizeLarge);
-	decryptDialog->encryptedIcon->setPixmap( pixmap );
+	unlockDialog->encryptedIcon->setPixmap( pixmap );
 
-	connect(decryptDialog->passwordEdit, TQT_SIGNAL (textChanged(const TQString &)), this, TQT_SLOT (slotPasswordChanged(const TQString &)));
+	connect(unlockDialog->passwordEdit, TQT_SIGNAL (textChanged(const TQString &)), this, TQT_SLOT (slotPasswordChanged(const TQString &)));
 
-	setMainWidget(decryptDialog);
+	setMainWidget(unlockDialog);
 }
 
 Dialog::~Dialog()
 {
-	delete decryptDialog;
+	delete unlockDialog;
 }
 
 TQString Dialog::getPassword()
 {
-	return decryptDialog->passwordEdit->text();
+	return unlockDialog->passwordEdit->text();
 }
 
 void Dialog::slotDialogError(TQString errorMsg)
 {
 	kdDebug() << __func__ << "(" << errorMsg << " )" << endl;
 
-	decryptDialog->errorLabel->setText(TQString("<b>%1</b>").arg(errorMsg));
-	decryptDialog->errorBox->show();
+	unlockDialog->errorLabel->setText(TQString("<b>%1</b>").arg(errorMsg));
+	unlockDialog->errorBox->show();
 }
 
 void Dialog::slotPasswordChanged(const TQString &text)

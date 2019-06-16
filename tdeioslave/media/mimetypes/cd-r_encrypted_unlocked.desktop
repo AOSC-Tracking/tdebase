@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=media-optical-cdwriter-unlocked
+Type=MimeType
+MimeType=media/cd-r_encrypted_unlocked
+Comment=Encrypted Unlocked CD-R
+Comment[de]=Verschlüsselte entsperrte CD-R
+Comment[it]=CD-R criptato sprotetto
+Patterns=
+
+X-TDE-AutoEmbed=true
+X-TDE-IsAlso=inode/directory

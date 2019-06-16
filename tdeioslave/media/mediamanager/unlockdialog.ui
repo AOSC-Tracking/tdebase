@@ -1,8 +1,8 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>DecryptDialog</class>
+<class>UnlockDialog</class>
 <widget class="TQWidget">
     <property name="name">
-        <cstring>DecryptDialog</cstring>
+        <cstring>UnlockDialog</cstring>
     </property>
     <property name="geometry">
         <rect>
@@ -106,8 +106,8 @@
                         </sizepolicy>
                     </property>
                     <property name="text">
-                        <string>&lt;p&gt;&lt;b&gt;%1&lt;/b&gt; is an encrypted storage device.&lt;/p&gt;
-&lt;p&gt;Please enter the password to decrypt the storage device.&lt;/p&gt;</string>
+                        <string>&lt;p&gt;&lt;b&gt;%1&lt;/b&gt; is an encrypted locked storage device.&lt;/p&gt;
+&lt;p&gt;Please enter the password to unlock the storage device.&lt;/p&gt;</string>
                     </property>
                     <property name="alignment">
                         <set>WordBreak|AlignTop</set>

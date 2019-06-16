@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=drive-harddisk-unlocked
+Type=MimeType
+MimeType=media/hdd_encrypted_unlocked
+Comment=Encrypted Unlocked Hard Disk Volume
+Comment[de]=Verschlüsselte entsperrte Festplattenpartition
+Comment[it]=Disco criptato sprotetto
+Patterns=
+
+X-TDE-AutoEmbed=true
+X-TDE-IsAlso=inode/directory

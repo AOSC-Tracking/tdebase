@@ -34,7 +34,7 @@
 #include <tqlabel.h>
 #include <tqgroupbox.h>
 
-#include "decryptdialog.h"
+#include "unlockdialog.h"
 
 class KryptoMedia;
 
@@ -54,7 +54,7 @@ public slots:
 	void slotPasswordChanged(const TQString &text);
 
 private:
-	DecryptDialog *decryptDialog;
+	UnlockDialog *unlockDialog;
 };
 
 #endif // DIALOG_H_

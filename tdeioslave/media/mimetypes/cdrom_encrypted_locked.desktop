@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=media-optical-cdrom-locked
+Type=MimeType
+MimeType=media/cdrom_encrypted_locked
+Comment=Encrypted Locked CD-ROM
+Comment[de]=Verschlüsselte gesperrte CD-ROM
+Comment[it]=CD-ROM criptato protetto
+Patterns=
+
+X-TDE-AutoEmbed=true
+X-TDE-IsAlso=inode/directory
