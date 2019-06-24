@@ -1,5 +1,5 @@
 [Desktop Entry]
-Icon=nfs_unmount
+Icon=nfs-unmounted
 Type=MimeType
 MimeType=media/nfs_unmounted
 Comment=Unmounted NFS Share

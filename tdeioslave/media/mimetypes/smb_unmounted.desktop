@@ -1,5 +1,5 @@
 [Desktop Entry]
-Icon=nfs_unmount
+Icon=nfs-unmounted
 Type=MimeType
 MimeType=media/smb_unmounted
 Comment=Unmounted Samba (Microsoft Network) Share

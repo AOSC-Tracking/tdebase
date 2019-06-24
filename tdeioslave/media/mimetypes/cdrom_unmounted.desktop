@@ -1,5 +1,5 @@
 [Desktop Entry]
-Icon=media-optical-cdrom
+Icon=media-optical-cdrom-unmounted
 Type=MimeType
 MimeType=media/cdrom_unmounted
 Comment=Unmounted CD-ROM

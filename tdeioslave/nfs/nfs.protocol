@@ -11,4 +11,4 @@ deleting=true
 linking=true
 moving=true
 X-DocPath=tdeioslave/nfs/index.html
-Icon=nfs_mount
+Icon=nfs-mounted

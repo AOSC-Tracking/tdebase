@@ -37,15 +37,13 @@
 
 #include "dialog.h"
 
-#define MOUNT_SUFFIX (medium->isEncrypted() ? \
+#define MOUNT_MEDIA_SUFFIX (medium->isEncrypted() ? \
 	    (TQString("_encrypted") + (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "_unlocked" : "_locked")) : \
       (medium->isMounted() ? TQString("_mounted") : TQString("_unmounted")))
 
-#define MOUNT_ICON_SUFFIX (medium->isMounted() ? TQString("_mount") : TQString("_unmount"))
-
 #define MOUNTED_ICON_SUFFIX (medium->isEncrypted() ? \
 	    (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "-unlocked" : "-locked") : \
-      (medium->isMounted() ? TQString("-mounted") : TQString("")))
+      (medium->isMounted() ? TQString("-mounted") : TQString("-unmounted")))
 
 /* Constructor */
 TDEBackend::TDEBackend(MediaList &list, TQObject* parent)
@@ -517,13 +515,13 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		// This device is a CD drive of some sort
 
 		// Default
-		mimeType = "media/cdrom" + MOUNT_SUFFIX;
+		mimeType = "media/cdrom" + MOUNT_MEDIA_SUFFIX;
 		if (useDefaultLabel) {
 			diskLabel = i18n("%1 Removable Device").arg(sdevice->deviceFriendlySize());
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::CDROM)) {
-			mimeType = "media/cdrom" + MOUNT_SUFFIX;
+			mimeType = "media/cdrom" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
 				medium->unmountableState("");
@@ -532,7 +530,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::CDR)) {
-			mimeType = "media/cd-r" + MOUNT_SUFFIX;
+			mimeType = "media/cd-r" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
 				medium->unmountableState("");
@@ -541,7 +539,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::CDRW)) {
-			mimeType = "media/cd-rw" + MOUNT_SUFFIX;
+			mimeType = "media/cd-rw" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
 				medium->unmountableState("");
@@ -550,7 +548,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::CDMO)) {
-			mimeType = "media/cd-rw" + MOUNT_SUFFIX;
+			mimeType = "media/cd-rw" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
 				medium->unmountableState("");
@@ -559,7 +557,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::CDMRRW)) {
-			mimeType = "media/cd-rw" + MOUNT_SUFFIX;
+			mimeType = "media/cd-rw" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
 				medium->unmountableState("");
@@ -568,7 +566,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::CDMRRWW)) {
-			mimeType = "media/cd-rw" + MOUNT_SUFFIX;
+			mimeType = "media/cd-rw" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
 				medium->unmountableState("");
@@ -577,7 +575,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::DVDROM)) {
-			mimeType = "media/dvd" + MOUNT_SUFFIX;
+			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
 				medium->unmountableState("");
@@ -586,7 +584,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::DVDRAM)) {
-			mimeType = "media/dvd" + MOUNT_SUFFIX;
+			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
 				medium->unmountableState("");
@@ -595,7 +593,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::DVDR)) {
-			mimeType = "media/dvd" + MOUNT_SUFFIX;
+			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
 				medium->unmountableState("");
@@ -604,7 +602,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::DVDRW)) {
-			mimeType = "media/dvd" + MOUNT_SUFFIX;
+			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
 				medium->unmountableState("");
@@ -613,7 +611,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::DVDRDL)) {
-			mimeType = "media/dvd" + MOUNT_SUFFIX;
+			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
 				medium->unmountableState("");
@@ -622,7 +620,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::DVDRWDL)) {
-			mimeType = "media/dvd" + MOUNT_SUFFIX;
+			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
 				medium->unmountableState("");
@@ -631,7 +629,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSR)) {
-			mimeType = "media/dvd" + MOUNT_SUFFIX;
+			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
 				medium->unmountableState("");
@@ -640,7 +638,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRW)) {
-			mimeType = "media/dvd" + MOUNT_SUFFIX;
+			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
 				medium->unmountableState("");
@@ -649,7 +647,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRDL)) {
-			mimeType = "media/dvd" + MOUNT_SUFFIX;
+			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
 				medium->unmountableState("");
@@ -658,7 +656,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRWDL)) {
-			mimeType = "media/dvd" + MOUNT_SUFFIX;
+			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
 				medium->unmountableState("");
@@ -667,7 +665,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::BDROM)) {
-			mimeType = "media/bluray" + MOUNT_SUFFIX;
+			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankbd";
 				medium->unmountableState("");
@@ -676,7 +674,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::BDR)) {
-			mimeType = "media/bluray" + MOUNT_SUFFIX;
+			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankbd";
 				medium->unmountableState("");
@@ -685,7 +683,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::BDRW)) {
-			mimeType = "media/bluray" + MOUNT_SUFFIX;
+			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankbd";
 				medium->unmountableState("");
@@ -694,7 +692,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDROM)) {
-			mimeType = "media/bluray" + MOUNT_SUFFIX;
+			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankhddvd";
 				medium->unmountableState("");
@@ -703,7 +701,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDR)) {
-			mimeType = "media/bluray" + MOUNT_SUFFIX;
+			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankhddvd";
 				medium->unmountableState("");
@@ -712,7 +710,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDRW)) {
-			mimeType = "media/bluray" + MOUNT_SUFFIX;
+			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankhddvd";
 				medium->unmountableState("");
@@ -742,7 +740,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		// This device is a hard or flash disk of some kind
 
 		// Default
-		mimeType = "media/hdd" + MOUNT_SUFFIX;
+		mimeType = "media/hdd" + MOUNT_MEDIA_SUFFIX;
 		if (useDefaultLabel) {
 			diskLabel = i18n("%1 Fixed Disk (%2)").arg(sdevice->deviceFriendlySize(), sdevice->deviceNode());
 		}
@@ -750,7 +748,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::USB)
 		    || sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable)
 		    || sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)) {
-			mimeType = "media/removable" + MOUNT_SUFFIX;
+			mimeType = "media/removable" + MOUNT_MEDIA_SUFFIX;
 			if (useDefaultLabel) {
 				diskLabel = i18n("%1 Removable Device").arg(sdevice->deviceFriendlySize());
 			}
@@ -769,7 +767,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			medium->setIconName("media-flash-sd_mmc" + MOUNTED_ICON_SUFFIX);
 		}
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::MediaDevice)) {
-			medium->setIconName("ipod" + MOUNT_ICON_SUFFIX);
+			medium->setIconName("ipod" + MOUNTED_ICON_SUFFIX);
 			if (sdevice->vendorModel().upper().contains("IPOD") && KProtocolInfo::isKnownProtocol( TQString("ipod") ) ) {
 				medium->unmountableState( "ipod:/" );
 				medium->mountableState(!sdevice->mountPath().isNull());
@@ -779,7 +777,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			medium->setIconName("media-tape" + MOUNTED_ICON_SUFFIX);
 		}
 		if (medium->isMounted() && TQFile::exists(medium->mountPoint() + "/dcim")) {
-			mimeType = "media/camera" + MOUNT_SUFFIX;
+			mimeType = "media/camera" + MOUNT_MEDIA_SUFFIX;
 		}
 	}
 

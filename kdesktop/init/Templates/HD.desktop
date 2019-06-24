@@ -4,4 +4,4 @@ Dev=
 ReadOnly=false
 Type=FSDevice
 Icon=drive-harddisk-mounted
-UnmountIcon=drive-harddisk
+UnmountIcon=drive-harddisk-unmounted

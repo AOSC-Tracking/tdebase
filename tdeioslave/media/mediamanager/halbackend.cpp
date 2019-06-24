@@ -40,15 +40,13 @@
 #include <kstandarddirs.h>
 #include <kprocess.h>
 
-#define MOUNT_SUFFIX (medium->isEncrypted() ? \
+#define MOUNT_MEDIA_SUFFIX (medium->isEncrypted() ? \
 	    (TQString("_encrypted") + (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "_unlocked" : "_locked")) : \
       (medium->isMounted() ? TQString("_mounted") : TQString("_unmounted")))
 
-#define MOUNT_ICON_SUFFIX (medium->isMounted() ? TQString("_mount") : TQString("_unmount"))
-
 #define MOUNTED_ICON_SUFFIX (medium->isEncrypted() ? \
 	    (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "-unlocked" : "-locked") : \
-      (medium->isMounted() ? TQString("-mounted") : TQString("")))
+      (medium->isMounted() ? TQString("-mounted") : TQString("-unmounted")))
 
 /* Static instance of this class, for static HAL callbacks */
 static HALBackend* s_HALBackend;
@@ -562,7 +560,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
     TQString mimeType;
     if (libhal_volume_is_disc(halVolume))
     {
-        mimeType = "media/cdrom" + MOUNT_SUFFIX;
+        mimeType = "media/cdrom" + MOUNT_MEDIA_SUFFIX;
 
         LibHalVolumeDiscType discType = libhal_volume_get_disc_type(halVolume);
         if ((discType == LIBHAL_VOLUME_DISC_TYPE_CDROM) ||
@@ -574,7 +572,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
                 medium->unmountableState("");
             }
             else
-                mimeType = "media/cdwriter" + MOUNT_SUFFIX;
+                mimeType = "media/cdwriter" + MOUNT_MEDIA_SUFFIX;
 
         if ((discType == LIBHAL_VOLUME_DISC_TYPE_DVDROM) || (discType == LIBHAL_VOLUME_DISC_TYPE_DVDRAM) ||
             (discType == LIBHAL_VOLUME_DISC_TYPE_DVDR) || (discType == LIBHAL_VOLUME_DISC_TYPE_DVDRW) ||
@@ -585,7 +583,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
                 medium->unmountableState("");
             }
             else
-                mimeType = "media/dvd" + MOUNT_SUFFIX;
+                mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 
         if (libhal_volume_disc_has_audio(halVolume) && !libhal_volume_disc_has_data(halVolume))
         {
@@ -609,11 +607,11 @@ void HALBackend::setVolumeProperties(Medium* medium)
     }
     else
     {
-        mimeType = "media/hdd" + MOUNT_SUFFIX;
+        mimeType = "media/hdd" + MOUNT_MEDIA_SUFFIX;
         medium->setIconName(TQString::null); // reset icon
         if (libhal_drive_is_hotpluggable(halDrive))
         {
-            mimeType = "media/removable" + MOUNT_SUFFIX;
+            mimeType = "media/removable" + MOUNT_MEDIA_SUFFIX;
             medium->needMounting();
             switch (libhal_drive_get_type(halDrive)) {
             case LIBHAL_DRIVE_TYPE_COMPACT_FLASH:
@@ -630,7 +628,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
                 break;
             case LIBHAL_DRIVE_TYPE_PORTABLE_AUDIO_PLAYER:
             {
-                medium->setIconName("ipod" + MOUNT_ICON_SUFFIX);
+                medium->setIconName("ipod" + MOUNTED_ICON_SUFFIX);
 
                 if (libhal_device_get_property_QString(m_halContext, driveUdi.latin1(), "info.product") == "iPod" &&
 		         KProtocolInfo::isKnownProtocol( TQString("ipod") ) )
@@ -642,7 +640,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
             }
             case LIBHAL_DRIVE_TYPE_CAMERA:
             {
-                mimeType = "media/camera" + MOUNT_SUFFIX;
+                mimeType = "media/camera" + MOUNT_MEDIA_SUFFIX;
                 const char *physdev = libhal_drive_get_physical_device_udi(halDrive);
                 // get model from camera
                 if (physdev && libhal_device_query_capability(m_halContext, physdev, "camera", NULL))
@@ -663,7 +661,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
 
             if (medium->isMounted() && TQFile::exists(medium->mountPoint() + "/dcim"))
             {
-                mimeType = "media/camera" + MOUNT_SUFFIX;
+                mimeType = "media/camera" + MOUNT_MEDIA_SUFFIX;
             }
         }
     }

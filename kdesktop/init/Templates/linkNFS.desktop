@@ -88,4 +88,4 @@ Comment[zh_CN]=新建 NFS 链接
 Comment[zh_TW]=新 NFS 鏈結
 Type=Link
 URL=.source/NFS.desktop
-Icon=nfs_unmount
+Icon=nfs-unmounted

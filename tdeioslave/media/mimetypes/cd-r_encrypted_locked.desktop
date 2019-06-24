@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-optical-cdwriter-locked
+Icon=cd-r-locked
 Type=MimeType
 MimeType=media/cd-r_encrypted_locked
 Comment=Encrypted Locked CD-R

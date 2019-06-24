@@ -147,4 +147,4 @@ Comment[zh_CN]=新建相机
 Comment[zh_TW]=新增照相機
 Type=Link
 URL=.source/CAMERA-Device.desktop
-Icon=camera_unmount
+Icon=camera-unmounted

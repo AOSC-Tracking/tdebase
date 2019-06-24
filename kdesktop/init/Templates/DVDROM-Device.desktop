@@ -4,7 +4,7 @@ Dev=
 ReadOnly=false
 Type=FSDevice
 Icon=media-optical-dvd-mounted
-UnmountIcon=media-optical-dvd
+UnmountIcon=media-optical-dvd-unmounted
 Actions=Eject;
 X-TDE-Priority=TopLevel
 [Desktop Action Eject]

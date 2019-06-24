@@ -155,4 +155,4 @@ Comment[zh_TW]=新軟碟設備
 Comment[zu]=Ithuluzi le-Floppy elisha
 Type=Link
 URL=.source/Floppy.desktop
-Icon=media-floppy-3_5
+Icon=media-floppy-3_5-unmounted

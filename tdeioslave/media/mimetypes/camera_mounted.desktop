@@ -62,7 +62,7 @@ Comment[vi]=Máy chụp ảnh số đã kết nối
 Comment[wa]=Montêye camera
 Comment[zh_CN]=挂载的相机
 Comment[zh_TW]=掛載的照相機
-Icon=camera_mount
+Icon=camera-mounted
 
 X-TDE-AutoEmbed=true
 X-TDE-IsAlso=inode/directory

@@ -3,5 +3,5 @@ MountPoint=
 Dev=
 ReadOnly=false
 Type=FSDevice
-Icon=nfs_mount
-UnmountIcon=nfs_unmount
+Icon=nfs-mounted
+UnmountIcon=nfs-unmounted

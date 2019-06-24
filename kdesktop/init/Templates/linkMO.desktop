@@ -147,4 +147,4 @@ Comment[zh_CN]=新建 MO 设备
 Comment[zh_TW]=新 MO 設備
 Type=Link
 URL=.source/MO-Device.desktop
-Icon=mo_unmount
+Icon=mo-unmounted

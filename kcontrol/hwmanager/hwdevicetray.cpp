@@ -224,7 +224,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	unmountDiskActionMenu->popupMenu()->clear();
 	m_mountMenuIndexMap.clear();
 
-	menu->insertTitle(SmallIcon("drive-harddisk"), i18n("Storage Devices"));
+	menu->insertTitle(SmallIcon("drive-harddisk-unmounted"), i18n("Storage Devices"));
 
 	// Find all storage devices and add them to the popup menu
 	lastMountIndex = 1;
@@ -352,7 +352,7 @@ void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device) {
 			}
 			m_hardwareNotifierContainer->displayMessage(
 				i18n("A disk device has been added!"),
-				i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk"),
+				i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
 				0, 0, "ADD: " + uuid);
 		}
 	}
@@ -370,7 +370,7 @@ void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device) {
 			}
 			m_hardwareNotifierContainer->displayMessage(
 				i18n("A disk device has been removed!"),
-				i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk"),
+				i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
 				0, 0, "REMOVE: " + uuid);
 		}
 	}
@@ -388,7 +388,7 @@ void HwDeviceSystemTray::deviceChanged(TDEGenericDevice* device) {
 			}
 			m_hardwareNotifierContainer->displayMessage(
 				i18n("A disk device has been changed!"),
-				i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk"),
+				i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
 				0, 0, "CHANGE: " + uuid);
 		}
 	}
