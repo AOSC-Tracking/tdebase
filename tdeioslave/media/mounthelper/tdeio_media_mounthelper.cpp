@@ -154,11 +154,11 @@ MountHelper::MountHelper() : TDEApplication()
 		* anyway. Only if both unmount and eject fail, notify the user by
 		* displaying the saved error message (see ejectFinished()).
 		*/
+		TQStringVariantMap unmountResult;
 		if (medium.isMounted())
 		{
 			DCOPReply reply = mediamanager.call( "unmount", medium.id());
 			if (reply.isValid()) {
-			  TQStringVariantMap unmountResult;
 				reply.get(unmountResult);
 				if (unmountResult["result"].toBool()) {
 					reply.get(m_errorStr);
