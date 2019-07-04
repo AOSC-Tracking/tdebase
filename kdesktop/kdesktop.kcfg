@@ -34,7 +34,7 @@
     <entry key="BackgroundOpacity" type="Int">
       <default>100</default>
       <label>Background Opacity</label>
-      <whatsthis>Here you can the opacity of the background (0-100). A composite manager can then render something behind it.</whatsthis>
+      <whatsthis>Here you can set the opacity of the background (0-100). A composite manager can then render something behind it.</whatsthis>
     </entry>
   </group>
   <group name="General"> 

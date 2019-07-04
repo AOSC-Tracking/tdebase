@@ -201,7 +201,7 @@ on non-Linux systems too?
 <tip category="Konsole">
 <html>
 <p>...that working with remote hosts in Konsole can be made much easier by setting the
-prompt to correctly show your hostname and present path? Try setting your prompt in our
+prompt to correctly show your hostname and present path? Try setting your prompt in your
 ~/.bashrc with: "export PS1='\[\e[0m\h:\w> '" You can then just select your prompt and
 press middle-mouse to paste it as the source or destination on the command line.
 </html>
