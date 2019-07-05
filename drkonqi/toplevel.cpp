@@ -432,7 +432,7 @@ void Toplevel::postCrashDataToServerResult(TDEIO::Job *job)
 			responseString = responseString.mid(4);
 			KMessageBox::information
 			(0,
-			i18n("<p>Your crash report has been uploaded!</p></p>You may reference it if desired by its unique ID:<br>%1</p>").arg(responseString),
+			i18n("<p>Your crash report has been uploaded!</p><p>You may reference it if desired by its unique ID:<br>%1</p>").arg(responseString),
 			i18n("Report uploaded"));
 			close();
 		}
