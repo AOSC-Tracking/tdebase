@@ -78,7 +78,7 @@
 					<cstring>globalConfigEdit</cstring>
 				</property>
 				<property name="text">
-					<string>Edt global floating taskbar configuration</string>
+					<string>Edit global floating taskbar configuration</string>
 				</property>
 			</widget>
 		</grid>

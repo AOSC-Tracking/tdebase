@@ -319,7 +319,7 @@
                         <string>&amp;Hide panel when configured screen is not available</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>When this option is selected, this panel will be hidden if its Xinerama screen is not available.  This panel will be automatically restored when the configured Xinerama screen is reenabked.</string>
+                        <string>When this option is selected, this panel will be hidden if its Xinerama screen is not available.  This panel will be automatically restored when the configured Xinerama screen is reenabled.</string>
                     </property>
                 </widget>
                 <widget class="TQCheckBox" row="5" column="0" rowspan="1" colspan="2">
