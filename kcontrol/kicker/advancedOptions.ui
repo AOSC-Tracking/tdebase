@@ -304,7 +304,7 @@
                         <string>Blur the background when transparency is enabled</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>When checked, the displayed semi-transparent background image will be blurred to reduce eyestrain</string>
+                        <string>When checked, the displayed semi-transparent background image will be blurred to reduce eyestrain.</string>
                     </property>
                 </widget>
             </grid>
