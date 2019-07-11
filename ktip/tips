@@ -104,7 +104,7 @@ displayed in Konqueror).</p>
 </ul>
 </p>
 <center>
-<img src="crystalsvg/48x48/devices/printer1.png">
+<img src="crystalsvg/48x48/devices/printer.png">
 <p align="right"><em>Contributed by Kurt Pfeifle</em></p>
 </html>
 </tip>
@@ -166,6 +166,7 @@ K Desktop Environment version 3.5, which was originally written by the KDE Team,
 a world-wide network of software engineers committed to Free Software development.
 The name <i>Trinity</i> was chosen because the word means <i>Three</i> as in
 <i>continuation of KDE 3</i>.</p>
+
 <p>Since then, TDE has evolved to be an independent and standalone computer desktop
 environment project. The developers have molded the code to its own identity without
 giving up on the efficiency, productivity and traditional user interface experience
@@ -246,7 +247,7 @@ as well as for large networks.
 <p>
 TDE is based on a well-designed C++ foundation. C++ is a programming
 language well suited to desktop development. The TDE object model
-extends the power of C++ even further.
+extends the power of C++ even further.</p>
 <center><img src="hicolor/48x48/apps/konqueror.png"></center>
 </html>
 </tip>
@@ -279,7 +280,7 @@ by pressing <i>Alt+F2</i>). Then select the file to print. You can print
 as many items of different types as you want, all at once.
 </p>
 <center>
-<img src="crystalsvg/48x48/devices/printer1.png"></center>
+<img src="crystalsvg/48x48/devices/printer.png"></center>
 <p align="right"><em>Contributed by Kurt Pfeifle</em></p>
 </html>
 </tip>
@@ -337,7 +338,7 @@ Need comprehensive info about TDEPrinting?<br> </p>
 and get the TDEPrint Handbook</a>
 displayed.</p>
 <center>
-<img src="crystalsvg/48x48/devices/printer1.png">
+<img src="crystalsvg/48x48/devices/printer.png">
 </html>
 </tip>
 
@@ -365,7 +366,7 @@ take a look at <a href="help:/kicker">the Kicker Handbook</a>.</p>
 If you want to kill some time, TDE comes with an extensive collection
 of games.</p><br>
 <center>
-<img src="crystalsvg/48x48/apps/package_games.png">
+<img src="crystalsvg/48x48/categories/applications-games.png">
 </html>
 </tip>
 
@@ -507,10 +508,10 @@ and "dragging" it with the mouse.</p><br>
 <html>
 <p> Want TDE's printing power in non-TDE apps?  </p>
 <p> Then use <strong>'tdeprinter'</strong> as "print command".
-Works with Firefox, Seamonkey, Epiphany, gv, Acrobat Reader,
+Works with Firefox, SeaMonkey, PaleMoon, Chrome/Chromium, Epiphany, gv, Acrobat Reader,
 LibreOffice, OpenOffice, any GNOME application and many more...</p>
 <center>
-<img src="crystalsvg/48x48/devices/printer1.png">
+<img src="crystalsvg/48x48/devices/printer.png">
 <p align="right"><em>Contributed by Kurt Pfeifle</em></p>
 </html>
 </tip>
@@ -594,7 +595,7 @@ tdeprinter -d infotec \
  This prints 3 different files (from different folders) to printer "infotec".
  </p>
 <center>
-<img src="crystalsvg/48x48/devices/printer1.png">
+<img src="crystalsvg/48x48/devices/printer.png">
 <p align="right"><em>Contributed by Kurt Pfeifle</em></p>
 </html>
 </tip>
@@ -730,7 +731,7 @@ in Konqueror. In the Konsole window, they are often colored red
 <html>
 <p>
 If you want to make your desktop look more interesting, you can find
-tons of themes, widget styles window decorations and more at <a href="http://kde-look.org/">kde-look.org</a>.
+tons of themes, widget styles window decorations and more at <a href="http://trinity-look.org/">trinity-look.org</a>.
 </p>
 <p align="right"><em>Contributed by Carsten Niehaus</em></p>
 </html>
@@ -760,7 +761,7 @@ Drag a file and drop it on the "Files" tab of an opened
 and click the "Print" button.
 </p>
 <center>
-<img src="crystalsvg/48x48/devices/printer1.png">
+<img src="crystalsvg/48x48/devices/printer.png">
 <p align="right"><em>Contributed by Kurt Pfeifle</em></p>
 </html>
 </tip>
@@ -925,9 +926,9 @@ Vector Graphics (SVG) image filetypes. You can view these images in
 Konqueror and even set an SVG image as a background for your desktop.</p>
 
 <p>There is a great bunch of <a
-href="http://kde-look.org/index.php?xcontentmode=7" title="kdelook
+href="http://trinity-look.org" title="trinitylook
 SVG">SVG wallpapers</a> for your desktop background available at <a
-href="http://kde-look.org" title="kdelook">kde-look.org</a>.</p>
+href="http://trinity-look.org" title="trinitylook">trinity-look.org</a>.</p>
 </html>
 </tip>
 
