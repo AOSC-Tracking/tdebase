@@ -289,7 +289,7 @@ TQString Glossary::entryToHtml( const GlossaryEntry &entry )
 
     TQTextStream htmlStream(&htmlFile);
     return htmlStream.read()
-           .arg( i18n( "KDE Glossary" ) )
+           .arg( i18n( "TDE Glossary" ) )
            .arg( entry.term() )
            .arg( View::langLookup( "khelpcenter/konq.css" ) )
            .arg( View::langLookup( "khelpcenter/pointers.png" ) )
