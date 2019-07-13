@@ -1109,10 +1109,103 @@ You can let TDE turn the <b>NumLock</b> ON or OFF at startup.
 Open the Control Center, select Peripherals->Keyboard and make your
  choice.
 </p>
+</html>
+</tip>
+
+<tip category="TDE">
+<html>
+<p>Do you already know the <i>TDE IRC channel</i>?</p>
+
+<p>
+<b>network:</b> chat.freenode.net
+<br />
+<b>channel:</b> #trinity-desktop
+<p>
+
+<p>You can join if you have some questions or want to meet some other people from the TDE community.</p>
+
+<p>There is a small but friendly group of people always there. Sometimes you can also meet the developers there and give them your feedback or ask other users for help. It is also the place where you can ask about ways to start contributing to TDE.</p>
+
+<p><b>Join now!</b></p>
+
+</html>
+</tip>
+
+<tip category="TDE">
+<html>
+<p>You can write your <b>own TQt and TDE applications</b>.</p>
+
+<p>TDE offers you all you need to do that. Start by looking at the <a href="https://trinitydesktop.org/docs/qt3/" title="tqtapi">TQt API docs</a> and advance to learn about the <a href="https://trinitydesktop.org/docs/trinity/index.html" title="tdeapi">TDE specific API</a>.<p>
+
+<p>You can also use the <a href="https://wiki.trinitydesktop.org/Category:Developers" title="tdewiki">TDE wiki for developers</a>.</p>
+
+<p>TDE allows you to contribute to its development by joining the <a href="https://mirror.git.trinitydesktop.org/gitea/" title="tgw">TDE Gitea Workspace (TGW)</a>. Create an account and start to develop right now! You can submit code fixes, changes and full new applications with ease. Or you could report issues and provide suggestions to the other TDE developers.</p>
+
+<p>If you develop a useful and working application, it could be included within TDE. Exactly like in the old KDE3 days! There is a great need for additional, modern TDE applications.</p>
+
+<p><b>You can contribute this way too, to make TDE great again!</b></p>
+
+</html>
+</tip>
+
+<tip category="TDE">
+<html>
+<p>TDE is about <b>freedom</b> and about <b>choice</b>. It will not patronize you as a user and will not force you to use specific tools or init systems.</p>
+
+<p>In contrast to that, it supports <i>different backends</i> and it is developed with choice in mind, following the Unix/Linux tradition.</p>
+
+<p>The TDE hardware manager for example, supports different backends for udisks, udevil and pmount, networkmanager and so on and can be extended.</p>
+
+<p>You are not limited to Linux either, because TDE aims to support different Unix variants (BSD and Solaris for example) too.</p>
+
+<p>Isn't that wonderful?</p>
+
+</html>
+</tip>
+
+<tip category="TDE">
+<html>
+<p>Do you already know the <a href="https://wiki.trinitydesktop.org" title="tdewiki">TDE wiki?</a><p>
+
+<p>This place is intended for sharing information among users, like the old KDE3 wiki.</p>
+
+<p>There is a lof of <i>useful information</i> there. You can contribute to it too.</p>
+
+<p>Just create your account there and share tips, step by step instructions, documentation or old KDE3 wiki content, which you think could be usefull in TDE.</p>
+
+<p><b>The TDE community will be thankful for your contribution!</b></p>
+
+</html>
+</tip>
+
+<tip category="TDE">
+<html>
+<p>Chances are that you have come across some <i>FUD (fear, uncertainty and doubts) about TDE</i>, which is spreaded on some news portals.</p>
+
+<p>TDE started as a fork of KDE3 back in 2010 and since then it has continued to offer the same <i>excellent performances</i> and <i>low memory usage</i> that KDE3 offered back in the days, still running smoothly on old hardware. By maintaining TQt3 (its own fork of Qt3) and its own code, TDE continues to offer a secure, responsive and efficient desktop environment, focusing on stability and functionality rather than the latest eye-candy effect.</p>
+
+<p>People from all around the world have joined the TDE project and its great community is growing all the time in spite of a lot of internet scepticism.</p>
+
+<p><b>Go and spread the news around the world!</b></p>
+
+</html>
+</tip>
+
+<tip category="Panel">
+<html>
+<p>You can get a lof of wonderful dockapps for the TDE <i>application dock bar</i> from the repositories of your distribution or at the <a href="https://www.dockapps.net/" title="dockappsrepo">dockapps repository</a>.</p>
+
+<p>Dockapps are just tiny applications, comparable to SuperKaramba widgets, that uses 64x64 pixels and provide you with useful feedback in a small space.</p>
+
+<p>You can start them from Konsole, after adding the application dock bar to your desktop. It will display them and you can use them like in WindowMaker or any other windowmanager supporting dockapps.</p>
+
+<p>Just try some and enjoy!</p>
+
 <p>
 <hr><br><br>
 <i>This is the last tip in the tips database. Clicking "Next" will take you back to
  the first tip.</i>
 </p>
+
 </html>
 </tip>
