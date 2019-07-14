@@ -418,8 +418,7 @@ void KasPrefsDialog::addAdvancedPage()
 
    progressCheck = new TQCheckBox( i18n("Enable &progress indicator"), advancedPage );
    TQWhatsThis::add( progressCheck,
-		    i18n( "Enables the display of a progress bar in the label of windows show "
-			  "are progress indicators." ) );
+		    i18n( "Enables the display of a progress indicator in the label of windows." ) );
    progressCheck->setChecked( kasbar->showProgress() );
    connect( progressCheck, TQT_SIGNAL( toggled(bool) ), kasbar, TQT_SLOT( setShowProgress(bool) ) );
 
