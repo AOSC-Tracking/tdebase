@@ -107,17 +107,17 @@
   <group name="Version"> 
     <entry key="KDEVersionMajor" type="Int">
       <default>0</default>
-      <label>KDE major version number</label>
+      <label>TDE major version number</label>
       <whatsthis></whatsthis>
     </entry>
     <entry key="KDEVersionMinor" type="Int">
       <default>0</default>
-      <label>KDE minor version number</label>
+      <label>TDE minor version number</label>
       <whatsthis></whatsthis>
     </entry>
     <entry key="KDEVersionRelease" type="Int">
       <default>0</default>
-      <label>KDE release version number</label>
+      <label>TDE release version number</label>
       <whatsthis></whatsthis>
     </entry>
   </group>
