@@ -608,7 +608,7 @@ void ButtonDropSite::drawContents( TQPainter* p )
 	p->fillRect( r, c1 );
 	p->setPen( Qt::white );
 	p->setFont( TQFont( TDEGlobalSettings::generalFont().family(), 12, TQFont::Bold) );
-	p->drawText( r, AlignLeft | AlignVCenter, i18n("KDE") );
+	p->drawText( r, AlignLeft | AlignVCenter, i18n("TDE") );
 
 	offset = geometry().width() - 3 - rightoffset;
 	drawButtonList( p, buttonsRight, offset );

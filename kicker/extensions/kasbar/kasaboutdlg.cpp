@@ -155,7 +155,7 @@ void KasAboutDialog::addInfoPage()
 
    new TQLabel( i18n( "<qt><body>"
 		     "<h2>Kasbar Version: %1</h2>"
-		     "<b>KDE Version:</b> %2"
+		     "<b>TDE Version:</b> %2"
 		     "</body></qt>" )
 	       .arg( VERSION_STRING ).arg( TDE_VERSION_STRING ),
 	       aboutPage );
