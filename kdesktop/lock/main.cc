@@ -243,6 +243,7 @@ int main( int argc, char **argv )
 		sigset_t orig_mask;
 
 		// Block reception of all signals in this thread
+		sigfillset(&new_mask);
 		sigprocmask(SIG_BLOCK, &new_mask, NULL);
 
 		signalled_forcelock = FALSE;
