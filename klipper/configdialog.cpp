@@ -229,7 +229,7 @@ ActionWidget::ActionWidget( const ActionList *list, ConfigDialog* configWidget, 
 
     listView = new ListView( configWidget, this, "list view" );
     lblAction->setBuddy( listView );
-    listView->addColumn( i18n("Regular Expression (see http://doc.trolltech.com/tqregexp.html#details)") );
+    listView->addColumn( i18n("Regular Expression (see https://trinitydesktop.org/docs/qt3/qregexp.html#details)") );
     listView->addColumn( i18n("Description") );
 
     listView->setRenameable(0);
