@@ -185,7 +185,7 @@ TQString GaleonImportCommand::requestFilename() const {
 TQString KDE2ImportCommand::requestFilename() const {
     return KFileDialog::getOpenFileName(
             locateLocal("data", "konqueror"),
-            i18n("*.xml|KDE Bookmark Files (*.xml)"));
+            i18n("*.xml|TDE Bookmark Files (*.xml)"));
 }
 
 /* -------------------------------------- */

@@ -187,7 +187,7 @@ void KEBApp::createActions() {
         i18n("Import &Galeon Bookmarks..."), 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotImport() ), actionCollection(), "importGaleon");
     (void) new TDEAction(
-        i18n("Import &KDE2/KDE3 Bookmarks..."), 0,
+        i18n("Import &KDE2/KDE3/TDE Bookmarks..."), 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotImport() ), actionCollection(), "importKDE2");
     (void) new TDEAction(
         i18n("Import &IE Bookmarks..."), 0,

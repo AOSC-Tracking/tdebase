@@ -56,8 +56,8 @@ TDEStylePage::TDEStylePage(TQWidget *parent, const char *name ) : TDEStylePageDl
 	kde->setText( 1, i18n( "TDE default style" ) );
 
 	classic = new TQListViewItem( klv_styles);
-	classic->setText( 0, i18n( "KDE Classic" ) );
-	classic->setText( 1, i18n( "Classic KDE style" ) );
+	classic->setText( 0, i18n( "TDE Classic" ) );
+	classic->setText( 1, i18n( "Classic TDE style" ) );
 
 	keramik = new TQListViewItem( klv_styles );
 	keramik->setText( 0, i18n( "Keramik" ) );
