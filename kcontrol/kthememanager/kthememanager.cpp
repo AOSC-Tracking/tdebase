@@ -49,8 +49,7 @@ kthememanager::kthememanager( TQWidget *parent, const char *name )
     TDEAboutData *about = new TDEAboutData("kthememanager", I18N_NOOP("TDE Theme Manager"),
                                        "0.4", I18N_NOOP("This control module handles installing, removing and "
                                                         "creating visual TDE themes."),
-                                       TDEAboutData::License_GPL, "(c) 2003, 2004, 2006 Lukáš Tinkl", 0,
-                                       "http://developer.kde.org/~lukas/kthememanager");
+                                       TDEAboutData::License_GPL, "(c) 2003, 2004, 2006 Lukáš Tinkl", 0);
     setAboutData( about );
 
     setQuickHelp( i18n("This control module handles installing, removing and "

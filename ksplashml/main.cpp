@@ -45,8 +45,7 @@ int main( int argc, char **argv )
     VERSION,
     I18N_NOOP("Trinity splash screen"),
     TDEAboutData::License_GPL,
-    I18N_NOOP("(c) 2001 - 2003, Flaming Sword Productions\n (c) 2003 KDE developers"),
-    "http://www.kde.org");
+    I18N_NOOP("(c) 2001 - 2003, Flaming Sword Productions\n (c) 2003 KDE developers"));
   about.addAuthor( "Ravikiran Rajagopal", I18N_NOOP("Author and maintainer"), "ravi@ee.eng.ohio-state.edu" );
   about.addAuthor( "Brian Ledbetter", I18N_NOOP("Original author"), "brian@shadowcom.net" );
 
