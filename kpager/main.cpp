@@ -66,8 +66,7 @@ int main(int argc, char **argv)
 {
     TDEAboutData *aboutdata = new TDEAboutData("kpager", "KPager", "1.5",
 					   I18N_NOOP("Desktop Overview"), TDEAboutData::License_GPL,
-					   "(C) 1998-2002, Antonio Larrosa Jimenez","",
-					   "http://developer.kde.org/~larrosa/kpager.html");
+					   "(C) 1998-2002, Antonio Larrosa Jimenez","");
 
     aboutdata->addAuthor("Antonio Larrosa Jimenez",
 			 I18N_NOOP("Original Developer/Maintainer"),"larrosa@kde.org",

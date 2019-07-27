@@ -29,8 +29,7 @@ int main(int argc, char **argv) {
 	TDEAboutData about("knetattach", I18N_NOOP("TDE Network Wizard"), "1.0",
 		I18N_NOOP("TDE Network Wizard"),
 		TDEAboutData::License_GPL,
-		I18N_NOOP("(c) 2004 George Staikos"), 0,
-		"http://www.kde.org/");
+		I18N_NOOP("(c) 2004 George Staikos"), 0);
 
 	about.addAuthor("George Staikos", I18N_NOOP("Primary author and maintainer"), "staikos@kde.org");
 
