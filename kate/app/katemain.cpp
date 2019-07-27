@@ -66,7 +66,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
 
   TDEAboutData aboutData ("kate", I18N_NOOP("Kate"), kateVersion.latin1(),
                         I18N_NOOP( "Kate - Advanced Text Editor" ), TDEAboutData::License_LGPL_V2,
-                        I18N_NOOP( "(c) 2000-2005 The Kate Authors" ), 0, "http://kate.kde.org");
+                        I18N_NOOP( "(c) 2000-2005 The Kate Authors" ), 0);
 
   aboutData.addAuthor ("Christoph Cullmann", I18N_NOOP("Maintainer"), "cullmann@kde.org", "http://www.babylon2k.de");
   aboutData.addAuthor ("Anders Lund", I18N_NOOP("Core Developer"), "anders@alweb.dk", "http://www.alweb.dk");
