@@ -1097,7 +1097,7 @@ void KCMStyle::addWhatsThis()
 
 	// Page3
 	TQWhatsThis::add( page3, i18n("<b>Note:</b> that all widgets in this combobox "
-							"do not apply to Qt-only applications.") );
+							"do not apply to TQt-only applications.") );
 	TQWhatsThis::add( cbHoverButtons, i18n("If this option is selected, toolbar buttons will change "
 							"their color when the mouse cursor is moved over them." ) );
 	TQWhatsThis::add( cbTransparentToolbars, i18n("If you check this box, the toolbars will be "

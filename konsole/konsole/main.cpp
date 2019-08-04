@@ -86,7 +86,7 @@ static TDECmdLineOptions options[] =
    { "schema <name> | <file>",   I18N_NOOP("Set schema to 'name' or use 'file'"), 0 },
    { "schemas",         0, 0 },
    { "schemata",        I18N_NOOP("List available schemata"), 0 },
-   { "script",          I18N_NOOP("Enable extended DCOP Qt functions"), 0 },
+   { "script",          I18N_NOOP("Enable extended DCOP TQt functions"), 0 },
    { "workdir <dir>",   I18N_NOOP("Change working directory to 'dir'"), 0 },
    { "!e <command>",    I18N_NOOP("Execute 'command' instead of shell"), 0 },
    // WABA: All options after -e are treated as arguments.
@@ -238,15 +238,15 @@ extern "C" int KDE_EXPORT kdemain(int argc, char* argv[])
   TEWidget::setAntialias( !has_noxft );
   TEWidget::setStandalone( true );
 
-  // The following Qt options have no effect; warn users.
+  // The following TQt options have no effect; warn users.
   if( qtargs->isSet("background") )
-      kdWarning() << "The Qt option -bg, --background has no effect." << endl;
+      kdWarning() << "The TQt option -bg, --background has no effect." << endl;
   if( qtargs->isSet("foreground") )
-      kdWarning() << "The Qt option -fg, --foreground has no effect." << endl;
+      kdWarning() << "The TQt option -fg, --foreground has no effect." << endl;
   if( qtargs->isSet("button") )
-      kdWarning() << "The Qt option -btn, --button has no effect." << endl;
+      kdWarning() << "The TQt option -btn, --button has no effect." << endl;
   if( qtargs->isSet("font") )
-      kdWarning() << "The Qt option -fn, --font has no effect." << endl;
+      kdWarning() << "The TQt option -fn, --font has no effect." << endl;
 
   TDEApplication* a = NULL;
 #ifdef COMPOSITE
