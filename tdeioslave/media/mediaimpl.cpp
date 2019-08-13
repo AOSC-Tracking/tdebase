@@ -422,7 +422,6 @@ void MediaImpl::createMediumEntry(TDEIO::UDSEntry& entry,
 	addAtom(entry, TDEIO::UDS_FILE_TYPE, S_IFDIR);
 
 	addAtom(entry, TDEIO::UDS_MIME_TYPE, 0, medium.mimeType());
-	addAtom(entry, TDEIO::UDS_GUESSED_MIME_TYPE, 0, "inode/directory");
 
 	if (medium.softHidden()) {
 		addAtom(entry, TDEIO::UDS_HIDDEN , true);

@@ -350,24 +350,25 @@ void TDEBackend::ResetProperties(TDEStorageDevice * sdevice, bool allowNotificat
 
 	// Keep these conditions in sync with ::AddDevice above, OR ELSE!!!
 	// BEGIN
-
-	if (!(sdevice->isDiskOfType(TDEDiskDeviceType::LUKS))
-		&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem))
-		&& !(sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio))
-		&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank))
-		) {
-	}
-	else {
-		// Do not list the LUKS backend device if it has been unlocked elsewhere
-		if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
-			if (sdevice->holdingDevices().count() > 0) {
-				m->setHidden(true);
-			}
-			else {
-				m->setHidden(false);
-			}
+	if (sdevice->isDiskOfType(TDEDiskDeviceType::HDD)) {
+		if (!(sdevice->isDiskOfType(TDEDiskDeviceType::LUKS))
+			&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem))
+			&& !(sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio))
+			&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank))
+			) {
 		}
-		setVolumeProperties(m);
+		else {
+			// Do not list the LUKS backend device if it has been unlocked elsewhere
+			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
+				if (sdevice->holdingDevices().count() > 0) {
+					m->setHidden(true);
+				}
+				else {
+					m->setHidden(false);
+				}
+			}
+			setVolumeProperties(m);
+		}
 	}
 
 	if ((sdevice->isDiskOfType(TDEDiskDeviceType::CDROM))
