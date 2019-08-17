@@ -49,7 +49,6 @@
 TDEBackend::TDEBackend(MediaList &list, TQObject* parent)
     : TQObject()
     , BackendBase(list)
-    , m_unlockDialog(0)
     , m_parent(parent)
 {
 	// Initialize the TDE device manager
@@ -146,38 +145,29 @@ void TDEBackend::AddDevice(TDEStorageDevice * sdevice, bool allowNotification)
 	// Add volume block devices
 	if (sdevice->isDiskOfType(TDEDiskDeviceType::HDD)) {
 		/* We only list volumes that...
-		*  - are encrypted with LUKS or
+		*  - are encrypted or
 		*  - have a filesystem or
 		*  - have an audio track
 		*/
-		if (!(sdevice->isDiskOfType(TDEDiskDeviceType::LUKS))
-			&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem))
-			&& !(sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio))
-			&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank))
+		if (!sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) &&
+		    !sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted) &&
+			  !sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem) &&
+			  !sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio) &&
+			  !sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)
 			) {
 			//
 		}
-		/* We also don't display devices that underlie other devices;
-		*  e.g. the raw partition of a device mapper volume
-		*/
-		else if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::UsedByDevice)
-			 || (sdevice->fileSystemUsage().upper() == "RAID")) {
+		// We also don't display devices that underlie other devices, unless they are encrypted devices
+		else if ((sdevice->checkDiskStatus(TDEDiskDeviceStatus::UsedByDevice) &&
+		         !sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) &&
+		         !sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted)) ||
+			       sdevice->fileSystemUsage().upper() == "RAID") {
 			//
 		}
 		else {
 			// Create medium
 			Medium* medium = new Medium(sdevice->uniqueID(), driveUDIFromDeviceUID(sdevice->uniqueID()), "");
 			setVolumeProperties(medium);
-
-			// Do not list the LUKS backend device if it has been unlocked elsewhere
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
-				if (sdevice->holdingDevices().count() > 0) {
-					medium->setHidden(true);
-				}
-				else {
-					medium->setHidden(false);
-				}
-			}
 
 			// Hide udev hidden devices by default but allow the user to override if desired via Show Hidden Files
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hidden)) {
@@ -266,33 +256,29 @@ void TDEBackend::AddDevice(TDEStorageDevice * sdevice, bool allowNotification)
 		}
 
 		/* We only list volumes that...
-		*  - are encrypted with LUKS or
+		*  - are encrypted or
 		*  - have a filesystem or
-		*  - are a floppy disk
+		*  - have an audio track
 		*/
-		if (!(sdevice->isDiskOfType(TDEDiskDeviceType::LUKS))
-			&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem))
-			&& !(sdevice->isDiskOfType(TDEDiskDeviceType::Floppy))
-			&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank))
+		if (!sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) &&
+		    !sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted) &&
+			  !sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem) &&
+			  !sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio) &&
+			  !sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)
 			) {
+			//
+		}
+		// We also don't display devices that underlie other devices, unless they are encrypted devices
+		else if ((sdevice->checkDiskStatus(TDEDiskDeviceStatus::UsedByDevice) &&
+		         !sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) &&
+		         !sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted)) ||
+			       sdevice->fileSystemUsage().upper() == "RAID") {
 			//
 		}
 		else {
 			// Create medium
 			Medium* medium = new Medium(sdevice->uniqueID(), driveUDIFromDeviceUID(sdevice->uniqueID()), "");
-
 			setFloppyProperties(medium);
-
-			// Do not list the LUKS backend device if it has been unlocked elsewhere
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
-				if (sdevice->holdingDevices().count() > 0) {
-					medium->setHidden(true);
-				}
-				else {
-					medium->setHidden(false);
-				}
-			}
-
 			m_mediaList.addMedium(medium, allowDialogNotification);
 
 			kdDebug(1219) << "TDEBackend::AddDevice inserted floppy medium for " << sdevice->uniqueID() << endl;
@@ -359,24 +345,28 @@ void TDEBackend::ResetProperties(TDEStorageDevice * sdevice, bool allowNotificat
 	Medium* m = new Medium(sdevice->uniqueID(), driveUDIFromDeviceUID(sdevice->uniqueID()), "");
 
 	// Keep these conditions in sync with ::AddDevice above, OR ELSE!!!
-	// BEGIN
 	if (sdevice->isDiskOfType(TDEDiskDeviceType::HDD)) {
-		if (!(sdevice->isDiskOfType(TDEDiskDeviceType::LUKS))
-			&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem))
-			&& !(sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio))
-			&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank))
+		/* We only list volumes that...
+		*  - are encrypted or
+		*  - have a filesystem or
+		*  - have an audio track
+		*/
+		if (!sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) &&
+		    !sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted) &&
+			  !sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem) &&
+			  !sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio) &&
+			  !sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)
 			) {
+			//
+		}
+		// We also don't display devices that underlie other devices, unless they are encrypted devices
+		else if ((sdevice->checkDiskStatus(TDEDiskDeviceStatus::UsedByDevice) &&
+		         !sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) &&
+		         !sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted)) ||
+			       sdevice->fileSystemUsage().upper() == "RAID") {
+			//
 		}
 		else {
-			// Do not list the LUKS backend device if it has been unlocked elsewhere
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
-				if (sdevice->holdingDevices().count() > 0) {
-					m->setHidden(true);
-				}
-				else {
-					m->setHidden(false);
-				}
-			}
 			setVolumeProperties(m);
 		}
 	}
@@ -416,25 +406,27 @@ void TDEBackend::ResetProperties(TDEStorageDevice * sdevice, bool allowNotificat
 		(sdevice->isDiskOfType(TDEDiskDeviceType::Zip)) ||
 		(sdevice->isDiskOfType(TDEDiskDeviceType::Jaz))
 		) {
-
-		if (!(sdevice->isDiskOfType(TDEDiskDeviceType::LUKS))
-			&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem))
-			&& !(sdevice->isDiskOfType(TDEDiskDeviceType::Floppy))
-			&& !(sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank))
+		/* We only list volumes that...
+		*  - are encrypted or
+		*  - have a filesystem or
+		*  - have an audio track
+		*/
+		if (!sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) &&
+		    !sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted) &&
+			  !sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem) &&
+			  !sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio) &&
+			  !sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)
 			) {
 			//
 		}
+		// We also don't display devices that underlie other devices, unless they are encrypted devices
+		else if ((sdevice->checkDiskStatus(TDEDiskDeviceStatus::UsedByDevice) &&
+		         !sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) &&
+		         !sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted)) ||
+			       sdevice->fileSystemUsage().upper() == "RAID") {
+			//
+		}
 		else {
-			// Do not list the LUKS backend device if it has been unlocked elsewhere
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
-				if (sdevice->holdingDevices().count() > 0) {
-					m->setHidden(true);
-				}
-				else {
-					m->setHidden(false);
-				}
-			}
-
 			setFloppyProperties(m);
 		}
 	}
@@ -442,8 +434,6 @@ void TDEBackend::ResetProperties(TDEStorageDevice * sdevice, bool allowNotificat
 	if (sdevice->isDiskOfType(TDEDiskDeviceType::Camera)) {
 		setCameraProperties(m);
 	}
-
-	// END
 
 	if ((sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable)) && (!(sdevice->checkDiskStatus(TDEDiskDeviceStatus::Inserted)))) {
 		kdDebug(1219) << "TDEBackend::ResetProperties for " << sdevice->uniqueID() << " device was removed from system" << endl;
@@ -468,7 +458,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 	}
 
 	medium->setName(generateName(sdevice->deviceNode()));
-	if ((sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) || (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt))) {
+	if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) || sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted)) {
 		medium->setEncrypted(true);
 	}
 	else {
@@ -782,15 +772,6 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 	}
 
-	if (!medium->needMounting()) {
-		if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
-			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::UsedByDevice)) {
-				// Encrypted base devices must be set to this mimetype or they won't open when the base device node is passed to the tdeioslave
-				mimeType = "media/removable_mounted";
-			}
-		}
-	}
-
 	medium->setLabel(diskLabel);
 	medium->setMimeType(mimeType);
 }
@@ -813,7 +794,7 @@ bool TDEBackend::setFloppyProperties(Medium* medium)
 	// Any more?
 	if ((sdevice->isDiskOfType(TDEDiskDeviceType::Zip)) || (sdevice->isDiskOfType(TDEDiskDeviceType::Jaz))) {
 		medium->setName(generateName(sdevice->deviceNode()));
-		if ((sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) || (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt))) {
+		if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) || sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted)) {
 			medium->setEncrypted(true);
 		}
 		else {
@@ -1173,16 +1154,6 @@ bool TDEBackend::setMountoptions(const TQString &name, const TQStringList &optio
 	return true;
 }
 
-void TDEBackend::slotPasswordReady() {
-	m_decryptionPassword = m_unlockDialog->getPassword();
-	m_decryptPasswordValid = true;
-}
-
-void TDEBackend::slotPasswordCancel() {
-	m_decryptionPassword = TQString::null;
-	m_decryptPasswordValid = true;
-}
-
 TQStringVariantMap TDEBackend::mount(const Medium *medium)
 {
 	kdDebug(1219) << "TDEBackend::mount for medium " << medium->name() << endl;
@@ -1255,87 +1226,7 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 		}
 	}
 	else {
-		TQString iconName = medium->iconName();
-		if (iconName.isEmpty())
-		{
-			TQString mime =  medium->mimeType();
-			iconName = KMimeType::mimeType(mime)->icon(mime, false);
-		}
-
-		bool continue_trying_to_decrypt = true;
-		while (continue_trying_to_decrypt == true) {
-			m_decryptPasswordValid = false;
-
-			m_unlockDialog = new Dialog(sdevice->deviceNode(), iconName);
-			m_unlockDialog->show();
-
-			connect(m_unlockDialog, TQT_SIGNAL (user1Clicked()), this, TQT_SLOT (slotPasswordReady()));
-			connect(m_unlockDialog, TQT_SIGNAL (cancelClicked()), this, TQT_SLOT (slotPasswordCancel()));
-			connect(this, TQT_SIGNAL (signalDecryptionPasswordError(TQString)), m_unlockDialog, TQT_SLOT (slotDialogError(TQString)));
-
-			while (m_decryptPasswordValid == false) {
-				tqApp->processEvents();
-			}
-
-			m_unlockDialog->setEnabled(false);
-			tqApp->processEvents();
-
-			if (m_decryptionPassword.isNull()) {
-				delete m_unlockDialog;
-				result["errStr"] = i18n("Decryption aborted");
-				result["result"] = false;
-				return result;
-			}
-			else {
-				// Just for some added fun, if udev emits a medium change event, which I then forward, with mounted==0, it stops the MediaProtocol::listDir method dead in its tracks,
-				// and therefore the media:/ tdeioslave won't refresh after the encrypted device mount
-				// Therefore, I need to ignore all change events on this device during the mount process and hope nothing bad happens as a result!
-				if (!m_ignoreDeviceChangeEvents.contains(sdevice->uniqueID())) {
-					m_ignoreDeviceChangeEvents.append(sdevice->uniqueID());
-				}
-
-				// mount encrypted volume with password
-				TQStringVariantMap mountResult = sdevice->mountEncryptedDevice(m_decryptionPassword, diskLabel, valids);
-				TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
-				if (mountedPath.isEmpty()) {
-					if (mountResult.contains("retCode") && mountResult["retCode"].toInt() == 0) {
-						// Mounting was successful
-						// Because the TDE hardware backend is event driven it might take a little while for the new enlock mapped device to show up
-						// Wait up to 30 seconds for it to appear...
-						for (int i=0;i<300;i++) {
-							mountedPath = sdevice->mountPath();
-							if (!mountedPath.isEmpty()) {
-								break;
-							}
-							tqApp->processEvents(50);
-							usleep(50000);
-						}
-					}
-				}
-				if (mountedPath.isEmpty()) {
-					if (mountResult.contains("retCode") && mountResult["retCode"].toInt() == 25600) {
-						// Probable LUKS failure
-						// Retry
-						m_unlockDialog->setEnabled(true);
-						continue_trying_to_decrypt = true;
-					}
-					else {
-						qerror = i18n("Cannot mount encrypted locked drives!");
-						qerror = i18n("Unable to mount this device.");
-						TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
-						if (!errStr.isEmpty()) {
-							qerror.append(i18n("<p>Technical details:<br>").append(errStr));
-						}
-						continue_trying_to_decrypt = false;
-					}
-				}
-				else {
-					continue_trying_to_decrypt = false;
-				}
-
-				delete m_unlockDialog;
-			}
-		}
+		qerror = i18n("Unable to mount an encrypted device.");
 	}
 
 	if (!qerror.isEmpty()) {

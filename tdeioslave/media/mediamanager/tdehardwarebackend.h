@@ -103,9 +103,6 @@ private slots:
 	void RemoveDeviceHandler(TDEGenericDevice* device);
 	void ModifyDeviceHandler(TDEGenericDevice* device);
 
-	void slotPasswordReady();
-	void slotPasswordCancel();
-
 signals:
 	void signalDecryptionPasswordError(TQString);
 
@@ -136,11 +133,6 @@ private:
 	static TQString killUsingProcesses(const Medium *medium);
 
 	TQString driveUDIFromDeviceUID(TQString uuid);
-
-	// Decryption
-	Dialog* m_unlockDialog;
-	TQString m_decryptionPassword;
-	bool m_decryptPasswordValid;
 
 private slots:
 	void slotResult(TDEIO::Job *job);
