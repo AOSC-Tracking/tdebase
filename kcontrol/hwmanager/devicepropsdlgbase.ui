@@ -302,13 +302,26 @@
 							    <cstring>unnamed</cstring>
 						    </property>
 						    <property name="text">
+							    <string>Mapped name:</string>
+						    </property>
+					    </widget>
+					    <widget class="KActiveLabel" row="3" column="1" colspan="1">
+						    <property name="name">
+							    <cstring>labelMappedName</cstring>
+						    </property>
+					    </widget>
+					    <widget class="TQLabel" row="4" column="0" colspan="1">
+						    <property name="name">
+							    <cstring>unnamed</cstring>
+						    </property>
+						    <property name="text">
 							    <string>Status:</string>
 						    </property>
 						    <property name="alignment">
 							    <set>AlignTop|AlignLeft</set>
 						    </property>
 					    </widget>
-					    <widget class="KActiveLabel" row="3" column="1" colspan="1">
+					    <widget class="KActiveLabel" row="4" column="1" colspan="1">
 						    <property name="name">
 							    <cstring>labelDiskStatus</cstring>
 						    </property>

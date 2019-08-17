@@ -416,6 +416,10 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 			if (volUUID == "") volUUID = i18n("<none>");
 			base->labelDiskUUID->setText(formatDisplayString(volUUID));
 
+			TQString mappedName = sdevice->mappedName();
+			if (mappedName == "") mappedName = i18n("<none>");
+			base->labelMappedName->setText(formatDisplayString(mappedName));
+
 			// Show status
 			TQString status_text = "<qt>";
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Mountable)) {
