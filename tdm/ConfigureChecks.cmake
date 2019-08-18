@@ -98,6 +98,7 @@ if( NOT HAVE_ARC4RANDOM )
       set( DEV_RANDOM "/dev/random" CACHE INTERNAL "" FORCE )
     endif( )
 endif (NOT HAVE_ARC4RANDOM)
+check_function_exists( arc4random_buf HAVE_ARC4RANDOM_BUF )
 
 # Xau
 pkg_search_module( XAU xau )

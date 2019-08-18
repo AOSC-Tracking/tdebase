@@ -432,7 +432,10 @@ AddPreGetEntropy( void )
 int
 GenerateAuthData( char *auth, int len )
 {
-#ifdef HAVE_ARC4RANDOM
+#ifdef HAVE_ARC4RANDOM_BUF
+	arc4random_buf((void*)auth, (size_t)len);
+	return 1;
+#elif defined(HAVE_ARC4RANDOM)
 	int i;
 	unsigned *rnd = (unsigned *)auth;
 	if (sizeof(unsigned) == 4)
