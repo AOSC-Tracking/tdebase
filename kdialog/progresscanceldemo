@@ -2,7 +2,7 @@
 dcopRef=`./kdialog --progressbar "Press Cancel at Any time" 10`
 dcop $dcopRef showCancelButton true
 
-until test "true" == `dcop $dcopRef wasCancelled`; do
+until test "true" = `dcop $dcopRef wasCancelled`; do
   sleep 1
   inc=$((`dcop $dcopRef progress` + 1))
   dcop $dcopRef setProgress $inc;
