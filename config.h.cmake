@@ -188,6 +188,7 @@
 
 #cmakedefine HAVE_ARC4RANDOM 1
 #cmakedefine DEV_RANDOM "@DEV_RANDOM@"
+#cmakedefine HAVE_ARC4RANDOM_BUF 1
 
 #cmakedefine USE_PAM 1
 #cmakedefine TDM_PAM_SERVICE "@TDM_PAM_SERVICE@"
