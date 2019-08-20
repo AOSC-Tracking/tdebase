@@ -1409,6 +1409,7 @@ TQStringVariantMap TDEBackend::unlock(const TQString &id, const TQString &passwo
 		}
 	}
 
+	ResetProperties(sdevice, false, true);
 	result["result"] = unlockResult["unlockedDevice"];
 	result["result"] = true;
 	return result;
