@@ -187,6 +187,7 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
     Kate::MainWindow *m_mainWindow;
     Kate::ToolViewManager *m_toolViewManager;
 
+    bool showSessionName;
     bool syncKonsole;
     bool useInstance;
     bool modNotification;

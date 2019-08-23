@@ -107,18 +107,24 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
 
   // show full path in title
   config->setGroup("General");
-  cb_fullPath = new TQCheckBox( i18n("&Show full path in title"), bgStartup);
-  cb_fullPath->setChecked( mainWindow->viewManager()->getShowFullPath() );
-  TQWhatsThis::add(cb_fullPath,i18n("If this option is checked, the full document path will be shown in the window caption."));
-  connect( cb_fullPath, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
+  cb_fullPath = new TQCheckBox(i18n("&Show full path in title"), bgStartup);
+  cb_fullPath->setChecked(mainWindow->viewManager()->getShowFullPath());
+  TQWhatsThis::add(cb_fullPath, i18n("If this option is checked, the full document path will be shown in the window caption."));
+  connect(cb_fullPath, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
+
+  // show session name in title
+  cb_showSessionName = new TQCheckBox(i18n("Show s&ession name in title"), bgStartup);
+  cb_showSessionName->setChecked(parent->showSessionName);
+  TQWhatsThis::add(cb_showSessionName, i18n("If this option is checked, the session name will be shown in the window caption."));
+  connect(cb_showSessionName, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
 
   // sort filelist if desired
-   cb_sortFiles = new TQCheckBox(bgStartup);
-   cb_sortFiles->setText(i18n("Sort &files alphabetically in the file list"));
-   cb_sortFiles->setChecked(parent->filelist->sortType() == KateFileList::sortByName);
-   TQWhatsThis::add( cb_sortFiles, i18n(
-         "If this is checked, the files in the file list will be sorted alphabetically.") );
-   connect( cb_sortFiles, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
+  cb_sortFiles = new TQCheckBox(bgStartup);
+  cb_sortFiles->setText(i18n("Sort &files alphabetically in the file list"));
+  cb_sortFiles->setChecked(parent->filelist->sortType() == KateFileList::sortByName);
+  TQWhatsThis::add( cb_sortFiles, i18n(
+        "If this is checked, the files in the file list will be sorted alphabetically.") );
+  connect( cb_sortFiles, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
 
   // GROUP with the one below: "Behavior"
   bgStartup = new TQButtonGroup( 1, Qt::Horizontal, i18n("&Behavior"), frGeneral );
@@ -417,6 +423,7 @@ void KateConfigDialog::slotApply()
     config->writeEntry("Modified Notification", cb_modNotifications->isChecked());
     mainWindow->modNotification = cb_modNotifications->isChecked();
 
+    mainWindow->showSessionName = cb_showSessionName->isChecked();
     mainWindow->syncKonsole = cb_syncKonsole->isChecked();
     mainWindow->useInstance = cb_useInstance->isChecked();
     mainWindow->filelist->setSortType(cb_sortFiles->isChecked() ? KateFileList::sortByName : KateFileList::sortByID);
@@ -437,7 +444,7 @@ void KateConfigDialog::slotApply()
     }
     //mainWindow->externalTools->reload();
 
-    mainWindow->viewManager()->setShowFullPath( cb_fullPath->isChecked() ); // hm, stored 2 places :(
+    mainWindow->viewManager()->setShowFullPath(cb_fullPath->isChecked());
 
     mainWindow->saveOptions ();
 

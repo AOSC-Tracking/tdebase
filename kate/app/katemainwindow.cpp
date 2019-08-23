@@ -423,8 +423,9 @@ void KateMainWindow::readOptions ()
   TDEConfig *config = KateApp::self()->config ();
 
   config->setGroup("General");
-  syncKonsole =  config->readBoolEntry("Sync Konsole", true);
-  useInstance =  config->readBoolEntry("UseInstance", false);
+  showSessionName = config->readBoolEntry("Show session name", false);
+  syncKonsole = config->readBoolEntry("Sync Konsole", true);
+  useInstance = config->readBoolEntry("UseInstance", false);
   modNotification = config->readBoolEntry("Modified Notification", false);
   KateDocManager::self()->setSaveMetaInfos(config->readBoolEntry("Save Meta Infos", true));
   KateDocManager::self()->setDaysMetaInfos(config->readNumEntry("Days Meta Infos", 30));
@@ -447,6 +448,7 @@ void KateMainWindow::saveOptions ()
   else
     config->writeEntry("Show Console", false);
 
+  config->writeEntry("Show session name", showSessionName);
   config->writeEntry("Save Meta Infos", KateDocManager::self()->getSaveMetaInfos());
   config->writeEntry("Days Meta Infos", KateDocManager::self()->getDaysMetaInfos());
   config->writeEntry("Show Full Path in Title", m_viewManager->getShowFullPath());
@@ -820,7 +822,7 @@ void KateMainWindow::slotNameChanged(Kate::Document *doc)
     fileOpenRecent->addURL(doc->url());
 }
 
-void KateMainWindow::updateCaption (Kate::Document *doc)
+void KateMainWindow::updateCaption(Kate::Document *doc)
 {
   if (!m_viewManager->activeView())
   {
@@ -841,12 +843,20 @@ void KateMainWindow::updateCaption (Kate::Document *doc)
     c = m_viewManager->activeView()->getDoc()->url().prettyURL();
   }
 
-  TQString sessName = KateApp::self()->sessionManager()->getActiveSessionName();
-  if ( !sessName.isEmpty() )
-    sessName = TQString("%1: ").arg( sessName );
-
-  setCaption( sessName + KStringHandler::lsqueeze(c,64),
-      m_viewManager->activeView()->getDoc()->isModified());
+  if (showSessionName)
+  {
+    TQString sessName = KateApp::self()->sessionManager()->getActiveSessionName();
+    if (!sessName.isEmpty())
+    {
+      sessName = TQString("%1: ").arg(sessName);
+    }
+    setCaption(KStringHandler::lsqueeze(sessName,32) + KStringHandler::lsqueeze(c,64),
+        m_viewManager->activeView()->getDoc()->isModified());
+  }
+  else
+  {
+    setCaption(KStringHandler::lsqueeze(c,64), m_viewManager->activeView()->getDoc()->isModified());
+  }
 }
 
 void KateMainWindow::saveProperties(TDEConfig *config)

@@ -65,6 +65,7 @@ class KateConfigDialog : public KDialogBase
     bool dataChanged;
 
     TQCheckBox *cb_fullPath;
+    TQCheckBox *cb_showSessionName;
     TQCheckBox *cb_syncKonsole;
     TQCheckBox *cb_useInstance;
     TQCheckBox *cb_sortFiles;
