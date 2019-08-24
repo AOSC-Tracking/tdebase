@@ -63,8 +63,11 @@ bool RemovableBackend::plug(const TQString &devNode, const TQString &label)
 	if (!m_removableIds.contains(id))
 	{
 		Medium *medium = new Medium(id, id, name);
-		medium->mountableState(devNode, TQString::null,
-		                       TQString::null, false);
+		medium->setMountable(true);
+		medium->setDeviceNode(devNode);
+		medium->setMountPoint(TQString::null);
+		medium->setFsType(TQString::null);
+		medium->setMounted(false);
 
 		TQStringList words = TQStringList::split(" ", label);
 		

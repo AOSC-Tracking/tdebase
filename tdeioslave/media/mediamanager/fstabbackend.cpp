@@ -220,7 +220,11 @@ void FstabBackend::handleMtabChange(bool allowNotification)
 
 			Medium *m = new Medium(id, name);
 
-			m->mountableState(dev, mp, fs, true);
+			m->setMountable(true);
+			m->setDeviceNode(dev);
+			m->setMountPoint(mp);
+			m->setFsType(fs);
+			m->setMounted(true);
 
 			TQString mime, icon, label;
 			guess(dev, mp, fs, true, mime, icon, label);
@@ -293,7 +297,11 @@ void FstabBackend::handleFstabChange(bool allowNotification)
 
 			Medium *m = new Medium(id, id, name);
 
-			m->mountableState(dev, mp, fs, false);
+			m->setMountable(true);
+			m->setDeviceNode(dev);
+			m->setMountPoint(mp);
+			m->setFsType(fs);
+			m->setMounted(false);
 
 			TQString mime, icon, label;
 			guess(dev, mp, fs, false, mime, icon, label);

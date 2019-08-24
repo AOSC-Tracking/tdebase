@@ -516,28 +516,32 @@ void HALBackend::setVolumeProperties(Medium* medium)
         }
 
         if (halClearVolume)
-            medium->mountableState(
-                libhal_volume_get_device_file(halVolume),		/* Device node */
-                clearUdiString,
-                libhal_volume_get_mount_point(halClearVolume),		/* Mount point */
-                libhal_volume_get_fstype(halClearVolume),		/* Filesystem type */
-                libhal_volume_is_mounted(halClearVolume) );		/* Mounted ? */
+        {
+            medium->setMountable(true);
+            medium->setDeviceNode(libhal_volume_get_device_file(halVolume));
+            medium->setClearDeviceUdi(clearUdiString);
+            medium->setMountPoint(libhal_volume_get_mount_point(halClearVolume));
+            medium->setFsType(libhal_volume_get_fstype(halClearVolume));
+            medium->setMounted(libhal_volume_is_mounted(halClearVolume));
+        }
         else
-            medium->mountableState(
-                libhal_volume_get_device_file(halVolume),		/* Device node */
-                TQString::null,
-                TQString::null,		/* Mount point */
-                TQString::null,		/* Filesystem type */
-                false );		/* Mounted ? */
+        {
+            medium->setMountable(true);
+            medium->setDeviceNode(libhal_volume_get_device_file(halVolume));
+            medium->setClearDeviceUdi(TQString::null);
+            medium->setMountPoint(TQString::null);
+            medium->setFsType(TQString::null);
+            medium->setMounted(false);
+        }
     }
     else
     {
         kdDebug(1219) << "HALBackend::setVolumeProperties : normal volume" << endl;
-        medium->mountableState(
-            libhal_volume_get_device_file(halVolume),		/* Device node */
-            TQString::fromUtf8(libhal_volume_get_mount_point(halVolume)),	/* Mount point */
-            libhal_volume_get_fstype(halVolume),		/* Filesystem type */
-            libhal_volume_is_mounted(halVolume) );		/* Mounted ? */
+        medium->setMountable(true);
+        medium->setDeviceNode(libhal_volume_get_device_file(halVolume));
+        medium->setMountPoint(TQString::fromUtf8(libhal_volume_get_mount_point(halVolume)));
+        medium->setFsType(libhal_volume_get_fstype(halVolume));
+        medium->setMounted(libhal_volume_is_mounted(halVolume));
     }
 
 
@@ -570,7 +574,8 @@ void HALBackend::setVolumeProperties(Medium* medium)
             if (libhal_volume_disc_is_blank(halVolume))
             {
                 mimeType = "media/blankcd";
-                medium->unmountableState("");
+                medium->setMountable(false);
+                medium->setBaseURL(TQString::null);
             }
             else
             {
@@ -584,7 +589,8 @@ void HALBackend::setVolumeProperties(Medium* medium)
             if (libhal_volume_disc_is_blank(halVolume))
             {
                 mimeType = "media/blankdvd";
-                medium->unmountableState("");
+                medium->setMountable(false);
+                medium->setBaseURL(TQString::null);
             }
             else
             {
@@ -609,7 +615,8 @@ void HALBackend::setVolumeProperties(Medium* medium)
         if (libhal_volume_disc_has_audio(halVolume) && !libhal_volume_disc_has_data(halVolume))
         {
             mimeType = "media/audiocd";
-            medium->unmountableState( "audiocd:/?device=" + TQString(libhal_volume_get_device_file(halVolume)) );
+            medium->setMountable(false);
+            medium->setBaseURL("audiocd:/?device=" + TQString(libhal_volume_get_device_file(halVolume)));
         }
 
         medium->setIconName(TQString::null);
@@ -653,12 +660,14 @@ void HALBackend::setVolumeProperties(Medium* medium)
             case LIBHAL_DRIVE_TYPE_PORTABLE_AUDIO_PLAYER:
             {
                 medium->setIconName("ipod" + MOUNTED_ICON_SUFFIX);
+                medium->setMountable(false);
 
                 if (libhal_device_get_property_QString(m_halContext, driveUdi.latin1(), "info.product") == "iPod" &&
-		         KProtocolInfo::isKnownProtocol( TQString("ipod") ) )
+		                KProtocolInfo::isKnownProtocol( TQString("ipod") ) )
                 {
-                    medium->unmountableState( "ipod:/" );
-                    medium->mountableState(  libhal_volume_is_mounted(halVolume) );
+                    medium->setBaseURL("ipod:/");
+                    medium->setMountable(true);
+                    medium->setMounted(libhal_volume_is_mounted(halVolume));
                 }
                 break;
             }
@@ -723,11 +732,11 @@ bool HALBackend::setFstabProperties( Medium *medium )
         if ( fstype.isNull() )
             fstype = "auto";
 
-        medium->mountableState(
-            medium->deviceNode(),
-            mp,							/* Mount point */
-            fstype,						/* Filesystem type */
-            mounted );						/* Mounted ? */
+        medium->setMountable(true);
+        medium->setDeviceNode(medium->deviceNode());
+        medium->setMountPoint(mp);
+        medium->setFsType(fstype);
+        medium->setMounted(mounted);
 
         return true;
     }
@@ -768,7 +777,11 @@ bool HALBackend::setFloppyProperties(Medium* medium)
     medium->setLabel(i18n("Unknown Drive"));
 
     // HAL hates floppies - so we have to do it twice ;(
-    medium->mountableState(libhal_drive_get_device_file(halDrive), TQString::null, TQString::null, false);
+    medium->setMountable(true);
+		medium->setDeviceNode(libhal_drive_get_device_file(halDrive));
+		medium->setMountPoint(TQString::null);
+		medium->setFsType(TQString::null);
+		medium->setMounted(false);
     setFloppyMountState(medium);
 
     if (drive_type == "floppy")
@@ -813,7 +826,11 @@ void HALBackend::setFloppyMountState( Medium *medium )
             {
                 fstype = (*it)->mountType().isNull() ? (*it)->mountType() : "auto";
                 mountpoint = (*it)->mountPoint();
-                medium->mountableState( medium->deviceNode(), mountpoint, fstype, true );
+                medium->setMountable(true);
+                medium->setDeviceNode(medium->deviceNode());
+                medium->setMountPoint(mountpoint);
+                medium->setFsType(fstype);
+                medium->setMounted(true);
                 return;
             }
         }
@@ -847,7 +864,8 @@ void HALBackend::setCameraProperties(Medium* medium)
     libhal_free_string(cam);
 
     /** @todo find the rest of this URL */
-    medium->unmountableState(device);
+    medium->setMountable(false);
+    medium->setBaseURL(device);
     medium->setMimeType("media/gphoto2camera");
     medium->setIconName(TQString::null);
     if (libhal_device_property_exists(m_halContext, udi, "usb_device.product", NULL))
@@ -1605,7 +1623,6 @@ TQStringVariantMap HALBackend::mount(const Medium *medium)
         return result;
     }
 
-    medium->setHalMounted(true);
     ResetProperties(medium->id().latin1());
 
     result["result"] = true;
@@ -1812,7 +1829,6 @@ TQStringVariantMap HALBackend::unmount(const TQString &id)
       dbus_message_unref (reply);
     }
 
-    medium->setHalMounted(false);
     ResetProperties(medium->id().latin1());
 
     while (dbus_connection_dispatch(dbus_connection) == DBUS_DISPATCH_DATA_REMAINS) ;

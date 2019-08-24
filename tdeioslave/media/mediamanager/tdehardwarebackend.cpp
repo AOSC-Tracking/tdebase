@@ -465,8 +465,11 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		medium->setEncrypted(false);
 	}
 
-	// USAGE: mountableState(Device node, Mount point, Filesystem type, Mounted ?)
-	medium->mountableState(sdevice->deviceNode(), sdevice->mountPath(), sdevice->fileSystemName(), !sdevice->mountPath().isNull());
+	medium->setMountable(true);
+	medium->setDeviceNode(sdevice->deviceNode());
+	medium->setMountPoint(sdevice->mountPath());
+	medium->setFsType(sdevice->fileSystemName());
+	medium->setMounted(!sdevice->mountPath().isEmpty());
 
 	TQString diskLabel = sdevice->diskLabel();
 	bool useDefaultLabel = diskLabel.isNull();
@@ -515,7 +518,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/cdrom" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank CD-ROM");
 			}
 		}
@@ -524,7 +528,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/cd-r" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank CD-R");
 			}
 		}
@@ -533,7 +538,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/cd-rw" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank CD-RW");
 			}
 		}
@@ -542,7 +548,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/cd-rw" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank Magneto-Optical CD");
 			}
 		}
@@ -551,7 +558,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/cd-rw" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank Mount Ranier CD-RW");
 			}
 		}
@@ -560,7 +568,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/cd-rw" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankcd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank Mount Ranier CD-RW-W");
 			}
 		}
@@ -569,7 +578,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank DVD-ROM");
 			}
 		}
@@ -578,7 +588,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank DVD-RAM");
 			}
 		}
@@ -587,7 +598,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank DVD-R");
 			}
 		}
@@ -596,7 +608,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank DVD-RW");
 			}
 		}
@@ -605,7 +618,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank Dual Layer DVD-R");
 			}
 		}
@@ -614,7 +628,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank Dual Layer DVD-RW");
 			}
 		}
@@ -623,7 +638,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank DVD+R");
 			}
 		}
@@ -632,7 +648,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank DVD+RW");
 			}
 		}
@@ -641,7 +658,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank Dual Layer DVD+R");
 			}
 		}
@@ -650,7 +668,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankdvd";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank Dual Layer DVD+RW");
 			}
 		}
@@ -659,7 +678,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankbluray";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank BLURAY-ROM");
 			}
 		}
@@ -668,7 +688,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankbluray";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank BLURAY-R");
 			}
 		}
@@ -677,7 +698,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankbluray";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank BLURAY-RW");
 			}
 		}
@@ -686,7 +708,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankbluray";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank HDDVD-ROM");
 			}
 		}
@@ -695,7 +718,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankbluray";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank HDDVD-R");
 			}
 		}
@@ -704,14 +728,16 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
 				mimeType = "media/blankbluray";
-				medium->unmountableState("");
+				medium->setMountable(false);
+				medium->setBaseURL(TQString::null);
 				diskLabel = i18n("Blank HDDVD-RW");
 			}
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio)) {
 			mimeType = "media/audiocd";
-			medium->unmountableState("audiocd:/?device=" + sdevice->deviceNode());
+			medium->setMountable(false);
+			medium->setBaseURL("audiocd:/?device=" + sdevice->deviceNode());
 			diskLabel = i18n("Audio CD");
 		}
 
@@ -759,9 +785,11 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::MediaDevice)) {
 			medium->setIconName("ipod" + MOUNTED_ICON_SUFFIX);
-			if (sdevice->vendorModel().upper().contains("IPOD") && KProtocolInfo::isKnownProtocol( TQString("ipod") ) ) {
-				medium->unmountableState( "ipod:/" );
-				medium->mountableState(!sdevice->mountPath().isNull());
+			medium->setMountable(false);
+			if (sdevice->vendorModel().upper().contains("IPOD") && KProtocolInfo::isKnownProtocol(TQString("ipod"))) {
+				medium->setBaseURL("ipod:/");
+				medium->setMountable(true);
+				medium->setMounted(!sdevice->mountPath().isEmpty());
 			}
 		}
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::Tape)) {
@@ -801,15 +829,22 @@ bool TDEBackend::setFloppyProperties(Medium* medium)
 			medium->setEncrypted(false);
 		}
 
-		// USAGE: mountableState(Device node, Mount point, Filesystem type, Mounted ?)
-		medium->mountableState(sdevice->deviceNode(), sdevice->mountPath(), sdevice->fileSystemName(), !sdevice->mountPath().isNull());
+		medium->setMountable(true);
+		medium->setDeviceNode(sdevice->deviceNode());
+		medium->setMountPoint(sdevice->mountPath());
+		medium->setFsType(sdevice->fileSystemName());
+		medium->setMounted(!sdevice->mountPath().isEmpty());
 	}
 
 	if (sdevice->isDiskOfType(TDEDiskDeviceType::Floppy)) {
 		setFloppyMountState(medium);
 
 		// We don't use the routine above as floppy disks are extremely slow (we don't want them accessed at all during media listing)
-		medium->mountableState(sdevice->deviceNode(), sdevice->mountPath(), sdevice->fileSystemName(), !sdevice->mountPath().isNull());
+		medium->setMountable(true);
+		medium->setDeviceNode(sdevice->deviceNode());
+		medium->setMountPoint(sdevice->mountPath());
+		medium->setFsType(sdevice->fileSystemName());
+		medium->setMounted(!sdevice->mountPath().isEmpty());
 
 		if (sdevice->mountPath().isNull()) {
 			medium->setMimeType("media/floppy_unmounted");
@@ -866,7 +901,8 @@ void TDEBackend::setCameraProperties(Medium* medium)
 		device.sprintf("camera://@[usb:%s,%s]/", devNode0.ascii(), devNode1.ascii());
 	}
 
-	medium->unmountableState(device);
+	medium->setMountable(false);
+	medium->setBaseURL(device);
 	medium->setMimeType("media/gphoto2camera");
 	medium->setIconName(TQString::null);
 
@@ -890,7 +926,11 @@ void TDEBackend::setFloppyMountState( Medium *medium )
 		if ((*it)->mountedFrom() == medium->deviceNode() ) {
 			fstype = (*it)->mountType().isNull() ? (*it)->mountType() : "auto";
 			mountpoint = (*it)->mountPoint();
-			medium->mountableState( medium->deviceNode(), mountpoint, fstype, true );
+			medium->setMountable(true);
+			medium->setDeviceNode(medium->deviceNode());
+			medium->setMountPoint(mountpoint);
+			medium->setFsType(fstype);
+			medium->setMounted(true);
 			return;
 		}
 	}

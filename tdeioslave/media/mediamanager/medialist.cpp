@@ -128,42 +128,42 @@ bool MediaList::changeMediumState(const Medium &medium, bool allowNotification)
 {
 	kdDebug(1219) << "MediaList::changeMediumState(const Medium &) for id " << medium.id() << endl;
 
-	if ( !m_idMap.contains(medium.id()) ) return false;
+	if (!m_idMap.contains(medium.id())) return false;
 
 	Medium *m = m_idMap[medium.id()];
 
-	if ( medium.isMountable() )
+	m->setMountable(medium.isMountable());
+	if (medium.isMountable())
 	{
-		TQString device_node = medium.deviceNode();
-		TQString clear_device_udi = medium.clearDeviceUdi();
-		TQString mount_point = medium.mountPoint();
-		TQString fs_type = medium.fsType();
-		bool mounted = medium.isMounted();
-
-		m->mountableState( device_node, clear_device_udi, mount_point, fs_type, mounted );
+		m->setMountable(true);
+		m->setDeviceNode(medium.deviceNode());
+		m->setClearDeviceUdi(medium.clearDeviceUdi());
+		m->setMountPoint(medium.mountPoint());
+		m->setFsType(medium.fsType());
+		m->setMounted(medium.isMounted());
 	}
 	else
 	{
-		m->unmountableState( medium.baseURL() );
+		m->setBaseURL(medium.baseURL());
 	}
-
 
 	if (!medium.mimeType().isEmpty())
 	{
-		m->setMimeType( medium.mimeType() );
+		m->setMimeType(medium.mimeType());
 	}
 
 	if (!medium.iconName().isEmpty())
 	{
-		m->setIconName( medium.iconName() );
+		m->setIconName(medium.iconName());
 	}
 
 	if (!medium.label().isEmpty())
 	{
-		m->setLabel( medium.label() );
+		m->setLabel(medium.label());
 	}
 
 	m->setHidden(medium.hidden());
+	m->setSoftHidden(medium.softHidden());
 
 	emit mediumStateChanged(m->id(), m->name(), !m->needMounting(), allowNotification);
 	return true;
@@ -184,7 +184,8 @@ bool MediaList::changeMediumState(const TQString &id,
 
 	Medium *medium = m_idMap[id];
 
-	medium->unmountableState( baseURL );
+	medium->setMountable(false);
+	medium->setBaseURL(baseURL);
 
 	if (!mimeType.isEmpty())
 	{
@@ -225,7 +226,11 @@ bool MediaList::changeMediumState(const TQString &id,
 
 	Medium *medium = m_idMap[id];
 
-	medium->mountableState( deviceNode, mountPoint, fsType, mounted );
+	medium->setMountable(true);
+	medium->setDeviceNode(deviceNode);
+	medium->setMountPoint(mountPoint);
+	medium->setFsType(fsType);
+	medium->setMounted(mounted);
 
 	if (!mimeType.isEmpty())
 	{
@@ -262,7 +267,12 @@ bool MediaList::changeMediumState(const TQString &id, bool mounted,
 
 	Medium *medium = m_idMap[id];
 
-	if ( !medium->mountableState( mounted ) ) return false;
+	medium->setMountable(true);
+	medium->setMounted(mounted);
+	if (medium->deviceNode().isEmpty() || !medium->isMountable())
+	{
+		return false;
+	}
 
 	if (!mimeType.isEmpty())
 	{

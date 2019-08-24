@@ -29,24 +29,24 @@ class Medium
 public:
 	typedef TQValueList<Medium> MList;
 
-	static const uint ID =			0;
-	static const uint UUID =		1;
-	static const uint NAME =		2;
-	static const uint LABEL =		3;
-	static const uint USER_LABEL =		4;
-	static const uint MOUNTABLE =		5;
-	static const uint DEVICE_NODE = 	6;
-	static const uint MOUNT_POINT = 	7;
-	static const uint FS_TYPE = 		8;
-	static const uint MOUNTED = 		9;
-	static const uint BASE_URL = 		10;
-	static const uint MIME_TYPE = 		11;
-	static const uint ICON_NAME = 		12;
-	static const uint ENCRYPTED = 		13;
-	static const uint CLEAR_DEVICE_UDI = 	14;
-	static const uint HIDDEN = 		15;
-	static const uint SOFT_HIDDEN = 	16;
-	static const uint PROPERTIES_COUNT = 	17;
+	static const uint ID               =  0;
+	static const uint UUID             =  1;
+	static const uint NAME             =  2;
+	static const uint LABEL            =  3;
+	static const uint USER_LABEL       =  4;
+	static const uint MOUNTABLE        =  5;
+	static const uint DEVICE_NODE      =  6;
+	static const uint MOUNT_POINT      =  7;
+	static const uint FS_TYPE          =  8;
+	static const uint MOUNTED          =  9;
+	static const uint BASE_URL         = 10;
+	static const uint MIME_TYPE        = 11;
+	static const uint ICON_NAME        = 12;
+	static const uint ENCRYPTED        = 13;
+	static const uint CLEAR_DEVICE_UDI = 14;
+	static const uint HIDDEN           = 15;
+	static const uint SOFT_HIDDEN      = 16;
+	static const uint PROPERTIES_COUNT = 17;
 	static const TQString SEPARATOR;
 
 	Medium(const TQString id, TQString uuid, const TQString name);
@@ -60,18 +60,18 @@ public:
 	TQString name() const { return m_properties[NAME]; }
 	TQString label() const { return m_properties[LABEL]; }
 	TQString userLabel() const { return m_properties[USER_LABEL]; }
-	bool isMountable() const { return m_properties[MOUNTABLE]=="true"; }
+	bool     isMountable() const { return m_properties[MOUNTABLE]=="true"; }
 	TQString deviceNode() const { return m_properties[DEVICE_NODE]; }
 	TQString mountPoint() const { return m_properties[MOUNT_POINT]; }
 	TQString fsType() const { return m_properties[FS_TYPE]; }
-	bool isMounted() const { return m_properties[MOUNTED]=="true"; }
+	bool     isMounted() const { return m_properties[MOUNTED]=="true"; }
 	TQString baseURL() const { return m_properties[BASE_URL]; }
 	TQString mimeType() const { return m_properties[MIME_TYPE]; }
 	TQString iconName() const { return m_properties[ICON_NAME]; }
-	bool isEncrypted() const { return m_properties[ENCRYPTED]=="true"; };
+	bool     isEncrypted() const { return m_properties[ENCRYPTED]=="true"; };
 	TQString clearDeviceUdi() const { return m_properties[CLEAR_DEVICE_UDI]; };
-	bool hidden() const { return m_properties[HIDDEN]=="true"; };
-	bool softHidden() const { return m_properties[SOFT_HIDDEN]=="true"; };
+	bool     hidden() const { return m_properties[HIDDEN]=="true"; };
+	bool     softHidden() const { return m_properties[SOFT_HIDDEN]=="true"; };
 
 	bool needMounting() const;
 	bool needDecryption() const;
@@ -81,50 +81,44 @@ public:
 	void setName(const TQString &name);
 	void setLabel(const TQString &label);
 	void setUserLabel(const TQString &label);
+	void setMountable(bool mountable);
+	void setDeviceNode(const TQString &deviceNode);
+	void setMountPoint(const TQString &mountPoint);
+	void setFsType(const TQString &fsType);
+	void setMounted(bool mounted);
+	void setBaseURL(const TQString &baseURL);
+	void setMimeType(const TQString &mimeType);
+	void setIconName(const TQString &iconName);
 	void setEncrypted(bool state);
+	void setClearDeviceUdi(const TQString &clearDeviceUdi);
 	void setHidden(bool state);
 	void setSoftHidden(bool state);
 
-	bool mountableState(bool mounted);
-	void mountableState(const TQString &deviceNode,
-	                    const TQString &mountPoint,
-	                    const TQString &fsType, bool mounted);
-	void mountableState(const TQString &deviceNode,
-				const TQString &clearDeviceUdi,
-				const TQString &mountPoint,
-				const TQString &fsType, bool mounted);
-	void unmountableState(const TQString &baseURL = TQString::null);
-
-	void setMimeType(const TQString &mimeType);
-	void setIconName(const TQString &iconName);
-	void setHalMounted(bool flag) const { m_halmounted = flag; }
-	bool halMounted() const { return m_halmounted; }
-
-//private:
 	Medium();
 
 private:
+	void initMedium();
 	void loadUserLabel();
 
 	TQStringList m_properties;
-	mutable bool m_halmounted;
 	
-friend class TQValueListNode<const Medium>;
+	friend class TQValueListNode<const Medium>;
 };
 
 namespace MediaManagerUtils {
-  static inline TQMap<TQString,TQString> splitOptions(const TQStringList & options) 
-    {
-      TQMap<TQString,TQString> valids;
-
-      for (TQStringList::ConstIterator it = options.begin(); it != options.end(); ++it)
+	static inline TQMap<TQString,TQString> splitOptions(const TQStringList &options)
 	{
-	  TQString key = (*it).left((*it).find('='));
-	  TQString value = (*it).mid((*it).find('=') + 1);
-	  valids[key] = value;
+		TQMap<TQString,TQString> valids;
+
+		for (TQStringList::ConstIterator it = options.begin(); it != options.end(); ++it)
+		{
+			int pos = (*it).find('=');
+			TQString key = (*it).left(pos);
+			TQString value = (*it).mid(pos + 1);
+			valids[key] = value;
+		}
+		return valids;
 	}
-      return valids;
-    }
 }
 
 #endif

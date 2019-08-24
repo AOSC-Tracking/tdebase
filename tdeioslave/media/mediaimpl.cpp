@@ -127,7 +127,6 @@ bool MediaImpl::statMediumByLabel(const TQString &label, TDEIO::UDSEntry &entry)
 	return statMedium(name, entry);
 }
 
-
 bool MediaImpl::listMedia(TQValueList<TDEIO::UDSEntry> &list)
 {
 	kdDebug(1219) << "MediaImpl::listMedia" << endl;
