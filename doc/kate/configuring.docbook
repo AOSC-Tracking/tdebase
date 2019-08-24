@@ -82,23 +82,69 @@ the right.</para>
 
 <sect2 id="config-dialog-general">
 <title>The General Page</title>
-<para>This section contains a few global options for &kate;</para>
+<para>This section contains a few global options for &kate;.</para>
 
 <variablelist>
 
 <varlistentry>
+<term><anchor id="config-general-appearance"/>
+<guilabel>Appearance</guilabel></term>
+<listitem>
+<variablelist>
+
+<varlistentry>
 <term><anchor id="config-dialog-general-show-full-path" />
-<guilabel>Show Full Path in Title</guilabel></term>
+<guilabel>Show full path in title</guilabel></term>
 <listitem><para>When enabled, Kate will display the full URL of your
 current document in the window title, rather than just the file name.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
+<term><anchor id="config-dialog-general-show-session-name" />
+<guilabel>Show session name in title</guilabel></term>
+<listitem><para>When enabled, Kate will display the name of the current
+session in the window title in addition to the file name.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="config-dialog-general-sort-file-alphabetically" />
+<guilabel>Sort files alphabetically in the file list</guilabel></term>
+<listitem><para>If enabled, Kate will sort the files in the file list alphabetically.
+If disabled, the files will be listed in the order they were opened.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry><!-- /appearance group -->
+
+<varlistentry>
 <term><anchor id="config-general-behavior"/>
 <guilabel>Behavior</guilabel></term>
 <listitem>
 <variablelist>
+
+<varlistentry>
+<term>
+<anchor id="config-dialog-general-recent-files-number"/>
+<guibutton>Number of recent files</guibutton></term>
+<listitem><para>Sets the number of recent files remembered by &kate;.
+Note that if you set this field to a lower value than the current one, the list of files
+may get truncated and some items forgotten.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<anchor id="config-dialog-general-current-instance"/>
+<guibutton>Always use the current instance of kate to open new files</guibutton></term>
+<listitem><para>If enabled, all files opened from outside &kate; will reuse the
+current instance of Kate instead of starting a new one.</para>
+</listitem>
+</varlistentry>
+
 <varlistentry>
 <term>
 <anchor id="config-dialog-general-sync-konsole"/>
@@ -128,7 +174,7 @@ modified file receives focus within the application.</para>
 
 <varlistentry>
 <term><anchor id="config-general-meta-data"/>
-<guilabel>Meta Data</guilabel></term>
+<guilabel>Meta Information</guilabel></term>
 <listitem>
 
 <variablelist>
@@ -151,7 +197,7 @@ reasonably sized.</para></listitem>
 </variablelist>
 
 </listitem>
-</varlistentry><!-- /meta data group -->
+</varlistentry><!-- /meta information group -->
 
 </variablelist>
 </sect2>

@@ -84,6 +84,12 @@ linkend="config-dialog">Config Dialog</link>.</para>
 mechanism in more detail. It is for you if you want to know about
 it, or if you want to change or create syntax definitions.</para>
 
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="configdialog02.png"/>
+</imageobject>
+</mediaobject>
+
 <sect2 id="katehighlight-howitworks">
 
 <title>How it Works</title>
