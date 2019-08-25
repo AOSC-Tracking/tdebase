@@ -252,16 +252,6 @@ void Medium::setLocked(bool locked)
 	m_properties[LOCKED] = locked ? "true" : "false";
 }
 
-bool Medium::needMounting() const
-{
-	return isMountable() && !isMounted();
-}
-
-bool Medium::needUnlocking() const
-{
-	return isEncrypted() && isLocked();
-}
-
 KURL Medium::prettyBaseURL() const
 {
 	if (!baseURL().isEmpty())

@@ -67,7 +67,6 @@ const Medium MountHelper::findMedium(const KURL &url)
 MountHelper::MountHelper() : TDEApplication()
 {
 	TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
-
 	m_errorStr = TQString::null;
 
 	KURL url(args->url(0));
@@ -77,25 +76,28 @@ MountHelper::MountHelper() : TDEApplication()
 		if (m_errorStr.isEmpty()) {
 			m_errorStr+= i18n("%1 cannot be found.").arg(url.prettyURL());
 		}
-		TQTimer::singleShot(0, this, TQT_SLOT(error()));
-		return;
-	}
-
-	if (!medium.isMountable() && !medium.isEncrypted() && !args->isSet("e") && !args->isSet("s"))
-	{
-		m_errorStr = i18n("%1 is not a mountable or encrypted media.").arg(url.prettyURL());
-		TQTimer::singleShot(0, this, TQT_SLOT(error()));
-		return;
+		errorAndExit();
 	}
 
 	TQString device = medium.deviceNode();
-	TQString mount_point = medium.mountPoint();
-
-	m_isCdrom = medium.mimeType().find("dvd") != -1 || medium.mimeType().find("cd") != -1;
+	if (!medium.isMountable() && !medium.isEncrypted() && !args->isSet("e") && !args->isSet("s"))
+	{
+		m_errorStr = i18n("%1 is not a mountable or encrypted media.").arg(device);
+		errorAndExit();
+	}
 
 	if (args->isSet("m"))
 	{
 		// Mount drive
+		if (!medium.isMountable()) {
+			m_errorStr = i18n("%1 is not a mountable media.").arg(device);
+			errorAndExit();
+		}
+		else if (medium.isMounted()) {
+			m_errorStr = i18n("%1 is already mounted to %2.").arg(device).arg(medium.mountPoint());
+			errorAndExit();
+		}
+
 		DCOPRef mediamanager("kded", "mediamanager");
 		DCOPReply reply = mediamanager.call("mount", medium.id());
 		TQStringVariantMap mountResult;
@@ -107,12 +109,21 @@ MountHelper::MountHelper() : TDEApplication()
 		}
 		else {
 			m_errorStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : i18n("Unknown mount error.");
-			TQTimer::singleShot(0, this, TQT_SLOT(error()));
+			errorAndExit();
 		}
 	}
 	else if (args->isSet("u"))
 	{
 		// Unmount drive
+		if (!medium.isMountable()) {
+			m_errorStr = i18n("%1 is not a mountable media.").arg(device);
+			errorAndExit();
+		}
+		else if (!medium.isMounted()) {
+			m_errorStr = i18n("%1 is already unmounted.").arg(device);
+			errorAndExit();
+		}
+
 		DCOPRef mediamanager("kded", "mediamanager");
 		DCOPReply reply = mediamanager.call("unmount", medium.id());
 		TQStringVariantMap unmountResult;
@@ -125,7 +136,7 @@ MountHelper::MountHelper() : TDEApplication()
 		else {
 			m_errorStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : i18n("Unknown unmount error.");
 			kdDebug() << "medium unmount " << m_errorStr << endl;
-			TQTimer::singleShot(0, this, TQT_SLOT(error()));
+			errorAndExit();
 		}
 	}
 	else if (args->isSet("k"))
@@ -133,15 +144,13 @@ MountHelper::MountHelper() : TDEApplication()
 		// Unlock drive
 		if (!medium.isEncrypted())
 		{
-			m_errorStr = i18n("%1 is not an encrypted media.").arg(url.prettyURL());
-			TQTimer::singleShot(0, this, TQT_SLOT(error()));
-			return;
+			m_errorStr = i18n("%1 is not an encrypted media.").arg(device);
+			errorAndExit();
 		}
 		if (!medium.needUnlocking())
 		{
-			m_errorStr = i18n("%1 is already unlocked.").arg(url.prettyURL());
-			TQTimer::singleShot(0, this, TQT_SLOT(error()));
-			return;
+			m_errorStr = i18n("%1 is already unlocked.").arg(device);
+			errorAndExit();
 		}
 
 		TQString iconName = medium.iconName();
@@ -160,6 +169,17 @@ MountHelper::MountHelper() : TDEApplication()
 	else if (args->isSet("l"))
 	{
 		// Lock drive
+		if (!medium.isEncrypted())
+		{
+			m_errorStr = i18n("%1 is not an encrypted media.").arg(device);
+			errorAndExit();
+		}
+		if (medium.needUnlocking())
+		{
+			m_errorStr = i18n("%1 is already locked.").arg(device);
+			errorAndExit();
+		}
+
 		DCOPRef mediamanager("kded", "mediamanager");
 		DCOPReply reply = mediamanager.call("lock", medium.id());
 		TQStringVariantMap lockResult;
@@ -172,7 +192,7 @@ MountHelper::MountHelper() : TDEApplication()
 	  else {
 			m_errorStr = lockResult.contains("errStr") ? lockResult["errStr"].toString() : i18n("Unknown lock error.");
 			kdDebug() << "medium lock " << m_errorStr << endl;
-			TQTimer::singleShot(0, this, TQT_SLOT(error()));
+			errorAndExit();
 		}
 	}
 	else if (args->isSet("e"))
@@ -223,7 +243,7 @@ MountHelper::MountHelper() : TDEApplication()
 			invokeEject(device, true);
 		}
 		else {
-			TQTimer::singleShot(0, this, TQT_SLOT(error()));
+			errorAndExit();
 		}
 	}
 	else
@@ -267,13 +287,13 @@ void MountHelper::ejectFinished(TDEProcess *proc)
 	}
 	else {
 		if (!m_errorStr.isEmpty()) {
-			TQTimer::singleShot(0, this, TQT_SLOT(error()));
+			errorAndExit();
 		}
 		::exit(0);
 	}
 }
 
-void MountHelper::error()
+void MountHelper::errorAndExit()
 {
 	TQString prettyErrorString = m_errorStr;
 	if (m_errorStr.contains("<") && m_errorStr.contains(">")) {
@@ -301,7 +321,7 @@ void MountHelper::slotSendPassword()
 		m_errorStr = unlockResult.contains("errStr") ? unlockResult["errStr"].toString() : i18n("Unknown unlock error.");
 		kdDebug() << "medium unlock " << m_errorStr << endl;
 		emit signalPasswordError(m_errorStr);
-		TQTimer::singleShot(0, this, TQT_SLOT(error()));
+		errorAndExit();
 	}
 }
 

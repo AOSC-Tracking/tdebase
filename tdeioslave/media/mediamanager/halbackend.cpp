@@ -1488,8 +1488,14 @@ TQString HALBackend::isInFstab(const Medium *medium)
 TQStringVariantMap HALBackend::mount(const Medium *medium)
 {
     TQStringVariantMap result;
-    if (medium->isMounted()) {
-        result["result"] = true;
+    if (!medium->isMountable()) {
+        result["errStr"] = i18n("%1 is not a mountable media.").arg(medium->deviceNode());
+        result["result"] = false;
+        return result;
+    }
+    else if (medium->isMounted()) {
+        result["errStr"] = i18n("%1 is already mounted to %2.").arg(medium->deviceNode()).arg(medium->mountPoint());
+        result["result"] = false;
         return result;
     }
 
@@ -1666,14 +1672,19 @@ TQStringVariantMap HALBackend::unmount(const TQString &id)
         result["result"] = false;
         return result;
     }
-
-    if (!medium->isMounted()) {
-        result["result"] = true;
+    else if (!medium->isMountable()) {
+        result["errStr"] = i18n("%1 is not a mountable media.").arg(medium->deviceNode());
+        result["result"] = false;
+        return result;
+    }
+    else if (!medium->isMounted()) {
+        result["errStr"] = i18n("%1 is already unmounted.").arg(medium->deviceNode());
+        result["result"] = false;
         return result;
     }
 
     TQString mountPoint = isInFstab(medium);
-    if (!mountPoint.isNull())
+    if (!mountPoint.isEmpty())
     {
         struct mount_job_data data;
         data.completed = false;
@@ -1848,9 +1859,14 @@ TQStringVariantMap HALBackend::unlock(const TQString &id, const TQString &passwo
         result["result"] = false;
         return result;
     }
-
-    if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull()) {
-        result["result"] = true;
+    else if (!medium->isEncrypted()) {
+        result["errStr"] = i18n("%1 is not an encrypted media.").arg(medium->deviceNode());
+        result["result"] = false;
+        return result;
+    }
+    else if (!medium->needUnlocking()) {
+        result["errStr"] = i18n("%1 is already unlocked.").arg(medium->deviceNode());
+        result["result"] = false;
         return result;
     }
 
@@ -1917,9 +1933,14 @@ TQStringVariantMap HALBackend::lock(const TQString &id)
         result["result"] = false;
         return result;
     }
-
-    if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull()) {
-        result["result"] = true;
+    else if (!medium->isEncrypted()) {
+        result["errStr"] = i18n("%1 is not an encrypted media.").arg(medium->deviceNode());
+        result["result"] = false;
+        return result;
+    }
+    else if (medium->needUnlocking()) {
+        result["errStr"] = i18n("%1 is already locked.").arg(medium->deviceNode());
+        result["result"] = false;
         return result;
     }
 

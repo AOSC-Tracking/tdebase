@@ -1216,8 +1216,14 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 	kdDebug(1219) << "TDEBackend::mount for medium " << medium->name() << endl;
 
 	TQStringVariantMap result;
-	if (medium->isMounted()) {
-		result["result"] = true;
+	if (!medium->isMountable()) {
+		result["errStr"] = i18n("%1 is not a mountable media.").arg(medium->deviceNode());
+		result["result"] = false;
+		return result;
+	}
+	else if (medium->isMounted()) {
+		result["errStr"] = i18n("%1 is already mounted to %2.").arg(medium->deviceNode()).arg(medium->mountPoint());
+		result["result"] = false;
 		return result;
 	}
 
@@ -1250,7 +1256,7 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
 	if (!sdevice) {
-		result["errStr"] = i18n("Internal error. Couldn't find medium.");
+		result["errStr"] = i18n("Internal error. Couldn't find medium id %1.").arg(medium->id());
 		result["result"] = false;
 		return result;
 	}
@@ -1270,20 +1276,14 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 	}
 
 	TQString qerror;
-	if (!medium->isEncrypted()) {
-		// normal volume
-		TQStringVariantMap mountResult = sdevice->mountDevice(diskLabel, valids);
-		TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
-		if (mountedPath.isEmpty()) {
-			qerror = i18n("Unable to mount this device.");
-			TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
-			if (!errStr.isEmpty()) {
-				qerror.append(i18n("<p>Technical details:<br>").append(errStr));
-			}
+	TQStringVariantMap mountResult = sdevice->mountDevice(diskLabel, valids);
+	TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
+	if (mountedPath.isEmpty()) {
+		qerror = i18n("Unable to mount this device.");
+		TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
+		if (!errStr.isEmpty()) {
+			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
 		}
-	}
-	else {
-		qerror = i18n("Unable to mount an encrypted device.");
 	}
 
 	if (!qerror.isEmpty()) {
@@ -1321,16 +1321,20 @@ TQStringVariantMap TDEBackend::unmount(const TQString &id)
 	kdDebug(1219) << "TDEBackend::unmount for id " << id << endl;
 
 	TQStringVariantMap result;
-
-	const Medium* medium = m_mediaList.findById(id);
+	const Medium *medium = m_mediaList.findById(id);
 	if (!medium) {
 		result["errStr"] = i18n("No such medium: %1").arg(id);
 		result["result"] = false;
 		return result;
 	}
-
-	if (!medium->isMounted()) {
-		result["result"] = true;
+	else if (!medium->isMountable()) {
+		result["errStr"] = i18n("%1 is not a mountable media.").arg(medium->deviceNode());
+		result["result"] = false;
+		return result;
+	}
+	else if (!medium->isMounted()) {
+		result["errStr"] = i18n("%1 is already unmounted.").arg(medium->deviceNode());
+		result["result"] = false;
 		return result;
 	}
 
@@ -1363,7 +1367,7 @@ TQStringVariantMap TDEBackend::unmount(const TQString &id)
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
 	if (!sdevice) {
-		result["errStr"] = i18n("Internal error. Couldn't find medium.");
+		result["errStr"] = i18n("Internal error. Couldn't find medium id %1.").arg(medium->id());
 		result["result"] = false;
 		return result;
 	}
@@ -1433,23 +1437,27 @@ TQStringVariantMap TDEBackend::unlock(const TQString &id, const TQString &passwo
 	kdDebug(1219) << "TDEBackend::unlock for id " << id << endl;
 
 	TQStringVariantMap result;
-
-	const Medium* medium = m_mediaList.findById(id);
+	const Medium *medium = m_mediaList.findById(id);
 	if (!medium) {
 		result["errStr"] = i18n("No such medium: %1").arg(id);
 		result["result"] = false;
 		return result;
 	}
-
-	if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull()) {
-		result["result"] = true;
+	else if (!medium->isEncrypted()) {
+		result["errStr"] = i18n("%1 is not an encrypted media.").arg(medium->deviceNode());
+		result["result"] = false;
+		return result;
+	}
+	else if (!medium->needUnlocking()) {
+		result["errStr"] = i18n("%1 is already unlocked.").arg(medium->deviceNode());
+		result["result"] = false;
 		return result;
 	}
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
 	if (!sdevice) {
-		result["errStr"] = i18n("Internal error. Couldn't find medium.");
+		result["errStr"] = i18n("Internal error. Couldn't find medium id %1.").arg(medium->id());
 		result["result"] = false;
 		return result;
 	}
@@ -1478,22 +1486,27 @@ TQStringVariantMap TDEBackend::lock(const TQString &id)
 
 	TQStringVariantMap result;
 
-	const Medium* medium = m_mediaList.findById(id);
+	const Medium *medium = m_mediaList.findById(id);
 	if (!medium) {
 		result["errStr"] = i18n("No such medium: %1").arg(id);
 		result["result"] = false;
 		return result;
 	}
-
-	if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull()) {
-		result["result"] = true;
+	else if (!medium->isEncrypted()) {
+		result["errStr"] = i18n("%1 is not an encrypted media.").arg(medium->deviceNode());
+		result["result"] = false;
+		return result;
+	}
+	else if (medium->needUnlocking()) {
+		result["errStr"] = i18n("%1 is already locked.").arg(medium->deviceNode());
+		result["result"] = false;
 		return result;
 	}
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
 	if (!sdevice) {
-		result["errStr"] = i18n("Internal error. Couldn't find medium.");
+		result["errStr"] = i18n("Internal error. Couldn't find medium id %1.").arg(medium->id());
 		result["result"] = false;
 		return result;
 	}

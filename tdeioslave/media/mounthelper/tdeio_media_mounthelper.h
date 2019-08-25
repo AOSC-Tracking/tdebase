@@ -40,7 +40,6 @@ private:
 	const Medium findMedium(const KURL &url);
 	void invokeEject(const TQString &device, bool quiet=false);
 	TQString m_errorStr;
-	bool m_isCdrom;
 	TQString m_mediumId;
 	Dialog *dialog;
 
@@ -48,7 +47,7 @@ private slots:
 	void slotSendPassword();
 	void slotCancel();
 	void ejectFinished(TDEProcess* proc);
-	void error();
+	void errorAndExit();
 
 signals:
 	void signalPasswordError(TQString errorMsg);

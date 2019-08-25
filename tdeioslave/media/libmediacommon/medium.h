@@ -75,8 +75,8 @@ public:
 	bool     softHidden() const { return m_properties[SOFT_HIDDEN] == "true"; };
 	bool     isLocked() const { return m_properties[LOCKED] == "true"; };
 
-	bool needMounting() const;
-	bool needUnlocking() const;
+	bool needMounting() const { return isMountable() && !isMounted(); };
+	bool needUnlocking() const { return isEncrypted() && isLocked(); }
 	KURL prettyBaseURL() const;
 	TQString prettyLabel() const;
 
