@@ -148,7 +148,7 @@ bool MediaImpl::listMedia(TQValueList<TDEIO::UDSEntry> &list)
 	Medium::MList::const_iterator it = media.begin();
 	Medium::MList::const_iterator end = media.end();
 
-	for(; it!=end; ++it)
+	for(; it != end; ++it)
 	{
 		if (!(*it).hidden()) {
 			entry.clear();
@@ -365,6 +365,11 @@ void MediaImpl::slotStatResult(TDEIO::Job *job)
 
 TDEIO::UDSEntry MediaImpl::extractUrlInfos(const KURL &url)
 {
+	if (url.isEmpty())
+	{
+		return TDEIO::UDSEntry();
+	}
+
 	m_entryBuffer.clear();
 
 	TDEIO::StatJob *job = TDEIO::stat(url, false);
@@ -448,7 +453,7 @@ void MediaImpl::createMediumEntry(TDEIO::UDSEntry& entry,
 	else
 	{
 		KURL url = medium.prettyBaseURL();
-		entry+= extractUrlInfos(url);
+		entry += extractUrlInfos(url);
 	}
 }
 

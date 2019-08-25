@@ -135,7 +135,6 @@ bool MediaList::changeMediumState(const Medium &medium, bool allowNotification)
 	m->setMountable(medium.isMountable());
 	if (medium.isMountable())
 	{
-		m->setMountable(true);
 		m->setDeviceNode(medium.deviceNode());
 		m->setClearDeviceUdi(medium.clearDeviceUdi());
 		m->setMountPoint(medium.mountPoint());
@@ -226,6 +225,11 @@ bool MediaList::changeMediumState(const TQString &id,
 
 	Medium *medium = m_idMap[id];
 
+	if (medium->deviceNode().isEmpty() || !medium->isMountable())
+	{
+		return false;
+	}
+
 	medium->setMountable(true);
 	medium->setDeviceNode(deviceNode);
 	medium->setMountPoint(mountPoint);
@@ -267,12 +271,12 @@ bool MediaList::changeMediumState(const TQString &id, bool mounted,
 
 	Medium *medium = m_idMap[id];
 
-	medium->setMountable(true);
-	medium->setMounted(mounted);
 	if (medium->deviceNode().isEmpty() || !medium->isMountable())
 	{
 		return false;
 	}
+
+	medium->setMounted(mounted);
 
 	if (!mimeType.isEmpty())
 	{

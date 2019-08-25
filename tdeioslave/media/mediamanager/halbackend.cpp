@@ -506,13 +506,13 @@ void HALBackend::setVolumeProperties(Medium* medium)
 
         medium->setEncrypted(true);
         char* clearUdi = libhal_volume_crypto_get_clear_volume_udi(m_halContext, halVolume);
-	TQString clearUdiString;
+        TQString clearUdiString;
         if (clearUdi != NULL) {
             kdDebug(1219) << "HALBackend::setVolumeProperties : crypto clear volume avail - " << clearUdi << endl;
             halClearVolume = libhal_volume_from_udi(m_halContext, clearUdi);
             // ignore if halClearVolume is NULL -> just not unlocked in this case
-	    clearUdiString = clearUdi;
-	    libhal_free_string(clearUdi);
+            clearUdiString = clearUdi;
+            libhal_free_string(clearUdi);
         }
 
         if (halClearVolume)
@@ -660,8 +660,6 @@ void HALBackend::setVolumeProperties(Medium* medium)
             case LIBHAL_DRIVE_TYPE_PORTABLE_AUDIO_PLAYER:
             {
                 medium->setIconName("ipod" + MOUNTED_ICON_SUFFIX);
-                medium->setMountable(false);
-
                 if (libhal_device_get_property_QString(m_halContext, driveUdi.latin1(), "info.product") == "iPod" &&
 		                KProtocolInfo::isKnownProtocol( TQString("ipod") ) )
                 {

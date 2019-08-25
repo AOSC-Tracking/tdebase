@@ -81,9 +81,9 @@ MountHelper::MountHelper() : TDEApplication()
 		return;
 	}
 
-	if (!medium.isMountable() && !args->isSet("e") && !args->isSet("s"))
+	if (!medium.isMountable() && !medium.isEncrypted() && !args->isSet("e") && !args->isSet("s"))
 	{
-		m_errorStr = i18n("%1 is not a mountable media.").arg(url.prettyURL());
+		m_errorStr = i18n("%1 is not a mountable or encrypted media.").arg(url.prettyURL());
 		TQTimer::singleShot(0, this, TQT_SLOT(error()));
 		return;
 	}

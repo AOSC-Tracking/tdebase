@@ -452,7 +452,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 
-	TDEStorageDevice * sdevice = hwdevices->findDiskByUID(medium->id());
+	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
 	if (!sdevice) {
 		return;
 	}
@@ -465,7 +465,15 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		medium->setEncrypted(false);
 	}
 
-	medium->setMountable(true);
+	if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) || sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted) ||
+			sdevice->fileSystemUsage().upper() == "RAID") {
+		// Encrypted disks or device underlying other devices are not mountable
+		medium->setMountable(false);
+	}
+	else {
+		medium->setMountable(true);
+	}
+
 	medium->setDeviceNode(sdevice->deviceNode());
 	medium->setMountPoint(sdevice->mountPath());
 	medium->setFsType(sdevice->fileSystemName());
@@ -785,7 +793,6 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		}
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::MediaDevice)) {
 			medium->setIconName("ipod" + MOUNTED_ICON_SUFFIX);
-			medium->setMountable(false);
 			if (sdevice->vendorModel().upper().contains("IPOD") && KProtocolInfo::isKnownProtocol(TQString("ipod"))) {
 				medium->setBaseURL("ipod:/");
 				medium->setMountable(true);
@@ -829,7 +836,15 @@ bool TDEBackend::setFloppyProperties(Medium* medium)
 			medium->setEncrypted(false);
 		}
 
-		medium->setMountable(true);
+		if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) || sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted) ||
+				sdevice->fileSystemUsage().upper() == "RAID") {
+			// Encrypted disks or device underlying other devices are not mountable
+			medium->setMountable(false);
+		}
+		else {
+			medium->setMountable(true);
+		}
+
 		medium->setDeviceNode(sdevice->deviceNode());
 		medium->setMountPoint(sdevice->mountPath());
 		medium->setFsType(sdevice->fileSystemName());

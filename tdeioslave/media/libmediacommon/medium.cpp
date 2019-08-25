@@ -179,7 +179,14 @@ void Medium::setDeviceNode(const TQString &deviceNode)
 
 void Medium::setMountPoint(const TQString &mountPoint)
 {
-	m_properties[MOUNT_POINT] = mountPoint;
+	if (isMountable())
+	{
+		m_properties[MOUNT_POINT] = mountPoint;
+	}
+	else
+	{
+		m_properties[MOUNT_POINT] = TQString::null;
+	}
 }
 
 void Medium::setFsType(const TQString &fsType)
@@ -189,7 +196,14 @@ void Medium::setFsType(const TQString &fsType)
 
 void Medium::setMounted(bool mounted)
 {
-	m_properties[MOUNTED] = mounted ? "true" : "false";
+	if (isMountable())
+	{
+		m_properties[MOUNTED] = mounted ? "true" : "false";
+	}
+	else
+	{
+		m_properties[MOUNTED] = "false";
+	}
 }
 
 void Medium::setBaseURL(const TQString &baseURL)
