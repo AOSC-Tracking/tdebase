@@ -137,7 +137,7 @@ MountHelper::MountHelper() : TDEApplication()
 			TQTimer::singleShot(0, this, TQT_SLOT(error()));
 			return;
 		}
-		if (!medium.needDecryption())
+		if (!medium.needUnlocking())
 		{
 			m_errorStr = i18n("%1 is already unlocked.").arg(url.prettyURL());
 			TQTimer::singleShot(0, this, TQT_SLOT(error()));

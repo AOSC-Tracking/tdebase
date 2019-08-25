@@ -517,6 +517,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
 
         if (halClearVolume)
         {
+            medium->setLocked(false);
             medium->setMountable(true);
             medium->setDeviceNode(libhal_volume_get_device_file(halVolume));
             medium->setClearDeviceUdi(clearUdiString);
@@ -526,7 +527,8 @@ void HALBackend::setVolumeProperties(Medium* medium)
         }
         else
         {
-            medium->setMountable(true);
+            medium->setLocked(true);
+            medium->setMountable(false);
             medium->setDeviceNode(libhal_volume_get_device_file(halVolume));
             medium->setClearDeviceUdi(TQString::null);
             medium->setMountPoint(TQString::null);
@@ -537,6 +539,7 @@ void HALBackend::setVolumeProperties(Medium* medium)
     else
     {
         kdDebug(1219) << "HALBackend::setVolumeProperties : normal volume" << endl;
+        medium->setEncrypted(false);
         medium->setMountable(true);
         medium->setDeviceNode(libhal_volume_get_device_file(halVolume));
         medium->setMountPoint(TQString::fromUtf8(libhal_volume_get_mount_point(halVolume)));

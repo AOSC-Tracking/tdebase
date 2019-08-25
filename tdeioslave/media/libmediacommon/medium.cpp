@@ -43,6 +43,7 @@ void Medium::initMedium()
 	m_properties += TQString::null; // CLEAR_DEVICE_UDI
 	m_properties += "false";        // HIDDEN
 	m_properties += "false";        // SOFT_HIDDEN
+	m_properties += "false";        // LOCKED
 }
 
 Medium::Medium(const TQString id, TQString uuid, const TQString name)
@@ -86,6 +87,7 @@ const Medium Medium::create(const TQStringList &properties)
 		m.m_properties[CLEAR_DEVICE_UDI] = properties[CLEAR_DEVICE_UDI];
 		m.m_properties[HIDDEN] = properties[HIDDEN];
 		m.m_properties[SOFT_HIDDEN] = properties[SOFT_HIDDEN];
+		m.m_properties[LOCKED] = properties[LOCKED];
 	}
 
 	return m;
@@ -221,9 +223,13 @@ void Medium::setIconName(const TQString &iconName)
 	m_properties[ICON_NAME] = iconName;
 }
 
-void Medium::setEncrypted(bool state)
+void Medium::setEncrypted(bool encrypted)
 {
-	m_properties[ENCRYPTED] = ( state ? "true" : "false" );
+	m_properties[ENCRYPTED] = encrypted ? "true" : "false";
+	if (!encrypted)
+	{
+		setLocked(false);
+	}
 }
 
 void Medium::setClearDeviceUdi(const TQString &clearDeviceUdi)
@@ -233,12 +239,17 @@ void Medium::setClearDeviceUdi(const TQString &clearDeviceUdi)
 
 void Medium::setHidden(bool state)
 {
-	m_properties[HIDDEN] = ( state ? "true" : "false" );
+	m_properties[HIDDEN] = state ? "true" : "false";
 }
 
 void Medium::setSoftHidden(bool state)
 {
-	m_properties[SOFT_HIDDEN] = ( state ? "true" : "false" );
+	m_properties[SOFT_HIDDEN] = state ? "true" : "false";
+}
+
+void Medium::setLocked(bool locked)
+{
+	m_properties[LOCKED] = locked ? "true" : "false";
 }
 
 bool Medium::needMounting() const
@@ -246,9 +257,9 @@ bool Medium::needMounting() const
 	return isMountable() && !isMounted();
 }
 
-bool Medium::needDecryption() const
+bool Medium::needUnlocking() const
 {
-	return isEncrypted() && clearDeviceUdi().isEmpty();
+	return isEncrypted() && isLocked();
 }
 
 KURL Medium::prettyBaseURL() const

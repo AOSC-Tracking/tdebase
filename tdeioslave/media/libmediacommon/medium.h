@@ -46,7 +46,8 @@ public:
 	static const uint CLEAR_DEVICE_UDI = 14;
 	static const uint HIDDEN           = 15;
 	static const uint SOFT_HIDDEN      = 16;
-	static const uint PROPERTIES_COUNT = 17;
+	static const uint LOCKED           = 17;
+	static const uint PROPERTIES_COUNT = 18;
 	static const TQString SEPARATOR;
 
 	Medium(const TQString id, TQString uuid, const TQString name);
@@ -60,21 +61,22 @@ public:
 	TQString name() const { return m_properties[NAME]; }
 	TQString label() const { return m_properties[LABEL]; }
 	TQString userLabel() const { return m_properties[USER_LABEL]; }
-	bool     isMountable() const { return m_properties[MOUNTABLE]=="true"; }
+	bool     isMountable() const { return m_properties[MOUNTABLE] == "true"; }
 	TQString deviceNode() const { return m_properties[DEVICE_NODE]; }
 	TQString mountPoint() const { return m_properties[MOUNT_POINT]; }
 	TQString fsType() const { return m_properties[FS_TYPE]; }
-	bool     isMounted() const { return m_properties[MOUNTED]=="true"; }
+	bool     isMounted() const { return m_properties[MOUNTED] == "true"; }
 	TQString baseURL() const { return m_properties[BASE_URL]; }
 	TQString mimeType() const { return m_properties[MIME_TYPE]; }
 	TQString iconName() const { return m_properties[ICON_NAME]; }
-	bool     isEncrypted() const { return m_properties[ENCRYPTED]=="true"; };
+	bool     isEncrypted() const { return m_properties[ENCRYPTED] == "true"; };
 	TQString clearDeviceUdi() const { return m_properties[CLEAR_DEVICE_UDI]; };
-	bool     hidden() const { return m_properties[HIDDEN]=="true"; };
-	bool     softHidden() const { return m_properties[SOFT_HIDDEN]=="true"; };
+	bool     hidden() const { return m_properties[HIDDEN] == "true"; };
+	bool     softHidden() const { return m_properties[SOFT_HIDDEN] == "true"; };
+	bool     isLocked() const { return m_properties[LOCKED] == "true"; };
 
 	bool needMounting() const;
-	bool needDecryption() const;
+	bool needUnlocking() const;
 	KURL prettyBaseURL() const;
 	TQString prettyLabel() const;
 
@@ -89,10 +91,11 @@ public:
 	void setBaseURL(const TQString &baseURL);
 	void setMimeType(const TQString &mimeType);
 	void setIconName(const TQString &iconName);
-	void setEncrypted(bool state);
+	void setEncrypted(bool encrypted);
 	void setClearDeviceUdi(const TQString &clearDeviceUdi);
 	void setHidden(bool state);
 	void setSoftHidden(bool state);
+	void setLocked(bool locked);
 
 	Medium();
 

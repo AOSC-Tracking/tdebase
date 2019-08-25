@@ -132,6 +132,8 @@ bool MediaList::changeMediumState(const Medium &medium, bool allowNotification)
 
 	Medium *m = m_idMap[medium.id()];
 
+	m->setEncrypted(medium.isEncrypted());
+	m->setLocked(medium.isLocked());
 	m->setMountable(medium.isMountable());
 	if (medium.isMountable())
 	{

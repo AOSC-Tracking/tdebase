@@ -460,6 +460,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 	medium->setName(generateName(sdevice->deviceNode()));
 	if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) || sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted)) {
 		medium->setEncrypted(true);
+		medium->setLocked(!sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt));
 	}
 	else {
 		medium->setEncrypted(false);
@@ -831,6 +832,7 @@ bool TDEBackend::setFloppyProperties(Medium* medium)
 		medium->setName(generateName(sdevice->deviceNode()));
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) || sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted)) {
 			medium->setEncrypted(true);
+			medium->setLocked(!sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt));
 		}
 		else {
 			medium->setEncrypted(false);
