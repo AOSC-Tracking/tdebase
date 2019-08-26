@@ -96,7 +96,7 @@ HwDeviceSystemTray::~HwDeviceSystemTray() {
  * result is written to the KDE configfile.
  */
 void HwDeviceSystemTray::_quit () {
-	r_config = new KSimpleConfig("hwdevicetrayrc");
+	r_config = new KSimpleConfig("tdehwdevicetrayrc");
 
 	TQString tmp1 = i18n ("Start hardware device tray automatically when you log in?");
 	int tmp2 = KMessageBox::questionYesNo (0, tmp1, i18n("Question"), i18n("Start Automatically"), i18n("Do Not Start"));
