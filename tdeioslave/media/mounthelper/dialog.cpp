@@ -27,7 +27,6 @@ Dialog::Dialog(TQString url, TQString iconName) :
 {
 	unlockDialog = new UnlockDialog(this);
 
-	unlockDialog->errorBox->hide();
 	unlockDialog->descLabel->setText(unlockDialog->descLabel->text().arg(url));
 	unlockDialog->descLabel->adjustSize();
 	unlockDialog->adjustSize();
@@ -50,14 +49,6 @@ Dialog::~Dialog()
 TQString Dialog::getPassword()
 {
 	return unlockDialog->passwordEdit->text();
-}
-
-void Dialog::slotDialogError(TQString errorMsg)
-{
-	kdDebug() << __func__ << "(" << errorMsg << " )" << endl;
-
-	unlockDialog->errorLabel->setText(TQString("<b>%1</b>").arg(errorMsg));
-	unlockDialog->errorBox->show();
 }
 
 void Dialog::slotPasswordChanged(const TQString &text)

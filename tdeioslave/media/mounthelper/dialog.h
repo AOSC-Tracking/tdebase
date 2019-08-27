@@ -50,7 +50,6 @@ public:
 	TQString getPassword();
 
 public slots:
-	void slotDialogError(TQString errorMsg);
 	void slotPasswordChanged(const TQString &text);
 
 private:

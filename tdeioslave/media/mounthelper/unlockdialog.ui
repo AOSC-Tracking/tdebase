@@ -155,46 +155,6 @@
                 </widget>
             </hbox>
         </widget>
-        <widget class="TQGroupBox" row="2" column="0">
-            <property name="name">
-                <cstring>errorBox</cstring>
-            </property>
-            <property name="sizePolicy">
-                <sizepolicy>
-                    <hsizetype>3</hsizetype>
-                    <vsizetype>3</vsizetype>
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                </sizepolicy>
-            </property>
-            <property name="title">
-                <string>Error</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="TQLabel" row="0" column="0">
-                    <property name="name">
-                        <cstring>errorLabel</cstring>
-                    </property>
-                    <property name="sizePolicy">
-                        <sizepolicy>
-                            <hsizetype>3</hsizetype>
-                            <vsizetype>3</vsizetype>
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                        </sizepolicy>
-                    </property>
-                    <property name="text">
-                        <string></string>
-                    </property>
-                    <property name="alignment">
-                        <set>WordBreak|AlignTop</set>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>

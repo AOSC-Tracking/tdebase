@@ -163,7 +163,6 @@ MountHelper::MountHelper() : TDEApplication()
 		dialog = new Dialog(url.prettyURL(), iconName);
 		connect(dialog, TQT_SIGNAL(user1Clicked()), this, TQT_SLOT(slotSendPassword()));
 		connect(dialog, TQT_SIGNAL(cancelClicked()), this, TQT_SLOT(slotCancel()));
-		connect(this, TQT_SIGNAL(signalPasswordError(TQString)), dialog, TQT_SLOT(slotDialogError(TQString)));
 		dialog->show();
 	}
 	else if (args->isSet("l"))
@@ -293,7 +292,7 @@ void MountHelper::ejectFinished(TDEProcess *proc)
 	}
 }
 
-void MountHelper::errorAndExit()
+void MountHelper::error()
 {
 	TQString prettyErrorString = m_errorStr;
 	if (m_errorStr.contains("<") && m_errorStr.contains(">")) {
@@ -302,6 +301,11 @@ void MountHelper::errorAndExit()
 		}
 	}
 	KMessageBox::error(0, prettyErrorString);
+}
+
+void MountHelper::errorAndExit()
+{
+	error();
 	::exit(1);
 }
 
@@ -320,8 +324,7 @@ void MountHelper::slotSendPassword()
 	else {
 		m_errorStr = unlockResult.contains("errStr") ? unlockResult["errStr"].toString() : i18n("Unknown unlock error.");
 		kdDebug() << "medium unlock " << m_errorStr << endl;
-		emit signalPasswordError(m_errorStr);
-		errorAndExit();
+		error();
 	}
 }
 
