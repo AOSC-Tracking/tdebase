@@ -1,0 +1,11 @@
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "kcmhwmanager"
+    EXCLUDES "^hwdevicetray.*"
+)
+
+tde_l10n_create_template(
+    CATALOG "tdehwdevicetray"
+    SOURCES "hwdevicetray*.cpp"
+)

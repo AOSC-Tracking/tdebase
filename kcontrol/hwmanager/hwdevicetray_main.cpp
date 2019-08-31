@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 	TDEAboutData aboutData("hwdevicetray", I18N_NOOP("Hardware Device Monitor"), hwdevicetrayVersion, I18N_NOOP("Hardware Device Monitor Tray Application"), TDEAboutData::License_GPL_V3, "(c) 2015 Timothy Pearson", 0L, "");
 	aboutData.addAuthor("Timothy Pearson",I18N_NOOP("Initial developer and maintainer"), "kb9vqf@pearsoncomputing.net");
 	aboutData.setProductName("hwdevices/hwdevicetray");
-	TDEGlobal::locale()->setMainCatalogue("hwdevicetray");
+	TDEGlobal::locale()->setMainCatalogue("tdehwdevicetray");
 
 	TDECmdLineArgs::init(argc,argv,&aboutData);
 	TDECmdLineArgs::addCmdLineOptions(options);
