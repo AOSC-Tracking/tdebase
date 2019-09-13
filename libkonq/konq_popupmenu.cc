@@ -337,22 +337,22 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
 
     m_ownActions.setWidget( this );
 
-    const bool bIsLink  = (kpf & IsLink);
-    bool currentDir     = false;
-    bool sReading       = true;
-    bool sDeleting      = ( d->m_itemFlags & KParts::BrowserExtension::NoDeletion ) == 0;
-    bool sMoving        = sDeleting;
-    bool sWriting       = sDeleting && m_lstItems.first()->isWritable();
-    m_sMimeType         = m_lstItems.first()->mimetype();
+    const bool bIsLink   = (kpf & IsLink);
+    bool currentDir      = false;
+    bool sReading        = true;
+    bool sDeleting       = ( d->m_itemFlags & KParts::BrowserExtension::NoDeletion ) == 0;
+    bool sMoving         = sDeleting;
+    bool sWriting        = sDeleting && m_lstItems.first()->isWritable();
+    m_sMimeType          = m_lstItems.first()->mimetype();
     TQString mimeGroup   = m_sMimeType.left(m_sMimeType.find('/'));
-    mode_t mode         = m_lstItems.first()->mode();
-    bool isDirectory    = S_ISDIR(mode);
-    bool bTrashIncluded = false;
-    bool mediaFiles     = false;
-    bool isReallyLocal = m_lstItems.first()->isLocalFile();
-    bool isLocal        = isReallyLocal
-                       || m_lstItems.first()->url().protocol()=="media"
-                       || m_lstItems.first()->url().protocol()=="system";
+    mode_t mode          = m_lstItems.first()->mode();
+    bool isDirectory     = S_ISDIR(mode);
+    bool isMediaFile     = false;
+    bool isEncryptedMediaFile = false;
+    bool isReallyLocal   = m_lstItems.first()->isLocalFile();
+    bool isLocal         = isReallyLocal || m_lstItems.first()->url().protocol()=="media" ||
+                           m_lstItems.first()->url().protocol()=="system";
+    bool isTrashIncluded = false;
     bool isTrashLink     = false;
     m_lstPopupURLs.clear();
     int id = 0;
@@ -398,10 +398,10 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         if ( isLocal && !url.isLocalFile() && url.protocol() != "media" && url.protocol() != "system" )
             isLocal = false;
 
-        if ( !bTrashIncluded && (
+        if ( !isTrashIncluded && (
              ( url.protocol() == "trash" && url.path().length() <= 1 )
              || url.url() == "system:/trash" || url.url() == "system:/trash/" ) ) {
-            bTrashIncluded = true;
+            isTrashIncluded = true;
             isLocal = false;
         }
 
@@ -416,8 +416,12 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
 
         if ( sMoving )
             sMoving = KProtocolInfo::supportsMoving( url );
-        if ( (*it)->mimetype().startsWith("media/") )
-            mediaFiles = true;
+        if ( (*it)->mimetype().startsWith("media/") ) {
+            isMediaFile = true;
+            if ( (*it)->mimetype().contains("encrypted")) {
+                isEncryptedMediaFile = true;
+            }
+        }
     }
 
     // If a local path is available, monitor that instead of the given remote URL...
@@ -469,13 +473,12 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
     m_info.m_Writing = sWriting;
     m_info.m_Deleting = sDeleting;
     m_info.m_Moving = sMoving;
-    m_info.m_TrashIncluded = bTrashIncluded;
+    m_info.m_TrashIncluded = isTrashIncluded;
 
     // isCurrentTrash: popup on trash:/ itself, or on the trash.desktop link
-    bool isCurrentTrash = ( m_lstItems.count() == 1 && bTrashIncluded ) || isTrashLink;
+    bool isCurrentTrash = ( m_lstItems.count() == 1 && isTrashIncluded ) || isTrashLink;
     bool isIntoTrash = ( url.protocol() == "trash" || url.url().startsWith( "system:/trash" ) ) && !isCurrentTrash; // trashed file, not trash:/ itself
-    //kdDebug() << "isLocal=" << isLocal << " url=" << url << " isCurrentTrash=" << isCurrentTrash << " isIntoTrash=" << isIntoTrash << " bTrashIncluded=" << bTrashIncluded << endl;
-    bool isSingleMedium = m_lstItems.count() == 1 && mediaFiles;
+    //kdDebug() << "isLocal=" << isLocal << " url=" << url << " isCurrentTrash=" << isCurrentTrash << " isIntoTrash=" << isIntoTrash << " isTrashIncluded=" << isTrashIncluded << endl;
     clear();
 
     //////////////////////////////////////////////////////////////////////////
@@ -486,7 +489,6 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         addMerge( "konqueror" );
 
     bool isKDesktop = TQCString( kapp->name() ) == "kdesktop";
-    TDEAction *actNewWindow = 0;
 
     if (( kpf & ShowProperties ) && isKDesktop &&
         !kapp->authorize("editable_desktop_icons"))
@@ -496,20 +498,13 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
 
     // Either 'newview' is in the actions we're given (probably in the tabhandling group)
     // or we need to insert it ourselves (e.g. for kdesktop). In the first case, actNewWindow must remain 0.
-    if ( ((kpf & ShowNewWindow) != 0) && sReading )
+    if ( ((kpf & ShowNewWindow) != 0) && sReading  && !isEncryptedMediaFile)
     {
         TQString openStr = isKDesktop ? i18n( "&Open" ) : i18n( "Open in New &Window" );
-        actNewWindow = new TDEAction( openStr, "window-new", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupNewView() ), &m_ownActions, "newview" );
-    }
-
-    if ( actNewWindow && !isKDesktop )
-    {
-        if (isCurrentTrash)
-            actNewWindow->setToolTip( i18n( "Open the trash in a new window" ) );
-        else if (isSingleMedium)
-            actNewWindow->setToolTip( i18n( "Open the medium in a new window") );
-        else
-            actNewWindow->setToolTip( i18n( "Open the document in a new window" ) );
+        TDEAction *actNewWindow = new TDEAction( openStr, "window-new", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupNewView() ), &m_ownActions, "newview" );
+        actNewWindow->setToolTip( i18n( "Open item in a new window" ) );
+        addAction( actNewWindow );
+        addSeparator();
     }
 
     if ( S_ISDIR(mode) && sWriting && !isCurrentTrash ) // A dir, and we can create things into it
@@ -550,13 +545,10 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         addSeparator();
     }
 
-    // "open in new window" is either provided by us, or by the tabhandling group
-    if (actNewWindow)
+    if (!isEncryptedMediaFile)
     {
-        addAction( actNewWindow );
-        addSeparator();
+        addGroup( "tabhandling" ); // includes a separator
     }
-    addGroup( "tabhandling" ); // includes a separator
 
     if ( !bIsLink )
     {
@@ -995,7 +987,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         addPendingSeparator();
     }
 
-    if ( !isCurrentTrash && !isIntoTrash && !mediaFiles && sReading )
+    if ( !isCurrentTrash && !isIntoTrash && !isMediaFile && sReading )
         addPlugins(); // now it's time to add plugins
 
     if ( KPropertiesDialog::canDisplay( m_lstItems ) && (kpf & ShowProperties) )

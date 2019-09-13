@@ -4789,7 +4789,12 @@ void KonqMainWindow::slotPopupMenu( KXMLGUIClient *client, const TQPoint &_globa
 
   connectActionCollection( pPopupMenu->actionCollection() );
 
-  pPopupMenu->factory()->addClient( konqyMenuClient );
+  if (pPopupMenu->hasGroup("tabhandling"))
+  {
+    // "tabhandling" group in inserted in the popup menu if no encrypted media devices are part of "_items"
+    // see libkonq/konq_popupmenu.cc KonqPopupMenu::setup() method
+    pPopupMenu->factory()->addClient( konqyMenuClient );
+  }
 
   if ( client )
     pPopupMenu->factory()->addClient( client );

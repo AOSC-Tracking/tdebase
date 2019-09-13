@@ -154,4 +154,21 @@ bool KonqXMLGUIClient::hasAction() const
   return d->hasAction;
 }
 
+bool KonqXMLGUIClient::hasGroup(const TQString &name) const
+{
+	if (name.isEmpty())
+	{
+		return false;
+	}
+	TQDomNodeList groups = m_doc.elementsByTagName("definegroup");
+	for (uint idx = 0; idx < groups.count(); ++idx)
+	{
+		TQDomElement group = groups.item(idx).toElement();
+		if (group.hasAttribute(d->attrName) && group.attribute(d->attrName) == name)
+		{
+			return true;
+		}
+	}
+	return false;
+}
 

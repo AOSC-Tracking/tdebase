@@ -34,24 +34,26 @@
 class LIBKONQ_EXPORT KonqXMLGUIClient : public KXMLGUIClient
 {
 public:
-  KonqXMLGUIClient( );
-  KonqXMLGUIClient( KXMLGUIClient *parent );
-  virtual ~KonqXMLGUIClient( );
+  KonqXMLGUIClient();
+  KonqXMLGUIClient(KXMLGUIClient *parent);
+  virtual ~KonqXMLGUIClient();
   /**
    * Reimplemented for internal purpose
    */
-  TQDomDocument domDocument( ) const;
+  TQDomDocument domDocument() const;
+  TQDomElement  DomElement() const; // KDE4: s/D/d/
 
-  TQDomElement DomElement( ) const; // KDE4: s/D/d/
+  // @return true if the group named "name" exists
+  bool hasGroup(const TQString &name) const;
 
 protected:
-  void addAction( TDEAction *action, const TQDomElement &menu = TQDomElement() );
-  void addAction( const char *name, const TQDomElement &menu = TQDomElement() );
-  void addSeparator( const TQDomElement &menu = TQDomElement() );
+  void addAction(TDEAction *action, const TQDomElement &menu = TQDomElement());
+  void addAction(const char *name, const TQDomElement &menu = TQDomElement());
+  void addSeparator(const TQDomElement &menu = TQDomElement());
   /// only add a separator if an action is added afterwards
   void addPendingSeparator();
-  void addGroup( const TQString &grp );
-  void addMerge( const TQString &name );
+  void addGroup(const TQString &grp);
+  void addMerge(const TQString &name);
 
   // @return true if addAction was called at least once
   bool hasAction() const;
