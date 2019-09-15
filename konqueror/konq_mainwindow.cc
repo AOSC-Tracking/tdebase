@@ -476,11 +476,9 @@ void KonqMainWindow::openURL( KonqView *_view, const KURL &_url,
                               const TQString &_serviceType, KonqOpenURLRequest& req,
                               bool trustedSource )
 {
-#ifndef NDEBUG // needed for req.debug()
   kdDebug(1202) << "KonqMainWindow::openURL : url = '" << _url << "'  "
                 << "serviceType='" << _serviceType << "' req=" << req.debug()
                 << " view=" << _view << endl;
-#endif
 
   KURL url( _url );
   if (url.url().startsWith("$(")) {
@@ -541,6 +539,27 @@ void KonqMainWindow::openURL( KonqView *_view, const KURL &_url,
   {
       KMessageBox::error(0, i18n("Protocol not supported\n%1").arg(url.protocol()));
       return;
+  }
+
+  // Default action for media encrypted disks is either lock or unlock based on current status
+  TQString lockingAction = TQString::null;
+  if (serviceType.contains("encrypted_locked")) {
+    lockingAction = "konqueror/servicemenus/media_unlock.desktop";
+  }
+  else if (serviceType.contains("encrypted_unlocked")) {
+    lockingAction = "konqueror/servicemenus/media_lock.desktop";
+  }
+  if (!lockingAction.isEmpty()) {
+    TQString lockingService = TDEGlobal::dirs()->findResource("data", lockingAction);
+      if (!lockingService.isEmpty()) {
+      TQValueList<KDEDesktopMimeType::Service> serviceList = KDEDesktopMimeType::userDefinedServices(lockingService, url.isLocalFile());
+      if (serviceList.count() == 1) {
+        KURL::List m_lstURLs;
+        m_lstURLs.append(url);
+        KDEDesktopMimeType::executeService(m_lstURLs, serviceList[0]);
+        return;
+      }
+    }
   }
 
   TQString nameFilter = detectNameFilter( url );

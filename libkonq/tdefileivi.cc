@@ -32,6 +32,8 @@
 #include <kdebug.h>
 #include <krun.h>
 #include <kservice.h>
+#include <kmimetype.h> // for KDEDesktopMimeType
+#include <kstandarddirs.h>
 
 #undef Bool
 
@@ -386,7 +388,28 @@ void KFileIVI::returnPressed()
     if ( static_cast<KonqIconViewWidget*>(iconView())->isDesktop() ) {
         KURL url = m_fileitem->url();
         if (url.protocol() == "media") {
-            (void) new KRun( url, m_fileitem->mode(), m_fileitem->isLocalFile() );
+            TQString mimetype = m_fileitem->mimetype();
+            TQString lockingAction = TQString::null;
+            if (mimetype.contains("encrypted_locked")) {
+                lockingAction = "konqueror/servicemenus/media_unlock.desktop";
+            }
+            else if (mimetype.contains("encrypted_unlocked")) {
+                lockingAction = "konqueror/servicemenus/media_lock.desktop";
+            }
+            if (!lockingAction.isEmpty()) {
+                TQString lockingService = TDEGlobal::dirs()->findResource("data", lockingAction);
+                if (!lockingService.isEmpty()) {
+                    TQValueList<KDEDesktopMimeType::Service> serviceList = KDEDesktopMimeType::userDefinedServices(lockingService, m_fileitem->isLocalFile());
+                    if (serviceList.count() == 1) {
+                        KURL::List m_lstURLs;
+                        m_lstURLs.append(m_fileitem->url());
+                        KDEDesktopMimeType::executeService(m_lstURLs, serviceList[0]);
+                    }
+                }
+            }
+            else {
+                (void) new KRun( url, m_fileitem->mode(), m_fileitem->isLocalFile() );
+            }
         }
         else {
             // When clicking on a link to e.g. $HOME from the desktop, we want to open $HOME
