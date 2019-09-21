@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=MimeType
-MimeType=fonts/package
+MimeType=application/vnd.tde.fontspackage
 Icon=font-x-generic
 Patterns=*.fonts.tar.gz
 Comment=Fonts Package
