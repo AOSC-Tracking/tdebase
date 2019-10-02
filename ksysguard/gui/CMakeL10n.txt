@@ -2,6 +2,7 @@
 
 tde_l10n_create_template(
     CATALOG "ksysguard"
+    SOURCES "."
     ATTRIBUTES
       "SystemLoad.sgrd:display,title"
       "KSysGuardApplet.xml:display,title"
