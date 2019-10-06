@@ -4,6 +4,8 @@ EmptyIcon=trashcan_empty
 Type=MimeType
 MimeType=media/builtin-trash
 Comment=Trash
+Comment[de]=Mülleimer
+
 Patterns=Trash
 
 X-TDE-AutoEmbed=false
