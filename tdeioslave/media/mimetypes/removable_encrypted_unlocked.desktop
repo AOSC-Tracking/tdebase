@@ -4,7 +4,7 @@ Icon=media-flash-usb-unlocked
 Type=MimeType
 MimeType=media/removable_encrypted_unlocked
 Comment=Encrypted Unlocked Removable Medium
-Comment[de]=Verschlüsselte entsperrte Wechsellaufwerk
+Comment[de]=Verschlüsseltes entsperrtes Wechsellaufwerk
 Comment[it]=Disco rimovibile criptato sprotetto
 Patterns=
 

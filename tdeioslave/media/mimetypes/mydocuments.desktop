@@ -3,6 +3,7 @@ Icon=folder_wordprocessing
 Type=MimeType
 MimeType=media/builtin-mydocuments
 Comment=My Documents
+Comment[de]=Dokumente
 Patterns=My_Documents
 
 X-TDE-AutoEmbed=false

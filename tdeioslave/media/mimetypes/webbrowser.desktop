@@ -3,6 +3,7 @@ Icon=konqueror
 Type=MimeType
 MimeType=media/builtin-webbrowser
 Comment=Web Browser
+Comment[de]=Webbrowser
 Patterns=Web_Browser
 
 X-TDE-AutoEmbed=false

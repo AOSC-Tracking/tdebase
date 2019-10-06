@@ -3,6 +3,7 @@ Icon=network
 Type=MimeType
 MimeType=media/builtin-mynetworkplaces
 Comment=My Network Places
+Comment[de]=Netzwerk
 Patterns=My_Network_Places
 
 X-TDE-AutoEmbed=false

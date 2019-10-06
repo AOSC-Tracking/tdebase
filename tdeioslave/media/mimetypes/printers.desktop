@@ -3,6 +3,7 @@ Icon=kjobviewer
 Type=MimeType
 MimeType=media/builtin-printers
 Comment=Printers
+Comment[de]=Drucker
 Patterns=Printers
 
 X-TDE-AutoEmbed=false
