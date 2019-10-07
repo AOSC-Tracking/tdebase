@@ -10,9 +10,20 @@ X-TDE-FactoryName=tdehtml_userinterface
 
 Name=User Interface
 Name[it]=Interfaccia utente
+Name[de]=Benutzeroberfläche
+Name[es]=Interfaz del usuario
+Name[ru]=Пользовательский интерфейс
+
 Comment=Configure user interface options
 Comment[it]=Configura opzioni dell'interfaccia utente
+Comment[de]=Optionen der Benutzeroberfläche konfigurieren
+Comment[es]=Configuración de los parametros de la interfaz del usuario
+Comment[ru]=Конфигурация параметров
+
 Keywords=konqueror;kfm;user;interface;tabbed;browsing;
 Keywords[it]=konqueror;kfm;utente;interfaccia;linguette;navigazione;
+Keywords[de]=Konqueror;KFM;Benutzer;Oberfläche;Unterfenster;Browsing;
+Keywords[es]=Keywords=konqueror;kfm;usuario;interfaz;pestañas;navegacion;
+Keywords[ru]=конкэрор;кфм;пользователь;пользовательский интерфейс;вкладки;навигация;
 
 Categories=Qt;TDE;X-TDE-settings-webbrowsing;
