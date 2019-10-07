@@ -6,5 +6,8 @@ X-TDE-ServiceTypes=KPropsDlg/Plugin,media/builtin-trash,inode/directory
 
 Name=Trash Properties
 Name[cs]=Vlastnosti koše
+Name[de]=Eigenschaften des Mülleimers
+Name[es]=Propiedades de la basura
 Name[fr]=Propriétés de la Corbeille
 Name[it]=Proprietà del cestino
+Name[ru]=Свойства мусора
