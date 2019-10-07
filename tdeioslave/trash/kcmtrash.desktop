@@ -9,16 +9,16 @@ X-TDE-Library=trash
 Categories=Qt;TDE;X-TDE-settings-system;
 
 Name=Trash
-Name[cz]=Koš
+Name[cs]=Koš
 Name[fr]=Corbeille
 Name[it]=Cestino
 
 Comment=Trash Properties
-Comment[cz]=Vlastnosti koše
+Comment[cs]=Vlastnosti koše
 Comment[fr]=Propriétés de la Corbeille
 Comment[it]=Proprietà del cestino
 
 Keywords=trash;properties;size;limits;delete
-Keywords[cz]=koš,vlastnosti,velikost,limity,odstranit
+Keywords[cs]=koš;vlastnosti;velikost;limity;odstranit
 Keywords[fr]=corbeille;propriétés;taille;limites;supprimer
 Keywords[it]=cestino;proprietà;dimensioni;limiti;cancella

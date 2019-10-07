@@ -5,6 +5,6 @@ X-TDE-Library=ktrashpropsdlgplugin
 X-TDE-ServiceTypes=KPropsDlg/Plugin,media/builtin-trash,inode/directory
 
 Name=Trash Properties
-Name[cz]=Vlastnosti koše
+Name[cs]=Vlastnosti koše
 Name[fr]=Propriétés de la Corbeille
 Name[it]=Proprietà del cestino
