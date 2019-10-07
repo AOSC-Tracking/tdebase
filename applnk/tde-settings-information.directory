@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Device Informations
+Name[cs]=Informace o zařízeních
+Name[de]=Geräteinformationen
+Name[es]=Información del dispositivo
+Name[fr]=Informations sur les périphériques
+Name[it]=Informazioni sulle periferiche
+Name[ru]=Свойства устройства
+Icon=hwinfo
+OnlyShowIn=TDE;
