@@ -9,14 +9,6 @@
                 <MergeFile>../tde-settings.menu</MergeFile>
 	</Menu>
 	<Menu>
-		<Name>Information</Name>
-		<Directory>tde-information.directory</Directory>
-                <MergeFile>../tde-information.menu</MergeFile>
-	</Menu>
-        <Move>
-           <Old>Settings/Information</Old><New>Information</New>
-        </Move>
-	<Menu>
 		<Name>System</Name>
 		<Menu>
 			<Name>ScreenSavers</Name>

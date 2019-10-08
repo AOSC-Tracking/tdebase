@@ -1,6 +1,6 @@
 SUBDIRS = compat
 
-xdg_menu_DATA = tde-settings.menu tde-information.menu tde-screensavers.menu
+xdg_menu_DATA = tde-settings.menu tde-screensavers.menu
 
 xdg_mergedmenu_DATA = tde-essential.menu
 xdg_mergedmenudir = $(xdg_menudir)/applications-merged
@@ -18,7 +18,6 @@ tde-games-roguelikes.directory \
 tde-games-strategy.directory \
 tde-games.directory \
 tde-graphics.directory \
-tde-information.directory \
 tde-internet-terminal.directory \
 tde-internet.directory \
 tde-more.directory \
@@ -28,6 +27,7 @@ tde-science.directory \
 tde-settings-accessibility.directory \
 tde-settings-components.directory \
 tde-settings-desktop.directory \
+tde-settings-information.directory \
 tde-settings-looknfeel.directory \
 tde-settings-network.directory \
 tde-settings-peripherals.directory \

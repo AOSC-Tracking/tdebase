@@ -12,7 +12,7 @@
 add_subdirectory( compat )
 
 install( FILES
-    tde-settings.menu tde-information.menu tde-screensavers.menu
+    tde-settings.menu tde-screensavers.menu
   DESTINATION ${XDG_MENU_INSTALL_DIR} )
 
 install( FILES
@@ -30,7 +30,7 @@ install( FILES
     tde-games-board.directory tde-games-card.directory
     tde-games-kids.directory tde-games-roguelikes.directory
     tde-games-strategy.directory tde-games.directory
-    tde-graphics.directory tde-information.directory
+    tde-graphics.directory tde-settings-information.directory
     tde-internet-terminal.directory tde-internet.directory
     tde-more.directory tde-multimedia.directory tde-office.directory
     tde-science.directory tde-settings-accessibility.directory
