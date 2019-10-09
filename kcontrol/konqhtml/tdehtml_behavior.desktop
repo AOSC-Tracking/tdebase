@@ -83,6 +83,7 @@ Name[vi]=Cách hoạt động của duyệt mạng
 Name[wa]=Dujhance waibe
 Name[zh_CN]=Web 行为
 Name[zh_TW]=網頁行為
+
 Comment=Configure the browser behavior
 Comment[af]=Konfigureer die blaaier gedrag
 Comment[ar]=إعداد سلوك المتصفح
@@ -161,6 +162,7 @@ Comment[xh]=Qwalasela indlela umkhangeli zincwadi aziphatha ngayo
 Comment[zh_CN]=配置浏览器行为
 Comment[zh_TW]=設定瀏覽器行為
 Comment[zu]=Hlanaganisela ukuziphatha komcingi
+
 Keywords=konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;cursor;links;images;charsets;character sets;encoding;
 Keywords[az]=konqueror;kfm;səyyah;html;şəbəkə;www;yazı növləri;rənglər;java;javascript;hərf;hərf dəstəsi;kodlama;bağlantılar;rəsmlər;ox;
 Keywords[be]=Вандроўнік;Сеціва;Шрыфты;Колеры;Сцэнар;Курсор;Спасылкі;Відарысы;Малюнкі;Знаказбор;Знаказборы;konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;cursor;links;images;charsets;character sets;encoding;

@@ -99,7 +99,7 @@ Comment[cs]=Nastavení vzhledu a dekorací oken
 Comment[csb]=Kònfigùracëjô wëzdrzatkù ë  ùchòwaniô titlowi lëstwë òknów
 Comment[cy]=Ffurfweddu golwg a theimlad teitlau ffenestri
 Comment[da]=Indstil udseendet af vinduestitler
-Comment[de]=Das Erscheinungsbild von Fenstertiteln festlegen
+Comment[de]=Erscheinungsbild von Fenstertiteln festlegen
 Comment[el]=Ρυθμίστε την εμφάνιση και την αίσθηση των τίτλων παραθύρου
 Comment[eo]=Agordu la fenestrajn titolojn
 Comment[es]=Configuración del aspecto y comportamiento de los títulos de las ventanas
@@ -228,4 +228,5 @@ Keywords[xh]=twin;window;umphathi;umda;uhlobo;umxholo wokuxoxwa;jonga;yiva;beka;
 Keywords[zh_CN]=twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;kwm;decoration;窗口;管理器;边框;样式;主题;观感;布局;按钮;处理;边缘;装饰;
 Keywords[zh_TW]=twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;kwm;decoration;視窗;管理員;邊框;風格;佈景主題;外觀;感覺;佈局;按鈕;邊緣;裝飾;
 Keywords[zu]=twin;i-window;imenenja;umngcele;isitayela;bona;izwa; isendlalelo;inkinobho;isibambo;unqenqema;kwm;umhlobiso;
+
 Categories=Qt;TDE;X-TDE-settings-looknfeel;
