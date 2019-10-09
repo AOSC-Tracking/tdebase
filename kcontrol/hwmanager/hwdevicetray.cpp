@@ -59,10 +59,10 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
 	TDEPopupMenu *help = m_help->menu();
 	help->connectItem(KHelpMenu::menuHelpContents, this, TQT_SLOT(slotHelpContents()));
 
-	setPixmap(KSystemTray::loadIcon("kcmdevices"));
+	setPixmap(KSystemTray::loadIcon("hwinfo"));
 	setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 	connect(this, TQT_SIGNAL(quitSelected()), this, TQT_SLOT(_quit()));
-	TQToolTip::add(this, i18n("Hardware device monitor"));
+	TQToolTip::add(this, i18n("Device monitor"));
 	m_parent = parent;
 
 	globalKeys = new TDEGlobalAccel(TQT_TQOBJECT(this));
@@ -98,7 +98,7 @@ HwDeviceSystemTray::~HwDeviceSystemTray() {
 void HwDeviceSystemTray::_quit () {
 	r_config = new KSimpleConfig("tdehwdevicetrayrc");
 
-	TQString tmp1 = i18n ("Start hardware device tray automatically when you log in?");
+	TQString tmp1 = i18n ("Start device monitor automatically when you log in?");
 	int tmp2 = KMessageBox::questionYesNo (0, tmp1, i18n("Question"), i18n("Start Automatically"), i18n("Do Not Start"));
 	r_config->setGroup("General");
 	r_config->writeEntry ("Autostart", tmp2 == KMessageBox::Yes);
@@ -112,7 +112,7 @@ void HwDeviceSystemTray::resizeTrayIcon () {
 	TQPixmap origpixmap;
 	TQPixmap scaledpixmap;
 	TQImage newIcon;
-	origpixmap = KSystemTray::loadSizedIcon("kcmdevices", width());
+	origpixmap = KSystemTray::loadSizedIcon("hwinfo", width());
 	newIcon = origpixmap;
 	newIcon = newIcon.smoothScale(width(), height());
 	scaledpixmap = newIcon;
@@ -195,7 +195,7 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu) {
 
 	menu->insertTitle(SmallIcon("configure"), i18n("Global Configuration"));
 
-	TDEAction *actHardwareConfig = new TDEAction(i18n("Configure Hardware..."), SmallIconSet("kcmpci"), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT(slotHardwareConfig()), actionCollection());
+	TDEAction *actHardwareConfig = new TDEAction(i18n("Configure Devices..."), SmallIconSet("kcmpci"), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT(slotHardwareConfig()), actionCollection());
 	actHardwareConfig->plug(menu);
 
 	TDEAction *actShortcutKeys = new TDEAction(i18n("Configure Shortcut Keys..."), SmallIconSet("configure"), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT(slotEditShortcutKeys()), actionCollection());
@@ -318,7 +318,7 @@ void HwDeviceSystemTray::slotHardwareConfig() {
 	KCMultiDialog *kcm = new KCMultiDialog(KDialogBase::Plain, i18n("Configure"), this);
 
 	kcm->addModule("hwmanager");
-	kcm->setPlainCaption(i18n("Configure Hardware"));
+	kcm->setPlainCaption(i18n("Configure Devices"));
 	kcm->exec();
 }
 

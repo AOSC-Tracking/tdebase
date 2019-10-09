@@ -38,7 +38,7 @@
 ConfigDialog::ConfigDialog(TDEGlobalAccel *accel, bool isApplet)
 	: KDialogBase(Tabbed, i18n("Configure"), Ok | Cancel | Help, Ok, 0L, "config dialog") {
 	if (isApplet) {
-		setHelp(TQString::null, "tderandrtray");
+		setHelp(TQString::null, "tdehwdevicetray");
 	}
 	
 	TQFrame *w = 0L; // the parent for the widgets
