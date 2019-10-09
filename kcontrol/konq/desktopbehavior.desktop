@@ -105,7 +105,7 @@ Comment[cs]=Zde je možné nastavit chování pracovní plochy
 Comment[csb]=Kònfigùracëjô zachòwaniô pùltu
 Comment[cy]=Ffurfweddu ymddygiad y penbwrdd yma
 Comment[da]=Her kan du indstille desktoppens opførsel
-Comment[de]=Hier können Sie das Verhalten der Arbeitsfläche festlegen
+Comment[de]=Verhalten der Arbeitsfläche festlegen
 Comment[el]=Εδώ μπορείτε να ρυθμίσετε τη συμπεριφορά της επιφάνειας εργασίας
 Comment[eo]=Vi povas agordi kiel la tabulo kondutas.
 Comment[es]=Configuración del modo de comportamiento del escritorio
@@ -168,6 +168,7 @@ Comment[xh]=Ungaqwalasela ukuziphatha kwe desktop apha
 Comment[zh_CN]=在这里配置桌面行为
 Comment[zh_TW]=您可以在這裡設定桌面的行為
 Comment[zu]=Ungahlanganisela ukuthi idesktop iziphathe kanjanilapha
+
 Keywords=konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;behavior;behaviour;memory usage;Home URL;
 Keywords[ar]=konqueror;مسيير الملفات;kfm;التلميحات و النصائح;تلميحات الملف;نافذة منعزلة;spawn windows;السلوك;إستعمال الذاكرة;عنوان المورد النظامي للمنزل;
 Keywords[be]=Кіраўнік файлаў;Карысныя парады;Падказкі;Падказкі файлаў;Асобнае акно;Паводзіны;Выкарыстанне памяці;Хатняя тэчка;konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;behavior;behaviour;memory usage;Home URL;

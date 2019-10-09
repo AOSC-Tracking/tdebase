@@ -62,6 +62,7 @@ Name[xh]=Uvuyo
 Name[zh_CN]=游戏杆
 Name[zh_TW]=玩具
 Name[zu]=Induku yenjabulo
+
 Comment=Joystick - a kcontrol module to test Joysticks
 Comment[af]=Joystick - 'n beheer module om Joysticks mee te toets
 Comment[be]=Модуль настаўлення джойстыка
@@ -73,7 +74,7 @@ Comment[cs]=Ovládací modul pro testování Joysticků
 Comment[csb]=Joystick - mòduł Centróm kòntrolë dlô testowaniô Joysticków
 Comment[cy]=Joystick - modiwl kcontrol i brofi ffyn rheoli
 Comment[da]=Joystick - et kcontrol modul til at test Joystick
-Comment[de]=Joystick-Testmodul
+Comment[de]=Kontrollmodul um Joysticks zu testen
 Comment[el]=χειριστήριο - ένα άρθρωμα ελέγχου χειριστηρίων
 Comment[eo]=stirstango - kontrola modulo por testi stirstangojn
 Comment[es]=Joystick - un módulo de kcontrol para probar Joysticks
@@ -129,6 +130,7 @@ Comment[vi]=cần điều khiển - một mô đun điều khiển TDE đêr ki�
 Comment[wa]=djîsse di djeu - on module di kcontrol po sayî les djîsses di djeu
 Comment[zh_CN]=Joystick - 测试游戏杆的 kcontrol 模块
 Comment[zh_TW]=搖桿 - 用來測試搖桿的 kcontrol 模組
+
 Keywords=joystick;gamepad;
 Keywords[be]=Джойстык;joystick;gamepad;
 Keywords[bg]=джойстик; игра; игри; управление; joystick; gamepad;

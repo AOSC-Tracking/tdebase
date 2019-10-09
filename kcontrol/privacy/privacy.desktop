@@ -75,6 +75,7 @@ Name[vi]=Riêng tư
 Name[wa]=Vikereye da vosse
 Name[zh_CN]=隐私
 Name[zh_TW]=隱私權
+
 Comment=Privacy - a kcontrol module to clean unwanted traces the user leaves on the system
 Comment[af]=Privaatheid - 'n Beheer module wat voetspore wat deur gebruikers op die stelsel gelaat word skoon maak
 Comment[ar]=الخصوصية - وحدة kcontrol لتنظيف الآثار غير المرغوب بها التي يتركها المستخدم على النظام
@@ -87,7 +88,7 @@ Comment[cs]=Soukromí - modul pro čištění citlivých údajů
 Comment[csb]=Priwatny nastôw - mòduł, chtëren zezwôlô remac niepòrządané szlachë jaczé òstałë pò brëkòwnikù w systemie
 Comment[cy]=Preifatrwydd - modiwl krheoli i glanhau olion nas dymunir y mae'r defnyddiwr yn eu gadael ar y cysawd
 Comment[da]=Privacy - et kcontrol-modul der kan rense systemet for uønskede spor som brugeren efterlader.
-Comment[de]=Privatsphäre: Ein Kontrollmodul, das unerwünschte Spuren von Benutzern auf dem System beseitigt
+Comment[de]=Kontrollmodul, das unerwünschte Spuren von Benutzern auf dem System beseitigt
 Comment[el]=Προσωπικό απόρρητο - ένα άρθρωμα του kcontrol για τον καθαρισμό των ιχνών που ο χρήστης αφήνει στο σύστημα
 Comment[eo]=Privataj aferoj - modulo de la TDEa administrilo, kiu forigas uzantajn spurojn
 Comment[es]=Privacy - un módulo de kcontrol para limpiar pistas que el usuario deja en el sistema sin querer
@@ -141,6 +142,7 @@ Comment[vi]=Riêng tư - trình điều khiển giúp xoá các dấu vết mà 
 Comment[wa]=Vikereye da vosse - on module di kcontrol po rnetyî les passêyes nén volowes ki l' uzeu leye sol sistinme
 Comment[zh_CN]=隐私 - 清除用户留在系统中痕迹的 kcontrol 模块
 Comment[zh_TW]=隱私權 - 一個控制模組用來清除使用者不希望留在系統中的痕跡
+
 Keywords=Privacy;privacy;
 Keywords[ar]=خصوصية، الخصوصية;
 Keywords[az]=Gizlilik;gizlilik;
