@@ -26,7 +26,7 @@
 #endif
 #define WIN KKey::QtWIN
 
-	keys->insert( "Program:hwdevicetray", i18n("Hardware Device Control") );
+	keys->insert( "Program:hwdevicetray", i18n("Device Control") );
 
 	// DEF( I18N_NOOP("Switch Displays"), TDEShortcut(TQString("XF86Display")), TDEShortcut(TQString("XF86Display")), slotCycleDisplays() );
 
