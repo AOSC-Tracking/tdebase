@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=tdecmshell hwmanager
-Icon=hwinfo
+Icon=kcmpci
 Type=Application
 X-DocPath=kcontrol/hwmanager/index.html
 
@@ -8,14 +8,29 @@ X-TDE-Library=hwmanager
 X-TDE-ParentApp=kcontrol
 X-TDE-SubstituteUID=true
 
-Categories=Qt;TDE;X-TDE-settings-hardware;
-Comment=Configure hardware devices
-Comment[en_US]=Configure hardware devices
-GenericName=
-GenericName[en_US]=
-Keywords=hardware;
-MimeType=
-Name=Hardware Device Manager
-Name[en_US]=Hardware Device Manager
+Name=Device Manager
+Name[cs]=Správce zařízení
+Name[de]=Geräteverwaltung
+Name[es]=Administrador de dispositivos
+Name[fr]=Gestionnaire de périphériques
+Name[it]=
+Name[ru]=Менеджер устройств
 
+Comment=Configure hardware devices
+Comment[cs]=Nastavení hardwarových zařízení
+Comment[de]=Hardware-Geräte einrichten
+Comment[es]=Configuración de dispositivos
+Comment[fr]=Configurer des périphériques matériels
+Comment[it]=
+Comment[ru]=Конфигурация устройств
+
+Keywords=hardware;devices;manager;
+Keywords[cs]=hardware;zařízení;správce;
+Keywords[de]=Hardware;Geräte;Verwaltung;
+Keywords[es]=hardware;dispositivos;
+Keywords[fr]=Matériel;équipement;gestion
+Keywords[it]=
+Keywords[ru]=оборудование;усройства;
+
+Categories=Qt;TDE;X-TDE-settings-hardware;
 NoDisplay=false

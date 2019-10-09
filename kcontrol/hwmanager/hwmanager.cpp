@@ -68,9 +68,9 @@ TDEHWManager::TDEHWManager(TQWidget *parent, const char *name, const TQStringLis
 	systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdehw/hwmanagerrc" ));
 
 	TDEAboutData *about =
-	new TDEAboutData(I18N_NOOP("kcmhwmanager"), I18N_NOOP("TDE Hardware Device Manager"),
+	new TDEAboutData(I18N_NOOP("kcmhwmanager"), I18N_NOOP("TDE Device Manager\n\nCan be used to get all kind of informations about your devices on your system, shows which drivers are used by them and allows to change device settings."),
 		0, 0, TDEAboutData::License_GPL,
-		I18N_NOOP("(c) 2012 Timothy Pearson"));
+		I18N_NOOP("(c) 2012 Timothy Pearson\n(c) 2019 The Trinity Desktop Project"));
 	
 	about->addAuthor("Timothy Pearson", 0, "kb9vqf@pearsoncomputing.net");
 	setAboutData( about );
@@ -80,7 +80,7 @@ TDEHWManager::TDEHWManager(TQWidget *parent, const char *name, const TQStringLis
 
 	base->deviceFilter->setListView(base->deviceTree);
 
-	setRootOnlyMsg(i18n("<b>Hardware settings are system wide, and therefore require administrator access</b><br>To alter the system's hardware settings, click on the \"Administrator Mode\" button below."));
+	setRootOnlyMsg(i18n("<b>Device settings are system wide, and therefore require administrator access</b><br>To alter the system's device settings, click on the \"Administrator Mode\" button below."));
 	setUseRootOnlyMsg(true);
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -209,7 +209,7 @@ void TDEHWManager::deviceChanged(TDEGenericDevice* device) {
 
 TQString TDEHWManager::quickHelp() const
 {
-  return i18n("<h1>TDE Hardware Device Manager</h1> This module allows you to configure hardware devices on your system");
+  return i18n("<h1>TDE Device Manager</h1> This module allows you to get all kind of informations about the devices on your system, the drivers which are used by them and to configure them as well.");
 }
 
 #include "hwmanager.moc"
