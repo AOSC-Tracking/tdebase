@@ -97,7 +97,7 @@ Comment[cs]=Vyberte styl odezvy při spouštění aplikací
 Comment[csb]=Wëbierzë ôrt dôwaniô wiédzë ò zrëszaniô programë
 Comment[cy]=Dewis arddull adborth wrth gychwyn rhaglen
 Comment[da]=Vælg tilbagemeldingsstil for programopstart
-Comment[de]=Wählen Sie die Rückmeldung aus, die ein Programm beim Starten gibt
+Comment[de]=Rückmeldung auswählen, die ein Programm beim Starten gibt
 Comment[el]=Επιλέξτε στυλ για την ειδοποίηση εκκίνησης των εφαρμογών
 Comment[eo]=Signado de lanĉiĝantaj aplikaĵoj
 Comment[es]=Elija el estilo de notificación de lanzamiento de las aplicaciones
@@ -159,6 +159,7 @@ Comment[xh]=Khetha isicelo-yenza uhlobo lwesiphumo seLaunch
 Comment[zh_CN]=选择程序启动反馈风格
 Comment[zh_TW]=選擇程式啟動時的回饋風格
 Comment[zu]=Khetha isitayela somphumela obuyayo sokuqalisa-umyaleli
+
 Keywords=application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;spinning;disk;startup;program;report;
 Keywords[az]=proqramı tə'minatı;başla;başlat;məşğul;ox;kursor;əks tə'sir;siçan;nişanci;döndərmə;fırlatma;disk;başlanğıc;proqram;raport;
 Keywords[be]=Праграма;Запуск;Выкананне;Заняты;Курсор;Мыш;Указальнік;Перагортванне;Дыск;Запуск;Дастасаванне;Справаздача;application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;spinning;disk;startup;program;report;
