@@ -3,6 +3,7 @@ Exec=tdecmshell displayconfig
 Icon=background
 Type=Application
 X-DocPath=kcontrol/displayconfig/index.html
+MimeType=
 
 X-TDE-Library=displayconfig
 X-TDE-ParentApp=kcontrol
@@ -18,11 +19,13 @@ Comment[fr]=Configuration de l'affichage
 Comment[it]=Configurazione del display
 Comment[ru]=Конфигурация экрана
 Comment[uk]=Конфігурація екрану
+
 GenericName=
-GenericName[en_US]=
+
 Keywords=monitor;resolution;display;
 Keywords[de]=Bildschirm;Auflösung;Anzeige;
-MimeType=
+Keywords[it]=monitor;risoluzione;display;schermo;configurazione
+
 Name=Monitor & Display
 Name[en_US]=Monitor & Display
 Name[de]=Bildschirm & Anzeige
@@ -30,6 +33,7 @@ Name[fr]=Moniteurs & Affichage
 Name[it]=Schermo & display
 Name[ru]=Монитор & Экран
 Name[uk]=Монітор & Екран
+
 NoDisplay=false
 Path=
 StartupNotify=true
