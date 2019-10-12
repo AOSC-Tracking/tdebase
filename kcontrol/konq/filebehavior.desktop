@@ -4,7 +4,6 @@ X-DocPath=kcontrol/filemanager/index.html
 Icon=kfm
 Exec=tdecmshell filebehavior
 
-
 X-TDE-Library=konq
 X-TDE-FactoryName=behavior
 X-TDE-ParentApp=kcontrol
@@ -91,7 +90,7 @@ Name[zh_CN]=行为
 Name[zh_TW]=行為
 Name[zu]=Ukuziphatha
 
-Comment=You can configure how Konqueror behaves as a file manager here
+Comment=Configure how Konqueror behaves as a file manager
 Comment[af]=Jy kan konfigureer hoe Konqueror gedrag as 'n lêer bestuurder hier
 Comment[ar]=يمكنك هنا إعداد سلوك Konqueror كمسيير للملفات
 Comment[az]=Konqueror-un fayl idarəçisi olaraq nəcə davranacağını buradan quraşdırın
@@ -105,7 +104,7 @@ Comment[cs]=Zde je možné nastavit správce chování Konqueroru jako správce 
 Comment[csb]=Kònfigùracëjô zachòwaniô Konquerora jakno menadżera lopków
 Comment[cy]=Ffurfweddu ymddygiad Konqueror fel rheolydd ffeiliau
 Comment[da]=Her kan du indstille hvordan Konqueror opfører sig som filhåndtering
-Comment[de]=Hier können Sie das Verhalten von Konqueror als Dateimanager festlegen
+Comment[de]=Verhalten von Konqueror als Dateimanager festlegen
 Comment[el]=Εδώ μπορείτε να ρυθμίσετε το πως θα συμπεριφέρεται το Konqueror ως διαχειριστής αρχείων
 Comment[eo]=Ĉi tie vi povas agordi kiel konkeranto kondutas kiel dosieradministrilo
 Comment[es]=Aquí puede configurar el comportamiento de Konqueror como gestor de archivos
