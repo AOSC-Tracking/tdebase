@@ -4,7 +4,6 @@ X-DocPath=kcontrol/filemanager/index.html
 Icon=kfm
 Exec=tdecmshell filepreviews
 
-
 X-TDE-Library=konq
 X-TDE-FactoryName=previews
 X-TDE-ParentApp=kcontrol
@@ -82,7 +81,7 @@ Name[wa]=Prévey & Meta-dnêyes
 Name[zh_CN]=预览和元数据
 Name[zh_TW]=預覽與中繼資料
 
-Comment=You can configure how Konqueror Previews & Meta-data work here
+Comment=Configure how Konqueror Previews & Meta-data work
 Comment[af]=Jy kan hier opstel hoe Konqueror se Voorskoue & Meta-data werk
 Comment[be]=Тут вы можаце змяніць працу перадагляду і метададзеных Konqueror
 Comment[bg]=Настройване режима на преглед на файловия браузър
@@ -93,7 +92,7 @@ Comment[cs]=Zde je možné nastavit chování náhledů a metadat v Konqueroru
 Comment[csb]=Kònfigùracëjô pòdzéraniô zamkłoscë lopków ë pòdôwków meta w Konquerorze
 Comment[cy]=Gallwch ffurfweddu sut mae Rhagolygon & Meta-data Konqueror yn gweithio yma
 Comment[da]=Her kan du indstille hvordan forhåndsvisninger & metadata fungerer i Konqueror
-Comment[de]=Hier können Sie das Verhalten von Vorschauen und Metadaten in Konqueror festlegen
+Comment[de]=Verhalten von Vorschauen und Metadaten in Konqueror festlegen
 Comment[el]=Εδώ μπορείτε να ρυθμίσετε το πως θα δουλεύουν οι Προεπισκοπήσεις & Μετα-δεδομένα του Konqueror
 Comment[eo]=Ĉi tie vi povas agordi kiel konkeranto antaŭrigardojn kaj metadatumojn kondutas.
 Comment[es]=Puede configurar como trabaja la previsualización y meta-datos de Konqueror

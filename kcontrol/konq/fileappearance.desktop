@@ -4,7 +4,6 @@ X-DocPath=kcontrol/filemanager/index.html
 Icon=kfm
 Exec=tdecmshell fileappearance
 
-
 X-TDE-Library=konq
 X-TDE-FactoryName=appearance
 X-TDE-ParentApp=kcontrol
@@ -89,7 +88,7 @@ Name[zh_CN]=外观
 Name[zh_TW]=外觀
 Name[zu]=Ukubukeka
 
-Comment=You can configure how Konqueror looks as a file manager here
+Comment=Configure how Konqueror looks as a file manager
 Comment[af]=Jy kan hier opstel hoe Konqueror as 'n lêer bestuurder lyk
 Comment[ar]=يمكنك هنا إعداد كيفية ظهور Konqueror كمسيير للملفات
 Comment[az]=Konqueror-un fayl idarəçisi olaraq nəcə görünəcəyini buradan quraşdırın
@@ -103,7 +102,7 @@ Comment[cs]=Zde je možné nastavit vzhled správce souborů
 Comment[csb]=Kònfigùracëjô wëzdrzatkù Konquerora jakno menadżera lopków
 Comment[cy]=Ffurfweddu golwg Konqueror fel rheolydd ffeiliau
 Comment[da]=Her kan du indstille hvordan Konqueror ser ud som filhåndtering
-Comment[de]=Hier können Sie das Erscheinungsbild von Konqueror als Dateimanager festlegen
+Comment[de]=Erscheinungsbild von Konqueror als Dateimanager festlegen
 Comment[el]=Εδώ μπορείτε να ρυθμίσετε το πως θα εμφανίζεται το Konqueror ως διαχειριστής αρχείων
 Comment[eo]=Ĉi tie vi povas agordi kiel konkeranto aspektas kiel dosieradministrilo
 Comment[es]=Aquí puede configurar el aspecto de Konqueror como gestor de archivos
