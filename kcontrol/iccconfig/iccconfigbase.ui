@@ -20,7 +20,7 @@
                     <cstring>tab</cstring>
                 </property>
                 <attribute name="title">
-                    <string>ICC Color Profile Configuration</string>
+                    <string>Color Profile Configuration</string>
                 </attribute>
                 <grid>
                     <property name="name">
@@ -42,7 +42,7 @@
 						<cstring>systemEnableSupport</cstring>
 					</property>
 					<property name="text">
-						<string>&amp;Enable global ICC color profile support</string>
+						<string>&amp;Enable global color profile support</string>
 					</property>
                     		</widget>
 				<widget class="KURLRequester" row="1" column="1" colspan="4">
@@ -58,7 +58,7 @@
 						<cstring>textLabel4_2</cstring>
 					</property>
 					<property name="text">
-						<string>ICC File</string>
+						<string>Color Profile</string>
 					</property>
 				</widget>
 			    </grid>
@@ -79,7 +79,7 @@
 						<cstring>enableSupport</cstring>
 					</property>
 					<property name="text">
-						<string>&amp;Enable user ICC color profile support</string>
+						<string>&amp;Enable user color profile support</string>
 					</property>
                     		</widget>
 				<widget class="KComboBox" row="1" column="1">
@@ -145,7 +145,7 @@
 						<cstring>textLabel2_2</cstring>
 					</property>
 					<property name="text">
-						<string>ICC File</string>
+						<string>Color Profile</string>
 					</property>
 				</widget>
 			    </grid>

@@ -74,9 +74,9 @@ KICCConfig::KICCConfig(TQWidget *parent, const char *name, const TQStringList &)
   systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kicc/kiccconfigrc" ));
 
   TDEAboutData *about =
-  new TDEAboutData(I18N_NOOP("kcmiccconfig"), I18N_NOOP("TDE ICC Profile Control Module"),
+  new TDEAboutData(I18N_NOOP("kcmiccconfig"), I18N_NOOP("TDE Color Profile Control Module"),
                 0, 0, TDEAboutData::License_GPL,
-                I18N_NOOP("(c) 2009,2010 Timothy Pearson"));
+                I18N_NOOP("(c) 2009, 2010 Timothy Pearson\n(c) 2019 The Trinity Desktop Project"));
 
   about->addAuthor("Timothy Pearson", 0, "kb9vqf@pearsoncomputing.net");
   setAboutData( about );
@@ -84,7 +84,7 @@ KICCConfig::KICCConfig(TQWidget *parent, const char *name, const TQStringList &)
   base = new ICCConfigBase(this);
   layout->add(base);
 
-  setRootOnlyMsg(i18n("<b>The global ICC color profile is a system wide setting, and requires administrator access</b><br>To alter the system's global ICC profile, click on the \"Administrator Mode\" button below."));
+  setRootOnlyMsg(i18n("<b>The global color profile is a system wide setting, and requires administrator access</b><br>To alter the system's global profile, click on the \"Administrator Mode\" button below."));
 //   setUseRootOnlyMsg(true);	// Setting this hides the Apply button!
 
   connect(base->systemEnableSupport, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
@@ -165,7 +165,7 @@ void KICCConfig::renameProfile () {
 	TQString _error;
 
 	while (!_end) {
-		_new = KInputDialog::getText( i18n("ICC Profile Configuration"),  _error + _text, TQString::null, &_ok, this);
+		_new = KInputDialog::getText( i18n("Color Profile Configuration"),  _error + _text, TQString::null, &_ok, this);
 		if (!_ok ) {
 			_end = true;
 		} else {
@@ -200,7 +200,7 @@ void KICCConfig::addProfile () {
 	TQString _error;
 
 	while (!_end) {
-		_new = KInputDialog::getText( i18n("ICC Profile Configuration"),  _error + _text, TQString::null, &_ok, this);
+		_new = KInputDialog::getText( i18n("Color Profile Configuration"),  _error + _text, TQString::null, &_ok, this);
 		if (!_ok ) {
 			_end = true;
 		} else {
@@ -416,7 +416,7 @@ void KICCConfig::save()
 		errorstr = randrsimple->clearIccConfiguration();
 	}
 	if (errorstr != "") {
-		KMessageBox::error(this, TQString("Unable to apply ICC configuration:\n%1").arg(errorstr));
+		KMessageBox::error(this, TQString("Unable to apply color profile configuration:\n%1").arg(errorstr));
 	}
 
 	emit changed(false);
@@ -429,8 +429,8 @@ void KICCConfig::defaults()
 
 TQString KICCConfig::quickHelp() const
 {
-  return i18n("<h1>ICC Profile Configuration</h1> This module allows you to configure TDE support"
-     " for ICC profiles. This allows you to easily color correct your monitor"
+  return i18n("<h1>Color Profile Configuration</h1> This module allows you to configure TDE support"
+     " for ICC color profiles. This allows you to easily color correct your monitor"
      " for a more lifelike and vibrant image.");
 }
 
