@@ -72,7 +72,8 @@ Name[vi]=Thực đơn
 Name[wa]=Dressêyes
 Name[zh_CN]=菜单
 Name[zh_TW]=選單
-Comment=You can configure the menus of the panel here
+
+Comment=Configure the menus of the panel
 Comment[af]=Jy kan die kieslyste van die paneel hier opstel
 Comment[ar]=هنا يمكنك إعداد قوائم اللوح
 Comment[be]=Тут вы можаце змяніць настаўленні меню панэлі
@@ -83,7 +84,7 @@ Comment[ca]=Aquí podeu configurar els menús del plafó
 Comment[cs]=Zde je možné nastavit nabídky panelu
 Comment[csb]=Tuwò je mòżno nastôwic menu panelu
 Comment[da]=Her kan du indstille panelets menuer
-Comment[de]=Hier können Sie Einstellungen für die Kontrollleiste vornehmen
+Comment[de]=Einstellungen für die Kontrollleiste vornehmen
 Comment[el]=Εδώ μπορείτε να ρυθμίσετε τα μενού του πίνακα
 Comment[eo]=Ĉi tie vi povas agordi la menuon de la panelo
 Comment[es]=Configuración de la apariencia del panel
@@ -137,6 +138,7 @@ Comment[vi]=Bạn có thể cấu hình thực đơn của các bảng điều k
 Comment[wa]=Vos ploz apontyî chal les dressêyes do scriftôr
 Comment[zh_CN]=您可以在这里配置面板的菜单
 Comment[zh_TW]=您可以在此設定面板的選單
+
 Keywords=kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;applets;startup;highlight;handles;zooming icons;
 Keywords[be]=Панэль;Панэль заданняў;Панэль стартавання;Размяшчэнне;Пазіцыя;Памер;Аўтаматычна хаваць;Хаваць;Кнопкі;Анімацыя;Фон;Тэмы;Кэш меню;Кэш;Схаваная;Схаваць;Меню TDEDE;Закладкі;Ранейшыя;Нядаўнія;Дакументы;Хуткі прагляд;Меню вандроўніка;Меню вандравання;Меню;Значкі;Аплеты;Запуск;Падсвятленне;Апрацоўка;Апрацоўшчык;Маштабаванне значак;kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;applets;startup;highlight;handles;zooming icons;
 Keywords[bg]=системен; панел; подредба; подравняване; kicker; panel; kpanel; taskbar; startbar; launchbar; location; size; auto hide; hide; buttons; animation; background; themes; menu cache; cache; hidden; TDE Menu; bookmarks; recent documents; quickbrowser; browser menu; menu; icons; tiles; applets; startup; highlight; handles; zooming icons;
