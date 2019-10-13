@@ -3853,7 +3853,7 @@ void KonqMainWindow::initActions()
   (void) new TDEAction( i18n( "Sett&ings" ), "kcontrol", 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoSettings() ), actionCollection(), "go_settings" );
   //(void) new TDEAction( i18n( "Sidebar Configuration" ), 0, this, TQT_SLOT( slotGoDirTree() ), actionCollection(), "go_dirtree" );
   (void) new TDEAction( i18n( "Trash" ), "trashcan_full", 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoTrash() ), actionCollection(), "go_trash" );
-  (void) new TDEAction( i18n( "Autostart" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoAutostart() ), actionCollection(), "go_autostart" );
+  (void) new TDEAction( i18n( "Autostart" ), "launch", 0, TQT_TQOBJECT(this), TQT_SLOT( slotGoAutostart() ), actionCollection(), "go_autostart" );
   KonqMostOftenURLSAction *mostOften = new KonqMostOftenURLSAction( i18n("Most Often Visited"), actionCollection(), "go_most_often" );
   connect( mostOften, TQT_SIGNAL( activated( const KURL& )),
 	   TQT_SLOT( slotOpenURL( const KURL& )));
