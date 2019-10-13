@@ -73,7 +73,8 @@ Name[vi]=Sắp đặt
 Name[wa]=Arindjmint
 Name[zh_CN]=排列
 Name[zh_TW]=對齊方式
-Comment=You can configure the arrangement of the panel here
+
+Comment=Configure the arrangement of the panel
 Comment[af]=Jy kan die rangskikking van die paneel hier opstel
 Comment[ar]=يمكنك إعداد ترتيب اللوحة هنا
 Comment[az]=Panelin düzülüşünü buradan quraşdıra bilərsiniz
@@ -87,7 +88,7 @@ Comment[cs]=Zde je možné nastavit uspořádání panelu
 Comment[csb]=Kònfigùracëjô pòłożeniô panelu
 Comment[cy]=Cewch ffurfweddu trefn y panel yma
 Comment[da]=Her kan du indstille panelets arrangement
-Comment[de]=Hier können Sie Einstellungen für die Kontrollleiste vornehmen
+Comment[de]=Einstellungen für die Kontrollleiste vornehmen
 Comment[el]=Εδώ μπορείτε να ρυθμίσετε τη διάταξη του πίνακα
 Comment[eo]=Ĉi tie vi povas agordi la aranĝon de la panelo
 Comment[es]=Configuración de la apariencia del panel
@@ -150,6 +151,7 @@ Comment[xh]=Uyakwazi ukuqwalasela apha i window yenkcukacha
 Comment[zh_CN]=您可以在这里配置面板的排列
 Comment[zh_TW]=您可以在此設定面板的外觀
 Comment[zu]=Ungahlanganisela ukuhlelwa kwewindi lemininingwane lapha
+
 Keywords=kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;applets;startup;highlight;handles;zooming icons;
 Keywords[be]=Панэль;Панэль заданняў;Панэль стартавання;Размяшчэнне;Пазіцыя;Памер;Аўтаматычна хаваць;Хаваць;Кнопкі;Анімацыя;Фон;Тэмы;Кэш меню;Кэш;Схаваная;Схаваць;Меню TDE;Закладкі;Ранейшыя;Нядаўнія;Дакументы;Хуткі прагляд;Меню вандроўніка;Меню вандравання;Меню;Значкі;Аплеты;Запуск;Падсвятленне;Апрацоўка;Апрацоўшчык;Маштабаванне значак;kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;applets;startup;highlight;handles;zooming icons;
 Keywords[bg]=системен; панел; подредба; подравняване; kicker; panel; kpanel; taskbar; startbar; launchbar; location; size; auto hide; hide; buttons; animation; background; themes; menu cache; cache; hidden; TDE Menu; bookmarks; recent documents; quickbrowser; browser menu; menu; icons; tiles; applets; startup; highlight; handles; zooming icons;

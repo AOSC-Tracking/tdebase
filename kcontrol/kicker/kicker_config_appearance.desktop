@@ -4,7 +4,6 @@ Type=Application
 X-DocPath=kicker/configuring.html#panel-appearance
 Exec=tdecmshell kicker_appearance
 
-
 X-TDE-Library=kicker
 X-TDE-FactoryName=kicker_appearance
 X-TDE-ParentApp=kicker
@@ -88,7 +87,8 @@ Name[xh]=Inkangeleko
 Name[zh_CN]=外观
 Name[zh_TW]=外觀
 Name[zu]=Ukubukeka
-Comment=You can configure the appearance of the panel here
+
+Comment=Configure the appearance of the panel
 Comment[af]=Jy kan die voorkoms van die paneel hier opstel
 Comment[ar]=تستطيع تغيير اعدادات لوحة المهام هنا
 Comment[az]=Panelin görünüşünü buradan quraşdıra bilərsiniz
@@ -102,7 +102,7 @@ Comment[cs]=Zde je možné nastavit vzhled panelu
 Comment[csb]=Kònfigùracëjô wëzdrzatkù panelu
 Comment[cy]=Cewch ffurfweddu golwg y panel yma
 Comment[da]=Her kan du indstille panelets udseende
-Comment[de]=Hier können Sie das Erscheinungsbild der Kontrollleiste festlegen
+Comment[de]=Erscheinungsbild der Kontrollleiste festlegen
 Comment[el]=Εδώ μπορείτε να ρυθμίσετε την εμφάνιση του πίνακα
 Comment[eo]=Agordo de la panela aspekto
 Comment[es]=Configuración de la apariencia del panel
@@ -167,6 +167,7 @@ Comment[xh]=Ungaqwalasela inkangeleko yeqela labantu benjongo ethile apha
 Comment[zh_CN]=配置面板的外观
 Comment[zh_TW]=在此設定面板的外觀
 Comment[zu]=Ungahlanganisela ukubukeka kwewindi lemininingwane lapha
+
 Keywords=kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;applets;startup;highlight;handles;zooming icons;
 Keywords[be]=Панэль;Панэль заданняў;Панэль стартавання;Размяшчэнне;Пазіцыя;Памер;Аўтаматычна хаваць;Хаваць;Кнопкі;Анімацыя;Фон;Тэмы;Кэш меню;Кэш;Схаваная;Схаваць;Меню TDE;Закладкі;Ранейшыя;Нядаўнія;Дакументы;Хуткі прагляд;Меню вандроўніка;Меню вандравання;Меню;Значкі;Аплеты;Запуск;Падсвятленне;Апрацоўка;Апрацоўшчык;Маштабаванне значак;kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;applets;startup;highlight;handles;zooming icons;
 Keywords[bg]=системен; панел; подредба; подравняване; kicker; panel; kpanel; taskbar; startbar; launchbar; location; size; auto hide; hide; buttons; animation; background; themes; menu cache; cache; hidden; TDE Menu; bookmarks; recent documents; quickbrowser; browser menu; menu; icons; tiles; applets; startup; highlight; handles; zooming icons;
