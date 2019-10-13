@@ -82,7 +82,7 @@ Name[zh_CN]=布局
 Name[zh_TW]=配置
 Name[zu]=Isendlalelo
 
-Comment=You can configure the arrangement of the panel here
+Comment=Configure the arrangement of the panel
 Comment[af]=Jy kan die rangskikking van die paneel hier opstel
 Comment[ar]=يمكنك إعداد ترتيب اللوحة هنا
 Comment[az]=Panelin düzülüşünü buradan quraşdıra bilərsiniz
@@ -96,7 +96,7 @@ Comment[cs]=Zde je možné nastavit uspořádání panelu
 Comment[csb]=Kònfigùracëjô pòłożeniô panelu
 Comment[cy]=Cewch ffurfweddu trefn y panel yma
 Comment[da]=Her kan du indstille panelets arrangement
-Comment[de]=Hier können Sie Einstellungen für die Kontrollleiste vornehmen
+Comment[de]=Einstellungen für die Kontrollleiste vornehmen
 Comment[el]=Εδώ μπορείτε να ρυθμίσετε τη διάταξη του πίνακα
 Comment[eo]=Ĉi tie vi povas agordi la aranĝon de la panelo
 Comment[es]=Configuración de la apariencia del panel
