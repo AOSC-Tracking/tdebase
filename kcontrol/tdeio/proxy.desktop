@@ -20,6 +20,7 @@ Name[br]=Proksi
 Name[ca]=Intermediari
 Name[csb]=Pòstrzédnik (Proxy)
 Name[cy]=Dirprwy
+Name[de]=Proxyserver
 Name[el]=Διαμεσολαβητής
 Name[eo]=Prokuriloj
 Name[eu]=Proxya
@@ -65,6 +66,7 @@ Name[xh]=Umntu onegunya lokusebenzela omnye
 Name[zh_CN]=代理
 Name[zh_TW]=代理
 Name[zu]=Umlingani
+
 Comment=Configure the proxy servers used
 Comment[af]=Konfigureer die volmag bedieners gebruik word
 Comment[ar]=إعداد خوادم التوكيل المستعملة
@@ -141,6 +143,7 @@ Comment[xh]=Qwalasela indlela abasebenziswa ngayo abancedisi be proxy
 Comment[zh_CN]=配置所用的代理服务器
 Comment[zh_TW]=設定使用的代理伺服器
 Comment[zu]=Hlanganisela abalekeleli abangabalingani abasetshenziswayo
+
 Keywords=Proxy;Proxy server;Firewall;Squid;proxy;
 Keywords[ar]=الوكيل;خادم التوكيل;جدار عزل النار;Squid;الوكيل;
 Keywords[az]=Proksi;vəkil verici;vəkil;Firewall;firewall;Squid;Proxy;proxy;atəş divarı;atəş;
