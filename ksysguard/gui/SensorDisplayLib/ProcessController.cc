@@ -100,7 +100,7 @@ ProcessController::ProcessController(TQWidget* parent, const char* name, const T
 	cbFilter->insertItem(i18n("Own Processes"), 3);
 	cbFilter->setMinimumSize(cbFilter->sizeHint());
 	// Create the check box to switch between tree view and list view.
-	xbTreeView = new TQCheckBox(i18n("&Tree"), this, "xbTreeView");
+	xbTreeView = new TQCheckBox(i18n("&Tree View"), this, "xbTreeView");
 	TQ_CHECK_PTR(xbTreeView);
 	xbTreeView->setMinimumSize(xbTreeView->sizeHint());
 	connect(xbTreeView, TQT_SIGNAL(toggled(bool)),
