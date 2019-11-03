@@ -29,7 +29,7 @@ Name[ca]=Descobriment de serveis
 Name[cs]=Hledání služeb
 Name[csb]=Wëkrëwanié ùsłëżnotów
 Name[da]=Opdagelse af tjenester
-Name[de]=Dienste-Suche
+Name[de]=Dienstsuche
 Name[el]=Εύρεση υπηρεσιών
 Name[eo]=Servo-Serĉado
 Name[es]=Buscador de servicios
@@ -86,6 +86,7 @@ Name[vi]=Dịch vụ Khám phá
 Name[wa]=Discovraedje di siervices
 Name[zh_CN]=服务探索
 Name[zh_TW]=服務偵測
+
 Comment=Configure service discovery
 Comment[af]=Stel dienste ontdekker op
 Comment[ar]=إعداد إكتشاف الخدمات
