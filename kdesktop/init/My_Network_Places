@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Icon=network
+
 Name=My Network Places
 Name[af]=Afgeleë Plekke
 Name[ar]=أماكن بعيدة
@@ -71,6 +72,16 @@ Name[vi]=Địa chỉ trên mạng
 Name[wa]=Plaeces då lon
 Name[zh_CN]=远程位置
 Name[zh_TW]=遠端空間
+
+Comment=Access to network places and remote hosts
+Comment[bg]=
+Comment[cs]=
+Comment[de]=Zugriff auf Netzwerkordner und entfernte Rechner
+Comment[es]=
+Comment[fr]=
+Comment[it]=
+Comment[ru]=
+
 OnlyShowIn=TDE;
 Type=Link
 URL=remote:/

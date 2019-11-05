@@ -3,12 +3,22 @@ Encoding=UTF-8
 Icon=computer
 
 Name=My Computer
+Name[bg]=
 Name[cs]=Počítač
-Name[de]=Computer
+Name[de]=Rechner
 Name[es]=Mi PC
 Name[fr]=Mon Ordinateur
 Name[it]=Computer
 Name[ru]=Мой компьютер
+
+Comment=Access to storage media
+Comment[bg]=
+Comment[cs]=
+Comment[de]=Zugriff auf Speichermedien
+Comment[es]=
+Comment[fr]=
+Comment[it]=
+Comment[ru]=
 
 OnlyShowIn=TDE;
 Type=Link

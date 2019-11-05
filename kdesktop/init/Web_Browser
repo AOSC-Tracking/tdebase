@@ -1,15 +1,14 @@
 [Desktop Entry]
-Comment=Browse the World Wide Web
-Comment[en_US]=Browse the World Wide Web
 Exec=kfmclient openBrowser %u
 GenericName=Web Browser
 GenericName[en_US]=Web Browser
 Icon=konqueror
 MimeType=application/vnd.mozilla.xul+xml;application/xhtml+xml;application/xml;image/gif;image/jpeg;image/png;text/html;text/xml
+
 Name=Web Browser
 Name[ca]=Navegador web
 Name[cs]=Webový prohlížeč
-Name[de]=Web-Browser
+Name[de]=Internet-Navigator
 Name[en_US]=Web Browser
 Name[es]=Navegador web
 Name[fa]=مرورگر اینترنتی
@@ -28,6 +27,16 @@ Name[pt]=Navegador Web
 Name[pt_BR]=Navegador Web
 Name[sk]=Internetový prehliadač
 Name[sv]=Webbläsaren
+
+Comment=Browse the World Wide Web
+Comment[bg]=
+Comment[cs]=
+Comment[de]=Das Internet erkunden
+Comment[es]=
+Comment[fr]=
+Comment[it]=
+Comment[ru]=
+
 Path=
 StartupNotify=true
 Terminal=false
