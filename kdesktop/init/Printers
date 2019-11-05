@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Icon=kjobviewer
+
 Name=Printers
 Name[af]=Drukkers
 Name[ar]=الطابعات
@@ -77,6 +78,16 @@ Name[xh]=Abashicileli
 Name[zh_CN]=打印机
 Name[zh_TW]=印表機
 Name[zu]=Abashicileli
+
+Comment=Manage print jobs
+Comment[bg]=
+Comment[cs]=
+Comment[de]=Druckaufträge verwalten
+Comment[es]=
+Comment[fr]=
+Comment[it]=
+Comment[ru]=
+
 Terminal=false
 Type=Application
 Exec=kjobviewer --all --show %i %m

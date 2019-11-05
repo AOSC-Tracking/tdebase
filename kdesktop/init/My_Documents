@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Icon=folder_wordprocessing
+
 Name=My Documents
 Name[af]=Dokument Gids
 Name[ar]=مستنداتي
@@ -55,6 +56,16 @@ Name[vi]=Thư mục T� i liệu
 Name[wa]=Ridant documints
 Name[zh_CN]=文档文件夹
 Name[zh_TW]=文件目錄
+
+Comment=Contains personal documents
+Comment[bg]=
+Comment[cs]=
+Comment[de]=Enthält persönliche Dokumente
+Comment[es]=
+Comment[fr]=
+Comment[it]=
+Comment[ru]=
+
 URL=$( kxdglauncher --getpath --xdgname DOCUMENTS )
 Type=Link
 StartupNotify=true

@@ -75,6 +75,7 @@ Name[xh]=Indlela esestyenziswayo
 Name[zh_CN]=系统
 Name[zh_TW]=系統
 Name[zu]=Isistimu
+
 GenericName=System Locations
 GenericName[af]=Stelsel Liggings
 GenericName[ar]=مواقع النظام
@@ -143,6 +144,16 @@ GenericName[vi]=Đường dẫn Hệ thống
 GenericName[wa]=Plaeces do sistinme
 GenericName[zh_CN]=系统定位
 GenericName[zh_TW]=系統位置
+
+Comment=Access to system places
+Comment[bg]=
+Comment[cs]=
+Comment[de]=Zugriff auf Systemordner
+Comment[es]=
+Comment[fr]=
+Comment[it]=
+Comment[ru]=
+
 URL=system:/
 Icon=computer
 Type=Link
