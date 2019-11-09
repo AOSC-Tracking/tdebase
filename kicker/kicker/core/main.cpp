@@ -107,7 +107,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char ** argv )
     else
 	appname.sprintf("kicker-screen-%d", kicker_screen_number);
 
-    TDEAboutData aboutData( appname.data(), I18N_NOOP("TDE Panel"),
+    TDEAboutData aboutData( appname.data(), I18N_NOOP("Kicker"),
                           version, description, TDEAboutData::License_GPL_V2,
                           I18N_NOOP("(c) 1999-2010, The KDE Team") );
 
