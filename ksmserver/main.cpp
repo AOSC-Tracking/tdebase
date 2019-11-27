@@ -99,14 +99,10 @@ void sanity_check( int argc, char* argv[] )
   }
   if (msg.isEmpty())
   {
-     path = getenv("ICEAUTHORITY");
+     path = IceAuthFileName();
      if (path.isEmpty())
-     {
-        path = getenv("HOME");
-        path += "/.ICEauthority";
-     }
-
-     if (access(path.data(), W_OK) && (errno != ENOENT))
+        msg = "Unable to determine path for ICEauthority file.";
+     else if (access(path.data(), W_OK) && (errno != ENOENT))
         msg = "No write access to '%s'.";
      else if (access(path.data(), R_OK) && (errno != ENOENT))
         msg = "No read access to '%s'.";
