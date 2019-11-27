@@ -61,7 +61,7 @@
 
 #include "ksysguard.h"
 
-static const char Description[] = I18N_NOOP( "TDE system guard" );
+static const char Description[] = I18N_NOOP( "KSysGuard" );
 TopLevel* topLevel;
 
 /**
@@ -71,7 +71,7 @@ TopLevel* topLevel;
 TopLevel::TopLevel( const char *name )
   : TDEMainWindow( 0, name ), DCOPObject( "KSysGuardIface" )
 {
-  setPlainCaption( i18n( "TDE System Guard" ) );
+  setPlainCaption( i18n( "KSysGuard" ) );
   mDontSaveSession = false;
   mTimerId = -1;
 
