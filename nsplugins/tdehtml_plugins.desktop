@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 X-DocPath=kcontrol/tdehtml/index.html#kbrowse-plugins
-Icon=konqueror
+Icon=connect_established
 Exec=tdecmshell tdehtml_plugins
 
 X-TDE-ModuleType=Library
@@ -24,6 +24,7 @@ Name[cs]=Moduly
 Name[csb]=Pluginsë
 Name[cy]=Ategion
 Name[da]=Plugin
+Name[de]=Zusatzmodule
 Name[el]=Πρόσθετα
 Name[eo]=Kromaĵoj
 Name[es]=Complementos
@@ -84,6 +85,7 @@ Name[xh]=Iiplagi ezingaphakathi
 Name[zh_CN]=插件
 Name[zh_TW]=外掛程式
 Name[zu]=Ama-Plugin
+
 Comment=Configure the browser plugins
 Comment[af]=Konfigureer die blaaier inprop modules
 Comment[az]=Səyyah əlavələrini quraşdırın
@@ -97,7 +99,7 @@ Comment[cs]=Nastavení modulů prohlížeče (pluginy)
 Comment[csb]=Kònfigùracëjô pluginsów przezérnika
 Comment[cy]=Ffurfweddu ategion y porydd
 Comment[da]=Indstil browserens plugin
-Comment[de]=Plugins für Webbrowser einrichten
+Comment[de]=Zusatzmodule für Internetnavigator einrichten
 Comment[el]=Ρυθμίστε τα πρόσθετα του περιηγητή
 Comment[eo]=Agordu la foliumilajn kromaĵojn
 Comment[es]=Configurar los complementos del navegador
@@ -161,6 +163,7 @@ Comment[xh]=Qwalasela umkhangheli zincwadi zeplagi ezingaphakathi
 Comment[zh_CN]=配置浏览器插件
 Comment[zh_TW]=設定瀏覽器外掛程式
 Comment[zu]=Hlanganisela ama-plugin omcingi
+
 Keywords=konqueror;kfm;browser;html;web;www;fonts;plugins;
 Keywords[az]=konqueror;kfm;browser;html;web;www;fonts;plugins;konqueror;kfm;səyyah;html;şəbəkə;www;yazı növləri;rənglər;java;javascript;hərf;hərf dəstəsi;kodlama;bağlantılar;rəsmlər;ox;
 Keywords[be]=Вандроўнік;Сеціва;Шрыфты;Утулкі;konqueror;kfm;browser;html;web;www;fonts;plugins;
@@ -171,7 +174,7 @@ Keywords[cs]=Konqueror;Kfm;Prohlížeč;HTML;Web;WWW;Písma;Moduly;
 Keywords[csb]=konqueror;kfm;przezérnik;html;séc;www;fòntë;pluginsë;
 Keywords[cy]=konqueror;kfm;porwr;porydd;html;gwe;www;wynebfathau;ffontiau;ategion;
 Keywords[da]=konqueror;kfm;browser;html;net;www;skrifttyper;plugin;
-Keywords[de]=Konqueror;kfm;Browser;HTML;Web;WWW;Schriften;Plugins;
+Keywords[de]=Konqueror;kfm;Navigator;HTML;Netz;WWW;Schriften;Zusatzmodule;
 Keywords[el]=konqueror;kfm;περιηγητής;html;ιστός;www;γραμματοσειρές;πρόσθετα;
 Keywords[eo]=Konkeranto;Kfm;TTT;HTML;WWW;tiparo;koloro;Javo;Javoskripto;kursoro; kursilo;ligo;referenco;bildo;signaro;kodo;
 Keywords[es]=konqueror;kfm;navegador;html;web;www;tipos de letra;complementos;
