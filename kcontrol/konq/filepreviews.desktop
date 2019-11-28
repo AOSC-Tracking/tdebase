@@ -1,14 +1,14 @@
 [Desktop Entry]
 Type=Application
 X-DocPath=kcontrol/filemanager/index.html
-Icon=kfm
+Icon=thumbnail
 Exec=tdecmshell filepreviews
 
 X-TDE-Library=konq
 X-TDE-FactoryName=previews
 X-TDE-ParentApp=kcontrol
 
-Name=Previews & Meta-Data
+Name=Previews & Metadata
 Name[af]=Voorskoue & Meta-Data
 Name[az]=Nümayişlər & Meta Mə'lumat
 Name[be]=Перадпрагляд і метададзеныя
