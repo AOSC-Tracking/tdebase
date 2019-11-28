@@ -63,7 +63,7 @@ Comment[cs]=Obsahuje osobní dokumenty
 Comment[de]=Enthält persönliche Dokumente
 Comment[es]=
 Comment[fr]=Contient des documents personnels
-Comment[it]=
+Comment[it]=Contiene i documenti personali
 Comment[ru]=
 
 URL=$( kxdglauncher --getpath --xdgname DOCUMENTS )
