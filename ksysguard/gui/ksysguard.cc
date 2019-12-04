@@ -61,7 +61,7 @@
 
 #include "ksysguard.h"
 
-static const char Description[] = I18N_NOOP( "KSysGuard" );
+static const char Description[] = I18N_NOOP( "TDE system guard" );
 TopLevel* topLevel;
 
 /**
@@ -553,7 +553,7 @@ int main( int argc, char** argv )
   close( initpipe[ 0 ] );
   setsid();
 
-  TDEAboutData aboutData( "ksysguard", I18N_NOOP( "TDE System Guard" ),
+  TDEAboutData aboutData( "ksysguard", I18N_NOOP( "KSysGuard" ),
                         KSYSGUARD_VERSION, Description, TDEAboutData::License_GPL,
                         I18N_NOOP( "(c) 1996-2002 The KSysGuard Developers" ) );
   aboutData.addAuthor( "Chris Schlaeger", "Current Maintainer", "cs@kde.org" );
