@@ -6,7 +6,7 @@ Name=My Documents
 Name[af]=Dokument Gids
 Name[ar]=مستنداتي
 Name[be]=Тэчка для дакументаў
-Name[bg]=Директория с документи
+Name[bg]=Моите документи
 Name[bn]=ডকমেনট ফোলডার
 Name[br]=Renkell an teulioù
 Name[bs]=Direktorij dokumenata
@@ -58,7 +58,7 @@ Name[zh_CN]=文档文件夹
 Name[zh_TW]=文件目錄
 
 Comment=Contains personal documents
-Comment[bg]=
+Comment[bg]=Съдържа лични документи
 Comment[cs]=Obsahuje osobní dokumenty
 Comment[de]=Enthält persönliche Dokumente
 Comment[es]=

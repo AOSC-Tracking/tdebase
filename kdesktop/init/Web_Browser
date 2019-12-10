@@ -6,6 +6,7 @@ Icon=konqueror
 MimeType=application/vnd.mozilla.xul+xml;application/xhtml+xml;application/xml;image/gif;image/jpeg;image/png;text/html;text/xml
 
 Name=Web Browser
+Name[bg]=Уеб браузър
 Name[ca]=Navegador web
 Name[cs]=Webový prohlížeč
 Name[de]=Internet-Navigator
@@ -29,7 +30,7 @@ Name[sk]=Internetový prehliadač
 Name[sv]=Webbläsaren
 
 Comment=Browse the World Wide Web
-Comment[bg]=
+Comment[bg]=Разгледай световната мрежа
 Comment[cs]=Prohlížení Internetu
 Comment[de]=Das Internet erkunden
 Comment[es]=

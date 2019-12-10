@@ -3,7 +3,7 @@ Encoding=UTF-8
 Icon=computer
 
 Name=My Computer
-Name[bg]=
+Name[bg]=Моят компютър
 Name[cs]=Počítač
 Name[de]=Rechner
 Name[es]=Mi PC
@@ -12,7 +12,7 @@ Name[it]=Computer
 Name[ru]=Мой компьютер
 
 Comment=Access to storage media
-Comment[bg]=
+Comment[bg]=Достъп до съхраняващи устройства
 Comment[cs]=Přístup k úložným zařízením
 Comment[de]=Zugriff auf Speichermedien
 Comment[es]=
