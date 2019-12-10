@@ -74,7 +74,7 @@ Name[zh_CN]=远程位置
 Name[zh_TW]=遠端空間
 
 Comment=Access to network places and remote hosts
-Comment[bg]=
+Comment[bg]=Достъп до отдалечени системи и мрежови директории
 Comment[cs]=Přístup k místům v síti a vzdáleným počítačům
 Comment[de]=Zugriff auf Netzwerkordner und entfernte Rechner
 Comment[es]=
