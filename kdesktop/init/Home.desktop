@@ -169,7 +169,7 @@ Comment[de]=Enthält persönliche Dateien
 Comment[es]=Contiene archivos personales
 Comment[fr]=Contient des fichiers personnels
 Comment[it]=Contiene file personali
-Comment[ru]=
+Comment[ru]=Содержание личных файлов
 
 URL=$HOME
 Icon=kfm_home

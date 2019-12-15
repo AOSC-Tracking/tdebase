@@ -64,15 +64,11 @@ Comment[de]=Enthält persönliche Dokumente
 Comment[es]=Contiene documentos personales
 Comment[fr]=Contient des documents personnels
 Comment[it]=Contiene i documenti personali
-Comment[ru]=
+Comment[ru]=Содержание личных документов
 
 URL=$( kxdglauncher --getpath --xdgname DOCUMENTS )
 Type=Link
 StartupNotify=true
-MimeType=
 Terminal=false
-TerminalOptions=
-X-DCOP-ServiceType=
 X-TDE-SubstituteUID=false
-X-TDE-Username=
 OnlyShowIn=TDE;

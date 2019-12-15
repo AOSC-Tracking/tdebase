@@ -86,7 +86,7 @@ Comment[de]=Druckaufträge verwalten
 Comment[es]=Gestionar los trabajos de impresión
 Comment[fr]=Gérer les travaux d'impression
 Comment[it]=Gestione dei processi di stampa
-Comment[ru]=
+Comment[ru]=Управление заданиями печати
 
 Terminal=false
 Type=Application

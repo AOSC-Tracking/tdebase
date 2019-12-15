@@ -36,15 +36,11 @@ Comment[de]=Das Internet erkunden
 Comment[es]=Navegar por la World Wide Web
 Comment[fr]=Naviguer sur Internet
 Comment[it]=Naviga in Internet
-Comment[ru]=
+Comment[ru]=Обозреватель Всемирной Паутины
 
-Path=
 StartupNotify=true
 Terminal=false
-TerminalOptions=
 Type=Application
-X-DCOP-ServiceType=
 X-TDE-SubstituteUID=false
-X-TDE-Username=
 X-Trinity-BuiltIn=true
 OnlyShowIn=TDE;
