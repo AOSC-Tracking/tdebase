@@ -1,11 +1,6 @@
 [Desktop Entry]
 Name=TDERandRTray
-Name[be]=Змена параметраў манітора
-Name[hu]=TDEépernyőfelbontás
-Name[ne]=TDERandR ट्रे
-Name[pt_BR]=Ícone do TDERandR
-Name[sv]=TDErandrtray
-Name[vi]=TDE KRandR
+
 GenericName=Screen Resize & Rotate
 GenericName[af]=Skerm Hervergroot & Roteer
 GenericName[be]=Змена памераў экрана і перагортванне
@@ -72,6 +67,7 @@ GenericName[vi]=Thay đổi cỡ màn hình & Quay
 GenericName[wa]=Candjî l' grandeu del waitroûle eyet l' tourner
 GenericName[zh_CN]=屏幕大小和旋转
 GenericName[zh_TW]=螢幕調整大小及旋轉
+
 Comment=Resize and rotate X screens.
 Comment[af]=Hervergroot en roteer X skerms.
 Comment[ar]=غيير القياس و الدوران للشاشات X.
@@ -84,7 +80,7 @@ Comment[ca]=Gira i amida les pantalles X.
 Comment[cs]=Změna velikosti a rotace obrazovky.
 Comment[csb]=Zjinaka miarë ë pòłożenia ekranów.
 Comment[da]=Ændrer størrelse og roterer X-skærme
-Comment[de]=Die Größe und Ausrichtung der Anzeige ändern
+Comment[de]=Größe und Ausrichtung der Anzeige ändern
 Comment[el]=Αλλαγή μεγέθους και περιστροφή της οθόνης.
 Comment[eo]=Regrandigi kaj turni X ekranojn.
 Comment[es]=Ajustar el tamaño y rotar las pantallas X.
@@ -134,6 +130,7 @@ Comment[vi]=Đổi cỡ và quay màn hình X.
 Comment[wa]=Candjî l' grandeu eyet tourner les waitroûles X.
 Comment[zh_CN]=更改 X 屏幕的大小和旋转。
 Comment[zh_TW]=調整大小及旋轉 X 螢幕。
+
 Exec=tderandrtray
 Icon=randr
 Type=Application

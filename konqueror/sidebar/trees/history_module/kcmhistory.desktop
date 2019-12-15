@@ -20,7 +20,7 @@ Name[cs]=Panel historie
 Name[csb]=Bòcznô lëstew historëji
 Name[cy]=Cwpwrdd Cornel Hanes
 Name[da]=Historik-sidebjælke
-Name[de]=Verlaufsbereich
+Name[de]=Verlaufsspeicher
 Name[el]=Πλευρική μπάρα ιστορικού
 Name[eo]=Historia flankzono
 Name[es]=Barra de historial
@@ -84,6 +84,7 @@ Name[xh]=Ibar esecaleni Yembali
 Name[zh_CN]=历史侧边栏
 Name[zh_TW]=歷史紀錄邊列
 Name[zu]=Umlando webha yaseceleni
+
 Comment=Configure the history sidebar
 Comment[af]=Stel die geskiedenis kantbalk op
 Comment[ar]=إعداد الشريط الجانبي للخط الزمني
@@ -161,6 +162,7 @@ Comment[xh]=Qwalasela imbali ye bar yasecaleni
 Comment[zh_CN]=配置任务侧边栏
 Comment[zh_TW]=設定歷史紀錄邊列
 Comment[zu]=Hlanganisela ibha yaseceleni yomlando
+
 Keywords=history;expire;
 Keywords[ar]=الخط الزمني; إنتهاء الأجل;
 Keywords[az]=history;expire;keçmiş;
@@ -230,4 +232,5 @@ Keywords[xh]=imbali;ephelelwa lixesha;
 Keywords[zh_CN]=history;expire;历史;过期;
 Keywords[zh_TW]=history;expire;歷史紀錄;過期;
 Keywords[zu]=umlando;ukuphelelwa isikhathi;
+
 Categories=Qt;TDE;X-TDE-settings-webbrowsing;

@@ -2,6 +2,7 @@
 Type=Link
 URL=print:/
 Icon=document-print
+
 Name=Print System Browser
 Name[af]=Drukker Stelsel Blaaier
 Name[ar]=متصفح نظام  الطباعة
@@ -15,7 +16,7 @@ Name[cs]=Prohlížeč tiskového systému
 Name[csb]=Przezérnik systemë drëkù
 Name[cy]=Porydd y Cysawd Argraffu
 Name[da]=Udskriftssystemsøger
-Name[de]=Drucksystem-Browser
+Name[de]=Drucksystem
 Name[el]=Προβολέας συστήματος εκτύπωσης
 Name[eo]=Rigardilo por printosistemo
 Name[es]=Navegador del sistema de impresión
@@ -80,6 +81,7 @@ Name[xh]=Shicilela Umkhangeli zincwadi Wendlela
 Name[zh_CN]=打印系统浏览器
 Name[zh_TW]=列印系統瀏覽器
 Name[zu]=Umcingi wesistimu yokushicilela
+
 Open=false
 X-TDE-TreeModule=Directory
 X-TDE-KonqSidebarModule=konqsidebar_tree
