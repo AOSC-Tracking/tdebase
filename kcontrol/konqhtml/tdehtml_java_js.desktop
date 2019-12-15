@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 X-DocPath=kcontrol/tdehtml/index.html
-Icon=konqueror
+Icon=text-x-java
 Exec=tdecmshell tdehtml_java_js
 
 
