@@ -1,7 +1,9 @@
 [Desktop Entry]
 Type=ServiceType
+Icon=system-search
 X-TDE-ServiceType=Konqueror/FindPart
 X-TDE-Derived=Browser/View
+
 Name=Find Part
 Name[af]=Soek Deel
 Name[ar]=ابحث عن جزء

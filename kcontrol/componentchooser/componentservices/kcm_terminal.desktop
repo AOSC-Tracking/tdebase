@@ -80,6 +80,7 @@ Name[xh]=Umzami kulinganisela ngokulinganayo Wendlela yesiphelo
 Name[zh_CN]=终端仿真器
 Name[zh_TW]=終端機模擬程式
 Name[zu]=Umlingisi wangaphandle
+
 Comment=This service allows you to configure your default terminal emulator. All TDE applications which invoke a terminal emulator application should honor this setting.
 Comment[af]=Hierdie diens laat jou toe om jou standaard terminaal emuleerder op te stel. Al die TDE programme wat 'n terminaal skep behoort hierdie instelling te gebruik.
 Comment[be]=Гэты сервіс дазваляе вызначыць для сябе стандартны эмулятар тэрміналу. Усе праграмы TDE, якія запускаюць эмулятар тэрміналу, павінны выкарыстоўваць гэтае настаўленне.
@@ -91,7 +92,7 @@ Comment[cs]=Tato služba umožňuje nastavit si výchozího emulátor terminálu
 Comment[csb]=Tuwò je mòżno wëbrac domëslny emùlator terminala. Wszëtczé programë TDE, w jaczich brëkùje sã z lënkòw, mùszôłëbë ùżëwac tegò ùstôwù.
 Comment[cy]=Mae'r gwasanaeth yma yn gadael i chi ffurfweddu eich efelychydd terfynell cyffredinol. Dylai pob rhaglen TDE sy'n cychwyn efelychydd terfynell ddefnyddio'r gosodiad yma.
 Comment[da]=Denne service tillader dig at indstille din terminalemulator. Alle TDE-programmer der behøver adgang til en terminalemulator skulle respektere denne indstilling.
-Comment[de]=Hier können Sie den voreingestellten Terminal-Emulator einrichten. Alle TDE-Anwendungen, die Zugriff auf ein solches Programm benötigen, sollten diese Einstellungen verwenden.
+Comment[de]=Hier können Sie den voreingestellten Terminal-Emulator einrichten. Alle TDE-Programme, die Zugriff auf ein solches Programm benötigen, sollten diese Einstellungen verwenden.
 Comment[el]=Αυτή η υπηρεσία σας επιτρέπει να ρυθμίσετε τον προκαθορισμένο προσομοιωτή τερματικού σας. Όλες οι εφαρμογές του TDE που καλούν μια εφαρμογή προσομοιωτή τερματικού θα πρέπει να τηρούν αυτήν τη ρύθμιση.
 Comment[en_GB]=This service allows you to configure your default terminal emulator. All TDE applications which invoke a terminal emulator application should honour this setting.
 Comment[eo]=Tiu servo ebligas, ke vi elektas vian norman terminalon. Ĉiuj TDEaj aplikoj, kiuj bezonas terminalon, uzos tiun agordon.
@@ -154,4 +155,5 @@ Comment[xh]=Lenkonzo ikuvumela ukuba ukwazi ukuqwalasela isiphelo esingagqibekan
 Comment[zh_CN]=此服务允许您配置您的默认终端仿真器。所有调用终端仿真程序的 TDE 应用程序都遵从此设置。
 Comment[zh_TW]=這個服務允許您設定您的預設終端機模擬程式。所有呼叫終端機模擬程式的 TDE 應用程式都應該遵從這個設定。
 Comment[zu]=Lo msebenzi ukuvumela ukuthi uhlanganisele umlingisi wangaphandle wendalo. Bonke abayaleli be-TDE ababiza umyaleli womlingisi wangaphandle bahloniphe lesi silingiselelo.
+
 configurationType=internal_terminal

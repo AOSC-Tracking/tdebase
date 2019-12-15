@@ -78,6 +78,7 @@ Name[xh]=Indlela esestyenziswayo
 Name[zh_CN]=系统
 Name[zh_TW]=系統
 Name[zu]=Isistimu
+
 Comment=This folder allows you to access common places on your computer
 Comment[af]=Hierdie gids laat jou toe om algemene plekke op jou rekenaar te besoek
 Comment[ar]=هذا المجلّد يسمح لك بالوصول إلى مواقع مشتركة على حاسوبك
@@ -89,7 +90,7 @@ Comment[ca]=Aquesta carpeta us permet accedir a llocs usuals de l'ordinador
 Comment[cs]=Tato složka zpřístupňuje často používaná umístění na vašem počítači
 Comment[csb]=Nen katalog dôwô mòżnotã przistãpù do nôczãsczi brëkòwónëch placów w twòjim kòmpùtrze
 Comment[da]=Denne mappe giver adgang til almindelige steder på din computer
-Comment[de]=Dieser Ordner ermöglicht den Zugriff auf gebräuchliche Systembereiche des Computers
+Comment[de]=Dieser Ordner ermöglicht den Zugriff auf gebräuchliche Systembereiche des Rechners
 Comment[el]=Αυτός ο φάκελος σας επιτρέπει την πρόσβαση σε τυπικές τοποθεσίες του συστήματός σας
 Comment[eo]=Tiu ĉi dosierujo atingebligas al viaj ofte vizititaj lokoj en via komputilo
 Comment[es]=Esta carpeta permite acceder a lugares usuales en su equipo
@@ -134,6 +135,7 @@ Comment[vi]=Thư mục này cho phép bạn truy cập vào các nơi thông d�
 Comment[wa]=Ci ridant chal vos permete d' aler ås comonès plaeces so vosse copiutrece
 Comment[zh_CN]=此文件夹允许您访问计算机中的公共位置
 Comment[zh_TW]=這個資料夾允許存取您電腦上的共同空間
+
 Open=true
 X-TDE-TreeModule=Directory
 X-TDE-KonqSidebarModule=konqsidebar_tree

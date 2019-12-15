@@ -7,6 +7,7 @@ X-DocPath=kcontrol/display/index.html
 X-TDE-Library=display
 X-TDE-FactoryName=display
 X-TDE-ParentApp=kcontrol
+
 Name=Display
 Name[af]=Skerm
 Name[ar]=عرض
@@ -78,6 +79,7 @@ Name[vi]=Hiển thị
 Name[wa]=Håynaedje
 Name[zh_CN]=显示
 Name[zh_TW]=顯示
+
 Comment=Display Settings
 Comment[af]=Skerm Instellings
 Comment[ar]=إعدادت العرض
@@ -92,7 +94,7 @@ Comment[cs]=Nastavení obrazovky
 Comment[csb]=Ùstôw ekranu
 Comment[cy]=Gosodiadau Arddangos
 Comment[da]=Opsætning af skærm
-Comment[de]=Anzeige-Einstellungen
+Comment[de]=Einstellungen für die Anzeige vornehmen
 Comment[el]=Ρυθμίσεις οθόνης
 Comment[eo]=Vidigila Agordo
 Comment[es]=Preferencias de la pantalla
@@ -151,4 +153,5 @@ Comment[vi]=Thiết lập Hiển thị
 Comment[wa]=Apontiaedjes do Håynaedje
 Comment[zh_CN]=显示设置
 Comment[zh_TW]=顯示設定
+
 Categories=Qt;TDE;X-TDE-settings-hardware;
