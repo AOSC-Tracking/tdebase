@@ -3,7 +3,7 @@ Icon=computer
 Type=MimeType
 MimeType=media/builtin-mycomputer
 Comment=My Computer
-Comment[de]=Computer
+Comment[de]=Rechner
 Patterns=My_Computer
 
 X-TDE-AutoEmbed=false

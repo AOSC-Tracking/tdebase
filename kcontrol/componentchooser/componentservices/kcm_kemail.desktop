@@ -80,6 +80,7 @@ Name[xh]=Umxhasi we Email
 Name[zh_CN]=电子邮件客户程序
 Name[zh_TW]=電子郵件客戶端程式
 Name[zu]=Umxhasi weposi lekhomputha
+
 Comment=This service allows you to configure your default email client. All TDE applications which need access to an email client application should honor this setting.
 Comment[af]=Hierdie diens laat jou toe om jou standaard e-pos kliënt op te stel. Al die TDE programme wat toegang tot 'n e-pos kliënt benodig behoort hierdie instelling te gebruik.
 Comment[ar]=هذه الخدمة تسمح لك بتهيئة برنامج البريد الافتراضي. جميع تطبيقات كيدي التي ستحتاج الى الوصول الى تطبيق بريد الكتروني يجب أن تتبع هذا الضبط.
@@ -92,7 +93,7 @@ Comment[cs]=Tato služba umožňuje nastavit si výchozího klienta emailu. Vše
 Comment[csb]=Tuwò je mòżno wëbrac domëslną pòcztową programã. Wszëtczé programë TDE, w jaczich brëkùje sã z lënkòw, mùszôłëbë ùżëwac tegò ùstôwù.
 Comment[cy]=Mae'r gwasanaeth ymayn gadael i chi ffurfweddu eich dibynnydd ebost cyffredinol. Dylai bob raglen TDE sydd angen cyrchiad i ddibynnydd ebost ddefnyddio'r gosodiad yma.
 Comment[da]=Denne service tillader dig at indstille din e-mail-klient. Alle TDE-programmer der behøver adgang til en e-mail-klient skulle respektere denne indstilling.
-Comment[de]=Hier können Sie Ihr E-Mail-Programm einrichten. Alle TDE-Anwendungen, die Zugriff auf ein solches Programm benötigen, sollten diese Einstellungen verwenden.
+Comment[de]=Hier können Sie Ihr E-Mail-Programm einrichten. Alle TDE-Programme, die Zugriff auf ein solches Programm benötigen, sollten diese Einstellungen verwenden.
 Comment[el]=Αυτή η υπηρεσία σας επιτρέπει να ρυθμίσετε τον προκαθορισμένο πελάτη email σας. Όλες οι εφαρμογές του TDE που χρειάζονται πρόσβαση σε μια εφαρμογή πελάτη email θα πρέπει να χρησιμοποιούν αυτή τη ρύθμιση.
 Comment[en_GB]=This service allows you to configure your default email client. All TDE applications which need access to an email client application should honour this setting.
 Comment[eo]=Tiu servo ebligas, ke vi elektas vian norman retpoŝtilon. Ĉiuj TDEaj aplikoj, kiuj bezonas retpoŝtilon, uzos tiun agordon.
@@ -155,4 +156,5 @@ Comment[xh]=Lenkonzo ikuvumela ukuba uqwalasele umxhasi wakho we email. Zonke iz
 Comment[zh_CN]=此服务允许您配置您的默认电子邮件程序。所有需要访问电子邮件客户程序的 TDE 应用程序都遵从此设置。
 Comment[zh_TW]=這個服務允許您設定您的預設電子郵件客戶端程式。所有需要使用電子郵件客戶端應用程式的 TDE 應用程式都應該遵從這個設定。
 Comment[zu]=Lo msebenzi ukuvumela ukuthi uhlanganisele umxhasi weposi lekhomputha wendalo. Bonke abayaleli be-TDE abadinga ukungena kumyaleli womxhasi weposi lekhomputha kumele bahloniphe lesi silingiselelo.
+
 configurationType=internal_email
