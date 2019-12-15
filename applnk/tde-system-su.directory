@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+
+Name=SuperUser
+Name[cs]=Správce
+Name[de]=Systemverwaltung
+Name[es]=Administrador
+Name[fr]=Administrateur
+Name[it]=Amministratore del sistema
+Name[ru]=Администратор
+
+Icon=password
