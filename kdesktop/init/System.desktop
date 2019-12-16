@@ -152,6 +152,7 @@ Comment[de]=Zugriff auf Systemordner
 Comment[es]=Acceso a los directorios del sistema
 Comment[fr]=Accès aux dossiers système
 Comment[it]=Accesso alle directory di sistema
+Comment[pl]=Dostęp do lokacji systemowych
 Comment[ru]=Доступ к системному окружению
 
 URL=system:/

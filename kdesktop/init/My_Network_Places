@@ -80,6 +80,7 @@ Comment[de]=Zugriff auf Netzwerkordner und entfernte Rechner
 Comment[es]=Acceso a lugares de red y hosts remotos
 Comment[fr]=Accès aux dossiers réseau et aux ordinateurs distants
 Comment[it]=Accesso alla rete e computer remoti
+Comment[pl]=Dostęp do miejsc sieciowych i maszyn zdalnych
 Comment[ru]=Доступ к сетевому окружению и удалённым системам
 
 OnlyShowIn=TDE;

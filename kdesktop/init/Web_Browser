@@ -37,6 +37,7 @@ Comment[de]=Das Internet erkunden
 Comment[es]=Navegar por la World Wide Web
 Comment[fr]=Naviguer sur Internet
 Comment[it]=Naviga in Internet
+Comment[pl]=Przeglądaj Internet
 Comment[ru]=Обозреватель Всемирной Паутины
 
 StartupNotify=true
