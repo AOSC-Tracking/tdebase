@@ -18,6 +18,7 @@ Comment[de]=Zugriff auf Speichermedien
 Comment[es]=Acceso a los medios de almacenamiento
 Comment[fr]=Accès aux périphériques de stockage
 Comment[it]=Accesso alle periferiche di archiviazione
+Comment[pl]=Dostęp do nośników danych
 Comment[ru]=Доступ к устройствам хранения
 
 OnlyShowIn=TDE;

@@ -93,6 +93,7 @@ Comment[de]=Enthält gelöscht Dateien
 Comment[es]=Contiene archivos eliminados
 Comment[fr]=Contient des fichiers supprimés
 Comment[it]=Contiene i file cancellati
+Comment[pl]=Zawiera usunięte pliki
 Comment[ru]=Содержит удалённые файлы
 
 X-Trinity-BuiltIn=true
