@@ -176,7 +176,7 @@ void KNetAttach::finished()
 	path += name + ".desktop";
 	KSimpleConfig desktopFile(path, false);
 	desktopFile.setGroup("Desktop Entry");
-	desktopFile.writeEntry("Icon", "package_network");
+	desktopFile.writeEntry("Icon", "applications-internet");
 	desktopFile.writeEntry("Name", name);
 	desktopFile.writeEntry("Type", "Link");
 	desktopFile.writeEntry("URL", url.prettyURL());
