@@ -3,24 +3,20 @@ Exec=tdecmshell displayconfig
 Icon=background
 Type=Application
 X-DocPath=kcontrol/displayconfig/index.html
-MimeType=
 
 X-TDE-Library=displayconfig
 X-TDE-ParentApp=kcontrol
 X-TDE-RootOnly=true
 X-TDE-SubstituteUID=true
-X-TDE-Username=
 
 Categories=Qt;TDE;X-TDE-settings-system;
 Comment=Configure display
 Comment[en_US]=Configure display
-Comment[de]=Einstellungen der Anzeige
+Comment[de]=Bildschirme einrichten
 Comment[fr]=Configuration de l'affichage
 Comment[it]=Configurazione del display
 Comment[ru]=Конфигурация экрана
 Comment[uk]=Конфігурація екрану
-
-GenericName=
 
 Keywords=monitor;resolution;display;
 Keywords[de]=Bildschirm;Auflösung;Anzeige;
@@ -35,8 +31,5 @@ Name[ru]=Монитор & Экран
 Name[uk]=Монітор & Екран
 
 NoDisplay=false
-Path=
 StartupNotify=true
 Terminal=false
-TerminalOptions=
-X-DCOP-ServiceType=
