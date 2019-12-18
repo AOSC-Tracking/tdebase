@@ -77,6 +77,7 @@ Name[wa]=Criptografeye
 Name[xh]=Imfihlo
 Name[zh_CN]=加密
 Name[zh_TW]=加密
+
 Comment=Configure SSL, manage certificates, and other cryptography settings
 Comment[af]=Konfigureer Ssl, bestuur sertifikate, en ander kriptografie instellings
 Comment[ar]=قم بتهيئة SSL و ادارة الشهادات اضافة الى اعدادات الضبط الأخرى
@@ -90,7 +91,7 @@ Comment[cs]=Nastavení SSL, správa certifikátů a ostatní kryptografická nas
 Comment[csb]=Kònfigùracëjô SSL, sprôwianié certifikatama, jinszé kriptograficzné ùstôwë
 Comment[cy]=Ffurfweddu SSL, rheoli tystysgrifau a gosodiadau cryptograffeg eraill
 Comment[da]=Indstil SSL, håndtér certifikater og andre kryptografiske indstillinger
-Comment[de]=SSL einrichten, Zertifikate verwalten und andere Einstellungen zur Verschlüsselung von Daten vornehmen
+Comment[de]=SSL einrichten, Zertifikate verwalten und andere Einstellungen zur Verschlüsselung vornehmen
 Comment[el]=Ρύθμιση SSL, διαχείριση πιστοποιητικών, και άλλες ρυθμίσεις κρυπτογραφίας
 Comment[eo]=Agordo de SSL, administrado de atestiloj ktp.
 Comment[es]=Configura SSL, administra los certificados y otras preferencias de criptografía.
