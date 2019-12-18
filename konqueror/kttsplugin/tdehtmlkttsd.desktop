@@ -4,13 +4,12 @@ X-TDE-PluginInfo-Author=Olaf Schmidt
 X-TDE-PluginInfo-Email=ojschmidt@kde.org
 X-TDE-PluginInfo-Name=tdehtmlkttsdplugin
 X-TDE-PluginInfo-Version=3.4
-X-TDE-PluginInfo-Website=
 X-TDE-PluginInfo-Category=Tools
-X-TDE-PluginInfo-Depends=
 X-TDE-PluginInfo-License=GPL
 X-TDE-PluginInfo-EnabledByDefault=true
 X-TDE-ParentApp=konqueror
-Name=Text-to-Speech Plugin
+
+Name=Text-to-Speech
 Name[ar]=برنامج مساعد تحويل لفظ النص
 Name[be]=Утулка галасавога ўзнаўлення тэксту
 Name[bg]=Приставка за синтез на глас
@@ -20,7 +19,7 @@ Name[ca]=Endollable de text a veu
 Name[cs]=Modul text-na-řeč
 Name[csb]=Plugins czëtôrza tekstu
 Name[da]=Tekst-til-tale plugin
-Name[de]=Sprachausgabe-Plugin
+Name[de]=Sprachausgabe
 Name[el]=Πρόσθετο κείμενο σε ομιλία
 Name[eo]=Teksto-Paroligilo Kromaĵo
 Name[es]=Complemento de Texto-a-Voz
@@ -71,5 +70,8 @@ Name[vi]=Trình bổ sung Chuyển Văn bản thành Tiếng nói
 Name[wa]=Tchôke-divins tecse viè parole
 Name[zh_CN]=文本到语音插件
 Name[zh_TW]=文字轉換語音外掛程式
-Icon=kttsd
 
+Comment=A plugin which enables texts to be read aloud on the web with KTTS
+Comment[de]=Eine Erweiterung, welche es ermöglicht Texte im Internet mit KTTS vorlesen zu lassen
+
+Icon=kttsd
