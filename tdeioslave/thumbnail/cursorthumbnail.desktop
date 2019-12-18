@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Service
+
 Name=Cursor Files
 Name[af]=Muis wyser Lêers
 Name[ar]=ملفات المؤشر
@@ -14,7 +15,7 @@ Name[cs]=Soubory s kurzory
 Name[csb]=Lopczi kùrsorów
 Name[cy]=Ffeiliau Cyrchydd
 Name[da]=Markørfiler
-Name[de]=Cursor-Dateien
+Name[de]=Mauszeiger-Dateien
 Name[el]=Αρχεία δρομέα
 Name[eo]=Tipardosierojn
 Name[es]=Archivos de cursores
@@ -74,6 +75,7 @@ Name[vi]=Tập tin Con trỏ
 Name[wa]=Fitchîs cursoe
 Name[zh_CN]=光标文件
 Name[zh_TW]=游標檔案
+
 X-TDE-ServiceTypes=ThumbCreator
 MimeTypes=image/x-xcursor
 X-TDE-Library=cursorthumbnail
