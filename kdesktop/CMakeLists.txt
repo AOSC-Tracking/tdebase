@@ -69,15 +69,6 @@ tde_add_executable( kcheckrunning
 )
 
 
-##### kxdglauncher (executable) #################
-
-tde_add_executable( kxdglauncher
-  SOURCES kxdglauncher.cpp
-  LINK tdeutils-shared
-  DESTINATION ${BIN_INSTALL_DIR}
-)
-
-
 ##### kdesktop (tdeinit) ########################
 
 set( target kdesktop )
