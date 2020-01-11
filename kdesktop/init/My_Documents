@@ -67,7 +67,7 @@ Comment[it]=Contiene i documenti personali
 Comment[pl]=Zawiera dokumenty osobiste
 Comment[ru]=Содержание личных документов
 
-URL=$( kxdglauncher --getpath --xdgname DOCUMENTS )
+URL=$XDG_DOCUMENTS_DIR
 Type=Link
 StartupNotify=true
 Terminal=false
