@@ -99,7 +99,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <inttypes.h>
-#include <sys/poll.h>
+#include <poll.h>
 #include <assert.h>
 #include <time.h>
 #include <ctype.h>
