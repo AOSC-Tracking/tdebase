@@ -851,7 +851,7 @@ bool KDIconView::deleteGlobalDesktopFiles()
 
         // Ignore these special files
         // Name			URL					Type		OnlyShowIn
-        // My Documents		xdg-user-dirs DOCUMENTS	Application	TDE;
+        // My Documents		XDG_DOCUMENTS_DIR 	Application	TDE;
         // My Computer		media:/					Link		TDE;
         // My Network Places	remote:/				Link		TDE;
         // Printers		[exec] kjobviewer --all --show %i %m	Application	TDE;

@@ -204,16 +204,16 @@ void DesktopPathConfig::load( bool useDefaults )
     config.setGroup("Paths");
     urAutostart->setURL( config.readPathEntry( "Autostart" , TDEGlobalSettings::autostartPath() ));
 
-    TDEConfig xdguserconfig( TQDir::homeDirPath()+"/.config/user-dirs.dirs" );
+    TDEConfig xdguserconfig(TQDir::homeDirPath() + "/.config/user-dirs.dirs");
 
-    urDesktop->setURL( xdguserconfig.readPathEntry( "XDG_DESKTOP_DIR" , TQDir::homeDirPath() + "/Desktop" ).remove(  "\"" ));
-    urDocument->setURL( xdguserconfig.readPathEntry( "XDG_DOCUMENTS_DIR", TQDir::homeDirPath() + "/Documents").remove(  "\"" ));
-    urDownload->setURL( xdguserconfig.readPathEntry( "XDG_DOWNLOAD_DIR" , TQDir::homeDirPath() + "/Downloads" ).remove(  "\"" ));
-    urMusic->setURL( xdguserconfig.readPathEntry( "XDG_MUSIC_DIR" , TQDir::homeDirPath() + "/Music" ).remove(  "\"" ));
-    urPictures->setURL( xdguserconfig.readPathEntry( "XDG_PICTURES_DIR" , TQDir::homeDirPath() + "/Pictures" ).remove(  "\"" ));
-    urPublicShare->setURL( xdguserconfig.readPathEntry( "XDG_PUBLICSHARE_DIR" , TQDir::homeDirPath() + "/Public" ).remove(  "\"" ));
-    urTemplates->setURL( xdguserconfig.readPathEntry( "XDG_TEMPLATES_DIR" , TQDir::homeDirPath() + "/Templates" ).remove(  "\"" ));
-    urVideos->setURL( xdguserconfig.readPathEntry( "XDG_VIDEOS_DIR" , TQDir::homeDirPath() + "/Videos" ).remove(  "\"" ));
+    urDesktop->setURL(xdguserconfig.readPathEntry("XDG_DESKTOP_DIR", TDEGlobalSettings::desktopPath()).remove("\""));
+    urDocument->setURL(xdguserconfig.readPathEntry("XDG_DOCUMENTS_DIR", TDEGlobalSettings::documentPath()).remove("\""));
+    urDownload->setURL(xdguserconfig.readPathEntry("XDG_DOWNLOAD_DIR" , TDEGlobalSettings::downloadPath()).remove("\""));
+    urMusic->setURL(xdguserconfig.readPathEntry("XDG_MUSIC_DIR" , TDEGlobalSettings::musicPath()).remove("\""));
+    urPictures->setURL(xdguserconfig.readPathEntry("XDG_PICTURES_DIR" , TDEGlobalSettings::picturesPath()).remove("\""));
+    urPublicShare->setURL(xdguserconfig.readPathEntry("XDG_PUBLICSHARE_DIR" , TDEGlobalSettings::publicSharePath()).remove("\""));
+    urTemplates->setURL(xdguserconfig.readPathEntry("XDG_TEMPLATES_DIR" , TDEGlobalSettings::templatesPath()).remove("\""));
+    urVideos->setURL(xdguserconfig.readPathEntry("XDG_VIDEOS_DIR" , TDEGlobalSettings::videosPath()).remove("\""));
 
     emit changed( useDefaults );
 }
