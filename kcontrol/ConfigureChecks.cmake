@@ -48,7 +48,7 @@ endif( )
 ##### check for libusb ##########################
 
 if( WITH_LIBUSB OR ${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD" )
-  pkg_search_module( LIBUSB libusb libusb-2.0 )
+  pkg_search_module( LIBUSB libusb libusb-2.0 libusb-1.0 )
   if( LIBUSB_FOUND )
     set( HAVE_LIBUSB 1 CACHE INTERNAL "" FORCE )
   else( )
