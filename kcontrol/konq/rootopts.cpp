@@ -18,6 +18,7 @@
 #include <tqcombobox.h>
 #include <tqlabel.h>
 #include <tqlayout.h>
+#include <tqtimer.h>
 #include <tqvgroupbox.h>
 #include <tqwhatsthis.h>
 
@@ -188,6 +189,9 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   // -- Bottom --
   Q_ASSERT( row == RO_LASTROW-1 ); // if it fails here, check the row++ and RO_LASTROW above
 
+  loadTmr = new TQTimer(this);
+  connect(loadTmr, TQT_SIGNAL(timeout()), this, TQT_SLOT(loadTimerDone()));
+
   load();
 }
 
@@ -208,14 +212,30 @@ void DesktopPathConfig::load( bool useDefaults )
 
     urDesktop->setURL(xdguserconfig.readPathEntry("XDG_DESKTOP_DIR", TDEGlobalSettings::desktopPath()).remove("\""));
     urDocument->setURL(xdguserconfig.readPathEntry("XDG_DOCUMENTS_DIR", TDEGlobalSettings::documentPath()).remove("\""));
-    urDownload->setURL(xdguserconfig.readPathEntry("XDG_DOWNLOAD_DIR" , TDEGlobalSettings::downloadPath()).remove("\""));
-    urMusic->setURL(xdguserconfig.readPathEntry("XDG_MUSIC_DIR" , TDEGlobalSettings::musicPath()).remove("\""));
-    urPictures->setURL(xdguserconfig.readPathEntry("XDG_PICTURES_DIR" , TDEGlobalSettings::picturesPath()).remove("\""));
-    urPublicShare->setURL(xdguserconfig.readPathEntry("XDG_PUBLICSHARE_DIR" , TDEGlobalSettings::publicSharePath()).remove("\""));
-    urTemplates->setURL(xdguserconfig.readPathEntry("XDG_TEMPLATES_DIR" , TDEGlobalSettings::templatesPath()).remove("\""));
-    urVideos->setURL(xdguserconfig.readPathEntry("XDG_VIDEOS_DIR" , TDEGlobalSettings::videosPath()).remove("\""));
+    urDownload->setURL(xdguserconfig.readPathEntry("XDG_DOWNLOAD_DIR", TDEGlobalSettings::downloadPath()).remove("\""));
+    urMusic->setURL(xdguserconfig.readPathEntry("XDG_MUSIC_DIR", TDEGlobalSettings::musicPath()).remove("\""));
+    urPictures->setURL(xdguserconfig.readPathEntry("XDG_PICTURES_DIR", TDEGlobalSettings::picturesPath()).remove("\""));
+    urPublicShare->setURL(xdguserconfig.readPathEntry("XDG_PUBLICSHARE_DIR", TDEGlobalSettings::publicSharePath()).remove("\""));
+    urTemplates->setURL(xdguserconfig.readPathEntry("XDG_TEMPLATES_DIR", TDEGlobalSettings::templatesPath()).remove("\""));
+    urVideos->setURL(xdguserconfig.readPathEntry("XDG_VIDEOS_DIR", TDEGlobalSettings::videosPath()).remove("\""));
 
-    emit changed( useDefaults );
+    emit changed(useDefaults);
+
+		// If any of the folder does not exists, enable the Apply button so that the folders can be created
+		if (!TQDir(urDesktop->url()).exists() || !TQDir(urDocument->url()).exists() ||
+		    !TQDir(urDownload->url()).exists() || !TQDir(urMusic->url()).exists() ||
+		    !TQDir(urPictures->url()).exists() || !TQDir(urPublicShare->url()).exists() ||
+		    !TQDir(urTemplates->url()).exists() || !TQDir(urVideos->url()).exists() ||
+		    !TQDir(urAutostart->url()).exists())
+		{
+		    // Need to delay emitting the signal to give some time to the module to be added to the kcontrol GUI
+        loadTmr->start(1000, true);
+		}
+}
+
+void DesktopPathConfig::loadTimerDone()
+{
+    emit changed(true);
 }
 
 void DesktopPathConfig::defaults()
@@ -232,52 +252,52 @@ void DesktopPathConfig::save()
     bool pathChanged = false;
     bool autostartMoved = false;
 
-    KURL desktopURL;
-    desktopURL.setPath( TDEGlobalSettings::desktopPath() );
-    KURL newDesktopURL;
-    newDesktopURL.setPath(urDesktop->url());
-
     KURL autostartURL;
-    autostartURL.setPath( TDEGlobalSettings::autostartPath() );
+    autostartURL.setPath(TDEGlobalSettings::autostartPath());
     KURL newAutostartURL;
     newAutostartURL.setPath(urAutostart->url());
 
+    KURL desktopURL;
+    desktopURL.setPath(TDEGlobalSettings::desktopPath());
+    KURL newDesktopURL;
+    newDesktopURL.setPath(urDesktop->url());
+
     KURL documentURL;
-    documentURL.setPath( TDEGlobalSettings::documentPath() );
+    documentURL.setPath(TDEGlobalSettings::documentPath());
     KURL newDocumentURL;
     newDocumentURL.setPath(urDocument->url());
 
     KURL downloadURL;
-//     downloadURL.setPath( TDEGlobalSettings::downloadPath() );
+    downloadURL.setPath(TDEGlobalSettings::downloadPath());
     KURL newDownloadURL;
     newDownloadURL.setPath(urDownload->url());
 
     KURL musicURL;
-//     musicURL.setPath( TDEGlobalSettings::musicPath() );
+    musicURL.setPath(TDEGlobalSettings::musicPath());
     KURL newMusicURL;
     newMusicURL.setPath(urMusic->url());
 
     KURL picturesURL;
-//     picturesURL.setPath( TDEGlobalSettings::picturesPath() );
+    picturesURL.setPath(TDEGlobalSettings::picturesPath());
     KURL newPicturesURL;
     newPicturesURL.setPath(urPictures->url());
 
     KURL publicShareURL;
-//     publicShareURL.setPath( TDEGlobalSettings::publicSharePath() );
+    publicShareURL.setPath(TDEGlobalSettings::publicSharePath());
     KURL newPublicShareURL;
     newPublicShareURL.setPath(urPublicShare->url());
 
     KURL templatesURL;
-//     templatesURL.setPath( TDEGlobalSettings::templatesPath() );
+    templatesURL.setPath(TDEGlobalSettings::templatesPath());
     KURL newTemplatesURL;
     newTemplatesURL.setPath(urTemplates->url());
 
     KURL videosURL;
-//     videosURL.setPath( TDEGlobalSettings::videosPath() );
+    videosURL.setPath(TDEGlobalSettings::videosPath());
     KURL newVideosURL;
     newVideosURL.setPath(urVideos->url());
 
-    if ( !newDesktopURL.equals( desktopURL, true ) )
+    if (!newDesktopURL.equals(desktopURL, true))
     {
         // Test which other paths were inside this one (as it is by default)
         // and for each, test where it should go.
@@ -319,8 +339,12 @@ void DesktopPathConfig::save()
             pathChanged = true;
         }
     }
+    if (!xdgconfig->hasKey("XDG_DESKTOP_DIR"))
+    {
+        xdgconfig->writePathEntry("XDG_DESKTOP_DIR", '"'+ urDesktop->url() + '"', true, false, false, false );
+    }
 
-    if ( !newAutostartURL.equals( autostartURL, true ) )
+    if (!newAutostartURL.equals(autostartURL, true))
     {
         if (!autostartMoved)
             autostartMoved = moveDir( KURL( TDEGlobalSettings::autostartPath() ), KURL( urAutostart->url() ), i18n("Autostart") );
@@ -331,7 +355,7 @@ void DesktopPathConfig::save()
         }
     }
 
-    if ( !newDocumentURL.equals( documentURL, true ) )
+    if (!newDocumentURL.equals(documentURL, true) || !TQDir(urDocument->url()).exists())
     {
         bool pathOk = true;
         TQString path = urDocument->url();
@@ -352,7 +376,7 @@ void DesktopPathConfig::save()
         }
     }
 
-    if ( !newDownloadURL.equals( downloadURL, true ) )
+    if (!newDownloadURL.equals(downloadURL, true) || !TQDir(urDownload->url()).exists())
     {
         bool pathOk = true;
         TQString path = urDownload->url();
@@ -373,7 +397,7 @@ void DesktopPathConfig::save()
         }
     }
 
-    if ( !newMusicURL.equals( musicURL, true ) )
+    if (!newMusicURL.equals(musicURL, true) || !TQDir(urMusic->url()).exists())
     {
         bool pathOk = true;
         TQString path = urMusic->url();
@@ -394,7 +418,7 @@ void DesktopPathConfig::save()
         }
     }
 
-    if ( !newPicturesURL.equals( picturesURL, true ) )
+    if (!newPicturesURL.equals(picturesURL, true) || !TQDir(urPictures->url()).exists())
     {
         bool pathOk = true;
         TQString path = urPictures->url();
@@ -415,7 +439,7 @@ void DesktopPathConfig::save()
         }
     }
 
-    if ( !newPublicShareURL.equals( publicShareURL, true ) )
+    if (!newPublicShareURL.equals(publicShareURL, true) || !TQDir(urPublicShare->url()).exists())
     {
         bool pathOk = true;
         TQString path = urPublicShare->url();
@@ -436,7 +460,7 @@ void DesktopPathConfig::save()
         }
     }
 
-    if ( !newTemplatesURL.equals( templatesURL, true ) )
+    if (!newTemplatesURL.equals(templatesURL, true) || !TQDir(urTemplates->url()).exists())
     {
         bool pathOk = true;
         TQString path = urTemplates->url();
@@ -457,7 +481,7 @@ void DesktopPathConfig::save()
         }
     }
 
-    if ( !newVideosURL.equals( videosURL, true ) )
+    if (!newVideosURL.equals(videosURL, true) || !TQDir(urVideos->url()).exists())
     {
         bool pathOk = true;
         TQString path = urVideos->url();
