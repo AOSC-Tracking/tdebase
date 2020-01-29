@@ -44,7 +44,8 @@ public:
         virtual void defaults();
 
 private slots:
-    void slotEntries( TDEIO::Job * job, const TDEIO::UDSEntryList& list);
+    void slotEntries(TDEIO::Job * job, const TDEIO::UDSEntryList& list);
+    void loadTimerDone();
 
 private:
         // Desktop Paths
@@ -62,6 +63,8 @@ private:
         bool m_ok;
         KURL m_copyToDest; // used when the destination directory already exists
         KURL m_copyFromSrc;
+
+        TQTimer *loadTmr;
 
 private slots:
         void slotResult( TDEIO::Job * job );
