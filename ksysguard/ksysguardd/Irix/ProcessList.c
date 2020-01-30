@@ -150,7 +150,7 @@ static int updateProcess( pid_t pid ) {
 	char		buf[BUFSIZE];
 	prpsinfo_t	psinfo;
 	struct passwd	*pw;
-	register double newCentStamp,timeDiff, usDiff,usTime;
+	double newCentStamp,timeDiff, usDiff,usTime;
 	struct timeval tv;
 
 	if( (ps = findProcessInList( pid )) == NULL ) {

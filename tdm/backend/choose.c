@@ -550,7 +550,7 @@ registerBroadcastForPing( void )
 	                  BROADCAST_QUERY );
 #else /* __GNU__ */
 	struct ifconf ifc;
-	register struct ifreq *ifr;
+	struct ifreq *ifr;
 	struct sockaddr broad_addr;
 	char buf[2048], *cp, *cplim;
 # ifdef WINTCP /* NCR with Wollongong TCP */

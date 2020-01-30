@@ -30,7 +30,7 @@ extern "C" void vm_statistics(task_t, vm_statistics_data_t*);
 void KMemoryWidget::update()
 {
   int pageshift;          /* log base 2 of the pagesize */
-  register int pagesize;
+  int pagesize;
   vm_statistics_data_t vmstats;
   int swap_pages=0,swap_free=0,i;
   struct tbl_swapinfo swbuf;

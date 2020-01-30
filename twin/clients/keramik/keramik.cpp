@@ -593,16 +593,16 @@ TQPixmap *KeramikHandler::composite( TQImage *over, TQImage *under )
 	// Copy the under image (bottom aligned) to the destination image
 	for (int y1 = height - under->height(), y2 = 0; y1 < height; y1++, y2++ )
 	{
-		register TQ_UINT32 *dst = reinterpret_cast<TQ_UINT32*>( dest.scanLine(y1) );
-		register TQ_UINT32 *src = reinterpret_cast<TQ_UINT32*>( under->scanLine(y2) );
+		TQ_UINT32 *dst = reinterpret_cast<TQ_UINT32*>( dest.scanLine(y1) );
+		TQ_UINT32 *src = reinterpret_cast<TQ_UINT32*>( under->scanLine(y2) );
 
 		for ( int x = 0; x < width; x++ )
 			*(dst++) = *(src++);
 	}
 
 	// Blend the over image onto the destination
-	register TQ_UINT32 *dst = reinterpret_cast<TQ_UINT32*>( dest.bits() );
-	register TQ_UINT32 *src = reinterpret_cast<TQ_UINT32*>( over->bits() );
+	TQ_UINT32 *dst = reinterpret_cast<TQ_UINT32*>( dest.bits() );
+	TQ_UINT32 *src = reinterpret_cast<TQ_UINT32*>( over->bits() );
 	for ( int i = 0; i < width * height; i++ )
 	{
 		int r1 = tqRed( *dst ), g1 = tqGreen( *dst ), b1 = tqBlue( *dst );
@@ -1155,13 +1155,13 @@ void KeramikClient::updateMask()
 	// over the pixels to compute the bounding rects from it.
 
 	TQRegion r;
-	register int w, y = 0;
+	int w, y = 0;
 
 	if ( TQApplication::reverseLayout() ) {
 
 		// If the caption bubble is visible and extends above the titlebar
 		if ( largeCaption && captionRect.width() >= 25 ) {
-			register int x = captionRect.left();
+			int x = captionRect.left();
 			w = captionRect.width();
 			r += TQRegion( x + 11, y++, w - 19, 1 );
 			r += TQRegion( x + 9,  y++, w - 15, 1 );
@@ -1188,7 +1188,7 @@ void KeramikClient::updateMask()
 
 		// If the caption bubble is visible and extends above the titlebar
 		if ( largeCaption && captionRect.width() >= 25 ) {
-			register int x = captionRect.left();
+			int x = captionRect.left();
 			w = captionRect.width();
 			r += TQRegion( x + 8, y++, w - 19, 1 );
 			r += TQRegion( x + 6, y++, w - 15, 1 );

@@ -151,7 +151,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 
 				m_unfadedImage = m_grayImage.copy();
 
-				register uchar * r = m_grayImage.bits();
+				uchar * r = m_grayImage.bits();
 				uchar * end = m_grayImage.bits() + m_grayImage.numBytes();
 
 				while ( r != end ) {
@@ -225,7 +225,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 			{
 				TQImage img( imgWidth, y2-start_y1, 32 );
 				memcpy( img.bits(), m_grayImage.scanLine( start_y1 ), ( y2-start_y1 ) * imgWidth * 4 );
-				register uchar * rd = img.bits();
+				uchar * rd = img.bits();
 				for( int y = start_y1; y < y2; ++y )
 				{
 				// linear gradients look bad, so use cos-function
@@ -255,9 +255,9 @@ void KSMShutdownFeedback::slotPaintEffect()
 
 				m_unfadedImage = m_grayImage.copy();
 
-				register uchar * r = m_grayImage.bits();
-				register uchar * g = m_grayImage.bits() + 1;
-				register uchar * b = m_grayImage.bits() + 2;
+				uchar * r = m_grayImage.bits();
+				uchar * g = m_grayImage.bits() + 1;
+				uchar * b = m_grayImage.bits() + 2;
 				uchar * end = m_grayImage.bits() + m_grayImage.numBytes();
 
 				while ( r != end ) {
@@ -340,12 +340,12 @@ void KSMShutdownFeedback::slotPaintEffect()
 			{
 				TQImage img( imgWidth, y2-start_y1, 32 );
 				memcpy( img.bits(), m_grayImage.scanLine( start_y1 ), ( y2-start_y1 ) * imgWidth * 4 );
-				register uchar * rs = m_unfadedImage.scanLine( start_y1 );
-				register uchar * gs = rs + 1;
-				register uchar * bs = gs + 1;
-				register uchar * rd = img.bits();
-				register uchar * gd = rd + 1;
-				register uchar * bd = gd + 1;
+				uchar * rs = m_unfadedImage.scanLine( start_y1 );
+				uchar * gs = rs + 1;
+				uchar * bs = gs + 1;
+				uchar * rd = img.bits();
+				uchar * gd = rd + 1;
+				uchar * bd = gd + 1;
 				for( int y = start_y1; y < y2; ++y )
 				{
 					// linear gradients look bad, so use cos-function
@@ -395,7 +395,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 
 					m_unfadedImage = m_grayImage.copy();
 
-					register uchar * r = m_grayImage.bits();
+					uchar * r = m_grayImage.bits();
 					uchar * end = m_grayImage.bits() + m_grayImage.numBytes();
 
 					while ( r != end ) {
@@ -468,8 +468,8 @@ void KSMShutdownFeedback::slotPaintEffect()
 				if( y2 > start_y1 ) {
 					TQImage img( imgWidth, y2-start_y1, 32 );
 					memcpy( img.bits(), m_grayImage.scanLine( start_y1 ), ( y2-start_y1 ) * imgWidth * 4 );
-					register uchar * rs = m_unfadedImage.scanLine( start_y1 );
-					register uchar * rd = img.bits();
+					uchar * rs = m_unfadedImage.scanLine( start_y1 );
+					uchar * rd = img.bits();
 					for( int y = start_y1; y < y2; ++y )
 					{
 					// linear gradients look bad, so use cos-function

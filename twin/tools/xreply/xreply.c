@@ -165,8 +165,8 @@ static void xreply_backtrace()
 
 Status
 _XReply (dpy, rep, extra, discard)
-    register Display *dpy;
-    register xReply *rep;
+    Display *dpy;
+    xReply *rep;
     int extra;		/* number of 32-bit words expected after the reply */
     Bool discard;	/* should I discard data following "extra" words? */
     {

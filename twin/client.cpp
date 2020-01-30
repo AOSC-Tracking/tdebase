@@ -1482,7 +1482,7 @@ void Client::imposeCachedShadow(TQPixmap &pixmap, TQRegion exposed)
 void Client::imposeRegionShadow(TQPixmap &pixmap, TQRegion occluded,
         TQRegion exposed, int thickness, double maxOpacity)
 {
-    register int distance, intersectCount, i, j, x, y;
+    int distance, intersectCount, i, j, x, y;
     QRgb pixel;
     double decay, factor, opacity;
     int red, green, blue, pixelRed, pixelGreen, pixelBlue;
