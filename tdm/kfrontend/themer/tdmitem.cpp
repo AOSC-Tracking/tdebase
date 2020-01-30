@@ -322,9 +322,9 @@ KdmItem::paint( TQPainter *p, const TQRect &rect )
                 TQImage lightVersion;
                 lightVersion = copy.convertToImage();
 
-                register uchar * r = lightVersion.bits();
-                register uchar * g = lightVersion.bits() + 1;
-                register uchar * b = lightVersion.bits() + 2;
+                uchar * r = lightVersion.bits();
+                uchar * g = lightVersion.bits() + 1;
+                uchar * b = lightVersion.bits() + 2;
                 uchar * end = lightVersion.bits() + lightVersion.numBytes();
 
                 while ( r != end ) {
@@ -356,7 +356,7 @@ KdmItem::paint( TQPainter *p, const TQRect &rect )
 		TQImage img( myWidget->size(), 32 );
 		img = img.convertDepth(32);
 		img.setAlphaBuffer(true);
-		register uchar * rd = img.bits();
+		uchar * rd = img.bits();
 		for( int y = 0; y < img.height(); ++y )
 		{
 			for( short int x = 0; x < img.width(); ++x )

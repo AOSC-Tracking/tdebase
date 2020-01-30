@@ -212,15 +212,15 @@ long percentages(cnt, out, new, old, diffs)
 
 int cnt;
 int *out;
-register long *new;
-register long *old;
+long *new;
+long *old;
 long *diffs;
 
 {
-    register int i;
-    register long change;
-    register long total_change;
-    register long *dp;
+    int i;
+    long change;
+    long total_change;
+    long *dp;
     long half_total;
 
     /* initialization */

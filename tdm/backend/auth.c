@@ -393,7 +393,7 @@ SetLocalAuthorization( struct display *d )
 void
 SetAuthorization( struct display *d )
 {
-	register Xauth **auth = d->authorizations;
+	Xauth **auth = d->authorizations;
 	int i;
 
 	for (i = 0; i < d->authNum; i++) {
@@ -925,7 +925,7 @@ DefineSelf( int fd, int file, int auth, int *ok )
 	int family;
 
 	struct utsname name;
-	register struct hostent  *hp;
+	struct hostent  *hp;
 
 	union {
 		struct sockaddr   sa;

@@ -47,7 +47,7 @@ bool_t
 xdr_fhandle(XDR *xdrs, fhandle objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 if (!xdr_opaque(xdrs, objp, FHSIZE)) {
 		 return (FALSE);
@@ -59,7 +59,7 @@ bool_t
 xdr_fhstatus(XDR *xdrs, fhstatus *objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 if (!xdr_u_int(xdrs, &objp->fhs_status)) {
 		 return (FALSE);
@@ -80,7 +80,7 @@ bool_t
 xdr_dirpath(XDR *xdrs, dirpath *objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 if (!xdr_string(xdrs, objp, MNTPATHLEN)) {
 		 return (FALSE);
@@ -92,7 +92,7 @@ bool_t
 xdr_name(XDR *xdrs, name *objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 if (!xdr_string(xdrs, objp, MNTNAMLEN)) {
 		 return (FALSE);
@@ -104,7 +104,7 @@ bool_t
 xdr_mountlist(XDR *xdrs, mountlist *objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 if (!xdr_pointer(xdrs, (char **)objp, sizeof(struct mountbody), (xdrproc_t)xdr_mountbody)) {
 		 return (FALSE);
@@ -116,7 +116,7 @@ bool_t
 xdr_mountbody(XDR *xdrs, mountbody *objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 if (!xdr_name(xdrs, &objp->ml_hostname)) {
 		 return (FALSE);
@@ -134,7 +134,7 @@ bool_t
 xdr_groups(XDR *xdrs, groups *objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 if (!xdr_pointer(xdrs, (char **)objp, sizeof(struct groupnode), (xdrproc_t)xdr_groupnode)) {
 		 return (FALSE);
@@ -146,7 +146,7 @@ bool_t
 xdr_groupnode(XDR *xdrs, groupnode *objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 if (!xdr_name(xdrs, &objp->gr_name)) {
 		 return (FALSE);
@@ -161,7 +161,7 @@ bool_t
 xdr_exports(XDR *xdrs, exports *objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 if (!xdr_pointer(xdrs, (char **)objp, sizeof(struct exportnode), (xdrproc_t)xdr_exportnode)) {
 		 return (FALSE);
@@ -173,7 +173,7 @@ bool_t
 xdr_exportnode(XDR *xdrs, exportnode *objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 if (!xdr_dirpath(xdrs, &objp->ex_dir)) {
 		 return (FALSE);
@@ -191,7 +191,7 @@ bool_t
 xdr_ppathcnf(XDR *xdrs, ppathcnf *objp)
 {
 
-	 register int32_t *buf=buf;
+	 int32_t *buf=buf;
 
 	 int i=i;
 
@@ -240,7 +240,7 @@ xdr_ppathcnf(XDR *xdrs, ppathcnf *objp)
 
 	  }
 	  else {
-		{ register short *genp; 
+		{ short *genp; 
 		  for ( i = 0,genp=objp->pc_mask;
  			i < 2; i++){
 				 IXDR_PUT_SHORT(buf,*genp++);
@@ -294,7 +294,7 @@ xdr_ppathcnf(XDR *xdrs, ppathcnf *objp)
 
 	  }
 	  else {
-		{ register short *genp; 
+		{ short *genp; 
 		  for ( i = 0,genp=objp->pc_mask;
  			i < 2; i++){
 				 *genp++ = IXDR_GET_SHORT(buf);

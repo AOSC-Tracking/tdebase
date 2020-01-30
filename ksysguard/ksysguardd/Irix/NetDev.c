@@ -170,7 +170,7 @@ int updateNetDev(void)
 	struct ifstats *istat;
 	struct timeval tv;
 	static LONGLONG timestamp=0;
-	register LONGLONG cts,elapsed;
+	LONGLONG cts,elapsed;
 	//struct ipstat ips;
 
 	if ((s=socket(PF_INET,SOCK_DGRAM,0)) < 0){
