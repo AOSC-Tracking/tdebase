@@ -26,6 +26,7 @@ link_directories(
 
 tde_install_icons( kjobviewer )
 install( FILES kjobviewer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install( FILES kjobviewer-autostart.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
 install( FILES kjobviewerui.rc DESTINATION ${DATA_INSTALL_DIR}/kjobviewer )
 
 
