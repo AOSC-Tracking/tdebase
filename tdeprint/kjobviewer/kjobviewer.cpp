@@ -94,6 +94,9 @@ KJobViewerApp::KJobViewerApp() : KUniqueApplication()
 	m_views.setAutoDelete(true);
 	m_tray = 0;
 	m_timer = 0;
+
+	// We handle autostart via standard autostart-enabled .desktop file instead of the session manager
+	disableSessionManagement();
 }
 
 KJobViewerApp::~KJobViewerApp()
