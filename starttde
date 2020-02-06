@@ -161,7 +161,7 @@ else
   # Default value: $HOME/.trinity. Most users will use this.
   export TDEHOME=$HOME/.trinity
 
-  if [ ! -d $HOME/.trinity ] && [ ! -f /usr/bin/kde4-config ] && [ "$TDEDIR"="/usr" ] && [ -d $HOME/.kde ]; then
+  if [ ! -d $HOME/.trinity ] && [ ! -f /usr/bin/kde4-config ] && [ "$TDEDIR" = "/usr" ] && [ -d $HOME/.kde ]; then
     # Looks like Trinity is installed and not playing second fiddle to KDE4.
     export TDEHOME=$HOME/.kde
   fi
@@ -192,7 +192,7 @@ fi
     fi
   fi
 
-  if ! is_in_path PATH "$TDEDIR/bin" ]; then
+  if ! is_in_path PATH "$TDEDIR/bin" ; then
     # Respect the traditional path order. Don't blindly place $TDEDIR/bin
     # first in the path. Only place $TDEDIR/bin before /usr/bin. This order is
     # consistent with tdelibs/tdesu/stub.cpp. If packagers are adding $TDEDIR/bin
