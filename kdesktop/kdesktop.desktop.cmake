@@ -1,6 +1,12 @@
 [Desktop Entry]
 Exec=@TDE_BIN_DIR@/kdesktop
 X-DCOP-ServiceType=wait
+X-TDE-autostart-after=mediamanager
+Type=Service
+X-TDE-StartupNotify=false
+OnlyShowIn=TDE;
+X-TDE-autostart-phase=0
+
 Name=TDE Desktop
 Name[af]=TDE Werkskerm
 Name[ar]=سطح المكتب TDE
@@ -79,7 +85,3 @@ Name[wa]=Sicribanne TDE
 Name[zh_CN]=TDE 桌面
 Name[zh_TW]=TDE 桌面
 Name[zu]=I-Desktop ye-TDE
-Type=Service
-X-TDE-StartupNotify=false
-OnlyShowIn=TDE;
-X-TDE-autostart-phase=0

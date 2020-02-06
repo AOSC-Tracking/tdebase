@@ -4,4 +4,4 @@ X-DCOP-ServiceType=wait
 Type=Service
 X-TDE-StartupNotify=false
 OnlyShowIn=TDE;
-X-TDE-autostart-phase=1
+X-TDE-autostart-phase=0
