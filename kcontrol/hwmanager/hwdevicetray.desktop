@@ -1,13 +1,13 @@
 [Desktop Entry]
-Name=tdehwdevicetray
+Name=Device Monitor
 
-GenericName=Device Monitor
-GenericName[cs]=Sledování zařízení
-GenericName[de]=Geräteüberwachung
-GenericName[es]=Monitor de dispositivos
-GenericName[fr]=Moniteur de périphériques
-GenericName[it]=Monitor dei dispositivi hardware
-GenericName[ru]=Диспетчер устройств
+Name=Device Monitor
+Name[cs]=Sledování zařízení
+Name[de]=Geräteüberwachung
+Name[es]=Monitor de dispositivos
+Name[fr]=Moniteur de périphériques
+Name[it]=Monitor dei dispositivi hardware
+Name[ru]=Диспетчер устройств
 
 Comment=Monitor hardware devices from the system tray
 Comment[cs]=Sledování hardwarových zařízení ze systémového panelu
