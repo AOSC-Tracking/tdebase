@@ -1,6 +1,14 @@
 [Desktop Entry]
 Type=Service
 Name=KDED Media Manager
+X-TDE-ServiceTypes=KDEDModule
+X-TDE-ModuleType=Library
+X-TDE-Library=mediamanager
+X-TDE-FactoryName=mediamanager
+X-TDE-Kded-autoload=false
+X-TDE-Kded-load-on-demand=false
+X-TDE-Kded-phase=1
+
 Name[af]=KDED Media Bestuurder
 Name[ar]=مسيير الوسائط KDED
 Name[az]=KDED Mediya İdarəcisi
@@ -68,6 +76,7 @@ Name[vi]=Trình quản lí Ổ lưu trữ KDED
 Name[wa]=Manaedjeu di fitchîs KDED
 Name[zh_CN]=KDED 介质管理器
 Name[zh_TW]=KDED 媒體管理程式
+
 Comment=Keep track of media activities and allow to (un)mount (media:/)
 Comment[af]=Hou tred van media aktiwiteite en laat die (ont)koppel van 'media:/' toe
 Comment[ar]=يتتبع نشاطات الوسائط و يسمح بتكيبها/إزالة تركيبها (media:/)
@@ -132,10 +141,3 @@ Comment[vi]=Theo dõi các hoạt động của ổ lưu trữ và cho phép l�
 Comment[wa]=Wåde li trace des activités media eyet permete di (dis)monter (media:/)
 Comment[zh_CN]=跟踪介质活动并允许挂载或卸载(media:/)
 Comment[zh_TW]=持續追蹤媒體活動並允許(解除)掛載 (media:/)
-X-TDE-ServiceTypes=KDEDModule
-X-TDE-ModuleType=Library
-X-TDE-Library=mediamanager
-X-TDE-FactoryName=mediamanager
-X-TDE-Kded-autoload=true
-X-TDE-Kded-load-on-demand=true
-X-TDE-Kded-phase=1
