@@ -68,6 +68,15 @@ remove_from_path() {
   eval export $var=${NPATH#:}
 }
 
+# Portable alternative to the file operator -nt (among shells)
+is_newer() {
+  if test -n "$(find $1 -prune -newer $2 -print)"
+  then
+    return 0
+  fi
+  return 1
+}
+
 echo "[starttde] Starting starttde." 1>&2
 echo "[starttde] This script is $0" 1>&2
 
@@ -689,10 +698,14 @@ EXIT_CODE="$?"
 
 # Remove moodin cache if we have a new wallpaper installed, jriddell. Distro-specific.
 if [ -d "$tdehome/share/apps/ksplash/cache/Moodin/kubuntu" ]; then
-  if [ /usr/share/wallpapers/kubuntu-wallpaper.png -nt "$tdehome/share/apps/ksplash/cache/Moodin/kubuntu/" ]; then
+  if is_newer /usr/share/wallpapers/kubuntu-wallpaper.png \
+              "$tdehome/share/apps/ksplash/cache/Moodin/kubuntu/"
+  then
     rm -rf "$tdehome/share/apps/ksplash/cache/Moodin/kubuntu/"
   fi
 fi
+# The is_newer function will no longer be used, so we unset it
+unset is_newer
 
 if test -z "$dl"; then
   # The splashscreen and progress indicator.
