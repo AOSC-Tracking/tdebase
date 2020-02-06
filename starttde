@@ -9,10 +9,10 @@
 # Multiple sourcing is not a problem when the files are only
 # containers for environment variables and such.
 if [ -r /etc/xprofile ]; then
-  source /etc/xprofile
+  . /etc/xprofile
 fi
 if [ -r $HOME/.xprofile ]; then
-  source $HOME/.xprofile
+  . $HOME/.xprofile
 fi
 
 # Some functions to parse and check path correctly ...
