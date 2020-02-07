@@ -2025,6 +2025,17 @@ Comment:
 Description:
  If true then the SAK anti-spoofing dialog will be utilized
 
+Key: SyncKbdLED
+Type: bool
+Default: true
+User: core
+User: greeter
+Instance: #:*/true
+Comment:
+ Sync keyboard led status
+Description:
+ Enable or disable the use of tdekbdledsync to sync keyboard LED status in tdm.
+
 Key: UseAdminSession
 Type: bool
 Default: false
