@@ -87,11 +87,28 @@ echo "[starttde] This script is $0" 1>&2
 # To determine that location use the following method rather than presuming
 # the existence of $TDEDIR. That environment variable might not be
 # defined or defined to point to KDE4 binaries.
-BIN_DIR="`dirname \`readlink -f $0\``"
-if [ -x $BIN_DIR/tde-config ]; then
-  TDE_VERSION=$($BIN_DIR/tde-config --version | while IFS=: read a b; do [ "${a#TDE}" != "$a" ] && echo $b; done)
+BIN_DIR=""
+
+# Let's check if this script is called from the Debian alternatives
+# See: https://wiki.debian.org/DebianAlternatives
+if [ "$(readlink -- "$0")" = "/etc/alternatives/x-session-manager" ]
+then
+  # Check if it is not a dangling symlink
+  if [ -L "/etc/alternatives/x-session-manager" ] && \
+     [ -e "/etc/alternatives/x-session-manager" ]
+  then
+    # Determine location by reading the alternative symlink
+    BIN_DIR="$(readlink -- "/etc/alternatives/x-session-manager")"
+    BIN_DIR="$(dirname -- "$BIN_DIR")"
+  fi
+fi
+# Assign a default value if 'BIN_DIR' is unset or null
+BIN_DIR="${BIN_DIR:=$(dirname -- "$0")}"
+
+if [ -x ${BIN_DIR}/tde-config ]; then
+  TDE_VERSION="$( ${BIN_DIR}/tde-config --version | sed -n 's|^TDE: ||p' )"
+  TDEDIR="${BIN_DIR%/bin}"
   echo "[starttde] TDE version is $TDE_VERSION" 1>&2
-  export TDEDIR=${BIN_DIR%/bin}
   echo "[starttde] TDE base directory is $TDEDIR" 1>&2
 else
   echo "[starttde] Unable to determine the TDE bin directory, where this script should be installed."
@@ -99,7 +116,8 @@ else
   echo "[starttde] Exiting."
   exit 1
 fi
-unset BIN_DIR
+unset BIN_DIR TDE_VERSION
+export TDEDIR
 
 # When the X server dies we get a HUP signal from xinit. We must ignore it
 # because we still need to do some cleanup.
