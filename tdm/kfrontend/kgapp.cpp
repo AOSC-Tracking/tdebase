@@ -228,6 +228,7 @@ kg_main( const char *argv0 )
 	trinity_desktop_lock_use_sak = false;
 #endif
 
+	trinity_desktop_synchronize_keyboard_lights = _syncKbdLED;
 	if (trinity_desktop_synchronize_keyboard_lights &&
 	    TQString(getenv("DISPLAY")).startsWith(":")) {
 		kbdl = new TDEProcess;

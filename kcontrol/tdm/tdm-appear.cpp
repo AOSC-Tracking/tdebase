@@ -242,7 +242,6 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   TQWhatsThis::add( label, wtstr );
   TQWhatsThis::add( langcombo, wtstr );
 
-
   // The SAK group box
   group = new TQGroupBox(0, Qt::Vertical, i18n("Secure Attention Key"), this);
   vbox->addWidget(group);
@@ -262,9 +261,18 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   wtstr = i18n("Here you can enable or disable the Secure Attention Key [SAK] anti-spoofing measure.");
   TQWhatsThis::add( sakbox, wtstr );
 
+  // Keyboard group box
+  group = new TQGroupBox(0, Qt::Vertical, i18n("Keyboard"), this);
+  vbox->addWidget(group);
+
+  kbdledbox = new TQCheckBox(i18n("Sync keyboard led status"), group);
+  connect(kbdledbox, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+  TQGridLayout *hbox3 = new TQGridLayout(group->layout(), 2, 2, KDialog::spacingHint());
+  hbox3->setColStretch(1, 1);
+  hbox3->addWidget(kbdledbox, 1, 0);
+  TQWhatsThis::add(kbdledbox, i18n("Enable or disable the use of tdekbdledsync to sync keyboard LED status in tdm."));
 
   vbox->addStretch(1);
-
 }
 
 void TDMAppearanceWidget::makeReadOnly()
@@ -284,6 +292,7 @@ void TDMAppearanceWidget::makeReadOnly()
     echocombo->setEnabled(false);
     langcombo->setEnabled(false);
     sakbox->setEnabled(false);
+    kbdledbox->setEnabled(false);
 }
 
 void TDMAppearanceWidget::loadLanguageList(KLanguageButton *combo)
@@ -497,6 +506,9 @@ void TDMAppearanceWidget::save()
       kill(tsakpid, SIGTERM);
     }
   }
+
+  config->setGroup("X-:*-Greeter");
+  config->writeEntry("SyncKbdLED", kbdledbox->isChecked());
 }
 
 
@@ -560,6 +572,9 @@ void TDMAppearanceWidget::load()
   else {
     sakbox->setChecked(false);
   }
+
+  config->setGroup("X-:*-Greeter");
+  kbdledbox->setChecked(config->readBoolEntry("SyncKbdLED", true));
 }
 
 

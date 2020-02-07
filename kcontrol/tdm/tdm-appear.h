@@ -92,6 +92,7 @@ private:
 	KLanguageButton *langcombo;
 	TQCheckBox    *sakbox;
 	TQLabel    *sakwarning;
+	TQCheckBox    *kbdledbox;
 
 };
 
