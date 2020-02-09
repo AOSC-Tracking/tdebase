@@ -35,7 +35,7 @@ fi
 
 if test -z "$GLIB_LIBADD"; then
         AC_MSG_RESULT(not installed)
-    DO_NOT_COMPILE="$DO_NOT_COMPILE kerry gmcop"
+    DO_NOT_COMPILE="$DO_NOT_COMPILE gmcop"
 fi
 
 AC_SUBST(GLIB_CFLAGS)

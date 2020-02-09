@@ -83,10 +83,6 @@ static TQString categories[14] = {I18N_NOOP("Actions"), I18N_NOOP("Applications"
                                  I18N_NOOP("Pictures"), I18N_NOOP("Videos"), I18N_NOOP("Documentation"),
                                  I18N_NOOP("Others")};
 
-static TQString kerry_categories[14] = {"contacts", "applications", "webpages", "everything", "conversations",
-                                       "everything", "media", "webpages", "conversations", "webpages", "images",
-                                       "media", "everything", "everything"};
-
 enum MenuOrientation { BottomUp, TopDown, UnDetermined };
 enum OverflowCategoryState { None, Filling, NotNeeded };
 
@@ -282,7 +278,7 @@ private:
     TQStringList m_finalFilters;
     KURIFilterData* m_filterData;
     TQPtrList<HitMenuItem> m_current_menu_items;
-    TQListViewItem *m_searchIndex, *m_searchInternet;
+    TQListViewItem *m_searchInternet;
 
     bool checkUriInMenu(const KURL &uri);
 
@@ -338,7 +334,7 @@ private:
     bool m_toolTipsEnabled;
     int m_media_id;
 
-    bool m_recentDirty, m_browserDirty, m_kerryInstalled, m_isShowing;
+    bool m_recentDirty, m_browserDirty, m_isShowing;
 
     KickoffSearch::Plugin* m_search_plugin;
     TQObject* m_search_plugin_interface;

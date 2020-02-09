@@ -327,18 +327,10 @@ KMenu::KMenu()
     m_searchInternet->setPixmap(0,icon);
     setTabOrder(m_kcommand, m_searchResultsWidget);
 
-    m_kerryInstalled = !TDEStandardDirs::findExe(TQString::fromLatin1("kerry")).isEmpty();
     m_isShowing = false;
 
-    if (!m_kerryInstalled) {
-       m_searchIndex = 0;
-       m_searchActions->setMaximumHeight(5+m_searchInternet->height());
-    }
-    else {
-       m_searchIndex = new TQListViewItem(m_searchActions, i18n("Search Index"));
-       m_searchIndex->setPixmap(0,SmallIcon("kerry"));
-       m_searchActions->setMaximumHeight(5+m_searchIndex->height()*2);
-    }
+    m_searchActions->setMaximumHeight(5+m_searchInternet->height());
+
     connect(m_searchActions, TQT_SIGNAL(clicked(TQListViewItem*)), TQT_SLOT(searchActionClicked(TQListViewItem*)));
     connect(m_searchActions, TQT_SIGNAL(returnPressed(TQListViewItem*)), TQT_SLOT(searchActionClicked(TQListViewItem*)));
     connect(m_searchActions, TQT_SIGNAL(spacePressed(TQListViewItem*)), TQT_SLOT(searchActionClicked(TQListViewItem*)));
@@ -2635,10 +2627,7 @@ void KMenu::updateCategoryTitles()
             max *= 2;
 
         if ( categorised_hit_total [i] > max ) {
-            if (m_kerryInstalled)
-                sep->setLink( i18n( "top %1 of %2" ).arg( max ).arg( categorised_hit_total [i] ), TQString( "kerry:/%1" ).arg( i ) );
-            else
-                sep->setText( 0, i18n( "%1 (top %2 of %3)" ).arg( i18n(categories [i].utf8()) ).arg( max ).arg( categorised_hit_total [i] ) );
+            sep->setText( 0, i18n( "%1 (top %2 of %3)" ).arg( i18n(categories [i].utf8()) ).arg( max ).arg( categorised_hit_total [i] ) );
         }
         else {
             sep->setLink( TQString() );
@@ -2773,14 +2762,6 @@ void KMenu::slotStartURL(const TQString& u)
             KMessageBox::error( this, TQString( "kicker:/restart_windows is not yet implemented " ) );
     }
 #endif
-    else if ( u.startsWith("kerry:/"))
-    {
-       TQByteArray data;
-       TQDataStream arg(data, IO_WriteOnly);
-       arg << m_kcommand->currentText() << kerry_categories[u.mid(7).toInt()];
-       if (ensureServiceRunning("kerry"))
-           kapp->dcopClient()->send("kerry","search","search(TQString,TQString)", data);
-    }
     else {
         addToHistory();
         if (u.startsWith("kaddressbook:/")) {
@@ -3355,27 +3336,17 @@ void KMenu::searchActionClicked(TQListViewItem* item)
    accept();
 
    addToHistory();
-   if (item==m_searchIndex) {
-     TQByteArray data;
-     TQDataStream arg(data, IO_WriteOnly);
-     arg << m_kcommand->currentText();
+   KURIFilterData data;
+   TQStringList list;
+   data.setData( m_kcommand->currentText() );
+   list << "kurisearchfilter" << "kuriikwsfilter";
 
-     if (ensureServiceRunning("kerry"))
-       kapp->dcopClient()->send("kerry","search","search(TQString)", data);
+   if( !KURIFilter::self()->filterURI(data, list) ) {
+       KDesktopFile file("searchproviders/google.desktop", true, "services");
+       data.setData(file.readEntry("Query").replace("\\{@}", m_kcommand->currentText()));
    }
-   else {
-     KURIFilterData data;
-     TQStringList list;
-     data.setData( m_kcommand->currentText() );
-     list << "kurisearchfilter" << "kuriikwsfilter";
 
-     if( !KURIFilter::self()->filterURI(data, list) ) {
-         KDesktopFile file("searchproviders/google.desktop", true, "services");
-         data.setData(file.readEntry("Query").replace("\\{@}", m_kcommand->currentText()));
-     }
-
-     (void) new KRun( data.uri(), parentWidget());
-   }
+   (void) new KRun( data.uri(), parentWidget());
 }
 
 void KMenu::addToHistory()
