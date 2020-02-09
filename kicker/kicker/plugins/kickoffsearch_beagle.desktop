@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Beagle Search
-Comment=Beagle search plugin for Kickoff search
-X-TDE-ServiceTypes=KickoffSearch/Plugin
-Type=Service
-X-TDE-Library=kickoffsearch_beagle

@@ -182,7 +182,7 @@ Trinity developers want to maintain a "traditional" desktop environment.</para>
 <itemizedlist>
 
 <listitem>
-<para>Desktop search through the locate:/ tdeio-slave and Beagle</para>
+<para>Desktop search through the locate:/ tdeio-slave</para>
 </listitem>
 
 <listitem>
