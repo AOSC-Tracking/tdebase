@@ -41,38 +41,3 @@ fi
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBADD)
 AC_SUBST(GLIB_LDFLAGS)
-
-dnl Check for libbeagle 0.2.0
-# LIBBEAGLE_CFLAGS:  cflags for compiling libbeagle dependant sources
-# LIBBEAGLE_LIBADD:  libbeagle libraries (-l options)
-# LIBBEAGLE_LDFLAGS: flags containing path to libbeagle libraries (-L options)
-
-LIBBEAGLE_PACKAGES="libbeagle-0.0"
-LIBBEAGLE_VERSION="0.2.4"
-AC_MSG_CHECKING(for libbeagle-0.2.4 (at least $LIBBEAGLE_VERSION))
-
-if $PKG_CONFIG --atleast-pkgconfig-version 0.15 ; then
-   if $PKG_CONFIG --atleast-version $LIBBEAGLE_VERSION $LIBBEAGLE_PACKAGES >/dev/null 2>&1 ; then
-       LIBBEAGLE_CFLAGS="`$PKG_CONFIG --cflags $LIBBEAGLE_PACKAGES`"
-       LIBBEAGLE_LIBADD="`$PKG_CONFIG --libs-only-l --libs-only-other $LIBBEAGLE_PACKAGES`"
-       LIBBEAGLE_LDFLAGS="`$PKG_CONFIG --libs-only-L $LIBBEAGLE_PACKAGES`"
-       AC_MSG_RESULT(yes)
-   fi
-else
-   if $PKG_CONFIG --atleast-version $LIBBEAGLE_VERSION $LIBBEAGLE_PACKAGES >/dev/null 2>&1 ; then
-       LIBBEAGLE_CFLAGS="`$PKG_CONFIG --cflags $LIBBEAGLE_PACKAGES`"
-       LIBBEAGLE_LIBADD="`$PKG_CONFIG --libs-only-l $LIBBEAGLE_PACKAGES`"
-       LIBBEAGLE_LDFLAGS="`$PKG_CONFIG --libs-only-L $LIBBEAGLE_PACKAGES`"
-       AC_MSG_RESULT(yes)
-       AC_MSG_WARN([you may need to run make LDFLAGS=-pthread to compile arts])
-   fi
-fi
-
-if test -z "$LIBBEAGLE_LIBADD"; then
-        AC_MSG_RESULT(not installed)
-    DO_NOT_COMPILE="$DO_NOT_COMPILE kerry gmcop"
-fi
-
-AC_SUBST(LIBBEAGLE_CFLAGS)
-AC_SUBST(LIBBEAGLE_LIBADD)
-AC_SUBST(LIBBEAGLE_LDFLAGS)

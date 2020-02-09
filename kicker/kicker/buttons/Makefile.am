@@ -1,5 +1,5 @@
 INCLUDES = -I$(srcdir)/../core -I$(srcdir)/../../libkicker -I../../libkicker \
-	-I../ui -I$(srcdir)/../ui -I$(top_srcdir)/libkonq $(all_includes) $(LIBBEAGLE_CFLAGS) $(GLIB_CFLAGS)
+	-I../ui -I$(srcdir)/../ui -I$(top_srcdir)/libkonq $(all_includes) $(GLIB_CFLAGS)
 
 noinst_LTLIBRARIES = libkicker_buttons.la
 
