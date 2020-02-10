@@ -270,7 +270,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   TQGridLayout *hbox3 = new TQGridLayout(group->layout(), 2, 2, KDialog::spacingHint());
   hbox3->setColStretch(1, 1);
   hbox3->addWidget(kbdledbox, 1, 0);
-  TQWhatsThis::add(kbdledbox, i18n("Enable or disable the use of tdekbdledsync to sync keyboard LED status in tdm."));
+  TQWhatsThis::add(kbdledbox, i18n("Enable or disable the use of tdekbdledsync to sync keyboard LED status."));
 
   vbox->addStretch(1);
 }
