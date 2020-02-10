@@ -2034,7 +2034,7 @@ Instance: #:*/true
 Comment:
  Sync keyboard led status
 Description:
- Enable or disable the use of tdekbdledsync to sync keyboard LED status in tdm.
+ Enable or disable the use of tdekbdledsync to sync keyboard LED status.
 
 Key: UseAdminSession
 Type: bool
