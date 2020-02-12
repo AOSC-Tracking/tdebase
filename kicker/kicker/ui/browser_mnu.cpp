@@ -152,7 +152,7 @@ void PanelBrowserMenu::initialize()
        TDEConfig *c = TDEGlobal::config();
        c->setGroup("menus");
        insertItem(CICON("kfm"), i18n("Open in File Manager"), this, TQT_SLOT(slotOpenFileManager()));
-	if (kapp->authorize("shell_access") && c->readBoolEntry("kickerOpenInTerminalIsVisible",false)) 
+	if (kapp->authorize("shell_access") && KickerSettings::showOpenInTerminal())
 	    insertItem(CICON("terminal"), i18n("Open in Terminal"), this, TQT_SLOT(slotOpenTerminal()));
     	insertSeparator();
     }
@@ -455,10 +455,7 @@ void PanelBrowserMenu::slotOpenTerminal()
 
     TDEProcess proc;
     proc << term;
-    if (term == "konsole")
-      proc << "--workdir" << path();
-    else
-      proc.setWorkingDirectory(path());
+    proc.setWorkingDirectory(path());
     proc.start(TDEProcess::DontCare);
 }
 
