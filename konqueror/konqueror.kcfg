@@ -602,7 +602,7 @@ PATH_JAVA
     <entry key="ConfirmDelete" type="Bool">
       <default>true</default>
       <label>Ask confirmation for deleting a file.</label>
-      <whatsthis></whatsthis>
+      <whatsthis>This option tells Konqueror whether to ask for a confirmation when you simply delete the file.</whatsthis>
       <!-- checked -->
     </entry>
     <entry key="ConfirmTrash" type="Bool">
@@ -618,7 +618,7 @@ PATH_JAVA
     <entry key="TerminalApplication" type="String">
       <default>konsole</default>
       <label></label>
-      <whatsthis>This option tells Konqueror whether to ask for a confirmation when you simply delete the file.</whatsthis>
+      <whatsthis>Terminal application to use.</whatsthis>
       <!-- checked -->
     </entry>
   </group>

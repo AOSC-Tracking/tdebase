@@ -227,6 +227,11 @@
       <default>false</default>
    </entry>
 
+<entry name="ShowOpenInTerminal" type="Bool" >
+      <label>Show Open in Terminal entry in Quick Browser</label>
+      <default>true</default>
+   </entry>
+
 <entry name="MaxEntries2" type="UInt" >
       <label>Maximum number of entries</label>
       <default>30</default>
