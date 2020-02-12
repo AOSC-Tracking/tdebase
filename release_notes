@@ -17,19 +17,19 @@ if [ "$TDEDIR" = "" ] || [ "$TDEHOME" = "" ]; then
   exit 1
 fi
 
-RELEASE_VERSION=`$TDEDIR/bin/tde-config --version | grep TDE: | awk '{print $2}'`
-RELEASE_NOTES=`$TDEDIR/bin/kreadconfig --file $TDEHOME/share/config/kdeglobals --group "Release Notes" --key "$RELEASE_VERSION"`
+RELEASE_VERSION="$( ${TDEDIR}/bin/tde-config --version | sed -n 's|^TDE: ||p' )"
+RELEASE_NOTES="$( ${TDEDIR}/bin/kreadconfig --file ${TDEHOME}/share/config/kdeglobals --group "Release Notes" --key "$RELEASE_VERSION" )"
+
 if [ "$RELEASE_NOTES" = "" ] || [ "$RELEASE_NOTES" != "true" ]; then
   echo "[release_notes] Release version: $RELEASE_VERSION"
   echo "[release_notes] Release notes: $RELEASE_NOTES"
-  $TDEDIR/bin/khelpcenter help:/khelpcenter/releasenotes
-  if [ "$?" = "0" ]; then
-    $TDEDIR/bin/kwriteconfig --file $TDEHOME/share/config/kdeglobals --group "Release Notes" --key "$RELEASE_VERSION" --type bool "true"
+  if ${TDEDIR}/bin/khelpcenter help:/khelpcenter/releasenotes ; then
+    ${TDEDIR}/bin/kwriteconfig --file ${TDEHOME}/share/config/kdeglobals --group "Release Notes" --key "$RELEASE_VERSION" --type bool "true"
   fi
-  RELEASE_NOTES=`$TDEDIR/bin/kreadconfig --file $TDEHOME/share/config/kdeglobals --group "Release Notes" --key "$RELEASE_VERSION"`
+  RELEASE_NOTES="$( ${TDEDIR}/bin/kreadconfig --file ${TDEHOME}/share/config/kdeglobals --group "Release Notes" --key "$RELEASE_VERSION" )"
   echo "[release_notes] Release notes: $RELEASE_NOTES"
 fi
 
-unset RELEASE_NOTES
-unset RELEASE_VERSION
+unset RELEASE_NOTES RELEASE_VERSION
 exit 0
+
