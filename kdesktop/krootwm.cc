@@ -763,8 +763,8 @@ void KRootWm::slotOpenTerminal()
     TDEConfigGroupSaver gs(TDEGlobal::config(), "General");
     TQString terminal = TDEGlobal::config()->readPathEntry("TerminalApplication", "konsole");
 
-    *p << terminal << "--workdir=" + TDEGlobalSettings::desktopPath() + "/";
-
+    *p << terminal;
+    p->setWorkingDirectory(TDEGlobalSettings::desktopPath());
     p->start(TDEProcess::DontCare);
 
     delete p;
