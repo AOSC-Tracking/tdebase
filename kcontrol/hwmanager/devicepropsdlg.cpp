@@ -554,12 +554,12 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 		if (m_device->type() == TDEGenericDeviceType::Battery) {
 			TDEBatteryDevice* bdevice = static_cast<TDEBatteryDevice*>(m_device);
 
-			base->labelCurrentBatteryEnergy->setText((bdevice->energy()<0)?i18n("<unknown>"):TQString("%1 Wh").arg(bdevice->energy()));
-			base->labelMaximumBatteryEnergy->setText((bdevice->maximumEnergy()<0)?i18n("<unknown>"):TQString("%1 Wh").arg(bdevice->maximumEnergy()));
-			base->labelMaximumBatteryDesignEnergy->setText((bdevice->maximumDesignEnergy()<0)?i18n("<unknown>"):TQString("%1 Wh").arg(bdevice->maximumDesignEnergy()));
+			base->labelCurrentBatteryEnergy->setText((bdevice->energy()<0)?i18n("<unknown>"):TQString("%1 Ah").arg(bdevice->energy()));
+			base->labelMaximumBatteryEnergy->setText((bdevice->maximumEnergy()<0)?i18n("<unknown>"):TQString("%1 Ah").arg(bdevice->maximumEnergy()));
+			base->labelMaximumBatteryDesignEnergy->setText((bdevice->maximumDesignEnergy()<0)?i18n("<unknown>"):TQString("%1 Ah").arg(bdevice->maximumDesignEnergy()));
 			base->labelMinimumBatteryVoltage->setText((bdevice->minimumVoltage()<0)?i18n("<unknown>"):TQString("%1 V").arg(bdevice->minimumVoltage()));
 			base->labelCurrentBatteryVoltage->setText((bdevice->voltage()<0)?i18n("<unknown>"):TQString("%1 V").arg(bdevice->voltage()));
-			base->labelCurrentBatteryDischargeRate->setText((bdevice->dischargeRate()<0)?i18n("<unknown>"):TQString("%1 Wh").arg(bdevice->dischargeRate()));
+			base->labelCurrentBatteryDischargeRate->setText((bdevice->dischargeRate()<0)?i18n("<unknown>"):TQString("%1 A").arg(bdevice->dischargeRate()));
 			TQString batteryStatusString = i18n("Unknown");
 			TDEBatteryStatus::TDEBatteryStatus batteryStatus = bdevice->status();
 			if (batteryStatus == TDEBatteryStatus::Charging) {
