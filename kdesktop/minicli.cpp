@@ -385,10 +385,10 @@ void Minicli::keyPressEvent( TQKeyEvent* e )
   TQDialog::keyPressEvent( e );
 }
 
-TQString Minicli::terminalCommand (const TQString& cmd, const TQString& args)
+TQString Minicli::terminalCommand(const TQString& cmd, const TQString& args)
 {
   TQString terminal = KDesktopSettings::terminalApplication().stripWhiteSpace();
-  if (terminal.endsWith("konsole"))
+  if (terminal.startsWith("konsole"))
     terminal += " --noclose";
 
   if( args.isEmpty() )

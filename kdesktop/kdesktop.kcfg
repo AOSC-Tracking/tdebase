@@ -69,6 +69,11 @@
       <!-- krootwm.cc:496 -->
       <!--     config->writeEntry( "SortDirectoriesFirst", b ); -->
     </entry>
+		<entry key="TerminalApplication" type="Path">
+			<default>konsole</default>
+			<label>Terminal application</label>
+			<whatsthis>Defines which terminal application is used.</whatsthis>
+		</entry>
   </group>
   <group name="Mouse Buttons"> 
     <entry key="WheelSwitchesWorkspace" type="Bool">
@@ -82,11 +87,6 @@
       <whatsthis></whatsthis>
       <!-- desktop.cc:397 -->
       <!--             (config->readEntry("WheelDirection", default_dir_string) == forward_string) ? Forward : Reverse; -->
-    </entry>
-    <entry key="TerminalApplication" type="Path">
-      <default>konsole</default>
-      <label>Terminal application</label>
-      <whatsthis>Defines which terminal application is used.</whatsthis>
     </entry>
     <entry key="Left" type="String">
       <default></default>
