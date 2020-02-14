@@ -1,4 +1,4 @@
-SUBDIRS = konsole other doc fonts
+SUBDIRS = konsole other doc fonts terminalhere
 
 xdg_apps_DATA = konsole.desktop konsolesu.desktop
 
@@ -15,8 +15,8 @@ services_DATA = kwrited.desktop
 install-data-local:
 	@-rm -f $(DESTDIR)$(datadir)/autostart/kwrited.desktop
 
-konsolehere_DATA = konsolehere.desktop
-konsoleheredir = $(kde_datadir)/konqueror/servicemenus
+terminalhere_DATA = terminalhere.desktop
+terminalheredir = $(kde_datadir)/konqueror/servicemenus
 
 misc_DATA = eventsrc tips
 miscdir = $(kde_datadir)/konsole
