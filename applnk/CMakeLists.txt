@@ -25,6 +25,7 @@ install( FILES
   RENAME .directory )
 
 install( FILES
+    tde-games-logic.directory
     tde-main.directory tde-development.directory tde-editors.directory
     tde-edutainment.directory tde-games-arcade.directory
     tde-games-board.directory tde-games-card.directory
