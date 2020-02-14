@@ -2,5 +2,6 @@
 Encoding=UTF-8
 Type=Directory
 Name=Logic Games
+Name[de]=Logik
 Name[fr]=Jeux de logique
 Icon=package_games_logic
