@@ -15,6 +15,7 @@ add_subdirectory( konsole )
 add_subdirectory( other )
 # add_subdirectory( doc )
 add_subdirectory( fonts )
+add_subdirectory( terminalhere )
 
 
 install( FILES
@@ -48,7 +49,7 @@ install( FILES
 
 
 install( FILES
-    konsolehere.desktop
+    terminalhere.desktop
   DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus )
 
 
