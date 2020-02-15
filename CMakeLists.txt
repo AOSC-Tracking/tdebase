@@ -218,6 +218,7 @@ check_type_size( "long long" LONG_LONG )
 ##### tdebase directories #######################
 
 add_subdirectory( tdmlib )
+add_subdirectory( kcontrol )
 
 tde_conditional_add_subdirectory( BUILD_TDEINIT tdeinit )
 tde_conditional_add_subdirectory( BUILD_L10N l10n )
@@ -226,7 +227,6 @@ tde_conditional_add_subdirectory( BUILD_APPLNK applnk )
 tde_conditional_add_subdirectory( BUILD_DOC doc )
 tde_conditional_add_subdirectory( BUILD_LIBKONQ libkonq )
 tde_conditional_add_subdirectory( BUILD_KCMINIT kcminit )
-add_subdirectory( kcontrol )
 tde_conditional_add_subdirectory( BUILD_TWIN twin )
 tde_conditional_add_subdirectory( BUILD_KATE kate )
 tde_conditional_add_subdirectory( BUILD_KONQUEROR konqueror )
@@ -271,8 +271,8 @@ tde_conditional_add_subdirectory( BUILD_TQT3INTEGRATION tqt3integration )
 ##### install starttde & related stuff ##########
 
 if( BUILD_STARTTDE )
-  install( PROGRAMS starttde DESTINATION ${BIN_INSTALL_DIR} )
-  install( PROGRAMS migratekde3 r14-xdg-update release_notes DESTINATION ${BIN_INSTALL_DIR} )
+  install( PROGRAMS starttde migratekde3 r14-xdg-update tde_release_notes
+           DESTINATION ${BIN_INSTALL_DIR} )
 endif()
 
 

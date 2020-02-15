@@ -8,4 +8,4 @@
 
 tde_create_handbook( DESTINATION khelpcenter/releasenotes )
 
-install( FILES release_notes.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
+install( FILES tde_release_notes.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
