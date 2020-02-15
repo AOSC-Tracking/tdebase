@@ -207,10 +207,80 @@ void CfgEmailClient::save(TDEConfig *)
 	emit changed(false);
 }
 
-
 //END Email client config
 
+//BEGIN File Manager Configuration
 
+CfgFileManager::CfgFileManager(TQWidget *parent) : FileManagerConfig_UI(parent), CfgPlugin() {
+	connect(filemanagerLE, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(configChanged()));
+	connect(filemanagerCB, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(configChanged()));
+	connect(otherCB, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(configChanged()));
+}
+
+CfgFileManager::~CfgFileManager() {
+}
+
+void CfgFileManager::configChanged()
+{
+	emit changed(true);
+}
+
+void CfgFileManager::defaults()
+{
+    load(0L);
+}
+
+
+void CfgFileManager::load(TDEConfig *) {
+	TDEConfig *config = new TDEConfig("kdeglobals", true);
+	config->setGroup("General");
+	TQString filemanager = config->readPathEntry("FileManagerApplication","konqueror");
+	if (filemanager == "konqueror")
+	{
+	   filemanagerLE->setText("");
+	   filemanagerCB->setChecked(true);
+	}
+	else
+	{
+	  filemanagerLE->setText(filemanager);
+	  otherCB->setChecked(true);
+	}
+	delete config;
+
+	emit changed(false);
+}
+
+void CfgFileManager::save(TDEConfig *) {
+
+	TDEConfig *config = new TDEConfig("kdeglobals");
+	config->setGroup("General");
+	config->writePathEntry("FileManagerApplication", filemanagerCB->isChecked() ? "konqueror" : filemanagerLE->text(),
+	                       true, true);
+	config->sync();
+	delete config;
+
+	KIPC::sendMessageAll(KIPC::SettingsChanged);
+	kapp->dcopClient()->send("tdelauncher", "tdelauncher","reparseConfiguration()", TQString::null);
+
+	emit changed(false);
+}
+
+void CfgFileManager::selectFileManagerApp()
+{
+	KURL::List urlList;
+	KOpenWithDlg dlg(urlList, i18n("Select preferred file manager application:"), TQString::null, this);
+	// hide "Run in &terminal" here, we don't need it for a File Manager Application
+	dlg.hideRunInTerminal();
+	if (dlg.exec() != TQDialog::Accepted) return;
+	TQString client = dlg.text();
+
+	if (!client.isEmpty())
+	{
+		filemanagerLE->setText(client);
+	}
+}
+
+//END File Manager Configuration
 
 //BEGIN Terminal Emulator Configuration
 
@@ -233,14 +303,13 @@ void CfgTerminalEmulator::defaults()
     load(0L);
 }
 
-
 void CfgTerminalEmulator::load(TDEConfig *) {
 	TDEConfig *config = new TDEConfig("kdeglobals", true);
 	config->setGroup("General");
 	TQString terminal = config->readPathEntry("TerminalApplication","konsole");
 	if (terminal == "konsole")
 	{
-	   terminalLE->setText("xterm");
+	   terminalLE->setText("");
 	   terminalCB->setChecked(true);
 	}
 	else
@@ -433,6 +502,14 @@ void ComponentChooser::slotServiceSelected(TQListBoxItem* it) {
 		if (!(configWidget && configWidget->tqt_cast("CfgEmailClient")))
 		{
 			newConfigWidget = new CfgEmailClient(configContainer);
+		}
+
+	}
+	else if (cfgType=="internal_filemanager")
+	{
+		if (!(configWidget && configWidget->tqt_cast("CfgFileManager")))
+		{
+			newConfigWidget = new CfgFileManager(configContainer);
 		}
 
 	}

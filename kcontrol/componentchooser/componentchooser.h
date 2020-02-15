@@ -16,11 +16,12 @@
 #ifndef _COMPONENTCHOOSER_H_
 #define _COMPONENTCHOOSER_H_
 
+#include "browserconfig_ui.h"
 #include "componentchooser_ui.h"
 #include "componentconfig_ui.h"
 #include "emailclientconfig_ui.h"
+#include "filemanagerconfig_ui.h"
 #include "terminalemulatorconfig_ui.h"
-#include "browserconfig_ui.h"
 #include <tqdict.h>
 #include <tqstring.h>
 
@@ -80,6 +81,24 @@ private:
 protected slots:
 	void selectEmailClient();
 	void configChanged();
+signals:
+	void changed(bool);
+};
+
+class CfgFileManager: public FileManagerConfig_UI,public CfgPlugin
+{
+Q_OBJECT
+public:
+	CfgFileManager(TQWidget *parent);
+	virtual ~CfgFileManager();
+	virtual void load(TDEConfig *cfg);
+	virtual void save(TDEConfig *cfg);
+	virtual void defaults();
+
+protected slots:
+	void selectFileManagerApp();
+	void configChanged();
+
 signals:
 	void changed(bool);
 };
