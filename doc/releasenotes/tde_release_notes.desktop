@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=release_notes
-Exec=release_notes
+Name=tde_release_notes
+Exec=tde_release_notes
 Type=Application
 X-TDE-autostart-phase=2
 X-TDE-StartupNotify=false

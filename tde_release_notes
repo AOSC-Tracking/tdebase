@@ -8,7 +8,7 @@
 # When the release version increments, this script will detect the
 # difference through tde-config and a respective key in kdeglobals.
 # This script then will open the release notes for that next release.
-# The only file to update is: tdebase/doc/releasenotes/release_notes.docbook.
+# The only file to update is: tdebase/doc/releasenotes/index.docbook.
 
 # As this script is run as a global TDE autostart app, all
 # environment variables should already be set.
