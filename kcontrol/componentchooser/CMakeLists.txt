@@ -30,9 +30,8 @@ install( FILES componentchooser.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 
 tde_add_kpart( kcm_componentchooser AUTOMOC
   SOURCES
-    componentchooser_ui.ui componentconfig_ui.ui
-    emailclientconfig_ui.ui terminalemulatorconfig_ui.ui
-    browserconfig_ui.ui componentchooser.cpp kcm_componentchooser.cpp
+    componentchooser_ui.ui componentconfig_ui.ui emailclientconfig_ui.ui terminalemulatorconfig_ui.ui
+    browserconfig_ui.ui filemanagerconfig_ui.ui componentchooser.cpp kcm_componentchooser.cpp
   LINK tdeio-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
