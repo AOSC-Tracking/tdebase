@@ -490,26 +490,7 @@ void KonqMainWindow::openURL( KonqView *_view, const KURL &_url,
 
       while( nDollarPos != -1 && nDollarPos+1 < static_cast<int>(aValue.length())) {
         // there is at least one $
-        if( (aValue)[nDollarPos+1] == '(' ) {
-          uint nEndPos = nDollarPos+1;
-          // the next character is no $
-          while ( (nEndPos <= aValue.length()) && (aValue[nEndPos]!=')') )
-              nEndPos++;
-          nEndPos++;
-          TQString cmd = aValue.mid( nDollarPos+2, nEndPos-nDollarPos-3 );
-
-          TQString result;
-          FILE *fs = popen(TQFile::encodeName(cmd).data(), "r");
-          if (fs)
-          {
-             {
-             TQTextStream ts(fs, IO_ReadOnly);
-             result = ts.read().stripWhiteSpace();
-             }
-             pclose(fs);
-          }
-          aValue.replace( nDollarPos, nEndPos-nDollarPos, result );
-        } else if( (aValue)[nDollarPos+1] != '$' ) {
+        if( (aValue)[nDollarPos+1] != '$' ) {
           uint nEndPos = nDollarPos+1;
           // the next character is no $
           TQString aVarName;
