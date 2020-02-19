@@ -37,6 +37,7 @@
 #include <kstandarddirs.h>
 #include <ktrader.h>
 #include <kurlrequester.h>
+#include <kprocess.h>
 
 class MyListBoxItem: public TQListBoxText
 {
@@ -211,13 +212,13 @@ void CfgEmailClient::save(TDEConfig *)
 
 //BEGIN File Manager Configuration
 
-CfgFileManager::CfgFileManager(TQWidget *parent) : FileManagerConfig_UI(parent), CfgPlugin() {
-	connect(filemanagerLE, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(configChanged()));
-	connect(filemanagerCB, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(configChanged()));
-	connect(otherCB, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(configChanged()));
+CfgFileManager::CfgFileManager(TQWidget *parent) : FileManagerConfig_UI(parent), CfgPlugin()
+{
+	btnOpenFileAssociations->setEnabled(true);
 }
 
-CfgFileManager::~CfgFileManager() {
+CfgFileManager::~CfgFileManager()
+{
 }
 
 void CfgFileManager::configChanged()
@@ -227,57 +228,23 @@ void CfgFileManager::configChanged()
 
 void CfgFileManager::defaults()
 {
-    load(0L);
+	load(0L);
 }
 
 
-void CfgFileManager::load(TDEConfig *) {
-	TDEConfig *config = new TDEConfig("kdeglobals", true);
-	config->setGroup("General");
-	TQString filemanager = config->readPathEntry("FileManagerApplication","konqueror");
-	if (filemanager == "konqueror")
-	{
-	   filemanagerLE->setText("");
-	   filemanagerCB->setChecked(true);
-	}
-	else
-	{
-	  filemanagerLE->setText(filemanager);
-	  otherCB->setChecked(true);
-	}
-	delete config;
-
-	emit changed(false);
-}
-
-void CfgFileManager::save(TDEConfig *) {
-
-	TDEConfig *config = new TDEConfig("kdeglobals");
-	config->setGroup("General");
-	config->writePathEntry("FileManagerApplication", filemanagerCB->isChecked() ? "konqueror" : filemanagerLE->text(),
-	                       true, true);
-	config->sync();
-	delete config;
-
-	KIPC::sendMessageAll(KIPC::SettingsChanged);
-	kapp->dcopClient()->send("tdelauncher", "tdelauncher","reparseConfiguration()", TQString::null);
-
-	emit changed(false);
-}
-
-void CfgFileManager::selectFileManagerApp()
+void CfgFileManager::load(TDEConfig *)
 {
-	KURL::List urlList;
-	KOpenWithDlg dlg(urlList, i18n("Select preferred file manager application:"), TQString::null, this);
-	// hide "Run in &terminal" here, we don't need it for a File Manager Application
-	dlg.hideRunInTerminal();
-	if (dlg.exec() != TQDialog::Accepted) return;
-	TQString client = dlg.text();
+}
 
-	if (!client.isEmpty())
-	{
-		filemanagerLE->setText(client);
-	}
+void CfgFileManager::save(TDEConfig *)
+{
+}
+
+void CfgFileManager::selectFileAssociations()
+{
+	TDEProcess p;
+	p << "tdecmshell" << "filetypes";
+	p.start(TDEProcess::DontCare);
 }
 
 //END File Manager Configuration
