@@ -96,7 +96,7 @@ public:
 	virtual void defaults();
 
 protected slots:
-	void selectFileManagerApp();
+	void selectFileAssociations();
 	void configChanged();
 
 signals:
