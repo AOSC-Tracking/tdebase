@@ -2,8 +2,8 @@
 #
 # A script to perform R14.0.0 XDG compliance updates.
 
-SCRIPT_NAME="`basename \`readlink -f $0\``"
-SCRIPT_VERSION=201811010
+SCRIPT_NAME="$(basename -- "$0")"
+SCRIPT_VERSION=202003170
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -18,24 +18,25 @@ SCRIPT_VERSION=201811010
 
 Wait_For_Response () {
 unset response
-# -r Backslash does not act as an escape character.
-# -p Display "PROMPT" without a trailing newline, before attempting to read any input.
 while true; do
-  read -r -p "$1 (y/n): " yn
-  case $yn in
-    [Yy]* ) response=y; break;;
-    [Nn]* ) response=n; break;;
-    * ) echo "Please answer yes (y/Y) or no (n/N).";;
+  printf "%s" "$1 (y/n): " > /dev/tty
+  IFS= read -r ANSWER < /dev/tty || exit 1;
+  case $ANSWER in
+    y* | Y* ) response=y; break;;
+    n* | N* ) response=n; break;;
+    * ) echo "Please answer yes (y/Y) or no (n/N)." > /dev/tty;;
   esac
 done
+unset ANSWER
 }
 
 Proceed_From_Response () {
-if [ "$response" = "n" -o "$response" = "N" ]; then
+if [ "$response" = "n" ]; then
   echo "Exiting."
   echo
   exit 0
 else
+  unset response
   echo "Continuing."
   echo
 fi
@@ -126,9 +127,10 @@ fi
 # To determine that location use the following method rather than presuming
 # the existence of $TDEDIR. That environment variable might not be
 # defined or defined to point to KDE4 binaries.
-BIN_DIR="`dirname \`readlink -f $0\``"
+BIN_DIR="$(dirname -- "$0")"
+
 if [ -x $BIN_DIR/tde-config ]; then
-  TDEDIR=${BIN_DIR%/bin}
+  TDEDIR="${BIN_DIR%/bin}"
 else
   MESSAGE="Unable to determine the TDE bin directory, where this script should be installed."
   # Are we in X? Display an X dialog explaining breakage.
@@ -1053,7 +1055,7 @@ fi
 TEST_NUM="4"
 R14_UPDATE_TEST4=""
 if [ -r "$PROFILE_DIR/share/config/khotkeysrc" ]; then
-  grep "CommandURL=kde-" "$PROFILE_DIR/share/config/khotkeysrc" &>${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt
+  grep "CommandURL=kde-" "$PROFILE_DIR/share/config/khotkeysrc" > ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt 2>&1
   if [ -s ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt ]; then
     R14_UPDATE_TEST4="failed"
     MESSAGE="Some Trinity profile R14 XDG compliance updates failed.\nCheck khotkeysrc for 'CommandURL=kde-' in\n${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt. "
@@ -1064,7 +1066,7 @@ fi
 TEST_NUM="5"
 R14_UPDATE_TEST5=""
 if [ -r "$PROFILE_DIR/share/config/khotkeysrc" ]; then
-  grep "K Menu - kde-" "$PROFILE_DIR/share/config/khotkeysrc" &>${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt
+  grep "K Menu - kde-" "$PROFILE_DIR/share/config/khotkeysrc" > ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt 2>&1
   if [ -s ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt ]; then
     R14_UPDATE_TEST5="failed"
     MESSAGE="Some Trinity profile R14 XDG compliance updates failed.\nCheck khotkeysrc for 'K Menu - kde-' in\n${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt. "
@@ -1076,7 +1078,7 @@ fi
 TEST_NUM="6"
 R14_UPDATE_TEST6=""
 if [ -r $PROFILE_DIR/share/config/profilerc ]; then
-  grep "Application=kde-" "$PROFILE_DIR/share/config/profilerc" &>${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt
+  grep "Application=kde-" "$PROFILE_DIR/share/config/profilerc" > ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt 2>&1
   if [ -s ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt ]; then
     R14_UPDATE_TEST6="failed"
     MESSAGE="Some Trinity profile R14 XDG compliance updates failed.\nCheck profilerc for 'Application=kde-' in\n${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt. "
@@ -1088,7 +1090,7 @@ fi
 TEST_NUM="7"
 R14_UPDATE_TEST7=""
 if [ -r $PROFILE_DIR/share/config/kickerrc ]; then
-  grep "StorageId\[\$e\]=kde-" "$PROFILE_DIR/share/config/kickerrc" &>${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt
+  grep "StorageId\[\$e\]=kde-" "$PROFILE_DIR/share/config/kickerrc" > ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt 2>&1
   if [ -s ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt ]; then
     R14_UPDATE_TEST7="failed"
     MESSAGE="Some Trinity profile R14 XDG compliance updates failed.\nCheck kickerrc for 'StorageId[$e]=kde-' in\n${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt. "
@@ -1100,7 +1102,7 @@ fi
 TEST_NUM="8"
 R14_UPDATE_TEST8=""
 if [ "$QUICK_LAUNCH_CONFIG" != "" ]; then
-  grep "kde-" "$PROFILE_DIR/share/config/$QUICK_LAUNCH_CONFIG" &>${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt
+  grep "kde-" "$PROFILE_DIR/share/config/$QUICK_LAUNCH_CONFIG" > ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt 2>&1
   if [ -s ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt ]; then
     R14_UPDATE_TEST8="failed"
     MESSAGE="Some Trinity profile R14 XDG compliance updates failed.\nCheck $QUICK_LAUNCH_CONFIG for 'kde-' in\n${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt. "
@@ -1112,7 +1114,7 @@ fi
 TEST_NUM="9"
 R14_UPDATE_TEST9=""
 if [ -r $USER_DIR/.config/menus/applications-tdemenuedit.menu ]; then
-  grep "<Filename>kde-" "$USER_DIR/.config/menus/applications-tdemenuedit.menu" &>${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt
+  grep "<Filename>kde-" "$USER_DIR/.config/menus/applications-tdemenuedit.menu" > ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt 2>&1
   if [ -s ${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt ]; then
     R14_UPDATE_TEST9="failed"
     MESSAGE="Some Trinity profile R14 XDG compliance updates failed.\nCheck applications-tdemenuedit.menu for '<Filename>kde-' in\n${CACHE_DIR}/${SCRIPT_NAME}-validation-test${TEST_NUM}.txt. "
