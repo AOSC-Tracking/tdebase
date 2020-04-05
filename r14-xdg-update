@@ -3,7 +3,7 @@
 # A script to perform R14.0.0 XDG compliance updates.
 
 SCRIPT_NAME="$(basename -- "$0")"
-SCRIPT_VERSION=202003170
+SCRIPT_VERSION=202004050
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -239,7 +239,7 @@ if [ "$R14_VERSION" -lt "$SCRIPT_VERSION" ] || [ "$R14_UPDATED" != "true" ] || [
       # As a previous attempt failed, try again to perform a full update.
       FORCE="true"
     fi
-    MESSAGE="The r14-xdg-update script has been run at least once.\n\nThe script is not successfully updating.\n\nThe script will run with each login until corrected.\n\nPlease contact an administrator or take appropriate\nadmininstrative action to correct the problem.\n\nThe error code is $R14_UPDATED."
+    MESSAGE="The r14-xdg-update script will attempt to repair the problems found during the previous\nsession and will run with each login until all issues are corrected\n(usually one time is enough).\n\nPlease contact an administrator or take appropriate admininstrative\naction should the problems persist for more than three reboot attempts.\n\nThe error code is $R14_UPDATED."
     # Are we in X? Display an X dialog explaining breakage.
     if [ "$USER_DIR" = "$HOME" ] && [ "$DISPLAY" != "" ]; then
       printf "%b" "$MESSAGE" | xmessage -center -file - -buttons Continue,Quit > /dev/null 2>/dev/null
@@ -884,9 +884,9 @@ if [ "$R14_VERSION" -lt "201401052" ]; then
   fi
 fi
 
-if [ "$R14_VERSION" -lt "201401052" ]; then
+if [ "$R14_VERSION" -lt "202004050" ]; then
   # Update the user's custom menu. Any custom menu should have been renamed a few lines above.
-  if [ -r $USER_DIR/.config/menus/applications-tdemenuedit.menu ] && [ "$CUSTOM_MENU" != "TDE" ]; then
+  if [ -r $USER_DIR/.config/menus/applications-tdemenuedit.menu ]; then
     # KDE/TDE 3.5.x or converted KDE4. No need to update a pre R14 menu.
     sed -i 's|<Filename>kde-|<Filename>tde-|g' $USER_DIR/.config/menus/applications-tdemenuedit.menu
   fi
@@ -1144,7 +1144,7 @@ if [ "$R14_UPDATE_TEST1" = "" ] && [ "$R14_UPDATE_TEST2" = "" ] && [ "$R14_UPDAT
 else
   # Don't use the --type parameter here because the value no longer is boolean.
   $TDEDIR/bin/kwriteconfig --file "$PROFILE_DIR/share/config/kdeglobals" --group "R14 XDG Updates" --key Updated "$KDEGLOBALS_KEY_VALUE"
-  MESSAGE="\n\nThe r14-xdg-update script did not complete successfully.\n\nThe script will run with each login until corrected.\n\nPlease contact an administrator or take appropriate\nadmininstrative action to correct the problem.\n\nThe error code is $KDEGLOBALS_KEY_VALUE.\n\nCommon failures include file and directory permissions.\n\n"
+  MESSAGE="The r14-xdg-update script did not complete successfully.\n\nThe script will run with each login until all issues are corrected\n(usually one more time is enough).\n\nPlease contact an administrator or take appropriate admininstrative\naction should the problems persist for more than three reboot attempts.\n\nThe error code is $KDEGLOBALS_KEY_VALUE.\n\nCommon failures include file and directory permissions.\n\n"
   # Are we in X? Display an X dialog explaining breakage.
   if [ "$USER_DIR" = "$HOME" ] && [ "$DISPLAY" != "" ]; then
     printf "%b" "$MESSAGE" | xmessage -center -file - -buttons OK > /dev/null 2>/dev/null
