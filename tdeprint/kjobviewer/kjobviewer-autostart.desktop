@@ -89,7 +89,7 @@ GenericName[zh_TW]=列印工作
 
 X-DCOP-ServiceType=Unique
 X-TDE-autostart-after=panel
-X-TDE-autostart-condition=tdeprintrc:Jobs:KeepWindow:true
+X-TDE-autostart-condition=tdeprintrc:Jobs:KeepWindow:false
 X-TDE-autostart-phase=1
 X-TDE-StartupNotify=false
 Categories=Qt;TDE;Utility;Printing;HardwareSettings;TrayIcon;
