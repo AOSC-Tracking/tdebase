@@ -503,12 +503,12 @@ void KFocusConfig::load( void )
 
     setRollOverDesktops( config->readBoolEntry(KWIN_ROLL_OVER_DESKTOPS, true ));
 
-    config->setGroup( "PopupInfo" );
-    setShowPopupinfo( config->readBoolEntry(KWIN_SHOW_POPUP, false ));
-
     // setFocusStealing( config->readNumEntry(KWIN_FOCUS_STEALING, 2 ));
     // TODO default to low for now
     setFocusStealing( config->readNumEntry(KWIN_FOCUS_STEALING, 1 ));
+
+    config->setGroup( "PopupInfo" );
+    setShowPopupinfo( config->readBoolEntry(KWIN_SHOW_POPUP, false ));
 
     config->setGroup( "TabBox" );
     setTraverseAll( config->readBoolEntry(KWIN_TRAVERSE_ALL, false ));
@@ -566,10 +566,10 @@ void KFocusConfig::save( void )
 
     config->writeEntry( KWIN_ROLL_OVER_DESKTOPS, rollOverDesktops->isChecked());
 
+    config->writeEntry(KWIN_FOCUS_STEALING, focusStealing->currentItem());
+
     config->setGroup( "PopupInfo" );
     config->writeEntry( KWIN_SHOW_POPUP, showPopupinfo->isChecked());
-
-    config->writeEntry(KWIN_FOCUS_STEALING, focusStealing->currentItem());
 
     config->setGroup( "TabBox" );
     config->writeEntry( KWIN_TRAVERSE_ALL , traverseAll->isChecked());
