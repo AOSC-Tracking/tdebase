@@ -1,0 +1,70 @@
+<sect1 id="release-notes-r14.0.6">
+<title>R14.0.6 Release Notes</title>
+
+<para>R14.0.6 is the sixth maintenance release of the R14.0 series,
+and is built on and improves the previous R14.0.5 version.</para>
+<para>Maintenance releases are intended to promptly bring bug fixes
+to users, while preserving overall stability through the avoidance
+of both major new features and major codebase re-factoring.</para>
+
+<sect2 id="release-notes-r14.0.6-notes">
+<title>Important fixes</title>
+
+<para>This section highlights some of the most important fixes introduced by this
+release.</para>
+
+<itemizedlist>
+<listitem>
+  <para>Bug fixes</para>
+  <itemizedlist>
+  <listitem><para>Reboot and shutdown now works with other DM (other than TDM) as long as logind is present</para></listitem>
+  <listitem><para>Passwords with special characters are now accepted</para></listitem>
+  <listitem><para>Fixed bugs with pdf handling and displaying</para></listitem>
+  <listitem><para>Improved TDM log file handling</para></listitem>
+  <listitem><para>Fixed GUI related glitches and missing icons in various places</para></listitem>
+  <listitem><para>Fixed annoying double notification when inserting some special removable media</para></listitem>
+  <listitem><para>Fixed few KOrganizer crashes</para></listitem>
+  <listitem><para>Fixed Kdesktop unresponsive behaviour when multiple users log into the same machine at the same time</para></listitem>
+  <listitem><para>Fixed support for array of object path key maps in dbus-1-tqt</para></listitem>
+  <listitem><para>Fixed SSL initialization for OpenSSL >= 1.1</para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Enhancements</para>
+  <itemizedlist>
+  <listitem><para>Added support for safe conversion from TQString to char*</para></listitem>
+  <listitem><para>Added support for global LDFLAGS set at the system level</para></listitem>
+  <listitem><para>Several packages have been migrated to CMake build system</para></listitem>
+  <listitem><para>Improved GCC visibility detection in CMake builds</para></listitem>
+  <listitem><para>Created a CMake framework for updating translation templates</para></listitem>
+  <listitem><para>Added support for Weblate web based translation (yet to be officially announced)</para></listitem>
+  <listitem><para>Improved TDE related CMake capabilities</para></listitem>
+  <listitem><para>Improved support for large files detection</para></listitem>
+  <listitem><para>Better detection of dynamic loaded libraries location</para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Security</para>
+  <itemizedlist>
+  <listitem><para>Fix security issue CVE-2018-19870</para></listitem>
+  <listitem><para>Fix security issue CVE-2018-19873</para></listitem>
+  <listitem><para>Fix security issue CVE-2018-7225</para></listitem>
+  <listitem><para>Fix security issue CVE-2018-20021</para></listitem>
+  <listitem><para>Fix security issue CVE-2018-20022</para></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.0.6-freebsd">
+<title>FreeBSD Support</title>
+<para>TDE continues to offer support for FreeBSD, although still partial
+given some of the new issues that have arisen with the latest versions
+of FreeBSD. The TDE team will try their best to improve support for
+FreeBSD but progress will probably be slow. Additional developers or
+contributors willing to help porting the remaining features and
+applications are always welcome.</para>
+</sect2>
+
+</sect1>
