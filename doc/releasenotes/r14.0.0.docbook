@@ -1,0 +1,912 @@
+<sect1 id="release-notes-r14.0.0">
+<title>R14.0.0 Release Notes</title>
+
+<para>Many changes were made to Trinity after the release of 3.5.13.</para>
+
+<para>An obvious change is the version scheme. Trinity evolved from the last KDE 3.5 release, 3.5.10. Subsequent
+Trinity releases followed that numbering scheme. Release R14.0.0 marks a turning point in Trinity history
+because a great deal of the code infrastructure was changed. While those changes do not effect the usability or
+look-and-feel of the desktop that users enjoy, Trinity developers believe a change in the version scheme
+distinguishes when those changes occurred. An original project goal by users was to retain the flavor of the
+original KDE 3.5 desktop. That goal remains intact. To reflect that original goal, the last number in the
+original version scheme is retained in the new version scheme but is now the primary version number. While the
+infrastructure has changed, the desktop itself remains the same as the original KDE 3.5. This new version scheme
+indicates a modest divergence from the original KDE 3.5 series and that Trinity is now its own desktop
+environment. The new version scheme reminds users that Trinity retains the original KDE 3.5 design, but is
+moving forward as a separate desktop project.</para>
+
+<para>Notable changes include renaming and rebranding efforts to avoid conflicts with KDE4. Both Trinity and
+KDE4 have roots in KDE3. These changes focus on promoting a peaceful coexistence between the two desktop
+environments when both are installed concurrently on the same system as well as avoid possible trademark
+issues.</para>
+
+<para>Renaming and rebranding efforts include:</para>
+
+<itemizedlist>
+
+<listitem><para>
+Libraries
+</para></listitem>
+
+<listitem><para>
+Classes
+</para></listitem>
+
+<listitem><para>
+Environment variables and config file locations
+</para></listitem>
+
+<listitem><para>
+Package names
+</para></listitem>
+
+<listitem><para>
+Application names
+</para></listitem>
+
+</itemizedlist>
+
+<para>An exhaustive list of renaming changes is available at the end of this document.</para>
+
+<sect2 id="release-notes-usability-changes">
+<title>Usability Changes</title>
+
+<para>Because of the wide-scale renaming efforts, existing KDE3 and 3.5.13.x user profile directories will not
+function properly under R14.0.0. Don't worry.</para>
+
+<para>When logging into Trinity R14.0.0, the starttde script (nee startkde), performs profile checks to ensure
+settings and configurations are migrated correctly. These checks include preserving the original KDE3/3.5.13.x
+profile directory as-is while using those files as the basis to create the new R14.0.0 profile named
+$HOME/.trinity.</para>
+
+<para>The underlying migration checking has been tested, but because of the renaming and rebranding efforts,
+upstream packagers should test support scripts for problems and anomalies.</para>
+
+<para>There is another special script to help update profile directories. That script is
+/opt/trinity/bin/migratekde3. This script is intended for people using versions of Trinity prior to 3.5.13.
+Before starting R14.0.0 the first time, use this script to update any KDE3 profile directory. The definition of
+a KDE3 profile directory includes Trinity 3.5.11 and 3.5.12. The script will look for profile directory names
+of ~/.kde3, ~/.kdemod3, and ~/.kde. Because the latter directory name is also used in KDE4, several tests are
+performed to ensure the directory is a KDE3 profile and not KDE4.</para>
+
+<para>The renaming might cause certain shortcuts and menu links to stop functioning. The underlying migration
+checks performed when logging into R14.0.0 for the first time should find all of these differences, but fixing
+those that are missed is straightforward. All that is needed is knowing the new name of the command or
+application. For example, changing kdesu to tdesu, although that specific change is covered by the
+scripts.</para>
+
+<para>The Trinity launcher menu, tdemenu (nee kmenu), has been reorganized to reduce clutter. In addition to
+built-in XDG changes in *.desktop files, There are two methods available to manage KDE4 apps in the Trinity
+menu. One method includes a build-time configuration option in tdelibs, WITH_KDE4_MENU_SUFFIX, that adds a
+"[KDE4]" tag to KDE4 menu items. This tag helps identify apps of the same name. The default is OFF and requires
+a package rebuild to change. A second method includes a global menu replacement, tde-applications.menu-no-kde
+that explicitly excludes KDE4 apps from the menu. Using that special menu requires administrative privileges to
+update.</para>
+
+<para>Because of a common heritage shared with KDE, Trinity still shares many app and library names with KDE.
+Therefore to avoid conflicts, the normal practice is to install Trinity to /opt/trinity. Because of this
+atypical installation location, on many systems non-Trinity desktops and window managers initially will not
+find any Trinity apps. For systems using /etc/profile.d, ensure the packager includes appropriate scripts to
+populate all necessary environment variables. For other systems, at least the XDG_CONFIG_DIRS and XDG_DATA_DIRS
+environment variables must be modified to recognize the /opt/trinity directory. Typical modifications look like
+this:</para>
+
+<itemizedlist>
+
+<listitem><para>
+XDG_CONFIG_DIRS=/etc/trinity/xdg:/etc/xdg:/etc/kde/xdg
+</para></listitem>
+<listitem><para>
+XDG_DATA_DIRS=/opt/trinity/share:/usr/share
+</para></listitem>
+
+</itemizedlist>
+
+<para>Users who do not install any tde-i18n package will encounter broken symlinks if they browse the
+non-English documention folders of some applications. Such symlinks are hooks to the correct location 
+of localized common resources and will work properly once the related tde-i18n package is installed.
+Please refrain from filing bugs related to those broken symlinks.</para>
+
+<para>Some old wallpapers have been removed from the list displayed in Trinity Control Center -->
+Appearance &amp; Themes --> Background and a few new ones have been added. The removed wallpapers
+are still available and if desired they can be manually selected. They are located in the
+/opt/trinity/share/wallpapers/obsolete folder.</para>
+
+<para>As part of the rebranding effort, TDE now has its own theme style and system-wide changes have
+been made to conform to such style as much as possible.</para>
+
+</sect2>
+
+<sect2 id="release-notes-major-improvements">
+<title>Major Improvements from 3.5.13</title>
+
+<itemizedlist>
+<listitem><para>
+New HAL-independent hardware support based on udev. HAL support is  still available for those systems (such as *bsd) that require it.
+</para></listitem>
+<listitem><para>
+Significant renaming of applications, libraries and packages to  avoid conflicts with other desktop environments (most notably KDE) allowing TDE to be installed in parallel with other DE.
+</para></listitem>
+<listitem><para>
+Switched from 'plain' Qt3 to the 'new' TQt3 interface, an enhanced  version of Qt3 with a particular eye on improved stability and multi-threading support.
+</para></listitem>
+<listitem><para>
+A new TQt interface layer between TDE libraries/applications and  TQt3. This allows selective adaptation of some Qt4 programming widgets.
+</para></listitem>
+<listitem><para>
+Support for network-manager 0.9 and newer.
+</para></listitem>
+<listitem><para>
+Switched compositor from Kompmgr to Compton.
+</para></listitem>
+<listitem><para>
+Added support for ARM architectures and RaspBian.
+</para></listitem>
+<listitem><para>
+MIME detection system now based on libmagic.
+</para></listitem>
+<listitem><para>
+New website design.
+</para></listitem>
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="release-notes-new-or-improved-features">
+<title>New or Improved Features</title>
+
+<itemizedlist>
+
+<listitem><para>
+Migrated the TDE source repository to GIT. 
+</para></listitem>
+<listitem><para>
+Significant branding overhaul and restyling. 
+</para></listitem>
+<listitem><para>
+Further improved XDG compliance. 
+</para></listitem>
+<listitem><para>
+Additional theme engines available. 
+</para></listitem>
+<listitem><para>
+Continued migration from autotools to cmake. 
+</para></listitem>
+<listitem><para>
+TDE-style dialog box support for LibreOffice. 
+</para></listitem>
+<listitem><para>
+Improved Secure Attention Key. 
+</para></listitem>
+<listitem><para>
+Mac-like window switching. 
+</para></listitem>
+<listitem><para>
+Kate sort plugin now available. 
+</para></listitem>
+<listitem><para>
+Rearrangeable items in the taskbar. 
+</para></listitem>
+<listitem><para>
+Show Icons Only option for taskbar. 
+</para></listitem>
+<listitem><para>
+Improved application crash report framework, now also including source code commit references for better debugging. 
+</para></listitem>
+<listitem><para>
+A mouse double-click speed test option in the control panel. 
+</para></listitem>
+<listitem><para>
+A smooth crossfade effect is now available when changing the desktop wallpaper. 
+</para></listitem>
+<listitem><para>
+Improved project documentation and localization. 
+</para></listitem>
+<listitem><para>
+Faster startup and logout.
+</para></listitem>
+<listitem><para>
+Improved Konqueror speed for listing files in folder.
+</para></listitem>
+<listitem><para>
+Ability to force Kate into MDI mode all the time.
+</para></listitem>
+<listitem><para>
+File copy window focus enhancement: focus is now on the file name edit line by default.
+</para></listitem>
+<listitem><para>
+GUI support for controlling whether to display archives as folders.
+</para></listitem>
+<listitem><para>
+Improved Logout Status Dialog.
+</para></listitem>
+<listitem><para>
+Improved support for global and individual panels.
+</para></listitem>
+<listitem><para>
+New Desktop Device Icons: My Computer, My Documents, My Network Places, Printers, Web Browser.
+</para></listitem>
+<listitem><para>
+Rearrangeable (draggable) items in the taskbar.
+</para></listitem>
+<listitem><para>
+Reduced TDE menu clutter and duplication.
+</para></listitem>
+<listitem><para>
+Accelerator key for Konsole main menu can be enabled when desired.
+</para></listitem>
+<listitem><para>
+Konqueror file rename improvement: in list view mode it is now possible to move directly to the next/previous file without leaving the rename mode. Default key shortcuts are Tab (next) and Shift+Tab (previous).
+</para></listitem>
+<listitem><para>
+Kate taskbar: middle mouse click close selected document, if enabled.
+</para></listitem>
+<listitem><para>
+The number of files in the Kate MRU (Most Recently Used) list is user-configurable.
+</para></listitem>
+<listitem><para>
+Added a progress bar to the logout status dialog.
+</para></listitem>
+<listitem><para>
+Kate syntax highlighting files have been updated and the lookup moved to the TDE repository
+</para></listitem>
+<listitem><para>
+tdecmshell --list output is now sorted alphabetically.
+</para></listitem>
+<listitem><para>
+Additional xdg folders support in Kickoff menu
+</para></listitem>
+<listitem><para>
+Fixed Konqueror selection handling when using arrow keys.
+</para></listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="release-notes-new-packages">
+<title>New Packages</title>
+
+<itemizedlist>
+
+<listitem><para>
+GTK3/TQt Theme Engine
+</para></listitem>
+<listitem><para>
+Kate Sort plugin
+</para></listitem>
+<listitem><para>
+Kasablanca
+</para></listitem>
+<listitem><para>
+KBibTex
+</para></listitem>
+<listitem><para>
+KBiff
+</para></listitem>
+<listitem><para>
+KControl LDAP Manager
+</para></listitem>
+<listitem><para>
+KControl Autostart
+</para></listitem>
+<listitem><para>
+KDbg
+</para></listitem>
+<listitem><para>
+KFTPGrabber
+</para></listitem>
+<listitem><para>
+KLCDDimmer
+</para></listitem>
+<listitem><para>
+KNmap
+</para></listitem>
+<listitem><para>
+KRecipes
+</para></listitem>
+<listitem><para>
+KScope
+</para></listitem>
+<listitem><para>
+KSensors
+</para></listitem>
+<listitem><para>
+KShowmail
+</para></listitem>
+<listitem><para>
+KShutdown
+</para></listitem>
+<listitem><para>
+LDAP/Kerberos Toolkit
+</para></listitem>
+<listitem><para>
+MPlayerthumbs
+</para></listitem>
+<listitem><para>
+Qt4/TQt Theme Engine
+</para></listitem>
+<listitem><para>
+Tdeio-ftps
+</para></listitem>
+<listitem><para>
+Tdeio-sword
+</para></listitem>
+<listitem><para>
+TorK
+</para></listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="release-notes-package-renaming">
+<title>Package Renaming</title>
+
+<itemizedlist>
+
+<listitem><para>
+kde-i18n -> tde-i18n
+</para></listitem>
+<listitem><para>
+kde-guidance -> tde-guidance
+</para></listitem>
+<listitem><para>
+kde-style-lipstik -> tde-style-lipstik
+</para></listitem>
+<listitem><para>
+kde-style-qtcurve -> tde-style-qtcurve
+</para></listitem>
+<listitem><para>
+kde-systemsettings -> tde-systemsettings
+</para></listitem>
+<listitem><para>
+kdeaccessibility -> tdeaccessibility
+</para></listitem>
+<listitem><para>
+kdeaddons -> tdeaddons
+</para></listitem>
+<listitem><para>
+kdeadmin -> tdeadmin
+</para></listitem>
+<listitem><para>
+kdeartwork -> tdeartwork
+</para></listitem>
+<listitem><para>
+kdebase -> tdebase
+</para></listitem>
+<listitem><para>
+kdebindings -> tdebindings
+</para></listitem>
+<listitem><para>
+kdeedu -> tdeedu
+</para></listitem>
+<listitem><para>
+kdegames -> tdegames
+</para></listitem>
+<listitem><para>
+kdegraphics -> tdegraphics
+</para></listitem>
+<listitem><para>
+kdelibs -> tdelibs
+</para></listitem>
+<listitem><para>
+kdemultimedia -> tdemultimedia
+</para></listitem>
+<listitem><para>
+kdenetwork -> tdenetwork
+</para></listitem>
+<listitem><para>
+kdenetworkmanager -> tdenetworkmanager
+</para></listitem>
+<listitem><para>
+kdepim -> tdepim
+</para></listitem>
+<listitem><para>
+kdepowersave -> tdepowersave
+</para></listitem>
+<listitem><para>
+kdesdk -> tdesdk
+</para></listitem>
+<listitem><para>
+kdesudo -> tdesudo
+</para></listitem>
+<listitem><para>
+kdesvn -> tdesvn
+</para></listitem>
+<listitem><para>
+kdetoys -> tdetoys
+</para></listitem>
+<listitem><para>
+kdeutils -> tdeutils
+</para></listitem>
+<listitem><para>
+kdevelop -> tdevelop
+</para></listitem>
+<listitem><para>
+kdewebdev -> tdewebdev
+</para></listitem>
+<listitem><para>
+kdmtheme -> tdmtheme
+</para></listitem>
+<listitem><para>
+kio-apt -> tdeio-apt
+</para></listitem>
+<listitem><para>
+kio-locate -> tdeio-locate
+</para></listitem>
+<listitem><para>
+kio-umountwrapper -> tdeio-umountwrapper
+</para></listitem>
+<listitem><para>
+kradio -> tderadio
+</para></listitem>
+<listitem><para>
+kwin-style-crystal -> twin-style-crystal
+</para></listitem>
+<listitem><para>
+pykde -> pytde
+</para></listitem>
+<listitem><para>
+qca -> tqca
+</para></listitem>
+<listitem><para>
+qca-tls -> tqca-tls
+</para></listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="release-notes-application-and-file-renaming">
+<title>Application and File Renaming</title>
+
+<itemizedlist>
+
+<listitem><para>
+applications-kmenuedit.menu -> applications-tdemenuedit.menu
+</para></listitem>
+<listitem><para>
+.kderc -> .tderc
+</para></listitem>
+<listitem><para>
+kab2kabc -> tdeab2tdeabc
+</para></listitem>
+<listitem><para>
+kbuildsycoca -> tdebuildsycoca
+</para></listitem>
+<listitem><para>
+kcache -> tdecache
+</para></listitem>
+<listitem><para>
+kcmshell -> tdecmshell
+</para></listitem>
+<listitem><para>
+kconf_update -> tdeconf_update
+</para></listitem>
+<listitem><para>
+kde-$USER -> tde-$USER
+</para></listitem>
+<listitem><para>
+kde-config -> tde-config
+</para></listitem>
+<listitem><para>
+kdebugdialog -> tdedebugdialog
+</para></listitem>
+<listitem><para>
+kdeeject -> tdeeject
+</para></listitem>
+<listitem><para>
+kdekillall -> tdekillall
+</para></listitem>
+<listitem><para>
+kdepasswd -> tdepasswd
+</para></listitem>
+<listitem><para>
+kdessh -> tdessh
+</para></listitem>
+<listitem><para>
+kdesu -> tdesu
+</para></listitem>
+<listitem><para>
+kdesudo -> tdesudo
+</para></listitem>
+<listitem><para>
+kdevelop -> tdevelop
+</para></listitem>
+<listitem><para>
+kdm -> tdm
+</para></listitem>
+<listitem><para>
+kdmtheme -> tdmtheme
+</para></listitem>
+<listitem><para>
+kfile -> tdefile
+</para></listitem>
+<listitem><para>
+kfilereplace -> tdefilereplace
+</para></listitem>
+<listitem><para>
+kfontinst -> tdefontinst
+</para></listitem>
+<listitem><para>
+kfontview -> tdefontview
+</para></listitem>
+<listitem><para>
+khtml -> tdehtml
+</para></listitem>
+<listitem><para>
+kiconedit -> tdeiconedit
+</para></listitem>
+<listitem><para>
+kinit* -> tdeinit*
+</para></listitem>
+<listitem><para>
+kio_apt -> tdeio_apt
+</para></listitem>
+<listitem><para>
+kio_camera -> tdeio_camera
+</para></listitem>
+<listitem><para>
+kio_ftp -> tdeio_ftp
+</para></listitem>
+<listitem><para>
+kio_http -> tdeio_http
+</para></listitem>
+<listitem><para>
+kio_locate -> tdeio_locate
+</para></listitem>
+<listitem><para>
+kio_thumbnail -> tdeio_thumbnail
+</para></listitem>
+<listitem><para>
+kioslave -> tdeioslave
+</para></listitem>
+<listitem><para>
+klaunch -> tdelaunch
+</para></listitem>
+<listitem><para>
+kmenu -> tdemenu
+</para></listitem>
+<listitem><para>
+kmid -> tdemid
+</para></listitem>
+<listitem><para>
+knetworkmanager -> tdenetworkmanager
+</para></listitem>
+<listitem><para>
+knewstuff -> tdenewstuff
+</para></listitem>
+<listitem><para>
+kpowersave -> tdepowersave
+</para></listitem>
+<listitem><para>
+kprint -> tdeprint
+</para></listitem>
+<listitem><para>
+kprintfax -> tdeprintfax
+</para></listitem>
+<listitem><para>
+kradio -> tderadio
+</para></listitem>
+<listitem><para>
+krandrtray -> tderandrtray
+</para></listitem>
+<listitem><para>
+kresources -> tderesources
+</para></listitem>
+<listitem><para>
+krita -> chalk
+</para></listitem>
+<listitem><para>
+ksocket -> tdesocket
+</para></listitem>
+<listitem><para>
+kstyle -> tdestyle
+</para></listitem>
+<listitem><para>
+kwallet -> tdewallet
+</para></listitem>
+<listitem><para>
+kwin -> twin
+</para></listitem>
+<listitem><para>
+kwin4 -> twin4
+</para></listitem>
+<listitem><para>
+qmake -> tqmake
+</para></listitem>
+<listitem><para>
+qmoc -> tqmoc
+</para></listitem>
+<listitem><para>
+qtconfig -> tqconfig
+</para></listitem>
+<listitem><para>
+quic -> tquic
+</para></listitem>
+<listitem><para>
+startkde -> starttde
+</para></listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="release-notes-environment-variable-renaming">
+<title>Environment Variable Renaming</title>
+
+<itemizedlist>
+
+<listitem><para>
+KDEBINDIR -> TDEBINDIR
+</para></listitem>
+<listitem><para>
+KDEDIR -> TDEDIR
+</para></listitem>
+<listitem><para>
+KDEDIRS -> TDEDIRS
+</para></listitem>
+<listitem><para>
+KDEHOME -> TDEDEHOME
+</para></listitem>
+<listitem><para>
+KDEROOTHOME -> TDEROOTHOME
+</para></listitem>
+<listitem><para>
+KDESRCDIR -> TDESRCDIR
+</para></listitem>
+<listitem><para>
+KDESU_USER -> TDESU_USER
+</para></listitem>
+<listitem><para>
+KDESYCOCA -> TDESYCOCA
+</para></listitem>
+<listitem><para>
+KDETMP -> TDETMP
+</para></listitem>
+<listitem><para>
+KDEVARTMP -> TDEVARTMP
+</para></listitem>
+<listitem><para>
+KDEWM -> TDEWM
+</para></listitem>
+<listitem><para>
+KDE_FORK_SLAVES -> TDE_FORK_SLAVES
+</para></listitem>
+<listitem><para>
+KDE_FULL_SESSION -> TDE_FULL_SESSION
+</para></listitem>
+<listitem><para>
+KDE_KIOSK_NO_PROFILES -> TDE_KIOSK_NO_PROFILES
+</para></listitem>
+<listitem><para>
+KDE_KIOSK_NO_RESTRICTIONS -> TDE_KIOSK_NO_RESTRICTIONS
+</para></listitem>
+<listitem><para>
+KDE_LANG -> TDE_LANG
+</para></listitem>
+<listitem><para>
+KDE_MAKE_VERSION -> TDE_MAKE_VERSION
+</para></listitem>
+<listitem><para>
+KDE_MALLOC -> TDE_MALLOC
+</para></listitem>
+<listitem><para>
+KDE_MULTIHEAD -> TDE_MULTIHEAD
+</para></listitem>
+<listitem><para>
+KDE_NO_IPV6 -> TDE_NO_IPV6
+</para></listitem>
+<listitem><para>
+KDE_SESSION_UID -> TDE_SESSION_UID
+</para></listitem>
+<listitem><para>
+KDE_UTF8_FILENAMES -> TDE_UTF8_FILENAMES
+</para></listitem>
+<listitem><para>
+KDE_VERSION -> TDE_VERSION
+</para></listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="release-notes-class-and-library-renaming">
+<title>Class and Library Renaming</title>
+
+<itemizedlist>
+
+<listitem><para>
+KABC -> TDEABC
+</para></listitem>
+<listitem><para>
+KAbout -> TDEAbout
+</para></listitem>
+<listitem><para>
+KAboutData -> TDEAboutData
+</para></listitem>
+<listitem><para>
+KApplication -> TDEApplication
+</para></listitem>
+<listitem><para>
+KBuffer -> TDEBuffer
+</para></listitem>
+<listitem><para>
+KClipboard -> TDEClipboard
+</para></listitem>
+<listitem><para>
+KCModule -> TDECModule
+</para></listitem>
+<listitem><para>
+KComp -> TDEComp
+</para></listitem>
+<listitem><para>
+KConfig -> TDEConfig
+</para></listitem>
+<listitem><para>
+KCmd -> TDECmd
+</para></listitem>
+<listitem><para>
+KCmdLineArgs -> TDECmdLineArgs
+</para></listitem>
+<listitem><para>
+KGlobal -> TDEGlobal
+</para></listitem>
+<listitem><para>
+KIcon -> TDEIcon
+</para></listitem>
+<listitem><para>
+KInstance -> TDEInstance
+</para></listitem>
+<listitem><para>
+KIO -> TDEIO
+</para></listitem>
+<listitem><para>
+KIO_EXPORT -> TDEIO_EXPORT
+</para></listitem>
+<listitem><para>
+KIOBuffer -> TDEIOBuffer
+</para></listitem>
+<listitem><para>
+KIOConfig -> TDEIOConfig
+</para></listitem>
+<listitem><para>
+KIOInput -> TDEIOInput
+</para></listitem>
+<listitem><para>
+KIOJob -> TDEIOJob
+</para></listitem>
+<listitem><para>
+KListBox -> TDEListBox
+</para></listitem>
+<listitem><para>
+KListView -> TDEListView
+</para></listitem>
+<listitem><para>
+KListViewItem -> TDEListViewItem
+</para></listitem>
+<listitem><para>
+KLocale -> TDELocale
+</para></listitem>
+<listitem><para>
+KLock -> TDELock
+</para></listitem>
+<listitem><para>
+KPopupMenu -> TDEPopupMenu
+</para></listitem>
+<listitem><para>
+KProcess -> TDEProcess
+</para></listitem>
+<listitem><para>
+KServer -> TDEServer
+</para></listitem>
+<listitem><para>
+KShared -> TDEShared
+</para></listitem>
+<listitem><para>
+KSocket -> TDESocket
+</para></listitem>
+<listitem><para>
+KStandardDirs -> TDEStandardDirs
+</para></listitem>
+<listitem><para>
+KStartupInfo -> TDEStartupInfo
+</para></listitem>
+<listitem><para>
+KStyle -> TDEStyle
+</para></listitem>
+<listitem><para>
+KTrader -> TDETrader
+</para></listitem>
+<listitem><para>
+KZone -> TDEZone
+</para></listitem>
+<listitem><para>
+kdefx -> tdefx
+</para></listitem>
+<listitem><para>
+kdeinit -> tdeinit
+</para></listitem>
+<listitem><para>
+kiobuffer -> tdeiobuffer
+</para></listitem>
+<listitem><para>
+kioslave -> tdeioslave
+</para></listitem>
+<listitem><para>
+kwin -> twin
+</para></listitem>
+<listitem><para>
+libkdecorations -> libtdecorations
+</para></listitem>
+<listitem><para>
+libkdecore -> libtdecore
+</para></listitem>
+<listitem><para>
+libkdefakes -> libtdefakes
+</para></listitem>
+<listitem><para>
+libkdepim -> libtdepim
+</para></listitem>
+<listitem><para>
+libkdeprint -> libtdeprint
+</para></listitem>
+<listitem><para>
+libkdesu -> libtdesu
+</para></listitem>
+<listitem><para>
+libkdeui -> libtdeui
+</para></listitem>
+<listitem><para>
+lkabc -> ltdeabc
+</para></listitem>
+<listitem><para>
+lkdnssd -> ltdednssd
+</para></listitem>
+<listitem><para>
+lkfile -> ltdefile
+</para></listitem>
+<listitem><para>
+lkhtml -> ltdehtml
+</para></listitem>
+<listitem><para>
+lkio -> ltdeio
+</para></listitem>
+<listitem><para>
+lkimproxy -> ltdeimproxy
+</para></listitem>
+<listitem><para>
+libkio -> libtdeio
+</para></listitem>
+<listitem><para>
+lknewstuff -> ltdenewstuff
+</para></listitem>
+<listitem><para>
+lkparts -> ltdeparts
+</para></listitem>
+<listitem><para>
+lkspell -> ltdespell
+</para></listitem>
+<listitem><para>
+lkunittest -> ltdeunittest
+</para></listitem>
+<listitem><para>
+lkutils -> ltdeutils
+</para></listitem>
+<listitem><para>
+makekdewidgets -> maketdewidgets
+</para></listitem>
+
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="release-notes-thank-you">
+<title>Thank You!</title>
+
+<para>Thank you for using and supporting &tde;.</para>
+
+</sect2>
+
+</sect1>

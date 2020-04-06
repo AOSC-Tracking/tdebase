@@ -1,0 +1,50 @@
+<sect1 id="release-notes-r14.0.3">
+<title>R14.0.3 Release Notes</title>
+
+<para>R14.0.3 is the third maintenance release of the R14.0 series,
+and is built on and improves the previous R14.0.2 version.</para>
+<para>Maintenance releases are intended to promptly bring bug fixes
+to users, while preserving overall stability through the avoidance
+of both new features and major codebase re-factoring.</para>
+
+<sect2 id="release-notes-r14.0.3-notes">
+<title>Important fixes</title>
+
+<para>This section highlights some of the most important fixes introduced by this
+release.</para>
+
+<itemizedlist>
+<listitem>
+  <para>Bug fixes</para>
+  <itemizedlist>
+  <listitem><para>Fixed floppy support in media manager</para></listitem>
+  <listitem><para>Fixed an annoying bug with zip file support that prevented some applications (such as KOffice and k3b) from opening their own saved files</para></listitem>
+  <listitem><para>Fixed detection of mime types not contained in TDE settings (using magic library) which prevented sound files from being played in some recent distros</para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Enhancements</para>
+  <itemizedlist>
+  <listitem><para>Improved handling of various types of discs in media manager</para></listitem>
+  <listitem><para>Added giflib 5.1 support</para></listitem>
+  <listitem><para>Added ruby 2.2 support</para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Security</para>
+  <itemizedlist>
+  <listitem><para>Fixed a bunch of security issues</para></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+</sect2>
+
+<sect2 id="release-notes-r14.0.3-freebsd">
+<title>FreeBSD Support</title>
+<para>There are still some issues that need to be addressed before full
+FreeBSD support can be achieved. Additional developers or contributors
+willing to help porting the remaining features and applications are
+always welcome.</para>
+</sect2>
+
+</sect1>

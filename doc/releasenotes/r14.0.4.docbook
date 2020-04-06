@@ -1,0 +1,65 @@
+<sect1 id="release-notes-r14.0.4">
+<title>R14.0.4 Release Notes</title>
+
+<para>R14.0.4 is the fourth maintenance release of the R14.0 series,
+and is built on and improves the previous R14.0.3 version.</para>
+<para>Maintenance releases are intended to promptly bring bug fixes
+to users, while preserving overall stability through the avoidance
+of both new features and major codebase re-factoring.</para>
+
+<sect2 id="release-notes-r14.0.4-notes">
+<title>Important fixes</title>
+
+<para>This section highlights some of the most important fixes introduced by this
+release.</para>
+
+<itemizedlist>
+<listitem>
+  <para>Bug fixes</para>
+  <itemizedlist>
+  <listitem><para>Fixed handling of certificate “permanent” acceptance</para></listitem>
+  <listitem><para>Fixed screensaver activation and computer suspend code interaction</para></listitem>
+  <listitem><para>Fixed occasional Konqueror crashes on kjs/regexp</para></listitem>
+  <listitem><para>Fixed utf8 handling in tdeabc, libkcal, CardDAV</para></listitem>
+  <listitem><para>Fixed invisible (miniature) icons in the tray</para></listitem>
+  <listitem><para>Fixed positioning of main panel to the screen side when the clock is displayed in the system tray</para></listitem>
+  <listitem><para>Fixed crash of some non-TDE applications due to wrong X symbolic color database</para></listitem>
+  <listitem><para>Fixed “ESC” support in TDEPowersave countdown dialog</para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Enhancements</para>
+  <itemizedlist>
+  <listitem><para>Switch to new jabber protocol in Kopete</para></listitem>
+  <listitem><para>Improved startup of tdehw dbus daemon</para></listitem>
+  <listitem><para>Improved support for TQt python scripts</para></listitem>
+  <listitem><para>Improved handling of folder location in save dialog</para></listitem>
+  <listitem><para>Relaxed time limit for computer suspend settings in TDEPowersave</para></listitem>
+  <listitem><para>Updated METAR URL in KWeather</para></listitem>
+  <listitem><para>Added CUPS 2.2 support</para></listitem>
+  <listitem><para>Added FFMPEG3 support</para></listitem>
+  <listitem><para>Added GCC 6.x support</para></listitem>
+  <listitem><para>Added GStreamer 1.x support</para></listitem>
+  <listitem><para>Added rar 5.x support</para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Security</para>
+  <itemizedlist>
+  <listitem><para>Fixed security issues</para></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.0.4-freebsd">
+<title>FreeBSD Support</title>
+<para>Support for FreeBSD is still partial and some new issues have arisen
+with the latest versions of FreeBSD. The TDE team will try their best to
+improve support for FreeBSD but progress will probably be slow. Additional
+developers or contributors willing to help porting the remaining features
+and applications are always welcome.</para>
+</sect2>
+
+</sect1>
