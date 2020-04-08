@@ -3,7 +3,7 @@
 # A script to perform R14.0.0 XDG compliance updates.
 
 SCRIPT_NAME="$(basename -- "$0")"
-SCRIPT_VERSION=202004050
+SCRIPT_VERSION=202004080
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -884,11 +884,19 @@ if [ "$R14_VERSION" -lt "201401052" ]; then
   fi
 fi
 
-if [ "$R14_VERSION" -lt "202004050" ]; then
+if [ "$R14_VERSION" -lt "202004080" ]; then
   # Update the user's custom menu. Any custom menu should have been renamed a few lines above.
   if [ -r $USER_DIR/.config/menus/applications-tdemenuedit.menu ]; then
-    # KDE/TDE 3.5.x or converted KDE4. No need to update a pre R14 menu.
+    grep "<Filename>kde-" "$USER_DIR/.config/menus/applications-tdemenuedit.menu" > "${CACHE_DIR}/${SCRIPT_NAME}-tdemenu-rename.txt" 2>&1
     sed -i 's|<Filename>kde-|<Filename>tde-|g' $USER_DIR/.config/menus/applications-tdemenuedit.menu
+    cat "${CACHE_DIR}/${SCRIPT_NAME}-tdemenu-rename.txt" | sed -n "s|^\s*<Filename>kde-\(.*\)<\/Filename>\s*$|\1|p" | \
+    while read kde_filename; do
+      if [   -f "$USER_DIR/.local/share/applications/kde-$kde_filename" ] && \
+         [ ! -f "$USER_DIR/.local/share/applications/tde-$kde_filename" ]; then
+        mv "$USER_DIR/.local/share/applications/kde-$kde_filename" "$USER_DIR/.local/share/applications/tde-$kde_filename"
+      fi
+    done
+    rm "${CACHE_DIR}/${SCRIPT_NAME}-tdemenu-rename.txt"
   fi
 fi
 
