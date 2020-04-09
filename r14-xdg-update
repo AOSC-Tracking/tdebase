@@ -887,14 +887,21 @@ fi
 if [ "$R14_VERSION" -lt "202004080" ]; then
   # Update the user's custom menu. Any custom menu should have been renamed a few lines above.
   if [ -r $USER_DIR/.config/menus/applications-tdemenuedit.menu ]; then
-    grep "<Filename>kde-" "$USER_DIR/.config/menus/applications-tdemenuedit.menu" > "${CACHE_DIR}/${SCRIPT_NAME}-tdemenu-rename.txt" 2>&1
-    sed -i 's|<Filename>kde-|<Filename>tde-|g' $USER_DIR/.config/menus/applications-tdemenuedit.menu
-    cat "${CACHE_DIR}/${SCRIPT_NAME}-tdemenu-rename.txt" | sed -n "s|^\s*<Filename>kde-\(.*\)<\/Filename>\s*$|\1|p" | \
+    sed -n "s|^\s*<Filename>kde-\(.*\)<\/Filename>\s*$|\1|p" \
+      < "$USER_DIR/.config/menus/applications-tdemenuedit.menu" \
+      > "${CACHE_DIR}/${SCRIPT_NAME}-tdemenu-rename.txt"
+    cat "${CACHE_DIR}/${SCRIPT_NAME}-tdemenu-rename.txt" | \
     while read kde_filename; do
-      if [   -f "$USER_DIR/.local/share/applications/kde-$kde_filename" ] && \
-         [ ! -f "$USER_DIR/.local/share/applications/tde-$kde_filename" ]; then
-        mv "$USER_DIR/.local/share/applications/kde-$kde_filename" "$USER_DIR/.local/share/applications/tde-$kde_filename"
+      if [ -f "$USER_DIR/.local/share/applications/kde-$kde_filename" ]; then
+        if [ -f "$USER_DIR/.local/share/applications/tde-$kde_filename" ]; then
+          continue
+        else
+          mv "$USER_DIR/.local/share/applications/kde-$kde_filename" \
+             "$USER_DIR/.local/share/applications/tde-$kde_filename"
+        fi
       fi
+      sed -i 's|<Filename>kde-$kde_filename|<Filename>tde-$kde_filename|g' \
+        $USER_DIR/.config/menus/applications-tdemenuedit.menu
     done
     rm "${CACHE_DIR}/${SCRIPT_NAME}-tdemenu-rename.txt"
   fi
