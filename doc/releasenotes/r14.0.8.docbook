@@ -1,0 +1,104 @@
+<sect1 id="release-notes-r14.0.8">
+<title>R14.0.8 Release Notes</title>
+
+<para>R14.0.8 is the eighth maintenance release of the R14.0 series,
+and is built on and improves the previous R14.0.7 version.</para>
+<para>Maintenance releases are intended to promptly bring bug fixes
+to users, while preserving overall stability through the avoidance
+of both major new features and major codebase re-factoring.</para>
+
+<sect2 id="release-notes-r14.0.8-notes">
+<title>Important fixes</title>
+
+<para>This section highlights some of the most important fixes introduced by this
+release.</para>
+
+<itemizedlist>
+<listitem>
+  <para>Bug fixes</para>
+  <itemizedlist>
+  <listitem><para>Fixed avahi support</para></listitem>
+  <listitem><para>Fixed parsing of CPU cores frequency on some hardware</para></listitem>
+  <listitem><para>Fixed parsing of battery information on some hardware</para></listitem>
+  <listitem><para>Fixed detection of closing the lid on some hardware</para></listitem>
+  <listitem><para>Fixed incorrect update of KNote "last modified" field</para></listitem>
+  <listitem><para>Fixed several FTBFS caused by newer library versions</para></listitem>
+  <listitem><para>Fixed K3B crashes when trying to write an audio CD with cd text</para></listitem>
+  <listitem><para>Fixed tdenetworkmanager crashes</para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Enhancements</para>
+  <itemizedlist>
+  <listitem><para>Many translation updates (thanks to all translators)</para></listitem>
+  <listitem><para>Several packages have been migrated to CMake build system</para></listitem>
+  <listitem><para>For some packages have been dropped the automake build system</para></listitem>
+  <listitem><para>Added option to disable tdekbdledsync</para></listitem>
+  <listitem><para>Added option to select default file manager</para></listitem>
+  <listitem><para>The selected default terminal is also used for Open terminal here</para></listitem>
+  <listitem><para>Improved LibreSSL support</para></listitem>
+  <listitem><para>Improved musl libc support</para></listitem>
+  <listitem><para>Improved support for DilOS distribution</para></listitem>
+  <listitem><para>Improved support for XDG folders</para></listitem>
+  <listitem><para>Improved support for Pinebook Pro</para></listitem>
+  <listitem><para>Initial work to support reproducible builds</para></listitem>
+  <listitem><para>Initial support for translating desktop files using Weblate</para></listitem>
+  <listitem><para>Using Ninja build for Cmake building on FreeBSD</para></listitem>
+  <listitem><para>Dropped Kerry and code related to Beagle search</para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Security</para>
+  <itemizedlist>
+  <listitem><para>CVE-2019-14744: Solved similar cases of arbitrary code execution from .desktop files</para></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+</sect2>
+
+<sect2 id="release-notes-r14.0.8-hints">
+<title>Useful notes on upgrading</title>
+<para>When upgrading from previous releases you may run into some of
+the following use cases. Follow the recommended instructions to minimize
+potential problems.</para>
+
+<sect3 id="release-notes-r14.0.8-hints-dbus">
+<title>Removed dbus policy at_console</title>
+<para>A newer version of SystemD has removed the dbus policy at_console.
+Because the TDE does not yet contain a policykit agent (this will be addressed
+in R14.1.0), a plugdev group policy has been added in the default TDE Hardware
+Control daemon dbus configuration. This group should be available on most
+systems. To enable communication with the TDE Hardware Control daemon, add
+users to the plugdev group.</para>
+<para>Note: If a policykit is installed but a policykit agent is not
+available, it does not work well. In this case, it is advisable to
+uninstall policykit to allow the use of dbus rules.</para>
+</sect3>
+
+<sect3 id="release-notes-r14.0.8-hints-r14-xdg-tests">
+<title>Test failures in r14-xdg-update</title>
+<para>If you experience test failures at login time during the execution of
+the r14-xdg-update script, please try logging out and logging in again. Most
+failures will be automatically fixed. In case of persistent failures that
+don't get automatically recovered, please contact the TDE team on their
+official channels (mailing lists or IRC).</para>
+<para>For example you may experience TEST9 failures if you had previously
+edited your TDE menu and there are references to both 'kde-*' and 'tde-*'
+files for the same application. This will require manual editing to
+determine what is the correct way to fix the problem.</para>
+</sect3>
+
+</sect2>
+
+
+<sect2 id="release-notes-r14.0.8-freebsd">
+<title>FreeBSD Support</title>
+<para>TDE continues to offer support for FreeBSD, although still partial
+given some of the new issues that have arisen with the latest versions
+of FreeBSD. The TDE team will try their best to improve support for
+FreeBSD but progress will probably be slow. Additional developers or
+contributors willing to help porting the remaining features and
+applications are always welcome.</para>
+</sect2>
+
+</sect1>

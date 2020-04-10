@@ -11,6 +11,7 @@
   <!ENTITY r14.0.5 SYSTEM "r14.0.5.docbook">
   <!ENTITY r14.0.6 SYSTEM "r14.0.6.docbook">
   <!ENTITY r14.0.7 SYSTEM "r14.0.7.docbook">
+  <!ENTITY r14.0.8 SYSTEM "r14.0.8.docbook">
 
 ]>
 
@@ -60,6 +61,7 @@ role, including bug fixing, enhancements, testing, etc.</para>
 
 </sect1>
 
+&r14.0.8;
 &r14.0.7;
 &r14.0.6;
 &r14.0.5;
