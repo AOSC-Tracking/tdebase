@@ -83,8 +83,6 @@ KateApp::KateApp (TDECmdLineArgs *args)
   kdDebug()<<"Setting KATE_PID: '"<<getpid()<<"'"<<endl;
   ::setenv( "KATE_PID", TQString(TQString("%1").arg(getpid())).latin1(), 1 );
 
-  connect(this, TQT_SIGNAL(aboutToQuit()), this, TQT_SLOT(slotAboutToQuit()));
-
   // handle restore different
   if (isRestored())
   {
@@ -299,7 +297,7 @@ bool KateApp::startupKate()
 
 void KateApp::shutdownKate(KateMainWindow *win)
 {
-  if (!win->queryClose_internal() || !query_session_close())
+  if (!win->queryClose_internal())
     return;
 
   // detach the dcopClient

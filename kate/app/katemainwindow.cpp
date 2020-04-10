@@ -345,23 +345,31 @@ bool KateMainWindow::queryClose_internal() {
   uint documentCount=KateDocManager::self()->documents();
 
   if ( !showModOnDiskPrompt() )
+  {
     return false;
+  }
 
   TQPtrList<Kate::Document> modifiedDocuments=KateDocManager::self()->modifiedDocumentList();
-  bool shutdown=(modifiedDocuments.count()==0);
+  bool shutdown = (modifiedDocuments.count() == 0);
 
-  if (!shutdown) {
-    shutdown=KateSaveModifiedDialog::queryClose(this,modifiedDocuments);
+  if (!shutdown)
+  {
+    shutdown = KateSaveModifiedDialog::queryClose(this,modifiedDocuments);
   }
 
   if ( KateDocManager::self()->documents() > documentCount ) {
     KMessageBox::information (this,
                               i18n ("New file opened while trying to close Kate, closing aborted."),
                               i18n ("Closing Aborted"));
-    shutdown=false;
+    return false;
   }
 
-  return shutdown;
+  if (!shutdown)
+  {
+    return false;
+  }
+
+  return KateApp::self()->query_session_close();
 }
 
 /**
@@ -385,7 +393,7 @@ bool KateMainWindow::queryClose()
 
   // last one: check if we can close all documents and sessions, try run
   // and save docs if we really close down !
-  if (queryClose_internal() && KateApp::self()->query_session_close())
+  if (queryClose_internal())
   {
     // detach the dcopClient
     KateApp::self()->dcopClient()->detach();
