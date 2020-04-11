@@ -341,11 +341,11 @@ filter over sessions.</para>
 
 <variablelist>
 <varlistentry>
-<term><guilabel>Backgound Shading</guilabel></term>
+<term><guilabel>Background Shading</guilabel></term>
 <listitem><para>This section allows you to enable or disable the background
 shading visualization of your recent activity, and chose which colors to use if
 enabled. See the section about <link
-linkend="kate-mdi-tools-document-list">The Document List</link> for more about
+linkend="kate-mdi-tools-documents-list">The Document List</link> for more about
 this feature.</para></listitem>
 </varlistentry>
 <varlistentry>

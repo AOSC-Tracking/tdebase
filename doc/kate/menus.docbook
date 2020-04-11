@@ -1126,55 +1126,60 @@ Editor...</guimenuitem></menuchoice></para></listitem>
 <title>The <guimenu>Sessions</guimenu> Menu</title>
 
 <para>This menu contains entries for using and managing &kate; sessions.
-For more information, read <link
-linkend="fundamentals-using-sessions">Using Sessions</link>.</para>
+For more information, read
+<link linkend="fundamentals-using-sessions">Using Sessions</link> and the
+<link linkend="kate-mdi-tools-sessions">Sessions panel</link>.</para>
 
 <variablelist>
-
-<varlistentry id="sessions-new">
-<term><menuchoice><guimenu>Sessions</guimenu>
-<guimenuitem>New</guimenuitem></menuchoice></term>
-<listitem><para>Creates a new empty session. All currently open files will
-be closed.</para></listitem>
-
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Select session</guimenuitem></menuchoice></term>
+<listitem><para>This submenu allows to select and switch to a given session.</para></listitem>
 </varlistentry>
-
-<varlistentry id="sessions-open">
-<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Open...</guimenuitem>
-</menuchoice></term>
-<listitem><para>Open an existing session. The Session Chooser dialog is
-displayed to let you choose one.</para></listitem>
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>New</guimenuitem></menuchoice></term>
+<listitem><para>Creates a new session and switch to it.</para></listitem>
 </varlistentry>
-
-<varlistentry id="sessions-quick-open">
-<term><menuchoice><guimenu>Sessions</guimenu><guisubmenu>Quick Open</guisubmenu>
-</menuchoice></term>
-<listitem><para>This submenu lets you open an existing session.</para>
-</listitem>
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Save</guimenuitem></menuchoice></term>
+<listitem><para>Save the current session.</para></listitem>
 </varlistentry>
-
-<varlistentry id="sessions-save">
-<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Save</guimenuitem>
-</menuchoice></term>
-<listitem><para>Save the current session. If the session is anonymous, you will
-be prompted for a session name.</para></listitem>
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Save as</guimenuitem></menuchoice></term>
+<listitem><para>Save the selected session as a new session. A checkbox allows to choose whether to switch
+to the new session after saving or not.</para></listitem>
 </varlistentry>
-
-<varlistentry id="sessions-save-as">
-<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Save
-As...</guimenuitem></menuchoice></term>
-<listitem><para>Save the current session under a new name. You are prompted for
-a name to use.</para></listitem>
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Rename</guimenuitem></menuchoice></term>
+<listitem><para>Rename the selected session.</para></listitem>
 </varlistentry>
-
-<varlistentry id="sessions-manage">
-<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Manage...</guimenuitem>
-</menuchoice></term>
-<listitem><para>Displays the Session Manager dialog which allows you to rename
-and delete sessions.</para></listitem>
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Delete</guimenuitem></menuchoice></term>
+<listitem><para>Delete the selected session. If the active session is deleted, a new session will
+be automatically created.</para></listitem>
 </varlistentry>
-
-
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Reload</guimenuitem></menuchoice></term>
+<listitem><para>Reload the active session from the last saved state.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Activate</guimenuitem></menuchoice></term>
+<listitem><para>Close the active session and switch to the selected one. The same action can be
+performed by activating the selected session entry in the list using the mouse of the Enter key.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Toggle read only</guimenuitem></menuchoice></term>
+<listitem><para>Allows to set whether the selected session is read only or not. A read only session will not change
+its properties and can't be saved, although documents can be edited and saved as normal. This option is great for
+creating template sessions.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Move up</guimenuitem></menuchoice></term>
+<listitem><para>Move the selected session one position up in the list.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice><guimenu>Sessions</guimenu><guimenuitem>Move down</guimenuitem></menuchoice></term>
+<listitem><para>Move the selected session one position down in the list.</para></listitem>
+</varlistentry>
 </variablelist>
 
 </sect1>
@@ -1258,7 +1263,7 @@ Dialog.</para>
 </sect1>
 
 <sect1 id="window-menu">
-<title>the <guimenu>Window</guimenu> Menu</title>
+<title>The <guimenu>Window</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -1366,7 +1371,7 @@ commands those will of course continue to work.</para></listitem>
 <anchor id="window-toolviews-show-filelist"/>
 <menuchoice>
 <guimenu>Window</guimenu><guisubmenu>Tool Views</guisubmenu>
-<guimenuitem>Show Documents</guimenuitem>
+<guimenuitem>Show/Hide Documents</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
@@ -1384,6 +1389,19 @@ commands those will of course continue to work.</para></listitem>
 </term>
 <listitem>
 <para>Toggle the display of &kate;'s Filesystem Browser</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<anchor id="window-toolviews-show-sessions"/>
+<menuchoice>
+<guimenu>Window</guimenu><guisubmenu>Tool Views</guisubmenu>
+<guimenuitem>Show/Hide Sessions</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Toggle the display of &kate;'s Sessions panel</para>
 </listitem>
 </varlistentry>
 

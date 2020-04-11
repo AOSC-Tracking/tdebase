@@ -258,7 +258,7 @@ site opened in one of &konqueror;'s windows.
 <title>Working with &kate;</title>
 <para>
 <link linkend="quick-start">Quick Start</link> will show you how to
-toggle four simple options that will let you configure some of &kate;'s
+toggle simple options that will let you configure some of &kate;'s
 more powerful features right away. <link linkend="keystroke-commands">
 Shortcuts</link> lays out some of the default keystroke
 shortcuts for those who can't or don't want to use a mouse.
@@ -279,8 +279,8 @@ usual labeled icons. And above that, a menubar.
 </para>
 
 <para>
-The left-hand window is a side bar. It combines the Documents
-and Filesystem Browser windows. Switch between the two by clicking on the tabs
+The left-hand window is a side bar. It combines the Documents panel,
+Filesystem Browser and Sessions panel. Switch among the three by clicking on the tabs
 to the left of the window.</para>
 
 <para>
@@ -290,10 +290,10 @@ name of the file. Use the Filesystem Browser window to open files.
 </para>
 
 <para>
-You can toggle the Documents and Filesystem Browser window on and off in
+You can toggle the Documents, Filesystem Browser and Sessions window on and off in
 <menuchoice><guimenu>Window</guimenu><guimenu>Tool Views</guimenu></menuchoice>
 menu. This menu offers you your first glimpse into &kate;'s power and
-flexibility.  In this section we'll look at three items:
+flexibility.  In this section we'll look at four items:
 </para>
 
 <variablelist>
@@ -306,19 +306,30 @@ flexibility.  In this section we'll look at three items:
 </term>
 <listitem>
 <para>
-Toggles the Documents on and off. If the Documents/Filesystem Browser side bar
-window is not open, &kate; will open the side bar window.</para>
-
+Toggles the Documents panel on and off. It will display the Documents panel in the side bar
+if another panel was shown or will toggle the side bar open or closed otherwise.
+</para>
 </listitem>
 </varlistentry>
+
 <varlistentry>
 <term><menuchoice><guimenuitem>Show/Hide
 Filesystem Browser</guimenuitem></menuchoice></term>
 <listitem>
 <para>
-Toggles the Filesystem Browser on and off. This menu item is the same as
-<guimenuitem>Show Documents</guimenuitem> with one difference.  Toggling
-it on launches the window with the Filesystem Browser on top.
+Toggles the Filesystem Browser on and off. It will display the Filesystem Browser in the side bar
+if another panel was shown or will toggle the side bar open or closed otherwise.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenuitem>Show/Hide
+Sessions</guimenuitem></menuchoice></term>
+<listitem>
+<para>
+Toggles the Sessions panel on and off.  It will display the Sessions panel in the side bar
+if another panel was shown or will toggle the side bar open or closed otherwise.
 </para>
 </listitem>
 </varlistentry>
@@ -528,28 +539,6 @@ the configuration dialog or use <option>--start</option> with an empty string:
 exported to the environment variable <envar>KATE_PID</envar>. When opening files
 from the built in terminal, Kate will automatically select the current instance
 if nothing else is indicated on the command line.</para>
-
-<sect2 id="old-behavior">
-<title>Restoring old style &kate; behavior</title>
-
-<para>When you get used to using sessions you will hopefully see that they
-provide a very simple and efficient tool for working in different areas.
-However, if you prefer the old &kate; behavior (one instance opens all files),
-you can easily achieve that by following this simple strategy:
-
-<itemizedlist>
-<listitem><para>Make &kate; always start with the <option>--use</option>
-parameter by adding that to the command in the application preferences,
-and additionally using a shell alias.</para></listitem>
-<listitem><para>Configure &kate; to load the last used session at startup.</para>
-</listitem>
-<listitem><para>Configure &kate; to save the file list when closing a session.
-</para></listitem>
-<listitem><para>Load the default session once</para></listitem>
-</itemizedlist>
-</para>
-
-</sect2>
 
 </sect1>
 

@@ -33,9 +33,10 @@ work with your documents.</para>
 windows:</para>
 
 <itemizedlist>
-<listitem><para><link linkend="kate-mdi-tools-document-list">The Document List</link></para></listitem>
+<listitem><para><link linkend="kate-mdi-tools-documents-list">The Document List</link></para></listitem>
 <listitem><para><link linkend="kate-mdi-tools-file-selector">The Filesystem
 Browser</link></para></listitem>
+<listitem><para><link linkend="kate-mdi-tools-sessions">The Sessions panel</link></para></listitem>
 <listitem><para><link linkend="kate-mdi-tools-konsole">The Built in Terminal Emulator</link></para></listitem>
 </itemizedlist>
 
@@ -94,11 +95,11 @@ for instructions on how to split the current editor.</para>
 
 </sect1>
 
-<sect1 id="kate-mdi-tools-document-list">
+<sect1 id="kate-mdi-tools-documents-list">
 <title>The Document List</title>
 
-<para><indexterm><primary>Document list</primary></indexterm>
-The document list displays a list of all documents currently open in
+<para><indexterm><primary>Documents list</primary></indexterm>
+The Documents list displays a list of all documents currently open in
 &kate;. Modified files will have a small <guiicon>floppy
 disk</guiicon> icon on their left to indicate that state.</para>
 
@@ -262,6 +263,81 @@ editing area.</para>
 
 </sect1>
 
+<sect1 id="kate-mdi-tools-sessions">
+<title>The Sessions panel</title>
+
+<para><indexterm><primary>Sessions Panel</primary></indexterm>
+The Sessions panel displays a list of all existing &kate; sessions and
+allows to manage them easily.</para>
+
+<para>The Sessions panel consists of a toolbar at the top followed by the list of known sessions.
+The active session is marked by an icon on its right.</para>
+<para>Please note that the active session and the currently selected session in the list may not be the same.
+The difference is important because most of the session commands work on the currently selected session
+and not on the active session.</para>
+
+<variablelist>
+<varlistentry>
+<term>The session toolbar</term>
+<listitem>
+<para>It contains the following toolbar buttons:</para>
+<variablelist>
+<varlistentry>
+<term><guibutton>New</guibutton></term>
+<listitem><para>Creates a new session and switch to it.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Save</guibutton></term>
+<listitem><para>Save the current session.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Save as</guibutton></term>
+<listitem><para>Save the selected session as a new session. A checkbox allows to choose whether to switch
+to the new session after saving or not.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Rename</guibutton></term>
+<listitem><para>Rename the selected session.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Delete</guibutton></term>
+<listitem><para>Delete the selected session. If the active session is deleted, a new session will
+be automatically created.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Reload</guibutton></term>
+<listitem><para>Reload the active session from the last saved state.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Activate</guibutton></term>
+<listitem><para>Close the active session and switch to the selected one. The same action can be
+performed by activating the selected session entry in the list using the mouse of the Enter key.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Toggle read only</guibutton></term>
+<listitem><para>Allows to set whether the selected session is read only or not. A read only session will not change
+its properties and can't be saved, although documents can be edited and saved as normal. This option is great for
+creating template sessions.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Move up</guibutton></term>
+<listitem><para>Move the selected session one position up in the list.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Move down</guibutton></term>
+<listitem><para>Move the selected session one position down in the list.</para></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>The session list</term>
+<listitem><para>A list of all existing sessions.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
 
 <sect1 id="kate-mdi-tools-konsole">
 <title>The Built in Terminal Emulator</title>
