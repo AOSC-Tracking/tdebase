@@ -87,6 +87,8 @@ KICCConfig::KICCConfig(TQWidget *parent, const char *name, const TQStringList &)
   setRootOnlyMsg(i18n("<b>The global color profile is a system wide setting, and requires administrator access</b><br>To alter the system's global profile, click on the \"Administrator Mode\" button below."));
 //   setUseRootOnlyMsg(true);	// Setting this hides the Apply button!
 
+  base->systemIccFile->setFilter("*.icc|ICC Standard Color Profiles (*.icc)\n*.icm|Windows(R) Color Profiles (*.icm)");
+
   connect(base->systemEnableSupport, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
   connect(base->systemEnableSupport, TQT_SIGNAL(toggled(bool)), base->systemIccFile, TQT_SLOT(setEnabled(bool)));
   connect(base->enableSupport, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
