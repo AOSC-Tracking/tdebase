@@ -76,15 +76,39 @@ void KateSessionMenu::initialize()
 
   insertSeparator();
 
-  TQStringList list = TDEGlobal::dirs()->findAllResources( "data", "kate/sessions/*.katesession", false, true);
-  for (TQStringList::ConstIterator it = list.begin(); it != list.end(); ++it)
+  TQString configFile = locateLocal("data", "kate/sessions") + "/sessions.list";
+  if (TDEGlobal::dirs()->exists(configFile))
   {
-    KSimpleConfig config( *it, true );
-    config.setGroup( "General" );
-    m_sessions.append( config.readEntry( "Name" ) );
+    // Read new style configuration (from TDE R14.1.0)
+    KSimpleConfig *config = new KSimpleConfig(configFile, true);
+    config->setGroup("Sessions list");
+    int sessionsCount = config->readNumEntry("Sessions count", 0);
+    for (int i = 0;  i < sessionsCount;  ++i)
+    {
+      TQString urlStr = config->readEntry(TQString("URL_%1").arg(i));
+      if (!urlStr.isEmpty() && TDEGlobal::dirs()->exists(urlStr))
+      {
+        // Filter out empty URLs or non existing sessions
+        KSimpleConfig *sessionConfig = new KSimpleConfig(urlStr, true);
+        sessionConfig->setGroup("General");
+        // Session general properties
+        TQString sessionName = sessionConfig->readEntry("Name", i18n("Unnamed"));
+        m_sessions.append( sessionName );
+      }
+    }
+  }
+  else
+  {
+    TQStringList list = TDEGlobal::dirs()->findAllResources( "data", "kate/sessions/*.katesession", false, true);
+    for (TQStringList::ConstIterator it = list.begin(); it != list.end(); ++it)
+    {
+      KSimpleConfig config( *it, true );
+      config.setGroup( "General" );
+      m_sessions.append( config.readEntry( "Name" ) );
+    }
+    m_sessions.sort();
   }
 
-  m_sessions.sort();
 
   for ( TQStringList::ConstIterator it1 = m_sessions.begin(); it1 != m_sessions.end(); ++it1 )
   {
