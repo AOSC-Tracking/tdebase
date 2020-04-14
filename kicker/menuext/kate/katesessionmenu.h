@@ -34,6 +34,7 @@ class KateSessionMenu : public KPanelMenu {
 
   protected slots:
     virtual void slotExec( int id );
+    void reloadSessionsList();
 
   private:
     TQStringList m_sessions;

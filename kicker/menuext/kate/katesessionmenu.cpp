@@ -117,7 +117,7 @@ void KateSessionMenu::initialize()
 
   // means for updating, to let the user manually update if he/she added new sessions.
   insertSeparator();
-  insertItem( SmallIconSet("reload"), i18n("Reload Session List"), this, TQT_SLOT(reinitialize()) );
+  insertItem( SmallIconSet("reload"), i18n("Reload Session List"), this, TQT_SLOT(reloadSessionsList()) );
 }
 
 void KateSessionMenu::slotExec( int id )
@@ -170,5 +170,10 @@ void KateSessionMenu::slotExec( int id )
   kapp->tdeinitExec("kate", args);
 }
 
+void KateSessionMenu::reloadSessionsList()
+{
+  reinitialize();
+  exec();
+}
 
 // kate: space-indent: on; indent-width 2; replace-tabs on;
