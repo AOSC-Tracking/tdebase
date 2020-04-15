@@ -138,7 +138,8 @@
 						<cstring>iccFile</cstring>
 					</property>
 					<property name="filter">
-						<string>*.icc|ICC Standard Color Profiles (*.icc)\n*.icm|Windows(R) Color Profiles (*.icm)</string>
+						<string>*.icc|ICC Standard Color Profiles (*.icc)
+*.icm|Windows(R) Color Profiles (*.icm)</string>
 					</property>
 				</widget>
 				<widget class="TQLabel" row="3" column="0">
