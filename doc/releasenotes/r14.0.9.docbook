@@ -1,0 +1,59 @@
+<sect1 id="release-notes-r14.0.9">
+<title>R14.0.9 Release Notes (Draft)</title>
+
+<para>R14.0.9 is the ninth maintenance release of the R14.0 series,
+and is built on and improves the previous R14.0.8 version.</para>
+<para>Maintenance releases are intended to promptly bring bug fixes
+to users, while preserving overall stability through the avoidance
+of both major new features and major codebase re-factoring.</para>
+
+<sect2 id="release-notes-r14.0.9-notes">
+<title>Important fixes</title>
+
+<para>This section highlights some of the most important fixes introduced by this
+release.</para>
+
+<itemizedlist>
+<listitem>
+  <para>Bug fixes</para>
+  <itemizedlist>
+  <listitem><para></para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Enhancements</para>
+  <itemizedlist>
+  <listitem><para>Many translation updates (thanks to all translators)</para></listitem>
+  <listitem><para></para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Security</para>
+  <itemizedlist>
+  <listitem><para></para></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.0.9-hints">
+<title>Useful notes on upgrading</title>
+<para>When upgrading from previous releases you may run into some of
+the following use cases. Follow the recommended instructions to minimize
+potential problems.</para>
+
+</sect2>
+
+
+<sect2 id="release-notes-r14.0.9-freebsd">
+<title>FreeBSD Support</title>
+<para>TDE continues to offer support for FreeBSD, although still partial
+given some of the new issues that have arisen with the latest versions
+of FreeBSD. The TDE team will try their best to improve support for
+FreeBSD but progress will probably be slow. Additional developers or
+contributors willing to help porting the remaining features and
+applications are always welcome.</para>
+</sect2>
+
+</sect1>
