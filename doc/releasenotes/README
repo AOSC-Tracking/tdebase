@@ -6,4 +6,4 @@ To update the Release Notes in the help handbook:
 
 * Edit index.docbook as necessary for the next release. For example, R14.0.1.
 
-No changes or updates are needed in ./release_notes.desktop or ../../release_notes.
+No changes or updates are needed in ./release_notes.desktop or ../../tde_release_notes.

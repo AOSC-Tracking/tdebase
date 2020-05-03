@@ -17,13 +17,18 @@ release.</para>
 <listitem>
   <para>Bug fixes</para>
   <itemizedlist>
+  <listitem><para>Fixed problem with assignment of keyboard shortcuts in recent distros.</para></listitem>
   <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
 <listitem>
   <para>Enhancements</para>
   <itemizedlist>
-  <listitem><para>Many translation updates (thanks to all translators)</para></listitem>
+  <listitem><para>Many translation updates (thanks to all translators).</para></listitem>
+  <listitem><para>Several packages have been migrated to CMake build system.</para></listitem>
+  <listitem><para>Dropped automake build system for various packages.</para></listitem>
+  <listitem><para>Continued overall look polishing.</para></listitem>
+  <listitem><para>TDE's QtCurve style updated to upstream version 1.8.5.</para></listitem>
   <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
