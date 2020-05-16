@@ -102,6 +102,12 @@
 // taskmanager
 #cmakedefine HAVE_XCOMPOSITE
 
+// kcontrol/nics
+#cmakedefine HAVE_IFREQ_IFR_HWADDR
+#ifndef HAVE_IFREQ_IFR_HWADDR
+#define ifr_hwaddr ifr_addr
+#endif
+
 // kcontrol/fonts
 #cmakedefine HAVE_FONTCONFIG 1
 #cmakedefine HAVE_FREETYPE2 1

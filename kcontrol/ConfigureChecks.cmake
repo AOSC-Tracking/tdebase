@@ -75,3 +75,8 @@ endif( )
 # if( FONTENC_FOUND )
 #     set( HAVE_FONT_ENC 1 CACHE INTERNAL "" FORCE )
 # endif( )
+
+
+##### check for ioctl(SIOCGIFHWADDR) return member
+
+check_struct_has_member( "struct ifreq" ifr_hwaddr net/if.h HAVE_IFREQ_IFR_HWADDR )
