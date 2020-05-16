@@ -222,14 +222,14 @@ NICList* findNICs()
          result=ioctl(sockfd,SIOCGIFHWADDR,&ifcopy);
          if (result==0)
          {
-            char *n = &ifcopy.ifr_ifru.ifru_hwaddr.sa_data[0];
+            char *n = &ifcopy.ifr_hwaddr.sa_data[0];
             tmp->HWaddr = HWaddr2String(n);
          }
 #elif defined SIOCGENADDR
          result=ioctl(sockfd,SIOCGENADDR,&ifcopy);
          if (result==0)
          {
-            char *n = &ifcopy.ifr_ifru.ifru_enaddr[0];
+            char *n = &ifcopy.ifr_enaddr[0];
             tmp->HWaddr = HWaddr2String(n);
          }
 #endif
