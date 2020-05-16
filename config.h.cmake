@@ -161,7 +161,6 @@
 #cmakedefine HAVE_SETPROCTITLE 1
 #cmakedefine HAVE_SYSINFO 1
 #cmakedefine HAVE_STRNLEN 1
-#cmakedefine HAVE_GETIFADDRS 1
 #cmakedefine HAVE_CRYPT 1
 
 #cmakedefine HAVE_SETUSERCONTEXT 1
