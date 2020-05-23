@@ -338,7 +338,11 @@ int main( int argc, char **argv )
 				int len;
 				char procpath[PATH_MAX];
 				char fullpath[PATH_MAX];
+#if	defined(__dilos__)
+				snprintf(procpath, sizeof(procpath), "/proc/%d/path/a.out", pid);
+#else	/* !__dilos__ */
 				snprintf(procpath, sizeof(procpath), "/proc/%d/exe", pid);
+#endif	/* __dilos__ */
 				len = readlink( procpath, fullpath, sizeof(fullpath) );
 				if (len >= 0) {
 					fullpath[len] = 0;
