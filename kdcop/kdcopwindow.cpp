@@ -287,6 +287,7 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
   dcopClient->attach();
   resize( 377, 480 );
   statusBar()->message(i18n("Welcome to the TDE DCOP browser"));
+  setIcon(TDEGlobal::iconLoader()->loadIcon("enhanced_browsing", TDEIcon::NoGroup, TDEIcon::SizeSmall));
 
 	mainView = new kdcopview(this, "KDCOP");
         mainView->kListViewSearchLine1->setListView( mainView->lv );
