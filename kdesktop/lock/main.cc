@@ -332,9 +332,11 @@ int main( int argc, char **argv )
                 char fullpath[PATH_MAX];
 #if	defined(__dilos__)
 		snprintf(procpath, sizeof(procpath), "/proc/%d/path/a.out", pid);
-#else	/* !__dilos__ */
+#elif	defined(__FreeBSD__) || defined (__DragonFly__)
+		snprintf(procpath, sizeof(procpath), "/compat/linux/proc/%d/exe", pid);
+#else	/* Linux way as default */
 		snprintf(procpath, sizeof(procpath), "/proc/%d/exe", pid);
-#endif	/* __dilos__ */
+#endif
                 len = readlink( procpath, fullpath, sizeof(fullpath) );
                 if (len >= 0) {
                     fullpath[len] = 0;
