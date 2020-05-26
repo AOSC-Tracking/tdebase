@@ -18,6 +18,7 @@ release.</para>
   <para>Bug fixes</para>
   <itemizedlist>
   <listitem><para>Fixed problem with assignment of keyboard shortcuts in recent distros.</para></listitem>
+  <listitem><para>Various fixes to KMix, this will partially help when PulseAudio is installed.</para></listitem>
   <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
@@ -29,7 +30,9 @@ release.</para>
   <listitem><para>Dropped automake build system for various packages.</para></listitem>
   <listitem><para>Continued overall look polishing.</para></listitem>
   <listitem><para>TDE's QtCurve style updated to upstream version 1.8.5.</para></listitem>
+  <listitem><para>Added brightness control in kmilo generic monitor.</para></listitem>
   <listitem><para></para></listitem>
+
   </itemizedlist>
 </listitem>
 <listitem>
@@ -48,17 +51,29 @@ release.</para>
 the following use cases. Follow the recommended instructions to minimize
 potential problems.</para>
 
-</sect2>
+<sect3 id="release-notes-r14.0.9-hints-pulseaudio">
+<title>PulseAudio support workarounds</title>
+<para>Initial support for PulseAudio is planned for the R14.1.0 release.</para>
+<para>For the time being you can try one of the following workarounds in case you have troubles with PA
+(especially muting/unmuting).
+<itemizedlist>
+  <listitem>
+     <para>You can mute/unmute from the KMix slider LED, this should work fine with PA.</para>
+  </listitem>
+  <listitem>
+     <para>You can open KMix mixer window -> Settings -> Configure global shortcuts and remap the "toggle mute"
+           keyboard shortcut to some other key combination. Do not use "XF86AudioMute" key, since this is normally
+           used by KMilo and therefore may not work.</para>
+  </listitem>
+  <listitem>
+    <para>You can create a script that calls "dcop kmix Mixer-1 toggleMasterMute", this will mute/unmute the PA
+          master channel. You can add an input action tied to a keyboard shortcut to call this easy.</para>
+  </listitem>
+</itemizedlist>
+</para>
 
+</sect3>
 
-<sect2 id="release-notes-r14.0.9-freebsd">
-<title>FreeBSD Support</title>
-<para>TDE continues to offer support for FreeBSD, although still partial
-given some of the new issues that have arisen with the latest versions
-of FreeBSD. The TDE team will try their best to improve support for
-FreeBSD but progress will probably be slow. Additional developers or
-contributors willing to help porting the remaining features and
-applications are always welcome.</para>
 </sect2>
 
 </sect1>
