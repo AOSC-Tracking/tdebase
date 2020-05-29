@@ -20,6 +20,8 @@ install( FILES
     hdd_unmounted_decrypted.desktop removable_mounted.desktop
     removable_unmounted.desktop removable_mounted_decrypted.desktop
     removable_unmounted_encrypted.desktop removable_unmounted_decrypted.desktop
+    bluray_mounted.desktop bluray_unmounted.desktop bluray_mounted_decrypted.desktop
+    bluray_unmounted_encrypted.desktop bluray_unmounted_decrypted.desktop
     cdrom_mounted.desktop cdrom_unmounted.desktop cdrom_mounted_decrypted.desktop
     cdrom_unmounted_encrypted.desktop cdrom_unmounted_decrypted.desktop
     dvd_mounted.desktop dvd_unmounted.desktop dvd_mounted_decrypted.desktop
@@ -30,6 +32,7 @@ install( FILES
     cd-rw_unmounted_encrypted.desktop cd-rw_unmounted_decrypted.desktop smb_mounted.desktop
     smb_unmounted.desktop nfs_mounted.desktop nfs_unmounted.desktop
     audiocd.desktop dvdvideo.desktop blankcd.desktop blankdvd.desktop
+    blankbluray.desktop blurayvideo.desktop
     svcd.desktop vcd.desktop gphoto2camera.desktop camera_mounted.desktop
     camera_unmounted.desktop mydocuments.desktop mycomputer.desktop
     mynetworkplaces.desktop printers.desktop trash.desktop webbrowser.desktop

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=media-optical-dvd-decrypted-mounted
+Type=MimeType
+MimeType=media/bluray_mounted_decrypted
+Comment=Mounted Decrypted BLURAY
+Comment[de]=Eingebundene, entschlüsselte BLURAY
+Patterns=
+
+X-TDE-AutoEmbed=true
+X-TDE-IsAlso=inode/directory

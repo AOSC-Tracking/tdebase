@@ -9,6 +9,8 @@ mimetype_DATA = floppy_mounted.desktop floppy_unmounted.desktop \
                 removable_mounted.desktop removable_unmounted.desktop \
                 removable_mounted_decrypted.desktop removable_unmounted_encrypted.desktop \
                 removable_unmounted_decrypted.desktop \
+                bluray_mounted.desktop bluray_unmounted.desktop bluray_mounted_decrypted.desktop \
+                bluray_unmounted_encrypted.desktop bluray_unmounted_decrypted.desktop \
                 cdrom_mounted.desktop cdrom_unmounted.desktop \
                 cdrom_mounted_decrypted.desktop cdrom_unmounted_encrypted.desktop \
                 cdrom_unmounted_decrypted.desktop \
@@ -21,13 +23,12 @@ mimetype_DATA = floppy_mounted.desktop floppy_unmounted.desktop \
                 smb_mounted.desktop smb_unmounted.desktop \
                 nfs_mounted.desktop nfs_unmounted.desktop \
                 audiocd.desktop \
-                dvdvideo.desktop \
-                blankcd.desktop \
-                blankdvd.desktop \
-                svcd.desktop \
-                vcd.desktop\
-                gphoto2camera.desktop camera_mounted.desktop camera_unmounted.desktop \
-                mydocuments.desktop mycomputer.desktop mynetworkplaces.desktop printers.desktop trash.desktop webbrowser.desktop
+                blankbluray.desktop blankcd.desktop blankdvd.desktop \
+                blurayvideo.desktop dvdvideo.desktop svcd.desktop vcd.desktop \
+                gphoto2camera.desktop \
+                camera_mounted.desktop camera_unmounted.desktop \
+                mydocuments.desktop mycomputer.desktop mynetworkplaces.desktop \
+                printers.desktop trash.desktop webbrowser.desktop
 
 
 EXTRA_DIST = $(mimetype_DATA)
