@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=media-optical-dvd-locked
+Type=MimeType
+MimeType=media/bluray_encrypted_locked
+Comment=Encrypted Locked BLURAY
+Comment[de]=Verschlüsselte gesperrte BLURAY
+Comment[it]=BLURAY criptato protetto
+Patterns=
+
+X-TDE-AutoEmbed=true
+X-TDE-IsAlso=inode/directory
