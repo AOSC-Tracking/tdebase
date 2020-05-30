@@ -566,24 +566,45 @@ void HALBackend::setVolumeProperties(Medium* medium)
         if ((discType == LIBHAL_VOLUME_DISC_TYPE_CDROM) ||
             (discType == LIBHAL_VOLUME_DISC_TYPE_CDR) ||
             (discType == LIBHAL_VOLUME_DISC_TYPE_CDRW))
+        {
             if (libhal_volume_disc_is_blank(halVolume))
             {
                 mimeType = "media/blankcd";
                 medium->unmountableState("");
             }
             else
+            {
                 mimeType = "media/cdwriter" + MOUNT_MEDIA_SUFFIX;
-
-        if ((discType == LIBHAL_VOLUME_DISC_TYPE_DVDROM) || (discType == LIBHAL_VOLUME_DISC_TYPE_DVDRAM) ||
+            }
+        }
+        else if ((discType == LIBHAL_VOLUME_DISC_TYPE_DVDROM) || (discType == LIBHAL_VOLUME_DISC_TYPE_DVDRAM) ||
             (discType == LIBHAL_VOLUME_DISC_TYPE_DVDR) || (discType == LIBHAL_VOLUME_DISC_TYPE_DVDRW) ||
             (discType == LIBHAL_VOLUME_DISC_TYPE_DVDPLUSR) || (discType == LIBHAL_VOLUME_DISC_TYPE_DVDPLUSRW) )
+        {
             if (libhal_volume_disc_is_blank(halVolume))
             {
                 mimeType = "media/blankdvd";
                 medium->unmountableState("");
             }
             else
+            {
                 mimeType = "media/dvd" + MOUNT_MEDIA_SUFFIX;
+            }
+        }
+        else if ((discType == LIBHAL_VOLUME_DISC_TYPE_BDROM) || (discType == LIBHAL_VOLUME_DISC_TYPE_BDR) ||
+            (discType == LIBHAL_VOLUME_DISC_TYPE_BDRE) || (discType == LIBHAL_VOLUME_DISC_TYPE_HDDVDROM) ||
+            (discType == LIBHAL_VOLUME_DISC_TYPE_HDDVDR) || (discType == LIBHAL_VOLUME_DISC_TYPE_HDDVDRW) )
+        {
+            if (libhal_volume_disc_is_blank(halVolume))
+            {
+                mimeType = "media/blankbluray";
+                medium->unmountableState("");
+            }
+            else
+            {
+                mimeType = "media/bluray" + MOUNT_MEDIA_SUFFIX;
+            }
+        }
 
         if (libhal_volume_disc_has_audio(halVolume) && !libhal_volume_disc_has_data(halVolume))
         {
@@ -594,13 +615,16 @@ void HALBackend::setVolumeProperties(Medium* medium)
         medium->setIconName(TQString::null);
 
         /* check if the disc id a vcd or a video dvd */
-        if (libhal_device_get_property_bool(m_halContext, udi, "volume.disc.is_vcd", NULL)) {
+        if (libhal_device_get_property_bool(m_halContext, udi, "volume.disc.is_vcd", NULL))
+        {
             mimeType = "media/vcd";
         }
-        else if (libhal_device_get_property_bool(m_halContext, udi, "volume.disc.is_svcd", NULL)) {
+        else if (libhal_device_get_property_bool(m_halContext, udi, "volume.disc.is_svcd", NULL))
+        {
             mimeType = "media/svcd";
         }
-        else if (libhal_device_get_property_bool(m_halContext, udi, "volume.disc.is_videodvd", NULL)) {
+        else if (libhal_device_get_property_bool(m_halContext, udi, "volume.disc.is_videodvd", NULL))
+        {
             mimeType = "media/dvdvideo";
         }
 

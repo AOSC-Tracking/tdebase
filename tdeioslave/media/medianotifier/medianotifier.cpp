@@ -146,7 +146,7 @@ bool MediaNotifier::autostart( const KFileItem &medium )
 {
 	TQString mimetype = medium.mimetype();
 
-	bool is_cdrom = mimetype.startsWith( "media/cd" ) || mimetype.startsWith( "media/dvd" );
+	bool is_cdrom = mimetype.startsWith( "media/cd" ) || mimetype.startsWith( "media/dvd" ) || mimetype.startsWith( "media/bluray" );
 	bool is_mounted = mimetype.contains( "_mounted" );
 	
 	// We autorun only on CD/DVD or removable disks (USB, Firewire)

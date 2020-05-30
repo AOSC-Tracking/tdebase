@@ -216,7 +216,7 @@ void LinuxCDPolling::slotMediumAdded(const TQString &id)
 	TQString mime = medium->mimeType();
 	kdDebug(1219) << "mime == " << mime << endl;
 
-	if (mime.find("dvd")==-1 && mime.find("cd")==-1) return;
+	if (mime.find("dvd")==-1 && mime.find("cd")==-1 && mime.find("bluray")==-1) return;
 
 	if (!medium->isMounted())
 	{
@@ -255,7 +255,7 @@ void LinuxCDPolling::slotMediumStateChanged(const TQString &id)
 	TQString mime = medium->mimeType();
 	kdDebug(1219) << "mime == " << mime << endl;
 
-	if (mime.find("dvd")==-1 && mime.find("cd")==-1) return;
+	if (mime.find("dvd")==-1 && mime.find("cd")==-1 && mime.find("bluray")==-1) return;
 
 	if (!m_threads.contains(id) && !medium->isMounted())
 	{
@@ -319,7 +319,12 @@ static TQString baseType(const Medium *medium)
 	FstabBackend::guess(devNode, mountPoint, fsType, mounted,
 	                    mimeType, iconName, label);
 
-	if (devNode.find("dvd")!=-1)
+	if (devNode.find("bluray")!=-1)
+	{
+		kdDebug(1219) << "=> bluray" << endl;
+		return "bluray";
+	}
+	else if (devNode.find("dvd")!=-1)
 	{
 		kdDebug(1219) << "=> dvd" << endl;
 		return "dvd";
@@ -373,25 +378,30 @@ void LinuxCDPolling::applyType(DiscType type, const Medium *medium)
 		m_mediaList.changeMediumState(id, "audiocd:/?device="+dev,
 		                              notify, "media/audiocd");
 		break;
-	case DiscType::VCD:
-		m_mediaList.changeMediumState(id, false, notify, "media/vcd");
-		break;
-	case DiscType::SVCD:
-		m_mediaList.changeMediumState(id, false, notify, "media/svcd");
+	case DiscType::BLURAY:
+		m_mediaList.changeMediumState(id, false, notify, "media/blurayvideo");
 		break;
 	case DiscType::DVD:
 		m_mediaList.changeMediumState(id, false, notify, "media/dvdvideo");
 		break;
+	case DiscType::SVCD:
+		m_mediaList.changeMediumState(id, false, notify, "media/svcd");
+		break;
+	case DiscType::VCD:
+		m_mediaList.changeMediumState(id, false, notify, "media/vcd");
+		break;
 	case DiscType::Blank:
-		if (baseType(medium)=="dvd")
+		if (baseType(medium)=="bluray")
 		{
-			m_mediaList.changeMediumState(id, false,
-			                              notify, "media/blankdvd");
+			m_mediaList.changeMediumState(id, false, notify, "media/blankbluray");
+		}
+		else if (baseType(medium)=="dvd")
+		{
+			m_mediaList.changeMediumState(id, false, notify, "media/blankdvd");
 		}
 		else
 		{
-			m_mediaList.changeMediumState(id, false,
-			                              notify, "media/blankcd");
+			m_mediaList.changeMediumState(id, false, notify, "media/blankcd");
 		}
 		break;
 	case DiscType::None:
@@ -444,17 +454,21 @@ DiscType LinuxCDPolling::identifyDiscType(const TQCString &devNode,
 			return DiscType::Audio;
 		case CDS_DATA_1:
 		case CDS_DATA_2:
-			if (hasDirectory(devNode, "video_ts"))
+			if (hasDirectory(devNode, "BDMV"))
+			{
+				return DiscType::BLURAY;
+			}
+			else if (hasDirectory(devNode, "video_ts"))
 			{
 				return DiscType::DVD;
-			}
-			else if (hasDirectory(devNode, "vcd"))
-			{
-				return DiscType::VCD;
 			}
 			else if (hasDirectory(devNode, "svcd"))
 			{
 				return DiscType::SVCD;
+			}
+			else if (hasDirectory(devNode, "vcd"))
+			{
+				return DiscType::VCD;
 			}
 			else
 			{

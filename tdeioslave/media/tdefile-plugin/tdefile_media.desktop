@@ -1,5 +1,8 @@
 [Desktop Entry]
 Type=Service
+X-TDE-Library=tdefile_media
+X-TDE-ServiceTypes=KFilePlugin,media/audiocd,media/blankcd,media/blankbluray,media/blankdvd,media/hdd_mounted,media/hdd_unmounted,media/hdd_encrypted_unlocked,media/bluray_mounted,media/bluray_unmounted,media/bluray_encrypted_unlocked,media/cdrom_mounted,media/cdrom_unmounted,media/cdrom_encrypted_unlocked,media/cd-r_mounted,media/cd-r_unmounted,media/cd-r_encrypted_unlocked,media/cd-rw_mounted,media/cd-rw_unmounted,media/cd-rw_encrypted_unlocked,media/dvd_mounted,media/dvd_unmounted,media/dvd_encrypted_unlocked,media/removable_mounted,media/removable_unmounted,media/removable_encrypted_unlocked,media/nfs_mounted,media/nfs_unmounted,media/smb_mounted,media/smb_unmounted,media/blurayvideo,media/dvdvideo,media/svcd,media/vcd,media/floppy_mounted,media/floppy_unmounted,media/floppy5_mounted,media/floppy5_unmounted,media/zip_mounted,media/zip_unmounted,media/gphoto2camera,media/camera_mounted,media/camera_unmounted
+
 Name=Medium Information
 Name[af]=Medium Informasie
 Name[ar]=معلومات عن الوسيط
@@ -70,6 +73,3 @@ Name[vi]=Thông tin về Ổ lưu trữ
 Name[wa]=Informåcions sol mediom
 Name[zh_CN]=介质信息
 Name[zh_TW]=媒體資訊
-X-TDE-ServiceTypes=KFilePlugin
-X-TDE-Library=tdefile_media
-MimeType=media/audiocd;media/hdd_mounted;media/blankcd;media/hdd_unmounted;media/hdd_encrypted_unlocked;media/blankdvd;media/cdrom_mounted;media/cdrom_unmounted;media/cdrom_encrypted_unlocked;media/cd-r_mounted;media/cd-rw_mounted;media/nfs_mounted;media/cd-r_unmounted;media/cd-r_encrypted_unlocked;media/cd-rw_unmounted;media/cd-rw_encrypted_unlocked;media/nfs_unmounted;media/removable_mounted;media/dvd_mounted;media/removable_unmounted;media/removable_encrypted_unlocked;media/dvd_unmounted;media/dvd_encrypted_unlocked;media/smb_mounted;media/dvdvideo;media/smb_unmounted;media/floppy5_mounted;media/svcd;media/floppy5_unmounted;media/vcd;media/floppy_mounted;media/zip_mounted;media/floppy_unmounted;media/zip_unmounted;media/gphoto2camera;media/camera_mounted;media/camera_unmounted

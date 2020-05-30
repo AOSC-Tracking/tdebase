@@ -49,42 +49,47 @@ KFileMediaPlugin::KFileMediaPlugin(TQObject *parent, const char *name,
 	: KFilePlugin(parent, name, args)
 {
 	addMimeType( "media/audiocd" );
-	addMimeType( "media/hdd_mounted" );
+	addMimeType( "media/blankbluray" );
 	addMimeType( "media/blankcd" );
-	addMimeType( "media/hdd_unmounted" );
-	addMimeType( "media/hdd_encrypted_unlocked" );
 	addMimeType( "media/blankdvd" );
+	addMimeType( "media/bluray_mounted" );
+	addMimeType( "media/bluray_unmounted" );
+	addMimeType( "media/bluray_encrypted_unlocked" );
 	addMimeType( "media/cdrom_mounted" );
 	addMimeType( "media/cdrom_unmounted" );
 	addMimeType( "media/cdrom_encrypted_unlocked" );
 	addMimeType( "media/cd-r_mounted" );
-	addMimeType( "media/cd-rw_mounted" );
-	addMimeType( "media/nfs_mounted" );
 	addMimeType( "media/cd-r_unmounted" );
 	addMimeType( "media/cd-r_encrypted_unlocked" );
+	addMimeType( "media/cd-rw_mounted" );
 	addMimeType( "media/cd-rw_unmounted" );
 	addMimeType( "media/cd-rw_encrypted_unlocked" );
-	addMimeType( "media/nfs_unmounted" );
-	addMimeType( "media/removable_mounted" );
 	addMimeType( "media/dvd_mounted" );
-	addMimeType( "media/removable_unmounted" );
-	addMimeType( "media/removable_encrypted_unlocked" );
 	addMimeType( "media/dvd_unmounted" );
 	addMimeType( "media/dvd_encrypted_unlocked" );
+	addMimeType( "media/hdd_mounted" );
+	addMimeType( "media/hdd_unmounted" );
+	addMimeType( "media/hdd_encrypted_unlocked" );
+	addMimeType( "media/removable_mounted" );
+	addMimeType( "media/removable_unmounted" );
+	addMimeType( "media/removable_encrypted_unlocked" );
+	addMimeType( "media/nfs_mounted" );
+	addMimeType( "media/nfs_unmounted" );
 	addMimeType( "media/smb_mounted" );
-	addMimeType( "media/dvdvideo" );
 	addMimeType( "media/smb_unmounted" );
-	addMimeType( "media/floppy5_mounted" );
-	addMimeType( "media/svcd" );
-	addMimeType( "media/floppy5_unmounted" );
-	addMimeType( "media/vcd" );
 	addMimeType( "media/floppy_mounted" );
-	addMimeType( "media/zip_mounted" );
 	addMimeType( "media/floppy_unmounted" );
+	addMimeType( "media/floppy5_mounted" );
+	addMimeType( "media/floppy5_unmounted" );
+	addMimeType( "media/zip_mounted" );
 	addMimeType( "media/zip_unmounted" );
-	addMimeType( "media/gphoto2camera" );
+	addMimeType( "media/blurayvideo" );
+	addMimeType( "media/dvdvideo" );
+	addMimeType( "media/svcd" );
+	addMimeType( "media/vcd" );
 	addMimeType( "media/camera_mounted" );
-	addMimeType( "media/camera_unmounted" );	
+	addMimeType( "media/camera_unmounted" );
+	addMimeType( "media/gphoto2camera" );
 }
 
 bool KFileMediaPlugin::readInfo(KFileMetaInfo &info, uint /*what*/)
