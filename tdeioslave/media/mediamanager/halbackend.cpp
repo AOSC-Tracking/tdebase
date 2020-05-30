@@ -1651,7 +1651,7 @@ TQStringVariantMap HALBackend::unmount(const TQString &id)
         return result;
     }
 
-    if (!medium->isMounted())
+    if (!medium->isMounted()) {
         result["result"] = true;
         return result;
     }
@@ -1834,7 +1834,7 @@ TQStringVariantMap HALBackend::unlock(const TQString &id, const TQString &passwo
         return result;
     }
 
-    if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull())
+    if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull()) {
         result["result"] = true;
         return result;
     }
@@ -1845,7 +1845,7 @@ TQStringVariantMap HALBackend::unlock(const TQString &id, const TQString &passwo
     DBusError error;
 
     kdDebug() << "Setting up " << udi << " for crypto\n" <<endl;
-	
+
     msg = dbus_message_new_method_call ("org.freedesktop.Hal", udi,
                                         "org.freedesktop.Hal.Device.Volume.Crypto",
                                         "Setup");
@@ -1903,7 +1903,7 @@ TQStringVariantMap HALBackend::lock(const TQString &id)
         return result;
     }
 
-    if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull())
+    if (!medium->isEncrypted() || !medium->clearDeviceUdi().isNull()) {
         result["result"] = true;
         return result;
     }
@@ -1914,7 +1914,7 @@ TQStringVariantMap HALBackend::lock(const TQString &id)
     DBusError error;
 
     kdDebug() << "Tear down " << udi << "\n" <<endl;
-	
+
     msg = dbus_message_new_method_call ("org.freedesktop.Hal", udi,
                                         "org.freedesktop.Hal.Device.Volume.Crypto",
                                         "Teardown");
