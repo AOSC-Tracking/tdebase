@@ -1,5 +1,8 @@
 [Desktop Entry]
 Type=Service
+X-TDE-Library=media_propsdlgplugin
+X-TDE-ServiceTypes=KPropsDlg/Plugin,media/audiocd,media/blankcd,media/blankbluray,media/blankdvd,media/hdd_mounted,media/hdd_unmounted,media/hdd_mounted_decrypted,media/hdd_unmounted_decrypted,media/bluray_mounted,media/bluray_unmounted,media/bluray_mounted_decrypted,media/bluray_unmounted_decrypted,media/cdrom_mounted,media/cdrom_unmounted,media/cdrom_mounted_decrypted,media/cdrom_unmounted_decrypted,media/cd-r_mounted,media/cd-r_mounted_decrypted,media/cd-rw_mounted,media/cd-rw_mounted_decrypted,media/nfs_mounted,media/cd-r_unmounted,media/cd-r_unmounted_decrypted,media/cd-rw_unmounted,media/cd-rw_unmounted_decrypted,media/nfs_unmounted,media/removable_mounted,media/removable_mounted_decrypted,media/dvd_mounted,media/dvd_mounted_decrypted,media/removable_unmounted,media/removable_unmounted_decrypted,media/dvd_unmounted,media/dvd_unmounted_decrypted,media/smb_mounted,media/blurayvideo,media/dvdvideo,media/smb_unmounted,media/floppy5_mounted,media/floppy5_unmounted,media/floppy_mounted,media/zip_mounted,media/floppy_unmounted,media/zip_unmounted,media/camera_mounted,media/camera_unmounted
+
 Name=Media Properties Page
 Name[bg]=Страница с информация за носителя
 Name[bn]=মিডিয়া বৈশিষ্ট্যাবলী পৃষ্ঠা
@@ -98,5 +101,3 @@ Comment[vi]=bổ sung hộp thoại tài sản Konqueror để cấu hình ứng
 Comment[wa]=Tchôke-divins di dvize di prôpietés Konqueror po-z apontyî l' dujhance do montaedje
 Comment[zh_CN]=配置挂载行为的 Konqueror 属性对话框插件
 Comment[zh_TW]=Konqueror 內容對話框外掛程式，用於設定掛載的行為
-X-TDE-Library=media_propsdlgplugin
-X-TDE-ServiceTypes=KPropsDlg/Plugin,media/audiocd,media/hdd_mounted,media/hdd_unmounted,media/hdd_mounted_decrypted,media/hdd_unmounted_decrypted,media/cdrom_mounted,media/cdrom_unmounted,media/cdrom_mounted_decrypted,media/cdrom_unmounted_decrypted,media/cd-r_mounted,media/cd-r_mounted_decrypted,media/cd-rw_mounted,media/cd-rw_mounted_decrypted,media/nfs_mounted,media/cd-r_unmounted,media/cd-r_unmounted_decrypted,media/cd-rw_unmounted,media/cd-rw_unmounted_decrypted,media/nfs_unmounted,media/removable_mounted,media/removable_mounted_decrypted,media/dvd_mounted,media/dvd_mounted_decrypted,media/removable_unmounted,media/removable_unmounted_decrypted,media/dvd_unmounted,media/dvd_unmounted_decrypted,media/smb_mounted,media/dvdvideo,media/smb_unmounted,media/floppy5_mounted,media/floppy5_unmounted,media/floppy_mounted,media/zip_mounted,media/floppy_unmounted,media/zip_unmounted,media/camera_mounted,media/camera_unmounted

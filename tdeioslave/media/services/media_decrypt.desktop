@@ -6,4 +6,4 @@ Name[de]=Entschlüsseln
 
 [Desktop Entry]
 Actions=Decrypt
-X-TDE-ServiceTypes=media/removable_unmounted_encrypted,media/hdd_unmounted_encrypted,media/cdrom_unmounted_encrypted,media/cdwriter_unmounted_encrypted,media/dvd_unmounted_encrypted
+X-TDE-ServiceTypes=media/removable_unmounted_encrypted,media/hdd_unmounted_encrypted,media/bluray_unmounted_encrypted,media/cdrom_unmounted_encrypted,media/cdwriter_unmounted_encrypted,media/dvd_unmounted_encrypted

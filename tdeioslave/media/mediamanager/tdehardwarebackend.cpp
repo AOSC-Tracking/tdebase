@@ -656,34 +656,34 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::BDROM)) {
 			mimeType = "media/bluray" + MOUNT_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
-				mimeType = "media/blankbd";
+				mimeType = "media/blankbluray";
 				medium->unmountableState("");
-				diskLabel = i18n("Blank BD-ROM");
+				diskLabel = i18n("Blank BLURAY-ROM");
 			}
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::BDR)) {
 			mimeType = "media/bluray" + MOUNT_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
-				mimeType = "media/blankbd";
+				mimeType = "media/blankbluray";
 				medium->unmountableState("");
-				diskLabel = i18n("Blank BD-R");
+				diskLabel = i18n("Blank BLURAY-R");
 			}
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::BDRW)) {
 			mimeType = "media/bluray" + MOUNT_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
-				mimeType = "media/blankbd";
+				mimeType = "media/blankbluray";
 				medium->unmountableState("");
-				diskLabel = i18n("Blank BD-RW");
+				diskLabel = i18n("Blank BLURAY-RW");
 			}
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDROM)) {
 			mimeType = "media/bluray" + MOUNT_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
-				mimeType = "media/blankhddvd";
+				mimeType = "media/blankbluray";
 				medium->unmountableState("");
 				diskLabel = i18n("Blank HDDVD-ROM");
 			}
@@ -692,7 +692,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDR)) {
 			mimeType = "media/bluray" + MOUNT_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
-				mimeType = "media/blankhddvd";
+				mimeType = "media/blankbluray";
 				medium->unmountableState("");
 				diskLabel = i18n("Blank HDDVD-R");
 			}
@@ -701,7 +701,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDRW)) {
 			mimeType = "media/bluray" + MOUNT_SUFFIX;
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
-				mimeType = "media/blankhddvd";
+				mimeType = "media/blankbluray";
 				medium->unmountableState("");
 				diskLabel = i18n("Blank HDDVD-RW");
 			}
@@ -720,7 +720,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			mimeType = "media/dvdvideo";
 		}
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::BDVideo)) {
-			mimeType = "media/bdvideo";
+			mimeType = "media/blurayvideo";
 		}
 
 		medium->setIconName(TQString::null);

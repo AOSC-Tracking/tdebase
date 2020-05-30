@@ -39,16 +39,16 @@ NotifierSettings::NotifierSettings()
 	m_supportedMimetypes.append( "media/camera_unmounted" );
 	m_supportedMimetypes.append( "media/camera_mounted" );
 	m_supportedMimetypes.append( "media/gphoto2camera" );
+	m_supportedMimetypes.append( "media/bluray_unmounted" );
+	m_supportedMimetypes.append( "media/bluray_unmounted_encrypted" );
+	m_supportedMimetypes.append( "media/bluray_unmounted_decrypted" );
+	m_supportedMimetypes.append( "media/bluray_mounted" );
+	m_supportedMimetypes.append( "media/bluray_mounted_decrypted" );
 	m_supportedMimetypes.append( "media/cdrom_unmounted" );
 	m_supportedMimetypes.append( "media/cdrom_unmounted_encrypted" );
 	m_supportedMimetypes.append( "media/cdrom_unmounted_decrypted" );
 	m_supportedMimetypes.append( "media/cdrom_mounted" );
 	m_supportedMimetypes.append( "media/cdrom_mounted_decrypted" );
-	m_supportedMimetypes.append( "media/dvd_unmounted" );
-	m_supportedMimetypes.append( "media/dvd_unmounted_encrypted" );
-	m_supportedMimetypes.append( "media/dvd_unmounted_decrypted" );
-	m_supportedMimetypes.append( "media/dvd_mounted" );
-	m_supportedMimetypes.append( "media/dvd_mounted_decrypted" );
 	m_supportedMimetypes.append( "media/cd-r_unmounted" );
 	m_supportedMimetypes.append( "media/cd-r_unmounted_encrypted" );
 	m_supportedMimetypes.append( "media/cd-r_unmounted_decrypted" );
@@ -59,12 +59,19 @@ NotifierSettings::NotifierSettings()
 	m_supportedMimetypes.append( "media/cd-rw_unmounted_decrypted" );
 	m_supportedMimetypes.append( "media/cd-rw_mounted" );
 	m_supportedMimetypes.append( "media/cd-rw_mounted_decrypted" );
+	m_supportedMimetypes.append( "media/dvd_unmounted" );
+	m_supportedMimetypes.append( "media/dvd_unmounted_encrypted" );
+	m_supportedMimetypes.append( "media/dvd_unmounted_decrypted" );
+	m_supportedMimetypes.append( "media/dvd_mounted" );
+	m_supportedMimetypes.append( "media/dvd_mounted_decrypted" );
+	m_supportedMimetypes.append( "media/blankbluray" );
 	m_supportedMimetypes.append( "media/blankcd" );
 	m_supportedMimetypes.append( "media/blankdvd" );
 	m_supportedMimetypes.append( "media/audiocd" );
+	m_supportedMimetypes.append( "media/blurayvideo" );
 	m_supportedMimetypes.append( "media/dvdvideo" );
-	m_supportedMimetypes.append( "media/vcd" );
 	m_supportedMimetypes.append( "media/svcd" );
+	m_supportedMimetypes.append( "media/vcd" );
 	
 	reload();
 }
