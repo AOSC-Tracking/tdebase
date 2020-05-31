@@ -31,6 +31,7 @@ release.</para>
   <listitem><para>Continued overall look polishing.</para></listitem>
   <listitem><para>TDE's QtCurve style updated to upstream version 1.8.5.</para></listitem>
   <listitem><para>Added brightness control in kmilo generic monitor.</para></listitem>
+  <listitem><para>Improved support for bluray discs.</para></listitem>
   <listitem><para></para></listitem>
 
   </itemizedlist>
