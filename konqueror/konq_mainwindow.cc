@@ -3848,15 +3848,15 @@ void KonqMainWindow::initActions()
   m_paRemoveLocalProperties = new TDEAction( i18n( "Remove Folder Properties" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotRemoveLocalProperties() ), actionCollection(), "removeLocalProperties" );
 
 
-  m_configureModules << "kde-filebehavior.desktop" << "kde-fileappearance.desktop" <<
-      "kde-filepreviews.desktop" << "tde-filetypes.desktop" <<
+  m_configureModules << "tde-filebehavior.desktop" << "tde-fileappearance.desktop" <<
+      "tde-filepreviews.desktop" << "tde-filetypes.desktop" <<
       "tde-tdehtml_behavior.desktop" << "tde-tdehtml_userinterface.desktop" <<
       "tde-tdehtml_java_js.desktop" << "tde-tdehtml_filter.desktop" <<
       "tde-tdehtml_fonts.desktop" << "tde-ebrowsing.desktop" <<
       "tde-kcmhistory.desktop" << "tde-cookies.desktop" <<
       "tde-cache.desktop" << "tde-proxy.desktop" << "tde-kcmcss.desktop" <<
       "tde-kcmcgi.desktop" << "tde-crypto.desktop" << "tde-useragent.desktop" <<
-      "tde-tdehtml_plugins.desktop" << "kde-kcmkonqyperformance.desktop";
+      "tde-tdehtml_plugins.desktop" << "tde-kcmkonqyperformance.desktop";
 
 
   if (!kapp->authorizeControlModules(configModules()).isEmpty())

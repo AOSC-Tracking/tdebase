@@ -301,10 +301,10 @@ TQStringList Kicker::configModules(bool controlCenter)
     }
     else
     {
-        args << "kde-kicker_config_arrangement.desktop"
-             << "kde-kicker_config_hiding.desktop"
-             << "kde-kicker_config_menus.desktop"
-             << "kde-kicker_config_appearance.desktop";
+        args << "tde-kicker_config_arrangement.desktop"
+             << "tde-kicker_config_hiding.desktop"
+             << "tde-kicker_config_menus.desktop"
+             << "tde-kicker_config_appearance.desktop";
     }
     args << "tde-kcmtaskbar.desktop";
     return args;
