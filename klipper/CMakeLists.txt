@@ -34,7 +34,7 @@ install( PROGRAMS klipper-1-2.pl klipper-trinity1.sh DESTINATION ${KCONF_UPDATE_
 
 ##### klipper (executable) ######################
 
-configure_file( ${CMAKE_SOURCE_DIR}/cmake/modules/template_dummy_cpp.cmake dummy.cpp COPYONLY )
+configure_file( ${TDE_CMAKE_TEMPLATES}/tde_dummy_cpp.cmake dummy.cpp COPYONLY )
 
 tde_add_tdeinit_executable( klipper AUTOMOC
   SOURCES dummy.cpp

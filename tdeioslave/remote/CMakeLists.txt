@@ -40,7 +40,7 @@ tde_add_library( ${target} STATIC_PIC AUTOMOC
 
 set( target tdeio_remote )
 
-configure_file( ${CMAKE_SOURCE_DIR}/cmake/modules/template_dummy_cpp.cmake dummy.cpp COPYONLY )
+configure_file( ${TDE_CMAKE_TEMPLATES}/tde_dummy_cpp.cmake dummy.cpp COPYONLY )
 
 tde_add_kpart( ${target}
   SOURCES dummy.cpp

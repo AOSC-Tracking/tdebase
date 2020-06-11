@@ -51,7 +51,7 @@ tde_add_executable( kicker-3.4-reverseLayout
 
 ##### kicker (tdeinit) ##########################
 
-configure_file( ${CMAKE_SOURCE_DIR}/cmake/modules/template_dummy_cpp.cmake dummy.cpp COPYONLY )
+configure_file( ${TDE_CMAKE_TEMPLATES}/tde_dummy_cpp.cmake dummy.cpp COPYONLY )
 
 tde_add_tdeinit_executable( kicker
   SOURCES dummy.cpp
