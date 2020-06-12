@@ -32,6 +32,6 @@ install( FILES tdepasswd.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 
 tde_add_executable( tdepasswd AUTOMOC
   SOURCES tdepasswd.cpp passwd.cpp passwddlg.cpp
-  LINK tdeio-shared
+  LINK tdeio-shared tdesu-shared
   DESTINATION ${BIN_INSTALL_DIR}
 )

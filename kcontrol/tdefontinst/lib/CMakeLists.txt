@@ -26,6 +26,6 @@ link_directories(
 tde_add_library( tdefontinst SHARED
   SOURCES Misc.cpp FcEngine.cpp
   VERSION 0.0.0
-  LINK tdeio-shared ${XFT_LIBRARIES}
+  LINK tdeio-shared ${FONTCONFIG_LIBRARIES} ${XFT_LIBRARIES}
   DESTINATION ${LIB_INSTALL_DIR}
 )
