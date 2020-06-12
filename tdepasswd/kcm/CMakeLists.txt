@@ -39,6 +39,6 @@ tde_add_kpart( kcm_useraccount AUTOMOC
   SOURCES
     main_widget.ui chfnprocess.cpp main.cpp
     chfacedlg.cpp settings.kcfgc pass.kcfgc
-  LINK konq-shared
+  LINK konq-shared tdesu-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

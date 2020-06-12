@@ -60,4 +60,5 @@ tde_add_kpart( kcm_fonts AUTOMOC
 
 tde_add_library( kxftconfig STATIC_PIC
   SOURCES kxftconfig.cpp
+  LINK ${FONTCONFIG_LIBRARIES}
 )

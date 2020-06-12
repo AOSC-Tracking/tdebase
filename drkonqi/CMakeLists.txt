@@ -34,7 +34,7 @@ tde_add_executable( drkonqi AUTOMOC
     bugdescription.cpp bugdescriptiondialog.cpp
     sha1.cc krashconf.cpp drbugreport.cpp
     backtrace.cpp toplevel.cpp
-  LINK tdeio-shared
+  LINK tdeio-shared ${LIBR_LIBRARIES}
   DESTINATION ${BIN_INSTALL_DIR}
 )
 

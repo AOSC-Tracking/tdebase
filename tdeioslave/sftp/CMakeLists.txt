@@ -32,6 +32,6 @@ set( target tdeio_sftp )
 
 tde_add_kpart( ${target} AUTOMOC
   SOURCES process.cpp atomicio.cpp tdeio_sftp.cpp sftpfileattr.cpp ksshprocess.cpp
-  LINK tdeio-shared
+  LINK tdeio-shared tdesu-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

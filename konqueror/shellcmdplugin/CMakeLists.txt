@@ -42,6 +42,6 @@ set( ${target}_SRCS
 
 tde_add_kpart( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
-  LINK konq-shared
+  LINK konq-shared tdesu-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
