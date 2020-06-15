@@ -51,7 +51,7 @@ install( FILES fonts.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 
 tde_add_kpart( kcm_fonts AUTOMOC
   SOURCES fonts.cpp
-  LINK kxftconfig-static krdb-static tdeui-shared
+  LINK kxftconfig-static krdb-static tdeui-shared ${FREETYPE_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
 
