@@ -16,6 +16,8 @@ if( WITH_DPMS )
   include( CheckCSourceCompiles )
 
   set( CMAKE_REQUIRED_LIBRARIES Xext )
+  set( CMAKE_REQUIRED_INCLUDES "${XEXT_INCLUDE_DIRS}" )
+  set( CMAKE_REQUIRED_FLAGS "${XEXT_LDFLAGS}" )
 
   check_c_source_compiles("
     #include <sys/types.h>
@@ -45,10 +47,12 @@ include_directories(
   ${CMAKE_BINARY_DIR}
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
+  ${XEXT_INCLUDE_DIRS}
 )
 
 link_directories(
   ${TQT_LIBRARY_DIRS}
+  ${XEXT_LIBRARY_DIRS}
 )
 
 ##### other data ################################
@@ -60,6 +64,7 @@ install( FILES energy.desktop DESTINATION ${APPS_INSTALL_DIR}/.hidden )
 
 tde_add_kpart( kcm_energy AUTOMOC
   SOURCES energy.cpp
-  LINK tdeio-shared ${XEXT_LIBRARY}
+  LINK tdeio-shared
+  LINK_PRIVATE ${XEXT_LIBRARY}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
