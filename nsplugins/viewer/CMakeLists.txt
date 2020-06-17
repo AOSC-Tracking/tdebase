@@ -20,6 +20,7 @@ include_directories(
 
 link_directories(
   ${TQT_LIBRARY_DIRS}
+  ${GLIB2_LIBRARY_DIRS}
 )
 
 

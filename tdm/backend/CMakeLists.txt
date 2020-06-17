@@ -16,10 +16,14 @@ include_directories(
   ${CMAKE_BINARY_DIR}
   ${DBUS_INCLUDE_DIRS}
   ${CMAKE_SOURCE_DIR}/tdm/kfrontend
+  ${XAU_INCLUDE_DIRS}
+  ${XDMCP_INCLUDE_DIRS}
 )
 
 link_directories(
   ${DBUS_LIBRARY_DIRS}
+  ${XAU_LIBRARY_DIRS}
+  ${XDMCP_LIBRARY_DIRS}
 )
 
 ##### tdm (executable) ##########################
