@@ -59,16 +59,41 @@ potential problems.</para>
 (especially muting/unmuting).
 <itemizedlist>
   <listitem>
-     <para>You can mute/unmute from the KMix slider LED, this should work fine with PA.</para>
+    <para>You can mute/unmute from the KMix slider LED, this should work fine with PA.</para>
   </listitem>
   <listitem>
-     <para>You can open KMix mixer window -> Settings -> Configure global shortcuts and remap the "toggle mute"
-           keyboard shortcut to some other key combination. Do not use "XF86AudioMute" key, since this is normally
-           used by KMilo and therefore may not work.</para>
+    <para>You can open KMix mixer window -> Settings -> Configure global shortcuts and remap the "toggle mute"
+          keyboard shortcut to some other key combination. Do not use "XF86AudioMute" key, since this is normally
+          used by KMilo and therefore may not work.</para>
   </listitem>
   <listitem>
     <para>You can create a script that calls "dcop kmix Mixer-1 toggleMasterMute", this will mute/unmute the PA
           master channel. You can add an input action tied to a keyboard shortcut to call this easy.</para>
+  </listitem>
+</itemizedlist>
+</para>
+
+</sect3>
+
+<sect3 id="release-notes-r14.0.9-hints-knotes-global-shortcuts">
+<title>Change in KNotes global shortcuts</title>
+<para>KNotes had four global keyboard shortcuts that were bounded to Alt + Shift + C/N/S/H. These shortcuts were
+overlapping with other key combinations used in some common programs, for example Midnight Commander.</para>
+<para>In R14.0.9 those KNotes global keyboard shortcuts have been left unassigned by default. If you wish to
+keep using the previous setup, you need to right click on KNotes system tray icon, select "Configure shortcuts"
+and then assign the following key combinations.
+<itemizedlist>
+  <listitem>
+    <para>New Note  -->  Alt + Shift + N</para>
+  </listitem>
+  <listitem>
+    <para>New Note From Clipboard  -->  Alt + Shift + C</para>
+  </listitem>
+  <listitem>
+    <para>Hide All Notes  -->  Alt + Shift + H</para>
+  </listitem>
+  <listitem>
+    <para>Show All Notes  -->  Alt + Shift + S</para>
   </listitem>
 </itemizedlist>
 </para>
