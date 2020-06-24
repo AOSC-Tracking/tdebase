@@ -210,7 +210,7 @@ static void applyQtSettings( TDEConfig& kglobals, TQSettings& settings )
   kdeAdded.clear();
 
   //Merge in KDE ones..
-  plugins = TDEGlobal::dirs()->resourceDirs( "qtplugins" );
+  plugins = TDEGlobal::dirs()->resourceDirs( "tqtplugins" );
 
   for (TQStringList::ConstIterator it = plugins.begin(); it != plugins.end(); ++it)
   {
