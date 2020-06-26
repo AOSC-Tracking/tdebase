@@ -21,3 +21,9 @@ tde_l10n_create_template(
         pixmap.cpp
         rules.cpp
 )
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/kxkb-desktops/"
+    SOURCES *.desktop
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)

@@ -9,6 +9,9 @@
 #
 #################################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     .directory tde_ftp.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/virtual_folders/remote/ftp )
+  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/virtual_folders/remote/ftp
+  PO_DIR konqueror-desktops
+)

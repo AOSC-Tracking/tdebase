@@ -9,7 +9,8 @@
 #
 #################################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     AtlasGreen.kcsrc BeOS.kcsrc BlueSlate.kcsrc
     CDE.kcsrc DarkBlue.kcsrc DesertRed.kcsrc DigitalCDE.kcsrc
     PaleGray.kcsrc Pumpkin.kcsrc SolarisCDE.kcsrc Storm.kcsrc
@@ -17,4 +18,6 @@ install( FILES
     KDEOne.kcsrc KDETwo.kcsrc MediaPeach.kcsrc Windows95.kcsrc EveX.kcsrc
     WindowsXP.kcsrc Keramik.kcsrc KeramikEmerald.kcsrc KeramikWhite.kcsrc
     BlackOnWhite.kcsrc WhiteOnBlack.kcsrc YellowOnBlue.kcsrc Plastik.kcsrc
-  DESTINATION ${DATA_INSTALL_DIR}/tdedisplay/color-schemes )
+  DESTINATION ${DATA_INSTALL_DIR}/tdedisplay/color-schemes
+  PO_DIR kcontrol-color-schemes
+)

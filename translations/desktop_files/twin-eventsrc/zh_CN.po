@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "窗口管理器"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "更改到桌面 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "选择了虚拟桌面 1"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "更改到桌面 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "选择了虚拟桌面 2"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "更改到桌面 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "选择了虚拟桌面 3"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "更改到桌面 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "选择了虚拟桌面 4"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "更改到桌面 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "选择了虚拟桌面 5"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "更改到桌面 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "选择了虚拟桌面 6"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "更改到桌面 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "选择了虚拟桌面 7"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "更改到桌面 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "选择了虚拟桌面 8"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "更改到桌面 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "选择了虚拟桌面 9"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "更改到桌面 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "选择了虚拟桌面 10"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "更改到桌面 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "选择了虚拟桌面 11"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "更改到桌面 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "选择了虚拟桌面 12"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "更改到桌面 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "选择了虚拟桌面 13"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "更改到桌面 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "选择了虚拟桌面 14"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "更改到桌面 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "选择了虚拟桌面 15"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "更改到桌面 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "选择了虚拟桌面 16"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "更改到桌面 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "选择了虚拟桌面 17"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "更改到桌面 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "选择了虚拟桌面 18"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "更改到桌面 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "选择了虚拟桌面 19"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "更改到桌面 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "选择了虚拟桌面 20"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "激活窗口"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "激活了另外一个窗口"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "新建窗口"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "新建窗口"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "删除窗口"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "删除窗口"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "窗口关闭"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "窗口关闭"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "窗口卷起"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "窗口被卷起"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "窗口展开"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "窗口被展开"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "窗口最小化"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "窗口被最小化"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "窗口取消最小化"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "窗口被恢复"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "窗口最大化"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "窗口被最大化"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "窗口取消最大化"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "窗口不再最大化"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "窗口在全部桌面上"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "窗口出现在全部桌面上"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "窗口不在全部桌面上"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "窗口不再出现在全部桌面上"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "新对话框"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "出现了临时窗口(对话框)"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "删除对话框"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "删除了临时窗口(对话框)"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "窗口移动开始"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "窗口开始移动"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "窗口移动结束"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "窗口完成移动"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "窗口缩放开始"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "窗口开始缩放"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "窗口缩放结束"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "窗口完成缩放"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "当前桌面上的窗口请求注意"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "当前虚拟桌面上的窗口请求注意"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "其它桌面上的窗口请求注意"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "非激活的虚拟桌面上的窗口请求注意"

@@ -25,8 +25,18 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons( kjobviewer )
-install( FILES kjobviewer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES kjobviewer-autostart.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
+
+tde_create_translated_desktop(
+  SOURCE kjobviewer.desktop
+  PO_DIR tdeprint-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE kjobviewer-autostart.desktop
+  DESTINATION ${AUTOSTART_INSTALL_DIR}
+  PO_DIR tdeprint-desktops
+)
+
 install( FILES kjobviewerui.rc DESTINATION ${DATA_INSTALL_DIR}/kjobviewer )
 
 

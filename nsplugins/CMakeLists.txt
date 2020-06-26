@@ -25,7 +25,7 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES tdehtml_plugins.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop( tdehtml_plugins.desktop )
 install( FILES nspluginpart.rc DESTINATION ${DATA_INSTALL_DIR}/plugin )
 
 

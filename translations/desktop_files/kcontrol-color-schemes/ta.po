@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 21:04+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: AtlasGreen.kcsrc:3
+msgid "Atlas Green"
+msgstr "பூமி பச்சை"
+
+#. Name
+#: BeOS.kcsrc:3
+msgid "BeOS"
+msgstr ""
+
+#. Name
+#: BlackOnWhite.kcsrc:2
+msgid "High Contrast Black Text"
+msgstr "அதிக மாறுபட்ட கறுப்பு மீது வெள்ளை உரை"
+
+#. Name
+#: BlueSlate.kcsrc:3
+msgid "Blue Slate"
+msgstr "நீல பலகை"
+
+#. Name
+#: CDE.kcsrc:3
+msgid "CDE"
+msgstr ""
+
+#. Name
+#: DarkBlue.kcsrc:2
+msgid "Dark Blue"
+msgstr ""
+
+#. Name
+#: DesertRed.kcsrc:3
+msgid "Desert Red"
+msgstr "பாலைவன சிவப்பு"
+
+#. Name
+#: DigitalCDE.kcsrc:3
+msgid "Digital CDE"
+msgstr "டிஜிட்டல் CDE"
+
+#. Name
+#: EveX.kcsrc:2
+msgid "EveX"
+msgstr ""
+
+#. Name
+#: KDEOne.kcsrc:2
+msgid "KDE 1"
+msgstr ""
+
+#. Name
+#: KDETwo.kcsrc:2
+msgid "KDE 2"
+msgstr ""
+
+#. Name
+#: Keramik.kcsrc:2
+msgid "Keramik"
+msgstr "கெராமிக்"
+
+#. Name
+#: KeramikEmerald.kcsrc:2
+msgid "Keramik Emerald"
+msgstr "கெராமிக் எமரால்ட்"
+
+#. Name
+#: KeramikWhite.kcsrc:2
+msgid "Keramik White"
+msgstr "கேரமிக் வெள்ளை"
+
+#. Name
+#: MediaPeach.kcsrc:2
+msgid "Media Peach"
+msgstr "ஊடக பீச்"
+
+#. Name
+#: Next.kcsrc:2
+msgid "Next"
+msgstr "அடுத்து"
+
+#. Name
+#: PaleGray.kcsrc:3
+msgid "Pale Gray"
+msgstr "பழுப்புச் சாயல்"
+
+#. Name
+#: Plastik.kcsrc:2
+msgid "Plastik"
+msgstr "திட்டம்"
+
+#. Name
+#: PointReyesGreen.kcsrc:2
+msgid "Point Reyes Green"
+msgstr ""
+
+#. Name
+#: Pumpkin.kcsrc:3
+msgid "Pumpkin"
+msgstr "பூசணிக்காய்"
+
+#. Name
+#: SolarisCDE.kcsrc:2
+msgid "Solaris"
+msgstr "சோலாரிஸ்"
+
+#. Name
+#: Storm.kcsrc:3
+msgid "Storm"
+msgstr "புயல்"
+
+#. Name
+#: System.kcsrc:2
+msgid "System"
+msgstr "அமைப்பு"
+
+#. Name
+#: WhiteOnBlack.kcsrc:2
+msgid "High Contrast White Text"
+msgstr "அதிக மாறுபட்ட வெள்ளை உரை"
+
+#. Name
+#: Windows2000.kcsrc:2
+msgid "Redmond 2000"
+msgstr "ரெட்மான்ட் 2000"
+
+#. Name
+#: Windows95.kcsrc:3
+msgid "Redmond 95"
+msgstr "ரெட் மோன்ட் 95"
+
+#. Name
+#: WindowsXP.kcsrc:2
+msgid "Redmond XP"
+msgstr "ரெட்மாண்ட் XP"
+
+#. Name
+#: YellowOnBlue.kcsrc:2
+msgid "High Contrast Yellow on Blue"
+msgstr "நீலத்தின் மீது மாறுபட்ட மஞ்சள்"

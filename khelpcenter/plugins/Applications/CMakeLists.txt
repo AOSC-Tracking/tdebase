@@ -9,4 +9,8 @@
 #
 #################################################
 
-install( FILES .directory DESTINATION ${DATA_INSTALL_DIR}/khelpcenter/plugins/Applications )
+tde_create_translated_desktop(
+  SOURCE .directory
+  DESTINATION ${DATA_INSTALL_DIR}/khelpcenter/plugins/Applications
+  PO_DIR khelpcenter-desktops
+)

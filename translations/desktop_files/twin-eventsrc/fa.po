@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "مدیر پنجره"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "تغییر به رومیزی ۱"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "رومیزی مجازی یک انتخاب می‌شود"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "تغییر به رومیزی ۲"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "رومیزی مجازی دو انتخاب می‌شود"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "تغییر به رومیزی ۳"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "رومیزی مجازی سه انتخاب می‌شود"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "تغییر به رومیزی ۴"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "رومیزی مجازی چهار انتخاب می‌شود"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "تغییر به رومیزی ۵"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "رومیزی مجازی پنج انتخاب می‌شود"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "تغییر به رومیزی ۶"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "رومیزی مجازی شش انتخاب می‌شود"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "تغییر به رومیزی ۷"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "رومیزی مجازی هفت انتخاب می‌شود"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "تغییر به رومیزی ۸"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "رومیزی مجازی هشت انتخاب می‌شود"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "تغییر به رومیزی ۹"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "رومیزی مجازی نه انتخاب می‌شود"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "تغییر به رومیزی ۱۰"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "رومیزی مجازی ده انتخاب می‌شود"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "تغییر به رومیزی ۱۱"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "رومیزی مجازی یازده انتخاب می‌شود"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "تغییر به رومیزی ۱۲"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "رومیزی مجازی دوازده انتخاب می‌شود"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "تغییر به رومیزی ۱۳"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "رومیزی مجازی سیزده انتخاب می‌شود"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "تغییر به رومیزی ۱۴"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "رومیزی مجازی چهارده انتخاب می‌شود"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "تغییر به رومیزی ۱۵"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "رومیزی مجازی پانزده انتخاب می‌شود"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "تغییر به رومیزی ۱۶"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "رومیزی مجازی شانزده انتخاب می‌شود"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "تغییر به رومیزی ۱۷"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "رومیزی مجازی هفده انتخاب می‌شود"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "تغییر به رومیزی ۱۸"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "رومیزی مجازی هجده انتخاب می‌شود"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "تغییر به رومیزی ۱۹"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "رومیزی مجازی نوزده انتخاب می‌شود"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "تغییر به رومیزی ۲۰"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "رومیزی مجازی بیست انتخاب می‌شود"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "فعال کردن پنجره"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "پنجرۀ دیگری فعال می‌شود"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "پنجرۀ جدید"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "پنجرۀ جدید"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "حذف پنجره"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "حذف پنجره"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "بستن پنجره"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "پنجره را می‌بندد"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "سایۀ رو به بالای پنجره"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "پنجره دارای سایۀ رو به بالاست"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "سایۀ رو به پایین پنجره"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "پنجره دارای سایۀ رو به پایین است"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "کمینه‌سازی پنجره"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "پنجره کمینه می‌شود"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "کمینه نکردن پنجره"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "پنجره بازگردانده می‌شود"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "بیشینه‌سازی پنجره"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "پنجره بیشینه می‌شود"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "بیشینه نکردن پنجره"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "بیشینه‌سازی پنجره از بین می‌رود"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "پنجره روی همۀ رومیزیها"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "پنجره روی همۀ رومیزیها قابل رؤیت است"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "پنجره روی همۀ رومیزیها نیست"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "پنجره روی همۀ رومیزیها قابل رؤیت نیست"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "محاورۀ جدید"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "پنجرۀ گذرا )یک محاوره( ظاهر می‌شود"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "حذف محاوره"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "پنجرۀ گذرا )یک محاوره( حذف می‌شود"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "آغاز حرکت پنجره"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "پنجره شروع به حرکت می‌کند"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "پایان حرکت پنجره"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "پنجره حرکتش را کامل می‌کند"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "آغاز تغییر اندازۀ پنجره"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "تغییر اندازۀ پنجره شروع ‌شده است"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "پایان تغییر اندازۀ پنجره"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "تغییر اندازۀ پنجره به اتمام رسیده است"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "پنجره روی رومیزی جاری نیاز به توجه دارد"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "پنجره‌ای روی رومیزی مجازی جاری، نیاز به توجه دارد"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "پنجره روی رومیزیهای دیگر نیاز به توجه دارد"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "یک پنجره روی رومیزی مجازی فعال نیاز به توجه دارد"

@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 17:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: battery.desktop:2 bwarning.desktop:2 cwarning.desktop:2 power.desktop:2
+msgid "Laptop"
+msgstr "笔记本电脑"
+
+#. Name
+#: email.desktop:10
+msgid "Email"
+msgstr "电子邮件"
+
+#. Comment
+#: email.desktop:11
+msgid "Configure your identity, email addresses, mail servers, etc."
+msgstr "配置您的身份、电子邮件地址、邮件服务等。"
+
+#. Keywords
+#: email.desktop:13
+msgid ""
+"EMail;Mail;E-Mail;Address;Email server;IMAP;POP3;Local mailbox;mailbox;User "
+"Information;Reply Address;Server information;User Name;Passwords;Host;"
+"Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
+"Client;"
+msgstr ""
+"EMail;Mail;E-Mail;Address;Email server;IMAP;POP3;Local mailbox;mailbox;User "
+"Information;Reply Address;Server information;User Name;Passwords;Host;"
+"Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
+"Client;电子邮件;邮件服务器;本地邮箱;邮箱;用户信息;回复地址;服务器信息;用户名;"
+"密码;主机;组织;接收服务器;发送服务器;邮件程序;"
+
+#. Name
+#: kcmkonq.desktop:2
+msgid "File Manager"
+msgstr "文件管理器"
+
+#. Name
+#: kcmkxmlrpcd.desktop:2
+msgid "XML RPC Daemon"
+msgstr "XML RPC 守护程序"
+
+#. Name
+#: konqhtml.desktop:2
+msgid "Konqueror Browser"
+msgstr "Konqueror 浏览器"
+
+#. Name
+#: passwords.desktop:11
+msgid "Passwords"
+msgstr "密码"
+
+#. Comment
+#: passwords.desktop:13
+msgid "Configure password settings"
+msgstr "配置密码设置"
+
+#. Keywords
+#: passwords.desktop:15
+msgid "Passwords;tdesu;Echo characters;Remember passwords;Timeout;"
+msgstr ""
+"Passwords;tdesu;Echo characters;Remember passwords;Timeout;密码;超时;密码;回"
+"显字符;记住密码;"
+
+#. Name
+#: socks.desktop:2
+msgid "Socks"
+msgstr ""
+
+#. Name
+#: userinfo.desktop:13
+msgid "User Account"
+msgstr "用户账户"
+
+#. Comment
+#: userinfo.desktop:14
+msgid "Change your account information"
+msgstr "更改您的账户信息"
+
+#. Keywords
+#: userinfo.desktop:15
+msgid ""
+"Passwords;Password;Change Password;Icon;face;tdm;User Name;Name;Account;"
+msgstr ""
+"Passwords;Password;Change Password;Icon;face;tdm;User Name;Name;Account;密码;"
+"更改密码;图标;头像;用户名;姓名;账户;"
+
+#. Name
+#: virtualdesktops.desktop:2
+msgid "Virtual Desktops"
+msgstr "虚拟桌面"

@@ -1,0 +1,541 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: te\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tde.desktop.cmake:7
+#, fuzzy
+msgid "TDE"
+msgstr "సిడిఈ"
+
+#. Comment
+#: tde.desktop.cmake:8
+msgid ""
+"The Trinity Desktop Environment. A powerful Open Source graphical desktop "
+"environment"
+msgstr ""
+
+#. Name
+#: 9wm.desktop:6
+msgid "9WM"
+msgstr "9 డబ్ల్యు ఎం"
+
+#. Comment
+#: 9wm.desktop:8
+msgid "An emulation of the Plan 9 window manager 8-1/2"
+msgstr ""
+
+#. Name
+#: admin.desktop:7
+msgid "admin"
+msgstr ""
+
+#. Comment
+#: admin.desktop:9
+msgid "Yast Admin Session"
+msgstr ""
+
+#. Name
+#: aewm++.desktop:6
+msgid "AEWM++"
+msgstr "ఎ ఈ డబ్ల్యు ఎం ++"
+
+#. Comment
+#: aewm++.desktop:8
+msgid ""
+"A minimal window manager based on AEWM, enhanced by virtual desktops and "
+"partial GNOME support"
+msgstr ""
+
+#. Name
+#: aewm.desktop:6
+msgid "AEWM"
+msgstr "ఎ ఈ డబ్ల్యు ఎం"
+
+#. Comment
+#: aewm.desktop:8
+#, fuzzy
+msgid "A minimalist window manager"
+msgstr "ఐఎంలిబ్2 ఆధారిత విండొ అభికర్త"
+
+#. Name
+#: afterstep.desktop:6
+msgid "AfterStep"
+msgstr "ఆఫ్టర్ స్టెప్"
+
+#. Comment
+#: afterstep.desktop:8
+msgid "A window manager with the NeXTStep look and feel, based on FVWM"
+msgstr ""
+
+#. Name
+#: amaterus.desktop:6
+msgid "AMATERUS"
+msgstr "అమాటెరస్"
+
+#. Comment
+#: amaterus.desktop:8
+msgid "A GTK+ based window manager with a window grouping feature"
+msgstr ""
+
+#. Name
+#: amiwm.desktop:6
+msgid "AmiWM"
+msgstr "ఎమి డబ్ల్యు ఎం"
+
+#. Comment
+#: amiwm.desktop:8
+#, fuzzy
+msgid "The Amiga look-alike window manager"
+msgstr "విండొస్ 95 లాంటి విండొ అభికర్త"
+
+#. Name
+#: asclassic.desktop:6
+msgid "ASClassic"
+msgstr "ఏఎస్ క్లాసిక్"
+
+#. Comment
+#: asclassic.desktop:8
+msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
+msgstr ""
+
+#. Name
+#: blackbox.desktop:6
+msgid "Blackbox"
+msgstr "నల్లడబ్బా"
+
+#. Comment
+#: blackbox.desktop:8
+#, fuzzy
+msgid "A fast & light window manager"
+msgstr "తెలికైన విండొ అభికర్త"
+
+#. Name
+#: cde.desktop:6
+msgid "CDE"
+msgstr "సిడిఈ"
+
+#. Comment
+#: cde.desktop:8
+msgid ""
+"The Common Desktop Environment, a proprietary industry standard desktop "
+"environment"
+msgstr ""
+
+#. Name
+#: ctwm.desktop:6
+msgid "CTWM"
+msgstr "సి టి డబ్ల్యు ఎం"
+
+#. Comment
+#: ctwm.desktop:8
+msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr ""
+
+#. Name
+#: cwwm.desktop:6
+msgid "CWWM"
+msgstr "సి డబ్ల్యు డబ్ల్యు ఎం"
+
+#. Comment
+#: cwwm.desktop:8
+msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
+msgstr ""
+
+#. Name
+#: enlightenment.desktop:6
+msgid "Enlightenment"
+msgstr "జ్ఞానొదయం"
+
+#. Comment
+#: enlightenment.desktop:8
+msgid "An extremely themable very feature-rich window manager"
+msgstr ""
+
+#. Name
+#: evilwm.desktop:6
+msgid "EvilWM"
+msgstr "ఈవిల్ డబ్ల్యు ఎం"
+
+#. Comment
+#: evilwm.desktop:8
+#, fuzzy
+msgid "A minimalist window manager based on AEWM"
+msgstr "బ్లాక్ బాక్స్ ఆధారిత తెలికైన విండొ అభికర్త"
+
+#. Name
+#: fluxbox.desktop:6
+msgid "Fluxbox"
+msgstr "ఫ్లక్స్ బాక్స్"
+
+#. Comment
+#: fluxbox.desktop:8
+#, fuzzy
+msgid "A highly configurable and low resource window manager based on Blackbox"
+msgstr "బ్లాక్ బాక్స్ ఆధారిత తెలికైన విండొ అభికర్త"
+
+#. Name
+#: flwm.desktop:6
+msgid "FLWM"
+msgstr "ఎఫ్ ఎల్ డబ్ల్యు ఎం"
+
+#. Comment
+#: flwm.desktop:8
+msgid "The Fast Light Window Manager, based primarily on WM2"
+msgstr ""
+
+#. Name
+#: fvwm.desktop:6
+msgid "FVWM"
+msgstr "ఎఫ్ వి డబ్ల్యు ఎం"
+
+#. Comment
+#: fvwm.desktop:8 fvwm2.desktop:8
+msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
+msgstr ""
+
+#. Name
+#: fvwm2.desktop:6
+msgid "FVWM2"
+msgstr "ఎఫ్ వి డబ్ల్యు ఎం 2"
+
+#. Name
+#: fvwm95.desktop:6
+msgid "FVWM95"
+msgstr "ఎఫ్ వి డబ్ల్యు ఎం 95"
+
+#. Comment
+#: fvwm95.desktop:8
+msgid "A Windows 95 look-alike derivative of FVWM"
+msgstr ""
+
+#. Name
+#: gnome.desktop:6
+msgid "GNOME"
+msgstr "గ్నొమ్"
+
+#. Comment
+#: gnome.desktop:8
+msgid ""
+"The GNU Network Object Model Environment. A complete, free and easy-to-use "
+"desktop environment"
+msgstr ""
+
+#. Name
+#: golem.desktop:6
+msgid "Golem"
+msgstr "గొలెం"
+
+#. Comment
+#: golem.desktop:8
+msgid "A lightweight window manager"
+msgstr "తెలికైన విండొ అభికర్త"
+
+#. Name
+#: icewm.desktop:6
+msgid "IceWM"
+msgstr "ఐస్ డబ్ల్యు ఎం"
+
+#. Comment
+#: icewm.desktop:8
+msgid "A Windows 95-OS/2-Motif-like window manager"
+msgstr "విండొస్ 95-ఒఎస్/2 -మొటిఫ్ లాంటి విండొ అభికర్త"
+
+#. Name
+#: ion.desktop:6
+msgid "Ion"
+msgstr "ఐయాన్"
+
+#. Comment
+#: ion.desktop:8
+msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
+msgstr ""
+
+#. Name
+#: kde-plasma-safe.desktop:7
+msgid "KDE Plasma Workspace (failsafe session)"
+msgstr ""
+
+#. Comment
+#: kde-plasma-safe.desktop:9
+msgid "The desktop made by KDE (failsafe session)"
+msgstr ""
+
+#. Name
+#: kde-plasma.desktop:7
+msgid "KDE Plasma Workspace"
+msgstr ""
+
+#. Comment
+#: kde-plasma.desktop:9
+msgid "The desktop made by KDE"
+msgstr ""
+
+#. Name
+#: larswm.desktop:6
+msgid "LarsWM"
+msgstr "లార్స్ డబ్ల్యు ఎం"
+
+#. Comment
+#: larswm.desktop:8
+msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
+msgstr ""
+
+#. Name
+#: lwm.desktop:6
+msgid "LWM"
+msgstr "ఎల్ డబ్ల్యు ఎం"
+
+#. Comment
+#: lwm.desktop:8
+msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
+msgstr ""
+
+#. Name
+#: matchbox.desktop:6
+msgid "Matchbox"
+msgstr "అగ్గి పెట్టె"
+
+#. Comment
+#: matchbox.desktop:8
+msgid "A window manager for handheld devices"
+msgstr ""
+
+#. Name
+#: metacity.desktop:6
+msgid "Metacity"
+msgstr "మెటాసిటి"
+
+#. Comment
+#: metacity.desktop:8
+msgid "A lightweight GTK2 based window manager"
+msgstr "తెలికైన జిటికె2 ఆధారిత విండొ అభికర్త"
+
+#. Name
+#: mwm.desktop:6
+msgid "MWM"
+msgstr "ఎం డబ్ల్యు ఎం"
+
+#. Comment
+#: mwm.desktop:8
+msgid "The Motif Window Manager"
+msgstr "మొటిఫ్ విండొ అభికర్త"
+
+#. Name
+#: olvwm.desktop:6
+msgid "OLVWM"
+msgstr "ఒ ఎల్ వి డబ్యు ఎం"
+
+#. Comment
+#: olvwm.desktop:8
+msgid ""
+"The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
+"desktops"
+msgstr ""
+
+#. Name
+#: olwm.desktop:6
+msgid "OLWM"
+msgstr "ఒ ఎల్ డబ్యు ఎం"
+
+#. Comment
+#: olwm.desktop:8
+msgid "The traditional Open Look Window Manager"
+msgstr "సాంప్రదాయ ఒపెన్ లుక్ విండొ అభికర్త "
+
+#. Name
+#: openbox.desktop:6
+msgid "Openbox"
+msgstr "ఒపెన్ బాక్స్"
+
+#. Comment
+#: openbox.desktop:8
+msgid "A lightweight window manager based on Blackbox"
+msgstr "బ్లాక్ బాక్స్ ఆధారిత తెలికైన విండొ అభికర్త"
+
+#. Name
+#: oroborus.desktop:6
+msgid "Oroborus"
+msgstr "ఒరొబొరస్"
+
+#. Comment
+#: oroborus.desktop:8
+#, fuzzy
+msgid "A lightweight themeable window manager"
+msgstr "తెలికైన విండొ అభికర్త"
+
+#. Name
+#: phluid.desktop:6
+msgid "Phluid"
+msgstr "ఫ్లూయిడ్"
+
+#. Comment
+#: phluid.desktop:8
+msgid "An Imlib2 based window manager"
+msgstr "ఐఎంలిబ్2 ఆధారిత విండొ అభికర్త"
+
+#. Name
+#: pwm.desktop:6
+msgid "PWM"
+msgstr "పి డబ్ల్యు ఎం"
+
+#. Comment
+#: pwm.desktop:8
+#, fuzzy
+msgid ""
+"A lightweight window manager able to attach multiple windows to one frame"
+msgstr "బ్లాక్ బాక్స్ ఆధారిత తెలికైన విండొ అభికర్త"
+
+#. Name
+#: qvwm.desktop:6
+msgid "QVWM"
+msgstr "క్యు వి డబ్ల్యు ఎం"
+
+#. Comment
+#: qvwm.desktop:8
+msgid "A Windows 95 like window manager"
+msgstr "విండొస్ 95 లాంటి విండొ అభికర్త"
+
+#. Name
+#: ratpoison.desktop:6
+msgid "Ratpoison"
+msgstr "ఎలుకలమందు"
+
+#. Comment
+#: ratpoison.desktop:8
+msgid "A simple keyboard-only window manager modeled after Screen"
+msgstr ""
+
+#. Name
+#: sapphire.desktop:6
+msgid "Sapphire"
+msgstr "ఇంద్రనీలం"
+
+#. Comment
+#: sapphire.desktop:8
+#, fuzzy
+msgid "A minimal but configurable window manager"
+msgstr "ఐఎంలిబ్2 ఆధారిత విండొ అభికర్త"
+
+#. Name
+#: sawfish.desktop:6
+msgid "Sawfish"
+msgstr "సాఫిష్"
+
+#. Comment
+#: sawfish.desktop:8
+msgid ""
+"An extensible window manager scriptable with an Emacs Lisp-like language"
+msgstr ""
+
+#. Name
+#: twm.desktop:6
+msgid "TWM"
+msgstr "టి డబ్ల్యు ఎం"
+
+#. Comment
+#: twm.desktop:8
+msgid "The Tab Window Manager"
+msgstr "టాబ్ విండొ అభికర్త"
+
+#. Name
+#: ude.desktop:6
+msgid "UDE"
+msgstr "యుడిఈ"
+
+#. Comment
+#: ude.desktop:8
+msgid "The UNIX Desktop Environment"
+msgstr "యూనిక్స్ రంగస్థల పర్యావరణం"
+
+#. Name
+#: vtwm.desktop:6
+msgid "VTWM"
+msgstr "వి టి డబ్ల్యు ఎం"
+
+#. Comment
+#: vtwm.desktop:8
+msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
+msgstr ""
+
+#. Name
+#: w9wm.desktop:6
+msgid "W9WM"
+msgstr "డబ్ల్యు 9 డబ్ల్యు ఎం"
+
+#. Comment
+#: w9wm.desktop:8
+msgid ""
+"A window manager based on 9WM, enhanced by virtual screens and keyboard "
+"bindings"
+msgstr ""
+
+#. Name
+#: waimea.desktop:6
+msgid "Waimea"
+msgstr "వైమెయా"
+
+#. Comment
+#: waimea.desktop:8
+#, fuzzy
+msgid "A highly customizable window manager based on Blackbox"
+msgstr "బ్లాక్ బాక్స్ ఆధారిత తెలికైన విండొ అభికర్త"
+
+#. Name
+#: wm2.desktop:6
+msgid "WM2"
+msgstr "డబ్ల్యు ఎం 2"
+
+#. Comment
+#: wm2.desktop:8
+#, fuzzy
+msgid "A small, non-configurable window manager"
+msgstr "ఐఎంలిబ్2 ఆధారిత విండొ అభికర్త"
+
+#. Name
+#: wmaker.desktop:6
+msgid "WindowMaker"
+msgstr "విండొమెకర్"
+
+#. Comment
+#: wmaker.desktop:8
+msgid "A simple window manager that resembles the NeXTStep look very closely"
+msgstr ""
+
+#. Name
+#: xfce.desktop:6
+msgid "XFce"
+msgstr "ఎక్స్ ఎఫ్ సి ఈ"
+
+#. Comment
+#: xfce.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
+"of CDE"
+msgstr ""
+
+#. Name
+#: xfce4.desktop:6
+msgid "XFce 4"
+msgstr "ఎక్స్ ఎఫ్ సి ఈ 4"
+
+#. Comment
+#: xfce4.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment, version 4. A desktop environment "
+"reminiscent of CDE"
+msgstr ""

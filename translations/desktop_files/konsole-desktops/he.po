@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-26 02:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmkonsole.desktop:9
+msgid "Console"
+msgstr "מסוף"
+
+#. GenericName
+#: kcmkonsole.desktop:11
+msgid "All Konsole Settings"
+msgstr "כל ההגדרות של המסוף"
+
+#. Keywords
+#: kcmkonsole.desktop:13
+msgid "konsole;console;terminal;"
+msgstr "Konsole;Console;מסוף;טרמינל;terminal;יוניקס;"
+
+#. Name
+#: konsole-script.desktop:9 konsole.desktop:9 konsolesu.desktop:10
+msgid "Konsole"
+msgstr "מסוף"
+
+#. GenericName
+#: konsole-script.desktop:11 konsole.desktop:11
+msgid "Terminal Program"
+msgstr "תוכנית מסוף"
+
+#. Comment
+#: konsole/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "קובץ לפתיחת מעטפת"
+
+#. Name
+#: konsolepart.desktop:14 terminalemulator.desktop:5
+msgid "Terminal Emulator"
+msgstr "הדמיית מסוף"
+
+#. GenericName
+#: konsolesu.desktop:12
+msgid "Terminal Program - Super User Mode"
+msgstr "מסוף - מצב משתמש־על"
+
+#. Name
+#: kwrited.desktop:2
+msgid "TDE Write Daemon"
+msgstr "תהליך הרקע Write של TDE"
+
+#. Comment
+#: kwrited.desktop:4
+msgid "Watch for messages from local users sent with write(1) or wall(1)"
+msgstr ""
+"תפוס הודעות הנשלחות על ידי משתמשים מקומיים, שנשלחו על ידי write(1) או wall(1)"
+
+#. Name
+#: other/linux.desktop:3
+msgid "Linux Console"
+msgstr "מסוף לינוקס"
+
+#. Comment
+#: other/linux.desktop:4
+msgid "New Linux Console"
+msgstr "מסוף לינוקס חדש"
+
+#. Name
+#: other/mc.desktop:3
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "משימת Midnight Commander חדשה"
+
+#. Comment
+#: other/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "משימת Midnight Commander חדשה"
+
+#. Name
+#: other/screen.desktop:3
+msgid "Screen Session"
+msgstr "מנהל מסכים"
+
+#. Comment
+#: other/screen.desktop:4
+msgid "New Screen Session"
+msgstr "מנהל מסכים חדש"
+
+#. Name
+#. Title0
+#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
+#: other/5shells:6
+msgid "Shell"
+msgstr "מעטפת"
+
+#. Comment
+#: other/shell.desktop:4
+msgid "New Shell"
+msgstr "מעטפת חדשה"
+
+#. Name
+#: other/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "מעטפת root"
+
+#. Comment
+#: other/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "מעטפת root חדשה"
+
+#. Name
+#: other/sumc.desktop.cmake:3
+#, fuzzy
+msgid "Root Midnight Commander"
+msgstr "משימת Root Midnight Commander חדשה"
+
+#. Comment
+#: other/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "משימת Root Midnight Commander חדשה"
+
+#. Name
+#: terminalhere.desktop:6
+#, fuzzy
+msgid "Terminal"
+msgstr "תוכנית מסוף"
+
+#. Name
+#: terminalhere.desktop:11
+msgid "Open Terminal Here"
+msgstr "פתח מסוף כאן"
+
+#. Name
+#: other/2shells:2
+#, fuzzy
+msgid "Two consoles"
+msgstr "מסוף"
+
+#. Title1
+#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#, fuzzy
+msgid "Shell No. 2"
+msgstr "מעטפת"
+
+#. Name
+#: other/3shells:2
+msgid "Three consoles"
+msgstr ""
+
+#. Title2
+#: other/3shells:8 other/4shells:8 other/5shells:8
+#, fuzzy
+msgid "Shell No. 3"
+msgstr "מעטפת"
+
+#. Name
+#: other/4shells:2
+#, fuzzy
+msgid "Four consoles"
+msgstr "מסוף לינוקס"
+
+#. Title3
+#: other/4shells:9 other/5shells:9
+#, fuzzy
+msgid "Shell No. 4"
+msgstr "מעטפת"
+
+#. Name
+#: other/5shells:2
+#, fuzzy
+msgid "Five consoles"
+msgstr "מסוף לינוקס"
+
+#. Title4
+#: other/5shells:10
+#, fuzzy
+msgid "Shell No. 5"
+msgstr "מעטפת"

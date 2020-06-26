@@ -17,4 +17,8 @@ add_subdirectory( tdefile-plugin )
 add_subdirectory( tdefontinst )
 add_subdirectory( tdeio )
 
-install( FILES installfont.desktop DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus )
+tde_create_translated_desktop(
+  SOURCE installfont.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus
+  PO_DIR kcontrol-desktops
+)

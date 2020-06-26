@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 19:16+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmksplash/ksplashthememgr.desktop:12
+msgid "Splash Screen"
+msgstr "Màn hình Chào mừng"
+
+#. Comment
+#: kcmksplash/ksplashthememgr.desktop:14
+msgid "Manager for Splash Screen Themes"
+msgstr "Trình quản lý các Sắc thái của Màn hình Chào mừng"
+
+#. Keywords
+#: kcmksplash/ksplashthememgr.desktop:16
+msgid "splash screen;splash theme;startup;"
+msgstr "màn hình chào mừng;sắc thái chào mừng;khởi động;"
+
+#. Name
+#: ksplash.desktop:2
+msgid "KSplash"
+msgstr "Chào mừng TDE"
+
+#. Name
+#: themeengine/default/ksplashdefault.desktop:3
+msgid "KSplashLegacy"
+msgstr "Chào mừng TDE Gia tài"
+
+#. Comment
+#: themeengine/default/ksplashdefault.desktop:4
+#: themeengine/redmond/ksplashredmond.desktop:4
+#: themeengine/standard/ksplashstandard.desktop:4
+#: themeengine/unified/ksplashunified.desktop:4
+msgid "KSplash Plugin"
+msgstr "Trình bổ sung Chào mừng TDE"
+
+#. Name
+#: themeengine/redmond/ksplashredmond.desktop:3
+msgid "KSplashRedmond"
+msgstr "Chào mừng TDE Redmond"
+
+#. Name
+#: themeengine/standard/ksplashstandard.desktop:3
+msgid "KSplashStandard"
+msgstr "Chào mừng TDE Tiêu chuẩn"
+
+#. Name
+#: themeengine/unified/ksplashunified.desktop:3
+#, fuzzy
+msgid "KSplashUnified"
+msgstr "Chào mừng TDE"

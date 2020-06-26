@@ -2,20 +2,8 @@
 Name=Device Monitor
 
 Name=Device Monitor
-Name[cs]=Sledování zařízení
-Name[de]=Geräteüberwachung
-Name[es]=Monitor de dispositivos
-Name[fr]=Moniteur de périphériques
-Name[it]=Monitor dei dispositivi hardware
-Name[ru]=Диспетчер устройств
 
 Comment=Monitor hardware devices from the system tray
-Comment[cs]=Sledování hardwarových zařízení ze systémového panelu
-Comment[de]=Überwacht Hardware-Geräte aus dem Systembereich der Kontrollleiste heraus
-Comment[es]=Observe dispositivos desde área de notificación
-Comment[fr]=Surveille les périphériques matériels depuis la barre d’état système
-Comment[it]=Monitora i dispositivi hardware dall’area di notifica di sistema
-Comment[ru]=Отслеживание устройств в области уведомлений
 
 Exec=tdehwdevicetray
 Icon=hwinfo

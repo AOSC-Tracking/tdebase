@@ -1,0 +1,308 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 16:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: .directory:2
+msgid "Default"
+msgstr "По умолчанию"
+
+#. Name
+#: hidden.directory:4
+msgid "Internal Services"
+msgstr "Внутренние службы"
+
+#. Name
+#: kde-development-webdevelopment.directory:4
+#: tde-development-webdevelopment.directory:4
+msgid "Web Development"
+msgstr "Веб-разработка"
+
+#. Name
+#: kde-development.directory:4 kde-games.directory:4 kde-graphics.directory:4
+#: kde-internet.directory:4 kde-multimedia.directory:4 kde-office.directory:4
+#: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
+#: kde-utilities.directory:4
+msgid "KDE"
+msgstr ""
+
+#. Name
+#: kde-editors.directory:4 tde-editors.directory:4
+msgid "Editors"
+msgstr "Редакторы"
+
+#. Name
+#: kde-edu-languages.directory:4
+msgid "Languages"
+msgstr ""
+
+#. Name
+#: kde-edu-mathematics.directory:4
+msgid "Mathematics"
+msgstr ""
+
+#. Name
+#: kde-edu-miscellaneous.directory:4
+msgid "Miscellaneous"
+msgstr ""
+
+#. Name
+#: kde-edu-science.directory:4 tde-science.directory:5
+msgid "Science"
+msgstr "Наука"
+
+#. Name
+#: kde-games-arcade.directory:4 tde-games-arcade.directory:4
+msgid "Arcade"
+msgstr "Аркады"
+
+#. Name
+#: kde-games-board.directory:4 tde-games-board.directory:4
+msgid "Board Games"
+msgstr "Настольные игры"
+
+#. Name
+#: kde-games-card.directory:4 tde-games-card.directory:4
+msgid "Card Games"
+msgstr "Карточные игры"
+
+#. Name
+#: kde-games-kids.directory:4 tde-games-kids.directory:4
+msgid "Games for Kids"
+msgstr "Детские игры"
+
+#. Name
+#: kde-games-strategy.directory:4 tde-games-strategy.directory:4
+msgid "Tactics & Strategy"
+msgstr "Стратегия"
+
+#. Name
+#: kde-toys.directory:4 tde-toys.directory:4
+msgid "Toys"
+msgstr "Развлечения"
+
+#. Name
+#. Comment
+#: kde-utilities-accessibility.directory:4
+#: tde-utilities-accessibility.directory:4
+#: tde-utilities-accessibility.directory:6
+msgid "Accessibility"
+msgstr "Специальные возможности"
+
+#. Name
+#. Comment
+#: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
+#: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
+msgid "Desktop"
+msgstr "Рабочий стол"
+
+#. Name
+#. Comment
+#: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
+#: tde-utilities-pim.directory:6
+msgid "PIM"
+msgstr "Персональная информация"
+
+#. Name
+#: tde-development-translation.directory:4
+msgid "Translation"
+msgstr "Локализация"
+
+#. Name
+#: tde-development.directory:4
+msgid "Development"
+msgstr "Разработка"
+
+#. Name
+#: tde-edutainment.directory:4
+msgid "Edutainment"
+msgstr "Образование"
+
+#. Name
+#: tde-games-logic.directory:4
+msgid "Logic Games"
+msgstr "головоломки"
+
+#. Name
+#: tde-games-roguelikes.directory:4
+msgid "Rogue-like Games"
+msgstr "Ролевые игры в стиле Rogue"
+
+#. Name
+#: tde-games.directory:4
+msgid "Games"
+msgstr "Игры"
+
+#. Name
+#: tde-graphics.directory:4
+msgid "Graphics"
+msgstr "Графика"
+
+#. Name
+#: tde-internet-terminal.directory:4 tde-system-terminal.directory:4
+msgid "Terminal Applications"
+msgstr "Консольные приложения"
+
+#. Name
+#: tde-internet.directory:4
+msgid "Internet"
+msgstr "Интернет"
+
+#. Name
+#: tde-main.directory:5
+msgid "TDE Menu"
+msgstr "Меню TDE"
+
+#. Name
+#: tde-more.directory:5
+msgid "More Applications"
+msgstr "Дополнительные приложения"
+
+#. Name
+#: tde-multimedia.directory:4
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+#. Name
+#. Comment
+#: tde-office-pim.directory:4 tde-office-pim.directory:6
+msgid "Personal Information Management"
+msgstr "Персональная информация"
+
+#. Name
+#: tde-office.directory:4
+msgid "Office"
+msgstr "Офис"
+
+#. Name
+#: tde-settings-accessibility.directory:4
+msgid "Regional & Accessibility"
+msgstr "Региональные и специальные возможности"
+
+#. Name
+#: tde-settings-components.directory:4
+msgid "TDE Components"
+msgstr "Компоненты"
+
+#. Name
+#: tde-settings-hardware.directory:4
+msgid "Hardware"
+msgstr "Оборудование"
+
+#. Name
+#: tde-settings-information.directory:4
+msgid "Device Informations"
+msgstr "Свойства устройства"
+
+#. Name
+#: tde-settings-looknfeel.directory:4
+msgid "Appearance & Themes"
+msgstr "Внешний вид и темы"
+
+#. Name
+#: tde-settings-network.directory:4
+msgid "Internet & Network"
+msgstr "Сеть и Интернет"
+
+#. Name
+#. Comment
+#: tde-settings-peripherals.directory:4 tde-utilities-peripherals.directory:4
+#: tde-utilities-peripherals.directory:6
+msgid "Peripherals"
+msgstr "Периферия"
+
+#. Name
+#: tde-settings-power.directory:4
+msgid "Power Control"
+msgstr "Управление питанием"
+
+#. Name
+#: tde-settings-security.directory:4
+msgid "Security & Privacy"
+msgstr "Безопасность и конфиденциальность"
+
+#. Name
+#: tde-settings-sound.directory:4
+msgid "Sound & Multimedia"
+msgstr "Звук и мультимедиа"
+
+#. Name
+#: tde-settings-system.directory:4
+msgid "System Administration"
+msgstr "Системное администрирование"
+
+#. Name
+#: tde-settings-webbrowsing.directory:4
+msgid "Web Browser"
+msgstr "Браузер"
+
+#. Name
+#: tde-settings.directory:4
+msgid "Settings-Modules"
+msgstr "Модули"
+
+#. Name
+#: tde-settingsmenu.directory:4
+msgid "Settings"
+msgstr "Настройка"
+
+#. Name
+#: tde-system-screensavers.directory:4
+msgid "Screen Savers"
+msgstr "Хранители экрана"
+
+#. Comment
+#: tde-system-screensavers.directory:8
+msgid "Screen saver demos"
+msgstr "Просмотр хранителей экрана"
+
+#. Name
+#: tde-system-su.directory:5
+msgid "SuperUser"
+msgstr "Администратор"
+
+#. Name
+#: tde-system.directory:4
+msgid "System"
+msgstr "Система"
+
+#. Name
+#: tde-unknown.directory:4
+msgid "Lost & Found"
+msgstr "Камера хранения"
+
+#. Name
+#. Comment
+#: tde-utilities-file.directory:4 tde-utilities-file.directory:6
+msgid "File"
+msgstr "Работа с файлами"
+
+#. Name
+#: tde-utilities-xutils.directory:4
+msgid "X-Utilities"
+msgstr "Утилиты X"
+
+#. Comment
+#: tde-utilities-xutils.directory:6
+msgid "X Window Utilities"
+msgstr "Утилиты X Window"
+
+#. Name
+#. Comment
+#: tde-utilities.directory:4 tde-utilities.directory:6
+msgid "Utilities"
+msgstr "Служебные"

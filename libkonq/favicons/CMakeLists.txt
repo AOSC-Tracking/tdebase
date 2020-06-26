@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES favicons.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
+tde_create_translated_desktop(
+  SOURCE favicons.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}/kded
+  PO_DIR libkonq-desktops
+)
 install( FILES favicons.upd DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 install( PROGRAMS move_favicons.sh DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 

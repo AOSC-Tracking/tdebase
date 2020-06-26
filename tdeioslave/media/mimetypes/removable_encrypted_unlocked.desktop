@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-flash-usb-unlocked
 Type=MimeType
 MimeType=media/removable_encrypted_unlocked
+Icon=media-flash-usb-unlocked
+
 Comment=Encrypted Unlocked Removable Medium
-Comment[de]=Verschlüsseltes entsperrtes Wechsellaufwerk
-Comment[it]=Disco rimovibile criptato sprotetto
+
 Patterns=
 
 X-TDE-AutoEmbed=true

@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-22 18:52+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: directory_bookmarkbar.desktop:3
+msgid "Bookmark Toolbar"
+msgstr "Thanh công cụ Lưu địa chỉ"
+
+#. Name
+#: favicons/favicons.desktop:3
+msgid "KDED Favicon Module"
+msgstr "Mô đun KDED Favicon"
+
+#. Comment
+#: favicons/favicons.desktop:4
+msgid "Shortcut icon support"
+msgstr "Hỗ trợ biểu tượng giúp truy cập nhanh"
+
+#. Comment
+#: konqpopupmenuplugin.desktop:4
+msgid "Plugin for the Konqueror Popup Menu"
+msgstr "Trình bổ sung cho Thực đơn Nhảy ra của Konqueror"
+
+#. Name
+#: servicemenus/edit-as-root.desktop:6
+msgid "Edit as system administrator"
+msgstr ""

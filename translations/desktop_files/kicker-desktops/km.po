@@ -1,0 +1,372 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 16:24+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: applets/clock/clockapplet.desktop:4
+msgid "Clock"
+msgstr "នាឡិកា"
+
+#. Comment
+#: applets/clock/clockapplet.desktop:6
+msgid "An analog and digital clock"
+msgstr "នាឡិកា​អាណាឡូក និង​ឌីជីថល"
+
+#. Name
+#: applets/launcher/quicklauncher.desktop:3
+msgid "Quick Launcher"
+msgstr "អ្នក​ចាប់ផ្ដើម​រហ័ស"
+
+#. Comment
+#: applets/launcher/quicklauncher.desktop:5
+msgid "Directly access your frequently used applications"
+msgstr "ដំណើរការ​កម្មវិធី​ដែល​បាន​ប្រើ​ជា​រឿយៗ​របស់អ្នក​ដោយ​ផ្ទាល់"
+
+#. Name
+#: applets/lockout/lockout.desktop:3
+msgid "Lock/Logout Buttons"
+msgstr "ប៊ូតុង ចាក់សោ/ចេញ"
+
+#. Comment
+#: applets/lockout/lockout.desktop:5
+msgid "Adds buttons for locking screen and session logout"
+msgstr "បន្ថែម​ប៊ូតុង​សម្រាប់​ចាក់សោ​អេក្រង់ និង​ចេញ​ពី​សម័យ"
+
+#. Name
+#: applets/media/mediaapplet.desktop:3
+msgid "Storage Media"
+msgstr "ឧបករណ៍​ផ្ទុក"
+
+#. Comment
+#: applets/media/mediaapplet.desktop:5
+msgid "Directly access your storage media"
+msgstr "ចូលដំណើរការ​ឧបករណ៍​ផ្ទុក​របស់​អ្នក​ដោយ​ផ្ទាល់"
+
+#. Name
+#: applets/menu/menuapplet.desktop:4
+msgid "Menu"
+msgstr "ម៉ឺនុយ"
+
+#. Comment
+#: applets/menu/menuapplet.desktop:6
+msgid "Applet embedding standalone menubars"
+msgstr "របារ​ម៉ឺនុយ​នៅ​តែ​ឯង​ដែល​បង្កប់​ក្នុង​អាប់ភ្លេត"
+
+#. Name
+#: applets/minipager/minipagerapplet.desktop:4
+msgid "Desktop Preview & Pager"
+msgstr "ការ​មើលផ្ទៃតុ​ជាមុន និង​ភេកយ័រ"
+
+#. Comment
+#: applets/minipager/minipagerapplet.desktop:6
+msgid "Preview, manage and switch to multiple virtual desktops"
+msgstr "ការ​មើល​ជាមុន, គ្រប់គ្រង និង​ប្តូរ​ទៅពហុផ្ទៃតុ​និម្មិត​"
+
+#. Name
+#: applets/naughty/naughtyapplet.desktop:3
+msgid "Runaway Process Catcher"
+msgstr "ឧបករណ៍​ចាប់​យក​ដំណើរការ​ដែល​មិន​អាច​បញ្ជា​បាន"
+
+#. Comment
+#: applets/naughty/naughtyapplet.desktop:5
+msgid "Detect and end broken processes which consume too much CPU time"
+msgstr "រក និង​បញ្ចប់​ដំណើរការ​ខូច​ដែល​ប្រើ​ពេលវេលា CPU ច្រើន​ពេក"
+
+#. Name
+#: applets/run/runapplet.desktop:3
+msgid "Run Command"
+msgstr "រត់​ពាក្យ​បញ្ជា"
+
+#. Comment
+#: applets/run/runapplet.desktop:5
+msgid "Launch single commands without a terminal window"
+msgstr "បើក​ពាក្យ​បញ្ជា​តែ​មួយ ដោយ​គ្មាន​បង្អួច​ស្ថានីយ"
+
+#. Name
+#: applets/swallow/swallowapplet.desktop:3
+msgid "Swallow Applet"
+msgstr "អាប់ភ្លេត Swallow"
+
+#. Comment
+#: applets/swallow/swallowapplet.desktop:5
+msgid "The swallow panel applet"
+msgstr "អាប់ភ្លេត​បន្ទះ swallow"
+
+#. Name
+#: applets/systemtray/systemtrayapplet.desktop:3
+msgid "System Tray"
+msgstr "ថាស​ប្រព័ន្ធ"
+
+#. Comment
+#: applets/systemtray/systemtrayapplet.desktop:5
+msgid "The system tray panel applet"
+msgstr "អាប់ភ្លេត​បន្ទះ​ថាស​ប្រព័ន្ធ"
+
+#. Name
+#: applets/taskbar/taskbarapplet.desktop:3
+msgid "Taskbar"
+msgstr "របារ​ភារកិច្ច"
+
+#. Comment
+#: applets/taskbar/taskbarapplet.desktop:5
+msgid "The default task bar for window management"
+msgstr "របារ​ភារកិច្ច​លំនាំដើម សម្រាប់​គ្រប់គ្រង​បង្អួច"
+
+#. Name
+#: applets/trash/trashapplet.desktop:3
+msgid "Trash"
+msgstr "ធុងសំរាម"
+
+#. Comment
+#: applets/trash/trashapplet.desktop:5
+msgid "Displays the trashcan and allows files to be dropped onto it"
+msgstr "បង្ហាញ​ធុង​សំរាម និង​អនុញ្ញាត​ឲ្យ​ទម្លាក់​ឯកសារ​លើ​វា"
+
+#. Name
+#: extensions/dockbar/dockbarextension.desktop:2
+msgid "Dock Application Bar"
+msgstr "របារ​កម្មវិធី​ចូលផែ"
+
+#. Comment
+#: extensions/dockbar/dockbarextension.desktop:4
+msgid "Dock application bar extension."
+msgstr "ផ្នែក​បន្ថែម​របារ​កម្មវិធី​ចូលផែ ។"
+
+#. Name
+#: extensions/kasbar/kasbarextension.desktop:2
+msgid "KasBar"
+msgstr ""
+
+#. Comment
+#: extensions/kasbar/kasbarextension.desktop:4
+msgid "An alternative taskbar panel applet."
+msgstr "អាប់ភ្លេត​បន្ទះ​របារ​ភារកិច្ច​ជំនួស ។"
+
+#. Name
+#: extensions/sidebar/sidebarextension.desktop:2
+msgid "Universal Sidebar"
+msgstr "របារ​ចំហៀង​ទូទៅ"
+
+#. Comment
+#: extensions/sidebar/sidebarextension.desktop:4
+msgid "Wrapper around Konqueror's navigation panel"
+msgstr "Wrapper ជុំ​វិញ​បន្ទះ​រុករក​របស់ Konqueror"
+
+#. Name
+#: extensions/taskbar/taskbarextension.desktop:2
+msgid "External Taskbar"
+msgstr "របារ​ភារកិច្ច​ខាង​ក្រៅ"
+
+#. Comment
+#: extensions/taskbar/taskbarextension.desktop:4
+msgid "External taskbar panel extension"
+msgstr "ផ្នែក​បន្ថែម​បន្ទះ​របារ​ភារកិច្ច​ខាង​ក្រៅ ។"
+
+#. Name
+#: kicker/buttons/bookmarks.desktop:2
+msgid "Bookmarks Menu"
+msgstr "ម៉ឺនុយ​ចំណាំ"
+
+#. Comment
+#: kicker/buttons/bookmarks.desktop:4
+msgid "Your Konqueror bookmarks"
+msgstr "ចំណាំ Konqueror របស់​អ្នក"
+
+#. Name
+#: kicker/buttons/browser.desktop:2
+msgid "Quick File Browser"
+msgstr "កម្មវិធី​រុករកឯកសារ​រហ័ស"
+
+#. Comment
+#: kicker/buttons/browser.desktop:4
+msgid "A menu that lists files in a given folder"
+msgstr "ម៉ឺនុយ​ដែល​រាយ​ឯកសារ​ក្នុង​ថត​ដែលបាន​ផ្តល់​មួយ"
+
+#. Name
+#: kicker/buttons/desktop.desktop:2
+msgid "Show Desktop"
+msgstr "បង្ហាញ​ផ្ទៃតុ"
+
+#. Comment
+#: kicker/buttons/desktop.desktop:4
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr "ប៊ូតុង​ដែល​ផ្តល់​ការ​ចូល​ដំណើរការ​រហ័សទៅ​ផ្ទៃតុ ពេល​ចុច"
+
+#. Name
+#: kicker/buttons/exec.desktop:2
+msgid "Non-TDE Application Launcher"
+msgstr "ឧបករណ៍​បើក​កម្មវិធី​មិន​មែន TDE"
+
+#. Comment
+#: kicker/buttons/exec.desktop:4
+msgid "A launcher for programs not in the TDE Menu"
+msgstr "ឧបករណ៍​បើក​កម្មវិធី​ដែល​មិន​នៅ​ក្នុង​ម៉ឺនុយ TDE"
+
+#. Name
+#: kicker/buttons/kmenu.desktop:2
+msgid "TDE Menu"
+msgstr "ម៉ឺនុយ TDE"
+
+#. Comment
+#: kicker/buttons/kmenu.desktop:4
+msgid "Applications and common actions"
+msgstr "កម្មវិធី និង​អំពើ​ទូទៅ"
+
+#. Name
+#: kicker/buttons/windowlist.desktop:2
+msgid "Window List Menu"
+msgstr "ម៉ឺនុយ​បញ្ជី​បង្អួច"
+
+#. Comment
+#: kicker/buttons/windowlist.desktop:4
+msgid "A menu that lists all open windows"
+msgstr "ម៉ឺនុយ​ដែល​រាយ​បង្អួច​បើក​ទាំងអស់"
+
+#. Name
+#: kicker/core/childpanelextension.desktop:2
+msgid "Panel"
+msgstr "បន្ទះ"
+
+#. Comment
+#: kicker/core/childpanelextension.desktop:4
+msgid "Child panel extension."
+msgstr "ផ្នែក​បន្ថែម​បន្ទះ​កូន ។"
+
+#. Comment
+#: kicker/interfaces/kickoffsearchplugin.desktop:5
+msgid "A search plugin for Kickoff"
+msgstr ""
+
+#. Name
+#: kicker/kcmkicker.desktop:10
+msgid "Configure the Panel"
+msgstr "កំណត់​រចនាសម្ព័ន្ធ​បន្ទះ"
+
+#. Name
+#: kicker/panel.desktop:10
+msgid "Trinity Panel"
+msgstr "បន្ទះ Trinity"
+
+#. Name
+#: menuext/find/find.desktop:2
+msgid "Find"
+msgstr "រក"
+
+#. Comment
+#: menuext/find/find.desktop:4
+msgid "Menu for starting a file or web search"
+msgstr "ម៉ឺនុយ​សម្រាប់​ចាប់ផ្តើម​ស្វែងរក​ឯកសារ ឬ ទំព័រ​បណ្តាញ"
+
+#. Name
+#: menuext/find/kfind.desktop:11
+msgid "Find Files"
+msgstr "រក​ឯកសារ"
+
+#. Name
+#: menuext/find/websearch.desktop:8
+msgid "Web Search"
+msgstr "ស្វែងរក​តាម​បណ្ដាញ"
+
+#. Name
+#: menuext/kate/katesessionmenu.desktop:2
+msgid "Kate Session Menu"
+msgstr "ម៉ឺនុយ​សម័យ​របស់ Kate"
+
+#. Comment
+#: menuext/kate/katesessionmenu.desktop:4
+msgid "Allows you to open Kate with a specified session, or create a new one"
+msgstr "អនុញ្ញាត​ឲ្យ​អ្នក​បើក​ Kate ជា​មួយ​នឹង​សម័យ​ដែល​បាន​បញ្ជាក់ ឬ​បង្កើត​ថ្មី​មួយ"
+
+#. Name
+#: menuext/konq-profiles/konquerormenu.desktop:2
+msgid "Konqueror Profiles"
+msgstr "ទម្រង់ Konqueror"
+
+#. Comment
+#: menuext/konq-profiles/konquerormenu.desktop:4
+msgid "Menu for accessing the Konqueror profiles"
+msgstr "ម៉ឺនុយ​សម្រាប់​ចូល​ដំណើរការ​ទម្រង់​របស់ Konqueror"
+
+#. Name
+#: menuext/konsole/konsolemenu.desktop:2
+msgid "Terminal Sessions"
+msgstr "សម័យ​ស្ថានីយ"
+
+#. Comment
+#: menuext/konsole/konsolemenu.desktop:4
+msgid "Menu for starting a terminal emulator with a session or bookmark"
+msgstr "ម៉ឺនុយ​សម្រាប់​ចាប់ផ្ដើម​កម្មវិធី​ត្រាប់តាម​កម្មវិធី​ស្ថានីយ​ជា​មួយ​នឹង​សម័យ ឬ​ចំណាំ"
+
+#. Name
+#: menuext/prefmenu/prefmenu.desktop:2
+msgid "Trinity Control Center"
+msgstr "មជ្ឈមណ្ឌល​បញ្ជា"
+
+#. Comment
+#: menuext/prefmenu/prefmenu.desktop:4
+msgid "Trinity Control Center modules menu"
+msgstr "ម៉ឺនុយ​ម៉ូឌុល​មជ្ឈមណ្ឌល​បញ្ជា"
+
+#. Name
+#: menuext/recentdocs/recentdocs.desktop:2
+msgid "Recent Documents"
+msgstr "ឯកសារ​ថ្មីៗ​នេះ"
+
+#. Comment
+#: menuext/recentdocs/recentdocs.desktop:4
+msgid "Menu of documents you have used recently"
+msgstr "ម៉ឺនុយ​ឯកសារ​ដែល​អ្នក​បាន​ប្រើ​ថ្មីៗនេះ"
+
+#. Name
+#: menuext/remote/remotemenu.desktop:2
+msgid "Network Folders"
+msgstr "ថត​បណ្ដាញ"
+
+#. Comment
+#: menuext/remote/remotemenu.desktop:4
+msgid "Menu of network folders"
+msgstr "ម៉ឺនុយ​របស់​ថត​បណ្តាញ"
+
+#. Name
+#: menuext/system/systemmenu.desktop:2
+msgid "System Menu"
+msgstr "ប្រព័ន្ធ​ម៉ឺនុយ"
+
+#. Comment
+#: menuext/system/systemmenu.desktop:4
+msgid "Menu of important system places"
+msgstr "ម៉ឺនុយ​កន្លែង​ប្រព័ន្ធ​សំខាន់"
+
+#. Name
+#: menuext/tdeprint/printmenu.desktop:2
+msgid "Print System"
+msgstr "ប្រព័ន្ធ​បោះពុម្ព"
+
+#. Comment
+#: menuext/tdeprint/printmenu.desktop:4
+msgid "Menu for the print system"
+msgstr "ម៉ឺនុយ​សម្រាប់​ប្រព័ន្ធ​បោះពុម្ព"
+
+#. Name
+#: menuext/tom/tom.desktop:2
+msgid "TOM"
+msgstr ""
+
+#. Comment
+#: menuext/tom/tom.desktop:4
+msgid "A task oriented menu system"
+msgstr "ប្រព័ន្ធ​ម៉ឺនុយ​ដែល​សម្រប​តាម​ភារកិច្ច"

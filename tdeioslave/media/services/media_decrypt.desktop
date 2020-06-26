@@ -5,6 +5,7 @@ X-TDE-Priority=TopLevel
 X-TDE-MediaNotifierHide=true
 
 [Desktop Action MediaUnlock]
+Name=Unlock
+
 Exec=tdeio_media_mounthelper -k %u
 Icon=decrypted
-Name=Unlock

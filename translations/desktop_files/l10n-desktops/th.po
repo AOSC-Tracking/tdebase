@@ -1,0 +1,1257 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-22 18:27+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: caribbean.desktop:2
+msgid "Caribbean"
+msgstr "คาริเบียน"
+
+#. Name
+#: centralafrica.desktop:2
+msgid "Africa, Central"
+msgstr "แอฟริกาตอนกลาง"
+
+#. Name
+#: centralamerica.desktop:2
+msgid "America, Central"
+msgstr "อเมริกาตอนกลาง"
+
+#. Name
+#: centralasia.desktop:2
+msgid "Asia, Central"
+msgstr "เอเชียาตอนกลาง"
+
+#. Name
+#: centraleurope.desktop:2
+msgid "Europe, Central"
+msgstr "ยุโรปตอนกลาง"
+
+#. Name
+#: eastasia.desktop:2
+msgid "Asia, East"
+msgstr "เอเชียตะวันออก"
+
+#. Name
+#: easteurope.desktop:2
+msgid "Europe, Eastern"
+msgstr "ยุโรปตะวันออก"
+
+#. Name
+#: middleeast.desktop:2
+msgid "Middle-East"
+msgstr "ตะวันออกกลาง"
+
+#. Name
+#: northafrica.desktop:2
+msgid "Africa, Northern"
+msgstr "แอฟริกาเหนือ"
+
+#. Name
+#: northamerica.desktop:2
+msgid "America, North"
+msgstr "อเมริกาเหนือ"
+
+#. Name
+#: northeurope.desktop:2
+msgid "Europe, Northern"
+msgstr "ยุโรปตอนเหนือ"
+
+#. Name
+#: oceania.desktop:2
+msgid "Oceania"
+msgstr "โอเชียเนีย"
+
+#. Name
+#: southafrica.desktop:2
+msgid "Africa, Southern"
+msgstr "แอฟริกาตอนใต้"
+
+#. Name
+#: southamerica.desktop:2
+msgid "America, South"
+msgstr "อเมริกาใต้"
+
+#. Name
+#: southasia.desktop:2
+msgid "Asia, South"
+msgstr "เอเชียใต้"
+
+#. Name
+#: southeastasia.desktop:2
+msgid "Asia, South-East"
+msgstr "เอเชียตะวันออกเฉียงใต้"
+
+#. Name
+#: southeurope.desktop:2
+msgid "Europe, Southern"
+msgstr "ยุโรปตอนใต้"
+
+#. Name
+#: westafrica.desktop:2
+msgid "Africa, Western"
+msgstr "แอฟริกาตะวันตก"
+
+#. Name
+#: westeurope.desktop:2
+msgid "Europe, Western"
+msgstr "ยุโรปตะวันตก"
+
+#. Name
+#: C/entry.desktop:2
+msgid "Default"
+msgstr "ค่าปริยาย"
+
+#. Name
+#: ad/entry.desktop:2
+msgid "Andorra"
+msgstr "แอนโดรา"
+
+#. Name
+#: ae/entry.desktop:2
+msgid "United Arab Emirates"
+msgstr "สหรัฐอาหรับอีมิเรตส์"
+
+#. Name
+#: af/entry.desktop:2
+msgid "Afghanistan"
+msgstr "อาฟกานิสถาน"
+
+#. Name
+#: ag/entry.desktop:2
+msgid "Antigua and Barbuda"
+msgstr "อันทิกัว และ บาร์บูดา"
+
+#. Name
+#: ai/entry.desktop:2
+msgid "Anguilla"
+msgstr "แองกีลา"
+
+#. Name
+#: al/entry.desktop:2
+msgid "Albania"
+msgstr "อัลเบเนีย"
+
+#. Name
+#: am/entry.desktop:2
+msgid "Armenia"
+msgstr "อาร์เมเนีย"
+
+#. Name
+#: an/entry.desktop:2
+msgid "Netherlands Antilles"
+msgstr "เนเธอร์แลนด์ แอนทิลีส"
+
+#. Name
+#: ao/entry.desktop:2
+msgid "Angola"
+msgstr "แองโกลา"
+
+#. Name
+#: ar/entry.desktop:2
+msgid "Argentina"
+msgstr "อาร์เจนตินา"
+
+#. Name
+#: as/entry.desktop:2
+msgid "American Samoa"
+msgstr "อเมริกัน ซามัว"
+
+#. Name
+#: at/entry.desktop:2
+msgid "Austria"
+msgstr "ออสเตรีย"
+
+#. Name
+#: au/entry.desktop:2
+msgid "Australia"
+msgstr "ออสเตรเลีย"
+
+#. Name
+#: aw/entry.desktop:2
+msgid "Aruba"
+msgstr "อรูบา"
+
+#. Name
+#: ax/entry.desktop:2
+msgid "Åland Islands"
+msgstr "หมู่เกาะอาลันด์"
+
+#. Name
+#: az/entry.desktop:2
+msgid "Azerbaijan"
+msgstr "อาร์เซอร์ไบจัน"
+
+#. Name
+#: ba/entry.desktop:2
+msgid "Bosnia and Herzegovina"
+msgstr "บอสเนียและเฮอร์เซโกวินา"
+
+#. Name
+#: bb/entry.desktop:2
+msgid "Barbados"
+msgstr "บาร์บาดอส"
+
+#. Name
+#: bd/entry.desktop:2
+msgid "Bangladesh"
+msgstr "บังคลาเทศ"
+
+#. Name
+#: be/entry.desktop:2
+msgid "Belgium"
+msgstr "เบลเยียม"
+
+#. Name
+#: bf/entry.desktop:2
+msgid "Burkina Faso"
+msgstr "เบอร์กินาฟาโซ"
+
+#. Name
+#: bg/entry.desktop:2
+msgid "Bulgaria"
+msgstr "บัลแกเรีย"
+
+#. Name
+#: bh/entry.desktop:2
+msgid "Bahrain"
+msgstr "บาห์เรียน"
+
+#. Name
+#: bi/entry.desktop:2
+msgid "Burundi"
+msgstr "บูรันดิ"
+
+#. Name
+#: bj/entry.desktop:2
+msgid "Benin"
+msgstr "เบนิน"
+
+#. Name
+#: bm/entry.desktop:2
+msgid "Bermuda"
+msgstr "เบอร์มิวดา"
+
+#. Name
+#: bn/entry.desktop:3
+msgid "Brunei Darussalam"
+msgstr "บรูไนดูรัสซาลาม"
+
+#. Name
+#: bo/entry.desktop:2
+msgid "Bolivia"
+msgstr "โบลิเวีย"
+
+#. Name
+#: br/entry.desktop:2
+msgid "Brazil"
+msgstr "บราซิล"
+
+#. Name
+#: bs/entry.desktop:2
+msgid "Bahamas"
+msgstr "บาฮามา"
+
+#. Name
+#: bt/entry.desktop:3
+msgid "Bhutan"
+msgstr "ภูฏาน"
+
+#. Name
+#: bw/entry.desktop:2
+msgid "Botswana"
+msgstr "บอทสวานา"
+
+#. Name
+#: by/entry.desktop:3
+msgid "Belarus"
+msgstr "เบลารุส"
+
+#. Name
+#: bz/entry.desktop:2
+msgid "Belize"
+msgstr "เบลไลซ์"
+
+#. Name
+#: ca/entry.desktop:5
+msgid "Canada"
+msgstr "แคนาดา"
+
+#. Name
+#: cc/entry.desktop:2
+msgid "Cocos (Keeling) Islands"
+msgstr "หมู่เกาะโคคอส (Keeling)"
+
+#. Name
+#: cd/entry.desktop:2
+msgid "Congo, The Democratic Republic of the"
+msgstr "สาธารณรัฐประชาธิปไตยคองโก"
+
+#. Name
+#: cf/entry.desktop:2
+msgid "Central African Republic"
+msgstr "สาธารณรัฐอัฟริกากลาง"
+
+#. Name
+#: cg/entry.desktop:2
+msgid "Congo"
+msgstr "คองโก"
+
+#. Name
+#: ch/entry.desktop:2
+msgid "Switzerland"
+msgstr "สวิสเซอร์แลนด์"
+
+#. Name
+#: ci/entry.desktop:2
+msgid "Cote d'ivoire"
+msgstr "อ่าวไอวอรี"
+
+#. Name
+#: ck/entry.desktop:2
+msgid "Cook islands"
+msgstr "หมู่เกาะคุก"
+
+#. Name
+#: cl/entry.desktop:2
+msgid "Chile"
+msgstr "ชิลี"
+
+#. Name
+#: cm/entry.desktop:2
+msgid "Cameroon"
+msgstr "คาเมรูน"
+
+#. Name
+#: cn/entry.desktop:3
+msgid "China"
+msgstr "จีน"
+
+#. Name
+#: co/entry.desktop:2
+msgid "Colombia"
+msgstr "โคลัมเบีย"
+
+#. Name
+#: cr/entry.desktop:2
+msgid "Costa Rica"
+msgstr "คอสตาริกา"
+
+#. Name
+#: cu/entry.desktop:2
+msgid "Cuba"
+msgstr "คิวบา"
+
+#. Name
+#: cv/entry.desktop:2
+msgid "Cape Verde"
+msgstr "แหลมเวอร์ดี"
+
+#. Name
+#: cx/entry.desktop:2
+msgid "Christmas Island"
+msgstr "เกาะคริสต์มาส"
+
+#. Name
+#: cy/entry.desktop:2
+msgid "Cyprus"
+msgstr "ไซปรัส"
+
+#. Name
+#: cz/entry.desktop:2
+msgid "Czechia"
+msgstr "เชค"
+
+#. Name
+#: de/entry.desktop:2
+msgid "Germany"
+msgstr "เยอรมันนี"
+
+#. Name
+#: dj/entry.desktop:2
+msgid "Djibouti"
+msgstr "จิบูติ"
+
+#. Name
+#: dk/entry.desktop:3
+msgid "Denmark"
+msgstr "เดนมาร์ก"
+
+#. Name
+#: dm/entry.desktop:2
+msgid "Dominica"
+msgstr "โดมินากัน"
+
+#. Name
+#: do/entry.desktop:2
+msgid "Dominican Republic"
+msgstr "สาธารณรัฐโดมินิกัน"
+
+#. Name
+#: dz/entry.desktop:2
+msgid "Algeria"
+msgstr "อัลจีเรีย"
+
+#. Name
+#: ec/entry.desktop:2
+msgid "Ecuador"
+msgstr "เอกวาดอร์"
+
+#. Name
+#: ee/entry.desktop:2
+msgid "Estonia"
+msgstr "เอสโทเนีย"
+
+#. Name
+#: eg/entry.desktop:2
+msgid "Egypt"
+msgstr "อียิปต์"
+
+#. Name
+#: eh/entry.desktop:2
+msgid "Western Sahara"
+msgstr "ซาฮาร่าตะวันตก"
+
+#. Name
+#: er/entry.desktop:2
+msgid "Eritrea"
+msgstr "เอริเทรีย"
+
+#. Name
+#: es/entry.desktop:2
+msgid "Spain"
+msgstr "สเปน"
+
+#. Name
+#: et/entry.desktop:2
+msgid "Ethiopia"
+msgstr "เอธิโอเปีย"
+
+#. Name
+#: fi/entry.desktop:3
+msgid "Finland"
+msgstr "ฟินแลนด์"
+
+#. Name
+#: fj/entry.desktop:2
+msgid "Fiji"
+msgstr "ฟิจิ"
+
+#. Name
+#: fk/entry.desktop:2
+msgid "Falkland Islands (Malvinas)"
+msgstr "หมู่เกาะฟอล์คแลนด์ (Malvinas)"
+
+#. Name
+#: fm/entry.desktop:2
+msgid "Micronesia, Federated States of"
+msgstr "สหพันธรัฐมิโครนีเซีย"
+
+#. Name
+#: fo/entry.desktop:2
+msgid "Faroe Islands"
+msgstr "หมู่เกาะฟาโร"
+
+#. Name
+#: fr/entry.desktop:3
+msgid "France"
+msgstr "ฝรั่งเศส"
+
+#. Name
+#: ga/entry.desktop:2
+msgid "Gabon"
+msgstr "กาบอน"
+
+#. Name
+#: gb/entry.desktop:2
+msgid "United Kingdom"
+msgstr "สหราชอาณาจักร"
+
+#. Name
+#: gd/entry.desktop:2
+msgid "Grenada"
+msgstr "เกรนาดา"
+
+#. Name
+#: ge/entry.desktop:2
+msgid "Georgia"
+msgstr "จอร์เจีย"
+
+#. Name
+#: gh/entry.desktop:2
+msgid "Ghana"
+msgstr "กานา"
+
+#. Name
+#: gi/entry.desktop:2
+msgid "Gibraltar"
+msgstr "ยิบรอลตา"
+
+#. Name
+#: gl/entry.desktop:2
+msgid "Greenland"
+msgstr "กรีนแลนด์"
+
+#. Name
+#: gm/entry.desktop:2
+msgid "Gambia"
+msgstr "แกมเบีย"
+
+#. Name
+#: gn/entry.desktop:2
+msgid "Guinea"
+msgstr "กินี"
+
+#. Name
+#: gp/entry.desktop:2
+msgid "Guadeloupe"
+msgstr "เกาะกัวเดอลูป"
+
+#. Name
+#: gq/entry.desktop:2
+msgid "Equatorial Guinea"
+msgstr "กินี ตรงเส้นศูนย์สูตร"
+
+#. Name
+#: gr/entry.desktop:2
+msgid "Greece"
+msgstr "กรีซ"
+
+#. Name
+#: gt/entry.desktop:2
+msgid "Guatemala"
+msgstr "กัวเตมาลา"
+
+#. Name
+#: gu/entry.desktop:2
+msgid "Guam"
+msgstr "กวม"
+
+#. Name
+#: gw/entry.desktop:2
+msgid "Guinea-Bissau"
+msgstr "กินี - บิสซอ"
+
+#. Name
+#: gy/entry.desktop:2
+msgid "Guyana"
+msgstr "กูยาน่า"
+
+#. Name
+#: hk/entry.desktop:2
+msgid "Hong Kong SAR(China)"
+msgstr "ฮ่องกง"
+
+#. Name
+#: hn/entry.desktop:2
+msgid "Honduras"
+msgstr "ฮอนดูรัส"
+
+#. Name
+#: hr/entry.desktop:2
+msgid "Croatia"
+msgstr "โครเอเธีย"
+
+#. Name
+#: ht/entry.desktop:2
+msgid "Haiti"
+msgstr "ไฮติ"
+
+#. Name
+#: hu/entry.desktop:2
+msgid "Hungary"
+msgstr "ฮังการี"
+
+#. Name
+#: id/entry.desktop:2
+msgid "Indonesia"
+msgstr "อินโดนีเซีย"
+
+#. Name
+#: ie/entry.desktop:2
+msgid "Ireland"
+msgstr "ไอร์แลนด์"
+
+#. Name
+#: il/entry.desktop:3
+msgid "Israel"
+msgstr "อิสราเอล"
+
+#. Name
+#: in/entry.desktop:2
+msgid "India"
+msgstr "อินเดีย"
+
+#. Name
+#: iq/entry.desktop:2
+msgid "Iraq"
+msgstr "อิรัก"
+
+#. Name
+#: ir/entry.desktop:2
+msgid "Iran"
+msgstr "อิหร่าน"
+
+#. Name
+#: is/entry.desktop:2
+msgid "Iceland"
+msgstr "ไอซ์แลนด์"
+
+#. Name
+#: it/entry.desktop:2
+msgid "Italy"
+msgstr "อิตาลี"
+
+#. Name
+#: jm/entry.desktop:2
+msgid "Jamaica"
+msgstr "จาไมก้า"
+
+#. Name
+#: jo/entry.desktop:2
+msgid "Jordan"
+msgstr "จอร์แดน"
+
+#. Name
+#: jp/entry.desktop:2
+msgid "Japan"
+msgstr "ญี่ปุ่น"
+
+#. Name
+#: ke/entry.desktop:2
+msgid "Kenya"
+msgstr "เคนยา"
+
+#. Name
+#: kg/entry.desktop:2
+msgid "Kyrgyzstan"
+msgstr "คีจิสถาน"
+
+#. Name
+#: kh/entry.desktop:2
+msgid "Cambodia"
+msgstr "กัมพูชา"
+
+#. Name
+#: ki/entry.desktop:2
+msgid "Kiribati"
+msgstr "คิริบาติ"
+
+#. Name
+#: km/entry.desktop:2
+msgid "Comoros"
+msgstr "โคโมรอส"
+
+#. Name
+#: kn/entry.desktop:2
+msgid "St. Kitts and Nevis"
+msgstr "เซนต์กิตส์และเนวิส"
+
+#. Name
+#: kp/entry.desktop:2
+msgid "North Korea"
+msgstr "เกาหลีเหนือ"
+
+#. Name
+#: kr/entry.desktop:2
+msgid "South Korea"
+msgstr "เกาหลีใต้"
+
+#. Name
+#: kw/entry.desktop:2
+msgid "Kuwait"
+msgstr "คูเวต"
+
+#. Name
+#: ky/entry.desktop:2
+msgid "Cayman Islands"
+msgstr "หมู่เกาะเคย์แมน"
+
+#. Name
+#: kz/entry.desktop:2
+msgid "Kazakhstan"
+msgstr "คาซัคสถาน"
+
+#. Name
+#: la/entry.desktop:2
+msgid "Laos"
+msgstr "ลาว"
+
+#. Name
+#: lb/entry.desktop:2
+msgid "Lebanon"
+msgstr "เลบานอน"
+
+#. Name
+#: lc/entry.desktop:2
+msgid "St. Lucia"
+msgstr "เซนต์ลูเซีย"
+
+#. Name
+#: li/entry.desktop:2
+msgid "Liechtenstein"
+msgstr "ลิชเทนสไตน์"
+
+#. Name
+#: lk/entry.desktop:2
+msgid "Sri Lanka"
+msgstr "ศรีลังกา"
+
+#. Name
+#: lr/entry.desktop:2
+msgid "Liberia"
+msgstr "ไลบีเรีย"
+
+#. Name
+#: ls/entry.desktop:2
+msgid "Lesotho"
+msgstr "เลโซโต"
+
+#. Name
+#: lt/entry.desktop:2
+msgid "Lithuania"
+msgstr "ลิธัวเนีย"
+
+#. Name
+#: lu/entry.desktop:2
+msgid "Luxembourg"
+msgstr "ลักเซมเบอร์ก"
+
+#. Name
+#: lv/entry.desktop:2
+msgid "Latvia"
+msgstr "ลัธเวีย"
+
+#. Name
+#: ly/entry.desktop:2
+msgid "Libya"
+msgstr "ลิเบีย"
+
+#. Name
+#: ma/entry.desktop:2
+msgid "Morocco"
+msgstr "โมร็อคโค"
+
+#. Name
+#: mc/entry.desktop:2
+msgid "Monaco"
+msgstr "โมนาโค"
+
+#. Name
+#: md/entry.desktop:2
+msgid "Moldova"
+msgstr "มอลโดวา"
+
+#. Name
+#: me/entry.desktop:3
+msgid "Montenegro"
+msgstr "มอนตินิโกร"
+
+#. Name
+#: mg/entry.desktop:2
+msgid "Madagascar"
+msgstr "มาดากัสกา"
+
+#. Name
+#: mh/entry.desktop:2
+msgid "Marshall Islands"
+msgstr "หมู่เกาะมาแชล"
+
+#. Name
+#: mk/entry.desktop:3
+msgid "Macedonia"
+msgstr "มาเซโดเนีย"
+
+#. Name
+#: ml/entry.desktop:2
+msgid "Mali"
+msgstr "มาลี"
+
+#. Name
+#: mm/entry.desktop:2
+msgid "Myanmar"
+msgstr "เมียนมาร์"
+
+#. Name
+#: mn/entry.desktop:2
+msgid "Mongolia"
+msgstr "มองโกเลีย"
+
+#. Name
+#: mo/entry.desktop:2
+msgid "Macau SAR(China)"
+msgstr "มาเก๊า"
+
+#. Name
+#: mq/entry.desktop:2
+msgid "Martinique"
+msgstr "มาทินิค"
+
+#. Name
+#: mr/entry.desktop:2
+msgid "Mauritania"
+msgstr "มอริทาเนีย"
+
+#. Name
+#: ms/entry.desktop:2
+msgid "Montserrat"
+msgstr "มอนต์เซอร์รัท"
+
+#. Name
+#: mt/entry.desktop:3
+msgid "Malta"
+msgstr "มอลตา"
+
+#. Name
+#: mu/entry.desktop:2
+msgid "Mauritius"
+msgstr "มอริเชียส"
+
+#. Name
+#: mv/entry.desktop:2
+msgid "Maldives"
+msgstr "มัลดิฟ"
+
+#. Name
+#: mw/entry.desktop:2
+msgid "Malawi"
+msgstr "มาลาวี"
+
+#. Name
+#: mx/entry.desktop:2
+msgid "Mexico"
+msgstr "เม็กซิโก"
+
+#. Name
+#: my/entry.desktop:2
+msgid "Malaysia"
+msgstr "มาเลเซีย"
+
+#. Name
+#: mz/entry.desktop:2
+msgid "Mozambique"
+msgstr "โมแซมบิก"
+
+#. Name
+#: na/entry.desktop:2
+msgid "Namibia"
+msgstr "นามิเบีย"
+
+#. Name
+#: nc/entry.desktop:2
+msgid "New Caledonia"
+msgstr "นิวคาเลโดเนีย"
+
+#. Name
+#: ne/entry.desktop:2
+msgid "Niger"
+msgstr "ไนเจอร์"
+
+#. Name
+#: nf/entry.desktop:2
+msgid "Norfolk Island"
+msgstr "เกาะนอร์ฟอล์ค"
+
+#. Name
+#: ng/entry.desktop:2
+msgid "Nigeria"
+msgstr "ไนจีเรีย"
+
+#. Name
+#: ni/entry.desktop:2
+msgid "Nicaragua"
+msgstr "นิคารากัว"
+
+#. Name
+#: nl/entry.desktop:3
+msgid "Netherlands"
+msgstr "เนเธอร์แลนด์"
+
+#. Name
+#: no/entry.desktop:3
+msgid "Norway"
+msgstr "นอร์เวย์"
+
+#. Name
+#: np/entry.desktop:2
+msgid "Nepal"
+msgstr "เนปาล"
+
+#. Name
+#: nr/entry.desktop:2
+msgid "Nauru"
+msgstr "นาวรู"
+
+#. Name
+#: nu/entry.desktop:2
+msgid "Niue"
+msgstr "นิอุเอ"
+
+#. Name
+#: nz/entry.desktop:3
+msgid "New Zealand"
+msgstr "นิวซีแลนด์"
+
+#. Name
+#: om/entry.desktop:2
+msgid "Oman"
+msgstr "โอมาน"
+
+#. Name
+#: pa/entry.desktop:2
+msgid "Panama"
+msgstr "ปานามา"
+
+#. Name
+#: pe/entry.desktop:2
+msgid "Peru"
+msgstr "เปรู"
+
+#. Name
+#: pf/entry.desktop:2
+msgid "French Polynesia"
+msgstr "ฝรั่งเศสโพลีนีเซีย"
+
+#. Name
+#: pg/entry.desktop:2
+msgid "Papua New Guinea"
+msgstr "ปาปัวนิวกินี"
+
+#. Name
+#: ph/entry.desktop:2
+msgid "Philippines"
+msgstr "ฟิลิปปินส์"
+
+#. Name
+#: pk/entry.desktop:2
+msgid "Pakistan"
+msgstr "ปากีสถาน"
+
+#. Name
+#: pl/entry.desktop:2
+msgid "Poland"
+msgstr "โปแลนด์"
+
+#. Name
+#: pm/entry.desktop:2
+msgid "Saint Pierre and Miquelon"
+msgstr "เซนต์ปิแอร์ และมิเคอลอน"
+
+#. Name
+#: pn/entry.desktop:2
+msgid "Pitcairn"
+msgstr "เกาะพิตแคร์น"
+
+#. Name
+#: pr/entry.desktop:2
+msgid "Puerto Rico"
+msgstr "เปอร์โตริโก"
+
+#. Name
+#: ps/entry.desktop:2
+msgid "Palestinian Territory"
+msgstr "เขตปกครองปาเลสไตน์"
+
+#. Name
+#: pt/entry.desktop:3
+msgid "Portugal"
+msgstr "โปรตุเกส"
+
+#. Name
+#: pw/entry.desktop:2
+msgid "Palau"
+msgstr "เกาะพาเลา"
+
+#. Name
+#: py/entry.desktop:2
+msgid "Paraguay"
+msgstr "ปารากวัย"
+
+#. Name
+#: qa/entry.desktop:2
+msgid "Qatar"
+msgstr "กาตาร์"
+
+#. Name
+#: ro/entry.desktop:2
+msgid "Romania"
+msgstr "โรมาเนีย"
+
+#. Name
+#: rs/entry.desktop:3
+msgid "Serbia"
+msgstr "เซอร์เบีย"
+
+#. Name
+#: ru/entry.desktop:3
+msgid "Russia"
+msgstr "รัสเซีย"
+
+#. Name
+#: rw/entry.desktop:2
+msgid "Rwanda"
+msgstr "รวันด้า"
+
+#. Name
+#: sa/entry.desktop:2
+msgid "Saudi Arabia"
+msgstr "ซาอุดิอาระเบีย"
+
+#. Name
+#: sb/entry.desktop:2
+msgid "Solomon Islands"
+msgstr "หมู่เกาะโซโลมอน"
+
+#. Name
+#: sc/entry.desktop:2
+msgid "Seychelles"
+msgstr "ซีเชลล์"
+
+#. Name
+#: sd/entry.desktop:2
+msgid "Sudan"
+msgstr "ซูดาน"
+
+#. Name
+#: se/entry.desktop:2
+msgid "Sweden"
+msgstr "สวีเดน"
+
+#. Name
+#: sg/entry.desktop:2
+msgid "Singapore"
+msgstr "สิงคโปร์"
+
+#. Name
+#: sh/entry.desktop:2
+msgid "Saint Helena"
+msgstr "เซนต์เฮเลน่า"
+
+#. Name
+#: si/entry.desktop:2
+msgid "Slovenia"
+msgstr "สโลเวเนีย"
+
+#. Name
+#: sk/entry.desktop:2
+msgid "Slovakia"
+msgstr "สโลวาเกีย"
+
+#. Name
+#: sm/entry.desktop:2
+msgid "San Marino"
+msgstr "ซานมาริโน"
+
+#. Name
+#: sn/entry.desktop:2
+msgid "Senegal"
+msgstr "เซนีกัล"
+
+#. Name
+#: so/entry.desktop:2
+msgid "Somalia"
+msgstr "โซมาเลีย"
+
+#. Name
+#: sr/entry.desktop:2
+msgid "Suriname"
+msgstr "ซูรีนามิ"
+
+#. Name
+#: st/entry.desktop:2
+msgid "Sao Tome and Principe"
+msgstr "ซาวโทม และ พรินซิป"
+
+#. Name
+#: sv/entry.desktop:2
+msgid "El Salvador"
+msgstr "เอลซัลวาดอร์"
+
+#. Name
+#: sy/entry.desktop:2
+msgid "Syria"
+msgstr "ซีเรีย"
+
+#. Name
+#: sz/entry.desktop:2
+msgid "Swaziland"
+msgstr "สวาซิแลนด์"
+
+#. Name
+#: tc/entry.desktop:2
+msgid "Turks and Caicos Islands"
+msgstr "เกาะดติร์กและเคคอส"
+
+#. Name
+#: td/entry.desktop:2
+msgid "Chad"
+msgstr "ชาด"
+
+#. Name
+#: tg/entry.desktop:2
+msgid "Togo"
+msgstr "โตโก"
+
+#. Name
+#: th/entry.desktop:2
+msgid "Thailand"
+msgstr "ราชอาณาจักรไทย"
+
+#. Name
+#: tj/entry.desktop:2
+msgid "Tajikistan"
+msgstr "ธาจีกิสถาน"
+
+#. Name
+#: tk/entry.desktop:2
+msgid "Tokelau"
+msgstr "โทเคเลา"
+
+#. Name
+#: tm/entry.desktop:2
+msgid "Turkmenistan"
+msgstr "เตอร์กเมนิสถาน"
+
+#. Name
+#: tn/entry.desktop:2
+msgid "Tunisia"
+msgstr "ตูนีเซีย"
+
+#. Name
+#: to/entry.desktop:2
+msgid "Tonga"
+msgstr "ตองก้า"
+
+#. Name
+#: tp/entry.desktop:2
+msgid "East Timor"
+msgstr "ติมอร์ตะวันออก"
+
+#. Name
+#: tr/entry.desktop:2
+msgid "Turkey"
+msgstr "ตุรกี"
+
+#. Name
+#: tt/entry.desktop:2
+msgid "Trinidad and Tobago"
+msgstr "ตรีนิแดดและโทบาโก"
+
+#. Name
+#: tv/entry.desktop:2
+msgid "Tuvalu"
+msgstr "ตูวาลู"
+
+#. Name
+#: tw/entry.desktop:3
+msgid "Taiwan"
+msgstr "ไต้หวัน"
+
+#. Name
+#: tz/entry.desktop:2
+msgid "Tanzania, United Republic of"
+msgstr "สาธารณรัฐแทนซาเนีย"
+
+#. Name
+#: ua/entry.desktop:3
+msgid "Ukraine"
+msgstr "ยูเครน"
+
+#. Name
+#: ug/entry.desktop:2
+msgid "Uganda"
+msgstr "ยูกันดา"
+
+#. Name
+#: us/entry.desktop:2
+msgid "United States of America"
+msgstr "สหรัฐอเมริกา"
+
+#. Name
+#: uy/entry.desktop:2
+msgid "Uruguay"
+msgstr "อุรุกวัย"
+
+#. Name
+#: uz/entry.desktop:2
+msgid "Uzbekistan"
+msgstr "อุซเบกิสถาน"
+
+#. Name
+#: va/entry.desktop:2
+msgid "Vatican City"
+msgstr "นครรัฐวาติกัน"
+
+#. Name
+#: vc/entry.desktop:2
+msgid "St. Vincent and the Grenadines"
+msgstr "เกาะเซนต์วินเซนต์"
+
+#. Name
+#: ve/entry.desktop:2
+msgid "Venezuela"
+msgstr "เวเนซุเอลา"
+
+#. Name
+#: vg/entry.desktop:2
+msgid "Virgin Islands, British"
+msgstr "หมู่เกาะเวอร์จิน, อังกฤษ"
+
+#. Name
+#: vi/entry.desktop:2
+msgid "Virgin Islands, U.S."
+msgstr "หมู่เกาะเวอร์จิน, สหรัฐอเมริกา"
+
+#. Name
+#: vn/entry.desktop:2
+msgid "Vietnam"
+msgstr "เวียตนาม"
+
+#. Name
+#: vu/entry.desktop:2
+msgid "Vanuatu"
+msgstr "แวนัวตู"
+
+#. Name
+#: wf/entry.desktop:2
+msgid "Wallis and Futuna"
+msgstr "วอลลิสและฟูทูนา"
+
+#. Name
+#: ws/entry.desktop:3
+msgid "Samoa"
+msgstr "ซามัว"
+
+#. Name
+#: ye/entry.desktop:2
+msgid "Yemen"
+msgstr "เยเมน"
+
+#. Name
+#: za/entry.desktop:3
+msgid "South Africa"
+msgstr "แอฟริกาใต้"
+
+#. Name
+#: zm/entry.desktop:2
+msgid "Zambia"
+msgstr "แซมเบีย"
+
+#. Name
+#: zw/entry.desktop:2
+msgid "Zimbabwe"
+msgstr "ซิมบับเว"

@@ -28,9 +28,18 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES keyboard.desktop keyboard_layout.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE keyboard.desktop keyboard_layout.desktop
+  PO_DIR kxkb-desktops
+)
+
 install( FILES kxkb_groups DESTINATION ${CONFIG_INSTALL_DIR} )
-install( FILES kxkb.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+
+tde_create_translated_desktop(
+  SOURCE kxkb.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR kxkb-desktops
+)
 
 
 ##### kcm_keyboard (module) #####################

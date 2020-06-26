@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 19:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kjobviewer/kjobviewer-autostart.desktop:7 kjobviewer/kjobviewer.desktop:8
+msgid "KJobViewer"
+msgstr ""
+
+#. GenericName
+#. Comment
+#: kjobviewer/kjobviewer-autostart.desktop:9 kjobviewer/kjobviewer.desktop:10
+#: slave/mimetypes/jobs.desktop:2
+msgid "Print Jobs"
+msgstr "Lavori di stampa"
+
+#. Name
+#: kprinter/kprinter.desktop:9
+#, fuzzy
+msgid "KPrinter"
+msgstr "Stampante"
+
+#. GenericName
+#: kprinter/kprinter.desktop:11
+msgid "Printing Tool"
+msgstr "Strumento di stampa"
+
+#. Name
+#: printmgr/printers.desktop:12
+msgid "Printers"
+msgstr "Stampanti"
+
+#. Comment
+#: printmgr/printers.desktop:14
+msgid "Printing system configuration (printers, jobs, classes, ...)"
+msgstr "Configurazione del sistema di stampa (stampanti, lavori, classi, ...)"
+
+#. Keywords
+#: printmgr/printers.desktop:16
+msgid "print;printer;printing management;"
+msgstr "stampa;stampante;gestione stampa;"
+
+#. Comment
+#: slave/mimetypes/class.desktop:2
+msgid "Class of Printers"
+msgstr "Classe di stampanti"
+
+#. Comment
+#: slave/mimetypes/driver.desktop:2
+msgid "Printer Driver"
+msgstr "Driver stampante"
+
+#. Comment
+#: slave/mimetypes/folder.desktop:2
+msgid "Print Folder"
+msgstr "Cartella di stampa"
+
+#. Comment
+#. Name
+#: slave/mimetypes/manager.desktop:2 tdeprint_part/tdeprint_part.desktop:4
+msgid "Print Management Tool"
+msgstr "Strumento per la gestione della stampa"
+
+#. Comment
+#: slave/mimetypes/printer.desktop:2
+msgid "Printer"
+msgstr "Stampante"
+
+#. Comment
+#: slave/mimetypes/printermodel.desktop:2
+msgid "Printer Model"
+msgstr "Modello stampante"
+
+#. Name
+#: tdeprintfax/tdeprintfax.desktop:2
+msgid "TDEPrintFax"
+msgstr ""
+
+#. GenericName
+#: tdeprintfax/tdeprintfax.desktop:4
+msgid "Fax Utility"
+msgstr "Fax"

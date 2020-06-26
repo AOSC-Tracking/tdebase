@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=X Clock
+GenericName=Clock
+Type=Application
+MimeType=
+X-TDE-StartupNotify=true
+SwallowTitle=xclock
+SwallowExec=xclock -padding 0
+Exec=xclock
+Icon=xclock
+Path=
+Terminal=false

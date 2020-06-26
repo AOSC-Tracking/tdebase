@@ -22,7 +22,12 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES mac.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE mac.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
+
 tde_install_icons( )
 
 

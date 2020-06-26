@@ -24,10 +24,24 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons( klipper )
-install( FILES klipper.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES klipper.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
-install( FILES klipper.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
-install( FILES klipperrc.desktop DESTINATION ${CONFIG_INSTALL_DIR} RENAME klipperrc )
+tde_create_translated_desktop(
+  SOURCE klipper.desktop
+  PO_DIR klipper-desktops
+)
+install(
+  FILES ${CMAKE_CURRENT_BINARY_DIR}/klipper.desktop
+  DESTINATION ${AUTOSTART_INSTALL_DIR}
+)
+install(
+  FILES ${CMAKE_CURRENT_BINARY_DIR}/klipper.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/applets
+)
+tde_create_translated_desktop(
+  SOURCE klipperrc.desktop
+  DESTINATION ${CONFIG_INSTALL_DIR}
+  OUTPUT_NAME klipperrc
+  PO_DIR klipper-desktops
+)
 install( FILES klipperrc.upd klippershortcuts.upd DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 install( PROGRAMS klipper-1-2.pl klipper-trinity1.sh DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 

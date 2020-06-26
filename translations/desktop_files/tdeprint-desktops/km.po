@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 19:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kjobviewer/kjobviewer-autostart.desktop:7 kjobviewer/kjobviewer.desktop:8
+msgid "KJobViewer"
+msgstr ""
+
+#. GenericName
+#. Comment
+#: kjobviewer/kjobviewer-autostart.desktop:9 kjobviewer/kjobviewer.desktop:10
+#: slave/mimetypes/jobs.desktop:2
+msgid "Print Jobs"
+msgstr "ការងារ​បោះពុម្ព"
+
+#. Name
+#: kprinter/kprinter.desktop:9
+#, fuzzy
+msgid "KPrinter"
+msgstr "ម៉ាស៊ីន​បោះពុម្ព"
+
+#. GenericName
+#: kprinter/kprinter.desktop:11
+msgid "Printing Tool"
+msgstr "ឧបករណ៍​បោះពុម្ព"
+
+#. Name
+#: printmgr/printers.desktop:12
+msgid "Printers"
+msgstr "ម៉ាស៊ីន​បោះពុម្ព"
+
+#. Comment
+#: printmgr/printers.desktop:14
+msgid "Printing system configuration (printers, jobs, classes, ...)"
+msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ​ប្រព័ន្ធ​បោះពុម្ព (ម៉ាស៊ីន​បោះពុម្ព ការងារ សន្ដាន...)"
+
+#. Keywords
+#: printmgr/printers.desktop:16
+msgid "print;printer;printing management;"
+msgstr "បោះពុម្ព;ម៉ាស៊ីន​បោះពុម្ព;គ្រប់គ្រង​ការ​បោះពុម្ព;"
+
+#. Comment
+#: slave/mimetypes/class.desktop:2
+msgid "Class of Printers"
+msgstr "សន្ដាន​ម៉ាស៊ីន​បោះពុម្ព"
+
+#. Comment
+#: slave/mimetypes/driver.desktop:2
+msgid "Printer Driver"
+msgstr "កម្មវិធី​បញ្ជា​ម៉ាស៊ីន​បោះពុម្ព"
+
+#. Comment
+#: slave/mimetypes/folder.desktop:2
+msgid "Print Folder"
+msgstr "ថត​បោះពុម្ព"
+
+#. Comment
+#. Name
+#: slave/mimetypes/manager.desktop:2 tdeprint_part/tdeprint_part.desktop:4
+msgid "Print Management Tool"
+msgstr "ឧបករណ៍​គ្រប់គ្រង​ការ​បោះពុម្ព"
+
+#. Comment
+#: slave/mimetypes/printer.desktop:2
+msgid "Printer"
+msgstr "ម៉ាស៊ីន​បោះពុម្ព"
+
+#. Comment
+#: slave/mimetypes/printermodel.desktop:2
+msgid "Printer Model"
+msgstr "ម៉ូដែលម៉ាស៊ីន​បោះពុម្ព"
+
+#. Name
+#: tdeprintfax/tdeprintfax.desktop:2
+msgid "TDEPrintFax"
+msgstr ""
+
+#. GenericName
+#: tdeprintfax/tdeprintfax.desktop:4
+msgid "Fax Utility"
+msgstr "ឧបករណ៍​ទូរសារ"

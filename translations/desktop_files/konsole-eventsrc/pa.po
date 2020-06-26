@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 15:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "Konsole"
+msgstr "ਕੰਨਸੋਲ"
+
+#. Name
+#: eventsrc:6
+msgid "Bell in visible session"
+msgstr "ਦਿੱਖ ਸ਼ੈਸ਼ਨ ਵਿੱਚ ਘੰਟੀ"
+
+#. Comment
+#: eventsrc:7
+msgid "Bell emitted within a visible session"
+msgstr "ਇੱਕ ਦਿੱਖ ਸ਼ੈਸ਼ਨ ਵਿੱਚ ਘੰਟੀ"
+
+#. Name
+#: eventsrc:12
+msgid "Bell in non-visible session"
+msgstr "ਨਾ-ਦਿੱਖ ਸ਼ੈਸ਼ਨ ਵਿੱਚ ਘੰਟੀ"
+
+#. Comment
+#: eventsrc:13
+msgid "Bell emitted within a non-visible session"
+msgstr "ਇੱਕ ਨਾ-ਦਿੱਖ ਸ਼ੈਸ਼ਨ ਵਿੱਚ ਘੰਟੀ"
+
+#. Name
+#: eventsrc:18
+msgid "Activity in monitored session"
+msgstr "ਨਿਗਰਾਨੀ ਅਧੀਨ ਸ਼ੈਸ਼ਨ ਵਿੱਚ ਸਰਗਰਮੀ"
+
+#. Comment
+#: eventsrc:19
+msgid "Activity detected in a monitored session"
+msgstr "ਇੱਕ ਨਿਗਰਾਨੀ ਅਧੀਨ ਸ਼ੈਸ਼ਨ ਵਿੱਚ ਸਰਗਰਮੀ ਪ੍ਰਾਪਤ ਹੋਈ"
+
+#. Name
+#: eventsrc:23
+msgid "Silence in monitored session"
+msgstr "ਨਿਗਰਾਨੀ ਅਧੀਨ ਸ਼ੈਸ਼ਨ ਵਿੱਚ ਖਾਮੋਸ਼ੀ"
+
+#. Comment
+#: eventsrc:24
+msgid "Silence detected in a monitored session"
+msgstr "ਨਿਗਰਾਨੀ ਅਧੀਨ ਸ਼ੈਸ਼ਨ ਵਿੱਚ ਖਾਮੋਸੀ ਪ੍ਰਾਪਤ"
+
+#. Name
+#: eventsrc:28
+msgid "Session finished with non-zero status"
+msgstr "ਨਾ-ਸਿਫਰ ਸਥਿਤੀ ਨਾਲ ਸ਼ੈਸ਼ਨ ਸਮਾਪਤ"
+
+#. Comment
+#: eventsrc:29
+msgid "A session has exited with non-zero status"
+msgstr "ਨਾ-ਸਿਫਰ ਸਥਿਤੀ ਨਾਲ ਸ਼ੈਸ਼ਨ ਬੰਦ"

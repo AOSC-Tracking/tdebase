@@ -1,0 +1,1795 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-17 22:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Development/Forte.desktop:2
+msgid "Forte"
+msgstr "คำทำนาย - K"
+
+#. GenericName
+#: Development/Forte.desktop:3
+msgid "Java IDE"
+msgstr "เครื่องมือ IDE สำหรับจาวา"
+
+#. Name
+#: Development/assistant.desktop:2
+msgid "Qt Assistant"
+msgstr "คำแนะนำการใช้ Qt"
+
+#. GenericName
+#: Development/assistant.desktop:3
+msgid "Document Browser"
+msgstr "เครื่องมือเลือกดูแฟ้มเอกสาร"
+
+#. Name
+#: Development/ddd.desktop:2
+msgid "DDD"
+msgstr ""
+
+#. GenericName
+#: Development/ddd.desktop:3
+msgid "Data Display Debugger"
+msgstr "เครื่องมือดีบักการแสดงข้อมูล"
+
+#. Name
+#: Development/designer.desktop:2
+msgid "Qt Designer"
+msgstr "ออกแบบส่วนติดต่อผู้ใช้สำหรับ Qt"
+
+#. GenericName
+#: Development/designer.desktop:3
+msgid "Interface Designer"
+msgstr "เครื่องมือออกแบบส่วนติดต่อผู้ใช้"
+
+#. Name
+#: Development/dlgedit.desktop:2
+msgid "Qt DlgEdit"
+msgstr "แก้ไขกล่องโต้ตอบสำหรับ Qt"
+
+#. GenericName
+#: Development/dlgedit.desktop:3
+msgid "Dialog Editor"
+msgstr "เครื่องมือแก้ไขกล่องโต้ตอบ"
+
+#. Name
+#: Development/eclipse.desktop:3
+#, fuzzy
+msgid "Eclipse"
+msgstr "เครื่องมือ IDE สำหรับจาวา"
+
+#. GenericName
+#: Development/eclipse.desktop:4
+msgid "Eclipse IDE"
+msgstr "เครื่องมือ IDE สำหรับจาวา"
+
+#. Name
+#: Development/fdesign.desktop:2
+msgid "FormDesigner"
+msgstr "ออกแบบฟอร์ม"
+
+#. Name
+#: Development/j2mewtk.desktop:2
+msgid "J2ME"
+msgstr ""
+
+#. GenericName
+#: Development/j2mewtk.desktop:3
+msgid "J2ME Toolkit"
+msgstr "ทูลคิท J2ME"
+
+#. Name
+#: Development/linguist.desktop:2
+msgid "Qt Linguist"
+msgstr "แปลภาษาของ Qt"
+
+#. GenericName
+#: Development/linguist.desktop:3
+msgid "Translation Tool"
+msgstr "เครื่องมือแปลภาษา"
+
+#. Name
+#: Development/pose.desktop:2
+msgid "Pose"
+msgstr ""
+
+#. GenericName
+#: Development/pose.desktop:3
+msgid "Palm/Wireless Emulator"
+msgstr "ตัวจำลองปาล์ม/อุปกรณ์ไร้สาย"
+
+#. Name
+#: Development/sced.desktop:2
+msgid "Sced"
+msgstr ""
+
+#. GenericName
+#: Development/sced.desktop:3
+msgid "Scene Modeler"
+msgstr "เครื่องมือสร้างโมเดลฉาก"
+
+#. Name
+#: Games/Arcade/ClanBomber.desktop:2
+#, fuzzy
+msgid "ClanBomber"
+msgstr "ClanBomber"
+
+#. GenericName
+#: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
+#: Games/Arcade/Mures.desktop:3 Games/Arcade/SuperMethaneBrothers.desktop:3
+#: Games/Arcade/Trophy.desktop:3 Games/Arcade/XKobo.desktop:3
+#: Games/Arcade/XSoldier.desktop:3 Games/Arcade/battalion.desktop:3
+#: Games/Arcade/cxhextris.desktop:3 Games/Arcade/scavenger.desktop:3
+#: Games/Board/Gataxx.desktop:3 Games/Board/Gnotravex.desktop:3
+#: Games/penguin-command.desktop:4
+msgid "Arcade Game"
+msgstr "เกมอาเขต"
+
+#. Name
+#: Games/Arcade/FrozenBubble.desktop:2
+msgid "Frozen Bubble"
+msgstr ""
+
+#. GenericName
+#: Games/Arcade/FrozenBubble.desktop:3
+msgid "Tetris-Like Game"
+msgstr "เกมแบบเททริส"
+
+#. Name
+#: Games/Arcade/Gnibbles.desktop:2
+msgid "Gnibbles"
+msgstr ""
+
+#. GenericName
+#: Games/Arcade/Gnibbles.desktop:3
+msgid "GNOME Nibbles Game"
+msgstr "เกม Nibbles ของ GNOME"
+
+#. Name
+#: Games/Arcade/GnobotsII.desktop:2
+msgid "Gnobots II"
+msgstr ""
+
+#. Name
+#: Games/Arcade/Mures.desktop:2
+msgid "Mures"
+msgstr ""
+
+#. Name
+#: Games/Arcade/SuperMethaneBrothers.desktop:2
+msgid "Super Methane Brothers"
+msgstr "ซูเปอร์มีเธนบราเธอร์ส"
+
+#. Name
+#: Games/Arcade/Trophy.desktop:2
+msgid "Trophy"
+msgstr ""
+
+#. Name
+#: Games/Arcade/TuxRacer.desktop:2
+msgid "TuxRacer"
+msgstr ""
+
+#. GenericName
+#: Games/Arcade/TuxRacer.desktop:3
+msgid "Racing Game"
+msgstr "เกมแข่งขันความเร็ว"
+
+#. Name
+#: Games/Arcade/XKobo.desktop:2
+msgid "XKobo"
+msgstr "หมากหนีบ - K"
+
+#. Name
+#: Games/Arcade/XSoldier.desktop:2
+msgid "XSoldier"
+msgstr ""
+
+#. Name
+#: Games/Arcade/alephone-nogl.desktop:2
+msgid "Alephone"
+msgstr ""
+
+#. Comment
+#: Games/Arcade/alephone-nogl.desktop:3
+msgid "An open source version of Marathon Infinity for SDL"
+msgstr "รุ่นที่เป็นโอเพนซอร์สของ Marathon Ifinity สำหรับ SDL"
+
+#. Name
+#: Games/Arcade/alephone.desktop:2
+msgid "Alephone - No OpenGL"
+msgstr ""
+
+#. Comment
+#: Games/Arcade/alephone.desktop:3
+msgid ""
+"An open source version of Marathon Infinity for SDL that has Open GL disabled"
+msgstr "รุ่นที่เป็นโอเพนซฮร์สของ Marathon Infinity สำหรับ SDL ซึ่งปิดคุณสมบัติ Open GL "
+
+#. Name
+#: Games/Arcade/battalion.desktop:2
+msgid "Batallion"
+msgstr ""
+
+#. Name
+#: Games/Arcade/battleball.desktop:2
+msgid "Battleball"
+msgstr ""
+
+#. GenericName
+#: Games/Arcade/battleball.desktop:3
+msgid "Ball Game"
+msgstr "เกมบอล"
+
+#. Name
+#: Games/Arcade/cxhextris.desktop:2
+msgid "cxhextris"
+msgstr ""
+
+#. Name
+#: Games/Arcade/rocksndiamonds.desktop:2
+msgid "Rocks n Diamonds"
+msgstr ""
+
+#. GenericName
+#: Games/Arcade/rocksndiamonds.desktop:3 Games/Board/Glines.desktop:3
+msgid "Tactical Game"
+msgstr "เกมวางแผน"
+
+#. Name
+#: Games/Arcade/scavenger.desktop:2
+msgid "Scavenger"
+msgstr ""
+
+#. Name
+#: Games/Board/Gataxx.desktop:2
+msgid "Gataxx"
+msgstr ""
+
+#. Name
+#: Games/Board/Gchess.desktop:2
+msgid "GNOME Chess"
+msgstr "หมากรุกของ GNOME"
+
+#. Name
+#: Games/Board/Glines.desktop:2
+msgid "Glines"
+msgstr ""
+
+#. Name
+#: Games/Board/Gmahjongg.desktop:2
+msgid "GNOME Mahjongg"
+msgstr "ไพ่นกกระจอก GNOME"
+
+#. GenericName
+#: Games/Board/Gmahjongg.desktop:3
+msgid "Tile Game"
+msgstr "เกมแบบไพ่นกกระจอก"
+
+#. Name
+#: Games/Board/Gmines.desktop:2
+msgid "GNOME Mines"
+msgstr "กู้ระเบิดของ GNOME"
+
+#. GenericName
+#: Games/Board/Gmines.desktop:3
+msgid "Logic Game"
+msgstr "เกมตรรกะ"
+
+#. Name
+#: Games/Board/Gnotravex.desktop:2
+msgid "Gnotravex"
+msgstr ""
+
+#. Name
+#: Games/Board/Gnotski.desktop:2
+msgid "Gnotski"
+msgstr ""
+
+#. GenericName
+#: Games/Board/Gnotski.desktop:3
+msgid "GNOME Klotski Game"
+msgstr "เกมขุนแผนแหกค่าย"
+
+#. Name
+#: Games/Board/Gstones.desktop:2
+#, fuzzy
+msgid "GNOME Stones"
+msgstr "กู้ระเบิดของ GNOME"
+
+#. Name
+#: Games/Board/Iagno.desktop:2
+msgid "Iagno"
+msgstr ""
+
+#. GenericName
+#: Games/Board/Iagno.desktop:3 Games/Board/SameGnome.desktop:3
+#: Games/Board/Xgammon.desktop:3
+msgid "Board Game"
+msgstr "เกมกระดาน"
+
+#. Name
+#: Games/Board/SameGnome.desktop:2
+msgid "Same GNOME"
+msgstr "เกม Same GNOME"
+
+#. Name
+#: Games/Board/Xgammon.desktop:2
+msgid "Xgammon"
+msgstr ""
+
+#. Name
+#: Games/Board/xboard.desktop:2
+msgid "Xboard"
+msgstr "เกมกระดาน"
+
+#. GenericName
+#: Games/Board/xboard.desktop:3
+msgid "Chess Game"
+msgstr "เกมหมากรุก"
+
+#. Name
+#: Games/Card/AisleRiot.desktop:2
+msgid "AisleRiot"
+msgstr ""
+
+#. GenericName
+#: Games/Card/AisleRiot.desktop:3 Games/Card/FreeCell.desktop:3
+#: Games/Card/PySol.desktop:3 Games/Card/XPat2.desktop:3
+msgid "Card Game"
+msgstr "เกมไพ่"
+
+#. Name
+#: Games/Card/FreeCell.desktop:2
+msgid "FreeCell"
+msgstr ""
+
+#. Name
+#: Games/Card/PySol.desktop:2
+msgid "PySol"
+msgstr "เกมถอดไพ่ PySol"
+
+#. Name
+#: Games/Card/XPat2.desktop:2
+msgid "XPat 2"
+msgstr "เกมไพ่ XPat 2"
+
+#. Name
+#: Games/Clanbomber.desktop:2
+msgid "Clanbomber"
+msgstr "ClanBomber"
+
+#. Name
+#: Games/Emulators/cmail.desktop:2
+#, fuzzy
+msgid "ChessMail"
+msgstr "เกมหมากรุก"
+
+#. GenericName
+#: Games/Emulators/cmail.desktop:3
+msgid "Email for Chess"
+msgstr "จดหมายอิเลคทรอนิคส์สำหรับหมากรุก"
+
+#. Name
+#: Games/Emulators/qmamecat.desktop:2
+msgid "Qmamecat"
+msgstr ""
+
+#. GenericName
+#: Games/Emulators/qmamecat.desktop:3
+msgid "Arcade Emulator"
+msgstr "จำลองเกมอาเขต"
+
+#. Name
+#: Games/GTali.desktop:2
+msgid "GTali"
+msgstr ""
+
+#. GenericName
+#: Games/GTali.desktop:3
+msgid "Dice Game"
+msgstr "เกมทอดลูกเต๋า"
+
+#. Name
+#: Games/Roguelikes/angband.desktop:2
+msgid "Angband"
+msgstr ""
+
+#. Comment
+#: Games/Roguelikes/angband.desktop:3
+msgid "Dive into Angband and defeat Morgoth"
+msgstr "ดำดิ่งสู่ Angband แล้วเอาชนะ Morgoth"
+
+#. Name
+#: Games/Roguelikes/moria.desktop:2
+msgid "Moria"
+msgstr ""
+
+#. Comment
+#: Games/Roguelikes/moria.desktop:3
+msgid "Dive into Moria and defeat the Balrog"
+msgstr "ดำดิ่งสู่ Moria แล้วเอาชนะ Balrog"
+
+#. Name
+#: Games/Roguelikes/nethack.desktop:2
+msgid "NetHack"
+msgstr "เกม NetHack"
+
+#. GenericName
+#: Games/Roguelikes/nethack.desktop:3 Games/Roguelikes/tome.desktop:3
+msgid "Quest Game"
+msgstr "เกมผจญภัย"
+
+#. Name
+#: Games/Roguelikes/rogue.desktop:2
+msgid "Rogue"
+msgstr ""
+
+#. GenericName
+#: Games/Roguelikes/rogue.desktop:3
+msgid "The Original"
+msgstr "ดั้งเดิม"
+
+#. Name
+#: Games/Roguelikes/tome.desktop:2
+msgid "ToME"
+msgstr ""
+
+#. Name
+#: Games/Roguelikes/zangband.desktop:2
+msgid "ZAngband"
+msgstr ""
+
+#. GenericName
+#: Games/Roguelikes/zangband.desktop:3
+msgid "Defeat the Serpent of Chaos"
+msgstr "เอาชนะอสรพิษแห่งกลียุค"
+
+#. Name
+#: Games/TacticStrategy/freeciv.desktop:3
+msgid "Freeciv"
+msgstr ""
+
+#. GenericName
+#: Games/TacticStrategy/freeciv.desktop:4 Games/xshipwars.desktop:4
+msgid "Strategy Game"
+msgstr "เกมกลยุทธ์"
+
+#. Name
+#: Games/TacticStrategy/freecivserver.desktop:3
+msgid "FreeCiv Server"
+msgstr "เซิร์ฟเวอร์ FreeCiv"
+
+#. Comment
+#: Games/TacticStrategy/freecivserver.desktop:4
+msgid "A server for Free Civ"
+msgstr "เซิร์ฟเวอร์เกม Free Civ"
+
+#. Name
+#: Games/TacticStrategy/xscorch.desktop:3
+msgid "XScorch"
+msgstr ""
+
+#. Comment
+#: Games/TacticStrategy/xscorch.desktop:4
+msgid "A free Scorched Earth clone for UNIX and X"
+msgstr "เกมแบบ Scorched Earth แจกฟรีสำหรับยูนิกซ์และ X"
+
+#. Name
+#: Games/Toys/xeyes.desktop:2
+msgid "X Eyes"
+msgstr "ดวงตาของ X"
+
+#. Name
+#: Games/Toys/xpinguin.desktop:2
+msgid "Tux"
+msgstr ""
+
+#. GenericName
+#: Games/Toys/xpinguin.desktop:3
+msgid "Linux Mascot"
+msgstr "ตัวนำโชคของระบบลินุกซ์"
+
+#. Name
+#: Games/defendguin.desktop:3
+msgid "Defendguin"
+msgstr ""
+
+#. GenericName
+#: Games/defendguin.desktop:4
+msgid "Game"
+msgstr "เกม"
+
+#. Name
+#: Games/penguin-command.desktop:3
+msgid "Penguin Command"
+msgstr ""
+
+#. Name
+#: Games/xshipwars.desktop:3
+msgid "XShipWars"
+msgstr "สงครามแห่งดวงดาว"
+
+#. Name
+#: Graphics/ElectricEyes.desktop:2
+msgid "Electric Eyes"
+msgstr ""
+
+#. GenericName
+#: Graphics/ElectricEyes.desktop:3
+msgid "Image Viewer"
+msgstr "เครื่องมือแสดงภาพ"
+
+#. Name
+#: Graphics/GPhoto.desktop:2
+msgid "GPhoto"
+msgstr ""
+
+#. GenericName
+#: Graphics/GPhoto.desktop:3
+msgid "Digital Camera Program"
+msgstr "โปรแกรมกล้องดิจิตอล"
+
+#. Name
+#: Graphics/GnomeColorSelector.desktop:2
+msgid "GNOME Color Selector"
+msgstr "เครื่องมือเลือกสีของ GNOME"
+
+#. Name
+#: Graphics/GnomeIconEditor.desktop:2
+msgid "GNOME Icon Editor"
+msgstr "เครื่องมือแก้ไขไอคอนของ GNOME"
+
+#. Name
+#: Graphics/Gqview.desktop:2
+msgid "Gqview"
+msgstr ""
+
+#. GenericName
+#: Graphics/Gqview.desktop:3
+msgid "Image Browser"
+msgstr "เครื่องมือเรียกดูภาพ"
+
+#. Name
+#: Graphics/Sketch.desktop:2
+msgid "Sketch"
+msgstr ""
+
+#. GenericName
+#: Graphics/Sketch.desktop:3
+msgid "Vector-based Drawing Program"
+msgstr "โปรแกรมวาดภาพแบบเวกเตอร์"
+
+#. Name
+#: Graphics/Xpcd.desktop:2
+msgid "Xpcd"
+msgstr ""
+
+#. GenericName
+#: Graphics/Xpcd.desktop:3
+msgid "PhotoCD Tools"
+msgstr "เครื่องมือ PhotoCD"
+
+#. Name
+#: Graphics/Xwpick.desktop:2
+msgid "Xwpick"
+msgstr ""
+
+#. GenericName
+#: Graphics/Xwpick.desktop:3
+msgid "Screen Capture Program"
+msgstr "โปรแกรมจับภาพหน้าจอ"
+
+#. Name
+#: Graphics/bitmap.desktop:2
+msgid "X Bitmap"
+msgstr ""
+
+#. GenericName
+#: Graphics/bitmap.desktop:3
+msgid "Bitmap Creator"
+msgstr "เครื่องมือสร้างภาพบิตแมพ"
+
+#. Name
+#: Graphics/blender.desktop:2
+msgid "Blender"
+msgstr "เบลนเดอร์"
+
+#. GenericName
+#: Graphics/blender.desktop:3
+msgid "3D Modeler/Renderer"
+msgstr "วาดภาพ/ออกแบบโมเดล 3 มิติ"
+
+#. Name
+#: Graphics/ghostview.desktop:2
+msgid "GhostView"
+msgstr "อ่านแฟ้มโพสต์สคริปต์"
+
+#. GenericName
+#: Graphics/ghostview.desktop:3
+msgid "PostScript Viewer"
+msgstr "แสดงแฟ้มโพสต์สคริปต์"
+
+#. Name
+#: Graphics/gimp.desktop:2
+msgid "Gimp"
+msgstr ""
+
+#. GenericName
+#: Graphics/gimp.desktop:3
+msgid "Image Manipulation Program"
+msgstr "โปรแกรมตกแต่งภาพ"
+
+#. Name
+#: Graphics/gv.desktop:2
+#, fuzzy
+msgid "GV"
+msgstr "GTV "
+
+#. GenericName
+#: Graphics/gv.desktop:3
+msgid "Postscript Viewer"
+msgstr "ดูแฟ้มโพสต์สคริปต์"
+
+#. Name
+#: Graphics/inkscape.desktop:2
+msgid "Inkscape"
+msgstr "อิงค์สเคป"
+
+#. GenericName
+#: Graphics/inkscape.desktop:3 Graphics/sodipodi.desktop:3
+msgid "Vector Drawing"
+msgstr "วาดภาพเวกเตอร์"
+
+#. Name
+#: Graphics/sodipodi.desktop:2
+msgid "Sodipodi"
+msgstr "SodiPodi"
+
+#. Name
+#: Graphics/tgif.desktop:2
+msgid "TGif"
+msgstr ""
+
+#. GenericName
+#: Graphics/tgif.desktop:3 Graphics/xfig.desktop:3
+msgid "Drawing Program"
+msgstr "โปรแกรมวาดภาพ"
+
+#. Name
+#: Graphics/xdvi.desktop:2
+msgid "X DVI"
+msgstr ""
+
+#. GenericName
+#: Graphics/xdvi.desktop:3
+msgid "DVI Viewer"
+msgstr "ตัวแสดงผล DVI"
+
+#. Name
+#: Graphics/xfig.desktop:2
+msgid "Xfig"
+msgstr ""
+
+#. Name
+#: Graphics/xpaint.desktop:2
+msgid "X Paint"
+msgstr "วาดรูป X"
+
+#. GenericName
+#: Graphics/xpaint.desktop:3
+msgid "Paint Program"
+msgstr "โปรแกรมวาดภาพธรรมดาๆ"
+
+#. Name
+#: Graphics/xv.desktop:2
+msgid "XV"
+msgstr ""
+
+#. GenericName
+#: Graphics/xv.desktop:3
+msgid "Picture Viewer"
+msgstr "เครื่องมือแสดงภาพ"
+
+#. Name
+#: Internet/BlueFish.desktop:2
+msgid "BlueFish"
+msgstr ""
+
+#. GenericName
+#: Internet/BlueFish.desktop:3
+msgid "HTML Editor"
+msgstr "เครื่องมือแก้ไข HTML"
+
+#. Name
+#: Internet/Dpsftp.desktop:2
+msgid "Dpsftp"
+msgstr ""
+
+#. GenericName
+#: Internet/Dpsftp.desktop:3 Internet/gFTP.desktop:3 Internet/xftp.desktop:3
+msgid "FTP Browser"
+msgstr "โปรแกรมเรียกดู FTP"
+
+#. Name
+#: Internet/DrakSync.desktop:2
+msgid "DrakSync"
+msgstr ""
+
+#. GenericName
+#: Internet/DrakSync.desktop:3
+msgid "Folder Synchronization"
+msgstr "เครื่องมือซิงค์โครไนซ์ไดเร็กทอรี"
+
+#. Name
+#: Internet/Evolution.desktop:2
+msgid "Evolution"
+msgstr ""
+
+#. GenericName
+#: Internet/Evolution.desktop:3 Internet/Netscapemessenger.desktop:3
+#: Internet/Sylpheed.desktop:3 Internet/Terminal/mutt.desktop:3
+#: Internet/Terminal/pine.desktop:3 Internet/balsa.desktop:3
+#: Internet/mozilla-thunderbird.desktop:3 Internet/xfmail.desktop:3
+msgid "Mail Client"
+msgstr "โปรแกรมไคลเอนต์จดหมายอิเล็กทรอนิกส์"
+
+#. Name
+#: Internet/Faces.desktop:2
+msgid "Faces"
+msgstr ""
+
+#. GenericName
+#: Internet/Faces.desktop:3 Internet/coolmail.desktop:3
+#: Internet/xbiff.desktop:3
+msgid "Mail Alert"
+msgstr "แจ้งเตือนจดหมาย"
+
+#. Name
+#: Internet/Fetchmailconf.desktop:2
+msgid "Fetchmailconf"
+msgstr "ปรับแต่งโปรแกรม Fetchmail"
+
+#. GenericName
+#: Internet/Fetchmailconf.desktop:3
+msgid "Fetchmail Configuration"
+msgstr "การปรับแต่ง Fetchmail"
+
+#. Name
+#: Internet/Gabber.desktop:2
+msgid "Gabber"
+msgstr ""
+
+#. GenericName
+#: Internet/Gabber.desktop:3 Internet/gaim.desktop:3
+msgid "Instant Messenger"
+msgstr "โปรแกรมส่งข้อความแบบทันที"
+
+#. Name
+#: Internet/Galeon.desktop:2
+msgid "Galeon"
+msgstr ""
+
+#. GenericName
+#: Internet/Galeon.desktop:3 Internet/Terminal/Links.desktop:3
+#: Internet/Terminal/Lynx.desktop:3 Internet/Terminal/w3m.desktop:3
+#: Internet/arena.desktop:3 Internet/epiphany.desktop:3
+#: Internet/mozilla-firefox.desktop:3 Internet/mozilla.desktop:3
+#: Internet/netscape.desktop:3 Internet/netscape6.desktop:3
+#: Internet/opera.desktop:3
+msgid "Web Browser"
+msgstr "เว็บบราวเซอร์"
+
+#. Name
+#: Internet/GnomeICU.desktop:2
+#, fuzzy
+msgid "GNOMEICU"
+msgstr "ปฏิทินของ GNOME"
+
+#. GenericName
+#: Internet/GnomeICU.desktop:3 Internet/licq.desktop:3
+msgid "ICQ Messenger"
+msgstr "โปรแกรมคุย ICQ"
+
+#. Name
+#: Internet/Netscapemessenger.desktop:2
+#, fuzzy
+msgid "Netscape Messenger"
+msgstr "โปรแกรมส่งข้อความแบบทันที"
+
+#. Name
+#: Internet/Nmapfe.desktop:2
+msgid "Nmapfe"
+msgstr ""
+
+#. GenericName
+#: Internet/Nmapfe.desktop:3
+msgid "Port Scanner"
+msgstr "เครื่องมือสแกนพอร์ต"
+
+#. Name
+#: Internet/Pan.desktop:2
+#, fuzzy
+msgid "Pan"
+msgstr "วาดรูป X"
+
+#. GenericName
+#: Internet/Pan.desktop:3 Internet/knews.desktop:3
+msgid "Usenet News Reader"
+msgstr "โปรแกรมอ่านข่าวของ Usenet"
+
+#. Name
+#: Internet/Sylpheed.desktop:2
+msgid "Sylpheed"
+msgstr "Sylpheed (โปรแกรมรับส่งอีเมล)"
+
+#. Name
+#: Internet/Terminal/Links.desktop:2
+msgid "Links"
+msgstr "Links (เว็บบราวเซอร์แบบเท็กซ์)"
+
+#. Name
+#: Internet/Terminal/Lynx.desktop:2
+msgid "Lynx"
+msgstr "Lynx (เว็บบราวเซอร์แบบเท็กซ์)"
+
+#. Name
+#: Internet/Terminal/btdownloadcurses.desktop:2
+msgid "BitTorrent Python Curses GUI"
+msgstr "GUI ของบิตทอร์เรนต์ แบบใช้ไพธอนเคิร์ส"
+
+#. GenericName
+#: Internet/Terminal/btdownloadcurses.desktop:3
+#: Internet/btdownloadgui.desktop:3
+msgid "BitTorrent GUI"
+msgstr "GUI ของบิตทอร์เรนท์"
+
+#. Name
+#: Internet/Terminal/lftp.desktop:2
+msgid "Lftp"
+msgstr ""
+
+#. GenericName
+#: Internet/Terminal/lftp.desktop:3 Internet/Terminal/ncftp.desktop:3
+msgid "FTP Client"
+msgstr "ไคลเอนต์ FTP"
+
+#. Name
+#: Internet/Terminal/mutt.desktop:2
+msgid "Mutt"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/ncftp.desktop:2
+msgid "NcFTP"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/pine.desktop:2
+msgid "Pine"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/silc.desktop:2
+msgid "Silc"
+msgstr ""
+
+#. GenericName
+#: Internet/Terminal/silc.desktop:3
+msgid "SILC Client"
+msgstr "ไคลเอนต์ SILC"
+
+#. Name
+#: Internet/Terminal/slrn.desktop:2
+msgid "Slrn"
+msgstr "Sirn"
+
+#. GenericName
+#: Internet/Terminal/slrn.desktop:3
+msgid "News Reader"
+msgstr "โปรแกรมอ่านข่าว"
+
+#. Name
+#: Internet/Terminal/w3m.desktop:2
+msgid "w3m"
+msgstr ""
+
+#. Name
+#: Internet/arena.desktop:2
+msgid "Arena"
+msgstr ""
+
+#. Name
+#: Internet/balsa.desktop:2
+msgid "Balsa"
+msgstr ""
+
+#. Name
+#: Internet/btdownloadgui.desktop:2
+msgid "BitTorrent Python wxGTK GUI"
+msgstr "GUI ของบิตทอร์เรนท์ โดยใช้ Python wxGTK"
+
+#. Name
+#: Internet/coolmail.desktop:2
+msgid "Coolmail"
+msgstr ""
+
+#. Name
+#: Internet/dc_gui.desktop:2
+msgid "DCTC GUI"
+msgstr "GUI ของ DCTC"
+
+#. GenericName
+#: Internet/dc_gui.desktop:3
+msgid "Direct Connect Clone"
+msgstr "โปรแกรมเลียนแบบ Direct Connect"
+
+#. Name
+#: Internet/ed2k_gui.desktop:2
+msgid "eDonkey2000 GTK+ Core Controller"
+msgstr "ตัวควบคุมกลางของ eDonkey2000 GTK+ "
+
+#. GenericName
+#: Internet/ed2k_gui.desktop:3
+msgid "eDonkey2000 GUI"
+msgstr "GUI ของ eDonkey2000"
+
+#. Name
+#: Internet/epiphany.desktop:2
+msgid "Epiphany"
+msgstr ""
+
+#. Name
+#: Internet/ethereal.desktop:2
+msgid "Ethereal"
+msgstr ""
+
+#. GenericName
+#: Internet/ethereal.desktop:3 Internet/wireshark.desktop:3
+msgid "Network Analyzer"
+msgstr "เครื่องมือวิเคราะห์เครือข่าย"
+
+#. Name
+#: Internet/gFTP.desktop:2
+msgid "gFTP"
+msgstr ""
+
+#. Name
+#: Internet/gaim.desktop:2
+msgid "Gaim"
+msgstr ""
+
+#. Name
+#: Internet/gnomemeeting.desktop:2
+msgid "GnomeMeeting"
+msgstr ""
+
+#. GenericName
+#: Internet/gnomemeeting.desktop:3
+msgid "Video Conferencing"
+msgstr "การประชุมผ่านวิดิโอ"
+
+#. Name
+#: Internet/gnometalk.desktop:2
+#, fuzzy
+msgid "GNOME Talk"
+msgstr "ปฏิทินของ GNOME"
+
+#. Name
+#: Internet/gtelnet.desktop:2
+msgid "GNOME Telnet"
+msgstr "เทลเน็ตของ GNOME"
+
+#. GenericName
+#: Internet/gtelnet.desktop:3
+msgid "Remote Access"
+msgstr "การเข้าใช้งานระยะไกล"
+
+#. Name
+#: Internet/ickle.desktop:2
+msgid "ickle"
+msgstr ""
+
+#. GenericName
+#: Internet/ickle.desktop:3
+msgid "ICQ2000 Chat"
+msgstr "ICQ2000 แชต"
+
+#. Name
+#: Internet/javaws.desktop:2
+msgid "Java Web Start"
+msgstr ""
+
+#. Name
+#: Internet/knews.desktop:2
+msgid "KNews"
+msgstr "ข่าว - K"
+
+#. Name
+#: Internet/licq.desktop:2
+msgid "Licq"
+msgstr ""
+
+#. Name
+#: Internet/mldonkey_gui.desktop:2
+msgid "MLDonkey GTK+ Core Controller"
+msgstr "ตัวควบคุมกลางของ MLDonkey GTK+"
+
+#. GenericName
+#: Internet/mldonkey_gui.desktop:3
+msgid "MLDonkey GUI"
+msgstr "GUI สำหรับ MLDonkey"
+
+#. Name
+#: Internet/mozilla-firefox.desktop:2
+msgid "Firefox"
+msgstr "ไฟร์ฟอกซ์"
+
+#. Name
+#: Internet/mozilla-thunderbird.desktop:2
+msgid "Thunderbird"
+msgstr "ธันเดอร์เบิร์ด"
+
+#. Name
+#: Internet/mozilla.desktop:2
+msgid "Mozilla"
+msgstr "มอซซิลลา"
+
+#. Name
+#: Internet/netscape.desktop:2
+msgid "Netscape"
+msgstr "เน็ตสเคป"
+
+#. Name
+#: Internet/netscape6.desktop:2
+msgid "Netscape6"
+msgstr "เน็ตสเคป 6"
+
+#. Name
+#: Internet/opera.desktop:2
+msgid "Opera"
+msgstr "โอเปรา"
+
+#. Name
+#: Internet/wireshark.desktop:2
+msgid "Wireshark"
+msgstr ""
+
+#. Name
+#: Internet/xbiff.desktop:2
+msgid "X Biff"
+msgstr ""
+
+#. Name
+#: Internet/xchat.desktop:2
+#, fuzzy
+msgid "XChat"
+msgstr "โปรแกรมคุยผ่าน IRC "
+
+#. GenericName
+#: Internet/xchat.desktop:3
+msgid "IRC Chat"
+msgstr "โปรแกรมคุยผ่าน IRC "
+
+#. Name
+#: Internet/xfmail.desktop:2
+msgid "XFMail"
+msgstr ""
+
+#. Name
+#: Internet/xftp.desktop:2
+msgid "X FTP"
+msgstr ""
+
+#. Name
+#: Multimedia/Aumix.desktop:2
+msgid "Aumix"
+msgstr ""
+
+#. GenericName
+#: Multimedia/Aumix.desktop:3
+msgid "Audio Mixer"
+msgstr "ปรับแต่งระบบเสียง"
+
+#. Name
+#: Multimedia/Grip.desktop:2
+msgid "Grip"
+msgstr ""
+
+#. GenericName
+#: Multimedia/Grip.desktop:3
+msgid "CD Player/Ripper"
+msgstr "เครื่องมือเล่นซีดี/บันทึกเพลงจากซีดี"
+
+#. Name
+#: Multimedia/MP3info.desktop:2
+msgid "MP3 Info"
+msgstr "ข้อมูล MP3"
+
+#. Name
+#: Multimedia/XMovie.desktop:2
+msgid "XMovie"
+msgstr ""
+
+#. GenericName
+#: Multimedia/XMovie.desktop:3 Multimedia/mplayer.desktop:3
+#: Multimedia/mtv.desktop:3 Multimedia/realplayer.desktop:3
+#: Multimedia/xine.desktop:3
+msgid "Video Player"
+msgstr "โปรแกรมเล่นภาพยนตร์"
+
+#. Name
+#: Multimedia/alevt.desktop:2
+msgid "AleVT"
+msgstr ""
+
+#. GenericName
+#: Multimedia/alevt.desktop:3
+msgid "VideoText Viewer"
+msgstr "เครื่องมือแสดงข้อความบนหน้าจอ"
+
+#. Name
+#: Multimedia/alsamixergui.desktop:2
+msgid "AlsaMixerGui"
+msgstr "Alsa Mixer แบบกราฟิก"
+
+#. GenericName
+#: Multimedia/alsamixergui.desktop:3
+msgid "Alsa Mixer Frontend"
+msgstr "ฟร้อนต์เอนด์ของ Alsa Mixer"
+
+#. Name
+#: Multimedia/audacity.desktop:2
+msgid "Audacity"
+msgstr ""
+
+#. GenericName
+#: Multimedia/audacity.desktop:3 Multimedia/rezound.desktop:3
+#: Multimedia/sweep.desktop:3
+msgid "Audio Editor"
+msgstr "เครื่องมือแก้ไขไฟล์เสียง"
+
+#. Name
+#: Multimedia/aviplay.desktop:2
+msgid "Aviplay"
+msgstr ""
+
+#. GenericName
+#: Multimedia/aviplay.desktop:3
+msgid "AVI Video Player"
+msgstr "เครื่องมือเล่นวิดีโอแบบ AVI"
+
+#. Name
+#: Multimedia/bcast2000.desktop:2
+#, fuzzy
+msgid "Broadcast 2000"
+msgstr "เวิร์ดเพอร์เฟ็กต์ 2000"
+
+#. GenericName
+#: Multimedia/bcast2000.desktop:3
+msgid "Audio and Video IDE"
+msgstr "เครื่องมือ IDE สำหรับวิดีโอและระบบเสียง"
+
+#. Name
+#: Multimedia/enjoympeg.desktop:2
+msgid "EnjoyMPEG"
+msgstr "สนุกกับ MPEG"
+
+#. GenericName
+#: Multimedia/enjoympeg.desktop:3 Multimedia/gtv.desktop:3
+msgid "MPEG Player"
+msgstr "เครื่องมือเล่น MPEG"
+
+#. Name
+#: Multimedia/gtv.desktop:2
+msgid "GTV"
+msgstr "GTV "
+
+#. Name
+#: Multimedia/jazz.desktop:2
+msgid "Jazz"
+msgstr ""
+
+#. GenericName
+#: Multimedia/jazz.desktop:3
+msgid "Sound Processor"
+msgstr "ตัวประมวลผลเสียง"
+
+#. Name
+#: Multimedia/mplayer.desktop:2
+#, fuzzy
+msgid "MPlayer"
+msgstr "เครื่องมือเล่น MPEG"
+
+#. Name
+#: Multimedia/mtv.desktop:2
+msgid "MpegTV"
+msgstr ""
+
+#. Name
+#: Multimedia/ogle.desktop:2
+msgid "Ogle"
+msgstr "Ogel"
+
+#. GenericName
+#: Multimedia/ogle.desktop:3
+msgid "DVD Player"
+msgstr "โปรแกรมเล่นดีวีดี"
+
+#. Name
+#: Multimedia/oqtplayer.desktop:2
+#, fuzzy
+msgid "OQTPlayer"
+msgstr "โปรแกรมเล่นดีวีดี"
+
+#. GenericName
+#: Multimedia/oqtplayer.desktop:3
+msgid "MOV Video Player"
+msgstr "เครื่องมือเล่นแฟ้มวิดีโอแบบ MOV"
+
+#. Name
+#: Multimedia/realplayer.desktop:2
+#, fuzzy
+msgid "RealPlayer"
+msgstr "โปรแกรมเล่นภาพยนตร์"
+
+#. Name
+#: Multimedia/rezound.desktop:2
+msgid "reZound"
+msgstr ""
+
+#. Name
+#: Multimedia/slab.desktop:2
+msgid "Slab"
+msgstr ""
+
+#. GenericName
+#: Multimedia/slab.desktop:3
+msgid "Audio Recorder"
+msgstr "เครื่องมืออัดเสียง"
+
+#. Name
+#: Multimedia/sweep.desktop:2
+msgid "Sweep"
+msgstr ""
+
+#. Name
+#: Multimedia/xawtv.desktop:2
+msgid "XawTV"
+msgstr ""
+
+#. GenericName
+#: Multimedia/xawtv.desktop:3
+msgid "Watch TV!"
+msgstr "ดูทีวี !"
+
+#. Name
+#: Multimedia/xcam.desktop:2
+msgid "XCam"
+msgstr ""
+
+#. GenericName
+#: Multimedia/xcam.desktop:3
+msgid "Camera Program"
+msgstr "โปรแกรมกล้อง"
+
+#. Name
+#: Multimedia/xine.desktop:2
+msgid "Xine"
+msgstr ""
+
+#. Name
+#: Multimedia/xmms-enqueue.desktop:2
+msgid "Enqueue in XMMS"
+msgstr "ต่อคิวเล่นใน XMMS"
+
+#. GenericName
+#: Multimedia/xmms-enqueue.desktop:3
+msgid "Playlist Tool"
+msgstr "เครื่องมือรายการที่จะเล่น"
+
+#. Name
+#: Multimedia/xmms.desktop:2
+msgid "XMMS"
+msgstr ""
+
+#. GenericName
+#: Multimedia/xmms.desktop:3
+msgid "Multimedia Player"
+msgstr "โปรแกรมเล่นมัลติมีเดีย"
+
+#. Name
+#: Office/Applix.desktop:2
+msgid "Applix"
+msgstr ""
+
+#. GenericName
+#: Office/Applix.desktop:3
+msgid "Office Suite"
+msgstr "โปรแกรมชุดสำนักงาน"
+
+#. Name
+#: Office/Dia.desktop:2
+msgid "Dia"
+msgstr ""
+
+#. GenericName
+#: Office/Dia.desktop:3 Office/Guppi.desktop:3
+msgid "Program for Diagrams"
+msgstr "โปรแกรมสำหรับการทำไดอะแกรม"
+
+#. Name
+#: Office/Gnome-Cal.desktop:2
+msgid "GNOME-Cal"
+msgstr "ปฏิทินของ GNOME"
+
+#. GenericName
+#: Office/Gnome-Cal.desktop:3
+msgid "Personal Calendar"
+msgstr "ปฏิทินส่วนตัว"
+
+#. Name
+#: Office/Gnome-Card.desktop:2
+msgid "GNOME-Card"
+msgstr "นามบัตรของ GNOME"
+
+#. GenericName
+#: Office/Gnome-Card.desktop:3
+msgid "Contact Manager"
+msgstr "เครื่องมือจัดการนามบัตร"
+
+#. Name
+#: Office/GnomeTimeTracker.desktop:2
+#, fuzzy
+msgid "GNOME Time Tracker"
+msgstr "เกม Nibbles ของ GNOME"
+
+#. Name
+#: Office/Gnumeric.desktop:2
+msgid "Gnumeric"
+msgstr ""
+
+#. GenericName
+#: Office/Gnumeric.desktop:3 Office/XsLite.desktop:3
+msgid "Spread Sheet"
+msgstr "กระดาษคำนวณ"
+
+#. Name
+#: Office/Guppi.desktop:2
+msgid "Guppi"
+msgstr ""
+
+#. Name
+#: Office/Ical.desktop:2
+msgid "Ical"
+msgstr ""
+
+#. GenericName
+#: Office/Ical.desktop:3
+msgid "Calendar Program"
+msgstr "โปรแกรมปฏิทิน"
+
+#. Name
+#: Office/WordPerfect.desktop:2
+msgid "WordPerfect"
+msgstr "เวิร์ดเพอร์เฟ็กต์"
+
+#. GenericName
+#: Office/WordPerfect.desktop:3 Office/WordPerfect2000.desktop:3
+#: Office/abiword.desktop:3 Office/lyx.desktop:3
+msgid "Word Processor"
+msgstr "โปรแกรมประมวลผลคำ"
+
+#. Name
+#: Office/WordPerfect2000.desktop:2
+msgid "WordPerfect 2000"
+msgstr "เวิร์ดเพอร์เฟ็กต์ 2000"
+
+#. Name
+#: Office/XAcc.desktop:2
+msgid "xacc"
+msgstr ""
+
+#. GenericName
+#: Office/XAcc.desktop:3
+msgid "Personal Accounting Tool"
+msgstr "เครื่องมือทำบัญชีส่วนตัว"
+
+#. Name
+#: Office/XsLite.desktop:2
+msgid "XsLite"
+msgstr ""
+
+#. Name
+#: Office/abiword.desktop:2
+msgid "AbiWord"
+msgstr ""
+
+#. Name
+#: Office/acroread.desktop:2
+msgid "Acrobat Reader"
+msgstr ""
+
+#. GenericName
+#: Office/acroread.desktop:3 Office/xpdf.desktop:3
+msgid "PDF Viewer"
+msgstr "ตัวแสดงผล PDF"
+
+#. Name
+#: Office/gnucash.desktop:2
+msgid "GnuCash"
+msgstr ""
+
+#. GenericName
+#: Office/gnucash.desktop:3
+msgid "Finance Manager"
+msgstr "เครื่องมือจัดการเงิน"
+
+#. Name
+#: Office/lyx.desktop:2
+msgid "LyX"
+msgstr ""
+
+#. Name
+#: Office/mrproject.desktop:2
+msgid "MrProject"
+msgstr "มิสเตอร์โปรเจกต์"
+
+#. GenericName
+#: Office/mrproject.desktop:3
+msgid "Project Manager"
+msgstr "โปรแกรมจัดการโครงการ"
+
+#. Name
+#: Office/netscapeaddressbook.desktop:2
+msgid "Netscape Addressbook"
+msgstr "สมุดที่อยู่ของเน็ตสเคป"
+
+#. Name
+#: Office/plan.desktop:2
+msgid "Plan"
+msgstr ""
+
+#. GenericName
+#: Office/plan.desktop:3
+msgid "Calendar Manager"
+msgstr "ตัวจัดการปฏิทิน"
+
+#. Name
+#: Office/pybliographic.desktop:2
+#, fuzzy
+msgid "Pybliographic"
+msgstr "ฐานข้อมูลบรรณานุกรม"
+
+#. GenericName
+#: Office/pybliographic.desktop:3
+msgid "Bibliographic Database"
+msgstr "ฐานข้อมูลบรรณานุกรม"
+
+#. Name
+#: Office/scribus.desktop:2
+msgid "Scribus"
+msgstr ""
+
+#. GenericName
+#: Office/scribus.desktop:3
+msgid "Desktop Publishing"
+msgstr "โปรแกรมจัดหน้าสิ่งพิมพ์"
+
+#. Name
+#: Office/xpdf.desktop:2
+msgid "X PDF"
+msgstr ""
+
+#. Name
+#: System/Terminal/aterm.desktop:2
+msgid "Terminal"
+msgstr "เทอร์มินัล"
+
+#. GenericName
+#: System/Terminal/aterm.desktop:3 Utilities/XUtilities/xterm.desktop:3
+msgid "Terminal Program"
+msgstr "โปรแกรมเทอร์มินัล"
+
+#. Name
+#: System/Terminal/procinfo.desktop:2
+msgid "Procinfo"
+msgstr "ข้อมูลโปรเซส"
+
+#. GenericName
+#: System/Terminal/procinfo.desktop:3
+msgid "System Process Information"
+msgstr "ข้อมูลโปรเซสของระบบ"
+
+#. Name
+#: System/Terminal/rxvt.desktop:2
+msgid "RXVT"
+msgstr ""
+
+#. GenericName
+#: System/Terminal/rxvt.desktop:3
+msgid "ouR eXtended Virtual Terminal"
+msgstr "เทอร์มินัลเสมือนที่เพิ่มความสามารถของเรา"
+
+#. Name
+#: System/Terminal/vmstat.desktop:2
+msgid "Vmstat"
+msgstr "สถิติความจำเสมือน"
+
+#. GenericName
+#: System/Terminal/vmstat.desktop:3
+msgid "Virtual Memory Statistics"
+msgstr "สถิติของหน่วยความจำเสมือน"
+
+#. Name
+#: System/citrix_ica.desktop:2
+msgid "Citrix ICA Client"
+msgstr "ไคลเอนต์ ICA ของ Citrix"
+
+#. GenericName
+#: System/citrix_ica.desktop:3
+msgid "WTS Client"
+msgstr "ไคลเอนต์ WTS"
+
+#. Name
+#: System/editres.desktop:2
+msgid "EditXRes"
+msgstr "แก้ไขการแสดงผล X"
+
+#. GenericName
+#: System/editres.desktop:3
+msgid "X Resource Editor"
+msgstr "เครื่องมือแก้ไขทรัพยากร X"
+
+#. Name
+#: System/sam.desktop:2
+msgid "SAM System-Administration"
+msgstr "SAM - การดูแลระบบ"
+
+#. Name
+#: System/wine.desktop:2
+msgid "Wine"
+msgstr ""
+
+#. GenericName
+#: System/wine.desktop:3
+msgid "Run Windows Programs"
+msgstr "ประมวลผลโปรแกรมของวินโดว์ส"
+
+#. Name
+#: System/xosview.desktop:2
+msgid "X osview"
+msgstr "สถานะระบบปฏิบัติการบน X"
+
+#. GenericName
+#: System/xosview.desktop:3
+msgid "System Monitor"
+msgstr "สอดส่องการทำงานของระบบ"
+
+#. Name
+#: Utilities/Editors/emacs.desktop:2
+#, fuzzy
+msgid "Emacs"
+msgstr "Emacs บน X"
+
+#. GenericName
+#: Utilities/Editors/emacs.desktop:3 Utilities/Editors/gedit.desktop:3
+#: Utilities/Editors/gvim.desktop:3 Utilities/Editors/lemacs.desktop:3
+#: Utilities/Editors/nano.desktop:3 Utilities/Editors/nedit.desktop:3
+#: Utilities/Editors/pico.desktop:3 Utilities/Editors/xedit.desktop:3
+#: Utilities/Editors/xemacs.desktop:3
+msgid "Text Editor"
+msgstr "โปรแกรมแก้ไขข้อความ"
+
+#. Name
+#: Utilities/Editors/gedit.desktop:2
+#, fuzzy
+msgid "gEdit"
+msgstr "แก้ไขกล่องโต้ตอบสำหรับ Qt"
+
+#. Name
+#: Utilities/Editors/gvim.desktop:2
+msgid "Vi IMproved"
+msgstr "VI IMprove"
+
+#. Name
+#: Utilities/Editors/lemacs.desktop:2
+#, fuzzy
+msgid "Lucid Emacs"
+msgstr "Emacs บน X"
+
+#. Name
+#: Utilities/Editors/nano.desktop:2
+msgid "Nano"
+msgstr ""
+
+#. Name
+#: Utilities/Editors/nedit.desktop:2
+msgid "Nedit"
+msgstr ""
+
+#. Name
+#: Utilities/Editors/pico.desktop:2
+msgid "Pico"
+msgstr ""
+
+#. Name
+#: Utilities/Editors/xedit.desktop:2
+msgid "X Editor"
+msgstr "แก้ไขข้อความ - X"
+
+#. Name
+#: Utilities/Editors/xemacs.desktop:2
+msgid "X Emacs"
+msgstr "Emacs บน X"
+
+#. Name
+#: Utilities/GKrellM.desktop:2
+msgid "GKrellM"
+msgstr ""
+
+#. GenericName
+#: Utilities/GKrellM.desktop:3
+msgid "GNU Krell Monitors"
+msgstr "โปรแกรมสอดส่องการทำงานระบบ ของ GNU"
+
+#. Name
+#: Utilities/GnomeWho.desktop:2
+#, fuzzy
+msgid "GNOME Who"
+msgstr "หมากรุกของ GNOME"
+
+#. GenericName
+#: Utilities/GnomeWho.desktop:3
+msgid "System Info Tool"
+msgstr "เครื่องมือแสดงข้อมูลระบบ"
+
+#. Name
+#: Utilities/SystemInfo.desktop:2
+msgid "System Info"
+msgstr "ข้อมูลระบบ"
+
+#. Name
+#: Utilities/SystemLogViewer.desktop:2
+msgid "System Log Viewer"
+msgstr "โปรแกรมดูบันทึกการทำงานของระบบ"
+
+#. Name
+#: Utilities/XUtilities/Xkill.desktop:2
+msgid "X Kill"
+msgstr ""
+
+#. GenericName
+#: Utilities/XUtilities/Xkill.desktop:3
+msgid "Window Termination Tool"
+msgstr "เครื่องมือบังคับปิดหน้าต่าง"
+
+#. Name
+#: Utilities/XUtilities/Xrefresh.desktop:2
+#, fuzzy
+msgid "X Refresh"
+msgstr "รีเฟรชหน้าจอ"
+
+#. GenericName
+#: Utilities/XUtilities/Xrefresh.desktop:3
+msgid "Refresh Screen"
+msgstr "รีเฟรชหน้าจอ"
+
+#. Name
+#: Utilities/XUtilities/Xtraceroute.desktop:2
+msgid "X Traceroute"
+msgstr ""
+
+#. GenericName
+#: Utilities/XUtilities/Xtraceroute.desktop:3
+msgid "Network Tool"
+msgstr "เครื่องมือระบบเครือข่าย"
+
+#. Name
+#: Utilities/XUtilities/xcalc.desktop:2
+msgid "X Calc"
+msgstr "เครื่องคิดเลขของ X"
+
+#. GenericName
+#: Utilities/XUtilities/xcalc.desktop:3 Utilities/calctool.desktop:3
+msgid "Calculator"
+msgstr "เครื่องคิดเลข"
+
+#. Name
+#: Utilities/XUtilities/xclipboard.desktop:2
+msgid "X Clipboard"
+msgstr "คลิปบอร์ดของ X"
+
+#. GenericName
+#: Utilities/XUtilities/xclipboard.desktop:3
+msgid "Clipboard Viewer"
+msgstr "ตัวแสดงเนื้อหาคลิปบอร์ด"
+
+#. Name
+#: Utilities/XUtilities/xclock.desktop:2
+msgid "X Clock"
+msgstr "นาฬิกาของ X"
+
+#. GenericName
+#: Utilities/XUtilities/xclock.desktop:3 Utilities/oclock.desktop:3
+msgid "Clock"
+msgstr "นาฬิกา"
+
+#. Name
+#: Utilities/XUtilities/xconsole.desktop:2
+msgid "X Console"
+msgstr "คอนโซลของ X"
+
+#. GenericName
+#: Utilities/XUtilities/xconsole.desktop:3
+msgid "Console Message Viewer"
+msgstr "ตัวแสดงข้อความของคอนโซล"
+
+#. Name
+#: Utilities/XUtilities/xload.desktop:2
+msgid "X Load"
+msgstr ""
+
+#. GenericName
+#: Utilities/XUtilities/xload.desktop:3
+msgid "Monitors System Load"
+msgstr "เฝ้าดูภาระของระบบ"
+
+#. Name
+#: Utilities/XUtilities/xmag.desktop:2
+msgid "X Magnifier"
+msgstr "แว่นขยายของ X"
+
+#. GenericName
+#: Utilities/XUtilities/xmag.desktop:3
+msgid "Desktop Magnifier"
+msgstr "แว่นขยายพื้นที่หน้าจอ"
+
+#. Name
+#: Utilities/XUtilities/xterm.desktop:2
+msgid "X Terminal"
+msgstr "เทอร์มินัลของ X"
+
+#. Name
+#: Utilities/calctool.desktop:2
+msgid "Calctool"
+msgstr "เครื่องคิดเลข"
+
+#. Name
+#: Utilities/e-notes.desktop:2
+msgid "E-Notes"
+msgstr "บันทึกช่วยจำ E"
+
+#. GenericName
+#: Utilities/e-notes.desktop:3
+msgid "Personal Notes"
+msgstr "บันทึกช่วยจำ"
+
+#. Name
+#: Utilities/oclock.desktop:2
+msgid "OClock"
+msgstr "Oclock"
+
+#. Name
+#: Utilities/xgnokii.desktop:2
+msgid "X-Gnokii"
+msgstr "X-Gnokil"
+
+#. GenericName
+#: Utilities/xgnokii.desktop:3
+msgid "Mobile Phone Management Tool"
+msgstr "เครื่องมือสำหรับโทรศัพท์เคลื่อนที่"

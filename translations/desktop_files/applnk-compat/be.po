@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 17:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: battery.desktop:2 bwarning.desktop:2 cwarning.desktop:2 power.desktop:2
+msgid "Laptop"
+msgstr "Ноўтбук"
+
+#. Name
+#: email.desktop:10
+msgid "Email"
+msgstr "Электронная пошта"
+
+#. Comment
+#: email.desktop:11
+msgid "Configure your identity, email addresses, mail servers, etc."
+msgstr ""
+"Настаўленне вашага ўвасаблення, адрасоў электроннай пошты, паштовых сервераў "
+"і г. д."
+
+#. Keywords
+#: email.desktop:13
+msgid ""
+"EMail;Mail;E-Mail;Address;Email server;IMAP;POP3;Local mailbox;mailbox;User "
+"Information;Reply Address;Server information;User Name;Passwords;Host;"
+"Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
+"Client;"
+msgstr ""
+"Электронная пошта;Пошта;Адрас;Паштовы сервер;Інфармацыя аб карыстальніку;"
+"Адрас для адказу;Інфармацыя аб серверы;Імя карыстальніка;Паролі;Вузел;"
+"Профіль;Арганізацыя;Кліент электроннай пошты;EMail;Mail;E-Mail;Address;Email "
+"server;IMAP;POP3;Local mailbox;mailbox;User Information;Reply Address;Server "
+"information;User Name;Passwords;Host;Current Profile;Profile;Organization;"
+"Incoming Host;Outgoing Host;Email Client;"
+
+#. Name
+#: kcmkonq.desktop:2
+msgid "File Manager"
+msgstr "Кіраўнік файлаў"
+
+#. Name
+#: kcmkxmlrpcd.desktop:2
+msgid "XML RPC Daemon"
+msgstr "Дэман XML RPC"
+
+#. Name
+#: konqhtml.desktop:2
+msgid "Konqueror Browser"
+msgstr "Вандроўнік Konqueror"
+
+#. Name
+#: passwords.desktop:11
+msgid "Passwords"
+msgstr "Паролі"
+
+#. Comment
+#: passwords.desktop:13
+msgid "Configure password settings"
+msgstr "Настаўленні пароляў"
+
+#. Keywords
+#: passwords.desktop:15
+msgid "Passwords;tdesu;Echo characters;Remember passwords;Timeout;"
+msgstr ""
+"Паролі;Запамінанне пароляў;Тэрмін чакання;Passwords;tdesu;Echo characters;"
+"Remember passwords;Timeout;"
+
+#. Name
+#: socks.desktop:2
+msgid "Socks"
+msgstr ""
+
+#. Name
+#: userinfo.desktop:13
+msgid "User Account"
+msgstr "Уліковы запіс"
+
+#. Comment
+#: userinfo.desktop:14
+msgid "Change your account information"
+msgstr "Змяніць інфармацыю аб вашым уліковым запісе"
+
+#. Keywords
+#: userinfo.desktop:15
+msgid ""
+"Passwords;Password;Change Password;Icon;face;tdm;User Name;Name;Account;"
+msgstr ""
+"Паролі;Пароль;Змена паролю;Значка;твар;Імя карыстальніка;Уліковы рахунак;"
+"Passwords;Password;Change Password;Icon;face;tdm;User Name;Name;Account;"
+
+#. Name
+#: virtualdesktops.desktop:2
+msgid "Virtual Desktops"
+msgstr "Віртуальныя працоўныя сталы"

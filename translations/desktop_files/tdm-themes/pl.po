@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:50+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: circles/GdmGreeterTheme.desktop:7
+msgid "Circles"
+msgstr "Kółka"
+
+#. Description
+#: circles/GdmGreeterTheme.desktop:9
+msgid "Theme with blue circles"
+msgstr "Motyw z niebieskimi kółkami"
+
+#. Name
+#: minimalist/GdmGreeterTheme.desktop:8
+msgid "Minimalist"
+msgstr ""
+
+#. Description
+#: minimalist/GdmGreeterTheme.desktop:10
+msgid "A minimalist TDM theme for TDE, inspired by LightDM"
+msgstr ""
+
+#. Name
+#: o2_enterprise/GdmGreeterTheme.desktop:8
+msgid "O2 Enterprise"
+msgstr ""
+
+#. Description
+#: o2_enterprise/GdmGreeterTheme.desktop:10
+msgid "A sleek and professional looking TDM theme for Trinity"
+msgstr ""

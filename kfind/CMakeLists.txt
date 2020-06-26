@@ -30,9 +30,20 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons( kfind )
-install( FILES Kfind.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES kfindpart.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
-install( FILES findpart.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE Kfind.desktop
+  PO_DIR kfind-desktops
+)
+tde_create_translated_desktop(
+  SOURCE kfindpart.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR kfind-desktops
+)
+tde_create_translated_desktop(
+  SOURCE findpart.desktop
+  DESTINATION ${SERVICETYPES_INSTALL_DIR}
+  PO_DIR kfind-desktops
+)
 
 
 ##### libkfindpart (module) #####################

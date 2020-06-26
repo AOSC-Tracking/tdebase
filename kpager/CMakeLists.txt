@@ -25,7 +25,7 @@ tde_install_icons()
 
 ##### other data ################################
 
-install( FILES kpager.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop( kpager.desktop )
 install( FILES uninstall.desktop DESTINATION ${APPS_INSTALL_DIR}/Utilities RENAME kpager.desktop )
 
 

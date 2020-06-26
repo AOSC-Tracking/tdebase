@@ -24,18 +24,30 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     cookies.desktop useragent.desktop cache.desktop
     lanbrowser.desktop netpref.desktop proxy.desktop
-  DESTINATION ${XDG_APPS_INSTALL_DIR} )
+  PO_DIR kcontrol-desktops
+)
 
 install( FILES uninstall.desktop
   RENAME smb.desktop
   DESTINATION ${APPS_INSTALL_DIR}/Settings/WebBrowsing )
 
 install( FILES socks.upd DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
-install( FILES uasprovider.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
-install( FILES smb.desktop DESTINATION ${APPS_INSTALL_DIR}/.hidden )
+
+tde_create_translated_desktop(
+  SOURCE uasprovider.desktop
+  DESTINATION ${SERVICETYPES_INSTALL_DIR}
+  PO_DIR kcontrol-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE smb.desktop
+  DESTINATION ${APPS_INSTALL_DIR}/.hidden
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_tdeio (module) ##########################

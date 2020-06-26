@@ -27,10 +27,29 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES smb.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
-install( FILES smb-network.desktop DESTINATION ${DATA_INSTALL_DIR}/konqueror/dirtree/remote )
-install( FILES smb-network.desktop DESTINATION ${DATA_INSTALL_DIR}/remoteview )
-install( FILES x-smb-workgroup.desktop x-smb-server.desktop DESTINATION ${MIME_INSTALL_DIR}/application )
+tde_create_translated_desktop(
+  SOURCE smb.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE smb-network.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqueror/dirtree/remote
+  PO_DIR tdeioslave-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE smb-network.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/remoteview
+  PO_DIR tdeioslave-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE x-smb-workgroup.desktop x-smb-server.desktop
+  DESTINATION ${MIME_INSTALL_DIR}/application
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdeio_smb (module) ##########################

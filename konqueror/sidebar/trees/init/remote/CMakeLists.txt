@@ -15,6 +15,8 @@ add_subdirectory( web )
 
 ##### other data ################################
 
-install( FILES
-    .directory
-  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/virtual_folders/remote )
+tde_create_translated_desktop(
+  SOURCE .directory
+  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/virtual_folders/remote
+  PO_DIR konqueror-desktops
+)

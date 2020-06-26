@@ -29,10 +29,13 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     bookmarks.desktop browser.desktop desktop.desktop
     exec.desktop kmenu.desktop windowlist.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/kicker/builtins )
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/builtins
+  PO_DIR kicker-desktops
+)
 
 
 ##### kicker_buttons (static) ###################

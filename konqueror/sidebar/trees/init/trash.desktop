@@ -7,17 +7,5 @@ X-TDE-TreeModule=Directory
 X-TDE-KonqSidebarModule=konqsidebar_tree
 
 Name=Trash Folder
-Name[de]=Mülleimer
-Name[cs]=Složka koše
-Name[es]=Papelera
-Name[fr]=Dossier Corbeille
-Name[it]=Cartella Cestino
-Name[ru]=Корзина
 
 Comment=This folder displays the contents of your Trash Bin
-Comment[cs]=Tato složka zobrazuje obsah vašeho koše
-Comment[de]=Dieser Ordner zeigt Ihnen den Inhalt Ihres Mülleimers an
-Comment[es]=Esta carpeta muestra el contenido de tu papelera
-Comment[fr]=Ce dossier montre le contenu de votre corbeille
-Comment[it]=Questa cartella visualizza il contenuto del tuo Cestino
-Comment[ru]=Данная папка показывает содержание вашей корзины

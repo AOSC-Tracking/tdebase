@@ -25,8 +25,16 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES ktrashpropsdlgplugin.desktop trash.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
-install( FILES kcmtrash.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE ktrashpropsdlgplugin.desktop trash.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE kcmtrash.desktop
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### trashcommon (static) ######################

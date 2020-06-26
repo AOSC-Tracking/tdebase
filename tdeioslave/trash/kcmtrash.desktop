@@ -9,25 +9,7 @@ X-TDE-Library=trash
 Categories=Qt;TDE;X-TDE-settings-system;
 
 Name=Trash
-Name[cs]=Koš
-Name[de]=Mülleimer
-Name[es]=Papelera
-Name[fr]=Corbeille
-Name[it]=Cestino
-Name[ru]=Корзина
 
 Comment=Trash Properties
-Comment[cs]=Vlastnosti koše
-Comment[de]=Eigenschaften des Mülleimers festlegen
-Comment[es]=Propiedades de la basura
-Comment[fr]=Propriétés de la Corbeille
-Comment[it]=Proprietà del cestino
-Comment[ru]=Свойства мусора
 
 Keywords=trash;properties;size;limits;delete
-Keywords[cs]=koš;vlastnosti;velikost;limity;odstranit
-Keywords[de]=Mülleimer;Eigenschaften;Größe;Limits;Löschen
-Keywords[es]=basura;propiedades;tamaño;limites;eliminar;
-Keywords[fr]=corbeille;propriétés;taille;limites;supprimer
-Keywords[it]=cestino;proprietà;dimensioni;limiti;cancella
-Keywords[ru]=мусор;свойства;размер;пределы;удалить;

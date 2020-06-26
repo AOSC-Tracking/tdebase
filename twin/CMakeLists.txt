@@ -43,7 +43,13 @@ install( FILES KWinInterface.h DESTINATION ${INCLUDE_INSTALL_DIR} )
 ##### other data ################################
 
 tde_install_icons( twin )
-install( FILES eventsrc DESTINATION ${DATA_INSTALL_DIR}/twin )
+
+tde_create_translated_desktop(
+  SOURCE eventsrc
+  DESTINATION ${DATA_INSTALL_DIR}/twin
+  PO_DIR twin-eventsrc
+)
+
 install( FILES twin.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 
 

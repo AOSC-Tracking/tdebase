@@ -26,7 +26,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES clockapplet.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
+tde_create_translated_desktop(
+  SOURCE clockapplet.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/applets
+  PO_DIR kicker-desktops
+)
 install( FILES lcd.png DESTINATION ${DATA_INSTALL_DIR}/clockapplet/pics )
 
 

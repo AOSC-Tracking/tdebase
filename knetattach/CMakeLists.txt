@@ -23,7 +23,7 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons( )
-install( FILES knetattach.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop( knetattach.desktop )
 
 
 ##### knetattach (executable) ###################

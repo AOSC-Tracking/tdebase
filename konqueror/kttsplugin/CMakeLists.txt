@@ -23,9 +23,16 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
-    tdehtmlkttsd.rc tdehtmlkttsd.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/tdehtml/kpartplugins )
+tde_create_translated_desktop(
+  SOURCE tdehtmlkttsd.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/tdehtml/kpartplugins
+  PO_DIR konqueror-desktops
+)
+
+install(
+  FILES tdehtmlkttsd.rc
+  DESTINATION ${DATA_INSTALL_DIR}/tdehtml/kpartplugins
+)
 
 
 ##### libtdehtmlkttsdplugin (module) ##############

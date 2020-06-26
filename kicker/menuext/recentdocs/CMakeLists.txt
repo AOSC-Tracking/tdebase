@@ -21,7 +21,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES recentdocs.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/menuext )
+tde_create_translated_desktop(
+  SOURCE recentdocs.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/menuext
+  PO_DIR kicker-desktops
+)
 
 
 ##### kickermenu_recentdocs (module) ############

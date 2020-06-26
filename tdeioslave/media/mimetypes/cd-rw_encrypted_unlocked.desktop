@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=cd-rw-unlocked
 Type=MimeType
 MimeType=media/cd-rw_encrypted_unlocked
+Icon=cd-rw-unlocked
+
 Comment=Encrypted Unlocked CD-RW
-Comment[de]=Verschlüsselte entsperrte CD-RW
-Comment[it]=CD-RW criptato sprotetto
+
 Patterns=
 
 X-TDE-AutoEmbed=true

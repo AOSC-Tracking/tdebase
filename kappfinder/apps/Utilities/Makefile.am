@@ -4,4 +4,4 @@ kappfinder_utilities_data_DATA = GnomeWho.desktop SystemInfo.desktop SystemLogVi
 
 kappfinder_utilities_datadir = $(kde_datadir)/kappfinder/apps/Utilities
 
-SUBDIRS= Editors xutils
+SUBDIRS= Editors XUtilities

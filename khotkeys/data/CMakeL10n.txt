@@ -1,0 +1,14 @@
+##### create translation templates ##############
+
+file(
+    GLOB _khotkeys_data
+    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.khotkeys
+)
+list( SORT _khotkeys_data )
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/khotkeys-data/"
+    SOURCES_DESKTOP ${_khotkeys_data}
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)

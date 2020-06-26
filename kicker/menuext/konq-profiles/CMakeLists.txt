@@ -21,7 +21,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES konquerormenu.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/menuext )
+tde_create_translated_desktop(
+  SOURCE konquerormenu.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/menuext
+  PO_DIR kicker-desktops
+)
 
 
 ##### kickermenu_konqueror (module) #############

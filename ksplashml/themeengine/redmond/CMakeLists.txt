@@ -26,7 +26,11 @@ link_directories(
 ##### other data ################################
 
 install( FILES Theme.rc DESTINATION ${DATA_INSTALL_DIR}/ksplash/Themes/Redmond )
-install( FILES ksplashredmond.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE ksplashredmond.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR ksplash-desktops
+)
 
 
 ##### ksplashredmond (module) ###################

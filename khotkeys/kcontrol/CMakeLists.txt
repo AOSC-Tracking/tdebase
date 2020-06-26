@@ -29,7 +29,7 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons( khotkeys )
-install( FILES khotkeys.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop( khotkeys.desktop )
 
 
 ##### kcm_khotkeys (module) #####################

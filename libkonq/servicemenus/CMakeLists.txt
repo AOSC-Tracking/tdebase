@@ -9,6 +9,8 @@
 #
 #################################################
 
-install( FILES
-    edit-as-root.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus )
+tde_create_translated_desktop(
+  SOURCE edit-as-root.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus
+  PO_DIR libkonq-desktops
+)

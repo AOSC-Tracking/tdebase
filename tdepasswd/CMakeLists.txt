@@ -25,7 +25,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES tdepasswd.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE tdepasswd.desktop
+  PO_DIR tdepasswd-desktops
+)
 
 
 ##### tdepasswd (executable) ####################

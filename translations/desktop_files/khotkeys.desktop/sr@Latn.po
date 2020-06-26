@@ -1,0 +1,35 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 14:09+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sr@Latn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: khotkeys.desktop:12
+msgid "Input Actions"
+msgstr "Akcije ulaza"
+
+#. Comment
+#: khotkeys.desktop:14
+msgid "Configure Hotkey settings"
+msgstr "Podešavanje postavki prečica"
+
+#. Keywords
+#: khotkeys.desktop:16
+msgid "Keys;Global key bindings;Key bindings;Gestures;Mouse gestures;"
+msgstr ""
+"Keys;Global key bindings;Key scheme;Key bindings;shortcuts;application "
+"shortcuts;tasteri;globalni tasteri;prečica;šema tastera;prečice;programske "
+"prečice;"

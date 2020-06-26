@@ -24,13 +24,21 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES hwmanager.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES hwdevicetray.desktop
-         DESTINATION ${XDG_APPS_INSTALL_DIR}
-         RENAME tdehwdevicetray.desktop )
-install( FILES hwdevicetray-autostart.desktop
-         DESTINATION ${AUTOSTART_INSTALL_DIR}
-         RENAME tdehwdevicetray-autostart.desktop )
+tde_create_translated_desktop(
+  SOURCE hwmanager.desktop
+  PO_DIR kcontrol-desktops
+)
+tde_create_translated_desktop(
+  SOURCE hwdevicetray.desktop
+  OUTPUT_NAME tdehwdevicetray.desktop
+  PO_DIR kcontrol-desktops
+)
+tde_create_translated_desktop(
+  SOURCE hwdevicetray-autostart.desktop
+  DESTINATION ${AUTOSTART_INSTALL_DIR}
+  OUTPUT_NAME tdehwdevicetray-autostart.desktop
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_iccconfig (module) ####################

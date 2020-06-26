@@ -25,7 +25,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES webmodule_add.desktop DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/add )
+tde_create_translated_desktop(
+  SOURCE webmodule_add.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/add
+  PO_DIR konqueror-desktops
+)
 install( FILES websidebar.html DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/websidebar )
 
 

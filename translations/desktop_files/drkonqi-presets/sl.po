@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 03:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: developerrc:2
+msgid "Developer"
+msgstr "Razvijalec"
+
+#. Comment
+#: developerrc:3
+msgid "Settings preferred for developers"
+msgstr "Nastavitve, ljubše razvijalcem"
+
+#. Name
+#: developerrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname), pid %pid, crashed and caused the "
+"signal %signum (%signame)."
+msgstr ""
+"Program %progname (%appname), pid %pid, se je sesul in javil signal %signum "
+"(%signame)."
+
+#. Name
+#: developerrc:17
+msgid "You might want to fix your program. Take a look at the backtrace tab."
+msgstr ""
+"Morda boste želeli popraviti program. Poglejte si ustrezno oznako "
+"razhroščevalnika."
+
+#. Name
+#: developerrc:20 enduserrc:20
+msgid "SIGILL"
+msgstr ""
+
+#. Comment
+#: developerrc:21
+msgid "Illegal instruction."
+msgstr "Neveljaven ukaz."
+
+#. Name
+#: developerrc:24 enduserrc:24
+msgid "SIGABRT"
+msgstr ""
+
+#. Comment
+#: developerrc:25
+msgid "Aborted."
+msgstr "Prekinjeno."
+
+#. Name
+#: developerrc:28 enduserrc:28
+msgid "SIGFPE"
+msgstr ""
+
+#. Comment
+#: developerrc:29
+msgid "Floating point exception."
+msgstr "Izjema pri delu s plavajočo piko."
+
+#. Name
+#: developerrc:32 enduserrc:32
+msgid "SIGSEGV"
+msgstr ""
+
+#. Comment
+#: developerrc:33
+msgid "Invalid memory reference."
+msgstr "Neveljavno naslavljanje pomnilnika."
+
+#. Name
+#: developerrc:36 enduserrc:36
+msgid "Unknown"
+msgstr "Neznan"
+
+#. Comment
+#: developerrc:37
+msgid "This signal is unknown."
+msgstr "Ta signal je neznan."
+
+#. Name
+#: enduserrc:2
+msgid "End user"
+msgstr "Končni uporabnik"
+
+#. Comment
+#: enduserrc:3
+msgid "Settings preferred for end users"
+msgstr "Nastavitve, ljubše končnim uporabnikom"
+
+#. Name
+#: enduserrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname) crashed and caused the signal %signum "
+"(%signame)."
+msgstr ""
+"Program %progname (%appname) se je sesul in javil signal %signum (%signame)."
+
+#. Name
+#: enduserrc:17
+msgid ""
+"You might want to send a bug report for this application. Check if it is "
+"listed on http://bugs.trinitydesktop.org, otherwise mail the author. Please "
+"include as much information as possible, maybe the original documents. If "
+"you have a way to reproduce the error, include this also."
+msgstr ""
+"Morda boste avtorju želeli poslati poročilo o hrošču. Preverite, če je "
+"naveden na http://bugs.trinitydesktop.org, sicer obvestite avtorja. Prosim, "
+"vključite čimveč podatkov, morda tudi izvirne dokumente. Če lahko kako "
+"ponovite napako, vključite tudi to."
+
+#. Comment
+#: enduserrc:21
+msgid ""
+"An application mostly receives the SIGILL signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Program največkrat prejme signal SIGILL zaradi hrošča. Od programa je bilo "
+"zahtevano, da shrani svoje dokumente."
+
+#. Comment
+#: enduserrc:25
+msgid ""
+"An application terminates with a SIGABRT signal when it detects an internal "
+"inconsistency caused by a bug in the program."
+msgstr ""
+"Program se prekine s signalom SIGABRT, ko zazna notranjo nekonsistentnost "
+"zaradi hrošča v programu."
+
+#. Comment
+#: enduserrc:29
+msgid ""
+"An application mostly receives the SIGFPE signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Program največkrat prejme signal SIGFPE zaradi hrošča. Od programa je bilo "
+"zahtevano, da shrani svoje dokumente."
+
+#. Comment
+#: enduserrc:33
+msgid ""
+"An application mostly receives the SIGSEGV signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Program največkrat prejme signal SIGSEGV zaradi hrošča. Od programa je bilo "
+"zahtevano, da shrani svoje dokumente."
+
+#. Comment
+#: enduserrc:37
+msgid "Sorry, I do not know this signal."
+msgstr "Žal je ta signal neznan."

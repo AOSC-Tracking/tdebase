@@ -21,7 +21,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmkded.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcmkded.desktop
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_kded (module) #########################

@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Täräzä İdäräçe"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "1. Östälgä Küç"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Berençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "2. Östälgä Küç"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "İkençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "3. Östälgä Küç"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Öçençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "4. Östälgä Küç"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Dürtençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "5. Östälgä Küç"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Bişençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "6. Östälgä Küç"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Altınçı xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "7. Östälgä Küç"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Cidençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "8. Östälgä Küç"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Sigezençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "9. Östälgä Küç"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Tuğızınçı xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "10. Östälgä Küç"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Unınçı xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "11. Östälgä Küç"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Unberençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "12. Östälgä Küç"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Unikençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "13. Östälgä Küç"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Unöçençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "14. Östälgä Küç"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Undürtençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "15. Östälgä Küç"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Unbişençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "16. Östälgä Küç"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Unaltınçı xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "17. Östälgä Küç"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Uncidençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "18. Östälgä Küç"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Unsigezençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "19. Östälgä Küç"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Untuğızınçı xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "20. Östälgä Küç"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Yegermençe xıyalıy östäl saylandı"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Täräzä Eşçän İtü"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Başqa täräzä terelände"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Yana Täräzä"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Yana Täräzä"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Täräzäne Beter"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Täräzäne beter"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Täräzäne Yap"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Täräzäne yabu"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Täräzäne Tasmağa Tör"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Täräzä tasmağa törelde"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Täräzäne Tasmadan Torğız"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Täräzä tasmadan torğızıldı"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Täräzäne Törep quy"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Täräzä törep quyıldı"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Täräzäne Torğız"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Täräzä torğızıldı"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Täräzäne Cäyep quy"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Täräzä cäyelep quyıldı"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Täräzä Ülçämen Torğız"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Cäyelgän täräzä ülçämen torğızu"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Täräzäne Bar Öställärgä"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Täräzäne bar öställärdä dä kürenerlek itü"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Täräzäne Bar Öställärgä tügel"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Täräzäne bar öställärdä dä kürenerlek itmäw"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Yaña Dialog"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Waqıtlı täräzä çığaru"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Beter Dialognı"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Waqıtlı täräzä beterelde"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Täräzä Küçerü Başlaw"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Täräzä küçerelä başladı"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Täräzä Küçerü Tuqtatu"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Täräzä küçerü tuqtaldı"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Täräzä Ülçämen Üzgärtü Başlaw"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Täräzä ülçämen üzgärtü başlandı"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Täräzä Ülçämen Üzgärtü Tuqtatu"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Täräzä ülçämen üzgärtü tuqtadı"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Bu Östäldäge Täräzä İğtibar Birü Sorí"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Biredäge östäldä bulğan täräzä iğtibar birüne sorí"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Başqa Östäldäge Täräzä İğtibar Birü Sorí"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Başqa östäldä bulğan täräzä iğtibar birüne sorí"

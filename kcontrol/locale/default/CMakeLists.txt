@@ -9,4 +9,8 @@
 #
 #################################################
 
-install( FILES entry.desktop DESTINATION ${LOCALE_INSTALL_DIR}/en_US )
+tde_create_translated_desktop(
+  SOURCE entry.desktop
+  DESTINATION ${LOCALE_INSTALL_DIR}/en_US
+  PO_DIR kcontrol-desktops
+)

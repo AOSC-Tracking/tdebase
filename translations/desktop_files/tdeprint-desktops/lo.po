@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 19:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: lo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kjobviewer/kjobviewer-autostart.desktop:7 kjobviewer/kjobviewer.desktop:8
+msgid "KJobViewer"
+msgstr ""
+
+#. GenericName
+#. Comment
+#: kjobviewer/kjobviewer-autostart.desktop:9 kjobviewer/kjobviewer.desktop:10
+#: slave/mimetypes/jobs.desktop:2
+msgid "Print Jobs"
+msgstr "ໂຟນເດີງານພິມ"
+
+#. Name
+#: kprinter/kprinter.desktop:9
+msgid "KPrinter"
+msgstr "ເຄື່ອງພິມ - K"
+
+#. GenericName
+#: kprinter/kprinter.desktop:11
+msgid "Printing Tool"
+msgstr "ເຄື່ອງມືລະບົບການພິມ์"
+
+#. Name
+#: printmgr/printers.desktop:12
+msgid "Printers"
+msgstr "ເຄື່ອງພິມ - K"
+
+#. Comment
+#: printmgr/printers.desktop:14
+msgid "Printing system configuration (printers, jobs, classes, ...)"
+msgstr "ປັບແຕ່ງລະບົບການພິມ (ເຄື່ອງພິມ,ງານພິມ,ຄລາສ, ...)"
+
+#. Keywords
+#: printmgr/printers.desktop:16
+msgid "print;printer;printing management;"
+msgstr "ພິມ;ເຄື່ອງພິມ;ຈັດການພິມ;"
+
+#. Comment
+#: slave/mimetypes/class.desktop:2
+#, fuzzy
+msgid "Class of Printers"
+msgstr "ເຄື່ອງພິມ - K"
+
+#. Comment
+#: slave/mimetypes/driver.desktop:2
+#, fuzzy
+msgid "Printer Driver"
+msgstr "ເຄື່ອງພິມ"
+
+#. Comment
+#: slave/mimetypes/folder.desktop:2
+#, fuzzy
+msgid "Print Folder"
+msgstr "ເຄື່ອງພິມ"
+
+#. Comment
+#. Name
+#: slave/mimetypes/manager.desktop:2 tdeprint_part/tdeprint_part.desktop:4
+msgid "Print Management Tool"
+msgstr "ເຄື່ອງມືຈັດການການພິມ"
+
+#. Comment
+#: slave/mimetypes/printer.desktop:2
+msgid "Printer"
+msgstr "ເຄື່ອງພິມ"
+
+#. Comment
+#: slave/mimetypes/printermodel.desktop:2
+#, fuzzy
+msgid "Printer Model"
+msgstr "ເຄື່ອງພິມ"
+
+#. Name
+#: tdeprintfax/tdeprintfax.desktop:2
+msgid "TDEPrintFax"
+msgstr "ອິນເຕີເນັດ"
+
+#. GenericName
+#: tdeprintfax/tdeprintfax.desktop:4
+msgid "Fax Utility"
+msgstr "ເຄື່ອງມືໂທລະສານ"

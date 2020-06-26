@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-22 19:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: mai\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: All-Good-People-1.jpg.desktop:3
+msgid "All Good People"
+msgstr ""
+
+#. Name
+#: Chicken-Songs-2.jpg.desktop:3
+msgid "Chicken Songs"
+msgstr ""
+
+#. Name
+#: No-Ones-Laughing-3.jpg.desktop:3
+msgid "No One's Laughing"
+msgstr ""
+
+#. Name
+#: Time-For-Lunch-2.jpg.desktop:3
+msgid "Time For Lunch"
+msgstr ""
+
+#. Name
+#: Totally-New-Product-1.jpg.desktop:3
+msgid "Totally New Product"
+msgstr ""
+
+#. Name
+#: Trinity-lineart.svg.desktop:3
+msgid "Trinity Default"
+msgstr ""
+
+#. Name
+#: Trinity4.png.desktop:3
+msgid "Trinity Default (old)"
+msgstr ""
+
+#. Name
+#: Won-Ton-Soup-3.jpg.desktop:3
+msgid "Won Ton Soup"
+msgstr ""
+
+#. Name
+#: aghi.jpg.desktop:3
+msgid "Aghi"
+msgstr "अघी"
+
+#. Name
+#: airplane.jpg.desktop:3
+msgid "Airplane"
+msgstr "Airplane"
+
+#. Name
+#: alta-badia.jpg.desktop:3
+msgid "Alta Badia"
+msgstr ""
+
+#. Name
+#: andes-venezolanos.svgz.desktop:3
+msgid "Andes Venezolanos"
+msgstr ""
+
+#. Name
+#: another-view.jpg.desktop:3
+msgid "Another View"
+msgstr "Another View"
+
+#. Name
+#: aurora.svgz.desktop:3
+msgid "Aurora"
+msgstr ""
+
+#. Name
+#: blue-bend.jpg.desktop:3
+msgid "Blue Blend"
+msgstr ""
+
+#. Name
+#: celtic.svgz.desktop:3
+msgid "Celtic"
+msgstr ""
+
+#. Name
+#: default_blue.jpg.desktop:3
+msgid "Default Blue"
+msgstr ""
+
+#. Name
+#: default_gears.jpg.desktop:3
+msgid "Default Gears"
+msgstr ""
+
+#. Name
+#: floating-leaves.jpg.desktop:3
+msgid "Floating Leaves"
+msgstr ""
+
+#. Name
+#: globe.svgz.desktop:3
+msgid "Geared Globe"
+msgstr ""
+
+#. Name
+#: green_curtain.jpg.desktop:3
+msgid "Green Curtain"
+msgstr ""
+
+#. Name
+#: here-gear.svgz.desktop:3
+msgid "We Are Gear"
+msgstr ""
+
+#. Name
+#: horse-head-nebula.png.desktop:3
+msgid "Horse Head Nebula"
+msgstr ""
+
+#. Name
+#: isadora.png.desktop:3
+msgid "Isadora"
+msgstr ""
+
+#. Name
+#: konqui.svgz.desktop:3
+msgid "Konqui"
+msgstr ""
+
+#. Name
+#: lineart.svgz.desktop:3
+msgid "Lineart Logo"
+msgstr ""
+
+#. Name
+#: moon.svgz.desktop:3
+msgid "Moon"
+msgstr ""
+
+#. Name
+#: mountain-lake.jpg.desktop:3
+msgid "Mountain Lake"
+msgstr "Mountain Lake"
+
+#. Name
+#: seaofconero.jpg.desktop:3
+msgid "Sea of Conero"
+msgstr ""
+
+#. Name
+#: soft-green.jpg.desktop:3
+msgid "Soft Green"
+msgstr ""
+
+#. Name
+#: stelvio.jpg.desktop:3
+msgid "Stelvio"
+msgstr ""
+
+#. Name
+#: stripes.jpg.desktop:3
+msgid "Stripes"
+msgstr ""
+
+#. Name
+#: sunshine-after-the-rain.jpg.desktop:3
+msgid "Sunshine After The Rain"
+msgstr ""
+
+#. Name
+#: triplegears.jpg.desktop:3
+msgid "Triple Gears"
+msgstr ""
+
+#. Name
+#: world-desktop.jpg.desktop:3
+msgid "World Desktop"
+msgstr ""

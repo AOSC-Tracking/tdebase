@@ -11,7 +11,10 @@
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     home.desktop documents.desktop users.desktop
     media.desktop remote.desktop trash.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/systemview )
+  DESTINATION ${DATA_INSTALL_DIR}/systemview
+  PO_DIR tdeioslave-desktops
+)

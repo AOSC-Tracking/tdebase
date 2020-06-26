@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 03:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: developerrc:2
+msgid "Developer"
+msgstr "உருவாக்கி"
+
+#. Comment
+#: developerrc:3
+msgid "Settings preferred for developers"
+msgstr "உருவாக்குவோர்களுக்கான விருப்ப அமைப்புகள்"
+
+#. Name
+#: developerrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname), pid %pid, crashed and caused the "
+"signal %signum (%signame)."
+msgstr ""
+"பயன்பாடு %progname (%appname), எண் %pid, முறிந்து %signum (%signame) சைகையைத் "
+"தந்தது."
+
+#. Name
+#: developerrc:17
+msgid "You might want to fix your program. Take a look at the backtrace tab."
+msgstr "நீங்கள் இந்நிரலைச் சரி செய்ய விரும்பினால், பின்சுவட்டுத் தட்டலைப் பார்க்கவும்."
+
+#. Name
+#: developerrc:20 enduserrc:20
+msgid "SIGILL"
+msgstr ""
+
+#. Comment
+#: developerrc:21
+msgid "Illegal instruction."
+msgstr "சட்டவிரோத ஆணை."
+
+#. Name
+#: developerrc:24 enduserrc:24
+msgid "SIGABRT"
+msgstr ""
+
+#. Comment
+#: developerrc:25
+msgid "Aborted."
+msgstr "கைவிட்டது."
+
+#. Name
+#: developerrc:28 enduserrc:28
+msgid "SIGFPE"
+msgstr ""
+
+#. Comment
+#: developerrc:29
+msgid "Floating point exception."
+msgstr "மிதவைப் புள்ளித் தவிர்த்து."
+
+#. Name
+#: developerrc:32 enduserrc:32
+msgid "SIGSEGV"
+msgstr ""
+
+#. Comment
+#: developerrc:33
+msgid "Invalid memory reference."
+msgstr "செல்லாத நினைவு குறிப்பு"
+
+#. Name
+#: developerrc:36 enduserrc:36
+msgid "Unknown"
+msgstr "தெரியாத"
+
+#. Comment
+#: developerrc:37
+msgid "This signal is unknown."
+msgstr "தெரியாத சைகை"
+
+#. Name
+#: enduserrc:2
+msgid "End user"
+msgstr "கடைசி பயனர்"
+
+#. Comment
+#: enduserrc:3
+msgid "Settings preferred for end users"
+msgstr "பயனர்களுக்கான விருப்ப அமைப்புகள்"
+
+#. Name
+#: enduserrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname) crashed and caused the signal %signum "
+"(%signame)."
+msgstr ""
+"பயன்பாடு %progname (%appname), முறிந்து. ÁüÚõ %signum (%signame) சைகையைத் தந்தது."
+
+#. Name
+#: enduserrc:17
+msgid ""
+"You might want to send a bug report for this application. Check if it is "
+"listed on http://bugs.trinitydesktop.org, otherwise mail the author. Please "
+"include as much information as possible, maybe the original documents. If "
+"you have a way to reproduce the error, include this also."
+msgstr ""
+"இந்த பயன்பாட்டுக்கான நீங்கள் பிழை அறிக்கையொன்றை அனுப்பலாம்.  http://bugs.trinitydesktop."
+"org,ல் அது உள்ளதா என்பதை சரிபார்க்கவும் அல்லது ஆசிரியருக்கு மின்னஞ்சல் அனுப்பலாம். "
+"தயவுசெய்து முடிந்த அளவிற்கு தகவல்களை உள்ளடக்கவும். அவை மூல ஆவணங்களாகவும் இருக்கலாம். "
+"இந்த தவறை திரும்ப உருவாக்க ஏதேனும் வழியிருப்பின் அதனையும் குறிப்பிடவும்."
+
+#. Comment
+#: enduserrc:21
+msgid ""
+"An application mostly receives the SIGILL signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"நிரலிலுள்ள தவறொன்று காரணமாகவே அது பெரும்பாலும் SIGILL சைகையைப் பெறும். நிரலுக்குத் "
+"தன் ஆவணங்களை சேமிக்குமாறு கூறப்பட்டது."
+
+#. Comment
+#: enduserrc:25
+msgid ""
+"An application terminates with a SIGABRT signal when it detects an internal "
+"inconsistency caused by a bug in the program."
+msgstr ""
+"நிரலிலுள்ள தவறால் ஏற்பட்ட உள்ளமைந்த முரண்பாடொன்று கண்டறியப்படின், அந்நிரல் SIGABRT "
+"சைகையுடன் முறியும்."
+
+#. Comment
+#: enduserrc:29
+msgid ""
+"An application mostly receives the SIGFPE signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"நிரலிலுள்ள தவறொன்று காரணமாகவே அது பெரும்பாலும் SIGFPE சைகையைப் பெறும். நிரலுக்குத் "
+"தன் ஆவணங்களைச் சேமிக்கும்படி கூறப்பட்டது."
+
+#. Comment
+#: enduserrc:33
+msgid ""
+"An application mostly receives the SIGSEGV signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"நிரலிலுள்ள தவறொன்றின் காரணமாகவே அது பெரும்பாலும் SIGSEGV சைகையைப் பெறும். நிரலுக்குத் "
+"தன் ஆவணங்களைச் சேமிக்கும்படி கூறப்பட்டது."
+
+#. Comment
+#: enduserrc:37
+msgid "Sorry, I do not know this signal."
+msgstr "மன்னிக்கவும், இந்த சின்னம் எணக்கு தெரியாது."

@@ -1,0 +1,550 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 14:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:5
+msgid "Basic Konqueror gestures."
+msgstr "Einfaldar Konqueror hreyfingar."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:8
+msgid "Konqueror Gestures"
+msgstr "Konqueror hreyfingar"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:13 trinity2b1.khotkeys:219
+msgid "Konqueror window"
+msgstr "Konqueror gluggi"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:20
+#: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
+#: trinity2b1.khotkeys:232
+#, fuzzy
+msgid "Konqueror"
+msgstr "Konqueror gluggi"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:35
+msgid "Press, move left, release."
+msgstr "Smella niður, hreyfa til vinstri, sleppa."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:37 trinity2b1.khotkeys:242
+msgid "Back"
+msgstr "Til baka"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:41
+msgid ""
+"Opera-style: Press, move up, release.\n"
+"NOTE: Conflicts with 'New Tab', and as such is disabled by default."
+msgstr ""
+"Opera-aðferðin: Ýta, færa upp, sleppa.\n"
+"ATH: rekst á við 'Nýr flipi', og er þess vegna sjálfgefið óvirk."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:43
+msgid "Stop Loading"
+msgstr "Stöðva hleðslu"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:58
+#: konqueror_gestures_trinity21.khotkeys:83
+#: konqueror_gestures_trinity21.khotkeys:108
+#: konqueror_gestures_trinity21.khotkeys:133
+#: konqueror_gestures_trinity21.khotkeys:158
+#: konqueror_gestures_trinity21.khotkeys:177
+#: konqueror_gestures_trinity21.khotkeys:202
+#: konqueror_gestures_trinity21.khotkeys:227
+#: konqueror_gestures_trinity21.khotkeys:252
+#: konqueror_gestures_trinity21.khotkeys:277
+#: konqueror_gestures_trinity21.khotkeys:306
+#: konqueror_gestures_trinity21.khotkeys:335
+#: konqueror_gestures_trinity21.khotkeys:360
+#: konqueror_gestures_trinity21.khotkeys:385 trinity2b1.khotkeys:257
+#: trinity2b1.khotkeys:289 trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
+msgid "Gesture_triggers"
+msgstr "Gesture_strengir"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:66
+msgid ""
+"Going up in URL/directory structure.\n"
+"Mozilla-style: Press, move up, move left, move up, release."
+msgstr ""
+"Fara upp í slóða-/möppukerfi.\n"
+"Mozilla-aðferðin: Ýta, færa upp, færa til vinstri, færa upp, sleppa."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:68 trinity2b1.khotkeys:306
+msgid "Up"
+msgstr "Upp"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:91
+msgid ""
+"Going up in URL/directory structure.\n"
+"Opera-style: Press, move up, move left, move up, release.\n"
+"NOTE: Conflicts with  \"Activate Previous Tab\", and as such is disabled by "
+"default."
+msgstr ""
+"Fara upp í slóða-/möppukerfi.\n"
+"Opera-aðferðin: Ýta, færa upp, færa til vinstri, færa upp, sleppa.\n"
+"ATH: rekst á við 'Virkja fyrri flipa', og er þess vegna sjálfgefið óvirk."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:93
+msgid "Up #2"
+msgstr "Upp #2"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:116
+msgid "Press, move up, move right, release."
+msgstr "Ýta, færa upp, færa til hægri, sleppa."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:118
+msgid "Activate Next Tab"
+msgstr "Virkja næsta flipa"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:141
+msgid "Press, move up, move left, release."
+msgstr "Ýta, færa upp, færa til vinstri, sleppa."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:143
+msgid "Activate Previous Tab"
+msgstr "Virkja síðasta flipa"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:185
+msgid "Press, move down, move up, move down, release."
+msgstr "Ýta, færa niður, færa upp, færa niður, sleppa."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:187
+msgid "Duplicate Tab"
+msgstr "Afrit af flipa"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:210
+msgid "Press, move down, move up, release."
+msgstr "Ýta, færa niður, færa upp, sleppa."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:212
+msgid "Duplicate Window"
+msgstr "Afrit af glugga"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:235
+msgid "Press, move right, release."
+msgstr "Smella niður, hreyfa til hægri, sleppa."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:237 trinity2b1.khotkeys:274
+msgid "Forward"
+msgstr "Áfram"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:260
+msgid ""
+"Press, move down, move half up, move right, move down, release.\n"
+"(Drawing a lowercase 'h'.)"
+msgstr ""
+"Ýta, færa niður, færa að hálfu upp, færa til hægri, færa niður, sleppa.\n"
+"(Teiknar lítið 'h'.)"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:262
+msgid "Home"
+msgstr "Heimasvæðið þitt"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:289
+msgid ""
+"Press, move right, move down, move right, release.\n"
+"Mozilla-style: Press, move down, move right, release."
+msgstr ""
+"Ýta, færa til hægri, færa niður, færa til hægri, sleppa.\n"
+"Mozilla-aðferðin: Ýta, færa niður, færa til hægri, sleppa."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:291
+msgid "Close Tab"
+msgstr "Loka flipa"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:318
+msgid ""
+"Press, move up, release.\n"
+"Conflicts with Opera-style 'Up #2', which is disabled by default."
+msgstr ""
+"Ýta, færa upp, sleppa.\n"
+"Rekst á við Opera-aðferðina 'Upp #2', sem er sjálfgefið óvirk."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:320
+msgid "New Tab"
+msgstr "Opna nýjan flipa"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:343
+msgid "Press, move down, release."
+msgstr "Ýta, færa niður, sleppa."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:345
+msgid "New Window"
+msgstr "Opna nýjan glugga"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:368
+msgid "Press, move up, move down, release."
+msgstr "Ýta, færa upp, færa niður, sleppa."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:370 trinity2b1.khotkeys:338
+msgid "Reload"
+msgstr "Endurhlaða"
+
+#. Comment
+#: printscreen.khotkeys:5
+msgid "This group contains actions that are set up by default."
+msgstr "Þessi hópur inniheldur aðgerðir sem eru sjálfgefið uppsettar."
+
+#. Name
+#: printscreen.khotkeys:8
+msgid "Preset Actions"
+msgstr "Forsniðnar aðgerðir"
+
+#. Comment
+#: printscreen.khotkeys:17
+msgid "Launches KSnapShot when PrintScrn is pressed."
+msgstr "Ræsir KSnapShot þegar ýtt er á PrintScrn lykilinn."
+
+#. Name
+#: printscreen.khotkeys:19
+msgid "PrintScreen"
+msgstr "PrentaSkjá"
+
+#. Comment
+#: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
+#: trinity2b1.khotkeys:71 trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
+#: trinity2b1.khotkeys:203 trinity2b1.khotkeys:385
+msgid "Simple_action"
+msgstr "Einföld aðgerð"
+
+#. Comment
+#: printscreen.khotkeys:41
+#, fuzzy
+msgid ""
+"Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
+msgstr "Ræsir KSnapShot þegar ýtt er á PrintScrn lykilinn."
+
+#. Name
+#: printscreen.khotkeys:43
+msgid "PrintWindow"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:5
+msgid ""
+"This group contains various examples demonstrating most of the features of "
+"KHotkeys. (Note that this group and all its actions are disabled by default.)"
+msgstr ""
+"Þessi hópur inniheldur ýmis sýnishorn sem sýna flesta eiginleika KHotkeys. "
+"(Athugaðu að hópurinn og allar hans aðgerðir eru sjálfgefið óvirkt)"
+
+#. Name
+#: trinity2b1.khotkeys:8
+msgid "Examples"
+msgstr "Sýnishorn"
+
+#. Comment
+#: trinity2b1.khotkeys:16
+msgid ""
+"After pressing Ctrl+Alt+I, the KSIRC window will be activated, if it exists. "
+"Simple."
+msgstr ""
+"Þegar ýtt er á Ctrl+Alt+I, mun KSIRC glugginn verða virkjaður, ef hann "
+"finnst fyrir."
+
+#. Name
+#: trinity2b1.khotkeys:18
+msgid "Activate KSIRC Window"
+msgstr "Virkja KSIRC glugga"
+
+#. Comment
+#: trinity2b1.khotkeys:28
+msgid "KSIRC window"
+msgstr "KSIRC gluggi"
+
+#. Comment
+#: trinity2b1.khotkeys:34
+msgid "KSIRC"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:54
+msgid ""
+"After pressing Alt+Ctrl+H, 'Hello' input will be simulated just like if you "
+"typed it. Especially useful if you're lazy to type things like 'unsigned'. "
+"Every keypress in the input is separated by a colon ':' . Note that the "
+"keypresses mean really keypresses, so you have to write what you'd really "
+"press on the keyboard. In the table below, left column shows the input and "
+"the right column shows what to type.\n"
+"\n"
+"\"enter\" (i.e. new line)                Enter or Return\n"
+"a (i.e. small a)                          A\n"
+"A (i.e. capital a)                       Shift+A\n"
+": (colon)                                  Shift+;\n"
+"' '  (space)                              Space"
+msgstr ""
+"Þegar haldið er niðri Alt+Ctrl+H, verður 'Halló' frasinn settur inn, rétt "
+"eins og ef þú hefðir potað honum sjálfur niður á lyklaborðinu. Ákaflega "
+"þægilegt fyrir fólk sem er of latt til að vélrita hluti eins og "
+"'undirskrift'. Allir lyklaástuðningar eru aðskildir með tvípunktum ':' . "
+"Athugaðu samt að lykilástuðningur þýðir í alvörunni að það þarf þá að styðja "
+"fingri á viðkomandi hnapp, þannig að ekki verður hjá því komist að vélrita "
+"altént þessa syttingarrunu. Í töflunni hér að neðan, sýna vinstri dálkurinn "
+"það sem sett verður inn og sá hægri styttingarrununa.\n"
+"\n"
+"\"enter\" (þ.e. ný lína)                Enter eða Tilbaka\n"
+"a (þ.e. lítið a)                          A\n"
+"A (þ.e. stórt a)                       Shift+A\n"
+": (tvípunktur)                                  Shift+;\n"
+"' '  (bilslá)                              Bil"
+
+#. Name
+#: trinity2b1.khotkeys:56
+msgid "Type 'Hello'"
+msgstr "Skrifa 'Hello'"
+
+#. Comment
+#: trinity2b1.khotkeys:79
+msgid "This action runs Konsole, after pressing Ctrl+Alt+T."
+msgstr "Þessi aðgerð keyrir skjáhermi þegar ýtt er á Ctrl+Alt+T."
+
+#. Name
+#: trinity2b1.khotkeys:81
+msgid "Run Konsole"
+msgstr "Keyra skjáhermi"
+
+#. Comment
+#: trinity2b1.khotkeys:103
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Qt Designer uses Ctrl+F4 for closing windows (maybe because MS Windows does "
+"it that way *shrug*). But Ctrl+F4 in TDE stands for going to virtual desktop "
+"4, so it doesn't work in Qt Designer, and also, Qt Designer doesn't use "
+"TDE's standard Ctrl+W for closing the window.\n"
+"\n"
+"But the problem can be solved by remaping Ctrl+W to Ctrl+F4 when the active "
+"window is Qt Designer. When Qt Designer is active, every time Ctrl+W is "
+"pressed, Ctrl+F4 will be sent to Qt Designer instead. In other applications, "
+"Ctrl+W remains working the usual way of course.\n"
+"\n"
+"We now need to specify three things: A new shortcut trigger on 'Ctrl+W', a "
+"new keyboard input action sending Ctrl+F4, and a new condition that the "
+"active window is Qt Designer.\n"
+"Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
+"condition will check for the active window having that title."
+msgstr ""
+"Lestu athugasemdina við aðgerðina \"Sláðu inn 'Hello'\" fyrst.\n"
+"\n"
+"Qt Hönnuðurinn notar Ctrl+F4 til að loka gluggum (kannski vegna þess að MS "
+"Windows gerir það á þann mátann *hmmm*). En Ctrl+F4 í TDE stendur fyrir að "
+"fara yfir á sýndarskjáborð númer 4, og virkar því ekki í Qt Hönnuðinum, að "
+"auki notar Qt hönnuðurinn ekki stöðluðu TDE samsetninguna Ctrl+W til að loka "
+"gluggum.\n"
+"\n"
+"En vandamálið má leysa með því að endurúthluta Ctrl+W sem Ctrl+F4 þegar "
+"virki glugginn er frá Qt Hönnuðinum. Þegar Qt Hönnuðurinn er opinn, í hvert "
+"skipti sem ýtt er á Ctrl+W þá er samsetningin Ctrl+F4 send í staðin til Ot "
+"Hönnuðarins. Í öðrum forritum virkar Ctrl+W áfram eins og venjulega til að "
+"loka gluggum.\n"
+"\n"
+"Nú er gott að hafa þrennt í huga: Búinn er til nýr flýtilykill 'Ctrl+W', sem "
+"ræsir lyklaborðssendinguna Ctrl+F4, og tekur með sér skilyrðinguna að "
+"glugginn verði að vera frá Qt Hönnuðinum.\n"
+"Gluggar Qt Hönnuðarins virðast alltaf hafa titilinn 'Qt Designer by "
+"Trolltech', þannig að skilyrðingin er sú að athuga hvort virki glugginn hafi "
+"þennan titil."
+
+#. Name
+#: trinity2b1.khotkeys:105
+msgid "Remap Ctrl+W to Ctrl+F4 in Qt Designer"
+msgstr "Endurúthluta Ctrl+W sem Ctrl+F4 í Qt Hönnuðinum"
+
+#. Comment
+#: trinity2b1.khotkeys:123
+msgid "Qt Designer"
+msgstr "Qt hönnuðurinn"
+
+#. Comment
+#: trinity2b1.khotkeys:144
+msgid ""
+"By pressing Alt+Ctrl+W a DCOP call will be performed that will show the "
+"minicli. You can use any kind of DCOP call, just like using the command line "
+"'dcop' tool."
+msgstr ""
+"Með því að styðja á Alt+Ctrl+W verður gert DCOP kall sem mun sýna "
+"smáskipanalínuna 'minicli'. Þú getur notað hvaða DCOP kall sem er, rétt eins "
+"og verið væri að nota skipanalínu 'dcop' tólið."
+
+#. Name
+#: trinity2b1.khotkeys:146
+msgid "Perform DCOP call 'kdesktop KDesktopIface popupExecuteCommand()'"
+msgstr "Framkvæma DCOP kallið 'kdesktop KDesktopIface popupExecuteCommand()'"
+
+#. Comment
+#: trinity2b1.khotkeys:171
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Just like the \"Type 'Hello'\" action, this one simulates a keyboard input, "
+"specifically, after pressing Ctrl+Alt+B, it sends B to XMMS (B in XMMS jumps "
+"to the next song). The 'Send to specific window' checkbox is checked and a "
+"window with its class containing 'XMMS_Player' is specified; this will make "
+"the input always be sent to this window. This way, you can control XMMS even "
+"if it's e.g. on a different virtual desktop.\n"
+"\n"
+"(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
+"'XMMS_Player')."
+msgstr ""
+"Lestu athugasemdina við aðgerðina \"Sláðu inn 'Hello'\" fyrst.\n"
+"\n"
+"Rétt eins og aðgerðin \"Sláðu inn 'Hello'\", þá virkar þetta með því að "
+"endurúthlutað er lyklaborðsinnslætti við ákveðin skilyrði. Nefninlega, með "
+"því að ýta á Ctrl+Alt+B, þá er sent B til XMMS (B í XMMS hoppar yfir í næsta "
+"lag). Hakað er við 'Senda í ákveðinn glugga' og gluggar með flokkun (class) "
+"sem inniheldur 'XMMS_Player' eru tilgreindir sem móttakendur; þannig að "
+"skipt er um lyklaborðsrunu til þessa flokks glugga. Á þennan hátt geturðu "
+"stýrt XMMS jafnvel þótt það sé t.d. í gangi á öðru sýndarskjáborði.\n"
+"\n"
+"(Keyrðu 'xprop' og smelltu á XMMS glugga, finndu WM_CLASS til að sjá "
+"'XMMS_Player')."
+
+#. Name
+#: trinity2b1.khotkeys:173
+msgid "Next in XMMS"
+msgstr "Næst í XMMS"
+
+#. Comment
+#: trinity2b1.khotkeys:185
+msgid "XMMS window"
+msgstr "XMMS gluggi"
+
+#. Comment
+#: trinity2b1.khotkeys:191
+msgid "XMMS Player window"
+msgstr "XMMS spilaragluggi"
+
+#. Comment
+#: trinity2b1.khotkeys:211
+msgid ""
+"Ok, Konqi in TDE has tabs, and now you can also have gestures. No need to "
+"use other browsers >;).\n"
+"\n"
+"Just press the middle mouse button and start drawing one of the gestures, "
+"and after you're finished, release the mouse button. If you only need to "
+"paste the selection, it still works, simply only click the middle mouse "
+"button. (You can change the mouse button to use in the global settings).\n"
+"\n"
+"Right now, there are these gestures available:\n"
+"move right and back left - Forward (ALt+Right)\n"
+"move left and back right - Back (Alt+Left)\n"
+"move up and back down  - Up (Alt+Up)\n"
+"circle anticlockwise - Reload (F5)\n"
+" (As soon as I find out which ones are in Opera or Mozilla, I'll add more "
+"and make sure they are the same. Or if you do it yourself, feel free to help "
+"me and send me your khotkeysrc.)\n"
+"\n"
+"The gestures shapes (some of the dialogs are from KGesture, thanks to Mike "
+"Pilone) can be simply entered by performing them in the configuration "
+"dialog. You can also look at your numeric pad to help you, gestures are "
+"recognized like a 3x3 grid of fields, numbered 1 to 9.\n"
+"\n"
+"Note that you must perform exactly the gesture to trigger the action. "
+"Because of this, it's possible to enter more gestures for the action. You "
+"should try to avoid complicated gestures where you change the direction of "
+"mouse moving more than once (i.e. do e.g. 45654 or 74123 as they are simple "
+"to perform but e.g. 1236987 may be already quite difficult).\n"
+"\n"
+"The condition for all gestures are defined in this group. All these gestures "
+"are active only if the active window is Konqueror (class contains "
+"'konqueror')."
+msgstr ""
+"Ok, Konqi í TDE fékk flipa, og núna er einnig hægt að nota "
+"(músar)hreyfingar. Þarft ekki annan vefrápara >;).\n"
+"\n"
+"Bara að ýta á miðjuhnappinn á músinni og byrja að teikna einhverja af "
+"hreyfingunum, sleppa síðan þegar hreyfingin er búin. Til þess að líma "
+"eitthvað sem hefur verið valið, þá virkar eins og áður að smella einu sinni "
+"á miðjuhnappinn á músinni. (Þú getur breytt hvaða hnappur er notaður í "
+"víðværu stillingunum).\n"
+"\n"
+"Í dag eru þessar hreyfingar í boði:\n"
+"hreyfa til hægri og aftur til vinstri - Fara áfram (ALt+Hægri ör)\n"
+"hreyfa til vinstri og aftur til hægri - Til baka (Alt+Vinstri ör)\n"
+"hreyfa upp og aftur niður  - Upp (Alt+Upp)\n"
+"hringur rangsælis - Endurhlaða (F5)\n"
+" (Um leið og við finnum út hvaða hreyfingar verða notaðar í Opera og Mozilla "
+"vöfrunum, þá verður bætt við fleirum og gengið úr skugga um að hreyfingarnar "
+"séu þær sömu. Og ef þú ert að búa til þínar eigin, endilega sendu okkur "
+"khotkeysrc-skrána þína.)\n"
+"\n"
+"Form hreyfinganna (sumt af viðmótinu kemur úr KGesture, þakkir til Mike "
+"Pilone) er hægt að setja inn á einfaldan hátt í gegnum stillingaviðmót. Þú "
+"getur líka skoðað reiknihluta lyklaborðs til að átta þig á hreyfingunum, þær "
+"eru skilgreindar í 3x3 reitasvæði, númeruðu frá 1 til 9.\n"
+"\n"
+"Athugaðu að þú verður að gera hreyfinguna nákvæmlega til að aðgerðin/"
+"skipunin virki. Þessvegna er hægt að setja inn fleiri hreyfingar fyrir "
+"hverja aðgerð. Ekki er ráðlegt að setja inn verulega flóknar hreyfingar með "
+"mörgum stefnubreytingum á músinni (t.d. eru 45654 eða 74123 fremur "
+"einfaldar, en 1236987 gæti reynst erfið viðureignar).\n"
+"\n"
+"Skilyrði allra hreyfinga eru tilgreind í þessum flokki. Allar þessar "
+"hreyfingar eru aðeins virkar ef virki glugginn er Konqueror (class "
+"inniheldur 'konqueror')."
+
+#. Name
+#: trinity2b1.khotkeys:214
+msgid "Konqi Gestures"
+msgstr "Konqui gestures"
+
+#. Comment
+#: trinity2b1.khotkeys:369
+msgid ""
+"After pressing Win+E (Tux+E), WWW browser will be launched and it will open "
+"http://www.trinitydesktop.org . You may run all kind of commands you can run "
+"in minicli (Alt+F2)."
+msgstr ""
+"Þegar stutt er á Win+E (Tux+E), opnast WWW vefrápari og fer á síðuna http://"
+"www.trinitydesktop.org . Hægt er að keyra allskyns skipanir ef þær virka í "
+"\"minicli\"(Alt+F2)."
+
+#. Name
+#: trinity2b1.khotkeys:371
+msgid "Go to TDE Website"
+msgstr "Fara á TDE vefsvæðið"

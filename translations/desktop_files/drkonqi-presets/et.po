@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 03:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: developerrc:2
+msgid "Developer"
+msgstr "Arendaja"
+
+#. Comment
+#: developerrc:3
+msgid "Settings preferred for developers"
+msgstr "Arendajatele mõeldud seadistused"
+
+#. Name
+#: developerrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname), pid %pid, crashed and caused the "
+"signal %signum (%signame)."
+msgstr ""
+"Rakendus %progname (%appname) pid %pid astus ämbrisse põhjustatuna "
+"signaalist %signum (%signame)."
+
+#. Name
+#: developerrc:17
+msgid "You might want to fix your program. Take a look at the backtrace tab."
+msgstr "Kui soovid rakendust parandada, siis vaata ka tagasijälituse kaarti."
+
+#. Name
+#: developerrc:20 enduserrc:20
+msgid "SIGILL"
+msgstr ""
+
+#. Comment
+#: developerrc:21
+msgid "Illegal instruction."
+msgstr "Lubamatu instruktsioon."
+
+#. Name
+#: developerrc:24 enduserrc:24
+msgid "SIGABRT"
+msgstr ""
+
+#. Comment
+#: developerrc:25
+msgid "Aborted."
+msgstr "Katkestatud."
+
+#. Name
+#: developerrc:28 enduserrc:28
+msgid "SIGFPE"
+msgstr ""
+
+#. Comment
+#: developerrc:29
+msgid "Floating point exception."
+msgstr "Ujukomaarvutuse viga."
+
+#. Name
+#: developerrc:32 enduserrc:32
+msgid "SIGSEGV"
+msgstr ""
+
+#. Comment
+#: developerrc:33
+msgid "Invalid memory reference."
+msgstr "Vigane mäluviide."
+
+#. Name
+#: developerrc:36 enduserrc:36
+msgid "Unknown"
+msgstr "Tundmatu"
+
+#. Comment
+#: developerrc:37
+msgid "This signal is unknown."
+msgstr "Tundmatu signaal."
+
+#. Name
+#: enduserrc:2
+msgid "End user"
+msgstr "Lõppkasutaja"
+
+#. Comment
+#: enduserrc:3
+msgid "Settings preferred for end users"
+msgstr "Lõppkasutajale mõeldud seadistused"
+
+#. Name
+#: enduserrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname) crashed and caused the signal %signum "
+"(%signame)."
+msgstr ""
+"Rakendus %progname (%appname) astus ämbrisse põhjustatuna signaalist %signum "
+"(%signame)."
+
+#. Name
+#: enduserrc:17
+msgid ""
+"You might want to send a bug report for this application. Check if it is "
+"listed on http://bugs.trinitydesktop.org, otherwise mail the author. Please "
+"include as much information as possible, maybe the original documents. If "
+"you have a way to reproduce the error, include this also."
+msgstr ""
+"Kui soovid rakenduse kohta veateadet saata, kontrolli kõigepealt, ega "
+"sellest ei tea juba http://bugs.trinitydesktop.org. Kui mitte, saada "
+"veateade autorile ja lisa palun nii palju infot, kui võimalik. Kui võimalik, "
+"siis ka originaaldokumendid. Kui tead, kuidas viga korrata, siis lisa ka see "
+"info."
+
+#. Comment
+#: enduserrc:21
+msgid ""
+"An application mostly receives the SIGILL signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Tavaliselt saab rakendus SIGILL signaali rakenduses endas tekkinud vea "
+"tõttu. Rakendusel paluti avatud dokumendid salvestada."
+
+#. Comment
+#: enduserrc:25
+msgid ""
+"An application terminates with a SIGABRT signal when it detects an internal "
+"inconsistency caused by a bug in the program."
+msgstr ""
+"Rakendus katkestab töö signaaliga SIGABRT siis, kui avastab sisemise "
+"ebakõla, mis on põhjustatud veast rakenduses."
+
+#. Comment
+#: enduserrc:29
+msgid ""
+"An application mostly receives the SIGFPE signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Tavaliselt saab rakendus SIGFPE signaali rakenduses endas tekkinud vea "
+"tõttu. Rakendusel paluti avatud dokumendid salvestada."
+
+#. Comment
+#: enduserrc:33
+msgid ""
+"An application mostly receives the SIGSEGV signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Tavaliselt saab rakendus SIGSEGV signaali rakenduses endas tekkinud vea "
+"tõttu. Rakendusel paluti avatud dokumendid salvestada."
+
+#. Comment
+#: enduserrc:37
+msgid "Sorry, I do not know this signal."
+msgstr "Vabandust, ma ei tunne seda signaali."

@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=cd-r-locked
 Type=MimeType
 MimeType=media/cd-r_encrypted_locked
+Icon=cd-r-locked
+
 Comment=Encrypted Locked CD-R
-Comment[de]=Verschlüsselte gesperrte CD-R
-Comment[it]=CD-R criptato protetto
+
 Patterns=
 
 X-TDE-AutoEmbed=true

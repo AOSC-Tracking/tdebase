@@ -1,0 +1,424 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Pencere Yöneticisi"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "1. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Sanal masaüstü bir seçili"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "2. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Sanal masaüstü iki seçili"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "3. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Sanal masaüstü üç seçili"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "4. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Sanal masaüstü dört seçili"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "5. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Sanal masaüstü beş seçili"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "6. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Sanal masaüstü altı seçili"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "7. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Sanal masaüstü yedi seçili"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "8. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Sanal masaüstü sekiz seçili"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "9. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Sanal masaüstü dokuz seçili"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "10. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Sanal masaüstü on seçili"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "11. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Sanal masaüstü on bir seçili"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "12. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Sanal masaüstü on iki seçili"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "13. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Sanal masaüstü on üç seçili"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "14. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Sanal masaüstü on dört seçili"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "15. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Sanal masaüstü on beş seçili"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "16. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Sanal masaüstü on altı seçili"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "17. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Sanal masaüstü on yedi seçili"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "18. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Sanal masaüstü on sekiz seçili"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "19. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Sanal masaüstü on dokuz seçili"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "20. Masaüstüne Git"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Sanal masaüstü yirmi seçili"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Pencereyi Etkinleştir"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Başka bir pencere etkinleştirildi"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Yeni Pencere"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Yeni pencere"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Pencereyi Sil"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Pencereyi sil"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Pencereyi Kapat"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Bir pencere kapatıldı"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Pencere Yukarı"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Pencere yukarı gizlendi"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Pencere Aşağı"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Pencere aşağı gizlendi"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Pencereyi Simge Haline Getir"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Bir pencere simge haline getirildi"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Pencereyi Simge Halinden Çıkar"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Bir pencere eski boyutuna getirildi"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Pencereyi Kapla"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Bir pencere büyütüldü"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Pencereyi Küçült"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Bir pencere büyümesini kaybetti"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Pencere Tüm Masaüstlerinde"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Bir pencere tüm masaüstlerinde görünür hale getirildi"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Pencere Tüm Masaüstlerinde Değil"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Bir pencere tüm masaüstlerinde gizli hale getirildi"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Yeni Pencere"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Bir iletişim kutusu belirdi"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Pencereyi Sil"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Bir iletişim kutusu kaldırıldı"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Windows Taşı Başlangıç"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Bir pencere hareket etmeye başladı"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Pencere Taşı Bitiş"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Bir pencere hareketini tamamladı"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Pencere Boyutlandır Başlat"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Bir pencere yeniden boyutlandırılmaya başladı"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Pencer Boyutlandır Bitir"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Bir pencerenin yeniden boyutlandırma işlemi bitti"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Geçerli Masaüstündeki Pencere İlgi Bekliyor"
+
+#. Comment
+#: eventsrc:216
+#, fuzzy
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Geçerli Masaüstündeki Pencere İlgi Bekliyor"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Diğer Masaüstündeki Pencere İlgi Bekliyor"
+
+#. Comment
+#: eventsrc:221
+#, fuzzy
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Diğer Masaüstündeki Pencere İlgi Bekliyor"

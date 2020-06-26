@@ -1,0 +1,556 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tde.desktop.cmake:7
+#, fuzzy
+msgid "TDE"
+msgstr "แบบ CDE"
+
+#. Comment
+#: tde.desktop.cmake:8
+#, fuzzy
+msgid ""
+"The Trinity Desktop Environment. A powerful Open Source graphical desktop "
+"environment"
+msgstr ""
+"Common Desktop Environment คือ สภาพแวดล้อมของพื้นที่ทำงานที่ได้มาตรฐานอุตสาหกรรม "
+"ที่ไม่ใช่ซอฟต์แวร์เสรี"
+
+#. Name
+#: 9wm.desktop:6
+msgid "9WM"
+msgstr "ตัวจัดการหน้าต่าง gWM"
+
+#. Comment
+#: 9wm.desktop:8
+msgid "An emulation of the Plan 9 window manager 8-1/2"
+msgstr "การจำลองตัวจัดการหน้าต่าง Plan 9 8-1/2"
+
+#. Name
+#: admin.desktop:7
+msgid "admin"
+msgstr ""
+
+#. Comment
+#: admin.desktop:9
+msgid "Yast Admin Session"
+msgstr ""
+
+#. Name
+#: aewm++.desktop:6
+msgid "AEWM++"
+msgstr ""
+
+#. Comment
+#: aewm++.desktop:8
+msgid ""
+"A minimal window manager based on AEWM, enhanced by virtual desktops and "
+"partial GNOME support"
+msgstr ""
+"ตัวจัดการหน้าต่างขนาดเล็ก โดยใช้พื้นฐานของ AEWM แล้วเพิ่มความสามารถด้วย พื้นที่ทำงานเสมือน "
+"และสนับสนุน GNOME บางส่วน"
+
+#. Name
+#: aewm.desktop:6
+msgid "AEWM"
+msgstr ""
+
+#. Comment
+#: aewm.desktop:8
+msgid "A minimalist window manager"
+msgstr "ระบบจัดการหน้าต่างขนาดเล็ก"
+
+#. Name
+#: afterstep.desktop:6
+msgid "AfterStep"
+msgstr ""
+
+#. Comment
+#: afterstep.desktop:8
+msgid "A window manager with the NeXTStep look and feel, based on FVWM"
+msgstr ""
+"ระบบจัดการหน้าต่างที่มีรูปแบบและสัมผัสของระบบปฏิบัติการ NeXTStep โดยใช้พื้นฐานของ FVWM"
+
+#. Name
+#: amaterus.desktop:6
+msgid "AMATERUS"
+msgstr ""
+
+#. Comment
+#: amaterus.desktop:8
+msgid "A GTK+ based window manager with a window grouping feature"
+msgstr "ตัวจัดการหน้าต่างที่ใช้พื้นฐานจาก GTK+ พร้อมด้วยความสามารถในการจัดกลุ่มหน้าต่าง"
+
+#. Name
+#: amiwm.desktop:6
+msgid "AmiWM"
+msgstr ""
+
+#. Comment
+#: amiwm.desktop:8
+msgid "The Amiga look-alike window manager"
+msgstr "ระบบจัดการหน้าต่างที่ดูเหมือน Amiga"
+
+#. Name
+#: asclassic.desktop:6
+msgid "ASClassic"
+msgstr ""
+
+#. Comment
+#: asclassic.desktop:8
+msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
+msgstr "AfterStep Classic คือระบบจัดการหน้าต่างที่ใช้ฐานของอาฟเตอร์สเตปเวอร์ชั่น 1.1"
+
+#. Name
+#: blackbox.desktop:6
+msgid "Blackbox"
+msgstr ""
+
+#. Comment
+#: blackbox.desktop:8
+msgid "A fast & light window manager"
+msgstr "ระบบจัดการหน้าต่างที่เร็วและเบา"
+
+#. Name
+#: cde.desktop:6
+msgid "CDE"
+msgstr "แบบ CDE"
+
+#. Comment
+#: cde.desktop:8
+msgid ""
+"The Common Desktop Environment, a proprietary industry standard desktop "
+"environment"
+msgstr ""
+"Common Desktop Environment คือ สภาพแวดล้อมของพื้นที่ทำงานที่ได้มาตรฐานอุตสาหกรรม "
+"ที่ไม่ใช่ซอฟต์แวร์เสรี"
+
+#. Name
+#: ctwm.desktop:6
+msgid "CTWM"
+msgstr ""
+
+#. Comment
+#: ctwm.desktop:8
+msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr "ตัวจัดการแท็บหน้าต่างของ Claude คือ TWM ที่เพิ่มความสามารถด้วยหน้าจอเสมือน และอื่นๆ"
+
+#. Name
+#: cwwm.desktop:6
+msgid "CWWM"
+msgstr ""
+
+#. Comment
+#: cwwm.desktop:8
+msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
+msgstr ""
+"ตัวจัดการหน้าต่าง ChezWarm คือ ระบบจัดการ หน้าต่างขนาดเล็ก สร้างจากพื้นฐานของ EvilWM"
+
+#. Name
+#: enlightenment.desktop:6
+msgid "Enlightenment"
+msgstr ""
+
+#. Comment
+#: enlightenment.desktop:8
+msgid "An extremely themable very feature-rich window manager"
+msgstr "ระบบจัดการหน้าต่างที่เต็มไปด้วยความสามารถ และใช้ชุดตกแต่งมากมาย"
+
+#. Name
+#: evilwm.desktop:6
+msgid "EvilWM"
+msgstr ""
+
+#. Comment
+#: evilwm.desktop:8
+msgid "A minimalist window manager based on AEWM"
+msgstr "ระบบจัดการหน้าต่างขนาดเล็ก สร้างจากพื้นฐานของ AEWM"
+
+#. Name
+#: fluxbox.desktop:6
+msgid "Fluxbox"
+msgstr ""
+
+#. Comment
+#: fluxbox.desktop:8
+msgid "A highly configurable and low resource window manager based on Blackbox"
+msgstr ""
+"ระบบจัดการหน้าต่างที่สามารถปรับแต่งได้อย่างละ เอียด และใช้ทรัพยากรน้อย สร้างบนพื้นฐานของ "
+"Blackbox"
+
+#. Name
+#: flwm.desktop:6
+msgid "FLWM"
+msgstr "ตัวจัดการหน้าต่าง FLWM"
+
+#. Comment
+#: flwm.desktop:8
+msgid "The Fast Light Window Manager, based primarily on WM2"
+msgstr "ระบบจัดการหน้าต่างที่เร็วและเบา สร้างบนพื้นฐานของ WM2"
+
+#. Name
+#: fvwm.desktop:6
+msgid "FVWM"
+msgstr ""
+
+#. Comment
+#: fvwm.desktop:8 fvwm2.desktop:8
+msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
+msgstr "ระบบจัดการหน้าต่างที่มีหลายพื้นที่ทำงานเสมือน สอดรับกับ ICCCM ประสิทธิภาพสูง"
+
+#. Name
+#: fvwm2.desktop:6
+msgid "FVWM2"
+msgstr ""
+
+#. Name
+#: fvwm95.desktop:6
+msgid "FVWM95"
+msgstr ""
+
+#. Comment
+#: fvwm95.desktop:8
+msgid "A Windows 95 look-alike derivative of FVWM"
+msgstr "FVWM ที่ถูกทำให้ดูเหมือนวินโดวส์ 95"
+
+#. Name
+#: gnome.desktop:6
+msgid "GNOME"
+msgstr ""
+
+#. Comment
+#: gnome.desktop:8
+msgid ""
+"The GNU Network Object Model Environment. A complete, free and easy-to-use "
+"desktop environment"
+msgstr ""
+"GNU Network Object Model Environment สภาพแวดล้อมสำหรับเดสก์ทอปที่ครบถ้วน, ฟรี "
+"และใช้งานง่าย"
+
+#. Name
+#: golem.desktop:6
+msgid "Golem"
+msgstr ""
+
+#. Comment
+#: golem.desktop:8
+msgid "A lightweight window manager"
+msgstr "ระบบจัดการหน้าต่างขนาดเบา"
+
+#. Name
+#: icewm.desktop:6
+msgid "IceWM"
+msgstr "ตัวจัดการหน้าต่าง IceWM"
+
+#. Comment
+#: icewm.desktop:8
+msgid "A Windows 95-OS/2-Motif-like window manager"
+msgstr "ระบบจัดการหน้าต่างของที่ดูคล้าย วินโดวส์ 95-โอเอสทู-โมทิฟ"
+
+#. Name
+#: ion.desktop:6
+msgid "Ion"
+msgstr "ไอออน"
+
+#. Comment
+#: ion.desktop:8
+msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
+msgstr "ระบบจัดการหน้าต่างที่เป็นมิตรกับการใช้แป้นพิมพ์ พร้อมกับหน้าต่างที่ถูกปูเรียง สร้างจาก PWM"
+
+#. Name
+#: kde-plasma-safe.desktop:7
+msgid "KDE Plasma Workspace (failsafe session)"
+msgstr ""
+
+#. Comment
+#: kde-plasma-safe.desktop:9
+msgid "The desktop made by KDE (failsafe session)"
+msgstr ""
+
+#. Name
+#: kde-plasma.desktop:7
+msgid "KDE Plasma Workspace"
+msgstr ""
+
+#. Comment
+#: kde-plasma.desktop:9
+msgid "The desktop made by KDE"
+msgstr ""
+
+#. Name
+#: larswm.desktop:6
+msgid "LarsWM"
+msgstr ""
+
+#. Comment
+#: larswm.desktop:8
+msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
+msgstr "ระบบจัดการหน้าต่าง Lars สร้างจาก 9WM สนับสนุนการปูเรียงหน้าต่าง"
+
+#. Name
+#: lwm.desktop:6
+msgid "LWM"
+msgstr "ตัวจัดการหน้าต่าง LWM"
+
+#. Comment
+#: lwm.desktop:8
+msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
+msgstr "Lightweight Window Manager ระบบจัดการหน้าต่างเปล่าๆ ที่ไม่สามารถปรับแต่งได้เลย"
+
+#. Name
+#: matchbox.desktop:6
+msgid "Matchbox"
+msgstr ""
+
+#. Comment
+#: matchbox.desktop:8
+msgid "A window manager for handheld devices"
+msgstr "ระบบจัดการหน้าต่างของอุปกรณ์มือถือ"
+
+#. Name
+#: metacity.desktop:6
+msgid "Metacity"
+msgstr ""
+
+#. Comment
+#: metacity.desktop:8
+msgid "A lightweight GTK2 based window manager"
+msgstr "ระบบจัดการหน้าต่างขนาดเบาที่ใช้ GTK2"
+
+#. Name
+#: mwm.desktop:6
+msgid "MWM"
+msgstr "ตัวจัดการหน้าต่าง MWM"
+
+#. Comment
+#: mwm.desktop:8
+msgid "The Motif Window Manager"
+msgstr "ระบบจัดการหน้าต่างของโมทิฟ"
+
+#. Name
+#: olvwm.desktop:6
+msgid "OLVWM"
+msgstr ""
+
+#. Comment
+#: olvwm.desktop:8
+msgid ""
+"The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
+"desktops"
+msgstr ""
+"ระบบจัดการหน้าต่างเสมือน OpenLook คือ OLWM "
+"ที่ถูกเพิ่มเติมความสามารถในการรับมือกับพื้นที่ทำงานเสมือน"
+
+#. Name
+#: olwm.desktop:6
+msgid "OLWM"
+msgstr "ตัวจัดการหน้าต่าง OLWM"
+
+#. Comment
+#: olwm.desktop:8
+msgid "The traditional Open Look Window Manager"
+msgstr "ระบบจัดการหน้าต่าง OpenLook แบบดั้งเดิม"
+
+#. Name
+#: openbox.desktop:6
+msgid "Openbox"
+msgstr ""
+
+#. Comment
+#: openbox.desktop:8
+msgid "A lightweight window manager based on Blackbox"
+msgstr "ระบบจัดการหน้าต่างขนาดเบา สร้างมาจาก Blackbox"
+
+#. Name
+#: oroborus.desktop:6
+msgid "Oroborus"
+msgstr ""
+
+#. Comment
+#: oroborus.desktop:8
+msgid "A lightweight themeable window manager"
+msgstr "ระบบจัดการหน้าต่างขนาดเบาที่ใช้ชุดตกแต่งได้"
+
+#. Name
+#: phluid.desktop:6
+msgid "Phluid"
+msgstr ""
+
+#. Comment
+#: phluid.desktop:8
+msgid "An Imlib2 based window manager"
+msgstr "ระบบจัดการหน้าต่างที่สร้างบน Imlib2"
+
+#. Name
+#: pwm.desktop:6
+msgid "PWM"
+msgstr "ตัวจัดการหน้าต่าง PWM"
+
+#. Comment
+#: pwm.desktop:8
+msgid ""
+"A lightweight window manager able to attach multiple windows to one frame"
+msgstr "ระบบจัดการหน้าต่างขนาดเบา มีความสามารถในการปะติดหลายๆหน้าต่างลงใน 1 กรอบ"
+
+#. Name
+#: qvwm.desktop:6
+msgid "QVWM"
+msgstr "ตัวจัดการหน้าต่าง QVWM"
+
+#. Comment
+#: qvwm.desktop:8
+msgid "A Windows 95 like window manager"
+msgstr "ระบบจัดการหน้าต่างที่ดูคล้ายวินโดวส์ 95"
+
+#. Name
+#: ratpoison.desktop:6
+msgid "Ratpoison"
+msgstr ""
+
+#. Comment
+#: ratpoison.desktop:8
+msgid "A simple keyboard-only window manager modeled after Screen"
+msgstr ""
+"ตัวจัดการหน้าต่างแบบเรียบง่าย ใช้แป้นพิมพ์ควบคุมได้อย่างเดียว ถูกสร้างขึ้นมาตามหลัง Screen"
+
+#. Name
+#: sapphire.desktop:6
+msgid "Sapphire"
+msgstr ""
+
+#. Comment
+#: sapphire.desktop:8
+msgid "A minimal but configurable window manager"
+msgstr "ระบบจัดการหน้าต่างขนาดเล็ก แต่สามารถปรับแต่งได้"
+
+#. Name
+#: sawfish.desktop:6
+msgid "Sawfish"
+msgstr ""
+
+#. Comment
+#: sawfish.desktop:8
+msgid ""
+"An extensible window manager scriptable with an Emacs Lisp-like language"
+msgstr ""
+"ระบบจัดการหน้าต่างที่สามารถเพิ่มขยายได้ และควบคุมด้วยการเขียนสคริปต์โดยใช้ภาษาแบบ Emacs "
+"Lisp"
+
+#. Name
+#: twm.desktop:6
+#, fuzzy
+msgid "TWM"
+msgstr "ตัวจัดการหน้าต่าง gWM"
+
+#. Comment
+#: twm.desktop:8
+msgid "The Tab Window Manager"
+msgstr "Tab Window Manager"
+
+#. Name
+#: ude.desktop:6
+#, fuzzy
+msgid "UDE"
+msgstr "แบบ CDE"
+
+#. Comment
+#: ude.desktop:8
+msgid "The UNIX Desktop Environment"
+msgstr "สภาพแวดล้อมเดสก์ทอป UNIX"
+
+#. Name
+#: vtwm.desktop:6
+msgid "VTWM"
+msgstr ""
+
+#. Comment
+#: vtwm.desktop:8
+msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
+msgstr ""
+"The Virtual Tab Window Manager คือ TWM ที่เพิ่มความสามารถโดยหน้าจอเสมือน และอื่นๆ"
+
+#. Name
+#: w9wm.desktop:6
+msgid "W9WM"
+msgstr "ตัวจัดการหน้าต่าง W9WM"
+
+#. Comment
+#: w9wm.desktop:8
+msgid ""
+"A window manager based on 9WM, enhanced by virtual screens and keyboard "
+"bindings"
+msgstr "ระบบจัดการหน้าต่างที่สร้างมาจาก 9WM และเพิ่มความสามารถด้วยหน้าจอเสมือนและแป้นพิมพ์ลัด"
+
+#. Name
+#: waimea.desktop:6
+msgid "Waimea"
+msgstr ""
+
+#. Comment
+#: waimea.desktop:8
+msgid "A highly customizable window manager based on Blackbox"
+msgstr "ระบบจัดการหน้าต่างที่ปรับแต่งได้อย่างละเอียด สร้างมาจาก Blackbox"
+
+#. Name
+#: wm2.desktop:6
+msgid "WM2"
+msgstr "ตัวจัดการหน้าต่าง WM2 "
+
+#. Comment
+#: wm2.desktop:8
+msgid "A small, non-configurable window manager"
+msgstr "ระบบจัดการหน้าที่ขนาดเล็ก ที่ไม่สามารถปรับแต่งอะไรได้"
+
+#. Name
+#: wmaker.desktop:6
+#, fuzzy
+msgid "WindowMaker"
+msgstr "Tab Window Manager"
+
+#. Comment
+#: wmaker.desktop:8
+msgid "A simple window manager that resembles the NeXTStep look very closely"
+msgstr "ระบบจัดการหน้าต่างแบบเรียบง่าย ที่ดูคล้ายระบบ NeXTStep มากๆ"
+
+#. Name
+#: xfce.desktop:6
+msgid "XFce"
+msgstr ""
+
+#. Comment
+#: xfce.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
+"of CDE"
+msgstr ""
+"สภาพแวดล้อมสำหรับเดสก์ทอปไร้คอเลสเตอรอล เป็นสภาพแวดล้อมสำหรับเดสก์ทอปที่เหลือมาจาก CDE"
+
+#. Name
+#: xfce4.desktop:6
+msgid "XFce 4"
+msgstr ""
+
+#. Comment
+#: xfce4.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment, version 4. A desktop environment "
+"reminiscent of CDE"
+msgstr ""
+"สภาพแวดล้อมสำหรับเดสก์ทอปแบบไร้คอเลสเตอรอล เวอร์ชั่น 4 "
+"เป็นสภาพแวดล้อมสำหรับเดสก์ทอปที่เหลือมาจาก CDE"

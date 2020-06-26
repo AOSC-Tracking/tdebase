@@ -35,9 +35,11 @@ install( FILES
     pop.wav
   DESTINATION ${SOUND_INSTALL_DIR} )
 
-install( FILES
-    fsp_workarounds_1.twinrules
-  DESTINATION ${DATA_INSTALL_DIR}/twin/default_rules )
+tde_create_translated_desktop(
+  SOURCE fsp_workarounds_1.twinrules
+  DESTINATION ${DATA_INSTALL_DIR}/twin/default_rules
+  PO_DIR twin-desktops
+)
 
 
 ##### twin_update_window_settings (executable) ##

@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Trình quản lí Cửa sổ của"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Đổi về Màn hình nền 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Màn hình nền ảo số 1 đã được chọn"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Đổi về Màn hình nền 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Màn hình nền ảo số 2 đã được chọn"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Đổi về Màn hình nền 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Màn hình nền ảo số 3 đã được chọn"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Đổi về Màn hình nền 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Màn hình nền ảo số 4 đã được chọn"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Đổi về Màn hình nền 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Màn hình nền ảo số 5 đã được chọn"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Đổi về Màn hình nền 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Màn hình nền ảo số 6 đã được chọn"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Đổi về Màn hình nền 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Màn hình nền ảo số 7 đã được chọn"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Đổi về Màn hình nền 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Màn hình nền ảo số 8 đã được chọn"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Đổi về Màn hình nền 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Màn hình nền ảo số 9 đã được chọn"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Đổi về Màn hình nền 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Màn hình nền ảo số 10 đã được chọn"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Đổi về Màn hình nền 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Màn hình nền ảo số 11 đã được chọn"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Đổi về Màn hình nền 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Màn hình nền ảo số 12 đã được chọn"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Đổi về Màn hình nền 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Màn hình nền ảo số 13 đã được chọn"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Đổi về Màn hình nền 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Màn hình nền ảo số 14 đã được chọn"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Đổi về Màn hình nền 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Màn hình nền ảo số 15 đã được chọn"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Đổi về Màn hình nền 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Màn hình nền ảo số 16 đã được chọn"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Đổi về Màn hình nền 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Màn hình nền ảo số 17 đã được chọn"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Đổi về Màn hình nền 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Màn hình nền ảo số 18 đã được chọn"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Đổi về Màn hình nền 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Màn hình nền ảo số 19 đã được chọn"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Đổi về Màn hình nền 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Màn hình nền ảo số 20 đã được chọn"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Cửa sổ Hoạt động"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Một cửa sổ khác đã được kích hoạt"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Mở cửa sổ mới"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Mở cửa sổ mới"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Xoá cửa sổ"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Xoá cửa sổ"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Cửa sổ đóng"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Một cửa sổ đóng"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Cửa sổ cuốn lên"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Một cửa sổ đã bị cuốn lên"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Cửa sổ cuốn xuống"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Một cửa sổ đã bị cuốn xuống"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Thu gọn Cửa sổ"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Một cửa sổ đã được thu gọn"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Mở lại Cửa sổ"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Một cửa sổ đã được mở lại"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Mở to Cửa sổ"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Một cửa sổ đã được mở to"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Nhỏ lại Cửa sổ"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Một cửa sổ không mở to nữa"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Cửa sổ trên Tất cả các Màn hình nền"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Một cửa sổ được hiện ra trên tất cả các màn hình nền"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Cửa sổ không trên Tất cả các Màn hình nền"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Một cửa sổ không còn được nhìn thấy trên tất cả các màn hình nền"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Mở hộp thoại mới"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Xuất hiện cửa sổ (một hộp thoại) tạm thời"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Xoá Hộp thoại"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Cửa sổ tạm thời (một hộp thoại) đã được bỏ"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Bắt đầu Di chuyển Cửa sổ"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Một cửa sổ đã bắt đầu được di chuyển"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Kết thúc Di chuyển Cửa sổ"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Một cửa sổ đã được di chuyển xong"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Bắt đầu Thay đổi kích cỡ Cửa sổ"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Một cửa sổ đã được bắt đầu thay đổi kích cỡ"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Kết thúc Thay đổi kích cỡ Cửa sổ"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Một cửa sổ thay đổi kích cỡ xong"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Cửa sổ trên Màn hình nền Hiện tại Cần được Quan tâm"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Một cửa sổ trên màn hình nền hiện tại đang cần được bạn quan tâm đến"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Cửa sổ trên Màn hình nền Khác Cần được Quan tâm"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Một cửa sổ trên màn hình nền khác đang cần được bạn quan tâm đến"

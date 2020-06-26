@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=X Clipboard
+GenericName=Clipboard Viewer
+Type=Application
+MimeType=
+X-TDE-StartupNotify=true
+Exec=xclipboard
+Icon=xclipboard
+Path=
+Terminal=false

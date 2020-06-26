@@ -25,7 +25,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmtaskbar.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcmtaskbar.desktop
+  PO_DIR kcontrol-desktops
+)
 install( FILES uninstall.desktop DESTINATION ${APPS_INSTALL_DIR}/Settings/LookNFeel RENAME kcmtaskbar.desktop )
 
 

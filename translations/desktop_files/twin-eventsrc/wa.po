@@ -1,0 +1,425 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: wa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Li manaedjeu di purneas di"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Potchî sol prumî scribanne"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Li prumî forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Potchî sol deujhinme sicribanne"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Li deujhinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Potchî sol troejhinme sicribanne"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Li troejhinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Potchî sol cwatrinme sicribanne"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Li cwatrinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Potchî sol cénkinme sicribanne"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Li cénkinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Potchî sol shijhinme sicribanne"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Li shijhinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Potchî sol setinme sicribanne"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Li setinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Potchî sol ûtinme sicribanne"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Li ûtinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Potchî sol nouvinme sicribanne"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Li nouvinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Potchî sol dijhinme scribanne"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Li dijhinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Potchî sol onzinme scribanne"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "L' onzinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Potchî sol dozinme sicribanne"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Li dozinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Potchî sol trazinme sicribanne"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Li trazinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Potchî sol catoirzinme sicribanne"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Li catoirzinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Potchî sol cwénzinme sicribanne"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Li cwénzinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Potchî sol sazinme sicribanne"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Li sazinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Potchî sol di-setinme sicribanne"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Li di-setinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Potchî sol dijh-ûtinme sicribanne"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Li dijh-ûtinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Potchî sol dijh-nouvinme scribanne"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Li dijh-nouvinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Potchî sol vintinme sicribanne"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Li vintinme forveyou scribanne a stî tchoezi"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Dispierter li purnea"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "On ôte purnea a stî metou en alaedje"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Novea purnea"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Novea purnea"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Disfacer purnea"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Disfacer purnea"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Cloyaedje di purnea"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "On purnea est cloyou"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Erôlmint do purnea"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "On purnea a stî erôlé"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Disrôlmint des purneas"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "On purnea a stî disrôlé"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Purnea metou å pus ptit"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "On purnea a stî metou å pus ptit"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Purnea rimetou a s' grandeu di dvant"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "On purnea est rfé"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Purnea metou å pus grand"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "On purnea a stî metou å pus grand"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Purnea rimetou a s' grandeu di dvant"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "On purnea a piede si grandeu"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Purnea håyné so tos les scribannes"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "On purnea a stî håyné so tos les scribannes"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Purnea nén håyné so tos les scribannes"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "On purnea n' est pus håyné so tos les scribannes"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Novea purnea di kesse"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Ene divize aparete"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Disfacer l' purnea di kesse"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Ene divize est oistêye"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Li purnea cmince a bodjî"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "On purnea a cmincî a bodjî"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Li purnea s' djoke di bodjî"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "On purnea a fini d' bodjî"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Li purnea cmince a candjî di grandeu"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "On purnea a cmincî a candjî s' grandeu"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Li purnea s' djoke di candjî di grandeu"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "On purnea a fini d' candjî s' grandeu"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "On purnea håyné so l' sicribannes do moumint dimande voste atincion"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr ""
+"On purnea håyné so l' forveyou scribannes do moumint dimande voste atincion"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "On purnea håyné so-z on ôte sicribannes dimande voste atincion"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr ""
+"On purnea håyné so-z on forveyou scribannes nén en alaedje dimande voste "
+"atincion"

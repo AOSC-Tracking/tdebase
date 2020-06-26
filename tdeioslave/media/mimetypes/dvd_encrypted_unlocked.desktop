@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-optical-dvd-unlocked
 Type=MimeType
 MimeType=media/dvd_encrypted_unlocked
+Icon=media-optical-dvd-unlocked
+
 Comment=Encrypted Unlocked DVD
-Comment[de]=Verschlüsselte entsperrte DVD
-Comment[it]=DVD criptato sprotetto
+
 Patterns=
 
 X-TDE-AutoEmbed=true

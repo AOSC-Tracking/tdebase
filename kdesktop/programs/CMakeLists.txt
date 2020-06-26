@@ -9,6 +9,9 @@
 #
 #################################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     xearth.desktop xglobe.desktop xplanet.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/kdesktop/programs )
+  DESTINATION ${DATA_INSTALL_DIR}/kdesktop/programs
+  PO_DIR kdesktop-desktops
+)

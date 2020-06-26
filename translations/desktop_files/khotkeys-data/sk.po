@@ -1,0 +1,543 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 14:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:5
+msgid "Basic Konqueror gestures."
+msgstr "Základné gestá Konquerora"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:8
+msgid "Konqueror Gestures"
+msgstr "Gestá Konquerora"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:13 trinity2b1.khotkeys:219
+msgid "Konqueror window"
+msgstr "Okno Konquerora"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:20
+#: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
+#: trinity2b1.khotkeys:232
+#, fuzzy
+msgid "Konqueror"
+msgstr "Okno Konquerora"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:35
+msgid "Press, move left, release."
+msgstr "Stlačte, presuňte sa vľavo, pustite."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:37 trinity2b1.khotkeys:242
+msgid "Back"
+msgstr "Späť"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:41
+msgid ""
+"Opera-style: Press, move up, release.\n"
+"NOTE: Conflicts with 'New Tab', and as such is disabled by default."
+msgstr ""
+"Štýl-Opery: Stlačte, presuňte sa nahor, pustite.\n"
+"POZNÁMKA: Spôsobuje konflikt s 'Nový panel' a preto je štandardne vypnuté."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:43
+msgid "Stop Loading"
+msgstr "Zastaviť načítanie"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:58
+#: konqueror_gestures_trinity21.khotkeys:83
+#: konqueror_gestures_trinity21.khotkeys:108
+#: konqueror_gestures_trinity21.khotkeys:133
+#: konqueror_gestures_trinity21.khotkeys:158
+#: konqueror_gestures_trinity21.khotkeys:177
+#: konqueror_gestures_trinity21.khotkeys:202
+#: konqueror_gestures_trinity21.khotkeys:227
+#: konqueror_gestures_trinity21.khotkeys:252
+#: konqueror_gestures_trinity21.khotkeys:277
+#: konqueror_gestures_trinity21.khotkeys:306
+#: konqueror_gestures_trinity21.khotkeys:335
+#: konqueror_gestures_trinity21.khotkeys:360
+#: konqueror_gestures_trinity21.khotkeys:385 trinity2b1.khotkeys:257
+#: trinity2b1.khotkeys:289 trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
+msgid "Gesture_triggers"
+msgstr "Spúštače_gest"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:66
+msgid ""
+"Going up in URL/directory structure.\n"
+"Mozilla-style: Press, move up, move left, move up, release."
+msgstr ""
+"Presun o úroveň vyššie v URL/adresárovej štruktúre.\n"
+"Štýl-Mozilly: Stlačte, presuňte sa nahor, pustite."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:68 trinity2b1.khotkeys:306
+msgid "Up"
+msgstr "Nahor"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:91
+msgid ""
+"Going up in URL/directory structure.\n"
+"Opera-style: Press, move up, move left, move up, release.\n"
+"NOTE: Conflicts with  \"Activate Previous Tab\", and as such is disabled by "
+"default."
+msgstr ""
+"Presun o úroveň vyššie v URL/adresárovej štruktúre.\n"
+"Štýl-Opery: Stlačte, presuňte sa vľavo, nahor, pustite.\n"
+"POZNÁMKA: Spôsobuje konflikt s \"Aktivovať predchádzajúci panel\", a preto "
+"je štandardne vypnuté."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:93
+msgid "Up #2"
+msgstr "Hore #2"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:116
+msgid "Press, move up, move right, release."
+msgstr "Stlačte, presuňte sa vpravo, pustite."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:118
+msgid "Activate Next Tab"
+msgstr "Aktivovať ďalší panel"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:141
+msgid "Press, move up, move left, release."
+msgstr "Stlačte, presuňte sa nahor, pustite."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:143
+msgid "Activate Previous Tab"
+msgstr "Aktivovať predchádzajúci panel"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:185
+msgid "Press, move down, move up, move down, release."
+msgstr "Stlačte, presuňte sa nadol, nahor, nadol, pustite."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:187
+msgid "Duplicate Tab"
+msgstr "Duplikovať panel"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:210
+msgid "Press, move down, move up, release."
+msgstr "Stlačte, presuňte sa nadol, nahor, pustite."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:212
+msgid "Duplicate Window"
+msgstr "Duplikovať okno"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:235
+msgid "Press, move right, release."
+msgstr "Stlačte, presuňte vpravo, pustite"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:237 trinity2b1.khotkeys:274
+msgid "Forward"
+msgstr "Dopredu"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:260
+msgid ""
+"Press, move down, move half up, move right, move down, release.\n"
+"(Drawing a lowercase 'h'.)"
+msgstr ""
+"Stlačte, presuňte sa nadol, do polovice nahor, doprava, dole, pustite.\n"
+"(Nakreslenie malého 'h'.)"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:262
+msgid "Home"
+msgstr "Domov"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:289
+msgid ""
+"Press, move right, move down, move right, release.\n"
+"Mozilla-style: Press, move down, move right, release."
+msgstr ""
+"Stlačte, presuňte sa vpravo, dole, vpravo, pustite.\n"
+"Štýl-Mozilly: Stlačte, presuňte sa nadol, vpravo, pustite."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:291
+msgid "Close Tab"
+msgstr "Zavrieť panel"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:318
+msgid ""
+"Press, move up, release.\n"
+"Conflicts with Opera-style 'Up #2', which is disabled by default."
+msgstr ""
+"Stlačte, presuňte sa nahor, pustite.\n"
+"Spôsobuje konflikt so štýlom Opery 'Nahor #2', ktoré je štandardne vypnuté."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:320
+msgid "New Tab"
+msgstr "Nový panel"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:343
+msgid "Press, move down, release."
+msgstr "Stlačte, presuňte nadol, pustite."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:345
+msgid "New Window"
+msgstr "Nové okno"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:368
+msgid "Press, move up, move down, release."
+msgstr "Stlačte, presuňte nahor, nadol, pustite."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:370 trinity2b1.khotkeys:338
+msgid "Reload"
+msgstr "Obnoviť"
+
+#. Comment
+#: printscreen.khotkeys:5
+msgid "This group contains actions that are set up by default."
+msgstr "Táto skupina obsahuje akcie, ktoré sú štandardne nastavené."
+
+#. Name
+#: printscreen.khotkeys:8
+msgid "Preset Actions"
+msgstr "Prednastavené akcie"
+
+#. Comment
+#: printscreen.khotkeys:17
+msgid "Launches KSnapShot when PrintScrn is pressed."
+msgstr "Spúšťa KSnapShot pri stlačení PrintScrn"
+
+#. Name
+#: printscreen.khotkeys:19
+msgid "PrintScreen"
+msgstr ""
+
+#. Comment
+#: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
+#: trinity2b1.khotkeys:71 trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
+#: trinity2b1.khotkeys:203 trinity2b1.khotkeys:385
+msgid "Simple_action"
+msgstr "Jednoduchá_akcia"
+
+#. Comment
+#: printscreen.khotkeys:41
+#, fuzzy
+msgid ""
+"Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
+msgstr "Spúšťa KSnapShot pri stlačení PrintScrn"
+
+#. Name
+#: printscreen.khotkeys:43
+msgid "PrintWindow"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:5
+msgid ""
+"This group contains various examples demonstrating most of the features of "
+"KHotkeys. (Note that this group and all its actions are disabled by default.)"
+msgstr ""
+"Táto skupina obsahuje rozličné príklady ilustrujúce väčšinu vlastností "
+"KHotkeys. (Všimnite si, že táto skupina a všetky jej akcie sú štandardne "
+"vypnuté.)"
+
+#. Name
+#: trinity2b1.khotkeys:8
+msgid "Examples"
+msgstr "Príklady"
+
+#. Comment
+#: trinity2b1.khotkeys:16
+msgid ""
+"After pressing Ctrl+Alt+I, the KSIRC window will be activated, if it exists. "
+"Simple."
+msgstr ""
+"Po stlačení Ctrl+Alt+I bude aktivované okno KSIRC, ak existuje. Jednoduché."
+
+#. Name
+#: trinity2b1.khotkeys:18
+msgid "Activate KSIRC Window"
+msgstr "Aktivovať okno KSIRC"
+
+#. Comment
+#: trinity2b1.khotkeys:28
+msgid "KSIRC window"
+msgstr "Okno KSIRC"
+
+#. Comment
+#: trinity2b1.khotkeys:34
+msgid "KSIRC"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:54
+msgid ""
+"After pressing Alt+Ctrl+H, 'Hello' input will be simulated just like if you "
+"typed it. Especially useful if you're lazy to type things like 'unsigned'. "
+"Every keypress in the input is separated by a colon ':' . Note that the "
+"keypresses mean really keypresses, so you have to write what you'd really "
+"press on the keyboard. In the table below, left column shows the input and "
+"the right column shows what to type.\n"
+"\n"
+"\"enter\" (i.e. new line)                Enter or Return\n"
+"a (i.e. small a)                          A\n"
+"A (i.e. capital a)                       Shift+A\n"
+": (colon)                                  Shift+;\n"
+"' '  (space)                              Space"
+msgstr ""
+"Po stlačení Alt+Ctrl+H bude simulovaný vstup 'Hello' presne tak, ako keby "
+"ste ho napísali. Mimoriadne užitočné, ak ste lenivý písať veci ako "
+"'unsigned'. Každé stlačenie klávesu je oddelené dvojbodkou ':'. Všimnite si, "
+"že stlačenia klávesu znamenajú skutočné stlačenie, takže musíte napísať, čo "
+"v skutočnosti na klávesnici stláčate. V tabuľke nižšie ukazuje ľavý stĺpec "
+"vstup a pravý stĺpec, čo treba napísať.\n"
+"\n"
+"\"enter\" (t.j. nový riadok)                Enter alebo Return\n"
+"a (t.j. malé a)                          A\n"
+"A (t.j. veľké a)                       Shift+A\n"
+": (dvojbodka)                                  Shift+;\n"
+"' '  (medzera)                              Medzera"
+
+#. Name
+#: trinity2b1.khotkeys:56
+msgid "Type 'Hello'"
+msgstr "Typ 'Hello'"
+
+#. Comment
+#: trinity2b1.khotkeys:79
+msgid "This action runs Konsole, after pressing Ctrl+Alt+T."
+msgstr "Táto akcia spustí Konsole po stlačení Ctrl+Alt+T."
+
+#. Name
+#: trinity2b1.khotkeys:81
+msgid "Run Konsole"
+msgstr "Spustiť Konzole"
+
+#. Comment
+#: trinity2b1.khotkeys:103
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Qt Designer uses Ctrl+F4 for closing windows (maybe because MS Windows does "
+"it that way *shrug*). But Ctrl+F4 in TDE stands for going to virtual desktop "
+"4, so it doesn't work in Qt Designer, and also, Qt Designer doesn't use "
+"TDE's standard Ctrl+W for closing the window.\n"
+"\n"
+"But the problem can be solved by remaping Ctrl+W to Ctrl+F4 when the active "
+"window is Qt Designer. When Qt Designer is active, every time Ctrl+W is "
+"pressed, Ctrl+F4 will be sent to Qt Designer instead. In other applications, "
+"Ctrl+W remains working the usual way of course.\n"
+"\n"
+"We now need to specify three things: A new shortcut trigger on 'Ctrl+W', a "
+"new keyboard input action sending Ctrl+F4, and a new condition that the "
+"active window is Qt Designer.\n"
+"Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
+"condition will check for the active window having that title."
+msgstr ""
+"Najprv si prečítajte komentár k akcii \"Typ 'Hello'\".\n"
+"\n"
+"Qt Designer používa na zatváranie okien Ctrl+F4 (možno preto, že to tak robí "
+"MS Windows (?)). Ale Ctrl+F4 v TDE znamená prechod na virtuálnu plochu 4, "
+"takže to nefunguje v Qt Designerovi a tiež, Qt Designer nepoužíva TDE "
+"štandardné zatváranie okien pomocou Ctrl+W.\n"
+"\n"
+"Problém však môžete vyriešiť premapovaním Ctrl+W na Ctrl+F4, keď je aktívnym "
+"oknom okno Qt Designera. Keď je Qt Designer aktívny, vždy, keď stlačíte Ctrl"
+"+W, pošle sa Qt Designeru Ctrl+F4. V iných aplikáciach bude samozrejme Ctrl"
+"+W pracovať ako obvykle.\n"
+"\n"
+"Teraz potrebujeme nastaviť tri veci: nový spúštač klávesovej skratky 'Ctrl"
+"+W', novú vstupnú akciu klávesnice posielajúcu Ctrl+F4 a novú podmienku, že "
+"aktívne okno je Qt Designer.\n"
+"Vyzerá, že Qt Designer má vždy titulok 'Qt Designer by Trolltech', takže "
+"podmienka bude kontrolovať, či má aktívne okno tento titul."
+
+#. Name
+#: trinity2b1.khotkeys:105
+msgid "Remap Ctrl+W to Ctrl+F4 in Qt Designer"
+msgstr "Premapovať Ctrl+W na Ctrl+F4 v Qt Designerovi"
+
+#. Comment
+#: trinity2b1.khotkeys:123
+msgid "Qt Designer"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:144
+msgid ""
+"By pressing Alt+Ctrl+W a DCOP call will be performed that will show the "
+"minicli. You can use any kind of DCOP call, just like using the command line "
+"'dcop' tool."
+msgstr ""
+"Po stlačení Alt+Ctrl+W, bude vykonané DCOP volanie, ktoré zobrazí minicli. "
+"Môžete použiť ľubovoľné DCOP volanie, presne tak, ako pri použití príkazu "
+"'dcop' v konzoli."
+
+#. Name
+#: trinity2b1.khotkeys:146
+msgid "Perform DCOP call 'kdesktop KDesktopIface popupExecuteCommand()'"
+msgstr "Vykonať DCOP volanie 'kdesktop KDesktopIface popupExecuteCommand()"
+
+#. Comment
+#: trinity2b1.khotkeys:171
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Just like the \"Type 'Hello'\" action, this one simulates a keyboard input, "
+"specifically, after pressing Ctrl+Alt+B, it sends B to XMMS (B in XMMS jumps "
+"to the next song). The 'Send to specific window' checkbox is checked and a "
+"window with its class containing 'XMMS_Player' is specified; this will make "
+"the input always be sent to this window. This way, you can control XMMS even "
+"if it's e.g. on a different virtual desktop.\n"
+"\n"
+"(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
+"'XMMS_Player')."
+msgstr ""
+"Prečítajte si najprv komentár pre akciu \"Typ 'Hello'\".\n"
+"\n"
+"Rovnako ako akcia \"Typ 'Hello'\", aj táto akcia simuluje vstup z "
+"klávesnice, konkrétne po stlačení Ctrl+Alt+B posiela B programu XMMS (B v "
+"XMMS preskočí na ďalšiu pieseň). Zaškrtávacie políčko 'Poslať konkrétnemu "
+"oknu' je zaškrtnuté a je zadané okno s triedou obsahujúcou 'XMMS_Player'; "
+"toto zabezpečí, že vstup bude vždy poslaný tomuto oknu. Takto môžete ovládať "
+"XMMS dokonca aj vtedy, keď je napríklad na inej virtuálnej ploche.\n"
+"\n"
+"(Spustite 'xprop' a kliknite na okno XMMS a hľadajte WM_CLASS, tde nájdete "
+"'XMMS_Player')."
+
+#. Name
+#: trinity2b1.khotkeys:173
+msgid "Next in XMMS"
+msgstr "Ďalší v XMMS"
+
+#. Comment
+#: trinity2b1.khotkeys:185
+msgid "XMMS window"
+msgstr "Okno XMMS"
+
+#. Comment
+#: trinity2b1.khotkeys:191
+msgid "XMMS Player window"
+msgstr "Okno prehrávača XMMS"
+
+#. Comment
+#: trinity2b1.khotkeys:211
+msgid ""
+"Ok, Konqi in TDE has tabs, and now you can also have gestures. No need to "
+"use other browsers >;).\n"
+"\n"
+"Just press the middle mouse button and start drawing one of the gestures, "
+"and after you're finished, release the mouse button. If you only need to "
+"paste the selection, it still works, simply only click the middle mouse "
+"button. (You can change the mouse button to use in the global settings).\n"
+"\n"
+"Right now, there are these gestures available:\n"
+"move right and back left - Forward (ALt+Right)\n"
+"move left and back right - Back (Alt+Left)\n"
+"move up and back down  - Up (Alt+Up)\n"
+"circle anticlockwise - Reload (F5)\n"
+" (As soon as I find out which ones are in Opera or Mozilla, I'll add more "
+"and make sure they are the same. Or if you do it yourself, feel free to help "
+"me and send me your khotkeysrc.)\n"
+"\n"
+"The gestures shapes (some of the dialogs are from KGesture, thanks to Mike "
+"Pilone) can be simply entered by performing them in the configuration "
+"dialog. You can also look at your numeric pad to help you, gestures are "
+"recognized like a 3x3 grid of fields, numbered 1 to 9.\n"
+"\n"
+"Note that you must perform exactly the gesture to trigger the action. "
+"Because of this, it's possible to enter more gestures for the action. You "
+"should try to avoid complicated gestures where you change the direction of "
+"mouse moving more than once (i.e. do e.g. 45654 or 74123 as they are simple "
+"to perform but e.g. 1236987 may be already quite difficult).\n"
+"\n"
+"The condition for all gestures are defined in this group. All these gestures "
+"are active only if the active window is Konqueror (class contains "
+"'konqueror')."
+msgstr ""
+"Dobre, Konqi v TDE má panely a teraz môžete mať tiež gestá. Nepotrebujete "
+"používať iné prehliadače >;).\n"
+"\n"
+"Jednoducho stlačte stredné tlačidlo myši a začnite kresliť jedno z gest a "
+"keď skončíte, pustite tlačidlo myši. Ak iba potrebujete vložiť výber, stále "
+"to funguje, stačí jednoducho kliknúť stredným tlačidlom myši. (Môžete zmeniť "
+"tlačidlo myši, ktoré má byť použité v globálnych nastaveniach).\n"
+"\n"
+"Momentálne sú dostupné tieto gestá:\n"
+"presunúť doprava a späť doľava - Vpred (Alt+Vpravo)\n"
+"presunúť doľava a späť doprava - Späť (Alt+Vľavo)\n"
+"presunúť nahor a späť nadol - Hore (Alt+Hore)\n"
+"Kruh proti hodinovým ručičkám - Obnoviť (F5)\n"
+" (Akonáhle zistím, ktoré sú v Opere alebo Mozille, pridám viac a uistím sa, "
+"že sú také isté. Alebo ak ich chcete vytvoriť sami, kľudne mi pomôžte a "
+"pošlite mi vaše khotkeysrc.)\n"
+"\n"
+"Tvary gest (niektoré dialógy sú z KGesture, vďaka Mikeovi Pilonovi) môžete "
+"jednoducho zadať ich vykonaním v konfiguračnom dialógu. Môžete sa tiež "
+"pozrieť na numerickú časť klávesnice, gestá sú totiž rozoznávané ako mriežka "
+"3x3 poľa očíslovaného od 1 do 9.\n"
+"\n"
+"Všimnite si, že musíte urobiť gesto presne tak, ako je definované, aby sa "
+"akcia spustila. Kvôli tomu je možné zadať viac gest pre jednu akciu. Snažte "
+"sa vyhnúť komplikovaným gestám, tde meníte smer pohybu myši viac než raz (t."
+"j. urobiť napríklad 45654 alebo 74123, pretože sú jednoduché na vykonanie, "
+"ale napríklad 1236987 už môže byť celkom zložité).\n"
+"\n"
+"Podmienky pre všetky gestá sú definované v tejto skupine. Všetky tieto gestá "
+"sú aktívne iba vtedy, keď je aktívne okno Konqueror (trieda obsahuje "
+"'konqueror')."
+
+#. Name
+#: trinity2b1.khotkeys:214
+msgid "Konqi Gestures"
+msgstr "Konquiho gestá"
+
+#. Comment
+#: trinity2b1.khotkeys:369
+msgid ""
+"After pressing Win+E (Tux+E), WWW browser will be launched and it will open "
+"http://www.trinitydesktop.org . You may run all kind of commands you can run "
+"in minicli (Alt+F2)."
+msgstr ""
+"Po stlačení Win+E (Tux+E) bude spustený WWW prehliadač a otvorí http://www."
+"trinitydesktop.org. Môžete spúštať všetky druhy príkazov, ktoré môžete "
+"spustiť v minicli (Alt+F2)."
+
+#. Name
+#: trinity2b1.khotkeys:371
+msgid "Go to TDE Website"
+msgstr "Prejsť na website TDE"

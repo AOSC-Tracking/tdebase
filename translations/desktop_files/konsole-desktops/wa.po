@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-26 02:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: wa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmkonsole.desktop:9
+msgid "Console"
+msgstr "Conzôle"
+
+#. GenericName
+#: kcmkonsole.desktop:11
+msgid "All Konsole Settings"
+msgstr "Tos ls apontiaedjes do terminå di TDE"
+
+#. Keywords
+#: kcmkonsole.desktop:13
+msgid "konsole;console;terminal;"
+msgstr "konsole;conzôle;terminå;"
+
+#. Name
+#: konsole-script.desktop:9 konsole.desktop:9 konsolesu.desktop:10
+#, fuzzy
+msgid "Konsole"
+msgstr "Conzôle"
+
+#. GenericName
+#: konsole-script.desktop:11 konsole.desktop:11
+msgid "Terminal Program"
+msgstr "Programe di terminå"
+
+#. Comment
+#: konsole/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "Fitchî a drovi dins on shell"
+
+#. Name
+#: konsolepart.desktop:14 terminalemulator.desktop:5
+msgid "Terminal Emulator"
+msgstr "Terminå"
+
+#. GenericName
+#: konsolesu.desktop:12
+msgid "Terminal Program - Super User Mode"
+msgstr "Terminå - Môde super uzeu (root)"
+
+#. Name
+#: kwrited.desktop:2
+msgid "TDE Write Daemon"
+msgstr "Demon scrijheu di TDE"
+
+#. Comment
+#: kwrited.desktop:4
+msgid "Watch for messages from local users sent with write(1) or wall(1)"
+msgstr ""
+"Riwaite après les messaedjes des locås uzeus evoyîs avou write (1) oudonbén "
+"wall(1)"
+
+#. Name
+#: other/linux.desktop:3
+msgid "Linux Console"
+msgstr "Conzôle Linux"
+
+#. Comment
+#: other/linux.desktop:4
+msgid "New Linux Console"
+msgstr "Novele conzôle linux"
+
+#. Name
+#: other/mc.desktop:3
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Novea Midnight Commander"
+
+#. Comment
+#: other/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "Novea Midnight Commander"
+
+#. Name
+#: other/screen.desktop:3
+msgid "Screen Session"
+msgstr "Session «screen»"
+
+#. Comment
+#: other/screen.desktop:4
+msgid "New Screen Session"
+msgstr "Novele session «screen»"
+
+#. Name
+#. Title0
+#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
+#: other/5shells:6
+#, fuzzy
+msgid "Shell"
+msgstr "Novea shell"
+
+#. Comment
+#: other/shell.desktop:4
+msgid "New Shell"
+msgstr "Novea shell"
+
+#. Name
+#: other/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "Shell root"
+
+#. Comment
+#: other/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "Novea shell root"
+
+#. Name
+#: other/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "Midnight Commander e môde root"
+
+#. Comment
+#: other/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "Novea «Midnight Commander» e môde root"
+
+#. Name
+#: terminalhere.desktop:6
+#, fuzzy
+msgid "Terminal"
+msgstr "Programe di terminå"
+
+#. Name
+#: terminalhere.desktop:11
+msgid "Open Terminal Here"
+msgstr "Drovi on terminå chal"
+
+#. Name
+#: other/2shells:2
+#, fuzzy
+msgid "Two consoles"
+msgstr "Conzôle"
+
+#. Title1
+#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#, fuzzy
+msgid "Shell No. 2"
+msgstr "Novea shell"
+
+#. Name
+#: other/3shells:2
+msgid "Three consoles"
+msgstr ""
+
+#. Title2
+#: other/3shells:8 other/4shells:8 other/5shells:8
+#, fuzzy
+msgid "Shell No. 3"
+msgstr "Novea shell"
+
+#. Name
+#: other/4shells:2
+#, fuzzy
+msgid "Four consoles"
+msgstr "Conzôle Linux"
+
+#. Title3
+#: other/4shells:9 other/5shells:9
+#, fuzzy
+msgid "Shell No. 4"
+msgstr "Novea shell"
+
+#. Name
+#: other/5shells:2
+#, fuzzy
+msgid "Five consoles"
+msgstr "Conzôle Linux"
+
+#. Title4
+#: other/5shells:10
+#, fuzzy
+msgid "Shell No. 5"
+msgstr "Novea shell"

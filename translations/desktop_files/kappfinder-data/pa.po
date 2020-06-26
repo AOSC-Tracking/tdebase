@@ -1,0 +1,1786 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-17 22:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Development/Forte.desktop:2
+msgid "Forte"
+msgstr "ਫੋਰਟੀ"
+
+#. GenericName
+#: Development/Forte.desktop:3
+msgid "Java IDE"
+msgstr ""
+
+#. Name
+#: Development/assistant.desktop:2
+msgid "Qt Assistant"
+msgstr "Qt ਸਹਾਇਕ"
+
+#. GenericName
+#: Development/assistant.desktop:3
+msgid "Document Browser"
+msgstr "ਦਸਤਾਵੇਜ਼ ਝਲਕਾਰਾ"
+
+#. Name
+#: Development/ddd.desktop:2
+msgid "DDD"
+msgstr ""
+
+#. GenericName
+#: Development/ddd.desktop:3
+msgid "Data Display Debugger"
+msgstr "ਡਾਟਾ ਡਿਸਪਲੇਅ ਡੀਬੱਗਰ"
+
+#. Name
+#: Development/designer.desktop:2
+msgid "Qt Designer"
+msgstr "Qt ਡਿਜ਼ਾਈਨਰ"
+
+#. GenericName
+#: Development/designer.desktop:3
+msgid "Interface Designer"
+msgstr "ਇੰਟਰਫੇਸ਼ ਡਿਜ਼ਾਈਨਰ"
+
+#. Name
+#: Development/dlgedit.desktop:2
+#, fuzzy
+msgid "Qt DlgEdit"
+msgstr "ਜੀ-ਸੰਪਾਦਕ"
+
+#. GenericName
+#: Development/dlgedit.desktop:3
+msgid "Dialog Editor"
+msgstr "ਡਾਇਲਾਗ ਸੰਪਾਦਕ"
+
+#. Name
+#: Development/eclipse.desktop:3
+msgid "Eclipse"
+msgstr "ਈਲਿਪਸ"
+
+#. GenericName
+#: Development/eclipse.desktop:4
+msgid "Eclipse IDE"
+msgstr "ਈਲਿਪਸ IDE"
+
+#. Name
+#: Development/fdesign.desktop:2
+msgid "FormDesigner"
+msgstr "ਫਾਰਮ ਡਿਜ਼ਾਈਨਰ"
+
+#. Name
+#: Development/j2mewtk.desktop:2
+msgid "J2ME"
+msgstr ""
+
+#. GenericName
+#: Development/j2mewtk.desktop:3
+msgid "J2ME Toolkit"
+msgstr "J2ME ਟੂਲਕਿੱਟ"
+
+#. Name
+#: Development/linguist.desktop:2
+msgid "Qt Linguist"
+msgstr "Qt ਲੈਂਗੂਇਸਟ"
+
+#. GenericName
+#: Development/linguist.desktop:3
+msgid "Translation Tool"
+msgstr "ਅਨੁਵਾਦ ਸੰਦ"
+
+#. Name
+#: Development/pose.desktop:2
+msgid "Pose"
+msgstr "ਪੋਸ"
+
+#. GenericName
+#: Development/pose.desktop:3
+msgid "Palm/Wireless Emulator"
+msgstr "ਪਾਮ/ਬੇਤਾਰ ਸਮਰੂਪੀ"
+
+#. Name
+#: Development/sced.desktop:2
+msgid "Sced"
+msgstr ""
+
+#. GenericName
+#: Development/sced.desktop:3
+msgid "Scene Modeler"
+msgstr "Scene ਮੋਡੀਲੀਰ"
+
+#. Name
+#: Games/Arcade/ClanBomber.desktop:2
+msgid "ClanBomber"
+msgstr "ਕਲਾਨ ਬੰਬਰ"
+
+#. GenericName
+#: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
+#: Games/Arcade/Mures.desktop:3 Games/Arcade/SuperMethaneBrothers.desktop:3
+#: Games/Arcade/Trophy.desktop:3 Games/Arcade/XKobo.desktop:3
+#: Games/Arcade/XSoldier.desktop:3 Games/Arcade/battalion.desktop:3
+#: Games/Arcade/cxhextris.desktop:3 Games/Arcade/scavenger.desktop:3
+#: Games/Board/Gataxx.desktop:3 Games/Board/Gnotravex.desktop:3
+#: Games/penguin-command.desktop:4
+msgid "Arcade Game"
+msgstr "ਆਰਕਡੀ ਖੇਡ"
+
+#. Name
+#: Games/Arcade/FrozenBubble.desktop:2
+msgid "Frozen Bubble"
+msgstr "ਜੰਮਿਆ ਬੁਬਲਾ"
+
+#. GenericName
+#: Games/Arcade/FrozenBubble.desktop:3
+msgid "Tetris-Like Game"
+msgstr "ਟੀਚਰੀਸ ਵਰਗੀ ਖੇਡ"
+
+#. Name
+#: Games/Arcade/Gnibbles.desktop:2
+msgid "Gnibbles"
+msgstr "ਨਿਬੱਲ"
+
+#. GenericName
+#: Games/Arcade/Gnibbles.desktop:3
+msgid "GNOME Nibbles Game"
+msgstr "ਗਨੋਮ ਨਿੱਬਲ ਖੇਡ"
+
+#. Name
+#: Games/Arcade/GnobotsII.desktop:2
+msgid "Gnobots II"
+msgstr "ਜੀ ਨੋਬੋਟਸ II"
+
+#. Name
+#: Games/Arcade/Mures.desktop:2
+msgid "Mures"
+msgstr "ਮੂਰੀਸ"
+
+#. Name
+#: Games/Arcade/SuperMethaneBrothers.desktop:2
+msgid "Super Methane Brothers"
+msgstr "ਸੁਪਰ ਮੀਥੇਨ ਭਰਾ"
+
+#. Name
+#: Games/Arcade/Trophy.desktop:2
+msgid "Trophy"
+msgstr "ਟਰਾਫ਼ੀ"
+
+#. Name
+#: Games/Arcade/TuxRacer.desktop:2
+msgid "TuxRacer"
+msgstr "ਟਕਸ-ਦੌੜ"
+
+#. GenericName
+#: Games/Arcade/TuxRacer.desktop:3
+msgid "Racing Game"
+msgstr "ਦੌੜ"
+
+#. Name
+#: Games/Arcade/XKobo.desktop:2
+msgid "XKobo"
+msgstr ""
+
+#. Name
+#: Games/Arcade/XSoldier.desktop:2
+msgid "XSoldier"
+msgstr "X ਸਿਪਾਹੀ"
+
+#. Name
+#: Games/Arcade/alephone-nogl.desktop:2
+msgid "Alephone"
+msgstr "ਅਲੀਫੋਨ"
+
+#. Comment
+#: Games/Arcade/alephone-nogl.desktop:3
+msgid "An open source version of Marathon Infinity for SDL"
+msgstr "SDL ਲਈ ਮਾਰਾਥਨ ਦਾ ਓਪਨ ਸਰੋਤ"
+
+#. Name
+#: Games/Arcade/alephone.desktop:2
+msgid "Alephone - No OpenGL"
+msgstr "ਅਲੀਫੋਨ - OpenGL ਨਹੀਂ"
+
+#. Comment
+#: Games/Arcade/alephone.desktop:3
+msgid ""
+"An open source version of Marathon Infinity for SDL that has Open GL disabled"
+msgstr "SDL ਲਈ ਇੱਕ ਓਪਨ ਸਰੋਤ ਮਾਰਾਥਨ, ਜਿਸ ਲਈ Open GL ਅਯੋਗ ਹੈ।"
+
+#. Name
+#: Games/Arcade/battalion.desktop:2
+msgid "Batallion"
+msgstr "ਬਾਟਾਲੀਓਨ"
+
+#. Name
+#: Games/Arcade/battleball.desktop:2
+msgid "Battleball"
+msgstr "ਲੜਾਈ ਗੇਂਦ"
+
+#. GenericName
+#: Games/Arcade/battleball.desktop:3
+msgid "Ball Game"
+msgstr "ਗੇਂਦ ਖੇਡ"
+
+#. Name
+#: Games/Arcade/cxhextris.desktop:2
+msgid "cxhextris"
+msgstr ""
+
+#. Name
+#: Games/Arcade/rocksndiamonds.desktop:2
+msgid "Rocks n Diamonds"
+msgstr "ਪੱਥਰਾਂ ਵਿੱਚ ਹੀਰੇ"
+
+#. GenericName
+#: Games/Arcade/rocksndiamonds.desktop:3 Games/Board/Glines.desktop:3
+msgid "Tactical Game"
+msgstr "ਟਾਕਟੀਕਲ ਖੇਡ"
+
+#. Name
+#: Games/Arcade/scavenger.desktop:2
+msgid "Scavenger"
+msgstr "ਸਕਾਵੀਨਗਰ"
+
+#. Name
+#: Games/Board/Gataxx.desktop:2
+msgid "Gataxx"
+msgstr "ਗਾਟਾਐਕਸ"
+
+#. Name
+#: Games/Board/Gchess.desktop:2
+msgid "GNOME Chess"
+msgstr "ਗਨੋਮ ਸਤਰੰਜ਼"
+
+#. Name
+#: Games/Board/Glines.desktop:2
+msgid "Glines"
+msgstr "ਜੀ-ਸਤਰਾਂ"
+
+#. Name
+#: Games/Board/Gmahjongg.desktop:2
+msgid "GNOME Mahjongg"
+msgstr "ਗਨੋਮ ਮਾਹਜੋਨਜ਼"
+
+#. GenericName
+#: Games/Board/Gmahjongg.desktop:3
+msgid "Tile Game"
+msgstr "ਟਿਲੀ ਗੇਂਦ"
+
+#. Name
+#: Games/Board/Gmines.desktop:2
+msgid "GNOME Mines"
+msgstr "ਗਨੋਮ ਸੁਰੰਗਾਂ"
+
+#. GenericName
+#: Games/Board/Gmines.desktop:3
+msgid "Logic Game"
+msgstr "ਲਾਜਿਕ ਖੇਡ"
+
+#. Name
+#: Games/Board/Gnotravex.desktop:2
+msgid "Gnotravex"
+msgstr "ਗਨੋਟਰਾਵਕਸ"
+
+#. Name
+#: Games/Board/Gnotski.desktop:2
+msgid "Gnotski"
+msgstr "ਗਨੋਟਸਕੀ"
+
+#. GenericName
+#: Games/Board/Gnotski.desktop:3
+msgid "GNOME Klotski Game"
+msgstr "ਗਨੋਮ ਕਲੋਟਸਕੀ ਖੇਡ"
+
+#. Name
+#: Games/Board/Gstones.desktop:2
+msgid "GNOME Stones"
+msgstr "ਗਨੋਮ ਪੱਥਰ"
+
+#. Name
+#: Games/Board/Iagno.desktop:2
+msgid "Iagno"
+msgstr "ਲੈਂਗਨੋ"
+
+#. GenericName
+#: Games/Board/Iagno.desktop:3 Games/Board/SameGnome.desktop:3
+#: Games/Board/Xgammon.desktop:3
+msgid "Board Game"
+msgstr "ਬੋਰਡ ਗੇਂਦ"
+
+#. Name
+#: Games/Board/SameGnome.desktop:2
+msgid "Same GNOME"
+msgstr "ਸੇਮ ਗਨੋਮ"
+
+#. Name
+#: Games/Board/Xgammon.desktop:2
+msgid "Xgammon"
+msgstr "X-ਗਾਮੋਨ"
+
+#. Name
+#: Games/Board/xboard.desktop:2
+msgid "Xboard"
+msgstr "X ਬੋਰਡ"
+
+#. GenericName
+#: Games/Board/xboard.desktop:3
+msgid "Chess Game"
+msgstr "ਸਤਰੰਜ਼ ਖੇਡ"
+
+#. Name
+#: Games/Card/AisleRiot.desktop:2
+msgid "AisleRiot"
+msgstr "ਇਲਸੀਰਓਟ"
+
+#. GenericName
+#: Games/Card/AisleRiot.desktop:3 Games/Card/FreeCell.desktop:3
+#: Games/Card/PySol.desktop:3 Games/Card/XPat2.desktop:3
+msgid "Card Game"
+msgstr "ਤਾਸ਼ ਖੇਡ"
+
+#. Name
+#: Games/Card/FreeCell.desktop:2
+msgid "FreeCell"
+msgstr "ਖਾਲੀ ਸੈੱਲ"
+
+#. Name
+#: Games/Card/PySol.desktop:2
+msgid "PySol"
+msgstr ""
+
+#. Name
+#: Games/Card/XPat2.desktop:2
+msgid "XPat 2"
+msgstr ""
+
+#. Name
+#: Games/Clanbomber.desktop:2
+msgid "Clanbomber"
+msgstr "ਕਲਾਨ ਬੰਬਰ"
+
+#. Name
+#: Games/Emulators/cmail.desktop:2
+msgid "ChessMail"
+msgstr "ਸਤਰੰਜ਼-ਮੇਲ"
+
+#. GenericName
+#: Games/Emulators/cmail.desktop:3
+msgid "Email for Chess"
+msgstr "ਸਤਰੰਜ਼ ਲਈ ਈ-ਮੇਲ"
+
+#. Name
+#: Games/Emulators/qmamecat.desktop:2
+msgid "Qmamecat"
+msgstr "ਕਿਉਮੀਕੈਟ"
+
+#. GenericName
+#: Games/Emulators/qmamecat.desktop:3
+msgid "Arcade Emulator"
+msgstr "ਅਰਕਾਡੀ ਸਮਰੂਪ"
+
+#. Name
+#: Games/GTali.desktop:2
+msgid "GTali"
+msgstr "G ਟਾਲੀ"
+
+#. GenericName
+#: Games/GTali.desktop:3
+msgid "Dice Game"
+msgstr "ਡੀਸਕ ਖੇਡ"
+
+#. Name
+#: Games/Roguelikes/angband.desktop:2
+msgid "Angband"
+msgstr "ਅੰਗਬੰਡ"
+
+#. Comment
+#: Games/Roguelikes/angband.desktop:3
+msgid "Dive into Angband and defeat Morgoth"
+msgstr "ਅੰਗਬੰਦ ਵਿੱਚ ਆਓ ਅਤੇ ਮੋਰਗੋਥ ਨੂੰ ਹਰਾਓ"
+
+#. Name
+#: Games/Roguelikes/moria.desktop:2
+msgid "Moria"
+msgstr "ਮੋਰੀਆ"
+
+#. Comment
+#: Games/Roguelikes/moria.desktop:3
+msgid "Dive into Moria and defeat the Balrog"
+msgstr "ਮੋਰੀਆ ਵਿੱਚੋਂ ਕੁੱਦੋ ਅਤੇ ਬਾਲਰੋਗ ਹਰਾਓ"
+
+#. Name
+#: Games/Roguelikes/nethack.desktop:2
+msgid "NetHack"
+msgstr "ਨੈੱਟਹੈਕ"
+
+#. GenericName
+#: Games/Roguelikes/nethack.desktop:3 Games/Roguelikes/tome.desktop:3
+msgid "Quest Game"
+msgstr "ਕਿਉਟ ਖੇਡ"
+
+#. Name
+#: Games/Roguelikes/rogue.desktop:2
+msgid "Rogue"
+msgstr "ਠੱਗ"
+
+#. GenericName
+#: Games/Roguelikes/rogue.desktop:3
+msgid "The Original"
+msgstr "ਅਸਲੀ"
+
+#. Name
+#: Games/Roguelikes/tome.desktop:2
+msgid "ToME"
+msgstr "ਟੂਮੀ"
+
+#. Name
+#: Games/Roguelikes/zangband.desktop:2
+msgid "ZAngband"
+msgstr "Zਅੰਗੀਬੰਦ"
+
+#. GenericName
+#: Games/Roguelikes/zangband.desktop:3
+msgid "Defeat the Serpent of Chaos"
+msgstr "ਚਾਓਸ ਦਾ ਸੀਰਪਿਟ ਹਾਰ"
+
+#. Name
+#: Games/TacticStrategy/freeciv.desktop:3
+msgid "Freeciv"
+msgstr "ਫਰੀਕਿਵ"
+
+#. GenericName
+#: Games/TacticStrategy/freeciv.desktop:4 Games/xshipwars.desktop:4
+msgid "Strategy Game"
+msgstr "ਯੋਜਨਾ ਖੇਡ"
+
+#. Name
+#: Games/TacticStrategy/freecivserver.desktop:3
+msgid "FreeCiv Server"
+msgstr "ਫਰੀਕਿਵ ਸਰਵਰ"
+
+#. Comment
+#: Games/TacticStrategy/freecivserver.desktop:4
+msgid "A server for Free Civ"
+msgstr "ਫਰੀ ਕਿਵ ਲਈ ਸਰਵਰ"
+
+#. Name
+#: Games/TacticStrategy/xscorch.desktop:3
+msgid "XScorch"
+msgstr "X ਸਕੋਰਚ"
+
+#. Comment
+#: Games/TacticStrategy/xscorch.desktop:4
+msgid "A free Scorched Earth clone for UNIX and X"
+msgstr "UNIX ਅਤੇ X ਮੁਫਤ ਸਕੋਰਚਡ ਅਰਥ ਸਮਰੂਪ"
+
+#. Name
+#: Games/Toys/xeyes.desktop:2
+msgid "X Eyes"
+msgstr "X ਅੱਖਾਂ"
+
+#. Name
+#: Games/Toys/xpinguin.desktop:2
+msgid "Tux"
+msgstr "ਟੱਕਸ"
+
+#. GenericName
+#: Games/Toys/xpinguin.desktop:3
+msgid "Linux Mascot"
+msgstr "ਲੀਨਕਸ ਮਾਸਕੋਟ"
+
+#. Name
+#: Games/defendguin.desktop:3
+msgid "Defendguin"
+msgstr "ਡੀਫੀਡਗੂਨਿ"
+
+#. GenericName
+#: Games/defendguin.desktop:4
+msgid "Game"
+msgstr "ਖੇਡ"
+
+#. Name
+#: Games/penguin-command.desktop:3
+msgid "Penguin Command"
+msgstr "ਪੈਗੂਇਨ ਕਮਾਂਡ"
+
+#. Name
+#: Games/xshipwars.desktop:3
+msgid "XShipWars"
+msgstr "Xਜਹਾਜ਼ ਦੀ ਲੜਾਈ"
+
+#. Name
+#: Graphics/ElectricEyes.desktop:2
+msgid "Electric Eyes"
+msgstr "ਇਲੈਕਟੋਰਿਕ ਅੱਖਾਂ"
+
+#. GenericName
+#: Graphics/ElectricEyes.desktop:3
+msgid "Image Viewer"
+msgstr "ਚਿੱਤਰ ਦਰਸ਼ਕ"
+
+#. Name
+#: Graphics/GPhoto.desktop:2
+msgid "GPhoto"
+msgstr "ਜੀ-ਫੋਟੋ"
+
+#. GenericName
+#: Graphics/GPhoto.desktop:3
+msgid "Digital Camera Program"
+msgstr "ਡਿਜ਼ੀਟਲ ਕੈਮਰਾ ਪਰੋਗਰਾਮ"
+
+#. Name
+#: Graphics/GnomeColorSelector.desktop:2
+msgid "GNOME Color Selector"
+msgstr "ਗਨੋਮ ਰੰਗ ਚੋਣਕਾਰ"
+
+#. Name
+#: Graphics/GnomeIconEditor.desktop:2
+msgid "GNOME Icon Editor"
+msgstr "ਗਨੋਮ ਆਈਕਾਨ ਸੰਪਾਦਕ"
+
+#. Name
+#: Graphics/Gqview.desktop:2
+msgid "Gqview"
+msgstr "ਜੀ-ਕੀਵਿਊ"
+
+#. GenericName
+#: Graphics/Gqview.desktop:3
+msgid "Image Browser"
+msgstr "ਚਿੱਤਰ ਝਲਕਾਰਾ"
+
+#. Name
+#: Graphics/Sketch.desktop:2
+msgid "Sketch"
+msgstr "ਸ਼ਕਲ"
+
+#. GenericName
+#: Graphics/Sketch.desktop:3
+msgid "Vector-based Drawing Program"
+msgstr "ਵੈਕਟਰ 'ਤੇ ਅਧਾਰਿਤ ਡਰਾਇੰਗ ਕਾਰਜ"
+
+#. Name
+#: Graphics/Xpcd.desktop:2
+msgid "Xpcd"
+msgstr ""
+
+#. GenericName
+#: Graphics/Xpcd.desktop:3
+msgid "PhotoCD Tools"
+msgstr "ਫੋਟੋ-CD ਸੰਦ"
+
+#. Name
+#: Graphics/Xwpick.desktop:2
+msgid "Xwpick"
+msgstr "X-ਪਿਕ"
+
+#. GenericName
+#: Graphics/Xwpick.desktop:3
+msgid "Screen Capture Program"
+msgstr "ਸਕਰੀਨ ਤਸਵੀਰ ਕਾਰਜ"
+
+#. Name
+#: Graphics/bitmap.desktop:2
+msgid "X Bitmap"
+msgstr "X ਬਿੱਟਮੈਪ"
+
+#. GenericName
+#: Graphics/bitmap.desktop:3
+msgid "Bitmap Creator"
+msgstr "ਬਿੱਟਮੈਪ ਨਿਰਮਾਤਾ"
+
+#. Name
+#: Graphics/blender.desktop:2
+msgid "Blender"
+msgstr "ਬਲੈਡਰ"
+
+#. GenericName
+#: Graphics/blender.desktop:3
+msgid "3D Modeler/Renderer"
+msgstr "3ਡੀ ਮੋਡੀਲੀਰ/ਪੇਸ਼ਕਾਰ"
+
+#. Name
+#: Graphics/ghostview.desktop:2
+msgid "GhostView"
+msgstr "ਗੋਸਟ ਝਲਕ"
+
+#. GenericName
+#: Graphics/ghostview.desktop:3
+msgid "PostScript Viewer"
+msgstr "ਪੋਸਟ-ਸਕਰਿਪਟ ਦਰਸ਼ਕ"
+
+#. Name
+#: Graphics/gimp.desktop:2
+msgid "Gimp"
+msgstr "ਜੈਮਪ"
+
+#. GenericName
+#: Graphics/gimp.desktop:3
+msgid "Image Manipulation Program"
+msgstr "ਚਿੱਤਰ ਸੰਪਾਦਕ ਕਾਰਜ"
+
+#. Name
+#: Graphics/gv.desktop:2
+msgid "GV"
+msgstr ""
+
+#. GenericName
+#: Graphics/gv.desktop:3
+msgid "Postscript Viewer"
+msgstr "ਪੋਸਟ ਸਕਰਿਪਟ ਦਰਸਕ"
+
+#. Name
+#: Graphics/inkscape.desktop:2
+#, fuzzy
+msgid "Inkscape"
+msgstr "ਨੈਟਸਕੇਪ"
+
+#. GenericName
+#: Graphics/inkscape.desktop:3 Graphics/sodipodi.desktop:3
+msgid "Vector Drawing"
+msgstr "ਵੈਕਟਰ ਡਰਾਇੰਗ"
+
+#. Name
+#: Graphics/sodipodi.desktop:2
+msgid "Sodipodi"
+msgstr "ਸੋਡੀ-ਪੋਡੀ"
+
+#. Name
+#: Graphics/tgif.desktop:2
+msgid "TGif"
+msgstr ""
+
+#. GenericName
+#: Graphics/tgif.desktop:3 Graphics/xfig.desktop:3
+msgid "Drawing Program"
+msgstr "ਡਰਾਇੰਗ ਕਾਰਜ"
+
+#. Name
+#: Graphics/xdvi.desktop:2
+msgid "X DVI"
+msgstr ""
+
+#. GenericName
+#: Graphics/xdvi.desktop:3
+msgid "DVI Viewer"
+msgstr "DVI ਦਰਸ਼ਕ"
+
+#. Name
+#: Graphics/xfig.desktop:2
+msgid "Xfig"
+msgstr ""
+
+#. Name
+#: Graphics/xpaint.desktop:2
+msgid "X Paint"
+msgstr "X ਪੇਂਟ"
+
+#. GenericName
+#: Graphics/xpaint.desktop:3
+msgid "Paint Program"
+msgstr "ਪੇਂਟ ਚਿੱਤਰ"
+
+#. Name
+#: Graphics/xv.desktop:2
+msgid "XV"
+msgstr ""
+
+#. GenericName
+#: Graphics/xv.desktop:3
+msgid "Picture Viewer"
+msgstr "ਤਸਵੀਰ ਦਰਸ਼ਕ"
+
+#. Name
+#: Internet/BlueFish.desktop:2
+msgid "BlueFish"
+msgstr "ਬਲਿਊ-ਫਿਸ਼"
+
+#. GenericName
+#: Internet/BlueFish.desktop:3
+msgid "HTML Editor"
+msgstr "HTML ਸੰਪਾਦਕ"
+
+#. Name
+#: Internet/Dpsftp.desktop:2
+msgid "Dpsftp"
+msgstr ""
+
+#. GenericName
+#: Internet/Dpsftp.desktop:3 Internet/gFTP.desktop:3 Internet/xftp.desktop:3
+msgid "FTP Browser"
+msgstr "FTP ਝਲਕਾਰਾ"
+
+#. Name
+#: Internet/DrakSync.desktop:2
+msgid "DrakSync"
+msgstr ""
+
+#. GenericName
+#: Internet/DrakSync.desktop:3
+msgid "Folder Synchronization"
+msgstr "ਫੋਲਡਰ ਸਮਕਾਲ"
+
+#. Name
+#: Internet/Evolution.desktop:2
+msgid "Evolution"
+msgstr "ਏਵੂਲੇਸ਼ਨ"
+
+#. GenericName
+#: Internet/Evolution.desktop:3 Internet/Netscapemessenger.desktop:3
+#: Internet/Sylpheed.desktop:3 Internet/Terminal/mutt.desktop:3
+#: Internet/Terminal/pine.desktop:3 Internet/balsa.desktop:3
+#: Internet/mozilla-thunderbird.desktop:3 Internet/xfmail.desktop:3
+msgid "Mail Client"
+msgstr "ਪੱਤਰ ਕਲਾਂਇਟ"
+
+#. Name
+#: Internet/Faces.desktop:2
+msgid "Faces"
+msgstr "ਚਿਹਰੇ"
+
+#. GenericName
+#: Internet/Faces.desktop:3 Internet/coolmail.desktop:3
+#: Internet/xbiff.desktop:3
+msgid "Mail Alert"
+msgstr "ਪੱਤਰ ਚੇਤਾਵਨੀ"
+
+#. Name
+#: Internet/Fetchmailconf.desktop:2
+msgid "Fetchmailconf"
+msgstr "ਫਿੱਚਮੇਲਸੰਰਚਨਾ"
+
+#. GenericName
+#: Internet/Fetchmailconf.desktop:3
+msgid "Fetchmail Configuration"
+msgstr "ਪੱਤਰ ਪਰਾਪਤੀ ਸੰਰਚਨਾ"
+
+#. Name
+#: Internet/Gabber.desktop:2
+msgid "Gabber"
+msgstr "ਗਾਬੀਰ"
+
+#. GenericName
+#: Internet/Gabber.desktop:3 Internet/gaim.desktop:3
+msgid "Instant Messenger"
+msgstr "ਮੌਕਾ ਸੁਨੇਹਾਕਾਰ"
+
+#. Name
+#: Internet/Galeon.desktop:2
+msgid "Galeon"
+msgstr "ਗਲੀਓਨ"
+
+#. GenericName
+#: Internet/Galeon.desktop:3 Internet/Terminal/Links.desktop:3
+#: Internet/Terminal/Lynx.desktop:3 Internet/Terminal/w3m.desktop:3
+#: Internet/arena.desktop:3 Internet/epiphany.desktop:3
+#: Internet/mozilla-firefox.desktop:3 Internet/mozilla.desktop:3
+#: Internet/netscape.desktop:3 Internet/netscape6.desktop:3
+#: Internet/opera.desktop:3
+msgid "Web Browser"
+msgstr "ਵੈਬ ਝਲਕਾਰਾ"
+
+#. Name
+#: Internet/GnomeICU.desktop:2
+#, fuzzy
+msgid "GNOMEICU"
+msgstr "ਗਨੋਮ-ਕੈਲ"
+
+#. GenericName
+#: Internet/GnomeICU.desktop:3 Internet/licq.desktop:3
+msgid "ICQ Messenger"
+msgstr "ICQ ਸੁਨੇਹਾਕਾਰ"
+
+#. Name
+#: Internet/Netscapemessenger.desktop:2
+msgid "Netscape Messenger"
+msgstr "ਨੈੱਟਸਕੇਪ ਸੁਨੇਹਾਦਾਰ"
+
+#. Name
+#: Internet/Nmapfe.desktop:2
+msgid "Nmapfe"
+msgstr ""
+
+#. GenericName
+#: Internet/Nmapfe.desktop:3
+msgid "Port Scanner"
+msgstr "ਪੋਰਟ ਸਕੈਨਰ"
+
+#. Name
+#: Internet/Pan.desktop:2
+msgid "Pan"
+msgstr "ਪੈਂਨ"
+
+#. GenericName
+#: Internet/Pan.desktop:3 Internet/knews.desktop:3
+msgid "Usenet News Reader"
+msgstr "Usenet ਖ਼ਬਰੀ"
+
+#. Name
+#: Internet/Sylpheed.desktop:2
+msgid "Sylpheed"
+msgstr "ਸ਼ੀਲਫੀਡ"
+
+#. Name
+#: Internet/Terminal/Links.desktop:2
+msgid "Links"
+msgstr "ਸਬੰਧ"
+
+#. Name
+#: Internet/Terminal/Lynx.desktop:2
+msgid "Lynx"
+msgstr "ਲਨੈਕਸ"
+
+#. Name
+#: Internet/Terminal/btdownloadcurses.desktop:2
+msgid "BitTorrent Python Curses GUI"
+msgstr "ਬਿੱਟਇਓਨਟ ਪਾਈਥਨ ਕੂਰਸ GUI"
+
+#. GenericName
+#: Internet/Terminal/btdownloadcurses.desktop:3
+#: Internet/btdownloadgui.desktop:3
+msgid "BitTorrent GUI"
+msgstr "ਬਿੱਟੋਓਰਿਨਟ GUI"
+
+#. Name
+#: Internet/Terminal/lftp.desktop:2
+msgid "Lftp"
+msgstr ""
+
+#. GenericName
+#: Internet/Terminal/lftp.desktop:3 Internet/Terminal/ncftp.desktop:3
+msgid "FTP Client"
+msgstr "FTP ਕਲਾਂਇਟ"
+
+#. Name
+#: Internet/Terminal/mutt.desktop:2
+msgid "Mutt"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/ncftp.desktop:2
+msgid "NcFTP"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/pine.desktop:2
+msgid "Pine"
+msgstr "ਪਾਇਨ"
+
+#. Name
+#: Internet/Terminal/silc.desktop:2
+msgid "Silc"
+msgstr ""
+
+#. GenericName
+#: Internet/Terminal/silc.desktop:3
+msgid "SILC Client"
+msgstr "SILC ਕਲਾਂਇਟ"
+
+#. Name
+#: Internet/Terminal/slrn.desktop:2
+msgid "Slrn"
+msgstr ""
+
+#. GenericName
+#: Internet/Terminal/slrn.desktop:3
+msgid "News Reader"
+msgstr "ਖ਼ਬਰੀਂ"
+
+#. Name
+#: Internet/Terminal/w3m.desktop:2
+msgid "w3m"
+msgstr ""
+
+#. Name
+#: Internet/arena.desktop:2
+msgid "Arena"
+msgstr "ਅਰੀਨਾ"
+
+#. Name
+#: Internet/balsa.desktop:2
+msgid "Balsa"
+msgstr "ਬਾਲਸਾ"
+
+#. Name
+#: Internet/btdownloadgui.desktop:2
+#, fuzzy
+msgid "BitTorrent Python wxGTK GUI"
+msgstr "ਬਿੱਟਇਓਨਟ ਪਾਈਥਨ ਕੂਰਸ GUI"
+
+#. Name
+#: Internet/coolmail.desktop:2
+msgid "Coolmail"
+msgstr "ਕੂਲਮੇਲ"
+
+#. Name
+#: Internet/dc_gui.desktop:2
+msgid "DCTC GUI"
+msgstr ""
+
+#. GenericName
+#: Internet/dc_gui.desktop:3
+msgid "Direct Connect Clone"
+msgstr "ਸਿੱਧਾ ਕੁਨੈਕਸ਼ਨ ਸਮਰੂਪ"
+
+#. Name
+#: Internet/ed2k_gui.desktop:2
+msgid "eDonkey2000 GTK+ Core Controller"
+msgstr "eDonkey2000 GTK+ ਕੇਂਦਰੀਂ ਕੰਟਰੋਲ"
+
+#. GenericName
+#: Internet/ed2k_gui.desktop:3
+msgid "eDonkey2000 GUI"
+msgstr ""
+
+#. Name
+#: Internet/epiphany.desktop:2
+msgid "Epiphany"
+msgstr "ਏਪੀਫਾਨੀ"
+
+#. Name
+#: Internet/ethereal.desktop:2
+msgid "Ethereal"
+msgstr "ਈਥਰਲ"
+
+#. GenericName
+#: Internet/ethereal.desktop:3 Internet/wireshark.desktop:3
+msgid "Network Analyzer"
+msgstr "ਨੈੱਟਵਰਕ ਜਾਂਚਕਾਰ"
+
+#. Name
+#: Internet/gFTP.desktop:2
+msgid "gFTP"
+msgstr ""
+
+#. Name
+#: Internet/gaim.desktop:2
+msgid "Gaim"
+msgstr "ਗਾਈਮ"
+
+#. Name
+#: Internet/gnomemeeting.desktop:2
+msgid "GnomeMeeting"
+msgstr "ਗਨੋਮ ਮੀਟਿੰਗ"
+
+#. GenericName
+#: Internet/gnomemeeting.desktop:3
+msgid "Video Conferencing"
+msgstr "ਵੀਡਿਓ ਕਾਨਫਰੰਸ"
+
+#. Name
+#: Internet/gnometalk.desktop:2
+msgid "GNOME Talk"
+msgstr "ਗਨੋਮ ਗੱਲਬਾਤ"
+
+#. Name
+#: Internet/gtelnet.desktop:2
+msgid "GNOME Telnet"
+msgstr "ਗਨੋਮ ਟੇਲਨੈਟ"
+
+#. GenericName
+#: Internet/gtelnet.desktop:3
+msgid "Remote Access"
+msgstr "ਰਿਮੋਟ ਪਹੁੰਚ"
+
+#. Name
+#: Internet/ickle.desktop:2
+msgid "ickle"
+msgstr "ਈਕਲੀ"
+
+#. GenericName
+#: Internet/ickle.desktop:3
+msgid "ICQ2000 Chat"
+msgstr "ICQ2000 ਗੱਲਬਾਤ"
+
+#. Name
+#: Internet/javaws.desktop:2
+msgid "Java Web Start"
+msgstr "ਜਾਵਾ ਵੈੱਬ ਸ਼ੁਰੂ"
+
+#. Name
+#: Internet/knews.desktop:2
+msgid "KNews"
+msgstr "ਕੇ-ਖਬਰਾਂ"
+
+#. Name
+#: Internet/licq.desktop:2
+msgid "Licq"
+msgstr "ਲੀਕਿਉ"
+
+#. Name
+#: Internet/mldonkey_gui.desktop:2
+msgid "MLDonkey GTK+ Core Controller"
+msgstr "MLDonkey GTK+ ਕੇਂਦਰੀ ਕੰਟਰੋਲਰ"
+
+#. GenericName
+#: Internet/mldonkey_gui.desktop:3
+msgid "MLDonkey GUI"
+msgstr ""
+
+#. Name
+#: Internet/mozilla-firefox.desktop:2
+msgid "Firefox"
+msgstr "ਫਾਇਰਫਾਕਸ"
+
+#. Name
+#: Internet/mozilla-thunderbird.desktop:2
+msgid "Thunderbird"
+msgstr "ਥੰਡਰਬਰਡ"
+
+#. Name
+#: Internet/mozilla.desktop:2
+msgid "Mozilla"
+msgstr "ਮੌਜੀਲਾ"
+
+#. Name
+#: Internet/netscape.desktop:2
+msgid "Netscape"
+msgstr "ਨੈਟਸਕੇਪ"
+
+#. Name
+#: Internet/netscape6.desktop:2
+msgid "Netscape6"
+msgstr "ਨੈਟਸਕੇਪ6"
+
+#. Name
+#: Internet/opera.desktop:2
+msgid "Opera"
+msgstr "ਓਪੇਰਾ"
+
+#. Name
+#: Internet/wireshark.desktop:2
+msgid "Wireshark"
+msgstr "ਵਾਇਰਸ਼ਾਰਕ"
+
+#. Name
+#: Internet/xbiff.desktop:2
+msgid "X Biff"
+msgstr ""
+
+#. Name
+#: Internet/xchat.desktop:2
+#, fuzzy
+msgid "XChat"
+msgstr "IRC ਗੱਲਬਾਤ"
+
+#. GenericName
+#: Internet/xchat.desktop:3
+msgid "IRC Chat"
+msgstr "IRC ਗੱਲਬਾਤ"
+
+#. Name
+#: Internet/xfmail.desktop:2
+msgid "XFMail"
+msgstr "XF-ਮੇਲ"
+
+#. Name
+#: Internet/xftp.desktop:2
+msgid "X FTP"
+msgstr ""
+
+#. Name
+#: Multimedia/Aumix.desktop:2
+msgid "Aumix"
+msgstr "ਊਮਿਕਸ"
+
+#. GenericName
+#: Multimedia/Aumix.desktop:3
+msgid "Audio Mixer"
+msgstr "ਆਡੀਓ ਮਿਕਸਰ"
+
+#. Name
+#: Multimedia/Grip.desktop:2
+msgid "Grip"
+msgstr "ਗਰਿੱਪ"
+
+#. GenericName
+#: Multimedia/Grip.desktop:3
+msgid "CD Player/Ripper"
+msgstr "CD ਪਲੇਅਰ/ਰਿਪਰ"
+
+#. Name
+#: Multimedia/MP3info.desktop:2
+msgid "MP3 Info"
+msgstr "MP3 ਜਾਣਕਾਰੀ"
+
+#. Name
+#: Multimedia/XMovie.desktop:2
+msgid "XMovie"
+msgstr ""
+
+#. GenericName
+#: Multimedia/XMovie.desktop:3 Multimedia/mplayer.desktop:3
+#: Multimedia/mtv.desktop:3 Multimedia/realplayer.desktop:3
+#: Multimedia/xine.desktop:3
+msgid "Video Player"
+msgstr "ਵੀਡਿਓ ਪਲੇਅਰ"
+
+#. Name
+#: Multimedia/alevt.desktop:2
+msgid "AleVT"
+msgstr ""
+
+#. GenericName
+#: Multimedia/alevt.desktop:3
+msgid "VideoText Viewer"
+msgstr "ਵੀਡਿਓ ਪਾਠ ਦਰਸ਼ਕ"
+
+#. Name
+#: Multimedia/alsamixergui.desktop:2
+msgid "AlsaMixerGui"
+msgstr "ਅਲੀਸਾ ਮਿਕਸਰ"
+
+#. GenericName
+#: Multimedia/alsamixergui.desktop:3
+msgid "Alsa Mixer Frontend"
+msgstr "ਆਲੀਸਾ ਮਿਕਸਰ ਸ਼ਕਲ"
+
+#. Name
+#: Multimedia/audacity.desktop:2
+msgid "Audacity"
+msgstr "ਆਡੀਕਿਉਟੀ"
+
+#. GenericName
+#: Multimedia/audacity.desktop:3 Multimedia/rezound.desktop:3
+#: Multimedia/sweep.desktop:3
+msgid "Audio Editor"
+msgstr "ਆਡੀਓ ਸੰਪਾਦਕ"
+
+#. Name
+#: Multimedia/aviplay.desktop:2
+msgid "Aviplay"
+msgstr ""
+
+#. GenericName
+#: Multimedia/aviplay.desktop:3
+msgid "AVI Video Player"
+msgstr "AVI ਵੀਡਿਓ ਪਲੇਅਰ"
+
+#. Name
+#: Multimedia/bcast2000.desktop:2
+msgid "Broadcast 2000"
+msgstr "ਬਰਾਂਡਕਾਸਟ 2000"
+
+#. GenericName
+#: Multimedia/bcast2000.desktop:3
+msgid "Audio and Video IDE"
+msgstr "ਆਡੀਓ ਅਤੇ ਵੀਡਿਓ IDE"
+
+#. Name
+#: Multimedia/enjoympeg.desktop:2
+msgid "EnjoyMPEG"
+msgstr ""
+
+#. GenericName
+#: Multimedia/enjoympeg.desktop:3 Multimedia/gtv.desktop:3
+msgid "MPEG Player"
+msgstr "MPEG ਪਲੇਅਰ"
+
+#. Name
+#: Multimedia/gtv.desktop:2
+msgid "GTV"
+msgstr ""
+
+#. Name
+#: Multimedia/jazz.desktop:2
+msgid "Jazz"
+msgstr ""
+
+#. GenericName
+#: Multimedia/jazz.desktop:3
+msgid "Sound Processor"
+msgstr "ਧੁਨੀ ਪਰੋਸੈਸਰ"
+
+#. Name
+#: Multimedia/mplayer.desktop:2
+#, fuzzy
+msgid "MPlayer"
+msgstr "MPEG ਪਲੇਅਰ"
+
+#. Name
+#: Multimedia/mtv.desktop:2
+msgid "MpegTV"
+msgstr ""
+
+#. Name
+#: Multimedia/ogle.desktop:2
+msgid "Ogle"
+msgstr ""
+
+#. GenericName
+#: Multimedia/ogle.desktop:3
+msgid "DVD Player"
+msgstr "DVD ਪਲੇਅਰ"
+
+#. Name
+#: Multimedia/oqtplayer.desktop:2
+#, fuzzy
+msgid "OQTPlayer"
+msgstr "DVD ਪਲੇਅਰ"
+
+#. GenericName
+#: Multimedia/oqtplayer.desktop:3
+msgid "MOV Video Player"
+msgstr "MOV ਵੀਡਿਓ ਪਲੇਅਰ"
+
+#. Name
+#: Multimedia/realplayer.desktop:2
+msgid "RealPlayer"
+msgstr "ਰੀਅਲ ਪਲੇਅਰ"
+
+#. Name
+#: Multimedia/rezound.desktop:2
+msgid "reZound"
+msgstr ""
+
+#. Name
+#: Multimedia/slab.desktop:2
+msgid "Slab"
+msgstr ""
+
+#. GenericName
+#: Multimedia/slab.desktop:3
+msgid "Audio Recorder"
+msgstr "ਆਡੀਓ ਰਿਕਾਰਡਰ"
+
+#. Name
+#: Multimedia/sweep.desktop:2
+msgid "Sweep"
+msgstr "ਸਵੀਪ"
+
+#. Name
+#: Multimedia/xawtv.desktop:2
+msgid "XawTV"
+msgstr ""
+
+#. GenericName
+#: Multimedia/xawtv.desktop:3
+msgid "Watch TV!"
+msgstr "TV ਵੇਖੋ!"
+
+#. Name
+#: Multimedia/xcam.desktop:2
+msgid "XCam"
+msgstr ""
+
+#. GenericName
+#: Multimedia/xcam.desktop:3
+msgid "Camera Program"
+msgstr "ਕੈਮਰਾ ਕਾਰਜ"
+
+#. Name
+#: Multimedia/xine.desktop:2
+msgid "Xine"
+msgstr ""
+
+#. Name
+#: Multimedia/xmms-enqueue.desktop:2
+msgid "Enqueue in XMMS"
+msgstr "XMMS ਵਿੱਚ ਸ਼ਾਮਿਲ"
+
+#. GenericName
+#: Multimedia/xmms-enqueue.desktop:3
+msgid "Playlist Tool"
+msgstr "ਸੰਗੀਤ ਸੂਚੀ ਸੰਦ"
+
+#. Name
+#: Multimedia/xmms.desktop:2
+msgid "XMMS"
+msgstr ""
+
+#. GenericName
+#: Multimedia/xmms.desktop:3
+msgid "Multimedia Player"
+msgstr "ਬਹੁਰੰਗ ਵਾਜਾ"
+
+#. Name
+#: Office/Applix.desktop:2
+msgid "Applix"
+msgstr "ਅਪਲੀਕਸ"
+
+#. GenericName
+#: Office/Applix.desktop:3
+msgid "Office Suite"
+msgstr "ਆਫਿਸ ਕਾਰਜ"
+
+#. Name
+#: Office/Dia.desktop:2
+msgid "Dia"
+msgstr "ਡਾਈ"
+
+#. GenericName
+#: Office/Dia.desktop:3 Office/Guppi.desktop:3
+msgid "Program for Diagrams"
+msgstr "ਸ਼ਕਲਾਂ (ਡਾਈਗਰਾਮ) ਲਈ ਪਰੋਗਰਾਮ"
+
+#. Name
+#: Office/Gnome-Cal.desktop:2
+msgid "GNOME-Cal"
+msgstr "ਗਨੋਮ-ਕੈਲ"
+
+#. GenericName
+#: Office/Gnome-Cal.desktop:3
+msgid "Personal Calendar"
+msgstr "ਨਿੱਜੀ ਕੈਲੰਡਰ"
+
+#. Name
+#: Office/Gnome-Card.desktop:2
+msgid "GNOME-Card"
+msgstr "ਗਨੋਮ-ਕਾਰਡ"
+
+#. GenericName
+#: Office/Gnome-Card.desktop:3
+msgid "Contact Manager"
+msgstr "ਸੰਪਰਕ ਮੈਨੇਜਰ"
+
+#. Name
+#: Office/GnomeTimeTracker.desktop:2
+msgid "GNOME Time Tracker"
+msgstr "ਗਨੋਮ ਸਮਾਂ ਜਾਣਕਾਰੀ"
+
+#. Name
+#: Office/Gnumeric.desktop:2
+msgid "Gnumeric"
+msgstr "ਜੀ-ਸਾਰਣੀਕਾਰ"
+
+#. GenericName
+#: Office/Gnumeric.desktop:3 Office/XsLite.desktop:3
+msgid "Spread Sheet"
+msgstr "ਸਾਰਣੀਕਾਰ"
+
+#. Name
+#: Office/Guppi.desktop:2
+msgid "Guppi"
+msgstr "ਜੂਪੀ"
+
+#. Name
+#: Office/Ical.desktop:2
+msgid "Ical"
+msgstr ""
+
+#. GenericName
+#: Office/Ical.desktop:3
+msgid "Calendar Program"
+msgstr "ਕੈਲੰਡਰ ਕਾਰਜ"
+
+#. Name
+#: Office/WordPerfect.desktop:2
+msgid "WordPerfect"
+msgstr ""
+
+#. GenericName
+#: Office/WordPerfect.desktop:3 Office/WordPerfect2000.desktop:3
+#: Office/abiword.desktop:3 Office/lyx.desktop:3
+msgid "Word Processor"
+msgstr "ਸ਼ਬਦਕਾਰ"
+
+#. Name
+#: Office/WordPerfect2000.desktop:2
+#, fuzzy
+msgid "WordPerfect 2000"
+msgstr "ਬਰਾਂਡਕਾਸਟ 2000"
+
+#. Name
+#: Office/XAcc.desktop:2
+msgid "xacc"
+msgstr ""
+
+#. GenericName
+#: Office/XAcc.desktop:3
+msgid "Personal Accounting Tool"
+msgstr "ਨਿੱਜੀ ਵਹੀ-ਖਾਤਾ ਸੰਦ"
+
+#. Name
+#: Office/XsLite.desktop:2
+msgid "XsLite"
+msgstr ""
+
+#. Name
+#: Office/abiword.desktop:2
+msgid "AbiWord"
+msgstr "ਅਬੀਵਰਡ"
+
+#. Name
+#: Office/acroread.desktop:2
+msgid "Acrobat Reader"
+msgstr "ਐਕਰੋਬੈਟ ਰੀਡਰ"
+
+#. GenericName
+#: Office/acroread.desktop:3 Office/xpdf.desktop:3
+msgid "PDF Viewer"
+msgstr "PDF ਦਰਸ਼ਕ"
+
+#. Name
+#: Office/gnucash.desktop:2
+msgid "GnuCash"
+msgstr "ਗਨੂਕੈਸ਼"
+
+#. GenericName
+#: Office/gnucash.desktop:3
+msgid "Finance Manager"
+msgstr "ਵਿੱਤ ਮੈਨੇਜਰ"
+
+#. Name
+#: Office/lyx.desktop:2
+msgid "LyX"
+msgstr ""
+
+#. Name
+#: Office/mrproject.desktop:2
+msgid "MrProject"
+msgstr ""
+
+#. GenericName
+#: Office/mrproject.desktop:3
+msgid "Project Manager"
+msgstr "ਪਰੋਜੈਕਟ ਮੈਨੇਜਰ"
+
+#. Name
+#: Office/netscapeaddressbook.desktop:2
+msgid "Netscape Addressbook"
+msgstr "ਨੈਟਸਕੇਪ ਸਿਰਨਾਵਾਂ-ਕਿਤਾਬ"
+
+#. Name
+#: Office/plan.desktop:2
+msgid "Plan"
+msgstr "ਪਲੈਨ"
+
+#. GenericName
+#: Office/plan.desktop:3
+msgid "Calendar Manager"
+msgstr "ਕੈਲੰਡਰ ਮੈਨੇਜਰ"
+
+#. Name
+#: Office/pybliographic.desktop:2
+msgid "Pybliographic"
+msgstr "ਫੀਬਬਲੀਓਗਰਾਫ"
+
+#. GenericName
+#: Office/pybliographic.desktop:3
+msgid "Bibliographic Database"
+msgstr "ਪੁਸਤਕ-ਸੂਚੀ ਡਾਟਾਬੇਸ"
+
+#. Name
+#: Office/scribus.desktop:2
+msgid "Scribus"
+msgstr ""
+
+#. GenericName
+#: Office/scribus.desktop:3
+msgid "Desktop Publishing"
+msgstr "ਡਿਸਕਟਾਮ ਪਰਕਾਸ਼ਨ"
+
+#. Name
+#: Office/xpdf.desktop:2
+msgid "X PDF"
+msgstr ""
+
+#. Name
+#: System/Terminal/aterm.desktop:2
+msgid "Terminal"
+msgstr "ਟਰਮੀਨਲ"
+
+#. GenericName
+#: System/Terminal/aterm.desktop:3 Utilities/XUtilities/xterm.desktop:3
+msgid "Terminal Program"
+msgstr "ਟਰਮੀਨਲ ਪਰੋਗਰਾਮ"
+
+#. Name
+#: System/Terminal/procinfo.desktop:2
+msgid "Procinfo"
+msgstr "ਕਾਰਜ ਜਾਣਕਾਰੀ"
+
+#. GenericName
+#: System/Terminal/procinfo.desktop:3
+msgid "System Process Information"
+msgstr "ਸਿਸਟਮ ਕਾਰਜ ਜਾਣਕਾਰੀ"
+
+#. Name
+#: System/Terminal/rxvt.desktop:2
+msgid "RXVT"
+msgstr ""
+
+#. GenericName
+#: System/Terminal/rxvt.desktop:3
+msgid "ouR eXtended Virtual Terminal"
+msgstr "ouR eXtended ਫਰਜ਼ੀ ਟਰਮੀਨਲ"
+
+#. Name
+#: System/Terminal/vmstat.desktop:2
+msgid "Vmstat"
+msgstr ""
+
+#. GenericName
+#: System/Terminal/vmstat.desktop:3
+msgid "Virtual Memory Statistics"
+msgstr "ਵਰਚੁਅਲ ਮੈਮੋਰੀ ਅੰਕੜੇ"
+
+#. Name
+#: System/citrix_ica.desktop:2
+msgid "Citrix ICA Client"
+msgstr "Citrix ICA ਕਲਾਂਈਟ"
+
+#. GenericName
+#: System/citrix_ica.desktop:3
+msgid "WTS Client"
+msgstr "WTS ਕਲਾਂਈਟ"
+
+#. Name
+#: System/editres.desktop:2
+#, fuzzy
+msgid "EditXRes"
+msgstr "ਜੀ-ਸੰਪਾਦਕ"
+
+#. GenericName
+#: System/editres.desktop:3
+msgid "X Resource Editor"
+msgstr "X ਸਰੋਤ ਸੰਪਾਦਕ"
+
+#. Name
+#: System/sam.desktop:2
+msgid "SAM System-Administration"
+msgstr "SAM ਸਿਸਟਮ-ਪਰਸ਼ਾਸ਼ਕ"
+
+#. Name
+#: System/wine.desktop:2
+msgid "Wine"
+msgstr "ਵਾਈਨ"
+
+#. GenericName
+#: System/wine.desktop:3
+msgid "Run Windows Programs"
+msgstr "ਵਿੰਡੋ(Windows) ਦੇ ਪਰੋਗਰਾਮ ਚਲਾਓ"
+
+#. Name
+#: System/xosview.desktop:2
+msgid "X osview"
+msgstr "X os-ਝਲਕ"
+
+#. GenericName
+#: System/xosview.desktop:3
+msgid "System Monitor"
+msgstr "ਸਿਸਟਮ ਨਿਗਰਾਨ"
+
+#. Name
+#: Utilities/Editors/emacs.desktop:2
+#, fuzzy
+msgid "Emacs"
+msgstr "X Eਮੈਕਸ"
+
+#. GenericName
+#: Utilities/Editors/emacs.desktop:3 Utilities/Editors/gedit.desktop:3
+#: Utilities/Editors/gvim.desktop:3 Utilities/Editors/lemacs.desktop:3
+#: Utilities/Editors/nano.desktop:3 Utilities/Editors/nedit.desktop:3
+#: Utilities/Editors/pico.desktop:3 Utilities/Editors/xedit.desktop:3
+#: Utilities/Editors/xemacs.desktop:3
+msgid "Text Editor"
+msgstr "ਪਾਠ ਸੰਪਾਦਕ"
+
+#. Name
+#: Utilities/Editors/gedit.desktop:2
+msgid "gEdit"
+msgstr "ਜੀ-ਸੰਪਾਦਕ"
+
+#. Name
+#: Utilities/Editors/gvim.desktop:2
+msgid "Vi IMproved"
+msgstr ""
+
+#. Name
+#: Utilities/Editors/lemacs.desktop:2
+#, fuzzy
+msgid "Lucid Emacs"
+msgstr "X Eਮੈਕਸ"
+
+#. Name
+#: Utilities/Editors/nano.desktop:2
+msgid "Nano"
+msgstr ""
+
+#. Name
+#: Utilities/Editors/nedit.desktop:2
+msgid "Nedit"
+msgstr "N-ਸੰਪਾਦਕ"
+
+#. Name
+#: Utilities/Editors/pico.desktop:2
+msgid "Pico"
+msgstr ""
+
+#. Name
+#: Utilities/Editors/xedit.desktop:2
+msgid "X Editor"
+msgstr "X ਸੰਪਾਦਕ"
+
+#. Name
+#: Utilities/Editors/xemacs.desktop:2
+msgid "X Emacs"
+msgstr "X Eਮੈਕਸ"
+
+#. Name
+#: Utilities/GKrellM.desktop:2
+msgid "GKrellM"
+msgstr ""
+
+#. GenericName
+#: Utilities/GKrellM.desktop:3
+msgid "GNU Krell Monitors"
+msgstr "GNU ਕੇਰੀਲ ਨਿਗਰਾਨ"
+
+#. Name
+#: Utilities/GnomeWho.desktop:2
+msgid "GNOME Who"
+msgstr "ਗਨੋਮ ਕੌਣ"
+
+#. GenericName
+#: Utilities/GnomeWho.desktop:3
+msgid "System Info Tool"
+msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ ਸੰਦ"
+
+#. Name
+#: Utilities/SystemInfo.desktop:2
+msgid "System Info"
+msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ"
+
+#. Name
+#: Utilities/SystemLogViewer.desktop:2
+msgid "System Log Viewer"
+msgstr "ਸਿਸਟਮ ਲਾਗ ਦਰਸ਼ਕ"
+
+#. Name
+#: Utilities/XUtilities/Xkill.desktop:2
+msgid "X Kill"
+msgstr "X ਖਤਮ"
+
+#. GenericName
+#: Utilities/XUtilities/Xkill.desktop:3
+msgid "Window Termination Tool"
+msgstr "ਝਰੋਖਾ ਖਾਤਮਾ ਸੰਦ"
+
+#. Name
+#: Utilities/XUtilities/Xrefresh.desktop:2
+msgid "X Refresh"
+msgstr "X ਤਾਜ਼ਾ"
+
+#. GenericName
+#: Utilities/XUtilities/Xrefresh.desktop:3
+msgid "Refresh Screen"
+msgstr "ਪਰਦਾ ਤਾਜ਼ਾ"
+
+#. Name
+#: Utilities/XUtilities/Xtraceroute.desktop:2
+msgid "X Traceroute"
+msgstr "X ਮਾਰਗ-ਖੋਜ"
+
+#. GenericName
+#: Utilities/XUtilities/Xtraceroute.desktop:3
+msgid "Network Tool"
+msgstr "ਨੈੱਟਵਰਕ ਸੰਦ"
+
+#. Name
+#: Utilities/XUtilities/xcalc.desktop:2
+msgid "X Calc"
+msgstr "X ਹਿਸਾਬੀ"
+
+#. GenericName
+#: Utilities/XUtilities/xcalc.desktop:3 Utilities/calctool.desktop:3
+msgid "Calculator"
+msgstr "ਕੈਲਕੂਲੇਟਰ"
+
+#. Name
+#: Utilities/XUtilities/xclipboard.desktop:2
+msgid "X Clipboard"
+msgstr "X ਕਲਿੱਪਬੋਰਡ"
+
+#. GenericName
+#: Utilities/XUtilities/xclipboard.desktop:3
+msgid "Clipboard Viewer"
+msgstr "ਕਲਿੱਪਬੋਰਡ ਦਰਸ਼ਕ"
+
+#. Name
+#: Utilities/XUtilities/xclock.desktop:2
+msgid "X Clock"
+msgstr "X ਘੜੀ"
+
+#. GenericName
+#: Utilities/XUtilities/xclock.desktop:3 Utilities/oclock.desktop:3
+msgid "Clock"
+msgstr "ਘੜੀ"
+
+#. Name
+#: Utilities/XUtilities/xconsole.desktop:2
+msgid "X Console"
+msgstr "X ਕੰਨਸੋਲ"
+
+#. GenericName
+#: Utilities/XUtilities/xconsole.desktop:3
+msgid "Console Message Viewer"
+msgstr "ਕੰਨਸੋਲ ਸੁਨੇਹਾ ਦਰਸ਼ਕ"
+
+#. Name
+#: Utilities/XUtilities/xload.desktop:2
+msgid "X Load"
+msgstr "X ਲੋਡ"
+
+#. GenericName
+#: Utilities/XUtilities/xload.desktop:3
+msgid "Monitors System Load"
+msgstr "ਸਿਸਟਮ ਲੋਡ ਦੀ ਨਿਗਰਾਨੀ"
+
+#. Name
+#: Utilities/XUtilities/xmag.desktop:2
+msgid "X Magnifier"
+msgstr "X ਵੱਡਦਰਸ਼ੀ"
+
+#. GenericName
+#: Utilities/XUtilities/xmag.desktop:3
+msgid "Desktop Magnifier"
+msgstr "ਵੇਹੜਾ ਵੱਡਦਰਸ਼ੀ"
+
+#. Name
+#: Utilities/XUtilities/xterm.desktop:2
+msgid "X Terminal"
+msgstr "X ਟਰਮੀਨਲ"
+
+#. Name
+#: Utilities/calctool.desktop:2
+msgid "Calctool"
+msgstr "ਹਿਸਾਬੀ"
+
+#. Name
+#: Utilities/e-notes.desktop:2
+msgid "E-Notes"
+msgstr "ਈ-ਸੂਚਨਾ"
+
+#. GenericName
+#: Utilities/e-notes.desktop:3
+msgid "Personal Notes"
+msgstr "ਨਿੱਜੀ ਸੂਚਨਾਵਾਂ"
+
+#. Name
+#: Utilities/oclock.desktop:2
+#, fuzzy
+msgid "OClock"
+msgstr "ਘੜੀ"
+
+#. Name
+#: Utilities/xgnokii.desktop:2
+msgid "X-Gnokii"
+msgstr ""
+
+#. GenericName
+#: Utilities/xgnokii.desktop:3
+msgid "Mobile Phone Management Tool"
+msgstr "ਮੋਬਾਈਲ ਫੋਨ ਪਰਬੰਧਨ ਸੰਦ"

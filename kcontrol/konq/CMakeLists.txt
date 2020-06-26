@@ -23,19 +23,24 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     desktopbehavior.desktop desktop.desktop
     desktoppath.desktop filebrowser.desktop
-  DESTINATION ${XDG_APPS_INSTALL_DIR} )
+  PO_DIR kcontrol-desktops
+)
 
 install( FILES
     overlapping.png onlyone.png
   DESTINATION ${DATA_INSTALL_DIR}/kcontrol/pics )
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     filebehavior.desktop fileappearance.desktop
     filepreviews.desktop
-  DESTINATION ${APPS_INSTALL_DIR}/.hidden )
+  DESTINATION ${APPS_INSTALL_DIR}/.hidden
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_konq (module) #########################

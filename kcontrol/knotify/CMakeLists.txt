@@ -23,7 +23,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmnotify.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcmnotify.desktop
+  PO_DIR kcontrol-desktops
+)
 install( FILES play.png DESTINATION ${DATA_INSTALL_DIR}/kcontrol/pics )
 
 

@@ -1,0 +1,310 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 16:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: cy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: .directory:2
+msgid "Default"
+msgstr "Rhagosodedig"
+
+#. Name
+#: hidden.directory:4
+msgid "Internal Services"
+msgstr ""
+
+#. Name
+#: kde-development-webdevelopment.directory:4
+#: tde-development-webdevelopment.directory:4
+#, fuzzy
+msgid "Web Development"
+msgstr "Datblygu"
+
+#. Name
+#: kde-development.directory:4 kde-games.directory:4 kde-graphics.directory:4
+#: kde-internet.directory:4 kde-multimedia.directory:4 kde-office.directory:4
+#: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
+#: kde-utilities.directory:4
+msgid "KDE"
+msgstr ""
+
+#. Name
+#: kde-editors.directory:4 tde-editors.directory:4
+msgid "Editors"
+msgstr "Golygyddion"
+
+#. Name
+#: kde-edu-languages.directory:4
+msgid "Languages"
+msgstr ""
+
+#. Name
+#: kde-edu-mathematics.directory:4
+msgid "Mathematics"
+msgstr ""
+
+#. Name
+#: kde-edu-miscellaneous.directory:4
+msgid "Miscellaneous"
+msgstr ""
+
+#. Name
+#: kde-edu-science.directory:4 tde-science.directory:5
+msgid "Science"
+msgstr "Gwyddoniaeth"
+
+#. Name
+#: kde-games-arcade.directory:4 tde-games-arcade.directory:4
+msgid "Arcade"
+msgstr "Arcêd"
+
+#. Name
+#: kde-games-board.directory:4 tde-games-board.directory:4
+msgid "Board Games"
+msgstr "Gemau Bwrdd"
+
+#. Name
+#: kde-games-card.directory:4 tde-games-card.directory:4
+msgid "Card Games"
+msgstr "Gemau Cardiau"
+
+#. Name
+#: kde-games-kids.directory:4 tde-games-kids.directory:4
+msgid "Games for Kids"
+msgstr "Gêmau ar gyfer Plant"
+
+#. Name
+#: kde-games-strategy.directory:4 tde-games-strategy.directory:4
+msgid "Tactics & Strategy"
+msgstr "Tactegau & Strategaeth"
+
+#. Name
+#: kde-toys.directory:4 tde-toys.directory:4
+msgid "Toys"
+msgstr "Tegannau"
+
+#. Name
+#. Comment
+#: kde-utilities-accessibility.directory:4
+#: tde-utilities-accessibility.directory:4
+#: tde-utilities-accessibility.directory:6
+msgid "Accessibility"
+msgstr "Hygyrchedd"
+
+#. Name
+#. Comment
+#: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
+#: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
+msgid "Desktop"
+msgstr "Penbwrdd"
+
+#. Name
+#. Comment
+#: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
+#: tde-utilities-pim.directory:6
+msgid "PIM"
+msgstr ""
+
+#. Name
+#: tde-development-translation.directory:4
+msgid "Translation"
+msgstr "Cyfieithiad"
+
+#. Name
+#: tde-development.directory:4
+msgid "Development"
+msgstr "Datblygu"
+
+#. Name
+#: tde-edutainment.directory:4
+msgid "Edutainment"
+msgstr "Addifyrwch"
+
+#. Name
+#: tde-games-logic.directory:4
+#, fuzzy
+msgid "Logic Games"
+msgstr "Gemau sy'n debyg i Rogue"
+
+#. Name
+#: tde-games-roguelikes.directory:4
+msgid "Rogue-like Games"
+msgstr "Gemau sy'n debyg i Rogue"
+
+#. Name
+#: tde-games.directory:4
+msgid "Games"
+msgstr "Gemau"
+
+#. Name
+#: tde-graphics.directory:4
+msgid "Graphics"
+msgstr "Graffeg"
+
+#. Name
+#: tde-internet-terminal.directory:4 tde-system-terminal.directory:4
+msgid "Terminal Applications"
+msgstr "Cymhwysiadau Terfynell"
+
+#. Name
+#: tde-internet.directory:4
+msgid "Internet"
+msgstr "Rhyngrwyd"
+
+#. Name
+#: tde-main.directory:5
+msgid "TDE Menu"
+msgstr "Dewislen TDE"
+
+#. Name
+#: tde-more.directory:5
+msgid "More Applications"
+msgstr "Rhagor o Gymhwysiadau"
+
+#. Name
+#: tde-multimedia.directory:4
+msgid "Multimedia"
+msgstr "Amlgyfryngau"
+
+#. Name
+#. Comment
+#: tde-office-pim.directory:4 tde-office-pim.directory:6
+msgid "Personal Information Management"
+msgstr ""
+
+#. Name
+#: tde-office.directory:4
+msgid "Office"
+msgstr "Swyddfa"
+
+#. Name
+#: tde-settings-accessibility.directory:4
+msgid "Regional & Accessibility"
+msgstr "Rhanbarthol & Hygyrchedd"
+
+#. Name
+#: tde-settings-components.directory:4
+msgid "TDE Components"
+msgstr "Cydrannau TDE"
+
+#. Name
+#: tde-settings-hardware.directory:4
+msgid "Hardware"
+msgstr "Caledwedd"
+
+#. Name
+#: tde-settings-information.directory:4
+msgid "Device Informations"
+msgstr ""
+
+#. Name
+#: tde-settings-looknfeel.directory:4
+msgid "Appearance & Themes"
+msgstr "Golwg a Themau"
+
+#. Name
+#: tde-settings-network.directory:4
+msgid "Internet & Network"
+msgstr "Rhyngrwyd & Rhwydwaith"
+
+#. Name
+#. Comment
+#: tde-settings-peripherals.directory:4 tde-utilities-peripherals.directory:4
+#: tde-utilities-peripherals.directory:6
+msgid "Peripherals"
+msgstr "Perifferolion"
+
+#. Name
+#: tde-settings-power.directory:4
+msgid "Power Control"
+msgstr "Rheoli Pŵer"
+
+#. Name
+#: tde-settings-security.directory:4
+msgid "Security & Privacy"
+msgstr "Diogelwch & Preifatrwydd"
+
+#. Name
+#: tde-settings-sound.directory:4
+msgid "Sound & Multimedia"
+msgstr "Sain & Amlgyfryngau"
+
+#. Name
+#: tde-settings-system.directory:4
+msgid "System Administration"
+msgstr "Gweinyddiaith Cysawd"
+
+#. Name
+#: tde-settings-webbrowsing.directory:4
+msgid "Web Browser"
+msgstr "Porydd Gwê"
+
+#. Name
+#: tde-settings.directory:4
+msgid "Settings-Modules"
+msgstr "Modiwlau Gosodiadau"
+
+#. Name
+#: tde-settingsmenu.directory:4
+msgid "Settings"
+msgstr "Gosodiadau"
+
+#. Name
+#: tde-system-screensavers.directory:4
+msgid "Screen Savers"
+msgstr "Arbedyddion Sgrîn"
+
+#. Comment
+#: tde-system-screensavers.directory:8
+msgid "Screen saver demos"
+msgstr "Arddangosfeydd arbedyddion sgrîn"
+
+#. Name
+#: tde-system-su.directory:5
+msgid "SuperUser"
+msgstr ""
+
+#. Name
+#: tde-system.directory:4
+msgid "System"
+msgstr "Cysawd"
+
+#. Name
+#: tde-unknown.directory:4
+msgid "Lost & Found"
+msgstr "Colledig a Chanfyddedig"
+
+#. Name
+#. Comment
+#: tde-utilities-file.directory:4 tde-utilities-file.directory:6
+msgid "File"
+msgstr "Ffeil"
+
+#. Name
+#: tde-utilities-xutils.directory:4
+msgid "X-Utilities"
+msgstr "Defnyddioldebau-X"
+
+#. Comment
+#: tde-utilities-xutils.directory:6
+msgid "X Window Utilities"
+msgstr "Defnyddioldebau Ffenestr X"
+
+#. Name
+#. Comment
+#: tde-utilities.directory:4 tde-utilities.directory:6
+msgid "Utilities"
+msgstr "Defnyddioldebau"

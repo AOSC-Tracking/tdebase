@@ -26,7 +26,7 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons( kmenuedit )
-install( FILES kmenuedit.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop( kmenuedit.desktop )
 install( FILES uninstall.desktop DESTINATION ${APPS_INSTALL_DIR}/System RENAME kmenuedit.desktop )
 install( FILES kmenueditui.rc DESTINATION ${DATA_INSTALL_DIR}/kmenuedit )
 install( FILES kcontroleditui.rc DESTINATION ${DATA_INSTALL_DIR}/kcontroledit )

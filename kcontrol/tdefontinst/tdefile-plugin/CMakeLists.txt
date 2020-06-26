@@ -24,7 +24,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES tdefile_font.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE tdefile_font.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### tdefile_font (module) #######################

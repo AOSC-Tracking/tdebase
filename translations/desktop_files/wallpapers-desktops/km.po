@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-22 19:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: All-Good-People-1.jpg.desktop:3
+msgid "All Good People"
+msgstr "សុទ្ធ​តែ​មនុស្ស​ល្អ"
+
+#. Name
+#: Chicken-Songs-2.jpg.desktop:3
+msgid "Chicken Songs"
+msgstr "ចម្រៀង​សត្វ​មាន់"
+
+#. Name
+#: No-Ones-Laughing-3.jpg.desktop:3
+msgid "No One's Laughing"
+msgstr "គ្មាន​អ្នក​ណា​សើច"
+
+#. Name
+#: Time-For-Lunch-2.jpg.desktop:3
+msgid "Time For Lunch"
+msgstr "ពេល​អាហារ​ថ្ងៃ​ត្រង់"
+
+#. Name
+#: Totally-New-Product-1.jpg.desktop:3
+msgid "Totally New Product"
+msgstr "ផលិតផល​ថ្មី​ចែស"
+
+#. Name
+#: Trinity-lineart.svg.desktop:3
+msgid "Trinity Default"
+msgstr "លំនាំដើម TDE ៣.៥"
+
+#. Name
+#: Trinity4.png.desktop:3
+msgid "Trinity Default (old)"
+msgstr "លំនាំដើម TDE ៣.៥ (old)"
+
+#. Name
+#: Won-Ton-Soup-3.jpg.desktop:3
+msgid "Won Ton Soup"
+msgstr "ស៊ុប​វ៉ុនតុន"
+
+#. Name
+#: aghi.jpg.desktop:3
+msgid "Aghi"
+msgstr "Aghi"
+
+#. Name
+#: airplane.jpg.desktop:3
+msgid "Airplane"
+msgstr "Airplane"
+
+#. Name
+#: alta-badia.jpg.desktop:3
+msgid "Alta Badia"
+msgstr "អាល់តាបាឌៀ"
+
+#. Name
+#: andes-venezolanos.svgz.desktop:3
+msgid "Andes Venezolanos"
+msgstr "អង់ដេវេណេហ្ស៊ូឡាណូ"
+
+#. Name
+#: another-view.jpg.desktop:3
+msgid "Another View"
+msgstr "Another View"
+
+#. Name
+#: aurora.svgz.desktop:3
+msgid "Aurora"
+msgstr "ពន្លឺ​មុន​ព្រះអាទិត្យ​រះ"
+
+#. Name
+#: blue-bend.jpg.desktop:3
+msgid "Blue Blend"
+msgstr "លាយ​ពណ៌​ខៀវ"
+
+#. Name
+#: celtic.svgz.desktop:3
+msgid "Celtic"
+msgstr "សែលតិក"
+
+#. Name
+#: default_blue.jpg.desktop:3
+msgid "Default Blue"
+msgstr "ខៀវ​លំនាំដើម"
+
+#. Name
+#: default_gears.jpg.desktop:3
+msgid "Default Gears"
+msgstr "ស្ពឺ​លំនាំដើម"
+
+#. Name
+#: floating-leaves.jpg.desktop:3
+msgid "Floating Leaves"
+msgstr "ស្លឹកឈើ​រសាត់​"
+
+#. Name
+#: globe.svgz.desktop:3
+msgid "Geared Globe"
+msgstr "ភូគោល​រាង​ស្ពឺ"
+
+#. Name
+#: green_curtain.jpg.desktop:3
+msgid "Green Curtain"
+msgstr ""
+
+#. Name
+#: here-gear.svgz.desktop:3
+msgid "We Are Gear"
+msgstr "យើង​ជា​ស្ពឺ"
+
+#. Name
+#: horse-head-nebula.png.desktop:3
+msgid "Horse Head Nebula"
+msgstr ""
+
+#. Name
+#: isadora.png.desktop:3
+msgid "Isadora"
+msgstr ""
+
+#. Name
+#: konqui.svgz.desktop:3
+msgid "Konqui"
+msgstr "កុងគី"
+
+#. Name
+#: lineart.svgz.desktop:3
+msgid "Lineart Logo"
+msgstr "រូបសញ្ញា​សិល្បៈ​បន្ទាត់"
+
+#. Name
+#: moon.svgz.desktop:3
+msgid "Moon"
+msgstr "ព្រះចន្ទ"
+
+#. Name
+#: mountain-lake.jpg.desktop:3
+msgid "Mountain Lake"
+msgstr "Mountain Lake"
+
+#. Name
+#: seaofconero.jpg.desktop:3
+msgid "Sea of Conero"
+msgstr "សមុទ្រ​កូណេរ៉ូ"
+
+#. Name
+#: soft-green.jpg.desktop:3
+msgid "Soft Green"
+msgstr "បៃតង​ស្រទន់"
+
+#. Name
+#: stelvio.jpg.desktop:3
+msgid "Stelvio"
+msgstr "ស្តេលវីអូ"
+
+#. Name
+#: stripes.jpg.desktop:3
+msgid "Stripes"
+msgstr ""
+
+#. Name
+#: sunshine-after-the-rain.jpg.desktop:3
+msgid "Sunshine After The Rain"
+msgstr "ព្រះអាទិត្យ​រះ​បន្ទាប់​ពី​ភ្លៀង​រួច"
+
+#. Name
+#: triplegears.jpg.desktop:3
+msgid "Triple Gears"
+msgstr "ស្ពឺ​មុខ​បី"
+
+#. Name
+#: world-desktop.jpg.desktop:3
+msgid "World Desktop"
+msgstr ""

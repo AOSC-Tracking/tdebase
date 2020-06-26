@@ -24,8 +24,17 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES konqy_preloader.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
-install( FILES konqy_preload.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE konqy_preloader.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}/kded
+  PO_DIR konqueror-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE konqy_preload.desktop
+  DESTINATION ${AUTOSTART_INSTALL_DIR}
+  PO_DIR konqueror-desktops
+)
 
 
 ##### kded_konqy_preloader (module) #############

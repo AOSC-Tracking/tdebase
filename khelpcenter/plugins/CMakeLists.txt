@@ -13,9 +13,12 @@ add_subdirectory( Applications )
 add_subdirectory( Manpages )
 # add_subdirectory( Scrollkeeper )
 
-install( FILES
-  applets.desktop contact.desktop faq.desktop info.desktop
-  links.desktop support.desktop userguide.desktop welcome.desktop
-  hardwaremodules.desktop kcontrolmodules.desktop konqplugins.desktop
-  tdeioslaves.desktop quickstart.desktop visualdict.desktop adminguide.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/khelpcenter/plugins )
+tde_create_translated_desktop(
+  SOURCE
+    applets.desktop contact.desktop faq.desktop info.desktop
+    links.desktop support.desktop userguide.desktop welcome.desktop
+    hardwaremodules.desktop kcontrolmodules.desktop konqplugins.desktop
+    tdeioslaves.desktop quickstart.desktop visualdict.desktop adminguide.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/khelpcenter/plugins
+  PO_DIR khelpcenter-desktops
+)

@@ -8,3 +8,9 @@ tde_l10n_create_template(
 )
 
 tde_l10n_auto_add_subdirectories( )
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/konqueror-desktops/"
+    SOURCES *.desktop *.directory
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)

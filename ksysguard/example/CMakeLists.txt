@@ -9,5 +9,9 @@
 #
 #################################################
 
-install( FILES eventsrc DESTINATION ${DATA_INSTALL_DIR}/ksysguard )
+tde_create_translated_desktop(
+  SOURCE eventsrc
+  DESTINATION ${DATA_INSTALL_DIR}/ksysguard
+  PO_DIR ksysguard-eventsrc
+)
 install( FILES ksysguarddrc DESTINATION ${SYSCONF_INSTALL_DIR} )

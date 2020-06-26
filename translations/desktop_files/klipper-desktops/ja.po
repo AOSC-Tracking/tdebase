@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 14:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: klipper.desktop:2
+msgid "Klipper"
+msgstr ""
+
+#. GenericName
+#: klipper.desktop:4
+msgid "Clipboard Tool"
+msgstr "クリップボードツール"
+
+#. Comment
+#: klipper.desktop:6
+msgid "A cut & paste history utility"
+msgstr "カット＆ペースト履歴ユーティリティ"
+
+#. Description
+#: klipperrc.desktop:9
+msgid "Jpeg-Image"
+msgstr "Jpeg 画像"
+
+#. Description
+#: klipperrc.desktop:14
+msgid "Launch K&View"
+msgstr "KView を起動(&V)"
+
+#. Description
+#: klipperrc.desktop:19
+msgid "Web-URL"
+msgstr "ウェブ URL"
+
+#. Description
+#: klipperrc.desktop:24 klipperrc.desktop:116
+msgid "Open with &Konqueror"
+msgstr "Konqueror で開く(&K)"
+
+#. Description
+#: klipperrc.desktop:29 klipperrc.desktop:126
+msgid "Open with &Mozilla"
+msgstr "Mozilla で開く(&M)"
+
+#. Description
+#: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
+#: klipperrc.desktop:131
+msgid "Send &URL"
+msgstr "URL を送信(&U)"
+
+#. Description
+#: klipperrc.desktop:40
+msgid "Open with &Firefox"
+msgstr "Firefox で開く(&F)"
+
+#. Description
+#: klipperrc.desktop:46
+msgid "Send &Page"
+msgstr "ページを送信(&P)"
+
+#. Description
+#: klipperrc.desktop:51
+msgid "Mail-URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:56
+msgid "Launch &Kmail"
+msgstr "Kmail を起動(&K)"
+
+#. Description
+#: klipperrc.desktop:61
+msgid "Launch &mutt"
+msgstr "mutt を起動(&M)"
+
+#. Description
+#: klipperrc.desktop:66
+msgid "Text File"
+msgstr "テキストファイル"
+
+#. Description
+#: klipperrc.desktop:71
+msgid "Launch K&Edit"
+msgstr "KEdit を起動(&E)"
+
+#. Description
+#: klipperrc.desktop:76
+msgid "Launch K&Write"
+msgstr "KWrite を起動(&W)"
+
+#. Description
+#: klipperrc.desktop:81
+msgid "Local file URL"
+msgstr "ローカルファイル URL"
+
+#. Description
+#: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
+msgid "Send &File"
+msgstr "ファイルを送信(&F)"
+
+#. Description
+#: klipperrc.desktop:96
+msgid "Gopher URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:111
+msgid "ftp URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:121
+msgid "Open with &Netscape"
+msgstr "Netscape で開く(&N)"

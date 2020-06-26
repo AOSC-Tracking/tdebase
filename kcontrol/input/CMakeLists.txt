@@ -33,9 +33,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
-    mouse.desktop
-  DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE mouse.desktop
+  PO_DIR kcontrol-desktops
+)
 
 install( FILES
     cursor_large_black.pcf.gz cursor_large_white.pcf.gz

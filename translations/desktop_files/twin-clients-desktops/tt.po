@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: b2/b2.desktop:2
+msgid "B II"
+msgstr ""
+
+#. Name
+#: keramik/keramik.desktop:2
+msgid "Keramik"
+msgstr ""
+
+#. Name
+#: kwmtheme/kwmtheme.desktop:2
+msgid "KWM Theme"
+msgstr "KWM Tışlaw"
+
+#. Name
+#: laptop/laptop.desktop:2
+msgid "Laptop"
+msgstr "Qulsanaq"
+
+#. Name
+#: modernsystem/modernsystem.desktop:2
+msgid "Modern System"
+msgstr "Zamança Sistem"
+
+#. Name
+#: plastik/plastik.desktop:2
+msgid "Plastik"
+msgstr ""
+
+#. Name
+#: quartz/quartz.desktop:2
+msgid "Quartz"
+msgstr ""
+
+#. Name
+#: redmond/redmond.desktop:2
+msgid "Redmond"
+msgstr ""
+
+#. Name
+#: test/test.desktop:2
+msgid "KWin test"
+msgstr "KWin sınaw"
+
+#. Name
+#: web/web.desktop:2
+msgid "Web"
+msgstr ""

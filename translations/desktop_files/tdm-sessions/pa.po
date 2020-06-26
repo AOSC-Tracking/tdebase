@@ -1,0 +1,533 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tde.desktop.cmake:7
+msgid "TDE"
+msgstr ""
+
+#. Comment
+#: tde.desktop.cmake:8
+#, fuzzy
+msgid ""
+"The Trinity Desktop Environment. A powerful Open Source graphical desktop "
+"environment"
+msgstr "ਇੱਕ ਆਮ ਵੇਹੜਾ ਵਾਤਾਵਰਣ, ਇੱਕ ਵਪਾਰਿਕ ਮਿਆਰ ਦਾ ਵੇਹੜਾ ਵਾਤਾਵਰਣ"
+
+#. Name
+#: 9wm.desktop:6
+msgid "9WM"
+msgstr ""
+
+#. Comment
+#: 9wm.desktop:8
+msgid "An emulation of the Plan 9 window manager 8-1/2"
+msgstr "ਪਲੇਨ 9 ਝਰੋਖਾ ਮੈਨੇਜਰ 8-1/2 ਦਾ ਸਮਰੂਪ"
+
+#. Name
+#: admin.desktop:7
+msgid "admin"
+msgstr ""
+
+#. Comment
+#: admin.desktop:9
+msgid "Yast Admin Session"
+msgstr ""
+
+#. Name
+#: aewm++.desktop:6
+msgid "AEWM++"
+msgstr ""
+
+#. Comment
+#: aewm++.desktop:8
+msgid ""
+"A minimal window manager based on AEWM, enhanced by virtual desktops and "
+"partial GNOME support"
+msgstr "AEWM ਤੇ ਅਧਾਰਿਤ ਛੋਟਾ ਝਰੋਖਾ ਮੈਨੇਜਰ, ਫਰਜ਼ੀ ਵੇਹੜਿਆਂ ਨਾਲ ਲੈੱਸ ਤੇ ਥੋੜਾ GNOME ਸਹਾਇਕ"
+
+#. Name
+#: aewm.desktop:6
+msgid "AEWM"
+msgstr ""
+
+#. Comment
+#: aewm.desktop:8
+msgid "A minimalist window manager"
+msgstr "ਇੱਕ ਹਲਕਾ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: afterstep.desktop:6
+msgid "AfterStep"
+msgstr "ਪਗਬਾਅਦ"
+
+#. Comment
+#: afterstep.desktop:8
+msgid "A window manager with the NeXTStep look and feel, based on FVWM"
+msgstr "NeXTStep ਦੀ ਦਿੱਖ ਤੇ ਦਰਿਸ਼ ਵਾਲਾ FVWM ਆਧਾਰਿਤ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: amaterus.desktop:6
+msgid "AMATERUS"
+msgstr ""
+
+#. Comment
+#: amaterus.desktop:8
+msgid "A GTK+ based window manager with a window grouping feature"
+msgstr "ਇੱਕ GTK+ ਤੇ ਆਧਾਰਿਤ ਝਰੋਖਾ ਮੈਨੇਜਰ, ਜੋ ਕਿ ਝਰੋਖਿਆਂ ਨੂੰ ਇੱਕ ਥਾਂ ਸੰਭਾਲਣ ਦੀ ਸਹੂਲਤ ਨਾਲ ਲੈੱਸ ਹੈ।"
+
+#. Name
+#: amiwm.desktop:6
+msgid "AmiWM"
+msgstr ""
+
+#. Comment
+#: amiwm.desktop:8
+msgid "The Amiga look-alike window manager"
+msgstr "ਅਮੀਗਾ ਵਰਗਾ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: asclassic.desktop:6
+msgid "ASClassic"
+msgstr ""
+
+#. Comment
+#: asclassic.desktop:8
+msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
+msgstr "AfterStep ਟਕਸਾਲੀ, AfterStep v1.1 ਤੇ ਆਧਾਰਿਤ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: blackbox.desktop:6
+msgid "Blackbox"
+msgstr "ਕਾਲਾਬਕਸਾ"
+
+#. Comment
+#: blackbox.desktop:8
+msgid "A fast & light window manager"
+msgstr "ਇੱਕ ਤੇਜ਼ ਅਤੇ ਹਲਕਾ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: cde.desktop:6
+msgid "CDE"
+msgstr ""
+
+#. Comment
+#: cde.desktop:8
+msgid ""
+"The Common Desktop Environment, a proprietary industry standard desktop "
+"environment"
+msgstr "ਇੱਕ ਆਮ ਵੇਹੜਾ ਵਾਤਾਵਰਣ, ਇੱਕ ਵਪਾਰਿਕ ਮਿਆਰ ਦਾ ਵੇਹੜਾ ਵਾਤਾਵਰਣ"
+
+#. Name
+#: ctwm.desktop:6
+msgid "CTWM"
+msgstr ""
+
+#. Comment
+#: ctwm.desktop:8
+msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr "ਕਲਾਉਡੀ ਦਾ ਟੈਬ ਝਰੋਖਾ ਮੈਨੈਜਰ, TWM ਫਰਜ਼ੀ ਪਰਦਿਆਂ ਆਦਿ ਨਾਲ ਲੈੱਸ ਹੈ।"
+
+#. Name
+#: cwwm.desktop:6
+msgid "CWWM"
+msgstr ""
+
+#. Comment
+#: cwwm.desktop:8
+msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
+msgstr "ChezWam ਝਰੋਖਾ ਮੈਨੇਜਰ, ਇੱਕ EvilWM ਤੇ ਆਧਾਰਿਤ ਹਲਕਾ ਝਰੋਖਾ ਮੈਨੇਜਰ ਹੈ"
+
+#. Name
+#: enlightenment.desktop:6
+msgid "Enlightenment"
+msgstr "ਗਿਆਨ"
+
+#. Comment
+#: enlightenment.desktop:8
+msgid "An extremely themable very feature-rich window manager"
+msgstr "ਇੱਕ ਸਰੂਪ ਦੇ ਪੂਰੇ ਫੀਚਰਾਂ ਨਾਲ ਭਰਪੂਰ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: evilwm.desktop:6
+msgid "EvilWM"
+msgstr ""
+
+#. Comment
+#: evilwm.desktop:8
+msgid "A minimalist window manager based on AEWM"
+msgstr "AEWM ਤੇ ਆਧਾਰਿਤ ਨਿਊਨਤਮ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: fluxbox.desktop:6
+msgid "Fluxbox"
+msgstr "ਫਕਸਬਕਸ"
+
+#. Comment
+#: fluxbox.desktop:8
+msgid "A highly configurable and low resource window manager based on Blackbox"
+msgstr "ਇੱਕ ਬਿਲਕੁੱਲ ਹਲਕਾ ਤੇ ਜਿਆਦਾ ਸੋਧਯੋਗ ਫਾਇਲ਼ ਮੈਨੇਜਰ"
+
+#. Name
+#: flwm.desktop:6
+msgid "FLWM"
+msgstr ""
+
+#. Comment
+#: flwm.desktop:8
+msgid "The Fast Light Window Manager, based primarily on WM2"
+msgstr "ਇੱਕ ਹਲਕਾ ਤੇਜ਼ ਫਾਇਲ਼ ਮੈਨੇਜਰ, ਜੋ ਕਿ WM2 ਤੇ ਆਧਾਰਿਤ ਹੈ"
+
+#. Name
+#: fvwm.desktop:6
+msgid "FVWM"
+msgstr ""
+
+#. Comment
+#: fvwm.desktop:8 fvwm2.desktop:8
+msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
+msgstr "ਇੱਕ ਸ਼ਕਤੀਸ਼ਾਲੀ ICCCM-ਅਨੁਕੂਲ ਬਹੁ-ਫਰਜ਼ੀ ਵੇਹੜਿਆਂ ਵਾਲਾ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: fvwm2.desktop:6
+msgid "FVWM2"
+msgstr ""
+
+#. Name
+#: fvwm95.desktop:6
+msgid "FVWM95"
+msgstr ""
+
+#. Comment
+#: fvwm95.desktop:8
+msgid "A Windows 95 look-alike derivative of FVWM"
+msgstr "ਵਿੰਡੋ 95 ਵਰਗਾ FVWM ਦਾ ਇੱਕ ਰੂਪ"
+
+#. Name
+#: gnome.desktop:6
+msgid "GNOME"
+msgstr ""
+
+#. Comment
+#: gnome.desktop:8
+msgid ""
+"The GNU Network Object Model Environment. A complete, free and easy-to-use "
+"desktop environment"
+msgstr ""
+"GNU Network Object Model Environment, ਇੱਕ ਸੰਪੂਰਨ, ਮੁਫਤ ਅਤ ਵਰਤਣ ਵਿੱਚ ਅਤਿ ਆਸਾਨ ਵੇਹੜਾ "
+"ਵਾਤਾਵਰਣ"
+
+#. Name
+#: golem.desktop:6
+msgid "Golem"
+msgstr "ਗੋਲੀਮ"
+
+#. Comment
+#: golem.desktop:8
+msgid "A lightweight window manager"
+msgstr "ਇੱਕ ਹਲਕਾ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: icewm.desktop:6
+msgid "IceWM"
+msgstr ""
+
+#. Comment
+#: icewm.desktop:8
+msgid "A Windows 95-OS/2-Motif-like window manager"
+msgstr "ਇੱਕ ਵਿੰਡੋ 95-OS/2-Motif-ਵਰਗਾ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: ion.desktop:6
+msgid "Ion"
+msgstr "ਲੋਨ"
+
+#. Comment
+#: ion.desktop:8
+msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
+msgstr "ਇੱਕ ਕੀ-ਬੋਰਡ ਸਹਾਇਕ ਝਰੋਖਾ ਮੈਨੇਜਰ, ਜੋ ਕਿ PWM ਤੇ ਆਧਾਰਿਤ ਹੈ"
+
+#. Name
+#: kde-plasma-safe.desktop:7
+msgid "KDE Plasma Workspace (failsafe session)"
+msgstr "ਪਲਾਜ਼ਮਾ ਡੈਸਕਟਾਪ ਵਰਕਸਪੇਸ (ਸੰਕਟਕਾਲੀਨ ਸ਼ੈਸ਼ਨ)"
+
+#. Comment
+#: kde-plasma-safe.desktop:9
+msgid "The desktop made by KDE (failsafe session)"
+msgstr "KDE ਵਲੋਂ ਡੈਸਕਟਾਪ (ਸੰਕਟਕਾਲੀਨ ਸ਼ੈਸ਼ਨ)"
+
+#. Name
+#: kde-plasma.desktop:7
+msgid "KDE Plasma Workspace"
+msgstr "KDE ਪਲਾਜ਼ਮਾ ਵਰਕਸਪੇਸ"
+
+#. Comment
+#: kde-plasma.desktop:9
+msgid "The desktop made by KDE"
+msgstr "KDE ਵਲੋਂ ਬਣਾਇਆ ਡੈਸਕਟਾਪ"
+
+#. Name
+#: larswm.desktop:6
+msgid "LarsWM"
+msgstr ""
+
+#. Comment
+#: larswm.desktop:8
+msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
+msgstr "ਲਾਰਸ ਫਾਇਲ਼ ਮੈਨੇਜਰ 9WM ਤੇ ਆਧਾਰਿਤ, ਝਰੋਖਿਆਂ ਦੇ ਸਮੇਟਣ ਲਈ ਸਹਾਈ"
+
+#. Name
+#: lwm.desktop:6
+msgid "LWM"
+msgstr ""
+
+#. Comment
+#: lwm.desktop:8
+msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
+msgstr "ਇੱਕ ਹਲਕਾ, ਨਾ-ਸੰਰਚਿਤਯੋਗ ਪੱਟੀ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: matchbox.desktop:6
+msgid "Matchbox"
+msgstr "ਮੈਚ-ਬਾਕਸ"
+
+#. Comment
+#: matchbox.desktop:8
+msgid "A window manager for handheld devices"
+msgstr "ਹੱਥਲੇ ਜੰਤਰਾਂ ਲਈ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: metacity.desktop:6
+msgid "Metacity"
+msgstr ""
+
+#. Comment
+#: metacity.desktop:8
+msgid "A lightweight GTK2 based window manager"
+msgstr "ਇੱਕ ਹਲਕਾ GTK2 ਤੇ ਆਧਾਰਿਤ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: mwm.desktop:6
+msgid "MWM"
+msgstr ""
+
+#. Comment
+#: mwm.desktop:8
+msgid "The Motif Window Manager"
+msgstr "Motif ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: olvwm.desktop:6
+msgid "OLVWM"
+msgstr ""
+
+#. Comment
+#: olvwm.desktop:8
+msgid ""
+"The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
+"desktops"
+msgstr "OpenLook Virtual Window Manager. OLWM ਫਰਜ਼ੀ ਵੇਹੜਿਆਂ ਲਈ ਖਾਸ ਤੌਰ ਤੇ ਤਿਆਰ"
+
+#. Name
+#: olwm.desktop:6
+msgid "OLWM"
+msgstr ""
+
+#. Comment
+#: olwm.desktop:8
+msgid "The traditional Open Look Window Manager"
+msgstr "ਇੱਕ ਮੂਲ ਓਪਨ ਲੁੱਕ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: openbox.desktop:6
+msgid "Openbox"
+msgstr "ਓਪਨ ਬਕਸਾ"
+
+#. Comment
+#: openbox.desktop:8
+msgid "A lightweight window manager based on Blackbox"
+msgstr "ਬਲੈਕਬਕਸੇ ਤੇ ਆਧਾਰਿਤ ਹਲਕਾ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: oroborus.desktop:6
+msgid "Oroborus"
+msgstr "ਓਰੂਬੋਰੁਸ"
+
+#. Comment
+#: oroborus.desktop:8
+msgid "A lightweight themeable window manager"
+msgstr "ਇੱਕ ਸਰੂਪਾਂ ਨਾਲ ਹਲਕਾ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: phluid.desktop:6
+msgid "Phluid"
+msgstr "ਫਲੁਇਡ"
+
+#. Comment
+#: phluid.desktop:8
+msgid "An Imlib2 based window manager"
+msgstr "ਇੱਕ Imlib2 ਆਧਾਰਿਤ ਫਾਇਲ਼ ਮੈਨੇਜਰ"
+
+#. Name
+#: pwm.desktop:6
+msgid "PWM"
+msgstr ""
+
+#. Comment
+#: pwm.desktop:8
+msgid ""
+"A lightweight window manager able to attach multiple windows to one frame"
+msgstr "ਇੱਕ ਹਲਕਾ ਝਰੋਖਾ ਮੈਨੇਜਰ, ਜੋ ਕਿ ਕਈ ਝਰੋਖਿਆਂ ਨੂੰ ਇੱਕ ਫਰੇਮ ਵਿੱਚ ਰੱਖ ਸਕਦਾ ਹੈ"
+
+#. Name
+#: qvwm.desktop:6
+msgid "QVWM"
+msgstr ""
+
+#. Comment
+#: qvwm.desktop:8
+msgid "A Windows 95 like window manager"
+msgstr "ਇੱਕ ਵਿੰਡੋ 95 ਵਰਗਾ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: ratpoison.desktop:6
+msgid "Ratpoison"
+msgstr "ਰਾਟਪੋਈਸਾਨ"
+
+#. Comment
+#: ratpoison.desktop:8
+msgid "A simple keyboard-only window manager modeled after Screen"
+msgstr "ਪਰਦੇ ਮੈਡੀਊਲ ਬਾਅਦ ਸਿਰਫ ਕੀ-ਬੋਰਡ ਤੇ ਆਧਾਰਿਤ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: sapphire.desktop:6
+msgid "Sapphire"
+msgstr "ਸਾਪਰਫੀਰੀ"
+
+#. Comment
+#: sapphire.desktop:8
+msgid "A minimal but configurable window manager"
+msgstr "ਇੱਕ ਨਿਊਨਤਮ, ਪਰ ਸੋਧਯੋਗ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: sawfish.desktop:6
+msgid "Sawfish"
+msgstr "ਸ਼ਾਅਫਿਸ਼"
+
+#. Comment
+#: sawfish.desktop:8
+msgid ""
+"An extensible window manager scriptable with an Emacs Lisp-like language"
+msgstr "Emacs Lisp-ਵਰਗੀ ਭਾਸ਼ਾ ਸਕ੍ਰਿਪਟਯੋਗ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: twm.desktop:6
+msgid "TWM"
+msgstr ""
+
+#. Comment
+#: twm.desktop:8
+msgid "The Tab Window Manager"
+msgstr "ਟੈਬ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: ude.desktop:6
+msgid "UDE"
+msgstr ""
+
+#. Comment
+#: ude.desktop:8
+msgid "The UNIX Desktop Environment"
+msgstr "UNIX Desktop Environment"
+
+#. Name
+#: vtwm.desktop:6
+msgid "VTWM"
+msgstr ""
+
+#. Comment
+#: vtwm.desktop:8
+msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
+msgstr "Virtual Tab Window Manager. TWM ਫਰਜ਼ੀ ਪਰਦਿਆਂ ਨਾਲ ਲੈੱਸ"
+
+#. Name
+#: w9wm.desktop:6
+msgid "W9WM"
+msgstr ""
+
+#. Comment
+#: w9wm.desktop:8
+msgid ""
+"A window manager based on 9WM, enhanced by virtual screens and keyboard "
+"bindings"
+msgstr "9WM ਤੇ ਆਧਾਰਿਤ ਝਰੋਖਾ ਮੈਨੇਜਰ, ਫਰਜ਼ੀ ਪਰਦਿਆਂ ਤੇ ਕੀ-ਬੋਰਡ ਬਾਈਡਿੰਗ ਨਾਲ ਲੈੱਸ"
+
+#. Name
+#: waimea.desktop:6
+msgid "Waimea"
+msgstr "ਵਾਈਮਿਆ"
+
+#. Comment
+#: waimea.desktop:8
+msgid "A highly customizable window manager based on Blackbox"
+msgstr "ਬਲੈਕਬਕਸੇ 'ਤੇ ਆਧਾਰਿਤ ਅਤਿ ਸੋਧਯਯੋਗ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: wm2.desktop:6
+msgid "WM2"
+msgstr ""
+
+#. Comment
+#: wm2.desktop:8
+msgid "A small, non-configurable window manager"
+msgstr "ਇੱਕ ਹਲਕਾ ਨਾ-ਸੋਧਯੋਗ ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: wmaker.desktop:6
+msgid "WindowMaker"
+msgstr "ਝਰੋਖਾ-ਨਿਰਮਾਤਾ"
+
+#. Comment
+#: wmaker.desktop:8
+msgid "A simple window manager that resembles the NeXTStep look very closely"
+msgstr "ਇੱਕ ਸਧਾਰਨ ਜੋ ਕਿ NeXTStep ਵਰਗਾ ਜਾਪਦਾ ਹੈ"
+
+#. Name
+#: xfce.desktop:6
+msgid "XFce"
+msgstr ""
+
+#. Comment
+#: xfce.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
+"of CDE"
+msgstr "ਚੋਲੀਸਟੀਰੋਲ ਮੁਫਤ ਵਾਤਾਵਰਣ, ਇੱਕ CDE ਵਰਗਾ ਵਾਤਾਵਰਣ"
+
+#. Name
+#: xfce4.desktop:6
+msgid "XFce 4"
+msgstr ""
+
+#. Comment
+#: xfce4.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment, version 4. A desktop environment "
+"reminiscent of CDE"
+msgstr "ਚੋਲੀਸਟੀਰੋਲ ਮੁਫਤ ਵਾਤਾਵਰਣ, ਵਰਜਨ 4 ਇੱਕ CDE ਵਰਗਾ ਵਾਤਾਵਰਣ"

@@ -1,0 +1,573 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: cy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tde.desktop.cmake:7
+msgid "TDE"
+msgstr ""
+
+#. Comment
+#: tde.desktop.cmake:8
+msgid ""
+"The Trinity Desktop Environment. A powerful Open Source graphical desktop "
+"environment"
+msgstr ""
+"Yr Amgylchedd Penbwrdd K.  Amgylchedd penbwrdd graffegol pwerus, sy'n gôd-"
+"agored."
+
+#. Name
+#: 9wm.desktop:6
+msgid "9WM"
+msgstr "9WM"
+
+#. Comment
+#: 9wm.desktop:8
+msgid "An emulation of the Plan 9 window manager 8-1/2"
+msgstr "Efelychiad o 8-1/2, y trefnydd ffenestri Plan 9"
+
+#. Name
+#: admin.desktop:7
+msgid "admin"
+msgstr ""
+
+#. Comment
+#: admin.desktop:9
+msgid "Yast Admin Session"
+msgstr ""
+
+#. Name
+#: aewm++.desktop:6
+msgid "AEWM++"
+msgstr ""
+
+#. Comment
+#: aewm++.desktop:8
+msgid ""
+"A minimal window manager based on AEWM, enhanced by virtual desktops and "
+"partial GNOME support"
+msgstr ""
+"Trefnydd ffenestri lleiafol wed'i seilio ar AEWM, wedi'i wella gan "
+"penbyrddau rhith a cynhaliaeth Gnome rhannol. "
+
+#. Name
+#: aewm.desktop:6
+msgid "AEWM"
+msgstr ""
+
+#. Comment
+#: aewm.desktop:8
+msgid "A minimalist window manager"
+msgstr "Trefnydd ffenestri lleiafol"
+
+#. Name
+#: afterstep.desktop:6
+msgid "AfterStep"
+msgstr ""
+
+#. Comment
+#: afterstep.desktop:8
+msgid "A window manager with the NeXTStep look and feel, based on FVWM"
+msgstr ""
+"Trefnydd ffenestri efo golwg a theimlad CamNesaf (NeXTStep), wedi'i seilio "
+"ar FVWM"
+
+#. Name
+#: amaterus.desktop:6
+msgid "AMATERUS"
+msgstr ""
+
+#. Comment
+#: amaterus.desktop:8
+msgid "A GTK+ based window manager with a window grouping feature"
+msgstr "Trefnydd ffenestri wedi'i seilio ar GTK+, efo nodwedd casglu ffenestri"
+
+#. Name
+#: amiwm.desktop:6
+msgid "AmiWM"
+msgstr ""
+
+#. Comment
+#: amiwm.desktop:8
+msgid "The Amiga look-alike window manager"
+msgstr "Trefnydd ffenestri sy'n edrych yn debyg i'r Amiga"
+
+#. Name
+#: asclassic.desktop:6
+msgid "ASClassic"
+msgstr "ASClasurol"
+
+#. Comment
+#: asclassic.desktop:8
+msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
+msgstr "ÔlGam Clasurol, trefnydd ffenestri wedi'i seilio ar AfterStep v1.1"
+
+#. Name
+#: blackbox.desktop:6
+msgid "Blackbox"
+msgstr "Du-flwch (Blackbox)"
+
+#. Comment
+#: blackbox.desktop:8
+msgid "A fast & light window manager"
+msgstr "Trefnydd ffenestri cyflym ac ysgafn"
+
+#. Name
+#: cde.desktop:6
+msgid "CDE"
+msgstr ""
+
+#. Comment
+#: cde.desktop:8
+msgid ""
+"The Common Desktop Environment, a proprietary industry standard desktop "
+"environment"
+msgstr ""
+"Yr Amgylchedd Penbwrdd Cyffredin (Common Desktop Environment), amgylchedd "
+"penbwrdd perchnogol sy'n safonol yn y diwydiant"
+
+#. Name
+#: ctwm.desktop:6
+msgid "CTWM"
+msgstr ""
+
+#. Comment
+#: ctwm.desktop:8
+msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr ""
+"Trefnydd Ffenestri Tab Claude, TWM wedi ei wella gan sgriniau rhith, ayyb."
+
+#. Name
+#: cwwm.desktop:6
+msgid "CWWM"
+msgstr ""
+
+#. Comment
+#: cwwm.desktop:8
+msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
+msgstr ""
+"Y Trefnydd Ffenestri ChezWam, trefnydd ffenestri lleiafol wedi'i seilio ar "
+"EvilWM"
+
+#. Name
+#: enlightenment.desktop:6
+msgid "Enlightenment"
+msgstr "Goleuni (Enlightenment)"
+
+#. Comment
+#: enlightenment.desktop:8
+msgid "An extremely themable very feature-rich window manager"
+msgstr "Trefnydd ffenestri sy'n llawn o nodweddion, efo llawer o themau."
+
+#. Name
+#: evilwm.desktop:6
+msgid "EvilWM"
+msgstr ""
+
+#. Comment
+#: evilwm.desktop:8
+msgid "A minimalist window manager based on AEWM"
+msgstr "Trefnydd ffenestri lleiafol wedi'i seilio ar AEM"
+
+#. Name
+#: fluxbox.desktop:6
+msgid "Fluxbox"
+msgstr "Llif-flwch (Fluxbox)"
+
+#. Comment
+#: fluxbox.desktop:8
+msgid "A highly configurable and low resource window manager based on Blackbox"
+msgstr ""
+"Trefnydd ffenestri hawdd ei ffurfweddu ac ysgafn ei ddefnydd adnoddau, "
+"wedi'i seilio ar Ddu-flwch (Blackbox)"
+
+#. Name
+#: flwm.desktop:6
+msgid "FLWM"
+msgstr ""
+
+#. Comment
+#: flwm.desktop:8
+msgid "The Fast Light Window Manager, based primarily on WM2"
+msgstr ""
+"Y Trefnydd Ffenestri Chwim ac Ysgafn, wedi'i seilio ar WM2 am y rhan fwyaf"
+
+#. Name
+#: fvwm.desktop:6
+msgid "FVWM"
+msgstr ""
+
+#. Comment
+#: fvwm.desktop:8 fvwm2.desktop:8
+msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
+msgstr ""
+"Trefnydd ffenestri pwerus efo penbyrddau rhith lluosol, sy'n cydymffurfio â "
+"ICCCM"
+
+#. Name
+#: fvwm2.desktop:6
+msgid "FVWM2"
+msgstr ""
+
+#. Name
+#: fvwm95.desktop:6
+msgid "FVWM95"
+msgstr ""
+
+#. Comment
+#: fvwm95.desktop:8
+msgid "A Windows 95 look-alike derivative of FVWM"
+msgstr "Deilliant o FVWM sy'n edrych yn debyg i Windows95"
+
+#. Name
+#: gnome.desktop:6
+msgid "GNOME"
+msgstr ""
+
+#. Comment
+#: gnome.desktop:8
+msgid ""
+"The GNU Network Object Model Environment. A complete, free and easy-to-use "
+"desktop environment"
+msgstr ""
+"Yr Amgylchedd Model Gwrthrych Rhwydwaith GNU (GNU Network Object Model "
+"Environment).  Amgylchedd penbwrdd cyflawn, rhydd, a hawdd ei ddefnyddio."
+
+#. Name
+#: golem.desktop:6
+msgid "Golem"
+msgstr ""
+
+#. Comment
+#: golem.desktop:8
+msgid "A lightweight window manager"
+msgstr "Trefnydd ffenestri ysgafn"
+
+#. Name
+#: icewm.desktop:6
+msgid "IceWM"
+msgstr ""
+
+#. Comment
+#: icewm.desktop:8
+msgid "A Windows 95-OS/2-Motif-like window manager"
+msgstr "Trefnydd ffenestri sy'n debyg i Windows95-OS/2-Motif"
+
+#. Name
+#: ion.desktop:6
+msgid "Ion"
+msgstr ""
+
+#. Comment
+#: ion.desktop:8
+msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
+msgstr ""
+"Trefnydd ffenestri sy'n hawdd ei ddefnyddio o'r alweddell, efo ffenestri "
+"wedi'u teilio, wedi'i seilio ar PVM"
+
+#. Name
+#: kde-plasma-safe.desktop:7
+msgid "KDE Plasma Workspace (failsafe session)"
+msgstr ""
+
+#. Comment
+#: kde-plasma-safe.desktop:9
+msgid "The desktop made by KDE (failsafe session)"
+msgstr ""
+
+#. Name
+#: kde-plasma.desktop:7
+msgid "KDE Plasma Workspace"
+msgstr ""
+
+#. Comment
+#: kde-plasma.desktop:9
+msgid "The desktop made by KDE"
+msgstr ""
+
+#. Name
+#: larswm.desktop:6
+msgid "LarsWM"
+msgstr ""
+
+#. Comment
+#: larswm.desktop:8
+msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
+msgstr ""
+"Y Trefnydd Ffenestri Lars, wedi'i seilio ar 9WM, sy'n cynnal ffenestri "
+"wedi'u teilio"
+
+#. Name
+#: lwm.desktop:6
+#, fuzzy
+msgid "LWM"
+msgstr "9WM"
+
+#. Comment
+#: lwm.desktop:8
+msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
+msgstr ""
+"Y Trefnydd Ffenestri Ysgafn.  Trefnydd ffenestri noeth, na ellir ffurfweddu"
+
+#. Name
+#: matchbox.desktop:6
+msgid "Matchbox"
+msgstr ""
+
+#. Comment
+#: matchbox.desktop:8
+msgid "A window manager for handheld devices"
+msgstr "Trefnydd ffenestri ar gyfer llawiaduron"
+
+#. Name
+#: metacity.desktop:6
+msgid "Metacity"
+msgstr ""
+
+#. Comment
+#: metacity.desktop:8
+msgid "A lightweight GTK2 based window manager"
+msgstr "Trefnydd ffenestri ysgafn, wedi'i seilio ar GTK2"
+
+#. Name
+#: mwm.desktop:6
+#, fuzzy
+msgid "MWM"
+msgstr "9WM"
+
+#. Comment
+#: mwm.desktop:8
+msgid "The Motif Window Manager"
+msgstr "Y Trefnydd Ffenestri Motif"
+
+#. Name
+#: olvwm.desktop:6
+msgid "OLVWM"
+msgstr ""
+
+#. Comment
+#: olvwm.desktop:8
+msgid ""
+"The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
+"desktops"
+msgstr ""
+"Y Trefnydd Ffenestri Rhith GolwgAgored (OpenLook).  OLWM wedi'i wella i "
+"gynnal penbyrddau rhith"
+
+#. Name
+#: olwm.desktop:6
+msgid "OLWM"
+msgstr ""
+
+#. Comment
+#: olwm.desktop:8
+msgid "The traditional Open Look Window Manager"
+msgstr "Y Trefnydd Ffenestri GolwgAgored (OpenLook) traddodiadol"
+
+#. Name
+#: openbox.desktop:6
+msgid "Openbox"
+msgstr "Blwchagored (Openbox)"
+
+#. Comment
+#: openbox.desktop:8
+msgid "A lightweight window manager based on Blackbox"
+msgstr "Trefnydd ffenestri ysgafn, wedi'i seilio ar Ddu-flwch"
+
+#. Name
+#: oroborus.desktop:6
+msgid "Oroborus"
+msgstr ""
+
+#. Comment
+#: oroborus.desktop:8
+msgid "A lightweight themeable window manager"
+msgstr "Trefnydd ffenestri ysgafn sy'n defnyddio themau"
+
+#. Name
+#: phluid.desktop:6
+msgid "Phluid"
+msgstr ""
+
+#. Comment
+#: phluid.desktop:8
+msgid "An Imlib2 based window manager"
+msgstr "Trefnydd ffenestri wedi'i seilio ar lmlib2"
+
+#. Name
+#: pwm.desktop:6
+#, fuzzy
+msgid "PWM"
+msgstr "9WM"
+
+#. Comment
+#: pwm.desktop:8
+msgid ""
+"A lightweight window manager able to attach multiple windows to one frame"
+msgstr ""
+"Trefnydd ffenestri ysgafn sy'n gallu atodi mwy nag un ffenestr at un ffrâm"
+
+#. Name
+#: qvwm.desktop:6
+msgid "QVWM"
+msgstr ""
+
+#. Comment
+#: qvwm.desktop:8
+msgid "A Windows 95 like window manager"
+msgstr "Trefnydd Ffenestri sy'n debyg i Windows95"
+
+#. Name
+#: ratpoison.desktop:6
+msgid "Ratpoison"
+msgstr "Gwenwynllygodmawr (Ratpoison)"
+
+#. Comment
+#: ratpoison.desktop:8
+msgid "A simple keyboard-only window manager modeled after Screen"
+msgstr ""
+"Trefnydd ffenestri syml sy'n defnyddio'r allweddell yn unig, wedi'i "
+"arddullio ar Sgrîn (Screen)"
+
+#. Name
+#: sapphire.desktop:6
+msgid "Sapphire"
+msgstr ""
+
+#. Comment
+#: sapphire.desktop:8
+msgid "A minimal but configurable window manager"
+msgstr "Trefnydd ffenestri lleiafol a ffurfweddir"
+
+#. Name
+#: sawfish.desktop:6
+msgid "Sawfish"
+msgstr ""
+
+#. Comment
+#: sawfish.desktop:8
+msgid ""
+"An extensible window manager scriptable with an Emacs Lisp-like language"
+msgstr ""
+"Trefnydd ffenestri estynadwy a all ei sgriptio efo iaith sy'n debyg i Emacs "
+"Lisp"
+
+#. Name
+#: twm.desktop:6
+#, fuzzy
+msgid "TWM"
+msgstr "9WM"
+
+#. Comment
+#: twm.desktop:8
+msgid "The Tab Window Manager"
+msgstr "Y Trefnydd Ffenestri Tab"
+
+#. Name
+#: ude.desktop:6
+msgid "UDE"
+msgstr ""
+
+#. Comment
+#: ude.desktop:8
+msgid "The UNIX Desktop Environment"
+msgstr "Yr Amgylchedd Penbwrdd UNIX"
+
+#. Name
+#: vtwm.desktop:6
+msgid "VTWM"
+msgstr ""
+
+#. Comment
+#: vtwm.desktop:8
+msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
+msgstr ""
+"Y Trefnydd Ffenestri Tab Rhith.  TWM wedi'i wella gan sgriniau rhith, ayyb."
+
+#. Name
+#: w9wm.desktop:6
+msgid "W9WM"
+msgstr ""
+
+#. Comment
+#: w9wm.desktop:8
+msgid ""
+"A window manager based on 9WM, enhanced by virtual screens and keyboard "
+"bindings"
+msgstr ""
+"Trefnydd ffenestri wedi'i seilio ar 9WM, wedi'i wella gan sgriniau rhith a "
+"rhwymiadau bysyll."
+
+#. Name
+#: waimea.desktop:6
+msgid "Waimea"
+msgstr ""
+
+#. Comment
+#: waimea.desktop:8
+msgid "A highly customizable window manager based on Blackbox"
+msgstr ""
+"Trefnydd ffenestri sy'n hawdd ei ffurfweddu, wedi'i seilio ar Ddu-flwch"
+
+#. Name
+#: wm2.desktop:6
+#, fuzzy
+msgid "WM2"
+msgstr "9WM"
+
+#. Comment
+#: wm2.desktop:8
+msgid "A small, non-configurable window manager"
+msgstr "Trefnydd ffenestri bach na ellir ffurfweddu"
+
+#. Name
+#: wmaker.desktop:6
+msgid "WindowMaker"
+msgstr "GwneuthuryddFfenestri (WindowMaker)"
+
+#. Comment
+#: wmaker.desktop:8
+msgid "A simple window manager that resembles the NeXTStep look very closely"
+msgstr "Trefnydd ffenestri syml sy'n debyg iawn i'r golwg CamNesaf"
+
+#. Name
+#: xfce.desktop:6
+msgid "XFce"
+msgstr ""
+
+#. Comment
+#: xfce.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
+"of CDE"
+msgstr ""
+"Yr Amgylchedd Penbwrdd Di-Golesterol.  Amgylchedd penbwrdd sy'n atgoffaol o "
+"CDE"
+
+#. Name
+#: xfce4.desktop:6
+msgid "XFce 4"
+msgstr ""
+
+#. Comment
+#: xfce4.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment, version 4. A desktop environment "
+"reminiscent of CDE"
+msgstr ""
+"Yr Amgylchedd Penbwrdd Di-Golesterol, fersiwn 4.  Amgylchedd penbwrdd sy'n "
+"atgoffaol o CDE"

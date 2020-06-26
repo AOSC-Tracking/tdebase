@@ -25,7 +25,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmhistory.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcmhistory.desktop
+  PO_DIR konqueror-desktops
+)
 
 
 ##### konq_sidebartree_history (module) #########

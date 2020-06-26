@@ -22,7 +22,12 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES finger.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE finger.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
+
 install( FILES tdeio_finger.pl tdeio_finger.css DESTINATION ${DATA_INSTALL_DIR}/tdeio_finger )
 
 

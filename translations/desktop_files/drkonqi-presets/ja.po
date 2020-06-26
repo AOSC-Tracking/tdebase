@@ -1,0 +1,166 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 03:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: developerrc:2
+msgid "Developer"
+msgstr "開発者"
+
+#. Comment
+#: developerrc:3
+msgid "Settings preferred for developers"
+msgstr "開発者用の設定"
+
+#. Name
+#: developerrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname), pid %pid, crashed and caused the "
+"signal %signum (%signame)."
+msgstr ""
+"このアプリケーション %progname (%appname), pid %pid はクラッシュし、シグナル "
+"%signum (%signame) を発行しました。"
+
+#. Name
+#: developerrc:17
+msgid "You might want to fix your program. Take a look at the backtrace tab."
+msgstr "このプログラムを修正する場合、backtrace タブをご覧ください。"
+
+#. Name
+#: developerrc:20 enduserrc:20
+msgid "SIGILL"
+msgstr ""
+
+#. Comment
+#: developerrc:21
+msgid "Illegal instruction."
+msgstr "間違った命令。"
+
+#. Name
+#: developerrc:24 enduserrc:24
+msgid "SIGABRT"
+msgstr ""
+
+#. Comment
+#: developerrc:25
+msgid "Aborted."
+msgstr "中止されました。"
+
+#. Name
+#: developerrc:28 enduserrc:28
+msgid "SIGFPE"
+msgstr ""
+
+#. Comment
+#: developerrc:29
+msgid "Floating point exception."
+msgstr "浮動小数点例外。"
+
+#. Name
+#: developerrc:32 enduserrc:32
+msgid "SIGSEGV"
+msgstr ""
+
+#. Comment
+#: developerrc:33
+msgid "Invalid memory reference."
+msgstr "無効なメモリ参照。"
+
+#. Name
+#: developerrc:36 enduserrc:36
+msgid "Unknown"
+msgstr "未知"
+
+#. Comment
+#: developerrc:37
+msgid "This signal is unknown."
+msgstr "このシグナルは分かりません。"
+
+#. Name
+#: enduserrc:2
+msgid "End user"
+msgstr "エンドユーザ"
+
+#. Comment
+#: enduserrc:3
+msgid "Settings preferred for end users"
+msgstr "エンドユーザ用の設定"
+
+#. Name
+#: enduserrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname) crashed and caused the signal %signum "
+"(%signame)."
+msgstr ""
+"このアプリケーション %progname (%appname) はクラッシュし、シグナル %signum "
+"(%signame) を発行しました。"
+
+#. Name
+#: enduserrc:17
+msgid ""
+"You might want to send a bug report for this application. Check if it is "
+"listed on http://bugs.trinitydesktop.org, otherwise mail the author. Please "
+"include as much information as possible, maybe the original documents. If "
+"you have a way to reproduce the error, include this also."
+msgstr ""
+"このアプリケーションのバグを報告するには、まず http://bugs.trinitydesktop."
+"org にアプリケーションが登録されているか確認し、なければ作者にメールしてくだ"
+"さい。できるだけ多くの情報を含めてください。バグを再現する方法があれば、それ"
+"も書いてください。"
+
+#. Comment
+#: enduserrc:21
+msgid ""
+"An application mostly receives the SIGILL signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"アプリケーションは内部のバグにより SIGILL シグナルを受け取ります。アプリケー"
+"ションは文書を保存するよう求められました。"
+
+#. Comment
+#: enduserrc:25
+msgid ""
+"An application terminates with a SIGABRT signal when it detects an internal "
+"inconsistency caused by a bug in the program."
+msgstr ""
+"アプリケーションはプログラムのバグにより起こる内部不整合が探知されたとき、"
+"SIGABRT シグナルとともに落ちます。"
+
+#. Comment
+#: enduserrc:29
+msgid ""
+"An application mostly receives the SIGFPE signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"アプリケーションは内部のバグにより SIGFPE シグナルを受け取ります。アプリケー"
+"ションは文書を保存するよう求められました。"
+
+#. Comment
+#: enduserrc:33
+msgid ""
+"An application mostly receives the SIGSEGV signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"アプリケーションは内部のバグにより SIGSEGV シグナルを受け取ります。アプリケー"
+"ションは文書を保存するよう求められました。"
+
+#. Comment
+#: enduserrc:37
+msgid "Sorry, I do not know this signal."
+msgstr "すみません、このシグナルは分かりません。"

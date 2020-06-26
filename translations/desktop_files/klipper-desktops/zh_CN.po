@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 14:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: klipper.desktop:2
+msgid "Klipper"
+msgstr ""
+
+#. GenericName
+#: klipper.desktop:4
+msgid "Clipboard Tool"
+msgstr "剪贴板工具"
+
+#. Comment
+#: klipper.desktop:6
+msgid "A cut & paste history utility"
+msgstr "剪贴历史工具"
+
+#. Description
+#: klipperrc.desktop:9
+msgid "Jpeg-Image"
+msgstr "JPEG 图像"
+
+#. Description
+#: klipperrc.desktop:14
+msgid "Launch K&View"
+msgstr "调用 K&View"
+
+#. Description
+#: klipperrc.desktop:19
+msgid "Web-URL"
+msgstr "Web URL"
+
+#. Description
+#: klipperrc.desktop:24 klipperrc.desktop:116
+msgid "Open with &Konqueror"
+msgstr "用 &Konqueror 打开"
+
+#. Description
+#: klipperrc.desktop:29 klipperrc.desktop:126
+msgid "Open with &Mozilla"
+msgstr "用 &Mozilla 打开"
+
+#. Description
+#: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
+#: klipperrc.desktop:131
+msgid "Send &URL"
+msgstr "发送 &URL"
+
+#. Description
+#: klipperrc.desktop:40
+msgid "Open with &Firefox"
+msgstr "用 &Firefox 打开"
+
+#. Description
+#: klipperrc.desktop:46
+msgid "Send &Page"
+msgstr "发送页面(&P)"
+
+#. Description
+#: klipperrc.desktop:51
+msgid "Mail-URL"
+msgstr "邮寄 URL"
+
+#. Description
+#: klipperrc.desktop:56
+msgid "Launch &Kmail"
+msgstr "调用 &Kmail"
+
+#. Description
+#: klipperrc.desktop:61
+msgid "Launch &mutt"
+msgstr "调用 &mutt"
+
+#. Description
+#: klipperrc.desktop:66
+msgid "Text File"
+msgstr "文本文件"
+
+#. Description
+#: klipperrc.desktop:71
+msgid "Launch K&Edit"
+msgstr "调用 K&Edit"
+
+#. Description
+#: klipperrc.desktop:76
+msgid "Launch K&Write"
+msgstr "调用 K&Write"
+
+#. Description
+#: klipperrc.desktop:81
+msgid "Local file URL"
+msgstr "本地文件 URL"
+
+#. Description
+#: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
+msgid "Send &File"
+msgstr "发送文件(&F)"
+
+#. Description
+#: klipperrc.desktop:96
+msgid "Gopher URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:111
+msgid "ftp URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:121
+msgid "Open with &Netscape"
+msgstr "用 &Netscape 打开"

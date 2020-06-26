@@ -22,9 +22,20 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmaccess.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES kaccess.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
-install( FILES eventsrc DESTINATION ${DATA_INSTALL_DIR}/kaccess )
+tde_create_translated_desktop(
+  SOURCE kcmaccess.desktop
+  PO_DIR kcontrol-desktops
+)
+tde_create_translated_desktop(
+  SOURCE kaccess.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR kcontrol-desktops
+)
+tde_create_translated_desktop(
+  SOURCE eventsrc
+  DESTINATION ${DATA_INSTALL_DIR}/kaccess
+  PO_DIR kcontrol-eventsrc
+)
 
 
 ##### kcm_access (module) #######################

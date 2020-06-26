@@ -9,8 +9,11 @@
 #
 #################################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     folder.desktop printer.desktop class.desktop
     manager.desktop jobs.desktop driver.desktop
     printermodel.desktop
-  DESTINATION ${MIME_INSTALL_DIR}/print )
+  DESTINATION ${MIME_INSTALL_DIR}/print
+  PO_DIR tdeprint-desktops
+)

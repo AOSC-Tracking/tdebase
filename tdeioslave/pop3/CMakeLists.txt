@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES pop3.protocol pop3s.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE pop3.protocol pop3s.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdeio_pop3 (module) #########################

@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 15:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "Konsole"
+msgstr "កុងសូល"
+
+#. Name
+#: eventsrc:6
+msgid "Bell in visible session"
+msgstr "កណ្ដឹង​ក្នុង​សម័យ​ដែល​មើល​មិន​ឃើញ"
+
+#. Comment
+#: eventsrc:7
+msgid "Bell emitted within a visible session"
+msgstr "កណ្ដឹង​បញ្ចេញ​សំឡេង​ក្នុង​សម័យ​ដែល​មើល​មិន​ឃើញ"
+
+#. Name
+#: eventsrc:12
+msgid "Bell in non-visible session"
+msgstr "កណ្ដឹង​ក្នុង​សម័យ​ដែល​មើល​ឃើញ"
+
+#. Comment
+#: eventsrc:13
+msgid "Bell emitted within a non-visible session"
+msgstr "កណ្ដឹង​បញ្ចេញ​សំឡេង​ក្នុង​សម័យ​ដែល​មើលឃើញ"
+
+#. Name
+#: eventsrc:18
+msgid "Activity in monitored session"
+msgstr "សកម្មភាព​ក្នុង​សម័យ​ដែល​បាន​ត្រួតពិនិត្យ"
+
+#. Comment
+#: eventsrc:19
+msgid "Activity detected in a monitored session"
+msgstr "បាន​រកឃើញ​សកម្មភាព ក្នុង​សម័យ​ដែល​បាន​ត្រួតពិនិត្យ"
+
+#. Name
+#: eventsrc:23
+msgid "Silence in monitored session"
+msgstr "ស្ងាត់ៗក្នុង​សម័យ​ដែល​បាន​ត្រួតពិនិត្យ"
+
+#. Comment
+#: eventsrc:24
+msgid "Silence detected in a monitored session"
+msgstr "បាន​រកឃើញ​ស្ងាត់ៗ ក្នុង​សម័យ​ដែល​បាន​ត្រួតពិនិត្យ"
+
+#. Name
+#: eventsrc:28
+msgid "Session finished with non-zero status"
+msgstr "សម័យ​បាន​បញ្ចប់ ដោយ​មាន​ស្ថានភាព"
+
+#. Comment
+#: eventsrc:29
+msgid "A session has exited with non-zero status"
+msgstr "សម័យ​មួយ​បាន​ចេញ ដោយ​មាន​ស្ថានភាព"

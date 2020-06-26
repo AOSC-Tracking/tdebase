@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES prefmenu.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/menuext )
+tde_create_translated_desktop(
+  SOURCE prefmenu.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/menuext
+  PO_DIR kicker-desktops
+)
 
 
 ##### kickermenu_prefmenu (module) ##############

@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Gluggastjóri"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Birta skjáborð 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Sýndarskjáborð eitt er virkt"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Birta skjáborð 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Sýndarskjáborð tvö er virkt"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Birta skjáborð 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Sýndarskjáborð þrjú er virkt"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Birta skjáborð 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Sýndarskjáborð fjögur er virkt"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Birta skjáborð 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Sýndarskjáborð fimm er virkt"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Birta skjáborð 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Sýndarskjáborð sex er virkt"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Birta skjáborð 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Sýndarskjáborð sjö er virkt"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Birta skjáborð 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Sýndarskjáborð átta er virkt"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Birta skjáborð 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Sýndarskjáborð níu er virkt"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Birta skjáborð 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Sýndarskjáborð tíu er virkt"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Birta skjáborð 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Sýndarskjáborð ellefu er virkt"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Birta skjáborð 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Sýndarskjáborð tólf er virkt"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Birta skjáborð 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Sýndarskjáborð þrettán er virkt"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Birta skjáborð 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Sýndarskjáborð fjórtán er virkt"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Birta skjáborð 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Sýndarskjáborð fimmtán er virkt"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Birta skjáborð 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Sýndarskjáborð sextán er virkt"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Birta skjáborð 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Sýndarskjáborð sautján er virkt"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Birta skjáborð 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Sýndarskjáborð átján er virkt"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Birta skjáborð 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Sýndarskjáborð nítján er virkt"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Birta skjáborð 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Sýndarskjáborð tuttugu er virkt"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Virkja glugga"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Annar gluggi verður virkur"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Opna nýjan glugga"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Nýr gluggi"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Eyða glugga"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Eyða glugga"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Glugga lokað"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Gluggi lokast"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Glugga rúllað upp"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Glugga er rúllað upp"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Glugga rúllað niður"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Glugga er rúllað niður"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Glugga lágmarkað"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Gluggi er lágmarkaður"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Gluggi ekki lágmarkað"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Gluggi er færður úr táknmynd"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Gluggi hámarkaður"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Gluggi er hámarkaður"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Gluggi úr hámarki"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Gluggi hættir að vera hámarkaður"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Glugga á öll skjáborð"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Gluggi er látinn sjást á öllum skjáborðum"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Gluggi ekki á öllum skjáborðum"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Gluggi er ekki lengur sýnilegur á öllum skjáborðum"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Opna nýjan glugga"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Fyrirspurnargluggi birtist"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Eyða glugga"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Fyrirspurnarglugga er eytt"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Færsla glugga hefst"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Gluggi hefur byrjað að færast"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Færslu glugga lýkur"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Gluggi er kominn á áfangastað"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Stærðarbreyting glugga hefst"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Stærð glugga er byrjuð að breytast"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Stærðarbreyting glugga lýkur"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Stærð glugga hefur breyst"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Gluggi á núverandi skjáborði krefst athygli"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Gluggi á núverandi sýndarskjáborði krefst athygli"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Gluggi á öðru skjáborði krefst athygli"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Gluggi á óvirku sýndarskjáborði krefst athygli"

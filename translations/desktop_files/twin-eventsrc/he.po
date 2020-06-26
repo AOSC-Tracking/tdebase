@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "מנהל החלונות של"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "מעבר לשולחן עבודה 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "שולחן העבודה הווירטואלי אחד נבחר"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "מעבר לשולחן עבודה 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "שולחן העבודה הווירטואלי שתיים נבחר"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "מעבר לשולחן עבודה 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "שולחן העבודה הווירטואלי שלוש נבחר"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "מעבר לשולחן עבודה 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "שולחן העבודה הווירטואלי ארבע נבחר"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "מעבר לשולחן עבודה 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "שולחן העבודה הווירטואלי חמש נבחר"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "מעבר לשולחן עבודה 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "שולחן העבודה הווירטואלי שש נבחר"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "מעבר לשולחן עבודה 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "שולחן העבודה הווירטואלי שבע נבחר"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "מעבר לשולחן עבודה 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "שולחן העבודה הווירטואלי שמונה נבחר"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "מעבר לשולחן עבודה 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "שולחן העבודה הווירטואלי תשע נבחר"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "מעבר לשולחן עבודה 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "שולחן העבודה הווירטואלי עשר נבחר"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "מעבר לשולחן עבודה 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "שולחן העבודה הווירטואלי אחד־עשרה נבחר"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "1מעבר לשולחן עבודה 2"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "שולחן העבודה הווירטואלי שתיים־עשרה נבחר"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "מעבר לשולחן עבודה 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "שולחן העבודה הווירטואלי שלוש־עשרה נבחר"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "1מעבר לשולחן עבודה 4"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "שולחן העבודה הווירטואלי ארבע־עשרה נבחר"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "מעבר לשולחן עבודה 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "שולחן העבודה הווירטואלי חמש־עשרה נבחר"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "מעבר לשולחן עבודה 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "שולחן העבודה הווירטואלי שש־עשרה נבחר"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "1מעבר לשולחן עבודה 7"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "שולחן העבודה הווירטואלי שבע־עשרה נבחר"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "מעבר לשולחן עבודה 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "שולחן העבודה הווירטואלי שמונה־עשרה נבחר"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "מעבר לשולחן עבודה 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "שולחן העבודה הווירטואלי תשע־עשרה נבחר"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "מעבר לשולחן עבודה 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "שולחן העבודה הווירטואלי עשרים נבחר"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "הפעלת חלון"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "חלון אחר מופעל"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "חלון חדש"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "חלון חדש"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "מחיקת חלון"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "חלון נמחק"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "סגירת חלון"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "חלון נסגר"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "גלילת חלון למעלה"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "חלון נגלל למעלה"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "גלילת חלון למטה"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "חלון נגלל למטה"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "מזעור חלון"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "חלון ממוזער"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "ביטול מזעור חלון"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "חלון משוחזר"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "הגדלת חלון"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "חלון מוגדל"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "שיחזור הגדלת חלון"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "מבוטלת הגדלת חלון"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "הצגת חלון על כל שולחנות העבודה"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "חלון נעשה מוצג בכל שולחנות העבודה"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "הצגת חלון לא על כל שולחנות העבודה"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "חלון כבר לא מוצג בכל שולחנות העבודה"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "דו־שיח חדש"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "מופיע חלון ארעי (דו־שיח)"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "מחיקת דו־שיח"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "מוסר חלון ארעי (דו־שיח)"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "התחלת הזזת חלון"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "חלון החל לזוז"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "סיום הזזת חלון"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "חלון השלים את הזזתו"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "התחלת שינוי גודל חלון"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "חלון החל לשנות את גודלו"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "סיום שינוי גודל חלון"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "חלון השלים את שינוי גודלו"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "חלון בשולחן עבודה נוכחי דורש תשומת לב"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "חלון בשולחן עבודה נוכחי דורש תשומת לב"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "חלון בשולחן עבודה אחר דורש תשומת לב"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "חלון בשולחן עבודה אחר דורש תשומת לב"

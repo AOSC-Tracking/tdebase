@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES KRandom.desktop KBlankscreen.desktop DESTINATION ${APPS_INSTALL_DIR}/System/ScreenSavers )
+tde_create_translated_desktop(
+  SOURCE KRandom.desktop KBlankscreen.desktop
+  DESTINATION ${APPS_INSTALL_DIR}/System/ScreenSavers
+  PO_DIR tdescreensaver-desktops
+)
 
 
 ##### krandom (executable) ######################

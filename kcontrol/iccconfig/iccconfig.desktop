@@ -12,22 +12,9 @@ X-TDE-SubstituteUID=true
 
 Categories=Qt;TDE;X-TDE-settings-hardware;
 Comment=Configure display ICC color profile
-Comment[de]=ICC-Farbprofil der Anzeige einrichten
-Comment[fr]=Configurer le profil ICC des couleurs
-Comment[it]=Configurazione del profilo ICC del display
-Comment[ru]=Конфигурация профиля ICC экрана
-Comment[uk]=Конфігурація профілю ICC екрану
 
 Keywords=ICC;display;color;profile;
-Keywords[de]=ICC;Anzeige;Farbe;Profil;
-Keywords[fr]=ICC;affichage;couleurs;profil;
-Keywords[it]=ICC;Display;Colori;Profilo;
 
 Name=Color Profile
-Name[de]=Farbprofil
-Name[fr]=Profil de couleurs
-Name[it]=Profilo dei colori
-Name[ru]=Профиль цвета
-Name[uk]=Профіль кольору
 
 NoDisplay=false

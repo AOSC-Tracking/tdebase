@@ -1,0 +1,552 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: cgi/kcmcgi/kcmcgi.desktop:9
+msgid "CGI Scripts"
+msgstr "CGI ਸਕ੍ਰਿਪਟਾਂ"
+
+#. Comment
+#: cgi/kcmcgi/kcmcgi.desktop:11
+msgid "Configure the CGI TDEIO slave"
+msgstr "CGI TDEIO ਸਲੇਵ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: cgi/kcmcgi/kcmcgi.desktop:13
+msgid "CGI;TDEIO;Slave;Paths;"
+msgstr "CGI;TDEIO;ਸਲੇਵ;ਮਾਰਗ;"
+
+#. Name
+#: home/kdedmodule/homedirnotify.desktop:4
+msgid "KDED Home Base URL Notifier"
+msgstr "KDED ਮੁੱਖ ਅਧਾਰ URL ਸੂਚਕ"
+
+#. Comment
+#: home/kdedmodule/homedirnotify.desktop:6
+#, fuzzy
+msgid "Provides change notification for user's home folder ($HOME)"
+msgstr "ਨੈੱਟਵਰਕ ਫੋਲਡਰਾਂ ਲਈ ਬਦਲਾਅ ਸੂਚਨਾ ਦਿੰਦਾ ਹੈ"
+
+#. Name
+#: man/kmanpart.desktop:4
+msgid "KManPart"
+msgstr ""
+
+#. Comment
+#: man/kmanpart.desktop:6
+msgid "Embeddable Troff Viewer"
+msgstr "ਸ਼ਾਮਿਲ ਹੋਣਯੋਗ Troff ਦਰਸ਼ਕ"
+
+#. Name
+#: media/mediamanager/mediamanager.desktop:4
+msgid "KDED Media Manager"
+msgstr "KDED ਮਾਧਿਅਮ ਮੈਨੇਜਰ"
+
+#. Comment
+#: media/mediamanager/mediamanager.desktop:6
+msgid "Keep track of media activities and allow to (un)mount (media:/)"
+msgstr "ਮਾਊਟ ਕਾਰਵਾਈਆਂ ਦੀ ਜਾਣਕਾਰੀ ਰੱਖੋ ਅਤੇ ਅਨ-ਮਾਊਟ ਕਰਨ ਦਿਓ (ਜੰਤਰ:/)"
+
+#. Name
+#: media/medianotifier/medianotifier.desktop:4
+msgid "Media Notifier Daemon"
+msgstr "ਮੀਡਿਆ ਸੂਚਨਾ ਡੈਮਨ"
+
+#. Comment
+#: media/medianotifier/medianotifier.desktop:6
+msgid "A media plugged notifier"
+msgstr "ਇੱਕ ਮੀਡਿਆ ਪਲੱਗ ਸੂਚਕ"
+
+#. Comment
+#: media/mimetypes/audiocd.desktop:6
+msgid "Audio CD"
+msgstr "ਆਡੀਓ CD"
+
+#. Comment
+#: media/mimetypes/blankbluray.desktop:6
+msgid "Blank BLURAY"
+msgstr "ਖਾਲੀ BLURAY"
+
+#. Comment
+#: media/mimetypes/blankcd.desktop:6
+msgid "Blank CD"
+msgstr "ਖਾਲੀ CD"
+
+#. Comment
+#: media/mimetypes/blankdvd.desktop:6
+msgid "Blank DVD"
+msgstr "ਖਾਲੀ DVD"
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_locked.desktop:7
+msgid "Encrypted Locked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_mounted.desktop:6
+msgid "Mounted BLURAY"
+msgstr "ਮਾਊਟ ਕੀਤੀ BLURAY"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted.desktop:6
+msgid "Unmounted BLURAY"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ BLURAY"
+
+#. Comment
+#: media/mimetypes/blurayvideo.desktop:6
+msgid "BLURAY Video Disk"
+msgstr "BLURAY ਵੀਡਿਓ ਡਿਸਕ"
+
+#. Comment
+#: media/mimetypes/camera_mounted.desktop:6
+msgid "Mounted Camera"
+msgstr "ਮਾਊਂਟ ਹੋਇਆ ਕੈਮਰਾ"
+
+#. Comment
+#: media/mimetypes/camera_unmounted.desktop:6
+msgid "Unmounted Camera"
+msgstr "ਅਨਮਾਊਟ ਕੀਤਾ ਕੈਮਰਾ"
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_mounted.desktop:6
+msgid "Mounted CD-R"
+msgstr "ਮਾਊਟ CD ਰਾਇਟਰ"
+
+#. Comment
+#: media/mimetypes/cd-r_unmounted.desktop:6
+msgid "Unmounted CD-R"
+msgstr "ਅਨਮਾਊਟ CD ਰਾਇਟਰ"
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted.desktop:6
+msgid "Mounted CD-RW"
+msgstr "ਮਾਊਟ CD ਰਾਇਟਰ"
+
+#. Comment
+#: media/mimetypes/cd-rw_unmounted.desktop:6
+msgid "Unmounted CD-RW"
+msgstr "ਅਨਮਾਊਟ CD ਰਾਇਟਰ"
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_mounted.desktop:6
+msgid "Mounted CD-ROM"
+msgstr "ਮਾਊਟ ਕੀਤੀ CD-ROM"
+
+#. Comment
+#: media/mimetypes/cdrom_unmounted.desktop:6
+msgid "Unmounted CD-ROM"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ CD-ROM"
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_locked.desktop:7
+msgid "Encrypted Locked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_mounted.desktop:6
+msgid "Mounted DVD"
+msgstr "ਮਾਊਟ ਕੀਤੀ DVD"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted.desktop:6
+msgid "Unmounted DVD"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ DVD"
+
+#. Comment
+#: media/mimetypes/dvdvideo.desktop:6
+msgid "DVD Video Disk"
+msgstr "DVD ਵੀਡਿਓ ਡਿਸਕ"
+
+#. Comment
+#: media/mimetypes/floppy5_mounted.desktop:6
+msgid "Mounted 5¼\" Floppy"
+msgstr "ਮਾਊਟ 5¼\" ਫਲਾਪੀ"
+
+#. Comment
+#: media/mimetypes/floppy5_unmounted.desktop:6
+msgid "Unmounted 5¼\" Floppy"
+msgstr "ਅਨਮਾਊਟ 5¼\" ਫਲਾਪੀ"
+
+#. Comment
+#: media/mimetypes/floppy_mounted.desktop:6
+msgid "Mounted Floppy"
+msgstr "ਮਾਊਟ ਕੀਤੀ ਫਲਾਪੀ"
+
+#. Comment
+#: media/mimetypes/floppy_unmounted.desktop:6
+msgid "Unmounted Floppy"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ ਫਲਾਪੀ"
+
+#. Comment
+#: media/mimetypes/gphoto2camera.desktop:6
+msgid "Camera"
+msgstr "ਕੈਮਰਾ"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Hard Disk Volume"
+msgstr "ਮਾਊਟ ਕੀਤਾ ਹਾਰਡ ਡਿਸਕ ਭਾਗ"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Hard Disk Volume"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ ਹਾਰਡ ਡਿਸਕ ਭਾਗ"
+
+#. Comment
+#: media/mimetypes/hdd_mounted.desktop:6
+msgid "Mounted Hard Disk Volume"
+msgstr "ਮਾਊਟ ਕੀਤਾ ਹਾਰਡ ਡਿਸਕ ਭਾਗ"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted.desktop:6
+msgid "Unmounted Hard Disk Volume"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ ਹਾਰਡ ਡਿਸਕ ਭਾਗ"
+
+#. Comment
+#: media/mimetypes/mycomputer.desktop:6
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/mydocuments.desktop:6
+#, fuzzy
+msgid "My Documents"
+msgstr "ਦਸਤਾਵੇਜ਼ ਫੋਲਡਰ"
+
+#. Comment
+#: media/mimetypes/mynetworkplaces.desktop:6
+#, fuzzy
+msgid "My Network Places"
+msgstr "ਰਿਮੋਟ ਥਾਂ"
+
+#. Comment
+#: media/mimetypes/nfs_mounted.desktop:6
+msgid "Mounted NFS Share"
+msgstr "ਮਾਊਟ ਕੀਤੀ NFS ਸਾਂਝ"
+
+#. Comment
+#: media/mimetypes/nfs_unmounted.desktop:6
+msgid "Unmounted NFS Share"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ NFS ਸਾਂਝ"
+
+#. Comment
+#: media/mimetypes/printers.desktop:6
+msgid "Printers"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/removable_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Removable Medium"
+msgstr "ਮਾਊਟ ਕੀਤੇ ਹਟਾਉਣਯੋਗ ਮਾਧਿਅਮ"
+
+#. Comment
+#: media/mimetypes/removable_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Removable Medium"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ ਹਟਾਉਣਯੋਗ ਮਾਧਿਅਮ"
+
+#. Comment
+#: media/mimetypes/removable_mounted.desktop:6
+msgid "Mounted Removable Medium"
+msgstr "ਮਾਊਟ ਕੀਤੇ ਹਟਾਉਣਯੋਗ ਮਾਧਿਅਮ"
+
+#. Comment
+#: media/mimetypes/removable_unmounted.desktop:6
+msgid "Unmounted Removable Medium"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ ਹਟਾਉਣਯੋਗ ਮਾਧਿਅਮ"
+
+#. Comment
+#: media/mimetypes/smb_mounted.desktop:6
+msgid "Mounted Samba (Microsoft Network) Share"
+msgstr "ਮਾਊਟ ਕੀਤੀ ਸਾਂਬਾ (ਮਾਈਕਰੋਸਾਫਟ ਨੈੱਟਵਰਕ) ਸਾਂਝ"
+
+#. Comment
+#: media/mimetypes/smb_unmounted.desktop:6
+msgid "Unmounted Samba (Microsoft Network) Share"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ ਸਾਂਬਾ (ਮਾਈਕਰੋਸਾਫਟ ਨੈੱਟਵਰਕ) ਸਾਂਝ"
+
+#. Comment
+#: media/mimetypes/svcd.desktop:6
+msgid "Super Video CD"
+msgstr "ਸੁਪਰ ਵੀਡਿਓ CD"
+
+#. Comment
+#. Name
+#: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
+#: trash/kcmtrash.desktop:11
+msgid "Trash"
+msgstr "ਰੱਦੀ"
+
+#. Comment
+#: media/mimetypes/vcd.desktop:6
+msgid "Video CD"
+msgstr "ਵੀਡਿਓ CD"
+
+#. Comment
+#: media/mimetypes/webbrowser.desktop:6
+msgid "Web Browser"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/zip_mounted.desktop:6
+msgid "Mounted Zip Disk"
+msgstr "ਮਾਊਟ ਕੀਤੀ ਜਿਪ ਡਿਸਕ"
+
+#. Comment
+#: media/mimetypes/zip_unmounted.desktop:6
+msgid "Unmounted Zip Disk"
+msgstr "ਅਨਮਾਊਟ ਕੀਤੀ ਜ਼ਿਪ ਡਿਸਕ"
+
+#. Name
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:6
+msgid "Media Properties Page"
+msgstr "ਮੀਡਿਆ ਵਿਸ਼ੇਸ਼ਤਾ ਸਫ਼ਾ"
+
+#. Comment
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:8
+msgid "Konqueror properties dialog plugin to configure mount behaviour"
+msgstr ""
+
+#. Name
+#: media/services/media_decrypt.desktop:8
+msgid "Unlock"
+msgstr ""
+
+#. Name
+#: media/services/media_eject.desktop:8
+msgid "Eject"
+msgstr "ਬਾਹਰ ਕੱਢੋ"
+
+#. Name
+#: media/services/media_mount.desktop:8
+msgid "Mount"
+msgstr "ਮਾਊਟ"
+
+#. Name
+#: media/services/media_safelyremove.desktop:8
+msgid "Safely Remove"
+msgstr "ਸੁਰੱਖਿਅਤ ਹਟਾਓ"
+
+#. Name
+#: media/services/media_unmount.desktop:8
+msgid "Unmount"
+msgstr "ਅਨਮਾਉਟ"
+
+#. Name
+#: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
+msgid "Storage Media"
+msgstr "ਸਟੋਰੇਜ਼ ਮੀਡਿਆ"
+
+#. Comment
+#: media/tdecmodule/media.desktop:12
+msgid "Configure Storage Media"
+msgstr "ਸਟੋਰੇਜ਼ ਮੀਡਿਆ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: media/tdecmodule/media.desktop:14
+msgid "storage;media;usb;cdrom;device;"
+msgstr "ਸਟੋਰੇਜ਼;ਮੀਡਿਆ;ਜੰਤਰ;usb;cdrom;"
+
+#. Name
+#: media/tdefile-plugin/tdefile_media.desktop:6
+msgid "Medium Information"
+msgstr "ਮਾਧਿਅਮ ਜਾਣਕਾਰੀ"
+
+#. Name
+#: remote/kdedmodule/remotedirnotify.desktop:4
+msgid "KDED Remote Base URL Notifier"
+msgstr "KDED ਰਿਮੋਟ ਅਧਾਰਿਤ URL ਸੂਚਨਾ"
+
+#. Comment
+#: remote/kdedmodule/remotedirnotify.desktop:6
+msgid "Provides change notification for network folders"
+msgstr "ਨੈੱਟਵਰਕ ਫੋਲਡਰਾਂ ਲਈ ਬਦਲਾਅ ਸੂਚਨਾ ਦਿੰਦਾ ਹੈ"
+
+#. Name
+#: smb/smb-network.desktop:4
+msgid "Samba Shares"
+msgstr "ਸਾਂਬਾ ਸਾਂਝ"
+
+#. Comment
+#: smb/x-smb-server.desktop:2
+msgid "Windows Server"
+msgstr "ਵਿੰਡੋ ਸਰਵਰ"
+
+#. Comment
+#: smb/x-smb-workgroup.desktop:2
+msgid "Windows Workgroup"
+msgstr "ਵਿੰਡੋ ਵਰਕਗਰੁੱਪ"
+
+#. Name
+#: system/entries/documents.desktop:6
+msgid "Documents Folder"
+msgstr "ਦਸਤਾਵੇਜ਼ ਫੋਲਡਰ"
+
+#. Name
+#: system/entries/home.desktop:6
+msgid "Home Folder"
+msgstr "ਘਰ ਫੋਲਡਰ"
+
+#. Name
+#: system/entries/remote.desktop:6
+msgid "Remote Places"
+msgstr "ਰਿਮੋਟ ਥਾਂ"
+
+#. Name
+#: system/entries/users.desktop:6
+msgid "Users Folders"
+msgstr "ਉਪਭੋਗੀ ਫੋਲਡਰ"
+
+#. Name
+#: system/kdedmodule/systemdirnotify.desktop:4
+msgid "KDED System Base URL Notifier"
+msgstr "KDE ਸਿਸਟਮ ਆਧਾਰ URL ਸੂਚਨਾ"
+
+#. Comment
+#: system/kdedmodule/systemdirnotify.desktop:6
+#, fuzzy
+msgid ""
+"Provides change notification for folders monitored by the system:/ tdeio "
+"plugin"
+msgstr "ਨੈੱਟਵਰਕ ਫੋਲਡਰਾਂ ਲਈ ਬਦਲਾਅ ਸੂਚਨਾ ਦਿੰਦਾ ਹੈ"
+
+#. Comment
+#: system/mimetypes/system_directory.desktop:6
+msgid "System Folder"
+msgstr "ਸਿਸਟਮ ਫੋਲਡਰ"
+
+#. Name
+#: thumbnail/cursorthumbnail.desktop:4
+msgid "Cursor Files"
+msgstr "ਕਰਸਰ ਫਾਇਲਾਂ"
+
+#. Name
+#: thumbnail/djvuthumbnail.desktop:4
+msgid "DjVu Files"
+msgstr "DjVu ਫਾਇਲਾਂ"
+
+#. Name
+#: thumbnail/exrthumbnail.desktop:4
+msgid "EXR Images"
+msgstr "EXR ਚਿੱਤਰ"
+
+#. Name
+#: thumbnail/htmlthumbnail.desktop:4
+msgid "HTML Files"
+msgstr "HTML ਫਾਇਲ਼ਾਂ"
+
+#. Name
+#: thumbnail/imagethumbnail.desktop:4
+msgid "Images"
+msgstr "ਚਿੱਤਰ"
+
+#. Name
+#: thumbnail/textthumbnail.desktop:4
+msgid "Text Files"
+msgstr "ਪਾਠ ਫਾਇਲ਼ਾਂ"
+
+#. Comment
+#: thumbnail/thumbcreator.desktop:5
+msgid "Thumbnail Handler"
+msgstr "ਥੰਮਨੇਲ ਹੈਂਡਲਰ"
+
+#. Comment
+#. Name
+#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
+#, fuzzy
+msgid "Trash Properties"
+msgstr "ਮੀਡਿਆ ਵਿਸ਼ੇਸ਼ਤਾ ਸਫ਼ਾ"
+
+#. Keywords
+#: trash/kcmtrash.desktop:15
+msgid "trash;properties;size;limits;delete"
+msgstr ""
+
+#. Name
+#: trash/tdefile-plugin/tdefile_trash.desktop:4
+#: trash/tdefile-plugin/tdefile_trash_system.desktop:4
+msgid "Trash File Info"
+msgstr "ਰੱਦੀ ਫਾਇਲ ਜਾਣਕਾਰੀ"
+
+#. Description
+#: fish/fish.protocol:14
+msgid "A tdeioslave for the FISH protocol"
+msgstr "FISH ਪਰੋਟੋਕਾਲ ਲਈ tdeioslave"
+
+#. Description
+#: fish/nxfish.protocol:14
+msgid "A tdeioslave for the NXFISH protocol"
+msgstr "NXFISH ਪਰੋਟੋਕਾਲ ਲਈ tdeioslave"
+
+#. Description
+#: mac/mac.protocol:9
+msgid "A tdeioslave for MacOS HFS+ partitions"
+msgstr "MacOS HFS+ ਭਾਗਾਂ ਲਈ tdeioslave"
+
+#. Description
+#: sftp/sftp.protocol:15
+msgid "A tdeioslave for sftp"
+msgstr "sftp ਲਈ tdeioslave"
+
+#. ExtraNames
+#: trash/trash.protocol:25
+msgid "Original Path,Deletion Date"
+msgstr "ਅਸਲੀ ਮਾਰਗ,ਹਟਾਉਣ ਮਿਤੀ"

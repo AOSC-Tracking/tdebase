@@ -22,7 +22,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES nntp.protocol nntps.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE nntp.protocol nntps.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdeio_nntp (module) #########################

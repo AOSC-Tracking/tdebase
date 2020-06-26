@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "ren leiho kudeatzailea"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Aldatu 1. mahaigainera"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Lehen mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Aldatu 2. mahaigainera"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Bigarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Aldatu 3. mahaigainera"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Hirugarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Aldatu 4. mahaigainera"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Laugarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Aldatu 5. mahaigainera"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Bostgarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Aldatu 6. mahaigainera"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Seigarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Aldatu 7. mahaigainera"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Zazpigarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Aldatu 8. mahaigainera"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Zortzigarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Aldatu 9. mahaigainera"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Bederatzigarren mahaigain birtuala hautatua dago."
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Aldatu 10. mahaigainera"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Hamargarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Aldatu 11. mahaigainera"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Hamaikagarren. mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Aldatu 12. mahaigainera"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Hamabigarren mahaigain birtuala hautatua dago."
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Aldatu 13. mahaigainera"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Hamahirugarren mahaigain birtuala hautatua dago."
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Aldatu 14. mahaigainera"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Hamalaugarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Aldatu 15. mahaigainera"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Hamabostgarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Aldatu 16. mahaigainera"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Hamaseigarrenmahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Aldatu 17. mahaigainera"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Hamazazpigarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Aldatu 18. mahaigainera"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Hamazortzigarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Aldatu 19. mahaigainera"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Hemeretzigarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Aldatu 20. mahaigainera"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Hogeigarren mahaigain birtuala hautatua dago"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Aktibatu leihoa"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Beste leiho bat aktibatua dago"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Leiho berria"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Leiho berria"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Ezabatu leihoa"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Ezabatu leihoa"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Itxi leihoa"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Leihoa itxi egiten da"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Bildu leihoa"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Leihoa bildu da"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Zabaldu leihoa"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Leihoa zabaldu da"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Minimizatu leihoa"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Leihoa minimizatu egiten da"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Desminimizatu leihoa"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Leihoa leheneratu egiten da"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Maximizatu leihoa"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Leihoa maximizatu egiten da"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Desmaximizatu leihoa"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Leihoak galdu egiten du maximizazioa"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Leihoa mahaigain guztietan"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Leihoa mahaigain guztietan ikusgai bihurtzen da"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Leihoa mahaigain guztietan ez"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Leihoa ez da gehiago ikusiko leiho guztietan"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Elkarrizketa berria"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Leiho elkarrizketa agertzen da"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Ezabatu elkarrizketa"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Leiho elkarrizketa kentzen da"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Leihoaren mugimenduaren hasiera"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Leihoa mugitzen hasi da"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Leihoaren mugimenduaren bukaera"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Leihoaren mugimendua bukatu da"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Leihoaren tamaina aldaketaren hasiera"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Leihoaren tamaina aldatzen hasi da"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Leihoaren tamaina aldaketaren bukaera"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Leihoaren tamaina aldaketa bukatu da"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Uneko mahaigaineko leihoak jaramon egitea eskatzen du."
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Uneko mahaigain birtualeko leiho batek jaramon egitea eskatzen du"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Beste mahaigaineko leihoak jaramon egitea eskatzen du"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Mahaigain birtual inaktiboko leihoa jaramon egitea eskatzen du"

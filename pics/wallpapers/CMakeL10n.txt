@@ -1,0 +1,7 @@
+##### create translation templates ##############
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/wallpapers-desktops/"
+    SOURCES *.desktop
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)

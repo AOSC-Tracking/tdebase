@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 14:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: klipper.desktop:2
+msgid "Klipper"
+msgstr ""
+
+#. GenericName
+#: klipper.desktop:4
+msgid "Clipboard Tool"
+msgstr "Uirlis Ghearrthaisce"
+
+#. Comment
+#: klipper.desktop:6
+msgid "A cut & paste history utility"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:9
+msgid "Jpeg-Image"
+msgstr "Íomhá JPEG"
+
+#. Description
+#: klipperrc.desktop:14
+msgid "Launch K&View"
+msgstr "Tosaigh K&View"
+
+#. Description
+#: klipperrc.desktop:19
+msgid "Web-URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:24 klipperrc.desktop:116
+msgid "Open with &Konqueror"
+msgstr "Oscail le &Konqueror"
+
+#. Description
+#: klipperrc.desktop:29 klipperrc.desktop:126
+msgid "Open with &Mozilla"
+msgstr "Oscail le &Mozilla"
+
+#. Description
+#: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
+#: klipperrc.desktop:131
+msgid "Send &URL"
+msgstr "Seol &URL"
+
+#. Description
+#: klipperrc.desktop:40
+msgid "Open with &Firefox"
+msgstr "Oscail le &Firefox"
+
+#. Description
+#: klipperrc.desktop:46
+msgid "Send &Page"
+msgstr "Seol &Leathanach"
+
+#. Description
+#: klipperrc.desktop:51
+msgid "Mail-URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:56
+msgid "Launch &Kmail"
+msgstr "Tosaigh &Kmail"
+
+#. Description
+#: klipperrc.desktop:61
+msgid "Launch &mutt"
+msgstr "Tosaigh &mutt"
+
+#. Description
+#: klipperrc.desktop:66
+msgid "Text File"
+msgstr "Téacschomhad"
+
+#. Description
+#: klipperrc.desktop:71
+msgid "Launch K&Edit"
+msgstr "Tosaigh K&Edit"
+
+#. Description
+#: klipperrc.desktop:76
+msgid "Launch K&Write"
+msgstr "Tosaigh K&Write"
+
+#. Description
+#: klipperrc.desktop:81
+msgid "Local file URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
+msgid "Send &File"
+msgstr "Seol &Comhad"
+
+#. Description
+#: klipperrc.desktop:96
+msgid "Gopher URL"
+msgstr "URL Gopher"
+
+#. Description
+#: klipperrc.desktop:111
+msgid "ftp URL"
+msgstr "URL ftp"
+
+#. Description
+#: klipperrc.desktop:121
+msgid "Open with &Netscape"
+msgstr "Oscail le &Netscape"

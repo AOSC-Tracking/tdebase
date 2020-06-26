@@ -21,7 +21,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmsmserver.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcmsmserver.desktop
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_smserver (module) #####################

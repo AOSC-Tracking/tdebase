@@ -1,0 +1,1794 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-17 22:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Development/Forte.desktop:2
+msgid "Forte"
+msgstr ""
+
+#. GenericName
+#: Development/Forte.desktop:3
+msgid "Java IDE"
+msgstr "Environnement de développement intégré Java"
+
+#. Name
+#: Development/assistant.desktop:2
+msgid "Qt Assistant"
+msgstr ""
+
+#. GenericName
+#: Development/assistant.desktop:3
+msgid "Document Browser"
+msgstr "Explorateur de documentation Qt"
+
+#. Name
+#: Development/ddd.desktop:2
+msgid "DDD"
+msgstr ""
+
+#. GenericName
+#: Development/ddd.desktop:3
+msgid "Data Display Debugger"
+msgstr "Débogueur symbolique"
+
+#. Name
+#: Development/designer.desktop:2
+#, fuzzy
+msgid "Qt Designer"
+msgstr "Concepteur d'interface"
+
+#. GenericName
+#: Development/designer.desktop:3
+msgid "Interface Designer"
+msgstr "Concepteur d'interface"
+
+#. Name
+#: Development/dlgedit.desktop:2
+#, fuzzy
+msgid "Qt DlgEdit"
+msgstr "GEdit"
+
+#. GenericName
+#: Development/dlgedit.desktop:3
+msgid "Dialog Editor"
+msgstr "Éditeur de boîtes de dialogue"
+
+#. Name
+#: Development/eclipse.desktop:3
+#, fuzzy
+msgid "Eclipse"
+msgstr "Environnement de développement intégré Eclipse"
+
+#. GenericName
+#: Development/eclipse.desktop:4
+msgid "Eclipse IDE"
+msgstr "Environnement de développement intégré Eclipse"
+
+#. Name
+#: Development/fdesign.desktop:2
+#, fuzzy
+msgid "FormDesigner"
+msgstr "Concepteur d'interface"
+
+#. Name
+#: Development/j2mewtk.desktop:2
+msgid "J2ME"
+msgstr ""
+
+#. GenericName
+#: Development/j2mewtk.desktop:3
+msgid "J2ME Toolkit"
+msgstr "Boîte à outils J2ME"
+
+#. Name
+#: Development/linguist.desktop:2
+msgid "Qt Linguist"
+msgstr ""
+
+#. GenericName
+#: Development/linguist.desktop:3
+msgid "Translation Tool"
+msgstr "Outil de traduction"
+
+#. Name
+#: Development/pose.desktop:2
+msgid "Pose"
+msgstr ""
+
+#. GenericName
+#: Development/pose.desktop:3
+msgid "Palm/Wireless Emulator"
+msgstr "Émulateur de Palm sans fil"
+
+#. Name
+#: Development/sced.desktop:2
+msgid "Sced"
+msgstr ""
+
+#. GenericName
+#: Development/sced.desktop:3
+msgid "Scene Modeler"
+msgstr "Modeleur de scène"
+
+#. Name
+#: Games/Arcade/ClanBomber.desktop:2
+#, fuzzy
+msgid "ClanBomber"
+msgstr "ClanBomber"
+
+#. GenericName
+#: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
+#: Games/Arcade/Mures.desktop:3 Games/Arcade/SuperMethaneBrothers.desktop:3
+#: Games/Arcade/Trophy.desktop:3 Games/Arcade/XKobo.desktop:3
+#: Games/Arcade/XSoldier.desktop:3 Games/Arcade/battalion.desktop:3
+#: Games/Arcade/cxhextris.desktop:3 Games/Arcade/scavenger.desktop:3
+#: Games/Board/Gataxx.desktop:3 Games/Board/Gnotravex.desktop:3
+#: Games/penguin-command.desktop:4
+msgid "Arcade Game"
+msgstr "Jeu d'arcade"
+
+#. Name
+#: Games/Arcade/FrozenBubble.desktop:2
+msgid "Frozen Bubble"
+msgstr ""
+
+#. GenericName
+#: Games/Arcade/FrozenBubble.desktop:3
+msgid "Tetris-Like Game"
+msgstr "Jeu à la Tetris"
+
+#. Name
+#: Games/Arcade/Gnibbles.desktop:2
+msgid "Gnibbles"
+msgstr "GNibbles"
+
+#. GenericName
+#: Games/Arcade/Gnibbles.desktop:3
+msgid "GNOME Nibbles Game"
+msgstr "Jeu Nibbles pour Gnome"
+
+#. Name
+#: Games/Arcade/GnobotsII.desktop:2
+msgid "Gnobots II"
+msgstr ""
+
+#. Name
+#: Games/Arcade/Mures.desktop:2
+msgid "Mures"
+msgstr ""
+
+#. Name
+#: Games/Arcade/SuperMethaneBrothers.desktop:2
+msgid "Super Methane Brothers"
+msgstr ""
+
+#. Name
+#: Games/Arcade/Trophy.desktop:2
+msgid "Trophy"
+msgstr ""
+
+#. Name
+#: Games/Arcade/TuxRacer.desktop:2
+msgid "TuxRacer"
+msgstr ""
+
+#. GenericName
+#: Games/Arcade/TuxRacer.desktop:3
+msgid "Racing Game"
+msgstr "Jeu de course"
+
+#. Name
+#: Games/Arcade/XKobo.desktop:2
+msgid "XKobo"
+msgstr ""
+
+#. Name
+#: Games/Arcade/XSoldier.desktop:2
+msgid "XSoldier"
+msgstr ""
+
+#. Name
+#: Games/Arcade/alephone-nogl.desktop:2
+msgid "Alephone"
+msgstr ""
+
+#. Comment
+#: Games/Arcade/alephone-nogl.desktop:3
+msgid "An open source version of Marathon Infinity for SDL"
+msgstr "Une version open source de Marathon Infinity pour SDL"
+
+#. Name
+#: Games/Arcade/alephone.desktop:2
+msgid "Alephone - No OpenGL"
+msgstr ""
+
+#. Comment
+#: Games/Arcade/alephone.desktop:3
+msgid ""
+"An open source version of Marathon Infinity for SDL that has Open GL disabled"
+msgstr ""
+"Une version open source de Marathon Infinity pour SDL qui a OpenGL désactivé"
+
+#. Name
+#: Games/Arcade/battalion.desktop:2
+msgid "Batallion"
+msgstr ""
+
+#. Name
+#: Games/Arcade/battleball.desktop:2
+msgid "Battleball"
+msgstr ""
+
+#. GenericName
+#: Games/Arcade/battleball.desktop:3
+msgid "Ball Game"
+msgstr "Jeu de balle"
+
+#. Name
+#: Games/Arcade/cxhextris.desktop:2
+msgid "cxhextris"
+msgstr "cxHextris"
+
+#. Name
+#: Games/Arcade/rocksndiamonds.desktop:2
+msgid "Rocks n Diamonds"
+msgstr "Rocks'n'Diamonds"
+
+#. GenericName
+#: Games/Arcade/rocksndiamonds.desktop:3 Games/Board/Glines.desktop:3
+msgid "Tactical Game"
+msgstr "Jeu tactique"
+
+#. Name
+#: Games/Arcade/scavenger.desktop:2
+msgid "Scavenger"
+msgstr ""
+
+#. Name
+#: Games/Board/Gataxx.desktop:2
+msgid "Gataxx"
+msgstr ""
+
+#. Name
+#: Games/Board/Gchess.desktop:2
+msgid "GNOME Chess"
+msgstr "GChess"
+
+#. Name
+#: Games/Board/Glines.desktop:2
+msgid "Glines"
+msgstr "GLines"
+
+#. Name
+#: Games/Board/Gmahjongg.desktop:2
+msgid "GNOME Mahjongg"
+msgstr "GMahjongg"
+
+#. GenericName
+#: Games/Board/Gmahjongg.desktop:3
+msgid "Tile Game"
+msgstr "Jeu de tuiles"
+
+#. Name
+#: Games/Board/Gmines.desktop:2
+msgid "GNOME Mines"
+msgstr "GMines"
+
+#. GenericName
+#: Games/Board/Gmines.desktop:3
+msgid "Logic Game"
+msgstr "Jeu de logique"
+
+#. Name
+#: Games/Board/Gnotravex.desktop:2
+msgid "Gnotravex"
+msgstr ""
+
+#. Name
+#: Games/Board/Gnotski.desktop:2
+msgid "Gnotski"
+msgstr ""
+
+#. GenericName
+#: Games/Board/Gnotski.desktop:3
+msgid "GNOME Klotski Game"
+msgstr "Jeu de Klotski pour Gnome"
+
+#. Name
+#: Games/Board/Gstones.desktop:2
+msgid "GNOME Stones"
+msgstr "GStones"
+
+#. Name
+#: Games/Board/Iagno.desktop:2
+msgid "Iagno"
+msgstr ""
+
+#. GenericName
+#: Games/Board/Iagno.desktop:3 Games/Board/SameGnome.desktop:3
+#: Games/Board/Xgammon.desktop:3
+msgid "Board Game"
+msgstr "Jeu de plateau"
+
+#. Name
+#: Games/Board/SameGnome.desktop:2
+msgid "Same GNOME"
+msgstr "SameGnome"
+
+#. Name
+#: Games/Board/Xgammon.desktop:2
+msgid "Xgammon"
+msgstr "XGammon"
+
+#. Name
+#: Games/Board/xboard.desktop:2
+msgid "Xboard"
+msgstr "XBoard"
+
+#. GenericName
+#: Games/Board/xboard.desktop:3
+msgid "Chess Game"
+msgstr "Jeu d'échecs"
+
+#. Name
+#: Games/Card/AisleRiot.desktop:2
+msgid "AisleRiot"
+msgstr ""
+
+#. GenericName
+#: Games/Card/AisleRiot.desktop:3 Games/Card/FreeCell.desktop:3
+#: Games/Card/PySol.desktop:3 Games/Card/XPat2.desktop:3
+msgid "Card Game"
+msgstr "Jeu de cartes"
+
+#. Name
+#: Games/Card/FreeCell.desktop:2
+msgid "FreeCell"
+msgstr ""
+
+#. Name
+#: Games/Card/PySol.desktop:2
+msgid "PySol"
+msgstr ""
+
+#. Name
+#: Games/Card/XPat2.desktop:2
+msgid "XPat 2"
+msgstr ""
+
+#. Name
+#: Games/Clanbomber.desktop:2
+msgid "Clanbomber"
+msgstr "ClanBomber"
+
+#. Name
+#: Games/Emulators/cmail.desktop:2
+#, fuzzy
+msgid "ChessMail"
+msgstr "Jeu d'échecs"
+
+#. GenericName
+#: Games/Emulators/cmail.desktop:3
+msgid "Email for Chess"
+msgstr "Jeu d'échecs par courrier électronique"
+
+#. Name
+#: Games/Emulators/qmamecat.desktop:2
+msgid "Qmamecat"
+msgstr "QMamecat"
+
+#. GenericName
+#: Games/Emulators/qmamecat.desktop:3
+msgid "Arcade Emulator"
+msgstr "Émulateur de jeux d'arcade"
+
+#. Name
+#: Games/GTali.desktop:2
+msgid "GTali"
+msgstr ""
+
+#. GenericName
+#: Games/GTali.desktop:3
+msgid "Dice Game"
+msgstr "Jeu de dés"
+
+#. Name
+#: Games/Roguelikes/angband.desktop:2
+msgid "Angband"
+msgstr ""
+
+#. Comment
+#: Games/Roguelikes/angband.desktop:3
+msgid "Dive into Angband and defeat Morgoth"
+msgstr "Osez pénétrer en Angband pour vaincre Morgoth"
+
+#. Name
+#: Games/Roguelikes/moria.desktop:2
+msgid "Moria"
+msgstr ""
+
+#. Comment
+#: Games/Roguelikes/moria.desktop:3
+msgid "Dive into Moria and defeat the Balrog"
+msgstr "Osez pénétrer dans la Moria pour vaincre le Balrog"
+
+#. Name
+#: Games/Roguelikes/nethack.desktop:2
+msgid "NetHack"
+msgstr ""
+
+#. GenericName
+#: Games/Roguelikes/nethack.desktop:3 Games/Roguelikes/tome.desktop:3
+msgid "Quest Game"
+msgstr "Jeu de quête"
+
+#. Name
+#: Games/Roguelikes/rogue.desktop:2
+msgid "Rogue"
+msgstr ""
+
+#. GenericName
+#: Games/Roguelikes/rogue.desktop:3
+msgid "The Original"
+msgstr "Le vrai de vrai"
+
+#. Name
+#: Games/Roguelikes/tome.desktop:2
+msgid "ToME"
+msgstr ""
+
+#. Name
+#: Games/Roguelikes/zangband.desktop:2
+msgid "ZAngband"
+msgstr ""
+
+#. GenericName
+#: Games/Roguelikes/zangband.desktop:3
+msgid "Defeat the Serpent of Chaos"
+msgstr "Pourrez-vous vaincre le Serpent du Chaos ?"
+
+#. Name
+#: Games/TacticStrategy/freeciv.desktop:3
+msgid "Freeciv"
+msgstr ""
+
+#. GenericName
+#: Games/TacticStrategy/freeciv.desktop:4 Games/xshipwars.desktop:4
+msgid "Strategy Game"
+msgstr "Jeu de stratégie"
+
+#. Name
+#: Games/TacticStrategy/freecivserver.desktop:3
+msgid "FreeCiv Server"
+msgstr ""
+
+#. Comment
+#: Games/TacticStrategy/freecivserver.desktop:4
+msgid "A server for Free Civ"
+msgstr "Un serveur pour Free Civ"
+
+#. Name
+#: Games/TacticStrategy/xscorch.desktop:3
+msgid "XScorch"
+msgstr ""
+
+#. Comment
+#: Games/TacticStrategy/xscorch.desktop:4
+msgid "A free Scorched Earth clone for UNIX and X"
+msgstr "Un clone libre de Scorched Earth pour UNIX et X"
+
+#. Name
+#: Games/Toys/xeyes.desktop:2
+msgid "X Eyes"
+msgstr "XEyes"
+
+#. Name
+#: Games/Toys/xpinguin.desktop:2
+msgid "Tux"
+msgstr ""
+
+#. GenericName
+#: Games/Toys/xpinguin.desktop:3
+msgid "Linux Mascot"
+msgstr "La mascotte de Linux"
+
+#. Name
+#: Games/defendguin.desktop:3
+msgid "Defendguin"
+msgstr ""
+
+#. GenericName
+#: Games/defendguin.desktop:4
+msgid "Game"
+msgstr "Jeu"
+
+#. Name
+#: Games/penguin-command.desktop:3
+msgid "Penguin Command"
+msgstr ""
+
+#. Name
+#: Games/xshipwars.desktop:3
+msgid "XShipWars"
+msgstr ""
+
+#. Name
+#: Graphics/ElectricEyes.desktop:2
+msgid "Electric Eyes"
+msgstr ""
+
+#. GenericName
+#: Graphics/ElectricEyes.desktop:3
+msgid "Image Viewer"
+msgstr "Afficheur d'images"
+
+#. Name
+#: Graphics/GPhoto.desktop:2
+msgid "GPhoto"
+msgstr ""
+
+#. GenericName
+#: Graphics/GPhoto.desktop:3
+msgid "Digital Camera Program"
+msgstr "Logiciel pour les appareils de photographie numérique"
+
+#. Name
+#: Graphics/GnomeColorSelector.desktop:2
+msgid "GNOME Color Selector"
+msgstr "Gnome Color Selector"
+
+#. Name
+#: Graphics/GnomeIconEditor.desktop:2
+msgid "GNOME Icon Editor"
+msgstr "Gnome Icon Editor"
+
+#. Name
+#: Graphics/Gqview.desktop:2
+msgid "Gqview"
+msgstr "GqView"
+
+#. GenericName
+#: Graphics/Gqview.desktop:3
+msgid "Image Browser"
+msgstr "Afficheur d'images"
+
+#. Name
+#: Graphics/Sketch.desktop:2
+msgid "Sketch"
+msgstr ""
+
+#. GenericName
+#: Graphics/Sketch.desktop:3
+msgid "Vector-based Drawing Program"
+msgstr "Logiciel de dessin vectoriel"
+
+#. Name
+#: Graphics/Xpcd.desktop:2
+msgid "Xpcd"
+msgstr "XPCD"
+
+#. GenericName
+#: Graphics/Xpcd.desktop:3
+msgid "PhotoCD Tools"
+msgstr "Outils pour PhotoCD"
+
+#. Name
+#: Graphics/Xwpick.desktop:2
+msgid "Xwpick"
+msgstr ""
+
+#. GenericName
+#: Graphics/Xwpick.desktop:3
+msgid "Screen Capture Program"
+msgstr "Logiciel de capture d'écran"
+
+#. Name
+#: Graphics/bitmap.desktop:2
+msgid "X Bitmap"
+msgstr "XBitmap"
+
+#. GenericName
+#: Graphics/bitmap.desktop:3
+msgid "Bitmap Creator"
+msgstr "Pour créer des images bitmap"
+
+#. Name
+#: Graphics/blender.desktop:2
+msgid "Blender"
+msgstr ""
+
+#. GenericName
+#: Graphics/blender.desktop:3
+msgid "3D Modeler/Renderer"
+msgstr "Logiciel d'animation et de modélisation 3D"
+
+#. Name
+#: Graphics/ghostview.desktop:2
+msgid "GhostView"
+msgstr ""
+
+#. GenericName
+#: Graphics/ghostview.desktop:3
+msgid "PostScript Viewer"
+msgstr "Afficheur PostScript"
+
+#. Name
+#: Graphics/gimp.desktop:2
+msgid "Gimp"
+msgstr "The Gimp"
+
+#. GenericName
+#: Graphics/gimp.desktop:3
+msgid "Image Manipulation Program"
+msgstr "Logiciel de manipulation d'images du GNU"
+
+#. Name
+#: Graphics/gv.desktop:2
+msgid "GV"
+msgstr "Gv"
+
+#. GenericName
+#: Graphics/gv.desktop:3
+msgid "Postscript Viewer"
+msgstr "Afficheur PostScript"
+
+#. Name
+#: Graphics/inkscape.desktop:2
+msgid "Inkscape"
+msgstr ""
+
+#. GenericName
+#: Graphics/inkscape.desktop:3 Graphics/sodipodi.desktop:3
+msgid "Vector Drawing"
+msgstr "Dessin vectoriel"
+
+#. Name
+#: Graphics/sodipodi.desktop:2
+msgid "Sodipodi"
+msgstr ""
+
+#. Name
+#: Graphics/tgif.desktop:2
+msgid "TGif"
+msgstr ""
+
+#. GenericName
+#: Graphics/tgif.desktop:3 Graphics/xfig.desktop:3
+msgid "Drawing Program"
+msgstr "Logiciel de dessin"
+
+#. Name
+#: Graphics/xdvi.desktop:2
+msgid "X DVI"
+msgstr "XDVI"
+
+#. GenericName
+#: Graphics/xdvi.desktop:3
+msgid "DVI Viewer"
+msgstr "Afficheur DVI"
+
+#. Name
+#: Graphics/xfig.desktop:2
+msgid "Xfig"
+msgstr "XFig"
+
+#. Name
+#: Graphics/xpaint.desktop:2
+msgid "X Paint"
+msgstr "XPaint"
+
+#. GenericName
+#: Graphics/xpaint.desktop:3
+msgid "Paint Program"
+msgstr "Petit programme de dessin"
+
+#. Name
+#: Graphics/xv.desktop:2
+msgid "XV"
+msgstr "Xv"
+
+#. GenericName
+#: Graphics/xv.desktop:3
+msgid "Picture Viewer"
+msgstr "Afficheur d'images"
+
+#. Name
+#: Internet/BlueFish.desktop:2
+msgid "BlueFish"
+msgstr ""
+
+#. GenericName
+#: Internet/BlueFish.desktop:3
+msgid "HTML Editor"
+msgstr "Un éditeur HTML"
+
+#. Name
+#: Internet/Dpsftp.desktop:2
+msgid "Dpsftp"
+msgstr "DpsFTP"
+
+#. GenericName
+#: Internet/Dpsftp.desktop:3 Internet/gFTP.desktop:3 Internet/xftp.desktop:3
+msgid "FTP Browser"
+msgstr "Navigateur FTP"
+
+#. Name
+#: Internet/DrakSync.desktop:2
+msgid "DrakSync"
+msgstr ""
+
+#. GenericName
+#: Internet/DrakSync.desktop:3
+msgid "Folder Synchronization"
+msgstr "Synchronisation de dossiers"
+
+#. Name
+#: Internet/Evolution.desktop:2
+msgid "Evolution"
+msgstr ""
+
+#. GenericName
+#: Internet/Evolution.desktop:3 Internet/Netscapemessenger.desktop:3
+#: Internet/Sylpheed.desktop:3 Internet/Terminal/mutt.desktop:3
+#: Internet/Terminal/pine.desktop:3 Internet/balsa.desktop:3
+#: Internet/mozilla-thunderbird.desktop:3 Internet/xfmail.desktop:3
+msgid "Mail Client"
+msgstr "Logiciel de messagerie électronique"
+
+#. Name
+#: Internet/Faces.desktop:2
+msgid "Faces"
+msgstr ""
+
+#. GenericName
+#: Internet/Faces.desktop:3 Internet/coolmail.desktop:3
+#: Internet/xbiff.desktop:3
+msgid "Mail Alert"
+msgstr "Surveillance du courrier électronique"
+
+#. Name
+#: Internet/Fetchmailconf.desktop:2
+msgid "Fetchmailconf"
+msgstr "FetchmailConf"
+
+#. GenericName
+#: Internet/Fetchmailconf.desktop:3
+msgid "Fetchmail Configuration"
+msgstr "Outil de configuration de Fetchmail"
+
+#. Name
+#: Internet/Gabber.desktop:2
+msgid "Gabber"
+msgstr ""
+
+#. GenericName
+#: Internet/Gabber.desktop:3 Internet/gaim.desktop:3
+msgid "Instant Messenger"
+msgstr "Client de messagerie instantanée"
+
+#. Name
+#: Internet/Galeon.desktop:2
+msgid "Galeon"
+msgstr ""
+
+#. GenericName
+#: Internet/Galeon.desktop:3 Internet/Terminal/Links.desktop:3
+#: Internet/Terminal/Lynx.desktop:3 Internet/Terminal/w3m.desktop:3
+#: Internet/arena.desktop:3 Internet/epiphany.desktop:3
+#: Internet/mozilla-firefox.desktop:3 Internet/mozilla.desktop:3
+#: Internet/netscape.desktop:3 Internet/netscape6.desktop:3
+#: Internet/opera.desktop:3
+msgid "Web Browser"
+msgstr "Navigateur web"
+
+#. Name
+#: Internet/GnomeICU.desktop:2
+msgid "GNOMEICU"
+msgstr "GnomeICU"
+
+#. GenericName
+#: Internet/GnomeICU.desktop:3 Internet/licq.desktop:3
+msgid "ICQ Messenger"
+msgstr "Messagerie ICQ"
+
+#. Name
+#: Internet/Netscapemessenger.desktop:2
+#, fuzzy
+msgid "Netscape Messenger"
+msgstr "Client de messagerie instantanée"
+
+#. Name
+#: Internet/Nmapfe.desktop:2
+msgid "Nmapfe"
+msgstr ""
+
+#. GenericName
+#: Internet/Nmapfe.desktop:3
+msgid "Port Scanner"
+msgstr "Analyseur de port"
+
+#. Name
+#: Internet/Pan.desktop:2
+#, fuzzy
+msgid "Pan"
+msgstr "XPaint"
+
+#. GenericName
+#: Internet/Pan.desktop:3 Internet/knews.desktop:3
+msgid "Usenet News Reader"
+msgstr "Lecteur de forums Usenet"
+
+#. Name
+#: Internet/Sylpheed.desktop:2
+msgid "Sylpheed"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/Links.desktop:2
+msgid "Links"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/Lynx.desktop:2
+msgid "Lynx"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/btdownloadcurses.desktop:2
+msgid "BitTorrent Python Curses GUI"
+msgstr "Interface graphique Curses de BitTorrent écrite en Python"
+
+#. GenericName
+#: Internet/Terminal/btdownloadcurses.desktop:3
+#: Internet/btdownloadgui.desktop:3
+msgid "BitTorrent GUI"
+msgstr "Interface graphique de BitTorrent"
+
+#. Name
+#: Internet/Terminal/lftp.desktop:2
+msgid "Lftp"
+msgstr "LFTP"
+
+#. GenericName
+#: Internet/Terminal/lftp.desktop:3 Internet/Terminal/ncftp.desktop:3
+msgid "FTP Client"
+msgstr "Un client FTP"
+
+#. Name
+#: Internet/Terminal/mutt.desktop:2
+msgid "Mutt"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/ncftp.desktop:2
+msgid "NcFTP"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/pine.desktop:2
+msgid "Pine"
+msgstr ""
+
+#. Name
+#: Internet/Terminal/silc.desktop:2
+msgid "Silc"
+msgstr ""
+
+#. GenericName
+#: Internet/Terminal/silc.desktop:3
+msgid "SILC Client"
+msgstr "Client SILC"
+
+#. Name
+#: Internet/Terminal/slrn.desktop:2
+msgid "Slrn"
+msgstr ""
+
+#. GenericName
+#: Internet/Terminal/slrn.desktop:3
+msgid "News Reader"
+msgstr "Lecteur de forums de discussion"
+
+#. Name
+#: Internet/Terminal/w3m.desktop:2
+msgid "w3m"
+msgstr ""
+
+#. Name
+#: Internet/arena.desktop:2
+msgid "Arena"
+msgstr ""
+
+#. Name
+#: Internet/balsa.desktop:2
+msgid "Balsa"
+msgstr ""
+
+#. Name
+#: Internet/btdownloadgui.desktop:2
+msgid "BitTorrent Python wxGTK GUI"
+msgstr "Interface graphique wxGTK de BitTorrent écrite en Python"
+
+#. Name
+#: Internet/coolmail.desktop:2
+msgid "Coolmail"
+msgstr ""
+
+#. Name
+#: Internet/dc_gui.desktop:2
+msgid "DCTC GUI"
+msgstr "Interface graphique à DCTC"
+
+#. GenericName
+#: Internet/dc_gui.desktop:3
+msgid "Direct Connect Clone"
+msgstr "Clone de Direct Connect"
+
+#. Name
+#: Internet/ed2k_gui.desktop:2
+msgid "eDonkey2000 GTK+ Core Controller"
+msgstr "Contrôleur principal eDonkey2000 GTK+"
+
+#. GenericName
+#: Internet/ed2k_gui.desktop:3
+msgid "eDonkey2000 GUI"
+msgstr "Interface graphique pour eDonkey2000"
+
+#. Name
+#: Internet/epiphany.desktop:2
+msgid "Epiphany"
+msgstr ""
+
+#. Name
+#: Internet/ethereal.desktop:2
+msgid "Ethereal"
+msgstr ""
+
+#. GenericName
+#: Internet/ethereal.desktop:3 Internet/wireshark.desktop:3
+msgid "Network Analyzer"
+msgstr "Analyseur réseau"
+
+#. Name
+#: Internet/gFTP.desktop:2
+msgid "gFTP"
+msgstr "GFTP"
+
+#. Name
+#: Internet/gaim.desktop:2
+msgid "Gaim"
+msgstr ""
+
+#. Name
+#: Internet/gnomemeeting.desktop:2
+msgid "GnomeMeeting"
+msgstr ""
+
+#. GenericName
+#: Internet/gnomemeeting.desktop:3
+msgid "Video Conferencing"
+msgstr "Conférence vidéo"
+
+#. Name
+#: Internet/gnometalk.desktop:2
+msgid "GNOME Talk"
+msgstr "Gnome Talk"
+
+#. Name
+#: Internet/gtelnet.desktop:2
+msgid "GNOME Telnet"
+msgstr "Gnome Telnet"
+
+#. GenericName
+#: Internet/gtelnet.desktop:3
+msgid "Remote Access"
+msgstr "Accès distant"
+
+#. Name
+#: Internet/ickle.desktop:2
+msgid "ickle"
+msgstr ""
+
+#. GenericName
+#: Internet/ickle.desktop:3
+msgid "ICQ2000 Chat"
+msgstr "Discussion ICQ2000"
+
+#. Name
+#: Internet/javaws.desktop:2
+msgid "Java Web Start"
+msgstr ""
+
+#. Name
+#: Internet/knews.desktop:2
+msgid "KNews"
+msgstr ""
+
+#. Name
+#: Internet/licq.desktop:2
+msgid "Licq"
+msgstr ""
+
+#. Name
+#: Internet/mldonkey_gui.desktop:2
+msgid "MLDonkey GTK+ Core Controller"
+msgstr "Contrôleur principal MLDonkey en GTK+"
+
+#. GenericName
+#: Internet/mldonkey_gui.desktop:3
+msgid "MLDonkey GUI"
+msgstr "Interface graphique pou MLDonkey"
+
+#. Name
+#: Internet/mozilla-firefox.desktop:2
+msgid "Firefox"
+msgstr ""
+
+#. Name
+#: Internet/mozilla-thunderbird.desktop:2
+msgid "Thunderbird"
+msgstr ""
+
+#. Name
+#: Internet/mozilla.desktop:2
+msgid "Mozilla"
+msgstr ""
+
+#. Name
+#: Internet/netscape.desktop:2
+#, fuzzy
+msgid "Netscape"
+msgstr "Netscape 6"
+
+#. Name
+#: Internet/netscape6.desktop:2
+msgid "Netscape6"
+msgstr "Netscape 6"
+
+#. Name
+#: Internet/opera.desktop:2
+msgid "Opera"
+msgstr ""
+
+#. Name
+#: Internet/wireshark.desktop:2
+msgid "Wireshark"
+msgstr ""
+
+#. Name
+#: Internet/xbiff.desktop:2
+msgid "X Biff"
+msgstr "XBiff"
+
+#. Name
+#: Internet/xchat.desktop:2
+#, fuzzy
+msgid "XChat"
+msgstr "Discussion IRC"
+
+#. GenericName
+#: Internet/xchat.desktop:3
+msgid "IRC Chat"
+msgstr "Discussion IRC"
+
+#. Name
+#: Internet/xfmail.desktop:2
+msgid "XFMail"
+msgstr ""
+
+#. Name
+#: Internet/xftp.desktop:2
+msgid "X FTP"
+msgstr "XFTP"
+
+#. Name
+#: Multimedia/Aumix.desktop:2
+msgid "Aumix"
+msgstr ""
+
+#. GenericName
+#: Multimedia/Aumix.desktop:3
+msgid "Audio Mixer"
+msgstr "Console de mixage"
+
+#. Name
+#: Multimedia/Grip.desktop:2
+msgid "Grip"
+msgstr "GRip"
+
+#. GenericName
+#: Multimedia/Grip.desktop:3
+msgid "CD Player/Ripper"
+msgstr "Lecteur / extracteur de CD audio"
+
+#. Name
+#: Multimedia/MP3info.desktop:2
+msgid "MP3 Info"
+msgstr ""
+
+#. Name
+#: Multimedia/XMovie.desktop:2
+msgid "XMovie"
+msgstr ""
+
+#. GenericName
+#: Multimedia/XMovie.desktop:3 Multimedia/mplayer.desktop:3
+#: Multimedia/mtv.desktop:3 Multimedia/realplayer.desktop:3
+#: Multimedia/xine.desktop:3
+msgid "Video Player"
+msgstr "Lecteur vidéo"
+
+#. Name
+#: Multimedia/alevt.desktop:2
+msgid "AleVT"
+msgstr ""
+
+#. GenericName
+#: Multimedia/alevt.desktop:3
+msgid "VideoText Viewer"
+msgstr "Afficheur vidéotexte"
+
+#. Name
+#: Multimedia/alsamixergui.desktop:2
+msgid "AlsaMixerGui"
+msgstr "Console de mixage Alsa"
+
+#. GenericName
+#: Multimedia/alsamixergui.desktop:3
+msgid "Alsa Mixer Frontend"
+msgstr "Interface graphique de la console de mixage d'Alsa"
+
+#. Name
+#: Multimedia/audacity.desktop:2
+msgid "Audacity"
+msgstr ""
+
+#. GenericName
+#: Multimedia/audacity.desktop:3 Multimedia/rezound.desktop:3
+#: Multimedia/sweep.desktop:3
+msgid "Audio Editor"
+msgstr "Éditeur audio"
+
+#. Name
+#: Multimedia/aviplay.desktop:2
+msgid "Aviplay"
+msgstr ""
+
+#. GenericName
+#: Multimedia/aviplay.desktop:3
+msgid "AVI Video Player"
+msgstr "Un lecteur de vidéos au format AVI"
+
+#. Name
+#: Multimedia/bcast2000.desktop:2
+msgid "Broadcast 2000"
+msgstr ""
+
+#. GenericName
+#: Multimedia/bcast2000.desktop:3
+msgid "Audio and Video IDE"
+msgstr "Environnement de création audio et vidéo"
+
+#. Name
+#: Multimedia/enjoympeg.desktop:2
+msgid "EnjoyMPEG"
+msgstr ""
+
+#. GenericName
+#: Multimedia/enjoympeg.desktop:3 Multimedia/gtv.desktop:3
+msgid "MPEG Player"
+msgstr "Lecteur Mpeg"
+
+#. Name
+#: Multimedia/gtv.desktop:2
+#, fuzzy
+msgid "GTV"
+msgstr "Gv"
+
+#. Name
+#: Multimedia/jazz.desktop:2
+msgid "Jazz"
+msgstr ""
+
+#. GenericName
+#: Multimedia/jazz.desktop:3
+msgid "Sound Processor"
+msgstr "Outil de traitement du son"
+
+#. Name
+#: Multimedia/mplayer.desktop:2
+#, fuzzy
+msgid "MPlayer"
+msgstr "Lecteur Mpeg"
+
+#. Name
+#: Multimedia/mtv.desktop:2
+msgid "MpegTV"
+msgstr ""
+
+#. Name
+#: Multimedia/ogle.desktop:2
+msgid "Ogle"
+msgstr ""
+
+#. GenericName
+#: Multimedia/ogle.desktop:3
+msgid "DVD Player"
+msgstr "Lecteur de DVD"
+
+#. Name
+#: Multimedia/oqtplayer.desktop:2
+msgid "OQTPlayer"
+msgstr "Lecteur OQTP"
+
+#. GenericName
+#: Multimedia/oqtplayer.desktop:3
+msgid "MOV Video Player"
+msgstr "Un lecteur de vidéos au format MOV"
+
+#. Name
+#: Multimedia/realplayer.desktop:2
+#, fuzzy
+msgid "RealPlayer"
+msgstr "Lecteur vidéo"
+
+#. Name
+#: Multimedia/rezound.desktop:2
+msgid "reZound"
+msgstr ""
+
+#. Name
+#: Multimedia/slab.desktop:2
+msgid "Slab"
+msgstr ""
+
+#. GenericName
+#: Multimedia/slab.desktop:3
+msgid "Audio Recorder"
+msgstr "Enregistreur audio"
+
+#. Name
+#: Multimedia/sweep.desktop:2
+msgid "Sweep"
+msgstr ""
+
+#. Name
+#: Multimedia/xawtv.desktop:2
+msgid "XawTV"
+msgstr ""
+
+#. GenericName
+#: Multimedia/xawtv.desktop:3
+msgid "Watch TV!"
+msgstr "Regardez la télévision !"
+
+#. Name
+#: Multimedia/xcam.desktop:2
+msgid "XCam"
+msgstr ""
+
+#. GenericName
+#: Multimedia/xcam.desktop:3
+msgid "Camera Program"
+msgstr "Logiciel pour les caméras"
+
+#. Name
+#: Multimedia/xine.desktop:2
+msgid "Xine"
+msgstr ""
+
+#. Name
+#: Multimedia/xmms-enqueue.desktop:2
+msgid "Enqueue in XMMS"
+msgstr "Mettre dans la liste de lecture XMMS"
+
+#. GenericName
+#: Multimedia/xmms-enqueue.desktop:3
+msgid "Playlist Tool"
+msgstr "Outil pour liste de lecture"
+
+#. Name
+#: Multimedia/xmms.desktop:2
+msgid "XMMS"
+msgstr ""
+
+#. GenericName
+#: Multimedia/xmms.desktop:3
+msgid "Multimedia Player"
+msgstr "Lecteur multimédia"
+
+#. Name
+#: Office/Applix.desktop:2
+msgid "Applix"
+msgstr ""
+
+#. GenericName
+#: Office/Applix.desktop:3
+msgid "Office Suite"
+msgstr "Suite bureautique"
+
+#. Name
+#: Office/Dia.desktop:2
+msgid "Dia"
+msgstr ""
+
+#. GenericName
+#: Office/Dia.desktop:3 Office/Guppi.desktop:3
+msgid "Program for Diagrams"
+msgstr "Logiciel de conception de diagrammes"
+
+#. Name
+#: Office/Gnome-Cal.desktop:2
+msgid "GNOME-Cal"
+msgstr "GnomeCal"
+
+#. GenericName
+#: Office/Gnome-Cal.desktop:3
+msgid "Personal Calendar"
+msgstr "Agenda personnel"
+
+#. Name
+#: Office/Gnome-Card.desktop:2
+msgid "GNOME-Card"
+msgstr "GnomeCard"
+
+#. GenericName
+#: Office/Gnome-Card.desktop:3
+msgid "Contact Manager"
+msgstr "Gestionnaire de contacts"
+
+#. Name
+#: Office/GnomeTimeTracker.desktop:2
+msgid "GNOME Time Tracker"
+msgstr "Gnome TimeTracker"
+
+#. Name
+#: Office/Gnumeric.desktop:2
+msgid "Gnumeric"
+msgstr ""
+
+#. GenericName
+#: Office/Gnumeric.desktop:3 Office/XsLite.desktop:3
+msgid "Spread Sheet"
+msgstr "Tableur"
+
+#. Name
+#: Office/Guppi.desktop:2
+msgid "Guppi"
+msgstr ""
+
+#. Name
+#: Office/Ical.desktop:2
+msgid "Ical"
+msgstr "iCal"
+
+#. GenericName
+#: Office/Ical.desktop:3
+msgid "Calendar Program"
+msgstr "Agenda"
+
+#. Name
+#: Office/WordPerfect.desktop:2
+msgid "WordPerfect"
+msgstr ""
+
+#. GenericName
+#: Office/WordPerfect.desktop:3 Office/WordPerfect2000.desktop:3
+#: Office/abiword.desktop:3 Office/lyx.desktop:3
+msgid "Word Processor"
+msgstr "Traitement de texte"
+
+#. Name
+#: Office/WordPerfect2000.desktop:2
+msgid "WordPerfect 2000"
+msgstr ""
+
+#. Name
+#: Office/XAcc.desktop:2
+msgid "xacc"
+msgstr "XAcc"
+
+#. GenericName
+#: Office/XAcc.desktop:3
+msgid "Personal Accounting Tool"
+msgstr "Logiciel de comptabilité personnelle"
+
+#. Name
+#: Office/XsLite.desktop:2
+msgid "XsLite"
+msgstr ""
+
+#. Name
+#: Office/abiword.desktop:2
+msgid "AbiWord"
+msgstr ""
+
+#. Name
+#: Office/acroread.desktop:2
+msgid "Acrobat Reader"
+msgstr ""
+
+#. GenericName
+#: Office/acroread.desktop:3 Office/xpdf.desktop:3
+msgid "PDF Viewer"
+msgstr "Afficheur PDF"
+
+#. Name
+#: Office/gnucash.desktop:2
+msgid "GnuCash"
+msgstr ""
+
+#. GenericName
+#: Office/gnucash.desktop:3
+msgid "Finance Manager"
+msgstr "Gestionnaire de finances"
+
+#. Name
+#: Office/lyx.desktop:2
+msgid "LyX"
+msgstr ""
+
+#. Name
+#: Office/mrproject.desktop:2
+msgid "MrProject"
+msgstr ""
+
+#. GenericName
+#: Office/mrproject.desktop:3
+msgid "Project Manager"
+msgstr "Gestionnaire de projets"
+
+#. Name
+#: Office/netscapeaddressbook.desktop:2
+msgid "Netscape Addressbook"
+msgstr "Netscape AddressBook"
+
+#. Name
+#: Office/plan.desktop:2
+msgid "Plan"
+msgstr ""
+
+#. GenericName
+#: Office/plan.desktop:3
+msgid "Calendar Manager"
+msgstr "Gestionnaire d'agenda"
+
+#. Name
+#: Office/pybliographic.desktop:2
+#, fuzzy
+msgid "Pybliographic"
+msgstr "Base de données bibliographiques"
+
+#. GenericName
+#: Office/pybliographic.desktop:3
+msgid "Bibliographic Database"
+msgstr "Base de données bibliographiques"
+
+#. Name
+#: Office/scribus.desktop:2
+msgid "Scribus"
+msgstr ""
+
+#. GenericName
+#: Office/scribus.desktop:3
+msgid "Desktop Publishing"
+msgstr "Publication de bureau"
+
+#. Name
+#: Office/xpdf.desktop:2
+msgid "X PDF"
+msgstr "XPDF"
+
+#. Name
+#: System/Terminal/aterm.desktop:2
+#, fuzzy
+msgid "Terminal"
+msgstr "XTerm"
+
+#. GenericName
+#: System/Terminal/aterm.desktop:3 Utilities/XUtilities/xterm.desktop:3
+msgid "Terminal Program"
+msgstr "Terminal"
+
+#. Name
+#: System/Terminal/procinfo.desktop:2
+msgid "Procinfo"
+msgstr ""
+
+#. GenericName
+#: System/Terminal/procinfo.desktop:3
+msgid "System Process Information"
+msgstr "Informations sur les processus du système"
+
+#. Name
+#: System/Terminal/rxvt.desktop:2
+msgid "RXVT"
+msgstr ""
+
+#. GenericName
+#: System/Terminal/rxvt.desktop:3
+msgid "ouR eXtended Virtual Terminal"
+msgstr ""
+
+#. Name
+#: System/Terminal/vmstat.desktop:2
+msgid "Vmstat"
+msgstr ""
+
+#. GenericName
+#: System/Terminal/vmstat.desktop:3
+msgid "Virtual Memory Statistics"
+msgstr "Statistiques sur la mémoire virtuelle"
+
+#. Name
+#: System/citrix_ica.desktop:2
+msgid "Citrix ICA Client"
+msgstr "Client Citrix ICA"
+
+#. GenericName
+#: System/citrix_ica.desktop:3
+msgid "WTS Client"
+msgstr "Un client WTS"
+
+#. Name
+#: System/editres.desktop:2
+msgid "EditXRes"
+msgstr "EditRes"
+
+#. GenericName
+#: System/editres.desktop:3
+msgid "X Resource Editor"
+msgstr "Éditeur de ressources X-Window"
+
+#. Name
+#: System/sam.desktop:2
+msgid "SAM System-Administration"
+msgstr "Administration système SAM"
+
+#. Name
+#: System/wine.desktop:2
+msgid "Wine"
+msgstr ""
+
+#. GenericName
+#: System/wine.desktop:3
+msgid "Run Windows Programs"
+msgstr "Fait fonctionner des programmes Windows"
+
+#. Name
+#: System/xosview.desktop:2
+msgid "X osview"
+msgstr "XOSView"
+
+#. GenericName
+#: System/xosview.desktop:3
+msgid "System Monitor"
+msgstr "Indicateurs du système"
+
+#. Name
+#: Utilities/Editors/emacs.desktop:2
+#, fuzzy
+msgid "Emacs"
+msgstr "XEmacs"
+
+#. GenericName
+#: Utilities/Editors/emacs.desktop:3 Utilities/Editors/gedit.desktop:3
+#: Utilities/Editors/gvim.desktop:3 Utilities/Editors/lemacs.desktop:3
+#: Utilities/Editors/nano.desktop:3 Utilities/Editors/nedit.desktop:3
+#: Utilities/Editors/pico.desktop:3 Utilities/Editors/xedit.desktop:3
+#: Utilities/Editors/xemacs.desktop:3
+msgid "Text Editor"
+msgstr "Éditeur de texte"
+
+#. Name
+#: Utilities/Editors/gedit.desktop:2
+msgid "gEdit"
+msgstr "GEdit"
+
+#. Name
+#: Utilities/Editors/gvim.desktop:2
+msgid "Vi IMproved"
+msgstr ""
+
+#. Name
+#: Utilities/Editors/lemacs.desktop:2
+#, fuzzy
+msgid "Lucid Emacs"
+msgstr "XEmacs"
+
+#. Name
+#: Utilities/Editors/nano.desktop:2
+msgid "Nano"
+msgstr ""
+
+#. Name
+#: Utilities/Editors/nedit.desktop:2
+msgid "Nedit"
+msgstr ""
+
+#. Name
+#: Utilities/Editors/pico.desktop:2
+msgid "Pico"
+msgstr ""
+
+#. Name
+#: Utilities/Editors/xedit.desktop:2
+msgid "X Editor"
+msgstr "XEdit"
+
+#. Name
+#: Utilities/Editors/xemacs.desktop:2
+msgid "X Emacs"
+msgstr "XEmacs"
+
+#. Name
+#: Utilities/GKrellM.desktop:2
+msgid "GKrellM"
+msgstr ""
+
+#. GenericName
+#: Utilities/GKrellM.desktop:3
+msgid "GNU Krell Monitors"
+msgstr "Indicateurs du système GNU Krell"
+
+#. Name
+#: Utilities/GnomeWho.desktop:2
+msgid "GNOME Who"
+msgstr "Gnome Who"
+
+#. GenericName
+#: Utilities/GnomeWho.desktop:3
+msgid "System Info Tool"
+msgstr "Outil d'informations sur le système"
+
+#. Name
+#: Utilities/SystemInfo.desktop:2
+msgid "System Info"
+msgstr "Informations système"
+
+#. Name
+#: Utilities/SystemLogViewer.desktop:2
+msgid "System Log Viewer"
+msgstr "Systemlogviewer"
+
+#. Name
+#: Utilities/XUtilities/Xkill.desktop:2
+msgid "X Kill"
+msgstr ""
+
+#. GenericName
+#: Utilities/XUtilities/Xkill.desktop:3
+msgid "Window Termination Tool"
+msgstr "Pour fermer de force une fenêtre"
+
+#. Name
+#: Utilities/XUtilities/Xrefresh.desktop:2
+#, fuzzy
+msgid "X Refresh"
+msgstr "Pour rafraîchir l'affichage"
+
+#. GenericName
+#: Utilities/XUtilities/Xrefresh.desktop:3
+msgid "Refresh Screen"
+msgstr "Pour rafraîchir l'affichage"
+
+#. Name
+#: Utilities/XUtilities/Xtraceroute.desktop:2
+msgid "X Traceroute"
+msgstr ""
+
+#. GenericName
+#: Utilities/XUtilities/Xtraceroute.desktop:3
+msgid "Network Tool"
+msgstr "Analyseur réseau"
+
+#. Name
+#: Utilities/XUtilities/xcalc.desktop:2
+msgid "X Calc"
+msgstr "XCalc"
+
+#. GenericName
+#: Utilities/XUtilities/xcalc.desktop:3 Utilities/calctool.desktop:3
+msgid "Calculator"
+msgstr "Calculatrice"
+
+#. Name
+#: Utilities/XUtilities/xclipboard.desktop:2
+msgid "X Clipboard"
+msgstr "XClipboard"
+
+#. GenericName
+#: Utilities/XUtilities/xclipboard.desktop:3
+msgid "Clipboard Viewer"
+msgstr "Pour afficher le contenu du presse-papiers"
+
+#. Name
+#: Utilities/XUtilities/xclock.desktop:2
+msgid "X Clock"
+msgstr "XClock"
+
+#. GenericName
+#: Utilities/XUtilities/xclock.desktop:3 Utilities/oclock.desktop:3
+msgid "Clock"
+msgstr "Horloge"
+
+#. Name
+#: Utilities/XUtilities/xconsole.desktop:2
+msgid "X Console"
+msgstr "XConsole"
+
+#. GenericName
+#: Utilities/XUtilities/xconsole.desktop:3
+msgid "Console Message Viewer"
+msgstr "Pour afficher les messages console"
+
+#. Name
+#: Utilities/XUtilities/xload.desktop:2
+msgid "X Load"
+msgstr "XLoad"
+
+#. GenericName
+#: Utilities/XUtilities/xload.desktop:3
+msgid "Monitors System Load"
+msgstr "Pour suivre la charge du système"
+
+#. Name
+#: Utilities/XUtilities/xmag.desktop:2
+msgid "X Magnifier"
+msgstr "XMag"
+
+#. GenericName
+#: Utilities/XUtilities/xmag.desktop:3
+msgid "Desktop Magnifier"
+msgstr "Loupe pour le bureau"
+
+#. Name
+#: Utilities/XUtilities/xterm.desktop:2
+msgid "X Terminal"
+msgstr "XTerm"
+
+#. Name
+#: Utilities/calctool.desktop:2
+msgid "Calctool"
+msgstr "CalcTool"
+
+#. Name
+#: Utilities/e-notes.desktop:2
+msgid "E-Notes"
+msgstr ""
+
+#. GenericName
+#: Utilities/e-notes.desktop:3
+msgid "Personal Notes"
+msgstr "Outil de prise de notes"
+
+#. Name
+#: Utilities/oclock.desktop:2
+#, fuzzy
+msgid "OClock"
+msgstr "Horloge"
+
+#. Name
+#: Utilities/xgnokii.desktop:2
+msgid "X-Gnokii"
+msgstr ""
+
+#. GenericName
+#: Utilities/xgnokii.desktop:3
+msgid "Mobile Phone Management Tool"
+msgstr "Outil de gestion de téléphone portable"

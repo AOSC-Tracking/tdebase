@@ -48,8 +48,17 @@ install( FILES
 
 ##### other data ################################
 
-install( FILES directory_bookmarkbar.desktop DESTINATION ${DATA_INSTALL_DIR}/kbookmark )
-install( FILES konqpopupmenuplugin.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE directory_bookmarkbar.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kbookmark
+  PO_DIR libkonq-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE konqpopupmenuplugin.desktop
+  DESTINATION ${SERVICETYPES_INSTALL_DIR}
+  PO_DIR libkonq-desktops
+)
 
 
 ##### konq (shared lib) #########################

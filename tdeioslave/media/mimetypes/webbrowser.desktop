@@ -1,9 +1,10 @@
 [Desktop Entry]
-Icon=konqueror
 Type=MimeType
 MimeType=media/builtin-webbrowser
+Icon=konqueror
+
 Comment=Web Browser
-Comment[de]=Internetnavigator
+
 Patterns=Web_Browser
 
 X-TDE-AutoEmbed=false

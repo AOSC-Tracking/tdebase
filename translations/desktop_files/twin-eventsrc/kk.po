@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "терезе менеджері"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "1-үстелге ауысу"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Бірінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "2-үстелге ауысу"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Екінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "3-үстелге ауысу"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Үшінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "4-үстелге ауысу"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Төртінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "5-үстелге ауысу"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Бесінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "6-үстелге ауысу"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Алтыншы виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "7-үстелге ауысу"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Жетінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "8-үстелге ауысу"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Сегізінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "9-үстелге ауысу"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Тоғызыншы виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "10-үстелге ауысу"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Оныншы виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "11-үстелге ауысу"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Он бірінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "12-үстелге ауысу"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Он екінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "13-үстелге ауысу"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Он үшінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "14-үстелге ауысу"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Он төртінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "15-үстелге ауысу"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Он бесінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "16-үстелге ауысу"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Он алтыншы виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "17-үстелге ауысу"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Он жетінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "18-үстелге ауысу"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Он сегізінші виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "19-үстелге ауысу"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Он тоғызыншы виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "20-үстелге ауысу"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Жиырмасыншы виртуалды үстел таңдауда"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Терезені белсендету"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Басқа терезе белсендетілді"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Жаңа терезе"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Жаңа терезе"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Терезені жою"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Терезені жою"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Терезені жабу"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Терезені жабу"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Айдарына түю"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Терезе айдарына түйілді"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Терезені айдарынан жаю"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Терезе айдарынан жайылды"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Терезені түю"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Терезе түйілді"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Терезені жаю"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Терезе жайылды"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Терезені кең жаю"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Терезе барынша кеңейтілді"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Терезені тарылттыру"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Терезе кеңейтуден қайтты"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Бүкіл үстелдердегі терезе"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Терезе бүкіл үстелдерде көрінетін болды"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Бүкіл үстелдердегі терезе емес"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Терезе бүкіл үстелдерде көрінетін емес болды"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Жаңа диалог"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Диалог терезесін шығару"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Диалогты өшіру"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Диалог терезесі жойылды"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Терезе жылжытуын бастау"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Терезені жылжытуы басталды"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Терезе жылжытуы аяқталды"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Терезені жылжытуы аяқталды"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Терезе өлшемін өзгертуін бастау"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Терезе өлшемін өзгертуі басталды"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Терезе өлшемін өзгертуін аяқтау"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Терезе өлшемін өзгертуі аяқталды"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Қолданыстағы үстелдегі терезе назар аударуын сұрайды"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Қолданыстағы виртуалды үстелдегі терезе назар аударуын сұрайды"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Басқа үстелдегі терезе назар аударуын сұрайды"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Басқа виртуалды үстелдегі терезе назар аударуын сұрайды"

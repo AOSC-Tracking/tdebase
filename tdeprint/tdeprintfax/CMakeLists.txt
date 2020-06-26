@@ -24,7 +24,12 @@ link_directories(
 
 tde_install_icons( tdeprintfax )
 tde_install_icons( abentry DESTINATION ${DATA_INSTALL_DIR}/tdeprintfax/icons )
-install( FILES tdeprintfax.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+
+tde_create_translated_desktop(
+  SOURCE tdeprintfax.desktop
+  PO_DIR tdeprint-desktops
+)
+
 install( FILES tdeprintfaxui.rc faxfilters DESTINATION ${DATA_INSTALL_DIR}/tdeprintfax )
 install( PROGRAMS anytops DESTINATION ${DATA_INSTALL_DIR}/tdeprintfax )
 

@@ -15,20 +15,35 @@ add_subdirectory( services )
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     home.desktop root.desktop history.desktop bookmarks.desktop
     services.desktop remote.desktop system.desktop trash.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/entries )
+  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/entries
+  PO_DIR konqueror-desktops
+)
 
-install( FILES
-    home.desktop root.desktop history.desktop bookmarks.desktop
-    services.desktop remote.desktop trash.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/kicker_entries )
+install(
+  FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/home.desktop
+    ${CMAKE_CURRENT_BINARY_DIR}/root.desktop
+    ${CMAKE_CURRENT_BINARY_DIR}/history.desktop
+    ${CMAKE_CURRENT_BINARY_DIR}/bookmarks.desktop
+    ${CMAKE_CURRENT_BINARY_DIR}/services.desktop
+    ${CMAKE_CURRENT_BINARY_DIR}/remote.desktop
+    ${CMAKE_CURRENT_BINARY_DIR}/trash.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/kicker_entries
+)
 
-install( FILES
-    virtualfolderadd.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/add )
+tde_create_translated_desktop(
+  SOURCE virtualfolderadd.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/add
+  PO_DIR konqueror-desktops
+)
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     history_module.desktop dirtree_module.desktop bookmarks_module.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/dirtree )
+  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/dirtree
+  PO_DIR konqueror-desktops
+)

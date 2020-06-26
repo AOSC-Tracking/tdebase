@@ -25,7 +25,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES taskbarextension.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/extensions )
+tde_create_translated_desktop(
+  SOURCE taskbarextension.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/extensions
+  PO_DIR kicker-desktops
+)
 
 
 ##### taskbar_panelextension (module) ###########

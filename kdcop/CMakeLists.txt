@@ -24,7 +24,7 @@ link_directories(
 ##### other data ################################
 
 install( FILES kdcopui.rc DESTINATION ${DATA_INSTALL_DIR}/kdcop )
-install( FILES kdcop.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop( kdcop.desktop )
 
 
 ##### kdcop (executable) ########################

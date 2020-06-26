@@ -9,26 +9,13 @@ X-TDE-ParentApp=kcontrol
 X-TDE-RootOnly=true
 X-TDE-SubstituteUID=true
 
-Categories=Qt;TDE;X-TDE-settings-system;
+Name=Monitor & Display
+
 Comment=Configure display
-Comment[en_US]=Configure display
-Comment[de]=Bildschirme einrichten
-Comment[fr]=Configuration de l'affichage
-Comment[it]=Configurazione del display
-Comment[ru]=Конфигурация экрана
-Comment[uk]=Конфігурація екрану
 
 Keywords=monitor;resolution;display;
-Keywords[de]=Bildschirm;Auflösung;Anzeige;
-Keywords[it]=monitor;risoluzione;display;schermo;configurazione
 
-Name=Monitor & Display
-Name[en_US]=Monitor & Display
-Name[de]=Bildschirm & Anzeige
-Name[fr]=Moniteurs & Affichage
-Name[it]=Schermo & display
-Name[ru]=Монитор & Экран
-Name[uk]=Монітор & Екран
+Categories=Qt;TDE;X-TDE-settings-system;
 
 NoDisplay=false
 StartupNotify=true

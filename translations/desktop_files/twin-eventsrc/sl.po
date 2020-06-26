@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Okenski upravitelj"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Preklopi na namizje 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Izbrano je prvo navidezno namizje"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Preklopi na namizje 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Izbrano je drugo navidezno namizje"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Preklopi na namizje 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Izbrano je tretje navidezno namizje"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Preklopi na namizje 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Izbrano je četrto navidezno namizje"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Preklopi na namizje 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Izbrano je peto navidezno namizje"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Preklopi na namizje 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Izbrano je šesto navidezno namizje"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Preklopi na namizje 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Izbrano je sedmo navidezno namizje"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Preklopi na namizje 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Izbrano je osmo navidezno namizje"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Preklopi na namizje 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Izbrano je deveto navidezno namizje"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Preklopi na namizje 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Izbrano je deseto navidezno namizje"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Preklopi na namizje 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Izbrano je enajsto navidezno namizje"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Preklopi na namizje 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Izbrano je dvanajsto navidezno namizje"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Preklopi na namizje 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Izbrano je trinajsto navidezno namizje"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Preklopi na namizje 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Izbrano je štirinajsto navidezno namizje"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Preklopi na namizje 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Izbrano je petnajsto navidezno namizje"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Preklopi na namizje 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Izbrano je šestnajsto navidezno namizje"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Preklopi na namizje 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Izbrano je sedemnajsto navidezno namizje"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Preklopi na namizje 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Izbrano je osemnajsto navidezno namizje"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Preklopi na namizje 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Izbrano je devetnajsto navidezno namizje"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Preklopi na namizje 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Izbrano je dvajseto navidezno namizje"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Aktiviraj okno"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Aktivno je drugo okno"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Novo okno"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Novo okno"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Zbriši okno"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Zbriši okno"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Zapri okno"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Zapre se okno"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Zvij okno"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Okno je zvito"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Razvij okno"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Okno je razvito"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Pomanjšaj okno"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Okno je pomanjšano"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Od-pomanjšaj okno"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Okno je povrnjeno"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Razpni okno"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Okno je razpeto"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Od-razpni okno"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Okno ni več razpeto"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Okno na vsa namizja"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Okno je vidno na vseh namizjih"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Okno ne na vsa namizja"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Okno ni več vidno na vseh namizjih"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Novo pogovorno okno"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Odprlo se je prehodno (pogovorno) okno"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Zbriši pogovorno okno"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Zaprlo se je prehodno (pogovorno) okno"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Premakni začetek okna"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Okno se je pričelo premikati"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Premakni konec okna"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Okno se je prenehalo premikati"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Začetek raztezanja okna"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Spreminjanje velikosti okna se je začelo"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Konec raztezanja okna"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Spreminjanje velikosti okna je končano"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Okno na trenutnem namizju potrebuje pozornost"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Okno na trenutnem navideznem namizju potrebuje pozornost"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Okno na drugem namizju potrebuje pozornost"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Okno na nedejavnem navideznem namizju potrebuje pozornost"

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=X Calc
+GenericName=Calculator
+Type=Application
+MimeType=
+X-TDE-StartupNotify=true
+Exec=xcalc
+Icon=xcalc
+Path=
+Terminal=false

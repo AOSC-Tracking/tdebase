@@ -26,8 +26,18 @@ link_directories(
 ##### other data ################################
 
 install( FILES fonts.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
-install( FILES fonts.desktop DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/virtual_folders/services )
-install( FILES folder.desktop system-folder.desktop package.desktop DESTINATION ${MIME_INSTALL_DIR}/fonts )
+
+tde_create_translated_desktop(
+  SOURCE fonts.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/virtual_folders/services
+  PO_DIR kcontrol-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE folder.desktop system-folder.desktop package.desktop
+  DESTINATION ${MIME_INSTALL_DIR}/fonts
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### tdeio_fonts (module) #######################

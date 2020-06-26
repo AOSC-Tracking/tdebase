@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES sftp.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE sftp.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdeio_sftp (module) #########################

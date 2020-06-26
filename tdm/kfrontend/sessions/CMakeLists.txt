@@ -9,10 +9,9 @@
 #
 #################################################
 
-configure_file( tde.desktop.cmake tde.desktop @ONLY )
-
-install( FILES
-    admin.desktop ${CMAKE_CURRENT_BINARY_DIR}/tde.desktop
+tde_create_translated_desktop(
+  SOURCE
+    tde.desktop.cmake admin.desktop
     gnome.desktop 9wm.desktop aewm++.desktop aewm.desktop
     afterstep.desktop amaterus.desktop amiwm.desktop
     asclassic.desktop blackbox.desktop cde.desktop
@@ -26,4 +25,6 @@ install( FILES
     twm.desktop ude.desktop vtwm.desktop w9wm.desktop
     waimea.desktop wm2.desktop wmaker.desktop xfce.desktop
     xfce4.desktop kde-plasma-safe.desktop kde-plasma.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/tdm/sessions )
+  DESTINATION ${DATA_INSTALL_DIR}/tdm/sessions
+  PO_DIR tdm-sessions
+)

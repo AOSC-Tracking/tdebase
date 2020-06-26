@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 03:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: developerrc:2
+msgid "Developer"
+msgstr "ডেভেলপার"
+
+#. Comment
+#: developerrc:3
+msgid "Settings preferred for developers"
+msgstr "ডেভেলপারদের পছন্দের সেটিং"
+
+#. Name
+#: developerrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname), pid %pid, crashed and caused the "
+"signal %signum (%signame)."
+msgstr ""
+"%progname (%appname) প্রোগ্রামটি, pid %pid, ক্র্যাশ করেছে এবং এই সিগনাল "
+"পাঠিয়েছে: %signum (%signame)"
+
+#. Name
+#: developerrc:17
+msgid "You might want to fix your program. Take a look at the backtrace tab."
+msgstr "আপনার প্রোগ্রামে সম্ভবত কিছু গণ্ডগোল আছে। backtrace ট্যাব দেখুন।"
+
+#. Name
+#: developerrc:20 enduserrc:20
+msgid "SIGILL"
+msgstr ""
+
+#. Comment
+#: developerrc:21
+msgid "Illegal instruction."
+msgstr "অবৈধ আজ্ঞা"
+
+#. Name
+#: developerrc:24 enduserrc:24
+msgid "SIGABRT"
+msgstr ""
+
+#. Comment
+#: developerrc:25
+msgid "Aborted."
+msgstr "থামিয়ে দেওয়া হয়েছে।"
+
+#. Name
+#: developerrc:28 enduserrc:28
+msgid "SIGFPE"
+msgstr ""
+
+#. Comment
+#: developerrc:29
+msgid "Floating point exception."
+msgstr ""
+
+#. Name
+#: developerrc:32 enduserrc:32
+msgid "SIGSEGV"
+msgstr ""
+
+#. Comment
+#: developerrc:33
+msgid "Invalid memory reference."
+msgstr "অবৈধ মেমরি রেফারেন্স"
+
+#. Name
+#: developerrc:36 enduserrc:36
+msgid "Unknown"
+msgstr "অজ্ঞাত"
+
+#. Comment
+#: developerrc:37
+msgid "This signal is unknown."
+msgstr "অজ্ঞাত সংকেত"
+
+#. Name
+#: enduserrc:2
+msgid "End user"
+msgstr "ব্যবহারকারী"
+
+#. Comment
+#: enduserrc:3
+msgid "Settings preferred for end users"
+msgstr "সাধারণ ব্যবহারকারীদের জন্যপছন্দ করা সেটিংস"
+
+#. Name
+#: enduserrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname) crashed and caused the signal %signum "
+"(%signame)."
+msgstr ""
+"%progname (%appname) প্রোগ্রামটি ক্র্যাশ করেছে এবং এই সিগনাল পাঠিয়েছে: %signum "
+"(%signame)"
+
+#. Name
+#: enduserrc:17
+msgid ""
+"You might want to send a bug report for this application. Check if it is "
+"listed on http://bugs.trinitydesktop.org, otherwise mail the author. Please "
+"include as much information as possible, maybe the original documents. If "
+"you have a way to reproduce the error, include this also."
+msgstr ""
+"আপনার সম্ভবত এই  অ্যাপলিকেশনটি সম্বন্ধে বাগ রিপোর্ট পাঠানো উচিত্‍।  প্রথমে খোঁজ করে "
+"দেখুন এই বাগ-টি http://bugs.trinitydesktop.org-এ আগে থেকেই আছে কি না, এবং না "
+"থাকলে প্রোগ্রামটির লেখককে ই-মেইল করুন। অনুগ্রহ করে যতটা সম্ভব তথ্য অন্তর্ভুক্ত করার "
+"চেষ্টা করবেন। যদি এমন কোন উপায় খুঁজে পান যার সাহায্যে প্রতিবার নিশ্চিতভাবে সমস্যাটি "
+"দেখা যায়, তাহলে তা অবশ্যই জানাবেন।"
+
+#. Comment
+#: enduserrc:21
+msgid ""
+"An application mostly receives the SIGILL signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"কোনো অ্যাপলিকেশন SIGILL সিগনালটি সাধারণত তখনই পায় যদি তাতে কোনো বাগ থাকে। "
+"অ্যাপলিকেশনটিকে তার সমস্ত নথী সংরক্ষণ করতে অনুরোধ করা হয়েছে।"
+
+#. Comment
+#: enduserrc:25
+msgid ""
+"An application terminates with a SIGABRT signal when it detects an internal "
+"inconsistency caused by a bug in the program."
+msgstr ""
+"কোনো অ্যাপলিকেশন SIGABRT সিগনালটি সমেত বন্ধ হয় যখন অ্যাপলিকেশনটিতে কোনো বাগ-এর "
+"ফলে সেটি একটি অভ্যন্তরীণ অসামঞ্জস্যের মুখোমুখি হয়।"
+
+#. Comment
+#: enduserrc:29
+msgid ""
+"An application mostly receives the SIGFPE signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"কোনো অ্যাপলিকেশন SIGFPE সিগনালটি সাধারণত তখনই পায় যদি তাতে কোনো বাগ থাকে। "
+"অ্যাপলিকেশনটিকে তার সমস্ত নথী সংরক্ষণ করতে অনুরোধ করা হয়েছে।"
+
+#. Comment
+#: enduserrc:33
+msgid ""
+"An application mostly receives the SIGSEGV signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"কোনো অ্যাপলিকেশন SIGSEGV সিগনালটি সাধারণত তখনই পায় যদি তাতে কোনো বাগ থাকে। "
+"অ্যাপলিকেশনটিকে তার সমস্ত নথী সংরক্ষণ করতে অনুরোধ করা হয়েছে।"
+
+#. Comment
+#: enduserrc:37
+msgid "Sorry, I do not know this signal."
+msgstr "দুঃখিত, এই সিগনালটি আমার অচেনা।"

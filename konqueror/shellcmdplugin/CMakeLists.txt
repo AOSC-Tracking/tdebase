@@ -24,11 +24,21 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kshellcmdplugin.rc kshellcmdplugin.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqiconview/kpartplugins )
+tde_create_translated_desktop(
+  SOURCE kshellcmdplugin.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqiconview/kpartplugins
+  PO_DIR konqueror-desktops
+)
 
-install( FILES kshellcmdplugin.rc kshellcmdplugin.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqlistview/kpartplugins )
+install(
+  FILES kshellcmdplugin.rc
+  DESTINATION ${DATA_INSTALL_DIR}/konqiconview/kpartplugins
+)
+
+install(
+  FILES kshellcmdplugin.rc ${CMAKE_CURRENT_BINARY_DIR}/kshellcmdplugin.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqlistview/kpartplugins
+)
 
 
 ##### konq_shellcmdplugin (module) ##############

@@ -22,8 +22,17 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kthememanager.desktop installktheme.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES x-ktheme.desktop DESTINATION ${MIME_INSTALL_DIR}/application )
+tde_create_translated_desktop(
+  SOURCE kthememanager.desktop installktheme.desktop
+  PO_DIR kcontrol-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE x-ktheme.desktop
+  DESTINATION ${MIME_INSTALL_DIR}/application
+  PO_DIR kcontrol-desktops
+)
+
 install( PROGRAMS kdeinstallktheme DESTINATION ${BIN_INSTALL_DIR} )
 
 

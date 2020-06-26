@@ -28,7 +28,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES trashapplet.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
+tde_create_translated_desktop(
+  SOURCE trashapplet.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/applets
+  PO_DIR kicker-desktops
+)
 
 
 ##### trash_panelapplet (module) ################

@@ -21,8 +21,15 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmperformance.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES kcmkonqyperformance.desktop DESTINATION ${APPS_INSTALL_DIR}/.hidden )
+tde_create_translated_desktop(
+  SOURCE kcmperformance.desktop
+  PO_DIR kcontrol-desktops
+)
+tde_create_translated_desktop(
+  SOURCE kcmkonqyperformance.desktop
+  DESTINATION ${APPS_INSTALL_DIR}/.hidden
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_performance (module) ##################

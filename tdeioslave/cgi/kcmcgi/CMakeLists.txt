@@ -22,7 +22,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmcgi.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcmcgi.desktop
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### kcm_cgi (module) ##########################

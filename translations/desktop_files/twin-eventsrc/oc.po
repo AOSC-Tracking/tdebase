@@ -1,0 +1,445 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: oc\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Lo gestionari de finestres"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Canvia au burèu 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Canvia au burèu 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Canvia au burèu 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Canvia au burèu 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Canvia au burèu 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Canvia au burèu 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Canvia au burèu 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:54
+#, fuzzy
+msgid "Change to Desktop 9"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:59
+#, fuzzy
+msgid "Change to Desktop 10"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:64
+#, fuzzy
+msgid "Change to Desktop 11"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:69
+#, fuzzy
+msgid "Change to Desktop 12"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:74
+#, fuzzy
+msgid "Change to Desktop 13"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:79
+#, fuzzy
+msgid "Change to Desktop 14"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:84
+#, fuzzy
+msgid "Change to Desktop 15"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:89
+#, fuzzy
+msgid "Change to Desktop 16"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:94
+#, fuzzy
+msgid "Change to Desktop 17"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:99
+#, fuzzy
+msgid "Change to Desktop 18"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:104
+#, fuzzy
+msgid "Change to Desktop 19"
+msgstr "Canvia au burèu 1"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:109
+#, fuzzy
+msgid "Change to Desktop 20"
+msgstr "Canvia au burèu 2"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Activa finestra"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr ""
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Navera finestra"
+
+#. Comment
+#: eventsrc:120
+#, fuzzy
+msgid "New window"
+msgstr "Navera finestra"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Suprima finestra"
+
+#. Comment
+#: eventsrc:126
+#, fuzzy
+msgid "Delete window"
+msgstr "Suprima finestra"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Tanca finestra"
+
+#. Comment
+#: eventsrc:130
+#, fuzzy
+msgid "A window closes"
+msgstr "Tanca finestra"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Plega la finestra"
+
+#. Comment
+#: eventsrc:136
+#, fuzzy
+msgid "A window is shaded up"
+msgstr "Plega la finestra"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Desplega la finestra"
+
+#. Comment
+#: eventsrc:142
+#, fuzzy
+msgid "A window is shaded down"
+msgstr "Desplega la finestra"
+
+#. Name
+#: eventsrc:147
+#, fuzzy
+msgid "Window Minimize"
+msgstr "Maximitza finestra"
+
+#. Comment
+#: eventsrc:148
+#, fuzzy
+msgid "A window is minimized"
+msgstr "Demaximitza finestra"
+
+#. Name
+#: eventsrc:153
+#, fuzzy
+msgid "Window Unminimize"
+msgstr "Demaximitza finestra"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr ""
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Maximitza finestra"
+
+#. Comment
+#: eventsrc:160
+#, fuzzy
+msgid "A window is maximized"
+msgstr "Demaximitza finestra"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Demaximitza finestra"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr ""
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr ""
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr ""
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr ""
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr ""
+
+#. Name
+#: eventsrc:183
+#, fuzzy
+msgid "New Dialog"
+msgstr "Navera finestra"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr ""
+
+#. Name
+#: eventsrc:189
+#, fuzzy
+msgid "Delete Dialog"
+msgstr "Suprima finestra"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr ""
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Inici de moviment de finestra"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr ""
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Fin de moviment de finestra"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr ""
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Inici de canvia de talha de finestra"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr ""
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Fin de canvi de talha de finestra"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr ""
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr ""
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr ""
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr ""
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr ""

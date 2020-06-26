@@ -25,7 +25,12 @@ link_directories(
 ##### other data ################################
 
 install( FILES tdeprint_part.rc DESTINATION ${DATA_INSTALL_DIR}/tdeprint_part )
-install( FILES tdeprint_part.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+
+tde_create_translated_desktop(
+  SOURCE tdeprint_part.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeprint-desktops
+)
 
 
 ##### libtdeprint_part (module) #################

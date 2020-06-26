@@ -1,0 +1,15 @@
+##### create translation templates ##############
+
+file(
+    GLOB_RECURSE _desktops
+    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/*
+)
+list( SORT _desktops )
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/kdesktop-icons/"
+    SOURCES_DESKTOP ${_desktops}
+    EXCLUDES CMakeL10n.txt CMakeLists.txt Makefile.am
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)

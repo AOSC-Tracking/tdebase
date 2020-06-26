@@ -11,7 +11,8 @@
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     floppy_mounted.desktop floppy_unmounted.desktop
     floppy5_unmounted.desktop floppy5_mounted.desktop
     zip_mounted.desktop zip_unmounted.desktop
@@ -39,4 +40,6 @@ install( FILES
     camera_mounted.desktop camera_unmounted.desktop
     mydocuments.desktop mycomputer.desktop mynetworkplaces.desktop
     printers.desktop trash.desktop webbrowser.desktop
-  DESTINATION ${MIME_INSTALL_DIR}/media )
+  DESTINATION ${MIME_INSTALL_DIR}/media
+  PO_DIR tdeioslave-desktops
+)

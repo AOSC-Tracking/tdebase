@@ -29,9 +29,12 @@ configure_file( khc_docbookdig.pl.in khc_docbookdig.pl @ONLY )
 configure_file( khc_htdig.pl.in khc_htdig.pl @ONLY )
 configure_file( khc_htsearch.pl.in khc_htsearch.pl @ONLY )
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     htdig.desktop man.desktop docbook.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/khelpcenter/searchhandlers )
+  DESTINATION ${DATA_INSTALL_DIR}/khelpcenter/searchhandlers
+  PO_DIR khelpcenter-desktops
+)
 
 install( PROGRAMS
     ${CMAKE_CURRENT_BINARY_DIR}/khc_htdig.pl

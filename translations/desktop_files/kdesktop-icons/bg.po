@@ -1,0 +1,274 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 02:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:2
+msgid "Home"
+msgstr "Домашна директория"
+
+#. GenericName
+#: Home.desktop:4
+msgid "Personal Files"
+msgstr "Лични файлове"
+
+#. Comment
+#: Home.desktop:6
+msgid "Contains personal files"
+msgstr "Съдържа лични файлове"
+
+#. Name
+#: My_Computer:5
+msgid "My Computer"
+msgstr "Моят компютър"
+
+#. Comment
+#: My_Computer:7
+msgid "Access to storage media"
+msgstr "Достъп до съхраняващи устройства"
+
+#. Name
+#: My_Documents:5
+msgid "My Documents"
+msgstr "Моите документи"
+
+#. Comment
+#: My_Documents:7
+msgid "Contains personal documents"
+msgstr "Съдържа лични документи"
+
+#. Name
+#: My_Network_Places:5
+msgid "My Network Places"
+msgstr "Отдалечени директории"
+
+#. Comment
+#: My_Network_Places:7
+msgid "Access to network places and remote hosts"
+msgstr "Достъп до отдалечени системи и мрежови директории"
+
+#. Name
+#: Printers:5
+msgid "Printers"
+msgstr "Принтери"
+
+#. Comment
+#: Printers:7
+msgid "Manage print jobs"
+msgstr "Управление на задачите за печат"
+
+#. Name
+#: System.desktop:2
+msgid "System"
+msgstr "Система"
+
+#. GenericName
+#: System.desktop:4
+msgid "System Locations"
+msgstr "Системни файлове"
+
+#. Comment
+#: System.desktop:6
+msgid "Access to system places"
+msgstr "Достъп до системни места"
+
+#. Name
+#: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
+#: Templates/DVDROM-Device.desktop:12 Templates/ZIP-Device.desktop:12
+msgid "Eject"
+msgstr "Изваждане"
+
+#. Name
+#: Templates/Directory.desktop:2
+msgid "Folder..."
+msgstr "Директория..."
+
+#. Comment
+#: Templates/Directory.desktop:3
+msgid "Enter folder name:"
+msgstr "Въведете името на директорията:"
+
+#. Name
+#: Templates/Floppy.desktop:3
+msgid "Format"
+msgstr "Формат"
+
+#. Name
+#: Templates/HTMLFile.desktop:2
+msgid "HTML File..."
+msgstr "HTML файл..."
+
+#. Comment
+#: Templates/HTMLFile.desktop:3
+msgid "Enter HTML filename:"
+msgstr "Въведете името на HTML файла:"
+
+#. Name
+#: Templates/TextFile.desktop:2
+msgid "Text File..."
+msgstr "Текстов файл..."
+
+#. Comment
+#: Templates/TextFile.desktop:3
+msgid "Enter text filename:"
+msgstr "Въведете име на текстовия файл:"
+
+#. Name
+#: Templates/linkCAMERA.desktop:2
+msgid "Camera Device..."
+msgstr "Фотоапарат..."
+
+#. Comment
+#: Templates/linkCAMERA.desktop:3
+msgid "New camera"
+msgstr "Нов фотоапарат"
+
+#. Name
+#: Templates/linkCDROM.desktop:2
+msgid "CD-ROM Device..."
+msgstr "CD-ROM..."
+
+#. Comment
+#: Templates/linkCDROM.desktop:3
+msgid "New CD-ROM Device"
+msgstr "Ново устройство CD-ROM"
+
+#. Name
+#: Templates/linkCDWRITER.desktop:2
+msgid "CDWRITER Device..."
+msgstr "CDWRITER..."
+
+#. Comment
+#: Templates/linkCDWRITER.desktop:3
+msgid "New CDWRITER Device"
+msgstr "Ново устройство CDWRITER"
+
+#. Name
+#: Templates/linkDVDROM.desktop:2
+msgid "DVD-ROM Device..."
+msgstr "DVD-ROM..."
+
+#. Comment
+#: Templates/linkDVDROM.desktop:3
+msgid "New DVD-ROM Device"
+msgstr "Ново устройство DVD-ROM"
+
+#. Name
+#: Templates/linkFloppy.desktop:2
+msgid "Floppy Device..."
+msgstr "Флопи..."
+
+#. Comment
+#: Templates/linkFloppy.desktop:3
+msgid "New Floppy Device"
+msgstr "Ново флопи-дисково устройство"
+
+#. Name
+#: Templates/linkHD.desktop:2
+msgid "Hard Disc Device..."
+msgstr "Твърд диск..."
+
+#. Comment
+#: Templates/linkHD.desktop:3
+msgid "New Hard Disc"
+msgstr "Нов твърд диск"
+
+#. Name
+#: Templates/linkMO.desktop:2
+msgid "MO Device..."
+msgstr "MO..."
+
+#. Comment
+#: Templates/linkMO.desktop:3
+msgid "New MO Device"
+msgstr "Ново устройство MO"
+
+#. Name
+#: Templates/linkNFS.desktop:2
+msgid "NFS..."
+msgstr ""
+
+#. Comment
+#: Templates/linkNFS.desktop:3
+msgid "New NFS Link"
+msgstr "Нова връзка NFS"
+
+#. Name
+#: Templates/linkProgram.desktop:2
+msgid "Link to Application..."
+msgstr "Връзка към програма..."
+
+#. Comment
+#: Templates/linkProgram.desktop:3
+msgid "New Link to Application"
+msgstr "Нова връзка към програма"
+
+#. Name
+#: Templates/linkURL.desktop:2
+msgid "Link to Location (URL)..."
+msgstr "Връзка към адрес..."
+
+#. Comment
+#: Templates/linkURL.desktop:3
+msgid "Enter link to location (URL):"
+msgstr "Въведете връзката към адреса:"
+
+#. Name
+#: Templates/linkZIP.desktop:2
+msgid "ZIP Device..."
+msgstr "ZIP..."
+
+#. Comment
+#: Templates/linkZIP.desktop:3
+msgid "New ZIP Device"
+msgstr "Ново устройство ZIP"
+
+#. Name
+#: Trash:8
+msgid "Trash"
+msgstr "Кошче"
+
+#. Comment
+#: Trash:10
+msgid "Contains removed files"
+msgstr "Съдържа изтрити файлове"
+
+#. Name
+#. GenericName
+#: Web_Browser:6 Web_Browser:8
+msgid "Web Browser"
+msgstr "Уеб браузър"
+
+#. Comment
+#: Web_Browser:10
+msgid "Browse the World Wide Web"
+msgstr "Разгледай световната мрежа"
+
+#. Name
+#: directory.autostart:3
+msgid "Autostart"
+msgstr "Автоматично стартиране"
+
+#. Name
+#: directory.desktop:5
+msgid "Desktop"
+msgstr "Работен плот"
+
+#. Name
+#: directory.templates:3
+msgid "Templates"
+msgstr "Шаблони"

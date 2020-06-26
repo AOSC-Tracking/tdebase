@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 15:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "Konsole"
+msgstr ""
+
+#. Name
+#: eventsrc:6
+msgid "Bell in visible session"
+msgstr "Signalton bei sichtbarer Sitzung"
+
+#. Comment
+#: eventsrc:7
+msgid "Bell emitted within a visible session"
+msgstr "Signal gesendet innerhalb sichtbarer Sitzung"
+
+#. Name
+#: eventsrc:12
+msgid "Bell in non-visible session"
+msgstr "Signalton bei nicht sichtbarer Sitzung"
+
+#. Comment
+#: eventsrc:13
+msgid "Bell emitted within a non-visible session"
+msgstr "Signal gesendet innerhalb nicht sichtbarer Sitzung"
+
+#. Name
+#: eventsrc:18
+msgid "Activity in monitored session"
+msgstr "Aktivität in überwachter Sitzung"
+
+#. Comment
+#: eventsrc:19
+msgid "Activity detected in a monitored session"
+msgstr "Aktivität in überwachter Sitzung"
+
+#. Name
+#: eventsrc:23
+msgid "Silence in monitored session"
+msgstr "Stummschaltung in überwachter Sitzung"
+
+#. Comment
+#: eventsrc:24
+msgid "Silence detected in a monitored session"
+msgstr "Stille in nicht überwachter Sitzung"
+
+#. Name
+#: eventsrc:28
+msgid "Session finished with non-zero status"
+msgstr "Sitzung beendet mit Status ungleich Null"
+
+#. Comment
+#: eventsrc:29
+msgid "A session has exited with non-zero status"
+msgstr "Sitzung beendet mit Status ungleich Null"

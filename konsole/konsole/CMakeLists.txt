@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES x-konsole.desktop DESTINATION ${MIME_INSTALL_DIR}/application )
+tde_create_translated_desktop(
+  SOURCE x-konsole.desktop
+  DESTINATION ${MIME_INSTALL_DIR}/application
+  PO_DIR konsole-desktops
+)
 
 
 ##### libkonsolepart (module) ###################

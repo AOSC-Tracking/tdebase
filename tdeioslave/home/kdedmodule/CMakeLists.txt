@@ -22,7 +22,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES homedirnotify.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
+tde_create_translated_desktop(
+  SOURCE homedirnotify.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}/kded
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### kded_homedirnotify (module) ###############

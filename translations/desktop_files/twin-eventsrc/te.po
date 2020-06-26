@@ -1,0 +1,434 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: te\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+#, fuzzy
+msgid "The Window Manager"
+msgstr "విండొ పెద్దది చెయి"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "రంగస్థలం 1కు మారండి"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "ఒకటొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "రంగస్థలం 2కు మారండి"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "రెండొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "రంగస్థలం 3కు మారండి"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "ముడొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "రంగస్థలం 4కు మారండి"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "నాల్గొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "రంగస్థలం 5కు మారండి"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "ఐదొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "రంగస్థలం 6కు మారండి"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "ఆరొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "రంగస్థలం 7కు మారండి"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "ఏడొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "రంగస్థలం 8కు మారండి"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "ఎనిమిదొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "రంగస్థలం 9కు మారండి"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "తొమ్మిదొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "రంగస్థలం 10కు మారండి"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "పదొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "రంగస్థలం 11కు మారండి"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "పదకొండొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "రంగస్థలం 12కు మారండి"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "పన్నెండొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "రంగస్థలం 13కు మారండి"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "పదముడొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "రంగస్థలం 14కు మారండి"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "పద్నాల్గొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "రంగస్థలం 15కు మారండి"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "పదిహెనొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "రంగస్థలం 16కు మారండి"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "పదహారొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "రంగస్థలం 17కు మారండి"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "పదిహెడొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "రంగస్థలం 18కు మారండి"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "పద్దెనిమిదొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "రంగస్థలం 19కు మారండి"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "పంతొమ్మిదొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "రంగస్థలం 20కు మారండి"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "ఇరవైయొవ మిధ్యా రంగస్థలం ఎంచుకొబడినది"
+
+#. Name
+#: eventsrc:114
+#, fuzzy
+msgid "Activate Window"
+msgstr "విండొ తిసివెయి"
+
+#. Comment
+#: eventsrc:115
+#, fuzzy
+msgid "Another window is activated"
+msgstr "విండొ పెద్దది చెయబడుతుంది"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "కొత్త విండొ"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "కొత్త విండొ"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "విండొ తిసివెయి"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "విండొ తిసివెయి"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "విండొ ముసివెయి"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "విండొ ముసివెయిబడుతుంది"
+
+#. Name
+#: eventsrc:135
+#, fuzzy
+msgid "Window Shade Up"
+msgstr "విండొ పెద్దది చెయి"
+
+#. Comment
+#: eventsrc:136
+#, fuzzy
+msgid "A window is shaded up"
+msgstr "విండొ పెద్దది చెయబడుతుంది"
+
+#. Name
+#: eventsrc:141
+#, fuzzy
+msgid "Window Shade Down"
+msgstr "విండొల కదలిక ఆపు"
+
+#. Comment
+#: eventsrc:142
+#, fuzzy
+msgid "A window is shaded down"
+msgstr "విండొ పెద్దది చెయబడుతుంది"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "విండొ చిన్నది చెయి"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "విండొ చిన్నది చెయబడుతుంది"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "విండొ చిన్నది చెయకు"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "విండొను పూర్వ స్థితి కి తెస్తుంది"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "విండొ పెద్దది చెయి"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "విండొ పెద్దది చెయబడుతుంది"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "విండొ పెద్దది చెయకు"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "విండొను పెద్ద స్థితిని కొల్పొతుంది"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "అన్ని రంగస్థలాల మిద విండొ"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "అన్ని రంగస్థలాల మిద విండొ ను చూపబడును"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "అన్ని రంగస్థలాల మిద విండొ వద్దు"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "అన్ని రంగస్థలాల మిద విండొ ను చూపించబడదు"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "కొత్త డైలాగ్"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr ""
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "డైలాగ్ తిసివెయి"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr ""
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "విండొల కదలిక మొదలు"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "విండొ కదలటం మొదలుపెట్టింది"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "విండొల కదలిక ఆపు"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "విండొ కదలటం అయిపొయింది"
+
+#. Name
+#: eventsrc:205
+#, fuzzy
+msgid "Window Resize Start"
+msgstr "విండొల కదలిక మొదలు"
+
+#. Comment
+#: eventsrc:206
+#, fuzzy
+msgid "A window has begun resizing"
+msgstr "విండొ కదలటం మొదలుపెట్టింది"
+
+#. Name
+#: eventsrc:210
+#, fuzzy
+msgid "Window Resize End"
+msgstr "విండొల కదలిక ఆపు"
+
+#. Comment
+#: eventsrc:211
+#, fuzzy
+msgid "A window has finished resizing"
+msgstr "విండొ కదలటం మొదలుపెట్టింది"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr ""
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr ""
+
+#. Name
+#: eventsrc:220
+#, fuzzy
+msgid "Window On Other Desktop Demands Attention"
+msgstr "అన్ని రంగస్థలాల మిద విండొ"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr ""

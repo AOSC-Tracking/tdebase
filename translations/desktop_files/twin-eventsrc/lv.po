@@ -1,0 +1,447 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Logu Menedžeris"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Virtuālā Darbvirsma nr. 1. ir izvēlēta"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Nomainīt uz Darbvirsmu 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Virtuālā Darbvirsma nr. 2. ir izvēlēta"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Nomainīt uz Darbvirsmu 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Virtuālā Darbvirsma nr. 3. ir izvēlēta"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Nomainīt uz Darbvirsmu 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Virtuālā Darbvirsma nr. 4. ir izvēlēta"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Nomainīt uz Darbvirsmu 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Virtuālā Darbvirsma nr. 5. ir izvēlēta"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Nomainīt uz Darbvirsmu 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Virtuālā Darbvirsma nr. 6. ir izvēlēta"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Nomainīt uz Darbvirsmu 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Virtuālā Darbvirsma nr. 7. ir izvēlēta"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Nomainīt uz Darbvirsmu 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Virtuālā Darbvirsma nr. 8. ir izvēlēta"
+
+#. Name
+#: eventsrc:54
+#, fuzzy
+msgid "Change to Desktop 9"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:55
+#, fuzzy
+msgid "Virtual desktop nine is selected"
+msgstr "Virtuālā Darbvirsma nr. 1. ir izvēlēta"
+
+#. Name
+#: eventsrc:59
+#, fuzzy
+msgid "Change to Desktop 10"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:60
+#, fuzzy
+msgid "Virtual desktop ten is selected"
+msgstr "Virtuālā Darbvirsma nr. 7. ir izvēlēta"
+
+#. Name
+#: eventsrc:64
+#, fuzzy
+msgid "Change to Desktop 11"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:65
+#, fuzzy
+msgid "Virtual desktop eleven is selected"
+msgstr "Virtuālā Darbvirsma nr. 7. ir izvēlēta"
+
+#. Name
+#: eventsrc:69
+#, fuzzy
+msgid "Change to Desktop 12"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:70
+#, fuzzy
+msgid "Virtual desktop twelve is selected"
+msgstr "Virtuālā Darbvirsma nr. 3. ir izvēlēta"
+
+#. Name
+#: eventsrc:74
+#, fuzzy
+msgid "Change to Desktop 13"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:75
+#, fuzzy
+msgid "Virtual desktop thirteen is selected"
+msgstr "Virtuālā Darbvirsma nr. 3. ir izvēlēta"
+
+#. Name
+#: eventsrc:79
+#, fuzzy
+msgid "Change to Desktop 14"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:80
+#, fuzzy
+msgid "Virtual desktop fourteen is selected"
+msgstr "Virtuālā Darbvirsma nr. 4. ir izvēlēta"
+
+#. Name
+#: eventsrc:84
+#, fuzzy
+msgid "Change to Desktop 15"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:85
+#, fuzzy
+msgid "Virtual desktop fifteen is selected"
+msgstr "Virtuālā Darbvirsma nr. 5. ir izvēlēta"
+
+#. Name
+#: eventsrc:89
+#, fuzzy
+msgid "Change to Desktop 16"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:90
+#, fuzzy
+msgid "Virtual desktop sixteen is selected"
+msgstr "Virtuālā Darbvirsma nr. 7. ir izvēlēta"
+
+#. Name
+#: eventsrc:94
+#, fuzzy
+msgid "Change to Desktop 17"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:95
+#, fuzzy
+msgid "Virtual desktop seventeen is selected"
+msgstr "Virtuālā Darbvirsma nr. 7. ir izvēlēta"
+
+#. Name
+#: eventsrc:99
+#, fuzzy
+msgid "Change to Desktop 18"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:100
+#, fuzzy
+msgid "Virtual desktop eighteen is selected"
+msgstr "Virtuālā Darbvirsma nr. 8. ir izvēlēta"
+
+#. Name
+#: eventsrc:104
+#, fuzzy
+msgid "Change to Desktop 19"
+msgstr "Nomainīt uz Darbvirsmu 1"
+
+#. Comment
+#: eventsrc:105
+#, fuzzy
+msgid "Virtual desktop nineteen is selected"
+msgstr "Virtuālā Darbvirsma nr. 7. ir izvēlēta"
+
+#. Name
+#: eventsrc:109
+#, fuzzy
+msgid "Change to Desktop 20"
+msgstr "Nomainīt uz Darbvirsmu 2"
+
+#. Comment
+#: eventsrc:110
+#, fuzzy
+msgid "Virtual desktop twenty is selected"
+msgstr "Virtuālā Darbvirsma nr. 2. ir izvēlēta"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Aktivizēt Logu"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Cits Logs jau ir aktivizēts"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Jauns Logs"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Jauns Logs"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Dzēst Logu"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Dzēst Logu"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Aizvērt logu"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Logs Aizveras"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Aizēnots logs"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Logs ir Aizēnots"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Atēnots Logs"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Logs ir Atēnots"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Minimizet logu"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Logs ir Minimizēts"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Loga Atminimizēšana"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Logs ir Atjaunots"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Maksimizēt logu"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Logs ir Maksimizēts"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Loga Atmaksimizēšana"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Logs Zaudējis Maksimizāciju"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Logs uz visām darbvirsmām"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Logs ir redzams uz visām darbvirsmām"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Logs ne uz visām darbvirsmām"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Logs vairs nav redzams uz visām darba virsmām"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Jauns Dialogs"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Parādās Īslaicīgs Logs (dialogs)"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Dzēst Dialogu"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Īslaicīgais Logs (dialogs) ir aizvākts"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Loga Pārvietošana Sākta"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Logs ir Sācis Pārvietoties"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Loga Pārvietošana Beigta"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Logs ir Pabeidzis Pārvietošanos"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Sākas Loga Izmēra Maiņa"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Loga Izmēra Maiņa Sākusies"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Loga Izmēra Maiņa Beidzas"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Loga Izmēra Maiņa Beigusies"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr ""
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr ""
+
+#. Name
+#: eventsrc:220
+#, fuzzy
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Logs uz visām darbvirsmām"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr ""

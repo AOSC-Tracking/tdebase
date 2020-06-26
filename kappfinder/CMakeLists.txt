@@ -25,7 +25,7 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons( kappfinder )
-install( FILES kappfinder.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop( kappfinder.desktop )
 install( FILES uninstall.desktop DESTINATION ${APPS_INSTALL_DIR}/System RENAME kappfinder.desktop )
 
 

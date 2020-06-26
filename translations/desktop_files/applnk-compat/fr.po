@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 17:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: battery.desktop:2 bwarning.desktop:2 cwarning.desktop:2 power.desktop:2
+msgid "Laptop"
+msgstr "Ordinateur portable"
+
+#. Name
+#: email.desktop:10
+msgid "Email"
+msgstr "Courrier électronique"
+
+#. Comment
+#: email.desktop:11
+msgid "Configure your identity, email addresses, mail servers, etc."
+msgstr ""
+"Configuration de votre identité, de vos adresses électroniques, des serveurs "
+"associés, etc."
+
+#. Keywords
+#: email.desktop:13
+msgid ""
+"EMail;Mail;E-Mail;Address;Email server;IMAP;POP3;Local mailbox;mailbox;User "
+"Information;Reply Address;Server information;User Name;Passwords;Host;"
+"Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
+"Client;"
+msgstr ""
+"courrier électronique;email;e-mail;adresse;serveur de courrier;serveur de "
+"mail;IMAP;POP3;boîte aux lettres locale;boîte aux lettres;pop3;imap;mail;"
+"messagerie;message;message électronique;adresse électronique;utilisateur;"
+"profil;organisation;serveur entrant;serveur sortant;serveur de réception;"
+"serveur d'envoi;réception;envoi;informations sur l'utilisateur;adresse de "
+"réponse;reply;mot de passe;serveur;hôte;client de mail;client de messagerie;"
+
+#. Name
+#: kcmkonq.desktop:2
+msgid "File Manager"
+msgstr "Gestionnaire de fichiers"
+
+#. Name
+#: kcmkxmlrpcd.desktop:2
+msgid "XML RPC Daemon"
+msgstr "Démon XML RPC"
+
+#. Name
+#: konqhtml.desktop:2
+msgid "Konqueror Browser"
+msgstr "Navigateur Konqueror"
+
+#. Name
+#: passwords.desktop:11
+msgid "Passwords"
+msgstr "Mots de passe"
+
+#. Comment
+#: passwords.desktop:13
+msgid "Configure password settings"
+msgstr "Configurer les réglages des mots de passe"
+
+#. Keywords
+#: passwords.desktop:15
+msgid "Passwords;tdesu;Echo characters;Remember passwords;Timeout;"
+msgstr ""
+"mot de passe;mots de passe;tdesu;caractères d'affichage;mémoriser les mots "
+"de passe;mémorisation des mots de passe;enregistrement des mots de passe;"
+"enregistrer les mots de passe;délai;sécurité;"
+
+#. Name
+#: socks.desktop:2
+msgid "Socks"
+msgstr ""
+
+#. Name
+#: userinfo.desktop:13
+msgid "User Account"
+msgstr "Compte de l'utilisateur"
+
+#. Comment
+#: userinfo.desktop:14
+msgid "Change your account information"
+msgstr "Modifier les informations de votre compte"
+
+#. Keywords
+#: userinfo.desktop:15
+msgid ""
+"Passwords;Password;Change Password;Icon;face;tdm;User Name;Name;Account;"
+msgstr ""
+"mots de passe;mot de passe;changer le mot de passe;modifier le mot de passe;"
+"icône;visage;tdm;nom d'utilisateur;nom;compte;"
+
+#. Name
+#: virtualdesktops.desktop:2
+msgid "Virtual Desktops"
+msgstr "Bureaux virtuels"

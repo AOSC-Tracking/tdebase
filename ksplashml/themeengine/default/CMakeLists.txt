@@ -25,7 +25,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES ksplashdefault.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE ksplashdefault.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR ksplash-desktops
+)
 
 
 ##### ksplashdefault (module) ###################

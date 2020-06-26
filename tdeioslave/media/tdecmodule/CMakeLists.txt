@@ -25,7 +25,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES media.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE media.desktop
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### kcm_media (module) ########################

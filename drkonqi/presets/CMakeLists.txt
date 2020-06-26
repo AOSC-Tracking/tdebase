@@ -9,4 +9,8 @@
 #
 #################################################
 
-install( FILES enduserrc developerrc DESTINATION ${DATA_INSTALL_DIR}/drkonqi/presets )
+tde_create_translated_desktop(
+  SOURCE enduserrc developerrc
+  DESTINATION ${DATA_INSTALL_DIR}/drkonqi/presets
+  PO_DIR drkonqi-presets
+)

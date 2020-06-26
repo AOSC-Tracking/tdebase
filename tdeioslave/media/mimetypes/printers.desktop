@@ -1,9 +1,10 @@
 [Desktop Entry]
-Icon=kjobviewer
 Type=MimeType
 MimeType=media/builtin-printers
+Icon=kjobviewer
+
 Comment=Printers
-Comment[de]=Drucker
+
 Patterns=Printers
 
 X-TDE-AutoEmbed=false

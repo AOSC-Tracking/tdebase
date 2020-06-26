@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-optical-cdrom-unlocked
 Type=MimeType
 MimeType=media/cdrom_encrypted_unlocked
+Icon=media-optical-cdrom-unlocked
+
 Comment=Encrypted Unlocked CD-ROM
-Comment[de]=Verschlüsselte entsperrte CD-ROM
-Comment[it]=CD-ROM criptato sprotetto
+
 Patterns=
 
 X-TDE-AutoEmbed=true

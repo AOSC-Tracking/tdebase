@@ -1,0 +1,43 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 20:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "System Guard"
+msgstr "Strážca systému"
+
+#. Name
+#: eventsrc:6
+#, fuzzy
+msgid "pattern_match"
+msgstr "Nájdené podľa vzorky"
+
+#. Comment
+#: eventsrc:7
+msgid "Search pattern matched"
+msgstr "Nájdené podľa vzorky"
+
+#. Name
+#: eventsrc:10
+msgid "sensor_alarm"
+msgstr ""
+
+#. Comment
+#: eventsrc:11
+msgid "Sensor exceeded critical limit"
+msgstr "Senzor prekročil kritický limit"

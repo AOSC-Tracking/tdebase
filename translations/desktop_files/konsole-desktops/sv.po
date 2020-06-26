@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-26 02:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmkonsole.desktop:9
+msgid "Console"
+msgstr "Konsollen"
+
+#. GenericName
+#: kcmkonsole.desktop:11
+msgid "All Konsole Settings"
+msgstr "Alla inställningar för Konsole"
+
+#. Keywords
+#: kcmkonsole.desktop:13
+msgid "konsole;console;terminal;"
+msgstr "konsoll;konsol;konsole;terminal;"
+
+#. Name
+#: konsole-script.desktop:9 konsole.desktop:9 konsolesu.desktop:10
+#, fuzzy
+msgid "Konsole"
+msgstr "Konsollen"
+
+#. GenericName
+#: konsole-script.desktop:11 konsole.desktop:11
+msgid "Terminal Program"
+msgstr "Terminalprogram"
+
+#. Comment
+#: konsole/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "Fil som ska öppnas i ett skal"
+
+#. Name
+#: konsolepart.desktop:14 terminalemulator.desktop:5
+msgid "Terminal Emulator"
+msgstr "Terminalemulator"
+
+#. GenericName
+#: konsolesu.desktop:12
+msgid "Terminal Program - Super User Mode"
+msgstr "Terminalprogram - Administratörsläge"
+
+#. Name
+#: kwrited.desktop:2
+msgid "TDE Write Daemon"
+msgstr "TDE-skrivdemon"
+
+#. Comment
+#: kwrited.desktop:4
+msgid "Watch for messages from local users sent with write(1) or wall(1)"
+msgstr ""
+"Titta efter meddelanden från lokala användare som skickas med write(1) eller "
+"wall(1)"
+
+#. Name
+#: other/linux.desktop:3
+msgid "Linux Console"
+msgstr "Linux-konsoll"
+
+#. Comment
+#: other/linux.desktop:4
+msgid "New Linux Console"
+msgstr "Ny Linux-konsoll"
+
+#. Name
+#: other/mc.desktop:3
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Ny Midnight Commander"
+
+#. Comment
+#: other/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "Ny Midnight Commander"
+
+#. Name
+#: other/screen.desktop:3
+msgid "Screen Session"
+msgstr "Session med screen"
+
+#. Comment
+#: other/screen.desktop:4
+msgid "New Screen Session"
+msgstr "Ny session med screen"
+
+#. Name
+#. Title0
+#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
+#: other/5shells:6
+msgid "Shell"
+msgstr "Skal"
+
+#. Comment
+#: other/shell.desktop:4
+msgid "New Shell"
+msgstr "Nytt skal"
+
+#. Name
+#: other/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "Skal för root"
+
+#. Comment
+#: other/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "Nytt skal för root"
+
+#. Name
+#: other/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "Midnight Commander för root"
+
+#. Comment
+#: other/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "Ny Midnight Commander för root"
+
+#. Name
+#: terminalhere.desktop:6
+#, fuzzy
+msgid "Terminal"
+msgstr "Terminalprogram"
+
+#. Name
+#: terminalhere.desktop:11
+msgid "Open Terminal Here"
+msgstr "Öppna terminal här"
+
+#. Name
+#: other/2shells:2
+#, fuzzy
+msgid "Two consoles"
+msgstr "Konsollen"
+
+#. Title1
+#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#, fuzzy
+msgid "Shell No. 2"
+msgstr "Skal"
+
+#. Name
+#: other/3shells:2
+msgid "Three consoles"
+msgstr ""
+
+#. Title2
+#: other/3shells:8 other/4shells:8 other/5shells:8
+#, fuzzy
+msgid "Shell No. 3"
+msgstr "Skal"
+
+#. Name
+#: other/4shells:2
+#, fuzzy
+msgid "Four consoles"
+msgstr "Linux-konsoll"
+
+#. Title3
+#: other/4shells:9 other/5shells:9
+#, fuzzy
+msgid "Shell No. 4"
+msgstr "Skal"
+
+#. Name
+#: other/5shells:2
+#, fuzzy
+msgid "Five consoles"
+msgstr "Linux-konsoll"
+
+#. Title4
+#: other/5shells:10
+#, fuzzy
+msgid "Shell No. 5"
+msgstr "Skal"

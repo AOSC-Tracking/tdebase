@@ -24,13 +24,21 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
-    kremoteencodingplugin.rc kremoteencodingplugin.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqiconview/kpartplugins )
+tde_create_translated_desktop(
+  SOURCE kremoteencodingplugin.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqiconview/kpartplugins
+  PO_DIR konqueror-desktops
+)
 
-install( FILES
-    kremoteencodingplugin.rc kremoteencodingplugin.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqlistview/kpartplugins )
+install(
+  FILES kremoteencodingplugin.rc
+  DESTINATION ${DATA_INSTALL_DIR}/konqiconview/kpartplugins
+)
+
+install(
+  FILES kremoteencodingplugin.rc ${CMAKE_CURRENT_BINARY_DIR}/kremoteencodingplugin.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqlistview/kpartplugins
+)
 
 
 ##### konq_remoteencoding (module) ##############

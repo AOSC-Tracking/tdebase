@@ -24,7 +24,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES language.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE language.desktop
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_locale (module) #######################

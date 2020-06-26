@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmtwin/showdesktop.desktop:4
+msgid "Show Desktop"
+msgstr "បង្ហាញ​ផ្ទៃតុ"
+
+#. Comment
+#: kcmtwin/showdesktop.desktop:6
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr "ប៊ូតុង​ដែល​ផ្តល់​ការ​ចូល​ដំណើរការ​រហ័សទៅ​ផ្ទៃតុ ពេល​ចុច"
+
+#. Name
+#: kcmtwin/twindecoration/twindecoration.desktop:11
+msgid "Window Decorations"
+msgstr "ការ​តុបតែង​បង្អួច"
+
+#. Comment
+#: kcmtwin/twindecoration/twindecoration.desktop:13
+msgid "Configure the look and feel of window titles"
+msgstr "កំណត់​រចនាសម្ព័ន្ធ​រូបរាង​របស់​ចំណងជើង​បង្អួច"
+
+#. Keywords
+#: kcmtwin/twindecoration/twindecoration.desktop:15
+msgid ""
+"twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
+"kwm;decoration;"
+msgstr ""
+"twin;បង្អួច;កម្មវិធី​គ្រប់គ្រង;ស៊ុម;រចនាប័ទ្ម;ស្បែក;មុខងារ;ប្លង់;ប៊ូតុង;ការ​ប្រើ;គែម;kwm;ការ​តុបតែង;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactions.desktop:11
+msgid "Actions"
+msgstr "អំពើ"
+
+#. Comment
+#: kcmtwin/twinoptions/twinactions.desktop:13
+msgid "Configure keyboard and mouse settings"
+msgstr "កំណត់​រចនាសម្ព័ន្ធ​ការ​កំណត់​ក្ដារចុច និង​កណ្ដុរ"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactions.desktop:15
+msgid ""
+"shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
+"resize;"
+msgstr ""
+"ស្រមោល;ពង្រីក​អតិបរមា;បង្រួម​អប្បបរមា;បន្ទាប់​ចុះ​ក្រោម;ម៉ឺនុយ​ប្រតិបត្តិការ;របារ​ចំណងជើង;ប្ដូរ​ទំហំ;"
+
+#. Name
+#: kcmtwin/twinoptions/twinadvanced.desktop:11
+msgid "Advanced"
+msgstr "កម្រិត​ខ្ពស់"
+
+#. Comment
+#: kcmtwin/twinoptions/twinadvanced.desktop:13
+msgid "Configure advanced window management features"
+msgstr "កំណត់​រចនាសម្ព័ន្ធ​លក្ខណៈ​ពិសេស​ការ​គ្រប់គ្រង​បង្អួច​កម្រិត​ខ្ពស់"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinadvanced.desktop:15
+msgid "shading;border;hover;active borders;"
+msgstr "ស្រមោល;ស៊ុម;សំកាំង;ស៊ុម​សកម្ម;"
+
+#. Name
+#: kcmtwin/twinoptions/twinfocus.desktop:11
+msgid "Focus"
+msgstr "ផ្ដោត​អារម្មណ៍"
+
+#. Comment
+#: kcmtwin/twinoptions/twinfocus.desktop:13
+msgid "Configure the window focus policy"
+msgstr "កំណត់​រចនាសម្ព័ន្ធ​គោលការណ៍​ផ្ដោត​អារម្មណ៍​របស់​បង្អួច"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinfocus.desktop:15
+msgid ""
+"focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
+"desktop;"
+msgstr ""
+"ផ្តោត​អារម្មណ៍;ការ​ដាក់;លើក​ឡើង​ស្វ័យប្រវត្តិ;លើកឡើង;ចុច លើកឡើង;ក្ដារចុច;CDE;ជំនួស-ថេប;ផ្ទៃតុ​"
+"ទាំងអស់;"
+
+#. Name
+#: kcmtwin/twinoptions/twinmoving.desktop:11
+msgid "Moving"
+msgstr "ការ​ផ្លាស់ទី"
+
+#. Comment
+#: kcmtwin/twinoptions/twinmoving.desktop:13
+msgid "Configure the way that windows are moved"
+msgstr "កំណត់​រចនាសម្ព័ន្ធ​របៀប​ដែល​បង្អួច​ត្រូវ​បាន​ផ្លាស់ទី"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinmoving.desktop:15
+msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
+msgstr "ការ​ផ្លាស់ទី;ឆ្លាត;ល្បាក់;ពង្រីក​អប្បបរមា;តំបន់​ខ្ទាស់;ខ្ទាស់;ស៊ុម;"
+
+#. Name
+#: kcmtwin/twinoptions/twinoptions.desktop:11
+msgid "Window Behavior"
+msgstr "ឥរិយាបថ​បង្អួច"
+
+#. Comment
+#: kcmtwin/twinoptions/twinoptions.desktop:13
+msgid "Configure the window behavior"
+msgstr "កំណត់​រចនាសម្ព័ន្ធ​ឥរិយាបថ​បង្អួច"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinoptions.desktop:15
+msgid ""
+"focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
+"titlebar;doubleclick;"
+msgstr ""
+"ផ្ដោត​អារម្មណ៍;ការ​ដាក់;ឥរិយាបថ​បង្អួច;ចលនា;លើកឡើង;លើក​ឡើង​ស្វ័យប្រវត្តិ;បង្អួច;ស៊ុម;របារ​ចំណងជើង;ចុច​"
+"ទ្វេដង;"
+
+#. Name
+#: kcmtwin/twinoptions/twintranslucency.desktop:11
+msgid "Translucency"
+msgstr "ភាព​ថ្លា"
+
+#. Comment
+#: kcmtwin/twinoptions/twintranslucency.desktop:13
+msgid "Configure window translucency and shadow management"
+msgstr "កំណត់​រចនាសម្ព័ន្ធ​ការ​គ្រប់គ្រង​ភាព​ថ្លា និង​ស្រមោល​របស់​បង្អួច"
+
+#. Keywords
+#: kcmtwin/twinoptions/twintranslucency.desktop:15
+msgid "translucency;transparence;shadows;"
+msgstr "ភាព​ថ្លា;ថ្លា;ស្រមោល;"
+
+#. Name
+#: kcmtwin/twinrules/twinrules.desktop:11
+msgid "Window-Specific Settings"
+msgstr "ការ​កំណត់​សម្រាប់​បង្អួច"
+
+#. Comment
+#: kcmtwin/twinrules/twinrules.desktop:13
+msgid "Configure settings specifically for a window"
+msgstr "កំណត់​រចនាសម្ព័ន្ធ​ការ​កំណត់​ពិសេស​សម្រាប់​បង្អួច​មួយ"
+
+#. Keywords
+#: kcmtwin/twinrules/twinrules.desktop:15
+msgid ""
+"size;position;state;window behavior;windows;specific;workarounds;remember;"
+"rules;"
+msgstr "ទំហំ;ទីតាំង;សភាព;ឥរិយាបថ​បង្អួច  បង្អួចs ជាក់លាក់c ចងចាំr ច្បាប់s;"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:2
+msgid "(Default) Disable focus stealing prevention for XV"
+msgstr "(លំនាំដើម) បិទ​ការ​ផ្ដោតអារម្មណ៍ ដោយ​លួច​ការពារ​សម្រាប់ XV"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:10
+#, fuzzy
+msgid "(Default) Allow focus stealing by the screen locker"
+msgstr "(លំនាំដើម) បិទ​ការ​ផ្ដោតអារម្មណ៍ ដោយ​លួច​ការពារ​សម្រាប់ XV"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:21
+#, fuzzy
+msgid "(Default) Allow focus stealing by the kdesktop run dialog"
+msgstr "(លំនាំដើម) បិទ​ការ​ផ្ដោតអារម្មណ៍ ដោយ​លួច​ការពារ​សម្រាប់ XV"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:32
+#, fuzzy
+msgid "(Default) Allow focus stealing by the settings test dialog"
+msgstr "(លំនាំដើម) បិទ​ការ​ផ្ដោតអារម្មណ៍ ដោយ​លួច​ការពារ​សម្រាប់ XV"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:45
+msgid "(Default) Hide system modal dialog class from taskbar"
+msgstr ""

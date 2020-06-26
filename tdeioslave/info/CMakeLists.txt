@@ -22,7 +22,12 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES info.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE info.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
+
 install( FILES kde-info2html.conf DESTINATION ${DATA_INSTALL_DIR}/tdeio_info )
 install( PROGRAMS kde-info2html DESTINATION ${DATA_INSTALL_DIR}/tdeio_info )
 

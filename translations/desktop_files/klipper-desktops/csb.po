@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 14:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: csb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: klipper.desktop:2
+msgid "Klipper"
+msgstr ""
+
+#. GenericName
+#: klipper.desktop:4
+msgid "Clipboard Tool"
+msgstr "Nôrzãdze tacnika"
+
+#. Comment
+#: klipper.desktop:6
+msgid "A cut & paste history utility"
+msgstr "Nôrzãdze trzëmôjące historëjã tacnika"
+
+#. Description
+#: klipperrc.desktop:9
+msgid "Jpeg-Image"
+msgstr "Òbrôz Jpeg"
+
+#. Description
+#: klipperrc.desktop:14
+msgid "Launch K&View"
+msgstr "Zrëszë &Przezérnik òbrôzów"
+
+#. Description
+#: klipperrc.desktop:19
+msgid "Web-URL"
+msgstr "Adresa WWW"
+
+#. Description
+#: klipperrc.desktop:24 klipperrc.desktop:116
+msgid "Open with &Konqueror"
+msgstr "Òtemknij w &Konquerorze"
+
+#. Description
+#: klipperrc.desktop:29 klipperrc.desktop:126
+msgid "Open with &Mozilla"
+msgstr "Òtemknij w &Mozillë"
+
+#. Description
+#: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
+#: klipperrc.desktop:131
+msgid "Send &URL"
+msgstr "Wëslij adresã (&URL)"
+
+#. Description
+#: klipperrc.desktop:40
+msgid "Open with &Firefox"
+msgstr "Òtemknij w &Firefokse"
+
+#. Description
+#: klipperrc.desktop:46
+msgid "Send &Page"
+msgstr "Wëslij &starnã"
+
+#. Description
+#: klipperrc.desktop:51
+msgid "Mail-URL"
+msgstr "Wëslij pòcztą adresã (URL)"
+
+#. Description
+#: klipperrc.desktop:56
+msgid "Launch &Kmail"
+msgstr "Zrëszë &KMail"
+
+#. Description
+#: klipperrc.desktop:61
+msgid "Launch &mutt"
+msgstr "Zrëszë &mutt"
+
+#. Description
+#: klipperrc.desktop:66
+msgid "Text File"
+msgstr "Tekstowi lopk"
+
+#. Description
+#: klipperrc.desktop:71
+msgid "Launch K&Edit"
+msgstr "Zrëszë editorã K&Edit"
+
+#. Description
+#: klipperrc.desktop:76
+msgid "Launch K&Write"
+msgstr "Zrëszë editorã K&Write"
+
+#. Description
+#: klipperrc.desktop:81
+msgid "Local file URL"
+msgstr "Lokalnô adresa lopkù"
+
+#. Description
+#: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
+msgid "Send &File"
+msgstr "Wëslij &lopk"
+
+#. Description
+#: klipperrc.desktop:96
+msgid "Gopher URL"
+msgstr "Adresa Gophera"
+
+#. Description
+#: klipperrc.desktop:111
+msgid "ftp URL"
+msgstr "Adresa FTP"
+
+#. Description
+#: klipperrc.desktop:121
+msgid "Open with &Netscape"
+msgstr "Òtemknij w &Netscape"

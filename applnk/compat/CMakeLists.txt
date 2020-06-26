@@ -9,9 +9,12 @@
 #
 #################################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     battery.desktop bwarning.desktop cwarning.desktop
     power.desktop kcmkonq.desktop kcmkxmlrpcd.desktop
     konqhtml.desktop socks.desktop virtualdesktops.desktop
     email.desktop userinfo.desktop passwords.desktop
-  DESTINATION ${APPS_INSTALL_DIR}/.hidden )
+  DESTINATION ${APPS_INSTALL_DIR}/.hidden
+  PO_DIR applnk-compat
+)

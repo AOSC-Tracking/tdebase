@@ -22,7 +22,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmview1394.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcmview1394.desktop
+  PO_DIR kcontrol-desktops
+)
 install( FILES oui.db DESTINATION ${DATA_INSTALL_DIR}/kcmview1394 )
 
 

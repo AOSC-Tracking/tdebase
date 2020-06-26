@@ -1,0 +1,274 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 02:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:2
+msgid "Home"
+msgstr "Katalog domowy"
+
+#. GenericName
+#: Home.desktop:4
+msgid "Personal Files"
+msgstr "Pliki osobiste"
+
+#. Comment
+#: Home.desktop:6
+msgid "Contains personal files"
+msgstr "Zawiera pliki osobiste"
+
+#. Name
+#: My_Computer:5
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: My_Computer:7
+msgid "Access to storage media"
+msgstr "Dostęp do nośników danych"
+
+#. Name
+#: My_Documents:5
+msgid "My Documents"
+msgstr "Katalog dokumentów"
+
+#. Comment
+#: My_Documents:7
+msgid "Contains personal documents"
+msgstr "Zawiera dokumenty osobiste"
+
+#. Name
+#: My_Network_Places:5
+msgid "My Network Places"
+msgstr "Zdalne miejsca"
+
+#. Comment
+#: My_Network_Places:7
+msgid "Access to network places and remote hosts"
+msgstr "Dostęp do miejsc sieciowych i maszyn zdalnych"
+
+#. Name
+#: Printers:5
+msgid "Printers"
+msgstr "Drukarki"
+
+#. Comment
+#: Printers:7
+msgid "Manage print jobs"
+msgstr "Zarządzaj zadaniami drukowania"
+
+#. Name
+#: System.desktop:2
+msgid "System"
+msgstr ""
+
+#. GenericName
+#: System.desktop:4
+msgid "System Locations"
+msgstr "Lokalizacje systemowe"
+
+#. Comment
+#: System.desktop:6
+msgid "Access to system places"
+msgstr "Dostęp do lokacji systemowych"
+
+#. Name
+#: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
+#: Templates/DVDROM-Device.desktop:12 Templates/ZIP-Device.desktop:12
+msgid "Eject"
+msgstr "Wysuń"
+
+#. Name
+#: Templates/Directory.desktop:2
+msgid "Folder..."
+msgstr "Katalog..."
+
+#. Comment
+#: Templates/Directory.desktop:3
+msgid "Enter folder name:"
+msgstr "Podaj nazwę katalogu:"
+
+#. Name
+#: Templates/Floppy.desktop:3
+msgid "Format"
+msgstr ""
+
+#. Name
+#: Templates/HTMLFile.desktop:2
+msgid "HTML File..."
+msgstr "Plik HTML..."
+
+#. Comment
+#: Templates/HTMLFile.desktop:3
+msgid "Enter HTML filename:"
+msgstr "Podaj nazwę pliku HTML:"
+
+#. Name
+#: Templates/TextFile.desktop:2
+msgid "Text File..."
+msgstr "Plik tekstowy..."
+
+#. Comment
+#: Templates/TextFile.desktop:3
+msgid "Enter text filename:"
+msgstr "Podaj nazwę pliku tekstowego:"
+
+#. Name
+#: Templates/linkCAMERA.desktop:2
+msgid "Camera Device..."
+msgstr "Aparat fotograficzny..."
+
+#. Comment
+#: Templates/linkCAMERA.desktop:3
+msgid "New camera"
+msgstr "Nowy aparat fotograficzny"
+
+#. Name
+#: Templates/linkCDROM.desktop:2
+msgid "CD-ROM Device..."
+msgstr "Urządzenie CD-ROM..."
+
+#. Comment
+#: Templates/linkCDROM.desktop:3
+msgid "New CD-ROM Device"
+msgstr "Nowe urządzenie CD-ROM"
+
+#. Name
+#: Templates/linkCDWRITER.desktop:2
+msgid "CDWRITER Device..."
+msgstr "Nagrywarka CD..."
+
+#. Comment
+#: Templates/linkCDWRITER.desktop:3
+msgid "New CDWRITER Device"
+msgstr "Nowa nagrywarka CD"
+
+#. Name
+#: Templates/linkDVDROM.desktop:2
+msgid "DVD-ROM Device..."
+msgstr "Urządzenie DVD-ROM..."
+
+#. Comment
+#: Templates/linkDVDROM.desktop:3
+msgid "New DVD-ROM Device"
+msgstr "Nowe urządzenie DVD-ROM..."
+
+#. Name
+#: Templates/linkFloppy.desktop:2
+msgid "Floppy Device..."
+msgstr "Stacja dyskietek..."
+
+#. Comment
+#: Templates/linkFloppy.desktop:3
+msgid "New Floppy Device"
+msgstr "Nowa stacja dyskietek"
+
+#. Name
+#: Templates/linkHD.desktop:2
+msgid "Hard Disc Device..."
+msgstr "Twardy dysk..."
+
+#. Comment
+#: Templates/linkHD.desktop:3
+msgid "New Hard Disc"
+msgstr "Nowy twardy dysk"
+
+#. Name
+#: Templates/linkMO.desktop:2
+msgid "MO Device..."
+msgstr "Napęd magnetooptyczny..."
+
+#. Comment
+#: Templates/linkMO.desktop:3
+msgid "New MO Device"
+msgstr "Nowy napęd magnetooptyczny"
+
+#. Name
+#: Templates/linkNFS.desktop:2
+msgid "NFS..."
+msgstr ""
+
+#. Comment
+#: Templates/linkNFS.desktop:3
+msgid "New NFS Link"
+msgstr "Nowy skrót do NFS..."
+
+#. Name
+#: Templates/linkProgram.desktop:2
+msgid "Link to Application..."
+msgstr "Skrót do programu..."
+
+#. Comment
+#: Templates/linkProgram.desktop:3
+msgid "New Link to Application"
+msgstr "Nowy skrót do programu"
+
+#. Name
+#: Templates/linkURL.desktop:2
+msgid "Link to Location (URL)..."
+msgstr "Skrót do adresu (URL)..."
+
+#. Comment
+#: Templates/linkURL.desktop:3
+msgid "Enter link to location (URL):"
+msgstr "Nowy skrót do adresu internetowego (URL):"
+
+#. Name
+#: Templates/linkZIP.desktop:2
+msgid "ZIP Device..."
+msgstr "Napęd ZIP..."
+
+#. Comment
+#: Templates/linkZIP.desktop:3
+msgid "New ZIP Device"
+msgstr "Nowy napęd ZIP"
+
+#. Name
+#: Trash:8
+msgid "Trash"
+msgstr "Kosz"
+
+#. Comment
+#: Trash:10
+msgid "Contains removed files"
+msgstr "Zawiera usunięte pliki"
+
+#. Name
+#. GenericName
+#: Web_Browser:6 Web_Browser:8
+msgid "Web Browser"
+msgstr "Przeglądarka WWW"
+
+#. Comment
+#: Web_Browser:10
+msgid "Browse the World Wide Web"
+msgstr "Przeglądaj Internet"
+
+#. Name
+#: directory.autostart:3
+msgid "Autostart"
+msgstr ""
+
+#. Name
+#: directory.desktop:5
+msgid "Desktop"
+msgstr "Pulpit"
+
+#. Name
+#: directory.templates:3
+msgid "Templates"
+msgstr "Wzorce"

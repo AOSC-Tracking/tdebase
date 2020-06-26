@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 17:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: battery.desktop:2 bwarning.desktop:2 cwarning.desktop:2 power.desktop:2
+msgid "Laptop"
+msgstr "Portatile"
+
+#. Name
+#: email.desktop:10
+msgid "Email"
+msgstr "Posta elettronica"
+
+#. Comment
+#: email.desktop:11
+msgid "Configure your identity, email addresses, mail servers, etc."
+msgstr ""
+"Configura la tua identità, l'indirizzo di posta elettronica, i server della "
+"posta, ecc."
+
+#. Keywords
+#: email.desktop:13
+msgid ""
+"EMail;Mail;E-Mail;Address;Email server;IMAP;POP3;Local mailbox;mailbox;User "
+"Information;Reply Address;Server information;User Name;Passwords;Host;"
+"Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
+"Client;"
+msgstr ""
+"email;mail;e-mail;posta;posta elettronica;indirizzo;server di posta "
+"elettronica;IMAP;POP3;casella di posta locale;casella di posta;informazioni "
+"utente;reply address;indirizzo di risposta;informazioni server;password;host;"
+"profilo attuale;profilo;organizzazione;posta in arrivo;server posta in "
+"arrivo;server posta in uscita;client di posta;Reply Address;"
+
+#. Name
+#: kcmkonq.desktop:2
+msgid "File Manager"
+msgstr "File manager"
+
+#. Name
+#: kcmkxmlrpcd.desktop:2
+msgid "XML RPC Daemon"
+msgstr "Demone XML RPC"
+
+#. Name
+#: konqhtml.desktop:2
+msgid "Konqueror Browser"
+msgstr "Browser Konqueror"
+
+#. Name
+#: passwords.desktop:11
+msgid "Passwords"
+msgstr "Password"
+
+#. Comment
+#: passwords.desktop:13
+msgid "Configure password settings"
+msgstr "Impostazioni delle password"
+
+#. Keywords
+#: passwords.desktop:15
+msgid "Passwords;tdesu;Echo characters;Remember passwords;Timeout;"
+msgstr "Password;tdesu;caratteri password;ricorda password;tempo massimo;"
+
+#. Name
+#: socks.desktop:2
+msgid "Socks"
+msgstr ""
+
+#. Name
+#: userinfo.desktop:13
+msgid "User Account"
+msgstr "Account utente"
+
+#. Comment
+#: userinfo.desktop:14
+msgid "Change your account information"
+msgstr "Modifica le informazioni del tuo account"
+
+#. Keywords
+#: userinfo.desktop:15
+msgid ""
+"Passwords;Password;Change Password;Icon;face;tdm;User Name;Name;Account;"
+msgstr ""
+"Password;CambiaPassword;Icona;faccia;tdm;Utente;Nome utente;Nome;Account;"
+
+#. Name
+#: virtualdesktops.desktop:2
+msgid "Virtual Desktops"
+msgstr "Desktop virtuali"

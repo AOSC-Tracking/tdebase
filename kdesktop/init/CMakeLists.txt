@@ -11,14 +11,23 @@
 
 add_subdirectory( Templates )
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     directory.autostart directory.templates directory.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/kdesktop )
+  DESTINATION ${DATA_INSTALL_DIR}/kdesktop
+  PO_DIR kdesktop-icons
+)
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     My_Computer My_Documents My_Network_Places Printers Trash Web_Browser
-  DESTINATION ${DATA_INSTALL_DIR}/kdesktop/Desktop )
+  DESTINATION ${DATA_INSTALL_DIR}/kdesktop/Desktop
+  PO_DIR kdesktop-icons
+)
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     Home.desktop System.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/kdesktop/DesktopLinks )
+  DESTINATION ${DATA_INSTALL_DIR}/kdesktop/DesktopLinks
+  PO_DIR kdesktop-icons
+)

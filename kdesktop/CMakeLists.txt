@@ -52,11 +52,20 @@ install( FILES
 
 ##### other data ################################
 
-configure_file( kdesktop.desktop.cmake kdesktop.desktop @ONLY )
+tde_create_translated_desktop(
+  SOURCE kdesktop.desktop.cmake
+  DESTINATION ${AUTOSTART_INSTALL_DIR}
+  PO_DIR kdesktop-desktops
+)
 
-install( FILES ${CMAKE_CURRENT_BINARY_DIR}/kdesktop.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
 install( FILES kdesktop_custom_menu1 kdesktop_custom_menu2 DESTINATION ${CONFIG_INSTALL_DIR} )
-install( FILES kdesktopSetAsBackground.desktop DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus )
+
+tde_create_translated_desktop(
+  SOURCE kdesktopSetAsBackground.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus
+  PO_DIR kdesktop-desktops
+)
+
 install( FILES kdesktop.kcfg tdelaunch.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 
 

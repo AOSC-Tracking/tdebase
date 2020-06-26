@@ -11,7 +11,10 @@
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     media_decrypt.desktop media_mount.desktop media_unmount.desktop
     media_eject.desktop media_safelyremove.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus )
+  DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus
+  PO_DIR tdeioslave-desktops
+)

@@ -22,7 +22,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES media_propsdlgplugin.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE media_propsdlgplugin.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### media_propsdlgplugin (module) #############

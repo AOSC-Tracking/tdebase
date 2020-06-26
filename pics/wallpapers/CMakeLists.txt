@@ -3,46 +3,63 @@
 #  (C) 2010-2011 Serghei Amelian
 #  serghei (DOT) amelian (AT) gmail.com
 #
+#  (C) 2020 Slávek Banko
+#  slavek.banko (AT) axis.cz
+#
 #  Improvements and feedback are welcome
 #
 #  This file is released under GPL >= 2
 #
 #################################################
 
-install( FILES
-    aghi.jpg aghi.jpg.desktop
-    airplane.jpg airplane.jpg.desktop
-    All-Good-People-1.jpg All-Good-People-1.jpg.desktop
-    alta-badia.jpg alta-badia.jpg.desktop
-    andes-venezolanos.svgz andes-venezolanos.svgz.desktop
-    another-view.jpg another-view.jpg.desktop
-    aurora.svgz aurora.svgz.desktop
-    blue-bend.jpg blue-bend.jpg.desktop
-    celtic.svgz celtic.svgz.desktop
-    Chicken-Songs-2.jpg Chicken-Songs-2.jpg.desktop
-    default_blue.jpg default_blue.jpg.desktop
-    default_gears.jpg default_gears.jpg.desktop
-    floating-leaves.jpg floating-leaves.jpg.desktop
-    globe.svgz globe.svgz.desktop
-    green_curtain.jpg green_curtain.jpg.desktop
-    here-gear.svgz here-gear.svgz.desktop
-    horse-head-nebula.png horse-head-nebula.png.desktop
-    isadora.png isadora.png.desktop
-    konqui.svgz konqui.svgz.desktop
-    lineart.svgz lineart.svgz.desktop
-    moon.svgz moon.svgz.desktop
-    mountain-lake.jpg mountain-lake.jpg.desktop
-    No-Ones-Laughing-3.jpg No-Ones-Laughing-3.jpg.desktop
-    seaofconero.jpg seaofconero.jpg.desktop
-    soft-green.jpg soft-green.jpg.desktop
-    stelvio.jpg stelvio.jpg.desktop
-    stripes.jpg stripes.jpg.desktop
-    sunshine-after-the-rain.jpg sunshine-after-the-rain.jpg.desktop
-    Time-For-Lunch-2.jpg Time-For-Lunch-2.jpg.desktop
-    Totally-New-Product-1.jpg Totally-New-Product-1.jpg.desktop
-    Trinity4.png Trinity4.png.desktop
-    Trinity-lineart.svg Trinity-lineart.svg.desktop
-    triplegears.jpg triplegears.jpg.desktop
-    Won-Ton-Soup-3.jpg Won-Ton-Soup-3.jpg.desktop
-    world-desktop.jpg world-desktop.jpg.desktop
-  DESTINATION ${WALLPAPER_INSTALL_DIR} )
+foreach( _wallpaper
+    aghi.jpg
+    airplane.jpg
+    All-Good-People-1.jpg
+    alta-badia.jpg
+    andes-venezolanos.svgz
+    another-view.jpg
+    aurora.svgz
+    blue-bend.jpg
+    celtic.svgz
+    Chicken-Songs-2.jpg
+    default_blue.jpg
+    default_gears.jpg
+    floating-leaves.jpg
+    globe.svgz
+    green_curtain.jpg
+    here-gear.svgz
+    horse-head-nebula.png
+    isadora.png
+    konqui.svgz
+    lineart.svgz
+    moon.svgz
+    mountain-lake.jpg
+    No-Ones-Laughing-3.jpg
+    seaofconero.jpg
+    soft-green.jpg
+    stelvio.jpg
+    stripes.jpg
+    sunshine-after-the-rain.jpg
+    Time-For-Lunch-2.jpg
+    Totally-New-Product-1.jpg
+    Trinity4.png
+    Trinity-lineart.svg
+    triplegears.jpg
+    Won-Ton-Soup-3.jpg
+    world-desktop.jpg
+)
+  if( EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${_wallpaper} )
+    install(
+      FILES ${_wallpaper}
+      DESTINATION ${WALLPAPER_INSTALL_DIR}
+    )
+    if( EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${_wallpaper}.desktop )
+      tde_create_translated_desktop(
+        SOURCE ${_wallpaper}.desktop
+        DESTINATION ${WALLPAPER_INSTALL_DIR}
+        PO_DIR wallpapers-desktops
+      )
+    endif()
+  endif()
+endforeach()

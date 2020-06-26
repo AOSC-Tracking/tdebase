@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 15:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "Konsole"
+msgstr "Konsoll"
+
+#. Name
+#: eventsrc:6
+msgid "Bell in visible session"
+msgstr "Varsel i synlig økt"
+
+#. Comment
+#: eventsrc:7
+msgid "Bell emitted within a visible session"
+msgstr "Varsel sendt inne i en synlig økt"
+
+#. Name
+#: eventsrc:12
+msgid "Bell in non-visible session"
+msgstr "Varsel i usynlig økt"
+
+#. Comment
+#: eventsrc:13
+msgid "Bell emitted within a non-visible session"
+msgstr "Varsel sendt inne i en usynlig økt"
+
+#. Name
+#: eventsrc:18
+msgid "Activity in monitored session"
+msgstr "Aktivitet i overvåket økt"
+
+#. Comment
+#: eventsrc:19
+msgid "Activity detected in a monitored session"
+msgstr "Oppdaget aktivitet i en overvåket økt"
+
+#. Name
+#: eventsrc:23
+msgid "Silence in monitored session"
+msgstr "Stille i en overvåket økt"
+
+#. Comment
+#: eventsrc:24
+msgid "Silence detected in a monitored session"
+msgstr "Oppdaget at det er stille i en overvåket økt"
+
+#. Name
+#: eventsrc:28
+msgid "Session finished with non-zero status"
+msgstr "Økta ble avsluttet med en status ulik null"
+
+#. Comment
+#: eventsrc:29
+msgid "A session has exited with non-zero status"
+msgstr "En økt ble avsluttet med en status som ikke var null"

@@ -30,10 +30,22 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES ksysguard.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES x-ksysguard.desktop DESTINATION ${MIME_INSTALL_DIR}/application )
+tde_create_translated_desktop(
+  SOURCE ksysguard.desktop
+  DESTINATION ${XDG_APPS_INSTALL_DIR}
+  PO_DIR ksysguard-desktops
+)
+tde_create_translated_desktop(
+  SOURCE x-ksysguard.desktop
+  DESTINATION ${MIME_INSTALL_DIR}/application
+  PO_DIR ksysguard-desktops
+)
 install( FILES ProcessTable.sgrd SystemLoad.sgrd KSysGuardApplet.xml ksysguardui.rc DESTINATION ${DATA_INSTALL_DIR}/ksysguard )
-install( FILES ksysguardapplet.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
+tde_create_translated_desktop(
+  SOURCE ksysguardapplet.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/applets
+  PO_DIR ksysguard-desktops
+)
 
 
 ##### sysguard_panelapplet (module) #############
