@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 19:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kjobviewer/kjobviewer-autostart.desktop:7 kjobviewer/kjobviewer.desktop:8
+msgid "KJobViewer"
+msgstr ""
+
+#. GenericName
+#. Comment
+#: kjobviewer/kjobviewer-autostart.desktop:9 kjobviewer/kjobviewer.desktop:10
+#: slave/mimetypes/jobs.desktop:2
+msgid "Print Jobs"
+msgstr "प्रिंट कार्य"
+
+#. Name
+#: kprinter/kprinter.desktop:9
+msgid "KPrinter"
+msgstr "केप्रिंटर"
+
+#. GenericName
+#: kprinter/kprinter.desktop:11
+msgid "Printing Tool"
+msgstr "प्रिंटर औज़ार"
+
+#. Name
+#: printmgr/printers.desktop:12
+msgid "Printers"
+msgstr "प्रिंटर"
+
+#. Comment
+#: printmgr/printers.desktop:14
+msgid "Printing system configuration (printers, jobs, classes, ...)"
+msgstr "प्रिंटर तंत्र कॉन्फ़िगरेशन (प्रिंटर,कार्य,क्लासेस...)"
+
+#. Keywords
+#: printmgr/printers.desktop:16
+msgid "print;printer;printing management;"
+msgstr "छापा;प्रिंटर;छपाई प्रबंधन;"
+
+#. Comment
+#: slave/mimetypes/class.desktop:2
+msgid "Class of Printers"
+msgstr "प्रिंटर के वर्ग"
+
+#. Comment
+#: slave/mimetypes/driver.desktop:2
+msgid "Printer Driver"
+msgstr "प्रिंटर ड्राइवर"
+
+#. Comment
+#: slave/mimetypes/folder.desktop:2
+#, fuzzy
+msgid "Print Folder"
+msgstr "प्रिंटर"
+
+#. Comment
+#. Name
+#: slave/mimetypes/manager.desktop:2 tdeprint_part/tdeprint_part.desktop:4
+msgid "Print Management Tool"
+msgstr "छापा प्रबंधन औज़ार"
+
+#. Comment
+#: slave/mimetypes/printer.desktop:2
+msgid "Printer"
+msgstr "प्रिंटर"
+
+#. Comment
+#: slave/mimetypes/printermodel.desktop:2
+msgid "Printer Model"
+msgstr "प्रिंटर मॉडल"
+
+#. Name
+#: tdeprintfax/tdeprintfax.desktop:2
+msgid "TDEPrintFax"
+msgstr "केडीई-प्रिंट-फ़ैक्स"
+
+#. GenericName
+#: tdeprintfax/tdeprintfax.desktop:4
+msgid "Fax Utility"
+msgstr "फ़ैक्स यूटिलिटी"

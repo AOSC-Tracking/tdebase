@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 17:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ne\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: battery.desktop:2 bwarning.desktop:2 cwarning.desktop:2 power.desktop:2
+msgid "Laptop"
+msgstr "ल्यापटप"
+
+#. Name
+#: email.desktop:10
+msgid "Email"
+msgstr "इमेल"
+
+#. Comment
+#: email.desktop:11
+msgid "Configure your identity, email addresses, mail servers, etc."
+msgstr "तपाईँको परिचय, इमेल ठेगाना, मेल सर्भर इत्यादि कन्फिगर गर्नुहोस् ।"
+
+#. Keywords
+#: email.desktop:13
+msgid ""
+"EMail;Mail;E-Mail;Address;Email server;IMAP;POP3;Local mailbox;mailbox;User "
+"Information;Reply Address;Server information;User Name;Passwords;Host;"
+"Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
+"Client;"
+msgstr ""
+"इमेल; मेल; इ-मेल; ठेगाना; इमेल सर्भर; आई म्याप ;पप ३; स्थानीय पत्र बाकस; पत्र बाकस; "
+"प्रयोगकर्ताको सूचना; फिर्ता पठाउने ठेगाना; सर्भर सूचना; प्रयोगकर्ता नाम; पासवर्ड; होस्ट; "
+"हालको प्रोफाइल; प्रोफाइल; सङ्गठन; आगमन होस्ट; निर्गमन होस्ट; इमेल क्लाइन्ट;"
+
+#. Name
+#: kcmkonq.desktop:2
+msgid "File Manager"
+msgstr "फाइल प्रबन्धक"
+
+#. Name
+#: kcmkxmlrpcd.desktop:2
+msgid "XML RPC Daemon"
+msgstr "XML RPC डेइमन"
+
+#. Name
+#: konqhtml.desktop:2
+msgid "Konqueror Browser"
+msgstr "कन्क्वेरर ब्राउजर"
+
+#. Name
+#: passwords.desktop:11
+msgid "Passwords"
+msgstr "पासवर्ड"
+
+#. Comment
+#: passwords.desktop:13
+msgid "Configure password settings"
+msgstr "पासवर्ड सेटिङ कन्फिगर गर्नुहोस्"
+
+#. Keywords
+#: passwords.desktop:15
+msgid "Passwords;tdesu;Echo characters;Remember passwords;Timeout;"
+msgstr "पासवर्ड; केडीई एस यू; इको क्यारेक्टर; पासवर्ड स्मरण; समय समाप्ति;"
+
+#. Name
+#: socks.desktop:2
+msgid "Socks"
+msgstr "सक्स"
+
+#. Name
+#: userinfo.desktop:13
+msgid "User Account"
+msgstr "प्रयोगकर्ता खाता"
+
+#. Comment
+#: userinfo.desktop:14
+msgid "Change your account information"
+msgstr "तपाईँको खाता सूचना परिवर्तन गर्नुहोस्"
+
+#. Keywords
+#: userinfo.desktop:15
+msgid ""
+"Passwords;Password;Change Password;Icon;face;tdm;User Name;Name;Account;"
+msgstr ""
+"पासवर्डहरू; पासवर्ड; पासवर्ड परिवर्तन; प्रतिमा; मोहडा; के डी एम; प्रयोगकर्ता नाम; "
+"नाम; खाता;"
+
+#. Name
+#: virtualdesktops.desktop:2
+msgid "Virtual Desktops"
+msgstr "अवास्तविक डेस्कटप"

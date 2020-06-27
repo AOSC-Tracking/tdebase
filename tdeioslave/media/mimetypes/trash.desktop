@@ -1,10 +1,10 @@
 [Desktop Entry]
-Icon=trashcan_full
-EmptyIcon=trashcan_empty
 Type=MimeType
 MimeType=media/builtin-trash
+Icon=trashcan_full
+EmptyIcon=trashcan_empty
+
 Comment=Trash
-Comment[de]=Mülleimer
 
 Patterns=Trash
 

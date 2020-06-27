@@ -1,0 +1,3 @@
+##### create translation templates ##############
+
+tde_l10n_auto_add_subdirectories( )

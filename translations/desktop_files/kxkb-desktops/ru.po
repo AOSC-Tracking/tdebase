@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 20:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: keyboard.desktop:12
+msgid "Keyboard"
+msgstr "Клавиатура"
+
+#. Comment
+#: keyboard.desktop:14
+msgid "Keyboard settings"
+msgstr "Настройка клавиатуры"
+
+#. Keywords
+#: keyboard.desktop:16
+msgid "Keyboard;Keyboard repeat;Click volume;Input Devices;repeat;volume;"
+msgstr ""
+
+#. Name
+#. Comment
+#: keyboard_layout.desktop:12 keyboard_layout.desktop:14
+msgid "Keyboard Layout"
+msgstr "Раскладка клавиатуры"
+
+#. Keywords
+#: keyboard_layout.desktop:16
+#, fuzzy
+msgid "Keyboard;Layout;International;"
+msgstr "Раскладка клавиатуры"
+
+#. Name
+#: kxkb.desktop:4
+msgid "Keyboard Map Tool"
+msgstr "Переключатель раскладки клавиатуры"

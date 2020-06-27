@@ -25,8 +25,11 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons( )
-install( FILES ktip.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES ktip.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
+tde_create_translated_desktop( ktip.desktop )
+install(
+  FILES ${CMAKE_CURRENT_BINARY_DIR}/ktip.desktop
+  DESTINATION ${AUTOSTART_INSTALL_DIR}
+)
 install( FILES uninstall.desktop DESTINATION ${APPS_INSTALL_DIR}/Toys RENAME ktip.desktop )
 install( FILES tips DESTINATION ${DATA_INSTALL_DIR}/tdewizard )
 

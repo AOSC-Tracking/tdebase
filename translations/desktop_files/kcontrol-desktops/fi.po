@@ -1,0 +1,2517 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: access/kaccess.desktop:3
+msgid "Accessibility Tool"
+msgstr "helppokäyttötoiminnot"
+
+#. Name
+#: access/kcmaccess.desktop:12
+msgid "Accessibility"
+msgstr "Helppokäyttötoiminnot"
+
+#. Comment
+#: access/kcmaccess.desktop:14
+msgid "Improve accessibility for disabled persons"
+msgstr "Käyttöä helpottavia asetuksia"
+
+#. Keywords
+#: access/kcmaccess.desktop:16
+msgid ""
+"access;accessibility;deaf;impaired;bell;audible bell;visible bell;Keyboard;"
+"keys;sticky keys;bounce keys;slow keys;mouse navigation;num pad;"
+msgstr ""
+"käytettävyys;esteettömyys;kuuro;vammautunut;virheilmoitus;virheääni;näkyvä "
+"virheilmoitus;näppäimistö;näppäimet;alas jäävät näppäimet;toistavat "
+"näppäimet;hitaat näppäimet;hiirinavigointi;numeronäppäimistö;"
+
+#. Name
+#: arts/arts.desktop:12
+msgid "Sound System"
+msgstr "Äänijärjestelmä"
+
+#. Comment
+#: arts/arts.desktop:14
+msgid "Sound System Configuration"
+msgstr "Äänijärjestelmän asetukset"
+
+#. Keywords
+#: arts/arts.desktop:16
+msgid ""
+"aRts;Sound Server;artsd;Audio;Sound;startup;network transparency;"
+"transparency;priority;duplex;full duplex;response time;Mixer;Volume;KMix;Mix;"
+"login;MIDI;synthesizer;music;"
+msgstr ""
+"aRts;äänipalvelin;artsd;ääni;käynnistys;verkkoläpinäkyvyys; ;prioriteetti;"
+"duplex;full duplex;vasteaika;mikseri;äänenvoimakkuus;KMix;MIDI; "
+"syntetisaattori;musiikki;"
+
+#. Name
+#: background/background.desktop:12
+msgid "Background"
+msgstr "Tausta"
+
+#. Comment
+#: background/background.desktop:14
+msgid "Change the background settings"
+msgstr "Muuta taustan asetuksia"
+
+#. Keywords
+#: background/background.desktop:16
+msgid ""
+"background;desktops;colors;colours;images;wallpapers;blending;balance;cache;"
+"multiple wallpapers;pixmap;"
+msgstr ""
+"tausta;työpöydät;värit;kuvat;taustakuvat;sekoitus;välimuisti;useat "
+"taustakuvat;kuvakartat;"
+
+#. Name
+#: bell/bell.desktop:13
+msgid "System Bell"
+msgstr "Järjestelmän varoitus"
+
+#. Comment
+#: bell/bell.desktop:15
+msgid "System Bell Configuration"
+msgstr "Järjestelmän varoitusäänen asetus"
+
+#. Keywords
+#: bell/bell.desktop:17
+msgid "Bell;Audio;Sound;Volume;Pitch;Duration;"
+msgstr "Äänet;Piippaus;Ääni;Äänenvoimakkuus;Korkeus;Kesto;"
+
+#. Name
+#: clock/clock.desktop:13
+msgid "Date & Time"
+msgstr "Päivämäärä ja aika"
+
+#. Comment
+#: clock/clock.desktop:15
+msgid "Date and time settings"
+msgstr "Päiväyksen ja ajan asetukset"
+
+#. Keywords
+#: clock/clock.desktop:17
+msgid "clock;date;time;time zone;"
+msgstr "kello;päiväys;aika;aikavyöhyke;"
+
+#. Name
+#: colors/colors.desktop:12
+msgid "Colors"
+msgstr "Värit"
+
+#. Comment
+#: colors/colors.desktop:14
+msgid "Color settings"
+msgstr "Väriasetukset"
+
+#. Keywords
+#: colors/colors.desktop:16
+msgid "colors;colours;scheme;contrast;Widget colors;Color Scheme;"
+msgstr "väri;teema;kontrasti;työkalujen värit;väriteema;"
+
+#. Name
+#: componentchooser/EXAMPLE.desktop:1
+msgid "A nice name you have chosen for your interface"
+msgstr "Valittu nimi rajapinnalle"
+
+#. Comment
+#: componentchooser/EXAMPLE.desktop:2
+msgid "A helpful description of the interface for the top right info box"
+msgstr ""
+"Tässä pitäisi olla pieni kuvaus rajapinnasta oikean yläkulman laatikkoon"
+
+#. Name
+#: componentchooser/componentchooser.desktop:10
+msgid "Default Applications"
+msgstr "Oletussovellukset"
+
+#. Comment
+#: componentchooser/componentchooser.desktop:12
+msgid "Choose the default components for various services"
+msgstr "Palveluiden oletuskomponenttien asetukset"
+
+#. Keywords
+#: componentchooser/componentchooser.desktop:14
+msgid ""
+"default applications;components;component chooser;resources;e-mail;email "
+"client;text editor;instant messenger;terminal emulator;web browser;file "
+"manager;URL;hyperlinks;"
+msgstr ""
+"oletussovellukset;komponentit;komponenttivalitsin;resurssit;e-mail;email;"
+"sähköposti;sähköpostiohjelma;tekstimuokkain;tekstieditori;pikaviestin;"
+"pikaviestiohjelma;pääte-emulaattori;WWW-selain;web-selain;verkkoselain;"
+"osoite;linkit;"
+
+#. Name
+#: componentchooser/componentservices/kcm_browser.desktop:1
+msgid "Web Browser"
+msgstr "WWW-selain"
+
+#. Comment
+#: componentchooser/componentservices/kcm_browser.desktop:3
+msgid ""
+"Here you can configure your default web browser. All TDE applications in "
+"which you can select hyperlinks should honor this setting."
+msgstr ""
+"Tämän palvelun avulla voit määritellä oletusselaimen. Kaikki selainta "
+"käyttävät TDE-sovellukset huomioivat tämän asetuksen."
+
+#. Name
+#: componentchooser/componentservices/kcm_filemanager.desktop:1
+#: konq/filebrowser.desktop:12
+msgid "File Manager"
+msgstr "Tiedostonhallinta"
+
+#. Comment
+#: componentchooser/componentservices/kcm_filemanager.desktop:3
+#, fuzzy
+msgid ""
+"This service allows you to configure your default file manager. All TDE "
+"applications which invoke a file manager application should honor this "
+"setting."
+msgstr ""
+"Tämän palvelun avulla voit asettaa oletus-komentoikkunaa. Kaikki "
+"komentoikkunaa käyttävät TDE-sovellukset huomioivat tämän asetuksen."
+
+#. Name
+#: componentchooser/componentservices/kcm_kemail.desktop:1
+msgid "Email Client"
+msgstr "Sähköpostiohjelma"
+
+#. Comment
+#: componentchooser/componentservices/kcm_kemail.desktop:3
+msgid ""
+"This service allows you to configure your default email client. All TDE "
+"applications which need access to an email client application should honor "
+"this setting."
+msgstr ""
+"Tämän palvelun avulla voit määritellä oletussähköpostiohjelman. Kaikki "
+"sähköpostiohjelmaa käyttävätTDE-sovellukset huomioivat tämän asetuksen."
+
+#. Name
+#: componentchooser/componentservices/kcm_terminal.desktop:1
+msgid "Terminal Emulator"
+msgstr "Komentoikkuna"
+
+#. Comment
+#: componentchooser/componentservices/kcm_terminal.desktop:3
+msgid ""
+"This service allows you to configure your default terminal emulator. All TDE "
+"applications which invoke a terminal emulator application should honor this "
+"setting."
+msgstr ""
+"Tämän palvelun avulla voit asettaa oletus-komentoikkunaa. Kaikki "
+"komentoikkunaa käyttävät TDE-sovellukset huomioivat tämän asetuksen."
+
+#. Name
+#: crypto/crypto.desktop:10
+msgid "Crypto"
+msgstr "Salaus"
+
+#. Comment
+#: crypto/crypto.desktop:12
+msgid "Configure SSL, manage certificates, and other cryptography settings"
+msgstr "SSL-, sertifikaatti- ja muut salausasetukset"
+
+#. Keywords
+#: crypto/crypto.desktop:14
+msgid ""
+"Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;"
+"secure;security;"
+msgstr ""
+"Salaus;Krypto;SSL;https;sertifikaatit;salaukset;TLS;turvallinen;turvallisuus;"
+
+#. Name
+#: css/kcmcss.desktop:12
+msgid "Stylesheets"
+msgstr "Tyylisivut"
+
+#. Comment
+#: css/kcmcss.desktop:14
+msgid "Configure the stylesheets used to render web pages"
+msgstr "WWW-sivuilla käytettävien tyylisivujen asetukset"
+
+#. Keywords
+#: css/kcmcss.desktop:16
+msgid "CSS;HTML;style;stylesheet;accessibility;"
+msgstr "CSS;HTML;tyyli;tyylimäärittely;esteettömyys;"
+
+#. Name
+#: display/display.desktop:11
+msgid "Display"
+msgstr "Näyttö"
+
+#. Comment
+#: display/display.desktop:13
+msgid "Display Settings"
+msgstr "Näytön asetukset"
+
+#. Name
+#: displayconfig/displayconfig.desktop:12
+msgid "Monitor & Display"
+msgstr ""
+
+#. Comment
+#: displayconfig/displayconfig.desktop:14
+#, fuzzy
+msgid "Configure display"
+msgstr "Asetuspalvelimen löytäminen"
+
+#. Keywords
+#: displayconfig/displayconfig.desktop:16
+msgid "monitor;resolution;display;"
+msgstr ""
+
+#. Name
+#: dnssd/kcm_tdednssd.desktop:18
+msgid "Zeroconf Service Discovery"
+msgstr "Palvelut"
+
+#. Comment
+#: dnssd/kcm_tdednssd.desktop:20
+msgid "Configure service discovery"
+msgstr "Asetuspalvelimen löytäminen"
+
+#. Name
+#: ebrowsing/ebrowsing.desktop:12
+msgid "Web Shortcuts"
+msgstr "WWW-pikavalinnat"
+
+#. Comment
+#: ebrowsing/ebrowsing.desktop:14
+msgid "Configure enhanced browsing"
+msgstr "Muokkaa selaimen lisäasetuksia"
+
+#. Keywords
+#: ebrowsing/ebrowsing.desktop:16
+msgid ""
+"Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet Filters;"
+"Network;Search Engines;Shortcuts;"
+msgstr ""
+"Edistynyt selailu;selailu;WWW;Internet;Internet-hakusanat;Internet "
+"suodattimet;Verkko;Hakukoneet;Pikavalinnat;"
+
+#. Name
+#: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
+msgid "InternetKeywordsFilter"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/kurisearchfilter.desktop:3
+msgid "SearchKeywordsFilter"
+msgstr ""
+
+#. Comment
+#: ebrowsing/plugins/ikws/searchprovider.desktop:4
+msgid "Search Engine"
+msgstr "Hakukone"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
+msgid "Acronym Database"
+msgstr "Akronyymitietokanta"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
+msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
+msgid "Alexa"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
+#, fuzzy
+msgid "http://info.alexa.com/search?q=\\{@}"
+msgstr "http://www.google.fi/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
+msgid "Alexa URL"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
+msgid "http://info.alexa.com/data/details?url=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
+msgid "AllTheWeb fast"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:6
+msgid ""
+"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:3
+msgid "AltaVista"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:6
+msgid "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
+msgid "All Music Guide"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
+msgid "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:3
+msgid "KDE App Search"
+msgstr "KDE-sovellusten haku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:6
+msgid "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:3
+msgid "AustroNaut"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:6
+msgid "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
+msgid "Debian Backports Search"
+msgstr "Debianin takaisinsovittamishaku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
+msgid "http://www.backports.org/package.php?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
+msgid "KDE Bug Database Fulltext Search"
+msgstr "KDE-vikailmoitustietokannan tekstihaku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:4
+msgid ""
+"http://bugs.trinitydesktop.org/simple_search.cgi?id=\\{1}+\\{2}+\\{3}+\\{4}+"
+"\\{5}+\\{6}+\\{7}+\\{8}+\\{9}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
+msgid "TDE Bug Database Bug Number Search"
+msgstr "TDE-vikailmoitustietokannan numerohaku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:4
+msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/call.desktop:5
+msgid "QRZ.com Callsign Database"
+msgstr "QRZ.com-kutsumerkkitietokanta"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/call.desktop:6
+msgid "http://www.qrz.com/database?callsign=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:4
+msgid "CIA World Factbook"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:5
+#, c-format
+msgid ""
+"http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
+"cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+msgstr ""
+"http://www.google.fi/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
+"cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
+msgid "CiteSeer: Scientific Literature Digital Library"
+msgstr "CiteSeer: Tieteellisten tekstien digitaalinen kirjasto"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
+msgid "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:3
+msgid "CPAN - Comprehensive Perl Archive Network"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
+msgid ""
+"http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:3
+msgid "CTAN - Comprehensive TeX Archive Network"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:4
+msgid ""
+"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
+"\\{ at }"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:3
+msgid "CTAN Catalog"
+msgstr "CTAN-katalogi"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:4
+msgid ""
+"http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
+msgid "Debian BTS Bug Search"
+msgstr "Debianin vikajärjestelmän haku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:4
+msgid "http://bugs.debian.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:5
+msgid "dict.cc Translation: German to English"
+msgstr "dict.cc Käännös: saksasta englanniksi"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:6
+msgid "http://www.dict.cc/?s=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:3
+msgid "LEO - Translate Between German and French"
+msgstr "LEO - Käännä saksan ja ranskan välillä"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:6
+msgid "http://dict.leo.org/?lp=frde&search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/deb.desktop:3
+msgid "Debian Package Search"
+msgstr "Debianin pakettihaku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/deb.desktop:4
+msgid "http://packages.debian.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:3
+msgid "Open Directory"
+msgstr "Avoin kansio"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
+#, fuzzy
+msgid "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
+msgstr "http://fi.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
+msgid "DocBook - The Definitive Guide"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:6
+msgid "http://www.docbook.org/tdg/en/html/\\{1}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:5
+msgid "Digital Object Identifier"
+msgstr "Digitaalinen objektitunniste"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:6
+msgid "http://dx.doi.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:5
+msgid "dict.cc Translation: English to German"
+msgstr "dict.cc käännös: englannista saksaksi"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:5
+msgid "WordReference.com Translation: English to Spanish"
+msgstr "WordReference.com-käännös: englannista espanjaksi"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:6
+msgid "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:5
+msgid "WordReference.com Translation: English to French"
+msgstr "WordReference.com-käännös: englannista ranskaksi"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:6
+msgid "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:5
+msgid "WordReference.com Translation: English to Italian"
+msgstr "WordReference.com-käännös: englannista italiaksi"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:6
+msgid "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:5
+msgid "WordReference.com Translation: Spanish to English"
+msgstr "WordReference.com-käännös: espanjasta englanniksi"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:6
+msgid "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/excite.desktop:3
+msgid "Excite"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/excite.desktop:6
+msgid "http://search.excite.com/search.gw?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:3
+msgid "Feedster"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
+#, fuzzy
+msgid "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://www.google.fi/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
+msgid "Free On-Line Dictionary of Computing"
+msgstr "Vapaa tietokonealan sanasto"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
+msgid "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
+msgid "LEO - Translate Between French and German"
+msgstr "LEO - Käännä ranskan ja saksan välillä"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:5
+msgid "WordReference.com Translation: French to English"
+msgstr "WordReference.com-käännös: ranskasta englanniksi"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:6
+msgid "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:3
+msgid "FreeDB"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:6
+msgid "http://www.freedb.org/freedb_search.php?words=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:3
+msgid "Freshmeat"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:6
+msgid "http://freshmeat.net/search/?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:3
+msgid "Froogle"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
+#, fuzzy
+msgid "http://froogle.google.com/froogle?q=\\{@}"
+msgstr "http://news.google.fi/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:3
+msgid "FSF/UNESCO Free Software Directory"
+msgstr "FSF/UNESCO Vapaa ohjelmien hakemisto"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:6
+msgid "http://directory.fsf.org/search/?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
+#, fuzzy
+msgid "Google"
+msgstr "Googlen uutiset"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google.desktop:6
+msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://www.google.fi/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:3
+msgid "Google Advanced Search"
+msgstr "Googlen lisähaku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:4
+msgid ""
+"http://www.google.com/search?as_q=\\{all,@}&num=\\{num,\"10\"}&btnG=Google"
+"+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\{without,\"\"}&lr="
+"\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\"\"}&as_qdr="
+"\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
+"&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+"http://www.google.fi/search?as_q=\\{all,@}&num=\\{num,\"10\"}&btnG=Google"
+"+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\{without,\"\"}&lr="
+"\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\"\"}&as_qdr="
+"\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
+"&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
+msgid "Google Groups"
+msgstr "Googlen keskusteluryhmät"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:6
+msgid "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:3
+msgid "Google Image Search"
+msgstr "Googlen kuvahaku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:6
+#, fuzzy
+msgid "http://images.google.com/images?q=\\{@}"
+msgstr "http://news.google.fi/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:3
+msgid "Google (I'm Feeling Lucky)"
+msgstr "Google (Kokeile onneasi)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:6
+#, c-format
+msgid ""
+"http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling"
+"+Lucky&ie=UTF-8&oe=UTF-8"
+msgstr ""
+"http://www.google.fi/search?q=\\{@}&btnI=I%27m+Feeling"
+"+Lucky&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
+msgid "Google Movies"
+msgstr "Googlen elokuvat"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:6
+#, fuzzy
+msgid "http://www.google.com/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://www.google.fi/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:3
+msgid "Google News"
+msgstr "Googlen uutiset"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:6
+msgid "http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://news.google.fi/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:3
+msgid "Gracenote"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:6
+#, fuzzy
+msgid "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
+msgstr "http://www.google.fi/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:5
+msgid "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
+msgstr "Catalanian suuri sanakirja (GRan Enciclopèdia  Catalana)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:6
+msgid "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:3
+msgid "Hotbot"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:6
+msgid "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
+#, fuzzy
+msgid "HyperDictionary.com"
+msgstr "HyperDictionary.com-sanakirja"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
+msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:3
+msgid "HyperDictionary.com Thesaurus"
+msgstr "HyperDictionary.com-sanakirja"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:6
+msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
+#, fuzzy
+msgid "Internet Movie Database"
+msgstr "Yhdysvaltojen patenttitietokanta"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:6
+msgid "http://imdb.com/Find?\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:5
+msgid "WordReference.com Translation: Italian to English"
+msgstr "WordReference.com-käännös: italiasta englanniksi"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:6
+msgid "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:3
+msgid "Ask Jeeves"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:6
+msgid ""
+"http://www.ask.com/main/askJeeves.asp?"
+"origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:3
+msgid "KataTudo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:6
+msgid "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:5
+msgid "KDE API Documentation"
+msgstr "KDE APIn dokumentaatio"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:6
+msgid "http://api.kde.org/classmapper.php?class=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:3
+msgid "KDE WebSVN"
+msgstr "KDE:n WebSVN"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:6
+msgid "http://websvn.kde.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
+msgid "LEO-Translate"
+msgstr "LEO-käännös"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/leo.desktop:6
+msgid "http://dict.leo.org/?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:3
+msgid "Lycos"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:6
+msgid "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:3
+msgid "Mamma - Mother of all Search Engines"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:6
+msgid "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
+msgid "MetaCrawler"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:6
+msgid ""
+"http://search.metacrawler.com/crawler?general=\\{@}"
+"&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
+"search&refer=mc-search"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
+msgid "Microsoft Developer Network Search"
+msgstr "Microsoft Developer Network -haku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:6
+msgid ""
+"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff.asp?"
+"handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
+"asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:3
+msgid "Netcraft"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:6
+msgid "http://uptime.netcraft.com/up/graph?site=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:2
+msgid "Telephonebook Search Provider"
+msgstr "Puhelinluettelohaku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:6
+msgid ""
+"http://www.detelefoongids.nl/tginl.dll?"
+"action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2="
+"\\{1}&name=&initials=&city=\\{2}"
+"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
+"\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:2
+msgid "Teletekst Search Provider"
+msgstr "Teleteksti-palveluntarjoaja"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:6
+msgid "http://teletekst.nos.nl/gif/\\{@}-01.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
+msgid "OpenPGP Key Search"
+msgstr "OpenPGP-avainhaku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
+msgid "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
+msgid "PHP Search"
+msgstr "PHP-haku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
+msgid "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/python.desktop:5
+msgid "Python Reference Manual"
+msgstr "Pythonin referenssimanuaali"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/python.desktop:6
+#, c-format
+msgid ""
+"http://www.google.com/search?sourceid=python-search&q=\\{@}"
+"&submit=Search&q=site%3Apython.org"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:5
+msgid "Latest Qt Online Documentation"
+msgstr "Uusin Qt-dokumentaatio"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:6
+msgid "http://doc.trolltech.com/latest/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:5
+msgid "Qt3 Online Documentation"
+msgstr "QT3:n verkkodokumentaatio"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:6
+msgid "http://doc.trolltech.com/3.3/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:5
+msgid "Dictionary of the Spanish Academy (RAE)"
+msgstr "Espanjalaisen akatemian sanakirja (RAE)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:6
+msgid ""
+"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
+"&FORMATO=ampliado"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
+msgid "IETF Requests for Comments"
+msgstr "IETF-kommenttipyynnöt (RFC)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:4
+msgid "http://www.ietf.org/rfc/rfc\\{@}.txt"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:3
+msgid "RPM-Find"
+msgstr "RPM-haku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:6
+msgid "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:3
+msgid "Ruby Application Archive"
+msgstr "Ruby-sovelluspaketti"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:6
+msgid "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:3
+msgid "GO.com"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:6
+msgid ""
+"http://www.go.com/Titles?col=WW&qt=\\{@}"
+"&svx=home_searchbox&sv=IS&lk=noframeso"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
+msgid "SourceForge"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:4
+msgid ""
+"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
+"\\{exact,\"0\"}&words=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
+#, fuzzy
+msgid "Technorati"
+msgstr "Technorati-tunnisteet"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:6
+msgid "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:3
+msgid "Technorati Tags"
+msgstr "Technorati-tunnisteet"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:6
+msgid "http://technorati.com/tag/\\{@}?sourceid=kde-search"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:3
+msgid "Merriam-Webster Thesaurus"
+msgstr "Merriam-Webster-synonyymit"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:6
+msgid "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:4
+msgid "TV Tome"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:6
+msgid "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:5
+msgid "U.S. Patent Database"
+msgstr "Yhdysvaltojen patenttitietokanta"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:6
+msgid ""
+"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
+"&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
+msgid "Vivisimo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:6
+#, c-format
+msgid ""
+"http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
+"%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:3
+msgid "Voila"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:6
+msgid ""
+"http://search.ke.voila.fr/S/voila?"
+"lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:3
+msgid "Merriam-Webster Dictionary"
+msgstr "Merriam-Webster-sanakirja"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:6
+msgid "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:3
+msgid "Whatis Query"
+msgstr "Whatis-haku"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:6
+msgid ""
+"http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:3
+msgid "Wikipedia - The Free Encyclopedia"
+msgstr "Wikipedia - Vapaa tietosanakirja"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:6
+msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://fi.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:3
+msgid "Wiktionary - The Free Dictionary"
+msgstr "Wiktionary - Vapaa sanakirja"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:6
+#, fuzzy
+msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://fi.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:5
+msgid "WordReference.com English Dictionary"
+msgstr "WordReference.comin englannin kielen sanasto"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:6
+msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/localdomain/localdomainurifilter.desktop:3
+msgid "LocalDomainFilter"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/shorturi/tdeshorturifilter.desktop:3
+msgid "ShortURIFilter"
+msgstr ""
+
+#. Name
+#: energy/energy.desktop:11
+msgid "Power Control"
+msgstr "Virranhallinta"
+
+#. Comment
+#: energy/energy.desktop:13
+msgid "Settings for display power management"
+msgstr "Asetukset näytön virranhallinnalle"
+
+#. Keywords
+#: energy/energy.desktop:15
+msgid "energy;saver;apm;acpi;dpms;timeout;blanking;stand by;suspend;power;"
+msgstr "energia;säästö;apm;acpi;dpms;aikavalvonta;sammutus;valmiustila;teho;"
+
+#. Name
+#: filetypes/filetypes.desktop:12
+msgid "File Associations"
+msgstr "Tiedostosidokset"
+
+#. Comment
+#: filetypes/filetypes.desktop:14
+msgid "Configure file associations"
+msgstr "Tiedostosidokset"
+
+#. Keywords
+#: filetypes/filetypes.desktop:16
+msgid "Filetypes;File Associations;Mime Types;File Patterns;Files;Pattern;"
+msgstr ""
+"Tiedostotyypit;Tiedostosidokset;Mimetyypit;Tiedostokuviot;Tiedostot;Kuvio;"
+
+#. Name
+#: fonts/fonts.desktop:12 konqhtml/tdehtml_fonts.desktop:11
+#: tdefontinst/tdeio/fonts.desktop:5
+msgid "Fonts"
+msgstr "Kirjasimet"
+
+#. Comment
+#: fonts/fonts.desktop:14
+msgid "Font settings"
+msgstr "Kirjasinten asetukset"
+
+#. Keywords
+#: fonts/fonts.desktop:16
+msgid ""
+"fonts;font size;styles;charsets;character sets;panel;kicker;control panel;"
+"desktops;FileManager;Toolbars;Menu;Window Title;Title;"
+msgstr ""
+"kirjasimet;kirjasin;kirjasimen koko;tyyli;merkistö;paneeli;kicker;"
+"ohjauspaneeli;työpöydät;Tiedostonhallinta;Työkalurivit;Valikko;Ikkunan "
+"otsikko;Otsikko;"
+
+#. Name
+#: hwmanager/hwdevicetray-autostart.desktop:2
+msgid "tdehwdevicetray"
+msgstr ""
+
+#. GenericName
+#. Name
+#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
+#: hwmanager/hwdevicetray.desktop:4
+#, fuzzy
+msgid "Device Monitor"
+msgstr "Useita näyttöjä"
+
+#. Comment
+#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
+msgid "Monitor hardware devices from the system tray"
+msgstr ""
+
+#. Name
+#: hwmanager/hwmanager.desktop:11
+#, fuzzy
+msgid "Device Manager"
+msgstr "Palvelunhallinta"
+
+#. Comment
+#: hwmanager/hwmanager.desktop:13
+#, fuzzy
+msgid "Configure hardware devices"
+msgstr "Selaimen asetukset"
+
+#. Keywords
+#: hwmanager/hwmanager.desktop:15
+msgid "hardware;devices;manager;"
+msgstr ""
+
+#. Comment
+#: iccconfig/iccconfig.desktop:14
+msgid "Configure display ICC color profile"
+msgstr ""
+
+#. Keywords
+#: iccconfig/iccconfig.desktop:16
+msgid "ICC;display;color;profile;"
+msgstr ""
+
+#. Name
+#: iccconfig/iccconfig.desktop:18
+msgid "Color Profile"
+msgstr ""
+
+#. Name
+#: icons/icons.desktop:12
+msgid "Icons"
+msgstr "Kuvakkeet"
+
+#. Comment
+#: icons/icons.desktop:14
+msgid "Customize TDE Icons"
+msgstr "Muokkaa TDE:n kuvakkeita"
+
+#. Keywords
+#: icons/icons.desktop:16
+msgid "icons;effects;size;hicolor;locolor;"
+msgstr "kuvakkeet;tehosteet;koko;korkeaväri;matalaväri;"
+
+#. Name
+#: info/cdinfo.desktop:12
+msgid "CD-ROM Information"
+msgstr "CD-ROM tiedot"
+
+#. Comment
+#: info/cdinfo.desktop:14
+msgid "CD/DVD Drive Capabilites"
+msgstr "CD/DVD-aseman ominaisuudet"
+
+#. Keywords
+#: info/cdinfo.desktop:16
+msgid "CD-ROM Information;CD-ROM;CD;CD Drive;Writer Capabilities;"
+msgstr "CD-ROM tiedot;CD-ROM;CD;CD-asema;Kirjoitusominaisuudet;"
+
+#. Name
+#: info/devices.desktop:13
+msgid "Devices"
+msgstr "Laitteet"
+
+#. Comment
+#: info/devices.desktop:15
+msgid "Attached devices information"
+msgstr "Tietoja liitetyistä laitteista"
+
+#. Keywords
+#: info/devices.desktop:17
+msgid "dev;Devices;System Information;Information;"
+msgstr "dev;Laitteet;Järjestelmätiedot;Tiedot;"
+
+#. Name
+#: info/dma.desktop:13
+msgid "DMA-Channels"
+msgstr "DMA-kanavat"
+
+#. Comment
+#: info/dma.desktop:15
+msgid "DMA information"
+msgstr "DMA-tietoja"
+
+#. Keywords
+#: info/dma.desktop:17
+msgid "dma;DMA-Channels;System Information;"
+msgstr "dma;DMA-kanavat;Järjestelmätiedot;"
+
+#. Name
+#: info/interrupts.desktop:13
+msgid "Interrupts"
+msgstr "Keskeytykset"
+
+#. Comment
+#: info/interrupts.desktop:15
+msgid "Interrupt information"
+msgstr "Keskeytystietoja"
+
+#. Keywords
+#: info/interrupts.desktop:17
+msgid "Interrupts;IRQ;System Information;"
+msgstr "Keskeytykset;IRQ;Järjestelmätiedot;"
+
+#. Name
+#: info/ioports.desktop:13
+msgid "IO-Ports"
+msgstr "IO-portit"
+
+#. Comment
+#: info/ioports.desktop:15
+msgid "IO-port information"
+msgstr "IO-porttitiedot"
+
+#. Keywords
+#: info/ioports.desktop:17
+msgid "IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System Information;"
+msgstr "IO;I/O;IO-Portit;I/O-Portit;Portit;I/O-alue;Järjestelmätiedot;"
+
+#. Name
+#: info/memory.desktop:12
+msgid "Memory"
+msgstr "Muisti"
+
+#. Comment
+#: info/memory.desktop:14
+msgid "Memory information"
+msgstr "Tietoja muistista"
+
+#. Keywords
+#: info/memory.desktop:16
+msgid ""
+"Memory;RAM;Virtual memory;Physical memory;Shared memory;Swap;System "
+"Information;"
+msgstr ""
+"Muisti;RAM;Virtuaalimuisti;Fyysinen muisti;Jaettu muisti;Järjestelmätiedot;"
+
+#. Name
+#: info/opengl.desktop:13
+msgid "OpenGL"
+msgstr ""
+
+#. Comment
+#: info/opengl.desktop:15
+msgid "OpenGL information"
+msgstr "OpenGL-tiedot"
+
+#. Keywords
+#: info/opengl.desktop:17
+msgid ""
+"OpenGL;DRI;GLX;3D;VideoCard;Hardware Acceleration;Graphics;X;X11;Xserver;X-"
+"Server;XFree86;Display;"
+msgstr ""
+
+#. Name
+#: info/partitions.desktop:13
+msgid "Partitions"
+msgstr "Osiot"
+
+#. Comment
+#: info/partitions.desktop:15
+msgid "Partition information"
+msgstr "Osiotiedot"
+
+#. Keywords
+#: info/partitions.desktop:17
+msgid "Partitions;Harddrive;HD;System Information;"
+msgstr "Osiot;Kiintolevy;HD;Järjestelmätiedot;"
+
+#. Name
+#: info/pci.desktop:12
+msgid "PCI"
+msgstr ""
+
+#. Comment
+#: info/pci.desktop:14
+msgid "PCI information"
+msgstr "PCI-tietoja"
+
+#. Keywords
+#: info/pci.desktop:16
+msgid "PCI;PCI-Devices;PCI-Bus;System Information;"
+msgstr "PCI;PCI-Laitteet;PCI-Väylä;Järjestelmätiedot;"
+
+#. Name
+#: info/processor.desktop:12
+msgid "Processor"
+msgstr "Prosessori"
+
+#. Comment
+#: info/processor.desktop:14
+msgid "Processor information"
+msgstr "Tietoja prosessorista"
+
+#. Keywords
+#: info/processor.desktop:16
+msgid "Processor;CPU;FPU;MHz;System Information;"
+msgstr "Prosessori;CPU;FPU;MHz;Järjestelmätiedot;"
+
+#. Name
+#: info/scsi.desktop:12
+msgid "SCSI"
+msgstr ""
+
+#. Comment
+#: info/scsi.desktop:14
+msgid "SCSI information"
+msgstr "SCSI-tietoja"
+
+#. Keywords
+#: info/scsi.desktop:16
+msgid "SCSI;SCSI-Bus;System Information;"
+msgstr "SCSI;SCSI-Väylä;Järjestelmätiedot;"
+
+#. Name
+#: info/sound.desktop:12
+msgid "Sound"
+msgstr "Ääni"
+
+#. Comment
+#: info/sound.desktop:14
+msgid "Sound information"
+msgstr "Äänitiedot"
+
+#. Keywords
+#: info/sound.desktop:16
+msgid "Sound;Audio;Soundcard;MIDI;OSS;System Information;"
+msgstr "Ääni;Äänikortti;Midi;OSS;Järjestelmätiedot;"
+
+#. Name
+#: info/xserver.desktop:12
+msgid "X-Server"
+msgstr "X-palvelin"
+
+#. Comment
+#: info/xserver.desktop:14
+msgid "X-Server information"
+msgstr "X-palvelimen tiedot"
+
+#. Keywords
+#: info/xserver.desktop:16
+msgid "X;X-Server;XServer;XFree86;Display;VideoCard;System Information;"
+msgstr ""
+
+#. Name
+#: input/mouse.desktop:13
+msgid "Mouse"
+msgstr "Hiiri"
+
+#. Comment
+#: input/mouse.desktop:15
+msgid "Mouse settings"
+msgstr "Hiiriasetukset"
+
+#. Keywords
+#: input/mouse.desktop:17
+msgid ""
+"Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
+"Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
+"DoubleClick;mapping;right handed;left handed;"
+msgstr ""
+"Hiiri;Hiiren kiihdytys;Hiiren raja-arvo;Hiiren painikkeet;Valinta;Osoittimen "
+"muoto;Syöttölaitteet;Painikkeiden järjestys;Napsautus;kuvakkeet;palaute;"
+"Osoittimet;Vedä;Tuplanapsautus;järjestys;oikeakätinen;vasenkätinen;"
+
+#. Name
+#: joystick/joystick.desktop:12
+msgid "Joystick"
+msgstr "Peliohjain"
+
+#. Comment
+#: joystick/joystick.desktop:14
+msgid "Joystick - a kcontrol module to test Joysticks"
+msgstr "peliohjain - TDE:n ohjauskeskuksen moduuli peliohjainta varten"
+
+#. Keywords
+#: joystick/joystick.desktop:16
+msgid "joystick;gamepad;"
+msgstr "joystick;peliohjain;"
+
+#. Name
+#: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
+#: kcontrol/tde-kcontrol.desktop:8
+msgid "Trinity Control Center"
+msgstr "Ohjauskeskus"
+
+#. Name
+#: kded/kcmkded.desktop:11
+msgid "Service Manager"
+msgstr "Palvelunhallinta"
+
+#. Comment
+#: kded/kcmkded.desktop:13
+msgid "System Services Configuration"
+msgstr "Järjestelmän palveluiden asetus"
+
+#. Keywords
+#: kded/kcmkded.desktop:15
+msgid "KDED;Daemon;Services;"
+msgstr "KDED;Palvelin;Palvelut;"
+
+#. Name
+#: keys/keys.desktop:12
+msgid "Keyboard Shortcuts"
+msgstr "Näppäimistön pikavalinnat"
+
+#. Comment
+#: keys/keys.desktop:14
+msgid "Configuration of keybindings"
+msgstr "Näppäinsidosten asetukset"
+
+#. Keywords
+#: keys/keys.desktop:16
+msgid ""
+"Keys;Global key bindings;Key scheme;Key bindings;shortcuts;application "
+"shortcuts;"
+msgstr ""
+"Näppäimet;Yleiset näppäinsidokset;Näppäinteema;Näppäinsidokset;pikavalinnat;"
+"sovellusten pikavalinnat;"
+
+#. Name
+#: kicker/kicker_config.desktop:11
+msgid "Layout"
+msgstr "Ulkonäkö"
+
+#. Comment
+#: kicker/kicker_config.desktop:13 kicker/kicker_config_arrangement.desktop:13
+msgid "Configure the arrangement of the panel"
+msgstr "Muokkaa paneelin asettelua ja sisältöä"
+
+#. Keywords
+#: kicker/kicker_config.desktop:15 kicker/kicker_config_appearance.desktop:15
+#: kicker/kicker_config_arrangement.desktop:15
+#: kicker/kicker_config_hiding.desktop:15 kicker/kicker_config_menus.desktop:15
+#: kicker/panel.desktop:14
+msgid ""
+"kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;"
+"buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;"
+"bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;"
+"applets;startup;highlight;handles;zooming icons;"
+msgstr ""
+"kicker;paneeli;kpanel;tehtäväpalkki;käynnistyspalkki;paikka;koko;"
+"automaattipiilotus;piilotus;napit;animaatio;tausta;teemat;valikkovälimuisti;"
+"välimuisti;TDE valikko;kirjanmerkit;viimeaikaiset asiakirjat;pikaselain;"
+"selausvalikko;valikko;kuvakkeet;sovelmat;käynnistys;korostus;kahvat;"
+"kuvakkeiden suurennus;"
+
+#. Name
+#: kicker/kicker_config_appearance.desktop:11 konq/fileappearance.desktop:11
+msgid "Appearance"
+msgstr "Ulkonäkö"
+
+#. Comment
+#: kicker/kicker_config_appearance.desktop:13
+msgid "Configure the appearance of the panel"
+msgstr "Muokkaa paneelin ulkonäköä"
+
+#. Name
+#: kicker/kicker_config_arrangement.desktop:11
+msgid "Arrangement"
+msgstr "Järjestely"
+
+#. Name
+#: kicker/kicker_config_hiding.desktop:11
+msgid "Hiding"
+msgstr "Piilotus"
+
+#. Comment
+#: kicker/kicker_config_hiding.desktop:13
+msgid "Configure the hiding of the panel"
+msgstr "Voit muokata paneelin piilottamista tässä"
+
+#. Name
+#: kicker/kicker_config_menus.desktop:11
+msgid "Menus"
+msgstr "Valikot"
+
+#. Comment
+#: kicker/kicker_config_menus.desktop:13
+msgid "Configure the menus of the panel"
+msgstr "Voit muokata paneelin valikkoja tässä"
+
+#. Name
+#: kicker/panel.desktop:10
+msgid "Panels"
+msgstr "Paneelit"
+
+#. Comment
+#: kicker/panel.desktop:12
+msgid "Configure the arrangement of the panels"
+msgstr "Vaihda paneelin asettelua"
+
+#. Name
+#: knotify/kcmnotify.desktop:11
+msgid "System Notifications"
+msgstr "Järjestelmähuomautukset"
+
+#. Comment
+#: knotify/kcmnotify.desktop:13
+msgid "System Notification Configuration"
+msgstr "Järjestelmähuomautusten asetukset"
+
+#. Keywords
+#: knotify/kcmnotify.desktop:15
+msgid "System sounds;Audio;Sound;Notify;Alerts;Notification;"
+msgstr "Järjestelmä-äänet;Äänet;Huomauttaa;Varoitukset;Huomautus;"
+
+#. Name
+#: konq/desktop.desktop:11
+msgid "Multiple Desktops"
+msgstr "Virtuaalityöpöydät"
+
+#. Comment
+#: konq/desktop.desktop:13
+msgid "You can configure how many virtual desktops there are"
+msgstr "Voit määritelle virtuaalityöpöytien määrän"
+
+#. Keywords
+#: konq/desktop.desktop:15
+msgid "desktop;desktops;number;virtual desktop;"
+msgstr "työpöytä;työpöydät;lukumäärä;virtuaalityöpöytä;"
+
+#. Name
+#: konq/desktopbehavior.desktop:12 konq/filebehavior.desktop:11
+msgid "Behavior"
+msgstr "Käyttäytyminen"
+
+#. Comment
+#: konq/desktopbehavior.desktop:14
+msgid "You can configure how the desktop behaves here"
+msgstr "Tässä kohdassa voit määritellä työpöydän asetuksia"
+
+#. Keywords
+#: konq/desktopbehavior.desktop:16
+msgid ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;"
+msgstr ""
+"konqueror;tiedostonhallinta;kfm;vinkit;tiedostovinkit;erillinen ikkuna;"
+"käytös;muistinkäyttö;Koti-URL;"
+
+#. Name
+#: konq/desktoppath.desktop:11
+msgid "Paths"
+msgstr "Polut"
+
+#. Comment
+#: konq/desktoppath.desktop:13
+msgid "Change the location important files are stored"
+msgstr "Tässä kohdassa voit määritellä minne tärkeät tiedostot tallennetaan"
+
+#. Keywords
+#: konq/desktoppath.desktop:15
+msgid "konqueror;filemanager;paths;desktop;directories;autostart;"
+msgstr ""
+"konqueror;tiedostonhallinta;polut;työpöytä;kansiot;automaattikäynnistys;"
+
+#. Comment
+#: konq/fileappearance.desktop:13
+msgid "Configure how Konqueror looks as a file manager"
+msgstr ""
+"Tässä kohdassa voit määritellä Konquerorin tiedostonhallinnan ulkonäön "
+"asetuksia"
+
+#. Keywords
+#: konq/fileappearance.desktop:15 konq/filebrowser.desktop:16
+msgid ""
+"konqueror;filemanager;word wrap;wrap;underline;display;filesize;bytes;font;"
+"color;colour;"
+msgstr ""
+"konqueror;tiedostonhallinta;sanankatkaisu;alleviivaus;tiedostokoko;tavuja; "
+"kirjasin;väri;"
+
+#. Comment
+#: konq/filebehavior.desktop:13
+msgid "Configure how Konqueror behaves as a file manager"
+msgstr ""
+"Tässä kohdassa voit määritellä Konquerorin tiedostonhallinnan asetuksia"
+
+#. Keywords
+#: konq/filebehavior.desktop:15
+msgid ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;network operations;progress dialog;"
+"trash can;delete;confirmation;"
+msgstr ""
+"konqueror;tiedostonhallinta;kfm;vinkit;tiedostovinkit;erillinen ikkuna;"
+"erityisikkuna;käytös;muistinkäyttö;Koti-URL;kotiosoite;verkkotoiminnot;"
+"edistymisdialogi;roskakori;poisto;vahvistus;"
+
+#. Comment
+#: konq/filebrowser.desktop:14
+msgid "You can configure Konqueror's file manager mode here"
+msgstr ""
+"Tässä kohdassa voit määritellä Konquerorin tiedostonhallinnan tilan asetuksia"
+
+#. Name
+#: konq/filepreviews.desktop:11
+msgid "Previews & Metadata"
+msgstr "Esikatselut ja metatiedot"
+
+#. Comment
+#: konq/filepreviews.desktop:13
+msgid "Configure how Konqueror Previews & Meta-data work"
+msgstr ""
+"Tässä kohdassa voit määritellä, kuinka Konquerorin esikatselu ja metadata "
+"toimii"
+
+#. Keywords
+#: konq/filepreviews.desktop:15
+msgid "konqueror;filemanager;previews;file previews;maximum size;"
+msgstr ""
+"konqueror;tiedostonhallinta;eikatselu;tiedoston esikatselu;maksimikoko;"
+
+#. Name
+#: konqhtml/tdehtml_behavior.desktop:11
+msgid "Web Behavior"
+msgstr "Verkkokäyttäytyminen"
+
+#. Comment
+#: konqhtml/tdehtml_behavior.desktop:13
+msgid "Configure the browser behavior"
+msgstr "Selaimen asetukset"
+
+#. Keywords
+#: konqhtml/tdehtml_behavior.desktop:15
+msgid ""
+"konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;"
+"cursor;links;images;charsets;character sets;encoding;"
+msgstr ""
+"konqueror;kfm;selain;html;web;www;kirjasimet;värit;java;javascript;osoitin;"
+"linkit;kuvat;merkistöt;koodaus;"
+
+#. Name
+#: konqhtml/tdehtml_filter.desktop:10
+msgid "AdBlocK Filters"
+msgstr "AdBlocK-suotimet"
+
+#. Comment
+#: konqhtml/tdehtml_filter.desktop:12
+msgid "Configure Konqueror AdBlocK filters"
+msgstr "Aseta Konquerorin AdBlocK-suotimia"
+
+#. Comment
+#: konqhtml/tdehtml_fonts.desktop:13
+msgid "Configure the fonts used on web pages"
+msgstr "WWW-sivujen kirjasimet"
+
+#. Keywords
+#: konqhtml/tdehtml_fonts.desktop:15
+msgid ""
+"konqueror;kfm;browser;html;web;www;fonts;charsets;character sets;encoding;"
+msgstr "konqueror;kfm;selain;html;web;www;kirjasimet;merkistöt;koodaus;"
+
+#. Name
+#: konqhtml/tdehtml_java_js.desktop:11
+msgid "Java & JavaScript"
+msgstr "Java ja JavaScript"
+
+#. Comment
+#: konqhtml/tdehtml_java_js.desktop:13
+msgid "Configure the behavior of Java and JavaScript"
+msgstr "Javan ja JavaScriptin asetukset"
+
+#. Keywords
+#: konqhtml/tdehtml_java_js.desktop:15
+msgid "konqueror;kfm;browser;html;web;www;java;javascript;"
+msgstr "konqueror;kfm;selain;html;web;www;java;javascript;"
+
+#. Name
+#: konqhtml/tdehtml_userinterface.desktop:11
+#, fuzzy
+msgid "User Interface"
+msgstr "Verkkoliitynnät"
+
+#. Comment
+#: konqhtml/tdehtml_userinterface.desktop:13
+#, fuzzy
+msgid "Configure user interface options"
+msgstr "WWW-välimuistin asetuksia"
+
+#. Keywords
+#: konqhtml/tdehtml_userinterface.desktop:15
+#, fuzzy
+msgid "konqueror;kfm;user;interface;tabbed;browsing;"
+msgstr "konqueror;reuse;esilataus;"
+
+#. Name
+#: konsole/kcmkonsole.desktop:10
+msgid "Konsole"
+msgstr ""
+
+#. Comment
+#: konsole/kcmkonsole.desktop:12
+msgid "Konsole configuration module"
+msgstr "Konsolen asetukset"
+
+#. Keywords
+#: konsole/kcmkonsole.desktop:14
+msgid ""
+"konsole;schema;konsole background;colors;background;terminal application;"
+"terminal;"
+msgstr ""
+"konsole;teema;konsolen tausta;värit;tausta;pääteohjelma;pääte;komento;"
+"komentikkuna;"
+
+#. Name
+#: kthememanager/installktheme.desktop:2
+msgid "Install TDE Theme"
+msgstr "Asenna TDE-teema"
+
+#. Comment
+#: kthememanager/kthememanager.desktop:2
+msgid "Manage global TDE visual themes"
+msgstr "Ylläpidä TDE:n teemoja"
+
+#. Keywords
+#: kthememanager/kthememanager.desktop:5
+msgid "themes;look and feel;"
+msgstr "teemat;ulkonäkö ja tuntuma;"
+
+#. Name
+#: kthememanager/kthememanager.desktop:6
+msgid "Theme Manager"
+msgstr "Teemanhallinta"
+
+#. Comment
+#: kthememanager/x-ktheme.desktop:3
+msgid "TDE Theme"
+msgstr "TDE-teema"
+
+#. Name
+#: launch/kcmlaunch.desktop:12
+msgid "Launch Feedback"
+msgstr "Käynnistyksen ilmaiseminen"
+
+#. Comment
+#: launch/kcmlaunch.desktop:14
+msgid "Choose application-launch feedback style"
+msgstr "Valitse ohjelmien käynnistymisestä kertovan tiedon tyyli"
+
+#. Keywords
+#: launch/kcmlaunch.desktop:16
+msgid ""
+"application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
+"spinning;disk;startup;program;report;"
+msgstr ""
+"sovellus;käynnistyminen;käynnistäminen;varattu;osoitin;palaute;hiiri; "
+"pyörivä;levy;ohjelma;"
+
+#. Name
+#: locale/default/entry.desktop:2
+msgid "US English"
+msgstr "Yhdysvaltain englanti"
+
+#. Name
+#: locale/language.desktop:12
+msgid "Country/Region & Language"
+msgstr "Maa tai alue ja kieli"
+
+#. Comment
+#: locale/language.desktop:14
+msgid "Language, numeric, and time settings for your particular region"
+msgstr "Alueen kielen, ajan ja lukujen asetukset"
+
+#. Keywords
+#: locale/language.desktop:16
+msgid ""
+"language;translation;number format;currency;time;date;formats;locale;Country;"
+"charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
+"sign;positive;negative;fractional digits;week;week start;"
+msgstr ""
+"kieli;käännös;lukujen muoto;valuutta;aika;päivämäärä;formaatit;muodot;locale;"
+"maa;merkistöt;desimaalierotin;tuhansien erotin;symbooli;erotin;etumerkki;"
+"positiivinen;negatiivinen;viikko;viikon alku;"
+
+#. Name
+#: nics/nic.desktop:12
+msgid "Network Interfaces"
+msgstr "Verkkoliitynnät"
+
+#. Comment
+#: nics/nic.desktop:14
+msgid "Network interface information"
+msgstr "Verkkoliityntöjen tiedot"
+
+#. Name
+#: performance/kcmkonqyperformance.desktop:11
+#: performance/kcmperformance.desktop:11
+msgid "Performance"
+msgstr "Suorituskyky"
+
+#. Comment
+#: performance/kcmkonqyperformance.desktop:13
+msgid "Configure settings that can improve Konqueror performance"
+msgstr "Muokkaa Konquerorin suorituskykyyn liittyviä asetuksia"
+
+#. Keywords
+#: performance/kcmkonqyperformance.desktop:15
+msgid "konqueror;reuse;preloading;"
+msgstr "konqueror;reuse;esilataus;"
+
+#. Comment
+#: performance/kcmperformance.desktop:13
+msgid "Configure settings that can improve TDE performance"
+msgstr "Muokkaa TDE:n suorituskykyyn liittyviä asetuksia"
+
+#. Keywords
+#: performance/kcmperformance.desktop:15
+msgid "performance;speed;memory;improve;"
+msgstr "suorituskyky; nopeus; muisti; parannus;"
+
+#. Name
+#: privacy/privacy.desktop:11
+msgid "Privacy"
+msgstr "Yksityisyys"
+
+#. Comment
+#: privacy/privacy.desktop:13
+msgid "Clean unwanted traces the user leaves on the system"
+msgstr "Ei-toivottujen jälkien siivoamiseen järjestelmästä"
+
+#. Keywords
+#: privacy/privacy.desktop:15
+msgid "Privacy;privacy;"
+msgstr "Yksityisyys; yksityisyys;"
+
+#. Name
+#: randr/randr.desktop:9
+msgid "Size & Orientation"
+msgstr "Koko ja suunta"
+
+#. Comment
+#: randr/randr.desktop:11
+msgid "Resize and Rotate your display"
+msgstr "Resoluution muuttaminen ja ruudun kääntäminen"
+
+#. Keywords
+#: randr/randr.desktop:13
+msgid "resize;rotate;display;color;depth;size;horizontal;vertical;"
+msgstr "vaihda kokoa;käännä;näyttö;väri;syvyys;koko;vaakasuora;pystysuora;"
+
+#. Name
+#: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
+msgid "TDERandRTray"
+msgstr ""
+
+#. GenericName
+#: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
+msgid "Screen Resize & Rotate"
+msgstr "Näytön kuvan koon muuttaminen ja kuvan kääntäminen"
+
+#. Comment
+#: randr/tderandrtray-autostart.desktop:6 randr/tderandrtray.desktop:6
+msgid "Resize and rotate X screens."
+msgstr "Näytön kuvan koon muuttaminen ja kuvan kääntäminen"
+
+#. Name
+#: samba/smbstatus.desktop:12
+msgid "Samba Status"
+msgstr "Samban tila"
+
+#. Comment
+#: samba/smbstatus.desktop:14
+msgid "Samba status monitor"
+msgstr "Samban tilan näyttö"
+
+#. Keywords
+#: samba/smbstatus.desktop:16
+msgid "SMB;SAMBA;Windows network;LAN;System Information;"
+msgstr "SMB;SAMBA;Windows verkko;LAN;Järjestelmätiedot;"
+
+#. Name
+#: screensaver/screensaver.desktop:12
+msgid "Screen Saver"
+msgstr "Näytönsäästäjä"
+
+#. Comment
+#: screensaver/screensaver.desktop:14
+msgid "Screen Saver Settings"
+msgstr "Näytönsäästäjän asetukset"
+
+#. Keywords
+#: screensaver/screensaver.desktop:16
+msgid "screensavers;Priority;"
+msgstr "näytönsäästäjät;prioriteetti;"
+
+#. Name
+#: smartcard/smartcard.desktop:11
+msgid "Smartcards"
+msgstr "Älykortit"
+
+#. Comment
+#: smartcard/smartcard.desktop:13
+msgid "Configure smartcard support"
+msgstr "Smartcard-tuki"
+
+#. Keywords
+#: smartcard/smartcard.desktop:15
+msgid "Smartcard;PKCS;SSL;reader;smart;card;"
+msgstr "Älykortti;PKCS;SSL;lukija;"
+
+#. Name
+#: smserver/kcmsmserver.desktop:12
+msgid "Session Manager"
+msgstr "Istunnonhallinta"
+
+#. Comment
+#: smserver/kcmsmserver.desktop:14
+msgid "Configure the session manager and logout settings"
+msgstr "Istunnonhallinnan ja uloskirjautumisen asetukset"
+
+#. Keywords
+#: smserver/kcmsmserver.desktop:16
+msgid "ksmserver;session;logout;confirmation;save;restore;"
+msgstr "ksmserver;istunto;lopetus;vahvistus;tallenna;palauta;"
+
+#. Name
+#: spellchecking/spellchecking.desktop:11
+msgid "Spell Checker"
+msgstr "Oikoluku"
+
+#. Comment
+#: spellchecking/spellchecking.desktop:13
+msgid "Configure the spell checker"
+msgstr "Oikolukuasetukset"
+
+#. Keywords
+#: spellchecking/spellchecking.desktop:15
+msgid "Spell;"
+msgstr "Oikoluku;"
+
+#. Name
+#: style/style.desktop:13
+msgid "Style"
+msgstr "Tyyli"
+
+#. Comment
+#: style/style.desktop:15
+msgid ""
+"Allows the manipulation of widget behavior and changing the Style for TDE"
+msgstr ""
+"Mahdollistaa kontrollien käyttäytymisen muokaamisen ja TDE:n tyylin "
+"vaihtamisen"
+
+#. Keywords
+#: style/style.desktop:17
+msgid ""
+"style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE applications;"
+msgstr ""
+"tyyli;tyylit;ulkonäkö;kontrolli;kuvakkeet;työkalurivit;teksti;korostus;"
+"sovellukset;TDE sovellukset;"
+
+#. Name
+#: taskbar/kcmtaskbar.desktop:11
+msgid "Taskbar"
+msgstr "Tehtäväpalkki"
+
+#. Comment
+#: taskbar/kcmtaskbar.desktop:13
+msgid "Configure the selected taskbar"
+msgstr "Muokkaa paneelin tehtäväpalkkia"
+
+#. Keywords
+#: taskbar/kcmtaskbar.desktop:15
+msgid "kicker;panel;kpanel;taskbar;startbar;launchbar;windows;"
+msgstr ""
+"kicker;paneeli;kpanel;tehtäväpalkki;käynnistys;käynnistyspalkki;ikkunat;"
+
+#. Name
+#: tdefontinst/installfont.desktop:6
+msgid "Install"
+msgstr "Asenna"
+
+#. Name
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:14
+msgid "Font Installer"
+msgstr "Kirjasinasentaja"
+
+#. Comment
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:16
+msgid "Install & preview fonts"
+msgstr "Asenna ja esikatsele kirjasimia"
+
+#. Keywords
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:18
+msgid "font;fonts;installer;truetype;type1;speedo;bitmap;"
+msgstr ""
+"kirjasin;kirjasimet;fontti;fontit;asentaja;truetype;type1;speedo;bitmap;"
+
+#. Name
+#: tdefontinst/tdefile-plugin/tdefile_font.desktop:3
+msgid "Font Information"
+msgstr "Kirjasintiedot"
+
+#. Comment
+#: tdefontinst/tdeio/folder.desktop:2
+msgid "Fonts Folder"
+msgstr "Kirjasinkansio"
+
+#. Comment
+#: tdefontinst/tdeio/package.desktop:6
+msgid "Fonts Package"
+msgstr "Kirjasinpaketti"
+
+#. Comment
+#: tdefontinst/tdeio/system-folder.desktop:2
+msgid "System Fonts Folder"
+msgstr "Järjestelmän kirjasinkansio"
+
+#. Name
+#: tdefontinst/thumbnail/fontthumbnail.desktop:3
+msgid "Font Files"
+msgstr "Kirjasintiedostot"
+
+#. Name
+#: tdefontinst/viewpart/tdefontview.desktop:2
+#, fuzzy
+msgid "TDEFontView"
+msgstr "Kirjasinten näytin"
+
+#. GenericName
+#. Name
+#: tdefontinst/viewpart/tdefontview.desktop:8
+#: tdefontinst/viewpart/tdefontviewpart.desktop:2
+msgid "Font Viewer"
+msgstr "Kirjasinten näytin"
+
+#. Name
+#: tdeio/cache.desktop:12
+msgid "Cache"
+msgstr "Välimuisti"
+
+#. Comment
+#: tdeio/cache.desktop:14
+msgid "Configure web cache settings"
+msgstr "WWW-välimuistin asetuksia"
+
+#. Keywords
+#: tdeio/cache.desktop:16
+msgid "Cache;History;Browsing History;Ports;Size;"
+msgstr "Välimuisti;Historia;Selailuhistoria;Portit;Koko;"
+
+#. Name
+#: tdeio/cookies.desktop:12
+msgid "Cookies"
+msgstr "Evästeet"
+
+#. Comment
+#: tdeio/cookies.desktop:14
+msgid "Configure the way cookies work"
+msgstr "Evästeiden toiminta"
+
+#. Keywords
+#: tdeio/cookies.desktop:16
+msgid "Cookies;Browsing;Internet;WWW;Network;Policy;Domains;"
+msgstr "Evästeet;Selailu;Internet;WWW;Verkko;Politiikka;Verkkoalueet;"
+
+#. Name
+#: tdeio/lanbrowser.desktop:11
+msgid "Local Network Browsing"
+msgstr "Paikallisverkon selaus"
+
+#. Comment
+#: tdeio/lanbrowser.desktop:13
+msgid "Setup lisa, reslisa and the ioslaves"
+msgstr "Lisan, Reslisan ja TDEIO-palveluiden asetukset"
+
+#. Keywords
+#: tdeio/lanbrowser.desktop:15
+msgid "samba;smb;windows;network;"
+msgstr "samba;smb;windows;verkko;"
+
+#. Comment
+#: tdeio/netpref.desktop:2
+msgid "Configure generic network preferences, like timeout values"
+msgstr "Muokkaa yleisiä verkkoasetuksia kuten aikakatkaisuarvoja"
+
+#. Keywords
+#: tdeio/netpref.desktop:5
+msgid "timeout;iopref;netpref;network preferences;ftp;"
+msgstr ""
+
+#. Name
+#: tdeio/netpref.desktop:6
+msgid "Connection Preferences"
+msgstr "Asetukset"
+
+#. Name
+#: tdeio/proxy.desktop:12
+msgid "Proxy"
+msgstr "Välityspalvelin"
+
+#. Comment
+#: tdeio/proxy.desktop:14
+msgid "Configure the proxy servers used"
+msgstr "Käytettävät välityspalvelimet"
+
+#. Keywords
+#: tdeio/proxy.desktop:16
+msgid "Proxy;Proxy server;Firewall;Squid;proxy;"
+msgstr "Välityspalvelin;Palomuuri;Squid;"
+
+#. Name
+#: tdeio/smb.desktop:12
+msgid "Windows Shares"
+msgstr "Windows-jaot"
+
+#. Comment
+#: tdeio/smb.desktop:14
+msgid "Use to configure which windows (SMB) filesystems you can browse"
+msgstr ""
+"Käytä asettaaksesi windowsin (SMB) tiedostojärjestelmiä, joita voit selata"
+
+#. Keywords
+#: tdeio/smb.desktop:16
+msgid ""
+"SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;"
+"Broadcast;WINS;Share;Login;Passwords;"
+msgstr ""
+"SMB;SAMBA;SMB-asiakas;Windows verkko;LAN;Verkko;Naapuruus;Palvelin;Jakelu;"
+"WINS;Jako;Kirjautuminen;Salasanat;"
+
+#. Comment
+#: tdeio/uasprovider.desktop:4
+msgid "UserAgent Strings"
+msgstr "Käyttäjäagenttimerkkijonot"
+
+#. Name
+#: tdeio/uasproviders/ie401onwinnt4.desktop:2
+msgid "UADescription (IE 4.01 on Win 2000)"
+msgstr "Käyttäjäagenttikuvaus (IE 4.01 Win 2000:lla)"
+
+#. Name
+#: tdeio/uasproviders/ie45onwinnt5.desktop:2
+msgid "UADescription (IE 4.5 on Win 2000)"
+msgstr "Käyttäjäagenttikuvaus (IE 4.5 Win 2000:lla)"
+
+#. Name
+#: tdeio/uasproviders/ie501onwinnt5.desktop:2
+msgid "UADescription (IE 5.01 on Win 2000)"
+msgstr "Käyttäjäagenttikuvaus (IE 5.01 Win 2000:lla)"
+
+#. Name
+#: tdeio/uasproviders/ie50onppc.desktop:2
+msgid "UADescription (IE 5.0 on Mac PPC)"
+msgstr "Käyttäjäagenttikuvaus (IE 5.0 Mac PPC:llä)"
+
+#. Name
+#: tdeio/uasproviders/ie55onwin98.desktop:2
+msgid "UADescription (IE 5.5 on Win 98)"
+msgstr "Käyttäjäagenttikuvaus (IE 5.5 Win 98:lla)"
+
+#. Name
+#: tdeio/uasproviders/ie55onwinnt5.desktop:2
+msgid "UADescription (IE 5.5 on Win 2000)"
+msgstr "Käyttäjäagenttikuvaus (IE 5.5 Win 2000:lla)"
+
+#. Name
+#: tdeio/uasproviders/ie60oncurrent.desktop:2
+msgid "UADescription (IE 6.0 on current)"
+msgstr "Käyttäjäagenttikuvaus (IE 6.0 on current)"
+
+#. Name
+#: tdeio/uasproviders/ie60onwinnt51.desktop:2
+msgid "UADescription (IE 6.0 on Win XP)"
+msgstr "Käyttäjäagenttikuvaus (IE 6.0 Win XP:llä)"
+
+#. Name
+#: tdeio/uasproviders/lynxoncurrent.desktop:2
+msgid "UADescription (Lynx 2.8.3)"
+msgstr "Käyttäjäagenttikuvaus (Lynx 2.8.3)"
+
+#. Name
+#: tdeio/uasproviders/ns71oncurrent.desktop:2
+msgid "UADescription (Netscape 7.1 on current)"
+msgstr "Käyttäjäagenttikuvaus (Netscape 7.1 nykyisellä)"
+
+#. Name
+#: tdeio/uasproviders/ns71onwinnt51.desktop:2
+msgid "UADescription (Netscape 7.1 on XP)"
+msgstr "Käyttäjäagenttikuvaus (Netscape 7.1 Win XP:llä)"
+
+#. Name
+#: tdeio/uasproviders/op75oncurrent.desktop:2
+msgid "UADescription (Opera 7.55 on current)"
+msgstr "Käyttäjäagenttikuvaus (Opera 7.55 nykyisellä)"
+
+#. Name
+#: tdeio/uasproviders/w3moncurrent.desktop:2
+msgid "UADescription (w3m 0.1.9)"
+msgstr "Käyttäjäagenttikuvaus (w3m 0.1.9)"
+
+#. Name
+#: tdeio/uasproviders/wgetoncurrent.desktop:2
+msgid "UADescription (Wget 1.11.4)"
+msgstr "Käyttäjäagenttikuvaus (Wget 1.11.4)"
+
+#. Name
+#: tdeio/useragent.desktop:12
+msgid "Browser Identification"
+msgstr "Selaimen tunnistus"
+
+#. Comment
+#: tdeio/useragent.desktop:14
+msgid "Configure the way Konqueror reports itself"
+msgstr "Vaihda Konquerorin esittäytymistapaa"
+
+#. Keywords
+#: tdeio/useragent.desktop:16
+msgid "User Agent;Browser;Internet;WWW;Network;agent;bindings;server;login;"
+msgstr ""
+"Käyttäjäagentti;Selain;Internet;WWW;Verkko;agentti;sidokset;palvelin;"
+"kirjautuminen;"
+
+#. Name
+#: tdm/tdm.desktop:14
+msgid "Login Manager"
+msgstr "Sisäänkirjautumisasetukset"
+
+#. Comment
+#: tdm/tdm.desktop:16
+msgid "Configure the login manager (TDM)"
+msgstr "Sisäänkirjautumisasetukset"
+
+#. Keywords
+#: tdm/tdm.desktop:18
+msgid ""
+"tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;"
+"fonts;background;wallpapers;sessions;shutdown;restart;"
+msgstr ""
+"tdm;näytönhallinta ;xdm;käyttäjät;sisäänkirjautuminen;tervehdys;Logo;tyylit;"
+"kieli;maa;kirjasimet;tausta;istunnot;sammutus;uudelleenkäynnistys;"
+
+#. Name
+#: usbview/kcmusb.desktop:10
+msgid "USB Devices"
+msgstr "USB-laitteet"
+
+#. Comment
+#: usbview/kcmusb.desktop:12
+msgid "View the USB devices attached to this computer"
+msgstr "Näyttää tietokoneeseen liitetyt USB-laitteet"
+
+#. Keywords
+#: usbview/kcmusb.desktop:14
+msgid "USB;devices;viewer;control;"
+msgstr "USB;laitteet;näyttää;ohjaus;"
+
+#. Name
+#: view1394/kcmview1394.desktop:10
+msgid "IEEE 1394 Devices"
+msgstr "IEEE 1394 (Firewire)-laitteet"
+
+#. Comment
+#: view1394/kcmview1394.desktop:12
+msgid "View the IEEE 1394 devices attached to this computer"
+msgstr "Näyttää tietokoneeseen liitetyt IEEE 1394 (Firewire)-laitteet"
+
+#. Keywords
+#: view1394/kcmview1394.desktop:14
+msgid "1394;Firewire;devices;viewer;control;"
+msgstr "1394;Firewire;laitteet;katselija;hallinta;"
+
+#. Name
+#: xinerama/xinerama.desktop:10
+msgid "Multiple Monitors"
+msgstr "Useita näyttöjä"
+
+#. Comment
+#: xinerama/xinerama.desktop:12
+msgid "Configure TDE for multiple monitors"
+msgstr "Muokkaa TDE sopivaksi usealle näytölle"
+
+#. Keywords
+#: xinerama/xinerama.desktop:14
+msgid "Xinerama;dual head;multihead;monitor;"
+msgstr "Xinerama;näyttö;kaksi näyttöä;useita näyttöjä;"

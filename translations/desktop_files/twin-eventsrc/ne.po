@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ne\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "सञ्झ्याल प्रबन्धक"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "डेस्कटप १ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "अवास्तविक डेस्कटप १ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "डेस्कटप २ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "अवास्तविक डेस्कटप २ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "डेस्कटप ३ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "अवास्तविक डेस्कटप ३ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "डेस्कटप ४ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "अवास्तविक डेस्कटप ४ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "डेस्कटप ५ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "अवास्तविक डेस्कटप ५ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "डेस्कटप ६ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "अवास्तविक डेस्कटप ६ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "डेस्कटप ७ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "अवास्तविक डेस्कटप ७ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "डेस्कटप ८ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "अवास्तविक डेस्कटप ८ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "डेस्कटप ९ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "अवास्तविक डेस्कटप ९ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "डेस्कटप १० मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "अवास्तविक डेस्कटप १० चयन गरिएको छ"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "डेस्कटप ११ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "अवास्तविक डेस्कटप ११ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "डेस्कटप १२ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "अवास्तविक डेस्कटप १२ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "डेस्कटप १३ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "अवास्तविक डेस्कटप १३ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "डेस्कटप १४ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "अवास्तविक डेस्कटप १४ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "डेस्कटप १५ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "अवास्तविक डेस्कटप १५ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "डेस्कटप १६ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "अवास्तविक डेस्कटप १६ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "डेस्कटप १७ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "अवास्तविक डेस्कटप १७ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "डेस्कटप १८ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "अवास्तविक डेस्कटप १८ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "डेस्कटप १९ मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "अवास्तविक डेस्कटप १९ चयन गरिएको छ"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "डेस्कटप २० मा परिवर्तन गर्नुहोस्"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "अवास्तविक डेस्कटप २० चयन गरिएको छ"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "सञ्झ्याल सक्रिय बनाउनुहोस्"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "अर्को सञ्झ्याल सक्रिय पारिएको छ"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "नयाँ सञ्झ्याल"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "नयाँ सञ्झ्याल"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "सञ्झ्याल मेट्नुहोस्"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "सञ्झ्याल मेट्नुहोस्"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "सञ्झ्याल बन्द"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "सञ्झ्याल बन्द"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "सञ्झ्याल सेड अप"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "सञ्झ्याल सेड अप गरियो"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "सञ्झ्याल सेड डाउन"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "सञ्झ्याल सेड डाउन गरियो"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "सञ्झ्याल न्यून पार्नुहोस्"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "सञ्झ्याल न्यून पारिएको छ"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "सञ्झ्याल न्यून नपार्नुहोस्"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "सञ्झ्याल पूर्वावस्थामा ल्याइएको छ"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "सञ्झ्याल ठूलो पार्नुहोस्"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "सञ्झ्याल ठूलो पारिएको छ"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "सञ्झ्याल नबढाउनुहोस्"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "ठूलो पारिएको सञ्झ्याल हराउछ"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "सबै डेस्कटपहरूमा सञ्झ्याल"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "सबै डेस्कटपहरूमा सञ्झ्याल देखिने बनाइएको छ"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "सबै डेस्कटपहरूमा सञ्झ्याल छैन"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "सबै डेस्कटपहरूमा लामो समय सम्म सञ्झ्याल देखिदैन"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "नयाँ संवाद"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "अस्थायी सञ्झ्याल (एक संवाद) देखिन्छ"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "संवाद मेट्नुहोस्"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "अस्थायी सञ्झ्याल (एक संवाद) हटाइएको छ"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "सार्ने सञ्झ्याल सुरुआत"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "सञ्झ्यालले सार्ने क्रम सुरुआत गरेको छ"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "सार्ने सञ्झ्याल अन्त्य"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "सञ्झ्यालले सार्ने क्रम समाप्त गरेको छ"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "सञ्झ्याल रिसाइज सुरुआत"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "सञ्झ्यालले रिसाइज गर्ने क्रम सुरु गरेको छ"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "सञ्झ्याल रिसाइज अन्त्य"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "सञ्झ्यालले रिसाइज गर्ने क्रम अन्त्य गरेको छ"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "हालको डेस्कटपमा सञ्झ्यालले साबधानी अनुरोध गर्छ"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "हालको अवास्तविक डेस्कटपमा सञ्झ्यालले साबधानी अनुरोध गर्छ"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "अन्य डेस्कटपमा सञ्झ्यालले साबधानी अनुरोध गर्छ"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "निस्क्रिय अवास्तविक डेस्कटपमा सञ्झ्यालले साबधानी अनुरोध गर्छ"

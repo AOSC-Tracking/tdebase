@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES fontthumbnail.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE fontthumbnail.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### fontthumbnail (module) ####################

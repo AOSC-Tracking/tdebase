@@ -1,10 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-optical-cdwriter-decrypted-mounted
 Type=MimeType
 MimeType=media/cd-rw_mounted_decrypted
+Icon=media-optical-cdwriter-decrypted-mounted
+
 Comment=Mounted Decrypted CD-RW
-Comment[de]=Eingebundener, entschlüsselter CD-RW
+
 Patterns=
 
 X-TDE-AutoEmbed=true

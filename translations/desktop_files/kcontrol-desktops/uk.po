@@ -1,0 +1,2507 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: access/kaccess.desktop:3
+msgid "Accessibility Tool"
+msgstr "Утиліта керування доступності"
+
+#. Name
+#: access/kcmaccess.desktop:12
+msgid "Accessibility"
+msgstr "Доступність"
+
+#. Comment
+#: access/kcmaccess.desktop:14
+msgid "Improve accessibility for disabled persons"
+msgstr "Підвищення зручності для інвалідів"
+
+#. Keywords
+#: access/kcmaccess.desktop:16
+msgid ""
+"access;accessibility;deaf;impaired;bell;audible bell;visible bell;Keyboard;"
+"keys;sticky keys;bounce keys;slow keys;mouse navigation;num pad;"
+msgstr ""
+"доступ;доступність;глухий;каліка;дзвінок;аудіодзвінок;відеодзвінок;"
+"клавіатура;клавіші;липкі клавіші;пружні клавіші;повільні клавіші;навігація "
+"миші;цифрова клавіатура;"
+
+#. Name
+#: arts/arts.desktop:12
+msgid "Sound System"
+msgstr "Система звуку"
+
+#. Comment
+#: arts/arts.desktop:14
+msgid "Sound System Configuration"
+msgstr "Налаштування системи звуку"
+
+#. Keywords
+#: arts/arts.desktop:16
+msgid ""
+"aRts;Sound Server;artsd;Audio;Sound;startup;network transparency;"
+"transparency;priority;duplex;full duplex;response time;Mixer;Volume;KMix;Mix;"
+"login;MIDI;synthesizer;music;"
+msgstr ""
+"aRts;сервер звуку;artsd;аудіо;звук;запуск;прозорість мережі;прозорість;"
+"повний дуплекс;пріоритет;дуплекс;час відповіді;мікшер;гучність;KMix;MIDI;"
+"синтезатор;музика;"
+
+#. Name
+#: background/background.desktop:12
+msgid "Background"
+msgstr "Тло"
+
+#. Comment
+#: background/background.desktop:14
+msgid "Change the background settings"
+msgstr "Зміна параметрів тла"
+
+#. Keywords
+#: background/background.desktop:16
+msgid ""
+"background;desktops;colors;colours;images;wallpapers;blending;balance;cache;"
+"multiple wallpapers;pixmap;"
+msgstr ""
+"тло;стільниці;кольори;зображення;шпалери;перехід;баланс;кеш;декілька шпалери;"
+"pixmap;стільниці;"
+
+#. Name
+#: bell/bell.desktop:13
+msgid "System Bell"
+msgstr "Системний дзвінок"
+
+#. Comment
+#: bell/bell.desktop:15
+msgid "System Bell Configuration"
+msgstr "Налаштування системного дзвінка"
+
+#. Keywords
+#: bell/bell.desktop:17
+msgid "Bell;Audio;Sound;Volume;Pitch;Duration;"
+msgstr "аудіо;гучність;висота;тривалість;гудок;звук;"
+
+#. Name
+#: clock/clock.desktop:13
+msgid "Date & Time"
+msgstr "Дата і час"
+
+#. Comment
+#: clock/clock.desktop:15
+msgid "Date and time settings"
+msgstr "Налаштування дати і часу"
+
+#. Keywords
+#: clock/clock.desktop:17
+msgid "clock;date;time;time zone;"
+msgstr "дата;час;часовий пояс;годинник;"
+
+#. Name
+#: colors/colors.desktop:12
+msgid "Colors"
+msgstr "Кольори"
+
+#. Comment
+#: colors/colors.desktop:14
+msgid "Color settings"
+msgstr "Налаштування кольорів"
+
+#. Keywords
+#: colors/colors.desktop:16
+msgid "colors;colours;scheme;contrast;Widget colors;Color Scheme;"
+msgstr "кольори;схема;контрастність;кольори віджетів;схема кольорів;"
+
+#. Name
+#: componentchooser/EXAMPLE.desktop:1
+msgid "A nice name you have chosen for your interface"
+msgstr "Гарна назва, вибрана вами для вашого інтерфейсу"
+
+#. Comment
+#: componentchooser/EXAMPLE.desktop:2
+msgid "A helpful description of the interface for the top right info box"
+msgstr "Допоміжний опис інтерфейсу для віконця інформації вгорі праворуч"
+
+#. Name
+#: componentchooser/componentchooser.desktop:10
+msgid "Default Applications"
+msgstr "Типові програми"
+
+#. Comment
+#: componentchooser/componentchooser.desktop:12
+msgid "Choose the default components for various services"
+msgstr "Вибір типових компонентів для різноманітних служб"
+
+#. Keywords
+#: componentchooser/componentchooser.desktop:14
+msgid ""
+"default applications;components;component chooser;resources;e-mail;email "
+"client;text editor;instant messenger;terminal emulator;web browser;file "
+"manager;URL;hyperlinks;"
+msgstr ""
+"default applications;components;component chooser;resources;e-mail;email "
+"client;text editor;instant messenger;terminal emulator;web browser;URL;"
+"hyperlinks;програма;додаток;типовий;типова;вибір;компонент;ресурс;пошта;"
+"поштовий;повідомлення;редактор;текст;текстовий редактор;спілкування;обмін "
+"повідомленнями;емулятор;термінал;переглядач;перегляд;інтернет;сторінка;"
+"сторінки;посилання;адреси;адреса;Менеджер файлів"
+
+#. Name
+#: componentchooser/componentservices/kcm_browser.desktop:1
+msgid "Web Browser"
+msgstr "Навігатор Тенет"
+
+#. Comment
+#: componentchooser/componentservices/kcm_browser.desktop:3
+msgid ""
+"Here you can configure your default web browser. All TDE applications in "
+"which you can select hyperlinks should honor this setting."
+msgstr ""
+"Тут можна вказати ваш типовий навігатор Тенет. Всі програми TDE, які "
+"підтримують роботу з гіперпосиланнями повинні використовувати це "
+"налаштування."
+
+#. Name
+#: componentchooser/componentservices/kcm_filemanager.desktop:1
+#: konq/filebrowser.desktop:12
+msgid "File Manager"
+msgstr "Менеджер файлів"
+
+#. Comment
+#: componentchooser/componentservices/kcm_filemanager.desktop:3
+#, fuzzy
+msgid ""
+"This service allows you to configure your default file manager. All TDE "
+"applications which invoke a file manager application should honor this "
+"setting."
+msgstr ""
+"Ця служба дає змогу вказати ваш типовий емулятор термінала. Всі програми "
+"TDE, яким потрібен доступ до емулятора термінала повинні використовувати це "
+"налаштування."
+
+#. Name
+#: componentchooser/componentservices/kcm_kemail.desktop:1
+msgid "Email Client"
+msgstr "Клієнт електронної пошти"
+
+#. Comment
+#: componentchooser/componentservices/kcm_kemail.desktop:3
+msgid ""
+"This service allows you to configure your default email client. All TDE "
+"applications which need access to an email client application should honor "
+"this setting."
+msgstr ""
+"Ця служба дозволяє вам налаштувати ваш типовий клієнт електронної пошти. Всі "
+"програми TDE, яким потрібен доступ до клієнта ел. пошти повинні "
+"користуватися цими параметрами."
+
+#. Name
+#: componentchooser/componentservices/kcm_terminal.desktop:1
+msgid "Terminal Emulator"
+msgstr "Емуляція терміналу"
+
+#. Comment
+#: componentchooser/componentservices/kcm_terminal.desktop:3
+msgid ""
+"This service allows you to configure your default terminal emulator. All TDE "
+"applications which invoke a terminal emulator application should honor this "
+"setting."
+msgstr ""
+"Ця служба дає змогу вказати ваш типовий емулятор термінала. Всі програми "
+"TDE, яким потрібен доступ до емулятора термінала повинні використовувати це "
+"налаштування."
+
+#. Name
+#: crypto/crypto.desktop:10
+msgid "Crypto"
+msgstr "Криптографія"
+
+#. Comment
+#: crypto/crypto.desktop:12
+msgid "Configure SSL, manage certificates, and other cryptography settings"
+msgstr ""
+"Налаштування SSL, керування сертифікатами та іншими параметрами криптографії"
+
+#. Keywords
+#: crypto/crypto.desktop:14
+msgid ""
+"Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;"
+"secure;security;"
+msgstr ""
+"криптографія;криптографія;Cryptography;шифрування;SSL;https;TLS;сертифікати;"
+"шифри;Crypto;Krypto;безпека;безпечність;"
+
+#. Name
+#: css/kcmcss.desktop:12
+msgid "Stylesheets"
+msgstr "Таблиці стилів"
+
+#. Comment
+#: css/kcmcss.desktop:14
+msgid "Configure the stylesheets used to render web pages"
+msgstr "Налаштування таблиць стилів для відображення сторінок Тенет"
+
+#. Keywords
+#: css/kcmcss.desktop:16
+msgid "CSS;HTML;style;stylesheet;accessibility;"
+msgstr "CSS;HTML;стиль;таблиця стилів;доступність;"
+
+#. Name
+#: display/display.desktop:11
+msgid "Display"
+msgstr "Дисплей"
+
+#. Comment
+#: display/display.desktop:13
+msgid "Display Settings"
+msgstr "Налаштування дисплея"
+
+#. Name
+#: displayconfig/displayconfig.desktop:12
+msgid "Monitor & Display"
+msgstr "Монітор & Екран"
+
+#. Comment
+#: displayconfig/displayconfig.desktop:14
+msgid "Configure display"
+msgstr "Конфігурація екрану"
+
+#. Keywords
+#: displayconfig/displayconfig.desktop:16
+msgid "monitor;resolution;display;"
+msgstr ""
+
+#. Name
+#: dnssd/kcm_tdednssd.desktop:18
+msgid "Zeroconf Service Discovery"
+msgstr "Знаходження служб"
+
+#. Comment
+#: dnssd/kcm_tdednssd.desktop:20
+msgid "Configure service discovery"
+msgstr "Налаштування знаходження служб"
+
+#. Name
+#: ebrowsing/ebrowsing.desktop:12
+msgid "Web Shortcuts"
+msgstr "Скорочення Тенет"
+
+#. Comment
+#: ebrowsing/ebrowsing.desktop:14
+msgid "Configure enhanced browsing"
+msgstr "Налаштування спецфункцій навігації"
+
+#. Keywords
+#: ebrowsing/ebrowsing.desktop:16
+msgid ""
+"Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet Filters;"
+"Network;Search Engines;Shortcuts;"
+msgstr ""
+"додаткова навігація;навігація;Browsing;WWW;Інтернет;Тенета;Internet;Мережа;"
+"машини пошуку;фільтри Інтернет;посилання;"
+
+#. Name
+#: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
+msgid "InternetKeywordsFilter"
+msgstr "Фільтр ключових слів Інтернет"
+
+#. Name
+#: ebrowsing/plugins/ikws/kurisearchfilter.desktop:3
+msgid "SearchKeywordsFilter"
+msgstr "Фільтр ключових слів Інтернет"
+
+#. Comment
+#: ebrowsing/plugins/ikws/searchprovider.desktop:4
+msgid "Search Engine"
+msgstr "Механізм пошуку"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
+msgid "Acronym Database"
+msgstr "База даних акронімів"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
+msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
+msgid "Alexa"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
+msgid "http://info.alexa.com/search?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
+msgid "Alexa URL"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
+msgid "http://info.alexa.com/data/details?url=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
+msgid "AllTheWeb fast"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:6
+msgid ""
+"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:3
+msgid "AltaVista"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:6
+msgid "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
+msgid "All Music Guide"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
+msgid "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:3
+msgid "KDE App Search"
+msgstr "Пошук програм KDE"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:6
+msgid "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:3
+msgid "AustroNaut"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:6
+msgid "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
+msgid "Debian Backports Search"
+msgstr "Пошук серед додаткових пакетів Debian"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
+msgid "http://www.backports.org/package.php?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
+msgid "KDE Bug Database Fulltext Search"
+msgstr "Повнотекстовий пошук у базі даних KDE"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:4
+msgid ""
+"http://bugs.trinitydesktop.org/simple_search.cgi?id=\\{1}+\\{2}+\\{3}+\\{4}+"
+"\\{5}+\\{6}+\\{7}+\\{8}+\\{9}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
+msgid "TDE Bug Database Bug Number Search"
+msgstr "Пошук у базі даних помилок TDE по номеру"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:4
+msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/call.desktop:5
+msgid "QRZ.com Callsign Database"
+msgstr "База даних callsign QRZ.com"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/call.desktop:6
+msgid "http://www.qrz.com/database?callsign=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:4
+msgid "CIA World Factbook"
+msgstr "Світова книга фактів ЦРУ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:5
+#, c-format
+msgid ""
+"http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
+"cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
+msgid "CiteSeer: Scientific Literature Digital Library"
+msgstr "CiteSeer: цифрова бібліотека наукової літератури"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
+msgid "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:3
+msgid "CPAN - Comprehensive Perl Archive Network"
+msgstr "CPAN - Всеосяжна мережа архівів Perl"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
+msgid ""
+"http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:3
+msgid "CTAN - Comprehensive TeX Archive Network"
+msgstr "CTAN - Всеосяжна мережа архівів TeX"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:4
+msgid ""
+"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
+"\\{ at }"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:3
+msgid "CTAN Catalog"
+msgstr "Каталог CTAN"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:4
+msgid ""
+"http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
+msgid "Debian BTS Bug Search"
+msgstr "Пошук у системі стеження за помилками для Debian"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:4
+msgid "http://bugs.debian.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:5
+msgid "dict.cc Translation: German to English"
+msgstr "dict.cc: переклад з німецької на англійську"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:6
+msgid "http://www.dict.cc/?s=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:3
+msgid "LEO - Translate Between German and French"
+msgstr "LEO - переклад між німецькою та французькою"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:6
+msgid "http://dict.leo.org/?lp=frde&search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/deb.desktop:3
+msgid "Debian Package Search"
+msgstr "Пошук пакунків для Debian"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/deb.desktop:4
+msgid "http://packages.debian.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:3
+msgid "Open Directory"
+msgstr "Відкритий каталог"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
+msgid "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
+msgid "DocBook - The Definitive Guide"
+msgstr "Посібник визначень DocBook"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:6
+msgid "http://www.docbook.org/tdg/en/html/\\{1}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:5
+msgid "Digital Object Identifier"
+msgstr "Цифровий ідентифікатор об'єкта"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:6
+msgid "http://dx.doi.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:5
+msgid "dict.cc Translation: English to German"
+msgstr "dict.cc: переклад з англійської на німецьку"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:5
+msgid "WordReference.com Translation: English to Spanish"
+msgstr "WordReference.com: переклад з англійської на іспанську"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:6
+msgid "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:5
+msgid "WordReference.com Translation: English to French"
+msgstr "WordReference.com: переклад з англійської на французьку"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:6
+msgid "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:5
+msgid "WordReference.com Translation: English to Italian"
+msgstr "WordReference.com: переклад з англійської на італійську"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:6
+msgid "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:5
+msgid "WordReference.com Translation: Spanish to English"
+msgstr "WordReference.com: переклад з іспанської на англійську"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:6
+msgid "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/excite.desktop:3
+msgid "Excite"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/excite.desktop:6
+msgid "http://search.excite.com/search.gw?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:3
+msgid "Feedster"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
+msgid "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
+msgid "Free On-Line Dictionary of Computing"
+msgstr "Вільний словник з інформатики в мережі"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
+msgid "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
+msgid "LEO - Translate Between French and German"
+msgstr "LEO - переклад між французькою та німецькою"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:5
+msgid "WordReference.com Translation: French to English"
+msgstr "WordReference.com: переклад з французької на англійську"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:6
+msgid "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:3
+msgid "FreeDB"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:6
+msgid "http://www.freedb.org/freedb_search.php?words=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:3
+msgid "Freshmeat"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:6
+msgid "http://freshmeat.net/search/?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:3
+msgid "Froogle"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
+msgid "http://froogle.google.com/froogle?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:3
+msgid "FSF/UNESCO Free Software Directory"
+msgstr "Словник з вільного програмного забезпечення FSF/UNESCO"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:6
+msgid "http://directory.fsf.org/search/?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
+#, fuzzy
+msgid "Google"
+msgstr "Новини Google"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google.desktop:6
+msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:3
+msgid "Google Advanced Search"
+msgstr "Складний пошук на Google"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:4
+msgid ""
+"http://www.google.com/search?as_q=\\{all,@}&num=\\{num,\"10\"}&btnG=Google"
+"+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\{without,\"\"}&lr="
+"\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\"\"}&as_qdr="
+"\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
+"&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
+msgid "Google Groups"
+msgstr "Групи Google"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:6
+msgid "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:3
+msgid "Google Image Search"
+msgstr "Пошук зображень на Google"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:6
+msgid "http://images.google.com/images?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:3
+msgid "Google (I'm Feeling Lucky)"
+msgstr "Google (Я - везунчик)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:6
+#, c-format
+msgid ""
+"http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling"
+"+Lucky&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
+msgid "Google Movies"
+msgstr "Фільми на Google"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:6
+msgid "http://www.google.com/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:3
+msgid "Google News"
+msgstr "Новини Google"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:6
+msgid "http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:3
+msgid "Gracenote"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:6
+msgid "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:5
+msgid "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
+msgstr "Великий словник каталонської мови (GRan Enciclopèdia Catalana)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:6
+msgid "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:3
+msgid "Hotbot"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:6
+msgid "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
+#, fuzzy
+msgid "HyperDictionary.com"
+msgstr "Словник синонімів HyperDictionary.com"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
+msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:3
+msgid "HyperDictionary.com Thesaurus"
+msgstr "Словник синонімів HyperDictionary.com"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:6
+msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
+msgid "Internet Movie Database"
+msgstr "База даних кінофільмів в Інтернет"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:6
+msgid "http://imdb.com/Find?\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:5
+msgid "WordReference.com Translation: Italian to English"
+msgstr "WordReference.com: переклад з італійської на англійську"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:6
+msgid "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:3
+msgid "Ask Jeeves"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:6
+msgid ""
+"http://www.ask.com/main/askJeeves.asp?"
+"origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:3
+msgid "KataTudo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:6
+msgid "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:5
+msgid "KDE API Documentation"
+msgstr "Документація по API KDE"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:6
+msgid "http://api.kde.org/classmapper.php?class=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:3
+msgid "KDE WebSVN"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:6
+msgid "http://websvn.kde.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
+msgid "LEO-Translate"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/leo.desktop:6
+msgid "http://dict.leo.org/?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:3
+msgid "Lycos"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:6
+msgid "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:3
+msgid "Mamma - Mother of all Search Engines"
+msgstr "Mamma - мати всіх пошукових машин"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:6
+msgid "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
+msgid "MetaCrawler"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:6
+msgid ""
+"http://search.metacrawler.com/crawler?general=\\{@}"
+"&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
+"search&refer=mc-search"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
+msgid "Microsoft Developer Network Search"
+msgstr "Пошук в Microsoft Developer Network"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:6
+msgid ""
+"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff.asp?"
+"handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
+"asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:3
+msgid "Netcraft"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:6
+msgid "http://uptime.netcraft.com/up/graph?site=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:2
+msgid "Telephonebook Search Provider"
+msgstr "Провайдер пошуку Telephonebook"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:6
+msgid ""
+"http://www.detelefoongids.nl/tginl.dll?"
+"action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2="
+"\\{1}&name=&initials=&city=\\{2}"
+"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
+"\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:2
+msgid "Teletekst Search Provider"
+msgstr "Провайдер пошуку Teletekst"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:6
+msgid "http://teletekst.nos.nl/gif/\\{@}-01.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
+msgid "OpenPGP Key Search"
+msgstr "Пошук ключів OpenPGP"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
+msgid "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
+msgid "PHP Search"
+msgstr "Пошук PHP"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
+msgid "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/python.desktop:5
+msgid "Python Reference Manual"
+msgstr "Довідник по Python"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/python.desktop:6
+#, c-format
+msgid ""
+"http://www.google.com/search?sourceid=python-search&q=\\{@}"
+"&submit=Search&q=site%3Apython.org"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:5
+msgid "Latest Qt Online Documentation"
+msgstr "Остання документація Qt онлайн"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:6
+msgid "http://doc.trolltech.com/latest/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:5
+msgid "Qt3 Online Documentation"
+msgstr "Документація Qt3"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:6
+msgid "http://doc.trolltech.com/3.3/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:5
+msgid "Dictionary of the Spanish Academy (RAE)"
+msgstr "Словник Іспанської академії (RAE)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:6
+msgid ""
+"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
+"&FORMATO=ampliado"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
+msgid "IETF Requests for Comments"
+msgstr "Запит коментарів (RFC) IETF"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:4
+msgid "http://www.ietf.org/rfc/rfc\\{@}.txt"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:3
+msgid "RPM-Find"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:6
+msgid "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:3
+msgid "Ruby Application Archive"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:6
+msgid "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:3
+msgid "GO.com"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:6
+msgid ""
+"http://www.go.com/Titles?col=WW&qt=\\{@}"
+"&svx=home_searchbox&sv=IS&lk=noframeso"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
+msgid "SourceForge"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:4
+msgid ""
+"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
+"\\{exact,\"0\"}&words=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
+#, fuzzy
+msgid "Technorati"
+msgstr "Статті Technorati"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:6
+msgid "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:3
+msgid "Technorati Tags"
+msgstr "Статті Technorati"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:6
+msgid "http://technorati.com/tag/\\{@}?sourceid=kde-search"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:3
+msgid "Merriam-Webster Thesaurus"
+msgstr "Словник синонімів Merriam-Webster"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:6
+msgid "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:4
+msgid "TV Tome"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:6
+msgid "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:5
+msgid "U.S. Patent Database"
+msgstr "База даних патентів в США"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:6
+msgid ""
+"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
+"&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
+msgid "Vivisimo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:6
+#, c-format
+msgid ""
+"http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
+"%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:3
+msgid "Voila"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:6
+msgid ""
+"http://search.ke.voila.fr/S/voila?"
+"lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:3
+msgid "Merriam-Webster Dictionary"
+msgstr "Словник Merriam-Webster"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:6
+msgid "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:3
+msgid "Whatis Query"
+msgstr "Запит \"Що це\""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:6
+msgid ""
+"http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:3
+msgid "Wikipedia - The Free Encyclopedia"
+msgstr "Wikipedia - вільна енциклопедія"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:6
+msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:3
+msgid "Wiktionary - The Free Dictionary"
+msgstr "Wiktionary - вільний словник"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:6
+msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:5
+msgid "WordReference.com English Dictionary"
+msgstr "Англійський словник WordReference.com"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:6
+msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/localdomain/localdomainurifilter.desktop:3
+msgid "LocalDomainFilter"
+msgstr "Фільтр локальних доменів"
+
+#. Name
+#: ebrowsing/plugins/shorturi/tdeshorturifilter.desktop:3
+msgid "ShortURIFilter"
+msgstr "Фільтр коротких URI"
+
+#. Name
+#: energy/energy.desktop:11
+msgid "Power Control"
+msgstr "Керування живленням"
+
+#. Comment
+#: energy/energy.desktop:13
+msgid "Settings for display power management"
+msgstr "Налаштування керування живленням дисплея"
+
+#. Keywords
+#: energy/energy.desktop:15
+msgid "energy;saver;apm;acpi;dpms;timeout;blanking;stand by;suspend;power;"
+msgstr ""
+"енергія;живлення;зберігач;apm;acpi; тайм-аут;гасіння;режим чергування;"
+"призупинення;"
+
+#. Name
+#: filetypes/filetypes.desktop:12
+msgid "File Associations"
+msgstr "Асоціації файлів"
+
+#. Comment
+#: filetypes/filetypes.desktop:14
+msgid "Configure file associations"
+msgstr "Налаштування асоціацій файлів"
+
+#. Keywords
+#: filetypes/filetypes.desktop:16
+msgid "Filetypes;File Associations;Mime Types;File Patterns;Files;Pattern;"
+msgstr ""
+"типи файлів;асоціації файлів;типи MIME;MIME;шаблони файлів;файли;взірці;"
+"файли;"
+
+#. Name
+#: fonts/fonts.desktop:12 konqhtml/tdehtml_fonts.desktop:11
+#: tdefontinst/tdeio/fonts.desktop:5
+msgid "Fonts"
+msgstr "Шрифти"
+
+#. Comment
+#: fonts/fonts.desktop:14
+msgid "Font settings"
+msgstr "Налаштування шрифтів"
+
+#. Keywords
+#: fonts/fonts.desktop:16
+msgid ""
+"fonts;font size;styles;charsets;character sets;panel;kicker;control panel;"
+"desktops;FileManager;Toolbars;Menu;Window Title;Title;"
+msgstr ""
+"шрифти;шрифт;розмір шрифту;стиль;набір символів;панель;kicker;панель "
+"керування;стільниці;панель інструментів;меню;заголовок вікна;заголовок;"
+
+#. Name
+#: hwmanager/hwdevicetray-autostart.desktop:2
+msgid "tdehwdevicetray"
+msgstr ""
+
+#. GenericName
+#. Name
+#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
+#: hwmanager/hwdevicetray.desktop:4
+#, fuzzy
+msgid "Device Monitor"
+msgstr "Комбінація моніторів"
+
+#. Comment
+#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
+msgid "Monitor hardware devices from the system tray"
+msgstr ""
+
+#. Name
+#: hwmanager/hwmanager.desktop:11
+#, fuzzy
+msgid "Device Manager"
+msgstr "Менеджер служб"
+
+#. Comment
+#: hwmanager/hwmanager.desktop:13
+#, fuzzy
+msgid "Configure hardware devices"
+msgstr "Налаштування поведінки навігатора"
+
+#. Keywords
+#: hwmanager/hwmanager.desktop:15
+msgid "hardware;devices;manager;"
+msgstr ""
+
+#. Comment
+#: iccconfig/iccconfig.desktop:14
+msgid "Configure display ICC color profile"
+msgstr "Конфігурація профілю ICC екрану"
+
+#. Keywords
+#: iccconfig/iccconfig.desktop:16
+#, fuzzy
+msgid "ICC;display;color;profile;"
+msgstr "Конфігурація профілю ICC екрану"
+
+#. Name
+#: iccconfig/iccconfig.desktop:18
+msgid "Color Profile"
+msgstr "Профіль кольору"
+
+#. Name
+#: icons/icons.desktop:12
+msgid "Icons"
+msgstr "Піктограми"
+
+#. Comment
+#: icons/icons.desktop:14
+msgid "Customize TDE Icons"
+msgstr "Налаштування піктограм TDE"
+
+#. Keywords
+#: icons/icons.desktop:16
+msgid "icons;effects;size;hicolor;locolor;"
+msgstr "піктограми;icons;ефекти;розмір;кольори;"
+
+#. Name
+#: info/cdinfo.desktop:12
+msgid "CD-ROM Information"
+msgstr "Інформація CD-ROM"
+
+#. Comment
+#: info/cdinfo.desktop:14
+msgid "CD/DVD Drive Capabilites"
+msgstr "Можливості приводу КД/DVD"
+
+#. Keywords
+#: info/cdinfo.desktop:16
+msgid "CD-ROM Information;CD-ROM;CD;CD Drive;Writer Capabilities;"
+msgstr ""
+"CD-ROM Information;CD-ROM;CD;CD Drive;Writer Capabilities;Інформація CD-ROM;"
+"CD-ROM;КД;Привід КД;Можливості приводу запису;"
+
+#. Name
+#: info/devices.desktop:13
+msgid "Devices"
+msgstr "Пристрої"
+
+#. Comment
+#: info/devices.desktop:15
+msgid "Attached devices information"
+msgstr "Інформація щодо приєднаних пристроїв"
+
+#. Keywords
+#: info/devices.desktop:17
+msgid "dev;Devices;System Information;Information;"
+msgstr "пристрої;інформація;dev;devices;system-information;information;"
+
+#. Name
+#: info/dma.desktop:13
+msgid "DMA-Channels"
+msgstr "Канали ПДП"
+
+#. Comment
+#: info/dma.desktop:15
+msgid "DMA information"
+msgstr "Інформація щодо ПДП"
+
+#. Keywords
+#: info/dma.desktop:17
+msgid "dma;DMA-Channels;System Information;"
+msgstr "dma;канал ПДП; інформація;system-information;information;"
+
+#. Name
+#: info/interrupts.desktop:13
+msgid "Interrupts"
+msgstr "Перепини"
+
+#. Comment
+#: info/interrupts.desktop:15
+msgid "Interrupt information"
+msgstr "Інформація щодо перепини"
+
+#. Keywords
+#: info/interrupts.desktop:17
+msgid "Interrupts;IRQ;System Information;"
+msgstr "перепини;interrupts;irq;system-information;"
+
+#. Name
+#: info/ioports.desktop:13
+msgid "IO-Ports"
+msgstr "Порти В/В"
+
+#. Comment
+#: info/ioports.desktop:15
+msgid "IO-port information"
+msgstr "Інформація щодо портів вводу/виводу"
+
+#. Keywords
+#: info/ioports.desktop:17
+msgid "IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System Information;"
+msgstr ""
+"порти вводу/виводу;ВВ;в/в;порти;io;i/o;io-ports;i/p-ports;ports;system "
+"information;"
+
+#. Name
+#: info/memory.desktop:12
+msgid "Memory"
+msgstr "Пам'ять"
+
+#. Comment
+#: info/memory.desktop:14
+msgid "Memory information"
+msgstr "Інформація щодо пам'яті"
+
+#. Keywords
+#: info/memory.desktop:16
+msgid ""
+"Memory;RAM;Virtual memory;Physical memory;Shared memory;Swap;System "
+"Information;"
+msgstr ""
+"пам'ять;RAM;віртуальна пам'ять;фізична пам'ять;спільна пам'ять;свопінг;swap;"
+"інформація;система;"
+
+#. Name
+#: info/opengl.desktop:13
+msgid "OpenGL"
+msgstr ""
+
+#. Comment
+#: info/opengl.desktop:15
+msgid "OpenGL information"
+msgstr "Інформація про OpenGL"
+
+#. Keywords
+#: info/opengl.desktop:17
+msgid ""
+"OpenGL;DRI;GLX;3D;VideoCard;Hardware Acceleration;Graphics;X;X11;Xserver;X-"
+"Server;XFree86;Display;"
+msgstr ""
+"OpenGL;DRI;GLX;3D;VideoCard;Hardware Acceleration;Graphics;X;X11;Xserver;X-"
+"Server;XFree86;Display;відео карта;3D акселерація;графіка;X сервер;монітор;"
+
+#. Name
+#: info/partitions.desktop:13
+msgid "Partitions"
+msgstr "Розділи диску"
+
+#. Comment
+#: info/partitions.desktop:15
+msgid "Partition information"
+msgstr "Інформація щодо розділів диску"
+
+#. Keywords
+#: info/partitions.desktop:17
+msgid "Partitions;Harddrive;HD;System Information;"
+msgstr "розділи диску;жорсткий диск;HD;системна інформація;"
+
+#. Name
+#: info/pci.desktop:12
+msgid "PCI"
+msgstr "Шина PCI"
+
+#. Comment
+#: info/pci.desktop:14
+msgid "PCI information"
+msgstr "Інформація щодо шини PCI"
+
+#. Keywords
+#: info/pci.desktop:16
+msgid "PCI;PCI-Devices;PCI-Bus;System Information;"
+msgstr "PCI;пристрої PCI;шина PCI;системна інформація;"
+
+#. Name
+#: info/processor.desktop:12
+msgid "Processor"
+msgstr "Процесор"
+
+#. Comment
+#: info/processor.desktop:14
+msgid "Processor information"
+msgstr "Інформація щодо процесора"
+
+#. Keywords
+#: info/processor.desktop:16
+msgid "Processor;CPU;FPU;MHz;System Information;"
+msgstr "процесор;CPU;FPU;МГц;системна інформація;"
+
+#. Name
+#: info/scsi.desktop:12
+msgid "SCSI"
+msgstr ""
+
+#. Comment
+#: info/scsi.desktop:14
+msgid "SCSI information"
+msgstr "Інформація щодо SCSI"
+
+#. Keywords
+#: info/scsi.desktop:16
+msgid "SCSI;SCSI-Bus;System Information;"
+msgstr "SCSI;шина SCSI;системна інформація;"
+
+#. Name
+#: info/sound.desktop:12
+msgid "Sound"
+msgstr "Звук"
+
+#. Comment
+#: info/sound.desktop:14
+msgid "Sound information"
+msgstr "Інформація щодо звукової карти"
+
+#. Keywords
+#: info/sound.desktop:16
+msgid "Sound;Audio;Soundcard;MIDI;OSS;System Information;"
+msgstr "звук;аудіо;sound;audio;звукова плата;midi;oss;системна інформація;"
+
+#. Name
+#: info/xserver.desktop:12
+msgid "X-Server"
+msgstr ""
+
+#. Comment
+#: info/xserver.desktop:14
+msgid "X-Server information"
+msgstr "Інформація щодо X-Server"
+
+#. Keywords
+#: info/xserver.desktop:16
+msgid "X;X-Server;XServer;XFree86;Display;VideoCard;System Information;"
+msgstr ""
+"X;X-Server;XServer;XFree86;Display;системна інформація;монітор;X сервер;"
+"відео карта;"
+
+#. Name
+#: input/mouse.desktop:13
+msgid "Mouse"
+msgstr "Мишка"
+
+#. Comment
+#: input/mouse.desktop:15
+msgid "Mouse settings"
+msgstr "Налаштування миші"
+
+#. Keywords
+#: input/mouse.desktop:17
+msgid ""
+"Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
+"Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
+"DoubleClick;mapping;right handed;left handed;"
+msgstr ""
+"Миша;Mouse;прискорення миші;поріг миші;кнопки миші;вибір;форма курсора;"
+"вхідні пристрої;відповідність клавіш;клацання;піктограми;зворотній зв'язок;"
+"вказівники;перетягнути;подвійне клацання;відображення;лівша;правша;"
+
+#. Name
+#: joystick/joystick.desktop:12
+msgid "Joystick"
+msgstr "Джойстик"
+
+#. Comment
+#: joystick/joystick.desktop:14
+msgid "Joystick - a kcontrol module to test Joysticks"
+msgstr "Джойстик - модуль центру керування для тестування джойстиків"
+
+#. Keywords
+#: joystick/joystick.desktop:16
+msgid "joystick;gamepad;"
+msgstr "джойстик;gamepad;"
+
+#. Name
+#: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
+#: kcontrol/tde-kcontrol.desktop:8
+msgid "Trinity Control Center"
+msgstr "Центр керування"
+
+#. Name
+#: kded/kcmkded.desktop:11
+msgid "Service Manager"
+msgstr "Менеджер служб"
+
+#. Comment
+#: kded/kcmkded.desktop:13
+msgid "System Services Configuration"
+msgstr "Конфігурація служб систем"
+
+#. Keywords
+#: kded/kcmkded.desktop:15
+msgid "KDED;Daemon;Services;"
+msgstr "KDED;демон;служби;"
+
+#. Name
+#: keys/keys.desktop:12
+msgid "Keyboard Shortcuts"
+msgstr "Скорочення клавіатури"
+
+#. Comment
+#: keys/keys.desktop:14
+msgid "Configuration of keybindings"
+msgstr "Налаштування прив'язок клавіш"
+
+#. Keywords
+#: keys/keys.desktop:16
+msgid ""
+"Keys;Global key bindings;Key scheme;Key bindings;shortcuts;application "
+"shortcuts;"
+msgstr "клавіші;глобальні прив'язки клавіш;схема клавіш;прив'язка клавіш;"
+
+#. Name
+#: kicker/kicker_config.desktop:11
+msgid "Layout"
+msgstr "Розкладка"
+
+#. Comment
+#: kicker/kicker_config.desktop:13 kicker/kicker_config_arrangement.desktop:13
+msgid "Configure the arrangement of the panel"
+msgstr "Тут можна налаштувати вигляд панелі"
+
+#. Keywords
+#: kicker/kicker_config.desktop:15 kicker/kicker_config_appearance.desktop:15
+#: kicker/kicker_config_arrangement.desktop:15
+#: kicker/kicker_config_hiding.desktop:15 kicker/kicker_config_menus.desktop:15
+#: kicker/panel.desktop:14
+msgid ""
+"kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;"
+"buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;"
+"bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;"
+"applets;startup;highlight;handles;zooming icons;"
+msgstr ""
+"kicker;панель;смужка задач;kpanel;смужка запуску;розташування;розмір;"
+"консольна програма;автоматичне згортання;згортання;кнопки;анімація;тло;теми;"
+"кеш меню;кеш;схований;К-Меню;закладки;недавні документи;швидка навігація;"
+"меню навігатора;меню;піктограми;заголовки;аплети;запуск;підсвічування;"
+"маніпулятор;масштабування піктограм;"
+
+#. Name
+#: kicker/kicker_config_appearance.desktop:11 konq/fileappearance.desktop:11
+msgid "Appearance"
+msgstr "Вигляд"
+
+#. Comment
+#: kicker/kicker_config_appearance.desktop:13
+msgid "Configure the appearance of the panel"
+msgstr "Тут можна налаштувати вигляд панелі"
+
+#. Name
+#: kicker/kicker_config_arrangement.desktop:11
+msgid "Arrangement"
+msgstr "Розташування"
+
+#. Name
+#: kicker/kicker_config_hiding.desktop:11
+msgid "Hiding"
+msgstr "Приховування"
+
+#. Comment
+#: kicker/kicker_config_hiding.desktop:13
+msgid "Configure the hiding of the panel"
+msgstr "Тут можна налаштувати приховування панелі"
+
+#. Name
+#: kicker/kicker_config_menus.desktop:11
+msgid "Menus"
+msgstr "Меню"
+
+#. Comment
+#: kicker/kicker_config_menus.desktop:13
+msgid "Configure the menus of the panel"
+msgstr "Тут можна налаштувати різні меню панелі"
+
+#. Name
+#: kicker/panel.desktop:10
+msgid "Panels"
+msgstr "Панель"
+
+#. Comment
+#: kicker/panel.desktop:12
+msgid "Configure the arrangement of the panels"
+msgstr "Налаштування компонування панелі"
+
+#. Name
+#: knotify/kcmnotify.desktop:11
+msgid "System Notifications"
+msgstr "Системні повідомлення"
+
+#. Comment
+#: knotify/kcmnotify.desktop:13
+msgid "System Notification Configuration"
+msgstr "Налаштування системних повідомлень"
+
+#. Keywords
+#: knotify/kcmnotify.desktop:15
+msgid "System sounds;Audio;Sound;Notify;Alerts;Notification;"
+msgstr "системні звуки;аудіо;audio;звук;повідомлення;попередження;сповіщення;"
+
+#. Name
+#: konq/desktop.desktop:11
+msgid "Multiple Desktops"
+msgstr "Віртуальні стільниці"
+
+#. Comment
+#: konq/desktop.desktop:13
+msgid "You can configure how many virtual desktops there are"
+msgstr "Налаштування кількості віртуальних стільниць"
+
+#. Keywords
+#: konq/desktop.desktop:15
+msgid "desktop;desktops;number;virtual desktop;"
+msgstr "стільниця;стільниці;номер;віртуальна стільниця;"
+
+#. Name
+#: konq/desktopbehavior.desktop:12 konq/filebehavior.desktop:11
+msgid "Behavior"
+msgstr "Поведінка"
+
+#. Comment
+#: konq/desktopbehavior.desktop:14
+msgid "You can configure how the desktop behaves here"
+msgstr "Налаштування поведінки стільниці"
+
+#. Keywords
+#: konq/desktopbehavior.desktop:16
+msgid ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;"
+msgstr ""
+"konqueror;менеджер файлів;kfm;підказки;підказки по файлах;створення вікон;"
+"поведінка;використання пам'яті;домашній URL;"
+
+#. Name
+#: konq/desktoppath.desktop:11
+msgid "Paths"
+msgstr "Шляхи"
+
+#. Comment
+#: konq/desktoppath.desktop:13
+msgid "Change the location important files are stored"
+msgstr "Зміна адреси зберігання важливих файлів"
+
+#. Keywords
+#: konq/desktoppath.desktop:15
+msgid "konqueror;filemanager;paths;desktop;directories;autostart;"
+msgstr "konqueror;менеджер файлів;шляхи;стільниця;смітник;каталоги;автозапуск;"
+
+#. Comment
+#: konq/fileappearance.desktop:13
+msgid "Configure how Konqueror looks as a file manager"
+msgstr "Тут можна налаштувати вигляд Konqeror, як менеджера сеансу"
+
+#. Keywords
+#: konq/fileappearance.desktop:15 konq/filebrowser.desktop:16
+msgid ""
+"konqueror;filemanager;word wrap;wrap;underline;display;filesize;bytes;font;"
+"color;colour;"
+msgstr ""
+"konqueror;менеджер файлів; переніс файлів;переніс;підкреслення;дисплей; "
+"розмір файлів;байти;шрифт;колір;"
+
+#. Comment
+#: konq/filebehavior.desktop:13
+msgid "Configure how Konqueror behaves as a file manager"
+msgstr "Тут можна налаштувати поведінку Konqueror, як менеджера сеансу"
+
+#. Keywords
+#: konq/filebehavior.desktop:15
+msgid ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;network operations;progress dialog;"
+"trash can;delete;confirmation;"
+msgstr ""
+"konqueror;менеджер файлів;kfm;підказки;підказки по файлах;окремі вікна;"
+"створення вікон;поведінка;використання пам'яті;домашній URL;робота з мережею;"
+"вікно поступу;смітник;"
+
+#. Comment
+#: konq/filebrowser.desktop:14
+msgid "You can configure Konqueror's file manager mode here"
+msgstr "Налаштування режиму менеджера файлів Konqueror"
+
+#. Name
+#: konq/filepreviews.desktop:11
+msgid "Previews & Metadata"
+msgstr "Перегляд та метадані"
+
+#. Comment
+#: konq/filepreviews.desktop:13
+msgid "Configure how Konqueror Previews & Meta-data work"
+msgstr ""
+"Тут можна налаштувати роботу попереднього перегляду Konqueror та метаданих"
+
+#. Keywords
+#: konq/filepreviews.desktop:15
+msgid "konqueror;filemanager;previews;file previews;maximum size;"
+msgstr ""
+"konqueror;менеджер файлів;перегляд;перегляд файлів;максимальний розмір;"
+
+#. Name
+#: konqhtml/tdehtml_behavior.desktop:11
+msgid "Web Behavior"
+msgstr "Поведінка Навігатора"
+
+#. Comment
+#: konqhtml/tdehtml_behavior.desktop:13
+msgid "Configure the browser behavior"
+msgstr "Налаштування поведінки навігатора"
+
+#. Keywords
+#: konqhtml/tdehtml_behavior.desktop:15
+msgid ""
+"konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;"
+"cursor;links;images;charsets;character sets;encoding;"
+msgstr ""
+"konqueror;kfm;навігатор;html;шрифти;web;Тенета;кольори;java;javascript;"
+"курсор;www;посилання;зображення;набори символів;кодування;"
+
+#. Name
+#: konqhtml/tdehtml_filter.desktop:10
+msgid "AdBlocK Filters"
+msgstr "Фільтри AdBlocK"
+
+#. Comment
+#: konqhtml/tdehtml_filter.desktop:12
+msgid "Configure Konqueror AdBlocK filters"
+msgstr "Налаштувати фільтри блокування реклами для Konqueror"
+
+#. Comment
+#: konqhtml/tdehtml_fonts.desktop:13
+msgid "Configure the fonts used on web pages"
+msgstr "Налаштування шрифтів для сторінок Тенет"
+
+#. Keywords
+#: konqhtml/tdehtml_fonts.desktop:15
+msgid ""
+"konqueror;kfm;browser;html;web;www;fonts;charsets;character sets;encoding;"
+msgstr ""
+"konqueror;kfm;навігатор;html;шрифти;Тенета;www;набори символів;кодування;"
+
+#. Name
+#: konqhtml/tdehtml_java_js.desktop:11
+msgid "Java & JavaScript"
+msgstr ""
+
+#. Comment
+#: konqhtml/tdehtml_java_js.desktop:13
+msgid "Configure the behavior of Java and JavaScript"
+msgstr "Налаштування поведінки Java та JavaScript"
+
+#. Keywords
+#: konqhtml/tdehtml_java_js.desktop:15
+msgid "konqueror;kfm;browser;html;web;www;java;javascript;"
+msgstr "konqueror;kfm;навігатор;html;web;Тенета;java;javascript;www;"
+
+#. Name
+#: konqhtml/tdehtml_userinterface.desktop:11
+#, fuzzy
+msgid "User Interface"
+msgstr "Мережеві інтерфейси"
+
+#. Comment
+#: konqhtml/tdehtml_userinterface.desktop:13
+#, fuzzy
+msgid "Configure user interface options"
+msgstr "Налаштування установок кешу Тенет"
+
+#. Keywords
+#: konqhtml/tdehtml_userinterface.desktop:15
+#, fuzzy
+msgid "konqueror;kfm;user;interface;tabbed;browsing;"
+msgstr "konqueror;повторне використання;попереднє завантаження;"
+
+#. Name
+#: konsole/kcmkonsole.desktop:10
+msgid "Konsole"
+msgstr ""
+
+#. Comment
+#: konsole/kcmkonsole.desktop:12
+msgid "Konsole configuration module"
+msgstr "Засіб конфігурації модуля Konsole"
+
+#. Keywords
+#: konsole/kcmkonsole.desktop:14
+msgid ""
+"konsole;schema;konsole background;colors;background;terminal application;"
+"terminal;"
+msgstr "konsole;схема;тло konsole;кольори;тло;програма терміналу;термінал;"
+
+#. Name
+#: kthememanager/installktheme.desktop:2
+msgid "Install TDE Theme"
+msgstr "Встановлення теми TDE"
+
+#. Comment
+#: kthememanager/kthememanager.desktop:2
+msgid "Manage global TDE visual themes"
+msgstr "Керування глобальними темами TDE"
+
+#. Keywords
+#: kthememanager/kthememanager.desktop:5
+msgid "themes;look and feel;"
+msgstr "теми;вигляд та поведінка;"
+
+#. Name
+#: kthememanager/kthememanager.desktop:6
+msgid "Theme Manager"
+msgstr "Менеджер тем"
+
+#. Comment
+#: kthememanager/x-ktheme.desktop:3
+msgid "TDE Theme"
+msgstr "Тема TDE"
+
+#. Name
+#: launch/kcmlaunch.desktop:12
+msgid "Launch Feedback"
+msgstr "Відображення запуску"
+
+#. Comment
+#: launch/kcmlaunch.desktop:14
+msgid "Choose application-launch feedback style"
+msgstr "Вибір стилю відображення запуску програм"
+
+#. Keywords
+#: launch/kcmlaunch.desktop:16
+msgid ""
+"application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
+"spinning;disk;startup;program;report;"
+msgstr ""
+"програма;старт;пуск;працюю;курсор;відображення;мишка;вказівник;обертання;"
+"крутіння;диск;запуск;звіт;"
+
+#. Name
+#: locale/default/entry.desktop:2
+msgid "US English"
+msgstr "Англійська (США)"
+
+#. Name
+#: locale/language.desktop:12
+msgid "Country/Region & Language"
+msgstr "Країна/регіон та мова"
+
+#. Comment
+#: locale/language.desktop:14
+msgid "Language, numeric, and time settings for your particular region"
+msgstr "Налаштування мови, відображення чисел та часу для вашого регіону"
+
+#. Keywords
+#: locale/language.desktop:16
+msgid ""
+"language;translation;number format;currency;time;date;formats;locale;Country;"
+"charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
+"sign;positive;negative;fractional digits;week;week start;"
+msgstr ""
+"мова;переклад;формат чисел;валюта;час;гроші;формати;charset;локаль;країна;"
+"набори символів;роздільник тисяч;роздільник десятих;символ;роздільник;знак;"
+"додатне;від'ємне;дробові числа;тиждень;початок тижня;"
+
+#. Name
+#: nics/nic.desktop:12
+msgid "Network Interfaces"
+msgstr "Мережеві інтерфейси"
+
+#. Comment
+#: nics/nic.desktop:14
+msgid "Network interface information"
+msgstr "Інформація щодо інтерфейсів мережі"
+
+#. Name
+#: performance/kcmkonqyperformance.desktop:11
+#: performance/kcmperformance.desktop:11
+msgid "Performance"
+msgstr "Швидкодія"
+
+#. Comment
+#: performance/kcmkonqyperformance.desktop:13
+msgid "Configure settings that can improve Konqueror performance"
+msgstr "Тут можна налаштувати швидкодію Konqueror"
+
+#. Keywords
+#: performance/kcmkonqyperformance.desktop:15
+msgid "konqueror;reuse;preloading;"
+msgstr "konqueror;повторне використання;попереднє завантаження;"
+
+#. Comment
+#: performance/kcmperformance.desktop:13
+msgid "Configure settings that can improve TDE performance"
+msgstr "Налаштування параметрів для покращання швидкодії TDE"
+
+#. Keywords
+#: performance/kcmperformance.desktop:15
+msgid "performance;speed;memory;improve;"
+msgstr "швидкодія;швидкість;пам'ять;покращення;"
+
+#. Name
+#: privacy/privacy.desktop:11
+msgid "Privacy"
+msgstr "Конфіденційність"
+
+#. Comment
+#: privacy/privacy.desktop:13
+msgid "Clean unwanted traces the user leaves on the system"
+msgstr "Очищення небажаної інформації залишеної користувачем у системі"
+
+#. Keywords
+#: privacy/privacy.desktop:15
+msgid "Privacy;privacy;"
+msgstr "Конфіденційність;"
+
+#. Name
+#: randr/randr.desktop:9
+msgid "Size & Orientation"
+msgstr "Розмір та орієнтація"
+
+#. Comment
+#: randr/randr.desktop:11
+msgid "Resize and Rotate your display"
+msgstr "Зміна розміру та обертання дисплею"
+
+#. Keywords
+#: randr/randr.desktop:13
+msgid "resize;rotate;display;color;depth;size;horizontal;vertical;"
+msgstr ""
+"зміна розміру;розмір;обертання;дисплей;колір;глибина;горизонтальний;"
+"вертикальний;"
+
+#. Name
+#: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
+msgid "TDERandRTray"
+msgstr ""
+
+#. GenericName
+#: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
+msgid "Screen Resize & Rotate"
+msgstr "Зміна розміру та обертання екрана"
+
+#. Comment
+#: randr/tderandrtray-autostart.desktop:6 randr/tderandrtray.desktop:6
+msgid "Resize and rotate X screens."
+msgstr "Зміна розміру та обертання екранів X."
+
+#. Name
+#: samba/smbstatus.desktop:12
+msgid "Samba Status"
+msgstr "Стан Samba"
+
+#. Comment
+#: samba/smbstatus.desktop:14
+msgid "Samba status monitor"
+msgstr "Монітор стану Samba"
+
+#. Keywords
+#: samba/smbstatus.desktop:16
+msgid "SMB;SAMBA;Windows network;LAN;System Information;"
+msgstr "SMB;SAMBA;мережа Windows;lan;ЛОМ;системна інформація;"
+
+#. Name
+#: screensaver/screensaver.desktop:12
+msgid "Screen Saver"
+msgstr "Зберігач екрана"
+
+#. Comment
+#: screensaver/screensaver.desktop:14
+msgid "Screen Saver Settings"
+msgstr "Налаштування зберігача екрана"
+
+#. Keywords
+#: screensaver/screensaver.desktop:16
+msgid "screensavers;Priority;"
+msgstr "зберігачі екрана;пріоритет;"
+
+#. Name
+#: smartcard/smartcard.desktop:11
+msgid "Smartcards"
+msgstr "Смарт-карти"
+
+#. Comment
+#: smartcard/smartcard.desktop:13
+msgid "Configure smartcard support"
+msgstr "Налаштування підтримки смарт-карт"
+
+#. Keywords
+#: smartcard/smartcard.desktop:15
+msgid "Smartcard;PKCS;SSL;reader;smart;card;"
+msgstr "Smartcard;PKCS;SSL;смарт-карта;зчитувач;картка;"
+
+#. Name
+#: smserver/kcmsmserver.desktop:12
+msgid "Session Manager"
+msgstr "Менеджер сеансів"
+
+#. Comment
+#: smserver/kcmsmserver.desktop:14
+msgid "Configure the session manager and logout settings"
+msgstr "Налаштування менеджеру сеансів та параметри виходу з системи"
+
+#. Keywords
+#: smserver/kcmsmserver.desktop:16
+msgid "ksmserver;session;logout;confirmation;save;restore;"
+msgstr "ksmserver;сеанс;кінець сеансу;підтвердження;збереження;відновлення;"
+
+#. Name
+#: spellchecking/spellchecking.desktop:11
+msgid "Spell Checker"
+msgstr "Перевірка правопису"
+
+#. Comment
+#: spellchecking/spellchecking.desktop:13
+msgid "Configure the spell checker"
+msgstr "Налаштування перевірки правопису"
+
+#. Keywords
+#: spellchecking/spellchecking.desktop:15
+msgid "Spell;"
+msgstr "Правопис;"
+
+#. Name
+#: style/style.desktop:13
+msgid "Style"
+msgstr "Стиль"
+
+#. Comment
+#: style/style.desktop:15
+msgid ""
+"Allows the manipulation of widget behavior and changing the Style for TDE"
+msgstr "Керування поведінкою віджетів та зміна стилю TDE"
+
+#. Keywords
+#: style/style.desktop:17
+msgid ""
+"style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE applications;"
+msgstr ""
+"стиль;стилі;вигляд;віджет;піктограми;пенали; текст;виділення;програми TDE;"
+
+#. Name
+#: taskbar/kcmtaskbar.desktop:11
+msgid "Taskbar"
+msgstr "Смужка задач"
+
+#. Comment
+#: taskbar/kcmtaskbar.desktop:13
+msgid "Configure the selected taskbar"
+msgstr "Налаштування смужки задач"
+
+#. Keywords
+#: taskbar/kcmtaskbar.desktop:15
+msgid "kicker;panel;kpanel;taskbar;startbar;launchbar;windows;"
+msgstr ""
+"kicker;панель;панель;kpanel;смужка задач;панель запуску;стартова панель;"
+"вікна;"
+
+#. Name
+#: tdefontinst/installfont.desktop:6
+msgid "Install"
+msgstr "Встановлення"
+
+#. Name
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:14
+msgid "Font Installer"
+msgstr "Встановлення шрифтів"
+
+#. Comment
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:16
+msgid "Install & preview fonts"
+msgstr "Встановлення та перегляд шрифтів"
+
+#. Keywords
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:18
+msgid "font;fonts;installer;truetype;type1;speedo;bitmap;"
+msgstr "шрифт; шрифти;встановлення;векторний;растровий;truetype;type1;speedo;"
+
+#. Name
+#: tdefontinst/tdefile-plugin/tdefile_font.desktop:3
+msgid "Font Information"
+msgstr "Інформація про шрифти"
+
+#. Comment
+#: tdefontinst/tdeio/folder.desktop:2
+msgid "Fonts Folder"
+msgstr "Тека шрифтів"
+
+#. Comment
+#: tdefontinst/tdeio/package.desktop:6
+msgid "Fonts Package"
+msgstr "Пакунок шрифтів"
+
+#. Comment
+#: tdefontinst/tdeio/system-folder.desktop:2
+msgid "System Fonts Folder"
+msgstr "Тека системних шрифтів"
+
+#. Name
+#: tdefontinst/thumbnail/fontthumbnail.desktop:3
+msgid "Font Files"
+msgstr "Файли шрифтів"
+
+#. Name
+#: tdefontinst/viewpart/tdefontview.desktop:2
+#, fuzzy
+msgid "TDEFontView"
+msgstr "Переглядач шрифтів"
+
+#. GenericName
+#. Name
+#: tdefontinst/viewpart/tdefontview.desktop:8
+#: tdefontinst/viewpart/tdefontviewpart.desktop:2
+msgid "Font Viewer"
+msgstr "Переглядач шрифтів"
+
+#. Name
+#: tdeio/cache.desktop:12
+msgid "Cache"
+msgstr "Кеш"
+
+#. Comment
+#: tdeio/cache.desktop:14
+msgid "Configure web cache settings"
+msgstr "Налаштування установок кешу Тенет"
+
+#. Keywords
+#: tdeio/cache.desktop:16
+msgid "Cache;History;Browsing History;Ports;Size;"
+msgstr "кеш;історія; історія навігації;порти;розмір;"
+
+#. Name
+#: tdeio/cookies.desktop:12
+msgid "Cookies"
+msgstr "Куки"
+
+#. Comment
+#: tdeio/cookies.desktop:14
+msgid "Configure the way cookies work"
+msgstr "Налаштування механізму кук"
+
+#. Keywords
+#: tdeio/cookies.desktop:16
+msgid "Cookies;Browsing;Internet;WWW;Network;Policy;Domains;"
+msgstr "куки;навігація;Internet;Інтернет;WWW;мережа;правила;домени;Тенета;"
+
+#. Name
+#: tdeio/lanbrowser.desktop:11
+msgid "Local Network Browsing"
+msgstr "Перегляд локальної мережі"
+
+#. Comment
+#: tdeio/lanbrowser.desktop:13
+msgid "Setup lisa, reslisa and the ioslaves"
+msgstr "Встановлення lisa,reslisa та ioslaves"
+
+#. Keywords
+#: tdeio/lanbrowser.desktop:15
+msgid "samba;smb;windows;network;"
+msgstr "samba;smb;windows;мережа;"
+
+#. Comment
+#: tdeio/netpref.desktop:2
+msgid "Configure generic network preferences, like timeout values"
+msgstr "Налаштування загальних параметрів мережі, таких як значення тайм-аутів"
+
+#. Keywords
+#: tdeio/netpref.desktop:5
+msgid "timeout;iopref;netpref;network preferences;ftp;"
+msgstr "тайм-аут;iopref;netpref;параметри мережі;ftp;"
+
+#. Name
+#: tdeio/netpref.desktop:6
+msgid "Connection Preferences"
+msgstr "Параметри з'єднання"
+
+#. Name
+#: tdeio/proxy.desktop:12
+msgid "Proxy"
+msgstr "Проксі"
+
+#. Comment
+#: tdeio/proxy.desktop:14
+msgid "Configure the proxy servers used"
+msgstr "Налаштування проксі-сервера"
+
+#. Keywords
+#: tdeio/proxy.desktop:16
+msgid "Proxy;Proxy server;Firewall;Squid;proxy;"
+msgstr "проксі;проксі-сервер;фаєрвол;Squid;proxy;"
+
+#. Name
+#: tdeio/smb.desktop:12
+msgid "Windows Shares"
+msgstr "Спільні ресурси Windows"
+
+#. Comment
+#: tdeio/smb.desktop:14
+msgid "Use to configure which windows (SMB) filesystems you can browse"
+msgstr "Налаштування файлових систем Windows (SMB), для навігації"
+
+#. Keywords
+#: tdeio/smb.desktop:16
+msgid ""
+"SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;"
+"Broadcast;WINS;Share;Login;Passwords;"
+msgstr ""
+"клієнт SMB;мережа Windows;ЛОМ;LAN;мережа;оточення;SMB;SAMBA;сервер;мережа "
+"Windows;ЛОМ;LAN;мережа;оточення;SMB;SAMBA;сервер;трансляція;WINS;спільний "
+"ресурс;реєстрація;паролі;"
+
+#. Comment
+#: tdeio/uasprovider.desktop:4
+msgid "UserAgent Strings"
+msgstr "Рядки агента користувача"
+
+#. Name
+#: tdeio/uasproviders/ie401onwinnt4.desktop:2
+msgid "UADescription (IE 4.01 on Win 2000)"
+msgstr "UADescription (IE 4.01 на Win 2000)"
+
+#. Name
+#: tdeio/uasproviders/ie45onwinnt5.desktop:2
+msgid "UADescription (IE 4.5 on Win 2000)"
+msgstr "UADescription (IE 4.5 на Win 2000)"
+
+#. Name
+#: tdeio/uasproviders/ie501onwinnt5.desktop:2
+msgid "UADescription (IE 5.01 on Win 2000)"
+msgstr "UADescription (IE 5.01 на Win 2000)"
+
+#. Name
+#: tdeio/uasproviders/ie50onppc.desktop:2
+msgid "UADescription (IE 5.0 on Mac PPC)"
+msgstr "UADescription (IE 5.0 на Mac PPC)"
+
+#. Name
+#: tdeio/uasproviders/ie55onwin98.desktop:2
+msgid "UADescription (IE 5.5 on Win 98)"
+msgstr "UADescription (IE 5.5 на Win 98)"
+
+#. Name
+#: tdeio/uasproviders/ie55onwinnt5.desktop:2
+msgid "UADescription (IE 5.5 on Win 2000)"
+msgstr "UADescription (IE 5.5 на Win 2000)"
+
+#. Name
+#: tdeio/uasproviders/ie60oncurrent.desktop:2
+msgid "UADescription (IE 6.0 on current)"
+msgstr "UADescription (IE 6.0 на поточній)"
+
+#. Name
+#: tdeio/uasproviders/ie60onwinnt51.desktop:2
+msgid "UADescription (IE 6.0 on Win XP)"
+msgstr "UADescription (IE 6.0 у Win XP)"
+
+#. Name
+#: tdeio/uasproviders/lynxoncurrent.desktop:2
+msgid "UADescription (Lynx 2.8.3)"
+msgstr "UADescription (Lynx 2.8.3)"
+
+#. Name
+#: tdeio/uasproviders/ns71oncurrent.desktop:2
+msgid "UADescription (Netscape 7.1 on current)"
+msgstr "UADescription (Netscape 7.1 на поточній)"
+
+#. Name
+#: tdeio/uasproviders/ns71onwinnt51.desktop:2
+msgid "UADescription (Netscape 7.1 on XP)"
+msgstr "UADescription (Netscape 7.1 на XP)"
+
+#. Name
+#: tdeio/uasproviders/op75oncurrent.desktop:2
+msgid "UADescription (Opera 7.55 on current)"
+msgstr "UADescription (Opera 7.55 на поточній)"
+
+#. Name
+#: tdeio/uasproviders/w3moncurrent.desktop:2
+msgid "UADescription (w3m 0.1.9)"
+msgstr "UADescription (w3m 0.1.9)"
+
+#. Name
+#: tdeio/uasproviders/wgetoncurrent.desktop:2
+msgid "UADescription (Wget 1.11.4)"
+msgstr "UADescription (Wget 1.11.4)"
+
+#. Name
+#: tdeio/useragent.desktop:12
+msgid "Browser Identification"
+msgstr "Ідентифікація навігатора"
+
+#. Comment
+#: tdeio/useragent.desktop:14
+msgid "Configure the way Konqueror reports itself"
+msgstr "Тут можна налаштувати ідентифікацію Konqueror"
+
+#. Keywords
+#: tdeio/useragent.desktop:16
+msgid "User Agent;Browser;Internet;WWW;Network;agent;bindings;server;login;"
+msgstr ""
+"агент навігатора;навігатор;Інтернет;WWW;мережа;агент;прив'язки;сервер;"
+"реєстрація;"
+
+#. Name
+#: tdm/tdm.desktop:14
+msgid "Login Manager"
+msgstr "Менеджер реєстрації"
+
+#. Comment
+#: tdm/tdm.desktop:16
+msgid "Configure the login manager (TDM)"
+msgstr "Налаштування менеджера реєстрації (TDM)"
+
+#. Keywords
+#: tdm/tdm.desktop:18
+msgid ""
+"tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;"
+"fonts;background;wallpapers;sessions;shutdown;restart;"
+msgstr ""
+"tdm;менеджер дисплеїв;xdm;користувачі;реєстрація;привітання;логотип;стилі;"
+"мова;країна;шрифти;тло;шпалери;сеанси;вимикання;перезапуск;"
+
+#. Name
+#: usbview/kcmusb.desktop:10
+msgid "USB Devices"
+msgstr "Пристрої USB"
+
+#. Comment
+#: usbview/kcmusb.desktop:12
+msgid "View the USB devices attached to this computer"
+msgstr "Перегляд пристроїв USB, під'єднаних до комп'ютера"
+
+#. Keywords
+#: usbview/kcmusb.desktop:14
+msgid "USB;devices;viewer;control;"
+msgstr "USB;пристрої;перегляд;керування;"
+
+#. Name
+#: view1394/kcmview1394.desktop:10
+msgid "IEEE 1394 Devices"
+msgstr "Пристрої IEEE 1394"
+
+#. Comment
+#: view1394/kcmview1394.desktop:12
+msgid "View the IEEE 1394 devices attached to this computer"
+msgstr "Перегляд пристроїв IEEE 1394, приєднаних до комп'ютера"
+
+#. Keywords
+#: view1394/kcmview1394.desktop:14
+msgid "1394;Firewire;devices;viewer;control;"
+msgstr "1394;Firewire;пристрої;перегляд;керування;"
+
+#. Name
+#: xinerama/xinerama.desktop:10
+msgid "Multiple Monitors"
+msgstr "Комбінація моніторів"
+
+#. Comment
+#: xinerama/xinerama.desktop:12
+msgid "Configure TDE for multiple monitors"
+msgstr "Налаштування декількох моніторів для TDE"
+
+#. Keywords
+#: xinerama/xinerama.desktop:14
+msgid "Xinerama;dual head;multihead;monitor;"
+msgstr "Xinerama;dual head;multihead;монітор;комбінація моніторів;"

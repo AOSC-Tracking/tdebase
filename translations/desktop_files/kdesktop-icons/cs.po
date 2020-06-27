@@ -1,0 +1,274 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 02:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:2
+msgid "Home"
+msgstr "Můj adresář"
+
+#. GenericName
+#: Home.desktop:4
+msgid "Personal Files"
+msgstr "Osobní soubory"
+
+#. Comment
+#: Home.desktop:6
+msgid "Contains personal files"
+msgstr "Obsahuje osobní soubory"
+
+#. Name
+#: My_Computer:5
+msgid "My Computer"
+msgstr "Počítač"
+
+#. Comment
+#: My_Computer:7
+msgid "Access to storage media"
+msgstr "Přístup k úložným zařízením"
+
+#. Name
+#: My_Documents:5
+msgid "My Documents"
+msgstr "Složka s dokumenty"
+
+#. Comment
+#: My_Documents:7
+msgid "Contains personal documents"
+msgstr "Obsahuje osobní dokumenty"
+
+#. Name
+#: My_Network_Places:5
+msgid "My Network Places"
+msgstr "Vzdálená umístění"
+
+#. Comment
+#: My_Network_Places:7
+msgid "Access to network places and remote hosts"
+msgstr "Přístup k místům v síti a vzdáleným počítačům"
+
+#. Name
+#: Printers:5
+msgid "Printers"
+msgstr "Tiskárny"
+
+#. Comment
+#: Printers:7
+msgid "Manage print jobs"
+msgstr "Správa tiskových úloh"
+
+#. Name
+#: System.desktop:2
+msgid "System"
+msgstr "Systém"
+
+#. GenericName
+#: System.desktop:4
+msgid "System Locations"
+msgstr "Systémová umístění"
+
+#. Comment
+#: System.desktop:6
+msgid "Access to system places"
+msgstr "Přístup k systémovým umístěním"
+
+#. Name
+#: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
+#: Templates/DVDROM-Device.desktop:12 Templates/ZIP-Device.desktop:12
+msgid "Eject"
+msgstr "Vysunout"
+
+#. Name
+#: Templates/Directory.desktop:2
+msgid "Folder..."
+msgstr "Složka..."
+
+#. Comment
+#: Templates/Directory.desktop:3
+msgid "Enter folder name:"
+msgstr "Zadejte název složky:"
+
+#. Name
+#: Templates/Floppy.desktop:3
+msgid "Format"
+msgstr "Formát"
+
+#. Name
+#: Templates/HTMLFile.desktop:2
+msgid "HTML File..."
+msgstr "HTML soubor..."
+
+#. Comment
+#: Templates/HTMLFile.desktop:3
+msgid "Enter HTML filename:"
+msgstr "Zadejte název HTML souboru:"
+
+#. Name
+#: Templates/TextFile.desktop:2
+msgid "Text File..."
+msgstr "Textový soubor..."
+
+#. Comment
+#: Templates/TextFile.desktop:3
+msgid "Enter text filename:"
+msgstr "Zadejte název textového souboru:"
+
+#. Name
+#: Templates/linkCAMERA.desktop:2
+msgid "Camera Device..."
+msgstr "Kamera..."
+
+#. Comment
+#: Templates/linkCAMERA.desktop:3
+msgid "New camera"
+msgstr "Nová kamera"
+
+#. Name
+#: Templates/linkCDROM.desktop:2
+msgid "CD-ROM Device..."
+msgstr "Jednotka CD-ROM..."
+
+#. Comment
+#: Templates/linkCDROM.desktop:3
+msgid "New CD-ROM Device"
+msgstr "Nová jednotka CD-ROM"
+
+#. Name
+#: Templates/linkCDWRITER.desktop:2
+msgid "CDWRITER Device..."
+msgstr "Vypalovačka CD..."
+
+#. Comment
+#: Templates/linkCDWRITER.desktop:3
+msgid "New CDWRITER Device"
+msgstr "Nová vypalovačka CD"
+
+#. Name
+#: Templates/linkDVDROM.desktop:2
+msgid "DVD-ROM Device..."
+msgstr "Jednotka DVD-ROM..."
+
+#. Comment
+#: Templates/linkDVDROM.desktop:3
+msgid "New DVD-ROM Device"
+msgstr "Nová jednotka DVD-ROM"
+
+#. Name
+#: Templates/linkFloppy.desktop:2
+msgid "Floppy Device..."
+msgstr "Disketová jednotka..."
+
+#. Comment
+#: Templates/linkFloppy.desktop:3
+msgid "New Floppy Device"
+msgstr "Nová disketová jednotka"
+
+#. Name
+#: Templates/linkHD.desktop:2
+msgid "Hard Disc Device..."
+msgstr "Pevný disk..."
+
+#. Comment
+#: Templates/linkHD.desktop:3
+msgid "New Hard Disc"
+msgstr "Nový pevný disk"
+
+#. Name
+#: Templates/linkMO.desktop:2
+msgid "MO Device..."
+msgstr "MO zařízení..."
+
+#. Comment
+#: Templates/linkMO.desktop:3
+msgid "New MO Device"
+msgstr "Nová MO mechanika"
+
+#. Name
+#: Templates/linkNFS.desktop:2
+msgid "NFS..."
+msgstr ""
+
+#. Comment
+#: Templates/linkNFS.desktop:3
+msgid "New NFS Link"
+msgstr "Nový NFS odkaz"
+
+#. Name
+#: Templates/linkProgram.desktop:2
+msgid "Link to Application..."
+msgstr "Odkaz na aplikaci..."
+
+#. Comment
+#: Templates/linkProgram.desktop:3
+msgid "New Link to Application"
+msgstr "Nový odkaz na aplikaci"
+
+#. Name
+#: Templates/linkURL.desktop:2
+msgid "Link to Location (URL)..."
+msgstr "Odkaz na umístění (URL)..."
+
+#. Comment
+#: Templates/linkURL.desktop:3
+msgid "Enter link to location (URL):"
+msgstr "Zadejte odkaz na umístění (URL):"
+
+#. Name
+#: Templates/linkZIP.desktop:2
+msgid "ZIP Device..."
+msgstr "ZIP jednotka..."
+
+#. Comment
+#: Templates/linkZIP.desktop:3
+msgid "New ZIP Device"
+msgstr "Nová ZIP jednotka"
+
+#. Name
+#: Trash:8
+msgid "Trash"
+msgstr "Koš"
+
+#. Comment
+#: Trash:10
+msgid "Contains removed files"
+msgstr "Obsahuje odstraněné soubory"
+
+#. Name
+#. GenericName
+#: Web_Browser:6 Web_Browser:8
+msgid "Web Browser"
+msgstr "Webový prohlížeč"
+
+#. Comment
+#: Web_Browser:10
+msgid "Browse the World Wide Web"
+msgstr "Prohlížení Internetu"
+
+#. Name
+#: directory.autostart:3
+msgid "Autostart"
+msgstr ""
+
+#. Name
+#: directory.desktop:5
+msgid "Desktop"
+msgstr "Pracovní plocha"
+
+#. Name
+#: directory.templates:3
+msgid "Templates"
+msgstr "Šablony"

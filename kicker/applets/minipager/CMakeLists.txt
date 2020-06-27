@@ -26,7 +26,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES minipagerapplet.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
+tde_create_translated_desktop(
+  SOURCE minipagerapplet.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/applets
+  PO_DIR kicker-desktops
+)
 install( FILES pagersettings.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 
 ##### minipager_panelapplet (module) ############

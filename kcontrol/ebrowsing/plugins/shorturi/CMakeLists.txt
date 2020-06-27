@@ -21,7 +21,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES tdeshorturifilter.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE tdeshorturifilter.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR kcontrol-desktops
+)
 install( FILES tdeshorturifilterrc DESTINATION ${CONFIG_INSTALL_DIR} )
 
 

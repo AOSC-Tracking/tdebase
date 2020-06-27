@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 03:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: access/eventsrc:3
+msgid "Accessibility Tool"
+msgstr "ឧបករណ៍​មធ្យោបាយ​ងាយស្រួល"
+
+#. Name
+#: access/eventsrc:6
+msgid "A modifier key has become active"
+msgstr "គ្រាប់ចុច​កែប្រែ​មួយ​សកម្ម"
+
+#. Comment
+#: access/eventsrc:7
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now active"
+msgstr "គ្រាប់ចុច​កែប្រែ​មួយ (ឧ. ប្តូរ ឬ ពាក្យ​បញ្ជា) បាន​ផ្លាស់ប្តូរ​សភាព​របស់​វា ហើយឥឡូវ​នេះ​សកម្ម"
+
+#. Name
+#: access/eventsrc:13
+msgid "A modifier key has become inactive"
+msgstr "គ្រាប់ចុច​កែប្រែ​មួយ​អសកម្ម​ហើយ"
+
+#. Comment
+#: access/eventsrc:14
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now inactive"
+msgstr "គ្រាប់​ចុច​កែប្រែ (ឧ. ប្តូរ ឬ បញ្ជា) បាន​ផ្លាស់ប្តូរ​សភាព​របស់វា ហើយ ឥឡូវ​នេះ​អសកម្ម"
+
+#. Name
+#: access/eventsrc:20
+msgid "A modifier key has been locked"
+msgstr "គ្រាប់ចុច​កែប្រែ​មួយ​ត្រូវ​បាន​ចាក់សោ"
+
+#. Comment
+#: access/eventsrc:21
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has been locked and is now active for "
+"all of the following keypresses"
+msgstr ""
+"គ្រាប់ចុច​កែប្រែ​មួយ (ឧ. ប្តូរ ឬ បញ្ជា) ត្រូវ​បាន​ចាក់សោ ហើយ ឥឡូវ​វាសកម្ម​សម្រាប់​ការសង្កត់​គ្រាប់ចុច​"
+"ខាងក្រោម​ទាំងអស់​ ។"
+
+#. Name
+#: access/eventsrc:27
+msgid "A lock key has been activated"
+msgstr "ការ​ចាក់សោ​គ្រាប់​ចុច​ត្រូវ​បាន​ធ្វើ​ឲ្យ​សកម្ម"
+
+#. Comment
+#: access/eventsrc:28
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"active"
+msgstr ""
+"គ្រាប់​ចុច​ចាក់សោ (ឧ. ប្តូរ​ជាប់ ឬ Num Lock) បាន​ផ្លាស់ប្តូរ​សភាព​របស់​វា ហើយ ឥឡូវ​នេះ​វាអសកម្ម"
+
+#. Name
+#: access/eventsrc:34
+msgid "A lock key has been deactivated"
+msgstr "គ្រាប់ចុច​ចាក់សោ​ត្រូវ​បាន​ធ្វើ​ឲ្យ​អសកម្ម"
+
+#. Comment
+#: access/eventsrc:35
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"inactive"
+msgstr ""
+"គ្រាប់​ចុច​ចាក់សោ (ឧ. ប្តូរ​ជាប់ ឬ Num Lock) បាន​ផ្លាស់ប្តូរ​សភាព​របស់​វា ហើយ ឥឡូវ​នេះ​វាអសកម្ម"
+
+#. Name
+#. Comment
+#: access/eventsrc:41 access/eventsrc:42
+msgid "Sticky keys has been enabled or disabled"
+msgstr "គ្រាប់ចុច​ស្អិត​ត្រូវ​បានអនុញ្ញាត ឬ មិន​អនុញ្ញាត"
+
+#. Name
+#. Comment
+#: access/eventsrc:48 access/eventsrc:49
+msgid "Slow keys has been enabled or disabled"
+msgstr "គ្រាប់ចុច​យឺត​ត្រូវ​បាន​អនុញ្ញាត ឬ មិន​អនុញ្ញាត"
+
+#. Name
+#. Comment
+#: access/eventsrc:55 access/eventsrc:56
+msgid "Bounce keys has been enabled or disabled"
+msgstr "គ្រាប់ចុច​លោត​ត្រូវ​បាន​អនុញ្ញាត ឬ មិន​អនុញ្ញាត"
+
+#. Name
+#. Comment
+#: access/eventsrc:62 access/eventsrc:63
+msgid "Mouse keys has been enabled or disabled"
+msgstr "គ្រាប់​ចុច​កណ្តុរ​ត្រូវ​បាន​អនុញ្ញាត ឬ មិន​អនុញ្ញាត"

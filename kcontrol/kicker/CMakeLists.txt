@@ -27,15 +27,19 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
-    panel.desktop
-  DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE panel.desktop
+  PO_DIR kcontrol-desktops
+)
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     kicker_config.desktop kicker_config_arrangement.desktop
     kicker_config_hiding.desktop kicker_config_menus.desktop
     kicker_config_appearance.desktop
-  DESTINATION ${APPS_INSTALL_DIR}/.hidden )
+  DESTINATION ${APPS_INSTALL_DIR}/.hidden
+  PO_DIR kcontrol-desktops
+)
 
 install(
   FILES uninstall.desktop

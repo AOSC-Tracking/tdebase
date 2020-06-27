@@ -1,10 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-flash-usb-decrypted-mounted
 Type=MimeType
 MimeType=media/removable_mounted_decrypted
+Icon=media-flash-usb-decrypted-mounted
+
 Comment=Mounted Decrypted Removable Medium
-Comment[de]=Eingebundenes, entschlüsseltes Wechsellaufwerk
+
 Patterns=
 
 X-TDE-AutoEmbed=true

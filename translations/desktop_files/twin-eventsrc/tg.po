@@ -1,0 +1,441 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Мудири тирезаи"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Гузариш ба мизи кории 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Гузариш ба мизи кории 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Гузариш ба мизи кории 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Гузариш ба мизи кории 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Гузариш ба мизи кории 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Гузариш ба мизи кории 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Гузариш ба мизи кории 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:54
+#, fuzzy
+msgid "Change to Desktop 9"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:59
+#, fuzzy
+msgid "Change to Desktop 10"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:64
+#, fuzzy
+msgid "Change to Desktop 11"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:69
+#, fuzzy
+msgid "Change to Desktop 12"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:74
+#, fuzzy
+msgid "Change to Desktop 13"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:79
+#, fuzzy
+msgid "Change to Desktop 14"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:84
+#, fuzzy
+msgid "Change to Desktop 15"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:89
+#, fuzzy
+msgid "Change to Desktop 16"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:94
+#, fuzzy
+msgid "Change to Desktop 17"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:99
+#, fuzzy
+msgid "Change to Desktop 18"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:104
+#, fuzzy
+msgid "Change to Desktop 19"
+msgstr "Гузариш ба мизи кории 1"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:109
+#, fuzzy
+msgid "Change to Desktop 20"
+msgstr "Гузариш ба мизи кории 2"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr ""
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Фаъол намудани тиреза"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr ""
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Тирезаи Нав"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Тирезаи нав"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Нобуд сохтани тиреза"
+
+#. Comment
+#: eventsrc:126
+#, fuzzy
+msgid "Delete window"
+msgstr "Нобуд сохтани тиреза"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Пӯшидани тиреза"
+
+#. Comment
+#: eventsrc:130
+#, fuzzy
+msgid "A window closes"
+msgstr "Пӯшидани тиреза"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Тиреза ба боло соя шуд"
+
+#. Comment
+#: eventsrc:136
+#, fuzzy
+msgid "A window is shaded up"
+msgstr "Тиреза ба боло соя шуд"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Тиреза ба поён соя шуд"
+
+#. Comment
+#: eventsrc:142
+#, fuzzy
+msgid "A window is shaded down"
+msgstr "Тиреза ба поён соя шуд"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Тирезаи бешина"
+
+#. Comment
+#: eventsrc:148
+#, fuzzy
+msgid "A window is minimized"
+msgstr "Тирезаи то бешина"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Тирезаи то бешина"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr ""
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Тирезаи бешина"
+
+#. Comment
+#: eventsrc:160
+#, fuzzy
+msgid "A window is maximized"
+msgstr "Тирезаи то бешина"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Тирезаи то бешина"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr ""
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Тиреза ба тамоми мизи корӣ"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr ""
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Тиреза на ба тамоми мизи корӣ"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr ""
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Гуфтугӯи нав"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr ""
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Нобуд сохтани гуфтугӯ"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr ""
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Тирезаҳо шурӯъ ба ҳаракат кард"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr ""
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Ҳаракати тиреза тамом шуд"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr ""
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Таъғири андозаи тиреза шурӯъ шуд"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr ""
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Таъғири андозаи тиреза тамом шуд"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr ""
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr ""
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr ""
+
+#. Name
+#: eventsrc:220
+#, fuzzy
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Тиреза ба тамоми мизи корӣ"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr ""

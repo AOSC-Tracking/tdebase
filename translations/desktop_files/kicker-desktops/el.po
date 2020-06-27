@@ -1,0 +1,383 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 16:24+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: applets/clock/clockapplet.desktop:4
+msgid "Clock"
+msgstr "Ρολόι"
+
+#. Comment
+#: applets/clock/clockapplet.desktop:6
+msgid "An analog and digital clock"
+msgstr "Ένα αναλογικό και ψηφιακό ρολόι"
+
+#. Name
+#: applets/launcher/quicklauncher.desktop:3
+msgid "Quick Launcher"
+msgstr "Γρήγορη φόρτωση"
+
+#. Comment
+#: applets/launcher/quicklauncher.desktop:5
+msgid "Directly access your frequently used applications"
+msgstr "Απευθείας πρόσβαση στις συχνά χρησιμοποιούμενες εφαρμογές σας"
+
+#. Name
+#: applets/lockout/lockout.desktop:3
+msgid "Lock/Logout Buttons"
+msgstr "Κουμπιά κλειδώματος/αποσύνδεσης"
+
+#. Comment
+#: applets/lockout/lockout.desktop:5
+msgid "Adds buttons for locking screen and session logout"
+msgstr ""
+"Προσθέτει κουμπιά για το κλείδωμα της οθόνης και την αποσύνδεση συνεδρίας"
+
+#. Name
+#: applets/media/mediaapplet.desktop:3
+msgid "Storage Media"
+msgstr "Συσκευές αποθήκευσης"
+
+#. Comment
+#: applets/media/mediaapplet.desktop:5
+msgid "Directly access your storage media"
+msgstr "Απευθείας πρόσβαση στις συσκευές αποθήκευσής σας"
+
+#. Name
+#: applets/menu/menuapplet.desktop:4
+msgid "Menu"
+msgstr "Μενού"
+
+#. Comment
+#: applets/menu/menuapplet.desktop:6
+msgid "Applet embedding standalone menubars"
+msgstr "Μικροεφαρμογή που ενσωματώνει αυτόνομες γραμμές μενού"
+
+#. Name
+#: applets/minipager/minipagerapplet.desktop:4
+msgid "Desktop Preview & Pager"
+msgstr "Προεπισκόπηση και αλλαγή επιφάνειας εργασίας"
+
+#. Comment
+#: applets/minipager/minipagerapplet.desktop:6
+msgid "Preview, manage and switch to multiple virtual desktops"
+msgstr ""
+"Προεπισκόπηση, διαχείριση και εναλλαγή σε πολλαπλές εικονικές επιφάνειες "
+"εργασίας"
+
+#. Name
+#: applets/naughty/naughtyapplet.desktop:3
+msgid "Runaway Process Catcher"
+msgstr "Runaway Έλεγχος Διεργασιών"
+
+#. Comment
+#: applets/naughty/naughtyapplet.desktop:5
+msgid "Detect and end broken processes which consume too much CPU time"
+msgstr ""
+"Ανίχνευση και τερματισμός διεργασιών που καταναλώνουν μεγάλο χρόνο του "
+"επεξεργαστή"
+
+#. Name
+#: applets/run/runapplet.desktop:3
+msgid "Run Command"
+msgstr "Εκτέλεση εντολής"
+
+#. Comment
+#: applets/run/runapplet.desktop:5
+msgid "Launch single commands without a terminal window"
+msgstr "Εκτέλεση εντολών χωρίς ένα παράθυρο τερματικού"
+
+#. Name
+#: applets/swallow/swallowapplet.desktop:3
+msgid "Swallow Applet"
+msgstr "Ενσωμάτωση μικροεφαρμογής"
+
+#. Comment
+#: applets/swallow/swallowapplet.desktop:5
+msgid "The swallow panel applet"
+msgstr "Μικροεφαρμογή του πίνακα που \"καταπίνει\""
+
+#. Name
+#: applets/systemtray/systemtrayapplet.desktop:3
+msgid "System Tray"
+msgstr "Πλαίσιο συστήματος"
+
+#. Comment
+#: applets/systemtray/systemtrayapplet.desktop:5
+msgid "The system tray panel applet"
+msgstr "Μικροεφαρμογή του πίνακα για το πλαίσιο συστήματος"
+
+#. Name
+#: applets/taskbar/taskbarapplet.desktop:3
+msgid "Taskbar"
+msgstr "Γραμμή εργασιών"
+
+#. Comment
+#: applets/taskbar/taskbarapplet.desktop:5
+msgid "The default task bar for window management"
+msgstr "Η προκαθορισμένη γραμμή εργασιών για τη διαχείριση των παραθύρων"
+
+#. Name
+#: applets/trash/trashapplet.desktop:3
+msgid "Trash"
+msgstr "Κάδος απορριμμάτων"
+
+#. Comment
+#: applets/trash/trashapplet.desktop:5
+msgid "Displays the trashcan and allows files to be dropped onto it"
+msgstr ""
+"Εμφανίζει τον Κάδο Απορριμμάτων και επιτρέπει την απόθεση αρχείων πάνω του"
+
+#. Name
+#: extensions/dockbar/dockbarextension.desktop:2
+msgid "Dock Application Bar"
+msgstr "Γραμμή προσαρτημένων εφαρμογών"
+
+#. Comment
+#: extensions/dockbar/dockbarextension.desktop:4
+msgid "Dock application bar extension."
+msgstr "Επέκταση γραμμής προσαρτημένων εφαρμογών."
+
+#. Name
+#: extensions/kasbar/kasbarextension.desktop:2
+msgid "KasBar"
+msgstr ""
+
+#. Comment
+#: extensions/kasbar/kasbarextension.desktop:4
+msgid "An alternative taskbar panel applet."
+msgstr "Μία εναλλακτική μικροεφαρμογή γραμμής εργασιών για τον πίνακα."
+
+#. Name
+#: extensions/sidebar/sidebarextension.desktop:2
+msgid "Universal Sidebar"
+msgstr "Καθολική πλευρική μπάρα"
+
+#. Comment
+#: extensions/sidebar/sidebarextension.desktop:4
+msgid "Wrapper around Konqueror's navigation panel"
+msgstr "Ενσωματωτής στο Περιηγητή του Konqueror"
+
+#. Name
+#: extensions/taskbar/taskbarextension.desktop:2
+msgid "External Taskbar"
+msgstr "Εξωτερική γραμμή εργασιών"
+
+#. Comment
+#: extensions/taskbar/taskbarextension.desktop:4
+msgid "External taskbar panel extension"
+msgstr "Επέκταση του πίνακα εξωτερική γραμμή εργασιών"
+
+#. Name
+#: kicker/buttons/bookmarks.desktop:2
+msgid "Bookmarks Menu"
+msgstr "Μενού σελιδοδεικτών"
+
+#. Comment
+#: kicker/buttons/bookmarks.desktop:4
+msgid "Your Konqueror bookmarks"
+msgstr "Οι σελιδοδείκτες σας του Konqueror"
+
+#. Name
+#: kicker/buttons/browser.desktop:2
+msgid "Quick File Browser"
+msgstr "Γρήγορος περιηγητής αρχείων"
+
+#. Comment
+#: kicker/buttons/browser.desktop:4
+msgid "A menu that lists files in a given folder"
+msgstr "Ένα μενού που εμφανίζει τα αρχεία ενός δοσμένου φακέλου"
+
+#. Name
+#: kicker/buttons/desktop.desktop:2
+msgid "Show Desktop"
+msgstr "Εμφάνιση επιφάνειας εργασίας"
+
+#. Comment
+#: kicker/buttons/desktop.desktop:4
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr ""
+"Ένα κουμπί που όταν πατηθεί δίνει γρήγορη πρόσβαση στην επιφάνεια εργασίας"
+
+#. Name
+#: kicker/buttons/exec.desktop:2
+msgid "Non-TDE Application Launcher"
+msgstr "Εκτελεστής μη-TDE εφαρμογών"
+
+#. Comment
+#: kicker/buttons/exec.desktop:4
+msgid "A launcher for programs not in the TDE Menu"
+msgstr "Ένας εκτελεστής εφαρμογών που δε βρίσκονται στο Μενού TDE"
+
+#. Name
+#: kicker/buttons/kmenu.desktop:2
+msgid "TDE Menu"
+msgstr "Μενού TDE"
+
+#. Comment
+#: kicker/buttons/kmenu.desktop:4
+msgid "Applications and common actions"
+msgstr "Εφαρμογές και τυπικές ενέργειες"
+
+#. Name
+#: kicker/buttons/windowlist.desktop:2
+msgid "Window List Menu"
+msgstr "Μενού λίστας παραθύρων"
+
+#. Comment
+#: kicker/buttons/windowlist.desktop:4
+msgid "A menu that lists all open windows"
+msgstr "Ένα μενού που εμφανίζει όλα τα ανοικτά παράθυρα"
+
+#. Name
+#: kicker/core/childpanelextension.desktop:2
+msgid "Panel"
+msgstr "Πίνακας"
+
+#. Comment
+#: kicker/core/childpanelextension.desktop:4
+msgid "Child panel extension."
+msgstr "Επέκταση θυγατρικού πίνακα."
+
+#. Comment
+#: kicker/interfaces/kickoffsearchplugin.desktop:5
+msgid "A search plugin for Kickoff"
+msgstr ""
+
+#. Name
+#: kicker/kcmkicker.desktop:10
+msgid "Configure the Panel"
+msgstr "Ρύθμιση του πίνακα"
+
+#. Name
+#: kicker/panel.desktop:10
+msgid "Trinity Panel"
+msgstr "Πίνακας Trinity"
+
+#. Name
+#: menuext/find/find.desktop:2
+msgid "Find"
+msgstr "Αναζήτηση"
+
+#. Comment
+#: menuext/find/find.desktop:4
+msgid "Menu for starting a file or web search"
+msgstr "Μενού για την εκκίνηση ενός αρχείου ή αναζήτηση στον ιστό"
+
+#. Name
+#: menuext/find/kfind.desktop:11
+msgid "Find Files"
+msgstr "Αναζήτηση αρχείων"
+
+#. Name
+#: menuext/find/websearch.desktop:8
+msgid "Web Search"
+msgstr "Αναζήτηση στο διαδίκτυο"
+
+#. Name
+#: menuext/kate/katesessionmenu.desktop:2
+msgid "Kate Session Menu"
+msgstr "Μενού συνεδρίας του Kate"
+
+#. Comment
+#: menuext/kate/katesessionmenu.desktop:4
+msgid "Allows you to open Kate with a specified session, or create a new one"
+msgstr ""
+"Σας επιτρέπει να ανοίξετε το Kate μα μια καθορισμένη συνεδρία, ή να "
+"δημιουργήσετε μία νέα"
+
+#. Name
+#: menuext/konq-profiles/konquerormenu.desktop:2
+msgid "Konqueror Profiles"
+msgstr "Προφίλ του Konqueror"
+
+#. Comment
+#: menuext/konq-profiles/konquerormenu.desktop:4
+msgid "Menu for accessing the Konqueror profiles"
+msgstr "Μενού πρόσβασης στα προφίλ του Konqueror"
+
+#. Name
+#: menuext/konsole/konsolemenu.desktop:2
+msgid "Terminal Sessions"
+msgstr "Συνεδρίες τερματικού"
+
+#. Comment
+#: menuext/konsole/konsolemenu.desktop:4
+msgid "Menu for starting a terminal emulator with a session or bookmark"
+msgstr ""
+"Μενού για την εκκίνηση ενός εξομοιωτή τερματικού με μια συνεδρία ή "
+"σελιδοδείκτη"
+
+#. Name
+#: menuext/prefmenu/prefmenu.desktop:2
+msgid "Trinity Control Center"
+msgstr "Κέντρο ελέγχου"
+
+#. Comment
+#: menuext/prefmenu/prefmenu.desktop:4
+msgid "Trinity Control Center modules menu"
+msgstr "Μενού αρθρωμάτων κέντρου ελέγχου"
+
+#. Name
+#: menuext/recentdocs/recentdocs.desktop:2
+msgid "Recent Documents"
+msgstr "Πρόσφατα έγγραφα"
+
+#. Comment
+#: menuext/recentdocs/recentdocs.desktop:4
+msgid "Menu of documents you have used recently"
+msgstr "Μενού εγγράφων που χρησιμοποιήθηκαν πρόσφατα"
+
+#. Name
+#: menuext/remote/remotemenu.desktop:2
+msgid "Network Folders"
+msgstr "Δικτυακοί φάκελοι"
+
+#. Comment
+#: menuext/remote/remotemenu.desktop:4
+msgid "Menu of network folders"
+msgstr "Μενού των δικτυακών φακέλων"
+
+#. Name
+#: menuext/system/systemmenu.desktop:2
+msgid "System Menu"
+msgstr "Μενού συστήματος"
+
+#. Comment
+#: menuext/system/systemmenu.desktop:4
+msgid "Menu of important system places"
+msgstr "Μενού σημαντικών τοποθεσιών του συστήματος"
+
+#. Name
+#: menuext/tdeprint/printmenu.desktop:2
+msgid "Print System"
+msgstr "Σύστημα εκτύπωσης"
+
+#. Comment
+#: menuext/tdeprint/printmenu.desktop:4
+msgid "Menu for the print system"
+msgstr "Μενού για το σύστημα εκτύπωσης"
+
+#. Name
+#: menuext/tom/tom.desktop:2
+msgid "TOM"
+msgstr ""
+
+#. Comment
+#: menuext/tom/tom.desktop:4
+msgid "A task oriented menu system"
+msgstr "Ένα σύστημα μενού προσανατολισμένο στην εργασία"

@@ -55,23 +55,72 @@ install( FILES
 ##### other data ################################
 
 install( FILES konqueror.rc konq-simplebrowser.rc DESTINATION ${DATA_INSTALL_DIR}/konqueror )
-install( FILES konqueror.desktop DESTINATION ${APPS_INSTALL_DIR} )
-install( FILES konqfilemgr.desktop DESTINATION ${APPS_INSTALL_DIR}/.hidden )
+
+tde_create_translated_desktop(
+  SOURCE konqueror.desktop
+  DESTINATION ${APPS_INSTALL_DIR}
+  PO_DIR konqueror-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE konqfilemgr.desktop
+  DESTINATION ${APPS_INSTALL_DIR}/.hidden
+  PO_DIR konqueror-desktops
+)
+
 install( FILES konqueror.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     kfmclient.desktop kfmclient_dir.desktop kfmclient_html.desktop
     kfmclient_war.desktop konqbrowser.desktop konquerorsu.desktop
     Home.desktop
-  DESTINATION ${XDG_APPS_INSTALL_DIR} )
+  PO_DIR konqueror-desktops
+)
 
 set( PROFILEDIR ${DATA_INSTALL_DIR}/konqueror/profiles )
-install( FILES profile_webbrowsing.desktop DESTINATION ${PROFILEDIR} RENAME webbrowsing )
-install( FILES profile_filemanagement.desktop DESTINATION ${PROFILEDIR} RENAME filemanagement )
-install( FILES profile_midnightcommander.desktop DESTINATION ${PROFILEDIR} RENAME midnightcommander )
-install( FILES profile_tabbedbrowsing.desktop DESTINATION ${PROFILEDIR} RENAME tabbedbrowsing )
-install( FILES profile_kde_devel.desktop DESTINATION ${PROFILEDIR} RENAME kde_devel )
-install( FILES profile_simplebrowser.desktop DESTINATION ${PROFILEDIR} RENAME simplebrowser )
+
+tde_create_translated_desktop(
+  SOURCE profile_webbrowsing.desktop
+  DESTINATION ${PROFILEDIR}
+  OUTPUT_NAME webbrowsing
+  PO_DIR konqueror-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE profile_filemanagement.desktop
+  DESTINATION ${PROFILEDIR}
+  OUTPUT_NAME filemanagement
+  PO_DIR konqueror-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE profile_midnightcommander.desktop
+  DESTINATION ${PROFILEDIR}
+  OUTPUT_NAME midnightcommander
+  PO_DIR konqueror-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE profile_tabbedbrowsing.desktop
+  DESTINATION ${PROFILEDIR}
+  OUTPUT_NAME tabbedbrowsing
+  PO_DIR konqueror-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE profile_kde_devel.desktop
+  DESTINATION ${PROFILEDIR}
+  OUTPUT_NAME kde_devel
+  PO_DIR konqueror-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE profile_simplebrowser.desktop
+  DESTINATION ${PROFILEDIR}
+  OUTPUT_NAME simplebrowser
+  PO_DIR konqueror-desktops
+)
 
 
 ##### konqueror_intern (static lib) #############

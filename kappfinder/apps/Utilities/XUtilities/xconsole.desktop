@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=X Console
+GenericName=Console Message Viewer
+Type=Application
+MimeType=
+X-TDE-StartupNotify=true
+Exec=xconsole
+Icon=terminal
+Path=
+Terminal=false

@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "aknahaldur"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Liikumine 1. töölauale"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Esimene virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Liikumine 2. töölauale"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Teine virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Liikumine 3. töölauale"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Kolmas virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Liikumine 4. töölauale"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Neljas virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Liikumine 5. töölauale"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Viies virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Liikumine 6. töölauale"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Kuues virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Liikumine 7. töölauale"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Seitsmes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Liikumine 8. töölauale"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Kaheksas virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Liikumine 9. töölauale"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Üheksas virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Liikumine 10. töölauale"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Kümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Liikumine 11. töölauale"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Üheteistkümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Liikumine 12. töölauale"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Kaheteistkümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Liikumine 13. töölauale"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Kolmeteistkümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Liikumine 14. töölauale"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Neljateistkümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Liikumine 15. töölauale"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Viieteistkümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Liikumine 16. töölauale"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Kuueteistkümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Liikumine 17. töölauale"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Seitsmeteistkümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Liikumine 18. töölauale"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Kaheksateiskümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Liikumine 19. töölauale"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Üheksateistkümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Liikumine 20. töölauale"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Kahekümnes virtuaalne töölaud on valitud"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Akna aktiveerimine"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Teine aken on aktiveeritud"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Uus aken"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Uus aken"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Akna kustutamine"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Akna kustutamine"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Akna sulgemine"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Aken sulgub"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Akna varjamine"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Aken rullitakse kokku"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Akna taasnäitamine"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Aken rullitakse lahti"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Akna minimeerimine"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Aken on minimeeritud"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Akna suuruse taastamine"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Aken on taastatud"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Akna maksimeerimine"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Aken on maksimeeritud"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Akna suuruse taastamine"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Aken kaotab maksimaalse suuruse"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Aken kõigil töölaudadel"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Aken on muudetud nähtavaks kõigil töölaudadel"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Aken ei ole kõigil töölaudadel"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Aken ei ole enam nähtav kõigil töölaudadel"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Uus dialoog"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Ajutine aken (dialoog) ilmub"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Dialoogi kustutamine"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Ajutine aken (dialoog) on eemaldatud"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Akna liigutamise algus"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Aken on hakanud liikuma"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Akna liigutamise lõpp"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Aken on lõpetanud liikumise"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Akna suuruse muutmise algus"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Akna suurus on hakanud muutuma"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Akna suuruse muutmise lõpp"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Aken on suuruse muutmise lõpetanud"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Aken aktiivsel töölaual nõuab tähelepanu"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Aken aktiivsel virtuaalsel töölaual nõuab tähelepanu"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Aken teisel töölaual nõuab tähelepanu"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Aken mitteaktiivsel virtuaalsel töölaual nõuab tähelepanu"

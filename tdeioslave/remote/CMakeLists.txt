@@ -24,7 +24,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES remote.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE remote.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdeioremote (static) ########################

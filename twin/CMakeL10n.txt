@@ -8,3 +8,29 @@ tde_l10n_create_template(
 )
 
 tde_l10n_auto_add_subdirectories( )
+
+file(
+  GLOB_RECURSE _twin_kcms
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/kcmtwin/*.desktop
+)
+list( SORT _twin_kcms )
+
+file(
+  GLOB_RECURSE _twin_data
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/data/*.twinrules
+)
+list( SORT _twin_data )
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/twin-desktops/"
+    SOURCES_DESKTOP ${_twin_kcms} ${_twin_data}
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/twin-eventsrc/"
+    SOURCES eventsrc
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)

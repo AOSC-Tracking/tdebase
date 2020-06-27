@@ -2,10 +2,4 @@
 Encoding=UTF-8
 Type=Directory
 Name=Logic Games
-Name[cs]=Logické
-Name[de]=Logik
-Name[es]=Lógica
-Name[fr]=Jeux de logique
-Name[it]=Logica
-Name[ru]=головоломки
 Icon=package_games_logic

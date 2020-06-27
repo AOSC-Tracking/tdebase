@@ -9,7 +9,8 @@
 #
 #################################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     acronym.desktop alexa.desktop alexa_url.desktop
     alltheweb.desktop altavista.desktop amg.desktop
     appsy.desktop austronaut.desktop backports.desktop
@@ -35,4 +36,7 @@ install( FILES
     tvtome.desktop uspto.desktop vivisimo.desktop voila.desktop
     webster.desktop whatis.desktop wikipedia.desktop wiktionary.desktop
     wordref.desktop
-  DESTINATION ${SERVICES_INSTALL_DIR}/searchproviders )
+  KEYWORDS Query
+  DESTINATION ${SERVICES_INSTALL_DIR}/searchproviders
+  PO_DIR kcontrol-desktops
+)

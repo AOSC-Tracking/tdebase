@@ -13,4 +13,7 @@ add_subdirectory( twinoptions )
 add_subdirectory( twindecoration )
 add_subdirectory( twinrules )
 
-install( FILES showdesktop.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE showdesktop.desktop
+  PO_DIR twin-desktops
+)

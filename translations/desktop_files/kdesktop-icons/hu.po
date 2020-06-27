@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 02:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:2
+msgid "Home"
+msgstr "Saját könyvtár"
+
+#. GenericName
+#: Home.desktop:4
+msgid "Personal Files"
+msgstr "Személyes fájlok"
+
+#. Comment
+#: Home.desktop:6
+#, fuzzy
+msgid "Contains personal files"
+msgstr "Személyes fájlok"
+
+#. Name
+#: My_Computer:5
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: My_Computer:7
+msgid "Access to storage media"
+msgstr ""
+
+#. Name
+#: My_Documents:5
+msgid "My Documents"
+msgstr "Dokumentumok könyvtár"
+
+#. Comment
+#: My_Documents:7
+msgid "Contains personal documents"
+msgstr ""
+
+#. Name
+#: My_Network_Places:5
+msgid "My Network Places"
+msgstr "Hálózati helyek"
+
+#. Comment
+#: My_Network_Places:7
+msgid "Access to network places and remote hosts"
+msgstr ""
+
+#. Name
+#: Printers:5
+msgid "Printers"
+msgstr "Nyomtató"
+
+#. Comment
+#: Printers:7
+msgid "Manage print jobs"
+msgstr ""
+
+#. Name
+#: System.desktop:2
+msgid "System"
+msgstr "Rendszer"
+
+#. GenericName
+#: System.desktop:4
+msgid "System Locations"
+msgstr "Rendszerkönyvtárak"
+
+#. Comment
+#: System.desktop:6
+msgid "Access to system places"
+msgstr ""
+
+#. Name
+#: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
+#: Templates/DVDROM-Device.desktop:12 Templates/ZIP-Device.desktop:12
+msgid "Eject"
+msgstr "Kidobás"
+
+#. Name
+#: Templates/Directory.desktop:2
+msgid "Folder..."
+msgstr "Könyvtár..."
+
+#. Comment
+#: Templates/Directory.desktop:3
+msgid "Enter folder name:"
+msgstr "A könyvtár neve:"
+
+#. Name
+#: Templates/Floppy.desktop:3
+msgid "Format"
+msgstr "Formázás"
+
+#. Name
+#: Templates/HTMLFile.desktop:2
+msgid "HTML File..."
+msgstr "HTML-fájl..."
+
+#. Comment
+#: Templates/HTMLFile.desktop:3
+msgid "Enter HTML filename:"
+msgstr "A HTML-fájl neve:"
+
+#. Name
+#: Templates/TextFile.desktop:2
+msgid "Text File..."
+msgstr "Szöveges fájl..."
+
+#. Comment
+#: Templates/TextFile.desktop:3
+msgid "Enter text filename:"
+msgstr "A szöveges fájl neve:"
+
+#. Name
+#: Templates/linkCAMERA.desktop:2
+msgid "Camera Device..."
+msgstr "Fényképezőgép..."
+
+#. Comment
+#: Templates/linkCAMERA.desktop:3
+msgid "New camera"
+msgstr "Új fényképezőgép"
+
+#. Name
+#: Templates/linkCDROM.desktop:2
+msgid "CD-ROM Device..."
+msgstr "CD-meghajtó..."
+
+#. Comment
+#: Templates/linkCDROM.desktop:3
+msgid "New CD-ROM Device"
+msgstr "Új CD-meghajtó"
+
+#. Name
+#: Templates/linkCDWRITER.desktop:2
+msgid "CDWRITER Device..."
+msgstr "CD-író..."
+
+#. Comment
+#: Templates/linkCDWRITER.desktop:3
+msgid "New CDWRITER Device"
+msgstr "Új CD-író"
+
+#. Name
+#: Templates/linkDVDROM.desktop:2
+msgid "DVD-ROM Device..."
+msgstr "DVD-meghajtó..."
+
+#. Comment
+#: Templates/linkDVDROM.desktop:3
+msgid "New DVD-ROM Device"
+msgstr "Új DVD-meghajtó"
+
+#. Name
+#: Templates/linkFloppy.desktop:2
+msgid "Floppy Device..."
+msgstr "Floppy-meghajtó..."
+
+#. Comment
+#: Templates/linkFloppy.desktop:3
+msgid "New Floppy Device"
+msgstr "Új floppy-meghajtó"
+
+#. Name
+#: Templates/linkHD.desktop:2
+msgid "Hard Disc Device..."
+msgstr "Merevlemez-partíció..."
+
+#. Comment
+#: Templates/linkHD.desktop:3
+msgid "New Hard Disc"
+msgstr "Új merevlemez-partíció"
+
+#. Name
+#: Templates/linkMO.desktop:2
+msgid "MO Device..."
+msgstr "Magnetooptikai eszköz..."
+
+#. Comment
+#: Templates/linkMO.desktop:3
+msgid "New MO Device"
+msgstr "Új magnetooptikai eszköz"
+
+#. Name
+#: Templates/linkNFS.desktop:2
+msgid "NFS..."
+msgstr "NFS-megosztás..."
+
+#. Comment
+#: Templates/linkNFS.desktop:3
+msgid "New NFS Link"
+msgstr "Új NFS-link"
+
+#. Name
+#: Templates/linkProgram.desktop:2
+msgid "Link to Application..."
+msgstr "Alkalmazásra mutató link..."
+
+#. Comment
+#: Templates/linkProgram.desktop:3
+msgid "New Link to Application"
+msgstr "Alkalmazásra mutató új link"
+
+#. Name
+#: Templates/linkURL.desktop:2
+msgid "Link to Location (URL)..."
+msgstr "Internet-cím (URL)..."
+
+#. Comment
+#: Templates/linkURL.desktop:3
+msgid "Enter link to location (URL):"
+msgstr "Adja meg az internet-címet (URL-t):"
+
+#. Name
+#: Templates/linkZIP.desktop:2
+msgid "ZIP Device..."
+msgstr "ZIP-meghajtó..."
+
+#. Comment
+#: Templates/linkZIP.desktop:3
+msgid "New ZIP Device"
+msgstr "Új ZIP-lemezes meghajtó"
+
+#. Name
+#: Trash:8
+msgid "Trash"
+msgstr "Szemétkosár"
+
+#. Comment
+#: Trash:10
+msgid "Contains removed files"
+msgstr ""
+
+#. Name
+#. GenericName
+#: Web_Browser:6 Web_Browser:8
+msgid "Web Browser"
+msgstr "webböngésző"
+
+#. Comment
+#: Web_Browser:10
+msgid "Browse the World Wide Web"
+msgstr ""
+
+#. Name
+#: directory.autostart:3
+msgid "Autostart"
+msgstr "Automatikus indítás"
+
+#. Name
+#: directory.desktop:5
+msgid "Desktop"
+msgstr "Munkaasztal"
+
+#. Name
+#: directory.templates:3
+msgid "Templates"
+msgstr "Sablonok"

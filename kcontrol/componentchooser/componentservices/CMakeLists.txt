@@ -9,6 +9,9 @@
 #
 #################################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     kcm_kemail.desktop kcm_terminal.desktop kcm_browser.desktop kcm_filemanager.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/kcm_componentchooser )
+  DESTINATION ${DATA_INSTALL_DIR}/kcm_componentchooser
+  PO_DIR kcontrol-desktops
+)

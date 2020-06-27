@@ -24,8 +24,17 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES tdefontviewpart.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
-install( FILES tdefontview.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE tdefontviewpart.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR kcontrol-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE tdefontview.desktop
+  PO_DIR kcontrol-desktops
+)
+
 install( FILES tdefontviewpart.rc tdefontviewui.rc DESTINATION ${DATA_INSTALL_DIR}/tdefontview )
 
 

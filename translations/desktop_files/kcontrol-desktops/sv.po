@@ -1,0 +1,2495 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: access/kaccess.desktop:3
+msgid "Accessibility Tool"
+msgstr "Handikappverktyg för"
+
+#. Name
+#: access/kcmaccess.desktop:12
+msgid "Accessibility"
+msgstr "Handikappstöd"
+
+#. Comment
+#: access/kcmaccess.desktop:14
+msgid "Improve accessibility for disabled persons"
+msgstr "Förbättrad tillgänglighet för handikappade personer"
+
+#. Keywords
+#: access/kcmaccess.desktop:16
+msgid ""
+"access;accessibility;deaf;impaired;bell;audible bell;visible bell;Keyboard;"
+"keys;sticky keys;bounce keys;slow keys;mouse navigation;num pad;"
+msgstr ""
+"tillgång;tillgänglighet;döv;handikappad;signal;ljudsignal;visuell signal;"
+"Tangentbord;tangenter;tdelistriga tangenter;studsande tangenter;långsamma "
+"tangenter;musnavigering;numeriskt tangentbord;"
+
+#. Name
+#: arts/arts.desktop:12
+msgid "Sound System"
+msgstr "Ljudsystem"
+
+#. Comment
+#: arts/arts.desktop:14
+msgid "Sound System Configuration"
+msgstr "Anpassa ljudsystem"
+
+#. Keywords
+#: arts/arts.desktop:16
+msgid ""
+"aRts;Sound Server;artsd;Audio;Sound;startup;network transparency;"
+"transparency;priority;duplex;full duplex;response time;Mixer;Volume;KMix;Mix;"
+"login;MIDI;synthesizer;music;"
+msgstr ""
+"aRts;Ljudserver;artsd;Ljud;uppstart;nätverkstransparens;transparens;"
+"prioritet;duplex;full duplex;svarstid;Mixer;Volym;Kmix;Mixa;inloggning;MIDI;"
+"synthesizer;musik;"
+
+#. Name
+#: background/background.desktop:12
+msgid "Background"
+msgstr "Bakgrund"
+
+#. Comment
+#: background/background.desktop:14
+msgid "Change the background settings"
+msgstr "Anpassa bakgrundsinställningar"
+
+#. Keywords
+#: background/background.desktop:16
+msgid ""
+"background;desktops;colors;colours;images;wallpapers;blending;balance;cache;"
+"multiple wallpapers;pixmap;"
+msgstr ""
+"bakgrund;skrivbord;färger;bilder;skrivbordsunderlägg;blandning;balans;cache;"
+"flera skrivbordsunderlägg;pixmapp;"
+
+#. Name
+#: bell/bell.desktop:13
+msgid "System Bell"
+msgstr "Systemsummer"
+
+#. Comment
+#: bell/bell.desktop:15
+msgid "System Bell Configuration"
+msgstr "Anpassa systemets summer"
+
+#. Keywords
+#: bell/bell.desktop:17
+msgid "Bell;Audio;Sound;Volume;Pitch;Duration;"
+msgstr "Summer;Ljud;Volym;Tonhöjd;Varaktighet;"
+
+#. Name
+#: clock/clock.desktop:13
+msgid "Date & Time"
+msgstr "Datum och tid"
+
+#. Comment
+#: clock/clock.desktop:15
+msgid "Date and time settings"
+msgstr "Anpassa datum och tid"
+
+#. Keywords
+#: clock/clock.desktop:17
+msgid "clock;date;time;time zone;"
+msgstr "klocka;datum;tid;tidszon;"
+
+#. Name
+#: colors/colors.desktop:12
+msgid "Colors"
+msgstr "Färger"
+
+#. Comment
+#: colors/colors.desktop:14
+msgid "Color settings"
+msgstr "Anpassa färger"
+
+#. Keywords
+#: colors/colors.desktop:16
+msgid "colors;colours;scheme;contrast;Widget colors;Color Scheme;"
+msgstr "färger;schema;kontrast;Komponentfärger;Färgschema;"
+
+#. Name
+#: componentchooser/EXAMPLE.desktop:1
+msgid "A nice name you have chosen for your interface"
+msgstr "Ett bra namn som du har valt för gränssnittet"
+
+#. Comment
+#: componentchooser/EXAMPLE.desktop:2
+msgid "A helpful description of the interface for the top right info box"
+msgstr ""
+"Hjälpsam beskrivning av gränssnittet för informationsrutan uppe till höger"
+
+#. Name
+#: componentchooser/componentchooser.desktop:10
+msgid "Default Applications"
+msgstr "Standardprogram"
+
+#. Comment
+#: componentchooser/componentchooser.desktop:12
+msgid "Choose the default components for various services"
+msgstr "Väljer normalkomponenter för olika sorters tjänster"
+
+#. Keywords
+#: componentchooser/componentchooser.desktop:14
+msgid ""
+"default applications;components;component chooser;resources;e-mail;email "
+"client;text editor;instant messenger;terminal emulator;web browser;file "
+"manager;URL;hyperlinks;"
+msgstr ""
+"standardprogram;komponenter;komponentväljare;resurser;e-post;e-postprogram;"
+"texteditor;direktmeddelanden;terminalemulator;webbläsare;filhanterare;"
+"webbadress;hyperlänkar;"
+
+#. Name
+#: componentchooser/componentservices/kcm_browser.desktop:1
+msgid "Web Browser"
+msgstr "Webbläsning"
+
+#. Comment
+#: componentchooser/componentservices/kcm_browser.desktop:3
+msgid ""
+"Here you can configure your default web browser. All TDE applications in "
+"which you can select hyperlinks should honor this setting."
+msgstr ""
+"Här kan du anpassa förvald webbläsare. Alla TDE-program där du kan välja "
+"hyperlänkar bör följa inställningen."
+
+#. Name
+#: componentchooser/componentservices/kcm_filemanager.desktop:1
+#: konq/filebrowser.desktop:12
+msgid "File Manager"
+msgstr "Filhanterare"
+
+#. Comment
+#: componentchooser/componentservices/kcm_filemanager.desktop:3
+#, fuzzy
+msgid ""
+"This service allows you to configure your default file manager. All TDE "
+"applications which invoke a file manager application should honor this "
+"setting."
+msgstr ""
+"Den här tjänsten låter dig anpassa din förvalda terminalemulator. Alla TDE-"
+"program som startar ett terminalprogram ska använda den här inställningen"
+
+#. Name
+#: componentchooser/componentservices/kcm_kemail.desktop:1
+msgid "Email Client"
+msgstr "E-postklient"
+
+#. Comment
+#: componentchooser/componentservices/kcm_kemail.desktop:3
+msgid ""
+"This service allows you to configure your default email client. All TDE "
+"applications which need access to an email client application should honor "
+"this setting."
+msgstr ""
+"Den här tjänsten låter dig anpassa förvald e-postklient. Alla TDE-program "
+"som behöver använda e-postklient ska använda den här inställningen"
+
+#. Name
+#: componentchooser/componentservices/kcm_terminal.desktop:1
+msgid "Terminal Emulator"
+msgstr "Terminalemulator"
+
+#. Comment
+#: componentchooser/componentservices/kcm_terminal.desktop:3
+msgid ""
+"This service allows you to configure your default terminal emulator. All TDE "
+"applications which invoke a terminal emulator application should honor this "
+"setting."
+msgstr ""
+"Den här tjänsten låter dig anpassa din förvalda terminalemulator. Alla TDE-"
+"program som startar ett terminalprogram ska använda den här inställningen"
+
+#. Name
+#: crypto/crypto.desktop:10
+msgid "Crypto"
+msgstr "Krypto"
+
+#. Comment
+#: crypto/crypto.desktop:12
+msgid "Configure SSL, manage certificates, and other cryptography settings"
+msgstr ""
+"Anpassa SSL, hantera certifikat, samt andra kryptografiska inställningar"
+
+#. Keywords
+#: crypto/crypto.desktop:14
+msgid ""
+"Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;"
+"secure;security;"
+msgstr ""
+"Crypto;Krypto;Kryptografi;kryptering;SSL;https;certifikat;krypton;TLS;säkra;"
+"säkerhet;"
+
+#. Name
+#: css/kcmcss.desktop:12
+msgid "Stylesheets"
+msgstr "Stilmallar"
+
+#. Comment
+#: css/kcmcss.desktop:14
+msgid "Configure the stylesheets used to render web pages"
+msgstr "Anpassa stilmallarna som används för att visa webbsidor"
+
+#. Keywords
+#: css/kcmcss.desktop:16
+msgid "CSS;HTML;style;stylesheet;accessibility;"
+msgstr "CSS;HTML;stil;stilmall;handikappstöd;"
+
+#. Name
+#: display/display.desktop:11
+msgid "Display"
+msgstr "Bildskärm"
+
+#. Comment
+#: display/display.desktop:13
+msgid "Display Settings"
+msgstr "Anpassa bildskärm"
+
+#. Name
+#: displayconfig/displayconfig.desktop:12
+msgid "Monitor & Display"
+msgstr ""
+
+#. Comment
+#: displayconfig/displayconfig.desktop:14
+#, fuzzy
+msgid "Configure display"
+msgstr "Anpassa tjänstupptäckt"
+
+#. Keywords
+#: displayconfig/displayconfig.desktop:16
+msgid "monitor;resolution;display;"
+msgstr ""
+
+#. Name
+#: dnssd/kcm_tdednssd.desktop:18
+msgid "Zeroconf Service Discovery"
+msgstr "Tjänstupptäckt"
+
+#. Comment
+#: dnssd/kcm_tdednssd.desktop:20
+msgid "Configure service discovery"
+msgstr "Anpassa tjänstupptäckt"
+
+#. Name
+#: ebrowsing/ebrowsing.desktop:12
+msgid "Web Shortcuts"
+msgstr "Webbgenvägar"
+
+#. Comment
+#: ebrowsing/ebrowsing.desktop:14
+msgid "Configure enhanced browsing"
+msgstr "Anpassa utökad webbläsning"
+
+#. Keywords
+#: ebrowsing/ebrowsing.desktop:16
+msgid ""
+"Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet Filters;"
+"Network;Search Engines;Shortcuts;"
+msgstr ""
+"Utökad webbläsning;Surfning;WWW;Internet;Internetsökord;Nätverk;Sökmotorer;"
+"Internetfilter;Genvägar;"
+
+#. Name
+#: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
+msgid "InternetKeywordsFilter"
+msgstr "Internetsökordsfilter"
+
+#. Name
+#: ebrowsing/plugins/ikws/kurisearchfilter.desktop:3
+msgid "SearchKeywordsFilter"
+msgstr "Sökordsökningsfilter"
+
+#. Comment
+#: ebrowsing/plugins/ikws/searchprovider.desktop:4
+msgid "Search Engine"
+msgstr "Sökmotor"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
+msgid "Acronym Database"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
+msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
+#, fuzzy
+msgid "Alexa"
+msgstr "Alexa webbadress"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
+msgid "http://info.alexa.com/search?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
+msgid "Alexa URL"
+msgstr "Alexa webbadress"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
+msgid "http://info.alexa.com/data/details?url=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
+msgid "AllTheWeb fast"
+msgstr "AllTheWeb snabb"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:6
+msgid ""
+"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:3
+msgid "AltaVista"
+msgstr "Altavista"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:6
+msgid "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
+msgid "All Music Guide"
+msgstr "Guiden All Musik"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
+msgid "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:3
+msgid "KDE App Search"
+msgstr "KDE-programsökning"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:6
+msgid "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:3
+msgid "AustroNaut"
+msgstr "Astronaut"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:6
+msgid "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
+msgid "Debian Backports Search"
+msgstr "Sökning i Debians uppdateringar"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
+msgid "http://www.backports.org/package.php?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
+msgid "KDE Bug Database Fulltext Search"
+msgstr "Textsökning i KDE:s feldatabas"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:4
+msgid ""
+"http://bugs.trinitydesktop.org/simple_search.cgi?id=\\{1}+\\{2}+\\{3}+\\{4}+"
+"\\{5}+\\{6}+\\{7}+\\{8}+\\{9}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
+msgid "TDE Bug Database Bug Number Search"
+msgstr "Felnummersökning i TDE:s feldatabas"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:4
+msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/call.desktop:5
+msgid "QRZ.com Callsign Database"
+msgstr "Databas för QRZ.com-anropssignaler"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/call.desktop:6
+msgid "http://www.qrz.com/database?callsign=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:4
+msgid "CIA World Factbook"
+msgstr "CIA-världsfaktabok"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:5
+#, c-format
+msgid ""
+"http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
+"cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
+msgid "CiteSeer: Scientific Literature Digital Library"
+msgstr "CiteSeer: Digitalt bibliotek med vetenskaplig litteratur"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
+msgid "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:3
+msgid "CPAN - Comprehensive Perl Archive Network"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
+msgid ""
+"http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:3
+msgid "CTAN - Comprehensive TeX Archive Network"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:4
+msgid ""
+"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
+"\\{ at }"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:3
+msgid "CTAN Catalog"
+msgstr "CTAN-katalog"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:4
+msgid ""
+"http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
+msgid "Debian BTS Bug Search"
+msgstr "Sökning i Debians felspårningssystem"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:4
+msgid "http://bugs.debian.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:5
+msgid "dict.cc Translation: German to English"
+msgstr "dict.cc översättning: tyska till engelska"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:6
+msgid "http://www.dict.cc/?s=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:3
+msgid "LEO - Translate Between German and French"
+msgstr "LEO - översätt från tyska till franska"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:6
+msgid "http://dict.leo.org/?lp=frde&search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/deb.desktop:3
+msgid "Debian Package Search"
+msgstr "Sökning i Debians paket"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/deb.desktop:4
+msgid "http://packages.debian.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:3
+msgid "Open Directory"
+msgstr "Öppen katalog"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
+msgid "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
+msgid "DocBook - The Definitive Guide"
+msgstr "Den slutgiltiga guiden till docbook"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:6
+msgid "http://www.docbook.org/tdg/en/html/\\{1}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:5
+msgid "Digital Object Identifier"
+msgstr "Identifikation av digitala objekt"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:6
+msgid "http://dx.doi.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:5
+msgid "dict.cc Translation: English to German"
+msgstr "dict.cc översättning: engelska till tyska"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:5
+msgid "WordReference.com Translation: English to Spanish"
+msgstr "Wordreference.com översättning: engelska till spanska"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:6
+msgid "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:5
+msgid "WordReference.com Translation: English to French"
+msgstr "Wordreference.com översättning: engelska till franska"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:6
+msgid "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:5
+msgid "WordReference.com Translation: English to Italian"
+msgstr "Wordreference.com översättning: engelska till italienska"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:6
+msgid "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:5
+msgid "WordReference.com Translation: Spanish to English"
+msgstr "Wordreference.com översättning: spanska till engelska"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:6
+msgid "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/excite.desktop:3
+msgid "Excite"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/excite.desktop:6
+msgid "http://search.excite.com/search.gw?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:3
+msgid "Feedster"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
+msgid "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
+msgid "Free On-Line Dictionary of Computing"
+msgstr "Free On-Line Dictionary Of Computing (en datortermsordlista)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
+msgid "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
+msgid "LEO - Translate Between French and German"
+msgstr "LEO - översätt från franska till tyska"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:5
+msgid "WordReference.com Translation: French to English"
+msgstr "Wordreference.com översättning: franska till engelska"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:6
+msgid "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:3
+msgid "FreeDB"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:6
+msgid "http://www.freedb.org/freedb_search.php?words=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:3
+msgid "Freshmeat"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:6
+msgid "http://freshmeat.net/search/?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:3
+msgid "Froogle"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
+msgid "http://froogle.google.com/froogle?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:3
+msgid "FSF/UNESCO Free Software Directory"
+msgstr "FSF/UNESCO katalog över fri programvara"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:6
+msgid "http://directory.fsf.org/search/?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
+#, fuzzy
+msgid "Google"
+msgstr "Google diskussionsgrupper"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google.desktop:6
+msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:3
+msgid "Google Advanced Search"
+msgstr "Google avancerad sökning"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:4
+msgid ""
+"http://www.google.com/search?as_q=\\{all,@}&num=\\{num,\"10\"}&btnG=Google"
+"+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\{without,\"\"}&lr="
+"\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\"\"}&as_qdr="
+"\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
+"&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
+msgid "Google Groups"
+msgstr "Google-grupper"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:6
+msgid "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:3
+msgid "Google Image Search"
+msgstr "Google bildsökning"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:6
+msgid "http://images.google.com/images?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:3
+msgid "Google (I'm Feeling Lucky)"
+msgstr "Google (Jag har tur)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:6
+#, c-format
+msgid ""
+"http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling"
+"+Lucky&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
+msgid "Google Movies"
+msgstr "Google filmer"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:6
+msgid "http://www.google.com/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:3
+msgid "Google News"
+msgstr "Google diskussionsgrupper"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:6
+msgid "http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:3
+msgid "Gracenote"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:6
+msgid "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:5
+msgid "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
+msgstr "Stor ordbok för katalanska språket (Gran Enciclopèdia Catalana)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:6
+msgid "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:3
+msgid "Hotbot"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:6
+msgid "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
+msgid "HyperDictionary.com"
+msgstr "Hyperdictionary.com"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
+msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:3
+msgid "HyperDictionary.com Thesaurus"
+msgstr "HyperDictionary.com synonymlexikon"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:6
+msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
+msgid "Internet Movie Database"
+msgstr "Internet filmdatabas"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:6
+msgid "http://imdb.com/Find?\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:5
+msgid "WordReference.com Translation: Italian to English"
+msgstr "Wordreference.com översättning: italienska till engelska"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:6
+msgid "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:3
+msgid "Ask Jeeves"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:6
+msgid ""
+"http://www.ask.com/main/askJeeves.asp?"
+"origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:3
+msgid "KataTudo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:6
+msgid "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:5
+msgid "KDE API Documentation"
+msgstr "Dokumentation av KDE:s programmeringsgränssnitt"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:6
+msgid "http://api.kde.org/classmapper.php?class=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:3
+msgid "KDE WebSVN"
+msgstr "KDE-webbsvn"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:6
+msgid "http://websvn.kde.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
+msgid "LEO-Translate"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/leo.desktop:6
+msgid "http://dict.leo.org/?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:3
+msgid "Lycos"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:6
+msgid "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:3
+msgid "Mamma - Mother of all Search Engines"
+msgstr "Mamma - Moder till alla sökmotorer"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:6
+msgid "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
+msgid "MetaCrawler"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:6
+msgid ""
+"http://search.metacrawler.com/crawler?general=\\{@}"
+"&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
+"search&refer=mc-search"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
+msgid "Microsoft Developer Network Search"
+msgstr "Sökning i Microsoft Developer Network"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:6
+msgid ""
+"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff.asp?"
+"handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
+"asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:3
+msgid "Netcraft"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:6
+msgid "http://uptime.netcraft.com/up/graph?site=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:2
+msgid "Telephonebook Search Provider"
+msgstr "Söktjänst för telefonkatalog"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:6
+msgid ""
+"http://www.detelefoongids.nl/tginl.dll?"
+"action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2="
+"\\{1}&name=&initials=&city=\\{2}"
+"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
+"\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:2
+msgid "Teletekst Search Provider"
+msgstr "Teletekst söktjänst"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:6
+msgid "http://teletekst.nos.nl/gif/\\{@}-01.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
+msgid "OpenPGP Key Search"
+msgstr "OpenPGP-nyckelsökning"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
+msgid "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
+msgid "PHP Search"
+msgstr "PHP search"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
+msgid "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/python.desktop:5
+msgid "Python Reference Manual"
+msgstr "Python referensmanual"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/python.desktop:6
+#, c-format
+msgid ""
+"http://www.google.com/search?sourceid=python-search&q=\\{@}"
+"&submit=Search&q=site%3Apython.org"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:5
+msgid "Latest Qt Online Documentation"
+msgstr "Senaste Qt-direktdokumentation"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:6
+msgid "http://doc.trolltech.com/latest/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:5
+msgid "Qt3 Online Documentation"
+msgstr "Qt3-direktdokumentation"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:6
+msgid "http://doc.trolltech.com/3.3/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:5
+msgid "Dictionary of the Spanish Academy (RAE)"
+msgstr "Spanska akademins ordbok (RAE)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:6
+msgid ""
+"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
+"&FORMATO=ampliado"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
+msgid "IETF Requests for Comments"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:4
+msgid "http://www.ietf.org/rfc/rfc\\{@}.txt"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:3
+msgid "RPM-Find"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:6
+msgid "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:3
+msgid "Ruby Application Archive"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:6
+msgid "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:3
+msgid "GO.com"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:6
+msgid ""
+"http://www.go.com/Titles?col=WW&qt=\\{@}"
+"&svx=home_searchbox&sv=IS&lk=noframeso"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
+msgid "SourceForge"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:4
+msgid ""
+"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
+"\\{exact,\"0\"}&words=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
+#, fuzzy
+msgid "Technorati"
+msgstr "Technorati-taggar"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:6
+msgid "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:3
+msgid "Technorati Tags"
+msgstr "Technorati-taggar"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:6
+msgid "http://technorati.com/tag/\\{@}?sourceid=kde-search"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:3
+msgid "Merriam-Webster Thesaurus"
+msgstr "Merriam-Websters synonymlexikon"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:6
+msgid "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:4
+msgid "TV Tome"
+msgstr "TV-tome"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:6
+msgid "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:5
+msgid "U.S. Patent Database"
+msgstr "Förenta staternas patentdatabas"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:6
+msgid ""
+"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
+"&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
+msgid "Vivisimo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:6
+#, c-format
+msgid ""
+"http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
+"%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:3
+msgid "Voila"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:6
+msgid ""
+"http://search.ke.voila.fr/S/voila?"
+"lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:3
+msgid "Merriam-Webster Dictionary"
+msgstr "Merriam-Websters ordlexikon"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:6
+msgid "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:3
+msgid "Whatis Query"
+msgstr "Vad är det här-fråga"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:6
+msgid ""
+"http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:3
+msgid "Wikipedia - The Free Encyclopedia"
+msgstr "Wikipedia - den fria encyklopedin"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:6
+msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:3
+msgid "Wiktionary - The Free Dictionary"
+msgstr "Wiktionary - den fria ordboken"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:6
+msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:5
+msgid "WordReference.com English Dictionary"
+msgstr "Wordreference.com engelsk ordbok"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:6
+msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/localdomain/localdomainurifilter.desktop:3
+msgid "LocalDomainFilter"
+msgstr "Filter för lokal domän"
+
+#. Name
+#: ebrowsing/plugins/shorturi/tdeshorturifilter.desktop:3
+msgid "ShortURIFilter"
+msgstr "Kortwebbadressfilter"
+
+#. Name
+#: energy/energy.desktop:11
+msgid "Power Control"
+msgstr "Strömsparfunktion"
+
+#. Comment
+#: energy/energy.desktop:13
+msgid "Settings for display power management"
+msgstr "Inställning av skärmens strömsparfunktion"
+
+#. Keywords
+#: energy/energy.desktop:15
+msgid "energy;saver;apm;acpi;dpms;timeout;blanking;stand by;suspend;power;"
+msgstr "energi;spar;apm;acpi;dpms;tidsgräns;viloläge;vänteläge;ström;"
+
+#. Name
+#: filetypes/filetypes.desktop:12
+msgid "File Associations"
+msgstr "Filbindningar"
+
+#. Comment
+#: filetypes/filetypes.desktop:14
+msgid "Configure file associations"
+msgstr "Anpassa filbindningar"
+
+#. Keywords
+#: filetypes/filetypes.desktop:16
+msgid "Filetypes;File Associations;Mime Types;File Patterns;Files;Pattern;"
+msgstr "Filtyper;Filbindningar;Mime-typer;Filmönster;Filer;Mönster;"
+
+#. Name
+#: fonts/fonts.desktop:12 konqhtml/tdehtml_fonts.desktop:11
+#: tdefontinst/tdeio/fonts.desktop:5
+msgid "Fonts"
+msgstr "Teckensnitt"
+
+#. Comment
+#: fonts/fonts.desktop:14
+msgid "Font settings"
+msgstr "Anpassa teckensnitt"
+
+#. Keywords
+#: fonts/fonts.desktop:16
+msgid ""
+"fonts;font size;styles;charsets;character sets;panel;kicker;control panel;"
+"desktops;FileManager;Toolbars;Menu;Window Title;Title;"
+msgstr ""
+"typsnitt;teckensnitt;typsnittstorlek;teckensnittstorlek;stil;teckenkodning;"
+"panel;kicker;kontrollpanel;inställningscentral;Filhanterare;Verktygsrader;"
+"Meny;Fönstertitel;Titel;"
+
+#. Name
+#: hwmanager/hwdevicetray-autostart.desktop:2
+msgid "tdehwdevicetray"
+msgstr ""
+
+#. GenericName
+#. Name
+#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
+#: hwmanager/hwdevicetray.desktop:4
+#, fuzzy
+msgid "Device Monitor"
+msgstr "Flera bildskärmar"
+
+#. Comment
+#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
+msgid "Monitor hardware devices from the system tray"
+msgstr ""
+
+#. Name
+#: hwmanager/hwmanager.desktop:11
+#, fuzzy
+msgid "Device Manager"
+msgstr "Tjänsthanterare"
+
+#. Comment
+#: hwmanager/hwmanager.desktop:13
+#, fuzzy
+msgid "Configure hardware devices"
+msgstr "Anpassa webbläsarens beteende"
+
+#. Keywords
+#: hwmanager/hwmanager.desktop:15
+msgid "hardware;devices;manager;"
+msgstr ""
+
+#. Comment
+#: iccconfig/iccconfig.desktop:14
+msgid "Configure display ICC color profile"
+msgstr ""
+
+#. Keywords
+#: iccconfig/iccconfig.desktop:16
+msgid "ICC;display;color;profile;"
+msgstr ""
+
+#. Name
+#: iccconfig/iccconfig.desktop:18
+msgid "Color Profile"
+msgstr ""
+
+#. Name
+#: icons/icons.desktop:12
+msgid "Icons"
+msgstr "Ikoner"
+
+#. Comment
+#: icons/icons.desktop:14
+msgid "Customize TDE Icons"
+msgstr "Anpassa TDE:s ikoner"
+
+#. Keywords
+#: icons/icons.desktop:16
+msgid "icons;effects;size;hicolor;locolor;"
+msgstr "ikoner;effekter;storlek;många färger;få färger;"
+
+#. Name
+#: info/cdinfo.desktop:12
+msgid "CD-ROM Information"
+msgstr "Cdrom-Information"
+
+#. Comment
+#: info/cdinfo.desktop:14
+msgid "CD/DVD Drive Capabilites"
+msgstr "Cd- eller dvd-enhetens förmågor"
+
+#. Keywords
+#: info/cdinfo.desktop:16
+msgid "CD-ROM Information;CD-ROM;CD;CD Drive;Writer Capabilities;"
+msgstr "cdrom-information;cdrom;cd;cd-enhet;brännarens förmåga;"
+
+#. Name
+#: info/devices.desktop:13
+msgid "Devices"
+msgstr "Enheter"
+
+#. Comment
+#: info/devices.desktop:15
+msgid "Attached devices information"
+msgstr "Information om anslutna enheter"
+
+#. Keywords
+#: info/devices.desktop:17
+msgid "dev;Devices;System Information;Information;"
+msgstr "enhet;Enheter;Systeminformation;Information;"
+
+#. Name
+#: info/dma.desktop:13
+msgid "DMA-Channels"
+msgstr "DMA-kanaler"
+
+#. Comment
+#: info/dma.desktop:15
+msgid "DMA information"
+msgstr "DMA-information"
+
+#. Keywords
+#: info/dma.desktop:17
+msgid "dma;DMA-Channels;System Information;"
+msgstr "dma;DMA-kanaler;Systeminformation;"
+
+#. Name
+#: info/interrupts.desktop:13
+msgid "Interrupts"
+msgstr "Avbrott"
+
+#. Comment
+#: info/interrupts.desktop:15
+msgid "Interrupt information"
+msgstr "Avbrottsinformation"
+
+#. Keywords
+#: info/interrupts.desktop:17
+msgid "Interrupts;IRQ;System Information;"
+msgstr "Avbrott;IRQ;Systeminformation;"
+
+#. Name
+#: info/ioports.desktop:13
+msgid "IO-Ports"
+msgstr "I/O-portar"
+
+#. Comment
+#: info/ioports.desktop:15
+msgid "IO-port information"
+msgstr "Information om I/O-portar"
+
+#. Keywords
+#: info/ioports.desktop:17
+msgid "IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System Information;"
+msgstr ""
+"IO;I/O;IO-portar;I/O-portar;Ports;IO-område;I/O-område;Systeminformation;"
+
+#. Name
+#: info/memory.desktop:12
+msgid "Memory"
+msgstr "Minne"
+
+#. Comment
+#: info/memory.desktop:14
+msgid "Memory information"
+msgstr "Minnesinformation"
+
+#. Keywords
+#: info/memory.desktop:16
+msgid ""
+"Memory;RAM;Virtual memory;Physical memory;Shared memory;Swap;System "
+"Information;"
+msgstr ""
+"Minne;RAM;Virtuellt minne;Fysiskt minne;Delat minne;Swapp;Systeminformation;"
+
+#. Name
+#: info/opengl.desktop:13
+msgid "OpenGL"
+msgstr ""
+
+#. Comment
+#: info/opengl.desktop:15
+msgid "OpenGL information"
+msgstr "Information om OpenGL"
+
+#. Keywords
+#: info/opengl.desktop:17
+msgid ""
+"OpenGL;DRI;GLX;3D;VideoCard;Hardware Acceleration;Graphics;X;X11;Xserver;X-"
+"Server;XFree86;Display;"
+msgstr ""
+"OpenGL;DRI;GLX;3D;videokort;hårdvaruacceleration;grafik;X;X11;Xserver;X-"
+"server;Xfree86;skärm;"
+
+#. Name
+#: info/partitions.desktop:13
+msgid "Partitions"
+msgstr "Partitioner"
+
+#. Comment
+#: info/partitions.desktop:15
+msgid "Partition information"
+msgstr "Partitionsinformation"
+
+#. Keywords
+#: info/partitions.desktop:17
+msgid "Partitions;Harddrive;HD;System Information;"
+msgstr "Partitioner;Hårddisk;HD;Systeminformation;"
+
+#. Name
+#: info/pci.desktop:12
+msgid "PCI"
+msgstr ""
+
+#. Comment
+#: info/pci.desktop:14
+msgid "PCI information"
+msgstr "PCI-information"
+
+#. Keywords
+#: info/pci.desktop:16
+msgid "PCI;PCI-Devices;PCI-Bus;System Information;"
+msgstr "PCI;PCI-enheter;PCI-buss;Systeminformation;"
+
+#. Name
+#: info/processor.desktop:12
+#, fuzzy
+msgid "Processor"
+msgstr "Processorinformation"
+
+#. Comment
+#: info/processor.desktop:14
+msgid "Processor information"
+msgstr "Processorinformation"
+
+#. Keywords
+#: info/processor.desktop:16
+msgid "Processor;CPU;FPU;MHz;System Information;"
+msgstr "Processor;CPU;FPU;MHz;Systeminformation;"
+
+#. Name
+#: info/scsi.desktop:12
+msgid "SCSI"
+msgstr ""
+
+#. Comment
+#: info/scsi.desktop:14
+msgid "SCSI information"
+msgstr "SCSI-information"
+
+#. Keywords
+#: info/scsi.desktop:16
+msgid "SCSI;SCSI-Bus;System Information;"
+msgstr "SCSI;SCSI-buss;Systeminformation;"
+
+#. Name
+#: info/sound.desktop:12
+msgid "Sound"
+msgstr "Ljud"
+
+#. Comment
+#: info/sound.desktop:14
+msgid "Sound information"
+msgstr "Ljudinformation"
+
+#. Keywords
+#: info/sound.desktop:16
+msgid "Sound;Audio;Soundcard;MIDI;OSS;System Information;"
+msgstr "Ljud;Ljudkort;Midi;OSS;Systeminformation;"
+
+#. Name
+#: info/xserver.desktop:12
+msgid "X-Server"
+msgstr "X-server"
+
+#. Comment
+#: info/xserver.desktop:14
+msgid "X-Server information"
+msgstr "X-serverinformation"
+
+#. Keywords
+#: info/xserver.desktop:16
+msgid "X;X-Server;XServer;XFree86;Display;VideoCard;System Information;"
+msgstr "X;X-server;Xserver;Xfree86;skärm;videokort;systeminformation;"
+
+#. Name
+#: input/mouse.desktop:13
+msgid "Mouse"
+msgstr "Mus"
+
+#. Comment
+#: input/mouse.desktop:15
+msgid "Mouse settings"
+msgstr "Anpassa mus"
+
+#. Keywords
+#: input/mouse.desktop:17
+msgid ""
+"Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
+"Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
+"DoubleClick;mapping;right handed;left handed;"
+msgstr ""
+"Mus;Musacceleration;Muströskel;Musknappar;Val;Markörutseende;"
+"Inmatningsenheter;Knapptolkning;klickning;ikoner;respons;Pekare;Drag;"
+"Dubbelklick;Tolkning;högerhänt;vänsterhänt;"
+
+#. Name
+#: joystick/joystick.desktop:12
+msgid "Joystick"
+msgstr "Styrspak"
+
+#. Comment
+#: joystick/joystick.desktop:14
+msgid "Joystick - a kcontrol module to test Joysticks"
+msgstr "Styrspak: en inställningsmodul för att testa styrspakar"
+
+#. Keywords
+#: joystick/joystick.desktop:16
+msgid "joystick;gamepad;"
+msgstr "styrspak;spelkonsol;"
+
+#. Name
+#: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
+#: kcontrol/tde-kcontrol.desktop:8
+msgid "Trinity Control Center"
+msgstr "Inställningscentralen"
+
+#. Name
+#: kded/kcmkded.desktop:11
+msgid "Service Manager"
+msgstr "Tjänsthanterare"
+
+#. Comment
+#: kded/kcmkded.desktop:13
+msgid "System Services Configuration"
+msgstr "Anpassa systemets tjänster"
+
+#. Keywords
+#: kded/kcmkded.desktop:15
+msgid "KDED;Daemon;Services;"
+msgstr "KDED;Demon;Tjänster;"
+
+#. Name
+#: keys/keys.desktop:12
+msgid "Keyboard Shortcuts"
+msgstr "Snabbtangenter"
+
+#. Comment
+#: keys/keys.desktop:14
+msgid "Configuration of keybindings"
+msgstr "Anpassa kortkommandon"
+
+#. Keywords
+#: keys/keys.desktop:16
+msgid ""
+"Keys;Global key bindings;Key scheme;Key bindings;shortcuts;application "
+"shortcuts;"
+msgstr ""
+"Tangenter;Globala kortkommandon;bindningar;Tangentbindningar;genvägar;"
+"programgenvägar;"
+
+#. Name
+#: kicker/kicker_config.desktop:11
+msgid "Layout"
+msgstr ""
+
+#. Comment
+#: kicker/kicker_config.desktop:13 kicker/kicker_config_arrangement.desktop:13
+msgid "Configure the arrangement of the panel"
+msgstr "Du kan anpassa panelens utseende här"
+
+#. Keywords
+#: kicker/kicker_config.desktop:15 kicker/kicker_config_appearance.desktop:15
+#: kicker/kicker_config_arrangement.desktop:15
+#: kicker/kicker_config_hiding.desktop:15 kicker/kicker_config_menus.desktop:15
+#: kicker/panel.desktop:14
+msgid ""
+"kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;"
+"buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;"
+"bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;"
+"applets;startup;highlight;handles;zooming icons;"
+msgstr ""
+"kicker;panel;k-panel;aktivitetsfält;startfält;körningsfält;plats;storlek;"
+"dölj automatiskt;dölj;göm;knappar;animering;bakgrund;teman;menycache;cache;"
+"gömd;dold;TDE meny;bokmärken;senaste dokument;snabbläddrare;bläddringsmeny;"
+"meny;ikoner;miniprogram;start;framhäv;grepp;zoomikoner;"
+
+#. Name
+#: kicker/kicker_config_appearance.desktop:11 konq/fileappearance.desktop:11
+msgid "Appearance"
+msgstr "Utseende"
+
+#. Comment
+#: kicker/kicker_config_appearance.desktop:13
+msgid "Configure the appearance of the panel"
+msgstr "Du kan anpassa panelens utseende här"
+
+#. Name
+#: kicker/kicker_config_arrangement.desktop:11
+msgid "Arrangement"
+msgstr "Arrangemang"
+
+#. Name
+#: kicker/kicker_config_hiding.desktop:11
+msgid "Hiding"
+msgstr "Dölj"
+
+#. Comment
+#: kicker/kicker_config_hiding.desktop:13
+msgid "Configure the hiding of the panel"
+msgstr "Du kan anpassa när panelen döljs här"
+
+#. Name
+#: kicker/kicker_config_menus.desktop:11
+msgid "Menus"
+msgstr "Menyer"
+
+#. Comment
+#: kicker/kicker_config_menus.desktop:13
+msgid "Configure the menus of the panel"
+msgstr "Du kan anpassa panelens menyer här"
+
+#. Name
+#: kicker/panel.desktop:10
+msgid "Panels"
+msgstr "Paneler"
+
+#. Comment
+#: kicker/panel.desktop:12
+msgid "Configure the arrangement of the panels"
+msgstr "Anpassa panelens placering"
+
+#. Name
+#: knotify/kcmnotify.desktop:11
+msgid "System Notifications"
+msgstr "Systemunderrättelser"
+
+#. Comment
+#: knotify/kcmnotify.desktop:13
+msgid "System Notification Configuration"
+msgstr "Anpassa systemunderrättelser"
+
+#. Keywords
+#: knotify/kcmnotify.desktop:15
+msgid "System sounds;Audio;Sound;Notify;Alerts;Notification;"
+msgstr "Systemljud;Ljud;ljud;Underrättelse;Varningar;Bekräftelse;"
+
+#. Name
+#: konq/desktop.desktop:11
+msgid "Multiple Desktops"
+msgstr "Flera skrivbord"
+
+#. Comment
+#: konq/desktop.desktop:13
+msgid "You can configure how many virtual desktops there are"
+msgstr "Anpassa antalet virtuella skrivbord"
+
+#. Keywords
+#: konq/desktop.desktop:15
+msgid "desktop;desktops;number;virtual desktop;"
+msgstr "skrivbord;antal skrivbord;antal;virtuellt skrivbord;"
+
+#. Name
+#: konq/desktopbehavior.desktop:12 konq/filebehavior.desktop:11
+msgid "Behavior"
+msgstr "Uppträdande"
+
+#. Comment
+#: konq/desktopbehavior.desktop:14
+msgid "You can configure how the desktop behaves here"
+msgstr "Anpassa hur skrivbordet beter sig"
+
+#. Keywords
+#: konq/desktopbehavior.desktop:16
+msgid ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;"
+msgstr ""
+"konqueror;filhanterare;kfm;tips;filtips;särskilt fönster;visa fönster;"
+"beteende;minnesanvändning;hemadress;"
+
+#. Name
+#: konq/desktoppath.desktop:11
+msgid "Paths"
+msgstr "Sökvägar"
+
+#. Comment
+#: konq/desktoppath.desktop:13
+msgid "Change the location important files are stored"
+msgstr "Ändra plats för lagring av viktiga filer"
+
+#. Keywords
+#: konq/desktoppath.desktop:15
+msgid "konqueror;filemanager;paths;desktop;directories;autostart;"
+msgstr "konqueror;filhanterare;sökvägar;skrivbord;kataloger;automatisk start;"
+
+#. Comment
+#: konq/fileappearance.desktop:13
+msgid "Configure how Konqueror looks as a file manager"
+msgstr "Anpassa hur Konqueror ser ut som filhanterare"
+
+#. Keywords
+#: konq/fileappearance.desktop:15 konq/filebrowser.desktop:16
+msgid ""
+"konqueror;filemanager;word wrap;wrap;underline;display;filesize;bytes;font;"
+"color;colour;"
+msgstr ""
+"konqueror;filhanterare;radbrytning;understreck;visa;filstorlek;byte;"
+"teckensnitt;färg;"
+
+#. Comment
+#: konq/filebehavior.desktop:13
+msgid "Configure how Konqueror behaves as a file manager"
+msgstr "Anpassa hur Konqueror beter sig som filhanterare"
+
+#. Keywords
+#: konq/filebehavior.desktop:15
+msgid ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;network operations;progress dialog;"
+"trash can;delete;confirmation;"
+msgstr ""
+"konqueror;filhanterare;kfm;tips;filtips;särskilt fönster;visa fönster;"
+"beteende;minnesanvändning;hemadress;nätverksåtgärder;förloppsdialogruta;"
+"papperskorg;ta bort;bekräftelse;"
+
+#. Comment
+#: konq/filebrowser.desktop:14
+msgid "You can configure Konqueror's file manager mode here"
+msgstr "Anpassa Konquerors filhanteringsläge"
+
+#. Name
+#: konq/filepreviews.desktop:11
+msgid "Previews & Metadata"
+msgstr "Förhandsgranskning och metadata"
+
+#. Comment
+#: konq/filepreviews.desktop:13
+msgid "Configure how Konqueror Previews & Meta-data work"
+msgstr "Anpassa hur Konquerors förhandsgranskning och metadata fungerar"
+
+#. Keywords
+#: konq/filepreviews.desktop:15
+msgid "konqueror;filemanager;previews;file previews;maximum size;"
+msgstr "konqueror;filhanterare;förhandsgranskning;maximal storlek;"
+
+#. Name
+#: konqhtml/tdehtml_behavior.desktop:11
+msgid "Web Behavior"
+msgstr "Nätbeteende"
+
+#. Comment
+#: konqhtml/tdehtml_behavior.desktop:13
+msgid "Configure the browser behavior"
+msgstr "Anpassa webbläsarens beteende"
+
+#. Keywords
+#: konqhtml/tdehtml_behavior.desktop:15
+msgid ""
+"konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;"
+"cursor;links;images;charsets;character sets;encoding;"
+msgstr ""
+"konqueror;kfm;webbläsare;html;webb;www;teckensnitt;färger;java;javaskript;"
+"länkar;bilder;kodning;teckenuppsättningar;"
+
+#. Name
+#: konqhtml/tdehtml_filter.desktop:10
+msgid "AdBlocK Filters"
+msgstr "Reklamblockeringsfilter"
+
+#. Comment
+#: konqhtml/tdehtml_filter.desktop:12
+msgid "Configure Konqueror AdBlocK filters"
+msgstr "Anpassa Konquerors reklamblockeringsfilter"
+
+#. Comment
+#: konqhtml/tdehtml_fonts.desktop:13
+msgid "Configure the fonts used on web pages"
+msgstr "Anpassa teckensnitt som används på webbsidor"
+
+#. Keywords
+#: konqhtml/tdehtml_fonts.desktop:15
+msgid ""
+"konqueror;kfm;browser;html;web;www;fonts;charsets;character sets;encoding;"
+msgstr ""
+"konqueror;kfm;webbläsare;html;webb;www;teckensnitt;färger;java;javaskript;"
+"länkar;bilder;kodning;teckenuppsättningar;"
+
+#. Name
+#: konqhtml/tdehtml_java_js.desktop:11
+msgid "Java & JavaScript"
+msgstr "Java och Javaskript"
+
+#. Comment
+#: konqhtml/tdehtml_java_js.desktop:13
+msgid "Configure the behavior of Java and JavaScript"
+msgstr "Anpassa beteendet hos Java och Javaskript"
+
+#. Keywords
+#: konqhtml/tdehtml_java_js.desktop:15
+msgid "konqueror;kfm;browser;html;web;www;java;javascript;"
+msgstr ""
+"konqueror;kfm;webbläsare;html;webb;www;teckensnitt;färger;java;javaskript;"
+"länkar;bilder;kodning;teckenuppsättningar;"
+
+#. Name
+#: konqhtml/tdehtml_userinterface.desktop:11
+#, fuzzy
+msgid "User Interface"
+msgstr "Nätverksgränssnitt"
+
+#. Comment
+#: konqhtml/tdehtml_userinterface.desktop:13
+#, fuzzy
+msgid "Configure user interface options"
+msgstr "Anpassa webbcacheinställningar"
+
+#. Keywords
+#: konqhtml/tdehtml_userinterface.desktop:15
+#, fuzzy
+msgid "konqueror;kfm;user;interface;tabbed;browsing;"
+msgstr "konqueror;återanvändning;förladdning;"
+
+#. Name
+#: konsole/kcmkonsole.desktop:10
+msgid "Konsole"
+msgstr ""
+
+#. Comment
+#: konsole/kcmkonsole.desktop:12
+msgid "Konsole configuration module"
+msgstr "Anpassa Konsole"
+
+#. Keywords
+#: konsole/kcmkonsole.desktop:14
+msgid ""
+"konsole;schema;konsole background;colors;background;terminal application;"
+"terminal;"
+msgstr ""
+"konsole;konsoll;schema;konsol bakgrund;färger;bakgrund;terminalprogram;"
+"terminal;"
+
+#. Name
+#: kthememanager/installktheme.desktop:2
+msgid "Install TDE Theme"
+msgstr "Installera TDE-tema"
+
+#. Comment
+#: kthememanager/kthememanager.desktop:2
+msgid "Manage global TDE visual themes"
+msgstr "Hantera TDE:s allmänna visuella teman"
+
+#. Keywords
+#: kthememanager/kthememanager.desktop:5
+msgid "themes;look and feel;"
+msgstr "teman;utseende och känsla;"
+
+#. Name
+#: kthememanager/kthememanager.desktop:6
+msgid "Theme Manager"
+msgstr "Temahanterare"
+
+#. Comment
+#: kthememanager/x-ktheme.desktop:3
+msgid "TDE Theme"
+msgstr "TDE-tema"
+
+#. Name
+#: launch/kcmlaunch.desktop:12
+msgid "Launch Feedback"
+msgstr "Gensvar vid programstart"
+
+#. Comment
+#: launch/kcmlaunch.desktop:14
+msgid "Choose application-launch feedback style"
+msgstr "Välj typ av gensvar vid programstart"
+
+#. Keywords
+#: launch/kcmlaunch.desktop:16
+msgid ""
+"application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
+"spinning;disk;startup;program;report;"
+msgstr ""
+"program;start;upptagen;markör;gensvar;mus;pekare;roterande;snurrande;disk;"
+"uppstart;rapport;"
+
+#. Name
+#: locale/default/entry.desktop:2
+msgid "US English"
+msgstr "Amerikansk engelska"
+
+#. Name
+#: locale/language.desktop:12
+msgid "Country/Region & Language"
+msgstr "Land/region och språk"
+
+#. Comment
+#: locale/language.desktop:14
+msgid "Language, numeric, and time settings for your particular region"
+msgstr "Ställ in språk, numeriskt format och tid för din speciella region"
+
+#. Keywords
+#: locale/language.desktop:16
+msgid ""
+"language;translation;number format;currency;time;date;formats;locale;Country;"
+"charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
+"sign;positive;negative;fractional digits;week;week start;"
+msgstr ""
+"språk;översättning;talformat;valuta;tid;datum;format;land;"
+"teckenuppsättningar;decimaltecken;tusentalsavskiljare;symbol;avskiljare;"
+"tecken;positivt;negativt;decimaler;vecka;första veckodag;"
+
+#. Name
+#: nics/nic.desktop:12
+msgid "Network Interfaces"
+msgstr "Nätverksgränssnitt"
+
+#. Comment
+#: nics/nic.desktop:14
+msgid "Network interface information"
+msgstr "Information om nätverksgränssnitt"
+
+#. Name
+#: performance/kcmkonqyperformance.desktop:11
+#: performance/kcmperformance.desktop:11
+msgid "Performance"
+msgstr "Prestanda"
+
+#. Comment
+#: performance/kcmkonqyperformance.desktop:13
+msgid "Configure settings that can improve Konqueror performance"
+msgstr "Anpassa inställningar som kan förbättra Konquerors prestanda"
+
+#. Keywords
+#: performance/kcmkonqyperformance.desktop:15
+msgid "konqueror;reuse;preloading;"
+msgstr "konqueror;återanvändning;förladdning;"
+
+#. Comment
+#: performance/kcmperformance.desktop:13
+msgid "Configure settings that can improve TDE performance"
+msgstr "Anpassa inställningar som kan förbättra TDE:s prestanda"
+
+#. Keywords
+#: performance/kcmperformance.desktop:15
+msgid "performance;speed;memory;improve;"
+msgstr "prestanda;hastighet;minne;förbättra;"
+
+#. Name
+#: privacy/privacy.desktop:11
+msgid "Privacy"
+msgstr "Integritet"
+
+#. Comment
+#: privacy/privacy.desktop:13
+msgid "Clean unwanted traces the user leaves on the system"
+msgstr "Bort oönskade spår användaren lämnat i systemet"
+
+#. Keywords
+#: privacy/privacy.desktop:15
+msgid "Privacy;privacy;"
+msgstr "Integritet;privatliv;"
+
+#. Name
+#: randr/randr.desktop:9
+msgid "Size & Orientation"
+msgstr "Storlek och orientering"
+
+#. Comment
+#: randr/randr.desktop:11
+msgid "Resize and Rotate your display"
+msgstr "Storleksändring och rotation av skärmen"
+
+#. Keywords
+#: randr/randr.desktop:13
+msgid "resize;rotate;display;color;depth;size;horizontal;vertical;"
+msgstr "ändra storlek;rotera;skärm;färg;djup;storlek;horisontell;vertikal;"
+
+#. Name
+#: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
+msgid "TDERandRTray"
+msgstr ""
+
+#. GenericName
+#: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
+msgid "Screen Resize & Rotate"
+msgstr "Ändra skärmstorlek och rotera"
+
+#. Comment
+#: randr/tderandrtray-autostart.desktop:6 randr/tderandrtray.desktop:6
+msgid "Resize and rotate X screens."
+msgstr "Storleksändring och rotation av X-skärmar."
+
+#. Name
+#: samba/smbstatus.desktop:12
+msgid "Samba Status"
+msgstr "Samba-status"
+
+#. Comment
+#: samba/smbstatus.desktop:14
+msgid "Samba status monitor"
+msgstr "Övervakar Samba-status"
+
+#. Keywords
+#: samba/smbstatus.desktop:16
+msgid "SMB;SAMBA;Windows network;LAN;System Information;"
+msgstr "SMB;Samba;Windows nätverk;LAN;Systeminformation;"
+
+#. Name
+#: screensaver/screensaver.desktop:12
+msgid "Screen Saver"
+msgstr "Skärmsläckare"
+
+#. Comment
+#: screensaver/screensaver.desktop:14
+msgid "Screen Saver Settings"
+msgstr "Anpassa skärmsläckare"
+
+#. Keywords
+#: screensaver/screensaver.desktop:16
+msgid "screensavers;Priority;"
+msgstr "skärmsläckare;Prioritet;"
+
+#. Name
+#: smartcard/smartcard.desktop:11
+msgid "Smartcards"
+msgstr "Smartkort"
+
+#. Comment
+#: smartcard/smartcard.desktop:13
+msgid "Configure smartcard support"
+msgstr "Anpassa stöd för smartkort"
+
+#. Keywords
+#: smartcard/smartcard.desktop:15
+msgid "Smartcard;PKCS;SSL;reader;smart;card;"
+msgstr "Smartkort;PKCS;SSL;läsare;smart;kort;"
+
+#. Name
+#: smserver/kcmsmserver.desktop:12
+msgid "Session Manager"
+msgstr "Sessionshanterare"
+
+#. Comment
+#: smserver/kcmsmserver.desktop:14
+msgid "Configure the session manager and logout settings"
+msgstr "Anpassa sessionshanteraren och utloggningsinställningar"
+
+#. Keywords
+#: smserver/kcmsmserver.desktop:16
+msgid "ksmserver;session;logout;confirmation;save;restore;"
+msgstr "ksmserver;session;logga ut;bekräftelse;spara;återställa;"
+
+#. Name
+#: spellchecking/spellchecking.desktop:11
+msgid "Spell Checker"
+msgstr "Stavningskontroll"
+
+#. Comment
+#: spellchecking/spellchecking.desktop:13
+msgid "Configure the spell checker"
+msgstr "Anpassa stavningskontroll"
+
+#. Keywords
+#: spellchecking/spellchecking.desktop:15
+msgid "Spell;"
+msgstr "Stava;"
+
+#. Name
+#: style/style.desktop:13
+msgid "Style"
+msgstr "Stil"
+
+#. Comment
+#: style/style.desktop:15
+msgid ""
+"Allows the manipulation of widget behavior and changing the Style for TDE"
+msgstr ""
+"Tillåter manipulering av beteendet hos komponenter och ändring av stil på TDE"
+
+#. Keywords
+#: style/style.desktop:17
+msgid ""
+"style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE applications;"
+msgstr ""
+"stil;stilar;utseende;komponent;ikoner;verktygrader;text;färgläggning; "
+"program;TDE-program;"
+
+#. Name
+#: taskbar/kcmtaskbar.desktop:11
+msgid "Taskbar"
+msgstr "Aktivitetsfält"
+
+#. Comment
+#: taskbar/kcmtaskbar.desktop:13
+msgid "Configure the selected taskbar"
+msgstr "Anpassa panelens aktivitetsfält"
+
+#. Keywords
+#: taskbar/kcmtaskbar.desktop:15
+msgid "kicker;panel;kpanel;taskbar;startbar;launchbar;windows;"
+msgstr "kicker;panel;kpanel;aktivitetsfält;startrad;programrad;fönster;"
+
+#. Name
+#: tdefontinst/installfont.desktop:6
+msgid "Install"
+msgstr "Installera"
+
+#. Name
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:14
+msgid "Font Installer"
+msgstr "Installation av teckensnitt"
+
+#. Comment
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:16
+msgid "Install & preview fonts"
+msgstr "Installera och förhandsgranska teckensnitt"
+
+#. Keywords
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:18
+msgid "font;fonts;installer;truetype;type1;speedo;bitmap;"
+msgstr "teckensnitt;installation;truetype;type1;speedo;bitmap;"
+
+#. Name
+#: tdefontinst/tdefile-plugin/tdefile_font.desktop:3
+msgid "Font Information"
+msgstr "Teckensnittsinformation"
+
+#. Comment
+#: tdefontinst/tdeio/folder.desktop:2
+msgid "Fonts Folder"
+msgstr "Teckensnittskatalog"
+
+#. Comment
+#: tdefontinst/tdeio/package.desktop:6
+msgid "Fonts Package"
+msgstr "Teckensnittspaket"
+
+#. Comment
+#: tdefontinst/tdeio/system-folder.desktop:2
+msgid "System Fonts Folder"
+msgstr "Systemteckensnittskatalog"
+
+#. Name
+#: tdefontinst/thumbnail/fontthumbnail.desktop:3
+msgid "Font Files"
+msgstr "Teckensnittsfiler"
+
+#. Name
+#: tdefontinst/viewpart/tdefontview.desktop:2
+msgid "TDEFontView"
+msgstr "Kfontview"
+
+#. GenericName
+#. Name
+#: tdefontinst/viewpart/tdefontview.desktop:8
+#: tdefontinst/viewpart/tdefontviewpart.desktop:2
+msgid "Font Viewer"
+msgstr "Teckensnittsvisning"
+
+#. Name
+#: tdeio/cache.desktop:12
+msgid "Cache"
+msgstr ""
+
+#. Comment
+#: tdeio/cache.desktop:14
+msgid "Configure web cache settings"
+msgstr "Anpassa webbcacheinställningar"
+
+#. Keywords
+#: tdeio/cache.desktop:16
+msgid "Cache;History;Browsing History;Ports;Size;"
+msgstr "Cache;Historik;Webbläsningshistorik;Portar;Storlek;"
+
+#. Name
+#: tdeio/cookies.desktop:12
+msgid "Cookies"
+msgstr "Kakor"
+
+#. Comment
+#: tdeio/cookies.desktop:14
+msgid "Configure the way cookies work"
+msgstr "Anpassa hur kakor fungerar"
+
+#. Keywords
+#: tdeio/cookies.desktop:16
+msgid "Cookies;Browsing;Internet;WWW;Network;Policy;Domains;"
+msgstr "Kakor;Surfning;Internet;WWW;Nätverk;Policy;Domäner;"
+
+#. Name
+#: tdeio/lanbrowser.desktop:11
+msgid "Local Network Browsing"
+msgstr "Lokal nätverksbläddring"
+
+#. Comment
+#: tdeio/lanbrowser.desktop:13
+msgid "Setup lisa, reslisa and the ioslaves"
+msgstr "Ställ in lisa, reslisa och I/O-slavarna"
+
+#. Keywords
+#: tdeio/lanbrowser.desktop:15
+msgid "samba;smb;windows;network;"
+msgstr "samba;smb;windows;nätverk;"
+
+#. Comment
+#: tdeio/netpref.desktop:2
+msgid "Configure generic network preferences, like timeout values"
+msgstr "Anpassa allmänna nätverksinställningar, som tidsgränser"
+
+#. Keywords
+#: tdeio/netpref.desktop:5
+msgid "timeout;iopref;netpref;network preferences;ftp;"
+msgstr "tidsgräns;io-inställning;nät-inställning;nätverksinställningar;FTP;"
+
+#. Name
+#: tdeio/netpref.desktop:6
+msgid "Connection Preferences"
+msgstr "Anslutningsinställningar"
+
+#. Name
+#: tdeio/proxy.desktop:12
+msgid "Proxy"
+msgstr "Proxyservrar"
+
+#. Comment
+#: tdeio/proxy.desktop:14
+msgid "Configure the proxy servers used"
+msgstr "Anpassa proxyservrar som används"
+
+#. Keywords
+#: tdeio/proxy.desktop:16
+msgid "Proxy;Proxy server;Firewall;Squid;proxy;"
+msgstr "Proxy;Proxy-server;Brandvägg;Squid;proxy;"
+
+#. Name
+#: tdeio/smb.desktop:12
+msgid "Windows Shares"
+msgstr "Utdelade Windows-kataloger"
+
+#. Comment
+#: tdeio/smb.desktop:14
+msgid "Use to configure which windows (SMB) filesystems you can browse"
+msgstr ""
+"Använd detta för att ställa in vilka Windows-filsystem (SMB) som du kan "
+"komma åt"
+
+#. Keywords
+#: tdeio/smb.desktop:16
+msgid ""
+"SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;"
+"Broadcast;WINS;Share;Login;Passwords;"
+msgstr ""
+"SMB;SAMBA;SMB-klient;Windowsnätverk;LAN;Nätverk;omgivning;Server;Broadcast;"
+"WINS;Utdelning;Lösenord;Inloggning;"
+
+#. Comment
+#: tdeio/uasprovider.desktop:4
+msgid "UserAgent Strings"
+msgstr "Användaragentsträngar"
+
+#. Name
+#: tdeio/uasproviders/ie401onwinnt4.desktop:2
+msgid "UADescription (IE 4.01 on Win 2000)"
+msgstr "AA-beskrivning (IE 4.01 på Win 2000)"
+
+#. Name
+#: tdeio/uasproviders/ie45onwinnt5.desktop:2
+msgid "UADescription (IE 4.5 on Win 2000)"
+msgstr "AA-beskrivning (IE 4.5 på Win 2000)"
+
+#. Name
+#: tdeio/uasproviders/ie501onwinnt5.desktop:2
+msgid "UADescription (IE 5.01 on Win 2000)"
+msgstr "AA-beskrivning (IE 5.01 på Win 2000)"
+
+#. Name
+#: tdeio/uasproviders/ie50onppc.desktop:2
+msgid "UADescription (IE 5.0 on Mac PPC)"
+msgstr "AA-beskrivning (IE 5.0 på Mac PPC)"
+
+#. Name
+#: tdeio/uasproviders/ie55onwin98.desktop:2
+msgid "UADescription (IE 5.5 on Win 98)"
+msgstr "AA-beskrivning (IE 5.5 på Win 98)"
+
+#. Name
+#: tdeio/uasproviders/ie55onwinnt5.desktop:2
+msgid "UADescription (IE 5.5 on Win 2000)"
+msgstr "AA-beskrivning (IE 5.5 på Win 2000)"
+
+#. Name
+#: tdeio/uasproviders/ie60oncurrent.desktop:2
+msgid "UADescription (IE 6.0 on current)"
+msgstr "AA-beskrivning (IE 6.0 på aktuell)"
+
+#. Name
+#: tdeio/uasproviders/ie60onwinnt51.desktop:2
+msgid "UADescription (IE 6.0 on Win XP)"
+msgstr "AA-beskrivning (IE 6.0 på Win XP)"
+
+#. Name
+#: tdeio/uasproviders/lynxoncurrent.desktop:2
+msgid "UADescription (Lynx 2.8.3)"
+msgstr "AA-beskrivning (Lynx 2.8.3)"
+
+#. Name
+#: tdeio/uasproviders/ns71oncurrent.desktop:2
+msgid "UADescription (Netscape 7.1 on current)"
+msgstr "AA-beskrivning (Netscape 7.1 på aktuell)"
+
+#. Name
+#: tdeio/uasproviders/ns71onwinnt51.desktop:2
+msgid "UADescription (Netscape 7.1 on XP)"
+msgstr "AA-beskrivning (Netscape 7.1 på XP)"
+
+#. Name
+#: tdeio/uasproviders/op75oncurrent.desktop:2
+msgid "UADescription (Opera 7.55 on current)"
+msgstr "AA-beskrivning (Opera 7.55 på aktuell)"
+
+#. Name
+#: tdeio/uasproviders/w3moncurrent.desktop:2
+msgid "UADescription (w3m 0.1.9)"
+msgstr "AA-beskrivning (w3m 0.1.9)"
+
+#. Name
+#: tdeio/uasproviders/wgetoncurrent.desktop:2
+msgid "UADescription (Wget 1.11.4)"
+msgstr "AA-beskrivning (Wget 1.11.4)"
+
+#. Name
+#: tdeio/useragent.desktop:12
+msgid "Browser Identification"
+msgstr "Webbläsaridentifikation"
+
+#. Comment
+#: tdeio/useragent.desktop:14
+msgid "Configure the way Konqueror reports itself"
+msgstr "Anpassa hur Konqueror identifierar sig"
+
+#. Keywords
+#: tdeio/useragent.desktop:16
+msgid "User Agent;Browser;Internet;WWW;Network;agent;bindings;server;login;"
+msgstr ""
+"Användaragent;Webbläsare;Internet;WWW;Nätverk;agent;bindningar; server;"
+"inloggning;"
+
+#. Name
+#: tdm/tdm.desktop:14
+msgid "Login Manager"
+msgstr "Inloggningshanterare"
+
+#. Comment
+#: tdm/tdm.desktop:16
+msgid "Configure the login manager (TDM)"
+msgstr "Anpassa inloggningshanteraren (TDM)"
+
+#. Keywords
+#: tdm/tdm.desktop:18
+msgid ""
+"tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;"
+"fonts;background;wallpapers;sessions;shutdown;restart;"
+msgstr ""
+"tdm;display manager;xdm;användare;inloggning;välkomsttext;Logo;stilar;språk;"
+"land;teckensnitt;bakgrund;skrivbordsunderlägg;sessioner;stäng av;starta om;"
+
+#. Name
+#: usbview/kcmusb.desktop:10
+msgid "USB Devices"
+msgstr "USB-enheter"
+
+#. Comment
+#: usbview/kcmusb.desktop:12
+msgid "View the USB devices attached to this computer"
+msgstr "Visa USB-enheter anslutna till datorn"
+
+#. Keywords
+#: usbview/kcmusb.desktop:14
+msgid "USB;devices;viewer;control;"
+msgstr "USB;enheter;visare;kontroll;"
+
+#. Name
+#: view1394/kcmview1394.desktop:10
+msgid "IEEE 1394 Devices"
+msgstr "IEEE 1394-enheter"
+
+#. Comment
+#: view1394/kcmview1394.desktop:12
+msgid "View the IEEE 1394 devices attached to this computer"
+msgstr "Visa IEEE 1394-enheter anslutna till datorn"
+
+#. Keywords
+#: view1394/kcmview1394.desktop:14
+msgid "1394;Firewire;devices;viewer;control;"
+msgstr "1394;Firewire;enheter;visare;kontroll;"
+
+#. Name
+#: xinerama/xinerama.desktop:10
+msgid "Multiple Monitors"
+msgstr "Flera bildskärmar"
+
+#. Comment
+#: xinerama/xinerama.desktop:12
+msgid "Configure TDE for multiple monitors"
+msgstr "Anpassa TDE för flera bildskärmar"
+
+#. Keywords
+#: xinerama/xinerama.desktop:14
+msgid "Xinerama;dual head;multihead;monitor;"
+msgstr "Xinerama;dubbla skärmar;flera skärmar;bildskärm;"

@@ -25,7 +25,12 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES konq_iconview.desktop konq_multicolumnview.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE konq_iconview.desktop konq_multicolumnview.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR konqueror-desktops
+)
+
 install( FILES konq_iconview.rc konq_multicolumnview.rc DESTINATION ${DATA_INSTALL_DIR}/konqiconview )
 
 

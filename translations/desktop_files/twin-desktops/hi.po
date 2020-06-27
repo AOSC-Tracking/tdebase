@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmtwin/showdesktop.desktop:4
+msgid "Show Desktop"
+msgstr ""
+
+#. Comment
+#: kcmtwin/showdesktop.desktop:6
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr ""
+
+#. Name
+#: kcmtwin/twindecoration/twindecoration.desktop:11
+msgid "Window Decorations"
+msgstr "विंडो सजावट"
+
+#. Comment
+#: kcmtwin/twindecoration/twindecoration.desktop:13
+msgid "Configure the look and feel of window titles"
+msgstr "विंडो शीर्षकों के रूप आकार को कॉन्फ़िगर करें"
+
+#. Keywords
+#: kcmtwin/twindecoration/twindecoration.desktop:15
+msgid ""
+"twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
+"kwm;decoration;"
+msgstr ""
+"के-विन;विंडो;प्रबंधक;बार्डर;शैली;प्रसंग;रूप;अनुभव;ले-आउट;बटन;हैंडल;किनारा;केडबल्यूएम;सजावट;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactions.desktop:11
+msgid "Actions"
+msgstr "क्रियाएँ"
+
+#. Comment
+#: kcmtwin/twinoptions/twinactions.desktop:13
+msgid "Configure keyboard and mouse settings"
+msgstr "कुंजीपट तथा माउस विन्यास कॉन्फ़िगर करें"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactions.desktop:15
+msgid ""
+"shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
+"resize;"
+msgstr "शेड;अधिकतम;बड़ा;न्यूनतम;छोटा;नीचे;ऑपरेशन्स मेन्यू;शीर्षक-पट्टी;नयाआकार;"
+
+#. Name
+#: kcmtwin/twinoptions/twinadvanced.desktop:11
+msgid "Advanced"
+msgstr "विस्तृत"
+
+#. Comment
+#: kcmtwin/twinoptions/twinadvanced.desktop:13
+msgid "Configure advanced window management features"
+msgstr "विस्तृत विंडो प्रबंधन विशेषता कॉन्फ़िगर करें"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinadvanced.desktop:15
+msgid "shading;border;hover;active borders;"
+msgstr "शेडिंग;किनारा;हावर;सक्रिय किनारे;"
+
+#. Name
+#: kcmtwin/twinoptions/twinfocus.desktop:11
+msgid "Focus"
+msgstr "फ़ोकस"
+
+#. Comment
+#: kcmtwin/twinoptions/twinfocus.desktop:13
+msgid "Configure the window focus policy"
+msgstr "विंडो फ़ोकस पॉलिसी कॉन्फ़िगर करें"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinfocus.desktop:15
+msgid ""
+"focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
+"desktop;"
+msgstr ""
+"फ़ोकस; स्थिति;स्वतः ऊपर उठाएँ;ऊपर उठाएँ;क्लिक ऊपर उठाएँ;कुंजीपट;सीडीई;ऑल्ट-टेब;सभी "
+"डेस्कटॉप;"
+
+#. Name
+#: kcmtwin/twinoptions/twinmoving.desktop:11
+msgid "Moving"
+msgstr "खिसक रहा है"
+
+#. Comment
+#: kcmtwin/twinoptions/twinmoving.desktop:13
+msgid "Configure the way that windows are moved"
+msgstr "कॉन्फ़िगर करें कि विंडो किस तरह खिसके"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinmoving.desktop:15
+msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
+msgstr "खिसकता;चतुर;कास्केड;अधिकतम;न्यूनतम;स्नैप ज़ोन;स्नेप;किनारा;"
+
+#. Name
+#: kcmtwin/twinoptions/twinoptions.desktop:11
+msgid "Window Behavior"
+msgstr "विंडो बर्ताव"
+
+#. Comment
+#: kcmtwin/twinoptions/twinoptions.desktop:13
+msgid "Configure the window behavior"
+msgstr "विंडो व्यवहार कॉन्फ़िगर करें"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinoptions.desktop:15
+msgid ""
+"focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
+"titlebar;doubleclick;"
+msgstr ""
+"फोकस;प्लेसमेंट;विंडो व्यवहार;एनिमेशन;ऊपर उठाएँ;स्वतः ऊपर उठाएँ;विंडोज़;फ्रेम;शीर्षक-पट्टी;"
+"डबल-क्लिक;"
+
+#. Name
+#: kcmtwin/twinoptions/twintranslucency.desktop:11
+msgid "Translucency"
+msgstr ""
+
+#. Comment
+#: kcmtwin/twinoptions/twintranslucency.desktop:13
+#, fuzzy
+msgid "Configure window translucency and shadow management"
+msgstr "विस्तृत विंडो प्रबंधन विशेषता कॉन्फ़िगर करें"
+
+#. Keywords
+#: kcmtwin/twinoptions/twintranslucency.desktop:15
+msgid "translucency;transparence;shadows;"
+msgstr ""
+
+#. Name
+#: kcmtwin/twinrules/twinrules.desktop:11
+msgid "Window-Specific Settings"
+msgstr "विशिष्ट-विंडो विन्यास"
+
+#. Comment
+#: kcmtwin/twinrules/twinrules.desktop:13
+msgid "Configure settings specifically for a window"
+msgstr "किसी खास विंडो के लिए विन्यास कॉन्फ़िगर करें"
+
+#. Keywords
+#: kcmtwin/twinrules/twinrules.desktop:15
+msgid ""
+"size;position;state;window behavior;windows;specific;workarounds;remember;"
+"rules;"
+msgstr "आकार;स्थान;स्थिति;विंडो व्यवहार;विंडोज़;विशिष्ट;कार्य-विकल्प;याददाश्त;नियम;"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:2
+msgid "(Default) Disable focus stealing prevention for XV"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:10
+msgid "(Default) Allow focus stealing by the screen locker"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:21
+msgid "(Default) Allow focus stealing by the kdesktop run dialog"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:32
+msgid "(Default) Allow focus stealing by the settings test dialog"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:45
+msgid "(Default) Hide system modal dialog class from taskbar"
+msgstr ""

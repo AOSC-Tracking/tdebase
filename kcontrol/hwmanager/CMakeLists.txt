@@ -24,7 +24,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES hwmanager.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE hwmanager.desktop
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_iccconfig (module) ####################

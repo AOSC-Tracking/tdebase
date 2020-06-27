@@ -1,0 +1,214 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 09:37+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Help.desktop:10
+msgid "Help"
+msgstr "உதவி"
+
+#. Name
+#: htmlsearch/htmlsearch.desktop:12
+msgid "Index"
+msgstr "பொருளடக்கம்"
+
+#. Comment
+#: htmlsearch/htmlsearch.desktop:14
+msgid "Index generation"
+msgstr "பொருளடக்க இயக்கம்"
+
+#. Keywords
+#: htmlsearch/htmlsearch.desktop:16
+msgid "Help;HTML;Search;Index;htdig;htsearch;htmerge;Scope;Language;"
+msgstr "உதவி;HTML;தேடு;பொருளடக்கம்;htdig;htதேடு;htகல;வரையெல்லை;மொழி;"
+
+#. Name
+#: kcmhelpcenter.desktop:13
+msgid "Help Index"
+msgstr "உதவி பொருளடக்கம்"
+
+#. Comment
+#: kcmhelpcenter.desktop:15
+msgid "Help center search index configuration and generation"
+msgstr "உதவி மையத்தை தேடும் பொருளடக்கம் வடிவமைத்தல் மற்றும் உருவாக்கல்"
+
+#. Keywords
+#: kcmhelpcenter.desktop:17
+msgid "khelpcenter;help;index;search;"
+msgstr "kஉதவி மையம்; உதவி; சுட்டு இணைப்பு முறை;  தேடுதல்; தேடு;"
+
+#. Name
+#: khelpcenter.desktop:11
+msgid "KHelpCenter"
+msgstr "Kஉதவிமையம்"
+
+#. Comment
+#: khelpcenter.desktop:13
+msgid "The Trinity Help Center"
+msgstr "Trinity உதவி மையம்"
+
+#. Name
+#: plugins/Manpages/man1.desktop:4
+msgid "(1) User Commands"
+msgstr "(1) பயன்படுத்துபவர் கட்டளைகள்"
+
+#. Name
+#: plugins/Manpages/man2.desktop:4
+msgid "(2) System Calls"
+msgstr "(2) கணினி அழைப்புகள்"
+
+#. Name
+#: plugins/Manpages/man3.desktop:4
+msgid "(3) Subroutines"
+msgstr "(3)மற்ற நடைமுறைகள்"
+
+#. Name
+#: plugins/Manpages/man4.desktop:4
+msgid "(4) Devices"
+msgstr "(4) சாதனங்கள்"
+
+#. Name
+#: plugins/Manpages/man5.desktop:4
+msgid "(5) File Formats"
+msgstr "(5) கோப்பு வடிவமைப்புகள்"
+
+#. Name
+#: plugins/Manpages/man6.desktop:4
+msgid "(6) Games"
+msgstr "(6) விளையாட்டுகள்"
+
+#. Name
+#: plugins/Manpages/man7.desktop:4
+msgid "(7) Miscellaneous"
+msgstr "(7) மற்ற"
+
+#. Name
+#: plugins/Manpages/man8.desktop:4
+msgid "(8) Sys. Administration"
+msgstr "(8) கணினி-நிர்வாகம்"
+
+#. Name
+#: plugins/Manpages/man9.desktop:4
+msgid "(9) Kernel"
+msgstr "(9) கெர்னல்"
+
+#. Name
+#: plugins/Manpages/mann.desktop:4
+msgid "(n) New"
+msgstr "(n) புதிய"
+
+#. Name
+#: plugins/adminguide.desktop:6
+#, fuzzy
+msgid "TDE Admininstrator Guide"
+msgstr "TDE பயனர்களின் கையேடு"
+
+#. Name
+#: plugins/applets.desktop:6
+msgid "Applet Manuals"
+msgstr "குறுநிரல் கையேடு"
+
+#. Name
+#: plugins/contact.desktop:6
+msgid "Contact Information"
+msgstr "தொடர்பு தகவல்"
+
+#. Name
+#: plugins/faq.desktop:6
+msgid "The TDE FAQ"
+msgstr "TDE FAQ(அடிக்கடி கேட்கப்படும் கேள்விகள்)"
+
+#. Name
+#: plugins/hardwaremodules.desktop:6
+msgid "Hardware"
+msgstr "வன்பொருள்"
+
+#. Name
+#: plugins/info.desktop:7
+msgid "Browse Info Pages"
+msgstr "தகவல் பக்கங்களில் உலாவவும்"
+
+#. Name
+#: plugins/kcontrolmodules.desktop:6
+msgid "Control Center Modules"
+msgstr "கட்டுப்பாட்டு மைய பகுதிகள்"
+
+#. Name
+#: plugins/konqplugins.desktop:6
+msgid "Konqueror Plugins"
+msgstr "கான்கொரர் செருகு சாதனங்கள்"
+
+#. Name
+#: plugins/links.desktop:6
+msgid "TDE on the Web"
+msgstr "வலையத்தில் கேடியி"
+
+#. Name
+#: plugins/quickstart.desktop:6
+msgid "Quickstart Guide"
+msgstr "விரைவுதுவக்க வழிகாட்டி."
+
+#. Name
+#: plugins/support.desktop:6
+msgid "Supporting TDE"
+msgstr "TDEஐ ஆதரிக்கிறது"
+
+#. Name
+#: plugins/tdeioslaves.desktop:6
+msgid "Protocols"
+msgstr "நெறிமுறைகள்"
+
+#. Comment
+#: plugins/tdeioslaves.desktop:8
+msgid "Information about the available protocols"
+msgstr "கிடைக்கக்கூடிய நெறிமுறைகள் பற்றிய தகவல்"
+
+#. Keywords
+#: plugins/tdeioslaves.desktop:10
+msgid "Protocol;IO slaves;Slaves;Network;Information;Timeout;"
+msgstr "நெறிமுறை;IO சேவகன்;சேவகன்கள்;வலைப்பின்னல்;தகவல்;நேரம் முடிந்தது;"
+
+#. Name
+#: plugins/userguide.desktop:6
+msgid "TDE User Guide"
+msgstr "TDE பயனர்களின் கையேடு"
+
+#. Name
+#: plugins/visualdict.desktop:6
+msgid "A Visual Guide to TDE"
+msgstr "TDEன் காட்டிசார் வழிகாட்டி"
+
+#. Name
+#: plugins/welcome.desktop:6
+msgid "Welcome to TDE"
+msgstr "TDEக்கு நல்வரவு"
+
+#. Name
+#: plugins/Applications/.directory:7
+#, fuzzy
+msgid "Application Manuals"
+msgstr "குறுநிரல் கையேடு"
+
+#. Name
+#: plugins/Manpages/.directory:8
+msgid "UNIX manual pages"
+msgstr ""
+
+#. Name
+#: plugins/Scrollkeeper/.directory:5
+msgid "Scrollkeeper"
+msgstr ""

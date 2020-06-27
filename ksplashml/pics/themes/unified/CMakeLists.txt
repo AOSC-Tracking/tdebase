@@ -9,6 +9,8 @@
 #
 #################################################
 
-install( FILES
-    Theme.rc
-  DESTINATION ${DATA_INSTALL_DIR}/ksplash/Themes/Unified )
+tde_create_translated_desktop(
+  SOURCE Theme.rc
+  DESTINATION ${DATA_INSTALL_DIR}/ksplash/Themes/Unified
+  PO_DIR ksplash-themes
+)

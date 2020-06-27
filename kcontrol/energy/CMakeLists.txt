@@ -57,7 +57,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES energy.desktop DESTINATION ${APPS_INSTALL_DIR}/.hidden )
+tde_create_translated_desktop(
+  SOURCE energy.desktop
+  DESTINATION ${APPS_INSTALL_DIR}/.hidden
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_energy (module) #######################

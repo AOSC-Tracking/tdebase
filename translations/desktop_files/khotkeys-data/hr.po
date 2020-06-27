@@ -1,0 +1,554 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 14:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:5
+msgid "Basic Konqueror gestures."
+msgstr "Osnovne Konqueror gestikulacije."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:8
+msgid "Konqueror Gestures"
+msgstr "Konqueror gestikulacije"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:13 trinity2b1.khotkeys:219
+msgid "Konqueror window"
+msgstr "Konqueror prozor"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:20
+#: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
+#: trinity2b1.khotkeys:232
+#, fuzzy
+msgid "Konqueror"
+msgstr "Konqueror prozor"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:35
+msgid "Press, move left, release."
+msgstr "Pritisni, pomakni ulijevo, otpusti."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:37 trinity2b1.khotkeys:242
+msgid "Back"
+msgstr "Natrag"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:41
+msgid ""
+"Opera-style: Press, move up, release.\n"
+"NOTE: Conflicts with 'New Tab', and as such is disabled by default."
+msgstr ""
+"U stilu Opere: Pritisni, pomakni prema gore, otpusti.\n"
+"NAPOMENA: U sukobu s gestikulacijom \"Nova kartica\" te je iz tog razloga "
+"onemogućeno zadanim postavkama."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:43
+msgid "Stop Loading"
+msgstr "Zaustavi učitavanje"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:58
+#: konqueror_gestures_trinity21.khotkeys:83
+#: konqueror_gestures_trinity21.khotkeys:108
+#: konqueror_gestures_trinity21.khotkeys:133
+#: konqueror_gestures_trinity21.khotkeys:158
+#: konqueror_gestures_trinity21.khotkeys:177
+#: konqueror_gestures_trinity21.khotkeys:202
+#: konqueror_gestures_trinity21.khotkeys:227
+#: konqueror_gestures_trinity21.khotkeys:252
+#: konqueror_gestures_trinity21.khotkeys:277
+#: konqueror_gestures_trinity21.khotkeys:306
+#: konqueror_gestures_trinity21.khotkeys:335
+#: konqueror_gestures_trinity21.khotkeys:360
+#: konqueror_gestures_trinity21.khotkeys:385 trinity2b1.khotkeys:257
+#: trinity2b1.khotkeys:289 trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
+msgid "Gesture_triggers"
+msgstr "Okidači gestikulacija"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:66
+msgid ""
+"Going up in URL/directory structure.\n"
+"Mozilla-style: Press, move up, move left, move up, release."
+msgstr ""
+"Kretanje razinu prema gore u strukturi URL adrese ili mape.\n"
+"U stilu Mozille: Pritisni, pomakni prema gore, pomakni ulijevo, otpusti."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:68 trinity2b1.khotkeys:306
+msgid "Up"
+msgstr "Gore"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:91
+msgid ""
+"Going up in URL/directory structure.\n"
+"Opera-style: Press, move up, move left, move up, release.\n"
+"NOTE: Conflicts with  \"Activate Previous Tab\", and as such is disabled by "
+"default."
+msgstr ""
+"Kretanje razinu prema gore u strukturi URL adrese ili mape.\n"
+"U stilu Opere: Pritisni, pomakni prema gore, pomakni ulijevo, pomakni prema "
+"gore, otpusti.\n"
+"NAPOMENA: U sukobu s gestikulacijom \"Aktiviraj prethodnu karticu\" te je iz "
+"tog razloga onemogućeno zadanim postavkama."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:93
+msgid "Up #2"
+msgstr "Gore br.2"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:116
+msgid "Press, move up, move right, release."
+msgstr "Pritisni, pomakni prema gore, pomakni udesno, otpusti."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:118
+msgid "Activate Next Tab"
+msgstr "Aktiviraj sljedeću karticu"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:141
+msgid "Press, move up, move left, release."
+msgstr "Pritisni, pomakni prema gore, pomakni ulijevo, otpusti."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:143
+msgid "Activate Previous Tab"
+msgstr "Aktiviraj prethodnu karticu"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:185
+msgid "Press, move down, move up, move down, release."
+msgstr ""
+"Pritisni, pomakni prema dolje, pomakni prema gore, pomakni prema dolje, "
+"otpusti."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:187
+msgid "Duplicate Tab"
+msgstr "Kopiraj karticu"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:210
+msgid "Press, move down, move up, release."
+msgstr "Pritisni, pomakni prema dolje, pomakni prema gore, otpusti."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:212
+msgid "Duplicate Window"
+msgstr "Kopiraj prozor"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:235
+msgid "Press, move right, release."
+msgstr "Pritisni, pomakni udesno, otpusti."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:237 trinity2b1.khotkeys:274
+msgid "Forward"
+msgstr "Naprijed"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:260
+msgid ""
+"Press, move down, move half up, move right, move down, release.\n"
+"(Drawing a lowercase 'h'.)"
+msgstr ""
+"Pritisni, pomakni prema dolje, pomakni prema gore za pola, pomakni udesno, "
+"pomakni prema dolje, otpusti.\n"
+"(Crtanje malog slova \"h\".)"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:262
+msgid "Home"
+msgstr "Početak"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:289
+msgid ""
+"Press, move right, move down, move right, release.\n"
+"Mozilla-style: Press, move down, move right, release."
+msgstr ""
+"Pritisni, pomakni udesno, pomakni prema dolje, pomakni udesno, otpusti.\n"
+"U stilu Mozille: Pritisni, pomakni prema dolje, pomakni udesno, otpusti."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:291
+msgid "Close Tab"
+msgstr "Zatvori karticu"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:318
+msgid ""
+"Press, move up, release.\n"
+"Conflicts with Opera-style 'Up #2', which is disabled by default."
+msgstr ""
+"Pritisni, pomakni prema gore, otpusti.\n"
+"U sukobu s Operinim \"Gore br.2\", koji je onemogućen po zadanim postavkama."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:320
+msgid "New Tab"
+msgstr "Nova kartica"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:343
+msgid "Press, move down, release."
+msgstr "Pritisni, pomakni prema dolje, otpusti."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:345
+msgid "New Window"
+msgstr "Novi prozor"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:368
+msgid "Press, move up, move down, release."
+msgstr "Pritisni, pomakni prema gore, pomakni prema dolje, otpusti."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:370 trinity2b1.khotkeys:338
+msgid "Reload"
+msgstr "Osvježi"
+
+#. Comment
+#: printscreen.khotkeys:5
+msgid "This group contains actions that are set up by default."
+msgstr "Ova grupa sadrži zadano definirane aktivnosti."
+
+#. Name
+#: printscreen.khotkeys:8
+msgid "Preset Actions"
+msgstr "Unaprijed zadane aktivnosti"
+
+#. Comment
+#: printscreen.khotkeys:17
+msgid "Launches KSnapShot when PrintScrn is pressed."
+msgstr "Pokreće aplikaciju KSnapShot nakon pritiska tipke PrintScrn."
+
+#. Name
+#: printscreen.khotkeys:19
+msgid "PrintScreen"
+msgstr ""
+
+#. Comment
+#: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
+#: trinity2b1.khotkeys:71 trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
+#: trinity2b1.khotkeys:203 trinity2b1.khotkeys:385
+msgid "Simple_action"
+msgstr "Jednostavna aktivnost"
+
+#. Comment
+#: printscreen.khotkeys:41
+#, fuzzy
+msgid ""
+"Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
+msgstr "Pokreće aplikaciju KSnapShot nakon pritiska tipke PrintScrn."
+
+#. Name
+#: printscreen.khotkeys:43
+msgid "PrintWindow"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:5
+msgid ""
+"This group contains various examples demonstrating most of the features of "
+"KHotkeys. (Note that this group and all its actions are disabled by default.)"
+msgstr ""
+"Ova grupa sadrži različite primjere koji demonstriraju većinu osobina "
+"aplikacije KHotkeys. (Napomena: Ova grupa i sve njezine aktivnosti "
+"onemogućene su zadanim postavkama.)"
+
+#. Name
+#: trinity2b1.khotkeys:8
+msgid "Examples"
+msgstr "Primjeri"
+
+#. Comment
+#: trinity2b1.khotkeys:16
+msgid ""
+"After pressing Ctrl+Alt+I, the KSIRC window will be activated, if it exists. "
+"Simple."
+msgstr ""
+"Nakon pritiska tipki Ctrl+Alt+I aktivirat će se prozor aplikacije KSIRC, ako "
+"postoji."
+
+#. Name
+#: trinity2b1.khotkeys:18
+msgid "Activate KSIRC Window"
+msgstr "Aktiviraj KSIRC prozor"
+
+#. Comment
+#: trinity2b1.khotkeys:28
+msgid "KSIRC window"
+msgstr "KSIRC prozor"
+
+#. Comment
+#: trinity2b1.khotkeys:34
+msgid "KSIRC"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:54
+msgid ""
+"After pressing Alt+Ctrl+H, 'Hello' input will be simulated just like if you "
+"typed it. Especially useful if you're lazy to type things like 'unsigned'. "
+"Every keypress in the input is separated by a colon ':' . Note that the "
+"keypresses mean really keypresses, so you have to write what you'd really "
+"press on the keyboard. In the table below, left column shows the input and "
+"the right column shows what to type.\n"
+"\n"
+"\"enter\" (i.e. new line)                Enter or Return\n"
+"a (i.e. small a)                          A\n"
+"A (i.e. capital a)                       Shift+A\n"
+": (colon)                                  Shift+;\n"
+"' '  (space)                              Space"
+msgstr ""
+"Nakon pritiska tipki Alt+Ctrl+H simulirat će se unos \"Hello\", jednako kao "
+"da ste ga unijeli. Izuzetno korisno ako ste lijeni utipkivati riječi poput "
+"\"unsigned\". Svaki pritisak tipke u unosu odvojen je znakom dvotočke \":\". "
+"Napomena: Pritisci tipek su pravi prtisci pa je potrebno zapisati ono što "
+"ste azista utipkali. U donjoj tablici lijevi stupac prikazuje unos, a desni "
+"potrebne pritiske tipki.\n"
+"\n"
+"\"enter\" (tj. novi redak)                Enter ili Return\n"
+"a (tj. malo slovo a)                          A\n"
+"A (tj. veliko slovo a)                       Shift+A\n"
+": (dvotočka)                                  Shift+;\n"
+"\" \" (razmak)                              Razmaknica"
+
+#. Name
+#: trinity2b1.khotkeys:56
+msgid "Type 'Hello'"
+msgstr "Upiši \"Pozdrav\""
+
+#. Comment
+#: trinity2b1.khotkeys:79
+msgid "This action runs Konsole, after pressing Ctrl+Alt+T."
+msgstr "Nakon pritiska tipki Ctrl+Alt+T pokrenut će se Konsole."
+
+#. Name
+#: trinity2b1.khotkeys:81
+msgid "Run Konsole"
+msgstr "Pokreni konzolu"
+
+#. Comment
+#: trinity2b1.khotkeys:103
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Qt Designer uses Ctrl+F4 for closing windows (maybe because MS Windows does "
+"it that way *shrug*). But Ctrl+F4 in TDE stands for going to virtual desktop "
+"4, so it doesn't work in Qt Designer, and also, Qt Designer doesn't use "
+"TDE's standard Ctrl+W for closing the window.\n"
+"\n"
+"But the problem can be solved by remaping Ctrl+W to Ctrl+F4 when the active "
+"window is Qt Designer. When Qt Designer is active, every time Ctrl+W is "
+"pressed, Ctrl+F4 will be sent to Qt Designer instead. In other applications, "
+"Ctrl+W remains working the usual way of course.\n"
+"\n"
+"We now need to specify three things: A new shortcut trigger on 'Ctrl+W', a "
+"new keyboard input action sending Ctrl+F4, and a new condition that the "
+"active window is Qt Designer.\n"
+"Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
+"condition will check for the active window having that title."
+msgstr ""
+"Prvo pročitajte komentar o aktivnosti \"Type 'Hello'\".\n"
+"\n"
+"Qt Designer za zatvaranje prozora upotrebljava prečac Ctrl+F4 (možda jer i "
+"MS Windows upotrebljavaju taj prečac na isti način?). Ali, kako prečac Ctrl"
+"+F4 unutar TDE podrazumijeva prelazak na virtualnu radnu površinu broj 4, "
+"ovaj prečac ne funkcionira unutar Qt Designera. Također, Qt Designer za "
+"zatvaranje prozora ne upotrebljava standardni TDE prečac Ctrl+W.\n"
+"\n"
+"Problem se može riješiti promjenom mapiranja prečaca Ctrl+W u Ctrl+F4 kad je "
+"Qt Designer aktivan prozor. Kad je Qt Designer aktivan, pri svakom pritisku "
+"prečava Ctrl+W, Qt Designeru bit će poslan prečac Ctrl+F4.Unutar ostalih "
+"aplikacija prečac Ctrl+W nastavit će s uobičajenim načinom funkcioniranja.\n"
+"\n"
+"U ovom je trenutku potrebno odrediti tri detalja: novi okidač prečaca \"Ctrl"
+"+W\", novi unos putem tipkovnice koji šalje prečac Ctrl+F4 i novi uvjet koji "
+"opisuje kako je aktivan prozor Qt Designerov.\n"
+"Izgleda kako Qt Designer uvijek sadrži naslov \"Qt Designer by Trolltech\" "
+"pa će uvjet provjeravati ima li aktivan prozor ovakav naslov."
+
+#. Name
+#: trinity2b1.khotkeys:105
+msgid "Remap Ctrl+W to Ctrl+F4 in Qt Designer"
+msgstr "Promjena mapiranja Ctrl+W u Ctrl+F4 unutar Qt Designera"
+
+#. Comment
+#: trinity2b1.khotkeys:123
+msgid "Qt Designer"
+msgstr "Qt Dizajner"
+
+#. Comment
+#: trinity2b1.khotkeys:144
+msgid ""
+"By pressing Alt+Ctrl+W a DCOP call will be performed that will show the "
+"minicli. You can use any kind of DCOP call, just like using the command line "
+"'dcop' tool."
+msgstr ""
+"Pritiskom tipki Alt+Ctrl+W bit će izveden DCOP poziv, a koji će prikazati "
+"\"minicli\". Možete upotrijebiti bilo koju vrstu DCOP poziva, na jednak "
+"način kao i upotrebom alata naredbenog retka \"dcop\"."
+
+#. Name
+#: trinity2b1.khotkeys:146
+msgid "Perform DCOP call 'kdesktop KDesktopIface popupExecuteCommand()'"
+msgstr "Izvođenje DCOP poziva \"kdesktop KDesktopIface popupExecuteCommand()\""
+
+#. Comment
+#: trinity2b1.khotkeys:171
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Just like the \"Type 'Hello'\" action, this one simulates a keyboard input, "
+"specifically, after pressing Ctrl+Alt+B, it sends B to XMMS (B in XMMS jumps "
+"to the next song). The 'Send to specific window' checkbox is checked and a "
+"window with its class containing 'XMMS_Player' is specified; this will make "
+"the input always be sent to this window. This way, you can control XMMS even "
+"if it's e.g. on a different virtual desktop.\n"
+"\n"
+"(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
+"'XMMS_Player')."
+msgstr ""
+"Prvo pročitajte komentar o aktivnosti \"Type 'Hello'\".\n"
+"\n"
+"Jednako kao i aktivnost \"Type 'Hello'\", i ova oponaša unos putem "
+"tipkovnice. Točnije, nakon pritiska tipki Ctrl+Alt+B prema aplikaciji XMMS "
+"šalje se \"B\" (B u aplikaciji XMMS označava prelazak na sljedeću pjesmu). "
+"Označava se okvir \"Pošalji u određeni prozor\" i određuje se prozor s "
+"klasom koja sadržava \"XMMS_Player\". Na ovaj se način unos uvijek šalje u "
+"ovaj prozor i aplikacijom XMMS možete upravljati čak i kad je na nekoj "
+"drugoj virtualnoj radnoj površini.\n"
+"\n"
+"(Da biste prikazali \"XMMS_Player\", pokrenite naredbu \"xprop\" i kliknite "
+"prozor aplikacije XMMS te pretražite za WM_CLASS.)"
+
+#. Name
+#: trinity2b1.khotkeys:173
+msgid "Next in XMMS"
+msgstr "Sljedeći u XMMS-u"
+
+#. Comment
+#: trinity2b1.khotkeys:185
+msgid "XMMS window"
+msgstr "XMMS prozor"
+
+#. Comment
+#: trinity2b1.khotkeys:191
+msgid "XMMS Player window"
+msgstr "Prozor XMMS programa"
+
+#. Comment
+#: trinity2b1.khotkeys:211
+msgid ""
+"Ok, Konqi in TDE has tabs, and now you can also have gestures. No need to "
+"use other browsers >;).\n"
+"\n"
+"Just press the middle mouse button and start drawing one of the gestures, "
+"and after you're finished, release the mouse button. If you only need to "
+"paste the selection, it still works, simply only click the middle mouse "
+"button. (You can change the mouse button to use in the global settings).\n"
+"\n"
+"Right now, there are these gestures available:\n"
+"move right and back left - Forward (ALt+Right)\n"
+"move left and back right - Back (Alt+Left)\n"
+"move up and back down  - Up (Alt+Up)\n"
+"circle anticlockwise - Reload (F5)\n"
+" (As soon as I find out which ones are in Opera or Mozilla, I'll add more "
+"and make sure they are the same. Or if you do it yourself, feel free to help "
+"me and send me your khotkeysrc.)\n"
+"\n"
+"The gestures shapes (some of the dialogs are from KGesture, thanks to Mike "
+"Pilone) can be simply entered by performing them in the configuration "
+"dialog. You can also look at your numeric pad to help you, gestures are "
+"recognized like a 3x3 grid of fields, numbered 1 to 9.\n"
+"\n"
+"Note that you must perform exactly the gesture to trigger the action. "
+"Because of this, it's possible to enter more gestures for the action. You "
+"should try to avoid complicated gestures where you change the direction of "
+"mouse moving more than once (i.e. do e.g. 45654 or 74123 as they are simple "
+"to perform but e.g. 1236987 may be already quite difficult).\n"
+"\n"
+"The condition for all gestures are defined in this group. All these gestures "
+"are active only if the active window is Konqueror (class contains "
+"'konqueror')."
+msgstr ""
+"Konqi unutar TDE sadrži kartice, a od sad ožete upotrebljavati i "
+"gestikulacije. Nema potrebe za drugim preglednicima >;).\n"
+"\n"
+"Dovoljno je pritisnuti srednju tipku miša i započeti s \"crtanjem\" "
+"gestikulacije, a po njezinom dovršetku otpustiti tipku. Ako je potrebno samo "
+"prelijepiti odabir, aktivnost će i dalje funkcionirati - dovoljno je "
+"kliknuti srednjom tipkom miša. (Upotrebu tipke miša moguće je promijeniti u "
+"globalnim postavkama.)\n"
+"\n"
+"U ovom su trenutku dostupne sljedeće gestikulacije:\n"
+"- kretnja udesno i potom ulijevo - Naprijed (Alt+Desno)\n"
+"- kretnja ulijevo i potom udesno - Natrag (Alt+Lijevo)\n"
+"- kretnja prema gore i potom prema dolje - Razinu prema gore (Alt+Gore)\n"
+"- kruženje u smjeru suprotnom od kazaljki na satu - Osvježavanje (F5)\n"
+"(Čim autor ustanovi koje se gestikulacije upotrebljavaju u Operi ili "
+"Mozilli, one će biti dodane i provjerene radi podudaranja. Ako to sami "
+"učinite, autoru ove aplikacije pošaljite svoju datoteku khotkeysrc.)\n"
+"\n"
+"Oblike gestikulacija moguće je jednostavno unijeti njihovim izvođenje unutar "
+"konfiguracijskog dijaloga (neki su dijalozi preuzeti iz KGesture, "
+"zahvaljujući Mikeu Piloneu). Također vam numerička tipkovnica može poslužiti "
+"kao pomoć. Gestikulacije se prepoznaju poput mreže od 3x3 polja, numerirana "
+"od 1 do 9.\n"
+"\n"
+"Napomena: Da biste pokrenuli aktivnost, gestikulaciju je potrebno točno "
+"izvesti. Iz tog je razloga za jednu aktivnst moguće unijeti više "
+"gestikulacija. Potrebno je izbjegavati složene gestikulacije tijekom kojih "
+"smjer kretanja miša mijenjate više od jedanputa (npr. izvedite kretnje u "
+"smejrovima 45654 ili 74123 jer su one jednostavne za izvođenje, ali "
+"izbjegavajte kretnje poput 1236987 jer bi one mogle biti jako zahtjevne).\n"
+"\n"
+"Uvjeti za sve gestikulacije definirani su u ovoj grupi. Sve ove "
+"gestikulacije funkcioniraju samo ako je akativan prozor Konqueror (klasa "
+"sadrži \"konqueror\")."
+
+#. Name
+#: trinity2b1.khotkeys:214
+msgid "Konqi Gestures"
+msgstr "Konqi gestikulacije"
+
+#. Comment
+#: trinity2b1.khotkeys:369
+msgid ""
+"After pressing Win+E (Tux+E), WWW browser will be launched and it will open "
+"http://www.trinitydesktop.org . You may run all kind of commands you can run "
+"in minicli (Alt+F2)."
+msgstr ""
+"Nakon pritiska tipki Win+E (Tux+E) bit će pokrenut preglednik Interneta i "
+"otvorena stranica http://www.trinitydesktop.org. Možete pokrenuti razne "
+"vrste naredbi, kao i pomoću \"minicli\" (Alt+F2)."
+
+#. Name
+#: trinity2b1.khotkeys:371
+msgid "Go to TDE Website"
+msgstr "Kreni na TDE web-lokaciju"

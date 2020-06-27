@@ -1,0 +1,373 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 16:24+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: csb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: applets/clock/clockapplet.desktop:4
+msgid "Clock"
+msgstr "Zédżer"
+
+#. Comment
+#: applets/clock/clockapplet.desktop:6
+msgid "An analog and digital clock"
+msgstr "Analogòwi ë cyfrowi zédżer"
+
+#. Name
+#: applets/launcher/quicklauncher.desktop:3
+msgid "Quick Launcher"
+msgstr "Chùtczé zrëszenié"
+
+#. Comment
+#: applets/launcher/quicklauncher.desktop:5
+msgid "Directly access your frequently used applications"
+msgstr "Prosti przistãp do nôczãstczi brëkòwónëch programów"
+
+#. Name
+#: applets/lockout/lockout.desktop:3
+msgid "Lock/Logout Buttons"
+msgstr "Knąpë blokòwaniô ekranu/wëlogòwaniô"
+
+#. Comment
+#: applets/lockout/lockout.desktop:5
+msgid "Adds buttons for locking screen and session logout"
+msgstr "Dodôwô knapë blokòwaniô ekranu ë wëlogòwaniô"
+
+#. Name
+#: applets/media/mediaapplet.desktop:3
+msgid "Storage Media"
+msgstr "Zôpisowné media"
+
+#. Comment
+#: applets/media/mediaapplet.desktop:5
+msgid "Directly access your storage media"
+msgstr "Prosti przistãp do Twòjëch zôpisownëch mediów"
+
+#. Name
+#: applets/menu/menuapplet.desktop:4
+msgid "Menu"
+msgstr ""
+
+#. Comment
+#: applets/menu/menuapplet.desktop:6
+msgid "Applet embedding standalone menubars"
+msgstr "Aplet zbiérający ùwòlnioné lëstwë menu"
+
+#. Name
+#: applets/minipager/minipagerapplet.desktop:4
+msgid "Desktop Preview & Pager"
+msgstr "Przestôwnik ë przezérnik pùltów"
+
+#. Comment
+#: applets/minipager/minipagerapplet.desktop:6
+msgid "Preview, manage and switch to multiple virtual desktops"
+msgstr "Pòdzérk, sprôwianié ë przestôwianié wirtualnëch pùltów"
+
+#. Name
+#: applets/naughty/naughtyapplet.desktop:3
+msgid "Runaway Process Catcher"
+msgstr "Jachtôrz zagùbionëch procesów"
+
+#. Comment
+#: applets/naughty/naughtyapplet.desktop:5
+msgid "Detect and end broken processes which consume too much CPU time"
+msgstr ""
+"Òdnajdiwô ë kùńczi niesprôwné procesë, jaczé brëkùją za wiele procesora"
+
+#. Name
+#: applets/run/runapplet.desktop:3
+msgid "Run Command"
+msgstr "Zrëszënié pòlétu"
+
+#. Comment
+#: applets/run/runapplet.desktop:5
+msgid "Launch single commands without a terminal window"
+msgstr "Zrëszanié pòjedińczëch pòlétów kònsolë bez òtmëkaniô òkna terminala"
+
+#. Name
+#: applets/swallow/swallowapplet.desktop:3
+msgid "Swallow Applet"
+msgstr "Aplet do zanurzaniô jinszëch"
+
+#. Comment
+#: applets/swallow/swallowapplet.desktop:5
+msgid "The swallow panel applet"
+msgstr "Aplet dlô panelu jaczi ùsôdzô òbéńdã do zanurzaniô jinszëch"
+
+#. Name
+#: applets/systemtray/systemtrayapplet.desktop:3
+msgid "System Tray"
+msgstr "Systemòwi zabiérnik"
+
+#. Comment
+#: applets/systemtray/systemtrayapplet.desktop:5
+msgid "The system tray panel applet"
+msgstr "Aplet systemòwégò zabiérnika dlô panelu"
+
+#. Name
+#: applets/taskbar/taskbarapplet.desktop:3
+msgid "Taskbar"
+msgstr "Lëstew dzejaniów"
+
+#. Comment
+#: applets/taskbar/taskbarapplet.desktop:5
+msgid "The default task bar for window management"
+msgstr "Domëslnô lëstew dzejaniów do sprôwianiô òknama"
+
+#. Name
+#: applets/trash/trashapplet.desktop:3
+msgid "Trash"
+msgstr "Kòsz"
+
+#. Comment
+#: applets/trash/trashapplet.desktop:5
+msgid "Displays the trashcan and allows files to be dropped onto it"
+msgstr "Wëskrzëniwô zamkłósc kòsza ë zezwôlô przecygac do niegò lopczi"
+
+#. Name
+#: extensions/dockbar/dockbarextension.desktop:2
+msgid "Dock Application Bar"
+msgstr "Lëstew przërzeszaniô programów"
+
+#. Comment
+#: extensions/dockbar/dockbarextension.desktop:4
+msgid "Dock application bar extension."
+msgstr "Rozszérzenié do przërzeszaniô programów."
+
+#. Name
+#: extensions/kasbar/kasbarextension.desktop:2
+msgid "KasBar"
+msgstr "Lëstew dzejaniów (Kasbar)"
+
+#. Comment
+#: extensions/kasbar/kasbarextension.desktop:4
+msgid "An alternative taskbar panel applet."
+msgstr "Alternatiwnô lëstew dzejaniów dlô panelu."
+
+#. Name
+#: extensions/sidebar/sidebarextension.desktop:2
+msgid "Universal Sidebar"
+msgstr "Ùniwersalnô bòcznô lëstew"
+
+#. Comment
+#: extensions/sidebar/sidebarextension.desktop:4
+msgid "Wrapper around Konqueror's navigation panel"
+msgstr "Programa òpakòwującô nawigacëjny panel Konquerora"
+
+#. Name
+#: extensions/taskbar/taskbarextension.desktop:2
+msgid "External Taskbar"
+msgstr "Bùtnowô lëstew dzejaniów"
+
+#. Comment
+#: extensions/taskbar/taskbarextension.desktop:4
+msgid "External taskbar panel extension"
+msgstr "Rozszérzenié panelu z bùtnową lëstwą dzejaniów"
+
+#. Name
+#: kicker/buttons/bookmarks.desktop:2
+msgid "Bookmarks Menu"
+msgstr "Załóżczi"
+
+#. Comment
+#: kicker/buttons/bookmarks.desktop:4
+msgid "Your Konqueror bookmarks"
+msgstr "Załóżczi Konquerora"
+
+#. Name
+#: kicker/buttons/browser.desktop:2
+msgid "Quick File Browser"
+msgstr "Chùtczé przezéranié lopków"
+
+#. Comment
+#: kicker/buttons/browser.desktop:4
+msgid "A menu that lists files in a given folder"
+msgstr "Menu pokazëwôjące lopczi w pòdónym katalogù"
+
+#. Name
+#: kicker/buttons/desktop.desktop:2
+msgid "Show Desktop"
+msgstr "Pòkôże pùlt"
+
+#. Comment
+#: kicker/buttons/desktop.desktop:4
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr "Knąpa chùtczégò przistãpù do pùltu"
+
+#. Name
+#: kicker/buttons/exec.desktop:2
+msgid "Non-TDE Application Launcher"
+msgstr "Zrëszanié programów z bùtna TDE"
+
+#. Comment
+#: kicker/buttons/exec.desktop:4
+msgid "A launcher for programs not in the TDE Menu"
+msgstr "Zrëszanié programów, jaczich nie dô w TDE menu"
+
+#. Name
+#: kicker/buttons/kmenu.desktop:2
+msgid "TDE Menu"
+msgstr ""
+
+#. Comment
+#: kicker/buttons/kmenu.desktop:4
+msgid "Applications and common actions"
+msgstr "Programë ë pòpùlarné dzejania"
+
+#. Name
+#: kicker/buttons/windowlist.desktop:2
+msgid "Window List Menu"
+msgstr "Menu z lëstą òknów"
+
+#. Comment
+#: kicker/buttons/windowlist.desktop:4
+msgid "A menu that lists all open windows"
+msgstr "Menu pòkazëwôjącé wszëstczé otemkłé òkna"
+
+#. Name
+#: kicker/core/childpanelextension.desktop:2
+msgid "Panel"
+msgstr ""
+
+#. Comment
+#: kicker/core/childpanelextension.desktop:4
+msgid "Child panel extension."
+msgstr "Rozszérzenié òtrokòwégò panelu."
+
+#. Comment
+#: kicker/interfaces/kickoffsearchplugin.desktop:5
+msgid "A search plugin for Kickoff"
+msgstr ""
+
+#. Name
+#: kicker/kcmkicker.desktop:10
+msgid "Configure the Panel"
+msgstr "Kònfigùracëjô panelu"
+
+#. Name
+#: kicker/panel.desktop:10
+msgid "Trinity Panel"
+msgstr ""
+
+#. Name
+#: menuext/find/find.desktop:2
+msgid "Find"
+msgstr "Szëkba"
+
+#. Comment
+#: menuext/find/find.desktop:4
+msgid "Menu for starting a file or web search"
+msgstr "Menu naczãca szëkbë w sécë abò lopków"
+
+#. Name
+#: menuext/find/kfind.desktop:11
+msgid "Find Files"
+msgstr "Nalezë lopczi"
+
+#. Name
+#: menuext/find/websearch.desktop:8
+msgid "Web Search"
+msgstr "Szëkba w sécë WWW"
+
+#. Name
+#: menuext/kate/katesessionmenu.desktop:2
+msgid "Kate Session Menu"
+msgstr "Menu sesëji Kate"
+
+#. Comment
+#: menuext/kate/katesessionmenu.desktop:4
+msgid "Allows you to open Kate with a specified session, or create a new one"
+msgstr "Pòzwôlô òtemknąc apartną sesëjã Kate abò ùsôdzëc nową"
+
+#. Name
+#: menuext/konq-profiles/konquerormenu.desktop:2
+msgid "Konqueror Profiles"
+msgstr "Profile Konquerora"
+
+#. Comment
+#: menuext/konq-profiles/konquerormenu.desktop:4
+msgid "Menu for accessing the Konqueror profiles"
+msgstr "Menu przistãpù do profilów Konquerora"
+
+#. Name
+#: menuext/konsole/konsolemenu.desktop:2
+msgid "Terminal Sessions"
+msgstr "Sesëje terminala"
+
+#. Comment
+#: menuext/konsole/konsolemenu.desktop:4
+msgid "Menu for starting a terminal emulator with a session or bookmark"
+msgstr "Menu zrëszëniô òkna terminala ze spamiãtóną sesëją abò załóżka"
+
+#. Name
+#: menuext/prefmenu/prefmenu.desktop:2
+msgid "Trinity Control Center"
+msgstr "Centróm kòntrolë"
+
+#. Comment
+#: menuext/prefmenu/prefmenu.desktop:4
+msgid "Trinity Control Center modules menu"
+msgstr "Menu mòdułów Centróm kòntrolë"
+
+#. Name
+#: menuext/recentdocs/recentdocs.desktop:2
+msgid "Recent Documents"
+msgstr "Slédno òtemkłé dokùmentë"
+
+#. Comment
+#: menuext/recentdocs/recentdocs.desktop:4
+msgid "Menu of documents you have used recently"
+msgstr "Menu slédno òtemkłëch dokùmentów"
+
+#. Name
+#: menuext/remote/remotemenu.desktop:2
+msgid "Network Folders"
+msgstr "Sécowé katalodżi"
+
+#. Comment
+#: menuext/remote/remotemenu.desktop:4
+msgid "Menu of network folders"
+msgstr "Menu sécowëch katalogów"
+
+#. Name
+#: menuext/system/systemmenu.desktop:2
+msgid "System Menu"
+msgstr "Systema"
+
+#. Comment
+#: menuext/system/systemmenu.desktop:4
+msgid "Menu of important system places"
+msgstr "Menu z wôżnëma placama systemë"
+
+#. Name
+#: menuext/tdeprint/printmenu.desktop:2
+msgid "Print System"
+msgstr "Systema drëkù"
+
+#. Comment
+#: menuext/tdeprint/printmenu.desktop:4
+msgid "Menu for the print system"
+msgstr "Menu systemë drëkù"
+
+#. Name
+#: menuext/tom/tom.desktop:2
+msgid "TOM"
+msgstr ""
+
+#. Comment
+#: menuext/tom/tom.desktop:4
+msgid "A task oriented menu system"
+msgstr "Systema menu skòncentrowónô na dzejaniô"

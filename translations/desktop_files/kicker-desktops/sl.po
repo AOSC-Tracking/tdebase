@@ -1,0 +1,374 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 16:24+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: applets/clock/clockapplet.desktop:4
+msgid "Clock"
+msgstr "Ura"
+
+#. Comment
+#: applets/clock/clockapplet.desktop:6
+msgid "An analog and digital clock"
+msgstr "Analogna in digitalna ura"
+
+#. Name
+#: applets/launcher/quicklauncher.desktop:3
+msgid "Quick Launcher"
+msgstr "Hitri zaganjalnik"
+
+#. Comment
+#: applets/launcher/quicklauncher.desktop:5
+msgid "Directly access your frequently used applications"
+msgstr "Neposreden dostop do vaših najbolj uporabljanih programov"
+
+#. Name
+#: applets/lockout/lockout.desktop:3
+msgid "Lock/Logout Buttons"
+msgstr "Gumba za zaklep in odjavo"
+
+#. Comment
+#: applets/lockout/lockout.desktop:5
+msgid "Adds buttons for locking screen and session logout"
+msgstr "Doda gumba za zaklep zaslona in odjavo iz seje"
+
+#. Name
+#: applets/media/mediaapplet.desktop:3
+msgid "Storage Media"
+msgstr "Nosilci za shranjevanje"
+
+#. Comment
+#: applets/media/mediaapplet.desktop:5
+msgid "Directly access your storage media"
+msgstr "Neposreden dostop do nosilcev za shranjevanje"
+
+#. Name
+#: applets/menu/menuapplet.desktop:4
+msgid "Menu"
+msgstr "Meni"
+
+#. Comment
+#: applets/menu/menuapplet.desktop:6
+msgid "Applet embedding standalone menubars"
+msgstr "Vstavek, ki vključuje samostojne menijske vrstice"
+
+#. Name
+#: applets/minipager/minipagerapplet.desktop:4
+msgid "Desktop Preview & Pager"
+msgstr "Ogledovalnik in pozivnik namizja"
+
+#. Comment
+#: applets/minipager/minipagerapplet.desktop:6
+msgid "Preview, manage and switch to multiple virtual desktops"
+msgstr "Predogled, upravljanje in preklapljanje za več navideznih namizij"
+
+#. Name
+#: applets/naughty/naughtyapplet.desktop:3
+msgid "Runaway Process Catcher"
+msgstr "Prestrezovalnik pobeglih procesov"
+
+#. Comment
+#: applets/naughty/naughtyapplet.desktop:5
+msgid "Detect and end broken processes which consume too much CPU time"
+msgstr ""
+"Zaznavanje in pobijanje procesov, ki porabljajo preveč procesorskega časa"
+
+#. Name
+#: applets/run/runapplet.desktop:3
+msgid "Run Command"
+msgstr "Poženi ukaz"
+
+#. Comment
+#: applets/run/runapplet.desktop:5
+msgid "Launch single commands without a terminal window"
+msgstr "Poganjanje posameznih ukazov brez okna terminala"
+
+#. Name
+#: applets/swallow/swallowapplet.desktop:3
+msgid "Swallow Applet"
+msgstr "Vstavek z lastovko"
+
+#. Comment
+#: applets/swallow/swallowapplet.desktop:5
+msgid "The swallow panel applet"
+msgstr "Vstavek lastovke za na pult"
+
+#. Name
+#: applets/systemtray/systemtrayapplet.desktop:3
+msgid "System Tray"
+msgstr "Sistemska vrstica"
+
+#. Comment
+#: applets/systemtray/systemtrayapplet.desktop:5
+msgid "The system tray panel applet"
+msgstr "Vstavek za sistemsko vrstico v pultu"
+
+#. Name
+#: applets/taskbar/taskbarapplet.desktop:3
+msgid "Taskbar"
+msgstr "Opravilna vrstica"
+
+#. Comment
+#: applets/taskbar/taskbarapplet.desktop:5
+msgid "The default task bar for window management"
+msgstr "Privzeta opravilna vrstica za upravljanje z okni"
+
+#. Name
+#: applets/trash/trashapplet.desktop:3
+msgid "Trash"
+msgstr "Smeti"
+
+#. Comment
+#: applets/trash/trashapplet.desktop:5
+msgid "Displays the trashcan and allows files to be dropped onto it"
+msgstr "Prikaz ikone za Smeti, na katero lahko odvržete datoteke"
+
+#. Name
+#: extensions/dockbar/dockbarextension.desktop:2
+msgid "Dock Application Bar"
+msgstr "Vrstica za zasidranje programov"
+
+#. Comment
+#: extensions/dockbar/dockbarextension.desktop:4
+msgid "Dock application bar extension."
+msgstr "Razširitev za sidrišče programov."
+
+#. Name
+#: extensions/kasbar/kasbarextension.desktop:2
+msgid "KasBar"
+msgstr ""
+
+#. Comment
+#: extensions/kasbar/kasbarextension.desktop:4
+msgid "An alternative taskbar panel applet."
+msgstr "Vstavek za alternativno opravilno vrstico na pultu"
+
+#. Name
+#: extensions/sidebar/sidebarextension.desktop:2
+msgid "Universal Sidebar"
+msgstr "Univerzalna stranska vrstica"
+
+#. Comment
+#: extensions/sidebar/sidebarextension.desktop:4
+msgid "Wrapper around Konqueror's navigation panel"
+msgstr "Objemalnik okoli Konquerorjevega navigacijskega pulta"
+
+#. Name
+#: extensions/taskbar/taskbarextension.desktop:2
+msgid "External Taskbar"
+msgstr "Zunanja opravilna vrstica"
+
+#. Comment
+#: extensions/taskbar/taskbarextension.desktop:4
+msgid "External taskbar panel extension"
+msgstr "Zunanja razširitev opravilne vrstice"
+
+#. Name
+#: kicker/buttons/bookmarks.desktop:2
+msgid "Bookmarks Menu"
+msgstr "Meni z zaznamki"
+
+#. Comment
+#: kicker/buttons/bookmarks.desktop:4
+msgid "Your Konqueror bookmarks"
+msgstr "Meni z zaznamki iz Konquerorja"
+
+#. Name
+#: kicker/buttons/browser.desktop:2
+msgid "Quick File Browser"
+msgstr "Preprost brskalnik"
+
+#. Comment
+#: kicker/buttons/browser.desktop:4
+msgid "A menu that lists files in a given folder"
+msgstr "Meni, ki prikazuje seznam datotek v dani mapi"
+
+#. Name
+#: kicker/buttons/desktop.desktop:2
+msgid "Show Desktop"
+msgstr "Prikaži namizje"
+
+#. Comment
+#: kicker/buttons/desktop.desktop:4
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr "Klik tega gumba omogoča hiter dostop do namizja"
+
+#. Name
+#: kicker/buttons/exec.desktop:2
+msgid "Non-TDE Application Launcher"
+msgstr "Zaganjalnik ne-TDE programov"
+
+#. Comment
+#: kicker/buttons/exec.desktop:4
+msgid "A launcher for programs not in the TDE Menu"
+msgstr "Zaganjalnik programov, ki se ne nahajajo v meniju TDE-ja"
+
+#. Name
+#: kicker/buttons/kmenu.desktop:2
+msgid "TDE Menu"
+msgstr "Meni TDE-ja"
+
+#. Comment
+#: kicker/buttons/kmenu.desktop:4
+msgid "Applications and common actions"
+msgstr "TDE-jev meni s programi in pogostimi dejanji"
+
+#. Name
+#: kicker/buttons/windowlist.desktop:2
+msgid "Window List Menu"
+msgstr "Meni s seznamom oken"
+
+#. Comment
+#: kicker/buttons/windowlist.desktop:4
+msgid "A menu that lists all open windows"
+msgstr "Meni, ki prikazuje seznam vseh odprtih oken"
+
+#. Name
+#: kicker/core/childpanelextension.desktop:2
+msgid "Panel"
+msgstr "Pult"
+
+#. Comment
+#: kicker/core/childpanelextension.desktop:4
+msgid "Child panel extension."
+msgstr "Razširitev za podrejeni pult."
+
+#. Comment
+#: kicker/interfaces/kickoffsearchplugin.desktop:5
+msgid "A search plugin for Kickoff"
+msgstr ""
+
+#. Name
+#: kicker/kcmkicker.desktop:10
+msgid "Configure the Panel"
+msgstr "Nastavi pult"
+
+#. Name
+#: kicker/panel.desktop:10
+msgid "Trinity Panel"
+msgstr "Pult Trinity"
+
+#. Name
+#: menuext/find/find.desktop:2
+msgid "Find"
+msgstr "Najdi"
+
+#. Comment
+#: menuext/find/find.desktop:4
+msgid "Menu for starting a file or web search"
+msgstr "Meni za začetek iskanja datotek in iskanja po spletu"
+
+#. Name
+#: menuext/find/kfind.desktop:11
+msgid "Find Files"
+msgstr "Najdi datoteke"
+
+#. Name
+#: menuext/find/websearch.desktop:8
+msgid "Web Search"
+msgstr "Spletno iskanje"
+
+#. Name
+#: menuext/kate/katesessionmenu.desktop:2
+msgid "Kate Session Menu"
+msgstr "Meni s sejami za Kate"
+
+#. Comment
+#: menuext/kate/katesessionmenu.desktop:4
+msgid "Allows you to open Kate with a specified session, or create a new one"
+msgstr ""
+"Omogoča vam, da Kate odprete z izbrano sejo, ali pa ustvarite novo sejo"
+
+#. Name
+#: menuext/konq-profiles/konquerormenu.desktop:2
+msgid "Konqueror Profiles"
+msgstr "Profili Konquerorja"
+
+#. Comment
+#: menuext/konq-profiles/konquerormenu.desktop:4
+msgid "Menu for accessing the Konqueror profiles"
+msgstr "Meni za dostop do profilov Konquerorja"
+
+#. Name
+#: menuext/konsole/konsolemenu.desktop:2
+msgid "Terminal Sessions"
+msgstr "Terminalske seje"
+
+#. Comment
+#: menuext/konsole/konsolemenu.desktop:4
+msgid "Menu for starting a terminal emulator with a session or bookmark"
+msgstr "Meni za zaganjanje terminalskega emulatorja s sejo ali zaznamkom"
+
+#. Name
+#: menuext/prefmenu/prefmenu.desktop:2
+msgid "Trinity Control Center"
+msgstr "Nadzorno središče"
+
+#. Comment
+#: menuext/prefmenu/prefmenu.desktop:4
+msgid "Trinity Control Center modules menu"
+msgstr "Meni z moduli Nadzornega središča"
+
+#. Name
+#: menuext/recentdocs/recentdocs.desktop:2
+msgid "Recent Documents"
+msgstr "Nedavni dokumenti"
+
+#. Comment
+#: menuext/recentdocs/recentdocs.desktop:4
+msgid "Menu of documents you have used recently"
+msgstr "Meni z dokumenti, ki ste jih uporabljali pred kratkim"
+
+#. Name
+#: menuext/remote/remotemenu.desktop:2
+msgid "Network Folders"
+msgstr "Omrežne mape"
+
+#. Comment
+#: menuext/remote/remotemenu.desktop:4
+msgid "Menu of network folders"
+msgstr "Meni z omrežnimi mapami"
+
+#. Name
+#: menuext/system/systemmenu.desktop:2
+msgid "System Menu"
+msgstr "Sistem"
+
+#. Comment
+#: menuext/system/systemmenu.desktop:4
+msgid "Menu of important system places"
+msgstr "Meni s pomembnimi sistemskimi lokacijami"
+
+#. Name
+#: menuext/tdeprint/printmenu.desktop:2
+msgid "Print System"
+msgstr "Tiskalniški sistem"
+
+#. Comment
+#: menuext/tdeprint/printmenu.desktop:4
+msgid "Menu for the print system"
+msgstr "Meni za tiskalniški sistem"
+
+#. Name
+#: menuext/tom/tom.desktop:2
+msgid "TOM"
+msgstr ""
+
+#. Comment
+#: menuext/tom/tom.desktop:4
+msgid "A task oriented menu system"
+msgstr "Opravilno narejen menijski sistem"

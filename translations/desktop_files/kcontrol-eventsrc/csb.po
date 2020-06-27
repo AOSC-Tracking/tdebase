@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 03:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: csb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: access/eventsrc:3
+msgid "Accessibility Tool"
+msgstr "Nôrzãdze pòmòcë przistãpù"
+
+#. Name
+#: access/eventsrc:6
+msgid "A modifier key has become active"
+msgstr "Klawisza zjinaczi ùstôła włączonô"
+
+#. Comment
+#: access/eventsrc:7
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now active"
+msgstr ""
+"Klawisza zjinaczi (n.p. Shift czë Control) zmieniła stón ë je terô aktiwnô"
+
+#. Name
+#: access/eventsrc:13
+msgid "A modifier key has become inactive"
+msgstr "Klawisza zjinaczi òstałą włączonô"
+
+#. Comment
+#: access/eventsrc:14
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now inactive"
+msgstr ""
+"Klawisza zjinaczi (n.p. Shift czë Control) zmieniła stón ë je terô aktiwnô"
+
+#. Name
+#: access/eventsrc:20
+msgid "A modifier key has been locked"
+msgstr "Klawisza zjinaczi òstała zablokòwónô"
+
+#. Comment
+#: access/eventsrc:21
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has been locked and is now active for "
+"all of the following keypresses"
+msgstr ""
+"Klawisz zjinaczi (np. Shift czë Control) òstôła zablokòwónô ë bãdze "
+"altiwòwónô przë nôslédnym wcësniãcô klawiszë"
+
+#. Name
+#: access/eventsrc:27
+msgid "A lock key has been activated"
+msgstr "Klawisza blokadë je aktiwòwónô"
+
+#. Comment
+#: access/eventsrc:28
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"active"
+msgstr ""
+"Klawisza blokadë (np. Caps Lock czë Num Lock) zmieniłą stón ë nie je terô "
+"aktiwnô"
+
+#. Name
+#: access/eventsrc:34
+msgid "A lock key has been deactivated"
+msgstr "Klawisza blokadë nie je aktiwnô"
+
+#. Comment
+#: access/eventsrc:35
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"inactive"
+msgstr ""
+"Klawisza blokadë (np. Caps Lock czë Num Lock) zmieniła stón ë nie je terô "
+"aktiwnô"
+
+#. Name
+#. Comment
+#: access/eventsrc:41 access/eventsrc:42
+msgid "Sticky keys has been enabled or disabled"
+msgstr "Klawisze przëlepieniô òstałë włączoné abò wëłączoné"
+
+#. Name
+#. Comment
+#: access/eventsrc:48 access/eventsrc:49
+msgid "Slow keys has been enabled or disabled"
+msgstr "Pòwólné klawisze òstałë włączoné abò wëłączone"
+
+#. Name
+#. Comment
+#: access/eventsrc:55 access/eventsrc:56
+msgid "Bounce keys has been enabled or disabled"
+msgstr "Òdbijające klawisze òstałë włączoné abò wëłączoné"
+
+#. Name
+#. Comment
+#: access/eventsrc:62 access/eventsrc:63
+msgid "Mouse keys has been enabled or disabled"
+msgstr "Klawisze mëszë òstałë włączoné abò wëłączoné"

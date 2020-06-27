@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 03:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: access/eventsrc:3
+msgid "Accessibility Tool"
+msgstr "Warktüüch för Behinnerte"
+
+#. Name
+#: access/eventsrc:6
+msgid "A modifier key has become active"
+msgstr "En Sünnertast is nu aktiv"
+
+#. Comment
+#: access/eventsrc:7
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now active"
+msgstr ""
+"En Sünnertast (t.B. Ümschalt oder Strg) hett den Tostand ännert un is nu "
+"aktiv"
+
+#. Name
+#: access/eventsrc:13
+msgid "A modifier key has become inactive"
+msgstr "En Sünnertast is nich mehr aktiv"
+
+#. Comment
+#: access/eventsrc:14
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now inactive"
+msgstr ""
+"En Sünnertast (t.B. Ümschalt oder Strg) hett den Tostand ännert un is nu "
+"inaktiv"
+
+#. Name
+#: access/eventsrc:20
+msgid "A modifier key has been locked"
+msgstr "En Sünnertast wöör fastsett"
+
+#. Comment
+#: access/eventsrc:21
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has been locked and is now active for "
+"all of the following keypresses"
+msgstr ""
+"En Sünnertast (t.B. Ümschalt oder Strg) wöör fastsett un is nu aktiv för dat "
+"Drücken vun all nakamen Tasten"
+
+#. Name
+#: access/eventsrc:27
+msgid "A lock key has been activated"
+msgstr "En Faststelltast is nu aktiv"
+
+#. Comment
+#: access/eventsrc:28
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"active"
+msgstr ""
+"En Faststelltast (t.B. Tallenrast oder Grootschrieventast) hett den Tostand "
+"ännert un is nu aktiv"
+
+#. Name
+#: access/eventsrc:34
+msgid "A lock key has been deactivated"
+msgstr "En Faststelltast is nu nich mehr aktiv"
+
+#. Comment
+#: access/eventsrc:35
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"inactive"
+msgstr ""
+"En Faststelltast (t.B. Tallenrast oder Grootschrieventast) hett den Tostand "
+"ännert un is nu inaktiv"
+
+#. Name
+#. Comment
+#: access/eventsrc:41 access/eventsrc:42
+msgid "Sticky keys has been enabled or disabled"
+msgstr "De Metood \"Backige Tasten\" wöör an- oder utschalt"
+
+#. Name
+#. Comment
+#: access/eventsrc:48 access/eventsrc:49
+msgid "Slow keys has been enabled or disabled"
+msgstr "De Metood \"Langsam Tasten\" wöör an- oder utschalt"
+
+#. Name
+#. Comment
+#: access/eventsrc:55 access/eventsrc:56
+msgid "Bounce keys has been enabled or disabled"
+msgstr "De Metood \"Springen Tasten\" wöör an- oder utschalt"
+
+#. Name
+#. Comment
+#: access/eventsrc:62 access/eventsrc:63
+msgid "Mouse keys has been enabled or disabled"
+msgstr "De Metood \"Muustasten\" wöör an- oder utschalt"

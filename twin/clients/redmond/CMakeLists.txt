@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES redmond.desktop DESTINATION ${DATA_INSTALL_DIR}/twin )
+tde_create_translated_desktop(
+  SOURCE redmond.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/twin
+  PO_DIR twin-clients-desktops
+)
 
 
 ##### twin3_redmond (module) ####################

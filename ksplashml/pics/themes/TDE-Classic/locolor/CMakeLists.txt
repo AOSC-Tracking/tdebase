@@ -9,7 +9,15 @@
 #
 #################################################
 
-install( FILES
-    Theme.rc splash_active_bar.png splash_bottom.png
+tde_create_translated_desktop(
+  SOURCE Theme.rc
+  DESTINATION ${DATA_INSTALL_DIR}/ksplash/Themes/TDE-Classic/locolor
+  PO_DIR ksplash-themes
+)
+
+install(
+  FILES
+    splash_active_bar.png splash_bottom.png
     splash_inactive_bar.png splash_top.png
-  DESTINATION ${DATA_INSTALL_DIR}/ksplash/Themes/TDE-Classic/locolor )
+  DESTINATION ${DATA_INSTALL_DIR}/ksplash/Themes/TDE-Classic/locolor
+)

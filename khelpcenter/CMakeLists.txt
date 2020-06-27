@@ -27,8 +27,15 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES Help.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES khelpcenter.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE Help.desktop
+  PO_DIR khelpcenter-desktops
+)
+tde_create_translated_desktop(
+  SOURCE khelpcenter.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR khelpcenter-desktops
+)
 install( FILES khelpcenter.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 
 install( FILES

@@ -25,7 +25,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES taskbarapplet.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
+tde_create_translated_desktop(
+  SOURCE taskbarapplet.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/applets
+  PO_DIR kicker-desktops
+)
 
 
 ##### taskbar_panelapplet (module) ##############

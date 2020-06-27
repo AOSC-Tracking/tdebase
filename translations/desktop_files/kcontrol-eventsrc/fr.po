@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 03:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: access/eventsrc:3
+msgid "Accessibility Tool"
+msgstr "Outil d'accessibilité de"
+
+#. Name
+#: access/eventsrc:6
+msgid "A modifier key has become active"
+msgstr "Une touche de modification est devenue active"
+
+#. Comment
+#: access/eventsrc:7
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now active"
+msgstr ""
+"L'état d'une touche de modification (ex : Maj ou Ctrl) est modifié et elle "
+"est maintenant active"
+
+#. Name
+#: access/eventsrc:13
+msgid "A modifier key has become inactive"
+msgstr "Une touche de modification est devenue inactive"
+
+#. Comment
+#: access/eventsrc:14
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now inactive"
+msgstr ""
+"L'état d'une touche de modification (ex : Maj ou Ctrl) est modifié et elle "
+"est maintenant inactive"
+
+#. Name
+#: access/eventsrc:20
+msgid "A modifier key has been locked"
+msgstr "Une touche de modification a été verrouillée"
+
+#. Comment
+#: access/eventsrc:21
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has been locked and is now active for "
+"all of the following keypresses"
+msgstr ""
+"Une touche de modification (ex : Maj ou Ctrl) a été verrouillée et est "
+"maintenant active pour toutes les touches suivantes"
+
+#. Name
+#: access/eventsrc:27
+msgid "A lock key has been activated"
+msgstr "Une touche de verrouillage a été activée"
+
+#. Comment
+#: access/eventsrc:28
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"active"
+msgstr ""
+"L'état d'une touche de verrouillage (ex : Verr. Maj ou Verr. Num.) est "
+"modifié et elle est maintenant inactive"
+
+#. Name
+#: access/eventsrc:34
+msgid "A lock key has been deactivated"
+msgstr "Une touche de verrouillage a été désactivée"
+
+#. Comment
+#: access/eventsrc:35
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"inactive"
+msgstr ""
+"L'état d'une touche de verrouillage (ex : Verr. Maj ou Verr. Num.) est "
+"modifié et elle est maintenant inactive"
+
+#. Name
+#. Comment
+#: access/eventsrc:41 access/eventsrc:42
+msgid "Sticky keys has been enabled or disabled"
+msgstr "L'automaintien des touches a été activé ou désactivé"
+
+#. Name
+#. Comment
+#: access/eventsrc:48 access/eventsrc:49
+msgid "Slow keys has been enabled or disabled"
+msgstr "Les touches lentes ont été activées ou désactivées"
+
+#. Name
+#. Comment
+#: access/eventsrc:55 access/eventsrc:56
+msgid "Bounce keys has been enabled or disabled"
+msgstr "Les touches non répétées ont été activées ou désactivées"
+
+#. Name
+#. Comment
+#: access/eventsrc:62 access/eventsrc:63
+msgid "Mouse keys has been enabled or disabled"
+msgstr "Les touches gérant la souris ont été activées ou désactivées"

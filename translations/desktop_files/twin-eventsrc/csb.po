@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: csb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Menedżer òknów"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Zmieni na pùlt 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Wëbróny je pierszi pùlt"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Zmieni na pùlt 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Wëbróny je drëdżi pùlt"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Zmieni na pùlt 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Wëbróny je trzecy pùlt"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Zmieni na pùlt 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Wëbróny je czwiôrti pùlt"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Zmieni na pùlt 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Wëbróny je piąti pùlt"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Zmieni na pùlt 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Wëbróny je szósti pùlt"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Zmieni na pùlt 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Wëbróny je sódmy pùlt"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Zmieni na pùlt 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Wëbróny je ósmy pùlt"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Zmieni na pùlt 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Wëbróny je dzewiąti pùlt"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Zmieni na pùlt 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Wëbróny je dzesąti pùlt"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Zmieni na pùlt 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Wëbróny je jednôsti pùlt"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Zmieni na pùlt 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Wëbróny je dwanôsti pùlt"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Zmieni na pùlt 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Wëbróny je trzënôsti pùlt"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Zmieni na pùlt 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Wëbróny je sztërnôsti pùlt"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Zmieni na pùlt 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Wëbróny je piãtnôsti pùlt"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Zmieni na pùlt 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Wëbróny je szesnôsti pùlt"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Zmieni na pùlt 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Wëbróny je sétmenôsti pùlt"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Zmieni na pùlt 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Wëbróny je òsmenôsti pùlt"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Zmieni na pùlt 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Wëbróny je dzéwiãtnôsti pùlt"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Zmieni na pùlt 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Wëbróny je dwadzesti pùlt"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Aktiwacëjô òkna"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Aktiwòwanié jinszegò òkna"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Nowé òkno"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Nowé òkno"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Rëmôj òkno"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Rëmôj òkno"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Zamknij òkno"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Òkno sã zamëkô"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Òdkrëwanié òkna"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Òkno òstôwô rozwité"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Zacyganié òkna"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Òkno òstôwô zacygniãté"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Minimalizacëjô òkna"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Òkno je minimalizowóné"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Doprowadzenié nazôd z minimalizacëji òkna"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Òkno je doprowadzoné nazôd"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Maksymalizacëjô òkna"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Òkno je maksymilizowóné"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Doprowadzenié nazôd z masymilizacëji òkna"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Òkno nie je ju zmaksymilizowóné"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Òkno na wszëtczich pùltach"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Òkno bãdze je widzec na wszëtczich pùltach"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Felënk òkno na wszëtczich pùltach"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Òkno nie bãdze je widzec na wszëtczich pùltach"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Nowé dialogòwé òkno"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Pòkôże sã doczasné dialogòwé òkno"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Rëmniãce dialogòwegò òkna"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Przepôdô doczasné dialogòwé òkno"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Sztart przesëwaniô òkna"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Òkno zaczënô bëc przesëwóné"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Kùńc przesëwaniô òkna"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Zakùńczono przesëwanié òkna"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Zôczątk zmianë miarë òkna"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Òkno naczãło zmieniwac miarã"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Kùńc zmianë miarë òkna"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Òkno skùńczëło zmieniwac miarã"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Òkno na biéżnym pùlce domôgô sã bôczënkù"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Òkno na biéżnym pùlce domôgô sã bôczëniô na se"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Òkno na jinszëm pùlce domôgô sã bôczënkù"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Òkno na jinszëm pùlce domôgô sã bôczëniô na se"

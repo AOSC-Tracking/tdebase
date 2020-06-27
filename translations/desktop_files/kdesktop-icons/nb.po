@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 02:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:2
+msgid "Home"
+msgstr "Hjem"
+
+#. GenericName
+#: Home.desktop:4
+msgid "Personal Files"
+msgstr "Personlige filer"
+
+#. Comment
+#: Home.desktop:6
+#, fuzzy
+msgid "Contains personal files"
+msgstr "Personlige filer"
+
+#. Name
+#: My_Computer:5
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: My_Computer:7
+msgid "Access to storage media"
+msgstr ""
+
+#. Name
+#: My_Documents:5
+msgid "My Documents"
+msgstr "Dokumentmappe"
+
+#. Comment
+#: My_Documents:7
+msgid "Contains personal documents"
+msgstr ""
+
+#. Name
+#: My_Network_Places:5
+msgid "My Network Places"
+msgstr "Eksterne steder"
+
+#. Comment
+#: My_Network_Places:7
+msgid "Access to network places and remote hosts"
+msgstr ""
+
+#. Name
+#: Printers:5
+msgid "Printers"
+msgstr "Skrivere"
+
+#. Comment
+#: Printers:7
+msgid "Manage print jobs"
+msgstr ""
+
+#. Name
+#: System.desktop:2
+msgid "System"
+msgstr ""
+
+#. GenericName
+#: System.desktop:4
+msgid "System Locations"
+msgstr "Systemplassar"
+
+#. Comment
+#: System.desktop:6
+msgid "Access to system places"
+msgstr ""
+
+#. Name
+#: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
+#: Templates/DVDROM-Device.desktop:12 Templates/ZIP-Device.desktop:12
+msgid "Eject"
+msgstr "Løs ut"
+
+#. Name
+#: Templates/Directory.desktop:2
+msgid "Folder..."
+msgstr "Mappe …"
+
+#. Comment
+#: Templates/Directory.desktop:3
+msgid "Enter folder name:"
+msgstr "Nytt mappenavn:"
+
+#. Name
+#: Templates/Floppy.desktop:3
+msgid "Format"
+msgstr ""
+
+#. Name
+#: Templates/HTMLFile.desktop:2
+msgid "HTML File..."
+msgstr "HTML-fil …"
+
+#. Comment
+#: Templates/HTMLFile.desktop:3
+msgid "Enter HTML filename:"
+msgstr "Skriv inn HTML-filnavn:"
+
+#. Name
+#: Templates/TextFile.desktop:2
+msgid "Text File..."
+msgstr "Tekstfil …"
+
+#. Comment
+#: Templates/TextFile.desktop:3
+msgid "Enter text filename:"
+msgstr "Skriv inn navnet på tekstfila:"
+
+#. Name
+#: Templates/linkCAMERA.desktop:2
+msgid "Camera Device..."
+msgstr "Kameraenhet …"
+
+#. Comment
+#: Templates/linkCAMERA.desktop:3
+msgid "New camera"
+msgstr "Nytt kamera"
+
+#. Name
+#: Templates/linkCDROM.desktop:2
+msgid "CD-ROM Device..."
+msgstr "CD-ROM-enhet …"
+
+#. Comment
+#: Templates/linkCDROM.desktop:3
+msgid "New CD-ROM Device"
+msgstr "Ny CD-ROM-enhet"
+
+#. Name
+#: Templates/linkCDWRITER.desktop:2
+msgid "CDWRITER Device..."
+msgstr "CD-brenner-enhet"
+
+#. Comment
+#: Templates/linkCDWRITER.desktop:3
+msgid "New CDWRITER Device"
+msgstr "Ny CD-brenner-enhet"
+
+#. Name
+#: Templates/linkDVDROM.desktop:2
+msgid "DVD-ROM Device..."
+msgstr "DVD-ROM-enhet …"
+
+#. Comment
+#: Templates/linkDVDROM.desktop:3
+msgid "New DVD-ROM Device"
+msgstr "Ny DVD-ROM-enhet"
+
+#. Name
+#: Templates/linkFloppy.desktop:2
+msgid "Floppy Device..."
+msgstr "Diskettenhet …"
+
+#. Comment
+#: Templates/linkFloppy.desktop:3
+msgid "New Floppy Device"
+msgstr "Ny diskettenhet"
+
+#. Name
+#: Templates/linkHD.desktop:2
+msgid "Hard Disc Device..."
+msgstr "Harddisk …"
+
+#. Comment
+#: Templates/linkHD.desktop:3
+msgid "New Hard Disc"
+msgstr "Ny harddisk"
+
+#. Name
+#: Templates/linkMO.desktop:2
+msgid "MO Device..."
+msgstr "MO-enhet …"
+
+#. Comment
+#: Templates/linkMO.desktop:3
+msgid "New MO Device"
+msgstr "Ny MO-enhet"
+
+#. Name
+#: Templates/linkNFS.desktop:2
+msgid "NFS..."
+msgstr "NFS …"
+
+#. Comment
+#: Templates/linkNFS.desktop:3
+msgid "New NFS Link"
+msgstr "Ny NFS-lenke"
+
+#. Name
+#: Templates/linkProgram.desktop:2
+msgid "Link to Application..."
+msgstr "Lenke til program …"
+
+#. Comment
+#: Templates/linkProgram.desktop:3
+msgid "New Link to Application"
+msgstr "Ny lenke til program"
+
+#. Name
+#: Templates/linkURL.desktop:2
+msgid "Link to Location (URL)..."
+msgstr "Lenke til nettadresse (URL) …"
+
+#. Comment
+#: Templates/linkURL.desktop:3
+msgid "Enter link to location (URL):"
+msgstr "Ny lenke til en nettadresse:"
+
+#. Name
+#: Templates/linkZIP.desktop:2
+msgid "ZIP Device..."
+msgstr "ZIP-enhet …"
+
+#. Comment
+#: Templates/linkZIP.desktop:3
+msgid "New ZIP Device"
+msgstr "Ny ZIP-enhet"
+
+#. Name
+#: Trash:8
+msgid "Trash"
+msgstr "Papirkurv"
+
+#. Comment
+#: Trash:10
+msgid "Contains removed files"
+msgstr ""
+
+#. Name
+#. GenericName
+#: Web_Browser:6 Web_Browser:8
+msgid "Web Browser"
+msgstr "Nettleser"
+
+#. Comment
+#: Web_Browser:10
+msgid "Browse the World Wide Web"
+msgstr ""
+
+#. Name
+#: directory.autostart:3
+msgid "Autostart"
+msgstr ""
+
+#. Name
+#: directory.desktop:5
+msgid "Desktop"
+msgstr "Skrivebord"
+
+#. Name
+#: directory.templates:3
+msgid "Templates"
+msgstr "Maler"

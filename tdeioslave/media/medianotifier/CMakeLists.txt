@@ -25,7 +25,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES medianotifier.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
+tde_create_translated_desktop(
+  SOURCE medianotifier.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}/kded
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### kded_medianotifier (module) ###############

@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 09:37+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nso\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Help.desktop:10
+msgid "Help"
+msgstr "Thuso"
+
+#. Name
+#: htmlsearch/htmlsearch.desktop:12
+msgid "Index"
+msgstr "Palo ya Bangwadi"
+
+#. Comment
+#: htmlsearch/htmlsearch.desktop:14
+msgid "Index generation"
+msgstr "Thlagiso ya Palo ya Bangwadi"
+
+#. Keywords
+#: htmlsearch/htmlsearch.desktop:16
+msgid "Help;HTML;Search;Index;htdig;htsearch;htmerge;Scope;Language;"
+msgstr "Thuso;HTML;Nyako;Palo ya Bangwadi;htdig;htnyako;htmerge;Scope;Leleme;"
+
+#. Name
+#: kcmhelpcenter.desktop:13
+msgid "Help Index"
+msgstr "Palo ya Thuso"
+
+#. Comment
+#: kcmhelpcenter.desktop:15
+msgid "Help center search index configuration and generation"
+msgstr ""
+"Thlagiso le peakanyo ya palo ya bangwadi le ya nyako ya bogare bja thuso"
+
+#. Keywords
+#: kcmhelpcenter.desktop:17
+msgid "khelpcenter;help;index;search;"
+msgstr "kbogare bja thuso;thuso;palo ya bangwadi;nyako;"
+
+#. Name
+#: khelpcenter.desktop:11
+msgid "KHelpCenter"
+msgstr "KBogare bja Thuso"
+
+#. Comment
+#: khelpcenter.desktop:13
+msgid "The Trinity Help Center"
+msgstr "Bogare bja Thuso ya Trinity"
+
+#. Name
+#: plugins/Manpages/man1.desktop:4
+msgid "(1) User Commands"
+msgstr ""
+
+#. Name
+#: plugins/Manpages/man2.desktop:4
+msgid "(2) System Calls"
+msgstr ""
+
+#. Name
+#: plugins/Manpages/man3.desktop:4
+msgid "(3) Subroutines"
+msgstr "(3) Ditsejana"
+
+#. Name
+#: plugins/Manpages/man4.desktop:4
+msgid "(4) Devices"
+msgstr "(4) Maano"
+
+#. Name
+#: plugins/Manpages/man5.desktop:4
+msgid "(5) File Formats"
+msgstr "(5) Dithlolego tsa Faele"
+
+#. Name
+#: plugins/Manpages/man6.desktop:4
+msgid "(6) Games"
+msgstr "(6) Dipapadi"
+
+#. Name
+#: plugins/Manpages/man7.desktop:4
+msgid "(7) Miscellaneous"
+msgstr "(7) Hlakahlakanego"
+
+#. Name
+#: plugins/Manpages/man8.desktop:4
+msgid "(8) Sys. Administration"
+msgstr "(8) Bongwaledi bja System"
+
+#. Name
+#: plugins/Manpages/man9.desktop:4
+msgid "(9) Kernel"
+msgstr ""
+
+#. Name
+#: plugins/Manpages/mann.desktop:4
+msgid "(n) New"
+msgstr "(n) Ntshwa"
+
+#. Name
+#: plugins/adminguide.desktop:6
+msgid "TDE Admininstrator Guide"
+msgstr ""
+
+#. Name
+#: plugins/applets.desktop:6
+msgid "Applet Manuals"
+msgstr "Di-Manual tsa Applet"
+
+#. Name
+#: plugins/contact.desktop:6
+msgid "Contact Information"
+msgstr "Tshedimoso ya Kgokagano"
+
+#. Name
+#: plugins/faq.desktop:6
+msgid "The TDE FAQ"
+msgstr "FAQ ya TDE"
+
+#. Name
+#: plugins/hardwaremodules.desktop:6
+msgid "Hardware"
+msgstr ""
+
+#. Name
+#: plugins/info.desktop:7
+msgid "Browse Info Pages"
+msgstr ""
+
+#. Name
+#: plugins/kcontrolmodules.desktop:6
+msgid "Control Center Modules"
+msgstr "Diripa tsa Bogareng bja Taolo"
+
+#. Name
+#: plugins/konqplugins.desktop:6
+msgid "Konqueror Plugins"
+msgstr "Ditsenyo tsa Konqueror"
+
+#. Name
+#: plugins/links.desktop:6
+msgid "TDE on the Web"
+msgstr ""
+
+#. Name
+#: plugins/quickstart.desktop:6
+msgid "Quickstart Guide"
+msgstr "Keletso ya Thomiso ya Kapejana"
+
+#. Name
+#: plugins/support.desktop:6
+msgid "Supporting TDE"
+msgstr "Go Thekga TDE"
+
+#. Name
+#: plugins/tdeioslaves.desktop:6
+msgid "Protocols"
+msgstr "Melao"
+
+#. Comment
+#: plugins/tdeioslaves.desktop:8
+msgid "Information about the available protocols"
+msgstr "Tshedimoso kaga melao yeo elego gona"
+
+#. Keywords
+#: plugins/tdeioslaves.desktop:10
+msgid "Protocol;IO slaves;Slaves;Network;Information;Timeout;"
+msgstr "Molao;Makgoba a IO;Makgoba;Kgokagano;Tshedimoso; Nako e fedile;"
+
+#. Name
+#: plugins/userguide.desktop:6
+msgid "TDE User Guide"
+msgstr ""
+
+#. Name
+#: plugins/visualdict.desktop:6
+msgid "A Visual Guide to TDE"
+msgstr "Keletso yeo e Kwagalago ya TDE"
+
+#. Name
+#: plugins/welcome.desktop:6
+msgid "Welcome to TDE"
+msgstr "O Amogetswe go TDE"
+
+#. Name
+#: plugins/Applications/.directory:7
+msgid "Application Manuals"
+msgstr "Di-Manual tsa Tshomiso"
+
+#. Name
+#: plugins/Manpages/.directory:8
+msgid "UNIX manual pages"
+msgstr "Matlakala a manual wa UNIX"
+
+#. Name
+#: plugins/Scrollkeeper/.directory:5
+msgid "Scrollkeeper"
+msgstr ""

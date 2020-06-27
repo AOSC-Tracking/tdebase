@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 14:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: klipper.desktop:2
+msgid "Klipper"
+msgstr ""
+
+#. GenericName
+#: klipper.desktop:4
+msgid "Clipboard Tool"
+msgstr "Vágólapkezelő"
+
+#. Comment
+#: klipper.desktop:6
+msgid "A cut & paste history utility"
+msgstr "Kezelőprogram a vágólaphoz (naplózással)"
+
+#. Description
+#: klipperrc.desktop:9
+msgid "Jpeg-Image"
+msgstr "JPEG kép"
+
+#. Description
+#: klipperrc.desktop:14
+msgid "Launch K&View"
+msgstr "A K&View indítása"
+
+#. Description
+#: klipperrc.desktop:19
+msgid "Web-URL"
+msgstr "Webes URL"
+
+#. Description
+#: klipperrc.desktop:24 klipperrc.desktop:116
+msgid "Open with &Konqueror"
+msgstr "Megnyitás a &Konquerorral"
+
+#. Description
+#: klipperrc.desktop:29 klipperrc.desktop:126
+msgid "Open with &Mozilla"
+msgstr "Megnyitás a &Mozillával"
+
+#. Description
+#: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
+#: klipperrc.desktop:131
+msgid "Send &URL"
+msgstr "Az &URL elküldése"
+
+#. Description
+#: klipperrc.desktop:40
+msgid "Open with &Firefox"
+msgstr "Megnyitás a &Firefoxszal"
+
+#. Description
+#: klipperrc.desktop:46
+msgid "Send &Page"
+msgstr "A &weboldal elküldése"
+
+#. Description
+#: klipperrc.desktop:51
+msgid "Mail-URL"
+msgstr "Az URL elküldése levélben"
+
+#. Description
+#: klipperrc.desktop:56
+msgid "Launch &Kmail"
+msgstr "A &KMail elindítása"
+
+#. Description
+#: klipperrc.desktop:61
+msgid "Launch &mutt"
+msgstr "A &Mutt elindítása"
+
+#. Description
+#: klipperrc.desktop:66
+msgid "Text File"
+msgstr "Szöveges fájl"
+
+#. Description
+#: klipperrc.desktop:71
+msgid "Launch K&Edit"
+msgstr "A K&Edit elindítása"
+
+#. Description
+#: klipperrc.desktop:76
+msgid "Launch K&Write"
+msgstr "A K&Write elindítása"
+
+#. Description
+#: klipperrc.desktop:81
+msgid "Local file URL"
+msgstr "helyi fájl URL-je"
+
+#. Description
+#: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
+msgid "Send &File"
+msgstr "&Fájl elküldése"
+
+#. Description
+#: klipperrc.desktop:96
+msgid "Gopher URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:111
+msgid "ftp URL"
+msgstr "FTP URL"
+
+#. Description
+#: klipperrc.desktop:121
+msgid "Open with &Netscape"
+msgstr "Megnyitás a &Netscape-pel"

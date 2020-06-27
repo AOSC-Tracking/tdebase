@@ -24,10 +24,13 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     konq_treeview.desktop konq_detailedlistview.desktop
     konq_textview.desktop konq_infolistview.desktop
-  DESTINATION ${SERVICES_INSTALL_DIR} )
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR konqueror-desktops
+)
 
 install( FILES
     konq_treeview.rc konq_detailedlistview.rc

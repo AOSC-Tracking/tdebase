@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: cy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmtwin/showdesktop.desktop:4
+msgid "Show Desktop"
+msgstr ""
+
+#. Comment
+#: kcmtwin/showdesktop.desktop:6
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr ""
+
+#. Name
+#: kcmtwin/twindecoration/twindecoration.desktop:11
+msgid "Window Decorations"
+msgstr "Addurniadau Ffenestr"
+
+#. Comment
+#: kcmtwin/twindecoration/twindecoration.desktop:13
+msgid "Configure the look and feel of window titles"
+msgstr "Ffurfweddu golwg a theimlad teitlau ffenestri"
+
+#. Keywords
+#: kcmtwin/twindecoration/twindecoration.desktop:15
+msgid ""
+"twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
+"kwm;decoration;"
+msgstr ""
+"twin;ffenestr;trefnydd;ymyl;arddull;thema;golwg;teimlad;haenlun;botwm;carn;"
+"kwm;addurniad;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactions.desktop:11
+msgid "Actions"
+msgstr "Gweithredoedd"
+
+#. Comment
+#: kcmtwin/twinoptions/twinactions.desktop:13
+msgid "Configure keyboard and mouse settings"
+msgstr "Ffurfweddu gosodiadau bysellfwrdd a llygoden "
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactions.desktop:15
+msgid ""
+"shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
+"resize;"
+msgstr ""
+"arliwio;ehangu;lleihau;iselhau;dewislen gweithrediadau; bar y teitl; ail-"
+"feintio;"
+
+#. Name
+#: kcmtwin/twinoptions/twinadvanced.desktop:11
+msgid "Advanced"
+msgstr "Uwch"
+
+#. Comment
+#: kcmtwin/twinoptions/twinadvanced.desktop:13
+msgid "Configure advanced window management features"
+msgstr "Ffurfweddu Nodweddion Uwch Trefnu Ffenestri"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinadvanced.desktop:15
+msgid "shading;border;hover;active borders;"
+msgstr "arliwio;ymyl;hofran;ymylon weithgar;"
+
+#. Name
+#: kcmtwin/twinoptions/twinfocus.desktop:11
+msgid "Focus"
+msgstr "Canolbwynt"
+
+#. Comment
+#: kcmtwin/twinoptions/twinfocus.desktop:13
+msgid "Configure the window focus policy"
+msgstr "Ffurfweddu'r polisi canolbyntio ffenestri"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinfocus.desktop:15
+msgid ""
+"focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
+"desktop;"
+msgstr ""
+"canolbwynt;lleoliad;hunan-godi;codi;codi ar ?l clic;allweddell;CDE;alt-tab;"
+"penbwrdd cyfan;"
+
+#. Name
+#: kcmtwin/twinoptions/twinmoving.desktop:11
+msgid "Moving"
+msgstr "Symud"
+
+#. Comment
+#: kcmtwin/twinoptions/twinmoving.desktop:13
+msgid "Configure the way that windows are moved"
+msgstr "Ffurfweddu'r ffordd y symudir ffenestri"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinmoving.desktop:15
+msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
+msgstr "symud;clyfar;rhaedru;maint llawn;cylchfa gosod;snap;ymyl;"
+
+#. Name
+#: kcmtwin/twinoptions/twinoptions.desktop:11
+msgid "Window Behavior"
+msgstr "Ymddygiad Ffenestri"
+
+#. Comment
+#: kcmtwin/twinoptions/twinoptions.desktop:13
+msgid "Configure the window behavior"
+msgstr "Ffurfweddu ymddygiad y ffenestr"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinoptions.desktop:15
+msgid ""
+"focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
+"titlebar;doubleclick;"
+msgstr ""
+"canolbwynt;lleoliad;ymddygiad ffenestr;bywluniad;codi;hunan-godi;ffenestri;"
+"ffrâm;bar-teitl;clic dwbl;dwbl-glic;"
+
+#. Name
+#: kcmtwin/twinoptions/twintranslucency.desktop:11
+msgid "Translucency"
+msgstr ""
+
+#. Comment
+#: kcmtwin/twinoptions/twintranslucency.desktop:13
+#, fuzzy
+msgid "Configure window translucency and shadow management"
+msgstr "Ffurfweddu Nodweddion Uwch Trefnu Ffenestri"
+
+#. Keywords
+#: kcmtwin/twinoptions/twintranslucency.desktop:15
+msgid "translucency;transparence;shadows;"
+msgstr ""
+
+#. Name
+#: kcmtwin/twinrules/twinrules.desktop:11
+msgid "Window-Specific Settings"
+msgstr "Gosodiadau sy'n Benodol i'r Ffenestr"
+
+#. Comment
+#: kcmtwin/twinrules/twinrules.desktop:13
+msgid "Configure settings specifically for a window"
+msgstr "Ffurfweddu gosodiadau yn benodol ar gyfer ffenestr"
+
+#. Keywords
+#: kcmtwin/twinrules/twinrules.desktop:15
+msgid ""
+"size;position;state;window behavior;windows;specific;workarounds;remember;"
+"rules;"
+msgstr ""
+"maint;lleoliad;cyflwr;ffenestr;ymddygiad;ffenestri;penodol;ffyrdd osgoi;"
+"cofio;rheolau;"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:2
+msgid "(Default) Disable focus stealing prevention for XV"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:10
+msgid "(Default) Allow focus stealing by the screen locker"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:21
+msgid "(Default) Allow focus stealing by the kdesktop run dialog"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:32
+msgid "(Default) Allow focus stealing by the settings test dialog"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:45
+msgid "(Default) Hide system modal dialog class from taskbar"
+msgstr ""

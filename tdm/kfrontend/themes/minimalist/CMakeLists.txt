@@ -9,12 +9,17 @@
 #
 #################################################
 
-install( 
+tde_create_translated_desktop(
+  SOURCE GdmGreeterTheme.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/tdm/themes/minimalist
+  PO_DIR tdm-themes
+)
+
+install(
   FILES
     background.png
     box.png
     caps-lock-warning.png
-    GdmGreeterTheme.desktop
     lineedit.png
     login_normal.png
     login_prelight.png
@@ -26,6 +31,7 @@ install(
     system_prelight.png
     tdelogo.png
     topline.png
-    
-  DESTINATION 
-    ${DATA_INSTALL_DIR}/tdm/themes/minimalist )
+
+  DESTINATION
+    ${DATA_INSTALL_DIR}/tdm/themes/minimalist
+)

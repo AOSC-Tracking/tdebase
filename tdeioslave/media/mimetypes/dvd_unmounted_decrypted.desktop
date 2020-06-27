@@ -1,10 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-optical-dvd-decrypted
 Type=MimeType
 MimeType=media/dvd_unmounted_decrypted
+Icon=media-optical-dvd-decrypted
+
 Comment=Unmounted Decrypted DVD
-Comment[de]=Nicht eingebundene, entschlüsselte DVD
+
 Patterns=
 
 X-TDE-AutoEmbed=true

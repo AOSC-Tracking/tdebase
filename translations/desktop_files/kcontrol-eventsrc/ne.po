@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 03:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ne\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: access/eventsrc:3
+msgid "Accessibility Tool"
+msgstr "पहुँचयोग्य उपकरण"
+
+#. Name
+#: access/eventsrc:6
+msgid "A modifier key has become active"
+msgstr "परिमार्जक कुञ्जी सक्रिय बनेको छ"
+
+#. Comment
+#: access/eventsrc:7
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now active"
+msgstr ""
+"परिमार्जक कुञ्जीले (जस्तै: Shift वा Ctrl) यसको स्थीति परिवर्तन गरेको छ र अहिले सक्रिय छ"
+
+#. Name
+#: access/eventsrc:13
+msgid "A modifier key has become inactive"
+msgstr "परिमार्जक कुञ्जी निस्क्रिय बनेको छ"
+
+#. Comment
+#: access/eventsrc:14
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now inactive"
+msgstr ""
+"परिमार्जक कुञ्जीले (जस्तै: Shift वा Ctrl) यसको स्थिति परिवर्तन गरेको छ र अहिले निस्क्रिय "
+"छ"
+
+#. Name
+#: access/eventsrc:20
+msgid "A modifier key has been locked"
+msgstr "परिमार्जक कुञ्जीमा ताल्चा लागेको छ"
+
+#. Comment
+#: access/eventsrc:21
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has been locked and is now active for "
+"all of the following keypresses"
+msgstr ""
+"परिमार्जक कुञ्जीमा (जस्तै: Shift वा Ctrl) ताल्चा लागेको छ र अहिले निम्न कुञ्जी थिच्नेहरू "
+"सबैका लागि सक्रिय छन्"
+
+#. Name
+#: access/eventsrc:27
+msgid "A lock key has been activated"
+msgstr "एउटा ताल्चा लगाएको कुञ्जी सक्रिय पारिएको छ"
+
+#. Comment
+#: access/eventsrc:28
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"active"
+msgstr ""
+"एउटा ताल्चा लगाउने कुञ्जीले (जस्तै: Caps Lock वा Num Lock) यसको स्थिति परिवर्तन गरेको "
+"छ र अहिले सक्रिय छ"
+
+#. Name
+#: access/eventsrc:34
+msgid "A lock key has been deactivated"
+msgstr "एउटा ताल्चा लगाउने कुञ्जी निस्क्रिय पारिएको छ"
+
+#. Comment
+#: access/eventsrc:35
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"inactive"
+msgstr ""
+"एउटा ताल्चा लगाउने कुञ्जीले (जस्तै: Caps Lock वा Num Lock) यसको स्थिति परिवर्तन गरेको "
+"छ र अहिले निस्क्रिय छ"
+
+#. Name
+#. Comment
+#: access/eventsrc:41 access/eventsrc:42
+msgid "Sticky keys has been enabled or disabled"
+msgstr "टाँसिने कुञ्जीहरू सक्षम वा अक्षम पारिएको छ"
+
+#. Name
+#. Comment
+#: access/eventsrc:48 access/eventsrc:49
+msgid "Slow keys has been enabled or disabled"
+msgstr "ढिलो कुञ्जीहरू सक्षम वा अक्षम पारिएको छ"
+
+#. Name
+#. Comment
+#: access/eventsrc:55 access/eventsrc:56
+msgid "Bounce keys has been enabled or disabled"
+msgstr "कुञ्जीहरू सक्षम वा अक्षम पारिएको छ"
+
+#. Name
+#. Comment
+#: access/eventsrc:62 access/eventsrc:63
+msgid "Mouse keys has been enabled or disabled"
+msgstr "माउस कुञ्जीहरू सक्षम वा अक्षम पारिएको छ"

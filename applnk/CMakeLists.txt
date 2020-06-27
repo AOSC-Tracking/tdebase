@@ -19,12 +19,15 @@ install( FILES
     tde-essential.menu
   DESTINATION ${XDG_MENU_INSTALL_DIR}/applications-merged )
 
-install( FILES
-    hidden.directory
+tde_create_translated_desktop(
+  SOURCE hidden.directory
   DESTINATION ${APPS_INSTALL_DIR}/.hidden
-  RENAME .directory )
+  PO_DIR applnk-directories
+  OUTPUT_NAME .directory
+)
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     tde-games-logic.directory
     tde-main.directory tde-development.directory tde-editors.directory
     tde-edutainment.directory tde-games-arcade.directory
@@ -58,4 +61,6 @@ install( FILES
     kde-settingsmenu.directory kde-system.directory kde-toys.directory
     kde-utilities-accessibility.directory kde-utilities-desktop.directory
     kde-utilities-pim.directory kde-utilities.directory tde-office-pim.directory
-  DESTINATION ${XDG_DIRECTORY_INSTALL_DIR} )
+  DESTINATION ${XDG_DIRECTORY_INSTALL_DIR}
+  PO_DIR applnk-directories
+)

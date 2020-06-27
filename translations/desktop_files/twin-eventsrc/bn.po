@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "কে.ডি.ই উইণ্ডো ম্যানেজার"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "ডেস্কটপ ১-এ যাও"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "প্রথম ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "ডেস্কটপ ২-এ যাও"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "দ্বিতীয় ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "ডেস্কটপ ৩-এ যাও"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "তৃতীয় ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "ডেস্কটপ ৪-এ যাও"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "চতুর্থ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "ডেস্কটপ ৫-এ যাও"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "পঞ্চম ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "ডেস্কটপ ৬-এ যাও"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "ষষ্ঠ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "ডেস্কটপ ৭-এ যাও"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "সপ্তম ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "ডেস্কটপ ৮-এ যাও"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "অষ্টম ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "ডেস্কটপ ৯-এ যাও"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "নবম ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "ডেস্কটপ ১০-এ যাও"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "দশম ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "ডেস্কটপ ১১-য় যাও"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "একাদশ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "ডেস্কটপ ১২-য় যাওও"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "দ্বাদশ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "ডেস্কটপ ১৩-য় যাও"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "ত্রয়োদশ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "ডেস্কটপ ১৪-য় যাও"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "চতুর্দশ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "ডেস্কটপ ১৫-য় যাও"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "পঞ্চদশ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "ডেস্কটপ ১৬-য় যাও"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "ষোড়শ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "ডেস্কটপ ১৭-য় যাও"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "সপ্তদশ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "ডেস্কটপ ১৮-য় যাও"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "অষ্টাদশ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "ডেস্কটপ ১৯-এ যাও"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "উনবিংশ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "ডেস্কটপ ২০-তে যাও"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "বিংশ ভার্চুয়াল ডেস্কটপ নির্বাচিত হয়েছে"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "উইণ্ডো সক্রিয় করো"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "অন্য একটি উইণ্ডো সক্রিয় করা হয়েছে"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "নতুন উইণ্ডো"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "নতুন উইণ্ডো"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "উইণ্ডো মুছে ফেলো"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "উইণ্ডো বন্ধ করো"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "উইণ্ডো বন্ধ"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "একটি উইণ্ডো বন্ধ করা হয়েছে"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "উইণ্ডো উপরে গুটিয়ে নাও"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "একটি উইণ্ডো গুটানো হয়েছে"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "উইণ্ডো নামাও"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "একটি উইণ্ডো নামানো হয়েছে"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "উইণ্ডো মিনিমাইজ"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "একটি উইণ্ডো মিনিমাইজ করা হয়েছে"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "উইণ্ডো আনমিনিমাইজ"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "একটি উইণ্ডো রিস্টোর করা হয়েছে"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "উইণ্ডো ম্যাক্সিমাইজ"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "একটি উইণ্ডো ম্যাক্সিমাইজ করা হয়েছে"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "উইণ্ডো আনম্যাক্সিমাইজ"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "একটি উইণ্ডো ম্যাক্সিমাইজেশন হারিয়েছে"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "উইণ্ডো সব ডেস্কটপে"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "একটি উইণ্ডো এখন থেকে সব ডেস্কটপে দেখা যাবে"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "উইণ্ডো সব ডেস্কটপে নয়"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "একটি উইণ্ডো আর সব ডেস্কটপে দেখা যাচ্ছে না"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "নতুন ডায়ালগ"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "একটি সাময়িক উইণ্ডো (ডায়ালগ) আবির্ভূত হয়েছে"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "ডায়ালগ মুছে ফেল"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "একটি সাময়িক উইণ্ডো (ডায়ালগ) সরিয়ে ফেলা হয়েছে"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "উইণ্ডো সরানো শুরু"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "একটি উইণ্ডো সরানো শুরু হয়েছে"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "উইণ্ডো সরানো শেষ"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "একটি উইণ্ডো সরানো শেষ হয়েছে"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "উইণ্ডো মাপ বদল শুরু"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "একটি উইণ্ডোর মাপ বদলানো শুরু হয়েছে"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "উইণ্ডো মাপ বদল শেষ"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "একটি উইণ্ডোর মাপ বদলানো শেষ হয়েছে"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "বর্তমান ডেস্কটপে উইণ্ডো আপনার দৃষ্টি আকর্ষণ করার চেষ্টা করছে"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "বর্তমান ভার্চুয়াল ডেস্কটপে একটি উইণ্ডো আপনার দৃষ্টি আকর্ষণ করার চেষ্টা করছে"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "অন্য ডেস্কটপে উইণ্ডো আপনার দৃষ্টি আকর্ষণ করার চেষ্টা করছে"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "অন্য একটি ভার্চুয়াল ডেস্কটপে একটি উইণ্ডো আপনার দৃষ্টি আকর্ষণ করার চেষ্টা করছে"

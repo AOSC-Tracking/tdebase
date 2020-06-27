@@ -30,7 +30,11 @@ link_directories(
 ##### other data ################################
 
 install( FILES default-apps DESTINATION ${DATA_INSTALL_DIR}/kicker )
-install( FILES childpanelextension.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/extensions )
+tde_create_translated_desktop(
+  SOURCE childpanelextension.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/extensions
+  PO_DIR kicker-desktops
+)
 
 
 ##### kicker_core (static) ######################

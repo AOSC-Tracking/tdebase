@@ -22,7 +22,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES localdomainurifilter.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE localdomainurifilter.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### liblocaldomainurifilter (module) ##########

@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 14:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: klipper.desktop:2
+msgid "Klipper"
+msgstr "คลิปเปอร์"
+
+#. GenericName
+#: klipper.desktop:4
+msgid "Clipboard Tool"
+msgstr "เครื่องมือคลิปบอร์ด"
+
+#. Comment
+#: klipper.desktop:6
+msgid "A cut & paste history utility"
+msgstr "โปรแกรมอรรถประโยชน์สำหรับดูประวัติการตัดและวาง"
+
+#. Description
+#: klipperrc.desktop:9
+msgid "Jpeg-Image"
+msgstr "แฟ้มภาพ Jpeg"
+
+#. Description
+#: klipperrc.desktop:14
+msgid "Launch K&View"
+msgstr "เรียกใช้งาน K&View"
+
+#. Description
+#: klipperrc.desktop:19
+msgid "Web-URL"
+msgstr "ตำแหน่ง URL ของเว็บ"
+
+#. Description
+#: klipperrc.desktop:24 klipperrc.desktop:116
+msgid "Open with &Konqueror"
+msgstr "เปิดด้วย&คอนเควอร์เรอร์"
+
+#. Description
+#: klipperrc.desktop:29 klipperrc.desktop:126
+msgid "Open with &Mozilla"
+msgstr "เปิดด้วย&มอซซิลลา"
+
+#. Description
+#: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
+#: klipperrc.desktop:131
+msgid "Send &URL"
+msgstr "ส่งตำแหน่ง &URL"
+
+#. Description
+#: klipperrc.desktop:40
+msgid "Open with &Firefox"
+msgstr "เปิดด้วยไ&ฟร์ฟอกซ์"
+
+#. Description
+#: klipperrc.desktop:46
+msgid "Send &Page"
+msgstr "ส่ง&หน้าเว็บเพจ"
+
+#. Description
+#: klipperrc.desktop:51
+msgid "Mail-URL"
+msgstr "ตำแหน่ง URL ของจดหมาย"
+
+#. Description
+#: klipperrc.desktop:56
+msgid "Launch &Kmail"
+msgstr "เรียกทำงานโปรแกรมรับส่งเมล์ &K"
+
+#. Description
+#: klipperrc.desktop:61
+msgid "Launch &mutt"
+msgstr "เรียกใช้งาน &mutt"
+
+#. Description
+#: klipperrc.desktop:66
+msgid "Text File"
+msgstr "แฟ้มข้อความ"
+
+#. Description
+#: klipperrc.desktop:71
+msgid "Launch K&Edit"
+msgstr "เรียกใช้งาน ม&Edit K"
+
+#. Description
+#: klipperrc.desktop:76
+msgid "Launch K&Write"
+msgstr "เรียกใช้งาน K&Write"
+
+#. Description
+#: klipperrc.desktop:81
+msgid "Local file URL"
+msgstr "ตำแหน่งแฟ้มภายใน"
+
+#. Description
+#: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
+msgid "Send &File"
+msgstr "ส่งแฟ้ม"
+
+#. Description
+#: klipperrc.desktop:96
+msgid "Gopher URL"
+msgstr "ตำแหน่ง URL ของโกเฟอร์"
+
+#. Description
+#: klipperrc.desktop:111
+msgid "ftp URL"
+msgstr "ตำแหน่ง URL ของ ftp"
+
+#. Description
+#: klipperrc.desktop:121
+msgid "Open with &Netscape"
+msgstr "เปิดด้วยเน็ตสเคป"

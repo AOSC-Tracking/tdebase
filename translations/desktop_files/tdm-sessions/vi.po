@@ -1,0 +1,557 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tde.desktop.cmake:7
+msgid "TDE"
+msgstr ""
+
+#. Comment
+#: tde.desktop.cmake:8
+msgid ""
+"The Trinity Desktop Environment. A powerful Open Source graphical desktop "
+"environment"
+msgstr ""
+"môi trường desktop Trinity, môi trường desktop đồ hoạ mã nguồn mở rất mạnh"
+
+#. Name
+#: 9wm.desktop:6
+msgid "9WM"
+msgstr ""
+
+#. Comment
+#: 9wm.desktop:8
+msgid "An emulation of the Plan 9 window manager 8-1/2"
+msgstr "Một bộ mô phỏng bộ quản lý cửa sổ Plan 9 8-1/2"
+
+#. Name
+#: admin.desktop:7
+msgid "admin"
+msgstr ""
+
+#. Comment
+#: admin.desktop:9
+msgid "Yast Admin Session"
+msgstr ""
+
+#. Name
+#: aewm++.desktop:6
+msgid "AEWM++"
+msgstr ""
+
+#. Comment
+#: aewm++.desktop:8
+msgid ""
+"A minimal window manager based on AEWM, enhanced by virtual desktops and "
+"partial GNOME support"
+msgstr ""
+"Bộ quản lý cửa sổ tối thiểu dựa trên AEWM, cải tiến với màn hình nền ảo và "
+"được hỗ trợ một phần bởi GNOME"
+
+#. Name
+#: aewm.desktop:6
+msgid "AEWM"
+msgstr ""
+
+#. Comment
+#: aewm.desktop:8
+msgid "A minimalist window manager"
+msgstr "Trình quản lý cửa sổ đơn giản"
+
+#. Name
+#: afterstep.desktop:6
+msgid "AfterStep"
+msgstr ""
+
+#. Comment
+#: afterstep.desktop:8
+msgid "A window manager with the NeXTStep look and feel, based on FVWM"
+msgstr "Trình quản lý cửa sổ với giao diện NeXTStep, dựa trên FVWM"
+
+#. Name
+#: amaterus.desktop:6
+msgid "AMATERUS"
+msgstr ""
+
+#. Comment
+#: amaterus.desktop:8
+msgid "A GTK+ based window manager with a window grouping feature"
+msgstr "Trình quản lý cửa sổ với khả năng tạo nhóm cửa sổ dựa trên GTK+"
+
+#. Name
+#: amiwm.desktop:6
+msgid "AmiWM"
+msgstr ""
+
+#. Comment
+#: amiwm.desktop:8
+msgid "The Amiga look-alike window manager"
+msgstr "Trình quản lý cửa sổ nhìn giống Amiga"
+
+#. Name
+#: asclassic.desktop:6
+msgid "ASClassic"
+msgstr ""
+
+#. Comment
+#: asclassic.desktop:8
+msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
+msgstr "AfterStep Classic, một trình quản lý cửa sổ dựa trên AfterStep v1.1"
+
+#. Name
+#: blackbox.desktop:6
+msgid "Blackbox"
+msgstr ""
+
+#. Comment
+#: blackbox.desktop:8
+msgid "A fast & light window manager"
+msgstr "Một trình quản lý cửa sổ nhẹ và nhanh"
+
+#. Name
+#: cde.desktop:6
+msgid "CDE"
+msgstr ""
+
+#. Comment
+#: cde.desktop:8
+msgid ""
+"The Common Desktop Environment, a proprietary industry standard desktop "
+"environment"
+msgstr ""
+"Môi trường Màn hình nền Chung, một môi trường màn hình nền giữ bản quyền, "
+"tuân thủ chuẩn công nghiệp"
+
+#. Name
+#: ctwm.desktop:6
+msgid "CTWM"
+msgstr ""
+
+#. Comment
+#: ctwm.desktop:8
+msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr ""
+"Trình quản lý cửa sổ kiểu Thẻ của Claude, TWM cải tiến với màn hình ảo v.v."
+
+#. Name
+#: cwwm.desktop:6
+msgid "CWWM"
+msgstr ""
+
+#. Comment
+#: cwwm.desktop:8
+msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
+msgstr ""
+"Trình quản lý cửa sổ ChezWam, một trình quản lý cửa sổ đơn giản dựa trên "
+"EvilWM"
+
+#. Name
+#: enlightenment.desktop:6
+msgid "Enlightenment"
+msgstr ""
+
+#. Comment
+#: enlightenment.desktop:8
+msgid "An extremely themable very feature-rich window manager"
+msgstr ""
+"Một trình quản lý cửa sổ cực kỳ dễ thay đổi sắc thái với nhiều tích năng"
+
+#. Name
+#: evilwm.desktop:6
+msgid "EvilWM"
+msgstr ""
+
+#. Comment
+#: evilwm.desktop:8
+msgid "A minimalist window manager based on AEWM"
+msgstr "Một trình quản lý cửa sổ đơn giản dựa trên AEWM"
+
+#. Name
+#: fluxbox.desktop:6
+msgid "Fluxbox"
+msgstr ""
+
+#. Comment
+#: fluxbox.desktop:8
+msgid "A highly configurable and low resource window manager based on Blackbox"
+msgstr ""
+"Một trình quản lý cửa sổ rất dễ cấu hình và đòi hỏi ít tài nguyên dựa trên "
+"Blackbox"
+
+#. Name
+#: flwm.desktop:6
+msgid "FLWM"
+msgstr ""
+
+#. Comment
+#: flwm.desktop:8
+msgid "The Fast Light Window Manager, based primarily on WM2"
+msgstr "Trình Quản lý Cửa sổ Nhanh và Nhẹ, dựa chủ yếu vào WM2"
+
+#. Name
+#: fvwm.desktop:6
+msgid "FVWM"
+msgstr ""
+
+#. Comment
+#: fvwm.desktop:8 fvwm2.desktop:8
+msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
+msgstr ""
+"Trình quản lý cửa sổ tương thích với ICCCM nhiều chức năng, quản lý nhiều "
+"màn hình nền ảo"
+
+#. Name
+#: fvwm2.desktop:6
+msgid "FVWM2"
+msgstr ""
+
+#. Name
+#: fvwm95.desktop:6
+msgid "FVWM95"
+msgstr ""
+
+#. Comment
+#: fvwm95.desktop:8
+msgid "A Windows 95 look-alike derivative of FVWM"
+msgstr "Trình quản lý cửa sổ giống Windows 95, hậu duệ của FVWM"
+
+#. Name
+#: gnome.desktop:6
+msgid "GNOME"
+msgstr ""
+
+#. Comment
+#: gnome.desktop:8
+msgid ""
+"The GNU Network Object Model Environment. A complete, free and easy-to-use "
+"desktop environment"
+msgstr ""
+"Môi trường Mạng Mô hình Đối tượng của GNU. Một môi trường màn hình nền đầy "
+"đủ, tự do và dễ sử dụng"
+
+#. Name
+#: golem.desktop:6
+msgid "Golem"
+msgstr ""
+
+#. Comment
+#: golem.desktop:8
+msgid "A lightweight window manager"
+msgstr "Trình quản lý cửa sổ nhẹ ký"
+
+#. Name
+#: icewm.desktop:6
+msgid "IceWM"
+msgstr ""
+
+#. Comment
+#: icewm.desktop:8
+msgid "A Windows 95-OS/2-Motif-like window manager"
+msgstr "Trình quản lý cửa sổ với mô típ kiểu Windows 95"
+
+#. Name
+#: ion.desktop:6
+msgid "Ion"
+msgstr ""
+
+#. Comment
+#: ion.desktop:8
+msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
+msgstr ""
+"Trình quản lý cửa sổ thiết kết thân thiện với việc dùng bàn phím, có các cửa "
+"sổ xếp ngói, dựa trên PWM"
+
+#. Name
+#: kde-plasma-safe.desktop:7
+msgid "KDE Plasma Workspace (failsafe session)"
+msgstr "Không gian Plasma KDE (phiên thử sai)"
+
+#. Comment
+#: kde-plasma-safe.desktop:9
+#, fuzzy
+msgid "The desktop made by KDE (failsafe session)"
+msgstr "Không gian Plasma KDE (phiên thử sai)"
+
+#. Name
+#: kde-plasma.desktop:7
+msgid "KDE Plasma Workspace"
+msgstr "Không gian Plasma KDE"
+
+#. Comment
+#: kde-plasma.desktop:9
+msgid "The desktop made by KDE"
+msgstr ""
+
+#. Name
+#: larswm.desktop:6
+msgid "LarsWM"
+msgstr ""
+
+#. Comment
+#: larswm.desktop:8
+msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
+msgstr "Trình Quản lý Cửa sổ Lars, dựa vào 9WM, hỗ trợ cửa sổ xếp ngói"
+
+#. Name
+#: lwm.desktop:6
+msgid "LWM"
+msgstr ""
+
+#. Comment
+#: lwm.desktop:8
+msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
+msgstr "Trình Quản lý Cửa sổ Nhẹ ký. Rất khó cấu hình"
+
+#. Name
+#: matchbox.desktop:6
+msgid "Matchbox"
+msgstr ""
+
+#. Comment
+#: matchbox.desktop:8
+msgid "A window manager for handheld devices"
+msgstr "Trình quản lý cửa sổ dành cho thiết bị cầm tay"
+
+#. Name
+#: metacity.desktop:6
+msgid "Metacity"
+msgstr ""
+
+#. Comment
+#: metacity.desktop:8
+msgid "A lightweight GTK2 based window manager"
+msgstr "Trình quản lý cửa sổ nhỏ gọn dựa trên GTK2"
+
+#. Name
+#: mwm.desktop:6
+msgid "MWM"
+msgstr ""
+
+#. Comment
+#: mwm.desktop:8
+msgid "The Motif Window Manager"
+msgstr "Trình quản lý cửa sổ Motif"
+
+#. Name
+#: olvwm.desktop:6
+msgid "OLVWM"
+msgstr ""
+
+#. Comment
+#: olvwm.desktop:8
+msgid ""
+"The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
+"desktops"
+msgstr ""
+"Trình Quản lý Cửa sổ Ảo \"Cái nhìn Mở\". Nó được cải tiến cho việc xử lý màn "
+"hình nền ảo"
+
+#. Name
+#: olwm.desktop:6
+msgid "OLWM"
+msgstr ""
+
+#. Comment
+#: olwm.desktop:8
+msgid "The traditional Open Look Window Manager"
+msgstr "Trình Quản lý Cửa sổ \"Cái nhìn Mở\" truyền thống"
+
+#. Name
+#: openbox.desktop:6
+msgid "Openbox"
+msgstr ""
+
+#. Comment
+#: openbox.desktop:8
+msgid "A lightweight window manager based on Blackbox"
+msgstr "Trình quản lý cửa sổ nhỏ gọn dựa trên Blackbox"
+
+#. Name
+#: oroborus.desktop:6
+msgid "Oroborus"
+msgstr ""
+
+#. Comment
+#: oroborus.desktop:8
+msgid "A lightweight themeable window manager"
+msgstr "Trình quản lý cửa sổ thay đổi được sắc thái"
+
+#. Name
+#: phluid.desktop:6
+msgid "Phluid"
+msgstr ""
+
+#. Comment
+#: phluid.desktop:8
+msgid "An Imlib2 based window manager"
+msgstr "Trình quản lý cửa sổ dựa trên lmlib2"
+
+#. Name
+#: pwm.desktop:6
+msgid "PWM"
+msgstr ""
+
+#. Comment
+#: pwm.desktop:8
+msgid ""
+"A lightweight window manager able to attach multiple windows to one frame"
+msgstr "Trình quản lý cửa sổ nhỏ gọn, có thể gắn nhiều cửa sổ vào một khung"
+
+#. Name
+#: qvwm.desktop:6
+msgid "QVWM"
+msgstr ""
+
+#. Comment
+#: qvwm.desktop:8
+msgid "A Windows 95 like window manager"
+msgstr "Trình quản lý cửa sổ giống Windows 95"
+
+#. Name
+#: ratpoison.desktop:6
+msgid "Ratpoison"
+msgstr "Bả chuột"
+
+#. Comment
+#: ratpoison.desktop:8
+msgid "A simple keyboard-only window manager modeled after Screen"
+msgstr "Trình quản lý cửa sổ chỉ dùng bàn phím, dựa theo Screen"
+
+#. Name
+#: sapphire.desktop:6
+msgid "Sapphire"
+msgstr ""
+
+#. Comment
+#: sapphire.desktop:8
+msgid "A minimal but configurable window manager"
+msgstr "Trình quản lý cửa sổ tối thiểu, nhưng có thể cấu hình được"
+
+#. Name
+#: sawfish.desktop:6
+msgid "Sawfish"
+msgstr ""
+
+#. Comment
+#: sawfish.desktop:8
+msgid ""
+"An extensible window manager scriptable with an Emacs Lisp-like language"
+msgstr ""
+"Trình quản lý cửa sổ có thể viết kịch bản được với ngôn ngữ giống Emacs Lisp"
+
+#. Name
+#: twm.desktop:6
+msgid "TWM"
+msgstr ""
+
+#. Comment
+#: twm.desktop:8
+msgid "The Tab Window Manager"
+msgstr "Trình Quản lý Cửa sổ Thẻ"
+
+#. Name
+#: ude.desktop:6
+msgid "UDE"
+msgstr ""
+
+#. Comment
+#: ude.desktop:8
+msgid "The UNIX Desktop Environment"
+msgstr "Môi trường Màn hình nền UNIX"
+
+#. Name
+#: vtwm.desktop:6
+msgid "VTWM"
+msgstr ""
+
+#. Comment
+#: vtwm.desktop:8
+msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
+msgstr "Trình Quản lý Cửa sổ Thẻ Ảo. TWM cải tiến với màn hình ảo, ..."
+
+#. Name
+#: w9wm.desktop:6
+msgid "W9WM"
+msgstr ""
+
+#. Comment
+#: w9wm.desktop:8
+msgid ""
+"A window manager based on 9WM, enhanced by virtual screens and keyboard "
+"bindings"
+msgstr ""
+"Trình quản lý cửa sổ dựa vào 9WM, cải tiến với màn hình ảo, tổ hợp phím"
+
+#. Name
+#: waimea.desktop:6
+msgid "Waimea"
+msgstr ""
+
+#. Comment
+#: waimea.desktop:8
+msgid "A highly customizable window manager based on Blackbox"
+msgstr "Trình quản lý cửa sổ rất dễ cá nhân hoá dựa trên Blackbox"
+
+#. Name
+#: wm2.desktop:6
+msgid "WM2"
+msgstr ""
+
+#. Comment
+#: wm2.desktop:8
+msgid "A small, non-configurable window manager"
+msgstr "Trình quản lý cửa sổ nhỏ, không cấu hình được"
+
+#. Name
+#: wmaker.desktop:6
+#, fuzzy
+msgid "WindowMaker"
+msgstr "Trình Quản lý Cửa sổ Thẻ"
+
+#. Comment
+#: wmaker.desktop:8
+msgid "A simple window manager that resembles the NeXTStep look very closely"
+msgstr "Trình quản lý cửa sổ giống với NeXTStep"
+
+#. Name
+#: xfce.desktop:6
+msgid "XFce"
+msgstr ""
+
+#. Comment
+#: xfce.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
+"of CDE"
+msgstr ""
+"Môi trường Màn hình nền Không có Cholesterol. Một môi trường màn hình nền "
+"gợi nhớ lại CDE"
+
+#. Name
+#: xfce4.desktop:6
+msgid "XFce 4"
+msgstr ""
+
+#. Comment
+#: xfce4.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment, version 4. A desktop environment "
+"reminiscent of CDE"
+msgstr ""
+"Môi trường Màn hình nền Không có Cholesterol, phiên bản 4. Một môi trường "
+"màn hình nền gợi nhớ lại CDE"

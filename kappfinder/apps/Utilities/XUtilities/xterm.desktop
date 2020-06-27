@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=X Terminal
+GenericName=Terminal Program
+Type=Application
+MimeType=
+X-TDE-StartupNotify=true
+X-TDE-AuthorizeAction=shell_access
+Exec=xterm
+Icon=terminal
+Path=
+Terminal=false

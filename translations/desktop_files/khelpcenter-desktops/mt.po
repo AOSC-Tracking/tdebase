@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 09:37+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: mt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Help.desktop:10
+msgid "Help"
+msgstr ""
+
+#. Name
+#: htmlsearch/htmlsearch.desktop:12
+msgid "Index"
+msgstr "Indiċi"
+
+#. Comment
+#: htmlsearch/htmlsearch.desktop:14
+msgid "Index generation"
+msgstr "Ġenerazzjoni tal-Indiċi"
+
+#. Keywords
+#: htmlsearch/htmlsearch.desktop:16
+msgid "Help;HTML;Search;Index;htdig;htsearch;htmerge;Scope;Language;"
+msgstr ""
+"Help;HTML;Search;Index;htdig;htsearch;htmerge;Scope;Language;Għajnuna;Fittex;"
+"Indiċi;"
+
+#. Name
+#: kcmhelpcenter.desktop:13
+msgid "Help Index"
+msgstr "Indiċi tal-għajnuna"
+
+#. Comment
+#: kcmhelpcenter.desktop:15
+msgid "Help center search index configuration and generation"
+msgstr ""
+"Konfigurazzjoni u ġenerazzjoni tal-indiċi ta' tfittxija taċ-ċentru ta' "
+"għajnuna"
+
+#. Keywords
+#: kcmhelpcenter.desktop:17
+msgid "khelpcenter;help;index;search;"
+msgstr "khelpcenter;help;index;search;għajnuna;indiċi;fittex;"
+
+#. Name
+#: khelpcenter.desktop:11
+msgid "KHelpCenter"
+msgstr ""
+
+#. Comment
+#: khelpcenter.desktop:13
+msgid "The Trinity Help Center"
+msgstr "Ċentru tal-Għajnuna Trinity"
+
+#. Name
+#: plugins/Manpages/man1.desktop:4
+msgid "(1) User Commands"
+msgstr "(1) Kmandi tal-users"
+
+#. Name
+#: plugins/Manpages/man2.desktop:4
+msgid "(2) System Calls"
+msgstr "(2) Sejħiet tas-sistema"
+
+#. Name
+#: plugins/Manpages/man3.desktop:4
+msgid "(3) Subroutines"
+msgstr ""
+
+#. Name
+#: plugins/Manpages/man4.desktop:4
+msgid "(4) Devices"
+msgstr "(4) Apparat"
+
+#. Name
+#: plugins/Manpages/man5.desktop:4
+msgid "(5) File Formats"
+msgstr "(5) Formats tal-fajls"
+
+#. Name
+#: plugins/Manpages/man6.desktop:4
+msgid "(6) Games"
+msgstr "(6) Logħob"
+
+#. Name
+#: plugins/Manpages/man7.desktop:4
+msgid "(7) Miscellaneous"
+msgstr "(7) Imħalltin"
+
+#. Name
+#: plugins/Manpages/man8.desktop:4
+msgid "(8) Sys. Administration"
+msgstr "(8) Amministrazzjoni tas-sistema"
+
+#. Name
+#: plugins/Manpages/man9.desktop:4
+msgid "(9) Kernel"
+msgstr ""
+
+#. Name
+#: plugins/Manpages/mann.desktop:4
+msgid "(n) New"
+msgstr "(n) Ġodda"
+
+#. Name
+#: plugins/adminguide.desktop:6
+#, fuzzy
+msgid "TDE Admininstrator Guide"
+msgstr "Manwal tal-users ta' TDE"
+
+#. Name
+#: plugins/applets.desktop:6
+msgid "Applet Manuals"
+msgstr "Manwali tal-applets"
+
+#. Name
+#: plugins/contact.desktop:6
+msgid "Contact Information"
+msgstr "Informazzjoni dwar kuntatti"
+
+#. Name
+#: plugins/faq.desktop:6
+msgid "The TDE FAQ"
+msgstr "Mistoqsijiet komuni tal-TDE"
+
+#. Name
+#: plugins/hardwaremodules.desktop:6
+msgid "Hardware"
+msgstr ""
+
+#. Name
+#: plugins/info.desktop:7
+msgid "Browse Info Pages"
+msgstr "Dur il-paġni Info"
+
+#. Name
+#: plugins/kcontrolmodules.desktop:6
+msgid "Control Center Modules"
+msgstr "Moduli taċ-Ċentru tal-Kontroll"
+
+#. Name
+#: plugins/konqplugins.desktop:6
+msgid "Konqueror Plugins"
+msgstr "Plagins ta' Konqueror"
+
+#. Name
+#: plugins/links.desktop:6
+msgid "TDE on the Web"
+msgstr "TDE fuq il-Web"
+
+#. Name
+#: plugins/quickstart.desktop:6
+msgid "Quickstart Guide"
+msgstr "Gwida biex tibda malajr"
+
+#. Name
+#: plugins/support.desktop:6
+msgid "Supporting TDE"
+msgstr "Appoġġja lill-TDE"
+
+#. Name
+#: plugins/tdeioslaves.desktop:6
+msgid "Protocols"
+msgstr "Protokolli"
+
+#. Comment
+#: plugins/tdeioslaves.desktop:8
+msgid "Information about the available protocols"
+msgstr "Informazzjoni dwar il-protokolli li hawn"
+
+#. Keywords
+#: plugins/tdeioslaves.desktop:10
+msgid "Protocol;IO slaves;Slaves;Network;Information;Timeout;"
+msgstr ""
+
+#. Name
+#: plugins/userguide.desktop:6
+msgid "TDE User Guide"
+msgstr "Manwal tal-users ta' TDE"
+
+#. Name
+#: plugins/visualdict.desktop:6
+msgid "A Visual Guide to TDE"
+msgstr "Gwida Viżwali għall-TDE"
+
+#. Name
+#: plugins/welcome.desktop:6
+msgid "Welcome to TDE"
+msgstr "Merħba għal TDE"
+
+#. Name
+#: plugins/Applications/.directory:7
+msgid "Application Manuals"
+msgstr "Manwali tal-Programmi"
+
+#. Name
+#: plugins/Manpages/.directory:8
+msgid "UNIX manual pages"
+msgstr "Paġni tal-manwali UNIX"
+
+#. Name
+#: plugins/Scrollkeeper/.directory:5
+msgid "Scrollkeeper"
+msgstr ""

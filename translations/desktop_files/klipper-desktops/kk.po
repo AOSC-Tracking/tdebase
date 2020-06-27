@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 14:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: klipper.desktop:2
+msgid "Klipper"
+msgstr "Алмасу буфері"
+
+#. GenericName
+#: klipper.desktop:4
+msgid "Clipboard Tool"
+msgstr "Алмасу буфер құралы"
+
+#. Comment
+#: klipper.desktop:6
+msgid "A cut & paste history utility"
+msgstr "Қиып алу және орналастыру журналы"
+
+#. Description
+#: klipperrc.desktop:9
+msgid "Jpeg-Image"
+msgstr "Jpeg-кескіні"
+
+#. Description
+#: klipperrc.desktop:14
+msgid "Launch K&View"
+msgstr "K&View жегу"
+
+#. Description
+#: klipperrc.desktop:19
+msgid "Web-URL"
+msgstr "URL сілтемесі"
+
+#. Description
+#: klipperrc.desktop:24 klipperrc.desktop:116
+msgid "Open with &Konqueror"
+msgstr "&Konqueror-де ашу"
+
+#. Description
+#: klipperrc.desktop:29 klipperrc.desktop:126
+msgid "Open with &Mozilla"
+msgstr "&Mozilla-да ашу"
+
+#. Description
+#: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
+#: klipperrc.desktop:131
+msgid "Send &URL"
+msgstr "&URL-ды жіберу"
+
+#. Description
+#: klipperrc.desktop:40
+msgid "Open with &Firefox"
+msgstr "&Firefox шолғышта ашу"
+
+#. Description
+#: klipperrc.desktop:46
+msgid "Send &Page"
+msgstr "&Парақты жіберу"
+
+#. Description
+#: klipperrc.desktop:51
+msgid "Mail-URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:56
+msgid "Launch &Kmail"
+msgstr "&Kmail-ды жегу"
+
+#. Description
+#: klipperrc.desktop:61
+msgid "Launch &mutt"
+msgstr "&mutt-ті жегу"
+
+#. Description
+#: klipperrc.desktop:66
+msgid "Text File"
+msgstr "Мәтін файлы"
+
+#. Description
+#: klipperrc.desktop:71
+msgid "Launch K&Edit"
+msgstr "K&Edit-ты жегу"
+
+#. Description
+#: klipperrc.desktop:76
+msgid "Launch K&Write"
+msgstr "K&Write-ты жегу"
+
+#. Description
+#: klipperrc.desktop:81
+msgid "Local file URL"
+msgstr "Жергілікті файлдың URL"
+
+#. Description
+#: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
+msgid "Send &File"
+msgstr "&Файлды жіберу"
+
+#. Description
+#: klipperrc.desktop:96
+msgid "Gopher URL"
+msgstr "Gopher сілтемесі"
+
+#. Description
+#: klipperrc.desktop:111
+msgid "ftp URL"
+msgstr "ftp сілтемесі"
+
+#. Description
+#: klipperrc.desktop:121
+msgid "Open with &Netscape"
+msgstr "&Netscape-те ашу"

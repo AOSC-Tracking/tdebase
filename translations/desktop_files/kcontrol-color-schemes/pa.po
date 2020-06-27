@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 21:04+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: AtlasGreen.kcsrc:3
+msgid "Atlas Green"
+msgstr "ਐਲਟਸ ਗਰੀਨ"
+
+#. Name
+#: BeOS.kcsrc:3
+msgid "BeOS"
+msgstr ""
+
+#. Name
+#: BlackOnWhite.kcsrc:2
+msgid "High Contrast Black Text"
+msgstr "ਜਿਆਦਾ ਗੂਡ਼ਾ ਕਾਲਾ ਪਾਠ"
+
+#. Name
+#: BlueSlate.kcsrc:3
+msgid "Blue Slate"
+msgstr "ਨੀਲਾ ਸਲਾਟੀ"
+
+#. Name
+#: CDE.kcsrc:3
+msgid "CDE"
+msgstr ""
+
+#. Name
+#: DarkBlue.kcsrc:2
+msgid "Dark Blue"
+msgstr "ਗੂੜਾ ਨੀਲਾ"
+
+#. Name
+#: DesertRed.kcsrc:3
+msgid "Desert Red"
+msgstr "ਮਾਰੂਥਲੀ ਲਾਲ"
+
+#. Name
+#: DigitalCDE.kcsrc:3
+msgid "Digital CDE"
+msgstr "ਡਿਜ਼ੀਟਲ CDE"
+
+#. Name
+#: EveX.kcsrc:2
+msgid "EveX"
+msgstr ""
+
+#. Name
+#: KDEOne.kcsrc:2
+msgid "KDE 1"
+msgstr ""
+
+#. Name
+#: KDETwo.kcsrc:2
+msgid "KDE 2"
+msgstr ""
+
+#. Name
+#: Keramik.kcsrc:2
+msgid "Keramik"
+msgstr "ਕੀਰਾਮਿਕ"
+
+#. Name
+#: KeramikEmerald.kcsrc:2
+msgid "Keramik Emerald"
+msgstr "ਕੀਰਾਮਿਕ ਈਮੀਰਾਲਡ"
+
+#. Name
+#: KeramikWhite.kcsrc:2
+msgid "Keramik White"
+msgstr "ਕੀਰਾਮਿਕ ਸਫੈਦ"
+
+#. Name
+#: MediaPeach.kcsrc:2
+msgid "Media Peach"
+msgstr "ਮੀਡਿਆ ਪੀਂਚ"
+
+#. Name
+#: Next.kcsrc:2
+msgid "Next"
+msgstr "ਅੱਗੇ"
+
+#. Name
+#: PaleGray.kcsrc:3
+msgid "Pale Gray"
+msgstr "ਪਾਲੀ ਗਰੇ"
+
+#. Name
+#: Plastik.kcsrc:2
+msgid "Plastik"
+msgstr "ਪਲਾਸਟਿਕ"
+
+#. Name
+#: PointReyesGreen.kcsrc:2
+msgid "Point Reyes Green"
+msgstr "ਬਿੰਦੂ ਰੀਆਈਸ ਹਰਾ"
+
+#. Name
+#: Pumpkin.kcsrc:3
+msgid "Pumpkin"
+msgstr "ਪੰਪਕਿਨ"
+
+#. Name
+#: SolarisCDE.kcsrc:2
+msgid "Solaris"
+msgstr ""
+
+#. Name
+#: Storm.kcsrc:3
+msgid "Storm"
+msgstr "ਤੂਫਾਨੀ"
+
+#. Name
+#: System.kcsrc:2
+msgid "System"
+msgstr "ਸਿਸਟਮ"
+
+#. Name
+#: WhiteOnBlack.kcsrc:2
+msgid "High Contrast White Text"
+msgstr "ਜਿਆਦਾ ਗੂੜਾ ਪਾਠ ਸਫੈਦ"
+
+#. Name
+#: Windows2000.kcsrc:2
+msgid "Redmond 2000"
+msgstr ""
+
+#. Name
+#: Windows95.kcsrc:3
+msgid "Redmond 95"
+msgstr ""
+
+#. Name
+#: WindowsXP.kcsrc:2
+msgid "Redmond XP"
+msgstr ""
+
+#. Name
+#: YellowOnBlue.kcsrc:2
+msgid "High Contrast Yellow on Blue"
+msgstr "ਨੀਲੇ 'ਤੇ ਗੂਡ਼ਾ ਪੀਲਾ"

@@ -9,7 +9,15 @@
 #
 #################################################
 
-install( FILES
-    GdmGreeterTheme.desktop circles.xml background.svg
+tde_create_translated_desktop(
+  SOURCE GdmGreeterTheme.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/tdm/themes/circles
+  PO_DIR tdm-themes
+)
+
+install(
+  FILES
+    circles.xml background.svg
     flower.png help.png options.png screenshot.png
-  DESTINATION ${DATA_INSTALL_DIR}/tdm/themes/circles )
+  DESTINATION ${DATA_INSTALL_DIR}/tdm/themes/circles
+)

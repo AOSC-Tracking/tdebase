@@ -21,8 +21,17 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES find.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/menuext )
-install( FILES kfind.desktop websearch.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/menuext/find )
+tde_create_translated_desktop(
+  SOURCE find.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/menuext
+  PO_DIR kicker-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE kfind.desktop websearch.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/menuext/find
+  PO_DIR kicker-desktops
+)
 
 
 ##### kickermenu_find (module) ##################

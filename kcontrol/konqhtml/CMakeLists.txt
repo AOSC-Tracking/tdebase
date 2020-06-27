@@ -23,11 +23,13 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     tdehtml_behavior.desktop tdehtml_java_js.desktop
     tdehtml_fonts.desktop tdehtml_filter.desktop
     tdehtml_userinterface.desktop
-  DESTINATION ${XDG_APPS_INSTALL_DIR} )
+  PO_DIR kcontrol-desktops
+)
 
 install(
   FILES uninstall.desktop
@@ -38,6 +40,7 @@ install(
   FILES uninstall.desktop
   DESTINATION ${APPS_INSTALL_DIR}/Settings/WebBrowsing
   RENAME tdehtml_appearance.desktop )
+
 
 ##### kcm_konqhtml (module) #####################
 

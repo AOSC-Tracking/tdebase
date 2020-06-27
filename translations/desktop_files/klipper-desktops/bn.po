@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 14:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: klipper.desktop:2
+msgid "Klipper"
+msgstr "ক্লিপার"
+
+#. GenericName
+#: klipper.desktop:4
+msgid "Clipboard Tool"
+msgstr "ক্লিপবোর্ড টুল"
+
+#. Comment
+#: klipper.desktop:6
+msgid "A cut & paste history utility"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:9
+msgid "Jpeg-Image"
+msgstr "জেপেগ চিত্র"
+
+#. Description
+#: klipperrc.desktop:14
+msgid "Launch K&View"
+msgstr "কে-ভি&উ চালাও"
+
+#. Description
+#: klipperrc.desktop:19
+msgid "Web-URL"
+msgstr "ওয়েব ইউ-আর-এল"
+
+#. Description
+#: klipperrc.desktop:24 klipperrc.desktop:116
+msgid "Open with &Konqueror"
+msgstr "কনকরার দিয়ে খোলো (&ক)"
+
+#. Description
+#: klipperrc.desktop:29 klipperrc.desktop:126
+msgid "Open with &Mozilla"
+msgstr "মোজিলা দিয়ে খোলো (&ম)"
+
+#. Description
+#: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
+#: klipperrc.desktop:131
+msgid "Send &URL"
+msgstr "ই&উ-আর-এল পাঠাও"
+
+#. Description
+#: klipperrc.desktop:40
+msgid "Open with &Firefox"
+msgstr "ফায়ার&ফক্স দিয়ে খোলো"
+
+#. Description
+#: klipperrc.desktop:46
+msgid "Send &Page"
+msgstr "পৃষ্ঠা পাঠা&ও"
+
+#. Description
+#: klipperrc.desktop:51
+msgid "Mail-URL"
+msgstr "মেইল ইউ-আর-এল"
+
+#. Description
+#: klipperrc.desktop:56
+msgid "Launch &Kmail"
+msgstr "কে-মেই&ল চালাও"
+
+#. Description
+#: klipperrc.desktop:61
+msgid "Launch &mutt"
+msgstr "&mutt চালাও"
+
+#. Description
+#: klipperrc.desktop:66
+msgid "Text File"
+msgstr "টেক্সট ফাইল"
+
+#. Description
+#: klipperrc.desktop:71
+msgid "Launch K&Edit"
+msgstr "কে-&এডিট চালাও"
+
+#. Description
+#: klipperrc.desktop:76
+msgid "Launch K&Write"
+msgstr "কে-রাই&ট চালাও"
+
+#. Description
+#: klipperrc.desktop:81
+msgid "Local file URL"
+msgstr "স্থানীয় ফাইল ইউ-আর-এল"
+
+#. Description
+#: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
+msgid "Send &File"
+msgstr "ফাই&ল পাঠাও"
+
+#. Description
+#: klipperrc.desktop:96
+msgid "Gopher URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:111
+msgid "ftp URL"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:121
+msgid "Open with &Netscape"
+msgstr "নেটস্কেপ দিয়ে খোলো (&ন)"

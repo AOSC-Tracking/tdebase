@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmtwin/showdesktop.desktop:4
+msgid "Show Desktop"
+msgstr "Erakutsi mahaigaina"
+
+#. Comment
+#: kcmtwin/showdesktop.desktop:6
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr "Zapatzean mahagainera sarbide bizkorra ematen duen botoia"
+
+#. Name
+#: kcmtwin/twindecoration/twindecoration.desktop:11
+msgid "Window Decorations"
+msgstr "Leihoaren dekorazioak"
+
+#. Comment
+#: kcmtwin/twindecoration/twindecoration.desktop:13
+msgid "Configure the look and feel of window titles"
+msgstr "Konfiguratu leihoaren izenburuen itxura"
+
+#. Keywords
+#: kcmtwin/twindecoration/twindecoration.desktop:15
+msgid ""
+"twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
+"kwm;decoration;"
+msgstr ""
+"twin;leihoa;kudeatzailea;ertza;estiloa;gaia;itxura;antolaketa;botoia; "
+"maneiatzailea;ertzea;kwm;dekorazioa;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactions.desktop:11
+msgid "Actions"
+msgstr "Ekintzak"
+
+#. Comment
+#: kcmtwin/twinoptions/twinactions.desktop:13
+msgid "Configure keyboard and mouse settings"
+msgstr "Konfiguratu teklatua eta saguaren ezarpenak"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactions.desktop:15
+msgid ""
+"shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
+"resize;"
+msgstr ""
+"bildu;maximizatu;minimizatu;atzera eraman;eragiketak; menua;titulu-barra;"
+"tamaina aldatu;"
+
+#. Name
+#: kcmtwin/twinoptions/twinadvanced.desktop:11
+msgid "Advanced"
+msgstr "Aurreratua"
+
+#. Comment
+#: kcmtwin/twinoptions/twinadvanced.desktop:13
+msgid "Configure advanced window management features"
+msgstr "Konfiguratu leiho kudeaketaren ezaugarri aurreratuak"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinadvanced.desktop:15
+msgid "shading;border;hover;active borders;"
+msgstr "biltzen;ertza;gainean;ertz aktiboak;"
+
+#. Name
+#: kcmtwin/twinoptions/twinfocus.desktop:11
+msgid "Focus"
+msgstr "Fokua"
+
+#. Comment
+#: kcmtwin/twinoptions/twinfocus.desktop:13
+msgid "Configure the window focus policy"
+msgstr "Konfiguratu leihoen fokuaren portaera"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinfocus.desktop:15
+msgid ""
+"focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
+"desktop;"
+msgstr ""
+"fokua;kokapena;auto aurrera ekarri;aurrera ekarri;klik eta aurrera eraman;"
+"teklatua;CDE;alt-tab;mahaigain guztiak;"
+
+#. Name
+#: kcmtwin/twinoptions/twinmoving.desktop:11
+msgid "Moving"
+msgstr "Mugitzen"
+
+#. Comment
+#: kcmtwin/twinoptions/twinmoving.desktop:13
+msgid "Configure the way that windows are moved"
+msgstr "Konfiguratu leihoak mugitzeko era"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinmoving.desktop:15
+msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
+msgstr "mugitzen;fina;kaskadan;maximizatu;itsasketa eremua; itsasketa;ertza;"
+
+#. Name
+#: kcmtwin/twinoptions/twinoptions.desktop:11
+msgid "Window Behavior"
+msgstr "Leihoen portaera"
+
+#. Comment
+#: kcmtwin/twinoptions/twinoptions.desktop:13
+msgid "Configure the window behavior"
+msgstr "Konfiguratu arakatzailearen portaera"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinoptions.desktop:15
+msgid ""
+"focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
+"titlebar;doubleclick;"
+msgstr ""
+"fokua;kokalekua;leihoaren portaera;animazioa;aurrera ekarri;auto aurrera "
+"ekarri;leihoak;markoa;titulu-barra;klik bikoitza;"
+
+#. Name
+#: kcmtwin/twinoptions/twintranslucency.desktop:11
+msgid "Translucency"
+msgstr "Gardentasuna"
+
+#. Comment
+#: kcmtwin/twinoptions/twintranslucency.desktop:13
+msgid "Configure window translucency and shadow management"
+msgstr "Konfiguratu leiho gardentasunak eta itzalen kudeaketa"
+
+#. Keywords
+#: kcmtwin/twinoptions/twintranslucency.desktop:15
+msgid "translucency;transparence;shadows;"
+msgstr "gardena;gardentasunak;itzalak;"
+
+#. Name
+#: kcmtwin/twinrules/twinrules.desktop:11
+msgid "Window-Specific Settings"
+msgstr "Leihoen ezarpen espezifikoak"
+
+#. Comment
+#: kcmtwin/twinrules/twinrules.desktop:13
+msgid "Configure settings specifically for a window"
+msgstr "Konfiguratu leiho jakin baten ezarpenak"
+
+#. Keywords
+#: kcmtwin/twinrules/twinrules.desktop:15
+msgid ""
+"size;position;state;window behavior;windows;specific;workarounds;remember;"
+"rules;"
+msgstr ""
+"neurria;kokapena;egoera;leihoaren portaera;leihoak;espezifikoa;konponbideak;"
+"gogoratu;arauak;"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:2
+msgid "(Default) Disable focus stealing prevention for XV"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:10
+msgid "(Default) Allow focus stealing by the screen locker"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:21
+msgid "(Default) Allow focus stealing by the kdesktop run dialog"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:32
+msgid "(Default) Allow focus stealing by the settings test dialog"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:45
+msgid "(Default) Hide system modal dialog class from taskbar"
+msgstr ""

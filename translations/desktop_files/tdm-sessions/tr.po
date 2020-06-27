@@ -1,0 +1,544 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tde.desktop.cmake:7
+msgid "TDE"
+msgstr ""
+
+#. Comment
+#: tde.desktop.cmake:8
+msgid ""
+"The Trinity Desktop Environment. A powerful Open Source graphical desktop "
+"environment"
+msgstr "TDE Masaüstü Yöneticisi. Güçlü bir grafiksel masaüstü ortamı"
+
+#. Name
+#: 9wm.desktop:6
+msgid "9WM"
+msgstr ""
+
+#. Comment
+#: 9wm.desktop:8
+msgid "An emulation of the Plan 9 window manager 8-1/2"
+msgstr "Plan 9 pencere yöneticisi 8-1/2 için bir emülasyon"
+
+#. Name
+#: admin.desktop:7
+msgid "admin"
+msgstr ""
+
+#. Comment
+#: admin.desktop:9
+msgid "Yast Admin Session"
+msgstr ""
+
+#. Name
+#: aewm++.desktop:6
+msgid "AEWM++"
+msgstr ""
+
+#. Comment
+#: aewm++.desktop:8
+msgid ""
+"A minimal window manager based on AEWM, enhanced by virtual desktops and "
+"partial GNOME support"
+msgstr "AEWM tabanlı bir pencere yöneticisi"
+
+#. Name
+#: aewm.desktop:6
+msgid "AEWM"
+msgstr ""
+
+#. Comment
+#: aewm.desktop:8
+msgid "A minimalist window manager"
+msgstr "Küçük bir pencere yöneticisi"
+
+#. Name
+#: afterstep.desktop:6
+msgid "AfterStep"
+msgstr ""
+
+#. Comment
+#: afterstep.desktop:8
+msgid "A window manager with the NeXTStep look and feel, based on FVWM"
+msgstr "NeXTStep görünümlü bir pencere yöneticisi"
+
+#. Name
+#: amaterus.desktop:6
+msgid "AMATERUS"
+msgstr ""
+
+#. Comment
+#: amaterus.desktop:8
+msgid "A GTK+ based window manager with a window grouping feature"
+msgstr "GTK+ tabanlı bir pencere yöneticisi"
+
+#. Name
+#: amiwm.desktop:6
+msgid "AmiWM"
+msgstr ""
+
+#. Comment
+#: amiwm.desktop:8
+msgid "The Amiga look-alike window manager"
+msgstr "Amiga görünümlü bir pencere yöneticisi"
+
+#. Name
+#: asclassic.desktop:6
+msgid "ASClassic"
+msgstr ""
+
+#. Comment
+#: asclassic.desktop:8
+msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
+msgstr "AfterStep Classic pencere yöneticisi"
+
+#. Name
+#: blackbox.desktop:6
+msgid "Blackbox"
+msgstr ""
+
+#. Comment
+#: blackbox.desktop:8
+msgid "A fast & light window manager"
+msgstr "Hızlı ve hafif bir pencere yöneticisi"
+
+#. Name
+#: cde.desktop:6
+msgid "CDE"
+msgstr ""
+
+#. Comment
+#: cde.desktop:8
+msgid ""
+"The Common Desktop Environment, a proprietary industry standard desktop "
+"environment"
+msgstr "Common Desktop Environment (CDE)"
+
+#. Name
+#: ctwm.desktop:6
+msgid "CTWM"
+msgstr ""
+
+#. Comment
+#: ctwm.desktop:8
+msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr ""
+"Claude's Sekme Pencere Yöneticisi, sanal ekranlar ile TWM genişletilmiş, vb."
+
+#. Name
+#: cwwm.desktop:6
+msgid "CWWM"
+msgstr ""
+
+#. Comment
+#: cwwm.desktop:8
+msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
+msgstr "ChezWam Pencere Yöneticisi"
+
+#. Name
+#: enlightenment.desktop:6
+msgid "Enlightenment"
+msgstr ""
+
+#. Comment
+#: enlightenment.desktop:8
+msgid "An extremely themable very feature-rich window manager"
+msgstr "İleri derecede temalanabilir, özellik zengini bir masaüstü yöneticisi"
+
+#. Name
+#: evilwm.desktop:6
+msgid "EvilWM"
+msgstr ""
+
+#. Comment
+#: evilwm.desktop:8
+msgid "A minimalist window manager based on AEWM"
+msgstr "AEWM tabanlı küçük bir pencere yöneticisi"
+
+#. Name
+#: fluxbox.desktop:6
+msgid "Fluxbox"
+msgstr ""
+
+#. Comment
+#: fluxbox.desktop:8
+msgid "A highly configurable and low resource window manager based on Blackbox"
+msgstr ""
+"Blackbox temelli, kolayca özelleştirilebilir düşük kaynaklı bir pencere "
+"yöneticisi"
+
+#. Name
+#: flwm.desktop:6
+msgid "FLWM"
+msgstr ""
+
+#. Comment
+#: flwm.desktop:8
+msgid "The Fast Light Window Manager, based primarily on WM2"
+msgstr "Fast Light Pencere Yöneticisi"
+
+#. Name
+#: fvwm.desktop:6
+msgid "FVWM"
+msgstr ""
+
+#. Comment
+#: fvwm.desktop:8 fvwm2.desktop:8
+msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
+msgstr "Güçlü ICCCM-uyumlu çoklu sanal masaüstü yöneticisi"
+
+#. Name
+#: fvwm2.desktop:6
+msgid "FVWM2"
+msgstr ""
+
+#. Name
+#: fvwm95.desktop:6
+msgid "FVWM95"
+msgstr ""
+
+#. Comment
+#: fvwm95.desktop:8
+msgid "A Windows 95 look-alike derivative of FVWM"
+msgstr "Windows 95'e benzeyen bir pencere yönetimi"
+
+#. Name
+#: gnome.desktop:6
+msgid "GNOME"
+msgstr ""
+
+#. Comment
+#: gnome.desktop:8
+msgid ""
+"The GNU Network Object Model Environment. A complete, free and easy-to-use "
+"desktop environment"
+msgstr "GNU Network Object Model Environment (GNOME)"
+
+#. Name
+#: golem.desktop:6
+msgid "Golem"
+msgstr ""
+
+#. Comment
+#: golem.desktop:8
+msgid "A lightweight window manager"
+msgstr "Hızlı çalışan bir pencere yöneticisi"
+
+#. Name
+#: icewm.desktop:6
+msgid "IceWM"
+msgstr ""
+
+#. Comment
+#: icewm.desktop:8
+msgid "A Windows 95-OS/2-Motif-like window manager"
+msgstr "Windows 95-OS/2-Motif benzeri bir pencere yöneticisi"
+
+#. Name
+#: ion.desktop:6
+msgid "Ion"
+msgstr ""
+
+#. Comment
+#: ion.desktop:8
+msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
+msgstr ""
+"PWM tabanlı, klavye dostu uzatılmış pencereleriyle bir pencere yönetici"
+
+#. Name
+#: kde-plasma-safe.desktop:7
+msgid "KDE Plasma Workspace (failsafe session)"
+msgstr "KDE Plasma Çalışma Alanı (hatalara karşı korumalı oturum)"
+
+#. Comment
+#: kde-plasma-safe.desktop:9
+msgid "The desktop made by KDE (failsafe session)"
+msgstr "KDE tarafınndan oluşturulan masaüstü (hatalara karşı korumalı oturum)"
+
+#. Name
+#: kde-plasma.desktop:7
+msgid "KDE Plasma Workspace"
+msgstr "KDE Plasma Çalışma Alanı"
+
+#. Comment
+#: kde-plasma.desktop:9
+msgid "The desktop made by KDE"
+msgstr "KDE tarafınndan oluşturulan masaüstü"
+
+#. Name
+#: larswm.desktop:6
+msgid "LarsWM"
+msgstr ""
+
+#. Comment
+#: larswm.desktop:8
+msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
+msgstr "Lars Pencere Yöneticisi"
+
+#. Name
+#: lwm.desktop:6
+msgid "LWM"
+msgstr ""
+
+#. Comment
+#: lwm.desktop:8
+msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
+msgstr ""
+"Lightweight Pencere Yöneticisi. Yapılandırılamayan, kaba pencere yönetici"
+
+#. Name
+#: matchbox.desktop:6
+msgid "Matchbox"
+msgstr ""
+
+#. Comment
+#: matchbox.desktop:8
+msgid "A window manager for handheld devices"
+msgstr "El bilgisayarları için bir pencere yöneticisi"
+
+#. Name
+#: metacity.desktop:6
+msgid "Metacity"
+msgstr ""
+
+#. Comment
+#: metacity.desktop:8
+msgid "A lightweight GTK2 based window manager"
+msgstr "Gtk2 tabanlı hafif bir pencere yöneticisi"
+
+#. Name
+#: mwm.desktop:6
+msgid "MWM"
+msgstr ""
+
+#. Comment
+#: mwm.desktop:8
+msgid "The Motif Window Manager"
+msgstr "Motif Pencere Yöneticisi"
+
+#. Name
+#: olvwm.desktop:6
+msgid "OLVWM"
+msgstr ""
+
+#. Comment
+#: olvwm.desktop:8
+msgid ""
+"The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
+"desktops"
+msgstr "OpenLook Sanal Pencere Yöneticisi."
+
+#. Name
+#: olwm.desktop:6
+msgid "OLWM"
+msgstr ""
+
+#. Comment
+#: olwm.desktop:8
+msgid "The traditional Open Look Window Manager"
+msgstr "OpenLook Pencere Yöneticisi"
+
+#. Name
+#: openbox.desktop:6
+msgid "Openbox"
+msgstr ""
+
+#. Comment
+#: openbox.desktop:8
+msgid "A lightweight window manager based on Blackbox"
+msgstr "Blackbox temelli küçük bir pencere yöneticisi"
+
+#. Name
+#: oroborus.desktop:6
+msgid "Oroborus"
+msgstr ""
+
+#. Comment
+#: oroborus.desktop:8
+msgid "A lightweight themeable window manager"
+msgstr "Küçük, hafif, temalı bir pencere yöneticisi"
+
+#. Name
+#: phluid.desktop:6
+msgid "Phluid"
+msgstr ""
+
+#. Comment
+#: phluid.desktop:8
+msgid "An Imlib2 based window manager"
+msgstr "Imlib2 tabanlı bir pencere yöneticisi"
+
+#. Name
+#: pwm.desktop:6
+msgid "PWM"
+msgstr ""
+
+#. Comment
+#: pwm.desktop:8
+msgid ""
+"A lightweight window manager able to attach multiple windows to one frame"
+msgstr ""
+"Düşük ağırlıklı bir çok pencereyi bir çerçeveye toplayabilen bir pencere "
+"yöneticisi"
+
+#. Name
+#: qvwm.desktop:6
+msgid "QVWM"
+msgstr ""
+
+#. Comment
+#: qvwm.desktop:8
+msgid "A Windows 95 like window manager"
+msgstr "Windows 95 benzeri bir pencere yöneticisi"
+
+#. Name
+#: ratpoison.desktop:6
+msgid "Ratpoison"
+msgstr ""
+
+#. Comment
+#: ratpoison.desktop:8
+msgid "A simple keyboard-only window manager modeled after Screen"
+msgstr "Screen'den sonra modellenmiş salt klavye basit pencere yöneticisi"
+
+#. Name
+#: sapphire.desktop:6
+msgid "Sapphire"
+msgstr ""
+
+#. Comment
+#: sapphire.desktop:8
+msgid "A minimal but configurable window manager"
+msgstr "Küçük, ancak kolayca özelleştirilebilir bir pencere yöneticisi"
+
+#. Name
+#: sawfish.desktop:6
+msgid "Sawfish"
+msgstr ""
+
+#. Comment
+#: sawfish.desktop:8
+msgid ""
+"An extensible window manager scriptable with an Emacs Lisp-like language"
+msgstr ""
+"Eklenti destekli Emacs Lisp benzeri bir kodlama dili kullanan kodlanabilir "
+"bir pencere yöneticisi"
+
+#. Name
+#: twm.desktop:6
+msgid "TWM"
+msgstr ""
+
+#. Comment
+#: twm.desktop:8
+msgid "The Tab Window Manager"
+msgstr "Tab Pencere Yöneticisi"
+
+#. Name
+#: ude.desktop:6
+msgid "UDE"
+msgstr ""
+
+#. Comment
+#: ude.desktop:8
+msgid "The UNIX Desktop Environment"
+msgstr "Unix Masaüstü Ortamı"
+
+#. Name
+#: vtwm.desktop:6
+msgid "VTWM"
+msgstr ""
+
+#. Comment
+#: vtwm.desktop:8
+msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
+msgstr "Virtual Tab Masaüstü Yöneticisi."
+
+#. Name
+#: w9wm.desktop:6
+msgid "W9WM"
+msgstr ""
+
+#. Comment
+#: w9wm.desktop:8
+msgid ""
+"A window manager based on 9WM, enhanced by virtual screens and keyboard "
+"bindings"
+msgstr ""
+"9WM tabanlı, sanal ekranları ve klavye kısayolları ile geliştirilmiş bir "
+"masaüstü yöneticisi"
+
+#. Name
+#: waimea.desktop:6
+msgid "Waimea"
+msgstr ""
+
+#. Comment
+#: waimea.desktop:8
+msgid "A highly customizable window manager based on Blackbox"
+msgstr "Blackbox temelli, kolayca özelleştirilebilir bir pencere yöneticisi"
+
+#. Name
+#: wm2.desktop:6
+msgid "WM2"
+msgstr ""
+
+#. Comment
+#: wm2.desktop:8
+msgid "A small, non-configurable window manager"
+msgstr "Küçük ve yapılandırılamayan bir pencere yöneticisi"
+
+#. Name
+#: wmaker.desktop:6
+#, fuzzy
+msgid "WindowMaker"
+msgstr "Tab Pencere Yöneticisi"
+
+#. Comment
+#: wmaker.desktop:8
+msgid "A simple window manager that resembles the NeXTStep look very closely"
+msgstr "NeXTStep'e aşırı benzeyen basit bir masaüstü yöneticisi"
+
+#. Name
+#: xfce.desktop:6
+msgid "XFce"
+msgstr ""
+
+#. Comment
+#: xfce.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
+"of CDE"
+msgstr "Cholesterol Masaüstü Ortamı"
+
+#. Name
+#: xfce4.desktop:6
+msgid "XFce 4"
+msgstr ""
+
+#. Comment
+#: xfce4.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment, version 4. A desktop environment "
+"reminiscent of CDE"
+msgstr ""
+"Cholesterol Ücretsiz Masaüstü Ortamı, sürüm 4. CDE'nin benzeri olan masaüstü "
+"ortamı"

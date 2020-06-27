@@ -24,7 +24,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kasbarextension.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/extensions )
+tde_create_translated_desktop(
+  SOURCE kasbarextension.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/extensions
+  PO_DIR kicker-desktops
+)
 
 
 ##### kasbar (shared) ###########################

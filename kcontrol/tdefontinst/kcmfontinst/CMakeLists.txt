@@ -26,7 +26,10 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons()
-install( FILES kcmfontinst.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcmfontinst.desktop
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_fontinst (module) #####################

@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Správca okien"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Zmeniť na pracovnú plochu 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Je zvolená virtuálna plocha 1"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Zmeniť na pracovnú plochu 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Je zvolená virtuálna plocha 2"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Zmeniť na pracovnú plochu 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Je zvolená virtuálna plocha 3"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Zmeniť na pracovnú plochu 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Je zvolená virtuálna plocha 4"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Zmeniť na pracovnú plochu 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Je zvolená virtuálna plocha 5"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Zmeniť na pracovnú plochu 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Je zvolená virtuálna plocha 6"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Zmeniť na pracovnú plochu 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Je zvolená virtuálna plocha 7"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Zmeniť na pracovnú plochu 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Je zvolená virtuálna plocha 8"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Zmeniť na pracovnú plochu 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Je zvolená virtuálna plocha 9"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Zmeniť na pracovnú plochu 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Je zvolená virtuálna plocha 10"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Zmeniť na pracovnú plochu 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Je zvolená virtuálna plocha 11"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Zmeniť na pracovnú plochu 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Je zvolená virtuálna plocha 12"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Zmeniť na pracovnú plochu 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Je zvolená virtuálna plocha 13"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Zmeniť na pracovnú plochu 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Je zvolená virtuálna plocha 14"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Zmeniť na pracovnú plochu 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Je zvolená virtuálna plocha 15"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Zmeniť na pracovnú plochu 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Je zvolená virtuálna plocha 16"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Zmeniť na pracovnú plochu 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Je zvolená virtuálna plocha 17"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Zmeniť na pracovnú plochu 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Je zvolená virtuálna plocha 18"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Zmeniť na pracovnú plochu 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Je zvolená virtuálna plocha 19"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Zmeniť na pracovnú plochu 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Je zvolená virtuálna plocha 20"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Aktívne okno"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Iné okno je už aktívne"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Nové okno"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Nové okno"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Zmazať okno"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Odstrániť okno"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Zatvoriť okno"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Okno sa uzavrie"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Zobraziť okno"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Okno je zabalené"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Schovať okno"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Okno je rozbalené"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Minimalizovať okno"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Okno je minimalizované"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Zrušiť minimalizáciu okna"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Okno je obnovené"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Maximalizovať okno"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Okno je maximalizované"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Zmenšiť okno"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Okno nie je maximalizované"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Okno na všetky plochy"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Okno bude viditeľné na všetkých plochách"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Okno na jednu plochu"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Okno už nebude viditeľné na všetkých plochách"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Nový dialóg"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Objavilo sa dočasné dialógové okno"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Zmazať dialóg"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Dočasné dialógové okno je odstránené"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Začať presun okna"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Začal sa presun okna"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Dokončiť presun okna"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Presun okna je ukončený"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Zmeniť veľkosť okna"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Začala zmena veľkosti okna"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Dokončiť zmenu veľkosti okna"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Zmena veľkosti okna je ukončená"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Okno na aktuálnu pracovnú plochu"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Okno na aktuálnu pracovnú plochu"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Okno na inú pracovnú plochu"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Okno na neaktívnu virtuálnu pracovnú plochu"

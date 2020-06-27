@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "upravitelj prozorima"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Prebaci se na radnu površinu 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Odabrana je virtualna radna površina 1"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Prebaci se na radnu površinu 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Odabrana je virtualna radna površina 2"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Prebaci se na radnu površinu 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Odabrana je virtualna radna površina 3"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Prebaci se na radnu površinu 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Odabrana je virtualna radna površina 4"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Prebaci se na radnu površinu 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Odabrana je virtualna radna površina 5"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Prebaci se na radnu površinu 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Odabrana je virtualna radna površina 6"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Prebaci se na radnu površinu 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Odabrana je virtualna radna površina 7"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Prebaci se na radnu površinu 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Odabrana je virtualna radna površina 8"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Prebaci se na radnu površinu 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Odabrana je virtualna radna površina 9"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Prebaci se na radnu površinu 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Odabrana je virtualna radna površina 10"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Prebaci se na radnu površinu 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Odabrana je virtualna radna površina 11"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Prebaci se na radnu površinu 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Odabrana je virtualna radna površina 12"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Prebaci se na radnu površinu 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Odabrana je virtualna radna površina 13"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Prebaci se na radnu površinu 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Odabrana je virtualna radna površina 14"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Prebaci se na radnu površinu 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Odabrana je virtualna radna površina 15"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Prebaci se na radnu površinu 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Odabrana je virtualna radna površina 16"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Prebaci se na radnu površinu 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Odabrana je virtualna radna površina 17"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Prebaci se na radnu površinu 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Odabrana je virtualna radna površina 18"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Prebaci se na radnu površinu 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Odabrana je virtualna radna površina 19"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Prebaci se na radnu površinu 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Odabrana je virtualna radna površina 20"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Aktiviraj prozor"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Aktiviran je drugi prozor"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Novi prozor"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Novi prozor"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Izbriši prozor"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Brisanje prozora"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Zatvori prozor"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Prozor se zatvara"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Zamotaj prozor"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Prozor je zamotan"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Odmotaj prozor"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Prozor je odmotan"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Minimiziraj prozor"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Prozor je minimiziran"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Vrati minimiziran prozor"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Prozor je obnovljen"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Maksimiziraj prozor"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Prozor je maksimiziran"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Vrati maksimiziran prozor"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Prozor gubi maksimiziranost"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Prozor na svim radnim površinama"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Prozor je vidljiv na svim radnim površinama"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Prozor nije na svim radnim površinama"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Prozor više nije vidljiv na svim radnim površinama"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Novi dijalog"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Prolazni prozor (dijalog) se pojavio"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Izbriši dijalog"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Prolazni prozor (dijalog) je uklonjen"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Početak micanja prozora"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Prozor je započeo pomicanje"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Završetak micanja prozora"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Prozor je završio pomicanje"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Početak promjene veličine"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Prozor je započeo promjenu veličine"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Završetak promjene veličine"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Prozor je završio s promjenom veličine"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Prozor na trenutnoj radnoj površini zahtijeva pažnju"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Prozor na trenutnoj virtualnoj radnoj površini zahtijeva pažnju"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Prozor na drugoj radnoj površini zahtijeva pažnju"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Prozor na neaktivnoj virtualnoj radnoj površini zahtijeva pažnju"

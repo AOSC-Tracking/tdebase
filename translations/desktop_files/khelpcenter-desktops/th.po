@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 09:37+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Help.desktop:10
+msgid "Help"
+msgstr "ระบบช่วยเหลือ"
+
+#. Name
+#: htmlsearch/htmlsearch.desktop:12
+msgid "Index"
+msgstr "ดัชนี"
+
+#. Comment
+#: htmlsearch/htmlsearch.desktop:14
+msgid "Index generation"
+msgstr "สร้างดัชนี"
+
+#. Keywords
+#: htmlsearch/htmlsearch.desktop:16
+msgid "Help;HTML;Search;Index;htdig;htsearch;htmerge;Scope;Language;"
+msgstr "ช่วยเหลือ;HTML;ค้นหา;ดัชนี;htdig;htsearch;htmerge;Scope;ภาษา;"
+
+#. Name
+#: kcmhelpcenter.desktop:13
+msgid "Help Index"
+msgstr "ดัชนีความช่วยเหลือ"
+
+#. Comment
+#: kcmhelpcenter.desktop:15
+msgid "Help center search index configuration and generation"
+msgstr "การปรับแต่งและสร้างดัชนีสำหรับค้นหาของศูนย์ช่วยเหลือ"
+
+#. Keywords
+#: kcmhelpcenter.desktop:17
+msgid "khelpcenter;help;index;search;"
+msgstr "ศูนย์ช่วยเหลือ;ช่วยเหลือ;ดัชนี;ค้นหา;"
+
+#. Name
+#: khelpcenter.desktop:11
+msgid "KHelpCenter"
+msgstr "ศูนย์ช่วยเหลือ K"
+
+#. Comment
+#: khelpcenter.desktop:13
+msgid "The Trinity Help Center"
+msgstr "ศูนย์ช่วยเหลือของ Trinity"
+
+#. Name
+#: plugins/Manpages/man1.desktop:4
+msgid "(1) User Commands"
+msgstr "(1) คำสั่งของผู้ใช้"
+
+#. Name
+#: plugins/Manpages/man2.desktop:4
+msgid "(2) System Calls"
+msgstr "(2) คำสั่งของระบบ"
+
+#. Name
+#: plugins/Manpages/man3.desktop:4
+msgid "(3) Subroutines"
+msgstr "(3) รูทีนย่อย"
+
+#. Name
+#: plugins/Manpages/man4.desktop:4
+msgid "(4) Devices"
+msgstr "(4) อุปกรณ์"
+
+#. Name
+#: plugins/Manpages/man5.desktop:4
+msgid "(5) File Formats"
+msgstr "(5) รูปแบบแฟ้ม"
+
+#. Name
+#: plugins/Manpages/man6.desktop:4
+msgid "(6) Games"
+msgstr "(6) เกม"
+
+#. Name
+#: plugins/Manpages/man7.desktop:4
+msgid "(7) Miscellaneous"
+msgstr "(7) เบ็ดเตล็ด"
+
+#. Name
+#: plugins/Manpages/man8.desktop:4
+msgid "(8) Sys. Administration"
+msgstr "(8) ผู้ดูแลระบบ"
+
+#. Name
+#: plugins/Manpages/man9.desktop:4
+msgid "(9) Kernel"
+msgstr "(9) เคอร์เนล"
+
+#. Name
+#: plugins/Manpages/mann.desktop:4
+msgid "(n) New"
+msgstr "(n) ใหม่"
+
+#. Name
+#: plugins/adminguide.desktop:6
+#, fuzzy
+msgid "TDE Admininstrator Guide"
+msgstr "คู่มือผู้ใช้งาน TDE"
+
+#. Name
+#: plugins/applets.desktop:6
+msgid "Applet Manuals"
+msgstr "คู่มือแอพเพล็ต"
+
+#. Name
+#: plugins/contact.desktop:6
+msgid "Contact Information"
+msgstr "ข้อมูลติดต่อ"
+
+#. Name
+#: plugins/faq.desktop:6
+msgid "The TDE FAQ"
+msgstr "คำถามที่ถามบ่อยของ TDE"
+
+#. Name
+#: plugins/hardwaremodules.desktop:6
+msgid "Hardware"
+msgstr "อุปกรณ์ภายในเครื่อง"
+
+#. Name
+#: plugins/info.desktop:7
+msgid "Browse Info Pages"
+msgstr "เรียกดูหน้าข้อมูล (info)"
+
+#. Name
+#: plugins/kcontrolmodules.desktop:6
+msgid "Control Center Modules"
+msgstr "โมดูลของศูนย์ควบคุม"
+
+#. Name
+#: plugins/konqplugins.desktop:6
+msgid "Konqueror Plugins"
+msgstr "ปลั้กอินของคอนเควอร์เรอร์"
+
+#. Name
+#: plugins/links.desktop:6
+msgid "TDE on the Web"
+msgstr "TDE บนเว็บ"
+
+#. Name
+#: plugins/quickstart.desktop:6
+msgid "Quickstart Guide"
+msgstr "คำแนะนำด่วน"
+
+#. Name
+#: plugins/support.desktop:6
+msgid "Supporting TDE"
+msgstr "การสนับสนุน TDE"
+
+#. Name
+#: plugins/tdeioslaves.desktop:6
+msgid "Protocols"
+msgstr "โปรโตคอล"
+
+#. Comment
+#: plugins/tdeioslaves.desktop:8
+msgid "Information about the available protocols"
+msgstr "ข้อมูลเกี่ยวกับโปรโตคอลที่มีอยู่"
+
+#. Keywords
+#: plugins/tdeioslaves.desktop:10
+msgid "Protocol;IO slaves;Slaves;Network;Information;Timeout;"
+msgstr "โปรโตคอล;IO slaves;Slaves;ระบบเครือข่าย;ข้อมูล;หมดเวลา;"
+
+#. Name
+#: plugins/userguide.desktop:6
+msgid "TDE User Guide"
+msgstr "คู่มือผู้ใช้งาน TDE"
+
+#. Name
+#: plugins/visualdict.desktop:6
+msgid "A Visual Guide to TDE"
+msgstr "นำเที่ยว TDE"
+
+#. Name
+#: plugins/welcome.desktop:6
+msgid "Welcome to TDE"
+msgstr "ยินดีต้อนรับสู่ TDE"
+
+#. Name
+#: plugins/Applications/.directory:7
+msgid "Application Manuals"
+msgstr "คู่มือแอพพลิเคชั่น"
+
+#. Name
+#: plugins/Manpages/.directory:8
+msgid "UNIX manual pages"
+msgstr "หน้าคู่มือ UNIX"
+
+#. Name
+#: plugins/Scrollkeeper/.directory:5
+msgid "Scrollkeeper"
+msgstr ""

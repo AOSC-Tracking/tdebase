@@ -1,0 +1,556 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tde.desktop.cmake:7
+msgid "TDE"
+msgstr ""
+
+#. Comment
+#: tde.desktop.cmake:8
+msgid ""
+"The Trinity Desktop Environment. A powerful Open Source graphical desktop "
+"environment"
+msgstr ""
+"Trinity Desktop Environment. Et kraftig grafisk skrivebordsmiljø med åpen "
+"kildekode."
+
+#. Name
+#: 9wm.desktop:6
+msgid "9WM"
+msgstr ""
+
+#. Comment
+#: 9wm.desktop:8
+msgid "An emulation of the Plan 9 window manager 8-1/2"
+msgstr "En emulering av vindusbehandleren 8 ½ fra Plan 9"
+
+#. Name
+#: admin.desktop:7
+msgid "admin"
+msgstr ""
+
+#. Comment
+#: admin.desktop:9
+msgid "Yast Admin Session"
+msgstr ""
+
+#. Name
+#: aewm++.desktop:6
+msgid "AEWM++"
+msgstr ""
+
+#. Comment
+#: aewm++.desktop:8
+msgid ""
+"A minimal window manager based on AEWM, enhanced by virtual desktops and "
+"partial GNOME support"
+msgstr ""
+"En minimal vindusbehandler basert på AEWM, forbedret med virtuelle "
+"skrivebord og delvis støtte for GNOME"
+
+#. Name
+#: aewm.desktop:6
+msgid "AEWM"
+msgstr ""
+
+#. Comment
+#: aewm.desktop:8
+msgid "A minimalist window manager"
+msgstr "En minimalistisk vindusbehandler"
+
+#. Name
+#: afterstep.desktop:6
+msgid "AfterStep"
+msgstr ""
+
+#. Comment
+#: afterstep.desktop:8
+msgid "A window manager with the NeXTStep look and feel, based on FVWM"
+msgstr "En vindusbehandler som ligner på NeXTStep, basert på FVWM"
+
+#. Name
+#: amaterus.desktop:6
+msgid "AMATERUS"
+msgstr ""
+
+#. Comment
+#: amaterus.desktop:8
+msgid "A GTK+ based window manager with a window grouping feature"
+msgstr "En vindusbehandler basert på GTK+ med vindusgruppering"
+
+#. Name
+#: amiwm.desktop:6
+msgid "AmiWM"
+msgstr ""
+
+#. Comment
+#: amiwm.desktop:8
+msgid "The Amiga look-alike window manager"
+msgstr "Vindusbehandler som ligner på Amiga"
+
+#. Name
+#: asclassic.desktop:6
+msgid "ASClassic"
+msgstr ""
+
+#. Comment
+#: asclassic.desktop:8
+msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
+msgstr "AfterStep Classic, en vindusbehandler basert på AfterStep v1.1"
+
+#. Name
+#: blackbox.desktop:6
+msgid "Blackbox"
+msgstr ""
+
+#. Comment
+#: blackbox.desktop:8
+msgid "A fast & light window manager"
+msgstr "En rask og lett vindusbehandler"
+
+#. Name
+#: cde.desktop:6
+msgid "CDE"
+msgstr ""
+
+#. Comment
+#: cde.desktop:8
+msgid ""
+"The Common Desktop Environment, a proprietary industry standard desktop "
+"environment"
+msgstr ""
+"Common desktop Environment, et godseid skrivebordsmiljø som er standard i "
+"programvareindustrien"
+
+#. Name
+#: ctwm.desktop:6
+msgid "CTWM"
+msgstr ""
+
+#. Comment
+#: ctwm.desktop:8
+msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr ""
+"Claude's Tab Window Manager, TWM forbedret med virtuelle skrivebord,osv."
+
+#. Name
+#: cwwm.desktop:6
+msgid "CWWM"
+msgstr ""
+
+#. Comment
+#: cwwm.desktop:8
+msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
+msgstr ""
+"The ChezWam Window Manager, en minimalistisk vindusbehandler basert på EvilWM"
+
+#. Name
+#: enlightenment.desktop:6
+msgid "Enlightenment"
+msgstr ""
+
+#. Comment
+#: enlightenment.desktop:8
+msgid "An extremely themable very feature-rich window manager"
+msgstr "En svært omfattende vindusbehandler som kan tilpasses med temaer"
+
+#. Name
+#: evilwm.desktop:6
+msgid "EvilWM"
+msgstr ""
+
+#. Comment
+#: evilwm.desktop:8
+msgid "A minimalist window manager based on AEWM"
+msgstr "En minimalistisk vindusbehandler basert på AEWM"
+
+#. Name
+#: fluxbox.desktop:6
+msgid "Fluxbox"
+msgstr ""
+
+#. Comment
+#: fluxbox.desktop:8
+msgid "A highly configurable and low resource window manager based on Blackbox"
+msgstr ""
+"En lite ressurskrevende og svært fleksibel vindusbehandler basert på Blackbox"
+
+#. Name
+#: flwm.desktop:6
+msgid "FLWM"
+msgstr ""
+
+#. Comment
+#: flwm.desktop:8
+msgid "The Fast Light Window Manager, based primarily on WM2"
+msgstr ""
+"En rask, lett vindusbehandler (Fast Light Window Manager), mest basert på WM2"
+
+#. Name
+#: fvwm.desktop:6
+msgid "FVWM"
+msgstr ""
+
+#. Comment
+#: fvwm.desktop:8 fvwm2.desktop:8
+msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
+msgstr ""
+"En slagkraftig vindusbehandler med flere virtuelle skrivebord, som støtter "
+"ICCCM"
+
+#. Name
+#: fvwm2.desktop:6
+msgid "FVWM2"
+msgstr ""
+
+#. Name
+#: fvwm95.desktop:6
+msgid "FVWM95"
+msgstr ""
+
+#. Comment
+#: fvwm95.desktop:8
+msgid "A Windows 95 look-alike derivative of FVWM"
+msgstr "En variant av FVWM som ser ut som Windows 95"
+
+#. Name
+#: gnome.desktop:6
+msgid "GNOME"
+msgstr ""
+
+#. Comment
+#: gnome.desktop:8
+msgid ""
+"The GNU Network Object Model Environment. A complete, free and easy-to-use "
+"desktop environment"
+msgstr ""
+"GNU Network Object Model Environment. Et skrivebordsmiljø som er komplett, "
+"fritt og lett å bruke."
+
+#. Name
+#: golem.desktop:6
+msgid "Golem"
+msgstr ""
+
+#. Comment
+#: golem.desktop:8
+msgid "A lightweight window manager"
+msgstr "En lettvekts vindusbehandler"
+
+#. Name
+#: icewm.desktop:6
+msgid "IceWM"
+msgstr ""
+
+#. Comment
+#: icewm.desktop:8
+msgid "A Windows 95-OS/2-Motif-like window manager"
+msgstr "En vindusbehandler som likner Windows 95-OS/2-Motif"
+
+#. Name
+#: ion.desktop:6
+msgid "Ion"
+msgstr ""
+
+#. Comment
+#: ion.desktop:8
+msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
+msgstr ""
+"En tastaturvennlig vindusbehandler med flislagte vinduer, basert på PWM"
+
+#. Name
+#: kde-plasma-safe.desktop:7
+msgid "KDE Plasma Workspace (failsafe session)"
+msgstr "KDE Plasma arbeidsflate (sikker økt)"
+
+#. Comment
+#: kde-plasma-safe.desktop:9
+msgid "The desktop made by KDE (failsafe session)"
+msgstr "Skrivebordet som KDE laget (sikker økt)"
+
+#. Name
+#: kde-plasma.desktop:7
+msgid "KDE Plasma Workspace"
+msgstr "KDE Plasma arbeidsflate"
+
+#. Comment
+#: kde-plasma.desktop:9
+msgid "The desktop made by KDE"
+msgstr "Skrivebordet som KDE laget"
+
+#. Name
+#: larswm.desktop:6
+msgid "LarsWM"
+msgstr ""
+
+#. Comment
+#: larswm.desktop:8
+msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
+msgstr "Lars vindusbehandler, basert på 9WM, støtter flislagte vinduer"
+
+#. Name
+#: lwm.desktop:6
+msgid "LWM"
+msgstr ""
+
+#. Comment
+#: lwm.desktop:8
+msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
+msgstr ""
+"Lettvekts vindusbehandler- Lightweight Window Manager. En enkel "
+"vindusbehandler uten innstillinger."
+
+#. Name
+#: matchbox.desktop:6
+msgid "Matchbox"
+msgstr ""
+
+#. Comment
+#: matchbox.desktop:8
+msgid "A window manager for handheld devices"
+msgstr "En vindusbehandler for håndholdte enheter"
+
+#. Name
+#: metacity.desktop:6
+msgid "Metacity"
+msgstr ""
+
+#. Comment
+#: metacity.desktop:8
+msgid "A lightweight GTK2 based window manager"
+msgstr "En lettvekts vindusbehandler basert på GTK2"
+
+#. Name
+#: mwm.desktop:6
+msgid "MWM"
+msgstr ""
+
+#. Comment
+#: mwm.desktop:8
+msgid "The Motif Window Manager"
+msgstr "Motif vindusbehandler"
+
+#. Name
+#: olvwm.desktop:6
+msgid "OLVWM"
+msgstr ""
+
+#. Comment
+#: olvwm.desktop:8
+msgid ""
+"The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
+"desktops"
+msgstr ""
+"OpenLook Virtual Window Manager. OLWM utvidet med virtuelle skrivebord."
+
+#. Name
+#: olwm.desktop:6
+msgid "OLWM"
+msgstr ""
+
+#. Comment
+#: olwm.desktop:8
+msgid "The traditional Open Look Window Manager"
+msgstr "Den tradisjonelle Open Look-vindusbehandleren"
+
+#. Name
+#: openbox.desktop:6
+msgid "Openbox"
+msgstr ""
+
+#. Comment
+#: openbox.desktop:8
+msgid "A lightweight window manager based on Blackbox"
+msgstr "En lettvekts vindusbehandler basert på Blackbox"
+
+#. Name
+#: oroborus.desktop:6
+msgid "Oroborus"
+msgstr ""
+
+#. Comment
+#: oroborus.desktop:8
+msgid "A lightweight themeable window manager"
+msgstr "En lettvekts vindusbehandler med temaer"
+
+#. Name
+#: phluid.desktop:6
+msgid "Phluid"
+msgstr ""
+
+#. Comment
+#: phluid.desktop:8
+msgid "An Imlib2 based window manager"
+msgstr "En vindusbehandler basert på Imlib2"
+
+#. Name
+#: pwm.desktop:6
+msgid "PWM"
+msgstr ""
+
+#. Comment
+#: pwm.desktop:8
+msgid ""
+"A lightweight window manager able to attach multiple windows to one frame"
+msgstr "En lettvekts vindusbehandler som kan koble flere vinduer til én ramme"
+
+#. Name
+#: qvwm.desktop:6
+msgid "QVWM"
+msgstr ""
+
+#. Comment
+#: qvwm.desktop:8
+msgid "A Windows 95 like window manager"
+msgstr "En vindusbehandler som likner Windows 95"
+
+#. Name
+#: ratpoison.desktop:6
+msgid "Ratpoison"
+msgstr ""
+
+#. Comment
+#: ratpoison.desktop:8
+msgid "A simple keyboard-only window manager modeled after Screen"
+msgstr "En enkel tastaturbasert vindusbehandler, etter forbilde av Screen"
+
+#. Name
+#: sapphire.desktop:6
+msgid "Sapphire"
+msgstr ""
+
+#. Comment
+#: sapphire.desktop:8
+msgid "A minimal but configurable window manager"
+msgstr "En minimal vindusbehandler, men med innstillinger"
+
+#. Name
+#: sawfish.desktop:6
+msgid "Sawfish"
+msgstr ""
+
+#. Comment
+#: sawfish.desktop:8
+msgid ""
+"An extensible window manager scriptable with an Emacs Lisp-like language"
+msgstr ""
+"En utvidbar vindusbehandler som kan skriptes med et språk som likner Emacs "
+"Lisp."
+
+#. Name
+#: twm.desktop:6
+msgid "TWM"
+msgstr ""
+
+#. Comment
+#: twm.desktop:8
+msgid "The Tab Window Manager"
+msgstr "Tab Vindusbehandler"
+
+#. Name
+#: ude.desktop:6
+msgid "UDE"
+msgstr ""
+
+#. Comment
+#: ude.desktop:8
+msgid "The UNIX Desktop Environment"
+msgstr "UNIX Desktop Environment"
+
+#. Name
+#: vtwm.desktop:6
+msgid "VTWM"
+msgstr ""
+
+#. Comment
+#: vtwm.desktop:8
+msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
+msgstr "Virtual Tab vindusbehandler. TWM utvidet med virtuelle skjermer, osv."
+
+#. Name
+#: w9wm.desktop:6
+msgid "W9WM"
+msgstr ""
+
+#. Comment
+#: w9wm.desktop:8
+msgid ""
+"A window manager based on 9WM, enhanced by virtual screens and keyboard "
+"bindings"
+msgstr ""
+"En vindusbehandler basert på 9WM, forbedret med virtuelle skjermer og "
+"hurtigtaster"
+
+#. Name
+#: waimea.desktop:6
+msgid "Waimea"
+msgstr ""
+
+#. Comment
+#: waimea.desktop:8
+msgid "A highly customizable window manager based on Blackbox"
+msgstr "En vindusbehandler med mange tilpasninger, basert på Blackbox"
+
+#. Name
+#: wm2.desktop:6
+msgid "WM2"
+msgstr ""
+
+#. Comment
+#: wm2.desktop:8
+msgid "A small, non-configurable window manager"
+msgstr "En liten vindusbehandler uten tilpasninger"
+
+#. Name
+#: wmaker.desktop:6
+#, fuzzy
+msgid "WindowMaker"
+msgstr "Tab Vindusbehandler"
+
+#. Comment
+#: wmaker.desktop:8
+msgid "A simple window manager that resembles the NeXTStep look very closely"
+msgstr "En enkel vindusbehandler som ligner mye på NeXTStep"
+
+#. Name
+#: xfce.desktop:6
+msgid "XFce"
+msgstr ""
+
+#. Comment
+#: xfce.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
+"of CDE"
+msgstr ""
+"Det kolesterolfrie skrivebordsmiljø. Et skrivebordsmiljø som minner om CDE"
+
+#. Name
+#: xfce4.desktop:6
+msgid "XFce 4"
+msgstr ""
+
+#. Comment
+#: xfce4.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment, version 4. A desktop environment "
+"reminiscent of CDE"
+msgstr ""
+"Det kolesterolfrie skrivebordet, versjon 4. Et skrivebordsmiljø som minner "
+"om CDE"

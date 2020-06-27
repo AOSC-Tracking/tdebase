@@ -24,7 +24,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES icons.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE icons.desktop
+  PO_DIR kcontrol-desktops
+)
 install( FILES uninstall.desktop DESTINATION ${APPS_INSTALL_DIR}/Settings/LookNFeel/Themes RENAME iconthemes.desktop )
 
 

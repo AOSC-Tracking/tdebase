@@ -1,0 +1,554 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: cgi/kcmcgi/kcmcgi.desktop:9
+msgid "CGI Scripts"
+msgstr "Skripty CGI"
+
+#. Comment
+#: cgi/kcmcgi/kcmcgi.desktop:11
+msgid "Configure the CGI TDEIO slave"
+msgstr "Nastavenie IO klienta CGI"
+
+#. Keywords
+#: cgi/kcmcgi/kcmcgi.desktop:13
+msgid "CGI;TDEIO;Slave;Paths;"
+msgstr "CGI;TDEIO;klient;cesty;"
+
+#. Name
+#: home/kdedmodule/homedirnotify.desktop:4
+msgid "KDED Home Base URL Notifier"
+msgstr "KDED notifikátor domovskej URL"
+
+#. Comment
+#: home/kdedmodule/homedirnotify.desktop:6
+#, fuzzy
+msgid "Provides change notification for user's home folder ($HOME)"
+msgstr "Poskytuje upozornenia o zmenách sieťových priečinkov"
+
+#. Name
+#: man/kmanpart.desktop:4
+msgid "KManPart"
+msgstr ""
+
+#. Comment
+#: man/kmanpart.desktop:6
+msgid "Embeddable Troff Viewer"
+msgstr "Vložiteľný prehliadač Troff"
+
+#. Name
+#: media/mediamanager/mediamanager.desktop:4
+msgid "KDED Media Manager"
+msgstr "KDED správca médií"
+
+#. Comment
+#: media/mediamanager/mediamanager.desktop:6
+msgid "Keep track of media activities and allow to (un)mount (media:/)"
+msgstr "Sledovanie pripojenia/odpojenia medií (media:/)"
+
+#. Name
+#: media/medianotifier/medianotifier.desktop:4
+msgid "Media Notifier Daemon"
+msgstr "Notifikátor medií"
+
+#. Comment
+#: media/medianotifier/medianotifier.desktop:6
+msgid "A media plugged notifier"
+msgstr "Notifikátor pripojených médií"
+
+#. Comment
+#: media/mimetypes/audiocd.desktop:6
+msgid "Audio CD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/blankbluray.desktop:6
+msgid "Blank BLURAY"
+msgstr "Čisté BLURAY"
+
+#. Comment
+#: media/mimetypes/blankcd.desktop:6
+msgid "Blank CD"
+msgstr "Čisté CD"
+
+#. Comment
+#: media/mimetypes/blankdvd.desktop:6
+msgid "Blank DVD"
+msgstr "Čisté DVD"
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_locked.desktop:7
+msgid "Encrypted Locked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_mounted.desktop:6
+msgid "Mounted BLURAY"
+msgstr "Pripojené BLURAY"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted.desktop:6
+msgid "Unmounted BLURAY"
+msgstr "Nepripojené BLURAY"
+
+#. Comment
+#: media/mimetypes/blurayvideo.desktop:6
+msgid "BLURAY Video Disk"
+msgstr "BLURAY Video disk"
+
+#. Comment
+#: media/mimetypes/camera_mounted.desktop:6
+msgid "Mounted Camera"
+msgstr "Pripojený digitálny fotoaparát"
+
+#. Comment
+#: media/mimetypes/camera_unmounted.desktop:6
+msgid "Unmounted Camera"
+msgstr "Odpojený digitálny fotoaparát"
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_mounted.desktop:6
+msgid "Mounted CD-R"
+msgstr "Pripojená napaľovacia mechanika CD"
+
+#. Comment
+#: media/mimetypes/cd-r_unmounted.desktop:6
+msgid "Unmounted CD-R"
+msgstr "Nepripojená napaľovacia mechanika CD"
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted.desktop:6
+msgid "Mounted CD-RW"
+msgstr "Pripojená napaľovacia mechanika CD"
+
+#. Comment
+#: media/mimetypes/cd-rw_unmounted.desktop:6
+msgid "Unmounted CD-RW"
+msgstr "Nepripojená napaľovacia mechanika CD"
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_mounted.desktop:6
+msgid "Mounted CD-ROM"
+msgstr "Pripojený CD-ROM"
+
+#. Comment
+#: media/mimetypes/cdrom_unmounted.desktop:6
+msgid "Unmounted CD-ROM"
+msgstr "Nepripojený CD-ROM"
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_locked.desktop:7
+msgid "Encrypted Locked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_mounted.desktop:6
+msgid "Mounted DVD"
+msgstr "Pripojené DVD"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted.desktop:6
+msgid "Unmounted DVD"
+msgstr "Nepripojené DVD"
+
+#. Comment
+#: media/mimetypes/dvdvideo.desktop:6
+msgid "DVD Video Disk"
+msgstr "DVD Video disk"
+
+#. Comment
+#: media/mimetypes/floppy5_mounted.desktop:6
+msgid "Mounted 5¼\" Floppy"
+msgstr "Pripojená disketa 5¼\""
+
+#. Comment
+#: media/mimetypes/floppy5_unmounted.desktop:6
+msgid "Unmounted 5¼\" Floppy"
+msgstr "Nepripojená disketa 5¼\""
+
+#. Comment
+#: media/mimetypes/floppy_mounted.desktop:6
+msgid "Mounted Floppy"
+msgstr "Pripojená disketa"
+
+#. Comment
+#: media/mimetypes/floppy_unmounted.desktop:6
+msgid "Unmounted Floppy"
+msgstr "Nepripojená disketa"
+
+#. Comment
+#: media/mimetypes/gphoto2camera.desktop:6
+msgid "Camera"
+msgstr "Digitálny fotoaparát"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Hard Disk Volume"
+msgstr "Pripojený oddiel pevného disku"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Hard Disk Volume"
+msgstr "Odpojený oddiel pevného disku"
+
+#. Comment
+#: media/mimetypes/hdd_mounted.desktop:6
+msgid "Mounted Hard Disk Volume"
+msgstr "Pripojený oddiel pevného disku"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted.desktop:6
+msgid "Unmounted Hard Disk Volume"
+msgstr "Odpojený oddiel pevného disku"
+
+#. Comment
+#: media/mimetypes/mycomputer.desktop:6
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/mydocuments.desktop:6
+msgid "My Documents"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/mynetworkplaces.desktop:6
+#, fuzzy
+msgid "My Network Places"
+msgstr "Vzdialené miesta"
+
+#. Comment
+#: media/mimetypes/nfs_mounted.desktop:6
+msgid "Mounted NFS Share"
+msgstr "Pripojený zdroj NFS"
+
+#. Comment
+#: media/mimetypes/nfs_unmounted.desktop:6
+msgid "Unmounted NFS Share"
+msgstr "Odpojený zdroj NFS"
+
+#. Comment
+#: media/mimetypes/printers.desktop:6
+msgid "Printers"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/removable_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Removable Medium"
+msgstr "Pripojené vyberateľné médium"
+
+#. Comment
+#: media/mimetypes/removable_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Removable Medium"
+msgstr "Odpojené vyberateľné médium"
+
+#. Comment
+#: media/mimetypes/removable_mounted.desktop:6
+msgid "Mounted Removable Medium"
+msgstr "Pripojené vyberateľné médium"
+
+#. Comment
+#: media/mimetypes/removable_unmounted.desktop:6
+msgid "Unmounted Removable Medium"
+msgstr "Odpojené vyberateľné médium"
+
+#. Comment
+#: media/mimetypes/smb_mounted.desktop:6
+msgid "Mounted Samba (Microsoft Network) Share"
+msgstr "Pripojený disk Samba (Microsoft Network)"
+
+#. Comment
+#: media/mimetypes/smb_unmounted.desktop:6
+msgid "Unmounted Samba (Microsoft Network) Share"
+msgstr "Nepripojený disk Samba (Microsoft Network)"
+
+#. Comment
+#: media/mimetypes/svcd.desktop:6
+msgid "Super Video CD"
+msgstr ""
+
+#. Comment
+#. Name
+#: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
+#: trash/kcmtrash.desktop:11
+msgid "Trash"
+msgstr "Kôš"
+
+#. Comment
+#: media/mimetypes/vcd.desktop:6
+#, fuzzy
+msgid "Video CD"
+msgstr "DVD Video disk"
+
+#. Comment
+#: media/mimetypes/webbrowser.desktop:6
+msgid "Web Browser"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/zip_mounted.desktop:6
+msgid "Mounted Zip Disk"
+msgstr "Pripojený disk Zip"
+
+#. Comment
+#: media/mimetypes/zip_unmounted.desktop:6
+msgid "Unmounted Zip Disk"
+msgstr "Nepripojený disk Zip"
+
+#. Name
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:6
+msgid "Media Properties Page"
+msgstr "Strana vlastností média"
+
+#. Comment
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:8
+msgid "Konqueror properties dialog plugin to configure mount behaviour"
+msgstr ""
+"Modul Konqueror dialógu vlastností pre konfiguráciu správania pripojenia"
+
+#. Name
+#: media/services/media_decrypt.desktop:8
+msgid "Unlock"
+msgstr ""
+
+#. Name
+#: media/services/media_eject.desktop:8
+msgid "Eject"
+msgstr "Vysunúť"
+
+#. Name
+#: media/services/media_mount.desktop:8
+msgid "Mount"
+msgstr "Pripojiť"
+
+#. Name
+#: media/services/media_safelyremove.desktop:8
+msgid "Safely Remove"
+msgstr "Bezpečne odpojiť"
+
+#. Name
+#: media/services/media_unmount.desktop:8
+msgid "Unmount"
+msgstr "Odpojiť"
+
+#. Name
+#: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
+msgid "Storage Media"
+msgstr "Zálohovacie médiá"
+
+#. Comment
+#: media/tdecmodule/media.desktop:12
+msgid "Configure Storage Media"
+msgstr "Nastavenie zálohovacích médií"
+
+#. Keywords
+#: media/tdecmodule/media.desktop:14
+msgid "storage;media;usb;cdrom;device;"
+msgstr ""
+
+#. Name
+#: media/tdefile-plugin/tdefile_media.desktop:6
+msgid "Medium Information"
+msgstr "Informácie o médiu"
+
+#. Name
+#: remote/kdedmodule/remotedirnotify.desktop:4
+msgid "KDED Remote Base URL Notifier"
+msgstr "KDED notifikátor vzdialenej URL"
+
+#. Comment
+#: remote/kdedmodule/remotedirnotify.desktop:6
+msgid "Provides change notification for network folders"
+msgstr "Poskytuje upozornenia o zmenách sieťových priečinkov"
+
+#. Name
+#: smb/smb-network.desktop:4
+msgid "Samba Shares"
+msgstr "Stav Samby"
+
+#. Comment
+#: smb/x-smb-server.desktop:2
+msgid "Windows Server"
+msgstr "Server Windows"
+
+#. Comment
+#: smb/x-smb-workgroup.desktop:2
+msgid "Windows Workgroup"
+msgstr "Pracovná skupina Windows"
+
+#. Name
+#: system/entries/documents.desktop:6
+#, fuzzy
+msgid "Documents Folder"
+msgstr "Domovský priečinok"
+
+#. Name
+#: system/entries/home.desktop:6
+msgid "Home Folder"
+msgstr "Domovský priečinok"
+
+#. Name
+#: system/entries/remote.desktop:6
+msgid "Remote Places"
+msgstr "Vzdialené miesta"
+
+#. Name
+#: system/entries/users.desktop:6
+msgid "Users Folders"
+msgstr "Priečinky používateľov"
+
+#. Name
+#: system/kdedmodule/systemdirnotify.desktop:4
+msgid "KDED System Base URL Notifier"
+msgstr "KDED notifikátor systémovej URL"
+
+#. Comment
+#: system/kdedmodule/systemdirnotify.desktop:6
+#, fuzzy
+msgid ""
+"Provides change notification for folders monitored by the system:/ tdeio "
+"plugin"
+msgstr "Poskytuje upozornenia o zmenách sieťových priečinkov"
+
+#. Comment
+#: system/mimetypes/system_directory.desktop:6
+msgid "System Folder"
+msgstr "Systémový priečinok"
+
+#. Name
+#: thumbnail/cursorthumbnail.desktop:4
+msgid "Cursor Files"
+msgstr "Súbory s kurzormi"
+
+#. Name
+#: thumbnail/djvuthumbnail.desktop:4
+msgid "DjVu Files"
+msgstr "Súbory DjVu"
+
+#. Name
+#: thumbnail/exrthumbnail.desktop:4
+msgid "EXR Images"
+msgstr "EXR Obrázky"
+
+#. Name
+#: thumbnail/htmlthumbnail.desktop:4
+msgid "HTML Files"
+msgstr "HTML súbory"
+
+#. Name
+#: thumbnail/imagethumbnail.desktop:4
+msgid "Images"
+msgstr "Obrázky"
+
+#. Name
+#: thumbnail/textthumbnail.desktop:4
+msgid "Text Files"
+msgstr "Textové súbory"
+
+#. Comment
+#: thumbnail/thumbcreator.desktop:5
+msgid "Thumbnail Handler"
+msgstr "Podpora náhľadu obrázkov"
+
+#. Comment
+#. Name
+#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
+#, fuzzy
+msgid "Trash Properties"
+msgstr "Strana vlastností média"
+
+#. Keywords
+#: trash/kcmtrash.desktop:15
+msgid "trash;properties;size;limits;delete"
+msgstr ""
+
+#. Name
+#: trash/tdefile-plugin/tdefile_trash.desktop:4
+#: trash/tdefile-plugin/tdefile_trash_system.desktop:4
+msgid "Trash File Info"
+msgstr "Informácie o koši"
+
+#. Description
+#: fish/fish.protocol:14
+msgid "A tdeioslave for the FISH protocol"
+msgstr "tdeioslave pre protokol FISH"
+
+#. Description
+#: fish/nxfish.protocol:14
+msgid "A tdeioslave for the NXFISH protocol"
+msgstr "tdeioslave pre protokol NXFISH"
+
+#. Description
+#: mac/mac.protocol:9
+msgid "A tdeioslave for MacOS HFS+ partitions"
+msgstr "tdeioslave pre MacOS HFS+"
+
+#. Description
+#: sftp/sftp.protocol:15
+msgid "A tdeioslave for sftp"
+msgstr "tdeioslave pre sftp"
+
+#. ExtraNames
+#: trash/trash.protocol:25
+msgid "Original Path,Deletion Date"
+msgstr ""

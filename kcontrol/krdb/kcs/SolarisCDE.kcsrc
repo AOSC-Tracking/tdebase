@@ -1,22 +1,5 @@
 [Color Scheme]
 Name=Solaris
-Name[az]=Solaris CDE
-Name[bn]=সোলারিস
-Name[eo]=Solariso
-Name[fa]=سولاریس
-Name[hi]=सोलारिस
-Name[kk]=Солярис
-Name[lo]=ໂຊລາຣິສ
-Name[lt]=Solario CDE
-Name[ne]=सोलारिस
-Name[ru]=Солярис
-Name[ta]=சோலாரிஸ்
-Name[te]=సొలారిస్
-Name[tg]=Солярис
-Name[th]=โซลาริส
-Name[tt]=Qoyaşlı
-Name[ven]=Solarisi
-Name[xh]=Isikhanyiso esenziwa lilanga
 activeBackground=178,77,122
 activeBlend=174,178,195
 activeForeground=255,255,255

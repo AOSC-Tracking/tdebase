@@ -1,0 +1,551 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uz@cyrillic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: cgi/kcmcgi/kcmcgi.desktop:9
+msgid "CGI Scripts"
+msgstr "CGI скриптлар"
+
+#. Comment
+#: cgi/kcmcgi/kcmcgi.desktop:11
+msgid "Configure the CGI TDEIO slave"
+msgstr "CGI TDEIO слейвни мослаш"
+
+#. Keywords
+#: cgi/kcmcgi/kcmcgi.desktop:13
+msgid "CGI;TDEIO;Slave;Paths;"
+msgstr "CGI;TDEIO;Слейв;Йўллар;"
+
+#. Name
+#: home/kdedmodule/homedirnotify.desktop:4
+msgid "KDED Home Base URL Notifier"
+msgstr ""
+
+#. Comment
+#: home/kdedmodule/homedirnotify.desktop:6
+msgid "Provides change notification for user's home folder ($HOME)"
+msgstr ""
+
+#. Name
+#: man/kmanpart.desktop:4
+msgid "KManPart"
+msgstr ""
+
+#. Comment
+#: man/kmanpart.desktop:6
+msgid "Embeddable Troff Viewer"
+msgstr "Ичига ўрнатиб бўладиган Troff-файлини кўрувчи"
+
+#. Name
+#: media/mediamanager/mediamanager.desktop:4
+msgid "KDED Media Manager"
+msgstr "KDED сақлаш ускуналарни бошқарувчи"
+
+#. Comment
+#: media/mediamanager/mediamanager.desktop:6
+msgid "Keep track of media activities and allow to (un)mount (media:/)"
+msgstr ""
+
+#. Name
+#: media/medianotifier/medianotifier.desktop:4
+msgid "Media Notifier Daemon"
+msgstr "Сақлаш ускуналар учун демон"
+
+#. Comment
+#: media/medianotifier/medianotifier.desktop:6
+msgid "A media plugged notifier"
+msgstr "Сақлаш ускуналар уланганида хабар берувчи"
+
+#. Comment
+#: media/mimetypes/audiocd.desktop:6
+msgid "Audio CD"
+msgstr "Аудио компакт-диск"
+
+#. Comment
+#: media/mimetypes/blankbluray.desktop:6
+msgid "Blank BLURAY"
+msgstr "Бўш BLURAY"
+
+#. Comment
+#: media/mimetypes/blankcd.desktop:6
+msgid "Blank CD"
+msgstr "Бўш компакт-диск"
+
+#. Comment
+#: media/mimetypes/blankdvd.desktop:6
+msgid "Blank DVD"
+msgstr "Бўш DVD"
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_locked.desktop:7
+msgid "Encrypted Locked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_mounted.desktop:6
+msgid "Mounted BLURAY"
+msgstr "Уланган BLURAY"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted.desktop:6
+msgid "Unmounted BLURAY"
+msgstr "Уланмаган BLURAY"
+
+#. Comment
+#: media/mimetypes/blurayvideo.desktop:6
+msgid "BLURAY Video Disk"
+msgstr "BLURAY видео-диск"
+
+#. Comment
+#: media/mimetypes/camera_mounted.desktop:6
+msgid "Mounted Camera"
+msgstr "Уланган фотоапарат"
+
+#. Comment
+#: media/mimetypes/camera_unmounted.desktop:6
+msgid "Unmounted Camera"
+msgstr "Уланмаган фотоапарат"
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_mounted.desktop:6
+msgid "Mounted CD-R"
+msgstr "Уланган компакт-диск ёзувчи"
+
+#. Comment
+#: media/mimetypes/cd-r_unmounted.desktop:6
+msgid "Unmounted CD-R"
+msgstr "Уланмаган компакт-диск ёзувчи"
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted.desktop:6
+msgid "Mounted CD-RW"
+msgstr "Уланган компакт-диск ёзувчи"
+
+#. Comment
+#: media/mimetypes/cd-rw_unmounted.desktop:6
+msgid "Unmounted CD-RW"
+msgstr "Уланмаган компакт-диск ёзувчи"
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_mounted.desktop:6
+msgid "Mounted CD-ROM"
+msgstr "Уланган компакт-диск"
+
+#. Comment
+#: media/mimetypes/cdrom_unmounted.desktop:6
+msgid "Unmounted CD-ROM"
+msgstr "Уланмаган компакт-диск"
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_locked.desktop:7
+msgid "Encrypted Locked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_mounted.desktop:6
+msgid "Mounted DVD"
+msgstr "Уланган DVD"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted.desktop:6
+msgid "Unmounted DVD"
+msgstr "Уланмаган DVD"
+
+#. Comment
+#: media/mimetypes/dvdvideo.desktop:6
+msgid "DVD Video Disk"
+msgstr "DVD видео-диск"
+
+#. Comment
+#: media/mimetypes/floppy5_mounted.desktop:6
+msgid "Mounted 5¼\" Floppy"
+msgstr "Уланган 5¼\"дискет"
+
+#. Comment
+#: media/mimetypes/floppy5_unmounted.desktop:6
+msgid "Unmounted 5¼\" Floppy"
+msgstr "Уланмаган 5¼\"дискет"
+
+#. Comment
+#: media/mimetypes/floppy_mounted.desktop:6
+msgid "Mounted Floppy"
+msgstr "Уланган дискет"
+
+#. Comment
+#: media/mimetypes/floppy_unmounted.desktop:6
+msgid "Unmounted Floppy"
+msgstr "Уланмаган дискет"
+
+#. Comment
+#: media/mimetypes/gphoto2camera.desktop:6
+msgid "Camera"
+msgstr "Фотоапарат"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Hard Disk Volume"
+msgstr "Қаттиқ дискнинг уланган қисми"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Hard Disk Volume"
+msgstr "Қаттиқ дискнинг уланмаган қисми"
+
+#. Comment
+#: media/mimetypes/hdd_mounted.desktop:6
+msgid "Mounted Hard Disk Volume"
+msgstr "Қаттиқ дискнинг уланган қисми"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted.desktop:6
+msgid "Unmounted Hard Disk Volume"
+msgstr "Қаттиқ дискнинг уланмаган қисми"
+
+#. Comment
+#: media/mimetypes/mycomputer.desktop:6
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/mydocuments.desktop:6
+#, fuzzy
+msgid "My Documents"
+msgstr "Ҳужжатлар жилди"
+
+#. Comment
+#: media/mimetypes/mynetworkplaces.desktop:6
+#, fuzzy
+msgid "My Network Places"
+msgstr "Масофадаги жойлар"
+
+#. Comment
+#: media/mimetypes/nfs_mounted.desktop:6
+msgid "Mounted NFS Share"
+msgstr "Уланган NFS манба"
+
+#. Comment
+#: media/mimetypes/nfs_unmounted.desktop:6
+msgid "Unmounted NFS Share"
+msgstr "Уланмаган NFS манба"
+
+#. Comment
+#: media/mimetypes/printers.desktop:6
+msgid "Printers"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/removable_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Removable Medium"
+msgstr "Уланган сақлаш ускунаси"
+
+#. Comment
+#: media/mimetypes/removable_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Removable Medium"
+msgstr "Уланмаган сақлаш ускунаси"
+
+#. Comment
+#: media/mimetypes/removable_mounted.desktop:6
+msgid "Mounted Removable Medium"
+msgstr "Уланган сақлаш ускунаси"
+
+#. Comment
+#: media/mimetypes/removable_unmounted.desktop:6
+msgid "Unmounted Removable Medium"
+msgstr "Уланмаган сақлаш ускунаси"
+
+#. Comment
+#: media/mimetypes/smb_mounted.desktop:6
+msgid "Mounted Samba (Microsoft Network) Share"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/smb_unmounted.desktop:6
+msgid "Unmounted Samba (Microsoft Network) Share"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/svcd.desktop:6
+msgid "Super Video CD"
+msgstr "Супер-видео компакт-диск"
+
+#. Comment
+#. Name
+#: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
+#: trash/kcmtrash.desktop:11
+msgid "Trash"
+msgstr "Чиқиндилар қутиси"
+
+#. Comment
+#: media/mimetypes/vcd.desktop:6
+msgid "Video CD"
+msgstr "Видео компакт-диск"
+
+#. Comment
+#: media/mimetypes/webbrowser.desktop:6
+msgid "Web Browser"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/zip_mounted.desktop:6
+msgid "Mounted Zip Disk"
+msgstr "Уланган ZIP-диск"
+
+#. Comment
+#: media/mimetypes/zip_unmounted.desktop:6
+msgid "Unmounted Zip Disk"
+msgstr "Уланмаган ZIP-диск"
+
+#. Name
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:6
+msgid "Media Properties Page"
+msgstr "Сақлаш ускуналарнинг хоссалари"
+
+#. Comment
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:8
+msgid "Konqueror properties dialog plugin to configure mount behaviour"
+msgstr ""
+
+#. Name
+#: media/services/media_decrypt.desktop:8
+msgid "Unlock"
+msgstr ""
+
+#. Name
+#: media/services/media_eject.desktop:8
+msgid "Eject"
+msgstr "Чиқариш"
+
+#. Name
+#: media/services/media_mount.desktop:8
+msgid "Mount"
+msgstr "Улаш"
+
+#. Name
+#: media/services/media_safelyremove.desktop:8
+msgid "Safely Remove"
+msgstr "Эҳтиётлик билан узиш"
+
+#. Name
+#: media/services/media_unmount.desktop:8
+msgid "Unmount"
+msgstr "Узиш"
+
+#. Name
+#: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
+msgid "Storage Media"
+msgstr "Сақлаш ускуналари"
+
+#. Comment
+#: media/tdecmodule/media.desktop:12
+msgid "Configure Storage Media"
+msgstr "Сақлаш ускуналарни мослаш"
+
+#. Keywords
+#: media/tdecmodule/media.desktop:14
+msgid "storage;media;usb;cdrom;device;"
+msgstr "сақлаш ускунаси;usb;cdrom;компакт-диск;"
+
+#. Name
+#: media/tdefile-plugin/tdefile_media.desktop:6
+msgid "Medium Information"
+msgstr "Сақлаш ускуна ҳақида маълумот"
+
+#. Name
+#: remote/kdedmodule/remotedirnotify.desktop:4
+msgid "KDED Remote Base URL Notifier"
+msgstr ""
+
+#. Comment
+#: remote/kdedmodule/remotedirnotify.desktop:6
+msgid "Provides change notification for network folders"
+msgstr ""
+
+#. Name
+#: smb/smb-network.desktop:4
+msgid "Samba Shares"
+msgstr ""
+
+#. Comment
+#: smb/x-smb-server.desktop:2
+msgid "Windows Server"
+msgstr "Windows сервери"
+
+#. Comment
+#: smb/x-smb-workgroup.desktop:2
+msgid "Windows Workgroup"
+msgstr "Windows ишчи гуруҳи"
+
+#. Name
+#: system/entries/documents.desktop:6
+msgid "Documents Folder"
+msgstr "Ҳужжатлар жилди"
+
+#. Name
+#: system/entries/home.desktop:6
+msgid "Home Folder"
+msgstr "Уй жилди"
+
+#. Name
+#: system/entries/remote.desktop:6
+msgid "Remote Places"
+msgstr "Масофадаги жойлар"
+
+#. Name
+#: system/entries/users.desktop:6
+msgid "Users Folders"
+msgstr "Фойдаланувчиларнинг жилдлари"
+
+#. Name
+#: system/kdedmodule/systemdirnotify.desktop:4
+msgid "KDED System Base URL Notifier"
+msgstr ""
+
+#. Comment
+#: system/kdedmodule/systemdirnotify.desktop:6
+msgid ""
+"Provides change notification for folders monitored by the system:/ tdeio "
+"plugin"
+msgstr ""
+
+#. Comment
+#: system/mimetypes/system_directory.desktop:6
+msgid "System Folder"
+msgstr "Тизим жилди"
+
+#. Name
+#: thumbnail/cursorthumbnail.desktop:4
+msgid "Cursor Files"
+msgstr "Курсор файллари"
+
+#. Name
+#: thumbnail/djvuthumbnail.desktop:4
+msgid "DjVu Files"
+msgstr "DjVu-файллари"
+
+#. Name
+#: thumbnail/exrthumbnail.desktop:4
+msgid "EXR Images"
+msgstr "EXR-расмлар"
+
+#. Name
+#: thumbnail/htmlthumbnail.desktop:4
+msgid "HTML Files"
+msgstr "HTML-файллари"
+
+#. Name
+#: thumbnail/imagethumbnail.desktop:4
+msgid "Images"
+msgstr "Расмлар"
+
+#. Name
+#: thumbnail/textthumbnail.desktop:4
+msgid "Text Files"
+msgstr "Матн файллари"
+
+#. Comment
+#: thumbnail/thumbcreator.desktop:5
+msgid "Thumbnail Handler"
+msgstr ""
+
+#. Comment
+#. Name
+#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
+#, fuzzy
+msgid "Trash Properties"
+msgstr "Сақлаш ускуналарнинг хоссалари"
+
+#. Keywords
+#: trash/kcmtrash.desktop:15
+msgid "trash;properties;size;limits;delete"
+msgstr ""
+
+#. Name
+#: trash/tdefile-plugin/tdefile_trash.desktop:4
+#: trash/tdefile-plugin/tdefile_trash_system.desktop:4
+msgid "Trash File Info"
+msgstr "Чиқиндилар қутиси ҳақида маълумот"
+
+#. Description
+#: fish/fish.protocol:14
+msgid "A tdeioslave for the FISH protocol"
+msgstr "FISH протоколи учун КЧ-слейв"
+
+#. Description
+#: fish/nxfish.protocol:14
+msgid "A tdeioslave for the NXFISH protocol"
+msgstr "NXFISH протоколи учун КЧ-слейви"
+
+#. Description
+#: mac/mac.protocol:9
+#, fuzzy
+msgid "A tdeioslave for MacOS HFS+ partitions"
+msgstr "FISH протоколи учун КЧ-слейв"
+
+#. Description
+#: sftp/sftp.protocol:15
+msgid "A tdeioslave for sftp"
+msgstr "SFTP учун КЧ-слейв"
+
+#. ExtraNames
+#: trash/trash.protocol:25
+msgid "Original Path,Deletion Date"
+msgstr ""

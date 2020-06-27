@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 02:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:2
+msgid "Home"
+msgstr "בית"
+
+#. GenericName
+#: Home.desktop:4
+msgid "Personal Files"
+msgstr "קבצים אישיים"
+
+#. Comment
+#: Home.desktop:6
+#, fuzzy
+msgid "Contains personal files"
+msgstr "קבצים אישיים"
+
+#. Name
+#: My_Computer:5
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: My_Computer:7
+msgid "Access to storage media"
+msgstr ""
+
+#. Name
+#: My_Documents:5
+msgid "My Documents"
+msgstr ""
+
+#. Comment
+#: My_Documents:7
+msgid "Contains personal documents"
+msgstr ""
+
+#. Name
+#: My_Network_Places:5
+msgid "My Network Places"
+msgstr "מקומות מרוחקים"
+
+#. Comment
+#: My_Network_Places:7
+msgid "Access to network places and remote hosts"
+msgstr ""
+
+#. Name
+#: Printers:5
+msgid "Printers"
+msgstr "מדפסות"
+
+#. Comment
+#: Printers:7
+msgid "Manage print jobs"
+msgstr ""
+
+#. Name
+#: System.desktop:2
+msgid "System"
+msgstr "מערכת"
+
+#. GenericName
+#: System.desktop:4
+msgid "System Locations"
+msgstr "מיקומי מערכת"
+
+#. Comment
+#: System.desktop:6
+msgid "Access to system places"
+msgstr ""
+
+#. Name
+#: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
+#: Templates/DVDROM-Device.desktop:12 Templates/ZIP-Device.desktop:12
+msgid "Eject"
+msgstr "הוצא"
+
+#. Name
+#: Templates/Directory.desktop:2
+msgid "Folder..."
+msgstr "תיקייה..."
+
+#. Comment
+#: Templates/Directory.desktop:3
+msgid "Enter folder name:"
+msgstr "הזן שם תיקייה:"
+
+#. Name
+#: Templates/Floppy.desktop:3
+msgid "Format"
+msgstr "אתחל"
+
+#. Name
+#: Templates/HTMLFile.desktop:2
+msgid "HTML File..."
+msgstr "קובץ HTML..."
+
+#. Comment
+#: Templates/HTMLFile.desktop:3
+msgid "Enter HTML filename:"
+msgstr "הזן שם לקובץ ה־HTML:"
+
+#. Name
+#: Templates/TextFile.desktop:2
+msgid "Text File..."
+msgstr "קובץ טקסט..."
+
+#. Comment
+#: Templates/TextFile.desktop:3
+msgid "Enter text filename:"
+msgstr "הזן שם לקובץ הטקסט:"
+
+#. Name
+#: Templates/linkCAMERA.desktop:2
+msgid "Camera Device..."
+msgstr "התקן מצלמה..."
+
+#. Comment
+#: Templates/linkCAMERA.desktop:3
+msgid "New camera"
+msgstr "מצלמה חדשה"
+
+#. Name
+#: Templates/linkCDROM.desktop:2
+msgid "CD-ROM Device..."
+msgstr "התקן תקליטור..."
+
+#. Comment
+#: Templates/linkCDROM.desktop:3
+msgid "New CD-ROM Device"
+msgstr "התקן תקליטור חדש"
+
+#. Name
+#: Templates/linkCDWRITER.desktop:2
+msgid "CDWRITER Device..."
+msgstr "התקן צורב..."
+
+#. Comment
+#: Templates/linkCDWRITER.desktop:3
+msgid "New CDWRITER Device"
+msgstr "התקן צורב חדש"
+
+#. Name
+#: Templates/linkDVDROM.desktop:2
+msgid "DVD-ROM Device..."
+msgstr "התקן DVD..."
+
+#. Comment
+#: Templates/linkDVDROM.desktop:3
+msgid "New DVD-ROM Device"
+msgstr "התקן DVD חדש"
+
+#. Name
+#: Templates/linkFloppy.desktop:2
+msgid "Floppy Device..."
+msgstr "התקן תקליטון..."
+
+#. Comment
+#: Templates/linkFloppy.desktop:3
+msgid "New Floppy Device"
+msgstr "התקן תקליטון חדש"
+
+#. Name
+#: Templates/linkHD.desktop:2
+msgid "Hard Disc Device..."
+msgstr "התקן כונן קשיח..."
+
+#. Comment
+#: Templates/linkHD.desktop:3
+msgid "New Hard Disc"
+msgstr "כונן קשיח חדש"
+
+#. Name
+#: Templates/linkMO.desktop:2
+msgid "MO Device..."
+msgstr "התקן MO..."
+
+#. Comment
+#: Templates/linkMO.desktop:3
+msgid "New MO Device"
+msgstr "התקן MO חדש"
+
+#. Name
+#: Templates/linkNFS.desktop:2
+msgid "NFS..."
+msgstr ""
+
+#. Comment
+#: Templates/linkNFS.desktop:3
+msgid "New NFS Link"
+msgstr "קישור NFS חדש"
+
+#. Name
+#: Templates/linkProgram.desktop:2
+msgid "Link to Application..."
+msgstr "קישור ליישום..."
+
+#. Comment
+#: Templates/linkProgram.desktop:3
+msgid "New Link to Application"
+msgstr "קישור חדש ליישום"
+
+#. Name
+#: Templates/linkURL.desktop:2
+msgid "Link to Location (URL)..."
+msgstr "קישור למיקום (URL)..."
+
+#. Comment
+#: Templates/linkURL.desktop:3
+msgid "Enter link to location (URL):"
+msgstr "הזן את הקישור למיקום (URL):"
+
+#. Name
+#: Templates/linkZIP.desktop:2
+msgid "ZIP Device..."
+msgstr "התקן ZIP..."
+
+#. Comment
+#: Templates/linkZIP.desktop:3
+msgid "New ZIP Device"
+msgstr "התקן ZIP חדש"
+
+#. Name
+#: Trash:8
+msgid "Trash"
+msgstr "אשפה"
+
+#. Comment
+#: Trash:10
+msgid "Contains removed files"
+msgstr ""
+
+#. Name
+#. GenericName
+#: Web_Browser:6 Web_Browser:8
+msgid "Web Browser"
+msgstr ""
+
+#. Comment
+#: Web_Browser:10
+msgid "Browse the World Wide Web"
+msgstr ""
+
+#. Name
+#: directory.autostart:3
+msgid "Autostart"
+msgstr "הפעלה אוטומטית"
+
+#. Name
+#: directory.desktop:5
+msgid "Desktop"
+msgstr "שולחן עבודה"
+
+#. Name
+#: directory.templates:3
+msgid "Templates"
+msgstr "תבניות"

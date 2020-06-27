@@ -29,7 +29,11 @@ install( FILES
 
 ##### other data ################################
 
-install( FILES kickoffsearchplugin.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kickoffsearchplugin.desktop
+  DESTINATION ${SERVICETYPES_INSTALL_DIR}
+  PO_DIR kicker-desktops
+)
 
 
 ##### kickoffsearch_interfaces (shared) #########

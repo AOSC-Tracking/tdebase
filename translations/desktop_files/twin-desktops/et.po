@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmtwin/showdesktop.desktop:4
+msgid "Show Desktop"
+msgstr "Näita töölauda"
+
+#. Comment
+#: kcmtwin/showdesktop.desktop:6
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr "Nupp, mis võimaldab ühe klõpsuga kiiresti pääseda otse töölauale"
+
+#. Name
+#: kcmtwin/twindecoration/twindecoration.desktop:11
+msgid "Window Decorations"
+msgstr "Akna dekoratsioonid"
+
+#. Comment
+#: kcmtwin/twindecoration/twindecoration.desktop:13
+msgid "Configure the look and feel of window titles"
+msgstr "Akna tiitliribade välimuse ja tunnetuse seadistamine"
+
+#. Keywords
+#: kcmtwin/twindecoration/twindecoration.desktop:15
+msgid ""
+"twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
+"kwm;decoration;"
+msgstr ""
+"twin;aken;haldur;piire;stiil;teema;välimus;kasutamine;nupud;serv;kwm;"
+"dekoratsioon;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactions.desktop:11
+msgid "Actions"
+msgstr "Tegevused"
+
+#. Comment
+#: kcmtwin/twinoptions/twinactions.desktop:13
+msgid "Configure keyboard and mouse settings"
+msgstr "Klaviatuuri ja hiire seadistamine"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactions.desktop:15
+msgid ""
+"shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
+"resize;"
+msgstr ""
+"varjamine;maksimeerimine;minimeerimine;toimingute menüü;langetamine;tõstmine;"
+"tiitliriba;suuruse muutmine;"
+
+#. Name
+#: kcmtwin/twinoptions/twinadvanced.desktop:11
+msgid "Advanced"
+msgstr "Muu"
+
+#. Comment
+#: kcmtwin/twinoptions/twinadvanced.desktop:13
+msgid "Configure advanced window management features"
+msgstr "Aknahalduri seadistamine"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinadvanced.desktop:15
+msgid "shading;border;hover;active borders;"
+msgstr "varjamine;piire;hover;aktiivsed piirded;"
+
+#. Name
+#: kcmtwin/twinoptions/twinfocus.desktop:11
+msgid "Focus"
+msgstr "Fookus"
+
+#. Comment
+#: kcmtwin/twinoptions/twinfocus.desktop:13
+msgid "Configure the window focus policy"
+msgstr "Akendele fookuse andmise reeglid"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinfocus.desktop:15
+msgid ""
+"focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
+"desktop;"
+msgstr "fookus;asetus;klikk;klõps;klaviatuur;CDE;alt-tab;"
+
+#. Name
+#: kcmtwin/twinoptions/twinmoving.desktop:11
+msgid "Moving"
+msgstr "Liigutamine"
+
+#. Comment
+#: kcmtwin/twinoptions/twinmoving.desktop:13
+msgid "Configure the way that windows are moved"
+msgstr "Akende liigutamise viisi seadistamine"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinmoving.desktop:15
+msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
+msgstr ""
+"liigutamine;tark;kaskaad;maksimeerimine;haaramise tsoon;haaramine;piire;"
+
+#. Name
+#: kcmtwin/twinoptions/twinoptions.desktop:11
+msgid "Window Behavior"
+msgstr "Akende käitumine"
+
+#. Comment
+#: kcmtwin/twinoptions/twinoptions.desktop:13
+msgid "Configure the window behavior"
+msgstr "Akende käitumise seadistamine"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinoptions.desktop:15
+msgid ""
+"focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
+"titlebar;doubleclick;"
+msgstr ""
+"fookus;asetus;akende käitumine;animatsioon;tõstmine;automaatne tõstmine;"
+"aknad;raam;tiitliriba;topeltklikk;topeltklõps;"
+
+#. Name
+#: kcmtwin/twinoptions/twintranslucency.desktop:11
+msgid "Translucency"
+msgstr "Läbipaistvus"
+
+#. Comment
+#: kcmtwin/twinoptions/twintranslucency.desktop:13
+msgid "Configure window translucency and shadow management"
+msgstr "Akende läbipaistvuse ja varjude seadistamine"
+
+#. Keywords
+#: kcmtwin/twinoptions/twintranslucency.desktop:15
+msgid "translucency;transparence;shadows;"
+msgstr "läbipaistvus;läbipaistev;vari;"
+
+#. Name
+#: kcmtwin/twinrules/twinrules.desktop:11
+msgid "Window-Specific Settings"
+msgstr "Akende seadistused"
+
+#. Comment
+#: kcmtwin/twinrules/twinrules.desktop:13
+msgid "Configure settings specifically for a window"
+msgstr "Spetsiaalselt akendega seotud seadistused"
+
+#. Keywords
+#: kcmtwin/twinrules/twinrules.desktop:15
+msgid ""
+"size;position;state;window behavior;windows;specific;workarounds;remember;"
+"rules;"
+msgstr ""
+"suurus;asend;olek;akna käitumine;aknad;spetsiaalne;kohandamine;reeglid;"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:2
+msgid "(Default) Disable focus stealing prevention for XV"
+msgstr "(Vaikimisi) keelatakse XV fookuse röövimise vältimine"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:10
+#, fuzzy
+msgid "(Default) Allow focus stealing by the screen locker"
+msgstr "(Vaikimisi) keelatakse XV fookuse röövimise vältimine"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:21
+#, fuzzy
+msgid "(Default) Allow focus stealing by the kdesktop run dialog"
+msgstr "(Vaikimisi) keelatakse XV fookuse röövimise vältimine"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:32
+#, fuzzy
+msgid "(Default) Allow focus stealing by the settings test dialog"
+msgstr "(Vaikimisi) keelatakse XV fookuse röövimise vältimine"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:45
+msgid "(Default) Hide system modal dialog class from taskbar"
+msgstr ""

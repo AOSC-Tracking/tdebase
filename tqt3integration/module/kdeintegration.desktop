@@ -10,4 +10,5 @@ X-TDE-Kded-autoload=false
 X-TDE-Kded-load-on-demand=true
 
 Name=TDE Integration Module
+
 Comment=Module for integrating UI of non-TDE applications

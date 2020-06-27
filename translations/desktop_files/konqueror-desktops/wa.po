@@ -1,0 +1,359 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 15:23+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: wa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:7
+msgid "Home"
+msgstr "Måjhon"
+
+#. GenericName
+#: Home.desktop:9
+msgid "Personal Files"
+msgstr "Fitchîs da vosse"
+
+#. Name
+#: about/konq_aboutpage.desktop:3
+msgid "About-Page for Konqueror"
+msgstr "Pådje åd fait di Konqueror"
+
+#. Name
+#: iconview/konq_iconview.desktop:3
+msgid "Icon View"
+msgstr "Vey en imådjetes"
+
+#. Name
+#: iconview/konq_multicolumnview.desktop:3
+msgid "MultiColumn View"
+msgstr "Vey e colones"
+
+#. Name
+#: kfmclient.desktop:9 kfmclient_dir.desktop:9 kfmclient_html.desktop:9
+#: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
+#: konquerorsu.desktop:8
+msgid "Konqueror"
+msgstr ""
+
+#. GenericName
+#: konqbrowser.desktop:9
+msgid "Web Browser"
+msgstr "Betchteu waibe"
+
+#. Name
+#: konqfilemgr.desktop:7
+msgid "File Manager"
+msgstr "Manaedjeu di fitchîs"
+
+#. Comment
+#: konqueror.desktop:8
+msgid "TDE File Manager & Web Browser"
+msgstr "Manaedjeu di fitchîs eyet betchteu waibe di TDE"
+
+#. GenericName
+#: konquerorsu.desktop:10
+msgid "File Manager - Super User Mode"
+msgstr "Manaedjeu di fitchîs - Môde super uzeu (root)"
+
+#. Name
+#: kttsplugin/tdehtmlkttsd.desktop:12
+msgid "Text-to-Speech"
+msgstr "Tchôke-divins tecse viè parole"
+
+#. Comment
+#: kttsplugin/tdehtmlkttsd.desktop:14
+#, fuzzy
+msgid "A plugin which enables texts to be read aloud on the web with KTTS"
+msgstr "Tchôke-divins di comande shell po Konqueror"
+
+#. Name
+#: listview/konq_detailedlistview.desktop:3
+msgid "Detailed List View"
+msgstr "Vey en ene sipepieuse djivêye"
+
+#. Name
+#: listview/konq_infolistview.desktop:3
+msgid "Info List View"
+msgstr "Vey les informåcions en ene djivêye"
+
+#. Name
+#: listview/konq_textview.desktop:3
+msgid "Text View"
+msgstr "Vey e môde tecse"
+
+#. Name
+#: listview/konq_treeview.desktop:3
+msgid "Tree View"
+msgstr "Vey come èn åbe"
+
+#. Name
+#: preloader/konqy_preload.desktop:4
+msgid "Konqueror Preloading During TDE startup"
+msgstr "Prétcherdjî Konqueror tins l' enondaedje di TDE"
+
+#. Name
+#: preloader/konqy_preloader.desktop:4
+msgid "KDED Konqueror Preloader Module"
+msgstr "Module KDED di prétcherdjaedje di Konqueror"
+
+#. Comment
+#: preloader/konqy_preloader.desktop:6
+msgid "Reduces Konqueror startup time"
+msgstr "Fwait enonder pus raddimint Konqueror"
+
+#. Name
+#: profile_filemanagement.desktop:5
+msgid "File Management"
+msgstr "Manaedjî les fitchîs"
+
+#. Name
+#: profile_filepreview.desktop:9
+msgid "File Preview"
+msgstr "Prévoeyaedje des fitchîs"
+
+#. Name
+#: profile_kde_devel.desktop:3
+msgid "TDE Development"
+msgstr "Diswalpaedje TDE"
+
+#. Name
+#: profile_midnightcommander.desktop:9
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Tchôke-divins di comande shell"
+
+#. Name
+#: profile_simplebrowser.desktop:2
+msgid "Simple Browser"
+msgstr "Betchteu waibe simpe"
+
+#. Name
+#: profile_tabbedbrowsing.desktop:3
+msgid "Tabbed Browsing"
+msgstr "Naiviaedje waibe avou des linwetes"
+
+#. Name
+#: profile_webbrowsing.desktop:2
+msgid "Web Browsing"
+msgstr "Naiviaedje waibe"
+
+#. Name
+#: quickprint/text-ada-print.desktop:6 quickprint/text-c++-print.desktop:6
+#: quickprint/text-c++h-print.desktop:6 quickprint/text-c-print.desktop:6
+#: quickprint/text-ch-print.desktop:6 quickprint/text-css-print.desktop:6
+#: quickprint/text-diff-print.desktop:6 quickprint/text-html-print.desktop:6
+#: quickprint/text-java-print.desktop:6 quickprint/text-log-print.desktop:6
+#: quickprint/text-makefile-print.desktop:6 quickprint/text-pas-print.desktop:6
+#: quickprint/text-perl-print.desktop:6 quickprint/text-print.desktop:6
+#: quickprint/text-python-print.desktop:6 quickprint/text-tcl-print.desktop:6
+#: quickprint/text-tex-print.desktop:6 quickprint/text-xml-print.desktop:6
+#: quickprint/text-xslt-print.desktop:6
+msgid "Print..."
+msgstr "Rexhe..."
+
+#. Name
+#: remoteencodingplugin/kremoteencodingplugin.desktop:13
+msgid "Remote Encoding"
+msgstr "Tchôke-divins d' ecôdaedje å lon"
+
+#. Comment
+#: remoteencodingplugin/kremoteencodingplugin.desktop:15
+msgid "A Plugin for setting the encoding of remote hosts (FTP, SSH, etc.)"
+msgstr "Tchôke-divins d' ecôdaedje å lon po Konqueror"
+
+#. Name
+#: shellcmdplugin/kshellcmdplugin.desktop:15
+msgid "Run Command"
+msgstr "Tchôke-divins di comande shell"
+
+#. Comment
+#: shellcmdplugin/kshellcmdplugin.desktop:17
+msgid "A plugin which enables commands to be executed within folders"
+msgstr "Tchôke-divins di comande shell po Konqueror"
+
+#. Name
+#: sidebar/konq_sidebartng.desktop:4
+msgid "Navigation Panel"
+msgstr "Panea d' naiviaedje"
+
+#. Name
+#: sidebar/test/test.desktop:5
+msgid "Test"
+msgstr "Sayî"
+
+#. Name
+#: sidebar/trees/history_module/kcmhistory.desktop:10
+msgid "History Sidebar"
+msgstr "Bår di costé di l' istwere"
+
+#. Comment
+#: sidebar/trees/history_module/kcmhistory.desktop:12
+msgid "Configure the history sidebar"
+msgstr "Apontyî l' dujhance del bår di costé d' istwere"
+
+#. Keywords
+#: sidebar/trees/history_module/kcmhistory.desktop:14
+msgid "history;expire;"
+msgstr "istwere;espirer;espiraedje;"
+
+#. Name
+#: sidebar/trees/init/bookmarks.desktop:6
+#: sidebar/trees/init/bookmarks_module.desktop:6
+msgid "Bookmarks"
+msgstr "Rimåkes"
+
+#. Comment
+#: sidebar/trees/init/bookmarks.desktop:8
+#: sidebar/trees/init/bookmarks_module.desktop:8
+msgid "This is the list of your bookmarks, for a faster access"
+msgstr "Cichal est l' djivêye di vos rmåkes, po les trover pus rade"
+
+#. Name
+#: sidebar/trees/init/dirtree_module.desktop:5
+#: sidebar/trees/init/virtualfolderadd.desktop:6
+msgid "Folder"
+msgstr "Ridant"
+
+#. Name
+#: sidebar/trees/init/history.desktop:6
+#: sidebar/trees/init/history_module.desktop:6
+msgid "History"
+msgstr "Istwere"
+
+#. Comment
+#: sidebar/trees/init/history.desktop:8
+#: sidebar/trees/init/history_module.desktop:8
+msgid ""
+"This is the history of the URLs you have recently visited. You can sort them "
+"in many ways."
+msgstr ""
+"Cichal est l' istwere des URL ki vs avoz vizité enawaire. Vos les ploz "
+"arindjî di sacwantès manires."
+
+#. Name
+#: sidebar/trees/init/home.desktop:6
+msgid "Home Folder"
+msgstr "Ridant måjhon"
+
+#. Comment
+#: sidebar/trees/init/home.desktop:8
+msgid "This folder contains your personal files"
+msgstr "Ci ridant chal a les fitchîs et dnêyes da vosse"
+
+#. Name
+#: sidebar/trees/init/remote.desktop:2 sidebar/trees/init/remote/.directory:2
+msgid "Network"
+msgstr "Rantoele"
+
+#. Name
+#: sidebar/trees/init/remote/ftp/tde_ftp.desktop:5
+msgid "TDE Official FTP"
+msgstr "Site FTP oficir di TDE"
+
+#. Name
+#: sidebar/trees/init/remote/web/apps_web.desktop:4
+msgid "TDE Applications"
+msgstr "Programes TDE"
+
+#. Name
+#: sidebar/trees/init/remote/web/dot_web.desktop:4
+msgid "TDE News"
+msgstr "Noveles di TDE"
+
+#. Name
+#: sidebar/trees/init/remote/web/tde_web.desktop:4
+msgid "TDE Home Page"
+msgstr "Pådje måjhon di TDE"
+
+#. Name
+#: sidebar/trees/init/root.desktop:6
+msgid "Root Folder"
+msgstr "Ridant raecene"
+
+#. Comment
+#: sidebar/trees/init/root.desktop:8
+msgid "This is the root of the filesystem"
+msgstr "Cichal est li ridant raecene do sistinme di fitchîs"
+
+#. Name
+#: sidebar/trees/init/services.desktop:4
+#: sidebar/trees/init/services/.directory:3
+msgid "Services"
+msgstr "Siervices"
+
+#. Name
+#: sidebar/trees/init/services/applications.desktop:5
+msgid "Applications"
+msgstr "Programes"
+
+#. Name
+#: sidebar/trees/init/services/audiocd.desktop:6
+msgid "Audio CD Browser"
+msgstr "Foyteuse des plakes lazer odio"
+
+#. Name
+#: sidebar/trees/init/services/media.desktop:5
+msgid "Storage Media"
+msgstr "Sopoirts di wårdaedje"
+
+#. Name
+#: sidebar/trees/init/services/printsystem.desktop:6
+msgid "Print System Browser"
+msgstr "Foyteuse do sistinme d' imprimaedje"
+
+#. Name
+#: sidebar/trees/init/services/settings.desktop:5
+msgid "Settings"
+msgstr "Apontiaedjes"
+
+#. Name
+#: sidebar/trees/init/system.desktop:6
+msgid "System"
+msgstr "Sistinme"
+
+#. Comment
+#: sidebar/trees/init/system.desktop:8
+msgid "This folder allows you to access common places on your computer"
+msgstr ""
+"Ci ridant chal vos permete d' aler ås comonès plaeces so vosse copiutrece"
+
+#. Name
+#: sidebar/trees/init/trash.desktop:9
+#, fuzzy
+msgid "Trash Folder"
+msgstr "Ridant"
+
+#. Comment
+#: sidebar/trees/init/trash.desktop:11
+#, fuzzy
+msgid "This folder displays the contents of your Trash Bin"
+msgstr "Ci ridant chal a les fitchîs et dnêyes da vosse"
+
+#. Name
+#: sidebar/web_module/webmodule_add.desktop:5
+#: sidebar/web_module/websidebar.desktop:5
+msgid "Web SideBar Module"
+msgstr "Module di bår di costé waibe"
+
+#. Name
+#: sidebar/trees/init/remote/ftp/.directory:2
+msgid "FTP Archives"
+msgstr "Årtchives FTP"
+
+#. Name
+#: sidebar/trees/init/remote/web/.directory:2
+msgid "Web Sites"
+msgstr "Sites waibes"

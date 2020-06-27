@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "ਝਰੋਖਾ ਮੈਨੇਜਰ"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "ਵੇਹੜੇ 1 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਇੱਕ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "ਵੇਹੜੇ 2 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਦੋ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "ਵੇਹੜੇ 3 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਤਿੰਨ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "ਵੇਹੜੇ 4 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਚਾਰ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "ਵੇਹੜੇ 5 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਪੰਜ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "ਵੇਹੜੇ 6 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਛੇ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "ਵੇਹੜੇ 7 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਸੱਤ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "ਵੇਹੜੇ 8 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਅੱਠ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "ਵੇਹੜੇ 9 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਨੌਂ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "ਵੇਹੜੇ 10 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਦਸ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "ਵੇਹੜੇ 11 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਗਿਆਰਾਂ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "ਵੇਹੜੇ 12 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਬਾਰਾਂ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "ਵੇਹੜੇ 13 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਤੇਰਾਂ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "ਵੇਹੜੇ 14 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਚੌਦਾਂ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "ਵੇਹੜੇ 15 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਪੰਦਰਾਂ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "ਵੇਹੜੇ 16 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਸੋਲਾਂ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "ਵੇਹੜੇ 17 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਸਤਾਰਾਂ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "ਵੇਹੜੇ 18 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਅਠਾਰਾਂ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "ਵੇਹੜੇ 19 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਉਨੀਂ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "ਵੇਹੜੇ 20 ਲਈ ਤਬਦੀਲ"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "ਫ਼ਰਜ਼ੀ ਵੇਹੜਾ ਵੀਹ ਚੁਣਿਆ"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "ਝਰੋਖਾ ਸਰਗਰਮ"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "ਹੋਰ ਝਰੋਖਾ ਸਰਗਰਮ ਹੈ"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "ਨਵਾਂ ਝਰੋਖਾ"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "ਨਵਾਂ ਝਰੋਖਾ"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "ਝਰੋਖਾ ਹਟਾਓ"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "ਝਰੋਖਾ ਹਟਾਓ"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "ਝਰੋਖਾ ਬੰਦ"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "ਇੱਕ ਝਰੋਖਾ ਬੰਦ"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "ਝਰੋਖਾ ਪਰਛਾਵਾਂ ਕਰੋ"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "ਇੱਕ ਝਰੋਖੇ ਦਾ ਪਰਛਾਵਾਂ ਤਬਦੀਲ"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "ਝਰੋਖਾ ਪਰਛਾਵਾਂ ਹਟਾਓ"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "ਇੱਕ ਝਰੋਖੇ ਦਾ ਪਰਛਾਵਾਂ ਹਟਾਓ"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "ਝਰੋਖਾ ਨਿਊਨਤਮ"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "ਇੱਕ ਝਰੋਖਾ ਨਿਊਨਤਮ"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "ਝਰੋਖਾ ਨਾ-ਨਿਊਨਤਮ"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "ਇੱਕ ਝਰੋਖਾ ਮੁੜ-ਪ੍ਰਾਪਤ"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "ਝਰੋਖਾ ਅਧਿਕਤਮ"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "ਇੱਕ ਝਰੋਖਾ ਅਧਿਕਤਮ"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "ਝਰੋਖਾ ਨਾ-ਅਧਿਕਤਮ"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "ਇੱਕ ਝਰੋਖਾ ਢਿੱਲਾ ਅਧਿਕਤਮ"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "ਝਰੋਖਾ ਸਭ ਵੇਹੜਿਆਂ 'ਤੇ"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "ਇੱਕ ਝਰੋਖਾ ਸਭ ਵੇਹੜਿਆਂ ਵਿੱਚ ਦਿੱਸੇ"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "ਝਰੋਖਾ ਸਭ ਵੇਹੜਿਆਂ 'ਤੇ ਨਹੀਂ"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "ਇੱਕ ਝਰੋਖਾ ਸਭ ਵੇਹੜਿਆਂ ਵਿੱਚ ਨਾ ਦਿੱਸੇ"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "ਨਵਾਂ ਵਾਰਤਾਲਾਪ"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "ਗੱਲਬਾਤ ਝਰੋਖਾ(ਵਾਰਤਾਲਾਪ) ਉਪਲੱਬਧ"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "ਵਾਰਤਾਲਾਪ ਹਟਾਓ"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "ਗੱਲਬਾਤ ਝਰੋਖਾ(ਵਾਰਤਾਲਾਪ) ਹਟਾਇਆ ਗਿਆ"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "ਝਰੋਖਾ ਏਧਰ-ਓਧਰ ਸ਼ੁਰੂ"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "ਇੱਕ ਝਰੋਖਾ ਹਿੱਲਣਾ ਸ਼ੁਰੂ"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "ਝਰੋਖਾ ਏਧਰ-ਓਧਰ ਸਮਾਪਤ"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "ਇੱਕ ਝਰੋਖੇ ਦਾ ਗਤੀਵਿਧੀ ਸਮਾਪਤ"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "ਝਰੋਖਾ ਮੁੜ-ਆਕਾਰ ਸ਼ੁਰੂ"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "ਇੱਕ ਝਰੋਖੇ ਦੀ ਆਕਾਰ ਤਬਦੀਲੀ ਸ਼ੁਰੂ"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "ਝਰੋਖਾ ਮੁੜ ਆਕਾਰ ਸਮਾਪਤ"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "ਇੱਕ ਝਰੋਖੇ ਦੀ ਆਕਾਰ ਤਬਦੀਲੀ ਸਮਾਪਤ"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "ਮੌਜੂਦਾ ਵੇਹੜੇ ਵਿਚਲੇ ਝਰੋਖੇ ਨੂੰ ਧਿਆਨ ਦੀ ਲੋੜ"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "ਮੌਜੂਦਾ ਫ਼ਰਜ਼ੀ ਵੇਹੜੇ ਵਿਚਲੇ ਝਰੋਖੇ ਨੂੰ ਧਿਆਨ ਦੀ ਲੋੜ ਹੈ"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "ਹੋਰ ਵੇਹੜੇ ਵਿਚਲੇ ਝਰੋਖੇ ਨੂੰ ਧਿਆਨ ਦੀ ਲੋੜ"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "ਨਾ-ਸਰਗਰਮ ਵੇਹੜੇ ਵਿਚਲੇ ਝਰੋਖੇ ਨੂੰ ਧਿਆਨ ਦੀ ਲੋੜ ਹੈ"

@@ -27,7 +27,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES systemtrayapplet.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
+tde_create_translated_desktop(
+  SOURCE systemtrayapplet.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/applets
+  PO_DIR kicker-desktops
+)
 
 
 ##### systemtray_panelapplet (module) ###########

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=X Refresh
+GenericName=Refresh Screen
+Type=Application
+Exec=xrefresh
+Terminal=false
+Icon=xrefresh

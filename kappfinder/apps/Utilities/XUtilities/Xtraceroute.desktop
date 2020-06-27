@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=X Traceroute
+GenericName=Network Tool
+Type=Application
+Exec=xtraceroute
+Terminal=false
+Icon=xtraceroute

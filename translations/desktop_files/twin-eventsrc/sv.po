@@ -1,0 +1,423 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "fönsterhanterare"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Byt till skrivbord 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Virtuellt skrivbord ett är valt"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Byt till skrivbord 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Virtuellt skrivbord två är valt"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Byt till skrivbord 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Virtuellt skrivbord tre är valt"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Byt till skrivbord 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Virtuellt skrivbord fyra är valt"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Byt till skrivbord 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Virtuellt skrivbord fem är valt"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Byt till skrivbord 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Virtuellt skrivbord sex är valt"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Byt till skrivbord 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Virtuellt skrivbord sju är valt"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Byt till skrivbord 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Virtuellt skrivbord åtta är valt"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Byt till skrivbord 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Virtuellt skrivbord nio är valt"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Byt till skrivbord 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Virtuellt skrivbord tio är valt"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Byt till skrivbord 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Virtuellt skrivbord elva är valt"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Byt till skrivbord 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Virtuellt skrivbord tolv är valt"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Byt till skrivbord 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Virtuellt skrivbord tretton är valt"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Byt till skrivbord 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Virtuellt skrivbord fjorton är valt"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Byt till skrivbord 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Virtuellt skrivbord femton är valt"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Byt till skrivbord 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Virtuellt skrivbord sexton är valt"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Byt till skrivbord 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Virtuellt skrivbord sjutton är valt"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Byt till skrivbord 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Virtuellt skrivbord arton är valt"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Byt till skrivbord 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Virtuellt skrivbord nitton är valt"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Byt till skrivbord 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Virtuellt skrivbord tjugo är valt"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Aktivera fönster"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Ett annat fönster är aktiverat"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Nytt fönster"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Nytt fönster"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Ta bort fönster"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Ta bort fönster"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Fönster stängs"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Ett fönster stängs"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Fönster rullas upp"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Ett fönster rullas upp"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Fönster rullas ner"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Ett fönster rullas ner"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Fönster minimeras"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Ett fönster minimeras"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Fönsterminimering tas bort"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Ett fönster återställs"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Fönster maximeras"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Ett fönster maximeras"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Fönstermaximering tas bort"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Ett fönster förlorar maximering"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Fönster på alla skrivbord"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Ett fönster görs synligt på alla skrivbord"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Fönster inte på alla skrivbord"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Ett fönster blir inte längre synligt på alla skrivbord"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Ny dialog"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Ett tillfälligt fönster (en dialogruta) dyker upp"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Ta bort dialog"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Ett tillfälligt fönster (en dialogruta) försvinner"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Fönsterflytt börjar"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Ett fönster har börjat flyttas"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Fönsterflytt slutar"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Ett fönster har flyttats klart"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Storleksändring av fönster börjar"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Storleksändring av ett fönster har påbörjats"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Storleksändring av fönster slutar"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Storleksändring av ett fönster har avslutats"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Fönster på nuvarande skrivbord kräver uppmärksamhet"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr ""
+"Ett fönster på det nuvarande virtuella skrivbordet kräver uppmärksamhet"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Fönster på annat skrivbord kräver uppmärksamhet"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Ett fönster på ett inaktivt skrivbord kräver uppmärksamhet"

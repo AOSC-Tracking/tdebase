@@ -22,7 +22,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES dockbarextension.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/extensions )
+tde_create_translated_desktop(
+  SOURCE dockbarextension.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/extensions
+  PO_DIR kicker-desktops
+)
 
 
 ##### dockbar_panelextension (module) ###########

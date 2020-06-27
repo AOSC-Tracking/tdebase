@@ -1,10 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-optical-cdrom-decrypted
 Type=MimeType
 MimeType=media/cdrom_unmounted_decrypted
+Icon=media-optical-cdrom-decrypted
+
 Comment=Unmounted Decrypted CD-ROM
-Comment[de]=Nicht eingebundene, entschlüsselte CD-ROM
+
 Patterns=
 
 X-TDE-AutoEmbed=true

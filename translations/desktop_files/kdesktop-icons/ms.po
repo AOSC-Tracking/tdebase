@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 02:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:2
+msgid "Home"
+msgstr "Laman Utama"
+
+#. GenericName
+#: Home.desktop:4
+msgid "Personal Files"
+msgstr "Fail Peribadi"
+
+#. Comment
+#: Home.desktop:6
+#, fuzzy
+msgid "Contains personal files"
+msgstr "Fail Peribadi"
+
+#. Name
+#: My_Computer:5
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: My_Computer:7
+msgid "Access to storage media"
+msgstr ""
+
+#. Name
+#: My_Documents:5
+msgid "My Documents"
+msgstr ""
+
+#. Comment
+#: My_Documents:7
+msgid "Contains personal documents"
+msgstr ""
+
+#. Name
+#: My_Network_Places:5
+msgid "My Network Places"
+msgstr "Tempat Jauh"
+
+#. Comment
+#: My_Network_Places:7
+msgid "Access to network places and remote hosts"
+msgstr ""
+
+#. Name
+#: Printers:5
+msgid "Printers"
+msgstr "Pencetak"
+
+#. Comment
+#: Printers:7
+msgid "Manage print jobs"
+msgstr ""
+
+#. Name
+#: System.desktop:2
+msgid "System"
+msgstr "Sistem"
+
+#. GenericName
+#: System.desktop:4
+msgid "System Locations"
+msgstr "Lokasi Sistem"
+
+#. Comment
+#: System.desktop:6
+msgid "Access to system places"
+msgstr ""
+
+#. Name
+#: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
+#: Templates/DVDROM-Device.desktop:12 Templates/ZIP-Device.desktop:12
+msgid "Eject"
+msgstr "Lenting"
+
+#. Name
+#: Templates/Directory.desktop:2
+msgid "Folder..."
+msgstr ""
+
+#. Comment
+#: Templates/Directory.desktop:3
+msgid "Enter folder name:"
+msgstr "Masukkan nama folder:"
+
+#. Name
+#: Templates/Floppy.desktop:3
+msgid "Format"
+msgstr ""
+
+#. Name
+#: Templates/HTMLFile.desktop:2
+msgid "HTML File..."
+msgstr "Fail HTML..."
+
+#. Comment
+#: Templates/HTMLFile.desktop:3
+msgid "Enter HTML filename:"
+msgstr "Masukkan nama fail HTML:"
+
+#. Name
+#: Templates/TextFile.desktop:2
+msgid "Text File..."
+msgstr "Fail Teks..."
+
+#. Comment
+#: Templates/TextFile.desktop:3
+msgid "Enter text filename:"
+msgstr "Masukkan nama fail teks:"
+
+#. Name
+#: Templates/linkCAMERA.desktop:2
+msgid "Camera Device..."
+msgstr "Peranti Kamera..."
+
+#. Comment
+#: Templates/linkCAMERA.desktop:3
+msgid "New camera"
+msgstr "Kamera baru"
+
+#. Name
+#: Templates/linkCDROM.desktop:2
+msgid "CD-ROM Device..."
+msgstr "Peranti CD-ROM..."
+
+#. Comment
+#: Templates/linkCDROM.desktop:3
+msgid "New CD-ROM Device"
+msgstr "Peranti CD-ROM Baru"
+
+#. Name
+#: Templates/linkCDWRITER.desktop:2
+msgid "CDWRITER Device..."
+msgstr "Peranti CDWRITER..."
+
+#. Comment
+#: Templates/linkCDWRITER.desktop:3
+msgid "New CDWRITER Device"
+msgstr "Peranti CDWRITER Baru"
+
+#. Name
+#: Templates/linkDVDROM.desktop:2
+msgid "DVD-ROM Device..."
+msgstr "Peranti DVD-ROM..."
+
+#. Comment
+#: Templates/linkDVDROM.desktop:3
+msgid "New DVD-ROM Device"
+msgstr "Peranti DVD-ROM Baru"
+
+#. Name
+#: Templates/linkFloppy.desktop:2
+msgid "Floppy Device..."
+msgstr "Peranti Liut..."
+
+#. Comment
+#: Templates/linkFloppy.desktop:3
+msgid "New Floppy Device"
+msgstr "Peranti Liut Baru"
+
+#. Name
+#: Templates/linkHD.desktop:2
+msgid "Hard Disc Device..."
+msgstr "Peranti Cakera Keras..."
+
+#. Comment
+#: Templates/linkHD.desktop:3
+msgid "New Hard Disc"
+msgstr "Cakera Keras Baru"
+
+#. Name
+#: Templates/linkMO.desktop:2
+msgid "MO Device..."
+msgstr "Peranti MO..."
+
+#. Comment
+#: Templates/linkMO.desktop:3
+msgid "New MO Device"
+msgstr "Peranti MO Baru"
+
+#. Name
+#: Templates/linkNFS.desktop:2
+msgid "NFS..."
+msgstr ""
+
+#. Comment
+#: Templates/linkNFS.desktop:3
+msgid "New NFS Link"
+msgstr "Pautan NFS Baru"
+
+#. Name
+#: Templates/linkProgram.desktop:2
+msgid "Link to Application..."
+msgstr "Paut ke Aplikasi..."
+
+#. Comment
+#: Templates/linkProgram.desktop:3
+msgid "New Link to Application"
+msgstr "Pautan Baru ke Aplikasi"
+
+#. Name
+#: Templates/linkURL.desktop:2
+msgid "Link to Location (URL)..."
+msgstr "Paut ke Aplikasi (URL)..."
+
+#. Comment
+#: Templates/linkURL.desktop:3
+msgid "Enter link to location (URL):"
+msgstr "Masukkan pautan ke lokasi (URL):"
+
+#. Name
+#: Templates/linkZIP.desktop:2
+msgid "ZIP Device..."
+msgstr "Peranti ZIP..."
+
+#. Comment
+#: Templates/linkZIP.desktop:3
+msgid "New ZIP Device"
+msgstr "Peranti ZIP Baru"
+
+#. Name
+#: Trash:8
+msgid "Trash"
+msgstr "Sampah"
+
+#. Comment
+#: Trash:10
+msgid "Contains removed files"
+msgstr ""
+
+#. Name
+#. GenericName
+#: Web_Browser:6 Web_Browser:8
+msgid "Web Browser"
+msgstr ""
+
+#. Comment
+#: Web_Browser:10
+msgid "Browse the World Wide Web"
+msgstr ""
+
+#. Name
+#: directory.autostart:3
+msgid "Autostart"
+msgstr "Automula"
+
+#. Name
+#: directory.desktop:5
+msgid "Desktop"
+msgstr "Ruang Kerja"
+
+#. Name
+#: directory.templates:3
+msgid "Templates"
+msgstr "Templat"

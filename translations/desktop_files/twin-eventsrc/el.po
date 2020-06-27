@@ -1,0 +1,424 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Ο διαχειριστής παραθύρων του"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 1"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 2"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 2"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 4"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 5"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 6"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 7"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 8"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 9"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 10"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 11"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 12"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 13"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 14"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 15"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 16"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 17"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 18"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 19"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Αλλαγή στην επιφάνεια εργασίας 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Έχει επιλεγεί η εικονική επιφάνεια εργασίας 20"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Ενεργοποίηση παραθύρου"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Ενεργοποιήθηκε ένα άλλο παράθυρο"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Νέο παράθυρο"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Νέο παράθυρο"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Διαγραφή παραθύρου"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Διαγραφή παραθύρου"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Κλείσιμο παραθύρου"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Ένα παράθυρο κλείνει"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Τύλιγμα πάνω παραθύρου"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Ένα παράθυρο τυλίχθηκε πάνω"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Τύλιγμα κάτω παραθύρου"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Ένα παράθυρο τυλίχθηκε κάτω"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Ελαχιστοποίηση παραθύρου"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Ένα παράθυρο ελαχιστοποιήθηκε"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Αποελαχιστοποίηση παραθύρου"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Ένα παράθυρο αποκαταστάθηκε"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Μεγιστοποίηση παραθύρου"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Ένα παράθυρο μεγιστοποιήθηκε"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Απομεγιστοποίηση παραθύρου"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Ένα παράθυρο χάνει τη μεγιστοποίησή του"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Παράθυρο σε όλες τις επιφάνειες εργασίας"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Ένα παράθυρο γίνεται ορατό σε όλες τις επιφάνειες εργασίας"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Παράθυρο όχι σε όλες τις επιφάνειες εργασίας"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Ένα παράθυρο δεν είναι πλέον ορατό σε όλες τις επιφάνειες εργασίας"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Νέος διάλογος"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Εμφάνιση μεταβατικού παραθύρου (διαλόγου)"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Διαγραφή διαλόγου"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Μεταβατικό παράθυρο (ένας διάλογος) αφαιρείται"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Αρχή μετακίνησης παραθύρου"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Ένα παράθυρο άρχισε να μετακινείται"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Τέλος μετακίνησης παραθύρου"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Ένα παράθυρο ολοκλήρωσε τη μετακίνησή του"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Αρχή αλλαγής μεγέθους παραθύρου"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Ένα παράθυρο άρχισε να αλλάζει μέγεθος"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Τέλος αλλαγής μεγέθους παραθύρου"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Ένα παράθυρο ολοκλήρωσε την αλλαγή μεγέθους"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Παράθυρο στην τρέχουσα επιφάνεια εργασίας απαιτεί την προσοχή σας"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Ένα παράθυρο στην τρέχουσα επιφάνεια εργασίας απαιτεί την προσοχή σας"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr ""
+"Παράθυρο σε επιφάνεια εργασίας διαφορετική από την τρέχουσα απαιτεί την "
+"προσοχή σας"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Ένα παράθυρο σε μη ενεργή επιφάνεια εργασίας απαιτεί την προσοχή σας"

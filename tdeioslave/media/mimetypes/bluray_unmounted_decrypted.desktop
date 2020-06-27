@@ -1,10 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-optical-dvd-decrypted
 Type=MimeType
 MimeType=media/bluray_unmounted_decrypted
+Icon=media-optical-dvd-decrypted
+
 Comment=Unmounted Decrypted BLURAY
-Comment[de]=Nicht eingebundene, entschlüsselte BLURAY
+
 Patterns=
 
 X-TDE-AutoEmbed=true

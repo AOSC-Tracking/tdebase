@@ -25,7 +25,11 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons( printmgr )
-install( FILES printers.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+
+tde_create_translated_desktop(
+  SOURCE printers.desktop
+  PO_DIR tdeprint-desktops
+)
 
 
 ##### kcm_printmgr (module) #####################

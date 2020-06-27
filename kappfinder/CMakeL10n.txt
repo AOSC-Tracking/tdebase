@@ -1,3 +1,11 @@
 ##### create translation templates ##############
 
 tde_l10n_create_template( "kappfinder" )
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/kappfinder.desktop/"
+    SOURCES kappfinder.desktop
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)
+
+tde_l10n_auto_add_subdirectories()

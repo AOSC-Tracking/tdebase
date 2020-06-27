@@ -1,0 +1,562 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: cgi/kcmcgi/kcmcgi.desktop:9
+msgid "CGI Scripts"
+msgstr "CGI скриптове"
+
+#. Comment
+#: cgi/kcmcgi/kcmcgi.desktop:11
+msgid "Configure the CGI TDEIO slave"
+msgstr ""
+"Настройване на модула за изпълнение на скриптове без уеб сървър - CGI TDEIO"
+
+#. Keywords
+#: cgi/kcmcgi/kcmcgi.desktop:13
+msgid "CGI;TDEIO;Slave;Paths;"
+msgstr ""
+"скриптове; уеб; динамичен; скрипт; Интернет; път; пътища; CGI; TDEIO; Slave; "
+"Paths;"
+
+#. Name
+#: home/kdedmodule/homedirnotify.desktop:4
+msgid "KDED Home Base URL Notifier"
+msgstr ""
+
+#. Comment
+#: home/kdedmodule/homedirnotify.desktop:6
+msgid "Provides change notification for user's home folder ($HOME)"
+msgstr ""
+
+#. Name
+#: man/kmanpart.desktop:4
+msgid "KManPart"
+msgstr ""
+
+#. Comment
+#: man/kmanpart.desktop:6
+msgid "Embeddable Troff Viewer"
+msgstr "Визуализатор за вграждане на Troff"
+
+#. Name
+#: media/mediamanager/mediamanager.desktop:4
+msgid "KDED Media Manager"
+msgstr "Управление на устройствата KDED"
+
+#. Comment
+#: media/mediamanager/mediamanager.desktop:6
+msgid "Keep track of media activities and allow to (un)mount (media:/)"
+msgstr ""
+"Наблюдение на устройствата и разрешаване на монтиране/демонтиране на "
+"(media:/)"
+
+#. Name
+#: media/medianotifier/medianotifier.desktop:4
+msgid "Media Notifier Daemon"
+msgstr "Мултимедиен демон"
+
+#. Comment
+#: media/medianotifier/medianotifier.desktop:6
+msgid "A media plugged notifier"
+msgstr ""
+"Мултимедиен демон за уведомяване при поставяне/включване на ново "
+"мултимедийно устройство"
+
+#. Comment
+#: media/mimetypes/audiocd.desktop:6
+msgid "Audio CD"
+msgstr "Аудио диск"
+
+#. Comment
+#: media/mimetypes/blankbluray.desktop:6
+msgid "Blank BLURAY"
+msgstr "Празен BLURAY диск"
+
+#. Comment
+#: media/mimetypes/blankcd.desktop:6
+msgid "Blank CD"
+msgstr "Празен диск"
+
+#. Comment
+#: media/mimetypes/blankdvd.desktop:6
+msgid "Blank DVD"
+msgstr "Празен DVD диск"
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_locked.desktop:7
+msgid "Encrypted Locked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_mounted.desktop:6
+msgid "Mounted BLURAY"
+msgstr "Монтиран BLURAY диск"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted.desktop:6
+msgid "Unmounted BLURAY"
+msgstr "Демонтиран BLURAY диск"
+
+#. Comment
+#: media/mimetypes/blurayvideo.desktop:6
+msgid "BLURAY Video Disk"
+msgstr "Видео BLURAY диск"
+
+#. Comment
+#: media/mimetypes/camera_mounted.desktop:6
+msgid "Mounted Camera"
+msgstr "Монтиран фотоапарат"
+
+#. Comment
+#: media/mimetypes/camera_unmounted.desktop:6
+msgid "Unmounted Camera"
+msgstr "Демонтиран фотоапарат"
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_mounted.desktop:6
+msgid "Mounted CD-R"
+msgstr "Монтиран компактдиск"
+
+#. Comment
+#: media/mimetypes/cd-r_unmounted.desktop:6
+msgid "Unmounted CD-R"
+msgstr "Демонтиран компактдиск"
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted.desktop:6
+msgid "Mounted CD-RW"
+msgstr "Монтиран компактдиск"
+
+#. Comment
+#: media/mimetypes/cd-rw_unmounted.desktop:6
+msgid "Unmounted CD-RW"
+msgstr "Демонтиран компактдиск"
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_mounted.desktop:6
+msgid "Mounted CD-ROM"
+msgstr "Монтиран CD-ROM"
+
+#. Comment
+#: media/mimetypes/cdrom_unmounted.desktop:6
+msgid "Unmounted CD-ROM"
+msgstr "Демонтиран CD-ROM"
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_locked.desktop:7
+msgid "Encrypted Locked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_mounted.desktop:6
+msgid "Mounted DVD"
+msgstr "Монтиран DVD диск"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted.desktop:6
+msgid "Unmounted DVD"
+msgstr "Демонтиран DVD диск"
+
+#. Comment
+#: media/mimetypes/dvdvideo.desktop:6
+msgid "DVD Video Disk"
+msgstr "Видео DVD диск"
+
+#. Comment
+#: media/mimetypes/floppy5_mounted.desktop:6
+msgid "Mounted 5¼\" Floppy"
+msgstr "Монтирано 5¼\" флопи"
+
+#. Comment
+#: media/mimetypes/floppy5_unmounted.desktop:6
+msgid "Unmounted 5¼\" Floppy"
+msgstr "Демонтирано 5¼\" флопи"
+
+#. Comment
+#: media/mimetypes/floppy_mounted.desktop:6
+msgid "Mounted Floppy"
+msgstr "Монтирано флопи"
+
+#. Comment
+#: media/mimetypes/floppy_unmounted.desktop:6
+msgid "Unmounted Floppy"
+msgstr "Демонтирано флопи"
+
+#. Comment
+#: media/mimetypes/gphoto2camera.desktop:6
+msgid "Camera"
+msgstr "Фотоапарат"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Hard Disk Volume"
+msgstr "Монтиран дял на твърд диск"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Hard Disk Volume"
+msgstr "Демонтиран дял на твърд диск"
+
+#. Comment
+#: media/mimetypes/hdd_mounted.desktop:6
+msgid "Mounted Hard Disk Volume"
+msgstr "Монтиран дял на твърд диск"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted.desktop:6
+msgid "Unmounted Hard Disk Volume"
+msgstr "Демонтиран дял на твърд диск"
+
+#. Comment
+#: media/mimetypes/mycomputer.desktop:6
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/mydocuments.desktop:6
+#, fuzzy
+msgid "My Documents"
+msgstr "Директория с документи"
+
+#. Comment
+#: media/mimetypes/mynetworkplaces.desktop:6
+#, fuzzy
+msgid "My Network Places"
+msgstr "Отдалечени директории"
+
+#. Comment
+#: media/mimetypes/nfs_mounted.desktop:6
+msgid "Mounted NFS Share"
+msgstr "Монтиран NFS ресурс"
+
+#. Comment
+#: media/mimetypes/nfs_unmounted.desktop:6
+msgid "Unmounted NFS Share"
+msgstr "Демонтиран NFS ресурс"
+
+#. Comment
+#: media/mimetypes/printers.desktop:6
+msgid "Printers"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/removable_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Removable Medium"
+msgstr "Монтиран преносим носител"
+
+#. Comment
+#: media/mimetypes/removable_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Removable Medium"
+msgstr "Демонтиран преносим носител"
+
+#. Comment
+#: media/mimetypes/removable_mounted.desktop:6
+msgid "Mounted Removable Medium"
+msgstr "Монтиран преносим носител"
+
+#. Comment
+#: media/mimetypes/removable_unmounted.desktop:6
+msgid "Unmounted Removable Medium"
+msgstr "Демонтиран преносим носител"
+
+#. Comment
+#: media/mimetypes/smb_mounted.desktop:6
+msgid "Mounted Samba (Microsoft Network) Share"
+msgstr "Монтиран ресурс Samba (Microsoft Network)"
+
+#. Comment
+#: media/mimetypes/smb_unmounted.desktop:6
+msgid "Unmounted Samba (Microsoft Network) Share"
+msgstr "Демонтиран ресурс Samba (Microsoft Network)"
+
+#. Comment
+#: media/mimetypes/svcd.desktop:6
+msgid "Super Video CD"
+msgstr "Супер VCD диск"
+
+#. Comment
+#. Name
+#: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
+#: trash/kcmtrash.desktop:11
+msgid "Trash"
+msgstr "Кошче"
+
+#. Comment
+#: media/mimetypes/vcd.desktop:6
+msgid "Video CD"
+msgstr "VCD диск"
+
+#. Comment
+#: media/mimetypes/webbrowser.desktop:6
+msgid "Web Browser"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/zip_mounted.desktop:6
+msgid "Mounted Zip Disk"
+msgstr "Монтиран Zip диск"
+
+#. Comment
+#: media/mimetypes/zip_unmounted.desktop:6
+msgid "Unmounted Zip Disk"
+msgstr "Демонтиран Zip диск"
+
+#. Name
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:6
+msgid "Media Properties Page"
+msgstr "Страница с информация за носителя"
+
+#. Comment
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:8
+msgid "Konqueror properties dialog plugin to configure mount behaviour"
+msgstr "Приставка за настройване на монтирането (Konqueror)"
+
+#. Name
+#: media/services/media_decrypt.desktop:8
+msgid "Unlock"
+msgstr ""
+
+#. Name
+#: media/services/media_eject.desktop:8
+msgid "Eject"
+msgstr "Изваждане"
+
+#. Name
+#: media/services/media_mount.desktop:8
+msgid "Mount"
+msgstr "Монтиране"
+
+#. Name
+#: media/services/media_safelyremove.desktop:8
+msgid "Safely Remove"
+msgstr "Безопасно изваждане"
+
+#. Name
+#: media/services/media_unmount.desktop:8
+msgid "Unmount"
+msgstr "Демонтиране"
+
+#. Name
+#: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
+msgid "Storage Media"
+msgstr "Съхраняващи устройства"
+
+#. Comment
+#: media/tdecmodule/media.desktop:12
+msgid "Configure Storage Media"
+msgstr "Настройване на устройствата за съхранение на информация"
+
+#. Keywords
+#: media/tdecmodule/media.desktop:14
+msgid "storage;media;usb;cdrom;device;"
+msgstr ""
+"съхранение; информация; компактдиск; устройство; данни; storage; media; usb; "
+"cdrom; device;"
+
+#. Name
+#: media/tdefile-plugin/tdefile_media.desktop:6
+msgid "Medium Information"
+msgstr "Информация за устройствата"
+
+#. Name
+#: remote/kdedmodule/remotedirnotify.desktop:4
+msgid "KDED Remote Base URL Notifier"
+msgstr ""
+
+#. Comment
+#: remote/kdedmodule/remotedirnotify.desktop:6
+msgid "Provides change notification for network folders"
+msgstr ""
+
+#. Name
+#: smb/smb-network.desktop:4
+msgid "Samba Shares"
+msgstr "Ресурси на Samba"
+
+#. Comment
+#: smb/x-smb-server.desktop:2
+msgid "Windows Server"
+msgstr "Сървър Windows"
+
+#. Comment
+#: smb/x-smb-workgroup.desktop:2
+msgid "Windows Workgroup"
+msgstr "Работна група на Windows"
+
+#. Name
+#: system/entries/documents.desktop:6
+msgid "Documents Folder"
+msgstr "Директория с документи"
+
+#. Name
+#: system/entries/home.desktop:6
+msgid "Home Folder"
+msgstr "Домашна директория"
+
+#. Name
+#: system/entries/remote.desktop:6
+msgid "Remote Places"
+msgstr "Отдалечени директории"
+
+#. Name
+#: system/entries/users.desktop:6
+msgid "Users Folders"
+msgstr "Потребителски директории"
+
+#. Name
+#: system/kdedmodule/systemdirnotify.desktop:4
+msgid "KDED System Base URL Notifier"
+msgstr ""
+
+#. Comment
+#: system/kdedmodule/systemdirnotify.desktop:6
+msgid ""
+"Provides change notification for folders monitored by the system:/ tdeio "
+"plugin"
+msgstr ""
+
+#. Comment
+#: system/mimetypes/system_directory.desktop:6
+msgid "System Folder"
+msgstr "Системна директория"
+
+#. Name
+#: thumbnail/cursorthumbnail.desktop:4
+msgid "Cursor Files"
+msgstr "Файлове с показалци на мишката"
+
+#. Name
+#: thumbnail/djvuthumbnail.desktop:4
+msgid "DjVu Files"
+msgstr "DjVu файлове"
+
+#. Name
+#: thumbnail/exrthumbnail.desktop:4
+msgid "EXR Images"
+msgstr "EXR образи"
+
+#. Name
+#: thumbnail/htmlthumbnail.desktop:4
+msgid "HTML Files"
+msgstr "HTML файлове"
+
+#. Name
+#: thumbnail/imagethumbnail.desktop:4
+msgid "Images"
+msgstr "Графични файлове"
+
+#. Name
+#: thumbnail/textthumbnail.desktop:4
+msgid "Text Files"
+msgstr "Текстови файлове"
+
+#. Comment
+#: thumbnail/thumbcreator.desktop:5
+msgid "Thumbnail Handler"
+msgstr "Манипулатор на мини изображения"
+
+#. Comment
+#. Name
+#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
+#, fuzzy
+msgid "Trash Properties"
+msgstr "Страница с информация за носителя"
+
+#. Keywords
+#: trash/kcmtrash.desktop:15
+msgid "trash;properties;size;limits;delete"
+msgstr ""
+
+#. Name
+#: trash/tdefile-plugin/tdefile_trash.desktop:4
+#: trash/tdefile-plugin/tdefile_trash_system.desktop:4
+msgid "Trash File Info"
+msgstr "Информация за кошчето"
+
+#. Description
+#: fish/fish.protocol:14
+#, fuzzy
+msgid "A tdeioslave for the FISH protocol"
+msgstr "tdeioslave за sftp"
+
+#. Description
+#: fish/nxfish.protocol:14
+#, fuzzy
+msgid "A tdeioslave for the NXFISH protocol"
+msgstr "tdeioslave за sftp"
+
+#. Description
+#: mac/mac.protocol:9
+#, fuzzy
+msgid "A tdeioslave for MacOS HFS+ partitions"
+msgstr "tdeioslave за sftp"
+
+#. Description
+#: sftp/sftp.protocol:15
+msgid "A tdeioslave for sftp"
+msgstr "tdeioslave за sftp"
+
+#. ExtraNames
+#: trash/trash.protocol:25
+msgid "Original Path,Deletion Date"
+msgstr "Местоположение, дата на изтриване"

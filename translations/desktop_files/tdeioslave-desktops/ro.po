@@ -1,0 +1,552 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: cgi/kcmcgi/kcmcgi.desktop:9
+msgid "CGI Scripts"
+msgstr "Scripturi CGI"
+
+#. Comment
+#: cgi/kcmcgi/kcmcgi.desktop:11
+msgid "Configure the CGI TDEIO slave"
+msgstr "Configurează dispozitivul I/O CGI"
+
+#. Keywords
+#: cgi/kcmcgi/kcmcgi.desktop:13
+msgid "CGI;TDEIO;Slave;Paths;"
+msgstr "I/E;IE;CGI;TDEIO;dispozitiv;căi;"
+
+#. Name
+#: home/kdedmodule/homedirnotify.desktop:4
+msgid "KDED Home Base URL Notifier"
+msgstr "Notificare KDED pentru URL acasă"
+
+#. Comment
+#: home/kdedmodule/homedirnotify.desktop:6
+msgid "Provides change notification for user's home folder ($HOME)"
+msgstr ""
+
+#. Name
+#: man/kmanpart.desktop:4
+msgid "KManPart"
+msgstr "Componentă  KMan"
+
+#. Comment
+#: man/kmanpart.desktop:6
+msgid "Embeddable Troff Viewer"
+msgstr "Componentă de vizualizare Troff înglobată"
+
+#. Name
+#: media/mediamanager/mediamanager.desktop:4
+msgid "KDED Media Manager"
+msgstr "Manager multimedia KDED"
+
+#. Comment
+#: media/mediamanager/mediamanager.desktop:6
+msgid "Keep track of media activities and allow to (un)mount (media:/)"
+msgstr "Urmărește activitățile multimedia și permite (de)montarea media:/"
+
+#. Name
+#: media/medianotifier/medianotifier.desktop:4
+msgid "Media Notifier Daemon"
+msgstr "Daemonul de notificare mediu"
+
+#. Comment
+#: media/medianotifier/medianotifier.desktop:6
+msgid "A media plugged notifier"
+msgstr "Un notificator de adăugare mediu"
+
+#. Comment
+#: media/mimetypes/audiocd.desktop:6
+msgid "Audio CD"
+msgstr "CD Audio"
+
+#. Comment
+#: media/mimetypes/blankbluray.desktop:6
+msgid "Blank BLURAY"
+msgstr "BLURAY gol"
+
+#. Comment
+#: media/mimetypes/blankcd.desktop:6
+msgid "Blank CD"
+msgstr "CD gol"
+
+#. Comment
+#: media/mimetypes/blankdvd.desktop:6
+msgid "Blank DVD"
+msgstr "DVD gol"
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_locked.desktop:7
+msgid "Encrypted Locked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_mounted.desktop:6
+msgid "Mounted BLURAY"
+msgstr "BLURAY montat"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted.desktop:6
+msgid "Unmounted BLURAY"
+msgstr "BLURAY nemontat"
+
+#. Comment
+#: media/mimetypes/blurayvideo.desktop:6
+msgid "BLURAY Video Disk"
+msgstr "Disc video BLURAY"
+
+#. Comment
+#: media/mimetypes/camera_mounted.desktop:6
+msgid "Mounted Camera"
+msgstr "Aparat foto montat"
+
+#. Comment
+#: media/mimetypes/camera_unmounted.desktop:6
+msgid "Unmounted Camera"
+msgstr "Aparat foto nemontat"
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_mounted.desktop:6
+msgid "Mounted CD-R"
+msgstr "CD-R montat"
+
+#. Comment
+#: media/mimetypes/cd-r_unmounted.desktop:6
+msgid "Unmounted CD-R"
+msgstr "CD-R nemontat"
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted.desktop:6
+msgid "Mounted CD-RW"
+msgstr "CD-RW montat"
+
+#. Comment
+#: media/mimetypes/cd-rw_unmounted.desktop:6
+msgid "Unmounted CD-RW"
+msgstr "CD-RW nemontat"
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_mounted.desktop:6
+msgid "Mounted CD-ROM"
+msgstr "CD-ROM montat"
+
+#. Comment
+#: media/mimetypes/cdrom_unmounted.desktop:6
+msgid "Unmounted CD-ROM"
+msgstr "CD-ROM nemontat"
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_locked.desktop:7
+msgid "Encrypted Locked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_mounted.desktop:6
+msgid "Mounted DVD"
+msgstr "DVD montat"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted.desktop:6
+msgid "Unmounted DVD"
+msgstr "DVD nemontat"
+
+#. Comment
+#: media/mimetypes/dvdvideo.desktop:6
+msgid "DVD Video Disk"
+msgstr "Disc video DVD"
+
+#. Comment
+#: media/mimetypes/floppy5_mounted.desktop:6
+msgid "Mounted 5¼\" Floppy"
+msgstr "Dischetă 5¼\" montată"
+
+#. Comment
+#: media/mimetypes/floppy5_unmounted.desktop:6
+msgid "Unmounted 5¼\" Floppy"
+msgstr "Dischetă 5¼\" nemontată"
+
+#. Comment
+#: media/mimetypes/floppy_mounted.desktop:6
+msgid "Mounted Floppy"
+msgstr "Dischetă montată"
+
+#. Comment
+#: media/mimetypes/floppy_unmounted.desktop:6
+msgid "Unmounted Floppy"
+msgstr "Dischetă nemontată"
+
+#. Comment
+#: media/mimetypes/gphoto2camera.desktop:6
+msgid "Camera"
+msgstr "Aparat foto"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Hard Disk Volume"
+msgstr "Volum de hard disc montat"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Hard Disk Volume"
+msgstr "Volum de hard disc nemontat"
+
+#. Comment
+#: media/mimetypes/hdd_mounted.desktop:6
+msgid "Mounted Hard Disk Volume"
+msgstr "Volum de hard disc montat"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted.desktop:6
+msgid "Unmounted Hard Disk Volume"
+msgstr "Volum de hard disc nemontat"
+
+#. Comment
+#: media/mimetypes/mycomputer.desktop:6
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/mydocuments.desktop:6
+#, fuzzy
+msgid "My Documents"
+msgstr "Folder documente"
+
+#. Comment
+#: media/mimetypes/mynetworkplaces.desktop:6
+#, fuzzy
+msgid "My Network Places"
+msgstr "Locații distante"
+
+#. Comment
+#: media/mimetypes/nfs_mounted.desktop:6
+msgid "Mounted NFS Share"
+msgstr "Partajare NFS montată"
+
+#. Comment
+#: media/mimetypes/nfs_unmounted.desktop:6
+msgid "Unmounted NFS Share"
+msgstr "Partajare NFS nemontată"
+
+#. Comment
+#: media/mimetypes/printers.desktop:6
+msgid "Printers"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/removable_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Removable Medium"
+msgstr "Mediu amovibil montat"
+
+#. Comment
+#: media/mimetypes/removable_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Removable Medium"
+msgstr "Mediu amovibil nemontat"
+
+#. Comment
+#: media/mimetypes/removable_mounted.desktop:6
+msgid "Mounted Removable Medium"
+msgstr "Mediu amovibil montat"
+
+#. Comment
+#: media/mimetypes/removable_unmounted.desktop:6
+msgid "Unmounted Removable Medium"
+msgstr "Mediu amovibil nemontat"
+
+#. Comment
+#: media/mimetypes/smb_mounted.desktop:6
+msgid "Mounted Samba (Microsoft Network) Share"
+msgstr "Partajare Samba (rețea Microsoft) montată"
+
+#. Comment
+#: media/mimetypes/smb_unmounted.desktop:6
+msgid "Unmounted Samba (Microsoft Network) Share"
+msgstr "Partajare Samba (rețea Microsoft) nemontată"
+
+#. Comment
+#: media/mimetypes/svcd.desktop:6
+msgid "Super Video CD"
+msgstr "CD Super Video"
+
+#. Comment
+#. Name
+#: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
+#: trash/kcmtrash.desktop:11
+msgid "Trash"
+msgstr "Gunoi"
+
+#. Comment
+#: media/mimetypes/vcd.desktop:6
+msgid "Video CD"
+msgstr "CD Video"
+
+#. Comment
+#: media/mimetypes/webbrowser.desktop:6
+msgid "Web Browser"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/zip_mounted.desktop:6
+msgid "Mounted Zip Disk"
+msgstr "Disc ZIP montat"
+
+#. Comment
+#: media/mimetypes/zip_unmounted.desktop:6
+msgid "Unmounted Zip Disk"
+msgstr "Disc ZIP nemontat"
+
+#. Name
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:6
+msgid "Media Properties Page"
+msgstr "Pagina de proprietăți media"
+
+#. Comment
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:8
+msgid "Konqueror properties dialog plugin to configure mount behaviour"
+msgstr ""
+"Plugin de dialog al proprietăților Konqueror pentru a configura comportarea "
+"lui mount"
+
+#. Name
+#: media/services/media_decrypt.desktop:8
+msgid "Unlock"
+msgstr ""
+
+#. Name
+#: media/services/media_eject.desktop:8
+msgid "Eject"
+msgstr "Ejectează"
+
+#. Name
+#: media/services/media_mount.desktop:8
+msgid "Mount"
+msgstr "Montează"
+
+#. Name
+#: media/services/media_safelyremove.desktop:8
+msgid "Safely Remove"
+msgstr "Scoate în siguranță"
+
+#. Name
+#: media/services/media_unmount.desktop:8
+msgid "Unmount"
+msgstr "Demontează"
+
+#. Name
+#: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
+msgid "Storage Media"
+msgstr "Mediu de stocare"
+
+#. Comment
+#: media/tdecmodule/media.desktop:12
+msgid "Configure Storage Media"
+msgstr "Configurează mediile de stocare"
+
+#. Keywords
+#: media/tdecmodule/media.desktop:14
+msgid "storage;media;usb;cdrom;device;"
+msgstr "stocare;mediu;usb;cdrom;dispozitiv;"
+
+#. Name
+#: media/tdefile-plugin/tdefile_media.desktop:6
+msgid "Medium Information"
+msgstr "Informații mediu"
+
+#. Name
+#: remote/kdedmodule/remotedirnotify.desktop:4
+msgid "KDED Remote Base URL Notifier"
+msgstr "Notificare KDED pentru URL distant de bază"
+
+#. Comment
+#: remote/kdedmodule/remotedirnotify.desktop:6
+msgid "Provides change notification for network folders"
+msgstr ""
+
+#. Name
+#: smb/smb-network.desktop:4
+msgid "Samba Shares"
+msgstr "Partajări Samba"
+
+#. Comment
+#: smb/x-smb-server.desktop:2
+msgid "Windows Server"
+msgstr "Servere Windows"
+
+#. Comment
+#: smb/x-smb-workgroup.desktop:2
+msgid "Windows Workgroup"
+msgstr "Grupuri de lucru Windows"
+
+#. Name
+#: system/entries/documents.desktop:6
+msgid "Documents Folder"
+msgstr "Folder documente"
+
+#. Name
+#: system/entries/home.desktop:6
+msgid "Home Folder"
+msgstr "Folder personal"
+
+#. Name
+#: system/entries/remote.desktop:6
+msgid "Remote Places"
+msgstr "Locații distante"
+
+#. Name
+#: system/entries/users.desktop:6
+msgid "Users Folders"
+msgstr "Foldere utilizatori"
+
+#. Name
+#: system/kdedmodule/systemdirnotify.desktop:4
+msgid "KDED System Base URL Notifier"
+msgstr "Notificare KDED pentru URL sistem de bază"
+
+#. Comment
+#: system/kdedmodule/systemdirnotify.desktop:6
+msgid ""
+"Provides change notification for folders monitored by the system:/ tdeio "
+"plugin"
+msgstr ""
+
+#. Comment
+#: system/mimetypes/system_directory.desktop:6
+msgid "System Folder"
+msgstr "Folder de sistem"
+
+#. Name
+#: thumbnail/cursorthumbnail.desktop:4
+msgid "Cursor Files"
+msgstr "Fișiere cursor"
+
+#. Name
+#: thumbnail/djvuthumbnail.desktop:4
+msgid "DjVu Files"
+msgstr "Fișiere DjVu"
+
+#. Name
+#: thumbnail/exrthumbnail.desktop:4
+msgid "EXR Images"
+msgstr "Imagini EXR"
+
+#. Name
+#: thumbnail/htmlthumbnail.desktop:4
+msgid "HTML Files"
+msgstr "Fișiere HTML"
+
+#. Name
+#: thumbnail/imagethumbnail.desktop:4
+msgid "Images"
+msgstr "Imagini"
+
+#. Name
+#: thumbnail/textthumbnail.desktop:4
+msgid "Text Files"
+msgstr "Fișiere text"
+
+#. Comment
+#: thumbnail/thumbcreator.desktop:5
+msgid "Thumbnail Handler"
+msgstr "Generator previzualizări"
+
+#. Comment
+#. Name
+#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
+#, fuzzy
+msgid "Trash Properties"
+msgstr "Pagina de proprietăți media"
+
+#. Keywords
+#: trash/kcmtrash.desktop:15
+msgid "trash;properties;size;limits;delete"
+msgstr ""
+
+#. Name
+#: trash/tdefile-plugin/tdefile_trash.desktop:4
+#: trash/tdefile-plugin/tdefile_trash_system.desktop:4
+msgid "Trash File Info"
+msgstr "Informații fișier șters"
+
+#. Description
+#: fish/fish.protocol:14
+msgid "A tdeioslave for the FISH protocol"
+msgstr "Un dispozitiv de I/E pentru protocolul FISH"
+
+#. Description
+#: fish/nxfish.protocol:14
+msgid "A tdeioslave for the NXFISH protocol"
+msgstr "Un tdeioslave pentru protocolul NXFISH"
+
+#. Description
+#: mac/mac.protocol:9
+msgid "A tdeioslave for MacOS HFS+ partitions"
+msgstr "Un dispozitiv de I/E pentru partiții HFS+ MacOS"
+
+#. Description
+#: sftp/sftp.protocol:15
+msgid "A tdeioslave for sftp"
+msgstr "Un dispozitiv de I/E pentru SFTP"
+
+#. ExtraNames
+#: trash/trash.protocol:25
+msgid "Original Path,Deletion Date"
+msgstr "Calea originală,Data ștergerii"

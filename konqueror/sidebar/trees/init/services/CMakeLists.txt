@@ -9,7 +9,10 @@
 #
 #################################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     .directory audiocd.desktop printsystem.desktop
     media.desktop settings.desktop applications.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/virtual_folders/services )
+  DESTINATION ${DATA_INSTALL_DIR}/konqsidebartng/virtual_folders/services
+  PO_DIR konqueror-desktops
+)

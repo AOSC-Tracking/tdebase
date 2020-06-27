@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 03:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: access/eventsrc:3
+msgid "Accessibility Tool"
+msgstr "Công cụ hỗ trợ người tàn tật cho"
+
+#. Name
+#: access/eventsrc:6
+msgid "A modifier key has become active"
+msgstr "Một phím bổ trợ đã được kích hoạt"
+
+#. Comment
+#: access/eventsrc:7
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now active"
+msgstr ""
+"Một phím bổ trợ (như Shift hay Ctrl) đã thay đổi trạng thái và được kích hoạt"
+
+#. Name
+#: access/eventsrc:13
+msgid "A modifier key has become inactive"
+msgstr "Một phím bổ trợ đã bị tắt"
+
+#. Comment
+#: access/eventsrc:14
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now inactive"
+msgstr ""
+"Một phím bổ trợ (như Shift hay Ctrl) đã thay đổi trạng thái và đã bị tắt"
+
+#. Name
+#: access/eventsrc:20
+msgid "A modifier key has been locked"
+msgstr "Một phím bổ trợ đã được khoá"
+
+#. Comment
+#: access/eventsrc:21
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has been locked and is now active for "
+"all of the following keypresses"
+msgstr ""
+"Một phím bổ trợ (như Shift hay Ctrl) đã được khoá và từ giờ bạn có thể dùng "
+"nó khi gõ bàn phím"
+
+#. Name
+#: access/eventsrc:27
+msgid "A lock key has been activated"
+msgstr "Một phím khoá đã được kích hoạt"
+
+#. Comment
+#: access/eventsrc:28
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"active"
+msgstr ""
+"Một phím khoá (như Caps Lock hay Num Lock) đã thay đổi trạng thái và được "
+"kích hoạt"
+
+#. Name
+#: access/eventsrc:34
+msgid "A lock key has been deactivated"
+msgstr "Một phím khoá đã bị tắt"
+
+#. Comment
+#: access/eventsrc:35
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"inactive"
+msgstr ""
+"Một phím khoá (như Caps Lock hay Num Lock) đã thay đổi trạng thái và đã bị "
+"tắt"
+
+#. Name
+#. Comment
+#: access/eventsrc:41 access/eventsrc:42
+msgid "Sticky keys has been enabled or disabled"
+msgstr "Các phím dính đã được bật hoặc đã được tắt"
+
+#. Name
+#. Comment
+#: access/eventsrc:48 access/eventsrc:49
+msgid "Slow keys has been enabled or disabled"
+msgstr "Các phím chậm đã được bật hoặc đã được tắt"
+
+#. Name
+#. Comment
+#: access/eventsrc:55 access/eventsrc:56
+msgid "Bounce keys has been enabled or disabled"
+msgstr "Các phím nảy đã được bật hoặc đã được tắt"
+
+#. Name
+#. Comment
+#: access/eventsrc:62 access/eventsrc:63
+msgid "Mouse keys has been enabled or disabled"
+msgstr "Các phím chuột đã được bật hoặc đã được tắt"

@@ -26,7 +26,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES tdefile_media.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE tdefile_media.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdefile_media (module) ######################

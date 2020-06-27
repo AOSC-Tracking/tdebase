@@ -23,12 +23,18 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES twinoptions.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE twinoptions.desktop
+  PO_DIR twin-desktops
+)
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     twinactions.desktop twinadvanced.desktop twinfocus.desktop
     twinmoving.desktop twintranslucency.desktop
-  DESTINATION ${APPS_INSTALL_DIR}/.hidden )
+  DESTINATION ${APPS_INSTALL_DIR}/.hidden
+  PO_DIR twin-desktops
+)
 
 
 ##### kcm_twinoptions (module) ##################

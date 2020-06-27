@@ -31,8 +31,15 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES panel.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
-install( FILES kcmkicker.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE panel.desktop
+  DESTINATION ${AUTOSTART_INSTALL_DIR}
+  PO_DIR kicker-desktops
+)
+tde_create_translated_desktop(
+  SOURCE kcmkicker.desktop
+  PO_DIR kicker-desktops
+)
 install( FILES kickerrc.upd DESTINATION ${DATA_INSTALL_DIR}/tdeconf_update )
 
 install( PROGRAMS

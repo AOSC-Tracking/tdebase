@@ -1,0 +1,562 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tde.desktop.cmake:7
+msgid "TDE"
+msgstr ""
+
+#. Comment
+#: tde.desktop.cmake:8
+msgid ""
+"The Trinity Desktop Environment. A powerful Open Source graphical desktop "
+"environment"
+msgstr ""
+"Trinity Desktop Environment. Un mediu grafic cu surse deschise, foarte "
+"puternic"
+
+#. Name
+#: 9wm.desktop:6
+msgid "9WM"
+msgstr ""
+
+#. Comment
+#: 9wm.desktop:8
+msgid "An emulation of the Plan 9 window manager 8-1/2"
+msgstr "Un emulator al managerului de ferestre 8-1/2 din Plan 9"
+
+#. Name
+#: admin.desktop:7
+msgid "admin"
+msgstr ""
+
+#. Comment
+#: admin.desktop:9
+msgid "Yast Admin Session"
+msgstr ""
+
+#. Name
+#: aewm++.desktop:6
+msgid "AEWM++"
+msgstr ""
+
+#. Comment
+#: aewm++.desktop:8
+msgid ""
+"A minimal window manager based on AEWM, enhanced by virtual desktops and "
+"partial GNOME support"
+msgstr ""
+"Un manager de ferestre minimal bazat pe AEWM, îmbunătățit cu ecrane virtuale "
+"și suport parțial pentru GNOME"
+
+#. Name
+#: aewm.desktop:6
+msgid "AEWM"
+msgstr ""
+
+#. Comment
+#: aewm.desktop:8
+msgid "A minimalist window manager"
+msgstr "Un manager de ferestre minimal"
+
+#. Name
+#: afterstep.desktop:6
+msgid "AfterStep"
+msgstr ""
+
+#. Comment
+#: afterstep.desktop:8
+msgid "A window manager with the NeXTStep look and feel, based on FVWM"
+msgstr "Un manager de ferestre cu aspect NeXTStep, bazat pe FVWM"
+
+#. Name
+#: amaterus.desktop:6
+msgid "AMATERUS"
+msgstr ""
+
+#. Comment
+#: amaterus.desktop:8
+msgid "A GTK+ based window manager with a window grouping feature"
+msgstr ""
+"Un manager de ferestre bazat pe GTK+ și cu posibilitatea de grupare a "
+"ferestrelor"
+
+#. Name
+#: amiwm.desktop:6
+msgid "AmiWM"
+msgstr ""
+
+#. Comment
+#: amiwm.desktop:8
+msgid "The Amiga look-alike window manager"
+msgstr "Manager de ferestre cu aspect Amiga"
+
+#. Name
+#: asclassic.desktop:6
+msgid "ASClassic"
+msgstr ""
+
+#. Comment
+#: asclassic.desktop:8
+msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
+msgstr "AfterStep Classic, un manager de ferestre bazat pe AfterStep v1.1"
+
+#. Name
+#: blackbox.desktop:6
+msgid "Blackbox"
+msgstr ""
+
+#. Comment
+#: blackbox.desktop:8
+msgid "A fast & light window manager"
+msgstr "Un manager de ferestre mic și rapid"
+
+#. Name
+#: cde.desktop:6
+msgid "CDE"
+msgstr ""
+
+#. Comment
+#: cde.desktop:8
+msgid ""
+"The Common Desktop Environment, a proprietary industry standard desktop "
+"environment"
+msgstr ""
+"Common Desktop Environment, un mediu grafic proprietar și devenit standard "
+"industrial"
+
+#. Name
+#: ctwm.desktop:6
+msgid "CTWM"
+msgstr ""
+
+#. Comment
+#: ctwm.desktop:8
+msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr ""
+"Managerul de ferestre al lui Claude, o versiune îmbunătățită de TWM cu "
+"ecrane virtuale etc."
+
+#. Name
+#: cwwm.desktop:6
+msgid "CWWM"
+msgstr ""
+
+#. Comment
+#: cwwm.desktop:8
+msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
+msgstr ""
+"Managerul de ferestre ChezWam, o versiune minimalistică bazată pe EvilWM"
+
+#. Name
+#: enlightenment.desktop:6
+msgid "Enlightenment"
+msgstr ""
+
+#. Comment
+#: enlightenment.desktop:8
+msgid "An extremely themable very feature-rich window manager"
+msgstr "Un manager de ferestre extrem de versatil și cu multe facilități"
+
+#. Name
+#: evilwm.desktop:6
+msgid "EvilWM"
+msgstr ""
+
+#. Comment
+#: evilwm.desktop:8
+msgid "A minimalist window manager based on AEWM"
+msgstr "Un manager de ferestre minimalistic bazat pe AEWM"
+
+#. Name
+#: fluxbox.desktop:6
+msgid "Fluxbox"
+msgstr ""
+
+#. Comment
+#: fluxbox.desktop:8
+msgid "A highly configurable and low resource window manager based on Blackbox"
+msgstr "Un manager de ferestre foarte configurabil și mic, bazat pe Blackbox"
+
+#. Name
+#: flwm.desktop:6
+msgid "FLWM"
+msgstr ""
+
+#. Comment
+#: flwm.desktop:8
+msgid "The Fast Light Window Manager, based primarily on WM2"
+msgstr "Fast Light Window Manager, bazat în principal pe WM2"
+
+#. Name
+#: fvwm.desktop:6
+msgid "FVWM"
+msgstr ""
+
+#. Comment
+#: fvwm.desktop:8 fvwm2.desktop:8
+msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
+msgstr ""
+"Un manager de ferestre puternic compliant ICCCM ce suportă ecrane virtuale"
+
+#. Name
+#: fvwm2.desktop:6
+msgid "FVWM2"
+msgstr ""
+
+#. Name
+#: fvwm95.desktop:6
+msgid "FVWM95"
+msgstr ""
+
+#. Comment
+#: fvwm95.desktop:8
+msgid "A Windows 95 look-alike derivative of FVWM"
+msgstr "O versiune de FVWM cu aspect de Windows 95"
+
+#. Name
+#: gnome.desktop:6
+msgid "GNOME"
+msgstr ""
+
+#. Comment
+#: gnome.desktop:8
+msgid ""
+"The GNU Network Object Model Environment. A complete, free and easy-to-use "
+"desktop environment"
+msgstr ""
+"GNU Network Object Model Environment. Un mediu grafic complet, gratuit și "
+"ușor de utilizat"
+
+#. Name
+#: golem.desktop:6
+msgid "Golem"
+msgstr ""
+
+#. Comment
+#: golem.desktop:8
+msgid "A lightweight window manager"
+msgstr "Un manager de ferestre foarte mic"
+
+#. Name
+#: icewm.desktop:6
+msgid "IceWM"
+msgstr ""
+
+#. Comment
+#: icewm.desktop:8
+msgid "A Windows 95-OS/2-Motif-like window manager"
+msgstr "Un manager de ferestre cu aspect de Windows 95, OS/2 sau Motif"
+
+#. Name
+#: ion.desktop:6
+msgid "Ion"
+msgstr ""
+
+#. Comment
+#: ion.desktop:8
+msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
+msgstr ""
+"Un manager de ferestre ușor de utilizat din tastatură, cu ferestre ce pot fi "
+"așezate în mozaic, bazat pe PWM"
+
+#. Name
+#: kde-plasma-safe.desktop:7
+msgid "KDE Plasma Workspace (failsafe session)"
+msgstr "Spațiu de lucru Plasma KDE (sesiune robustă)"
+
+#. Comment
+#: kde-plasma-safe.desktop:9
+msgid "The desktop made by KDE (failsafe session)"
+msgstr "Biroul creat de KDE (sesiune robustă)"
+
+#. Name
+#: kde-plasma.desktop:7
+msgid "KDE Plasma Workspace"
+msgstr "Spațiu de lucru Plasma KDE"
+
+#. Comment
+#: kde-plasma.desktop:9
+msgid "The desktop made by KDE"
+msgstr "Biroul creat de KDE"
+
+#. Name
+#: larswm.desktop:6
+msgid "LarsWM"
+msgstr ""
+
+#. Comment
+#: larswm.desktop:8
+msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
+msgstr ""
+"Managerul de ferestre al lui Lars, bazat pe 9WM. Suportă ferestre aranjate "
+"în mozaic"
+
+#. Name
+#: lwm.desktop:6
+msgid "LWM"
+msgstr ""
+
+#. Comment
+#: lwm.desktop:8
+msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
+msgstr ""
+"Lightweight Window Manager. Un manager de ferestre neconfigurabil și minimal"
+
+#. Name
+#: matchbox.desktop:6
+msgid "Matchbox"
+msgstr ""
+
+#. Comment
+#: matchbox.desktop:8
+msgid "A window manager for handheld devices"
+msgstr "Un manager de ferestre pentru PDA-uri"
+
+#. Name
+#: metacity.desktop:6
+msgid "Metacity"
+msgstr ""
+
+#. Comment
+#: metacity.desktop:8
+msgid "A lightweight GTK2 based window manager"
+msgstr "Un manager de ferestre mic bazat pe GTK2"
+
+#. Name
+#: mwm.desktop:6
+msgid "MWM"
+msgstr ""
+
+#. Comment
+#: mwm.desktop:8
+msgid "The Motif Window Manager"
+msgstr "Managerul de ferestre Motif"
+
+#. Name
+#: olvwm.desktop:6
+msgid "OLVWM"
+msgstr ""
+
+#. Comment
+#: olvwm.desktop:8
+msgid ""
+"The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
+"desktops"
+msgstr ""
+"OpenLook Virtual Window Manager. Un OLWM îmbunătățit cu ecrane virtuale"
+
+#. Name
+#: olwm.desktop:6
+msgid "OLWM"
+msgstr ""
+
+#. Comment
+#: olwm.desktop:8
+msgid "The traditional Open Look Window Manager"
+msgstr "Managerul de ferestre tradițional Open Look Window Manager"
+
+#. Name
+#: openbox.desktop:6
+msgid "Openbox"
+msgstr ""
+
+#. Comment
+#: openbox.desktop:8
+msgid "A lightweight window manager based on Blackbox"
+msgstr "Un manager de ferestre minimal bazat pe Blackbox"
+
+#. Name
+#: oroborus.desktop:6
+msgid "Oroborus"
+msgstr ""
+
+#. Comment
+#: oroborus.desktop:8
+msgid "A lightweight themeable window manager"
+msgstr "Un manager de ferestre mic și configurabil cu diverse tematici"
+
+#. Name
+#: phluid.desktop:6
+msgid "Phluid"
+msgstr ""
+
+#. Comment
+#: phluid.desktop:8
+msgid "An Imlib2 based window manager"
+msgstr "Un manager de ferestre bazat pe Imlib2"
+
+#. Name
+#: pwm.desktop:6
+msgid "PWM"
+msgstr ""
+
+#. Comment
+#: pwm.desktop:8
+msgid ""
+"A lightweight window manager able to attach multiple windows to one frame"
+msgstr ""
+"Un manager de ferestre minimal capabil să atașeze multe ferestre la un "
+"singur cadru"
+
+#. Name
+#: qvwm.desktop:6
+msgid "QVWM"
+msgstr ""
+
+#. Comment
+#: qvwm.desktop:8
+msgid "A Windows 95 like window manager"
+msgstr "Un manager de ferestre cu aspect de Windows 95"
+
+#. Name
+#: ratpoison.desktop:6
+msgid "Ratpoison"
+msgstr ""
+
+#. Comment
+#: ratpoison.desktop:8
+msgid "A simple keyboard-only window manager modeled after Screen"
+msgstr "Un manager de ferestre manipulat din tastatură, modelat după Screen"
+
+#. Name
+#: sapphire.desktop:6
+msgid "Sapphire"
+msgstr ""
+
+#. Comment
+#: sapphire.desktop:8
+msgid "A minimal but configurable window manager"
+msgstr "Un manager de ferestre minimal, dar configurabil"
+
+#. Name
+#: sawfish.desktop:6
+msgid "Sawfish"
+msgstr ""
+
+#. Comment
+#: sawfish.desktop:8
+msgid ""
+"An extensible window manager scriptable with an Emacs Lisp-like language"
+msgstr ""
+"Un manager de ferestre extensibil scriptabil cu un limbaj similar cu Emacs "
+"Lisp"
+
+#. Name
+#: twm.desktop:6
+msgid "TWM"
+msgstr ""
+
+#. Comment
+#: twm.desktop:8
+msgid "The Tab Window Manager"
+msgstr "Tab Window Manager"
+
+#. Name
+#: ude.desktop:6
+msgid "UDE"
+msgstr ""
+
+#. Comment
+#: ude.desktop:8
+msgid "The UNIX Desktop Environment"
+msgstr "Mediul grafic UNIX"
+
+#. Name
+#: vtwm.desktop:6
+msgid "VTWM"
+msgstr ""
+
+#. Comment
+#: vtwm.desktop:8
+msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
+msgstr "Virtual Tab Window Manager. TWM îmbunătățit cu ecrane virtuale etc."
+
+#. Name
+#: w9wm.desktop:6
+msgid "W9WM"
+msgstr ""
+
+#. Comment
+#: w9wm.desktop:8
+msgid ""
+"A window manager based on 9WM, enhanced by virtual screens and keyboard "
+"bindings"
+msgstr ""
+"Un manager de ferestre bazat pe 9WM, îmbunătățir cu ecrane virtuale și "
+"acceleratori de tastatură"
+
+#. Name
+#: waimea.desktop:6
+msgid "Waimea"
+msgstr ""
+
+#. Comment
+#: waimea.desktop:8
+msgid "A highly customizable window manager based on Blackbox"
+msgstr "Un manager de ferestre foarte configurabil bazat pe Blackbox"
+
+#. Name
+#: wm2.desktop:6
+msgid "WM2"
+msgstr ""
+
+#. Comment
+#: wm2.desktop:8
+msgid "A small, non-configurable window manager"
+msgstr "Un manager de ferestre mic, neconfigurabil"
+
+#. Name
+#: wmaker.desktop:6
+#, fuzzy
+msgid "WindowMaker"
+msgstr "Tab Window Manager"
+
+#. Comment
+#: wmaker.desktop:8
+msgid "A simple window manager that resembles the NeXTStep look very closely"
+msgstr ""
+"Un manager de ferestre simplu, care amintește foarte bine de aspectul "
+"NeXTStep "
+
+#. Name
+#: xfce.desktop:6
+msgid "XFce"
+msgstr ""
+
+#. Comment
+#: xfce.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
+"of CDE"
+msgstr ""
+"Cholesterol Free Desktop Environment. Un mediu grafic cu reminescente din CDE"
+
+#. Name
+#: xfce4.desktop:6
+msgid "XFce 4"
+msgstr ""
+
+#. Comment
+#: xfce4.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment, version 4. A desktop environment "
+"reminiscent of CDE"
+msgstr ""
+"Cholesterol Free Desktop Environment, versiunea 4. Un mediu grafic cu "
+"reminescente din CDE"

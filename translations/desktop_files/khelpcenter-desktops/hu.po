@@ -1,0 +1,214 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 09:37+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Help.desktop:10
+msgid "Help"
+msgstr "Segítség"
+
+#. Name
+#: htmlsearch/htmlsearch.desktop:12
+msgid "Index"
+msgstr "Keresési index"
+
+#. Comment
+#: htmlsearch/htmlsearch.desktop:14
+msgid "Index generation"
+msgstr "Index létrehozása"
+
+#. Keywords
+#: htmlsearch/htmlsearch.desktop:16
+msgid "Help;HTML;Search;Index;htdig;htsearch;htmerge;Scope;Language;"
+msgstr ""
+"segítség;HTML;keresés;index;htdig;htsearch;htmerge;érvényességi kör;nyelv;"
+
+#. Name
+#: kcmhelpcenter.desktop:13
+msgid "Help Index"
+msgstr "Dokumentációkeresési index"
+
+#. Comment
+#: kcmhelpcenter.desktop:15
+msgid "Help center search index configuration and generation"
+msgstr "A dokumentáció keresési indexének beállításai"
+
+#. Keywords
+#: kcmhelpcenter.desktop:17
+msgid "khelpcenter;help;index;search;"
+msgstr "khelpcenter;segítség;index;keresés;"
+
+#. Name
+#: khelpcenter.desktop:11
+msgid "KHelpCenter"
+msgstr ""
+
+#. Comment
+#: khelpcenter.desktop:13
+msgid "The Trinity Help Center"
+msgstr "Trinity Segítség"
+
+#. Name
+#: plugins/Manpages/man1.desktop:4
+msgid "(1) User Commands"
+msgstr "(1) Felhasználói parancsok"
+
+#. Name
+#: plugins/Manpages/man2.desktop:4
+msgid "(2) System Calls"
+msgstr "(2) Rendszerhívások"
+
+#. Name
+#: plugins/Manpages/man3.desktop:4
+msgid "(3) Subroutines"
+msgstr "(3) Eljárások"
+
+#. Name
+#: plugins/Manpages/man4.desktop:4
+msgid "(4) Devices"
+msgstr "(4) Eszközök"
+
+#. Name
+#: plugins/Manpages/man5.desktop:4
+msgid "(5) File Formats"
+msgstr "(5) Fájlformátumok"
+
+#. Name
+#: plugins/Manpages/man6.desktop:4
+msgid "(6) Games"
+msgstr "(6) Játékok"
+
+#. Name
+#: plugins/Manpages/man7.desktop:4
+msgid "(7) Miscellaneous"
+msgstr "(7) Egyéb"
+
+#. Name
+#: plugins/Manpages/man8.desktop:4
+msgid "(8) Sys. Administration"
+msgstr "(8) Rendszeradminisztráció"
+
+#. Name
+#: plugins/Manpages/man9.desktop:4
+msgid "(9) Kernel"
+msgstr ""
+
+#. Name
+#: plugins/Manpages/mann.desktop:4
+msgid "(n) New"
+msgstr "(n) Új"
+
+#. Name
+#: plugins/adminguide.desktop:6
+#, fuzzy
+msgid "TDE Admininstrator Guide"
+msgstr "TDE-felhasználók kézikönyve"
+
+#. Name
+#: plugins/applets.desktop:6
+msgid "Applet Manuals"
+msgstr "A kisalkalmazások kézikönyvei"
+
+#. Name
+#: plugins/contact.desktop:6
+msgid "Contact Information"
+msgstr "Kapcsolatfelvétel"
+
+#. Name
+#: plugins/faq.desktop:6
+msgid "The TDE FAQ"
+msgstr "TDE FAQ"
+
+#. Name
+#: plugins/hardwaremodules.desktop:6
+msgid "Hardware"
+msgstr "Hardver"
+
+#. Name
+#: plugins/info.desktop:7
+msgid "Browse Info Pages"
+msgstr "Info oldalak"
+
+#. Name
+#: plugins/kcontrolmodules.desktop:6
+msgid "Control Center Modules"
+msgstr "A Vezérlőpult moduljai"
+
+#. Name
+#: plugins/konqplugins.desktop:6
+msgid "Konqueror Plugins"
+msgstr "Konqueror-bővítőmodulok"
+
+#. Name
+#: plugins/links.desktop:6
+msgid "TDE on the Web"
+msgstr "A TDE az interneten"
+
+#. Name
+#: plugins/quickstart.desktop:6
+msgid "Quickstart Guide"
+msgstr "Rövid bevezetés"
+
+#. Name
+#: plugins/support.desktop:6
+msgid "Supporting TDE"
+msgstr "A TDE támogatása"
+
+#. Name
+#: plugins/tdeioslaves.desktop:6
+msgid "Protocols"
+msgstr "Protokollok"
+
+#. Comment
+#: plugins/tdeioslaves.desktop:8
+msgid "Information about the available protocols"
+msgstr "A rendelkezésre álló protokollok jellemzői"
+
+#. Keywords
+#: plugins/tdeioslaves.desktop:10
+msgid "Protocol;IO slaves;Slaves;Network;Information;Timeout;"
+msgstr "protokoll;TDE protokollok;protokoll;hálózat;információ;időtúllépés;"
+
+#. Name
+#: plugins/userguide.desktop:6
+msgid "TDE User Guide"
+msgstr "TDE-felhasználók kézikönyve"
+
+#. Name
+#: plugins/visualdict.desktop:6
+msgid "A Visual Guide to TDE"
+msgstr "A TDE grafikus elemeinek ismertetése"
+
+#. Name
+#: plugins/welcome.desktop:6
+msgid "Welcome to TDE"
+msgstr "Üdvözöljük a TDE-ben!"
+
+#. Name
+#: plugins/Applications/.directory:7
+msgid "Application Manuals"
+msgstr "Alkalmazások kézikönyvei"
+
+#. Name
+#: plugins/Manpages/.directory:8
+msgid "UNIX manual pages"
+msgstr "UNIX man oldalak"
+
+#. Name
+#: plugins/Scrollkeeper/.directory:5
+msgid "Scrollkeeper"
+msgstr ""

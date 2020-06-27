@@ -25,7 +25,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES ksplashunified.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE ksplashunified.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR ksplash-desktops
+)
 
 
 ##### ksplashunified (module) ###################

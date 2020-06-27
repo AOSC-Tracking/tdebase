@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 03:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: developerrc:2
+msgid "Developer"
+msgstr "შემმუშავებელი"
+
+#. Comment
+#: developerrc:3
+msgid "Settings preferred for developers"
+msgstr "პარამეტრები განმვითარებელთათვის"
+
+#. Name
+#: developerrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname), pid %pid, crashed and caused the "
+"signal %signum (%signame)."
+msgstr ""
+"პროგრამას %progname (%appname) pid %pid....,და გამოიწვია შემდეგი სიგნალი "
+"%signum (%signame)."
+
+#. Name
+#: developerrc:17
+msgid "You might want to fix your program. Take a look at the backtrace tab."
+msgstr ""
+"თქვენ ალბათ გნებავტ თქვენი პროგრამის შეკეთება.დახედეთ  backtrace–ის დაფას."
+
+#. Name
+#: developerrc:20 enduserrc:20
+msgid "SIGILL"
+msgstr ""
+
+#. Comment
+#: developerrc:21
+msgid "Illegal instruction."
+msgstr "არასწორი ინსტრუქცია."
+
+#. Name
+#: developerrc:24 enduserrc:24
+msgid "SIGABRT"
+msgstr ""
+
+#. Comment
+#: developerrc:25
+msgid "Aborted."
+msgstr "შეწყვეტილია."
+
+#. Name
+#: developerrc:28 enduserrc:28
+msgid "SIGFPE"
+msgstr ""
+
+#. Comment
+#: developerrc:29
+msgid "Floating point exception."
+msgstr ""
+
+#. Name
+#: developerrc:32 enduserrc:32
+msgid "SIGSEGV"
+msgstr ""
+
+#. Comment
+#: developerrc:33
+msgid "Invalid memory reference."
+msgstr "წვდომა მეხსიერების აკრძალულ ნაწილში."
+
+#. Name
+#: developerrc:36 enduserrc:36
+msgid "Unknown"
+msgstr "უცნობი"
+
+#. Comment
+#: developerrc:37
+msgid "This signal is unknown."
+msgstr "უცნობი სიგნალი"
+
+#. Name
+#: enduserrc:2
+msgid "End user"
+msgstr "საბოლოო მომხმარებელი"
+
+#. Comment
+#: enduserrc:3
+msgid "Settings preferred for end users"
+msgstr "პარამეტრები, საბოლო მომხმარებლისათვის"
+
+#. Name
+#: enduserrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname) crashed and caused the signal %signum "
+"(%signame)."
+msgstr ""
+"პროგრამა %progname (%appname) მოხდა ფატალური შეცდომა, რომელმაც გამოიწვია "
+"სიგნალი %signum (%signame)."
+
+#. Name
+#: enduserrc:17
+msgid ""
+"You might want to send a bug report for this application. Check if it is "
+"listed on http://bugs.trinitydesktop.org, otherwise mail the author. Please "
+"include as much information as possible, maybe the original documents. If "
+"you have a way to reproduce the error, include this also."
+msgstr ""
+"თუ თქვენ გნებავთ გააგზავნოთ ოქმი შეცდომის შესახებ: დარწმუნდით, რომ ის არის "
+"სიაში რომელიც განთავსებულია ვებგვერდზე http://bugs.trinitydesktop.org,"
+"წინააღმდეგ შემთხვევაში მისწერეთ ავტორს. წარუდგინეთ მას რაც შეიძლება მეტი "
+"ცნობა, შესაძლებელია ორიგინალური დოკუმენტებიც. თუ შესაძლებელია გაიმეორეთ "
+"პროგრამის მიერ ნაჩვენები შეცდომა."
+
+#. Comment
+#: enduserrc:21
+msgid ""
+"An application mostly receives the SIGILL signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"პროგრამა იღებს SIGILL სიგნალს პროგრამაში არსებული შეცდომის გამო. ყველა "
+"დოკუმენტი შენახული იქნება"
+
+#. Comment
+#: enduserrc:25
+msgid ""
+"An application terminates with a SIGABRT signal when it detects an internal "
+"inconsistency caused by a bug in the program."
+msgstr ""
+"პროგრამა შეწყდა SIGABRT სიგნალით, როდესაც მან შეამჩნია შიდა არამდგრადობა "
+"რომელიც პროგრამის ბზიკმა გამოიწვია."
+
+#. Comment
+#: enduserrc:29
+msgid ""
+"An application mostly receives the SIGFPE signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"პროგრამა იღებს SIGFPE სიგნალს პროგრამაში არსებული შეცდომის გამო. ყველა "
+"დოკუმენტი შენახული იქნება"
+
+#. Comment
+#: enduserrc:33
+msgid ""
+"An application mostly receives the SIGSEGV signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"პროგრამა იღებს  SIGSEGV სიგნალს პროგრამაში არსებული შეცდომის გამო. ყველა "
+"დოკუმენტი შენახული იქნება"
+
+#. Comment
+#: enduserrc:37
+msgid "Sorry, I do not know this signal."
+msgstr "სამწუხაროდ ამ სიგნალის შესახებ არაფერია ცნობილი"

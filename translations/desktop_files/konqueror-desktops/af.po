@@ -1,0 +1,358 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 15:23+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: af\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:7
+msgid "Home"
+msgstr "Tuiste"
+
+#. GenericName
+#: Home.desktop:9
+msgid "Personal Files"
+msgstr "Persoonlike Lêers"
+
+#. Name
+#: about/konq_aboutpage.desktop:3
+msgid "About-Page for Konqueror"
+msgstr "About-Page vir Konqueror"
+
+#. Name
+#: iconview/konq_iconview.desktop:3
+msgid "Icon View"
+msgstr "Ikoon Besigtig"
+
+#. Name
+#: iconview/konq_multicolumnview.desktop:3
+msgid "MultiColumn View"
+msgstr "Multi-kolom Besigtig"
+
+#. Name
+#: kfmclient.desktop:9 kfmclient_dir.desktop:9 kfmclient_html.desktop:9
+#: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
+#: konquerorsu.desktop:8
+msgid "Konqueror"
+msgstr ""
+
+#. GenericName
+#: konqbrowser.desktop:9
+msgid "Web Browser"
+msgstr "Web Blaaier"
+
+#. Name
+#: konqfilemgr.desktop:7
+msgid "File Manager"
+msgstr "Lêer Bestuurder"
+
+#. Comment
+#: konqueror.desktop:8
+msgid "TDE File Manager & Web Browser"
+msgstr "Kde Lêer Bestuurder & Web Blaaier"
+
+#. GenericName
+#: konquerorsu.desktop:10
+msgid "File Manager - Super User Mode"
+msgstr "Lêer Bestuurder - Super Gebruiker Modus"
+
+#. Name
+#: kttsplugin/tdehtmlkttsd.desktop:12
+msgid "Text-to-Speech"
+msgstr ""
+
+#. Comment
+#: kttsplugin/tdehtmlkttsd.desktop:14
+#, fuzzy
+msgid "A plugin which enables texts to be read aloud on the web with KTTS"
+msgstr "Opdrag tolk inprop module vir Konqueror"
+
+#. Name
+#: listview/konq_detailedlistview.desktop:3
+msgid "Detailed List View"
+msgstr "Gedetaileerde Lys Besigtig"
+
+#. Name
+#: listview/konq_infolistview.desktop:3
+msgid "Info List View"
+msgstr "Inligting Lys Besigtig"
+
+#. Name
+#: listview/konq_textview.desktop:3
+msgid "Text View"
+msgstr "Teks Besigtig"
+
+#. Name
+#: listview/konq_treeview.desktop:3
+msgid "Tree View"
+msgstr "Boom Besigtig"
+
+#. Name
+#: preloader/konqy_preload.desktop:4
+msgid "Konqueror Preloading During TDE startup"
+msgstr "Vroegtydige laai van Konqueror tydens TDE opstart"
+
+#. Name
+#: preloader/konqy_preloader.desktop:4
+msgid "KDED Konqueror Preloader Module"
+msgstr "KDED Konqueror Vroegtydige Laai Module"
+
+#. Comment
+#: preloader/konqy_preloader.desktop:6
+msgid "Reduces Konqueror startup time"
+msgstr "Verminder Konqueror se opstart tyd"
+
+#. Name
+#: profile_filemanagement.desktop:5
+msgid "File Management"
+msgstr "Lêer Bestuurder"
+
+#. Name
+#: profile_filepreview.desktop:9
+msgid "File Preview"
+msgstr "Lêer Voorskou"
+
+#. Name
+#: profile_kde_devel.desktop:3
+msgid "TDE Development"
+msgstr "TDE Ontwikkeling"
+
+#. Name
+#: profile_midnightcommander.desktop:9
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Opdrag tolk inprop module"
+
+#. Name
+#: profile_simplebrowser.desktop:2
+msgid "Simple Browser"
+msgstr "Eenvoudige Blaaier"
+
+#. Name
+#: profile_tabbedbrowsing.desktop:3
+msgid "Tabbed Browsing"
+msgstr "Oortjie Blaaier"
+
+#. Name
+#: profile_webbrowsing.desktop:2
+msgid "Web Browsing"
+msgstr "Web Blaaier"
+
+#. Name
+#: quickprint/text-ada-print.desktop:6 quickprint/text-c++-print.desktop:6
+#: quickprint/text-c++h-print.desktop:6 quickprint/text-c-print.desktop:6
+#: quickprint/text-ch-print.desktop:6 quickprint/text-css-print.desktop:6
+#: quickprint/text-diff-print.desktop:6 quickprint/text-html-print.desktop:6
+#: quickprint/text-java-print.desktop:6 quickprint/text-log-print.desktop:6
+#: quickprint/text-makefile-print.desktop:6 quickprint/text-pas-print.desktop:6
+#: quickprint/text-perl-print.desktop:6 quickprint/text-print.desktop:6
+#: quickprint/text-python-print.desktop:6 quickprint/text-tcl-print.desktop:6
+#: quickprint/text-tex-print.desktop:6 quickprint/text-xml-print.desktop:6
+#: quickprint/text-xslt-print.desktop:6
+msgid "Print..."
+msgstr "Druk..."
+
+#. Name
+#: remoteencodingplugin/kremoteencodingplugin.desktop:13
+msgid "Remote Encoding"
+msgstr "Afgeleë Enkodering Inprop Module"
+
+#. Comment
+#: remoteencodingplugin/kremoteencodingplugin.desktop:15
+msgid "A Plugin for setting the encoding of remote hosts (FTP, SSH, etc.)"
+msgstr "Afgeë enkodering inprop module vir Konqueror"
+
+#. Name
+#: shellcmdplugin/kshellcmdplugin.desktop:15
+msgid "Run Command"
+msgstr "Opdrag tolk inprop module"
+
+#. Comment
+#: shellcmdplugin/kshellcmdplugin.desktop:17
+msgid "A plugin which enables commands to be executed within folders"
+msgstr "Opdrag tolk inprop module vir Konqueror"
+
+#. Name
+#: sidebar/konq_sidebartng.desktop:4
+msgid "Navigation Panel"
+msgstr "Navigasie Paneel"
+
+#. Name
+#: sidebar/test/test.desktop:5
+msgid "Test"
+msgstr "Toets"
+
+#. Name
+#: sidebar/trees/history_module/kcmhistory.desktop:10
+msgid "History Sidebar"
+msgstr "Geskiedenis Kantbalk"
+
+#. Comment
+#: sidebar/trees/history_module/kcmhistory.desktop:12
+msgid "Configure the history sidebar"
+msgstr "Stel die geskiedenis kantbalk op"
+
+#. Keywords
+#: sidebar/trees/history_module/kcmhistory.desktop:14
+msgid "history;expire;"
+msgstr ""
+
+#. Name
+#: sidebar/trees/init/bookmarks.desktop:6
+#: sidebar/trees/init/bookmarks_module.desktop:6
+msgid "Bookmarks"
+msgstr "Boekmerke"
+
+#. Comment
+#: sidebar/trees/init/bookmarks.desktop:8
+#: sidebar/trees/init/bookmarks_module.desktop:8
+msgid "This is the list of your bookmarks, for a faster access"
+msgstr "Hierdie is die lys van jou boekmerke, vir 'n vinniger toegang verkry"
+
+#. Name
+#: sidebar/trees/init/dirtree_module.desktop:5
+#: sidebar/trees/init/virtualfolderadd.desktop:6
+msgid "Folder"
+msgstr "Gids"
+
+#. Name
+#: sidebar/trees/init/history.desktop:6
+#: sidebar/trees/init/history_module.desktop:6
+msgid "History"
+msgstr "Geskiedenis"
+
+#. Comment
+#: sidebar/trees/init/history.desktop:8
+#: sidebar/trees/init/history_module.desktop:8
+msgid ""
+"This is the history of the URLs you have recently visited. You can sort them "
+"in many ways."
+msgstr ""
+"Hierdie is die geskiedenis van die Urls jy het onlangse besoekte. jy kan "
+"sorteer hulle in veel maniere."
+
+#. Name
+#: sidebar/trees/init/home.desktop:6
+msgid "Home Folder"
+msgstr "Tuis Gids"
+
+#. Comment
+#: sidebar/trees/init/home.desktop:8
+msgid "This folder contains your personal files"
+msgstr "Hierdie kabinet bevat jou persoonlike lêers"
+
+#. Name
+#: sidebar/trees/init/remote.desktop:2 sidebar/trees/init/remote/.directory:2
+msgid "Network"
+msgstr "Netwerk"
+
+#. Name
+#: sidebar/trees/init/remote/ftp/tde_ftp.desktop:5
+msgid "TDE Official FTP"
+msgstr "TDE Amptelike Ftp"
+
+#. Name
+#: sidebar/trees/init/remote/web/apps_web.desktop:4
+msgid "TDE Applications"
+msgstr "TDE Programme"
+
+#. Name
+#: sidebar/trees/init/remote/web/dot_web.desktop:4
+msgid "TDE News"
+msgstr "TDE Nuus"
+
+#. Name
+#: sidebar/trees/init/remote/web/tde_web.desktop:4
+msgid "TDE Home Page"
+msgstr "TDE Tuisblad"
+
+#. Name
+#: sidebar/trees/init/root.desktop:6
+msgid "Root Folder"
+msgstr "Basis Gids"
+
+#. Comment
+#: sidebar/trees/init/root.desktop:8
+msgid "This is the root of the filesystem"
+msgstr "Hierdie is die basis van die lêer stelsel"
+
+#. Name
+#: sidebar/trees/init/services.desktop:4
+#: sidebar/trees/init/services/.directory:3
+msgid "Services"
+msgstr "Dienste"
+
+#. Name
+#: sidebar/trees/init/services/applications.desktop:5
+msgid "Applications"
+msgstr "Programme"
+
+#. Name
+#: sidebar/trees/init/services/audiocd.desktop:6
+msgid "Audio CD Browser"
+msgstr "Musiek CD Blaaier"
+
+#. Name
+#: sidebar/trees/init/services/media.desktop:5
+msgid "Storage Media"
+msgstr "Stoor Media"
+
+#. Name
+#: sidebar/trees/init/services/printsystem.desktop:6
+msgid "Print System Browser"
+msgstr "Drukker Stelsel Blaaier"
+
+#. Name
+#: sidebar/trees/init/services/settings.desktop:5
+msgid "Settings"
+msgstr "Instellings"
+
+#. Name
+#: sidebar/trees/init/system.desktop:6
+msgid "System"
+msgstr "Stelsel"
+
+#. Comment
+#: sidebar/trees/init/system.desktop:8
+msgid "This folder allows you to access common places on your computer"
+msgstr "Hierdie gids laat jou toe om algemene plekke op jou rekenaar te besoek"
+
+#. Name
+#: sidebar/trees/init/trash.desktop:9
+#, fuzzy
+msgid "Trash Folder"
+msgstr "Gids"
+
+#. Comment
+#: sidebar/trees/init/trash.desktop:11
+#, fuzzy
+msgid "This folder displays the contents of your Trash Bin"
+msgstr "Hierdie kabinet bevat jou persoonlike lêers"
+
+#. Name
+#: sidebar/web_module/webmodule_add.desktop:5
+#: sidebar/web_module/websidebar.desktop:5
+msgid "Web SideBar Module"
+msgstr "Web kantbalk module"
+
+#. Name
+#: sidebar/trees/init/remote/ftp/.directory:2
+msgid "FTP Archives"
+msgstr ""
+
+#. Name
+#: sidebar/trees/init/remote/web/.directory:2
+msgid "Web Sites"
+msgstr ""

@@ -1,0 +1,214 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 09:37+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Help.desktop:10
+msgid "Help"
+msgstr "সাহায্য"
+
+#. Name
+#: htmlsearch/htmlsearch.desktop:12
+msgid "Index"
+msgstr "সূচি"
+
+#. Comment
+#: htmlsearch/htmlsearch.desktop:14
+msgid "Index generation"
+msgstr "সূচি উত্‍পাদন"
+
+#. Keywords
+#: htmlsearch/htmlsearch.desktop:16
+msgid "Help;HTML;Search;Index;htdig;htsearch;htmerge;Scope;Language;"
+msgstr ""
+
+#. Name
+#: kcmhelpcenter.desktop:13
+msgid "Help Index"
+msgstr "সাহায্য সূচি"
+
+#. Comment
+#: kcmhelpcenter.desktop:15
+msgid "Help center search index configuration and generation"
+msgstr "সহায়িকাসন্ধানসূচি কনফিগারেশন এবং সৃষ্টি"
+
+#. Keywords
+#: kcmhelpcenter.desktop:17
+msgid "khelpcenter;help;index;search;"
+msgstr ""
+
+#. Name
+#: khelpcenter.desktop:11
+msgid "KHelpCenter"
+msgstr ""
+
+#. Comment
+#: khelpcenter.desktop:13
+msgid "The Trinity Help Center"
+msgstr "কে.ডি.ই. সাহায্য কেন্দ্র"
+
+#. Name
+#: plugins/Manpages/man1.desktop:4
+msgid "(1) User Commands"
+msgstr ""
+
+#. Name
+#: plugins/Manpages/man2.desktop:4
+msgid "(2) System Calls"
+msgstr "(2) সিস্টেম কল"
+
+#. Name
+#: plugins/Manpages/man3.desktop:4
+msgid "(3) Subroutines"
+msgstr "(3) সাবরুটিন"
+
+#. Name
+#: plugins/Manpages/man4.desktop:4
+msgid "(4) Devices"
+msgstr "(4) ডিভাইস"
+
+#. Name
+#: plugins/Manpages/man5.desktop:4
+msgid "(5) File Formats"
+msgstr "(5) ফাইল ফরম্যাট"
+
+#. Name
+#: plugins/Manpages/man6.desktop:4
+msgid "(6) Games"
+msgstr "(6) খেলা"
+
+#. Name
+#: plugins/Manpages/man7.desktop:4
+msgid "(7) Miscellaneous"
+msgstr "(7) বিবিধ"
+
+#. Name
+#: plugins/Manpages/man8.desktop:4
+msgid "(8) Sys. Administration"
+msgstr "(8) সিস্টেম অ্যাডমিনস্ট্রেশন"
+
+#. Name
+#: plugins/Manpages/man9.desktop:4
+msgid "(9) Kernel"
+msgstr "(9) কার্নেল"
+
+#. Name
+#: plugins/Manpages/mann.desktop:4
+msgid "(n) New"
+msgstr "(n) নতুন"
+
+#. Name
+#: plugins/adminguide.desktop:6
+#, fuzzy
+msgid "TDE Admininstrator Guide"
+msgstr "কে.ডি.ই. ব্যবহারকারীদের জন্য ম্যানুয়াল"
+
+#. Name
+#: plugins/applets.desktop:6
+msgid "Applet Manuals"
+msgstr "অ্যাপলেট ম্যানুয়াল"
+
+#. Name
+#: plugins/contact.desktop:6
+msgid "Contact Information"
+msgstr "যোগাযোগ তথ্য"
+
+#. Name
+#: plugins/faq.desktop:6
+msgid "The TDE FAQ"
+msgstr "কে.ডি.ই. FAQ"
+
+#. Name
+#: plugins/hardwaremodules.desktop:6
+msgid "Hardware"
+msgstr "হার্ডওয়্যার"
+
+#. Name
+#: plugins/info.desktop:7
+msgid "Browse Info Pages"
+msgstr "ইনফো পেজ ব্রাউজ করুন"
+
+#. Name
+#: plugins/kcontrolmodules.desktop:6
+msgid "Control Center Modules"
+msgstr "নিয়ন্ত্রণ কেন্দ্র মডিউল"
+
+#. Name
+#: plugins/konqplugins.desktop:6
+msgid "Konqueror Plugins"
+msgstr "কনকরার প্লাগ-ইন"
+
+#. Name
+#: plugins/links.desktop:6
+msgid "TDE on the Web"
+msgstr "ওয়েব-এ কে.ডি.ই."
+
+#. Name
+#: plugins/quickstart.desktop:6
+msgid "Quickstart Guide"
+msgstr "কুইকস্টার্ট গাইড"
+
+#. Name
+#: plugins/support.desktop:6
+msgid "Supporting TDE"
+msgstr "কে.ডি.ই-কে সহায়তা"
+
+#. Name
+#: plugins/tdeioslaves.desktop:6
+msgid "Protocols"
+msgstr "প্রোটোকল"
+
+#. Comment
+#: plugins/tdeioslaves.desktop:8
+msgid "Information about the available protocols"
+msgstr "বিভিন্ন প্রোটোকল সম্বন্ধে তথ্য"
+
+#. Keywords
+#: plugins/tdeioslaves.desktop:10
+msgid "Protocol;IO slaves;Slaves;Network;Information;Timeout;"
+msgstr ""
+
+#. Name
+#: plugins/userguide.desktop:6
+msgid "TDE User Guide"
+msgstr "কে.ডি.ই. ব্যবহারকারীদের জন্য ম্যানুয়াল"
+
+#. Name
+#: plugins/visualdict.desktop:6
+msgid "A Visual Guide to TDE"
+msgstr "কে.ডি.ই-র জন্য একটি ভিসুয়াল গাইড"
+
+#. Name
+#: plugins/welcome.desktop:6
+msgid "Welcome to TDE"
+msgstr "কে.ডি.ই.-তে স্বাগতম্"
+
+#. Name
+#: plugins/Applications/.directory:7
+#, fuzzy
+msgid "Application Manuals"
+msgstr "অ্যাপলেট ম্যানুয়াল"
+
+#. Name
+#: plugins/Manpages/.directory:8
+msgid "UNIX manual pages"
+msgstr ""
+
+#. Name
+#: plugins/Scrollkeeper/.directory:5
+msgid "Scrollkeeper"
+msgstr ""

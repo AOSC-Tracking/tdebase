@@ -25,7 +25,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES ldap.protocol ldaps.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE ldap.protocol ldaps.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdeio_ldap (module) #########################

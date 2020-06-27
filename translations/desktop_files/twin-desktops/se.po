@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: se\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmtwin/showdesktop.desktop:4
+msgid "Show Desktop"
+msgstr "Čájet čállinbeavddi"
+
+#. Comment
+#: kcmtwin/showdesktop.desktop:6
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr "Boallu mii čiehká buot lásiid mat leat čállinbeavddis go dan coahkkala"
+
+#. Name
+#: kcmtwin/twindecoration/twindecoration.desktop:11
+msgid "Window Decorations"
+msgstr "Lásehearvvat"
+
+#. Comment
+#: kcmtwin/twindecoration/twindecoration.desktop:13
+msgid "Configure the look and feel of window titles"
+msgstr "Heivet lásenamahusaid fárdda"
+
+#. Keywords
+#: kcmtwin/twindecoration/twindecoration.desktop:15
+msgid ""
+"twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
+"kwm;decoration;"
+msgstr ""
+"twin;láse;gieđahalli;ravda;stiila;fáddá;fárda;dovdu;hápmi;boallu;geavja;"
+"ravda;kwm;hearva;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactions.desktop:11
+msgid "Actions"
+msgstr "Doaimmat"
+
+#. Comment
+#: kcmtwin/twinoptions/twinactions.desktop:13
+msgid "Configure keyboard and mouse settings"
+msgstr "Heivet boallobeavddi ja sáhpána"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactions.desktop:15
+msgid ""
+"shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
+"resize;"
+msgstr ""
+"rulle bajáš;maksimere;minimere;vuolit;dáhpáhusat;fállu;fálut;namahusholga;"
+"namahus;skálere;"
+
+#. Name
+#: kcmtwin/twinoptions/twinadvanced.desktop:11
+msgid "Advanced"
+msgstr "Viiddiduvvon"
+
+#. Comment
+#: kcmtwin/twinoptions/twinadvanced.desktop:13
+msgid "Configure advanced window management features"
+msgstr "Heivet viiddiduvvon lásegieđahanfunkšuvnnaid"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinadvanced.desktop:15
+msgid "shading;border;hover;active borders;"
+msgstr ""
+"shading;border;hover;active borders;aktiivalaš láse;láse;aktiivalaš ravddat;"
+
+#. Name
+#: kcmtwin/twinoptions/twinfocus.desktop:11
+msgid "Focus"
+msgstr "Fohkus"
+
+#. Comment
+#: kcmtwin/twinoptions/twinfocus.desktop:13
+msgid "Configure the window focus policy"
+msgstr "Heivet lásefohkusa doaibmanvuogi"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinfocus.desktop:15
+msgid ""
+"focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
+"desktop;"
+msgstr ""
+"fohkus;auto lokten;lokten;coahkkal ja lokte;boallobeavdi;CDE;molssu lássii;"
+"buot čállinbeavddi;"
+
+#. Name
+#: kcmtwin/twinoptions/twinmoving.desktop:11
+msgid "Moving"
+msgstr "Lihkadeamen"
+
+#. Comment
+#: kcmtwin/twinoptions/twinmoving.desktop:13
+msgid "Configure the way that windows are moved"
+msgstr "Heivet mo láset lihkaduvvot"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinmoving.desktop:15
+msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
+msgstr ""
+
+#. Name
+#: kcmtwin/twinoptions/twinoptions.desktop:11
+msgid "Window Behavior"
+msgstr "Láseláhtten"
+
+#. Comment
+#: kcmtwin/twinoptions/twinoptions.desktop:13
+msgid "Configure the window behavior"
+msgstr "Heivet láseláhttema"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinoptions.desktop:15
+msgid ""
+"focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
+"titlebar;doubleclick;"
+msgstr ""
+"fohkus;sajádat;láseláhtten;animašuvdna;lokte;autolokte;láset;rámma;"
+"namahusholga;duppalcoahkkal;"
+
+#. Name
+#: kcmtwin/twinoptions/twintranslucency.desktop:11
+msgid "Translucency"
+msgstr "Čađačuovgi"
+
+#. Comment
+#: kcmtwin/twinoptions/twintranslucency.desktop:13
+msgid "Configure window translucency and shadow management"
+msgstr "Heivet lášečađačuovgivuođa ja suoivvanasgieđaheami"
+
+#. Keywords
+#: kcmtwin/twinoptions/twintranslucency.desktop:15
+msgid "translucency;transparence;shadows;"
+msgstr ""
+
+#. Name
+#: kcmtwin/twinrules/twinrules.desktop:11
+msgid "Window-Specific Settings"
+msgstr "Láseheivehusat"
+
+#. Comment
+#: kcmtwin/twinrules/twinrules.desktop:13
+msgid "Configure settings specifically for a window"
+msgstr "Heivehusat erenoamáš láse várás"
+
+#. Keywords
+#: kcmtwin/twinrules/twinrules.desktop:15
+msgid ""
+"size;position;state;window behavior;windows;specific;workarounds;remember;"
+"rules;"
+msgstr ""
+"sturrodat;sajádat;dilli;láseláhtten;láset;erenoamáš;fillenčovdosat;muitte;"
+"njuolggadusat;"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:2
+msgid "(Default) Disable focus stealing prevention for XV"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:10
+msgid "(Default) Allow focus stealing by the screen locker"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:21
+msgid "(Default) Allow focus stealing by the kdesktop run dialog"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:32
+msgid "(Default) Allow focus stealing by the settings test dialog"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:45
+msgid "(Default) Hide system modal dialog class from taskbar"
+msgstr ""

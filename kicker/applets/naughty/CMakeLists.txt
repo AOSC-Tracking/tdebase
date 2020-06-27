@@ -31,7 +31,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES naughtyapplet.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
+tde_create_translated_desktop(
+  SOURCE naughtyapplet.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/applets
+  PO_DIR kicker-desktops
+)
 install( FILES naughty-happy.png naughty-sad.png DESTINATION ${DATA_INSTALL_DIR}/naughtyapplet/pics )
 
 

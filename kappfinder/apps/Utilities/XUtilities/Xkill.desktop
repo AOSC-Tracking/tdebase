@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=X Kill
+GenericName=Window Termination Tool
+Type=Application
+Exec=xkill
+Terminal=false
+Icon=xkill

@@ -1,10 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=media-optical-cdwriter-decrypted
 Type=MimeType
 MimeType=media/cd-r_unmounted_decrypted
+Icon=media-optical-cdwriter-decrypted
+
 Comment=Unmounted Decrypted CD-R
-Comment[de]=Nicht eingebundener, entschlüsselter CD-R
+
 Patterns=
 
 X-TDE-AutoEmbed=true

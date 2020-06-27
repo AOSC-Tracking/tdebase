@@ -22,7 +22,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES runapplet.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
+tde_create_translated_desktop(
+  SOURCE runapplet.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/applets
+  PO_DIR kicker-desktops
+)
 
 
 ##### run_panelapplet (module) ##################

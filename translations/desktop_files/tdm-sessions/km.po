@@ -1,0 +1,540 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tde.desktop.cmake:7
+msgid "TDE"
+msgstr ""
+
+#. Comment
+#: tde.desktop.cmake:8
+#, fuzzy
+msgid ""
+"The Trinity Desktop Environment. A powerful Open Source graphical desktop "
+"environment"
+msgstr "The Common Desktop Environment, បរិស្ថាន​ផ្ទៃតុ​ខ្នាត​គំរូ​ដែល​មាន​កម្មសិទ្ធិ"
+
+#. Name
+#: 9wm.desktop:6
+msgid "9WM"
+msgstr ""
+
+#. Comment
+#: 9wm.desktop:8
+msgid "An emulation of the Plan 9 window manager 8-1/2"
+msgstr "ការ​ត្រាប់​តាម​កម្មវិធី​គ្រប់គ្រង​បង្អួច Plan 9 8-1/2"
+
+#. Name
+#: admin.desktop:7
+msgid "admin"
+msgstr ""
+
+#. Comment
+#: admin.desktop:9
+msgid "Yast Admin Session"
+msgstr ""
+
+#. Name
+#: aewm++.desktop:6
+msgid "AEWM++"
+msgstr ""
+
+#. Comment
+#: aewm++.desktop:8
+msgid ""
+"A minimal window manager based on AEWM, enhanced by virtual desktops and "
+"partial GNOME support"
+msgstr ""
+"កម្មវិធី​គ្រប់គ្រង​បង្អួច​តូច ដែល​ផ្អែក​លើ AEWM ដែល​ធ្វើ​ឲ្យ​ប្រសើរ​ដោយ​ផ្ទៃតុ​និមិត្ត និង​ការ​គាំទ្រ GNOME"
+
+#. Name
+#: aewm.desktop:6
+msgid "AEWM"
+msgstr ""
+
+#. Comment
+#: aewm.desktop:8
+msgid "A minimalist window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​លក្ខណៈ​ពិសេស​តិច"
+
+#. Name
+#: afterstep.desktop:6
+msgid "AfterStep"
+msgstr ""
+
+#. Comment
+#: afterstep.desktop:8
+msgid "A window manager with the NeXTStep look and feel, based on FVWM"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​មាន​រូបរាង និង​មុខងារ NeXTStep ដែល​ផ្អែក​លើ FVWM"
+
+#. Name
+#: amaterus.desktop:6
+msgid "AMATERUS"
+msgstr ""
+
+#. Comment
+#: amaterus.desktop:8
+msgid "A GTK+ based window manager with a window grouping feature"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ផ្អែក​លើ GTK+ ដែល​មាន​លក្ខណៈ​ពិសេស​ដាក់​បង្អួច​ជា​ក្រុម"
+
+#. Name
+#: amiwm.desktop:6
+msgid "AmiWM"
+msgstr ""
+
+#. Comment
+#: amiwm.desktop:8
+msgid "The Amiga look-alike window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រប់​បង្អួច​ស្រដៀង Amiga"
+
+#. Name
+#: asclassic.desktop:6
+msgid "ASClassic"
+msgstr ""
+
+#. Comment
+#: asclassic.desktop:8
+msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
+msgstr "AfterStep បុរាណ,កម្មវិធី​គ្រប់គ្រង​បង្អួច​ដែល​ផ្អែក​លើ AfterStep v1.1"
+
+#. Name
+#: blackbox.desktop:6
+msgid "Blackbox"
+msgstr ""
+
+#. Comment
+#: blackbox.desktop:8
+msgid "A fast & light window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​លឿន ហើយ​ភ្លឺ"
+
+#. Name
+#: cde.desktop:6
+msgid "CDE"
+msgstr ""
+
+#. Comment
+#: cde.desktop:8
+msgid ""
+"The Common Desktop Environment, a proprietary industry standard desktop "
+"environment"
+msgstr "The Common Desktop Environment, បរិស្ថាន​ផ្ទៃតុ​ខ្នាត​គំរូ​ដែល​មាន​កម្មសិទ្ធិ"
+
+#. Name
+#: ctwm.desktop:6
+msgid "CTWM"
+msgstr ""
+
+#. Comment
+#: ctwm.desktop:8
+msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ជា​ផ្ទាំង​របស់ Claude, TWM ដែល​ធ្វើ​ឲ្យ​ប្រសើរ​ដោយ​អេក្រង់​និមិត្ត​ជាដើម"
+
+#. Name
+#: cwwm.desktop:6
+msgid "CWWM"
+msgstr ""
+
+#. Comment
+#: cwwm.desktop:8
+msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
+msgstr ""
+"កម្មវិធី​គ្រប់គ្រង​បង្អួច ChezWam ដែល​ជា​កម្មវិធី​គ្រប់គ្រង​បង្អួច​មិន​សូវ​សម្បូរ​បែប​ហើយ​ផ្អែក​លើ EvilWM"
+
+#. Name
+#: enlightenment.desktop:6
+msgid "Enlightenment"
+msgstr "ភ្លឺ"
+
+#. Comment
+#: enlightenment.desktop:8
+msgid "An extremely themable very feature-rich window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​មាន​លក្ខណៈ​ពិសេស​សម្បូរ​បែប ដែល​អាច​ប្ដូរ​រូបរាង​បាន​តាម​ចិត្ត"
+
+#. Name
+#: evilwm.desktop:6
+msgid "EvilWM"
+msgstr ""
+
+#. Comment
+#: evilwm.desktop:8
+msgid "A minimalist window manager based on AEWM"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​លក្ខណៈ​ពិសេស​តិច ដែល​ផ្អែក​លើ AEWM"
+
+#. Name
+#: fluxbox.desktop:6
+msgid "Fluxbox"
+msgstr ""
+
+#. Comment
+#: fluxbox.desktop:8
+msgid "A highly configurable and low resource window manager based on Blackbox"
+msgstr ""
+"កម្មវិធី​គ្រប់គ្រង​បង្អួច​ដែល​អាច​កំណត់​រចនាសម្ព័ន្ធ​បាន​ខ្ពស់ និង​ប្រើ​ធនធាន​តិច ដែល​ផ្អែក​លើ Blackbox"
+
+#. Name
+#: flwm.desktop:6
+msgid "FLWM"
+msgstr ""
+
+#. Comment
+#: flwm.desktop:8
+msgid "The Fast Light Window Manager, based primarily on WM2"
+msgstr "Fast Light Window Manager ផ្អែក​ចម្បង​លើ WM2"
+
+#. Name
+#: fvwm.desktop:6
+msgid "FVWM"
+msgstr ""
+
+#. Comment
+#: fvwm.desktop:8 fvwm2.desktop:8
+msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ផ្ទៃតុ​និមិត្ត​ច្រើន​ដ៏​មាន​អានុភាព ដែល​អនុវត្ត​តាម ICCCM"
+
+#. Name
+#: fvwm2.desktop:6
+msgid "FVWM2"
+msgstr ""
+
+#. Name
+#: fvwm95.desktop:6
+msgid "FVWM95"
+msgstr ""
+
+#. Comment
+#: fvwm95.desktop:8
+msgid "A Windows 95 look-alike derivative of FVWM"
+msgstr "ស្រដៀង Windows 95 ដែល​ក្លាយ​មក​ពី FVWM"
+
+#. Name
+#: gnome.desktop:6
+msgid "GNOME"
+msgstr ""
+
+#. Comment
+#: gnome.desktop:8
+msgid ""
+"The GNU Network Object Model Environment. A complete, free and easy-to-use "
+"desktop environment"
+msgstr ""
+"GNU Network Object Model Environment ។ បរិស្ថាន​ផ្ទៃតុ​ពេញលេញ, ឥត​គិត​ថ្លៃ និង​ងាយស្រួល​ប្រើ"
+
+#. Name
+#: golem.desktop:6
+msgid "Golem"
+msgstr ""
+
+#. Comment
+#: golem.desktop:8
+msgid "A lightweight window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​សមត្ថភាព​ខ្សោយ"
+
+#. Name
+#: icewm.desktop:6
+msgid "IceWM"
+msgstr ""
+
+#. Comment
+#: icewm.desktop:8
+msgid "A Windows 95-OS/2-Motif-like window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ដែល​ដូច Windows 95-OS/2-Motif"
+
+#. Name
+#: ion.desktop:6
+msgid "Ion"
+msgstr ""
+
+#. Comment
+#: ion.desktop:8
+msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ដែល​ងាយ​ប្រើ​ជាមួយ​ក្ដារចុច ហើយ​អាច​រៀប​បង្អួច​ជា​ក្បឿង និង​ផ្អែក​លើ PWM"
+
+#. Name
+#: kde-plasma-safe.desktop:7
+msgid "KDE Plasma Workspace (failsafe session)"
+msgstr "តំបន់​ធ្វើ​ការ​ប្លាស្មា KDE (failsafe session)"
+
+#. Comment
+#: kde-plasma-safe.desktop:9
+msgid "The desktop made by KDE (failsafe session)"
+msgstr "ផ្ទៃតុ​បាន​បង្កើត​ដោយ KDE (failsafe session)"
+
+#. Name
+#: kde-plasma.desktop:7
+msgid "KDE Plasma Workspace"
+msgstr "តំបន់​ការងារ​ប្លាស្មា​របស់ KDE"
+
+#. Comment
+#: kde-plasma.desktop:9
+msgid "The desktop made by KDE"
+msgstr "ផ្ទៃ​តុ​បាន​បង្កើត​ដោយ KDE"
+
+#. Name
+#: larswm.desktop:6
+msgid "LarsWM"
+msgstr ""
+
+#. Comment
+#: larswm.desktop:8
+msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
+msgstr "Lars Window Manager ផ្អែក​លើ 9WM គាំទ្រ​បង្អួច​ជា​ក្បឿង"
+
+#. Name
+#: lwm.desktop:6
+msgid "LWM"
+msgstr ""
+
+#. Comment
+#: lwm.desktop:8
+msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
+msgstr ""
+"កម្មវិធី​គ្រប់គ្រង​បង្អួច​សមត្ថភាព​ខ្សោយ ។ កម្មវិធី​គ្រប់គ្រង​បង្អួច​ដែល​គ្មាន​អ្វី​បិទបាំង ហើយ​មិន​អាច​កំណត់​"
+"រចនាសម្ព័ន្ធ​បាន"
+
+#. Name
+#: matchbox.desktop:6
+msgid "Matchbox"
+msgstr ""
+
+#. Comment
+#: matchbox.desktop:8
+msgid "A window manager for handheld devices"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច សម្រាប់​ឧបករណ៍​យួរដៃ"
+
+#. Name
+#: metacity.desktop:6
+msgid "Metacity"
+msgstr ""
+
+#. Comment
+#: metacity.desktop:8
+msgid "A lightweight GTK2 based window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​សមត្ថភាព​ខ្សោយ ដែល​ផ្អែក​លើ GTK2"
+
+#. Name
+#: mwm.desktop:6
+msgid "MWM"
+msgstr ""
+
+#. Comment
+#: mwm.desktop:8
+msgid "The Motif Window Manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច Motif"
+
+#. Name
+#: olvwm.desktop:6
+msgid "OLVWM"
+msgstr ""
+
+#. Comment
+#: olvwm.desktop:8
+msgid ""
+"The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
+"desktops"
+msgstr ""
+"OpenLook Virtual Window Manager ។ OLWM ដែល​បាន​ធ្វើ​ឲ្យ​ប្រសើរ សម្រាប់​ការ​ប្រើ​ផ្ទៃតុ​និមិត្ត ។"
+
+#. Name
+#: olwm.desktop:6
+msgid "OLWM"
+msgstr ""
+
+#. Comment
+#: olwm.desktop:8
+msgid "The traditional Open Look Window Manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​រូបរាង​បើក​ចំហ​បុរាណ"
+
+#. Name
+#: openbox.desktop:6
+msgid "Openbox"
+msgstr ""
+
+#. Comment
+#: openbox.desktop:8
+msgid "A lightweight window manager based on Blackbox"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​សមត្ថភាព​ខ្សោយ ដែល​ផ្អែក​លើ Blackbox"
+
+#. Name
+#: oroborus.desktop:6
+msgid "Oroborus"
+msgstr ""
+
+#. Comment
+#: oroborus.desktop:8
+msgid "A lightweight themeable window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​អាច​ប្ដូរ​ស្បែក​បាន តែ​មាន​សមត្ថភាព​ខ្សោយ"
+
+#. Name
+#: phluid.desktop:6
+msgid "Phluid"
+msgstr ""
+
+#. Comment
+#: phluid.desktop:8
+msgid "An Imlib2 based window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ផ្អែក​លើ Imlib2"
+
+#. Name
+#: pwm.desktop:6
+msgid "PWM"
+msgstr ""
+
+#. Comment
+#: pwm.desktop:8
+msgid ""
+"A lightweight window manager able to attach multiple windows to one frame"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​សមត្ថភាព​ខ្សោយ អាច​ភ្ជាប់​បង្អួច​ច្រើន​ទៅ​ស៊ុម​មួយ"
+
+#. Name
+#: qvwm.desktop:6
+msgid "QVWM"
+msgstr ""
+
+#. Comment
+#: qvwm.desktop:8
+msgid "A Windows 95 like window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ស្រដៀង Windows 95"
+
+#. Name
+#: ratpoison.desktop:6
+msgid "Ratpoison"
+msgstr ""
+
+#. Comment
+#: ratpoison.desktop:8
+msgid "A simple keyboard-only window manager modeled after Screen"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​សាមញ្ញ​ប្រើ​តែ​ក្ដារចុច ដែល​យក​គំរូ​តាម​អេក្រង់"
+
+#. Name
+#: sapphire.desktop:6
+msgid "Sapphire"
+msgstr ""
+
+#. Comment
+#: sapphire.desktop:8
+msgid "A minimal but configurable window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​តូច តែ​អាច​កំណត់​រចនាសម្ព័ន្ធ​បាន"
+
+#. Name
+#: sawfish.desktop:6
+msgid "Sawfish"
+msgstr ""
+
+#. Comment
+#: sawfish.desktop:8
+msgid ""
+"An extensible window manager scriptable with an Emacs Lisp-like language"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ដែល​អាច​ពង្រីក​បាន ហើយ​អាច​សរសេរ​ស្គ្រីប​ជាមួយ​ភាសា​ដែល​ដូច  Emacs Lisp"
+
+#. Name
+#: twm.desktop:6
+msgid "TWM"
+msgstr ""
+
+#. Comment
+#: twm.desktop:8
+msgid "The Tab Window Manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ជា​ផ្ទាំង"
+
+#. Name
+#: ude.desktop:6
+msgid "UDE"
+msgstr ""
+
+#. Comment
+#: ude.desktop:8
+msgid "The UNIX Desktop Environment"
+msgstr "UNIX Desktop Environment"
+
+#. Name
+#: vtwm.desktop:6
+msgid "VTWM"
+msgstr ""
+
+#. Comment
+#: vtwm.desktop:8
+msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
+msgstr "Virtual Tab Window Manager ។ TWM ដែល​បាន​ធ្វើ​ឲ្យ​ប្រសើរ​ដោយ​អេក្រង់​និមិត្ត ជាដើម ។"
+
+#. Name
+#: w9wm.desktop:6
+msgid "W9WM"
+msgstr ""
+
+#. Comment
+#: w9wm.desktop:8
+msgid ""
+"A window manager based on 9WM, enhanced by virtual screens and keyboard "
+"bindings"
+msgstr ""
+"កម្មវិធី​គ្រប់គ្រង​បង្អួច​ផ្អែក​លើ 9WM ដែល​ត្រូវ​បាន​ធ្វើ​ឲ្យ​ប្រសើរ​ដោយ​អេក្រង់​និមិត្ត និង​ការ​ចង​គ្រាប់ចុច"
+
+#. Name
+#: waimea.desktop:6
+msgid "Waimea"
+msgstr ""
+
+#. Comment
+#: waimea.desktop:8
+msgid "A highly customizable window manager based on Blackbox"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ដែល​អាច​ប្ដូរ​តាម​បំណង​កម្រិត​ខ្ពស់ ដោយ​ផ្អែក​លើ Blackbox"
+
+#. Name
+#: wm2.desktop:6
+msgid "WM2"
+msgstr ""
+
+#. Comment
+#: wm2.desktop:8
+msgid "A small, non-configurable window manager"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​តូច ហើយ​មិន​អាច​កំណត់​រចនាសម្ព័ន្ធ​បាន"
+
+#. Name
+#: wmaker.desktop:6
+#, fuzzy
+msgid "WindowMaker"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ជា​ផ្ទាំង"
+
+#. Comment
+#: wmaker.desktop:8
+msgid "A simple window manager that resembles the NeXTStep look very closely"
+msgstr "កម្មវិធី​គ្រប់គ្រង​បង្អួច​ធម្មតា​មួយ ដែល​ប្រហាក់ប្រហែល​នឹង​រូបរាង NeXTStep បំផុត"
+
+#. Name
+#: xfce.desktop:6
+msgid "XFce"
+msgstr ""
+
+#. Comment
+#: xfce.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
+"of CDE"
+msgstr "Cholesterol Free Desktop Environment ។ បរិស្ថាន​ផ្ទៃតុ​ដែល​សម្អាង​លើ CDE"
+
+#. Name
+#: xfce4.desktop:6
+msgid "XFce 4"
+msgstr ""
+
+#. Comment
+#: xfce4.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment, version 4. A desktop environment "
+"reminiscent of CDE"
+msgstr "Cholesterol Free Desktop Environment កំណែ 4 ។ បរិស្ថាន​ផ្ទៃតុ​ដែល​សម្អាង​លើ CDE"

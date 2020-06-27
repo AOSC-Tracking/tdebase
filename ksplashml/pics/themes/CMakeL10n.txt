@@ -1,0 +1,15 @@
+##### create translation templates ##############
+
+file(
+  GLOB_RECURSE _themes
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/*Theme.rc
+)
+list( SORT _themes )
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/ksplash-themes/"
+    SOURCES_DESKTOP ${_themes}
+    KEYWORDS Message1 Message2 Message3 Message4 Message5 Message6 Message7 Message8
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)

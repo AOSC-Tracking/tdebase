@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "Менеджер вікон"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Перейти на стільницю 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Вибрано віртуальну стільницю 1"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Перейти на стільницю 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Вибрано віртуальну стільницю 2"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Перейти на стільницю 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Вибрано віртуальну стільницю 3"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Перейти на стільницю 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Вибрано віртуальну стільницю 4"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Перейти на стільницю 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Вибрано віртуальну стільницю 5"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Перейти на стільницю 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Вибрано віртуальну стільницю 6"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Перейти на стільницю 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Вибрано віртуальну стільницю 7"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Перейти на стільницю 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Вибрано віртуальну стільницю 8"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Перейти на стільницю 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Вибрано віртуальну стільницю 9"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Перейти на стільницю 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Вибрано віртуальну стільницю 10"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Перейти на стільницю 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Вибрано віртуальну стільницю 11"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Перейти на стільницю 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "Вибрано віртуальну стільницю 12"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Перейти на стільницю 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Вибрано віртуальну стільницю 13"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Перейти на стільницю 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Вибрано віртуальну стільницю 14"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Перейти на стільницю 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Вибрано віртуальну стільницю 15"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Перейти на стільницю 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Вибрано віртуальну стільницю 16"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Перейти на стільницю 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Вибрано віртуальну стільницю 17"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Перейти на стільницю 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Вибрано віртуальну стільницю 18"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Перейти на стільницю 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Вибрано віртуальну стільницю 19"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Перейти на стільницю 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Вибрано віртуальну стільницю 20"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Активізувати вікно"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Активоване інше вікно"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Нове вікно"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Відкрите нове вікно"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Вилучити вікно"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Вікно вилучено"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Закрити вікно"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Вікно закривається"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Згорнути вікно"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Вікно згорнуто"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Розгорнути вікно"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Вікно розгорнуто"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Мінімізувати вікно"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Вікно мінімізовано"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Демінімізувати вікно"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Вікно відновлено"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Максимізувати вікно"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Вікно максимізовано"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Демаксимізувати вікно"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Вікно втрачає максимізацію"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Вікно на всі стільниці"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Вікно зроблено видимим на всіх стільницях"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Вікно не на всі стільниці"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Вікно більше не є видимим на всіх стільницях"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Нове вікно діалогу"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "З'являється тимчасове вікно (діалог)"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Вилучити вікно діалогу"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Зникає тимчасове вікно (діалог)"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Почати рухати вікно"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Початок пересування вікна"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Закінчити рухати вікно"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Завершення пересування вікна"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Почати змінювати розмір вікна"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Початок зміни розміру вікна"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Закінчити змінювати розмір вікна"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Завершення зміни розміру вікна"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Вікно на поточній стільниці потребує уваги"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Вікно на поточній віртуальній стільниці потребує вашої уваги"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Вікно на іншій стільниці потребує уваги"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Вікно на неактивній віртуальній стільниці потребує уваги"

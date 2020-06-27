@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=X Load
+GenericName=Monitors System Load
+Type=Application
+X-TDE-StartupNotify=true
+Exec=xload
+SwallowExec=xload -nolabel -fg green -bg Black -hl red -update 3 -geometry 25x25
+SwallowTitle=xload
+Icon=xload

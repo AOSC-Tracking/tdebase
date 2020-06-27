@@ -1,0 +1,425 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "ფანჯრის მენეჯერი"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "სამუშაო დაფა 1-ზე გადასვლა"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "არჩეულია პირველი სამუშაო დაფა"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "სამუშაო დაფა 2-ზე გადასვლა"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "არჩეულია მეორე სამუშაო დაფა"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "სამუშაო დაფა 3-ზე გადასვლა"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "არჩეულია მესამე სამუშაო დაფა"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "სამუშაო დაფა 4-ზე გადასვლა"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "არჩეულია მეოთხე სამუშაო დაფა"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "სამუშაო დაფა 5-ზე გადასვლა"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "არჩეულია მეხუთე სამუშაო დაფა"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "სამუშაო დაფა 6-ზე გადასვლა"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "არჩეულია მეექვსე სამუშაო დაფა"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "სამუშაო დაფა 7-ზე გადასვლა"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "არჩეულია მეშვიდე სამუშაო დაფა"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "სამუშაო დაფა 8-ზე გადასვლა"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "არჩეულია მერვე სამუშაო დაფა"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "გადასვლა სამუშაო დაფაზე 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "არჩეულია მეცხრე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "გადასვლა სამუშაო დაფაზე 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "არჩეულია მეათე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "გადასვლა სამუშაო დაფაზე 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "არჩეულია მეთერთმეტე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "გადასვლა სამუშაო დაფაზე 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "არჩეულია მეთორმეტე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "გადასვლა სამუშაო დაფაზე 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "არჩეულია მეცამეტე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "გადასვლა სამუშაო დაფაზე 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "არჩეულია მეთოთხმეტე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "გადასვლა სამუშაო დაფაზე 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "არჩეულია მეთხუთმეტე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "გადასვლა სამუშაო დაფაზე 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "არჩეულია მეთექვსმეტე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "გადასვლა სამუშაო დაფაზე 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "არჩეულია მეჩვიდმეტე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "გადასვლა სამუშაო დაფაზე 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "არჩეულია მეთვრამეტე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "გადასვლა სამუშაო დაფაზე 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "არჩეულია მეცხრამეტე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "გადასვლა სამუშაო დაფაზე 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "არჩეულია მეოცე ვირტულური სამუშაო დაფა"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "ფანჯრის გააქტიურება"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "სხვა ფანჯარაა აქტიური"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "ახალი ფანჯარა"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "ახალი ფანჯარა"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "ფანჯრის წაშლა"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "ფანჯრის წაშლა"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "ფანჯრის დახურვა"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "ფანჯარა იხურება"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "ფანჯრის აკეცვა"
+
+#. Comment
+#: eventsrc:136
+#, fuzzy
+msgid "A window is shaded up"
+msgstr "ფანჯარა მაქსიმიზირებულია"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "ფანჯრის ჩამოშლა"
+
+#. Comment
+#: eventsrc:142
+#, fuzzy
+msgid "A window is shaded down"
+msgstr "ფანჯრის ჩამოშლა"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "ფანჯრის მინიმიზება"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "ფანჯარა მინიმიზირებულია"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "ფანჯრის ზომების აღდგენა"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "ფანჯრის ზომა აღდგენილია"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "ფანჯრის მახსიმიზება"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "ფანჯარა მაქსიმიზირებულია"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "ფანჯრის ზომა აღდგენილია"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "ფანჯარა აღარაა მაქსიმიზირებული"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "ფანჯარა ყველა სამუშაო დაფაზეა"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "ფანჯარა ყველა სამუშაო დაფაზე ჩანს"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "ფანჯარა არაა ყველა სამუშაო დაფაზე"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "ფანჯარა არ ჩანს ყველა სამუშაო დაფაზე"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "ახალი დიალოგი"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr ""
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "დიალოგის წაშლა"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr ""
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "ფანჯრის მოძრაობა დაიწყო"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "ფანჯარამ დაიწყო მოძრაობა"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "ფანჯრის მოძრაობის დასასრული"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "ფანჯრის მოძრაობა სრულდება"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "ფანჯრის ზომა იზვლბა"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "ფანჯარამ დაიწყო ზომის შეცვლა"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "ფანჯრის ზომა შეიცვალა"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "ფანჯრის ზომის ცვლილება დასრულდა"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "მიმდინარე სამუშაო დაფის ფანჯარა ყურადღებას მოითხოვს"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "მიმდინარე ვირტუალური სამუშაო დაფის ფანჯარა ყურადღებას მოითხოვს"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "სხვა სამუშაო დაფის ფანჯარა ყურადღებას მოითხოვს"
+
+#. Comment
+#: eventsrc:221
+#, fuzzy
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "მიმდინარე ვირტუალური სამუშაო დაფის ფანჯარა ყურადღებას მოითხოვს"

@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 20:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: gui/ksysguard.desktop:2
+#, fuzzy
+msgid "KSysGuard"
+msgstr "Systeemwachter"
+
+#. GenericName
+#: gui/ksysguard.desktop:4
+msgid "Performance Monitor"
+msgstr "Leisten-Kieker"
+
+#. Name
+#: gui/ksysguardapplet.desktop:4
+msgid "System Guard"
+msgstr "Systeemwachter"
+
+#. Comment
+#: gui/ksysguardapplet.desktop:6
+msgid "An advanced system monitor which allows TDE system guard displays"
+msgstr ""
+"En verwiedert Systeemkieker, mit inbett Diagrammen vun TDE System Guard"
+
+#. Comment
+#: gui/x-ksysguard.desktop:5
+msgid "TDE System Guard"
+msgstr "TDE-Systeemwachter"

@@ -42,7 +42,10 @@ if( BUILD_KCONTROL )
 
   ##### other data ################################
 
-  install( FILES background.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+  tde_create_translated_desktop(
+    SOURCE background.desktop
+    PO_DIR kcontrol-desktops
+  )
 
 
   ##### kcm_background (module) ###################

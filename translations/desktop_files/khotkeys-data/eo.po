@@ -1,0 +1,540 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 14:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:5
+msgid "Basic Konqueror gestures."
+msgstr "Bazaj Konkerantaj gestoj."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:8
+msgid "Konqueror Gestures"
+msgstr "Konkerantaj Gestoj"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:13 trinity2b1.khotkeys:219
+msgid "Konqueror window"
+msgstr "Konkeranta fenestro"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:20
+#: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
+#: trinity2b1.khotkeys:232
+msgid "Konqueror"
+msgstr "Konkeranto"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:35
+msgid "Press, move left, release."
+msgstr "Premu, iru maldekstren, malpremu."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:37 trinity2b1.khotkeys:242
+msgid "Back"
+msgstr "Antaŭa"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:41
+msgid ""
+"Opera-style: Press, move up, release.\n"
+"NOTE: Conflicts with 'New Tab', and as such is disabled by default."
+msgstr ""
+"Opera-stilo: Premu, iru supren, malpremu.\n"
+"NOTU: Malakordas kun \"Nova Langeto\", tial estas malebligita defaŭlte."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:43
+msgid "Stop Loading"
+msgstr "Haltu la ŝarĝon"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:58
+#: konqueror_gestures_trinity21.khotkeys:83
+#: konqueror_gestures_trinity21.khotkeys:108
+#: konqueror_gestures_trinity21.khotkeys:133
+#: konqueror_gestures_trinity21.khotkeys:158
+#: konqueror_gestures_trinity21.khotkeys:177
+#: konqueror_gestures_trinity21.khotkeys:202
+#: konqueror_gestures_trinity21.khotkeys:227
+#: konqueror_gestures_trinity21.khotkeys:252
+#: konqueror_gestures_trinity21.khotkeys:277
+#: konqueror_gestures_trinity21.khotkeys:306
+#: konqueror_gestures_trinity21.khotkeys:335
+#: konqueror_gestures_trinity21.khotkeys:360
+#: konqueror_gestures_trinity21.khotkeys:385 trinity2b1.khotkeys:257
+#: trinity2b1.khotkeys:289 trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
+msgid "Gesture_triggers"
+msgstr "Gestaj_Lanĉoj"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:66
+msgid ""
+"Going up in URL/directory structure.\n"
+"Mozilla-style: Press, move up, move left, move up, release."
+msgstr ""
+"Irante supren en URL/dosieruja strukturo.\n"
+"Mozila-stilo: Premu, iru supren, iru maldekstren, iru supren, malpremu."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:68 trinity2b1.khotkeys:306
+msgid "Up"
+msgstr "Supre"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:91
+msgid ""
+"Going up in URL/directory structure.\n"
+"Opera-style: Press, move up, move left, move up, release.\n"
+"NOTE: Conflicts with  \"Activate Previous Tab\", and as such is disabled by "
+"default."
+msgstr ""
+"Irante supren en URL/dosieruja strukturo.\n"
+"Opera-stilo: Premu, iru supren, iru maldekstren, iru supren, malpremu.\n"
+"NOTU: Malakordas kun \"Aktivigi Antaŭan Langeton\", tial estas malebligita "
+"defaŭlte."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:93
+msgid "Up #2"
+msgstr "Supren #2"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:116
+msgid "Press, move up, move right, release."
+msgstr "Premu, iru supren, iru dekstren, malpremu."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:118
+msgid "Activate Next Tab"
+msgstr "Aktivigi sekvan langeton"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:141
+msgid "Press, move up, move left, release."
+msgstr "Premu, iru supren, iru maldekstren, malpremu."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:143
+msgid "Activate Previous Tab"
+msgstr "Aktivigi antaŭan langeton"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:185
+msgid "Press, move down, move up, move down, release."
+msgstr "Premu, iru malsupren, iru supren, iru malsupren, malpremu."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:187
+msgid "Duplicate Tab"
+msgstr "Kopiita langeto"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:210
+msgid "Press, move down, move up, release."
+msgstr "Premu, iru malsupren, iru supren, malpremu."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:212
+msgid "Duplicate Window"
+msgstr "Kopii fenestron"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:235
+msgid "Press, move right, release."
+msgstr "Premu, iru dekstren, malpremu."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:237 trinity2b1.khotkeys:274
+msgid "Forward"
+msgstr "Sekva"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:260
+msgid ""
+"Press, move down, move half up, move right, move down, release.\n"
+"(Drawing a lowercase 'h'.)"
+msgstr ""
+"Premu, iru malsupren, iru duone supren, iru dekstren, iru malsupren, "
+"malpremu.\n"
+"(Skizante minusklan \"h\".)"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:262
+msgid "Home"
+msgstr "Hejmo"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:289
+msgid ""
+"Press, move right, move down, move right, release.\n"
+"Mozilla-style: Press, move down, move right, release."
+msgstr ""
+"Premu, iru dekstren, iru malsupren, iru dekstren, malpremu.\n"
+"Mozila stilo: Premu, iru malsupren, iru dekstren, malpremu."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:291
+msgid "Close Tab"
+msgstr "Fermu langeton"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:318
+msgid ""
+"Press, move up, release.\n"
+"Conflicts with Opera-style 'Up #2', which is disabled by default."
+msgstr ""
+"Premu, iru supren, malpremu.\n"
+"Malakordas kun la Opera stilo \"Supren #2\", kiu estas malebligita defaŭlte."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:320
+msgid "New Tab"
+msgstr "Nova langeto"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:343
+msgid "Press, move down, release."
+msgstr "Premu, iru malsupren, malpremu."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:345
+msgid "New Window"
+msgstr "Nova fenestro"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:368
+msgid "Press, move up, move down, release."
+msgstr "Premu, iru supren, iru malsupren, malpremu."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:370 trinity2b1.khotkeys:338
+msgid "Reload"
+msgstr "Reŝarĝi"
+
+#. Comment
+#: printscreen.khotkeys:5
+msgid "This group contains actions that are set up by default."
+msgstr "Ĉi tiu grupo enhavas agojn antaŭdifinitajn defaŭlte."
+
+#. Name
+#: printscreen.khotkeys:8
+msgid "Preset Actions"
+msgstr "Antaŭdifintaj Agoj"
+
+#. Comment
+#: printscreen.khotkeys:17
+msgid "Launches KSnapShot when PrintScrn is pressed."
+msgstr ""
+"Lanĉas KSnapShot (Ekranfotilon) kiam vi premas la \"Printi Ekranon\" klavon."
+
+#. Name
+#: printscreen.khotkeys:19
+msgid "PrintScreen"
+msgstr "Printi Ekranon"
+
+#. Comment
+#: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
+#: trinity2b1.khotkeys:71 trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
+#: trinity2b1.khotkeys:203 trinity2b1.khotkeys:385
+msgid "Simple_action"
+msgstr "Simpla_ago"
+
+#. Comment
+#: printscreen.khotkeys:41
+#, fuzzy
+msgid ""
+"Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
+msgstr ""
+"Lanĉas KSnapShot (Ekranfotilon) kiam vi premas la \"Printi Ekranon\" klavon."
+
+#. Name
+#: printscreen.khotkeys:43
+msgid "PrintWindow"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:5
+msgid ""
+"This group contains various examples demonstrating most of the features of "
+"KHotkeys. (Note that this group and all its actions are disabled by default.)"
+msgstr ""
+"Ĉi tiu grupo enhavas plurajn ekzemplojn montrante la plejparton de la "
+"eblecoj de KFulmoklavoj. (Notu: la grupo kaj agoj estas malebligitaj "
+"defaŭlte)"
+
+#. Name
+#: trinity2b1.khotkeys:8
+msgid "Examples"
+msgstr "Ekzemploj"
+
+#. Comment
+#: trinity2b1.khotkeys:16
+msgid ""
+"After pressing Ctrl+Alt+I, the KSIRC window will be activated, if it exists. "
+"Simple."
+msgstr ""
+"Post premo de Ctrl+Alt+I, la KSIRC fenestro aktiviĝas, se ekzistas. Simple!"
+
+#. Name
+#: trinity2b1.khotkeys:18
+msgid "Activate KSIRC Window"
+msgstr "Aktiviĝo de fenestro"
+
+#. Comment
+#: trinity2b1.khotkeys:28
+msgid "KSIRC window"
+msgstr "KSIRC fenestro"
+
+#. Comment
+#: trinity2b1.khotkeys:34
+msgid "KSIRC"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:54
+msgid ""
+"After pressing Alt+Ctrl+H, 'Hello' input will be simulated just like if you "
+"typed it. Especially useful if you're lazy to type things like 'unsigned'. "
+"Every keypress in the input is separated by a colon ':' . Note that the "
+"keypresses mean really keypresses, so you have to write what you'd really "
+"press on the keyboard. In the table below, left column shows the input and "
+"the right column shows what to type.\n"
+"\n"
+"\"enter\" (i.e. new line)                Enter or Return\n"
+"a (i.e. small a)                          A\n"
+"A (i.e. capital a)                       Shift+A\n"
+": (colon)                                  Shift+;\n"
+"' '  (space)                              Space"
+msgstr ""
+"Post premo de Alt+Ctrl+H, \"Saluton\" estos enmetita, kvazaŭ vi tajpis la "
+"vorton. Utile se vi ne volas tajpi ekz. \"nenia subskribo.\" Ĉiu klavpremo "
+"en la enmeto disiĝas per dupunkto \":\" . Notu ke la klavpremoj estas "
+"efektivaj; oni devas premi la klavon kiun oni efektive tajpus. En la suba "
+"tabelo la maldekstra kolumno montras la enmeton kaj la desktra kolumno "
+"montras tion, kion oni tajpus.\n"
+"\n"
+"\"eniga klavo\" (t.e. nova linio)                Eniga aŭ Revena klavo\n"
+"a (t.e. minuskla a)                         A\n"
+"A (t.e. majuskla a)                     majuskliga klavo+A\n"
+": (dupunkto)                            Majuskliga klavo+;\n"
+"\" \"  (spaceto)                              Spaceto"
+
+#. Name
+#: trinity2b1.khotkeys:56
+msgid "Type 'Hello'"
+msgstr "Tajpi \"Saluton\""
+
+#. Comment
+#: trinity2b1.khotkeys:79
+msgid "This action runs Konsole, after pressing Ctrl+Alt+T."
+msgstr "Ĉi tiu lanĉas Konzolon, post premo de Ctrl+Alt+T."
+
+#. Name
+#: trinity2b1.khotkeys:81
+msgid "Run Konsole"
+msgstr "Lanĉi Konzolon"
+
+#. Comment
+#: trinity2b1.khotkeys:103
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Qt Designer uses Ctrl+F4 for closing windows (maybe because MS Windows does "
+"it that way *shrug*). But Ctrl+F4 in TDE stands for going to virtual desktop "
+"4, so it doesn't work in Qt Designer, and also, Qt Designer doesn't use "
+"TDE's standard Ctrl+W for closing the window.\n"
+"\n"
+"But the problem can be solved by remaping Ctrl+W to Ctrl+F4 when the active "
+"window is Qt Designer. When Qt Designer is active, every time Ctrl+W is "
+"pressed, Ctrl+F4 will be sent to Qt Designer instead. In other applications, "
+"Ctrl+W remains working the usual way of course.\n"
+"\n"
+"We now need to specify three things: A new shortcut trigger on 'Ctrl+W', a "
+"new keyboard input action sending Ctrl+F4, and a new condition that the "
+"active window is Qt Designer.\n"
+"Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
+"condition will check for the active window having that title."
+msgstr ""
+"Legu la komenton pri ago \"Tajpu Saluton\" unue.\n"
+"\n"
+"Qt-Desegnilo uzas Ctrl+F4 por fermi fenestrojn (eble ĉar MS Vindozo faras "
+"tiele). Malfeliĉe, TDE jam uzas  tiun fulmoklavaron, por transloki oni al "
+"tabulo 4, do ne estas disponebla por Qt-Desegnilo. TDE fermas fenestrojn per "
+"Ctrl+W.\n"
+"\n"
+"La problemo estas solvita per ĵeti la komandon de Ctrl+W al Ctrl+F4 kiam ajn "
+"la aktiva fenestro estas Qt-Desegnilo. Tiel estas, kiam oni premas Ctrl+W, "
+"Qt-Desegnilo pensos ke Ctrl+F4 estas premita. Ne aplikas al ia ajn aplikaĵa "
+"fenestro.\n"
+"\n"
+"Ni bezonas difini 3 aferojn: novan fulmoklavan lanĉon por \"Ctrl+W\", novan "
+"klavan enmetan agon kiu sendas \"Ctrl+F4\", kaj novan postulon ke la aktiva "
+"fenestro estas Qt-Desegnilo.\n"
+"Qt-Desegnilo ŝajnas ĉiam havi la titolon \"Qt-Designer by Trolltech\", do la "
+"postulo kontrolos aktivan fenestron de tiu titolo."
+
+#. Name
+#: trinity2b1.khotkeys:105
+msgid "Remap Ctrl+W to Ctrl+F4 in Qt Designer"
+msgstr "Ĵetu Ctrl+W al Ctrl+F4 por Qt-Desegnilo"
+
+#. Comment
+#: trinity2b1.khotkeys:123
+msgid "Qt Designer"
+msgstr "Qt-Desegnilo"
+
+#. Comment
+#: trinity2b1.khotkeys:144
+msgid ""
+"By pressing Alt+Ctrl+W a DCOP call will be performed that will show the "
+"minicli. You can use any kind of DCOP call, just like using the command line "
+"'dcop' tool."
+msgstr ""
+"Per premo de Alt+Ctrl+W vi lanĉus DCOP-vokon por malfermi etan komandlinion. "
+"Oni povas lanĉi ia KCOP-vokon; ĝuste kvazaŭ la komandlinia DCOP-ilo."
+
+#. Name
+#: trinity2b1.khotkeys:146
+msgid "Perform DCOP call 'kdesktop KDesktopIface popupExecuteCommand()'"
+msgstr "Lanĉu DCOP-vokon \"kdesktop KDesktopIface popupExecuteCommand()\""
+
+#. Comment
+#: trinity2b1.khotkeys:171
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Just like the \"Type 'Hello'\" action, this one simulates a keyboard input, "
+"specifically, after pressing Ctrl+Alt+B, it sends B to XMMS (B in XMMS jumps "
+"to the next song). The 'Send to specific window' checkbox is checked and a "
+"window with its class containing 'XMMS_Player' is specified; this will make "
+"the input always be sent to this window. This way, you can control XMMS even "
+"if it's e.g. on a different virtual desktop.\n"
+"\n"
+"(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
+"'XMMS_Player')."
+msgstr ""
+"Legu la komenton pri ago \"Tajpu Saluton\" unue.\n"
+"\n"
+"Same kiel la \"Tajpu Saluton\" ago, ĉi tiu ŝajnigas klavaran enmeton, aparte "
+"post premo de Ctrl+Alt+B, sendas B al XMMS (B ene de XMMS saltas al la sekva "
+"kanto). La markobutono \"Sendu al aparta fenestro\" estas markita, kaj "
+"fenestra klaso de XMMS_Player estas difinita; tial la enmeto ĉiam estos "
+"sendita al ĉi tiu fenestro. Do, vi povas direkti XMMS kvankam eble estas sur "
+"malsama tabulo.\n"
+"\n"
+"(Tajpu \"xprop\" kaj klaku sur la XMMS fenestro, sekve serĉu WM_CLASS por "
+"vidi \"XMMS_Player\")."
+
+#. Name
+#: trinity2b1.khotkeys:173
+msgid "Next in XMMS"
+msgstr "Sekva en XMMS"
+
+#. Comment
+#: trinity2b1.khotkeys:185
+msgid "XMMS window"
+msgstr "XMMS fenestro"
+
+#. Comment
+#: trinity2b1.khotkeys:191
+msgid "XMMS Player window"
+msgstr "XMMS ludila fenestro"
+
+#. Comment
+#: trinity2b1.khotkeys:211
+msgid ""
+"Ok, Konqi in TDE has tabs, and now you can also have gestures. No need to "
+"use other browsers >;).\n"
+"\n"
+"Just press the middle mouse button and start drawing one of the gestures, "
+"and after you're finished, release the mouse button. If you only need to "
+"paste the selection, it still works, simply only click the middle mouse "
+"button. (You can change the mouse button to use in the global settings).\n"
+"\n"
+"Right now, there are these gestures available:\n"
+"move right and back left - Forward (ALt+Right)\n"
+"move left and back right - Back (Alt+Left)\n"
+"move up and back down  - Up (Alt+Up)\n"
+"circle anticlockwise - Reload (F5)\n"
+" (As soon as I find out which ones are in Opera or Mozilla, I'll add more "
+"and make sure they are the same. Or if you do it yourself, feel free to help "
+"me and send me your khotkeysrc.)\n"
+"\n"
+"The gestures shapes (some of the dialogs are from KGesture, thanks to Mike "
+"Pilone) can be simply entered by performing them in the configuration "
+"dialog. You can also look at your numeric pad to help you, gestures are "
+"recognized like a 3x3 grid of fields, numbered 1 to 9.\n"
+"\n"
+"Note that you must perform exactly the gesture to trigger the action. "
+"Because of this, it's possible to enter more gestures for the action. You "
+"should try to avoid complicated gestures where you change the direction of "
+"mouse moving more than once (i.e. do e.g. 45654 or 74123 as they are simple "
+"to perform but e.g. 1236987 may be already quite difficult).\n"
+"\n"
+"The condition for all gestures are defined in this group. All these gestures "
+"are active only if the active window is Konqueror (class contains "
+"'konqueror')."
+msgstr ""
+"Bone, Konkeranto en TDE enhavas langetojn, nun vi ankaŭ povas uzi gestojn. "
+"Vi ne bezonas aliajn retumilojn >;).\n"
+"\n"
+"Nur premu la mezan musbutonon, skizu musgeston, kaj malpremu. Se vi nur "
+"bezonas alglui, nur klaku la mezan musbutonon. (Vi povas agordi kiun "
+"musbutonon por uzi en la malloka agordo).\n"
+"\n"
+"Nune, ekzistas ĉi tiujn gestojn:\n"
+"iru dekstren, reiru maldekstren - Sekva (Alt+Maldekstra Sago)\n"
+"irumaldekstren, reiru dekstren - Antaŭa (Alt + Dekstra Sago)\n"
+"iru supren, reiru malsupren - Supra (Alt+Supra Sago)\n"
+"iru kurbe maldekstren - Refreŝigi (F5)\n"
+"Tuj post mi eltrovas kiajn da gestoj estas en Opero aŭ Fajrovulpo, mi "
+"aldonos ilin. Aŭ, se vi faras tion, helpeme sendu al mi vian khotkeysrc.)\n"
+"\n"
+"La gestaj formoj (iom da la dialogoj estas de KGesture, dank' al Mike "
+"Pilone) povas esti enmetitaj simple per fari la geston en la agorda dialogo. "
+"Vi povas uzi la nombran klavaron kiel referencon. La sistemo akceptas "
+"gestajn movojn en 3x3 krado de kampoj, nombritaj 1 ĝis 9.\n"
+"\n"
+"Notu: vi devas fari la movojn precize. Pro tio, estas eble enmeti pli ol unu "
+"gesto por ĉiu ago. Mi konsilas ke vi ne ŝanĝu direkton pli ol unu fojo. "
+"(Ekz. 45654 aŭ 74123 estas simplaj, sed 1236987 estas pli kompleksa).\n"
+"\n"
+"La kondiĉo por ĉiuj gestoj estas difinita en ĉi tiu grupo. Tutaj ĉiuj gestoj "
+"estas aktivaj nur se Konkeranto estas la aktiva fenestro (klaso enhavas "
+"\"konkeranto\")."
+
+#. Name
+#: trinity2b1.khotkeys:214
+msgid "Konqi Gestures"
+msgstr "Konkerantaj Gestoj"
+
+#. Comment
+#: trinity2b1.khotkeys:369
+msgid ""
+"After pressing Win+E (Tux+E), WWW browser will be launched and it will open "
+"http://www.trinitydesktop.org . You may run all kind of commands you can run "
+"in minicli (Alt+F2)."
+msgstr ""
+"Post premo de Win+E (Tux+E), retumilo lanĉiĝos, vojaĝante al http://www."
+"trinitydesktop.org . Oni povas lanĉi la samajn komandojn kiel la eta "
+"komandlinio (Alt+F2)."
+
+#. Name
+#: trinity2b1.khotkeys:371
+msgid "Go to TDE Website"
+msgstr "Iri al TDE-retejo"

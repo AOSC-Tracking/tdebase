@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 03:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: developerrc:2
+msgid "Developer"
+msgstr "Udvikler"
+
+#. Comment
+#: developerrc:3
+msgid "Settings preferred for developers"
+msgstr "Indstillinger foretrukket for udviklere"
+
+#. Name
+#: developerrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname), pid %pid, crashed and caused the "
+"signal %signum (%signame)."
+msgstr ""
+"Programmet %progname (%appname), pid %pid brød sammen og gav signalet "
+"%signum (%signame)."
+
+#. Name
+#: developerrc:17
+msgid "You might want to fix your program. Take a look at the backtrace tab."
+msgstr ""
+"Måske har du lyst til at reparere dit program. Tag et kig på fanebladet "
+"'Fejlsporing'."
+
+#. Name
+#: developerrc:20 enduserrc:20
+msgid "SIGILL"
+msgstr ""
+
+#. Comment
+#: developerrc:21
+msgid "Illegal instruction."
+msgstr "Ulovlig instruktion."
+
+#. Name
+#: developerrc:24 enduserrc:24
+msgid "SIGABRT"
+msgstr ""
+
+#. Comment
+#: developerrc:25
+msgid "Aborted."
+msgstr "Afbrudt."
+
+#. Name
+#: developerrc:28 enduserrc:28
+msgid "SIGFPE"
+msgstr ""
+
+#. Comment
+#: developerrc:29
+msgid "Floating point exception."
+msgstr "Decimaltal-undtagelse."
+
+#. Name
+#: developerrc:32 enduserrc:32
+msgid "SIGSEGV"
+msgstr ""
+
+#. Comment
+#: developerrc:33
+msgid "Invalid memory reference."
+msgstr "Ugyldig hukommelsesreference."
+
+#. Name
+#: developerrc:36 enduserrc:36
+msgid "Unknown"
+msgstr "Ukendt"
+
+#. Comment
+#: developerrc:37
+msgid "This signal is unknown."
+msgstr "Dette signal er ukendt."
+
+#. Name
+#: enduserrc:2
+msgid "End user"
+msgstr "Slutbruger"
+
+#. Comment
+#: enduserrc:3
+msgid "Settings preferred for end users"
+msgstr "Indstillinger foretrukket for slutbrugere"
+
+#. Name
+#: enduserrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname) crashed and caused the signal %signum "
+"(%signame)."
+msgstr ""
+"Programmet %progname (%appname) brød sammen og gav signalet %signum "
+"(%signame)."
+
+#. Name
+#: enduserrc:17
+msgid ""
+"You might want to send a bug report for this application. Check if it is "
+"listed on http://bugs.trinitydesktop.org, otherwise mail the author. Please "
+"include as much information as possible, maybe the original documents. If "
+"you have a way to reproduce the error, include this also."
+msgstr ""
+"Måske har du lyst til at sende en fejlrapport om dette program. Tjek om "
+"fejlen allerede er listet på http://bugs.trinitydesktop.org, skriv ellers "
+"til forfatteren. Husk at inkludere så meget information som muligt, måske de "
+"oprindelige dokumenter. Hvis du er i stand til at reproducere fejlen, så "
+"husk også at nævne dette."
+
+#. Comment
+#: enduserrc:21
+msgid ""
+"An application mostly receives the SIGILL signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Et program modtager som regel SIGILL-signalet når der er en fejl i "
+"programmet. Programmet blev bedt om at gemme sine dokumenter."
+
+#. Comment
+#: enduserrc:25
+msgid ""
+"An application terminates with a SIGABRT signal when it detects an internal "
+"inconsistency caused by a bug in the program."
+msgstr ""
+"Et program afbryder med et SIGABRT-signal når det finder en intern "
+"inkonsistens forårsaget af en fejl i programmet."
+
+#. Comment
+#: enduserrc:29
+msgid ""
+"An application mostly receives the SIGFPE signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Et program modtager som regel SIGFPE-signalet når der er en fejl i "
+"programmet. Programmet blev bedt om at gemme sine dokumenter."
+
+#. Comment
+#: enduserrc:33
+msgid ""
+"An application mostly receives the SIGSEGV signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Et program modtager som regel SIGSEGV-signalet når der er en fejl i "
+"programmet. Programmet blev bedt om at gemme sine dokumenter."
+
+#. Comment
+#: enduserrc:37
+msgid "Sorry, I do not know this signal."
+msgstr "Jeg kender desværre ikke dette signal."

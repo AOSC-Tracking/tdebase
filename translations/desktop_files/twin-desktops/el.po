@@ -1,0 +1,202 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmtwin/showdesktop.desktop:4
+msgid "Show Desktop"
+msgstr "Εμφάνιση επιφάνειας εργασίας"
+
+#. Comment
+#: kcmtwin/showdesktop.desktop:6
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr ""
+"Ένα κουμπί που όταν πατηθεί δίνει γρήγορη πρόσβαση στην επιφάνεια εργασίας"
+
+#. Name
+#: kcmtwin/twindecoration/twindecoration.desktop:11
+msgid "Window Decorations"
+msgstr "Διακοσμήσεις παραθύρων"
+
+#. Comment
+#: kcmtwin/twindecoration/twindecoration.desktop:13
+msgid "Configure the look and feel of window titles"
+msgstr "Ρυθμίστε την εμφάνιση και την αίσθηση των τίτλων παραθύρου"
+
+#. Keywords
+#: kcmtwin/twindecoration/twindecoration.desktop:15
+msgid ""
+"twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
+"kwm;decoration;"
+msgstr ""
+"twin;παράθυρο;διαχειριστής;περίγραμμα;στυλ;θέμα;εμφάνιση;αίσθηση;διάταξη;"
+"κουμπί;χειρισμός;άκρο;kwm;διακόσμηση;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactions.desktop:11
+msgid "Actions"
+msgstr "Ενέργειες"
+
+#. Comment
+#: kcmtwin/twinoptions/twinactions.desktop:13
+msgid "Configure keyboard and mouse settings"
+msgstr "Ρυθμίστε το πληκτρολόγιο και το ποντίκι"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactions.desktop:15
+msgid ""
+"shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
+"resize;"
+msgstr ""
+"τύλιγμα;μεγιστοποίηση;μεγιστοποίηση;ελαχιστοποίηση;ελαχιστοποίηση;κατέβασμα;"
+"μενού χειρισμών;μπάρα τίτλου;αλλαγή μεγέθους;"
+
+#. Name
+#: kcmtwin/twinoptions/twinadvanced.desktop:11
+msgid "Advanced"
+msgstr "Προχωρημένα"
+
+#. Comment
+#: kcmtwin/twinoptions/twinadvanced.desktop:13
+msgid "Configure advanced window management features"
+msgstr "Ρυθμίστε προχωρημένα χαρακτηριστικά της διαχείρισης παραθύρων"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinadvanced.desktop:15
+msgid "shading;border;hover;active borders;"
+msgstr "τύλιγμα;περίγραμμα;hover;ενεργά όρια;"
+
+#. Name
+#: kcmtwin/twinoptions/twinfocus.desktop:11
+msgid "Focus"
+msgstr "Εστίαση"
+
+#. Comment
+#: kcmtwin/twinoptions/twinfocus.desktop:13
+msgid "Configure the window focus policy"
+msgstr "Ρυθμίστε τον τρόπο εστίασης των παραθύρων"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinfocus.desktop:15
+msgid ""
+"focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
+"desktop;"
+msgstr ""
+"εστίαση;τοποθέτηση;αυτόματη ανύψωση;ανύψωση;ανύψωση με πάτημα;πληκτρολόγιο;"
+"CDE;alt-tab;all desktop;"
+
+#. Name
+#: kcmtwin/twinoptions/twinmoving.desktop:11
+msgid "Moving"
+msgstr "Μετακίνηση"
+
+#. Comment
+#: kcmtwin/twinoptions/twinmoving.desktop:13
+msgid "Configure the way that windows are moved"
+msgstr "Ρυθμίστε τον τρόπο με τον οποίο μετακινούνται τα παράθυρα"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinmoving.desktop:15
+msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
+msgstr ""
+"μετακίνηση;έξυπνη;διαδοχικός;μεγιστοποίηση;μεγιστοποίηση;ζώνη αρπαγής;αρπαγή;"
+"περίγραμμα;"
+
+#. Name
+#: kcmtwin/twinoptions/twinoptions.desktop:11
+msgid "Window Behavior"
+msgstr "Συμπεριφορά παραθύρων"
+
+#. Comment
+#: kcmtwin/twinoptions/twinoptions.desktop:13
+msgid "Configure the window behavior"
+msgstr "Ρύθμιση της συμπεριφοράς των παραθύρων"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinoptions.desktop:15
+msgid ""
+"focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
+"titlebar;doubleclick;"
+msgstr ""
+"εστίαση;τοποθέτηση;συμπεριφορά παραθύρων;εφέ κίνησης;ανύψωση;αυτόματη "
+"ανύψωση;παράθυρα;πλαίσιο;μπάρα τίτλου;διπλό κλικ;"
+
+#. Name
+#: kcmtwin/twinoptions/twintranslucency.desktop:11
+msgid "Translucency"
+msgstr "Hμιδιαφάνεια"
+
+#. Comment
+#: kcmtwin/twinoptions/twintranslucency.desktop:13
+msgid "Configure window translucency and shadow management"
+msgstr "Ρύθμιση ημιδιαφάνειας παραθύρου και διαχείρισης σκίασης"
+
+#. Keywords
+#: kcmtwin/twinoptions/twintranslucency.desktop:15
+msgid "translucency;transparence;shadows;"
+msgstr "ημιδιαφάνεια;διαφάνεια;σκιές;"
+
+#. Name
+#: kcmtwin/twinrules/twinrules.desktop:11
+msgid "Window-Specific Settings"
+msgstr "Ρυθμίσεις σχετικές με παράθυρα"
+
+#. Comment
+#: kcmtwin/twinrules/twinrules.desktop:13
+msgid "Configure settings specifically for a window"
+msgstr "Ρυθμίσεις σχετικές ειδικά με Ένα Παράθυρο"
+
+#. Keywords
+#: kcmtwin/twinrules/twinrules.desktop:15
+msgid ""
+"size;position;state;window behavior;windows;specific;workarounds;remember;"
+"rules;"
+msgstr ""
+"μέγεθος;θέση;κατάσταση;συμπεριφορά παραθύρου;παράθυρα;ειδικές;λύσεις;"
+"αποθήκευση;κανόνων;"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:2
+msgid "(Default) Disable focus stealing prevention for XV"
+msgstr ""
+"(Προκαθορισμένο) Απενεργοποίηση αποτροπής κλεψίματος εστίασης για το XV"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:10
+#, fuzzy
+msgid "(Default) Allow focus stealing by the screen locker"
+msgstr ""
+"(Προκαθορισμένο) Απενεργοποίηση αποτροπής κλεψίματος εστίασης για το XV"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:21
+#, fuzzy
+msgid "(Default) Allow focus stealing by the kdesktop run dialog"
+msgstr ""
+"(Προκαθορισμένο) Απενεργοποίηση αποτροπής κλεψίματος εστίασης για το XV"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:32
+#, fuzzy
+msgid "(Default) Allow focus stealing by the settings test dialog"
+msgstr ""
+"(Προκαθορισμένο) Απενεργοποίηση αποτροπής κλεψίματος εστίασης για το XV"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:45
+msgid "(Default) Hide system modal dialog class from taskbar"
+msgstr ""

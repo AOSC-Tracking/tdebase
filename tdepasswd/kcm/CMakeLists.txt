@@ -29,7 +29,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcm_useraccount.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcm_useraccount.desktop
+  PO_DIR tdepasswd-desktops
+)
+
 install( FILES kcm_useraccount.kcfg kcm_useraccount_pass.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 
 

@@ -11,4 +11,8 @@
 
 ##### other data ################################
 
-install( FILES system_directory.desktop DESTINATION ${MIME_INSTALL_DIR}/inode )
+tde_create_translated_desktop(
+  SOURCE system_directory.desktop
+  DESTINATION ${MIME_INSTALL_DIR}/inode
+  PO_DIR tdeioslave-desktops
+)

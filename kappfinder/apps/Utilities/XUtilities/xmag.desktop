@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=X Magnifier
+GenericName=Desktop Magnifier
+Type=Application
+X-TDE-StartupNotify=false
+Exec=xmag
+Icon=xmag

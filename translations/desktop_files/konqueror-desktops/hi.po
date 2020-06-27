@@ -1,0 +1,357 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 15:23+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:7
+msgid "Home"
+msgstr "घर"
+
+#. GenericName
+#: Home.desktop:9
+msgid "Personal Files"
+msgstr "निजी फ़ाइलें"
+
+#. Name
+#: about/konq_aboutpage.desktop:3
+msgid "About-Page for Konqueror"
+msgstr "के-बारे में पृष्ठ कॉन्करर के लिए"
+
+#. Name
+#: iconview/konq_iconview.desktop:3
+msgid "Icon View"
+msgstr "प्रतीक दृश्य"
+
+#. Name
+#: iconview/konq_multicolumnview.desktop:3
+msgid "MultiColumn View"
+msgstr "अनेक-स्तम्भ दृश्य"
+
+#. Name
+#: kfmclient.desktop:9 kfmclient_dir.desktop:9 kfmclient_html.desktop:9
+#: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
+#: konquerorsu.desktop:8
+msgid "Konqueror"
+msgstr "कॉन्करर"
+
+#. GenericName
+#: konqbrowser.desktop:9
+msgid "Web Browser"
+msgstr "वेब ब्राउज़र"
+
+#. Name
+#: konqfilemgr.desktop:7
+msgid "File Manager"
+msgstr "फ़ाइल प्रबंधक"
+
+#. Comment
+#: konqueror.desktop:8
+msgid "TDE File Manager & Web Browser"
+msgstr "केडीई फ़ाइल प्रबंधक व वेब ब्राउज़र"
+
+#. GenericName
+#: konquerorsu.desktop:10
+msgid "File Manager - Super User Mode"
+msgstr "फ़ाइल प्रबंधक- सुपर यूजर मोड"
+
+#. Name
+#: kttsplugin/tdehtmlkttsd.desktop:12
+msgid "Text-to-Speech"
+msgstr ""
+
+#. Comment
+#: kttsplugin/tdehtmlkttsd.desktop:14
+msgid "A plugin which enables texts to be read aloud on the web with KTTS"
+msgstr ""
+
+#. Name
+#: listview/konq_detailedlistview.desktop:3
+msgid "Detailed List View"
+msgstr "विस्तृत सूची दृश्य"
+
+#. Name
+#: listview/konq_infolistview.desktop:3
+msgid "Info List View"
+msgstr "जानकारी सूची दृश्य"
+
+#. Name
+#: listview/konq_textview.desktop:3
+msgid "Text View"
+msgstr "पाठ दृश्य"
+
+#. Name
+#: listview/konq_treeview.desktop:3
+msgid "Tree View"
+msgstr "ट्री दृश्य"
+
+#. Name
+#: preloader/konqy_preload.desktop:4
+msgid "Konqueror Preloading During TDE startup"
+msgstr "केडीई चालू होने के दौरान कॉन्करर प्रीलोड हो रहा है"
+
+#. Name
+#: preloader/konqy_preloader.desktop:4
+msgid "KDED Konqueror Preloader Module"
+msgstr "केडीईडी कॉन्क्वेरर प्रीलोडर मॉड्यूल"
+
+#. Comment
+#: preloader/konqy_preloader.desktop:6
+msgid "Reduces Konqueror startup time"
+msgstr "कॉन्करर के चालू होने के समय को कम करता है"
+
+#. Name
+#: profile_filemanagement.desktop:5
+msgid "File Management"
+msgstr "फ़ाइल प्रबंधन"
+
+#. Name
+#: profile_filepreview.desktop:9
+msgid "File Preview"
+msgstr "फ़ाइल पूर्वावलोकन"
+
+#. Name
+#: profile_kde_devel.desktop:3
+msgid "TDE Development"
+msgstr "केडीई डेवलपमेंट"
+
+#. Name
+#: profile_midnightcommander.desktop:9
+msgid "Midnight Commander"
+msgstr "मिडनाइट कमांडर"
+
+#. Name
+#: profile_simplebrowser.desktop:2
+msgid "Simple Browser"
+msgstr "सादा ब्राउज़र"
+
+#. Name
+#: profile_tabbedbrowsing.desktop:3
+msgid "Tabbed Browsing"
+msgstr "टैब्ड ब्राउज़िंग"
+
+#. Name
+#: profile_webbrowsing.desktop:2
+msgid "Web Browsing"
+msgstr "वेब ब्राउजिंग"
+
+#. Name
+#: quickprint/text-ada-print.desktop:6 quickprint/text-c++-print.desktop:6
+#: quickprint/text-c++h-print.desktop:6 quickprint/text-c-print.desktop:6
+#: quickprint/text-ch-print.desktop:6 quickprint/text-css-print.desktop:6
+#: quickprint/text-diff-print.desktop:6 quickprint/text-html-print.desktop:6
+#: quickprint/text-java-print.desktop:6 quickprint/text-log-print.desktop:6
+#: quickprint/text-makefile-print.desktop:6 quickprint/text-pas-print.desktop:6
+#: quickprint/text-perl-print.desktop:6 quickprint/text-print.desktop:6
+#: quickprint/text-python-print.desktop:6 quickprint/text-tcl-print.desktop:6
+#: quickprint/text-tex-print.desktop:6 quickprint/text-xml-print.desktop:6
+#: quickprint/text-xslt-print.desktop:6
+msgid "Print..."
+msgstr "छापें..."
+
+#. Name
+#: remoteencodingplugin/kremoteencodingplugin.desktop:13
+msgid "Remote Encoding"
+msgstr ""
+
+#. Comment
+#: remoteencodingplugin/kremoteencodingplugin.desktop:15
+msgid "A Plugin for setting the encoding of remote hosts (FTP, SSH, etc.)"
+msgstr ""
+
+#. Name
+#: shellcmdplugin/kshellcmdplugin.desktop:15
+#, fuzzy
+msgid "Run Command"
+msgstr "मिडनाइट कमांडर"
+
+#. Comment
+#: shellcmdplugin/kshellcmdplugin.desktop:17
+msgid "A plugin which enables commands to be executed within folders"
+msgstr ""
+
+#. Name
+#: sidebar/konq_sidebartng.desktop:4
+msgid "Navigation Panel"
+msgstr "नेविगेशन फलक"
+
+#. Name
+#: sidebar/test/test.desktop:5
+msgid "Test"
+msgstr "जांच"
+
+#. Name
+#: sidebar/trees/history_module/kcmhistory.desktop:10
+msgid "History Sidebar"
+msgstr "इतिहास बाज़ूपट्टी"
+
+#. Comment
+#: sidebar/trees/history_module/kcmhistory.desktop:12
+msgid "Configure the history sidebar"
+msgstr "इतिहास बाज़ूपट्टी कॉन्फ़िगर करें"
+
+#. Keywords
+#: sidebar/trees/history_module/kcmhistory.desktop:14
+msgid "history;expire;"
+msgstr "इतिहास;बीत गया;"
+
+#. Name
+#: sidebar/trees/init/bookmarks.desktop:6
+#: sidebar/trees/init/bookmarks_module.desktop:6
+msgid "Bookmarks"
+msgstr "पसंदीदा "
+
+#. Comment
+#: sidebar/trees/init/bookmarks.desktop:8
+#: sidebar/trees/init/bookmarks_module.desktop:8
+msgid "This is the list of your bookmarks, for a faster access"
+msgstr "यह आपकी पसंद की सूची है, तेजी से पहुँच के लिए"
+
+#. Name
+#: sidebar/trees/init/dirtree_module.desktop:5
+#: sidebar/trees/init/virtualfolderadd.desktop:6
+msgid "Folder"
+msgstr "फ़ोल्डर"
+
+#. Name
+#: sidebar/trees/init/history.desktop:6
+#: sidebar/trees/init/history_module.desktop:6
+msgid "History"
+msgstr "इतिहास"
+
+#. Comment
+#: sidebar/trees/init/history.desktop:8
+#: sidebar/trees/init/history_module.desktop:8
+msgid ""
+"This is the history of the URLs you have recently visited. You can sort them "
+"in many ways."
+msgstr ""
+"आप जो हालिया भ्रमण किए हैं, उन यूआरएल का यह इतिहास है. आप इन्हें कई तरीकों से क्रमबद्ध "
+"कर सकते हैं."
+
+#. Name
+#: sidebar/trees/init/home.desktop:6
+msgid "Home Folder"
+msgstr "मुख फ़ोल्डर"
+
+#. Comment
+#: sidebar/trees/init/home.desktop:8
+msgid "This folder contains your personal files"
+msgstr "यह फ़ोल्डर आपकी निजी फ़ाइलें रखता है"
+
+#. Name
+#: sidebar/trees/init/remote.desktop:2 sidebar/trees/init/remote/.directory:2
+msgid "Network"
+msgstr "नेटवर्क"
+
+#. Name
+#: sidebar/trees/init/remote/ftp/tde_ftp.desktop:5
+msgid "TDE Official FTP"
+msgstr "केडीई आधिकारिक एफटीपी"
+
+#. Name
+#: sidebar/trees/init/remote/web/apps_web.desktop:4
+msgid "TDE Applications"
+msgstr "केडीई अनुप्रयोग"
+
+#. Name
+#: sidebar/trees/init/remote/web/dot_web.desktop:4
+msgid "TDE News"
+msgstr "केडीई समाचार"
+
+#. Name
+#: sidebar/trees/init/remote/web/tde_web.desktop:4
+msgid "TDE Home Page"
+msgstr "केडीई मुख पृष्ठ"
+
+#. Name
+#: sidebar/trees/init/root.desktop:6
+msgid "Root Folder"
+msgstr "रूट फ़ोल्डर"
+
+#. Comment
+#: sidebar/trees/init/root.desktop:8
+msgid "This is the root of the filesystem"
+msgstr "यह फ़ाइल सिस्टम का रूट है"
+
+#. Name
+#: sidebar/trees/init/services.desktop:4
+#: sidebar/trees/init/services/.directory:3
+msgid "Services"
+msgstr "सेवाएं"
+
+#. Name
+#: sidebar/trees/init/services/applications.desktop:5
+msgid "Applications"
+msgstr "अनुप्रयोग"
+
+#. Name
+#: sidebar/trees/init/services/audiocd.desktop:6
+msgid "Audio CD Browser"
+msgstr "ऑडियो सीडी ब्राउज़र"
+
+#. Name
+#: sidebar/trees/init/services/media.desktop:5
+msgid "Storage Media"
+msgstr "भंडार मीडिया"
+
+#. Name
+#: sidebar/trees/init/services/printsystem.desktop:6
+msgid "Print System Browser"
+msgstr "मुद्ण तंत्र ब्राउज़र"
+
+#. Name
+#: sidebar/trees/init/services/settings.desktop:5
+msgid "Settings"
+msgstr "विन्यास"
+
+#. Name
+#: sidebar/trees/init/system.desktop:6
+msgid "System"
+msgstr "तंत्र"
+
+#. Comment
+#: sidebar/trees/init/system.desktop:8
+msgid "This folder allows you to access common places on your computer"
+msgstr ""
+
+#. Name
+#: sidebar/trees/init/trash.desktop:9
+#, fuzzy
+msgid "Trash Folder"
+msgstr "फ़ोल्डर"
+
+#. Comment
+#: sidebar/trees/init/trash.desktop:11
+#, fuzzy
+msgid "This folder displays the contents of your Trash Bin"
+msgstr "यह फ़ोल्डर आपकी निजी फ़ाइलें रखता है"
+
+#. Name
+#: sidebar/web_module/webmodule_add.desktop:5
+#: sidebar/web_module/websidebar.desktop:5
+msgid "Web SideBar Module"
+msgstr "वेब बाज़ूपट्टी मॉड्यूल"
+
+#. Name
+#: sidebar/trees/init/remote/ftp/.directory:2
+msgid "FTP Archives"
+msgstr "एफ़टीपी आर्काइव"
+
+#. Name
+#: sidebar/trees/init/remote/web/.directory:2
+msgid "Web Sites"
+msgstr "वेब साइट्स"

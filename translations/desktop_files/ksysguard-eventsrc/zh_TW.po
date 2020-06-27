@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 20:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "System Guard"
+msgstr "系統守衛"
+
+#. Name
+#: eventsrc:6
+msgid "pattern_match"
+msgstr "比對正確"
+
+#. Comment
+#: eventsrc:7
+msgid "Search pattern matched"
+msgstr "尋找比對正確"
+
+#. Name
+#: eventsrc:10
+msgid "sensor_alarm"
+msgstr "偵測器通知"
+
+#. Comment
+#: eventsrc:11
+msgid "Sensor exceeded critical limit"
+msgstr "偵測器超過臨界限制"

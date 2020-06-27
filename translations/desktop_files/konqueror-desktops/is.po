@@ -1,0 +1,358 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 15:23+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:7
+msgid "Home"
+msgstr "Heimasvæðið þitt"
+
+#. GenericName
+#: Home.desktop:9
+msgid "Personal Files"
+msgstr "Skrárnar þínar"
+
+#. Name
+#: about/konq_aboutpage.desktop:3
+msgid "About-Page for Konqueror"
+msgstr "Upplýsingasíða Konqueror"
+
+#. Name
+#: iconview/konq_iconview.desktop:3
+msgid "Icon View"
+msgstr "Táknmyndasýn"
+
+#. Name
+#: iconview/konq_multicolumnview.desktop:3
+msgid "MultiColumn View"
+msgstr "Dálkskipt sýn"
+
+#. Name
+#: kfmclient.desktop:9 kfmclient_dir.desktop:9 kfmclient_html.desktop:9
+#: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
+#: konquerorsu.desktop:8
+msgid "Konqueror"
+msgstr ""
+
+#. GenericName
+#: konqbrowser.desktop:9
+msgid "Web Browser"
+msgstr "Vafri"
+
+#. Name
+#: konqfilemgr.desktop:7
+msgid "File Manager"
+msgstr "Skráastjóri"
+
+#. Comment
+#: konqueror.desktop:8
+msgid "TDE File Manager & Web Browser"
+msgstr "TDE skráastjóri og vafri"
+
+#. GenericName
+#: konquerorsu.desktop:10
+msgid "File Manager - Super User Mode"
+msgstr "Skráastjóri (sem kerfisstjóri)"
+
+#. Name
+#: kttsplugin/tdehtmlkttsd.desktop:12
+msgid "Text-to-Speech"
+msgstr "Texti-í-tal íforrit"
+
+#. Comment
+#: kttsplugin/tdehtmlkttsd.desktop:14
+#, fuzzy
+msgid "A plugin which enables texts to be read aloud on the web with KTTS"
+msgstr "Skeljarskipunar íforrit fyrir Konqueror"
+
+#. Name
+#: listview/konq_detailedlistview.desktop:3
+msgid "Detailed List View"
+msgstr "Ýtarleg sýn, listi"
+
+#. Name
+#: listview/konq_infolistview.desktop:3
+msgid "Info List View"
+msgstr "Upplýsingalisti"
+
+#. Name
+#: listview/konq_textview.desktop:3
+msgid "Text View"
+msgstr "Textasýn"
+
+#. Name
+#: listview/konq_treeview.desktop:3
+msgid "Tree View"
+msgstr "Trjáasýn"
+
+#. Name
+#: preloader/konqy_preload.desktop:4
+msgid "Konqueror Preloading During TDE startup"
+msgstr "Konqueror ræsir þegar TDE ræsir"
+
+#. Name
+#: preloader/konqy_preloader.desktop:4
+msgid "KDED Konqueror Preloader Module"
+msgstr "KDED Konqueror forræsingareining"
+
+#. Comment
+#: preloader/konqy_preloader.desktop:6
+msgid "Reduces Konqueror startup time"
+msgstr "Dregur úr ræsingatíma Konqueror vafrans"
+
+#. Name
+#: profile_filemanagement.desktop:5
+msgid "File Management"
+msgstr "Skráastjóri"
+
+#. Name
+#: profile_filepreview.desktop:9
+msgid "File Preview"
+msgstr "Prentsýn"
+
+#. Name
+#: profile_kde_devel.desktop:3
+msgid "TDE Development"
+msgstr "TDE þróun"
+
+#. Name
+#: profile_midnightcommander.desktop:9
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Skeljarskipunar íforrit"
+
+#. Name
+#: profile_simplebrowser.desktop:2
+msgid "Simple Browser"
+msgstr "Einfaldur vafri"
+
+#. Name
+#: profile_tabbedbrowsing.desktop:3
+msgid "Tabbed Browsing"
+msgstr "Flipað flak"
+
+#. Name
+#: profile_webbrowsing.desktop:2
+msgid "Web Browsing"
+msgstr "Flakk um vefinn"
+
+#. Name
+#: quickprint/text-ada-print.desktop:6 quickprint/text-c++-print.desktop:6
+#: quickprint/text-c++h-print.desktop:6 quickprint/text-c-print.desktop:6
+#: quickprint/text-ch-print.desktop:6 quickprint/text-css-print.desktop:6
+#: quickprint/text-diff-print.desktop:6 quickprint/text-html-print.desktop:6
+#: quickprint/text-java-print.desktop:6 quickprint/text-log-print.desktop:6
+#: quickprint/text-makefile-print.desktop:6 quickprint/text-pas-print.desktop:6
+#: quickprint/text-perl-print.desktop:6 quickprint/text-print.desktop:6
+#: quickprint/text-python-print.desktop:6 quickprint/text-tcl-print.desktop:6
+#: quickprint/text-tex-print.desktop:6 quickprint/text-xml-print.desktop:6
+#: quickprint/text-xslt-print.desktop:6
+msgid "Print..."
+msgstr "Prenta..."
+
+#. Name
+#: remoteencodingplugin/kremoteencodingplugin.desktop:13
+msgid "Remote Encoding"
+msgstr "Fjarlægt kóðunaríforrit"
+
+#. Comment
+#: remoteencodingplugin/kremoteencodingplugin.desktop:15
+msgid "A Plugin for setting the encoding of remote hosts (FTP, SSH, etc.)"
+msgstr "Fjarlægt kóðunaríforrit fyrir Konqueror"
+
+#. Name
+#: shellcmdplugin/kshellcmdplugin.desktop:15
+msgid "Run Command"
+msgstr "Skeljarskipunar íforrit"
+
+#. Comment
+#: shellcmdplugin/kshellcmdplugin.desktop:17
+msgid "A plugin which enables commands to be executed within folders"
+msgstr "Skeljarskipunar íforrit fyrir Konqueror"
+
+#. Name
+#: sidebar/konq_sidebartng.desktop:4
+msgid "Navigation Panel"
+msgstr "Leiðarstýrispjald"
+
+#. Name
+#: sidebar/test/test.desktop:5
+msgid "Test"
+msgstr "Prufa"
+
+#. Name
+#: sidebar/trees/history_module/kcmhistory.desktop:10
+msgid "History Sidebar"
+msgstr "Sögu hliðarslá"
+
+#. Comment
+#: sidebar/trees/history_module/kcmhistory.desktop:12
+msgid "Configure the history sidebar"
+msgstr "Stilla hliðardálk með flakksögu"
+
+#. Keywords
+#: sidebar/trees/history_module/kcmhistory.desktop:14
+msgid "history;expire;"
+msgstr "Saga;útrunnið;history;"
+
+#. Name
+#: sidebar/trees/init/bookmarks.desktop:6
+#: sidebar/trees/init/bookmarks_module.desktop:6
+msgid "Bookmarks"
+msgstr "Bókamerki"
+
+#. Comment
+#: sidebar/trees/init/bookmarks.desktop:8
+#: sidebar/trees/init/bookmarks_module.desktop:8
+msgid "This is the list of your bookmarks, for a faster access"
+msgstr "Hér eru bókamerkin þín"
+
+#. Name
+#: sidebar/trees/init/dirtree_module.desktop:5
+#: sidebar/trees/init/virtualfolderadd.desktop:6
+msgid "Folder"
+msgstr "Mappa"
+
+#. Name
+#: sidebar/trees/init/history.desktop:6
+#: sidebar/trees/init/history_module.desktop:6
+msgid "History"
+msgstr "Saga"
+
+#. Comment
+#: sidebar/trees/init/history.desktop:8
+#: sidebar/trees/init/history_module.desktop:8
+msgid ""
+"This is the history of the URLs you have recently visited. You can sort them "
+"in many ways."
+msgstr ""
+"Þetta er saga þeirra heimasíðna sem þú hefur heimsótt.  Þú getur raðað "
+"þessum lista á ýmsan hátt."
+
+#. Name
+#: sidebar/trees/init/home.desktop:6
+msgid "Home Folder"
+msgstr "Heimasvæði"
+
+#. Comment
+#: sidebar/trees/init/home.desktop:8
+msgid "This folder contains your personal files"
+msgstr "Þessi mappa inniheldur skjölin þín"
+
+#. Name
+#: sidebar/trees/init/remote.desktop:2 sidebar/trees/init/remote/.directory:2
+msgid "Network"
+msgstr "Net"
+
+#. Name
+#: sidebar/trees/init/remote/ftp/tde_ftp.desktop:5
+msgid "TDE Official FTP"
+msgstr "FTP gagnabanki TDE"
+
+#. Name
+#: sidebar/trees/init/remote/web/apps_web.desktop:4
+msgid "TDE Applications"
+msgstr "TDE Forrit"
+
+#. Name
+#: sidebar/trees/init/remote/web/dot_web.desktop:4
+msgid "TDE News"
+msgstr "TDE fréttir"
+
+#. Name
+#: sidebar/trees/init/remote/web/tde_web.desktop:4
+msgid "TDE Home Page"
+msgstr "Heimasíða TDE"
+
+#. Name
+#: sidebar/trees/init/root.desktop:6
+msgid "Root Folder"
+msgstr "Rótarmappa"
+
+#. Comment
+#: sidebar/trees/init/root.desktop:8
+msgid "This is the root of the filesystem"
+msgstr "Þetta er rót skráarkerfisins"
+
+#. Name
+#: sidebar/trees/init/services.desktop:4
+#: sidebar/trees/init/services/.directory:3
+msgid "Services"
+msgstr "Þjónustur"
+
+#. Name
+#: sidebar/trees/init/services/applications.desktop:5
+msgid "Applications"
+msgstr "Forrit"
+
+#. Name
+#: sidebar/trees/init/services/audiocd.desktop:6
+msgid "Audio CD Browser"
+msgstr "Tónlistardiskaflakkari"
+
+#. Name
+#: sidebar/trees/init/services/media.desktop:5
+msgid "Storage Media"
+msgstr "Geymslumiðlar"
+
+#. Name
+#: sidebar/trees/init/services/printsystem.desktop:6
+msgid "Print System Browser"
+msgstr "Prentaraflakk"
+
+#. Name
+#: sidebar/trees/init/services/settings.desktop:5
+msgid "Settings"
+msgstr "Stillingar"
+
+#. Name
+#: sidebar/trees/init/system.desktop:6
+msgid "System"
+msgstr "Kerfi"
+
+#. Comment
+#: sidebar/trees/init/system.desktop:8
+msgid "This folder allows you to access common places on your computer"
+msgstr "Þessi mappa veitir aðgang að algengum stöðum á tölvunni þinni"
+
+#. Name
+#: sidebar/trees/init/trash.desktop:9
+#, fuzzy
+msgid "Trash Folder"
+msgstr "Mappa"
+
+#. Comment
+#: sidebar/trees/init/trash.desktop:11
+#, fuzzy
+msgid "This folder displays the contents of your Trash Bin"
+msgstr "Þessi mappa inniheldur skjölin þín"
+
+#. Name
+#: sidebar/web_module/webmodule_add.desktop:5
+#: sidebar/web_module/websidebar.desktop:5
+msgid "Web SideBar Module"
+msgstr "Vefhliðarslá"
+
+#. Name
+#: sidebar/trees/init/remote/ftp/.directory:2
+msgid "FTP Archives"
+msgstr "FTP gagnageymslur"
+
+#. Name
+#: sidebar/trees/init/remote/web/.directory:2
+msgid "Web Sites"
+msgstr "Vefsvæði"

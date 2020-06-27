@@ -9,6 +9,9 @@
 #
 #################################################
 
-install( FILES
+tde_create_translate_desktop(
+  SOURCE
     .directory scrollkeeper.desktop
-  DESTINATION ${DATA_INSTALL_DIR}/khelpcenter/plugins/Scrollkeeper )
+  DESTINATION ${DATA_INSTALL_DIR}/khelpcenter/plugins/Scrollkeeper
+  PO_DIR khelpcenter-desktops
+)

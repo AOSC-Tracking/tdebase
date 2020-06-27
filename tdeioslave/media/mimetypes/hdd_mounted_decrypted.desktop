@@ -1,10 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=drive-harddisk-decrypted-mounted
 Type=MimeType
 MimeType=media/hdd_mounted_decrypted
+Icon=drive-harddisk-decrypted-mounted
+
 Comment=Mounted Decrypted Hard Disk Volume
-Comment[de]=Eingebundene, entschlüsselte Festplattenpartition
+
 Patterns=
 
 X-TDE-AutoEmbed=true

@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-26 02:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmkonsole.desktop:9
+msgid "Console"
+msgstr "Konsool"
+
+#. GenericName
+#: kcmkonsole.desktop:11
+msgid "All Konsole Settings"
+msgstr "Konsooli seadistused"
+
+#. Keywords
+#: kcmkonsole.desktop:13
+msgid "konsole;console;terminal;"
+msgstr "konsool;terminal;"
+
+#. Name
+#: konsole-script.desktop:9 konsole.desktop:9 konsolesu.desktop:10
+msgid "Konsole"
+msgstr "Konsool"
+
+#. GenericName
+#: konsole-script.desktop:11 konsole.desktop:11
+msgid "Terminal Program"
+msgstr "Terminaliemulaator"
+
+#. Comment
+#: konsole/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "Shelli avamise rakendus"
+
+#. Name
+#: konsolepart.desktop:14 terminalemulator.desktop:5
+msgid "Terminal Emulator"
+msgstr "Terminaliemulaator"
+
+#. GenericName
+#: konsolesu.desktop:12
+msgid "Terminal Program - Super User Mode"
+msgstr "Terminali rakendus (administraator)"
+
+#. Name
+#: kwrited.desktop:2
+msgid "TDE Write Daemon"
+msgstr "TDE Write deemon"
+
+#. Comment
+#: kwrited.desktop:4
+msgid "Watch for messages from local users sent with write(1) or wall(1)"
+msgstr "Jälgib kohalike kasutajate write(1) või wall(1) abil saadetud teateid"
+
+#. Name
+#: other/linux.desktop:3
+msgid "Linux Console"
+msgstr "Linuxi konsool"
+
+#. Comment
+#: other/linux.desktop:4
+msgid "New Linux Console"
+msgstr "Uus Linuxi konsool"
+
+#. Name
+#: other/mc.desktop:3
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Uus Midnight Commander"
+
+#. Comment
+#: other/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "Uus Midnight Commander"
+
+#. Name
+#: other/screen.desktop:3
+msgid "Screen Session"
+msgstr "Screen'i seanss"
+
+#. Comment
+#: other/screen.desktop:4
+msgid "New Screen Session"
+msgstr "Uus screen'i seanss"
+
+#. Name
+#. Title0
+#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
+#: other/5shells:6
+#, fuzzy
+msgid "Shell"
+msgstr "Uus shell"
+
+#. Comment
+#: other/shell.desktop:4
+msgid "New Shell"
+msgstr "Uus shell"
+
+#. Name
+#: other/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "Administraatori shell"
+
+#. Comment
+#: other/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "Uus administraatori shell"
+
+#. Name
+#: other/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "Midnight Commander (administraator)"
+
+#. Comment
+#: other/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "Uus administraatori Midnight Commander"
+
+#. Name
+#: terminalhere.desktop:6
+#, fuzzy
+msgid "Terminal"
+msgstr "Terminaliemulaator"
+
+#. Name
+#: terminalhere.desktop:11
+msgid "Open Terminal Here"
+msgstr "Ava siin terminal"
+
+#. Name
+#: other/2shells:2
+#, fuzzy
+msgid "Two consoles"
+msgstr "Konsool"
+
+#. Title1
+#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#, fuzzy
+msgid "Shell No. 2"
+msgstr "Uus shell"
+
+#. Name
+#: other/3shells:2
+msgid "Three consoles"
+msgstr ""
+
+#. Title2
+#: other/3shells:8 other/4shells:8 other/5shells:8
+#, fuzzy
+msgid "Shell No. 3"
+msgstr "Uus shell"
+
+#. Name
+#: other/4shells:2
+#, fuzzy
+msgid "Four consoles"
+msgstr "Linuxi konsool"
+
+#. Title3
+#: other/4shells:9 other/5shells:9
+#, fuzzy
+msgid "Shell No. 4"
+msgstr "Uus shell"
+
+#. Name
+#: other/5shells:2
+#, fuzzy
+msgid "Five consoles"
+msgstr "Linuxi konsool"
+
+#. Title4
+#: other/5shells:10
+#, fuzzy
+msgid "Shell No. 5"
+msgstr "Uus shell"

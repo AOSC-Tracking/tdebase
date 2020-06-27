@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 21:04+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: AtlasGreen.kcsrc:3
+msgid "Atlas Green"
+msgstr "Atlante verde"
+
+#. Name
+#: BeOS.kcsrc:3
+msgid "BeOS"
+msgstr ""
+
+#. Name
+#: BlackOnWhite.kcsrc:2
+msgid "High Contrast Black Text"
+msgstr "Testo nero ad alto contrasto"
+
+#. Name
+#: BlueSlate.kcsrc:3
+msgid "Blue Slate"
+msgstr "Blu ardesia"
+
+#. Name
+#: CDE.kcsrc:3
+msgid "CDE"
+msgstr ""
+
+#. Name
+#: DarkBlue.kcsrc:2
+msgid "Dark Blue"
+msgstr "Blu scuro"
+
+#. Name
+#: DesertRed.kcsrc:3
+msgid "Desert Red"
+msgstr "Rosso deserto"
+
+#. Name
+#: DigitalCDE.kcsrc:3
+msgid "Digital CDE"
+msgstr ""
+
+#. Name
+#: EveX.kcsrc:2
+msgid "EveX"
+msgstr ""
+
+#. Name
+#: KDEOne.kcsrc:2
+msgid "KDE 1"
+msgstr ""
+
+#. Name
+#: KDETwo.kcsrc:2
+msgid "KDE 2"
+msgstr ""
+
+#. Name
+#: Keramik.kcsrc:2
+msgid "Keramik"
+msgstr "Ceramica"
+
+#. Name
+#: KeramikEmerald.kcsrc:2
+msgid "Keramik Emerald"
+msgstr "Ceramica smeraldo"
+
+#. Name
+#: KeramikWhite.kcsrc:2
+msgid "Keramik White"
+msgstr "Ceramica bianca"
+
+#. Name
+#: MediaPeach.kcsrc:2
+msgid "Media Peach"
+msgstr "Pesca"
+
+#. Name
+#: Next.kcsrc:2
+msgid "Next"
+msgstr ""
+
+#. Name
+#: PaleGray.kcsrc:3
+msgid "Pale Gray"
+msgstr "Grigio pallido"
+
+#. Name
+#: Plastik.kcsrc:2
+msgid "Plastik"
+msgstr "Plastica"
+
+#. Name
+#: PointReyesGreen.kcsrc:2
+msgid "Point Reyes Green"
+msgstr "Verde Point Reyes"
+
+#. Name
+#: Pumpkin.kcsrc:3
+msgid "Pumpkin"
+msgstr "Zucca"
+
+#. Name
+#: SolarisCDE.kcsrc:2
+msgid "Solaris"
+msgstr ""
+
+#. Name
+#: Storm.kcsrc:3
+msgid "Storm"
+msgstr "Tempesta"
+
+#. Name
+#: System.kcsrc:2
+msgid "System"
+msgstr "Sistema"
+
+#. Name
+#: WhiteOnBlack.kcsrc:2
+msgid "High Contrast White Text"
+msgstr "Testo bianco ad alto contrasto"
+
+#. Name
+#: Windows2000.kcsrc:2
+msgid "Redmond 2000"
+msgstr ""
+
+#. Name
+#: Windows95.kcsrc:3
+msgid "Redmond 95"
+msgstr ""
+
+#. Name
+#: WindowsXP.kcsrc:2
+msgid "Redmond XP"
+msgstr ""
+
+#. Name
+#: YellowOnBlue.kcsrc:2
+msgid "High Contrast Yellow on Blue"
+msgstr "Testo ad alto contrasto giallo su blu"

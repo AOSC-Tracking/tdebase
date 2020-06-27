@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 17:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: battery.desktop:2 bwarning.desktop:2 cwarning.desktop:2 power.desktop:2
+msgid "Laptop"
+msgstr "மடிக்கணினி"
+
+#. Name
+#: email.desktop:10
+msgid "Email"
+msgstr "மின்னஞ்சல்"
+
+#. Comment
+#: email.desktop:11
+msgid "Configure your identity, email addresses, mail servers, etc."
+msgstr "அடையாளத்தை வடிவமை,மின்னஞ்சல் முகவரிகள்,அஞ்சல் சேவகன்கள், போன்றவை"
+
+#. Keywords
+#: email.desktop:13
+msgid ""
+"EMail;Mail;E-Mail;Address;Email server;IMAP;POP3;Local mailbox;mailbox;User "
+"Information;Reply Address;Server information;User Name;Passwords;Host;"
+"Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
+"Client;"
+msgstr ""
+"மின்னஞ்சல்;அஞ்சல்;மின்னஞ்சல்;முகவரி;மின்னஞ்சல் சேவகன்;IMAP;POP3;உள் அஞ்சல்பெட்டி;அஞ்சல்பெட்டி;"
+"பயன்படுத்துபவர் தகவல்;பதில் முகவரி;சேவகன் தகவல்;பயன்படுத்துபவர் பெயர்;கடவுச்சொற்கள்;புரவலர்;"
+"நடப்பு வடிவுருவம்;வடிவுருவம்;நிறுவனம்;உள்வரும் புரவலர்;வெளிசெல்லும் புரவலர்;மின்னஞ்சல் "
+"உறுப்பினர்;"
+
+#. Name
+#: kcmkonq.desktop:2
+msgid "File Manager"
+msgstr "கோப்பு மேலாளர்"
+
+#. Name
+#: kcmkxmlrpcd.desktop:2
+msgid "XML RPC Daemon"
+msgstr "XML RPC டெமொன்"
+
+#. Name
+#: konqhtml.desktop:2
+msgid "Konqueror Browser"
+msgstr "கான்கொரர் வலை உலாவி"
+
+#. Name
+#: passwords.desktop:11
+msgid "Passwords"
+msgstr "கடவுச்சொற்கள்"
+
+#. Comment
+#: passwords.desktop:13
+msgid "Configure password settings"
+msgstr "கடவுச்சொல் அமைப்புகளை அமை"
+
+#. Keywords
+#: passwords.desktop:15
+msgid "Passwords;tdesu;Echo characters;Remember passwords;Timeout;"
+msgstr ""
+"கடவுச்சொற்கள்;tdesu;எதிரொலிக்கும் எழுத்துகள்;கடவுச்சொற்களை நினைவில் கொள்;நேரமுடிவு;"
+
+#. Name
+#: socks.desktop:2
+msgid "Socks"
+msgstr "துளைகள்"
+
+#. Name
+#: userinfo.desktop:13
+msgid "User Account"
+msgstr "பயனர் கணக்கு"
+
+#. Comment
+#: userinfo.desktop:14
+msgid "Change your account information"
+msgstr "உங்கள் கணக்கு தகவலை மாற்று"
+
+#. Keywords
+#: userinfo.desktop:15
+msgid ""
+"Passwords;Password;Change Password;Icon;face;tdm;User Name;Name;Account;"
+msgstr ""
+"கடவுச்சொற்கள்;கடவுச்சொல்;கடவுச்சொலை மாற்று;சின்னம்;முகம்;tdm;பயனர் பெயர்;பெயர்;கணக்கு;"
+
+#. Name
+#: virtualdesktops.desktop:2
+msgid "Virtual Desktops"
+msgstr "மாய மேசைகள்"

@@ -1,0 +1,552 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: cgi/kcmcgi/kcmcgi.desktop:9
+msgid "CGI Scripts"
+msgstr "CGI 脚本"
+
+#. Comment
+#: cgi/kcmcgi/kcmcgi.desktop:11
+msgid "Configure the CGI TDEIO slave"
+msgstr "配置 CGI TDEIO 仆人"
+
+#. Keywords
+#: cgi/kcmcgi/kcmcgi.desktop:13
+msgid "CGI;TDEIO;Slave;Paths;"
+msgstr "CGI;TDEIO;Slave;Paths;路径;"
+
+#. Name
+#: home/kdedmodule/homedirnotify.desktop:4
+msgid "KDED Home Base URL Notifier"
+msgstr "KDED 主页基 URL 通知器"
+
+#. Comment
+#: home/kdedmodule/homedirnotify.desktop:6
+#, fuzzy
+msgid "Provides change notification for user's home folder ($HOME)"
+msgstr "为网络文件夹提供更改通知"
+
+#. Name
+#: man/kmanpart.desktop:4
+msgid "KManPart"
+msgstr ""
+
+#. Comment
+#: man/kmanpart.desktop:6
+msgid "Embeddable Troff Viewer"
+msgstr "嵌入的 Troff 查看器"
+
+#. Name
+#: media/mediamanager/mediamanager.desktop:4
+msgid "KDED Media Manager"
+msgstr "KDED 介质管理器"
+
+#. Comment
+#: media/mediamanager/mediamanager.desktop:6
+msgid "Keep track of media activities and allow to (un)mount (media:/)"
+msgstr "跟踪介质活动并允许挂载或卸载(media:/)"
+
+#. Name
+#: media/medianotifier/medianotifier.desktop:4
+msgid "Media Notifier Daemon"
+msgstr "介质通知守护程序"
+
+#. Comment
+#: media/medianotifier/medianotifier.desktop:6
+msgid "A media plugged notifier"
+msgstr "介质插入通知器"
+
+#. Comment
+#: media/mimetypes/audiocd.desktop:6
+msgid "Audio CD"
+msgstr "音频 CD"
+
+#. Comment
+#: media/mimetypes/blankbluray.desktop:6
+msgid "Blank BLURAY"
+msgstr "空 BLURAY"
+
+#. Comment
+#: media/mimetypes/blankcd.desktop:6
+msgid "Blank CD"
+msgstr "空 CD"
+
+#. Comment
+#: media/mimetypes/blankdvd.desktop:6
+msgid "Blank DVD"
+msgstr "空 DVD"
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_locked.desktop:7
+msgid "Encrypted Locked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked BLURAY"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/bluray_mounted.desktop:6
+msgid "Mounted BLURAY"
+msgstr "挂载的 BLURAY"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted.desktop:6
+msgid "Unmounted BLURAY"
+msgstr "未挂载的 BLURAY"
+
+#. Comment
+#: media/mimetypes/blurayvideo.desktop:6
+msgid "BLURAY Video Disk"
+msgstr "BLURAY 影碟"
+
+#. Comment
+#: media/mimetypes/camera_mounted.desktop:6
+msgid "Mounted Camera"
+msgstr "挂载的相机"
+
+#. Comment
+#: media/mimetypes/camera_unmounted.desktop:6
+msgid "Unmounted Camera"
+msgstr "未挂载的相机"
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-R"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-r_mounted.desktop:6
+msgid "Mounted CD-R"
+msgstr "挂载的刻录机"
+
+#. Comment
+#: media/mimetypes/cd-r_unmounted.desktop:6
+msgid "Unmounted CD-R"
+msgstr "未挂载的刻录机"
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-RW"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted.desktop:6
+msgid "Mounted CD-RW"
+msgstr "挂载的刻录机"
+
+#. Comment
+#: media/mimetypes/cd-rw_unmounted.desktop:6
+msgid "Unmounted CD-RW"
+msgstr "未挂载的刻录机"
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_locked.desktop:7
+msgid "Encrypted Locked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked CD-ROM"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/cdrom_mounted.desktop:6
+msgid "Mounted CD-ROM"
+msgstr "挂载的 CD-ROM"
+
+#. Comment
+#: media/mimetypes/cdrom_unmounted.desktop:6
+msgid "Unmounted CD-ROM"
+msgstr "未挂载的 CD-ROM"
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_locked.desktop:7
+msgid "Encrypted Locked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
+msgid "Encrypted Unlocked DVD"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/dvd_mounted.desktop:6
+msgid "Mounted DVD"
+msgstr "挂载的 DVD"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted.desktop:6
+msgid "Unmounted DVD"
+msgstr "未挂载的 DVD"
+
+#. Comment
+#: media/mimetypes/dvdvideo.desktop:6
+msgid "DVD Video Disk"
+msgstr "DVD 影碟"
+
+#. Comment
+#: media/mimetypes/floppy5_mounted.desktop:6
+msgid "Mounted 5¼\" Floppy"
+msgstr "挂载的 5.25 英寸软驱"
+
+#. Comment
+#: media/mimetypes/floppy5_unmounted.desktop:6
+msgid "Unmounted 5¼\" Floppy"
+msgstr "未挂载的 5.25 英寸软驱"
+
+#. Comment
+#: media/mimetypes/floppy_mounted.desktop:6
+msgid "Mounted Floppy"
+msgstr "挂载的软驱"
+
+#. Comment
+#: media/mimetypes/floppy_unmounted.desktop:6
+msgid "Unmounted Floppy"
+msgstr "未挂载的软驱"
+
+#. Comment
+#: media/mimetypes/gphoto2camera.desktop:6
+msgid "Camera"
+msgstr "相机"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Hard Disk Volume"
+msgstr "挂载的硬盘卷"
+
+#. Comment
+#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Hard Disk Volume"
+msgstr "未挂载的硬盘卷"
+
+#. Comment
+#: media/mimetypes/hdd_mounted.desktop:6
+msgid "Mounted Hard Disk Volume"
+msgstr "挂载的硬盘卷"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted.desktop:6
+msgid "Unmounted Hard Disk Volume"
+msgstr "未挂载的硬盘卷"
+
+#. Comment
+#: media/mimetypes/mycomputer.desktop:6
+msgid "My Computer"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/mydocuments.desktop:6
+#, fuzzy
+msgid "My Documents"
+msgstr "文档文件夹"
+
+#. Comment
+#: media/mimetypes/mynetworkplaces.desktop:6
+#, fuzzy
+msgid "My Network Places"
+msgstr "远程位置"
+
+#. Comment
+#: media/mimetypes/nfs_mounted.desktop:6
+msgid "Mounted NFS Share"
+msgstr "挂载的 NFS 共享"
+
+#. Comment
+#: media/mimetypes/nfs_unmounted.desktop:6
+msgid "Unmounted NFS Share"
+msgstr "未挂载的 NFS 共享"
+
+#. Comment
+#: media/mimetypes/printers.desktop:6
+msgid "Printers"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/removable_encrypted_locked.desktop:7
+#, fuzzy
+msgid "Encrypted Locked Removable Medium"
+msgstr "挂载的可移动介质"
+
+#. Comment
+#: media/mimetypes/removable_encrypted_unlocked.desktop:7
+#, fuzzy
+msgid "Encrypted Unlocked Removable Medium"
+msgstr "未挂载的可移动介质"
+
+#. Comment
+#: media/mimetypes/removable_mounted.desktop:6
+msgid "Mounted Removable Medium"
+msgstr "挂载的可移动介质"
+
+#. Comment
+#: media/mimetypes/removable_unmounted.desktop:6
+msgid "Unmounted Removable Medium"
+msgstr "未挂载的可移动介质"
+
+#. Comment
+#: media/mimetypes/smb_mounted.desktop:6
+msgid "Mounted Samba (Microsoft Network) Share"
+msgstr "挂载的 Samba (Microsoft 网络)共享"
+
+#. Comment
+#: media/mimetypes/smb_unmounted.desktop:6
+msgid "Unmounted Samba (Microsoft Network) Share"
+msgstr "未挂载的 Samba (Microsoft 网络)共享"
+
+#. Comment
+#: media/mimetypes/svcd.desktop:6
+msgid "Super Video CD"
+msgstr "超级 VCD"
+
+#. Comment
+#. Name
+#: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
+#: trash/kcmtrash.desktop:11
+msgid "Trash"
+msgstr "回收站"
+
+#. Comment
+#: media/mimetypes/vcd.desktop:6
+msgid "Video CD"
+msgstr "VCD"
+
+#. Comment
+#: media/mimetypes/webbrowser.desktop:6
+msgid "Web Browser"
+msgstr ""
+
+#. Comment
+#: media/mimetypes/zip_mounted.desktop:6
+msgid "Mounted Zip Disk"
+msgstr "挂载的 Zip 磁盘"
+
+#. Comment
+#: media/mimetypes/zip_unmounted.desktop:6
+msgid "Unmounted Zip Disk"
+msgstr "挂载的 Zip 磁盘"
+
+#. Name
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:6
+msgid "Media Properties Page"
+msgstr "介质属性页面"
+
+#. Comment
+#: media/propsdlgplugin/media_propsdlgplugin.desktop:8
+msgid "Konqueror properties dialog plugin to configure mount behaviour"
+msgstr "配置挂载行为的 Konqueror 属性对话框插件"
+
+#. Name
+#: media/services/media_decrypt.desktop:8
+msgid "Unlock"
+msgstr ""
+
+#. Name
+#: media/services/media_eject.desktop:8
+msgid "Eject"
+msgstr "弹出"
+
+#. Name
+#: media/services/media_mount.desktop:8
+msgid "Mount"
+msgstr "挂载"
+
+#. Name
+#: media/services/media_safelyremove.desktop:8
+msgid "Safely Remove"
+msgstr "安全删除"
+
+#. Name
+#: media/services/media_unmount.desktop:8
+msgid "Unmount"
+msgstr "卸载"
+
+#. Name
+#: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
+msgid "Storage Media"
+msgstr "存储介质"
+
+#. Comment
+#: media/tdecmodule/media.desktop:12
+msgid "Configure Storage Media"
+msgstr "配置存储介质"
+
+#. Keywords
+#: media/tdecmodule/media.desktop:14
+msgid "storage;media;usb;cdrom;device;"
+msgstr "storage;media;usb;cdrom;device;存储;介质;设备;"
+
+#. Name
+#: media/tdefile-plugin/tdefile_media.desktop:6
+msgid "Medium Information"
+msgstr "介质信息"
+
+#. Name
+#: remote/kdedmodule/remotedirnotify.desktop:4
+msgid "KDED Remote Base URL Notifier"
+msgstr "KDED 远程基 URL 通知器"
+
+#. Comment
+#: remote/kdedmodule/remotedirnotify.desktop:6
+msgid "Provides change notification for network folders"
+msgstr "为网络文件夹提供更改通知"
+
+#. Name
+#: smb/smb-network.desktop:4
+msgid "Samba Shares"
+msgstr "Samba 共享"
+
+#. Comment
+#: smb/x-smb-server.desktop:2
+msgid "Windows Server"
+msgstr "Windows 服务器"
+
+#. Comment
+#: smb/x-smb-workgroup.desktop:2
+msgid "Windows Workgroup"
+msgstr "Windows 工作组"
+
+#. Name
+#: system/entries/documents.desktop:6
+msgid "Documents Folder"
+msgstr "文档文件夹"
+
+#. Name
+#: system/entries/home.desktop:6
+msgid "Home Folder"
+msgstr "主文件夹"
+
+#. Name
+#: system/entries/remote.desktop:6
+msgid "Remote Places"
+msgstr "远程位置"
+
+#. Name
+#: system/entries/users.desktop:6
+msgid "Users Folders"
+msgstr "用户文件夹"
+
+#. Name
+#: system/kdedmodule/systemdirnotify.desktop:4
+msgid "KDED System Base URL Notifier"
+msgstr "KDED 系统基 URL 通知器"
+
+#. Comment
+#: system/kdedmodule/systemdirnotify.desktop:6
+#, fuzzy
+msgid ""
+"Provides change notification for folders monitored by the system:/ tdeio "
+"plugin"
+msgstr "为网络文件夹提供更改通知"
+
+#. Comment
+#: system/mimetypes/system_directory.desktop:6
+msgid "System Folder"
+msgstr "系统文件夹"
+
+#. Name
+#: thumbnail/cursorthumbnail.desktop:4
+msgid "Cursor Files"
+msgstr "光标文件"
+
+#. Name
+#: thumbnail/djvuthumbnail.desktop:4
+msgid "DjVu Files"
+msgstr "DjVu 文件"
+
+#. Name
+#: thumbnail/exrthumbnail.desktop:4
+msgid "EXR Images"
+msgstr "EXR Emacs"
+
+#. Name
+#: thumbnail/htmlthumbnail.desktop:4
+msgid "HTML Files"
+msgstr "HTML 文件"
+
+#. Name
+#: thumbnail/imagethumbnail.desktop:4
+msgid "Images"
+msgstr "图像"
+
+#. Name
+#: thumbnail/textthumbnail.desktop:4
+msgid "Text Files"
+msgstr "文本文件"
+
+#. Comment
+#: thumbnail/thumbcreator.desktop:5
+msgid "Thumbnail Handler"
+msgstr "缩略图处理器"
+
+#. Comment
+#. Name
+#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
+#, fuzzy
+msgid "Trash Properties"
+msgstr "介质属性页面"
+
+#. Keywords
+#: trash/kcmtrash.desktop:15
+msgid "trash;properties;size;limits;delete"
+msgstr ""
+
+#. Name
+#: trash/tdefile-plugin/tdefile_trash.desktop:4
+#: trash/tdefile-plugin/tdefile_trash_system.desktop:4
+msgid "Trash File Info"
+msgstr "回收站文件信息"
+
+#. Description
+#: fish/fish.protocol:14
+msgid "A tdeioslave for the FISH protocol"
+msgstr "FISH 协议的 TDEIO 仆人"
+
+#. Description
+#: fish/nxfish.protocol:14
+msgid "A tdeioslave for the NXFISH protocol"
+msgstr "NXFISH 协议的 TDEIO 仆人"
+
+#. Description
+#: mac/mac.protocol:9
+msgid "A tdeioslave for MacOS HFS+ partitions"
+msgstr "MacOS HFS+ 分区的 TDEIO 仆人"
+
+#. Description
+#: sftp/sftp.protocol:15
+msgid "A tdeioslave for sftp"
+msgstr "sftp 的 tdeioslave"
+
+#. ExtraNames
+#: trash/trash.protocol:25
+msgid "Original Path,Deletion Date"
+msgstr "原始路径,删除日期"

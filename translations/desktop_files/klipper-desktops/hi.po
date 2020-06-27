@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 14:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: klipper.desktop:2
+msgid "Klipper"
+msgstr "क्लिपर"
+
+#. GenericName
+#: klipper.desktop:4
+msgid "Clipboard Tool"
+msgstr "क्लिपबोर्ड औज़ार"
+
+#. Comment
+#: klipper.desktop:6
+msgid "A cut & paste history utility"
+msgstr ""
+
+#. Description
+#: klipperrc.desktop:9
+msgid "Jpeg-Image"
+msgstr "जेपीईजी-छवि"
+
+#. Description
+#: klipperrc.desktop:14
+msgid "Launch K&View"
+msgstr "के-व्यू चलाएँ (&V)"
+
+#. Description
+#: klipperrc.desktop:19
+msgid "Web-URL"
+msgstr "वेब-यूआरएल"
+
+#. Description
+#: klipperrc.desktop:24 klipperrc.desktop:116
+msgid "Open with &Konqueror"
+msgstr "कॉन्करर के साथ खोलें (&K)"
+
+#. Description
+#: klipperrc.desktop:29 klipperrc.desktop:126
+msgid "Open with &Mozilla"
+msgstr "मोज़िला के साथ खोलें (&M)"
+
+#. Description
+#: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
+#: klipperrc.desktop:131
+msgid "Send &URL"
+msgstr "यूआरएल भेजें (&U)"
+
+#. Description
+#: klipperrc.desktop:40
+#, fuzzy
+msgid "Open with &Firefox"
+msgstr "कॉन्करर के साथ खोलें (&K)"
+
+#. Description
+#: klipperrc.desktop:46
+msgid "Send &Page"
+msgstr "पृष्ठ भेजें (&P)"
+
+#. Description
+#: klipperrc.desktop:51
+msgid "Mail-URL"
+msgstr "डाक-यूआरएल"
+
+#. Description
+#: klipperrc.desktop:56
+msgid "Launch &Kmail"
+msgstr "के-मेल चालू करें (&K)"
+
+#. Description
+#: klipperrc.desktop:61
+msgid "Launch &mutt"
+msgstr "मट चालू करें (&m)"
+
+#. Description
+#: klipperrc.desktop:66
+msgid "Text File"
+msgstr "पाठ फ़ाइल"
+
+#. Description
+#: klipperrc.desktop:71
+msgid "Launch K&Edit"
+msgstr "के-एडिट चालू करें (&E)"
+
+#. Description
+#: klipperrc.desktop:76
+msgid "Launch K&Write"
+msgstr "के-राइट चालू करें (&W)"
+
+#. Description
+#: klipperrc.desktop:81
+msgid "Local file URL"
+msgstr "स्थानीय फ़ाइल यूआरएल"
+
+#. Description
+#: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
+msgid "Send &File"
+msgstr "फ़ाइल भेजें (&F)"
+
+#. Description
+#: klipperrc.desktop:96
+msgid "Gopher URL"
+msgstr "गोफर यूआरएल"
+
+#. Description
+#: klipperrc.desktop:111
+msgid "ftp URL"
+msgstr "एफटीपी यूआरएल"
+
+#. Description
+#: klipperrc.desktop:121
+msgid "Open with &Netscape"
+msgstr "नेटस्केप के साथ खोलें (&N)"

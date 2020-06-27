@@ -23,8 +23,17 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES konq_aboutpage.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
-install( FILES konqaboutpage.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE konq_aboutpage.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR konqueror-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE konqaboutpage.desktop
+  DESTINATION ${SERVICETYPES_INSTALL_DIR}
+  PO_DIR konqueror-desktops
+)
 
 install( FILES
     box-centre-konqueror.png top-right-konqueror.png

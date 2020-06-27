@@ -1,0 +1,32 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-22 19:02+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tdehtml_plugins.desktop:14
+msgid "Plugins"
+msgstr "'Plugins'"
+
+#. Comment
+#: tdehtml_plugins.desktop:16
+msgid "Configure the browser plugins"
+msgstr "Configurar os 'plugins' do navegador"
+
+#. Keywords
+#: tdehtml_plugins.desktop:18
+msgid "konqueror;kfm;browser;html;web;www;fonts;plugins;"
+msgstr "konqueror;kfm;navegador;HTML;web;WWW;tipos de letra;'plugins';"

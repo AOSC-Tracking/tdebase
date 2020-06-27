@@ -1,0 +1,310 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 16:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: se\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: .directory:2
+msgid "Default"
+msgstr "Standárda"
+
+#. Name
+#: hidden.directory:4
+msgid "Internal Services"
+msgstr "Siskkildas bálvalusat"
+
+#. Name
+#: kde-development-webdevelopment.directory:4
+#: tde-development-webdevelopment.directory:4
+msgid "Web Development"
+msgstr "Fierpmádatovdánahttin"
+
+#. Name
+#: kde-development.directory:4 kde-games.directory:4 kde-graphics.directory:4
+#: kde-internet.directory:4 kde-multimedia.directory:4 kde-office.directory:4
+#: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
+#: kde-utilities.directory:4
+msgid "KDE"
+msgstr ""
+
+#. Name
+#: kde-editors.directory:4 tde-editors.directory:4
+msgid "Editors"
+msgstr "Čállinprográmmat"
+
+#. Name
+#: kde-edu-languages.directory:4
+msgid "Languages"
+msgstr ""
+
+#. Name
+#: kde-edu-mathematics.directory:4
+msgid "Mathematics"
+msgstr ""
+
+#. Name
+#: kde-edu-miscellaneous.directory:4
+msgid "Miscellaneous"
+msgstr ""
+
+#. Name
+#: kde-edu-science.directory:4 tde-science.directory:5
+msgid "Science"
+msgstr "Dieđa"
+
+#. Name
+#: kde-games-arcade.directory:4 tde-games-arcade.directory:4
+msgid "Arcade"
+msgstr "Fearán"
+
+#. Name
+#: kde-games-board.directory:4 tde-games-board.directory:4
+msgid "Board Games"
+msgstr "Duolbbášspealut"
+
+#. Name
+#: kde-games-card.directory:4 tde-games-card.directory:4
+msgid "Card Games"
+msgstr "Goartaspealut"
+
+#. Name
+#: kde-games-kids.directory:4 tde-games-kids.directory:4
+msgid "Games for Kids"
+msgstr "Mánáidspealut"
+
+#. Name
+#: kde-games-strategy.directory:4 tde-games-strategy.directory:4
+msgid "Tactics & Strategy"
+msgstr "Taktihkka ja strategiija"
+
+#. Name
+#: kde-toys.directory:4 tde-toys.directory:4
+msgid "Toys"
+msgstr "Stohkosat"
+
+#. Name
+#. Comment
+#: kde-utilities-accessibility.directory:4
+#: tde-utilities-accessibility.directory:4
+#: tde-utilities-accessibility.directory:6
+msgid "Accessibility"
+msgstr "Álkkibut geavaheapmi"
+
+#. Name
+#. Comment
+#: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
+#: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
+msgid "Desktop"
+msgstr "Čállinbeavdi"
+
+#. Name
+#. Comment
+#: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
+#: tde-utilities-pim.directory:6
+msgid "PIM"
+msgstr "Peršuvnnalaš diehtogieđahalli"
+
+#. Name
+#: tde-development-translation.directory:4
+msgid "Translation"
+msgstr "Jorgalus"
+
+#. Name
+#: tde-development.directory:4
+msgid "Development"
+msgstr "Ovdánahttin"
+
+#. Name
+#: tde-edutainment.directory:4
+msgid "Edutainment"
+msgstr "Stoahkan ja oahppan"
+
+#. Name
+#: tde-games-logic.directory:4
+#, fuzzy
+msgid "Logic Games"
+msgstr "Rogue-lágána spealut"
+
+#. Name
+#: tde-games-roguelikes.directory:4
+msgid "Rogue-like Games"
+msgstr "Rogue-lágána spealut"
+
+#. Name
+#: tde-games.directory:4
+msgid "Games"
+msgstr "Spealut"
+
+#. Name
+#: tde-graphics.directory:4
+msgid "Graphics"
+msgstr "Grafihkka"
+
+#. Name
+#: tde-internet-terminal.directory:4 tde-system-terminal.directory:4
+msgid "Terminal Applications"
+msgstr "Terminálprográmmat"
+
+#. Name
+#: tde-internet.directory:4
+msgid "Internet"
+msgstr "Interneahtta"
+
+#. Name
+#: tde-main.directory:5
+msgid "TDE Menu"
+msgstr "TDE-fállu"
+
+#. Name
+#: tde-more.directory:5
+msgid "More Applications"
+msgstr "Eanet prográmmat"
+
+#. Name
+#: tde-multimedia.directory:4
+#, fuzzy
+msgid "Multimedia"
+msgstr "Jietna ja multimedia"
+
+#. Name
+#. Comment
+#: tde-office-pim.directory:4 tde-office-pim.directory:6
+msgid "Personal Information Management"
+msgstr "Peršuvnnalaš diehtogieđahalli"
+
+#. Name
+#: tde-office.directory:4
+msgid "Office"
+msgstr "Kántuvra"
+
+#. Name
+#: tde-settings-accessibility.directory:4
+msgid "Regional & Accessibility"
+msgstr "Báikkálaš ja álkkibut geavaheapmi"
+
+#. Name
+#: tde-settings-components.directory:4
+msgid "TDE Components"
+msgstr "TDE-oasit"
+
+#. Name
+#: tde-settings-hardware.directory:4
+msgid "Hardware"
+msgstr "Mašiidnagálvu"
+
+#. Name
+#: tde-settings-information.directory:4
+msgid "Device Informations"
+msgstr ""
+
+#. Name
+#: tde-settings-looknfeel.directory:4
+msgid "Appearance & Themes"
+msgstr "Fárda ja fáttát"
+
+#. Name
+#: tde-settings-network.directory:4
+msgid "Internet & Network"
+msgstr "Interneahtta ja fierpmádat"
+
+#. Name
+#. Comment
+#: tde-settings-peripherals.directory:4 tde-utilities-peripherals.directory:4
+#: tde-utilities-peripherals.directory:6
+msgid "Peripherals"
+msgstr "Ovttadagat"
+
+#. Name
+#: tde-settings-power.directory:4
+msgid "Power Control"
+msgstr "El-rávdnje stivren"
+
+#. Name
+#: tde-settings-security.directory:4
+msgid "Security & Privacy"
+msgstr "Sihkkarvuohta ja iežassuodjaleapmi"
+
+#. Name
+#: tde-settings-sound.directory:4
+msgid "Sound & Multimedia"
+msgstr "Jietna ja multimedia"
+
+#. Name
+#: tde-settings-system.directory:4
+msgid "System Administration"
+msgstr "Vuogádathálddašeapmi"
+
+#. Name
+#: tde-settings-webbrowsing.directory:4
+msgid "Web Browser"
+msgstr "Fierpmádatlogan"
+
+#. Name
+#: tde-settings.directory:4
+msgid "Settings-Modules"
+msgstr "Heivehusmoduvllat"
+
+#. Name
+#: tde-settingsmenu.directory:4
+msgid "Settings"
+msgstr "Heivehusat"
+
+#. Name
+#: tde-system-screensavers.directory:4
+msgid "Screen Savers"
+msgstr "Šearbmasiestejeaddjit"
+
+#. Comment
+#: tde-system-screensavers.directory:8
+msgid "Screen saver demos"
+msgstr "Šearbmasiestejeaddji demonstrašuvnnat."
+
+#. Name
+#: tde-system-su.directory:5
+msgid "SuperUser"
+msgstr ""
+
+#. Name
+#: tde-system.directory:4
+msgid "System"
+msgstr "Vuogádat"
+
+#. Name
+#: tde-unknown.directory:4
+msgid "Lost & Found"
+msgstr "Láhppon ja gávdnon"
+
+#. Name
+#. Comment
+#: tde-utilities-file.directory:4 tde-utilities-file.directory:6
+msgid "File"
+msgstr "Fiila"
+
+#. Name
+#: tde-utilities-xutils.directory:4
+msgid "X-Utilities"
+msgstr "X-reaiddut"
+
+#. Comment
+#: tde-utilities-xutils.directory:6
+msgid "X Window Utilities"
+msgstr "X Window-reaiddut"
+
+#. Name
+#. Comment
+#: tde-utilities.directory:4 tde-utilities.directory:6
+msgid "Utilities"
+msgstr "Reaiddut"

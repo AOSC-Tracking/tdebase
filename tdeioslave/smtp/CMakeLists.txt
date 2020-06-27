@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES smtp.protocol smtps.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE smtp.protocol smtps.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdeio_smtp (module) #########################

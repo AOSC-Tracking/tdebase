@@ -30,7 +30,11 @@ link_directories(
 ##### other data ################################
 
 install( FILES themeengine.h objkstheme.h DESTINATION ${INCLUDE_INSTALL_DIR}/ksplash )
-install( FILES ksplashplugins.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE ksplashplugins.desktop
+  DESTINATION ${SERVICETYPES_INSTALL_DIR}
+  PO_DIR ksplash-desktops
+)
 
 
 ##### ksplashthemes (shared) ####################

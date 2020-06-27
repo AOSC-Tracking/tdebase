@@ -4,9 +4,5 @@ Actions=Editassu
 
 [Desktop Action Editassu]
 Name=Edit as system administrator
-Name[it]=Edita come amministratore di sistema
-Name[fr]=Editer en tant que administrateur du système
-Name[es]=Editar como administrador del sistema
-Name[de]=Als Systemverwalter bearbeiten
 Icon=kwrite
 Exec=tdesu "kwrite" "%U"

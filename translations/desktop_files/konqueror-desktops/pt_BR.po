@@ -1,0 +1,358 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 15:23+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: Home.desktop:7
+msgid "Home"
+msgstr "Pasta do Usuário"
+
+#. GenericName
+#: Home.desktop:9
+msgid "Personal Files"
+msgstr "Arquivos Pessoais"
+
+#. Name
+#: about/konq_aboutpage.desktop:3
+msgid "About-Page for Konqueror"
+msgstr "Página \"Sobre\" do Konqueror"
+
+#. Name
+#: iconview/konq_iconview.desktop:3
+msgid "Icon View"
+msgstr "Visão em Ícones"
+
+#. Name
+#: iconview/konq_multicolumnview.desktop:3
+msgid "MultiColumn View"
+msgstr "Visão Multicolunas"
+
+#. Name
+#: kfmclient.desktop:9 kfmclient_dir.desktop:9 kfmclient_html.desktop:9
+#: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
+#: konquerorsu.desktop:8
+msgid "Konqueror"
+msgstr ""
+
+#. GenericName
+#: konqbrowser.desktop:9
+msgid "Web Browser"
+msgstr "Navegador Web"
+
+#. Name
+#: konqfilemgr.desktop:7
+msgid "File Manager"
+msgstr "Gerenciador de Arquivos"
+
+#. Comment
+#: konqueror.desktop:8
+msgid "TDE File Manager & Web Browser"
+msgstr "Gerenciador de Arquivos & Navegador Web do TDE"
+
+#. GenericName
+#: konquerorsu.desktop:10
+msgid "File Manager - Super User Mode"
+msgstr "Gerenciador de Arquivos (Modo Super-Usuário)"
+
+#. Name
+#: kttsplugin/tdehtmlkttsd.desktop:12
+msgid "Text-to-Speech"
+msgstr "Plug-in de Conversão de Fala"
+
+#. Comment
+#: kttsplugin/tdehtmlkttsd.desktop:14
+#, fuzzy
+msgid "A plugin which enables texts to be read aloud on the web with KTTS"
+msgstr "Plug-in de Comandos do Shell para o Konqueror"
+
+#. Name
+#: listview/konq_detailedlistview.desktop:3
+msgid "Detailed List View"
+msgstr "Visão de Lista Detalhada"
+
+#. Name
+#: listview/konq_infolistview.desktop:3
+msgid "Info List View"
+msgstr "Visão de Lista de Informações"
+
+#. Name
+#: listview/konq_textview.desktop:3
+msgid "Text View"
+msgstr "Visão Texto"
+
+#. Name
+#: listview/konq_treeview.desktop:3
+msgid "Tree View"
+msgstr "Visão em Árvore"
+
+#. Name
+#: preloader/konqy_preload.desktop:4
+msgid "Konqueror Preloading During TDE startup"
+msgstr "Pré-carregamento do Konqueror no início do TDE"
+
+#. Name
+#: preloader/konqy_preloader.desktop:4
+msgid "KDED Konqueror Preloader Module"
+msgstr "Módulo de Pré-carregamento do Konqueror"
+
+#. Comment
+#: preloader/konqy_preloader.desktop:6
+msgid "Reduces Konqueror startup time"
+msgstr "Reduz o tempo de inicialização do Konqueror"
+
+#. Name
+#: profile_filemanagement.desktop:5
+msgid "File Management"
+msgstr "Gerenciamento de arquivos"
+
+#. Name
+#: profile_filepreview.desktop:9
+msgid "File Preview"
+msgstr "Pré-visualização de arquivo"
+
+#. Name
+#: profile_kde_devel.desktop:3
+msgid "TDE Development"
+msgstr "Desenvolvimento do TDE"
+
+#. Name
+#: profile_midnightcommander.desktop:9
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Plug-in do Shell"
+
+#. Name
+#: profile_simplebrowser.desktop:2
+msgid "Simple Browser"
+msgstr "Navegador Web Simples"
+
+#. Name
+#: profile_tabbedbrowsing.desktop:3
+msgid "Tabbed Browsing"
+msgstr "Navegação em Abas"
+
+#. Name
+#: profile_webbrowsing.desktop:2
+msgid "Web Browsing"
+msgstr "Navegação Web"
+
+#. Name
+#: quickprint/text-ada-print.desktop:6 quickprint/text-c++-print.desktop:6
+#: quickprint/text-c++h-print.desktop:6 quickprint/text-c-print.desktop:6
+#: quickprint/text-ch-print.desktop:6 quickprint/text-css-print.desktop:6
+#: quickprint/text-diff-print.desktop:6 quickprint/text-html-print.desktop:6
+#: quickprint/text-java-print.desktop:6 quickprint/text-log-print.desktop:6
+#: quickprint/text-makefile-print.desktop:6 quickprint/text-pas-print.desktop:6
+#: quickprint/text-perl-print.desktop:6 quickprint/text-print.desktop:6
+#: quickprint/text-python-print.desktop:6 quickprint/text-tcl-print.desktop:6
+#: quickprint/text-tex-print.desktop:6 quickprint/text-xml-print.desktop:6
+#: quickprint/text-xslt-print.desktop:6
+msgid "Print..."
+msgstr "Imprimir..."
+
+#. Name
+#: remoteencodingplugin/kremoteencodingplugin.desktop:13
+msgid "Remote Encoding"
+msgstr "Plug-in de Codificação Remota"
+
+#. Comment
+#: remoteencodingplugin/kremoteencodingplugin.desktop:15
+msgid "A Plugin for setting the encoding of remote hosts (FTP, SSH, etc.)"
+msgstr "Plug-in de Codificação Remota para o Konqueror"
+
+#. Name
+#: shellcmdplugin/kshellcmdplugin.desktop:15
+msgid "Run Command"
+msgstr "Plug-in do Shell"
+
+#. Comment
+#: shellcmdplugin/kshellcmdplugin.desktop:17
+msgid "A plugin which enables commands to be executed within folders"
+msgstr "Plug-in de Comandos do Shell para o Konqueror"
+
+#. Name
+#: sidebar/konq_sidebartng.desktop:4
+msgid "Navigation Panel"
+msgstr "Painel de Navegação"
+
+#. Name
+#: sidebar/test/test.desktop:5
+msgid "Test"
+msgstr "Testar"
+
+#. Name
+#: sidebar/trees/history_module/kcmhistory.desktop:10
+msgid "History Sidebar"
+msgstr "Barra Lateral de Histórico"
+
+#. Comment
+#: sidebar/trees/history_module/kcmhistory.desktop:12
+msgid "Configure the history sidebar"
+msgstr "Configura a barra lateral de Histórico"
+
+#. Keywords
+#: sidebar/trees/history_module/kcmhistory.desktop:14
+msgid "history;expire;"
+msgstr "histórico;expirar;"
+
+#. Name
+#: sidebar/trees/init/bookmarks.desktop:6
+#: sidebar/trees/init/bookmarks_module.desktop:6
+msgid "Bookmarks"
+msgstr "Favoritos"
+
+#. Comment
+#: sidebar/trees/init/bookmarks.desktop:8
+#: sidebar/trees/init/bookmarks_module.desktop:8
+msgid "This is the list of your bookmarks, for a faster access"
+msgstr "Esta pasta contém a sua lista dos favoritos, para o acesso mais rápido"
+
+#. Name
+#: sidebar/trees/init/dirtree_module.desktop:5
+#: sidebar/trees/init/virtualfolderadd.desktop:6
+msgid "Folder"
+msgstr "Pasta"
+
+#. Name
+#: sidebar/trees/init/history.desktop:6
+#: sidebar/trees/init/history_module.desktop:6
+msgid "History"
+msgstr "Histórico"
+
+#. Comment
+#: sidebar/trees/init/history.desktop:8
+#: sidebar/trees/init/history_module.desktop:8
+msgid ""
+"This is the history of the URLs you have recently visited. You can sort them "
+"in many ways."
+msgstr ""
+"Este é o histórico das URLs que você visitou recentemente. Você pode ordenar "
+"esta lista de várias maneiras."
+
+#. Name
+#: sidebar/trees/init/home.desktop:6
+msgid "Home Folder"
+msgstr "Pasta do Usuário"
+
+#. Comment
+#: sidebar/trees/init/home.desktop:8
+msgid "This folder contains your personal files"
+msgstr "Esta pasta contém os seus arquivos pessoais"
+
+#. Name
+#: sidebar/trees/init/remote.desktop:2 sidebar/trees/init/remote/.directory:2
+msgid "Network"
+msgstr "Rede"
+
+#. Name
+#: sidebar/trees/init/remote/ftp/tde_ftp.desktop:5
+msgid "TDE Official FTP"
+msgstr "FTP oficial do TDE"
+
+#. Name
+#: sidebar/trees/init/remote/web/apps_web.desktop:4
+msgid "TDE Applications"
+msgstr "Aplicativos TDE"
+
+#. Name
+#: sidebar/trees/init/remote/web/dot_web.desktop:4
+msgid "TDE News"
+msgstr ""
+
+#. Name
+#: sidebar/trees/init/remote/web/tde_web.desktop:4
+msgid "TDE Home Page"
+msgstr "Página principal do TDE"
+
+#. Name
+#: sidebar/trees/init/root.desktop:6
+msgid "Root Folder"
+msgstr "Pasta Raiz"
+
+#. Comment
+#: sidebar/trees/init/root.desktop:8
+msgid "This is the root of the filesystem"
+msgstr "Esta é a raiz do seu sistema de arquivos"
+
+#. Name
+#: sidebar/trees/init/services.desktop:4
+#: sidebar/trees/init/services/.directory:3
+msgid "Services"
+msgstr "Serviços"
+
+#. Name
+#: sidebar/trees/init/services/applications.desktop:5
+msgid "Applications"
+msgstr "Aplicativos"
+
+#. Name
+#: sidebar/trees/init/services/audiocd.desktop:6
+msgid "Audio CD Browser"
+msgstr "Navegador de CDs de Áudio"
+
+#. Name
+#: sidebar/trees/init/services/media.desktop:5
+msgid "Storage Media"
+msgstr "Mídia de Armazenamento"
+
+#. Name
+#: sidebar/trees/init/services/printsystem.desktop:6
+msgid "Print System Browser"
+msgstr "Sistema de Impressão"
+
+#. Name
+#: sidebar/trees/init/services/settings.desktop:5
+msgid "Settings"
+msgstr "Configurações"
+
+#. Name
+#: sidebar/trees/init/system.desktop:6
+msgid "System"
+msgstr "Sistema"
+
+#. Comment
+#: sidebar/trees/init/system.desktop:8
+msgid "This folder allows you to access common places on your computer"
+msgstr "Esta pasta permite que você acesse lugares comuns em seu computador"
+
+#. Name
+#: sidebar/trees/init/trash.desktop:9
+#, fuzzy
+msgid "Trash Folder"
+msgstr "Pasta"
+
+#. Comment
+#: sidebar/trees/init/trash.desktop:11
+#, fuzzy
+msgid "This folder displays the contents of your Trash Bin"
+msgstr "Esta pasta contém os seus arquivos pessoais"
+
+#. Name
+#: sidebar/web_module/webmodule_add.desktop:5
+#: sidebar/web_module/websidebar.desktop:5
+msgid "Web SideBar Module"
+msgstr "Módulo da Barra Lateral Web"
+
+#. Name
+#: sidebar/trees/init/remote/ftp/.directory:2
+msgid "FTP Archives"
+msgstr "Arquivos de FTP"
+
+#. Name
+#: sidebar/trees/init/remote/web/.directory:2
+msgid "Web Sites"
+msgstr "Páginas Web"

@@ -27,7 +27,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES quicklauncher.desktop DESTINATION ${DATA_INSTALL_DIR}/kicker/applets )
+tde_create_translated_desktop(
+  SOURCE quicklauncher.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kicker/applets
+  PO_DIR kicker-desktops
+)
 install( FILES launcherapplet.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 
 

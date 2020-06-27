@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 03:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: developerrc:2
+msgid "Developer"
+msgstr "개발자"
+
+#. Comment
+#: developerrc:3
+msgid "Settings preferred for developers"
+msgstr "개발자가 선호하는 설정"
+
+#. Name
+#: developerrc:13
+#, fuzzy, c-format
+msgid ""
+"The application %progname (%appname), pid %pid, crashed and caused the "
+"signal %signum (%signame)."
+msgstr ""
+"PID %pid 인 프로그램 %progname (%appname)이(가) 충돌하였고 신호 "
+"%signum(%signame)을(를) 보냈습니다."
+
+#. Name
+#: developerrc:17
+msgid "You might want to fix your program. Take a look at the backtrace tab."
+msgstr "프로그램을 디버깅할 수도 있습니다. 역추적 탭을 참고하십시오."
+
+#. Name
+#: developerrc:20 enduserrc:20
+msgid "SIGILL"
+msgstr ""
+
+#. Comment
+#: developerrc:21
+msgid "Illegal instruction."
+msgstr "잘못된 동작."
+
+#. Name
+#: developerrc:24 enduserrc:24
+msgid "SIGABRT"
+msgstr ""
+
+#. Comment
+#: developerrc:25
+msgid "Aborted."
+msgstr "중단됨."
+
+#. Name
+#: developerrc:28 enduserrc:28
+msgid "SIGFPE"
+msgstr ""
+
+#. Comment
+#: developerrc:29
+msgid "Floating point exception."
+msgstr "부동 소숫점 예외."
+
+#. Name
+#: developerrc:32 enduserrc:32
+msgid "SIGSEGV"
+msgstr ""
+
+#. Comment
+#: developerrc:33
+msgid "Invalid memory reference."
+msgstr "잘못된 메모리 참조."
+
+#. Name
+#: developerrc:36 enduserrc:36
+msgid "Unknown"
+msgstr "알 수 없음"
+
+#. Comment
+#: developerrc:37
+msgid "This signal is unknown."
+msgstr "알 수 없는 신호."
+
+#. Name
+#: enduserrc:2
+msgid "End user"
+msgstr "일반 사용자"
+
+#. Comment
+#: enduserrc:3
+msgid "Settings preferred for end users"
+msgstr "일반 사용자가 선호하는 설정"
+
+#. Name
+#: enduserrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname) crashed and caused the signal %signum "
+"(%signame)."
+msgstr ""
+"프로그램 %progname (%appname)이(가) 충돌하였고 신호 %signum(%signame)을(를) "
+"보냈습니다."
+
+#. Name
+#: enduserrc:17
+msgid ""
+"You might want to send a bug report for this application. Check if it is "
+"listed on http://bugs.trinitydesktop.org, otherwise mail the author. Please "
+"include as much information as possible, maybe the original documents. If "
+"you have a way to reproduce the error, include this also."
+msgstr ""
+
+#. Comment
+#: enduserrc:21
+msgid ""
+"An application mostly receives the SIGILL signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"프로그램의 버그로 인해서 SIGILL 신호를 받을 수도 있습니다. 프로그램에서 문서"
+"를 저장하도록 요청했습니다."
+
+#. Comment
+#: enduserrc:25
+msgid ""
+"An application terminates with a SIGABRT signal when it detects an internal "
+"inconsistency caused by a bug in the program."
+msgstr ""
+"프로그램의 버그로 인해서 내부적인 충돌이 생겨서 SIGABRT 신호와 함께 프로그램"
+"이 종료될 수 있습니다."
+
+#. Comment
+#: enduserrc:29
+msgid ""
+"An application mostly receives the SIGFPE signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"프로그램의 버그로 인해서 SIGFPE 신호를 받을 수도 있습니다. 프로그램에서 문서"
+"를 저장하도록 요청했습니다."
+
+#. Comment
+#: enduserrc:33
+msgid ""
+"An application mostly receives the SIGSEGV signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"프로그램의 버그로 인해서 SIGSEGV 신호를 받을 수도 있습니다. 프로그램에서 문서"
+"를 저장하도록 요청했습니다."
+
+#. Comment
+#: enduserrc:37
+msgid "Sorry, I do not know this signal."
+msgstr "죄송합니다. 이 신호를 알 수 없습니다."

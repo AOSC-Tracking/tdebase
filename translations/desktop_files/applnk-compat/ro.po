@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 17:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: battery.desktop:2 bwarning.desktop:2 cwarning.desktop:2 power.desktop:2
+msgid "Laptop"
+msgstr ""
+
+#. Name
+#: email.desktop:10
+msgid "Email"
+msgstr ""
+
+#. Comment
+#: email.desktop:11
+msgid "Configure your identity, email addresses, mail servers, etc."
+msgstr "Configurați identitatea dvs, adrese de email, servere de email, etc."
+
+#. Keywords
+#: email.desktop:13
+msgid ""
+"EMail;Mail;E-Mail;Address;Email server;IMAP;POP3;Local mailbox;mailbox;User "
+"Information;Reply Address;Server information;User Name;Passwords;Host;"
+"Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
+"Client;"
+msgstr ""
+"EMail;Mail;E-Mail;adresă;server email;IMAP;POP3;căsuță poștală locală;căsuță "
+"poștală;informații utilizator;adresă de răspuns;informații server;nume "
+"utilizator;parole;gazdă;profil curent;profil;organizație;gazdă sursă;gazdă "
+"destinație;client de email;"
+
+#. Name
+#: kcmkonq.desktop:2
+msgid "File Manager"
+msgstr "Manager de fișiere"
+
+#. Name
+#: kcmkxmlrpcd.desktop:2
+msgid "XML RPC Daemon"
+msgstr "Demon RPC XML"
+
+#. Name
+#: konqhtml.desktop:2
+msgid "Konqueror Browser"
+msgstr "Navigator Konqueror"
+
+#. Name
+#: passwords.desktop:11
+msgid "Passwords"
+msgstr "Parole"
+
+#. Comment
+#: passwords.desktop:13
+msgid "Configure password settings"
+msgstr "Configurează setările pentru parolă"
+
+#. Keywords
+#: passwords.desktop:15
+msgid "Passwords;tdesu;Echo characters;Remember passwords;Timeout;"
+msgstr "parole;tdesu;ecou caractere;amintește parole;limită de timp;"
+
+#. Name
+#: socks.desktop:2
+msgid "Socks"
+msgstr ""
+
+#. Name
+#: userinfo.desktop:13
+msgid "User Account"
+msgstr "Cont utilizator"
+
+#. Comment
+#: userinfo.desktop:14
+msgid "Change your account information"
+msgstr "Modificați informațiile contului dumneavoastră"
+
+#. Keywords
+#: userinfo.desktop:15
+msgid ""
+"Passwords;Password;Change Password;Icon;face;tdm;User Name;Name;Account;"
+msgstr ""
+"parole;parolă;schimbă parolă;iconiță;față;tdm;nume utilizator;nume;cont;"
+
+#. Name
+#: virtualdesktops.desktop:2
+msgid "Virtual Desktops"
+msgstr "Desktop-uri virtuale"

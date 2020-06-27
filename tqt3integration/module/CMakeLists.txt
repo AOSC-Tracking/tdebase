@@ -24,7 +24,12 @@ link_directories(
 
 ##### service desktop file(s) ##########################
 
-install( FILES kdeintegration.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
+tde_create_translated_desktop(
+  SOURCE kdeintegration.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}/kded
+  PO_DIR tdeintegration.desktop
+)
+
 
 ##### kded_kdeintegration (module) #####################
 

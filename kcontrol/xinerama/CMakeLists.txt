@@ -21,7 +21,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES xinerama.desktop DESTINATION ${APPS_INSTALL_DIR}/.hidden )
+tde_create_translated_desktop(
+  SOURCE xinerama.desktop
+  DESTINATION ${APPS_INSTALL_DIR}/.hidden
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_xinerama (module) #####################

@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 03:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: access/eventsrc:3
+msgid "Accessibility Tool"
+msgstr "Інструмент даступнасці"
+
+#. Name
+#: access/eventsrc:6
+msgid "A modifier key has become active"
+msgstr "Задзейнічаная клавіша мадыфікацыі"
+
+#. Comment
+#: access/eventsrc:7
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now active"
+msgstr ""
+"Клавіша мадыфікацыі (напр. Shift ці Ctrl) змяніла свой стан і зрабілася "
+"актыўнай"
+
+#. Name
+#: access/eventsrc:13
+msgid "A modifier key has become inactive"
+msgstr "Клавіша мадыфікацыі зрабілася неактыўнай"
+
+#. Comment
+#: access/eventsrc:14
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has changed its state and is now inactive"
+msgstr ""
+"Клавіша мадыфікацыі (напр. Shift ці Ctrl) змяніла свой стан і зрабілася "
+"неактыўнай"
+
+#. Name
+#: access/eventsrc:20
+msgid "A modifier key has been locked"
+msgstr "Клавіша мадыфікацыі заблакаваная"
+
+#. Comment
+#: access/eventsrc:21
+msgid ""
+"A modifier key (e.g. Shift or Ctrl) has been locked and is now active for "
+"all of the following keypresses"
+msgstr ""
+"Клавіша мадыфікацыі (напр. Shift ці Ctrl) была заблакаваная і цяпер актыўная "
+"для ўсіх наступных націскаў іншых клавішаў"
+
+#. Name
+#: access/eventsrc:27
+msgid "A lock key has been activated"
+msgstr "Клавіша блакіроўкі задзейнічаная"
+
+#. Comment
+#: access/eventsrc:28
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"active"
+msgstr ""
+"Клавіша блакіроўкі (напр. Caps Lock ці Num Lock) змяніла свой стан і "
+"зрабілася актыўнай"
+
+#. Name
+#: access/eventsrc:34
+msgid "A lock key has been deactivated"
+msgstr "Клавіша блакіроўкі зрабілася неактыўнай"
+
+#. Comment
+#: access/eventsrc:35
+msgid ""
+"A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
+"inactive"
+msgstr ""
+"Клавіша блакіроўкі (напр. Caps Lock ці Num Lock) змяніла свой стан і "
+"зрабілася неактыўнай"
+
+#. Name
+#. Comment
+#: access/eventsrc:41 access/eventsrc:42
+msgid "Sticky keys has been enabled or disabled"
+msgstr "Ліпучыя клавішы былі ўключаны ці выключаны"
+
+#. Name
+#. Comment
+#: access/eventsrc:48 access/eventsrc:49
+msgid "Slow keys has been enabled or disabled"
+msgstr "Марудныя клавішы былі ўключаны ці выключаны"
+
+#. Name
+#. Comment
+#: access/eventsrc:55 access/eventsrc:56
+msgid "Bounce keys has been enabled or disabled"
+msgstr "\"Рухомыя\"клавішы ўключаны ці выключаны"
+
+#. Name
+#. Comment
+#: access/eventsrc:62 access/eventsrc:63
+msgid "Mouse keys has been enabled or disabled"
+msgstr "Кнопкі мышы былі ўключаны ці выключаны"

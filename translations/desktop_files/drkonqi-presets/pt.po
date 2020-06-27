@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 03:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: developerrc:2
+msgid "Developer"
+msgstr "Desenvolvimento"
+
+#. Comment
+#: developerrc:3
+msgid "Settings preferred for developers"
+msgstr "Configurações para a equipa de desenvolvimento"
+
+#. Name
+#: developerrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname), pid %pid, crashed and caused the "
+"signal %signum (%signame)."
+msgstr ""
+"A aplicação %progname (%appname) com pid %pid estoirou e enviou o sinal "
+"%signum (%signame)."
+
+#. Name
+#: developerrc:17
+msgid "You might want to fix your program. Take a look at the backtrace tab."
+msgstr "Pode desejar corrigir o programa. Examine a página do 'backtrace'."
+
+#. Name
+#: developerrc:20 enduserrc:20
+msgid "SIGILL"
+msgstr ""
+
+#. Comment
+#: developerrc:21
+msgid "Illegal instruction."
+msgstr "Instrução inválida."
+
+#. Name
+#: developerrc:24 enduserrc:24
+msgid "SIGABRT"
+msgstr ""
+
+#. Comment
+#: developerrc:25
+msgid "Aborted."
+msgstr "Abortado."
+
+#. Name
+#: developerrc:28 enduserrc:28
+msgid "SIGFPE"
+msgstr ""
+
+#. Comment
+#: developerrc:29
+msgid "Floating point exception."
+msgstr "Excepção de virgula flutuante."
+
+#. Name
+#: developerrc:32 enduserrc:32
+msgid "SIGSEGV"
+msgstr ""
+
+#. Comment
+#: developerrc:33
+msgid "Invalid memory reference."
+msgstr "Referência a memória inválida."
+
+#. Name
+#: developerrc:36 enduserrc:36
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#. Comment
+#: developerrc:37
+msgid "This signal is unknown."
+msgstr "Este sinal é desconhecido."
+
+#. Name
+#: enduserrc:2
+msgid "End user"
+msgstr "Utilizador final"
+
+#. Comment
+#: enduserrc:3
+msgid "Settings preferred for end users"
+msgstr "Configurações para os utilizadores finais"
+
+#. Name
+#: enduserrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname) crashed and caused the signal %signum "
+"(%signame)."
+msgstr ""
+"A aplicação %progname (%appname) estoirou e enviou o sinal %signum "
+"(%signame)."
+
+#. Name
+#: enduserrc:17
+msgid ""
+"You might want to send a bug report for this application. Check if it is "
+"listed on http://bugs.trinitydesktop.org, otherwise mail the author. Please "
+"include as much information as possible, maybe the original documents. If "
+"you have a way to reproduce the error, include this also."
+msgstr ""
+"Você poderá querer enviar um relatório de erro para esta aplicação. "
+"Verifique se está listada no http://bugs.trinitydesktop.org; caso contrário, "
+"mande um e-mail ao autor. Por favor inclua o máximo possível de informação, "
+"bem como os documentos em que estava a trabalhar. Se conseguir reproduzir o "
+"erro, inclua também a forma de o fazer."
+
+#. Comment
+#: enduserrc:21
+msgid ""
+"An application mostly receives the SIGILL signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Uma aplicação normalmente recebe o sinal SIGILL devido a um erro interno. "
+"Foi pedido à aplicação que gravasse os seus documentos."
+
+#. Comment
+#: enduserrc:25
+msgid ""
+"An application terminates with a SIGABRT signal when it detects an internal "
+"inconsistency caused by a bug in the program."
+msgstr ""
+"Uma aplicação termina com um sinal SIGABRT quando detecta uma inconsistência "
+"interna causada por um erro no programa."
+
+#. Comment
+#: enduserrc:29
+msgid ""
+"An application mostly receives the SIGFPE signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Uma aplicação normalmente recebe o sinal SIGFPE devido a um erro interno. "
+"Foi pedido à aplicação que gravasse os seus documentos."
+
+#. Comment
+#: enduserrc:33
+msgid ""
+"An application mostly receives the SIGSEGV signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Uma aplicação normalmente recebe o sinal SIGSEGV devido a um erro interno. "
+"Foi pedido à aplicação que gravasse os seus documentos."
+
+#. Comment
+#: enduserrc:37
+msgid "Sorry, I do not know this signal."
+msgstr "Infelizmente, este sinal é desconhecido."

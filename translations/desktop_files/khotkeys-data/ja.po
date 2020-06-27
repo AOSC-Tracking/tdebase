@@ -1,0 +1,554 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 14:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:5
+msgid "Basic Konqueror gestures."
+msgstr ""
+"Konqueror の基本的なジェスチャーです。(マウスジェスチャーに使用するボタンは"
+"「全体設定」で変更できます)"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:8
+msgid "Konqueror Gestures"
+msgstr "Konqueror ジェスチャー"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:13 trinity2b1.khotkeys:219
+msgid "Konqueror window"
+msgstr "Konqueror ウィンドウ"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:20
+#: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
+#: trinity2b1.khotkeys:232
+#, fuzzy
+msgid "Konqueror"
+msgstr "Konqueror ウィンドウ"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:35
+msgid "Press, move left, release."
+msgstr "マウスの中ボタンを押したまま、マウスを左に動かし、ボタンを放します。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:37 trinity2b1.khotkeys:242
+msgid "Back"
+msgstr "戻る"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:41
+msgid ""
+"Opera-style: Press, move up, release.\n"
+"NOTE: Conflicts with 'New Tab', and as such is disabled by default."
+msgstr ""
+"Opera スタイル: マウスの中ボタンを押したまま、マウスを上に動かし、ボタンを放"
+"します。\n"
+"注意: 「新規タブ」と競合するため、デフォルトでは無効になっています。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:43
+msgid "Stop Loading"
+msgstr "読み込みを停止"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:58
+#: konqueror_gestures_trinity21.khotkeys:83
+#: konqueror_gestures_trinity21.khotkeys:108
+#: konqueror_gestures_trinity21.khotkeys:133
+#: konqueror_gestures_trinity21.khotkeys:158
+#: konqueror_gestures_trinity21.khotkeys:177
+#: konqueror_gestures_trinity21.khotkeys:202
+#: konqueror_gestures_trinity21.khotkeys:227
+#: konqueror_gestures_trinity21.khotkeys:252
+#: konqueror_gestures_trinity21.khotkeys:277
+#: konqueror_gestures_trinity21.khotkeys:306
+#: konqueror_gestures_trinity21.khotkeys:335
+#: konqueror_gestures_trinity21.khotkeys:360
+#: konqueror_gestures_trinity21.khotkeys:385 trinity2b1.khotkeys:257
+#: trinity2b1.khotkeys:289 trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
+msgid "Gesture_triggers"
+msgstr ""
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:66
+msgid ""
+"Going up in URL/directory structure.\n"
+"Mozilla-style: Press, move up, move left, move up, release."
+msgstr ""
+"URL/ディレクトリ構造の一つ上に移動します。\n"
+"Mozilla スタイル: マウスの中ボタンを押したまま、マウスを上->左->上の順に動か"
+"し、ボタンを放します。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:68 trinity2b1.khotkeys:306
+msgid "Up"
+msgstr "上"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:91
+msgid ""
+"Going up in URL/directory structure.\n"
+"Opera-style: Press, move up, move left, move up, release.\n"
+"NOTE: Conflicts with  \"Activate Previous Tab\", and as such is disabled by "
+"default."
+msgstr ""
+"URL/ディレクトリ構造の一つ上に移動します。\n"
+"Opera スタイル: マウスの中ボタンを押したまま、マウスを上->左->上の順に動か"
+"し、ボタンを放します。\n"
+"注意: 「前のタブをアクティブに」と競合するため、デフォルトでは無効になってい"
+"ます。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:93
+msgid "Up #2"
+msgstr "上 #2"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:116
+msgid "Press, move up, move right, release."
+msgstr ""
+"マウスの中ボタン押したまま、マウスを上->右の順に動かし、ボタンを放します。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:118
+msgid "Activate Next Tab"
+msgstr "次のタブをアクティブに"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:141
+msgid "Press, move up, move left, release."
+msgstr ""
+"マウスの中ボタンを押したまま、マウスを上->左の順に動かし、ボタンを放します。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:143
+msgid "Activate Previous Tab"
+msgstr "前のタブをアクティブに"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:185
+msgid "Press, move down, move up, move down, release."
+msgstr ""
+"マウスの中ボタンを押したまま、マウスを下->上->下の順に動かし、ボタンを放しま"
+"す。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:187
+msgid "Duplicate Tab"
+msgstr "タブを複製"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:210
+msgid "Press, move down, move up, release."
+msgstr ""
+"マウスの中ボタンを押したまま、マウスを下->上の順に動かし、ボタンを放します。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:212
+msgid "Duplicate Window"
+msgstr "ウィンドウを複製"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:235
+msgid "Press, move right, release."
+msgstr "マウスの中ボタンを押したまま、マウスを右に動かし、ボタンを放します。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:237 trinity2b1.khotkeys:274
+msgid "Forward"
+msgstr "進む"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:260
+msgid ""
+"Press, move down, move half up, move right, move down, release.\n"
+"(Drawing a lowercase 'h'.)"
+msgstr ""
+"マウスの中ボタンを押したまま、マウスを下に動かし、次に半分の距離だけ上に動か"
+"し、さらに右->下の順に動かし、ボタンを放します。\n"
+"(小文字の 'h' を描くように)"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:262
+msgid "Home"
+msgstr "ホーム"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:289
+msgid ""
+"Press, move right, move down, move right, release.\n"
+"Mozilla-style: Press, move down, move right, release."
+msgstr ""
+"マウスの中ボタンを押したまま、マウスを右->下->右の順に動かし、ボタンを放しま"
+"す。\n"
+"Mozilla スタイル: マウスの中ボタンを押したまま、マウスを下->右の順に動かし、"
+"ボタンを放します。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:291
+msgid "Close Tab"
+msgstr "タブを閉じる"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:318
+msgid ""
+"Press, move up, release.\n"
+"Conflicts with Opera-style 'Up #2', which is disabled by default."
+msgstr ""
+"マウスの中ボタンを押したまま、マウスを上に動かし、ボタンを放します。\n"
+"デフォルトで無効になっている Opera スタイルの「上 #2」と競合します。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:320
+msgid "New Tab"
+msgstr "新規タブ"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:343
+msgid "Press, move down, release."
+msgstr "マウスの中ボタンを押したまま、マウスを下に動かし、ボタンを放します。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:345
+msgid "New Window"
+msgstr "新規ウィンドウ"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:368
+msgid "Press, move up, move down, release."
+msgstr ""
+"マウスの中ボタンを押したまま、マウスを上->下の順に動かし、ボタンを放します。"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:370 trinity2b1.khotkeys:338
+msgid "Reload"
+msgstr "再読み込み"
+
+#. Comment
+#: printscreen.khotkeys:5
+msgid "This group contains actions that are set up by default."
+msgstr "このグループにはデフォルトで設定されているアクションが含まれています。"
+
+#. Name
+#: printscreen.khotkeys:8
+msgid "Preset Actions"
+msgstr "プリセットアクション"
+
+#. Comment
+#: printscreen.khotkeys:17
+msgid "Launches KSnapShot when PrintScrn is pressed."
+msgstr "PrintScrn を押して KSnapShot を起動します。"
+
+#. Name
+#: printscreen.khotkeys:19
+msgid "PrintScreen"
+msgstr ""
+
+#. Comment
+#: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
+#: trinity2b1.khotkeys:71 trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
+#: trinity2b1.khotkeys:203 trinity2b1.khotkeys:385
+msgid "Simple_action"
+msgstr ""
+
+#. Comment
+#: printscreen.khotkeys:41
+#, fuzzy
+msgid ""
+"Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
+msgstr "PrintScrn を押して KSnapShot を起動します。"
+
+#. Name
+#: printscreen.khotkeys:43
+msgid "PrintWindow"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:5
+msgid ""
+"This group contains various examples demonstrating most of the features of "
+"KHotkeys. (Note that this group and all its actions are disabled by default.)"
+msgstr ""
+"このグループには KHotkeys が提供するさまざまな機能の使用例が含まれています "
+"(デフォルトではこのグループとそのアクションはすべて無効になっています)。"
+
+#. Name
+#: trinity2b1.khotkeys:8
+msgid "Examples"
+msgstr "使用例"
+
+#. Comment
+#: trinity2b1.khotkeys:16
+msgid ""
+"After pressing Ctrl+Alt+I, the KSIRC window will be activated, if it exists. "
+"Simple."
+msgstr ""
+"Ctrl+Alt+I を押すと、存在すれば KSIRC ウィンドウがアクティブになります。これ"
+"は単純です。"
+
+#. Name
+#: trinity2b1.khotkeys:18
+msgid "Activate KSIRC Window"
+msgstr "KSIRC ウィンドウをアクティブに"
+
+#. Comment
+#: trinity2b1.khotkeys:28
+msgid "KSIRC window"
+msgstr "KSIRC ウィンドウ"
+
+#. Comment
+#: trinity2b1.khotkeys:34
+msgid "KSIRC"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:54
+msgid ""
+"After pressing Alt+Ctrl+H, 'Hello' input will be simulated just like if you "
+"typed it. Especially useful if you're lazy to type things like 'unsigned'. "
+"Every keypress in the input is separated by a colon ':' . Note that the "
+"keypresses mean really keypresses, so you have to write what you'd really "
+"press on the keyboard. In the table below, left column shows the input and "
+"the right column shows what to type.\n"
+"\n"
+"\"enter\" (i.e. new line)                Enter or Return\n"
+"a (i.e. small a)                          A\n"
+"A (i.e. capital a)                       Shift+A\n"
+": (colon)                                  Shift+;\n"
+"' '  (space)                              Space"
+msgstr ""
+"Alt+Ctrl+H を押して 'Hello' という文字列を入力します。例えば 'unsigned' のよ"
+"うな表現を入力するのが面倒だと思う場合に役立ちます。キーボード入力に登録する"
+"キー押下は、それぞれコロン (:) で区切ります。このキー押下とは、押すキーを意味"
+"します。つまり、キーによって入力される文字ではなく、あなたが実際に押すキー"
+"ボード上のキーを登録しなければなりません。以下の例では、左側が入力で、右側が"
+"キー押下です。\n"
+"\n"
+"\"enter\" (改行)                Enter または Return\n"
+"a (小文字の a)                          A\n"
+"A (大文字の a)                       Shift+A\n"
+": (コロン)                                  Shift+; (US 配列の場合)\n"
+"' '  (スペース)                              Space"
+
+#. Name
+#: trinity2b1.khotkeys:56
+msgid "Type 'Hello'"
+msgstr "'Hello' を入力"
+
+#. Comment
+#: trinity2b1.khotkeys:79
+msgid "This action runs Konsole, after pressing Ctrl+Alt+T."
+msgstr "Ctrl+Alt+T を押して Konsole を起動します。"
+
+#. Name
+#: trinity2b1.khotkeys:81
+msgid "Run Konsole"
+msgstr "Konsole を起動"
+
+#. Comment
+#: trinity2b1.khotkeys:103
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Qt Designer uses Ctrl+F4 for closing windows (maybe because MS Windows does "
+"it that way *shrug*). But Ctrl+F4 in TDE stands for going to virtual desktop "
+"4, so it doesn't work in Qt Designer, and also, Qt Designer doesn't use "
+"TDE's standard Ctrl+W for closing the window.\n"
+"\n"
+"But the problem can be solved by remaping Ctrl+W to Ctrl+F4 when the active "
+"window is Qt Designer. When Qt Designer is active, every time Ctrl+W is "
+"pressed, Ctrl+F4 will be sent to Qt Designer instead. In other applications, "
+"Ctrl+W remains working the usual way of course.\n"
+"\n"
+"We now need to specify three things: A new shortcut trigger on 'Ctrl+W', a "
+"new keyboard input action sending Ctrl+F4, and a new condition that the "
+"active window is Qt Designer.\n"
+"Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
+"condition will check for the active window having that title."
+msgstr ""
+"まず「'Hello' を入力」の説明をお読みください。\n"
+"\n"
+"Qt デザイナーは Ctrl+F4 でウィンドウを閉じます (おそらく MS Windows がそのよ"
+"うになっているためでしょう、やれやれ)。しかし、TDE では Ctrl+F4 は仮想デスク"
+"トップ 4 への切り替えに割り当てられているため、動きません。また、Qt デザイ"
+"ナーは TDE 標準の Ctrl+W でウィンドウを閉じません。\n"
+"\n"
+"この問題は、Qt デザイナーがアクティブウィンドウである場合に限って Ctrl+W を "
+"Ctrl+F4 に割り当て直すことで解決できます。Qt デザイナーがアクティブなときに "
+"Ctrl+W を押すと、Ctrl+F4 が代わりに Qt デザイナーへ送られます。他のアプリケー"
+"ションでは Ctrl+W が通常どおりに動きます。\n"
+"\n"
+"このためには 3 つのことを指定する必要があります。新しいショートカットトリガ "
+"'Ctrl+W'、Ctrl+F4 を送る新しいキーボード入力アクション、そして「アクティブ"
+"ウィンドウは Qt デザイナー」という条件です。\n"
+"Qt デザイナーは常に 'Qt Designer by Trolltech' というタイトルを持っているよう"
+"なので、そのタイトルを持つアクティブウィンドウという条件を指定します。"
+
+#. Name
+#: trinity2b1.khotkeys:105
+msgid "Remap Ctrl+W to Ctrl+F4 in Qt Designer"
+msgstr "Qt デザイナーで Ctrl+W を Ctrl+F4 に割り当て直す"
+
+#. Comment
+#: trinity2b1.khotkeys:123
+msgid "Qt Designer"
+msgstr "Qt デザイナー"
+
+#. Comment
+#: trinity2b1.khotkeys:144
+msgid ""
+"By pressing Alt+Ctrl+W a DCOP call will be performed that will show the "
+"minicli. You can use any kind of DCOP call, just like using the command line "
+"'dcop' tool."
+msgstr ""
+"Alt+Ctrl+W を押すと、「コマンドを実行」ダイアログを表示する DCOP 呼び出しが実"
+"行されます。コマンドラインの 'dcop' ツールと同様に、あらゆる DCOP 呼び出しが"
+"使えます。"
+
+#. Name
+#: trinity2b1.khotkeys:146
+msgid "Perform DCOP call 'kdesktop KDesktopIface popupExecuteCommand()'"
+msgstr "DCOP 呼び出し 'kdesktop KDesktopIface popupExecuteCommand()' を実行"
+
+#. Comment
+#: trinity2b1.khotkeys:171
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Just like the \"Type 'Hello'\" action, this one simulates a keyboard input, "
+"specifically, after pressing Ctrl+Alt+B, it sends B to XMMS (B in XMMS jumps "
+"to the next song). The 'Send to specific window' checkbox is checked and a "
+"window with its class containing 'XMMS_Player' is specified; this will make "
+"the input always be sent to this window. This way, you can control XMMS even "
+"if it's e.g. on a different virtual desktop.\n"
+"\n"
+"(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
+"'XMMS_Player')."
+msgstr ""
+"まず「'Hello' を入力」の説明をお読みください。\n"
+"\n"
+"アクション「'Hello' を入力」と同様に、これもキーボード入力をシミュレートしま"
+"す。具体的には、Ctrl+Alt+B を押して XMMS に B を送ります (XMMS では B で次の"
+"曲に移ります)。入力の送り先に「特定のウィンドウ」を選択し、ウィンドウクラス"
+"に 'XMMS_Player' を指定します (入力を常にこのウィンドウに送るため)。これに"
+"よって、他の仮想デスクトップにある XMMS も制御することができます。\n"
+"\n"
+"('XMMS_Player' を見るには、'xprop' を実行し、XMMS ウィンドウをクリックして "
+"WM_CLASS を探します)"
+
+#. Name
+#: trinity2b1.khotkeys:173
+msgid "Next in XMMS"
+msgstr "XMMS の次の曲"
+
+#. Comment
+#: trinity2b1.khotkeys:185
+msgid "XMMS window"
+msgstr "XMMS ウィンドウ"
+
+#. Comment
+#: trinity2b1.khotkeys:191
+msgid "XMMS Player window"
+msgstr "XMMS プレーヤウィンドウ"
+
+#. Comment
+#: trinity2b1.khotkeys:211
+msgid ""
+"Ok, Konqi in TDE has tabs, and now you can also have gestures. No need to "
+"use other browsers >;).\n"
+"\n"
+"Just press the middle mouse button and start drawing one of the gestures, "
+"and after you're finished, release the mouse button. If you only need to "
+"paste the selection, it still works, simply only click the middle mouse "
+"button. (You can change the mouse button to use in the global settings).\n"
+"\n"
+"Right now, there are these gestures available:\n"
+"move right and back left - Forward (ALt+Right)\n"
+"move left and back right - Back (Alt+Left)\n"
+"move up and back down  - Up (Alt+Up)\n"
+"circle anticlockwise - Reload (F5)\n"
+" (As soon as I find out which ones are in Opera or Mozilla, I'll add more "
+"and make sure they are the same. Or if you do it yourself, feel free to help "
+"me and send me your khotkeysrc.)\n"
+"\n"
+"The gestures shapes (some of the dialogs are from KGesture, thanks to Mike "
+"Pilone) can be simply entered by performing them in the configuration "
+"dialog. You can also look at your numeric pad to help you, gestures are "
+"recognized like a 3x3 grid of fields, numbered 1 to 9.\n"
+"\n"
+"Note that you must perform exactly the gesture to trigger the action. "
+"Because of this, it's possible to enter more gestures for the action. You "
+"should try to avoid complicated gestures where you change the direction of "
+"mouse moving more than once (i.e. do e.g. 45654 or 74123 as they are simple "
+"to perform but e.g. 1236987 may be already quite difficult).\n"
+"\n"
+"The condition for all gestures are defined in this group. All these gestures "
+"are active only if the active window is Konqueror (class contains "
+"'konqueror')."
+msgstr ""
+"Konqueror は TDE でタブとマウスジェスチャーを実装しました。もう他のブラウザを"
+"使う必要はありません。;)\n"
+"\n"
+"まずマウスの中ボタンを押して、押したままジェスチャーを描いて、描き終えたらボ"
+"タンを放してください。選択を貼り付けるときは、マウスの中ボタンを押すだけで"
+"す。マウスジェスチャーに使用するボタンは「全体設定」で変更できます。\n"
+"\n"
+"現在利用できるジェスチャーは以下のとおりです。\n"
+"右->左 - 進む (ALt+右)\n"
+"左->右 - 戻る (Alt+左)\n"
+"上->下 - 上 (Alt+上)\n"
+"反時計回りに一周 - 再読み込み (F5)\n"
+" (これ以外にも Opera や Mozilla で実装されているものが分かれば、Konqueror に"
+"も追加し、同じように動くようにします。あなた自身で追加したら、ぜひあなたの "
+"khotkeysrc を送ってください)\n"
+"\n"
+"ジェスチャーの形は設定ダイアログで実際に描くことによって登録できます (ダイア"
+"ログの一部は Mike Pilone による KGesture から流用しました)。テンキーも参考に"
+"してください。ジェスチャーは 3x3 のグリッドの 1 から 9 の数値として認識されま"
+"す。\n"
+"\n"
+"アクションはジェスチャーを正確に再現しなければ実行されません。このため、一つ"
+"のアクションに複数のジェスチャーを登録できるようになっています。マウスを動か"
+"す方向を 2 度以上変える場合は、あまり複雑にしないでください (45654 や 74123 "
+"を描くのは簡単ですが、1236987 は既に難しいかもしれません)。\n"
+"\n"
+"すべてのジェスチャーの条件はこのグループに定義されています。これらのジェス"
+"チャーは、アクティブなウィンドウが Konqueror の場合 (ウィンドウのクラスが "
+"'konqueror' を含む場合) にのみ有効になります。"
+
+#. Name
+#: trinity2b1.khotkeys:214
+msgid "Konqi Gestures"
+msgstr "Konqi ジェスチャー"
+
+#. Comment
+#: trinity2b1.khotkeys:369
+msgid ""
+"After pressing Win+E (Tux+E), WWW browser will be launched and it will open "
+"http://www.trinitydesktop.org . You may run all kind of commands you can run "
+"in minicli (Alt+F2)."
+msgstr ""
+"Win+E (Tux+E) を押すと、ウェブブラウザが起動し、http://www.trinitydesktop."
+"org を開きます。Alt+F2 で開く「コマンドを実行」ダイアログで実行できるあらゆる"
+"コマンドを指定できます。"
+
+#. Name
+#: trinity2b1.khotkeys:371
+msgid "Go to TDE Website"
+msgstr "TDE ウェブサイトを訪問"

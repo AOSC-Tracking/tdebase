@@ -1,0 +1,309 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 16:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: .directory:2
+msgid "Default"
+msgstr "標準"
+
+#. Name
+#: hidden.directory:4
+msgid "Internal Services"
+msgstr "内部サービス"
+
+#. Name
+#: kde-development-webdevelopment.directory:4
+#: tde-development-webdevelopment.directory:4
+msgid "Web Development"
+msgstr "ウェブ開発"
+
+#. Name
+#: kde-development.directory:4 kde-games.directory:4 kde-graphics.directory:4
+#: kde-internet.directory:4 kde-multimedia.directory:4 kde-office.directory:4
+#: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
+#: kde-utilities.directory:4
+msgid "KDE"
+msgstr ""
+
+#. Name
+#: kde-editors.directory:4 tde-editors.directory:4
+msgid "Editors"
+msgstr "エディタ"
+
+#. Name
+#: kde-edu-languages.directory:4
+msgid "Languages"
+msgstr ""
+
+#. Name
+#: kde-edu-mathematics.directory:4
+msgid "Mathematics"
+msgstr ""
+
+#. Name
+#: kde-edu-miscellaneous.directory:4
+msgid "Miscellaneous"
+msgstr ""
+
+#. Name
+#: kde-edu-science.directory:4 tde-science.directory:5
+msgid "Science"
+msgstr "サイエンス"
+
+#. Name
+#: kde-games-arcade.directory:4 tde-games-arcade.directory:4
+msgid "Arcade"
+msgstr "アーケード"
+
+#. Name
+#: kde-games-board.directory:4 tde-games-board.directory:4
+msgid "Board Games"
+msgstr "ボードゲーム"
+
+#. Name
+#: kde-games-card.directory:4 tde-games-card.directory:4
+msgid "Card Games"
+msgstr "カードゲーム"
+
+#. Name
+#: kde-games-kids.directory:4 tde-games-kids.directory:4
+msgid "Games for Kids"
+msgstr "子供向けゲーム"
+
+#. Name
+#: kde-games-strategy.directory:4 tde-games-strategy.directory:4
+msgid "Tactics & Strategy"
+msgstr "戦略 & 戦術"
+
+#. Name
+#: kde-toys.directory:4 tde-toys.directory:4
+msgid "Toys"
+msgstr "アクセサリ"
+
+#. Name
+#. Comment
+#: kde-utilities-accessibility.directory:4
+#: tde-utilities-accessibility.directory:4
+#: tde-utilities-accessibility.directory:6
+msgid "Accessibility"
+msgstr "アクセシビリティ"
+
+#. Name
+#. Comment
+#: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
+#: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
+msgid "Desktop"
+msgstr "デスクトップ"
+
+#. Name
+#. Comment
+#: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
+#: tde-utilities-pim.directory:6
+msgid "PIM"
+msgstr ""
+
+#. Name
+#: tde-development-translation.directory:4
+msgid "Translation"
+msgstr "翻訳"
+
+#. Name
+#: tde-development.directory:4
+msgid "Development"
+msgstr "開発"
+
+#. Name
+#: tde-edutainment.directory:4
+msgid "Edutainment"
+msgstr "エデュテインメント"
+
+#. Name
+#: tde-games-logic.directory:4
+#, fuzzy
+msgid "Logic Games"
+msgstr "Rogue 風のゲーム"
+
+#. Name
+#: tde-games-roguelikes.directory:4
+msgid "Rogue-like Games"
+msgstr "Rogue 風のゲーム"
+
+#. Name
+#: tde-games.directory:4
+msgid "Games"
+msgstr "ゲーム"
+
+#. Name
+#: tde-graphics.directory:4
+msgid "Graphics"
+msgstr "グラフィックス"
+
+#. Name
+#: tde-internet-terminal.directory:4 tde-system-terminal.directory:4
+msgid "Terminal Applications"
+msgstr "ターミナルアプリケーション"
+
+#. Name
+#: tde-internet.directory:4
+msgid "Internet"
+msgstr "インターネット"
+
+#. Name
+#: tde-main.directory:5
+msgid "TDE Menu"
+msgstr "TDE メニュー"
+
+#. Name
+#: tde-more.directory:5
+msgid "More Applications"
+msgstr "その他のアプリケーション"
+
+#. Name
+#: tde-multimedia.directory:4
+msgid "Multimedia"
+msgstr "マルチメディア"
+
+#. Name
+#. Comment
+#: tde-office-pim.directory:4 tde-office-pim.directory:6
+msgid "Personal Information Management"
+msgstr ""
+
+#. Name
+#: tde-office.directory:4
+msgid "Office"
+msgstr "オフィス"
+
+#. Name
+#: tde-settings-accessibility.directory:4
+msgid "Regional & Accessibility"
+msgstr "地域 & アクセシビリティ"
+
+#. Name
+#: tde-settings-components.directory:4
+msgid "TDE Components"
+msgstr "TDE コンポーネント"
+
+#. Name
+#: tde-settings-hardware.directory:4
+msgid "Hardware"
+msgstr "ハードウェア"
+
+#. Name
+#: tde-settings-information.directory:4
+msgid "Device Informations"
+msgstr ""
+
+#. Name
+#: tde-settings-looknfeel.directory:4
+msgid "Appearance & Themes"
+msgstr "外観 & テーマ"
+
+#. Name
+#: tde-settings-network.directory:4
+msgid "Internet & Network"
+msgstr "インターネット & ネットワーク"
+
+#. Name
+#. Comment
+#: tde-settings-peripherals.directory:4 tde-utilities-peripherals.directory:4
+#: tde-utilities-peripherals.directory:6
+msgid "Peripherals"
+msgstr "周辺機器"
+
+#. Name
+#: tde-settings-power.directory:4
+msgid "Power Control"
+msgstr "電源管理"
+
+#. Name
+#: tde-settings-security.directory:4
+msgid "Security & Privacy"
+msgstr "セキュリティ & プライバシー"
+
+#. Name
+#: tde-settings-sound.directory:4
+msgid "Sound & Multimedia"
+msgstr "サウンド & マルチメディア"
+
+#. Name
+#: tde-settings-system.directory:4
+msgid "System Administration"
+msgstr "システム管理"
+
+#. Name
+#: tde-settings-webbrowsing.directory:4
+msgid "Web Browser"
+msgstr "ウェブブラウザ"
+
+#. Name
+#: tde-settings.directory:4
+msgid "Settings-Modules"
+msgstr "設定モジュール"
+
+#. Name
+#: tde-settingsmenu.directory:4
+msgid "Settings"
+msgstr "設定"
+
+#. Name
+#: tde-system-screensavers.directory:4
+msgid "Screen Savers"
+msgstr "スクリーンセーバー"
+
+#. Comment
+#: tde-system-screensavers.directory:8
+msgid "Screen saver demos"
+msgstr "スクリーンセーバーのデモ"
+
+#. Name
+#: tde-system-su.directory:5
+msgid "SuperUser"
+msgstr ""
+
+#. Name
+#: tde-system.directory:4
+msgid "System"
+msgstr "システム"
+
+#. Name
+#: tde-unknown.directory:4
+msgid "Lost & Found"
+msgstr ""
+
+#. Name
+#. Comment
+#: tde-utilities-file.directory:4 tde-utilities-file.directory:6
+msgid "File"
+msgstr "ファイル"
+
+#. Name
+#: tde-utilities-xutils.directory:4
+msgid "X-Utilities"
+msgstr "X-ユーティリティ"
+
+#. Comment
+#: tde-utilities-xutils.directory:6
+msgid "X Window Utilities"
+msgstr "X ウィンドウユーティリティ"
+
+#. Name
+#. Comment
+#: tde-utilities.directory:4 tde-utilities.directory:6
+msgid "Utilities"
+msgstr "ユーティリティ"

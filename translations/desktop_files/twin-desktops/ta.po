@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmtwin/showdesktop.desktop:4
+msgid "Show Desktop"
+msgstr ""
+
+#. Comment
+#: kcmtwin/showdesktop.desktop:6
+msgid "A button that gives quick access to the desktop when pressed"
+msgstr ""
+
+#. Name
+#: kcmtwin/twindecoration/twindecoration.desktop:11
+msgid "Window Decorations"
+msgstr "சாளர அலங்கரிப்புகள்"
+
+#. Comment
+#: kcmtwin/twindecoration/twindecoration.desktop:13
+msgid "Configure the look and feel of window titles"
+msgstr "சாளரம் மற்றும் தலைப்பின் காட்சிவகையை மாற்று"
+
+#. Keywords
+#: kcmtwin/twindecoration/twindecoration.desktop:15
+msgid ""
+"twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
+"kwm;decoration;"
+msgstr ""
+"twin;சாளரம்;மேலாளர்;விளிம்பு;பாணி;தலைப்பு;பார்வை;உணர்தல்;உருவரை;விசை;கையாள்;முனை;kwm;"
+"அலங்கரிப்பு;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactions.desktop:11
+msgid "Actions"
+msgstr "செயல்கள்"
+
+#. Comment
+#: kcmtwin/twinoptions/twinactions.desktop:13
+msgid "Configure keyboard and mouse settings"
+msgstr "விசைப்பலகையையும் சுட்டியையும் வடிவமை"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactions.desktop:15
+msgid ""
+"shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
+"resize;"
+msgstr ""
+"நிழல்; பெரிதாக்கு;பெரிதாக்கு;சிறிதாக்கு; சிறிதாக்கு; குறைந்த;செயல்கள் பட்டி;தலைப்பு "
+"பட்டி; அளவை மாற்று;"
+
+#. Name
+#: kcmtwin/twinoptions/twinadvanced.desktop:11
+msgid "Advanced"
+msgstr "உயர்நிலை "
+
+#. Comment
+#: kcmtwin/twinoptions/twinadvanced.desktop:13
+msgid "Configure advanced window management features"
+msgstr "மேம்பட்ட சாளர மேலாளரின் தன்மைகளை வடிவமை"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinadvanced.desktop:15
+msgid "shading;border;hover;active borders;"
+msgstr "நிழலிடுதல்;விளிம்பு;ஹோவர்; செயலில் உள்ள விளிம்புகள்;"
+
+#. Name
+#: kcmtwin/twinoptions/twinfocus.desktop:11
+msgid "Focus"
+msgstr "முனைப்படுத்து"
+
+#. Comment
+#: kcmtwin/twinoptions/twinfocus.desktop:13
+msgid "Configure the window focus policy"
+msgstr "சாளர துவக்க முறையை வடிவமை"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinfocus.desktop:15
+msgid ""
+"focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
+"desktop;"
+msgstr ""
+"ஒருமுகப்படுத்துதல்;இடம்; தானாக மேலெழும்பு; மேலேழும்புதல்; மேல் க்ளிக்செய்;விசைப்பலகை;CDE;"
+"alt-tab;எல்லா மேல்மேசை;"
+
+#. Name
+#: kcmtwin/twinoptions/twinmoving.desktop:11
+msgid "Moving"
+msgstr "நகர்கிறது"
+
+#. Comment
+#: kcmtwin/twinoptions/twinmoving.desktop:13
+msgid "Configure the way that windows are moved"
+msgstr "சாளரம் நகர்ரும் விதத்தை அமை"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinmoving.desktop:15
+msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
+msgstr ""
+"நகரும்;புத்திசாலி;மேலுக்குமேல்; பெரிதாக்கு;பெரிதாக்கு;நிழற் படமெடுப்பு பகுதி;நிழற்படம்;"
+"விளிம்பு;"
+
+#. Name
+#: kcmtwin/twinoptions/twinoptions.desktop:11
+msgid "Window Behavior"
+msgstr "சாளர நடத்தை"
+
+#. Comment
+#: kcmtwin/twinoptions/twinoptions.desktop:13
+msgid "Configure the window behavior"
+msgstr "º¡ÇÃò¾¢ý Àñ¨À ¯ûÇ¨Á"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinoptions.desktop:15
+msgid ""
+"focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
+"titlebar;doubleclick;"
+msgstr ""
+"பார்வை;இடம்;சாளரபண்பு;உயிர்சித்திரம்;மேலெழுப்பு; தானாக மேலெழுப்பு;சாளரங்கள்;சட்டம்;"
+"தலைப்புப்பட்டி;இரண்டு சொடுக்கு;"
+
+#. Name
+#: kcmtwin/twinoptions/twintranslucency.desktop:11
+msgid "Translucency"
+msgstr "ஒளிகசிவு"
+
+#. Comment
+#: kcmtwin/twinoptions/twintranslucency.desktop:13
+msgid "Configure window translucency and shadow management"
+msgstr "சாளர ஒளிகசிவு மற்றும் நிழல் மேலாண்மையை வடிவமை"
+
+#. Keywords
+#: kcmtwin/twinoptions/twintranslucency.desktop:15
+msgid "translucency;transparence;shadows;"
+msgstr "ஒளிகசிவு;ஊடகத்தன்மை;நிழல்கள்;"
+
+#. Name
+#: kcmtwin/twinrules/twinrules.desktop:11
+msgid "Window-Specific Settings"
+msgstr "சாளர-குறிப்பிடும் அமைப்புகள்"
+
+#. Comment
+#: kcmtwin/twinrules/twinrules.desktop:13
+msgid "Configure settings specifically for a window"
+msgstr "TDE செயல்திறனை அதிகப்படுத்தும் அமைப்புகளை அமை"
+
+#. Keywords
+#: kcmtwin/twinrules/twinrules.desktop:15
+msgid ""
+"size;position;state;window behavior;windows;specific;workarounds;remember;"
+"rules;"
+msgstr "அளவு;நிலை;மாநிலம்;சாளர நடத்தை;சாளரங்கள்;குறிப்பிட்ட;பணிவட்டாரங்கள்;விதிகள்;"
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:2
+msgid "(Default) Disable focus stealing prevention for XV"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:10
+msgid "(Default) Allow focus stealing by the screen locker"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:21
+msgid "(Default) Allow focus stealing by the kdesktop run dialog"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:32
+msgid "(Default) Allow focus stealing by the settings test dialog"
+msgstr ""
+
+#. Description
+#: data/fsp_workarounds_1.twinrules:45
+msgid "(Default) Hide system modal dialog class from taskbar"
+msgstr ""

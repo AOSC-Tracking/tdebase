@@ -38,12 +38,19 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     thumbnail.protocol imagethumbnail.desktop textthumbnail.desktop
     htmlthumbnail.desktop djvuthumbnail.desktop
-  DESTINATION ${SERVICES_INSTALL_DIR} )
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
-install( FILES thumbcreator.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE thumbcreator.desktop
+  DESTINATION ${SERVICETYPES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdeio_thumbnail (module) ####################
@@ -113,7 +120,11 @@ if( WITH_XCURSOR )
     DESTINATION ${PLUGIN_INSTALL_DIR}
   )
 
-  install( FILES cursorthumbnail.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+  tde_create_translated_desktop(
+    SOURCE cursorthumbnail.desktop
+    DESTINATION ${SERVICES_INSTALL_DIR}
+    PO_DIR tdeioslave-desktops
+  )
 
 endif( WITH_XCURSOR )
 
@@ -130,6 +141,10 @@ if( WITH_OPENEXR )
     DESTINATION ${PLUGIN_INSTALL_DIR}
   )
 
-  install( FILES exrthumbnail.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+  tde_create_translated_desktop(
+    SOURCE exrthumbnail.desktop
+    DESTINATION ${SERVICES_INSTALL_DIR}
+    PO_DIR tdeioslave-desktops
+  )
 
 endif( WITH_OPENEXR )

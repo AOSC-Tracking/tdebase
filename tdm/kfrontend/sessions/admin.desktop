@@ -3,5 +3,7 @@ Encoding=UTF-8
 Type=XSession
 Exec=YaSTadminSession
 TryExec=YaSTadminSession
+
 Name=admin
+
 Comment=Yast Admin Session

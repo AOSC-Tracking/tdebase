@@ -28,13 +28,15 @@ endif( WITH_OPENGL )
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     memory.desktop processor.desktop dma.desktop
     interrupts.desktop ioports.desktop pci.desktop
     sound.desktop devices.desktop scsi.desktop
     partitions.desktop xserver.desktop cdinfo.desktop
     ${OPENGL_DESKTOP}
-  DESTINATION ${XDG_APPS_INSTALL_DIR} )
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_info (module) #########################

@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES tar.protocol ar.protocol zip.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE tar.protocol ar.protocol zip.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdeio_tar (module) #######################

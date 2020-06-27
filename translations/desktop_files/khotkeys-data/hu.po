@@ -1,0 +1,544 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 14:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:5
+msgid "Basic Konqueror gestures."
+msgstr "Néhány egyszerű mozdulatsor a Konquerorhoz."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:8
+msgid "Konqueror Gestures"
+msgstr "Konqueror-mozdulatsorok"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:13 trinity2b1.khotkeys:219
+msgid "Konqueror window"
+msgstr "Konqueror-ablak"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:20
+#: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
+#: trinity2b1.khotkeys:232
+#, fuzzy
+msgid "Konqueror"
+msgstr "Konqueror-ablak"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:35
+msgid "Press, move left, release."
+msgstr "Lenyomás, balra, elengedés."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:37 trinity2b1.khotkeys:242
+msgid "Back"
+msgstr "Vissza"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:41
+msgid ""
+"Opera-style: Press, move up, release.\n"
+"NOTE: Conflicts with 'New Tab', and as such is disabled by default."
+msgstr ""
+"Opera-stílus: lenyomás, fel, elengedés.\n"
+"MEGJEGYZÉS: Ütközik az 'Új lap' paranccsal, ezért alapértelmezésben le van "
+"tiltva."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:43
+msgid "Stop Loading"
+msgstr "A betöltés leállítása"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:58
+#: konqueror_gestures_trinity21.khotkeys:83
+#: konqueror_gestures_trinity21.khotkeys:108
+#: konqueror_gestures_trinity21.khotkeys:133
+#: konqueror_gestures_trinity21.khotkeys:158
+#: konqueror_gestures_trinity21.khotkeys:177
+#: konqueror_gestures_trinity21.khotkeys:202
+#: konqueror_gestures_trinity21.khotkeys:227
+#: konqueror_gestures_trinity21.khotkeys:252
+#: konqueror_gestures_trinity21.khotkeys:277
+#: konqueror_gestures_trinity21.khotkeys:306
+#: konqueror_gestures_trinity21.khotkeys:335
+#: konqueror_gestures_trinity21.khotkeys:360
+#: konqueror_gestures_trinity21.khotkeys:385 trinity2b1.khotkeys:257
+#: trinity2b1.khotkeys:289 trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
+msgid "Gesture_triggers"
+msgstr "Mozdulatsor-kiváltók"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:66
+msgid ""
+"Going up in URL/directory structure.\n"
+"Mozilla-style: Press, move up, move left, move up, release."
+msgstr ""
+"Felfelé lép a könyvtárstruktúrában (vagy az URL-ben).\n"
+"Mozilla-stílus: lenyomás, fel, balra, fel, elengedés."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:68 trinity2b1.khotkeys:306
+msgid "Up"
+msgstr "Fel"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:91
+msgid ""
+"Going up in URL/directory structure.\n"
+"Opera-style: Press, move up, move left, move up, release.\n"
+"NOTE: Conflicts with  \"Activate Previous Tab\", and as such is disabled by "
+"default."
+msgstr ""
+"Felfelé lép a könyvtárstruktúrában (vagy az URL-ben).\n"
+"Opera-stílus: lenyomás, fel, balra, fel, elengedés.\n"
+"MEGJEGYZÉS: Ütközik az \"Előző lap\" paranccsal, ezért alapértelmezésben le "
+"van tiltva."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:93
+msgid "Up #2"
+msgstr "Fel (2)"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:116
+msgid "Press, move up, move right, release."
+msgstr "Lenyomás, fel, jobbra, elengedés."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:118
+msgid "Activate Next Tab"
+msgstr "Következő lap"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:141
+msgid "Press, move up, move left, release."
+msgstr "Lenyomás, fel, balra, elengedés."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:143
+msgid "Activate Previous Tab"
+msgstr "Előző lap"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:185
+msgid "Press, move down, move up, move down, release."
+msgstr "Lenyomás, le, fel, le, elengedés."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:187
+msgid "Duplicate Tab"
+msgstr "Lap duplikálása"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:210
+msgid "Press, move down, move up, release."
+msgstr "Lenyomás, le, fel, elengedés."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:212
+msgid "Duplicate Window"
+msgstr "Ablak duplikálása"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:235
+msgid "Press, move right, release."
+msgstr "Lenyomás, jobbra, elengedés."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:237 trinity2b1.khotkeys:274
+msgid "Forward"
+msgstr "Előre"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:260
+msgid ""
+"Press, move down, move half up, move right, move down, release.\n"
+"(Drawing a lowercase 'h'.)"
+msgstr ""
+"Lenyomás, le, kicsit fel, jobbra, le, elengedés.\n"
+"(Kis 'h' betű.)"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:262
+msgid "Home"
+msgstr "Saját könyvtár"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:289
+msgid ""
+"Press, move right, move down, move right, release.\n"
+"Mozilla-style: Press, move down, move right, release."
+msgstr ""
+"Lenyomás, jobbra, le, jobbra, elengedés.\n"
+"Mozilla-stílus: Lenyomás, le, jobbra, elengedés."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:291
+msgid "Close Tab"
+msgstr "Lap bezárása"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:318
+msgid ""
+"Press, move up, release.\n"
+"Conflicts with Opera-style 'Up #2', which is disabled by default."
+msgstr ""
+"Lenyomás, fel, elengedés.\n"
+"Ütközik az Opera-stílusú 'Fel (2)' paranccsal, amelyik alapértelmezésben le "
+"van tiltva."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:320
+msgid "New Tab"
+msgstr "Új lap"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:343
+msgid "Press, move down, release."
+msgstr "Lenyomás, le, elengedés."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:345
+msgid "New Window"
+msgstr "Új ablak"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:368
+msgid "Press, move up, move down, release."
+msgstr "Lenyomás, fel, le, elengedés."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:370 trinity2b1.khotkeys:338
+msgid "Reload"
+msgstr "Újratöltés"
+
+#. Comment
+#: printscreen.khotkeys:5
+msgid "This group contains actions that are set up by default."
+msgstr "Ez a csoport tartalmazza az alapértelmezett műveleteket."
+
+#. Name
+#: printscreen.khotkeys:8
+msgid "Preset Actions"
+msgstr "Beállított műveletek"
+
+#. Comment
+#: printscreen.khotkeys:17
+msgid "Launches KSnapShot when PrintScrn is pressed."
+msgstr "Elindítja a KSnapshotot a PrintScreen billentyű lenyomásakor."
+
+#. Name
+#: printscreen.khotkeys:19
+msgid "PrintScreen"
+msgstr ""
+
+#. Comment
+#: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
+#: trinity2b1.khotkeys:71 trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
+#: trinity2b1.khotkeys:203 trinity2b1.khotkeys:385
+msgid "Simple_action"
+msgstr "Egyszerű_művelet"
+
+#. Comment
+#: printscreen.khotkeys:41
+#, fuzzy
+msgid ""
+"Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
+msgstr "Elindítja a KSnapshotot a PrintScreen billentyű lenyomásakor."
+
+#. Name
+#: printscreen.khotkeys:43
+msgid "PrintWindow"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:5
+msgid ""
+"This group contains various examples demonstrating most of the features of "
+"KHotkeys. (Note that this group and all its actions are disabled by default.)"
+msgstr ""
+"Ez a csoport a KHotkeys lehetőségeit bemutató példákat tartalmaz "
+"(alapértelmezés szerint ez a csoport ki van kapcsolva)."
+
+#. Name
+#: trinity2b1.khotkeys:8
+msgid "Examples"
+msgstr "Példák"
+
+#. Comment
+#: trinity2b1.khotkeys:16
+msgid ""
+"After pressing Ctrl+Alt+I, the KSIRC window will be activated, if it exists. "
+"Simple."
+msgstr ""
+"A Ctrl+Alt+I lenyomása után a KSirc ablak aktiválódik, ha van ilyen "
+"megnyitva."
+
+#. Name
+#: trinity2b1.khotkeys:18
+msgid "Activate KSIRC Window"
+msgstr "A KSirc ablak aktiválása"
+
+#. Comment
+#: trinity2b1.khotkeys:28
+msgid "KSIRC window"
+msgstr "KSirc ablak"
+
+#. Comment
+#: trinity2b1.khotkeys:34
+msgid "KSIRC"
+msgstr "KSirc"
+
+#. Comment
+#: trinity2b1.khotkeys:54
+msgid ""
+"After pressing Alt+Ctrl+H, 'Hello' input will be simulated just like if you "
+"typed it. Especially useful if you're lazy to type things like 'unsigned'. "
+"Every keypress in the input is separated by a colon ':' . Note that the "
+"keypresses mean really keypresses, so you have to write what you'd really "
+"press on the keyboard. In the table below, left column shows the input and "
+"the right column shows what to type.\n"
+"\n"
+"\"enter\" (i.e. new line)                Enter or Return\n"
+"a (i.e. small a)                          A\n"
+"A (i.e. capital a)                       Shift+A\n"
+": (colon)                                  Shift+;\n"
+"' '  (space)                              Space"
+msgstr ""
+"Az Alt+Ctrl+H megnyomásakor a 'Hello' szöveg úgy íródik be, mintha valaki "
+"beírta volna. Hosszabb szövegek egyszerű bevitelére használható. A "
+"leütéseket kettősponttal kell elválasztani. A leütéseket úgy kell érteni, "
+"ahogy azok ténylegesen bevihetők a billentyűzetről. Az alábbi táblázatban a "
+"bal oszlopban a leütések, a jobb oszlopban a beírandó szöveg szerepel.\n"
+"\n"
+"\"enter\" (azaz újsor)                Enter vagy Return\n"
+"a (kis a betű)                          A\n"
+"A (nagy A betű)                       Shift+A\n"
+": (kettőspont)                                  Shift+;\n"
+"' '  (szóköz)                              Szóköz"
+
+#. Name
+#: trinity2b1.khotkeys:56
+msgid "Type 'Hello'"
+msgstr "'Hello' beírása"
+
+#. Comment
+#: trinity2b1.khotkeys:79
+msgid "This action runs Konsole, after pressing Ctrl+Alt+T."
+msgstr "Elindítja a Konsole-t a Ctrl+Alt+T lenyomásakor."
+
+#. Name
+#: trinity2b1.khotkeys:81
+msgid "Run Konsole"
+msgstr "A Konsole futtatása"
+
+#. Comment
+#: trinity2b1.khotkeys:103
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Qt Designer uses Ctrl+F4 for closing windows (maybe because MS Windows does "
+"it that way *shrug*). But Ctrl+F4 in TDE stands for going to virtual desktop "
+"4, so it doesn't work in Qt Designer, and also, Qt Designer doesn't use "
+"TDE's standard Ctrl+W for closing the window.\n"
+"\n"
+"But the problem can be solved by remaping Ctrl+W to Ctrl+F4 when the active "
+"window is Qt Designer. When Qt Designer is active, every time Ctrl+W is "
+"pressed, Ctrl+F4 will be sent to Qt Designer instead. In other applications, "
+"Ctrl+W remains working the usual way of course.\n"
+"\n"
+"We now need to specify three things: A new shortcut trigger on 'Ctrl+W', a "
+"new keyboard input action sending Ctrl+F4, and a new condition that the "
+"active window is Qt Designer.\n"
+"Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
+"condition will check for the active window having that title."
+msgstr ""
+"Előbb olvassa el a \"'Hello' beírása\" bejegyzés leírását.\n"
+"\n"
+"A Qt Designer a Ctrl+F4-et használja ablak bezárásához (talán az MS Windows "
+"hatására). De a Ctrl+F4 lenyomásakor a TDE-ben a 4. asztalra vált át, tehát "
+"ez nem működik a Qt Designerben, továbbá a Qt Designer nem a TDE-ben "
+"szokásos Ctrl+W-t használja ablak bezárásához.\n"
+"\n"
+"A probléma megoldható azonban, ha a Ctrl+W-t leképezi a Ctrl+F4-re, ha az "
+"aktív ablak a Qt Designerhez tartozik. Amikor a Qt Designer aktív, a Ctrl+W "
+"minden lenyomásakor Ctrl+F4 lesz elküldve a Qt Designernek. Más "
+"alkalmazásokban a Ctrl+W természetesen a szokott módon működik.\n"
+"\n"
+"Három dolgot kell megadni: egy új aktiválót a 'Ctrl+W' kombinációra, egy "
+"beviteli műveletet (küldést) a Ctrl+F4-re, és egy új feltételt arra, hogy a "
+"Qt Designer az aktív ablak.\n"
+"A Qt Designer címsora mindig 'Qt Designer by Trolltech', ezért a feltétel "
+"ezt a sztringet fogja keresni az ablak címsorában."
+
+#. Name
+#: trinity2b1.khotkeys:105
+msgid "Remap Ctrl+W to Ctrl+F4 in Qt Designer"
+msgstr "A Ctrl+W leképezése a Ctrl+F4-re a Qt Designerben"
+
+#. Comment
+#: trinity2b1.khotkeys:123
+msgid "Qt Designer"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:144
+msgid ""
+"By pressing Alt+Ctrl+W a DCOP call will be performed that will show the "
+"minicli. You can use any kind of DCOP call, just like using the command line "
+"'dcop' tool."
+msgstr ""
+"Az Alt+Ctrl+W lenyomásakor meghívódik egy DCOP-eljárás, mely megjeleníti a "
+"minicli vágólapkezelőt. Bármilyen DCOP-hívás megadható, akárcsak a 'dcop' "
+"program használatakor."
+
+#. Name
+#: trinity2b1.khotkeys:146
+msgid "Perform DCOP call 'kdesktop KDesktopIface popupExecuteCommand()'"
+msgstr ""
+"DCOP-hívás végrehajtása: 'kdesktop KDesktopIface popupExecuteCommand()'"
+
+#. Comment
+#: trinity2b1.khotkeys:171
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Just like the \"Type 'Hello'\" action, this one simulates a keyboard input, "
+"specifically, after pressing Ctrl+Alt+B, it sends B to XMMS (B in XMMS jumps "
+"to the next song). The 'Send to specific window' checkbox is checked and a "
+"window with its class containing 'XMMS_Player' is specified; this will make "
+"the input always be sent to this window. This way, you can control XMMS even "
+"if it's e.g. on a different virtual desktop.\n"
+"\n"
+"(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
+"'XMMS_Player')."
+msgstr ""
+"Először olvassa el a \"'Hello' beírása\" leírását.\n"
+"\n"
+"Hasonlóan a \"'Hello' beírása\" művelethez, ez is billentyűről végzett "
+"beírást szimulál, a Ctrl+Alt+B lenyomása után B-t küld az XMMS-nek (a B-vel "
+"lehet az XMMS-ben a következő számra ugrani). A 'Küldés egy adott ablaknak' "
+"be lesz jelölve és az 'XMMS_Player' ablakosztály lesz kiválasztva. A bemenet "
+"mindig ehhez az ablakhoz kerül. Az XMMS így akkor is vezérelhető, ha például "
+"egy másik asztalon található.\n"
+"\n"
+"(Indítsa el az 'xprop'-ot, kattintson az XMMS-ablakra és keressen rá a "
+"WM_CLASS-ra ('XMMS_Player')."
+
+#. Name
+#: trinity2b1.khotkeys:173
+msgid "Next in XMMS"
+msgstr "Következő az XMMS-ben"
+
+#. Comment
+#: trinity2b1.khotkeys:185
+msgid "XMMS window"
+msgstr "XMMS-ablak"
+
+#. Comment
+#: trinity2b1.khotkeys:191
+msgid "XMMS Player window"
+msgstr "XMMS-lejátszóablak"
+
+#. Comment
+#: trinity2b1.khotkeys:211
+msgid ""
+"Ok, Konqi in TDE has tabs, and now you can also have gestures. No need to "
+"use other browsers >;).\n"
+"\n"
+"Just press the middle mouse button and start drawing one of the gestures, "
+"and after you're finished, release the mouse button. If you only need to "
+"paste the selection, it still works, simply only click the middle mouse "
+"button. (You can change the mouse button to use in the global settings).\n"
+"\n"
+"Right now, there are these gestures available:\n"
+"move right and back left - Forward (ALt+Right)\n"
+"move left and back right - Back (Alt+Left)\n"
+"move up and back down  - Up (Alt+Up)\n"
+"circle anticlockwise - Reload (F5)\n"
+" (As soon as I find out which ones are in Opera or Mozilla, I'll add more "
+"and make sure they are the same. Or if you do it yourself, feel free to help "
+"me and send me your khotkeysrc.)\n"
+"\n"
+"The gestures shapes (some of the dialogs are from KGesture, thanks to Mike "
+"Pilone) can be simply entered by performing them in the configuration "
+"dialog. You can also look at your numeric pad to help you, gestures are "
+"recognized like a 3x3 grid of fields, numbered 1 to 9.\n"
+"\n"
+"Note that you must perform exactly the gesture to trigger the action. "
+"Because of this, it's possible to enter more gestures for the action. You "
+"should try to avoid complicated gestures where you change the direction of "
+"mouse moving more than once (i.e. do e.g. 45654 or 74123 as they are simple "
+"to perform but e.g. 1236987 may be already quite difficult).\n"
+"\n"
+"The condition for all gestures are defined in this group. All these gestures "
+"are active only if the active window is Konqueror (class contains "
+"'konqueror')."
+msgstr ""
+"A Konqi a TDE-től kezdve tud kezelni lapokat és most már mozdulatsorokat is. "
+"Nincs szükség más böngészőre >;).\n"
+"\n"
+"Nyomja le a középső gombot és kezdje el 'rajzolni' a mozdulatsort. Ha "
+"elkészült, eressze fel az egérgombot. Akkor is működik, ha csak be kell "
+"illeszteni a kijelölést: egyszerűen kattintson a középső egérgombra. (A "
+"használni kívánt gomb beálítható a globális beállításoknál).\n"
+"\n"
+"Jelenleg a következő mozdulatok használhatók:\n"
+"jobbra és balra, balra és előre mozdítás (Alt+jobbra)\n"
+"balra és jobbra - Vissza (Alt+balra)\n"
+"felfelé és lefelé - Fel (Alt+fel)\n"
+"kör rajzolása balra - Újratöltés (F5)\n"
+" (Rövidesen az Opera és a Mozilla többi mozdulatsora is használható lesz. "
+"Küldje be a khotkeysrc fájlt, ha segíteni szeretne a további "
+"fejlesztésben.)\n"
+"\n"
+"Az alakzat-mozdulatsorok (néhány ablak a KGesture-ből származik, köszönet "
+"értük Mike Pilone-nak) egyszerűen bevihetők a beállítóablakban. A kezelés "
+"hasonló a numerikus billentyűzet elrendezéséhez, a mozdulatsor 3x3-as rácson "
+"belül van értelmezve, melyek 1-től 9-ig vannak számozva.\n"
+"\n"
+"A mozdulatsorok csak pontos végrehajtás esetén érvényesek, emiatt egy "
+"művelethez több mozdulatsor is rendelhető. Általában érdemes elkerülni az "
+"olyan mozdulatsorokat, ahol a mozgásirány egynél többször változik (például "
+"45654 vagy 74123 könnyen elvégezhető, de 1236987 már jóval nehezebb).\n"
+"\n"
+"Ebben a csoportban találhatók a feltételek. A mozdulatsorok csak akkor "
+"aktívak, ha a Konqueror az aktív ablak (az osztály tartalmazza a 'konqueror' "
+"sztringet)."
+
+#. Name
+#: trinity2b1.khotkeys:214
+msgid "Konqi Gestures"
+msgstr "Konqi-mozdulatsorok"
+
+#. Comment
+#: trinity2b1.khotkeys:369
+msgid ""
+"After pressing Win+E (Tux+E), WWW browser will be launched and it will open "
+"http://www.trinitydesktop.org . You may run all kind of commands you can run "
+"in minicli (Alt+F2)."
+msgstr ""
+"A Win+E (Tux+E) megnyomása után elindul a webböngésző és megnyitja a http://"
+"www.trinitydesktop.org címet. A mini parancsablakban (Alt+F2) kiadható "
+"összes parancs használható."
+
+#. Name
+#: trinity2b1.khotkeys:371
+msgid "Go to TDE Website"
+msgstr "TDE honlap"

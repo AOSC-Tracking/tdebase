@@ -22,9 +22,12 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES
+tde_create_translated_desktop(
+  SOURCE
     tdefile_trash.desktop tdefile_trash_system.desktop
-  DESTINATION ${SERVICES_INSTALL_DIR} )
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### tdefile_trash (module) ######################

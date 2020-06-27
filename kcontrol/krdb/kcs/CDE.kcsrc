@@ -1,11 +1,6 @@
 # KDE Config File
 [Color Scheme]
 Name=CDE
-Name[hi]=सीडीई
-Name[mn]=КДE
-Name[te]=సిడిఈ
-Name[tg]=Муҳити графикии муштарак (CDE)
-Name[th]=แบบ CDE
 background=#999999
 buttonBackground=#999999
 buttonForeground=#ffffff

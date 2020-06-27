@@ -1,0 +1,22 @@
+##### create translation templates ##############
+
+file(
+  GLOB _regions
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/*.desktop
+)
+list( SORT _regions )
+
+file(
+  GLOB_RECURSE _locales
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/*.desktop
+)
+list( REMOVE_ITEM _locales ${_regions} )
+list( SORT _locales )
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/l10n-desktops/"
+    SOURCES ${_regions} ${_locales}
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)

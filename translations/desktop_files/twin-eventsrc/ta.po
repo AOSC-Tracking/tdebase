@@ -1,0 +1,424 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "சாளர மேலாளர்"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "மேல்மேசை 1க்கு மாற்று"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "மெய்நிகர் மேல்மேசை ஒன்று தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "மேல்மேசை 2க்கு மாற்று"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "மெய்நிகர் மேல்மேசை இரண்டு தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "மேல்மேசை 3க்கு மாற்று"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "மெய்நிகர் மேல்மேசை மூன்று தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "மேல்மேசை 4க்கு மாற்று"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "மெய்நிகர் மேல்மேசை நான்கு தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "மேல்மேசை 5க்கு மாற்று"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "மெய்நிகர் மேல்மேசை ஐந்து தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "மேல்மேசை 6க்கு மாற்று"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "மெய்நிகர் மேல்மேசை ஆறு தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "மேல்மேசை 7க்கு மாற்று"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "மெய்நிகர் மேல்மேசை ஏழு தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "மேல்மேசை 8க்கு மாற்று"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "மெய்நிகர் மேல்மேசை எட்டு தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "மேல்மேசை 9க்கு மாற்று"
+
+#. Comment
+#: eventsrc:55
+#, fuzzy
+msgid "Virtual desktop nine is selected"
+msgstr "மெய்நிகர் மேல்மேசை ஒன்று தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "மேல்மேசை 10க்கு மாற்று"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "மெய்நிகர் மேல்மேசை பத்து தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "மேல்மேசை 11க்கு மாற்று"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "மெய்நிகர் மேல்மேசை பதினொன்று தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "மேல்மேசை 12க்கு மாற்று"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "மெய்நிகர் மேல்மேசை பன்னிரெண்டு தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "மேல்மேசை 13க்கு மாற்று"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "மெய்நிகர் மேல்மேசை பதின்மூன்று தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "மேல்மேசை 14க்கு மாற்று"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "மெய்நிகர் மேல்மேசை பதினான்கு தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "மேல்மேசை 15க்கு மாற்று"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "மெய்நிகர் மேல்மேசை பதினைந்து தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "மேல்மேசை 116க்கு மாற்று"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "மெய்நிகர் மேல்மேசை பதினாறு தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "மேல்மேசை 17க்கு மாற்று"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "மெய்நிகர் மேல்மேசை பதினேழு தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "மேல்மேசை 18க்கு மாற்று"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "மெய்நிகர் மேல்மேசை பதினெட்டு தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "மேல்மேசை 19க்கு மாற்று"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "மெய்நிகர் மேல்மேசை பத்தொன்பது தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "மேல்மேசை 20க்கு மாற்று"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "மெய்நிகர் மேல்மேசை இருபது தேர்ந்தெடுக்கப்பட்டது"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "சாளரத்தை செயற்படுத்து"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "மற்றொரு சாளரம் செயலாக்கப்படது"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "புதிய சாளரம்"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "புது சாளரம்"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "சாளரத்தை நீக்கு"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "சாளரத்தை நீக்கு"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "சாளரத்தை மூடு"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "சாளரம் மூடுகிறது"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "சாளர நிழல் ஏற்று"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "சாளரம் நிழலிடப்பட்டுள்ளது."
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "சாளர நிழல் இறக்கு"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "சாளரமொன்று நிழலிடப்பட்டது"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "சாளரத்தைப் சிறிதாக்கு"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "சாளரம் சிறிதாக்கப்பட்டுள்ளது"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "சாளர சிறிதாக்காதே"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "சாளரமொன்று மீளமைக்கப்பட்டது"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "சாளரத்தைப் பெரிதாக்கு"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "சாளரம் பெரிதாக்கப்பட்டுள்ளது"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "சாளரத்தை பெரிதாக்காதே"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "சாளரம் பெரிதாவதை இழந்தது"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "எல்லா மேல்மேசைகளிலும் சாளரம்"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "சாளரத்தை அனைத்து மேல்மேசையிலும் பார்க்க முடியும்"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "எல்லா மேல்மேசைகளிலும் சாளரம் இல்லை"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "அனைத்து மேல்மேசையிலும் சாளரம் தெரியாது"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "புதிய உரையாடல்"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "தற்காலிக சாளரம் (ஒரு உரையாடல்) தோன்றுகிறது"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "உரையாடலை நீக்கு"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "தற்காலிக சாளரம்(உரையாடல் பெட்டி) நீக்கப்பட்டது"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "சாளர நகர்த்தல் ஆரம்பம்"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "சாளரம் நகர ஆரம்பித்தது"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "சாளர நகர்த்தல் முடிவு"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "நகர்த்துவதன் மூலம் சாளரம் முழுமையடைந்தது."
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "சாளர அளவு மாற்ற ஆரம்பம்"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "சாளரத்தின் அளவு மாறத்துவங்குகிறது"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "சாளர அளவு மாற்ற முடிவு"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "சாளரத்தின் அளவு மாற்றுதல் முடிந்தது"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr ""
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr ""
+
+#. Name
+#: eventsrc:220
+#, fuzzy
+msgid "Window On Other Desktop Demands Attention"
+msgstr "எல்லா மேல்மேசைகளிலும் சாளரம்"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr ""

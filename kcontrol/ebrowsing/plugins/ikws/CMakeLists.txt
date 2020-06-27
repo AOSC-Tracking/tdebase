@@ -24,8 +24,18 @@ link_directories(
 ##### other data ################################
 
 install( FILES kuriikwsfilter.upd DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
-install( FILES kuriikwsfilter.desktop kurisearchfilter.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
-install( FILES searchprovider.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
+
+tde_create_translated_desktop(
+  SOURCE kuriikwsfilter.desktop kurisearchfilter.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR kcontrol-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE searchprovider.desktop
+  DESTINATION ${SERVICETYPES_INSTALL_DIR}
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### libkuriikwsfilter (module) ################

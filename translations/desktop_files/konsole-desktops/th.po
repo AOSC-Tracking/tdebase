@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-26 02:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kcmkonsole.desktop:9
+msgid "Console"
+msgstr "คอนโซล"
+
+#. GenericName
+#: kcmkonsole.desktop:11
+msgid "All Konsole Settings"
+msgstr "ตั้งค่าคอนโซลทั้งหมด"
+
+#. Keywords
+#: kcmkonsole.desktop:13
+msgid "konsole;console;terminal;"
+msgstr "คอนโซล;เทอร์มินัล;"
+
+#. Name
+#: konsole-script.desktop:9 konsole.desktop:9 konsolesu.desktop:10
+msgid "Konsole"
+msgstr "คอนโซล K"
+
+#. GenericName
+#: konsole-script.desktop:11 konsole.desktop:11
+msgid "Terminal Program"
+msgstr "โปรแกรมเทอร์มินัล"
+
+#. Comment
+#: konsole/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "แฟ้มที่จะใช้เปิดเชลล์"
+
+#. Name
+#: konsolepart.desktop:14 terminalemulator.desktop:5
+msgid "Terminal Emulator"
+msgstr "โปรแกรมจำลองเทอร์มินัล"
+
+#. GenericName
+#: konsolesu.desktop:12
+msgid "Terminal Program - Super User Mode"
+msgstr "จัดการแฟ้ม - โหมดผู้ดูแลระบบ"
+
+#. Name
+#: kwrited.desktop:2
+msgid "TDE Write Daemon"
+msgstr "เดมอน Write ของ TDE"
+
+#. Comment
+#: kwrited.desktop:4
+msgid "Watch for messages from local users sent with write(1) or wall(1)"
+msgstr "เฝ้าดูข้อความจากผู้ใช้ท้องถิ่นที่ถูกส่งมาด้วย write(1) หรือ wall(1)"
+
+#. Name
+#: other/linux.desktop:3
+msgid "Linux Console"
+msgstr "คอนโซลลีนุกซ์"
+
+#. Comment
+#: other/linux.desktop:4
+msgid "New Linux Console"
+msgstr "เปิดคอนโซลลีนุกซ์ใหม่"
+
+#. Name
+#: other/mc.desktop:3
+msgid "Midnight Commander"
+msgstr "มิดไนท์คอมมานเดอร์"
+
+#. Comment
+#: other/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "เปิดมิดไนท์คอมมานเดอร์ใหม่"
+
+#. Name
+#: other/screen.desktop:3
+msgid "Screen Session"
+msgstr "เซสชันหน้าจอ"
+
+#. Comment
+#: other/screen.desktop:4
+msgid "New Screen Session"
+msgstr "เปิดเซสชันหน้าจอใหม่"
+
+#. Name
+#. Title0
+#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
+#: other/5shells:6
+msgid "Shell"
+msgstr "เชลล์"
+
+#. Comment
+#: other/shell.desktop:4
+msgid "New Shell"
+msgstr "เชลล์ใหม่"
+
+#. Name
+#: other/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "เชลล์ของผู้ดูแลระบบ"
+
+#. Comment
+#: other/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "เชลล์ใหม่ของผู้ดูแลระบบ"
+
+#. Name
+#: other/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "มิดไนท์คอมมานเดอร์ผู้ดูแลระบบ"
+
+#. Comment
+#: other/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "มิดไนท์คอมมานเดอร์แบบสิทธิ์ผู้ดูแลระบบ"
+
+#. Name
+#: terminalhere.desktop:6
+#, fuzzy
+msgid "Terminal"
+msgstr "โปรแกรมเทอร์มินัล"
+
+#. Name
+#: terminalhere.desktop:11
+msgid "Open Terminal Here"
+msgstr "เปิดเทอร์มินัลที่นี่"
+
+#. Name
+#: other/2shells:2
+#, fuzzy
+msgid "Two consoles"
+msgstr "คอนโซล"
+
+#. Title1
+#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#, fuzzy
+msgid "Shell No. 2"
+msgstr "เชลล์"
+
+#. Name
+#: other/3shells:2
+msgid "Three consoles"
+msgstr ""
+
+#. Title2
+#: other/3shells:8 other/4shells:8 other/5shells:8
+#, fuzzy
+msgid "Shell No. 3"
+msgstr "เชลล์"
+
+#. Name
+#: other/4shells:2
+#, fuzzy
+msgid "Four consoles"
+msgstr "คอนโซลลีนุกซ์"
+
+#. Title3
+#: other/4shells:9 other/5shells:9
+#, fuzzy
+msgid "Shell No. 4"
+msgstr "เชลล์"
+
+#. Name
+#: other/5shells:2
+#, fuzzy
+msgid "Five consoles"
+msgstr "คอนโซลลีนุกซ์"
+
+#. Title4
+#: other/5shells:10
+#, fuzzy
+msgid "Shell No. 5"
+msgstr "เชลล์"

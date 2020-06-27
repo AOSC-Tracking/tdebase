@@ -1,0 +1,553 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 14:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:5
+msgid "Basic Konqueror gestures."
+msgstr "Gesti base per Konqueror."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:8
+msgid "Konqueror Gestures"
+msgstr "Gesti per Konqueror"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:13 trinity2b1.khotkeys:219
+msgid "Konqueror window"
+msgstr "Finestra di Konqueror"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:20
+#: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
+#: trinity2b1.khotkeys:232
+#, fuzzy
+msgid "Konqueror"
+msgstr "Finestra di Konqueror"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:35
+msgid "Press, move left, release."
+msgstr "Premi, sposta a sinistra, rilascia."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:37 trinity2b1.khotkeys:242
+msgid "Back"
+msgstr "Indietro"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:41
+msgid ""
+"Opera-style: Press, move up, release.\n"
+"NOTE: Conflicts with 'New Tab', and as such is disabled by default."
+msgstr ""
+"Stile Opera: Premi, sposta in su, rilascia.\n"
+"NOTA: È in conflitto con \"Nuova scheda\", e quindi è normalmente "
+"disabilitato."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:43
+msgid "Stop Loading"
+msgstr "Interrompi caricamento"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:58
+#: konqueror_gestures_trinity21.khotkeys:83
+#: konqueror_gestures_trinity21.khotkeys:108
+#: konqueror_gestures_trinity21.khotkeys:133
+#: konqueror_gestures_trinity21.khotkeys:158
+#: konqueror_gestures_trinity21.khotkeys:177
+#: konqueror_gestures_trinity21.khotkeys:202
+#: konqueror_gestures_trinity21.khotkeys:227
+#: konqueror_gestures_trinity21.khotkeys:252
+#: konqueror_gestures_trinity21.khotkeys:277
+#: konqueror_gestures_trinity21.khotkeys:306
+#: konqueror_gestures_trinity21.khotkeys:335
+#: konqueror_gestures_trinity21.khotkeys:360
+#: konqueror_gestures_trinity21.khotkeys:385 trinity2b1.khotkeys:257
+#: trinity2b1.khotkeys:289 trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
+msgid "Gesture_triggers"
+msgstr "Interruttori_gesti"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:66
+msgid ""
+"Going up in URL/directory structure.\n"
+"Mozilla-style: Press, move up, move left, move up, release."
+msgstr ""
+"Risale nella struttura dell'URL o delle directory.\n"
+"Stile Mozilla: Premi, sposta in su, sposta a sinistra, sposta in su, "
+"rilascia."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:68 trinity2b1.khotkeys:306
+msgid "Up"
+msgstr "Su"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:91
+msgid ""
+"Going up in URL/directory structure.\n"
+"Opera-style: Press, move up, move left, move up, release.\n"
+"NOTE: Conflicts with  \"Activate Previous Tab\", and as such is disabled by "
+"default."
+msgstr ""
+"Risale nella struttura dell'URL o directory.\n"
+"Stile Opera: Premi, sposta in su, sposta a sinistra, sposta in su, "
+"rilascia.\n"
+"NOTA: È in conflitto con \"Attiva scheda precedente\", e quindi è "
+"normalmente disabilitato."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:93
+msgid "Up #2"
+msgstr "Su #2"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:116
+msgid "Press, move up, move right, release."
+msgstr "Premi, sposta in su, sposta a destra, rilascia."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:118
+msgid "Activate Next Tab"
+msgstr "Attiva scheda successiva"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:141
+msgid "Press, move up, move left, release."
+msgstr "Premi, sposta in su, sposta a sinistra, rilascia."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:143
+msgid "Activate Previous Tab"
+msgstr "Attiva scheda precedente"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:185
+msgid "Press, move down, move up, move down, release."
+msgstr "Premi, sposta in giù, sposta in su, sposta in giù, rilascia."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:187
+msgid "Duplicate Tab"
+msgstr "Duplica scheda"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:210
+msgid "Press, move down, move up, release."
+msgstr "Premi, sposta in giù, sposta in su, rilascia."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:212
+msgid "Duplicate Window"
+msgstr "Duplica finestra"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:235
+msgid "Press, move right, release."
+msgstr "Premi, sposta a desta, rilascia."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:237 trinity2b1.khotkeys:274
+msgid "Forward"
+msgstr "Avanti"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:260
+msgid ""
+"Press, move down, move half up, move right, move down, release.\n"
+"(Drawing a lowercase 'h'.)"
+msgstr ""
+"Premi, sposta in giù, sposta in su a metà, sposta a destra, sposta in giù, "
+"rilascia.\n"
+"(Disegna un'\"h\" minuscola.)"
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:262
+msgid "Home"
+msgstr ""
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:289
+msgid ""
+"Press, move right, move down, move right, release.\n"
+"Mozilla-style: Press, move down, move right, release."
+msgstr ""
+"Premi, sposta a destra, sposta in giù, sposta a destra, rilascia.\n"
+"Stile Mozilla: Premi, sposta in giù, sposta a destra, rilascia."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:291
+msgid "Close Tab"
+msgstr "Chiudi scheda"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:318
+msgid ""
+"Press, move up, release.\n"
+"Conflicts with Opera-style 'Up #2', which is disabled by default."
+msgstr ""
+"Premi, sposta in su, rilascia.\n"
+"È in conflitto con il gesto in stile Opera \"Su #2\", che è disabilitato "
+"normalmente."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:320
+msgid "New Tab"
+msgstr "Nuova scheda"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:343
+msgid "Press, move down, release."
+msgstr "Premi, sposta in giù, rilascia."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:345
+msgid "New Window"
+msgstr "Nuova finestra"
+
+#. Comment
+#: konqueror_gestures_trinity21.khotkeys:368
+msgid "Press, move up, move down, release."
+msgstr "Premi, sposta in su, sposta in giù, rilascia."
+
+#. Name
+#: konqueror_gestures_trinity21.khotkeys:370 trinity2b1.khotkeys:338
+msgid "Reload"
+msgstr "Ricarica"
+
+#. Comment
+#: printscreen.khotkeys:5
+msgid "This group contains actions that are set up by default."
+msgstr "Questo gruppo contiene azioni che sono attive in modo predefinito."
+
+#. Name
+#: printscreen.khotkeys:8
+msgid "Preset Actions"
+msgstr "Azioni predefinite"
+
+#. Comment
+#: printscreen.khotkeys:17
+msgid "Launches KSnapShot when PrintScrn is pressed."
+msgstr "Avvia KSnapShot quando viene premuto il tasto Stamp."
+
+#. Name
+#: printscreen.khotkeys:19
+msgid "PrintScreen"
+msgstr "Stamp"
+
+#. Comment
+#: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
+#: trinity2b1.khotkeys:71 trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
+#: trinity2b1.khotkeys:203 trinity2b1.khotkeys:385
+msgid "Simple_action"
+msgstr "Azione_semplice"
+
+#. Comment
+#: printscreen.khotkeys:41
+#, fuzzy
+msgid ""
+"Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
+msgstr "Avvia KSnapShot quando viene premuto il tasto Stamp."
+
+#. Name
+#: printscreen.khotkeys:43
+msgid "PrintWindow"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:5
+msgid ""
+"This group contains various examples demonstrating most of the features of "
+"KHotkeys. (Note that this group and all its actions are disabled by default.)"
+msgstr ""
+"Questo gruppo contiene vari esempi che dimostrano la maggior parte delle "
+"funzioni di KHotkeys.(Nota che questo gruppo e tutte le sue azioni sono "
+"forniti disabilitati, e devono essere esplicitamente abilitati per usarli.)"
+
+#. Name
+#: trinity2b1.khotkeys:8
+msgid "Examples"
+msgstr "Esempi"
+
+#. Comment
+#: trinity2b1.khotkeys:16
+msgid ""
+"After pressing Ctrl+Alt+I, the KSIRC window will be activated, if it exists. "
+"Simple."
+msgstr ""
+"Con la pressione di Ctrl+Alt+I, la finestra di KSIRC sarà attivata, se "
+"esiste. Semplice, no?"
+
+#. Name
+#: trinity2b1.khotkeys:18
+msgid "Activate KSIRC Window"
+msgstr "Attiva finestra KSIRC"
+
+#. Comment
+#: trinity2b1.khotkeys:28
+msgid "KSIRC window"
+msgstr "Finestra KSIRC"
+
+#. Comment
+#: trinity2b1.khotkeys:34
+msgid "KSIRC"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:54
+msgid ""
+"After pressing Alt+Ctrl+H, 'Hello' input will be simulated just like if you "
+"typed it. Especially useful if you're lazy to type things like 'unsigned'. "
+"Every keypress in the input is separated by a colon ':' . Note that the "
+"keypresses mean really keypresses, so you have to write what you'd really "
+"press on the keyboard. In the table below, left column shows the input and "
+"the right column shows what to type.\n"
+"\n"
+"\"enter\" (i.e. new line)                Enter or Return\n"
+"a (i.e. small a)                          A\n"
+"A (i.e. capital a)                       Shift+A\n"
+": (colon)                                  Shift+;\n"
+"' '  (space)                              Space"
+msgstr ""
+"Dopo aver premuto Alt+Ctrl+H, l'inserimento di \"Hello\" sarà simulato come "
+"se lo avessi scritto con la tastiera. È particolarmente utile se sei pigro "
+"per scrivere cose come \"unsigned\". Ogni pressione di un tasto dell'input è "
+"separata da un due punti \":\" . Nota che le pressioni di tasti indicano "
+"vere pressioni di tasti, quindi devi inserire quello che premeresti "
+"effettivamente sulla tastiera. Nella tabella seguente, la colonna sinistra "
+"mostra l'input e quella destra ciò che devi inserire.\n"
+"\n"
+"\"invio\" (cioè, nuova riga)                Invio\n"
+"a (cioè a minuscola)                      A\n"
+"A (cioè A maiuscola)                      Shift+A\n"
+": (due punti)                             Shift+;\n"
+"\" \"  (spazio)                             Spazio"
+
+#. Name
+#: trinity2b1.khotkeys:56
+msgid "Type 'Hello'"
+msgstr "Scrivi \"Hello\""
+
+#. Comment
+#: trinity2b1.khotkeys:79
+msgid "This action runs Konsole, after pressing Ctrl+Alt+T."
+msgstr "Questa azione avvia Konsole, dopo la pressione di Ctrl+Alt+T."
+
+#. Name
+#: trinity2b1.khotkeys:81
+msgid "Run Konsole"
+msgstr "Esegui Konsole"
+
+#. Comment
+#: trinity2b1.khotkeys:103
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Qt Designer uses Ctrl+F4 for closing windows (maybe because MS Windows does "
+"it that way *shrug*). But Ctrl+F4 in TDE stands for going to virtual desktop "
+"4, so it doesn't work in Qt Designer, and also, Qt Designer doesn't use "
+"TDE's standard Ctrl+W for closing the window.\n"
+"\n"
+"But the problem can be solved by remaping Ctrl+W to Ctrl+F4 when the active "
+"window is Qt Designer. When Qt Designer is active, every time Ctrl+W is "
+"pressed, Ctrl+F4 will be sent to Qt Designer instead. In other applications, "
+"Ctrl+W remains working the usual way of course.\n"
+"\n"
+"We now need to specify three things: A new shortcut trigger on 'Ctrl+W', a "
+"new keyboard input action sending Ctrl+F4, and a new condition that the "
+"active window is Qt Designer.\n"
+"Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
+"condition will check for the active window having that title."
+msgstr ""
+"Leggi il commento dell'azione \"Scrivi 'Hello'\" prima.\n"
+"\n"
+"Qt Designer usa Ctrl+F4 per chiudere le finestre (forse perché MS Windows fa "
+"in quel modo *alzata di spalle*). Ma Ctrl+F4 in TDE significa \"vai al "
+"desktop 4\", quindi non funziona in Qt Designer e inoltre, Qt Designer non "
+"usa la scorciatoia standard di TDE, Ctrl+W, per chiudere la finestra.\n"
+"\n"
+"Ma il problema si può risolvere rimappando Ctrl+W su Ctrl+F4 quando la "
+"finestra attiva è Qt Designer. Quando Qt Designer è attivo, ogni volta che "
+"si preme Ctrl+W, verrà inviato Ctrl+F4 a Qt Designer. Nelle altre "
+"applicazioni Ctrl+W continua a funzionare come al solito, naturalmente.\n"
+"\n"
+"Dobbiamo specificare tre cose: Una nuova scorciatoia su \"Ctrl+W\", una "
+"nuova azione di immissione da tastiera che invia Ctrl+F4, e una nuova "
+"condizione che la finestra attiva sia Qt Designer.\n"
+"Qt Designer apparentemente ha sempre il titolo \"Qt Designer by Trolltech\", "
+"quindi la condizione controllerà che la finestra attiva abbia tale titolo."
+
+#. Name
+#: trinity2b1.khotkeys:105
+msgid "Remap Ctrl+W to Ctrl+F4 in Qt Designer"
+msgstr "Rimappa Ctrl+W su Ctrl+F4 in Qt Designer"
+
+#. Comment
+#: trinity2b1.khotkeys:123
+msgid "Qt Designer"
+msgstr ""
+
+#. Comment
+#: trinity2b1.khotkeys:144
+msgid ""
+"By pressing Alt+Ctrl+W a DCOP call will be performed that will show the "
+"minicli. You can use any kind of DCOP call, just like using the command line "
+"'dcop' tool."
+msgstr ""
+"Premendo Alt+Ctrl+W sarà eseguita una chiamata DCOP che mostrerà la minicli. "
+"Puoi usare qualsiasi tipo di chiamata DCOP, proprio come se usassi lo "
+"strumento \"dcop\" da riga di comando."
+
+#. Name
+#: trinity2b1.khotkeys:146
+msgid "Perform DCOP call 'kdesktop KDesktopIface popupExecuteCommand()'"
+msgstr "Esegue la chiamata DCOP 'kdesktop KDesktopIface popupExecuteCommand()'"
+
+#. Comment
+#: trinity2b1.khotkeys:171
+msgid ""
+"Read the comment on action \"Type 'Hello'\" first.\n"
+"\n"
+"Just like the \"Type 'Hello'\" action, this one simulates a keyboard input, "
+"specifically, after pressing Ctrl+Alt+B, it sends B to XMMS (B in XMMS jumps "
+"to the next song). The 'Send to specific window' checkbox is checked and a "
+"window with its class containing 'XMMS_Player' is specified; this will make "
+"the input always be sent to this window. This way, you can control XMMS even "
+"if it's e.g. on a different virtual desktop.\n"
+"\n"
+"(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
+"'XMMS_Player')."
+msgstr ""
+"Leggi il commento dell'azione \"Scrivi 'Hello'\" prima.\n"
+"\n"
+"Esattamente come l'azione \"Scrivi 'Hello'\", questa simula l'inserimento da "
+"tastiera; nello specifico, con la pressione di Ctrl+Alt+B, invia B a XMMS (B "
+"in XMMS salta alla canzone successiva). La casella \"Invia ad una finestra "
+"specifica\" è marcata ed è specificata una finestra con la classe "
+"\"XMMS_Player\", che farà inviare l'immissione sempre a questa finestra. In "
+"questo modo, puoi controllare XMMS anche se, ad esempio, è in un desktop "
+"diverso.\n"
+"\n"
+"(Esegui \"xprop\" e fai clic sulla finestra di XMMS e cerca la voce WM_CLASS "
+"per trovare \"XMMS_Player\")."
+
+#. Name
+#: trinity2b1.khotkeys:173
+msgid "Next in XMMS"
+msgstr "Successivo in XMMS"
+
+#. Comment
+#: trinity2b1.khotkeys:185
+msgid "XMMS window"
+msgstr "Finestra XMMS"
+
+#. Comment
+#: trinity2b1.khotkeys:191
+msgid "XMMS Player window"
+msgstr "Finestra di riproduzione di XMMS"
+
+#. Comment
+#: trinity2b1.khotkeys:211
+msgid ""
+"Ok, Konqi in TDE has tabs, and now you can also have gestures. No need to "
+"use other browsers >;).\n"
+"\n"
+"Just press the middle mouse button and start drawing one of the gestures, "
+"and after you're finished, release the mouse button. If you only need to "
+"paste the selection, it still works, simply only click the middle mouse "
+"button. (You can change the mouse button to use in the global settings).\n"
+"\n"
+"Right now, there are these gestures available:\n"
+"move right and back left - Forward (ALt+Right)\n"
+"move left and back right - Back (Alt+Left)\n"
+"move up and back down  - Up (Alt+Up)\n"
+"circle anticlockwise - Reload (F5)\n"
+" (As soon as I find out which ones are in Opera or Mozilla, I'll add more "
+"and make sure they are the same. Or if you do it yourself, feel free to help "
+"me and send me your khotkeysrc.)\n"
+"\n"
+"The gestures shapes (some of the dialogs are from KGesture, thanks to Mike "
+"Pilone) can be simply entered by performing them in the configuration "
+"dialog. You can also look at your numeric pad to help you, gestures are "
+"recognized like a 3x3 grid of fields, numbered 1 to 9.\n"
+"\n"
+"Note that you must perform exactly the gesture to trigger the action. "
+"Because of this, it's possible to enter more gestures for the action. You "
+"should try to avoid complicated gestures where you change the direction of "
+"mouse moving more than once (i.e. do e.g. 45654 or 74123 as they are simple "
+"to perform but e.g. 1236987 may be already quite difficult).\n"
+"\n"
+"The condition for all gestures are defined in this group. All these gestures "
+"are active only if the active window is Konqueror (class contains "
+"'konqueror')."
+msgstr ""
+"OK, Konqueror in TDE ha le schede, e ora puoi avere anche i gesti. Non hai "
+"motivo di usare altri browser! >;).\n"
+"\n"
+"Premi il tasto centrale del mouse e inizia a disegnare uno dei gesti, e "
+"quando hai finito rilascia il tasto del mouse. Se devi solo incollare la "
+"selezione, puoi ancora farlo, fai solo clic col tasto centrale del mouse "
+"(Dalle impostazioni globali puoi scegliere il tasto da usare).\n"
+"\n"
+"Al momento sono disponibili i seguenti gesti:\n"
+"sposta a destra e indietro a sinistra - Avanti (Alt+Destra)\n"
+"sposta a sinistra e indietro a destra - Indietro (Alt+Sinistra)\n"
+"sposta in su e di nuovo in giù - Su (Alt+Su)\n"
+"fai un cerchio in senso antiorario - Ricarica (F5)\n"
+" (Non appena scoprirò quali gesti sono presenti in Opera e Mozilla, li "
+"aggiungerò assicurandomi che siano gli stessi. Oppure se lo fai tu, aiutami "
+"pure, e mandami il tuo khotkeysrc.)\n"
+"\n"
+"Le forme dei gesti (alcune delle finestre derivano da KGesture, grazie a "
+"Mike Pilone) possono essere inserite semplicemente eseguendole nella "
+"finestra di configurazione. Puoi anche usare il tastierino numerico per "
+"aiutarti, i gesti sono riconosciuti come una griglia di campi 3×3, numerati "
+"da 1 a 9.\n"
+"\n"
+"Nota che devi eseguire il gesto esattamente per far scattare l'azione. Per "
+"questo motivo, è possibile inserire più gesti per una singola azione. "
+"Dovresti evitare gesti complicati in cui cambi la direzione di movimento del "
+"mouse più di una volta (cioè fai ad es. 45654 o 74123, perché sono "
+"abbastanza semplici da effettuare, ma, ad es. 1236987 è già piuttosto "
+"difficile).\n"
+"\n"
+"La condizione per tutti i gesti sono definite in questo gruppo. Tutti questi "
+"gesti sono attivi solo se la finestra attiva è Konqueror (la classe contiene "
+"\"konqueror\")."
+
+#. Name
+#: trinity2b1.khotkeys:214
+msgid "Konqi Gestures"
+msgstr "Gesti per Konqui"
+
+#. Comment
+#: trinity2b1.khotkeys:369
+msgid ""
+"After pressing Win+E (Tux+E), WWW browser will be launched and it will open "
+"http://www.trinitydesktop.org . You may run all kind of commands you can run "
+"in minicli (Alt+F2)."
+msgstr ""
+"Con la pressione di Win+E (Tux+E), verrà avviati il browser WWW ed aprirà il "
+"sito http://www.trinitydesktop.org. Puoi eseguire tutti i comandi avviabili "
+"da minicli (Alt+F2)."
+
+#. Name
+#: trinity2b1.khotkeys:371
+msgid "Go to TDE Website"
+msgstr "Vai al sito web di TDE"

@@ -1,0 +1,423 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "De-windowmanager"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Ga naar bureaublad 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "Virtueel bureaublad een is geselecteerd"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Ga naar bureaublad 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "Virtueel bureaublad twee is geselecteerd"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Ga naar bureaublad 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "Virtueel bureaublad drie is geselecteerd"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Ga naar bureaublad 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "Virtueel bureaublad vier is geselecteerd"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Ga naar bureaublad 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "Virtueel bureaublad vijf is geselecteerd"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Ga naar bureaublad 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "Virtueel bureaublad zes is geselecteerd"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Ga naar bureaublad 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "Virtueel bureaublad zeven is geselecteerd"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Ga naar bureaublad 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "Virtueel bureaublad acht is geselecteerd"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Ga naar buraublad 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "Virtueel bureaublad negen is geselecteerd"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Ga naar buraublad 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "Virtueel bureaublad tien is geselecteerd"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Ga naar buraublad 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "Virtueel bureaublad elf is geselecteerd"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Ga naar buraublad 12"
+
+#. Comment
+#: eventsrc:70
+#, fuzzy
+msgid "Virtual desktop twelve is selected"
+msgstr "Virtueel bureaublad elf is geselecteerd"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Ga naar buraublad 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "Virtueel bureaublad dertien is geselecteerd"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Ga naar buraublad 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "Virtueel bureaublad veertien is geselecteerd"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Ga naar buraublad 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "Virtueel bureaublad vijftien is geselecteerd"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Ga naar buraublad 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "Virtueel bureaublad zestien is geselecteerd"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Ga naar buraublad 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "Virtueel bureaublad zeventien is geselecteerd"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Ga naar buraublad 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "Virtueel bureaublad achttien is geselecteerd"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Ga naar bureaublad 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "Virtueel bureaublad negentien is geselecteerd"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Ga naar bureaublad 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "Virtueel bureaublad 20 is geselecteerd"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Venster activeren"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "Een ander venster is geactiveerd"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Nieuw venster"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Nieuw venster"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Venster verwijderen"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Venster verwijderen"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Venster sluiten"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Een venster sluit"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Venster oprollen"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Een venster is opgerold"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Venster afrollen"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Een venster is afgerold"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Venster minimaliseren"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Een venster is geminimaliseerd"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Minimalisatie van venster ongedaan maken"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Een venster is hersteld"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Venster maximaliseren"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Een venster is gemaximaliseerd"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Maximalisatie van venster ongedaan maken"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Een venster verliest maximalisatie"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Venster op alle bureaubladen"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Een venster is zichtbaar gemaakt op alle bureaubladen"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Venster niet op alle bureaubladen"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Een venster is niet langer zichtbaar op alle bureaubladen"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Nieuw dialoog"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Een dialoog verschijnt"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Dialoog verwijderen"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "Een dialoog is gesloten"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Starten met vensterbeweging"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Een venster begon met bewegen"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Stoppen met vensterbeweging"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Een venster is klaar met bewegen"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Starten met venster van grootte wijzigen"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Een venster begon met het wijzigen van grootte"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Stoppen met venster van grootte wijzigen"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Een venster is klaar met het wijzigen van grootte"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Venster op huidig bureaublad vraagt om aandacht"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Een venster op het huidige virtuele bureaublad vraagt om aandacht"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Venster op ander bureaublad vraagt om aandacht"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Een venster op een inactief virtueel bureaublad vraagt om aandacht"

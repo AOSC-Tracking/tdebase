@@ -1,0 +1,311 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 16:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: .directory:2
+msgid "Default"
+msgstr "Standaard"
+
+#. Name
+#: hidden.directory:4
+msgid "Internal Services"
+msgstr "Interne diensten"
+
+#. Name
+#: kde-development-webdevelopment.directory:4
+#: tde-development-webdevelopment.directory:4
+msgid "Web Development"
+msgstr "Webontwikkeling"
+
+#. Name
+#: kde-development.directory:4 kde-games.directory:4 kde-graphics.directory:4
+#: kde-internet.directory:4 kde-multimedia.directory:4 kde-office.directory:4
+#: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
+#: kde-utilities.directory:4
+msgid "KDE"
+msgstr ""
+
+#. Name
+#: kde-editors.directory:4 tde-editors.directory:4
+msgid "Editors"
+msgstr ""
+
+#. Name
+#: kde-edu-languages.directory:4
+msgid "Languages"
+msgstr ""
+
+#. Name
+#: kde-edu-mathematics.directory:4
+msgid "Mathematics"
+msgstr ""
+
+#. Name
+#: kde-edu-miscellaneous.directory:4
+msgid "Miscellaneous"
+msgstr ""
+
+#. Name
+#: kde-edu-science.directory:4 tde-science.directory:5
+msgid "Science"
+msgstr "Wetenschap"
+
+#. Name
+#: kde-games-arcade.directory:4 tde-games-arcade.directory:4
+msgid "Arcade"
+msgstr ""
+
+#. Name
+#: kde-games-board.directory:4 tde-games-board.directory:4
+msgid "Board Games"
+msgstr "Bordspellen"
+
+#. Name
+#: kde-games-card.directory:4 tde-games-card.directory:4
+msgid "Card Games"
+msgstr "Kaartspellen"
+
+#. Name
+#: kde-games-kids.directory:4 tde-games-kids.directory:4
+msgid "Games for Kids"
+msgstr "spelletjes voor kinderen"
+
+#. Name
+#: kde-games-strategy.directory:4 tde-games-strategy.directory:4
+msgid "Tactics & Strategy"
+msgstr "Tactiek en Strategie"
+
+#. Name
+#: kde-toys.directory:4 tde-toys.directory:4
+msgid "Toys"
+msgstr "Speelgoed"
+
+#. Name
+#. Comment
+#: kde-utilities-accessibility.directory:4
+#: tde-utilities-accessibility.directory:4
+#: tde-utilities-accessibility.directory:6
+msgid "Accessibility"
+msgstr "Toegankelijkheid"
+
+#. Name
+#. Comment
+#: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
+#: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
+msgid "Desktop"
+msgstr "Bureaublad"
+
+#. Name
+#. Comment
+#: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
+#: tde-utilities-pim.directory:6
+msgid "PIM"
+msgstr "Persoonlijke Informatie Management"
+
+#. Name
+#: tde-development-translation.directory:4
+msgid "Translation"
+msgstr "Vertaling"
+
+#. Name
+#: tde-development.directory:4
+msgid "Development"
+msgstr "Ontwikkeling"
+
+#. Name
+#: tde-edutainment.directory:4
+msgid "Edutainment"
+msgstr "Educatief"
+
+#. Name
+#: tde-games-logic.directory:4
+#, fuzzy
+msgid "Logic Games"
+msgstr "Rogue-achtige spellen"
+
+#. Name
+#: tde-games-roguelikes.directory:4
+msgid "Rogue-like Games"
+msgstr "Rogue-achtige spellen"
+
+#. Name
+#: tde-games.directory:4
+msgid "Games"
+msgstr "Amusement"
+
+#. Name
+#: tde-graphics.directory:4
+msgid "Graphics"
+msgstr "Grafisch"
+
+#. Name
+#: tde-internet-terminal.directory:4 tde-system-terminal.directory:4
+msgid "Terminal Applications"
+msgstr "Terminal-toepassingen"
+
+#. Name
+#: tde-internet.directory:4
+#, fuzzy
+msgid "Internet"
+msgstr "Internet en netwerk"
+
+#. Name
+#: tde-main.directory:5
+msgid "TDE Menu"
+msgstr "TDE-menu"
+
+#. Name
+#: tde-more.directory:5
+msgid "More Applications"
+msgstr "Meer programma's"
+
+#. Name
+#: tde-multimedia.directory:4
+#, fuzzy
+msgid "Multimedia"
+msgstr "Geluid en multimedia"
+
+#. Name
+#. Comment
+#: tde-office-pim.directory:4 tde-office-pim.directory:6
+msgid "Personal Information Management"
+msgstr "Persoonlijke Informatie Management"
+
+#. Name
+#: tde-office.directory:4
+msgid "Office"
+msgstr "Kantoortoepassingen"
+
+#. Name
+#: tde-settings-accessibility.directory:4
+msgid "Regional & Accessibility"
+msgstr "Regio en toegankelijkheid"
+
+#. Name
+#: tde-settings-components.directory:4
+msgid "TDE Components"
+msgstr "TDE-componenten"
+
+#. Name
+#: tde-settings-hardware.directory:4
+msgid "Hardware"
+msgstr ""
+
+#. Name
+#: tde-settings-information.directory:4
+msgid "Device Informations"
+msgstr ""
+
+#. Name
+#: tde-settings-looknfeel.directory:4
+msgid "Appearance & Themes"
+msgstr "Uiterlijk en thema's"
+
+#. Name
+#: tde-settings-network.directory:4
+msgid "Internet & Network"
+msgstr "Internet en netwerk"
+
+#. Name
+#. Comment
+#: tde-settings-peripherals.directory:4 tde-utilities-peripherals.directory:4
+#: tde-utilities-peripherals.directory:6
+msgid "Peripherals"
+msgstr "Randapparaten"
+
+#. Name
+#: tde-settings-power.directory:4
+msgid "Power Control"
+msgstr "Energiebeheer"
+
+#. Name
+#: tde-settings-security.directory:4
+msgid "Security & Privacy"
+msgstr "Privacy en beveiliging"
+
+#. Name
+#: tde-settings-sound.directory:4
+msgid "Sound & Multimedia"
+msgstr "Geluid en multimedia"
+
+#. Name
+#: tde-settings-system.directory:4
+msgid "System Administration"
+msgstr "Systeembeheer"
+
+#. Name
+#: tde-settings-webbrowsing.directory:4
+msgid "Web Browser"
+msgstr "Webbrowser"
+
+#. Name
+#: tde-settings.directory:4
+msgid "Settings-Modules"
+msgstr "Configuratiemodules"
+
+#. Name
+#: tde-settingsmenu.directory:4
+msgid "Settings"
+msgstr "Instellingen"
+
+#. Name
+#: tde-system-screensavers.directory:4
+msgid "Screen Savers"
+msgstr "Schermbeveiliging"
+
+#. Comment
+#: tde-system-screensavers.directory:8
+msgid "Screen saver demos"
+msgstr "Schermbeveiligingdemo's"
+
+#. Name
+#: tde-system-su.directory:5
+msgid "SuperUser"
+msgstr ""
+
+#. Name
+#: tde-system.directory:4
+msgid "System"
+msgstr "Systeem"
+
+#. Name
+#: tde-unknown.directory:4
+msgid "Lost & Found"
+msgstr "Overig"
+
+#. Name
+#. Comment
+#: tde-utilities-file.directory:4 tde-utilities-file.directory:6
+msgid "File"
+msgstr "Bestand"
+
+#. Name
+#: tde-utilities-xutils.directory:4
+msgid "X-Utilities"
+msgstr "Grafische hulpprogramma's"
+
+#. Comment
+#: tde-utilities-xutils.directory:6
+msgid "X Window Utilities"
+msgstr "X Window-hulpprogramma's"
+
+#. Name
+#. Comment
+#: tde-utilities.directory:4 tde-utilities.directory:6
+msgid "Utilities"
+msgstr "Hulpmiddelen"

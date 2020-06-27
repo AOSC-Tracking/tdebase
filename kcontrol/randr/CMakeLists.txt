@@ -22,9 +22,22 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES tderandrtray.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES randr.desktop DESTINATION ${APPS_INSTALL_DIR}/.hidden )
-install( FILES tderandrtray-autostart.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE tderandrtray.desktop
+  PO_DIR kcontrol-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE randr.desktop
+  DESTINATION ${APPS_INSTALL_DIR}/.hidden
+  PO_DIR kcontrol-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE tderandrtray-autostart.desktop
+  DESTINATION ${AUTOSTART_INSTALL_DIR}
+  PO_DIR kcontrol-desktops
+)
 
 
 ##### kcm_randr (module) ########################

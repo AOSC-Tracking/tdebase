@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 15:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "Konsole"
+msgstr ""
+
+#. Name
+#: eventsrc:6
+msgid "Bell in visible session"
+msgstr "Chuông trong các phiên chạy nhìn thấy"
+
+#. Comment
+#: eventsrc:7
+msgid "Bell emitted within a visible session"
+msgstr "Chuông phát ra trong một phiên chạy nhìn thấy"
+
+#. Name
+#: eventsrc:12
+msgid "Bell in non-visible session"
+msgstr "Chuông trong các phiên chạy không nhìn thấy"
+
+#. Comment
+#: eventsrc:13
+msgid "Bell emitted within a non-visible session"
+msgstr "Chuông phát ra trong một phiên chạy không nhìn thấy"
+
+#. Name
+#: eventsrc:18
+msgid "Activity in monitored session"
+msgstr "Các hoạt động trong phiên chạy được theo dõi"
+
+#. Comment
+#: eventsrc:19
+msgid "Activity detected in a monitored session"
+msgstr "Hoạt động được phát hiện trong một phiên chạy được theo dõi"
+
+#. Name
+#: eventsrc:23
+msgid "Silence in monitored session"
+msgstr "Im lặng trong các phiên chạy được theo dõi"
+
+#. Comment
+#: eventsrc:24
+msgid "Silence detected in a monitored session"
+msgstr "Im lặng được phát hiện trong một phiên chạy bị theo dõi"
+
+#. Name
+#: eventsrc:28
+msgid "Session finished with non-zero status"
+msgstr "Phiên chạy kết thúc với trạng thái khác không"
+
+#. Comment
+#: eventsrc:29
+msgid "A session has exited with non-zero status"
+msgstr "Một phiên chạy vừa kết thúc với trạng thái khác không"

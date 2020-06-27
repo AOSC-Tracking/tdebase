@@ -1,0 +1,2491 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: access/kaccess.desktop:3
+msgid "Accessibility Tool"
+msgstr "ਸਹਾਇਕ ਸੰਦ"
+
+#. Name
+#: access/kcmaccess.desktop:12
+msgid "Accessibility"
+msgstr "ਸਹੂਲਤਾਂ"
+
+#. Comment
+#: access/kcmaccess.desktop:14
+msgid "Improve accessibility for disabled persons"
+msgstr "ਅਪੰਗ ਵਿਅਕਤੀ ਲਈ ਸੁਧਾਰੀ ਸਹਾਇਤਾ"
+
+#. Keywords
+#: access/kcmaccess.desktop:16
+msgid ""
+"access;accessibility;deaf;impaired;bell;audible bell;visible bell;Keyboard;"
+"keys;sticky keys;bounce keys;slow keys;mouse navigation;num pad;"
+msgstr ""
+"access;accessibility;deaf;impaired;bell;audible bell;visible bell;ਕੀ-ਬੋਰਡ;"
+"keys;sticky keys;bounce keys;slow keys;mouse navigation;num pad;"
+
+#. Name
+#: arts/arts.desktop:12
+msgid "Sound System"
+msgstr "ਧੁਨੀ ਸਿਸਟਮ"
+
+#. Comment
+#: arts/arts.desktop:14
+msgid "Sound System Configuration"
+msgstr "ਧੁਨੀ ਸਿਸਟਮ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: arts/arts.desktop:16
+msgid ""
+"aRts;Sound Server;artsd;Audio;Sound;startup;network transparency;"
+"transparency;priority;duplex;full duplex;response time;Mixer;Volume;KMix;Mix;"
+"login;MIDI;synthesizer;music;"
+msgstr ""
+
+#. Name
+#: background/background.desktop:12
+msgid "Background"
+msgstr "ਪਿੱਠਭੂਮੀ"
+
+#. Comment
+#: background/background.desktop:14
+msgid "Change the background settings"
+msgstr "ਪਿੱਠਭੂਮੀ ਸੈਟਿੰਗ ਤਬਦੀਲ"
+
+#. Keywords
+#: background/background.desktop:16
+msgid ""
+"background;desktops;colors;colours;images;wallpapers;blending;balance;cache;"
+"multiple wallpapers;pixmap;"
+msgstr ""
+"background;desktops;colors;colours;images;wallpapers;blending;balance;cache;"
+"multiple wallpapers;pixmap; ਵਾਲਪੇਪਰ; ਰੰਗ; ਚਿੱਤਰ; ਪਿੱਠਭੂਮੀ;"
+
+#. Name
+#: bell/bell.desktop:13
+msgid "System Bell"
+msgstr "ਸਿਸਟਮ ਘੰਟੀ"
+
+#. Comment
+#: bell/bell.desktop:15
+msgid "System Bell Configuration"
+msgstr "ਸਿਸਟਮ ਘੰਟੀ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: bell/bell.desktop:17
+msgid "Bell;Audio;Sound;Volume;Pitch;Duration;"
+msgstr "Bell;Audio;Sound;Volume;Pitch;Duration; ਘੰਟੀ; ਆਡੀਓ; ਸਾਊਡ;"
+
+#. Name
+#: clock/clock.desktop:13
+msgid "Date & Time"
+msgstr "ਮਿਤੀ ਅਤੇ ਸਮਾਂ"
+
+#. Comment
+#: clock/clock.desktop:15
+msgid "Date and time settings"
+msgstr "ਮਿਤੀ ਅਤੇ ਸਮਾਂ ਸੈਟਿੰਗ"
+
+#. Keywords
+#: clock/clock.desktop:17
+msgid "clock;date;time;time zone;"
+msgstr "clock;date;time;time zone;ਘੜੀ;ਸਮਾਂ;ਸਮਾਂ ਖੇਤਰ;"
+
+#. Name
+#: colors/colors.desktop:12
+msgid "Colors"
+msgstr "ਰੰਗ"
+
+#. Comment
+#: colors/colors.desktop:14
+msgid "Color settings"
+msgstr "ਰੰਗ ਸੈਟਿੰਗ"
+
+#. Keywords
+#: colors/colors.desktop:16
+msgid "colors;colours;scheme;contrast;Widget colors;Color Scheme;"
+msgstr "colors;colours;scheme;contrast;Widget colors;Color Scheme;ਰੰਗ;ਸਕੀਮ;"
+
+#. Name
+#: componentchooser/EXAMPLE.desktop:1
+msgid "A nice name you have chosen for your interface"
+msgstr "ਆਪਣੇ ਇੰਟਰਫੇਸ ਲਈ ਇੱਕ ਸੋਹਣਾ ਨਾਂ ਚੁਣੋ"
+
+#. Comment
+#: componentchooser/EXAMPLE.desktop:2
+msgid "A helpful description of the interface for the top right info box"
+msgstr "ਸੱਜੇ ਜਾਣਕਾਰੀ ਬਕਸੇ ਲਈ ਇੰਟਰਫੇਸ ਲ਼ਈ ਸਹਾਇਤਾ ਵੇਰਵਾ"
+
+#. Name
+#: componentchooser/componentchooser.desktop:10
+msgid "Default Applications"
+msgstr "ਡਿਫਾਲਟ ਐਪਲੀਕੇਸ਼ਨ"
+
+#. Comment
+#: componentchooser/componentchooser.desktop:12
+msgid "Choose the default components for various services"
+msgstr "ਵੱਖ ਵੱਖ ਸਰਵਿਸਾਂ ਲਈ ਡਿਫਾਲਟ ਇੰਦਰਾਜ਼ ਚੁਣੋ"
+
+#. Keywords
+#: componentchooser/componentchooser.desktop:14
+msgid ""
+"default applications;components;component chooser;resources;e-mail;email "
+"client;text editor;instant messenger;terminal emulator;web browser;file "
+"manager;URL;hyperlinks;"
+msgstr ""
+"ਡਿਫਾਲਟ ਐਪੀਲਕੇਸ਼ਨ;ਐਪਲੀਕੇਸ਼ਨ;ਭਾਗ;ਭਾਗ ਚੋਣਕਾਰ;ਸਰੋਤ;ਈਮੇਲ;ਈ-ਮੇਲ;ਈਮੇਲ ਕਲਾਇਟ;ਟੈਕਸਟ ਐਡੀਟਰ; ਤੁਰੰਤ "
+"ਸੁਨੇਹੇ;ਮੈਸੈਂਜਰ;ਟਰਮੀਨਲ ਈਮੂਲੇਟਰ;ਵੈੱਬ ਬਰਾਊਜ਼ਰ;URL;ਹਾਈਪਰਲਿੰਕ;"
+
+#. Name
+#: componentchooser/componentservices/kcm_browser.desktop:1
+msgid "Web Browser"
+msgstr "ਵੈਬ ਝਲਕਾਰਾ"
+
+#. Comment
+#: componentchooser/componentservices/kcm_browser.desktop:3
+msgid ""
+"Here you can configure your default web browser. All TDE applications in "
+"which you can select hyperlinks should honor this setting."
+msgstr ""
+"ਇਥੇ ਤੁਸੀਂ ਆਪਣੇ ਮੂਲ ਵੈੱਬ ਝਲਕਾਰੇ ਦੀ ਸੰਰਚਨਾ ਕਰ ਸਕਦੇ ਹੋ।ਸਭ TDE ਕਾਰਜ, ਜਿਨਾਂ ਵਿੱਚ ਵੀ ਨੈੱਟ ਸੰਬੰਧ ਹਨ, "
+"ਇਸ ਸੈਟਿੰਗ ਦਾ ਸਨਮਾਨ ਕਰਨਗੇ।"
+
+#. Name
+#: componentchooser/componentservices/kcm_filemanager.desktop:1
+#: konq/filebrowser.desktop:12
+msgid "File Manager"
+msgstr "ਫਾਇਲ ਮੈਨੇਜਰ"
+
+#. Comment
+#: componentchooser/componentservices/kcm_filemanager.desktop:3
+#, fuzzy
+msgid ""
+"This service allows you to configure your default file manager. All TDE "
+"applications which invoke a file manager application should honor this "
+"setting."
+msgstr ""
+"ਇਥੇ ਤੁਸੀਂ ਆਪਣੇ ਮੂਲ ਟਰਮੀਨਲ ਦੀ ਸੰਰਚਨਾ ਕਰ ਸਕਦੇ ਹੋ। ਸਭ TDE ਕਾਰਜ, ਜਿਨਾਂ ਵਿੱਚ ਵੀ ਟਰਮੀਨਲ "
+"ਲੋੜੀਦਾ ਹੈ, ਇਸ ਸੈਟਿੰਗ ਦਾ ਸਨਮਾਨ ਕਰਨਗੇ।"
+
+#. Name
+#: componentchooser/componentservices/kcm_kemail.desktop:1
+msgid "Email Client"
+msgstr "ਈ-ਮੇਲ ਕਲਾਂਈਟ"
+
+#. Comment
+#: componentchooser/componentservices/kcm_kemail.desktop:3
+msgid ""
+"This service allows you to configure your default email client. All TDE "
+"applications which need access to an email client application should honor "
+"this setting."
+msgstr ""
+"ਇਥੇ ਤੁਸੀਂ ਆਪਣੇ ਮੂਲ ਈ-ਮੇਲ ਕਲਾਂਈਟ ਦੀ ਸੰਰਚਨਾ ਕਰ ਸਕਦੇ ਹੋ। ਸਭ TDE ਕਾਰਜ, ਜਿਨਾਂ ਨੇ ਵੀ ਈ-ਮੇਲ "
+"ਕਲਾਂਈਟ ਵਰਤਣਾ ਹੈ, ਇਸ ਸੈਟਿੰਗ ਦਾ ਸਨਮਾਨ ਕਰਨਗੇ।"
+
+#. Name
+#: componentchooser/componentservices/kcm_terminal.desktop:1
+msgid "Terminal Emulator"
+msgstr "ਟਰਮੀਨਲ ਸਮਰੂਪ"
+
+#. Comment
+#: componentchooser/componentservices/kcm_terminal.desktop:3
+msgid ""
+"This service allows you to configure your default terminal emulator. All TDE "
+"applications which invoke a terminal emulator application should honor this "
+"setting."
+msgstr ""
+"ਇਥੇ ਤੁਸੀਂ ਆਪਣੇ ਮੂਲ ਟਰਮੀਨਲ ਦੀ ਸੰਰਚਨਾ ਕਰ ਸਕਦੇ ਹੋ। ਸਭ TDE ਕਾਰਜ, ਜਿਨਾਂ ਵਿੱਚ ਵੀ ਟਰਮੀਨਲ "
+"ਲੋੜੀਦਾ ਹੈ, ਇਸ ਸੈਟਿੰਗ ਦਾ ਸਨਮਾਨ ਕਰਨਗੇ।"
+
+#. Name
+#: crypto/crypto.desktop:10
+msgid "Crypto"
+msgstr ""
+
+#. Comment
+#: crypto/crypto.desktop:12
+msgid "Configure SSL, manage certificates, and other cryptography settings"
+msgstr "SSL ਸੰਰਚਨਾ,ਸਰਟੀਫਕੇਟ ਅਤੇ ਕਰੋਫਟੋਗਰਾਫੀ ਸੈਟਿੰਗ"
+
+#. Keywords
+#: crypto/crypto.desktop:14
+msgid ""
+"Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;"
+"secure;security;"
+msgstr ""
+"Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;"
+"secure;security; ਸੁਰੱਖਿਆ; ਇਕਰਿਪਸ਼ਨ;"
+
+#. Name
+#: css/kcmcss.desktop:12
+#, fuzzy
+msgid "Stylesheets"
+msgstr "ਸ਼ੈਲੀ"
+
+#. Comment
+#: css/kcmcss.desktop:14
+msgid "Configure the stylesheets used to render web pages"
+msgstr "ਵੈਬ ਸਫਿਆਂ ਨੂੰ ਪੇਸ਼ ਕਰਨ ਲਈ ਸਾਰਣੀਕਾਰ ਸ਼ੀਟਾਂ ਦੀ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: css/kcmcss.desktop:16
+msgid "CSS;HTML;style;stylesheet;accessibility;"
+msgstr "CSS;HTML;style;stylesheet;accessibility; ਸ਼ੈਲੀ;"
+
+#. Name
+#: display/display.desktop:11
+msgid "Display"
+msgstr "ਝਲਕ"
+
+#. Comment
+#: display/display.desktop:13
+msgid "Display Settings"
+msgstr "ਝਲਕ ਸੰਰਚਨਾ"
+
+#. Name
+#: displayconfig/displayconfig.desktop:12
+msgid "Monitor & Display"
+msgstr ""
+
+#. Comment
+#: displayconfig/displayconfig.desktop:14
+#, fuzzy
+msgid "Configure display"
+msgstr "ਸੇਵਾ ਖੋਜ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: displayconfig/displayconfig.desktop:16
+msgid "monitor;resolution;display;"
+msgstr ""
+
+#. Name
+#: dnssd/kcm_tdednssd.desktop:18
+msgid "Zeroconf Service Discovery"
+msgstr "ਸੇਵਾ ਖੋਜ"
+
+#. Comment
+#: dnssd/kcm_tdednssd.desktop:20
+msgid "Configure service discovery"
+msgstr "ਸੇਵਾ ਖੋਜ ਸੰਰਚਨਾ"
+
+#. Name
+#: ebrowsing/ebrowsing.desktop:12
+msgid "Web Shortcuts"
+msgstr "ਵੈਬ ਸ਼ਾਰਟਕੱਟ"
+
+#. Comment
+#: ebrowsing/ebrowsing.desktop:14
+msgid "Configure enhanced browsing"
+msgstr "ਸਹਾਇਕ ਝਲਕਾਰਾ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: ebrowsing/ebrowsing.desktop:16
+msgid ""
+"Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet Filters;"
+"Network;Search Engines;Shortcuts;"
+msgstr ""
+"Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet Filters;"
+"Network;Search Engines;Shortcuts;ਇੰਟਰਨੈਟ;ਇੰਟਰਨੈਟ ਸ਼ਬਦ;ਇੰਟਰਨੈਟ ਫਿਲਟਰ; ਨੈਟਵਰਕ;"
+
+#. Name
+#: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
+msgid "InternetKeywordsFilter"
+msgstr "ਇੰਟਰਨੈੱਟ ਸ਼ਬਦ ਫਿਲਟਰ"
+
+#. Name
+#: ebrowsing/plugins/ikws/kurisearchfilter.desktop:3
+msgid "SearchKeywordsFilter"
+msgstr "ਖੋਜ ਸ਼ਬਦ ਫਿਲਟਰ"
+
+#. Comment
+#: ebrowsing/plugins/ikws/searchprovider.desktop:4
+msgid "Search Engine"
+msgstr "ਖੋਜ ਇੰਜਣ"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
+msgid "Acronym Database"
+msgstr "ਅਕਰੋਨਮ ਡਾਟਾਬੇਸ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
+msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
+msgid "Alexa"
+msgstr "ਅਲੀਕਸਾ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
+msgid "http://info.alexa.com/search?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
+msgid "Alexa URL"
+msgstr "ਅਲੀਕਸਾ URL"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
+msgid "http://info.alexa.com/data/details?url=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
+msgid "AllTheWeb fast"
+msgstr "ਸਭ ਵੈਬ ਤੇਜ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:6
+msgid ""
+"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:3
+msgid "AltaVista"
+msgstr "ਅਲਟਾ ਵੀਸਟਾ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:6
+msgid "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
+msgid "All Music Guide"
+msgstr "ਸਭ ਸੰਗੀਤ ਗਾਈਡ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
+msgid "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:3
+msgid "KDE App Search"
+msgstr "KDE ਕਾਰਜ ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:6
+msgid "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:3
+msgid "AustroNaut"
+msgstr "ਅਸਟਰੋਨਾਊਟ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:6
+msgid "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
+msgid "Debian Backports Search"
+msgstr "ਡੇਬੀਅਨ ਬੈਕਪੋਰਟ ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
+#, fuzzy
+msgid "http://www.backports.org/package.php?search=\\{@}"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=ਜਾਓ"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
+msgid "KDE Bug Database Fulltext Search"
+msgstr "KDE ਬੱਗ ਡਾਟਾਬੇਸ ਪੂਰਾ-ਪਾਠ ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:4
+msgid ""
+"http://bugs.trinitydesktop.org/simple_search.cgi?id=\\{1}+\\{2}+\\{3}+\\{4}+"
+"\\{5}+\\{6}+\\{7}+\\{8}+\\{9}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
+msgid "TDE Bug Database Bug Number Search"
+msgstr "TDE ਬੱਗ ਡਾਟਾਬੇਸ ਬੱਗ ਨੰਬਰ ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:4
+msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/call.desktop:5
+msgid "QRZ.com Callsign Database"
+msgstr "QRZ.com Callsign ਡਾਟਾਬੇਸ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/call.desktop:6
+msgid "http://www.qrz.com/database?callsign=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:4
+msgid "CIA World Factbook"
+msgstr "CIA ਸੰਸਾਰ ਜਾਣਕਾਰੀ ਕਿਤਾਬ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:5
+#, c-format
+msgid ""
+"http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
+"cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
+msgid "CiteSeer: Scientific Literature Digital Library"
+msgstr "CiteSeer: ਵਿਗਿਆਨਕ ਸਾਹਿਤ ਡਿਜ਼ੀਟਲ ਲਾਇਬਰੇਰੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
+msgid "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:3
+msgid "CPAN - Comprehensive Perl Archive Network"
+msgstr "CPAN - ਪੈਰਾ ਪਰਲ ਆਰਚੀਵ ਨੈੱਟਵਰਕ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
+msgid ""
+"http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:3
+msgid "CTAN - Comprehensive TeX Archive Network"
+msgstr "CTAN - ਪੈਰਾ TeX ਆਰਚੀਵ ਨੈੱਟਵਰਕ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:4
+msgid ""
+"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
+"\\{ at }"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:3
+msgid "CTAN Catalog"
+msgstr "CTAN ਸੂਚੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:4
+msgid ""
+"http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
+msgid "Debian BTS Bug Search"
+msgstr "ਡੇਬੀਅਨ BTS ਬੱਗ ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:4
+msgid "http://bugs.debian.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:5
+msgid "dict.cc Translation: German to English"
+msgstr "dict.cc ਅਨੁਵਾਦ: ਜਰਮਨ ਤੋਂ ਅੰਗਰੇਜ਼ੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:6
+msgid "http://www.dict.cc/?s=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:3
+msgid "LEO - Translate Between German and French"
+msgstr "LEO -ਜਰਮਨ ਅਤੇ ਫਰੈਂਚ ਵਿੱਚ ਅਨੁਵਾਦ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:6
+msgid "http://dict.leo.org/?lp=frde&search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/deb.desktop:3
+msgid "Debian Package Search"
+msgstr "ਡੇਬੀਅਨ ਪੈਕੇਜ ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/deb.desktop:4
+msgid "http://packages.debian.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:3
+msgid "Open Directory"
+msgstr "ਖੁੱਲੀ ਡਾਇਰੈਕਟਰੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
+#, fuzzy
+msgid "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=ਜਾਓ"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
+msgid "DocBook - The Definitive Guide"
+msgstr "DocBook - ਨਿਸ਼ਚਿਤ ਗਾਈਡ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:6
+msgid "http://www.docbook.org/tdg/en/html/\\{1}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:5
+msgid "Digital Object Identifier"
+msgstr "ਡਿਜ਼ੀਟਲ ਇਕਾਈ ਪਛਾਣਕਾਰ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:6
+msgid "http://dx.doi.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:5
+msgid "dict.cc Translation: English to German"
+msgstr "dict.cc ਅਨੁਵਾਦ: ਅੰਗਰੇਜ਼ੀ ਤੋਂ ਜਰਮਨ"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:5
+msgid "WordReference.com Translation: English to Spanish"
+msgstr "WordReference.com ਅਨੁਵਾਦ:ਅੰਗਰੇਜ਼ੀ ਤੋਂ ਸਪੇਨੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:6
+msgid "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:5
+msgid "WordReference.com Translation: English to French"
+msgstr "WordReference.com ਅਨੁਵਾਦ:ਅੰਗਰੇਜ਼ੀ ਤੋਂ ਫਰੈਂਚ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:6
+msgid "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:5
+msgid "WordReference.com Translation: English to Italian"
+msgstr "WordReference.com ਅਨੁਵਾਦ:ਅੰਗਰੇਜ਼ੀ ਤੋਂ ਇਤਾਲਵੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:6
+msgid "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:5
+msgid "WordReference.com Translation: Spanish to English"
+msgstr "WordReference.com ਅਨੁਵਾਦ:ਸਪੇਨੀ ਤੋਂ ਅੰਗਰੇਜ਼ੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:6
+msgid "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/excite.desktop:3
+msgid "Excite"
+msgstr "ਐਕਸਾਟੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/excite.desktop:6
+msgid "http://search.excite.com/search.gw?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:3
+msgid "Feedster"
+msgstr "ਫੀਡਸਟੀਰ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
+msgid "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
+msgid "Free On-Line Dictionary of Computing"
+msgstr "ਕੰਪਿਊਟਰ ਦਾ ਆਨ-ਲਾਈਨ ਮੁਫਤ ਸ਼ਬਦ-ਕੋਸ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
+msgid "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
+msgid "LEO - Translate Between French and German"
+msgstr "LEO - ਫਰੈਂਚ ਤੇ ਜਰਮਨ ਵਿੱਚ ਅਨੁਵਾਦ"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:5
+msgid "WordReference.com Translation: French to English"
+msgstr "WordReference.com ਅਨੁਵਾਦ:ਫਰੈਂਚ ਤੋਂ ਅੰਗਰੇਜ਼ੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:6
+msgid "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:3
+msgid "FreeDB"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:6
+msgid "http://www.freedb.org/freedb_search.php?words=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:3
+msgid "Freshmeat"
+msgstr "ਤਾਜ਼ਾ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:6
+msgid "http://freshmeat.net/search/?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:3
+msgid "Froogle"
+msgstr "ਫਰੂਗਲ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
+msgid "http://froogle.google.com/froogle?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:3
+msgid "FSF/UNESCO Free Software Directory"
+msgstr "FSF/UNESCO ਮੁਕਤ ਸਾਫਟਵੇਅਰ ਡਾਇਰੈਕਟਰੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:6
+msgid "http://directory.fsf.org/search/?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
+#, fuzzy
+msgid "Google"
+msgstr "ਫਰੂਗਲ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google.desktop:6
+msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:3
+msgid "Google Advanced Search"
+msgstr "Google ਤਕਨੀਕੀ ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:4
+msgid ""
+"http://www.google.com/search?as_q=\\{all,@}&num=\\{num,\"10\"}&btnG=Google"
+"+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\{without,\"\"}&lr="
+"\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\"\"}&as_qdr="
+"\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
+"&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
+msgid "Google Groups"
+msgstr "Google ਗਰੁੱਪ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:6
+msgid "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:3
+msgid "Google Image Search"
+msgstr "Google ਚਿੱਤਰ ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:6
+msgid "http://images.google.com/images?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:3
+msgid "Google (I'm Feeling Lucky)"
+msgstr "Google (ਮੈਂ ਖੁਸ਼ਨਸੀਬ ਹਾਂ)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:6
+#, c-format
+msgid ""
+"http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling"
+"+Lucky&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
+msgid "Google Movies"
+msgstr "Google ਫਿਲਮਾਂ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:6
+msgid "http://www.google.com/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:3
+msgid "Google News"
+msgstr "Google ਖ਼ਬਰਾਂ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:6
+msgid "http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:3
+msgid "Gracenote"
+msgstr "ਗਰੇਸਨੋਟ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:6
+msgid "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:5
+msgid "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
+msgstr "ਕਾਟਾਲਾਨ ਭਾਸ਼ਾ ਲਈ ਮਹਾਨ ਕੋਸ਼ (GRan ਵਿਸ਼ਵਕੋਸ਼ ਕਾਟਾਲਾਨਾ)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:6
+msgid "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:3
+msgid "Hotbot"
+msgstr "ਹੋਟਬੋਟ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:6
+msgid "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
+#, fuzzy
+msgid "HyperDictionary.com"
+msgstr "HyperDictionary.com ਥੀਸਾਰਸ ਕੋਸ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
+msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:3
+msgid "HyperDictionary.com Thesaurus"
+msgstr "HyperDictionary.com ਥੀਸਾਰਸ ਕੋਸ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:6
+msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
+msgid "Internet Movie Database"
+msgstr "ਇੰਟਰਨੈੱਟ ਫਿਲਮ ਡਾਟਾਬੇਸ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:6
+msgid "http://imdb.com/Find?\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:5
+msgid "WordReference.com Translation: Italian to English"
+msgstr "WordReference.com ਅਨੁਵਾਦ:ਇਤਾਲਵੀ ਤੋਂ ਅੰਗਰੇਜ਼ੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:6
+msgid "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:3
+msgid "Ask Jeeves"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:6
+msgid ""
+"http://www.ask.com/main/askJeeves.asp?"
+"origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:3
+msgid "KataTudo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:6
+msgid "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:5
+msgid "KDE API Documentation"
+msgstr "KDE API ਦਸਤਾਵੇਜ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:6
+msgid "http://api.kde.org/classmapper.php?class=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:3
+msgid "KDE WebSVN"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:6
+msgid "http://websvn.kde.org/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
+msgid "LEO-Translate"
+msgstr "LEO-ਅਨੁਵਾਦ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/leo.desktop:6
+msgid "http://dict.leo.org/?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:3
+msgid "Lycos"
+msgstr "ਲੁਕੋਸ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:6
+msgid "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:3
+msgid "Mamma - Mother of all Search Engines"
+msgstr "ਮਾਮਾ -ਸਭ ਖੋਜ ਇੰਜਣਾਂ ਦੀ ਮਾਂ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:6
+msgid "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
+msgid "MetaCrawler"
+msgstr "ਮੈਟਾਕਰਾਵਲੀਰ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:6
+msgid ""
+"http://search.metacrawler.com/crawler?general=\\{@}"
+"&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
+"search&refer=mc-search"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
+msgid "Microsoft Developer Network Search"
+msgstr "ਮਾਈਕਰੋਸਾਫਟ ਖੋਜੀ ਨੈੱਟਵਰਕ ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:6
+msgid ""
+"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff.asp?"
+"handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
+"asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:3
+msgid "Netcraft"
+msgstr "ਨੈੱਟਕਰਾਫਟ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:6
+msgid "http://uptime.netcraft.com/up/graph?site=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:2
+msgid "Telephonebook Search Provider"
+msgstr "ਟੈਲੀਫੋਨ ਖੋਜ ਪੇਸ਼ਕਾਰ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:6
+msgid ""
+"http://www.detelefoongids.nl/tginl.dll?"
+"action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2="
+"\\{1}&name=&initials=&city=\\{2}"
+"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
+"\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:2
+msgid "Teletekst Search Provider"
+msgstr "ਟੇਲੇਟੇਕਸਟ ਖੋਜ ਪੇਸ਼ਕਾਰ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:6
+msgid "http://teletekst.nos.nl/gif/\\{@}-01.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
+msgid "OpenPGP Key Search"
+msgstr "OpenPGP ਕੁੰਜੀ ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
+msgid "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
+msgid "PHP Search"
+msgstr "PHP ਖੋਜ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
+msgid "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/python.desktop:5
+msgid "Python Reference Manual"
+msgstr "Python ਹਵਾਲਾ ਦਸਤਾਵੇਜ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/python.desktop:6
+#, c-format
+msgid ""
+"http://www.google.com/search?sourceid=python-search&q=\\{@}"
+"&submit=Search&q=site%3Apython.org"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:5
+msgid "Latest Qt Online Documentation"
+msgstr "ਤਾਜ਼ਾ Qt ਆਨਲਾਈਨ ਦਸਤਾਵੇਜ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:6
+msgid "http://doc.trolltech.com/latest/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:5
+msgid "Qt3 Online Documentation"
+msgstr "Qt3 ਆਨਲਾਇਨ ਦਸਤਾਵੇਜ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:6
+msgid "http://doc.trolltech.com/3.3/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:5
+msgid "Dictionary of the Spanish Academy (RAE)"
+msgstr "ਸਪੇਨੀ ਐਕਡਮੀ ਦਾ ਸ਼ਬਦ-ਕੋਸ਼ (RAE)"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:6
+msgid ""
+"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
+"&FORMATO=ampliado"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
+msgid "IETF Requests for Comments"
+msgstr "ਟਿੱਪਣੀ ਲਈ IETF ਬੇਨਤੀ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:4
+msgid "http://www.ietf.org/rfc/rfc\\{@}.txt"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:3
+msgid "RPM-Find"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:6
+msgid "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:3
+msgid "Ruby Application Archive"
+msgstr "Ruby ਕਾਰਜ ਆਰਚੀਵ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:6
+msgid "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:3
+msgid "GO.com"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:6
+msgid ""
+"http://www.go.com/Titles?col=WW&qt=\\{@}"
+"&svx=home_searchbox&sv=IS&lk=noframeso"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
+msgid "SourceForge"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:4
+msgid ""
+"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
+"\\{exact,\"0\"}&words=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
+#, fuzzy
+msgid "Technorati"
+msgstr "Technorati ਟੈਗ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:6
+msgid "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:3
+msgid "Technorati Tags"
+msgstr "Technorati ਟੈਗ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:6
+msgid "http://technorati.com/tag/\\{@}?sourceid=kde-search"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:3
+msgid "Merriam-Webster Thesaurus"
+msgstr "Merriam-ਵੈੱਬ ਥੀਸਾਰਸ ਕੋਸ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:6
+msgid "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:4
+msgid "TV Tome"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:6
+msgid "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:5
+msgid "U.S. Patent Database"
+msgstr "U.S. Patent ਡਾਟਾਬੇਸ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:6
+msgid ""
+"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
+"&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
+msgid "Vivisimo"
+msgstr "ਵੀਵੀਸੀਮੋ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:6
+#, c-format
+msgid ""
+"http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
+"%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:3
+msgid "Voila"
+msgstr "ਵੋਈਲਾ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:6
+msgid ""
+"http://search.ke.voila.fr/S/voila?"
+"lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:3
+msgid "Merriam-Webster Dictionary"
+msgstr "Merriam-ਵੈਬਸਟੀਰ ਸ਼ਬਦ-ਕੋਸ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:6
+msgid "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:3
+msgid "Whatis Query"
+msgstr "ਇਹ ਕੀ ਸਵਾਲ"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:6
+msgid ""
+"http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:3
+msgid "Wikipedia - The Free Encyclopedia"
+msgstr "ਵਿੱਕੀਪੀਡਿਆ - ਮੁਫਤ ਵਿਸ਼ਵਕੋਸ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:6
+msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=ਜਾਓ"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:3
+msgid "Wiktionary - The Free Dictionary"
+msgstr "ਵਿੱਕੀਸ਼ਨਰੀ - ਮੁਫਤ ਸ਼ਬਦ-ਕੋਸ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:6
+msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=ਜਾਓ"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:5
+msgid "WordReference.com English Dictionary"
+msgstr "WordReference.com ਅੰਗਰੇਜ਼ੀ ਸ਼ਬਦ-ਕੋਸ਼"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:6
+msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/localdomain/localdomainurifilter.desktop:3
+msgid "LocalDomainFilter"
+msgstr "ਲੋਕਲ ਡੋਮੇਨ ਫਿਲਟਰ"
+
+#. Name
+#: ebrowsing/plugins/shorturi/tdeshorturifilter.desktop:3
+msgid "ShortURIFilter"
+msgstr "ShortURI ਫਿਲਟਰ"
+
+#. Name
+#: energy/energy.desktop:11
+msgid "Power Control"
+msgstr "ਊਰਜਾ ਕੰਟਰੋਲ"
+
+#. Comment
+#: energy/energy.desktop:13
+msgid "Settings for display power management"
+msgstr "ਊਰਜਾ ਪਰਬੰਧਨ ਝਲਕ ਲਈ ਸੈਟਿੰਗ"
+
+#. Keywords
+#: energy/energy.desktop:15
+msgid "energy;saver;apm;acpi;dpms;timeout;blanking;stand by;suspend;power;"
+msgstr ""
+"energy;saver;apm;acpi;dpms;timeout;blanking;stand by;suspend;ਊਰਜਾ;ਮੁਅੱਤਲ;"
+
+#. Name
+#: filetypes/filetypes.desktop:12
+msgid "File Associations"
+msgstr "ਫਾਇਲ ਸਬੰਧ"
+
+#. Comment
+#: filetypes/filetypes.desktop:14
+msgid "Configure file associations"
+msgstr "ਫਾਇਲ ਸਬੰਧ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: filetypes/filetypes.desktop:16
+msgid "Filetypes;File Associations;Mime Types;File Patterns;Files;Pattern;"
+msgstr ""
+"Filetypes;File Associations;Mime Types;File Patterns;ਫਾਇਲਾਂ;Pattern;ਫਾਇਲ ਕਿਸਮ;"
+"ਫਾਇਲ ਸਬੰਧ;"
+
+#. Name
+#: fonts/fonts.desktop:12 konqhtml/tdehtml_fonts.desktop:11
+#: tdefontinst/tdeio/fonts.desktop:5
+msgid "Fonts"
+msgstr "ਫੋਂਟ"
+
+#. Comment
+#: fonts/fonts.desktop:14
+msgid "Font settings"
+msgstr "ਫੋਂਟ ਸੈਟਿੰਗ"
+
+#. Keywords
+#: fonts/fonts.desktop:16
+msgid ""
+"fonts;font size;styles;charsets;character sets;panel;kicker;control panel;"
+"desktops;FileManager;Toolbars;Menu;Window Title;Title;"
+msgstr ""
+"fonts;font size;styles;charsets;character sets;panel;kicker;control panel;"
+"desktops;FileManager;Toolbars;Menu;Window Title;Title;ਫੋਂਟ;ਫੋਂਟ ਅਕਾਰ;ਕੰਟਰੋਲ ਪੈਨਲ;"
+"ਵੇਹੜਾ;ਫਾਇਲ ਮੈਨੇਜਰ;ਮੇਨੂ;ਟਾਇਟਲ;"
+
+#. Name
+#: hwmanager/hwdevicetray-autostart.desktop:2
+msgid "tdehwdevicetray"
+msgstr ""
+
+#. GenericName
+#. Name
+#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
+#: hwmanager/hwdevicetray.desktop:4
+#, fuzzy
+msgid "Device Monitor"
+msgstr "ਬਹੁ ਮਾਨੀਟਰ"
+
+#. Comment
+#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
+msgid "Monitor hardware devices from the system tray"
+msgstr ""
+
+#. Name
+#: hwmanager/hwmanager.desktop:11
+#, fuzzy
+msgid "Device Manager"
+msgstr "ਸੇਵਾਵਾਂ ਮੈਨੇਜਰ"
+
+#. Comment
+#: hwmanager/hwmanager.desktop:13
+#, fuzzy
+msgid "Configure hardware devices"
+msgstr "ਝਲਕਾਰਾ ਵਿਹਾਰ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: hwmanager/hwmanager.desktop:15
+msgid "hardware;devices;manager;"
+msgstr ""
+
+#. Comment
+#: iccconfig/iccconfig.desktop:14
+msgid "Configure display ICC color profile"
+msgstr ""
+
+#. Keywords
+#: iccconfig/iccconfig.desktop:16
+msgid "ICC;display;color;profile;"
+msgstr ""
+
+#. Name
+#: iccconfig/iccconfig.desktop:18
+msgid "Color Profile"
+msgstr ""
+
+#. Name
+#: icons/icons.desktop:12
+msgid "Icons"
+msgstr "ਆਈਕਾਨ"
+
+#. Comment
+#: icons/icons.desktop:14
+msgid "Customize TDE Icons"
+msgstr "TDE ਆਈਕਾਨ ਪਸੰਦ"
+
+#. Keywords
+#: icons/icons.desktop:16
+msgid "icons;effects;size;hicolor;locolor;"
+msgstr "icons;effects;size;hicolor;locolor;ਆਈਕਾਨ;ਪਰਭਾਵ;ਅਕਾਰ;"
+
+#. Name
+#: info/cdinfo.desktop:12
+msgid "CD-ROM Information"
+msgstr "CD-ROM ਜਾਣਕਾਰੀ"
+
+#. Comment
+#: info/cdinfo.desktop:14
+msgid "CD/DVD Drive Capabilites"
+msgstr "CD/DVD ਡਰਾਇਵ ਸਮੱਰਥਾ"
+
+#. Keywords
+#: info/cdinfo.desktop:16
+msgid "CD-ROM Information;CD-ROM;CD;CD Drive;Writer Capabilities;"
+msgstr ""
+
+#. Name
+#: info/devices.desktop:13
+msgid "Devices"
+msgstr "ਜੰਤਰ"
+
+#. Comment
+#: info/devices.desktop:15
+msgid "Attached devices information"
+msgstr "ਜੁੜੇ ਜੰਤਰਾਂ ਬਾਰੇ ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/devices.desktop:17
+msgid "dev;Devices;System Information;Information;"
+msgstr "dev;ਜੰਤਰ;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;"
+
+#. Name
+#: info/dma.desktop:13
+msgid "DMA-Channels"
+msgstr "DMA-ਚੈਨਲ"
+
+#. Comment
+#: info/dma.desktop:15
+msgid "DMA information"
+msgstr "DMA ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/dma.desktop:17
+msgid "dma;DMA-Channels;System Information;"
+msgstr "dma;DMA-Channels;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;"
+
+#. Name
+#: info/interrupts.desktop:13
+msgid "Interrupts"
+msgstr "ਰੁਕਾਵਟ"
+
+#. Comment
+#: info/interrupts.desktop:15
+msgid "Interrupt information"
+msgstr "ਰੁਕਾਵਟ ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/interrupts.desktop:17
+msgid "Interrupts;IRQ;System Information;"
+msgstr "Interrupts;IRQ;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;ਰੁਕਾਵਟ;"
+
+#. Name
+#: info/ioports.desktop:13
+msgid "IO-Ports"
+msgstr "IO-ਪੋਰਟ"
+
+#. Comment
+#: info/ioports.desktop:15
+msgid "IO-port information"
+msgstr "IO-ਪੋਰਟ ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/ioports.desktop:17
+msgid "IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System Information;"
+msgstr "IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;"
+
+#. Name
+#: info/memory.desktop:12
+msgid "Memory"
+msgstr "ਮੈਮੋਰੀ"
+
+#. Comment
+#: info/memory.desktop:14
+msgid "Memory information"
+msgstr "ਮੈਮੋਰੀ ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/memory.desktop:16
+msgid ""
+"Memory;RAM;Virtual memory;Physical memory;Shared memory;Swap;System "
+"Information;"
+msgstr ""
+"Memory;RAM;Virtual memory;Physical memory;Shared memory;Swap;System "
+"Information;ਮੈਮੋਰੀ;ਭੌਤਿਕ ਮੈਮੋਰੀ;ਸਾਂਝੀ ਮੈਮੋਰੀ;ਸਵੈਪ;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;ਰੈਮ;"
+
+#. Name
+#: info/opengl.desktop:13
+msgid "OpenGL"
+msgstr ""
+
+#. Comment
+#: info/opengl.desktop:15
+msgid "OpenGL information"
+msgstr "OpenGL ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/opengl.desktop:17
+msgid ""
+"OpenGL;DRI;GLX;3D;VideoCard;Hardware Acceleration;Graphics;X;X11;Xserver;X-"
+"Server;XFree86;Display;"
+msgstr ""
+"OpenGL;DRI;GLX;3D;ਵੀਡਿਓਕਾਰਡ; ਹਾਰਡਵੇਅਰ ਪਰਵੇਸ਼ਕ;ਗਰਾਫਿਕਸ;X;X11;Xserver;X-Server;"
+"XFree86;ਦਰਿਸ਼;"
+
+#. Name
+#: info/partitions.desktop:13
+msgid "Partitions"
+msgstr "ਭਾਗ"
+
+#. Comment
+#: info/partitions.desktop:15
+msgid "Partition information"
+msgstr "ਭਾਗ ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/partitions.desktop:17
+msgid "Partitions;Harddrive;HD;System Information;"
+msgstr "Partitions;Harddrive;HD;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;ਭਾਗ;ਹਾਰਡ ਡਿਸਕ;"
+
+#. Name
+#: info/pci.desktop:12
+msgid "PCI"
+msgstr ""
+
+#. Comment
+#: info/pci.desktop:14
+msgid "PCI information"
+msgstr "PCI ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/pci.desktop:16
+msgid "PCI;PCI-Devices;PCI-Bus;System Information;"
+msgstr "PCI;PCI-ਜੰਤਰ;PCI-Bus;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;"
+
+#. Name
+#: info/processor.desktop:12
+msgid "Processor"
+msgstr "ਪਰੋਸੈਸਰ"
+
+#. Comment
+#: info/processor.desktop:14
+msgid "Processor information"
+msgstr "ਪਰੋਸੈਸਰ ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/processor.desktop:16
+msgid "Processor;CPU;FPU;MHz;System Information;"
+msgstr "ਪਰੋਸੈਸਰ;CPU;FPU;MHz;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;"
+
+#. Name
+#: info/scsi.desktop:12
+msgid "SCSI"
+msgstr ""
+
+#. Comment
+#: info/scsi.desktop:14
+msgid "SCSI information"
+msgstr "SCSI ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/scsi.desktop:16
+msgid "SCSI;SCSI-Bus;System Information;"
+msgstr "SCSI;SCSI-Bus;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;"
+
+#. Name
+#: info/sound.desktop:12
+msgid "Sound"
+msgstr "ਧੁਨੀ"
+
+#. Comment
+#: info/sound.desktop:14
+msgid "Sound information"
+msgstr "ਧੁਨੀ ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/sound.desktop:16
+msgid "Sound;Audio;Soundcard;MIDI;OSS;System Information;"
+msgstr "Sound;Audio;Soundcard;MIDI;OSS;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;ਆਡੀਓ;ਸਾਊਂਡਕਾਰਡ;"
+
+#. Name
+#: info/xserver.desktop:12
+msgid "X-Server"
+msgstr "X-ਸਰਵਰ"
+
+#. Comment
+#: info/xserver.desktop:14
+msgid "X-Server information"
+msgstr "X-ਸਰਵਰ ਜਾਣਕਾਰੀ"
+
+#. Keywords
+#: info/xserver.desktop:16
+msgid "X;X-Server;XServer;XFree86;Display;VideoCard;System Information;"
+msgstr "X;X-Server;XServer;XFree86;ਦਰਿਸ਼;ਵੀਡਿਓ ਕਾਰਡ;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;"
+
+#. Name
+#: input/mouse.desktop:13
+msgid "Mouse"
+msgstr "ਮਾਊਸ"
+
+#. Comment
+#: input/mouse.desktop:15
+msgid "Mouse settings"
+msgstr "ਮਾਊਸ ਸੈਟਿੰਗ"
+
+#. Keywords
+#: input/mouse.desktop:17
+msgid ""
+"Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
+"Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
+"DoubleClick;mapping;right handed;left handed;"
+msgstr ""
+"ਮਾਊਸ;ਮਾਊਸ ਪ੍ਰਵੇਸ਼;ਮਾਊਸ threshold;ਮਾਊਸ buttons;Selection;CursorShape;Input ਜੰਤਰ;"
+"Button Mapping;Click;icons;feedback;Pointers;Drag;DoubleClick;mapping;"
+"righthanded;left handed;ਕਲਿੱਕ;ਆਈਕਾਨ;"
+
+#. Name
+#: joystick/joystick.desktop:12
+msgid "Joystick"
+msgstr "ਜਾਏਸਟਿੱਕ"
+
+#. Comment
+#: joystick/joystick.desktop:14
+msgid "Joystick - a kcontrol module to test Joysticks"
+msgstr "Joystick - ਜਾਏਸਟਿੱਕ ਜਾਂਚ ਲਈ ਕੇਕੰਟਰੋਲ ਮੈਡੀਊਲ"
+
+#. Keywords
+#: joystick/joystick.desktop:16
+msgid "joystick;gamepad;"
+msgstr "joystick;gamepad;ਜਾਏਸਟਿੱਕ;"
+
+#. Name
+#: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
+#: kcontrol/tde-kcontrol.desktop:8
+msgid "Trinity Control Center"
+msgstr "ਕੰਟਰੋਲ ਕੇਂਦਰ"
+
+#. Name
+#: kded/kcmkded.desktop:11
+msgid "Service Manager"
+msgstr "ਸੇਵਾਵਾਂ ਮੈਨੇਜਰ"
+
+#. Comment
+#: kded/kcmkded.desktop:13
+msgid "System Services Configuration"
+msgstr "ਸਿਸਟਮ ਸੇਵਾਵਾਂ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: kded/kcmkded.desktop:15
+msgid "KDED;Daemon;Services;"
+msgstr "KDED;Daemon;Services;ਸੇਵਾਵਾਂ;"
+
+#. Name
+#: keys/keys.desktop:12
+msgid "Keyboard Shortcuts"
+msgstr "ਕੀ-ਬੋਰਡ ਸ਼ਾਰਟਕੱਟ"
+
+#. Comment
+#: keys/keys.desktop:14
+msgid "Configuration of keybindings"
+msgstr "ਕੀਬਾਇਡ ਦੀ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: keys/keys.desktop:16
+msgid ""
+"Keys;Global key bindings;Key scheme;Key bindings;shortcuts;application "
+"shortcuts;"
+msgstr ""
+
+#. Name
+#: kicker/kicker_config.desktop:11
+msgid "Layout"
+msgstr "ਖਾਕਾ"
+
+#. Comment
+#: kicker/kicker_config.desktop:13 kicker/kicker_config_arrangement.desktop:13
+msgid "Configure the arrangement of the panel"
+msgstr "ਤੁਸੀਂ ਪੈਨਲ ਦੇ ਢਾਂਚੇ ਦੀ ਸੰਰਚਨਾ ਇੱਥੇ ਕਰ ਸਕਦੇ ਹੋ"
+
+#. Keywords
+#: kicker/kicker_config.desktop:15 kicker/kicker_config_appearance.desktop:15
+#: kicker/kicker_config_arrangement.desktop:15
+#: kicker/kicker_config_hiding.desktop:15 kicker/kicker_config_menus.desktop:15
+#: kicker/panel.desktop:14
+msgid ""
+"kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;"
+"buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;"
+"bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;"
+"applets;startup;highlight;handles;zooming icons;"
+msgstr ""
+"kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;"
+"buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;"
+"bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;"
+"applets;startup;highlight;handles;zooming icons; ਪੈਨਲ; ਟਿਕਾਣਾ; ਬਰਾਊਜ਼ਰ; "
+"ਝਲਾਕਰਾ; ਕੈਂਚੇ; ਕੇ-ਮੇਨੂ; ਬੁੱਕਮਾਰਕ; ਤਾਜ਼ਾ; ਉਘੜੇ; ਹੈਂਡਲ; ਬਟਨ; ਸਰੂਪ; ਮੇਨੂ; ਓਹਲੇ; ਅਕਾਰ;"
+
+#. Name
+#: kicker/kicker_config_appearance.desktop:11 konq/fileappearance.desktop:11
+msgid "Appearance"
+msgstr "ਦਿੱਖ"
+
+#. Comment
+#: kicker/kicker_config_appearance.desktop:13
+msgid "Configure the appearance of the panel"
+msgstr "ਇੱਥੇ ਤੁਸੀਂ ਪੈਨਲ ਦੀ ਦਿੱਖ ਦੀ ਸੰਰਚਨਾ ਕਰ ਸਕਦੇ ਹੋ"
+
+#. Name
+#: kicker/kicker_config_arrangement.desktop:11
+msgid "Arrangement"
+msgstr "ਇਕਰਾਰਨਾਮਾ"
+
+#. Name
+#: kicker/kicker_config_hiding.desktop:11
+msgid "Hiding"
+msgstr "ਓਹਲੇ"
+
+#. Comment
+#: kicker/kicker_config_hiding.desktop:13
+msgid "Configure the hiding of the panel"
+msgstr "ਤੁਸੀਂ ਪੈਨਲ ਨੂੰ ਓਹਲੇ ਰੱਖਣ ਦੀ ਸੰਰਚਨਾ ਇੱਥੇ ਕਰ ਸਕਦੇ ਹੋ"
+
+#. Name
+#: kicker/kicker_config_menus.desktop:11
+msgid "Menus"
+msgstr "ਮੇਨੂ"
+
+#. Comment
+#: kicker/kicker_config_menus.desktop:13
+msgid "Configure the menus of the panel"
+msgstr "ਤੁਸੀਂ ਪੈਨਲ ਮੇਨੂ ਦੀ ਸੰਰਚਨਾ ਇੱਥੇ ਕਰ ਸਕਦੇ ਹੋ"
+
+#. Name
+#: kicker/panel.desktop:10
+msgid "Panels"
+msgstr "ਪੈਨਲ"
+
+#. Comment
+#: kicker/panel.desktop:12
+msgid "Configure the arrangement of the panels"
+msgstr "ਪੈਨਲ ਦੇ ਢਾਂਚੇ ਦੀ ਸੰਰਚਨਾ"
+
+#. Name
+#: knotify/kcmnotify.desktop:11
+msgid "System Notifications"
+msgstr "ਸਿਸਟਮ ਸੂਚਨਾਵਾਂ"
+
+#. Comment
+#: knotify/kcmnotify.desktop:13
+msgid "System Notification Configuration"
+msgstr "ਸਿਸਟਮ ਸੂਚਨਾ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: knotify/kcmnotify.desktop:15
+msgid "System sounds;Audio;Sound;Notify;Alerts;Notification;"
+msgstr "ਸਿਸਟਮ ਧੁਨੀ;ਆਡੀਓ;ਧੁਨੀ;ਸੂਚਨਾ;ਚੇਤਾਵਨੀ;ਸੂਚਨਾਵਾਂ;"
+
+#. Name
+#: konq/desktop.desktop:11
+msgid "Multiple Desktops"
+msgstr "ਬਹੁ ਵੇਹੜਾ"
+
+#. Comment
+#: konq/desktop.desktop:13
+msgid "You can configure how many virtual desktops there are"
+msgstr "ਤੁਸੀਂ ਸੰਰਚਿਤ ਕਰ ਸਕਦੇ ਹੋ ਕਿ ਕਿੰਨੇ ਫਰਜ਼ੀ ਵੇਹੜੇ ਵੇਖਾਏ ਜਾਣ।"
+
+#. Keywords
+#: konq/desktop.desktop:15
+msgid "desktop;desktops;number;virtual desktop;"
+msgstr "desktop;desktops;number;virtual desktop;ਵੇਹੜੇ;ਗਿਣਤੀ;"
+
+#. Name
+#: konq/desktopbehavior.desktop:12 konq/filebehavior.desktop:11
+msgid "Behavior"
+msgstr "ਵਿਹਾਰ"
+
+#. Comment
+#: konq/desktopbehavior.desktop:14
+msgid "You can configure how the desktop behaves here"
+msgstr "ਤੁਸੀਂ ਸੰਰਚਿਤ ਕਰ ਸਕਦੇ ਹੋ ਕਿ ਵੇਹੜਾ ਵਿਹਾਰ ਕਿਵੇਂ ਕਰੇਗਾ।"
+
+#. Keywords
+#: konq/desktopbehavior.desktop:16
+msgid ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;"
+msgstr ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;ਫਾਇਲ ਮੈਨੇਜਰ;ਸੰਕੇਤ;ਵੱਖਰਾ ਝਰੋਖਾ;ਵਿਹਾਰ;ਮੈਮੋਰੀ "
+"ਵਰਤੋਂ;ਕੋਨਕਿਉਰਰ;"
+
+#. Name
+#: konq/desktoppath.desktop:11
+msgid "Paths"
+msgstr "ਮਾਰਗ"
+
+#. Comment
+#: konq/desktoppath.desktop:13
+msgid "Change the location important files are stored"
+msgstr "ਜ਼ਰੂਰੀ ਫਾਇਲਾਂ ਸੰਭਾਲਣ ਲਈ ਟਿਕਾਣਾ ਤਬਦੀਲ"
+
+#. Keywords
+#: konq/desktoppath.desktop:15
+msgid "konqueror;filemanager;paths;desktop;directories;autostart;"
+msgstr "autostart;ਕੋਨਕਿਉਰਰ;ਫਾਇਲ ਮੈਨੇਜਰ;ਮਾਰਗ;ਵੇਹੜਾ;ਡਾਇਰੈਕਟਰੀਆਂ;"
+
+#. Comment
+#: konq/fileappearance.desktop:13
+msgid "Configure how Konqueror looks as a file manager"
+msgstr "ਤੁਸੀਂ ਇੱਥੇ ਸੰਰਚਿਤ ਕਰ ਸਕਦੇ ਹੋ ਕਿ ਕੋਨਕਿਉਰਰ ਇੱਕ ਫਾਇਲ ਮੈਨੇਜਰ ਦੇ ਰੂਪ ਵਿੱਚ ਕਿਵੇਂ ਦਿਖਾਈ ਦੇਵੇਗਾ।"
+
+#. Keywords
+#: konq/fileappearance.desktop:15 konq/filebrowser.desktop:16
+msgid ""
+"konqueror;filemanager;word wrap;wrap;underline;display;filesize;bytes;font;"
+"color;colour;"
+msgstr "ਕੋਨਕਿਉਰਰ;ਫਾਇਲ ਮੈਨੇਜਰ;ਸ਼ਬਦ ਸਮੇਟੋ;ਸਮੇਟੋ;ਹੇਠਾਂ ਰੇਖਾ;ਫਾਇਲ ਅਕਾਰ;ਬਾਈਟ;ਫੋਂਟ;ਰੰਗ ਝਲਕ;"
+
+#. Comment
+#: konq/filebehavior.desktop:13
+msgid "Configure how Konqueror behaves as a file manager"
+msgstr ""
+"ਤੁਸੀਂ ਇੱਥੇ ਸੰਰਚਿਤ ਕਰ ਸਕਦੇ ਹੋ ਕਿ ਕੋਨਕਿਉਰਰ ਇੱਕ ਫਾਇਲ ਮੈਨੇਜਰ ਦੇ ਰੂਪ ਵਿੱਚ ਕਿਵੇਂ ਵਿਵਹਾਰ ਦੇਵੇਗਾ।"
+
+#. Keywords
+#: konq/filebehavior.desktop:15
+msgid ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;network operations;progress dialog;"
+"trash can;delete;confirmation;"
+msgstr ""
+"kfm;ਕੋਨਕਿਉਰਰ;ਫਾਇਲ ਮੈਨੇਜਰ;ਸੰਕੇਤ;ਵੱਖਰਾ ਝਰੋਖਾ;ਵਿਹਾਰ;ਮੈਮੋਰੀ ਵਰਤੋਂ; ਨੈੱਟਵਰਕ ਕਾਰਵਾਈ;ਤਰੱਕੀ "
+"ਵਾਰਤਾਲਾਪ;ਰੱਦੀ;ਹਟਾਓ;ਪੁਸ਼ਟੀ;ਘਰ URL;ਸੰਕੇਤ;"
+
+#. Comment
+#: konq/filebrowser.desktop:14
+msgid "You can configure Konqueror's file manager mode here"
+msgstr "ਤੁਸੀਂ ਇੱਥੇ ਕੋਨਕਿਉਰੋਰ ਦੇ ਫਾਇਲ ਮੈਨੇਜਰ ਰੂਪ ਨੂੰ ਸੰਰਚਿਤ ਕਰ ਸਕਦੇ ਹੋ"
+
+#. Name
+#: konq/filepreviews.desktop:11
+msgid "Previews & Metadata"
+msgstr "ਝਲਕ ਅਤੇ ਮੈਟਾ-ਡਾਟਾ"
+
+#. Comment
+#: konq/filepreviews.desktop:13
+msgid "Configure how Konqueror Previews & Meta-data work"
+msgstr "ਇੱਥੇ ਤੁਸੀਂ ਕੋਨਕਿਉਰੋਰ ਝਾਤੀ ਅਤੇ ਮੈਟਾ-ਡਾਟਾ ਕੰਮ ਨੂੰ ਸੰਰਚਿਤ ਕਰ ਸਕਦੇ ਹੋ।"
+
+#. Keywords
+#: konq/filepreviews.desktop:15
+msgid "konqueror;filemanager;previews;file previews;maximum size;"
+msgstr "ਕੋਨਕਿਉਰਰ;ਫਾਇਲ ਮੈਨੇਜਰ;ਝਲਕ;ਫਾਇਲ ਝਲਕ;ਵੱਧ ਤੋਂ ਵੱਧ ਅਕਾਰ;"
+
+#. Name
+#: konqhtml/tdehtml_behavior.desktop:11
+msgid "Web Behavior"
+msgstr "ਵੈਬ ਵਿਹਾਰ"
+
+#. Comment
+#: konqhtml/tdehtml_behavior.desktop:13
+msgid "Configure the browser behavior"
+msgstr "ਝਲਕਾਰਾ ਵਿਹਾਰ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: konqhtml/tdehtml_behavior.desktop:15
+msgid ""
+"konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;"
+"cursor;links;images;charsets;character sets;encoding;"
+msgstr ""
+"ਕੋਨਕਿਉਰਰ;kfm;ਝਲਕਾਰਾ;html;web;www;ਫੋਂਟ; ਰੰਗ; ਜਾਵਾ; ਜਾਵਾ ਸਕ੍ਰਿਪਟ; ਕਰਸਰ; ਸਬੰਧ; ਚਿੱਤਰ; "
+"ਅੱਖਰ-ਸੈਟ; ਇੰਕੋਡਿੰਗ;"
+
+#. Name
+#: konqhtml/tdehtml_filter.desktop:10
+msgid "AdBlocK Filters"
+msgstr "AdBlocK ਫਿਲਟਰ"
+
+#. Comment
+#: konqhtml/tdehtml_filter.desktop:12
+msgid "Configure Konqueror AdBlocK filters"
+msgstr "ਕੋਨਕਿਉਰਰ ਐਡਬਲਾਕ ਫਿਲਟਰ ਸੰਰਚਨਾ"
+
+#. Comment
+#: konqhtml/tdehtml_fonts.desktop:13
+msgid "Configure the fonts used on web pages"
+msgstr "ਵੈੱਬ ਸਫੇ 'ਤੇ ਫੋਂਟ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: konqhtml/tdehtml_fonts.desktop:15
+msgid ""
+"konqueror;kfm;browser;html;web;www;fonts;charsets;character sets;encoding;"
+msgstr "ਕੋਨਕਿਉਰਰ;kfm;ਝਲਕਾਰਾ;html;web;www;ਫੋਂਟ; ਅੱਖਰ-ਸੈਟ; ਅੱਖਰ ਸੈਟ; ਇੰਕੋਡਿੰਗ;"
+
+#. Name
+#: konqhtml/tdehtml_java_js.desktop:11
+msgid "Java & JavaScript"
+msgstr "Java ਅਤੇ ਜਾਵਾ ਸਕਰਿਪਟ"
+
+#. Comment
+#: konqhtml/tdehtml_java_js.desktop:13
+msgid "Configure the behavior of Java and JavaScript"
+msgstr "Java ਅਤੇ ਜਾਵਾ-ਸਕਰਿਪਟ ਦੇ ਵਿਹਾਰ ਦੀ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: konqhtml/tdehtml_java_js.desktop:15
+msgid "konqueror;kfm;browser;html;web;www;java;javascript;"
+msgstr "ਕੋਨਕਿਉਰਰ;kfm;ਝਲਕਾਰਾ;html;web;www;java;javascript;ਜਾਵਾ;"
+
+#. Name
+#: konqhtml/tdehtml_userinterface.desktop:11
+#, fuzzy
+msgid "User Interface"
+msgstr "ਨੈਟਵਰਕ ਇੰਟਰਫੇਸ"
+
+#. Comment
+#: konqhtml/tdehtml_userinterface.desktop:13
+#, fuzzy
+msgid "Configure user interface options"
+msgstr "ਵੈੱਬ ਕੈਂਚੇ ਸੈਟਿੰਗ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: konqhtml/tdehtml_userinterface.desktop:15
+#, fuzzy
+msgid "konqueror;kfm;user;interface;tabbed;browsing;"
+msgstr "konqueror;reuse;preloading; ਕੋਨਕਿਉਰਰ; ਮੁੜ ਲੋਡ;"
+
+#. Name
+#: konsole/kcmkonsole.desktop:10
+msgid "Konsole"
+msgstr "ਕੰਨਸੋਲ"
+
+#. Comment
+#: konsole/kcmkonsole.desktop:12
+msgid "Konsole configuration module"
+msgstr "ਕੰਨਸੋਲ ਸੰਰਚਨਾ ਮੈਡੀਊਲ"
+
+#. Keywords
+#: konsole/kcmkonsole.desktop:14
+msgid ""
+"konsole;schema;konsole background;colors;background;terminal application;"
+"terminal;"
+msgstr ""
+"konsole;schema;konsole background;colors;background;terminal application;"
+"terminal;ਕੰਨਸੋਲ;ਸਕੀਮ;ਰੰਗ;ਟਰਮੀਨਲ;"
+
+#. Name
+#: kthememanager/installktheme.desktop:2
+msgid "Install TDE Theme"
+msgstr "TDE ਸਰੂਪ ਇੰਸਟਾਲ"
+
+#. Comment
+#: kthememanager/kthememanager.desktop:2
+msgid "Manage global TDE visual themes"
+msgstr "ਮੁੱਢਲੇ TDE ਦਿੱਖ ਸਰੂਪ ਪਰਬੰਧ"
+
+#. Keywords
+#: kthememanager/kthememanager.desktop:5
+msgid "themes;look and feel;"
+msgstr "ਸਰੂਪ;ਦਿੱਖ ਅਤੇ ਛੋਹ;"
+
+#. Name
+#: kthememanager/kthememanager.desktop:6
+msgid "Theme Manager"
+msgstr "ਸਰੂਪ ਮੈਨੇਜਰ"
+
+#. Comment
+#: kthememanager/x-ktheme.desktop:3
+msgid "TDE Theme"
+msgstr "TDE ਸਰੂਪ"
+
+#. Name
+#: launch/kcmlaunch.desktop:12
+msgid "Launch Feedback"
+msgstr "ਫੀਡਬੈਕ ਜਾਰੀ ਕਰੋ"
+
+#. Comment
+#: launch/kcmlaunch.desktop:14
+msgid "Choose application-launch feedback style"
+msgstr "ਕਾਰਜ-ਸ਼ੁਰੂ ਫੀਡਬੈਕ ਸ਼ੈਲੀ ਚੁਣੋ"
+
+#. Keywords
+#: launch/kcmlaunch.desktop:16
+msgid ""
+"application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
+"spinning;disk;startup;program;report;"
+msgstr ""
+"application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
+"spinning;disk;startup;program;report;ਕਾਰਜ; ਸ਼ੁਰੂ;ਰੁਝਿਆ;ਫੀਡਬੈਕ;ਮਾਊਸ;ਬਿੰਦੂ;ਡਿਸਕ;ਕਾਰਜ;"
+"ਰਿਪੋਰਟ;"
+
+#. Name
+#: locale/default/entry.desktop:2
+msgid "US English"
+msgstr "ਅਮਰੀਕੀ ਅੰਗਰੇਜ਼ੀ"
+
+#. Name
+#: locale/language.desktop:12
+msgid "Country/Region & Language"
+msgstr "ਦੇਸ਼/ਖੇਤਰ ਅਤੇ ਭਾਸ਼ਾ"
+
+#. Comment
+#: locale/language.desktop:14
+msgid "Language, numeric, and time settings for your particular region"
+msgstr "ਆਪਣੇ ਖਾਸ ਖੇਤਰ ਲਈ ਭਾਸ਼ਾ, ਅੰਕੀ ਤੇ ਸਮਾਂ ਸੈਟ ਕਰੋ"
+
+#. Keywords
+#: locale/language.desktop:16
+msgid ""
+"language;translation;number format;currency;time;date;formats;locale;Country;"
+"charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
+"sign;positive;negative;fractional digits;week;week start;"
+msgstr ""
+"ਭਾਸ਼ਾ;ਅਨੁਵਾਦ;ਗਿਣਤੀ;ਕਰੰਸੀ;ਸਮਾਂ;ਮਿਤੀ;ਲੋਕੇਲ;ਦੇਸ਼;ਅੱਖਰ-ਸੈਟ; ਦਸ਼ਮਲਵ; ਹਜ਼ਾਰ ਵੱਖਰੇਵਾਂ;ਨਿਸ਼ਾਨ;"
+"ਰਿਣਾਤਮਕ;ਧਨਾਤਮਕ;ਭਿੰਨ ਅੰਕ;ਹਫ਼ਤਾ; ਹਫ਼ਤਾ ਸ਼ੁਰੂ;"
+
+#. Name
+#: nics/nic.desktop:12
+msgid "Network Interfaces"
+msgstr "ਨੈਟਵਰਕ ਇੰਟਰਫੇਸ"
+
+#. Comment
+#: nics/nic.desktop:14
+msgid "Network interface information"
+msgstr "ਨੈੱਟਵਰਕ ਇੰਟਰਫੇਸ ਜਾਣਕਾਰੀ"
+
+#. Name
+#: performance/kcmkonqyperformance.desktop:11
+#: performance/kcmperformance.desktop:11
+msgid "Performance"
+msgstr "ਪਰਦਰਸ਼ਨ"
+
+#. Comment
+#: performance/kcmkonqyperformance.desktop:13
+msgid "Configure settings that can improve Konqueror performance"
+msgstr "ਸੰਰਚਨਾ ਸੈਟ ਕਰੋ, ਜਿਸ ਨਾਲ ਕੋਨਕਿਉਰਰ ਦਾ ਪਰਦਰਸ਼ਨ ਵਧਿਆ ਹੋ ਸਕੇ"
+
+#. Keywords
+#: performance/kcmkonqyperformance.desktop:15
+msgid "konqueror;reuse;preloading;"
+msgstr "konqueror;reuse;preloading; ਕੋਨਕਿਉਰਰ; ਮੁੜ ਲੋਡ;"
+
+#. Comment
+#: performance/kcmperformance.desktop:13
+msgid "Configure settings that can improve TDE performance"
+msgstr "ਸੰਰਚਨਾ ਸੈਟ ਕਰੋ, ਜਿਸ ਨਾਲ TDE ਦਾ ਪਰਦਰਸ਼ਨ ਵਧਿਆ ਹੋ ਸਕਦਾ ਹੈ"
+
+#. Keywords
+#: performance/kcmperformance.desktop:15
+msgid "performance;speed;memory;improve;"
+msgstr "performance;speed;memory;improve; ਪਰਦਰਸ਼ਨ; ਗਤੀ; ਮੈਮੋਰੀ; ਸੁਧਾਰ;"
+
+#. Name
+#: privacy/privacy.desktop:11
+msgid "Privacy"
+msgstr "ਰਹੱਸ"
+
+#. Comment
+#: privacy/privacy.desktop:13
+msgid "Clean unwanted traces the user leaves on the system"
+msgstr "ਸਿਸਟਮ 'ਤੇ ਉਪਭੋਗੀ ਦੀ ਨਾ-ਲੋੜੀਦੀ ਪਛਾਣ ਨੂੰ ਸਮਾਪਤ ਕਰਦਾ ਹੈ।"
+
+#. Keywords
+#: privacy/privacy.desktop:15
+msgid "Privacy;privacy;"
+msgstr "Privacy;ਰਹੱਸ; ਨਿੱਜੀ;"
+
+#. Name
+#: randr/randr.desktop:9
+msgid "Size & Orientation"
+msgstr "ਆਕਾਰ ਅਤੇ ਸਥਿਤੀ"
+
+#. Comment
+#: randr/randr.desktop:11
+msgid "Resize and Rotate your display"
+msgstr "ਆਪਣੀ ਝਲਕ ਨੂੰ ਮੁੜ-ਆਕਾਰ ਕਰੋ ਤੇ ਘੁੰਮਾਓ"
+
+#. Keywords
+#: randr/randr.desktop:13
+msgid "resize;rotate;display;color;depth;size;horizontal;vertical;"
+msgstr "ਮੁੜ-ਅਕਾਰ;ਘੁੰਮਾਉ;ਝਲਕ;ਰੰਗ;ਡੂੰਘਾਈ;ਅਕਾਰ;ਖਿਤਿਜੀ;ਲੰਬਕਾਰੀ;"
+
+#. Name
+#: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
+msgid "TDERandRTray"
+msgstr ""
+
+#. GenericName
+#: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
+msgid "Screen Resize & Rotate"
+msgstr "ਪਰਦਾ ਮੁੜ ਆਕਾਰ ਤੇ ਘੁੰਮਾਓ"
+
+#. Comment
+#: randr/tderandrtray-autostart.desktop:6 randr/tderandrtray.desktop:6
+msgid "Resize and rotate X screens."
+msgstr "X ਸਕਰੀਨ ਨੂੰ ਮੁੜ-ਅਕਾਰ ਅਤੇ ਘੁੰਮਾਓ।"
+
+#. Name
+#: samba/smbstatus.desktop:12
+msgid "Samba Status"
+msgstr "ਸਾਂਬਾ ਸਥਿਤੀ"
+
+#. Comment
+#: samba/smbstatus.desktop:14
+msgid "Samba status monitor"
+msgstr "ਸਾਂਬਾ ਸਥਿਤੀ ਨਿਗਰਾਨ"
+
+#. Keywords
+#: samba/smbstatus.desktop:16
+msgid "SMB;SAMBA;Windows network;LAN;System Information;"
+msgstr "SMB;SAMBA;Windows network;LAN;ਸਿਸਟਮ ਜਾਣਕਾਰੀ;"
+
+#. Name
+#: screensaver/screensaver.desktop:12
+msgid "Screen Saver"
+msgstr "ਸਕਰੀਨ-ਸੇਵਰ"
+
+#. Comment
+#: screensaver/screensaver.desktop:14
+msgid "Screen Saver Settings"
+msgstr "ਸਕਰੀਨ-ਸੇਵਰ (ਸਕਰੀਨ-ਸੇਵਰ) ਸੈਟਿੰਗ"
+
+#. Keywords
+#: screensaver/screensaver.desktop:16
+msgid "screensavers;Priority;"
+msgstr "ਸਕਰੀਨ-ਸੇਵਰ;ਦਰਜਾ;"
+
+#. Name
+#: smartcard/smartcard.desktop:11
+msgid "Smartcards"
+msgstr "ਸਮਾਟ-ਕਾਰਡ"
+
+#. Comment
+#: smartcard/smartcard.desktop:13
+msgid "Configure smartcard support"
+msgstr "ਸਮਾਟ-ਕਾਰਡ ਸਹਾਇਤਾ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: smartcard/smartcard.desktop:15
+msgid "Smartcard;PKCS;SSL;reader;smart;card;"
+msgstr "Smartcard;PKCS;SSL;reader;smart;card; ਰੀਡਰ; ਕਾਰਡ; ਸਮਾਟ;"
+
+#. Name
+#: smserver/kcmsmserver.desktop:12
+msgid "Session Manager"
+msgstr "ਸ਼ੈਸ਼ਨ ਮੈਨੇਜਰ"
+
+#. Comment
+#: smserver/kcmsmserver.desktop:14
+msgid "Configure the session manager and logout settings"
+msgstr "ਸ਼ੈਸ਼ਨ ਮੈਨੇਜਰ ਅਤੇ ਲਾਗਆਉਟ ਸੈਟਿੰਗ ਦੀ ਸਥਾਪਨ"
+
+#. Keywords
+#: smserver/kcmsmserver.desktop:16
+msgid "ksmserver;session;logout;confirmation;save;restore;"
+msgstr "ksmserver;session;logout;confirmation;save;restore;ਸੰਭਾਲੋ;ਲਾਗਆਉਟ;ਪੁਸ਼ਟੀ;"
+
+#. Name
+#: spellchecking/spellchecking.desktop:11
+msgid "Spell Checker"
+msgstr "ਸ਼ਬਦ-ਜੋੜ ਜਾਂਚਕਾਰ"
+
+#. Comment
+#: spellchecking/spellchecking.desktop:13
+msgid "Configure the spell checker"
+msgstr "ਸ਼ਬਦ-ਜੋੜ ਜਾਂਚਕਾਰ ਦੀ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: spellchecking/spellchecking.desktop:15
+msgid "Spell;"
+msgstr ""
+
+#. Name
+#: style/style.desktop:13
+msgid "Style"
+msgstr "ਸ਼ੈਲੀ"
+
+#. Comment
+#: style/style.desktop:15
+msgid ""
+"Allows the manipulation of widget behavior and changing the Style for TDE"
+msgstr "TDE ਲਈ ਵਿਦਗਿਟ ਵਿਵਹਾਰ ਅਤੇ ਸ਼ੈਲੀ ਤਬਦੀਲ ਲਈ ਸਹਾਈ ਹੈ"
+
+#. Keywords
+#: style/style.desktop:17
+msgid ""
+"style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE applications;"
+msgstr ""
+"style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE applications;"
+"ਸ਼ੈਲੀ;ਸ਼ੈਲੀਆਂ;ਦਿੱਖ;ਆਈਕਾਨ;ਸੰਦ-ਪੱਟੀ;ਪਾਠ;ਉਘਾੜੋ;ਕਾਰਜ;"
+
+#. Name
+#: taskbar/kcmtaskbar.desktop:11
+msgid "Taskbar"
+msgstr "ਸੰਦਪੱਟੀ"
+
+#. Comment
+#: taskbar/kcmtaskbar.desktop:13
+msgid "Configure the selected taskbar"
+msgstr "ਪੈਨਲ ਸੰਦਪੱਟੀ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: taskbar/kcmtaskbar.desktop:15
+msgid "kicker;panel;kpanel;taskbar;startbar;launchbar;windows;"
+msgstr ""
+"kicker;panel;kpanel;taskbar;startbar;launchbar;windows;ਪੈਨਲ;ਕੇਪੈਨਲ;ਝਰੋਖੇ;ਸਥਿਤੀ-"
+"ਪੱਟੀ;"
+
+#. Name
+#: tdefontinst/installfont.desktop:6
+msgid "Install"
+msgstr "ਇੰਸਟਾਲ"
+
+#. Name
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:14
+msgid "Font Installer"
+msgstr "ਫੋਂਟ ਇੰਸਟਾਲਰ"
+
+#. Comment
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:16
+msgid "Install & preview fonts"
+msgstr "ਫੋਂਟ ਝਲਕ ਤੇ ਇੰਸਟਾਲ"
+
+#. Keywords
+#: tdefontinst/kcmfontinst/kcmfontinst.desktop:18
+msgid "font;fonts;installer;truetype;type1;speedo;bitmap;"
+msgstr "font;fonts;installer;truetype;type1;speedo;bitmap; ਫੋਂਟ; ਇੰਸਟਾਲਰ;"
+
+#. Name
+#: tdefontinst/tdefile-plugin/tdefile_font.desktop:3
+msgid "Font Information"
+msgstr "ਫੋਂਟ ਜਾਣਕਾਰੀ"
+
+#. Comment
+#: tdefontinst/tdeio/folder.desktop:2
+msgid "Fonts Folder"
+msgstr "ਫੋਂਟ ਫੋਲਡਰ"
+
+#. Comment
+#: tdefontinst/tdeio/package.desktop:6
+msgid "Fonts Package"
+msgstr "ਫੋਂਟ ਪੈਕੇਜ"
+
+#. Comment
+#: tdefontinst/tdeio/system-folder.desktop:2
+msgid "System Fonts Folder"
+msgstr "ਸਿਸਟਮ ਫੋਂਟ ਫੋਲਡਰ"
+
+#. Name
+#: tdefontinst/thumbnail/fontthumbnail.desktop:3
+msgid "Font Files"
+msgstr "ਫੋਂਟ ਫਾਇਲਾਂ"
+
+#. Name
+#: tdefontinst/viewpart/tdefontview.desktop:2
+#, fuzzy
+msgid "TDEFontView"
+msgstr "ਫੋਂਟ ਦਰਸ਼ਕ"
+
+#. GenericName
+#. Name
+#: tdefontinst/viewpart/tdefontview.desktop:8
+#: tdefontinst/viewpart/tdefontviewpart.desktop:2
+msgid "Font Viewer"
+msgstr "ਫੋਂਟ ਦਰਸ਼ਕ"
+
+#. Name
+#: tdeio/cache.desktop:12
+msgid "Cache"
+msgstr "ਕੈਂਚੇ"
+
+#. Comment
+#: tdeio/cache.desktop:14
+msgid "Configure web cache settings"
+msgstr "ਵੈੱਬ ਕੈਂਚੇ ਸੈਟਿੰਗ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: tdeio/cache.desktop:16
+msgid "Cache;History;Browsing History;Ports;Size;"
+msgstr "ਅਕਾਰ;ਅਤੀਤ;ਝਲਕਾਰਾ;ਕੈਂਚੇ;ਪੋਰਟ;"
+
+#. Name
+#: tdeio/cookies.desktop:12
+msgid "Cookies"
+msgstr "ਕੂਕੀਜ਼"
+
+#. Comment
+#: tdeio/cookies.desktop:14
+msgid "Configure the way cookies work"
+msgstr "ਕੂਕੀਜ਼ ਕੰਮ ਦੇ ਢੰਗ ਦੀ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: tdeio/cookies.desktop:16
+msgid "Cookies;Browsing;Internet;WWW;Network;Policy;Domains;"
+msgstr "Cookies;Browsing;Internet;WWW;Network;ਨੀਤੀ; ਡੋਮੇਨ;ਇੰਟਰਨੈਟ;"
+
+#. Name
+#: tdeio/lanbrowser.desktop:11
+msgid "Local Network Browsing"
+msgstr "ਸਥਾਨਕ ਨੈੱਟਵਰਕ ਝਲਕਾਰਾ"
+
+#. Comment
+#: tdeio/lanbrowser.desktop:13
+msgid "Setup lisa, reslisa and the ioslaves"
+msgstr "lisa, reslisa ਤੇ ioslaves ਸੈੱਟਅੱਪ"
+
+#. Keywords
+#: tdeio/lanbrowser.desktop:15
+msgid "samba;smb;windows;network;"
+msgstr "samba;smb;windows;network;ਨੈੱਟਵਰਕ;ਸਾਂਬਾ;"
+
+#. Comment
+#: tdeio/netpref.desktop:2
+msgid "Configure generic network preferences, like timeout values"
+msgstr "ਨੈੱਟਵਰਕ ਪਸੰਦ ਸੰਰਚਨਾ, ਜਿਵੇਂ ਸਮਾਂ-ਸੀਮਾ ਮੁੱਲ"
+
+#. Keywords
+#: tdeio/netpref.desktop:5
+msgid "timeout;iopref;netpref;network preferences;ftp;"
+msgstr ""
+
+#. Name
+#: tdeio/netpref.desktop:6
+msgid "Connection Preferences"
+msgstr "ਕੁਨੈਕਸ਼ਨ ਪਸੰਦ"
+
+#. Name
+#: tdeio/proxy.desktop:12
+msgid "Proxy"
+msgstr "ਪਰਾਕਸੀ"
+
+#. Comment
+#: tdeio/proxy.desktop:14
+msgid "Configure the proxy servers used"
+msgstr "ਵਰਤੇ ਜਾਂਦੇ ਪਰਾਕਸੀ ਸਰਵਰਾਂ ਦੀ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: tdeio/proxy.desktop:16
+msgid "Proxy;Proxy server;Firewall;Squid;proxy;"
+msgstr "Proxy;Proxy server;Firewall;Squid;ਪਰਾਕਸੀ; ਪਰਾਕਸੀ ਸਰਵਰ;"
+
+#. Name
+#: tdeio/smb.desktop:12
+msgid "Windows Shares"
+msgstr "ਵਿੰਡੋ (windows) ਸਾਂਝ"
+
+#. Comment
+#: tdeio/smb.desktop:14
+msgid "Use to configure which windows (SMB) filesystems you can browse"
+msgstr "ਸੰਰਚਨਾ ਵਰਤੋਂ, ਜੋ ਕਿ ਵਿੰਡੋ (SMB) ਫਾਇਲ ਸਿਸਟਮ ਦੀ ਝਲਕ ਵੇਖਾ ਸਕਦਾ ਹੈ"
+
+#. Keywords
+#: tdeio/smb.desktop:16
+msgid ""
+"SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;"
+"Broadcast;WINS;Share;Login;Passwords;"
+msgstr ""
+"SMB;SAMBA;SMB ਕਲਾਂਇਟ;Windows network;LAN;ਨੈਟਵਰਕ;ਗੁਆਂਢੀ; ਸਰਵਰ;Broadcast;WINS;ਸਾਂਝ; "
+"ਲਾਗਿੰਨ; ਗੁਪਤ-ਕੋਡ;"
+
+#. Comment
+#: tdeio/uasprovider.desktop:4
+msgid "UserAgent Strings"
+msgstr "ਉਪਭੋਗੀ-ਏਜੰਟ ਸਤਰਾਂ"
+
+#. Name
+#: tdeio/uasproviders/ie401onwinnt4.desktop:2
+msgid "UADescription (IE 4.01 on Win 2000)"
+msgstr "UADescription (Win ੨੦੦੦ ਉੱਤੇ IE 4.01)"
+
+#. Name
+#: tdeio/uasproviders/ie45onwinnt5.desktop:2
+msgid "UADescription (IE 4.5 on Win 2000)"
+msgstr "UADescription (ਵਿੰਡੋ ੨੦੦੦ 'ਤੇ IE 4.5)"
+
+#. Name
+#: tdeio/uasproviders/ie501onwinnt5.desktop:2
+msgid "UADescription (IE 5.01 on Win 2000)"
+msgstr "UADescription (ਵਿੰਡੋ ੨੦੦੦ 'ਤੇ IE 5.01)"
+
+#. Name
+#: tdeio/uasproviders/ie50onppc.desktop:2
+msgid "UADescription (IE 5.0 on Mac PPC)"
+msgstr "UADescription (ਮੈਕ PPC ਉੱਤੇ IE 5.0)"
+
+#. Name
+#: tdeio/uasproviders/ie55onwin98.desktop:2
+msgid "UADescription (IE 5.5 on Win 98)"
+msgstr "UADescription (ਵਿੰਡੋ ੯੮ 'ਤੇ IE 5.5)"
+
+#. Name
+#: tdeio/uasproviders/ie55onwinnt5.desktop:2
+msgid "UADescription (IE 5.5 on Win 2000)"
+msgstr "UADescription (Win ੨੦੦੦ ਉੱਤੇ IE 5.5)"
+
+#. Name
+#: tdeio/uasproviders/ie60oncurrent.desktop:2
+msgid "UADescription (IE 6.0 on current)"
+msgstr "UADescription (ਮੌਜੂਦਾ ਉੱਤੇ IE 6.0)"
+
+#. Name
+#: tdeio/uasproviders/ie60onwinnt51.desktop:2
+msgid "UADescription (IE 6.0 on Win XP)"
+msgstr "UADescription (ਵਿੰਡੋ XP ਉੱਤੇ IE 6.0)"
+
+#. Name
+#: tdeio/uasproviders/lynxoncurrent.desktop:2
+msgid "UADescription (Lynx 2.8.3)"
+msgstr "UADescription(ਲੇਨਕਸ 2.8.3)"
+
+#. Name
+#: tdeio/uasproviders/ns71oncurrent.desktop:2
+msgid "UADescription (Netscape 7.1 on current)"
+msgstr "UADescription (ਮੌਜੂਦਾ ਉੱਤੇ Netscape 7.1)"
+
+#. Name
+#: tdeio/uasproviders/ns71onwinnt51.desktop:2
+msgid "UADescription (Netscape 7.1 on XP)"
+msgstr "UADescription (XP ਉੱਤੇ Netscape 7.1)"
+
+#. Name
+#: tdeio/uasproviders/op75oncurrent.desktop:2
+msgid "UADescription (Opera 7.55 on current)"
+msgstr "UADescription (ਮੌਜੂਦਾ 'ਤੇ ਓਪੇਰਾ 7.55)"
+
+#. Name
+#: tdeio/uasproviders/w3moncurrent.desktop:2
+msgid "UADescription (w3m 0.1.9)"
+msgstr "UADescription (w3m 0.1.9)"
+
+#. Name
+#: tdeio/uasproviders/wgetoncurrent.desktop:2
+msgid "UADescription (Wget 1.11.4)"
+msgstr "UADescription (Wget 1.11.4)"
+
+#. Name
+#: tdeio/useragent.desktop:12
+msgid "Browser Identification"
+msgstr "ਝਲਕਾਰਾ ਪਛਾਣ"
+
+#. Comment
+#: tdeio/useragent.desktop:14
+msgid "Configure the way Konqueror reports itself"
+msgstr "ਕੋਨਕਿਉਰੋਰ ਦੇ ਖੁਦ ਨੂੰ ਜਾਣਕਾਰੀ ਦੇਣ ਦੇ ਢੰਗ ਦੀ ਸੰਰਚਨਾ"
+
+#. Keywords
+#: tdeio/useragent.desktop:16
+msgid "User Agent;Browser;Internet;WWW;Network;agent;bindings;server;login;"
+msgstr ""
+"WWW;Network;agent;bindings;ਏਜੰਟ;ਸਰਵਰ;ਲਾਗਿੰਨ;ਇੰਟਰਨੈਟ;ਝਲਕਾਰਾ;ਉਪਭੋਗੀ ਏਜੰਟ;ਨੈਟਵਰਕ;"
+
+#. Name
+#: tdm/tdm.desktop:14
+msgid "Login Manager"
+msgstr "ਲਾਗ ਮੈਨੇਜਰ"
+
+#. Comment
+#: tdm/tdm.desktop:16
+msgid "Configure the login manager (TDM)"
+msgstr "ਲਾਗਆਨ ਮੈਨੇਜਰ ਸੰਰਚਨਾ(TDM)"
+
+#. Keywords
+#: tdm/tdm.desktop:18
+msgid ""
+"tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;"
+"fonts;background;wallpapers;sessions;shutdown;restart;"
+msgstr ""
+"tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;"
+"fonts;background;wallpapers;sessions;shutdown;restart; ਲੋਗੋ; ਭਾਸ਼ਾ; ਦੇਸ਼; ਫੋਂਟ; "
+"ਲਾਗਿੰਨ; ਉਪਭੋਗੀ;ਸ਼ੈਸ਼ਨ;"
+
+#. Name
+#: usbview/kcmusb.desktop:10
+msgid "USB Devices"
+msgstr "USB ਜੰਤਰ"
+
+#. Comment
+#: usbview/kcmusb.desktop:12
+msgid "View the USB devices attached to this computer"
+msgstr "ਇਸ ਕੰਪਿਊਟਰ ਨਾਲ ਜੁੜੇ USB ਜੰਤਰ ਵੇਖੋ"
+
+#. Keywords
+#: usbview/kcmusb.desktop:14
+msgid "USB;devices;viewer;control;"
+msgstr "USB;ਜੰਤਰ;ਦਰਸ਼ਕ;ਕੰਟਰੋਲ;"
+
+#. Name
+#: view1394/kcmview1394.desktop:10
+msgid "IEEE 1394 Devices"
+msgstr "IEEE 1394 ਜੰਤਰ"
+
+#. Comment
+#: view1394/kcmview1394.desktop:12
+msgid "View the IEEE 1394 devices attached to this computer"
+msgstr "ਆਪਣੇ ਕੰਪਿਊਟਰ ਨਾਲ ਜੁੜੇ IEEE 1394 ਜੰਤਰ ਵੇਖੋ"
+
+#. Keywords
+#: view1394/kcmview1394.desktop:14
+msgid "1394;Firewire;devices;viewer;control;"
+msgstr "1394;Firewire;ਫਾਇਰਵਾਇਰ;ਜੰਤਰ;ਦਰਸ਼ਕ;ਕੰਟਰੋਲ;"
+
+#. Name
+#: xinerama/xinerama.desktop:10
+msgid "Multiple Monitors"
+msgstr "ਬਹੁ ਮਾਨੀਟਰ"
+
+#. Comment
+#: xinerama/xinerama.desktop:12
+msgid "Configure TDE for multiple monitors"
+msgstr "ਕਈ ਮਾਨੀਟਰਾਂ ਲਈ TDE ਸੰਰਚਨਾ ਕਰੋ"
+
+#. Keywords
+#: xinerama/xinerama.desktop:14
+msgid "Xinerama;dual head;multihead;monitor;"
+msgstr "Xinerama;dual head;multihead;monitor; ਦੋ ਮਾਨੀਟਰ; ਮਾਨੀਟਰ;"
+
+#, fuzzy
+#~ msgid "Foo"
+#~ msgstr "ਫਰੂਗਲ"

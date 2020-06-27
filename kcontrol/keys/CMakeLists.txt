@@ -22,7 +22,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES keys.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE keys.desktop
+  PO_DIR kcontrol-desktops
+)
 install( FILES tdeaccel.upd DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 install( PROGRAMS convertShortcuts.pl DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 

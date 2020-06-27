@@ -28,8 +28,17 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES mediamanager.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
-install( FILES mediabackend.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE mediamanager.desktop
+  DESTINATION ${SERVICES_INSTALL_DIR}/kded
+  PO_DIR tdeioslave-desktops
+)
+
+tde_create_translated_desktop(
+  SOURCE mediabackend.desktop
+  DESTINATION ${AUTOSTART_INSTALL_DIR}
+  PO_DIR tdeioslave-desktops
+)
 
 
 ##### kded_mediamanager (module) ################

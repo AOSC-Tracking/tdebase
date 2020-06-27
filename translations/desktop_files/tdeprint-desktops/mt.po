@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 19:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: mt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kjobviewer/kjobviewer-autostart.desktop:7 kjobviewer/kjobviewer.desktop:8
+msgid "KJobViewer"
+msgstr ""
+
+#. GenericName
+#. Comment
+#: kjobviewer/kjobviewer-autostart.desktop:9 kjobviewer/kjobviewer.desktop:10
+#: slave/mimetypes/jobs.desktop:2
+msgid "Print Jobs"
+msgstr "Xogħlijiet ta' pprintjar"
+
+#. Name
+#: kprinter/kprinter.desktop:9
+#, fuzzy
+msgid "KPrinter"
+msgstr "Mudell tal-printer"
+
+#. GenericName
+#: kprinter/kprinter.desktop:11
+msgid "Printing Tool"
+msgstr "Għodda tal-ipprintjar"
+
+#. Name
+#: printmgr/printers.desktop:12
+#, fuzzy
+msgid "Printers"
+msgstr "Mudell tal-printer"
+
+#. Comment
+#: printmgr/printers.desktop:14
+msgid "Printing system configuration (printers, jobs, classes, ...)"
+msgstr ""
+"Konfigurazzjoni tas-sistema tal-ipprintjar (printers, xogħol, "
+"klassijiet, ...)"
+
+#. Keywords
+#: printmgr/printers.desktop:16
+msgid "print;printer;printing management;"
+msgstr "print;printer;printing management;stampar;printja;stampa;ipprintja;"
+
+#. Comment
+#: slave/mimetypes/class.desktop:2
+msgid "Class of Printers"
+msgstr "Klassi ta' printers"
+
+#. Comment
+#: slave/mimetypes/driver.desktop:2
+msgid "Printer Driver"
+msgstr "Driver tal-printer"
+
+#. Comment
+#: slave/mimetypes/folder.desktop:2
+#, fuzzy
+msgid "Print Folder"
+msgstr "Mudell tal-printer"
+
+#. Comment
+#. Name
+#: slave/mimetypes/manager.desktop:2 tdeprint_part/tdeprint_part.desktop:4
+msgid "Print Management Tool"
+msgstr "Għodda għall-immaniġġjar tal-ipprintjar"
+
+#. Comment
+#: slave/mimetypes/printer.desktop:2
+#, fuzzy
+msgid "Printer"
+msgstr "Mudell tal-printer"
+
+#. Comment
+#: slave/mimetypes/printermodel.desktop:2
+msgid "Printer Model"
+msgstr "Mudell tal-printer"
+
+#. Name
+#: tdeprintfax/tdeprintfax.desktop:2
+msgid "TDEPrintFax"
+msgstr ""
+
+#. GenericName
+#: tdeprintfax/tdeprintfax.desktop:4
+msgid "Fax Utility"
+msgstr "Għodda tal-faks"

@@ -1,0 +1,166 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 03:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: developerrc:2
+msgid "Developer"
+msgstr "Lập trình viên"
+
+#. Comment
+#: developerrc:3
+msgid "Settings preferred for developers"
+msgstr "Các thiết lập dành cho lập trình viên"
+
+#. Name
+#: developerrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname), pid %pid, crashed and caused the "
+"signal %signum (%signame)."
+msgstr ""
+"Chương trình %progname (%appname), pid %pid bị lỗi và gửi ra tín hiệu  "
+"%signum (%signame). "
+
+#. Name
+#: developerrc:17
+msgid "You might want to fix your program. Take a look at the backtrace tab."
+msgstr "Bạn có thể cần phải sửa chương trình nàỵ Xin xem qua ngăn backtrace."
+
+#. Name
+#: developerrc:20 enduserrc:20
+msgid "SIGILL"
+msgstr ""
+
+#. Comment
+#: developerrc:21
+msgid "Illegal instruction."
+msgstr "Chỉ thị không hợp lệ."
+
+#. Name
+#: developerrc:24 enduserrc:24
+msgid "SIGABRT"
+msgstr ""
+
+#. Comment
+#: developerrc:25
+msgid "Aborted."
+msgstr "Bỏ đi."
+
+#. Name
+#: developerrc:28 enduserrc:28
+msgid "SIGFPE"
+msgstr ""
+
+#. Comment
+#: developerrc:29
+msgid "Floating point exception."
+msgstr "Lỗi dấu chấm động."
+
+#. Name
+#: developerrc:32 enduserrc:32
+msgid "SIGSEGV"
+msgstr ""
+
+#. Comment
+#: developerrc:33
+msgid "Invalid memory reference."
+msgstr "Tham khảo bộ nhớ không hợp lệ."
+
+#. Name
+#: developerrc:36 enduserrc:36
+msgid "Unknown"
+msgstr "Không biết"
+
+#. Comment
+#: developerrc:37
+msgid "This signal is unknown."
+msgstr "Không biết tín hiệu này."
+
+#. Name
+#: enduserrc:2
+msgid "End user"
+msgstr "Người dùng"
+
+#. Comment
+#: enduserrc:3
+msgid "Settings preferred for end users"
+msgstr "Thiết lập tùy chọn dành cho người dùng"
+
+#. Name
+#: enduserrc:13
+#, c-format
+msgid ""
+"The application %progname (%appname) crashed and caused the signal %signum "
+"(%signame)."
+msgstr ""
+"Chương trình %progname (%appname) bị lỗi và gửi ra tín hiệu %signum "
+"(%signame)."
+
+#. Name
+#: enduserrc:17
+msgid ""
+"You might want to send a bug report for this application. Check if it is "
+"listed on http://bugs.trinitydesktop.org, otherwise mail the author. Please "
+"include as much information as possible, maybe the original documents. If "
+"you have a way to reproduce the error, include this also."
+msgstr ""
+"Bạn có thể gửi thư điện tử báo lỗi tới tác giả. Trước khi báo lỗi, kiểm tra "
+"xem lỗi đã được liệt kê trên http://bugs.trinitydesktop.org chưa. Xin kèm "
+"theo càng nhiều thông tin càng tốt. Nếu bạn có cách để tái hiện lại lỗi, xin "
+"gửi kèm theo luôn."
+
+#. Comment
+#: enduserrc:21
+msgid ""
+"An application mostly receives the SIGILL signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Một chương trình thường nhận các tín hiệu SIGILL vì có lỗi trong nó. Chương "
+"trình này đã được yêu cầu lưu tài liệu."
+
+#. Comment
+#: enduserrc:25
+msgid ""
+"An application terminates with a SIGABRT signal when it detects an internal "
+"inconsistency caused by a bug in the program."
+msgstr ""
+"Một chương trình bị dừng bởi một tín hiệu SIGABRT khi nó tìm ra một mâu "
+"thuẫn nội bộ gây ra bởi lỗi nào đó."
+
+#. Comment
+#: enduserrc:29
+msgid ""
+"An application mostly receives the SIGFPE signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Một chương trình thường nhận các tín hiệu SIGFPE vì trong nó có lỗi. Chương "
+"trình đã được yêu cầu lưu tài liệu."
+
+#. Comment
+#: enduserrc:33
+msgid ""
+"An application mostly receives the SIGSEGV signal due to a bug in the "
+"application. The application was asked to save its documents."
+msgstr ""
+"Một chương trình thường nhận các tìn hiệu SIGSEGV vì trong nó có lỗi. Chương "
+"trình đã được yêu cầu lưu tài liệu."
+
+#. Comment
+#: enduserrc:37
+msgid "Sorry, I do not know this signal."
+msgstr "Xin lỗi, không hiểu tín hiệu này."

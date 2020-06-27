@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "El gestor de finestres"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "Canvi a l'escriptori 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "S'ha seleccionat l'escriptori virtual u"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "Canvi a l'escriptori 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "S'ha seleccionat l'escriptori virtual dos"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "Canvi a l'escriptori 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "S'ha seleccionat l'escriptori virtual tres"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "Canvi a l'escriptori 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "S'ha seleccionat l'escriptori virtual quatre"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "Canvi a l'escriptori 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "S'ha seleccionat l'escriptori virtual cinc"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "Canvi a l'escriptori 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "S'ha seleccionat l'escriptori virtual sis"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "Canvi a l'escriptori 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "S'ha seleccionat l'escriptori virtual set"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "Canvi a l'escriptori 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "S'ha seleccionat l'escriptori virtual vuit"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "Canvi a l'escriptori 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "S'ha seleccionat l'escriptori virtual nou"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "Canvi a l'escriptori 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "S'ha seleccionat l'escriptori virtual deu"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "Canvi a l'escriptori 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "S'ha seleccionat l'escriptori virtual onze"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "Canvi a l'escriptori 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "S'ha seleccionat l'escriptori virtual dotze"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "Canvi a l'escriptori 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "S'ha seleccionat l'escriptori virtual tretze"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "Canvi a l'escriptori 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "S'ha seleccionat l'escriptori virtual catorze"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "Canvi a l'escriptori 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "S'ha seleccionat l'escriptori virtual quinze"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "Canvi a l'escriptori 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "S'ha seleccionat l'escriptori virtual setze"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "Canvi a l'escriptori 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "S'ha seleccionat l'escriptori virtual disset"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "Canvi a l'escriptori 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "S'ha seleccionat l'escriptori virtual divuit"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "Canvi a l'escriptori 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "S'ha seleccionat l'escriptori virtual dinou"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "Canvi a l'escriptori 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "S'ha seleccionat l'escriptori virtual vint"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "Activa finestra"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "S'ha activat una altra finestra"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "Finestra nova"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "Finestra nova"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "Elimina finestra"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "Esborra finestra"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "Tanca finestra"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "Es tanca una finestra"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "Plega la finestra"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "Una finestra es plega amunt"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "Desplega la finestra"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "Una finestra es plega avall"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "Minimitza finestra"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "Es minimitza una finestra"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "Desminimitza finestra"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "Es restaura una finestra"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "Maximitza finestra"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "Es maximitza una finestra"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "Desmaximitza finestra"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "Una finestra perd la maximització"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "Finestra a tots els escriptoris"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "Una finestra es fa visible a tots els escriptoris"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "Finestra no a tots els escriptoris"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "Una finestra deixa de ser visible a tots els escriptoris"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "Nou diàleg"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "Apareix una finestra transitòria (un diàleg)"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "Esborra el diàleg"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "S'elimina una finestra transitòria (un diàleg)"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "Inici de moviment de la finestra"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "Una finestra ha començat a moure's"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "Fi de moviment de la finestra"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "Una finestra ha acabat de moure's"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "Inici del canvi de mida de la finestra"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "Una finestra ha començat a canviar de mida"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "Fi del canvi de mida de la finestra"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "Una finestra ha acabat de canviar de mida"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "Una finestra de l'escriptori actual demana atenció"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "Una finestra de l'escriptori virtual actual demana atenció"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "Una finestra d'un altre escriptori demana atenció"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "Una finestra d'un escriptori virtual inactiu demana atenció"

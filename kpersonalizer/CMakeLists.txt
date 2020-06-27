@@ -27,7 +27,7 @@ link_directories(
 ##### other data ################################
 
 tde_install_icons( )
-install( FILES kpersonalizer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop( kpersonalizer.desktop )
 install( FILES uninstall.desktop DESTINATION ${APPS_INSTALL_DIR}/System RENAME kpersonalizer.desktop )
 
 

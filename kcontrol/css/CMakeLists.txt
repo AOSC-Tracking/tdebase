@@ -21,7 +21,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmcss.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcmcss.desktop
+  PO_DIR kcontrol-desktops
+)
 install( FILES template.css DESTINATION ${DATA_INSTALL_DIR}/kcmcss )
 
 

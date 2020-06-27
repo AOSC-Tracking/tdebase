@@ -1,0 +1,1268 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-22 18:27+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: lo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: caribbean.desktop:2
+msgid "Caribbean"
+msgstr "ຄາລິນ່ງນ"
+
+#. Name
+#: centralafrica.desktop:2
+#, fuzzy
+msgid "Africa, Central"
+msgstr "ອາເມລີກາໃຕ້ແລະອາເມລິກາກາງ"
+
+#. Name
+#: centralamerica.desktop:2
+msgid "America, Central"
+msgstr "ອາເມລີກາໃຕ້ແລະອາເມລິກາກາງ"
+
+#. Name
+#: centralasia.desktop:2
+#, fuzzy
+msgid "Asia, Central"
+msgstr "ອາເມລີກາໃຕ້ແລະອາເມລິກາກາງ"
+
+#. Name
+#: centraleurope.desktop:2
+msgid "Europe, Central"
+msgstr "ຍຸໂລບຕອນກາງ"
+
+#. Name
+#: eastasia.desktop:2
+msgid "Asia, East"
+msgstr ""
+
+#. Name
+#: easteurope.desktop:2
+msgid "Europe, Eastern"
+msgstr "ຍຸໂລບຕະວັນອອກ"
+
+#. Name
+#: middleeast.desktop:2
+msgid "Middle-East"
+msgstr ""
+
+#. Name
+#: northafrica.desktop:2
+#, fuzzy
+msgid "Africa, Northern"
+msgstr "ອາເມລິກາເຫນື"
+
+#. Name
+#: northamerica.desktop:2
+msgid "America, North"
+msgstr "ອາເມລິກາເຫນື"
+
+#. Name
+#: northeurope.desktop:2
+msgid "Europe, Northern"
+msgstr "ຍຸໂລບເຫນືອ"
+
+#. Name
+#: oceania.desktop:2
+msgid "Oceania"
+msgstr "ມາເຊໂດເນີຍ"
+
+#. Name
+#: southafrica.desktop:2
+#, fuzzy
+msgid "Africa, Southern"
+msgstr "ອາເມລິກາເຫນືອ"
+
+#. Name
+#: southamerica.desktop:2
+msgid "America, South"
+msgstr "ອາເມລິກາເຫນືອ"
+
+#. Name
+#: southasia.desktop:2
+#, fuzzy
+msgid "Asia, South"
+msgstr "ອາເມລິກາເຫນືອ"
+
+#. Name
+#: southeastasia.desktop:2
+#, fuzzy
+msgid "Asia, South-East"
+msgstr "ອາເມລິກາເຫນືອ"
+
+#. Name
+#: southeurope.desktop:2
+msgid "Europe, Southern"
+msgstr "ຍຸໂລບໃຕ້"
+
+#. Name
+#: westafrica.desktop:2
+#, fuzzy
+msgid "Africa, Western"
+msgstr "ຍຸໂລບຕະວັນຕົກ"
+
+#. Name
+#: westeurope.desktop:2
+msgid "Europe, Western"
+msgstr "ຍຸໂລບຕະວັນຕົກ"
+
+#. Name
+#: C/entry.desktop:2
+msgid "Default"
+msgstr "ຄ່າປະລິຍາຍ"
+
+#. Name
+#: ad/entry.desktop:2
+msgid "Andorra"
+msgstr "ອີນເດີຍ"
+
+#. Name
+#: ae/entry.desktop:2
+msgid "United Arab Emirates"
+msgstr "ສະຫະລັດ"
+
+#. Name
+#: af/entry.desktop:2
+msgid "Afghanistan"
+msgstr "ລີທົ່ວເນີຍ"
+
+#. Name
+#: ag/entry.desktop:2
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#. Name
+#: ai/entry.desktop:2
+msgid "Anguilla"
+msgstr "ແພນວິນ"
+
+#. Name
+#: al/entry.desktop:2
+msgid "Albania"
+msgstr "ແອດແລນຕິກ"
+
+#. Name
+#: am/entry.desktop:2
+msgid "Armenia"
+msgstr "ອາເຈນຕິນາ"
+
+#. Name
+#: an/entry.desktop:2
+msgid "Netherlands Antilles"
+msgstr "ເນເທີແລນ"
+
+#. Name
+#: ao/entry.desktop:2
+msgid "Angola"
+msgstr "ບັນແກເລີຍ"
+
+#. Name
+#: ar/entry.desktop:2
+msgid "Argentina"
+msgstr "ອາເຈນຕິນາ"
+
+#. Name
+#: as/entry.desktop:2
+msgid "American Samoa"
+msgstr "ອາເມລິກາເຫນືອ"
+
+#. Name
+#: at/entry.desktop:2
+msgid "Austria"
+msgstr "ອອດສະເຕເລີຍ"
+
+#. Name
+#: au/entry.desktop:2
+msgid "Australia"
+msgstr "ອອດສະເຕເລີຍ"
+
+#. Name
+#: aw/entry.desktop:2
+msgid "Aruba"
+msgstr "ເກມໄັພ່"
+
+#. Name
+#: ax/entry.desktop:2
+#, fuzzy
+msgid "Åland Islands"
+msgstr "ຄາຕາລັນ"
+
+#. Name
+#: az/entry.desktop:2
+msgid "Azerbaijan"
+msgstr "ອາເຊີໄບຈັນ"
+
+#. Name
+#: ba/entry.desktop:2
+msgid "Bosnia and Herzegovina"
+msgstr "ບອສເນີຍ ແລະ ເຫີເຊີໂກວິນາ"
+
+#. Name
+#: bb/entry.desktop:2
+msgid "Barbados"
+msgstr "ບາລບາດອດສ"
+
+#. Name
+#: bd/entry.desktop:2
+msgid "Bangladesh"
+msgstr "ບັງຄະລາເທດ"
+
+#. Name
+#: be/entry.desktop:2
+msgid "Belgium"
+msgstr "ເບລຢ່ງມ"
+
+#. Name
+#: bf/entry.desktop:2
+msgid "Burkina Faso"
+msgstr "ຕຸລະກີ"
+
+#. Name
+#: bg/entry.desktop:2
+msgid "Bulgaria"
+msgstr "ບັນແກເລີຍ"
+
+#. Name
+#: bh/entry.desktop:2
+msgid "Bahrain"
+msgstr "ຖັກກ່ງວ"
+
+#. Name
+#: bi/entry.desktop:2
+msgid "Burundi"
+msgstr "ເຄອຣດ"
+
+#. Name
+#: bj/entry.desktop:2
+msgid "Benin"
+msgstr "ບອສເນີຍ"
+
+#. Name
+#: bm/entry.desktop:2
+msgid "Bermuda"
+msgstr "ເຍລລະມັນ"
+
+#. Name
+#: bn/entry.desktop:3
+msgid "Brunei Darussalam"
+msgstr "ເບລາລັສເຊີຍ"
+
+#. Name
+#: bo/entry.desktop:2
+msgid "Bolivia"
+msgstr "ໂບລີເວີຍ"
+
+#. Name
+#: br/entry.desktop:2
+msgid "Brazil"
+msgstr "ບາຊີລ"
+
+#. Name
+#: bs/entry.desktop:2
+msgid "Bahamas"
+msgstr "ປານາມາ"
+
+#. Name
+#: bt/entry.desktop:3
+msgid "Bhutan"
+msgstr "ຖັກກ່ງວ"
+
+#. Name
+#: bw/entry.desktop:2
+msgid "Botswana"
+msgstr "ບອດສເນີຍ"
+
+#. Name
+#: by/entry.desktop:3
+msgid "Belarus"
+msgstr "ເບລາລັສ"
+
+#. Name
+#: bz/entry.desktop:2
+msgid "Belize"
+msgstr "ເບລຍ່ງມ"
+
+#. Name
+#: ca/entry.desktop:5
+msgid "Canada"
+msgstr "ແຄນາດາ"
+
+#. Name
+#: cc/entry.desktop:2
+#, fuzzy
+msgid "Cocos (Keeling) Islands"
+msgstr "ຄຸກກີ້"
+
+#. Name
+#: cd/entry.desktop:2
+msgid "Congo, The Democratic Republic of the"
+msgstr ""
+
+#. Name
+#: cf/entry.desktop:2
+msgid "Central African Republic"
+msgstr "ໂດມິນິກັນ"
+
+#. Name
+#: cg/entry.desktop:2
+msgid "Congo"
+msgstr "ຄອນໂໍຊລ"
+
+#. Name
+#: ch/entry.desktop:2
+msgid "Switzerland"
+msgstr "ສະວິສເຊີແລນ"
+
+#. Name
+#: ci/entry.desktop:2
+msgid "Cote d'ivoire"
+msgstr "ປ່ອຍຫມາກກະລອກ"
+
+#. Name
+#: ck/entry.desktop:2
+msgid "Cook islands"
+msgstr "ຄຸກກີ້"
+
+#. Name
+#: cl/entry.desktop:2
+msgid "Chile"
+msgstr "ຊີລີ"
+
+#. Name
+#: cm/entry.desktop:2
+msgid "Cameroon"
+msgstr "ຕາລາງງານ - K"
+
+#. Name
+#: cn/entry.desktop:3
+msgid "China"
+msgstr "ຈີນ"
+
+#. Name
+#: co/entry.desktop:2
+msgid "Colombia"
+msgstr "ໂຄລຳເບີຍ"
+
+#. Name
+#: cr/entry.desktop:2
+msgid "Costa Rica"
+msgstr "ໂຄເອເທີຍ"
+
+#. Name
+#: cu/entry.desktop:2
+msgid "Cuba"
+msgstr "ເກມໄພ່"
+
+#. Name
+#: cv/entry.desktop:2
+msgid "Cape Verde"
+msgstr "ເກມໄພ່"
+
+#. Name
+#: cx/entry.desktop:2
+msgid "Christmas Island"
+msgstr "ຄິດສະຕອລ"
+
+#. Name
+#: cy/entry.desktop:2
+msgid "Cyprus"
+msgstr "ບີບອັດ"
+
+#. Name
+#: cz/entry.desktop:2
+msgid "Czechia"
+msgstr ""
+
+#. Name
+#: de/entry.desktop:2
+msgid "Germany"
+msgstr "ເຍລລະມັນນີ"
+
+#. Name
+#: dj/entry.desktop:2
+msgid "Djibouti"
+msgstr "ພັດພາ"
+
+#. Name
+#: dk/entry.desktop:3
+msgid "Denmark"
+msgstr "ເດນມາກ"
+
+#. Name
+#: dm/entry.desktop:2
+msgid "Dominica"
+msgstr "ໂລມາເນີຍ"
+
+#. Name
+#: do/entry.desktop:2
+msgid "Dominican Republic"
+msgstr "ໂດມິນີກັນ"
+
+#. Name
+#: dz/entry.desktop:2
+msgid "Algeria"
+msgstr "ບັນກາເລີຍ"
+
+#. Name
+#: ec/entry.desktop:2
+msgid "Ecuador"
+msgstr "ເອກໍດໍ"
+
+#. Name
+#: ee/entry.desktop:2
+msgid "Estonia"
+msgstr "ເອໂທເນີຍ"
+
+#. Name
+#: eg/entry.desktop:2
+msgid "Egypt"
+msgstr "ອີຢີບ"
+
+#. Name
+#: eh/entry.desktop:2
+msgid "Western Sahara"
+msgstr "ພື້ນທີ່ທຳງານ"
+
+#. Name
+#: er/entry.desktop:2
+msgid "Eritrea"
+msgstr "ແກ້ໄຂແຟ້ມທຳງານ"
+
+#. Name
+#: es/entry.desktop:2
+msgid "Spain"
+msgstr "ສະເປັນ"
+
+#. Name
+#: et/entry.desktop:2
+msgid "Ethiopia"
+msgstr "ເອໂທເນີຍ"
+
+#. Name
+#: fi/entry.desktop:3
+msgid "Finland"
+msgstr "ຟີນແລນ"
+
+#. Name
+#: fj/entry.desktop:2
+msgid "Fiji"
+msgstr "ມີດີ"
+
+#. Name
+#: fk/entry.desktop:2
+msgid "Falkland Islands (Malvinas)"
+msgstr ""
+
+#. Name
+#: fm/entry.desktop:2
+msgid "Micronesia, Federated States of"
+msgstr ""
+
+#. Name
+#: fo/entry.desktop:2
+msgid "Faroe Islands"
+msgstr "ໄອແລນ"
+
+#. Name
+#: fr/entry.desktop:3
+msgid "France"
+msgstr "ຝຣັ່ງ"
+
+#. Name
+#: ga/entry.desktop:2
+msgid "Gabon"
+msgstr "ແກລ່ງນ"
+
+#. Name
+#: gb/entry.desktop:2
+msgid "United Kingdom"
+msgstr "ສະຫະລາດສະອານາຈັກ"
+
+#. Name
+#: gd/entry.desktop:2
+msgid "Grenada"
+msgstr "ເກນາດາ"
+
+#. Name
+#: ge/entry.desktop:2
+msgid "Georgia"
+msgstr "ເຊີເບີຍ"
+
+#. Name
+#: gh/entry.desktop:2
+msgid "Ghana"
+msgstr "ຈີນ"
+
+#. Name
+#: gi/entry.desktop:2
+msgid "Gibraltar"
+msgstr "ມອລຕາ"
+
+#. Name
+#: gl/entry.desktop:2
+#, fuzzy
+msgid "Greenland"
+msgstr "ໄອແລນ"
+
+#. Name
+#: gm/entry.desktop:2
+msgid "Gambia"
+msgstr "ແກມມາ"
+
+#. Name
+#: gn/entry.desktop:2
+msgid "Guinea"
+msgstr "ເຖາວັນ"
+
+#. Name
+#: gp/entry.desktop:2
+msgid "Guadeloupe"
+msgstr "ເດີລຸກ"
+
+#. Name
+#: gq/entry.desktop:2
+msgid "Equatorial Guinea"
+msgstr "ການສອນ"
+
+#. Name
+#: gr/entry.desktop:2
+msgid "Greece"
+msgstr "ກີຊ"
+
+#. Name
+#: gt/entry.desktop:2
+msgid "Guatemala"
+msgstr "ກັວເຕມາລາ"
+
+#. Name
+#: gu/entry.desktop:2
+msgid "Guam"
+msgstr "ແກມມາ"
+
+#. Name
+#: gw/entry.desktop:2
+msgid "Guinea-Bissau"
+msgstr "ລັດເຊີຍ"
+
+#. Name
+#: gy/entry.desktop:2
+msgid "Guyana"
+msgstr "ຈີນ"
+
+#. Name
+#: hk/entry.desktop:2
+msgid "Hong Kong SAR(China)"
+msgstr ""
+
+#. Name
+#: hn/entry.desktop:2
+msgid "Honduras"
+msgstr "ຫອນດູລັດ"
+
+#. Name
+#: hr/entry.desktop:2
+msgid "Croatia"
+msgstr "ໂຄເອເທີຍ"
+
+#. Name
+#: ht/entry.desktop:2
+msgid "Haiti"
+msgstr "ວາດຮູບ - K"
+
+#. Name
+#: hu/entry.desktop:2
+msgid "Hungary"
+msgstr "ຫັງກາລີ"
+
+#. Name
+#: id/entry.desktop:2
+msgid "Indonesia"
+msgstr "ອີຍໂດນີເຊີຍ"
+
+#. Name
+#: ie/entry.desktop:2
+msgid "Ireland"
+msgstr "ໄອແລນ"
+
+#. Name
+#: il/entry.desktop:3
+msgid "Israel"
+msgstr "ອິດສະລະເອລ"
+
+#. Name
+#: in/entry.desktop:2
+msgid "India"
+msgstr "ອິນເດີຍ"
+
+#. Name
+#: iq/entry.desktop:2
+msgid "Iraq"
+msgstr "ອີລັກ"
+
+#. Name
+#: ir/entry.desktop:2
+msgid "Iran"
+msgstr "ອີລັກ"
+
+#. Name
+#: is/entry.desktop:2
+msgid "Iceland"
+msgstr "ໄອຊແລນ"
+
+#. Name
+#: it/entry.desktop:2
+msgid "Italy"
+msgstr "ອີຕາລີ"
+
+#. Name
+#: jm/entry.desktop:2
+msgid "Jamaica"
+msgstr "ຈາໄມກາ"
+
+#. Name
+#: jo/entry.desktop:2
+msgid "Jordan"
+msgstr "ຈໍແດນ"
+
+#. Name
+#: jp/entry.desktop:2
+msgid "Japan"
+msgstr "ຍີ່ປຸ່ນ"
+
+#. Name
+#: ke/entry.desktop:2
+msgid "Kenya"
+msgstr "ເວນດາ"
+
+#. Name
+#: kg/entry.desktop:2
+msgid "Kyrgyzstan"
+msgstr "ຄສິຕັລ"
+
+#. Name
+#: kh/entry.desktop:2
+msgid "Cambodia"
+msgstr "ໂຄລຳເບີຍ"
+
+#. Name
+#: ki/entry.desktop:2
+msgid "Kiribati"
+msgstr "ແຟຄທັລ - K"
+
+#. Name
+#: km/entry.desktop:2
+msgid "Comoros"
+msgstr "ສີ"
+
+#. Name
+#: kn/entry.desktop:2
+msgid "St. Kitts and Nevis"
+msgstr ""
+
+#. Name
+#: kp/entry.desktop:2
+msgid "North Korea"
+msgstr "ເກົາລີເຫນືອ"
+
+#. Name
+#: kr/entry.desktop:2
+msgid "South Korea"
+msgstr "ເກົາລີໃຕ້"
+
+#. Name
+#: kw/entry.desktop:2
+msgid "Kuwait"
+msgstr "ແຕ້ມຮູບ- K"
+
+#. Name
+#: ky/entry.desktop:2
+msgid "Cayman Islands"
+msgstr "ຄາຕາລັນ"
+
+#. Name
+#: kz/entry.desktop:2
+msgid "Kazakhstan"
+msgstr "ແກແລກຕິກ - K"
+
+#. Name
+#: la/entry.desktop:2
+msgid "Laos"
+msgstr "ລາວ"
+
+#. Name
+#: lb/entry.desktop:2
+msgid "Lebanon"
+msgstr "ເດນ່ງນ"
+
+#. Name
+#: lc/entry.desktop:2
+msgid "St. Lucia"
+msgstr "ເຊັນລູເຊີຍ"
+
+#. Name
+#: li/entry.desktop:2
+msgid "Liechtenstein"
+msgstr "ຟ້າແມບ"
+
+#. Name
+#: lk/entry.desktop:2
+msgid "Sri Lanka"
+msgstr "ເຊີເບີຍ"
+
+#. Name
+#: lr/entry.desktop:2
+msgid "Liberia"
+msgstr "ລິຊາ"
+
+#. Name
+#: ls/entry.desktop:2
+msgid "Lesotho"
+msgstr "ທົດສອບ"
+
+#. Name
+#: lt/entry.desktop:2
+msgid "Lithuania"
+msgstr "ລິທົ່ວເນີຍ"
+
+#. Name
+#: lu/entry.desktop:2
+msgid "Luxembourg"
+msgstr "ລັກແຊມເບີກ"
+
+#. Name
+#: lv/entry.desktop:2
+msgid "Latvia"
+msgstr "ລັດເວີຍ"
+
+#. Name
+#: ly/entry.desktop:2
+msgid "Libya"
+msgstr "ລິຊາ"
+
+#. Name
+#: ma/entry.desktop:2
+msgid "Morocco"
+msgstr "ເມົາລິ"
+
+#. Name
+#: mc/entry.desktop:2
+msgid "Monaco"
+msgstr "ເມົາລິ"
+
+#. Name
+#: md/entry.desktop:2
+msgid "Moldova"
+msgstr "ສະໂລວັກ"
+
+#. Name
+#: me/entry.desktop:3
+#, fuzzy
+msgid "Montenegro"
+msgstr "ຈໍພາບ"
+
+#. Name
+#: mg/entry.desktop:2
+msgid "Madagascar"
+msgstr "ຄາສະບາລ - K"
+
+#. Name
+#: mh/entry.desktop:2
+msgid "Marshall Islands"
+msgstr "ລາດສະອານາຈັກໄທຍ"
+
+#. Name
+#: mk/entry.desktop:3
+msgid "Macedonia"
+msgstr "ມາເຊໂດເນີຍ"
+
+#. Name
+#: ml/entry.desktop:2
+msgid "Mali"
+msgstr "ຈົດຫມາຍ"
+
+#. Name
+#: mm/entry.desktop:2
+msgid "Myanmar"
+msgstr "ຕົວຮງກພີື້ນທີ່ທຳງານ - K"
+
+#. Name
+#: mn/entry.desktop:2
+msgid "Mongolia"
+msgstr "ລອກອິນ"
+
+#. Name
+#: mo/entry.desktop:2
+msgid "Macau SAR(China)"
+msgstr ""
+
+#. Name
+#: mq/entry.desktop:2
+msgid "Martinique"
+msgstr "ເມົາລິ"
+
+#. Name
+#: mr/entry.desktop:2
+msgid "Mauritania"
+msgstr "ລິທົວເນີຍ"
+
+#. Name
+#: ms/entry.desktop:2
+msgid "Montserrat"
+msgstr "ຈໍພາບ"
+
+#. Name
+#: mt/entry.desktop:3
+msgid "Malta"
+msgstr "ມອລຕາ"
+
+#. Name
+#: mu/entry.desktop:2
+msgid "Mauritius"
+msgstr "ພາທິຊັ້ນ"
+
+#. Name
+#: mv/entry.desktop:2
+msgid "Maldives"
+msgstr "ມັລດິສ"
+
+#. Name
+#: mw/entry.desktop:2
+msgid "Malawi"
+msgstr "ມອລຕາ"
+
+#. Name
+#: mx/entry.desktop:2
+msgid "Mexico"
+msgstr "ເມັກຊີໂກ"
+
+#. Name
+#: my/entry.desktop:2
+msgid "Malaysia"
+msgstr "ມອລຕາ"
+
+#. Name
+#: mz/entry.desktop:2
+msgid "Mozambique"
+msgstr "ຫນ່ວຍຄວາມຈຳ"
+
+#. Name
+#: na/entry.desktop:2
+msgid "Namibia"
+msgstr "ຈາໄມກາ"
+
+#. Name
+#: nc/entry.desktop:2
+msgid "New Caledonia"
+msgstr "ມາເຊໂດເນີຍ"
+
+#. Name
+#: ne/entry.desktop:2
+msgid "Niger"
+msgstr "ຕົວຮງກພື້ນທີ່ທຳງານ"
+
+#. Name
+#: nf/entry.desktop:2
+msgid "Norfolk Island"
+msgstr "ໂປແລນ"
+
+#. Name
+#: ng/entry.desktop:2
+msgid "Nigeria"
+msgstr "ບັນແກເລີຍ"
+
+#. Name
+#: ni/entry.desktop:2
+msgid "Nicaragua"
+msgstr "ປາລາກກວຍ"
+
+#. Name
+#: nl/entry.desktop:3
+msgid "Netherlands"
+msgstr "ເນເທີແລນ์"
+
+#. Name
+#: no/entry.desktop:3
+msgid "Norway"
+msgstr "ນໍເວ"
+
+#. Name
+#: np/entry.desktop:2
+msgid "Nepal"
+msgstr "ເວນດາ"
+
+#. Name
+#: nr/entry.desktop:2
+msgid "Nauru"
+msgstr "ປາລາກກວຍ"
+
+#. Name
+#: nu/entry.desktop:2
+msgid "Niue"
+msgstr "ເນ໊ຕ"
+
+#. Name
+#: nz/entry.desktop:3
+msgid "New Zealand"
+msgstr "ນີວຊີແລນ"
+
+#. Name
+#: om/entry.desktop:2
+msgid "Oman"
+msgstr "ເຍີຍລະມັນ"
+
+#. Name
+#: pa/entry.desktop:2
+msgid "Panama"
+msgstr "ປານາມາ"
+
+#. Name
+#: pe/entry.desktop:2
+msgid "Peru"
+msgstr "ເປລູ"
+
+#. Name
+#: pf/entry.desktop:2
+msgid "French Polynesia"
+msgstr "ຝຣັ່ງເສດ"
+
+#. Name
+#: pg/entry.desktop:2
+msgid "Papua New Guinea"
+msgstr "ເທົາອ່ອນ"
+
+#. Name
+#: ph/entry.desktop:2
+msgid "Philippines"
+msgstr "ອາລະປະໂຫຍດ"
+
+#. Name
+#: pk/entry.desktop:2
+msgid "Pakistan"
+msgstr "ລງບ"
+
+#. Name
+#: pl/entry.desktop:2
+msgid "Poland"
+msgstr "ໂປແລນ"
+
+#. Name
+#: pm/entry.desktop:2
+msgid "Saint Pierre and Miquelon"
+msgstr ""
+
+#. Name
+#: pn/entry.desktop:2
+msgid "Pitcairn"
+msgstr "ລງບ"
+
+#. Name
+#: pr/entry.desktop:2
+msgid "Puerto Rico"
+msgstr "ໂປຣໂຕຄອນ"
+
+#. Name
+#: ps/entry.desktop:2
+msgid "Palestinian Territory"
+msgstr "ການພິມຜິດພາດ"
+
+#. Name
+#: pt/entry.desktop:3
+msgid "Portugal"
+msgstr "ໂປຣຕຸເກສ"
+
+#. Name
+#: pw/entry.desktop:2
+msgid "Palau"
+msgstr "ມອລຕາ"
+
+#. Name
+#: py/entry.desktop:2
+msgid "Paraguay"
+msgstr "ປາລາກກວຍ"
+
+#. Name
+#: qa/entry.desktop:2
+msgid "Qatar"
+msgstr "ມອລຕາ"
+
+#. Name
+#: ro/entry.desktop:2
+msgid "Romania"
+msgstr "ໂລມາເນີຍ"
+
+#. Name
+#: rs/entry.desktop:3
+msgid "Serbia"
+msgstr ""
+
+#. Name
+#: ru/entry.desktop:3
+msgid "Russia"
+msgstr "ລັດເຊີຍ"
+
+#. Name
+#: rw/entry.desktop:2
+msgid "Rwanda"
+msgstr "ແພນດ້າ"
+
+#. Name
+#: sa/entry.desktop:2
+msgid "Saudi Arabia"
+msgstr "ອາລະບິກ"
+
+#. Name
+#: sb/entry.desktop:2
+msgid "Solomon Islands"
+msgstr "ສະໂລວະເນີຍ"
+
+#. Name
+#: sc/entry.desktop:2
+msgid "Seychelles"
+msgstr "ເຊລ"
+
+#. Name
+#: sd/entry.desktop:2
+msgid "Sudan"
+msgstr "ຊູດານ"
+
+#. Name
+#: se/entry.desktop:2
+msgid "Sweden"
+msgstr "ສະວີເດນ"
+
+#. Name
+#: sg/entry.desktop:2
+msgid "Singapore"
+msgstr "ໂຊນາ"
+
+#. Name
+#: sh/entry.desktop:2
+msgid "Saint Helena"
+msgstr "ຫົວເລື່ອງ"
+
+#. Name
+#: si/entry.desktop:2
+msgid "Slovenia"
+msgstr "ສະໂລວະເນີຍ"
+
+#. Name
+#: sk/entry.desktop:2
+msgid "Slovakia"
+msgstr "ສະໂລວັກ"
+
+#. Name
+#: sm/entry.desktop:2
+msgid "San Marino"
+msgstr "ໂຊນາ"
+
+#. Name
+#: sn/entry.desktop:2
+msgid "Senegal"
+msgstr "ທົ່ວໄປ"
+
+#. Name
+#: so/entry.desktop:2
+msgid "Somalia"
+msgstr "ໂລມາເນີຍ"
+
+#. Name
+#: sr/entry.desktop:2
+msgid "Suriname"
+msgstr "ເຊີເບີຍ"
+
+#. Name
+#: st/entry.desktop:2
+msgid "Sao Tome and Principe"
+msgstr "ບໍລິການ"
+
+#. Name
+#: sv/entry.desktop:2
+msgid "El Salvador"
+msgstr "ເອລຊັນວາດດໍ"
+
+#. Name
+#: sy/entry.desktop:2
+msgid "Syria"
+msgstr "ເຊີເບີຍ"
+
+#. Name
+#: sz/entry.desktop:2
+msgid "Swaziland"
+msgstr "ລາດສະນາຈັກໄທຍ"
+
+#. Name
+#: tc/entry.desktop:2
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#. Name
+#: td/entry.desktop:2
+msgid "Chad"
+msgstr "ເກມໄພ່"
+
+#. Name
+#: tg/entry.desktop:2
+msgid "Togo"
+msgstr "ຂອງເລ່ນສະນຸກ"
+
+#. Name
+#: th/entry.desktop:2
+msgid "Thailand"
+msgstr "ລາດສະນາຈັກໄທຍ"
+
+#. Name
+#: tj/entry.desktop:2
+msgid "Tajikistan"
+msgstr "ໃຕ້ຫວັນ"
+
+#. Name
+#: tk/entry.desktop:2
+msgid "Tokelau"
+msgstr "ເບລາລັສ"
+
+#. Name
+#: tm/entry.desktop:2
+msgid "Turkmenistan"
+msgstr "ຕຸລະກີ"
+
+#. Name
+#: tn/entry.desktop:2
+msgid "Tunisia"
+msgstr "ລັດເຊີຍ"
+
+#. Name
+#: to/entry.desktop:2
+msgid "Tonga"
+msgstr "ໂຊນາ"
+
+#. Name
+#: tp/entry.desktop:2
+msgid "East Timor"
+msgstr "ວັນແລະເວລາ"
+
+#. Name
+#: tr/entry.desktop:2
+msgid "Turkey"
+msgstr "ຕຸລະກີ"
+
+#. Name
+#: tt/entry.desktop:2
+msgid "Trinidad and Tobago"
+msgstr "ຕີນິແດດແລະໂທບາໂກ"
+
+#. Name
+#: tv/entry.desktop:2
+msgid "Tuvalu"
+msgstr "ຊູລູ"
+
+#. Name
+#: tw/entry.desktop:3
+msgid "Taiwan"
+msgstr "ໃຕ້ຫວັນ"
+
+#. Name
+#: tz/entry.desktop:2
+msgid "Tanzania, United Republic of"
+msgstr "ໂດມິນິກັນ"
+
+#. Name
+#: ua/entry.desktop:3
+msgid "Ukraine"
+msgstr "ຍູເຄຣນ"
+
+#. Name
+#: ug/entry.desktop:2
+msgid "Uganda"
+msgstr "ແພນດ້າ"
+
+#. Name
+#: us/entry.desktop:2
+msgid "United States of America"
+msgstr "ສະຫະລັດອາເມລິກາ"
+
+#. Name
+#: uy/entry.desktop:2
+msgid "Uruguay"
+msgstr "ອຸລຸກກວຍ"
+
+#. Name
+#: uz/entry.desktop:2
+msgid "Uzbekistan"
+msgstr "ເດນ່ງນ"
+
+#. Name
+#: va/entry.desktop:2
+msgid "Vatican City"
+msgstr "ລັດເວີຍ"
+
+#. Name
+#: vc/entry.desktop:2
+msgid "St. Vincent and the Grenadines"
+msgstr "ເຊີນວິນແຊນ ແລະເກນາດີນ "
+
+#. Name
+#: ve/entry.desktop:2
+msgid "Venezuela"
+msgstr "ເວເນຊຸເອລາ"
+
+#. Name
+#: vg/entry.desktop:2
+msgid "Virgin Islands, British"
+msgstr ""
+
+#. Name
+#: vi/entry.desktop:2
+msgid "Virgin Islands, U.S."
+msgstr ""
+
+#. Name
+#: vn/entry.desktop:2
+msgid "Vietnam"
+msgstr "ຫວງດນາມ"
+
+#. Name
+#: vu/entry.desktop:2
+msgid "Vanuatu"
+msgstr "ຈີນ"
+
+#. Name
+#: wf/entry.desktop:2
+msgid "Wallis and Futuna"
+msgstr "ປັກອິນພາບ"
+
+#. Name
+#: ws/entry.desktop:3
+msgid "Samoa"
+msgstr "ໂຊນາ"
+
+#. Name
+#: ye/entry.desktop:2
+msgid "Yemen"
+msgstr "ເດມອນ"
+
+#. Name
+#: za/entry.desktop:3
+msgid "South Africa"
+msgstr "ແອບພິກາໃຕ້"
+
+#. Name
+#: zm/entry.desktop:2
+msgid "Zambia"
+msgstr "ຈາໄມກາ້"
+
+#. Name
+#: zw/entry.desktop:2
+msgid "Zimbabwe"
+msgstr "ລິຊາ"

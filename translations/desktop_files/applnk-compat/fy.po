@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 17:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: battery.desktop:2 bwarning.desktop:2 cwarning.desktop:2 power.desktop:2
+msgid "Laptop"
+msgstr "Skoatkompjûter"
+
+#. Name
+#: email.desktop:10
+msgid "Email"
+msgstr "E-post"
+
+#. Comment
+#: email.desktop:11
+msgid "Configure your identity, email addresses, mail servers, etc."
+msgstr "Ynfier fan jo identiteit, e-(post)adresen, e-(post) tsjinners, enz."
+
+#. Keywords
+#: email.desktop:13
+msgid ""
+"EMail;Mail;E-Mail;Address;Email server;IMAP;POP3;Local mailbox;mailbox;User "
+"Information;Reply Address;Server information;User Name;Passwords;Host;"
+"Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
+"Client;"
+msgstr ""
+"e-post;post;e-post;berjochten;adres;e-post-tsjinner;imap;pop3;lokale postbus;"
+"postboks;postbus;brûkersynformaasje;antwurdadres;tsjinnerynformaasje;"
+"brûkersnamme;wachtwurden;host;aktyf profiel;organisaasje;ynkommende host;"
+"útgeande host;e-postklant;"
+
+#. Name
+#: kcmkonq.desktop:2
+msgid "File Manager"
+msgstr "Triembehearder"
+
+#. Name
+#: kcmkxmlrpcd.desktop:2
+msgid "XML RPC Daemon"
+msgstr ""
+
+#. Name
+#: konqhtml.desktop:2
+msgid "Konqueror Browser"
+msgstr "Konqueror blêder"
+
+#. Name
+#: passwords.desktop:11
+msgid "Passwords"
+msgstr "Wachtwurden"
+
+#. Comment
+#: passwords.desktop:13
+msgid "Configure password settings"
+msgstr "Hjirre kinne jo de wachtwurd ynstellings ynstelle"
+
+#. Keywords
+#: passwords.desktop:15
+msgid "Passwords;tdesu;Echo characters;Remember passwords;Timeout;"
+msgstr "wachtwurden;tdesu;wachtwurden ûnthâlden;timeout;tiidslimyt;asterisken;"
+
+#. Name
+#: socks.desktop:2
+msgid "Socks"
+msgstr ""
+
+#. Name
+#: userinfo.desktop:13
+msgid "User Account"
+msgstr "Brûkers akkount"
+
+#. Comment
+#: userinfo.desktop:14
+msgid "Change your account information"
+msgstr "Feroarje jo akkountynformaasje"
+
+#. Keywords
+#: userinfo.desktop:15
+msgid ""
+"Passwords;Password;Change Password;Icon;face;tdm;User Name;Name;Account;"
+msgstr ""
+"Wachtwurden;Wachtwurd;Wachtwurd feroarje;ikoan;face;tdm;Brûkersnamme;Namme;"
+"Akkount;"
+
+#. Name
+#: virtualdesktops.desktop:2
+msgid "Virtual Desktops"
+msgstr "Firtuele buroblêden"

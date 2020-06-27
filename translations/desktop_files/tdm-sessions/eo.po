@@ -1,0 +1,539 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: tde.desktop.cmake:7
+#, fuzzy
+msgid "TDE"
+msgstr "ULĈ"
+
+#. Comment
+#: tde.desktop.cmake:8
+#, fuzzy
+msgid ""
+"The Trinity Desktop Environment. A powerful Open Source graphical desktop "
+"environment"
+msgstr "La Komuna Labortablo Ĉirkaŭaĵo"
+
+#. Name
+#: 9wm.desktop:6
+msgid "9WM"
+msgstr "9FA"
+
+#. Comment
+#: 9wm.desktop:8
+msgid "An emulation of the Plan 9 window manager 8-1/2"
+msgstr "TDE-fenestroadministrilo de plano 9"
+
+#. Name
+#: admin.desktop:7
+msgid "admin"
+msgstr ""
+
+#. Comment
+#: admin.desktop:9
+msgid "Yast Admin Session"
+msgstr ""
+
+#. Name
+#: aewm++.desktop:6
+msgid "AEWM++"
+msgstr "MFA++"
+
+#. Comment
+#: aewm++.desktop:8
+msgid ""
+"A minimal window manager based on AEWM, enhanced by virtual desktops and "
+"partial GNOME support"
+msgstr ""
+"Minimuma fenestroadministrilo el MFA, plibonigita per virtualaj labortabloj "
+"kaj parta helpo por Gnomikuo"
+
+#. Name
+#: aewm.desktop:6
+msgid "AEWM"
+msgstr "MFA"
+
+#. Comment
+#: aewm.desktop:8
+msgid "A minimalist window manager"
+msgstr "Minimumema fenestroadministrilo"
+
+#. Name
+#: afterstep.desktop:6
+msgid "AfterStep"
+msgstr "Postpaŝo"
+
+#. Comment
+#: afterstep.desktop:8
+msgid "A window manager with the NeXTStep look and feel, based on FVWM"
+msgstr "Fenestroadministrilo, kiu aperas kiel Venontpaŝo, farita de FVWM"
+
+#. Name
+#: amaterus.desktop:6
+msgid "AMATERUS"
+msgstr ""
+
+#. Comment
+#: amaterus.desktop:8
+msgid "A GTK+ based window manager with a window grouping feature"
+msgstr "Fenestroadministrilo kun ebleco kunigi fenestrojn, kiu uzas GTK+"
+
+#. Name
+#: amiwm.desktop:6
+msgid "AmiWM"
+msgstr "AmiFA"
+
+#. Comment
+#: amiwm.desktop:8
+msgid "The Amiga look-alike window manager"
+msgstr "Fenestroadministrilo kiel tiu de Amiga"
+
+#. Name
+#: asclassic.desktop:6
+msgid "ASClassic"
+msgstr "KlasikaPP"
+
+#. Comment
+#: asclassic.desktop:8
+msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
+msgstr "Klasika Postpaŝo, fenestroadministrilo kiel Postpaŝo v1.1"
+
+#. Name
+#: blackbox.desktop:6
+msgid "Blackbox"
+msgstr "Negrujo"
+
+#. Comment
+#: blackbox.desktop:8
+msgid "A fast & light window manager"
+msgstr "Rapida kaj malpeza fenestroadministrilo"
+
+#. Name
+#: cde.desktop:6
+#, fuzzy
+msgid "CDE"
+msgstr "ULĈ"
+
+#. Comment
+#: cde.desktop:8
+msgid ""
+"The Common Desktop Environment, a proprietary industry standard desktop "
+"environment"
+msgstr "La Komuna Labortablo Ĉirkaŭaĵo"
+
+#. Name
+#: ctwm.desktop:6
+msgid "CTWM"
+msgstr "TFAC"
+
+#. Comment
+#: ctwm.desktop:8
+msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr ""
+"Taba Fenestroadministrilo de Claude, TWM, bonigita per virtualaj ekranoj ktp"
+
+#. Name
+#: cwwm.desktop:6
+msgid "CWWM"
+msgstr "CWFA"
+
+#. Comment
+#: cwwm.desktop:8
+msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
+msgstr "La ChezWam Fenestroadministrilo, devenigita de MalbonaFA"
+
+#. Name
+#: enlightenment.desktop:6
+msgid "Enlightenment"
+msgstr "Lumaĵo"
+
+#. Comment
+#: enlightenment.desktop:8
+msgid "An extremely themable very feature-rich window manager"
+msgstr "Fenestroadministrilo kun tre multaj eblecoj"
+
+#. Name
+#: evilwm.desktop:6
+msgid "EvilWM"
+msgstr "MalbonaFA"
+
+#. Comment
+#: evilwm.desktop:8
+msgid "A minimalist window manager based on AEWM"
+msgstr "Minimumema fenestroadministrilo"
+
+#. Name
+#: fluxbox.desktop:6
+msgid "Fluxbox"
+msgstr "Fluujo"
+
+#. Comment
+#: fluxbox.desktop:8
+msgid "A highly configurable and low resource window manager based on Blackbox"
+msgstr "Fenestroadministrilo devenigita de Negrujo"
+
+#. Name
+#: flwm.desktop:6
+msgid "FLWM"
+msgstr "RMFA"
+
+#. Comment
+#: flwm.desktop:8
+msgid "The Fast Light Window Manager, based primarily on WM2"
+msgstr "Rapida malpeza fenestroadministrilo"
+
+#. Name
+#: fvwm.desktop:6
+msgid "FVWM"
+msgstr ""
+
+#. Comment
+#: fvwm.desktop:8 fvwm2.desktop:8
+msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
+msgstr "Fenestroadministrilo"
+
+#. Name
+#: fvwm2.desktop:6
+msgid "FVWM2"
+msgstr ""
+
+#. Name
+#: fvwm95.desktop:6
+msgid "FVWM95"
+msgstr ""
+
+#. Comment
+#: fvwm95.desktop:8
+msgid "A Windows 95 look-alike derivative of FVWM"
+msgstr "Fenestroadministrilo kiel tiu de Vindozo 95"
+
+#. Name
+#: gnome.desktop:6
+msgid "GNOME"
+msgstr "Gnomikuo"
+
+#. Comment
+#: gnome.desktop:8
+msgid ""
+"The GNU Network Object Model Environment. A complete, free and easy-to-use "
+"desktop environment"
+msgstr "Plena labortabla ĉirkaŭaĵo"
+
+#. Name
+#: golem.desktop:6
+msgid "Golem"
+msgstr "Golemo"
+
+#. Comment
+#: golem.desktop:8
+msgid "A lightweight window manager"
+msgstr "Malpeza fenestroadministrilo"
+
+#. Name
+#: icewm.desktop:6
+msgid "IceWM"
+msgstr "GlaciFA"
+
+#. Comment
+#: icewm.desktop:8
+msgid "A Windows 95-OS/2-Motif-like window manager"
+msgstr "Fenestroadministrilo kiel Vindozo 95, OS/2 kaj Motifo"
+
+#. Name
+#: ion.desktop:6
+msgid "Ion"
+msgstr "Iono"
+
+#. Comment
+#: ion.desktop:8
+msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
+msgstr "Fenestroadministrilo por la uzo klaviara"
+
+#. Name
+#: kde-plasma-safe.desktop:7
+msgid "KDE Plasma Workspace (failsafe session)"
+msgstr ""
+
+#. Comment
+#: kde-plasma-safe.desktop:9
+msgid "The desktop made by KDE (failsafe session)"
+msgstr ""
+
+#. Name
+#: kde-plasma.desktop:7
+msgid "KDE Plasma Workspace"
+msgstr ""
+
+#. Comment
+#: kde-plasma.desktop:9
+msgid "The desktop made by KDE"
+msgstr ""
+
+#. Name
+#: larswm.desktop:6
+msgid "LarsWM"
+msgstr "Lazero"
+
+#. Comment
+#: larswm.desktop:8
+msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
+msgstr "La Laza Fenestroadministrilo, devenigita de 9FA"
+
+#. Name
+#: lwm.desktop:6
+msgid "LWM"
+msgstr "MFA"
+
+#. Comment
+#: lwm.desktop:8
+msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
+msgstr "Malpeza Fenestroadministrilo"
+
+#. Name
+#: matchbox.desktop:6
+msgid "Matchbox"
+msgstr "Alumetujo"
+
+#. Comment
+#: matchbox.desktop:8
+msgid "A window manager for handheld devices"
+msgstr "Fenestroadministrilo por manaj aparatoj"
+
+#. Name
+#: metacity.desktop:6
+msgid "Metacity"
+msgstr "Metaurbo"
+
+#. Comment
+#: metacity.desktop:8
+msgid "A lightweight GTK2 based window manager"
+msgstr "Malpeza fenestroadministrilo"
+
+#. Name
+#: mwm.desktop:6
+msgid "MWM"
+msgstr "MFA"
+
+#. Comment
+#: mwm.desktop:8
+msgid "The Motif Window Manager"
+msgstr "Motifa fenestroadministrilo"
+
+#. Name
+#: olvwm.desktop:6
+msgid "OLVWM"
+msgstr "OLVFA"
+
+#. Comment
+#: olvwm.desktop:8
+msgid ""
+"The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
+"desktops"
+msgstr "Fenestroadministrilo por virtualaj labortabloj"
+
+#. Name
+#: olwm.desktop:6
+msgid "OLWM"
+msgstr "OLFA"
+
+#. Comment
+#: olwm.desktop:8
+msgid "The traditional Open Look Window Manager"
+msgstr "La klasika OL-fenestroadministrilo"
+
+#. Name
+#: openbox.desktop:6
+msgid "Openbox"
+msgstr "Malfermujo"
+
+#. Comment
+#: openbox.desktop:8
+msgid "A lightweight window manager based on Blackbox"
+msgstr "Fenestroadministrilo devenigita de Negrujo"
+
+#. Name
+#: oroborus.desktop:6
+msgid "Oroborus"
+msgstr "Koloroj"
+
+#. Comment
+#: oroborus.desktop:8
+msgid "A lightweight themeable window manager"
+msgstr "Fenestroadministrilo"
+
+#. Name
+#: phluid.desktop:6
+msgid "Phluid"
+msgstr "Plena"
+
+#. Comment
+#: phluid.desktop:8
+msgid "An Imlib2 based window manager"
+msgstr "Fenestroadministrilo"
+
+#. Name
+#: pwm.desktop:6
+msgid "PWM"
+msgstr "UnuFA"
+
+#. Comment
+#: pwm.desktop:8
+msgid ""
+"A lightweight window manager able to attach multiple windows to one frame"
+msgstr "Fenestroadministrilo, kiu faras unun fenestron el kelkaj"
+
+#. Name
+#: qvwm.desktop:6
+msgid "QVWM"
+msgstr "QVFA"
+
+#. Comment
+#: qvwm.desktop:8
+msgid "A Windows 95 like window manager"
+msgstr "Fenestroadministrilo kiel Vindozo 95"
+
+#. Name
+#: ratpoison.desktop:6
+msgid "Ratpoison"
+msgstr "Raticido"
+
+#. Comment
+#: ratpoison.desktop:8
+msgid "A simple keyboard-only window manager modeled after Screen"
+msgstr "Fenestroadministrilo por klaviaro"
+
+#. Name
+#: sapphire.desktop:6
+msgid "Sapphire"
+msgstr "Safiro"
+
+#. Comment
+#: sapphire.desktop:8
+msgid "A minimal but configurable window manager"
+msgstr "Fenestroadministrilo"
+
+#. Name
+#: sawfish.desktop:6
+msgid "Sawfish"
+msgstr "Segfiŝo"
+
+#. Comment
+#: sawfish.desktop:8
+msgid ""
+"An extensible window manager scriptable with an Emacs Lisp-like language"
+msgstr "Fenestroadministrilo, kiu uzas Lispon por esti programata"
+
+#. Name
+#: twm.desktop:6
+msgid "TWM"
+msgstr "TFA"
+
+#. Comment
+#: twm.desktop:8
+msgid "The Tab Window Manager"
+msgstr "Taba fenestroadministrilo"
+
+#. Name
+#: ude.desktop:6
+msgid "UDE"
+msgstr "ULĈ"
+
+#. Comment
+#: ude.desktop:8
+msgid "The UNIX Desktop Environment"
+msgstr "La Uniksa Labortablo Ĉirkauaĵo"
+
+#. Name
+#: vtwm.desktop:6
+msgid "VTWM"
+msgstr "VTFA"
+
+#. Comment
+#: vtwm.desktop:8
+msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
+msgstr ""
+"La Virtuala Taba Fenestroadministrilo, TFA plibonigita per virtualaj ekranoj"
+
+#. Name
+#: w9wm.desktop:6
+msgid "W9WM"
+msgstr "F9FA"
+
+#. Comment
+#: w9wm.desktop:8
+msgid ""
+"A window manager based on 9WM, enhanced by virtual screens and keyboard "
+"bindings"
+msgstr ""
+"Fenestroadministrilo devenigita de 9FA, plibonigita per virtualaj ekranoj "
+"kaj klaviara uzo"
+
+#. Name
+#: waimea.desktop:6
+msgid "Waimea"
+msgstr "Vaimeo"
+
+#. Comment
+#: waimea.desktop:8
+msgid "A highly customizable window manager based on Blackbox"
+msgstr "Tre agordebla fenestroadministrilo, devenigita de Negrujo"
+
+#. Name
+#: wm2.desktop:6
+msgid "WM2"
+msgstr "Fa2"
+
+#. Comment
+#: wm2.desktop:8
+msgid "A small, non-configurable window manager"
+msgstr "Malgranda, ne agordebla fenestroadministrilo"
+
+#. Name
+#: wmaker.desktop:6
+msgid "WindowMaker"
+msgstr "Fenestroadministrilo"
+
+#. Comment
+#: wmaker.desktop:8
+msgid "A simple window manager that resembles the NeXTStep look very closely"
+msgstr "Simpla fenestroadministrilo"
+
+#. Name
+#: xfce.desktop:6
+msgid "XFce"
+msgstr "Facoj"
+
+#. Comment
+#: xfce.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
+"of CDE"
+msgstr "La libera labortablo ĉirkaŭajo"
+
+#. Name
+#: xfce4.desktop:6
+msgid "XFce 4"
+msgstr "Facoj 4"
+
+#. Comment
+#: xfce4.desktop:8
+msgid ""
+"The Cholesterol Free Desktop Environment, version 4. A desktop environment "
+"reminiscent of CDE"
+msgstr "La libera labortablo ĉirkaŭajo 4"

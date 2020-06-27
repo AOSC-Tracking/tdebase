@@ -1,9 +1,10 @@
 [Desktop Entry]
-Icon=computer
 Type=MimeType
 MimeType=media/builtin-mycomputer
+Icon=computer
+
 Comment=My Computer
-Comment[de]=Rechner
+
 Patterns=My_Computer
 
 X-TDE-AutoEmbed=false

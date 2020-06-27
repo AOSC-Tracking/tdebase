@@ -1,44 +1,13 @@
 [Desktop Entry]
 Exec=kfmclient openBrowser %u
-GenericName=Web Browser
-GenericName[en_US]=Web Browser
 Icon=konqueror
 MimeType=application/vnd.mozilla.xul+xml;application/xhtml+xml;application/xml;image/gif;image/jpeg;image/png;text/html;text/xml
 
 Name=Web Browser
-Name[bg]=Уеб браузър
-Name[ca]=Navegador web
-Name[cs]=Webový prohlížeč
-Name[de]=Internet-Navigator
-Name[en_US]=Web Browser
-Name[es]=Navegador web
-Name[fa]=مرورگر اینترنتی
-Name[fi]=-selain
-Name[fr]=Navigateur Web
-Name[hu]=webböngésző
-Name[it]=Browser Web
-Name[ja]=ウェブ・ブラウザ
-Name[ko]=웹 브라우저
-Name[nb]=Nettleser
-Name[nl]=webbrowser
-Name[nn]=Nettlesar
-Name[no]=Nettleser
-Name[pl]=Przeglądarka WWW
-Name[pt]=Navegador Web
-Name[pt_BR]=Navegador Web
-Name[ru]=Интернет обозреватель
-Name[sk]=Internetový prehliadač
-Name[sv]=Webbläsaren
+
+GenericName=Web Browser
 
 Comment=Browse the World Wide Web
-Comment[bg]=Разгледай световната мрежа
-Comment[cs]=Prohlížení Internetu
-Comment[de]=Das Internet erkunden
-Comment[es]=Navegar por la World Wide Web
-Comment[fr]=Naviguer sur Internet
-Comment[it]=Naviga in Internet
-Comment[pl]=Przeglądaj Internet
-Comment[ru]=Обозреватель Всемирной Паутины
 
 StartupNotify=true
 Terminal=false

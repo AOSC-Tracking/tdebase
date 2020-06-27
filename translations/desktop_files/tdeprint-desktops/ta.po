@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 19:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kjobviewer/kjobviewer-autostart.desktop:7 kjobviewer/kjobviewer.desktop:8
+msgid "KJobViewer"
+msgstr "கேபணி காட்சியாளன்"
+
+#. GenericName
+#. Comment
+#: kjobviewer/kjobviewer-autostart.desktop:9 kjobviewer/kjobviewer.desktop:10
+#: slave/mimetypes/jobs.desktop:2
+msgid "Print Jobs"
+msgstr "அச்சுப் பணிகள்"
+
+#. Name
+#: kprinter/kprinter.desktop:9
+msgid "KPrinter"
+msgstr "Kஅச்சியந்திரம்"
+
+#. GenericName
+#: kprinter/kprinter.desktop:11
+msgid "Printing Tool"
+msgstr "அச்சசியந்திர கருவி"
+
+#. Name
+#: printmgr/printers.desktop:12
+msgid "Printers"
+msgstr "அச்சியந்திரம்"
+
+#. Comment
+#: printmgr/printers.desktop:14
+msgid "Printing system configuration (printers, jobs, classes, ...)"
+msgstr "அச்சியந்திர சாதன வடிவமைப்பு (அச்சியந்திரங்கள், வேலைகள், பிரிவுகள், ...)"
+
+#. Keywords
+#: printmgr/printers.desktop:16
+msgid "print;printer;printing management;"
+msgstr "அச்சு; அச்சியந்திரம்;அச்சு மேலாளர்;"
+
+#. Comment
+#: slave/mimetypes/class.desktop:2
+msgid "Class of Printers"
+msgstr "அச்சியந்திரங்களின் வகை"
+
+#. Comment
+#: slave/mimetypes/driver.desktop:2
+msgid "Printer Driver"
+msgstr "அச்சியந்திர இயக்கி"
+
+#. Comment
+#: slave/mimetypes/folder.desktop:2
+msgid "Print Folder"
+msgstr "அச்சிடும் அடைவு"
+
+#. Comment
+#. Name
+#: slave/mimetypes/manager.desktop:2 tdeprint_part/tdeprint_part.desktop:4
+msgid "Print Management Tool"
+msgstr "அச்சு மேலாண்மை கருவி"
+
+#. Comment
+#: slave/mimetypes/printer.desktop:2
+msgid "Printer"
+msgstr "அச்சியந்திரம்"
+
+#. Comment
+#: slave/mimetypes/printermodel.desktop:2
+msgid "Printer Model"
+msgstr "அச்சியந்திர மாதிரி"
+
+#. Name
+#: tdeprintfax/tdeprintfax.desktop:2
+msgid "TDEPrintFax"
+msgstr "TDEஅச்சுபாக்ஸ்"
+
+#. GenericName
+#: tdeprintfax/tdeprintfax.desktop:4
+msgid "Fax Utility"
+msgstr "தொலைநகலி கருவி"

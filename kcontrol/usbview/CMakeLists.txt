@@ -23,7 +23,10 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kcmusb.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE kcmusb.desktop
+  PO_DIR kcontrol-desktops
+)
 
 if( WITH_USBIDS )
   set_property( SOURCE usbdb.cpp APPEND PROPERTY COMPILE_DEFINITIONS USBIDS_FILE="${WITH_USBIDS}" )

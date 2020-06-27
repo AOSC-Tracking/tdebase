@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 21:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Comment
+#: eventsrc:3
+msgid "The Window Manager"
+msgstr "مسير للنوافذ"
+
+#. Name
+#: eventsrc:6
+msgid "Change to Desktop 1"
+msgstr "غيير إلى سطح المكتب 1"
+
+#. Comment
+#: eventsrc:7
+msgid "Virtual desktop one is selected"
+msgstr "سطح المكتب الوهمي  رقم 1 هو المحدد"
+
+#. Name
+#: eventsrc:12
+msgid "Change to Desktop 2"
+msgstr "غيير إلى سطح المكتب 2"
+
+#. Comment
+#: eventsrc:13
+msgid "Virtual desktop two is selected"
+msgstr "سطح المكتب الوهمي  رقم 2 هو المحدد"
+
+#. Name
+#: eventsrc:18
+msgid "Change to Desktop 3"
+msgstr "غيير الى سطح المكتب 3"
+
+#. Comment
+#: eventsrc:19
+msgid "Virtual desktop three is selected"
+msgstr "سطح المكتب الوهمي  رقم3  هو المحدد"
+
+#. Name
+#: eventsrc:24
+msgid "Change to Desktop 4"
+msgstr "غيير الى سطح المكتب 4"
+
+#. Comment
+#: eventsrc:25
+msgid "Virtual desktop four is selected"
+msgstr "سطح المكتب الوهمي  رقم 4 هو المحدد"
+
+#. Name
+#: eventsrc:30
+msgid "Change to Desktop 5"
+msgstr "غيير الى سطح المكتب 5"
+
+#. Comment
+#: eventsrc:31
+msgid "Virtual desktop five is selected"
+msgstr "سطح المكتب الوهمي  رقم 5 هو المحدد"
+
+#. Name
+#: eventsrc:36
+msgid "Change to Desktop 6"
+msgstr "غيير الى سطح المكتب 6"
+
+#. Comment
+#: eventsrc:37
+msgid "Virtual desktop six is selected"
+msgstr "سطح المكتب الوهمي  رقم 6 هو المحدد"
+
+#. Name
+#: eventsrc:42
+msgid "Change to Desktop 7"
+msgstr "غيير الى سطح المكتب 7"
+
+#. Comment
+#: eventsrc:43
+msgid "Virtual desktop seven is selected"
+msgstr "سطح المكتب الوهمي  رقم 7 هو المحدد"
+
+#. Name
+#: eventsrc:48
+msgid "Change to Desktop 8"
+msgstr "غيير الى سطح المكتب 8"
+
+#. Comment
+#: eventsrc:49
+msgid "Virtual desktop eight is selected"
+msgstr "سطح المكتب الوهمي  رقم 8 هو المحدد"
+
+#. Name
+#: eventsrc:54
+msgid "Change to Desktop 9"
+msgstr "غيير إلى سطح المكتب 9"
+
+#. Comment
+#: eventsrc:55
+msgid "Virtual desktop nine is selected"
+msgstr "سطح المكتب الوهمي  رقم 9 هو المحدد"
+
+#. Name
+#: eventsrc:59
+msgid "Change to Desktop 10"
+msgstr "غيير الى سطح المكتب 10"
+
+#. Comment
+#: eventsrc:60
+msgid "Virtual desktop ten is selected"
+msgstr "سطح المكتب الوهمي  رقم 10 هو المحدد"
+
+#. Name
+#: eventsrc:64
+msgid "Change to Desktop 11"
+msgstr "غيير إلى سطح المكتب 11"
+
+#. Comment
+#: eventsrc:65
+msgid "Virtual desktop eleven is selected"
+msgstr "سطح المكتب الوهمي  رقم 11 هو المحدد"
+
+#. Name
+#: eventsrc:69
+msgid "Change to Desktop 12"
+msgstr "غيير إلى سطح المكتب رقم 12"
+
+#. Comment
+#: eventsrc:70
+msgid "Virtual desktop twelve is selected"
+msgstr "سطح المكتب الوهمي  رقم 12 هو المحدد"
+
+#. Name
+#: eventsrc:74
+msgid "Change to Desktop 13"
+msgstr "غيير الى سطح المكتب 13"
+
+#. Comment
+#: eventsrc:75
+msgid "Virtual desktop thirteen is selected"
+msgstr "سطح المكتب الوهمي  رقم 13 هو المحدد"
+
+#. Name
+#: eventsrc:79
+msgid "Change to Desktop 14"
+msgstr "غيير إلى سطح المكتب 14"
+
+#. Comment
+#: eventsrc:80
+msgid "Virtual desktop fourteen is selected"
+msgstr "سطح المكتب الوهمي  رقم 14 هو المحدد"
+
+#. Name
+#: eventsrc:84
+msgid "Change to Desktop 15"
+msgstr "غيير إلى سطح المكتب 15"
+
+#. Comment
+#: eventsrc:85
+msgid "Virtual desktop fifteen is selected"
+msgstr "سطح المكتب الوهمي  رقم 15 هو المحدد"
+
+#. Name
+#: eventsrc:89
+msgid "Change to Desktop 16"
+msgstr "غيير الى سطح المكتب 16"
+
+#. Comment
+#: eventsrc:90
+msgid "Virtual desktop sixteen is selected"
+msgstr "سطح المكتب الوهمي  رقم 16 هو المحدد"
+
+#. Name
+#: eventsrc:94
+msgid "Change to Desktop 17"
+msgstr "غيير إلى سطح المكتب 17"
+
+#. Comment
+#: eventsrc:95
+msgid "Virtual desktop seventeen is selected"
+msgstr "سطح المكتب الوهمي  رقم 17 هو المحدد"
+
+#. Name
+#: eventsrc:99
+msgid "Change to Desktop 18"
+msgstr "غيير الى سطح المكتب 18"
+
+#. Comment
+#: eventsrc:100
+msgid "Virtual desktop eighteen is selected"
+msgstr "سطح المكتب الوهمي  رقم 18 هو المحدد"
+
+#. Name
+#: eventsrc:104
+msgid "Change to Desktop 19"
+msgstr "غيير الى سطح المكتب 19"
+
+#. Comment
+#: eventsrc:105
+msgid "Virtual desktop nineteen is selected"
+msgstr "سطح المكتب الوهمي  رقم 19 هو المحدد"
+
+#. Name
+#: eventsrc:109
+msgid "Change to Desktop 20"
+msgstr "غيير إلى سطح المكتب 20"
+
+#. Comment
+#: eventsrc:110
+msgid "Virtual desktop twenty is selected"
+msgstr "سطح المكتب الوهمي  رقم 20 هو المحدد"
+
+#. Name
+#: eventsrc:114
+msgid "Activate Window"
+msgstr "نشّط النافذة"
+
+#. Comment
+#: eventsrc:115
+msgid "Another window is activated"
+msgstr "يوجد نافذة آخرى منشطة"
+
+#. Name
+#: eventsrc:119
+msgid "New Window"
+msgstr "نافذة جديدة"
+
+#. Comment
+#: eventsrc:120
+msgid "New window"
+msgstr "نافذة جديدة"
+
+#. Name
+#: eventsrc:125
+msgid "Delete Window"
+msgstr "محو النافذة"
+
+#. Comment
+#: eventsrc:126
+msgid "Delete window"
+msgstr "محو النافذة"
+
+#. Name
+#: eventsrc:129
+msgid "Window Close"
+msgstr "إغلاق النافذة"
+
+#. Comment
+#: eventsrc:130
+msgid "A window closes"
+msgstr "نافذة تغلق"
+
+#. Name
+#: eventsrc:135
+msgid "Window Shade Up"
+msgstr "إزالة إنسدال النافذة"
+
+#. Comment
+#: eventsrc:136
+msgid "A window is shaded up"
+msgstr "تم إلغاء إنسدال النافذة"
+
+#. Name
+#: eventsrc:141
+msgid "Window Shade Down"
+msgstr "إنسدال النافذة"
+
+#. Comment
+#: eventsrc:142
+msgid "A window is shaded down"
+msgstr "تم إنسدال النافذة"
+
+#. Name
+#: eventsrc:147
+msgid "Window Minimize"
+msgstr "تصغير النافذة"
+
+#. Comment
+#: eventsrc:148
+msgid "A window is minimized"
+msgstr "تمّ تصغير نافذة"
+
+#. Name
+#: eventsrc:153
+msgid "Window Unminimize"
+msgstr "عدم تصغير النافذة"
+
+#. Comment
+#: eventsrc:154
+msgid "A Window is restored"
+msgstr "نافذة استرجعت"
+
+#. Name
+#: eventsrc:159
+msgid "Window Maximize"
+msgstr "تكبير النافذة"
+
+#. Comment
+#: eventsrc:160
+msgid "A window is maximized"
+msgstr "نافذة كبّرت"
+
+#. Name
+#: eventsrc:165
+msgid "Window Unmaximize"
+msgstr "إزالة تكبير نافذة"
+
+#. Comment
+#: eventsrc:166
+msgid "A window loses maximization"
+msgstr "نافذة فقدت التكبير"
+
+#. Name
+#: eventsrc:171
+msgid "Window On All Desktops"
+msgstr "النافذة على كل أسطح المكاتب"
+
+#. Comment
+#: eventsrc:172
+msgid "A window is made visible on all desktops"
+msgstr "تمّ إظهار نافذة على كل أسطح المكاتب"
+
+#. Name
+#: eventsrc:177
+msgid "Window Not On All Desktops"
+msgstr "النافذة ليست على كل أسطح المكاتب"
+
+#. Comment
+#: eventsrc:178
+msgid "A Window is no longer visible on all desktops"
+msgstr "تمّ إلغاء ظهور نافذة على كل أسطح المكاتب"
+
+#. Name
+#: eventsrc:183
+msgid "New Dialog"
+msgstr "حوار جديد"
+
+#. Comment
+#: eventsrc:184
+msgid "Transient window (a dialog) appears"
+msgstr "تظهر نافذة ( حوار) مءقت"
+
+#. Name
+#: eventsrc:189
+msgid "Delete Dialog"
+msgstr "محو الحوار"
+
+#. Comment
+#: eventsrc:190
+msgid "Transient window (a dialog) is removed"
+msgstr "يتم حذف نافذة ( حوار ) موقتة"
+
+#. Name
+#: eventsrc:195
+msgid "Window Move Start"
+msgstr "بداية تحريك النافذة"
+
+#. Comment
+#: eventsrc:196
+msgid "A window has begun moving"
+msgstr "بدأت نافذة في التحرك"
+
+#. Name
+#: eventsrc:200
+msgid "Window Move End"
+msgstr "نهاية تحريك النافذة"
+
+#. Comment
+#: eventsrc:201
+msgid "A window has completed its moving"
+msgstr "إنتهت نافذة من التحرك"
+
+#. Name
+#: eventsrc:205
+msgid "Window Resize Start"
+msgstr "بداية تغيير قياس النافذة"
+
+#. Comment
+#: eventsrc:206
+msgid "A window has begun resizing"
+msgstr "بدأت النافذة في تغيير القياس"
+
+#. Name
+#: eventsrc:210
+msgid "Window Resize End"
+msgstr "نهاية تغيير قياس النافذة"
+
+#. Comment
+#: eventsrc:211
+msgid "A window has finished resizing"
+msgstr "إنتهت نافذة تغيير القياس"
+
+#. Name
+#: eventsrc:215
+msgid "Window On Current Desktop Demands Attention"
+msgstr "النافذة على سطح المكتب تتطلب الإنتباه"
+
+#. Comment
+#: eventsrc:216
+msgid "A window on the current virtual desktop demands attention"
+msgstr "نافذة على سطح المكتب الوهمي الحالي تتطلّب الإنتباه"
+
+#. Name
+#: eventsrc:220
+msgid "Window On Other Desktop Demands Attention"
+msgstr "نافذة على سطح مكتب آخر تتطلّب الإنتباه"
+
+#. Comment
+#: eventsrc:221
+msgid "A window on an inactive virtual desktop demands attention"
+msgstr "نافذة على سطح مكتب وهمي غير نشط تتطلّب الإنتباه"

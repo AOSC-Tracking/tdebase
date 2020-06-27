@@ -23,7 +23,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES kwebdesktop.desktop DESTINATION ${DATA_INSTALL_DIR}/kdesktop/programs )
+tde_create_translated_desktop(
+  SOURCE kwebdesktop.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/kdesktop/programs
+  PO_DIR kdesktop-desktops
+)
 install( FILES kwebdesktop.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 
 

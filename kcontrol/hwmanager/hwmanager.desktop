@@ -9,31 +9,10 @@ X-TDE-ParentApp=kcontrol
 X-TDE-SubstituteUID=true
 
 Name=Device Manager
-Name[bg]=Управление на устройства
-Name[cs]=Správce zařízení
-Name[de]=Geräteverwaltung
-Name[es]=Administrador de dispositivos
-Name[fr]=Gestionnaire de périphériques
-Name[it]=Gestore dei dispositivi hardware
-Name[ru]=Менеджер устройств
 
 Comment=Configure hardware devices
-Comment[bg]=Конфигурация на устройства
-Comment[cs]=Nastavení hardwarových zařízení
-Comment[de]=Hardware-Geräte einrichten
-Comment[es]=Configuración de dispositivos
-Comment[fr]=Configurer des périphériques matériels
-Comment[it]=Configurazione dei dispositivi hardware
-Comment[ru]=Конфигурация устройств
 
 Keywords=hardware;devices;manager;
-Keywords[bg]=оборудване;устройства;управление;
-Keywords[cs]=hardware;zařízení;správce;
-Keywords[de]=Hardware;Geräte;Verwaltung;
-Keywords[es]=hardware;dispositivos;
-Keywords[fr]=Matériel;équipement;gestion
-Keywords[it]=hardware;dispositivi;gestore;gestione;configurazione
-Keywords[ru]=оборудование;усройства;
 
 Categories=Qt;TDE;X-TDE-settings-hardware;
 NoDisplay=false

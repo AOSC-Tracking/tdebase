@@ -27,7 +27,11 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES print.protocol printdb.protocol DESTINATION ${SERVICES_INSTALL_DIR} )
+tde_create_translated_desktop(
+  SOURCE print.protocol printdb.protocol
+  DESTINATION ${SERVICES_INSTALL_DIR}
+  PO_DIR tdeprint-desktops
+)
 
 
 ##### tdeio_print (module) ########################
