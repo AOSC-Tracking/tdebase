@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1333,23 +1333,6 @@ msgstr ""
 "d'outils;"
 
 #. Name
-#: hwmanager/hwdevicetray-autostart.desktop:2
-msgid "tdehwdevicetray"
-msgstr ""
-
-#. GenericName
-#. Name
-#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
-#: hwmanager/hwdevicetray.desktop:4
-msgid "Device Monitor"
-msgstr "Moniteur de périphériques"
-
-#. Comment
-#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
-msgid "Monitor hardware devices from the system tray"
-msgstr "Surveille les périphériques matériels depuis la barre d’état système"
-
-#. Name
 #: hwmanager/hwmanager.desktop:11
 msgid "Device Manager"
 msgstr "Gestionnaire de périphériques"
@@ -2552,3 +2535,10 @@ msgstr "Configuration de TDE pour l'utilisation de moniteurs multiples"
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr ""
 "Xinerama;dual head;multihead;moniteur;multitête;double écran; multiécran;"
+
+#~ msgid "Device Monitor"
+#~ msgstr "Moniteur de périphériques"
+
+#~ msgid "Monitor hardware devices from the system tray"
+#~ msgstr ""
+#~ "Surveille les périphériques matériels depuis la barre d’état système"

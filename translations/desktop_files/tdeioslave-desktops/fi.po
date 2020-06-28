@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,23 +95,31 @@ msgid "Blank DVD"
 msgstr "Tyhjä DVD-levy"
 
 #. Comment
-#: media/mimetypes/bluray_encrypted_locked.desktop:7
-msgid "Encrypted Locked BLURAY"
-msgstr ""
-
-#. Comment
-#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked BLURAY"
-msgstr ""
-
-#. Comment
 #: media/mimetypes/bluray_mounted.desktop:6
 msgid "Mounted BLURAY"
 msgstr "Liitetty BLURAY-levy"
 
 #. Comment
+#: media/mimetypes/bluray_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted BLURAY"
+msgstr "Liitetty BLURAY-levy"
+
+#. Comment
 #: media/mimetypes/bluray_unmounted.desktop:6
 msgid "Unmounted BLURAY"
+msgstr "Irrotettu BLURAY-levy"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted BLURAY"
+msgstr "Irrotettu BLURAY-levy"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted BLURAY"
 msgstr "Irrotettu BLURAY-levy"
 
 #. Comment
@@ -130,18 +138,14 @@ msgid "Unmounted Camera"
 msgstr "Irrotettu kamera"
 
 #. Comment
-#: media/mimetypes/cd-r_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-R"
-msgstr ""
-
-#. Comment
-#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-R"
-msgstr ""
-
-#. Comment
 #: media/mimetypes/cd-r_mounted.desktop:6
 msgid "Mounted CD-R"
+msgstr "Liitetty CD-kirjoitin"
+
+#. Comment
+#: media/mimetypes/cd-r_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-R"
 msgstr "Liitetty CD-kirjoitin"
 
 #. Comment
@@ -150,18 +154,26 @@ msgid "Unmounted CD-R"
 msgstr "Irrotettu CD-kirjoitin"
 
 #. Comment
-#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-RW"
-msgstr ""
+#: media/mimetypes/cd-r_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-R"
+msgstr "Irrotettu CD-kirjoitin"
 
 #. Comment
-#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-RW"
-msgstr ""
+#: media/mimetypes/cd-r_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-R"
+msgstr "Irrotettu CD-kirjoitin"
 
 #. Comment
 #: media/mimetypes/cd-rw_mounted.desktop:6
 msgid "Mounted CD-RW"
+msgstr "Liitetty CD-kirjoitin"
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-RW"
 msgstr "Liitetty CD-kirjoitin"
 
 #. Comment
@@ -170,18 +182,26 @@ msgid "Unmounted CD-RW"
 msgstr "Irrotettu CD-kirjoitin"
 
 #. Comment
-#: media/mimetypes/cdrom_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-ROM"
-msgstr ""
+#: media/mimetypes/cd-rw_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-RW"
+msgstr "Irrotettu CD-kirjoitin"
 
 #. Comment
-#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-ROM"
-msgstr ""
+#: media/mimetypes/cd-rw_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-RW"
+msgstr "Irrotettu CD-kirjoitin"
 
 #. Comment
 #: media/mimetypes/cdrom_mounted.desktop:6
 msgid "Mounted CD-ROM"
+msgstr "Liitetty CD-ROM"
+
+#. Comment
+#: media/mimetypes/cdrom_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-ROM"
 msgstr "Liitetty CD-ROM"
 
 #. Comment
@@ -190,14 +210,16 @@ msgid "Unmounted CD-ROM"
 msgstr "Irrotettu CD-ROM"
 
 #. Comment
-#: media/mimetypes/dvd_encrypted_locked.desktop:7
-msgid "Encrypted Locked DVD"
-msgstr ""
+#: media/mimetypes/cdrom_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-ROM"
+msgstr "Irrotettu CD-ROM"
 
 #. Comment
-#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked DVD"
-msgstr ""
+#: media/mimetypes/cdrom_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-ROM"
+msgstr "Irrotettu CD-ROM"
 
 #. Comment
 #: media/mimetypes/dvd_mounted.desktop:6
@@ -205,8 +227,26 @@ msgid "Mounted DVD"
 msgstr "Liitetty DVD-levy"
 
 #. Comment
+#: media/mimetypes/dvd_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted DVD"
+msgstr "Liitetty DVD-levy"
+
+#. Comment
 #: media/mimetypes/dvd_unmounted.desktop:6
 msgid "Unmounted DVD"
+msgstr "Irrotettu DVD-levy"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted DVD"
+msgstr "Irrotettu DVD-levy"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted DVD"
 msgstr "Irrotettu DVD-levy"
 
 #. Comment
@@ -240,25 +280,31 @@ msgid "Camera"
 msgstr "Kamera"
 
 #. Comment
-#: media/mimetypes/hdd_encrypted_locked.desktop:7
-#, fuzzy
-msgid "Encrypted Locked Hard Disk Volume"
-msgstr "Liitetty kiintoleyosio"
-
-#. Comment
-#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
-#, fuzzy
-msgid "Encrypted Unlocked Hard Disk Volume"
-msgstr "Irrotettu kiintolevyosio"
-
-#. Comment
 #: media/mimetypes/hdd_mounted.desktop:6
 msgid "Mounted Hard Disk Volume"
 msgstr "Liitetty kiintoleyosio"
 
 #. Comment
+#: media/mimetypes/hdd_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted Hard Disk Volume"
+msgstr "Liitetty kiintoleyosio"
+
+#. Comment
 #: media/mimetypes/hdd_unmounted.desktop:6
 msgid "Unmounted Hard Disk Volume"
+msgstr "Irrotettu kiintolevyosio"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted Hard Disk Volume"
+msgstr "Irrotettu kiintolevyosio"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted Hard Disk Volume"
 msgstr "Irrotettu kiintolevyosio"
 
 #. Comment
@@ -294,25 +340,31 @@ msgid "Printers"
 msgstr ""
 
 #. Comment
-#: media/mimetypes/removable_encrypted_locked.desktop:7
-#, fuzzy
-msgid "Encrypted Locked Removable Medium"
-msgstr "Liitetty irrotettava resurssi"
-
-#. Comment
-#: media/mimetypes/removable_encrypted_unlocked.desktop:7
-#, fuzzy
-msgid "Encrypted Unlocked Removable Medium"
-msgstr "Irrotettu irrotettava resurssi"
-
-#. Comment
 #: media/mimetypes/removable_mounted.desktop:6
 msgid "Mounted Removable Medium"
 msgstr "Liitetty irrotettava resurssi"
 
 #. Comment
+#: media/mimetypes/removable_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted Removable Medium"
+msgstr "Liitetty irrotettava resurssi"
+
+#. Comment
 #: media/mimetypes/removable_unmounted.desktop:6
 msgid "Unmounted Removable Medium"
+msgstr "Irrotettu irrotettava resurssi"
+
+#. Comment
+#: media/mimetypes/removable_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted Removable Medium"
+msgstr "Irrotettu irrotettava resurssi"
+
+#. Comment
+#: media/mimetypes/removable_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted Removable Medium"
 msgstr "Irrotettu irrotettava resurssi"
 
 #. Comment
@@ -333,7 +385,6 @@ msgstr ""
 #. Comment
 #. Name
 #: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
-#: trash/kcmtrash.desktop:11
 msgid "Trash"
 msgstr "Roskakori"
 
@@ -369,8 +420,8 @@ msgid "Konqueror properties dialog plugin to configure mount behaviour"
 msgstr "Konquerorin ominaisuussovelma, joka tarkkailee liitospisteitä"
 
 #. Name
-#: media/services/media_decrypt.desktop:8
-msgid "Unlock"
+#: media/services/media_decrypt.desktop:6
+msgid "Decrypt"
 msgstr ""
 
 #. Name
@@ -409,7 +460,7 @@ msgid "storage;media;usb;cdrom;device;"
 msgstr "varasto;media;usb;cdrom;laite;"
 
 #. Name
-#: media/tdefile-plugin/tdefile_media.desktop:6
+#: media/tdefile-plugin/tdefile_media.desktop:8
 msgid "Medium Information"
 msgstr "Tallenteiden tiedot"
 
@@ -511,18 +562,6 @@ msgstr "Tekstitiedostot"
 msgid "Thumbnail Handler"
 msgstr "Esikatselukuvien hallinta"
 
-#. Comment
-#. Name
-#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
-#, fuzzy
-msgid "Trash Properties"
-msgstr "Mediaominaisuudet"
-
-#. Keywords
-#: trash/kcmtrash.desktop:15
-msgid "trash;properties;size;limits;delete"
-msgstr ""
-
 #. Name
 #: trash/tdefile-plugin/tdefile_trash.desktop:4
 #: trash/tdefile-plugin/tdefile_trash_system.desktop:4
@@ -553,3 +592,23 @@ msgstr "Sftp:n liitin"
 #: trash/trash.protocol:25
 msgid "Original Path,Deletion Date"
 msgstr "Alkuperäinen polku, poistopäivä"
+
+#, fuzzy
+#~ msgid "Encrypted Locked Hard Disk Volume"
+#~ msgstr "Liitetty kiintoleyosio"
+
+#, fuzzy
+#~ msgid "Encrypted Unlocked Hard Disk Volume"
+#~ msgstr "Irrotettu kiintolevyosio"
+
+#, fuzzy
+#~ msgid "Encrypted Locked Removable Medium"
+#~ msgstr "Liitetty irrotettava resurssi"
+
+#, fuzzy
+#~ msgid "Encrypted Unlocked Removable Medium"
+#~ msgstr "Irrotettu irrotettava resurssi"
+
+#, fuzzy
+#~ msgid "Trash Properties"
+#~ msgstr "Mediaominaisuudet"

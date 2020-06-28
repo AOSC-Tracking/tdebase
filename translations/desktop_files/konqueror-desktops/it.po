@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-21 15:23+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -331,16 +331,6 @@ msgstr ""
 "Questa cartella permette di accedere agli oggetti comuni del tuo computer"
 
 #. Name
-#: sidebar/trees/init/trash.desktop:9
-msgid "Trash Folder"
-msgstr "Cartella Cestino"
-
-#. Comment
-#: sidebar/trees/init/trash.desktop:11
-msgid "This folder displays the contents of your Trash Bin"
-msgstr "Questa cartella visualizza il contenuto del tuo Cestino"
-
-#. Name
 #: sidebar/web_module/webmodule_add.desktop:5
 #: sidebar/web_module/websidebar.desktop:5
 msgid "Web SideBar Module"
@@ -355,3 +345,9 @@ msgstr "Archivi FTP"
 #: sidebar/trees/init/remote/web/.directory:2
 msgid "Web Sites"
 msgstr "Siti web"
+
+#~ msgid "Trash Folder"
+#~ msgstr "Cartella Cestino"
+
+#~ msgid "This folder displays the contents of your Trash Bin"
+#~ msgstr "Questa cartella visualizza il contenuto del tuo Cestino"

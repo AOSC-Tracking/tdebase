@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,23 +94,31 @@ msgid "Blank DVD"
 msgstr "Tom DVD"
 
 #. Comment
-#: media/mimetypes/bluray_encrypted_locked.desktop:7
-msgid "Encrypted Locked BLURAY"
-msgstr ""
-
-#. Comment
-#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked BLURAY"
-msgstr ""
-
-#. Comment
 #: media/mimetypes/bluray_mounted.desktop:6
 msgid "Mounted BLURAY"
 msgstr "Montert BLURAY"
 
 #. Comment
+#: media/mimetypes/bluray_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted BLURAY"
+msgstr "Montert BLURAY"
+
+#. Comment
 #: media/mimetypes/bluray_unmounted.desktop:6
 msgid "Unmounted BLURAY"
+msgstr "Avmontert BLURAY"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted BLURAY"
+msgstr "Avmontert BLURAY"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted BLURAY"
 msgstr "Avmontert BLURAY"
 
 #. Comment
@@ -129,18 +137,14 @@ msgid "Unmounted Camera"
 msgstr "Avmontert kamera"
 
 #. Comment
-#: media/mimetypes/cd-r_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-R"
-msgstr ""
-
-#. Comment
-#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-R"
-msgstr ""
-
-#. Comment
 #: media/mimetypes/cd-r_mounted.desktop:6
 msgid "Mounted CD-R"
+msgstr "Montert CD-brennar"
+
+#. Comment
+#: media/mimetypes/cd-r_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-R"
 msgstr "Montert CD-brennar"
 
 #. Comment
@@ -149,18 +153,26 @@ msgid "Unmounted CD-R"
 msgstr "Avmontert CD-brennar"
 
 #. Comment
-#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-RW"
-msgstr ""
+#: media/mimetypes/cd-r_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-R"
+msgstr "Avmontert CD-brennar"
 
 #. Comment
-#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-RW"
-msgstr ""
+#: media/mimetypes/cd-r_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-R"
+msgstr "Avmontert CD-brennar"
 
 #. Comment
 #: media/mimetypes/cd-rw_mounted.desktop:6
 msgid "Mounted CD-RW"
+msgstr "Montert CD-brennar"
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-RW"
 msgstr "Montert CD-brennar"
 
 #. Comment
@@ -169,18 +181,26 @@ msgid "Unmounted CD-RW"
 msgstr "Avmontert CD-brennar"
 
 #. Comment
-#: media/mimetypes/cdrom_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-ROM"
-msgstr ""
+#: media/mimetypes/cd-rw_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-RW"
+msgstr "Avmontert CD-brennar"
 
 #. Comment
-#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-ROM"
-msgstr ""
+#: media/mimetypes/cd-rw_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-RW"
+msgstr "Avmontert CD-brennar"
 
 #. Comment
 #: media/mimetypes/cdrom_mounted.desktop:6
 msgid "Mounted CD-ROM"
+msgstr "Montert CD-ROM"
+
+#. Comment
+#: media/mimetypes/cdrom_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-ROM"
 msgstr "Montert CD-ROM"
 
 #. Comment
@@ -189,14 +209,16 @@ msgid "Unmounted CD-ROM"
 msgstr "Avmontert CD-ROM"
 
 #. Comment
-#: media/mimetypes/dvd_encrypted_locked.desktop:7
-msgid "Encrypted Locked DVD"
-msgstr ""
+#: media/mimetypes/cdrom_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-ROM"
+msgstr "Avmontert CD-ROM"
 
 #. Comment
-#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked DVD"
-msgstr ""
+#: media/mimetypes/cdrom_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-ROM"
+msgstr "Avmontert CD-ROM"
 
 #. Comment
 #: media/mimetypes/dvd_mounted.desktop:6
@@ -204,8 +226,26 @@ msgid "Mounted DVD"
 msgstr "Montert DVD"
 
 #. Comment
+#: media/mimetypes/dvd_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted DVD"
+msgstr "Montert DVD"
+
+#. Comment
 #: media/mimetypes/dvd_unmounted.desktop:6
 msgid "Unmounted DVD"
+msgstr "Avmontert DVD"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted DVD"
+msgstr "Avmontert DVD"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted DVD"
 msgstr "Avmontert DVD"
 
 #. Comment
@@ -239,25 +279,31 @@ msgid "Camera"
 msgstr "Kamera"
 
 #. Comment
-#: media/mimetypes/hdd_encrypted_locked.desktop:7
-#, fuzzy
-msgid "Encrypted Locked Hard Disk Volume"
-msgstr "Montert harddiskvolum"
-
-#. Comment
-#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
-#, fuzzy
-msgid "Encrypted Unlocked Hard Disk Volume"
-msgstr "Umontert harddiskvolum"
-
-#. Comment
 #: media/mimetypes/hdd_mounted.desktop:6
 msgid "Mounted Hard Disk Volume"
 msgstr "Montert harddiskvolum"
 
 #. Comment
+#: media/mimetypes/hdd_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted Hard Disk Volume"
+msgstr "Montert harddiskvolum"
+
+#. Comment
 #: media/mimetypes/hdd_unmounted.desktop:6
 msgid "Unmounted Hard Disk Volume"
+msgstr "Umontert harddiskvolum"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted Hard Disk Volume"
+msgstr "Umontert harddiskvolum"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted Hard Disk Volume"
 msgstr "Umontert harddiskvolum"
 
 #. Comment
@@ -293,25 +339,31 @@ msgid "Printers"
 msgstr ""
 
 #. Comment
-#: media/mimetypes/removable_encrypted_locked.desktop:7
-#, fuzzy
-msgid "Encrypted Locked Removable Medium"
-msgstr "Montert flyttbart medium"
-
-#. Comment
-#: media/mimetypes/removable_encrypted_unlocked.desktop:7
-#, fuzzy
-msgid "Encrypted Unlocked Removable Medium"
-msgstr "Umontert flyttbart medium"
-
-#. Comment
 #: media/mimetypes/removable_mounted.desktop:6
 msgid "Mounted Removable Medium"
 msgstr "Montert flyttbart medium"
 
 #. Comment
+#: media/mimetypes/removable_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted Removable Medium"
+msgstr "Montert flyttbart medium"
+
+#. Comment
 #: media/mimetypes/removable_unmounted.desktop:6
 msgid "Unmounted Removable Medium"
+msgstr "Umontert flyttbart medium"
+
+#. Comment
+#: media/mimetypes/removable_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted Removable Medium"
+msgstr "Umontert flyttbart medium"
+
+#. Comment
+#: media/mimetypes/removable_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted Removable Medium"
 msgstr "Umontert flyttbart medium"
 
 #. Comment
@@ -332,7 +384,6 @@ msgstr "Super Video-CD"
 #. Comment
 #. Name
 #: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
-#: trash/kcmtrash.desktop:11
 msgid "Trash"
 msgstr "Papirkorg"
 
@@ -367,8 +418,8 @@ msgid "Konqueror properties dialog plugin to configure mount behaviour"
 msgstr "Programtillegg for oppsett av montering i Konqueror"
 
 #. Name
-#: media/services/media_decrypt.desktop:8
-msgid "Unlock"
+#: media/services/media_decrypt.desktop:6
+msgid "Decrypt"
 msgstr ""
 
 #. Name
@@ -409,7 +460,7 @@ msgstr ""
 "eksterne harddiskar;zip-diskar;"
 
 #. Name
-#: media/tdefile-plugin/tdefile_media.desktop:6
+#: media/tdefile-plugin/tdefile_media.desktop:8
 msgid "Medium Information"
 msgstr "Medieinformasjon"
 
@@ -511,18 +562,6 @@ msgstr "Tekstfiler"
 msgid "Thumbnail Handler"
 msgstr "Handtering av førehandsvising"
 
-#. Comment
-#. Name
-#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
-#, fuzzy
-msgid "Trash Properties"
-msgstr "Side for medieeigenskapar"
-
-#. Keywords
-#: trash/kcmtrash.desktop:15
-msgid "trash;properties;size;limits;delete"
-msgstr ""
-
 #. Name
 #: trash/tdefile-plugin/tdefile_trash.desktop:4
 #: trash/tdefile-plugin/tdefile_trash_system.desktop:4
@@ -553,3 +592,23 @@ msgstr "Ein tdeioslave for sftp"
 #: trash/trash.protocol:25
 msgid "Original Path,Deletion Date"
 msgstr "Opprinneleg stig, slettedato"
+
+#, fuzzy
+#~ msgid "Encrypted Locked Hard Disk Volume"
+#~ msgstr "Montert harddiskvolum"
+
+#, fuzzy
+#~ msgid "Encrypted Unlocked Hard Disk Volume"
+#~ msgstr "Umontert harddiskvolum"
+
+#, fuzzy
+#~ msgid "Encrypted Locked Removable Medium"
+#~ msgstr "Montert flyttbart medium"
+
+#, fuzzy
+#~ msgid "Encrypted Unlocked Removable Medium"
+#~ msgstr "Umontert flyttbart medium"
+
+#, fuzzy
+#~ msgid "Trash Properties"
+#~ msgstr "Side for medieeigenskapar"

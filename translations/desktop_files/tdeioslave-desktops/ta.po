@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,23 +95,31 @@ msgid "Blank DVD"
 msgstr "காலி டிவிடி"
 
 #. Comment
-#: media/mimetypes/bluray_encrypted_locked.desktop:7
-msgid "Encrypted Locked BLURAY"
-msgstr ""
-
-#. Comment
-#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked BLURAY"
-msgstr ""
-
-#. Comment
 #: media/mimetypes/bluray_mounted.desktop:6
 msgid "Mounted BLURAY"
 msgstr "ஏற்றப்பட்ட சிடிராம்"
 
 #. Comment
+#: media/mimetypes/bluray_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted BLURAY"
+msgstr "ஏற்றப்பட்ட சிடிராம்"
+
+#. Comment
 #: media/mimetypes/bluray_unmounted.desktop:6
 msgid "Unmounted BLURAY"
+msgstr "இறக்கப்பட்ட சிடிராம்"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted BLURAY"
+msgstr "இறக்கப்பட்ட சிடிராம்"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted BLURAY"
 msgstr "இறக்கப்பட்ட சிடிராம்"
 
 #. Comment
@@ -132,18 +140,14 @@ msgid "Unmounted Camera"
 msgstr "வெளியேற்றிய குறுந்தகடு எழுதி"
 
 #. Comment
-#: media/mimetypes/cd-r_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-R"
-msgstr ""
-
-#. Comment
-#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-R"
-msgstr ""
-
-#. Comment
 #: media/mimetypes/cd-r_mounted.desktop:6
 msgid "Mounted CD-R"
+msgstr "ஏற்றப்பட்ட குறுந்தகடு எழுதி"
+
+#. Comment
+#: media/mimetypes/cd-r_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-R"
 msgstr "ஏற்றப்பட்ட குறுந்தகடு எழுதி"
 
 #. Comment
@@ -152,18 +156,26 @@ msgid "Unmounted CD-R"
 msgstr "வெளியேற்றிய குறுந்தகடு எழுதி"
 
 #. Comment
-#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-RW"
-msgstr ""
+#: media/mimetypes/cd-r_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-R"
+msgstr "வெளியேற்றிய குறுந்தகடு எழுதி"
 
 #. Comment
-#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-RW"
-msgstr ""
+#: media/mimetypes/cd-r_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-R"
+msgstr "வெளியேற்றிய குறுந்தகடு எழுதி"
 
 #. Comment
 #: media/mimetypes/cd-rw_mounted.desktop:6
 msgid "Mounted CD-RW"
+msgstr "ஏற்றப்பட்ட குறுந்தகடு எழுதி"
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-RW"
 msgstr "ஏற்றப்பட்ட குறுந்தகடு எழுதி"
 
 #. Comment
@@ -172,18 +184,26 @@ msgid "Unmounted CD-RW"
 msgstr "வெளியேற்றிய குறுந்தகடு எழுதி"
 
 #. Comment
-#: media/mimetypes/cdrom_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-ROM"
-msgstr ""
+#: media/mimetypes/cd-rw_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-RW"
+msgstr "வெளியேற்றிய குறுந்தகடு எழுதி"
 
 #. Comment
-#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-ROM"
-msgstr ""
+#: media/mimetypes/cd-rw_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-RW"
+msgstr "வெளியேற்றிய குறுந்தகடு எழுதி"
 
 #. Comment
 #: media/mimetypes/cdrom_mounted.desktop:6
 msgid "Mounted CD-ROM"
+msgstr "ஏற்றப்பட்ட சிடிராம்"
+
+#. Comment
+#: media/mimetypes/cdrom_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-ROM"
 msgstr "ஏற்றப்பட்ட சிடிராம்"
 
 #. Comment
@@ -192,14 +212,16 @@ msgid "Unmounted CD-ROM"
 msgstr "வெளியேற்றிய குறுந்தகடு"
 
 #. Comment
-#: media/mimetypes/dvd_encrypted_locked.desktop:7
-msgid "Encrypted Locked DVD"
-msgstr ""
+#: media/mimetypes/cdrom_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-ROM"
+msgstr "வெளியேற்றிய குறுந்தகடு"
 
 #. Comment
-#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked DVD"
-msgstr ""
+#: media/mimetypes/cdrom_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-ROM"
+msgstr "வெளியேற்றிய குறுந்தகடு"
 
 #. Comment
 #: media/mimetypes/dvd_mounted.desktop:6
@@ -207,8 +229,26 @@ msgid "Mounted DVD"
 msgstr "ஏற்றப்பட்ட சிடிராம்"
 
 #. Comment
+#: media/mimetypes/dvd_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted DVD"
+msgstr "ஏற்றப்பட்ட சிடிராம்"
+
+#. Comment
 #: media/mimetypes/dvd_unmounted.desktop:6
 msgid "Unmounted DVD"
+msgstr "இறக்கப்பட்ட சிடிராம்"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted DVD"
+msgstr "இறக்கப்பட்ட சிடிராம்"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted DVD"
 msgstr "இறக்கப்பட்ட சிடிராம்"
 
 #. Comment
@@ -242,25 +282,31 @@ msgid "Camera"
 msgstr "புகைப்பட கருவி"
 
 #. Comment
-#: media/mimetypes/hdd_encrypted_locked.desktop:7
-#, fuzzy
-msgid "Encrypted Locked Hard Disk Volume"
-msgstr "ஏற்றப்பட்ட வன்தகடு வட்டு பிரிவு"
-
-#. Comment
-#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
-#, fuzzy
-msgid "Encrypted Unlocked Hard Disk Volume"
-msgstr "வெளியேற்றப்பட்ட வன்வட்டு பகுதி"
-
-#. Comment
 #: media/mimetypes/hdd_mounted.desktop:6
 msgid "Mounted Hard Disk Volume"
 msgstr "ஏற்றப்பட்ட வன்தகடு வட்டு பிரிவு"
 
 #. Comment
+#: media/mimetypes/hdd_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted Hard Disk Volume"
+msgstr "ஏற்றப்பட்ட வன்தகடு வட்டு பிரிவு"
+
+#. Comment
 #: media/mimetypes/hdd_unmounted.desktop:6
 msgid "Unmounted Hard Disk Volume"
+msgstr "வெளியேற்றப்பட்ட வன்வட்டு பகுதி"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted Hard Disk Volume"
+msgstr "வெளியேற்றப்பட்ட வன்வட்டு பகுதி"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted Hard Disk Volume"
 msgstr "வெளியேற்றப்பட்ட வன்வட்டு பகுதி"
 
 #. Comment
@@ -295,25 +341,31 @@ msgid "Printers"
 msgstr ""
 
 #. Comment
-#: media/mimetypes/removable_encrypted_locked.desktop:7
-#, fuzzy
-msgid "Encrypted Locked Removable Medium"
-msgstr "ஏற்றப்பட்ட நீக்கக்கூடிய மீடியம்"
-
-#. Comment
-#: media/mimetypes/removable_encrypted_unlocked.desktop:7
-#, fuzzy
-msgid "Encrypted Unlocked Removable Medium"
-msgstr "ஏற்றாத நீக்கக்கூடிய சாதனம்"
-
-#. Comment
 #: media/mimetypes/removable_mounted.desktop:6
 msgid "Mounted Removable Medium"
 msgstr "ஏற்றப்பட்ட நீக்கக்கூடிய மீடியம்"
 
 #. Comment
+#: media/mimetypes/removable_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted Removable Medium"
+msgstr "ஏற்றப்பட்ட நீக்கக்கூடிய மீடியம்"
+
+#. Comment
 #: media/mimetypes/removable_unmounted.desktop:6
 msgid "Unmounted Removable Medium"
+msgstr "ஏற்றாத நீக்கக்கூடிய சாதனம்"
+
+#. Comment
+#: media/mimetypes/removable_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted Removable Medium"
+msgstr "ஏற்றாத நீக்கக்கூடிய சாதனம்"
+
+#. Comment
+#: media/mimetypes/removable_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted Removable Medium"
 msgstr "ஏற்றாத நீக்கக்கூடிய சாதனம்"
 
 #. Comment
@@ -334,7 +386,6 @@ msgstr "சூப்பர் படக்காட்சி குறுந்�
 #. Comment
 #. Name
 #: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
-#: trash/kcmtrash.desktop:11
 msgid "Trash"
 msgstr "குப்பை"
 
@@ -369,8 +420,8 @@ msgid "Konqueror properties dialog plugin to configure mount behaviour"
 msgstr ""
 
 #. Name
-#: media/services/media_decrypt.desktop:8
-msgid "Unlock"
+#: media/services/media_decrypt.desktop:6
+msgid "Decrypt"
 msgstr ""
 
 #. Name
@@ -410,7 +461,7 @@ msgid "storage;media;usb;cdrom;device;"
 msgstr ""
 
 #. Name
-#: media/tdefile-plugin/tdefile_media.desktop:6
+#: media/tdefile-plugin/tdefile_media.desktop:8
 msgid "Medium Information"
 msgstr "சாதனத் தகவல்"
 
@@ -513,17 +564,6 @@ msgstr "உரை கோப்புகள்"
 msgid "Thumbnail Handler"
 msgstr "சிறிய பிம்ப கையாளுதல்"
 
-#. Comment
-#. Name
-#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
-msgid "Trash Properties"
-msgstr ""
-
-#. Keywords
-#: trash/kcmtrash.desktop:15
-msgid "trash;properties;size;limits;delete"
-msgstr ""
-
 #. Name
 #: trash/tdefile-plugin/tdefile_trash.desktop:4
 #: trash/tdefile-plugin/tdefile_trash_system.desktop:4
@@ -555,3 +595,19 @@ msgstr "sftpக்கான ஒரு க்யோஸ்லேவ்"
 #: trash/trash.protocol:25
 msgid "Original Path,Deletion Date"
 msgstr "மூல பாதை,நீக்கப்பட்ட தேதி"
+
+#, fuzzy
+#~ msgid "Encrypted Locked Hard Disk Volume"
+#~ msgstr "ஏற்றப்பட்ட வன்தகடு வட்டு பிரிவு"
+
+#, fuzzy
+#~ msgid "Encrypted Unlocked Hard Disk Volume"
+#~ msgstr "வெளியேற்றப்பட்ட வன்வட்டு பகுதி"
+
+#, fuzzy
+#~ msgid "Encrypted Locked Removable Medium"
+#~ msgstr "ஏற்றப்பட்ட நீக்கக்கூடிய மீடியம்"
+
+#, fuzzy
+#~ msgid "Encrypted Unlocked Removable Medium"
+#~ msgstr "ஏற்றாத நீக்கக்கூடிய சாதனம்"

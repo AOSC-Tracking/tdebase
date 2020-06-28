@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1303,23 +1303,6 @@ msgid ""
 msgstr ""
 
 #. Name
-#: hwmanager/hwdevicetray-autostart.desktop:2
-msgid "tdehwdevicetray"
-msgstr ""
-
-#. GenericName
-#. Name
-#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
-#: hwmanager/hwdevicetray.desktop:4
-msgid "Device Monitor"
-msgstr "Диспетчер устройств"
-
-#. Comment
-#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
-msgid "Monitor hardware devices from the system tray"
-msgstr "Отслеживание устройств в области уведомлений"
-
-#. Name
 #: hwmanager/hwmanager.desktop:11
 msgid "Device Manager"
 msgstr "Менеджер устройств"
@@ -2469,3 +2452,9 @@ msgstr "Настройка TDE для нескольких мониторов"
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr ""
+
+#~ msgid "Device Monitor"
+#~ msgstr "Диспетчер устройств"
+
+#~ msgid "Monitor hardware devices from the system tray"
+#~ msgstr "Отслеживание устройств в области уведомлений"

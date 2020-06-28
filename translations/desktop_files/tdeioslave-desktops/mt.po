@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,23 +94,31 @@ msgid "Blank DVD"
 msgstr ""
 
 #. Comment
-#: media/mimetypes/bluray_encrypted_locked.desktop:7
-msgid "Encrypted Locked BLURAY"
-msgstr ""
-
-#. Comment
-#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked BLURAY"
-msgstr ""
-
-#. Comment
 #: media/mimetypes/bluray_mounted.desktop:6
 msgid "Mounted BLURAY"
 msgstr "BLURAY immontat"
 
 #. Comment
+#: media/mimetypes/bluray_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted BLURAY"
+msgstr "BLURAY immontat"
+
+#. Comment
 #: media/mimetypes/bluray_unmounted.desktop:6
 msgid "Unmounted BLURAY"
+msgstr "BLURAY mhux immontat"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted BLURAY"
+msgstr "BLURAY mhux immontat"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted BLURAY"
 msgstr "BLURAY mhux immontat"
 
 #. Comment
@@ -131,18 +139,14 @@ msgid "Unmounted Camera"
 msgstr "CDWriter mhux immontat"
 
 #. Comment
-#: media/mimetypes/cd-r_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-R"
-msgstr ""
-
-#. Comment
-#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-R"
-msgstr ""
-
-#. Comment
 #: media/mimetypes/cd-r_mounted.desktop:6
 msgid "Mounted CD-R"
+msgstr "CDWriter immontat"
+
+#. Comment
+#: media/mimetypes/cd-r_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-R"
 msgstr "CDWriter immontat"
 
 #. Comment
@@ -151,18 +155,26 @@ msgid "Unmounted CD-R"
 msgstr "CDWriter mhux immontat"
 
 #. Comment
-#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-RW"
-msgstr ""
+#: media/mimetypes/cd-r_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-R"
+msgstr "CDWriter mhux immontat"
 
 #. Comment
-#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-RW"
-msgstr ""
+#: media/mimetypes/cd-r_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-R"
+msgstr "CDWriter mhux immontat"
 
 #. Comment
 #: media/mimetypes/cd-rw_mounted.desktop:6
 msgid "Mounted CD-RW"
+msgstr "CDWriter immontat"
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-RW"
 msgstr "CDWriter immontat"
 
 #. Comment
@@ -171,18 +183,26 @@ msgid "Unmounted CD-RW"
 msgstr "CDWriter mhux immontat"
 
 #. Comment
-#: media/mimetypes/cdrom_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-ROM"
-msgstr ""
+#: media/mimetypes/cd-rw_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-RW"
+msgstr "CDWriter mhux immontat"
 
 #. Comment
-#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-ROM"
-msgstr ""
+#: media/mimetypes/cd-rw_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-RW"
+msgstr "CDWriter mhux immontat"
 
 #. Comment
 #: media/mimetypes/cdrom_mounted.desktop:6
 msgid "Mounted CD-ROM"
+msgstr "CDROM immontat"
+
+#. Comment
+#: media/mimetypes/cdrom_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-ROM"
 msgstr "CDROM immontat"
 
 #. Comment
@@ -191,14 +211,16 @@ msgid "Unmounted CD-ROM"
 msgstr "CDROM mhux immontat"
 
 #. Comment
-#: media/mimetypes/dvd_encrypted_locked.desktop:7
-msgid "Encrypted Locked DVD"
-msgstr ""
+#: media/mimetypes/cdrom_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-ROM"
+msgstr "CDROM mhux immontat"
 
 #. Comment
-#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked DVD"
-msgstr ""
+#: media/mimetypes/cdrom_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-ROM"
+msgstr "CDROM mhux immontat"
 
 #. Comment
 #: media/mimetypes/dvd_mounted.desktop:6
@@ -206,8 +228,26 @@ msgid "Mounted DVD"
 msgstr "DVD immontat"
 
 #. Comment
+#: media/mimetypes/dvd_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted DVD"
+msgstr "DVD immontat"
+
+#. Comment
 #: media/mimetypes/dvd_unmounted.desktop:6
 msgid "Unmounted DVD"
+msgstr "DVD mhux immontat"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted DVD"
+msgstr "DVD mhux immontat"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted DVD"
 msgstr "DVD mhux immontat"
 
 #. Comment
@@ -241,25 +281,31 @@ msgid "Camera"
 msgstr ""
 
 #. Comment
-#: media/mimetypes/hdd_encrypted_locked.desktop:7
-#, fuzzy
-msgid "Encrypted Locked Hard Disk Volume"
-msgstr "Partizzjoni ta' ħard-disk immuntata"
-
-#. Comment
-#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
-#, fuzzy
-msgid "Encrypted Unlocked Hard Disk Volume"
-msgstr "Partizzjoni ta' ħard-disk mhux immuntata"
-
-#. Comment
 #: media/mimetypes/hdd_mounted.desktop:6
 msgid "Mounted Hard Disk Volume"
 msgstr "Partizzjoni ta' ħard-disk immuntata"
 
 #. Comment
+#: media/mimetypes/hdd_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted Hard Disk Volume"
+msgstr "Partizzjoni ta' ħard-disk immuntata"
+
+#. Comment
 #: media/mimetypes/hdd_unmounted.desktop:6
 msgid "Unmounted Hard Disk Volume"
+msgstr "Partizzjoni ta' ħard-disk mhux immuntata"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted Hard Disk Volume"
+msgstr "Partizzjoni ta' ħard-disk mhux immuntata"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted Hard Disk Volume"
 msgstr "Partizzjoni ta' ħard-disk mhux immuntata"
 
 #. Comment
@@ -293,25 +339,31 @@ msgid "Printers"
 msgstr ""
 
 #. Comment
-#: media/mimetypes/removable_encrypted_locked.desktop:7
-#, fuzzy
-msgid "Encrypted Locked Removable Medium"
-msgstr "Riżors NFS immuntat"
-
-#. Comment
-#: media/mimetypes/removable_encrypted_unlocked.desktop:7
-#, fuzzy
-msgid "Encrypted Unlocked Removable Medium"
-msgstr "Riżors għall-ħażna tad-data mhux immuntat"
-
-#. Comment
 #: media/mimetypes/removable_mounted.desktop:6
 msgid "Mounted Removable Medium"
 msgstr "Riżors NFS immuntat"
 
 #. Comment
+#: media/mimetypes/removable_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted Removable Medium"
+msgstr "Riżors NFS immuntat"
+
+#. Comment
 #: media/mimetypes/removable_unmounted.desktop:6
 msgid "Unmounted Removable Medium"
+msgstr "Riżors għall-ħażna tad-data mhux immuntat"
+
+#. Comment
+#: media/mimetypes/removable_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted Removable Medium"
+msgstr "Riżors għall-ħażna tad-data mhux immuntat"
+
+#. Comment
+#: media/mimetypes/removable_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted Removable Medium"
 msgstr "Riżors għall-ħażna tad-data mhux immuntat"
 
 #. Comment
@@ -332,7 +384,6 @@ msgstr ""
 #. Comment
 #. Name
 #: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
-#: trash/kcmtrash.desktop:11
 msgid "Trash"
 msgstr "Skart"
 
@@ -367,8 +418,8 @@ msgid "Konqueror properties dialog plugin to configure mount behaviour"
 msgstr ""
 
 #. Name
-#: media/services/media_decrypt.desktop:8
-msgid "Unlock"
+#: media/services/media_decrypt.desktop:6
+msgid "Decrypt"
 msgstr ""
 
 #. Name
@@ -407,7 +458,7 @@ msgid "storage;media;usb;cdrom;device;"
 msgstr ""
 
 #. Name
-#: media/tdefile-plugin/tdefile_media.desktop:6
+#: media/tdefile-plugin/tdefile_media.desktop:8
 msgid "Medium Information"
 msgstr "Informazzjoni tal-apparat"
 
@@ -511,17 +562,6 @@ msgstr "Fajls ta' Test"
 msgid "Thumbnail Handler"
 msgstr "Handler għall-bolol"
 
-#. Comment
-#. Name
-#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
-msgid "Trash Properties"
-msgstr ""
-
-#. Keywords
-#: trash/kcmtrash.desktop:15
-msgid "trash;properties;size;limits;delete"
-msgstr ""
-
 #. Name
 #: trash/tdefile-plugin/tdefile_trash.desktop:4
 #: trash/tdefile-plugin/tdefile_trash_system.desktop:4
@@ -552,3 +592,19 @@ msgstr ""
 #: trash/trash.protocol:25
 msgid "Original Path,Deletion Date"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Encrypted Locked Hard Disk Volume"
+#~ msgstr "Partizzjoni ta' ħard-disk immuntata"
+
+#, fuzzy
+#~ msgid "Encrypted Unlocked Hard Disk Volume"
+#~ msgstr "Partizzjoni ta' ħard-disk mhux immuntata"
+
+#, fuzzy
+#~ msgid "Encrypted Locked Removable Medium"
+#~ msgstr "Riżors NFS immuntat"
+
+#, fuzzy
+#~ msgid "Encrypted Unlocked Removable Medium"
+#~ msgstr "Riżors għall-ħażna tad-data mhux immuntat"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1310,24 +1310,6 @@ msgstr ""
 "集;面板;控制面板;桌面;文件管理器;工具条;菜单;窗口标题;标题;"
 
 #. Name
-#: hwmanager/hwdevicetray-autostart.desktop:2
-msgid "tdehwdevicetray"
-msgstr ""
-
-#. GenericName
-#. Name
-#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
-#: hwmanager/hwdevicetray.desktop:4
-#, fuzzy
-msgid "Device Monitor"
-msgstr "多个监视器"
-
-#. Comment
-#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
-msgid "Monitor hardware devices from the system tray"
-msgstr ""
-
-#. Name
 #: hwmanager/hwmanager.desktop:11
 #, fuzzy
 msgid "Device Manager"
@@ -2528,3 +2510,7 @@ msgstr "配置 TDE 的多个监视器"
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr "Xinerama;dual head;multihead;monitor;双头;多头;监视器;显示器;"
+
+#, fuzzy
+#~ msgid "Device Monitor"
+#~ msgstr "多个监视器"

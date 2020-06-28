@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,23 +93,31 @@ msgid "Blank DVD"
 msgstr "תקליטור DVD ריק"
 
 #. Comment
-#: media/mimetypes/bluray_encrypted_locked.desktop:7
-msgid "Encrypted Locked BLURAY"
-msgstr ""
-
-#. Comment
-#: media/mimetypes/bluray_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked BLURAY"
-msgstr ""
-
-#. Comment
 #: media/mimetypes/bluray_mounted.desktop:6
 msgid "Mounted BLURAY"
 msgstr "כונן BLURAY מחובר"
 
 #. Comment
+#: media/mimetypes/bluray_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted BLURAY"
+msgstr "כונן BLURAY מחובר"
+
+#. Comment
 #: media/mimetypes/bluray_unmounted.desktop:6
 msgid "Unmounted BLURAY"
+msgstr "כונן BLURAY מנותק"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted BLURAY"
+msgstr "כונן BLURAY מנותק"
+
+#. Comment
+#: media/mimetypes/bluray_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted BLURAY"
 msgstr "כונן BLURAY מנותק"
 
 #. Comment
@@ -128,18 +136,14 @@ msgid "Unmounted Camera"
 msgstr "מצלמה מנותקת"
 
 #. Comment
-#: media/mimetypes/cd-r_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-R"
-msgstr ""
-
-#. Comment
-#: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-R"
-msgstr ""
-
-#. Comment
 #: media/mimetypes/cd-r_mounted.desktop:6
 msgid "Mounted CD-R"
+msgstr "צורב מחובר"
+
+#. Comment
+#: media/mimetypes/cd-r_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-R"
 msgstr "צורב מחובר"
 
 #. Comment
@@ -148,18 +152,26 @@ msgid "Unmounted CD-R"
 msgstr "צורב מנותק"
 
 #. Comment
-#: media/mimetypes/cd-rw_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-RW"
-msgstr ""
+#: media/mimetypes/cd-r_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-R"
+msgstr "צורב מנותק"
 
 #. Comment
-#: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-RW"
-msgstr ""
+#: media/mimetypes/cd-r_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-R"
+msgstr "צורב מנותק"
 
 #. Comment
 #: media/mimetypes/cd-rw_mounted.desktop:6
 msgid "Mounted CD-RW"
+msgstr "צורב מחובר"
+
+#. Comment
+#: media/mimetypes/cd-rw_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-RW"
 msgstr "צורב מחובר"
 
 #. Comment
@@ -168,18 +180,26 @@ msgid "Unmounted CD-RW"
 msgstr "צורב מנותק"
 
 #. Comment
-#: media/mimetypes/cdrom_encrypted_locked.desktop:7
-msgid "Encrypted Locked CD-ROM"
-msgstr ""
+#: media/mimetypes/cd-rw_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-RW"
+msgstr "צורב מנותק"
 
 #. Comment
-#: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked CD-ROM"
-msgstr ""
+#: media/mimetypes/cd-rw_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-RW"
+msgstr "צורב מנותק"
 
 #. Comment
 #: media/mimetypes/cdrom_mounted.desktop:6
 msgid "Mounted CD-ROM"
+msgstr "תקליטור מחובר"
+
+#. Comment
+#: media/mimetypes/cdrom_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted CD-ROM"
 msgstr "תקליטור מחובר"
 
 #. Comment
@@ -188,14 +208,16 @@ msgid "Unmounted CD-ROM"
 msgstr "תקליטור מנותק"
 
 #. Comment
-#: media/mimetypes/dvd_encrypted_locked.desktop:7
-msgid "Encrypted Locked DVD"
-msgstr ""
+#: media/mimetypes/cdrom_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted CD-ROM"
+msgstr "תקליטור מנותק"
 
 #. Comment
-#: media/mimetypes/dvd_encrypted_unlocked.desktop:7
-msgid "Encrypted Unlocked DVD"
-msgstr ""
+#: media/mimetypes/cdrom_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted CD-ROM"
+msgstr "תקליטור מנותק"
 
 #. Comment
 #: media/mimetypes/dvd_mounted.desktop:6
@@ -203,8 +225,26 @@ msgid "Mounted DVD"
 msgstr "כונן DVD מחובר"
 
 #. Comment
+#: media/mimetypes/dvd_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted DVD"
+msgstr "כונן DVD מחובר"
+
+#. Comment
 #: media/mimetypes/dvd_unmounted.desktop:6
 msgid "Unmounted DVD"
+msgstr "כונן DVD מנותק"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted DVD"
+msgstr "כונן DVD מנותק"
+
+#. Comment
+#: media/mimetypes/dvd_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted DVD"
 msgstr "כונן DVD מנותק"
 
 #. Comment
@@ -238,25 +278,31 @@ msgid "Camera"
 msgstr "מצלמה"
 
 #. Comment
-#: media/mimetypes/hdd_encrypted_locked.desktop:7
-#, fuzzy
-msgid "Encrypted Locked Hard Disk Volume"
-msgstr "מחיצת כונן קשיח מחוברת"
-
-#. Comment
-#: media/mimetypes/hdd_encrypted_unlocked.desktop:7
-#, fuzzy
-msgid "Encrypted Unlocked Hard Disk Volume"
-msgstr "מחיצת כונן קשיח מנותקת"
-
-#. Comment
 #: media/mimetypes/hdd_mounted.desktop:6
 msgid "Mounted Hard Disk Volume"
 msgstr "מחיצת כונן קשיח מחוברת"
 
 #. Comment
+#: media/mimetypes/hdd_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted Hard Disk Volume"
+msgstr "מחיצת כונן קשיח מחוברת"
+
+#. Comment
 #: media/mimetypes/hdd_unmounted.desktop:6
 msgid "Unmounted Hard Disk Volume"
+msgstr "מחיצת כונן קשיח מנותקת"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted Hard Disk Volume"
+msgstr "מחיצת כונן קשיח מנותקת"
+
+#. Comment
+#: media/mimetypes/hdd_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted Hard Disk Volume"
 msgstr "מחיצת כונן קשיח מנותקת"
 
 #. Comment
@@ -291,25 +337,31 @@ msgid "Printers"
 msgstr ""
 
 #. Comment
-#: media/mimetypes/removable_encrypted_locked.desktop:7
-#, fuzzy
-msgid "Encrypted Locked Removable Medium"
-msgstr "מדיה חיצונית מחוברת"
-
-#. Comment
-#: media/mimetypes/removable_encrypted_unlocked.desktop:7
-#, fuzzy
-msgid "Encrypted Unlocked Removable Medium"
-msgstr "מדייה חיצונית מנותקת"
-
-#. Comment
 #: media/mimetypes/removable_mounted.desktop:6
 msgid "Mounted Removable Medium"
 msgstr "מדיה חיצונית מחוברת"
 
 #. Comment
+#: media/mimetypes/removable_mounted_decrypted.desktop:7
+#, fuzzy
+msgid "Mounted Decrypted Removable Medium"
+msgstr "מדיה חיצונית מחוברת"
+
+#. Comment
 #: media/mimetypes/removable_unmounted.desktop:6
 msgid "Unmounted Removable Medium"
+msgstr "מדייה חיצונית מנותקת"
+
+#. Comment
+#: media/mimetypes/removable_unmounted_decrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Decrypted Removable Medium"
+msgstr "מדייה חיצונית מנותקת"
+
+#. Comment
+#: media/mimetypes/removable_unmounted_encrypted.desktop:7
+#, fuzzy
+msgid "Unmounted Encrypted Removable Medium"
 msgstr "מדייה חיצונית מנותקת"
 
 #. Comment
@@ -330,7 +382,6 @@ msgstr ""
 #. Comment
 #. Name
 #: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
-#: trash/kcmtrash.desktop:11
 msgid "Trash"
 msgstr "אשפה"
 
@@ -366,8 +417,8 @@ msgid "Konqueror properties dialog plugin to configure mount behaviour"
 msgstr "תוסף חלון מאפיינים של Konqueror לקביעת אפשרויות חיבור"
 
 #. Name
-#: media/services/media_decrypt.desktop:8
-msgid "Unlock"
+#: media/services/media_decrypt.desktop:6
+msgid "Decrypt"
 msgstr ""
 
 #. Name
@@ -406,7 +457,7 @@ msgid "storage;media;usb;cdrom;device;"
 msgstr "storage;media;usb;cdrom;device;מדיה;התקן;סידירום;תקליטור;"
 
 #. Name
-#: media/tdefile-plugin/tdefile_media.desktop:6
+#: media/tdefile-plugin/tdefile_media.desktop:8
 msgid "Medium Information"
 msgstr "מידע אודות המדיה"
 
@@ -509,18 +560,6 @@ msgstr "קבצי טקסט"
 msgid "Thumbnail Handler"
 msgstr "מנהל הדוגמיות"
 
-#. Comment
-#. Name
-#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
-#, fuzzy
-msgid "Trash Properties"
-msgstr "דף מאפייני מדיה"
-
-#. Keywords
-#: trash/kcmtrash.desktop:15
-msgid "trash;properties;size;limits;delete"
-msgstr ""
-
 #. Name
 #: trash/tdefile-plugin/tdefile_trash.desktop:4
 #: trash/tdefile-plugin/tdefile_trash_system.desktop:4
@@ -551,3 +590,23 @@ msgstr "ממשק tdeioslave עבור sftp"
 #: trash/trash.protocol:25
 msgid "Original Path,Deletion Date"
 msgstr "נתיב מקורי, תאריך מחיקה"
+
+#, fuzzy
+#~ msgid "Encrypted Locked Hard Disk Volume"
+#~ msgstr "מחיצת כונן קשיח מחוברת"
+
+#, fuzzy
+#~ msgid "Encrypted Unlocked Hard Disk Volume"
+#~ msgstr "מחיצת כונן קשיח מנותקת"
+
+#, fuzzy
+#~ msgid "Encrypted Locked Removable Medium"
+#~ msgstr "מדיה חיצונית מחוברת"
+
+#, fuzzy
+#~ msgid "Encrypted Unlocked Removable Medium"
+#~ msgstr "מדייה חיצונית מנותקת"
+
+#, fuzzy
+#~ msgid "Trash Properties"
+#~ msgstr "דף מאפייני מדיה"

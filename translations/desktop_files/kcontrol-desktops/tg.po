@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1306,24 +1306,6 @@ msgid ""
 msgstr ""
 
 #. Name
-#: hwmanager/hwdevicetray-autostart.desktop:2
-msgid "tdehwdevicetray"
-msgstr ""
-
-#. GenericName
-#. Name
-#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
-#: hwmanager/hwdevicetray.desktop:4
-#, fuzzy
-msgid "Device Monitor"
-msgstr "Чанд намоишгар"
-
-#. Comment
-#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
-msgid "Monitor hardware devices from the system tray"
-msgstr ""
-
-#. Name
 #: hwmanager/hwmanager.desktop:11
 #, fuzzy
 msgid "Device Manager"
@@ -2476,3 +2458,7 @@ msgstr "Танзими TDE барои намоишгарҳои виртуалӣ"
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Device Monitor"
+#~ msgstr "Чанд намоишгар"

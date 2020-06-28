@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1293,23 +1293,6 @@ msgstr ""
 "Správce souborů;Nástrojová lišta;Nabídka;Titulek okna;Titulek;"
 
 #. Name
-#: hwmanager/hwdevicetray-autostart.desktop:2
-msgid "tdehwdevicetray"
-msgstr ""
-
-#. GenericName
-#. Name
-#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
-#: hwmanager/hwdevicetray.desktop:4
-msgid "Device Monitor"
-msgstr "Sledování zařízení"
-
-#. Comment
-#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
-msgid "Monitor hardware devices from the system tray"
-msgstr "Sledování hardwarových zařízení ze systémového panelu"
-
-#. Name
 #: hwmanager/hwmanager.desktop:11
 msgid "Device Manager"
 msgstr "Správce zařízení"
@@ -2475,3 +2458,9 @@ msgstr "Nastavení TDE pro více monitorů"
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr ""
+
+#~ msgid "Device Monitor"
+#~ msgstr "Sledování zařízení"
+
+#~ msgid "Monitor hardware devices from the system tray"
+#~ msgstr "Sledování hardwarových zařízení ze systémového panelu"

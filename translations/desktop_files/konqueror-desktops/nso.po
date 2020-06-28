@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-21 15:23+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -332,17 +332,6 @@ msgid "This folder allows you to access common places on your computer"
 msgstr ""
 
 #. Name
-#: sidebar/trees/init/trash.desktop:9
-msgid "Trash Folder"
-msgstr ""
-
-#. Comment
-#: sidebar/trees/init/trash.desktop:11
-#, fuzzy
-msgid "This folder displays the contents of your Trash Bin"
-msgstr "Sephuthi se sena le difaele tsa gago tsa botho"
-
-#. Name
 #: sidebar/web_module/webmodule_add.desktop:5
 #: sidebar/web_module/websidebar.desktop:5
 msgid "Web SideBar Module"
@@ -357,3 +346,7 @@ msgstr "Dipolokelo tsa FTP"
 #: sidebar/trees/init/remote/web/.directory:2
 msgid "Web Sites"
 msgstr "Mafelo a Web"
+
+#, fuzzy
+#~ msgid "This folder displays the contents of your Trash Bin"
+#~ msgstr "Sephuthi se sena le difaele tsa gago tsa botho"

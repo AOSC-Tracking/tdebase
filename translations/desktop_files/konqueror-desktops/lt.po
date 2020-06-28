@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-21 15:23+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -331,18 +331,6 @@ msgstr ""
 "Šio aplanko padedami pasieksite dažniausiai lankomas kompiuterio vietas"
 
 #. Name
-#: sidebar/trees/init/trash.desktop:9
-#, fuzzy
-msgid "Trash Folder"
-msgstr "Aplankas"
-
-#. Comment
-#: sidebar/trees/init/trash.desktop:11
-#, fuzzy
-msgid "This folder displays the contents of your Trash Bin"
-msgstr "Šiame aplanke yra Jūsų asmeninės bylos"
-
-#. Name
 #: sidebar/web_module/webmodule_add.desktop:5
 #: sidebar/web_module/websidebar.desktop:5
 msgid "Web SideBar Module"
@@ -357,3 +345,11 @@ msgstr "FTP archyvai"
 #: sidebar/trees/init/remote/web/.directory:2
 msgid "Web Sites"
 msgstr "Žiniatinklio svetainės"
+
+#, fuzzy
+#~ msgid "Trash Folder"
+#~ msgstr "Aplankas"
+
+#, fuzzy
+#~ msgid "This folder displays the contents of your Trash Bin"
+#~ msgstr "Šiame aplanke yra Jūsų asmeninės bylos"

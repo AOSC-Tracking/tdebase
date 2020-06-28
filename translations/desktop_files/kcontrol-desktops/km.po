@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1292,24 +1292,6 @@ msgstr ""
 "គ្រប់គ្រង​ឯកសារ;របារ​ឧបករណ៍;ម៉ឺនុយ;ចំណងជើង​បង្អួច;ចំណងជើង;"
 
 #. Name
-#: hwmanager/hwdevicetray-autostart.desktop:2
-msgid "tdehwdevicetray"
-msgstr ""
-
-#. GenericName
-#. Name
-#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
-#: hwmanager/hwdevicetray.desktop:4
-#, fuzzy
-msgid "Device Monitor"
-msgstr "ម៉ូនីទ័រ​ច្រើន"
-
-#. Comment
-#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
-msgid "Monitor hardware devices from the system tray"
-msgstr ""
-
-#. Name
 #: hwmanager/hwmanager.desktop:11
 #, fuzzy
 msgid "Device Manager"
@@ -2469,3 +2451,7 @@ msgstr "កំណត់​រចនាសម្ព័ន្ធ TDE សម្រ�
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr "Xinerama;ក្បាល​ពីរ;ក្បាល​ច្រើន;ម៉ូនីទ័រ;"
+
+#, fuzzy
+#~ msgid "Device Monitor"
+#~ msgstr "ម៉ូនីទ័រ​ច្រើន"
