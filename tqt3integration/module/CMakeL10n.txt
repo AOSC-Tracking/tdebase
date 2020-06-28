@@ -2,6 +2,6 @@
 
 tde_l10n_create_template(
     CATALOG "desktop_files/tdeintegration.desktop/"
-    SOURCES tdeintegration.desktop
+    SOURCES kdeintegration.desktop
     DESTINATION "${CMAKE_SOURCE_DIR}/translations"
 )
