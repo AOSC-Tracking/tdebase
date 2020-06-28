@@ -4,4 +4,6 @@ Name=Taiwan
 Region=eastasia
 Languages=zh_TW
 CurrencySymbol=NT$
+DateFormat[zh_TW]=%Y %B %e %A
+DateFormat[eo]=%A, la %ea de %B %Y
 TimeFormat=%H:%M:%S

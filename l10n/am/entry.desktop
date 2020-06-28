@@ -15,6 +15,7 @@ FracDigits=2
 #NegativePrefixCurrencySymbol=true
 #PositiveMonetarySignPosition=1
 #NegativeMonetarySignPosition=1
+DateFormat[hy]=%A,%B %e, %Y
 DateFormatShort=%m/%d/%y
 TimeFormat=%H:%M:%S
 WeekStartDay=7

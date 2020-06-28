@@ -14,5 +14,7 @@ PositivePrefixCurrencySymbol=false
 NegativePrefixCurrencySymbol=false
 PositiveMonetarySignPosition=2
 NegativeMonetarySignPosition=2
+DateFormat[lv]=%A, %e. %B %Y
+DateFormat[eo]=%A, la %ea de %B %Y
 DateFormatShort=%d.%m.%Y
 TimeFormat=%H:%M:%S
