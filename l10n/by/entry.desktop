@@ -16,6 +16,7 @@ NegativePrefixCurrencySymbol=false
 PositiveMonetarySignPosition=1
 NegativeMonetarySignPosition=1
 DateFormat=%e %B %Y
+DateFormat[eo]=%A, la %ea de %B %Y
 DateFormatShort=%d/%m/%y
 TimeFormat=%H:%M:%S
 WeekStartDay=1

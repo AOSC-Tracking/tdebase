@@ -14,6 +14,7 @@ PositivePrefixCurrencySymbol=false
 NegativePrefixCurrencySymbol=false
 PositiveMonetarySignPosition=1
 NegativeMonetarySignPosition=1
+DateFormat[km]=%A ទី %d %B %Y
 DateFormatShort=%d/%m/%Y
 TimeFormat=%l:%M:%S %p
 #WeekStartDay=

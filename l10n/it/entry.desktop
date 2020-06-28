@@ -13,5 +13,7 @@ FracDigits=2
 PositivePrefixCurrencySymbol=true
 NegativePrefixCurrencySymbol=true
 NegativeMonetarySignPosition=1
+DateFormat[it]=%A %e %B %Y
+DateFormat[eo]=%A, la %ea de %B %Y
 DateFormatShort=%e/%n/%Y
 TimeFormat=%H:%M:%S
