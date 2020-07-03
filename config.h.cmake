@@ -218,6 +218,9 @@
 // tdm, kxkb
 #cmakedefine XLIBDIR "@XLIBDIR@"
 
+// kxkb
+#cmakedefine X11_XKB_RULES_DIR "@X11_XKB_RULES_DIR@"
+
 // tdm, kcontrol
 #cmakedefine WITH_XRANDR "@WITH_XRANDR@"
 
