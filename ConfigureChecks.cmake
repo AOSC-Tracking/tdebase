@@ -466,3 +466,98 @@ if( WITH_ELFICON )
   endif( NOT "${LIBR_VERSION}" STREQUAL "0.6.0" )
   set( HAVE_ELFICON 1 )
 endif( )
+
+#
+# For kxkb, try to find the path to the Xkb rules files:
+#
+#   1: ask for the path from xkeyboard-config's pkg-config file
+#   2: ask for the path from xkbcomp's pkg-config file
+#   3: look under the "FILES" heading in the man page for setxkbmap
+#   4: take the prefix/libdir from xkbfile's pkg-config file and try the
+#      "${prefix}/share/X11" and "${libdir}/X11" directories
+#
+# Alternatively, just take an overriding value from the command line.
+#
+
+if( BUILD_KXKB )
+
+  if( NOT X11_XKB_RULES_DIR )
+    pkg_search_module( XKB_CONFIG xkeyboard-config )
+    if( XKB_CONFIG_FOUND )
+      execute_process(
+        COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=xkb_base xkeyboard-config
+        OUTPUT_VARIABLE KB_RULES_DIR
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+      )
+      if( NOT "${KB_RULES_DIR}" STREQUAL "" )
+        string(REGEX REPLACE "/xkb$" "/" X11_XKB_RULES_DIR "${KB_RULES_DIR}" )
+      endif( )
+    endif( )
+  endif( )
+
+  if( NOT X11_XKB_RULES_DIR )
+    pkg_search_module( XKBCOMP xkbcomp )
+    if( XKBCOMP_FOUND )
+      execute_process(
+        COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=xkbconfigdir xkbcomp
+        OUTPUT_VARIABLE KB_RULES_DIR
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+      )
+      if( NOT "${KB_RULES_DIR}" STREQUAL "" )
+        string(REGEX REPLACE "/xkb$" "/" X11_XKB_RULES_DIR "${KB_RULES_DIR}" )
+      endif( )
+    endif( )
+  endif( )
+
+  if( NOT X11_XKB_RULES_DIR )
+    execute_process(
+      COMMAND man -P cat setxkbmap
+      OUTPUT_VARIABLE SETXKBMAP_OUTPUT
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+      ERROR_VARIABLE SETXKBMAP_OUTPUT
+      ERROR_STRIP_TRAILING_WHITESPACE
+      RESULT_VARIABLE SETXKBMAP_RC
+    )
+    if( "${SETXKBMAP_RC}" STREQUAL "0" AND
+        "${SETXKBMAP_OUTPUT}" MATCHES "\n.*FILES.*\n[^/]*(/[^\n]*/)xkb.*\n" )
+      if( EXISTS "${CMAKE_MATCH_1}xkb" )
+        set( X11_XKB_RULES_DIR "${CMAKE_MATCH_1}" )
+      endif( )
+    endif( )
+  endif( )
+
+  if( NOT X11_XKB_RULES_DIR )
+    execute_process(
+      COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=libdir xkbfile
+      OUTPUT_VARIABLE KB_RULES_LIBDIR
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    execute_process(
+      COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=prefix xkbfile
+      OUTPUT_VARIABLE KB_RULES_PREFIX
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    if( KB_RULES_LIBDIR AND KB_RULES_PREFIX )
+      find_file( RULES_FILE
+        NAMES xorg xfree86
+        PATHS "${KB_RULES_PREFIX}/share/X11"
+              "${KB_RULES_LIBDIR}/X11"
+        PATH_SUFFIXES xkb/rules
+        NO_DEFAULT_PATH
+      )
+      if( RULES_FILE )
+        string( REGEX REPLACE "/xkb/rules/(xorg|xfree86)$" "/" X11_XKB_RULES_DIR "${RULES_FILE}" )
+      endif( )
+    endif( )
+  endif( )
+
+  if( X11_XKB_RULES_DIR )
+    if( NOT "${X11_XKB_RULES_DIR}" MATCHES "/$" )
+      set( X11_XKB_RULES_DIR "${X11_XKB_RULES_DIR}/" )
+    endif( )
+    message( STATUS "Adding ${X11_XKB_RULES_DIR} to XKb rules directory search" )
+  else( )
+    message( STATUS "No additional XKb rules directory found" )
+  endif( )
+
+endif( )

@@ -22,20 +22,37 @@
 // Compiler will size array automatically.
 static const char* X11DirList[] =
     {
+#ifdef X11_XKB_RULES_DIR
+        X11_XKB_RULES_DIR,
+#endif
         XLIBDIR,
         "/usr/share/X11/",
-        "/etc/X11/",
-        "/usr/local/share/X11/",
-        "/usr/X11R6/lib/X11/",
-        "/usr/X11R6/lib64/X11/",
-        "/usr/local/X11R6/lib/X11/",
-        "/usr/local/X11R6/lib64/X11/",
         "/usr/lib/X11/",
         "/usr/lib64/X11/",
+        "/usr/X11/share/X11/",
+        "/usr/X11/lib/X11/",
+        "/usr/X11/lib64/X11/",
+        "/usr/X11R7/share/X11/",
+        "/usr/X11R7/lib/X11/",
+        "/usr/X11R7/lib64/X11/",
+        "/usr/X11R6/share/X11/",
+        "/usr/X11R6/lib/X11/",
+        "/usr/X11R6/lib64/X11/",
+        "/usr/local/X11/share/X11/",
+        "/usr/local/X11/lib/X11/",
+        "/usr/local/X11/lib64/X11/",
+        "/usr/local/X11R7/share/X11/",
+        "/usr/local/X11R7/lib/X11/",
+        "/usr/local/X11R7/lib64/X11/",
+        "/usr/local/X11R6/share/X11/",
+        "/usr/local/X11R6/lib/X11/",
+        "/usr/local/X11R6/lib64/X11/",
+        "/usr/local/share/X11/",
         "/usr/local/lib/X11/",
         "/usr/local/lib64/X11/",
         "/usr/pkg/share/X11/",
-        "/usr/pkg/xorg/lib/X11/"
+        "/usr/pkg/xorg/lib/X11/",
+        "/etc/X11/"
     };
 
 // Compiler will size array automatically.
