@@ -9,4 +9,5 @@
 #
 #################################################
 
-check_library_exists( ICE _IceTransNoListen "" HAVE__ICETRANSNOLISTEN )
+pkg_search_module( LIBICE ice )
+check_library_exists( ICE _IceTransNoListen "${LIBICE_LIBRARY_DIRS}" HAVE__ICETRANSNOLISTEN )
