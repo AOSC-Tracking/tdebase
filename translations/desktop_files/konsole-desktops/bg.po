@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-26 02:40+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-12 20:05+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/konsole-desktop-files/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -138,7 +139,6 @@ msgstr "Нов Root Midnight Commander"
 
 #. Name
 #: terminalhere.desktop:6
-#, fuzzy
 msgid "Terminal"
 msgstr "Терминална програма"
 
@@ -149,47 +149,40 @@ msgstr "Отваряне на конзола тук"
 
 #. Name
 #: other/2shells:2
-#, fuzzy
 msgid "Two consoles"
-msgstr "Конзола"
+msgstr "Две конзоли"
 
 #. Title1
 #: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
-#, fuzzy
 msgid "Shell No. 2"
-msgstr "Нов Shell"
+msgstr "Shell №2"
 
 #. Name
 #: other/3shells:2
 msgid "Three consoles"
-msgstr ""
+msgstr "Три конзоли"
 
 #. Title2
 #: other/3shells:8 other/4shells:8 other/5shells:8
-#, fuzzy
 msgid "Shell No. 3"
-msgstr "Нов Shell"
+msgstr "Shell №3"
 
 #. Name
 #: other/4shells:2
-#, fuzzy
 msgid "Four consoles"
-msgstr "Нова Линукс конзола"
+msgstr "Четири конзоли"
 
 #. Title3
 #: other/4shells:9 other/5shells:9
-#, fuzzy
 msgid "Shell No. 4"
-msgstr "Нов Shell"
+msgstr "Shell №4"
 
 #. Name
 #: other/5shells:2
-#, fuzzy
 msgid "Five consoles"
-msgstr "Нова Линукс конзола"
+msgstr "Пет конзоли"
 
 #. Title4
 #: other/5shells:10
-#, fuzzy
 msgid "Shell No. 5"
-msgstr "Нов Shell"
+msgstr "Shell №5"
