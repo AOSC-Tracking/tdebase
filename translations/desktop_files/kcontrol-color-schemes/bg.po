@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-18 21:04+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-12 20:05+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/color-schemes/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: AtlasGreen.kcsrc:3
@@ -29,7 +30,7 @@ msgstr ""
 #. Name
 #: BlackOnWhite.kcsrc:2
 msgid "High Contrast Black Text"
-msgstr ""
+msgstr "Черен текст с висок контраст"
 
 #. Name
 #: BlueSlate.kcsrc:3
@@ -44,17 +45,17 @@ msgstr ""
 #. Name
 #: DarkBlue.kcsrc:2
 msgid "Dark Blue"
-msgstr ""
+msgstr "Тъмно синьо"
 
 #. Name
 #: DesertRed.kcsrc:3
 msgid "Desert Red"
-msgstr ""
+msgstr "Пустинно червено"
 
 #. Name
 #: DigitalCDE.kcsrc:3
 msgid "Digital CDE"
-msgstr ""
+msgstr "Дигитално CDE"
 
 #. Name
 #: EveX.kcsrc:2
@@ -74,7 +75,7 @@ msgstr ""
 #. Name
 #: Keramik.kcsrc:2
 msgid "Keramik"
-msgstr ""
+msgstr "Керамика"
 
 #. Name
 #: KeramikEmerald.kcsrc:2
@@ -84,7 +85,7 @@ msgstr ""
 #. Name
 #: KeramikWhite.kcsrc:2
 msgid "Keramik White"
-msgstr ""
+msgstr "Керамика в бяло"
 
 #. Name
 #: MediaPeach.kcsrc:2
@@ -99,12 +100,12 @@ msgstr ""
 #. Name
 #: PaleGray.kcsrc:3
 msgid "Pale Gray"
-msgstr ""
+msgstr "Бледо сиво"
 
 #. Name
 #: Plastik.kcsrc:2
 msgid "Plastik"
-msgstr ""
+msgstr "Пластика"
 
 #. Name
 #: PointReyesGreen.kcsrc:2
@@ -114,7 +115,7 @@ msgstr ""
 #. Name
 #: Pumpkin.kcsrc:3
 msgid "Pumpkin"
-msgstr ""
+msgstr "Тиква"
 
 #. Name
 #: SolarisCDE.kcsrc:2
@@ -124,7 +125,7 @@ msgstr ""
 #. Name
 #: Storm.kcsrc:3
 msgid "Storm"
-msgstr ""
+msgstr "Буря"
 
 #. Name
 #: System.kcsrc:2
@@ -134,7 +135,7 @@ msgstr "Система"
 #. Name
 #: WhiteOnBlack.kcsrc:2
 msgid "High Contrast White Text"
-msgstr ""
+msgstr "Бял текст с висок контраст"
 
 #. Name
 #: Windows2000.kcsrc:2
@@ -154,4 +155,4 @@ msgstr ""
 #. Name
 #: YellowOnBlue.kcsrc:2
 msgid "High Contrast Yellow on Blue"
-msgstr ""
+msgstr "Жълт текст с висок контраст"

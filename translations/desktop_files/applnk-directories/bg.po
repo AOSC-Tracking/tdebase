@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-08 16:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-12 20:05+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/applnk-directories/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: .directory:2
@@ -48,22 +49,22 @@ msgstr "Редактори"
 #. Name
 #: kde-edu-languages.directory:4
 msgid "Languages"
-msgstr ""
+msgstr "Езици"
 
 #. Name
 #: kde-edu-mathematics.directory:4
 msgid "Mathematics"
-msgstr ""
+msgstr "Математика"
 
 #. Name
 #: kde-edu-miscellaneous.directory:4
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Разни"
 
 #. Name
 #: kde-edu-science.directory:4 tde-science.directory:5
 msgid "Science"
-msgstr ""
+msgstr "Наука"
 
 #. Name
 #: kde-games-arcade.directory:4 tde-games-arcade.directory:4
@@ -182,7 +183,7 @@ msgstr "Мултимедия"
 #. Comment
 #: tde-office-pim.directory:4 tde-office-pim.directory:6
 msgid "Personal Information Management"
-msgstr ""
+msgstr "Управление на лична информация"
 
 #. Name
 #: tde-office.directory:4
@@ -207,7 +208,7 @@ msgstr "Хардуер"
 #. Name
 #: tde-settings-information.directory:4
 msgid "Device Informations"
-msgstr ""
+msgstr "Информация за устройството"
 
 #. Name
 #: tde-settings-looknfeel.directory:4
@@ -274,7 +275,7 @@ msgstr "Демо на предпазителите на екрана"
 #. Name
 #: tde-system-su.directory:5
 msgid "SuperUser"
-msgstr ""
+msgstr "Администратор"
 
 #. Name
 #: tde-system.directory:4
