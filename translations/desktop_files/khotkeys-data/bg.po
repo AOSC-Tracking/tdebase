@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 14:20+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/khotkeys-data/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:5
@@ -35,9 +36,8 @@ msgstr "Прозорец на Konqueror"
 #: konqueror_gestures_trinity21.khotkeys:20
 #: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
 #: trinity2b1.khotkeys:232
-#, fuzzy
 msgid "Konqueror"
-msgstr "Прозорец на Konqueror"
+msgstr "Konqueror"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:35
@@ -187,7 +187,9 @@ msgstr "Домашна директория"
 msgid ""
 "Press, move right, move down, move right, release.\n"
 "Mozilla-style: Press, move down, move right, release."
-msgstr "Натискане, движение надолу, движение нагоре, движение надолу, пускане."
+msgstr ""
+"Натисни, движи надясно, надолу, надясно, пусни.\n"
+"Стил Mozilla: Натисни, движи надолу, надясно, пусни."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:291
@@ -241,7 +243,7 @@ msgstr "Фиксирани действия"
 #. Comment
 #: printscreen.khotkeys:17
 msgid "Launches KSnapShot when PrintScrn is pressed."
-msgstr "Стартиране на KSnapShot при натискане на клавиша \"PrintScrn\""
+msgstr "Стартиране на KSnapShot при натискане на клавиша \"PrintScrn\"."
 
 #. Name
 #: printscreen.khotkeys:19
@@ -257,10 +259,11 @@ msgstr "Обикновено_действие"
 
 #. Comment
 #: printscreen.khotkeys:41
-#, fuzzy
 msgid ""
 "Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
-msgstr "Стартиране на KSnapShot при натискане на клавиша \"PrintScrn\""
+msgstr ""
+"Стартиране на KSnapShot за прихващане на прозорец при натискане на клавиша "
+"\"ALT+PrintScrn\"\n"
 
 #. Name
 #: printscreen.khotkeys:43
@@ -351,6 +354,7 @@ msgstr "Стартиране на конзола"
 
 #. Comment
 #: trinity2b1.khotkeys:103
+#, fuzzy
 msgid ""
 "Read the comment on action \"Type 'Hello'\" first.\n"
 "\n"
@@ -370,7 +374,7 @@ msgid ""
 "Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
 "condition will check for the active window having that title."
 msgstr ""
-"Прочетете коментара на действие \"Напишете \"Здравей\".\n"
+"Прочетете коментара на действие \"Напишете 'Здравей'\".\n"
 "\n"
 "Qt Designer използва Ctrl+F4 за затваряне на прозорците (може би защото и MS "
 "Windows прави същото *shrug*). Но Ctrl+F4 в TDE означава отиване на "
@@ -380,7 +384,13 @@ msgstr ""
 "Проблемът може да бъде решен чрез задаване на Ctrl+F4 вместо Ctrl+W когато "
 "активният прозорец е Qt Designer. Когато последният е активен, всеки път при "
 "натискане на Ctrl+W, ще бъде изпращан Ctrl+F4 до дизайнера. Разбира се, в "
-"другите програми Ctrl+W ще работи по обичайния начин."
+"другите програми Ctrl+W ще работи по обичайния начин.\n"
+"\n"
+"Трябва да зададем три неща: A new shortcut trigger on 'Ctrl+W', a new "
+"keyboard input action sending Ctrl+F4, and a new condition that the active "
+"window is Qt Designer.\n"
+"Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
+"condition will check for the active window having that title."
 
 #. Name
 #: trinity2b1.khotkeys:105
