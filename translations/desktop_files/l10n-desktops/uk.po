@@ -1,20 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Roman Savochenko <roman@oscada.org>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-22 18:27+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"Last-Translator: Roman Savochenko <roman@oscada.org>\n"
+"Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/l10n-desktop-files/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: caribbean.desktop:2
@@ -954,7 +956,7 @@ msgstr "Сен-П'єр і Мікелон"
 #. Name
 #: pn/entry.desktop:2
 msgid "Pitcairn"
-msgstr ""
+msgstr "Pitcairn"
 
 #. Name
 #: pr/entry.desktop:2
