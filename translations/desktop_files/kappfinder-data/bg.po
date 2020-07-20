@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 22:13+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-19 22:59+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kappfinder-data/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: Development/Forte.desktop:2
@@ -71,7 +72,7 @@ msgstr "Редактор на диалози"
 #. Name
 #: Development/eclipse.desktop:3
 msgid "Eclipse"
-msgstr ""
+msgstr "Еклипс"
 
 #. GenericName
 #: Development/eclipse.desktop:4
@@ -178,7 +179,7 @@ msgstr ""
 #. Name
 #: Games/Arcade/Trophy.desktop:2
 msgid "Trophy"
-msgstr ""
+msgstr "Трофей"
 
 #. Name
 #: Games/Arcade/TuxRacer.desktop:2
@@ -334,7 +335,7 @@ msgstr ""
 #. Name
 #: Games/Board/Xgammon.desktop:2
 msgid "Xgammon"
-msgstr ""
+msgstr "Табла за Х"
 
 #. Name
 #: Games/Board/xboard.desktop:2
@@ -531,7 +532,7 @@ msgstr ""
 #. Name
 #: Graphics/ElectricEyes.desktop:2
 msgid "Electric Eyes"
-msgstr ""
+msgstr "Електрически очи"
 
 #. GenericName
 #: Graphics/ElectricEyes.desktop:3
@@ -1155,7 +1156,7 @@ msgstr ""
 #. GenericName
 #: Multimedia/alsamixergui.desktop:3
 msgid "Alsa Mixer Frontend"
-msgstr "Alsa аудио миксер"
+msgstr "ALSA аудио миксер"
 
 #. Name
 #: Multimedia/audacity.desktop:2
@@ -1338,9 +1339,8 @@ msgstr "Диаграми"
 
 #. Name
 #: Office/Gnome-Cal.desktop:2
-#, fuzzy
 msgid "GNOME-Cal"
-msgstr "Шах за GNOME"
+msgstr "Календар за GNOME"
 
 #. GenericName
 #: Office/Gnome-Cal.desktop:3
@@ -1350,7 +1350,7 @@ msgstr "Личен календар"
 #. Name
 #: Office/Gnome-Card.desktop:2
 msgid "GNOME-Card"
-msgstr ""
+msgstr "Контакти за GNOME"
 
 #. GenericName
 #: Office/Gnome-Card.desktop:3
@@ -1366,7 +1366,7 @@ msgstr "Игра GNOME Nibbles"
 #. Name
 #: Office/Gnumeric.desktop:2
 msgid "Gnumeric"
-msgstr ""
+msgstr "Електронни таблици за GNOME"
 
 #. GenericName
 #: Office/Gnumeric.desktop:3 Office/XsLite.desktop:3
@@ -1381,7 +1381,7 @@ msgstr ""
 #. Name
 #: Office/Ical.desktop:2
 msgid "Ical"
-msgstr ""
+msgstr "Календар Ical"
 
 #. GenericName
 #: Office/Ical.desktop:3
@@ -1412,7 +1412,7 @@ msgstr ""
 #. GenericName
 #: Office/XAcc.desktop:3
 msgid "Personal Accounting Tool"
-msgstr "Водене на сметки"
+msgstr "Лично счетоводство"
 
 #. Name
 #: Office/XsLite.desktop:2
@@ -1437,7 +1437,7 @@ msgstr "Преглед на PDF документи"
 #. Name
 #: Office/gnucash.desktop:2
 msgid "GnuCash"
-msgstr ""
+msgstr "Лично счетоводство от GNU"
 
 #. GenericName
 #: Office/gnucash.desktop:3
@@ -1447,7 +1447,7 @@ msgstr "Финансов мениджър"
 #. Name
 #: Office/lyx.desktop:2
 msgid "LyX"
-msgstr ""
+msgstr "TeX едитор"
 
 #. Name
 #: Office/mrproject.desktop:2
@@ -1462,7 +1462,7 @@ msgstr "Управление на проекти"
 #. Name
 #: Office/netscapeaddressbook.desktop:2
 msgid "Netscape Addressbook"
-msgstr ""
+msgstr "Контакти в Netscape"
 
 #. Name
 #: Office/plan.desktop:2
@@ -1502,9 +1502,8 @@ msgstr ""
 
 #. Name
 #: System/Terminal/aterm.desktop:2
-#, fuzzy
 msgid "Terminal"
-msgstr "Оригиналът"
+msgstr "Терминална конзола"
 
 #. GenericName
 #: System/Terminal/aterm.desktop:3 Utilities/XUtilities/xterm.desktop:3
@@ -1534,7 +1533,7 @@ msgstr "Разширен виртуален терминал"
 #. Name
 #: System/Terminal/vmstat.desktop:2
 msgid "Vmstat"
-msgstr ""
+msgstr "Статистика за виртуална памет"
 
 #. GenericName
 #: System/Terminal/vmstat.desktop:3
@@ -1543,9 +1542,8 @@ msgstr "Статистика на виртуалната памет"
 
 #. Name
 #: System/citrix_ica.desktop:2
-#, fuzzy
 msgid "Citrix ICA Client"
-msgstr "SILC клиент"
+msgstr "Клиент за Citrix"
 
 #. GenericName
 #: System/citrix_ica.desktop:3
@@ -1604,7 +1602,7 @@ msgstr "Текстов редактор"
 #. Name
 #: Utilities/Editors/gedit.desktop:2
 msgid "gEdit"
-msgstr ""
+msgstr "Едитор на GNOME"
 
 #. Name
 #: Utilities/Editors/gvim.desktop:2
@@ -1633,9 +1631,8 @@ msgstr ""
 
 #. Name
 #: Utilities/Editors/xedit.desktop:2
-#, fuzzy
 msgid "X Editor"
-msgstr "HTML редактор"
+msgstr "Редактор за X"
 
 #. Name
 #: Utilities/Editors/xemacs.desktop:2
@@ -1654,9 +1651,8 @@ msgstr "Монитори GNU Krell"
 
 #. Name
 #: Utilities/GnomeWho.desktop:2
-#, fuzzy
 msgid "GNOME Who"
-msgstr "Шах за GNOME"
+msgstr ""
 
 #. GenericName
 #: Utilities/GnomeWho.desktop:3
@@ -1665,15 +1661,13 @@ msgstr "Системна информация"
 
 #. Name
 #: Utilities/SystemInfo.desktop:2
-#, fuzzy
 msgid "System Info"
 msgstr "Системна информация"
 
 #. Name
 #: Utilities/SystemLogViewer.desktop:2
-#, fuzzy
 msgid "System Log Viewer"
-msgstr "Мониторинг на системата"
+msgstr "Преглед на системния протокол"
 
 #. Name
 #: Utilities/XUtilities/Xkill.desktop:2
@@ -1709,7 +1703,7 @@ msgstr "Мрежови инструмент"
 #. Name
 #: Utilities/XUtilities/xcalc.desktop:2
 msgid "X Calc"
-msgstr ""
+msgstr "Калкулатор за X"
 
 #. GenericName
 #: Utilities/XUtilities/xcalc.desktop:3 Utilities/calctool.desktop:3
@@ -1741,7 +1735,7 @@ msgstr "Часовник"
 #. Name
 #: Utilities/XUtilities/xconsole.desktop:2
 msgid "X Console"
-msgstr ""
+msgstr "Конзола за X"
 
 #. GenericName
 #: Utilities/XUtilities/xconsole.desktop:3
@@ -1771,20 +1765,18 @@ msgstr "Увеличаваща лупа"
 
 #. Name
 #: Utilities/XUtilities/xterm.desktop:2
-#, fuzzy
 msgid "X Terminal"
-msgstr "Оригиналът"
+msgstr "Терминал за X"
 
 #. Name
 #: Utilities/calctool.desktop:2
-#, fuzzy
 msgid "Calctool"
 msgstr "Калкулатор"
 
 #. Name
 #: Utilities/e-notes.desktop:2
 msgid "E-Notes"
-msgstr ""
+msgstr "Електронни бележки"
 
 #. GenericName
 #: Utilities/e-notes.desktop:3
@@ -1800,7 +1792,7 @@ msgstr "Часовник"
 #. Name
 #: Utilities/xgnokii.desktop:2
 msgid "X-Gnokii"
-msgstr ""
+msgstr "Връзка с мобилен телефон за Х"
 
 #. GenericName
 #: Utilities/xgnokii.desktop:3
