@@ -1,20 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Roman Savochenko <roman@oscada.org>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 14:20+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"Last-Translator: Roman Savochenko <roman@oscada.org>\n"
+"Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/khotkeys-data/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:5
@@ -35,9 +37,8 @@ msgstr "Вікно Konqueror"
 #: konqueror_gestures_trinity21.khotkeys:20
 #: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
 #: trinity2b1.khotkeys:232
-#, fuzzy
 msgid "Konqueror"
-msgstr "Вікно Konqueror"
+msgstr "Konqueror"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:35
@@ -80,7 +81,7 @@ msgstr "Зупинити завантаження"
 #: konqueror_gestures_trinity21.khotkeys:385 trinity2b1.khotkeys:257
 #: trinity2b1.khotkeys:289 trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
 msgid "Gesture_triggers"
-msgstr ""
+msgstr "Тригери_жестів"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:66
@@ -255,15 +256,16 @@ msgstr "Проста_дія"
 
 #. Comment
 #: printscreen.khotkeys:41
-#, fuzzy
 msgid ""
 "Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
-msgstr "Запускає KSnapShot, коли натиснути PrintScrn."
+msgstr ""
+"Запускає KSnapShot у віконному режимі захоплення коли натиснуто "
+"ALT+PrintScrn.\n"
 
 #. Name
 #: printscreen.khotkeys:43
 msgid "PrintWindow"
-msgstr ""
+msgstr "PrintWindow"
 
 #. Comment
 #: trinity2b1.khotkeys:5
@@ -272,8 +274,8 @@ msgid ""
 "KHotkeys. (Note that this group and all its actions are disabled by default.)"
 msgstr ""
 "Ця група містить різноманітні приклади, які демонструють більшість "
-"можливостей гарячих клавіш (KHotkeys). Примітка: типово, цю групу і всі її "
-"дії вимкнено."
+"можливостей гарячих клавіш (KHotkeys). (Зауважте, що ця група та всі її дії "
+"вимкнено зазвичай.)"
 
 #. Name
 #: trinity2b1.khotkeys:8
@@ -302,7 +304,7 @@ msgstr "Вікно KSIRC"
 #. Comment
 #: trinity2b1.khotkeys:34
 msgid "KSIRC"
-msgstr ""
+msgstr "KSIRC"
 
 #. Comment
 #: trinity2b1.khotkeys:54
@@ -320,6 +322,18 @@ msgid ""
 ": (colon)                                  Shift+;\n"
 "' '  (space)                              Space"
 msgstr ""
+"Після натискання Alt+Ctrl+H, ввід 'Привіт' буде симульовано рівно так як би "
+"ви друкували це. Особливо корисне якщо ви лінуєтеся вводити речі на кшталт "
+"'беззнакове'. Кожне \"натискання клавіші\" у введені розділяється двокрапкою "
+"':' . Зауважте, що \"натискання клавіш\" передбачає реальні натискання "
+"клавіш, тож маєте записати те що реально натискаєте на клавіатурі. У таблиці "
+"нижче, лівий стовпчик показує ввід а правий стовпчик що друкувати.\n"
+"\n"
+"\"ввід\" (тобто новий рядок)          Enter or Return\n"
+"а (тобто мала а)                                  А\n"
+"А (тобто прописна а)                       Shift+A\n"
+": (двокрапка)                                       Shift+;\n"
+"' '  (пробіл)                                            Space"
 
 #. Name
 #: trinity2b1.khotkeys:56
@@ -357,6 +371,23 @@ msgid ""
 "Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
 "condition will check for the active window having that title."
 msgstr ""
+"Спочатку почитайте щодо дії \"Набір 'Привіт'\".\n"
+"\n"
+"Qt Дизайнер використовує Ctrl+F4 для закриття вікон (можливо тому що MS "
+"Windows робить це у такий спосіб). Але Ctrl+F4 у TDE встановлено для "
+"переходу до віртуальної стільниці 4, тож воно не працює у Qt Дизайнері, і "
+"також, Qt Дизайнер не використовує стандарт TDE Ctrl+W для закриття вікон.\n"
+"\n"
+"Та проблему може бути вирішено перепідключенням Ctrl+W на Ctrl+F4 коли "
+"активним вікном є Qt Дизайнер. Коли Qt Дизайнер активний, кожного разу коли "
+"Ctrl+W натискається, замість до Qt Дизайнеру буде надсилатися Ctrl+F4. У "
+"решті додатків Ctrl+W залишиться працювати звичайним чином звісно.\n"
+"\n"
+"Наразі нам потрібні три особливі речі: Новий перемикач скорочень на 'Ctrl+"
+"W', нова клавіатурна дія вводу для надсилання Ctrl+F4, та нова умова "
+"активності вікна Qt Дизайнер.\n"
+"Qt Дизайнер схоже назавжди має заголовок 'Qt Designer by Trolltech', тож "
+"умова буде перевіряти наявність такого заголовку у активного вікна."
 
 #. Name
 #: trinity2b1.khotkeys:105
@@ -399,6 +430,17 @@ msgid ""
 "(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
 "'XMMS_Player')."
 msgstr ""
+"Спочатку почитайте щодо дії \"Набір 'Привіт'\".\n"
+"\n"
+"Рівно як дія \"Набір 'Привіт'\", це симулює клавіатурне введення, "
+"специфічно, після натискання Ctrl+Alt+B, воно надсилає B до XMMS (B у XMMS "
+"перестрибує до наступної пісні). Прапорець \"Надсилати до визначеного вікна\""
+" встановлено та визначено вміст класу вікна 'XMMS_Player'; це зробить таке "
+"введення постійним для цього вікна. У цей спосіб ви можете контролювати XMMS "
+"навіть із, наприклад, іншої віртуальної стільниці.\n"
+"\n"
+"(Запустіть 'xprop' та натисніть на вікні XMMS та пошукайте на WM_CLASS щоб "
+"побачити 'XMMS_Player')."
 
 #. Name
 #: trinity2b1.khotkeys:173
@@ -450,6 +492,36 @@ msgid ""
 "are active only if the active window is Konqueror (class contains "
 "'konqueror')."
 msgstr ""
+"Добре, Konqi у TDE має вкладки, та наразі ви також можете мати жести. Не "
+"треба використовувати інші переглядачі >;).\n"
+"\n"
+"Просто натисніть середню клавішу миші та почніть малювати жести, та після "
+"завершення, відпустіть клавішу миші. Якщо вам потрібно лише вставити вибір, "
+"воно все ще працює, лише просто натисніть середню клавішу миші. (Ви можете "
+"змінити використання клавіші миші у глобальних налаштуваннях).\n"
+"\n"
+"Прямо зараз доступно наступні жести :\n"
+"рух праворуч та назад ліворуч - Наперед (ALt+Right)\n"
+"рух ліворуч та назад праворуч - Назад (Alt+Left)\n"
+"рух нагору та назад донизу  - Нагору (Alt+Up)\n"
+"по колу проти годинникової стрілки - Перевантажити (F5)\n"
+" (Щойно я знайду подібне у Opera або Mozilla, я додам більше та впевнюсь, що "
+"воно таке саме. Або якщо ви зробите це самі, почувайтеся вільно у допомозі "
+"мені та надішліть ваш khotkeysrc.)\n"
+"\n"
+"Образи жестів (дещо діалогів із KGesture, завдяки Майку Пілону) може бути "
+"легко введено здійснюючи їх у конфігураційному діалозі. Ви також можете "
+"поглянути на вашу числову ділянку для допомоги вам, жести визначаються як "
+"решітка 3x3 полів, що нумеровано від 1 до 9.\n"
+"\n"
+"Зауважте, що ви мусите здійснювати точно жести для активації дії. Згідно до "
+"чого можливе введення багатьох жестів для дій. Ви повинні оминати складних "
+"жестів де ви змінюєте напрямок руху миші більш одного разу (тобто робіть, "
+"наприклад, 45654 або 74123 оскільки вони прості для виконання, але 1236987 "
+"може бути вже достатньо складним).\n"
+"\n"
+"Умови всіх жестів визначаються у цій групі. Всі ці жести активні лише для "
+"активного вікна Konqueror (клас містить 'konqueror')."
 
 #. Name
 #: trinity2b1.khotkeys:214
