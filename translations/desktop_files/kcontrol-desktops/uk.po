@@ -500,8 +500,8 @@ msgid ""
 "http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
 "\\{ at }"
 msgstr ""
-"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename=\\{ "
-"at }"
+"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
+"\\{ at }"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:3
@@ -741,11 +741,11 @@ msgid ""
 "\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
 "&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
 msgstr ""
-"http://www.google.com/search?as_q=\\{all,@}&num=\\{num,\"10\""
-"}&btnG=Google+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\"
-"{without,\"\"}&lr=\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\""
-"\"}&as_qdr=\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\""
-"}&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
+"http://www.google.com/search?as_q=\\{all,@}&num=\\{num,\"10\"}&btnG=Google"
+"+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\{without,\"\"}&lr="
+"\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\"\"}&as_qdr="
+"\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
+"&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
@@ -779,8 +779,8 @@ msgid ""
 "http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling"
 "+Lucky&ie=UTF-8&oe=UTF-8"
 msgstr ""
-"http://www.google.com/search?q=\\"
-"{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8"
+"http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling"
+"+Lucky&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
@@ -883,8 +883,8 @@ msgid ""
 "http://www.ask.com/main/askJeeves.asp?"
 "origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
 msgstr ""
-"http://www.ask.com/main/askJeeves."
-"asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
+"http://www.ask.com/main/askJeeves.asp?"
+"origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:3
@@ -958,9 +958,9 @@ msgid ""
 "&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
 "search&refer=mc-search"
 msgstr ""
-"http://search.metacrawler.com/crawler?general=\\{@}&method=0&cat=Web&target=m"
-"etaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&t"
-"heme=classic&refer=mc-search&refer=mc-search"
+"http://search.metacrawler.com/crawler?general=\\{@}"
+"&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
+"search&refer=mc-search"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
@@ -974,8 +974,8 @@ msgid ""
 "handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
 "asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
 msgstr ""
-"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff."
-"asp?handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
+"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff.asp?"
+"handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
 "asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
 
 #. Name
@@ -1002,10 +1002,11 @@ msgid ""
 "&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
 "\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
 msgstr ""
-"http://www.detelefoongids.nl/tginl.dll?action=white&type=search&resultsperpag"
-"e=25&pagestart=1&source=searchcategory&name2=\\{1}&name=&initials=&city=\\{2}"
-"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription="
-"&country=&catcode=&dcity=\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
+"http://www.detelefoongids.nl/tginl.dll?"
+"action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2="
+"\\{1}&name=&initials=&city=\\{2}"
+"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
+"\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:2
@@ -1049,8 +1050,8 @@ msgid ""
 "http://www.google.com/search?sourceid=python-search&q=\\{@}"
 "&submit=Search&q=site%3Apython.org"
 msgstr ""
-"http://www.google.com/search?sourceid=python-search&q=\\"
-"{@}&submit=Search&q=site%3Apython.org"
+"http://www.google.com/search?sourceid=python-search&q=\\{@}"
+"&submit=Search&q=site%3Apython.org"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt.desktop:5
@@ -1083,8 +1084,8 @@ msgid ""
 "http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
 "&FORMATO=ampliado"
 msgstr ""
-"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\"
-"{@}&FORMATO=ampliado"
+"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
+"&FORMATO=ampliado"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
@@ -1127,8 +1128,8 @@ msgid ""
 "http://www.go.com/Titles?col=WW&qt=\\{@}"
 "&svx=home_searchbox&sv=IS&lk=noframeso"
 msgstr ""
-"http://www.go.com/Titles?col=WW&qt=\\"
-"{@}&svx=home_searchbox&sv=IS&lk=noframeso"
+"http://www.go.com/Titles?col=WW&qt=\\{@}"
+"&svx=home_searchbox&sv=IS&lk=noframeso"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
@@ -1141,8 +1142,8 @@ msgid ""
 "http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
 "\\{exact,\"0\"}&words=\\{@}"
 msgstr ""
-"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact=\\"
-"{exact,\"0\"}&words=\\{@}"
+"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
+"\\{exact,\"0\"}&words=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
@@ -1195,8 +1196,8 @@ msgid ""
 "http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
 "&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
 msgstr ""
-"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\"
-"{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
+"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
+"&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
@@ -1224,8 +1225,8 @@ msgid ""
 "http://search.ke.voila.fr/S/voila?"
 "lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
 msgstr ""
-"http://search.ke.voila.fr/S/"
-"voila?lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
+"http://search.ke.voila.fr/S/voila?"
+"lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/webster.desktop:3
