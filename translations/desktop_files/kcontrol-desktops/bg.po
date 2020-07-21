@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-18 13:00+0200\n"
-"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"PO-Revision-Date: 2020-07-22 06:31+0000\n"
 "Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
 "Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/bg/>\n"
@@ -1318,9 +1318,8 @@ msgstr ""
 #. Name
 #: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
 #: hwmanager/hwdevicetray.desktop:4
-#, fuzzy
 msgid "Device Monitor"
-msgstr "Управление на устройства"
+msgstr "Наблюдение на устройства"
 
 #. Comment
 #: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
@@ -1355,7 +1354,7 @@ msgstr ""
 #. Name
 #: iccconfig/iccconfig.desktop:18
 msgid "Color Profile"
-msgstr ""
+msgstr "Профил за цветове"
 
 #. Name
 #: icons/icons.desktop:12
@@ -1365,7 +1364,7 @@ msgstr "Икони"
 #. Comment
 #: icons/icons.desktop:14
 msgid "Customize TDE Icons"
-msgstr "Настройване и избор на тема с икони"
+msgstr "Настройване на икони на TDE"
 
 #. Keywords
 #: icons/icons.desktop:16
@@ -1930,22 +1929,18 @@ msgstr ""
 
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
-#, fuzzy
 msgid "User Interface"
-msgstr "Мрежа"
+msgstr "Потребителски интерфейс"
 
 #. Comment
 #: konqhtml/tdehtml_userinterface.desktop:13
-#, fuzzy
 msgid "Configure user interface options"
-msgstr "Настройване на временната памет"
+msgstr "Настройване на потребителския интерфейс"
 
 #. Keywords
 #: konqhtml/tdehtml_userinterface.desktop:15
-#, fuzzy
 msgid "konqueror;kfm;user;interface;tabbed;browsing;"
-msgstr ""
-"предварително; зареждане; използване; повторно; konqueror; reuse; preloading;"
+msgstr "konqueror;kfm;потребител;интерфейс;tabbed;browsing;"
 
 #. Name
 #: konsole/kcmkonsole.desktop:10
@@ -2289,9 +2284,8 @@ msgstr "Файлове с шрифтове"
 
 #. Name
 #: tdefontinst/viewpart/tdefontview.desktop:2
-#, fuzzy
 msgid "TDEFontView"
-msgstr "Преглед на шрифтове"
+msgstr "TDEFontView"
 
 #. GenericName
 #. Name
@@ -2467,9 +2461,8 @@ msgstr "UADescription (Netscape 7.1 на XP)"
 
 #. Name
 #: tdeio/uasproviders/op75oncurrent.desktop:2
-#, fuzzy
 msgid "UADescription (Opera 7.55 on current)"
-msgstr "UADescription (Netscape 7.1 на текущата система)"
+msgstr "UADescription (Opera 7.55 на текущата система)"
 
 #. Name
 #: tdeio/uasproviders/w3moncurrent.desktop:2
