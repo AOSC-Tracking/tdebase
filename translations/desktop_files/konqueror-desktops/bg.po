@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 15:23+0200\n"
-"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"PO-Revision-Date: 2020-07-22 06:31+0000\n"
 "Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
 "Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/konqueror-desktop-files/bg/>\n"
@@ -47,7 +47,7 @@ msgstr "Многоколонен преглед"
 #: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
 #: konquerorsu.desktop:8
 msgid "Konqueror"
-msgstr ""
+msgstr "Konqueror"
 
 #. GenericName
 #: konqbrowser.desktop:9
@@ -107,7 +107,7 @@ msgstr "Зареждане на браузъра при стартиране"
 #. Name
 #: preloader/konqy_preloader.desktop:4
 msgid "KDED Konqueror Preloader Module"
-msgstr ""
+msgstr "KDED модул за предварително зареждане на Konqueror"
 
 #. Comment
 #: preloader/konqy_preloader.desktop:6
@@ -116,42 +116,38 @@ msgstr "Намаляване на времето за стартиране на 
 
 #. Name
 #: profile_filemanagement.desktop:5
-#, fuzzy
 msgid "File Management"
-msgstr "Файлов браузър"
+msgstr "Управление на файлове"
 
 #. Name
 #: profile_filepreview.desktop:9
 msgid "File Preview"
-msgstr ""
+msgstr "Преглед на файлове"
 
 #. Name
 #: profile_kde_devel.desktop:3
 msgid "TDE Development"
-msgstr ""
+msgstr "Разработка наTDE"
 
 #. Name
 #: profile_midnightcommander.desktop:9
-#, fuzzy
 msgid "Midnight Commander"
-msgstr "Изпълнение на команда"
+msgstr "Midnight Commander"
 
 #. Name
 #: profile_simplebrowser.desktop:2
-#, fuzzy
 msgid "Simple Browser"
-msgstr "Уеб браузър"
+msgstr "Обикновен браузър"
 
 #. Name
 #: profile_tabbedbrowsing.desktop:3
 msgid "Tabbed Browsing"
-msgstr ""
+msgstr "Браузър с подпрозорци"
 
 #. Name
 #: profile_webbrowsing.desktop:2
-#, fuzzy
 msgid "Web Browsing"
-msgstr "Уеб браузър"
+msgstr "Уеб сърфиране"
 
 #. Name
 #: quickprint/text-ada-print.desktop:6 quickprint/text-c++-print.desktop:6
@@ -242,7 +238,8 @@ msgstr "История"
 msgid ""
 "This is the history of the URLs you have recently visited. You can sort them "
 "in many ways."
-msgstr "История на скоро посетените адреси"
+msgstr ""
+"История на скоро посетените адреси, може да ги подредиш по много начини."
 
 #. Name
 #: sidebar/trees/init/home.desktop:6
@@ -332,15 +329,13 @@ msgstr "Директория за достъп до често използва�
 
 #. Name
 #: sidebar/trees/init/trash.desktop:9
-#, fuzzy
 msgid "Trash Folder"
-msgstr "Директория"
+msgstr "Кошче"
 
 #. Comment
 #: sidebar/trees/init/trash.desktop:11
-#, fuzzy
 msgid "This folder displays the contents of your Trash Bin"
-msgstr "Тази директория съдържа вашите лични файлове"
+msgstr "Тази директория съдържа изтритите данни"
 
 #. Name
 #: sidebar/web_module/webmodule_add.desktop:5
