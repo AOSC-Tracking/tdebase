@@ -1,35 +1,36 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:19+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-22 06:31+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/twin-clients-desktop-files/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: b2/b2.desktop:2
 msgid "B II"
-msgstr ""
+msgstr "B II"
 
 #. Name
 #: keramik/keramik.desktop:2
 msgid "Keramik"
-msgstr ""
+msgstr "Керамика"
 
 #. Name
 #: kwmtheme/kwmtheme.desktop:2
 msgid "KWM Theme"
-msgstr ""
+msgstr "Тема KWM"
 
 #. Name
 #: laptop/laptop.desktop:2
@@ -39,29 +40,29 @@ msgstr "Лаптоп"
 #. Name
 #: modernsystem/modernsystem.desktop:2
 msgid "Modern System"
-msgstr ""
+msgstr "Модерна система"
 
 #. Name
 #: plastik/plastik.desktop:2
 msgid "Plastik"
-msgstr ""
+msgstr "Пластика"
 
 #. Name
 #: quartz/quartz.desktop:2
 msgid "Quartz"
-msgstr ""
+msgstr "Кварц"
 
 #. Name
 #: redmond/redmond.desktop:2
 msgid "Redmond"
-msgstr ""
+msgstr "Redmond"
 
 #. Name
 #: test/test.desktop:2
 msgid "KWin test"
-msgstr ""
+msgstr "Тест KWin"
 
 #. Name
 #: web/web.desktop:2
 msgid "Web"
-msgstr ""
+msgstr "Уеб"
