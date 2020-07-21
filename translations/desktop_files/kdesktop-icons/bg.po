@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 02:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-22 06:31+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kdesktop-icons/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: Home.desktop:2
@@ -44,7 +45,7 @@ msgstr "Достъп до съхраняващи устройства"
 #. Name
 #: My_Documents:5
 msgid "My Documents"
-msgstr "Моите документи"
+msgstr "Документи"
 
 #. Comment
 #: My_Documents:7
