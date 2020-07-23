@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 16:24+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kicker-desktop-files/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: applets/clock/clockapplet.desktop:4
@@ -146,7 +147,7 @@ msgstr "Допълнителен панел"
 #. Comment
 #: extensions/dockbar/dockbarextension.desktop:4
 msgid "Dock application bar extension."
-msgstr "Разширение на системния панел"
+msgstr "Разширение на системния панел."
 
 #. Name
 #: extensions/kasbar/kasbarextension.desktop:2
@@ -156,7 +157,7 @@ msgstr "Алтернативен панел"
 #. Comment
 #: extensions/kasbar/kasbarextension.desktop:4
 msgid "An alternative taskbar panel applet."
-msgstr "Алтернативен аплет за лентата със задачите"
+msgstr "Алтернативен аплет за лентата със задачите."
 
 #. Name
 #: extensions/sidebar/sidebarextension.desktop:2
@@ -246,12 +247,12 @@ msgstr "Системен панел"
 #. Comment
 #: kicker/core/childpanelextension.desktop:4
 msgid "Child panel extension."
-msgstr "Разширение на системния панел"
+msgstr "Разширение на системния панел."
 
 #. Comment
 #: kicker/interfaces/kickoffsearchplugin.desktop:5
 msgid "A search plugin for Kickoff"
-msgstr ""
+msgstr "Приставка за търсене в Kickoff"
 
 #. Name
 #: kicker/kcmkicker.desktop:10

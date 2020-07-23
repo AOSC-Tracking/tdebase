@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 19:16+0200\n"
-"PO-Revision-Date: 2020-07-12 20:05+0000\n"
+"PO-Revision-Date: 2020-07-21 05:23+0000\n"
 "Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
 "Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/ksplash-desktop-files/bg/>\n"
@@ -34,9 +34,8 @@ msgstr "стартиране; начален; екран; splash screen; splash 
 
 #. Name
 #: ksplash.desktop:2
-#, fuzzy
 msgid "KSplash"
-msgstr "Приставка KSplash"
+msgstr "KSplash"
 
 #. Name
 #: themeengine/default/ksplashdefault.desktop:3
@@ -54,7 +53,7 @@ msgstr "Приставка KSplash"
 #. Name
 #: themeengine/redmond/ksplashredmond.desktop:3
 msgid "KSplashRedmond"
-msgstr ""
+msgstr "KSplashRedmond"
 
 #. Name
 #: themeengine/standard/ksplashstandard.desktop:3

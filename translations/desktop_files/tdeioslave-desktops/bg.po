@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-22 06:31+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/tdeioslave-desktop-files/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: cgi/kcmcgi/kcmcgi.desktop:9
@@ -37,17 +38,17 @@ msgstr ""
 #. Name
 #: home/kdedmodule/homedirnotify.desktop:4
 msgid "KDED Home Base URL Notifier"
-msgstr ""
+msgstr "Уведомяване на KDED за адреса на домашната директория"
 
 #. Comment
 #: home/kdedmodule/homedirnotify.desktop:6
 msgid "Provides change notification for user's home folder ($HOME)"
-msgstr ""
+msgstr "Уведомявай при промяна в домашната директория на потребителя ($HOME)"
 
 #. Name
 #: man/kmanpart.desktop:4
 msgid "KManPart"
-msgstr ""
+msgstr "KManPart"
 
 #. Comment
 #: man/kmanpart.desktop:6
@@ -314,17 +315,15 @@ msgstr "Демонтиран дял на твърд диск"
 #. Comment
 #: media/mimetypes/mycomputer.desktop:6
 msgid "My Computer"
-msgstr ""
+msgstr "Моят компютър"
 
 #. Comment
 #: media/mimetypes/mydocuments.desktop:6
-#, fuzzy
 msgid "My Documents"
-msgstr "Директория с документи"
+msgstr "Документи"
 
 #. Comment
 #: media/mimetypes/mynetworkplaces.desktop:6
-#, fuzzy
 msgid "My Network Places"
 msgstr "Отдалечени директории"
 
@@ -341,7 +340,7 @@ msgstr "Демонтиран NFS ресурс"
 #. Comment
 #: media/mimetypes/printers.desktop:6
 msgid "Printers"
-msgstr ""
+msgstr "Принтери"
 
 #. Comment
 #: media/mimetypes/removable_mounted.desktop:6
@@ -400,7 +399,7 @@ msgstr "VCD диск"
 #. Comment
 #: media/mimetypes/webbrowser.desktop:6
 msgid "Web Browser"
-msgstr ""
+msgstr "Уеб браузър"
 
 #. Comment
 #: media/mimetypes/zip_mounted.desktop:6
@@ -472,12 +471,12 @@ msgstr "Информация за устройствата"
 #. Name
 #: remote/kdedmodule/remotedirnotify.desktop:4
 msgid "KDED Remote Base URL Notifier"
-msgstr ""
+msgstr "Уведомяване на KDED за отдалечен адрес"
 
 #. Comment
 #: remote/kdedmodule/remotedirnotify.desktop:6
 msgid "Provides change notification for network folders"
-msgstr ""
+msgstr "Информира при промяна на мрежовите директории"
 
 #. Name
 #: smb/smb-network.desktop:4
@@ -517,14 +516,14 @@ msgstr "Потребителски директории"
 #. Name
 #: system/kdedmodule/systemdirnotify.desktop:4
 msgid "KDED System Base URL Notifier"
-msgstr ""
+msgstr "Уведомяване на KDED за системни адреси"
 
 #. Comment
 #: system/kdedmodule/systemdirnotify.desktop:6
 msgid ""
 "Provides change notification for folders monitored by the system:/ tdeio "
 "plugin"
-msgstr ""
+msgstr "Информира за папки, които се наблюдават от приставката system:/ tdeio"
 
 #. Comment
 #: system/mimetypes/system_directory.desktop:6
@@ -574,21 +573,18 @@ msgstr "Информация за кошчето"
 
 #. Description
 #: fish/fish.protocol:14
-#, fuzzy
 msgid "A tdeioslave for the FISH protocol"
-msgstr "tdeioslave за sftp"
+msgstr "tdeioslave за протокола FISH"
 
 #. Description
 #: fish/nxfish.protocol:14
-#, fuzzy
 msgid "A tdeioslave for the NXFISH protocol"
-msgstr "tdeioslave за sftp"
+msgstr "tdeioslave за протокола NXFISH"
 
 #. Description
 #: mac/mac.protocol:9
-#, fuzzy
 msgid "A tdeioslave for MacOS HFS+ partitions"
-msgstr "tdeioslave за sftp"
+msgstr "tdeioslave за дялове на дискове MacOS HFS+"
 
 #. Description
 #: sftp/sftp.protocol:15
@@ -600,22 +596,53 @@ msgstr "tdeioslave за sftp"
 msgid "Original Path,Deletion Date"
 msgstr "Местоположение, дата на изтриване"
 
-#, fuzzy
+#~ msgid "Encrypted Locked BLURAY"
+#~ msgstr "Шифрован заключен BLURAY диск"
+
+#~ msgid "Encrypted Unlocked BLURAY"
+#~ msgstr "Шифрован отключен BLURAY"
+
+#~ msgid "Encrypted Locked CD-R"
+#~ msgstr "Шифрован заключен CD-R"
+
+#~ msgid "Encrypted Unlocked CD-R"
+#~ msgstr "Шифрован отключен CD-R"
+
+#~ msgid "Encrypted Locked CD-RW"
+#~ msgstr "Шифрован заключен CD-RW"
+
+#~ msgid "Encrypted Unlocked CD-RW"
+#~ msgstr "Шифрован отключен CD-RW"
+
+#~ msgid "Encrypted Locked CD-ROM"
+#~ msgstr "Шифрован заключен CD-ROM"
+
+#~ msgid "Encrypted Unlocked CD-ROM"
+#~ msgstr "Шифрован отключен CD-ROM"
+
+#~ msgid "Encrypted Locked DVD"
+#~ msgstr "Шифрован заключен DVD"
+
+#~ msgid "Encrypted Unlocked DVD"
+#~ msgstr "Шифрован отключен DVD"
+
 #~ msgid "Encrypted Locked Hard Disk Volume"
-#~ msgstr "Монтиран дял на твърд диск"
+#~ msgstr "Шифрован заключен дял на твърд диск"
 
-#, fuzzy
 #~ msgid "Encrypted Unlocked Hard Disk Volume"
-#~ msgstr "Демонтиран дял на твърд диск"
+#~ msgstr "Шифрован отключен дял на твърд диск"
 
-#, fuzzy
 #~ msgid "Encrypted Locked Removable Medium"
-#~ msgstr "Монтиран преносим носител"
+#~ msgstr "Шифрован заключен преносим носител"
 
-#, fuzzy
 #~ msgid "Encrypted Unlocked Removable Medium"
-#~ msgstr "Демонтиран преносим носител"
+#~ msgstr "Шифрован отключен преносим носител"
 
-#, fuzzy
+#~ msgid "Unlock"
+#~ msgstr "Отключи"
+
 #~ msgid "Trash Properties"
-#~ msgstr "Страница с информация за носителя"
+#~ msgstr "Свойства на кошчето"
+
+#~ msgid "trash;properties;size;limits;delete"
+#~ msgstr "кошче;свойства;размер;ограничения;изтриване"

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 22:13+0200\n"
-"PO-Revision-Date: 2020-07-19 22:59+0000\n"
+"PO-Revision-Date: 2020-07-22 06:31+0000\n"
 "Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
 "Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kappfinder-data/bg/>\n"
@@ -20,17 +20,17 @@ msgstr ""
 #. Name
 #: Development/Forte.desktop:2
 msgid "Forte"
-msgstr ""
+msgstr "Forte"
 
 #. GenericName
 #: Development/Forte.desktop:3
 msgid "Java IDE"
-msgstr ""
+msgstr "Java IDE"
 
 #. Name
 #: Development/assistant.desktop:2
 msgid "Qt Assistant"
-msgstr ""
+msgstr "Qt Assistant"
 
 #. GenericName
 #: Development/assistant.desktop:3
@@ -40,18 +40,17 @@ msgstr "Преглед на документи"
 #. Name
 #: Development/ddd.desktop:2
 msgid "DDD"
-msgstr ""
+msgstr "DDD"
 
 #. GenericName
 #: Development/ddd.desktop:3
 msgid "Data Display Debugger"
-msgstr ""
+msgstr "Дебъгър за данните"
 
 #. Name
 #: Development/designer.desktop:2
-#, fuzzy
 msgid "Qt Designer"
-msgstr "Дизайн на интерфейс"
+msgstr "Qt Designer"
 
 #. GenericName
 #: Development/designer.desktop:3
@@ -60,7 +59,6 @@ msgstr "Дизайн на интерфейс"
 
 #. Name
 #: Development/dlgedit.desktop:2
-#, fuzzy
 msgid "Qt DlgEdit"
 msgstr "Редактор на диалози"
 
@@ -77,18 +75,17 @@ msgstr "Еклипс"
 #. GenericName
 #: Development/eclipse.desktop:4
 msgid "Eclipse IDE"
-msgstr ""
+msgstr "Eclipse IDE"
 
 #. Name
 #: Development/fdesign.desktop:2
-#, fuzzy
 msgid "FormDesigner"
-msgstr "Дизайн на интерфейс"
+msgstr "Дизайн на формите"
 
 #. Name
 #: Development/j2mewtk.desktop:2
 msgid "J2ME"
-msgstr ""
+msgstr "J2ME"
 
 #. GenericName
 #: Development/j2mewtk.desktop:3
@@ -98,7 +95,7 @@ msgstr "Инструмент J2ME"
 #. Name
 #: Development/linguist.desktop:2
 msgid "Qt Linguist"
-msgstr ""
+msgstr "Qt лингвист"
 
 #. GenericName
 #: Development/linguist.desktop:3
@@ -108,7 +105,7 @@ msgstr "Инструмент за превод"
 #. Name
 #: Development/pose.desktop:2
 msgid "Pose"
-msgstr ""
+msgstr "Pose"
 
 #. GenericName
 #: Development/pose.desktop:3
@@ -118,7 +115,7 @@ msgstr "Palm/Wireless емулатор"
 #. Name
 #: Development/sced.desktop:2
 msgid "Sced"
-msgstr ""
+msgstr "Sced"
 
 #. GenericName
 #: Development/sced.desktop:3
@@ -128,7 +125,7 @@ msgstr "Моделиране на сцени"
 #. Name
 #: Games/Arcade/ClanBomber.desktop:2
 msgid "ClanBomber"
-msgstr ""
+msgstr "ClanBomber"
 
 #. GenericName
 #: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
@@ -144,7 +141,7 @@ msgstr "Аркадна игра"
 #. Name
 #: Games/Arcade/FrozenBubble.desktop:2
 msgid "Frozen Bubble"
-msgstr ""
+msgstr "Замръзнали балони"
 
 #. GenericName
 #: Games/Arcade/FrozenBubble.desktop:3
@@ -154,7 +151,7 @@ msgstr "Тетрис"
 #. Name
 #: Games/Arcade/Gnibbles.desktop:2
 msgid "Gnibbles"
-msgstr ""
+msgstr "Gnibbles"
 
 #. GenericName
 #: Games/Arcade/Gnibbles.desktop:3
@@ -164,17 +161,17 @@ msgstr "Игра GNOME Nibbles"
 #. Name
 #: Games/Arcade/GnobotsII.desktop:2
 msgid "Gnobots II"
-msgstr ""
+msgstr "Gnobots II"
 
 #. Name
 #: Games/Arcade/Mures.desktop:2
 msgid "Mures"
-msgstr ""
+msgstr "Мури"
 
 #. Name
 #: Games/Arcade/SuperMethaneBrothers.desktop:2
 msgid "Super Methane Brothers"
-msgstr ""
+msgstr "Super Methane Brothers"
 
 #. Name
 #: Games/Arcade/Trophy.desktop:2
@@ -184,7 +181,7 @@ msgstr "Трофей"
 #. Name
 #: Games/Arcade/TuxRacer.desktop:2
 msgid "TuxRacer"
-msgstr ""
+msgstr "TuxRacer"
 
 #. GenericName
 #: Games/Arcade/TuxRacer.desktop:3
@@ -194,17 +191,17 @@ msgstr "Рали с пингвин"
 #. Name
 #: Games/Arcade/XKobo.desktop:2
 msgid "XKobo"
-msgstr ""
+msgstr "XKobo"
 
 #. Name
 #: Games/Arcade/XSoldier.desktop:2
 msgid "XSoldier"
-msgstr ""
+msgstr "XSoldier"
 
 #. Name
 #: Games/Arcade/alephone-nogl.desktop:2
 msgid "Alephone"
-msgstr ""
+msgstr "Alephone"
 
 #. Comment
 #: Games/Arcade/alephone-nogl.desktop:3
@@ -214,7 +211,7 @@ msgstr "Версия с отворен код на играта Marathon Infinit
 #. Name
 #: Games/Arcade/alephone.desktop:2
 msgid "Alephone - No OpenGL"
-msgstr ""
+msgstr "Alephone без OpenGL"
 
 #. Comment
 #: Games/Arcade/alephone.desktop:3
@@ -227,12 +224,12 @@ msgstr ""
 #. Name
 #: Games/Arcade/battalion.desktop:2
 msgid "Batallion"
-msgstr ""
+msgstr "Батальон"
 
 #. Name
 #: Games/Arcade/battleball.desktop:2
 msgid "Battleball"
-msgstr ""
+msgstr "Battleball"
 
 #. GenericName
 #: Games/Arcade/battleball.desktop:3
@@ -242,12 +239,12 @@ msgstr "Игра с топки"
 #. Name
 #: Games/Arcade/cxhextris.desktop:2
 msgid "cxhextris"
-msgstr ""
+msgstr "cxhextris"
 
 #. Name
 #: Games/Arcade/rocksndiamonds.desktop:2
 msgid "Rocks n Diamonds"
-msgstr ""
+msgstr "Rocks n Diamonds"
 
 #. GenericName
 #: Games/Arcade/rocksndiamonds.desktop:3 Games/Board/Glines.desktop:3
@@ -257,12 +254,12 @@ msgstr "Тактическа игра"
 #. Name
 #: Games/Arcade/scavenger.desktop:2
 msgid "Scavenger"
-msgstr ""
+msgstr "Scavenger"
 
 #. Name
 #: Games/Board/Gataxx.desktop:2
 msgid "Gataxx"
-msgstr ""
+msgstr "Gataxx"
 
 #. Name
 #: Games/Board/Gchess.desktop:2
@@ -272,13 +269,12 @@ msgstr "Шах за GNOME"
 #. Name
 #: Games/Board/Glines.desktop:2
 msgid "Glines"
-msgstr ""
+msgstr "Glines"
 
 #. Name
 #: Games/Board/Gmahjongg.desktop:2
-#, fuzzy
 msgid "GNOME Mahjongg"
-msgstr "Мини за GNOME"
+msgstr "Mahjongg за GNOME"
 
 #. GenericName
 #: Games/Board/Gmahjongg.desktop:3
@@ -298,12 +294,12 @@ msgstr "Логическа игра"
 #. Name
 #: Games/Board/Gnotravex.desktop:2
 msgid "Gnotravex"
-msgstr ""
+msgstr "Gnotravex"
 
 #. Name
 #: Games/Board/Gnotski.desktop:2
 msgid "Gnotski"
-msgstr ""
+msgstr "Gnotski"
 
 #. GenericName
 #: Games/Board/Gnotski.desktop:3
@@ -312,14 +308,13 @@ msgstr "Игра GNOME Klotski"
 
 #. Name
 #: Games/Board/Gstones.desktop:2
-#, fuzzy
 msgid "GNOME Stones"
-msgstr "Мини за GNOME"
+msgstr "Stones за GNOME"
 
 #. Name
 #: Games/Board/Iagno.desktop:2
 msgid "Iagno"
-msgstr ""
+msgstr "Iagno"
 
 #. GenericName
 #: Games/Board/Iagno.desktop:3 Games/Board/SameGnome.desktop:3
@@ -330,7 +325,7 @@ msgstr "Игра на дъска"
 #. Name
 #: Games/Board/SameGnome.desktop:2
 msgid "Same GNOME"
-msgstr ""
+msgstr "Same GNOME"
 
 #. Name
 #: Games/Board/Xgammon.desktop:2
@@ -340,7 +335,7 @@ msgstr "Табла за Х"
 #. Name
 #: Games/Board/xboard.desktop:2
 msgid "Xboard"
-msgstr ""
+msgstr "Xboard"
 
 #. GenericName
 #: Games/Board/xboard.desktop:3
@@ -350,7 +345,7 @@ msgstr "Шах"
 #. Name
 #: Games/Card/AisleRiot.desktop:2
 msgid "AisleRiot"
-msgstr ""
+msgstr "AisleRiot"
 
 #. GenericName
 #: Games/Card/AisleRiot.desktop:3 Games/Card/FreeCell.desktop:3
@@ -361,28 +356,27 @@ msgstr "Игра с карти"
 #. Name
 #: Games/Card/FreeCell.desktop:2
 msgid "FreeCell"
-msgstr ""
+msgstr "FreeCell"
 
 #. Name
 #: Games/Card/PySol.desktop:2
 msgid "PySol"
-msgstr ""
+msgstr "PySol"
 
 #. Name
 #: Games/Card/XPat2.desktop:2
 msgid "XPat 2"
-msgstr ""
+msgstr "XPat 2"
 
 #. Name
 #: Games/Clanbomber.desktop:2
 msgid "Clanbomber"
-msgstr ""
+msgstr "Clanbomber"
 
 #. Name
 #: Games/Emulators/cmail.desktop:2
-#, fuzzy
 msgid "ChessMail"
-msgstr "Шах"
+msgstr "Шах по мейла"
 
 #. GenericName
 #: Games/Emulators/cmail.desktop:3
@@ -392,7 +386,7 @@ msgstr "Шах по е-поща"
 #. Name
 #: Games/Emulators/qmamecat.desktop:2
 msgid "Qmamecat"
-msgstr ""
+msgstr "Qmamecat"
 
 #. GenericName
 #: Games/Emulators/qmamecat.desktop:3
@@ -402,7 +396,7 @@ msgstr "Емулатор Arcade"
 #. Name
 #: Games/GTali.desktop:2
 msgid "GTali"
-msgstr ""
+msgstr "GTali"
 
 #. GenericName
 #: Games/GTali.desktop:3
@@ -412,7 +406,7 @@ msgstr "Игра със зарове"
 #. Name
 #: Games/Roguelikes/angband.desktop:2
 msgid "Angband"
-msgstr ""
+msgstr "Angband"
 
 #. Comment
 #: Games/Roguelikes/angband.desktop:3
@@ -422,7 +416,7 @@ msgstr "Гмурнете се в Angband и победете Morgoth"
 #. Name
 #: Games/Roguelikes/moria.desktop:2
 msgid "Moria"
-msgstr ""
+msgstr "Moria"
 
 #. Comment
 #: Games/Roguelikes/moria.desktop:3
@@ -432,7 +426,7 @@ msgstr "Влезте в Мория и победете балрога"
 #. Name
 #: Games/Roguelikes/nethack.desktop:2
 msgid "NetHack"
-msgstr ""
+msgstr "NetHack"
 
 #. GenericName
 #: Games/Roguelikes/nethack.desktop:3 Games/Roguelikes/tome.desktop:3
@@ -442,7 +436,7 @@ msgstr "Завоевателна игра"
 #. Name
 #: Games/Roguelikes/rogue.desktop:2
 msgid "Rogue"
-msgstr ""
+msgstr "Rogue"
 
 #. GenericName
 #: Games/Roguelikes/rogue.desktop:3
@@ -452,12 +446,12 @@ msgstr "Оригиналът"
 #. Name
 #: Games/Roguelikes/tome.desktop:2
 msgid "ToME"
-msgstr ""
+msgstr "ToME"
 
 #. Name
 #: Games/Roguelikes/zangband.desktop:2
 msgid "ZAngband"
-msgstr ""
+msgstr "ZAngband"
 
 #. GenericName
 #: Games/Roguelikes/zangband.desktop:3
@@ -477,7 +471,7 @@ msgstr "Стратегическа игра"
 #. Name
 #: Games/TacticStrategy/freecivserver.desktop:3
 msgid "FreeCiv Server"
-msgstr ""
+msgstr "Сървър FreeCiv"
 
 #. Comment
 #: Games/TacticStrategy/freecivserver.desktop:4
@@ -487,7 +481,7 @@ msgstr "Сървър за играта цивилизация"
 #. Name
 #: Games/TacticStrategy/xscorch.desktop:3
 msgid "XScorch"
-msgstr ""
+msgstr "XScorch"
 
 #. Comment
 #: Games/TacticStrategy/xscorch.desktop:4
@@ -497,12 +491,12 @@ msgstr "Безплатен вариант на играта Scorched Earth за 
 #. Name
 #: Games/Toys/xeyes.desktop:2
 msgid "X Eyes"
-msgstr ""
+msgstr "X Eyes"
 
 #. Name
 #: Games/Toys/xpinguin.desktop:2
 msgid "Tux"
-msgstr ""
+msgstr "Tux"
 
 #. GenericName
 #: Games/Toys/xpinguin.desktop:3
@@ -512,7 +506,7 @@ msgstr "Талисманът на Linux"
 #. Name
 #: Games/defendguin.desktop:3
 msgid "Defendguin"
-msgstr ""
+msgstr "Defendguin"
 
 #. GenericName
 #: Games/defendguin.desktop:4
@@ -522,12 +516,12 @@ msgstr "Игра"
 #. Name
 #: Games/penguin-command.desktop:3
 msgid "Penguin Command"
-msgstr ""
+msgstr "Пингвинът командва"
 
 #. Name
 #: Games/xshipwars.desktop:3
 msgid "XShipWars"
-msgstr ""
+msgstr "XShipWars"
 
 #. Name
 #: Graphics/ElectricEyes.desktop:2
@@ -542,7 +536,7 @@ msgstr "Преглед на изображения"
 #. Name
 #: Graphics/GPhoto.desktop:2
 msgid "GPhoto"
-msgstr ""
+msgstr "GPhoto"
 
 #. GenericName
 #: Graphics/GPhoto.desktop:3
@@ -562,7 +556,7 @@ msgstr "Редактор на икони за GNOME"
 #. Name
 #: Graphics/Gqview.desktop:2
 msgid "Gqview"
-msgstr ""
+msgstr "Gqview"
 
 #. GenericName
 #: Graphics/Gqview.desktop:3
@@ -572,7 +566,7 @@ msgstr "Преглед на изображения"
 #. Name
 #: Graphics/Sketch.desktop:2
 msgid "Sketch"
-msgstr ""
+msgstr "Sketch"
 
 #. GenericName
 #: Graphics/Sketch.desktop:3
@@ -582,7 +576,7 @@ msgstr "Програма за векторна графика"
 #. Name
 #: Graphics/Xpcd.desktop:2
 msgid "Xpcd"
-msgstr ""
+msgstr "Xpcd"
 
 #. GenericName
 #: Graphics/Xpcd.desktop:3
@@ -765,9 +759,8 @@ msgstr "Аларма за поща"
 
 #. Name
 #: Internet/Fetchmailconf.desktop:2
-#, fuzzy
 msgid "Fetchmailconf"
-msgstr "Настройване на Fetchmail"
+msgstr "Настройки на Fetchmail"
 
 #. GenericName
 #: Internet/Fetchmailconf.desktop:3
@@ -787,7 +780,7 @@ msgstr "Програма за чат"
 #. Name
 #: Internet/Galeon.desktop:2
 msgid "Galeon"
-msgstr ""
+msgstr "Galeon"
 
 #. GenericName
 #: Internet/Galeon.desktop:3 Internet/Terminal/Links.desktop:3
@@ -801,9 +794,8 @@ msgstr "Уеб браузър"
 
 #. Name
 #: Internet/GnomeICU.desktop:2
-#, fuzzy
 msgid "GNOMEICU"
-msgstr "Шах за GNOME"
+msgstr "Чат клиент за GNOME"
 
 #. GenericName
 #: Internet/GnomeICU.desktop:3 Internet/licq.desktop:3
@@ -812,9 +804,8 @@ msgstr "Програма за ICQ"
 
 #. Name
 #: Internet/Netscapemessenger.desktop:2
-#, fuzzy
 msgid "Netscape Messenger"
-msgstr "Програма за чат"
+msgstr "Netscape комуникатор"
 
 #. Name
 #: Internet/Nmapfe.desktop:2
@@ -853,9 +844,8 @@ msgstr ""
 
 #. Name
 #: Internet/Terminal/btdownloadcurses.desktop:2
-#, fuzzy
 msgid "BitTorrent Python Curses GUI"
-msgstr "ГПИ за BitTorrent"
+msgstr "ГПИ за BitTorrent на Python Curses"
 
 #. GenericName
 #: Internet/Terminal/btdownloadcurses.desktop:3
@@ -916,7 +906,7 @@ msgstr ""
 #. Name
 #: Internet/arena.desktop:2
 msgid "Arena"
-msgstr ""
+msgstr "Арена"
 
 #. Name
 #: Internet/balsa.desktop:2
@@ -925,9 +915,8 @@ msgstr ""
 
 #. Name
 #: Internet/btdownloadgui.desktop:2
-#, fuzzy
 msgid "BitTorrent Python wxGTK GUI"
-msgstr "ГПИ за BitTorrent"
+msgstr "ГПИ за BitTorrent на Python wxGTK"
 
 #. Name
 #: Internet/coolmail.desktop:2
@@ -947,7 +936,7 @@ msgstr ""
 #. Name
 #: Internet/ed2k_gui.desktop:2
 msgid "eDonkey2000 GTK+ Core Controller"
-msgstr ""
+msgstr "eDonkey2000 GTK+ главен контролен"
 
 #. GenericName
 #: Internet/ed2k_gui.desktop:3
@@ -996,9 +985,8 @@ msgstr ""
 
 #. Name
 #: Internet/gtelnet.desktop:2
-#, fuzzy
 msgid "GNOME Telnet"
-msgstr "Мини за GNOME"
+msgstr "Telnet за GNOME"
 
 #. GenericName
 #: Internet/gtelnet.desktop:3
@@ -1033,7 +1021,7 @@ msgstr ""
 #. Name
 #: Internet/mldonkey_gui.desktop:2
 msgid "MLDonkey GTK+ Core Controller"
-msgstr ""
+msgstr "MLDonkey GTK+ главен контролер"
 
 #. GenericName
 #: Internet/mldonkey_gui.desktop:3
@@ -1082,9 +1070,8 @@ msgstr ""
 
 #. Name
 #: Internet/xchat.desktop:2
-#, fuzzy
 msgid "XChat"
-msgstr "Разговор по IRC"
+msgstr ""
 
 #. GenericName
 #: Internet/xchat.desktop:3
@@ -1216,9 +1203,8 @@ msgstr "Обработка на звук"
 
 #. Name
 #: Multimedia/mplayer.desktop:2
-#, fuzzy
 msgid "MPlayer"
-msgstr "Плеър за MPEG"
+msgstr ""
 
 #. Name
 #: Multimedia/mtv.desktop:2
@@ -1237,9 +1223,8 @@ msgstr "DVD плеър"
 
 #. Name
 #: Multimedia/oqtplayer.desktop:2
-#, fuzzy
 msgid "OQTPlayer"
-msgstr "DVD плеър"
+msgstr ""
 
 #. GenericName
 #: Multimedia/oqtplayer.desktop:3
@@ -1248,9 +1233,8 @@ msgstr "Видео плеър за AVI"
 
 #. Name
 #: Multimedia/realplayer.desktop:2
-#, fuzzy
 msgid "RealPlayer"
-msgstr "Видео плеър"
+msgstr ""
 
 #. Name
 #: Multimedia/rezound.desktop:2
@@ -1299,8 +1283,9 @@ msgstr ""
 
 #. Name
 #: Multimedia/xmms-enqueue.desktop:2
+#, fuzzy
 msgid "Enqueue in XMMS"
-msgstr ""
+msgstr "Опашката на XMMS"
 
 #. GenericName
 #: Multimedia/xmms-enqueue.desktop:3
@@ -1359,9 +1344,8 @@ msgstr "Контакти"
 
 #. Name
 #: Office/GnomeTimeTracker.desktop:2
-#, fuzzy
 msgid "GNOME Time Tracker"
-msgstr "Игра GNOME Nibbles"
+msgstr "Отчитане на време за GNOME"
 
 #. Name
 #: Office/Gnumeric.desktop:2
@@ -1476,9 +1460,8 @@ msgstr "Календар"
 
 #. Name
 #: Office/pybliographic.desktop:2
-#, fuzzy
 msgid "Pybliographic"
-msgstr "Библиографични данни"
+msgstr ""
 
 #. GenericName
 #: Office/pybliographic.desktop:3
@@ -1563,7 +1546,7 @@ msgstr "Редактор на X ресурс"
 #. Name
 #: System/sam.desktop:2
 msgid "SAM System-Administration"
-msgstr ""
+msgstr "Системна администрация SAM"
 
 #. Name
 #: System/wine.desktop:2
@@ -1681,7 +1664,6 @@ msgstr "Убиване на програми"
 
 #. Name
 #: Utilities/XUtilities/Xrefresh.desktop:2
-#, fuzzy
 msgid "X Refresh"
 msgstr "Обновяване на екрана"
 
@@ -1712,9 +1694,8 @@ msgstr "Калкулатор"
 
 #. Name
 #: Utilities/XUtilities/xclipboard.desktop:2
-#, fuzzy
 msgid "X Clipboard"
-msgstr "Преглед на системния буфер"
+msgstr "Системния буфер на Х"
 
 #. GenericName
 #: Utilities/XUtilities/xclipboard.desktop:3
@@ -1723,9 +1704,8 @@ msgstr "Преглед на системния буфер"
 
 #. Name
 #: Utilities/XUtilities/xclock.desktop:2
-#, fuzzy
 msgid "X Clock"
-msgstr "Часовник"
+msgstr "Часовник на Х"
 
 #. GenericName
 #: Utilities/XUtilities/xclock.desktop:3 Utilities/oclock.desktop:3
@@ -1754,9 +1734,8 @@ msgstr "Мониторинг на системата"
 
 #. Name
 #: Utilities/XUtilities/xmag.desktop:2
-#, fuzzy
 msgid "X Magnifier"
-msgstr "Увеличаваща лупа"
+msgstr "Увеличаваща лупа на Х"
 
 #. GenericName
 #: Utilities/XUtilities/xmag.desktop:3
@@ -1785,9 +1764,8 @@ msgstr "Лични бележки"
 
 #. Name
 #: Utilities/oclock.desktop:2
-#, fuzzy
 msgid "OClock"
-msgstr "Часовник"
+msgstr ""
 
 #. Name
 #: Utilities/xgnokii.desktop:2

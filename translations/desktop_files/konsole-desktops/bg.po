@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-26 02:40+0200\n"
-"PO-Revision-Date: 2020-07-12 20:05+0000\n"
+"PO-Revision-Date: 2020-07-22 06:31+0000\n"
 "Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
 "Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/konsole-desktop-files/bg/>\n"
@@ -60,7 +60,7 @@ msgstr "Конзола - администратор"
 #. Name
 #: kwrited.desktop:2
 msgid "TDE Write Daemon"
-msgstr ""
+msgstr "Демон за писане на TDE"
 
 #. Comment
 #: kwrited.desktop:4
@@ -71,9 +71,8 @@ msgstr ""
 
 #. Name
 #: other/linux.desktop:3
-#, fuzzy
 msgid "Linux Console"
-msgstr "Нова Линукс конзола"
+msgstr "Линукс конзола"
 
 #. Comment
 #: other/linux.desktop:4
@@ -82,9 +81,8 @@ msgstr "Нова Линукс конзола"
 
 #. Name
 #: other/mc.desktop:3
-#, fuzzy
 msgid "Midnight Commander"
-msgstr "Нов Midnight Commander"
+msgstr "Midnight Commander"
 
 #. Comment
 #: other/mc.desktop:4
@@ -93,9 +91,8 @@ msgstr "Нов Midnight Commander"
 
 #. Name
 #: other/screen.desktop:3
-#, fuzzy
 msgid "Screen Session"
-msgstr "Нова сесия"
+msgstr "Сесия на екрана"
 
 #. Comment
 #: other/screen.desktop:4
@@ -106,9 +103,8 @@ msgstr "Нова сесия"
 #. Title0
 #: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
 #: other/5shells:6
-#, fuzzy
 msgid "Shell"
-msgstr "Нов Shell"
+msgstr "Команден интерпретатор"
 
 #. Comment
 #: other/shell.desktop:4
@@ -117,9 +113,8 @@ msgstr "Нов Shell"
 
 #. Name
 #: other/su.desktop.cmake:3
-#, fuzzy
 msgid "Root Shell"
-msgstr "Нов Root Shell"
+msgstr "Конзола на администратора"
 
 #. Comment
 #: other/su.desktop.cmake:4
@@ -128,9 +123,8 @@ msgstr "Нов Root Shell"
 
 #. Name
 #: other/sumc.desktop.cmake:3
-#, fuzzy
 msgid "Root Midnight Commander"
-msgstr "Нов Root Midnight Commander"
+msgstr "Midnight Commander на администратора"
 
 #. Comment
 #: other/sumc.desktop.cmake:4

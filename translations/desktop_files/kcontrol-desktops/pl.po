@@ -1,20 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Jan Stolarek <jwstolarek@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-23 00:37+0000\n"
+"Last-Translator: Jan Stolarek <jwstolarek@gmail.com>\n"
+"Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kcontrol-desktop-files/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -267,7 +269,7 @@ msgstr "Ustawienia ekranu"
 #. Name
 #: displayconfig/displayconfig.desktop:12
 msgid "Monitor & Display"
-msgstr ""
+msgstr "Monitor i wyświetlanie"
 
 #. Comment
 #: displayconfig/displayconfig.desktop:14
@@ -278,7 +280,7 @@ msgstr "Konfiguracja wykrywania usług"
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
 msgid "monitor;resolution;display;"
-msgstr ""
+msgstr "monitor;rozdzielczość;wyświetlanie;"
 
 #. Name
 #: dnssd/kcm_tdednssd.desktop:18
@@ -1323,22 +1325,22 @@ msgstr "Konfiguracja zachowania przeglądarki"
 #. Keywords
 #: hwmanager/hwmanager.desktop:15
 msgid "hardware;devices;manager;"
-msgstr ""
+msgstr "sprzęt;urządzenia;menadżer;"
 
 #. Comment
 #: iccconfig/iccconfig.desktop:14
 msgid "Configure display ICC color profile"
-msgstr ""
+msgstr "Konfiguruj profil kolorów ICC monitora"
 
 #. Keywords
 #: iccconfig/iccconfig.desktop:16
 msgid "ICC;display;color;profile;"
-msgstr ""
+msgstr "ICC;monitor;kolorów;profil;"
 
 #. Name
 #: iccconfig/iccconfig.desktop:18
 msgid "Color Profile"
-msgstr ""
+msgstr "Profil kolorów"
 
 #. Name
 #: icons/icons.desktop:12
@@ -1453,7 +1455,7 @@ msgstr ""
 #. Name
 #: info/opengl.desktop:13
 msgid "OpenGL"
-msgstr ""
+msgstr "OpenGL"
 
 #. Comment
 #: info/opengl.desktop:15
@@ -1487,7 +1489,7 @@ msgstr "partycje;twardy dysk;HD;informacja o systemie;"
 #. Name
 #: info/pci.desktop:12
 msgid "PCI"
-msgstr ""
+msgstr "PCI"
 
 #. Comment
 #: info/pci.desktop:14
@@ -1517,7 +1519,7 @@ msgstr "procesor;CPU;JAL;FPU;MHz;informacja o systemie;"
 #. Name
 #: info/scsi.desktop:12
 msgid "SCSI"
-msgstr ""
+msgstr "SCSI"
 
 #. Comment
 #: info/scsi.desktop:14
@@ -1585,7 +1587,7 @@ msgstr ""
 #. Name
 #: joystick/joystick.desktop:12
 msgid "Joystick"
-msgstr ""
+msgstr "Joystick"
 
 #. Comment
 #: joystick/joystick.desktop:14
@@ -2061,7 +2063,7 @@ msgstr ""
 #. Name
 #: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
 msgid "TDERandRTray"
-msgstr ""
+msgstr "TDERandRTray"
 
 #. GenericName
 #: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
@@ -2494,9 +2496,15 @@ msgstr "Konfiguracja TDE przy wielu monitorach"
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr "Xinerama;dwa monitory;wiele monitorów;monitor;"
 
+#~ msgid "tdehwdevicetray"
+#~ msgstr "tdehwdevicetray"
+
 #, fuzzy
 #~ msgid "Device Monitor"
 #~ msgstr "Wiele monitorów"
+
+#~ msgid "Monitor hardware devices from the system tray"
+#~ msgstr "Monitoruj urządzenia sprzętowe z poziomu tacki systemowej"
 
 #~ msgid "Foo"
 #~ msgstr "Coś"

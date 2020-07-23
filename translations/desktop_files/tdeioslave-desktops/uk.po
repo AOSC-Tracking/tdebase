@@ -1,20 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Roman Savochenko <roman@oscada.org>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"Last-Translator: Roman Savochenko <roman@oscada.org>\n"
+"Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/tdeioslave-desktop-files/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: cgi/kcmcgi/kcmcgi.desktop:9
@@ -38,14 +40,13 @@ msgstr "Сповіщувач домашньої базової адреси URL 
 
 #. Comment
 #: home/kdedmodule/homedirnotify.desktop:6
-#, fuzzy
 msgid "Provides change notification for user's home folder ($HOME)"
-msgstr "Сповіщення про зміну стану мережевих тек"
+msgstr "Надає сповіщення про зміни домашньої теки користувача ($HOME)"
 
 #. Name
 #: man/kmanpart.desktop:4
 msgid "KManPart"
-msgstr ""
+msgstr "KManPart"
 
 #. Comment
 #: man/kmanpart.desktop:6
@@ -310,19 +311,17 @@ msgstr "Демонтований розділ жорсткого диску"
 #. Comment
 #: media/mimetypes/mycomputer.desktop:6
 msgid "My Computer"
-msgstr ""
+msgstr "Мій Комп'ютер"
 
 #. Comment
 #: media/mimetypes/mydocuments.desktop:6
-#, fuzzy
 msgid "My Documents"
-msgstr "Тека документів"
+msgstr "Мої Документи"
 
 #. Comment
 #: media/mimetypes/mynetworkplaces.desktop:6
-#, fuzzy
 msgid "My Network Places"
-msgstr "Віддалені місця"
+msgstr "Мої Віддалені Місця"
 
 #. Comment
 #: media/mimetypes/nfs_mounted.desktop:6
@@ -337,7 +336,7 @@ msgstr "Демонтований ресурс NFS"
 #. Comment
 #: media/mimetypes/printers.desktop:6
 msgid "Printers"
-msgstr ""
+msgstr "Принтери"
 
 #. Comment
 #: media/mimetypes/removable_mounted.desktop:6
@@ -396,7 +395,7 @@ msgstr "Відео КД"
 #. Comment
 #: media/mimetypes/webbrowser.desktop:6
 msgid "Web Browser"
-msgstr ""
+msgstr "Переглядач Павутини"
 
 #. Comment
 #: media/mimetypes/zip_mounted.desktop:6
@@ -516,11 +515,10 @@ msgstr "Сповіщувач про системну основну адресу
 
 #. Comment
 #: system/kdedmodule/systemdirnotify.desktop:6
-#, fuzzy
 msgid ""
 "Provides change notification for folders monitored by the system:/ tdeio "
 "plugin"
-msgstr "Сповіщення про зміну стану мережевих тек"
+msgstr "Надає сповіщення про зміну тек відстежуваних втулком tdeio system:/"
 
 #. Comment
 #: system/mimetypes/system_directory.desktop:6
@@ -593,22 +591,53 @@ msgstr "Підлеглий В/В для sftp"
 msgid "Original Path,Deletion Date"
 msgstr "Шлях,Дата вилучення"
 
-#, fuzzy
+#~ msgid "Encrypted Locked BLURAY"
+#~ msgstr "Кодований Блокований BLURAY"
+
+#~ msgid "Encrypted Unlocked BLURAY"
+#~ msgstr "Кодований Деблокований BLURAY"
+
+#~ msgid "Encrypted Locked CD-R"
+#~ msgstr "Кодований Блокований CD-R"
+
+#~ msgid "Encrypted Unlocked CD-R"
+#~ msgstr "Кодований Деблокований CD-R"
+
+#~ msgid "Encrypted Locked CD-RW"
+#~ msgstr "Кодований Блокований CD-RW"
+
+#~ msgid "Encrypted Unlocked CD-RW"
+#~ msgstr "Кодований Деблокований CD-RW"
+
+#~ msgid "Encrypted Locked CD-ROM"
+#~ msgstr "Кодований Блокований CD-ROM"
+
+#~ msgid "Encrypted Unlocked CD-ROM"
+#~ msgstr "Кодований Деблокований CD-ROM"
+
+#~ msgid "Encrypted Locked DVD"
+#~ msgstr "Кодований Блокований DVD"
+
+#~ msgid "Encrypted Unlocked DVD"
+#~ msgstr "Кодований Деблокований DVD"
+
 #~ msgid "Encrypted Locked Hard Disk Volume"
-#~ msgstr "Змонтований розділ жорсткого диску"
+#~ msgstr "Кодований Блокований Розділ Жорсткого Диску"
 
-#, fuzzy
 #~ msgid "Encrypted Unlocked Hard Disk Volume"
-#~ msgstr "Демонтований розділ жорсткого диску"
+#~ msgstr "Кодований Деблокований Розділ Жорсткого Диску"
 
-#, fuzzy
 #~ msgid "Encrypted Locked Removable Medium"
-#~ msgstr "Змонтований переносний носій"
+#~ msgstr "Кодований Блокований Переносний Носій"
 
-#, fuzzy
 #~ msgid "Encrypted Unlocked Removable Medium"
-#~ msgstr "Демонтований переносний носій"
+#~ msgstr "Кодований Деблокований Переносний Носій"
 
-#, fuzzy
+#~ msgid "Unlock"
+#~ msgstr "Деблокувати"
+
 #~ msgid "Trash Properties"
-#~ msgstr "Сторінка властивостей носіїв інформації"
+#~ msgstr "Властивості Смітника"
+
+#~ msgid "trash;properties;size;limits;delete"
+#~ msgstr "смітник;властивості;розмір;обмеження;видалити"

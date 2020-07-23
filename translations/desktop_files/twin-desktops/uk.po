@@ -1,20 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Roman Savochenko <roman@oscada.org>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:32+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"Last-Translator: Roman Savochenko <roman@oscada.org>\n"
+"Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/twin-desktop-files/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: kcmtwin/showdesktop.desktop:4
@@ -101,7 +103,7 @@ msgstr ""
 #. Name
 #: kcmtwin/twinoptions/twinmoving.desktop:11
 msgid "Moving"
-msgstr ""
+msgstr "Переміщення"
 
 #. Comment
 #: kcmtwin/twinoptions/twinmoving.desktop:13
@@ -170,24 +172,24 @@ msgstr ""
 #. Description
 #: data/fsp_workarounds_1.twinrules:2
 msgid "(Default) Disable focus stealing prevention for XV"
-msgstr ""
+msgstr "(Типово) Вимкнення запобігання втрати фокусу для XV"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:10
 msgid "(Default) Allow focus stealing by the screen locker"
-msgstr ""
+msgstr "(Типово) Дозволяти викрадення фокусу блокувальником екрану"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:21
 msgid "(Default) Allow focus stealing by the kdesktop run dialog"
-msgstr ""
+msgstr "(Типово) Дозволяти викрадення фокусу діалогом запуску kdesktop"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:32
 msgid "(Default) Allow focus stealing by the settings test dialog"
-msgstr ""
+msgstr "(Типово) Дозволяти викрадення фокусу діалогом тестування налаштувань"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:45
 msgid "(Default) Hide system modal dialog class from taskbar"
-msgstr ""
+msgstr "(Типово) Ховати модальні діалоги системного класу на панелі завдань"

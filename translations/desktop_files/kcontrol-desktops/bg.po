@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-22 06:31+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kcontrol-desktop-files/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -149,7 +150,7 @@ msgstr "Стандартни програми"
 #. Comment
 #: componentchooser/componentchooser.desktop:12
 msgid "Choose the default components for various services"
-msgstr "Избор на предпочитани компоненти за е-поща, редактиране на текст и др."
+msgstr "Избор на предпочитани компоненти за различни услуги"
 
 #. Keywords
 #: componentchooser/componentchooser.desktop:14
@@ -185,14 +186,14 @@ msgstr "Файлов браузър"
 
 #. Comment
 #: componentchooser/componentservices/kcm_filemanager.desktop:3
-#, fuzzy
 msgid ""
 "This service allows you to configure your default file manager. All TDE "
 "applications which invoke a file manager application should honor this "
 "setting."
 msgstr ""
-"Избор на предпочитана конзолна програма. Всички програми на TDE ще ползват "
-"този компонент."
+"Услугата позволява да се настрои управлението на файлове по подразбиране. "
+"Всички програми на TDE, които стартират управлението на файлове, ще ползват "
+"тези настройки."
 
 #. Name
 #: componentchooser/componentservices/kcm_kemail.desktop:1
@@ -274,18 +275,17 @@ msgstr "Настройване на екрана"
 #. Name
 #: displayconfig/displayconfig.desktop:12
 msgid "Monitor & Display"
-msgstr ""
+msgstr "Монитор и екран"
 
 #. Comment
 #: displayconfig/displayconfig.desktop:14
-#, fuzzy
 msgid "Configure display"
-msgstr "Настройване откриването на услуги"
+msgstr "Настройване на еркана"
 
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
 msgid "monitor;resolution;display;"
-msgstr ""
+msgstr "монитор;резолюция;екран;"
 
 #. Name
 #: dnssd/kcm_tdednssd.desktop:18
@@ -320,68 +320,69 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
 msgid "InternetKeywordsFilter"
-msgstr ""
+msgstr "InternetKeywordsFilter"
 
 #. Name
 #: ebrowsing/plugins/ikws/kurisearchfilter.desktop:3
 msgid "SearchKeywordsFilter"
-msgstr ""
+msgstr "SearchKeywordsFilter"
 
 #. Comment
 #: ebrowsing/plugins/ikws/searchprovider.desktop:4
 msgid "Search Engine"
-msgstr ""
+msgstr "Търсачка"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
 msgid "Acronym Database"
-msgstr ""
+msgstr "База данни за акроними"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
 msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
-msgstr ""
+msgstr "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
 msgid "Alexa"
-msgstr ""
+msgstr "Алекса"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
 msgid "http://info.alexa.com/search?q=\\{@}"
-msgstr ""
+msgstr "http://info.alexa.com/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
 msgid "Alexa URL"
-msgstr ""
+msgstr "Адрес на Алекса"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
 msgid "http://info.alexa.com/data/details?url=\\{@}"
-msgstr ""
+msgstr "http://info.alexa.com/data/details?url=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
 msgid "AllTheWeb fast"
-msgstr ""
+msgstr "AllTheWeb бързо"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:6
 msgid ""
 "http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
 msgstr ""
+"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:3
 msgid "AltaVista"
-msgstr ""
+msgstr "AltaVista"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:6
 msgid "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
-msgstr ""
+msgstr "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
@@ -396,7 +397,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:3
 msgid "KDE App Search"
-msgstr ""
+msgstr "Търсене на TDE програми"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:6
@@ -416,7 +417,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
 msgid "Debian Backports Search"
-msgstr ""
+msgstr "Търсене в Debian Backports"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
@@ -426,7 +427,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
 msgid "KDE Bug Database Fulltext Search"
-msgstr ""
+msgstr "Търсене в KDE Bug Database"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:4
@@ -438,7 +439,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
 msgid "TDE Bug Database Bug Number Search"
-msgstr ""
+msgstr "Търсене в TDE Bug Database"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:4
@@ -471,7 +472,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
 msgid "CiteSeer: Scientific Literature Digital Library"
-msgstr ""
+msgstr "CiteSeer: Библиотека за научна литература"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
@@ -515,7 +516,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
 msgid "Debian BTS Bug Search"
-msgstr ""
+msgstr "Търсене в Debian BTS"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:4
@@ -547,7 +548,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/deb.desktop:3
 msgid "Debian Package Search"
-msgstr ""
+msgstr "Търсене в Debian Package"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/deb.desktop:4
@@ -1336,7 +1337,7 @@ msgstr ""
 #. Name
 #: iccconfig/iccconfig.desktop:18
 msgid "Color Profile"
-msgstr ""
+msgstr "Профил за цветове"
 
 #. Name
 #: icons/icons.desktop:12
@@ -1346,7 +1347,7 @@ msgstr "Икони"
 #. Comment
 #: icons/icons.desktop:14
 msgid "Customize TDE Icons"
-msgstr "Настройване и избор на тема с икони"
+msgstr "Настройване на икони на TDE"
 
 #. Keywords
 #: icons/icons.desktop:16
@@ -1911,22 +1912,18 @@ msgstr ""
 
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
-#, fuzzy
 msgid "User Interface"
-msgstr "Мрежа"
+msgstr "Потребителски интерфейс"
 
 #. Comment
 #: konqhtml/tdehtml_userinterface.desktop:13
-#, fuzzy
 msgid "Configure user interface options"
-msgstr "Настройване на временната памет"
+msgstr "Настройване на потребителския интерфейс"
 
 #. Keywords
 #: konqhtml/tdehtml_userinterface.desktop:15
-#, fuzzy
 msgid "konqueror;kfm;user;interface;tabbed;browsing;"
-msgstr ""
-"предварително; зареждане; използване; повторно; konqueror; reuse; preloading;"
+msgstr "konqueror;kfm;потребител;интерфейс;tabbed;browsing;"
 
 #. Name
 #: konsole/kcmkonsole.desktop:10
@@ -2005,7 +2002,7 @@ msgstr "Държава и език"
 #. Comment
 #: locale/language.desktop:14
 msgid "Language, numeric, and time settings for your particular region"
-msgstr "Настройване на държавата, езика, формата на датата и часа и др."
+msgstr "Настройване на държавата, езика, формата на датата и часа"
 
 #. Keywords
 #: locale/language.desktop:16
@@ -2270,9 +2267,8 @@ msgstr "Файлове с шрифтове"
 
 #. Name
 #: tdefontinst/viewpart/tdefontview.desktop:2
-#, fuzzy
 msgid "TDEFontView"
-msgstr "Преглед на шрифтове"
+msgstr "TDEFontView"
 
 #. GenericName
 #. Name
@@ -2448,9 +2444,8 @@ msgstr "UADescription (Netscape 7.1 на XP)"
 
 #. Name
 #: tdeio/uasproviders/op75oncurrent.desktop:2
-#, fuzzy
 msgid "UADescription (Opera 7.55 on current)"
-msgstr "UADescription (Netscape 7.1 на текущата система)"
+msgstr "UADescription (Opera 7.55 на текущата система)"
 
 #. Name
 #: tdeio/uasproviders/w3moncurrent.desktop:2
@@ -2551,6 +2546,5 @@ msgstr ""
 "много; монитори; монитор; екран; дисплей; Xinerama; dual head; multihead; "
 "monitor;"
 
-#, fuzzy
 #~ msgid "Device Monitor"
-#~ msgstr "Управление на устройства"
+#~ msgstr "Наблюдение на устройства"

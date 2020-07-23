@@ -1,57 +1,58 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Emanoil Kotsev <deloptes@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-07-22 06:31+0000\n"
+"Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
+"Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/tdm-sessions/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: tde.desktop.cmake:7
 msgid "TDE"
-msgstr ""
+msgstr "TDE"
 
 #. Comment
 #: tde.desktop.cmake:8
 msgid ""
 "The Trinity Desktop Environment. A powerful Open Source graphical desktop "
 "environment"
-msgstr ""
+msgstr "Trinity Desktop Environment - мощна графична работна среда"
 
 #. Name
 #: 9wm.desktop:6
 msgid "9WM"
-msgstr ""
+msgstr "9WM"
 
 #. Comment
 #: 9wm.desktop:8
 msgid "An emulation of the Plan 9 window manager 8-1/2"
-msgstr ""
+msgstr "Емулация на управлението на прозорци 8-1/2 от Plan 9"
 
 #. Name
 #: admin.desktop:7
 msgid "admin"
-msgstr ""
+msgstr "admin"
 
 #. Comment
 #: admin.desktop:9
 msgid "Yast Admin Session"
-msgstr ""
+msgstr "Сесия за администрация Yast"
 
 #. Name
 #: aewm++.desktop:6
 msgid "AEWM++"
-msgstr ""
+msgstr "AEWM++"
 
 #. Comment
 #: aewm++.desktop:8
@@ -59,63 +60,63 @@ msgid ""
 "A minimal window manager based on AEWM, enhanced by virtual desktops and "
 "partial GNOME support"
 msgstr ""
+"Минимално управление на прозорци на основа AEWM, разширено с виртуални "
+"работни плотове и частична поддръжка на GNOME"
 
 #. Name
 #: aewm.desktop:6
 msgid "AEWM"
-msgstr ""
+msgstr "AEWM"
 
 #. Comment
 #: aewm.desktop:8
-#, fuzzy
 msgid "A minimalist window manager"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "Бързо и леко управление на прозорци"
 
 #. Name
 #: afterstep.desktop:6
 msgid "AfterStep"
-msgstr ""
+msgstr "AfterStep"
 
 #. Comment
 #: afterstep.desktop:8
 msgid "A window manager with the NeXTStep look and feel, based on FVWM"
-msgstr ""
+msgstr "Управление на прозорци с изгледа на NeXTStep на основа FVWM"
 
 #. Name
 #: amaterus.desktop:6
 msgid "AMATERUS"
-msgstr ""
+msgstr "AMATERUS"
 
 #. Comment
 #: amaterus.desktop:8
 msgid "A GTK+ based window manager with a window grouping feature"
-msgstr ""
+msgstr "GTK+ управление на прозорци с функция групиране на прозорци"
 
 #. Name
 #: amiwm.desktop:6
 msgid "AmiWM"
-msgstr ""
+msgstr "AmiWM"
 
 #. Comment
 #: amiwm.desktop:8
-#, fuzzy
 msgid "The Amiga look-alike window manager"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "Управление на прозорци с изглед на Amiga"
 
 #. Name
 #: asclassic.desktop:6
 msgid "ASClassic"
-msgstr ""
+msgstr "ASClassic"
 
 #. Comment
 #: asclassic.desktop:8
 msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
-msgstr ""
+msgstr "AfterStep Classic - управление на прозорци на основа AfterStep v1.1"
 
 #. Name
 #: blackbox.desktop:6
 msgid "Blackbox"
-msgstr ""
+msgstr "Blackbox"
 
 #. Comment
 #: blackbox.desktop:8
@@ -125,19 +126,19 @@ msgstr "Бърз и лек мениджър на прозорци"
 #. Name
 #: cde.desktop:6
 msgid "CDE"
-msgstr ""
+msgstr "CDE"
 
 #. Comment
 #: cde.desktop:8
 msgid ""
 "The Common Desktop Environment, a proprietary industry standard desktop "
 "environment"
-msgstr ""
+msgstr "Common Desktop Environment - платена индустриална работна среда"
 
 #. Name
 #: ctwm.desktop:6
 msgid "CTWM"
-msgstr ""
+msgstr "CTWM"
 
 #. Comment
 #: ctwm.desktop:8
@@ -147,83 +148,86 @@ msgstr "Claude\"s Tab Window Manager, TWM enhanced by virtual screens, etc."
 #. Name
 #: cwwm.desktop:6
 msgid "CWWM"
-msgstr ""
+msgstr "CWWM"
 
 #. Comment
 #: cwwm.desktop:8
 msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
-msgstr ""
+msgstr "Управлението на прозорци ChezWam е минималистично и основано на EvilWM"
 
 #. Name
 #: enlightenment.desktop:6
 msgid "Enlightenment"
-msgstr ""
+msgstr "Enlightenment"
 
 #. Comment
 #: enlightenment.desktop:8
 msgid "An extremely themable very feature-rich window manager"
-msgstr ""
+msgstr "Управление на прозорци с много теми и функции"
 
 #. Name
 #: evilwm.desktop:6
 msgid "EvilWM"
-msgstr ""
+msgstr "EvilWM"
 
 #. Comment
 #: evilwm.desktop:8
-#, fuzzy
 msgid "A minimalist window manager based on AEWM"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "Минималистично управление на прозорци на основа AEWM"
 
 #. Name
 #: fluxbox.desktop:6
 msgid "Fluxbox"
-msgstr ""
+msgstr "Fluxbox"
 
 #. Comment
 #: fluxbox.desktop:8
 msgid "A highly configurable and low resource window manager based on Blackbox"
 msgstr ""
+"Управление на прозорци на основа Blackbox с много възможности за "
+"конфигурация и консумация на малко ресурси"
 
 #. Name
 #: flwm.desktop:6
 msgid "FLWM"
-msgstr ""
+msgstr "FLWM"
 
 #. Comment
 #: flwm.desktop:8
 msgid "The Fast Light Window Manager, based primarily on WM2"
-msgstr ""
+msgstr "Управлението на прозорци Fast Light е основано на WM2"
 
 #. Name
 #: fvwm.desktop:6
 msgid "FVWM"
-msgstr ""
+msgstr "FVWM"
 
 #. Comment
 #: fvwm.desktop:8 fvwm2.desktop:8
 msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
 msgstr ""
+"Мощно управление на прозорци си виртуални работни плотове и съвместимо с "
+"ICCCM"
 
 #. Name
 #: fvwm2.desktop:6
 msgid "FVWM2"
-msgstr ""
+msgstr "FVWM2"
 
 #. Name
 #: fvwm95.desktop:6
 msgid "FVWM95"
-msgstr ""
+msgstr "FVWM95"
 
 #. Comment
 #: fvwm95.desktop:8
 msgid "A Windows 95 look-alike derivative of FVWM"
-msgstr ""
+msgstr "Дериват на FVWM, който симулира външния вид на Windows 95"
 
 #. Name
 #: gnome.desktop:6
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #. Comment
 #: gnome.desktop:8
@@ -231,49 +235,50 @@ msgid ""
 "The GNU Network Object Model Environment. A complete, free and easy-to-use "
 "desktop environment"
 msgstr ""
+"GNU Network Object Model Environment - пълна и лесна за употреба работна "
+"среда"
 
 #. Name
 #: golem.desktop:6
 msgid "Golem"
-msgstr ""
+msgstr "Golem"
 
 #. Comment
 #: golem.desktop:8
-#, fuzzy
 msgid "A lightweight window manager"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "Бързо и леко управление на прозорци"
 
 #. Name
 #: icewm.desktop:6
 msgid "IceWM"
-msgstr ""
+msgstr "IceWM"
 
 #. Comment
 #: icewm.desktop:8
 msgid "A Windows 95-OS/2-Motif-like window manager"
-msgstr ""
+msgstr "Управление на прозорци като Windows 95-OS/2-Motif"
 
 #. Name
 #: ion.desktop:6
 msgid "Ion"
-msgstr ""
+msgstr "Ion"
 
 #. Comment
 #: ion.desktop:8
 msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
 msgstr ""
+"Управление на прозорци основано на PWM с удобна клавиатура и мозаични "
+"прозорци"
 
 #. Name
 #: kde-plasma-safe.desktop:7
-#, fuzzy
 msgid "KDE Plasma Workspace (failsafe session)"
-msgstr "Работно пространство Plasma на KDE"
+msgstr "Работно пространство Plasma на KDE (failsafe)"
 
 #. Comment
 #: kde-plasma-safe.desktop:9
-#, fuzzy
 msgid "The desktop made by KDE (failsafe session)"
-msgstr "Настолна среда KDE"
+msgstr "Настолна среда KDE (failsafe)"
 
 #. Name
 #: kde-plasma.desktop:7
@@ -288,59 +293,58 @@ msgstr "Настолна среда KDE"
 #. Name
 #: larswm.desktop:6
 msgid "LarsWM"
-msgstr ""
+msgstr "LarsWM"
 
 #. Comment
 #: larswm.desktop:8
 msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
 msgstr ""
+"Управление на прозорци Lars основано на 9WM и поддръжка на мозаични прозорци"
 
 #. Name
 #: lwm.desktop:6
 msgid "LWM"
-msgstr ""
+msgstr "LWM"
 
 #. Comment
 #: lwm.desktop:8
 msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
-msgstr ""
+msgstr "Lightweight - просто управление на прозорци без конфигурация"
 
 #. Name
 #: matchbox.desktop:6
 msgid "Matchbox"
-msgstr ""
+msgstr "Matchbox"
 
 #. Comment
 #: matchbox.desktop:8
 msgid "A window manager for handheld devices"
-msgstr ""
+msgstr "Управление на прозорци за преносими устройства"
 
 #. Name
 #: metacity.desktop:6
 msgid "Metacity"
-msgstr ""
+msgstr "Metacity"
 
 #. Comment
 #: metacity.desktop:8
-#, fuzzy
 msgid "A lightweight GTK2 based window manager"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "Бързо и леко управление на прозорци основано на GTK2"
 
 #. Name
 #: mwm.desktop:6
 msgid "MWM"
-msgstr ""
+msgstr "MWM"
 
 #. Comment
 #: mwm.desktop:8
-#, fuzzy
 msgid "The Motif Window Manager"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "управление на прозорци Motif"
 
 #. Name
 #: olvwm.desktop:6
 msgid "OLVWM"
-msgstr ""
+msgstr "OLVWM"
 
 #. Comment
 #: olvwm.desktop:8
@@ -348,182 +352,184 @@ msgid ""
 "The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
 "desktops"
 msgstr ""
+"OpenLook виртуалено управление на прозорци е предназначен за виртуални "
+"работни плотове"
 
 #. Name
 #: olwm.desktop:6
 msgid "OLWM"
-msgstr ""
+msgstr "OLWM"
 
 #. Comment
 #: olwm.desktop:8
 msgid "The traditional Open Look Window Manager"
-msgstr ""
+msgstr "Традиционно управление на прозорци Open Look"
 
 #. Name
 #: openbox.desktop:6
 msgid "Openbox"
-msgstr ""
+msgstr "Openbox"
 
 #. Comment
 #: openbox.desktop:8
 msgid "A lightweight window manager based on Blackbox"
-msgstr ""
+msgstr "Леко управление на прозорци основано на Blackbox"
 
 #. Name
 #: oroborus.desktop:6
 msgid "Oroborus"
-msgstr ""
+msgstr "Oroborus"
 
 #. Comment
 #: oroborus.desktop:8
-#, fuzzy
 msgid "A lightweight themeable window manager"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "Бързо и леко управление на прозорци"
 
 #. Name
 #: phluid.desktop:6
 msgid "Phluid"
-msgstr ""
+msgstr "Phluid"
 
 #. Comment
 #: phluid.desktop:8
-#, fuzzy
 msgid "An Imlib2 based window manager"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "Управление на прозорци основано на Imlib2"
 
 #. Name
 #: pwm.desktop:6
 msgid "PWM"
-msgstr ""
+msgstr "PWM"
 
 #. Comment
 #: pwm.desktop:8
 msgid ""
 "A lightweight window manager able to attach multiple windows to one frame"
 msgstr ""
+"Леко управление на прозорци с възможност на вмъкване на няколко прозореца в "
+"една рамка"
 
 #. Name
 #: qvwm.desktop:6
 msgid "QVWM"
-msgstr ""
+msgstr "QVWM"
 
 #. Comment
 #: qvwm.desktop:8
-#, fuzzy
 msgid "A Windows 95 like window manager"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "Управление на прозорци подобно на Windows 95"
 
 #. Name
 #: ratpoison.desktop:6
 msgid "Ratpoison"
-msgstr ""
+msgstr "Отрова за мишки - Ratpoison"
 
 #. Comment
 #: ratpoison.desktop:8
 msgid "A simple keyboard-only window manager modeled after Screen"
-msgstr ""
+msgstr "Просто управление на прозорци само с клавиатура основано на Screen"
 
 #. Name
 #: sapphire.desktop:6
 msgid "Sapphire"
-msgstr ""
+msgstr "Sapphire"
 
 #. Comment
 #: sapphire.desktop:8
-#, fuzzy
 msgid "A minimal but configurable window manager"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "Минималистично управление на прозорци с възможност за конфигурация"
 
 #. Name
 #: sawfish.desktop:6
 msgid "Sawfish"
-msgstr ""
+msgstr "Sawfish"
 
 #. Comment
 #: sawfish.desktop:8
 msgid ""
 "An extensible window manager scriptable with an Emacs Lisp-like language"
 msgstr ""
+"Гъвкаво управление на прозорци, което може да се разширява с език подобен на "
+"Emacs Lisp"
 
 #. Name
 #: twm.desktop:6
 msgid "TWM"
-msgstr ""
+msgstr "TWM"
 
 #. Comment
 #: twm.desktop:8
 msgid "The Tab Window Manager"
-msgstr ""
+msgstr "Управление на прозорци Tab"
 
 #. Name
 #: ude.desktop:6
 msgid "UDE"
-msgstr ""
+msgstr "UDE"
 
 #. Comment
 #: ude.desktop:8
 msgid "The UNIX Desktop Environment"
-msgstr ""
+msgstr "Работната среда UNIX"
 
 #. Name
 #: vtwm.desktop:6
 msgid "VTWM"
-msgstr ""
+msgstr "VTWM"
 
 #. Comment
 #: vtwm.desktop:8
-#, fuzzy
 msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
-msgstr "Claude\"s Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr ""
+"Управление на прозорци Virtual Tab - разширен TWM с виртуални прозорци и др."
 
 #. Name
 #: w9wm.desktop:6
 msgid "W9WM"
-msgstr ""
+msgstr "W9WM"
 
 #. Comment
 #: w9wm.desktop:8
-#, fuzzy
 msgid ""
 "A window manager based on 9WM, enhanced by virtual screens and keyboard "
 "bindings"
-msgstr "Claude\"s Tab Window Manager, TWM enhanced by virtual screens, etc."
+msgstr ""
+"Управление на прозорци основано на 9WM и разширено с виртуални екрани и "
+"бързи клавиши"
 
 #. Name
 #: waimea.desktop:6
 msgid "Waimea"
-msgstr ""
+msgstr "Waimea"
 
 #. Comment
 #: waimea.desktop:8
 msgid "A highly customizable window manager based on Blackbox"
-msgstr ""
+msgstr "Много гъвкаво управление на прозорци основано на Blackbox"
 
 #. Name
 #: wm2.desktop:6
 msgid "WM2"
-msgstr ""
+msgstr "WM2"
 
 #. Comment
 #: wm2.desktop:8
-#, fuzzy
 msgid "A small, non-configurable window manager"
-msgstr "Бърз и лек мениджър на прозорци"
+msgstr "Малко управление на прозорци без възможност за конфигурация"
 
 #. Name
 #: wmaker.desktop:6
 msgid "WindowMaker"
-msgstr ""
+msgstr "WindowMaker"
 
 #. Comment
 #: wmaker.desktop:8
 msgid "A simple window manager that resembles the NeXTStep look very closely"
-msgstr ""
+msgstr "Обикновено управление на прозорците което наподобява много NeXTStep"
 
 #. Name
 #: xfce.desktop:6
 msgid "XFce"
-msgstr ""
+msgstr "XFce"
 
 #. Comment
 #: xfce.desktop:8
@@ -531,15 +537,17 @@ msgid ""
 "The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
 "of CDE"
 msgstr ""
+"Cholesterol Free Desktop Environment - управление на прозорци произлязло от "
+"CDE"
 
 #. Name
 #: xfce4.desktop:6
 msgid "XFce 4"
-msgstr ""
+msgstr "XFce 4"
 
 #. Comment
 #: xfce4.desktop:8
 msgid ""
 "The Cholesterol Free Desktop Environment, version 4. A desktop environment "
 "reminiscent of CDE"
-msgstr ""
+msgstr "Cholesterol Free Desktop Environment версия 4 - напомнящо CDE"
