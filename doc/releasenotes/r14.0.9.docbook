@@ -10,15 +10,30 @@ of both major new features and major codebase re-factoring.</para>
 <sect2 id="release-notes-r14.0.9-notes">
 <title>Important fixes</title>
 
-<para>This section highlights some of the most important fixes introduced by this
+<para>This section highlights some of the most important changes introduced by this
 release.</para>
 
 <itemizedlist>
+<listitem>
+  <para>New applications</para>
+  <itemizedlist>
+  <listitem><para>Domino TDE style - a smooth style with a soft look.</para></listitem>
+  <listitem><para>KEximDB plugin for converting MS Access MDB databases.</para></listitem>
+  <listitem><para>KoolDock - a cool application launcher.</para></listitem>
+  <listitem><para>KXMLEditor - an editor for XML files.</para></listitem>
+  <listitem><para>TastyMenu - an alternative TDE menu.</para></listitem>
+  <listitem><para>Transcode added to dependency repository for Debian-like distros.</para></listitem>
+  <listitem><para></para></listitem>
+  </itemizedlist>
+</listitem>
 <listitem>
   <para>Bug fixes</para>
   <itemizedlist>
   <listitem><para>Fixed problem with assignment of keyboard shortcuts in recent distros.</para></listitem>
   <listitem><para>Various fixes to KMix, this will partially help when PulseAudio is installed.</para></listitem>
+  <listitem><para>Autostart TCC module no longer crashes when non-service entries are used.</para></listitem>
+  <listitem><para>Fixed Konqueror's kdiff3 preview plugin functionality.</para></listitem>
+  <listitem><para>Various fixes related to compiling and linking.</para></listitem>
   <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
@@ -32,8 +47,8 @@ release.</para>
   <listitem><para>TDE's QtCurve style updated to upstream version 1.8.5.</para></listitem>
   <listitem><para>Added brightness control in kmilo generic monitor.</para></listitem>
   <listitem><para>Improved support for bluray discs.</para></listitem>
+  <listitem><para>Added support for xine 1.2.10.</para></listitem>
   <listitem><para></para></listitem>
-
   </itemizedlist>
 </listitem>
 <listitem>
@@ -42,6 +57,13 @@ release.</para>
   <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
+</itemizedlist>
+
+<para>The full list of changes is available at these links:</para>
+<itemizedlist>
+  <listitem><para><ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/29">TGW issue list.</ulink></para></listitem>
+  <listitem><para><ulink url="https://bugs.trinitydesktop.org/showdependencytree.cgi?id=3085&amp;hide_resolved=0">Bugzilla bug list.</ulink></para></listitem>
+  <listitem><para><ulink url="https://wiki.trinitydesktop.org/Changelog_For_R14.0.9">Detailed commit change log.</ulink></para></listitem>
 </itemizedlist>
 </sect2>
 
