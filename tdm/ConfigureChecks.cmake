@@ -128,3 +128,81 @@ elseif( WITH_SHADOW )
   set( USESHADOW 1 CACHE INTERNAL "" FORCE )
 
 endif( )
+
+
+# If a tdm.service file is wanted, find systemd, then work out which
+# distribution is running, select an appropriate template and create the file.
+# When it is not possible to identify the distribution or there is no specific
+# template is available, use the default of 'tde.service.cmake'. The template
+# can also be set from the command line.
+
+if( BUILD_TDM_SYSTEMD_UNIT_FILE )
+
+  if( NOT SYSTEMDSYSTEMUNITDIR )
+    pkg_search_module( SYSTEMD systemd )
+    if( SYSTEMD_FOUND )
+      execute_process(
+        COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=systemdsystemunitdir systemd
+        OUTPUT_VARIABLE SYSTEMDSYSTEMUNITDIR
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+      )
+    endif( )
+  endif( )
+
+  if( "${SYSTEMDSYSTEMUNITDIR}" STREQUAL "" )
+    set( SYSTEMDSYSTEMUNITDIR "/usr/lib/systemd/system" )
+  endif( )
+
+  if( NOT TDM_SERVICE_FILE_TEMPLATE )
+
+    find_program( LSB_RELEASE lsb_release HINTS ENV PATH )
+    unset( _DIST_ID_LIST )
+
+    if( EXISTS "/etc/os-release" )
+
+      file( READ "/etc/os-release" _OS_RELEASE )
+
+      if( "\n${_OS_RELEASE}" MATCHES "\nID=\"*([^\"\n]*)" )
+        set( _DISTRIBUTION "${CMAKE_MATCH_1}" )
+      endif( )
+      if( "\n${_OS_RELEASE}" MATCHES "\nVERSION_ID=\"*([^\\.\"\n]*)" )
+        set( _DIST_VERSION "${CMAKE_MATCH_1}" )
+      endif( )
+      if( "\n${_OS_RELEASE}" MATCHES "\nID_LIKE=\"*([^\\.\"\n]*)" )
+        string( REGEX REPLACE " " ";" _DIST_ID_LIST "${CMAKE_MATCH_1}" )
+      endif( )
+
+      if( _DISTRIBUTION )
+        message( STATUS "Running ${_DISTRIBUTION} distribution, version ${_DIST_VERSION}" )
+        string( TOLOWER "${_DISTRIBUTION}" _DISTRIBUTION )
+        list( INSERT _DIST_ID_LIST 0 "${_DISTRIBUTION}" )
+      endif( )
+
+      foreach( _DIST_ID IN LISTS _DIST_ID_LIST )
+        if( NOT TDM_SERVICE_FILE_TEMPLATE )
+          if( _DIST_VERSION AND
+              EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tdm.service.${_DIST_ID}-${_DIST_VERSION}.cmake" )
+            set( TDM_SERVICE_FILE_TEMPLATE "tdm.service.${_DIST_ID}-${_DIST_VERSION}.cmake" )
+          elseif( EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tdm.service.${_DIST_ID}.cmake" )
+            set( TDM_SERVICE_FILE_TEMPLATE "tdm.service.${_DIST_ID}.cmake" )
+          endif( )
+        endif( )
+      endforeach( )
+
+    else( )
+
+      message(STATUS "**WARNING** /etc/os-release was not found. The default template for tdm.service will be used.")
+
+    endif( )
+
+    if( NOT TDM_SERVICE_FILE_TEMPLATE )
+      set( TDM_SERVICE_FILE_TEMPLATE "tdm.service.cmake" )
+    endif( )
+
+    message( STATUS "tdm.service template file is ${TDM_SERVICE_FILE_TEMPLATE}" )
+
+    configure_file( "${TDM_SERVICE_FILE_TEMPLATE}" tdm.service @ONLY )
+
+  endif( )
+
+endif( )
