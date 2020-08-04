@@ -21,3 +21,9 @@ include( ConfigureChecks.cmake )
 
 add_subdirectory( backend )
 add_subdirectory( kfrontend )
+
+# systemd
+if( BUILD_TDM_SYSTEMD_UNIT_FILE AND NOT "${SYSTEMDSYSTEMUNITDIR}" STREQUAL "" )
+  configure_file( "${TDM_SERVICE_FILE_TEMPLATE}" tdm.service @ONLY )
+  install( FILES "${CMAKE_CURRENT_BINARY_DIR}/tdm.service" DESTINATION ${SYSTEMDSYSTEMUNITDIR} )
+endif( )
