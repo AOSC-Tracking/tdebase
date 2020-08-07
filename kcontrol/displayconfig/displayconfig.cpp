@@ -449,8 +449,7 @@ void KDisplayConfig::updateDraggableMonitorInformationInternal (int monitor_id, 
 		return;
 	}
 
-	TQString rotationDesired = *screendata->rotations.at(screendata->current_rotation_index);
-	bool isvisiblyrotated = ((rotationDesired == ROTATION_90_DEGREES_STRING) || (rotationDesired == ROTATION_270_DEGREES_STRING));
+	bool isvisiblyrotated = (screendata->current_rotation_index == ROTATION_90_DEGREES_INDEX) || (screendata->current_rotation_index == ROTATION_270_DEGREES_INDEX);
 
 	if (screendata->is_extended) {
 		moved_monitor->show();
@@ -1233,11 +1232,10 @@ void KDisplayConfig::updateDisplayedInformation () {
 		base->orientationVFlip->setChecked(screendata->has_y_flip);
 	}
 	else {
-		base->rotationSelectDD->insertItem(ROTATION_0_DEGREES_STRING, 0);
+		base->rotationSelectDD->insertItem(screendata->rotations[ROTATION_0_DEGREES_INDEX], ROTATION_0_DEGREES_INDEX);
 		base->rotationSelectDD->setCurrentItem(0);
 		base->orientationHFlip->hide();
 		base->orientationVFlip->hide();
-
 	}
 	base->rotationSelectDD->blockSignals(false);
 	base->orientationHFlip->blockSignals(false);
@@ -1350,8 +1348,7 @@ void KDisplayConfig::updateDragDropDisplay() {
 		for (i=0;i<numberOfScreens;i++) {
 			screendata = m_screenInfoArray[activeProfileName].at(i);
 			if (((j==0) && (screendata->is_primary==true)) || ((j==1) && (screendata->is_primary==false))) {	// This ensures that the primary monitor is always the first one created and placed on the configuration widget
-				TQString rotationDesired = *screendata->rotations.at(screendata->current_rotation_index);
-				bool isvisiblyrotated = ((rotationDesired == ROTATION_90_DEGREES_STRING) || (rotationDesired == ROTATION_270_DEGREES_STRING));
+				bool isvisiblyrotated = ((screendata->current_rotation_index == ROTATION_90_DEGREES_INDEX) || (screendata->current_rotation_index == ROTATION_270_DEGREES_INDEX));
 				DraggableMonitor *m = new DraggableMonitor( base->monitorPhyArrange, 0, WStyle_Customize | WDestructiveClose | WStyle_NoBorder | WX11BypassWM );
 				connect(m, TQT_SIGNAL(workspaceRelayoutNeeded()), this, TQT_SLOT(layoutDragDropDisplay()));
 				connect(m, TQT_SIGNAL(monitorSelected(int)), this, TQT_SLOT(selectScreen(int)));
