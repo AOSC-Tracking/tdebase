@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: 2020-07-23 00:37+0000\n"
+"PO-Revision-Date: 2020-08-07 18:36+0000\n"
 "Last-Translator: Jan Stolarek <jwstolarek@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/pl/>\n"
@@ -182,14 +182,13 @@ msgstr "Menedżer plików"
 
 #. Comment
 #: componentchooser/componentservices/kcm_filemanager.desktop:3
-#, fuzzy
 msgid ""
 "This service allows you to configure your default file manager. All TDE "
 "applications which invoke a file manager application should honor this "
 "setting."
 msgstr ""
-"Tu można wybrać domyślny emulator terminala. Wszystkie programy TDE, które "
-"korzystają z terminala, powinny używać tego ustawienia."
+"Tu można wybrać domyślny menedżer plików. Wszystkie programy TDE, które "
+"korzystają z menedżera plików, powinny używać tego ustawienia."
 
 #. Name
 #: componentchooser/componentservices/kcm_kemail.desktop:1
@@ -273,9 +272,8 @@ msgstr "Monitor i wyświetlanie"
 
 #. Comment
 #: displayconfig/displayconfig.desktop:14
-#, fuzzy
 msgid "Configure display"
-msgstr "Konfiguracja wykrywania usług"
+msgstr "Konfiguracja wyświetlania"
 
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
@@ -411,13 +409,12 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
 msgid "Debian Backports Search"
-msgstr "Wyszukiwanie starszych pakietów Debiana"
+msgstr "Wyszukiwanie nowszych pakietów w Debian Backports"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
-#, fuzzy
 msgid "http://www.backports.org/package.php?search=\\{@}"
-msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
@@ -559,9 +556,8 @@ msgstr "Open Directory - katalog stron WWW"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
-#, fuzzy
 msgid "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
-msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
@@ -696,9 +692,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:3
-#, fuzzy
 msgid "Froogle"
-msgstr "Google - wyszukiwarka stron WWW"
+msgstr "Froogle"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
@@ -1312,15 +1307,13 @@ msgstr ""
 
 #. Name
 #: hwmanager/hwmanager.desktop:11
-#, fuzzy
 msgid "Device Manager"
-msgstr "Menedżer usług"
+msgstr "Menedżer urządzeń"
 
 #. Comment
 #: hwmanager/hwmanager.desktop:13
-#, fuzzy
 msgid "Configure hardware devices"
-msgstr "Konfiguracja zachowania przeglądarki"
+msgstr "Konfiguracja urządzeń w komputerze"
 
 #. Keywords
 #: hwmanager/hwmanager.desktop:15
@@ -1888,21 +1881,18 @@ msgstr "konqueror;kfm;przeglądarka;html;sieć www;www;java;javascript;"
 
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
-#, fuzzy
 msgid "User Interface"
-msgstr "Interfejsy sieciowe"
+msgstr "Interfejs użytkownika"
 
 #. Comment
 #: konqhtml/tdehtml_userinterface.desktop:13
-#, fuzzy
 msgid "Configure user interface options"
-msgstr "Konfiguracja ustawień bufora (cache'a)"
+msgstr "Konfiguruj opcje interfejsu użytkownika"
 
 #. Keywords
 #: konqhtml/tdehtml_userinterface.desktop:15
-#, fuzzy
 msgid "konqueror;kfm;user;interface;tabbed;browsing;"
-msgstr "konqueror;ponowne użycie;wstępne wczytywanie;"
+msgstr "konqueror;kfm;interfejs;przeglądanie;"
 
 #. Name
 #: konsole/kcmkonsole.desktop:10
@@ -2063,7 +2053,7 @@ msgstr ""
 #. Name
 #: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
 msgid "TDERandRTray"
-msgstr "TDERandRTray"
+msgstr "Aplet kontroli monitora"
 
 #. GenericName
 #: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
@@ -2077,9 +2067,8 @@ msgstr "Zmiana rozmiaru i orientacji ekranów."
 
 #. Name
 #: samba/smbstatus.desktop:12
-#, fuzzy
 msgid "Samba Status"
-msgstr "Monitor stanu Samby"
+msgstr "Status Samby"
 
 #. Comment
 #: samba/smbstatus.desktop:14
@@ -2235,7 +2224,6 @@ msgstr "Pliki czcionek"
 
 #. Name
 #: tdefontinst/viewpart/tdefontview.desktop:2
-#, fuzzy
 msgid "TDEFontView"
 msgstr "Przeglądarka czcionek"
 
@@ -2499,9 +2487,8 @@ msgstr "Xinerama;dwa monitory;wiele monitorów;monitor;"
 #~ msgid "tdehwdevicetray"
 #~ msgstr "tdehwdevicetray"
 
-#, fuzzy
 #~ msgid "Device Monitor"
-#~ msgstr "Wiele monitorów"
+#~ msgstr "Monitor urządzeń"
 
 #~ msgid "Monitor hardware devices from the system tray"
 #~ msgstr "Monitoruj urządzenia sprzętowe z poziomu tacki systemowej"
