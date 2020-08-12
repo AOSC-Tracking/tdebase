@@ -1,20 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Jan Stolarek <jwstolarek@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-22 19:13+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-08-12 23:04+0000\n"
+"Last-Translator: Jan Stolarek <jwstolarek@gmail.com>\n"
+"Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/wallpapers-desktop-files/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #. Name
 #: All-Good-People-1.jpg.desktop:3
@@ -59,32 +61,32 @@ msgstr "Zupa Won Ton"
 #. Name
 #: aghi.jpg.desktop:3
 msgid "Aghi"
-msgstr "Aghi"
+msgstr "Igły"
 
 #. Name
 #: airplane.jpg.desktop:3
 msgid "Airplane"
-msgstr "Airplane"
+msgstr "Samolot"
 
 #. Name
 #: alta-badia.jpg.desktop:3
 msgid "Alta Badia"
-msgstr ""
+msgstr "Górska chata"
 
 #. Name
 #: andes-venezolanos.svgz.desktop:3
 msgid "Andes Venezolanos"
-msgstr ""
+msgstr "Błękitne koło zębate"
 
 #. Name
 #: another-view.jpg.desktop:3
 msgid "Another View"
-msgstr "Another View"
+msgstr "Kolejny krajobraz"
 
 #. Name
 #: aurora.svgz.desktop:3
 msgid "Aurora"
-msgstr ""
+msgstr "Zorza"
 
 #. Name
 #: blue-bend.jpg.desktop:3
@@ -119,7 +121,7 @@ msgstr "Kula ziemska z kołem"
 #. Name
 #: green_curtain.jpg.desktop:3
 msgid "Green Curtain"
-msgstr ""
+msgstr "Zielona kurtyna"
 
 #. Name
 #: here-gear.svgz.desktop:3
@@ -129,17 +131,17 @@ msgstr "To my"
 #. Name
 #: horse-head-nebula.png.desktop:3
 msgid "Horse Head Nebula"
-msgstr ""
+msgstr "Mgławica Koński Łeb"
 
 #. Name
 #: isadora.png.desktop:3
 msgid "Isadora"
-msgstr ""
+msgstr "Rozbłysk na błękitnym tle"
 
 #. Name
 #: konqui.svgz.desktop:3
 msgid "Konqui"
-msgstr ""
+msgstr "Smok Konqui"
 
 #. Name
 #: lineart.svgz.desktop:3
@@ -169,12 +171,12 @@ msgstr "Miękka zieleń"
 #. Name
 #: stelvio.jpg.desktop:3
 msgid "Stelvio"
-msgstr ""
+msgstr "Wieża w jeziorze"
 
 #. Name
 #: stripes.jpg.desktop:3
 msgid "Stripes"
-msgstr ""
+msgstr "Paski"
 
 #. Name
 #: sunshine-after-the-rain.jpg.desktop:3
@@ -189,4 +191,4 @@ msgstr "Potrójne koła zębate"
 #. Name
 #: world-desktop.jpg.desktop:3
 msgid "World Desktop"
-msgstr ""
+msgstr "Mapa świata"
