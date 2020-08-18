@@ -177,7 +177,8 @@ msgstr "(Domyślne) wyłącz przechwytywanie fokusu dla XV"
 #. Description
 #: data/fsp_workarounds_1.twinrules:10
 msgid "(Default) Allow focus stealing by the screen locker"
-msgstr "(Domyślne) Pozwól na przechwycenie fokusu przez program blokujący ekran"
+msgstr ""
+"(Domyślne) Pozwól na przechwycenie fokusu przez program blokujący ekran"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:21
@@ -188,7 +189,8 @@ msgstr ""
 #. Description
 #: data/fsp_workarounds_1.twinrules:32
 msgid "(Default) Allow focus stealing by the settings test dialog"
-msgstr "(Domyślne) Pozwól na przychwytywanie fokusu przez okno testowe ustawień"
+msgstr ""
+"(Domyślne) Pozwól na przychwytywanie fokusu przez okno testowe ustawień"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:45
