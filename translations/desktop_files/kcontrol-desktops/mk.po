@@ -237,8 +237,8 @@ msgstr "Криптографија"
 #: crypto/crypto.desktop:12
 msgid "Configure SSL, manage certificates, and other cryptography settings"
 msgstr ""
-"Конфигурација на SSL, менаџмент на сертификати "
-"и други криптографски поставувања"
+"Конфигурација на SSL, менаџмент на сертификати и други криптографски "
+"поставувања"
 
 #. Keywords
 #: crypto/crypto.desktop:14
@@ -259,8 +259,8 @@ msgstr "Дизајни на страница"
 #: css/kcmcss.desktop:14
 msgid "Configure the stylesheets used to render web pages"
 msgstr ""
-"Конфигурирајте ги страниците со дизајн "
-"што се користат за прикажување веб-страници"
+"Конфигурирајте ги страниците со дизајн што се користат за прикажување веб-"
+"страници"
 
 #. Keywords
 #: css/kcmcss.desktop:16
@@ -2081,8 +2081,8 @@ msgstr "Перформанси"
 #: performance/kcmkonqyperformance.desktop:13
 msgid "Configure settings that can improve Konqueror performance"
 msgstr ""
-"Конфигурирајте ги поставувањата што може да ги "
-"подобрат перформансите на Konqueror"
+"Конфигурирајте ги поставувањата што може да ги подобрат перформансите на "
+"Konqueror"
 
 #. Keywords
 #: performance/kcmkonqyperformance.desktop:15

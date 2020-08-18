@@ -1267,9 +1267,7 @@ msgstr ""
 #. Name
 #: filetypes/filetypes.desktop:12
 msgid "File Associations"
-msgstr ""
-"Fayl turi bilan "
-"bogʻliqlar"
+msgstr "Fayl turi bilan bogʻliqlar"
 
 #. Comment
 #: filetypes/filetypes.desktop:14
@@ -1824,9 +1822,7 @@ msgstr "Konqueror fayl boshqaruvchisi sifatida qanday koʻrinishini moslash"
 #. Name
 #: konq/filepreviews.desktop:11
 msgid "Previews & Metadata"
-msgstr ""
-"Koʻrib chiqish "
-"va meta-maʼlumot"
+msgstr "Koʻrib chiqish va meta-maʼlumot"
 
 #. Comment
 #: konq/filepreviews.desktop:13
