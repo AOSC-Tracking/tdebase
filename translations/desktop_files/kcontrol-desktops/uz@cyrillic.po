@@ -1266,9 +1266,7 @@ msgstr ""
 #. Name
 #: filetypes/filetypes.desktop:12
 msgid "File Associations"
-msgstr ""
-"Файл тури билан "
-"боғлиқлар"
+msgstr "Файл тури билан боғлиқлар"
 
 #. Comment
 #: filetypes/filetypes.desktop:14
@@ -1804,9 +1802,7 @@ msgstr "Konqueror файл бошқарувчиси сифатида қанда�
 #. Name
 #: konq/filepreviews.desktop:11
 msgid "Previews & Metadata"
-msgstr ""
-"Кўриб чиқиш "
-"ва мета-маълумот"
+msgstr "Кўриб чиқиш ва мета-маълумот"
 
 #. Comment
 #: konq/filepreviews.desktop:13
