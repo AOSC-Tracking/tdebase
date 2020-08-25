@@ -986,7 +986,7 @@ void KDisplayConfig::loadProfileFromDiskHelper(bool forceReload) {
 
 void KDisplayConfig::selectProfile (int slotNumber) {
 	TQString selectedProfile = base->displayProfileList->currentText();
-	if (selectedProfile == "<default>") {
+	if (selectedProfile == i18n("<default>")) {
 		selectedProfile = "";
 	}
 	activeProfileName = selectedProfile;
@@ -1141,7 +1141,7 @@ void KDisplayConfig::updateStartupProfileLabel()
 {
 	TQString friendlyName = startupProfileName;
 	if (friendlyName == "") {
-		friendlyName = "<default>";
+		friendlyName = i18n("<default>");
 	}
 
 	base->startupDisplayProfileList->setCurrentItem(friendlyName, false);
@@ -1150,7 +1150,7 @@ void KDisplayConfig::updateStartupProfileLabel()
 void KDisplayConfig::selectDefaultProfile(int slotNumber)
 {
 	TQString selectedProfile = base->startupDisplayProfileList->currentText();
-	if (selectedProfile == "<default>") {
+	if (selectedProfile == i18n("<default>")) {
 		selectedProfile = "";
 	}
 
@@ -1695,7 +1695,7 @@ void KDisplayConfig::createHotplugRulesGrid() {
 		}
 		KComboBox* combo = new KComboBox(base->profileRulesGridWidget, (TQString("%1").arg(i)).ascii());
 		connect(combo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(changed()));
-		combo->insertItem("<default>");
+		combo->insertItem(i18n("<default>"));
 		for (TQStringList::Iterator it3 = availableProfileNames.begin(); it3 != availableProfileNames.end(); ++it3) {
 			combo->insertItem(*it3);
 		}
@@ -1800,8 +1800,8 @@ void KDisplayConfig::profileListChanged() {
 	// Clear and reload the combo boxes
 	base->displayProfileList->clear();
 	base->startupDisplayProfileList->clear();
-	base->displayProfileList->insertItem("<default>");
-	base->startupDisplayProfileList->insertItem("<default>");
+	base->displayProfileList->insertItem(i18n("<default>"));
+	base->startupDisplayProfileList->insertItem(i18n("<default>"));
 	for (TQStringList::Iterator it = availableProfileNames.begin(); it != availableProfileNames.end(); ++it) {
 		base->displayProfileList->insertItem(*it);
 		base->startupDisplayProfileList->insertItem(*it);
