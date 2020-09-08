@@ -17,12 +17,19 @@ release.</para>
 <listitem>
   <para>New applications</para>
   <itemizedlist>
-  <listitem><para>Domino TDE style - a smooth style with a soft look.</para></listitem>
+  <listitem><para>Codeine - a video player with a simple, uncluttered interface.</para></listitem>
   <listitem><para>KEximDB plugin for converting MS Access MDB databases.</para></listitem>
   <listitem><para>KoolDock - a cool application launcher.</para></listitem>
   <listitem><para>KXMLEditor - an editor for XML files.</para></listitem>
+  <listitem><para>Mathemagics - a RPN scientific calculator.</para></listitem>
+  <listitem><para>Qalculate - a small, simple to use, yet powerful calculator.</para></listitem>
   <listitem><para>TastyMenu - an alternative TDE menu.</para></listitem>
+  <listitem><para>TDE style Baghira - Apple's MacOS X's style for TDE.</para></listitem>
+  <listitem><para>TDE style Domino - a smooth style with a soft look.</para></listitem>
+  <listitem><para>TDE style Ia Ora - Mandriva Ia Ora theme for TDE.</para></listitem>
+  <listitem><para>TDEpacman - a pacman game clone.</para></listitem>
   <listitem><para>Transcode added to dependency repository for Debian-like distros.</para></listitem>
+  <listitem><para>Xcalib added to dependency repository for Debian-like distros.</para></listitem>
   <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
@@ -48,6 +55,7 @@ release.</para>
   <listitem><para>Added brightness control in kmilo generic monitor.</para></listitem>
   <listitem><para>Improved support for bluray discs.</para></listitem>
   <listitem><para>Added support for xine 1.2.10.</para></listitem>
+  <listitem><para>Changed CDDB database from freedb.org (no longer working) to gnudb.org.</para></listitem>
   <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
