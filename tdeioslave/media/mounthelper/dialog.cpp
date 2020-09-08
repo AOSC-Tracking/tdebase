@@ -23,7 +23,7 @@
 #include "dialog.h"
 
 Dialog::Dialog(TQString url, TQString iconName) :
-	KDialogBase(NULL, "Dialog", true, "Decrypt Storage Device", (Cancel|User1), User1, false, KGuiItem(i18n("Decrypt"), "decrypted" ))
+	KDialogBase(NULL, "Dialog", true, i18n("Unlock Storage Device"), (Cancel|User1), User1, false, KGuiItem(i18n("Unlock"), "decrypted" ))
 {
 	decryptDialog = new DecryptDialog(this);
 
