@@ -23,7 +23,7 @@
 #include "dialog.h"
 
 Dialog::Dialog(TQString url, TQString iconName) :
-	KDialogBase(NULL, "Unlock", true, "Unlock Storage Device", (Cancel|User1), User1, false, KGuiItem(i18n("Unlock"), "unlocked" ))
+	KDialogBase(NULL, "Unlock", true, i18n("Unlock Storage Device"), (Cancel|User1), User1, false, KGuiItem(i18n("Unlock"), "unlocked" ))
 {
 	unlockDialog = new UnlockDialog(this);
 
