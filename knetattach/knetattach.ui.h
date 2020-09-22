@@ -284,5 +284,3 @@ void KNetAttach::updateFinishButtonText(bool save)
 	finishButton()->setText(i18n("C&onnect"));
     }
 }
-
-// vim: ts=8 sw=4 noet

@@ -106,5 +106,3 @@ TQString NavigatorItem::key( int column, bool ascending ) const
 {
   return text( column ).lower();
 }
-
-// vim:ts=2:sw=2:et

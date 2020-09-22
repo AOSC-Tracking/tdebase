@@ -1,4 +1,4 @@
-/* vi: ts=8 sts=4 sw=4
+/*
  *
  * This file is part of the KDE project, module kdesktop.
  * Copyright (C) 1999 Geert Jansen <g.t.jansen@stud.tue.nl>

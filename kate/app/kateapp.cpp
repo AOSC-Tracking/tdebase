@@ -399,5 +399,3 @@ KateMainWindow *KateApp::mainWindow (uint n)
 
   return 0;
 }
-
-// kate: space-indent on; indent-width 2; replace-tabs on;

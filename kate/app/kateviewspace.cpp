@@ -420,4 +420,3 @@ bool KateVSStatusBar::eventFilter(TQObject*,TQEvent *e)
   return false;
 }
 //END KateVSStatusBar
-// kate: space-indent on; indent-width 2; replace-tabs on;

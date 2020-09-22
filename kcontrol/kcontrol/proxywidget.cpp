@@ -340,5 +340,3 @@ const TDEAboutData *ProxyWidget::aboutData() const
 {
   return _client->aboutData();
 }
-
-// vim: sw=2 sts=2 et

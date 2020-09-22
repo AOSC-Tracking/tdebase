@@ -161,6 +161,3 @@ void MenuPreview::paintEvent( TQPaintEvent* /* pe */ )
 }
 
 #include "menupreview.moc"
-
-// vim: set noet ts=4:
-

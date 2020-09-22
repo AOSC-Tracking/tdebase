@@ -86,7 +86,6 @@ KeramikEmbedder::~KeramikEmbedder()
 {	
 	stream << "} // namespace Keramik\n\n";
 	stream << "#endif // __TILES_H\n\n";
-	stream << "// vim: set noet ts=4 sw=4:\n";
 
 	file->close();
 	delete file;
@@ -225,6 +224,3 @@ int main( int argv, char **argc )
 	
 	return 0;
 }
-
-// vim: set noet ts=4 sw=4:
-

@@ -713,4 +713,3 @@ void KWriteEditorChooser::slotOk() {
 	m_chooser->writeAppSetting();
 	KDialogBase::slotOk();
 }
-// kate: space-indent on; indent-width 2; replace-tabs on; mixed-indent off;

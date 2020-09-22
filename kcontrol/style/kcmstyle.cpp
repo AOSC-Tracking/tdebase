@@ -1157,5 +1157,3 @@ TQString KCMStyle::handbookSection() const
 }
 
 #include "kcmstyle.moc"
-
-// vim: set noet ts=4:

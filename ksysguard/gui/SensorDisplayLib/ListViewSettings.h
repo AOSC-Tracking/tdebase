@@ -52,6 +52,3 @@ class ListViewSettings : public KDialogBase
 };
 
 #endif // LISTVIEWSETTINGS_H
-
-/* vim: et sw=2 ts=2
-*/

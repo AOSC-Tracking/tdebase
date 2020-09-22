@@ -683,5 +683,3 @@ void KCMHelpCenter::findWriteableIndexDir()
     Prefs::setIndexDirectory( TDEGlobal::dirs()->saveLocation("data", "khelpcenter/index/") );
 }
 #include "kcmhelpcenter.moc"
-
-// vim:ts=2:sw=2:et

@@ -1999,4 +1999,3 @@ void NSPluginStream::result(TDEIO::Job *job)
 }
 
 #include "nsplugin.moc"
-// vim: ts=4 sw=4 et

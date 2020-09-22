@@ -145,6 +145,3 @@ void KateSessionMenu::slotExec( int id )
 
   kapp->tdeinitExec("kate", args);
 }
-
-
-// kate: space-indent: on; indent-width 2; replace-tabs on;

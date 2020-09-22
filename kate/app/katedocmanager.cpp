@@ -608,5 +608,3 @@ bool KateDocManager::computeUrlMD5(const KURL &url, TQCString &result)
 
   return true;
 }
-
-// kate: space-indent on; indent-width 2; replace-tabs on;

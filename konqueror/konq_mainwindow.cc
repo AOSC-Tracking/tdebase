@@ -5972,5 +5972,3 @@ void KonqMainWindow::restoreWindowSize()
 
 #include "konq_mainwindow.moc"
 #include "konq_mainwindow_p.moc"
-/* vim: et sw=4 ts=4
- */

@@ -570,5 +570,3 @@ void ComponentChooser::restoreDefault() {
 	emitChanged(false);
 */
 }
-
-// vim: sw=4 ts=4 noet

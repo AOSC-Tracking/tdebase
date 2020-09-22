@@ -148,4 +148,3 @@ void HtmlSearchConfig::urlClicked(const TQString &url)
 }
 
 } // End namespace KHC
-// vim:ts=2:sw=2:et

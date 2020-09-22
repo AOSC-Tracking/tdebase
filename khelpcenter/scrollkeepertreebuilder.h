@@ -56,4 +56,3 @@ class ScrollKeeperTreeBuilder : public TQObject
 }
 
 #endif // KHC_SCROLLKEEPERTREEBUILDER_H
-// vim:ts=2:sw=2:et

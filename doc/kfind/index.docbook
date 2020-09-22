@@ -349,15 +349,3 @@ In order to successfully use &kfind;, you need &tde; 3.x.
 &documentation.index;
 
 </book>
-
-<!--
-Local Variables:
-mode: sgml
-sgml-minimize-attributes:nil
-sgml-general-insert-case:lower
-sgml-indent-step:0
-sgml-indent-data:nil
-End:
-
-// vim:ts=0:sw=2:tw=78:noet
--->

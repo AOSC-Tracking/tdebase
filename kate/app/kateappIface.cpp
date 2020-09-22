@@ -100,5 +100,3 @@ const TQString & KateAppDCOPIface::session() const
 {
   return m_app->sessionManager()->activeSession()->sessionName();
 }
-
-// kate: space-indent on; indent-width 2; replace-tabs on;

@@ -754,5 +754,3 @@ void KateViewSpaceContainer::restoreSplitter( TDEConfig* config, const TQString 
 KateMainWindow *KateViewSpaceContainer::mainWindow() {
   return m_viewManager->mainWindow();
 }
-
-// kate: space-indent on; indent-width 2; replace-tabs on;

@@ -343,4 +343,3 @@ void sftpFileAttr::setEncoding( KRemoteEncoding* encoding )
 {
     mEncoding = encoding;
 }
-// vim:ts=4:sw=4

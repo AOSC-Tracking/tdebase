@@ -57,5 +57,3 @@ class IndexBuilder : public QObject
 }
 
 #endif
-
-// vim:ts=2:sw=2:et

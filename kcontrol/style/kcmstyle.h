@@ -168,5 +168,3 @@ private:
 };
 
 #endif // __KCMSTYLE_H
-
-// vim: set noet ts=4:

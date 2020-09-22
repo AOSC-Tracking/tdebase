@@ -112,5 +112,3 @@ DocEntryTraverser *PluginTraverser::createChild( DocEntry * /*entry*/ )
   kdDebug( 1400 ) << "ERROR! mCurrentItem is not set." << endl;
   return 0;
 }
-
-// vim:ts=2:sw=2:et

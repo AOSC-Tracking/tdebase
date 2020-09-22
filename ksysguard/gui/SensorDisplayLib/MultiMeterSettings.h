@@ -62,7 +62,3 @@ class MultiMeterSettings : public KDialogBase
 };
 
 #endif // MULTIMETERSETTINGS_H
-
-/* vim: et sw=2 ts=2
-*/
-

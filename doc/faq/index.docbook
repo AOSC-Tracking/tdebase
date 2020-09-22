@@ -113,18 +113,3 @@ maintainers, Rainer Endres, Mr. Lee Wee Tiong, and J. Hall.</para>
 
 &documentation.index;
 </book>
-
-<!--
-Local Variables:
-sgml-minimize-attributes:nil
-sgml-general-insert-case:lower
-sgml-omittag:t
-sgml-shorttag:t
-sgml-namecase-general:t
-sgml-always-quote-attributes:t
-sgml-indent-step:2
-sgml-indent-data:nil
-sgml-parent-document:nil
-sgml-exposed-tags:nil
-End:
--->

@@ -218,5 +218,3 @@ TQString Formatter::title( const TQString &title )
 {
   return "<h2>" + title + "</h2>";
 }
-
-// vim:ts=2:sw=2:et

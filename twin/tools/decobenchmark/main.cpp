@@ -134,5 +134,3 @@ int main(int argc, char** argv)
 	app.exec();
 }
 #include "main.moc"
-
-// kate: space-indent off; tab-width 4;

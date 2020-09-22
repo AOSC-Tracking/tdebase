@@ -65,5 +65,3 @@ bool StylePreview::eventFilter( TQObject* /* obj */, TQEvent* ev )
     }
     return FALSE;
 }
-
-// vim: set noet ts=4:

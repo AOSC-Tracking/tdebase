@@ -172,5 +172,3 @@ TQString NavigatorAppItem::documentationURL( KService *s )
   
   return TQString( "help:/" ) + docPath;
 }
-
-// vim:ts=2:sw=2:et

@@ -639,6 +639,3 @@ TQPixmap ThemePage::createIcon( const TQString &theme, const TQString &sample ) 
 
 	return pix;
 }
-
-
-// vim: set noet ts=4 sw=4:

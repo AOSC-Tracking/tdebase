@@ -2939,14 +2939,3 @@ Converted to docbook/proofreading by &Lauri.Watts; &Lauri.Watts.mail;
 
 &documentation.index;
 </book>
-<!--
-Local Variables:
-mode: sgml
-sgml-namecase-general: t
-sgml-namecase-entity: nil
-sgml-general-insert-case: lower
-sgml-minimize-attributes: nil
-sgml-omittag: nil
-End:
--->
-

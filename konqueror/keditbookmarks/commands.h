@@ -1,4 +1,3 @@
-// kate: space-indent on; indent-width 3; replace-tabs on;
 /* This file is part of the KDE project
    Copyright (C) 2000 David Faure <faure@kde.org>
    Copyright (C) 2002-2003 Alexander Kellett <lypanov@kde.org>

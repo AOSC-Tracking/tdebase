@@ -1,5 +1,4 @@
-/* vi: ts=8 sts=4 sw=4
- * kate: space-indent on; tab-width 8; indent-width 4; indent-mode cstyle;
+/*
  *
  * This file is part of the KDE project, module kdesktop.
  * Copyright (C) 1999,2000 Geert Jansen <jansen@kde.org>

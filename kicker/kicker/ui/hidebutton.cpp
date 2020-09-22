@@ -198,5 +198,3 @@ void HideButton::resizeEvent(TQResizeEvent *)
 }
 
 #include "hidebutton.moc"
-
-// vim:ts=4:sw=4:et

@@ -1256,5 +1256,3 @@ bool FavoritesItemView::acceptDrag (TQDropEvent* event) const
 }
 
 #include "itemview.moc"
-
-// vim:cindent:sw=4:

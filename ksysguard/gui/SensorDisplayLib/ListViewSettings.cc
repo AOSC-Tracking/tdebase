@@ -71,7 +71,3 @@ void ListViewSettings::setGridColor( const TQColor &c )
 }
 
 #include "ListViewSettings.moc"
-
-/* vim: et sw=2 ts=2
-*/
-

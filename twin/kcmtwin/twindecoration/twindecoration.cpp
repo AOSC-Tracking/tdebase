@@ -980,6 +980,3 @@ void KWinDecorationModule::resetKWin()
 }
 
 #include "twindecoration.moc"
-// vim: ts=4
-// kate: space-indent off; tab-width 4;
-

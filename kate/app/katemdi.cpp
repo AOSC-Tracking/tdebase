@@ -966,5 +966,3 @@ void MainWindow::saveSession (TDEConfig *config, const TQString &group)
 //END MAIN WINDOW
 
 } // namespace KateMDI
-
-// kate: space-indent on; indent-width 2;

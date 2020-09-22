@@ -52,6 +52,3 @@ class SensorLoggerSettings : public KDialogBase
 };
 
 #endif // SENSORLOGGERSETTINGS_H
-
-/* vim: et sw=2 ts=2
-*/

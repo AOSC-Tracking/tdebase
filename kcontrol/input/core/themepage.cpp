@@ -208,5 +208,3 @@ void ThemePage::fixCursorFile()
 		p.start(TDEProcess::Block);
 	}
 }
-
-// vim: set noet ts=4 sw=4:

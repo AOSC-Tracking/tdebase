@@ -198,5 +198,3 @@ namespace Keramik {
 } // namespace Keramik
 
 #endif // ___KERAMIK_H
-
-// vim: set noet ts=4 sw=4:

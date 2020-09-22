@@ -695,5 +695,3 @@ extern "C" KDE_EXPORT KDecorationFactory *create_factory()
 
 
 #include "redmond.moc"
-// vim: ts=4
-// kate: space-indent off; tab-width 4;

@@ -125,13 +125,3 @@ use the <link linkend="bubble">What's This?</link> feature.</para>
 
 
 </chapter>
-<!--
-Local Variables:
-mode: sgml
-sgml-omittag: nil
-sgml-shorttag: t
-sgml-minimize-attributes: nil
-sgml-general-insert-case: lower
-sgml-parent-document:("index.docbook" "book" "chapter")
-End:
--->

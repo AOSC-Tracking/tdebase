@@ -498,5 +498,3 @@ bool SearchEngine::needsIndex( DocEntry *entry )
 }
 
 #include "searchengine.moc"
-
-// vim:ts=2:sw=2:et

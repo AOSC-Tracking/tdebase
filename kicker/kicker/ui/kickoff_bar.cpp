@@ -235,4 +235,3 @@ void KickoffTabBar::mousePressEvent( TQMouseEvent * e )
 }
 
 #include "kickoff_bar.moc"
-// vim:cindent:sw=4:

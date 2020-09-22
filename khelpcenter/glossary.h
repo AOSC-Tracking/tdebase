@@ -143,4 +143,3 @@ class Glossary : public TDEListView
 }
 
 #endif // KHC_GLOSSARY_H
-// vim:ts=2:sw=2:et

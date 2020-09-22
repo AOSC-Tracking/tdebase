@@ -101,4 +101,3 @@ void QuartzConfig::defaults()
 }
 
 #include "config.moc"
-// vim: ts=4

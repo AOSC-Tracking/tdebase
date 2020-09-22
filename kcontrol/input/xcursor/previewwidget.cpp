@@ -348,6 +348,3 @@ void PreviewWidget::mouseMoveEvent( TQMouseEvent *e )
 		current = pos;
 	}
 }
-
-
-// vim: set noet ts=4 sw=4:

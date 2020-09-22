@@ -596,5 +596,3 @@ void KFileIVI::mimeTypeAndIconDetermined()
 {
     updatePixmapSize();
 }
-
-/* vim: set noet sw=4 ts=8 softtabstop=4: */

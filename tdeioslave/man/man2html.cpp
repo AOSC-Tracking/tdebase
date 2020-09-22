@@ -18,8 +18,6 @@
 
 // End of verbatim comment
 
-// kate: space-indent on; indent-width 4; replace-tabs on;
-
 /*
  * man2html-linux-1.0/1.1
  * This version modified for Redhat/Caldera linux - March 1996.

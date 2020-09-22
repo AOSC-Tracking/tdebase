@@ -856,5 +856,3 @@ void KateMainWindow::saveGlobalProperties( TDEConfig* sessionConfig )
   sessionConfig->setGroup("General");
   sessionConfig->writeEntry ("Last Session", KateApp::self()->sessionManager()->activeSession()->sessionFileRelative());
 }
-
-// kate: space-indent on; indent-width 2; replace-tabs on;

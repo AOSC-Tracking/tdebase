@@ -91,5 +91,3 @@ class QuartzClient : public KCommonDecoration
 }
 
 #endif
-// vim: ts=4
-// kate: space-indent off; tab-width 4;
