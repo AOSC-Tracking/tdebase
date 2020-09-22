@@ -47,5 +47,3 @@ private:
 };
 
 #endif // BENCH_MAIN_H
-
-// kate: space-indent off; tab-width 4;

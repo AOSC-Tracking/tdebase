@@ -1,5 +1,4 @@
 /*
-   kate: space-indent on; indent-width 3; indent-mode cstyle;
    
    This file is part of the KDE libraries
 

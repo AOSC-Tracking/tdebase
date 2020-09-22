@@ -678,5 +678,3 @@ void Navigator::clearSearch()
 }
 
 #include "navigator.moc"
-
-// vim:ts=2:sw=2:et

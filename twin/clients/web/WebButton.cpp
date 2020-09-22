@@ -282,6 +282,3 @@ WebButton::setBitmap(const unsigned char *bitmap)
 }
 
 }
-
-// vim:ts=2:sw=2:tw=78:set et:
-// kate: indent-width 2; replace-tabs on; tab-width 2; space-indent on;

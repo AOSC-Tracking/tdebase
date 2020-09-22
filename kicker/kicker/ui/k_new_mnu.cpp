@@ -3960,5 +3960,3 @@ void KMenu::runUserCommand()
     kapp->dcopClient()->send( appname, "KDesktopIface",
                               "popupExecuteCommand()", data );
 }
-
-// vim:cindent:sw=4:

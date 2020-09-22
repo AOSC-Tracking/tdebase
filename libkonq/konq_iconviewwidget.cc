@@ -1937,5 +1937,3 @@ void KonqIconViewWidget::updatePreviewMimeTypes()
 }
 
 #include "konq_iconviewwidget.moc"
-
-/* vim: set et sw=4 ts=8 softtabstop=4: */

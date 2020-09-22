@@ -56,6 +56,5 @@ private:
 	PreviewMode mode;
 };
 
-// vim: set noet ts=4:
 #endif // __MENUPREVIEW_H
 

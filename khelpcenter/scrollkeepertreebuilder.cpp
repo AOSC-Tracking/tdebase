@@ -197,4 +197,3 @@ void ScrollKeeperTreeBuilder::insertDoc( NavigatorItem *parent,
 }
 
 #include "scrollkeepertreebuilder.moc"
-// vim:sw=2:ts=2:et

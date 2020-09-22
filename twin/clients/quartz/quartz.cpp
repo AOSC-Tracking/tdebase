@@ -793,5 +793,3 @@ extern "C"
 
 
 #include "quartz.moc"
-// vim: ts=4
-// kate: space-indent off; tab-width 4;

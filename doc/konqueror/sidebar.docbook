@@ -189,13 +189,3 @@ change the &URL; (path) of the folder viewed in that page.</para></listitem>
 
 
 </chapter>
-<!--
-Local Variables:
-mode: sgml
-sgml-omittag: nil
-sgml-shorttag: t
-sgml-minimize-attributes: nil
-sgml-general-insert-case: lower
-sgml-parent-document:("index.docbook" "book" "chapter")
-End:
--->

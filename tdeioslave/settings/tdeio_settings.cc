@@ -294,5 +294,3 @@ void SettingsProtocol::listDir(const KURL& url)
 	listEntry(entry, true);
 	finished();
 }
-
-// vim: ts=4 sw=4 et

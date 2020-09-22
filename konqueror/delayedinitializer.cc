@@ -50,6 +50,3 @@ void DelayedInitializer::slotInitialize()
 }
 
 #include "delayedinitializer.moc"
-
-/* vim: et sw=4
- */

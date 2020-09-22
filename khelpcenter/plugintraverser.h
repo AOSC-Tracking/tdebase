@@ -49,4 +49,3 @@ namespace KHC {
 }
 
 #endif // KHC_PLUGINTRAVERSER_H
-// vim:ts=2:sw=2:et

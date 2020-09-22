@@ -334,16 +334,3 @@ Documentation Copyright &copy; 2005 &Orville.Bennett; &Orville.Bennett.mail;
 
 &documentation.index;
 </book>
-
-<!--
-Local Variables:
-mode: xml
-sgml-minimize-attributes:nil
-sgml-general-insert-case:lower
-sgml-indent-step:0
-sgml-indent-data:nil
-End:
-
-vim:tabstop=2:shiftwidth=2:expandtab
-kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
--->

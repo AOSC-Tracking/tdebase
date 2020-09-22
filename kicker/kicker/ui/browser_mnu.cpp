@@ -544,5 +544,3 @@ void PanelBrowserMenu::initIconMap()
     _icons->insert("exec", SmallIcon("application-x-executable"));
     _icons->insert("chardevice", SmallIcon("chardevice"));
 }
-
-// vim: sw=4 et

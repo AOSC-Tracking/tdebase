@@ -45,4 +45,3 @@ namespace KHC
 }
 
 #endif // KHC_INFOTREE_H
-// vim:ts=2:sw=2:et

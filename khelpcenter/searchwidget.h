@@ -104,4 +104,3 @@ class SearchWidget : public TQWidget, public DCOPObject
 }
 
 #endif
-// vim:ts=2:sw=2:et

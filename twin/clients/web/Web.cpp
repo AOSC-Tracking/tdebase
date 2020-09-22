@@ -381,5 +381,3 @@ TQValueList< WebFactory::BorderSize > WebFactory::borderSizes() const
 }
 
 #include "Web.moc"
-// vim:ts=2:sw=2:tw=78:set et:
-// kate: indent-width 2; replace-tabs on; tab-width 2; space-indent on;

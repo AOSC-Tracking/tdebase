@@ -42,5 +42,3 @@ class KateSessionMenu : public KPanelMenu {
 };
 
 #endif // _KateSessionMenu_h_
-
-// kate: space-indent on; indent-width 2; replace-tabs on;

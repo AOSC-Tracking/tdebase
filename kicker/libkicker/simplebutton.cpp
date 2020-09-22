@@ -285,5 +285,3 @@ void SimpleArrowButton::leaveEvent( TQEvent *e )
 }
 
 #include "simplebutton.moc"
-
-// vim:ts=4:sw=4:et

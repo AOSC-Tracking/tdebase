@@ -46,4 +46,3 @@ class TreeBuilder : public TQObject
 }
 
 #endif // TREEBUILDER_H
-// vim:ts=2:sw=2:et

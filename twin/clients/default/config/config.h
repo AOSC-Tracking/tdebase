@@ -46,4 +46,3 @@ class KDEDefaultConfig: public TQObject
 };
 
 #endif
-// vim: ts=4

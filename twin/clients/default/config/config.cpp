@@ -128,4 +128,3 @@ void KDEDefaultConfig::defaults()
 }
 
 #include "config.moc"
-// vim: ts=4

@@ -54,5 +54,3 @@ class ThemePage : public TQWidget
 };
 
 #endif // __THEMEPAGE_H
-
-// vim: set noet ts=4 sw=4:

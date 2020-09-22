@@ -279,14 +279,3 @@ configure / settings / preferences
 -->
 
 </book>
-
-<!--
-Local Variables:
-mode: sgml
-sgml-namecase-general: t
-sgml-namecase-entity: nil
-sgml-general-insert-case: lower
-sgml-minimize-attributes: nil
-sgml-omittag: nil
-End:
--->

@@ -735,5 +735,3 @@ extern "C" KDE_EXPORT KDecorationFactory* create_factory()
 {
     return new ModernSystem::ModernSysFactory();
 }
-
-// vim:ts=4:sw=4

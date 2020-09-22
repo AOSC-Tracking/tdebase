@@ -345,4 +345,3 @@ void DocEntry::dump() const
   kdDebug() << "    <documenttype>" << mDocumentType << "</documenttype>" << endl; 
   kdDebug() << "  </docentry>" << endl;
 }
-// vim:ts=2:sw=2:et

@@ -897,5 +897,3 @@ void KateSessionChooser::slotSelectionChanged()
 //END KateSessionChooser
 
 #include "katesession.moc"
-
-// kate: space-indent on; indent-width 2; replace-tabs on; mixed-indent off;

@@ -277,5 +277,3 @@ void KateMwModOnHdDialog::slotPDone( TDEProcess *p )
   delete m_tmpfile;
   m_tmpfile = 0;
 }
-
-// kate: space-indent on; indent-width 2; replace-tabs on;

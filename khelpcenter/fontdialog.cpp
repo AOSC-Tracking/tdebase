@@ -209,4 +209,3 @@ void FontDialog::save()
 }
 
 #include "fontdialog.moc"
-// vim:ts=4:sw=4:noet

@@ -509,5 +509,3 @@ void KateViewManager::restoreViewConfiguration (TDEConfig *config, const TQStrin
 KateMainWindow *KateViewManager::mainWindow() {
         return m_mainWindow;
 }
-
-// kate: space-indent on; indent-width 2; replace-tabs on;

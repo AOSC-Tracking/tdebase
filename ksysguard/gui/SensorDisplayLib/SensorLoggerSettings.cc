@@ -71,7 +71,3 @@ void SensorLoggerSettings::setAlarmColor( const TQColor &c )
 }
 
 #include "SensorLoggerSettings.moc"
-
-/* vim: et sw=2 ts=2
-*/
-

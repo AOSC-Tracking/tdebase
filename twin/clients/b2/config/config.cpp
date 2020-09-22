@@ -162,4 +162,3 @@ void B2Config::defaults()
 }
 
 #include "config.moc"
-// vim: ts=4

@@ -757,5 +757,3 @@ void LaptopClientFactory::findPreferredHandleSize()
 }
 
 } // Laptop namespace
-
-// vim: sw=4

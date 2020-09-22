@@ -86,5 +86,3 @@ extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
 
   return app.exec();
 }
-
-// vim:ts=2:sw=2:et

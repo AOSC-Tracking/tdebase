@@ -43,5 +43,3 @@ class QuartzConfig: public TQObject
 
 
 #endif
-
-// vim: ts=4

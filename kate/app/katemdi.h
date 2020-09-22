@@ -444,5 +444,3 @@ class MainWindow : public KParts::MainWindow
 }
 
 #endif
-
-// kate: space-indent on; indent-width 2;

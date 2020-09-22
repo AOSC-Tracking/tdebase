@@ -58,4 +58,3 @@ class KateMwModOnHdDialog : public KDialogBase
 };
 
 #endif // _KATE_MW_MODONHD_DIALOG_H_
-// kate: space-indent on; indent-width 2; replace-tabs on;

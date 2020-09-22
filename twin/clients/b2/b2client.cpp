@@ -1449,6 +1449,3 @@ void B2Titlebar::mouseMoveEvent(TQMouseEvent * e)
 } // namespace B2
 
 #include "b2client.moc"
-
-// vim: sw=4
-

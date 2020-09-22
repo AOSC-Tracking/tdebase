@@ -87,5 +87,3 @@ class KDE_EXPORT SimpleArrowButton: public SimpleButton
 
 
 #endif // HIDEBUTTON_H
-
-// vim:ts=4:sw=4:et

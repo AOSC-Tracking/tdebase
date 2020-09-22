@@ -57,5 +57,3 @@ TQString HTMLSearch::defaultIndexTestFile( KHC::DocEntry *entry )
 {
   return entry->identifier() + ".exists";
 }
-
-// vim:ts=2:sw=2:et

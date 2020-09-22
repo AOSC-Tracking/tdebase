@@ -385,4 +385,3 @@ void View::slotReload( const KURL &url )
 }
 
 #include "view.moc"
-// vim:ts=2:sw=2:et

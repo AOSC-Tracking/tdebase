@@ -951,5 +951,3 @@ void KateSessionListActionMenu::slotAboutToShow()
     popupMenu()->insertItem(sessions[idx]->getSessionName(), m_mainWindow, TQT_SLOT(activateSession(int)), 0, idx);
   }
 }
-
-// kate: space-indent on; indent-width 2; replace-tabs on;
