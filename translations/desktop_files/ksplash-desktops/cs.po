@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Slávek Banko <slavek.banko@axis.cz>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 19:16+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-09-24 00:40+0000\n"
+"Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
+"Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/ksplash-desktop-files/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: kcmksplash/ksplashthememgr.desktop:12
@@ -29,18 +30,17 @@ msgstr "Správce motivů úvodních obrazovek"
 #. Keywords
 #: kcmksplash/ksplashthememgr.desktop:16
 msgid "splash screen;splash theme;startup;"
-msgstr "úvodní obrazovka;splash;"
+msgstr "úvodní obrazovka;splash;spuštění;"
 
 #. Name
 #: ksplash.desktop:2
-#, fuzzy
 msgid "KSplash"
-msgstr "Staré"
+msgstr "KSplash"
 
 #. Name
 #: themeengine/default/ksplashdefault.desktop:3
 msgid "KSplashLegacy"
-msgstr "Staré"
+msgstr "Klasický"
 
 #. Comment
 #: themeengine/default/ksplashdefault.desktop:4
@@ -48,7 +48,7 @@ msgstr "Staré"
 #: themeengine/standard/ksplashstandard.desktop:4
 #: themeengine/unified/ksplashunified.desktop:4
 msgid "KSplash Plugin"
-msgstr "Modul aplikaci KSplash"
+msgstr "Modul aplikace KSplash"
 
 #. Name
 #: themeengine/redmond/ksplashredmond.desktop:3
@@ -62,6 +62,5 @@ msgstr "Standardní"
 
 #. Name
 #: themeengine/unified/ksplashunified.desktop:3
-#, fuzzy
 msgid "KSplashUnified"
-msgstr "Redmond"
+msgstr "Jednotný"
