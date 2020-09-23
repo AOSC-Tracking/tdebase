@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Slávek Banko <slavek.banko@axis.cz>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:32+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-09-24 00:40+0000\n"
+"Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
+"Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/twin-desktop-files/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: kcmtwin/showdesktop.desktop:4
@@ -24,7 +25,7 @@ msgstr "Zobrazit plochu"
 #. Comment
 #: kcmtwin/showdesktop.desktop:6
 msgid "A button that gives quick access to the desktop when pressed"
-msgstr "Tlačítko s rychlým přístupem k pracovní ploše"
+msgstr "Tlačítko poskytující rychlý přístup k pracovní ploše"
 
 #. Name
 #: kcmtwin/twindecoration/twindecoration.desktop:11
@@ -128,17 +129,17 @@ msgid ""
 "focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
 "titlebar;doubleclick;"
 msgstr ""
-"Zaměření;Umístění oken;Chování oken;Animace;Okna;Rámeček;Titulek;Dvojklik;"
+"zaměření;Umístění oken;chování oken;animace;okna;rámeček;titulek;dvojklik;"
 
 #. Name
 #: kcmtwin/twinoptions/twintranslucency.desktop:11
 msgid "Translucency"
-msgstr "Průhlednost"
+msgstr "Průsvitnost"
 
 #. Comment
 #: kcmtwin/twinoptions/twintranslucency.desktop:13
 msgid "Configure window translucency and shadow management"
-msgstr "Nastavení průhlednosti a stínování oken"
+msgstr "Nastavení průsvitnosti a stínování oken"
 
 #. Keywords
 #: kcmtwin/twinoptions/twintranslucency.desktop:15
@@ -165,24 +166,24 @@ msgstr "velikost;pozice;umístění;stav;chování oken;pravidla;"
 #. Description
 #: data/fsp_workarounds_1.twinrules:2
 msgid "(Default) Disable focus stealing prevention for XV"
-msgstr ""
+msgstr "(Výchozí) Zakázat prevenci krádeže zaměření pro XV"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:10
 msgid "(Default) Allow focus stealing by the screen locker"
-msgstr ""
+msgstr "(Výchozí) Povolit krádež zaměření zamčením obrazovky"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:21
 msgid "(Default) Allow focus stealing by the kdesktop run dialog"
-msgstr ""
+msgstr "(Výchozí) Povolit krádež zaměření dialogovým oknem Spustit příkaz"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:32
 msgid "(Default) Allow focus stealing by the settings test dialog"
-msgstr ""
+msgstr "(Výchozí) Povolit krádež zaměření dialogovým oknem pro test nastavení"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:45
 msgid "(Default) Hide system modal dialog class from taskbar"
-msgstr ""
+msgstr "(Výchozí) Skrýt systémová modální dialogová okna z hlavního panelu"
