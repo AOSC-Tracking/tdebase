@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Slávek Banko <slavek.banko@axis.cz>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 16:24+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-09-24 00:40+0000\n"
+"Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
+"Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/kicker-desktop-files/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: applets/clock/clockapplet.desktop:4
@@ -44,7 +45,7 @@ msgstr "Tlačítka odhlášení/uzamčení"
 #. Comment
 #: applets/lockout/lockout.desktop:5
 msgid "Adds buttons for locking screen and session logout"
-msgstr "Přidá tlačítka pro uzamčení obrazovky a odhlášení z relace"
+msgstr "Přidá tlačítka pro uzamčení obrazovky a odhlášení ze sezení"
 
 #. Name
 #: applets/media/mediaapplet.desktop:3
@@ -154,7 +155,7 @@ msgstr "Kasbar"
 #. Comment
 #: extensions/kasbar/kasbarextension.desktop:4
 msgid "An alternative taskbar panel applet."
-msgstr "Applet s alternativním pruhem úloh"
+msgstr "Applet s alternativním pruhem úloh."
 
 #. Name
 #: extensions/sidebar/sidebarextension.desktop:2
@@ -164,7 +165,7 @@ msgstr "Univerzální postranní lišta"
 #. Comment
 #: extensions/sidebar/sidebarextension.desktop:4
 msgid "Wrapper around Konqueror's navigation panel"
-msgstr ""
+msgstr "Obal kolem navigačního panelu Konqueroru"
 
 #. Name
 #: extensions/taskbar/taskbarextension.desktop:2
@@ -204,7 +205,7 @@ msgstr "Zobrazit plochu"
 #. Comment
 #: kicker/buttons/desktop.desktop:4
 msgid "A button that gives quick access to the desktop when pressed"
-msgstr "Tlačítko s rychlým přístupem k pracovní ploše"
+msgstr "Tlačítko poskytující rychlý přístup k pracovní ploše"
 
 #. Name
 #: kicker/buttons/exec.desktop:2
@@ -239,7 +240,7 @@ msgstr "Nabídka se seznamem otevřených oken"
 #. Name
 #: kicker/core/childpanelextension.desktop:2
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #. Comment
 #: kicker/core/childpanelextension.desktop:4
@@ -249,7 +250,7 @@ msgstr "Rozšíření závislého panelu."
 #. Comment
 #: kicker/interfaces/kickoffsearchplugin.desktop:5
 msgid "A search plugin for Kickoff"
-msgstr ""
+msgstr "Vyhledávací modul pro Kickoff"
 
 #. Name
 #: kicker/kcmkicker.desktop:10
@@ -284,12 +285,12 @@ msgstr "Vyhledávání na webu"
 #. Name
 #: menuext/kate/katesessionmenu.desktop:2
 msgid "Kate Session Menu"
-msgstr "Nabídka relace Kate"
+msgstr "Nabídka sezení Kate"
 
 #. Comment
 #: menuext/kate/katesessionmenu.desktop:4
 msgid "Allows you to open Kate with a specified session, or create a new one"
-msgstr "Umožňuje otevřít Kate s určitou relací nebo si vytvořit novou"
+msgstr "Umožňuje otevřít Kate s určitým sezením nebo si vytvořit nové"
 
 #. Name
 #: menuext/konq-profiles/konquerormenu.desktop:2
@@ -304,12 +305,12 @@ msgstr "Přístup k profilům Konqueroru"
 #. Name
 #: menuext/konsole/konsolemenu.desktop:2
 msgid "Terminal Sessions"
-msgstr "Terminálové relace"
+msgstr "Terminálová sezení"
 
 #. Comment
 #: menuext/konsole/konsolemenu.desktop:4
 msgid "Menu for starting a terminal emulator with a session or bookmark"
-msgstr "Nabídka pro spuštění teminálu s relací nebo záložkou"
+msgstr "Nabídka pro spuštění terminálu se sezením nebo záložkou"
 
 #. Name
 #: menuext/prefmenu/prefmenu.desktop:2
@@ -319,7 +320,7 @@ msgstr "Ovládací centrum"
 #. Comment
 #: menuext/prefmenu/prefmenu.desktop:4
 msgid "Trinity Control Center modules menu"
-msgstr "Nabídka modulů Ovládacího centra"
+msgstr "Nabídka modulů Ovládacího centra Trinity"
 
 #. Name
 #: menuext/recentdocs/recentdocs.desktop:2
@@ -364,7 +365,7 @@ msgstr "Nabídka tiskového systému"
 #. Name
 #: menuext/tom/tom.desktop:2
 msgid "TOM"
-msgstr ""
+msgstr "TOM"
 
 #. Comment
 #: menuext/tom/tom.desktop:4
