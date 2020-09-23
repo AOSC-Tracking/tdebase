@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Slávek Banko <slavek.banko@axis.cz>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-08 16:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-09-24 00:40+0000\n"
+"Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
+"Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/applnk-directories/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: .directory:2
@@ -38,7 +39,7 @@ msgstr "Webový vývoj"
 #: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
 #: kde-utilities.directory:4
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #. Name
 #: kde-editors.directory:4 tde-editors.directory:4
@@ -48,17 +49,17 @@ msgstr "Editory"
 #. Name
 #: kde-edu-languages.directory:4
 msgid "Languages"
-msgstr ""
+msgstr "Jazyky"
 
 #. Name
 #: kde-edu-mathematics.directory:4
 msgid "Mathematics"
-msgstr ""
+msgstr "Matematika"
 
 #. Name
 #: kde-edu-miscellaneous.directory:4
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Různé"
 
 #. Name
 #: kde-edu-science.directory:4 tde-science.directory:5
@@ -115,7 +116,7 @@ msgstr "Pracovní plocha"
 #: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
 #: tde-utilities-pim.directory:6
 msgid "PIM"
-msgstr ""
+msgstr "PIM"
 
 #. Name
 #: tde-development-translation.directory:4
@@ -159,9 +160,8 @@ msgstr "Terminálové aplikace"
 
 #. Name
 #: tde-internet.directory:4
-#, fuzzy
 msgid "Internet"
-msgstr "Internet a síť"
+msgstr "Internet"
 
 #. Name
 #: tde-main.directory:5
@@ -182,7 +182,7 @@ msgstr "Multimédia"
 #. Comment
 #: tde-office-pim.directory:4 tde-office-pim.directory:6
 msgid "Personal Information Management"
-msgstr ""
+msgstr "Správa osobních informací"
 
 #. Name
 #: tde-office.directory:4
@@ -202,7 +202,7 @@ msgstr "Komponenty TDE"
 #. Name
 #: tde-settings-hardware.directory:4
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 #. Name
 #: tde-settings-information.directory:4
