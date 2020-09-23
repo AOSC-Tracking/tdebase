@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Slávek Banko <slavek.banko@axis.cz>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:19+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-09-24 00:40+0000\n"
+"Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
+"Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/twin-clients-desktop-files/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: b2/b2.desktop:2
 msgid "B II"
-msgstr ""
+msgstr "B II"
 
 #. Name
 #: keramik/keramik.desktop:2
@@ -44,24 +45,24 @@ msgstr "Moderní systém"
 #. Name
 #: plastik/plastik.desktop:2
 msgid "Plastik"
-msgstr ""
+msgstr "Plastický"
 
 #. Name
 #: quartz/quartz.desktop:2
 msgid "Quartz"
-msgstr ""
+msgstr "Quartz"
 
 #. Name
 #: redmond/redmond.desktop:2
 msgid "Redmond"
-msgstr ""
+msgstr "Redmond"
 
 #. Name
 #: test/test.desktop:2
 msgid "KWin test"
-msgstr ""
+msgstr "Test KWin"
 
 #. Name
 #: web/web.desktop:2
 msgid "Web"
-msgstr ""
+msgstr "Web"
