@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Slávek Banko <slavek.banko@axis.cz>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-09-24 00:40+0000\n"
+"Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
+"Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/konqueror-desktop-files/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: Home.desktop:7
@@ -46,12 +47,12 @@ msgstr "Vícesloupcový pohled"
 #: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
 #: konquerorsu.desktop:8
 msgid "Konqueror"
-msgstr ""
+msgstr "Konqueror"
 
 #. GenericName
 #: konqbrowser.desktop:9
 msgid "Web Browser"
-msgstr "WWW prohlížeč"
+msgstr "Webový prohlížeč"
 
 #. Name
 #: konqfilemgr.desktop:7
@@ -66,7 +67,7 @@ msgstr "Správce souborů a prohlížeč Webu pro prostředí TDE"
 #. GenericName
 #: konquerorsu.desktop:10
 msgid "File Manager - Super User Mode"
-msgstr "Správce souborů - superuživatelský režim"
+msgstr "Správce souborů – režim správce"
 
 #. Name
 #: kttsplugin/tdehtmlkttsd.desktop:12
@@ -75,9 +76,8 @@ msgstr "Modul text-na-řeč"
 
 #. Comment
 #: kttsplugin/tdehtmlkttsd.desktop:14
-#, fuzzy
 msgid "A plugin which enables texts to be read aloud on the web with KTTS"
-msgstr "Modul shellového příkazu pro Konqueror"
+msgstr "Modul, který umožňuje číst texty na webu nahlas pomocí KTTS"
 
 #. Name
 #: listview/konq_detailedlistview.desktop:3
@@ -112,7 +112,7 @@ msgstr "KDED modul pro načítání Konqueroru"
 #. Comment
 #: preloader/konqy_preloader.desktop:6
 msgid "Reduces Konqueror startup time"
-msgstr "Redukuje čas pro spuštění Konqueroru"
+msgstr "Snižuje čas pro spuštění Konqueroru"
 
 #. Name
 #: profile_filemanagement.desktop:5
@@ -131,9 +131,8 @@ msgstr "Vývoj TDE"
 
 #. Name
 #: profile_midnightcommander.desktop:9
-#, fuzzy
 msgid "Midnight Commander"
-msgstr "Modul shellového příkazu"
+msgstr "Midnight Commander"
 
 #. Name
 #: profile_simplebrowser.desktop:2
@@ -162,27 +161,27 @@ msgstr "Prohlížení internetu"
 #: quickprint/text-tex-print.desktop:6 quickprint/text-xml-print.desktop:6
 #: quickprint/text-xslt-print.desktop:6
 msgid "Print..."
-msgstr "Tisknout..."
+msgstr "Tisknout…"
 
 #. Name
 #: remoteencodingplugin/kremoteencodingplugin.desktop:13
 msgid "Remote Encoding"
-msgstr "Modul vzdáleného kódování"
+msgstr "Vzdálené kódování"
 
 #. Comment
 #: remoteencodingplugin/kremoteencodingplugin.desktop:15
 msgid "A Plugin for setting the encoding of remote hosts (FTP, SSH, etc.)"
-msgstr "Modul vzdáleného kódování pro Konqueror"
+msgstr "Modul pro nastavení kódování vzdálený serverů (FTP, SSH, atd.)"
 
 #. Name
 #: shellcmdplugin/kshellcmdplugin.desktop:15
 msgid "Run Command"
-msgstr "Modul shellového příkazu"
+msgstr "Spustit příkaz"
 
 #. Comment
 #: shellcmdplugin/kshellcmdplugin.desktop:17
 msgid "A plugin which enables commands to be executed within folders"
-msgstr "Modul shellového příkazu pro Konqueror"
+msgstr "Modul umožňující provádění příkazů ve složkách"
 
 #. Name
 #: sidebar/konq_sidebartng.desktop:4
@@ -192,7 +191,7 @@ msgstr "Navigační panel"
 #. Name
 #: sidebar/test/test.desktop:5
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #. Name
 #: sidebar/trees/history_module/kcmhistory.desktop:10
