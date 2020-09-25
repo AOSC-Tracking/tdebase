@@ -1,6 +1,3 @@
-// -*- c++ -*-
-
-
 #ifndef KASCLOCKITEM_H
 #define KASCLOCKITEM_H
 

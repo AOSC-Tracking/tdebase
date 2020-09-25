@@ -1,7 +1,6 @@
 #ifndef INTERACTIVESMTPSERVER_H
 #define INTERACTIVESMTPSERVER_H
-
-/*  -*- c++ -*-
+/*
     interactivesmtpserver.h
 
     Code based on the serverSocket example by Jesper Pedersen.

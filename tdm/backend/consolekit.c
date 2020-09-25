@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*-
+/*
 
     Copyright (C) 2006-2007 William Jon McCann <mccann@jhu.edu>
     Copyright (C) 2007 Kevin Kofler <Kevin@tigcc.ticalc.org>

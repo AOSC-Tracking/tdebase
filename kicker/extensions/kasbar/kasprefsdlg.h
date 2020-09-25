@@ -1,5 +1,3 @@
-// -*- c++ -*-
-
 /* kasprefsdlg.h
 **
 ** Copyright (C) 2001-2004 Richard Moore <rich@kde.org>
@@ -53,8 +51,6 @@
 /*
 ** Bug reports and questions can be sent to kde-devel@kde.org
 */
-// -*- c++ -*-
-
 #ifndef KASPREFSDLG_H
 #define KASPREFSDLG_H
 

@@ -51,8 +51,6 @@
 /*
 ** Bug reports and questions can be sent to kde-devel@kde.org
 */
-// -*- c++ -*-
-
 #ifndef KASITEM_H
 #define KASITEM_H
 

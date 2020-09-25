@@ -1,5 +1,3 @@
-// -*- c++ -*-
-
 #ifndef KSYSTRAYCMD_H
 #define KSYSTRAYCMD_H
 

@@ -1,4 +1,3 @@
-// -*- c-basic-offset: 2 -*-
 // (c) Martin R. Jones 1996
 // (c) Bernd Wuebben 1998
 // KControl port & modifications

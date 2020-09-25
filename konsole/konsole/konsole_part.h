@@ -1,4 +1,4 @@
-/* -*- C++ -*-
+/*
     This file is part of the KDE system
     Copyright (C)  1999,2000 Boloni Laszlo <lboloni@cpe.ucf.edu>
 

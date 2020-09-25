@@ -1,4 +1,4 @@
-/*  -*- c++ -*-
+/*
     command.cc
 
     This file is part of tdeio_smtp, the KDE SMTP tdeioslave.
