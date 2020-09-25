@@ -1,4 +1,4 @@
-/* -*- c-basic-offset:2 -*-
+/*
    This file is part of the KDE project
    Copyright (C) 1998, 1999 Simon Hausmann <hausmann@kde.org>
    Copyright (C) 2000-2004 David Faure <faure@kde.org>

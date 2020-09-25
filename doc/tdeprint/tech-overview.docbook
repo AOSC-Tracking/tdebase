@@ -263,18 +263,3 @@ drawing)</para></caption>
 </sect1>
 
 </chapter>
-
-<!-- Keep this comment at the end of the file
-Local variables:
-mode: sgml
-sgml-omittag:t
-sgml-shorttag:t
-sgml-namecase-general:t
-sgml-general-insert-case:lower
-sgml-minimize-attributes:nil
-sgml-always-quote-attributes:t
-sgml-indent-step:0
-sgml-indent-data:true
-sgml-parent-document:"index.docbook" "book"
-End:
--->

@@ -1,6 +1,3 @@
-// -*- c++ -*-
-
-
 #ifndef KASLOADITEM_H
 #define KASLOADITEM_H
 

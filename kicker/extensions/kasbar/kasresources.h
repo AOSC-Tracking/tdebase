@@ -1,5 +1,3 @@
-// -*- c++ -*-
-
 /* kasbar.h
 **
 ** Copyright (C) 2001-2004 Richard Moore <rich@kde.org>

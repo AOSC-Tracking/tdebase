@@ -1,5 +1,3 @@
-// -*- c++ -*-
-
 /* kasbar.h
 **
 ** Copyright (C) 2001-2004 Richard Moore <rich@kde.org>
@@ -53,9 +51,6 @@
 /*
 ** Bug reports and questions can be sent to kde-devel@kde.org
 */
-// -*- c++ -*-
-
-
 #ifndef __KASBAR_H
 #define __KASBAR_H
 

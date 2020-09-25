@@ -1,4 +1,4 @@
-/*  -*- c++ -*-
+/*
     interactivesmtpserver.cc
 
     Code based on the serverSocket example by Jesper Pedersen.

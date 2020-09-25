@@ -1,4 +1,4 @@
-/*  -*- c-basic-offset: 2 -*-
+/*
 
     tdeshorturifilter.h
 

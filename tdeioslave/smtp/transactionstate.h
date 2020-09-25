@@ -1,4 +1,4 @@
-/*  -*- c++ -*-
+/*
     transactionstate.h
 
     This file is part of tdeio_smtp, the KDE SMTP tdeioslave.

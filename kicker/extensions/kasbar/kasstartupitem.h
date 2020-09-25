@@ -51,9 +51,6 @@
 /*
 ** Bug reports and questions can be sent to kde-devel@kde.org
 */
-// -*- c++ -*-
-
-
 #ifndef KASSTARTUPITEM_H
 #define KASSTARTUPITEM_H
 

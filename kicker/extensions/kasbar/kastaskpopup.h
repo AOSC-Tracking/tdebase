@@ -51,8 +51,6 @@
 /*
 ** Bug reports and questions can be sent to kde-devel@kde.org
 */
-// -*- c++ -*-
-
 #ifndef KASTASKPOPUP_H
 #define KASTASKPOPUP_H
 
