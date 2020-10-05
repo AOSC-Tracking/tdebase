@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Marek Mlynar <marek.inq.mlynar@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:20+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-10-06 21:31+0000\n"
+"Last-Translator: Marek Mlynar <marek.inq.mlynar@gmail.com>\n"
+"Language-Team: Slovak <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/twin-events/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Comment
 #: eventsrc:3
@@ -264,22 +265,22 @@ msgstr "Okno sa uzavrie"
 #. Name
 #: eventsrc:135
 msgid "Window Shade Up"
-msgstr "Zobraziť okno"
+msgstr "Rozbaliť okno"
 
 #. Comment
 #: eventsrc:136
 msgid "A window is shaded up"
-msgstr "Okno je zabalené"
+msgstr "Okno je rozbalené"
 
 #. Name
 #: eventsrc:141
 msgid "Window Shade Down"
-msgstr "Schovať okno"
+msgstr "Zbaliť okno"
 
 #. Comment
 #: eventsrc:142
 msgid "A window is shaded down"
-msgstr "Okno je rozbalené"
+msgstr "Okno je zabalené"
 
 #. Name
 #: eventsrc:147
@@ -314,7 +315,7 @@ msgstr "Okno je maximalizované"
 #. Name
 #: eventsrc:165
 msgid "Window Unmaximize"
-msgstr "Zmenšiť okno"
+msgstr "Zrušiť maximalizáciu okna"
 
 #. Comment
 #: eventsrc:166
@@ -404,19 +405,19 @@ msgstr "Zmena veľkosti okna je ukončená"
 #. Name
 #: eventsrc:215
 msgid "Window On Current Desktop Demands Attention"
-msgstr "Okno na aktuálnu pracovnú plochu"
+msgstr "Okno na aktuálnej ploche vyžaduje pozornosť"
 
 #. Comment
 #: eventsrc:216
 msgid "A window on the current virtual desktop demands attention"
-msgstr "Okno na aktuálnu pracovnú plochu"
+msgstr "Okno na aktuálnej ploche vyžaduje Vašu pozornosť"
 
 #. Name
 #: eventsrc:220
 msgid "Window On Other Desktop Demands Attention"
-msgstr "Okno na inú pracovnú plochu"
+msgstr "Okno na inej ploche vyžaduje Vašu pozornosť"
 
 #. Comment
 #: eventsrc:221
 msgid "A window on an inactive virtual desktop demands attention"
-msgstr "Okno na neaktívnu virtuálnu pracovnú plochu"
+msgstr "Okno na neaktívnej ploche vyžaduje Vašu pozornosť"
