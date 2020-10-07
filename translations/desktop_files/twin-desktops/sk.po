@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Marek Mlynar <marek.inq.mlynar@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:32+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-10-06 21:31+0000\n"
+"Last-Translator: Marek Mlynar <marek.inq.mlynar@gmail.com>\n"
+"Language-Team: Slovak <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/twin-desktop-files/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: kcmtwin/showdesktop.desktop:4
@@ -42,8 +43,8 @@ msgid ""
 "twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
 "kwm;decoration;"
 msgstr ""
-"twin;okno;správa;okraj;štýl;téma;vzhľad;rozloženie;tlačidlo;hrana;kwm;"
-"dekorácia;oblasť;"
+"twin;okno;správca;okraj;štýl;téma;vzhľad;rozloženie;tlačidlo;úchop;hrana;kwm;"
+"dekorácia;"
 
 #. Name
 #: kcmtwin/twinoptions/twinactions.desktop:11
@@ -62,7 +63,7 @@ msgid ""
 "resize;"
 msgstr ""
 "zabalenie;maximalizácia;minimalizácia;presun dozadu;presun dopredu;operácie "
-"menu;titulok;zmena veľkosti;"
+"ponuky;titulok;zmena veľkosti;"
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
@@ -77,7 +78,7 @@ msgstr "Nastavenie pokročilých možností správy okien"
 #. Keywords
 #: kcmtwin/twinoptions/twinadvanced.desktop:15
 msgid "shading;border;hover;active borders;"
-msgstr "zabalenie;okraj;presun;aktívne okraje;"
+msgstr "zabalenie;okraj;prejazd myšou;aktívne okraje;"
 
 #. Name
 #: kcmtwin/twinoptions/twinfocus.desktop:11
@@ -95,8 +96,8 @@ msgid ""
 "focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
 "desktop;"
 msgstr ""
-"fokus;umiestnenie;automatický presun;dopredu;dopredu na kliknutie;klávesnica;"
-"CDE;alt-tab;všetky plochy;"
+"fokus;umiestnenie;automatické zdvihnutie;zdvihnutie;zdvihnutie na kliknutie;"
+"klávesnica;CDE;alt-tab;všetky plochy;"
 
 #. Name
 #: kcmtwin/twinoptions/twinmoving.desktop:11
@@ -132,7 +133,7 @@ msgid ""
 "titlebar;doubleclick;"
 msgstr ""
 "fokus;umiestnenie;správanie okien;animácia;zdvihnutie;automatické zdvihnutie;"
-"titulok;dvojité kliknutie;rámec;okná;"
+"okná;rám;titulok;dvojité kliknutie;"
 
 #. Name
 #: kcmtwin/twinoptions/twintranslucency.desktop:11
@@ -147,7 +148,7 @@ msgstr "Nastavenie priesvitnosti okien a správcu tieňovania"
 #. Keywords
 #: kcmtwin/twinoptions/twintranslucency.desktop:15
 msgid "translucency;transparence;shadows;"
-msgstr ""
+msgstr "priesvitnosť;priehľadnosť;tiene;"
 
 #. Name
 #: kcmtwin/twinrules/twinrules.desktop:11
@@ -165,33 +166,32 @@ msgid ""
 "size;position;state;window behavior;windows;specific;workarounds;remember;"
 "rules;"
 msgstr ""
-"veľkosť;pozícia;stav;správanie okna;okná;špecifické;jedno okno;opravy;"
+"veľkosť;umiestnenie;stav;správanie okna;okná;špecifické;riešenia;zapamätať;"
 "pravidlá;"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:2
 msgid "(Default) Disable focus stealing prevention for XV"
-msgstr "(Štandard) Znemožniť kradnutie aktivity okna XV"
+msgstr "(Predvolené) Znemožniť kradnutie aktivity okna XV"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:10
-#, fuzzy
 msgid "(Default) Allow focus stealing by the screen locker"
-msgstr "(Štandard) Znemožniť kradnutie aktivity okna XV"
+msgstr "(Predvolené) Povoliť kradnutie aktivity okna zamknutím obrazovky"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:21
-#, fuzzy
 msgid "(Default) Allow focus stealing by the kdesktop run dialog"
-msgstr "(Štandard) Znemožniť kradnutie aktivity okna XV"
+msgstr ""
+"(Predvolené) Povoliť kradnutie aktivity okna dialógovým oknom Spustiť príkaz"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:32
-#, fuzzy
 msgid "(Default) Allow focus stealing by the settings test dialog"
-msgstr "(Štandard) Znemožniť kradnutie aktivity okna XV"
+msgstr ""
+"(Predvolené) Povoliť kradnutie aktivity okna dialógovým pre test nastavenia"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:45
 msgid "(Default) Hide system modal dialog class from taskbar"
-msgstr ""
+msgstr "(Predvolené) Schovať modálne dialógové okná z hlavného panelu"
