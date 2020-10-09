@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Slávek Banko <slavek.banko@axis.cz>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-10-09 08:13+0000\n"
+"Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
+"Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/tdm-sessions/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: tde.desktop.cmake:7
@@ -276,12 +277,12 @@ msgstr "Správce oken podobný NeXTStepu založený na FVWM"
 #. Name
 #: kde-plasma-safe.desktop:7
 msgid "KDE Plasma Workspace (failsafe session)"
-msgstr "Pracovní plocha plasma (bezpečná relace)"
+msgstr "Pracovní plocha plasma (bezpečné sezení)"
 
 #. Comment
 #: kde-plasma-safe.desktop:9
 msgid "The desktop made by KDE (failsafe session)"
-msgstr "Prostředí od KDE (bezpečná relace)"
+msgstr "Prostředí od KDE (bezpečné sezení)"
 
 #. Name
 #: kde-plasma.desktop:7
