@@ -29,7 +29,6 @@ release.</para>
   <listitem><para>TDE style Ia Ora - Mandriva Ia Ora theme for TDE.</para></listitem>
   <listitem><para>TDEpacman - a pacman game clone.</para></listitem>
   <listitem><para>Transcode added to dependency repository for Debian-like distros.</para></listitem>
-  <listitem><para>Xcalib added to dependency repository for Debian-like distros.</para></listitem>
   <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
@@ -102,7 +101,6 @@ potential problems.</para>
   </listitem>
 </itemizedlist>
 </para>
-
 </sect3>
 
 <sect3 id="release-notes-r14.0.9-hints-knotes-global-shortcuts">
@@ -127,7 +125,14 @@ and then assign the following key combinations.
   </listitem>
 </itemizedlist>
 </para>
+</sect3>
 
+<sect3 id="release-notes-r14.0.9-hints-arch-support">
+<title>Restriction of supported distros/architectures</title>
+<para>Starting from this TDE release, apt sources for i386 architecture are no longer provided for Ubuntu 20.04 onwards.</para>
+<para>If you have a multi-arch system that includes i386 as well, you need to either remove i386 from the list of known architectures or
+remove that architecture from your apt sources.</para>
+<para>For example, if you have both i386 and amd64, you need to add [arch=amd64] in your apt sources.list file to make sure i386 is not used.</para>
 </sect3>
 
 </sect2>
