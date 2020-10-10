@@ -1,72 +1,73 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Slávek Banko <slavek.banko@axis.cz>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 15:54+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-10-11 17:31+0000\n"
+"Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
+"Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/konsole-events/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Comment
 #: eventsrc:3
 msgid "Konsole"
-msgstr ""
+msgstr "Konsole"
 
 #. Name
 #: eventsrc:6
 msgid "Bell in visible session"
-msgstr "Zvonek ve viditelné relaci"
+msgstr "Zvonek ve viditelném sezení"
 
 #. Comment
 #: eventsrc:7
 msgid "Bell emitted within a visible session"
-msgstr "Vydán zvonek ve viditelné relaci"
+msgstr "Vydán zvonek ve viditelném sezení"
 
 #. Name
 #: eventsrc:12
 msgid "Bell in non-visible session"
-msgstr "Zvonek v neviditelné relaci"
+msgstr "Zvonek v neviditelném sezení"
 
 #. Comment
 #: eventsrc:13
 msgid "Bell emitted within a non-visible session"
-msgstr "Vydán zvonek v neviditelné relaci"
+msgstr "Vydán zvonek v neviditelném sezení"
 
 #. Name
 #: eventsrc:18
 msgid "Activity in monitored session"
-msgstr "Aktivita v monitorované relaci"
+msgstr "Aktivita v monitorovaném sezení"
 
 #. Comment
 #: eventsrc:19
 msgid "Activity detected in a monitored session"
-msgstr "Detekována aktivita v monitorované relaci"
+msgstr "Detekována aktivita v monitorovaném sezení"
 
 #. Name
 #: eventsrc:23
 msgid "Silence in monitored session"
-msgstr "Ticho v monitorované relaci"
+msgstr "Ticho v monitorovaném sezení"
 
 #. Comment
 #: eventsrc:24
 msgid "Silence detected in a monitored session"
-msgstr "Detekováno ticho v monitorované relaci"
+msgstr "Detekováno ticho v monitorovaném sezení"
 
 #. Name
 #: eventsrc:28
 msgid "Session finished with non-zero status"
-msgstr "Relace ukončena s nenulovým stavem"
+msgstr "Sezení ukončeno s nenulovým stavem"
 
 #. Comment
 #: eventsrc:29
 msgid "A session has exited with non-zero status"
-msgstr "Relace byla ukončena s nenulovým stavem"
+msgstr "Sezení bylo ukončeno s nenulovým stavem"
