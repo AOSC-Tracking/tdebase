@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Slávek Banko <slavek.banko@axis.cz>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-10-09 08:13+0000\n"
+"Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
+"Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/kcontrol-desktop-files/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -2093,17 +2094,17 @@ msgstr ""
 #. Name
 #: smserver/kcmsmserver.desktop:12
 msgid "Session Manager"
-msgstr "Správce relace"
+msgstr "Správce sezení"
 
 #. Comment
 #: smserver/kcmsmserver.desktop:14
 msgid "Configure the session manager and logout settings"
-msgstr "Nastavení správce relace a odhlašování"
+msgstr "Nastavení správce sezení a odhlašování"
 
 #. Keywords
 #: smserver/kcmsmserver.desktop:16
 msgid "ksmserver;session;logout;confirmation;save;restore;"
-msgstr "Správce relace;Relace;Odhlášení;Potvrzení;Uložení;Obnovení;"
+msgstr "Správce sezení;Sezení;Odhlášení;Potvrzení;Uložení;Obnovení;"
 
 #. Name
 #: spellchecking/spellchecking.desktop:11
@@ -2412,7 +2413,7 @@ msgid ""
 "fonts;background;wallpapers;sessions;shutdown;restart;"
 msgstr ""
 "tdm;Správce obrazovky;xdm;Uživatelé;Přihlášení;Uvítání;Logo;Styly;Jazyk;Země;"
-"Písma;pozadí;Tapety;Relace;Sezení;Vypnutí;Restart;"
+"Písma;pozadí;Tapety;Sezení;Vypnutí;Restart;"
 
 #. Name
 #: usbview/kcmusb.desktop:10
