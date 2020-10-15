@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Marek Mlynar <marek.inq.mlynar@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 03:59+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-10-16 13:31+0000\n"
+"Last-Translator: Marek Mlynar <marek.inq.mlynar@gmail.com>\n"
+"Language-Team: Slovak <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/drkonqi-presets/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: developerrc:2
@@ -71,7 +72,7 @@ msgstr ""
 #. Comment
 #: developerrc:29
 msgid "Floating point exception."
-msgstr "Výnimka."
+msgstr "Výnimka v desatinnej čiarke."
 
 #. Name
 #: developerrc:32 enduserrc:32
@@ -86,7 +87,7 @@ msgstr "Nesprávne adresovanie pamäti."
 #. Name
 #: developerrc:36 enduserrc:36
 msgid "Unknown"
-msgstr "Neznámi"
+msgstr "Neznáme"
 
 #. Comment
 #: developerrc:37
@@ -96,12 +97,12 @@ msgstr "Tento signál je neznámy."
 #. Name
 #: enduserrc:2
 msgid "End user"
-msgstr "Konečný používateľ"
+msgstr "Koncový používateľ"
 
 #. Comment
 #: enduserrc:3
 msgid "Settings preferred for end users"
-msgstr "Preferované nastavenia pre konečných používateľov"
+msgstr "Uprednostňované nastavenia pre konečných používateľov"
 
 #. Name
 #: enduserrc:13
@@ -142,8 +143,8 @@ msgid ""
 "An application terminates with a SIGABRT signal when it detects an internal "
 "inconsistency caused by a bug in the program."
 msgstr ""
-"Aplikácia bola ukončená SIGABRT signálom, keď program detekoval internú "
-"nezhodu spôsobenú chybou v programe."
+"Aplikácia bola ukončená SIGABRT signálom, keď program detekoval vnútornú "
+"nesúdržnosť spôsobenú chybou v programe."
 
 #. Comment
 #: enduserrc:29
@@ -152,7 +153,7 @@ msgid ""
 "application. The application was asked to save its documents."
 msgstr ""
 "Aplikácia väčšinou dostane SIGFPE signál kvôli chybe v aplikácii. Tento "
-"signál žiada tiež aplikáciu, aby si uložila svoje dokumenty."
+"signál žiada aplikáciu, aby si uložila svoje dokumenty."
 
 #. Comment
 #: enduserrc:33
