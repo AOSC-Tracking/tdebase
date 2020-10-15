@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-08 17:00+0200\n"
-"PO-Revision-Date: 2020-10-14 16:57+0000\n"
+"PO-Revision-Date: 2020-10-16 13:31+0000\n"
 "Last-Translator: Marek Mlynar <marek.inq.mlynar@gmail.com>\n"
 "Language-Team: Slovak <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/applnk-compat/sk/>\n"
@@ -59,7 +59,7 @@ msgstr "XML RPC démon"
 #. Name
 #: konqhtml.desktop:2
 msgid "Konqueror Browser"
-msgstr "Web priehliadač Konqueror"
+msgstr "Prehliadač Konqueror"
 
 #. Name
 #: passwords.desktop:11
@@ -89,7 +89,7 @@ msgstr "Používateľský účet"
 #. Comment
 #: userinfo.desktop:14
 msgid "Change your account information"
-msgstr "Nastavenie informácií o vašom účte"
+msgstr "Nastavenie informácií o Vašom účte"
 
 #. Keywords
 #: userinfo.desktop:15
