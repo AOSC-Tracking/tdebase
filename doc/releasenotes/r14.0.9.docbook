@@ -1,5 +1,5 @@
 <sect1 id="release-notes-r14.0.9">
-<title>R14.0.9 Release Notes (Draft)</title>
+<title>R14.0.9 Release Notes</title>
 
 <para>R14.0.9 is the ninth maintenance release of the R14.0 series,
 and is built on and improves the previous R14.0.8 version.</para>
@@ -27,9 +27,9 @@ release.</para>
   <listitem><para>TDE style Baghira - Apple's MacOS X's style for TDE.</para></listitem>
   <listitem><para>TDE style Domino - a smooth style with a soft look.</para></listitem>
   <listitem><para>TDE style Ia Ora - Mandriva Ia Ora theme for TDE.</para></listitem>
+  <listitem><para>TDEDocker - dock any application to the system tray.</para></listitem>
   <listitem><para>TDEpacman - a pacman game clone.</para></listitem>
   <listitem><para>Transcode added to dependency repository for Debian-like distros.</para></listitem>
-  <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
 <listitem>
@@ -40,7 +40,6 @@ release.</para>
   <listitem><para>Autostart TCC module no longer crashes when non-service entries are used.</para></listitem>
   <listitem><para>Fixed Konqueror's kdiff3 preview plugin functionality.</para></listitem>
   <listitem><para>Various fixes related to compiling and linking.</para></listitem>
-  <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
 <listitem>
@@ -55,13 +54,12 @@ release.</para>
   <listitem><para>Improved support for bluray discs.</para></listitem>
   <listitem><para>Added support for xine 1.2.10.</para></listitem>
   <listitem><para>Changed CDDB database from freedb.org (no longer working) to gnudb.org.</para></listitem>
-  <listitem><para></para></listitem>
   </itemizedlist>
 </listitem>
 <listitem>
   <para>Security</para>
   <itemizedlist>
-  <listitem><para></para></listitem>
+  <listitem><para>CVE-2020-17507: Fix buffer overflow in XBM parser.</para></listitem>
   </itemizedlist>
 </listitem>
 </itemizedlist>
@@ -71,6 +69,7 @@ release.</para>
   <listitem><para><ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/29">TGW issue list.</ulink></para></listitem>
   <listitem><para><ulink url="https://bugs.trinitydesktop.org/showdependencytree.cgi?id=3085&amp;hide_resolved=0">Bugzilla bug list.</ulink></para></listitem>
   <listitem><para><ulink url="https://wiki.trinitydesktop.org/Changelog_For_R14.0.9">Detailed commit change log.</ulink></para></listitem>
+  <listitem><para><ulink url="https://wiki.trinitydesktop.org/Release_Notes_For_R14.0.9">Full release notes on TDE wiki.</ulink></para></listitem>
 </itemizedlist>
 </sect2>
 
