@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"POT-Creation-Date: 2020-10-16 13:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -359,13 +359,13 @@ msgid "Konqueror properties dialog plugin to configure mount behaviour"
 msgstr ""
 
 #. Name
-#: media/services/media_decrypt.desktop:8
-msgid "Unlock"
+#: media/services/media_eject.desktop:8
+msgid "Eject"
 msgstr ""
 
 #. Name
-#: media/services/media_eject.desktop:8
-msgid "Eject"
+#: media/services/media_lock.desktop:10
+msgid "Lock"
 msgstr ""
 
 #. Name
@@ -376,6 +376,11 @@ msgstr ""
 #. Name
 #: media/services/media_safelyremove.desktop:8
 msgid "Safely Remove"
+msgstr ""
+
+#. Name
+#: media/services/media_unlock.desktop:8
+msgid "Unlock"
 msgstr ""
 
 #. Name
