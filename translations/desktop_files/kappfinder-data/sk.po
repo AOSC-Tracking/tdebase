@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Marek Mlynar <marek.inq.mlynar@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 22:13+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-10-16 13:31+0000\n"
+"Last-Translator: Marek Mlynar <marek.inq.mlynar@gmail.com>\n"
+"Language-Team: Slovak <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kappfinder-data/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: Development/Forte.desktop:2
@@ -34,7 +35,7 @@ msgstr ""
 #. GenericName
 #: Development/assistant.desktop:3
 msgid "Document Browser"
-msgstr "Prehliadač dokumentácie"
+msgstr ""
 
 #. Name
 #: Development/ddd.desktop:2
@@ -44,46 +45,42 @@ msgstr ""
 #. GenericName
 #: Development/ddd.desktop:3
 msgid "Data Display Debugger"
-msgstr "Debugger zobrazujúci dáta"
+msgstr ""
 
 #. Name
 #: Development/designer.desktop:2
-#, fuzzy
 msgid "Qt Designer"
-msgstr "Návrh rozhrania"
+msgstr ""
 
 #. GenericName
 #: Development/designer.desktop:3
 msgid "Interface Designer"
-msgstr "Návrh rozhrania"
+msgstr ""
 
 #. Name
 #: Development/dlgedit.desktop:2
-#, fuzzy
 msgid "Qt DlgEdit"
-msgstr "Editor dialógov"
+msgstr ""
 
 #. GenericName
 #: Development/dlgedit.desktop:3
 msgid "Dialog Editor"
-msgstr "Editor dialógov"
+msgstr ""
 
 #. Name
 #: Development/eclipse.desktop:3
-#, fuzzy
 msgid "Eclipse"
-msgstr "IDE Eclipse"
+msgstr ""
 
 #. GenericName
 #: Development/eclipse.desktop:4
 msgid "Eclipse IDE"
-msgstr "IDE Eclipse"
+msgstr ""
 
 #. Name
 #: Development/fdesign.desktop:2
-#, fuzzy
 msgid "FormDesigner"
-msgstr "Návrh rozhrania"
+msgstr ""
 
 #. Name
 #: Development/j2mewtk.desktop:2
@@ -103,7 +100,7 @@ msgstr ""
 #. GenericName
 #: Development/linguist.desktop:3
 msgid "Translation Tool"
-msgstr "Prekladací nástroj"
+msgstr ""
 
 #. Name
 #: Development/pose.desktop:2
@@ -123,13 +120,12 @@ msgstr ""
 #. GenericName
 #: Development/sced.desktop:3
 msgid "Scene Modeler"
-msgstr "Modelovanie scén"
+msgstr ""
 
 #. Name
 #: Games/Arcade/ClanBomber.desktop:2
-#, fuzzy
 msgid "ClanBomber"
-msgstr "ClanBomber"
+msgstr ""
 
 #. GenericName
 #: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
@@ -140,7 +136,7 @@ msgstr "ClanBomber"
 #: Games/Board/Gataxx.desktop:3 Games/Board/Gnotravex.desktop:3
 #: Games/penguin-command.desktop:4
 msgid "Arcade Game"
-msgstr "Dobrodružná hra"
+msgstr ""
 
 #. Name
 #: Games/Arcade/FrozenBubble.desktop:2
@@ -150,7 +146,7 @@ msgstr ""
 #. GenericName
 #: Games/Arcade/FrozenBubble.desktop:3
 msgid "Tetris-Like Game"
-msgstr "Hra v štýle Tetris"
+msgstr ""
 
 #. Name
 #: Games/Arcade/Gnibbles.desktop:2
@@ -160,7 +156,7 @@ msgstr ""
 #. GenericName
 #: Games/Arcade/Gnibbles.desktop:3
 msgid "GNOME Nibbles Game"
-msgstr "Hra GNOME Nibbles"
+msgstr ""
 
 #. Name
 #: Games/Arcade/GnobotsII.desktop:2
@@ -190,7 +186,7 @@ msgstr ""
 #. GenericName
 #: Games/Arcade/TuxRacer.desktop:3
 msgid "Racing Game"
-msgstr "Závody"
+msgstr ""
 
 #. Name
 #: Games/Arcade/XKobo.desktop:2
@@ -281,13 +277,12 @@ msgstr ""
 #. GenericName
 #: Games/Board/Gmahjongg.desktop:3
 msgid "Tile Game"
-msgstr "Stolová hra"
+msgstr "Hra s dlaždicami"
 
 #. Name
 #: Games/Board/Gmines.desktop:2
-#, fuzzy
 msgid "GNOME Mines"
-msgstr "Hra GNOME Nibbles"
+msgstr ""
 
 #. GenericName
 #: Games/Board/Gmines.desktop:3
@@ -378,9 +373,8 @@ msgstr "ClanBomber"
 
 #. Name
 #: Games/Emulators/cmail.desktop:2
-#, fuzzy
 msgid "ChessMail"
-msgstr "Šach"
+msgstr ""
 
 #. GenericName
 #: Games/Emulators/cmail.desktop:3
@@ -714,9 +708,8 @@ msgstr ""
 
 #. GenericName
 #: Internet/BlueFish.desktop:3
-#, fuzzy
 msgid "HTML Editor"
-msgstr "Textový editor"
+msgstr ""
 
 #. Name
 #: Internet/Dpsftp.desktop:2
@@ -764,9 +757,8 @@ msgstr "Upozornenie na poštu"
 
 #. Name
 #: Internet/Fetchmailconf.desktop:2
-#, fuzzy
 msgid "Fetchmailconf"
-msgstr "Konfigurácia Fetchmail"
+msgstr ""
 
 #. GenericName
 #: Internet/Fetchmailconf.desktop:3
@@ -810,9 +802,8 @@ msgstr ""
 
 #. Name
 #: Internet/Netscapemessenger.desktop:2
-#, fuzzy
 msgid "Netscape Messenger"
-msgstr "Kniha adries Nescape"
+msgstr ""
 
 #. Name
 #: Internet/Nmapfe.desktop:2
@@ -993,9 +984,8 @@ msgstr ""
 
 #. Name
 #: Internet/gtelnet.desktop:2
-#, fuzzy
 msgid "GNOME Telnet"
-msgstr "GNOME Výber farby"
+msgstr ""
 
 #. GenericName
 #: Internet/gtelnet.desktop:3
@@ -1079,9 +1069,8 @@ msgstr ""
 
 #. Name
 #: Internet/xchat.desktop:2
-#, fuzzy
 msgid "XChat"
-msgstr "IRC chat"
+msgstr ""
 
 #. GenericName
 #: Internet/xchat.desktop:3
@@ -1213,9 +1202,8 @@ msgstr "Zvukový procesor"
 
 #. Name
 #: Multimedia/mplayer.desktop:2
-#, fuzzy
 msgid "MPlayer"
-msgstr "Prehrávač MPEG"
+msgstr ""
 
 #. Name
 #: Multimedia/mtv.desktop:2
@@ -1234,9 +1222,8 @@ msgstr "DVD prehrávač"
 
 #. Name
 #: Multimedia/oqtplayer.desktop:2
-#, fuzzy
 msgid "OQTPlayer"
-msgstr "DVD prehrávač"
+msgstr ""
 
 #. GenericName
 #: Multimedia/oqtplayer.desktop:3
@@ -1245,9 +1232,8 @@ msgstr "Video prehrávač MOV"
 
 #. Name
 #: Multimedia/realplayer.desktop:2
-#, fuzzy
 msgid "RealPlayer"
-msgstr "Video prehrávač"
+msgstr ""
 
 #. Name
 #: Multimedia/rezound.desktop:2
@@ -1356,9 +1342,8 @@ msgstr "Správca kontaktov"
 
 #. Name
 #: Office/GnomeTimeTracker.desktop:2
-#, fuzzy
 msgid "GNOME Time Tracker"
-msgstr "Hra GNOME Nibbles"
+msgstr ""
 
 #. Name
 #: Office/Gnumeric.desktop:2
@@ -1473,9 +1458,8 @@ msgstr "Plánovací kalendár"
 
 #. Name
 #: Office/pybliographic.desktop:2
-#, fuzzy
 msgid "Pybliographic"
-msgstr "Bibliografická databáza"
+msgstr ""
 
 #. GenericName
 #: Office/pybliographic.desktop:3
@@ -1628,9 +1612,8 @@ msgstr ""
 
 #. Name
 #: Utilities/Editors/xedit.desktop:2
-#, fuzzy
 msgid "X Editor"
-msgstr "Textový editor"
+msgstr ""
 
 #. Name
 #: Utilities/Editors/xemacs.desktop:2
@@ -1679,9 +1662,8 @@ msgstr "Zatváranie okien"
 
 #. Name
 #: Utilities/XUtilities/Xrefresh.desktop:2
-#, fuzzy
 msgid "X Refresh"
-msgstr "Prekreslenie obrazovky"
+msgstr ""
 
 #. GenericName
 #: Utilities/XUtilities/Xrefresh.desktop:3
@@ -1710,9 +1692,8 @@ msgstr "Kalkulačka"
 
 #. Name
 #: Utilities/XUtilities/xclipboard.desktop:2
-#, fuzzy
 msgid "X Clipboard"
-msgstr "Prehliadač schránky"
+msgstr ""
 
 #. GenericName
 #: Utilities/XUtilities/xclipboard.desktop:3
@@ -1721,9 +1702,8 @@ msgstr "Prehliadač schránky"
 
 #. Name
 #: Utilities/XUtilities/xclock.desktop:2
-#, fuzzy
 msgid "X Clock"
-msgstr "Hodiny"
+msgstr ""
 
 #. GenericName
 #: Utilities/XUtilities/xclock.desktop:3 Utilities/oclock.desktop:3
@@ -1767,9 +1747,8 @@ msgstr "X Terminál"
 
 #. Name
 #: Utilities/calctool.desktop:2
-#, fuzzy
 msgid "Calctool"
-msgstr "Kalkulačka"
+msgstr ""
 
 #. Name
 #: Utilities/e-notes.desktop:2
@@ -1783,9 +1762,8 @@ msgstr "Osobné poznámky"
 
 #. Name
 #: Utilities/oclock.desktop:2
-#, fuzzy
 msgid "OClock"
-msgstr "Hodiny"
+msgstr ""
 
 #. Name
 #: Utilities/xgnokii.desktop:2
