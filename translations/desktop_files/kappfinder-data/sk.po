@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 22:13+0200\n"
-"PO-Revision-Date: 2020-10-16 13:31+0000\n"
+"PO-Revision-Date: 2020-10-16 15:13+0000\n"
 "Last-Translator: Marek Mlynar <marek.inq.mlynar@gmail.com>\n"
 "Language-Team: Slovak <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kappfinder-data/sk/>\n"
@@ -489,7 +489,7 @@ msgstr "Voľný klon Scorched Earth pre UNIX a X"
 #. Name
 #: Games/Toys/xeyes.desktop:2
 msgid "X Eyes"
-msgstr "Oči"
+msgstr ""
 
 #. Name
 #: Games/Toys/xpinguin.desktop:2
@@ -823,7 +823,7 @@ msgstr ""
 #. GenericName
 #: Internet/Pan.desktop:3 Internet/knews.desktop:3
 msgid "Usenet News Reader"
-msgstr "Klient pre News"
+msgstr "Klient pre Usenet News"
 
 #. Name
 #: Internet/Sylpheed.desktop:2
@@ -1000,7 +1000,7 @@ msgstr ""
 #. GenericName
 #: Internet/ickle.desktop:3
 msgid "ICQ2000 Chat"
-msgstr "ICQ2000 chat"
+msgstr ""
 
 #. Name
 #: Internet/javaws.desktop:2
@@ -1283,7 +1283,7 @@ msgstr ""
 #. Name
 #: Multimedia/xmms-enqueue.desktop:2
 msgid "Enqueue in XMMS"
-msgstr "Enqueue v XMMS"
+msgstr "Zaradiť skladbu do XMMS"
 
 #. GenericName
 #: Multimedia/xmms-enqueue.desktop:3
@@ -1318,7 +1318,7 @@ msgstr ""
 #. GenericName
 #: Office/Dia.desktop:3 Office/Guppi.desktop:3
 msgid "Program for Diagrams"
-msgstr "Diagramy"
+msgstr "Program pre Grafy"
 
 #. Name
 #: Office/Gnome-Cal.desktop:2
@@ -1544,7 +1544,7 @@ msgstr "Editor zdrojov X"
 #. Name
 #: System/sam.desktop:2
 msgid "SAM System-Administration"
-msgstr "Systémový Administrátor"
+msgstr "Správca systému SAM"
 
 #. Name
 #: System/wine.desktop:2
@@ -1554,7 +1554,7 @@ msgstr ""
 #. GenericName
 #: System/wine.desktop:3
 msgid "Run Windows Programs"
-msgstr "Beh aplikácií Windows"
+msgstr "Spustiť aplikácie Windows"
 
 #. Name
 #: System/xosview.desktop:2
@@ -1658,7 +1658,7 @@ msgstr ""
 #. GenericName
 #: Utilities/XUtilities/Xkill.desktop:3
 msgid "Window Termination Tool"
-msgstr "Zatváranie okien"
+msgstr "Nástroj na zatváranie okien"
 
 #. Name
 #: Utilities/XUtilities/Xrefresh.desktop:2
