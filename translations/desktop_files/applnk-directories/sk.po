@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-08 16:58+0200\n"
-"PO-Revision-Date: 2020-10-14 16:57+0000\n"
+"PO-Revision-Date: 2020-10-16 13:31+0000\n"
 "Last-Translator: Marek Mlynar <marek.inq.mlynar@gmail.com>\n"
 "Language-Team: Slovak <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/applnk-directories/sk/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. Name
 #: .directory:2
 msgid "Default"
-msgstr "Štandardný"
+msgstr "Predvolený"
 
 #. Name
 #: hidden.directory:4
@@ -166,7 +166,7 @@ msgstr "Internet"
 #. Name
 #: tde-main.directory:5
 msgid "TDE Menu"
-msgstr "Menu TDE"
+msgstr "Ponuka TDE"
 
 #. Name
 #: tde-more.directory:5
@@ -192,12 +192,12 @@ msgstr "Kancelária"
 #. Name
 #: tde-settings-accessibility.directory:4
 msgid "Regional & Accessibility"
-msgstr "Prístupnosť a regionálne nastavenie"
+msgstr "Prístupnosť a regionálne nastavenia"
 
 #. Name
 #: tde-settings-components.directory:4
 msgid "TDE Components"
-msgstr "Komponenty TDE"
+msgstr "Súčasti TDE"
 
 #. Name
 #: tde-settings-hardware.directory:4
@@ -229,7 +229,7 @@ msgstr "Periférie"
 #. Name
 #: tde-settings-power.directory:4
 msgid "Power Control"
-msgstr "Ovládanie spotreby"
+msgstr "Správa napájania"
 
 #. Name
 #: tde-settings-security.directory:4
@@ -254,7 +254,7 @@ msgstr "Webový prehliadač"
 #. Name
 #: tde-settings.directory:4
 msgid "Settings-Modules"
-msgstr "Moduly nastavenia"
+msgstr "Nastavenia modulov"
 
 #. Name
 #: tde-settingsmenu.directory:4
@@ -269,7 +269,7 @@ msgstr "Šetriče obrazovky"
 #. Comment
 #: tde-system-screensavers.directory:8
 msgid "Screen saver demos"
-msgstr "Demo šetričov obrazovky"
+msgstr "Ukážky šetričov obrazovky"
 
 #. Name
 #: tde-system-su.directory:5
@@ -295,7 +295,7 @@ msgstr "Súbor"
 #. Name
 #: tde-utilities-xutils.directory:4
 msgid "X-Utilities"
-msgstr "Nastroje pre X"
+msgstr "Nástroje pre X"
 
 #. Comment
 #: tde-utilities-xutils.directory:6

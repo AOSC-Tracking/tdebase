@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Marek Mlynar <marek.inq.mlynar@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-18 21:04+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-10-16 13:31+0000\n"
+"Last-Translator: Marek Mlynar <marek.inq.mlynar@gmail.com>\n"
+"Language-Team: Slovak <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/color-schemes/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: AtlasGreen.kcsrc:3
@@ -39,7 +40,7 @@ msgstr "Modrá bridlica"
 #. Name
 #: CDE.kcsrc:3
 msgid "CDE"
-msgstr ""
+msgstr "CDE"
 
 #. Name
 #: DarkBlue.kcsrc:2
@@ -64,29 +65,27 @@ msgstr ""
 #. Name
 #: KDEOne.kcsrc:2
 msgid "KDE 1"
-msgstr ""
+msgstr "KDE 1"
 
 #. Name
 #: KDETwo.kcsrc:2
 msgid "KDE 2"
-msgstr ""
+msgstr "KDE 2"
 
 #. Name
 #: Keramik.kcsrc:2
-#, fuzzy
 msgid "Keramik"
-msgstr "Keramik Biely"
+msgstr "Keramika"
 
 #. Name
 #: KeramikEmerald.kcsrc:2
-#, fuzzy
 msgid "Keramik Emerald"
-msgstr "Keramik Biely"
+msgstr "Keramika Smaragd"
 
 #. Name
 #: KeramikWhite.kcsrc:2
 msgid "Keramik White"
-msgstr "Keramik Biely"
+msgstr "Keramika Biela"
 
 #. Name
 #: MediaPeach.kcsrc:2
@@ -96,7 +95,7 @@ msgstr ""
 #. Name
 #: Next.kcsrc:2
 msgid "Next"
-msgstr ""
+msgstr "Next"
 
 #. Name
 #: PaleGray.kcsrc:3
@@ -111,7 +110,7 @@ msgstr ""
 #. Name
 #: PointReyesGreen.kcsrc:2
 msgid "Point Reyes Green"
-msgstr "Point Reyes zelená"
+msgstr "Point Reyes Zelená"
 
 #. Name
 #: Pumpkin.kcsrc:3
@@ -121,7 +120,7 @@ msgstr "Tekvica"
 #. Name
 #: SolarisCDE.kcsrc:2
 msgid "Solaris"
-msgstr ""
+msgstr "Solaris"
 
 #. Name
 #: Storm.kcsrc:3
