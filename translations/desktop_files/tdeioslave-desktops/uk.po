@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 18:45+0200\n"
+"POT-Creation-Date: 2020-10-17 08:51+0800\n"
 "PO-Revision-Date: 2020-07-21 05:23+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
@@ -364,14 +364,14 @@ msgstr ""
 "Втулок вікна властивостей Konqueror для налаштування поведінки монтування"
 
 #. Name
-#: media/services/media_decrypt.desktop:8
-msgid "Unlock"
-msgstr "Деблокувати"
-
-#. Name
 #: media/services/media_eject.desktop:8
 msgid "Eject"
 msgstr "Виштовхнути"
+
+#. Name
+#: media/services/media_lock.desktop:10
+msgid "Lock"
+msgstr ""
 
 #. Name
 #: media/services/media_mount.desktop:8
@@ -382,6 +382,11 @@ msgstr "Змонтувати"
 #: media/services/media_safelyremove.desktop:8
 msgid "Safely Remove"
 msgstr "Безпечно вилучити"
+
+#. Name
+#: media/services/media_unlock.desktop:9
+msgid "Unlock"
+msgstr "Деблокувати"
 
 #. Name
 #: media/services/media_unmount.desktop:8
