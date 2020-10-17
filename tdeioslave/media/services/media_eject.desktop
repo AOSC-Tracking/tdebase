@@ -1,5 +1,5 @@
 [Desktop Entry]
-X-TDE-ServiceTypes=media/bluray_mounted,media/bluray_unmounted,media/bluray_encrypted_locked,media/cdrom_mounted,media/cdrom_unmounted,media/cdrom_encrypted_locked,media/cd-r_mounted,media/cd-r_unmounted,media/cd-r_encrypted_locked,media/cd-rw_mounted,media/cd-rw_unmounted,media/cd-rw_encrypted_locked,media/dvd_mounted,media/dvd_unmounted,media/dvd_encrypted_locked,media/audiocd,media/blankcd,media/blankdvd,media/dvdvideo,media/svcd,media/vcd
+X-TDE-ServiceTypes=media/bluray_mounted,media/bluray_unmounted,media/bluray_encrypted_locked,media/bluray_encrypted_unlocked,media/cdrom_mounted,media/cdrom_unmounted,media/cdrom_encrypted_locked,media/cdrom_encrypted_unlocked,media/cd-r_mounted,media/cd-r_unmounted,media/cd-r_encrypted_locked,media/cd-r_encrypted_unlocked,media/cd-rw_mounted,media/cd-rw_unmounted,media/cd-rw_encrypted_locked,media/cd-rw_encrypted_unlocked,media/dvd_mounted,media/dvd_unmounted,media/dvd_encrypted_locked,media/dvd_encrypted_unlocked,media/audiocd,media/blankbluray,media/blankcd,media/blankdvd,media/dvdvideo,media/svcd,media/vcd
 Actions=MediaEject;
 X-TDE-Priority=TopLevel
 X-TDE-MediaNotifierHide=true

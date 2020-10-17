@@ -1,5 +1,5 @@
 [Desktop Entry]
-X-TDE-ServiceTypes=media/removable_mounted,media/removable_unmounted,media/camera_mounted,media/camera_unmounted
+X-TDE-ServiceTypes=media/bluray_mounted,media/bluray_unmounted,media/bluray_encrypted_locked,media/bluray_encrypted_unlocked,media/cdrom_mounted,media/cdrom_unmounted,media/cdrom_encrypted_locked,media/cdrom_encrypted_unlocked,media/cd-r_mounted,media/cd-r_unmounted,media/cd-r_encrypted_locked,media/cd-r_encrypted_unlocked,media/cd-rw_mounted,media/cd-rw_unmounted,media/cd-rw_encrypted_locked,media/cd-rw_encrypted_unlocked,media/dvd_mounted,media/dvd_unmounted,media/dvd_encrypted_locked,media/dvd_encrypted_unlocked,media/audiocd,media/blankbluray,media/blankcd,media/blankdvd,media/dvdvideo,media/svcd,media/vcd,media/camera_mounted,media/camera_unmounted,media/removable_mounted,media/removable_unmounted,media/removable_encrypted_locked,media/removable_encrypted_unlocked
 Actions=MediaSafelyRemove;
 X-TDE-Priority=TopLevel
 X-TDE-MediaNotifierHide=true

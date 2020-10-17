@@ -311,7 +311,6 @@ TQStringVariantMap MediaManager::unlock(const TQString &uid, const TQString &pas
 		return result;
 	}
 	return m_halbackend->unlock(uid, password);
-
 #else
 //	if (!m_fstabbackend) {
 		result["errStr"] = i18n("Feature only available with HAL or TDE hardware backend");

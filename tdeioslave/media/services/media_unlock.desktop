@@ -1,5 +1,6 @@
 [Desktop Entry]
-X-TDE-ServiceTypes=media/removable_encrypted_locked,media/hdd_encrypted_locked,media/bluray_encrypted_locked,media/cdrom_encrypted_locked,media/cd-r_encrypted_locked,media/cd-rw_encrypted_locked,media/dvd_encrypted_locked
+X-TDE-ServiceTypes=media/bluray_encrypted_locked,media/cdrom_encrypted_locked,media/cd-r_encrypted_locked,media/cd-rw_encrypted_locked,media/dvd_encrypted_locked,media/hdd_encrypted_locked,media/removable_encrypted_locked
+Actions=MediaLock;
 Actions=MediaUnlock;
 X-TDE-Priority=TopLevel
 X-TDE-MediaNotifierHide=true

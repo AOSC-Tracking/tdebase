@@ -37,12 +37,21 @@ public:
 	MountHelper();
 
 private:
-	const Medium findMedium(const KURL &url);
-	void invokeEject(const TQString &device, bool quiet=false);
 	TQString m_errorStr;
 	TQString m_mediumId;
-	Dialog *dialog;
+	Dialog *m_dialog;
+	DCOPRef m_mediamanager;
+
+	const Medium findMedium(const TQString &device);
 	void error();
+
+	void mount(const Medium &medium);
+	void unmount(const Medium &medium);
+	void unlock(const Medium &medium);
+	void lock(const Medium &medium);
+	void eject(const TQString &device, bool quiet=false);
+	void safeRemoval(const Medium &medium);
+	void releaseHolders(const Medium &medium, bool handleThis = false);
 
 private slots:
 	void slotSendPassword();

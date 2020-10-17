@@ -1,5 +1,5 @@
 [Desktop Entry]
-X-TDE-ServiceTypes=media/bluray_unmounted,media/cdrom_unmounted,media/cd-r_unmounted,media/cd-rw_unmounted,media/dvd_unmounted,media/floppy5_unmounted,media/floppy_unmounted,media/hdd_unmounted,media/nfs_unmounted,media/removable_unmounted,media/smb_unmounted,media/zip_unmounted,media/camera_unmounted
+X-TDE-ServiceTypes=media/bluray_unmounted,media/camera_unmounted,media/cdrom_unmounted,media/cd-r_unmounted,media/cd-rw_unmounted,media/dvd_unmounted,media/floppy5_unmounted,media/floppy_unmounted,media/hdd_unmounted,media/nfs_unmounted,media/removable_unmounted,media/smb_unmounted,media/zip_unmounted,media/audiocd,media/blurayvideo,media/dvdvideo,media/svcd,media/vcd
 Actions=MediaMount;
 X-TDE-Priority=TopLevel
 X-TDE-MediaNotifierHide=true
