@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-17 08:51+0800\n"
+"POT-Creation-Date: 2020-10-18 11:52+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -367,7 +367,7 @@ msgid "Konqueror properties dialog plugin to configure mount behaviour"
 msgstr "Et programtillegg for å sette opp montering av enheter i Konqueror"
 
 #. Name
-#: media/services/media_eject.desktop:8
+#: media/services/media_eject.desktop:10
 msgid "Eject"
 msgstr "Løs ut"
 
@@ -377,22 +377,22 @@ msgid "Lock"
 msgstr ""
 
 #. Name
-#: media/services/media_mount.desktop:8
+#: media/services/media_mount.desktop:10
 msgid "Mount"
 msgstr "Monter"
 
 #. Name
-#: media/services/media_safelyremove.desktop:8
+#: media/services/media_safelyremove.desktop:10
 msgid "Safely Remove"
 msgstr "Sikker fjerning"
 
 #. Name
-#: media/services/media_unlock.desktop:9
+#: media/services/media_unlock.desktop:11
 msgid "Unlock"
 msgstr ""
 
 #. Name
-#: media/services/media_unmount.desktop:8
+#: media/services/media_unmount.desktop:10
 msgid "Unmount"
 msgstr "Avmonter"
 

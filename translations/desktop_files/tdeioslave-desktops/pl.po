@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-17 08:51+0800\n"
+"POT-Creation-Date: 2020-10-18 11:52+0800\n"
 "PO-Revision-Date: 2020-08-12 23:04+0000\n"
 "Last-Translator: Jan Stolarek <jwstolarek@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
@@ -366,7 +366,7 @@ msgstr ""
 "Wtyczka okna właściwości Konquerora do konfiguracji zachowania montowania"
 
 #. Name
-#: media/services/media_eject.desktop:8
+#: media/services/media_eject.desktop:10
 msgid "Eject"
 msgstr "Wysuń"
 
@@ -376,22 +376,22 @@ msgid "Lock"
 msgstr ""
 
 #. Name
-#: media/services/media_mount.desktop:8
+#: media/services/media_mount.desktop:10
 msgid "Mount"
 msgstr "Zamontuj"
 
 #. Name
-#: media/services/media_safelyremove.desktop:8
+#: media/services/media_safelyremove.desktop:10
 msgid "Safely Remove"
 msgstr "Usuń w sposób bezpieczny"
 
 #. Name
-#: media/services/media_unlock.desktop:9
+#: media/services/media_unlock.desktop:11
 msgid "Unlock"
 msgstr "Odblokuj"
 
 #. Name
-#: media/services/media_unmount.desktop:8
+#: media/services/media_unmount.desktop:10
 msgid "Unmount"
 msgstr "Odmontuj"
 
