@@ -5,6 +5,6 @@ X-TDE-Priority=TopLevel
 X-TDE-MediaNotifierHide=true
 
 [Desktop Action MediaSafelyRemove]
-Name=Safely Remove
-
 Exec=tdeio_media_mounthelper -s %u
+Icon=player_safe_removal
+Name=Safely Remove

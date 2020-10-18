@@ -5,6 +5,6 @@ X-TDE-Priority=TopLevel
 X-TDE-MediaNotifierHide=true
 
 [Desktop Action MediaUnmount]
-Name=Unmount
-
 Exec=tdeio_media_mounthelper -u %u
+Icon=drive-harddisk-unmounted
+Name=Unmount

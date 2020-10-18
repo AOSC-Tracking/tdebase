@@ -8,4 +8,3 @@ X-TDE-MediaNotifierHide=true
 Exec=tdeio_media_mounthelper -l %u
 Icon=encrypted
 Name=Lock
-
