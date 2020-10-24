@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-18 11:52+0800\n"
-"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"PO-Revision-Date: 2020-10-25 06:14+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdeioslave-desktop-files/uk/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #. Name
 #: cgi/kcmcgi/kcmcgi.desktop:9
@@ -371,7 +371,7 @@ msgstr "Виштовхнути"
 #. Name
 #: media/services/media_lock.desktop:10
 msgid "Lock"
-msgstr ""
+msgstr "Замкнути"
 
 #. Name
 #: media/services/media_mount.desktop:10
