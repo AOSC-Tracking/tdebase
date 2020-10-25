@@ -20,12 +20,12 @@
 #define __devicepropsdlg_h__
 
 #include <tqprogressbar.h>
-
 #include <kdialogbase.h>
-
 #include <tdehardwaredevices.h>
 
 #include "devicepropsdlgbase.h"
+
+class PasswordDlg;
 
 /**
  *
@@ -190,6 +190,9 @@ private slots:
 
 	void mountDisk();
 	void unmountDisk();
+	void unlockDisk();
+	void doUnlockDisk();
+	void lockDisk();
 
 	void cryptLUKSAddKey();
 	void cryptLUKSDelKey();
@@ -204,9 +207,7 @@ private slots:
 private:
 	TDEGenericDevice* m_device;
 	DevicePropertiesDialogBase* base;
-
-	class DevicePropertiesDialogPrivate;
-	DevicePropertiesDialogPrivate* d;
+	PasswordDlg *m_passDlg;
 
 	TQGridLayout* m_sensorDataGrid;
 	SensorDisplayWidgetList m_sensorDataGridWidgets;

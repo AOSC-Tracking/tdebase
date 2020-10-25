@@ -355,6 +355,22 @@
 							    <string>Unmount</string>
 						    </property>
 					    </widget>
+					    <widget class="KPushButton" row="0" column="0" colspan="1">
+						    <property name="name">
+							    <cstring>buttonDiskUnlock</cstring>
+						    </property>
+						    <property name="text">
+							    <string>Unlock</string>
+						    </property>
+					    </widget>
+					    <widget class="KPushButton" row="0" column="1" colspan="1">
+						    <property name="name">
+							    <cstring>buttonDiskLock</cstring>
+						    </property>
+						    <property name="text">
+							    <string>Lock</string>
+						    </property>
+					    </widget>
 				    </grid>
 			    </widget>
 			    <spacer row="8" column="0">

@@ -25,16 +25,20 @@
 #include <tdeapplication.h>
 #include <tqstring.h>
 #include <tdeio/job.h>
+#include <dcopref.h>
 
 #include "medium.h"
 
 class Dialog;
+class TDEProcess;
 
 class MountHelper : public TDEApplication
 {
-        Q_OBJECT
+	Q_OBJECT
+
 public:
 	MountHelper();
+	~MountHelper();
 
 private:
 	TQString m_errorStr;

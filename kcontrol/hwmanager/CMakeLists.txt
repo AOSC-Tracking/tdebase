@@ -48,7 +48,7 @@ set_property( SOURCE hwmanager.cpp APPEND PROPERTY COMPILE_DEFINITIONS KDE_CONFD
 tde_add_kpart( kcm_hwmanager AUTOMOC
   SOURCES
     hwmanager.cpp deviceiconview.cpp devicepropsdlg.cpp devicepropsdlgbase.ui hwmanagerbase.ui
-    cryptpassworddlg.cpp cryptpassworddlgbase.ui hwmanager.skel
+    cryptpassworddlg.cpp unlockdialog.ui passworddlg.cpp cryptpassworddlgbase.ui hwmanager.skel
   LINK tdeio-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

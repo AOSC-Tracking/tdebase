@@ -36,14 +36,14 @@
 
 #include "unlockdialog.h"
 
-class Dialog : public KDialogBase
+class PasswordDlg : public KDialogBase
 {
 
-Q_OBJECT	
+	Q_OBJECT
 
 public:
-	Dialog(TQString url, TQString iconName);
-	~Dialog();
+	PasswordDlg(TQString url, TQString iconName);
+	~PasswordDlg();
 
 	TQString getPassword();
 

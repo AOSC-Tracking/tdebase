@@ -29,6 +29,8 @@
 #include <tqpainter.h>
 #include <tqstyle.h>
 #include <tqinternal_p.h>
+#include <dcopclient.h>
+#include <dcopref.h>
 #undef Unsorted // Required for --enable-final (tqdir.h)
 #include <tqfiledialog.h>
 
@@ -45,6 +47,7 @@
 #include <ksslcertificate.h>
 
 #include "cryptpassworddlg.h"
+#include "passworddlg.h"
 
 #include "devicepropsdlg.h"
 
@@ -250,7 +253,7 @@ void SensorDisplayWidget::updateDisplay() {
 }
 
 DevicePropertiesDialog::DevicePropertiesDialog(TDEGenericDevice* device, TQWidget *parent)
-	: KDialogBase(Plain, TQString::null, Ok|Cancel, Ok, parent, 0L, true, true)
+	: KDialogBase(Plain, TQString::null, Ok|Cancel, Ok, parent, 0L, true, true), m_passDlg(NULL)
 {
 	m_device = device;
 	enableButtonOK( false );
@@ -301,6 +304,8 @@ DevicePropertiesDialog::DevicePropertiesDialog(TDEGenericDevice* device, TQWidge
 			TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
 			connect(base->buttonDiskMount, TQT_SIGNAL(clicked()), this, TQT_SLOT(mountDisk()));
 			connect(base->buttonDiskUnmount, TQT_SIGNAL(clicked()), this, TQT_SLOT(unmountDisk()));
+			connect(base->buttonDiskUnlock, TQT_SIGNAL(clicked()), this, TQT_SLOT(unlockDisk()));
+			connect(base->buttonDiskLock, TQT_SIGNAL(clicked()), this, TQT_SLOT(lockDisk()));
 			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
 				connect(base->cryptLUKSAddKey, TQT_SIGNAL(clicked()), this, TQT_SLOT(cryptLUKSAddKey()));
 				connect(base->cryptLUKSDelKey, TQT_SIGNAL(clicked()), this, TQT_SLOT(cryptLUKSDelKey()));
@@ -345,6 +350,10 @@ DevicePropertiesDialog::DevicePropertiesDialog(TDEGenericDevice* device, TQWidge
 
 DevicePropertiesDialog::~DevicePropertiesDialog()
 {
+	if (m_passDlg)
+	{
+		delete m_passDlg;
+	}
 }
 
 void DevicePropertiesDialog::processHardwareRemoved(TDEGenericDevice* dev) {
@@ -450,16 +459,32 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 				status_text += "Hidden<br>";
 			}
 			if (status_text == "<qt>") {
-				status_text += "<i>Unavailable</i>";
+				status_text += "<i>Unknown</i>";
 			}
 			status_text += "</qt>";
 			base->labelDiskStatus->setText(status_text);
 
 			// Update mount/unmount button status
+			base->buttonDiskMount->setEnabled(false);
+			base->buttonDiskUnmount->setEnabled(false);
+			base->buttonDiskUnlock->setEnabled(false);
+			base->buttonDiskLock->setEnabled(false);
+			base->buttonDiskMount->setHidden(true);
+			base->buttonDiskUnmount->setHidden(true);
+			base->buttonDiskUnlock->setHidden(true);
+			base->buttonDiskLock->setHidden(true);
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Mountable)) {
 				base->groupDiskActions->show();
 				base->buttonDiskMount->setEnabled((sdevice->mountPath() == ""));
 				base->buttonDiskUnmount->setEnabled((sdevice->mountPath() != ""));
+				base->buttonDiskMount->setHidden(false);
+				base->buttonDiskUnmount->setHidden(false);
+			}
+			else if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
+				base->buttonDiskUnlock->setEnabled(!sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt));
+				base->buttonDiskLock->setEnabled(sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt));
+				base->buttonDiskUnlock->setHidden(false);
+				base->buttonDiskLock->setHidden(false);
 			}
 			else {
 				base->groupDiskActions->hide();
@@ -924,6 +949,74 @@ void DevicePropertiesDialog::unmountDisk() {
 	}
 
 	if (qerror != "") KMessageBox::error(this, qerror, i18n("Unmount Failed"));
+
+	populateDeviceInformation();
+}
+
+void DevicePropertiesDialog::unlockDisk() {
+	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
+
+	if (!m_passDlg)
+	{
+		m_passDlg = new PasswordDlg(sdevice->deviceNode(), "drive-harddisk-locked");
+		connect(m_passDlg, TQT_SIGNAL(user1Clicked()), this, TQT_SLOT(doUnlockDisk()));
+	}
+	m_passDlg->show();
+}
+
+void DevicePropertiesDialog::doUnlockDisk() {
+	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
+
+	// Use DCOP call to unlock the disk to make sure the status and mime type of the underlying medium
+	// is correctly updated throughout TDE
+	TQString qerror;
+	DCOPRef mediamanager("kded", "mediamanager");
+	DCOPReply reply = mediamanager.call("unlockByNode", sdevice->deviceNode(), m_passDlg->getPassword());
+	TQStringVariantMap unlockResult;
+	if (reply.isValid()) {
+		reply.get(unlockResult);
+	}
+	if (!unlockResult.contains("result") || !unlockResult["result"].toBool()) {
+		qerror = i18n("<qt.install>Unable to unlock this device.<p>Potential reasons include:<br>Wrong password and/or user privilege level.<br>Corrupt data on storage device.");
+		TQString errStr = unlockResult.contains("errStr") ? unlockResult["errStr"].toString() : i18n("Unknown unlock error.");
+		if (!errStr.isEmpty()) {
+			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
+		}
+		qerror.append("</qt>");
+	}
+	else {
+		m_passDlg->hide();
+		qerror = "";
+	}
+
+	if (qerror != "") KMessageBox::error(this, qerror, i18n("Unlock Failed"));
+
+	populateDeviceInformation();
+}
+
+void DevicePropertiesDialog::lockDisk() {
+	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
+
+	// Use DCOP call to lock the disk to make sure the status and mime type of the underlying medium
+	// is correctly updated throughout TDE
+	TQString qerror;
+	DCOPRef mediamanager("kded", "mediamanager");
+	DCOPReply reply = mediamanager.call("lockByNode", sdevice->deviceNode());
+	TQStringVariantMap lockResult;
+	if (reply.isValid()) {
+		reply.get(lockResult);
+	}
+	if (lockResult["result"].toBool() == false) {
+		// Lock failed!
+		qerror = "<qt>" + i18n("Unfortunately, the device could not be locked.");
+		TQString errStr = lockResult.contains("errStr") ? lockResult["errStr"].toString() : TQString::null;
+		if (!errStr.isEmpty()) {
+			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
+		}
+		qerror.append("</qt>");
+	}
+
+	if (qerror != "") KMessageBox::error(this, qerror, i18n("Lock Failed"));
 
 	populateDeviceInformation();
 }

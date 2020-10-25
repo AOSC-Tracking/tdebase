@@ -25,7 +25,6 @@
 #include <kurl.h>
 #include <tdemessagebox.h>
 #include <dcopclient.h>
-#include <dcopref.h>
 #include <tqtimer.h>
 #include <stdlib.h>
 #include <kdebug.h>
@@ -342,6 +341,14 @@ MountHelper::MountHelper() : TDEApplication(), m_mediamanager("kded", "mediamana
 	{
 		TDECmdLineArgs::usage();
 		::exit(0);
+	}
+}
+
+MountHelper::~MountHelper()
+{
+	if (m_dialog)
+	{
+		delete m_dialog;
 	}
 }
 
