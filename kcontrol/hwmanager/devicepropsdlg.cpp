@@ -977,7 +977,7 @@ void DevicePropertiesDialog::doUnlockDisk() {
 		reply.get(unlockResult);
 	}
 	if (!unlockResult.contains("result") || !unlockResult["result"].toBool()) {
-		qerror = i18n("<qt.install>Unable to unlock this device.<p>Potential reasons include:<br>Wrong password and/or user privilege level.<br>Corrupt data on storage device.");
+		qerror = i18n("<qt>Unable to unlock this device.<p>Potential reasons include:<br>Wrong password and/or user privilege level.<br>Corrupt data on storage device.");
 		TQString errStr = unlockResult.contains("errStr") ? unlockResult["errStr"].toString() : i18n("Unknown unlock error.");
 		if (!errStr.isEmpty()) {
 			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
