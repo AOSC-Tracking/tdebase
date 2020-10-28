@@ -55,7 +55,7 @@ protected:
 	virtual void contextMenuEvent( TQContextMenuEvent * ) {}
 };
 
-static FILE* log;
+static FILE *logFile;
 static void kg_debug(const char* fmt, ...)
 {
     va_list lst;
@@ -63,8 +63,8 @@ static void kg_debug(const char* fmt, ...)
 
 #ifdef PAM_GREETER_DEBUG
 #if 0
-    vfprintf(log, fmt, lst);
-    fflush(log);
+    vfprintf(logFile, fmt, lst);
+    fflush(logFile);
 #else
     char buf[6000];
     sprintf(buf, "*** %s\n", fmt);
@@ -650,9 +650,11 @@ static bool init( const TQString &,
 static void done( void )
 {
 	TDEGlobal::locale()->removeCatalogue( "kgreet_pam" );
-        if (log && log != stderr)
-	    fclose(log);
-        log = 0;
+	if (logFile && (logFile != stderr))
+	{
+	    fclose(logFile);
+	}
+	logFile = 0;
 }
 
 static KGreeterPlugin *
