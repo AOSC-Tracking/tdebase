@@ -56,6 +56,7 @@ private:
 	void eject(const TQString &device, bool quiet=false);
 	void safeRemoval(const Medium &medium);
 	void releaseHolders(const Medium &medium, bool handleThis = false);
+	void openRealFolder(const Medium &medium);
 
 private slots:
 	void slotSendPassword();

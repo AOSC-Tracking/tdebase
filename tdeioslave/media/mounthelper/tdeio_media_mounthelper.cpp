@@ -284,6 +284,19 @@ void MountHelper::safeRemoval(const Medium &medium)
 	}
 }
 
+void MountHelper::openRealFolder(const Medium &medium)
+{
+	if (!medium.mountPoint().isEmpty())
+	{
+		system((TQString("kfmclient exec file://") + medium.mountPoint()).local8Bit());
+	}
+	else
+	{
+		m_errorStr = i18n("Try to open an unknown medium.");
+		errorAndExit();
+	}
+}
+
 MountHelper::MountHelper() : TDEApplication(), m_mediamanager("kded", "mediamanager")
 {
 	TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
@@ -335,6 +348,11 @@ MountHelper::MountHelper() : TDEApplication(), m_mediamanager("kded", "mediamana
 	{
 		safeRemoval(medium);
 		eject(device, true);
+		::exit(0);
+	}
+	else if (args->isSet("f"))
+	{
+		openRealFolder(medium);
 		::exit(0);
 	}
 	else
@@ -413,6 +431,7 @@ static TDECmdLineOptions options[] =
 	{ "l", I18N_NOOP("Lock given URL"), 0 },
 	{ "e", I18N_NOOP("Eject given URL"), 0},
 	{ "s", I18N_NOOP("Safely remove (unmount and eject) given URL"), 0},
+	{ "f", I18N_NOOP("Open real medium folder"), 0},
 	{"!+URL", I18N_NOOP("media:/URL to mount/unmount/unlock/lock/eject/remove"), 0 },
 	TDECmdLineLastOption
 };
