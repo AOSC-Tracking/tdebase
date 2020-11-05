@@ -16,6 +16,7 @@ tde_create_translated_desktop(
     media_mount.desktop media_unmount.desktop
     media_unlock.desktop media_lock.desktop
     media_eject.desktop media_safelyremove.desktop
+    media_realfolder.desktop
   DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus
   PO_DIR tdeioslave-desktops
 )
