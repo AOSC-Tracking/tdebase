@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-18 11:52+0800\n"
+"POT-Creation-Date: 2020-11-05 21:28+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -378,6 +378,12 @@ msgstr ""
 #: media/services/media_mount.desktop:10
 msgid "Mount"
 msgstr "Gosod"
+
+#. Name
+#: media/services/media_realfolder.desktop:10
+#, fuzzy
+msgid "Open Medium System Folder"
+msgstr "Plygell Cartref"
 
 #. Name
 #: media/services/media_safelyremove.desktop:10
