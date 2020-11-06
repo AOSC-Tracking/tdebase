@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-05 21:28+0800\n"
+"POT-Creation-Date: 2020-11-06 13:15+0800\n"
 "PO-Revision-Date: 2020-08-12 23:04+0000\n"
 "Last-Translator: Jan Stolarek <jwstolarek@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
@@ -382,10 +382,8 @@ msgstr "Zamontuj"
 
 #. Name
 #: media/services/media_realfolder.desktop:10
-#, fuzzy
-#| msgid "System Folder"
 msgid "Open Medium System Folder"
-msgstr "Katalog systemowy"
+msgstr "Otwórz folder systemowy mediów"
 
 #. Name
 #: media/services/media_safelyremove.desktop:10
