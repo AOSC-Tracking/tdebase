@@ -606,6 +606,9 @@ msgstr "ਅਸਲੀ ਮਾਰਗ,ਹਟਾਉਣ ਮਿਤੀ"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "ਅਨਮਾਊਟ ਕੀਤੀ ਹਟਾਉਣਯੋਗ ਮਾਧਿਅਮ"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "ਮੀਡੀਅਮ ਸਿਸਟਮ ਫੋਲਡਰ ਖੋਲੋ"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "ਮੀਡਿਆ ਵਿਸ਼ੇਸ਼ਤਾ ਸਫ਼ਾ"

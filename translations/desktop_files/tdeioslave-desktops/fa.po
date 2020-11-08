@@ -604,6 +604,9 @@ msgstr "مسیر اصلی، تاریخ حذف"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "رسانۀ برداشتنی پیاده‌شده"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "باز کردن پوشۀ سیستم رسانه"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "صفحۀ ویژگیهای رسانه"

@@ -609,6 +609,9 @@ msgstr "Αρχική διαδρομή,Ημερομηνία διαγραφής"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Αποπροσαρτημένο αφαιρούμενο μέσο"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Άνοιγμα του φακέλου συστήματος του μέσου"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Σελίδα ιδιοτήτων μέσων"

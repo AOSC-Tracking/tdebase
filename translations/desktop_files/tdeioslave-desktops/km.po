@@ -609,6 +609,9 @@ msgstr "ផ្លូវ​លំនាំដើម កាលបរិច្ឆ�
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "ឧបករណ៍​ចល័ត​ដែល​មិន​បាន​រៀបចំ"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "បើក​ថត​ប្រព័ន្ធ​ឧបករណ៍​ផ្ទុក"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "ទំព័រ​លក្ខណៈសម្បត្តិ​មេឌៀ"

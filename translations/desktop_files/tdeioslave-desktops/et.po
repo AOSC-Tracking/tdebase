@@ -610,6 +610,9 @@ msgstr "Algne asukoht,Kustutamisaeg"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Lahutatud eemaldatav andmekandja"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Ava andmekandja süsteemi kataloog"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Andmekandjate omadused"

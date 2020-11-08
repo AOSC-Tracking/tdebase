@@ -606,6 +606,9 @@ msgstr "元のパス,削除日"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "マウントされていないリムーバブルメディア"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "メディアシステムフォルダを開く"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "メディア属性ページ"

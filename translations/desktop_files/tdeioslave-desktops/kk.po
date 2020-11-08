@@ -609,6 +609,9 @@ msgstr "Бұрынғы жолы, Өшірілген кезі"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Тіркеуден шығарған ауыстырмалы тасушы"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Жүйелік қалтаны ашу"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Медиа қасиеттер беті"

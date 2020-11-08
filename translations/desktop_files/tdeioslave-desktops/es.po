@@ -610,6 +610,9 @@ msgstr "Ruta original,Fecha de borrado"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Recurso extraíble desmontado"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Abrir la carpeta del administrador de medios"
+
 #~ msgid "Trash Properties"
 #~ msgstr "Propiedades de la basura"
 

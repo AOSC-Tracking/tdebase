@@ -610,6 +610,9 @@ msgstr "Camí original,Data d'esborrat"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Suport extraïble desmuntat"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Obre la carpeta de mitjans del sistema"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Pàgina de propietats de suport"

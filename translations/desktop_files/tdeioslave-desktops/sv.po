@@ -608,6 +608,9 @@ msgstr "Ursprunglig sökväg,Borttagsdatum"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Avmonterad flyttbar enhet"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Öppna mediumsystemkatalog"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Sida för mediaegenskaper"

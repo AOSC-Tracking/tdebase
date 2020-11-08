@@ -606,6 +606,9 @@ msgstr "原始路徑,刪除日期"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "未掛載的可攜式媒體"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "開啟媒體系統資料夾"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "媒體內容頁"

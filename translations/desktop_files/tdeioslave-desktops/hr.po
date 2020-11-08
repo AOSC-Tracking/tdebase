@@ -608,6 +608,9 @@ msgstr "Izvorna putanja,Datum brisanja"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Nepristupljen izmjenjiv medij"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Otvaranje srednjih mapa sustava"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Stranica svojstva medija"

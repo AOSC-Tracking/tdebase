@@ -604,3 +604,6 @@ msgstr "Оригинална патека,Датум на бришење"
 #, fuzzy
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Одмонтиран отстранлив носач"
+
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Отвори ја системската папка на медиумот"

@@ -635,6 +635,9 @@ msgstr "Percorso originale,ora di eliminazione"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Disco rimovibile criptato sprotetto"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Apri cartella del disco"
+
 #~ msgid "Trash Properties"
 #~ msgstr "Proprietà del cestino"
 

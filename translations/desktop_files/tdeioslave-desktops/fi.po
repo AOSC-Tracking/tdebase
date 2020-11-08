@@ -609,6 +609,9 @@ msgstr "Alkuperäinen polku, poistopäivä"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Irrotettu irrotettava resurssi"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Avaa mediajärjestelmän kansio"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Mediaominaisuudet"

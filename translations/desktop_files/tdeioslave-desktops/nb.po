@@ -609,6 +609,9 @@ msgstr "Opprinnelig sti, slettedato"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Avmontert flyttbart medium"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Åpne systemmappe for medie"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Side for medievarsling"

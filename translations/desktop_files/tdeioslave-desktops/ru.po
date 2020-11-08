@@ -609,5 +609,8 @@ msgstr "Исходный путь, дата удаления"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Отмонтированный внешний диск"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Открыть системную папку"
+
 #~ msgid "Trash Properties"
 #~ msgstr "Свойства мусора"

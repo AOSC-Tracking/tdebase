@@ -638,6 +638,9 @@ msgstr "Местоположение, дата на изтриване"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Шифрован отключен преносим носител"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Отваряне на системната директория на носителя"
+
 #~ msgid "Unlock"
 #~ msgstr "Отключи"
 

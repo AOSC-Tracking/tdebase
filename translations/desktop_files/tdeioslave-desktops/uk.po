@@ -636,6 +636,9 @@ msgstr "Шлях,Дата вилучення"
 #~ msgid "Lock"
 #~ msgstr "Замкнути"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Відкрити системну теку носія"
+
 #~ msgid "Unlock"
 #~ msgstr "Деблокувати"
 

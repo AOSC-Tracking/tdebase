@@ -635,6 +635,9 @@ msgstr "Ursprünglicher Pfad, Löschzeitpunkt"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Verschlüsseltes entsperrtes Wechsellaufwerk"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Systemordner des Mediums öffnen"
+
 #~ msgid "Trash Properties"
 #~ msgstr "Eigenschaften des Mülleimers festlegen"
 

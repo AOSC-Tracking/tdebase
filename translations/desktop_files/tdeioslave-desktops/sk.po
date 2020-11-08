@@ -608,6 +608,9 @@ msgstr ""
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Odpojené vyberateľné médium"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Otvoriť systémový priečinok médií"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Strana vlastností média"

@@ -607,3 +607,6 @@ msgstr "Jatorrizko bideizena, ezabatzeko data"
 #, fuzzy
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Euskarri aldagarria desmuntatua"
+
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Ireki euskarriaren kudeatzailea"

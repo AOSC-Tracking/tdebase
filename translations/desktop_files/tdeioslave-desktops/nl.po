@@ -611,6 +611,9 @@ msgstr "Oorspronkelijke locatie,Datum van verwijdering"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Afgekoppeld verwijderbaar medium"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Systeemmap medium openen"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Pagina met media-eigenschappen"

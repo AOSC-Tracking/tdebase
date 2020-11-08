@@ -614,6 +614,9 @@ msgstr "Ścieżka oryginalna,Data usunięcia"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Odmontowany nośnik wymienny"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Otwórz folder systemowy mediów"
+
 #~ msgid "Unlock"
 #~ msgstr "Odblokuj"
 

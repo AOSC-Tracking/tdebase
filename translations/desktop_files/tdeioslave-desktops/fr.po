@@ -607,6 +607,9 @@ msgstr "Emplacement d'origine, date de suppression"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Média amovible non monté"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Dossier système d'ouverture de média"
+
 #~ msgid "Trash Properties"
 #~ msgstr "Propriétés de la Corbeille"
 

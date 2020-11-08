@@ -608,6 +608,9 @@ msgstr "Rota Orixinal,Data de Eliminación"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Dispositivo Extraíbel Non Montado"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Cartafol de Sistema de Médio Aberto"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Páxina de Propiedades dos Media"

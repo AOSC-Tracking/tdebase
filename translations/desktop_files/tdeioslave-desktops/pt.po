@@ -610,6 +610,9 @@ msgstr "Localização Original,Data de Remoção"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Dispositivo amovível desmontado"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Abrir a Pasta de Sistema do Dispositivo"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Página de Propriedades de Suportes Físicos"

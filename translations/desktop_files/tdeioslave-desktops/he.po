@@ -607,6 +607,9 @@ msgstr "נתיב מקורי, תאריך מחיקה"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "מדייה חיצונית מנותקת"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "פתח את תיקיית מדיית המערכת"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "דף מאפייני מדיה"

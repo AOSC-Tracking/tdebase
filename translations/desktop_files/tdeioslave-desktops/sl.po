@@ -607,6 +607,9 @@ msgstr "Prvotna pot,Datum brisanja"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Odklopljen odstranljiv medij"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Odpri sistemsko mapo z nosilci"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Stran z lastnostmi nosilca"

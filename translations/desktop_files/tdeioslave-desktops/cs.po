@@ -607,6 +607,9 @@ msgstr "Původní cesta,Datum smazání"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Odpojené výměnné médium"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Otevřít systémovou složku média"
+
 #~ msgid "Trash Properties"
 #~ msgstr "Vlastnosti koše"
 

@@ -609,6 +609,9 @@ msgstr "Orginaalpadd,Wegdodatum"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Afhangt tuuschbor Loopwark"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Systeemorner vun't Medium opmaken"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Medienegenschappen-Siet"

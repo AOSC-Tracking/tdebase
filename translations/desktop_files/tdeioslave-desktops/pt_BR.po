@@ -608,6 +608,9 @@ msgstr "Caminho Original,Data da Remoção"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Mídia Removível Desmontada"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Abrir a Pasta de Mídias do Sistema"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Página de Propriedades da Mídia"

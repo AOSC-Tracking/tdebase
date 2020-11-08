@@ -604,6 +604,9 @@ msgstr "मौलिक मार्ग, मेट्ने मिति"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "अनमाउन्ट गरिएको हटाउन सकिने मेडिअम"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "मध्यम प्रणाली फोल्डर खोल्नुहोस्"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "मिडिया विशेषता पृष्ठ"

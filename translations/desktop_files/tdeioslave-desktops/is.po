@@ -606,6 +606,9 @@ msgstr "Upprunaleg slóð,dagsetning á eyðingu"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Aftengdur útskiptanlegur miðill"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Opin miðils kerfismappa"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Eiginleikar miðils"

@@ -606,6 +606,9 @@ msgstr "原始路径,删除日期"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "未挂载的可移动介质"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "打开介质系统文件夹"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "介质属性页面"

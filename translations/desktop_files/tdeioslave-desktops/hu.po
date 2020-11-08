@@ -604,6 +604,9 @@ msgstr "Eredeti elérési út,Törlési dátum"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Leválasztott adathordozó"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "A médiaanyagok rendszerkönyvtárának megnyitása"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Médiajellemzők lap"

@@ -607,6 +607,9 @@ msgstr "prvobitna putanja,datum brisanja"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Demontiran uklonjivi medijum"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Otvori sistemsku fasciklu medijuma"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Strana sa svojstvima medijuma"

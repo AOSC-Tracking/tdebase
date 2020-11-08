@@ -606,6 +606,9 @@ msgstr "Đường dẫn Trước khi vứt,Ngày Vứt"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Ổ lưu trữ Di động đã gỡ ra"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Mở thư mục hệ thống vừa"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Trang tài sản phương tiện"

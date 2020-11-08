@@ -610,6 +610,9 @@ msgstr "Oarspronklike lokaasje,datum fan wiskjen"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Ofkeppele ferwiderber medium"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Systeemmap medium iepenje"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Media eigenskip side"

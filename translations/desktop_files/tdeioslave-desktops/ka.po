@@ -610,3 +610,6 @@ msgstr "საწყისი გეზი, წაშლის თარიღ�
 #, fuzzy
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "დემონტირებული პორტატიული მოწყობილობა"
+
+#~ msgid "Open Medium System Folder"
+#~ msgstr "მედიუმის სისტემური საქაღალდის გახსნა"

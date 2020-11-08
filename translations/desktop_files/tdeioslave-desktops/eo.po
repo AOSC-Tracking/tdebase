@@ -605,6 +605,9 @@ msgstr "Originala Vojo,Forigo Dato"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Demetita forigebla datumportilo"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Malfermu mediosisteman dosierujon"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Medio-Ecoj Paĝo"

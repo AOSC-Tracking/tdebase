@@ -606,6 +606,9 @@ msgstr "Orjinal Yol, Silinme Tarihi"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Bağlanmamış Ayrılabilir Ortam"
 
+#~ msgid "Open Medium System Folder"
+#~ msgstr "Aygıtın Sistem Dizinini Aç"
+
 #, fuzzy
 #~ msgid "Trash Properties"
 #~ msgstr "Ortam Özellikleri Sayfası"
