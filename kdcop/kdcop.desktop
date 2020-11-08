@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Exec=kdcop
+Icon=enhanced_browsing
+Terminal=false
+X-DocPath=kdcop/index.html
+X-TDE-StartupNotify=true
+X-DCOP-ServiceType=Multi
+Categories=Qt;TDE;System;
+
+Name=KDCOP
+
+GenericName=DCOP browser

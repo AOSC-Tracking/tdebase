@@ -24,6 +24,7 @@ link_directories(
 ##### other data ################################
 
 install( FILES kdcopui.rc DESTINATION ${DATA_INSTALL_DIR}/kdcop )
+tde_create_translated_desktop( kdcop.desktop )
 
 
 ##### kdcop (executable) ########################
