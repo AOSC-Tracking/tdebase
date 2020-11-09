@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-06 13:15+0800\n"
-"PO-Revision-Date: 2020-08-12 23:04+0000\n"
+"PO-Revision-Date: 2020-11-10 18:59+0000\n"
 "Last-Translator: Jan Stolarek <jwstolarek@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdeioslave-desktop-files/pl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. Name
 #: cgi/kcmcgi/kcmcgi.desktop:9
@@ -46,7 +46,7 @@ msgstr "Udostępnia powiadomienia o zmianach w katalogu domowym ($HOME)"
 #. Name
 #: man/kmanpart.desktop:4
 msgid "KManPart"
-msgstr ""
+msgstr "KManPart"
 
 #. Comment
 #: man/kmanpart.desktop:6
@@ -133,12 +133,12 @@ msgstr "Odmontowany aparat fotograficzny"
 #. Comment
 #: media/mimetypes/cd-r_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-R"
-msgstr ""
+msgstr "Zaszyfrowany i zablokowany dysk CD-R"
 
 #. Comment
 #: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-R"
-msgstr ""
+msgstr "Zaszyfrowany i odblokowany dysk CD-R"
 
 #. Comment
 #: media/mimetypes/cd-r_mounted.desktop:6
@@ -153,12 +153,12 @@ msgstr "Odmontowana nagrywarka CD"
 #. Comment
 #: media/mimetypes/cd-rw_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-RW"
-msgstr ""
+msgstr "Zaszyfrowany i zablokowany dysk CD-RW"
 
 #. Comment
 #: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-RW"
-msgstr ""
+msgstr "Zaszyfrowany i odblokowany dysk CD-RW"
 
 #. Comment
 #: media/mimetypes/cd-rw_mounted.desktop:6
@@ -173,12 +173,12 @@ msgstr "Odmontowana nagrywarka CD"
 #. Comment
 #: media/mimetypes/cdrom_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-ROM"
-msgstr ""
+msgstr "Zaszyfrowany i zablokowany dysk CD-ROM"
 
 #. Comment
 #: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-ROM"
-msgstr ""
+msgstr "Zaszyfrowany i odblokowany dysk CD-ROM"
 
 #. Comment
 #: media/mimetypes/cdrom_mounted.desktop:6
@@ -193,12 +193,12 @@ msgstr "Odmontowany CD-ROM"
 #. Comment
 #: media/mimetypes/dvd_encrypted_locked.desktop:7
 msgid "Encrypted Locked DVD"
-msgstr ""
+msgstr "Zaszyfrowany i zablokowany dysk DVD"
 
 #. Comment
 #: media/mimetypes/dvd_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked DVD"
-msgstr ""
+msgstr "Zaszyfrowany i odblokowany dysk DVD"
 
 #. Comment
 #: media/mimetypes/dvd_mounted.desktop:6
@@ -292,15 +292,13 @@ msgstr "Drukarki"
 
 #. Comment
 #: media/mimetypes/removable_encrypted_locked.desktop:7
-#, fuzzy
 msgid "Encrypted Locked Removable Medium"
-msgstr "Zamontowany nośnik wymienny"
+msgstr "Zaszyfrowany i zablokowany nośnik wymienny"
 
 #. Comment
 #: media/mimetypes/removable_encrypted_unlocked.desktop:7
-#, fuzzy
 msgid "Encrypted Unlocked Removable Medium"
-msgstr "Odmontowany nośnik wymienny"
+msgstr "Zaszyfrowany i odblokowany nośnik wymienny"
 
 #. Comment
 #: media/mimetypes/removable_mounted.desktop:6
@@ -373,7 +371,7 @@ msgstr "Wysuń"
 #. Name
 #: media/services/media_lock.desktop:10
 msgid "Lock"
-msgstr ""
+msgstr "Zablokuj"
 
 #. Name
 #: media/services/media_mount.desktop:10
