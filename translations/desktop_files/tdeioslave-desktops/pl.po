@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: 2020-08-12 23:04+0000\n"
+"PO-Revision-Date: 2020-11-10 18:59+0000\n"
 "Last-Translator: Jan Stolarek <jwstolarek@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdeioslave-desktop-files/pl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. Name
 #: cgi/kcmcgi/kcmcgi.desktop:9
@@ -46,7 +46,7 @@ msgstr "Udostępnia powiadomienia o zmianach w katalogu domowym ($HOME)"
 #. Name
 #: man/kmanpart.desktop:4
 msgid "KManPart"
-msgstr ""
+msgstr "KManPart"
 
 #. Comment
 #: man/kmanpart.desktop:6
@@ -600,19 +600,44 @@ msgstr "Ścieżka oryginalna,Data usunięcia"
 #~ msgid "Encrypted Unlocked BLURAY"
 #~ msgstr "Zaszyfrowany i odblokowany dysk BLURAY"
 
+#~ msgid "Encrypted Locked CD-R"
+#~ msgstr "Zaszyfrowany i zablokowany dysk CD-R"
+
+#~ msgid "Encrypted Unlocked CD-R"
+#~ msgstr "Zaszyfrowany i odblokowany dysk CD-R"
+
+#~ msgid "Encrypted Locked CD-RW"
+#~ msgstr "Zaszyfrowany i zablokowany dysk CD-RW"
+
+#~ msgid "Encrypted Unlocked CD-RW"
+#~ msgstr "Zaszyfrowany i odblokowany dysk CD-RW"
+
+#~ msgid "Encrypted Locked CD-ROM"
+#~ msgstr "Zaszyfrowany i zablokowany dysk CD-ROM"
+
+#~ msgid "Encrypted Unlocked CD-ROM"
+#~ msgstr "Zaszyfrowany i odblokowany dysk CD-ROM"
+
+#~ msgid "Encrypted Locked DVD"
+#~ msgstr "Zaszyfrowany i zablokowany dysk DVD"
+
+#~ msgid "Encrypted Unlocked DVD"
+#~ msgstr "Zaszyfrowany i odblokowany dysk DVD"
+
 #~ msgid "Encrypted Locked Hard Disk Volume"
 #~ msgstr "Zaszyfrowana i zablokowana partycja dysku twardego"
 
 #~ msgid "Encrypted Unlocked Hard Disk Volume"
 #~ msgstr "Zaszyfrowana i odblokowana partycja dysku twardego"
 
-#, fuzzy
 #~ msgid "Encrypted Locked Removable Medium"
-#~ msgstr "Zamontowany nośnik wymienny"
+#~ msgstr "Zaszyfrowany i zablokowany nośnik wymienny"
 
-#, fuzzy
 #~ msgid "Encrypted Unlocked Removable Medium"
-#~ msgstr "Odmontowany nośnik wymienny"
+#~ msgstr "Zaszyfrowany i odblokowany nośnik wymienny"
+
+#~ msgid "Lock"
+#~ msgstr "Zablokuj"
 
 #~ msgid "Open Medium System Folder"
 #~ msgstr "Otwórz folder systemowy mediów"
