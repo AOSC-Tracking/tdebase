@@ -10,3 +10,5 @@
 #################################################
 
 tde_create_handbook( DESTINATION khelpcenter )
+
+tde_auto_add_subdirectories()
