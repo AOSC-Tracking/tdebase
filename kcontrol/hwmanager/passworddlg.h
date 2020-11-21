@@ -42,10 +42,14 @@ class PasswordDlg : public KDialogBase
 	Q_OBJECT
 
 public:
-	PasswordDlg(TQString url, TQString iconName);
+	PasswordDlg();
 	~PasswordDlg();
 
+	void setDevice(TQString deviceName);
+	void clearPassword();
 	TQString getPassword();
+
+	int index;
 
 public slots:
 	void slotPasswordChanged(const TQString &text);

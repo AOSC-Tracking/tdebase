@@ -22,20 +22,14 @@
 
 #include "passworddlg.h"
 
-PasswordDlg::PasswordDlg(TQString url, TQString iconName) :
-	KDialogBase(NULL, "PasswordDlg", true, i18n("Unlock Storage Device"), (Cancel|User1), User1, false, KGuiItem(i18n("Unlock"), "unlocked" ))
+PasswordDlg::PasswordDlg() :
+        KDialogBase(NULL, "PasswordDlg", true, i18n("Unlock Storage Device"), (Cancel|User1),
+        User1, false, KGuiItem(i18n("Unlock"), "unlocked" ))
 {
 	unlockDialog = new UnlockDialog(this);
-
-	unlockDialog->descLabel->setText(unlockDialog->descLabel->text().arg(url));
-	unlockDialog->descLabel->adjustSize();
-	unlockDialog->adjustSize();
-
 	enableButton( User1, false );
-
-	TQPixmap pixmap = TDEGlobal::iconLoader()->loadIcon(iconName, TDEIcon::NoGroup, TDEIcon::SizeLarge);
-	unlockDialog->encryptedIcon->setPixmap( pixmap );
-
+	unlockDialog->encryptedIcon->setPixmap(TDEGlobal::iconLoader()->loadIcon("drive-harddisk-locked",
+				  TDEIcon::NoGroup, TDEIcon::SizeLarge));
 	connect(unlockDialog->passwordEdit, TQT_SIGNAL (textChanged(const TQString &)), this, TQT_SLOT (slotPasswordChanged(const TQString &)));
 
 	setMainWidget(unlockDialog);
@@ -44,6 +38,19 @@ PasswordDlg::PasswordDlg(TQString url, TQString iconName) :
 PasswordDlg::~PasswordDlg()
 {
 	delete unlockDialog;
+}
+
+void PasswordDlg::setDevice(TQString deviceName)
+{
+	unlockDialog->descLabel->setText("<p><b>" + deviceName + "</b> is an encrypted storage device.</p>"
+	        "<p>Please enter the password to unlock the storage device.</p>");
+	unlockDialog->descLabel->adjustSize();
+	unlockDialog->adjustSize();
+}
+
+void PasswordDlg::clearPassword()
+{
+	unlockDialog->passwordEdit->setText(TQString::null);
 }
 
 TQString PasswordDlg::getPassword()

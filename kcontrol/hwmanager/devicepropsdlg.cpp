@@ -940,7 +940,7 @@ void DevicePropertiesDialog::unmountDisk() {
 	TQStringVariantMap unmountResult = sdevice->unmountDevice();
 	if (unmountResult["result"].toBool() == false) {
 		// Unmount failed!
-		qerror = "<qt>" + i18n("Unfortunately, the device could not be unmounted.");
+		qerror = "<qt>" + i18n("<b>The device could not be unmounted.</b>");
 		TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
 		if (!errStr.isEmpty()) {
 			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
@@ -958,9 +958,11 @@ void DevicePropertiesDialog::unlockDisk() {
 
 	if (!m_passDlg)
 	{
-		m_passDlg = new PasswordDlg(sdevice->deviceNode(), "drive-harddisk-locked");
+		m_passDlg = new PasswordDlg();
 		connect(m_passDlg, TQT_SIGNAL(user1Clicked()), this, TQT_SLOT(doUnlockDisk()));
 	}
+	m_passDlg->setDevice(sdevice->deviceNode());
+	m_passDlg->clearPassword();
 	m_passDlg->show();
 }
 
@@ -969,27 +971,26 @@ void DevicePropertiesDialog::doUnlockDisk() {
 
 	// Use DCOP call to unlock the disk to make sure the status and mime type of the underlying medium
 	// is correctly updated throughout TDE
-	TQString qerror;
 	DCOPRef mediamanager("kded", "mediamanager");
 	DCOPReply reply = mediamanager.call("unlockByNode", sdevice->deviceNode(), m_passDlg->getPassword());
 	TQStringVariantMap unlockResult;
 	if (reply.isValid()) {
 		reply.get(unlockResult);
 	}
-	if (!unlockResult.contains("result") || !unlockResult["result"].toBool()) {
-		qerror = i18n("<qt>Unable to unlock this device.<p>Potential reasons include:<br>Wrong password and/or user privilege level.<br>Corrupt data on storage device.");
-		TQString errStr = unlockResult.contains("errStr") ? unlockResult["errStr"].toString() : i18n("Unknown unlock error.");
-		if (!errStr.isEmpty()) {
-			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
+	if (!unlockResult.contains("result") || !unlockResult["result"].toBool())
+	{
+		TQString errStr = unlockResult.contains("errStr") ? unlockResult["errStr"].toString() : TQString::null;
+		if (errStr.isEmpty())
+		{
+			errStr = i18n("<qt>Unable to unlock this device.<p>Potential reasons include:<br>Wrong password "
+					          "and/or user privilege level.<br>Corrupt data on storage device.</qt>");
 		}
-		qerror.append("</qt>");
+		KMessageBox::error(this, errStr, i18n("Unlock Failed"));
+		m_passDlg->clearPassword();
 	}
 	else {
 		m_passDlg->hide();
-		qerror = "";
 	}
-
-	if (qerror != "") KMessageBox::error(this, qerror, i18n("Unlock Failed"));
 
 	populateDeviceInformation();
 }
@@ -999,24 +1000,17 @@ void DevicePropertiesDialog::lockDisk() {
 
 	// Use DCOP call to lock the disk to make sure the status and mime type of the underlying medium
 	// is correctly updated throughout TDE
-	TQString qerror;
 	DCOPRef mediamanager("kded", "mediamanager");
 	DCOPReply reply = mediamanager.call("lockByNode", sdevice->deviceNode());
 	TQStringVariantMap lockResult;
 	if (reply.isValid()) {
 		reply.get(lockResult);
 	}
-	if (lockResult["result"].toBool() == false) {
+	if (!lockResult.contains("result") || lockResult["result"].toBool() == false) {
 		// Lock failed!
-		qerror = "<qt>" + i18n("Unfortunately, the device could not be locked.");
-		TQString errStr = lockResult.contains("errStr") ? lockResult["errStr"].toString() : TQString::null;
-		if (!errStr.isEmpty()) {
-			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
-		}
-		qerror.append("</qt>");
+		TQString errStr = lockResult.contains("errStr") ? lockResult["errStr"].toString() : i18n("Unable to lock the device.");
+		KMessageBox::error(this, "<qt>" +  errStr + "</qt>", i18n("Lock Failed"));
 	}
-
-	if (qerror != "") KMessageBox::error(this, qerror, i18n("Lock Failed"));
 
 	populateDeviceInformation();
 }

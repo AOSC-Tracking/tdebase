@@ -106,8 +106,7 @@
                         </sizepolicy>
                     </property>
                     <property name="text">
-                        <string>&lt;p&gt;&lt;b&gt;%1&lt;/b&gt; is an encrypted storage device.&lt;/p&gt;
-&lt;p&gt;Please enter the password to unlock the storage device.&lt;/p&gt;</string>
+                        <string>Dummy placeholder</string>
                     </property>
                     <property name="alignment">
                         <set>WordBreak|AlignTop</set>

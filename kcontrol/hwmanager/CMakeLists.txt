@@ -58,7 +58,7 @@ tde_add_kpart( kcm_hwmanager AUTOMOC
 tde_add_executable( tdehwdevicetray AUTOMOC
   SOURCES
     hwdevicetray_main.cpp hwdevicetray.cpp hwdevicetray_app.cpp
-    hwdevicetray_configdialog.cpp
+    hwdevicetray_configdialog.cpp unlockdialog.ui passworddlg.cpp
   LINK tdeio-shared tdeutils-shared tdeui-shared
   DESTINATION ${BIN_INSTALL_DIR}
 )

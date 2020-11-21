@@ -34,6 +34,7 @@
 #endif
 
 class KHelpMenu;
+class PasswordDlg;
 class TDEPopupMenu;
 
 typedef TQMap<int, TQString> TQStringMap;
@@ -59,6 +60,9 @@ protected slots:
 
 	void slotMountDevice(int parameter);
 	void slotUnmountDevice(int parameter);
+	void slotUnlockDevice(int parameter);
+	void slotLockDevice(int parameter);
+	void slotEjectDevice(int parameter);
 
 protected:
 	void mousePressEvent(TQMouseEvent *e);
@@ -70,8 +74,8 @@ private slots:
 	void deviceAdded(TDEGenericDevice*);
 	void deviceRemoved(TDEGenericDevice*);
 	void deviceChanged(TDEGenericDevice*);
-
 	void devicePopupClicked(KPassivePopup*, TQPoint, TQString);
+	void doUnlockDisk();
 
 private:
 	bool isMonitoredDevice(TDEStorageDevice* sdevice);
@@ -88,8 +92,12 @@ private:
 
 	TQStringMap m_mountMenuIndexMap;
 	TQStringMap m_unmountMenuIndexMap;
+	TQStringMap m_unlockMenuIndexMap;
+	TQStringMap m_lockMenuIndexMap;
+	TQStringMap m_ejectMenuIndexMap;
 	TDEPopupMenu* m_menu;
 	KSimpleConfig *r_config;
+	PasswordDlg *m_passDlg;
 };
 
 #endif

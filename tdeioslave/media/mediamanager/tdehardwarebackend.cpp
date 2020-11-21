@@ -1279,7 +1279,7 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 	TQStringVariantMap mountResult = sdevice->mountDevice(diskLabel, valids);
 	TQString mountedPath = mountResult.contains("mountPath") ? mountResult["mountPath"].toString() : TQString::null;
 	if (mountedPath.isEmpty()) {
-		qerror = i18n("Unable to mount this device.");
+		qerror = i18n("<b>Unable to mount this device.</b>");
 		TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
 		if (!errStr.isEmpty()) {
 			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
@@ -1380,7 +1380,7 @@ TQStringVariantMap TDEBackend::unmount(const TQString &id)
 	TQStringVariantMap unmountResult = sdevice->unmountDevice();
 	if (unmountResult["result"].toBool() == false) {
 		// Unmount failed!
-		qerror = i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at "
+		qerror = i18n("The device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at "
 		    "<b>%4</b> could not be unmounted. ").arg("system:/media/" + medium->name(), medium->deviceNode(),
 		    medium->prettyLabel(), medium->prettyBaseURL().pathOrURL());
 		TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
@@ -1402,7 +1402,7 @@ TQStringVariantMap TDEBackend::unmount(const TQString &id)
 				unmountResult = sdevice->unmountDevice();
 				if (unmountResult["result"].toBool() == false) {
 					// Unmount failed!
-					qerror = i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at "
+					qerror = i18n("The device <b>%1</b> (%2) named <b>'%3'</b> and currently mounted at "
 					    "<b>%4</b> could not be unmounted. ").arg("system:/media/" + medium->name(), medium->deviceNode(),
 					    medium->prettyLabel(), medium->prettyBaseURL().pathOrURL());
 					TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
@@ -1464,7 +1464,7 @@ TQStringVariantMap TDEBackend::unlock(const TQString &id, const TQString &passwo
 
 	TQStringVariantMap unlockResult = sdevice->unlockDevice(password);
 	if (unlockResult["result"].toBool() == false) {
-		TQString qerror = i18n("Unable to unlock the device.");
+		TQString qerror = i18n("<b>Unable to unlock the device.</b>");
 		TQString errStr = unlockResult.contains("errStr") ? unlockResult["errStr"].toString() : TQString::null;
 		if (!errStr.isEmpty()) {
 			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
@@ -1513,7 +1513,7 @@ TQStringVariantMap TDEBackend::lock(const TQString &id)
 
 	TQStringVariantMap lockResult = sdevice->lockDevice();
 	if (lockResult["result"].toBool() == false) {
-		TQString qerror = i18n("Unable to lock the device.");
+		TQString qerror = i18n("<b>Unable to lock the device.</b>");
 		TQString errStr = lockResult.contains("errStr") ? lockResult["errStr"].toString() : TQString::null;
 		if (!errStr.isEmpty()) {
 			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
@@ -1538,7 +1538,7 @@ void TDEBackend::slotResult(TDEIO::Job *job)
 	if (job->error() == TDEIO::ERR_COULD_NOT_UNMOUNT) {
 		TQString proclist(listUsingProcesses(medium));
 
-		qerror += "<p>" + i18n("Unfortunately, the device <b>%1</b> (%2) named <b>'%3'</b> and "
+		qerror += "<p>" + i18n("The device <b>%1</b> (%2) named <b>'%3'</b> and "
 			"currently mounted at <b>%4</b> could not be unmounted. ").arg(
 				"system:/media/" + medium->name(),
 				medium->deviceNode(),
