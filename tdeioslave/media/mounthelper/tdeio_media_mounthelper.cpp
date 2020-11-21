@@ -177,9 +177,12 @@ void MountHelper::eject(const TQString &device, bool quiet)
 	// Try TDE HW library eject first...
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	TDEGenericDevice *hwdevice = hwdevices->findByDeviceNode(device);
-	if (hwdevice->type() == TDEGenericDeviceType::Disk) {
+	if (hwdevice->type() == TDEGenericDeviceType::Disk)
+	{
 		TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
-		if (sdevice->ejectDrive()) {
+		TQStringVariantMap ejectResult = sdevice->ejectDrive();
+		if (ejectResult["result"].toBool() == true)
+		{
 			// Success!
 			::exit(0);
 		}
