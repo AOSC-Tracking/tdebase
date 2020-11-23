@@ -58,6 +58,7 @@ protected slots:
 	void slotSettingsChanged(int category);
 	void slotHelpContents();
 
+	void slotOpenDevice(int parameter);
 	void slotMountDevice(int parameter);
 	void slotUnmountDevice(int parameter);
 	void slotUnlockDevice(int parameter);
@@ -90,6 +91,7 @@ private:
 	TQWidget* m_parent;
 	TDEPassivePopupStackContainer* m_hardwareNotifierContainer;
 
+	TQStringMap m_openMenuIndexMap;
 	TQStringMap m_mountMenuIndexMap;
 	TQStringMap m_unmountMenuIndexMap;
 	TQStringMap m_unlockMenuIndexMap;
