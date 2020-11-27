@@ -37,6 +37,7 @@
 #include <tdemessagebox.h>
 #include <kpassivepopup.h>
 #include <kstandarddirs.h>
+#include <kpropertiesdialog.h>
 #include "passworddlg.h"
 
 #include <dcopclient.h>
@@ -45,7 +46,6 @@
 #include <unistd.h>
 
 #include "hwdevicetray_configdialog.h"
-
 #include "hwdevicetray.h"
 
 HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
@@ -82,6 +82,7 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
 	new TDEActionMenu(i18n("Unlock"), SmallIcon("decrypted", TQIconSet::Automatic), actionCollection(), "unlock_menu");
 	new TDEActionMenu(i18n("Lock"), SmallIcon("encrypted", TQIconSet::Automatic), actionCollection(), "lock_menu");
 	new TDEActionMenu(i18n("Eject"), SmallIcon("player_eject", TQIconSet::Automatic), actionCollection(), "eject_menu");
+	new TDEActionMenu(i18n("Properties"), actionCollection(), "properties_menu");
 
 #ifdef __TDE_HAVE_TDEHWLIB
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -225,19 +226,21 @@ void HwDeviceSystemTray::configChanged() {
 void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	menu->insertTitle(SmallIcon("drive-harddisk-unmounted"), i18n("Storage Devices"));
 
-	TDEActionMenu* openDiskActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("open_menu"));
-	TDEActionMenu* mountDiskActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("mount_menu"));
-	TDEActionMenu* unmountDiskActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("unmount_menu"));
-	TDEActionMenu* unlockDiskActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("unlock_menu"));
-	TDEActionMenu* lockDiskActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("lock_menu"));
-	TDEActionMenu* ejectDiskActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("eject_menu"));
+	TDEActionMenu *openDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("open_menu"));
+	TDEActionMenu *mountDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("mount_menu"));
+	TDEActionMenu *unmountDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("unmount_menu"));
+	TDEActionMenu *unlockDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("unlock_menu"));
+	TDEActionMenu *lockDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("lock_menu"));
+	TDEActionMenu *ejectDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("eject_menu"));
+	TDEActionMenu *propertiesDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("properties_menu"));
 
-	openDiskActionMenu->popupMenu()->clear();
-	mountDiskActionMenu->popupMenu()->clear();
-	unmountDiskActionMenu->popupMenu()->clear();
-	unlockDiskActionMenu->popupMenu()->clear();
-	lockDiskActionMenu->popupMenu()->clear();
-	ejectDiskActionMenu->popupMenu()->clear();
+	openDeviceActionMenu->popupMenu()->clear();
+	mountDeviceActionMenu->popupMenu()->clear();
+	unmountDeviceActionMenu->popupMenu()->clear();
+	unlockDeviceActionMenu->popupMenu()->clear();
+	lockDeviceActionMenu->popupMenu()->clear();
+	ejectDeviceActionMenu->popupMenu()->clear();
+	propertiesDeviceActionMenu->popupMenu()->clear();
 
 	m_openMenuIndexMap.clear();
 	m_mountMenuIndexMap.clear();
@@ -245,6 +248,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	m_unlockMenuIndexMap.clear();
 	m_lockMenuIndexMap.clear();
 	m_ejectMenuIndexMap.clear();
+	m_propertiesMenuIndexMap.clear();
 
 	// Find all storage devices and add them to the popup menus
 	int lastOpenIndex = -1;
@@ -253,6 +257,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	int lastUnlockIndex = -1;
 	int lastLockIndex = -1;
 	int lastEjectIndex = -1;
+	int lastPropertiesIndex = -1;
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	TDEGenericHardwareList diskDeviceList = hwdevices->listByDeviceClass(TDEGenericDeviceType::Disk);
@@ -265,9 +270,9 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 			{
 				if (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt))
 				{
-					lastLockIndex = lockDiskActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
+					lastLockIndex = lockDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 					        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
-					lockDiskActionMenu->popupMenu()->connectItem(lastLockIndex, this, TQT_SLOT(slotLockDevice(int)));
+					lockDeviceActionMenu->popupMenu()->connectItem(lastLockIndex, this, TQT_SLOT(slotLockDevice(int)));
 					m_lockMenuIndexMap[lastLockIndex] = sdevice->diskUUID();
 					if (m_lockMenuIndexMap[lastLockIndex] == "")
 					{
@@ -276,9 +281,9 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 				}
 				else
 				{
-					lastUnlockIndex = unlockDiskActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
+					lastUnlockIndex = unlockDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 					        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
-					unlockDiskActionMenu->popupMenu()->connectItem(lastUnlockIndex, this, TQT_SLOT(slotUnlockDevice(int)));
+					unlockDeviceActionMenu->popupMenu()->connectItem(lastUnlockIndex, this, TQT_SLOT(slotUnlockDevice(int)));
 					m_unlockMenuIndexMap[lastUnlockIndex] = sdevice->diskUUID();
 					if (m_unlockMenuIndexMap[lastUnlockIndex] == "")
 					{
@@ -291,9 +296,9 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 			{
 				if (sdevice->mountPath().isEmpty())
 				{
-					lastMountIndex = mountDiskActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
+					lastMountIndex = mountDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 					        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
-					mountDiskActionMenu->popupMenu()->connectItem(lastMountIndex, this, TQT_SLOT(slotMountDevice(int)));
+					mountDeviceActionMenu->popupMenu()->connectItem(lastMountIndex, this, TQT_SLOT(slotMountDevice(int)));
 					m_mountMenuIndexMap[lastMountIndex] = sdevice->diskUUID();
 					if (m_mountMenuIndexMap[lastMountIndex] == "")
 					{
@@ -302,9 +307,9 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 				}
 				else
 				{
-					lastUnmountIndex = unmountDiskActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
+					lastUnmountIndex = unmountDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 					        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
-					unmountDiskActionMenu->popupMenu()->connectItem(lastUnmountIndex, this, TQT_SLOT(slotUnmountDevice(int)));
+					unmountDeviceActionMenu->popupMenu()->connectItem(lastUnmountIndex, this, TQT_SLOT(slotUnmountDevice(int)));
 					m_unmountMenuIndexMap[lastUnmountIndex] = sdevice->diskUUID();
 					if (m_unmountMenuIndexMap[lastMountIndex] == "")
 					{
@@ -313,9 +318,9 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 				}
 
 				// Both mounted and unmounted disks can be opened
-				lastOpenIndex = openDiskActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
+				lastOpenIndex = openDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 				        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
-				openDiskActionMenu->popupMenu()->connectItem(lastOpenIndex, this, TQT_SLOT(slotOpenDevice(int)));
+				openDeviceActionMenu->popupMenu()->connectItem(lastOpenIndex, this, TQT_SLOT(slotOpenDevice(int)));
 				m_openMenuIndexMap[lastOpenIndex] = sdevice->diskUUID();
 				if (m_openMenuIndexMap[lastOpenIndex] == "")
 				{
@@ -326,48 +331,62 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
 					sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable))
 			{
-				lastEjectIndex = ejectDiskActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
+				lastEjectIndex = ejectDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 				        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
-				ejectDiskActionMenu->popupMenu()->connectItem(lastEjectIndex, this, TQT_SLOT(slotEjectDevice(int)));
+				ejectDeviceActionMenu->popupMenu()->connectItem(lastEjectIndex, this, TQT_SLOT(slotEjectDevice(int)));
 				m_ejectMenuIndexMap[lastEjectIndex] = sdevice->diskUUID();
 				if (m_ejectMenuIndexMap[lastEjectIndex] == "")
 				{
 					m_ejectMenuIndexMap[lastEjectIndex] = sdevice->systemPath();
 				}
 			}
+
+			lastPropertiesIndex = propertiesDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
+			        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
+			propertiesDeviceActionMenu->popupMenu()->connectItem(lastPropertiesIndex, this, TQT_SLOT(slotPropertiesDevice(int)));
+			m_propertiesMenuIndexMap[lastPropertiesIndex] = sdevice->diskUUID();
+			if (m_propertiesMenuIndexMap[lastPropertiesIndex] == "")
+			{
+				m_propertiesMenuIndexMap[lastPropertiesIndex] = sdevice->systemPath();
+			}
 		}
 	}
 
-	openDiskActionMenu->setEnabled(lastOpenIndex != -1);
-	mountDiskActionMenu->setEnabled(lastMountIndex != -1);
-	unmountDiskActionMenu->setEnabled(lastUnmountIndex != -1);
-	unlockDiskActionMenu->setEnabled(lastUnlockIndex != -1);
-	lockDiskActionMenu->setEnabled(lastLockIndex != -1);
-	ejectDiskActionMenu->setEnabled(lastEjectIndex != -1);
+	openDeviceActionMenu->setEnabled(lastOpenIndex != -1);
+	mountDeviceActionMenu->setEnabled(lastMountIndex != -1);
+	unmountDeviceActionMenu->setEnabled(lastUnmountIndex != -1);
+	unlockDeviceActionMenu->setEnabled(lastUnlockIndex != -1);
+	lockDeviceActionMenu->setEnabled(lastLockIndex != -1);
+	ejectDeviceActionMenu->setEnabled(lastEjectIndex != -1);
+	propertiesDeviceActionMenu->setEnabled(lastPropertiesIndex != -1);
 
 	if (lastOpenIndex != -1)
 	{
-		openDiskActionMenu->plug(menu);
+		openDeviceActionMenu->plug(menu);
 	}
 	if (lastMountIndex != -1)
 	{
-		mountDiskActionMenu->plug(menu);
+		mountDeviceActionMenu->plug(menu);
 	}
 	if (lastUnmountIndex != -1)
 	{
-		unmountDiskActionMenu->plug(menu);
+		unmountDeviceActionMenu->plug(menu);
 	}
 	if (lastUnlockIndex != -1)
 	{
-		unlockDiskActionMenu->plug(menu);
+		unlockDeviceActionMenu->plug(menu);
 	}
 	if (lastLockIndex != -1)
 	{
-		lockDiskActionMenu->plug(menu);
+		lockDeviceActionMenu->plug(menu);
 	}
 	if (lastEjectIndex != -1)
 	{
-		ejectDiskActionMenu->plug(menu);
+		ejectDeviceActionMenu->plug(menu);
+	}
+	if (lastPropertiesIndex != -1)
+	{
+		propertiesDeviceActionMenu->plug(menu);
 	}
 }
 
@@ -564,6 +583,25 @@ void HwDeviceSystemTray::slotEjectDevice(int parameter)
 					KMessageBox::error(0, i18n("<qt><b>Unable to eject the device.</b>") + qerror + " (error code " +
 					        retcodeStr + ").</qt>", i18n("Eject failed"));
 				}
+				return;
+			}
+		}
+	}
+}
+
+void HwDeviceSystemTray::slotPropertiesDevice(int parameter)
+{
+	TQString uuid = m_propertiesMenuIndexMap[parameter];
+	if (!uuid.isEmpty())
+	{
+		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
+		TDEGenericHardwareList diskDeviceList = hwdevices->listByDeviceClass(TDEGenericDeviceType::Disk);
+		for (TDEGenericDevice *hwdevice = diskDeviceList.first(); hwdevice; hwdevice = diskDeviceList.next())
+		{
+			TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
+			if ((sdevice->diskUUID() == uuid) || (sdevice->systemPath() == uuid))
+			{
+				new KPropertiesDialog(KURL(TQString("media:/%1").arg(sdevice->deviceNode())));
 				return;
 			}
 		}
