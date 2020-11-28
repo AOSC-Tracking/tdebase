@@ -8,6 +8,7 @@
 #include <tdeaboutdata.h>
 #include <tdecmdlineargs.h>
 
+#include <dcopclient.h>
 #include "kdcopwindow.h"
 
 static const TDECmdLineOptions options[] =
@@ -31,6 +32,7 @@ int main( int argc, char ** argv )
 
   KDCOPWindow* kdcopwindow = new KDCOPWindow;
   a.setMainWidget( kdcopwindow );
+  a.dcopClient()->attach();
   kdcopwindow->show();
 
   return a.exec();
