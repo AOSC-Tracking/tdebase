@@ -1951,7 +1951,7 @@ msgstr ""
 
 #. Name
 #: locale/default/entry.desktop:2
-msgid "US English"
+msgid "English (American)"
 msgstr "អង់គ្លេស អាមេរិក"
 
 #. Name

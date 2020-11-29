@@ -1973,7 +1973,7 @@ msgstr "Anwendungen;Start;Programmstart;Cursor;Aktivierung;Mauszeiger;Anzeige;"
 
 #. Name
 #: locale/default/entry.desktop:2
-msgid "US English"
+msgid "English (American)"
 msgstr "US-Englisch"
 
 #. Name

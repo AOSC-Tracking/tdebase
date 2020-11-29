@@ -2000,7 +2000,7 @@ msgstr ""
 
 #. Name
 #: locale/default/entry.desktop:2
-msgid "US English"
+msgid "English (American)"
 msgstr "Američki engleski"
 
 #. Name
