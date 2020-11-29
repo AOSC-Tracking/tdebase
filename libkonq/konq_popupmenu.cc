@@ -697,10 +697,9 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         }
 
         // findAllResources() also removes duplicates
-        const TQStringList entries = TDEGlobal::dirs()->findAllResources("data",
-                                                                      "konqueror/servicemenus/*.desktop",
-                                                                      false /* recursive */,
-                                                                      true /* unique */);
+        TQStringList entries = TDEGlobal::dirs()->findAllResources("data",
+                "konqueror/servicemenus/*.desktop", false, true);
+        entries.sort();  // sort to ensure consistent order in popup menu
         TQStringList::ConstIterator eIt = entries.begin();
         const TQStringList::ConstIterator eEnd = entries.end();
         for (; eIt != eEnd; ++eIt )
@@ -832,7 +831,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
                     const TQString priority = cfg.readEntry("X-TDE-Priority");
                     const TQString submenuName = cfg.readEntry( "X-TDE-Submenu" );
 
-                    ServiceList* list = s.selectList( priority, submenuName );
+                    ServiceList *list = s.selectList( priority, submenuName );
                     (*list) += KDEDesktopMimeType::userDefinedServices( *eIt, cfg, url.isLocalFile(), m_lstPopupURLs );
                 }
             }
