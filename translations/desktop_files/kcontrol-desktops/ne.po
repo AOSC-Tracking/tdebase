@@ -1946,7 +1946,7 @@ msgstr ""
 
 #. Name
 #: locale/default/entry.desktop:2
-msgid "US English"
+msgid "English (American)"
 msgstr "US अङ्ग्रेजी"
 
 #. Name

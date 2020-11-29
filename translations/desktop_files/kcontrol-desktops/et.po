@@ -1954,7 +1954,7 @@ msgstr "rakendus;käivitamine;hõivatud;kursor;tagasiside;hiir;hiirekursor;"
 
 #. Name
 #: locale/default/entry.desktop:2
-msgid "US English"
+msgid "English (American)"
 msgstr "Inglise (US)"
 
 #. Name
