@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: 2020-10-09 08:13+0000\n"
+"PO-Revision-Date: 2020-11-29 18:17+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kcontrol-desktop-files/cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.2.2\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -39,7 +39,7 @@ msgid ""
 "keys;sticky keys;bounce keys;slow keys;mouse navigation;num pad;"
 msgstr ""
 "Zpřístupnění;Hluchý;Slepý;Postižený;Zvonek;Slyšitelný zvonek;Viditelný "
-"zvonek;Klávesnice;Pomalé klávesy;Navigace myši;Num pad;"
+"zvonek;Klávesnice;Pomalé klávesy;Navigace myši;Numerická klávesnice;"
 
 #. Name
 #: arts/arts.desktop:12
@@ -76,7 +76,8 @@ msgstr "Změna nastavení pozadí"
 msgid ""
 "background;desktops;colors;colours;images;wallpapers;blending;balance;cache;"
 "multiple wallpapers;pixmap;"
-msgstr "Pozadí;Plochy;Barvy;Obrázky;Tapety;Směšování;Vyvážení;Cache;Pixmapa;"
+msgstr ""
+"Pozadí;Plochy;Barvy;Obrázky;Tapety;Směšování;Vyvážení;Keš;Více tapet;Pixmapa;"
 
 #. Name
 #: bell/bell.desktop:13
@@ -91,7 +92,7 @@ msgstr "Nastavení systémového zvonku"
 #. Keywords
 #: bell/bell.desktop:17
 msgid "Bell;Audio;Sound;Volume;Pitch;Duration;"
-msgstr "Systémový zvonek;Audio;Zvuk;Hlasitost;Trvání;"
+msgstr "Systémový zvonek;Zvonek;Audio;Zvuk;Hlasitost;Trvání;"
 
 #. Name
 #: clock/clock.desktop:13
@@ -106,7 +107,7 @@ msgstr "Nastavení data a času"
 #. Keywords
 #: clock/clock.desktop:17
 msgid "clock;date;time;time zone;"
-msgstr "Datum;Čas;Časová zóna;"
+msgstr "Hodiny;Datum;Čas;Časová zóna;"
 
 #. Name
 #: colors/colors.desktop:12
@@ -151,8 +152,8 @@ msgid ""
 "manager;URL;hyperlinks;"
 msgstr ""
 "výchozí aplikace;komponenty;výběr komponent;zdroje;e-mail;emailový klient;"
-"editor textu;komunikátor;emulátor terminálů;webový prohlížeč;správce souborů;"
-"URL;odkazy;"
+"textový editor;komunikátor;emulátor terminálů;webový prohlížeč;správce "
+"souborů;URL;odkazy;"
 
 #. Name
 #: componentchooser/componentservices/kcm_browser.desktop:1
@@ -188,7 +189,7 @@ msgstr ""
 #. Name
 #: componentchooser/componentservices/kcm_kemail.desktop:1
 msgid "Email Client"
-msgstr "Emailový klient"
+msgstr "Poštovní klient"
 
 #. Comment
 #: componentchooser/componentservices/kcm_kemail.desktop:3
@@ -197,9 +198,9 @@ msgid ""
 "applications which need access to an email client application should honor "
 "this setting."
 msgstr ""
-"Tato služba umožňuje nastavit si výchozího klienta emailu. Všechny TDE "
-"aplikace, které vyžadují přístup k emailové aplikaci, by měly používat toto "
-"nastavení."
+"Tato služba umožňuje nastavit si výchozího poštovního klienta. Všechny TDE "
+"aplikace, které vyžadují přístup k poštovnímu klientovi, by měly používat "
+"toto nastavení."
 
 #. Name
 #: componentchooser/componentservices/kcm_terminal.desktop:1
@@ -213,7 +214,7 @@ msgid ""
 "applications which invoke a terminal emulator application should honor this "
 "setting."
 msgstr ""
-"Tato služba umožňuje nastavit si výchozího emulátor terminálu. Všechny TDE "
+"Tato služba umožňuje nastavit si výchozí emulátor terminálu. Všechny TDE "
 "aplikace, které spouští emulátor terminálu, by měly používat toto nastavení."
 
 #. Name
@@ -232,7 +233,8 @@ msgid ""
 "Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;"
 "secure;security;"
 msgstr ""
-"Kryptografie;Šifrování;SSL;https;Certifikáty;Kódy;Krypto;TLS;bezpečnost;"
+"Krypto;Kryptografie;Šifrování;SSL;https;Certifikáty;Šifry;TLS;Zabezpečení;"
+"Bezpečnost;"
 
 #. Name
 #: css/kcmcss.desktop:12
@@ -262,18 +264,17 @@ msgstr "Nastavení obrazovky"
 #. Name
 #: displayconfig/displayconfig.desktop:12
 msgid "Monitor & Display"
-msgstr ""
+msgstr "Monitor a zobrazení"
 
 #. Comment
 #: displayconfig/displayconfig.desktop:14
-#, fuzzy
 msgid "Configure display"
-msgstr "Nastavení hledání služeb"
+msgstr "Nastavení monitoru a zobrazení"
 
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
 msgid "monitor;resolution;display;"
-msgstr ""
+msgstr "monitor;rozlišení;zobrazení;"
 
 #. Name
 #: dnssd/kcm_tdednssd.desktop:18
@@ -302,17 +303,17 @@ msgid ""
 "Network;Search Engines;Shortcuts;"
 msgstr ""
 "Rozšířené procházení;Procházení;WWW;Internet;Klíčová slova internetu;"
-"Internetové filtry;Síť;Zkratky;Vyhledávací stroje;"
+"Internetové filtry;Síť;Vyhledávací stroje;Zkratky;"
 
 #. Name
 #: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
 msgid "InternetKeywordsFilter"
-msgstr ""
+msgstr "Filtr klíčových slov pro internet"
 
 #. Name
 #: ebrowsing/plugins/ikws/kurisearchfilter.desktop:3
 msgid "SearchKeywordsFilter"
-msgstr ""
+msgstr "Filtr klíčových slov pro vyhledávání"
 
 #. Comment
 #: ebrowsing/plugins/ikws/searchprovider.desktop:4
@@ -322,7 +323,7 @@ msgstr "Vyhledávací stroj"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
 msgid "Acronym Database"
-msgstr "Databáze akronymů"
+msgstr "Databáze zkratek"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
@@ -332,7 +333,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
 msgid "Alexa"
-msgstr ""
+msgstr "Alexa"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
@@ -342,7 +343,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
 msgid "Alexa URL"
-msgstr ""
+msgstr "Alexa URL"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
@@ -352,7 +353,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
 msgid "AllTheWeb fast"
-msgstr ""
+msgstr "AllTheWeb (rychlé)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:6
@@ -363,7 +364,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:3
 msgid "AltaVista"
-msgstr ""
+msgstr "AltaVista"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:6
@@ -373,7 +374,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
 msgid "All Music Guide"
-msgstr ""
+msgstr "Průvodce All Music"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
@@ -393,7 +394,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:3
 msgid "AustroNaut"
-msgstr ""
+msgstr "AustroNaut"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:6
@@ -413,7 +414,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
 msgid "KDE Bug Database Fulltext Search"
-msgstr "Plnotextové vyhledávání v databázi chyb KDE"
+msgstr "Plnotextové vyhledávání v databázi chyb TDE"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:4
@@ -458,7 +459,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
 msgid "CiteSeer: Scientific Literature Digital Library"
-msgstr "CiteSeer: Vědecká digitální knihovna"
+msgstr "CiteSeer: Digitální knihovna vědecké literatury"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
@@ -468,7 +469,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:3
 msgid "CPAN - Comprehensive Perl Archive Network"
-msgstr ""
+msgstr "CPAN – komplexní síť archivů perlu"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
@@ -479,7 +480,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:3
 msgid "CTAN - Comprehensive TeX Archive Network"
-msgstr ""
+msgstr "CTAN – komplexní síť archivů TeXu"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:4
@@ -523,7 +524,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:3
 msgid "LEO - Translate Between German and French"
-msgstr "LEO - překlad mezi němčinou a francouzštinou"
+msgstr "LEO – překlad mezi němčinou a francouzštinou"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:6
@@ -544,7 +545,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:3
 msgid "Open Directory"
-msgstr ""
+msgstr "Otevřený slovník"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
@@ -554,7 +555,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
 msgid "DocBook - The Definitive Guide"
-msgstr ""
+msgstr "DocBook – referenční příručka"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:6
@@ -619,7 +620,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/excite.desktop:3
 msgid "Excite"
-msgstr ""
+msgstr "Excite"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/excite.desktop:6
@@ -629,7 +630,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:3
 msgid "Feedster"
-msgstr ""
+msgstr "Feedster"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
@@ -639,7 +640,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
 msgid "Free On-Line Dictionary of Computing"
-msgstr "Online slovník výp. techniky"
+msgstr "Online slovník výpočetní techniky"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
@@ -649,7 +650,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
 msgid "LEO - Translate Between French and German"
-msgstr "LEO - překlad mezi francouzštinou a němčinou"
+msgstr "LEO – překlad mezi francouzštinou a němčinou"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:5
@@ -664,7 +665,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:3
 msgid "FreeDB"
-msgstr ""
+msgstr "FreeDB"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:6
@@ -674,7 +675,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:3
 msgid "Freshmeat"
-msgstr ""
+msgstr "Freshmeat"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:6
@@ -684,7 +685,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:3
 msgid "Froogle"
-msgstr ""
+msgstr "Froogle"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
@@ -703,9 +704,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
-#, fuzzy
 msgid "Google"
-msgstr "Google - diskuzní skupiny"
+msgstr "Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:6
@@ -730,7 +730,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
 msgid "Google Groups"
-msgstr "Google - diskuzní skupiny"
+msgstr "Diskuzní skupiny (Google)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:6
@@ -772,9 +772,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:3
-#, fuzzy
 msgid "Google News"
-msgstr "Google filmy"
+msgstr "Google události"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:6
@@ -784,7 +783,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:3
 msgid "Gracenote"
-msgstr ""
+msgstr "Gracenote"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:6
@@ -804,7 +803,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:3
 msgid "Hotbot"
-msgstr ""
+msgstr "Hotbot"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:6
@@ -813,9 +812,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
-#, fuzzy
 msgid "HyperDictionary.com"
-msgstr "Tezaurus HyperDictionary.com"
+msgstr "HyperDictionary.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
@@ -855,7 +853,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:3
 msgid "Ask Jeeves"
-msgstr ""
+msgstr "Ask Jeeves"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:6
@@ -867,7 +865,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:3
 msgid "KataTudo"
-msgstr ""
+msgstr "KataTudo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:6
@@ -877,7 +875,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kde.desktop:5
 msgid "KDE API Documentation"
-msgstr "KDE API dokumentace"
+msgstr "Dokumentace KDE API"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kde.desktop:6
@@ -887,7 +885,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:3
 msgid "KDE WebSVN"
-msgstr ""
+msgstr "KDE WebSVN"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:6
@@ -897,7 +895,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
 msgid "LEO-Translate"
-msgstr ""
+msgstr "Překladač LEO"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:6
@@ -907,7 +905,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:3
 msgid "Lycos"
-msgstr ""
+msgstr "Lycos"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:6
@@ -927,7 +925,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
 msgid "MetaCrawler"
-msgstr ""
+msgstr "MetaCrawler"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:6
@@ -953,7 +951,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:3
 msgid "Netcraft"
-msgstr ""
+msgstr "Netcraft"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:6
@@ -963,7 +961,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:2
 msgid "Telephonebook Search Provider"
-msgstr "Poskytovatel prohledávání tel. seznamu"
+msgstr "Poskytovatel prohledávání telefonního seznamu"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:6
@@ -1041,7 +1039,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rae.desktop:5
 msgid "Dictionary of the Spanish Academy (RAE)"
-msgstr "Slovník Špenělské akademie"
+msgstr "Slovník Španělské akademie (RAE)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rae.desktop:6
@@ -1053,7 +1051,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
 msgid "IETF Requests for Comments"
-msgstr ""
+msgstr "Žádosti o komentáře (RFC) IETF"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:4
@@ -1063,7 +1061,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:3
 msgid "RPM-Find"
-msgstr ""
+msgstr "Vyhledávání RPM"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:6
@@ -1073,7 +1071,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:3
 msgid "Ruby Application Archive"
-msgstr "Archív aplikací Ruby"
+msgstr "Archiv aplikací Ruby"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:6
@@ -1083,7 +1081,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/seek.desktop:3
 msgid "GO.com"
-msgstr ""
+msgstr "GO.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/seek.desktop:6
@@ -1095,7 +1093,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
 msgid "SourceForge"
-msgstr ""
+msgstr "SourceForge"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:4
@@ -1106,9 +1104,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
-#, fuzzy
 msgid "Technorati"
-msgstr "Technorati značky"
+msgstr "Technorati"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:6
@@ -1138,7 +1135,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:4
 msgid "TV Tome"
-msgstr ""
+msgstr "TV Tome"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:6
@@ -1160,7 +1157,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
 msgid "Vivisimo"
-msgstr ""
+msgstr "Vivisimo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:6
@@ -1173,7 +1170,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/voila.desktop:3
 msgid "Voila"
-msgstr ""
+msgstr "Voila"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/voila.desktop:6
@@ -1195,7 +1192,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:3
 msgid "Whatis Query"
-msgstr "Dotaz 'Co je?'"
+msgstr "Dotaz „Co je?“"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:6
@@ -1206,7 +1203,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:3
 msgid "Wikipedia - The Free Encyclopedia"
-msgstr "Wikipedia - volně dostupná encyklopedie"
+msgstr "Wikipedia – volně dostupná encyklopedie"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:6
@@ -1216,7 +1213,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:3
 msgid "Wiktionary - The Free Dictionary"
-msgstr "Wiktionary - volně dostupný slovník"
+msgstr "Wiktionary – volně dostupný slovník"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:6
@@ -1241,7 +1238,7 @@ msgstr "Filtr pro lokální doménu"
 #. Name
 #: ebrowsing/plugins/shorturi/tdeshorturifilter.desktop:3
 msgid "ShortURIFilter"
-msgstr ""
+msgstr "Filtr krátkých URI"
 
 #. Name
 #: energy/energy.desktop:11
@@ -1251,12 +1248,13 @@ msgstr "Správa napájení"
 #. Comment
 #: energy/energy.desktop:13
 msgid "Settings for display power management"
-msgstr "Nastavení pro správu šetření napájení"
+msgstr "Nastavení pro správu napájení obrazovky"
 
 #. Keywords
 #: energy/energy.desktop:15
 msgid "energy;saver;apm;acpi;dpms;timeout;blanking;stand by;suspend;power;"
-msgstr "Energie;Úspora;APM;ACPI;Časový limit;Vypnutí;Napájení;Šetřič;Spořič;"
+msgstr ""
+"Energie;Úspora;APM;ACPI;DMPS;Časový limit;Vypnutí;Napájení;Šetřič;Spořič;"
 
 #. Name
 #: filetypes/filetypes.desktop:12
@@ -1311,17 +1309,17 @@ msgstr "hardware;zařízení;správce;"
 #. Comment
 #: iccconfig/iccconfig.desktop:14
 msgid "Configure display ICC color profile"
-msgstr ""
+msgstr "Nastavení barevného profilu ICC monitoru"
 
 #. Keywords
 #: iccconfig/iccconfig.desktop:16
 msgid "ICC;display;color;profile;"
-msgstr ""
+msgstr "ICC;monitor;barvy;profil;"
 
 #. Name
 #: iccconfig/iccconfig.desktop:18
 msgid "Color Profile"
-msgstr ""
+msgstr "Barevný profil"
 
 #. Name
 #: icons/icons.desktop:12
@@ -1351,7 +1349,7 @@ msgstr "Kompatibilita CD/DVD mechaniky"
 #. Keywords
 #: info/cdinfo.desktop:16
 msgid "CD-ROM Information;CD-ROM;CD;CD Drive;Writer Capabilities;"
-msgstr "Informace o CD; mechanice a možnostech vypalovačky;"
+msgstr "Informace o CD-ROM;CD-ROM;CD;CD mechanika;Možnosti vypalovačky;"
 
 #. Name
 #: info/devices.desktop:13
@@ -1436,7 +1434,7 @@ msgstr ""
 #. Name
 #: info/opengl.desktop:13
 msgid "OpenGL"
-msgstr ""
+msgstr "OpenGL"
 
 #. Comment
 #: info/opengl.desktop:15
@@ -1455,17 +1453,17 @@ msgstr ""
 #. Name
 #: info/partitions.desktop:13
 msgid "Partitions"
-msgstr "Oddíly disků"
+msgstr "Diskové oddíly"
 
 #. Comment
 #: info/partitions.desktop:15
 msgid "Partition information"
-msgstr "Informace o oddílech disků"
+msgstr "Informace o diskových oddílech"
 
 #. Keywords
 #: info/partitions.desktop:17
 msgid "Partitions;Harddrive;HD;System Information;"
-msgstr "Oddíly disku;Pevný disk;HD;Informace o systému;"
+msgstr "Oddíly;Diskové oddíly;Pevný disk;HD;Informace o systému;"
 
 #. Name
 #: info/pci.desktop:12
@@ -1500,7 +1498,7 @@ msgstr "Procesor;CPU;FPU;MHz;Informace o systému;"
 #. Name
 #: info/scsi.desktop:12
 msgid "SCSI"
-msgstr ""
+msgstr "SCSI"
 
 #. Comment
 #: info/scsi.desktop:14
@@ -1530,7 +1528,7 @@ msgstr "Zvuk;Audio;Zvuková karta;Midi;OSS;Informace o systému;"
 #. Name
 #: info/xserver.desktop:12
 msgid "X-Server"
-msgstr ""
+msgstr "X-Server"
 
 #. Comment
 #: info/xserver.desktop:14
@@ -1540,7 +1538,7 @@ msgstr "Informace o X-Serveru"
 #. Keywords
 #: info/xserver.desktop:16
 msgid "X;X-Server;XServer;XFree86;Display;VideoCard;System Information;"
-msgstr "X;X-server;XServer;XFree86;Obrazovka;Informace o systému;Videokarta;"
+msgstr "X;X-server;XServer;XFree86;Obrazovka;Videokarta;Informace o systému;"
 
 #. Name
 #: input/mouse.desktop:13
@@ -1560,13 +1558,13 @@ msgid ""
 "DoubleClick;mapping;right handed;left handed;"
 msgstr ""
 "Myš;Akcelerace myši;Práh myši;Tlačítka myši;Výběr;Tvar kurzoru;Vstupní "
-"zařízení;Mapování tlačítek;Kurzor;Kliknutí;Odezva;Dvojité kliknutí;Pravák;"
-"Levák;"
+"zařízení;Mapování tlačítek;Kurzor;Kliknutí;Odezva;Ukzatele;Poklepání;Dvojité "
+"kliknutí;Pravák;Levák;"
 
 #. Name
 #: joystick/joystick.desktop:12
 msgid "Joystick"
-msgstr ""
+msgstr "Joystick"
 
 #. Comment
 #: joystick/joystick.desktop:14
@@ -1576,7 +1574,7 @@ msgstr "Ovládací modul pro testování Joysticků"
 #. Keywords
 #: joystick/joystick.desktop:16
 msgid "joystick;gamepad;"
-msgstr ""
+msgstr "joystick;pákový ovladač;gamepad;herní ovladač;"
 
 #. Name
 #: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
@@ -1772,7 +1770,7 @@ msgstr ""
 #. Comment
 #: konq/filebehavior.desktop:13
 msgid "Configure how Konqueror behaves as a file manager"
-msgstr "Zde je možné nastavit správce chování Konqueroru jako správce souborů"
+msgstr "Zde je možné nastavit chování Konqueroru jako správce souborů"
 
 #. Keywords
 #: konq/filebehavior.desktop:15
@@ -1782,7 +1780,7 @@ msgid ""
 "trash can;delete;confirmation;"
 msgstr ""
 "konqueror;správce souborů;kfm;tipy;oddělené okno;chování;využití paměti;"
-"domvské URL;síťové operace;průběh;koš;potvrzení;"
+"domovské URL;síťové operace;průběh;koš;potvrzení;"
 
 #. Comment
 #: konq/filebrowser.desktop:14
@@ -1861,26 +1859,23 @@ msgstr "Konqueror;Kfm;Prohlížeč;HTML;Web;WWW;Java;JavaScript;"
 
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
-#, fuzzy
 msgid "User Interface"
-msgstr "Síťová rozhraní"
+msgstr "Uživatelské rozhraní"
 
 #. Comment
 #: konqhtml/tdehtml_userinterface.desktop:13
-#, fuzzy
 msgid "Configure user interface options"
-msgstr "Nastavení cache pro webové stránky"
+msgstr "Nastavení voleb uživatelského rozhraní"
 
 #. Keywords
 #: konqhtml/tdehtml_userinterface.desktop:15
-#, fuzzy
 msgid "konqueror;kfm;user;interface;tabbed;browsing;"
-msgstr "konqueror;využití;preload;"
+msgstr "konqueror;kfm;uživatel;rozhraní;karty;prohlížení;"
 
 #. Name
 #: konsole/kcmkonsole.desktop:10
 msgid "Konsole"
-msgstr ""
+msgstr "Konsole"
 
 #. Comment
 #: konsole/kcmkonsole.desktop:12
@@ -1942,7 +1937,7 @@ msgstr ""
 #. Name
 #: locale/default/entry.desktop:2
 msgid "English (American)"
-msgstr "Americká angličtina"
+msgstr "Angličtina (Spojené státy)"
 
 #. Name
 #: locale/language.desktop:12
@@ -1984,7 +1979,7 @@ msgstr "Výkon"
 #. Comment
 #: performance/kcmkonqyperformance.desktop:13
 msgid "Configure settings that can improve Konqueror performance"
-msgstr "Zde můžete vylepšit výkon aplikace Konqueror"
+msgstr "Nastavení vylepšující výkon Konqueroru"
 
 #. Keywords
 #: performance/kcmkonqyperformance.desktop:15
@@ -2009,7 +2004,7 @@ msgstr "Soukromí"
 #. Comment
 #: privacy/privacy.desktop:13
 msgid "Clean unwanted traces the user leaves on the system"
-msgstr "Čištění citlivých údajů"
+msgstr "Čištění nežádoucí stop, které uživatel zanechá v systému"
 
 #. Keywords
 #: privacy/privacy.desktop:15
@@ -2034,7 +2029,7 @@ msgstr "velikost;rotace;obrazovka;barva;hloubka;horizontální;vertikální;"
 #. Name
 #: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
 msgid "TDERandRTray"
-msgstr ""
+msgstr "TDERandRTray"
 
 #. GenericName
 #: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
@@ -2044,7 +2039,7 @@ msgstr "Změna velikosti a rotace obrazovky"
 #. Comment
 #: randr/tderandrtray-autostart.desktop:6 randr/tderandrtray.desktop:6
 msgid "Resize and rotate X screens."
-msgstr "Změna velikosti a rotace obrazovky."
+msgstr "Změna velikosti a rotace X obrazovek."
 
 #. Name
 #: samba/smbstatus.desktop:12
@@ -2079,7 +2074,7 @@ msgstr "Šetřiče obrazovky;Priorita;"
 #. Name
 #: smartcard/smartcard.desktop:11
 msgid "Smartcards"
-msgstr ""
+msgstr "Čipové karty"
 
 #. Comment
 #: smartcard/smartcard.desktop:13
@@ -2089,7 +2084,7 @@ msgstr "Nastavení podpory smartcards"
 #. Keywords
 #: smartcard/smartcard.desktop:15
 msgid "Smartcard;PKCS;SSL;reader;smart;card;"
-msgstr ""
+msgstr "Smartcard;PKCS;SSL;čtečka;karta;čipová karta;"
 
 #. Name
 #: smserver/kcmsmserver.desktop:12
@@ -2201,7 +2196,7 @@ msgstr "Soubory s písmy"
 #. Name
 #: tdefontinst/viewpart/tdefontview.desktop:2
 msgid "TDEFontView"
-msgstr "Prohlížeč písem"
+msgstr "TDEFontView"
 
 #. GenericName
 #. Name
@@ -2213,22 +2208,22 @@ msgstr "Prohlížeč písem"
 #. Name
 #: tdeio/cache.desktop:12
 msgid "Cache"
-msgstr ""
+msgstr "Keš"
 
 #. Comment
 #: tdeio/cache.desktop:14
 msgid "Configure web cache settings"
-msgstr "Nastavení cache pro webové stránky"
+msgstr "Nastavení keše pro webové stránky"
 
 #. Keywords
 #: tdeio/cache.desktop:16
 msgid "Cache;History;Browsing History;Ports;Size;"
-msgstr "Cache;Historie;Porty;Velikost;"
+msgstr "Keš;Historie prohlížení;Historie;Porty;Velikost;"
 
 #. Name
 #: tdeio/cookies.desktop:12
 msgid "Cookies"
-msgstr ""
+msgstr "Cookies"
 
 #. Comment
 #: tdeio/cookies.desktop:14
@@ -2273,7 +2268,7 @@ msgstr "Nastavení připojení"
 #. Name
 #: tdeio/proxy.desktop:12
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #. Comment
 #: tdeio/proxy.desktop:14
@@ -2283,7 +2278,7 @@ msgstr "Nastavení proxy serverů"
 #. Keywords
 #: tdeio/proxy.desktop:16
 msgid "Proxy;Proxy server;Firewall;Squid;proxy;"
-msgstr ""
+msgstr "Proxy;Proxy server;Firewall;Squid;proxy;"
 
 #. Name
 #: tdeio/smb.desktop:12
@@ -2293,7 +2288,7 @@ msgstr "Sdílené disky systému Microsoft Windows"
 #. Comment
 #: tdeio/smb.desktop:14
 msgid "Use to configure which windows (SMB) filesystems you can browse"
-msgstr "Použijte k nastavení systémů Windows (SMB), které chcete procházet"
+msgstr "Slouží k nastavení systémů Windows (SMB), které chcete procházet"
 
 #. Keywords
 #: tdeio/smb.desktop:16
@@ -2458,7 +2453,10 @@ msgstr "Nastavení TDE pro více monitorů"
 #. Keywords
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
-msgstr ""
+msgstr "Xinerama;dvě obrazovky;více obrazovek;monitor;"
+
+#~ msgid "tdehwdevicetray"
+#~ msgstr "tdehwdevicetray"
 
 #~ msgid "Device Monitor"
 #~ msgstr "Sledování zařízení"
