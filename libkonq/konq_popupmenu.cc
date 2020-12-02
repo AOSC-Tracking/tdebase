@@ -999,7 +999,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
 
     if ( KPropertiesDialog::canDisplay( m_lstItems ) && (kpf & ShowProperties) )
     {
-        act = new TDEAction( i18n( "&Properties" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupProperties() ),
+        act = new TDEAction( i18n( "&Properties" ), "edit", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupProperties() ),
                            &m_ownActions, "properties" );
         addAction( act );
     }
