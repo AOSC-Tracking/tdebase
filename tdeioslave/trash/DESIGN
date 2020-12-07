@@ -13,7 +13,7 @@ BUGS
 
 TODO
 ====
-* Clean up konq_popupmenu.cc for Type=Link URL=trash:/   :(
+* Clean up konq_popupmenu.cpp for Type=Link URL=trash:/   :(
 * Also, provide metainfo for trash contents for that desktop link.
 => maybe we need a new mimetype?
  Like application/x-trash-desktop, inheriting application/x-desktop. 

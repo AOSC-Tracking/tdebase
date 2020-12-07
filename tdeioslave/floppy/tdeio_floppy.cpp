@@ -1105,7 +1105,7 @@ void FloppyProtocol::put( const KURL& url, int , bool overwrite, bool )
    int bytesRead(0);
    TQByteArray array;
 
-   //from file.cc
+   //from file.cpp
    // Loop until we got 0 (end of data)
    do
    {

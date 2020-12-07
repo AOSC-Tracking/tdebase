@@ -254,7 +254,7 @@ bool KonquerorIface::processCanBeReused( int screen )
     if( allowed_parts.count() == 1 && allowed_parts.first() == TQString::fromLatin1( "SAFE" ))
     {
         allowed_parts.clear();
-        // is duplicated in client/kfmclient.cc
+        // is duplicated in client/kfmclient.cpp
         allowed_parts << TQString::fromLatin1( "konq_iconview.desktop" )
                       << TQString::fromLatin1( "konq_multicolumnview.desktop" )
                       << TQString::fromLatin1( "konq_sidebartng.desktop" )

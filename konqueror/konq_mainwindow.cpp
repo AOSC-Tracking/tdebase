@@ -2150,7 +2150,7 @@ void KonqMainWindow::applyKonqMainWindowSettings()
 void KonqMainWindow::slotSetStatusBarText( const TQString & )
 {
    // Reimplemented to disable KParts::MainWindow default behaviour
-   // Does nothing here, see konq_frame.cc
+   // Does nothing here, see konq_frame.cpp
 }
 
 void KonqMainWindow::slotViewCompleted( KonqView * view )
@@ -4811,7 +4811,7 @@ void KonqMainWindow::slotPopupMenu( KXMLGUIClient *client, const TQPoint &_globa
   if (pPopupMenu->hasGroup("tabhandling"))
   {
     // "tabhandling" group in inserted in the popup menu if no encrypted media devices are part of "_items"
-    // see libkonq/konq_popupmenu.cc KonqPopupMenu::setup() method
+    // see libkonq/konq_popupmenu.cpp KonqPopupMenu::setup() method
     pPopupMenu->factory()->addClient( konqyMenuClient );
   }
 

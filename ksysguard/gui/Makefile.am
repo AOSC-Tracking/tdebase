@@ -22,11 +22,11 @@ bin_PROGRAMS = ksysguard kpm
 
 # Which sources should be compiled for ksysguard.
 ksysguard_SOURCES = \
-	SensorBrowser.cc \
-	WorkSheet.cc \
-	WorkSheetSettings.cc \
-	Workspace.cc \
-	ksysguard.cc ksysguard.skel
+	SensorBrowser.cpp \
+	WorkSheet.cpp \
+	WorkSheetSettings.cpp \
+	Workspace.cpp \
+	ksysguard.cpp ksysguard.skel
 
 ksysguard_LDADD = \
 	ksgrd/libksgrd.la \
@@ -43,8 +43,8 @@ appdata_DATA = ProcessTable.sgrd SystemLoad.sgrd KSysGuardApplet.xml
 kde_module_LTLIBRARIES = sysguard_panelapplet.la
 
 sysguard_panelapplet_la_SOURCES = \
-	KSysGuardApplet.cc \
-	KSGAppletSettings.cc
+	KSysGuardApplet.cpp \
+	KSGAppletSettings.cpp
 
 sysguard_panelapplet_la_LIBADD = \
 	ksgrd/libksgrd.la \
@@ -60,4 +60,4 @@ METASOURCES = AUTO
 messages: rc.cpp
 	$(EXTRACTRC) `find . -name "*.ui"` >> rc.cpp
 	extractattr --attr=display,title SystemLoad.sgrd KSysGuardApplet.xml >> rc.cpp
-	$(XGETTEXT) `find . -name "*.cpp" -o -name "*.cc"` -o $(podir)/ksysguard.pot
+	$(XGETTEXT) `find . -name "*.cpp"` -o $(podir)/ksysguard.pot

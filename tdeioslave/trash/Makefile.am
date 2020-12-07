@@ -31,7 +31,7 @@ testtrash_LDFLAGS = $(all_libraries)
 TESTS = testtrash
 
 messages:
-	$(XGETTEXT) `find . -name "*.cc" -o -name "*.cpp" -o -name "*.h"` -o $(podir)/tdeio_trash.pot
+	$(XGETTEXT) `find . -name "*.cpp" -o -name "*.h"` -o $(podir)/tdeio_trash.pot
 
 # ktrashpropsdlgplugin target
 noinst_HEADERS = ktrashpropsdlgplugin.h discspaceutil.h trash_constant.h

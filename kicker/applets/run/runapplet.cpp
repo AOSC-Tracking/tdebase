@@ -233,7 +233,7 @@ void RunApplet::run_command(const TQString& command)
 	    bool shutdown = kapp->requestShutDown();
 	    if( !shutdown )
             {
-                // This i18n string is in kdesktop/desktop.cc as well. Maybe we should DCOP to kdesktop instead ?
+                // This i18n string is in kdesktop/desktop.cpp as well. Maybe we should DCOP to kdesktop instead ?
 		KMessageBox::error( 0, i18n("Unable to log out properly.\nThe session manager cannot "
 					    "be contacted. You can try to force a shutdown by pressing "
 					    "Ctrl+Alt+Backspace. Note, however, that your current "

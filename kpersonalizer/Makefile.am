@@ -46,7 +46,7 @@ kpersonalizer_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TD
 #rc_DATA = kpersonalizerui.rc
 
 messages: rc.cpp
-	LIST=`find . -name \*.h -o -name \*.hh -o -name \*.H -o -name \*.hxx -o -name \*.hpp -o -name \*.cpp -o -name \*.cc -o -name \*.cxx -o -name \*.ecpp -o -name \*.C`; \
+	LIST=`find . -name \*.h -o -name \*.cpp; \
 	if test -n "$$LIST"; then \
 	 $(XGETTEXT) $$LIST -o $(podir)/kpersonalizer.pot; \
 	fi

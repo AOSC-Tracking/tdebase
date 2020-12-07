@@ -4,7 +4,7 @@ INCLUDES= $(all_includes)
 
 kde_module_LTLIBRARIES = tdeio_settings.la
 
-tdeio_settings_la_SOURCES = tdeio_settings.cc
+tdeio_settings_la_SOURCES = tdeio_settings.cpp
 tdeio_settings_la_LIBADD  = $(LIB_TDESYCOCA)
 tdeio_settings_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN)
 
@@ -17,5 +17,5 @@ kdelnkdir = $(kde_servicesdir)
 SUBDIRS=. 
 
 messages:
-	$(XGETTEXT) `find . -name "*.cc" -o -name "*.cpp" -o -name "*.h"` -o $(podir)/tdeio_settings.pot
+	$(XGETTEXT) `find . -name "*.cpp" -o -name "*.h"` -o $(podir)/tdeio_settings.pot
 

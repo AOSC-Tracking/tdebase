@@ -1,5 +1,5 @@
 /*
- * krootwm.cc Part of the KDE project.
+ * krootwm.cpp Part of the KDE project.
  *
  * Copyright (C) 1997 Matthias Ettrich
  *           (C) 1997 Torben Weis, weis@kde.org

@@ -5,7 +5,7 @@ kde_module_LTLIBRARIES = konq_iconview.la
 
 METASOURCES = AUTO
 
-konq_iconview_la_SOURCES = konq_iconview.cc
+konq_iconview_la_SOURCES = konq_iconview.cpp
 konq_iconview_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN) -module
 konq_iconview_la_LIBADD = $(top_builddir)/libkonq/libkonq.la
 

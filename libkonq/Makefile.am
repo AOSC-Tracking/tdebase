@@ -23,17 +23,17 @@ lib_LTLIBRARIES = libkonq.la
 libkonq_la_LDFLAGS = $(all_libraries) -version-info 6:0:2 -no-undefined
 libkonq_la_LIBADD = $(LIB_TDEPARTS)
 
-libkonq_la_SOURCES = konq_popupmenu.cc knewmenu.cc \
-   konq_xmlguiclient.cc\
-   tdefileivi.cc konq_iconviewwidget.cc konq_settings.cc konq_drag.cc  \
-   konq_operations.cc \
-   konq_dirpart.cc konq_propsview.cc konq_events.cc konq_bgnddlg.cc \
-   konq_undo.cc konq_undo.skel \
-   konq_historymgr.cc konq_historycomm.cc konq_historycomm.skel \
-   konq_pixmapprovider.cc \
-   kivdirectoryoverlay.cc \
-   kivfreespaceoverlay.cc \
-   konq_faviconmgr.cc konq_faviconmgr.skel konq_filetip.cc
+libkonq_la_SOURCES = konq_popupmenu.cpp knewmenu.cpp \
+   konq_xmlguiclient.cpp\
+   tdefileivi.cpp konq_iconviewwidget.cpp konq_settings.cpp konq_drag.cpp  \
+   konq_operations.cpp \
+   konq_dirpart.cpp konq_propsview.cpp konq_events.cpp konq_bgnddlg.cpp \
+   konq_undo.cpp konq_undo.skel \
+   konq_historymgr.cpp konq_historycomm.cpp konq_historycomm.skel \
+   konq_pixmapprovider.cpp \
+   kivdirectoryoverlay.cpp \
+   kivfreespaceoverlay.cpp \
+   konq_faviconmgr.cpp konq_faviconmgr.skel konq_filetip.cpp
 
 directory_DATA = directory_bookmarkbar.desktop 
 directorydir   = $(kde_datadir)/kbookmark
@@ -60,14 +60,14 @@ ARTS_MODULE = konq_sound.la
 endif
 
 kde_module_LTLIBRARIES = $(ARTS_MODULE)
-konq_sound_la_SOURCES = konq_sound.cc
+konq_sound_la_SOURCES = konq_sound.cpp
 konq_sound_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN)
 konq_sound_la_LIBADD = -lsoundserver_idl -lartskde
 
 noinst_HEADERS = konq_sound.h
 
 messages:
-	$(XGETTEXT) *.cc *.h -o $(podir)/libkonq.pot
+	$(XGETTEXT) *.cpp *.h -o $(podir)/libkonq.pot
 
 DOXYGEN_REFERENCES = dcop tdecore tdeio/bookmarks
 include ../admin/Doxyfile.am

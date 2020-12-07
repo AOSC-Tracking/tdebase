@@ -16,7 +16,7 @@ private_SCRIPTS = anytops
 privatedir = $(kde_datadir)/tdeprintfax
 
 messages: rc.cpp
-	$(XGETTEXT) `find . -name \*.h -o -name \*.cpp -o -name \*.cc` -o $(podir)/tdeprintfax.pot
+	$(XGETTEXT) `find . -name \*.h -o -name \*.cpp` -o $(podir)/tdeprintfax.pot
 
 KDE_ICON = tdeprintfax
 pic_ICON = abentry

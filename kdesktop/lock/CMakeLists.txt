@@ -34,8 +34,8 @@ link_directories(
 set( target kdesktop_lock )
 
 set( ${target}_SRCS
-  lockprocess.cc lockdlg.cc infodlg.cc querydlg.cc sakdlg.cc
-  securedlg.cc autologout.cc main.cc
+  lockprocess.cpp lockdlg.cpp infodlg.cpp querydlg.cpp sakdlg.cpp
+  securedlg.cpp autologout.cpp main.cpp
 )
 
 tde_add_executable( ${target} AUTOMOC

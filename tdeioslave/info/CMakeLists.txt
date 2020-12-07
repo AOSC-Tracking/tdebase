@@ -37,7 +37,7 @@ install( PROGRAMS kde-info2html DESTINATION ${DATA_INSTALL_DIR}/tdeio_info )
 set( target tdeio_info )
 
 tde_add_kpart( ${target} AUTOMOC
-  SOURCES info.cc
+  SOURCES info.cpp
   LINK tdeio-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

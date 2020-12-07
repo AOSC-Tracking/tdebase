@@ -11,7 +11,7 @@
       <default>http://www.kde.org/</default>
       <label></label>
       <whatsthis></whatsthis>
-      <!-- kdiconview.cc:1103 -->
+      <!-- kdiconview.cpp:1103 -->
       <!--                  cfg.readEntry( "URL" ) == "trash:/" ) { -->
     </entry>
   </group>

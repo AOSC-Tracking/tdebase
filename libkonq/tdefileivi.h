@@ -251,7 +251,7 @@ private:
 
     /**
      * Private data for KFileIVI
-     * Implementation in tdefileivi.cc
+     * Implementation in tdefileivi.cpp
      */
     struct Private;
 

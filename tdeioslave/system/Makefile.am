@@ -27,5 +27,5 @@ check: testsystem
 	./testsystem
 
 messages:
-	$(XGETTEXT) `find . -name "*.cc" -o -name "*.cpp" -o -name "*.h"` -o $(podir)/tdeio_system.pot
+	$(XGETTEXT) `find . -name "*.cpp" -o -name "*.h"` -o $(podir)/tdeio_system.pot
 

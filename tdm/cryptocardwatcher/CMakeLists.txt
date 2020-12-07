@@ -24,7 +24,7 @@ link_directories(
 ##### tdecryptocardwatcher (executable) #########
 
 tde_add_executable( tdecryptocardwatcher AUTOMOC
-  SOURCES main.cpp watcher.cc
+  SOURCES main.cpp watcher.cpp
   LINK tdecore-shared tdeio-shared dmctl-static
   DESTINATION ${BIN_INSTALL_DIR}
   SETUID

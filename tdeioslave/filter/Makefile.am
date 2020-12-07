@@ -4,7 +4,7 @@ INCLUDES = $(all_includes)
 
 kde_module_LTLIBRARIES = tdeio_filter.la
 
-tdeio_filter_la_SOURCES = filter.cc
+tdeio_filter_la_SOURCES = filter.cpp
 tdeio_filter_la_LIBADD = $(LIB_TDESYCOCA)
 tdeio_filter_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN)
 noinst_HEADERS = filter.h

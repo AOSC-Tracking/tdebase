@@ -60,6 +60,6 @@ What should be the default task entry format be:
     c) App Name (Task Name)  <-- silly option =)
 Should "Run A Command..." be replaced by an inline combobox?
     Pros: It's more obvious and will work even if kdesktop is gone. The widget
-          is already written (in tom.cc)
+          is already written (in tom.cpp)
     Cons: It makes it stand out too much over other entries, takes up more room
           and isn't as powerful as the full minicli

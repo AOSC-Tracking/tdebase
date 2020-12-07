@@ -42,7 +42,7 @@ tde_create_translated_desktop(
 set( target kded_konqy_preloader )
 
 set( ${target}_SRCS
-  preloader.cc preloader.skel
+  preloader.cpp preloader.skel
 )
 
 tde_add_kpart( ${target} AUTOMOC

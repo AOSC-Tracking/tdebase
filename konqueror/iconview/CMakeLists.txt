@@ -39,7 +39,7 @@ install( FILES konq_iconview.rc konq_multicolumnview.rc DESTINATION ${DATA_INSTA
 set( target konq_iconview )
 
 tde_add_kpart( ${target} AUTOMOC
-  SOURCES konq_iconview.cc
+  SOURCES konq_iconview.cpp
   LINK konq-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

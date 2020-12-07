@@ -1,7 +1,7 @@
 kde_module_LTLIBRARIES = konq_aboutpage.la
 
 INCLUDES = -I$(srcdir)/.. -I$(top_srcdir)/libkonq $(all_includes)
-konq_aboutpage_la_SOURCES = konq_aboutpage.cc
+konq_aboutpage_la_SOURCES = konq_aboutpage.cpp
 konq_aboutpage_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN) -module
 konq_aboutpage_la_LIBADD = $(LIB_TDEHTML)
 

@@ -45,10 +45,10 @@ install( FILES konq_listview.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
 set( target konq_listview )
 
 set( ${target}_SRCS
-  konq_listview.cc konq_listviewwidget.cc konq_listviewitems.cc
-  konq_treeviewwidget.cc konq_treeviewitem.cc konq_textviewwidget.cc
-  konq_textviewitem.cc konq_infolistviewwidget.cc
-  konq_infolistviewitem.cc konq_listviewsettings.kcfgc
+  konq_listview.cpp konq_listviewwidget.cpp konq_listviewitems.cpp
+  konq_treeviewwidget.cpp konq_treeviewitem.cpp konq_textviewwidget.cpp
+  konq_textviewitem.cpp konq_infolistviewwidget.cpp
+  konq_infolistviewitem.cpp konq_listviewsettings.kcfgc
 )
 
 tde_add_kpart( ${target} AUTOMOC

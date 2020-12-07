@@ -1423,7 +1423,7 @@ void KonqIconViewWidget::slotSaveIconPositions()
   // This code is currently not used but left in for compatibility reasons.
   // It can be removed in KDE 4.0
   // Saving of desktop icon positions is now done in KDIconView::saveIconPositions()
-  // in tdebase/kdesktop/kdiconview.cc
+  // in tdebase/kdesktop/kdiconview.cpp
   // WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
 
   printf("WARNING: Strongly deprecated method KonqIconViewWidget::slotSaveIconPositions() called!\n"); fflush(stdout);
@@ -1473,7 +1473,7 @@ void KonqIconViewWidget::slotSaveIconPositions()
   // This code is currently not used but left in for compatibility reasons.
   // It can be removed in KDE 4.0
   // Saving of desktop icon positions is now done in KDIconView::saveIconPositions()
-  // in tdebase/kdesktop/kdiconview.cc
+  // in tdebase/kdesktop/kdiconview.cpp
   // WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
 }
 

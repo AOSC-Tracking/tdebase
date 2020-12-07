@@ -22,23 +22,23 @@ METASOURCES = AUTO
 include_HEADERS = KonquerorIface.h
 
 libkonqueror_intern_la_SOURCES = konq_settingsxt.kcfgc
-konqueror_la_SOURCES = konq_main.cc \
-	    KonquerorIface.cc KonquerorIface.skel \
-	    KonqMainWindowIface.cc KonqMainWindowIface.skel \
-	    KonqViewIface.cc KonqViewIface.skel \
-	    konq_guiclients.cc \
-	    konq_run.cc konq_view.cc konq_viewmgr.cc \
-	    konq_misc.cc \
-	    konq_frame.cc \
-	    konq_tabs.cc \
-	    konq_actions.cc \
-	    konq_profiledlg.cc \
-	    konq_factory.cc \
-	    konq_combo.cc	\
-	    konq_browseriface.cc \
-	    delayedinitializer.cc \
-	    konq_mainwindow.cc  \
-	    konq_extensionmanager.cc
+konqueror_la_SOURCES = konq_main.cpp \
+	    KonquerorIface.cpp KonquerorIface.skel \
+	    KonqMainWindowIface.cpp KonqMainWindowIface.skel \
+	    KonqViewIface.cpp KonqViewIface.skel \
+	    konq_guiclients.cpp \
+	    konq_run.cpp konq_view.cpp konq_viewmgr.cpp \
+	    konq_misc.cpp \
+	    konq_frame.cpp \
+	    konq_tabs.cpp \
+	    konq_actions.cpp \
+	    konq_profiledlg.cpp \
+	    konq_factory.cpp \
+	    konq_combo.cpp	\
+	    konq_browseriface.cpp \
+	    delayedinitializer.cpp \
+	    konq_mainwindow.cpp  \
+	    konq_extensionmanager.cpp
 
 konqueror_la_PCH = AUTO
 
@@ -59,14 +59,14 @@ konqueror_la_LIBADD = ../libkonq/libkonq.la libkonqueror_intern.la $(LIBMALLOC) 
 # and make clean ; make konqueror_static in here.
 #check_PROGRAMS = konqueror_static
 #
-#konqueror_static_SOURCES = dummy.cc
+#konqueror_static_SOURCES = dummy.cpp
 #konqueror_static_LDADD = konqueror.la *view/*.la dirtree/*.la $(libdir)/libtdehtml.la
 #konqueror_static_LDFLAGS = $(all_libraries) -static
 
 messages: rc.cpp
 	$(EXTRACTRC) *.rc */*.rc >> rc.cpp
 	$(EXTRACTRC) sidebar/trees/history_module/history_dlg.ui >> rc.cpp
-	$(XGETTEXT) -kaliasLocal rc.cpp *.h *.cc *view/*h *view/*cc  kedit*/*.h kedit*/*.cpp about/*.h about/*.cc remoteencodingplugin/*.cpp remoteencodingplugin/*.h shellcmdplugin/*.cpp -o `find sidebar -name "*.cpp"` `find sidebar -name "*.h"` -o $(podir)/konqueror.pot
+	$(XGETTEXT) -kaliasLocal rc.cpp *.h *.cpp *view/*h *view/*.cpp  kedit*/*.h kedit*/*.cpp about/*.h about/*.cpp remoteencodingplugin/*.cpp remoteencodingplugin/*.h shellcmdplugin/*.cpp -o `find sidebar -name "*.cpp"` `find sidebar -name "*.h"` -o $(podir)/konqueror.pot
 
 xdg_apps_DATA = kfmclient.desktop kfmclient_dir.desktop kfmclient_html.desktop \
 	kfmclient_war.desktop konqbrowser.desktop konquerorsu.desktop Home.desktop
