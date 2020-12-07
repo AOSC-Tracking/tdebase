@@ -34,7 +34,7 @@ tde_create_translated_desktop(
 set( target tdeio_filter )
 
 tde_add_kpart( ${target} AUTOMOC
-  SOURCES filter.cc
+  SOURCES filter.cpp
   LINK tdeio-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

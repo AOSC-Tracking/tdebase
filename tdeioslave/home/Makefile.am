@@ -28,5 +28,5 @@ check: testhome
 	./testhome
 
 messages:
-	$(XGETTEXT) `find . -name "*.cc" -o -name "*.cpp" -o -name "*.h"` -o $(podir)/tdeio_home.pot
+	$(XGETTEXT) `find . -name "*.cpp" -o -name "*.h"` -o $(podir)/tdeio_home.pot
 

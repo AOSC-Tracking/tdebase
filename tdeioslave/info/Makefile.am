@@ -8,7 +8,7 @@ METASOURCES = AUTO
 
 kde_module_LTLIBRARIES = tdeio_info.la
 
-tdeio_info_la_SOURCES = info.cc
+tdeio_info_la_SOURCES = info.cpp
 tdeio_info_la_LIBADD = $(LIB_TDEIO)
 tdeio_info_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN)
 noinst_HEADERS = info.h

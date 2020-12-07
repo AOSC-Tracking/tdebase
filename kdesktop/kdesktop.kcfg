@@ -52,7 +52,7 @@
       <default>true</default>
       <label></label>
       <whatsthis></whatsthis>
-      <!-- init.cc:138 -->
+      <!-- init.cpp:138 -->
       <!--     if (!config->readBoolEntry("CopyDesktopLinks", true)) -->
     </entry>
     <entry key="AutoLineUpIcons" type="Bool">
@@ -64,9 +64,9 @@
       <default>false</default>
       <label>Sort directories first</label>
       <whatsthis></whatsthis>
-      <!-- krootwm.cc:251 -->
+      <!-- krootwm.cpp:251 -->
       <!--         aSortDirsFirst->setChecked( tdeconfig->readBoolEntry("SortDirectoriesFirst", true)); -->
-      <!-- krootwm.cc:496 -->
+      <!-- krootwm.cpp:496 -->
       <!--     config->writeEntry( "SortDirectoriesFirst", b ); -->
     </entry>
 		<entry key="TerminalApplication" type="Path">
@@ -85,7 +85,7 @@
       <default>Forward</default>
       <label></label>
       <whatsthis></whatsthis>
-      <!-- desktop.cc:397 -->
+      <!-- desktop.cpp:397 -->
       <!--             (config->readEntry("WheelDirection", default_dir_string) == forward_string) ? Forward : Reverse; -->
     </entry>
     <entry key="Left" type="String">
@@ -190,7 +190,7 @@
       <default></default>
       <label></label>
       <whatsthis></whatsthis>
-      <!-- kdiconview.cc:254 -->
+      <!-- kdiconview.cpp:254 -->
       <!--     m_itemsAlwaysFirst = config->readListEntry("AlwaysFirstItems"); // Distributor plug-in -->
     </entry>
   </group>
@@ -199,14 +199,14 @@
       <default>true</default>
       <label></label>
       <whatsthis></whatsthis>
-      <!-- kdiconview.cc:258 -->
+      <!-- kdiconview.cpp:258 -->
       <!--         m_enableMedia=config->readBoolEntry("enabled",false); -->
     </entry>
     <entry key="exclude" type="String">
       <default>media/nfs_mounted,media/nfs_unmounted,media/hdd_mounted,media/hdd_unmounted,media/floppy_unmounted,media/cdrom_unmounted,media/floppy5_unmounted</default>
       <label>Device Types to exclude</label>
       <whatsthis>The device types which you do not want to see on the desktop.</whatsthis>
-      <!-- kdiconview.cc:261 -->
+      <!-- kdiconview.cpp:261 -->
       <!--     TQString tmpList=config->readEntry("exclude","media/hdd_mounted,media/hdd_unmounted,media/floppy_unmounted,media/cdrom_unmounted,media/floppy5_unmounted"); -->
     </entry>
     <entry name="MediaFreeSpaceDisplayEnabled" key="FreeSpaceDisplayEnabled" type="Bool">

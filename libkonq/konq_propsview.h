@@ -174,7 +174,7 @@ private:
 
   /**
    * Private data for KonqPropsView
-   * Implementation in konq_propsview.cc
+   * Implementation in konq_propsview.cpp
    */
   struct Private;
 

@@ -28,5 +28,5 @@ check: testremote
 	./testremote
 
 messages:
-	$(XGETTEXT) `find . -name "*.cc" -o -name "*.cpp" -o -name "*.h"` -o $(podir)/tdeio_remote.pot
+	$(XGETTEXT) `find . -name "*.cpp" -o -name "*.h"` -o $(podir)/tdeio_remote.pot
 

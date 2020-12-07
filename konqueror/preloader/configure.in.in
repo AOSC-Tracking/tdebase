@@ -1,5 +1,5 @@
 dnl check whether mallinfo() is available and which fields to use to find out memory usage
-dnl it's used in konq_mainwindow.cc
+dnl it's used in konq_mainwindow.cpp
 dnl warning, ugly code ahead
 dnl some implementations have mallinfo() in stdlib.h, others in malloc.h
 dnl fields showing memory usage should be hblkhd, uordblks and usmblks,

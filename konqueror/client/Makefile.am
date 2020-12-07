@@ -7,7 +7,7 @@ tdeinit_LTLIBRARIES = kfmclient.la
 INCLUDES= -I.. $(all_includes)
 kfmclient_la_LDFLAGS = $(all_libraries) -module -avoid-version
 kfmclient_la_LIBADD =  $(LIB_TDEIO)
-kfmclient_la_SOURCES = kfmclient.cc KonquerorIface.stub KDesktopIface.stub
+kfmclient_la_SOURCES = kfmclient.cpp KonquerorIface.stub KDesktopIface.stub
 
 noinst_HEADERS = kfmclient.h
 METASOURCES = AUTO
@@ -16,7 +16,7 @@ KonquerorIface_DIR =  $(srcdir)/..
 KDesktopIface_DIR = $(top_srcdir)/kdesktop
 
 messages:
-	$(XGETTEXT) -kaliasLocal *.h *.cc -o $(podir)/kfmclient.pot
+	$(XGETTEXT) -kaliasLocal *.h *.cpp -o $(podir)/kfmclient.pot
 
 updatedir = $(kde_datadir)/tdeconf_update
 update_DATA = kfmclient_3_2.upd

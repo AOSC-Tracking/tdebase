@@ -21,7 +21,7 @@
 #define _konq_misc_h
 
 // This file can hold every global class for konqueror that used to pollute
-// konq_main.cc
+// konq_main.cpp
 
 #include <krun.h>
 #include <tdeparts/browserextension.h>

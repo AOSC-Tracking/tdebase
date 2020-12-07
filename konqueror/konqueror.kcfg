@@ -158,14 +158,14 @@
       <whatsthis></whatsthis>
       <!-- checked -->
     </entry>
-<!-- konq_settings.cc --> 
+<!-- konq_settings.cpp --> 
     <entry key="WordWrapText" type="Bool"> <!--LIBKONQ-->
       <default>true</default> 
       <label></label>
       <whatsthis></whatsthis>
       <!-- no writeEntry -->
     </entry>
-<!-- konq_tabs.cc --> 
+<!-- konq_tabs.cpp --> 
     <entry key="MouseMiddleClickClosesTab" type="Bool">
       <default>false</default> 
       <label></label>
@@ -282,7 +282,7 @@
       <whatsthis></whatsthis>
       <!-- checked -->
     </entry>
-<!-- konq_view.cc -->
+<!-- konq_view.cpp -->
     <entry key="EnableFavicon" type="Bool">
       <default>true</default> 
       <label></label>
@@ -502,7 +502,7 @@ PATH_JAVA
   </group>
    
   <group name="ModeToolBarServices" >
-<!-- konq_mainwindow.cc -->
+<!-- konq_mainwindow.cpp -->
     <entry key="konq_iconview" type="String">
       <label></label>
       <whatsthis></whatsthis>
@@ -526,7 +526,7 @@ PATH_JAVA
   </group>
   
   <group name="Notification Messages" >
-<!-- advancedTabDialog.cpp konq_mainwindow.cc -->
+<!-- advancedTabDialog.cpp konq_mainwindow.cpp -->
     <entry key="MultipleTabConfirm" type="Bool">
       <default>false</default> 
       <label></label>

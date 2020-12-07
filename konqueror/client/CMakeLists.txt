@@ -32,7 +32,7 @@ install( PROGRAMS kfmclient_3_2_update.sh DESTINATION ${DATA_INSTALL_DIR}/tdecon
 set( target kfmclient )
 
 set( ${target}_SRCS
-  kfmclient.cc
+  kfmclient.cpp
   ${CMAKE_SOURCE_DIR}/konqueror/KonquerorIface.stub
   ${CMAKE_SOURCE_DIR}/kdesktop/KDesktopIface.stub
 )

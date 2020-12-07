@@ -723,6 +723,6 @@ void checkSuccessfulTransferCommand( bool error, bool preload, bool ungetLast,
 
 #define NDEBUG
 
-#include "command.cc"
-#include "response.cc"
-#include "transactionstate.cc"
+#include "command.cpp"
+#include "response.cpp"
+#include "transactionstate.cpp"

@@ -35,7 +35,7 @@ tde_create_translated_desktop(
 set( target tdeio_pop3 )
 
 tde_add_kpart( ${target} AUTOMOC
-  SOURCES pop3.cc
+  SOURCES pop3.cpp
   LINK tdeio-shared ${SASL_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

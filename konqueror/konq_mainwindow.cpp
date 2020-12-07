@@ -2131,7 +2131,7 @@ void KonqMainWindow::applyKonqMainWindowSettings()
 void KonqMainWindow::slotSetStatusBarText( const TQString & )
 {
    // Reimplemented to disable KParts::MainWindow default behaviour
-   // Does nothing here, see konq_frame.cc
+   // Does nothing here, see konq_frame.cpp
 }
 
 void KonqMainWindow::slotViewCompleted( KonqView * view )

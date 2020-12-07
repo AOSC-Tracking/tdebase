@@ -51,7 +51,7 @@ tde_create_translated_desktop(
 ##### sysguard_panelapplet (module) #############
 
 tde_add_kpart( sysguard_panelapplet AUTOMOC
-  SOURCES KSysGuardApplet.cc KSGAppletSettings.cc
+  SOURCES KSysGuardApplet.cpp KSGAppletSettings.cpp
   LINK sensordisplays-static ksgrd-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
@@ -61,8 +61,8 @@ tde_add_kpart( sysguard_panelapplet AUTOMOC
 
 tde_add_executable( ksysguard AUTOMOC
   SOURCES
-    SensorBrowser.cc WorkSheet.cc WorkSheetSettings.cc
-    Workspace.cc ksysguard.cc ksysguard.skel
+    SensorBrowser.cpp WorkSheet.cpp WorkSheetSettings.cpp
+    Workspace.cpp ksysguard.cpp ksysguard.skel
   LINK sensordisplays-static ksgrd-shared tdednssd-shared
   DESTINATION ${BIN_INSTALL_DIR}
 )

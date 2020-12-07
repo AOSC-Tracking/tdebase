@@ -425,7 +425,7 @@ void NFSProtocol::openConnection()
       hostName=nameBuffer;
       // I have the same problem here as Stefan Westerfeld, that's why I use
       // the getdomainname() from fakes.cpp (renamed to x_getdomainname()), this one works
-      // taken from tdelibs/arts/mcopy/mcoputils.cc
+      // taken from tdelibs/arts/mcopy/mcoputils.cpp
       nameBuffer[0] = '\0';
       if (x_getdomainname(nameBuffer, 1024)==0)
       {
@@ -777,7 +777,7 @@ void NFSProtocol::stat( const KURL & url)
 
 void NFSProtocol::completeAbsoluteLinkUDSEntry(UDSEntry& entry, const TQCString& path)
 {
-   //taken from file.cc
+   //taken from file.cpp
    struct stat buff;
    if ( ::stat( path.data(), &buff ) == -1 ) return;
 

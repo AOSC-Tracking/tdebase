@@ -1,5 +1,5 @@
 /*
-    response.cc
+    response.cpp
 
     This file is part of tdeio_smtp, the KDE SMTP tdeioslave.
     Copyright (c) 2003 Marc Mutz <mutz@kde.org>

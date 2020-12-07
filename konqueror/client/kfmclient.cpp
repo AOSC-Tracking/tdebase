@@ -181,7 +181,7 @@ static bool startNewKonqueror( TQString url, TQString mimetype, const TQString& 
     TDEConfig cfg( TQString::fromLatin1( "konquerorrc" ), true );
     cfg.setGroup( "Reusing" );
     TQStringList allowed_parts;
-    // is duplicated in ../KonquerorIface.cc
+    // is duplicated in ../KonquerorIface.cpp
     allowed_parts << TQString::fromLatin1( "konq_iconview.desktop" )
                   << TQString::fromLatin1( "konq_multicolumnview.desktop" )
                   << TQString::fromLatin1( "konq_sidebartng.desktop" )

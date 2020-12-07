@@ -47,7 +47,7 @@ install( FILES
 set( target konq_aboutpage )
 
 tde_add_kpart( ${target} AUTOMOC
-  SOURCES konq_aboutpage.cc
+  SOURCES konq_aboutpage.cpp
   LINK tdehtml-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

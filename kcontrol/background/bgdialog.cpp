@@ -474,7 +474,7 @@ void BGDialog::initUI()
 
    loadWallpaperFilesList();
 
-   // Wallpaper tilings: again they must match the ones from bgrender.cc
+   // Wallpaper tilings: again they must match the ones from bgrender.cpp
    m_comboWallpaperPos->insertItem(i18n("Centered"));
    m_comboWallpaperPos->insertItem(i18n("Tiled"));
    m_comboWallpaperPos->insertItem(i18n("Center Tiled"));
@@ -484,7 +484,7 @@ void BGDialog::initUI()
    m_comboWallpaperPos->insertItem(i18n("Centered Auto Fit"));
    m_comboWallpaperPos->insertItem(i18n("Scale & Crop"));
 
-   // Blend modes: make sure these match with kdesktop/bgrender.cc !!
+   // Blend modes: make sure these match with kdesktop/bgrender.cpp !!
    m_comboBlend->insertItem(i18n("No Blending"));
    m_comboBlend->insertItem(i18n("Flat"));
    m_comboBlend->insertItem(i18n("Horizontal"));

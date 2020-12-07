@@ -35,7 +35,7 @@ tde_create_translated_desktop(
 set( target tdeio_smtp )
 
 tde_add_kpart( ${target} AUTOMOC
-  SOURCES smtp.cc request.cc response.cc capabilities.cc command.cc transactionstate.cc
+  SOURCES smtp.cpp request.cpp response.cpp capabilities.cpp command.cpp transactionstate.cpp
   LINK tdeio-shared ${SASL_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

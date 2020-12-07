@@ -34,9 +34,9 @@ install( FILES
 
 tde_add_library( ksgrd SHARED AUTOMOC
   SOURCES
-    HostConnector.cc SensorAgent.cc SensorManager.cc
-    SensorShellAgent.cc SensorSocketAgent.cc StyleEngine.cc
-    StyleSettings.cc TimerSettings.cc
+    HostConnector.cpp SensorAgent.cpp SensorManager.cpp
+    SensorShellAgent.cpp SensorSocketAgent.cpp StyleEngine.cpp
+    StyleSettings.cpp TimerSettings.cpp
   VERSION 1.2.0
   LINK tdeui-shared
   DESTINATION ${LIB_INSTALL_DIR}

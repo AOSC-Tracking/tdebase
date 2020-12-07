@@ -17,10 +17,10 @@ libkdesktopsettings_la_LDFLAGS = $(all_libraries) -no-undefined
 libkdesktopsettings_la_LIBADD = $(LIB_TDECORE)
 libkdesktopsettings_la_SOURCES = kdesktopsettings.kcfgc tdelaunchsettings.kcfgc 
 
-kdesktop_la_SOURCES = main.cc krootwm.cc xautolock.cc kdiconview.cc desktop.cc \
-	lockeng.cc KDesktopIface.skel \
-	bgmanager.cc init.cc KScreensaverIface.skel \
-	minicli.cpp KBackgroundIface.skel pixmapserver.cc kcustommenu.cc \
+kdesktop_la_SOURCES = main.cpp krootwm.cpp xautolock.cpp kdiconview.cpp desktop.cpp \
+	lockeng.cpp KDesktopIface.skel \
+	bgmanager.cpp init.cpp KScreensaverIface.skel \
+	minicli.cpp KBackgroundIface.skel pixmapserver.cpp kcustommenu.cpp \
 	startupid.cpp minicli_ui.ui xautolock_diy.c xautolock_engine.c \
 	kshadowengine.cpp kshadowsettings.cpp \
 	kdesktopshadowsettings.cpp tdefileividesktop.cpp \
@@ -59,7 +59,7 @@ startupid.lo: tdelaunchsettings.h
 
 messages: rc.cpp
 	$(EXTRACTRC) lock/*.ui >> rc.cpp
-	$(XGETTEXT) lock/*.cc *.cc *.cpp *.h -o $(podir)/kdesktop.pot
+	$(XGETTEXT) lock/*.cpp *.cpp *.h -o $(podir)/kdesktop.pot
 
 menu_DATA = kdesktop_custom_menu1 kdesktop_custom_menu2
 menudir = $(kde_confdir)

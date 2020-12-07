@@ -141,13 +141,13 @@ tde_add_library( ${target} STATIC_PIC
 set( target konqueror )
 
 set( ${target}_SRCS
-  konq_main.cc KonquerorIface.cc KonquerorIface.skel
-  KonqMainWindowIface.cc KonqMainWindowIface.skel
-  KonqViewIface.cc KonqViewIface.skel konq_guiclients.cc
-  konq_run.cc konq_view.cc konq_viewmgr.cc konq_misc.cc
-  konq_frame.cc konq_tabs.cc konq_actions.cc konq_profiledlg.cc
-  konq_factory.cc konq_combo.cc	konq_browseriface.cc
-  delayedinitializer.cc konq_mainwindow.cc konq_extensionmanager.cc
+  konq_main.cpp KonquerorIface.cpp KonquerorIface.skel
+  KonqMainWindowIface.cpp KonqMainWindowIface.skel
+  KonqViewIface.cpp KonqViewIface.skel konq_guiclients.cpp
+  konq_run.cpp konq_view.cpp konq_viewmgr.cpp konq_misc.cpp
+  konq_frame.cpp konq_tabs.cpp konq_actions.cpp konq_profiledlg.cpp
+  konq_factory.cpp konq_combo.cpp	konq_browseriface.cpp
+  delayedinitializer.cpp konq_mainwindow.cpp konq_extensionmanager.cpp
 )
 
 tde_add_tdeinit_executable( ${target} AUTOMOC

@@ -29,7 +29,7 @@ if( BUILD_KCONTROL OR BUILD_KDESKTOP OR BUILD_TDM )
   ##### bgnd (static) #############################
 
   tde_add_library( bgnd STATIC_PIC AUTOMOC
-    SOURCES bgrender.cpp bgsettings.cpp KCrossBGRender.cc
+    SOURCES bgrender.cpp bgsettings.cpp KCrossBGRender.cpp
     LINK ${LIBART_LIBRARIES}
   )
 

@@ -1,5 +1,5 @@
 /*
-    interactivesmtpserver.cc
+    interactivesmtpserver.cpp
 
     Code based on the serverSocket example by Jesper Pedersen.
 

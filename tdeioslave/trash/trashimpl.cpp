@@ -129,7 +129,7 @@ bool TrashImpl::init()
         return false;
 
     // Check the trash directory and its info and files subdirs
-    // see also kdesktop/init.cc for first time initialization
+    // see also kdesktop/init.cpp for first time initialization
     m_initStatus = InitError;
     // $XDG_DATA_HOME/Trash, i.e. ~/.local/share/Trash by default.
     const TQString xdgDataDir = TDEGlobal::dirs()->localxdgdatadir();

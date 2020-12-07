@@ -81,13 +81,13 @@ tde_add_executable( kcheckrunning
 ##### kdesktop (tdeinit) ########################
 
 set( target kdesktop )
-set_property( SOURCE lockeng.cc APPEND PROPERTY COMPILE_DEFINITIONS KDE_CONFDIR="${TDE_CONFIG_DIR}" )
+set_property( SOURCE lockeng.cpp APPEND PROPERTY COMPILE_DEFINITIONS KDE_CONFDIR="${TDE_CONFIG_DIR}" )
 
 set( ${target}_SRCS
-  main.cc krootwm.cc xautolock.cc kdiconview.cc init.cc
-  desktop.cc lockeng.cc KDesktopIface.skel bgmanager.cc
+  main.cpp krootwm.cpp xautolock.cpp kdiconview.cpp init.cpp
+  desktop.cpp lockeng.cpp KDesktopIface.skel bgmanager.cpp
   KScreensaverIface.skel minicli.cpp KBackgroundIface.skel
-  pixmapserver.cc kcustommenu.cc startupid.cpp minicli_ui.ui
+  pixmapserver.cpp kcustommenu.cpp startupid.cpp minicli_ui.ui
   xautolock_diy.c xautolock_engine.c kshadowengine.cpp
   kshadowsettings.cpp kdesktopshadowsettings.cpp
   tdefileividesktop.cpp kdesktopapp.cpp

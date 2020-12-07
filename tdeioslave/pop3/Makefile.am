@@ -4,7 +4,7 @@ INCLUDES= -I$(srcdir)/../.. -I$(srcdir)/.. $(SSL_INCLUDES) $(all_includes)
 
 kde_module_LTLIBRARIES = tdeio_pop3.la
 
-tdeio_pop3_la_SOURCES = pop3.cc
+tdeio_pop3_la_SOURCES = pop3.cpp
 tdeio_pop3_la_LIBADD  = $(LIB_TDEIO) $(SASL2_LIBS)
 tdeio_pop3_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN)
 
@@ -14,4 +14,4 @@ kdelnk_DATA = pop3.protocol pop3s.protocol
 kdelnkdir = $(kde_servicesdir)
 
 messages:
-	$(XGETTEXT) *.cc -o $(podir)/tdeio_pop3.pot
+	$(XGETTEXT) *.cpp -o $(podir)/tdeio_pop3.pot

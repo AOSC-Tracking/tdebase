@@ -80,7 +80,7 @@ public:
   static KRootWm * self() { return s_rootWm; }
 
   /**
-   * share this with desktop.cc
+   * share this with desktop.cpp
    */
   KNewMenu * newMenu() const { return menuNew; }
 
