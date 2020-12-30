@@ -479,7 +479,7 @@ bool USBDevice::parse(TQString fname)
 
 	if ( showErrorMessage && error ) {
 		showErroeMessage = false;
-		KMessageBox::error( 0, i18n("Could not open one or more USB controller, Make sure you have read access to all BSD controllers that shoudl be listed here."));
+		KMessageBox::error( 0, i18n("Could not open one or more USB controller. Make sure you have read access to all USB controllers that should be listed here."));
 	}
 #endif
 
