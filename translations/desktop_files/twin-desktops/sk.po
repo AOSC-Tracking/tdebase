@@ -96,8 +96,8 @@ msgid ""
 "focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
 "desktop;"
 msgstr ""
-"fokus;umiestnenie;automatické zdvihnutie;zdvihnutie;zdvihnutie na "
-"kliknutie;klávesnica;CDE;alt-tab;všetky plochy;"
+"fokus;umiestnenie;automatické zdvihnutie;zdvihnutie;zdvihnutie na kliknutie;"
+"klávesnica;CDE;alt-tab;všetky plochy;"
 
 #. Name
 #: kcmtwin/twinoptions/twinmoving.desktop:11
@@ -132,8 +132,8 @@ msgid ""
 "focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
 "titlebar;doubleclick;"
 msgstr ""
-"fokus;umiestnenie;správanie okien;animácia;zdvihnutie;automatické "
-"zdvihnutie;okná;rám;titulok;dvojité kliknutie;"
+"fokus;umiestnenie;správanie okien;animácia;zdvihnutie;automatické zdvihnutie;"
+"okná;rám;titulok;dvojité kliknutie;"
 
 #. Name
 #: kcmtwin/twinoptions/twintranslucency.desktop:11
@@ -166,8 +166,8 @@ msgid ""
 "size;position;state;window behavior;windows;specific;workarounds;remember;"
 "rules;"
 msgstr ""
-"veľkosť;umiestnenie;stav;správanie "
-"okna;okná;špecifické;riešenia;zapamätať;pravidlá;"
+"veľkosť;umiestnenie;stav;správanie okna;okná;špecifické;riešenia;zapamätať;"
+"pravidlá;"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:2
