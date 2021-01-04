@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 14:20+0200\n"
-"PO-Revision-Date: 2021-01-03 17:11+0000\n"
+"PO-Revision-Date: 2021-01-05 21:00+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/khotkeys-data/cs/>\n"
@@ -113,7 +113,7 @@ msgstr ""
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:93
 msgid "Up #2"
-msgstr "Nahoru #2"
+msgstr "Nahoru č.2"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:116
@@ -123,7 +123,7 @@ msgstr "Stisk, posun nahoru, posun doprava, uvolnění."
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:118
 msgid "Activate Next Tab"
-msgstr "Aktivovat další záložku"
+msgstr "Aktivovat následující kartu"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:141
@@ -133,7 +133,7 @@ msgstr "Stisk, posun nahoru, posun doleva, uvolnění."
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:143
 msgid "Activate Previous Tab"
-msgstr "Aktivovat předchozí záložku"
+msgstr "Aktivovat předchozí kartu"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:185
@@ -143,12 +143,12 @@ msgstr "Stisk, posun dolů, posun nahoru, posun dolů, uvolnění."
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:187
 msgid "Duplicate Tab"
-msgstr "Duplikovat záložku"
+msgstr "Duplikovat kartu"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:210
 msgid "Press, move down, move up, release."
-msgstr "Stisk, posun dolů, posun nahoru, uvolění."
+msgstr "Stisk, posun dolů, posun nahoru, uvolnění."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:212
@@ -192,7 +192,7 @@ msgstr ""
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:291
 msgid "Close Tab"
-msgstr "Zavřít záložku"
+msgstr "Zavřít kartu"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:318
@@ -201,13 +201,13 @@ msgid ""
 "Conflicts with Opera-style 'Up #2', which is disabled by default."
 msgstr ""
 "Stisk, posun nahoru, uvolnění.\n"
-"Je v konfliktu se stylem Opera ‚Nahoru #2‘, který je ve výchozím nastavení "
+"Je v konfliktu se stylem Opera ‚Nahoru č.2‘, který je ve výchozím nastavení "
 "zakázaný."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:320
 msgid "New Tab"
-msgstr "Nová záložka"
+msgstr "Nová karta"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:343
@@ -232,7 +232,8 @@ msgstr "Obnovit"
 #. Comment
 #: printscreen.khotkeys:5
 msgid "This group contains actions that are set up by default."
-msgstr "Tato skupina obsahuje akce, které jsou součástí výchozího nastavení."
+msgstr ""
+"Tato skupina obsahuje činnosti, které jsou součástí výchozího nastavení."
 
 #. Name
 #: printscreen.khotkeys:8
@@ -369,6 +370,23 @@ msgid ""
 "Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
 "condition will check for the active window having that title."
 msgstr ""
+"Nejprve si přečtěte komentář k akci „Napsat ‚Hello‘“.\n"
+"\n"
+"Qt Designer používá Ctrl+F4 k zavírání oken (možná proto, že na MS Windows "
+"se to dělá takto *pokrčit rameny*). Ale Ctrl+F4 v TDE slouží pro přepnutí na "
+"virtuální plochu 4, takže to nefunguje v Qt Designeru. Zároveň, Qt Designer "
+"nepoužívá standardní zkratku TDE Ctrl+W pro zavření okna.\n"
+"\n"
+"Problém ale lze vyřešit přemapováním Ctrl+W na Ctrl+F4, když je aktivním "
+"oknem Qt Designer. Když je Qt Designer aktivní, pokaždé, když stisknete Ctrl+"
+"W, místo toho se do Qt Designeru odešle Ctrl+F4. V jiných aplikacích bude "
+"Ctrl+W samozřejmě nadále fungovat obvyklým způsobem.\n"
+"\n"
+"Nyní musíme specifikovat tři věci: Nová klávesová zkratka pro ‚Ctrl+W‘, nová "
+"akce vstupu klávesnice odesílající Ctrl+F4 a nová podmínka, že aktivním "
+"oknem je Qt Designer.\n"
+"Zdá se, že Qt Designer má vždy název ‚Qt Designer od Trolltech‘, takže "
+"podmínka bude kontrolovat aktivní okno s takovým titulem."
 
 #. Name
 #: trinity2b1.khotkeys:105
@@ -378,7 +396,7 @@ msgstr "Změnit Ctrl+W na Ctrl+F4 v Qt Designeru"
 #. Comment
 #: trinity2b1.khotkeys:123
 msgid "Qt Designer"
-msgstr ""
+msgstr "Qt Designer"
 
 #. Comment
 #: trinity2b1.khotkeys:144
@@ -387,11 +405,14 @@ msgid ""
 "minicli. You can use any kind of DCOP call, just like using the command line "
 "'dcop' tool."
 msgstr ""
+"Stisknutím Alt+Ctrl+W bude provedeno volání DCOP, které zobrazí „minicli“. "
+"Můžete použít jakýkoli druh volání DCOP, stejně jako pomocí nástroje „dcop“ "
+"v příkazovém řádku."
 
 #. Name
 #: trinity2b1.khotkeys:146
 msgid "Perform DCOP call 'kdesktop KDesktopIface popupExecuteCommand()'"
-msgstr "Provést DCOP volání 'kdesktop KDesktopIface popupExecuteCommand()'"
+msgstr "Provést DCOP volání ‚kdesktop KDesktopIface popupExecuteCommand()‘"
 
 #. Comment
 #: trinity2b1.khotkeys:171
@@ -408,6 +429,17 @@ msgid ""
 "(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
 "'XMMS_Player')."
 msgstr ""
+"Nejprve si přečtěte komentář k akci „Napsat ‚Hello‘“.\n"
+"\n"
+"Stejně jako akce „Napsat ‚Hello‘“, simuluje i tato akce vstup z klávesnice. "
+"Konkrétně po stisku Ctrl+Alt+B odešle B do XMMS (B v XMMS skočí na další "
+"skladbu). Je zaškrtnuta volba „Poslat vstup do / Specifické okno“ a je "
+"specifikováno okno s třídou obsahující „XMMS_Player“. To způsobí, že vstup "
+"bude vždy odeslán do tohoto okna. Tímto způsobem můžete ovládat XMMS, i když "
+"je to například na jiné virtuální ploše.\n"
+"\n"
+"(Spusťte ‚xprop‘ a klikněte na okno XMMS a vyhledejte WM_CLASS, abyste "
+"viděli ‚XMMS_Player‘)."
 
 #. Name
 #: trinity2b1.khotkeys:173
@@ -417,7 +449,7 @@ msgstr "Další v XMMS"
 #. Comment
 #: trinity2b1.khotkeys:185
 msgid "XMMS window"
-msgstr "XMMS okno"
+msgstr "Okno XMMS"
 
 #. Comment
 #: trinity2b1.khotkeys:191
@@ -459,6 +491,37 @@ msgid ""
 "are active only if the active window is Konqueror (class contains "
 "'konqueror')."
 msgstr ""
+"Dobře, Konqi v TDE má karty a nyní můžete mít také gesta. Není třeba "
+"používat jiné prohlížeče >;).\n"
+"\n"
+"Jednoduše stiskněte prostřední tlačítko myši a začněte kreslit jedno z gest "
+"a po dokončení tlačítko myši uvolněte. Pokud potřebujete pouze vložit výběr, "
+"to stále funguje, jednoduše prostě klikněte prostředním tlačítkem myši. (V "
+"globálním nastavení můžete změnit, které tlačítko chcete používat.)\n"
+"\n"
+"Právě teď jsou k dispozici tato gesta:\n"
+"posun doprava a zpět doleva – vpřed (ALt+šipka vpravo)\n"
+"posun doleva a zpět doprava – zpět (Alt+šipka vlevo)\n"
+"posun nahoru a zpět dolů – nahoru (Alt+šipka nahoru)\n"
+"kruh proti směru hodinových ručiček – znovu načíst ( F5)\n"
+"(Jakmile zjistíme, které jsou v Opera nebo Mozille, přidáme další a ujistíme "
+"se, že jsou stejné. Nebo pokud to uděláte sami, klidně nám pomozte a pošlete "
+"své khotkeysrc.)\n"
+"\n"
+"Tvary gest (některé dialogy jsou ze KGesture, díky Mike Pilone) lze "
+"jednoduše zadat jejich provedením v konfiguračním dialogu. Můžete se také "
+"podívat na numerickou klávesnici, která vám pomůže, gesta jsou rozpoznána "
+"jako mřížka polí 3×3, očíslovaná od 1 do 9.\n"
+"\n"
+"Všimněte si, že ke spuštění akce musíte gesto provést přesně. Z tohoto "
+"důvodu je možné zadat pro akci více gest. Měli byste se pokusit vyvarovat "
+"složitým gestům, při kterých změníte směr pohybu myši vícekrát (tj. udělejte "
+"například 45654 nebo 74123, protože se snadno provádějí, ale například "
+"1236987 může být již docela obtížné).\n"
+"\n"
+"V této skupině jsou definovány podmínky pro všechna gesta. Všechna tato "
+"gesta jsou aktivní, pouze pokud je aktivní okno Konqueror (třída obsahuje "
+"„konqueror“)."
 
 #. Name
 #: trinity2b1.khotkeys:214
@@ -472,6 +535,9 @@ msgid ""
 "http://www.trinitydesktop.org . You may run all kind of commands you can run "
 "in minicli (Alt+F2)."
 msgstr ""
+"Po stisku Win+E (Tux+E) se spustí WWW prohlížeč a otevře se http://"
+"www.trinitydesktop.org. Můžete spouštět všechny druhy příkazů, které zle "
+"spouštět v „minicli“ (Alt+F2)."
 
 #. Name
 #: trinity2b1.khotkeys:371
