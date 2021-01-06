@@ -541,8 +541,13 @@ void KonqBaseListViewWidget::contentsMouseDoubleClickEvent(TQMouseEvent *e)
 	else {
     KParts::URLArgs args;
     args.trustedSource = true;
-    KURL upURL = m_dirLister->url().upURL();
-    if (!upURL.isEmpty()) {  
+	  KURL baseURL(m_dirLister->url().internalReferenceURL());
+	  if (baseURL.isEmpty())
+	  {
+	    baseURL = m_dirLister->url();
+	  }
+	  KURL upURL = baseURL.upURL();
+	  if (!upURL.isEmpty()) {
 	    m_pBrowserView->extension()->openURLRequest(upURL, args);
 	  }
 	}
