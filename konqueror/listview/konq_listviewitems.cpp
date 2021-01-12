@@ -78,16 +78,38 @@ KonqListViewItem::~KonqListViewItem()
 
 void KonqListViewItem::updateContents()
 {
+   bool mysetting  = m_pListViewWidget->m_pBrowserView->Display_Directories_1st ;
+
    // Set the pixmap
    setDisabled( m_bDisabled );
 
    // Set the text of each column
    setText( 0, m_fileitem->text() );
 
-   // The order is: .dir (0), dir (1), .file (2), file (3)
-   sortChar = S_ISDIR( m_fileitem->mode() ) ? 1 : 3;
-   if ( m_fileitem->text()[0] == '.' )
-       --sortChar;
+   //-------------------------------------------
+   //--- Begin: listview sorting enhancements II
+   //-------------------------------------------
+
+   /* Placeholders until we figure out how to retrieve from KonqListView
+   bool Display_Directories_1st = true  ; // Preserve original TDE default
+   bool Display_Hidden_1st      = false ; // Override original TDE default
+   */
+   bool Display_Directories_1st = m_pListViewWidget->m_pBrowserView->Display_Directories_1st ;
+   bool Display_Hidden_1st      = m_pListViewWidget->m_pBrowserView->Display_Hidden_1st ;
+
+   // The original TDE order is: .dir (0), dir (1), .file (2), file (3)
+
+   if ( Display_Directories_1st ) 
+     sortChar = S_ISDIR( m_fileitem->mode() ) ? 1 : 3;
+   else
+     sortChar = 3;
+
+   if ( Display_Hidden_1st && m_fileitem->text()[0] == '.' )
+      --sortChar;
+
+   //-----------------------------------------
+   //--- End: listview sorting enhancements II
+   //-----------------------------------------
 
    //now we have the first column, so let's do the rest
 
@@ -295,6 +317,21 @@ int KonqBaseListViewItem::compare( TQListViewItem* item, int col, bool ascending
          break;
       }
    }
+   //------------------------------------------
+   //--- Begin: listview sorting enhancement II
+   //------------------------------------------
+
+   /* Placeholders until we figure out how to retrieve from KonqListView
+   bool Sort_Dictionary_Order   = false ;
+   */
+   bool Sort_Dictionary_Order = m_pListViewWidget->m_pBrowserView->Sort_Dictionary_Order ;
+
+   //    FIXME: Implement Sort_Dictionary_Order
+
+   //-----------------------------------------
+   //--- End: listview sorting enhancements II
+   //-----------------------------------------
+
    if ( m_pListViewWidget->caseInsensitiveSort() )
        return text( col ).lower().localeAwareCompare( k->text( col ).lower() );
    else {
