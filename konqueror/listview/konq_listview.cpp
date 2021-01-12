@@ -269,6 +269,12 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
 
    setXMLFile( xmlFile );
 
+   m_displayDirectoriesFirst  = true;
+   m_displayHiddenFirst       = true;
+   m_sortColumnNamePrimary    = i18n("FileName");
+   m_sortColumnIndexPrimary   = 0;
+   m_sortColumnIndexAlternate = 1;
+
    setupActions();
 
    m_pListView->confColumns.resize( 11 );
@@ -284,7 +290,6 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_pListView->confColumns[9].setData(I18N_NOOP("URL"),"URL",TDEIO::UDS_URL,m_paShowURL);
    // Note: File Type is in fact the mimetype comment. We use UDS_FILE_TYPE but that's not what we show in fact :/
    m_pListView->confColumns[10].setData(I18N_NOOP("File Type"),"Type",TDEIO::UDS_FILE_TYPE,m_paShowType);
-
 
    connect( m_pListView, TQT_SIGNAL( selectionChanged() ),
             m_extension, TQT_SLOT( updateActions() ) );
@@ -560,13 +565,98 @@ void KonqListView::slotHeaderClicked(int sec)
       m_pListView->setAscending(TRUE);
    }
    else
+   {
       m_pListView->setAscending(!m_pListView->ascending());
+   }
+
+   if (sec != m_sortColumnIndexAlternate)
+   {
+     m_sortColumnIndexAlternate = sec;
+     m_sortColumnNameAlternate  = nameOfSortColumn;
+   }
 
    KonqListViewSettings config( m_pListView->url().protocol() );
    config.readConfig();
    config.setSortBy( nameOfSortColumn );
    config.setSortOrder( m_pListView->ascending() );
    config.writeConfig();
+}
+
+#define LV_SORT_ASCENDING 1
+#define LV_SORT_REVERSE   2
+
+void KonqListView::sortListView(uint which)
+{
+   TQString sortColumnNameCurrent = m_pListView->sortedByColumn;
+   TQString sortColumnNameNext;
+   int      sortColumnIndex;
+   bool     sortOrder;
+
+   switch (which)
+   {
+      case LV_SORT_ASCENDING:
+         if (m_sortColumnNamePrimary == sortColumnNameCurrent)
+         {
+            sortColumnNameNext  = m_sortColumnNameAlternate;
+            sortColumnIndex = m_sortColumnIndexAlternate;
+         }
+         else
+         {
+            sortColumnNameNext  = m_sortColumnNamePrimary;
+            sortColumnIndex = m_sortColumnIndexPrimary;
+         }
+         sortOrder = true;
+         m_pListView->setSorting( sortColumnIndex, sortOrder );
+         m_pListView->sortedByColumn = sortColumnNameNext;
+         break;
+
+     case LV_SORT_REVERSE:
+        if ( m_sortColumnNamePrimary == sortColumnNameCurrent )
+        {
+           sortColumnIndex = m_sortColumnIndexPrimary;
+        }
+        else
+        {
+           sortColumnIndex = m_sortColumnIndexAlternate;
+        }
+        sortOrder = !m_pListView->ascending();
+        m_pListView->setSorting( sortColumnIndex, sortOrder );
+        break;
+
+     default:
+        // Do nothing in case of invalid call
+        return;
+   }
+
+   // Do actual sorting and remember the order
+   m_pListView->sort();
+   m_pListView->setAscending(sortOrder);
+}
+
+void KonqListView::slotSortAlternate()
+{
+   KonqListView::sortListView(LV_SORT_ASCENDING);
+}
+
+void KonqListView::slotSortReverse()
+{
+   KonqListView::sortListView(LV_SORT_REVERSE);
+}
+
+void KonqListView::slotToggleDisplayDirectoriesFirst()
+{
+   m_displayDirectoriesFirst = !m_displayDirectoriesFirst;
+
+   m_pProps->setDirsFirst( m_displayDirectoriesFirst );
+   m_pListView->updateListContents();
+   m_pListView->sort();
+}
+
+void KonqListView::slotToggleDisplayHiddenFirst()
+{
+   m_displayHiddenFirst = !m_displayHiddenFirst;
+   m_pListView->updateListContents();
+   m_pListView->sort();
 }
 
 void KonqListView::headerDragged(int sec, int from, int to)
@@ -714,6 +804,19 @@ void KonqListView::setupActions()
   m_paShowDot = new TDEToggleAction( i18n( "Show &Hidden Files" ), 0, this, TQT_SLOT( slotShowDot() ), actionCollection(), "show_dot" );
 //  m_paShowDot->setCheckedState(i18n("Hide &Hidden Files"));
   m_paCaseInsensitive = new TDEToggleAction(i18n("Case Insensitive Sort"), 0, this, TQT_SLOT(slotCaseInsensitive()),actionCollection(), "sort_caseinsensitive" );
+
+  m_paSortAlternate = new TDEAction( i18n( "&Alternate Sort Order" ), CTRL+Key_S, this,
+     TQT_SLOT( slotSortAlternate() ), actionCollection(), "alternate_sort_order");
+  m_paSortReverse = new TDEAction( i18n( "&Reverse Sort Order" ), CTRL+Key_R, this,
+    TQT_SLOT( slotSortReverse() ), actionCollection(), "reverse_sort_order");
+
+  m_paDisplayDirectoriesFirst = new TDEToggleAction( i18n("Group &Directories First"), 0, this,
+    TQT_SLOT(slotToggleDisplayDirectoriesFirst()), actionCollection(), "group_directories_first");
+  m_paDisplayDirectoriesFirst->setChecked(true);
+
+  m_paDisplayHiddenFirst = new TDEToggleAction( i18n("Group &Hidden First"), 0, this,
+    TQT_SLOT(slotToggleDisplayHiddenFirst()), actionCollection(), "group_hidden_first");
+  m_paDisplayHiddenFirst->setChecked(true);
 
   newIconSize( TDEIcon::SizeSmall /* default size */ );
 }
