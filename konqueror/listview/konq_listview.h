@@ -128,6 +128,18 @@ protected slots:
   void slotSaveColumnWidths();  // delayed
   void slotHeaderClicked(int sec);
 
+  //--------------------------------------------------------------------
+  //--- Begin: listview sorting enhancements
+  //--------------------------------------------------------------------
+  void slot_Toggle_Display_Directories_1st() ;
+  void slot_Toggle_Display_Hidden_1st() ;
+  void slot_Toggle_Sort_DictionaryOrder() ;
+  void slotSortAlternate() ;
+  void slotSortReverse() ;
+  //--------------------------------------------------------------------
+  //--- End: listview sorting enhancements
+  //--------------------------------------------------------------------
+
   // This comes from KonqDirPart, it's for the "Find" feature
   virtual void slotStarted() { m_pListView->slotStarted(); }
   virtual void slotCanceled() { m_pListView->slotCanceled(); }
@@ -153,6 +165,63 @@ private:
   TDEAction *m_paSelectAll;
   TDEAction *m_paUnselectAll;
   TDEAction *m_paInvertSelection;
+
+  //--------------------------------------------------------------------
+  //--- Begin: listview sorting enhancements I
+  //--------------------------------------------------------------------
+
+  // User action-response handlers
+  TDEAction *m_paSortAlternate; // triggers slotSortAlternate()
+  TDEAction *m_paSortReverse;   // triggers slotSortReverse()
+
+  // Variables utilized in SortListView()
+  TQString SortColumnName_Primary  = "FileName" ; // by definition
+  int      SortColumnIndex_Primary = 0          ; // always!
+  TQString SortColumnName_Alternate       ; // reset in slotHeaderClicked()
+  int      SortColumnIndex_Alternate = 1  ; // reset in slotHeaderClicked()
+
+  // Specialized sorting functions
+  void SortListView(uint which); // called by slotSort*()
+  TQString DisplayColumn_Name( int DisplayColumn_Offset) ;
+
+  //--------------------------------------------------------------------
+  //--- Begin: listview sorting enhancements II
+  //--------------------------------------------------------------------
+
+  // User action-response handlers
+  
+  TDEToggleAction *m_paDisplay_Directories_1st;
+    // triggers slot_Toggle_Display_Directories_1st()
+  TDEToggleAction *m_paDisplay_Hidden_1st;
+    // triggers slot_Toggle_Display_Hidden_1st()
+  TDEToggleAction *m_pa_Sort_DictionaryOrder;
+    // triggers slot_Toggle_Sort_DictionaryOrder()
+
+  // Variables toggled by slot_Toggle_*()
+
+  /*
+   * Original TDE default affecting course sort groupings:
+   *   .dir_hidden < dir < .file_hidden < file
+   * The following variables allow user control over these groupings:
+   */
+  bool Display_Directories_1st = true ; // Start with original TDE behavior
+  bool Display_Hidden_1st      = true ; // Start with original TDE behavior
+
+  /*
+   * Should we ignore leading special characters when sorting?
+   * Gnu coreutils sort calls this "dictionary order".
+   * FIXME: TO BE IMPLEMENTED
+   */
+  bool Sort_Dictionary_Order   = false ; // Start with original TDE behavior
+
+  // Above variables are utilized in these functions:
+
+  friend void KonqListViewItem::updateContents();
+  friend int  KonqBaseListViewItem::compare( TQListViewItem* item, int col, bool ascending ) const;
+
+  //--------------------------------------------------------------------
+  //--- End: listview sorting enhancements
+  //--------------------------------------------------------------------
 
   // These 2 actions are 'fake' actions. They are defined so that the keyboard shortcuts
   // can be set from the 'Configure Shortcuts..." dialog.

@@ -7,4 +7,4 @@ X-TDE-Library=konq_listview
 X-TDE-BrowserView-Args=DetailedList
 X-TDE-BrowserView-HideFromMenus=true
 Icon=view_detailed
-X-TDE-InitialPreference=7
+X-TDE-InitialPreference=12

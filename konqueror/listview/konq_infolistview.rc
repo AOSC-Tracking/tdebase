@@ -23,9 +23,19 @@
    <Action name="modesmall"/>
   </Menu>
   <Separator/>
+  <!-- Begin: implementation of extended listview sort features -->
+  <Menu name="sort"><text>Sort</text>
+    <Action name="group_directories_first"/>
+    <Action name="group_hidden_first"/>
+    <Separator/>
+    <Action name="sort_caseinsensitive"/>
+    <Action name="dictionary_order_sorting"/>
+    <Separator/>
+    <Action name="alternate_sort_order"/>
+    <Action name="reverse_sort_order"/>
+  </Menu>
+  <!-- End: implementation of extended listview sort methods -->
   <Action name="show_dot"/>
-  <Action name="sort_caseinsensitive"/>
-  <!--<Action name="sort_directoriesfirst" /> TODO -->
   <Action name="view_as"/>
   <Separator/>
   <Action name="bgsettings"/>

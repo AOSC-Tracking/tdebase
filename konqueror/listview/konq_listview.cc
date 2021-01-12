@@ -16,7 +16,7 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-
+#define DEBUG_SORTFUNCS
 #include "konq_listview.h"
 #include "konq_textviewwidget.h"
 #include "konq_treeviewwidget.h"
@@ -269,6 +269,10 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
 
    setXMLFile( xmlFile );
 
+   Display_Directories_1st  = true  ;
+   Display_Hidden_1st       = true  ;
+   Sort_Dictionary_Order    = false ;
+   
    setupActions();
 
    m_pListView->confColumns.resize( 11 );
@@ -284,7 +288,6 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_pListView->confColumns[9].setData(I18N_NOOP("URL"),"URL",TDEIO::UDS_URL,m_paShowURL);
    // Note: File Type is in fact the mimetype comment. We use UDS_FILE_TYPE but that's not what we show in fact :/
    m_pListView->confColumns[10].setData(I18N_NOOP("File Type"),"Type",TDEIO::UDS_FILE_TYPE,m_paShowType);
-
 
    connect( m_pListView, TQT_SIGNAL( selectionChanged() ),
             m_extension, TQT_SLOT( updateActions() ) );
@@ -543,6 +546,20 @@ void KonqListView::slotColumnToggled()
 void KonqListView::slotHeaderClicked(int sec)
 {
    kdDebug(1202)<<"section: "<<sec<<" clicked"<<endl;
+
+  //--------------------------------------------------------------------
+  //--- Begin: listview sorting enhancements
+  //--------------------------------------------------------------------
+
+   /* Notes
+    * I think 'section' represents the left-to-right offset of a VISIBLE column
+    * 
+    * I think this subroutine does not trigger any sorting by itself but rather
+    * is called AFTER the sort has already been done, maybe to ensure that
+    * the configuration file is updated!
+   */
+
+   /* Original code removed:
    int clickedColumn(-1);
    for (uint i=0; i<m_pListView->NumberOfAtoms; i++)
       if (m_pListView->confColumns[i].displayInColumn==sec) clickedColumn=i;
@@ -550,17 +567,63 @@ void KonqListView::slotHeaderClicked(int sec)
    TQString nameOfSortColumn;
    //we clicked the file name column
    if (clickedColumn==-1)
-      nameOfSortColumn="FileName";
-   else
+    nameOfSortColumn="FileName";
+   else 
       nameOfSortColumn=m_pListView->confColumns[clickedColumn].desktopFileName;
+   */
+   
+   TQString nameOfSortColumn = DisplayColumn_Name(sec) ;
+
+   #ifdef DEBUG_SORTFUNCS
+   kdWarning()<<"section: "<<sec<<" clicked"<<endl;
+   #endif
+   
+   if (  sec != SortColumnIndex_Alternate ) {
+     #ifdef DEBUG_SORTFUNCS
+     kdWarning()
+       << "KonqListView::slotHeaderClicked - changed alternate sort column"
+       << " FROM '" << SortColumnName_Alternate 
+       << "' ( column " << SortColumnIndex_Alternate << " )" << endl
+     ;
+     #endif
+
+     SortColumnIndex_Alternate = sec ;
+     SortColumnName_Alternate  = nameOfSortColumn ;
+
+     #ifdef DEBUG_SORTFUNCS
+     kdWarning()
+      << "KonqListView::slotHeaderClicked - changed alternate sort column"
+      << "TO '" << SortColumnName_Alternate 
+      << "' ( column " << SortColumnIndex_Alternate << " )" << endl
+     ;
+     #endif
+   }
+
+  //--------------------------------------------------------------------
+  //--- End: listview sorting enhancements I
+  //--------------------------------------------------------------------
 
    if (nameOfSortColumn!=m_pListView->sortedByColumn)
    {
       m_pListView->sortedByColumn=nameOfSortColumn;
       m_pListView->setAscending(TRUE);
+      #ifdef DEBUG_SORTFUNCS
+      kdWarning()
+       << "KonqListView::slotHeaderClicked - changed sort column to # "
+       << sec << endl
+      ;
+      #endif
    }
    else
+   {
       m_pListView->setAscending(!m_pListView->ascending());
+      #ifdef DEBUG_SORTFUNCS
+      kdWarning()
+       << "KonqListView::slotHeaderClicked - changed sort order of column #"
+       << sec << endl
+      ;
+      #endif
+   }
 
    KonqListViewSettings config( m_pListView->url().protocol() );
    config.readConfig();
@@ -568,6 +631,149 @@ void KonqListView::slotHeaderClicked(int sec)
    config.setSortOrder( m_pListView->ascending() );
    config.writeConfig();
 }
+
+//------------------------------------------------------------------------------
+//--- Begin: listview sorting enhancements I
+//------------------------------------------------------------------------------
+
+TQString KonqListView::DisplayColumn_Name( int DisplayColumn_Offset)
+{
+  int(ColumnIndex) = -1 ;
+  for (uint i=0; i<m_pListView->NumberOfAtoms; i++)
+    if (m_pListView->confColumns[i].displayInColumn == DisplayColumn_Offset)
+      ColumnIndex=i;
+  #ifdef DEBUG_SORTFUNCS
+  kdWarning() << "What is name of display column #" 
+    << DisplayColumn_Offset << "?" << endl ;
+  if (ColumnIndex == -1)
+    kdWarning() <<  "Answer: FileName" << endl;
+  else
+    kdWarning() <<  "Answer: " << m_pListView->confColumns[ColumnIndex].desktopFileName << endl;
+  #endif
+  if (ColumnIndex == -1) return("FileName") ;
+  return( m_pListView->confColumns[ColumnIndex].desktopFileName ) ;
+}
+
+void KonqListView::SortListView(uint which)
+{
+
+   TQString SortColumnName_Current = m_pListView->sortedByColumn ;
+   int      SortColumnIndex_Current ;
+
+   TQString SortColumnName_Next  ;
+   int      SortColumnIndex_Next ;
+
+   uint SortOrder ;
+
+   switch( which ) {
+
+     //-----------------------------------------------------------------------
+     // Option 1: Alternate sorting between primary and alternate sort columns
+     //-----------------------------------------------------------------------
+
+     case 1 :
+
+     if ( SortColumnName_Primary == SortColumnName_Current ) {
+        #ifdef DEBUG_SORTFUNCS
+        kdWarning() << "Switching column sort from primary to alternate" << endl ;
+        #endif
+        SortColumnName_Next  = SortColumnName_Alternate ;
+        SortColumnIndex_Next = SortColumnIndex_Alternate ;
+     }
+     else {
+        #ifdef DEBUG_SORTFUNCS
+        kdWarning() << "Switching column sort from alternate to primary" << endl ;
+        #endif
+        SortColumnName_Next  = SortColumnName_Primary ;
+        SortColumnIndex_Next = SortColumnIndex_Primary ;
+     }
+
+     SortOrder = 1 ;
+     m_pListView->setSorting( SortColumnIndex_Next, SortOrder ) ;
+     m_pListView->sortedByColumn = SortColumnName_Next ;
+
+     #ifdef DEBUG_SORTFUNCS
+     kdWarning()
+      << "KonqListView::SortListView - changed sort column FROM "
+      << SortColumnName_Current << " TO " << SortColumnName_Next
+      << " ["  << SortColumnIndex_Next << "]" << endl
+     ;
+     #endif
+
+     break ;
+
+     //---------------------------------------------------------------
+     // Option 2: Reverse the sorting order of the current sort column
+     //---------------------------------------------------------------
+
+     case 2 :
+
+     if ( SortColumnName_Primary == SortColumnName_Current )
+       SortColumnIndex_Current = SortColumnIndex_Primary ;
+     else
+       SortColumnIndex_Current = SortColumnIndex_Alternate ;
+
+     SortOrder = !m_pListView->ascending() ;
+     m_pListView->setSorting( SortColumnIndex_Current, SortOrder ) ;
+
+     #ifdef DEBUG_SORTFUNCS
+     kdWarning()
+      << "KonqListView::SortListView - Reversing sort on column "
+      << SortColumnName_Current << endl
+     ;
+     #endif
+
+     break ;
+   }
+
+   // Do actual sorting and remember the order
+   m_pListView->sort();
+   m_pListView->setAscending(SortOrder);
+}
+
+void KonqListView::slotSortAlternate()
+{
+   KonqListView::SortListView(1) ;
+}
+
+void KonqListView::slotSortReverse()
+{
+   KonqListView::SortListView(2) ;
+}
+
+//------------------------------------------------------------------------------
+//--- Begin: listview sorting enhancements II
+//------------------------------------------------------------------------------
+
+void KonqListView::slot_Toggle_Display_Directories_1st()
+{
+   Display_Directories_1st = !Display_Directories_1st ;
+
+   m_pProps->setDirsFirst( Display_Directories_1st );
+     // Not yet sure is this is the right place to store this setting
+     // See TO-DO.  We decided to "borrow" this property that had been
+     // previously defined for konq_iconview.
+
+   m_pListView->updateListContents();
+   m_pListView->sort();
+}
+
+void KonqListView::slot_Toggle_Display_Hidden_1st()
+{
+   Display_Hidden_1st = !Display_Hidden_1st ;
+   m_pListView->updateListContents();
+   m_pListView->sort();
+}
+
+void KonqListView::slot_Toggle_Sort_DictionaryOrder()
+{
+   Sort_Dictionary_Order = !Sort_Dictionary_Order ;
+   m_pListView->sort();
+}
+
+//------------------------------------------------------------------------------
+//--- End: listview sorting enhancements
+//------------------------------------------------------------------------------
 
 void KonqListView::headerDragged(int sec, int from, int to)
 {
@@ -714,6 +920,51 @@ void KonqListView::setupActions()
   m_paShowDot = new TDEToggleAction( i18n( "Show &Hidden Files" ), 0, this, TQT_SLOT( slotShowDot() ), actionCollection(), "show_dot" );
 //  m_paShowDot->setCheckedState(i18n("Hide &Hidden Files"));
   m_paCaseInsensitive = new TDEToggleAction(i18n("Case Insensitive Sort"), 0, this, TQT_SLOT(slotCaseInsensitive()),actionCollection(), "sort_caseinsensitive" );
+
+  //--------------------------------------------------------------------
+  //--- Begin: listview sorting enhancements I
+  //--------------------------------------------------------------------
+
+  m_paSortAlternate = new TDEAction( i18n(
+    "&Alternate Sort Order" ), CTRL+Key_S, this,
+     TQT_SLOT( slotSortAlternate() ), actionCollection(),
+    "alternate_sort_order"
+  );
+
+  m_paSortReverse = new TDEAction(
+    i18n( "&Reverse Sort Order" ), CTRL+Key_R, this,
+    TQT_SLOT( slotSortReverse() ), actionCollection(),
+    "reverse_sort_order"
+  );
+
+  //--------------------------------------------------------------------
+  //--- Begin: listview sorting enhancements II
+  //--------------------------------------------------------------------
+
+  m_paDisplay_Directories_1st  = new TDEToggleAction(
+    i18n("Group &Directories First"), 0, this,
+    TQT_SLOT(slot_Toggle_Display_Directories_1st()), actionCollection(),
+    "group_directories_first"
+  );
+  m_paDisplay_Directories_1st->setChecked(true);
+
+  m_paDisplay_Hidden_1st       = new TDEToggleAction(
+    i18n("Group &Hidden First"), 0, this,
+    TQT_SLOT(slot_Toggle_Display_Hidden_1st()), actionCollection(),
+    "group_hidden_first"
+  );
+  m_paDisplay_Hidden_1st->setChecked(true);
+
+  m_pa_Sort_DictionaryOrder   = new TDEToggleAction(
+    i18n("Dictionary order sorting"), 0, this,
+    TQT_SLOT(slot_Toggle_Sort_DictionaryOrder()), actionCollection(),
+    "dictionary_order_sorting"
+  );
+  m_pa_Sort_DictionaryOrder->setChecked(false);
+
+  //--------------------------------------------------------------------
+  //--- End: listview sorting enhancements
+  //--------------------------------------------------------------------
 
   newIconSize( TDEIcon::SizeSmall /* default size */ );
 }

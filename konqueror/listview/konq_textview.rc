@@ -12,8 +12,20 @@
    </Menu>
 </Menu>
  <Menu name="view"><text>&amp;View</text>
-  <Action name="show_dot" />
-  <Action name="sort_caseinsensitive"/>
+  <Separator/>
+  <!-- Begin: implementation of extended listview sort features -->
+  <Menu name="sort"><text>Sort</text>
+    <Action name="group_directories_first"/>
+    <Action name="group_hidden_first"/>
+    <Separator/>
+    <Action name="sort_caseinsensitive"/>
+    <Action name="dictionary_order_sorting"/>
+    <Separator/>
+    <Action name="alternate_sort_order"/>
+    <Action name="reverse_sort_order"/>
+  </Menu>
+  <!-- End: implementation of extended listview sort methods -->
+  <Action name="show_dot"/>
   <Menu name="listview_show"><text>Show Details</text>
    <TearOffHandle />
    <Action name="show_size"/>
