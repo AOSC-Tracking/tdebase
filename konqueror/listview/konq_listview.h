@@ -189,7 +189,7 @@ private:
   //--------------------------------------------------------------------
 
   // User action-response handlers
-  
+
   TDEToggleAction *m_paDisplay_Directories_1st;
     // triggers slot_Toggle_Display_Directories_1st()
   TDEToggleAction *m_paDisplay_Hidden_1st;

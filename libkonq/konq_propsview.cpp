@@ -67,6 +67,14 @@ struct KonqPropsView::Private
    TQStringList* previewsToShow;
    bool previewsEnabled:1;
    bool caseInsensitiveSort:1;
+   //---------------------------------------------------------------------------
+   //--- Begin: listview sorting enhancements II
+   //---------------------------------------------------------------------------
+   bool dictionaryorder:1;
+   bool hiddenfirst:1;
+   //---------------------------------------------------------------------------
+   //--- End: listview sorting enhancements II
+   //---------------------------------------------------------------------------
    bool dirsfirst:1;
    bool descending:1;
    TQString sortcriterion;
@@ -91,6 +99,14 @@ KonqPropsView::KonqPropsView( TDEInstance * instance, KonqPropsView * defaultPro
   m_iItemTextPos = config->readNumEntry( "ItemTextPos", TQIconView::Bottom );
   d->sortcriterion = config->readEntry( "SortingCriterion", "sort_nci" );
   d->dirsfirst = config->readBoolEntry( "SortDirsFirst", true );
+  //----------------------------------------------------------------------------
+  //--- Begin: listview sorting enhancements II
+  //----------------------------------------------------------------------------
+  d->hiddenfirst = config->readBoolEntry( "SortHiddenFirst", true );
+  d->dictionaryorder = config->readBoolEntry( "SortDictionaryOrder", false );
+  //----------------------------------------------------------------------------
+  //--- End: listview sorting enhancements II
+  //----------------------------------------------------------------------------
   d->descending = config->readBoolEntry( "SortDescending", false );
   m_bShowDot = config->readBoolEntry( "ShowDotFiles", false );
   m_bShowDirectoryOverlays = config->readBoolEntry( "ShowDirectoryOverlays", false );
@@ -142,6 +158,22 @@ bool KonqPropsView::isDirsFirst() const
 {
    return d->dirsfirst;
 }
+
+//------------------------------------------------------------------------------
+//--- Begin: listview sorting enhancements II
+//------------------------------------------------------------------------------
+bool KonqPropsView::isHiddenFirst() const
+{
+   return d->hiddenfirst;
+}
+
+bool KonqPropsView::isDictionaryOrder() const
+{
+   return d->dictionaryorder;
+}
+//------------------------------------------------------------------------------
+//--- End: listview sorting enhancements II
+//------------------------------------------------------------------------------
 
 bool KonqPropsView::isDescending() const
 {
@@ -327,6 +359,38 @@ void KonqPropsView::setDirsFirst( bool first)
         currentConfig()->sync();
     }
 }
+
+//------------------------------------------------------------------------------
+//--- Begin: listview sorting enhancements II
+//------------------------------------------------------------------------------
+void KonqPropsView::setHiddenFirst( bool first)
+{
+    d->hiddenfirst = first;
+    if ( m_defaultProps && !m_bSaveViewPropertiesLocally )
+        m_defaultProps->setHiddenFirst( first );
+    else if (currentConfig())
+    {
+        TDEConfigGroupSaver cgs(currentConfig(), currentGroup());
+        currentConfig()->writeEntry( "SortHiddenFirst", d->hiddenfirst );
+        currentConfig()->sync();
+    }
+}
+
+void KonqPropsView::setDictionaryOrder( bool first)
+{
+    d->dictionaryorder = first;
+    if ( m_defaultProps && !m_bSaveViewPropertiesLocally )
+        m_defaultProps->setDictionaryOrder( first );
+    else if (currentConfig())
+    {
+        TDEConfigGroupSaver cgs(currentConfig(), currentGroup());
+        currentConfig()->writeEntry( "SortDictionaryOrder", d->dictionaryorder );
+        currentConfig()->sync();
+    }
+}
+//------------------------------------------------------------------------------
+//--- End: listview sorting enhancements II
+//------------------------------------------------------------------------------
 
 void KonqPropsView::setDescending( bool descend)
 {
