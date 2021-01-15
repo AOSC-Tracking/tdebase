@@ -16,7 +16,7 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#define DEBUG_SORTFUNCS
+//-Not needed right now: define DEBUG_SORTFUNCS
 #include "konq_listview.h"
 #include "konq_textviewwidget.h"
 #include "konq_treeviewwidget.h"
@@ -553,7 +553,7 @@ void KonqListView::slotHeaderClicked(int sec)
 
    /* Notes
     * I think 'section' represents the left-to-right offset of a VISIBLE column
-    * 
+    *
     * I think this subroutine does not trigger any sorting by itself but rather
     * is called AFTER the sort has already been done, maybe to ensure that
     * the configuration file is updated!
@@ -567,22 +567,22 @@ void KonqListView::slotHeaderClicked(int sec)
    TQString nameOfSortColumn;
    //we clicked the file name column
    if (clickedColumn==-1)
-    nameOfSortColumn="FileName";
-   else 
+      nameOfSortColumn="FileName";
+   else
       nameOfSortColumn=m_pListView->confColumns[clickedColumn].desktopFileName;
    */
-   
+
    TQString nameOfSortColumn = DisplayColumn_Name(sec) ;
 
    #ifdef DEBUG_SORTFUNCS
    kdWarning()<<"section: "<<sec<<" clicked"<<endl;
    #endif
-   
+
    if (  sec != SortColumnIndex_Alternate ) {
      #ifdef DEBUG_SORTFUNCS
      kdWarning()
        << "KonqListView::slotHeaderClicked - changed alternate sort column"
-       << " FROM '" << SortColumnName_Alternate 
+       << " FROM '" << SortColumnName_Alternate
        << "' ( column " << SortColumnIndex_Alternate << " )" << endl
      ;
      #endif
@@ -593,7 +593,7 @@ void KonqListView::slotHeaderClicked(int sec)
      #ifdef DEBUG_SORTFUNCS
      kdWarning()
       << "KonqListView::slotHeaderClicked - changed alternate sort column"
-      << "TO '" << SortColumnName_Alternate 
+      << "TO '" << SortColumnName_Alternate
       << "' ( column " << SortColumnIndex_Alternate << " )" << endl
      ;
      #endif
@@ -728,7 +728,7 @@ void KonqListView::SortListView(uint which)
 
    // Do actual sorting and remember the order
    m_pListView->sort();
-   m_pListView->setAscending(SortOrder);
+   m_pListView->setAscending(SortOrder) ;
 }
 
 void KonqListView::slotSortAlternate()
@@ -748,26 +748,26 @@ void KonqListView::slotSortReverse()
 void KonqListView::slot_Toggle_Display_Directories_1st()
 {
    Display_Directories_1st = !Display_Directories_1st ;
-
    m_pProps->setDirsFirst( Display_Directories_1st );
-     // Not yet sure is this is the right place to store this setting
-     // See TO-DO.  We decided to "borrow" this property that had been
-     // previously defined for konq_iconview.
-
+     // Property had been previously implemented only in konq_iconview.
    m_pListView->updateListContents();
+     // Calls updateContents() for EACH list item, modifying its sorChar
    m_pListView->sort();
 }
 
 void KonqListView::slot_Toggle_Display_Hidden_1st()
 {
    Display_Hidden_1st = !Display_Hidden_1st ;
+   m_pProps->setHiddenFirst( Display_Hidden_1st );
    m_pListView->updateListContents();
+     // Calls updateContents() for EACH list item, modifying its sorChar
    m_pListView->sort();
 }
 
 void KonqListView::slot_Toggle_Sort_DictionaryOrder()
 {
    Sort_Dictionary_Order = !Sort_Dictionary_Order ;
+   m_pProps->setDictionaryOrder( Sort_Dictionary_Order );
    m_pListView->sort();
 }
 

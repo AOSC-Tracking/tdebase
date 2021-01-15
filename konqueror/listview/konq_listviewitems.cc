@@ -78,8 +78,6 @@ KonqListViewItem::~KonqListViewItem()
 
 void KonqListViewItem::updateContents()
 {
-   bool mysetting  = m_pListViewWidget->m_pBrowserView->Display_Directories_1st ;
-
    // Set the pixmap
    setDisabled( m_bDisabled );
 
