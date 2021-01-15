@@ -93,6 +93,9 @@ public:
   void setDirsFirst ( bool first );
   bool isDirsFirst() const;
 
+  void setHiddenFirst ( bool first );
+  bool isHiddenFirst() const;
+
   void setDescending (bool descending);
   bool isDescending() const;
 

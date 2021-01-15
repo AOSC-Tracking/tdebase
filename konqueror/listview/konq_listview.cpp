@@ -655,6 +655,7 @@ void KonqListView::slotToggleDisplayDirectoriesFirst()
 void KonqListView::slotToggleDisplayHiddenFirst()
 {
    m_displayHiddenFirst = !m_displayHiddenFirst;
+   m_pProps->setHiddenFirst(m_displayHiddenFirst);
    m_pListView->updateListContents();
    m_pListView->sort();
 }
