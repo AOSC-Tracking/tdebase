@@ -134,6 +134,7 @@ protected slots:
 
   void slotToggleDisplayDirectoriesFirst();
   void slotToggleDisplayHiddenFirst();
+  void slotToggleSortDictionaryOrder();
   void slotSortAlternate();
   void slotSortReverse();
 
@@ -162,10 +163,6 @@ private:
   TQString m_sortColumnNameAlternate;
   int      m_sortColumnIndexAlternate;
 
-  // Default sorting order is .hidden_dirs < dirs < .hidden_files < files
-  // These variables are used to allow user control over these groupings
-  bool m_displayDirectoriesFirst;
-  bool m_displayHiddenFirst;
 
   void sortListView(uint which);
 
@@ -201,6 +198,7 @@ private:
 
   TDEToggleAction *m_paDisplayDirectoriesFirst;
   TDEToggleAction *m_paDisplayHiddenFirst;
+  TDEToggleAction *m_paSortDictionaryOrder;
 };
 
 class ListViewBrowserExtension : public KonqDirPartBrowserExtension

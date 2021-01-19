@@ -96,6 +96,9 @@ public:
   void setHiddenFirst ( bool first );
   bool isHiddenFirst() const;
 
+  void setDictionaryOrder ( bool first );
+  bool isDictionaryOrder() const;
+
   void setDescending (bool descending);
   bool isDescending() const;
 

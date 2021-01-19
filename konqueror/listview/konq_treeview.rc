@@ -29,6 +29,7 @@
     <Action name="group_hidden_first"/>
     <Separator/>
     <Action name="sort_caseinsensitive"/>
+    <Action name="dictionary_order_sorting"/>
     <Separator/>
     <Action name="alternate_sort_order"/>
     <Action name="reverse_sort_order"/>

@@ -84,8 +84,9 @@ void KonqListViewItem::updateContents()
    // Set the text of each column
    setText( 0, m_fileitem->text() );
 
-   bool m_displayDirectoriesFirst = m_pListViewWidget->m_pBrowserView->m_displayDirectoriesFirst;
-   bool m_displayHiddenFirst      = m_pListViewWidget->m_pBrowserView->m_displayHiddenFirst;
+   bool m_displayDirectoriesFirst = m_pListViewWidget->m_pBrowserView->m_pProps->isDirsFirst();
+   bool m_displayHiddenFirst      = m_pListViewWidget->m_pBrowserView->m_pProps->isHiddenFirst();
+   bool m_sortDictionaryOrder     = m_pListViewWidget->m_pBrowserView->m_pProps->isDictionaryOrder();
 
    // The original TDE order is: .dir (0), dir (1), .file (2), file (3)
 
@@ -96,6 +97,24 @@ void KonqListViewItem::updateContents()
 
    if ( m_displayHiddenFirst && m_fileitem->text()[0] == '.' )
       --sortChar;
+
+   sortString = text(0);
+   if (m_sortDictionaryOrder)
+   {
+     /*
+      * Objective is to ignore non-alphnumeric leading characters
+      * but append them as trailing characters to ensure that there
+      * is a predictable collation of what might be otherwise end up
+      * being identical strings. Example: a, " a" b, +a, ~a will end
+      * up sorting to a, +a, " a", ~a, b
+     */
+     TQChar our1stChar = sortString[0];
+     if (!our1stChar.isLetterOrNumber() && sortString.length() > 1)
+     {
+       sortString.append(our1stChar);
+       sortString.remove(0, 1);
+     }
+   }
 
    //now we have the first column, so let's do the rest
 
@@ -304,9 +323,9 @@ int KonqBaseListViewItem::compare( TQListViewItem* item, int col, bool ascending
       }
    }
    if ( m_pListViewWidget->caseInsensitiveSort() )
-       return text( col ).lower().localeAwareCompare( k->text( col ).lower() );
+       return sortString.lower().localeAwareCompare( k->sortString.lower() );
    else {
-       return m_pListViewWidget->m_pSettings->caseSensitiveCompare( text( col ), k->text( col ) );
+       return m_pListViewWidget->m_pSettings->caseSensitiveCompare( sortString, k->sortString );
    }
 }
 

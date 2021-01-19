@@ -268,10 +268,6 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_mimeTypeResolver = new KMimeTypeResolver<KonqBaseListViewItem,KonqListView>(this);
 
    setXMLFile( xmlFile );
-
-   m_displayDirectoriesFirst  = true;
-   m_displayHiddenFirst       = true;
-   m_sortColumnNamePrimary    = i18n("FileName");
    m_sortColumnIndexPrimary   = 0;
    m_sortColumnIndexAlternate = 1;
 
@@ -645,17 +641,21 @@ void KonqListView::slotSortReverse()
 
 void KonqListView::slotToggleDisplayDirectoriesFirst()
 {
-   m_displayDirectoriesFirst = !m_displayDirectoriesFirst;
-
-   m_pProps->setDirsFirst( m_displayDirectoriesFirst );
+   m_pProps->setDirsFirst( m_paDisplayDirectoriesFirst->isChecked() );
    m_pListView->updateListContents();
    m_pListView->sort();
 }
 
 void KonqListView::slotToggleDisplayHiddenFirst()
 {
-   m_displayHiddenFirst = !m_displayHiddenFirst;
-   m_pProps->setHiddenFirst(m_displayHiddenFirst);
+   m_pProps->setHiddenFirst( m_paDisplayHiddenFirst->isChecked() );
+   m_pListView->updateListContents();
+   m_pListView->sort();
+}
+
+void KonqListView::slotToggleSortDictionaryOrder()
+{
+   m_pProps->setDictionaryOrder( m_paSortDictionaryOrder->isChecked() );
    m_pListView->updateListContents();
    m_pListView->sort();
 }
@@ -813,11 +813,15 @@ void KonqListView::setupActions()
 
   m_paDisplayDirectoriesFirst = new TDEToggleAction( i18n("Group &Directories First"), 0, this,
     TQT_SLOT(slotToggleDisplayDirectoriesFirst()), actionCollection(), "group_directories_first");
-  m_paDisplayDirectoriesFirst->setChecked(true);
+  m_paDisplayDirectoriesFirst->setChecked(m_pProps->isHiddenFirst());
 
   m_paDisplayHiddenFirst = new TDEToggleAction( i18n("Group &Hidden First"), 0, this,
     TQT_SLOT(slotToggleDisplayHiddenFirst()), actionCollection(), "group_hidden_first");
-  m_paDisplayHiddenFirst->setChecked(true);
+  m_paDisplayHiddenFirst->setChecked(m_pProps->isHiddenFirst());
+
+  m_paSortDictionaryOrder = new TDEToggleAction( i18n("Dictionary Order Sort"), 0, this,
+    TQT_SLOT(slotToggleSortDictionaryOrder()), actionCollection(), "dictionary_order_sorting");
+  m_paSortDictionaryOrder->setChecked(m_pProps->isDictionaryOrder());
 
   newIconSize( TDEIcon::SizeSmall /* default size */ );
 }
