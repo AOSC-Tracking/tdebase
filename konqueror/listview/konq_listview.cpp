@@ -16,7 +16,9 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+
 //-Not needed right now: define DEBUG_SORTFUNCS
+
 #include "konq_listview.h"
 #include "konq_textviewwidget.h"
 #include "konq_treeviewwidget.h"
@@ -268,11 +270,7 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_mimeTypeResolver = new KMimeTypeResolver<KonqBaseListViewItem,KonqListView>(this);
 
    setXMLFile( xmlFile );
-
-   Display_Directories_1st  = true  ;
-   Display_Hidden_1st       = true  ;
-   Sort_Dictionary_Order    = false ;
-   
+      
    setupActions();
 
    m_pListView->confColumns.resize( 11 );
@@ -547,9 +545,9 @@ void KonqListView::slotHeaderClicked(int sec)
 {
    kdDebug(1202)<<"section: "<<sec<<" clicked"<<endl;
 
-  //--------------------------------------------------------------------
-  //--- Begin: listview sorting enhancements
-  //--------------------------------------------------------------------
+   //----------------------------------------
+   //--- Begin: listview sorting enhancements
+   //----------------------------------------
 
    /* Notes
     * I think 'section' represents the left-to-right offset of a VISIBLE column
@@ -560,6 +558,7 @@ void KonqListView::slotHeaderClicked(int sec)
    */
 
    /* Original code removed:
+
    int clickedColumn(-1);
    for (uint i=0; i<m_pListView->NumberOfAtoms; i++)
       if (m_pListView->confColumns[i].displayInColumn==sec) clickedColumn=i;
@@ -570,6 +569,7 @@ void KonqListView::slotHeaderClicked(int sec)
       nameOfSortColumn="FileName";
    else
       nameOfSortColumn=m_pListView->confColumns[clickedColumn].desktopFileName;
+
    */
 
    TQString nameOfSortColumn = DisplayColumn_Name(sec) ;
@@ -599,9 +599,9 @@ void KonqListView::slotHeaderClicked(int sec)
      #endif
    }
 
-  //--------------------------------------------------------------------
-  //--- End: listview sorting enhancements I
-  //--------------------------------------------------------------------
+   //----------------------------------------
+   //--- End: listview sorting enhancements
+   //----------------------------------------
 
    if (nameOfSortColumn!=m_pListView->sortedByColumn)
    {
@@ -633,7 +633,7 @@ void KonqListView::slotHeaderClicked(int sec)
 }
 
 //------------------------------------------------------------------------------
-//--- Begin: listview sorting enhancements I
+//--- Begin: listview sorting enhancements
 //------------------------------------------------------------------------------
 
 TQString KonqListView::DisplayColumn_Name( int DisplayColumn_Offset)
@@ -741,14 +741,9 @@ void KonqListView::slotSortReverse()
    KonqListView::SortListView(2) ;
 }
 
-//------------------------------------------------------------------------------
-//--- Begin: listview sorting enhancements II
-//------------------------------------------------------------------------------
-
 void KonqListView::slot_Toggle_Display_Directories_1st()
 {
-   Display_Directories_1st = !Display_Directories_1st ;
-   m_pProps->setDirsFirst( Display_Directories_1st );
+   m_pProps->setDirsFirst( m_paDisplay_Directories_1st->isChecked() );
      // Property had been previously implemented only in konq_iconview.
    m_pListView->updateListContents();
      // Calls updateContents() for EACH list item, modifying its sorChar
@@ -757,8 +752,7 @@ void KonqListView::slot_Toggle_Display_Directories_1st()
 
 void KonqListView::slot_Toggle_Display_Hidden_1st()
 {
-   Display_Hidden_1st = !Display_Hidden_1st ;
-   m_pProps->setHiddenFirst( Display_Hidden_1st );
+   m_pProps->setHiddenFirst( m_paDisplay_Hidden_1st->isChecked() );
    m_pListView->updateListContents();
      // Calls updateContents() for EACH list item, modifying its sorChar
    m_pListView->sort();
@@ -766,8 +760,9 @@ void KonqListView::slot_Toggle_Display_Hidden_1st()
 
 void KonqListView::slot_Toggle_Sort_DictionaryOrder()
 {
-   Sort_Dictionary_Order = !Sort_Dictionary_Order ;
-   m_pProps->setDictionaryOrder( Sort_Dictionary_Order );
+   m_pProps->setDictionaryOrder( m_pa_Sort_DictionaryOrder->isChecked() );
+   m_pListView->updateListContents();
+     // Calls updateContents() for EACH list item, modifying its sorChar
    m_pListView->sort();
 }
 
@@ -921,13 +916,13 @@ void KonqListView::setupActions()
 //  m_paShowDot->setCheckedState(i18n("Hide &Hidden Files"));
   m_paCaseInsensitive = new TDEToggleAction(i18n("Case Insensitive Sort"), 0, this, TQT_SLOT(slotCaseInsensitive()),actionCollection(), "sort_caseinsensitive" );
 
-  //--------------------------------------------------------------------
-  //--- Begin: listview sorting enhancements I
-  //--------------------------------------------------------------------
+  //----------------------------------------
+  //--- Begin: listview sorting enhancements
+  //----------------------------------------
 
-  m_paSortAlternate = new TDEAction( i18n(
-    "&Alternate Sort Order" ), CTRL+Key_S, this,
-     TQT_SLOT( slotSortAlternate() ), actionCollection(),
+  m_paSortAlternate = new TDEAction(
+    i18n( "&Alternate Sort Order" ), CTRL+Key_S, this,
+    TQT_SLOT( slotSortAlternate() ), actionCollection(),
     "alternate_sort_order"
   );
 
@@ -937,34 +932,30 @@ void KonqListView::setupActions()
     "reverse_sort_order"
   );
 
-  //--------------------------------------------------------------------
-  //--- Begin: listview sorting enhancements II
-  //--------------------------------------------------------------------
-
   m_paDisplay_Directories_1st  = new TDEToggleAction(
     i18n("Group &Directories First"), 0, this,
     TQT_SLOT(slot_Toggle_Display_Directories_1st()), actionCollection(),
     "group_directories_first"
   );
-  m_paDisplay_Directories_1st->setChecked(true);
+  m_paDisplay_Directories_1st->setChecked(m_pProps->isHiddenFirst());
 
   m_paDisplay_Hidden_1st       = new TDEToggleAction(
     i18n("Group &Hidden First"), 0, this,
     TQT_SLOT(slot_Toggle_Display_Hidden_1st()), actionCollection(),
     "group_hidden_first"
   );
-  m_paDisplay_Hidden_1st->setChecked(true);
+  m_paDisplay_Hidden_1st->setChecked(m_pProps->isHiddenFirst());
 
   m_pa_Sort_DictionaryOrder   = new TDEToggleAction(
-    i18n("Dictionary order sorting"), 0, this,
+    i18n("Dictionary Order Sort"), 0, this,
     TQT_SLOT(slot_Toggle_Sort_DictionaryOrder()), actionCollection(),
     "dictionary_order_sorting"
   );
-  m_pa_Sort_DictionaryOrder->setChecked(false);
+  m_pa_Sort_DictionaryOrder->setChecked(m_pProps->isDictionaryOrder());
 
-  //--------------------------------------------------------------------
+  //----------------------------------------
   //--- End: listview sorting enhancements
-  //--------------------------------------------------------------------
+  //----------------------------------------
 
   newIconSize( TDEIcon::SizeSmall /* default size */ );
 }

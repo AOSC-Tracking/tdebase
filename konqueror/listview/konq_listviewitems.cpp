@@ -17,6 +17,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+//-Not needed right now: define DEBUG_SORTFUNCS
+
 #include "konq_listview.h"
 #include <konq_settings.h>
 #include <kdebug.h>
@@ -84,30 +86,63 @@ void KonqListViewItem::updateContents()
    // Set the text of each column
    setText( 0, m_fileitem->text() );
 
-   //-------------------------------------------
-   //--- Begin: listview sorting enhancements II
-   //-------------------------------------------
+   //----------------------------------------
+   //--- Begin: listview sorting enhancements
+   //----------------------------------------
 
-   /* Placeholders until we figure out how to retrieve from KonqListView
-   bool Display_Directories_1st = true  ; // Preserve original TDE default
-   bool Display_Hidden_1st      = false ; // Override original TDE default
-   */
-   bool Display_Directories_1st = m_pListViewWidget->m_pBrowserView->Display_Directories_1st ;
-   bool Display_Hidden_1st      = m_pListViewWidget->m_pBrowserView->Display_Hidden_1st ;
+   //--- Retrieve user-set extended sorting options:
+
+   bool Display_Directories_1st =
+     m_pListViewWidget->m_pBrowserView->m_pProps->isDirsFirst() ;
+   bool Display_Hidden_1st =
+     m_pListViewWidget->m_pBrowserView->m_pProps->isHiddenFirst() ;
+   bool Sort_Dictionary_Order =
+     m_pListViewWidget->m_pBrowserView->m_pProps->isDictionaryOrder() ;
 
    // The original TDE order is: .dir (0), dir (1), .file (2), file (3)
+
+   //--- Implement option "Display_Directories_1st"
 
    if ( Display_Directories_1st ) 
      sortChar = S_ISDIR( m_fileitem->mode() ) ? 1 : 3;
    else
-     sortChar = 3;
+     sortChar = 3; // Effectively disable grouping directories first
+
+   //--- Implement option "Display_Hidden_1st"
 
    if ( Display_Hidden_1st && m_fileitem->text()[0] == '.' )
-      --sortChar;
+      --sortChar; // Effectively disable grouping hidden first
 
-   //-----------------------------------------
-   //--- End: listview sorting enhancements II
-   //-----------------------------------------
+   //--- Implement option "Sort_Dictionary_Order"
+
+   sortString = text(0) ; //-or: sortString = m_fileitem->text() ; 
+
+   if ( Sort_Dictionary_Order ) {
+     /* 
+      * Objective is to ignore non-alphnumeric leading characters
+      * but append them as trailing characters to ensure that there
+      * is a predictable collation of what might be otherwise end up
+      * being identical strings. Example: a, " a" b, +a, ~a will end
+      * up sorting to a, +a, " a", ~a, b
+     */
+     TQChar  Our1stChar = sortString[0] ;
+     if ( ! Our1stChar.isLetterOrNumber() && sortString.length() > 1 ) 
+     {
+       sortString.append(Our1stChar) ;
+       sortString.remove(0,1) ;
+       #ifdef DEBUG_SORTFUNCS
+       kdWarning() << "Stripping non-alphanumeric leading character '" <<
+        Our1stChar << "' yields sort key '" << sortString << "'" << endl ;
+       #endif
+     }
+   }
+   #ifdef DEBUG_SORTFUNCS
+   kdWarning() << "Sortkey ='" << sortString << "'" << endl ;
+   #endif
+
+   //----------------------------------------
+   //--- End: listview sorting enhancements 
+   //----------------------------------------
 
    //now we have the first column, so let's do the rest
 
@@ -315,26 +350,33 @@ int KonqBaseListViewItem::compare( TQListViewItem* item, int col, bool ascending
          break;
       }
    }
-   //------------------------------------------
-   //--- Begin: listview sorting enhancement II
-   //------------------------------------------
 
-   /* Placeholders until we figure out how to retrieve from KonqListView
-   bool Sort_Dictionary_Order   = false ;
-   */
-   bool Sort_Dictionary_Order = m_pListViewWidget->m_pBrowserView->Sort_Dictionary_Order ;
+   //----------------------------------------
+   //--- Begin: listview sorting enhancements 
+   //----------------------------------------
 
-   //    FIXME: Implement Sort_Dictionary_Order
+   #ifdef DEBUG_SORTFUNCS
+   kdWarning() << "Comparing '" << sortString 
+    << "' with '" << k->sortString  <<  "'" << endl ;
+   #endif
 
-   //-----------------------------------------
-   //--- End: listview sorting enhancements II
-   //-----------------------------------------
-
+   /* Original code:
    if ( m_pListViewWidget->caseInsensitiveSort() )
        return text( col ).lower().localeAwareCompare( k->text( col ).lower() );
    else {
        return m_pListViewWidget->m_pSettings->caseSensitiveCompare( text( col ), k->text( col ) );
    }
+   */
+
+   if ( m_pListViewWidget->caseInsensitiveSort() )
+       return sortString.lower().localeAwareCompare( k->sortString.lower() );
+   else {
+       return m_pListViewWidget->m_pSettings->caseSensitiveCompare( sortString, k->sortString );
+   }
+
+   //----------------------------------------
+   //--- End: listview sorting enhancements 
+   //----------------------------------------
 }
 
 void KonqListViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg, int _column, int _width, int _alignment )
