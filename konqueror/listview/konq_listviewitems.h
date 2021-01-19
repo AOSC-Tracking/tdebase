@@ -68,6 +68,13 @@ class KonqBaseListViewItem : public TDEListViewItem
       
    protected:
       short int sortChar;
+      //---------------------------------------
+      //--- Begin: listview sorting enhancement
+      //---------------------------------------
+      TQString sortString; // Used to implement "Dictionary Order Sorting"
+      //---------------------------------------
+      //--- End: listview sorting enhancement
+      //---------------------------------------
       bool m_bDisabled;
       bool m_bActive; 
       

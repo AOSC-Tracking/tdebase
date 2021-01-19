@@ -93,17 +93,17 @@ public:
   void setDirsFirst ( bool first );
   bool isDirsFirst() const;
 
-  //----------------------------------------------------------------------------
-  //--- Begin: listview sorting enhancements II
-  //----------------------------------------------------------------------------
+  //----------------------------------------
+  //--- Begin: listview sorting enhancements
+  //----------------------------------------
   void setHiddenFirst ( bool first );
   bool isHiddenFirst() const;
 
   void setDictionaryOrder ( bool first );
   bool isDictionaryOrder() const;
-  //----------------------------------------------------------------------------
-  //--- End: listview sorting enhancements II
-  //----------------------------------------------------------------------------
+  //----------------------------------------
+  //--- End: listview sorting enhancements
+  //----------------------------------------
 
   void setDescending (bool descending);
   bool isDescending() const;
