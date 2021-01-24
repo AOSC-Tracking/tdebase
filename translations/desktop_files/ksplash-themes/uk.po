@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-21 19:33+0200\n"
+"POT-Creation-Date: 2021-01-24 18:32+0100\n"
 "PO-Revision-Date: 2020-07-22 06:31+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
@@ -19,61 +19,86 @@ msgstr ""
 "X-Generator: Weblate 4.1.1\n"
 
 #. Name
-#: TDE-Classic/Theme.rc:4 TDE-Classic/locolor/Theme.rc:4
+#: pics/themes/TDE-Classic/Theme.rc:4
+#: pics/themes/TDE-Classic/locolor/Theme.rc:4
 msgid "TDE 3.5 Splash Screen"
 msgstr "Заставка Екрану TDE 3.5"
 
 #. Description
-#: TDE-Classic/Theme.rc:5 TDE-Classic/locolor/Theme.rc:5
+#: pics/themes/TDE-Classic/Theme.rc:5
+#: pics/themes/TDE-Classic/locolor/Theme.rc:5
 msgid "Waves of change"
 msgstr "Хвилі змін"
 
 #. Name
-#: blue-bend/Theme.rc:6
+#: pics/themes/blue-bend/Theme.rc:6
 msgid "Blue-Bend KDE Splash Theme"
 msgstr "Заставка Екрану KDE Блакитний-Згин"
 
 #. Description
-#: blue-bend/Theme.rc:7
+#: pics/themes/blue-bend/Theme.rc:7
 msgid "Load Blue-Bend KDE KSplash theme."
 msgstr "Завантажити тему KDE KSplash Блакитний-Згин."
 
 #. Name
-#: default/Theme.rc:6
+#: pics/themes/default/Theme.rc:6
 msgid "Refresh TDE Splash Theme"
 msgstr "Освіжити Тему Заставки TDE"
 
 #. Description
-#: default/Theme.rc:7
+#: pics/themes/default/Theme.rc:7
 msgid "Load Refresh TDE KSplash theme."
 msgstr "Завантажити тему TDE KSplash."
 
 #. Name
-#: none/Theme.rc:4
+#: pics/themes/none/Theme.rc:4
 msgid "No Splash Screen"
 msgstr "Немає Заставки Екрану"
 
 #. Description
-#: none/Theme.rc:5
+#: pics/themes/none/Theme.rc:5
 msgid "Splash Screen Turned Off"
 msgstr "Заставку Екрану Вимкнено"
 
 #. Name
-#: simple/Theme.rc:4
+#: pics/themes/simple/Theme.rc:4
 msgid "Simple Splash Screen"
 msgstr "Проста Заставка Екрану"
 
 #. Description
-#: simple/Theme.rc:5
+#: pics/themes/simple/Theme.rc:5
 msgid "Very Simple Optimized Splash Screen"
 msgstr "Дуже Проста Оптимізована Заставка Екрану"
 
 #. Name
-#: unified/Theme.rc:4
+#: pics/themes/unified/Theme.rc:4
 msgid "Trinity Unified Splash Screen"
 msgstr "Уніфікована Заставка Екрану Trinity"
 
 #. Description
-#: unified/Theme.rc:5
+#: pics/themes/unified/Theme.rc:5
 msgid "Unified system startup screen"
 msgstr "Уніфікований системний стартовий екран"
+
+#. Name
+#: themeengine/redmond/Theme.rc:2
+#, fuzzy
+msgid "Redmond Splash Screen"
+msgstr "Немає Заставки Екрану"
+
+#. Description
+#: themeengine/redmond/Theme.rc:3
+msgid "KSplash theme inspired by the Microsoft Windows startup screen."
+msgstr ""
+
+#. Name
+#: themeengine/standard/Theme.rc:2
+#, fuzzy
+msgid "Standard Splash Screen"
+msgstr "Немає Заставки Екрану"
+
+#. Description
+#: themeengine/standard/Theme.rc:3
+#, fuzzy
+msgid "Standard TDE KSplash theme."
+msgstr "Завантажити тему TDE KSplash."

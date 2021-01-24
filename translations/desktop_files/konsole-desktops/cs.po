@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Slávek Banko <slavek.banko@axis.cz>, 2020.
+# Slávek Banko <slavek.banko@axis.cz>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-26 02:40+0200\n"
-"PO-Revision-Date: 2020-10-11 17:31+0000\n"
+"PO-Revision-Date: 2021-01-22 17:00+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/konsole-desktop-files/cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.2.2\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -30,11 +30,10 @@ msgstr "Všechna nastavení programu Konsole"
 #. Keywords
 #: kcmkonsole.desktop:13
 msgid "konsole;console;terminal;"
-msgstr "Konsole;Console;Terminál;"
+msgstr "Konsole;Konzole;Console;Terminál;"
 
 #. Name
 #: konsole-script.desktop:9 konsole.desktop:9 konsolesu.desktop:10
-#, fuzzy
 msgid "Konsole"
 msgstr "Konsole"
 
@@ -46,7 +45,7 @@ msgstr "Terminálový program"
 #. Comment
 #: konsole/x-konsole.desktop:7
 msgid "File to Open a Shell"
-msgstr "Soubor k otevření příkazové řádky"
+msgstr "Soubor k otevření příkazového řádku"
 
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
@@ -56,12 +55,12 @@ msgstr "Emulátor terminálu"
 #. GenericName
 #: konsolesu.desktop:12
 msgid "Terminal Program - Super User Mode"
-msgstr "Terminál - superuživatelský režim"
+msgstr "Terminál – superuživatelský režim"
 
 #. Name
 #: kwrited.desktop:2
 msgid "TDE Write Daemon"
-msgstr "Zapisovací démon TDE"
+msgstr "TDE démon pro zprávy"
 
 #. Comment
 #: kwrited.desktop:4
@@ -81,9 +80,8 @@ msgstr "Nová Linuxová konzole"
 
 #. Name
 #: other/mc.desktop:3
-#, fuzzy
 msgid "Midnight Commander"
-msgstr "Nový Midnight Commander"
+msgstr "Midnight Commander"
 
 #. Comment
 #: other/mc.desktop:4
@@ -104,9 +102,8 @@ msgstr "Nové sezení „screen“"
 #. Title0
 #: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
 #: other/5shells:6
-#, fuzzy
 msgid "Shell"
-msgstr "Nový shell"
+msgstr "Shell"
 
 #. Comment
 #: other/shell.desktop:4
@@ -131,13 +128,12 @@ msgstr "Midnight Commander (root)"
 #. Comment
 #: other/sumc.desktop.cmake:4
 msgid "New Root Midnight Commander"
-msgstr "Nový Midnight Commander pro superuživatele"
+msgstr "Nový Midnight Commander (root)"
 
 #. Name
 #: terminalhere.desktop:6
-#, fuzzy
 msgid "Terminal"
-msgstr "Terminálový program"
+msgstr "Terminál"
 
 #. Name
 #: terminalhere.desktop:11
@@ -146,47 +142,40 @@ msgstr "Otevřít terminál zde"
 
 #. Name
 #: other/2shells:2
-#, fuzzy
 msgid "Two consoles"
-msgstr "Konsole"
+msgstr "Dvě konzole"
 
 #. Title1
 #: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
-#, fuzzy
 msgid "Shell No. 2"
-msgstr "Nový shell"
+msgstr "Shell č. 2"
 
 #. Name
 #: other/3shells:2
 msgid "Three consoles"
-msgstr ""
+msgstr "Tři konzole"
 
 #. Title2
 #: other/3shells:8 other/4shells:8 other/5shells:8
-#, fuzzy
 msgid "Shell No. 3"
-msgstr "Nový shell"
+msgstr "Shell č. 3"
 
 #. Name
 #: other/4shells:2
-#, fuzzy
 msgid "Four consoles"
-msgstr "Linuxová konzole"
+msgstr "Čtyři konzole"
 
 #. Title3
 #: other/4shells:9 other/5shells:9
-#, fuzzy
 msgid "Shell No. 4"
-msgstr "Nový shell"
+msgstr "Shell č. 4"
 
 #. Name
 #: other/5shells:2
-#, fuzzy
 msgid "Five consoles"
-msgstr "Linuxová konzole"
+msgstr "Pět konzolí"
 
 #. Title4
 #: other/5shells:10
-#, fuzzy
 msgid "Shell No. 5"
-msgstr "Nový shell"
+msgstr "Shell č. 5"
