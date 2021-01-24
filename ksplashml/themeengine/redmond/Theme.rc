@@ -1,2 +1,5 @@
 [KSplash Theme: Redmond]
+Name = Redmond Splash Screen
+Description = KSplash theme inspired by the Microsoft Windows startup screen.
+
 Engine=Redmond
