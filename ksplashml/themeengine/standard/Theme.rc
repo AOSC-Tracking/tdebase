@@ -1,2 +1,5 @@
 [KSplash Theme: Standard]
+Name = Standard Splash Screen
+Description = Standard TDE KSplash theme.
+
 Engine=Standard
