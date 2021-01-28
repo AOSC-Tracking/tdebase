@@ -146,6 +146,7 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
     connect( &m_overflowClearTimer, TQT_SIGNAL( timeout()), TQT_SLOT( slotClearOverflow()));
     m_overflowClearTimer.start( 1000 );
     connect( &m_pendingCheckTimer, TQT_SIGNAL( timeout()), TQT_SLOT( slotCheckPending()));
+    connect( &m_setClipboardTimer, TQT_SIGNAL( timeout()), TQT_SLOT( slotDelayedSetClipboard()));
 
     m_history = new History( this, "main_history" );
 
@@ -809,6 +810,41 @@ void KlipperWidget::slotCheckPending()
     newClipData( true ); // always selection
 }
 
+void KlipperWidget::slotDelayedSetClipboard()
+{
+    const HistoryItem *top = history()->first();
+    if (top)
+    {
+        if (bCheckForEmpty)
+        {
+            TQMimeSource *data = clip->data( bSavedSelectionMode ? TQClipboard::Selection : TQClipboard::Clipboard );
+            if ( !data )
+            {
+                kdWarning("No data in clipboard. This is not supposed to happen." );
+                return;
+            }
+
+            bool clipEmpty = ( data->format() == 0L );
+            if ( clipEmpty && bNoNullClipboard )
+            {
+                // keep old clipboard after someone set it to null
+#ifdef NOISY_KLIPPER
+                kdDebug() << "Resetting clipboard (Prevent empty clipboard)" << endl;
+#endif
+                setClipboard( *top, bSavedSelectionMode ? Selection : Clipboard );
+                return;
+            }
+        }
+        else
+        {
+#ifdef NOISY_KLIPPER
+            kdDebug() << "Syncing selection and clipboard" << endl;
+#endif
+            setClipboard( *top, bSavedSelectionMode ? Selection : Clipboard );
+        }
+    }
+}
+
 void KlipperWidget::checkClipData( bool selectionMode )
 {
     if ( ignoreClipboardChanges() ) // internal to klipper, ignoring TQSpinBox selections
@@ -868,15 +904,14 @@ void KlipperWidget::checkClipData( bool selectionMode )
     bool changed = data->serialNumber() != lastSerialNo;
     bool clipEmpty = ( data->format() == 0L );
 
-    if ( changed && clipEmpty && bNoNullClipboard ) {
-        const HistoryItem* top = history()->first();
-        if ( top ) {
-            // keep old clipboard after someone set it to null
-#ifdef NOISY_KLIPPER
-            kdDebug() << "Resetting clipboard (Prevent empty clipboard)" << endl;
-#endif
-            setClipboard( *top, selectionMode ? Selection : Clipboard );
-        }
+    if ( changed && clipEmpty && bNoNullClipboard )
+    {
+        // Make sure to call setClipboard() through the event loop.
+        // Using a direct call may crash another application that was
+        // changing the clipboard at the same time.
+        bSavedSelectionMode = selectionMode;
+        bCheckForEmpty = true;
+        m_setClipboardTimer.start(100, TRUE);
         return;
     }
 
@@ -945,11 +980,14 @@ void KlipperWidget::checkClipData( bool selectionMode )
 #ifdef NOISY_KLIPPER
         kdDebug() << "Synchronize?" << ( bSynchronize ? "yes" : "no" ) << endl;
 #endif
-        if ( bSynchronize ) {
-            const HistoryItem* topItem = history()->first();
-            if ( topItem ) {
-                setClipboard( *topItem, selectionMode ? Clipboard : Selection );
-            }
+        if ( bSynchronize )
+        {
+            // Make sure to call setClipboard() through the event loop.
+            // Using a direct call may crash another application that was
+            // changing the clipboard at the same time.
+            bSavedSelectionMode = !selectionMode; // inverted in order to sync
+            bCheckForEmpty = false;
+            m_setClipboardTimer.start(100, TRUE);
         }
     }
 

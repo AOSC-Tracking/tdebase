@@ -154,6 +154,7 @@ private slots:
 
     void slotClearOverflow();
     void slotCheckPending();
+    void slotDelayedSetClipboard();
 
 private:
 
@@ -186,6 +187,8 @@ private:
     bool bSynchronize           :1;
     bool bSelectionTextOnly     :1;
     bool bIgnoreImages          :1;
+    bool bSavedSelectionMode    :1;
+    bool bCheckForEmpty         :1;
 
     /**
      * Avoid reacting to our own changes, using this
@@ -201,6 +204,7 @@ private:
     TDEConfig* m_config;
     TQTimer m_overflowClearTimer;
     TQTimer m_pendingCheckTimer;
+    TQTimer m_setClipboardTimer;
     bool m_pendingContentsCheck;
     ClipboardPoll* poll;
     static TDEAboutData* about_data;
