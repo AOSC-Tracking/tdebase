@@ -3927,8 +3927,8 @@ void KonqMainWindow::initActions()
     new TDEAction(i18n("Activate Tab %1").arg(i), 0, TQT_TQOBJECT(this), TQT_SLOT(slotActivateTab()), actionCollection(), actionname);
   }
 
-  m_paMoveTabLeft = new TDEAction( i18n("Move Tab Left"), 0 , CTRL+SHIFT+Key_Left,TQT_TQOBJECT(this), TQT_SLOT( slotMoveTabLeft()),actionCollection(),"tab_move_left");
-  m_paMoveTabRight = new TDEAction( i18n("Move Tab Right"), 0 , CTRL+SHIFT+Key_Right,TQT_TQOBJECT(this), TQT_SLOT( slotMoveTabRight()),actionCollection(),"tab_move_right");
+  m_paMoveTabLeft = new TDEAction( i18n("Move Tab Left"), "go-previous" , CTRL+SHIFT+Key_Left,TQT_TQOBJECT(this), TQT_SLOT( slotMoveTabLeft()),actionCollection(),"tab_move_left");
+  m_paMoveTabRight = new TDEAction( i18n("Move Tab Right"), "go-next" , CTRL+SHIFT+Key_Right,TQT_TQOBJECT(this), TQT_SLOT( slotMoveTabRight()),actionCollection(),"tab_move_right");
 
 #ifndef NDEBUG
   (void) new TDEAction( i18n( "Dump Debug Info" ), "view_dump_debug_info", 0, TQT_TQOBJECT(this), TQT_SLOT( slotDumpDebugInfo() ), actionCollection(), "dumpdebuginfo" );
@@ -3967,7 +3967,7 @@ void KonqMainWindow::initActions()
   m_paPaste = KStdAction::paste( 0, 0, actionCollection(), "paste" );
   m_paStop = new TDEAction( i18n( "&Stop" ), "process-stop", Key_Escape, TQT_TQOBJECT(this), TQT_SLOT( slotStop() ), actionCollection(), "stop" );
 
-  m_paRename = new TDEAction( i18n( "&Rename" ), /*"editrename",*/ Key_F2, actionCollection(), "rename" );
+  m_paRename = new TDEAction( i18n( "&Rename" ), "edit_rename", Key_F2, actionCollection(), "rename" );
   m_paTrash = new TDEAction( i18n( "&Move to Trash" ), "edittrash", Key_Delete, actionCollection(), "trash" );
   connect( m_paTrash, TQT_SIGNAL( activated( TDEAction::ActivationReason, TQt::ButtonState ) ),
            TQT_TQOBJECT(this), TQT_SLOT( slotTrashActivated( TDEAction::ActivationReason, TQt::ButtonState ) ) );
@@ -4025,7 +4025,7 @@ void KonqMainWindow::initActions()
 
   m_paShowMenuBar = KStdAction::showMenubar( TQT_TQOBJECT(this), TQT_SLOT( slotShowMenuBar() ), actionCollection() );
 
-  (void) new TDEAction( i18n( "Kon&queror Introduction" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotIntro() ), actionCollection(), "konqintro" );
+  (void) new TDEAction( i18n( "Kon&queror Introduction" ), "konqui_intro", 0, TQT_TQOBJECT(this), TQT_SLOT( slotIntro() ), actionCollection(), "konqintro" );
 
   TDEAction *goUrl = new TDEAction( i18n( "Go" ), "key_enter", 0, TQT_TQOBJECT(this), TQT_SLOT( goURL() ), actionCollection(), "go_url" );
   goUrl->setWhatsThis( i18n( "Go<p>"
