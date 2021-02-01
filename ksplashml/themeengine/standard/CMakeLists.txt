@@ -26,7 +26,12 @@ link_directories(
 
 ##### other data ################################
 
-install( FILES Theme.rc DESTINATION ${DATA_INSTALL_DIR}/ksplash/Themes/Standard )
+tde_create_translated_desktop(
+  SOURCE Theme.rc
+  DESTINATION ${DATA_INSTALL_DIR}/ksplash/Themes/Standard
+  PO_DIR ksplash-themes
+)
+
 tde_create_translated_desktop(
   SOURCE ksplashstandard.desktop
   DESTINATION ${SERVICES_INSTALL_DIR}
