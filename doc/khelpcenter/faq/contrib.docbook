@@ -29,7 +29,7 @@ report?</link>.</para></listitem>
 <listitem><para>Draw icons, wallpaper, or compose sound effects.</para></listitem>
 <listitem><para>Write articles and books about &tde;. If you want to
 help spread the word about &tde;, send an email to
-<email>trinity-devel@lists.pearsoncomputing.net</email>. This will get you in touch
+<email>devels@trinitydesktop.org</email>. This will get you in touch
 with the &tde; developers and packagers.</para></listitem>
 <listitem><para>Program new &tde; applications. Please refer to <xref
 linkend="programming"/> for more information.</para></listitem>
@@ -98,7 +98,7 @@ directory.</para>
 programming for &tde; should do: please <emphasis>subscribe to the developers
 mailing list</emphasis>. To subscribe, you have to send an email to
 <ulink
-url="mailto:trinity-devel-subscribe@lists.pearsoncomputing.net">trinity-devel-subscribe@lists.pearsoncomputing.net</ulink>
+url="mailto:devels-join@trinitydesktop.org">devels-join@trinitydesktop.org</ulink>
 with an empty email.
 <important><para>Please read<ulink url="http://www.trinitydesktop.org/mailinglist.php">
 http://www.trinitydesktop.org/mailinglist.php</ulink>. Everything
@@ -118,8 +118,8 @@ way is to create a patch against a current snapshot and send this
 patch to the developer/maintainer of the respective program.</para>
 <para>If you are doing this more or less regularly, then contact the developers
 to obtain write access to the <acronym>GIT</acronym> repository:
-<ulink url="trinity-devel@lists.pearsoncomputing.net">
-trinity-devel@lists.pearsoncomputing.net</ulink>.</para>
+<ulink url="devels@trinitydesktop.org">
+devels@trinitydesktop.org</ulink>.</para>
 </answer>
 </qandaentry>
 
