@@ -73,17 +73,17 @@ already answered in this &FAQ;.</para>
 
 <variablelist>
 <varlistentry>
-<term><ulink url="users@trinitydesktop.org">tde-users</ulink></term>
+<term><ulink url="http://mail.trinitydesktop.org/mailman3/hyperkitty/list/users@trinitydesktop.org">tde-users</ulink></term>
 <listitem><para>General discussion archives.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><ulink url="announcements-join@trinitydesktop.org">tde-announce</ulink></term>
+<term><ulink url="http://mail.trinitydesktop.org/mailman3/hyperkitty/list/announcements@trinitydesktop.org">tde-announce</ulink></term>
 <listitem><para>Announcement archives.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><ulink url="devels@trinitydesktop.org">tde-devel</ulink></term>
+<term><ulink url="http://mail.trinitydesktop.org/mailman3/hyperkitty/list/devels@trinitydesktop.org">tde-devel</ulink></term>
 <listitem><para>Developers, artists, documentation writer archives.</para></listitem>
 </varlistentry>
 </variablelist>
