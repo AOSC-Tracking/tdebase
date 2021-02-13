@@ -57,10 +57,10 @@
                 <cstring>kcfg_NotificationPopupsEnabled</cstring>
             </property>
             <property name="text">
-                <string>Enable notification popups</string>
+                <string>Enable notification dialog popups</string>
             </property>
             <property name="whatsThis" stdset="0">
-                <string>Deselect this if you do not want action request popups to be generated when devices are plugged in.</string>
+                <string>Deselect this if you do not want action request dialog popups to be generated when devices are plugged in.</string>
             </property>
         </widget>
         <widget class="TQGroupBox">

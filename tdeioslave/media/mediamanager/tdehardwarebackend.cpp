@@ -138,7 +138,7 @@ void TDEBackend::AddDevice(TDEStorageDevice * sdevice, bool allowNotification)
 	bool allowDialogNotification = allowNotification;
 	TDEConfig config("mediamanagerrc");
 	config.setGroup("Global");
-	if (!config.readBoolEntry("NotificationPopupsEnabled", false)) {
+	if (!config.readBoolEntry("NotificationPopupsEnabled", true)) {
 		allowDialogNotification = false;
 	}
 
