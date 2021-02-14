@@ -160,9 +160,10 @@ private:
 
   TQString m_sortColumnNamePrimary;
   int      m_sortColumnIndexPrimary;
+  int      m_sortColumnOrderPrimary;
   TQString m_sortColumnNameAlternate;
   int      m_sortColumnIndexAlternate;
-
+  int      m_sortColumnOrderAlternate;
 
   void sortListView(uint which);
 

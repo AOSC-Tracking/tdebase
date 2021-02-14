@@ -19,6 +19,26 @@
       <label>Sort Order</label>
       <whatsthis></whatsthis>
     </entry>
+    <entry key="PrimarySortOrder" type="Bool">
+      <default>true</default>
+      <label>Primary sort column sorting order</label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="AlternateSortCol" type="String">
+      <default>Date</default>
+      <label>Alternate sort column name</label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="AlternateSortIndex" type="Int">
+      <default>0</default>
+      <label>Alternate sort column offset</label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="AlternateSortOrder" type="Bool">
+      <default>true</default>
+      <label>Alternate sort column sorting order</label>
+      <whatsthis></whatsthis>
+    </entry>
     <entry key="FileNameColumnWidth" type="Int">
       <default code="true">25 * TDEApplication::kApplication()->fontMetrics().width( "m" )</default>
       <label>Width of the FileName Column</label>
