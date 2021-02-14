@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# Alexander Golubev <fatzer2@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-24 18:26+0100\n"
+"PO-Revision-Date: 2021-02-14 18:48+0000\n"
+"Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
+"Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/ksplash-themes/ru/>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.4.2\n"
+
+#. Name
+#: pics/themes/TDE-Classic/Theme.rc:4
+#: pics/themes/TDE-Classic/locolor/Theme.rc:4
+msgid "TDE 3.5 Splash Screen"
+msgstr "Заставка TDE 3.5"
+
+#. Description
+#: pics/themes/TDE-Classic/Theme.rc:5
+#: pics/themes/TDE-Classic/locolor/Theme.rc:5
+msgid "Waves of change"
+msgstr "Волны перемен"
+
+#. Name
+#: pics/themes/blue-bend/Theme.rc:6
+msgid "Blue-Bend KDE Splash Theme"
+msgstr "Синий изгиб KDE"
+
+#. Description
+#: pics/themes/blue-bend/Theme.rc:7
+msgid "Load Blue-Bend KDE KSplash theme."
+msgstr "Тема KSplash «Синий изгиб KDE»."
+
+#. Name
+#: pics/themes/default/Theme.rc:6
+msgid "Refresh TDE Splash Theme"
+msgstr ""
+
+#. Description
+#: pics/themes/default/Theme.rc:7
+msgid "Load Refresh TDE KSplash theme."
+msgstr ""
+
+#. Name
+#: pics/themes/none/Theme.rc:4
+msgid "No Splash Screen"
+msgstr "Без заставки"
+
+#. Description
+#: pics/themes/none/Theme.rc:5
+msgid "Splash Screen Turned Off"
+msgstr "Заставка отключена"
+
+#. Name
+#: pics/themes/simple/Theme.rc:4
+msgid "Simple Splash Screen"
+msgstr ""
+
+#. Description
+#: pics/themes/simple/Theme.rc:5
+msgid "Very Simple Optimized Splash Screen"
+msgstr ""
+
+#. Name
+#: pics/themes/unified/Theme.rc:4
+msgid "Trinity Unified Splash Screen"
+msgstr ""
+
+#. Description
+#: pics/themes/unified/Theme.rc:5
+msgid "Unified system startup screen"
+msgstr ""
+
+#. Name
+#: themeengine/redmond/Theme.rc:2
+msgid "Redmond Splash Screen"
+msgstr ""
+
+#. Description
+#: themeengine/redmond/Theme.rc:3
+msgid "KSplash theme inspired by the Microsoft Windows startup screen."
+msgstr ""
+
+#. Name
+#: themeengine/standard/Theme.rc:2
+msgid "Standard Splash Screen"
+msgstr ""
+
+#. Description
+#: themeengine/standard/Theme.rc:3
+msgid "Standard TDE KSplash theme."
+msgstr ""
