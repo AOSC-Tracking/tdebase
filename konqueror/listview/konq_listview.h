@@ -175,21 +175,19 @@ private:
   TDEAction *m_paSortReverse;   // triggers slotSortReverse()
 
   // Variables utilized in SortListView()
-  TQString SortColumnName_Primary  = "FileName" ; // by definition
-  int      SortColumnIndex_Primary = 0          ; // always!
-  TQString SortColumnName_Alternate       ; // reset in slotHeaderClicked()
-  int      SortColumnIndex_Alternate = 1  ; // reset in slotHeaderClicked()
+  TQString SortColumnName_Primary    = "FileName" ; // by definition
+  int      SortColumnIndex_Primary   = 0  ; // always!
+  int      SortColumnOrder_Primary   = 1  ; // modified in SortListView()
+  TQString SortColumnName_Alternate  ;
+  int      SortColumnIndex_Alternate ;  // modified in slotHeaderClicked()
+  int      SortColumnOrder_Alternate ;  // modified in SortListView()
 
   // Specialized sorting functions
   void SortListView(uint which); // called by slotSort*()
-  TQString DisplayColumn_Name( int DisplayColumn_Offset) ;
-
-  //----------------------------------------
-  //--- Begin: listview sorting enhancements
-  //----------------------------------------
+  TQString DisplayColumn_Name( int DisplayColumn_Offset ) ;
+  int      DisplayColumn_Index( TQString DisplayColumn_Name ) ;
 
   // User action-response handlers
-
   TDEToggleAction *m_paDisplay_Directories_1st;
     // triggers slot_Toggle_Display_Directories_1st()
   TDEToggleAction *m_paDisplay_Hidden_1st;

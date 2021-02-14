@@ -53,7 +53,7 @@ class KonqBaseListViewItem : public TDEListViewItem
       virtual void setDisabled( bool disabled ) { m_bDisabled = disabled; }
       virtual void setActive  ( bool active   ) { m_bActive   = active;   }
       virtual int compare( TQListViewItem* i, int col, bool ascending ) const;
-      
+
       int state() const 
       {
          if (m_bDisabled)
@@ -65,7 +65,7 @@ class KonqBaseListViewItem : public TDEListViewItem
 
       /** For KonqMimeTypeResolver */
       TQRect rect() const;
-      
+
    protected:
       short int sortChar;
       //---------------------------------------
@@ -77,7 +77,7 @@ class KonqBaseListViewItem : public TDEListViewItem
       //---------------------------------------
       bool m_bDisabled;
       bool m_bActive; 
-      
+
       /** Pointer to the file item in KDirLister's list
         * Don't use this unless you absolutely have to! */
       KFileItem* m_fileitem;
