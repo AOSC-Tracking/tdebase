@@ -17,7 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-//-Not needed right now: define DEBUG_SORTFUNCS
+#define DEBUG_SORTFUNCS 0
 
 #include "konq_listview.h"
 #include "konq_textviewwidget.h"
@@ -270,7 +270,7 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_mimeTypeResolver = new KMimeTypeResolver<KonqBaseListViewItem,KonqListView>(this);
 
    setXMLFile( xmlFile );
-      
+
    setupActions();
 
    m_pListView->confColumns.resize( 11 );
@@ -286,6 +286,7 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_pListView->confColumns[9].setData(I18N_NOOP("URL"),"URL",TDEIO::UDS_URL,m_paShowURL);
    // Note: File Type is in fact the mimetype comment. We use UDS_FILE_TYPE but that's not what we show in fact :/
    m_pListView->confColumns[10].setData(I18N_NOOP("File Type"),"Type",TDEIO::UDS_FILE_TYPE,m_paShowType);
+
 
    connect( m_pListView, TQT_SIGNAL( selectionChanged() ),
             m_extension, TQT_SLOT( updateActions() ) );
@@ -541,24 +542,26 @@ void KonqListView::slotColumnToggled()
    slotHeaderSizeChanged();
 }
 
+//------------------------------------------------------------------------------
+//--- Begin: listview sorting enhancements
+//------------------------------------------------------------------------------
+
 void KonqListView::slotHeaderClicked(int sec)
 {
    kdDebug(1202)<<"section: "<<sec<<" clicked"<<endl;
 
-   //----------------------------------------
-   //--- Begin: listview sorting enhancements
-   //----------------------------------------
-
    /* Notes
-    * I think 'section' represents the left-to-right offset of a VISIBLE column
     *
-    * I think this subroutine does not trigger any sorting by itself but rather
-    * is called AFTER the sort has already been done, maybe to ensure that
-    * the configuration file is updated!
+    * (1) I think 'section' represents the left-to-right offset of a
+    *     VISIBLE column
+    *
+    * (2) I think this subroutine does not trigger any sorting by
+    *     itself but rather is called AFTER the sort has already
+    *     been done, maybe to ensure that the configuration file
+    *     is updated!
    */
 
-   /* Original code removed:
-
+   /* Original code moved to function DisplayColumn_Name():
    int clickedColumn(-1);
    for (uint i=0; i<m_pListView->NumberOfAtoms; i++)
       if (m_pListView->confColumns[i].displayInColumn==sec) clickedColumn=i;
@@ -569,45 +572,14 @@ void KonqListView::slotHeaderClicked(int sec)
       nameOfSortColumn="FileName";
    else
       nameOfSortColumn=m_pListView->confColumns[clickedColumn].desktopFileName;
-
    */
-
    TQString nameOfSortColumn = DisplayColumn_Name(sec) ;
-
-   #ifdef DEBUG_SORTFUNCS
-   kdWarning()<<"section: "<<sec<<" clicked"<<endl;
-   #endif
-
-   if (  sec != SortColumnIndex_Alternate ) {
-     #ifdef DEBUG_SORTFUNCS
-     kdWarning()
-       << "KonqListView::slotHeaderClicked - changed alternate sort column"
-       << " FROM '" << SortColumnName_Alternate
-       << "' ( column " << SortColumnIndex_Alternate << " )" << endl
-     ;
-     #endif
-
-     SortColumnIndex_Alternate = sec ;
-     SortColumnName_Alternate  = nameOfSortColumn ;
-
-     #ifdef DEBUG_SORTFUNCS
-     kdWarning()
-      << "KonqListView::slotHeaderClicked - changed alternate sort column"
-      << "TO '" << SortColumnName_Alternate
-      << "' ( column " << SortColumnIndex_Alternate << " )" << endl
-     ;
-     #endif
-   }
-
-   //----------------------------------------
-   //--- End: listview sorting enhancements
-   //----------------------------------------
 
    if (nameOfSortColumn!=m_pListView->sortedByColumn)
    {
       m_pListView->sortedByColumn=nameOfSortColumn;
       m_pListView->setAscending(TRUE);
-      #ifdef DEBUG_SORTFUNCS
+      #if DEBUG_SORTFUNCS > 1
       kdWarning()
        << "KonqListView::slotHeaderClicked - changed sort column to # "
        << sec << endl
@@ -617,32 +589,74 @@ void KonqListView::slotHeaderClicked(int sec)
    else
    {
       m_pListView->setAscending(!m_pListView->ascending());
-      #ifdef DEBUG_SORTFUNCS
+      #if DEBUG_SORTFUNCS > 1
       kdWarning()
-       << "KonqListView::slotHeaderClicked - changed sort order of column #"
+       << "KonqListView::slotHeaderClicked - changed sort order of column # "
        << sec << endl
       ;
       #endif
    }
 
+   /*
+      This function stores/utilizes settings stored on disk in:
+        config/konquerorrc/[ListView_file]
+      Previous konq_listview settings:
+        SortOrder, SortBy
+      New settings that were added with konq_listview++:
+        PrimarySortOrder,
+        AlternateSortCol, AlternateSortIndex, AlternateSortOrder
+   */
+
    KonqListViewSettings config( m_pListView->url().protocol() );
    config.readConfig();
+
+   if (  nameOfSortColumn == SortColumnName_Primary )
+   {
+     SortColumnName_Primary     = nameOfSortColumn ;
+     SortColumnIndex_Primary    = sec ;
+     SortColumnOrder_Primary    = m_pListView->ascending() ;
+      config.setPrimarySortOrder( m_pListView->ascending() );
+     #if DEBUG_SORTFUNCS > 0
+     kdWarning()
+       << "KonqListView::slotHeaderClicked - sort column "
+       << " '" << SortColumnName_Primary << "' ( column # "
+       << SortColumnIndex_Primary << " ) is PRIMARY" << endl
+     ;
+     #endif
+
+   } else  {
+     SortColumnName_Alternate   = nameOfSortColumn  ;
+      config.setAlternateSortCol( nameOfSortColumn );
+     SortColumnIndex_Alternate    = sec  ;
+      config.setAlternateSortIndex( sec );
+     SortColumnOrder_Alternate    = m_pListView->ascending()  ;
+      config.setAlternateSortOrder( m_pListView->ascending() );
+     #if DEBUG_SORTFUNCS > 0
+     kdWarning()
+       << "KonqListView::slotHeaderClicked - sort column "
+       << " '" << SortColumnName_Alternate << "' ( column # "
+       << SortColumnIndex_Alternate << " ) is ALTERNATE" << endl
+     ;
+     #endif
+   }
+   //----------------------------------------
+   //--- End: listview sorting enhancements
+   //----------------------------------------
+
    config.setSortBy( nameOfSortColumn );
    config.setSortOrder( m_pListView->ascending() );
    config.writeConfig();
 }
 
-//------------------------------------------------------------------------------
-//--- Begin: listview sorting enhancements
-//------------------------------------------------------------------------------
-
 TQString KonqListView::DisplayColumn_Name( int DisplayColumn_Offset)
 {
+  /* Given a column's display offset, return its name */
   int(ColumnIndex) = -1 ;
-  for (uint i=0; i<m_pListView->NumberOfAtoms; i++)
+  for (uint i=0; i<m_pListView->NumberOfAtoms; i++) {
     if (m_pListView->confColumns[i].displayInColumn == DisplayColumn_Offset)
-      ColumnIndex=i;
-  #ifdef DEBUG_SORTFUNCS
+      ColumnIndex = i;
+  }
+  #if DEBUG_SORTFUNCS > 2
   kdWarning() << "What is name of display column #" 
     << DisplayColumn_Offset << "?" << endl ;
   if (ColumnIndex == -1)
@@ -654,9 +668,30 @@ TQString KonqListView::DisplayColumn_Name( int DisplayColumn_Offset)
   return( m_pListView->confColumns[ColumnIndex].desktopFileName ) ;
 }
 
+int KonqListView::DisplayColumn_Index( TQString DisplayColumn_Name )
+{
+  /* Given a column's name, return its display offset */
+  int(ColumnIndex) = -1 ;
+  TQString ColumnName ;
+  for (uint i=0; i<m_pListView->NumberOfAtoms; i++) {
+    ColumnName = m_pListView->confColumns[i].desktopFileName ;
+    if ( ColumnName == DisplayColumn_Name )
+      ColumnIndex = m_pListView->confColumns[i].displayInColumn;
+  }
+  #if DEBUG_SORTFUNCS > 2
+  kdWarning() << "What is offset of display column " 
+    << DisplayColumn_Name << "?" << endl ;
+  if (ColumnIndex == -1)
+    kdWarning() <<  "Answer: Not found, forced to 0" << endl;
+  else
+    kdWarning() <<  "Answer: " << ColumnIndex << endl;
+  #endif
+  if (ColumnIndex == -1) return 0 ;
+  return( ColumnIndex ) ;
+}
+
 void KonqListView::SortListView(uint which)
 {
-
    TQString SortColumnName_Current = m_pListView->sortedByColumn ;
    int      SortColumnIndex_Current ;
 
@@ -664,6 +699,26 @@ void KonqListView::SortListView(uint which)
    int      SortColumnIndex_Next ;
 
    uint SortOrder ;
+
+   /*
+      This function stores/utilizes settings stored on disk in:
+        config/konquerorrc/[ListView_file]
+      New settings that were added with konq_listview++:
+        PrimarySortOrder,
+        AlternateSortCol, AlternateSortIndex, AlternateSortOrder
+   */
+
+   KonqListViewSettings config( m_pListView->url().protocol() );
+   config.readConfig();
+
+   // Set KonqListView variables from respective settings 
+   SortColumnOrder_Primary   = config.primarySortOrder();
+   SortColumnName_Alternate  = config.alternateSortCol();
+   SortColumnOrder_Alternate = config.alternateSortOrder();
+   SortColumnIndex_Alternate = config.alternateSortIndex();
+   /* Alternative for determining column index without storing it in config:
+   SortColumnIndex_Alternate = DisplayColumn_Index( SortColumnName_Alternate ) ;
+   */
 
    switch( which ) {
 
@@ -673,30 +728,40 @@ void KonqListView::SortListView(uint which)
 
      case 1 :
 
-     if ( SortColumnName_Primary == SortColumnName_Current ) {
-        #ifdef DEBUG_SORTFUNCS
-        kdWarning() << "Switching column sort from primary to alternate" << endl ;
-        #endif
-        SortColumnName_Next  = SortColumnName_Alternate ;
-        SortColumnIndex_Next = SortColumnIndex_Alternate ;
+     if ( SortColumnName_Current == SortColumnName_Primary )
+     {
+       #if DEBUG_SORTFUNCS > 1
+       kdWarning() << "KonqListView::SortListView - "
+         << "Switching sort column from primary to alternate" << endl
+       ;
+       #endif
+       SortColumnName_Next  = SortColumnName_Alternate  ;
+       SortColumnIndex_Next = SortColumnIndex_Alternate ;
+       SortOrder            = SortColumnOrder_Alternate ;
+       // Previously set sort order of alternate sort column is preserved
      }
-     else {
-        #ifdef DEBUG_SORTFUNCS
-        kdWarning() << "Switching column sort from alternate to primary" << endl ;
-        #endif
-        SortColumnName_Next  = SortColumnName_Primary ;
-        SortColumnIndex_Next = SortColumnIndex_Primary ;
+     else
+     {
+       #if DEBUG_SORTFUNCS > 1
+       kdWarning() << "KonqListView::SortListView - "
+         << "Switching sort column from alternate to primary" << endl ;
+       #endif
+       SortColumnName_Next  = SortColumnName_Primary  ;
+       SortColumnIndex_Next = SortColumnIndex_Primary ;
+       SortOrder            = SortColumnOrder_Primary ;
+       // Previously set sort order of primary sort column is preserved
      }
 
-     SortOrder = 1 ;
-     m_pListView->setSorting( SortColumnIndex_Next, SortOrder ) ;
      m_pListView->sortedByColumn = SortColumnName_Next ;
+     config.setSortBy( SortColumnName_Next );
 
-     #ifdef DEBUG_SORTFUNCS
-     kdWarning()
-      << "KonqListView::SortListView - changed sort column FROM "
-      << SortColumnName_Current << " TO " << SortColumnName_Next
-      << " ["  << SortColumnIndex_Next << "]" << endl
+     // Set up sort parameters
+     m_pListView->setSorting( SortColumnIndex_Next, SortOrder ) ;
+
+     #if DEBUG_SORTFUNCS > 0
+     kdWarning() << "KonqListView::SortListView - Changed sort column FROM "
+       << SortColumnName_Current << "[" << SortColumnIndex_Current  << "] TO "
+       << SortColumnName_Next << " ["  << SortColumnIndex_Next << "]" << endl
      ;
      #endif
 
@@ -708,15 +773,35 @@ void KonqListView::SortListView(uint which)
 
      case 2 :
 
-     if ( SortColumnName_Primary == SortColumnName_Current )
-       SortColumnIndex_Current = SortColumnIndex_Primary ;
-     else
-       SortColumnIndex_Current = SortColumnIndex_Alternate ;
-
      SortOrder = !m_pListView->ascending() ;
+
+     if ( SortColumnName_Primary == SortColumnName_Current )
+     {
+       #if DEBUG_SORTFUNCS > 1
+       kdWarning() << "KonqListView::SortListView - "
+         << "Reversing sort order of primary sort column" << endl ;
+       #endif
+       SortColumnIndex_Current  = SortColumnIndex_Primary ;
+       SortColumnOrder_Primary  = SortOrder ;
+       config.setPrimarySortOrder( SortOrder ) ;
+     }
+     else
+     {
+       #if DEBUG_SORTFUNCS > 1
+       kdWarning() << "KonqListView::SortListView - "
+         << "Reversing sort order of alternate sort column" << endl ;
+       #endif
+       SortColumnIndex_Current   = SortColumnIndex_Alternate ;
+       SortColumnOrder_Alternate = SortOrder ;
+       config.setAlternateSortOrder( SortOrder ) ;
+     }
+     m_pListView->setAscending(SortOrder) ;
+     config.setSortOrder( SortOrder );
+
+     // Set up sort parameters
      m_pListView->setSorting( SortColumnIndex_Current, SortOrder ) ;
 
-     #ifdef DEBUG_SORTFUNCS
+     #if DEBUG_SORTFUNCS > 0
      kdWarning()
       << "KonqListView::SortListView - Reversing sort on column "
       << SortColumnName_Current << endl
@@ -726,9 +811,11 @@ void KonqListView::SortListView(uint which)
      break ;
    }
 
-   // Do actual sorting and remember the order
+   // Do actual sorting
    m_pListView->sort();
-   m_pListView->setAscending(SortOrder) ;
+
+   // Store settings
+   config.writeConfig();
 }
 
 void KonqListView::slotSortAlternate()
@@ -931,6 +1018,16 @@ void KonqListView::setupActions()
     TQT_SLOT( slotSortReverse() ), actionCollection(),
     "reverse_sort_order"
   );
+
+   /*
+      The slot functions associated with the next 3 TDEToggleActions
+      utilize some new boolean settings stored on disk in:
+        config/konqlistviewrc:[Settings]/
+      New settings that were added with konq_listview++:
+        GroupDirsFirst (comparable to konq_iconview SortDirsFirst)
+        GroupHiddenFirst
+        DictionaryOrderSort
+   */
 
   m_paDisplay_Directories_1st  = new TDEToggleAction(
     i18n("Group &Directories First"), 0, this,

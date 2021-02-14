@@ -488,6 +488,7 @@ KonqBaseListViewItem::KonqBaseListViewItem(KonqBaseListViewWidget *_listViewWidg
 KonqBaseListViewItem::KonqBaseListViewItem(KonqBaseListViewWidget *_listViewWidget, KonqBaseListViewItem *_parent, KFileItem* _fileitem)
 :TDEListViewItem(_parent)
 ,sortChar(0)
+,sortString() // listview sorting enhancement
 ,m_bDisabled(false)
 ,m_bActive(false)
 ,m_fileitem(_fileitem)
@@ -504,6 +505,8 @@ KonqBaseListViewItem::~KonqBaseListViewItem()
 
    if (m_pListViewWidget->m_selected)
       m_pListViewWidget->m_selected->removeRef(this);
+
+   // FIXME: Newbie questiion: do I need to somehow "free" sortString?
 }
 
 TQRect KonqBaseListViewItem::rect() const
