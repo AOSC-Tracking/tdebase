@@ -3,7 +3,7 @@ X-TDE-ServiceTypes=media/bluray_encrypted_locked,media/cdrom_encrypted_locked,me
 Actions=MediaLock;
 Actions=MediaUnlock;
 X-TDE-Priority=TopLevel
-X-TDE-MediaNotifierHide=true
+X-TDE-MediaNotifierHide=false
 
 [Desktop Action MediaUnlock]
 Exec=tdeio_media_mounthelper -k %u
