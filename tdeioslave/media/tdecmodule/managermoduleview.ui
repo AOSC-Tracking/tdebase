@@ -63,6 +63,17 @@
                 <string>Deselect this if you do not want action request dialog popups to be generated when devices are plugged in.</string>
             </property>
         </widget>
+        <widget class="TQCheckBox">
+            <property name="name">
+                <cstring>kcfg_DeviceMonitorPopupsEnabled</cstring>
+            </property>
+            <property name="text">
+                <string>Enable device monitor notification popups</string>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Deselect this if you do not want device monitoring popups to be generated when devices are added, modified or removed.</string>
+            </property>
+        </widget>
         <widget class="TQGroupBox">
             <property name="name">
                 <cstring>groupbox_mount</cstring>
@@ -350,6 +361,7 @@ Display the short name as is; store a long name when the short name is not all u
     <tabstop>kcfg_CdPollingEnabled</tabstop>
     <tabstop>kcfg_AutostartEnabled</tabstop>
     <tabstop>kcfg_NotificationPopupsEnabled</tabstop>
+    <tabstop>kcfg_DeviceMonitorPopupsEnabled</tabstop>
     <tabstop>option_automount</tabstop>
     <tabstop>option_ro</tabstop>
     <tabstop>option_quiet</tabstop>

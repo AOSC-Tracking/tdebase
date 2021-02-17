@@ -25,8 +25,13 @@
       <default>true</default>
     </entry>
     <entry name="NotificationPopupsEnabled" type="Bool">
-      <label>Enable notification popups</label>
-      <whatsthis>Deselect this if you do not want action request popups to be generated when devices are plugged in.</whatsthis>
+      <label>Enable notification dialogs popups</label>
+      <whatsthis>Deselect this if you do not want action request dialog popups to be generated when devices are plugged in.</whatsthis>
+      <default>true</default>
+    </entry>
+    <entry name="DeviceMonitorPopupsEnabled" type="Bool">
+      <label>Enable device monitor notification popups</label>
+      <whatsthis>Deselect this if you do not want device monitoring popups to be generated when devices are added, modified or removed.</whatsthis>
       <default>true</default>
     </entry>
   </group>

@@ -206,7 +206,7 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu) {
 
 	menu->insertTitle(SmallIcon("configure"), i18n("Global Configuration"));
 
-	TDEAction *actHardwareConfig = new TDEAction(i18n("Configure Devices..."), SmallIconSet("kcmpci"), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT(slotHardwareConfig()), actionCollection());
+	TDEAction *actHardwareConfig = new TDEAction(i18n("Show Device Manager..."), SmallIconSet("kcmpci"), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT(slotHardwareConfig()), actionCollection());
 	actHardwareConfig->plug(menu);
 
 	TDEAction *actShortcutKeys = new TDEAction(i18n("Configure Shortcut Keys..."), SmallIconSet("configure"), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT(slotEditShortcutKeys()), actionCollection());
@@ -637,17 +637,25 @@ void HwDeviceSystemTray::slotEditShortcutKeys() {
 
 void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device) {
 #ifdef __TDE_HAVE_TDEHWLIB
-	if (device->type() == TDEGenericDeviceType::Disk) {
-		TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(device);
-		if (isMonitoredDevice(sdevice)) {
-			TQString uuid = sdevice->diskUUID();
-			if (uuid == "") {
-				uuid = sdevice->systemPath();
+	TDEConfig config("mediamanagerrc");
+	config.setGroup("Global");
+	if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
+	{
+		if (device->type() == TDEGenericDeviceType::Disk)
+		{
+			TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(device);
+			if (isMonitoredDevice(sdevice))
+			{
+				TQString uuid = sdevice->diskUUID();
+				if (uuid == "")
+				{
+					uuid = sdevice->systemPath();
+				}
+				m_hardwareNotifierContainer->displayMessage(
+					i18n("A disk device has been added!"),
+					i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
+					0, 0, "ADD: " + uuid);
 			}
-			m_hardwareNotifierContainer->displayMessage(
-				i18n("A disk device has been added!"),
-				i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-				0, 0, "ADD: " + uuid);
 		}
 	}
 #endif
@@ -655,17 +663,25 @@ void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device) {
 
 void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device) {
 #ifdef __TDE_HAVE_TDEHWLIB
-	if (device->type() == TDEGenericDeviceType::Disk) {
-		TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(device);
-		if (isMonitoredDevice(sdevice)) {
-			TQString uuid = sdevice->diskUUID();
-			if (uuid == "") {
-				uuid = sdevice->systemPath();
+	TDEConfig config("mediamanagerrc");
+	config.setGroup("Global");
+	if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
+	{
+		if (device->type() == TDEGenericDeviceType::Disk)
+		{
+			TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(device);
+			if (isMonitoredDevice(sdevice))
+			{
+				TQString uuid = sdevice->diskUUID();
+				if (uuid == "")
+				{
+					uuid = sdevice->systemPath();
+				}
+				m_hardwareNotifierContainer->displayMessage(
+					i18n("A disk device has been removed!"),
+					i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
+					0, 0, "REMOVE: " + uuid);
 			}
-			m_hardwareNotifierContainer->displayMessage(
-				i18n("A disk device has been removed!"),
-				i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-				0, 0, "REMOVE: " + uuid);
 		}
 	}
 #endif
@@ -673,17 +689,25 @@ void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device) {
 
 void HwDeviceSystemTray::deviceChanged(TDEGenericDevice* device) {
 #ifdef __TDE_HAVE_TDEHWLIB
-	if (device->type() == TDEGenericDeviceType::Disk) {
-		TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(device);
-		if (isMonitoredDevice(sdevice)) {
-			TQString uuid = sdevice->diskUUID();
-			if (uuid == "") {
-				uuid = sdevice->systemPath();
+	TDEConfig config("mediamanagerrc");
+	config.setGroup("Global");
+	if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
+	{
+		if (device->type() == TDEGenericDeviceType::Disk)
+		{
+			TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(device);
+			if (isMonitoredDevice(sdevice))
+			{
+				TQString uuid = sdevice->diskUUID();
+				if (uuid == "")
+				{
+					uuid = sdevice->systemPath();
+				}
+				m_hardwareNotifierContainer->displayMessage(
+					i18n("A disk device has been changed!"),
+					i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
+					0, 0, "CHANGE: " + uuid);
 			}
-			m_hardwareNotifierContainer->displayMessage(
-				i18n("A disk device has been changed!"),
-				i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-				0, 0, "CHANGE: " + uuid);
 		}
 	}
 #endif
