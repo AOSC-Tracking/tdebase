@@ -289,9 +289,17 @@ void MountHelper::safeRemoval(const Medium &medium)
 
 void MountHelper::openRealFolder(const Medium &medium)
 {
-	if (!medium.mountPoint().isEmpty())
+	Medium &m = const_cast<Medium&>(medium);
+	if (!m.isMounted())
 	{
-		system((TQString("kfmclient exec file://") + medium.mountPoint()).local8Bit());
+		// If the medium is not mounted, try mounting it first
+		mount(m);
+		m = findMedium(m.deviceNode());
+	}
+
+	if (m.isMounted())
+	{
+		system((TQString("kfmclient exec 'file://") + m.mountPoint()).local8Bit() + "'");
 	}
 	else
 	{
