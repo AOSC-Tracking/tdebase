@@ -717,6 +717,27 @@ bool KonqMainWindow::openView( TQString serviceType, const KURL &_url, KonqView 
      return false; // execute, don't open
   // Contract: the caller of this method should ensure the view is stopped first.
 
+  // If trying to navigate to an encrypted disk, unlock it if necessary and then navigate to system:/media
+  if (serviceType.contains("encrypted"))
+  {
+    if (serviceType.contains("encrypted_locked"))
+    {
+      TQString lockingService = TDEGlobal::dirs()->findResource("data", "konqueror/servicemenus/media_unlock.desktop");
+      if (!lockingService.isEmpty())
+      {
+        TQValueList<KDEDesktopMimeType::Service> serviceList = KDEDesktopMimeType::userDefinedServices(lockingService, _url.isLocalFile());
+        if (serviceList.count() == 1)
+        {
+          KURL::List m_lstURLs;
+          m_lstURLs.append(_url);
+          KDEDesktopMimeType::executeService(m_lstURLs, serviceList[0]);
+        }
+      }
+    }
+    slotGoMedia();
+    return true;
+  }
+
 #ifndef NDEBUG
   kdDebug(1202) << "KonqMainWindow::openView " << serviceType << " " << _url << " " << childView << " req:" << req.debug() << endl;
 #endif
