@@ -84,22 +84,22 @@ void KonqListViewItem::updateContents()
    // Set the text of each column
    setText( 0, m_fileitem->text() );
 
-   bool m_displayDirectoriesFirst = m_pListViewWidget->m_pBrowserView->m_pProps->isDirsFirst();
-   bool m_displayHiddenFirst      = m_pListViewWidget->m_pBrowserView->m_pProps->isHiddenFirst();
-   bool m_sortDictionaryOrder     = m_pListViewWidget->m_pBrowserView->m_pProps->isDictionaryOrder();
+   bool m_groupDirectoriesFirst = m_pListViewWidget->m_pBrowserView->m_pProps->isDirsFirst();
+   bool m_groupHiddenFirst      = m_pListViewWidget->m_pBrowserView->m_pProps->isHiddenFirst();
+   bool m_dictionaryOrderSort   = m_pListViewWidget->m_pBrowserView->m_pProps->isDictionaryOrder();
 
-   // The original TDE order is: .dir (0), dir (1), .file (2), file (3)
+   // The default TDE order is: .dir (0), dir (1), .file (2), file (3)
 
-   if ( m_displayDirectoriesFirst )
+   if ( m_groupDirectoriesFirst )
      sortChar = S_ISDIR( m_fileitem->mode() ) ? 1 : 3;
    else
      sortChar = 3;
 
-   if ( m_displayHiddenFirst && m_fileitem->text()[0] == '.' )
+   if ( m_groupHiddenFirst && m_fileitem->text()[0] == '.' )
       --sortChar;
 
-   sortString = text(0);
-   if (m_sortDictionaryOrder)
+   sortString = "";
+   if (m_dictionaryOrderSort && text(0).length() > 1)
    {
      /*
       * Objective is to ignore non-alphnumeric leading characters
@@ -108,11 +108,16 @@ void KonqListViewItem::updateContents()
       * being identical strings. Example: a, " a" b, +a, ~a will end
       * up sorting to a, +a, " a", ~a, b
      */
-     TQChar our1stChar = sortString[0];
-     if (!our1stChar.isLetterOrNumber() && sortString.length() > 1)
+     TQChar our1stChar = text(0)[0];
+     if (!our1stChar.isLetterOrNumber())
      {
+       sortString = text(0).mid(1);
        sortString.append(our1stChar);
-       sortString.remove(0, 1);
+     }
+     else
+     {
+       sortString = text(0).left(-1);
+       sortString.append(TQChar(0));
      }
    }
 
@@ -322,10 +327,17 @@ int KonqBaseListViewItem::compare( TQListViewItem* item, int col, bool ascending
          break;
       }
    }
-   if ( m_pListViewWidget->caseInsensitiveSort() )
+   if (col == 0 && !sortString.isEmpty()) {
+     if (m_pListViewWidget->caseInsensitiveSort())
        return sortString.lower().localeAwareCompare( k->sortString.lower() );
-   else {
+     else {
        return m_pListViewWidget->m_pSettings->caseSensitiveCompare( sortString, k->sortString );
+     }
+   }
+   if ( m_pListViewWidget->caseInsensitiveSort() )
+       return text( col ).lower().localeAwareCompare( k->text( col ).lower() );
+   else {
+       return m_pListViewWidget->m_pSettings->caseSensitiveCompare( text( col ), k->text( col ) );
    }
 }
 
