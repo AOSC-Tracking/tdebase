@@ -92,32 +92,31 @@ void KonqListViewItem::updateContents()
 
    //--- Retrieve user-set extended sorting options:
 
-   bool Display_Directories_1st =
+   bool Group_Directories_First =
      m_pListViewWidget->m_pBrowserView->m_pProps->isDirsFirst() ;
-   bool Display_Hidden_1st =
+   bool Group_Hidden_First =
      m_pListViewWidget->m_pBrowserView->m_pProps->isHiddenFirst() ;
-   bool Sort_Dictionary_Order =
+   bool Dictionary_Order_Sort =
      m_pListViewWidget->m_pBrowserView->m_pProps->isDictionaryOrder() ;
 
-   // The original TDE order is: .dir (0), dir (1), .file (2), file (3)
+   // The default TDE order is: .dir (0), dir (1), .file (2), file (3)
 
-   //--- Implement option "Display_Directories_1st"
+   //--- Implement sort option "Group Directories First"
 
-   if ( Display_Directories_1st ) 
+   if ( Group_Directories_First ) 
      sortChar = S_ISDIR( m_fileitem->mode() ) ? 1 : 3;
    else
      sortChar = 3; // Effectively disable grouping directories first
 
-   //--- Implement option "Display_Hidden_1st"
+   //--- Implement sort option "Group Hidden First"
 
-   if ( Display_Hidden_1st && m_fileitem->text()[0] == '.' )
+   if ( Group_Hidden_First && m_fileitem->text()[0] == '.' )
       --sortChar; // Effectively disable grouping hidden first
 
-   //--- Implement option "Sort_Dictionary_Order"
+   //--- Implement option "Dictionary Order Sort"
 
-   sortString = text(0) ; //-or: sortString = m_fileitem->text() ; 
-
-   if ( Sort_Dictionary_Order ) {
+   sortString = "" ;
+   if ( Dictionary_Order_Sort && text(0).length() > 1 ) {
      /* 
       * Objective is to ignore non-alphnumeric leading characters
       * but append them as trailing characters to ensure that there
@@ -125,15 +124,18 @@ void KonqListViewItem::updateContents()
       * being identical strings. Example: a, " a" b, +a, ~a will end
       * up sorting to a, +a, " a", ~a, b
      */
-     TQChar  Our1stChar = sortString[0] ;
-     if ( ! Our1stChar.isLetterOrNumber() && sortString.length() > 1 ) 
-     {
+     TQChar  Our1stChar = text(0)[0] ;
+     if ( ! Our1stChar.isLetterOrNumber() ) {
+       sortString = text(0).mid(1) ;
        sortString.append(Our1stChar) ;
-       sortString.remove(0,1) ;
        #ifdef DEBUG_SORTFUNCS
        kdWarning() << "Stripping non-alphanumeric leading character '" <<
         Our1stChar << "' yields sort key '" << sortString << "'" << endl ;
        #endif
+     }
+     else {
+       sortString = text(0).left(-1) ;
+       sortString.append( TQChar(0) ) ;
      }
    }
    #ifdef DEBUG_SORTFUNCS
@@ -355,23 +357,32 @@ int KonqBaseListViewItem::compare( TQListViewItem* item, int col, bool ascending
    //--- Begin: listview sorting enhancements 
    //----------------------------------------
 
-   #ifdef DEBUG_SORTFUNCS
-   kdWarning() << "Comparing '" << sortString 
-    << "' with '" << k->sortString  <<  "'" << endl ;
-   #endif
+   if ( col == 0 && ! sortString.isEmpty() ) {
+     /* We are here because sort column is FileName
+        and "Dictionary Order Sort" is in effect
+     */
+     #ifdef DEBUG_SORTFUNCS
+     kdWarning() << "Comparing '" << sortString 
+      << "' with '" << k->sortString  <<  "'" << endl ;
+     #endif
 
+     /* FIXME: The combination of settings "Dictionary Order Sort" = ON
+        and "Case Insensitive Sort" = OFF produces a seemingly odd and
+        potentially undesirable outcome. Consider ignoring the latter
+        setting and always doing the case-insensitive sort.
+     */
+     if ( m_pListViewWidget->caseInsensitiveSort() )
+       return sortString.lower().localeAwareCompare( k->sortString.lower() );
+     else {
+       return m_pListViewWidget->m_pSettings->caseSensitiveCompare( sortString, k->sortString );
+     }
+   }
    /* Original code:
+   */
    if ( m_pListViewWidget->caseInsensitiveSort() )
        return text( col ).lower().localeAwareCompare( k->text( col ).lower() );
    else {
        return m_pListViewWidget->m_pSettings->caseSensitiveCompare( text( col ), k->text( col ) );
-   }
-   */
-
-   if ( m_pListViewWidget->caseInsensitiveSort() )
-       return sortString.lower().localeAwareCompare( k->sortString.lower() );
-   else {
-       return m_pListViewWidget->m_pSettings->caseSensitiveCompare( sortString, k->sortString );
    }
 
    //----------------------------------------
@@ -478,6 +489,7 @@ const char* KonqBaseListViewItem::makeAccessString( const mode_t mode)
 KonqBaseListViewItem::KonqBaseListViewItem(KonqBaseListViewWidget *_listViewWidget, KFileItem* _fileitem)
 :TDEListViewItem(_listViewWidget)
 ,sortChar(0)
+,sortString() // listview sorting enhancement
 ,m_bDisabled(false)
 ,m_bActive(false)
 ,m_fileitem(_fileitem)
