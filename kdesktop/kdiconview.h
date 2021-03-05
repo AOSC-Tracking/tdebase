@@ -75,6 +75,7 @@ public:
 
     void lineupIcons(TQIconView::Arrangement);
 
+    void setIconsLocked( bool b );
     void setAutoAlign( bool b );
 
     TQStringList selectedURLs();
@@ -165,6 +166,9 @@ public slots:
     void slotClear();
     void refreshIcons();
 
+    void incIconSpacing();
+    void decIconSpacing();
+
 protected slots:
     void slotFreeSpaceOverlayStart();
     void slotFreeSpaceOverlayFinished();
@@ -214,6 +218,7 @@ private:
 
     bool m_bNeedRepaint;
     bool m_bNeedSave;
+    bool m_iconsLocked;
     bool m_autoAlign;
 
     /** true if even one icon has an icon-position entry in the .directory */

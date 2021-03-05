@@ -44,10 +44,12 @@ signals:
         void changed();
 
 private slots:
-        void enableChanged();
+	void enableChanged();
+	void enableGridChanged();
 	void comboBoxChanged();
 	void editButtonPressed();
 	void mediaListViewChanged(TQListViewItem * item);
+	void spacingChanged(int value);
 
 private:
         TDEConfig *g_pConfig;
@@ -55,6 +57,8 @@ private:
 	void fillMediaListView();
 	void saveMediaListView();
 	void setMediaListViewEnabled(bool enabled);
+
+	void toggleSpacingOpts();
 
         // Combo for the menus
         void fillMenuCombo( TQComboBox * combo );

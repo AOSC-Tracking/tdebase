@@ -28,6 +28,7 @@
 #include <tqcombobox.h>
 #include <tqpushbutton.h>
 #include <tqbuttongroup.h>
+#include <tqspinbox.h>
 #include <tqtabwidget.h>
 #include <tqwhatsthis.h>
 #include <tdelistview.h>
@@ -130,9 +131,12 @@ DesktopBehavior::DesktopBehavior(TDEConfig *config, TQWidget *parent, const char
   connect(iconsEnabledBox, TQT_SIGNAL(clicked()), this, TQT_SLOT(enableChanged()));
   connect(showHiddenBox, TQT_SIGNAL(clicked()), this, TQT_SIGNAL(changed()));
   connect(vrootBox, TQT_SIGNAL(clicked()), this, TQT_SIGNAL(changed()));
-  connect(autoLineupIconsBox, TQT_SIGNAL(clicked()), this, TQT_SIGNAL(changed()));
+  connect(lockInPlaceBox, TQT_SIGNAL(clicked()), this, TQT_SLOT(enableGridChanged()));
+  connect(autoLineupIconsBox, TQT_SIGNAL(clicked()), this, TQT_SLOT(enableGridChanged()));
   connect(toolTipBox, TQT_SIGNAL(clicked()), this, TQT_SIGNAL(changed()));
   connect(mediaListView, TQT_SIGNAL(clicked(TQListViewItem *)), this, TQT_SLOT(mediaListViewChanged(TQListViewItem *)));
+  connect(spacingValue, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(spacingChanged(int)));
+  connect(spacingCtrlScroll, TQT_SIGNAL(clicked()), this, TQT_SIGNAL(changed()));
 
   strMouseButton1 = i18n("&Left button:");
   strButtonTxt1 = i18n( "You can choose what happens when"
@@ -236,6 +240,11 @@ void DesktopBehavior::mediaListViewChanged(TQListViewItem * item)
     emit changed();
 }
 
+void DesktopBehavior::spacingChanged(int value)
+{
+    emit changed();
+}
+
 void DesktopBehavior::setMediaListViewEnabled(bool enabled)
 {
     for (DesktopBehaviorMediaItem *it=static_cast<DesktopBehaviorMediaItem *>(mediaListView->firstChild());
@@ -307,6 +316,9 @@ void DesktopBehavior::load( bool useDefaults )
     g_pConfig->setGroup( "Desktop Icons" );
     bool bShowHidden = g_pConfig->readBoolEntry("ShowHidden", DEFAULT_SHOW_HIDDEN_ROOT_ICONS);
     showHiddenBox->setChecked(bShowHidden);
+    spacingValue->setValue( g_pConfig->readNumEntry("IconSpacing", 5) );
+    spacingCtrlScroll->setChecked( g_pConfig->readBoolEntry("SpacingCtrlScroll", false) );
+    lockInPlaceBox->setChecked( g_pConfig->readBoolEntry( "LockIcons", false ) );
     //bool bVertAlign = g_pConfig->readBoolEntry("VertAlign", DEFAULT_VERT_ALIGN);
     TDETrader::OfferList plugins = TDETrader::self()->query("ThumbCreator");
     previewListView->clear();
@@ -332,6 +344,8 @@ void DesktopBehavior::load( bool useDefaults )
     vrootBox->setChecked( g_pConfig->readBoolEntry( "SetVRoot", false ) );
     iconsEnabledBox->setChecked( g_pConfig->readBoolEntry( "Enabled", true ) );
     autoLineupIconsBox->setChecked( g_pConfig->readBoolEntry( "AutoLineUpIcons", false ) );
+
+    toggleSpacingOpts();
 
     //
     g_pConfig->setGroup( "Mouse Buttons" );
@@ -365,6 +379,9 @@ void DesktopBehavior::save()
 {
     g_pConfig->setGroup( "Desktop Icons" );
     g_pConfig->writeEntry("ShowHidden", showHiddenBox->isChecked());
+    g_pConfig->writeEntry("IconSpacing", spacingValue->value());
+    g_pConfig->writeEntry("SpacingCtrlScroll", spacingCtrlScroll->isChecked());
+    g_pConfig->writeEntry("LockIcons", lockInPlaceBox->isChecked());
     TQStringList previews;
     for ( DesktopBehaviorPreviewItem *item = static_cast<DesktopBehaviorPreviewItem *>( previewListView->firstChild() );
           item;
@@ -395,6 +412,8 @@ void DesktopBehavior::save()
     g_pConfig->writeEntry( "Enabled", iconsEnabledBox->isChecked() );
     g_pConfig->writeEntry( "AutoLineUpIcons", autoLineupIconsBox->isChecked() );
 
+    toggleSpacingOpts();
+
     saveMediaListView();
     g_pConfig->sync();
 
@@ -421,6 +440,9 @@ void DesktopBehavior::enableChanged()
     bool enabled = iconsEnabledBox->isChecked();
     behaviorTab->setTabEnabled(behaviorTab->page(1), enabled);
     vrootBox->setEnabled(enabled);
+    lockInPlaceBox->setEnabled(enabled);
+    autoLineupIconsBox->setEnabled(enabled);
+    enableGridChanged();
 
     if (m_bHasMedia)
     {
@@ -431,6 +453,24 @@ void DesktopBehavior::enableChanged()
     }
 
     changed();
+}
+
+void DesktopBehavior::toggleSpacingOpts()
+{
+  bool enabled = (
+    autoLineupIconsBox->isEnabled() &&  // Desktop grid available
+    autoLineupIconsBox->isChecked() &&  // Desktop grid enabled
+    !lockInPlaceBox->isChecked()        // Lock in Place is off
+  );
+
+  spacingCtrlScroll->setEnabled(enabled);
+  spacingValue->setEnabled(enabled);
+}
+
+void DesktopBehavior::enableGridChanged()
+{
+  toggleSpacingOpts();
+  changed();
 }
 
 void DesktopBehavior::comboBoxChanged()

@@ -109,7 +109,7 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
      bookmarks = 0;
      bookmarkMenu = 0;
   }
-  
+
   // The windowList and desktop menus can be part of a menubar (Mac style)
   // so we create them here
   desktopMenu = new TQPopupMenu;
@@ -250,7 +250,7 @@ void KRootWm::initConfig()
   if ( m_bDesktopEnabled ) {
     m_pDesktop->iconView()->setAutoAlign( KDesktopSettings::autoLineUpIcons() );
     if ( kapp->authorize( "editable_desktop_icons" ) ) {
-        m_pDesktop->iconView()->setItemsMovable( !KDesktopSettings::lockIcons() );
+        m_pDesktop->iconView()->setIconsLocked( KDesktopSettings::lockIcons() );
         TDEToggleAction *aLockIcons = static_cast<TDEToggleAction*>(m_actionCollection->action("lock_icons"));
         if (aLockIcons)
             aLockIcons->setChecked( KDesktopSettings::lockIcons()  );
@@ -732,12 +732,24 @@ void KRootWm::slotLineupIcons() {
 
 void KRootWm::slotToggleLockIcons( bool lock )
 {
-    if (m_bDesktopEnabled)
-    {
-        m_pDesktop->iconView()->setItemsMovable( !lock );
-        KDesktopSettings::setLockIcons( lock );
-        KDesktopSettings::writeConfig();
-    }
+   KDesktopSettings::setLockIcons( lock );
+   KDesktopSettings::writeConfig();
+
+   // Also save it globally...
+   int desktop = TDEApplication::desktop()->primaryScreen();
+   TQCString cfilename;
+   if (desktop == 0)
+       cfilename = "kdesktoprc";
+   else
+       cfilename.sprintf("kdesktop-screen-%drc", desktop);
+
+   TDEConfig *kdg_config = new TDEConfig(cfilename, false, false);
+   kdg_config->setGroup( "General" );
+   kdg_config->writeEntry( "LockIcons", lock );
+   kdg_config->sync();
+   delete kdg_config;
+
+   m_pDesktop->iconView()->setIconsLocked( lock );
 }
 
 void KRootWm::slotRefreshDesktop() {
