@@ -33,79 +33,243 @@
                 <attribute name="title">
                     <string>General</string>
                 </attribute>
-                <grid>
+                <vbox>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="TQCheckBox" row="0" column="0">
+                    <widget class="TQGroupBox">
                         <property name="name">
-                            <cstring>iconsEnabledBox</cstring>
+                            <cstring>iconsGroupBox</cstring>
                         </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>0</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
+                        <property name="title">
+                            <string>Desktop Icons</string>
                         </property>
-                        <property name="text">
-                            <string>&amp;Show icons on desktop</string>
-                        </property>
-                        <property name="whatsThis" stdset="0">
-                            <string>Uncheck this option if you do not want to have icons on the desktop. Without icons the desktop will be somewhat faster but you will no longer be able to drag files to the desktop.</string>
-                        </property>
-                    </widget>
-                    <widget class="TQLayoutWidget" row="1" column="0">
-                        <property name="name">
-                            <cstring>layout1</cstring>
-                        </property>
-                        <hbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <spacer>
-                                <property name="name">
-                                    <cstring>spacer3</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>0</height>
-                                    </size>
-                                </property>
-                            </spacer>
+                        <vbox>
                             <widget class="TQCheckBox">
                                 <property name="name">
-                                    <cstring>vrootBox</cstring>
+                                    <cstring>iconsEnabledBox</cstring>
                                 </property>
-                                <property name="enabled">
-                                    <bool>false</bool>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
                                 </property>
                                 <property name="text">
-                                    <string>Allow pro&amp;grams in desktop window</string>
+                                    <string>&amp;Show icons on desktop</string>
                                 </property>
                                 <property name="whatsThis" stdset="0">
-                                    <string>Check this option if you want to run X11 programs that draw into the desktop such as xsnow, xpenguin or xmountain. If you have problems with applications like netscape that check the root window for running instances, disable this option.</string>
+                                    <string>Uncheck this option if you do not want to have icons on the desktop. Without icons the desktop will be somewhat faster but you will no longer be able to drag files to the desktop.</string>
                                 </property>
                             </widget>
-                        </hbox>
+                            <widget class="TQLayoutWidget">
+                                <property name="name">
+                                    <cstring>layout1</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <spacer>
+                                        <property name="name">
+                                            <cstring>spacer1</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Fixed</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>0</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="TQCheckBox">
+                                        <property name="name">
+                                            <cstring>vrootBox</cstring>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                        <property name="text">
+                                            <string>Allow pro&amp;grams in desktop window</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>Check this option if you want to run X11 programs that draw into the desktop such as xsnow, xpenguin or xmountain. If you have problems with applications like netscape that check the root window for running instances, disable this option.</string>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="TQCheckBox">
+                                <property name="name">
+                                    <cstring>toolTipBox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Show &amp;tooltips</string>
+                                </property>
+                            </widget>
+                            <widget class="KSeparator">
+                                <property name="name">
+                                    <cstring>iconOptsSeparator</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQLayoutWidget">
+                              <property name="name">
+                                <cstring>iconOptsOuterLayout</cstring>
+                              </property>
+                              <hbox>
+                                <widget class="TQLayoutWidget">
+                                  <property name="name">
+                                    <cstring>iconOptsVLayout</cstring>
+                                  </property>
+                                  <vbox>
+                                    <widget class="TQCheckBox">
+                                        <property name="name">
+                                            <cstring>lockInPlaceBox</cstring>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                        <property name="text">
+                                            <string>Lock in Place</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>Check this option if you want to prevent your icons from being dragged around.</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQCheckBox">
+                                        <property name="name">
+                                            <cstring>autoLineupIconsBox</cstring>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                        <property name="text">
+                                            <string>Align to grid</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>Check this option if you want to see your icons automatically aligned to the grid when you move them.</string>
+                                        </property>
+                                    </widget>
+                                  </vbox>
+                                </widget>
+                                <spacer>
+                                  <property name="name">
+                                    <cstring>spacer2</cstring>
+                                  </property>
+                                  <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                  </property>
+                                  <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                  </property>
+                                  <property name="sizeHint">
+                                    <size>
+                                      <width>20</width>
+                                      <height>20</height>
+                                    </size>
+                                  </property>
+                                </spacer>
+                                <widget class="TQLayoutWidget">
+                                  <property name="name">
+                                    <cstring>spacingVLayout</cstring>
+                                  </property>
+                                  <vbox>
+                                    <widget class="TQLayoutWidget">
+                                        <property name="name">
+                                            <cstring>spacingValueLayout</cstring>
+                                        </property>
+                                        <hbox>
+                                            <property name="name">
+                                                <cstring>spacingLayout</cstring>
+                                            </property>
+                                            <widget class="TQLabel">
+                                                <property name="name">
+                                                    <cstring>spacingLabel</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Icon Spacing:</string>
+                                                </property>
+                                                <property name="whatsThis" stdset="0">
+                                                    <string>Changing this value controls how close or far to each other the icons are placed on the desktop. This option has effect only if the "Align to Grid" option is enabled.</string>
+                                                </property>
+                                            </widget>
+                                            <widget class="TQSpinBox">
+                                                <property name="name">
+                                                    <cstring>spacingValue</cstring>
+                                                </property>
+                                                <property name="specialValueText">
+                                                    <string>Default</string>
+                                                </property>
+                                                <property name="suffix">
+                                                    <string> px</string>
+                                                </property>
+                                                <property name="minValue">
+                                                    <number>5</number>
+                                                </property>
+                                                <property name="whatsThis" stdset="0">
+                                                    <string>Changing this value controls how close or far to each other the icons are placed on the desktop. This option has effect only if the "Align to Grid" option is enabled.</string>
+                                                </property>
+                                            </widget>
+                                            <spacer>
+                                                <property name="name">
+                                                    <cstring>spacer3</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Horizontal</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Expanding</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>40</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                        </hbox>
+                                    </widget>
+                                    <widget class="TQCheckBox">
+                                      <property name="name">
+                                        <cstring>spacingCtrlScroll</cstring>
+                                      </property>
+                                      <property name="text">
+                                        <string>Ctrl+Mouse Scroll changes spacing</string>
+                                      </property>
+                                      <property name="whatsThis" stdset="0">
+                                        <string>Check this if you want to change desktop icon spacing by pressing Ctrl and scrolling on the desktop background.</string>
+                                      </property>
+                                    </widget>
+                                  </vbox>
+                                </widget>
+                                <spacer>
+                                  <property name="name">
+                                    <cstring>spacer2</cstring>
+                                  </property>
+                                  <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                  </property>
+                                  <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                  </property>
+                                  <property name="sizeHint">
+                                    <size>
+                                      <width>40</width>
+                                      <height>20</height>
+                                    </size>
+                                  </property>
+                                </spacer>
+                              </hbox>
+                            </widget>
+                        </vbox>
                     </widget>
-                    <widget class="TQCheckBox" row="2" column="0">
-                        <property name="name">
-                            <cstring>toolTipBox</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Show &amp;tooltips</string>
-                        </property>
-                    </widget>
-                    <widget class="TQButtonGroup" row="3" column="0">
+                    <widget class="TQButtonGroup">
                         <property name="name">
                             <cstring>desktopMenuGroup</cstring>
                         </property>
@@ -151,7 +315,7 @@
                             </widget>
                         </vbox>
                     </widget>
-                    <widget class="TQGroupBox" row="4" column="0">
+                    <widget class="TQGroupBox">
                         <property name="name">
                             <cstring>groupBox3</cstring>
                         </property>
@@ -260,7 +424,7 @@
                             </widget>
                             <spacer row="0" column="3" rowspan="3" colspan="1">
                                 <property name="name">
-                                    <cstring>spacer5</cstring>
+                                    <cstring>spacer4</cstring>
                                 </property>
                                 <property name="orientation">
                                     <enum>Horizontal</enum>
@@ -277,9 +441,9 @@
                             </spacer>
                         </grid>
                     </widget>
-                    <spacer row="5" column="0">
+                    <spacer>
                         <property name="name">
-                            <cstring>spacer8</cstring>
+                            <cstring>spacer5</cstring>
                         </property>
                         <property name="orientation">
                             <enum>Vertical</enum>
@@ -294,7 +458,7 @@
                             </size>
                         </property>
                     </spacer>
-                </grid>
+                </vbox>
             </widget>
             <widget class="TQWidget">
                 <property name="name">
@@ -307,17 +471,6 @@
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="TQCheckBox" row="0" column="0">
-                        <property name="name">
-                            <cstring>autoLineupIconsBox</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Automatically &amp;line up icons</string>
-                        </property>
-                        <property name="whatsThis" stdset="0">
-                            <string>Check this option if you want to see your icons automatically aligned to the grid when you move them.</string>
-                        </property>
-                    </widget>
                     <widget class="TQCheckBox" row="1" column="0">
                         <property name="name">
                             <cstring>showHiddenBox</cstring>

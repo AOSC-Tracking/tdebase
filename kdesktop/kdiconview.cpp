@@ -191,15 +191,13 @@ KDIconView::KDIconView( TQWidget *parent, const char* name )
 
     if (!m_bEditableDesktopIcons)
     {
-       setItemsMovable(false);
-       setAcceptDrops(false);
-       viewport()->setAcceptDrops(false);
+      setIconsLocked(true);
     }
 }
 
 KDIconView::~KDIconView()
 {
-    if (m_dotDirectory && !m_bEditableDesktopIcons) {
+    if (m_dotDirectory && !m_bEditableDesktopIcons || m_iconsLocked) {
       m_dotDirectory->rollback(false); // Don't save positions
     }
 
@@ -296,6 +294,7 @@ void KDIconView::initConfig( bool init )
     m_bVertAlign = KDesktopSettings::vertAlign();
     TQStringList oldPreview = previewSettings();
     setPreviewSettings( KDesktopSettings::preview() );
+    setSpacing( KDesktopSettings::iconSpacing() );
 
     // read arrange configuration
     m_eSortCriterion  = (SortCriterion)KDesktopSettings::sortCriterion();
@@ -486,6 +485,30 @@ void KDIconView::lineupIcons()
     saveIconPositions();
 }
 
+void KDIconView::incIconSpacing()
+{
+    if ( m_autoAlign && !KDesktopSettings::lockIcons() && KDesktopSettings::spacingCtrlScroll() )
+    {
+        setSpacing( ( spacing() + 1 ) );
+        lineupIcons();
+
+        KDesktopSettings::setIconSpacing( spacing() );
+        KDesktopSettings::writeConfig();
+    }
+}
+
+void KDIconView::decIconSpacing()
+{
+    if ( m_autoAlign && !KDesktopSettings::lockIcons() && KDesktopSettings::spacingCtrlScroll() && spacing() > 5 )
+    {
+        setSpacing( ( spacing() - 1 ) );
+        lineupIcons();
+
+        KDesktopSettings::setIconSpacing( spacing() );
+        KDesktopSettings::writeConfig();
+    }
+}
+
 void KDIconView::setAutoAlign( bool b )
 {
     m_autoAlign = b;
@@ -515,6 +538,15 @@ void KDIconView::setAutoAlign( bool b )
         disconnect( this, TQT_SIGNAL( iconMoved() ),
                     this, TQT_SLOT( lineupIcons() ) );
     }
+}
+
+void KDIconView::setIconsLocked( bool lock )
+{
+  m_iconsLocked = lock;
+
+  setItemsMovable(!lock);
+  setAcceptDrops(!lock);
+  viewport()->setAcceptDrops(!lock);
 }
 
 void KDIconView::startDirLister()
@@ -644,7 +676,22 @@ void KDIconView::wheelEvent( TQWheelEvent* e )
     TQIconViewItem *item = findItem( e->pos() );
     if ( !item )
     {
-      emit wheelRolled( e->delta() );
+      TQWheelEvent *we = TQT_TQWHEELEVENT(e);
+
+      if ( we->state() == ControlButton )
+      {
+        if ( we->delta() >= 0 )
+          incIconSpacing();
+        else
+          decIconSpacing();
+
+        we->accept();
+      }
+      else
+      {
+        emit wheelRolled( e->delta() );
+      }
+
       return;
     }
 
@@ -1726,25 +1773,25 @@ void KDIconView::viewportWheelEvent( TQWheelEvent * e )
 void KDIconView::updateWorkArea( const TQRect &wr )
 {
 	m_gotIconsArea = true;  // now we have it!
-	
+
 	if (( iconArea() == wr ) && (m_needDesktopAlign == false)) {
 		// nothing changed; avoid repaint/saveIconPosition ...
 		return;
 	}
-	
+
 	TQRect oldArea = iconArea();
 	setIconArea( wr );
-	
+
 	kdDebug(1204) << "KDIconView::updateWorkArea wr: " << wr.x() << "," << wr.y() << " " << wr.width() << "x" << wr.height() << endl;
 	kdDebug(1204) << "  oldArea:                     " << oldArea.x() << "," << oldArea.y() << " " << oldArea.width() << "x" << oldArea.height() << endl;
-	
+
 	bool needRepaint = false;
 	TQIconViewItem* item;
 	int dx, dy;
-	
+
 	dx = wr.left() - oldArea.left();
 	dy = wr.top() - oldArea.top();
-	
+
 	if ( dx != 0 || dy != 0 ) {
 		if ( (dx > 0) || (dy > 0) ) {
 			// the iconArea was shifted right/down; less space now
@@ -1762,14 +1809,14 @@ void KDIconView::updateWorkArea( const TQRect &wr )
 			// the iconArea was shifted left/up; more space now - use it
 			needRepaint = true;
 		}
-	
+
 		if ( needRepaint ) {
 			for ( item = firstItem(); item; item = item->nextItem() ) {
 				item->moveBy( dx, dy );
 			}
 		}
 	}
-	
+
 	for ( item = firstItem(); item; item = item->nextItem() ) {
 		TQRect r( item->rect() );
 		int dx = 0, dy = 0;
@@ -1789,7 +1836,7 @@ void KDIconView::updateWorkArea( const TQRect &wr )
 		repaint( FALSE );
 		saveIconPositions();
 	}
-	
+
 	m_needDesktopAlign = false;
 	lineupIcons();
 }
@@ -1861,18 +1908,18 @@ bool KDIconView::isFreePosition( const TQIconViewItem *item, const TQRect &curre
 	if (!area.contains(r, FALSE)) {
 		return false;
 	}
-	
+
 	TQIconViewItem *it = firstItem();
 	for (; it; it = it->nextItem() ) {
 		if ( !it->rect().isValid() || it == item ) {
 			continue;
 		}
-		
+
 		if ( it->intersects( r ) ) {
 			return false;
 		}
 	}
-	
+
 	return true;
 }
 
@@ -1891,12 +1938,12 @@ bool KDIconView::isFreePosition( const TQIconViewItem *item, const TQRect& rect,
 		if ( !rect.isValid() || it == item ) {
 			continue;
 		}
-		
+
 		if ( it->intersects( rect ) ) {
 			return false;
 		}
 	}
-	
+
 	return true;
 }
 
@@ -1921,12 +1968,12 @@ void KDIconView::moveToFreePosition(TQIconViewItem *item, const TQRect &currentI
 		m_lastDeletedIconPos = TQPoint();
 		return;
 	}
-	
+
 	//try to find a free place to put the item, honouring the m_bVertAlign property
 	TQRect rect=item->rect();
 	if (m_bVertAlign) {
 		kdDebug(1214)<<"moveToFreePosition for vertical alignment"<<endl;
-	
+
 		rect.moveTopLeft(TQPoint(currentIconArea.x()+spacing(),currentIconArea.y()+spacing()));
 		do {
 			success=false;
@@ -1939,7 +1986,7 @@ void KDIconView::moveToFreePosition(TQIconViewItem *item, const TQRect &currentI
 					break;
 				}
 			}
-		
+
 			if (!success) {
 				rect.moveTopLeft(TQPoint(rect.right()+spacing(),spacing()));
 			}

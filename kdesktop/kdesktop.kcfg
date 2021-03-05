@@ -155,6 +155,16 @@
       <label>Align direction</label>
       <whatsthis>If this is enabled, icons are aligned vertically, otherwise horizontally.</whatsthis>
     </entry>
+    <entry key="IconSpacing" type="Int">
+      <default>5</default>
+      <label>Icon spacing</label>
+      <whatsthis><p>This is the minimal distance (in pixels) between the icons on your desktop.</p></whatsthis>
+    </entry>
+    <entry key="SpacingCtrlScroll" type="Bool">
+      <default>false</default>
+      <label>Change spacing by Ctrl+Mouse Scroll</label>
+      <whatsthis><p>If this is enabled, you can change desktop icon spacing by pressing Ctrl and scrolling on the desktop background.</p></whatsthis>
+    </entry>
     <entry key="Preview" type="StringList">
       <default></default>
       <label>Show Icon Previews For</label>
