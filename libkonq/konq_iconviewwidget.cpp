@@ -639,7 +639,7 @@ void KonqIconViewWidget::setIcons( int size, const TQStringList& stopImagePrevie
         int realSize = size ? size : TDEGlobal::iconLoader()->currentSize( TDEIcon::Desktop );
         // choose spacing depending on font, but min 5 (due to KFileIVI  move limit)
         setSpacing( ( m_bDesktop || ( realSize > TDEIcon::SizeSmall ) ) ?
-                    TQMAX( 5, TQFontMetrics(font()).width('n') ) : 0 );
+                    TQMAX( spacing(), TQFontMetrics(font()).width('n') ) : 0 );
     }
 
     if ( sizeChanged || previewSizeChanged || !stopImagePreviewFor.isEmpty() )
