@@ -136,39 +136,22 @@ void MediaManager::loadBackends()
     m_mediaList.blockSignals(false);
 }
 
-
-TQStringList MediaManager::fullList()
-{
-    TQPtrList<Medium> list = m_mediaList.list();
-
-    TQStringList result;
-
-    TQPtrList<Medium>::const_iterator it = list.begin();
-    TQPtrList<Medium>::const_iterator end = list.end();
-    for (; it!=end; ++it)
-    {
-        result+= (*it)->properties();
-        result+= Medium::SEPARATOR;
-    }
-
-    return result;
-}
-
-TQStringList MediaManager::properties(const TQString &name)
+const Medium* MediaManager::getMediumByName(const TQString &name)
 {
     const Medium *m = m_mediaList.findByName(name);
-
     if (!m)
     {
         KURL u(name);
-        kdDebug() << "Media::prop " << name << " " << u.isValid() << endl;
+        kdDebug() << "Media::getMediumByName " << name << " " << u.isValid() << endl;
         if (u.isValid())
         {
             if (u.protocol() == "system")
             {
                 TQString path = u.path();
                 if (path.startsWith("/media/"))
+                {
                     path = path.mid(strlen("/media/"));
+                }
                 m = m_mediaList.findByName(path);
                 kdDebug() << "findByName " << path << m << endl;
             }
@@ -189,19 +172,44 @@ TQStringList MediaManager::properties(const TQString &name)
                 {
                     path = TDEStandardDirs::realFilePath(u.path());
                     kdDebug() << "comparing " << (*it)->mountPoint()  << " " << path << " " <<  (*it)->deviceNode() << endl;
-                    if ((*it)->mountPoint() == path || (*it)->deviceNode() == path) {
-			m = *it;
-			break;
+                    if ((*it)->mountPoint() == path || (*it)->deviceNode() == path)
+                    {
+                        m = *it;
+                        break;
                     }
                 }
             }
         }
     }
+    return m;
+}
 
-    if (m) {
+TQStringList MediaManager::fullList()
+{
+    TQPtrList<Medium> list = m_mediaList.list();
+
+    TQStringList result;
+
+    TQPtrList<Medium>::const_iterator it = list.begin();
+    TQPtrList<Medium>::const_iterator end = list.end();
+    for (; it!=end; ++it)
+    {
+        result+= (*it)->properties();
+        result+= Medium::SEPARATOR;
+    }
+
+    return result;
+}
+
+TQStringList MediaManager::properties(const TQString &name)
+{
+    const Medium *m = getMediumByName(name);
+    if (m)
+		{
         return m->properties();
     }
-    else {
+    else
+		{
         return TQStringList();
     }
 }
@@ -394,6 +402,19 @@ TQStringVariantMap MediaManager::lockByNode(const TQString &deviceNode)
 		return result;
 	}
 	return lock(medium->id());
+}
+
+TQString MediaManager::mimeType(const TQString &name)
+{
+    const Medium *m = getMediumByName(name);
+    if (m)
+    {
+        return m->mimeType();
+    }
+    else
+    {
+        return TQString::null;
+    }
 }
 
 TQString MediaManager::nameForLabel(const TQString &label)

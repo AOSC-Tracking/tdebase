@@ -41,6 +41,8 @@ public:
 	MediaManager(const TQCString &obj);
 	~MediaManager();
 
+	const Medium* getMediumByName(const TQString &name);
+
 k_dcop:
 	TQStringList fullList();
 	TQStringList properties(const TQString &name);
@@ -57,6 +59,7 @@ k_dcop:
 	TQStringVariantMap unlockByNode(const TQString &deviceNode, const TQString &password);
 	TQStringVariantMap lockByNode(const TQString &deviceNode);
 
+	TQString mimeType(const TQString &name);
 	TQString nameForLabel(const TQString &label);
 	ASYNC setUserLabel(const TQString &name, const TQString &label);
 
