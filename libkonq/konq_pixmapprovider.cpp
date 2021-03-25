@@ -68,6 +68,10 @@ TQString KonqPixmapProvider::iconNameFor( const TQString& url )
         icon = KMimeType::mimeType( "inode/directory" )->KServiceType::icon();
         Q_ASSERT( !icon.isEmpty() );
     }
+    else if ( url == "/" )
+    {
+        icon = "folder_red";
+    }
     else
     {
         KURL u;
