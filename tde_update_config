@@ -1,0 +1,181 @@
+#!/bin/bash
+#
+# A script to update some configuration settings for new releases.
+#
+# This script is loosely based on the tde_release_notes script and
+# uses the same approach.
+#
+
+####################################
+# Update commands for each release #
+####################################
+function update {
+    *)
+      echo " - No changes needed for this release"
+      ;;
+  esac
+}
+####################################
+
+# Release data
+TDE_RELEASES=(R14.0.0 R14.0.1 R14.0.2 R14.0.3 R14.0.4 R14.0.5 R14.0.6 \
+R14.0.7 R14.0.8 R14.0.9 R14.0.10 R14.1.0)
+
+# Function to get release index in array
+function get_release_index {
+  for release in "${!TDE_RELEASES[@]}"
+  do
+    test "${TDE_RELEASES[$release]}" = "$1" && echo "${release}"
+  done
+}
+
+# CLI argument parser
+for a in $*
+do
+  case $a in
+    "-h" | "--help")
+      cat <<_EOF_
+tde_update_config [-h|--help] [-v|--verbose] [-s|--source {version}] [-t|--target {version}]
+
+ --help,    -h   Shows this message
+ --force,   -f   Forces this script to run the update procedures
+                 for the current release again.
+ --verbose, -v   Display more information in the process
+ --source,  -s   Override configuration (source) version
+ --target,  -t   Override release (target) version
+
+_EOF_
+      exit 0
+      ;;
+
+    "-v" | "--verbose")
+      test -z "$OPT_VERBOSE" && {
+        OPT_VERBOSE=1
+        echo "[tde_update_config] (v) Verbose mode on"
+      }
+      ;;
+
+    "-f" | "--force")
+      test -z "$OPT_VERBOSE" && {
+        OPT_FORCE=1
+        test -n "$OPT_VERBOSE" && echo "[tde_update_config] (v) Force mode on"
+      }
+      ;;
+
+    "-s" | "--source")
+      expect="s" # Expect a source override
+      ;;
+
+    "-t" | "--target")
+      expect="t" # Expect a target override
+      ;;
+
+    *)
+      # What do we expect?
+      case "$expect" in
+        "s")
+          OPT_SOURCE=$a
+          test -n "$OPT_VERBOSE" && echo "[tde_update_config] (v) Source override: $OPT_SOURCE"
+          unset expect
+          ;;
+        "t")
+          OPT_TARGET=$a;
+          test -n "$OPT_VERBOSE" && echo "[tde_update_config] (v) Target override: $OPT_TARGET"
+          unset expect
+          ;;
+        *)
+          echo "Unknown option: $a"
+          echo "See tde_update_config --help for information on usage."
+          exit 1
+          ;;
+      esac
+      ;;
+  esac
+done
+
+test -n "$expect" && {
+  echo "Missing operand."
+  echo "See tde_update_config --help for information on usage."
+  exit 1
+}
+
+### MAIN BODY
+
+# Environment variables set?
+test -z "$TDEDIR" -o -z "$TDEHOME" && exit 1
+
+# Get needed data
+TDE_RELEASE_VERSION="$( ${TDEDIR}/bin/tde-config --version | sed -n 's|^TDE: ||p' )"
+TDE_CONFIG_VERSION="$( ${TDEDIR}/bin/kreadconfig --file ${TDEHOME}/share/config/kdeglobals --group "General" --key "ConfigVersion" )"
+
+# Ignore [DEVELOPMENT] string
+TDE_RELEASE_VERSION="$( echo $TDE_RELEASE_VERSION | sed 's: \[DEVELOPMENT\]::g' )"
+
+# If there is no ConfigVersion key in kdeglobals, try to figure it out through ReleaseNotes entries
+test -z "$TDE_CONFIG_VERSION" && {
+  echo "[tde_update_config] Warning: ConfigVersion is empty, attempting to figure out through ReleaseNotes entries"
+
+  for release in ${TDE_RELEASES[*]}
+  do
+    rnotes="$( ${TDEDIR}/bin/kreadconfig --file ${TDEHOME}/share/config/kdeglobals --group "Release Notes" --key "$release" )"
+    test "$rnotes" = "" -o "$rn" != "true" && TDE_CONFIG_VERSION=$release
+  done
+}
+
+# Set source and target version
+VER_SOURCE="${OPT_SOURCE:-$TDE_CONFIG_VERSION}"
+VER_TARGET="${OPT_TARGET:-$TDE_RELEASE_VERSION}"
+
+test -n "$OPT_VERBOSE" && {
+  echo "[tde_update_config] (v) Source version: $VER_SOURCE"
+  echo "[tde_update_config] (v) Target version: $VER_TARGET"
+}
+
+test "$VER_SOURCE" != "$VER_TARGET" -o -n "$OPT_FORCE" && {
+  # Find out which updates need to be performed
+  from=$(get_release_index $VER_SOURCE)
+  to=$(get_release_index $VER_TARGET)
+
+  # Some safety checks
+  test -z "$from" && {
+    echo "[tde_update_config] Internal error: unknown source release: '$VER_SOURCE'"
+    exit 2
+  }
+
+  test -z "$to" && {
+    echo "[tde_update_config] Internal error: unknown target release: '$VER_TARGET'"
+    exit 3
+  }
+
+  test "$from" -gt "$to" -a -z "$OPT_FORCE" && { # downgrade?
+    echo "[tde_update_config] This script does not support release downgrades."
+    exit 4
+  }
+
+  test -n "$OPT_VERBOSE" && echo "[tde_update_config] (v) Beginning update"
+
+  current_conf_ver=$VER_SOURCE
+
+  for release in $(seq $from $to)
+  do
+    new_config_ver=${TDE_RELEASES[$release]}
+    test "$current_conf_ver" = "$new_config_ver" -a -z "$OPT_FORCE" && continue
+
+    is_forced=""
+    test -n "$OPT_FORCE" && is_forced="(forced)"
+
+    echo "[tde_update_config] Updating config from $current_conf_ver to $new_config_ver $is_forced"
+    update $new_config_ver
+
+    current_conf_ver=$new_config_ver
+  done
+
+  test -n "$OPT_VERBOSE" && echo "[tde_update_config] (v) Finished updates"
+
+} || echo "[tde_update_config] Config up-to-date for version $VER_TARGET."
+
+
+# Update ConfigVersion
+${TDEDIR}/bin/kwriteconfig --file ${TDEHOME}/share/config/kdeglobals --group "General" --key "ConfigVersion" --type string "$VER_TARGET"
+
+exit 0
