@@ -10,7 +10,17 @@
 # Update commands for each release #
 ####################################
 function update {
-    *)
+  case "$1" in
+    "R14.0.10")
+      echo -n " * Removing icon cache entry for root directory (Gitea issue TDE/tdebase#1)"
+
+      grep "/,text-x-generic-new[,]*" ${TDEHOME}/share/config/konq_history && \
+        sed -i "s:/,text-x-generic-new[,]*::g" ${TDEHOME}/share/config/konq_history
+
+      echo " ... done"
+      ;;
+
+*)
       echo " - No changes needed for this release"
       ;;
   esac
