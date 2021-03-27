@@ -275,7 +275,7 @@ if( BUILD_STARTTDE )
   install( PROGRAMS starttde migratekde3 r14-xdg-update tde_release_notes
            DESTINATION ${BIN_INSTALL_DIR} )
 endif()
-
+tde_conditional_add_subdirectory( BUILD_STARTTDE tde_update_config )
 
 ##### Checks for a distribution-specific 1st menu item, generally a control center
 if(EXISTS "/usr/share/applications/YaST.desktop")

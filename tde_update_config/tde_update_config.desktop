@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=tde_update_config
+Exec=tde_update_config
+Type=Application
+X-TDE-autostart-phase=2
+X-TDE-StartupNotify=false
+X-TDE-UniqueApplet=true
+Categories=System;
