@@ -3,7 +3,7 @@
 # A script to perform R14.0.0 XDG compliance updates.
 
 SCRIPT_NAME="$(basename -- "$0")"
-SCRIPT_VERSION=202004080
+SCRIPT_VERSION=202103280
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -1007,6 +1007,14 @@ if [ "$R14_VERSION" -lt "201811010" ]; then
 			sed -i "s|\[exitkde\]|\[exittde\]|" $PROFILE_DIR/share/config/knotify.eventsrc
 		fi
 	fi
+fi
+
+# Remove Konqueror's icon cache entry for / (issue TDE/tdebase#1)
+if [ "$R14_VERSION" -lt "202103280" ]; then
+  if [ "`grep \"\([=,]\)/,[^,\n]*[,]*\" ${TDEHOME}/share/config/konq_history`" ]; then
+    sed -i "s|\([=,]\)/,[^,\n]*[,]*|\1|" ${TDEHOME}/share/config/konq_history
+    Log "  Removed icon cache entry for root directory (Gitea issue TDE/tdebase#1)"
+  fi
 fi
 
 # Perform some nominal update validations.
