@@ -829,7 +829,7 @@ void KMiniPagerButton::updateKickerTip(KickerTip::Data &data)
     }
 
     data.duration = 4000;
-    data.icon = DesktopIcon("window_list", TDEIcon::SizeMedium);
+    data.icon = DesktopIcon("window_duplicate", TDEIcon::SizeMedium);
     data.message = TQStyleSheet::escape(m_desktopName);
     data.direction = m_pager->popupDirection();
 }

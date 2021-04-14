@@ -450,7 +450,7 @@ void KRootWm::buildMenus()
     TQPopupMenu* pWindowOperationsMenu = new TQPopupMenu;
     m_actionCollection->action("cascade")->plug( pWindowOperationsMenu );
     m_actionCollection->action("unclutter")->plug( pWindowOperationsMenu );
-    desktopMenu->insertItem(SmallIconSet("window_list"), i18n("Windows"), pWindowOperationsMenu);
+    desktopMenu->insertItem(SmallIconSet("window_duplicate"), i18n("Windows"), pWindowOperationsMenu);
 
     if (m_bDesktopEnabled)
     {

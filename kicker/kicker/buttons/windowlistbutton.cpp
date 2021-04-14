@@ -38,7 +38,7 @@ WindowListButton::WindowListButton( TQWidget* parent )
 
     setTitle(i18n("Window List"));
     TQToolTip::add(this, i18n("Window list"));
-    setIcon("window_list");
+    setIcon("window_duplicate");
 }
 
 void WindowListButton::initPopup()

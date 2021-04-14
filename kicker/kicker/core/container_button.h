@@ -151,7 +151,7 @@ public:
     WindowListButtonContainer(const TDEConfigGroup& config, TQPopupMenu* opMenu, TQWidget* parent = 0);
     WindowListButtonContainer(TQPopupMenu* opMenu, TQWidget* parent = 0);
     TQString appletType() const { return "WindowListButton"; }
-    virtual TQString icon() const { return "window_list"; }
+    virtual TQString icon() const { return "window_duplicate"; }
     virtual TQString visibleName() const { return i18n("Windowlist"); }
     bool isAMenu() const { return true; }
 };
