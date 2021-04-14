@@ -287,7 +287,7 @@ void KasPrefsDialog::addThumbsPage()
 
 void KasPrefsDialog::addBehavePage()
 {
-   TQVBox *behavePage = addVBoxPage( i18n("Behavior"), TQString::null, Icon( "window_list" ) );
+   TQVBox *behavePage = addVBoxPage( i18n("Behavior"), TQString::null, Icon( "window_duplicate" ) );
 
    groupWindowsCheck = new TQCheckBox( i18n("&Group windows"), behavePage );
    TQWhatsThis::add( groupWindowsCheck,

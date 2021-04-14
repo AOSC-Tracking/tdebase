@@ -3,5 +3,5 @@ Name=Window List Menu
 
 Comment=A menu that lists all open windows
 
-Icon=window_list
+Icon=window_duplicate
 X-TDE-Library=WindowListButton
