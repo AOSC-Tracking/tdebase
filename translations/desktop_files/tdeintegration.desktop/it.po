@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-17 21:48+0200\n"
+"POT-Creation-Date: 2020-06-29 00:09+0200\n"
 "PO-Revision-Date: 2021-04-18 18:00+0000\n"
 "Last-Translator: Fiflagar Lorizen <fiflagar.lorizen@posteo.net>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
-"projects/tdebase/kappfinder-kappfinderdesktop/it/>\n"
+"projects/tdebase/tdeintegrationdesktop/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +18,11 @@ msgstr ""
 "X-Generator: Weblate 4.5.3\n"
 
 #. Name
-#: kappfinder.desktop:2
-msgid "KAppfinder"
-msgstr "KAppfinder"
+#: kdeintegration.desktop:12
+msgid "TDE Integration Module"
+msgstr "Modulo di Integrazione TDE"
 
-#. GenericName
-#: kappfinder.desktop:3
-msgid "Menu Updating Tool"
-msgstr "Strumento di aggiornamento dei menu"
+#. Comment
+#: kdeintegration.desktop:14
+msgid "Module for integrating UI of non-TDE applications"
+msgstr "Modulo per integrare l'interfaccia di applicazioni non native TDE"

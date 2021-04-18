@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# blu.256 <mavridisf@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-08 16:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2021-04-18 18:00+0000\n"
+"Last-Translator: blu.256 <mavridisf@gmail.com>\n"
+"Language-Team: Greek <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/applnk-directories/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.5.3\n"
 
 #. Name
 #: .directory:2
@@ -38,7 +39,7 @@ msgstr "Δικτυακή ανάπτυξη"
 #: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
 #: kde-utilities.directory:4
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #. Name
 #: kde-editors.directory:4 tde-editors.directory:4
@@ -48,17 +49,17 @@ msgstr "Επεξεργαστές"
 #. Name
 #: kde-edu-languages.directory:4
 msgid "Languages"
-msgstr ""
+msgstr "Ξένες Γλώσσες"
 
 #. Name
 #: kde-edu-mathematics.directory:4
 msgid "Mathematics"
-msgstr ""
+msgstr "Μαθηματικά"
 
 #. Name
 #: kde-edu-miscellaneous.directory:4
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Διάφορα"
 
 #. Name
 #: kde-edu-science.directory:4 tde-science.directory:5
@@ -68,7 +69,7 @@ msgstr "Επιστήμη"
 #. Name
 #: kde-games-arcade.directory:4 tde-games-arcade.directory:4
 msgid "Arcade"
-msgstr ""
+msgstr "Παιχνίδια arcade"
 
 #. Name
 #: kde-games-board.directory:4 tde-games-board.directory:4
@@ -115,7 +116,7 @@ msgstr "Επιφάνεια εργασίας"
 #: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
 #: tde-utilities-pim.directory:6
 msgid "PIM"
-msgstr ""
+msgstr "Προσωπικές πληροφορίες"
 
 #. Name
 #: tde-development-translation.directory:4
@@ -134,9 +135,8 @@ msgstr "Εκπαίδευση"
 
 #. Name
 #: tde-games-logic.directory:4
-#, fuzzy
 msgid "Logic Games"
-msgstr "Παιχνίδια τύπου Rogue"
+msgstr "Παιχνίδια λογικής"
 
 #. Name
 #: tde-games-roguelikes.directory:4
@@ -182,7 +182,7 @@ msgstr "Πολυμέσα"
 #. Comment
 #: tde-office-pim.directory:4 tde-office-pim.directory:6
 msgid "Personal Information Management"
-msgstr ""
+msgstr "Διαχείριση προσωπικών πληροφοριών"
 
 #. Name
 #: tde-office.directory:4
@@ -207,7 +207,7 @@ msgstr "Υλικό"
 #. Name
 #: tde-settings-information.directory:4
 msgid "Device Informations"
-msgstr ""
+msgstr "Πληροφορίες συσκευών"
 
 #. Name
 #: tde-settings-looknfeel.directory:4
@@ -274,7 +274,7 @@ msgstr "Επίδειξη προφύλαξης οθόνης"
 #. Name
 #: tde-system-su.directory:5
 msgid "SuperUser"
-msgstr ""
+msgstr "Υπερχρήστης"
 
 #. Name
 #: tde-system.directory:4

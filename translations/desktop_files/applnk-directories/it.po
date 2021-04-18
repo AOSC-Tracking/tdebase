@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Fiflagar Lorizen <fiflagar.lorizen@posteo.net>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-08 16:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2021-04-18 18:00+0000\n"
+"Last-Translator: Fiflagar Lorizen <fiflagar.lorizen@posteo.net>\n"
+"Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/applnk-directories/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.5.3\n"
 
 #. Name
 #: .directory:2
@@ -38,7 +39,7 @@ msgstr "Sviluppo web"
 #: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
 #: kde-utilities.directory:4
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #. Name
 #: kde-editors.directory:4 tde-editors.directory:4
@@ -48,17 +49,17 @@ msgstr "Editor"
 #. Name
 #: kde-edu-languages.directory:4
 msgid "Languages"
-msgstr ""
+msgstr "Lingue"
 
 #. Name
 #: kde-edu-mathematics.directory:4
 msgid "Mathematics"
-msgstr ""
+msgstr "Matematica"
 
 #. Name
 #: kde-edu-miscellaneous.directory:4
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Varie"
 
 #. Name
 #: kde-edu-science.directory:4 tde-science.directory:5
@@ -68,7 +69,7 @@ msgstr "Scienza"
 #. Name
 #: kde-games-arcade.directory:4 tde-games-arcade.directory:4
 msgid "Arcade"
-msgstr ""
+msgstr "Giochi Arcade"
 
 #. Name
 #: kde-games-board.directory:4 tde-games-board.directory:4
@@ -108,14 +109,14 @@ msgstr "Accessibilità"
 #: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
 #: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
 msgid "Desktop"
-msgstr ""
+msgstr "Desktop"
 
 #. Name
 #. Comment
 #: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
 #: tde-utilities-pim.directory:6
 msgid "PIM"
-msgstr ""
+msgstr "PIM"
 
 #. Name
 #: tde-development-translation.directory:4
@@ -159,9 +160,8 @@ msgstr "Applicazioni terminale"
 
 #. Name
 #: tde-internet.directory:4
-#, fuzzy
 msgid "Internet"
-msgstr "Internet e Rete"
+msgstr "Internet e Reti"
 
 #. Name
 #: tde-main.directory:5
@@ -175,15 +175,14 @@ msgstr "Altri programmi"
 
 #. Name
 #: tde-multimedia.directory:4
-#, fuzzy
 msgid "Multimedia"
-msgstr "Suono e Multimedia"
+msgstr "Suoni e Multimedia"
 
 #. Name
 #. Comment
 #: tde-office-pim.directory:4 tde-office-pim.directory:6
 msgid "Personal Information Management"
-msgstr ""
+msgstr "Gestione delle Informazioni Personali"
 
 #. Name
 #: tde-office.directory:4
@@ -203,7 +202,7 @@ msgstr "Componenti di TDE"
 #. Name
 #: tde-settings-hardware.directory:4
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 #. Name
 #: tde-settings-information.directory:4
@@ -291,7 +290,7 @@ msgstr "Oggetti smarriti"
 #. Comment
 #: tde-utilities-file.directory:4 tde-utilities-file.directory:6
 msgid "File"
-msgstr ""
+msgstr "File"
 
 #. Name
 #: tde-utilities-xutils.directory:4

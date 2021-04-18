@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Fiflagar Lorizen <fiflagar.lorizen@posteo.net>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-22 19:13+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2021-04-18 18:00+0000\n"
+"Last-Translator: Fiflagar Lorizen <fiflagar.lorizen@posteo.net>\n"
+"Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/wallpapers-desktop-files/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.5.3\n"
 
 #. Name
 #: All-Good-People-1.jpg.desktop:3
@@ -54,7 +55,7 @@ msgstr "Predefinito di Trinity (precedente)"
 #. Name
 #: Won-Ton-Soup-3.jpg.desktop:3
 msgid "Won Ton Soup"
-msgstr ""
+msgstr "Zuppa Won Ton"
 
 #. Name
 #: aghi.jpg.desktop:3
@@ -69,7 +70,7 @@ msgstr "Aereoplano"
 #. Name
 #: alta-badia.jpg.desktop:3
 msgid "Alta Badia"
-msgstr ""
+msgstr "Alta Badia"
 
 #. Name
 #: andes-venezolanos.svgz.desktop:3
@@ -84,7 +85,7 @@ msgstr "Un'altra vista"
 #. Name
 #: aurora.svgz.desktop:3
 msgid "Aurora"
-msgstr ""
+msgstr "Aurora"
 
 #. Name
 #: blue-bend.jpg.desktop:3
@@ -119,7 +120,7 @@ msgstr "Mondo a rotelle"
 #. Name
 #: green_curtain.jpg.desktop:3
 msgid "Green Curtain"
-msgstr ""
+msgstr "Tenda Verde"
 
 #. Name
 #: here-gear.svgz.desktop:3
@@ -129,17 +130,17 @@ msgstr "Siamo rotelle"
 #. Name
 #: horse-head-nebula.png.desktop:3
 msgid "Horse Head Nebula"
-msgstr ""
+msgstr "Nebulosa Testa di Cavallo"
 
 #. Name
 #: isadora.png.desktop:3
 msgid "Isadora"
-msgstr ""
+msgstr "Isadora"
 
 #. Name
 #: konqui.svgz.desktop:3
 msgid "Konqui"
-msgstr ""
+msgstr "Konqui"
 
 #. Name
 #: lineart.svgz.desktop:3
@@ -169,12 +170,12 @@ msgstr "Verde morbido"
 #. Name
 #: stelvio.jpg.desktop:3
 msgid "Stelvio"
-msgstr ""
+msgstr "Stelvio"
 
 #. Name
 #: stripes.jpg.desktop:3
 msgid "Stripes"
-msgstr ""
+msgstr "Striscie"
 
 #. Name
 #: sunshine-after-the-rain.jpg.desktop:3
@@ -189,4 +190,4 @@ msgstr "Triple ruote"
 #. Name
 #: world-desktop.jpg.desktop:3
 msgid "World Desktop"
-msgstr ""
+msgstr "Desktop Mondiale"
