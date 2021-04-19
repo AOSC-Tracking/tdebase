@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 22:13+0200\n"
-"PO-Revision-Date: 2021-04-18 18:00+0000\n"
+"PO-Revision-Date: 2021-04-20 20:01+0000\n"
 "Last-Translator: Fiflagar Lorizen <fiflagar.lorizen@posteo.net>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kappfinder-data/it/>\n"
@@ -45,7 +45,7 @@ msgstr "DDD"
 #. GenericName
 #: Development/ddd.desktop:3
 msgid "Data Display Debugger"
-msgstr ""
+msgstr "Data Display Debugger"
 
 #. Name
 #: Development/designer.desktop:2
@@ -59,9 +59,8 @@ msgstr "Disegnatore di interfacce"
 
 #. Name
 #: Development/dlgedit.desktop:2
-#, fuzzy
 msgid "Qt DlgEdit"
-msgstr "Editor delle finestre di dialogo"
+msgstr "Editor di chat per giochi"
 
 #. GenericName
 #: Development/dlgedit.desktop:3
@@ -88,7 +87,7 @@ msgstr "Designer Qt"
 #. Name
 #: Development/j2mewtk.desktop:2
 msgid "J2ME"
-msgstr ""
+msgstr "J2ME"
 
 #. GenericName
 #: Development/j2mewtk.desktop:3
@@ -98,7 +97,7 @@ msgstr "Toolkit J2ME"
 #. Name
 #: Development/linguist.desktop:2
 msgid "Qt Linguist"
-msgstr ""
+msgstr "Linguista Qt"
 
 #. GenericName
 #: Development/linguist.desktop:3
@@ -1475,9 +1474,8 @@ msgstr "Gestione del calendario"
 
 #. Name
 #: Office/pybliographic.desktop:2
-#, fuzzy
 msgid "Pybliographic"
-msgstr "Database bibliografico"
+msgstr ""
 
 #. GenericName
 #: Office/pybliographic.desktop:3
@@ -1703,7 +1701,7 @@ msgstr "Strumento di rete"
 #. Name
 #: Utilities/XUtilities/xcalc.desktop:2
 msgid "X Calc"
-msgstr ""
+msgstr "Calcolatrice"
 
 #. GenericName
 #: Utilities/XUtilities/xcalc.desktop:3 Utilities/calctool.desktop:3
@@ -1712,9 +1710,8 @@ msgstr "Calcolatrice"
 
 #. Name
 #: Utilities/XUtilities/xclipboard.desktop:2
-#, fuzzy
 msgid "X Clipboard"
-msgstr "XBoard"
+msgstr "Clipboard"
 
 #. GenericName
 #: Utilities/XUtilities/xclipboard.desktop:3
