@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Muha Aliss <muhaaliss@gmail.com>, 2020.
+# Erdem Ersoy <erdemersoy@erdemersoy.net>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-18 21:04+0200\n"
-"PO-Revision-Date: 2020-12-21 23:00+0000\n"
-"Last-Translator: Muha Aliss <muhaaliss@gmail.com>\n"
+"PO-Revision-Date: 2021-04-20 20:01+0000\n"
+"Last-Translator: Erdem Ersoy <erdemersoy@erdemersoy.net>\n"
 "Language-Team: Turkish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/color-schemes/tr/>\n"
 "Language: tr\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.5.3\n"
 
 #. Name
 #: AtlasGreen.kcsrc:3
@@ -40,7 +41,7 @@ msgstr "Mavi Tahta"
 #. Name
 #: CDE.kcsrc:3
 msgid "CDE"
-msgstr ""
+msgstr "CDE"
 
 #. Name
 #: DarkBlue.kcsrc:2
@@ -60,29 +61,27 @@ msgstr "Dijital CDE"
 #. Name
 #: EveX.kcsrc:2
 msgid "EveX"
-msgstr ""
+msgstr "EveX"
 
 #. Name
 #: KDEOne.kcsrc:2
 msgid "KDE 1"
-msgstr ""
+msgstr "KDE 1"
 
 #. Name
 #: KDETwo.kcsrc:2
 msgid "KDE 2"
-msgstr ""
+msgstr "KDE 2"
 
 #. Name
 #: Keramik.kcsrc:2
-#, fuzzy
 msgid "Keramik"
-msgstr "Beyaz Keramik"
+msgstr "Keramik"
 
 #. Name
 #: KeramikEmerald.kcsrc:2
-#, fuzzy
 msgid "Keramik Emerald"
-msgstr "Beyaz Keramik"
+msgstr "Zümrüt Keramik"
 
 #. Name
 #: KeramikWhite.kcsrc:2
@@ -97,7 +96,7 @@ msgstr "Medya Şeftalisi"
 #. Name
 #: Next.kcsrc:2
 msgid "Next"
-msgstr ""
+msgstr "Next"
 
 #. Name
 #: PaleGray.kcsrc:3
@@ -107,7 +106,7 @@ msgstr "Açık Gri"
 #. Name
 #: Plastik.kcsrc:2
 msgid "Plastik"
-msgstr ""
+msgstr "Plastik"
 
 #. Name
 #: PointReyesGreen.kcsrc:2
@@ -117,12 +116,12 @@ msgstr "Point Reyes Yeşili"
 #. Name
 #: Pumpkin.kcsrc:3
 msgid "Pumpkin"
-msgstr ""
+msgstr "Kabak"
 
 #. Name
 #: SolarisCDE.kcsrc:2
 msgid "Solaris"
-msgstr ""
+msgstr "Solaris"
 
 #. Name
 #: Storm.kcsrc:3
@@ -142,17 +141,17 @@ msgstr "Yüksek Kontrast Beyaz Metin"
 #. Name
 #: Windows2000.kcsrc:2
 msgid "Redmond 2000"
-msgstr ""
+msgstr "Redmond 2000"
 
 #. Name
 #: Windows95.kcsrc:3
 msgid "Redmond 95"
-msgstr ""
+msgstr "Redmond 95"
 
 #. Name
 #: WindowsXP.kcsrc:2
 msgid "Redmond XP"
-msgstr ""
+msgstr "Redmond XP"
 
 #. Name
 #: YellowOnBlue.kcsrc:2
