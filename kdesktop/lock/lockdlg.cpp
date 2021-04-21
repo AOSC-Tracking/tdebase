@@ -21,6 +21,7 @@
 #include <kpushbutton.h>
 #include <kseparator.h>
 #include <kstandarddirs.h>
+#include <ksimpleconfig.h>
 #include <tdeglobalsettings.h>
 #include <tdeconfig.h>
 #include <kiconloader.h>
@@ -58,9 +59,6 @@
 #include <X11/Xatom.h>
 #include <fixx11h.h>
 
-#ifdef HAVE_KRB5
-#include <libtdeldap.h>
-#endif
 
 #ifndef AF_LOCAL
 # define AF_LOCAL	AF_UNIX
@@ -976,7 +974,12 @@ void PasswordDlg::capsLocked()
 void PasswordDlg::attemptCardLogin() {
 #ifdef HAVE_KRB5
 	// Make sure card logins are enabled before attempting one
-	if (!LDAPManager::pkcsLoginEnabled()) {
+	KSimpleConfig *systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/ldap/ldapconfigrc" ));
+	systemconfig->setGroup(NULL);
+	bool enabled = systemconfig->readBoolEntry("EnablePKCS11Login", false);
+	delete systemconfig;
+	if (!enabled)
+	{
 		return;
 	}
 #else

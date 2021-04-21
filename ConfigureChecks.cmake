@@ -467,7 +467,6 @@ if( WITH_KRB5 )
     endif( NOT HAVE_KRB_KADM_H )
   endif( NOT KRB5_FOUND )
   set( HAVE_KRB5 1 )
-  set( LIBTDELDAP_LIBRARIES "tdeldap" )
 endif( )
 
 # check for libr

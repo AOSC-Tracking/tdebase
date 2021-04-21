@@ -99,9 +99,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <X11/Xlib.h>
 
-#ifdef HAVE_KRB5
-#include <libtdeldap.h>
-#endif
 
 #define FIFO_DIR "/tmp/tdesocket-global/tdm"
 #define FIFO_FILE "/tmp/tdesocket-global/tdm/tdmctl-%1"
@@ -863,7 +860,12 @@ KGreeter::verifySetUser( const TQString &user )
 void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
 #ifdef HAVE_KRB5
 	// Make sure card logins are enabled before attempting one
-	if (!LDAPManager::pkcsLoginEnabled()) {
+	KSimpleConfig *systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/ldap/ldapconfigrc" ));
+	systemconfig->setGroup(NULL);
+	bool enabled = systemconfig->readBoolEntry("EnablePKCS11Login", false);
+	delete systemconfig;
+	if (!enabled)
+	{
 		return;
 	}
 #else

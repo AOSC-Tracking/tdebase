@@ -71,7 +71,7 @@ tde_add_executable( tdm_greet AUTOMOC
     kfdialog.cpp kgdialog.cpp kchooser.cpp kgverify.cpp
     tdmshutdown.cpp tdmadmindialog.cpp kgreeter.cpp
     kgapp.cpp sakdlg.cpp
-  LINK tdmthemer-static tdeui-shared tdeio-shared dmctl-static Xtst ${LIBTDELDAP_LIBRARIES} ${TDMGREET_OPTIONAL_LINK}
+  LINK tdmthemer-static tdeui-shared tdeio-shared dmctl-static Xtst ${TDMGREET_OPTIONAL_LINK}
   DESTINATION ${BIN_INSTALL_DIR}
 )
 
