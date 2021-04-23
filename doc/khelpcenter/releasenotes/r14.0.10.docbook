@@ -1,12 +1,71 @@
 <sect1 id="release-notes-r14.0.10">
-<title>R14.0.10 Release Notes (draft)</title>
+<title>R14.0.10 Release Notes</title>
 
 <para>R14.0.10 is the tenth maintenance release of the R14.0 series,
 and is built on and improves the previous R14.0.9 version.</para>
 <para>Maintenance releases are intended to promptly bring bug fixes
 to users, while preserving overall stability through the avoidance
-of both major new features and major codebase re-factoring.</para>
+of both major API or feature changes and major codebase re-factoring.</para>
 
-<para>The ongoing temporary list of changes introduced by this release can be found <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/36">here</ulink>.</para>
+<sect2 id="release-notes-r14.0.10-notes">
+<title>Important fixes</title>
+
+<para>This section highlights some of the most important changes introduced by this
+release.</para>
+
+<itemizedlist>
+<listitem>
+  <para>New applications</para>
+  <itemizedlist>
+  <listitem><para>KlamAV - an anti-virus front end for ClamAV</para></listitem>
+  <listitem><para>Komposé - provides a fullscreen view of all your tasks and/or virtual desktops</para></listitem>
+  <listitem><para>TDEFifteen game - a simple Fifteen game</para></listitem>
+  <listitem><para>pinentry-tqt - TQt-based PIN or pass-phrase entry dialog for GnuPG (build from official upstream)</para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Enhancements</para>
+  <itemizedlist>
+  <listitem><para>Added option to display cover page in KPDF when using two page display</para></listitem>
+  <listitem><para>Major enhancements to the on screen virtual keyboard (kvkbd)</para></listitem>
+  <listitem><para>Added adjustable icon spacing functionality in KDesktop</para></listitem>
+  <listitem><para>1%-step display brightness fine tuning is now possible, if supported by the monitor</para></listitem>
+  <listitem><para>Improved unicode support in TQt3</para></listitem>
+  <listitem><para>Add support for RISC-V 32bit and 64bit</para></listitem>
+  <listitem><para>Improved support for kweather stations</para></listitem>
+  <listitem><para>Added additional foreigner screensaver desktop files</para></listitem>
+  <listitem><para>Translation updates (thanks to all translators)</para></listitem>
+  <listitem><para>Several packages have been migrated to CMake build system</para></listitem>
+  <listitem><para>Dropped automake build system for various packages</para></listitem>
+  <listitem><para>Continued overall look polishing</para></listitem>
+  <listitem><para>DEB: initial work on reproducible builds</para></listitem>
+  <listitem><para>DEB: added support for Ubuntu 21.04 (Hirsute)</para></listitem>
+  <listitem><para>RPM: added support for Mageia 8 and Fedora 13</para></listitem>
+  <listitem><para>BSD: added support for FreeBSD 13</para></listitem>
+  </itemizedlist>
+</listitem>
+<listitem>
+  <para>Bug fixes</para>
+  <itemizedlist>
+  <listitem><para>Fixed Konqueror random crash on cut-n-paste</para></listitem>
+  <listitem><para>Fixed handling of files containing # in their name</para></listitem>
+  <listitem><para>Fixed visualization of icons for executable files with libmagick >= 5.33</para></listitem>
+  <listitem><para>Fixed warning message spew on dbus access denial</para></listitem>
+  <listitem><para>Fixed TDevelop crash on bash files</para></listitem>
+  <listitem><para>Fixed detection of mountable optical disks with incomplete partition table</para></listitem>
+  <listitem><para>KSplash theme information is now displayed in the TDE Control Center</para></listitem>
+  <listitem><para>DEB trinity-keyring no longer depends on gnupg package</para></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+
+<para>The full list of changes is available at these links:</para>
+<itemizedlist>
+  <listitem><para><ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/36">TGW issue list</ulink></para></listitem>
+  <listitem><para><ulink url="https://bugs.trinitydesktop.org/showdependencytree.cgi?id=3161&amp;hide_resolved=0">Bugzilla bug list</ulink></para></listitem>
+  <listitem><para><ulink url="https://wiki.trinitydesktop.org/Changelog_For_R14.0.10">Detailed commit change log</ulink></para></listitem>
+  <listitem><para><ulink url="https://wiki.trinitydesktop.org/Release_Notes_For_R14.0.10">Full release notes on TDE wiki</ulink></para></listitem>
+</itemizedlist>
+</sect2>
 
 </sect1>
