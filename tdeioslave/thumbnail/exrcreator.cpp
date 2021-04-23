@@ -26,6 +26,7 @@
 #include <tqfile.h>
 
 #include <ImfInputFile.h>
+#include <ImfHeader.h>
 #include <ImfPreviewImage.h>
 
 #include "exrcreator.h"
