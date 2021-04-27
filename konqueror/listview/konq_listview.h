@@ -158,6 +158,7 @@ private:
   KMimeTypeResolver<KonqBaseListViewItem,KonqListView> *m_mimeTypeResolver;
   TQTimer *m_headerTimer;
 
+  bool     toggleColumnAlternate = true;
   TQString m_sortColumnNamePrimary;
   int      m_sortColumnIndexPrimary;
   int      m_sortColumnOrderPrimary;
@@ -165,6 +166,8 @@ private:
   int      m_sortColumnIndexAlternate;
   int      m_sortColumnOrderAlternate;
 
+  void resetSortConfig();
+  void checkSortConfig();
   void sortListView(uint which);
 
   TDEAction *m_paSelect;

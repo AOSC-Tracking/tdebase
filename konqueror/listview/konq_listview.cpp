@@ -539,6 +539,9 @@ void KonqListView::slotColumnToggled()
 
    // Update column sizes
    slotHeaderSizeChanged();
+
+   // Columns may have been rearranged, so do this to be safe:
+   resetSortConfig();
 }
 
 void KonqListView::slotHeaderClicked(int sec)
@@ -565,68 +568,166 @@ void KonqListView::slotHeaderClicked(int sec)
       m_pListView->setAscending(!m_pListView->ascending());
    }
 
+   checkSortConfig() ;
    KonqListViewSettings config( m_pListView->url().protocol() );
    config.readConfig();
 
-   if (nameOfSortColumn == m_sortColumnNamePrimary)
-   {
-     m_sortColumnNamePrimary  = nameOfSortColumn;
-     m_sortColumnIndexPrimary = sec;
-     m_sortColumnOrderPrimary = m_pListView->ascending();
-     config.setPrimarySortOrder(m_pListView->ascending());
+   if (sec == m_sortColumnIndexPrimary) {
+      kdDebug(1202)<<"Changing sort order on primary sort column"<<endl;
+      m_sortColumnOrderPrimary = m_pListView->ascending();
+      config.setPrimarySortOrder(m_pListView->ascending());
    }
-   else
-   {
-     m_sortColumnNameAlternate   = nameOfSortColumn;
-     m_sortColumnIndexAlternate  = sec;
-     m_sortColumnOrderAlternate  = m_pListView->ascending();
-     config.setAlternateSortCol(nameOfSortColumn);
-     config.setAlternateSortIndex(sec);
-     config.setAlternateSortOrder(m_pListView->ascending());
+   else if (sec == m_sortColumnIndexAlternate) {
+      kdDebug(1202)<<"Changing sort order on alternate sort column"<<endl;
+      m_sortColumnOrderAlternate  = m_pListView->ascending();
+      config.setAlternateSortOrder(m_pListView->ascending());
    }
+   else if ( toggleColumnAlternate ) {
+      kdDebug(1202)<<"Setting new alternate sort column"<<endl;
+      m_sortColumnNameAlternate   = nameOfSortColumn;
+      m_sortColumnIndexAlternate  = sec;
+      m_sortColumnOrderAlternate  = true;
+      config.setAlternateSortCol(nameOfSortColumn);
+      config.setAlternateSortIndex(sec);
+      config.setAlternateSortOrder(true);
+      toggleColumnAlternate = false;
+   }
+   else {
+      kdDebug(1202)<<"Setting new primary sort column"<<endl;
+      m_sortColumnNamePrimary   = nameOfSortColumn;
+      m_sortColumnIndexPrimary  = sec;
+      m_sortColumnOrderPrimary  = true;
+      config.setPrimarySortCol(nameOfSortColumn);
+      config.setPrimarySortIndex(sec);
+      config.setPrimarySortOrder(true);
+      toggleColumnAlternate = true;
+   }
+
    config.setSortBy( nameOfSortColumn );
    config.setSortOrder( m_pListView->ascending() );
    config.writeConfig();
 }
 
-#define LV_SORT_ASCENDING 1
-#define LV_SORT_REVERSE   2
+void KonqListView::resetSortConfig()
+{
+   int defaultVisibleColumn;
+   int columnNumber;
+
+   defaultVisibleColumn=0; // First visible column from left
+   columnNumber = -1;
+   for (uint i=0; i<m_pListView->NumberOfAtoms; i++)
+      if (m_pListView->confColumns[i].displayInColumn==defaultVisibleColumn)
+        columnNumber=i;
+   if (columnNumber==-1) {
+      // This should not happen!
+      kdDebug() << "We did not find columnNumber" <<endl;
+      m_sortColumnIndexPrimary = 0;
+      m_sortColumnNamePrimary  = "FileName";
+   }
+   else {
+      m_sortColumnIndexPrimary = defaultVisibleColumn;
+      m_sortColumnNamePrimary=m_pListView->confColumns[columnNumber].desktopFileName;
+   }
+
+   defaultVisibleColumn=1 ;  // Second visible column from left
+   columnNumber=-1;
+   for (uint i=0; i<m_pListView->NumberOfAtoms; i++)
+      if (m_pListView->confColumns[i].displayInColumn==defaultVisibleColumn)
+        columnNumber=i;
+   if (columnNumber==-1) {
+      // This should not happen!
+      kdDebug() << "We did not find columnNumber" <<endl;
+      m_sortColumnIndexAlternate = 0;
+      m_sortColumnNameAlternate  = "FileName";
+   }
+   else {
+      m_sortColumnIndexAlternate = defaultVisibleColumn;
+      m_sortColumnNameAlternate=m_pListView->confColumns[columnNumber].desktopFileName;
+   }
+
+   m_sortColumnOrderPrimary = true ;
+   m_sortColumnOrderAlternate = true ;
+
+   kdDebug(1202) << "Initialized m_sortColumnIndexPrimary to " <<m_sortColumnIndexPrimary <<endl;
+   kdDebug(1202) << "Initialized m_sortColumnNamePrimary to " <<m_sortColumnNamePrimary <<endl;
+   kdDebug(1202) << "Initialized m_sortColumnIndexAlternate to " <<m_sortColumnIndexAlternate <<endl;
+   kdDebug(1202) << "Initialized m_sortColumnNameAlternate to " <<m_sortColumnNameAlternate <<endl;
+
+   KonqListViewSettings config( m_pListView->url().protocol() );
+   config.setPrimarySortCol(m_sortColumnNamePrimary);
+   config.setPrimarySortIndex(m_sortColumnIndexPrimary);
+   config.setPrimarySortOrder(m_sortColumnOrderPrimary);
+   config.setAlternateSortCol(m_sortColumnNameAlternate);
+   config.setAlternateSortIndex(m_sortColumnIndexAlternate);
+   config.setAlternateSortOrder(m_sortColumnOrderAlternate);
+   config.writeConfig() ;
+}
+
+void KonqListView::checkSortConfig()
+{
+   int defaultVisibleColumn;
+   int columnNumber;
+
+   KonqListViewSettings config( m_pListView->url().protocol() );
+   config.readConfig();
+
+   m_sortColumnIndexPrimary   = config.primarySortIndex();
+   m_sortColumnNamePrimary    = config.primarySortCol();
+   m_sortColumnOrderPrimary   = config.primarySortOrder();
+
+   m_sortColumnIndexAlternate = config.alternateSortIndex();
+   m_sortColumnNameAlternate  = config.alternateSortCol();
+   m_sortColumnOrderAlternate = config.alternateSortOrder();
+
+   if (m_sortColumnIndexPrimary >= 0 && m_sortColumnIndexAlternate >= 0)
+     if (m_sortColumnIndexPrimary != m_sortColumnIndexAlternate)
+       return ;
+   // FIXME: should we check other values?
+
+   resetSortConfig();
+}
+
+#define LV_SORT_CHANGE_COLUMN 1
+#define LV_SORT_CHANGE_ORDER  2
 
 void KonqListView::sortListView(uint which)
 {
    TQString sortColumnNameCurrent = m_pListView->sortedByColumn;
+   if (sortColumnNameCurrent == "" ) {
+     sortColumnNameCurrent = "FileName" ;
+     m_pListView->sortedByColumn = sortColumnNameCurrent ;
+   }
    TQString sortColumnNameNext;
    int      sortColumnIndex;
    bool     sortOrder;
 
+   checkSortConfig() ;
    KonqListViewSettings config( m_pListView->url().protocol() );
    config.readConfig();
-   m_sortColumnOrderPrimary   = config.primarySortOrder();
-   m_sortColumnNameAlternate  = config.alternateSortCol();
-   m_sortColumnOrderAlternate = config.alternateSortOrder();
-   m_sortColumnIndexAlternate = config.alternateSortIndex();
 
    switch (which)
    {
-      case LV_SORT_ASCENDING:
+      case LV_SORT_CHANGE_COLUMN:
          if (m_sortColumnNamePrimary == sortColumnNameCurrent)
          {
             sortColumnNameNext = m_sortColumnNameAlternate;
             sortColumnIndex = m_sortColumnIndexAlternate;
             sortOrder = m_sortColumnOrderAlternate;
+            kdDebug(1202) << "Changing sort column to alternate"<<endl ;
          }
          else
          {
             sortColumnNameNext = m_sortColumnNamePrimary;
             sortColumnIndex = m_sortColumnIndexPrimary;
             sortOrder = m_sortColumnOrderPrimary;
+            kdDebug(1202) << "Changing sort column to primary"<<endl ;
          }
          m_pListView->setSorting( sortColumnIndex, sortOrder );
          m_pListView->sortedByColumn = sortColumnNameNext;
          config.setSortBy( sortColumnNameNext );
          break;
 
-     case LV_SORT_REVERSE:
+     case LV_SORT_CHANGE_ORDER:
         sortOrder = !m_pListView->ascending();
 
         if ( m_sortColumnNamePrimary == sortColumnNameCurrent )
@@ -634,12 +735,14 @@ void KonqListView::sortListView(uint which)
            sortColumnIndex = m_sortColumnIndexPrimary;
            m_sortColumnOrderPrimary = sortOrder;
            config.setPrimarySortOrder( sortOrder );
+           kdDebug(1202) << "Changing sort order of primary"<<endl ;
         }
         else
         {
            sortColumnIndex = m_sortColumnIndexAlternate;
            m_sortColumnOrderAlternate = sortOrder ;
            config.setAlternateSortOrder( sortOrder ) ;
+           kdDebug(1202) << "Changing sort order of alternate"<<endl ;
         }
         m_pListView->setAscending(sortOrder) ;
         config.setSortOrder(sortOrder);
@@ -658,12 +761,12 @@ void KonqListView::sortListView(uint which)
 
 void KonqListView::slotSortAlternate()
 {
-   KonqListView::sortListView(LV_SORT_ASCENDING);
+   KonqListView::sortListView(LV_SORT_CHANGE_COLUMN);
 }
 
 void KonqListView::slotSortReverse()
 {
-   KonqListView::sortListView(LV_SORT_REVERSE);
+   KonqListView::sortListView(LV_SORT_CHANGE_ORDER);
 }
 
 void KonqListView::slotToggleDisplayDirectoriesFirst()
@@ -727,6 +830,9 @@ void KonqListView::slotSaveAfterHeaderDrag()
 
    // Update column sizes
    slotHeaderSizeChanged();
+
+   // Columns were rearranged, so do this to be safe:
+   resetSortConfig();
 }
 
 void KonqListView::slotSaveColumnWidths()

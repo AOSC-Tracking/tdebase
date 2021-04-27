@@ -2,12 +2,11 @@
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
-                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <include>tdeapplication.h</include>
   <kcfgfile name="konquerorrc">
     <parameter name="Protocol" />
   </kcfgfile>
-
   <group name="ListView_$(Protocol)">
     <entry key="SortBy" type="String">
       <default>FileName</default> 
@@ -19,18 +18,28 @@
       <label>Sort Order</label>
       <whatsthis></whatsthis>
     </entry>
+    <entry key="PrimarySortCol" type="String">
+      <default>TBD</default>
+      <label>Primary sort column name</label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="PrimarySortIndex" type="Int">
+      <default>-1</default>
+      <label>Primary sort column offset</label>
+      <whatsthis></whatsthis>
+    </entry>
     <entry key="PrimarySortOrder" type="Bool">
       <default>true</default>
       <label>Primary sort column sorting order</label>
       <whatsthis></whatsthis>
     </entry>
     <entry key="AlternateSortCol" type="String">
-      <default>Date</default>
+      <default>TBD</default>
       <label>Alternate sort column name</label>
       <whatsthis></whatsthis>
     </entry>
     <entry key="AlternateSortIndex" type="Int">
-      <default>0</default>
+      <default>-1</default>
       <label>Alternate sort column offset</label>
       <whatsthis></whatsthis>
     </entry>
@@ -53,5 +62,4 @@
       <whatsthis></whatsthis>
     </entry>
   </group>
-
 </kcfg>
