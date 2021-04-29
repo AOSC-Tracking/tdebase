@@ -10,10 +10,11 @@
 
 #include <dmctl.h>
 
+#ifdef __TDE_HAVE_TDEHWLIB
 #include <ksslcertificate.h>
-
 #include <tdehardwaredevices.h>
 #include <tdecryptographiccarddevice.h>
+#endif
 
 #include <tdeapplication.h>
 #include <tdelocale.h>
@@ -135,6 +136,7 @@ SAKDlg::SAKDlg(TQWidget *parent)
 	connect(mSAKProcess, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(slotSAKProcessExited()));
 	mSAKProcess->start();
 
+#ifdef __TDE_HAVE_TDEHWLIB
 	// Initialize SmartCard readers
 	TDEGenericDevice *hwdevice;
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -145,6 +147,7 @@ SAKDlg::SAKDlg(TQWidget *parent)
 		connect(cdevice, TQT_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
 		cdevice->enableCardMonitoring(true);
 	}
+#endif
 
 	mControlPipeHandlerThread = new TQEventLoopThread();
 	mControlPipeHandler = new ControlPipeHandlerObject();
@@ -172,6 +175,7 @@ void SAKDlg::processInputPipeCommand(TQString command) {
 }
 
 void SAKDlg::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
+#ifdef __TDE_HAVE_TDEHWLIB
 	TQString login_name = TQString::null;
 	X509CertificatePtrList certList = cdevice->cardX509Certificates();
 	if (certList.count() > 0) {
@@ -213,10 +217,13 @@ void SAKDlg::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
 			closeDialogForced();
 		}
 	}
+#endif
 }
 
 void SAKDlg::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) {
+#ifdef __TDE_HAVE_TDEHWLIB
 	//
+#endif
 }
 
 SAKDlg::~SAKDlg()

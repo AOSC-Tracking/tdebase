@@ -10,13 +10,7 @@
 #ifndef __LOCKENG_H__
 #define __LOCKENG_H__
 
-#include <ksslcertificate.h>
-
-#include <tdehardwaredevices.h>
-#include <tdecryptographiccarddevice.h>
-
 #include <kgreeterplugin.h>
-
 #include <kprocess.h>
 #include <kpixmap.h>
 #include <krootpixmap.h>
@@ -35,6 +29,11 @@ class KLibrary;
 class KWinModule;
 class KSMModalDialog;
 class LockProcess;
+#ifdef __TDE_HAVE_TDEHWLIB
+class TDECryptographicCardDevice;
+#else
+#define TDECryptographicCardDevice void
+#endif
 
 struct GreeterPluginHandle {
 	KLibrary *library;

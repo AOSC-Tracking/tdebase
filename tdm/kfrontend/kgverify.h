@@ -77,7 +77,9 @@ class TQPopupMenu;
 class TQTimer;
 class KPushButton;
 class KLibrary;
+#ifdef __TDE_HAVE_TDEHWLIB
 class TDECryptographicCardDevice;
+#endif
 
 struct GreeterPluginHandle {
 	KLibrary *library;
@@ -182,8 +184,10 @@ class KGVerify : public TQObject, public KGreeterPluginHandler {
 
 	static TQVariant getConf( void *ctx, const char *key, const TQVariant &dflt );
 
+#ifdef __TDE_HAVE_TDEHWLIB
 	bool cardLoginInProgress;
 	TDECryptographicCardDevice* cardLoginDevice;
+#endif
 };
 
 class KGStdVerify : public KGVerify {

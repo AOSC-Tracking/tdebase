@@ -17,6 +17,14 @@
 //some image will be corrupted).
 
 #include <config.h>
+#include <tdeglobal.h>
+
+#ifdef __TDE_HAVE_TDEHWLIB
+#include <ksslcertificate.h>
+#include <kuser.h>
+#include <tdehardwaredevices.h>
+#include <tdecryptographiccarddevice.h>
+#endif
 
 #include "lockprocess.h"
 #include "lockdlg.h"
@@ -34,7 +42,6 @@
 #include <tdeapplication.h>
 #include <kservicegroup.h>
 #include <kdebug.h>
-#include <kuser.h>
 #include <tdemessagebox.h>
 #include <tdeglobalsettings.h>
 #include <tdelocale.h>
@@ -291,6 +298,7 @@ LockProcess::LockProcess()
 		}
 	}
 
+#ifdef __TDE_HAVE_TDEHWLIB
 	// Initialize SmartCard readers
 	TDEGenericDevice *hwdevice;
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -303,6 +311,7 @@ LockProcess::LockProcess()
 		cdevice->enableCardMonitoring(true);
 		// cdevice->enablePINEntryCallbacks(true);
 	}
+#endif
 
 #ifdef KEEP_MOUSE_UNGRABBED
 	setEnabled(false);
@@ -2823,6 +2832,7 @@ void LockProcess::processInputPipeCommand(TQString inputcommand) {
 }
 
 void LockProcess::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
+#ifdef __TDE_HAVE_TDEHWLIB
 	TQString login_name = TQString::null;
 	X509CertificatePtrList certList = cdevice->cardX509Certificates();
 	if (certList.count() > 0) {
@@ -2856,9 +2866,11 @@ void LockProcess::cryptographicCardInserted(TDECryptographicCardDevice* cdevice)
 			}
 		}
 	}
+#endif
 }
 
 void LockProcess::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) {
+#ifdef __TDE_HAVE_TDEHWLIB
 	PasswordDlg* passDlg = dynamic_cast<PasswordDlg*>(currentDialog);
 	if (passDlg) {
 		passDlg->resetCardLogin();
@@ -2867,9 +2879,12 @@ void LockProcess::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) 
 		m_loginCardDevice = NULL;
 		TQTimer::singleShot(0, this, SLOT(signalPassDlgToAttemptCardAbort()));
 	}
+#endif
 }
 
-void LockProcess::signalPassDlgToAttemptCardLogin() {
+void LockProcess::signalPassDlgToAttemptCardLogin()
+{
+#ifdef __TDE_HAVE_TDEHWLIB
 	PasswordDlg* passDlg = dynamic_cast<PasswordDlg*>(currentDialog);
 	if (passDlg && m_loginCardDevice) {
 		passDlg->attemptCardLogin();
@@ -2880,9 +2895,12 @@ void LockProcess::signalPassDlgToAttemptCardLogin() {
 			TQTimer::singleShot(0, this, SLOT(signalPassDlgToAttemptCardLogin()));
 		}
 	}
+#endif
 }
 
-void LockProcess::signalPassDlgToAttemptCardAbort() {
+void LockProcess::signalPassDlgToAttemptCardAbort()
+{
+#ifdef __TDE_HAVE_TDEHWLIB
 	PasswordDlg* passDlg = dynamic_cast<PasswordDlg*>(currentDialog);
 	if (passDlg) {
 		passDlg->resetCardLogin();
@@ -2893,9 +2911,12 @@ void LockProcess::signalPassDlgToAttemptCardAbort() {
 			TQTimer::singleShot(0, this, SLOT(signalPassDlgToAttemptCardAbort()));
 		}
 	}
+#endif
 }
 
-void LockProcess::cryptographicCardPinRequested(TQString prompt, TDECryptographicCardDevice* cdevice) {
+void LockProcess::cryptographicCardPinRequested(TQString prompt, TDECryptographicCardDevice* cdevice)
+{
+#ifdef __TDE_HAVE_TDEHWLIB
 	TQCString password;
 	TQString pin_entry;
 
@@ -2911,10 +2932,16 @@ void LockProcess::cryptographicCardPinRequested(TQString prompt, TDECryptographi
 	else {
 		cdevice->setProvidedPin(TQString::null);
 	}
+#endif
 }
 
-TDECryptographicCardDevice* LockProcess::cryptographicCardDevice() {
+TDECryptographicCardDevice* LockProcess::cryptographicCardDevice()
+{
+#ifdef __TDE_HAVE_TDEHWLIB
 	return m_loginCardDevice;
+#else
+	return NULL;
+#endif
 }
 
 void LockProcess::fullyOnline() {

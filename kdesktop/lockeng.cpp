@@ -11,18 +11,20 @@
 
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <tdeglobal.h>
 
+#ifdef __TDE_HAVE_TDEHWLIB
 #include <ksslcertificate.h>
-
+#include <kuser.h>
 #include <tdehardwaredevices.h>
 #include <tdecryptographiccarddevice.h>
+#endif
 
 #include <kstandarddirs.h>
 #include <tdeapplication.h>
 #include <kservicegroup.h>
 #include <ksimpleconfig.h>
 #include <kdebug.h>
-#include <kuser.h>
 #include <tdelocale.h>
 #include <tqfile.h>
 #include <tqtimer.h>
@@ -198,6 +200,7 @@ SaverEngine::SaverEngine()
 	delete config;
 	config = NULL;
 
+#ifdef __TDE_HAVE_TDEHWLIB
 	// Initialize SmartCard readers
 	TDEGenericDevice *hwdevice;
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -221,6 +224,7 @@ SaverEngine::SaverEngine()
 		}
 		flagFile.close();
 	}
+#endif
 
 	dBusConnect();
 }
@@ -261,6 +265,7 @@ void SaverEngine::cardStartupTimeout() {
 }
 
 void SaverEngine::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
+#ifdef __TDE_HAVE_TDEHWLIB
 	TQString login_name = TQString::null;
 	X509CertificatePtrList certList = cdevice->cardX509Certificates();
 	if (certList.count() > 0) {
@@ -282,9 +287,11 @@ void SaverEngine::cryptographicCardInserted(TDECryptographicCardDevice* cdevice)
 			mValidCryptoCardInserted = true;
 		}
 	}
+#endif
 }
 
 void SaverEngine::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) {
+#ifdef __TDE_HAVE_TDEHWLIB
 	if (mValidCryptoCardInserted) {
 		mValidCryptoCardInserted = false;
 
@@ -294,6 +301,7 @@ void SaverEngine::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) 
 		// Force lock
 		lockScreen();
 	}
+#endif
 }
 
 //---------------------------------------------------------------------------

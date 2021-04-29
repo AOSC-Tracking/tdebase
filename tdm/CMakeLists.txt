@@ -21,7 +21,7 @@ include( ConfigureChecks.cmake )
 
 add_subdirectory( backend )
 add_subdirectory( kfrontend )
-add_subdirectory( cryptocardwatcher )
+tde_conditional_add_subdirectory( WITH_TDEHWLIB cryptocardwatcher )
 
 # systemd
 if( BUILD_TDM_SYSTEMD_UNIT_FILE AND NOT "${SYSTEMDSYSTEMUNITDIR}" STREQUAL "" )

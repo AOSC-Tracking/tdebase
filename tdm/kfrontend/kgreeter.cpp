@@ -35,10 +35,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <dmctl.h>
 
+#ifdef __TDE_HAVE_TDEHWLIB
 #include <ksslcertificate.h>
-
 #include <tdehardwaredevices.h>
 #include <tdecryptographiccarddevice.h>
+#endif
 
 #include <tdeapplication.h>
 #include <tdelocale.h>
@@ -246,6 +247,7 @@ KGreeter::~KGreeter()
 void KGreeter::cryptographicCardWatcherSetup() {
 	cardLoginUser = TQString::null;
 
+#ifdef __TDE_HAVE_TDEHWLIB
 	// Initialize SmartCard readers
 	TDEGenericDevice *hwdevice;
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -256,6 +258,7 @@ void KGreeter::cryptographicCardWatcherSetup() {
 		connect(cdevice, TQT_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
 		cdevice->enableCardMonitoring(true);
 	}
+#endif
 }
 
 void KGreeter::done(int r) {
@@ -858,7 +861,11 @@ KGreeter::verifySetUser( const TQString &user )
 }
 
 void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
-#ifdef HAVE_KRB5
+#ifdef __TDE_HAVE_TDEHWLIB
+#ifndef HAVE_KRB5
+	// Don't enable card-based logins if Kerberos integration was disabled
+	return;
+#endif
 	// Make sure card logins are enabled before attempting one
 	KSimpleConfig *systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/ldap/ldapconfigrc" ));
 	systemconfig->setGroup(NULL);
@@ -868,10 +875,6 @@ void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
 	{
 		return;
 	}
-#else
-	// Don't enable card-based logins if Kerberos integration was disabled
-	return;
-#endif
 
 	TQString login_name = TQString::null;
 	X509CertificatePtrList certList = cdevice->cardX509Certificates();
@@ -938,9 +941,11 @@ void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
 			verify->accept();
 		}
 	}
+#endif
 }
 
 void KGreeter::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) {
+#ifdef __TDE_HAVE_TDEHWLIB
 	cardLoginUser = TQString::null;
 	userView->setEnabled(false);
 	verify->lockUserEntry(false);
@@ -952,6 +957,7 @@ void KGreeter::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) {
 
 	verify->cardLoginInProgress = false;
 	verify->cardLoginDevice = NULL;
+#endif
 }
 
 KStdGreeter::KStdGreeter()
@@ -1332,9 +1338,11 @@ KThemedGreeter::updateStatus( bool fail, bool caps, int timedleft )
 		}
 	}
 
+#ifdef __TDE_HAVE_TDEHWLIB
 	if (cardLoginUser != TQString::null) {
 		verify->setPasswordPrompt(i18n("PIN:"));
 	}
+#endif
 }
 
 void

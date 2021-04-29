@@ -32,10 +32,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "themer/tdmitem.h"
 #include "themer/tdmlabel.h"
 
-#include <ksslcertificate.h>
 
+#ifdef __TDE_HAVE_TDEHWLIB
+#include <ksslcertificate.h>
 #include <tdehardwaredevices.h>
 #include <tdecryptographiccarddevice.h>
+#endif
 
 #include <tdeapplication.h>
 #include <tdelocale.h>
@@ -98,8 +100,10 @@ KGVerify::KGVerify(KGVerifyHandler *_handler, KdmThemer *_themer,
 	, isClear(true)
 	, inGreeterPlugin(false)
 	, abortRequested(false)
+#ifdef __TDE_HAVE_TDEHWLIB
 	, cardLoginInProgress(false)
 	, cardLoginDevice(NULL)
+#endif
 {
 	connect( &timer, TQT_SIGNAL(timeout()), TQT_SLOT(slotTimeout()) );
 	connect( kapp, TQT_SIGNAL(activity()), TQT_SLOT(slotActivity()) );
@@ -324,7 +328,11 @@ KGVerify::start()
 				_autoLoginDelay = 0, timeable = false;
 			return;
 		}
-		else if (!cardLoginInProgress) {
+		else
+#ifdef __TDE_HAVE_TDEHWLIB
+			if (!cardLoginInProgress)
+#endif
+		{
 			applyPreset();
 		}
 	}
@@ -664,6 +672,7 @@ KGVerify::handleVerify()
 					greet->textPrompt(msg, echo, ndelay);
 					inGreeterPlugin = !ndelay;
 
+#ifdef __TDE_HAVE_TDEHWLIB
 					if (cardLoginInProgress) {
 						TQString autoPIN = cardLoginDevice->autoPIN(); 
 						if (autoPIN != TQString::null) {
@@ -673,6 +682,7 @@ KGVerify::handleVerify()
 						}
 						cardLoginInProgress = false;
 					}
+#endif
 				}
 				else {
 					inGreeterPlugin = true;

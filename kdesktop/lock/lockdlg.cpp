@@ -44,7 +44,10 @@
 #include <tqlistview.h>
 #include <tqheader.h>
 #include <tqcheckbox.h>
+#ifdef __TDE_HAVE_TDEHWLIB
 #include <tqfile.h>
+#include <tdecryptographiccarddevice.h>
+#endif
 
 #include <ctype.h>
 #include <unistd.h>
@@ -99,6 +102,7 @@ PasswordDlg::PasswordDlg(LockProcess *parent, GreeterPluginHandle *plugin, TQDat
 	mPlugin( plugin ),
 	mCapsLocked(-1),
 	mUnlockingFailed(false),
+	validUserCardInserted(false),
 	showInfoMessages(true),
 	mCardLoginInProgress(false)
 {
@@ -477,6 +481,7 @@ void PasswordDlg::reapVerify()
 			switch (WEXITSTATUS(status)) {
 			case AuthOk:
 				{
+#ifdef __TDE_HAVE_TDEHWLIB
 					KUser userinfo;
 					TQString fileName = userinfo.homeDir() + "/.tde_card_login_state";
 					TQFile flagFile(fileName);
@@ -491,6 +496,7 @@ void PasswordDlg::reapVerify()
 						// Card was not used to log in
 						flagFile.remove();
 					}
+#endif
 
 					// Signal success
 					greet->succeeded();
@@ -553,6 +559,7 @@ void PasswordDlg::handleVerify()
 				setFixedSize( sizeHint().width(), sizeHint().height() + 1 );
 				setFixedSize( sizeHint() );
 
+#ifdef __TDE_HAVE_TDEHWLIB
 				// Check if cryptographic card login is being used
 				if (mCardLoginInProgress) {
 					// Attempt authentication if configured
@@ -566,6 +573,7 @@ void PasswordDlg::handleVerify()
 					}
 					mCardLoginInProgress = false;
 				}
+#endif
 			}
 			else {
 				greet->textPrompt( arr, false, false );
@@ -972,7 +980,12 @@ void PasswordDlg::capsLocked()
 }
 
 void PasswordDlg::attemptCardLogin() {
-#ifdef HAVE_KRB5
+#ifdef __TDE_HAVE_TDEHWLIB
+#ifndef HAVE_KRB5
+	// Don't enable card-based logins if Kerberos integration was disabled
+	return;
+#endif
+
 	// Make sure card logins are enabled before attempting one
 	KSimpleConfig *systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/ldap/ldapconfigrc" ));
 	systemconfig->setGroup(NULL);
@@ -982,10 +995,6 @@ void PasswordDlg::attemptCardLogin() {
 	{
 		return;
 	}
-#else
-	// Don't enable card-based logins if Kerberos integration was disabled
-	return;
-#endif
 
 	if (mCardLoginInProgress) {
 		return;
@@ -1007,9 +1016,11 @@ void PasswordDlg::attemptCardLogin() {
 	greet->start();
 	greet->setPassword("");
 	TQTimer::singleShot(0, this, SLOT(slotOK()));
+#endif
 }
 
 void PasswordDlg::resetCardLogin() {
+#ifdef __TDE_HAVE_TDEHWLIB
 	validUserCardInserted = false;
 	greet->abort();
 	greet->clear();
@@ -1022,9 +1033,10 @@ void PasswordDlg::resetCardLogin() {
 	setFixedSize(sizeHint());
 
 	// Restore information message display settings
-        greet->setInfoMessageDisplay(showInfoMessages);
+  greet->setInfoMessageDisplay(showInfoMessages);
 
 	mCardLoginInProgress = false;
+#endif
 }
 
 #include "lockdlg.moc"

@@ -18,7 +18,11 @@
 
 #include <tqdbusconnection.h>
 
+#ifdef __TDE_HAVE_TDEHWLIB
 class TDECryptographicCardDevice;
+#else
+#define TDECryptographicCardDevice void
+#endif
 class DCOPClientTransaction;
 class TQT_DBusMessage;
 class TQT_DBusProxy;
