@@ -21,7 +21,7 @@
 
 
 class TQLabel;
-class TQPopupMenu;
+class TDEPopupMenu;
 class XkbRules;
 
 /* This class is responsible for displaying flag/label for the layout,
@@ -35,7 +35,7 @@ class KxkbLabelController: public QObject
 public:
 	enum { START_MENU_ID = 100, CONFIG_MENU_ID = 130, HELP_MENU_ID = 131 };
 
-    KxkbLabelController(TQLabel *label, TQPopupMenu* contextMenu);
+    KxkbLabelController(TQLabel *label, TDEPopupMenu* contextMenu);
 
     void initLayoutList(const TQValueList<LayoutUnit>& layouts, const XkbRules& rule);
     void setCurrentLayout(const LayoutUnit& layout);
@@ -55,7 +55,7 @@ public:
 
 private:
 	TQLabel* label;
-	TQPopupMenu* contextMenu;
+	TDEPopupMenu* contextMenu;
 	
 	const int m_menuStartIndex;
 	bool m_showFlag;
