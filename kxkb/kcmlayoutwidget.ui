@@ -466,6 +466,214 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
+                            <widget class="TQButtonGroup" row="1" column="0">
+                                <property name="name">
+                                    <cstring>grpStyle</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Indicator Style</string>
+                                </property>
+                                <property name="exclusive">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Here you can choose the way your keyboard layout indicator will look.</string>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="TQRadioButton">
+                                        <property name="name">
+                                            <cstring>radFlagLabel</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>&amp;Both Flag and Label</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQRadioButton">
+                                        <property name="name">
+                                            <cstring>radFlagOnly</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>&amp;Flag Only</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQRadioButton">
+                                        <property name="name">
+                                            <cstring>radLabelOnly</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>&amp;Label Only</string>
+                                        </property>
+                                    </widget>
+                                </vbox>
+                            </widget>
+                            <widget class="TQButtonGroup" row="1" column="1">
+                                <property name="name">
+                                    <cstring>grpLabel</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Label Style</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Here you can choose the way the label of your keyboard layout indicator will be displayed. These options are relevant even when labels are disabled, for locales where the flag is missing.</string>
+                                </property>
+                                <grid>
+                                    <widget class="TQRadioButton" row="0" column="0" rowspan="1" colspan="3">
+                                        <property name="name">
+                                            <cstring>radLabelUseTheme</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Use &amp;theme colors</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQRadioButton" row="1" column="0" rowspan="1" colspan="3">
+                                        <property name="name">
+                                            <cstring>radLabelUseCustom</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Use c&amp;ustom colors</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                    <spacer row="2" column="0">
+                                        <property name="name">
+                                            <cstring>spacer2</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Fixed</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                        <size>
+                                          <width>20</width>
+                                          <height>20</height>
+                                        </size>
+                                      </property>
+                                    </spacer>
+                                    <widget class="TQLabel" row="2" column="1">
+                                        <property name="name">
+                                            <cstring>labelBgColor</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Background color:</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>This color will be used as the indicator's background unless the indicator was set to display a flag.</string>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton" row="2" column="2">
+                                        <property name="name">
+                                            <cstring>bgColor</cstring>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>This color will be used as the indicator's background unless the indicator was set to display a flag.</string>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                    <spacer row="3" column="0">
+                                        <property name="name">
+                                            <cstring>spacer2</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                           <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Fixed</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="TQLabel" row="3" column="1">
+                                        <property name="name">
+                                            <cstring>labelFgColor</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Text color:</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>This color will be used to draw the language label on the indicator.</string>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton" row="3" column="2">
+                                        <property name="name">
+                                            <cstring>fgColor</cstring>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>This color will be used to draw the language label on the indicator.</string>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="KSeparator" row="4" column="0" rowspan="1" colspan="3">
+                                        <property name="name">
+                                            <cstring>separator1</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQLabel" row="5" column="0" rowspan="1" colspan="2">
+                                        <property name="name">
+                                            <cstring>labelFontRequester</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Label font:</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>This is the font which will be used by the layout indicator to draw the label.</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="TDEFontRequester" row="5" column="2">
+                                        <property name="name">
+                                            <cstring>labelFont</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQCheckBox" row="6" column="0" rowspan="1" colspan="2">
+                                        <property name="name">
+                                            <cstring>chkLabelShadow</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Enable shadow</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>Draw a drop shadow behind the language label. In some cases this option can improve readability.</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton" row="6" column="2">
+                                        <property name="name">
+                                            <cstring>shColor</cstring>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>The drop shadow behind the language label will be of this color.</string>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                </grid>
+                            </widget>
                             <widget class="TQButtonGroup" row="2" column="0">
                                 <property name="name">
                                     <cstring>grpSwitching</cstring>
@@ -512,20 +720,6 @@
                                     </widget>
                                 </vbox>
                             </widget>
-                            <widget class="TQCheckBox" row="1" column="0" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>chkShowFlag</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Show country flag</string>
-                                </property>
-                                <property name="checked">
-                                    <bool>true</bool>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Shows country flag on background of layout name in tray icon</string>
-                                </property>
-                            </widget>
                             <widget class="TQGroupBox" row="2" column="1">
                                 <property name="name">
                                     <cstring>grpBoxStickySwitching</cstring>
@@ -537,7 +731,7 @@
                                     <property name="name">
                                         <cstring>unnamed</cstring>
                                     </property>
-                                    <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="2">
+                                    <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="3">
                                         <property name="name">
                                             <cstring>chkEnableSticky</cstring>
                                         </property>
@@ -548,7 +742,24 @@
                                             <string>If you have more than two layouts and turn this option on, switching with the keyboard shortcut or clicking on the kxkb indicator will only cycle through the last few layouts. You can specify the number of layouts to rotate below. You can still access all layouts by right-clicking on the kxkb indicator.</string>
                                         </property>
                                     </widget>
-                                    <widget class="TQLabel" row="1" column="0">
+                                    <spacer row="1" column="0">
+                                        <property name="name">
+                                            <cstring>spacer2</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Fixed</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="TQLabel" row="1" column="1">
                                         <property name="name">
                                             <cstring>textLabel1_5</cstring>
                                         </property>
@@ -562,7 +773,7 @@
                                             <cstring>spinBox1</cstring>
                                         </property>
                                     </widget>
-                                    <widget class="TQSpinBox" row="1" column="1">
+                                    <widget class="TQSpinBox" row="1" column="2">
                                         <property name="name">
                                             <cstring>spinStickyDepth</cstring>
                                         </property>
@@ -574,6 +785,14 @@
                                         </property>
                                         <property name="minValue">
                                             <number>2</number>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
                                         </property>
                                     </widget>
                                 </grid>
@@ -699,6 +918,36 @@
         <slot>setEnabled(bool)</slot>
     </connection>
     <connection>
+        <sender>radLabelUseCustom</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>bgColor</receiver>
+        <slot>setEnabled(bool)</slot>
+      </connection>
+      <connection>
+        <sender>radLabelUseCustom</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>fgColor</receiver>
+        <slot>setEnabled(bool)</slot>
+      </connection>
+      <connection>
+        <sender>radLabelUseCustom</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>labelBgColor</receiver>
+        <slot>setEnabled(bool)</slot>
+      </connection>
+      <connection>
+        <sender>radLabelUseCustom</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>labelFgColor</receiver>
+        <slot>setEnabled(bool)</slot>
+      </connection>
+      <connection>
+        <sender>chkLabelShadow</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>shColor</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
         <sender>chkEnable</sender>
         <signal>toggled(bool)</signal>
         <receiver>optionsFrame</receiver>
@@ -708,6 +957,9 @@
 <includes>
     <include location="local" impldecl="in implementation">kiconloader.h</include>
     <include location="local" impldecl="in implementation">kdialogbase.h</include>
+    <include location="local" impldecl="in implementation">kcolorbutton.h</include>
+    <include location="local" impldecl="in implementation">kseparator.h</include>
+    <include location="local" impldecl="in implementation">tdefontrequester.h</include>
 </includes>
 <pixmapfunction>SmallIcon</pixmapfunction>
 <layoutdefaults spacing="6" margin="11"/>

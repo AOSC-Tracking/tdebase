@@ -1,7 +1,7 @@
 //
 // C++ Implementation: kxkbtraywindow
 //
-// Description: 
+// Description:
 //
 //
 // Author: Andriy Rysin <rysin@kde.org>, (C) 2006
@@ -25,7 +25,7 @@
 #include "kxkbconfig.h"
 
 
-KxkbLabelController::KxkbLabelController(TQLabel* label_, TQPopupMenu* contextMenu_) :
+KxkbLabelController::KxkbLabelController(TQLabel* label_, TDEPopupMenu* contextMenu_) :
     label(label_),
     contextMenu(contextMenu_),
  	m_menuStartIndex(contextMenu_->count()),
@@ -51,7 +51,7 @@ void KxkbLabelController::setPixmap(const TQPixmap& pixmap)
 void KxkbLabelController::setCurrentLayout(const LayoutUnit& layoutUnit)
 {
 	setToolTip(m_descriptionMap[layoutUnit.toPair()]);
-	setPixmap( LayoutIcon::getInstance().findPixmap(layoutUnit.layout, m_showFlag, layoutUnit.displayName) );
+	setPixmap( LayoutIcon::getInstance().findPixmap(layoutUnit.layout, PIXMAP_STYLE_INDICATOR, layoutUnit.displayName) );
 }
 
 
@@ -60,14 +60,14 @@ void KxkbLabelController::setError(const TQString& layoutInfo)
     TQString msg = i18n("Error changing keyboard layout to '%1'").arg(layoutInfo);
 	setToolTip(msg);
 
-	label->setPixmap(LayoutIcon::getInstance().findPixmap("error", m_showFlag));
+	label->setPixmap(LayoutIcon::getInstance().findPixmap("error", PIXMAP_STYLE_NORMAL));
 }
 
 
 void KxkbLabelController::initLayoutList(const TQValueList<LayoutUnit>& layouts, const XkbRules& rules)
 {
-//	TDEPopupMenu* menu = contextMenu();
-	TQPopupMenu* menu = contextMenu;
+	TDEPopupMenu* menu = contextMenu;
+//	TQPopupMenu* menu = contextMenu;
 //	int index = menu->indexOf(0);
 
     m_descriptionMap.clear();
@@ -80,30 +80,30 @@ void KxkbLabelController::initLayoutList(const TQValueList<LayoutUnit>& layouts,
 	}
 /*	menu->removeItem(CONFIG_MENU_ID);
 	menu->removeItem(HELP_MENU_ID);*/
-	
+
     TDEIconEffect iconeffect;
-    
+
 	int cnt = 0;
     TQValueList<LayoutUnit>::ConstIterator it;
     for (it=layouts.begin(); it != layouts.end(); ++it)
     {
 		const TQString layoutName = (*it).layout;
 		const TQString variantName = (*it).variant;
-		
-		const TQPixmap& layoutPixmap = LayoutIcon::getInstance().findPixmap(layoutName, m_showFlag, (*it).displayName);
+
+		const TQPixmap& layoutPixmap = LayoutIcon::getInstance().findPixmap(layoutName, PIXMAP_STYLE_CONTEXTMENU, (*it).displayName);
         const TQPixmap pix = iconeffect.apply(layoutPixmap, TDEIcon::Small, TDEIcon::DefaultState);
-		
+
 		TQString fullName = i18n((rules.layouts()[layoutName]));
 		if( variantName.isEmpty() == false )
 			fullName += " (" + variantName + ")";
 		contextMenu->insertItem(pix, fullName, START_MENU_ID + cnt, m_menuStartIndex + cnt);
 		m_descriptionMap.insert((*it).toPair(), fullName);
-		
+
 		cnt++;
     }
 
 	m_prevLayoutCount = cnt;
-	
+
 	// if show config, if show help
 	if( menu->indexOf(CONFIG_MENU_ID) == -1 ) {
 		contextMenu->insertSeparator();

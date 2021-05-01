@@ -14,6 +14,8 @@
 #include <tqbuttongroup.h>
 #include <tqspinbox.h>
 
+#include <tdefontrequester.h>
+#include <kcolorbutton.h>
 #include <kkeydialog.h>
 #include <tdeglobal.h>
 #include <tdeconfig.h>
@@ -95,7 +97,7 @@ static TQListViewItem* copyLVI(const TQListViewItem* src, TQListView* parent)
 
 
 LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
-  : TDECModule(parent, name), 
+  : TDECModule(parent, name),
     m_rules(NULL)
 {
   TQVBoxLayout *main = new TQVBoxLayout(this, 0, KDialog::spacingHint());
@@ -105,7 +107,7 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
 
   connect( TQT_TQOBJECT(widget->chkEnable), TQT_SIGNAL( toggled( bool )), TQT_TQOBJECT(this), TQT_SLOT(changed()));
   connect( TQT_TQOBJECT(widget->chkShowSingle), TQT_SIGNAL( toggled( bool )), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( TQT_TQOBJECT(widget->chkShowFlag), TQT_SIGNAL( toggled( bool )), TQT_TQOBJECT(this), TQT_SLOT(changed()));
+
   connect( TQT_TQOBJECT(widget->comboModel), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
 
   connect( TQT_TQOBJECT(widget->listLayoutsSrc), TQT_SIGNAL(doubleClicked(TQListViewItem*,const TQPoint&, int)),
@@ -130,7 +132,15 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   connect( widget->btnDown, TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(changed()));
   connect( widget->btnDown, TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(moveDown()));
 
+  connect( widget->grpStyle, TQT_SIGNAL( clicked( int ) ), TQT_SLOT(changed()));
   connect( widget->grpSwitching, TQT_SIGNAL( clicked( int ) ), TQT_SLOT(changed()));
+  connect( widget->grpLabel, TQT_SIGNAL( clicked( int ) ), TQT_SLOT(changed()));
+
+  connect( widget->bgColor, TQT_SIGNAL( changed(const TQColor&) ), TQT_TQOBJECT(this), TQT_SLOT(changed()));
+  connect( widget->fgColor, TQT_SIGNAL( changed(const TQColor&) ), TQT_TQOBJECT(this), TQT_SLOT(changed()));
+  connect( widget->labelFont, TQT_SIGNAL( fontSelected(const TQFont&) ), TQT_TQOBJECT(this), TQT_SLOT(changed()));
+  connect( widget->chkLabelShadow, TQT_SIGNAL( toggled( bool ) ), TQT_TQOBJECT(this), TQT_SLOT(changed()));
+  connect( widget->shColor, TQT_SIGNAL( changed(const TQColor&) ), TQT_TQOBJECT(this), TQT_SLOT(changed()));
 
   connect( widget->chkEnableSticky, TQT_SIGNAL(toggled(bool)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
   connect( widget->spinStickyDepth, TQT_SIGNAL(valueChanged(int)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
@@ -148,7 +158,7 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   widget->listLayoutsDst->setColumnWidthMode(LAYOUT_COLUMN_INCLUDE, TQListView::Manual);
   widget->listLayoutsDst->setColumnWidth(LAYOUT_COLUMN_INCLUDE, 0);
 //  widget->listLayoutsDst->setColumnWidth(LAYOUT_COLUMN_DISPLAY_NAME, 0);
-  
+
   widget->listLayoutsDst->setSorting(-1);
 #if 0
   widget->listLayoutsDst->setResizeMode(TQListView::LastColumn);
@@ -177,12 +187,12 @@ void LayoutConfig::load()
 
 	initUI();
 }
-	
+
 void LayoutConfig::initUI() {
 	const char* modelName = m_rules->models()[m_kxkbConfig.m_model];
 	if( modelName == NULL )
 		modelName = DEFAULT_MODEL;
-	
+
 	widget->comboModel->setCurrentText(i18n(modelName));
 
 	TQValueList<LayoutUnit> otherLayouts = m_kxkbConfig.m_layouts;
@@ -192,13 +202,13 @@ void LayoutConfig::initUI() {
 	for (it = otherLayouts.begin(); it != otherLayouts.end(); ++it ) {
 		TQListViewItemIterator src_it( widget->listLayoutsSrc );
 		LayoutUnit layoutUnit = *it;
-		
+
 		for ( ; src_it.current(); ++src_it ) {
 			TQListViewItem* srcItem = src_it.current();
-			
+
 			if ( layoutUnit.layout == src_it.current()->text(LAYOUT_COLUMN_MAP) ) {	// check if current config knows about this layout
 				TQListViewItem* newItem = copyLVI(srcItem, widget->listLayoutsDst);
-				
+
 				newItem->setText(LAYOUT_COLUMN_VARIANT, layoutUnit.variant);
 				newItem->setText(LAYOUT_COLUMN_INCLUDE, layoutUnit.includeGroup);
 				newItem->setText(LAYOUT_COLUMN_DISPLAY_NAME, layoutUnit.displayName);
@@ -212,10 +222,22 @@ void LayoutConfig::initUI() {
 
 	// display KXKB switching options
 	widget->chkShowSingle->setChecked(m_kxkbConfig.m_showSingle);
-	widget->chkShowFlag->setChecked(m_kxkbConfig.m_showFlag);
+
+  bool showFlag = m_kxkbConfig.m_showFlag;
+  bool showLabel = m_kxkbConfig.m_showLabel;
+  widget->radFlagLabel->setChecked( showFlag && showLabel );
+  widget->radFlagOnly->setChecked( showFlag && !showLabel );
+  widget->radLabelOnly->setChecked( !showFlag && showLabel );
 
 	widget->chkEnableOptions->setChecked( m_kxkbConfig.m_enableXkbOptions );
 	widget->checkResetOld->setChecked(m_kxkbConfig.m_resetOldOptions);
+
+  widget->grpLabel->setButton( ( m_kxkbConfig.m_useThemeColors ? 0 : 1 )  );
+  widget->bgColor->setColor( m_kxkbConfig.m_colorBackground );
+  widget->fgColor->setColor( m_kxkbConfig.m_colorLabel );
+  widget->labelFont->setFont( m_kxkbConfig.m_labelFont );
+  widget->chkLabelShadow->setChecked( m_kxkbConfig.m_labelShadow );
+  widget->shColor->setColor( m_kxkbConfig.m_colorShadow );
 
 	switch( m_kxkbConfig.m_switchingPolicy ) {
 		default:
@@ -248,7 +270,7 @@ void LayoutConfig::initUI() {
 		TQString optionKey = option.mid(0, option.find(':'));
 		TQString optionName = m_rules->options()[option];
 		OptionListItem *item = m_optionGroups[i18n(optionKey.latin1())];
-		
+
 		if (item != NULL) {
 			OptionListItem *child = item->findChildItem( option );
 
@@ -274,7 +296,14 @@ void LayoutConfig::save()
 
 	m_kxkbConfig.m_enableXkbOptions = widget->chkEnableOptions->isChecked();
 	m_kxkbConfig.m_resetOldOptions = widget->checkResetOld->isChecked();
-	m_kxkbConfig.m_options = createOptionString();
+  m_kxkbConfig.m_options = createOptionString();
+
+  m_kxkbConfig.m_useThemeColors = widget->radLabelUseTheme->isChecked();
+  m_kxkbConfig.m_colorBackground = widget->bgColor->color();
+  m_kxkbConfig.m_colorLabel = widget->fgColor->color();
+  m_kxkbConfig.m_labelFont = widget->labelFont->font();
+  m_kxkbConfig.m_labelShadow = widget->chkLabelShadow->isChecked();
+  m_kxkbConfig.m_colorShadow = widget->shColor->color();
 
 	TQListViewItem *item = widget->listLayoutsDst->firstChild();
 	TQValueList<LayoutUnit> layouts;
@@ -283,15 +312,15 @@ void LayoutConfig::save()
 		TQString variant = item->text(LAYOUT_COLUMN_VARIANT);
 		TQString includes = item->text(LAYOUT_COLUMN_INCLUDE);
 		TQString displayName = item->text(LAYOUT_COLUMN_DISPLAY_NAME);
-		
+
 		LayoutUnit layoutUnit(layout, variant);
 		layoutUnit.includeGroup = includes;
 		layoutUnit.displayName = displayName;
 		layouts.append( layoutUnit );
-		
+
 		item = item->nextSibling();
-		kdDebug() << "To save: layout " << layoutUnit.toPair() 
-				<< ", inc: " << layoutUnit.includeGroup 
+		kdDebug() << "To save: layout " << layoutUnit.toPair()
+				<< ", inc: " << layoutUnit.includeGroup
 				<< ", disp: " << layoutUnit.displayName << endl;
 	}
 	m_kxkbConfig.m_layouts = layouts;
@@ -303,7 +332,9 @@ void LayoutConfig::save()
 
 	m_kxkbConfig.m_useKxkb = widget->chkEnable->isChecked();
 	m_kxkbConfig.m_showSingle = widget->chkShowSingle->isChecked();
-	m_kxkbConfig.m_showFlag = widget->chkShowFlag->isChecked();
+
+  m_kxkbConfig.m_showFlag = ( widget->radFlagLabel->isChecked() || widget->radFlagOnly->isChecked() );
+  m_kxkbConfig.m_showLabel = ( widget->radFlagLabel->isChecked() || widget->radLabelOnly->isChecked() );
 
 	int modeId = widget->grpSwitching->id(widget->grpSwitching->selected());
 	switch( modeId ) {
@@ -323,7 +354,7 @@ void LayoutConfig::save()
 	m_kxkbConfig.m_stickySwitchingDepth = widget->spinStickyDepth->value();
 
 	m_kxkbConfig.save();
-	
+
 	kapp->tdeinitExec("kxkb");
 	emit TDECModule::changed( false );
 }
@@ -347,11 +378,11 @@ void LayoutConfig::updateStickyLimit()
 {
     int layoutsCnt = widget->listLayoutsDst->childCount();
 	int maxDepth = layoutsCnt - 1;
-	
+
 	if( maxDepth < 2 ) {
 		maxDepth = 2;
 	}
-	
+
 	widget->spinStickyDepth->setMaxValue(maxDepth);
 /*	if( value > maxDepth )
 		setValue(maxDepth);*/
@@ -366,7 +397,7 @@ void LayoutConfig::add()
     // Create a copy of the sel widget, as one might add the same layout more
     // than one time, with different variants.
     TQListViewItem* toadd = copyLVI(sel, widget->listLayoutsDst);
-    
+
     // Turn on "Include Latin layout" for new language by default (bnc:204402)
     toadd->setText(LAYOUT_COLUMN_INCLUDE, "us");
 
@@ -376,12 +407,12 @@ void LayoutConfig::add()
 // disabling temporary: does not work reliable in Qt :(
 //    widget->listLayoutsDst->setSelected(sel, true);
 //    layoutSelChanged(sel);
-	
+
     updateStickyLimit();
     changed();
 }
 
-void LayoutConfig::remove() 
+void LayoutConfig::remove()
 {
     TQListViewItem* sel = widget->listLayoutsDst->selectedItem();
     TQListViewItem* newSel = 0;
@@ -456,15 +487,15 @@ void LayoutConfig::displayNameChanged(const TQString& newDisplayName)
 	TQListViewItem* selLayout = widget->listLayoutsDst->selectedItem();
 	if( selLayout == NULL )
 		return;
-	
+
 	const LayoutUnit layoutUnitKey = getLayoutUnitKey( selLayout );
 	LayoutUnit& layoutUnit = *m_kxkbConfig.m_layouts.find(layoutUnitKey);
-	
+
 	TQString oldName = selLayout->text(LAYOUT_COLUMN_DISPLAY_NAME);
-	 
+
 	if( oldName.isEmpty() )
 		oldName = KxkbConfig::getDefaultDisplayName( layoutUnit );
-	
+
 	if( oldName != newDisplayName ) {
 		kdDebug() << "setting label for " << layoutUnit.toPair() << " : " << newDisplayName << endl;
 		selLayout->setText(LAYOUT_COLUMN_DISPLAY_NAME, newDisplayName);
@@ -517,7 +548,7 @@ void LayoutConfig::layoutSelChanged(TQListViewItem *sel)
 	TQString kbdLayout = layoutUnitKey.layout;
 
 	// TODO: need better algorithm here for determining if needs us group
-    if (  ! m_rules->isSingleGroup(kbdLayout) 
+    if (  ! m_rules->isSingleGroup(kbdLayout)
 	    		|| kbdLayout.startsWith("us") || kbdLayout.startsWith("en") ) {
         widget->chkLatin->setEnabled( false );
     }
@@ -533,11 +564,11 @@ void LayoutConfig::layoutSelChanged(TQListViewItem *sel)
 
 	TQStringList vars = m_rules->getAvailableVariants(kbdLayout);
 	kdDebug() << "layout " << kbdLayout << " has " << vars.count() << " variants" << endl;
-    
+
 	if( vars.count() > 0 ) {
 		vars.prepend(DEFAULT_VARIANT_NAME);
 		widget->comboVariant->insertStringList(vars);
-	
+
 		TQString variant = sel->text(LAYOUT_COLUMN_VARIANT);
 		if( variant != NULL && variant.isEmpty() == false ) {
 			widget->comboVariant->setCurrentText(variant);
@@ -668,7 +699,7 @@ void LayoutConfig::updateLayoutCommand()
 		layoutDisplayName = m_kxkbConfig.getDefaultDisplayName(LayoutUnit(kbdLayout, variant), single);
 	}
 	kdDebug() << "disp: '" << layoutDisplayName << "'" << endl;
-	
+
     if( !variant.isEmpty() ) {
       setxkbmap += " -variant ";
       if( widget->chkLatin->isChecked() )
@@ -676,9 +707,9 @@ void LayoutConfig::updateLayoutCommand()
       setxkbmap += variant;
     }
   }
-  
+
   widget->editCmdLine->setText(setxkbmap);
-  
+
   widget->editDisplayName->setEnabled( sel != NULL );
   widget->editDisplayName->setText(layoutDisplayName);
 }
@@ -704,7 +735,7 @@ void LayoutConfig::loadRules()
         ++it;
     }
     modelsList.sort();
-	
+
 	widget->comboModel->clear();
 	widget->comboModel->insertStringList(modelsList);
 	widget->comboModel->setCurrentItem(0);
@@ -713,20 +744,20 @@ void LayoutConfig::loadRules()
 	widget->listLayoutsSrc->clear();
 	widget->listLayoutsDst->clear();
 	TQDictIterator<char> it2(m_rules->layouts());
-	
+
 	while (it2.current())
 	{
 		TQString layout = it2.currentKey();
 		TQString layoutName = it2.current();
 		TQListViewItem *item = new TQListViewItem(widget->listLayoutsSrc);
-		
-		item->setPixmap(LAYOUT_COLUMN_FLAG, LayoutIcon::getInstance().findPixmap(layout, true));
+
+		item->setPixmap(LAYOUT_COLUMN_FLAG, LayoutIcon::getInstance().findPixmap(layout, false));
 		item->setText(LAYOUT_COLUMN_NAME, i18n(layoutName.latin1()));
 		item->setText(LAYOUT_COLUMN_MAP, layout);
 		++it2;
 	}
 	widget->listLayoutsSrc->setSorting(LAYOUT_COLUMN_NAME);	// from Qt3 TQListView sorts by language
-	
+
 	//TODO: reset options and xkb options
 }
 
@@ -813,19 +844,19 @@ extern "C"
 	{
 		return new LayoutConfig(parent, "kcmlayout");
 	}
-	
+
 	KDE_EXPORT TDECModule *create_keyboard(TQWidget *parent, const char *)
 	{
 		return new KeyboardConfig(parent, "kcmlayout");
 	}
-	
+
 	KDE_EXPORT void init_keyboard()
 	{
 		KeyboardConfig::init_keyboard();
-		
+
 		KxkbConfig m_kxkbConfig;
 		m_kxkbConfig.load(KxkbConfig::LOAD_INIT_OPTIONS);
-	
+
 		if( m_kxkbConfig.m_useKxkb == true ) {
 			kapp->startServiceByDesktopName("kxkb");
 		}
@@ -916,7 +947,7 @@ extern "C"
  I18N_NOOP( "Left Alt key changes group" );
  I18N_NOOP( "Left Ctrl key changes group" );
  I18N_NOOP( "Compose Key" );
- 
+
 //these seem to be new in XFree86 4.4.0
  I18N_NOOP("Shift with numpad keys works as in MS Windows.");
  I18N_NOOP("Special keys (Ctrl+Alt+<key>) handled in a server.");
