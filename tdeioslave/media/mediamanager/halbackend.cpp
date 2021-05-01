@@ -41,11 +41,11 @@
 #include <kprocess.h>
 
 #define MOUNT_MEDIA_SUFFIX (medium->isEncrypted() ? \
-	    (TQString("_encrypted") + (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "_unlocked" : "_locked")) : \
+	    (TQString("_encrypted") + (halClearVolume ? "_unlocked" : "_locked")) : \
       (medium->isMounted() ? TQString("_mounted") : TQString("_unmounted")))
 
 #define MOUNTED_ICON_SUFFIX (medium->isEncrypted() ? \
-	    (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt) ? "-unlocked" : "-locked") : \
+	    (halClearVolume ? "-unlocked" : "-locked") : \
       (medium->isMounted() ? TQString("-mounted") : TQString("-unmounted")))
 
 /* Static instance of this class, for static HAL callbacks */
@@ -279,18 +279,19 @@ void HALBackend::AddDevice(const char *udi, bool allowNotification)
             }
         }
         
-	// instert medium into list
-	m_mediaList.addMedium(medium, allowNotification);
+        // instert medium into list
+        m_mediaList.addMedium(medium, allowNotification);
 
-	// finally check for automount
+        // finally check for automount
         TQMap<TQString,TQString> options = MediaManagerUtils::splitOptions(mountoptions(udi));
         kdDebug() << "automount " << options["automount"] << endl;
         if (options["automount"] == "true" && allowNotification ) {
-            TQString error = mount(medium);
-            if (!error.isEmpty())
+            TQStringVariantMap mountResult = mount(medium);
+            if (!mountResult["result"].toBool()) {
+                TQString error = mountResult.contains("errStr") ? mountResult["errStr"].toString() : i18n("Unknown mount error.");
                 kdDebug() << "error " << error << endl;
+            }
         }
-
         return;
     }
 
@@ -607,7 +608,8 @@ void HALBackend::setVolumeProperties(Medium* medium)
             if (libhal_volume_disc_is_blank(halVolume))
             {
                 mimeType = "media/blankbluray";
-                medium->unmountableState("");
+                medium->setMountable(false);
+                medium->setBaseURL(TQString::null);
             }
             else
             {
@@ -1611,7 +1613,7 @@ TQStringVariantMap HALBackend::mount(const Medium *medium)
     	qerror = mount_priv(medium->id().latin1(), mount_point.utf8(), options, noptions, dbus_connection);
     } else {
         // see if we have a clear volume
-        error = i18n("Cannot mount encrypted locked drives!");
+        qerror = i18n("Cannot mount encrypted locked drives!");
         LibHalVolume* halVolume = libhal_volume_from_udi(m_halContext, medium->id().latin1());
         if (halVolume) {
             char* clearUdi = libhal_volume_crypto_get_clear_volume_udi(m_halContext, halVolume);
@@ -1817,8 +1819,9 @@ TQStringVariantMap HALBackend::unmount(const TQString &id)
                 if (KMessageBox::warningYesNo(0, i18n("%1<p><b>Would you like to forcibly terminate these processes?</b><br><i>All unsaved data would be lost</i>").arg(qerror)) == KMessageBox::Yes) {
                     qerror = origqerror;
                     reason = killUsingProcesses(medium);
-                    qerror = HALBackend::unmount(udi);
-                    if (qerror.isNull()) {
+                    TQStringVariantMap unmountResult = HALBackend::unmount(udi);
+                    if (unmountResult["result"].toBool())
+                    {
                         thisunmounthasfailed = 0;
                     }
                 }
