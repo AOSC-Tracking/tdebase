@@ -164,16 +164,25 @@ TQString LayoutIcon::getCountryFromLayoutName(const TQString& layoutName)
 		if( layoutName == "mkd" )
 			flag = "mk";
 		else
-		if( layoutName == "srp" ) {
-			TQString csFlagFile = locate("locale", flagTemplate.arg("cs"));
-			flag = csFlagFile.isEmpty() ? "yu" : "cs";
+		  if( layoutName == "srp" ) {
+			  TQString csFlagFile = locate("locale", flagTemplate.arg("cs"));
+			  flag = csFlagFile.isEmpty() ? "yu" : "cs";
 		}
 		else
 			if( layoutName.endsWith("/jp") )
 				flag = "jp";
-        else
-            if( layoutName == "trq" || layoutName == "trf" || layoutName == "tralt" )
-                flag = "tr";
+    else
+      if( layoutName == "trq" || layoutName == "trf" || layoutName == "tralt" )
+        flag = "tr";
+    else
+      if( layoutName == "epo" ) // Esperanto
+        flag = "eo";
+    else
+      if( layoutName == "mao" ) // Maori
+        flag = "mi";
+    else
+      if( layoutName == "brai" ) // Braille
+        flag = "braille";
 		else
 			if( layoutName.length() > 2 )
 				flag = "";
@@ -182,10 +191,19 @@ TQString LayoutIcon::getCountryFromLayoutName(const TQString& layoutName)
 	}
 	else {
 		if( layoutName == "ar" )	// Arabic - not argentina
-			;
-		else
-			if( layoutName == "sr" || layoutName == "cs")	// Serbian language - Yugoslavia
-				flag = "yu";
+      ;
+    else
+      if( layoutName == "epo" ) // Esperanto
+          flag = "eo";
+    else
+      if( layoutName == "mao" ) // Maori
+          flag = "mi";
+    else
+      if( layoutName == "brai" ) // Braille
+          flag = "braille";
+    else
+      if( layoutName == "sr" || layoutName == "cs") // Serbian language - Yugoslavia
+          flag = "yu";
 		else
 			if( layoutName == "bs" )	// Bosnian language - Bosnia
 				flag = "ba";
