@@ -18,7 +18,7 @@ cmake_minimum_required( VERSION 2.8.12 )
 project( tdebase )
 
 set( PACKAGE tdebase )
-set( VERSION R14.0.10 )
+set( VERSION R14.0.11 )
 
 
 ##### include essential cmake modules ###########
