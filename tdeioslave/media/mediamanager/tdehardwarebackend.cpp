@@ -1086,7 +1086,19 @@ TQStringList TDEBackend::mountoptions(const TQString &name)
 	}
 
 	if (valids.contains("utf8")) {
-		value = config.readBoolEntry("utf8", true);
+		// From "man mount": only some filesystems support 'iocharset' option.
+		if( (sdevice->fileSystemName() == "fat")
+		 || (sdevice->fileSystemName() == "iso9660")
+		 || (sdevice->fileSystemName() == "jfs")
+		 || (sdevice->fileSystemName() == "msdos")
+		 || (sdevice->fileSystemName() == "ntfs")
+		 || (sdevice->fileSystemName() == "umsdos")
+		 || (sdevice->fileSystemName() == "vfat")
+		) {
+			value = config.readBoolEntry("utf8", true);
+		} else {
+			value = false;
+       }
 		tmp = TQString("utf8=%1").arg(value ? "true" : "false");
 		result << tmp;
 	}
