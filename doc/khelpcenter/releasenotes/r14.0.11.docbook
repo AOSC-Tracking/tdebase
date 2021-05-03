@@ -1,0 +1,12 @@
+<sect1 id="release-notes-r14.0.11">
+<title>R14.0.11 Release Notes (draft)</title>
+
+<para>R14.0.11 is the eleventh maintenance release of the R14.0 series,
+and is built on and improves the previous R14.0.10 version.</para>
+<para>Maintenance releases are intended to promptly bring bug fixes
+to users, while preserving overall stability through the avoidance
+of both major API or feature changes and major codebase re-factoring.</para>
+
+<para>The ongoing temporary list of changes introduced by this release can be found <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/51">here</ulink>.</para>
+
+</sect1>
