@@ -45,6 +45,7 @@ set( ${target}_SRCS
 
 tde_add_library( ${target} STATIC_PIC AUTOMOC
   SOURCES ${${target}_SRCS}
+  LINK kickermain-shared
 )
 
 ##### clock_panelapplet (module) ################
@@ -57,7 +58,6 @@ set( ${target}_SRCS
 
 tde_add_kpart( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
-  DEPENDENCIES clock_panelapplet-static
-  LINK kickermain-shared clock_panelapplet-static kickermain
+  LINK kickermain-shared clock_panelapplet-static
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
