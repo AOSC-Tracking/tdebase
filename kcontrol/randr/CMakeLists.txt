@@ -55,6 +55,6 @@ tde_add_executable( tderandrtray AUTOMOC
   SOURCES
     main.cpp tderandrtray.cpp tderandrapp.cpp
     tderandrpassivepopup.cpp configdialog.cpp
-  LINK tdeutils-shared tderandr-shared
+  LINK tdeutils-shared tderandr-shared ${TDEHW_LIBRARIES}
   DESTINATION ${BIN_INSTALL_DIR}
 )

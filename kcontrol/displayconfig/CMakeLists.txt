@@ -39,6 +39,6 @@ set_property( SOURCE displayconfig.cpp APPEND PROPERTY COMPILE_DEFINITIONS KDE_C
 tde_add_kpart( kcm_displayconfig AUTOMOC
   SOURCES
     monitorworkspace.cpp displayconfig.cpp displayconfigbase.ui displayconfig.skel
-  LINK tdeio-shared tderandr-shared tdeutils-shared
+  LINK tdeio-shared tderandr-shared tdeutils-shared ${TDEHW_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

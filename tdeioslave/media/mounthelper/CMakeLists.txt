@@ -31,6 +31,6 @@ set( ${target}_SRCS
 
 tde_add_executable( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
-  LINK mediacommon-static tdeio-shared
+  LINK mediacommon-static tdeio-shared ${TDEHW_LIBRARIES}
   DESTINATION ${BIN_INSTALL_DIR}
 )

@@ -50,5 +50,5 @@ tde_add_tdeinit_executable( ksmserver AUTOMOC
     main.cpp server.cpp shutdowndlg.cpp startupdlg.cpp
     legacy.cpp startup.cpp shutdown.cpp client.cpp
     KSMServerInterface.skel server.skel timed.ui
-  LINK dmctl-static tdeui-shared tdersync-shared ${HAL_LIBRARIES} ${DBUS_TQT_LIBRARIES}
+  LINK dmctl-static tdeui-shared tdersync-shared ${TDEHW_LIBRARIES} ${HAL_LIBRARIES} ${DBUS_TQT_LIBRARIES}
 )

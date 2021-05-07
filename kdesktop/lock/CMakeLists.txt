@@ -40,7 +40,7 @@ set( ${target}_SRCS
 
 tde_add_executable( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
-  LINK kdesktopsettings-static dmctl-static tdeio-shared Xext
+  LINK kdesktopsettings-static dmctl-static tdeio-shared Xext ${TDEHW_LIBRARIES}
     pthread ${GL_LIBRARIES}
     "${LINKER_IMMEDIATE_BINDING_FLAGS}"
   DESTINATION ${BIN_INSTALL_DIR}

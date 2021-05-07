@@ -124,6 +124,7 @@ if( WITH_TDEHWLIB )
   if( NOT HAVE_TDEHWLIB )
     tde_message_fatal( "tdehwlib is required, but not built in tdecore" )
   endif( NOT HAVE_TDEHWLIB )
+  set( TDEHW_LIBRARIES "tdehw-shared" )
 endif( )
 
 

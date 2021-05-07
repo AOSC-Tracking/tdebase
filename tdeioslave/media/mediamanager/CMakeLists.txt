@@ -61,6 +61,6 @@ tde_add_kpart( ${target} AUTOMOC
     unlockdialog.ui dialog.cpp
     mediadirnotify.cpp mediadirnotify.skel
     ${HAL_MEDIA_BACKEND} ${TDEHWBACKEND}
-  LINK mediacommon-static tdeinit_kded-shared ${HAL_MEDIA_LIBRARIES}
+  LINK mediacommon-static tdeinit_kded-shared ${TDEHW_LIBRARIES} ${HAL_MEDIA_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

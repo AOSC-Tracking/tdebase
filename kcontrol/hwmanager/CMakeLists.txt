@@ -49,7 +49,7 @@ tde_add_kpart( kcm_hwmanager AUTOMOC
   SOURCES
     hwmanager.cpp deviceiconview.cpp devicepropsdlg.cpp devicepropsdlgbase.ui hwmanagerbase.ui
     cryptpassworddlg.cpp unlockdialog.ui passworddlg.cpp cryptpassworddlgbase.ui hwmanager.skel
-  LINK tdeio-shared
+  LINK tdeio-shared ${TDEHW_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
 
@@ -59,6 +59,6 @@ tde_add_executable( tdehwdevicetray AUTOMOC
   SOURCES
     hwdevicetray_main.cpp hwdevicetray.cpp hwdevicetray_app.cpp
     hwdevicetray_configdialog.cpp unlockdialog.ui passworddlg.cpp
-  LINK tdeio-shared tdeutils-shared tdeui-shared
+  LINK tdeio-shared tdeutils-shared tdeui-shared ${TDEHW_LIBRARIES}
   DESTINATION ${BIN_INSTALL_DIR}
 )
