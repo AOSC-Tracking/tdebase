@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-05 21:28+0800\n"
+"POT-Creation-Date: 2021-05-09 18:19+0000\n"
 "PO-Revision-Date: 2020-10-25 06:14+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
@@ -389,7 +389,7 @@ msgid "Safely Remove"
 msgstr "Безпечно вилучити"
 
 #. Name
-#: media/services/media_unlock.desktop:11
+#: media/services/media_unlock.desktop:10
 msgid "Unlock"
 msgstr "Деблокувати"
 
