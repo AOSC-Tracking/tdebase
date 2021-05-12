@@ -24,6 +24,27 @@ find_package( TQt )
 find_package( TDE )
 
 
+##### look for the usb.ids file, Its location can be set EG: -DWITH_USBIDS="/opt/share/misc/usb.ids"
+
+if( WITH_USBIDS )
+    set( USBIDS_FILE "${WITH_USBIDS}" )
+    message( STATUS "Using specified usb.ids file: ${USBIDS_FILE}" )
+ else()
+    find_file( PATH_USBIDS usb.ids
+               HINTS /usr/share/misc
+                     /var/lib/usbutils
+                     /usr/share/hwdata
+    )
+    if( PATH_USBIDS )
+        set( USBIDS_FILE "${PATH_USBIDS}" )
+        message( STATUS "Using system usb.ids file: ${PATH_USBIDS}" )
+      else()
+        set( USE_BUILTIN_USBIDS 1 )
+        message( STATUS "File usb.ids (hwdata) was not found on the system, using builtin" )
+    endif()
+endif( WITH_USBIDS )
+
+
 ##### check for libdl ###########################
 
 set( DL_LIBRARIES dl )

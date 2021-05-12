@@ -22,16 +22,13 @@
 
 #include "usbdb.h"
 
-
 USBDB::USBDB()
 {
-#ifndef USBIDS_FILE
-  TQString db = "/usr/share/hwdata/usb.ids"; /* on Fedora */
-  if (!TQFile::exists(db))
-	db = locate("data", "kcmusb/usb.ids");
-#else
   TQString db = USBIDS_FILE;
-#endif
+  
+  if (!TQFile::exists(db))
+	TQString db = locate("data", "kcmusb/usb.ids");
+  
   if (db.isEmpty())
     return;
 
