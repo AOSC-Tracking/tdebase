@@ -36,44 +36,44 @@ LayoutIcon::LayoutIcon():
 const TQPixmap&
 LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& displayName_)
 {
-  m_kxkbConfig.load(KxkbConfig::LOAD_ALL);  // (re)load settings
+	m_kxkbConfig.load(KxkbConfig::LOAD_ALL);  // (re)load settings
 
-  if (m_kxkbConfig.m_useThemeColors) { // use colors from color scheme
-    m_bgColor = TDEGlobalSettings::highlightColor();
-    m_fgColor = TDEGlobalSettings::highlightedTextColor();
-  } else {
-    m_bgColor = m_kxkbConfig.m_colorBackground;
-    m_fgColor = m_kxkbConfig.m_colorLabel;
-  }
+	if (m_kxkbConfig.m_useThemeColors) { // use colors from color scheme
+		m_bgColor = TDEGlobalSettings::highlightColor();
+		m_fgColor = TDEGlobalSettings::highlightedTextColor();
+	} else {
+		m_bgColor = m_kxkbConfig.m_colorBackground;
+		m_fgColor = m_kxkbConfig.m_colorLabel;
+	}
 
-  m_labelFont = m_kxkbConfig.m_labelFont;
-  m_labelShadow = m_kxkbConfig.m_labelShadow;
-  m_shColor = m_kxkbConfig.m_colorShadow;
+	m_labelFont = m_kxkbConfig.m_labelFont;
+	m_labelShadow = m_kxkbConfig.m_labelShadow;
+	m_shColor = m_kxkbConfig.m_colorShadow;
 
-  // Decide on how to style the pixmap
-  switch(pixmapStyle) {
-    case PIXMAP_STYLE_NORMAL:
-      m_fitToBox = true;
-      m_showFlag = true;
-      m_showLabel = false;
-      break;
+	// Decide on how to style the pixmap
+	switch(pixmapStyle) {
+		case PIXMAP_STYLE_NORMAL:
+			m_fitToBox = true;
+			m_showFlag = true;
+			m_showLabel = false;
+			break;
 
-    case PIXMAP_STYLE_INDICATOR:
-      m_fitToBox = true;
-      m_showFlag = m_kxkbConfig.m_showFlag;
-      m_showLabel = m_kxkbConfig.m_showLabel;
-      break;
+		case PIXMAP_STYLE_INDICATOR:
+			m_fitToBox = true;
+			m_showFlag = m_kxkbConfig.m_showFlag;
+			m_showLabel = m_kxkbConfig.m_showLabel;
+			break;
 
-    case PIXMAP_STYLE_CONTEXTMENU:
-      m_fitToBox = false; // causes white color loss
-      m_showFlag = true;
-      m_showLabel = false;
-      break;
-  }
+		case PIXMAP_STYLE_CONTEXTMENU:
+			m_fitToBox = false; // causes white color loss
+			m_showFlag = true;
+			m_showLabel = false;
+			break;
+	}
 
-  // Label only mode is always 'fit to box'
-  if( m_showLabel && !m_showFlag )
-    m_fitToBox = true;
+	// Label only mode is always 'fit to box'
+	if( m_showLabel && !m_showFlag )
+		m_fitToBox = true;
 
 	TQPixmap* pm = NULL;
 
@@ -95,60 +95,60 @@ LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& d
 		displayName = displayName.left(3);
 
 	const TQString pixmapKey(
-    TQString( m_showFlag ? "f" : "" ) + TQString( m_showLabel ? "l" : "" ) + TQString( m_labelShadow ? "s" : "" ) + "." +
-    m_labelFont.key() + "." + m_bgColor.name() + "." + m_fgColor.name() + "." + m_shColor.name() + '.' + code_ + "." + displayName
-  );
+		TQString( m_showFlag ? "f" : "" ) + TQString( m_showLabel ? "l" : "" ) + TQString( m_labelShadow ? "s" : "" ) + "." +
+		m_labelFont.key() + "." + m_bgColor.name() + "." + m_fgColor.name() + "." + m_shColor.name() + '.' + code_ + "." + displayName
+	);
 
-  // Only use cache for indicator
-  if( pixmapStyle == PIXMAP_STYLE_INDICATOR ) {
-	  pm = m_pixmapCache[pixmapKey];
-	  if( pm )
-		  return *pm;
-  }
+	// Only use cache for indicator
+	if( pixmapStyle == PIXMAP_STYLE_INDICATOR ) {
+		pm = m_pixmapCache[pixmapKey];
+		if( pm )
+			return *pm;
+	}
 
-  // Need to create new pixmap
-  pm = new TQPixmap();
+	// Need to create new pixmap
+	pm = new TQPixmap();
 
-  if( m_fitToBox ) // Resize to box size
-    pm->resize(FLAG_MAX_DIM, FLAG_MAX_DIM);
+	if( m_fitToBox ) // Resize to box size
+		pm->resize(FLAG_MAX_DIM, FLAG_MAX_DIM);
 
-  if( m_showFlag ) {
-    TQString countryCode = getCountryFromLayoutName( code_ );
-    TQString flag = locate("locale", flagTemplate.arg(countryCode));
+	if( m_showFlag ) {
+		TQString countryCode = getCountryFromLayoutName( code_ );
+		TQString flag = locate("locale", flagTemplate.arg(countryCode));
 
-    if( flag.isEmpty() ) {
-      pm->fill(m_bgColor);
-      m_showLabel = true;
-    } else {
-      if( m_fitToBox ) { // Resize flag
-        TQPainter p_(pm);
-        p_.drawPixmap(TQRect(0, 0, FLAG_MAX_DIM, FLAG_MAX_DIM), flag);
-      } else { // Show the flag as is
-        pm->load(flag);
-      }
+		if( flag.isEmpty() ) {
+			pm->fill(m_bgColor);
+			m_showLabel = true;
+		} else {
+			if( m_fitToBox ) { // Resize flag
+				TQPainter p_(pm);
+				p_.drawPixmap(TQRect(0, 0, FLAG_MAX_DIM, FLAG_MAX_DIM), flag);
+			} else { // Show the flag as is
+				pm->load(flag);
+			}
 
-      if( m_showLabel ) // only dim for label
-        dimPixmap( *pm );
-    }
-  } else {
-    pm->fill(m_bgColor);
-  }
+			if( m_showLabel ) // only dim for label
+				dimPixmap( *pm );
+		}
+	} else {
+		pm->fill(m_bgColor);
+	}
 
-  if( m_showLabel ) {
-    TQPainter p(pm);
-	  p.setFont(m_labelFont);
+	if( m_showLabel ) {
+		TQPainter p(pm);
+		p.setFont(m_labelFont);
 
-    if( m_labelShadow ) {
-	    p.setPen(m_shColor);
-      p.drawText(1, 1, pm->width(), pm->height(), Qt::AlignCenter, displayName);
-    }
+		if( m_labelShadow ) {
+			p.setPen(m_shColor);
+			p.drawText(1, 1, pm->width(), pm->height(), Qt::AlignCenter, displayName);
+		}
 
-    p.setPen(m_fgColor);
-    p.drawText(0, 0, pm->width(), pm->height(), Qt::AlignCenter, displayName);
-  }
+		p.setPen(m_fgColor);
+		p.drawText(0, 0, pm->width(), pm->height(), Qt::AlignCenter, displayName);
+	}
 
-  if( pixmapStyle == PIXMAP_STYLE_INDICATOR )
-    m_pixmapCache.insert(pixmapKey, pm);
+	if( pixmapStyle == PIXMAP_STYLE_INDICATOR )
+		m_pixmapCache.insert(pixmapKey, pm);
 
 	return *pm;
 }
