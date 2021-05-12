@@ -28,11 +28,12 @@ tde_create_translated_desktop(
   PO_DIR kcontrol-desktops
 )
 
-if( WITH_USBIDS )
-  set_property( SOURCE usbdb.cpp APPEND PROPERTY COMPILE_DEFINITIONS USBIDS_FILE="${WITH_USBIDS}" )
-else( )
-  install( FILES usb.ids DESTINATION ${DATA_INSTALL_DIR} )
-endif( )
+if( USE_BUILTIN_USBIDS )
+    install(
+        FILES usb.ids
+        DESTINATION ${DATA_INSTALL_DIR}
+    )
+endif( USE_BUILTIN_USBIDS )
 
 
 ##### kcm_usb (module) ##########################

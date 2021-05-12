@@ -7,6 +7,9 @@
    significant byte first (like Motorola and SPARC, unlike Intel). */
 #cmakedefine WORDS_BIGENDIAN @WORDS_BIGENDIAN@
 
+/* Define the path for the usb.ids file */
+#define USBIDS_FILE "@USBIDS_FILE@"
+
 // Defined if compiler supports long long type.
 #cmakedefine HAVE_LONG_LONG 1
 
