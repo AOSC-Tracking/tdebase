@@ -24,6 +24,8 @@
 #include <kdebug.h>
 #include <tdeapplication.h>
 #include <kiconloader.h>
+#include <dcopref.h>
+#include <dcopclient.h>
 
 #include "extension.h"
 #include "kxkbconfig.h"
@@ -197,7 +199,7 @@ void LayoutConfig::initUI() {
 
 	TQValueList<LayoutUnit> otherLayouts = m_kxkbConfig.m_layouts;
 	widget->listLayoutsDst->clear();
-// to optimize we should have gone from it.end to it.begin
+	// to optimize we should have gone from it.end to it.begin
 	TQValueList<LayoutUnit>::ConstIterator it;
 	for (it = otherLayouts.begin(); it != otherLayouts.end(); ++it ) {
 		TQListViewItemIterator src_it( widget->listLayoutsSrc );
@@ -223,21 +225,21 @@ void LayoutConfig::initUI() {
 	// display KXKB switching options
 	widget->chkShowSingle->setChecked(m_kxkbConfig.m_showSingle);
 
-  bool showFlag = m_kxkbConfig.m_showFlag;
-  bool showLabel = m_kxkbConfig.m_showLabel;
-  widget->radFlagLabel->setChecked( showFlag && showLabel );
-  widget->radFlagOnly->setChecked( showFlag && !showLabel );
-  widget->radLabelOnly->setChecked( !showFlag && showLabel );
+	bool showFlag = m_kxkbConfig.m_showFlag;
+	bool showLabel = m_kxkbConfig.m_showLabel;
+	widget->radFlagLabel->setChecked( showFlag && showLabel );
+	widget->radFlagOnly->setChecked( showFlag && !showLabel );
+	widget->radLabelOnly->setChecked( !showFlag && showLabel );
 
 	widget->chkEnableOptions->setChecked( m_kxkbConfig.m_enableXkbOptions );
 	widget->checkResetOld->setChecked(m_kxkbConfig.m_resetOldOptions);
 
-  widget->grpLabel->setButton( ( m_kxkbConfig.m_useThemeColors ? 0 : 1 )  );
-  widget->bgColor->setColor( m_kxkbConfig.m_colorBackground );
-  widget->fgColor->setColor( m_kxkbConfig.m_colorLabel );
-  widget->labelFont->setFont( m_kxkbConfig.m_labelFont );
-  widget->chkLabelShadow->setChecked( m_kxkbConfig.m_labelShadow );
-  widget->shColor->setColor( m_kxkbConfig.m_colorShadow );
+	widget->grpLabel->setButton( ( m_kxkbConfig.m_useThemeColors ? 0 : 1 )  );
+	widget->bgColor->setColor( m_kxkbConfig.m_colorBackground );
+	widget->fgColor->setColor( m_kxkbConfig.m_colorLabel );
+	widget->labelFont->setFont( m_kxkbConfig.m_labelFont );
+	widget->chkLabelShadow->setChecked( m_kxkbConfig.m_labelShadow );
+	widget->shColor->setColor( m_kxkbConfig.m_colorShadow );
 
 	switch( m_kxkbConfig.m_switchingPolicy ) {
 		default:
@@ -296,14 +298,14 @@ void LayoutConfig::save()
 
 	m_kxkbConfig.m_enableXkbOptions = widget->chkEnableOptions->isChecked();
 	m_kxkbConfig.m_resetOldOptions = widget->checkResetOld->isChecked();
-  m_kxkbConfig.m_options = createOptionString();
+	m_kxkbConfig.m_options = createOptionString();
 
-  m_kxkbConfig.m_useThemeColors = widget->radLabelUseTheme->isChecked();
-  m_kxkbConfig.m_colorBackground = widget->bgColor->color();
-  m_kxkbConfig.m_colorLabel = widget->fgColor->color();
-  m_kxkbConfig.m_labelFont = widget->labelFont->font();
-  m_kxkbConfig.m_labelShadow = widget->chkLabelShadow->isChecked();
-  m_kxkbConfig.m_colorShadow = widget->shColor->color();
+	m_kxkbConfig.m_useThemeColors = widget->radLabelUseTheme->isChecked();
+	m_kxkbConfig.m_colorBackground = widget->bgColor->color();
+	m_kxkbConfig.m_colorLabel = widget->fgColor->color();
+	m_kxkbConfig.m_labelFont = widget->labelFont->font();
+	m_kxkbConfig.m_labelShadow = widget->chkLabelShadow->isChecked();
+	m_kxkbConfig.m_colorShadow = widget->shColor->color();
 
 	TQListViewItem *item = widget->listLayoutsDst->firstChild();
 	TQValueList<LayoutUnit> layouts;
@@ -333,8 +335,8 @@ void LayoutConfig::save()
 	m_kxkbConfig.m_useKxkb = widget->chkEnable->isChecked();
 	m_kxkbConfig.m_showSingle = widget->chkShowSingle->isChecked();
 
-  m_kxkbConfig.m_showFlag = ( widget->radFlagLabel->isChecked() || widget->radFlagOnly->isChecked() );
-  m_kxkbConfig.m_showLabel = ( widget->radFlagLabel->isChecked() || widget->radLabelOnly->isChecked() );
+	m_kxkbConfig.m_showFlag = ( widget->radFlagLabel->isChecked() || widget->radFlagOnly->isChecked() );
+	m_kxkbConfig.m_showLabel = ( widget->radFlagLabel->isChecked() || widget->radLabelOnly->isChecked() );
 
 	int modeId = widget->grpSwitching->id(widget->grpSwitching->selected());
 	switch( modeId ) {
@@ -355,7 +357,38 @@ void LayoutConfig::save()
 
 	m_kxkbConfig.save();
 
-	kapp->tdeinitExec("kxkb");
+	// Get current layout from Kxkb
+	if (!kapp->dcopClient()->isAttached())
+		kapp->dcopClient()->attach();
+
+	DCOPRef kxkbref("kxkb", "kxkb");
+	DCOPReply reply = kxkbref.call( "getCurrentLayout" );
+
+	TQString currentLayout;
+	if ( reply.isValid() ) {
+		reply.get(currentLayout);
+	} else {
+		kdDebug() << "Warning: cannot get current layout! (invalid DCOP reply from Kxkb)" << endl;
+	}
+
+	// Cause Kxkb to reread configuration
+	kapp->tdeinitExecWait("kxkb");
+
+	// If previous call was valid, try to change layout
+	if ( reply.isValid() ) {
+		DCOPReply successReply = kxkbref.call( "setLayout", currentLayout );
+
+		if ( successReply.isValid() ) {
+			bool success;
+			successReply.get(success);
+
+			if ( ! success )
+				kdDebug() << "Warning: restoring previous layout failed!" << endl;
+		} else {
+			kdDebug() << "Warning: cannot restore previous layout! (invalid DCOP reply from Kxkb)" << endl;
+		}
+	}
+
 	emit TDECModule::changed( false );
 }
 
@@ -461,12 +494,12 @@ void LayoutConfig::moveDown()
 
 void LayoutConfig::variantChanged()
 {
-    TQListViewItem* selLayout = widget->listLayoutsDst->selectedItem();
-    if( selLayout == NULL ) {
-      widget->comboVariant->clear();
-      widget->comboVariant->setEnabled(false);
-      return;
-    }
+	TQListViewItem* selLayout = widget->listLayoutsDst->selectedItem();
+	if( selLayout == NULL ) {
+		widget->comboVariant->clear();
+		widget->comboVariant->setEnabled(false);
+		return;
+	}
 
 	TQString selectedVariant = widget->comboVariant->currentText();
 	if( selectedVariant == DEFAULT_VARIANT_NAME )
