@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-22 18:27+0200\n"
+"POT-Creation-Date: 2021-05-16 20:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -262,6 +262,11 @@ msgid "Brazil"
 msgstr "Brasilía"
 
 #. Name
+#: braille/entry.desktop:2
+msgid "Braille"
+msgstr ""
+
+#. Name
 #: bs/entry.desktop:2
 msgid "Bahamas"
 msgstr "Bahamaeyjar"
@@ -425,6 +430,11 @@ msgstr "Egyptaland"
 #: eh/entry.desktop:2
 msgid "Western Sahara"
 msgstr "Vestur-Sahara"
+
+#. Name
+#: eo/entry.desktop:2
+msgid "Esperanto"
+msgstr ""
 
 #. Name
 #: er/entry.desktop:2
@@ -633,6 +643,12 @@ msgid "Japan"
 msgstr ""
 
 #. Name
+#: jv/entry.desktop:2
+#, fuzzy
+msgid "Indonesia (Java)"
+msgstr "Indónesía"
+
+#. Name
 #: ke/entry.desktop:2
 msgid "Kenya"
 msgstr "Kenía"
@@ -773,6 +789,11 @@ msgid "Marshall Islands"
 msgstr "Marshall-eyjar"
 
 #. Name
+#: mi/entry.desktop:2 nz/entry.desktop:3
+msgid "New Zealand"
+msgstr "Nýja-Sjáland"
+
+#. Name
 #: mk/entry.desktop:3
 msgid "Macedonia"
 msgstr "Makedónía"
@@ -902,11 +923,6 @@ msgstr "Nárú"
 #: nu/entry.desktop:2
 msgid "Niue"
 msgstr ""
-
-#. Name
-#: nz/entry.desktop:3
-msgid "New Zealand"
-msgstr "Nýja-Sjáland"
 
 #. Name
 #: om/entry.desktop:2
