@@ -21,7 +21,7 @@ Copyright (C) 2000 Matthias Ettrich <ettrich@kde.org>
 #include <tqtimer.h>
 #include <dcopobject.h>
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
 #endif
 
@@ -253,7 +253,7 @@ private:
 
     WindowMap legacyWindows;
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
     TDEHardwareDevices* hwDevices;
 #endif
     int initialClientCount;

@@ -18,7 +18,7 @@
 
 #include <tqdbusconnection.h>
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 class TDECryptographicCardDevice;
 #else
 #define TDECryptographicCardDevice void

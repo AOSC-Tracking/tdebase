@@ -19,6 +19,10 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <tdecmdlineargs.h>
 #include <tdelocale.h>
 #include <tdeapplication.h>
@@ -32,7 +36,7 @@
 #include <kprocess.h>
 #include <tdestartupinfo.h>
 #include <kmimetype.h>
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
 #endif
 
@@ -173,7 +177,7 @@ void MountHelper::lock(const Medium &medium)
 
 void MountHelper::eject(const TQString &device, bool quiet)
 {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	// Try TDE HW library eject first...
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	TDEGenericDevice *hwdevice = hwdevices->findByDeviceNode(device);
@@ -203,7 +207,7 @@ void MountHelper::eject(const TQString &device, bool quiet)
 
 void MountHelper::releaseHolders(const Medium &medium, bool handleThis)
 {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	if (medium.id().isEmpty())
 	{
 		m_errorStr = i18n("Try to release holders from an unknown medium.");

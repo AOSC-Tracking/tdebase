@@ -17,6 +17,10 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "notificationdialog.h"
 #include <tqlayout.h>
 
@@ -28,7 +32,7 @@
 #include <tqlabel.h>
 #include <tqcheckbox.h>
 #include <tqpushbutton.h>
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
 #endif
 

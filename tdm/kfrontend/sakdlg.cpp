@@ -10,7 +10,7 @@
 
 #include <dmctl.h>
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <ksslcertificate.h>
 #include <tdehardwaredevices.h>
 #include <tdecryptographiccarddevice.h>
@@ -136,7 +136,7 @@ SAKDlg::SAKDlg(TQWidget *parent)
 	connect(mSAKProcess, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(slotSAKProcessExited()));
 	mSAKProcess->start();
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	// Initialize SmartCard readers
 	TDEGenericDevice *hwdevice;
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -175,7 +175,7 @@ void SAKDlg::processInputPipeCommand(TQString command) {
 }
 
 void SAKDlg::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TQString login_name = TQString::null;
 	X509CertificatePtrList certList = cdevice->cardX509Certificates();
 	if (certList.count() > 0) {
@@ -221,7 +221,7 @@ void SAKDlg::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
 }
 
 void SAKDlg::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	//
 #endif
 }

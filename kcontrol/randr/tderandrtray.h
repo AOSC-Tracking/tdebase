@@ -24,7 +24,7 @@
 #include <ksystemtray.h>
 #include <kglobalaccel.h>
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
 #else
 #define TDEGenericDevice void

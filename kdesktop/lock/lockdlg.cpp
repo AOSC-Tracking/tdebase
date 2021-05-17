@@ -44,7 +44,7 @@
 #include <tqlistview.h>
 #include <tqheader.h>
 #include <tqcheckbox.h>
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tqfile.h>
 #include <tdecryptographiccarddevice.h>
 #endif
@@ -481,7 +481,7 @@ void PasswordDlg::reapVerify()
 			switch (WEXITSTATUS(status)) {
 			case AuthOk:
 				{
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 					KUser userinfo;
 					TQString fileName = userinfo.homeDir() + "/.tde_card_login_state";
 					TQFile flagFile(fileName);
@@ -559,7 +559,7 @@ void PasswordDlg::handleVerify()
 				setFixedSize( sizeHint().width(), sizeHint().height() + 1 );
 				setFixedSize( sizeHint() );
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 				// Check if cryptographic card login is being used
 				if (mCardLoginInProgress) {
 					// Attempt authentication if configured
@@ -980,7 +980,7 @@ void PasswordDlg::capsLocked()
 }
 
 void PasswordDlg::attemptCardLogin() {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #ifndef HAVE_KRB5
 	// Don't enable card-based logins if Kerberos integration was disabled
 	return;
@@ -1020,7 +1020,7 @@ void PasswordDlg::attemptCardLogin() {
 }
 
 void PasswordDlg::resetCardLogin() {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	validUserCardInserted = false;
 	greet->abort();
 	greet->clear();

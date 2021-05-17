@@ -13,7 +13,7 @@
 #include <sys/stat.h>
 #include <tdeglobal.h>
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <ksslcertificate.h>
 #include <kuser.h>
 #include <tdehardwaredevices.h>
@@ -200,7 +200,7 @@ SaverEngine::SaverEngine()
 	delete config;
 	config = NULL;
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	// Initialize SmartCard readers
 	TDEGenericDevice *hwdevice;
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -265,7 +265,7 @@ void SaverEngine::cardStartupTimeout() {
 }
 
 void SaverEngine::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TQString login_name = TQString::null;
 	X509CertificatePtrList certList = cdevice->cardX509Certificates();
 	if (certList.count() > 0) {
@@ -291,7 +291,7 @@ void SaverEngine::cryptographicCardInserted(TDECryptographicCardDevice* cdevice)
 }
 
 void SaverEngine::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	if (mValidCryptoCardInserted) {
 		mValidCryptoCardInserted = false;
 

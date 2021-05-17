@@ -22,6 +22,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "kgreeter.h"
 #include "kconsole.h"
 #include "tdmconfig.h"
@@ -35,7 +39,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <dmctl.h>
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <ksslcertificate.h>
 #include <tdehardwaredevices.h>
 #include <tdecryptographiccarddevice.h>
@@ -247,7 +251,7 @@ KGreeter::~KGreeter()
 void KGreeter::cryptographicCardWatcherSetup() {
 	cardLoginUser = TQString::null;
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	// Initialize SmartCard readers
 	TDEGenericDevice *hwdevice;
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -861,7 +865,7 @@ KGreeter::verifySetUser( const TQString &user )
 }
 
 void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #ifndef HAVE_KRB5
 	// Don't enable card-based logins if Kerberos integration was disabled
 	return;
@@ -945,7 +949,7 @@ void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
 }
 
 void KGreeter::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	cardLoginUser = TQString::null;
 	userView->setEnabled(false);
 	verify->lockUserEntry(false);
@@ -1338,7 +1342,7 @@ KThemedGreeter::updateStatus( bool fail, bool caps, int timedleft )
 		}
 	}
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	if (cardLoginUser != TQString::null) {
 		verify->setPasswordPrompt(i18n("PIN:"));
 	}

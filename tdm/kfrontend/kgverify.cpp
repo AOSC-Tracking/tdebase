@@ -33,7 +33,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "themer/tdmlabel.h"
 
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <ksslcertificate.h>
 #include <tdehardwaredevices.h>
 #include <tdecryptographiccarddevice.h>
@@ -100,7 +100,7 @@ KGVerify::KGVerify(KGVerifyHandler *_handler, KdmThemer *_themer,
 	, isClear(true)
 	, inGreeterPlugin(false)
 	, abortRequested(false)
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	, cardLoginInProgress(false)
 	, cardLoginDevice(NULL)
 #endif
@@ -329,7 +329,7 @@ KGVerify::start()
 			return;
 		}
 		else
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 			if (!cardLoginInProgress)
 #endif
 		{
@@ -672,7 +672,7 @@ KGVerify::handleVerify()
 					greet->textPrompt(msg, echo, ndelay);
 					inGreeterPlugin = !ndelay;
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 					if (cardLoginInProgress) {
 						TQString autoPIN = cardLoginDevice->autoPIN(); 
 						if (autoPIN != TQString::null) {

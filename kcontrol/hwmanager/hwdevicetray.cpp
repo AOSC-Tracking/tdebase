@@ -17,6 +17,10 @@
  * License along with cryptocardwatcher. If not, see http://www.gnu.org/licenses/.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <tqtimer.h>
 #include <tqimage.h>
 #include <tqtooltip.h>
@@ -84,7 +88,7 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
 	new TDEActionMenu(i18n("Eject"), SmallIcon("player_eject", TQIconSet::Automatic), actionCollection(), "eject_menu");
 	new TDEActionMenu(i18n("Properties"), SmallIcon("edit", TQIconSet::Automatic), actionCollection(), "properties_menu");
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	connect(hwdevices, TQT_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQT_SLOT(deviceAdded(TDEGenericDevice*)));
 	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(deviceRemoved(TDEGenericDevice*)));
@@ -636,7 +640,7 @@ void HwDeviceSystemTray::slotEditShortcutKeys() {
 }
 
 void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TDEConfig config("mediamanagerrc");
 	config.setGroup("Global");
 	if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
@@ -662,7 +666,7 @@ void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device) {
 }
 
 void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TDEConfig config("mediamanagerrc");
 	config.setGroup("Global");
 	if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
@@ -688,7 +692,7 @@ void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device) {
 }
 
 void HwDeviceSystemTray::deviceChanged(TDEGenericDevice* device) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TDEConfig config("mediamanagerrc");
 	config.setGroup("Global");
 	if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))

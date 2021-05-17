@@ -14,6 +14,7 @@ include_directories(
   ${CMAKE_BINARY_DIR}/tdeioslave/media/libmediacommon
   ${CMAKE_SOURCE_DIR}/tdeioslave/media/libmediacommon
   ${CMAKE_SOURCE_DIR}/tdmlib
+  ${CMAKE_BINARY_DIR}
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
 )

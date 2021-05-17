@@ -18,6 +18,10 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <tqcheckbox.h>
 #include <tqlabel.h>
 #include <tqlayout.h>
@@ -744,7 +748,7 @@ void KDisplayConfig::setRealResolutionSliderValue(int index) {
 KDisplayConfig::KDisplayConfig(TQWidget *parent, const char *name, const TQStringList &)
   : TDECModule(KDisplayCFactory::instance(), parent, name), iccTab(0), numberOfProfiles(0), numberOfScreens(0), m_randrsimple(0), activeProfileName(""), m_gammaApplyTimer(0)
 {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(deviceChanged(TDEGenericDevice*)));
 #endif
@@ -863,7 +867,7 @@ KDisplayConfig::~KDisplayConfig()
 }
 
 void KDisplayConfig::deviceChanged (TDEGenericDevice* device) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	if (device->type() == TDEGenericDeviceType::Monitor) {
 		if (base->rescanHardware->isEnabled()) {
 			base->rescanHardware->setEnabled(false);

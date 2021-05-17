@@ -27,7 +27,7 @@
 #include <ksimpleconfig.h>
 #include <tdepassivepopupstack.h>
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
 #else
 #define TDEGenericDevice void

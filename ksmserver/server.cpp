@@ -599,7 +599,7 @@ KSMServer::KSMServer( const TQString& windowManager, const TQString& windowManag
     clientInteracting = 0;
     xonCommand = config->readEntry( "xonCommand", "xon" );
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
     hwDevices = TDEGlobal::hardwareDevices();
 #endif
 
@@ -723,7 +723,7 @@ void KSMServer::cleanUp()
         DM().shutdown( shutdownType, shutdownMode, bootOption );
     }
     else {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
         TDERootSystemDevice* rootDevice = hwDevices->rootSystemDevice();
         if (rootDevice) {
             if (shutdownType == TDEApplication::ShutdownTypeHalt) {

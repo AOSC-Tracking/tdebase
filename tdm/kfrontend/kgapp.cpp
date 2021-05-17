@@ -124,14 +124,14 @@ void GreeterApp::init()
 		startTimer( pingInterval * 60000 );
 	}
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(deviceChanged(TDEGenericDevice*)));
 #endif
 }
 
 void GreeterApp::deviceChanged(TDEGenericDevice* device) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #ifdef WITH_XRANDR
 	if (device->type() == TDEGenericDeviceType::Monitor) {
 		KRandrSimpleAPI *randrsimple = new KRandrSimpleAPI();
@@ -139,7 +139,7 @@ void GreeterApp::deviceChanged(TDEGenericDevice* device) {
 		delete randrsimple;
 	}
 #endif // WITH_XRANDR
-#endif // __TDE_HAVE_TDEHWLIB
+#endif // WITH_TDEHWLIB
 }
 
 void

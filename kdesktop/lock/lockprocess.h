@@ -29,7 +29,7 @@ class KLibrary;
 class KWinModule;
 class KSMModalDialog;
 class LockProcess;
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 class TDECryptographicCardDevice;
 #else
 #define TDECryptographicCardDevice void

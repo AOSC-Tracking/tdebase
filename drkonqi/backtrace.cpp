@@ -36,7 +36,7 @@
 #include <tdemessagebox.h>
 #include <tdelocale.h>
 #include <tdetempfile.h>
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
 #endif
 
@@ -358,7 +358,7 @@ void BackTrace::processBacktrace()
 	}
 #endif // HAVE_ELFICON
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	// Append potentially important hardware information
 	m_strBt.append("\n==== (tdehwlib) hardware information ====\n");
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();

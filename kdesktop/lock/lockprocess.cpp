@@ -19,7 +19,7 @@
 #include <config.h>
 #include <tdeglobal.h>
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <ksslcertificate.h>
 #include <kuser.h>
 #include <tdehardwaredevices.h>
@@ -298,7 +298,7 @@ LockProcess::LockProcess()
 		}
 	}
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	// Initialize SmartCard readers
 	TDEGenericDevice *hwdevice;
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -2832,7 +2832,7 @@ void LockProcess::processInputPipeCommand(TQString inputcommand) {
 }
 
 void LockProcess::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TQString login_name = TQString::null;
 	X509CertificatePtrList certList = cdevice->cardX509Certificates();
 	if (certList.count() > 0) {
@@ -2870,7 +2870,7 @@ void LockProcess::cryptographicCardInserted(TDECryptographicCardDevice* cdevice)
 }
 
 void LockProcess::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	PasswordDlg* passDlg = dynamic_cast<PasswordDlg*>(currentDialog);
 	if (passDlg) {
 		passDlg->resetCardLogin();
@@ -2884,7 +2884,7 @@ void LockProcess::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) 
 
 void LockProcess::signalPassDlgToAttemptCardLogin()
 {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	PasswordDlg* passDlg = dynamic_cast<PasswordDlg*>(currentDialog);
 	if (passDlg && m_loginCardDevice) {
 		passDlg->attemptCardLogin();
@@ -2900,7 +2900,7 @@ void LockProcess::signalPassDlgToAttemptCardLogin()
 
 void LockProcess::signalPassDlgToAttemptCardAbort()
 {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	PasswordDlg* passDlg = dynamic_cast<PasswordDlg*>(currentDialog);
 	if (passDlg) {
 		passDlg->resetCardLogin();
@@ -2916,7 +2916,7 @@ void LockProcess::signalPassDlgToAttemptCardAbort()
 
 void LockProcess::cryptographicCardPinRequested(TQString prompt, TDECryptographicCardDevice* cdevice)
 {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TQCString password;
 	TQString pin_entry;
 
@@ -2937,7 +2937,7 @@ void LockProcess::cryptographicCardPinRequested(TQString prompt, TDECryptographi
 
 TDECryptographicCardDevice* LockProcess::cryptographicCardDevice()
 {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	return m_loginCardDevice;
 #else
 	return NULL;
