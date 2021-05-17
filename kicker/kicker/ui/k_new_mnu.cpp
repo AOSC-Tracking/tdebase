@@ -21,6 +21,10 @@
 
 ******************************************************************/
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -52,7 +56,7 @@
 #include <kdebug.h>
 #include <tdeglobal.h>
 #include <tdeglobalsettings.h>
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
 #endif
 #include <kiconloader.h>
@@ -1366,7 +1370,7 @@ void KMenu::insertStaticExitItems()
 #if defined(COMPILE_HALBACKEND)
     if (ksmserver.readBoolEntry( "offerShutdown", true ) && DM().canShutdown())
         maysd = true;
-#elif defined(__TDE_HAVE_TDEHWLIB)
+#elif defined(WITH_TDEHWLIB)
     TDERootSystemDevice* rootDevice = TDEGlobal::hardwareDevices()->rootSystemDevice();
     if( rootDevice ) {
         maysd = rootDevice->canPowerOff();
@@ -3790,7 +3794,7 @@ void KMenu::insertSuspendOption( int &nId, int &index )
         "/org/freedesktop/Hal/devices/computer",
         "power_management.can_hibernate",
         NULL);
-#elif defined(__TDE_HAVE_TDEHWLIB) // COMPILE_HALBACKEND
+#elif defined(WITH_TDEHWLIB) // COMPILE_HALBACKEND
     TDERootSystemDevice* rootDevice = TDEGlobal::hardwareDevices()->rootSystemDevice();
     if (rootDevice) {
         suspend_ram = rootDevice->canSuspend();
@@ -3884,7 +3888,7 @@ void KMenu::slotSuspend(int id)
         }
         dbus_message_unref(msg);
     }
-#elif defined(__TDE_HAVE_TDEHWLIB) // COMPILE_HALBACKEND
+#elif defined(WITH_TDEHWLIB) // COMPILE_HALBACKEND
     TDERootSystemDevice* rootDevice = TDEGlobal::hardwareDevices()->rootSystemDevice();
     if (rootDevice) {
         if (id == 1) {

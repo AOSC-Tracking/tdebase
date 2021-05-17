@@ -152,7 +152,7 @@ bool KSMServer::checkStatus( bool &logoutConfirmed, bool &maysd, bool &mayrb,
             mayrb = true;
         }
         else {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
             TDERootSystemDevice* rootDevice = hwDevices->rootSystemDevice();
             if (rootDevice) {
                 if (rootDevice->canPowerOff()) {
@@ -241,7 +241,7 @@ void KSMServer::shutdownInternal( TDEApplication::ShutdownConfirm confirm,
 			// If this is not done the desktop of the locked session will be shown after suspend/hibernate until the lock fully engages!
 			kapp->dcopClient()->call("kdesktop", "KScreensaverIface", "lock()", TQCString(""), replyType, replyData);
 		}
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 		TDERootSystemDevice* rootDevice = hwDevices->rootSystemDevice();
 		if (rootDevice) {
 			if (selection == 1) {	// Suspend

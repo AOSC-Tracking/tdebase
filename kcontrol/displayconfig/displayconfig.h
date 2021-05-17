@@ -21,10 +21,6 @@
 #ifndef _KCM_DisplayCONFIG_H
 #define _KCM_DisplayCONFIG_H
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include <tqptrlist.h>
 #include <tqslider.h>
 #include <tqworkspace.h>
@@ -35,7 +31,7 @@
 #include <dcopobject.h>
 
 #include <libtderandr/libtderandr.h>
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
 #else
 #define TDEGenericDevice void

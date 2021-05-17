@@ -6,6 +6,10 @@ Copyright (C) 2010 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 Copyright (C) 2000 Matthias Ettrich <ettrich@kde.org>
 ******************************************************************/
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "shutdowndlg.h"
 
 #include <tqapplication.h>
@@ -33,7 +37,7 @@ Copyright (C) 2000 Matthias Ettrich <ettrich@kde.org>
 #include <tdelocale.h>
 #include <tdeconfig.h>
 #include <tdeapplication.h>
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
 #endif
 #include <kdebug.h>
@@ -866,7 +870,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				canHibernate = true;
 			}
 		}
-#elif defined(__TDE_HAVE_TDEHWLIB) // COMPILE_HALBACKEND
+#elif defined(WITH_TDEHWLIB) // COMPILE_HALBACKEND
 		TDERootSystemDevice* rootDevice = TDEGlobal::hardwareDevices()->rootSystemDevice();
 		if (rootDevice) {
 			canFreeze = rootDevice->canFreeze();

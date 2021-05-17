@@ -16,6 +16,10 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <tqtimer.h>
 #include <tqimage.h>
 #include <tqtooltip.h>
@@ -92,7 +96,7 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
 		applyIccConfiguration(cur_profile, NULL);
 	}
 
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(deviceChanged(TDEGenericDevice*)));
 #endif
@@ -888,7 +892,7 @@ void KRandRSystemTray::slotOutputChanged(int parameter)
 }
 
 void KRandRSystemTray::deviceChanged (TDEGenericDevice* device) {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	if (device->type() == TDEGenericDeviceType::Monitor) {
 		KRandrPassivePopup::message(
 		i18n("New display output options are available!"),

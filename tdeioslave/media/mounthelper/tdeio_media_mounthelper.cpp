@@ -19,6 +19,10 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <tdecmdlineargs.h>
 #include <tdelocale.h>
 #include <tdeapplication.h>
@@ -33,7 +37,7 @@
 #include <kprocess.h>
 #include <tdestartupinfo.h>
 #include <kmimetype.h>
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
 #endif
 
@@ -189,7 +193,7 @@ MountHelper::MountHelper() : TDEApplication()
 
 void MountHelper::invokeEject(const TQString &device, bool quiet)
 {
-#ifdef __TDE_HAVE_TDEHWLIB
+#ifdef WITH_TDEHWLIB
 	// Try TDE HW library eject first...
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	TDEGenericDevice *hwdevice = hwdevices->findByDeviceNode(device);
