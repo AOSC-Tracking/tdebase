@@ -31,6 +31,6 @@ tde_add_executable( tdefontinst
   SOURCES
     Main.cpp FontEngine.cpp Fontmap.cpp GetPid.c
     XConfig.cpp
-  LINK kxftconfig-static tdefontinst-shared tdeio-shared
+  LINK kxftconfig-static tdefontinst-shared tdeio-shared ${FREETYPE_LIBRARIES}
   DESTINATION ${BIN_INSTALL_DIR}
 )
