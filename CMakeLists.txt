@@ -50,13 +50,42 @@ tde_setup_paths( )
 
 ##### add apidox targets ############
 
-add_custom_target(apidox
-  COMMAND "./generate_apidox" "${CMAKE_SOURCE_DIR}" "${CMAKE_BINARY_DIR}" "${HTML_INSTALL_DIR}" "/usr/share/qt3/doc/html"
-  WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/cmake/")
+if( "${CMAKE_VERSION}" VERSION_LESS "3.1" )
+  set( CMAKE_ENV "env" )
+else()
+  set( CMAKE_ENV "${CMAKE_COMMAND};-E;env" )
+endif()
 
-add_custom_target(install-apidox
-  COMMAND "./install_apidox" "${CMAKE_SOURCE_DIR}" "${CMAKE_BINARY_DIR}" "${HTML_INSTALL_DIR}" "${CMAKE_INSTALL_PREFIX}"
-  WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/cmake/")
+add_custom_target( apidox
+  COMMAND ${CMAKE_ENV}
+    "QTDOCDIR=/usr/share/tqt3/doc/html"
+    "DOXDATA=${HTML_INSTALL_DIR}/en/common"
+    ${CMAKE_SOURCE_DIR}/admin/doxygen.sh
+    --no-modulename
+    ${CMAKE_SOURCE_DIR}
+  COMMAND
+    find ${CMAKE_BINARY_DIR}/apidocs -name '*.html' |
+    xargs -r sed -i 's|${CMAKE_BINARY_DIR}/apidocs|${HTML_INSTALL_DIR}/en/${PROJECT_NAME}-apidocs|g'
+  COMMAND
+    find ${CMAKE_BINARY_DIR}/apidocs -name '*.tag' |
+    xargs -r sed -i 's|${CMAKE_SOURCE_DIR}/|${PROJECT_NAME}/|g'
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
+
+add_custom_target( install-apidox
+  COMMAND ${CMAKE_COMMAND} -E echo Apidox installed in ${HTML_INSTALL_DIR}/en/${PROJECT_NAME}-apidocs
+)
+
+install( CODE "
+  if( EXISTS ${CMAKE_BINARY_DIR}/apidocs )
+    file(
+      INSTALL ${CMAKE_BINARY_DIR}/apidocs/
+      DESTINATION ${HTML_INSTALL_DIR}/en/${PROJECT_NAME}-apidocs
+      PATTERN doxygen_sqlite3.db EXCLUDE
+      PATTERN installdox-slow EXCLUDE
+    )
+  endif()"
+)
 
 
 ##### optional stuff ############################
