@@ -276,10 +276,10 @@ void KXKBApp::menuActivated(int id)
 	{
 		TDEApplication::kApplication()->invokeHelp(0, "kxkb");
 	}
-	else
-	{
-		quit();
-	}
+//	else
+//	{
+//		quit();
+//	}
 }
 
 // TODO: we also have to handle deleted windows
