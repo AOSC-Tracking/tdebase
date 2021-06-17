@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# blu.256 <mavridisf@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 02:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2021-06-18 12:07+0000\n"
+"Last-Translator: blu.256 <mavridisf@gmail.com>\n"
+"Language-Team: Greek <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/kdesktop-icons/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.6.2\n"
 
 #. Name
 #: Home.desktop:2
@@ -28,29 +29,28 @@ msgstr "Προσωπικά αρχεία"
 
 #. Comment
 #: Home.desktop:6
-#, fuzzy
 msgid "Contains personal files"
-msgstr "Προσωπικά αρχεία"
+msgstr "Περιέχει προσωπικά αρχεία"
 
 #. Name
 #: My_Computer:5
 msgid "My Computer"
-msgstr ""
+msgstr "Ο υπολογιστής μου"
 
 #. Comment
 #: My_Computer:7
 msgid "Access to storage media"
-msgstr ""
+msgstr "Πρόσβαση σε μέσα αποθήκευσης"
 
 #. Name
 #: My_Documents:5
 msgid "My Documents"
-msgstr ""
+msgstr "Τα έγγραφά μου"
 
 #. Comment
 #: My_Documents:7
 msgid "Contains personal documents"
-msgstr ""
+msgstr "Περιέχει προσωπικά έγγραφα"
 
 #. Name
 #: My_Network_Places:5
@@ -60,7 +60,7 @@ msgstr "Απομακρυσμένες τοποθεσίες"
 #. Comment
 #: My_Network_Places:7
 msgid "Access to network places and remote hosts"
-msgstr ""
+msgstr "Πρόσβαση σε θέσεις δικτύου και απομακρυσμένες συσκευές"
 
 #. Name
 #: Printers:5
@@ -70,7 +70,7 @@ msgstr "Εκτυπωτές"
 #. Comment
 #: Printers:7
 msgid "Manage print jobs"
-msgstr ""
+msgstr "Διαχείρηση εργασιών εκτύπωσης"
 
 #. Name
 #: System.desktop:2
@@ -85,7 +85,7 @@ msgstr "Τοποθεσίες συστήματος"
 #. Comment
 #: System.desktop:6
 msgid "Access to system places"
-msgstr ""
+msgstr "Πρόσβαση σε θέσεις συστήματος"
 
 #. Name
 #: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
@@ -201,7 +201,7 @@ msgstr "Νέα συσκευή MO"
 #. Name
 #: Templates/linkNFS.desktop:2
 msgid "NFS..."
-msgstr ""
+msgstr "NFS..."
 
 #. Comment
 #: Templates/linkNFS.desktop:3
@@ -246,18 +246,18 @@ msgstr "Κάδος απορριμμάτων"
 #. Comment
 #: Trash:10
 msgid "Contains removed files"
-msgstr ""
+msgstr "Περιέχει αρχεία προς διαγραφή"
 
 #. Name
 #. GenericName
 #: Web_Browser:6 Web_Browser:8
 msgid "Web Browser"
-msgstr ""
+msgstr "Περιηγητής ιστού"
 
 #. Comment
 #: Web_Browser:10
 msgid "Browse the World Wide Web"
-msgstr ""
+msgstr "Περιήγηση στον Παγκόσμιο ιστό"
 
 #. Name
 #: directory.autostart:3
