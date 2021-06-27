@@ -1256,7 +1256,7 @@ void BGDialog::slotGetNewStuff()
    config->writeEntry( "StandardResource", "wallpaper" );
    config->sync();
 
-   KNS::DownloadDialog::open("wallpaper", i18n("Get New Wallpapers"));
+   KNS::DownloadDialog::open("Wallpapers", i18n("Get New Wallpapers"));
    loadWallpaperFilesList();
 }
 
