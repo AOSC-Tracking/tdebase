@@ -46,8 +46,6 @@ class NaughtyApplet : public KPanelApplet
 
     ~NaughtyApplet();
 
-    virtual int widthForHeight(int h) const;
-    virtual int heightForWidth(int w) const;
 
   signals:
 
