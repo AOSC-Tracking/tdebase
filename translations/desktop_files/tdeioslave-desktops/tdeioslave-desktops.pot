@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-29 00:09+0200\n"
+"POT-Creation-Date: 2021-07-07 22:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -358,8 +358,7 @@ msgstr ""
 
 #. Comment
 #. Name
-#: media/mimetypes/trash.desktop:7
-#: system/entries/trash.desktop:7
+#: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
 msgid "Trash"
 msgstr ""
 
@@ -419,8 +418,7 @@ msgid "Unmount"
 msgstr ""
 
 #. Name
-#: media/tdecmodule/media.desktop:10
-#: system/entries/media.desktop:6
+#: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
 msgid "Storage Media"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-26 02:40+0200\n"
+"POT-Creation-Date: 2021-07-07 22:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,8 +32,7 @@ msgid "konsole;console;terminal;"
 msgstr ""
 
 #. Name
-#: konsole-script.desktop:9 konsole.desktop:9
-#: konsolesu.desktop:10
+#: konsole-script.desktop:9 konsole.desktop:9 konsolesu.desktop:10
 msgid "Konsole"
 msgstr ""
 
@@ -99,8 +98,8 @@ msgstr ""
 
 #. Name
 #. Title0
-#: other/shell.desktop:3 other/2shells:6
-#: other/3shells:6 other/4shells:6 other/5shells:6
+#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
+#: other/5shells:6
 msgid "Shell"
 msgstr ""
 
@@ -145,8 +144,7 @@ msgid "Two consoles"
 msgstr ""
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7
-#: other/5shells:7
+#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
 msgid "Shell No. 2"
 msgstr ""
 

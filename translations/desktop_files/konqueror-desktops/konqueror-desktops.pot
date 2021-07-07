@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-29 00:09+0200\n"
+"POT-Creation-Date: 2021-07-07 22:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,9 +42,8 @@ msgid "MultiColumn View"
 msgstr ""
 
 #. Name
-#: kfmclient.desktop:9 kfmclient_dir.desktop:9
-#: kfmclient_html.desktop:9 kfmclient_war.desktop:9
-#: konqbrowser.desktop:7 konqueror.desktop:6
+#: kfmclient.desktop:9 kfmclient_dir.desktop:9 kfmclient_html.desktop:9
+#: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
 #: konquerorsu.desktop:8
 msgid "Konqueror"
 msgstr ""
@@ -150,24 +149,15 @@ msgid "Web Browsing"
 msgstr ""
 
 #. Name
-#: quickprint/text-ada-print.desktop:6
-#: quickprint/text-c++-print.desktop:6
-#: quickprint/text-c++h-print.desktop:6
-#: quickprint/text-c-print.desktop:6
-#: quickprint/text-ch-print.desktop:6
-#: quickprint/text-css-print.desktop:6
-#: quickprint/text-diff-print.desktop:6
-#: quickprint/text-html-print.desktop:6
-#: quickprint/text-java-print.desktop:6
-#: quickprint/text-log-print.desktop:6
-#: quickprint/text-makefile-print.desktop:6
-#: quickprint/text-pas-print.desktop:6
-#: quickprint/text-perl-print.desktop:6
-#: quickprint/text-print.desktop:6
-#: quickprint/text-python-print.desktop:6
-#: quickprint/text-tcl-print.desktop:6
-#: quickprint/text-tex-print.desktop:6
-#: quickprint/text-xml-print.desktop:6
+#: quickprint/text-ada-print.desktop:6 quickprint/text-c++-print.desktop:6
+#: quickprint/text-c++h-print.desktop:6 quickprint/text-c-print.desktop:6
+#: quickprint/text-ch-print.desktop:6 quickprint/text-css-print.desktop:6
+#: quickprint/text-diff-print.desktop:6 quickprint/text-html-print.desktop:6
+#: quickprint/text-java-print.desktop:6 quickprint/text-log-print.desktop:6
+#: quickprint/text-makefile-print.desktop:6 quickprint/text-pas-print.desktop:6
+#: quickprint/text-perl-print.desktop:6 quickprint/text-print.desktop:6
+#: quickprint/text-python-print.desktop:6 quickprint/text-tcl-print.desktop:6
+#: quickprint/text-tex-print.desktop:6 quickprint/text-xml-print.desktop:6
 #: quickprint/text-xslt-print.desktop:6
 msgid "Print..."
 msgstr ""
@@ -260,8 +250,7 @@ msgid "This folder contains your personal files"
 msgstr ""
 
 #. Name
-#: sidebar/trees/init/remote.desktop:2
-#: sidebar/trees/init/remote/.directory:2
+#: sidebar/trees/init/remote.desktop:2 sidebar/trees/init/remote/.directory:2
 msgid "Network"
 msgstr ""
 

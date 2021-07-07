@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 14:20+0200\n"
+"POT-Creation-Date: 2021-07-07 22:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,15 +27,14 @@ msgid "Konqueror Gestures"
 msgstr ""
 
 #. Comment
-#: konqueror_gestures_trinity21.khotkeys:13
-#: trinity2b1.khotkeys:219
+#: konqueror_gestures_trinity21.khotkeys:13 trinity2b1.khotkeys:219
 msgid "Konqueror window"
 msgstr ""
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:20
-#: konqueror_gestures_trinity21.khotkeys:26
-#: trinity2b1.khotkeys:226 trinity2b1.khotkeys:232
+#: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
+#: trinity2b1.khotkeys:232
 msgid "Konqueror"
 msgstr ""
 
@@ -45,8 +44,7 @@ msgid "Press, move left, release."
 msgstr ""
 
 #. Name
-#: konqueror_gestures_trinity21.khotkeys:37
-#: trinity2b1.khotkeys:242
+#: konqueror_gestures_trinity21.khotkeys:37 trinity2b1.khotkeys:242
 msgid "Back"
 msgstr ""
 
@@ -76,9 +74,8 @@ msgstr ""
 #: konqueror_gestures_trinity21.khotkeys:306
 #: konqueror_gestures_trinity21.khotkeys:335
 #: konqueror_gestures_trinity21.khotkeys:360
-#: konqueror_gestures_trinity21.khotkeys:385
-#: trinity2b1.khotkeys:257 trinity2b1.khotkeys:289
-#: trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
+#: konqueror_gestures_trinity21.khotkeys:385 trinity2b1.khotkeys:257
+#: trinity2b1.khotkeys:289 trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
 msgid "Gesture_triggers"
 msgstr ""
 
@@ -90,8 +87,7 @@ msgid ""
 msgstr ""
 
 #. Name
-#: konqueror_gestures_trinity21.khotkeys:68
-#: trinity2b1.khotkeys:306
+#: konqueror_gestures_trinity21.khotkeys:68 trinity2b1.khotkeys:306
 msgid "Up"
 msgstr ""
 
@@ -155,8 +151,7 @@ msgid "Press, move right, release."
 msgstr ""
 
 #. Name
-#: konqueror_gestures_trinity21.khotkeys:237
-#: trinity2b1.khotkeys:274
+#: konqueror_gestures_trinity21.khotkeys:237 trinity2b1.khotkeys:274
 msgid "Forward"
 msgstr ""
 
@@ -212,8 +207,7 @@ msgid "Press, move up, move down, release."
 msgstr ""
 
 #. Name
-#: konqueror_gestures_trinity21.khotkeys:370
-#: trinity2b1.khotkeys:338
+#: konqueror_gestures_trinity21.khotkeys:370 trinity2b1.khotkeys:338
 msgid "Reload"
 msgstr ""
 
@@ -238,9 +232,8 @@ msgid "PrintScreen"
 msgstr ""
 
 #. Comment
-#: printscreen.khotkeys:33 printscreen.khotkeys:57
-#: trinity2b1.khotkeys:46 trinity2b1.khotkeys:71
-#: trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
+#: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
+#: trinity2b1.khotkeys:71 trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
 #: trinity2b1.khotkeys:203 trinity2b1.khotkeys:385
 msgid "Simple_action"
 msgstr ""

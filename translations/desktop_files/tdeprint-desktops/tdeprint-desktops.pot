@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 19:39+0200\n"
+"POT-Creation-Date: 2021-07-07 22:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Name
-#: kjobviewer/kjobviewer-autostart.desktop:7
-#: kjobviewer/kjobviewer.desktop:8
+#: kjobviewer/kjobviewer-autostart.desktop:7 kjobviewer/kjobviewer.desktop:8
 msgid "KJobViewer"
 msgstr ""
 
 #. GenericName
 #. Comment
-#: kjobviewer/kjobviewer-autostart.desktop:9
-#: kjobviewer/kjobviewer.desktop:10
+#: kjobviewer/kjobviewer-autostart.desktop:9 kjobviewer/kjobviewer.desktop:10
 #: slave/mimetypes/jobs.desktop:2
 msgid "Print Jobs"
 msgstr ""
@@ -72,8 +70,7 @@ msgstr ""
 
 #. Comment
 #. Name
-#: slave/mimetypes/manager.desktop:2
-#: tdeprint_part/tdeprint_part.desktop:4
+#: slave/mimetypes/manager.desktop:2 tdeprint_part/tdeprint_part.desktop:4
 msgid "Print Management Tool"
 msgstr ""
 
