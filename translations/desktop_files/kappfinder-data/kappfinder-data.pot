@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-17 22:13+0200\n"
+"POT-Creation-Date: 2021-07-07 18:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -127,17 +127,12 @@ msgid "ClanBomber"
 msgstr ""
 
 #. GenericName
-#: Games/Arcade/ClanBomber.desktop:3
-#: Games/Arcade/GnobotsII.desktop:3
-#: Games/Arcade/Mures.desktop:3
-#: Games/Arcade/SuperMethaneBrothers.desktop:3
+#: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
+#: Games/Arcade/Mures.desktop:3 Games/Arcade/SuperMethaneBrothers.desktop:3
 #: Games/Arcade/Trophy.desktop:3 Games/Arcade/XKobo.desktop:3
-#: Games/Arcade/XSoldier.desktop:3
-#: Games/Arcade/battalion.desktop:3
-#: Games/Arcade/cxhextris.desktop:3
-#: Games/Arcade/scavenger.desktop:3
-#: Games/Board/Gataxx.desktop:3
-#: Games/Board/Gnotravex.desktop:3
+#: Games/Arcade/XSoldier.desktop:3 Games/Arcade/battalion.desktop:3
+#: Games/Arcade/cxhextris.desktop:3 Games/Arcade/scavenger.desktop:3
+#: Games/Board/Gataxx.desktop:3 Games/Board/Gnotravex.desktop:3
 #: Games/penguin-command.desktop:4
 msgid "Arcade Game"
 msgstr ""
@@ -249,8 +244,7 @@ msgid "Rocks n Diamonds"
 msgstr ""
 
 #. GenericName
-#: Games/Arcade/rocksndiamonds.desktop:3
-#: Games/Board/Glines.desktop:3
+#: Games/Arcade/rocksndiamonds.desktop:3 Games/Board/Glines.desktop:3
 msgid "Tactical Game"
 msgstr ""
 
@@ -320,8 +314,7 @@ msgid "Iagno"
 msgstr ""
 
 #. GenericName
-#: Games/Board/Iagno.desktop:3
-#: Games/Board/SameGnome.desktop:3
+#: Games/Board/Iagno.desktop:3 Games/Board/SameGnome.desktop:3
 #: Games/Board/Xgammon.desktop:3
 msgid "Board Game"
 msgstr ""
@@ -352,9 +345,8 @@ msgid "AisleRiot"
 msgstr ""
 
 #. GenericName
-#: Games/Card/AisleRiot.desktop:3
-#: Games/Card/FreeCell.desktop:3 Games/Card/PySol.desktop:3
-#: Games/Card/XPat2.desktop:3
+#: Games/Card/AisleRiot.desktop:3 Games/Card/FreeCell.desktop:3
+#: Games/Card/PySol.desktop:3 Games/Card/XPat2.desktop:3
 msgid "Card Game"
 msgstr ""
 
@@ -434,8 +426,7 @@ msgid "NetHack"
 msgstr ""
 
 #. GenericName
-#: Games/Roguelikes/nethack.desktop:3
-#: Games/Roguelikes/tome.desktop:3
+#: Games/Roguelikes/nethack.desktop:3 Games/Roguelikes/tome.desktop:3
 msgid "Quest Game"
 msgstr ""
 
@@ -470,8 +461,7 @@ msgid "Freeciv"
 msgstr ""
 
 #. GenericName
-#: Games/TacticStrategy/freeciv.desktop:4
-#: Games/xshipwars.desktop:4
+#: Games/TacticStrategy/freeciv.desktop:4 Games/xshipwars.desktop:4
 msgid "Strategy Game"
 msgstr ""
 
@@ -726,8 +716,7 @@ msgid "Dpsftp"
 msgstr ""
 
 #. GenericName
-#: Internet/Dpsftp.desktop:3 Internet/gFTP.desktop:3
-#: Internet/xftp.desktop:3
+#: Internet/Dpsftp.desktop:3 Internet/gFTP.desktop:3 Internet/xftp.desktop:3
 msgid "FTP Browser"
 msgstr ""
 
@@ -747,13 +736,10 @@ msgid "Evolution"
 msgstr ""
 
 #. GenericName
-#: Internet/Evolution.desktop:3
-#: Internet/Netscapemessenger.desktop:3
-#: Internet/Sylpheed.desktop:3
-#: Internet/Terminal/mutt.desktop:3
+#: Internet/Evolution.desktop:3 Internet/Netscapemessenger.desktop:3
+#: Internet/Sylpheed.desktop:3 Internet/Terminal/mutt.desktop:3
 #: Internet/Terminal/pine.desktop:3 Internet/balsa.desktop:3
-#: Internet/mozilla-thunderbird.desktop:3
-#: Internet/xfmail.desktop:3
+#: Internet/mozilla-thunderbird.desktop:3 Internet/xfmail.desktop:3
 msgid "Mail Client"
 msgstr ""
 
@@ -794,14 +780,12 @@ msgid "Galeon"
 msgstr ""
 
 #. GenericName
-#: Internet/Galeon.desktop:3
-#: Internet/Terminal/Links.desktop:3
-#: Internet/Terminal/Lynx.desktop:3
-#: Internet/Terminal/w3m.desktop:3 Internet/arena.desktop:3
-#: Internet/epiphany.desktop:3
-#: Internet/mozilla-firefox.desktop:3
-#: Internet/mozilla.desktop:3 Internet/netscape.desktop:3
-#: Internet/netscape6.desktop:3 Internet/opera.desktop:3
+#: Internet/Galeon.desktop:3 Internet/Terminal/Links.desktop:3
+#: Internet/Terminal/Lynx.desktop:3 Internet/Terminal/w3m.desktop:3
+#: Internet/arena.desktop:3 Internet/epiphany.desktop:3
+#: Internet/mozilla-firefox.desktop:3 Internet/mozilla.desktop:3
+#: Internet/netscape.desktop:3 Internet/netscape6.desktop:3
+#: Internet/opera.desktop:3
 msgid "Web Browser"
 msgstr ""
 
@@ -872,8 +856,7 @@ msgid "Lftp"
 msgstr ""
 
 #. GenericName
-#: Internet/Terminal/lftp.desktop:3
-#: Internet/Terminal/ncftp.desktop:3
+#: Internet/Terminal/lftp.desktop:3 Internet/Terminal/ncftp.desktop:3
 msgid "FTP Client"
 msgstr ""
 
@@ -1391,9 +1374,8 @@ msgid "WordPerfect"
 msgstr ""
 
 #. GenericName
-#: Office/WordPerfect.desktop:3
-#: Office/WordPerfect2000.desktop:3 Office/abiword.desktop:3
-#: Office/lyx.desktop:3
+#: Office/WordPerfect.desktop:3 Office/WordPerfect2000.desktop:3
+#: Office/abiword.desktop:3 Office/lyx.desktop:3
 msgid "Word Processor"
 msgstr ""
 
@@ -1503,8 +1485,7 @@ msgid "Terminal"
 msgstr ""
 
 #. GenericName
-#: System/Terminal/aterm.desktop:3
-#: Utilities/XUtilities/xterm.desktop:3
+#: System/Terminal/aterm.desktop:3 Utilities/XUtilities/xterm.desktop:3
 msgid "Terminal Program"
 msgstr ""
 
@@ -1589,14 +1570,10 @@ msgid "Emacs"
 msgstr ""
 
 #. GenericName
-#: Utilities/Editors/emacs.desktop:3
-#: Utilities/Editors/gedit.desktop:3
-#: Utilities/Editors/gvim.desktop:3
-#: Utilities/Editors/lemacs.desktop:3
-#: Utilities/Editors/nano.desktop:3
-#: Utilities/Editors/nedit.desktop:3
-#: Utilities/Editors/pico.desktop:3
-#: Utilities/Editors/xedit.desktop:3
+#: Utilities/Editors/emacs.desktop:3 Utilities/Editors/gedit.desktop:3
+#: Utilities/Editors/gvim.desktop:3 Utilities/Editors/lemacs.desktop:3
+#: Utilities/Editors/nano.desktop:3 Utilities/Editors/nedit.desktop:3
+#: Utilities/Editors/pico.desktop:3 Utilities/Editors/xedit.desktop:3
 #: Utilities/Editors/xemacs.desktop:3
 msgid "Text Editor"
 msgstr ""
@@ -1707,8 +1684,7 @@ msgid "X Calc"
 msgstr ""
 
 #. GenericName
-#: Utilities/XUtilities/xcalc.desktop:3
-#: Utilities/calctool.desktop:3
+#: Utilities/XUtilities/xcalc.desktop:3 Utilities/calctool.desktop:3
 msgid "Calculator"
 msgstr ""
 
@@ -1728,8 +1704,7 @@ msgid "X Clock"
 msgstr ""
 
 #. GenericName
-#: Utilities/XUtilities/xclock.desktop:3
-#: Utilities/oclock.desktop:3
+#: Utilities/XUtilities/xclock.desktop:3 Utilities/oclock.desktop:3
 msgid "Clock"
 msgstr ""
 

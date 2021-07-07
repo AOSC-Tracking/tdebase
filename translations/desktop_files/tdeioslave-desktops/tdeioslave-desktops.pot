@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-09 18:19+0000\n"
+"POT-Creation-Date: 2021-07-07 18:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -323,8 +323,8 @@ msgstr ""
 
 #. Comment
 #. Name
-#: media/mimetypes/trash.desktop:7
-#: system/entries/trash.desktop:7 trash/kcmtrash.desktop:11
+#: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
+#: trash/kcmtrash.desktop:11
 msgid "Trash"
 msgstr ""
 
@@ -394,8 +394,7 @@ msgid "Unmount"
 msgstr ""
 
 #. Name
-#: media/tdecmodule/media.desktop:10
-#: system/entries/media.desktop:6
+#: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
 msgid "Storage Media"
 msgstr ""
 
@@ -513,8 +512,7 @@ msgstr ""
 
 #. Comment
 #. Name
-#: trash/kcmtrash.desktop:13
-#: trash/ktrashpropsdlgplugin.desktop:7
+#: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
 msgid "Trash Properties"
 msgstr ""
 

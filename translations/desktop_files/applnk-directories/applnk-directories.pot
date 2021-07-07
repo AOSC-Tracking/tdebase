@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-08 16:58+0200\n"
+"POT-Creation-Date: 2021-07-07 18:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,11 +33,10 @@ msgid "Web Development"
 msgstr ""
 
 #. Name
-#: kde-development.directory:4 kde-games.directory:4
-#: kde-graphics.directory:4 kde-internet.directory:4
-#: kde-multimedia.directory:4 kde-office.directory:4
-#: kde-science.directory:5 kde-settingsmenu.directory:4
-#: kde-system.directory:4 kde-utilities.directory:4
+#: kde-development.directory:4 kde-games.directory:4 kde-graphics.directory:4
+#: kde-internet.directory:4 kde-multimedia.directory:4 kde-office.directory:4
+#: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
+#: kde-utilities.directory:4
 msgid "KDE"
 msgstr ""
 
@@ -87,8 +86,7 @@ msgid "Games for Kids"
 msgstr ""
 
 #. Name
-#: kde-games-strategy.directory:4
-#: tde-games-strategy.directory:4
+#: kde-games-strategy.directory:4 tde-games-strategy.directory:4
 msgid "Tactics & Strategy"
 msgstr ""
 
@@ -107,17 +105,14 @@ msgstr ""
 
 #. Name
 #. Comment
-#: kde-utilities-desktop.directory:4
-#: tde-settings-desktop.directory:4
-#: tde-utilities-desktop.directory:4
-#: tde-utilities-desktop.directory:6
+#: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
+#: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
 msgid "Desktop"
 msgstr ""
 
 #. Name
 #. Comment
-#: kde-utilities-pim.directory:4
-#: tde-utilities-pim.directory:4
+#: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
 #: tde-utilities-pim.directory:6
 msgid "PIM"
 msgstr ""
@@ -158,8 +153,7 @@ msgid "Graphics"
 msgstr ""
 
 #. Name
-#: tde-internet-terminal.directory:4
-#: tde-system-terminal.directory:4
+#: tde-internet-terminal.directory:4 tde-system-terminal.directory:4
 msgid "Terminal Applications"
 msgstr ""
 
@@ -226,8 +220,7 @@ msgstr ""
 
 #. Name
 #. Comment
-#: tde-settings-peripherals.directory:4
-#: tde-utilities-peripherals.directory:4
+#: tde-settings-peripherals.directory:4 tde-utilities-peripherals.directory:4
 #: tde-utilities-peripherals.directory:6
 msgid "Peripherals"
 msgstr ""
@@ -294,8 +287,7 @@ msgstr ""
 
 #. Name
 #. Comment
-#: tde-utilities-file.directory:4
-#: tde-utilities-file.directory:6
+#: tde-utilities-file.directory:4 tde-utilities-file.directory:6
 msgid "File"
 msgstr ""
 

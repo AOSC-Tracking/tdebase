@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 13:00+0200\n"
+"POT-Creation-Date: 2021-07-07 18:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1272,15 +1272,13 @@ msgstr ""
 
 #. GenericName
 #. Name
-#: hwmanager/hwdevicetray-autostart.desktop:4
-#: hwmanager/hwdevicetray.desktop:2
+#: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
 #: hwmanager/hwdevicetray.desktop:4
 msgid "Device Monitor"
 msgstr ""
 
 #. Comment
-#: hwmanager/hwdevicetray-autostart.desktop:6
-#: hwmanager/hwdevicetray.desktop:6
+#: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
 msgid "Monitor hardware devices from the system tray"
 msgstr ""
 
@@ -1562,8 +1560,7 @@ msgid "joystick;gamepad;"
 msgstr ""
 
 #. Name
-#: kcontrol/KControl.desktop:8
-#: kcontrol/KControl_NoDisplay.desktop:8
+#: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
 #: kcontrol/tde-kcontrol.desktop:8
 msgid "Trinity Control Center"
 msgstr ""
@@ -1606,17 +1603,14 @@ msgid "Layout"
 msgstr ""
 
 #. Comment
-#: kicker/kicker_config.desktop:13
-#: kicker/kicker_config_arrangement.desktop:13
+#: kicker/kicker_config.desktop:13 kicker/kicker_config_arrangement.desktop:13
 msgid "Configure the arrangement of the panel"
 msgstr ""
 
 #. Keywords
-#: kicker/kicker_config.desktop:15
-#: kicker/kicker_config_appearance.desktop:15
+#: kicker/kicker_config.desktop:15 kicker/kicker_config_appearance.desktop:15
 #: kicker/kicker_config_arrangement.desktop:15
-#: kicker/kicker_config_hiding.desktop:15
-#: kicker/kicker_config_menus.desktop:15
+#: kicker/kicker_config_hiding.desktop:15 kicker/kicker_config_menus.desktop:15
 #: kicker/panel.desktop:14
 msgid ""
 "kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;"
@@ -1626,8 +1620,7 @@ msgid ""
 msgstr ""
 
 #. Name
-#: kicker/kicker_config_appearance.desktop:11
-#: konq/fileappearance.desktop:11
+#: kicker/kicker_config_appearance.desktop:11 konq/fileappearance.desktop:11
 msgid "Appearance"
 msgstr ""
 
@@ -1702,8 +1695,7 @@ msgid "desktop;desktops;number;virtual desktop;"
 msgstr ""
 
 #. Name
-#: konq/desktopbehavior.desktop:12
-#: konq/filebehavior.desktop:11
+#: konq/desktopbehavior.desktop:12 konq/filebehavior.desktop:11
 msgid "Behavior"
 msgstr ""
 
@@ -1996,20 +1988,17 @@ msgid "resize;rotate;display;color;depth;size;horizontal;vertical;"
 msgstr ""
 
 #. Name
-#: randr/tderandrtray-autostart.desktop:2
-#: randr/tderandrtray.desktop:2
+#: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
 msgid "TDERandRTray"
 msgstr ""
 
 #. GenericName
-#: randr/tderandrtray-autostart.desktop:4
-#: randr/tderandrtray.desktop:4
+#: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
 msgid "Screen Resize & Rotate"
 msgstr ""
 
 #. Comment
-#: randr/tderandrtray-autostart.desktop:6
-#: randr/tderandrtray.desktop:6
+#: randr/tderandrtray-autostart.desktop:6 randr/tderandrtray.desktop:6
 msgid "Resize and rotate X screens."
 msgstr ""
 
