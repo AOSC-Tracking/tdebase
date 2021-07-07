@@ -67,7 +67,6 @@ NaughtyApplet::NaughtyApplet
   setBackgroundOrigin( AncestorOrigin );
 
   button_ = new SimpleButton(this);
-  button_->setFixedSize(20, 20);
 
   TQVBoxLayout * layout = new TQVBoxLayout(this);
   layout->addWidget(button_);
@@ -132,25 +131,15 @@ NaughtyApplet::slotWarn(ulong pid, const TQString & name)
   }
 }
 
-  int
-NaughtyApplet::widthForHeight(int) const
-{
-  return 20;
-}
-
-  int
-NaughtyApplet::heightForWidth(int) const
-{
-  return 20;
-}
 
   void
 NaughtyApplet::slotLoad(uint l)
 {
-  if (l > monitor_->triggerLevel())
-    button_->setPixmap(BarIcon("naughty-sad"));
-  else
-    button_->setPixmap(BarIcon("naughty-happy"));
+  button_->setPixmap(TDEGlobal::iconLoader()->loadIcon(
+     (l > monitor_->triggerLevel() ? "naughty-sad" : "naughty-happy"),
+     TDEIcon::Panel,
+     TQMIN(size().width(),size().height())-2
+  ));
 }
 
   void
