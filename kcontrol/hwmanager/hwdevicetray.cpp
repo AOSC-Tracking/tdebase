@@ -52,6 +52,9 @@
 #include "hwdevicetray_configdialog.h"
 #include "hwdevicetray.h"
 
+static const int K_NOTIFICATION_FILTER_TIME = 250;
+static const int K_NOTIFICATION_FILTER_UPDATE_INTERVAL = 50;
+
 HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
 	: KSystemTray(parent, name), m_passDlg(NULL)
 {
@@ -87,6 +90,11 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
 	new TDEActionMenu(i18n("Lock"), SmallIcon("encrypted", TQIconSet::Automatic), actionCollection(), "lock_menu");
 	new TDEActionMenu(i18n("Eject"), SmallIcon("player_eject", TQIconSet::Automatic), actionCollection(), "eject_menu");
 	new TDEActionMenu(i18n("Properties"), SmallIcon("edit", TQIconSet::Automatic), actionCollection(), "properties_menu");
+
+	m_notificationFilterMap.clear();
+	m_notificationFilterUpdateTimer = new TQTimer(this);
+	connect(m_notificationFilterUpdateTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(updateNotificationFilterMap()));
+	m_notificationFilterUpdateTimer->start(K_NOTIFICATION_FILTER_UPDATE_INTERVAL);
 
 #ifdef WITH_TDEHWLIB
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -538,6 +546,32 @@ void HwDeviceSystemTray::doUnlockDisk()
 	}
 }
 
+void HwDeviceSystemTray::updateNotificationFilterMap()
+{
+	if (m_notificationFilterMap.count() > 0)
+	{
+		TQStringList toRemove;
+		TQMap<TQString, int>::Iterator it;
+	  for (it = m_notificationFilterMap.begin(); it != m_notificationFilterMap.end(); ++it)
+		{
+			if (it.data() > 0)
+			{
+				it.data() -= K_NOTIFICATION_FILTER_UPDATE_INTERVAL;
+			}
+			else
+			{
+				// Mark expired elements as removable
+				toRemove.append(it.key());
+			}
+		}
+		// Remove expired elements
+		for (TQStringList::ConstIterator trIt = toRemove.begin(); trIt != toRemove.end(); ++trIt)
+		{
+			m_notificationFilterMap.remove(*trIt);
+		}
+	}
+}
+
 void HwDeviceSystemTray::slotLockDevice(int parameter)
 {
 	TDEGenericDevice *hwdevice;
@@ -655,10 +689,15 @@ void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device) {
 				{
 					uuid = sdevice->systemPath();
 				}
-				m_hardwareNotifierContainer->displayMessage(
-					i18n("A disk device has been added!"),
-					i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-					0, 0, "ADD: " + uuid);
+				TQString devNotificationID = sdevice->deviceNode() + "-[ADDED]";
+				if (!m_notificationFilterMap.contains(devNotificationID) || m_notificationFilterMap[devNotificationID] <= 0)
+				{
+					m_notificationFilterMap[devNotificationID] = K_NOTIFICATION_FILTER_TIME;
+					m_hardwareNotifierContainer->displayMessage(
+							i18n("A disk device has been added!"),
+							i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
+							0, 0, "ADD: " + uuid);
+				}
 			}
 		}
 	}
@@ -681,10 +720,15 @@ void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device) {
 				{
 					uuid = sdevice->systemPath();
 				}
-				m_hardwareNotifierContainer->displayMessage(
-					i18n("A disk device has been removed!"),
-					i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-					0, 0, "REMOVE: " + uuid);
+				TQString devNotificationID = sdevice->deviceNode() + "-[REMOVED]";
+				if (!m_notificationFilterMap.contains(devNotificationID) || m_notificationFilterMap[devNotificationID] <= 0)
+				{
+					m_notificationFilterMap[devNotificationID] = K_NOTIFICATION_FILTER_TIME;
+					m_hardwareNotifierContainer->displayMessage(
+							i18n("A disk device has been removed!"),
+							i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
+							0, 0, "REMOVE: " + uuid);
+				}
 			}
 		}
 	}
@@ -707,10 +751,15 @@ void HwDeviceSystemTray::deviceChanged(TDEGenericDevice* device) {
 				{
 					uuid = sdevice->systemPath();
 				}
-				m_hardwareNotifierContainer->displayMessage(
-					i18n("A disk device has been changed!"),
-					i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-					0, 0, "CHANGE: " + uuid);
+				TQString devNotificationID = sdevice->deviceNode() + "-[CHANGED]";
+				if (!m_notificationFilterMap.contains(devNotificationID) || m_notificationFilterMap[devNotificationID] <= 0)
+				{
+					m_notificationFilterMap[devNotificationID] = K_NOTIFICATION_FILTER_TIME;
+					m_hardwareNotifierContainer->displayMessage(
+							i18n("A disk device has been changed!"),
+							i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
+							0, 0, "CHANGE: " + uuid);
+				}
 			}
 		}
 	}

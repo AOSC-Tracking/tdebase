@@ -29,13 +29,16 @@
 
 #ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
+#include <tdestoragedevice.h>
 #else
 #define TDEGenericDevice void
+#define TDEStorageDevice void
 #endif
 
 class KHelpMenu;
 class PasswordDlg;
 class TDEPopupMenu;
+class TQTimer;
 
 typedef TQMap<int, TQString> TQStringMap;
 
@@ -78,6 +81,7 @@ private slots:
 	void deviceChanged(TDEGenericDevice*);
 	void devicePopupClicked(KPassivePopup*, TQPoint, TQString);
 	void doUnlockDisk();
+	void updateNotificationFilterMap();
 
 private:
 	bool isMonitoredDevice(TDEStorageDevice* sdevice);
@@ -102,6 +106,8 @@ private:
 	TDEPopupMenu* m_menu;
 	KSimpleConfig *r_config;
 	PasswordDlg *m_passDlg;
+	TQTimer *m_notificationFilterUpdateTimer;
+  TQMap<TQString, int> m_notificationFilterMap;
 };
 
 #endif
