@@ -44,7 +44,7 @@ NotificationDialog::NotificationDialog( KFileItem medium, NotifierSettings *sett
 	: KDialogBase( parent, name, false, i18n( "Medium Detected" ), Ok|Cancel|User1, Ok, true),
 	  m_medium(medium), m_settings( settings )
 {
-	setCaption( TDEIO::decodeFileName(m_medium.name()) );
+	setCaption( m_medium.text() );
 	clearWState( WState_Polished );
 
 	TQWidget *page = new TQWidget( this );
@@ -54,13 +54,14 @@ NotificationDialog::NotificationDialog( KFileItem medium, NotifierSettings *sett
 	m_view = new NotificationDialogView( page );
 
 	topLayout->addWidget(m_view);
-	m_view->iconLabel->setPixmap( m_medium.pixmap(64) );
-	m_view->mimetypeLabel->setText( i18n( "<b>Medium type:</b>" ) + " "
-	                              + m_medium.mimeTypePtr()->comment() );
+	m_view->iconLabel->setPixmap(m_medium.pixmap(64));
+	m_view->mimetypeLabel->setText(i18n("<b>Name:</b>") + "&#9;" + m_medium.text() + "<br/>" +
+	    i18n("<b>Type:</b>") + "&#9;" + m_medium.mimeTypePtr()->comment() + "<br/>" +
+	    i18n("<b>Url:</b>") + "&#9;" + m_medium.url().prettyURL());
 
 	updateActionsListBox();
 
-	resize( TQSize(400,400).expandedTo( minimumSizeHint() ) );
+	resize( TQSize(500,500).expandedTo( minimumSizeHint() ) );
 
 
 	m_actionWatcher = new KDirWatch();
