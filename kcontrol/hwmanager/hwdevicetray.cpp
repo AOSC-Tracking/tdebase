@@ -88,12 +88,11 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
 	new TDEActionMenu(i18n("Eject"), SmallIcon("player_eject", TQIconSet::Automatic), actionCollection(), "eject_menu");
 	new TDEActionMenu(i18n("Properties"), SmallIcon("edit", TQIconSet::Automatic), actionCollection(), "properties_menu");
 
-#ifdef WITH_TDEHWLIB
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
+	doDiskNotifications(true);
 	connect(hwdevices, TQT_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQT_SLOT(deviceAdded(TDEGenericDevice*)));
 	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(deviceRemoved(TDEGenericDevice*)));
 	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(deviceChanged(TDEGenericDevice*)));
-#endif
 }
 
 HwDeviceSystemTray::~HwDeviceSystemTray()
@@ -639,82 +638,79 @@ void HwDeviceSystemTray::slotEditShortcutKeys() {
 	delete dlg;
 }
 
-void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device) {
-#ifdef WITH_TDEHWLIB
+void HwDeviceSystemTray::doDiskNotifications(bool scanOnly)
+{
+	TQMap<TQString, TDEStorageDevice*> deletedDevices = m_knownDiskDevices;
+	TQMap<TQString, TDEStorageDevice*> addedDevices;
+
+	// Rescan known devices
+	m_knownDiskDevices.clear();
+	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
+	TDEGenericHardwareList diskDeviceList = hwdevices->listByDeviceClass(TDEGenericDeviceType::Disk);
+	for (TDEGenericDevice *hwdevice = diskDeviceList.first(); hwdevice; hwdevice = diskDeviceList.next())
+	{
+		TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
+		if (isMonitoredDevice(sdevice))
+		{
+			TQString uuid = sdevice->diskUUID();
+			if (uuid == "")
+			{
+				uuid = sdevice->systemPath();
+			}
+			if (deletedDevices.contains(uuid))
+			{
+				deletedDevices.remove(uuid);
+			}
+			else
+			{
+				addedDevices[uuid] = sdevice;
+			}
+			m_knownDiskDevices[uuid] = sdevice;
+		}
+	}
+	if (scanOnly)
+	{
+		return;
+	}
+
+	// Notify added/removed devices to the user if necessary
 	TDEConfig config("mediamanagerrc");
 	config.setGroup("Global");
 	if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
 	{
-		if (device->type() == TDEGenericDeviceType::Disk)
+		TQMap<TQString, TDEStorageDevice*>::Iterator it;
+		// Added devices
+		for (it = addedDevices.begin(); it != addedDevices.end(); ++it)
 		{
-			TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(device);
-			if (isMonitoredDevice(sdevice))
-			{
-				TQString uuid = sdevice->diskUUID();
-				if (uuid == "")
-				{
-					uuid = sdevice->systemPath();
-				}
-				m_hardwareNotifierContainer->displayMessage(
+			m_hardwareNotifierContainer->displayMessage(
 					i18n("A disk device has been added!"),
-					i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-					0, 0, "ADD: " + uuid);
-			}
+					i18n("%1 (%2)").arg(it.data()->friendlyName(), it.data()->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
+					0, 0, "ADD: " + it.key());
 		}
-	}
-#endif
-}
-
-void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device) {
-#ifdef WITH_TDEHWLIB
-	TDEConfig config("mediamanagerrc");
-	config.setGroup("Global");
-	if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
-	{
-		if (device->type() == TDEGenericDeviceType::Disk)
+		// Deleted devices
+		for (it = deletedDevices.begin(); it != deletedDevices.end(); ++it)
 		{
-			TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(device);
-			if (isMonitoredDevice(sdevice))
-			{
-				TQString uuid = sdevice->diskUUID();
-				if (uuid == "")
-				{
-					uuid = sdevice->systemPath();
-				}
-				m_hardwareNotifierContainer->displayMessage(
+			m_hardwareNotifierContainer->displayMessage(
 					i18n("A disk device has been removed!"),
-					i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-					0, 0, "REMOVE: " + uuid);
-			}
+					i18n("%1 (%2)").arg(it.data()->friendlyName(), it.data()->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
+					0, 0, "REMOVE: " + it.key());
 		}
 	}
-#endif
 }
 
-void HwDeviceSystemTray::deviceChanged(TDEGenericDevice* device) {
-#ifdef WITH_TDEHWLIB
-	TDEConfig config("mediamanagerrc");
-	config.setGroup("Global");
-	if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
-	{
-		if (device->type() == TDEGenericDeviceType::Disk)
-		{
-			TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(device);
-			if (isMonitoredDevice(sdevice))
-			{
-				TQString uuid = sdevice->diskUUID();
-				if (uuid == "")
-				{
-					uuid = sdevice->systemPath();
-				}
-				m_hardwareNotifierContainer->displayMessage(
-					i18n("A disk device has been changed!"),
-					i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-					0, 0, "CHANGE: " + uuid);
-			}
-		}
-	}
-#endif
+void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device)
+{
+	doDiskNotifications(false);
+}
+
+void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device)
+{
+	doDiskNotifications(false);
+}
+
+void HwDeviceSystemTray::deviceChanged(TDEGenericDevice* device)
+{
+	doDiskNotifications(false);
 }
 
 void HwDeviceSystemTray::devicePopupClicked(KPassivePopup* popup, TQPoint point, TQString uuid) {

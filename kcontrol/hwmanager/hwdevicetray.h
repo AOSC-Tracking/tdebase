@@ -27,11 +27,8 @@
 #include <ksimpleconfig.h>
 #include <tdepassivepopupstack.h>
 
-#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
-#else
-#define TDEGenericDevice void
-#endif
+#include <tdestoragedevice.h>
 
 class KHelpMenu;
 class PasswordDlg;
@@ -78,6 +75,7 @@ private slots:
 	void deviceChanged(TDEGenericDevice*);
 	void devicePopupClicked(KPassivePopup*, TQPoint, TQString);
 	void doUnlockDisk();
+	void doDiskNotifications(bool scanOnly);
 
 private:
 	bool isMonitoredDevice(TDEStorageDevice* sdevice);
@@ -102,6 +100,7 @@ private:
 	TDEPopupMenu* m_menu;
 	KSimpleConfig *r_config;
 	PasswordDlg *m_passDlg;
+	TQMap<TQString, TDEStorageDevice*> m_knownDiskDevices;
 };
 
 #endif
