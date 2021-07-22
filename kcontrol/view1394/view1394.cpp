@@ -221,7 +221,7 @@ void View1394::rescanBus()
          {
             TQString guidStr;
             char buf[32];
-            snprintf(buf, 32, "%"PRIX64, guid);
+            snprintf(buf, 32, "%" PRIX64, guid);
             guidStr=buf;
             guidStr="0x"+guidStr.rightJustify(16,'0');
             TQString local=((j | 0xffc0) == localNodeId)?"X":"";
