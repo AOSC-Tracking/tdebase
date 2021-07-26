@@ -574,5 +574,6 @@
 <layoutdefaults spacing="6" margin="11"/>
 <includes>
     <include location="global" impldecl="in implementation">tdelistview.h</include>
+    <include location="global" impldecl="in implementation">kseparator.h</include>
 </includes>
 </UI>
