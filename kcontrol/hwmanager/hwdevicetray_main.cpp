@@ -36,8 +36,13 @@ static const TDECmdLineOptions options[] =
 
 int main(int argc, char **argv)
 {
-	TDEAboutData aboutData("hwdevicetray", I18N_NOOP("Device Monitor"), hwdevicetrayVersion, I18N_NOOP("Device Monitor Tray Application\n\nAllows you not only to get informations about hardware changes on your system,\nbut also to open and eject storage devices if possible."), TDEAboutData::License_GPL_V3,
-	"(c) 2015 Timothy Pearson\n(c) 2019 The Trinity Desktop Project", 0L, "");
+	TDEAboutData aboutData("hwdevicetray", I18N_NOOP("Device Monitor"), hwdevicetrayVersion,
+	I18N_NOOP("Device Monitor Tray Application\n\n"
+	          "Allows you not only to get informations about hardware changes on your system,\n"
+	          "but also to open and eject storage devices if possible."),
+	TDEAboutData::License_GPL_V3,
+	I18N_NOOP("(c) 2015 Timothy Pearson\n"
+              "(c) 2019 The Trinity Desktop Project"), 0L, "");
 	aboutData.addAuthor("Timothy Pearson",I18N_NOOP("Initial developer and maintainer"), "kb9vqf@pearsoncomputing.net");
 	aboutData.setProductName("hwdevices/hwdevicetray");
 	TDEGlobal::locale()->setMainCatalogue("tdehwdevicetray");

@@ -71,10 +71,13 @@ TDEHWManager::TDEHWManager(TQWidget *parent, const char *name, const TQStringLis
 	systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdehw/hwmanagerrc" ));
 
 	TDEAboutData *about =
-	new TDEAboutData(I18N_NOOP("kcmhwmanager"), I18N_NOOP("TDE Device Manager\n\nCan be used to get all kind of informations about your devices on your system, shows which drivers are used by them and allows to change device settings."),
-		0, 0, TDEAboutData::License_GPL,
-		I18N_NOOP("(c) 2012 Timothy Pearson\n(c) 2019 The Trinity Desktop Project"));
-	
+	new TDEAboutData(I18N_NOOP("kcmhwmanager"), I18N_NOOP("TDE Device Manager"), 0,
+	I18N_NOOP("Device Manager\n\n"
+	          "Can be used to get all kind of informations about your devices on your system,\n"
+	          "shows which drivers are used by them and allows to change device settings."),
+	TDEAboutData::License_GPL,
+	I18N_NOOP("(c) 2012 Timothy Pearson\n"
+	          "(c) 2019 The Trinity Desktop Project"));
 	about->addAuthor("Timothy Pearson", 0, "kb9vqf@pearsoncomputing.net");
 	setAboutData( about );
 
