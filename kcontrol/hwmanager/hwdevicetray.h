@@ -100,7 +100,13 @@ private:
 	TDEPopupMenu* m_menu;
 	KSimpleConfig *r_config;
 	PasswordDlg *m_passDlg;
-	TQMap<TQString, TDEStorageDevice*> m_knownDiskDevices;
+
+	struct KnownDiskDeviceInfo
+	{
+		TQString friendlyName;
+		TQString node;
+	};
+	TQMap<TQString, KnownDiskDeviceInfo> m_knownDiskDevices;
 };
 
 #endif

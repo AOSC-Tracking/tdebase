@@ -320,8 +320,7 @@ void TDEBackend::ModifyDevice(TDEStorageDevice * sdevice)
 {
 	kdDebug(1219) << "TDEBackend::ModifyDevice for " << sdevice->uniqueID() << endl;
 
-	bool allowNotification = false;
-	ResetProperties(sdevice, allowNotification);
+	ResetProperties(sdevice, false);
 }
 
 void TDEBackend::ResetProperties(TDEStorageDevice * sdevice, bool allowNotification, bool overrideIgnoreList)

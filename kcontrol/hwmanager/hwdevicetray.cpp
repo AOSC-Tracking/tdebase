@@ -640,10 +640,14 @@ void HwDeviceSystemTray::slotEditShortcutKeys() {
 
 void HwDeviceSystemTray::doDiskNotifications(bool scanOnly)
 {
-	TQMap<TQString, TDEStorageDevice*> deletedDevices = m_knownDiskDevices;
-	TQMap<TQString, TDEStorageDevice*> addedDevices;
+	TDEConfig config("mediamanagerrc");
+	config.setGroup("Global");
+	bool popupEnable = config.readBoolEntry("DeviceMonitorPopupsEnabled", true);
 
-	// Rescan known devices
+	// Scan devices for changes and notify new devices if needed.
+	// This is necessary because the device information may not be available
+	// at the time the hardwareAdded signal is emitted
+	TQMap<TQString, KnownDiskDeviceInfo> oldKnownDevices = m_knownDiskDevices;
 	m_knownDiskDevices.clear();
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	TDEGenericHardwareList diskDeviceList = hwdevices->listByDeviceClass(TDEGenericDeviceType::Disk);
@@ -652,60 +656,93 @@ void HwDeviceSystemTray::doDiskNotifications(bool scanOnly)
 		TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
 		if (isMonitoredDevice(sdevice))
 		{
-			TQString uuid = sdevice->diskUUID();
-			if (uuid == "")
+			TQString sysPath = sdevice->systemPath();
+			if (oldKnownDevices.contains(sysPath))
 			{
-				uuid = sdevice->systemPath();
-			}
-			if (deletedDevices.contains(uuid))
-			{
-				deletedDevices.remove(uuid);
+				m_knownDiskDevices[sysPath] = oldKnownDevices[sysPath];
+				oldKnownDevices.remove(sysPath);
 			}
 			else
 			{
-				addedDevices[uuid] = sdevice;
+				TQString friendlyName = sdevice->diskLabel();
+				if (friendlyName.isEmpty())
+				{
+					friendlyName = sdevice->friendlyName();
+				}
+				m_knownDiskDevices[sysPath] = { friendlyName, sdevice->deviceNode() };
+				if (!scanOnly && popupEnable)
+				{
+					m_hardwareNotifierContainer->displayMessage(
+							i18n("A disk device has been added!"),
+							i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()),
+							SmallIcon("drive-harddisk-unmounted"), 0, 0, "ADD: " + sysPath);
+				}
 			}
-			m_knownDiskDevices[uuid] = sdevice;
 		}
 	}
-	if (scanOnly)
+	// Notify devices which have been removed, if necessary
+	if (!scanOnly && popupEnable)
 	{
-		return;
-	}
-
-	// Notify added/removed devices to the user if necessary
-	TDEConfig config("mediamanagerrc");
-	config.setGroup("Global");
-	if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
-	{
-		TQMap<TQString, TDEStorageDevice*>::Iterator it;
-		// Added devices
-		for (it = addedDevices.begin(); it != addedDevices.end(); ++it)
-		{
-			m_hardwareNotifierContainer->displayMessage(
-					i18n("A disk device has been added!"),
-					i18n("%1 (%2)").arg(it.data()->friendlyName(), it.data()->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-					0, 0, "ADD: " + it.key());
-		}
-		// Deleted devices
-		for (it = deletedDevices.begin(); it != deletedDevices.end(); ++it)
+		TQMap<TQString, KnownDiskDeviceInfo>::ConstIterator delIt;
+		for (delIt = oldKnownDevices.begin(); delIt != oldKnownDevices.end(); delIt++)
 		{
 			m_hardwareNotifierContainer->displayMessage(
 					i18n("A disk device has been removed!"),
-					i18n("%1 (%2)").arg(it.data()->friendlyName(), it.data()->deviceNode()), SmallIcon("drive-harddisk-unmounted"),
-					0, 0, "REMOVE: " + it.key());
+					i18n("%1 (%2)").arg(delIt.data().friendlyName, delIt.data().node),
+					SmallIcon("drive-harddisk-unmounted"), 0, 0, "REMOVE: " + delIt.key());
 		}
 	}
 }
 
 void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device)
 {
-	doDiskNotifications(false);
+	if (device->type() == TDEGenericDeviceType::Disk)
+	{
+		TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(device);
+		// The device information may not be available at the time the hardwareAdded signal is emitted.
+		// In such case ignore the event and handle that at the subsequent hardwareUpdate signal emission.
+		TQString sysPath = sdevice->systemPath();
+		if (isMonitoredDevice(sdevice) && !m_knownDiskDevices.contains(sysPath))
+		{
+			TQString friendlyName = sdevice->diskLabel();
+			if (friendlyName.isEmpty())
+			{
+				friendlyName = sdevice->friendlyName();
+			}
+			m_knownDiskDevices[sysPath] = { friendlyName, sdevice->deviceNode() };
+			TDEConfig config("mediamanagerrc");
+			config.setGroup("Global");
+			if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
+			{
+				m_hardwareNotifierContainer->displayMessage(
+						i18n("A disk device has been added!"),
+						i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()),
+						SmallIcon("drive-harddisk-unmounted"), 0, 0, "ADD: " + sysPath);
+			}
+		}
+	}
 }
 
 void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device)
 {
-	doDiskNotifications(false);
+	if (device->type() == TDEGenericDeviceType::Disk)
+	{
+		TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(device);
+		TQString sysPath = sdevice->systemPath();
+		if (isMonitoredDevice(sdevice) && m_knownDiskDevices.contains(sysPath))
+		{
+			TDEConfig config("mediamanagerrc");
+			config.setGroup("Global");
+			if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
+			{
+				m_hardwareNotifierContainer->displayMessage(
+						i18n("A disk device has been removed!"),
+						i18n("%1 (%2)").arg(m_knownDiskDevices[sysPath].friendlyName, m_knownDiskDevices[sysPath].node),
+						SmallIcon("drive-harddisk-unmounted"), 0, 0, "REMOVE: " + sysPath);
+			}
+			m_knownDiskDevices.remove(sysPath);
+		}
+	}
 }
 
 void HwDeviceSystemTray::deviceChanged(TDEGenericDevice* device)
