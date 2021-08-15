@@ -269,12 +269,18 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 		TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(hwdevice);
 		if (isMonitoredDevice(sdevice))
 		{
+			TQString friendlyName = sdevice->diskLabel();
+			if (friendlyName.isEmpty())
+			{
+				friendlyName = sdevice->friendlyName();
+			}
+
 			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) || sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted))
 			{
 				if (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt))
 				{
 					lastLockIndex = lockDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
-					        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
+					        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 					lockDeviceActionMenu->popupMenu()->connectItem(lastLockIndex, this, TQT_SLOT(slotLockDevice(int)));
 					m_lockMenuIndexMap[lastLockIndex] = sdevice->diskUUID();
 					if (m_lockMenuIndexMap[lastLockIndex] == "")
@@ -285,7 +291,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 				else
 				{
 					lastUnlockIndex = unlockDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
-					        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
+					        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 					unlockDeviceActionMenu->popupMenu()->connectItem(lastUnlockIndex, this, TQT_SLOT(slotUnlockDevice(int)));
 					m_unlockMenuIndexMap[lastUnlockIndex] = sdevice->diskUUID();
 					if (m_unlockMenuIndexMap[lastUnlockIndex] == "")
@@ -300,7 +306,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 				if (sdevice->mountPath().isEmpty())
 				{
 					lastMountIndex = mountDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
-					        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
+					        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 					mountDeviceActionMenu->popupMenu()->connectItem(lastMountIndex, this, TQT_SLOT(slotMountDevice(int)));
 					m_mountMenuIndexMap[lastMountIndex] = sdevice->diskUUID();
 					if (m_mountMenuIndexMap[lastMountIndex] == "")
@@ -311,7 +317,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 				else
 				{
 					lastUnmountIndex = unmountDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
-					        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
+					        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 					unmountDeviceActionMenu->popupMenu()->connectItem(lastUnmountIndex, this, TQT_SLOT(slotUnmountDevice(int)));
 					m_unmountMenuIndexMap[lastUnmountIndex] = sdevice->diskUUID();
 					if (m_unmountMenuIndexMap[lastMountIndex] == "")
@@ -322,7 +328,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 
 				// Both mounted and unmounted disks can be opened
 				lastOpenIndex = openDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
-				        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
+				        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 				openDeviceActionMenu->popupMenu()->connectItem(lastOpenIndex, this, TQT_SLOT(slotOpenDevice(int)));
 				m_openMenuIndexMap[lastOpenIndex] = sdevice->diskUUID();
 				if (m_openMenuIndexMap[lastOpenIndex] == "")
@@ -335,7 +341,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 					sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable))
 			{
 				lastEjectIndex = ejectDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
-				        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
+				        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 				ejectDeviceActionMenu->popupMenu()->connectItem(lastEjectIndex, this, TQT_SLOT(slotEjectDevice(int)));
 				m_ejectMenuIndexMap[lastEjectIndex] = sdevice->diskUUID();
 				if (m_ejectMenuIndexMap[lastEjectIndex] == "")
@@ -345,7 +351,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 			}
 
 			lastPropertiesIndex = propertiesDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
-			        i18n("%1 (%2)").arg(sdevice->friendlyName(), sdevice->deviceNode()));
+			        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 			propertiesDeviceActionMenu->popupMenu()->connectItem(lastPropertiesIndex, this, TQT_SLOT(slotPropertiesDevice(int)));
 			m_propertiesMenuIndexMap[lastPropertiesIndex] = sdevice->diskUUID();
 			if (m_propertiesMenuIndexMap[lastPropertiesIndex] == "")
