@@ -18,7 +18,7 @@
  */
 
 #include <tqlabel.h>
-#include <tqcombobox.h>
+#include <tqcheckbox.h>
 #include <tqwhatsthis.h>
 #include <tqlayout.h>
 #include <tqvgroupbox.h>
@@ -178,23 +178,28 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, TDEConfig *_co
   hlayoutW->addWidget(label);
   txtButton4 = i18n("Handle mouse wheel events");
   TQWhatsThis::add( label, txtButton4);
-  
-  // Titlebar and frame mouse Wheel  
+
+  // Titlebar and frame mouse Wheel
   TQComboBox* comboW = new TQComboBox(this);
   comboW->insertItem(i18n("Raise/Lower"));
   comboW->insertItem(i18n("Shade/Unshade"));
   comboW->insertItem(i18n("Maximize/Restore"));
-  comboW->insertItem(i18n("Keep Above/Below"));  
-  comboW->insertItem(i18n("Move to Previous/Next Desktop"));  
-  comboW->insertItem(i18n("Change Opacity"));  
-  comboW->insertItem(i18n("Nothing"));  
+  comboW->insertItem(i18n("Keep Above/Below"));
+  comboW->insertItem(i18n("Move to Previous/Next Desktop"));
+  comboW->insertItem(i18n("Change Opacity"));
+  comboW->insertItem(i18n("Nothing"));
   comboW->setSizePolicy(TQSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::Fixed));
   connect(comboW, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
   hlayoutW->addWidget(comboW);
-  coTiAct4 = comboW;
+  coTiW = comboW;
   TQWhatsThis::add(comboW, txtButton4);
   label->setBuddy(comboW);
-  
+
+  cbTiRevW = new TQCheckBox(i18n("Reverse wheel direction"), this);
+  connect(cbTiRevW, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+  TQWhatsThis::add( cbTiRevW, i18n("Use this to reverse the action of the mouse wheel.") );
+  hlayoutW->addWidget(cbTiRevW);
+
 /** Titlebar and frame  **************/
 
   box = new TQVGroupBox( i18n("Titlebar && Frame"), this, "Titlebar and Frame");
@@ -491,8 +496,8 @@ void KTitleBarActionsConfig::setComboText( TQComboBox* combo, const char*txt )
         combo->setCurrentItem( tbl_txt_lookup( tbl_TiAc, txt ));
     else if( combo == coTiInAct1 || combo == coTiInAct2 || combo == coTiInAct3 )
         combo->setCurrentItem( tbl_txt_lookup( tbl_TiInAc, txt ));
-    else if( combo == coTiAct4 )
-        combo->setCurrentItem( tbl_txt_lookup( tbl_TiWAc, txt ));	
+    else if( combo == coTiW )
+        combo->setCurrentItem( tbl_txt_lookup( tbl_TiWAc, txt ));
     else if( combo == coMax[0] || combo == coMax[1] || combo == coMax[2] )
     {
         combo->setCurrentItem( tbl_txt_lookup( tbl_Max, txt ));
@@ -538,10 +543,11 @@ void KTitleBarActionsConfig::load()
   setComboText(coTiAct1,config->readEntry("CommandActiveTitlebar1","Raise").ascii());
   setComboText(coTiAct2,config->readEntry("CommandActiveTitlebar2","Lower").ascii());
   setComboText(coTiAct3,config->readEntry("CommandActiveTitlebar3","Operations menu").ascii());
-  setComboText(coTiAct4,config->readEntry("CommandTitlebarWheel","Nothing").ascii());  
   setComboText(coTiInAct1,config->readEntry("CommandInactiveTitlebar1","Activate and raise").ascii());
   setComboText(coTiInAct2,config->readEntry("CommandInactiveTitlebar2","Activate and lower").ascii());
   setComboText(coTiInAct3,config->readEntry("CommandInactiveTitlebar3","Operations menu").ascii());
+  setComboText(coTiW,config->readEntry("CommandTitlebarWheel","Nothing").ascii());
+  cbTiRevW->setChecked(config->readBoolEntry("CommandTitlebarReverseWheel", false));
 }
 
 void KTitleBarActionsConfig::save()
@@ -556,10 +562,11 @@ void KTitleBarActionsConfig::save()
   config->writeEntry("CommandActiveTitlebar2", functionTiAc(coTiAct2->currentItem()));
   config->writeEntry("CommandActiveTitlebar3", functionTiAc(coTiAct3->currentItem()));
   config->writeEntry("CommandInactiveTitlebar1", functionTiInAc(coTiInAct1->currentItem()));
-  config->writeEntry("CommandTitlebarWheel", functionTiWAc(coTiAct4->currentItem()));  
   config->writeEntry("CommandInactiveTitlebar2", functionTiInAc(coTiInAct2->currentItem()));
   config->writeEntry("CommandInactiveTitlebar3", functionTiInAc(coTiInAct3->currentItem()));
-  
+  config->writeEntry("CommandTitlebarWheel", functionTiWAc(coTiW->currentItem()));
+  config->writeEntry("CommandTitlebarReverseWheel", cbTiRevW->isChecked());
+
   if (standAlone)
   {
     config->sync();
@@ -575,10 +582,11 @@ void KTitleBarActionsConfig::defaults()
   setComboText(coTiAct1,"Raise");
   setComboText(coTiAct2,"Lower");
   setComboText(coTiAct3,"Operations menu");
-  setComboText(coTiAct4,"Nothing");    
   setComboText(coTiInAct1,"Activate and raise");
   setComboText(coTiInAct2,"Activate and lower");
   setComboText(coTiInAct3,"Operations menu");
+  setComboText(coTiW,"Nothing");
+  cbTiRevW->setChecked(false);
   for (int t = 0; t < 3; ++t)
     setComboText(coMax[t], tbl_Max[t]);
 }
@@ -676,7 +684,7 @@ KWindowActionsConfig::KWindowActionsConfig (bool _standAlone, TDEConfig *_config
   TQWhatsThis::add( box, i18n("Here you can customize TDE's behavior when clicking somewhere into"
                              " a window while pressing a modifier key."));
 
-  grid = new TQGrid(5, Qt::Vertical, box);
+  grid = new TQGrid(6, Qt::Vertical, box);
 
   // Labels
   label = new TQLabel(i18n("Modifier key:"), grid);
@@ -715,6 +723,8 @@ KWindowActionsConfig::KWindowActionsConfig (bool _standAlone, TDEConfig *_config
   strAllW = i18n("Here you can customize TDE's behavior when scrolling with the mouse wheel"
       "  in a window while pressing the modifier key.");
   TQWhatsThis::add( label, strAllW);
+
+  label = new TQLabel("", grid); // Dummy label to keep grid in order
 
   // Combo's
   combo = new TQComboBox(grid);
@@ -756,13 +766,17 @@ KWindowActionsConfig::KWindowActionsConfig (bool _standAlone, TDEConfig *_config
   combo->insertItem(i18n("Raise/Lower"));
   combo->insertItem(i18n("Shade/Unshade"));
   combo->insertItem(i18n("Maximize/Restore"));
-  combo->insertItem(i18n("Keep Above/Below"));  
-  combo->insertItem(i18n("Move to Previous/Next Desktop"));  
-  combo->insertItem(i18n("Change Opacity"));  
-  combo->insertItem(i18n("Nothing"));  
+  combo->insertItem(i18n("Keep Above/Below"));
+  combo->insertItem(i18n("Move to Previous/Next Desktop"));
+  combo->insertItem(i18n("Change Opacity"));
+  combo->insertItem(i18n("Nothing"));
   connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
   coAllW =  combo;
   TQWhatsThis::add( combo, strAllW );
+
+  cbAllRevW = new TQCheckBox(i18n("Reverse wheel direction"), grid);
+  connect(cbAllRevW, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+  TQWhatsThis::add( cbAllRevW, i18n("Use this to reverse the action of the mouse wheel.") );
 
   layout->addStretch();
 
@@ -784,7 +798,7 @@ void KWindowActionsConfig::setComboText( TQComboBox* combo, const char*txt )
     else if( combo == coAll1 || combo == coAll2 || combo == coAll3 )
         combo->setCurrentItem( tbl_txt_lookup( tbl_All, txt ));
     else if( combo == coAllW )
-        combo->setCurrentItem( tbl_txt_lookup( tbl_AllW, txt ));	
+        combo->setCurrentItem( tbl_txt_lookup( tbl_AllW, txt ));
     else
         abort();
 }
@@ -820,6 +834,7 @@ void KWindowActionsConfig::load()
   setComboText(coAll2,config->readEntry("CommandAll2","Toggle raise and lower").ascii());
   setComboText(coAll3,config->readEntry("CommandAll3","Resize").ascii());
   setComboText(coAllW,config->readEntry("CommandAllWheel","Nothing").ascii());
+  cbAllRevW->setChecked(config->readBoolEntry("CommandAllReverseWheel", false));
 }
 
 void KWindowActionsConfig::save()
@@ -833,7 +848,8 @@ void KWindowActionsConfig::save()
   config->writeEntry("CommandAll2", functionAll(coAll2->currentItem()));
   config->writeEntry("CommandAll3", functionAll(coAll3->currentItem()));
   config->writeEntry("CommandAllWheel", functionAllW(coAllW->currentItem()));
-  
+  config->writeEntry("CommandAllReverseWheel", cbAllRevW->isChecked());
+
   if (standAlone)
   {
     config->sync();
@@ -853,4 +869,5 @@ void KWindowActionsConfig::defaults()
   setComboText(coAll2,"Toggle raise and lower");
   setComboText(coAll3,"Resize");
   setComboText(coAllW,"Nothing");
+  cbAllRevW->setChecked(false);
 }

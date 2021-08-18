@@ -22,6 +22,7 @@
 #ifndef __KKWMMOUSECONFIG_H__
 #define __KKWMMOUSECONFIG_H__
 
+class TQCheckBox;
 class TDEConfig;
 
 #include <tqwidget.h>
@@ -33,7 +34,7 @@ class TDEConfig;
 class ToolTipComboBox: public TQComboBox
 {
   Q_OBJECT
-    
+
 public:
   ToolTipComboBox(TQWidget * owner, char const * const * toolTips_)
     : TQComboBox(owner)
@@ -62,18 +63,18 @@ public:
   void defaults();
 
 public slots:
-	void changed() { emit TDECModule::changed(true); }
+  void changed() { emit TDECModule::changed(true); }
 
 private:
   TQComboBox* coTiDbl;
-
   TQComboBox* coTiAct1;
   TQComboBox* coTiAct2;
   TQComboBox* coTiAct3;
-  TQComboBox* coTiAct4;  
   TQComboBox* coTiInAct1;
   TQComboBox* coTiInAct2;
   TQComboBox* coTiInAct3;
+  TQComboBox* coTiW;
+  TQCheckBox* cbTiRevW;
 
   ToolTipComboBox * coMax[3];
 
@@ -82,7 +83,7 @@ private:
 
   const char* functionTiDbl(int);
   const char* functionTiAc(int);
-  const char* functionTiWAc(int);  
+  const char* functionTiWAc(int);
   const char* functionTiInAc(int);
   const char* functionMax(int);
 
@@ -108,7 +109,7 @@ public:
   void defaults();
 
 public slots:
-	void changed() { emit TDECModule::changed(true); }
+  void changed() { emit TDECModule::changed(true); }
 
 private:
   TQComboBox* coWin1;
@@ -120,6 +121,7 @@ private:
   TQComboBox* coAll2;
   TQComboBox* coAll3;
   TQComboBox* coAllW;
+  TQCheckBox* cbAllRevW;
 
   TDEConfig *config;
   bool standAlone;

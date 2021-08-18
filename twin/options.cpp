@@ -71,12 +71,12 @@ unsigned long Options::updateSettings()
     altTabStyle = KDE; // what a default :-)
     if ( val == "CDE" )
         altTabStyle = CDE;
-        
+
     separateScreenFocus = config->readBoolEntry( "SeparateScreenFocus", false );
     activeMouseScreen = config->readBoolEntry( "ActiveMouseScreen", focusPolicy != ClickToFocus );
 
     rollOverDesktops = config->readBoolEntry("RollOverDesktops", TRUE);
-    
+
 //    focusStealingPreventionLevel = config->readNumEntry( "FocusStealingPreventionLevel", 2 );
     // TODO use low level for now
     focusStealingPreventionLevel = config->readNumEntry( "FocusStealingPreventionLevel", 1 );
@@ -101,14 +101,14 @@ unsigned long Options::updateSettings()
     animateMinimize = config->readBoolEntry("AnimateMinimize", TRUE );
     animateMinimizeSpeed = config->readNumEntry("AnimateMinimizeSpeed", 5 );
 
-    if( focusPolicy == ClickToFocus ) 
+    if( focusPolicy == ClickToFocus )
         {
         autoRaise = false;
         autoRaiseInterval = 0;
         delayFocus = false;
         delayFocusInterval = 0;
         }
-    else 
+    else
         {
         autoRaise = config->readBoolEntry("AutoRaise", FALSE );
         autoRaiseInterval = config->readNumEntry("AutoRaiseInterval", 0 );
@@ -159,6 +159,7 @@ unsigned long Options::updateSettings()
     CmdInactiveTitlebar2 = mouseCommand(config->readEntry("CommandInactiveTitlebar2","Activate and lower"), true );
     CmdInactiveTitlebar3 = mouseCommand(config->readEntry("CommandInactiveTitlebar3","Operations menu"), true );
     CmdTitlebarWheel = mouseWheelCommand(config->readEntry("CommandTitlebarWheel","Nothing"));
+    CmdTitlebarRevWheel = config->readBoolEntry("CommandTitlebarReverseWheel", false);
     CmdWindow1 = mouseCommand(config->readEntry("CommandWindow1","Activate, raise and pass click"), false );
     CmdWindow2 = mouseCommand(config->readEntry("CommandWindow2","Activate and pass click"), false );
     CmdWindow3 = mouseCommand(config->readEntry("CommandWindow3","Activate and pass click"), false );
@@ -167,6 +168,7 @@ unsigned long Options::updateSettings()
     CmdAll2 = mouseCommand(config->readEntry("CommandAll2","Toggle raise and lower"), false );
     CmdAll3 = mouseCommand(config->readEntry("CommandAll3","Resize"), false );
     CmdAllWheel = mouseWheelCommand(config->readEntry("CommandAllWheel","Nothing"));
+    CmdAllRevWheel = config->readBoolEntry("CommandAllReverseWheel", false);
 
     //translucency settings
     config->setGroup( "Notification Messages" );
@@ -193,7 +195,7 @@ unsigned long Options::updateSettings()
     resetKompmgr = config->readBoolEntry("ResetKompmgr", false);
     if (resetKompmgr)
         config->writeEntry("ResetKompmgr",FALSE);
-    
+
      // window drop shadows
     config->setGroup("Style");
     shadow_colour = config->readColorEntry("ShadowColour", &TQt::black);
@@ -213,7 +215,7 @@ unsigned long Options::updateSettings()
     shadow_x_offset = config->readNumEntry("ShadowXOffset", 0);
     shadow_y_offset = config->readNumEntry("ShadowYOffset", 10);
 
-    
+
     // Read button tooltip animation effect from kdeglobals
     // Since we want to allow users to enable window decoration tooltips
     // and not tdestyle tooltips and vise-versa, we don't read the
@@ -227,7 +229,7 @@ unsigned long Options::updateSettings()
     desktop_topmenu = kdesktopcfg.readBoolEntry( "ShowMenubar", false );
     if( desktop_topmenu )
         topmenus = true;
-        
+
     TQToolTip::setGloballyEnabled( d->show_tooltips );
 
     return changed;
@@ -386,8 +388,12 @@ bool Options::checkIgnoreFocusStealing( const Client* c )
     return ignoreFocusStealingClasses.contains(TQString::fromLatin1(c->resourceClass()));
     }
 
-Options::MouseCommand Options::wheelToMouseCommand( MouseWheelCommand com, int delta )
+Options::MouseCommand Options::wheelToMouseCommand( MouseWheelCommand com, int delta, bool revDir )
     {
+    if (revDir)
+    {
+      delta = -delta;
+    }
     switch( com )
         {
         case MouseWheelRaiseLower:
