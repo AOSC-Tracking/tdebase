@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Slávek Banko <slavek.banko@axis.cz>, 2020.
+# Slávek Banko <slavek.banko@axis.cz>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: 2020-11-29 18:17+0000\n"
+"POT-Creation-Date: 2021-07-07 22:18+0000\n"
+"PO-Revision-Date: 2021-08-26 22:14+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kcontrol-desktop-files/cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.8\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -30,7 +30,7 @@ msgstr "Zpřístupnění"
 #. Comment
 #: access/kcmaccess.desktop:14
 msgid "Improve accessibility for disabled persons"
-msgstr "Zlepšení přístupnosti pro osoby s postižením"
+msgstr "Zlepšení přístupnosti pro osoby s postižením"
 
 #. Keywords
 #: access/kcmaccess.desktop:16
@@ -132,7 +132,7 @@ msgstr "Hezký název pro vaše rozhraní"
 #. Comment
 #: componentchooser/EXAMPLE.desktop:2
 msgid "A helpful description of the interface for the top right info box"
-msgstr "Smysluplný popis vašeho rozhraní pro informační box"
+msgstr "Smysluplný popis vašeho rozhraní pro pravý horní informační box"
 
 #. Name
 #: componentchooser/componentchooser.desktop:10
@@ -166,9 +166,9 @@ msgid ""
 "Here you can configure your default web browser. All TDE applications in "
 "which you can select hyperlinks should honor this setting."
 msgstr ""
-"Tato služba umožňuje nastavit si výchozí prohlížeč. Všechny TDE aplikace, "
-"které vyžadují přístup k hypertextovým odkazům, by měly používat toto "
-"nastavení."
+"Tato služba umožňuje nastavit si výchozí prohlížeč webu. Všechny TDE "
+"aplikace, které vyžadují přístup k hypertextovým odkazům, by měly používat "
+"toto nastavení."
 
 #. Name
 #: componentchooser/componentservices/kcm_filemanager.desktop:1
@@ -199,7 +199,7 @@ msgid ""
 "this setting."
 msgstr ""
 "Tato služba umožňuje nastavit si výchozího poštovního klienta. Všechny TDE "
-"aplikace, které vyžadují přístup k poštovnímu klientovi, by měly používat "
+"aplikace, které vyžadují přístup k poštovnímu klientovi, by měly používat "
 "toto nastavení."
 
 #. Name
@@ -279,7 +279,7 @@ msgstr "monitor;rozlišení;zobrazení;"
 #. Name
 #: dnssd/kcm_tdednssd.desktop:18
 msgid "Zeroconf Service Discovery"
-msgstr "Hledání služeb"
+msgstr "Hledání služeb (zeroconf)"
 
 #. Comment
 #: dnssd/kcm_tdednssd.desktop:20
@@ -404,7 +404,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
 msgid "Debian Backports Search"
-msgstr "Vyhledávání v Debian Backports"
+msgstr "Vyhledávání v Debian Backports"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
@@ -414,7 +414,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
 msgid "KDE Bug Database Fulltext Search"
-msgstr "Plnotextové vyhledávání v databázi chyb TDE"
+msgstr "Plnotextové vyhledávání v databázi chyb TDE"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:4
@@ -426,7 +426,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
 msgid "TDE Bug Database Bug Number Search"
-msgstr "Vyhledávání v databázi chyb TDE podle čísla chyby"
+msgstr "Vyhledávání v databázi chyb TDE podle čísla chyby"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:4
@@ -513,7 +513,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:5
 msgid "dict.cc Translation: German to English"
-msgstr "Překlad dic.cc: z němčiny do angličtiny"
+msgstr "Překlad dic.cc: z němčiny do angličtiny"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:6
@@ -575,12 +575,12 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:5
 msgid "dict.cc Translation: English to German"
-msgstr "Překlad dict.cc: z angličtiny do němčiny"
+msgstr "Překlad dict.cc: z angličtiny do němčiny"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:5
 msgid "WordReference.com Translation: English to Spanish"
-msgstr "Překlad WordReference.com: z angličtiny do španělštiny"
+msgstr "Překlad WordReference.com: z angličtiny do španělštiny"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:6
@@ -590,7 +590,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:5
 msgid "WordReference.com Translation: English to French"
-msgstr "Překlad WordReference.com: z angličtiny do francouzštiny"
+msgstr "Překlad WordReference.com: z angličtiny do francouzštiny"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:6
@@ -600,7 +600,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:5
 msgid "WordReference.com Translation: English to Italian"
-msgstr "Překlad WordReference.com: z angličtiny do italštiny"
+msgstr "Překlad WordReference.com: z angličtiny do italštiny"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:6
@@ -655,7 +655,7 @@ msgstr "LEO – překlad mezi francouzštinou a němčinou"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:5
 msgid "WordReference.com Translation: French to English"
-msgstr "Překlad WordReference.com: z francouzštiny do angličtiny"
+msgstr "Překlad WordReference.com: z francouzštiny do angličtiny"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:6
@@ -793,7 +793,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:5
 msgid "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
-msgstr "Velký katalánský slovník (GRan Enciclopèdia  Catalana)"
+msgstr "Velký katalánský slovník (GRan Enciclopèdia Catalana)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:6
@@ -843,7 +843,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:5
 msgid "WordReference.com Translation: Italian to English"
-msgstr "Překlad WordReference.com: z italštiny do angličtiny"
+msgstr "Překlad WordReference.com: z italštiny do angličtiny"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:6
@@ -915,7 +915,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:3
 msgid "Mamma - Mother of all Search Engines"
-msgstr "Mamma"
+msgstr "Mamma – matka všech vyhledávacích strojů"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:6
@@ -938,7 +938,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
 msgid "Microsoft Developer Network Search"
-msgstr "Vyhledávání v Microsoft Developer Network"
+msgstr "Vyhledávání v Microsoft Developer Network"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:6
@@ -1795,7 +1795,7 @@ msgstr "Náhledy a metadata"
 #. Comment
 #: konq/filepreviews.desktop:13
 msgid "Configure how Konqueror Previews & Meta-data work"
-msgstr "Zde je možné nastavit chování náhledů a metadat v Konqueroru"
+msgstr "Zde je možné nastavit chování náhledů a metadat v Konqueroru"
 
 #. Keywords
 #: konq/filepreviews.desktop:15
@@ -1913,7 +1913,7 @@ msgstr "Správce motivů"
 #. Comment
 #: kthememanager/x-ktheme.desktop:3
 msgid "TDE Theme"
-msgstr "TDE motiv"
+msgstr "Motiv TDE"
 
 #. Name
 #: launch/kcmlaunch.desktop:12
@@ -2004,7 +2004,7 @@ msgstr "Soukromí"
 #. Comment
 #: privacy/privacy.desktop:13
 msgid "Clean unwanted traces the user leaves on the system"
-msgstr "Čištění nežádoucí stop, které uživatel zanechá v systému"
+msgstr "Čištění nežádoucí stop, které uživatel zanechá v systému"
 
 #. Keywords
 #: privacy/privacy.desktop:15
@@ -2191,7 +2191,7 @@ msgstr "Složka se systémovými písmy"
 #. Name
 #: tdefontinst/thumbnail/fontthumbnail.desktop:3
 msgid "Font Files"
-msgstr "Soubory s písmy"
+msgstr "Soubory s písmy"
 
 #. Name
 #: tdefontinst/viewpart/tdefontview.desktop:2
@@ -2288,7 +2288,7 @@ msgstr "Sdílené disky systému Microsoft Windows"
 #. Comment
 #: tdeio/smb.desktop:14
 msgid "Use to configure which windows (SMB) filesystems you can browse"
-msgstr "Slouží k nastavení systémů Windows (SMB), které chcete procházet"
+msgstr "Slouží k nastavení systémů Windows (SMB), které chcete procházet"
 
 #. Keywords
 #: tdeio/smb.desktop:16
@@ -2418,7 +2418,7 @@ msgstr "USB zařízení"
 #. Comment
 #: usbview/kcmusb.desktop:12
 msgid "View the USB devices attached to this computer"
-msgstr "Zobrazení USB zařízení připojených k tomuto počítači"
+msgstr "Zobrazení USB zařízení připojených k tomuto počítači"
 
 #. Keywords
 #: usbview/kcmusb.desktop:14
@@ -2433,7 +2433,7 @@ msgstr "IEEE 1394 zařízení"
 #. Comment
 #: view1394/kcmview1394.desktop:12
 msgid "View the IEEE 1394 devices attached to this computer"
-msgstr "Zobrazení IEEE 1394 zařízení připojených k tomuto počítači"
+msgstr "Zobrazení IEEE 1394 zařízení připojených k tomuto počítači"
 
 #. Keywords
 #: view1394/kcmview1394.desktop:14
