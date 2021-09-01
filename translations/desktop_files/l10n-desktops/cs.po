@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Slávek Banko <slavek.banko@axis.cz>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-16 20:22+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2021-08-31 23:14+0000\n"
+"Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
+"Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/l10n-desktop-files/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.8\n"
 
 #. Name
 #: caribbean.desktop:2
@@ -119,7 +120,7 @@ msgstr "Výchozí"
 #. Name
 #: ad/entry.desktop:2
 msgid "Andorra"
-msgstr ""
+msgstr "Andorra"
 
 #. Name
 #: ae/entry.desktop:2
@@ -139,7 +140,7 @@ msgstr "Antigua a Barbuda"
 #. Name
 #: ai/entry.desktop:2
 msgid "Anguilla"
-msgstr ""
+msgstr "Anguilla"
 
 #. Name
 #: al/entry.desktop:2
@@ -158,14 +159,13 @@ msgstr "Nizozemské Antily"
 
 #. Name
 #: ao/entry.desktop:2
-#, fuzzy
 msgid "Angola"
-msgstr "Mongolsko"
+msgstr "Angola"
 
 #. Name
 #: ar/entry.desktop:2
 msgid "Argentina"
-msgstr ""
+msgstr "Argentina"
 
 #. Name
 #: as/entry.desktop:2
@@ -185,7 +185,7 @@ msgstr "Austrálie"
 #. Name
 #: aw/entry.desktop:2
 msgid "Aruba"
-msgstr ""
+msgstr "Aruba"
 
 #. Name
 #: ax/entry.desktop:2
@@ -195,17 +195,17 @@ msgstr "Ålandské ostrovy"
 #. Name
 #: az/entry.desktop:2
 msgid "Azerbaijan"
-msgstr "Ázerbajdžánský"
+msgstr "Ázerbájdžán"
 
 #. Name
 #: ba/entry.desktop:2
 msgid "Bosnia and Herzegovina"
-msgstr "Bosna a Herzegovina"
+msgstr "Bosna a Hercegovina"
 
 #. Name
 #: bb/entry.desktop:2
 msgid "Barbados"
-msgstr ""
+msgstr "Barbados"
 
 #. Name
 #: bd/entry.desktop:2
@@ -220,7 +220,7 @@ msgstr "Belgie"
 #. Name
 #: bf/entry.desktop:2
 msgid "Burkina Faso"
-msgstr ""
+msgstr "Burkina Faso"
 
 #. Name
 #: bg/entry.desktop:2
@@ -235,12 +235,12 @@ msgstr "Bahrajn"
 #. Name
 #: bi/entry.desktop:2
 msgid "Burundi"
-msgstr ""
+msgstr "Burundi"
 
 #. Name
 #: bj/entry.desktop:2
 msgid "Benin"
-msgstr ""
+msgstr "Benin"
 
 #. Name
 #: bm/entry.desktop:2
@@ -265,7 +265,7 @@ msgstr "Brazílie"
 #. Name
 #: braille/entry.desktop:2
 msgid "Braille"
-msgstr ""
+msgstr "Braillovo"
 
 #. Name
 #: bs/entry.desktop:2
@@ -280,7 +280,7 @@ msgstr "Bhútán"
 #. Name
 #: bw/entry.desktop:2
 msgid "Botswana"
-msgstr ""
+msgstr "Botswana"
 
 #. Name
 #: by/entry.desktop:3
@@ -290,7 +290,7 @@ msgstr "Bělorusko"
 #. Name
 #: bz/entry.desktop:2
 msgid "Belize"
-msgstr ""
+msgstr "Belize"
 
 #. Name
 #: ca/entry.desktop:5
@@ -305,7 +305,7 @@ msgstr "Kokosové ostrovy (Keeling)"
 #. Name
 #: cd/entry.desktop:2
 msgid "Congo, The Democratic Republic of the"
-msgstr "Kongo"
+msgstr "Konžská demokratická republika"
 
 #. Name
 #: cf/entry.desktop:2
@@ -335,7 +335,7 @@ msgstr "Cookovy ostrovy"
 #. Name
 #: cl/entry.desktop:2
 msgid "Chile"
-msgstr ""
+msgstr "Chile"
 
 #. Name
 #: cm/entry.desktop:2
@@ -380,7 +380,7 @@ msgstr "Kypr"
 #. Name
 #: cz/entry.desktop:2
 msgid "Czechia"
-msgstr "Česká republika"
+msgstr "Česko"
 
 #. Name
 #: de/entry.desktop:2
@@ -390,7 +390,7 @@ msgstr "Německo"
 #. Name
 #: dj/entry.desktop:2
 msgid "Djibouti"
-msgstr "Džibuti"
+msgstr "Džibutsko"
 
 #. Name
 #: dk/entry.desktop:3
@@ -425,7 +425,7 @@ msgstr "Estonsko"
 #. Name
 #: eg/entry.desktop:2
 msgid "Egypt"
-msgstr ""
+msgstr "Egypt"
 
 #. Name
 #: eh/entry.desktop:2
@@ -435,12 +435,12 @@ msgstr "Západní Sahara"
 #. Name
 #: eo/entry.desktop:2
 msgid "Esperanto"
-msgstr ""
+msgstr "Esperanto"
 
 #. Name
 #: er/entry.desktop:2
 msgid "Eritrea"
-msgstr ""
+msgstr "Eritrea"
 
 #. Name
 #: es/entry.desktop:2
@@ -470,7 +470,7 @@ msgstr "Falklandy (Malvíny)"
 #. Name
 #: fm/entry.desktop:2
 msgid "Micronesia, Federated States of"
-msgstr "Mikronésie"
+msgstr "Federativní státy Mikronésie"
 
 #. Name
 #: fo/entry.desktop:2
@@ -485,7 +485,7 @@ msgstr "Francie"
 #. Name
 #: ga/entry.desktop:2
 msgid "Gabon"
-msgstr ""
+msgstr "Gabon"
 
 #. Name
 #: gb/entry.desktop:2
@@ -494,9 +494,8 @@ msgstr "Spojené království"
 
 #. Name
 #: gd/entry.desktop:2
-#, fuzzy
 msgid "Grenada"
-msgstr "Kanada"
+msgstr "Grenada"
 
 #. Name
 #: ge/entry.desktop:2
@@ -506,12 +505,12 @@ msgstr "Gruzie"
 #. Name
 #: gh/entry.desktop:2
 msgid "Ghana"
-msgstr ""
+msgstr "Ghana"
 
 #. Name
 #: gi/entry.desktop:2
 msgid "Gibraltar"
-msgstr ""
+msgstr "Gibraltar"
 
 #. Name
 #: gl/entry.desktop:2
