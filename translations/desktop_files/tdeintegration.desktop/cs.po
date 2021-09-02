@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Slávek Banko <slavek.banko@axis.cz>, 2020.
+# Slávek Banko <slavek.banko@axis.cz>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:05+0200\n"
-"PO-Revision-Date: 2020-09-13 17:05+0000\n"
+"PO-Revision-Date: 2021-09-02 21:14+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/tdeintegrationdesktop/cs/>\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.2.2\n"
+"X-Generator: Weblate 4.8\n"
 
 #. Name
 #: tdeintegration.desktop:12
 msgid "TDE Integration Module"
-msgstr "Modul pro integraci s TDE"
+msgstr "Modul pro integraci s TDE"
 
 #. Comment
 #: tdeintegration.desktop:14
