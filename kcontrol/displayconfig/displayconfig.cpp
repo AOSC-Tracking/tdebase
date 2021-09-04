@@ -60,11 +60,6 @@
 
 #include "displayconfig.h"
 
-using namespace std;
-#ifdef __OpenBSD__
-#define abs __gnu_cxx::abs
-#endif
-
 /**** DLL Interface ****/
 typedef KGenericFactory<KDisplayConfig, TQWidget> KDisplayCFactory;
 K_EXPORT_COMPONENT_FACTORY( kcm_displayconfig, KDisplayCFactory("kcmdisplayconfig") )
