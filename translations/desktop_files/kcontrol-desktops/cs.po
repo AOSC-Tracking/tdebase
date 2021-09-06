@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2021-08-26 22:14+0000\n"
+"PO-Revision-Date: 2021-09-07 01:16+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kcontrol-desktop-files/cs/>\n"
@@ -2399,7 +2399,7 @@ msgstr "Identifikace prohlížeče"
 #. Comment
 #: tdeio/useragent.desktop:14
 msgid "Configure the way Konqueror reports itself"
-msgstr "Zde můžete jak se bude Konqueror hlásit webovým serverům"
+msgstr "Nastavení, jak se bude Konqueror představovat serverům"
 
 #. Keywords
 #: tdeio/useragent.desktop:16
