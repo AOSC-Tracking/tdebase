@@ -432,34 +432,34 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 			// Show status
 			TQString status_text = "<qt>";
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Mountable)) {
-				status_text += "Mountable<br>";
+				status_text += i18n("Mountable") + "<br>";
 			}
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable)) {
-				status_text += "Removable<br>";
+				status_text += i18n("Removable") + "<br>";
 			}
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Inserted)) {
-				status_text += "Inserted<br>";
+				status_text += i18n("Inserted") + "<br>";
 			}
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) {
-				status_text += "Blank<br>";
+				status_text += i18n("Blank") + "<br>";
 			}
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::UsedByDevice)) {
-				status_text += "In use<br>";
+				status_text += i18n("In use") + "<br>";
 			}
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::UsesDevice)) {
-				status_text += "Uses other device<br>";
+				status_text += i18n("Uses other device") + "<br>";
 			}
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem)) {
-				status_text += "Contains a filesystem<br>";
+				status_text += i18n("Contains a filesystem") + "<br>";
 			}
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)) {
-				status_text += "Hotpluggable<br>";
+				status_text += i18n("Hotpluggable") + "<br>";
 			}
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hidden)) {
-				status_text += "Hidden<br>";
+				status_text += i18n("Hidden") + "<br>";
 			}
 			if (status_text == "<qt>") {
-				status_text += "<i>Unknown</i>";
+				status_text += "<i>" + i18n("Unknown") + "</i>";
 			}
 			status_text += "</qt>";
 			base->labelDiskStatus->setText(status_text);
