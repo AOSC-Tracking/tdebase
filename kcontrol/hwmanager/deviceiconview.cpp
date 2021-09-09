@@ -73,7 +73,8 @@ void DeviceIconView::slotItemDoubleClicked(TQListViewItem* item)
 		delete propsDlg;
 	}
 	else {
-		KMessageBox::sorry(this, "Detailed information is not available for this device", "Information Unavailable");
+		KMessageBox::sorry(this, i18n("Detailed information is not available for this device"),
+		                   i18n("Information Unavailable"));
 	}
 }
 
