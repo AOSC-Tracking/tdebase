@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-16 18:21+0000\n"
-"PO-Revision-Date: 2021-09-02 21:14+0000\n"
+"PO-Revision-Date: 2021-09-10 12:45+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/l10n-desktop-files/cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.8.1\n"
 
 #. Name
 #: caribbean.desktop:2
@@ -130,7 +130,7 @@ msgstr "Spojené arabské emiráty"
 #. Name
 #: af/entry.desktop:2
 msgid "Afghanistan"
-msgstr "Afghanistán"
+msgstr "Afghánistán"
 
 #. Name
 #: ag/entry.desktop:2
