@@ -61,8 +61,8 @@ int main(int argc, char **argv)
 	TQString wmToLaunch = config.readEntry("WMExecutable", "");
 	TQString wmArguments = config.readEntry("WMAdditionalArguments", "");
 
-	// Check for TWIN override environment variable
-	const char * twin_env = getenv("TWIN");
+	// Check for TDEWM override environment variable
+	const char * twin_env = getenv("TDEWM");
 	if (twin_env) {
 		wmToLaunch = twin_env;
 	}
