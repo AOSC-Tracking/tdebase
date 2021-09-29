@@ -637,7 +637,7 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 			}
 
 			// RandR warning
-			base->labelRandrWarning->setText("<qt><b>NOTE: Any further integration of displays into TDE <i>REQUIRES</i> multi GPU support and other features slated for RandR 2.0.</b><p>Development on such features has been sorely lacking for well over a year as of 2012; if you want to see Linux come up to Windows and Macintosh standards in this area <i>please tell the Xorg developers</i> at http://www.x.org/wiki/XorgMailingLists<p>The TDE project badly needs these features before it can proceed with graphical monitor configuration tools:<br> * GPU object support<br> * The ability to query the active driver name for any Xorg output<p><b>To recap, this is <i>not a TDE shortcoming</i>, but rather is the result of a lack of fundamental Linux support for graphics configuration!</b></qt>");
+			base->labelRandrWarning->setText(i18n("<qt><b>NOTE: Any further integration of displays into TDE <i>REQUIRES</i> multi GPU support and other features slated for RandR 2.0.</b><p>Development on such features has been sorely lacking for well over a year as of 2012; if you want to see Linux come up to Windows and Macintosh standards in this area <i>please tell the Xorg developers</i> at http://www.x.org/wiki/XorgMailingLists<p>The TDE project badly needs these features before it can proceed with graphical monitor configuration tools:<br> * GPU object support<br> * The ability to query the active driver name for any Xorg output<p><b>To recap, this is <i>not a TDE shortcoming</i>, but rather is the result of a lack of fundamental Linux support for graphics configuration!</b></qt>"));
 		}
 
 		if (m_device->type() == TDEGenericDeviceType::RootSystem) {
