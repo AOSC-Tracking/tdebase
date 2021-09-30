@@ -52,6 +52,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdetoolbarbutton.h>
 #include <twin.h>
 #include <popupmenutop.h>
+#include <tdeaccel.h>
 
 #include "client_mnu.h"
 #include "container_base.h"
@@ -245,6 +246,8 @@ void PanelKMenu::initialize()
         return;
     }
 
+    TDEAccel *accel = new TDEAccel(this);
+
     if (loadSidePixmap())
     {
         // in case we've been through here before, let's disconnect
@@ -265,7 +268,16 @@ void PanelKMenu::initialize()
     if (KickerSettings::useSearchBar()) {
         TQHBox* hbox = new TQHBox( this );
         TDEToolBarButton *clearButton = new TDEToolBarButton( "locationbar_erase", 0, hbox );
-        searchEdit = new KPIM::ClickLineEdit(hbox, " "+i18n("Press '/' to search..."));
+
+	TQStringList cuts = TQStringList::split(";", KickerSettings::searchShortcut());
+        searchEdit = new KPIM::ClickLineEdit(
+	    hbox,
+	    ( cuts.count() == 2
+	      ? i18n(" Press '%1' or '%2' to search...").arg(cuts[0], cuts[1])
+  	      : i18n(" Press '%1' to search...").arg(cuts[0])
+	    )
+	);
+
         hbox->setFocusPolicy(TQ_StrongFocus);
         hbox->setFocusProxy(searchEdit);
         hbox->setSpacing( 3 );
@@ -273,6 +285,10 @@ void PanelKMenu::initialize()
         connect(this, TQT_SIGNAL(aboutToHide()), this, TQT_SLOT(slotClearSearch()));
         connect(searchEdit, TQT_SIGNAL(textChanged(const TQString&)),
             this, TQT_SLOT( slotUpdateSearch( const TQString&)));
+	accel->insert("search", i18n("Search"), i18n("TDE Menu search"),
+		      TDEShortcut(KickerSettings::searchShortcut()),
+		      this, TQT_SLOT(slotFocusSearch()));
+		      
         insertItem(hbox, searchLineID, 0);
     } else {
         searchEdit = NULL;
@@ -709,6 +725,13 @@ void PanelKMenu::slotClearSearch()
     }
 }
 
+void PanelKMenu::slotFocusSearch()
+{
+    if (indexOf(searchLineID) >=0 ) {
+        setActiveItem(indexOf(searchLineID));
+    }
+}
+
 void PanelKMenu::keyPressEvent(TQKeyEvent* e)
 {
     // We move the focus to the search field if the
@@ -719,12 +742,8 @@ void PanelKMenu::keyPressEvent(TQKeyEvent* e)
     // we follow konqueror.
     if (!searchEdit) return KPanelMenu::keyPressEvent(e);
 
-    if (e->key() == TQt::Key_Slash && !searchEdit->hasFocus()) {
-        if (indexOf(searchLineID) >=0 ) {
-            setActiveItem(indexOf(searchLineID));
-        }
-    }
-    else if (e->key() == TQt::Key_Escape && searchEdit->text().isEmpty() == false) {
+
+    if (e->key() == TQt::Key_Escape && searchEdit->text().isEmpty() == false) {
         searchEdit->clear();
     }
     else if (e->key() == TQt::Key_Delete && !searchEdit->hasFocus() &&

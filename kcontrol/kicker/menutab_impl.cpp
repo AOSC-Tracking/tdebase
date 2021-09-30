@@ -37,6 +37,7 @@
 #include <knuminput.h>
 #include <kstandarddirs.h>
 #include <tdefontrequester.h>
+#include <kkeybutton.h>
 
 #include <kicondialog.h>
 #include <kiconloader.h>
@@ -168,7 +169,12 @@ void MenuTab::load( bool useDefaults )
     connect(m_openOnHover, TQT_SIGNAL(clicked()), TQT_SIGNAL(changed()));
 
     m_showFrequent->setChecked(true);
-
+    
+    c->setGroup("KMenu");
+    m_searchShortcut->setShortcut(TDEShortcut(c->readEntry("SearchShortcut", "/")));
+    connect(m_searchShortcut, TQT_SIGNAL(capturedShortcut(const TDEShortcut&)), TQT_SIGNAL(changed()));
+    connect(m_searchShortcut, TQT_SIGNAL(capturedShortcut(const TDEShortcut&)), TQT_SLOT(setSearchShortcut(const TDEShortcut&)));
+    
     if ( useDefaults )
        emit changed();
 }
@@ -288,6 +294,7 @@ void MenuTab::save()
     // Save KMenu settings
     c->setGroup("KMenu");
     c->writeEntry("CustomIcon", m_kmenu_icon);
+    c->writeEntry("SearchShortcut", (m_searchShortcut->shortcut()).toString());
     c->sync();
 
     // Save recent documents
@@ -348,4 +355,9 @@ void MenuTab::kmenuChanged()
 {
     //m_kmenu_button_changed = true;
     emit changed();
+}
+
+void MenuTab::setSearchShortcut(const TDEShortcut &cut)
+{
+    m_searchShortcut->setShortcut(cut, false);
 }

@@ -21,6 +21,7 @@
 #include <tqlistview.h>
 #include <stdlib.h>
 
+#include <tdeshortcut.h>
 #include <kpushbutton.h>
 
 #include "menutab.h"
@@ -68,12 +69,14 @@ public slots:
     void menuStyleChanged();
     void launchIconEditor();
     void kmenuChanged();
+    void setSearchShortcut(const TDEShortcut &cut);
 
 protected:
     kSubMenuItem *m_bookmarkMenu;
     kSubMenuItem *m_quickBrowserMenu;
     TQString m_kmenu_icon;
     bool m_kmenu_button_changed;
+
 };
 
 #endif

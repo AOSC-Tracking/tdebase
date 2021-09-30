@@ -419,6 +419,11 @@
       <default code="true">QString("kmenu")</default>
    </entry>
 
+   <entry name="SearchShortcut" type="String" >
+     <label>Search shortcut</label>
+     <default>/</default>
+   </entry>
+
 </group>
 
 <group name="buttons" >
