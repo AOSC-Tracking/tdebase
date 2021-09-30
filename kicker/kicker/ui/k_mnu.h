@@ -83,6 +83,7 @@ protected slots:
     void slotEditUserContact();
     void slotUpdateSearch(const TQString &searchtext);
     void slotClearSearch();
+    void slotFocusSearch();
     void paletteChanged();
     virtual void configChanged();
     void updateRecent();

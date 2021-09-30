@@ -705,7 +705,40 @@
 							<string>&lt;qt&gt;When this option is selected a text-based search field will appear in the TDE Menu.&lt;/qt&gt;</string>
 						</property>
 					</widget>
-					<spacer row="0" column="1" rowspan="3" colspan="1">
+
+					<widget class="TQLayoutWidget" row="2" column="0">
+				        <property name="name">
+					<cstring>m_searchShortcutLayout</cstring>
+					</property>
+					<hbox>
+					        <property name="name">
+                 				        <cstring>unnamed</cstring>
+             					</property>
+
+						<widget class="TQLabel">
+                                                        <property name="name">
+                 					        <cstring>searchShortcutLabel</cstring>
+							</property>
+							<property name="text">
+                                                                <string>Search shortcut:</string>
+							</property>
+							<property name="whatsThis" stdset="0">
+							        <string>From here you can change the keyboard shortcut which triggers the search line in the TDE Menu.</string>
+							</property>
+						</widget>
+
+						<widget class="KKeyButton">
+                                                        <property name="name">
+                 					        <cstring>m_searchShortcut</cstring>
+							</property>
+							<property name="whatsThis" stdset="0">
+							        <string>From here you can change the keyboard shortcut which triggers the search line in the TDE Menu.</string>
+							</property>
+						</widget>
+					</hbox>
+					</widget>
+					    
+					<spacer row="0" column="1" rowspan="3" colspan="2">
 						<property name="name">
 							<cstring>Spacer8</cstring>
 						</property>
@@ -749,6 +782,7 @@
 		<include location="global" impldecl="in implementation">kpushbutton.h</include>
 		<include location="global" impldecl="in implementation">tdefontrequester.h</include>
 		<include location="global" impldecl="in implementation">tdelistview.h</include>
+		<include location="global" impldecl="in implementation">kkeybutton.h</include>
 	</includes>
 	<layoutdefaults spacing="6" margin="11"/>
 	<layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
