@@ -734,12 +734,6 @@ void PanelKMenu::slotFocusSearch()
 
 void PanelKMenu::keyPressEvent(TQKeyEvent* e)
 {
-    // We move the focus to the search field if the
-    // user presses '/'. This is the same shortcut as
-    // konqueror is using, and afaik it's hardcoded both
-    // here and there. This sucks badly for many non-us
-    // keyboard layouts, but for the sake of consistency
-    // we follow konqueror.
     if (!searchEdit) return KPanelMenu::keyPressEvent(e);
 
 
