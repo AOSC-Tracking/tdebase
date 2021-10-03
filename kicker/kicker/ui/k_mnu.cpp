@@ -737,8 +737,13 @@ void PanelKMenu::keyPressEvent(TQKeyEvent* e)
     if (!searchEdit) return KPanelMenu::keyPressEvent(e);
 
 
-    if (e->key() == TQt::Key_Escape && searchEdit->text().isEmpty() == false) {
+    if (e->key() == TQt::Key_Escape && searchEdit->text().isEmpty() == false)
+    {
         searchEdit->clear();
+    }
+    else if (e->key() == TQt::Key_Escape && searchEdit->hasFocus())
+    {
+        searchEdit->clearFocus();
     }
     else if (e->key() == TQt::Key_Delete && !searchEdit->hasFocus() &&
         searchEdit->text().isEmpty() == false)
