@@ -547,8 +547,21 @@ void runRdb( uint flags )
 
     TDEConfig cfgfonts("kcmfonts", true);
     cfgfonts.setGroup("General");
-    if( cfgfonts.readNumEntry( "forceFontDPI", 0 ) != 0 )
-      contents += "Xft.dpi: " + cfgfonts.readEntry( "forceFontDPI" ) + '\n';
+    int dpicfg = cfgfonts.readNumEntry("forceFontDPI", 0);
+    // "forceFontDPIEnable" must be read after "forceFontDPI" to make sure it is
+    // correctly initialized on the first run when upgrading to the new format,
+    // without the user even noticying it. The first time "forceFontDPIEnable"
+    // will not exist and its correct value will be deduced by the existing value
+    // of "forceFontDPI", which contains the value prior to the update.
+    bool dpiEnable = cfgfonts.readBoolEntry("forceFontDPIEnable", dpicfg > 0);
+    if (dpicfg < 64 || dpicfg > 512)
+    {
+      dpicfg = 96;
+    }
+    if (dpiEnable)
+    {
+      contents += "Xft.dpi: " + TQString::number(dpicfg) + '\n';
+    }
   }
 
   if (contents.length() > 0)

@@ -20,6 +20,7 @@
 class TQCheckBox;
 class TQComboBox;
 class KDoubleNumInput;
+class KIntSpinBox;
 class FontAASettings;
 
 class FontUseItem : public TDEFontRequester
@@ -107,15 +108,18 @@ protected slots:
     void slotApplyFontDiff(); 
     void slotUseAntiAliasing();
     void slotCfgAa();
+    void slotUseFontDPI();
 
 private:
     enum AASetting { AAEnabled, AASystem, AADisabled };
-    enum DPISetting { DPINone, DPI96, DPI120 };
+    enum DPISetting { DPINone, DPIValue };
     AASetting useAA, useAA_original;
     DPISetting dpi_original;
+    int dpi_value_original;
     TQComboBox *cbAA;
     TQComboBox* comboForceDpi;
     TQPushButton *aaSettingsButton;
+    KIntSpinBox *sbDpiValue;
     TQPtrList <FontUseItem> fontUseList;
     FontAASettings *aaSettings;
 };
