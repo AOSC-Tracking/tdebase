@@ -637,23 +637,20 @@ TDEFonts::TDEFonts(TQWidget *parent, const char *name, const TQStringList &)
    lay->addWidget( label, 1, 0 );
    comboForceDpi = new TQComboBox( this );
    label->setBuddy( comboForceDpi );
-   comboForceDpi->insertItem( i18n( "Disabled" )); // change DPISetti ng type if order changes
-   comboForceDpi->insertItem( i18n( "96 DPI" ));
-   comboForceDpi->insertItem( i18n( "120 DPI" ));
+   comboForceDpi->insertItem( i18n( "Disabled" ));
+   comboForceDpi->insertItem( i18n( "Enabled" ));
    TQString whatsthis = i18n(
        "<p>This option forces a specific DPI value for fonts. It may be useful"
        " when the real DPI of the hardware is not detected properly and it"
        " is also often misused when poor quality fonts are used that do not"
-       " look well with DPI values other than 96 or 120 DPI.</p>"
-       "<p>The use of this option is generally discouraged. For selecting proper DPI"
-       " value a better option is explicitly configuring it for the whole X server if"
-       " possible (e.g. DisplaySize in xorg.conf or adding <i>-dpi value</i> to"
-       " ServerLocalArgs= in $TDEDIR/share/config/tdm/tdmrc). When fonts do not render"
-       " properly with real DPI value better fonts should be used or configuration"
-       " of font hinting should be checked.</p>" );
+       " look well with DPI values other than 96 or 120 DPI.</p>");
    TQWhatsThis::add(comboForceDpi, whatsthis);
-   connect( comboForceDpi, TQT_SIGNAL( activated( int )), TQT_SLOT( changed()));
+   connect(comboForceDpi, TQT_SIGNAL(activated(int)), TQT_SLOT(slotUseFontDPI()));
+   sbDpiValue = new KIntSpinBox(64, 512, 1, 96, 10, this);
+   TQWhatsThis::add(sbDpiValue, whatsthis);
+   connect(sbDpiValue, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
    lay->addWidget( comboForceDpi, 1, 1 );
+   lay->addWidget( sbDpiValue, 1, 2 );
 
    layout->addStretch(1);
 
@@ -695,10 +692,22 @@ void TDEFonts::load( bool useDefaults )
 
   TDEConfig cfgfonts("kcmfonts", true);
   cfgfonts.setGroup("General");
-  int dpicfg = cfgfonts.readNumEntry( "forceFontDPI", 0 );
-  DPISetting dpi = dpicfg == 120 ? DPI120 : dpicfg == 96 ? DPI96 : DPINone;
-  comboForceDpi->setCurrentItem( dpi );
-  dpi_original = dpi;
+  int dpicfg = cfgfonts.readNumEntry("forceFontDPI", 0);
+  // "forceFontDPIEnable" must be read after "forceFontDPI" to make sure it is
+  // correctly initialized on the first run when upgrading to the new format,
+  // without the user even noticying it. The first time "forceFontDPIEnable"
+  // will not exist and its correct value will be deduced by the existing value
+  // of "forceFontDPI", which contains the value prior to the update.
+  bool dpiEnable = cfgfonts.readBoolEntry("forceFontDPIEnable", dpicfg > 0);
+  dpi_original = dpiEnable ? DPIValue : DPINone;
+  dpi_value_original = dpicfg;
+  if (dpi_value_original < 64 || dpi_value_original > 512)
+  {
+    dpi_value_original = 96;
+  }
+  comboForceDpi->setCurrentItem(dpi_original);
+  sbDpiValue->setValue(dpi_value_original);
+  sbDpiValue->setEnabled(dpi_original != DPINone);
   if( cfgfonts.readBoolEntry( "dontChangeAASettings", true )) {
       useAA_original = useAA = AASystem;
       cbAA->setCurrentItem( useAA );
@@ -717,14 +726,16 @@ void TDEFonts::save()
 
   TDEConfig cfgfonts("kcmfonts");
   cfgfonts.setGroup("General");
-  DPISetting dpi = static_cast< DPISetting >( comboForceDpi->currentItem());
-  const int dpi2value[] = { 0, 96, 120 };
-  cfgfonts.writeEntry( "forceFontDPI", dpi2value[ dpi ] );
+  DPISetting dpi = (DPISetting)comboForceDpi->currentItem();
+  int dpival = sbDpiValue->value();
+  cfgfonts.writeEntry( "forceFontDPIEnable", dpi != DPINone );
+  cfgfonts.writeEntry( "forceFontDPI", dpival );
   cfgfonts.writeEntry( "dontChangeAASettings", cbAA->currentItem() == AASystem );
   cfgfonts.sync();
   // if the setting is reset in the module, remove the dpi value,
   // otherwise don't explicitly remove it and leave any possible system-wide value
-  if( dpi == DPINone && dpi_original != DPINone ) {
+  if(dpi == DPINone)
+  {
       KProcIO proc;
       proc << "xrdb" << "-quiet" << "-remove" << "-nocpp";
       proc.writeStdin( TQCString( "Xft.dpi" ), true );
@@ -755,11 +766,11 @@ void TDEFonts::save()
   if( cbAA->currentItem() != AASystem )
       aaSave = aaSettings->save( useAA == AAEnabled );
 
-  if( aaSave || (useAA != useAA_original) || dpi != dpi_original) {
+  if( aaSave || (useAA != useAA_original) || dpival != dpi_value_original || dpi != dpi_original)
+  {
     KMessageBox::information(this,
-      i18n(
-        "<p>Some changes such as anti-aliasing will only affect newly started applications.</p>"
-      ), i18n("Font Settings Changed"), "FontSettingsChanged", false);
+      i18n( "<p>Some changes such as anti-aliasing will only affect newly started applications.</p>"),
+      i18n("Font Settings Changed"), "FontSettingsChanged", false);
     useAA_original = useAA;
     dpi_original = dpi;
   }
@@ -788,6 +799,13 @@ void TDEFonts::slotUseAntiAliasing()
 {
     useAA = static_cast< AASetting >( cbAA->currentItem());
     aaSettingsButton->setEnabled( cbAA->currentItem() == AAEnabled );
+    emit changed(true);
+}
+
+void TDEFonts::slotUseFontDPI()
+{
+    DPISetting dpi = (DPISetting)(comboForceDpi->currentItem());
+    sbDpiValue->setEnabled(dpi != DPINone);
     emit changed(true);
 }
 

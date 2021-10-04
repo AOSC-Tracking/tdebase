@@ -377,6 +377,7 @@ kcmrandrrc [Screen0]
 kcmrandrrc [Screen1]
 kcmrandrrc [Screen2]
 kcmrandrrc [Screen3]
+kcmfonts General forceFontDPIEnable false
 kcmfonts General forceFontDPI 0
 EOF
 $TDEDIR/bin/tdestartupconfig
@@ -474,14 +475,15 @@ if test -z "$dl" && test "$kpersonalizerrc_general_firstlogin" != "true"; then
   esac
 fi
 
-if test "$kcmfonts_general_forcefontdpi" -eq 120; then
-  xrdb -quiet -merge -nocpp <<EOF
-Xft.dpi: 120
-EOF
-elif test "$kcmfonts_general_forcefontdpi" -eq 96; then
-  xrdb -quiet -merge -nocpp <<EOF
-Xft.dpi: 96
-EOF
+if test "$kcmfonts_general_forcefontdpienable" = "true"; then
+  echo "[starttde] Setting font DPI to $kcmfonts_general_forcefontdpi" 1>&2
+  tmpfile=$(mktemp /tmp/xft_dpi_settings.XXXXXX)
+  echo "Xft.dpi: $kcmfonts_general_forcefontdpi" > $tmpfile
+  xrdb -quiet -merge -nocpp $tmpfile
+  rm $tmpfile
+else
+  echo "[starttde] Clearing setting of font DPI value" 1>&2
+  xrdb -quiet -remove -nocpp Xft.dpi
 fi
 
 # Configuration of the gtk_qt_engine if not already set.
