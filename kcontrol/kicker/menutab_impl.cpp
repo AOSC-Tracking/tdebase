@@ -359,5 +359,8 @@ void MenuTab::kmenuChanged()
 
 void MenuTab::setSearchShortcut(const TDEShortcut &cut)
 {
+    if( cut == TDEShortcut(TQt::Key_Escape) )
+        return;
+
     m_searchShortcut->setShortcut(cut, false);
 }
