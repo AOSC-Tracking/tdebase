@@ -785,13 +785,19 @@
 		<include location="global" impldecl="in implementation">kkeybutton.h</include>
 	</includes>
 	<connections>
+		<connection>
+			<sender>kcfg_UseSearchBar</sender>
+			<signal>toggled(bool)</signal>
+			<receiver>searchShortcutLabel</receiver>
+			<slot>setEnabled(bool)</slot>
+		</connection>
                 <connection>
                         <sender>kcfg_UseSearchBar</sender>
                         <signal>toggled(bool)</signal>
                         <receiver>m_searchShortcut</receiver>
                         <slot>setEnabled(bool)</slot>
                 </connection>
-        </connections>
+	</connections>
 	<layoutdefaults spacing="6" margin="11"/>
 	<layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 </UI>
