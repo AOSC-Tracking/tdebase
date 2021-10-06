@@ -325,7 +325,7 @@
 						</property>
             <widget class="TQLabel" row="0" column="0">
               <property name="name">
-                <cstring>TextLabel1_3_3_2</cstring>
+                <cstring>TextLabel1_3_3_1</cstring>
               </property>
               <property name="sizePolicy">
                 <sizepolicy>
@@ -785,6 +785,30 @@
 		<include location="global" impldecl="in implementation">kkeybutton.h</include>
 	</includes>
 	<connections>
+		<connection>
+			<sender>kcfg_ShowKMenuText</sender>
+			<signal>toggled(bool)</signal>
+			<receiver>TextLabel1_3_3_1</receiver>
+			<slot>setEnabled(bool)</slot>
+		</connection>
+		<connection>
+			<sender>kcfg_ShowKMenuText</sender>
+			<signal>toggled(bool)</signal>
+			<receiver>kcfg_KMenuText</receiver>
+			<slot>setEnabled(bool)</slot>
+		</connection>
+		<connection>
+			<sender>kcfg_ShowKMenuText</sender>
+			<signal>toggled(bool)</signal>
+			<receiver>TextLabel1_3_3_2</receiver>
+			<slot>setEnabled(bool)</slot>
+		</connection>
+		<connection>
+			<sender>kcfg_ShowKMenuText</sender>
+			<signal>toggled(bool)</signal>
+			<receiver>kcfg_ButtonFont</receiver>
+			<slot>setEnabled(bool)</slot>
+		</connection>
 		<connection>
 			<sender>kcfg_UseSearchBar</sender>
 			<signal>toggled(bool)</signal>
