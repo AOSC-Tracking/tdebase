@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Roman Savochenko <roman@oscada.org>, 2020.
+# Roman Savochenko <roman@oscada.org>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-16 20:22+0000\n"
-"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"POT-Creation-Date: 2021-05-16 18:21+0000\n"
+"PO-Revision-Date: 2021-10-06 16:31+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/l10n-desktop-files/uk/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.8.1\n"
 
 #. Name
 #: caribbean.desktop:2
@@ -266,7 +266,7 @@ msgstr "Бразилія"
 #. Name
 #: braille/entry.desktop:2
 msgid "Braille"
-msgstr ""
+msgstr "Брайль"
 
 #. Name
 #: bs/entry.desktop:2
@@ -436,7 +436,7 @@ msgstr "Західна Сахара"
 #. Name
 #: eo/entry.desktop:2
 msgid "Esperanto"
-msgstr ""
+msgstr "Есперанто"
 
 #. Name
 #: er/entry.desktop:2
@@ -645,9 +645,8 @@ msgstr "Японія"
 
 #. Name
 #: jv/entry.desktop:2
-#, fuzzy
 msgid "Indonesia (Java)"
-msgstr "Індонезія"
+msgstr "Індонезія (Java)"
 
 #. Name
 #: ke/entry.desktop:2
