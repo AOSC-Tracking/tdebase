@@ -364,6 +364,12 @@ if [ -d "$tdehome" ]; then
   fi
 fi
 
+# Get current font DPI configuration
+CUR_ForceFontDPI="`$TDEDIR/bin/kreadconfig --file kcmfonts --group General --key forceFontDPI --default 0`"
+CUR_ForceFontDPIEnable=false
+[ $CUR_ForceFontDPI -gt 0 ] && CUR_ForceFontDPIEnable=true
+unset CUR_ForceFontDPI
+
 # Please see tdestartupconfig source for usage.
 mkdir -m 700 -p "$tdehome/share"
 mkdir -m 700 -p "$tdehome/share/config"
@@ -377,10 +383,11 @@ kcmrandrrc [Screen0]
 kcmrandrrc [Screen1]
 kcmrandrrc [Screen2]
 kcmrandrrc [Screen3]
-kcmfonts General forceFontDPIEnable false
+kcmfonts General forceFontDPIEnable ${CUR_ForceFontDPIEnable}
 kcmfonts General forceFontDPI 0
 EOF
 $TDEDIR/bin/tdestartupconfig
+unset CUR_ForceFontDPIEnable
 if test $? -ne 0; then
   xmessage -center -geometry 500x100 "Could not start tdestartupconfig. Check your installation."
 fi
