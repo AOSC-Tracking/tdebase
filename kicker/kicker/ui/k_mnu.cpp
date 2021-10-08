@@ -270,13 +270,22 @@ void PanelKMenu::initialize()
         TDEToolBarButton *clearButton = new TDEToolBarButton( "locationbar_erase", 0, hbox );
 
 	TQStringList cuts = TQStringList::split(";", KickerSettings::searchShortcut());
-        searchEdit = new KPIM::ClickLineEdit(
-	    hbox,
-	    ( cuts.count() == 2
-	      ? i18n(" Press '%1' or '%2' to search...").arg(cuts[0], cuts[1])
-  	      : i18n(" Press '%1' to search...").arg(cuts[0])
-	    )
-	);
+	TQString placeholder;
+	switch( cuts.count() )
+	{
+	    case 0:
+	        placeholder = i18n(" Click here to search...");
+	        break;
+
+            case 1:
+	        placeholder = i18n(" Press '%1' to search...").arg(cuts[0]);
+		break;
+
+	    case 2:
+	        placeholder = i18n(" Press '%1' or '%2' to search...").arg(cuts[0], cuts[1]);
+		break;
+	}
+        searchEdit = new KPIM::ClickLineEdit( hbox, placeholder );
 
         hbox->setFocusPolicy(TQ_StrongFocus);
         hbox->setFocusProxy(searchEdit);

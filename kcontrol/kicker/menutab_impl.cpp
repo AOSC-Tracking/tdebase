@@ -38,6 +38,7 @@
 #include <kstandarddirs.h>
 #include <tdefontrequester.h>
 #include <kkeybutton.h>
+#include <tdemessagebox.h>
 
 #include <kicondialog.h>
 #include <kiconloader.h>
@@ -171,7 +172,7 @@ void MenuTab::load( bool useDefaults )
     m_showFrequent->setChecked(true);
     
     c->setGroup("KMenu");
-    m_searchShortcut->setShortcut(TDEShortcut(c->readEntry("SearchShortcut", "/")));
+    m_searchShortcut->setShortcut(TDEShortcut(c->readEntry("SearchShortcut", "/")), false);
     connect(m_searchShortcut, TQT_SIGNAL(capturedShortcut(const TDEShortcut&)), TQT_SIGNAL(changed()));
     connect(m_searchShortcut, TQT_SIGNAL(capturedShortcut(const TDEShortcut&)), TQT_SLOT(setSearchShortcut(const TDEShortcut&)));
     
@@ -359,8 +360,19 @@ void MenuTab::kmenuChanged()
 
 void MenuTab::setSearchShortcut(const TDEShortcut &cut)
 {
-    if( cut == TDEShortcut(TQt::Key_Escape) )
+    if( cut.contains( KKeySequence(KKey(TQt::Key_Escape)) ) )
+    {
+        int anotherTry = KMessageBox::warningYesNo(
+  	    this,
+	    i18n("Cannot set Escape as menu search shortcut.\nWould you like to set another shortcut?"),
+	    i18n("Invalid shortcut")
+	);
+
+	if( anotherTry == KMessageBox::Yes )
+  	    m_searchShortcut->captureShortcut();
+	
         return;
+    }
 
     m_searchShortcut->setShortcut(cut, false);
 }
