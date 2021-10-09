@@ -291,8 +291,8 @@ as many items of different types as you want, all at once.
 print subsystem "on the fly" (and you do not need to be root to do it.)
 </p>
 <p>Laptop users who frequently change to different environments may find
-<A HREF="ftp://truffula.com/pub/">RLPR</A> a useful complement to CUPS
-(or any other print subsystem they use as their preferred one).
+RLPR a useful complement to CUPS (or any other print subsystem they use
+as their preferred one).
 </p>
 <p align="right"><em>Contributed by Kurt Pfeifle</em></p>
 </html>
