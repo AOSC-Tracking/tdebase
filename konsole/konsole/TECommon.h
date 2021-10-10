@@ -104,7 +104,6 @@ public:
   UINT8 u; // various bytes representing the data in the respective ...
   UINT8 v; // ... color space. C++ does not do unions, so we cannot ...
   UINT8 w; // ... express ourselfs here, properly.
-  void toggleIntensive(); // Hack or helper?
   TQColor color(const ColorEntry* base) const;
   friend bool operator == (cacol a, cacol b);
   friend bool operator != (cacol a, cacol b);
@@ -172,14 +171,6 @@ inline TQColor cacol::color(const ColorEntry* base) const
     case CO_256: return color256(u,base);
     case CO_RGB: return TQColor(u,v,w);
     default    : return TQColor(255,0,0); // diagnostic catch all
-  }
-}
-
-inline void cacol::toggleIntensive()
-{
-  if (t == CO_SYS || t == CO_DFT)
-  {
-    v = !v;
   }
 }
 

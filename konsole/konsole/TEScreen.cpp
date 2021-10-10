@@ -517,8 +517,6 @@ void TEScreen::effectiveRendition()
     ef_fg = cu_fg;
     ef_bg = cu_bg;
   }
-  if (cu_re & RE_BOLD)
-    ef_fg.toggleIntensive();
 }
 
 /*!
