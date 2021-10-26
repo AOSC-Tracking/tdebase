@@ -783,13 +783,6 @@ void KonqListView::slotToggleDisplayHiddenFirst()
    m_pListView->sort();
 }
 
-void KonqListView::slotToggleSortDictionaryOrder()
-{
-   m_pProps->setDictionaryOrder( m_paSortDictionaryOrder->isChecked() );
-   m_pListView->updateListContents();
-   m_pListView->sort();
-}
-
 void KonqListView::headerDragged(int sec, int from, int to)
 {
    kdDebug(1202)<<"section: "<<sec<<" fromIndex: "<<from<<" toIndex "<<to<<endl;
@@ -951,10 +944,6 @@ void KonqListView::setupActions()
   m_paDisplayHiddenFirst = new TDEToggleAction( i18n("Group &Hidden First"), 0, this,
     TQT_SLOT(slotToggleDisplayHiddenFirst()), actionCollection(), "group_hidden_first");
   m_paDisplayHiddenFirst->setChecked(m_pProps->isHiddenFirst());
-
-  m_paSortDictionaryOrder = new TDEToggleAction( i18n("Dictionary Order Sort"), 0, this,
-    TQT_SLOT(slotToggleSortDictionaryOrder()), actionCollection(), "dictionary_order_sorting");
-  m_paSortDictionaryOrder->setChecked(m_pProps->isDictionaryOrder());
 
   newIconSize( TDEIcon::SizeSmall /* default size */ );
 }

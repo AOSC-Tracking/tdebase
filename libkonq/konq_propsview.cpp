@@ -67,7 +67,6 @@ struct KonqPropsView::Private
    TQStringList* previewsToShow;
    bool previewsEnabled:1;
    bool caseInsensitiveSort:1;
-   bool dictionaryorder:1;
    bool hiddenfirst:1;
    bool dirsfirst:1;
    bool descending:1;
@@ -94,7 +93,6 @@ KonqPropsView::KonqPropsView( TDEInstance * instance, KonqPropsView * defaultPro
   d->sortcriterion = config->readEntry( "SortingCriterion", "sort_nci" );
   d->dirsfirst = config->readBoolEntry( "GroupDirsFirst", true );
   d->hiddenfirst = config->readBoolEntry( "GroupHiddenFirst", true );
-  d->dictionaryorder = config->readBoolEntry( "DictionaryOrderSort", false );
   d->descending = config->readBoolEntry( "SortDescending", false );
   m_bShowDot = config->readBoolEntry( "ShowDotFiles", false );
   m_bShowDirectoryOverlays = config->readBoolEntry( "ShowDirectoryOverlays", false );
@@ -150,11 +148,6 @@ bool KonqPropsView::isDirsFirst() const
 bool KonqPropsView::isHiddenFirst() const
 {
    return d->hiddenfirst;
-}
-
-bool KonqPropsView::isDictionaryOrder() const
-{
-   return d->dictionaryorder;
 }
 
 bool KonqPropsView::isDescending() const
@@ -215,7 +208,6 @@ bool KonqPropsView::enterDir( const KURL & dir )
     d->sortcriterion = m_defaultProps->sortCriterion();
     d->dirsfirst = m_defaultProps->isDirsFirst();
     d->hiddenfirst = m_defaultProps->isHiddenFirst();
-    d->dictionaryorder = m_defaultProps->isDictionaryOrder();
     d->descending = m_defaultProps->isDescending();
     m_bShowDot = m_defaultProps->isShowingDotFiles();
     d->caseInsensitiveSort=m_defaultProps->isCaseInsensitiveSort();
@@ -236,7 +228,6 @@ bool KonqPropsView::enterDir( const KURL & dir )
     d->sortcriterion = config->readEntry( "SortingCriterion" , d->sortcriterion );
     d->dirsfirst = config->readBoolEntry( "GroupDirsFirst", d->dirsfirst );
     d->hiddenfirst = config->readBoolEntry( "GroupHiddenFirst", d->hiddenfirst );
-    d->dictionaryorder = config->readBoolEntry( "DictionaryOrderSort", d->dictionaryorder );
     d->descending = config->readBoolEntry( "SortDescending", d->descending );
     m_bShowDot = config->readBoolEntry( "ShowDotFiles", m_bShowDot );
     d->caseInsensitiveSort=config->readBoolEntry("CaseInsensitiveSort",d->caseInsensitiveSort);
@@ -355,18 +346,6 @@ void KonqPropsView::setHiddenFirst(bool first)
     {
         TDEConfigGroupSaver cgs(currentConfig(), currentGroup());
         currentConfig()->writeEntry( "GroupHiddenFirst", d->hiddenfirst );
-        currentConfig()->sync();
-    }
-}
-void KonqPropsView::setDictionaryOrder(bool first)
-{
-    d->dictionaryorder = first;
-    if ( m_defaultProps && !m_bSaveViewPropertiesLocally )
-        m_defaultProps->setDictionaryOrder( first );
-    else if (currentConfig())
-    {
-        TDEConfigGroupSaver cgs(currentConfig(), currentGroup());
-        currentConfig()->writeEntry( "DictionaryOrderSort", d->dictionaryorder );
         currentConfig()->sync();
     }
 }

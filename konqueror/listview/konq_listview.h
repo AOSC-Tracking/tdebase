@@ -134,7 +134,6 @@ protected slots:
 
   void slotToggleDisplayDirectoriesFirst();
   void slotToggleDisplayHiddenFirst();
-  void slotToggleSortDictionaryOrder();
   void slotSortAlternate();
   void slotSortReverse();
 
@@ -202,7 +201,6 @@ private:
 
   TDEToggleAction *m_paDisplayDirectoriesFirst;
   TDEToggleAction *m_paDisplayHiddenFirst;
-  TDEToggleAction *m_paSortDictionaryOrder;
 };
 
 class ListViewBrowserExtension : public KonqDirPartBrowserExtension

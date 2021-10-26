@@ -86,8 +86,7 @@ void KonqListViewItem::updateContents()
 
    bool m_groupDirectoriesFirst = m_pListViewWidget->m_pBrowserView->m_pProps->isDirsFirst();
    bool m_groupHiddenFirst      = m_pListViewWidget->m_pBrowserView->m_pProps->isHiddenFirst();
-   bool m_dictionaryOrderSort   = m_pListViewWidget->m_pBrowserView->m_pProps->isDictionaryOrder();
-
+ 
    // The default TDE order is: .dir (0), dir (1), .file (2), file (3)
 
    if ( m_groupDirectoriesFirst )
@@ -97,29 +96,6 @@ void KonqListViewItem::updateContents()
 
    if ( m_groupHiddenFirst && m_fileitem->text()[0] == '.' )
       --sortChar;
-
-   sortString = "";
-   if (m_dictionaryOrderSort && text(0).length() > 1)
-   {
-     /*
-      * Objective is to ignore non-alphnumeric leading characters
-      * but append them as trailing characters to ensure that there
-      * is a predictable collation of what might be otherwise end up
-      * being identical strings. Example: a, " a" b, +a, ~a will end
-      * up sorting to a, +a, " a", ~a, b
-     */
-     TQChar our1stChar = text(0)[0];
-     if (!our1stChar.isLetterOrNumber())
-     {
-       sortString = text(0).mid(1);
-       sortString.append(our1stChar);
-     }
-     else
-     {
-       sortString = text(0).left(-1);
-       sortString.append(TQChar(0));
-     }
-   }
 
    //now we have the first column, so let's do the rest
 
@@ -327,13 +303,6 @@ int KonqBaseListViewItem::compare( TQListViewItem* item, int col, bool ascending
          break;
       }
    }
-   if (col == 0 && !sortString.isEmpty()) {
-     if (m_pListViewWidget->caseInsensitiveSort())
-       return sortString.lower().localeAwareCompare( k->sortString.lower() );
-     else {
-       return m_pListViewWidget->m_pSettings->caseSensitiveCompare( sortString, k->sortString );
-     }
-   }
    if ( m_pListViewWidget->caseInsensitiveSort() )
        return text( col ).lower().localeAwareCompare( k->text( col ).lower() );
    else {
@@ -440,7 +409,6 @@ const char* KonqBaseListViewItem::makeAccessString( const mode_t mode)
 KonqBaseListViewItem::KonqBaseListViewItem(KonqBaseListViewWidget *_listViewWidget, KFileItem* _fileitem)
 :TDEListViewItem(_listViewWidget)
 ,sortChar(0)
-,sortString()
 ,m_bDisabled(false)
 ,m_bActive(false)
 ,m_fileitem(_fileitem)
@@ -451,7 +419,6 @@ KonqBaseListViewItem::KonqBaseListViewItem(KonqBaseListViewWidget *_listViewWidg
 KonqBaseListViewItem::KonqBaseListViewItem(KonqBaseListViewWidget *_listViewWidget, KonqBaseListViewItem *_parent, KFileItem* _fileitem)
 :TDEListViewItem(_parent)
 ,sortChar(0)
-,sortString()
 ,m_bDisabled(false)
 ,m_bActive(false)
 ,m_fileitem(_fileitem)

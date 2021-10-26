@@ -68,7 +68,6 @@ class KonqBaseListViewItem : public TDEListViewItem
       
    protected:
       short int sortChar;
-      TQString sortString;
       bool m_bDisabled;
       bool m_bActive; 
       
