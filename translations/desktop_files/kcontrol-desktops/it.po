@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Leandro Nini <drfiemost@email.it>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2021-10-31 18:05+0000\n"
+"Last-Translator: Leandro Nini <drfiemost@email.it>\n"
+"Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kcontrol-desktop-files/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8.1\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -23,9 +24,8 @@ msgstr "Strumento per l'accessibilità di"
 
 #. Name
 #: access/kcmaccess.desktop:12
-#, fuzzy
 msgid "Accessibility"
-msgstr "Strumento per l'accessibilità di"
+msgstr "Accessibilità"
 
 #. Comment
 #: access/kcmaccess.desktop:14
@@ -80,8 +80,8 @@ msgid ""
 "background;desktops;colors;colours;images;wallpapers;blending;balance;cache;"
 "multiple wallpapers;pixmap;"
 msgstr ""
-"sfondo;desktop;colori;immagini;immagini di sfondo;sfumature;bilanciamento;"
-"cache;sfondi multipli;"
+"sfondo;desktop;colori;colori;immagini;immagini di "
+"sfondo;sfumature;bilanciamento;cache;sfondi multipli;pixmap;"
 
 #. Name
 #: bell/bell.desktop:13
@@ -264,9 +264,8 @@ msgstr "CSS;HTML;stile;fogli di stile;stylesheet;accessibilità;"
 
 #. Name
 #: display/display.desktop:11
-#, fuzzy
 msgid "Display"
-msgstr "Impostazioni del display"
+msgstr "Display"
 
 #. Comment
 #: display/display.desktop:13
@@ -286,7 +285,7 @@ msgstr "Configurazione del display"
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
 msgid "monitor;resolution;display;"
-msgstr "monitor;risoluzione;display;schermo;configurazione"
+msgstr "monitor;risoluzione;display;"
 
 #. Name
 #: dnssd/kcm_tdednssd.desktop:18
@@ -1600,7 +1599,7 @@ msgstr ""
 #. Name
 #: input/mouse.desktop:13
 msgid "Mouse"
-msgstr ""
+msgstr "Mouse"
 
 #. Comment
 #: input/mouse.desktop:15
@@ -2064,9 +2063,8 @@ msgstr "prestazioni;velocità;memoria;migliora;"
 
 #. Name
 #: privacy/privacy.desktop:11
-#, fuzzy
 msgid "Privacy"
-msgstr "privacy;riservatezza;"
+msgstr "Privacy"
 
 #. Comment
 #: privacy/privacy.desktop:13
@@ -2203,8 +2201,8 @@ msgstr ""
 msgid ""
 "style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE applications;"
 msgstr ""
-"stile;stili;aspetto;widget;elemento grafico;icone;barre degli strumenti;"
-"testo;evidenziazione;applicazioni;applicazioni TDE;"
+"stile;stili;aspetto;widget;icone;barre degli "
+"strumenti;testo;evidenziazione;applicazioni;applicazioni TDE;"
 
 #. Name
 #: taskbar/kcmtaskbar.desktop:11
@@ -2284,7 +2282,7 @@ msgstr "Visualizzatore di caratteri"
 #. Name
 #: tdeio/cache.desktop:12
 msgid "Cache"
-msgstr ""
+msgstr "Cache"
 
 #. Comment
 #: tdeio/cache.desktop:14
@@ -2346,7 +2344,7 @@ msgstr "Preferenze sulle connessioni"
 #. Name
 #: tdeio/proxy.desktop:12
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #. Comment
 #: tdeio/proxy.desktop:14
@@ -2532,4 +2530,4 @@ msgstr "Configura TDE per utilizzare più monitor"
 #. Keywords
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
-msgstr "Xinerama;dual head;multihead;monitor;monitor multipli;"
+msgstr "Xinerama;dual head;multihead;monitor;"
