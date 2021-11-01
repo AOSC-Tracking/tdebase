@@ -1,26 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Leandro Nini <drfiemost@email.it>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2021-11-02 08:31+0000\n"
+"Last-Translator: Leandro Nini <drfiemost@email.it>\n"
+"Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/konsole-desktop-files/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8.1\n"
 
 #. Name
 #: kcmkonsole.desktop:9
-#, fuzzy
 msgid "Console"
-msgstr "Console Linux"
+msgstr "Console"
 
 #. GenericName
 #: kcmkonsole.desktop:11
@@ -34,9 +34,8 @@ msgstr "konsole;console;terminale;"
 
 #. Name
 #: konsole-script.desktop:9 konsole.desktop:9 konsolesu.desktop:10
-#, fuzzy
 msgid "Konsole"
-msgstr "Console Linux"
+msgstr "Konsole"
 
 #. GenericName
 #: konsole-script.desktop:11 konsole.desktop:11
@@ -82,9 +81,8 @@ msgstr "Nuova console Linux"
 
 #. Name
 #: other/mc.desktop:3
-#, fuzzy
 msgid "Midnight Commander"
-msgstr "Nuovo Midnight Commander"
+msgstr "Midnight Commander"
 
 #. Comment
 #: other/mc.desktop:4
@@ -105,9 +103,8 @@ msgstr "Nuova sessione di Screen"
 #. Title0
 #: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
 #: other/5shells:6
-#, fuzzy
 msgid "Shell"
-msgstr "Nuova shell"
+msgstr "Shell"
 
 #. Comment
 #: other/shell.desktop:4
@@ -147,47 +144,40 @@ msgstr "Apri terminale qui"
 
 #. Name
 #: other/2shells:2
-#, fuzzy
 msgid "Two consoles"
-msgstr "Console Linux"
+msgstr "Due Console"
 
 #. Title1
 #: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
-#, fuzzy
 msgid "Shell No. 2"
-msgstr "Nuova shell"
+msgstr "Shell n. 2"
 
 #. Name
 #: other/3shells:2
 msgid "Three consoles"
-msgstr ""
+msgstr "Tre Console"
 
 #. Title2
 #: other/3shells:8 other/4shells:8 other/5shells:8
-#, fuzzy
 msgid "Shell No. 3"
-msgstr "Nuova shell"
+msgstr "Shell n. 3"
 
 #. Name
 #: other/4shells:2
-#, fuzzy
 msgid "Four consoles"
-msgstr "Console Linux"
+msgstr "Quattro Console"
 
 #. Title3
 #: other/4shells:9 other/5shells:9
-#, fuzzy
 msgid "Shell No. 4"
-msgstr "Nuova shell"
+msgstr "Shell n. 4"
 
 #. Name
 #: other/5shells:2
-#, fuzzy
 msgid "Five consoles"
-msgstr "Console Linux"
+msgstr "Cinque Console"
 
 #. Title4
 #: other/5shells:10
-#, fuzzy
 msgid "Shell No. 5"
-msgstr "Nuova shell"
+msgstr "Shell n. 5"
