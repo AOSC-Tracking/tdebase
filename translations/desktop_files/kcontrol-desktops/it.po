@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2021-10-31 18:05+0000\n"
+"PO-Revision-Date: 2021-11-02 08:31+0000\n"
 "Last-Translator: Leandro Nini <drfiemost@email.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/it/>\n"
@@ -343,9 +343,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
-#, fuzzy
 msgid "Alexa"
-msgstr "URL Alexa"
+msgstr "Alexa"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
@@ -1301,9 +1300,7 @@ msgstr "Configura associazioni dei file"
 #. Keywords
 #: filetypes/filetypes.desktop:16
 msgid "Filetypes;File Associations;Mime Types;File Patterns;Files;Pattern;"
-msgstr ""
-"tipi di file;associazioni file;tipi MIME;MIME;pattern dei file;file;motivi "
-"dei file;schemi;"
+msgstr "tipi di file;associazioni file;tipi MIME;pattern dei file;file;pattern;"
 
 #. Name
 #: fonts/fonts.desktop:12 konqhtml/tdehtml_fonts.desktop:11
@@ -1356,7 +1353,7 @@ msgstr "Configurazione dei dispositivi hardware"
 #. Keywords
 #: hwmanager/hwmanager.desktop:15
 msgid "hardware;devices;manager;"
-msgstr "hardware;dispositivi;gestore;gestione;configurazione"
+msgstr "hardware;dispositivi;gestore;"
 
 #. Comment
 #: iccconfig/iccconfig.desktop:14
