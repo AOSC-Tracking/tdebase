@@ -67,6 +67,7 @@ struct KonqPropsView::Private
    TQStringList* previewsToShow;
    bool previewsEnabled:1;
    bool caseInsensitiveSort:1;
+   bool hiddenfirst:1;
    bool dirsfirst:1;
    bool descending:1;
    TQString sortcriterion;
@@ -91,6 +92,7 @@ KonqPropsView::KonqPropsView( TDEInstance * instance, KonqPropsView * defaultPro
   m_iItemTextPos = config->readNumEntry( "ItemTextPos", TQIconView::Bottom );
   d->sortcriterion = config->readEntry( "SortingCriterion", "sort_nci" );
   d->dirsfirst = config->readBoolEntry( "SortDirsFirst", true );
+  d->hiddenfirst = config->readBoolEntry( "SortHiddenFirst", true );
   d->descending = config->readBoolEntry( "SortDescending", false );
   m_bShowDot = config->readBoolEntry( "ShowDotFiles", false );
   m_bShowDirectoryOverlays = config->readBoolEntry( "ShowDirectoryOverlays", false );
@@ -141,6 +143,11 @@ bool KonqPropsView::isCaseInsensitiveSort() const
 bool KonqPropsView::isDirsFirst() const
 {
    return d->dirsfirst;
+}
+
+bool KonqPropsView::isHiddenFirst() const
+{
+   return d->hiddenfirst;
 }
 
 bool KonqPropsView::isDescending() const
@@ -200,6 +207,7 @@ bool KonqPropsView::enterDir( const KURL & dir )
     m_iItemTextPos = m_defaultProps->itemTextPos();
     d->sortcriterion = m_defaultProps->sortCriterion();
     d->dirsfirst = m_defaultProps->isDirsFirst();
+    d->hiddenfirst = m_defaultProps->isHiddenFirst();
     d->descending = m_defaultProps->isDescending();
     m_bShowDot = m_defaultProps->isShowingDotFiles();
     d->caseInsensitiveSort=m_defaultProps->isCaseInsensitiveSort();
@@ -219,6 +227,7 @@ bool KonqPropsView::enterDir( const KURL & dir )
     m_iItemTextPos = config->readNumEntry( "ItemTextPos", m_iItemTextPos );
     d->sortcriterion = config->readEntry( "SortingCriterion" , d->sortcriterion );
     d->dirsfirst = config->readBoolEntry( "SortDirsFirst", d->dirsfirst );
+    d->hiddenfirst = config->readBoolEntry( "SortHiddenFirst", d->hiddenfirst );
     d->descending = config->readBoolEntry( "SortDescending", d->descending );
     m_bShowDot = config->readBoolEntry( "ShowDotFiles", m_bShowDot );
     d->caseInsensitiveSort=config->readBoolEntry("CaseInsensitiveSort",d->caseInsensitiveSort);
@@ -324,6 +333,19 @@ void KonqPropsView::setDirsFirst( bool first)
     {
         TDEConfigGroupSaver cgs(currentConfig(), currentGroup());
         currentConfig()->writeEntry( "SortDirsFirst", d->dirsfirst );
+        currentConfig()->sync();
+    }
+}
+
+void KonqPropsView::setHiddenFirst(bool first)
+{
+    d->hiddenfirst = first;
+    if ( m_defaultProps && !m_bSaveViewPropertiesLocally )
+        m_defaultProps->setHiddenFirst( first );
+    else if (currentConfig())
+    {
+        TDEConfigGroupSaver cgs(currentConfig(), currentGroup());
+        currentConfig()->writeEntry( "SortHiddenFirst", d->hiddenfirst );
         currentConfig()->sync();
     }
 }

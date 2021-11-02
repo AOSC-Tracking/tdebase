@@ -63,8 +63,10 @@ class KonqListView : public KonqDirPart
 {
   friend class KonqBaseListViewWidget;
   friend class ListViewBrowserExtension;
+
   Q_OBJECT
   TQ_PROPERTY( bool supportsUndo READ supportsUndo )
+
 public:
   KonqListView( TQWidget *parentWidget, TQObject *parent, const char *name, const TQString& mode );
   virtual ~KonqListView();
@@ -128,6 +130,11 @@ protected slots:
   void slotSaveColumnWidths();  // delayed
   void slotHeaderClicked(int sec);
 
+  void slotToggleDisplayDirectoriesFirst();
+  void slotToggleDisplayHiddenFirst();
+  void slotSortAlternate();
+  void slotSortReverse();
+
   // This comes from KonqDirPart, it's for the "Find" feature
   virtual void slotStarted() { m_pListView->slotStarted(); }
   virtual void slotCanceled() { m_pListView->slotCanceled(); }
@@ -148,11 +155,26 @@ private:
   KMimeTypeResolver<KonqBaseListViewItem,KonqListView> *m_mimeTypeResolver;
   TQTimer *m_headerTimer;
 
+  bool     toggleColumnAlternate = true;
+  TQString m_sortColumnNamePrimary;
+  int      m_sortColumnIndexPrimary;
+  int      m_sortColumnOrderPrimary;
+  TQString m_sortColumnNameAlternate;
+  int      m_sortColumnIndexAlternate;
+  int      m_sortColumnOrderAlternate;
+
+  void resetSortConfig();
+  void checkSortConfig();
+  void sortListView(uint which);
+
   TDEAction *m_paSelect;
   TDEAction *m_paUnselect;
   TDEAction *m_paSelectAll;
   TDEAction *m_paUnselectAll;
   TDEAction *m_paInvertSelection;
+
+  TDEAction *m_paSortAlternate;
+  TDEAction *m_paSortReverse;
 
   // These 2 actions are 'fake' actions. They are defined so that the keyboard shortcuts
   // can be set from the 'Configure Shortcuts..." dialog.
@@ -174,6 +196,9 @@ private:
   TDEToggleAction *m_paShowGroup;
   TDEToggleAction *m_paShowPermissions;
   TDEToggleAction *m_paShowURL;
+
+  TDEToggleAction *m_paDisplayDirectoriesFirst;
+  TDEToggleAction *m_paDisplayHiddenFirst;
 };
 
 class ListViewBrowserExtension : public KonqDirPartBrowserExtension

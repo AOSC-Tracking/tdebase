@@ -84,10 +84,18 @@ void KonqListViewItem::updateContents()
    // Set the text of each column
    setText( 0, m_fileitem->text() );
 
-   // The order is: .dir (0), dir (1), .file (2), file (3)
-   sortChar = S_ISDIR( m_fileitem->mode() ) ? 1 : 3;
-   if ( m_fileitem->text()[0] == '.' )
-       --sortChar;
+   bool m_groupDirectoriesFirst = m_pListViewWidget->props()->isDirsFirst();
+   bool m_groupHiddenFirst      = m_pListViewWidget->props()->isHiddenFirst();
+
+   // The default TDE order is: .dir (0), dir (1), .file (2), file (3)
+
+   if ( m_groupDirectoriesFirst )
+     sortChar = S_ISDIR( m_fileitem->mode() ) ? 1 : 3;
+   else
+     sortChar = 3;
+
+   if ( m_groupHiddenFirst && m_fileitem->text()[0] == '.' )
+      --sortChar;
 
    //now we have the first column, so let's do the rest
 

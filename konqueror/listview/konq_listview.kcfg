@@ -7,7 +7,6 @@
   <kcfgfile name="konquerorrc">
     <parameter name="Protocol" />
   </kcfgfile>
-
   <group name="ListView_$(Protocol)">
     <entry key="SortBy" type="String">
       <default>FileName</default> 
@@ -17,6 +16,36 @@
     <entry key="SortOrder" type="Bool">
       <default>true</default> 
       <label>Sort Order</label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="PrimarySortCol" type="String">
+      <default>TBD</default>
+      <label>Primary sort column name</label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="PrimarySortIndex" type="Int">
+      <default>-1</default>
+      <label>Primary sort column offset</label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="PrimarySortOrder" type="Bool">
+      <default>true</default>
+      <label>Primary sort column sorting order</label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="AlternateSortCol" type="String">
+      <default>TBD</default>
+      <label>Alternate sort column name</label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="AlternateSortIndex" type="Int">
+      <default>-1</default>
+      <label>Alternate sort column offset</label>
+      <whatsthis></whatsthis>
+    </entry>
+    <entry key="AlternateSortOrder" type="Bool">
+      <default>true</default>
+      <label>Alternate sort column sorting order</label>
       <whatsthis></whatsthis>
     </entry>
     <entry key="FileNameColumnWidth" type="Int">
@@ -33,5 +62,4 @@
       <whatsthis></whatsthis>
     </entry>
   </group>
-
 </kcfg>

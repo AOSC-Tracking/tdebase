@@ -268,6 +268,8 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_mimeTypeResolver = new KMimeTypeResolver<KonqBaseListViewItem,KonqListView>(this);
 
    setXMLFile( xmlFile );
+   m_sortColumnIndexPrimary   = 0;
+   m_sortColumnIndexAlternate = 1;
 
    setupActions();
 
@@ -284,7 +286,6 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_pListView->confColumns[9].setData(I18N_NOOP("URL"),"URL",TDEIO::UDS_URL,m_paShowURL);
    // Note: File Type is in fact the mimetype comment. We use UDS_FILE_TYPE but that's not what we show in fact :/
    m_pListView->confColumns[10].setData(I18N_NOOP("File Type"),"Type",TDEIO::UDS_FILE_TYPE,m_paShowType);
-
 
    connect( m_pListView, TQT_SIGNAL( selectionChanged() ),
             m_extension, TQT_SLOT( updateActions() ) );
@@ -538,6 +539,9 @@ void KonqListView::slotColumnToggled()
 
    // Update column sizes
    slotHeaderSizeChanged();
+
+   // Columns may have been rearranged, so do this to be safe:
+   resetSortConfig();
 }
 
 void KonqListView::slotHeaderClicked(int sec)
@@ -560,13 +564,222 @@ void KonqListView::slotHeaderClicked(int sec)
       m_pListView->setAscending(TRUE);
    }
    else
+   {
       m_pListView->setAscending(!m_pListView->ascending());
+   }
 
+   checkSortConfig() ;
    KonqListViewSettings config( m_pListView->url().protocol() );
    config.readConfig();
+
+   if (sec == m_sortColumnIndexPrimary) {
+      kdDebug(1202)<<"Changing sort order on primary sort column"<<endl;
+      m_sortColumnOrderPrimary = m_pListView->ascending();
+      config.setPrimarySortOrder(m_pListView->ascending());
+   }
+   else if (sec == m_sortColumnIndexAlternate) {
+      kdDebug(1202)<<"Changing sort order on alternate sort column"<<endl;
+      m_sortColumnOrderAlternate  = m_pListView->ascending();
+      config.setAlternateSortOrder(m_pListView->ascending());
+   }
+   else if ( toggleColumnAlternate ) {
+      kdDebug(1202)<<"Setting new alternate sort column"<<endl;
+      m_sortColumnNameAlternate   = nameOfSortColumn;
+      m_sortColumnIndexAlternate  = sec;
+      m_sortColumnOrderAlternate  = true;
+      config.setAlternateSortCol(nameOfSortColumn);
+      config.setAlternateSortIndex(sec);
+      config.setAlternateSortOrder(true);
+      toggleColumnAlternate = false;
+   }
+   else {
+      kdDebug(1202)<<"Setting new primary sort column"<<endl;
+      m_sortColumnNamePrimary   = nameOfSortColumn;
+      m_sortColumnIndexPrimary  = sec;
+      m_sortColumnOrderPrimary  = true;
+      config.setPrimarySortCol(nameOfSortColumn);
+      config.setPrimarySortIndex(sec);
+      config.setPrimarySortOrder(true);
+      toggleColumnAlternate = true;
+   }
+
    config.setSortBy( nameOfSortColumn );
    config.setSortOrder( m_pListView->ascending() );
    config.writeConfig();
+}
+
+void KonqListView::resetSortConfig()
+{
+   int defaultVisibleColumn;
+   int columnNumber;
+
+   defaultVisibleColumn = 0; // First visible column from left
+   columnNumber = -1;
+   for (uint i = 0; i < m_pListView->NumberOfAtoms; i++) {
+      if (m_pListView->confColumns[i].displayInColumn == defaultVisibleColumn) {
+        columnNumber = i;
+      }
+   }
+   if (columnNumber == -1) {
+      // This should not happen!
+      kdDebug() << "We did not find columnNumber" <<endl;
+      m_sortColumnIndexPrimary = 0;
+      m_sortColumnNamePrimary  = "FileName";
+   }
+   else {
+      m_sortColumnIndexPrimary = defaultVisibleColumn;
+      m_sortColumnNamePrimary = m_pListView->confColumns[columnNumber].desktopFileName;
+   }
+
+   defaultVisibleColumn = 1 ;  // Second visible column from left
+   columnNumber = -1;
+   for (uint i = 0; i < m_pListView->NumberOfAtoms; i++) {
+      if (m_pListView->confColumns[i].displayInColumn == defaultVisibleColumn) {
+        columnNumber = i;
+      }
+   }
+   if (columnNumber == -1) {
+      // This should not happen!
+      kdDebug() << "We did not find columnNumber" <<endl;
+      m_sortColumnIndexAlternate = 0;
+      m_sortColumnNameAlternate  = "FileName";
+   }
+   else {
+      m_sortColumnIndexAlternate = defaultVisibleColumn;
+      m_sortColumnNameAlternate=m_pListView->confColumns[columnNumber].desktopFileName;
+   }
+
+   m_sortColumnOrderPrimary = true ;
+   m_sortColumnOrderAlternate = true ;
+
+   kdDebug(1202) << "Initialized m_sortColumnIndexPrimary to " <<m_sortColumnIndexPrimary <<endl;
+   kdDebug(1202) << "Initialized m_sortColumnNamePrimary to " <<m_sortColumnNamePrimary <<endl;
+   kdDebug(1202) << "Initialized m_sortColumnIndexAlternate to " <<m_sortColumnIndexAlternate <<endl;
+   kdDebug(1202) << "Initialized m_sortColumnNameAlternate to " <<m_sortColumnNameAlternate <<endl;
+
+   KonqListViewSettings config( m_pListView->url().protocol() );
+   config.setPrimarySortCol(m_sortColumnNamePrimary);
+   config.setPrimarySortIndex(m_sortColumnIndexPrimary);
+   config.setPrimarySortOrder(m_sortColumnOrderPrimary);
+   config.setAlternateSortCol(m_sortColumnNameAlternate);
+   config.setAlternateSortIndex(m_sortColumnIndexAlternate);
+   config.setAlternateSortOrder(m_sortColumnOrderAlternate);
+   config.writeConfig() ;
+}
+
+void KonqListView::checkSortConfig()
+{
+   KonqListViewSettings config( m_pListView->url().protocol() );
+   config.readConfig();
+
+   m_sortColumnIndexPrimary   = config.primarySortIndex();
+   m_sortColumnNamePrimary    = config.primarySortCol();
+   m_sortColumnOrderPrimary   = config.primarySortOrder();
+
+   m_sortColumnIndexAlternate = config.alternateSortIndex();
+   m_sortColumnNameAlternate  = config.alternateSortCol();
+   m_sortColumnOrderAlternate = config.alternateSortOrder();
+
+   if (m_sortColumnIndexPrimary >= 0 && m_sortColumnIndexAlternate >= 0)
+     return ;
+
+   resetSortConfig();
+}
+
+#define LV_SORT_CHANGE_COLUMN 1
+#define LV_SORT_CHANGE_ORDER  2
+
+void KonqListView::sortListView(uint which)
+{
+   TQString sortColumnNameCurrent = m_pListView->sortedByColumn;
+   if (sortColumnNameCurrent == "" ) {
+     sortColumnNameCurrent = "FileName" ;
+     m_pListView->sortedByColumn = sortColumnNameCurrent ;
+   }
+   TQString sortColumnNameNext;
+   int      sortColumnIndex;
+   bool     sortOrder;
+
+   checkSortConfig() ;
+   KonqListViewSettings config( m_pListView->url().protocol() );
+   config.readConfig();
+
+   switch (which)
+   {
+      case LV_SORT_CHANGE_COLUMN:
+         if (m_sortColumnNamePrimary == sortColumnNameCurrent)
+         {
+            sortColumnNameNext = m_sortColumnNameAlternate;
+            sortColumnIndex = m_sortColumnIndexAlternate;
+            sortOrder = m_sortColumnOrderAlternate;
+            kdDebug(1202) << "Changing sort column to alternate"<<endl ;
+         }
+         else
+         {
+            sortColumnNameNext = m_sortColumnNamePrimary;
+            sortColumnIndex = m_sortColumnIndexPrimary;
+            sortOrder = m_sortColumnOrderPrimary;
+            kdDebug(1202) << "Changing sort column to primary"<<endl ;
+         }
+         m_pListView->setSorting( sortColumnIndex, sortOrder );
+         m_pListView->sortedByColumn = sortColumnNameNext;
+         config.setSortBy( sortColumnNameNext );
+         break;
+
+     case LV_SORT_CHANGE_ORDER:
+        sortOrder = !m_pListView->ascending();
+
+        if ( m_sortColumnNamePrimary == sortColumnNameCurrent )
+        {
+           sortColumnIndex = m_sortColumnIndexPrimary;
+           m_sortColumnOrderPrimary = sortOrder;
+           config.setPrimarySortOrder( sortOrder );
+           kdDebug(1202) << "Changing sort order of primary"<<endl ;
+        }
+        else
+        {
+           sortColumnIndex = m_sortColumnIndexAlternate;
+           m_sortColumnOrderAlternate = sortOrder ;
+           config.setAlternateSortOrder( sortOrder ) ;
+           kdDebug(1202) << "Changing sort order of alternate"<<endl ;
+        }
+        m_pListView->setAscending(sortOrder) ;
+        config.setSortOrder(sortOrder);
+        m_pListView->setSorting( sortColumnIndex, sortOrder );
+        break;
+
+     default:
+        // Do nothing in case of invalid call
+        return;
+   }
+
+   m_pListView->sort();
+
+   config.writeConfig();
+}
+
+void KonqListView::slotSortAlternate()
+{
+   KonqListView::sortListView(LV_SORT_CHANGE_COLUMN);
+}
+
+void KonqListView::slotSortReverse()
+{
+   KonqListView::sortListView(LV_SORT_CHANGE_ORDER);
+}
+
+void KonqListView::slotToggleDisplayDirectoriesFirst()
+{
+   m_pProps->setDirsFirst( m_paDisplayDirectoriesFirst->isChecked() );
+   m_pListView->updateListContents();
+   m_pListView->sort();
+}
+
+void KonqListView::slotToggleDisplayHiddenFirst()
+{
+   m_pProps->setHiddenFirst( m_paDisplayHiddenFirst->isChecked() );
+   m_pListView->updateListContents();
+   m_pListView->sort();
 }
 
 void KonqListView::headerDragged(int sec, int from, int to)
@@ -609,6 +822,9 @@ void KonqListView::slotSaveAfterHeaderDrag()
 
    // Update column sizes
    slotHeaderSizeChanged();
+
+   // Columns were rearranged, so do this to be safe:
+   resetSortConfig();
 }
 
 void KonqListView::slotSaveColumnWidths()
@@ -714,6 +930,19 @@ void KonqListView::setupActions()
   m_paShowDot = new TDEToggleAction( i18n( "Show &Hidden Files" ), 0, this, TQT_SLOT( slotShowDot() ), actionCollection(), "show_dot" );
 //  m_paShowDot->setCheckedState(i18n("Hide &Hidden Files"));
   m_paCaseInsensitive = new TDEToggleAction(i18n("Case Insensitive Sort"), 0, this, TQT_SLOT(slotCaseInsensitive()),actionCollection(), "sort_caseinsensitive" );
+
+  m_paSortAlternate = new TDEAction( i18n( "&Alternate Sort Order" ), CTRL+Key_S, this,
+     TQT_SLOT( slotSortAlternate() ), actionCollection(), "alternate_sort_order");
+  m_paSortReverse = new TDEAction( i18n( "&Reverse Sort Order" ), CTRL+Key_R, this,
+    TQT_SLOT( slotSortReverse() ), actionCollection(), "reverse_sort_order");
+
+  m_paDisplayDirectoriesFirst = new TDEToggleAction( i18n("Group &Directories First"), 0, this,
+    TQT_SLOT(slotToggleDisplayDirectoriesFirst()), actionCollection(), "group_directories_first");
+  m_paDisplayDirectoriesFirst->setChecked(m_pProps->isHiddenFirst());
+
+  m_paDisplayHiddenFirst = new TDEToggleAction( i18n("Group &Hidden First"), 0, this,
+    TQT_SLOT(slotToggleDisplayHiddenFirst()), actionCollection(), "group_hidden_first");
+  m_paDisplayHiddenFirst->setChecked(m_pProps->isHiddenFirst());
 
   newIconSize( TDEIcon::SizeSmall /* default size */ );
 }
