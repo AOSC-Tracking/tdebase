@@ -488,9 +488,6 @@ if test "$kcmfonts_general_forcefontdpienable" = "true"; then
   echo "Xft.dpi: $kcmfonts_general_forcefontdpi" > $tmpfile
   xrdb -quiet -merge -nocpp $tmpfile
   rm $tmpfile
-else
-  echo "[starttde] Clearing setting of font DPI value" 1>&2
-  xrdb -quiet -remove -nocpp Xft.dpi
 fi
 
 # Configuration of the gtk_qt_engine if not already set.
