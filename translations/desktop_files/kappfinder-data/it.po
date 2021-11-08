@@ -2,13 +2,14 @@
 # This file is put in the public domain.
 # Fiflagar Lorizen <fiflagar.lorizen@posteo.net>, 2021.
 # Leandro Nini <drfiemost@email.it>, 2021.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2021-11-02 08:31+0000\n"
-"Last-Translator: Leandro Nini <drfiemost@email.it>\n"
+"PO-Revision-Date: 2021-11-09 04:31+0000\n"
+"Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kappfinder-data/it/>\n"
 "Language: it\n"
@@ -80,9 +81,8 @@ msgstr "IDE Eclipse"
 
 #. Name
 #: Development/fdesign.desktop:2
-#, fuzzy
 msgid "FormDesigner"
-msgstr "Designer Qt"
+msgstr "FormDesigner"
 
 #. Name
 #: Development/j2mewtk.desktop:2
@@ -107,7 +107,7 @@ msgstr "Strumento per le traduzioni"
 #. Name
 #: Development/pose.desktop:2
 msgid "Pose"
-msgstr ""
+msgstr "Posa"
 
 #. GenericName
 #: Development/pose.desktop:3
@@ -117,7 +117,7 @@ msgstr "Emulatore Palm/Wireless"
 #. Name
 #: Development/sced.desktop:2
 msgid "Sced"
-msgstr ""
+msgstr "Sced"
 
 #. GenericName
 #: Development/sced.desktop:3
@@ -127,7 +127,7 @@ msgstr "Modellatore di scene"
 #. Name
 #: Games/Arcade/ClanBomber.desktop:2
 msgid "ClanBomber"
-msgstr ""
+msgstr "ClanBomber"
 
 #. GenericName
 #: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
@@ -143,7 +143,7 @@ msgstr "Gioco arcade"
 #. Name
 #: Games/Arcade/FrozenBubble.desktop:2
 msgid "Frozen Bubble"
-msgstr ""
+msgstr "Bolla congelata"
 
 #. GenericName
 #: Games/Arcade/FrozenBubble.desktop:3
@@ -153,7 +153,7 @@ msgstr "Gioco tipo-tetris"
 #. Name
 #: Games/Arcade/Gnibbles.desktop:2
 msgid "Gnibbles"
-msgstr ""
+msgstr "Gnibbles"
 
 #. GenericName
 #: Games/Arcade/Gnibbles.desktop:3
@@ -163,27 +163,27 @@ msgstr "Gioco nibbles di GNOME"
 #. Name
 #: Games/Arcade/GnobotsII.desktop:2
 msgid "Gnobots II"
-msgstr ""
+msgstr "Gnobots II"
 
 #. Name
 #: Games/Arcade/Mures.desktop:2
 msgid "Mures"
-msgstr ""
+msgstr "Mures"
 
 #. Name
 #: Games/Arcade/SuperMethaneBrothers.desktop:2
 msgid "Super Methane Brothers"
-msgstr ""
+msgstr "Fratelli Super Metano"
 
 #. Name
 #: Games/Arcade/Trophy.desktop:2
 msgid "Trophy"
-msgstr ""
+msgstr "Trophy"
 
 #. Name
 #: Games/Arcade/TuxRacer.desktop:2
 msgid "TuxRacer"
-msgstr ""
+msgstr "Trophy"
 
 #. GenericName
 #: Games/Arcade/TuxRacer.desktop:3
@@ -193,17 +193,17 @@ msgstr "Gara di corsa"
 #. Name
 #: Games/Arcade/XKobo.desktop:2
 msgid "XKobo"
-msgstr ""
+msgstr "XKobo"
 
 #. Name
 #: Games/Arcade/XSoldier.desktop:2
 msgid "XSoldier"
-msgstr ""
+msgstr "XSoldier"
 
 #. Name
 #: Games/Arcade/alephone-nogl.desktop:2
 msgid "Alephone"
-msgstr ""
+msgstr "Alephone"
 
 #. Comment
 #: Games/Arcade/alephone-nogl.desktop:3
@@ -226,12 +226,12 @@ msgstr ""
 #. Name
 #: Games/Arcade/battalion.desktop:2
 msgid "Batallion"
-msgstr ""
+msgstr "Battaglione"
 
 #. Name
 #: Games/Arcade/battleball.desktop:2
 msgid "Battleball"
-msgstr ""
+msgstr "Battleball"
 
 #. GenericName
 #: Games/Arcade/battleball.desktop:3
@@ -241,12 +241,12 @@ msgstr "Gioco di palla"
 #. Name
 #: Games/Arcade/cxhextris.desktop:2
 msgid "cxhextris"
-msgstr ""
+msgstr "cxhextris"
 
 #. Name
 #: Games/Arcade/rocksndiamonds.desktop:2
 msgid "Rocks n Diamonds"
-msgstr ""
+msgstr "Rocce e Diamanti"
 
 #. GenericName
 #: Games/Arcade/rocksndiamonds.desktop:3 Games/Board/Glines.desktop:3
@@ -256,12 +256,12 @@ msgstr "Gioco di tattica"
 #. Name
 #: Games/Arcade/scavenger.desktop:2
 msgid "Scavenger"
-msgstr ""
+msgstr "Scavenger"
 
 #. Name
 #: Games/Board/Gataxx.desktop:2
 msgid "Gataxx"
-msgstr ""
+msgstr "Gataxx"
 
 #. Name
 #: Games/Board/Gchess.desktop:2
@@ -271,7 +271,7 @@ msgstr "Scacchi di GNOME"
 #. Name
 #: Games/Board/Glines.desktop:2
 msgid "Glines"
-msgstr ""
+msgstr "Glines"
 
 #. Name
 #: Games/Board/Gmahjongg.desktop:2
@@ -285,9 +285,8 @@ msgstr "Gioco di tessere"
 
 #. Name
 #: Games/Board/Gmines.desktop:2
-#, fuzzy
 msgid "GNOME Mines"
-msgstr "Telnet di GNOME"
+msgstr "GNOME Miniere"
 
 #. GenericName
 #: Games/Board/Gmines.desktop:3
@@ -297,12 +296,12 @@ msgstr "Gioco di logica"
 #. Name
 #: Games/Board/Gnotravex.desktop:2
 msgid "Gnotravex"
-msgstr ""
+msgstr "Gnotravex"
 
 #. Name
 #: Games/Board/Gnotski.desktop:2
 msgid "Gnotski"
-msgstr ""
+msgstr "Gnotski"
 
 #. GenericName
 #: Games/Board/Gnotski.desktop:3
@@ -311,14 +310,13 @@ msgstr "Gioco Klotski di GNOME"
 
 #. Name
 #: Games/Board/Gstones.desktop:2
-#, fuzzy
 msgid "GNOME Stones"
-msgstr "Telnet di GNOME"
+msgstr "GNOME Pietre"
 
 #. Name
 #: Games/Board/Iagno.desktop:2
 msgid "Iagno"
-msgstr ""
+msgstr "Iagno"
 
 #. GenericName
 #: Games/Board/Iagno.desktop:3 Games/Board/SameGnome.desktop:3
@@ -329,12 +327,12 @@ msgstr "Gioco da tavola"
 #. Name
 #: Games/Board/SameGnome.desktop:2
 msgid "Same GNOME"
-msgstr ""
+msgstr "Same GNOME"
 
 #. Name
 #: Games/Board/Xgammon.desktop:2
 msgid "Xgammon"
-msgstr ""
+msgstr "Xgammon"
 
 #. Name
 #: Games/Board/xboard.desktop:2
@@ -349,7 +347,7 @@ msgstr "Gioco di scacchi"
 #. Name
 #: Games/Card/AisleRiot.desktop:2
 msgid "AisleRiot"
-msgstr ""
+msgstr "Rivolta del corridoio"
 
 #. GenericName
 #: Games/Card/AisleRiot.desktop:3 Games/Card/FreeCell.desktop:3
@@ -360,28 +358,27 @@ msgstr "Gioco di carte"
 #. Name
 #: Games/Card/FreeCell.desktop:2
 msgid "FreeCell"
-msgstr ""
+msgstr "FreeCell"
 
 #. Name
 #: Games/Card/PySol.desktop:2
 msgid "PySol"
-msgstr ""
+msgstr "PySol"
 
 #. Name
 #: Games/Card/XPat2.desktop:2
 msgid "XPat 2"
-msgstr ""
+msgstr "XPat 2"
 
 #. Name
 #: Games/Clanbomber.desktop:2
 msgid "Clanbomber"
-msgstr ""
+msgstr "Clanbomber"
 
 #. Name
 #: Games/Emulators/cmail.desktop:2
-#, fuzzy
 msgid "ChessMail"
-msgstr "Gioco di scacchi"
+msgstr "Scacchi"
 
 #. GenericName
 #: Games/Emulators/cmail.desktop:3
@@ -391,7 +388,7 @@ msgstr "Posta elettronica per gli scacchi"
 #. Name
 #: Games/Emulators/qmamecat.desktop:2
 msgid "Qmamecat"
-msgstr ""
+msgstr "Qmamecat"
 
 #. GenericName
 #: Games/Emulators/qmamecat.desktop:3
@@ -401,7 +398,7 @@ msgstr "Emulatore arcade"
 #. Name
 #: Games/GTali.desktop:2
 msgid "GTali"
-msgstr ""
+msgstr "GTali"
 
 #. GenericName
 #: Games/GTali.desktop:3
@@ -411,7 +408,7 @@ msgstr "Gioco di dadi"
 #. Name
 #: Games/Roguelikes/angband.desktop:2
 msgid "Angband"
-msgstr ""
+msgstr "Angband"
 
 #. Comment
 #: Games/Roguelikes/angband.desktop:3
@@ -421,7 +418,7 @@ msgstr "Tuffati dentro Angband e sconfiggi Morgoth"
 #. Name
 #: Games/Roguelikes/moria.desktop:2
 msgid "Moria"
-msgstr ""
+msgstr "Moria"
 
 #. Comment
 #: Games/Roguelikes/moria.desktop:3
@@ -431,7 +428,7 @@ msgstr "Tuffati dentro Moria e sconfiggi il Balrog"
 #. Name
 #: Games/Roguelikes/nethack.desktop:2
 msgid "NetHack"
-msgstr ""
+msgstr "NetHack"
 
 #. GenericName
 #: Games/Roguelikes/nethack.desktop:3 Games/Roguelikes/tome.desktop:3
@@ -441,7 +438,7 @@ msgstr "Gioco di avventura"
 #. Name
 #: Games/Roguelikes/rogue.desktop:2
 msgid "Rogue"
-msgstr ""
+msgstr "Rogue"
 
 #. GenericName
 #: Games/Roguelikes/rogue.desktop:3
@@ -451,12 +448,12 @@ msgstr "L'originale"
 #. Name
 #: Games/Roguelikes/tome.desktop:2
 msgid "ToME"
-msgstr ""
+msgstr "ToME"
 
 #. Name
 #: Games/Roguelikes/zangband.desktop:2
 msgid "ZAngband"
-msgstr ""
+msgstr "ZAngband"
 
 #. GenericName
 #: Games/Roguelikes/zangband.desktop:3
@@ -466,7 +463,7 @@ msgstr "Sconfiggi il Serpente del Caos"
 #. Name
 #: Games/TacticStrategy/freeciv.desktop:3
 msgid "Freeciv"
-msgstr ""
+msgstr "Freeciv"
 
 #. GenericName
 #: Games/TacticStrategy/freeciv.desktop:4 Games/xshipwars.desktop:4
@@ -486,7 +483,7 @@ msgstr "Un server per Free Civ"
 #. Name
 #: Games/TacticStrategy/xscorch.desktop:3
 msgid "XScorch"
-msgstr ""
+msgstr "XScorch"
 
 #. Comment
 #: Games/TacticStrategy/xscorch.desktop:4
@@ -496,12 +493,12 @@ msgstr "Un clone per UNIX e X di Scorched Earth"
 #. Name
 #: Games/Toys/xeyes.desktop:2
 msgid "X Eyes"
-msgstr ""
+msgstr "Occhi X"
 
 #. Name
 #: Games/Toys/xpinguin.desktop:2
 msgid "Tux"
-msgstr ""
+msgstr "Tux"
 
 #. GenericName
 #: Games/Toys/xpinguin.desktop:3
@@ -511,7 +508,7 @@ msgstr "Mascotte di Linux"
 #. Name
 #: Games/defendguin.desktop:3
 msgid "Defendguin"
-msgstr ""
+msgstr "Defendguin"
 
 #. GenericName
 #: Games/defendguin.desktop:4
@@ -521,17 +518,17 @@ msgstr "Gioco"
 #. Name
 #: Games/penguin-command.desktop:3
 msgid "Penguin Command"
-msgstr ""
+msgstr "Commando Pinguini"
 
 #. Name
 #: Games/xshipwars.desktop:3
 msgid "XShipWars"
-msgstr ""
+msgstr "ShipWars X"
 
 #. Name
 #: Graphics/ElectricEyes.desktop:2
 msgid "Electric Eyes"
-msgstr ""
+msgstr "Occhi elettrici"
 
 #. GenericName
 #: Graphics/ElectricEyes.desktop:3
@@ -541,7 +538,7 @@ msgstr "Visualizzatore di immagini"
 #. Name
 #: Graphics/GPhoto.desktop:2
 msgid "GPhoto"
-msgstr ""
+msgstr "GPhoto"
 
 #. GenericName
 #: Graphics/GPhoto.desktop:3
@@ -764,7 +761,6 @@ msgstr "Programma per controllare la posta"
 
 #. Name
 #: Internet/Fetchmailconf.desktop:2
-#, fuzzy
 msgid "Fetchmailconf"
 msgstr "Configurazione di fetchmail"
 
@@ -810,9 +806,8 @@ msgstr "Messaggistica ICQ"
 
 #. Name
 #: Internet/Netscapemessenger.desktop:2
-#, fuzzy
 msgid "Netscape Messenger"
-msgstr "Messaggistica istantanea"
+msgstr "Netscape Messenger"
 
 #. Name
 #: Internet/Nmapfe.desktop:2
@@ -1077,9 +1072,8 @@ msgstr ""
 
 #. Name
 #: Internet/xchat.desktop:2
-#, fuzzy
 msgid "XChat"
-msgstr "Chat IRC"
+msgstr "XChat"
 
 #. GenericName
 #: Internet/xchat.desktop:3
@@ -1211,9 +1205,8 @@ msgstr "Elaborazione suoni"
 
 #. Name
 #: Multimedia/mplayer.desktop:2
-#, fuzzy
 msgid "MPlayer"
-msgstr "Lettore MPEG"
+msgstr "MPlayer"
 
 #. Name
 #: Multimedia/mtv.desktop:2
@@ -1232,9 +1225,8 @@ msgstr "Lettore DVD"
 
 #. Name
 #: Multimedia/oqtplayer.desktop:2
-#, fuzzy
 msgid "OQTPlayer"
-msgstr "Lettore DVD"
+msgstr "OQTPlayer"
 
 #. GenericName
 #: Multimedia/oqtplayer.desktop:3
@@ -1243,9 +1235,8 @@ msgstr "Lettore di video MOV"
 
 #. Name
 #: Multimedia/realplayer.desktop:2
-#, fuzzy
 msgid "RealPlayer"
-msgstr "Lettore di video"
+msgstr "RealPlayer"
 
 #. Name
 #: Multimedia/rezound.desktop:2
@@ -1334,9 +1325,8 @@ msgstr "Programma per i diagrammi"
 
 #. Name
 #: Office/Gnome-Cal.desktop:2
-#, fuzzy
 msgid "GNOME-Cal"
-msgstr "Talk di GNOME"
+msgstr "GNOME Cal"
 
 #. GenericName
 #: Office/Gnome-Cal.desktop:3
@@ -1345,9 +1335,8 @@ msgstr "Calendario personale"
 
 #. Name
 #: Office/Gnome-Card.desktop:2
-#, fuzzy
 msgid "GNOME-Card"
-msgstr "Talk di GNOME"
+msgstr "GNOME Carta"
 
 #. GenericName
 #: Office/Gnome-Card.desktop:3
@@ -1596,9 +1585,8 @@ msgstr "Editor di testi"
 
 #. Name
 #: Utilities/Editors/gedit.desktop:2
-#, fuzzy
 msgid "gEdit"
-msgstr "Editor X"
+msgstr "gEdit"
 
 #. Name
 #: Utilities/Editors/gvim.desktop:2
@@ -1677,9 +1665,8 @@ msgstr "Strumento per uccidere le finestre"
 
 #. Name
 #: Utilities/XUtilities/Xrefresh.desktop:2
-#, fuzzy
 msgid "X Refresh"
-msgstr "Aggiorna lo schermo"
+msgstr "X Refresh"
 
 #. GenericName
 #: Utilities/XUtilities/Xrefresh.desktop:3
@@ -1718,9 +1705,8 @@ msgstr "Visualizzatore degli appunti"
 
 #. Name
 #: Utilities/XUtilities/xclock.desktop:2
-#, fuzzy
 msgid "X Clock"
-msgstr "Orologio"
+msgstr "Orologio X"
 
 #. GenericName
 #: Utilities/XUtilities/xclock.desktop:3 Utilities/oclock.desktop:3
@@ -1759,20 +1745,18 @@ msgstr "Lente di ingrandimento del desktop"
 
 #. Name
 #: Utilities/XUtilities/xterm.desktop:2
-#, fuzzy
 msgid "X Terminal"
-msgstr "Terminale"
+msgstr "Terminale X"
 
 #. Name
 #: Utilities/calctool.desktop:2
-#, fuzzy
 msgid "Calctool"
 msgstr "Calcolatrice"
 
 #. Name
 #: Utilities/e-notes.desktop:2
 msgid "E-Notes"
-msgstr ""
+msgstr "E-Notes"
 
 #. GenericName
 #: Utilities/e-notes.desktop:3
@@ -1781,14 +1765,13 @@ msgstr "Note personali"
 
 #. Name
 #: Utilities/oclock.desktop:2
-#, fuzzy
 msgid "OClock"
-msgstr "Orologio"
+msgstr "Orologio O"
 
 #. Name
 #: Utilities/xgnokii.desktop:2
 msgid "X-Gnokii"
-msgstr ""
+msgstr "X-Gnokii"
 
 #. GenericName
 #: Utilities/xgnokii.desktop:3
