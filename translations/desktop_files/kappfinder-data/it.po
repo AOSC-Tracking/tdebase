@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2021-11-09 04:31+0000\n"
+"PO-Revision-Date: 2021-11-10 06:31+0000\n"
 "Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kappfinder-data/it/>\n"
@@ -558,7 +558,7 @@ msgstr "Editor di icone di GNOME"
 #. Name
 #: Graphics/Gqview.desktop:2
 msgid "Gqview"
-msgstr ""
+msgstr "Gqview"
 
 #. GenericName
 #: Graphics/Gqview.desktop:3
@@ -568,7 +568,7 @@ msgstr "Browser di immagini"
 #. Name
 #: Graphics/Sketch.desktop:2
 msgid "Sketch"
-msgstr ""
+msgstr "Schizza"
 
 #. GenericName
 #: Graphics/Sketch.desktop:3
@@ -578,7 +578,7 @@ msgstr "Programma di disegno vettoriale"
 #. Name
 #: Graphics/Xpcd.desktop:2
 msgid "Xpcd"
-msgstr ""
+msgstr "Xpcd"
 
 #. GenericName
 #: Graphics/Xpcd.desktop:3
@@ -588,7 +588,7 @@ msgstr "Strumenti per PhotoCD"
 #. Name
 #: Graphics/Xwpick.desktop:2
 msgid "Xwpick"
-msgstr ""
+msgstr "Xwpick"
 
 #. GenericName
 #: Graphics/Xwpick.desktop:3
@@ -598,7 +598,7 @@ msgstr "Programma per fare foto allo schermo"
 #. Name
 #: Graphics/bitmap.desktop:2
 msgid "X Bitmap"
-msgstr ""
+msgstr "Bitmap X"
 
 #. GenericName
 #: Graphics/bitmap.desktop:3
@@ -608,7 +608,7 @@ msgstr "Creatore di bitmap"
 #. Name
 #: Graphics/blender.desktop:2
 msgid "Blender"
-msgstr ""
+msgstr "Blender"
 
 #. GenericName
 #: Graphics/blender.desktop:3
@@ -618,7 +618,7 @@ msgstr "Modellatore e render 3D"
 #. Name
 #: Graphics/ghostview.desktop:2
 msgid "GhostView"
-msgstr ""
+msgstr "GhostView"
 
 #. GenericName
 #: Graphics/ghostview.desktop:3
@@ -628,7 +628,7 @@ msgstr "Visualizzatore PostScript"
 #. Name
 #: Graphics/gimp.desktop:2
 msgid "Gimp"
-msgstr ""
+msgstr "Gimp"
 
 #. GenericName
 #: Graphics/gimp.desktop:3
@@ -638,7 +638,7 @@ msgstr "Programma di manipolazione immagini"
 #. Name
 #: Graphics/gv.desktop:2
 msgid "GV"
-msgstr ""
+msgstr "GV"
 
 #. GenericName
 #: Graphics/gv.desktop:3
@@ -648,7 +648,7 @@ msgstr "Visualizzatore PostScript"
 #. Name
 #: Graphics/inkscape.desktop:2
 msgid "Inkscape"
-msgstr ""
+msgstr "Inkscape"
 
 #. GenericName
 #: Graphics/inkscape.desktop:3 Graphics/sodipodi.desktop:3
@@ -658,12 +658,12 @@ msgstr "Grafica vettoriale"
 #. Name
 #: Graphics/sodipodi.desktop:2
 msgid "Sodipodi"
-msgstr ""
+msgstr "Sodipodi"
 
 #. Name
 #: Graphics/tgif.desktop:2
 msgid "TGif"
-msgstr ""
+msgstr "TGif"
 
 #. GenericName
 #: Graphics/tgif.desktop:3 Graphics/xfig.desktop:3
@@ -673,7 +673,7 @@ msgstr "Programma di disegno"
 #. Name
 #: Graphics/xdvi.desktop:2
 msgid "X DVI"
-msgstr ""
+msgstr "X DVI"
 
 #. GenericName
 #: Graphics/xdvi.desktop:3
@@ -683,12 +683,12 @@ msgstr "Visualizzatore DVI"
 #. Name
 #: Graphics/xfig.desktop:2
 msgid "Xfig"
-msgstr ""
+msgstr "Xfig"
 
 #. Name
 #: Graphics/xpaint.desktop:2
 msgid "X Paint"
-msgstr ""
+msgstr "Paint X"
 
 #. GenericName
 #: Graphics/xpaint.desktop:3
@@ -698,7 +698,7 @@ msgstr "Programma di disegno"
 #. Name
 #: Graphics/xv.desktop:2
 msgid "XV"
-msgstr ""
+msgstr "XV"
 
 #. GenericName
 #: Graphics/xv.desktop:3
@@ -708,7 +708,7 @@ msgstr "Visualizzatore di immagini"
 #. Name
 #: Internet/BlueFish.desktop:2
 msgid "BlueFish"
-msgstr ""
+msgstr "BlueFish"
 
 #. GenericName
 #: Internet/BlueFish.desktop:3
@@ -718,7 +718,7 @@ msgstr "Editor HTML"
 #. Name
 #: Internet/Dpsftp.desktop:2
 msgid "Dpsftp"
-msgstr ""
+msgstr "Dpsftp"
 
 #. GenericName
 #: Internet/Dpsftp.desktop:3 Internet/gFTP.desktop:3 Internet/xftp.desktop:3
@@ -728,7 +728,7 @@ msgstr "Browser FTP"
 #. Name
 #: Internet/DrakSync.desktop:2
 msgid "DrakSync"
-msgstr ""
+msgstr "DrakSync"
 
 #. GenericName
 #: Internet/DrakSync.desktop:3
@@ -738,7 +738,7 @@ msgstr "Sincronizzazione cartelle"
 #. Name
 #: Internet/Evolution.desktop:2
 msgid "Evolution"
-msgstr ""
+msgstr "Evolution"
 
 #. GenericName
 #: Internet/Evolution.desktop:3 Internet/Netscapemessenger.desktop:3
@@ -751,7 +751,7 @@ msgstr "Programma di posta elettronica"
 #. Name
 #: Internet/Faces.desktop:2
 msgid "Faces"
-msgstr ""
+msgstr "Faces"
 
 #. GenericName
 #: Internet/Faces.desktop:3 Internet/coolmail.desktop:3
@@ -772,7 +772,7 @@ msgstr "Configurazione di fetchmail"
 #. Name
 #: Internet/Gabber.desktop:2
 msgid "Gabber"
-msgstr ""
+msgstr "Gabber"
 
 #. GenericName
 #: Internet/Gabber.desktop:3 Internet/gaim.desktop:3
@@ -782,7 +782,7 @@ msgstr "Messaggistica istantanea"
 #. Name
 #: Internet/Galeon.desktop:2
 msgid "Galeon"
-msgstr ""
+msgstr "Galeon"
 
 #. GenericName
 #: Internet/Galeon.desktop:3 Internet/Terminal/Links.desktop:3
@@ -797,7 +797,7 @@ msgstr "Browser Web"
 #. Name
 #: Internet/GnomeICU.desktop:2
 msgid "GNOMEICU"
-msgstr ""
+msgstr "GNOMEICU"
 
 #. GenericName
 #: Internet/GnomeICU.desktop:3 Internet/licq.desktop:3
@@ -812,7 +812,7 @@ msgstr "Netscape Messenger"
 #. Name
 #: Internet/Nmapfe.desktop:2
 msgid "Nmapfe"
-msgstr ""
+msgstr "Nmapfe"
 
 #. GenericName
 #: Internet/Nmapfe.desktop:3
@@ -822,7 +822,7 @@ msgstr "Port scanner"
 #. Name
 #: Internet/Pan.desktop:2
 msgid "Pan"
-msgstr ""
+msgstr "Pan"
 
 #. GenericName
 #: Internet/Pan.desktop:3 Internet/knews.desktop:3
@@ -832,17 +832,17 @@ msgstr "Lettore news Usenet"
 #. Name
 #: Internet/Sylpheed.desktop:2
 msgid "Sylpheed"
-msgstr ""
+msgstr "Sylpheed"
 
 #. Name
 #: Internet/Terminal/Links.desktop:2
 msgid "Links"
-msgstr ""
+msgstr "Links"
 
 #. Name
 #: Internet/Terminal/Lynx.desktop:2
 msgid "Lynx"
-msgstr ""
+msgstr "Lynx"
 
 #. Name
 #: Internet/Terminal/btdownloadcurses.desktop:2
@@ -858,7 +858,7 @@ msgstr "GUI per BitTorrent"
 #. Name
 #: Internet/Terminal/lftp.desktop:2
 msgid "Lftp"
-msgstr ""
+msgstr "Lftp"
 
 #. GenericName
 #: Internet/Terminal/lftp.desktop:3 Internet/Terminal/ncftp.desktop:3
@@ -868,22 +868,22 @@ msgstr "Client FTP"
 #. Name
 #: Internet/Terminal/mutt.desktop:2
 msgid "Mutt"
-msgstr ""
+msgstr "Mutt"
 
 #. Name
 #: Internet/Terminal/ncftp.desktop:2
 msgid "NcFTP"
-msgstr ""
+msgstr "NcFTP"
 
 #. Name
 #: Internet/Terminal/pine.desktop:2
 msgid "Pine"
-msgstr ""
+msgstr "Pine"
 
 #. Name
 #: Internet/Terminal/silc.desktop:2
 msgid "Silc"
-msgstr ""
+msgstr "Silc"
 
 #. GenericName
 #: Internet/Terminal/silc.desktop:3
@@ -893,7 +893,7 @@ msgstr "Client SILC"
 #. Name
 #: Internet/Terminal/slrn.desktop:2
 msgid "Slrn"
-msgstr ""
+msgstr "Slrn"
 
 #. GenericName
 #: Internet/Terminal/slrn.desktop:3
@@ -903,17 +903,17 @@ msgstr "Lettore newsgroup"
 #. Name
 #: Internet/Terminal/w3m.desktop:2
 msgid "w3m"
-msgstr ""
+msgstr "w3m"
 
 #. Name
 #: Internet/arena.desktop:2
 msgid "Arena"
-msgstr ""
+msgstr "Arena"
 
 #. Name
 #: Internet/balsa.desktop:2
 msgid "Balsa"
-msgstr ""
+msgstr "Balsa"
 
 #. Name
 #: Internet/btdownloadgui.desktop:2
@@ -923,12 +923,12 @@ msgstr "GUI in python e wxGTK per BitTorrent"
 #. Name
 #: Internet/coolmail.desktop:2
 msgid "Coolmail"
-msgstr ""
+msgstr "Coolmail"
 
 #. Name
 #: Internet/dc_gui.desktop:2
 msgid "DCTC GUI"
-msgstr ""
+msgstr "DCTC GUI"
 
 #. GenericName
 #: Internet/dc_gui.desktop:3
@@ -948,12 +948,12 @@ msgstr "GUI di eDonkey2000"
 #. Name
 #: Internet/epiphany.desktop:2
 msgid "Epiphany"
-msgstr ""
+msgstr "Epiphany"
 
 #. Name
 #: Internet/ethereal.desktop:2
 msgid "Ethereal"
-msgstr ""
+msgstr "Ethereal"
 
 #. GenericName
 #: Internet/ethereal.desktop:3 Internet/wireshark.desktop:3
@@ -963,17 +963,17 @@ msgstr "Analizzatore di rete"
 #. Name
 #: Internet/gFTP.desktop:2
 msgid "gFTP"
-msgstr ""
+msgstr "gFTP"
 
 #. Name
 #: Internet/gaim.desktop:2
 msgid "Gaim"
-msgstr ""
+msgstr "Gaim"
 
 #. Name
 #: Internet/gnomemeeting.desktop:2
 msgid "GnomeMeeting"
-msgstr ""
+msgstr "GnomeMeeting"
 
 #. GenericName
 #: Internet/gnomemeeting.desktop:3
@@ -998,7 +998,7 @@ msgstr "Accesso remoto"
 #. Name
 #: Internet/ickle.desktop:2
 msgid "ickle"
-msgstr ""
+msgstr "ickle"
 
 #. GenericName
 #: Internet/ickle.desktop:3
@@ -1008,17 +1008,17 @@ msgstr "Chat ICQ2000"
 #. Name
 #: Internet/javaws.desktop:2
 msgid "Java Web Start"
-msgstr ""
+msgstr "Java Web Start"
 
 #. Name
 #: Internet/knews.desktop:2
 msgid "KNews"
-msgstr ""
+msgstr "KNews"
 
 #. Name
 #: Internet/licq.desktop:2
 msgid "Licq"
-msgstr ""
+msgstr "Licq"
 
 #. Name
 #: Internet/mldonkey_gui.desktop:2
@@ -1726,7 +1726,7 @@ msgstr "Visualizzatore messaggi della console"
 #. Name
 #: Utilities/XUtilities/xload.desktop:2
 msgid "X Load"
-msgstr ""
+msgstr "X Load"
 
 #. GenericName
 #: Utilities/XUtilities/xload.desktop:3
