@@ -32,7 +32,7 @@ libraries. Here is an overview of the directories:
 
 * kappfinder
     Searches for non-TDE applications, e.g. Acrobat Reader (tm) and installs
-    those apps under the K start button.
+    those apps under the T start button.
 
 * kate
     A fast and advanced text editor, extensible with nice plugins.
@@ -42,7 +42,7 @@ libraries. Here is an overview of the directories:
     programs.
 
 * kcontrol
-    The Trinity Control Center allows you to tweak the KDE settings.
+    The Trinity Control Center allows you to tweak the TDE settings.
 
 * kdcop
     GUI app to browse for DCOP interfaces, can also execute them.
@@ -69,14 +69,14 @@ libraries. Here is an overview of the directories:
     File find utility (standalone and in Konqueror's file manager).
 
 * khelpcenter
-    Used to to read all great documentation about KDE, unix man pages,
+    Used to to read all great documentation about TDE, unix man pages,
     info pages etc.
 
 * khotkeys
     Intercepts keys and can call applications.
 
 * kicker
-    The panel at the botton with the K start button and the taskbar etc.
+    The panel at the botton with the T start button and the taskbar etc.
 
 * tdeioslave
     Infrastructure that helps make every application internet enabled
@@ -86,7 +86,7 @@ libraries. Here is an overview of the directories:
     Taskbar applet that enhances and extenses the X clipboard.
 
 * kmenuedit
-    Edit for the menu below the K start button.
+    Edit for the menu below the T start button.
 
 * konqueror
     The file manager and web browser you get easily used to.
@@ -118,7 +118,7 @@ libraries. Here is an overview of the directories:
     A KDE frontend for passwd. Also contains the "Password & User Information" KCM.
 
 * ksplashml
-    The screen displayed while KDE starts.
+    The screen displayed while TDE starts.
 
 * kstart
     Launches applications with special window properties such as iconified,
@@ -131,10 +131,10 @@ libraries. Here is an overview of the directories:
     Allows to run any application in the system tray.
 
 * ktip
-    Gives you tips how to use KDE.
+    Gives you tips how to use TDE.
 
 * twin
-    The KDE window manager (moves, resizes and decorates windows).
+    The TDE window manager (moves, resizes and decorates windows).
 
 * kxkb
     A keyboard map tool.
@@ -268,17 +268,17 @@ they do.
 Debugging
 ---------
 You can use --enable-debug with the configure script, if you want to have
-debug code in your KDE apps and libs. If you experience problems and want to
-report problems to the KDE Bugs database, it is recommended to recompile
-with this switch enabled to make the backtraces more verbose (and thus
-giving the developer more information about the cause of the bug).
+debug code in your TDE apps and libs. If you experience problems and want to
+report problems, it is recommended to recompile with this switch enabled to 
+make the backtraces more verbose (and thus giving the developer more 
+information about the cause of the bug).
 
 
 Removal/Uninstallation
 ----------------------
-You can use 'make uninstall' if you want to remove the kde from the dirs.
+You can use 'make uninstall' if you want to remove the tde from the dirs.
 This feature has not been tested completely, and is depreciated. On a system
-where TDEDIR is specific to KDE (i.e. not /usr), rm -rf $TDEDIR does it as
+where TDEDIR is specific to TDE (i.e. not /usr), rm -rf $TDEDIR does it as
 well.
 
 
@@ -295,18 +295,19 @@ Will Andrews <will@FreeBSD.org> and Arun Sharma <adsharma@sharmas.dhs.org>
 for identifying what needed to be done, and how to do it, and such.
 
 If your system supports PAM (Plugable Authentication Modules), please see
-the README.pam file in this directory for more information about using KDE
+the README.pam file in this directory for more information about using TDE
 with PAM.
 
 Have a look at the individual subdirectories, if you would like to find out
 more about a specific application included in tdebase.
 
-More FAQs on http://www.kde.org/info/faq.html
+More FAQs on https://trinitydesktop.org/faq/index.php
 
 If you have problems compiling and installing this package, please check the
-kde-devel@kde.org mailing list archive (see http://lists.kde.org) to see if
-somebody had a similiar problem already. If not, try posting a message to
-the list with detailed information about the compile problem.
+devels@trinitydesktop.org mailing list archive (see 
+https://trinitydesktop.org/mailinglist.php) to see if somebody had a similiar 
+problem already. If not, try posting a message to the list with detailed
+information about the compile problem.
 
-General KDE discussions should go to the KDE mailing list (kde@kde.org).
+General TDE discussions should go to the TDE-users mailing list (users@trinitydesktop.org).
 
