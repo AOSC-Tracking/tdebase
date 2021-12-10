@@ -3434,6 +3434,7 @@ void Konsole::addSessionCommand(const TQString &path)
   // try to locate the binary
   TQString exec= co->readPathEntry("Exec");
   exec.remove(TQRegExp("^(sudo )?su (- )?-c ?\'"));
+  exec.remove(TQRegExp("\'?$"));
 
   exec = KRun::binaryName(exec, false);
   exec = KShell::tildeExpand(exec);
