@@ -172,7 +172,7 @@ void TEmuVt102::reset()
 // Tokens ------------------------------------------------------------------ --
 
 /*
-   Since the tokens are the central notion if this section, we've put them
+   Since the tokens are the central notion in this section, we've put them
    in front. They provide the syntactical elements used to represent the
    terminals operations as byte sequences.
 
@@ -267,7 +267,7 @@ void TEmuVt102::initTokenizer()
   for(i =  0;                      i < 256; i++) tbl[ i]  = 0;
   for(i =  0;                      i <  32; i++) tbl[ i] |= CTL;
   for(i = 32;                      i < 256; i++) tbl[ i] |= CHR;
-  for(s = (UINT8*)"@ABCDGHILMPSTXZbcdfry"; *s; s++) tbl[*s] |= CPN;
+  for(s = (UINT8*)"@ABCDEFGHILMPSTXZbcdfry"; *s; s++) tbl[*s] |= CPN;
 // resize = \e[8;<row>;<col>t
   for(s = (UINT8*)"t"; *s; s++) tbl[*s] |= CPS;
   for(s = (UINT8*)"0123456789"        ; *s; s++) tbl[*s] |= DIG;
@@ -621,6 +621,8 @@ switch( N )
     case TY_CSI_PN('B'      ) : scr->cursorDown           (p         ); break; //VT100
     case TY_CSI_PN('C'      ) : scr->cursorRight          (p         ); break; //VT100
     case TY_CSI_PN('D'      ) : scr->cursorLeft           (p         ); break; //VT100
+    case TY_CSI_PN('E'      ) : scr->cursorNextLine       (p         ); break; //VT100
+    case TY_CSI_PN('F'      ) : scr->cursorPrevLine       (p         ); break; //VT100
     case TY_CSI_PN('G'      ) : scr->setCursorX           (p         ); break; //LINUX
     case TY_CSI_PN('H'      ) : scr->setCursorYX          (p,       q); break; //VT100
     case TY_CSI_PN('I'      ) : scr->Tabulate             (p         ); break;
