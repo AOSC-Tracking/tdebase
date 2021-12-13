@@ -176,7 +176,7 @@ void TEScreen::cursorLeft(int n)
 }
 
 /*!
-    Move the cursor left.
+    Move the cursor right.
 
     The cursor will not move beyond the rightmost column.
 */
@@ -189,7 +189,7 @@ void TEScreen::cursorRight(int n)
 }
 
 /*!
-    Set top and bottom margin.
+    Move the cursor at most n lines next
 */
 
 void TEScreen::cursorNextLine(int n)
@@ -208,8 +208,11 @@ void TEScreen::cursorNextLine(int n)
 		}
 		n--;
 	}
-
 }
+
+/*!
+    Move the cursor at most n lines previous
+*/
 
 void TEScreen::cursorPrevLine(int n)
 //=CPL
@@ -228,6 +231,10 @@ void TEScreen::cursorPrevLine(int n)
 		n--;
 	}
 }
+
+/*!
+    Set top and bottom margin.
+*/
 
 void TEScreen::setMargins(int top, int bot)
 //=STBM
