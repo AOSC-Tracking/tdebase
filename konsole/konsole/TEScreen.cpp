@@ -192,6 +192,43 @@ void TEScreen::cursorRight(int n)
     Set top and bottom margin.
 */
 
+void TEScreen::cursorNextLine(int n)
+//=CNL
+{
+	if (n == 0)
+	{
+		n = 1; // Default
+	}
+	cuX = 0;
+	while (n > 0)
+	{
+		if (cuY < lines - 1)
+		{
+			cuY += 1;
+		}
+		n--;
+	}
+
+}
+
+void TEScreen::cursorPrevLine(int n)
+//=CPL
+{
+	if (n == 0)
+	{
+		n = 1; // Default
+	}
+	cuX = 0;
+	while (n > 0)
+	{
+		if (cuY  > 0)
+		{
+			cuY -= 1;
+		}
+		n--;
+	}
+}
+
 void TEScreen::setMargins(int top, int bot)
 //=STBM
 {

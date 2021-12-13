@@ -52,14 +52,16 @@ public: // these are all `Screen' operations
     //
     // Cursor Movement
     //
-    void cursorUp    (int n);
-    void cursorDown  (int n);
-    void cursorLeft  (int n);
-    void cursorRight (int n);
-    void setCursorY  (int y);
-    void setCursorX  (int x);
-    void setCursorYX (int y, int x);
-    void setMargins  (int t, int b);
+    void cursorUp      (int n);
+    void cursorDown    (int n);
+    void cursorLeft    (int n);
+    void cursorRight   (int n);
+    void cursorNextLine(int n);
+    void cursorPrevLine(int n);
+    void setCursorY    (int y);
+    void setCursorX    (int x);
+    void setCursorYX   (int y, int x);
+    void setMargins    (int t, int b);
     //
     // Cursor Movement with Scrolling
     //
