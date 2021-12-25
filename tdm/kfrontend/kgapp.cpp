@@ -299,11 +299,22 @@ kg_main( const char *argv0 )
 	iccConfigFile += "/kicc/kiccconfigrc";
 	KSimpleConfig iccconfig(iccConfigFile, true);
 	if (iccconfig.readBoolEntry("EnableICC", false) == true) {
-		TQString iccCommand = TQString("/usr/bin/xcalib ");
-		iccCommand += iccconfig.readEntry("ICCFile");
-		iccCommand += TQString(" &");
-		if (system(iccCommand.ascii()) < 0) {
-			printf("WARNING: Unable to execute command \"%s\"\n", iccCommand.ascii());
+		TQString iccCommand = TDEGlobal::dirs()->findExe("dispwin");
+		if (iccCommand.isEmpty())
+		{
+			iccCommand = TDEGlobal::dirs()->findExe("xcalib");
+		}
+		if (iccCommand.isEmpty())
+		{
+			printf("WARNING: Unable to find command to set ICC profile - dispwin or xcalib\n");
+		}
+		else
+		{
+			iccCommand += TQString(" %1 &").arg(iccconfig.readEntry("ICCFile"));
+			if (system(iccCommand.local8Bit()) < 0)
+			{
+				printf("WARNING: Unable to execute command \"%s\"\n", iccCommand.local8Bit());
+			}
 		}
 	}
 
