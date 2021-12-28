@@ -104,7 +104,8 @@
  overridden settings are: UseBackground, BackgroundCfg, UseTheme, Theme.
  In addition, if a tdmdistrc file is found, this file will be ignored.
  If a tdmdistrc file is installed, changes should be made to that file.
- See /usr/share/doc/tdm/README.Debian for details
+ You may find more details in distribution specific files if present, like
+ for example /usr/share/doc/tdm-trinity/README.Debian for Debian-based distros.
  _
  Definition: the greeter is the login dialog, i.e., the part of &tdm;
  which the user sees.
