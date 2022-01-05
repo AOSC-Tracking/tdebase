@@ -119,16 +119,13 @@
         </spacer>
     </grid>
 </widget>
-<includes>
-    <include location="local" impldecl="in implementation">kdialog.h</include>
-</includes>
 <layoutdefaults spacing="3" margin="6"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
-<includehints>
-    <includehint>keditlistbox.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>kurlrequester.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-</includehints>
+<includes>
+    <include location="global" impldecl="in implementation">keditlistbox.h</include>
+    <include location="global" impldecl="in implementation">klineedit.h</include>
+    <include location="global" impldecl="in implementation">kpushbutton.h</include>
+    <include location="global" impldecl="in implementation">kurlrequester.h</include>
+    <include location="local"  impldecl="in implementation">kdialog.h</include>
+</includes>
 </UI>

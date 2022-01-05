@@ -2546,8 +2546,6 @@
     <include location="global" impldecl="in implementation">klineedit.h</include>
     <include location="global" impldecl="in implementation">kpushbutton.h</include>
     <include location="global" impldecl="in implementation">krestrictedline.h</include>
+    <include location="global" impldecl="in implementation">tdelistbox.h</include>
 </includes>
-<includehints>
-    <includehint>tdelistbox.h</includehint>
-</includehints>
 </UI>

@@ -762,14 +762,11 @@
 <includes>
     <include location="global" impldecl="in declaration">klineedit.h</include>
     <include location="global" impldecl="in implementation">knuminput.h</include>
-    <include location="local" impldecl="in implementation">kdialog.h</include>
+    <include location="local"  impldecl="in implementation">kdialog.h</include>
 </includes>
 <Q_SLOTS>
     <slot specifier="pure virtual">switchPanel(int)</slot>
 </Q_SLOTS>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
-<includehints>
-    <includehint>knuminput.h</includehint>
-</includehints>
 </UI>

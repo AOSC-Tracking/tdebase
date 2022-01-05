@@ -198,8 +198,6 @@
 <layoutdefaults spacing="6" margin="11"/>
 <includes>
     <include location="global" impldecl="in implementation">kpushbutton.h</include>
+    <include location="global" impldecl="in implementation">tqscrollview.h</include>
 </includes>
-<includehints>
-    <includehint>tqscrollview.h</includehint>
-</includehints>
 </UI>
