@@ -3250,7 +3250,7 @@ win_determine_greyscale_background(session_t *ps, win *w) {
   if (IsViewable != w->a.map_state)
     return;
 
-  bool greyscale_background_new = (determine_window_transparency_filter_greyscale(ps, &w->id) ||
+  bool greyscale_background_new = (determine_window_transparency_filter_greyscale(ps, w->id) ||
     (ps->o.greyscale_background && !win_match(ps, w, ps->o.greyscale_background_blacklist, &w->cache_bbblst)));
 
   win_set_greyscale_background(ps, w, greyscale_background_new);
