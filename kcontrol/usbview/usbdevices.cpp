@@ -30,6 +30,7 @@
 #if defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
 #include <sys/ioctl.h>
 #include <sys/param.h>
+#include <errno.h>
 #endif
 
 TQPtrList<USBDevice> USBDevice::_devices;
@@ -329,7 +330,7 @@ bool USBDevice::parseSys(TQString dname)
 void USBDevice::collectData(struct libusb20_backend *pbe,
     struct libusb20_device *pdev)
 #else
-void USBDevice::collectData( int fd, int leve, usb_device_info &di, int parent)
+void USBDevice::collectData( int fd, int level, usb_device_info &di, int parent)
 #endif
 {
 #ifdef Q_OS_FREEBSD
@@ -412,7 +413,7 @@ void USBDevice::collectData( int fd, int leve, usb_device_info &di, int parent)
 			continue;
 
 		// Only add the device if we don't detect it, yet
-		if (!find( di2.udi_us, di2.udi_addr ) )
+		if (!find( di2.udi_bus, di2.udi_addr ) )
 		{
 			USBDevice *device = new USBDevice();
 			device->collectData( fd, level + 1, di2, di.udi_addr );
@@ -447,7 +448,7 @@ bool USBDevice::parse(TQString fname)
 
 	libusb20_be_free(pbe);
 #else
-	TQFile controller("?dev/usb0");
+	TQFile controller("/dev/usb0");
 	int i = 1;
 	while ( controller.exists() )
 	{
@@ -459,7 +460,7 @@ bool USBDevice::parse(TQString fname)
 				struct usb_device_info di;
 
 				di.udi_addr = addr;
-				if ( ioctl(controller.handle(), USB_DEVICEINFO, &d1) != -1)
+				if ( ioctl(controller.handle(), USB_DEVICEINFO, &di) != -1)
 				{
 					if (!find( di.udi_bus, di.udi_addr) )
 					{
@@ -469,16 +470,16 @@ bool USBDevice::parse(TQString fname)
 				}
 			}
 			controller.close();
-#ifndef Q_OS_NETBSD
 		} else {
-			error = true;
-#endif
+			if ( errno != ENXIO) {
+				error = true;
+			}
 		}
-		controller.setName( TQString::formLocal8Bit("/dev/usb%1".arg(i++) );
+		controller.setName( TQString::fromLocal8Bit("/dev/usb%1").arg(i++) );
 	}
 
 	if ( showErrorMessage && error ) {
-		showErroeMessage = false;
+		showErrorMessage = false;
 		KMessageBox::error( 0, i18n("Could not open one or more USB controller. Make sure you have read access to all USB controllers that should be listed here."));
 	}
 #endif

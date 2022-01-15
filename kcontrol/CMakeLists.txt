@@ -76,7 +76,7 @@ if( BUILD_KCONTROL )
     add_subdirectory( joystick )
   endif( )
 
-  if( ${CMAKE_SYSTEM_NAME} MATCHES "Linux|FreeBSD" )
+  if( ${CMAKE_SYSTEM_NAME} MATCHES "Linux|FreeBSD|NetBSD" )
     add_subdirectory( usbview )
   endif( )
 
