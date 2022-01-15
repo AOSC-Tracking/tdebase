@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Leandro Nini <drfiemost@email.it>, 2021.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 22:18+0000\n"
-"PO-Revision-Date: 2021-11-02 08:31+0000\n"
-"Last-Translator: Leandro Nini <drfiemost@email.it>\n"
+"PO-Revision-Date: 2022-01-15 09:00+0000\n"
+"Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/it/>\n"
 "Language: it\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -319,12 +320,12 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
 msgid "InternetKeywordsFilter"
-msgstr ""
+msgstr "InternetKeywordsFilter"
 
 #. Name
 #: ebrowsing/plugins/ikws/kurisearchfilter.desktop:3
 msgid "SearchKeywordsFilter"
-msgstr ""
+msgstr "SearchKeywordsFilter"
 
 #. Comment
 #: ebrowsing/plugins/ikws/searchprovider.desktop:4
@@ -339,7 +340,7 @@ msgstr "Database acronimi"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
 msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
-msgstr ""
+msgstr "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
@@ -348,9 +349,8 @@ msgstr "Alexa"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
-#, fuzzy
 msgid "http://info.alexa.com/search?q=\\{@}"
-msgstr "http://www.google.it/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://info.alexa.com/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
@@ -360,7 +360,7 @@ msgstr "URL Alexa"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
 msgid "http://info.alexa.com/data/details?url=\\{@}"
-msgstr ""
+msgstr "http://info.alexa.com/data/details?url=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
@@ -372,16 +372,17 @@ msgstr "AllTheWeb veloce"
 msgid ""
 "http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
 msgstr ""
+"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:3
 msgid "AltaVista"
-msgstr ""
+msgstr "AltaVista"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:6
 msgid "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
-msgstr ""
+msgstr "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
@@ -391,7 +392,7 @@ msgstr "Guida All Music"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
 msgid "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
-msgstr ""
+msgstr "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:3
@@ -401,17 +402,17 @@ msgstr "Ricerca applicazioni di KDE"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:6
 msgid "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
-msgstr ""
+msgstr "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:3
 msgid "AustroNaut"
-msgstr ""
+msgstr "AustroNaut"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:6
 msgid "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
-msgstr ""
+msgstr "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
@@ -421,7 +422,7 @@ msgstr "Ricerca Debian backports"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
 msgid "http://www.backports.org/package.php?search=\\{@}"
-msgstr ""
+msgstr "http://www.backports.org/package.php?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
@@ -434,6 +435,8 @@ msgid ""
 "http://bugs.trinitydesktop.org/simple_search.cgi?id=\\{1}+\\{2}+\\{3}+\\{4}+"
 "\\{5}+\\{6}+\\{7}+\\{8}+\\{9}"
 msgstr ""
+"http://bugs.trinitydesktop.org/simple_search.cgi?id=\\{1}+\\{2}+\\{3}+\\{4}+"
+"\\{5}+\\{6}+\\{7}+\\{8}+\\{9}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
@@ -443,7 +446,7 @@ msgstr "Ricerca per numero nel Database dei bug di TDE"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:4
 msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
-msgstr ""
+msgstr "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/call.desktop:5
@@ -453,7 +456,7 @@ msgstr "Database dei segnali di chiamata QRZ.com"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/call.desktop:6
 msgid "http://www.qrz.com/database?callsign=\\{@}"
-msgstr ""
+msgstr "http://www.qrz.com/database?callsign=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/cia.desktop:4
@@ -462,13 +465,13 @@ msgstr "World Fact Book della CIA"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/cia.desktop:5
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
 "cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
 msgstr ""
-"http://www.google.it/search?q=\\{@}&btnI=I%27m+Feeling"
-"+Lucky&ie=UTF-8&oe=UTF-8"
+"http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
+"cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
@@ -478,23 +481,24 @@ msgstr "CiteSeer: Biblioteca digitale di letteratura scientifica"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
 msgid "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
-msgstr ""
+msgstr "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:3
 msgid "CPAN - Comprehensive Perl Archive Network"
-msgstr ""
+msgstr "CPAN - Rete di archivio Perl completa"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
 msgid ""
 "http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
 msgstr ""
+"http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:3
 msgid "CTAN - Comprehensive TeX Archive Network"
-msgstr ""
+msgstr "CTAN - Rete di archivi TeX completa"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:4
@@ -502,6 +506,8 @@ msgid ""
 "http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
 "\\{ at }"
 msgstr ""
+"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
+"\\{ at }"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:3
@@ -513,6 +519,7 @@ msgstr "Catalogo CTAN"
 msgid ""
 "http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
 msgstr ""
+"http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
@@ -521,9 +528,8 @@ msgstr "Ricerca bug Debian BTS"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:4
-#, fuzzy
 msgid "http://bugs.debian.org/\\{@}"
-msgstr "http://italian.imdb.com/Find?\\{@}"
+msgstr "http://bugs.debian.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:5
@@ -533,9 +539,8 @@ msgstr "Traduzioni dict.cc: dal tedesco all'inglese"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:6
 #: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:6
-#, fuzzy
 msgid "http://www.dict.cc/?s=\\{@}"
-msgstr "http://italian.imdb.com/Find?\\{@}"
+msgstr "http://www.dict.cc/?s=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:3
@@ -565,9 +570,8 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
-#, fuzzy
 msgid "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
-msgstr "http://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
@@ -586,9 +590,8 @@ msgstr "Identificatore oggetti digitali"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/doi.desktop:6
-#, fuzzy
 msgid "http://dx.doi.org/\\{@}"
-msgstr "http://italian.imdb.com/Find?\\{@}"
+msgstr "http://dx.doi.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:5
@@ -652,9 +655,8 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
-#, fuzzy
 msgid "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
-msgstr "http://www.google.it/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
@@ -708,9 +710,8 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
-#, fuzzy
 msgid "http://froogle.google.com/froogle?q=\\{@}"
-msgstr "http://news.google.it/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://froogle.google.com/froogle?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:3
@@ -724,9 +725,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
-#, fuzzy
 msgid "Google"
-msgstr "Google notizie"
+msgstr "Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:6
@@ -765,9 +765,8 @@ msgstr "Ricerca immagini di Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:6
-#, fuzzy
 msgid "http://images.google.com/images?q=\\{@}"
-msgstr "http://news.google.it/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://images.google.com/images?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:3
@@ -791,9 +790,8 @@ msgstr "Google filmati"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:6
-#, fuzzy
 msgid "http://www.google.com/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
-msgstr "http://www.google.it/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://www.google.com/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:3
@@ -812,9 +810,8 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:6
-#, fuzzy
 msgid "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
-msgstr "http://www.google.it/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:5
@@ -838,9 +835,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
-#, fuzzy
 msgid "HyperDictionary.com"
-msgstr "Sinonimi HyperDictionary.com"
+msgstr "HyperDictionary.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
@@ -1131,7 +1127,6 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
-#, fuzzy
 msgid "Technorati"
 msgstr "Tag di technorati"
 
@@ -1240,13 +1235,11 @@ msgstr "http://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:3
-#, fuzzy
 msgid "Wiktionary - The Free Dictionary"
 msgstr "Wikipedia - L'enciclopedia libera"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:6
-#, fuzzy
 msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgstr "http://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
@@ -1278,7 +1271,7 @@ msgstr "Controllo energia"
 #. Comment
 #: energy/energy.desktop:13
 msgid "Settings for display power management"
-msgstr "Impostazioni per la gestione dell'energia dello schermo."
+msgstr "Impostazioni per la gestione dell'energia dello schermo"
 
 #. Keywords
 #: energy/energy.desktop:15
@@ -1897,7 +1890,6 @@ msgstr "Configura il comportamento di Java e JavaScript"
 
 #. Keywords
 #: konqhtml/tdehtml_java_js.desktop:15
-#, fuzzy
 msgid "konqueror;kfm;browser;html;web;www;java;javascript;"
 msgstr ""
 "konqueror;kfm;browser;html;web;www;caratteri;colori;set di caratteri;charset;"
@@ -1921,7 +1913,7 @@ msgstr "konqueror;kfm;utente;interfaccia;linguette;navigazione;"
 #. Name
 #: konsole/kcmkonsole.desktop:10
 msgid "Konsole"
-msgstr ""
+msgstr "Konsole"
 
 #. Comment
 #: konsole/kcmkonsole.desktop:12
@@ -2077,7 +2069,7 @@ msgstr ""
 #. Name
 #: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
 msgid "TDERandRTray"
-msgstr ""
+msgstr "TDERandRTray"
 
 #. GenericName
 #: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
@@ -2249,9 +2241,8 @@ msgstr "File dei tipi di carattere"
 
 #. Name
 #: tdefontinst/viewpart/tdefontview.desktop:2
-#, fuzzy
 msgid "TDEFontView"
-msgstr "Visualizzatore di caratteri"
+msgstr "Visualizzatore di caratteri TDEFontView"
 
 #. GenericName
 #. Name

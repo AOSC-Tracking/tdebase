@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 14:20+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"PO-Revision-Date: 2022-01-15 09:00+0000\n"
+"Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
+"Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/khotkeys-data/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:5
@@ -35,9 +36,8 @@ msgstr "Finestra di Konqueror"
 #: konqueror_gestures_trinity21.khotkeys:20
 #: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
 #: trinity2b1.khotkeys:232
-#, fuzzy
 msgid "Konqueror"
-msgstr "Finestra di Konqueror"
+msgstr "Konqueror"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:35
@@ -180,7 +180,7 @@ msgstr ""
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:262
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:289
@@ -260,15 +260,16 @@ msgstr "Azione_semplice"
 
 #. Comment
 #: printscreen.khotkeys:41
-#, fuzzy
 msgid ""
 "Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
-msgstr "Avvia KSnapShot quando viene premuto il tasto Stamp."
+msgstr ""
+"Avvia KSnapShot in modalità di acquisizione della finestra quando si preme "
+"ALT+PrintScrn.\n"
 
 #. Name
 #: printscreen.khotkeys:43
 msgid "PrintWindow"
-msgstr ""
+msgstr "Cattura Finestra"
 
 #. Comment
 #: trinity2b1.khotkeys:5
@@ -292,7 +293,7 @@ msgid ""
 "Simple."
 msgstr ""
 "Con la pressione di Ctrl+Alt+I, la finestra di KSIRC sarà attivata, se "
-"esiste. Semplice, no?"
+"esiste. Semplice."
 
 #. Name
 #: trinity2b1.khotkeys:18
@@ -307,7 +308,7 @@ msgstr "Finestra KSIRC"
 #. Comment
 #: trinity2b1.khotkeys:34
 msgid "KSIRC"
-msgstr ""
+msgstr "KSIRC"
 
 #. Comment
 #: trinity2b1.khotkeys:54
@@ -401,7 +402,7 @@ msgstr "Rimappa Ctrl+W su Ctrl+F4 in Qt Designer"
 #. Comment
 #: trinity2b1.khotkeys:123
 msgid "Qt Designer"
-msgstr ""
+msgstr "Qt Designer"
 
 #. Comment
 #: trinity2b1.khotkeys:144
