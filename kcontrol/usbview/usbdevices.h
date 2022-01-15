@@ -70,7 +70,12 @@ private:
   unsigned int _vendorID, _prodID, _revMajor, _revMinor;
 
 #if defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
+#if defined(Q_OS_FREEBSD)
   void collectData(struct libusb20_backend *, struct libusb20_device *);
+#endif
+#if defined(Q_OS_NETBSD)
+  void collectData( int fd, int level, usb_device_info &di, int parent);
+#endif
   TQStringList _devnodes;
 #endif
 };
