@@ -1,30 +1,32 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# blu.256 <mavridisf@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-18 21:04+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-01-16 15:00+0000\n"
+"Last-Translator: blu.256 <mavridisf@gmail.com>\n"
+"Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/color-schemes/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. Name
 #: AtlasGreen.kcsrc:3
 msgid "Atlas Green"
-msgstr ""
+msgstr "Зелёный атлас"
 
 #. Name
 #: BeOS.kcsrc:3
 msgid "BeOS"
-msgstr ""
+msgstr "BeOS"
 
 #. Name
 #: BlackOnWhite.kcsrc:2
@@ -34,72 +36,72 @@ msgstr "Высококонтрастный чёрный текст"
 #. Name
 #: BlueSlate.kcsrc:3
 msgid "Blue Slate"
-msgstr ""
+msgstr "Синий шифер"
 
 #. Name
 #: CDE.kcsrc:3
 msgid "CDE"
-msgstr ""
+msgstr "CDE"
 
 #. Name
 #: DarkBlue.kcsrc:2
 msgid "Dark Blue"
-msgstr ""
+msgstr "Синева"
 
 #. Name
 #: DesertRed.kcsrc:3
 msgid "Desert Red"
-msgstr ""
+msgstr "Красная пустыня"
 
 #. Name
 #: DigitalCDE.kcsrc:3
 msgid "Digital CDE"
-msgstr ""
+msgstr "Цифровой CDE"
 
 #. Name
 #: EveX.kcsrc:2
 msgid "EveX"
-msgstr ""
+msgstr "EveX"
 
 #. Name
 #: KDEOne.kcsrc:2
 msgid "KDE 1"
-msgstr ""
+msgstr "KDE 1"
 
 #. Name
 #: KDETwo.kcsrc:2
 msgid "KDE 2"
-msgstr ""
+msgstr "KDE 2"
 
 #. Name
 #: Keramik.kcsrc:2
 msgid "Keramik"
-msgstr ""
+msgstr "Керамика"
 
 #. Name
 #: KeramikEmerald.kcsrc:2
 msgid "Keramik Emerald"
-msgstr ""
+msgstr "Керамика изумрудная"
 
 #. Name
 #: KeramikWhite.kcsrc:2
 msgid "Keramik White"
-msgstr ""
+msgstr "Керамика белая"
 
 #. Name
 #: MediaPeach.kcsrc:2
 msgid "Media Peach"
-msgstr ""
+msgstr "Медиаперсик"
 
 #. Name
 #: Next.kcsrc:2
 msgid "Next"
-msgstr ""
+msgstr "NeXT"
 
 #. Name
 #: PaleGray.kcsrc:3
 msgid "Pale Gray"
-msgstr ""
+msgstr "Тусклый серый"
 
 #. Name
 #: Plastik.kcsrc:2
@@ -109,7 +111,7 @@ msgstr "Пластик"
 #. Name
 #: PointReyesGreen.kcsrc:2
 msgid "Point Reyes Green"
-msgstr ""
+msgstr "Зелёный из Point Reyes"
 
 #. Name
 #: Pumpkin.kcsrc:3
@@ -139,17 +141,17 @@ msgstr "Высококонтрастный белый текст"
 #. Name
 #: Windows2000.kcsrc:2
 msgid "Redmond 2000"
-msgstr ""
+msgstr "Redmond 2000"
 
 #. Name
 #: Windows95.kcsrc:3
 msgid "Redmond 95"
-msgstr ""
+msgstr "Redmond 95"
 
 #. Name
 #: WindowsXP.kcsrc:2
 msgid "Redmond XP"
-msgstr ""
+msgstr "Redmond XP"
 
 #. Name
 #: YellowOnBlue.kcsrc:2

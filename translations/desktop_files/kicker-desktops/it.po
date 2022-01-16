@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Leandro Nini <drfiemost@email.it>, 2021.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 16:24+0200\n"
-"PO-Revision-Date: 2021-11-02 08:31+0000\n"
-"Last-Translator: Leandro Nini <drfiemost@email.it>\n"
+"PO-Revision-Date: 2022-01-16 15:00+0000\n"
+"Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kicker-desktop-files/it/>\n"
 "Language: it\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. Name
 #: applets/clock/clockapplet.desktop:4
@@ -59,9 +60,8 @@ msgstr "Accesso diretto ai dispositivi di archiviazione"
 
 #. Name
 #: applets/menu/menuapplet.desktop:4
-#, fuzzy
 msgid "Menu"
-msgstr "Menu TDE"
+msgstr "Menù"
 
 #. Comment
 #: applets/menu/menuapplet.desktop:6
@@ -156,7 +156,7 @@ msgstr "Kasbar"
 #. Comment
 #: extensions/kasbar/kasbarextension.desktop:4
 msgid "An alternative taskbar panel applet."
-msgstr "Applet alternativa per la barra delle applicazioni"
+msgstr "Applet alternativa per la barra delle applicazioni."
 
 #. Name
 #: extensions/sidebar/sidebarextension.desktop:2
@@ -246,7 +246,7 @@ msgstr "Pannello"
 #. Comment
 #: kicker/core/childpanelextension.desktop:4
 msgid "Child panel extension."
-msgstr "Estensione del pannello"
+msgstr "Estensione del pannello."
 
 #. Comment
 #: kicker/interfaces/kickoffsearchplugin.desktop:5
@@ -368,7 +368,7 @@ msgstr "Menu del sistema di stampa"
 #. Name
 #: menuext/tom/tom.desktop:2
 msgid "TOM"
-msgstr ""
+msgstr "TOM"
 
 #. Comment
 #: menuext/tom/tom.desktop:4
