@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 22:18+0000\n"
-"PO-Revision-Date: 2022-01-15 09:00+0000\n"
+"PO-Revision-Date: 2022-01-19 02:00+0000\n"
 "Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/it/>\n"
@@ -551,7 +551,7 @@ msgstr "LEO - Traduzioni dal tedesco al francese"
 #: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:6
 #: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:6
 msgid "http://dict.leo.org/?lp=frde&search=\\{@}"
-msgstr ""
+msgstr "http://dict.leo.org/?lp=frde&search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/deb.desktop:3
@@ -561,12 +561,12 @@ msgstr "Ricerca pacchetti debian"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/deb.desktop:4
 msgid "http://packages.debian.org/\\{@}"
-msgstr ""
+msgstr "http://packages.debian.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:3
 msgid "Open Directory"
-msgstr ""
+msgstr "Apri Directory"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
@@ -581,7 +581,7 @@ msgstr "DocBook - La guida definitiva"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:6
 msgid "http://www.docbook.org/tdg/en/html/\\{1}.html"
-msgstr ""
+msgstr "http://www.docbook.org/tdg/en/html/\\{1}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/doi.desktop:5
@@ -606,7 +606,7 @@ msgstr "Traduzione WordReference.com: dall'inglese allo spagnolo"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:6
 msgid "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:5
@@ -616,7 +616,7 @@ msgstr "Traduzione WordReference.com: dall'inglese al francese"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:6
 msgid "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:5
@@ -626,7 +626,7 @@ msgstr "Traduzione WordReference.com: dall'inglese all'italiano"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:6
 msgid "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:5
@@ -636,22 +636,22 @@ msgstr "Traduzione WordReference.com: dallo spagnolo all'inglese"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:6
 msgid "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/excite.desktop:3
 msgid "Excite"
-msgstr ""
+msgstr "Excite"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/excite.desktop:6
 msgid "http://search.excite.com/search.gw?search=\\{@}"
-msgstr ""
+msgstr "http://search.excite.com/search.gw?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:3
 msgid "Feedster"
-msgstr ""
+msgstr "Feedster"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
@@ -666,7 +666,7 @@ msgstr "Dizionario libero on-line di informatica"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
 msgid "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
-msgstr ""
+msgstr "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
@@ -681,32 +681,32 @@ msgstr "Traduzione WordReference.com: dal francese all'inglese"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:6
 msgid "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:3
 msgid "FreeDB"
-msgstr ""
+msgstr "FreeDB"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:6
 msgid "http://www.freedb.org/freedb_search.php?words=\\{@}"
-msgstr ""
+msgstr "FreeDB"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:3
 msgid "Freshmeat"
-msgstr ""
+msgstr "Freshmeat"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:6
 msgid "http://freshmeat.net/search/?q=\\{@}"
-msgstr ""
+msgstr "http://freshmeat.net/search/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:3
 msgid "Froogle"
-msgstr ""
+msgstr "Froogle"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
@@ -721,7 +721,7 @@ msgstr "Elenco software libero FSF/UNESCO"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:6
 msgid "http://directory.fsf.org/search/?query=\\{@}"
-msgstr ""
+msgstr "http://directory.fsf.org/search/?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
@@ -747,6 +747,11 @@ msgid ""
 "\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
 "&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
 msgstr ""
+"http://www.google.com/search?as_q=\\{all,@}&num=\\{num,\"10\"}&btnG=Google"
+"+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\{without,\"\"}&lr="
+"\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\"\"}&as_qdr="
+"\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
+"&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
@@ -756,7 +761,7 @@ msgstr "Google gruppi"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:6
 msgid "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
-msgstr ""
+msgstr "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:3
@@ -806,7 +811,7 @@ msgstr "http://news.google.it/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:3
 msgid "Gracenote"
-msgstr ""
+msgstr "Gracenote"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:6
@@ -821,17 +826,17 @@ msgstr "Grande dizionario della lingua catalana (GRan Enciclopèdia Catalana)"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:6
 msgid "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
-msgstr ""
+msgstr "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:3
 msgid "Hotbot"
-msgstr ""
+msgstr "Hotbot"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:6
 msgid "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
-msgstr ""
+msgstr "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
@@ -841,7 +846,7 @@ msgstr "HyperDictionary.com"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
 msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
-msgstr ""
+msgstr "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:3
@@ -851,7 +856,7 @@ msgstr "Sinonimi HyperDictionary.com"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:6
 msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
-msgstr ""
+msgstr "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
@@ -871,12 +876,12 @@ msgstr "Traduzione WordReference.com: dall'italiano all'inglese"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:6
 msgid "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:3
 msgid "Ask Jeeves"
-msgstr ""
+msgstr "Ask Jeeves"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:6
@@ -884,16 +889,18 @@ msgid ""
 "http://www.ask.com/main/askJeeves.asp?"
 "origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
 msgstr ""
+"http://www.ask.com/main/askJeeves.asp?"
+"origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:3
 msgid "KataTudo"
-msgstr ""
+msgstr "KataTudo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:6
 msgid "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
-msgstr ""
+msgstr "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kde.desktop:5
@@ -903,7 +910,7 @@ msgstr "Documentazione della API di KDE"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kde.desktop:6
 msgid "http://api.kde.org/classmapper.php?class=\\{@}"
-msgstr ""
+msgstr "http://api.kde.org/classmapper.php?class=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:3
@@ -913,27 +920,27 @@ msgstr "SVN web di KDE"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:6
 msgid "http://websvn.kde.org/\\{@}"
-msgstr ""
+msgstr "http://websvn.kde.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
 msgid "LEO-Translate"
-msgstr ""
+msgstr "LEO-Translate"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:6
 msgid "http://dict.leo.org/?search=\\{@}"
-msgstr ""
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:3
 msgid "Lycos"
-msgstr ""
+msgstr "Lycos"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:6
 msgid "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
-msgstr ""
+msgstr "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:3
@@ -943,12 +950,12 @@ msgstr "Mamma - Madre di tutti i motori di ricerca"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:6
 msgid "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
-msgstr ""
+msgstr "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
 msgid "MetaCrawler"
-msgstr ""
+msgstr "MetaCrawler"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:6
@@ -957,6 +964,9 @@ msgid ""
 "&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
 "search&refer=mc-search"
 msgstr ""
+"http://search.metacrawler.com/crawler?general=\\{@}"
+"&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
+"search&refer=mc-search"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
@@ -970,16 +980,19 @@ msgid ""
 "handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
 "asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
 msgstr ""
+"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff.asp?"
+"handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
+"asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:3
 msgid "Netcraft"
-msgstr ""
+msgstr "Netcraft"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:6
 msgid "http://uptime.netcraft.com/up/graph?site=\\{@}"
-msgstr ""
+msgstr "http://uptime.netcraft.com/up/graph?site=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:2
@@ -995,6 +1008,11 @@ msgid ""
 "&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
 "\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
 msgstr ""
+"http://www.detelefoongids.nl/tginl.dll?"
+"action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2="
+"\\{1}&name=&initials=&city=\\{2}"
+"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
+"\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:2
@@ -1004,7 +1022,7 @@ msgstr "Motore di ricerca Teletekst"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:6
 msgid "http://teletekst.nos.nl/gif/\\{@}-01.html"
-msgstr ""
+msgstr "http://teletekst.nos.nl/gif/\\{@}-01.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
@@ -1014,7 +1032,7 @@ msgstr "Ricerca chiavi OpenPGP"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
 msgid "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
-msgstr ""
+msgstr "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
@@ -1024,7 +1042,7 @@ msgstr "Ricerca PHP"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
 msgid "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
-msgstr ""
+msgstr "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/python.desktop:5
@@ -1038,6 +1056,8 @@ msgid ""
 "http://www.google.com/search?sourceid=python-search&q=\\{@}"
 "&submit=Search&q=site%3Apython.org"
 msgstr ""
+"http://www.google.com/search?sourceid=python-search&q=\\{@}"
+"&submit=Search&q=site%3Apython.org"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt.desktop:5
@@ -1047,7 +1067,7 @@ msgstr "Ultima documentazione online delle Qt"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt.desktop:6
 msgid "http://doc.trolltech.com/latest/\\{@}.html"
-msgstr ""
+msgstr "http://doc.trolltech.com/latest/\\{@}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:5
@@ -1057,7 +1077,7 @@ msgstr "Documentazione online delle Qt3"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:6
 msgid "http://doc.trolltech.com/3.3/\\{@}.html"
-msgstr ""
+msgstr "http://doc.trolltech.com/3.3/\\{@}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rae.desktop:5
@@ -1070,6 +1090,8 @@ msgid ""
 "http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
 "&FORMATO=ampliado"
 msgstr ""
+"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
+"&FORMATO=ampliado"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
@@ -1079,17 +1101,17 @@ msgstr "RFC di IETF"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:4
 msgid "http://www.ietf.org/rfc/rfc\\{@}.txt"
-msgstr ""
+msgstr "http://www.ietf.org/rfc/rfc\\{@}.txt"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:3
 msgid "RPM-Find"
-msgstr ""
+msgstr "RPM-Find"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:6
 msgid "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
-msgstr ""
+msgstr "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:3
@@ -1099,12 +1121,12 @@ msgstr "Archivio di applicazioni Ruby"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:6
 msgid "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
-msgstr ""
+msgstr "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/seek.desktop:3
 msgid "GO.com"
-msgstr ""
+msgstr "GO.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/seek.desktop:6
@@ -1112,11 +1134,13 @@ msgid ""
 "http://www.go.com/Titles?col=WW&qt=\\{@}"
 "&svx=home_searchbox&sv=IS&lk=noframeso"
 msgstr ""
+"http://www.go.com/Titles?col=WW&qt=\\{@}"
+"&svx=home_searchbox&sv=IS&lk=noframeso"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
 msgid "SourceForge"
-msgstr ""
+msgstr "SourceForge"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:4
@@ -1124,6 +1148,8 @@ msgid ""
 "http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
 "\\{exact,\"0\"}&words=\\{@}"
 msgstr ""
+"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
+"\\{exact,\"0\"}&words=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
@@ -1133,7 +1159,7 @@ msgstr "Tag di technorati"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:6
 msgid "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
-msgstr ""
+msgstr "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:3
@@ -1143,7 +1169,7 @@ msgstr "Tag di technorati"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:6
 msgid "http://technorati.com/tag/\\{@}?sourceid=kde-search"
-msgstr ""
+msgstr "http://technorati.com/tag/\\{@}?sourceid=kde-search"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:3
@@ -1153,17 +1179,17 @@ msgstr "Dizionario dei sinonimi Merriam-Webster"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:6
 msgid "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
-msgstr ""
+msgstr "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:4
 msgid "TV Tome"
-msgstr ""
+msgstr "TV Tome"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:6
 msgid "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
-msgstr ""
+msgstr "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:5
@@ -1176,11 +1202,13 @@ msgid ""
 "http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
 "&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
 msgstr ""
+"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
+"&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
 msgid "Vivisimo"
-msgstr ""
+msgstr "Vivisimo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:6
@@ -1189,11 +1217,13 @@ msgid ""
 "http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
 "%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
 msgstr ""
+"http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
+"%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/voila.desktop:3
 msgid "Voila"
-msgstr ""
+msgstr "Voila"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/voila.desktop:6
@@ -1201,6 +1231,8 @@ msgid ""
 "http://search.ke.voila.fr/S/voila?"
 "lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
 msgstr ""
+"http://search.ke.voila.fr/S/voila?"
+"lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/webster.desktop:3
@@ -1210,7 +1242,7 @@ msgstr "Dizionario Merriam-Webster"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/webster.desktop:6
 msgid "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
-msgstr ""
+msgstr "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:3
@@ -1222,6 +1254,7 @@ msgstr "Richiesta whatis"
 msgid ""
 "http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
 msgstr ""
+"http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:3
@@ -1251,7 +1284,7 @@ msgstr "WordReference.com dizionario inglese"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:6
 msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/english/definition.asp?en=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/localdomain/localdomainurifilter.desktop:3
@@ -1462,7 +1495,7 @@ msgstr ""
 #. Name
 #: info/opengl.desktop:13
 msgid "OpenGL"
-msgstr ""
+msgstr "OpenGL"
 
 #. Comment
 #: info/opengl.desktop:15
@@ -1496,7 +1529,7 @@ msgstr "partizioni;disco rigido;hard disk;HD;informazioni sul sistema;"
 #. Name
 #: info/pci.desktop:12
 msgid "PCI"
-msgstr ""
+msgstr "PCI"
 
 #. Comment
 #: info/pci.desktop:14
@@ -1526,7 +1559,7 @@ msgstr "processore;CPU;FPU;MHz;informazioni sul sistema;"
 #. Name
 #: info/scsi.desktop:12
 msgid "SCSI"
-msgstr ""
+msgstr "SCSI"
 
 #. Comment
 #: info/scsi.desktop:14
@@ -1594,7 +1627,7 @@ msgstr ""
 #. Name
 #: joystick/joystick.desktop:12
 msgid "Joystick"
-msgstr ""
+msgstr "Joystick"
 
 #. Comment
 #: joystick/joystick.desktop:14
@@ -1604,7 +1637,7 @@ msgstr "Joystick - un modulo di kcontrol per provare i Joystick"
 #. Keywords
 #: joystick/joystick.desktop:16
 msgid "joystick;gamepad;"
-msgstr ""
+msgstr "joystick;gamepad;"
 
 #. Name
 #: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
@@ -2503,6 +2536,9 @@ msgstr "Configura TDE per utilizzare più monitor"
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr "Xinerama;dual head;multihead;monitor;"
+
+#~ msgid "tdehwdevicetray"
+#~ msgstr "tdehwdevicetray"
 
 #~ msgid "Device Monitor"
 #~ msgstr "Monitor dei dispositivi hardware"
