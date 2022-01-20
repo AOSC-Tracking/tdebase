@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Victor Galvez <cassdee_058@protonmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-01-20 14:00+0000\n"
+"Last-Translator: Victor Galvez <cassdee_058@protonmail.com>\n"
+"Language-Team: Spanish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kcontrol-desktop-files/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -236,7 +237,7 @@ msgstr "Criptografía"
 msgid "Configure SSL, manage certificates, and other cryptography settings"
 msgstr ""
 "Configura SSL, administra los certificados y otras preferencias de "
-"criptografía."
+"criptografía"
 
 #. Keywords
 #: crypto/crypto.desktop:14
@@ -274,18 +275,17 @@ msgstr "Preferencias de la pantalla"
 #. Name
 #: displayconfig/displayconfig.desktop:12
 msgid "Monitor & Display"
-msgstr ""
+msgstr "Monitores y pantallas"
 
 #. Comment
 #: displayconfig/displayconfig.desktop:14
-#, fuzzy
 msgid "Configure display"
-msgstr "Configura el buscador de servicios"
+msgstr "Configurar pantalla"
 
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
 msgid "monitor;resolution;display;"
-msgstr ""
+msgstr "monitor;resolución;pantalla;"
 
 #. Name
 #: dnssd/kcm_tdednssd.desktop:18
