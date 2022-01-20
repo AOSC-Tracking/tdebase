@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Leandro Nini <drfiemost@email.it>, 2021.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2021-11-02 08:31+0000\n"
-"Last-Translator: Leandro Nini <drfiemost@email.it>\n"
+"PO-Revision-Date: 2022-01-21 15:00+0000\n"
+"Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/konsole-desktop-files/it/>\n"
 "Language: it\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -133,9 +134,8 @@ msgstr "Nuovo Midnight Commander di root"
 
 #. Name
 #: terminalhere.desktop:6
-#, fuzzy
 msgid "Terminal"
-msgstr "Programma terminale"
+msgstr "Terminale"
 
 #. Name
 #: terminalhere.desktop:11
