@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Leandro Nini <drfiemost@email.it>, 2021.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 22:18+0000\n"
-"PO-Revision-Date: 2021-11-02 08:31+0000\n"
-"Last-Translator: Leandro Nini <drfiemost@email.it>\n"
+"PO-Revision-Date: 2022-01-21 15:00+0000\n"
+"Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/konqueror-desktop-files/it/>\n"
 "Language: it\n"
@@ -15,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. Name
 #: Home.desktop:7
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #. GenericName
 #: Home.desktop:9
@@ -47,7 +48,7 @@ msgstr "Vista a colonne multiple"
 #: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
 #: konquerorsu.desktop:8
 msgid "Konqueror"
-msgstr ""
+msgstr "Konqueror"
 
 #. GenericName
 #: konqbrowser.desktop:9
@@ -133,7 +134,7 @@ msgstr "Sviluppo TDE"
 #. Name
 #: profile_midnightcommander.desktop:9
 msgid "Midnight Commander"
-msgstr ""
+msgstr "Midnight Commander"
 
 #. Name
 #: profile_simplebrowser.desktop:2
