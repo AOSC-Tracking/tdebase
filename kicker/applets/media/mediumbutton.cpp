@@ -122,8 +122,7 @@ void MediumButton::initPopup()
 
 void MediumButton::refreshType()
 {
-    KMimeType::Ptr mime = mFileItem.determineMimeType();
-    TQToolTip::add(this, mime->comment());
+    TQToolTip::add(this, mFileItem.text());
     setIcon(mFileItem.iconName());
 }
 
