@@ -313,7 +313,7 @@ kg_main( const char *argv0 )
 			iccCommand += TQString(" %1 &").arg(iccconfig.readEntry("ICCFile"));
 			if (system(iccCommand.local8Bit()) < 0)
 			{
-				printf("WARNING: Unable to execute command \"%s\"\n", iccCommand.local8Bit());
+				printf("WARNING: Unable to execute command \"%s\"\n", iccCommand.local8Bit().data());
 			}
 		}
 	}
