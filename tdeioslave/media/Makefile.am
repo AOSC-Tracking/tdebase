@@ -1,7 +1,3 @@
-if include_media_halbackend
-PROPSDLGPLUGINDIR = propsdlgplugin
-endif
-
 SUBDIRS = libmediacommon . mediamanager medianotifier mounthelper \
           tdefile-plugin tdecmodule mimetypes services $(PROPSDLGPLUGINDIR)
 

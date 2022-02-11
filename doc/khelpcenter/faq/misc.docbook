@@ -228,16 +228,5 @@ if you want to read without subscribing.</para>
 </answer>
 </qandaentry>
 
-<qandaentry>
-<question>
-<para>How do the developers propose to transition away from HAL (hardware abstraction layer)?</para>
-</question>
-<answer>
-<para>The Trinity team developed a new native hardware support layer that is under testing.
-That new system will be enabled by default in a future release, but is available now
-in the development sources.</para>
-</answer>
-</qandaentry>
-
 </qandaset>
 </chapter>

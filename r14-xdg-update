@@ -3,7 +3,7 @@
 # A script to perform R14.0.0 XDG compliance updates.
 
 SCRIPT_NAME="$(basename -- "$0")"
-SCRIPT_VERSION=202103280
+SCRIPT_VERSION=202202130
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -824,15 +824,14 @@ if [ "$R14_VERSION" -lt "201401070" ]; then
     mv $PROFILE_DIR/share/apps/kstyle $PROFILE_DIR/share/apps/tdestyle 2>/dev/null
   fi
 fi
-if [ "$R14_VERSION" -lt "201309150" ]; then
-  # Copy the following two rc files rather than move because the older versions are needed for HAL systems.
+if [ "$R14_VERSION" -lt "202202130" ]; then
   if [ ! -f $PROFILE_DIR/share/config/tdenetworkmanagerrc ] && [ -f $PROFILE_DIR/share/config/knetworkmanagerrc ]; then
     Log "  knetworkmanager->tdenetworkmanager"
-    cp -a $PROFILE_DIR/share/config/knetworkmanagerrc $PROFILE_DIR/share/config/tdenetworkmanagerrc 2>/dev/null
+    mv $PROFILE_DIR/share/config/knetworkmanagerrc $PROFILE_DIR/share/config/tdenetworkmanagerrc 2>/dev/null
   fi
   if [ ! -f $PROFILE_DIR/share/config/tdepowersaverc ] && [ -f $PROFILE_DIR/share/config/kpowersaverc ]; then
     Log "  kpowersave->tdepowersave"
-    cp -a $PROFILE_DIR/share/config/kpowersaverc $PROFILE_DIR/share/config/tdepowersaverc 2>/dev/null
+    mv $PROFILE_DIR/share/config/kpowersaverc $PROFILE_DIR/share/config/tdepowersaverc 2>/dev/null
   fi
 fi
 if [ "$R14_VERSION" -lt "201401050" ]; then

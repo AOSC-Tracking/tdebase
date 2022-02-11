@@ -160,7 +160,6 @@ bool inExclusionPattern(KMountPoint *mount, bool networkSharesOnly)
 	  || mount->mountPoint().find("/sys") == 0
 
 	  // We might want to display only network shares
-	  // since HAL doesn't handle them
 	  || ( networkSharesOnly
 	    && mount->mountType().find( "smb" ) == -1
 	    && mount->mountType().find( "cifs" ) == -1

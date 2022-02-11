@@ -21,17 +21,6 @@
         </property>
         <widget class="TQCheckBox">
             <property name="name">
-                <cstring>kcfg_HalBackendEnabled</cstring>
-            </property>
-            <property name="text">
-                <string>Enable HAL backend</string>
-            </property>
-            <property name="whatsThis" stdset="0">
-                <string>Select this if you want to enable the Hardware Abstraction Layer (http://hal.freedesktop.org/wiki/Software/hal) support.</string>
-            </property>
-        </widget>
-        <widget class="TQCheckBox">
-            <property name="name">
                 <cstring>kcfg_CdPollingEnabled</cstring>
             </property>
             <property name="text">
@@ -348,16 +337,7 @@ Display the short name as is; store a long name when the short name is not all u
         </spacer>
     </vbox>
 </widget>
-<connections>
-    <connection>
-        <sender>kcfg_HalBackendEnabled</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>groupbox_mount</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-</connections>
 <tabstops>
-    <tabstop>kcfg_HalBackendEnabled</tabstop>
     <tabstop>kcfg_CdPollingEnabled</tabstop>
     <tabstop>kcfg_AutostartEnabled</tabstop>
     <tabstop>kcfg_NotificationPopupsEnabled</tabstop>

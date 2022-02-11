@@ -19,10 +19,7 @@ it, and much more.</para>
 
 <para>The use of a device is controlled by the operating
 system and it is important your operating system has tools for managing
-these devices. &tde; can also auto mount devices, working with
-<acronym>HAL</acronym> (Hardware Abstraction Layer). Your distribution
-should have set up <acronym>HAL</acronym> automatically; if not,
-consult the documentation provided by your distribution.</para>
+these devices. &tde; can also auto mount devices.</para>
 <para>There are several ways to find the list of media devices: use
 whichever one suits you best:</para>
 
@@ -88,14 +85,6 @@ configured. To find out if they are running on your system check the
 <command>hald</command>, <command>dbus-deamon</command>, and
 <command>udevd</command>. &tde; does not provide any of these
 components. You must check with you distribution.</para>
-
-<itemizedlist>
-<title>Related Information</title>
-<listitem><para><ulink url="http://wiki.kde.org/tiki-index.php?page=DBUS">HOWTO: setting up D-BUS and HAL with TDE's media ioslave
-edit</ulink> (A community maintained HOWTO on the &tde; wiki)</para></listitem>
-<listitem><para><ulink url="http://www.freedesktop.org/wiki/Software/dbus">The DBus page</ulink></para></listitem>
-<listitem><para><ulink url="http://www.freedesktop.org/wiki/Software/hal"></ulink>HAL - Hardware Abstraction Layer</para></listitem>
-</itemizedlist>
 
 </sect2>
 

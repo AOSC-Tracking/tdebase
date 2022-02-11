@@ -34,16 +34,6 @@ class TDEAction;
 
 #include <config.h>
 
-#ifdef COMPILE_HALBACKEND
-	#ifndef NO_QT3_DBUS_SUPPORT
-	/* We acknowledge the the dbus API is unstable */
-	#define DBUS_API_SUBJECT_TO_CHANGE
-	#include <dbus/connection.h>
-	#endif // NO_QT3_DBUS_SUPPORT
-
-	#include <hal/libhal.h>
-#endif // COMPILE_HALBACKEND
-
 namespace SuspendType {
 enum SuspendType {
 	NotSpecified = 0,
@@ -159,10 +149,6 @@ private:
 	TQString m_bootOption;
 	TQPopupMenu *targets;
 	TQStringList rebootOptions;
-#ifdef COMPILE_HALBACKEND
-	LibHalContext* m_halCtx;
-	DBusConnection *m_dbusConn;
-#endif
 	bool m_lockOnResume;
 	int* m_selection;
 };

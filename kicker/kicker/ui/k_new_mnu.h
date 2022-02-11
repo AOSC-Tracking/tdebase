@@ -45,16 +45,6 @@
 
 #include <config.h>
 
-#ifdef COMPILE_HALBACKEND
-#ifndef NO_QT3_DBUS_SUPPORT
-/* We acknowledge the the dbus API is unstable */
-#define DBUS_API_SUBJECT_TO_CHANGE
-#include <dbus/connection.h>
-#endif // NO_QT3_DBUS_SUPPORT
-
-#include <hal/libhal.h>
-#endif // COMPILE_HALBACKEND
-
 class KickerClientMenu;
 class KickoffTabBar;
 class KBookmarkMenu;
@@ -347,11 +337,6 @@ private:
     void fillOverflowCategory();
 
     TQString insertBreaks(const TQString& text, TQFontMetrics fm, int width, TQString leadInsert = TQString::null);
-
-#ifdef COMPILE_HALBACKEND
-    LibHalContext* m_halCtx;
-    DBusConnection *m_dbusConn;
-#endif
 };
 
 #endif

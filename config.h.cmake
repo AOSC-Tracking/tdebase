@@ -65,17 +65,8 @@
 #cmakedefine HAVE_SYS_TYPES_H 1
 
 // tdeioslave/media
-#cmakedefine WITH_HAL 1
-#ifdef WITH_HAL
-#define COMPILE_HALBACKEND
-#define COMPILE_LINUXCDPOLLING
-#endif
-
-// tdeioslave/media
 #cmakedefine WITH_TDEHWLIB 1
 #ifdef WITH_TDEHWLIB
-// forcibly deactivate HAL support and substitute TDE hardware library support
-#undef COMPILE_HALBACKEND
 #define COMPILE_TDEHARDWAREBACKEND
 #endif
 

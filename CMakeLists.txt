@@ -117,7 +117,6 @@ option( WITH_XINERAMA "Enable xinerama extension support" ${WITH_ALL_OPTIONS} )
 option( WITH_ARTS "Enable aRts support" ${WITH_ALL_OPTIONS} )
 option( WITH_I8K "Enable Dell laptop support (ksysguard)" ${WITH_ALL_OPTIONS} )
 option( WITH_SENSORS "Enable lm_sensors support (ksysguard)" ${WITH_ALL_OPTIONS} )
-option( WITH_HAL "Enable HAL support" OFF )
 option( WITH_TDEHWLIB "Enable TDE hardware library support" ${WITH_ALL_OPTIONS} )
 option( WITH_UPOWER "Enable UPOWER support" ${WITH_ALL_OPTIONS} )
 option( WITH_ELFICON "Enable ELF embedded metadata support" ${WITH_ALL_OPTIONS} )
@@ -148,8 +147,7 @@ option( WITH_GCC_VISIBILITY "Enable fvisibility and fvisibility-inlines-hidden" 
 # WITH_ARTS         affects libkonq khotkeys
 # WITH_I8K          affects ksysguard
 # WITH_SENSORS      affects ksysguard
-# WITH_HAL          affects tdeioslaves(media) ksmserver kicker
-# WITH_TDEHWLIB     affects tdeioslaves(media), replaces WITH_HAL on systems without HAL
+# WITH_TDEHWLIB     affects tdeioslaves(media)
 # WITH_LIBRAW1394   affects kcontrol(view1394)
 # WITH_PAM          affects tdm kdesktop kcheckpass
 # WITH_SHADOW       affects tdm kcheckpass

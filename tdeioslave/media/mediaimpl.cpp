@@ -230,15 +230,6 @@ bool MediaImpl::ensureMediumMounted(Medium &medium)
 		return false;
 	}
 
-#ifdef COMPILE_HALBACKEND
-	if ( medium.isEncrypted() && medium.clearDeviceUdi().isEmpty() )
-	{
-		m_lastErrorCode = TDEIO::ERR_COULD_NOT_MOUNT;
-		m_lastErrorMessage = i18n("The drive is encrypted.");
-		return false;
-	}
-#endif // COMPILE_HALBACKEND
-
 	if ( medium.needMounting() )
 	{
 		m_lastErrorCode = 0;

@@ -797,10 +797,6 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		connect(btnLogout, TQT_SIGNAL(clicked()), TQT_SLOT(slotLogout()));
 	}
 
-#ifdef COMPILE_HALBACKEND
-	m_halCtx = NULL;
-#endif
-
 	if ((maysd) || (mayrb)) {
 
 		// respect lock on resume & disable suspend/hibernate settings
@@ -815,70 +811,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		bool canHibernate = false;
 		bool canHybridSuspend = false;
 
-#if defined(COMPILE_HALBACKEND)
-		// Query HAL for suspend/resume support
-		m_halCtx = libhal_ctx_new();
-
-		DBusError error;
-		dbus_error_init(&error);
-		m_dbusConn = dbus_connection_open_private(DBUS_SYSTEM_BUS, &error);
-		if (!m_dbusConn)
-		{
-			dbus_error_free(&error);
-			libhal_ctx_free(m_halCtx);
-			m_halCtx = NULL;
-		}
-		else
-		{
-			dbus_bus_register(m_dbusConn, &error);
-			if (dbus_error_is_set(&error))
-			{
-				dbus_error_free(&error);
-				libhal_ctx_free(m_halCtx);
-				m_dbusConn = NULL;
-				m_halCtx = NULL;
-			}
-			else
-			{
-				libhal_ctx_set_dbus_connection(m_halCtx, m_dbusConn);
-				if (!libhal_ctx_init(m_halCtx, &error))
-				{
-					if (dbus_error_is_set(&error))
-						dbus_error_free(&error);
-					libhal_ctx_free(m_halCtx);
-					m_dbusConn = NULL;
-					m_halCtx = NULL;
-				}
-			}
-		}
-
-		if (m_halCtx)
-		{
-			if (libhal_device_get_property_bool(m_halCtx,
-												"/org/freedesktop/Hal/devices/computer",
-												"power_management.can_suspend",
-												NULL))
-			{
-				canSuspend = true;
-			}
-
-			if (libhal_device_get_property_bool(m_halCtx,
-												"/org/freedesktop/Hal/devices/computer",
-												"power_management.can_hibernate",
-												NULL))
-			{
-				canHibernate = true;
-			}
-		
-			if (libhal_device_get_property_bool(m_halCtx,
-												"/org/freedesktop/Hal/devices/computer",
-												"power_management.can_suspend_hybrid",
-												NULL))
-			{
-				canHybridSuspend = true;
-			}
-		}
-#elif defined(WITH_TDEHWLIB) // COMPILE_HALBACKEND
+#if defined(WITH_TDEHWLIB)
 		TDERootSystemDevice* rootDevice = TDEGlobal::hardwareDevices()->rootSystemDevice();
 		if (rootDevice) {
 			canFreeze = rootDevice->canFreeze();
@@ -892,7 +825,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			canHibernate = false;
 			canHybridSuspend = false;
 		}
-#endif // COMPILE_HALBACKEND
+#endif
 
 		if(doUbuntuLogout) {
       // Ubuntu style logout window
@@ -1175,15 +1108,6 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 KSMShutdownDlg::~KSMShutdownDlg()
 {
-#ifdef COMPILE_HALBACKEND
-	if (m_halCtx)
-	{
-		DBusError error;
-		dbus_error_init(&error);
-		libhal_ctx_shutdown(m_halCtx, &error);
-		libhal_ctx_free(m_halCtx);
-	}
-#endif
 }
 
 
@@ -1220,46 +1144,13 @@ void KSMShutdownDlg::slotHalt()
 
 void KSMShutdownDlg::slotSuspend()
 {
-#ifndef COMPILE_HALBACKEND
 	*m_selection = SuspendType::Suspend;
-#else
-	if (m_dbusConn)
-	{
-		DBusMessage *msg = dbus_message_new_method_call(
-							  "org.freedesktop.Hal",
-							  "/org/freedesktop/Hal/devices/computer",
-							  "org.freedesktop.Hal.Device.SystemPowerManagement",
-							  "Suspend");
-
-		int wakeup=0;
-		dbus_message_append_args(msg, DBUS_TYPE_INT32, &wakeup, DBUS_TYPE_INVALID);
-
-		dbus_connection_send(m_dbusConn, msg, NULL);
-
-		dbus_message_unref(msg);
-	}
-#endif
 	reject(); // continue on resume
 }
 
 void KSMShutdownDlg::slotHibernate()
 {
-#ifndef COMPILE_HALBACKEND
 	*m_selection = SuspendType::Hibernate;
-#else
-	if (m_dbusConn)
-	{
-		DBusMessage *msg = dbus_message_new_method_call(
-							  "org.freedesktop.Hal",
-							  "/org/freedesktop/Hal/devices/computer",
-							  "org.freedesktop.Hal.Device.SystemPowerManagement",
-							  "Hibernate");
-
-		dbus_connection_send(m_dbusConn, msg, NULL);
-
-		dbus_message_unref(msg);
-	}
-#endif
 	reject(); // continue on resume
 }
 
@@ -1271,22 +1162,7 @@ void KSMShutdownDlg::slotFreeze()
 
 void KSMShutdownDlg::slotHybridSuspend()
 {
-#ifndef COMPILE_HALBACKEND
 	*m_selection = SuspendType::HybridSuspend;
-#else
-	if (m_dbusConn)
-	{
-		DBusMessage *msg = dbus_message_new_method_call(
-							  "org.freedesktop.Hal",
-							  "/org/freedesktop/Hal/devices/computer",
-							  "org.freedesktop.Hal.Device.SystemPowerManagement",
-							  "SuspendHybrid");
-
-		dbus_connection_send(m_dbusConn, msg, NULL);
-
-		dbus_message_unref(msg);
-	}
-#endif
 	reject(); // continue on resume
 }
 

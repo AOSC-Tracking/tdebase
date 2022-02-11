@@ -16,13 +16,10 @@ include_directories(
   ${CMAKE_BINARY_DIR}
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
-  ${HAL_INCLUDE_DIRS}
-  ${DBUS_TQT_INCLUDE_DIRS}
 )
 
 link_directories(
   ${TQT_LIBRARY_DIRS}
-  ${DBUS_TQT_LIBRARY_DIRS}
 )
 
 
@@ -45,11 +42,6 @@ tde_create_translated_desktop(
 
 set( target kded_mediamanager )
 
-if( WITH_HAL )
-  set( HAL_MEDIA_BACKEND halbackend.cpp linuxcdpolling.cpp )
-  set( HAL_MEDIA_LIBRARIES ${HAL_LIBRARIES} -lhal-storage ${DBUS_TQT_LIBRARIES} )
-endif( )
-
 if( WITH_TDEHWLIB )
   set( TDEHWBACKEND tdehardwarebackend.cpp )
 endif( WITH_TDEHWLIB )
@@ -60,7 +52,7 @@ tde_add_kpart( ${target} AUTOMOC
     backendbase.cpp fstabbackend.cpp removablebackend.cpp
     unlockdialog.ui dialog.cpp
     mediadirnotify.cpp mediadirnotify.skel
-    ${HAL_MEDIA_BACKEND} ${TDEHWBACKEND}
-  LINK mediacommon-static tdeinit_kded-shared ${TDEHW_LIBRARIES} ${HAL_MEDIA_LIBRARIES}
+    ${TDEHWBACKEND}
+  LINK mediacommon-static tdeinit_kded-shared ${TDEHW_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

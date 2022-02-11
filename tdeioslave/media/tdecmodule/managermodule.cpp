@@ -44,13 +44,6 @@ ManagerModule::ManagerModule( TQWidget* parent, const char* name )
 
 	addConfig(  MediaManagerSettings::self(), view );
 
-#ifndef COMPILE_HALBACKEND
-	TQString hal_text = view->kcfg_HalBackendEnabled->text();
-	hal_text += " ("+i18n("No support for HAL on this system")+")";
-	view->kcfg_HalBackendEnabled->setText( hal_text );
-#endif
-	view->kcfg_HalBackendEnabled->setEnabled( false );
-
 #ifndef COMPILE_LINUXCDPOLLING
 	TQString poll_text = view->kcfg_CdPollingEnabled->text();
 	poll_text += " ("+i18n("No support for CD polling on this system")+")";
@@ -140,13 +133,12 @@ void ManagerModule::save()
 	
 	rememberSettings();
 
-	//Well... reloadBackends is buggy with HAL, it seems to be linked
-	//to a bug in the unmaintained Qt3 DBUS binding ;-/
-	//DCOPRef mediamanager( "kded", "mediamanager" );
-	//DCOPReply reply = mediamanager.call( "reloadBackends" );
-	
-	// So we use this hack instead...
 	DCOPRef kded( "kded", "kded" );
+	// DCOPReply reply = mediamanager.call( "reloadBackends" );
+	// Well... reloadBackends had issues with HAL, it seems it was linked
+	// to a bug in the unmaintained Qt3 DBUS binding, but it is not quite clear.
+	// It may be ok now that HAL is no longer supported but needs to be tested.
+	// So we use this hack instead...
 	kded.call( "unloadModule", "mediamanager" );
 	kded.call( "loadModule", "mediamanager" );
 

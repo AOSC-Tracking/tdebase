@@ -116,16 +116,6 @@
 
 #include "config.h"
 
-#ifdef COMPILE_HALBACKEND
-#ifndef NO_QT3_DBUS_SUPPORT
-/* We acknowledge the the dbus API is unstable */
-#define DBUS_API_SUBJECT_TO_CHANGE
-#include <dbus/connection.h>
-#endif // NO_QT3_DBUS_SUPPORT
-
-#include <hal/libhal.h>
-#endif // COMPILE_HALBACKEND
-
 #ifdef __NetBSD__
 #define statfs statvfs
 #endif
@@ -447,38 +437,6 @@ KMenu::KMenu()
     search_tab_top_left.load( locate("data", "kicker/pics/search-tab-top-left.png" ) );
     search_tab_top_right.load( locate("data", "kicker/pics/search-tab-top-right.png" ) );
     search_tab_top_center.load( locate("data", "kicker/pics/search-tab-top-center.png" ) );
-
-#ifdef COMPILE_HALBACKEND
-    m_halCtx = NULL;
-    m_halCtx = libhal_ctx_new();
-
-    DBusError error;
-    dbus_error_init(&error);
-    m_dbusConn = dbus_connection_open_private(DBUS_SYSTEM_BUS, &error);
-    if (!m_dbusConn) {
-        dbus_error_free(&error);
-        libhal_ctx_free(m_halCtx);
-        m_halCtx = NULL;
-    } else {
-        dbus_bus_register(m_dbusConn, &error);
-        if (dbus_error_is_set(&error)) {
-            dbus_error_free(&error);
-            libhal_ctx_free(m_halCtx);
-            m_dbusConn = NULL;
-            m_halCtx = NULL;
-        } else {
-            libhal_ctx_set_dbus_connection(m_halCtx, m_dbusConn);
-            if (!libhal_ctx_init(m_halCtx, &error)) {
-                if (dbus_error_is_set(&error)) {
-                    dbus_error_free(&error);
-                }
-                libhal_ctx_free(m_halCtx);
-                m_dbusConn = NULL;
-                m_halCtx = NULL;
-            }
-        }
-    }
-#endif
 }
 
 void KMenu::setupUi()
@@ -501,15 +459,6 @@ KMenu::~KMenu()
 
     clearSubmenus();
     delete m_filterData;
-
-#ifdef COMPILE_HALBACKEND
-    if (m_halCtx) {
-        DBusError error;
-        dbus_error_init(&error);
-        libhal_ctx_shutdown(m_halCtx, &error);
-        libhal_ctx_free(m_halCtx);
-    }
-#endif
 }
 
 bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
@@ -1378,10 +1327,7 @@ void KMenu::insertStaticExitItems()
     }
 
     bool maysd = false;
-#if defined(COMPILE_HALBACKEND)
-    if (ksmserver.readBoolEntry( "offerShutdown", true ) && DM().canShutdown())
-        maysd = true;
-#elif defined(WITH_TDEHWLIB)
+#if defined(WITH_TDEHWLIB)
     TDERootSystemDevice* rootDevice = TDEGlobal::hardwareDevices()->rootSystemDevice();
     if( rootDevice ) {
         maysd = rootDevice->canPowerOff();
@@ -3794,27 +3740,7 @@ void KMenu::insertSuspendOption( int &nId, int &index )
     bool standby = false;
     bool suspend_disk = false;
     bool hybrid_suspend = false;
-#if defined(COMPILE_HALBACKEND)
-    suspend_ram = libhal_device_get_property_bool(m_halCtx,
-        "/org/freedesktop/Hal/devices/computer",
-        "power_management.can_suspend",
-        NULL);
-
-    standby = libhal_device_get_property_bool(m_halCtx,
-        "/org/freedesktop/Hal/devices/computer",
-        "power_management.can_standby",
-        NULL);
-
-    suspend_disk = libhal_device_get_property_bool(m_halCtx,
-        "/org/freedesktop/Hal/devices/computer",
-        "power_management.can_hibernate",
-        NULL);
-
-    hybrid_suspend = libhal_device_get_property_bool(m_halCtx,
-        "/org/freedesktop/Hal/devices/computer",
-        "power_management.can_suspend_hybrid",
-        NULL);
-#elif defined(WITH_TDEHWLIB) // COMPILE_HALBACKEND
+#if defined(WITH_TDEHWLIB)
     TDERootSystemDevice* rootDevice = TDEGlobal::hardwareDevices()->rootSystemDevice();
     if (rootDevice) {
         suspend_ram = rootDevice->canSuspend();
@@ -3886,49 +3812,7 @@ void KMenu::slotSuspend(int id)
         DCOPRef("kdesktop", "KScreensaverIface").call("lock()");
     }
 
-#if defined(COMPILE_HALBACKEND)
-    DBusMessage* msg = NULL;
-
-    if (m_dbusConn) {
-        // No Freeze support in HAL
-        if (id == SuspendType::Standby) {
-            msg = dbus_message_new_method_call(
-                              "org.freedesktop.Hal",
-                              "/org/freedesktop/Hal/devices/computer",
-                              "org.freedesktop.Hal.Device.SystemPowerManagement",
-                              "Standby");
-        } else if (id == SuspendType::Suspend) {
-            msg = dbus_message_new_method_call(
-                              "org.freedesktop.Hal",
-                              "/org/freedesktop/Hal/devices/computer",
-                              "org.freedesktop.Hal.Device.SystemPowerManagement",
-                              "Suspend");
-            int wakeup=0;
-            dbus_message_append_args(msg, DBUS_TYPE_INT32, &wakeup, DBUS_TYPE_INVALID);
-        } else if (id == SuspendType::Hibernate) {
-            msg = dbus_message_new_method_call(
-                              "org.freedesktop.Hal",
-                              "/org/freedesktop/Hal/devices/computer",
-                              "org.freedesktop.Hal.Device.SystemPowerManagement",
-                              "Hibernate");
-        } else if (id == SuspendType::HybridSuspend) {
-            msg = dbus_message_new_method_call(
-                              "org.freedesktop.Hal",
-                              "/org/freedesktop/Hal/devices/computer",
-                              "org.freedesktop.Hal.Device.SystemPowerManagement",
-                              "SuspendHybrid");
-            int wakeup=0;
-            dbus_message_append_args(msg, DBUS_TYPE_INT32, &wakeup, DBUS_TYPE_INVALID);
-        } else {
-            return;
-        }
-
-        if(dbus_connection_send(m_dbusConn, msg, NULL)) {
-            error = false;
-        }
-        dbus_message_unref(msg);
-    }
-#elif defined(WITH_TDEHWLIB) // COMPILE_HALBACKEND
+#if defined(WITH_TDEHWLIB)
     TDERootSystemDevice* rootDevice = TDEGlobal::hardwareDevices()->rootSystemDevice();
     if (rootDevice) {
         if (id == SuspendType::Freeze) {

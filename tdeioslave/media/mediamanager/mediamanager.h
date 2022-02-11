@@ -29,7 +29,6 @@
 #include "removablebackend.h"
 #include "mediadirnotify.h"
 
-class HALBackend;
 class TDEBackend;
 class FstabBackend;
 
@@ -65,7 +64,6 @@ k_dcop:
 
 	ASYNC reloadBackends();
 
-	// Removable media handling (for people not having HAL)
 	bool removablePlug(const TQString &devNode, const TQString &label);
 	bool removableUnplug(const TQString &devNode);
 	bool removableCamera(const TQString &devNode);
@@ -94,7 +92,6 @@ private:
 	MediaList m_mediaList;
 	TQValueList<BackendBase*> m_backends;
 	RemovableBackend *mp_removableBackend;
-	HALBackend *m_halbackend;
 	TDEBackend *m_tdebackend;
 	MediaDirNotify m_dirNotify;
 	FstabBackend *m_fstabbackend;

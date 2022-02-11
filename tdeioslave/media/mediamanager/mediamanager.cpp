@@ -36,10 +36,6 @@
 #include "tdehardwarebackend.h"
 #endif // COMPILE_TDEHARDWAREBACKEND
 
-#ifdef COMPILE_HALBACKEND
-#include "halbackend.h"
-#endif //COMPILE_HALBACKEND
-
 #ifdef COMPILE_LINUXCDPOLLING
 #include "linuxcdpolling.h"
 #endif //COMPILE_LINUXCDPOLLING
@@ -80,32 +76,8 @@ void MediaManager::loadBackends()
     }
 
     mp_removableBackend = 0L;
-    m_halbackend = 0L;
     m_tdebackend = 0L;
     m_fstabbackend = 0L;
-
-#ifdef COMPILE_HALBACKEND
-    if ( MediaManagerSettings::self()->halBackendEnabled() )
-    {
-        m_mediaList.blockSignals(false);
-        m_halbackend = new HALBackend(m_mediaList, this);
-        if (m_halbackend->InitHal())
-        {
-            m_backends.append( m_halbackend );
-            m_fstabbackend = new FstabBackend(m_mediaList, true);
-            m_backends.append( m_fstabbackend );
-            // No need to load something else...
-            m_mediaList.blockSignals(false);
-            return;
-        }
-        else
-        {
-            delete m_halbackend;
-            m_halbackend = 0;
-            m_mediaList.blockSignals(true);
-        }
-    }
-#endif // COMPILE_HALBACKEND
 
 #ifdef COMPILE_TDEHARDWAREBACKEND
     if ( MediaManagerSettings::self()->tdeHardwareBackendEnabled() )
@@ -216,36 +188,24 @@ TQStringList MediaManager::properties(const TQString &name)
 
 TQStringList MediaManager::mountoptions(const TQString &name)
 {
-#ifdef COMPILE_HALBACKEND
-	if (!m_halbackend)
+#ifdef COMPILE_TDEHARDWAREBACKEND
+	if (!m_tdebackend)
 		return TQStringList();
-	return m_halbackend->mountoptions(name);
-#else // COMPILE_HALBACKEND
-	#ifdef COMPILE_TDEHARDWAREBACKEND
-		if (!m_tdebackend)
-			return TQStringList();
-		return m_tdebackend->mountoptions(name);
-	#else // COMPILE_TDEHARDWAREBACKEND
-		return TQStringList();
-	#endif // COMPILE_TDEHARDWAREBACKEND
-#endif // COMPILE_HALBACKEND
+	return m_tdebackend->mountoptions(name);
+#else
+	return TQStringList();
+#endif
 }
 
 bool MediaManager::setMountoptions(const TQString &name, const TQStringList &options)
 {
-#ifdef COMPILE_HALBACKEND
-	if (!m_halbackend)
+#ifdef COMPILE_TDEHARDWAREBACKEND
+	if (!m_tdebackend)
 		return false;
-	return m_halbackend->setMountoptions(name, options);
-#else // COMPILE_HALBACKEND
-	#ifdef COMPILE_TDEHARDWAREBACKEND
-		if (!m_tdebackend)
-			return false;
-		return m_tdebackend->setMountoptions(name, options);
-	#else // COMPILE_TDEHARDWAREBACKEND
-		return false;
-	#endif // COMPILE_TDEHARDWAREBACKEND
-#endif // COMPILE_HALBACKEND
+	return m_tdebackend->setMountoptions(name, options);
+#else
+	return false;
+#endif
 }
 
 TQStringVariantMap MediaManager::mount(const TQString &uid)
@@ -258,16 +218,9 @@ TQStringVariantMap MediaManager::mount(const TQString &uid)
 		return result;
 	}
 	return m_tdebackend->mount(uid);
-#elif defined COMPILE_HALBACKEND
-	if (!m_halbackend) {
-		result["errStr"] = i18n("Feature only available with HAL");
-		result["result"] = false;
-		return result;
-	}
-	return m_halbackend->mount(uid);
 #else
 	if (!m_fstabbackend) {
-		result["errStr"] = i18n("Feature only available with HAL or TDE hardware backend");
+		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
 		result["result"] = false;
 		return result;
 	}
@@ -285,16 +238,9 @@ TQStringVariantMap MediaManager::unmount(const TQString &uid)
 		return result;
 	}
 	return m_tdebackend->unmount(uid);
-#elif defined COMPILE_HALBACKEND
-	if (!m_halbackend) {
-		result["errStr"] = i18n("Feature only available with HAL");
-		result["result"] = false;
-		return result;
-	}
-	return m_halbackend->unmount(uid);
 #else
 	if (!m_fstabbackend) {
-		result["errStr"] = i18n("Feature only available with HAL or TDE hardware backend");
+		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
 		result["result"] = false;
 		return result;
 	}
@@ -312,16 +258,9 @@ TQStringVariantMap MediaManager::unlock(const TQString &uid, const TQString &pas
 		return result;
 	}
 	return m_tdebackend->unlock(uid, password);
-#elif defined COMPILE_HALBACKEND
-	if (!m_halbackend) {
-		result["errStr"] = i18n("Feature only available with HAL");
-		result["result"] = false;
-		return result;
-	}
-	return m_halbackend->unlock(uid, password);
 #else
 //	if (!m_fstabbackend) {
-		result["errStr"] = i18n("Feature only available with HAL or TDE hardware backend");
+		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
 		result["result"] = false;
 		return result;
 //	}
@@ -339,16 +278,9 @@ TQStringVariantMap MediaManager::lock(const TQString &uid)
 		return result;
 	}
 	return m_tdebackend->lock(uid);
-#elif defined COMPILE_HALBACKEND
-	if (!m_halbackend) {
-		result["errStr"] = i18n("Feature only available with HAL");
-		result["result"] = false;
-		return result;
-	}
-	return m_halbackend->lock(uid);
 #else
 //	if (!m_fstabbackend) {
-		result["errStr"] = i18n("Feature only available with HAL or TDE hardware backend");
+		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
 		result["result"] = false;
 		return result;
 //	}

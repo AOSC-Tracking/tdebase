@@ -25,13 +25,10 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/tdmlib
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
-  ${DBUS_TQT_INCLUDE_DIRS}
-  ${HAL_INCLUDE_DIRS}
 )
 
 link_directories(
   ${TQT_LIBRARY_DIRS}
-  ${DBUS_TQT_LIBRARY_DIRS}
 )
 
 
@@ -50,5 +47,5 @@ tde_add_tdeinit_executable( ksmserver AUTOMOC
     main.cpp server.cpp shutdowndlg.cpp startupdlg.cpp
     legacy.cpp startup.cpp shutdown.cpp client.cpp
     KSMServerInterface.skel server.skel timed.ui
-  LINK dmctl-static tdeui-shared tdersync-shared ${TDEHW_LIBRARIES} ${HAL_LIBRARIES} ${DBUS_TQT_LIBRARIES}
+  LINK dmctl-static tdeui-shared tdersync-shared ${TDEHW_LIBRARIES}
 )

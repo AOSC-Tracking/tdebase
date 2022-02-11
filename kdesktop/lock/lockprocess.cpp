@@ -2458,13 +2458,7 @@ static int run_vkbd = -1;
 void LockProcess::showVkbd()
 {
 	if( run_vkbd == - 1 ) {
-#ifdef WITH_HAL
-		int status = system( "hal-find-by-property --key system.formfactor.subtype --string tabletpc" );
-// 		status = 0; // enable for testing
-		run_vkbd = ( WIFEXITED( status ) && WEXITSTATUS( status ) == 0 && !TDEStandardDirs::findExe( "xvkbd" ).isEmpty()) ? 1 : 0;
-#else // WITH_HAL
 		run_vkbd = (!TDEStandardDirs::findExe( "xvkbd" ).isEmpty());
-#endif // WITH_HAL
 	}
 	if( run_vkbd ) {
 		mVkbdWindows.clear();
