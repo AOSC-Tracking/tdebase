@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2022-02-13 05:01+0000\n"
+"PO-Revision-Date: 2022-02-14 23:01+0000\n"
 "Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
@@ -1809,7 +1809,7 @@ msgstr "Настройка режима менеджера файлов "
 #. Name
 #: konq/filepreviews.desktop:11
 msgid "Previews & Metadata"
-msgstr "Миниатюры и мета-данные"
+msgstr "Миниатюры"
 
 #. Comment
 #: konq/filepreviews.desktop:13
@@ -1878,7 +1878,7 @@ msgstr ""
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
 msgid "User Interface"
-msgstr "Пользовательский интерфейс"
+msgstr "Интерфейс"
 
 #. Comment
 #: konqhtml/tdehtml_userinterface.desktop:13
@@ -1889,7 +1889,8 @@ msgstr "Конфигурация параметров"
 #: konqhtml/tdehtml_userinterface.desktop:15
 msgid "konqueror;kfm;user;interface;tabbed;browsing;"
 msgstr ""
-"конкэрор;кфм;пользователь;пользовательский интерфейс;вкладки;навигация;"
+"konqueror;kfm;user;interface;tabbed;browsing;конкэрор;кфм;пользователь;"
+"пользовательский интерфейс;вкладки;навигация;"
 
 #. Name
 #: konsole/kcmkonsole.desktop:10
@@ -1996,10 +1997,10 @@ msgstr "Настройка параметров, которые влияют н�
 
 #. Keywords
 #: performance/kcmkonqyperformance.desktop:15
-#, fuzzy
 msgid "konqueror;reuse;preloading;"
 msgstr ""
-"конкэрор;кфм;пользователь;пользовательский интерфейс;вкладки;навигация;"
+"konqueror;reuse;preloading;конкэрор;повторное использование;предварительная "
+"загрузка;предзагрузка;"
 
 #. Comment
 #: performance/kcmperformance.desktop:13
@@ -2396,7 +2397,7 @@ msgstr "UADescription (Wget 1.11.4)"
 #. Name
 #: tdeio/useragent.desktop:12
 msgid "Browser Identification"
-msgstr "Идентификация браузера"
+msgstr "Идентификация"
 
 #. Comment
 #: tdeio/useragent.desktop:14
