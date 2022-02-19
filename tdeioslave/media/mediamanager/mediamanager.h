@@ -52,11 +52,13 @@ k_dcop:
 	TQStringVariantMap unmount(const TQString &uid);
 	TQStringVariantMap unlock(const TQString &uid, const TQString &password);
 	TQStringVariantMap lock(const TQString &uid);
+	TQStringVariantMap eject(const TQString &uid);
 
 	TQStringVariantMap mountByNode(const TQString &deviceNode);
 	TQStringVariantMap unmountByNode(const TQString &deviceNode);
 	TQStringVariantMap unlockByNode(const TQString &deviceNode, const TQString &password);
 	TQStringVariantMap lockByNode(const TQString &deviceNode);
+	TQStringVariantMap ejectByNode(const TQString &deviceNode);
 
 	TQString mimeType(const TQString &name);
 	TQString nameForLabel(const TQString &label);

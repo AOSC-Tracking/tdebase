@@ -53,7 +53,7 @@ private:
 	void unmount(const Medium &medium);
 	void unlock(const Medium &medium);
 	void lock(const Medium &medium);
-	void eject(const TQString &device, bool quiet=false);
+	void eject(const Medium &medium);
 	void safeRemoval(const Medium &medium);
 	void releaseHolders(const Medium &medium, bool handleThis = false);
 	void openRealFolder(const Medium &medium);

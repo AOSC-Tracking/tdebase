@@ -189,103 +189,103 @@ TQStringList MediaManager::properties(const TQString &name)
 TQStringList MediaManager::mountoptions(const TQString &name)
 {
 #ifdef COMPILE_TDEHARDWAREBACKEND
-	if (!m_tdebackend)
-		return TQStringList();
-	return m_tdebackend->mountoptions(name);
-#else
-	return TQStringList();
+	if (m_tdebackend)
+	{
+		return m_tdebackend->mountoptions(name);
+	}
 #endif
+	return TQStringList();
 }
 
 bool MediaManager::setMountoptions(const TQString &name, const TQStringList &options)
 {
 #ifdef COMPILE_TDEHARDWAREBACKEND
-	if (!m_tdebackend)
-		return false;
-	return m_tdebackend->setMountoptions(name, options);
-#else
-	return false;
+	if (m_tdebackend)
+	{
+		return m_tdebackend->setMountoptions(name, options);
+	}
 #endif
+	return false;
 }
 
 TQStringVariantMap MediaManager::mount(const TQString &uid)
 {
-	TQStringVariantMap result;
 #ifdef COMPILE_TDEHARDWAREBACKEND
-	if (!m_tdebackend) {
-		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
-		result["result"] = false;
-		return result;
+	if (m_tdebackend)
+	{
+		return m_tdebackend->mount(uid);
 	}
-	return m_tdebackend->mount(uid);
 #else
-	if (!m_fstabbackend) {
-		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
-		result["result"] = false;
-		return result;
+	if (m_fstabbackend)
+	{
+		return m_fstabbackend->mount(uid);
 	}
-	return m_fstabbackend->mount(uid);
 #endif
+	TQStringVariantMap result;
+	result["errStr"] = i18n("Feature only available with the TDE or fstab hardware backend");
+	result["result"] = false;
+	return result;
 }
 
 TQStringVariantMap MediaManager::unmount(const TQString &uid)
 {
-	TQStringVariantMap result;
 #ifdef COMPILE_TDEHARDWAREBACKEND
-	if (!m_tdebackend) {
-		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
-		result["result"] = false;
-		return result;
+	if (m_tdebackend)
+	{
+		return m_tdebackend->unmount(uid);
 	}
-	return m_tdebackend->unmount(uid);
 #else
-	if (!m_fstabbackend) {
-		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
-		result["result"] = false;
-		return result;
+	if (m_fstabbackend)
+	{
+		return m_fstabbackend->unmount(uid);
 	}
-	return m_fstabbackend->unmount(uid);
 #endif
+	TQStringVariantMap result;
+	result["errStr"] = i18n("Feature only available with the TDE or fstab hardware backend");
+	result["result"] = false;
+	return result;
 }
 
 TQStringVariantMap MediaManager::unlock(const TQString &uid, const TQString &password)
 {
-	TQStringVariantMap result;
 #ifdef COMPILE_TDEHARDWAREBACKEND
-	if (!m_tdebackend) {
-		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
-		result["result"] = false;
-		return result;
+	if (m_tdebackend)
+	{
+		return m_tdebackend->unlock(uid, password);
 	}
-	return m_tdebackend->unlock(uid, password);
-#else
-//	if (!m_fstabbackend) {
-		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
-		result["result"] = false;
-		return result;
-//	}
-//	return m_fstabbackend->unlock(uid, password);
 #endif
+	TQStringVariantMap result;
+	result["errStr"] = i18n("Feature only available with the TDE hardware backend");
+	result["result"] = false;
+	return result;
 }
 
 TQStringVariantMap MediaManager::lock(const TQString &uid)
 {
-	TQStringVariantMap result;
 #ifdef COMPILE_TDEHARDWAREBACKEND
-	if (!m_tdebackend) {
-		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
-		result["result"] = false;
-		return result;
+	if (m_tdebackend)
+	{
+		return m_tdebackend->lock(uid);
 	}
-	return m_tdebackend->lock(uid);
-#else
-//	if (!m_fstabbackend) {
-		result["errStr"] = i18n("Feature only available with the TDE hardware backend");
-		result["result"] = false;
-		return result;
-//	}
-//	return m_fstabbackend->lock(uid);
 #endif
+	TQStringVariantMap result;
+	result["errStr"] = i18n("Feature only available with the TDE hardware backend");
+	result["result"] = false;
+	return result;
+}
+
+TQStringVariantMap MediaManager::eject(const TQString &uid)
+{
+#ifdef COMPILE_TDEHARDWAREBACKEND
+	if (m_tdebackend)
+	{
+		return m_tdebackend->eject(uid);
+	}
+#endif
+	TQStringVariantMap result;
+	result["errStr"] = i18n("Feature only available with the TDE hardware backend");
+	result["result"] = false;
+	return result;
 }
 
 TQStringVariantMap MediaManager::mountByNode(const TQString &deviceNode)
@@ -334,6 +334,18 @@ TQStringVariantMap MediaManager::lockByNode(const TQString &deviceNode)
 		return result;
 	}
 	return lock(medium->id());
+}
+
+TQStringVariantMap MediaManager::ejectByNode(const TQString &deviceNode)
+{
+	const Medium *medium = m_mediaList.findByNode(deviceNode);
+	if (!medium) {
+		TQStringVariantMap result;
+		result["errStr"] = i18n("No such medium: %1").arg(deviceNode);
+		result["result"] = false;
+		return result;
+	}
+	return eject(medium->id());
 }
 
 TQString MediaManager::mimeType(const TQString &name)

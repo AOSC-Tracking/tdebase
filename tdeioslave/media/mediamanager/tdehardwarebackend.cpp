@@ -1474,7 +1474,6 @@ TQStringVariantMap TDEBackend::unlock(const TQString &id, const TQString &passwo
 	}
 
 	ResetProperties(sdevice, false, true);
-	result["result"] = unlockResult["unlockedDevice"];
 	result["result"] = true;
 	return result;
 }
@@ -1519,6 +1518,47 @@ TQStringVariantMap TDEBackend::lock(const TQString &id)
 		result["errStr"] = qerror;
 		result["result"] = false;
 		return result;
+		}
+	}
+
+	result["result"] = true;
+	return result;
+}
+
+TQStringVariantMap TDEBackend::eject(const TQString &id)
+{
+	kdDebug(1219) << "TDEBackend::eject for id " << id << endl;
+
+	TQStringVariantMap result;
+
+	const Medium *medium = m_mediaList.findById(id);
+	if (!medium)
+	{
+		result["errStr"] = i18n("No such medium: %1").arg(id);
+		result["result"] = false;
+		return result;
+	}
+
+	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
+	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
+	if (!sdevice)
+	{
+		result["errStr"] = i18n("Internal error. Couldn't find medium id %1.").arg(medium->id());
+		result["result"] = false;
+		return result;
+	}
+
+	TQStringVariantMap ejectResult = sdevice->ejectDrive();
+	if (ejectResult["result"].toBool() == false)
+	{
+		TQString qerror = i18n("<b>Unable to eject the device.</b>");
+		TQString errStr = ejectResult.contains("errStr") ? ejectResult["errStr"].toString() : TQString::null;
+		if (!errStr.isEmpty())
+		{
+			qerror.append(i18n("<p>Technical details:<br>").append(errStr));
+			result["errStr"] = qerror;
+			result["result"] = false;
+			return result;
 		}
 	}
 

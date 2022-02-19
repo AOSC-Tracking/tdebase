@@ -68,11 +68,12 @@ public:
 
 	bool setMountoptions(const TQString &id, const TQStringList &options);
 
-	TQStringVariantMap mount(const TQString &id);
 	TQStringVariantMap mount(const Medium *medium);
+	TQStringVariantMap mount(const TQString &id);
 	TQStringVariantMap unmount(const TQString &id);
 	TQStringVariantMap unlock(const TQString &id, const TQString &password);
 	TQStringVariantMap lock(const TQString &id);
+	TQStringVariantMap eject(const TQString &uid);
 
 private:
 	/**

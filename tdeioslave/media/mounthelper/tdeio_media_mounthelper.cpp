@@ -57,20 +57,6 @@ const Medium MountHelper::findMedium(const TQString &device)
 
 void MountHelper::mount(const Medium &medium)
 {
-	if (medium.id().isEmpty()) {
-		m_errorStr = i18n("Try to mount an unknown medium.");
-		errorAndExit();
-	}
-	TQString device = medium.deviceNode();
-	if (!medium.isMountable()) {
-		m_errorStr = i18n("%1 is not a mountable media.").arg(device);
-		errorAndExit();
-	}
-	else if (medium.isMounted()) {
-		m_errorStr = i18n("%1 is already mounted to %2.").arg(device).arg(medium.mountPoint());
-		errorAndExit();
-	}
-
 	DCOPReply reply = m_mediamanager.call("mount", medium.id());
 	TQStringVariantMap mountResult;
 	if (reply.isValid()) {
@@ -84,20 +70,6 @@ void MountHelper::mount(const Medium &medium)
 
 void MountHelper::unmount(const Medium &medium)
 {
-	if (medium.id().isEmpty()) {
-		m_errorStr = i18n("Try to unmount an unknown medium.");
-		errorAndExit();
-	}
-	TQString device = medium.deviceNode();
-	if (!medium.isMountable()) {
-		m_errorStr = i18n("%1 is not a mountable media.").arg(device);
-		errorAndExit();
-	}
-	else if (!medium.isMounted()) {
-		m_errorStr = i18n("%1 is already unmounted.").arg(device);
-		errorAndExit();
-	}
-
 	DCOPReply reply = m_mediamanager.call("unmount", medium.id());
 	TQStringVariantMap unmountResult;
 	if (reply.isValid()) {
@@ -112,19 +84,9 @@ void MountHelper::unmount(const Medium &medium)
 
 void MountHelper::unlock(const Medium &medium)
 {
-	if (medium.id().isEmpty()) {
-		m_errorStr = i18n("Try to unlock an unknown medium.");
-		errorAndExit();
-	}
 	TQString device = medium.deviceNode();
-	if (!medium.isEncrypted())
-	{
-		m_errorStr = i18n("%1 is not an encrypted media.").arg(device);
-		errorAndExit();
-	}
-	if (!medium.needUnlocking())
-	{
-		m_errorStr = i18n("%1 is already unlocked.").arg(device);
+	if (device.isEmpty()) {
+		m_errorStr = i18n("Try to unlock an unknown medium.");
 		errorAndExit();
 	}
 
@@ -175,32 +137,29 @@ void MountHelper::lock(const Medium &medium)
 	}
 }
 
-void MountHelper::eject(const TQString &device, bool quiet)
+void MountHelper::eject(const Medium &medium)
 {
 #ifdef WITH_TDEHWLIB
-	// Try TDE HW library eject first...
-	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
-	TDEGenericDevice *hwdevice = hwdevices->findByDeviceNode(device);
-	if (hwdevice->type() == TDEGenericDeviceType::Disk)
+	DCOPReply reply = m_mediamanager.call("eject", medium.id());
+	TQStringVariantMap ejectResult;
+	if (reply.isValid()) {
+		reply.get(ejectResult);
+	}
+	if (!ejectResult.contains("result") || !ejectResult["result"].toBool()) {
+		m_errorStr = ejectResult.contains("errStr") ? ejectResult["errStr"].toString() : i18n("Unknown eject error.");
+		kdDebug() << "medium eject " << m_errorStr << endl;
+		errorAndExit();
+	}
+	else
 	{
-		TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
-		TQStringVariantMap ejectResult = sdevice->ejectDrive();
-		if (ejectResult["result"].toBool() == true)
-		{
-			// Success!
-			::exit(0);
-		}
+		::exit(0); // Success!
 	}
 #endif
 
 	// Otherwise fall back to tdeeject
 	TDEProcess *proc = new TDEProcess(TQT_TQOBJECT(this));
 	*proc << "tdeeject";
-	if (quiet)
-	{
-		*proc << "-q";
-	}
-	*proc << device;
+	*proc << medium.deviceNode();
 	connect(proc, TQT_SIGNAL(processExited(TDEProcess*)),	this, TQT_SLOT(ejectFinished(TDEProcess*)));
 	proc->start();
 }
@@ -356,13 +315,13 @@ MountHelper::MountHelper() : TDEApplication(), m_mediamanager("kded", "mediamana
 	}
 	else if (args->isSet("e"))
 	{
-		eject(device, true);
+		eject(medium);
 		::exit(0);
 	}
 	else if (args->isSet("s"))
 	{
 		safeRemoval(medium);
-		eject(device, true);
+		eject(medium);
 		::exit(0);
 	}
 	else if (args->isSet("f"))
