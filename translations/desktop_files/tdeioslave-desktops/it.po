@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-29 00:09+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2021-07-07 22:18+0000\n"
+"PO-Revision-Date: 2022-03-01 07:11+0000\n"
+"Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
+"Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/tdeioslave-desktop-files/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11\n"
 
 #. Name
 #: cgi/kcmcgi/kcmcgi.desktop:9
@@ -38,14 +39,14 @@ msgstr "Notifica KDED Home Base URL"
 
 #. Comment
 #: home/kdedmodule/homedirnotify.desktop:6
-#, fuzzy
 msgid "Provides change notification for user's home folder ($HOME)"
-msgstr "Dà notifiche dei cambiamenti per le cartelle di rete"
+msgstr ""
+"Fornisce notifiche di modifica per la cartella home dell'utente ($HOME)"
 
 #. Name
 #: man/kmanpart.desktop:4
 msgid "KManPart"
-msgstr ""
+msgstr "KManPart"
 
 #. Comment
 #: man/kmanpart.desktop:6
@@ -310,19 +311,17 @@ msgstr "Volume disco rigido non montato"
 #. Comment
 #: media/mimetypes/mycomputer.desktop:6
 msgid "My Computer"
-msgstr ""
+msgstr "Computer"
 
 #. Comment
 #: media/mimetypes/mydocuments.desktop:6
-#, fuzzy
 msgid "My Documents"
-msgstr "Cartella documenti"
+msgstr "Documenti"
 
 #. Comment
 #: media/mimetypes/mynetworkplaces.desktop:6
-#, fuzzy
 msgid "My Network Places"
-msgstr "Indirizzi remoti"
+msgstr "Indirizzi di rete"
 
 #. Comment
 #: media/mimetypes/nfs_mounted.desktop:6
@@ -337,7 +336,7 @@ msgstr "Risorsa NFS non montata"
 #. Comment
 #: media/mimetypes/printers.desktop:6
 msgid "Printers"
-msgstr ""
+msgstr "Stampanti"
 
 #. Comment
 #: media/mimetypes/removable_mounted.desktop:6
@@ -390,14 +389,13 @@ msgstr "Cestino"
 
 #. Comment
 #: media/mimetypes/vcd.desktop:6
-#, fuzzy
 msgid "Video CD"
-msgstr "Super video CD"
+msgstr "Video CD"
 
 #. Comment
 #: media/mimetypes/webbrowser.desktop:6
 msgid "Web Browser"
-msgstr ""
+msgstr "Browser di rete"
 
 #. Comment
 #: media/mimetypes/zip_mounted.desktop:6
@@ -516,11 +514,12 @@ msgstr "Notifica KDED System Base URL"
 
 #. Comment
 #: system/kdedmodule/systemdirnotify.desktop:6
-#, fuzzy
 msgid ""
 "Provides change notification for folders monitored by the system:/ tdeio "
 "plugin"
-msgstr "Dà notifiche dei cambiamenti per le cartelle di rete"
+msgstr ""
+"Fornisce notifiche di modifica per le cartelle monitorate dal plug-in "
+"system:/tdeio"
 
 #. Comment
 #: system/mimetypes/system_directory.desktop:6
@@ -635,8 +634,14 @@ msgstr "Percorso originale,ora di eliminazione"
 #~ msgid "Encrypted Unlocked Removable Medium"
 #~ msgstr "Disco rimovibile criptato sprotetto"
 
+#~ msgid "Lock"
+#~ msgstr "Blocca"
+
 #~ msgid "Open Medium System Folder"
 #~ msgstr "Apri cartella del disco"
+
+#~ msgid "Unlock"
+#~ msgstr "Sblocca"
 
 #~ msgid "Trash Properties"
 #~ msgstr "Proprietà del cestino"
