@@ -839,8 +839,7 @@ for prefix in `echo "$exepath" | sed -n -e 's,/bin[^/]*/,/shutdown/,p'`; do
   done
 done
 
-unset TDE_FULL_SESSION
 xprop -root -remove TDE_FULL_SESSION
-unset TDE_SESSION_UID
+unset TDE_FULL_SESSION TDE_SESSION_UID
 
 echo "[starttde] Trinity shutdown complete." 1>&2
