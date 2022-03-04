@@ -103,6 +103,7 @@ TDEHWManager::TDEHWManager(TQWidget *parent, const char *name, const TQStringLis
 
 TDEHWManager::~TDEHWManager()
 {
+	TDEGlobal::hardwareDevices()->setTriggerlessHardwareUpdatesEnabled(false);
 	delete config;
 	delete systemconfig;
 }
