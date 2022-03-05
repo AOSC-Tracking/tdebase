@@ -100,6 +100,7 @@ KonqBaseListViewWidget::KonqBaseListViewWidget( KonqListView *parent, TQWidget *
    ,m_bAscending(true)
    ,m_itemFound(false)
    ,m_restored(false)
+   ,m_sortOrder(0)
    ,m_filenameColumn(0)
    ,m_itemToGoTo("")
    ,m_backgroundTimer(0)
@@ -1211,11 +1212,7 @@ bool KonqBaseListViewWidget::openURL( const KURL &url )
    {
       m_pBrowserView->newIconSize( m_pBrowserView->m_pProps->iconSize() );
       m_pBrowserView->m_paShowDot->setChecked( m_pBrowserView->m_pProps->isShowingDotFiles() );
-      if ( m_pBrowserView->m_paCaseInsensitive->isChecked() != m_pBrowserView->m_pProps->isCaseInsensitiveSort() ) {
-          m_pBrowserView->m_paCaseInsensitive->setChecked( m_pBrowserView->m_pProps->isCaseInsensitiveSort() );
-          // This is in case openURL returned all items synchronously.
-          sort();
-      }
+      m_sortOrder = m_pBrowserView->m_pProps->getSortOrder();
 
       // It has to be "viewport()" - this is what KonqDirPart's slots act upon,
       // and otherwise we get a color/pixmap in the square between the scrollbars.
@@ -1569,11 +1566,6 @@ void KonqBaseListViewWidget::slotUpdateBackground()
 
       m_backgroundTimer->start( 50, true );
    }
-}
-
-bool KonqBaseListViewWidget::caseInsensitiveSort() const
-{
-    return m_pBrowserView->m_pProps->isCaseInsensitiveSort();
 }
 
 // based on isExecuteArea from tdelistview.cpp

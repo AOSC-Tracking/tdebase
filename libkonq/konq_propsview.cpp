@@ -34,6 +34,8 @@
 
 #include <ksimpleconfig.h>
 
+#include "konq_sort_constants.h"
+
 static TQPixmap wallpaperPixmap( const TQString & _wallpaper )
 {
     TQString key = "wallpapers/";
@@ -65,10 +67,11 @@ static TQPixmap wallpaperPixmap( const TQString & _wallpaper )
 struct KonqPropsView::Private
 {
    TQStringList* previewsToShow;
+   TextSortOrder textSortOrder;
    bool previewsEnabled:1;
    bool caseInsensitiveSort:1;
-   bool hiddenfirst:1;
    bool dirsfirst:1;
+   bool hiddenfirst:1;
    bool descending:1;
    TQString sortcriterion;
 };
@@ -91,6 +94,7 @@ KonqPropsView::KonqPropsView( TDEInstance * instance, KonqPropsView * defaultPro
   m_iIconSize = config->readNumEntry( "IconSize", 0 );
   m_iItemTextPos = config->readNumEntry( "ItemTextPos", TQIconView::Bottom );
   d->sortcriterion = config->readEntry( "SortingCriterion", "sort_nci" );
+  d->textSortOrder = (TextSortOrder) config->readNumEntry( "TextSortOrder", 1 );
   d->dirsfirst = config->readBoolEntry( "SortDirsFirst", true );
   d->hiddenfirst = config->readBoolEntry( "SortHiddenFirst", true );
   d->descending = config->readBoolEntry( "SortDescending", false );
@@ -138,6 +142,11 @@ KonqPropsView::KonqPropsView( TDEInstance * instance, KonqPropsView * defaultPro
 bool KonqPropsView::isCaseInsensitiveSort() const
 {
    return d->caseInsensitiveSort;
+}
+
+TextSortOrder KonqPropsView::getSortOrder() const
+{
+   return d->textSortOrder;
 }
 
 bool KonqPropsView::isDirsFirst() const
@@ -206,6 +215,7 @@ bool KonqPropsView::enterDir( const KURL & dir )
     m_iIconSize = m_defaultProps->iconSize();
     m_iItemTextPos = m_defaultProps->itemTextPos();
     d->sortcriterion = m_defaultProps->sortCriterion();
+    d->textSortOrder = m_defaultProps->getSortOrder();
     d->dirsfirst = m_defaultProps->isDirsFirst();
     d->hiddenfirst = m_defaultProps->isHiddenFirst();
     d->descending = m_defaultProps->isDescending();
@@ -226,6 +236,7 @@ bool KonqPropsView::enterDir( const KURL & dir )
     m_iIconSize = config->readNumEntry( "IconSize", m_iIconSize );
     m_iItemTextPos = config->readNumEntry( "ItemTextPos", m_iItemTextPos );
     d->sortcriterion = config->readEntry( "SortingCriterion" , d->sortcriterion );
+    d->textSortOrder = (TextSortOrder) config->readNumEntry( "TextSortOrder", d->textSortOrder );
     d->dirsfirst = config->readBoolEntry( "SortDirsFirst", d->dirsfirst );
     d->hiddenfirst = config->readBoolEntry( "SortHiddenFirst", d->hiddenfirst );
     d->descending = config->readBoolEntry( "SortDescending", d->descending );
@@ -320,6 +331,20 @@ void KonqPropsView::setSortCriterion( const TQString &criterion )
     {
         TDEConfigGroupSaver cgs(currentConfig(), currentGroup());
         currentConfig()->writeEntry( "SortingCriterion", d->sortcriterion );
+        currentConfig()->sync();
+    }
+}
+
+void KonqPropsView::setSortOrder( TextSortOrder order)
+{
+    d->textSortOrder = order;
+    if ( m_defaultProps && !m_bSaveViewPropertiesLocally ) {
+        m_defaultProps->setSortOrder( order );
+    }
+    else if (currentConfig())
+    {
+        TDEConfigGroupSaver cgs(currentConfig(), currentGroup());
+        currentConfig()->writeEntry( "TextSortOrder", d->textSortOrder );
         currentConfig()->sync();
     }
 }

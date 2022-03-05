@@ -130,8 +130,12 @@ protected slots:
   void slotSaveColumnWidths();  // delayed
   void slotHeaderClicked(int sec);
 
+  void slotOrderUnicodeUnmodified();
+  void slotOrderUnicodeCaseInsensitive();
+  void slotOrderLocale();
   void slotToggleDisplayDirectoriesFirst();
   void slotToggleDisplayHiddenFirst();
+
   void slotSortAlternate();
   void slotSortReverse();
 
@@ -196,6 +200,10 @@ private:
   TDEToggleAction *m_paShowGroup;
   TDEToggleAction *m_paShowPermissions;
   TDEToggleAction *m_paShowURL;
+
+  TDEToggleAction *m_paOrderUnicodeUnmodified;
+  TDEToggleAction *m_paOrderUnicodeCaseInsensitive;
+  TDEToggleAction *m_paOrderLocale;
 
   TDEToggleAction *m_paDisplayDirectoriesFirst;
   TDEToggleAction *m_paDisplayHiddenFirst;

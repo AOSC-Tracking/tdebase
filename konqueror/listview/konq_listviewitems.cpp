@@ -19,6 +19,7 @@
 
 #include "konq_listview.h"
 #include <konq_settings.h>
+#include "konq_string_compare.h"
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <assert.h>
@@ -303,11 +304,10 @@ int KonqBaseListViewItem::compare( TQListViewItem* item, int col, bool ascending
          break;
       }
    }
-   if ( m_pListViewWidget->caseInsensitiveSort() )
-       return text( col ).lower().localeAwareCompare( k->text( col ).lower() );
-   else {
-       return m_pListViewWidget->m_pSettings->caseSensitiveCompare( text( col ), k->text( col ) );
-   }
+
+   /* If we reach here, we are comparing text columns (e.g file name). */
+
+   return stringCompare( m_pListViewWidget->m_sortOrder, text( col ), k->text( col ) );
 }
 
 void KonqListViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg, int _column, int _width, int _alignment )

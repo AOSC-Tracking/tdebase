@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="KonqDetailedListView" version="12">
+<kpartgui name="KonqDetailedListView" version="13">
 <MenuBar>
  <Menu name="edit"><text>&amp;Edit</text>
    <Menu name="selection"><text>Selection</text>
@@ -24,11 +24,13 @@
   </Menu>
   <Separator/>
   <Action name="show_dot"/>
-  <Menu name="sort"><text>Sort</text>
+  <Menu name="sort"><text>&amp;Sort</text>
+    <Action name="order_unicode_based"/>
+    <Action name="order_unicode_based_case_insensitive"/>
+    <Action name="order_locale_based"/>
+    <Separator/>
     <Action name="group_directories_first"/>
     <Action name="group_hidden_first"/>
-    <Separator/>
-    <Action name="sort_caseinsensitive"/>
     <Separator/>
     <Action name="alternate_sort_order"/>
     <Action name="reverse_sort_order"/>

@@ -43,6 +43,7 @@ install( FILES
     konq_historymgr.h konq_historycomm.h konq_pixmapprovider.h
     kivdirectoryoverlay.h kivfreespaceoverlay.h konq_faviconmgr.h
     konq_xmlguiclient.h konqbookmarkmanager.h konq_filetip.h
+    konq_sort_constants.h konq_string_compare.h
   DESTINATION ${INCLUDE_INSTALL_DIR} )
 
 

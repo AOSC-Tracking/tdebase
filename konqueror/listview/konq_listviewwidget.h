@@ -137,7 +137,6 @@ public:
 
    void setAscending( bool b ) { m_bAscending = b; }
    bool ascending() const { return m_bAscending; }
-   bool caseInsensitiveSort() const;
 
    virtual void paintEmptyArea( TQPainter *p, const TQRect &r );
 
@@ -259,6 +258,8 @@ protected:
    bool m_bAscending:1;
    bool m_itemFound:1;
    bool m_restored:1;
+
+   TextSortOrder m_sortOrder;
 
    int m_filenameColumn;
    int m_filenameColumnWidth;

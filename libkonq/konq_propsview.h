@@ -26,6 +26,8 @@
 #include <kurl.h>
 #include <libkonq_export.h>
 
+#include "konq_sort_constants.h"
+
 class TDEInstance;
 class TDEConfigBase;
 class TDEConfig;
@@ -89,6 +91,9 @@ public:
 
   void setSortCriterion( const TQString &criterion );
   const TQString& sortCriterion() const;
+
+  void setSortOrder( TextSortOrder order);
+  TextSortOrder getSortOrder() const;
 
   void setDirsFirst ( bool first );
   bool isDirsFirst() const;

@@ -48,6 +48,8 @@
 #include <unistd.h>
 #include <kinstance.h>
 
+#include <konq_sort_constants.h>
+
 KonqListViewFactory::KonqListViewFactory()
 {
   s_instance = 0;
@@ -929,19 +931,50 @@ void KonqListView::setupActions()
 
   m_paShowDot = new TDEToggleAction( i18n( "Show &Hidden Files" ), 0, this, TQT_SLOT( slotShowDot() ), actionCollection(), "show_dot" );
 //  m_paShowDot->setCheckedState(i18n("Hide &Hidden Files"));
+
   m_paCaseInsensitive = new TDEToggleAction(i18n("Case Insensitive Sort"), 0, this, TQT_SLOT(slotCaseInsensitive()),actionCollection(), "sort_caseinsensitive" );
 
   m_paSortAlternate = new TDEAction( i18n( "&Alternate Sort Order" ), CTRL+Key_S, this,
-     TQT_SLOT( slotSortAlternate() ), actionCollection(), "alternate_sort_order");
+    TQT_SLOT( slotSortAlternate() ), actionCollection(), "alternate_sort_order");
+  m_paSortAlternate->setToolTip( i18n( "Sort by PREVIOUS sort column" ) );
   m_paSortReverse = new TDEAction( i18n( "&Reverse Sort Order" ), CTRL+Key_R, this,
     TQT_SLOT( slotSortReverse() ), actionCollection(), "reverse_sort_order");
+  m_paSortReverse->setToolTip( i18n( "Reverse sort order of current sort column" ) );
 
-  m_paDisplayDirectoriesFirst = new TDEToggleAction( i18n("Group &Directories First"), 0, this,
+  /*
+     Build View->Sort submenu interface to properties
+     SortOrder, SortDirsFirst & SortHiddenFirst
+  */
+  TextSortOrder initialOrder = m_pProps->getSortOrder();
+
+  m_paOrderUnicodeUnmodified = new TDEToggleAction( i18n( "&Unicode based" ), ALT+Key_1, this,
+    TQT_SLOT( slotOrderUnicodeUnmodified() ), actionCollection(), "order_unicode_based" );
+  m_paOrderUnicodeUnmodified->setToolTip( i18n( "Strict numeric Unicode based order" ) );
+  m_paOrderUnicodeUnmodified->setChecked( initialOrder == UNICODE_UNMODIFIED );
+
+  m_paOrderUnicodeCaseInsensitive = new TDEToggleAction( i18n( "Unicode based, &case insensitive" ), ALT+Key_2, this,
+    TQT_SLOT( slotOrderUnicodeCaseInsensitive() ), actionCollection(), "order_unicode_based_case_insensitive" );
+  m_paOrderUnicodeCaseInsensitive->setToolTip( i18n( "Unicode based order but with lower/upper case ASCII letters adjacent" ) );
+  m_paOrderUnicodeCaseInsensitive->setChecked(initialOrder == UNICODE_CASEINSENSITIVE);
+
+  m_paOrderLocale = new TDEToggleAction( i18n( "&Locale based" ), ALT+Key_3, this,
+    TQT_SLOT( slotOrderLocale() ), actionCollection(), "order_locale_based" );
+  m_paOrderLocale->setToolTip( i18n( "Locale based order, usually \"friendly\"" ) );
+  m_paOrderLocale->setChecked(initialOrder == LOCALE_UNMODIFIED);
+
+  // Convert above 3 checkbox menu items into single 3-way radio button menu item
+  m_paOrderUnicodeUnmodified->setExclusiveGroup( "sortOrder" );
+  m_paOrderUnicodeCaseInsensitive->setExclusiveGroup( "sortOrder" );
+  m_paOrderLocale->setExclusiveGroup( "sortOrder" );
+
+  m_paDisplayDirectoriesFirst = new TDEToggleAction( i18n("Group &Directories First"), CTRL+SHIFT+Key_F, this,
     TQT_SLOT(slotToggleDisplayDirectoriesFirst()), actionCollection(), "group_directories_first");
-  m_paDisplayDirectoriesFirst->setChecked(m_pProps->isHiddenFirst());
+  m_paDisplayDirectoriesFirst->setToolTip( i18n( "Always display directories before non-directories" ) );
+  m_paDisplayDirectoriesFirst->setChecked(m_pProps->isDirsFirst());
 
-  m_paDisplayHiddenFirst = new TDEToggleAction( i18n("Group &Hidden First"), 0, this,
+  m_paDisplayHiddenFirst = new TDEToggleAction( i18n("Group &Hidden First"), CTRL+SHIFT+Key_H, this,
     TQT_SLOT(slotToggleDisplayHiddenFirst()), actionCollection(), "group_hidden_first");
+  m_paDisplayHiddenFirst->setToolTip( i18n( "Always display hidden files before non-hidden files" ) );
   m_paDisplayHiddenFirst->setChecked(m_pProps->isHiddenFirst());
 
   newIconSize( TDEIcon::SizeSmall /* default size */ );
@@ -955,6 +988,32 @@ void KonqListView::slotSelectionChanged()
 //  m_paInvertSelection->setEnabled( itemSelected );
 }
 
-#include "konq_listview.moc"
+void KonqListView::slotOrderUnicodeUnmodified()
+{
+  TextSortOrder sortOrder = UNICODE_UNMODIFIED ;
+  kdDebug(1202) << "Setting name order = " << sortOrder << endl;
+  m_pProps->setSortOrder( sortOrder );
+  m_pListView->m_sortOrder = sortOrder;
+  m_pListView->sort();
+}
 
+void KonqListView::slotOrderUnicodeCaseInsensitive()
+{
+  TextSortOrder sortOrder = UNICODE_CASEINSENSITIVE;
+  kdDebug(1202) << "Setting name order = " << sortOrder << endl;
+  m_pProps->setSortOrder( sortOrder );
+  m_pListView->m_sortOrder = sortOrder;
+  m_pListView->sort();
+}
+
+void KonqListView::slotOrderLocale()
+{
+  TextSortOrder sortOrder = LOCALE_UNMODIFIED;
+  kdDebug(1202) << "Setting name order = " << sortOrder << endl;
+  m_pProps->setSortOrder( sortOrder );
+  m_pListView->m_sortOrder = sortOrder;
+  m_pListView->sort();
+}
+
+#include "konq_listview.moc"
 
