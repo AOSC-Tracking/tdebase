@@ -222,7 +222,7 @@ TQStringVariantMap MediaManager::mount(const TQString &uid)
 	}
 #endif
 	TQStringVariantMap result;
-	result["errStr"] = i18n("Feature only available with the TDE or fstab hardware backend");
+	result["errStr"] = i18n("Feature only available with the TDE hardware or fstab backend");
 	result["result"] = false;
 	return result;
 }
@@ -241,7 +241,7 @@ TQStringVariantMap MediaManager::unmount(const TQString &uid)
 	}
 #endif
 	TQStringVariantMap result;
-	result["errStr"] = i18n("Feature only available with the TDE or fstab hardware backend");
+	result["errStr"] = i18n("Feature only available with the TDE hardware or fstab backend");
 	result["result"] = false;
 	return result;
 }
