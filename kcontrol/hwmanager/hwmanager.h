@@ -59,6 +59,7 @@ k_dcop:
 
 private slots:
 	void populateTreeView();
+	void delayedPopulateTreeView();
 	void populateTreeViewLeaf(DeviceIconItem *parent, bool show_by_connection, TQString selected_syspath);
 	void deviceChanged(TDEGenericDevice*);
 

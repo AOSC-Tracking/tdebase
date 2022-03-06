@@ -32,31 +32,25 @@ class ConfigModuleList;
 class DeviceIconItem : public TDEListViewItem
 {
 public:
-	DeviceIconItem(TQListViewItem *parent, const TQString& text, const TQPixmap& pm, TDEGenericDevice *d = 0)
+	DeviceIconItem(TQListViewItem *parent, const TQString& text, const TQPixmap& pm, TQString deviceUid)
 		: TDEListViewItem(parent, text)
-		, _tag(TQString::null)
-		, _device(d)
+		, _deviceUid(deviceUid)
 		{
 			setPixmap(0, pm);
 		}
-	DeviceIconItem(TQListView *parent, const TQString& text, const TQPixmap& pm, TDEGenericDevice *d = 0)
+	DeviceIconItem(TQListView *parent, const TQString& text, const TQPixmap& pm, TQString deviceUid)
 		: TDEListViewItem(parent, text)
-		, _tag(TQString::null)
-		, _device(d)
+		, _deviceUid(deviceUid)
 		{
 			setPixmap(0, pm);
 		}
 		
-		void setDevice(TDEGenericDevice* d) { _device = d; }
-		void setTag(const TQString& t) { _tag = t; }
+		void setDevice(TQString deviceUid) { _deviceUid = deviceUid; }
 		
-		TDEGenericDevice* device() { return _device; }
-		TQString tag() { return _tag; }
-	
+		TDEGenericDevice* device() { return TDEGlobal::hardwareDevices()->findByUniqueID(_deviceUid); }
 	
 private:
-		TQString _tag;
-		TDEGenericDevice *_device;
+		TQString _deviceUid;  // device unique id
 };
 
 class DeviceIconView : public TDEListView

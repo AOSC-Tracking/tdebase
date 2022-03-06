@@ -23,6 +23,7 @@
 #include <tqlayout.h>
 #include <tqlineedit.h>
 #include <tqpushbutton.h>
+#include <tqtimer.h>
 
 #include <dcopclient.h>
 
@@ -93,7 +94,7 @@ TDEHWManager::TDEHWManager(TQWidget *parent, const char *name, const TQStringLis
 	connect(base->showByConnection, TQT_SIGNAL(clicked()), TQT_SLOT(populateTreeView()));
 
 	connect(hwdevices, TQT_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQT_SLOT(populateTreeView()));
-	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(populateTreeView()));
+	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(delayedPopulateTreeView()));
 	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(deviceChanged(TDEGenericDevice*)));
 
 	load();
@@ -148,7 +149,7 @@ void TDEHWManager::populateTreeView()
 		TDEGenericHardwareList hwlist = hwdevices->listByDeviceClass(TDEGenericDeviceType::RootSystem);
 		TDEGenericDevice *hwdevice;
 		for ( hwdevice = hwlist.first(); hwdevice; hwdevice = hwlist.next() ) {
-			DeviceIconItem* item = new DeviceIconItem(base->deviceTree, hwdevice->detailedFriendlyName(), hwdevice->icon(base->deviceTree->iconSize()), hwdevice);
+			DeviceIconItem* item = new DeviceIconItem(base->deviceTree, hwdevice->detailedFriendlyName(), hwdevice->icon(base->deviceTree->iconSize()), hwdevice->uniqueID());
 			if ((!selected_syspath.isNull()) && (hwdevice->systemPath() == selected_syspath)) {
 				base->deviceTree->ensureItemVisible(item);
 				base->deviceTree->setSelected(item, true);
@@ -160,11 +161,11 @@ void TDEHWManager::populateTreeView()
 		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 		for (int i=0;i<=TDEGenericDeviceType::Last;i++) {
 			if (i != TDEGenericDeviceType::Root) {
-				DeviceIconItem* rootitem = new DeviceIconItem(base->deviceTree, hwdevices->getFriendlyDeviceTypeStringFromType((TDEGenericDeviceType::TDEGenericDeviceType)i), hwdevices->getDeviceTypeIconFromType((TDEGenericDeviceType::TDEGenericDeviceType)i, base->deviceTree->iconSize()), 0);
+				DeviceIconItem* rootitem = new DeviceIconItem(base->deviceTree, hwdevices->getFriendlyDeviceTypeStringFromType((TDEGenericDeviceType::TDEGenericDeviceType)i), hwdevices->getDeviceTypeIconFromType((TDEGenericDeviceType::TDEGenericDeviceType)i, base->deviceTree->iconSize()), TQString::null);
 				TDEGenericDevice *hwdevice;
 				TDEGenericHardwareList hwlist = hwdevices->listByDeviceClass((TDEGenericDeviceType::TDEGenericDeviceType)i);
 				for ( hwdevice = hwlist.first(); hwdevice; hwdevice = hwlist.next() ) {
-					DeviceIconItem* item = new DeviceIconItem(rootitem, hwdevice->detailedFriendlyName(), hwdevice->icon(base->deviceTree->iconSize()), hwdevice);
+					DeviceIconItem* item = new DeviceIconItem(rootitem, hwdevice->detailedFriendlyName(), hwdevice->icon(base->deviceTree->iconSize()), hwdevice->uniqueID());
 					if ((!selected_syspath.isNull()) && (hwdevice->systemPath() == selected_syspath)) {
 						base->deviceTree->ensureItemVisible(item);
 						base->deviceTree->setSelected(item, true);
@@ -175,6 +176,13 @@ void TDEHWManager::populateTreeView()
 	}
 }
 
+void TDEHWManager::delayedPopulateTreeView() {
+	// When hardwareRemoved() is triggered, the list of devices still contains the device which
+	// is about to be removed. Therefore we need to delay repopulating the device tree after the
+	// removal of the device.
+	TQTimer::singleShot(0, this, TQT_SLOT(populateTreeView()));
+}
+
 void TDEHWManager::populateTreeViewLeaf(DeviceIconItem *parent, bool show_by_connection, TQString selected_syspath) {
 	if (show_by_connection) {
 		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -182,7 +190,7 @@ void TDEHWManager::populateTreeViewLeaf(DeviceIconItem *parent, bool show_by_con
 		TDEGenericDevice *hwdevice;
 		for ( hwdevice = hwlist.first(); hwdevice; hwdevice = hwlist.next() ) {
 			if (hwdevice->parentDevice() == parent->device()) {
-				DeviceIconItem* item = new DeviceIconItem(parent, hwdevice->detailedFriendlyName(), hwdevice->icon(base->deviceTree->iconSize()), hwdevice);
+				DeviceIconItem* item = new DeviceIconItem(parent, hwdevice->detailedFriendlyName(), hwdevice->icon(base->deviceTree->iconSize()), hwdevice->uniqueID());
 				if ((!selected_syspath.isNull()) && (hwdevice->systemPath() == selected_syspath)) {
 					base->deviceTree->ensureItemVisible(item);
 					base->deviceTree->setSelected(item, true);
