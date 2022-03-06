@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Fiflagar Lorizen <fiflagar.lorizen@posteo.net>, 2021.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:50+0200\n"
-"PO-Revision-Date: 2021-04-20 20:01+0000\n"
-"Last-Translator: Fiflagar Lorizen <fiflagar.lorizen@posteo.net>\n"
+"PO-Revision-Date: 2022-03-06 19:02+0000\n"
+"Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdm-themes/it/>\n"
 "Language: it\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.3\n"
+"X-Generator: Weblate 4.11.2\n"
 
 #. Name
 #: circles/GdmGreeterTheme.desktop:7
@@ -40,7 +41,7 @@ msgstr "Un tema TDM minimalista per l'ambiente TDE, ispirato da LigthDM"
 #. Name
 #: o2_enterprise/GdmGreeterTheme.desktop:8
 msgid "O2 Enterprise"
-msgstr ""
+msgstr "O2 Enterprise"
 
 #. Description
 #: o2_enterprise/GdmGreeterTheme.desktop:10
