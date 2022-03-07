@@ -45,6 +45,7 @@
 #include "passworddlg.h"
 
 #include <dcopclient.h>
+#include <dcopref.h>
 
 #include <cstdlib>
 #include <unistd.h>
@@ -439,14 +440,19 @@ void HwDeviceSystemTray::slotMountDevice(int parameter)
 			{
 				if (sdevice->mountPath().isEmpty())
 				{
-					TQStringVariantMap mountResult = sdevice->mountDevice();
-					if (mountResult["result"].toBool() == false)
+					// Use DCOP call instead of a tdehw call for consistent behavior across TDE
+					DCOPRef mediamanager("kded", "mediamanager");
+					DCOPReply reply = mediamanager.call("mountByNode", sdevice->deviceNode());
+					TQStringVariantMap mountResult;
+					if (reply.isValid())
 					{
-						TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : TQString::null;
-						TQString retcodeStr = mountResult.contains("retCode") ? mountResult["retCode"].toString() : i18n("not available");
-						TQString qerror = i18n("<p>Technical details:<br>") + (!errStr.isEmpty() ? errStr : i18n("unknown"));
-						KMessageBox::error(0, i18n("<qt><b>Unable to mount the device.</b>") + qerror + " (error code " +
-						        retcodeStr + ").</qt>", i18n("Mount failed"));
+						reply.get(mountResult);
+					}
+					if (!mountResult.contains("result") || mountResult["result"].toBool() == false)
+					{
+						// Mount failed!
+						TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : i18n("Unable to mount the device.");
+						KMessageBox::error(0, "<qt>" +  errStr + "</qt>", i18n("Mount failed"));
 					}
 					return;
 				}
@@ -469,14 +475,19 @@ void HwDeviceSystemTray::slotUnmountDevice(int parameter)
 			{
 				if (!sdevice->mountPath().isEmpty())
 				{
-					TQStringVariantMap unmountResult = sdevice->unmountDevice();
-					if (unmountResult["result"].toBool() == false)
+					// Use DCOP call instead of a tdehw call for consistent behavior across TDE
+					DCOPRef mediamanager("kded", "mediamanager");
+					DCOPReply reply = mediamanager.call("unmountByNode", sdevice->deviceNode());
+					TQStringVariantMap unmountResult;
+					if (reply.isValid())
 					{
-						TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : TQString::null;
-						TQString retcodeStr = unmountResult.contains("retCode") ? unmountResult["retCode"].toString() : i18n("not available");
-						TQString qerror = i18n("<p>Technical details:<br>") + (!errStr.isEmpty() ? errStr : i18n("unknown"));
-						KMessageBox::error(0, i18n("<qt><b>Unable to unmount the device.</b>") + qerror + " (error code " +
-						        retcodeStr + ").</qt>", i18n("Unmount failed"));
+						reply.get(unmountResult);
+					}
+					if (!unmountResult.contains("result") || unmountResult["result"].toBool() == false)
+					{
+						// Unmount failed!
+						TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : i18n("Unable to unmount the device.");
+						KMessageBox::error(0, "<qt>" +  errStr + "</qt>", i18n("Unmount failed"));
 					}
 					return;
 				}
@@ -506,6 +517,7 @@ void HwDeviceSystemTray::slotUnlockDevice(int parameter)
 				m_passDlg->index = parameter;
 				m_passDlg->clearPassword();
 				m_passDlg->show();
+				return;
 			}
 		}
 	}
@@ -523,21 +535,30 @@ void HwDeviceSystemTray::doUnlockDisk()
 			TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
 			if ((sdevice->diskUUID() == uuid) || (sdevice->systemPath() == uuid))
 			{
-				TQStringVariantMap unlockResult = sdevice->unlockDevice(m_passDlg->getPassword());
-				if (unlockResult["result"].toBool() == false)
+				// Use DCOP call instead of a tdehw call for consistent behavior across TDE
+				DCOPRef mediamanager("kded", "mediamanager");
+				DCOPReply reply = mediamanager.call("unlockByNode", sdevice->deviceNode(), m_passDlg->getPassword());
+				TQStringVariantMap unlockResult;
+				if (reply.isValid())
 				{
-					// Unlock failed!
+					reply.get(unlockResult);
+				}
+				if (!unlockResult.contains("result") || !unlockResult["result"].toBool())
+				{
 					TQString errStr = unlockResult.contains("errStr") ? unlockResult["errStr"].toString() : TQString::null;
-					TQString retcodeStr = unlockResult.contains("retCode") ? unlockResult["retCode"].toString() : i18n("not available");
-					TQString qerror = i18n("<p>Technical details:<br>") + (!errStr.isEmpty() ? errStr : i18n("unknown"));
-					KMessageBox::error(0, i18n("<qt><b>Unable to unlock the device.</b>") + qerror + " (error code " +
-					        retcodeStr + ").</qt>", i18n("Unlock failed"));
+					if (errStr.isEmpty())
+					{
+						errStr = i18n("<qt>Unable to unlock the device.<p>Potential reasons include:<br>Wrong password "
+								"and/or user privilege level.<br>Corrupt data on storage device.</qt>");
+					}
+					KMessageBox::error(0, errStr, i18n("Unlock failed"));
 					m_passDlg->clearPassword();
 				}
 				else
 				{
 					m_passDlg->hide();
 				}
+				return;
 			}
 		}
 	}
@@ -555,16 +576,21 @@ void HwDeviceSystemTray::slotLockDevice(int parameter)
 			TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
 			if ((sdevice->diskUUID() == uuid) || (sdevice->systemPath() == uuid))
 			{
-				TQStringVariantMap lockResult = sdevice->lockDevice();
-				if (lockResult["result"].toBool() == false)
+				// Use DCOP call instead of a tdehw call for consistent behavior across TDE
+				DCOPRef mediamanager("kded", "mediamanager");
+				DCOPReply reply = mediamanager.call("lockByNode", sdevice->deviceNode());
+				TQStringVariantMap lockResult;
+				if (reply.isValid())
+				{
+					reply.get(lockResult);
+				}
+				if (!lockResult.contains("result") || lockResult["result"].toBool() == false)
 				{
 					// Lock failed!
-					TQString errStr = lockResult.contains("errStr") ? lockResult["errStr"].toString() : TQString::null;
-					TQString retcodeStr = lockResult.contains("retCode") ? lockResult["retCode"].toString() : i18n("not available");
-					TQString qerror = i18n("<p>Technical details:<br>") + (!errStr.isEmpty() ? errStr : i18n("unknown"));
-					KMessageBox::error(0, i18n("<qt><b>Unable to lock the device.</b>") + qerror + " (error code " +
-					        retcodeStr + ").</qt>", i18n("Lock failed"));
+					TQString errStr = lockResult.contains("errStr") ? lockResult["errStr"].toString() : i18n("Unable to lock the device.");
+					KMessageBox::error(0, "<qt>" +  errStr + "</qt>", i18n("Lock failed"));
 				}
+				return;
 			}
 		}
 	}
@@ -582,15 +608,19 @@ void HwDeviceSystemTray::slotEjectDevice(int parameter)
 			TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
 			if ((sdevice->diskUUID() == uuid) || (sdevice->systemPath() == uuid))
 			{
-				TQStringVariantMap ejectResult = sdevice->ejectDrive();
-				if (ejectResult["result"].toBool() == false)
+				// Use DCOP call instead of a tdehw call for consistent behavior across TDE
+				DCOPRef mediamanager("kded", "mediamanager");
+				DCOPReply reply = mediamanager.call("ejectByNode", sdevice->deviceNode());
+				TQStringVariantMap ejectResult;
+				if (reply.isValid())
+				{
+					reply.get(ejectResult);
+				}
+				if (!ejectResult.contains("result") || ejectResult["result"].toBool() == false)
 				{
 					// Eject failed!
-					TQString errStr = ejectResult.contains("errStr") ? ejectResult["errStr"].toString() : TQString::null;
-					TQString retcodeStr = ejectResult.contains("retCode") ? ejectResult["retCode"].toString() : i18n("not available");
-					TQString qerror = i18n("<p>Technical details:<br>") + (!errStr.isEmpty() ? errStr : i18n("unknown"));
-					KMessageBox::error(0, i18n("<qt><b>Unable to eject the device.</b>") + qerror + " (error code " +
-					        retcodeStr + ").</qt>", i18n("Eject failed"));
+					TQString errStr = ejectResult.contains("errStr") ? ejectResult["errStr"].toString() : i18n("Unable to eject the device.");
+					KMessageBox::error(0, "<qt>" +  errStr + "</qt>", i18n("Eject failed"));
 				}
 				return;
 			}
