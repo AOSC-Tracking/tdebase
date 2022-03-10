@@ -237,9 +237,16 @@ void LayoutConfig::initUI() {
 	widget->grpLabel->setButton( ( m_kxkbConfig.m_useThemeColors ? 0 : 1 )  );
 	widget->bgColor->setColor( m_kxkbConfig.m_colorBackground );
 	widget->fgColor->setColor( m_kxkbConfig.m_colorLabel );
+	widget->chkBgTransparent->setChecked( m_kxkbConfig.m_bgTransparent );
 	widget->labelFont->setFont( m_kxkbConfig.m_labelFont );
 	widget->chkLabelShadow->setChecked( m_kxkbConfig.m_labelShadow );
 	widget->shColor->setColor( m_kxkbConfig.m_colorShadow );
+
+	widget->grpLabel->setDisabled(showFlag && !showLabel);
+	widget->grpLabelColors->setDisabled(m_kxkbConfig.m_useThemeColors);
+	widget->labelBgColor->setDisabled(showFlag);
+	widget->bgColor->setDisabled(showFlag);
+	widget->chkBgTransparent->setDisabled(showFlag);
 
 	switch( m_kxkbConfig.m_switchingPolicy ) {
 		default:
@@ -303,6 +310,7 @@ void LayoutConfig::save()
 	m_kxkbConfig.m_useThemeColors = widget->radLabelUseTheme->isChecked();
 	m_kxkbConfig.m_colorBackground = widget->bgColor->color();
 	m_kxkbConfig.m_colorLabel = widget->fgColor->color();
+	m_kxkbConfig.m_bgTransparent = widget->chkBgTransparent->isChecked();
 	m_kxkbConfig.m_labelFont = widget->labelFont->font();
 	m_kxkbConfig.m_labelShadow = widget->chkLabelShadow->isChecked();
 	m_kxkbConfig.m_colorShadow = widget->shColor->color();

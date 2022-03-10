@@ -105,6 +105,7 @@ public:
 
 	bool m_useThemeColors;
 	TQColor m_colorBackground;
+	bool m_bgTransparent;
 	TQColor m_colorLabel;
 	TQFont m_labelFont;
 	bool m_labelShadow;
