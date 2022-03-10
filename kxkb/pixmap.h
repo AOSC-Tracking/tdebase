@@ -24,6 +24,7 @@ private:
   bool m_showFlag;
   bool m_showLabel;
   TQColor m_bgColor;
+  bool m_bgTransparent;
   TQColor m_fgColor;
   TQFont m_labelFont;
   bool m_labelShadow;

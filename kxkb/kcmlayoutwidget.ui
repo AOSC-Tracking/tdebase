@@ -545,96 +545,108 @@
                                             <bool>false</bool>
                                         </property>
                                     </widget>
-                                    <spacer row="2" column="0">
+                                    <widget class="TQFrame" row="2" column="0" colspan="3">
                                         <property name="name">
-                                            <cstring>spacer2</cstring>
+                                            <cstring>grpLabelColors</cstring>
                                         </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
+                                        <property name="frameShape">
+                                            <enum>NoFrame</enum>
                                         </property>
-                                        <property name="sizeType">
-                                            <enum>Fixed</enum>
+                                        <property name="frameShadow">
+                                            <enum>Plain</enum>
                                         </property>
-                                        <property name="sizeHint">
-                                        <size>
-                                          <width>20</width>
-                                          <height>20</height>
-                                        </size>
-                                      </property>
-                                    </spacer>
-                                    <widget class="TQLabel" row="2" column="1">
+                                        <grid>
+                                            <spacer row="0" column="0">
+                                                <property name="name">
+                                                    <cstring>spacer2</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Horizontal</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Fixed</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <widget class="TQLabel" row="0" column="1">
+                                                <property name="name">
+                                                    <cstring>labelBgColor</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Background color:</string>
+                                                </property>
+                                                <property name="whatsThis" stdset="0">
+                                                    <string>This color will be used as the indicator's background unless the indicator was set to display a flag.</string>
+                                                </property>
+                                            </widget>
+                                            <widget class="KColorButton" row="0" column="2">
+                                                <property name="name">
+                                                    <cstring>bgColor</cstring>
+                                                </property>
+                                                <property name="whatsThis" stdset="0">
+                                                    <string>This color will be used as the indicator's background unless the indicator was set to display a flag.</string>
+                                                </property>
+                                            </widget>
+                                            <spacer row="1" column="0">
+                                                <property name="name">
+                                                    <cstring>spacer2</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Horizontal</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Fixed</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <widget class="TQLabel" row="1" column="1">
+                                                <property name="name">
+                                                    <cstring>labelFgColor</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Text color:</string>
+                                                </property>
+                                                <property name="whatsThis" stdset="0">
+                                                    <string>This color will be used to draw the language label on the indicator.</string>
+                                                </property>
+                                            </widget>
+                                            <widget class="KColorButton" row="1" column="2">
+                                                <property name="name">
+                                                    <cstring>fgColor</cstring>
+                                                </property>
+                                              <property name="whatsThis" stdset="0">
+                                                  <string>This color will be used to draw the language label on the indicator.</string>
+                                              </property>
+                                            </widget>
+                                        </grid>
+                                    </widget>
+                                    <widget class="TQCheckBox" row="4" column="0" rowspan="1" colspan="3">
                                         <property name="name">
-                                            <cstring>labelBgColor</cstring>
+                                            <cstring>chkBgTransparent</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Background color:</string>
+                                            <string>Transparent background</string>
                                         </property>
                                         <property name="whatsThis" stdset="0">
-                                            <string>This color will be used as the indicator's background unless the indicator was set to display a flag.</string>
-                                        </property>
-                                        <property name="enabled">
-                                            <bool>false</bool>
+                                            <string>Check this to remove the indicator's background. Only applicable in "Label only" mode.</string>
                                         </property>
                                     </widget>
-                                    <widget class="KColorButton" row="2" column="2">
-                                        <property name="name">
-                                            <cstring>bgColor</cstring>
-                                        </property>
-                                        <property name="whatsThis" stdset="0">
-                                            <string>This color will be used as the indicator's background unless the indicator was set to display a flag.</string>
-                                        </property>
-                                        <property name="enabled">
-                                            <bool>false</bool>
-                                        </property>
-                                    </widget>
-                                    <spacer row="3" column="0">
-                                        <property name="name">
-                                            <cstring>spacer2</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                           <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Fixed</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>20</width>
-                                                <height>20</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                    <widget class="TQLabel" row="3" column="1">
-                                        <property name="name">
-                                            <cstring>labelFgColor</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Text color:</string>
-                                        </property>
-                                        <property name="whatsThis" stdset="0">
-                                            <string>This color will be used to draw the language label on the indicator.</string>
-                                        </property>
-                                        <property name="enabled">
-                                            <bool>false</bool>
-                                        </property>
-                                    </widget>
-                                    <widget class="KColorButton" row="3" column="2">
-                                        <property name="name">
-                                            <cstring>fgColor</cstring>
-                                        </property>
-                                        <property name="whatsThis" stdset="0">
-                                            <string>This color will be used to draw the language label on the indicator.</string>
-                                        </property>
-                                        <property name="enabled">
-                                            <bool>false</bool>
-                                        </property>
-                                    </widget>
-                                    <widget class="KSeparator" row="4" column="0" rowspan="1" colspan="3">
+                                    <widget class="KSeparator" row="5" column="0" rowspan="1" colspan="3">
                                         <property name="name">
                                             <cstring>separator1</cstring>
                                         </property>
                                     </widget>
-                                    <widget class="TQLabel" row="5" column="0" rowspan="1" colspan="2">
+                                    <widget class="TQLabel" row="6" column="0" rowspan="1">
                                         <property name="name">
                                             <cstring>labelFontRequester</cstring>
                                         </property>
@@ -645,12 +657,12 @@
                                             <string>This is the font which will be used by the layout indicator to draw the label.</string>
                                         </property>
                                     </widget>
-                                    <widget class="TDEFontRequester" row="5" column="2">
+                                    <widget class="TDEFontRequester" row="6" column="2">
                                         <property name="name">
                                             <cstring>labelFont</cstring>
                                         </property>
                                     </widget>
-                                    <widget class="TQCheckBox" row="6" column="0" rowspan="1" colspan="2">
+                                    <widget class="TQCheckBox" row="7" column="0" rowspan="1" colspan="2">
                                         <property name="name">
                                             <cstring>chkLabelShadow</cstring>
                                         </property>
@@ -661,7 +673,7 @@
                                             <string>Draw a drop shadow behind the language label. In some cases this option can improve readability.</string>
                                         </property>
                                     </widget>
-                                    <widget class="KColorButton" row="6" column="2">
+                                    <widget class="KColorButton" row="7" column="2">
                                         <property name="name">
                                             <cstring>shColor</cstring>
                                         </property>
@@ -920,25 +932,7 @@
     <connection>
         <sender>radLabelUseCustom</sender>
         <signal>toggled(bool)</signal>
-        <receiver>bgColor</receiver>
-        <slot>setEnabled(bool)</slot>
-      </connection>
-      <connection>
-        <sender>radLabelUseCustom</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>fgColor</receiver>
-        <slot>setEnabled(bool)</slot>
-      </connection>
-      <connection>
-        <sender>radLabelUseCustom</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>labelBgColor</receiver>
-        <slot>setEnabled(bool)</slot>
-      </connection>
-      <connection>
-        <sender>radLabelUseCustom</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>labelFgColor</receiver>
+        <receiver>grpLabelColors</receiver>
         <slot>setEnabled(bool)</slot>
       </connection>
       <connection>
@@ -952,6 +946,42 @@
         <signal>toggled(bool)</signal>
         <receiver>optionsFrame</receiver>
         <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radFlagOnly</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>grpLabel</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radLabelOnly</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>chkBgTransparent</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radLabelOnly</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>bgColor</receiver>
+        <slot>setEnabled(bool)</slot>
+      </connection>
+      <connection>
+        <sender>radLabelOnly</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>labelBgColor</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radFlagLabel</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>bgColor</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radFlagLabel</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>labelBgColor</receiver>
+        <slot>setDisabled(bool)</slot>
     </connection>
 </connections>
 <includes>

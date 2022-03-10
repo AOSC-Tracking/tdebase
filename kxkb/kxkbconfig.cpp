@@ -131,6 +131,7 @@ bool KxkbConfig::load(int loadMode)
 
 	m_useThemeColors = config->readBoolEntry("UseThemeColors", false);
 	m_colorBackground = config->readColorEntry("ColorBackground", new TQColor(TQt::gray));
+	m_bgTransparent = config->readBoolEntry("BgTransparent", false);
 	m_colorLabel = config->readColorEntry("ColorLabel", new TQColor(TQt::white));
 	m_labelFont = config->readFontEntry("LabelFont", new TQFont("sans", 10, TQFont::Bold));
 	m_labelShadow = config->readBoolEntry("LabelShadow", true);
@@ -230,6 +231,7 @@ void KxkbConfig::save()
 
 	config->writeEntry("UseThemeColors", m_useThemeColors);
 	config->writeEntry("ColorBackground", m_colorBackground);
+	config->writeEntry("BgTransparent", m_bgTransparent);
 	config->writeEntry("ColorLabel", m_colorLabel);
 	config->writeEntry("LabelFont", m_labelFont);
 	config->writeEntry("LabelShadow", m_labelShadow);

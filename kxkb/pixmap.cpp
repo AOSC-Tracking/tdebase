@@ -1,5 +1,5 @@
 #include <tqimage.h>
-//#include <tqbitmap.h>
+#include <tqbitmap.h>
 #include <tqfont.h>
 #include <tqpainter.h>
 #include <tqregexp.h>
@@ -49,6 +49,7 @@ LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& d
 	m_labelFont = m_kxkbConfig.m_labelFont;
 	m_labelShadow = m_kxkbConfig.m_labelShadow;
 	m_shColor = m_kxkbConfig.m_colorShadow;
+	m_bgTransparent = m_kxkbConfig.m_bgTransparent;
 
 	// Decide on how to style the pixmap
 	switch(pixmapStyle) {
@@ -96,7 +97,7 @@ LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& d
 
 	const TQString pixmapKey(
 		TQString( m_showFlag ? "f" : "" ) + TQString( m_showLabel ? "l" : "" ) + TQString( m_labelShadow ? "s" : "" ) + "." +
-		m_labelFont.key() + "." + m_bgColor.name() + "." + m_fgColor.name() + "." + m_shColor.name() + '.' + code_ + "." + displayName
+		m_labelFont.key() + "." + ( m_bgTransparent ? "x" : m_bgColor.name() ) + "." + m_fgColor.name() + "." + m_shColor.name() + '.' + code_ + "." + displayName
 	);
 
 	// Only use cache for indicator
@@ -145,7 +146,28 @@ LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& d
 
 		p.setPen(m_fgColor);
 		p.drawText(0, 0, pm->width(), pm->height(), Qt::AlignCenter, displayName);
+
+		if( m_bgTransparent && !m_showFlag )
+		{
+			TQPixmap maskpix(pm->width(), pm->height());
+			TQPainter maskp(&maskpix);
+
+			maskpix.fill(TQt::white);
+			maskp.setPen(TQt::black);
+			maskp.setFont(m_labelFont);
+
+			maskp.drawText(0, 0, maskpix.width(), maskpix.height(), Qt::AlignCenter, displayName);
+			if( m_labelShadow )
+			{
+				maskp.drawText(1, 1, maskpix.width(), maskpix.height(), Qt::AlignCenter, displayName);
+			}
+
+			TQBitmap mask;
+			mask = maskpix;
+			pm->setMask(mask);
+		}
 	}
+
 
 	if( pixmapStyle == PIXMAP_STYLE_INDICATOR )
 		m_pixmapCache.insert(pixmapKey, pm);
