@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:19+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-03-13 09:11+0000\n"
+"Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
+"Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/twin-clients-desktop-files/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11.2\n"
 
 #. Name
 #: b2/b2.desktop:2
 msgid "B II"
-msgstr ""
+msgstr "B II"
 
 #. Name
 #: keramik/keramik.desktop:2
@@ -49,12 +50,12 @@ msgstr "Plastica"
 #. Name
 #: quartz/quartz.desktop:2
 msgid "Quartz"
-msgstr ""
+msgstr "Quarzo"
 
 #. Name
 #: redmond/redmond.desktop:2
 msgid "Redmond"
-msgstr ""
+msgstr "Redmond"
 
 #. Name
 #: test/test.desktop:2
@@ -64,4 +65,4 @@ msgstr "Prova KWin"
 #. Name
 #: web/web.desktop:2
 msgid "Web"
-msgstr ""
+msgstr "Web"
