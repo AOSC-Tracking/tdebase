@@ -97,7 +97,7 @@ TDEHWManager::TDEHWManager(TQWidget *parent, const char *name, const TQStringLis
 	connect(base->showByConnection, TQT_SIGNAL(clicked()), TQT_SLOT(populateTreeView()));
 
 	connect(hwdevices, TQT_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQT_SLOT(populateTreeView()));
-	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(delayedPopulateTreeView()));
+	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(populateTreeView()));
 	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(deviceChanged(TDEGenericDevice*)));
 
 	load();
@@ -189,13 +189,6 @@ void TDEHWManager::populateTreeView()
 			}
 		}
 	}
-}
-
-void TDEHWManager::delayedPopulateTreeView() {
-	// When hardwareRemoved() is triggered, the list of devices still contains the device which
-	// is about to be removed. Therefore we need to delay repopulating the device tree after the
-	// removal of the device.
-	TQTimer::singleShot(0, this, TQT_SLOT(populateTreeView()));
 }
 
 void TDEHWManager::populateTreeViewLeaf(DeviceIconItem *parent, bool show_by_connection, TQString selected_syspath) {
