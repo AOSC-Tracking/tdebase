@@ -25,7 +25,6 @@
 #include <tdeapplication.h>
 #include <tqstring.h>
 #include <tdeio/job.h>
-#include <dcopref.h>
 
 #include "medium.h"
 
@@ -44,7 +43,6 @@ private:
 	TQString m_errorStr;
 	TQString m_mediumId;
 	Dialog *m_dialog;
-	DCOPRef m_mediamanager;
 
 	const Medium findMedium(const TQString &device);
 	void error();

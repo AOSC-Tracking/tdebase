@@ -29,6 +29,7 @@
 #include <kurl.h>
 #include <tdemessagebox.h>
 #include <dcopclient.h>
+#include <dcopref.h>
 #include <tqtimer.h>
 #include <stdlib.h>
 #include <kdebug.h>
@@ -45,7 +46,8 @@
 
 const Medium MountHelper::findMedium(const TQString &device)
 {
-	DCOPReply reply = m_mediamanager.call("properties", device);
+	DCOPRef mediamanager("kded", "mediamanager");
+	DCOPReply reply = mediamanager.call("properties", device);
 	if (!reply.isValid())
 	{
 		m_errorStr = i18n("The TDE mediamanager is not running.\n");
@@ -57,7 +59,8 @@ const Medium MountHelper::findMedium(const TQString &device)
 
 void MountHelper::mount(const Medium &medium)
 {
-	DCOPReply reply = m_mediamanager.call("mount", medium.id());
+	DCOPRef mediamanager("kded", "mediamanager");
+	DCOPReply reply = mediamanager.call("mount", medium.id());
 	TQStringVariantMap mountResult;
 	if (reply.isValid()) {
 		reply.get(mountResult);
@@ -70,7 +73,8 @@ void MountHelper::mount(const Medium &medium)
 
 void MountHelper::unmount(const Medium &medium)
 {
-	DCOPReply reply = m_mediamanager.call("unmount", medium.id());
+	DCOPRef mediamanager("kded", "mediamanager");
+	DCOPReply reply = mediamanager.call("unmount", medium.id());
 	TQStringVariantMap unmountResult;
 	if (reply.isValid()) {
 		reply.get(unmountResult);
@@ -105,27 +109,8 @@ void MountHelper::unlock(const Medium &medium)
 
 void MountHelper::lock(const Medium &medium)
 {
-	if (medium.id().isEmpty())
-	{
-		m_errorStr = i18n("Try to lock an unknown medium.");
-		errorAndExit();
-	}
-	TQString device = medium.deviceNode();
-	if (!medium.isEncrypted())
-	{
-		m_errorStr = i18n("%1 is not an encrypted media.").arg(device);
-		errorAndExit();
-	}
-	if (medium.needUnlocking())
-	{
-		m_errorStr = i18n("%1 is already locked.").arg(device);
-		errorAndExit();
-	}
-
-	// Release children devices
-	releaseHolders(medium);
-
-	DCOPReply reply = m_mediamanager.call("lock", medium.id());
+	DCOPRef mediamanager("kded", "mediamanager");
+	DCOPReply reply = mediamanager.call("lock", medium.id(), true);
 	TQStringVariantMap lockResult;
 	if (reply.isValid()) {
 		reply.get(lockResult);
@@ -140,7 +125,8 @@ void MountHelper::lock(const Medium &medium)
 void MountHelper::eject(const Medium &medium)
 {
 #ifdef WITH_TDEHWLIB
-	DCOPReply reply = m_mediamanager.call("eject", medium.id());
+	DCOPRef mediamanager("kded", "mediamanager");
+	DCOPReply reply = mediamanager.call("eject", medium.id());
 	TQStringVariantMap ejectResult;
 	if (reply.isValid()) {
 		reply.get(ejectResult);
@@ -271,7 +257,7 @@ void MountHelper::openRealFolder(const Medium &medium)
 	}
 }
 
-MountHelper::MountHelper() : TDEApplication(), m_mediamanager("kded", "mediamanager")
+MountHelper::MountHelper() : TDEApplication()
 {
 	TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
 	m_errorStr = TQString::null;
@@ -377,7 +363,8 @@ void MountHelper::errorAndExit()
 
 void MountHelper::slotSendPassword()
 {
-	DCOPReply reply = m_mediamanager.call("unlock", m_mediumId, m_dialog->getPassword());
+	DCOPRef mediamanager("kded", "mediamanager");
+	DCOPReply reply = mediamanager.call("unlock", m_mediumId, m_dialog->getPassword());
 	TQStringVariantMap unlockResult;
 	if (reply.isValid()) {
 		reply.get(unlockResult);

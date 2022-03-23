@@ -1478,9 +1478,10 @@ TQStringVariantMap TDEBackend::unlock(const TQString &id, const TQString &passwo
 	return result;
 }
 
-TQStringVariantMap TDEBackend::lock(const TQString &id)
+TQStringVariantMap TDEBackend::lock(const TQString &id, bool releaseHolders)
 {
-	kdDebug(1219) << "TDEBackend::lock for id " << id << endl;
+	kdDebug(1219) << "TDEBackend::lock for id " << id << ", release holders "
+		            << releaseHolders << endl;
 
 	TQStringVariantMap result;
 
@@ -1507,6 +1508,12 @@ TQStringVariantMap TDEBackend::lock(const TQString &id)
 		result["errStr"] = i18n("Internal error. Couldn't find medium id %1.").arg(medium->id());
 		result["result"] = false;
 		return result;
+	}
+
+	// Release device holders if requested
+	if (releaseHolders)
+	{
+		releaseHolderDevices(medium->deviceNode(), false);
 	}
 
 	TQStringVariantMap lockResult = sdevice->lockDevice();
@@ -1564,6 +1571,59 @@ TQStringVariantMap TDEBackend::eject(const TQString &id)
 
 	result["result"] = true;
 	return result;
+}
+
+void TDEBackend::releaseHolderDevices(const TQString &deviceNode, bool handleThis)
+{
+	kdDebug(1219) << "TDEBackend::releaseHolderDevices for node " << deviceNode
+	              << ", handle this " << (handleThis ? "yes" : "no") << endl;
+
+	const Medium *medium = m_mediaList.findByNode(deviceNode);
+	if (!medium)
+	{
+		return;
+	}
+
+	// Scan the holding devices and unmount/lock them if possible
+	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
+	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium->id());
+	if (sdevice)
+	{
+		TQStringList holdingDeviceList = sdevice->holdingDevices();
+		for (TQStringList::Iterator holdingDevIt = holdingDeviceList.begin(); holdingDevIt != holdingDeviceList.end(); ++holdingDevIt)
+		{
+			TDEGenericDevice *hwHolderDevice = hwdevices->findBySystemPath(*holdingDevIt);
+			if (hwHolderDevice->type() == TDEGenericDeviceType::Disk)
+			{
+				TDEStorageDevice *holderSDevice = static_cast<TDEStorageDevice*>(hwHolderDevice);
+				const Medium *holderMedium = m_mediaList.findByNode(holderSDevice->deviceNode());
+				if (holderMedium && !holderMedium->id().isEmpty())
+				{
+					releaseHolderDevices(holderMedium->deviceNode(), true);
+				}
+			}
+		}
+	}
+
+	if (handleThis)
+	{
+		// Unmount if necessary
+		if (medium->isMountable() && medium->isMounted())
+		{
+			unmount(medium->id());
+			// Must process udev events before continuing, to make sure all
+			// affected devices are properly updated
+			tqApp->processEvents();
+		}
+		// Lock if necessary.
+		if (medium->isEncrypted() && !medium->isLocked())
+		{
+			lock(medium->id(), false);
+			// Must process udev events before continuing, to make sure all
+			// affected devices are properly updated
+			tqApp->processEvents();
+		}
+	}
 }
 
 void TDEBackend::slotResult(TDEIO::Job *job)

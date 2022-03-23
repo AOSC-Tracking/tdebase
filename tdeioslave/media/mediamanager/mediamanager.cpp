@@ -260,12 +260,12 @@ TQStringVariantMap MediaManager::unlock(const TQString &uid, const TQString &pas
 	return result;
 }
 
-TQStringVariantMap MediaManager::lock(const TQString &uid)
+TQStringVariantMap MediaManager::lock(const TQString &uid, bool releaseHolders)
 {
 #ifdef COMPILE_TDEHARDWAREBACKEND
 	if (m_tdebackend)
 	{
-		return m_tdebackend->lock(uid);
+		return m_tdebackend->lock(uid, releaseHolders);
 	}
 #endif
 	TQStringVariantMap result;
@@ -324,7 +324,7 @@ TQStringVariantMap MediaManager::unlockByNode(const TQString &deviceNode, const 
 	return unlock(medium->id(), password);
 }
 
-TQStringVariantMap MediaManager::lockByNode(const TQString &deviceNode)
+TQStringVariantMap MediaManager::lockByNode(const TQString &deviceNode, bool releaseHolders)
 {
 	const Medium *medium = m_mediaList.findByNode(deviceNode);
 	if (!medium) {
@@ -333,7 +333,7 @@ TQStringVariantMap MediaManager::lockByNode(const TQString &deviceNode)
 		result["result"] = false;
 		return result;
 	}
-	return lock(medium->id());
+	return lock(medium->id(), releaseHolders);
 }
 
 TQStringVariantMap MediaManager::ejectByNode(const TQString &deviceNode)

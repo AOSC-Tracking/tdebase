@@ -990,7 +990,7 @@ void DevicePropertiesDialog::lockDisk() {
 
 	// Use DCOP call instead of a tdehw call for consistent behavior across TDE
 	DCOPRef mediamanager("kded", "mediamanager");
-	DCOPReply reply = mediamanager.call("lockByNode", sdevice->deviceNode());
+	DCOPReply reply = mediamanager.call("lockByNode", sdevice->deviceNode(), true);
 	TQStringVariantMap lockResult;
 	if (reply.isValid()) {
 		reply.get(lockResult);

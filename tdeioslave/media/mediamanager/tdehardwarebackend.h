@@ -72,8 +72,8 @@ public:
 	TQStringVariantMap mount(const TQString &id);
 	TQStringVariantMap unmount(const TQString &id);
 	TQStringVariantMap unlock(const TQString &id, const TQString &password);
-	TQStringVariantMap lock(const TQString &id);
-	TQStringVariantMap eject(const TQString &uid);
+	TQStringVariantMap lock(const TQString &id, bool releaseHolders);
+	TQStringVariantMap eject(const TQString &id);
 
 private:
 	/**
@@ -118,17 +118,13 @@ private:
 	*/
 	void ResetProperties(TDEStorageDevice * sdevice, bool allowNotification=false, bool overrideIgnoreList=false);
 
-	/**
-	* Find the medium that is concerned with device udi
-	*/
-// 	const char* findMediumUdiFromUdi(const char* udi);
-
 	void setVolumeProperties(Medium* medium);
 	bool setFloppyProperties(Medium* medium);
-	void setFloppyMountState( Medium* medium );
-// 	bool setFstabProperties(Medium* medium);
+	void setFloppyMountState(Medium* medium);
 	void setCameraProperties(Medium* medium);
+	void releaseHolderDevices(const TQString &deviceNode, bool handleThis);
 	TQString generateName(const TQString &devNode);
+
 	static TQString isInFstab(const Medium *medium);
 	static TQString listUsingProcesses(const Medium *medium);
 	static TQString killUsingProcesses(const Medium *medium);
