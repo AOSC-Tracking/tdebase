@@ -1427,6 +1427,7 @@ TQStringVariantMap TDEBackend::unmount(const TQString &id)
 		m_mediaList.removeMedium(uid, true);
 	}
 
+	ResetProperties(sdevice, false, true);
 	result["result"] = true;
 	return result;
 }
@@ -1528,6 +1529,7 @@ TQStringVariantMap TDEBackend::lock(const TQString &id, bool releaseHolders)
 		}
 	}
 
+	ResetProperties(sdevice, false, true);
 	result["result"] = true;
 	return result;
 }

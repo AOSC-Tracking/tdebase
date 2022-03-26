@@ -29,6 +29,7 @@
 #include <tqpainter.h>
 #include <tqstyle.h>
 #include <tqinternal_p.h>
+#include <kprocess.h>
 #include <dcopclient.h>
 #include <dcopref.h>
 #undef Unsorted // Required for --enable-final (tqdir.h)
@@ -253,7 +254,7 @@ void SensorDisplayWidget::updateDisplay() {
 }
 
 DevicePropertiesDialog::DevicePropertiesDialog(TDEGenericDevice* device, TQWidget *parent)
-	: KDialogBase(Plain, TQString::null, Ok|Cancel, Ok, parent, 0L, true, true), m_passDlg(NULL)
+	: KDialogBase(Plain, TQString::null, Ok|Cancel, Ok, parent, 0L, true, true)
 {
 	m_device = device;
 	enableButtonOK( false );
@@ -350,10 +351,6 @@ DevicePropertiesDialog::DevicePropertiesDialog(TDEGenericDevice* device, TQWidge
 
 DevicePropertiesDialog::~DevicePropertiesDialog()
 {
-	if (m_passDlg)
-	{
-		delete m_passDlg;
-	}
 }
 
 void DevicePropertiesDialog::processHardwareRemoved(TDEGenericDevice* dev) {
@@ -909,99 +906,49 @@ void DevicePropertiesDialog::setHibernationMethod(int value) {
 void DevicePropertiesDialog::mountDisk() {
 	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
 
-	// Use DCOP call instead of a tdehw call for consistent behavior across TDE
-	DCOPRef mediamanager("kded", "mediamanager");
-	DCOPReply reply = mediamanager.call("mountByNode", sdevice->deviceNode());
-	TQStringVariantMap mountResult;
-	if (reply.isValid()) {
-		reply.get(mountResult);
+	TDEProcess proc;
+	proc << "tdeio_media_mounthelper" << "-m" << sdevice->deviceNode();
+	if (!proc.start(TDEProcess::DontCare))
+	{
+		KMessageBox::error(this, i18n("Could not start tdeio_media_mounthelper process."),
+				i18n("Device monitor"));
 	}
-	if (!mountResult.contains("result") || mountResult["result"].toBool() == false) {
-		// Mount failed!
-		TQString errStr = mountResult.contains("errStr") ? mountResult["errStr"].toString() : i18n("Unable to mount the device.");
-		KMessageBox::error(this, "<qt>" +  errStr + "</qt>", i18n("Mount failed"));
-	}
-
-	populateDeviceInformation();
 }
 
 void DevicePropertiesDialog::unmountDisk() {
 	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
 
-	// Use DCOP call instead of a tdehw call for consistent behavior across TDE
-	DCOPRef mediamanager("kded", "mediamanager");
-	DCOPReply reply = mediamanager.call("unmountByNode", sdevice->deviceNode());
-	TQStringVariantMap unmountResult;
-	if (reply.isValid()) {
-		reply.get(unmountResult);
+	TDEProcess proc;
+	proc << "tdeio_media_mounthelper" << "-u" << sdevice->deviceNode();
+	if (!proc.start(TDEProcess::DontCare))
+	{
+		KMessageBox::error(this, i18n("Could not start tdeio_media_mounthelper process."),
+				i18n("Device monitor"));
 	}
-	if (!unmountResult.contains("result") || unmountResult["result"].toBool() == false) {
-		// Unmount failed!
-		TQString errStr = unmountResult.contains("errStr") ? unmountResult["errStr"].toString() : i18n("Unable to unmount the device.");
-		KMessageBox::error(this, "<qt>" +  errStr + "</qt>", i18n("Unmount failed"));
-	}
-
-	populateDeviceInformation();
 }
 
 void DevicePropertiesDialog::unlockDisk() {
 	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
 
-	if (!m_passDlg)
+	TDEProcess proc;
+	proc << "tdeio_media_mounthelper" << "-k" << sdevice->deviceNode();
+	if (!proc.start(TDEProcess::DontCare))
 	{
-		m_passDlg = new PasswordDlg();
-		connect(m_passDlg, TQT_SIGNAL(user1Clicked()), this, TQT_SLOT(doUnlockDisk()));
+		KMessageBox::error(this, i18n("Could not start tdeio_media_mounthelper process."),
+				i18n("Device monitor"));
 	}
-	m_passDlg->setDevice(sdevice->deviceNode());
-	m_passDlg->clearPassword();
-	m_passDlg->show();
-}
-
-void DevicePropertiesDialog::doUnlockDisk() {
-	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
-
-	// Use DCOP call instead of a tdehw call for consistent behavior across TDE
-	DCOPRef mediamanager("kded", "mediamanager");
-	DCOPReply reply = mediamanager.call("unlockByNode", sdevice->deviceNode(), m_passDlg->getPassword());
-	TQStringVariantMap unlockResult;
-	if (reply.isValid()) {
-		reply.get(unlockResult);
-	}
-	if (!unlockResult.contains("result") || !unlockResult["result"].toBool())
-	{
-		TQString errStr = unlockResult.contains("errStr") ? unlockResult["errStr"].toString() : TQString::null;
-		if (errStr.isEmpty())
-		{
-			errStr = i18n("<qt>Unable to unlock the device.<p>Potential reasons include:<br>Wrong password "
-					          "and/or user privilege level.<br>Corrupt data on storage device.</qt>");
-		}
-		KMessageBox::error(this, errStr, i18n("Unlock failed"));
-		m_passDlg->clearPassword();
-	}
-	else {
-		m_passDlg->hide();
-	}
-
-	populateDeviceInformation();
 }
 
 void DevicePropertiesDialog::lockDisk() {
 	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
 
-	// Use DCOP call instead of a tdehw call for consistent behavior across TDE
-	DCOPRef mediamanager("kded", "mediamanager");
-	DCOPReply reply = mediamanager.call("lockByNode", sdevice->deviceNode(), true);
-	TQStringVariantMap lockResult;
-	if (reply.isValid()) {
-		reply.get(lockResult);
+	TDEProcess proc;
+	proc << "tdeio_media_mounthelper" << "-l" << sdevice->deviceNode();
+	if (!proc.start(TDEProcess::DontCare))
+	{
+		KMessageBox::error(this, i18n("Could not start tdeio_media_mounthelper process."),
+				i18n("Device monitor"));
 	}
-	if (!lockResult.contains("result") || lockResult["result"].toBool() == false) {
-		// Lock failed!
-		TQString errStr = lockResult.contains("errStr") ? lockResult["errStr"].toString() : i18n("Unable to lock the device.");
-		KMessageBox::error(this, "<qt>" +  errStr + "</qt>", i18n("Lock failed"));
-	}
-
-	populateDeviceInformation();
 }
 
 void DevicePropertiesDialog::cryptLUKSAddKey() {

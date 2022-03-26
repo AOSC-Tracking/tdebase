@@ -74,7 +74,6 @@ private slots:
 	void deviceRemoved(TDEGenericDevice*);
 	void deviceChanged(TDEGenericDevice*);
 	void devicePopupClicked(KPassivePopup*, TQPoint, TQString);
-	void doUnlockDisk();
 	void doDiskNotifications(bool scanOnly);
 
 private:
@@ -99,7 +98,6 @@ private:
 	TQStringMap m_propertiesMenuIndexMap;
 	TDEPopupMenu* m_menu;
 	KSimpleConfig *r_config;
-	PasswordDlg *m_passDlg;
 
 	struct KnownDiskDeviceInfo
 	{

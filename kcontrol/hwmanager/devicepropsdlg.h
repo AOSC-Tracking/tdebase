@@ -191,7 +191,6 @@ private slots:
 	void mountDisk();
 	void unmountDisk();
 	void unlockDisk();
-	void doUnlockDisk();
 	void lockDisk();
 
 	void cryptLUKSAddKey();
@@ -207,7 +206,6 @@ private slots:
 private:
 	TDEGenericDevice* m_device;
 	DevicePropertiesDialogBase* base;
-	PasswordDlg *m_passDlg;
 
 	TQGridLayout* m_sensorDataGrid;
 	SensorDisplayWidgetList m_sensorDataGridWidgets;
