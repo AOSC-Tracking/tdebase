@@ -288,6 +288,20 @@ TQStringVariantMap MediaManager::eject(const TQString &uid)
 	return result;
 }
 
+TQStringVariantMap MediaManager::safeRemove(const TQString &uid)
+{
+#ifdef COMPILE_TDEHARDWAREBACKEND
+	if (m_tdebackend)
+	{
+		return m_tdebackend->safeRemove(uid);
+	}
+#endif
+	TQStringVariantMap result;
+	result["errStr"] = i18n("Feature only available with the TDE hardware backend");
+	result["result"] = false;
+	return result;
+}
+
 TQStringVariantMap MediaManager::mountByNode(const TQString &deviceNode)
 {
 	const Medium *medium = m_mediaList.findByNode(deviceNode);
@@ -346,6 +360,18 @@ TQStringVariantMap MediaManager::ejectByNode(const TQString &deviceNode)
 		return result;
 	}
 	return eject(medium->id());
+}
+
+TQStringVariantMap MediaManager::safeRemoveByNode(const TQString &deviceNode)
+{
+	const Medium *medium = m_mediaList.findByNode(deviceNode);
+	if (!medium) {
+		TQStringVariantMap result;
+		result["errStr"] = i18n("No such medium: %1").arg(deviceNode);
+		result["result"] = false;
+		return result;
+	}
+	return safeRemove(medium->id());
 }
 
 TQString MediaManager::mimeType(const TQString &name)

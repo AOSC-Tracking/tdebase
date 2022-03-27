@@ -53,7 +53,6 @@ private:
 	void lock(const Medium &medium);
 	void eject(const Medium &medium);
 	void safeRemoval(const Medium &medium);
-	void releaseHolders(const Medium &medium, bool handleThis = false);
 	void openRealFolder(const Medium &medium);
 
 private slots:

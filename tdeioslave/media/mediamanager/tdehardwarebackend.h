@@ -74,6 +74,7 @@ public:
 	TQStringVariantMap unlock(const TQString &id, const TQString &password);
 	TQStringVariantMap lock(const TQString &id, bool releaseHolders);
 	TQStringVariantMap eject(const TQString &id);
+	TQStringVariantMap safeRemove(const TQString &uid);
 
 private:
 	/**

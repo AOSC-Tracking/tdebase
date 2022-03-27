@@ -1575,6 +1575,24 @@ TQStringVariantMap TDEBackend::eject(const TQString &id)
 	return result;
 }
 
+TQStringVariantMap TDEBackend::safeRemove(const TQString &id)
+{
+	kdDebug(1219) << "TDEBackend::safeRemove for id " << id << endl;
+
+	TQStringVariantMap result;
+
+	const Medium *medium = m_mediaList.findById(id);
+	if (!medium)
+	{
+		result["errStr"] = i18n("No such medium: %1").arg(id);
+		result["result"] = false;
+		return result;
+	}
+
+	releaseHolderDevices(medium->deviceNode(), true);
+	return eject(id);
+}
+
 void TDEBackend::releaseHolderDevices(const TQString &deviceNode, bool handleThis)
 {
 	kdDebug(1219) << "TDEBackend::releaseHolderDevices for node " << deviceNode

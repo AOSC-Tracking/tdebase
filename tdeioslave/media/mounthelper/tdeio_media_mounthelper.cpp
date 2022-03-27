@@ -150,89 +150,18 @@ void MountHelper::eject(const Medium &medium)
 	proc->start();
 }
 
-void MountHelper::releaseHolders(const Medium &medium, bool handleThis)
-{
-#ifdef WITH_TDEHWLIB
-	if (medium.id().isEmpty())
-	{
-		m_errorStr = i18n("Try to release holders from an unknown medium.");
-		return;
-	}
-
-	// Scan the holding devices and unmount/lock them if possible
-	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
-	TDEStorageDevice *sdevice = hwdevices->findDiskByUID(medium.id());
-	if (sdevice)
-	{
-		TQStringList holdingDeviceList = sdevice->holdingDevices();
-		for (TQStringList::Iterator holdingDevIt = holdingDeviceList.begin(); holdingDevIt != holdingDeviceList.end(); ++holdingDevIt)
-		{
-			TDEGenericDevice *hwHolderDevice = hwdevices->findBySystemPath(*holdingDevIt);
-			if (hwHolderDevice->type() == TDEGenericDeviceType::Disk)
-			{
-				TDEStorageDevice *holderSDevice = static_cast<TDEStorageDevice*>(hwHolderDevice);
-				const Medium holderMedium = findMedium(holderSDevice->deviceNode());
-				if (!holderMedium.id().isEmpty())
-				{
-					releaseHolders(holderMedium, true);
-				}
-			}
-		}
-	}
-
-	if (handleThis)
-	{
-		// Unmount if necessary
-		if (medium.isMountable() && medium.isMounted())
-		{
-			unmount(medium);
-		}
-		// Lock if necessary.
-		if (medium.isEncrypted() && !medium.isLocked())
-		{
-			lock(medium);
-		}
-	}
-#endif
-}
-
 void MountHelper::safeRemoval(const Medium &medium)
 {
-	/*
-	* Safely remove will performs the following tasks:
-	* 1) release children devices (if tdehw is available)
-	* 2) if the medium is mounted, unmount it
-	* 3) if the medium is encrypted and unlocked, lock it
-	* 4) invoke eject to release the medium.
-	* If any of the above steps fails, the procedure will interrupt and an
-	* error message will be displayed to the user.
-	*
-	* Note: previously eject was invoked also in case of unmount failure. This
-	* could lead to data loss and therefore the behaviour has been changed.
-	* If a user really wants to eject the medium, he needs to either unmount it
-	* first or invoke eject manually.
-	*/
-	if (medium.id().isEmpty())
-	{
-		m_errorStr = i18n("Try to safe remove an unknown medium.");
+	DCOPRef mediamanager("kded", "mediamanager");
+	DCOPReply reply = mediamanager.call("safeRemove", medium.id());
+	TQStringVariantMap safeRemoveResult;
+	if (reply.isValid()) {
+		reply.get(safeRemoveResult);
+	}
+	if (!safeRemoveResult.contains("result") || !safeRemoveResult["result"].toBool()) {
+		m_errorStr = safeRemoveResult.contains("errStr") ? safeRemoveResult["errStr"].toString() : i18n("Unknown safe removal error.");
+		kdDebug() << "medium safeRemoval " << m_errorStr << endl;
 		errorAndExit();
-	}
-
-	// Release children devices
-	releaseHolders(medium);
-
-	TQStringVariantMap opResult;
-	TQString device = medium.deviceNode();
-
-	// Unmount if necessary
-	if (medium.isMountable() && medium.isMounted())
-	{
-		unmount(medium);
-	}
-	// Lock if necessary.
-	if (medium.isEncrypted() && !medium.isLocked())
-	{
-		lock(medium);
 	}
 }
 
@@ -307,7 +236,6 @@ MountHelper::MountHelper() : TDEApplication()
 	else if (args->isSet("s"))
 	{
 		safeRemoval(medium);
-		eject(medium);
 		::exit(0);
 	}
 	else if (args->isSet("f"))
