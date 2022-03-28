@@ -8,29 +8,7 @@
 
 if (NOT XSCREENSAVER_FOUND)
   set(xscreensaver_alldirs)
-  set(xscreensaver_checkdirs ${TDE_INCLUDE_DIR}
-   	/usr/
-	/usr/local/
-   	/opt/local/
-   	/usr/X11R6/
-   	/opt/kde/
-   	/opt/kde3/
-   	/usr/kde/
-   	/usr/local/kde/
-   	/usr/local/xscreensaver/
-   	/usr/openwin/lib/xscreensaver/
-   	/etc/ )
-  foreach(suffix lib${LIB_SUFFIX}/xscreensaver lib${LIB_SUFFIX}/misc/xscreensaver lib/xscreensaver lib64/xscreensaver libexec/xscreensaver 
-bin/xscreensaver-hacks hacks)
-     foreach(xscreensaver_path ${xscreensaver_checkdirs} )
-        set(xscreensaver_alldirs ${xscreensaver_alldirs} ${xscreensaver_path}/${suffix})
-     endforeach(xscreensaver_path ${xscreensaver_checkdirs} )
-  endforeach(suffix lib${LIB_SUFFIX}/xscreensaver lib/xscreensaver lib64/xscreensaver libexec/xscreensaver bin/xscreensaver-hacks hacks)
-  FIND_PATH(XSCREENSAVER_DIR deco ${xscreensaver_alldirs})
-
-  set(XSCREENSAVER_CONFIG_DIR)
-  FIND_PATH(XSCREENSAVER_CONFIG_DECO config/deco.xml
-    ${TDE_INCLUDE_DIR}
+  set(xscreensaver_checkdirs
     /usr/
     /usr/local/
     /opt/local/
@@ -45,33 +23,58 @@ bin/xscreensaver-hacks hacks)
     /usr/openwin/lib/xscreensaver/
     /etc/
   )
-  #MESSAGE(STATUS "XSCREENSAVER_CONFIG_DIR :<${XSCREENSAVER_CONFIG_DIR}>")
+  foreach(suffix lib${LIB_SUFFIX}/xscreensaver lib${LIB_SUFFIX}/misc/xscreensaver
+                 lib/xscreensaver lib64/xscreensaver libexec/xscreensaver
+                 bin/xscreensaver-hacks hacks)
+     foreach(xscreensaver_path ${xscreensaver_checkdirs} )
+        set(xscreensaver_alldirs ${xscreensaver_alldirs} ${xscreensaver_path}/${suffix})
+     endforeach(xscreensaver_path ${xscreensaver_checkdirs} )
+  endforeach()
 
+  set(XSCREENSAVER_DIRS)
+  FIND_PATH(XSCREENSAVER_DIR_DECO deco ${xscreensaver_alldirs})
+  FIND_PATH(XSCREENSAVER_DIR_FLUX flux ${xscreensaver_alldirs})
+  if(XSCREENSAVER_DIR_DECO)
+    list(APPEND XSCREENSAVER_DIRS ${XSCREENSAVER_DIR_DECO})
+  endif(XSCREENSAVER_DIR_DECO)
+  if(XSCREENSAVER_DIR_FLUX)
+    list(APPEND XSCREENSAVER_DIRS ${XSCREENSAVER_DIR_FLUX})
+  endif(XSCREENSAVER_DIR_FLUX)
+  list( REMOVE_DUPLICATES XSCREENSAVER_DIRS )
+  string( REPLACE ";" ":" XSCREENSAVER_DIRS "${XSCREENSAVER_DIRS}" )
+
+  set(XSCREENSAVER_CONFIG_DIRS)
+  FIND_PATH(XSCREENSAVER_CONFIG_DECO config/deco.xml ${xscreensaver_checkdirs} )
+  FIND_PATH(XSCREENSAVER_CONFIG_FLUX config/flux.xml ${xscreensaver_checkdirs} )
   if(XSCREENSAVER_CONFIG_DECO)
-	set(XSCREENSAVER_CONFIG_DIR "${XSCREENSAVER_CONFIG_DECO}/config/")
-	#MESSAGE(STATUS "XSCREENSAVER_CONFIG_DIR <${XSCREENSAVER_CONFIG_DIR}>")
+    list(APPEND XSCREENSAVER_CONFIG_DIRS "${XSCREENSAVER_CONFIG_DECO}/config/")
   endif(XSCREENSAVER_CONFIG_DECO)
-
+  if(XSCREENSAVER_CONFIG_FLUX)
+    list(APPEND XSCREENSAVER_CONFIG_DIRS "${XSCREENSAVER_CONFIG_FLUX}/config/")
+  endif(XSCREENSAVER_CONFIG_FLUX)
 
   # Try and locate XScreenSaver config when path doesn't include config
-  if(NOT XSCREENSAVER_CONFIG_DIR)
-    FIND_PATH(XSCREENSAVER_CONFIG_DIR deco.xml
+  if(NOT XSCREENSAVER_CONFIG_DIRS)
+    FIND_PATH(XSCREENSAVER_CONFIG_DIRS deco.xml
       /etc/xscreensaver
       )
-  endif(NOT XSCREENSAVER_CONFIG_DIR)
+  endif(NOT XSCREENSAVER_CONFIG_DIRS)
+
+  list( REMOVE_DUPLICATES XSCREENSAVER_CONFIG_DIRS )
+  string( REPLACE ";" ":" XSCREENSAVER_CONFIG_DIRS "${XSCREENSAVER_CONFIG_DIRS}" )
 endif(NOT XSCREENSAVER_FOUND)
 
 #MESSAGE(STATUS "XSCREENSAVER_CONFIG_DIR :<${XSCREENSAVER_CONFIG_DIR}>")
 #MESSAGE(STATUS "XSCREENSAVER_DIR :<${XSCREENSAVER_DIR}>")
 
 # Need to fix hack
-if(XSCREENSAVER_DIR AND XSCREENSAVER_CONFIG_DIR)
+if(XSCREENSAVER_DIRS AND XSCREENSAVER_CONFIG_DIRS)
 	set(XSCREENSAVER_FOUND TRUE)
-endif(XSCREENSAVER_DIR AND XSCREENSAVER_CONFIG_DIR)
+endif(XSCREENSAVER_DIRS AND XSCREENSAVER_CONFIG_DIRS)
 
 if (XSCREENSAVER_FOUND)
   if (NOT Xscreensaver_FIND_QUIETLY)
-    message(STATUS "Found SCREENSAVER_CONFIG_DIR <${XSCREENSAVER_CONFIG_DIR}>")
+    message(STATUS "Found SCREENSAVER_CONFIG_DIRS <${XSCREENSAVER_CONFIG_DIRS}>")
   endif (NOT Xscreensaver_FIND_QUIETLY)
 else (XSCREENSAVER_FOUND)
   if (Xscreensaver_FIND_REQUIRED)
@@ -79,5 +82,4 @@ else (XSCREENSAVER_FOUND)
   endif (Xscreensaver_FIND_REQUIRED)
 endif (XSCREENSAVER_FOUND)
 
-
-MARK_AS_ADVANCED(XSCREENSAVER_DIR XSCREENSAVER_CONFIG_DIR)
+MARK_AS_ADVANCED(XSCREENSAVER_DIRS XSCREENSAVER_CONFIG_DIRS)

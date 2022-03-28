@@ -523,28 +523,39 @@ void KScreenSaver::findSavers()
             i++, mNumLoaded++ ) {
         TQString file = mSaverFileList[mNumLoaded];
         SaverConfig *saver = new SaverConfig;
-        if (saver->read(file)) {
-            TQString saverexec = TQString("%1/%2").arg(XSCREENSAVER_HACKS_DIR).arg(saver->exec());
+        bool saverFound = false;
+        if (saver->read(file))
+        {
             // find the xscreensaver executable
             //work around a TDEStandardDirs::findExe() "feature" where it looks in $TDEDIR/bin first no matter what and sometimes finds the wrong executable
             TQFileInfo checkExe;
-            checkExe.setFile(saverexec);
-            if (checkExe.exists() && checkExe.isExecutable() && checkExe.isFile()) {
-                mSaverList.append(saver);
+            TQStringList saverPaths = TQStringList::split(':', XSCREENSAVER_HACKS_DIRS);
+            for (TQStringList::ConstIterator it = saverPaths.begin(); it != saverPaths.end(); ++it)
+            {
+                checkExe.setFile((*it) + "/" + saver->exec());
+                if (checkExe.exists() && checkExe.isExecutable() && checkExe.isFile())
+                {
+                    mSaverList.append(saver);
+                    saverFound = true;
+                    break;
+                }
             }
-            else {
+
+            if (!saverFound)
+            {
                 // Executable not present in XScreenSaver directory!
                 // Try standard paths
-                if (TDEStandardDirs::findExe(saver->exec()) != TQString::null) {
+                if (TDEStandardDirs::findExe(saver->exec()) != TQString::null)
+                {
                     mSaverList.append(saver);
-                }
-                else {
-                    delete saver;
+                    saverFound = true;
                 }
             }
         }
-        else {
-            delete saver;
+
+        if (!saverFound)
+        {
+          delete saver;
         }
     }
 
