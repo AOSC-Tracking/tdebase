@@ -317,10 +317,10 @@ if( WITH_XSCREENSAVER )
   # where xscreensaver stores its executables. So give the user the possibility
   # to define XSCREENSAVER_DIR and speficy the location manually.
   include( FindXscreensaver.cmake ) # not really good practise
-  if( NOT XSCREENSAVER_DIR )
+  if( NOT XSCREENSAVER_DIRS )
     tde_message_fatal(
-      "xscreensaver is requested, but cmake can not determine the location of XSCREENSAVER_DIR
- You have to either specify it manually with e.g. -DXSCREENSAVER_DIR=/usr/lib/misc/xscreensaver/
+      "xscreensaver is requested, but cmake can not determine the location of XSCREENSAVER_DIRS
+ You have to either specify it manually with e.g. -DXSCREENSAVER_DIRS=/usr/lib/misc/xscreensaver/
  or make sure that xscreensaver installed properly" )
   endif( )
 
