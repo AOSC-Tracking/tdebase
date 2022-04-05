@@ -78,7 +78,7 @@ private slots:
 	void doDiskNotifications(bool scanOnly);
 
 private:
-	bool isMonitoredDevice(TDEStorageDevice* sdevice);
+	static bool isMonitoredDevice(TDEStorageDevice *sdevice);
 
 private:
 	void populateMenu(TDEPopupMenu* menu);

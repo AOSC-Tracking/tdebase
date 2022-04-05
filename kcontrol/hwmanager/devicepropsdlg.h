@@ -192,6 +192,8 @@ private slots:
 	void unmountDisk();
 	void unlockDisk();
 	void lockDisk();
+	void ejectDisk();
+	void safeRemoveDisk();
 
 	void cryptLUKSAddKey();
 	void cryptLUKSDelKey();
@@ -204,6 +206,8 @@ private slots:
 	void processLockouts();
 
 private:
+	static bool isMonitoredDevice(TDEStorageDevice *sdevice);
+
 	TDEGenericDevice* m_device;
 	DevicePropertiesDialogBase* base;
 

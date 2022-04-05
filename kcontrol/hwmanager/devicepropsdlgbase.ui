@@ -371,6 +371,22 @@
 							    <string>Lock</string>
 						    </property>
 					    </widget>
+					    <widget class="KPushButton" row="1" column="0" colspan="1">
+						    <property name="name">
+							    <cstring>buttonDiskEject</cstring>
+						    </property>
+						    <property name="text">
+							    <string>Eject</string>
+						    </property>
+					    </widget>
+					    <widget class="KPushButton" row="1" column="1" colspan="1">
+						    <property name="name">
+							    <cstring>buttonDiskSafeRemove</cstring>
+						    </property>
+						    <property name="text">
+							    <string>Safe Remove</string>
+						    </property>
+					    </widget>
 				    </grid>
 			    </widget>
 			    <spacer row="8" column="0">

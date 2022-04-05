@@ -154,50 +154,45 @@ void HwDeviceSystemTray::mousePressEvent(TQMouseEvent* e) {
 	KSystemTray::mousePressEvent(e);
 }
 
-bool HwDeviceSystemTray::isMonitoredDevice(TDEStorageDevice* sdevice) {
+bool HwDeviceSystemTray::isMonitoredDevice(TDEStorageDevice* sdevice)
+{
 	// Type selection logic largely duplicated from the media manager tdeioslave
-	if ((sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) ||
-	        sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio) ||
-	        sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) &&
-	    !sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hidden) &&
-	    (sdevice->isDiskOfType(TDEDiskDeviceType::HDD) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::CDROM) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::CDR) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::CDRW) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::CDMO) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::CDMRRW) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::CDMRRWW) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDROM) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDRAM) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDR) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDRW) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDRDL) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDRWDL) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSR) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRW) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRDL) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRWDL) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::BDROM) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::BDR) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::BDRW) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDROM) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDR) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDRW) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::CDVideo) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::DVDVideo) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::BDVideo) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::Floppy) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::Zip) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::Jaz) ||
-	        sdevice->isDiskOfType(TDEDiskDeviceType::Camera)))
-	{
-		return true;
-	}
-	else {
-		return false;
-	}
+	return ((sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) ||
+	         sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio) ||
+	         sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) &&
+	        !sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hidden) &&
+	        (sdevice->isDiskOfType(TDEDiskDeviceType::HDD) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDROM) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDR) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDMO) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDMRRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDMRRWW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDROM) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDRAM) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDR) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDRDL) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDRWDL) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSR) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRDL) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRWDL) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::BDROM) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::BDR) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::BDRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDROM) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDR) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDVideo) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDVideo) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::BDVideo) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::Floppy) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::Zip) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::Jaz) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::Camera)));
 }
 
 void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu) {

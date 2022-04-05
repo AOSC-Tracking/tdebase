@@ -307,6 +307,8 @@ DevicePropertiesDialog::DevicePropertiesDialog(TDEGenericDevice* device, TQWidge
 			connect(base->buttonDiskUnmount, TQT_SIGNAL(clicked()), this, TQT_SLOT(unmountDisk()));
 			connect(base->buttonDiskUnlock, TQT_SIGNAL(clicked()), this, TQT_SLOT(unlockDisk()));
 			connect(base->buttonDiskLock, TQT_SIGNAL(clicked()), this, TQT_SLOT(lockDisk()));
+			connect(base->buttonDiskEject, TQT_SIGNAL(clicked()), this, TQT_SLOT(ejectDisk()));
+			connect(base->buttonDiskSafeRemove, TQT_SIGNAL(clicked()), this, TQT_SLOT(safeRemoveDisk()));
 			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
 				connect(base->cryptLUKSAddKey, TQT_SIGNAL(clicked()), this, TQT_SLOT(cryptLUKSAddKey()));
 				connect(base->cryptLUKSDelKey, TQT_SIGNAL(clicked()), this, TQT_SLOT(cryptLUKSDelKey()));
@@ -373,7 +375,49 @@ static TQString formatDisplayString(TQString input) {
 	return TQStyleSheet::escape(input);
 }
 
-void DevicePropertiesDialog::populateDeviceInformation() {
+bool DevicePropertiesDialog::isMonitoredDevice(TDEStorageDevice *sdevice)
+{
+	// Type selection logic largely duplicated from the media manager tdeioslave
+	return ((sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) ||
+	         sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio) ||
+	         sdevice->checkDiskStatus(TDEDiskDeviceStatus::Blank)) &&
+	        !sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hidden) &&
+	        (sdevice->isDiskOfType(TDEDiskDeviceType::HDD) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDROM) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDR) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDMO) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDMRRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDMRRWW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDROM) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDRAM) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDR) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDRDL) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDRWDL) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSR) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRDL) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDPLUSRWDL) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::BDROM) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::BDR) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::BDRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDROM) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDR) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::HDDVDRW) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDAudio) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::CDVideo) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::DVDVideo) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::BDVideo) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::Floppy) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::Zip) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::Jaz) ||
+	         sdevice->isDiskOfType(TDEDiskDeviceType::Camera)));
+}
+
+void DevicePropertiesDialog::populateDeviceInformation()
+{
 	if (m_device) {
 		base->labelDeviceType->setText(m_device->friendlyDeviceType());
 		base->iconDeviceType->setPixmap(m_device->icon(TDEIcon::SizeSmall));
@@ -461,29 +505,53 @@ void DevicePropertiesDialog::populateDeviceInformation() {
 			status_text += "</qt>";
 			base->labelDiskStatus->setText(status_text);
 
-			// Update mount/unmount button status
+			// Update action button status
 			base->buttonDiskMount->setEnabled(false);
 			base->buttonDiskUnmount->setEnabled(false);
 			base->buttonDiskUnlock->setEnabled(false);
 			base->buttonDiskLock->setEnabled(false);
+			base->buttonDiskEject->setEnabled(false);
+			base->buttonDiskSafeRemove->setEnabled(false);
 			base->buttonDiskMount->setHidden(true);
 			base->buttonDiskUnmount->setHidden(true);
 			base->buttonDiskUnlock->setHidden(true);
 			base->buttonDiskLock->setHidden(true);
-			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Mountable)) {
-				base->groupDiskActions->show();
+			base->buttonDiskEject->setHidden(true);
+			base->buttonDiskSafeRemove->setHidden(true);
+			bool showGroup = false;
+			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Mountable))
+			{
 				base->buttonDiskMount->setEnabled((sdevice->mountPath() == ""));
 				base->buttonDiskUnmount->setEnabled((sdevice->mountPath() != ""));
 				base->buttonDiskMount->setHidden(false);
 				base->buttonDiskUnmount->setHidden(false);
+				showGroup = true;
 			}
-			else if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
+			else if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) ||
+					     sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted))
+			{
 				base->buttonDiskUnlock->setEnabled(!sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt));
 				base->buttonDiskLock->setEnabled(sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt));
 				base->buttonDiskUnlock->setHidden(false);
 				base->buttonDiskLock->setHidden(false);
+				showGroup = true;
 			}
-			else {
+			if (isMonitoredDevice(sdevice) &&
+					(sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
+					 sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)))
+			{
+				base->buttonDiskEject->setEnabled(true);
+				base->buttonDiskSafeRemove->setEnabled(true);
+				base->buttonDiskEject->setHidden(false);
+				base->buttonDiskSafeRemove->setHidden(false);
+				showGroup = true;
+			}
+			if (showGroup)
+			{
+				base->groupDiskActions->show();
+			}
+			else
+			{
 				base->groupDiskActions->hide();
 			}
 		}
@@ -944,6 +1012,30 @@ void DevicePropertiesDialog::lockDisk() {
 
 	TDEProcess proc;
 	proc << "tdeio_media_mounthelper" << "-l" << sdevice->deviceNode();
+	if (!proc.start(TDEProcess::DontCare))
+	{
+		KMessageBox::error(this, i18n("Could not start tdeio_media_mounthelper process."),
+				i18n("Device monitor"));
+	}
+}
+
+void DevicePropertiesDialog::ejectDisk() {
+	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
+
+	TDEProcess proc;
+	proc << "tdeio_media_mounthelper" << "-e" << sdevice->deviceNode();
+	if (!proc.start(TDEProcess::DontCare))
+	{
+		KMessageBox::error(this, i18n("Could not start tdeio_media_mounthelper process."),
+				i18n("Device monitor"));
+	}
+}
+
+void DevicePropertiesDialog::safeRemoveDisk() {
+	TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
+
+	TDEProcess proc;
+	proc << "tdeio_media_mounthelper" << "-s" << sdevice->deviceNode();
 	if (!proc.start(TDEProcess::DontCare))
 	{
 		KMessageBox::error(this, i18n("Could not start tdeio_media_mounthelper process."),
