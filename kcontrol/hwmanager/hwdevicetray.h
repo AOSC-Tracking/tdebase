@@ -61,6 +61,7 @@ protected slots:
 	void slotUnlockDevice(int parameter);
 	void slotLockDevice(int parameter);
 	void slotEjectDevice(int parameter);
+	void slotSafeRemoveDevice(int parameter);
 	void slotPropertiesDevice(int parameter);
 
 protected:
@@ -95,6 +96,7 @@ private:
 	TQStringMap m_unlockMenuIndexMap;
 	TQStringMap m_lockMenuIndexMap;
 	TQStringMap m_ejectMenuIndexMap;
+	TQStringMap m_safeRemoveMenuIndexMap;
 	TQStringMap m_propertiesMenuIndexMap;
 	TDEPopupMenu* m_menu;
 	KSimpleConfig *r_config;

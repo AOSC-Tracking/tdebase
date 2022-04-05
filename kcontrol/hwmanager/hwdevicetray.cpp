@@ -88,6 +88,7 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
 	new TDEActionMenu(i18n("Unlock"), SmallIcon("decrypted", TQIconSet::Automatic), actionCollection(), "unlock_menu");
 	new TDEActionMenu(i18n("Lock"), SmallIcon("encrypted", TQIconSet::Automatic), actionCollection(), "lock_menu");
 	new TDEActionMenu(i18n("Eject"), SmallIcon("player_eject", TQIconSet::Automatic), actionCollection(), "eject_menu");
+	new TDEActionMenu(i18n("Safe remove"), SmallIcon("player_safe_removal", TQIconSet::Automatic), actionCollection(), "safe_remove_menu");
 	new TDEActionMenu(i18n("Properties"), SmallIcon("edit", TQIconSet::Automatic), actionCollection(), "properties_menu");
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -233,6 +234,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	TDEActionMenu *unlockDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("unlock_menu"));
 	TDEActionMenu *lockDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("lock_menu"));
 	TDEActionMenu *ejectDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("eject_menu"));
+	TDEActionMenu *safeRemoveDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("safe_remove_menu"));
 	TDEActionMenu *propertiesDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("properties_menu"));
 
 	openDeviceActionMenu->popupMenu()->clear();
@@ -241,6 +243,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	unlockDeviceActionMenu->popupMenu()->clear();
 	lockDeviceActionMenu->popupMenu()->clear();
 	ejectDeviceActionMenu->popupMenu()->clear();
+	safeRemoveDeviceActionMenu->popupMenu()->clear();
 	propertiesDeviceActionMenu->popupMenu()->clear();
 
 	m_openMenuIndexMap.clear();
@@ -249,6 +252,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	m_unlockMenuIndexMap.clear();
 	m_lockMenuIndexMap.clear();
 	m_ejectMenuIndexMap.clear();
+	m_safeRemoveMenuIndexMap.clear();
 	m_propertiesMenuIndexMap.clear();
 
 	// Find all storage devices and add them to the popup menus
@@ -258,6 +262,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	int lastUnlockIndex = -1;
 	int lastLockIndex = -1;
 	int lastEjectIndex = -1;
+	int lastSafeRemoveIndex = -1;
 	int lastPropertiesIndex = -1;
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -346,6 +351,15 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 				{
 					m_ejectMenuIndexMap[lastEjectIndex] = sdevice->systemPath();
 				}
+
+				lastSafeRemoveIndex = safeRemoveDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
+				        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
+				safeRemoveDeviceActionMenu->popupMenu()->connectItem(lastSafeRemoveIndex, this, TQT_SLOT(slotSafeRemoveDevice(int)));
+				m_safeRemoveMenuIndexMap[lastSafeRemoveIndex] = sdevice->diskUUID();
+				if (m_safeRemoveMenuIndexMap[lastSafeRemoveIndex] == "")
+				{
+					m_safeRemoveMenuIndexMap[lastSafeRemoveIndex] = sdevice->systemPath();
+				}
 			}
 
 			lastPropertiesIndex = propertiesDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
@@ -365,6 +379,7 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	unlockDeviceActionMenu->setEnabled(lastUnlockIndex != -1);
 	lockDeviceActionMenu->setEnabled(lastLockIndex != -1);
 	ejectDeviceActionMenu->setEnabled(lastEjectIndex != -1);
+	safeRemoveDeviceActionMenu->setEnabled(lastSafeRemoveIndex != -1);
 	propertiesDeviceActionMenu->setEnabled(lastPropertiesIndex != -1);
 
 	if (lastOpenIndex != -1)
@@ -390,6 +405,10 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	if (lastEjectIndex != -1)
 	{
 		ejectDeviceActionMenu->plug(menu);
+	}
+	if (lastSafeRemoveIndex != -1)
+	{
+		safeRemoveDeviceActionMenu->plug(menu);
 	}
 	if (lastPropertiesIndex != -1)
 	{
@@ -539,6 +558,30 @@ void HwDeviceSystemTray::slotEjectDevice(int parameter)
 			{
 				TDEProcess proc;
 				proc << "tdeio_media_mounthelper" << "-e" << sdevice->deviceNode();
+				if (!proc.start(TDEProcess::DontCare))
+				{
+					KMessageBox::error(this, i18n("Could not start tdeio_media_mounthelper process."),
+							    i18n("Device monitor"));
+				}
+			}
+		}
+	}
+}
+
+void HwDeviceSystemTray::slotSafeRemoveDevice(int parameter)
+{
+	TQString uuid = m_safeRemoveMenuIndexMap[parameter];
+	if (!uuid.isEmpty())
+	{
+		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
+		TDEGenericHardwareList diskDeviceList = hwdevices->listByDeviceClass(TDEGenericDeviceType::Disk);
+		for (TDEGenericDevice *hwdevice = diskDeviceList.first(); hwdevice; hwdevice = diskDeviceList.next())
+		{
+			TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
+			if ((sdevice->diskUUID() == uuid) || (sdevice->systemPath() == uuid))
+			{
+				TDEProcess proc;
+				proc << "tdeio_media_mounthelper" << "-s" << sdevice->deviceNode();
 				if (!proc.start(TDEProcess::DontCare))
 				{
 					KMessageBox::error(this, i18n("Could not start tdeio_media_mounthelper process."),
