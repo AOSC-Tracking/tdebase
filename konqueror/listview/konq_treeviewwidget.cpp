@@ -170,7 +170,8 @@ void KonqTreeViewWidget::slotClear( const KURL & _url )
       // delete all child items, their fileitems are no longer valid
       TQListViewItem *child;
       while ( (child = item->firstChild()) )
-         delete child;
+          if (child)
+              delete child;
 
       // only if we really deleted something update the statusbar
       reportItemCounts();
