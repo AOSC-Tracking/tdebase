@@ -667,48 +667,6 @@ By default the taskbar groups windows when it is full.</string>
                                     <string>Choose taskbar display mode among &lt;strong&gt;Icons and text&lt;/strong&gt;, &lt;strong&gt;Text only&lt;/strong&gt; and &lt;strong&gt;Icons only&lt;/strong&gt;.</string>
                                 </property>
                             </widget>
-                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="4">
-                                <property name="name">
-                                    <cstring>kcfg_ShowThumbnails</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Show thumbnails on hover</string>
-                                </property>
-                            </widget>
-                            <spacer row="3" column="0">
-                                <property name="name">
-                                    <cstring>spacer2_2_2_3</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <spacer row="1" column="1">
-                                <property name="name">
-                                    <cstring>spacer2_2_2_3_2</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Vertical</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>16</height>
-                                    </size>
-                                </property>
-                            </spacer>
                             <widget class="TQLabel" row="0" column="0" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>displayIconsNTextLabel</cstring>
@@ -734,6 +692,14 @@ By default the taskbar groups windows when it is full.</string>
                                     <cstring>kcfg_DisplayIconsNText</cstring>
                                 </property>
                             </widget>
+                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="4">
+                                <property name="name">
+                                    <cstring>kcfg_ShowThumbnails</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Show thumbnails on hover</string>
+                                </property>
+                            </widget>
                             <widget class="TQSpinBox" row="3" column="3">
                                 <property name="name">
                                     <cstring>kcfg_ThumbnailMaxDimension</cstring>
@@ -754,6 +720,23 @@ By default the taskbar groups windows when it is full.</string>
                                     <number>100</number>
                                 </property>
                             </widget>
+                            <spacer row="3" column="0">
+                                <property name="name">
+                                    <cstring>spacer2_2_2_3</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
                             <widget class="TQLabel" row="3" column="1" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>thumbMaxDimensionLabel</cstring>
@@ -763,6 +746,17 @@ By default the taskbar groups windows when it is full.</string>
                                 </property>
                                 <property name="text">
                                     <string>Maximum dimension:</string>
+                                </property>
+                            </widget>
+                            <widget class="TQCheckBox" row="1" column="2">
+                                <property name="name">
+                                    <cstring>smallIcons</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Small icons</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
                                 </property>
                             </widget>
                         </grid>

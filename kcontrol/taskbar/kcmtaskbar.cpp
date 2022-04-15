@@ -36,6 +36,7 @@
 #include <twin.h>
 #include <kcolorbutton.h>
 #include <kstandarddirs.h>
+#include <kiconloader.h>
 
 #define protected public
 #include "kcmtaskbarui.h"
@@ -262,6 +263,7 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
         m_widget->showAllScreens->show();
     }
     connect( m_widget->showAllScreens, TQT_SIGNAL( stateChanged( int )), TQT_SLOT( changed()));
+    connect( m_widget->smallIcons, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()) );
 
     TDEAboutData *about = new TDEAboutData(I18N_NOOP("kcmtaskbar"),
                                        I18N_NOOP("TDE Taskbar Control Module"),
@@ -423,19 +425,35 @@ void TaskbarConfig::load()
     slotUpdateComboBox();
     updateAppearanceCombo();
     m_widget->showAllScreens->setChecked(!m_settingsObject->showCurrentScreenOnly());
+
+    int iconSize = m_settingsObject->iconSize();
+    if(kapp->iconLoader()->currentSize(TDEIcon::Small) != iconSize)
+    {
+        m_widget->smallIcons->setChecked(false);
+    }
 }
 
 void TaskbarConfig::save()
 {
     TDECModule::save();
 
+    if(m_widget->smallIcons->isChecked())
+    {
+        m_settingsObject->setIconSize(kapp->iconLoader()->currentSize(TDEIcon::Small));
+    }
+    else
+    {
+        m_settingsObject->setIconSize(kapp->iconLoader()->currentSize(TDEIcon::Panel));
+    }
+
     m_settingsObject->setShowCurrentScreenOnly(!m_widget->showAllScreens->isChecked());
     int selectedAppearance = m_widget->appearance->currentItem();
     if (selectedAppearance < (int)m_appearances.count())
     {
         m_appearances[selectedAppearance].alterSettings();
-        m_settingsObject->writeConfig();
     }
+
+    m_settingsObject->writeConfig();
 
     TQByteArray data;
     kapp->dcopClient()->emitDCOPSignal("kdeTaskBarConfigChanged()", data);

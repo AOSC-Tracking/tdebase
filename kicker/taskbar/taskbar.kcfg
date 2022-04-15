@@ -212,5 +212,8 @@
             <default code="true">QColor()</default>
             <whatsthis>This color is used for displaying background of taskbar buttons.</whatsthis>
         </entry>
+	<entry name="IconSize" type="UInt" >
+	    <default>16</default>
+	</entry>
     </group>
 </kcfg>

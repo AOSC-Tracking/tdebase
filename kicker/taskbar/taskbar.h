@@ -137,6 +137,8 @@ protected:
     void moveEvent( TQMoveEvent* );
     bool idMatch( const TQString& id1, const TQString& id2 );
     TaskContainer::List filteredContainers();
+    int buttonHeight() const;
+    int buttonWidth() const;
 
 private:
     void sortContainersByDesktop(TaskContainer::List& list);
@@ -168,6 +170,7 @@ private:
     TQImage			        m_blendGradient;
     TaskBarSettings*		m_settingsObject;
     TaskBarSettings*		m_globalSettingsObject;
+
 };
 
 #endif

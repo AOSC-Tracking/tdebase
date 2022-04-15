@@ -49,7 +49,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "taskbar.h"
 #include "taskbar.moc"
 
-#define READ_MERGED_TASBKAR_SETTING(x) ((m_settingsObject->useGlobalSettings())?m_globalSettingsObject->x():m_settingsObject->x())
+#define READ_MERGED_TASKBAR_SETTING(x) ((m_settingsObject->useGlobalSettings())?m_globalSettingsObject->x():m_settingsObject->x())
 
 TaskBar::TaskBar( TaskBarSettings* settingsObject, TaskBarSettings* globalSettingsObject, TQWidget *parent, const char *name )
     : Panner( parent, name ),
@@ -81,7 +81,7 @@ TaskBar::TaskBar( TaskBarSettings* settingsObject, TaskBarSettings* globalSettin
 
     // init
     setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding ) );
-    m_sortByAppPrev = READ_MERGED_TASBKAR_SETTING(sortByApp);
+    m_sortByAppPrev = READ_MERGED_TASKBAR_SETTING(sortByApp);
 
     // setup animation frames
     for (int i = 1; i < 11; i++)
@@ -174,31 +174,40 @@ KTextShadowEngine *TaskBar::textShadowEngine()
     return m_textShadowEngine;
 }
 
+int TaskBar::buttonHeight() const
+{
+    TQFontMetrics fm(TDEGlobalSettings::taskbarFont());
+    int bh = TQMAX(fm.height(), READ_MERGED_TASKBAR_SETTING(minimumButtonHeight));
+
+    if(showIcons())
+    {
+        bh = TQMAX(bh, READ_MERGED_TASKBAR_SETTING(iconSize));
+    }
+
+    return bh + 2;
+}
+
+int TaskBar::buttonWidth() const
+{
+    return TQMAX(BUTTON_MIN_WIDTH, READ_MERGED_TASKBAR_SETTING(iconSize)) + 2;
+}
+
 
 TQSize TaskBar::sizeHint() const
 {
-    // get our minimum height based on the minimum button height or the
-    // height of the font in use, which is largest
-    TQFontMetrics fm(TDEGlobalSettings::taskbarFont());
-    int minButtonHeight = fm.height() > READ_MERGED_TASBKAR_SETTING(minimumButtonHeight) ?
-                          fm.height() : READ_MERGED_TASBKAR_SETTING(minimumButtonHeight);
-
-    return TQSize(BUTTON_MIN_WIDTH, minButtonHeight);
+    return TQSize(buttonWidth(), buttonHeight());
 }
 
 TQSize TaskBar::sizeHint( KPanelExtension::Position p, TQSize maxSize) const
 {
-    // get our minimum height based on the minimum button height or the
-    // height of the font in use, which is largest
-    TQFontMetrics fm(TDEGlobalSettings::taskbarFont());
-    int minButtonHeight = fm.height() > READ_MERGED_TASBKAR_SETTING(minimumButtonHeight) ?
-                          fm.height() : READ_MERGED_TASBKAR_SETTING(minimumButtonHeight);
+    // get our minimum height based on the minimum button height, the icon size or the
+    // height of the font in use, whichever is largest
 
     if ( p == KPanelExtension::Left || p == KPanelExtension::Right )
     {
         // Vertical layout
         // Minimum space allows for one icon, the window list button and the up/down scrollers
-        int minHeight = minButtonHeight*3;
+        int minHeight = buttonHeight()*3;
         if (minHeight > maxSize.height())
             return maxSize;
         return TQSize(maxSize.width(), minHeight);
@@ -207,7 +216,7 @@ TQSize TaskBar::sizeHint( KPanelExtension::Position p, TQSize maxSize) const
     {
         // Horizontal layout
         // Minimum space allows for one column of icons, the window list button and the left/right scrollers
-        int min_width=BUTTON_MIN_WIDTH*3;
+        int min_width=buttonWidth()*3;
         if (min_width > maxSize.width())
             return maxSize;
         return TQSize(min_width, maxSize.height());
@@ -234,15 +243,15 @@ void TaskBar::configure()
     bool wasShowOnlyIconified = m_showOnlyIconified;
     int  wasShowTaskStates = m_showTaskStates;
 
-    m_showAllWindows = READ_MERGED_TASBKAR_SETTING(showAllWindows);
-    m_sortByDesktop = m_showAllWindows && READ_MERGED_TASBKAR_SETTING(sortByDesktop);
-    m_displayIconsNText = READ_MERGED_TASBKAR_SETTING(displayIconsNText);
-    m_showOnlyIconified = READ_MERGED_TASBKAR_SETTING(showOnlyIconified);
-    m_cycleWheel = READ_MERGED_TASBKAR_SETTING(cycleWheel);
-    m_showTaskStates = READ_MERGED_TASBKAR_SETTING(showTaskStates);
+    m_showAllWindows = READ_MERGED_TASKBAR_SETTING(showAllWindows);
+    m_sortByDesktop = m_showAllWindows && READ_MERGED_TASKBAR_SETTING(sortByDesktop);
+    m_displayIconsNText = READ_MERGED_TASKBAR_SETTING(displayIconsNText);
+    m_showOnlyIconified = READ_MERGED_TASKBAR_SETTING(showOnlyIconified);
+    m_cycleWheel = READ_MERGED_TASKBAR_SETTING(cycleWheel);
+    m_showTaskStates = READ_MERGED_TASKBAR_SETTING(showTaskStates);
 
     m_currentScreen = -1;    // Show all screens or re-get our screen
-    m_showOnlyCurrentScreen = (READ_MERGED_TASBKAR_SETTING(showCurrentScreenOnly) &&
+    m_showOnlyCurrentScreen = (READ_MERGED_TASKBAR_SETTING(showCurrentScreenOnly) &&
                               TQApplication::desktop()->isVirtualDesktop() &&
                               TQApplication::desktop()->numScreens() > 1);
 
@@ -275,12 +284,12 @@ void TaskBar::configure()
         }
     }
 
-    if (m_sortByAppPrev != READ_MERGED_TASBKAR_SETTING(sortByApp)) {
-        m_sortByAppPrev = READ_MERGED_TASBKAR_SETTING(sortByApp);
+    if (m_sortByAppPrev != READ_MERGED_TASKBAR_SETTING(sortByApp)) {
+        m_sortByAppPrev = READ_MERGED_TASKBAR_SETTING(sortByApp);
         reSort();
     }
 
-    TaskManager::the()->setXCompositeEnabled(READ_MERGED_TASBKAR_SETTING(showThumbnails));
+    TaskManager::the()->setXCompositeEnabled(READ_MERGED_TASKBAR_SETTING(showThumbnails));
 
     reLayoutEventually();
 }
@@ -409,7 +418,7 @@ void TaskBar::showTaskContainer(TaskContainer* container)
     }
 
     // try to place the container after one of the same app
-    if (READ_MERGED_TASBKAR_SETTING(sortByApp))
+    if (READ_MERGED_TASKBAR_SETTING(sortByApp))
     {
         TaskContainer::Iterator it = containers.begin();
         for (; it != containers.end(); ++it)
@@ -731,14 +740,12 @@ void TaskBar::reLayout()
     // number of rows simply depends on our height which is either the
     // minimum button height or the height of the font in use, whichever is
     // largest
-    TQFontMetrics fm(TDEGlobalSettings::taskbarFont());
-    int minButtonHeight = fm.height() > READ_MERGED_TASBKAR_SETTING(minimumButtonHeight) ?
-                          fm.height() : READ_MERGED_TASBKAR_SETTING(minimumButtonHeight);
+    int minButtonHeight = buttonHeight();
 
     // horizontal layout
     if (orientation() == Qt::Horizontal)
     {
-        int bwidth=BUTTON_MIN_WIDTH;
+        int bwidth=buttonWidth();
         int rows = contentsRect().height() / minButtonHeight;
         if (rows<1)
           rows=1;
@@ -752,20 +759,20 @@ void TaskBar::reLayout()
         int bpr = static_cast<int>(ceil(static_cast<double>(list.count()) / rows));
 
         // adjust content size
-        if ( contentsRect().width() < bpr * BUTTON_MIN_WIDTH )
+        if ( contentsRect().width() < bpr * bwidth )
         {
-            resizeContents( bpr * BUTTON_MIN_WIDTH, contentsRect().height() );
+            resizeContents( bpr * bwidth, contentsRect().height() );
         }
 
         // maximum number of buttons per row
-        int mbpr = contentsRect().width() / BUTTON_MIN_WIDTH;
+        int mbpr = contentsRect().width() / bwidth;
 
         // expand button width if space permits and the taskbar is not in 'icons only' mode
         if (mbpr > bpr)
         {
             if (!showIcons() || showText())
               bwidth = contentsRect().width() / bpr;
-            int maxWidth = READ_MERGED_TASBKAR_SETTING(maximumButtonWidth);
+            int maxWidth = READ_MERGED_TASKBAR_SETTING(maximumButtonWidth);
             if (maxWidth > 0 && bwidth > maxWidth)
             {
                 bwidth = maxWidth;
@@ -987,9 +994,7 @@ int TaskBar::taskCount() const
 
 int TaskBar::maximumButtonsWithoutShrinking() const
 {
-    TQFontMetrics fm(TDEGlobalSettings::taskbarFont());
-    int minButtonHeight = fm.height() > READ_MERGED_TASBKAR_SETTING(minimumButtonHeight) ?
-                          fm.height() : READ_MERGED_TASBKAR_SETTING(minimumButtonHeight);
+    int minButtonHeight = buttonHeight();
     int rows = contentsRect().height() / minButtonHeight;
 
     if (rows < 1)
@@ -999,7 +1004,7 @@ int TaskBar::maximumButtonsWithoutShrinking() const
 
     if ( orientation() == Qt::Horizontal ) {
         // maxWidth of 0 means no max width, drop back to default
-        int maxWidth = READ_MERGED_TASBKAR_SETTING(maximumButtonWidth);
+        int maxWidth = READ_MERGED_TASKBAR_SETTING(maximumButtonWidth);
         if (maxWidth == 0)
         {
             maxWidth = BUTTON_MAX_WIDTH;
@@ -1017,8 +1022,8 @@ int TaskBar::maximumButtonsWithoutShrinking() const
 
 bool TaskBar::shouldGroup() const
 {
-    return READ_MERGED_TASBKAR_SETTING(groupTasks) == m_settingsObject->GroupAlways ||
-           ((READ_MERGED_TASBKAR_SETTING(groupTasks) == m_settingsObject->GroupWhenFull &&
+    return READ_MERGED_TASKBAR_SETTING(groupTasks) == m_settingsObject->GroupAlways ||
+           ((READ_MERGED_TASKBAR_SETTING(groupTasks) == m_settingsObject->GroupWhenFull &&
              taskCount() > maximumButtonsWithoutShrinking()));
 }
 
@@ -1166,7 +1171,7 @@ void TaskBar::activateNextTask(bool forward)
 void TaskBar::wheelEvent(TQWheelEvent* e)
 {
 
-    if(READ_MERGED_TASBKAR_SETTING(cycleWheel)) {
+    if(READ_MERGED_TASKBAR_SETTING(cycleWheel)) {
 
         if (e->delta() > 0)
         {

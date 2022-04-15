@@ -117,6 +117,7 @@ protected:
     void popupMenu(int);
 
     void updateFilteredTaskList();
+    void updateIconSize();
 
 protected slots:
     void animationTimerFired();
