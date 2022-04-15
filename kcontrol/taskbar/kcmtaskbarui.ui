@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>358</width>
-            <height>351</height>
+            <width>813</width>
+            <height>616</height>
         </rect>
     </property>
     <property name="caption">
@@ -22,581 +22,1082 @@
             <cstring>unnamed</cstring>
         </property>
         <property name="margin">
-            <number>0</number>
+            <number>5</number>
         </property>
-	<widget class="TQGroupBox">
-		<property name="name">
-			<cstring>GroupBox2</cstring>
-		</property>
-		<property name="title">
-			<string>Settings</string>
-		</property>
-		<grid>
-			<property name="name">
-				<cstring>unnamed</cstring>
-			</property>
-			<widget class="TQLabel" row="0" column="0" rowspan="1" colspan="2">
-				<property name="name">
-					<cstring>globalConfigWarning</cstring>
-				</property>
-				<property name="text">
-					<string>&lt;b&gt;NOTE: Currently you are editing the global taskbar configuration.&lt;/b&gt;&lt;br&gt;To change the configuration of a specific taskbar (when using multiple taskbars), use the corresponding Configure Taskbar menu option, located in the taskbar handle popup menu.</string>
-				</property>
-			</widget>
-			<widget class="TQLabel" row="0" column="0" rowspan="1" colspan="2">
-				<property name="name">
-					<cstring>localConfigWarning</cstring>
-				</property>
-				<property name="text">
-					<string>&lt;b&gt;NOTE:&lt;/b&gt; Currently you are editing the taskbar configuration for &lt;b&gt;only&lt;/b&gt; this taskbar.</string>
-				</property>
-			</widget>
-			<widget class="TQCheckBox" row="1" column="0" rowspan="1" colspan="2">
-				<property name="name">
-					<cstring>kcfg_UseGlobalSettings</cstring>
-				</property>
-				<property name="text">
-					<string>Use global floating taskbar configuration</string>
-				</property>
-				<property name="checked">
-					<bool>true</bool>
-				</property>
-				<property name="whatsThis" stdset="0">
-					<string>Selecting this option causes the taskbar to use the global taskbar configuration.</string>
-				</property>
-			</widget>
-			<widget class="TQPushButton" row="2" column="0" rowspan="1" colspan="2">
-				<property name="name">
-					<cstring>globalConfigReload</cstring>
-				</property>
-				<property name="text">
-					<string>Overwrite current configuration with the current global floating taskbar configuration</string>
-				</property>
-			</widget>
-			<widget class="TQPushButton" row="3" column="0" rowspan="1" colspan="2">
-				<property name="name">
-					<cstring>globalConfigEdit</cstring>
-				</property>
-				<property name="text">
-					<string>Edit global floating taskbar configuration</string>
-				</property>
-			</widget>
-		</grid>
-	</widget>
-        <widget class="TQButtonGroup">
+        <widget class="TQLayoutWidget">
             <property name="name">
-                <cstring>taskbarGroup</cstring>
+                <cstring>layout8</cstring>
             </property>
-            <property name="title">
-                <string>Taskbar</string>
-            </property>
-            <property name="layoutMargin" stdset="0">
-            </property>
-            <property name="layoutSpacing" stdset="0">
-            </property>
-            <grid>
+            <vbox>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="3">
+                <widget class="TQLabel">
                     <property name="name">
-                        <cstring>kcfg_ShowAllWindows</cstring>
+                        <cstring>localConfigWarning</cstring>
                     </property>
                     <property name="text">
-                        <string>&amp;Show windows from all desktops</string>
+                        <string>&lt;b&gt;NOTE:&lt;/b&gt; Currently you are editing the taskbar configuration for &lt;b&gt;only&lt;/b&gt; this taskbar.</string>
+                    </property>
+                </widget>
+                <widget class="TQLabel">
+                    <property name="name">
+                        <cstring>globalConfigWarning</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&lt;b&gt;NOTE: Currently you are editing the global taskbar configuration.&lt;/b&gt;&lt;br&gt;To change the configuration of a specific taskbar (when using multiple taskbars), use the corresponding Configure Taskbar menu option, located in the taskbar handle popup menu.</string>
+                    </property>
+                </widget>
+                <widget class="TQCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_UseGlobalSettings</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use global floating taskbar configuration</string>
                     </property>
                     <property name="checked">
                         <bool>true</bool>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; the windows on the current desktop. 
+                        <string>Selecting this option causes the taskbar to use the global taskbar configuration.</string>
+                    </property>
+                </widget>
+                <widget class="TQPushButton">
+                    <property name="name">
+                        <cstring>globalConfigReload</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Overwrite current configuration with the current global floating taskbar configuration</string>
+                    </property>
+                </widget>
+                <widget class="TQPushButton">
+                    <property name="name">
+                        <cstring>globalConfigEdit</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Edit global floating taskbar configuration</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="TQTabWidget">
+            <property name="name">
+                <cstring>tabs</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>5</hsizetype>
+                    <vsizetype>3</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <widget class="TQWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>&amp;Tasks</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="TQButtonGroup">
+                        <property name="name">
+                            <cstring>grpDisplay</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Display</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>kcfg_ShowAllWindows</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Show windows from all desktops</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+S</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; the windows on the current desktop. 
 
 By default, this option is selected and all windows are shown.</string>
-                    </property>
-                </widget>
-                <widget class="TQCheckBox" row="1" column="1" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>kcfg_SortByDesktop</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Sort windows by desk&amp;top</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Selecting this option causes the taskbar to show windows in order of the desktop they appear on.
-
-By default this option is selected.</string>
-                    </property>
-                </widget>
-                <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="3">
-                    <property name="name">
-                        <cstring>showAllScreens</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Show windows from all sc&amp;reens</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; windows which are on the same Xinerama screen as the taskbar.
-
-By default, this option is selected and all windows are shown.</string>
-                    </property>
-                </widget>
-                <widget class="TQCheckBox" row="3" column="0" rowspan="1" colspan="3">
-                    <property name="name">
-                        <cstring>kcfg_SortByApp</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Sort alphabeticall&amp;y by application name</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                </widget>
-                <widget class="TQCheckBox" row="4" column="1" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>kcfg_AllowDragAndDropReArrange</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Allow taskbar items to be rearranged using drag and drop</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Turning this option on will allow tasks on the taskbar to be manually rearranged using drag and drop.</string>
-                    </property>
-                </widget>
-                <widget class="TQCheckBox" row="5" column="0" rowspan="1" colspan="3">
-                  <property name="name">
-                    <cstring>kcfg_CycleWheel</cstring>
-                  </property>
-                  <property name="text">
-                    <string>Cycle through windows with mouse wheel</string>
-                  </property>
-                  <property name="checked">
-                    <bool>true</bool>
-                  </property>
-                </widget>
-                <widget class="TQCheckBox" row="6" column="0" rowspan="1" colspan="3">
-                    <property name="name">
-                        <cstring>kcfg_ShowOnlyIconified</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Show o&amp;nly minimized windows</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Select this option if you want the taskbar to display &lt;b&gt;only&lt;/b&gt; minimized windows. 
+                                </property>
+                            </widget>
+                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>kcfg_ShowOnlyIconified</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Show o&amp;nly minimized windows</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+N</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Select this option if you want the taskbar to display &lt;b&gt;only&lt;/b&gt; minimized windows. 
 
 By default, this option is not selected and the taskbar will show all windows.</string>
-                    </property>
-                </widget>
-                <widget class="TQCheckBox" row="7" column="0" rowspan="1" colspan="3">
-                    <property name="name">
-                        <cstring>kcfg_ShowWindowListBtn</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Show window list &amp;button</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Selecting this option causes the taskbar to display a button that, when clicked, shows a list of all windows in a popup menu.</string>
-                    </property>
-                </widget>
-                <widget class="TQLabel" row="8" column="0" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>displayIconsNText</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Dis&amp;play:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>kcfg_DisplayIconsNText</cstring>
-                    </property>
-                </widget>
-                <widget class="TQComboBox" row="8" column="2">
-                    <property name="name">
-                        <cstring>kcfg_DisplayIconsNText</cstring>
-                    </property>
-                    <property name="sizePolicy">
-                        <sizepolicy>
-                            <hsizetype>7</hsizetype>
-                            <vsizetype>0</vsizetype>
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                        </sizepolicy>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Choose taskbar display mode among &lt;strong&gt;Icons and text&lt;/strong&gt;, &lt;strong&gt;Text only&lt;/strong&gt; and &lt;strong&gt;Icons only&lt;/strong&gt;.</string>
-                    </property>
-                </widget>
-                <widget class="TQComboBox" row="9" column="2">
-                    <property name="name">
-                        <cstring>kcfg_GroupTasks</cstring>
-                    </property>
-                    <property name="sizePolicy">
-                        <sizepolicy>
-                            <hsizetype>7</hsizetype>
-                            <vsizetype>0</vsizetype>
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                        </sizepolicy>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>The taskbar can group similar windows into single buttons. When one of these window group buttons are clicked on a menu appears showing all the windows in that group. This can be especially useful with the &lt;em&gt;Show all windows&lt;/em&gt; option.
+                                </property>
+                            </widget>
+                            <widget class="KSeparator" row="3" column="0" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>kSeparator5</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQCheckBox" row="1" column="0" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>showAllScreens</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Show windows from all sc&amp;reens</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+R</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; windows which are on the same Xinerama screen as the taskbar.
+
+By default, this option is selected and all windows are shown.</string>
+                                </property>
+                            </widget>
+                            <widget class="TQComboBox" row="4" column="1" rowspan="2" colspan="1">
+                                <property name="name">
+                                    <cstring>kcfg_ShowTaskStates</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>250</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>The taskbar can show and/or hide tasks based on their current process state.  Select &lt;em&gt;Any&lt;/em&gt; to show all tasks regardless of current state.</string>
+                                </property>
+                            </widget>
+                            <widget class="TQLabel" row="4" column="0" rowspan="2" colspan="1">
+                                <property name="name">
+                                    <cstring>showTaskStatesLabel</cstring>
+                                </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>250</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Show tasks with state:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_ShowTaskStates</cstring>
+                                </property>
+                            </widget>
+                            <spacer row="5" column="2">
+                                <property name="name">
+                                    <cstring>spacer23</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>31</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                        </grid>
+                    </widget>
+                    <widget class="TQButtonGroup">
+                        <property name="name">
+                            <cstring>grpSortGroup</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Sorting and grouping</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <spacer row="1" column="0">
+                                <property name="name">
+                                    <cstring>spacer2_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="TQCheckBox" row="1" column="1" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>kcfg_AllowDragAndDropReArrange</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Allow taskbar items to be rearranged using drag and drop</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+A</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Turning this option on will allow tasks on the taskbar to be manually rearranged using drag and drop.</string>
+                                </property>
+                            </widget>
+                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="4">
+                                <property name="name">
+                                    <cstring>kcfg_SortByApp</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Sort alphabeticall&amp;y by application name</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+Y</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="4">
+                                <property name="name">
+                                    <cstring>kcfg_SortByDesktop</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Sort windows by desk&amp;top</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+T</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Selecting this option causes the taskbar to show windows in order of the desktop they appear on.
+
+By default this option is selected.</string>
+                                </property>
+                            </widget>
+                            <widget class="KSeparator" row="3" column="0" rowspan="1" colspan="4">
+                                <property name="name">
+                                    <cstring>kSeparator6</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQLabel" row="4" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>groupTasksLabel</cstring>
+                                </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>250</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Group similar tasks:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_GroupTasks</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQComboBox" row="4" column="2">
+                                <property name="name">
+                                    <cstring>kcfg_GroupTasks</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>300</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>The taskbar can group similar windows into single buttons. When one of these window group buttons are clicked on a menu appears showing all the windows in that group. This can be especially useful with the &lt;em&gt;Show all windows&lt;/em&gt; option.
 
 You can set the taskbar to &lt;strong&gt;Never&lt;/strong&gt; group windows, to &lt;strong&gt;Always&lt;/strong&gt; group windows or to group windows only &lt;strong&gt;When the Taskbar is Full&lt;/strong&gt;.
 
 By default the taskbar groups windows when it is full.</string>
-                    </property>
-                </widget>
-                <widget class="TQLabel" row="9" column="0" rowspan="1" colspan="2">
-                    <property name="name">
-			                  <cstring>groupTasksLabel</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Group similar tasks:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>kcfg_GroupTasks</cstring>
-                    </property>
-                </widget>
-                <widget class="TQComboBox" row="10" column="2">
-                    <property name="name">
-                        <cstring>kcfg_ShowTaskStates</cstring>
-                    </property>
-                    <property name="sizePolicy">
-                        <sizepolicy>
-                            <hsizetype>7</hsizetype>
-                            <vsizetype>0</vsizetype>
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                        </sizepolicy>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-			                  <string>The taskbar can show and/or hide tasks based on their current process state.  Select &lt;em&gt;Any&lt;/em&gt; to show all tasks regardless of current state.</string>
-                    </property>
-                </widget>
-                <widget class="TQLabel" row="10" column="0" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>showTaskStatesLabel</cstring>
-                    </property>
-                    <property name="text">
-			                  <string>&amp;Show tasks with state:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>kcfg_ShowTaskStates</cstring>
-                    </property>
-                </widget>
-                <widget class="TQComboBox" row="11" column="2">
-                    <property name="name">
-                        <cstring>appearance</cstring>
-                    </property>
-                </widget>
-                <widget class="TQLabel" row="11" column="0" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>textLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>A&amp;ppearance:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>appearance</cstring>
-                    </property>
-                </widget>
-                <widget class="TQCheckBox" row="12" column="0" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>kcfg_UseCustomColors</cstring>
-                    </property>
-                    <property name="enabled">
-                        <bool>true</bool>
-                    </property>
-                    <property name="text">
-                        <string>Use &amp;custom colors</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                </widget>
-                <widget class="TQLayoutWidget" row="13" column="0" rowspan="1" colspan="3">
-                    <property name="name">
-                        <cstring>layout9</cstring>
-                    </property>
-                    <grid>
+                                </property>
+                            </widget>
+                            <spacer row="4" column="3">
+                                <property name="name">
+                                    <cstring>spacer23_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>31</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                        </grid>
+                    </widget>
+                    <spacer>
                         <property name="name">
-                            <cstring>unnamed</cstring>
+                            <cstring>spacer16</cstring>
                         </property>
-                        <widget class="TQLabel" row="0" column="0">
-                            <property name="name">
-                                <cstring>inactiveTaskTextColorLabel</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Inacti&amp;ve task text color:</string>
-                            </property>
-                            <property name="buddy" stdset="0">
-                                <cstring>kcfg_InactiveTaskTextColor</cstring>
-                            </property>
-                        </widget>
-                        <widget class="KColorButton" row="0" column="1">
-                            <property name="name">
-                                <cstring>kcfg_InactiveTaskTextColor</cstring>
-                            </property>
-                            <property name="text">
-                                <string></string>
-                            </property>
-                        </widget>
-                        <spacer row="0" column="2">
-                            <property name="name">
-                                <cstring>spacer11</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>191</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                        <widget class="TQLabel" row="0" column="3">
-                            <property name="name">
-                                <cstring>activeTaskTextColorLabel</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Active task te&amp;xt color:</string>
-                            </property>
-                            <property name="buddy" stdset="0">
-                                <cstring>kcfg_ActiveTaskTextColor</cstring>
-                            </property>
-                        </widget>
-                        <widget class="KColorButton" row="0" column="4">
-                            <property name="name">
-                                <cstring>kcfg_ActiveTaskTextColor</cstring>
-                            </property>
-                            <property name="text">
-                                <string></string>
-                            </property>
-                        </widget>
-                        <spacer row="0" column="5">
-                            <property name="name">
-                                <cstring>spacer11_2</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>191</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                        <widget class="TQLabel" row="0" column="6">
-                            <property name="name">
-                                <cstring>taskBackgroundColorLabel</cstring>
-                            </property>
-                            <property name="text">
-                                <string>&amp;Background color:</string>
-                            </property>
-                            <property name="buddy" stdset="0">
-                                <cstring>kcfg_TaskBackgroundColor</cstring>
-                            </property>
-                        </widget>
-                        <widget class="KColorButton" row="0" column="7">
-                            <property name="name">
-                                <cstring>kcfg_TaskBackgroundColor</cstring>
-                            </property>
-                            <property name="text">
-                                <string></string>
-                            </property>
-                        </widget>
-                        <spacer row="0" column="8">
-                            <property name="name">
-                                <cstring>spacer12</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>191</width>
-                                    <height>20</height>
-                                </size>
-                            </property>
-                        </spacer>
-                    </grid>
-                </widget>
-                <spacer row="1" column="0">
-                    <property name="name">
-                        <cstring>spacer2</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Fixed</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>20</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-            </grid>
-        </widget>
-        <widget class="TQGroupBox">
-            <property name="name">
-                <cstring>actionsGroup</cstring>
-            </property>
-            <property name="title">
-                <string>Actions</string>
-            </property>
-            <grid>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Minimum</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
+            </widget>
+            <widget class="TQWidget">
                 <property name="name">
-                    <cstring>unnamed</cstring>
+                    <cstring>TabPage</cstring>
                 </property>
-                <widget class="TQLabel" row="0" column="0">
+                <attribute name="title">
+                    <string>&amp;Appearance</string>
+                </attribute>
+                <grid>
                     <property name="name">
-                        <cstring>leftButtonLabel</cstring>
+                        <cstring>unnamed</cstring>
                     </property>
-                    <property name="text">
-                        <string>&amp;Left button:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>kcfg_LeftButtonAction</cstring>
-                    </property>
-                </widget>
-                <widget class="TQLabel" row="1" column="0">
+                    <spacer row="2" column="1">
+                        <property name="name">
+                            <cstring>spacer21</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Minimum</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="TQButtonGroup" row="0" column="1">
+                        <property name="name">
+                            <cstring>grpTaskbarColors</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>3</hsizetype>
+                                <vsizetype>5</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="title">
+                            <string>Colors</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <spacer row="2" column="0">
+                                <property name="name">
+                                    <cstring>spacer2_2_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="TQCheckBox" row="1" column="0" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>kcfg_UseCustomColors</cstring>
+                                </property>
+                                <property name="enabled">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="text">
+                                    <string>Use &amp;custom colors</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+C</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <widget class="TQLayoutWidget" row="2" column="1" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>layout19</cstring>
+                                </property>
+                                <grid>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="TQLabel" row="1" column="0">
+                                        <property name="name">
+                                            <cstring>activeTaskTextColorLabel</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>1</hsizetype>
+                                                <vsizetype>5</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="text">
+                                            <string>Active task te&amp;xt color:</string>
+                                        </property>
+                                        <property name="buddy" stdset="0">
+                                            <cstring>kcfg_ActiveTaskTextColor</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQLabel" row="2" column="0">
+                                        <property name="name">
+                                            <cstring>taskBackgroundColorLabel</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>1</hsizetype>
+                                                <vsizetype>5</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="text">
+                                            <string>&amp;Background color:</string>
+                                        </property>
+                                        <property name="buddy" stdset="0">
+                                            <cstring>kcfg_TaskBackgroundColor</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton" row="0" column="1">
+                                        <property name="name">
+                                            <cstring>kcfg_InactiveTaskTextColor</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton" row="1" column="1">
+                                        <property name="name">
+                                            <cstring>kcfg_ActiveTaskTextColor</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton" row="2" column="1">
+                                        <property name="name">
+                                            <cstring>kcfg_TaskBackgroundColor</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQLabel" row="0" column="0">
+                                        <property name="name">
+                                            <cstring>inactiveTaskTextColorLabel</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>1</hsizetype>
+                                                <vsizetype>5</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="text">
+                                            <string>Inacti&amp;ve task text color:</string>
+                                        </property>
+                                        <property name="buddy" stdset="0">
+                                            <cstring>kcfg_InactiveTaskTextColor</cstring>
+                                        </property>
+                                    </widget>
+                                </grid>
+                            </widget>
+                        </grid>
+                    </widget>
+                    <widget class="TQButtonGroup" row="1" column="1">
+                        <property name="name">
+                            <cstring>grpAppearanceMisc</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>1</hsizetype>
+                                <vsizetype>5</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="title">
+                            <string>Miscellaneous</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>kcfg_ShowWindowListBtn</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Show window list &amp;button</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+B</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Selecting this option causes the taskbar to display a button that, when clicked, shows a list of all windows in a popup menu.</string>
+                                </property>
+                            </widget>
+                            <widget class="TQSpinBox" row="1" column="1">
+                                <property name="name">
+                                    <cstring>kcfg_MaximumButtonWidth</cstring>
+                                </property>
+                                <property name="suffix">
+                                    <string> px</string>
+                                </property>
+                                <property name="maxValue">
+                                    <number>500</number>
+                                </property>
+                                <property name="minValue">
+                                    <number>10</number>
+                                </property>
+                                <property name="value">
+                                    <number>200</number>
+                                </property>
+                            </widget>
+                            <widget class="TQLabel" row="1" column="0">
+                                <property name="name">
+                                    <cstring>maxButtonWidthLabel</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Maximum button width:</string>
+                                </property>
+                            </widget>
+                        </grid>
+                    </widget>
+                    <widget class="TQButtonGroup" row="1" column="0">
+                        <property name="name">
+                            <cstring>grpIconsNText</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>5</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="title">
+                            <string>Icons</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="TQComboBox" row="0" column="2" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>kcfg_DisplayIconsNText</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>5</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Choose taskbar display mode among &lt;strong&gt;Icons and text&lt;/strong&gt;, &lt;strong&gt;Text only&lt;/strong&gt; and &lt;strong&gt;Icons only&lt;/strong&gt;.</string>
+                                </property>
+                            </widget>
+                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="4">
+                                <property name="name">
+                                    <cstring>kcfg_ShowThumbnails</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Show thumbnails on hover</string>
+                                </property>
+                            </widget>
+                            <spacer row="3" column="0">
+                                <property name="name">
+                                    <cstring>spacer2_2_2_3</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <spacer row="1" column="1">
+                                <property name="name">
+                                    <cstring>spacer2_2_2_3_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Vertical</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>16</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="TQLabel" row="0" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>displayIconsNTextLabel</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>1</hsizetype>
+                                        <vsizetype>5</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>100</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
+                                <property name="text">
+                                    <string>Dis&amp;play:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_DisplayIconsNText</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQSpinBox" row="3" column="3">
+                                <property name="name">
+                                    <cstring>kcfg_ThumbnailMaxDimension</cstring>
+                                </property>
+                                <property name="enabled">
+                                    <bool>false</bool>
+                                </property>
+                                <property name="suffix">
+                                    <string> px</string>
+                                </property>
+                                <property name="maxValue">
+                                    <number>500</number>
+                                </property>
+                                <property name="minValue">
+                                    <number>50</number>
+                                </property>
+                                <property name="value">
+                                    <number>100</number>
+                                </property>
+                            </widget>
+                            <widget class="TQLabel" row="3" column="1" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>thumbMaxDimensionLabel</cstring>
+                                </property>
+                                <property name="enabled">
+                                    <bool>false</bool>
+                                </property>
+                                <property name="text">
+                                    <string>Maximum dimension:</string>
+                                </property>
+                            </widget>
+                        </grid>
+                    </widget>
+                    <widget class="TQButtonGroup" row="0" column="0">
+                        <property name="name">
+                            <cstring>grpTaskbarStyle</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>5</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="title">
+                            <string>Button style</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="TQLabel" row="0" column="0">
+                                <property name="name">
+                                    <cstring>textLabel1</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Taskbar style:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>appearance</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQComboBox" row="0" column="1">
+                                <property name="name">
+                                    <cstring>appearance</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>5</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                            </widget>
+                            <widget class="TQFrame" row="2" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>customAppearance</cstring>
+                                </property>
+                                <property name="enabled">
+                                    <bool>false</bool>
+                                </property>
+                                <property name="frameShape">
+                                    <enum>StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                    <enum>Raised</enum>
+                                </property>
+                                <grid>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="2">
+                                        <property name="name">
+                                            <cstring>kcfg_HaloText</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Draw halo around text</string>
+                                        </property>
+                                        <property name="accel">
+                                            <string></string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="2">
+                                        <property name="name">
+                                            <cstring>kcfg_DrawButtons</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Always draw items as buttons</string>
+                                        </property>
+                                        <property name="accel">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                    <spacer row="1" column="0">
+                                        <property name="name">
+                                            <cstring>spacer2_2_2_3_3</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Fixed</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="TQCheckBox" row="1" column="1">
+                                        <property name="name">
+                                            <cstring>kcfg_ShowButtonOnHover</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Draw items as buttons on hover</string>
+                                        </property>
+                                        <property name="accel">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                </grid>
+                            </widget>
+                        </grid>
+                    </widget>
+                </grid>
+            </widget>
+            <widget class="TQWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>A&amp;ctions</string>
+                </attribute>
+                <vbox>
                     <property name="name">
-                        <cstring>middleButtonLabel</cstring>
+                        <cstring>unnamed</cstring>
                     </property>
-                    <property name="text">
-                        <string>&amp;Middle button:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>kcfg_MiddleButtonAction</cstring>
-                    </property>
-                </widget>
-                <widget class="TQLabel" row="2" column="0">
-                    <property name="name">
-                        <cstring>rightButtonLabel</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Right b&amp;utton:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>kcfg_RightButtonAction</cstring>
-                    </property>
-                </widget>
-                <widget class="TQComboBox" row="0" column="1">
-                    <property name="name">
-                        <cstring>kcfg_LeftButtonAction</cstring>
-                    </property>
-                    <property name="sizePolicy">
-                        <sizepolicy>
-                            <hsizetype>7</hsizetype>
-                            <vsizetype>0</vsizetype>
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                        </sizepolicy>
-                    </property>
-                </widget>
-                <widget class="TQComboBox" row="1" column="1">
-                    <property name="name">
-                        <cstring>kcfg_MiddleButtonAction</cstring>
-                    </property>
-                    <property name="sizePolicy">
-                        <sizepolicy>
-                            <hsizetype>7</hsizetype>
-                            <vsizetype>0</vsizetype>
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                        </sizepolicy>
-                    </property>
-                </widget>
-                <widget class="TQComboBox" row="2" column="1">
-                    <property name="name">
-                        <cstring>kcfg_RightButtonAction</cstring>
-                    </property>
-                    <property name="sizePolicy">
-                        <sizepolicy>
-                            <hsizetype>7</hsizetype>
-                            <vsizetype>0</vsizetype>
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                        </sizepolicy>
-                    </property>
-                </widget>
-            </grid>
+                    <widget class="TQGroupBox">
+                        <property name="name">
+                            <cstring>actionsGroup</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>1</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="title">
+                            <string>Mouse Actions</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="TQLabel" row="0" column="0">
+                                <property name="name">
+                                    <cstring>leftButtonLabel</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Left button:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_LeftButtonAction</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQComboBox" row="0" column="1">
+                                <property name="name">
+                                    <cstring>kcfg_LeftButtonAction</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                            </widget>
+                            <widget class="TQLabel" row="1" column="0">
+                                <property name="name">
+                                    <cstring>middleButtonLabel</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Middle button:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_MiddleButtonAction</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQComboBox" row="1" column="1">
+                                <property name="name">
+                                    <cstring>kcfg_MiddleButtonAction</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                            </widget>
+                            <widget class="TQComboBox" row="2" column="1">
+                                <property name="name">
+                                    <cstring>kcfg_RightButtonAction</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                            </widget>
+                            <widget class="TQLabel" row="2" column="0">
+                                <property name="name">
+                                    <cstring>rightButtonLabel</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Right b&amp;utton:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_RightButtonAction</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQCheckBox" row="4" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>kcfg_CycleWheel</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Cycle through windows with mouse wheel</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <spacer row="3" column="0">
+                                <property name="name">
+                                    <cstring>spacer11</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Vertical</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>21</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                        </grid>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer35</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Minimum</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
+            </widget>
         </widget>
-        <spacer>
-            <property name="name">
-                <cstring>Spacer1</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>20</height>
-                </size>
-            </property>
-        </spacer>
     </vbox>
 </widget>
 <connections>
+    <connection>
+        <sender>kcfg_ShowThumbnails</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_ThumbnailMaxDimension</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_UseCustomColors</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_InactiveTaskTextColor</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_UseCustomColors</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_ActiveTaskTextColor</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_UseCustomColors</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_TaskBackgroundColor</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_ShowThumbnails</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>thumbMaxDimensionLabel</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_SortByApp</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_AllowDragAndDropReArrange</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
     <connection>
         <sender>kcfg_ShowAllWindows</sender>
         <signal>toggled(bool)</signal>
         <receiver>kcfg_SortByDesktop</receiver>
         <slot>setEnabled(bool)</slot>
     </connection>
+    <connection>
+        <sender>kcfg_DrawButtons</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_ShowButtonOnHover</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
 </connections>
-<tabstops>
-    <tabstop>kcfg_ShowAllWindows</tabstop>
-    <tabstop>kcfg_SortByDesktop</tabstop>
-    <tabstop>showAllScreens</tabstop>
-    <tabstop>kcfg_SortByApp</tabstop>
-    <tabstop>kcfg_AllowDragAndDropReArrange</tabstop>
-    <tabstop>kcfg_CycleWheel</tabstop>
-    <tabstop>kcfg_ShowOnlyIconified</tabstop>
-    <tabstop>kcfg_ShowWindowListBtn</tabstop>
-    <tabstop>kcfg_DisplayIconsNText</tabstop>
-    <tabstop>kcfg_GroupTasks</tabstop>
-    <tabstop>kcfg_ShowTaskStates</tabstop>
-    <tabstop>appearance</tabstop>
-    <tabstop>kcfg_UseCustomColors</tabstop>
-    <tabstop>kcfg_InactiveTaskTextColor</tabstop>
-    <tabstop>kcfg_ActiveTaskTextColor</tabstop>
-    <tabstop>kcfg_TaskBackgroundColor</tabstop>
-    <tabstop>kcfg_LeftButtonAction</tabstop>
-    <tabstop>kcfg_MiddleButtonAction</tabstop>
-    <tabstop>kcfg_RightButtonAction</tabstop>
-</tabstops>
 <includes>
     <include location="global" impldecl="in implementation">kcolorbutton.h</include>
     <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">kseparator.h</include>
+    <include location="global" impldecl="in implementation">tdefontcombo.h</include>
+    <include location="global" impldecl="in implementation">klineedit.h</include>
+    <include location="global" impldecl="in implementation">tdefontrequester.h</include>
+    <include location="global" impldecl="in implementation">tqtabwidget.h</include>
 </includes>
 <layoutdefaults spacing="3" margin="6"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>

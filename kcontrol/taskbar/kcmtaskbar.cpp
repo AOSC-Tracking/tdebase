@@ -24,6 +24,7 @@
 #include <tqfile.h>
 #include <tqlabel.h>
 #include <tqbuttongroup.h>
+#include <tqtabwidget.h>
 
 #include <dcopclient.h>
 
@@ -218,6 +219,7 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     {
         m_widget->appearance->insertItem((*it).name());
     }
+    m_widget->appearance->insertItem(i18n("Custom"));
 
     connect(m_widget->appearance, TQT_SIGNAL(activated(int)),
             this, TQT_SLOT(appearanceChanged(int)));
@@ -247,7 +249,7 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     {
         m_widget->kcfg_ShowAllWindows->hide();
         m_widget->kcfg_SortByDesktop->hide();
-        m_widget->spacer2->changeSize(0, 0);
+        // m_widget->spacer2->changeSize(0, 0);
     }
 
     if (!TQApplication::desktop()->isVirtualDesktop() ||
@@ -306,14 +308,12 @@ void TaskbarConfig::processLockouts()
 		m_widget->localConfigWarning->show();
 		m_widget->kcfg_UseGlobalSettings->show();
 		if (m_widget->kcfg_UseGlobalSettings->isChecked()) {
-			m_widget->taskbarGroup->hide();
-			m_widget->actionsGroup->hide();
+			m_widget->tabs->hide();
 			m_widget->globalConfigReload->hide();
 			m_widget->globalConfigEdit->show();
 		}
 		else {
-			m_widget->taskbarGroup->show();
-			m_widget->actionsGroup->show();
+			m_widget->tabs->show();
 			// FIXME
 			// Disable this feature until a method can be found to force the TDECModule to reload its settings from disk after the global settings have been copied!
 			//m_widget->globalConfigReload->show();
@@ -384,22 +384,36 @@ void TaskbarConfig::updateAppearanceCombo()
     if (i < m_appearances.count())
     {
         m_widget->appearance->setCurrentItem(i);
+        m_widget->customAppearance->setEnabled(false);
         return;
     }
 
-    if (m_widget->appearance->count() == (int)m_appearances.count())
+    else if (m_widget->appearance->count() == (int)m_appearances.count())
     {
-        m_widget->appearance->insertItem(i18n("Custom"));
+        m_widget->customAppearance->setEnabled(true);
     }
 
     m_widget->appearance->setCurrentItem(m_appearances.count());
 }
 
+void TaskbarConfig::updateCustomAppearance()
+{
+    m_widget->kcfg_DrawButtons      ->setChecked(m_settingsObject->drawButtons());
+    m_widget->kcfg_HaloText         ->setChecked(m_settingsObject->haloText());
+    m_widget->kcfg_ShowButtonOnHover->setChecked(m_settingsObject->showButtonOnHover());
+}
+
 void TaskbarConfig::appearanceChanged(int selected)
 {
-    if (selected < (int)m_appearances.count())
+    if (selected < m_appearances.count())
     {
+        m_widget->customAppearance->setEnabled(false);
         unmanagedWidgetChangeState(!m_appearances[selected].matchesSettings());
+    }
+    else if(selected == m_appearances.count())
+    {
+        m_widget->customAppearance->setEnabled(true);
+        updateCustomAppearance();
     }
 }
 
@@ -413,6 +427,8 @@ void TaskbarConfig::load()
 
 void TaskbarConfig::save()
 {
+    TDECModule::save();
+
     m_settingsObject->setShowCurrentScreenOnly(!m_widget->showAllScreens->isChecked());
     int selectedAppearance = m_widget->appearance->currentItem();
     if (selectedAppearance < (int)m_appearances.count())
@@ -420,8 +436,6 @@ void TaskbarConfig::save()
         m_appearances[selectedAppearance].alterSettings();
         m_settingsObject->writeConfig();
     }
-
-    TDECModule::save();
 
     TQByteArray data;
     kapp->dcopClient()->emitDCOPSignal("kdeTaskBarConfigChanged()", data);

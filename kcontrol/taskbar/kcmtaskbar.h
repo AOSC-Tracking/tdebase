@@ -78,6 +78,7 @@ private slots:
 private:
     TaskbarAppearance::List m_appearances;
     void updateAppearanceCombo();
+    void updateCustomAppearance();
     static const TQStringList& actionList();
     static TQStringList i18nActionList();
     static const TQStringList& groupModeList();

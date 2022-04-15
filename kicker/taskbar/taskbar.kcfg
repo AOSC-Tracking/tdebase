@@ -91,9 +91,10 @@
         </entry>
         <entry key="MaximumButtonWidth" type="Int" >
             <default>200</default>
-            <min>0</min>
-            <label></label>
-            <whatsthis></whatsthis>
+            <min>50</min>
+            <max>500</max>
+            <label>Maximum button width</label>
+            <whatsthis>The maximum width to which a taskbar item can expand.</whatsthis>
         </entry>
         <entry key="MinimumButtonHeight" type="Int" >
             <default>18</default>
