@@ -730,28 +730,36 @@ void TaskContainer::drawButton(TQPainter *p)
       }
 
       // modified overlay icon
-      if (taskBar->showText())
+      static TQString modStr = "[" + i18n( "modified" ) + "]";
+      int modStrPos = text.find( modStr );
+      if (modStrPos >= 0)
       {
-        static TQString modStr = "[" + i18n( "modified" ) + "]";
-        int modStrPos = text.find( modStr );
-        if (modStrPos >= 0)
+        TQRect r;
+        TQPixmap modPixmap = SmallIcon("modified");
+        if (iconified)
         {
-          // +1 because we include a space after the closing brace.
-          text.remove(modStrPos, modStr.length() + 1);
-          TQPixmap modPixmap = SmallIcon("modified");
-
-          // draw modified overlay
-          if (!modPixmap.isNull())
-          {
-            TQRect r = TQStyle::visualRect(TQRect(br.x() + textPos,(height() - iconSize) / 2, iconSize, iconSize), this);
-            if (iconified)
-            {
-              TDEIconEffect::semiTransparent(modPixmap);
-            }
-            p->drawPixmap(r, modPixmap);
-            textPos += iconSize + 2;
-          }
+            TDEIconEffect::semiTransparent(modPixmap);
         }
+
+        if (taskBar->showText()) // has text
+        {
+            // +1 because we include a space after the closing brace.
+            text.remove(modStrPos, modStr.length() + 1);
+
+            // draw modified overlay
+            if (!modPixmap.isNull())
+            {
+                r = TQStyle::visualRect(TQRect(br.x() + textPos,(height() - iconSize) / 2, iconSize, iconSize), this);
+                textPos += iconSize + 2;
+            }
+         }
+         else if (taskBar->showIcons()) // has only icon
+         {
+             r = TQRect(0, 0, iconSize / 2, iconSize / 2);
+             r.moveBottomRight(iconRect.bottomRight());
+         }
+
+         p->drawPixmap(r, modPixmap);
       }
     }
 
