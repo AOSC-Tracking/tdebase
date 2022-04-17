@@ -40,6 +40,7 @@ public:
 private:
 	KCMKonsoleDialog *dialog;
 	bool xonXoffOrig;
+	bool realTransparencyOrig;
 	bool bidiOrig;
 };
 
