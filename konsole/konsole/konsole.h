@@ -428,6 +428,7 @@ private:
 
   bool        b_framevis:1;
   bool        b_metaAsAlt:1;
+  bool        b_realTransparency:1;
   bool        b_fullscreen:1;
   bool        m_menuCreated:1;
   bool        b_warnQuit:1;

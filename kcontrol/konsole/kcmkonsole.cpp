@@ -74,6 +74,7 @@ KCMKonsole::KCMKonsole(TQWidget * parent, const char *name, const TQStringList&)
     connect(dialog->tabsCycleWheelCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
     connect(dialog->menuAcceleratorsCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
     connect(dialog->metaAsAltModeCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
+    connect(dialog->realTransparency,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
     connect(dialog->silence_secondsSB,TQT_SIGNAL(valueChanged(int)), TQT_SLOT( changed() ));
     connect(dialog->word_connectorLE,TQT_SIGNAL(textChanged(const TQString &)), TQT_SLOT( changed() ));
     connect(dialog->SchemaEditor1, TQT_SIGNAL(changed()), TQT_SLOT( changed() ));
@@ -112,6 +113,8 @@ void KCMKonsole::load(bool useDefaults)
     dialog->silence_secondsSB->setValue(config.readUnsignedNumEntry( "SilenceSeconds", 10 ));
     dialog->word_connectorLE->setText(config.readEntry("wordseps",":@-./_~"));
     dialog->metaAsAltModeCB->setChecked(config.readBoolEntry("metaAsAltMode",false));
+    realTransparencyOrig = config.readBoolEntry("RealTransparency",false);
+    dialog->realTransparency->setChecked(realTransparencyOrig);
 
     dialog->SchemaEditor1->setSchema(config.readEntry("schema"));
 
@@ -153,6 +156,8 @@ void KCMKonsole::save()
     config.writeEntry("SilenceSeconds" , dialog->silence_secondsSB->value());
     config.writeEntry("wordseps", dialog->word_connectorLE->text());
     config.writeEntry("metaAsAltMode", dialog->metaAsAltModeCB->isChecked());
+    bool realTransparencyNew = dialog->realTransparency->isChecked();
+    config.writeEntry("RealTransparency", realTransparencyNew);
 
     config.writeEntry("schema", dialog->SchemaEditor1->schema());
 
@@ -172,6 +177,12 @@ void KCMKonsole::save()
                                            "newly started Konsole sessions.\n"
                                            "The 'stty' command can be used to change the flow control "
                                            "settings of existing Konsole sessions."));
+    }
+
+    if (realTransparencyOrig != realTransparencyNew)
+    {
+       KMessageBox::information(this, i18n("The real transparency setting will only affect "
+                                           "newly started Konsole sessions.\n"));
     }
 
     if (bidiNew && !bidiOrig)

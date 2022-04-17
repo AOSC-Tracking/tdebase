@@ -266,6 +266,7 @@ Konsole::Konsole(const char* name, int histon, bool menubaron, bool tabbaron, bo
 ,b_installBitmapFonts(false)
 ,b_framevis(true)
 ,b_metaAsAlt(false)
+,b_realTransparency(false)
 ,b_fullscreen(false)
 ,m_menuCreated(false)
 ,b_warnQuit(false)
@@ -361,11 +362,6 @@ Konsole::Konsole(const char* name, int histon, bool menubaron, bool tabbaron, bo
 //  connect(kapp, TQT_SIGNAL(tdedisplayFontChanged()), this, TQT_SLOT(slotFontChanged()));
 
   kapp->dcopClient()->setDefaultObject( "konsole" );
-
-  // Signal that we want to be transparent to the desktop, not to windows behind us...
-  Atom kde_wm_transparent_to_desktop;
-  kde_wm_transparent_to_desktop = XInternAtom(tqt_xdisplay(), "_TDE_TRANSPARENT_TO_DESKTOP", False);
-  XChangeProperty(tqt_xdisplay(), winId(), kde_wm_transparent_to_desktop, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
 }
 
 
@@ -1616,6 +1612,20 @@ void Konsole::readProperties(TDEConfig* config, const TQString &schema, bool glo
      s_word_seps= config->readEntry("wordseps",":@-./_~");
      b_framevis = config->readBoolEntry("has frame",true);
      b_metaAsAlt = config->readBoolEntry("metaAsAltMode",false);
+     b_realTransparency = config->readBoolEntry("RealTransparency",false);
+
+     Atom kde_wm_transparent_to_desktop;
+     kde_wm_transparent_to_desktop = XInternAtom(tqt_xdisplay(), "_TDE_TRANSPARENT_TO_DESKTOP", False);
+     if (b_realTransparency)
+     {
+       XDeleteProperty(tqt_xdisplay(), winId(), kde_wm_transparent_to_desktop);
+     }
+     else
+     {
+       // Signal that we want to be transparent to the desktop, not to windows behind us...
+       XChangeProperty(tqt_xdisplay(), winId(), kde_wm_transparent_to_desktop, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
+     }
+ 
      TQPtrList<TEWidget> tes = activeTEs();
      for (TEWidget *_te = tes.first(); _te; _te = tes.next()) {
        _te->setWordCharacters(s_word_seps);
