@@ -1,12 +1,87 @@
 <sect1 id="release-notes-r14.0.12">
-<title>R14.0.12 Release Notes (draft)</title>
+<title>R14.0.12 Release Notes</title>
 
 <para>R14.0.12 is the twelfth maintenance release of the R14.0 series,
-and is built on and improves the previous versions.</para>
-<para>Maintenance releases are intended to promptly bring bug fixes and
-new features to users, while preserving overall stability through the
-avoidance of both major API or feature changes and major codebase re-factoring.</para>
+and is built on and improves the previous maintenance versions.</para>
+<para>Maintenance releases are intended to promptly bring bug fixes and new
+features to users, while preserving overall stability through the avoidance
+of both major API or feature changes and major codebase re-factoring.
+</para>
 
-<para>The ongoing temporary list of changes introduced by this release can be found <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/66">here</ulink>.</para>
+<sect2 id="release-notes-r14.0.12-notes">
+<title>Important fixes</title>
+
+<para>This section highlights some of the most important changes introduced by this
+release.</para>
+
+<itemizedlist>
+<listitem>
+  <para>New applications</para>
+  <itemizedlist>
+    <listitem><para>Polkit-agent-tde - a D-Bus service that provides a TDE based polkit authentication agent</para></listitem>
+    <listitem><para>Polkit-tqt - a library that lets developers use the PolicyKit API through a nice TQt-styled interface</para></listitem>
+    <listitem><para>tdemarkdown part - an embeddable lightweight markdown document viewer</para></listitem>
+  </itemizedlist>
+</listitem>
+
+<listitem>
+  <para>Enhancements</para>
+  <itemizedlist>
+    <listitem><para>Some improvements on Konsole terminal emulation</para></listitem>
+    <listitem><para>Quanta: improved support for complex characters/dead keys in VPL editor</para></listitem>
+    <listitem><para>KSSL: added Let's Encrypt certificates support</para></listitem>
+    <listitem><para>Kxkb: systray label can now have a transparent background</para></listitem>
+    <listitem><para>Konsole: added real transparency checkbox option</para></listitem>
+    <listitem><para>Quanta: added support for HTML 5</para></listitem>
+    <listitem><para>Sip4-tqt: initial support for python 3</para></listitem>
+    <listitem><para>Tdebase: added dispwin (Argyll) support to set the ICC profile</para></listitem>
+    <listitem><para>Translation updates (thanks to all translators)</para></listitem>
+    <listitem><para>Several packages have been migrated to CMake build system</para></listitem>
+    <listitem><para>Dropped automake build system for various packages</para></listitem>
+    <listitem><para>Continued overall look polishing</para></listitem>
+  </itemizedlist>
+</listitem>
+
+<listitem>
+  <para>Bug fixes</para>
+  <itemizedlist>
+    <listitem><para>Fixed timeout on dbus' service startup response on first call</para></listitem>
+    <listitem><para>Fixed hanging of system on shutdown caused by conflicts between tdm and plymouth</para></listitem>
+    <listitem><para>Added support for Poppler >= 21.11</para></listitem>
+    <listitem><para>TCC: make sure correct encoding is used for editing bashrc (affects gtk-qt-engine)</para></listitem>
+    <listitem><para>Fixed issue with ICEAuthority ownership stealing when programs were run using tdesu in a user session</para></listitem>
+    <listitem><para>KMail: redirecting messages now uses the default account</para></listitem>
+    <listitem><para>Amarok: fixed default scoring script error caused by using a feature deprecated in latest Ruby version</para></listitem>
+    <listitem><para>Kaffeine: fixed detection of libdvdcss</para></listitem>
+    <listitem><para>Kexi: added support for postgresql 12 and later</para></listitem>
+  </itemizedlist>
+</listitem>
+
+<listitem>
+  <para>Distro support</para>
+  <itemizedlist>
+    <listitem><para>Gentoo: several improvements and addition to supported ebuilds</para></listitem>
+    <listitem><para>Debian: dropped Jessie</para></listitem>
+    <listitem><para>Ubuntu: dropped Trusty (14.04), added Jammy (22.04).</para></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+
+<para>The full list of changes is available at these links:</para>
+<itemizedlist>
+  <listitem><para><ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/65">TGW issue list</ulink></para></listitem>
+  <listitem><para><ulink url="https://bugs.trinitydesktop.org/showdependencytree.cgi?id=3189&amp;hide_resolved=0">Bugzilla bug list</ulink></para></listitem>
+  <listitem><para><ulink url="https://wiki.trinitydesktop.org/Changelog_For_R14.0.12">Detailed commit change log</ulink></para></listitem>
+  <listitem><para><ulink url="https://wiki.trinitydesktop.org/Release_Notes_For_R14.0.12">Full release notes on TDE wiki</ulink></para></listitem>
+</itemizedlist>
+
+<para>Additional info for developers/packagers</para>
+<itemizedlist>
+    <listitem><para>Minimum required version of CMake raised to 3.1</para></listitem>
+    <listitem><para>c++11 features are now allowed in the code base</para></listitem>
+    <listitem><para>cmake-trinity: added TQT_CMAKE_DIR variable, for installing and importing exported CMake targets for TQt dependent libraries</para></listitem>
+    <listitem><para>cmake-trinity: added ability to specify necessary CXX features</para></listitem>
+</itemizedlist>
+</sect2>
 
 </sect1>
