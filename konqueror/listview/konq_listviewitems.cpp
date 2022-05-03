@@ -95,7 +95,7 @@ void KonqListViewItem::updateContents()
    else
      sortChar = 3;
 
-   if ( m_groupHiddenFirst && m_fileitem->text()[0] == '.' )
+   if ( m_groupHiddenFirst && TDEIO::fileIsHidden(m_fileitem->text()) )
       --sortChar;
 
    //now we have the first column, so let's do the rest
