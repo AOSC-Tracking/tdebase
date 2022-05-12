@@ -111,6 +111,7 @@ protected slots:
   void slotCaseInsensitive();
   void slotSelectionChanged();
 
+  void slotChangeHiddenFileMatcher();
   void slotShowDot();
   //this is called if a item in the submenu is toggled
   //it saves the new configuration according to the menu items
@@ -188,6 +189,7 @@ private:
 
   TDEToggleAction *m_paCaseInsensitive;
 
+  TDEAction       *m_paChangeHiddenFileMatcher;
   TDEToggleAction *m_paShowDot;
   TDEToggleAction *m_paShowTime;
   TDEToggleAction *m_paShowType;

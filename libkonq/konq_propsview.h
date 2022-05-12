@@ -104,6 +104,9 @@ public:
   void setDescending (bool descending);
   bool isDescending() const;
 
+  void setHiddenFileSpec( const TQString &criteria );
+  const TQString& hiddenFileSpec() const;
+
   void setShowingDotFiles( bool show );
   bool isShowingDotFiles() const { return m_bShowDot; }
 
@@ -187,6 +190,13 @@ private:
   struct Private;
 
   Private *d;
+
+  /**
+   *  FIXME
+   *
+   *  Why are some private class properties declared in the
+   *  "Private" structure d in konq_propsview.cpp and not above?
+   */
 
 private:
   KonqPropsView( const KonqPropsView & );

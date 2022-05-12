@@ -74,6 +74,7 @@ struct KonqPropsView::Private
    bool hiddenfirst:1;
    bool descending:1;
    TQString sortcriterion;
+   TQString hiddenfilecriteria;
 };
 
 KonqPropsView::KonqPropsView( TDEInstance * instance, KonqPropsView * defaultProps )
@@ -98,6 +99,7 @@ KonqPropsView::KonqPropsView( TDEInstance * instance, KonqPropsView * defaultPro
   d->dirsfirst = config->readBoolEntry( "SortDirsFirst", true );
   d->hiddenfirst = config->readBoolEntry( "SortHiddenFirst", true );
   d->descending = config->readBoolEntry( "SortDescending", false );
+  d->hiddenfilecriteria = config->readEntry( "HiddenFileSpec", "w.*" ); // default is wildcard for dotfiles
   m_bShowDot = config->readBoolEntry( "ShowDotFiles", false );
   m_bShowDirectoryOverlays = config->readBoolEntry( "ShowDirectoryOverlays", false );
   m_bShowFreeSpaceOverlays = config->readBoolEntry( "ShowFreeSpaceOverlays", true );
@@ -162,6 +164,11 @@ bool KonqPropsView::isHiddenFirst() const
 bool KonqPropsView::isDescending() const
 {
    return d->descending;
+}
+
+const TQString& KonqPropsView::hiddenFileSpec() const
+{
+   return d->hiddenfilecriteria;
 }
 
 TDEConfigBase * KonqPropsView::currentConfig()
@@ -384,6 +391,23 @@ void KonqPropsView::setDescending( bool descend)
     {
         TDEConfigGroupSaver cgs(currentConfig(), currentGroup());
         currentConfig()->writeEntry( "SortDescending", d->descending );
+        currentConfig()->sync();
+    }
+}
+
+void KonqPropsView::setHiddenFileSpec( const TQString &criteria )
+{
+    kdDebug(1203) << "KonqPropsView::setHiddenFileSpec " << criteria << endl;
+    d->hiddenfilecriteria = criteria;
+    if ( m_defaultProps && !m_bSaveViewPropertiesLocally ) {
+        kdDebug(1203) << "Saving in default properties" << endl;
+        m_defaultProps->setHiddenFileSpec( criteria );
+    }
+    else if (currentConfig())
+    {
+        kdDebug(1203) << "Saving in current config" << endl;
+        TDEConfigGroupSaver cgs(currentConfig(), currentGroup());
+        currentConfig()->writeEntry( "HiddenFileSpec", d->hiddenfilecriteria );
         currentConfig()->sync();
     }
 }

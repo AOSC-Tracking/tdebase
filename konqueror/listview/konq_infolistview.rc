@@ -23,6 +23,7 @@
    <Action name="modesmall"/>
   </Menu>
   <Separator/>
+  <Action name="change_hidden_file_matcher"/>
   <Action name="show_dot"/>
   <Menu name="sort"><text>&amp;Sort</text>
     <Action name="order_unicode_based"/>
