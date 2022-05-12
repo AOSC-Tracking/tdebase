@@ -304,6 +304,7 @@ void TaskbarConfig::processLockouts()
 		m_widget->globalConfigReload->hide();
 		m_widget->globalConfigEdit->hide();
 		m_widget->kcfg_UseGlobalSettings->hide();
+		m_widget->localLikeGlobalSpacer->changeSize(0, 0, TQSizePolicy::Fixed, TQSizePolicy::Maximum);
 	}
 	else {
 		m_widget->globalConfigWarning->hide();
@@ -313,6 +314,7 @@ void TaskbarConfig::processLockouts()
 			m_widget->tabs->hide();
 			m_widget->globalConfigReload->hide();
 			m_widget->globalConfigEdit->show();
+			m_widget->localLikeGlobalSpacer->changeSize(0, 0, TQSizePolicy::Fixed, TQSizePolicy::MinimumExpanding);
 		}
 		else {
 			m_widget->tabs->show();
@@ -321,6 +323,7 @@ void TaskbarConfig::processLockouts()
 			//m_widget->globalConfigReload->show();
 			m_widget->globalConfigReload->hide();
 			m_widget->globalConfigEdit->hide();
+			m_widget->localLikeGlobalSpacer->changeSize(0, 0, TQSizePolicy::Fixed, TQSizePolicy::Maximum);
 		}
 	}
 
@@ -416,6 +419,7 @@ void TaskbarConfig::appearanceChanged(int selected)
     {
         m_widget->customAppearance->setEnabled(true);
         updateCustomAppearance();
+        unmanagedWidgetChangeState(true);
     }
 }
 

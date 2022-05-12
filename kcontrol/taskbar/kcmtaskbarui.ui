@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>813</width>
-            <height>616</height>
+            <width>817</width>
+            <height>828</height>
         </rect>
     </property>
     <property name="caption">
@@ -26,7 +26,7 @@
         </property>
         <widget class="TQLayoutWidget">
             <property name="name">
-                <cstring>layout8</cstring>
+                <cstring>layout3</cstring>
             </property>
             <vbox>
                 <property name="name">
@@ -78,6 +78,23 @@
                         <string>Edit global floating taskbar configuration</string>
                     </property>
                 </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>localLikeGlobalSpacer</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Maximum</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>1</height>
+                        </size>
+                    </property>
+                </spacer>
             </vbox>
         </widget>
         <widget class="TQTabWidget">
@@ -107,6 +124,14 @@
                         <property name="name">
                             <cstring>grpDisplay</cstring>
                         </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>4</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
                         <property name="title">
                             <string>Display</string>
                         </property>
@@ -114,7 +139,7 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="3">
+                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>kcfg_ShowAllWindows</cstring>
                                 </property>
@@ -133,7 +158,26 @@
 By default, this option is selected and all windows are shown.</string>
                                 </property>
                             </widget>
-                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="3">
+                            <widget class="TQCheckBox" row="1" column="1" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>kcfg_SortByDesktop</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Sort windows by desk&amp;top</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+T</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Selecting this option causes the taskbar to show windows in order of the desktop they appear on.
+
+By default this option is selected.</string>
+                                </property>
+                            </widget>
+                            <widget class="TQCheckBox" row="3" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>kcfg_ShowOnlyIconified</cstring>
                                 </property>
@@ -149,31 +193,46 @@ By default, this option is selected and all windows are shown.</string>
 By default, this option is not selected and the taskbar will show all windows.</string>
                                 </property>
                             </widget>
-                            <widget class="KSeparator" row="3" column="0" rowspan="1" colspan="3">
+                            <widget class="KSeparator" row="4" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>kSeparator5</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQCheckBox" row="1" column="0" rowspan="1" colspan="3">
+                            <spacer row="6" column="3">
                                 <property name="name">
-                                    <cstring>showAllScreens</cstring>
+                                    <cstring>spacer23</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>31</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="TQLabel" row="5" column="0" rowspan="2" colspan="2">
+                                <property name="name">
+                                    <cstring>showTaskStatesLabel</cstring>
+                                </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>250</width>
+                                        <height>0</height>
+                                    </size>
                                 </property>
                                 <property name="text">
-                                    <string>Show windows from all sc&amp;reens</string>
+                                    <string>&amp;Show tasks with state:</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+R</string>
-                                </property>
-                                <property name="checked">
-                                    <bool>true</bool>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; windows which are on the same Xinerama screen as the taskbar.
-
-By default, this option is selected and all windows are shown.</string>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_ShowTaskStates</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQComboBox" row="4" column="1" rowspan="2" colspan="1">
+                            <widget class="TQComboBox" row="5" column="2" rowspan="2" colspan="1">
                                 <property name="name">
                                     <cstring>kcfg_ShowTaskStates</cstring>
                                 </property>
@@ -195,45 +254,55 @@ By default, this option is selected and all windows are shown.</string>
                                     <string>The taskbar can show and/or hide tasks based on their current process state.  Select &lt;em&gt;Any&lt;/em&gt; to show all tasks regardless of current state.</string>
                                 </property>
                             </widget>
-                            <widget class="TQLabel" row="4" column="0" rowspan="2" colspan="1">
+                            <spacer row="1" column="0">
                                 <property name="name">
-                                    <cstring>showTaskStatesLabel</cstring>
-                                </property>
-                                <property name="minimumSize">
-                                    <size>
-                                        <width>250</width>
-                                        <height>0</height>
-                                    </size>
-                                </property>
-                                <property name="text">
-                                    <string>&amp;Show tasks with state:</string>
-                                </property>
-                                <property name="buddy" stdset="0">
-                                    <cstring>kcfg_ShowTaskStates</cstring>
-                                </property>
-                            </widget>
-                            <spacer row="5" column="2">
-                                <property name="name">
-                                    <cstring>spacer23</cstring>
+                                    <cstring>spacer2_2_3</cstring>
                                 </property>
                                 <property name="orientation">
                                     <enum>Horizontal</enum>
                                 </property>
                                 <property name="sizeType">
-                                    <enum>Expanding</enum>
+                                    <enum>Fixed</enum>
                                 </property>
                                 <property name="sizeHint">
                                     <size>
-                                        <width>31</width>
+                                        <width>20</width>
                                         <height>20</height>
                                     </size>
                                 </property>
                             </spacer>
+                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="4">
+                                <property name="name">
+                                    <cstring>showAllScreens</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Show windows from all sc&amp;reens</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+R</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; windows which are on the same Xinerama screen as the taskbar.
+
+By default, this option is selected and all windows are shown.</string>
+                                </property>
+                            </widget>
                         </grid>
                     </widget>
                     <widget class="TQButtonGroup">
                         <property name="name">
                             <cstring>grpSortGroup</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>4</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
                         </property>
                         <property name="title">
                             <string>Sorting and grouping</string>
@@ -288,25 +357,6 @@ By default, this option is selected and all windows are shown.</string>
                                 </property>
                                 <property name="checked">
                                     <bool>true</bool>
-                                </property>
-                            </widget>
-                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="4">
-                                <property name="name">
-                                    <cstring>kcfg_SortByDesktop</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Sort windows by desk&amp;top</string>
-                                </property>
-                                <property name="accel">
-                                    <string>Alt+T</string>
-                                </property>
-                                <property name="checked">
-                                    <bool>true</bool>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Selecting this option causes the taskbar to show windows in order of the desktop they appear on.
-
-By default this option is selected.</string>
                                 </property>
                             </widget>
                             <widget class="KSeparator" row="3" column="0" rowspan="1" colspan="4">
@@ -430,7 +480,7 @@ By default the taskbar groups windows when it is full.</string>
                         <property name="sizePolicy">
                             <sizepolicy>
                                 <hsizetype>3</hsizetype>
-                                <vsizetype>5</vsizetype>
+                                <vsizetype>4</vsizetype>
                                 <horstretch>0</horstretch>
                                 <verstretch>0</verstretch>
                             </sizepolicy>
@@ -768,7 +818,7 @@ By default the taskbar groups windows when it is full.</string>
                         <property name="sizePolicy">
                             <sizepolicy>
                                 <hsizetype>7</hsizetype>
-                                <vsizetype>5</vsizetype>
+                                <vsizetype>4</vsizetype>
                                 <horstretch>0</horstretch>
                                 <verstretch>0</verstretch>
                             </sizepolicy>
@@ -1034,6 +1084,8 @@ By default the taskbar groups windows when it is full.</string>
         </widget>
     </vbox>
 </widget>
+<customwidgets>
+</customwidgets>
 <connections>
     <connection>
         <sender>kcfg_ShowThumbnails</sender>
@@ -1072,16 +1124,16 @@ By default the taskbar groups windows when it is full.</string>
         <slot>setDisabled(bool)</slot>
     </connection>
     <connection>
-        <sender>kcfg_ShowAllWindows</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>kcfg_SortByDesktop</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
         <sender>kcfg_DrawButtons</sender>
         <signal>toggled(bool)</signal>
         <receiver>kcfg_ShowButtonOnHover</receiver>
         <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_ShowAllWindows</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_SortByDesktop</receiver>
+        <slot>setEnabled(bool)</slot>
     </connection>
 </connections>
 <includes>
