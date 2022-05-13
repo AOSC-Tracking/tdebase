@@ -230,3 +230,6 @@
 
 // TDE compositor binary name
 #define TDE_COMPOSITOR_BINARY "compton-tde"
+
+// TDE man installation folder
+#define TDE_MANDIR "@MAN_INSTALL_DIR@"

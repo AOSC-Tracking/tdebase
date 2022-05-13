@@ -963,6 +963,7 @@ void MANProtocol::constructPath(TQStringList& constr_path, TQStringList constr_c
         "/usr/sunpc/man",
         "/usr/ncd/man",
         "/usr/newsprint/man",
+				TDE_MANDIR,
         NULL };
 
 
