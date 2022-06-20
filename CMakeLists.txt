@@ -18,7 +18,6 @@ cmake_minimum_required( VERSION 3.1 )
 project( tdebase )
 
 set( PACKAGE tdebase )
-set( VERSION R14.1.0 )
 
 
 ##### include essential cmake modules ###########
@@ -39,6 +38,11 @@ include( CheckTypeSize )
 ##### include our cmake modules #################
 
 include( TDEMacros )
+
+
+##### set version number ########################
+
+tde_set_project_version( )
 
 
 ##### setup install paths #######################
