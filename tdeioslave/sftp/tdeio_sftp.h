@@ -70,12 +70,13 @@ public:
   // libssh authentication callback (note that this is called by the
   // global ::auth_callback() call.
   int auth_callback(const char *prompt, char *buf, size_t len,
-    int echo, int verify, void *userdata);
+                    int echo, int verify, void *userdata);
 
   // libssh logging callback (note that this is called by the
   // global ::log_callback() call.
   void log_callback(ssh_session session, int priority, const char *message,
-    void *userdata);
+                    void *userdata);
+
 
 private: // Private variables
   void statMime(const KURL &url);
@@ -119,9 +120,12 @@ private: // Private variables
   //  TQString text;
   //};
 
+  TDEIO::AuthInfo *pubKeyInfo;
+
 private: // private methods
 
   int authenticateKeyboardInteractive(TDEIO::AuthInfo &info);
+  void clearPubKeyAuthInfo();
 
   void reportError(const KURL &url, const int err);
 
