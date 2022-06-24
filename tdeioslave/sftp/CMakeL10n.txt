@@ -1,3 +1,0 @@
-##### create translation templates ##############
-
-tde_l10n_create_template( "tdeio_sftp" )

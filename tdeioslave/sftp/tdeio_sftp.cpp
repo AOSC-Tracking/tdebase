@@ -1,62 +1,52 @@
-/***************************************************************************
-                          sftp.cpp  -  description
-                             -------------------
-    begin                : Fri Jun 29 23:45:40 CDT 2001
-    copyright            : (C) 2001 by Lucas Fisher
-    email                : ljfisher@purdue.edu
- ***************************************************************************/
-
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
-
 /*
-DEBUGGING
-We are pretty much left with kdDebug messages for debugging. We can't use a gdb
-as described in the ioslave DEBUG.howto because tdeinit has to run in a terminal.
-Ssh will detect this terminal and ask for a password there, but will just get garbage.
-So we can't connect.
-*/
+ * Copyright (c) 2001  Lucas Fisher       <ljfisher@purdue.edu>
+ * Copyright (c) 2009  Andreas Schneider  <mail@cynapses.org>
+ * Copyright (c) 2020  Martin Sandsmark   <martin@sandsmark.ninja>
+ *                     KDE2 port
+ * Copyright (c) 2022  Mavridis Philippe  <mavridisf@gmail.com>
+ *                     Trinity port
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License (LGPL) as published by the Free Software Foundation;
+ * either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public License
+ * along with this library; see the file COPYING.LIB.  If not, write to
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+ */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "tdeio_sftp.h"
 
 #include <fcntl.h>
 
-#include <tqcstring.h>
-#include <tqstring.h>
-#include <tqobject.h>
-#include <tqstrlist.h>
+#include <tqapplication.h>
 #include <tqfile.h>
-#include <tqbuffer.h>
+#include <tqdir.h>
 
 #include <stdlib.h>
 #include <unistd.h>
-#include <signal.h>
 #include <errno.h>
-#include <ctype.h>
 #include <time.h>
-#include <netdb.h>
 #include <string.h>
 
-#include <netinet/in.h>
 #include <arpa/inet.h>
+#include <netinet/in.h>
+
 #include <sys/time.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <sys/wait.h>
 
 #include <tdeapplication.h>
-#include <kuser.h>
 #include <kdebug.h>
 #include <tdemessagebox.h>
-#include <kinstance.h>
 #include <tdeglobal.h>
 #include <kstandarddirs.h>
 #include <tdelocale.h>
@@ -64,22 +54,21 @@ So we can't connect.
 #include <tdeio/ioslave_defaults.h>
 #include <kmimetype.h>
 #include <kmimemagic.h>
-#include <klargefile.h>
-#include <kremoteencoding.h>
+#include <signal.h>
 
-#include "sftp.h"
-#include "tdeio_sftp.h"
-#include "atomicio.h"
-#include "sftpfileattr.h"
-#include "ksshprocess.h"
+#include <libssh/libssh.h>
+#include <libssh/sftp.h>
+#include <libssh/callbacks.h>
 
+#define TDEIO_SFTP_SPECIAL_TIMEOUT 30
+#define ZERO_STRUCTP(x) do { if ((x) != NULL) memset((char *)(x), 0, sizeof(*(x))); } while(0)
 
 using namespace TDEIO;
 extern "C"
 {
-  int KDE_EXPORT kdemain( int argc, char **argv )
+  int kdemain( int argc, char **argv )
   {
-    TDEInstance instance( "tdeio_sftp" );
+      TDEInstance instance( "tdeio_sftp" );
 
     kdDebug(TDEIO_SFTP_DB) << "*** Starting tdeio_sftp " << endl;
 
@@ -87,8 +76,13 @@ extern "C"
       kdDebug(TDEIO_SFTP_DB) << "Usage: tdeio_sftp  protocol domain-socket1 domain-socket2" << endl;
       exit(-1);
     }
-
     sftpProtocol slave(argv[2], argv[3]);
+
+    if (getenv("DEBUG_TDEIO_SFTP")) {
+        // Give us a coredump in the journal
+        signal(6, SIG_DFL);
+    }
+
     slave.dispatchLoop();
 
     kdDebug(TDEIO_SFTP_DB) << "*** tdeio_sftp Done" << endl;
@@ -96,2187 +90,1684 @@ extern "C"
   }
 }
 
+// The callback function for libssh
+int auth_callback(const char *prompt, char *buf, size_t len,
+    int echo, int verify, void *userdata) {
+  if (userdata == NULL) {
+    return -1;
+  }
 
-/*
- * This helper handles some special issues (blocking and interrupted
- * system call) when writing to a file handle.
- *
- * @return 0 on success or an error code on failure (ERR_COULD_NOT_WRITE,
- * ERR_DISK_FULL, ERR_CONNECTION_BROKEN).
- */
-static int writeToFile (int fd, const char *buf, size_t len)
-{
-  while (len > 0)
-  {
-    ssize_t written = ::write(fd, buf, len);
-    if (written >= 0)
-    {
-        buf += written;
-        len -= written;
-        continue;
+  sftpProtocol *slave = (sftpProtocol *) userdata;
+
+  if (slave->auth_callback(prompt, buf, len, echo, verify, userdata) < 0) {
+    return -1;
+  }
+
+  return 0;
+}
+
+void log_callback(ssh_session session, int priority, const char *message,
+    void *userdata) {
+  if (userdata == NULL) {
+    return;
+  }
+
+  sftpProtocol *slave = (sftpProtocol *) userdata;
+
+  slave->log_callback(session, priority, message, userdata);
+}
+
+int sftpProtocol::auth_callback(const char *prompt, char *buf, size_t len,
+    int echo, int verify, void *userdata) {
+  TQString i_prompt = TQString::fromUtf8(prompt);
+
+  // unused variables
+  (void) echo;
+  (void) verify;
+  (void) userdata;
+
+  kdDebug(TDEIO_SFTP_DB) << "Entering authentication callback, prompt=" << i_prompt << endl;
+
+  TDEIO::AuthInfo info;
+
+  info.url.setProtocol("sftp");
+  info.url.setHost(mHost);
+  info.url.setPort(mPort);
+  info.url.setUser(mUsername);
+
+  info.comment = "sftp://" + mUsername + "@"  + mHost;
+  info.username = i_prompt;
+  info.readOnly = true;
+  info.prompt = i_prompt;
+  info.keepPassword = false; // don't save passwords for public key,
+                             // that's the task of ssh-agent.
+
+  if (!openPassDlg(info)) {
+    kdDebug(TDEIO_SFTP_DB) << "Password dialog failed" << endl;
+    return -1;
+  }
+
+  strncpy(buf, info.password.utf8().data(), len - 1);
+
+  info.password.fill('x');
+
+  return 0;
+}
+
+void sftpProtocol::log_callback(ssh_session session, int priority,
+    const char *message, void *userdata) {
+  (void) session;
+  (void) userdata;
+
+  kdDebug(TDEIO_SFTP_DB) << "[" << priority << "] " << message << endl;
+}
+
+int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
+  TQString name, instruction, prompt;
+  int err = SSH_AUTH_ERROR;
+
+  kdDebug(TDEIO_SFTP_DB) << "Entering keyboard interactive function" << endl;
+
+  err = ssh_userauth_kbdint(mSession, mUsername.utf8().data(), NULL);
+  while (err == SSH_AUTH_INFO) {
+    int n = 0;
+    int i = 0;
+
+    name = TQString::fromUtf8(ssh_userauth_kbdint_getname(mSession));
+    instruction = TQString::fromUtf8(ssh_userauth_kbdint_getinstruction(mSession));
+    n = ssh_userauth_kbdint_getnprompts(mSession);
+
+    kdDebug(TDEIO_SFTP_DB) << "name=" << name << " instruction=" << instruction
+      << " prompts" << n << endl;
+
+    for (i = 0; i < n; ++i) {
+      char echo;
+      const char *answer = "";
+
+      prompt = TQString::fromUtf8(ssh_userauth_kbdint_getprompt(mSession, i, &echo));
+      kdDebug(TDEIO_SFTP_DB) << "prompt=" << prompt << " echo=" << TQString::number(echo) << endl;
+      if (echo) {
+        // See RFC4256 Section 3.3 User Interface
+        TQString newPrompt;
+        TDEIO::AuthInfo infoKbdInt;
+
+        infoKbdInt.url.setProtocol("sftp");
+        infoKbdInt.url.setHost(mHost);
+        infoKbdInt.url.setPort(mPort);
+
+        infoKbdInt.caption = i18n("SFTP Login");
+        infoKbdInt.comment = "sftp://" + mUsername + "@"  + mHost;
+
+        if (!name.isEmpty()) {
+          infoKbdInt.caption = TQString(i18n("SFTP Login") + " - " + name);
+        }
+
+        if (!instruction.isEmpty()) {
+          newPrompt = instruction + "\n\n";
+        }
+
+        newPrompt.append(prompt + "\n\n");
+        infoKbdInt.readOnly = false;
+        infoKbdInt.keepPassword = false;
+        infoKbdInt.prompt = i18n("Use the username input field to answer this question.");
+
+
+        if (openPassDlg(infoKbdInt)) {
+          kdDebug(TDEIO_SFTP_DB) << "Got the answer from the password dialog" << endl;
+          answer = info.username.utf8().data();
+        }
+
+        if (ssh_userauth_kbdint_setanswer(mSession, i, answer) < 0) {
+          kdDebug(TDEIO_SFTP_DB) << "An error occurred setting the answer: "
+            << ssh_get_error(mSession) << endl;
+          return SSH_AUTH_ERROR;
+        }
+        break;
+      } else {
+        if (prompt.lower() == "password") {
+          answer = mPassword.utf8().data();
+        } else {
+          info.readOnly = true; // set username readonly
+          info.prompt = prompt;
+
+          if (openPassDlg(info)) {
+            kdDebug(TDEIO_SFTP_DB) << "Got the answer from the password dialog" << endl;
+            answer = info.password.utf8().data();
+          }
+        }
+
+        if (ssh_userauth_kbdint_setanswer(mSession, i, answer) < 0) {
+          kdDebug(TDEIO_SFTP_DB) << "An error occurred setting the answer: "
+            << ssh_get_error(mSession) << endl;
+          return SSH_AUTH_ERROR;
+        }
+      }
     }
+    err = ssh_userauth_kbdint(mSession, mUsername.utf8().data(), NULL);
+  }
 
-    switch(errno)
-    {
-      case EINTR:
-        continue;
-      case EPIPE:
-        return ERR_CONNECTION_BROKEN;
-      case ENOSPC:
-        return ERR_DISK_FULL;
-      default:
-        return ERR_COULD_NOT_WRITE;
+  return err;
+}
+
+void sftpProtocol::reportError(const KURL &url, const int err) {
+  kdDebug(TDEIO_SFTP_DB) << "url = " << url.url() << " - err=" << err << endl;
+
+  switch (err) {
+    case SSH_FX_OK:
+      break;
+    case SSH_FX_NO_SUCH_FILE:
+    case SSH_FX_NO_SUCH_PATH:
+      error(TDEIO::ERR_DOES_NOT_EXIST, url.prettyURL());
+      break;
+    case SSH_FX_PERMISSION_DENIED:
+      error(TDEIO::ERR_ACCESS_DENIED, url.prettyURL());
+      break;
+    case SSH_FX_FILE_ALREADY_EXISTS:
+      error(TDEIO::ERR_FILE_ALREADY_EXIST, url.prettyURL());
+      break;
+    case SSH_FX_INVALID_HANDLE:
+      error(TDEIO::ERR_MALFORMED_URL, url.prettyURL());
+      break;
+    case SSH_FX_OP_UNSUPPORTED:
+      error(TDEIO::ERR_UNSUPPORTED_ACTION, url.prettyURL());
+      break;
+    case SSH_FX_BAD_MESSAGE:
+      error(TDEIO::ERR_UNKNOWN, url.prettyURL());
+      break;
+    default:
+      error(TDEIO::ERR_INTERNAL, url.prettyURL());
+      break;
+  }
+}
+
+bool sftpProtocol::createUDSEntry(const TQString &filename, const TQByteArray &path,
+      UDSEntry &entry, short int details) {
+  mode_t type;
+  mode_t access;
+  char *link;
+
+  ASSERT(entry.count() == 0);
+
+  sftp_attributes sb = sftp_lstat(mSftp, path.data());
+  if (sb == NULL) {
+    return false;
+  }
+
+  UDSAtom atom;
+  atom.m_uds = UDS_NAME;
+  atom.m_str = filename;
+  entry.append(atom);
+
+  if (sb->type == SSH_FILEXFER_TYPE_SYMLINK) {
+    atom.m_uds = UDS_FILE_TYPE;
+    atom.m_long = S_IFREG;
+    entry.append(atom);
+    link = sftp_readlink(mSftp, path.data());
+    if (link == NULL) {
+      sftp_attributes_free(sb);
+      return false;
+    }
+    atom.m_uds = UDS_LINK_DEST;
+    atom.m_str = TQFile::decodeName(link);
+    entry.append(atom);
+    delete link;
+    // A symlink -> follow it only if details > 1
+    if (details > 1) {
+      sftp_attributes sb2 = sftp_stat(mSftp, path.data());
+      if (sb2 == NULL) {
+        // It is a link pointing to nowhere
+        type = S_IFMT - 1;
+        access = S_IRWXU | S_IRWXG | S_IRWXO;
+        atom.m_uds = UDS_FILE_TYPE;
+        atom.m_long = type;
+        entry.append(atom);
+
+        atom.m_uds = UDS_ACCESS;
+        atom.m_long = access;
+        entry.append(atom);
+
+        atom.m_uds = UDS_SIZE;
+        atom.m_long = 0LL;
+        entry.append(atom);
+
+        goto notype;
+      }
+      sftp_attributes_free(sb);
+      sb = sb2;
     }
   }
-  return 0;
+
+  switch (sb->type) {
+    case SSH_FILEXFER_TYPE_REGULAR:
+      atom.m_uds = UDS_FILE_TYPE;
+      atom.m_long = S_IFREG;
+      entry.append(atom);
+      break;
+    case SSH_FILEXFER_TYPE_DIRECTORY:
+      atom.m_uds = UDS_FILE_TYPE;
+      atom.m_long = S_IFDIR;
+      entry.append(atom);
+      break;
+    case SSH_FILEXFER_TYPE_SYMLINK:
+      atom.m_uds = UDS_FILE_TYPE;
+      atom.m_long = S_IFLNK;
+      entry.append(atom);
+      break;
+    case SSH_FILEXFER_TYPE_SPECIAL:
+    case SSH_FILEXFER_TYPE_UNKNOWN:
+      atom.m_uds = UDS_FILE_TYPE;
+      atom.m_long = S_IFMT - 1;
+      entry.append(atom);
+      break;
+  }
+
+  access = sb->permissions & 07777;
+  atom.m_uds = UDS_ACCESS;
+  atom.m_long = access;
+  entry.append(atom);
+
+  atom.m_uds = UDS_SIZE;
+  atom.m_long = sb->size;
+  entry.append(atom);
+
+notype:
+  if (details > 0) {
+    if (sb->owner) {
+      atom.m_uds = UDS_USER;
+      atom.m_str = TQString::fromUtf8(sb->owner);
+      entry.append(atom);
+    } else {
+      atom.m_uds = UDS_USER;
+      atom.m_str = TQString::number(sb->uid);
+      entry.append(atom);
+    }
+
+    if (sb->group) {
+      atom.m_uds = UDS_GROUP;
+      atom.m_str = TQString::fromUtf8(sb->group);
+      entry.append(atom);
+    } else {
+      atom.m_uds = UDS_GROUP;
+      atom.m_str = TQString::number(sb->gid);
+      entry.append(atom);
+    }
+    atom.m_uds = UDS_ACCESS_TIME;
+    atom.m_long = sb->atime;
+    entry.append(atom);
+
+    atom.m_uds = UDS_MODIFICATION_TIME;
+    atom.m_long = sb->mtime;
+    entry.append(atom);
+
+    atom.m_uds = UDS_MODIFICATION_TIME;
+    atom.m_long = sb->createtime;
+    entry.append(atom);
+  }
+
+  sftp_attributes_free(sb);
+
+  return true;
+}
+
+TQString sftpProtocol::canonicalizePath(const TQString &path) {
+  kdDebug(TDEIO_SFTP_DB) << "Path to canonicalize: " << path << endl;
+  TQString cPath;
+  char *sPath = NULL;
+
+  if (path.isEmpty()) {
+    return cPath;
+  }
+
+  sPath = sftp_canonicalize_path(mSftp, path.utf8().data());
+  if (sPath == NULL) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not canonicalize path: " << path << endl;
+    return cPath;
+  }
+
+  cPath = TQFile::decodeName(sPath);
+  delete sPath;
+
+  kdDebug(TDEIO_SFTP_DB) << "Canonicalized path: " << cPath << endl;
+
+  return cPath;
 }
 
 sftpProtocol::sftpProtocol(const TQCString &pool_socket, const TQCString &app_socket)
              : SlaveBase("tdeio_sftp", pool_socket, app_socket),
-                  mConnected(false), mPort(-1), mMsgId(0) {
-  kdDebug(TDEIO_SFTP_DB) << "sftpProtocol(): pid = " << getpid() << endl;
-}
+                  mConnected(false), mPort(-1), mSession(NULL), mSftp(NULL) {
+#ifndef Q_WS_WIN
+  kdDebug(TDEIO_SFTP_DB) << "pid = " << getpid() << endl;
 
+  kdDebug(TDEIO_SFTP_DB) << "debug = " << getenv("TDEIO_SFTP_LOG_VERBOSITY") << endl;
+#endif
+
+  mCallbacks = (ssh_callbacks) malloc(sizeof(struct ssh_callbacks_struct));
+  if (mCallbacks == NULL) {
+    error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not allocate callbacks"));
+    return;
+  }
+  ZERO_STRUCTP(mCallbacks);
+
+  mCallbacks->userdata = this;
+  mCallbacks->auth_function = ::auth_callback;
+  if (getenv("TDEIO_SFTP_LOG_VERBOSITY")) {
+    mCallbacks->log_function = ::log_callback;
+  }
+
+  ssh_callbacks_init(mCallbacks);
+}
 
 sftpProtocol::~sftpProtocol() {
-    kdDebug(TDEIO_SFTP_DB) << "~sftpProtocol(): pid = " << getpid() << endl;
-    closeConnection();
+#ifndef Q_WS_WIN
+  kdDebug(TDEIO_SFTP_DB) << "pid = " << getpid() << endl;
+#endif
+  closeConnection();
+
+  delete mCallbacks;
+
+  /* cleanup and shut down cryto stuff */
+  ssh_finalize();
 }
 
-/**
-  * Type is a sftp packet type found in .sftp.h'.
-  * Example: SSH2_FXP_READLINK, SSH2_FXP_RENAME, etc.
-  *
-  * Returns true if the type is supported by the sftp protocol
-  * version negotiated by the client and server (sftpVersion).
-  */
-bool sftpProtocol::isSupportedOperation(int type) {
-  switch (type) {
-    case SSH2_FXP_VERSION:
-    case SSH2_FXP_STATUS:
-    case SSH2_FXP_HANDLE:
-    case SSH2_FXP_DATA:
-    case SSH2_FXP_NAME:
-    case SSH2_FXP_ATTRS:
-    case SSH2_FXP_INIT:
-    case SSH2_FXP_OPEN:
-    case SSH2_FXP_CLOSE:
-    case SSH2_FXP_READ:
-    case SSH2_FXP_WRITE:
-    case SSH2_FXP_LSTAT:
-    case SSH2_FXP_FSTAT:
-    case SSH2_FXP_SETSTAT:
-    case SSH2_FXP_FSETSTAT:
-    case SSH2_FXP_OPENDIR:
-    case SSH2_FXP_READDIR:
-    case SSH2_FXP_REMOVE:
-    case SSH2_FXP_MKDIR:
-    case SSH2_FXP_RMDIR:
-    case SSH2_FXP_REALPATH:
-    case SSH2_FXP_STAT:
-      return true;
-    case SSH2_FXP_RENAME:
-      return sftpVersion >= 2 ? true : false;
-    case SSH2_FXP_EXTENDED:
-    case SSH2_FXP_EXTENDED_REPLY:
-    case SSH2_FXP_READLINK:
-    case SSH2_FXP_SYMLINK:
-      return sftpVersion >= 3 ? true : false;
-    default:
-      kdDebug(TDEIO_SFTP_DB) << "isSupportedOperation(type:"
-                            << type << "): unrecognized operation type" << endl;
+void sftpProtocol::setHost(const TQString& h, int port, const TQString& user, const TQString& pass) {
+  kdDebug(TDEIO_SFTP_DB) << "setHost(): " << user << "@" << h << ":" << port << endl;
+
+  if (mConnected) {
+    closeConnection();
+  }
+
+  mHost = h;
+
+  if (port > 0) {
+    mPort = port;
+  } else {
+    struct servent *pse;
+    if ((pse = getservbyname("ssh", "tcp") ) == NULL) {
+      mPort = 22;
+    } else {
+      mPort = ntohs(pse->s_port);
+    }
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "setHost(): mPort=" << mPort << endl;
+
+  mUsername = user;
+  mPassword = pass;
+}
+
+void sftpProtocol::openConnection() {
+
+  if (mConnected) {
+    return;
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "username=" << mUsername << ", host=" << mHost << ", port=" << mPort << endl;
+
+  infoMessage(i18n("Opening SFTP connection to host %1:%2").arg(mHost).arg(mPort));
+
+  if (mHost.isEmpty()) {
+    kdDebug(TDEIO_SFTP_DB) << "openConnection(): Need hostname..." << endl;
+    error(TDEIO::ERR_UNKNOWN_HOST, i18n("No hostname specified."));
+    return;
+  }
+
+  // Setup AuthInfo for use with password caching and the
+  // password dialog box.
+  AuthInfo info;
+
+  info.url.setProtocol("sftp");
+  info.url.setHost(mHost);
+  info.url.setPort(mPort);
+  info.url.setUser(mUsername);
+  info.caption = i18n("SFTP Login");
+  info.comment = "sftp://" + mHost + ':' + TQString::number(mPort);
+  info.commentLabel = i18n("site:");
+  info.username = mUsername;
+  info.keepPassword = true; // make the "keep Password" check box visible to the user.
+
+  // Check for cached authentication info if no password is specified...
+  if (mPassword.isEmpty()) {
+    kdDebug(TDEIO_SFTP_DB) << "checking cache: info.username = " << info.username
+      << ", info.url = " << info.url.prettyURL() << endl;
+
+    if (checkCachedAuthentication(info)) {
+      mUsername = info.username;
+      mPassword = info.password;
+    }
+  }
+
+  // Start the ssh connection.
+  TQString msg;     // msg for dialog box
+  TQString caption; // dialog box caption
+  unsigned char *hash = NULL; // the server hash
+  char *hexa;
+  char *verbosity;
+  int rc, state;
+  int timeout_sec = 30, timeout_usec = 0;
+
+  mSession = ssh_new();
+  if (mSession == NULL) {
+    error(TDEIO::ERR_INTERNAL, i18n("Could not create a new SSH session."));
+    return;
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "Creating the SSH session and setting options" << endl;
+
+  // Set timeout
+  rc = ssh_options_set(mSession, SSH_OPTIONS_TIMEOUT, &timeout_sec);
+  if (rc < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not set a timeout.";
+  }
+  rc = ssh_options_set(mSession, SSH_OPTIONS_TIMEOUT_USEC, &timeout_usec);
+  if (rc < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not set a timeout in usec.";
+  }
+
+  // Don't use any compression
+  rc = ssh_options_set(mSession, SSH_OPTIONS_COMPRESSION_C_S, "none");
+  if (rc < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not set compression client <- server.";
+  }
+
+  rc = ssh_options_set(mSession, SSH_OPTIONS_COMPRESSION_S_C, "none");
+  if (rc < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not set compression server -> client.";
+  }
+
+  // Set host and port
+  rc = ssh_options_set(mSession, SSH_OPTIONS_HOST, mHost.utf8().data());
+  if (rc < 0) {
+    error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set host."));
+    return;
+  }
+
+  if (mPort > 0) {
+    rc = ssh_options_set(mSession, SSH_OPTIONS_PORT, &mPort);
+    if (rc < 0) {
+        error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set port."));
+      return;
+    }
+  }
+
+  // Set the username
+  if (!mUsername.isEmpty()) {
+    rc = ssh_options_set(mSession, SSH_OPTIONS_USER, mUsername.utf8().data());
+    if (rc < 0) {
+      error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set username."));
+      return;
+    }
+  }
+
+  verbosity = getenv("TDEIO_SFTP_LOG_VERBOSITY");
+  if (verbosity) {
+    rc = ssh_options_set(mSession, SSH_OPTIONS_LOG_VERBOSITY_STR, verbosity);
+    if (rc < 0) {
+      error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set log verbosity."));
+      return;
+    }
+  }
+
+  // Read ~/.ssh/config
+  rc = ssh_options_parse_config(mSession, NULL);
+  if (rc < 0) {
+    error(TDEIO::ERR_INTERNAL, i18n("Could not parse the config file."));
+    return;
+  }
+
+  ssh_set_callbacks(mSession, mCallbacks);
+
+  kdDebug(TDEIO_SFTP_DB) << "Trying to connect to the SSH server" << endl;
+
+  /* try to connect */
+  rc = ssh_connect(mSession);
+  if (rc < 0) {
+    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+    closeConnection();
+    return;
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "Getting the SSH server hash" << endl;
+
+  /* get the hash */
+  ssh_key serverKey;
+  if (ssh_get_server_publickey(mSession, &serverKey) < 0) {
+    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+    closeConnection();
+    return;
+  }
+
+  size_t hlen;
+  if (ssh_get_publickey_hash(serverKey, SSH_PUBLICKEY_HASH_SHA256, &hash, &hlen) < 0) {
+    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+    closeConnection();
+    return;
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "Checking if the SSH server is known" << endl;
+
+  /* check the server public key hash */
+  state = ssh_session_is_known_server(mSession);
+  switch (state) {
+    case SSH_KNOWN_HOSTS_OK:
+      break;
+    case SSH_KNOWN_HOSTS_OTHER:
+      delete hash;
+      error(TDEIO::ERR_CONNECTION_BROKEN, i18n("The host key for this server was "
+            "not found, but another type of key exists.\n"
+            "An attacker might change the default server key to confuse your "
+            "client into thinking the key does not exist.\n"
+            "Please contact your system administrator.\n%1").arg(TQString::fromUtf8(ssh_get_error(mSession))));
+      closeConnection();
+      return;
+    case SSH_SERVER_KNOWN_CHANGED:
+      hexa = ssh_get_hexa(hash, hlen);
+      delete hash;
+      /* TODO print known_hosts file, port? */
+      error(TDEIO::ERR_CONNECTION_BROKEN, i18n("The host key for the server %1 has changed.\n"
+          "This could either mean that DNS SPOOFING is happening or the IP "
+          "address for the host and its host key have changed at the same time.\n"
+          "The fingerprint for the key sent by the remote host is:\n %2\n"
+          "Please contact your system administrator.\n%3").arg(
+          mHost).arg(TQString::fromUtf8(hexa)).arg(TQString::fromUtf8(ssh_get_error(mSession))));
+      delete hexa;
+      closeConnection();
+      return;
+    case SSH_KNOWN_HOSTS_NOT_FOUND:
+    case SSH_KNOWN_HOSTS_UNKNOWN:
+      hexa = ssh_get_hexa(hash, hlen);
+      delete hash;
+      caption = i18n("Warning: Cannot verify host's identity.");
+      msg = i18n("The authenticity of host %1 cannot be established.\n"
+        "The key fingerprint is: %2\n"
+        "Are you sure you want to continue connecting?").arg(mHost).arg(hexa);
+      delete hexa;
+
+      if (KMessageBox::Yes != messageBox(WarningYesNo, msg, caption)) {
+        closeConnection();
+        error(TDEIO::ERR_USER_CANCELED, TQString());
+        return;
+      }
+
+      /* write the known_hosts file */
+      kdDebug(TDEIO_SFTP_DB) << "Adding server to known_hosts file." << endl;
+      if (ssh_session_update_known_hosts(mSession) != SSH_OK) {
+        error(TDEIO::ERR_USER_CANCELED, TQString::fromUtf8(ssh_get_error(mSession)));
+        closeConnection();
+        return;
+      }
+      break;
+    case SSH_KNOWN_HOSTS_ERROR:
+      delete hash;
+      error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+      return;
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with the server" << endl;
+
+  // Try to authenticate
+  rc = ssh_userauth_none(mSession, NULL);
+  if (rc == SSH_AUTH_ERROR) {
+    closeConnection();
+    error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."));
+    return;
+  }
+
+  int method = ssh_auth_list(mSession);
+  bool firstTime = true;
+  bool dlgResult;
+  while (rc != SSH_AUTH_SUCCESS) {
+
+    // Try to authenticate with public key first
+    kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate public key" << endl;
+    if (method & SSH_AUTH_METHOD_PUBLICKEY) {
+      rc = ssh_userauth_autopubkey(mSession, NULL);
+      if (rc == SSH_AUTH_ERROR) {
+        closeConnection();
+        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."));
+        return;
+      } else if (rc == SSH_AUTH_SUCCESS) {
+        break;
+      }
+    }
+
+    info.caption = i18n("SFTP Login");
+    info.readOnly = false;
+    if (firstTime) {
+      info.prompt = i18n("Please enter your username and password.");
+    } else {
+      info.prompt =  i18n("Login failed.\nPlease confirm your username and password, and enter them again.");
+    }
+    dlgResult = openPassDlg(info);
+
+    // Handle user canceled or dialog failed to open...
+    if (!dlgResult) {
+      kdDebug(TDEIO_SFTP_DB) << "User canceled, dlgResult = " << dlgResult << endl;
+      closeConnection();
+      error(TDEIO::ERR_USER_CANCELED, TQString());
+      return;
+    }
+
+    firstTime = false;
+
+    if (mUsername != info.username) {
+      kdDebug(TDEIO_SFTP_DB) << "Username changed from " << mUsername
+                                    << " to " << info.username << endl;
+    }
+    mUsername = info.username;
+    mPassword = info.password;
+
+    // Try to authenticate with keyboard interactive
+    kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with keyboard interactive" << endl;
+    if (method & SSH_AUTH_METHOD_INTERACTIVE) {
+      rc = authenticateKeyboardInteractive(info);
+      if (rc == SSH_AUTH_ERROR) {
+        closeConnection();
+        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."));
+        return;
+      } else if (rc == SSH_AUTH_SUCCESS) {
+        break;
+      }
+    }
+
+    // Try to authenticate with password
+    kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with password" << endl;
+    if (method & SSH_AUTH_METHOD_PASSWORD) {
+      rc = ssh_userauth_password(mSession, mUsername.utf8().data(),
+          mPassword.utf8().data());
+      if (rc == SSH_AUTH_ERROR) {
+        closeConnection();
+        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."));
+        return;
+      } else if (rc == SSH_AUTH_SUCCESS) {
+        break;
+      }
+    }
+  }
+
+  // start sftp session
+  kdDebug(TDEIO_SFTP_DB) << "Trying to request the sftp session" << endl;
+  mSftp = sftp_new(mSession);
+  if (mSftp == NULL) {
+    closeConnection();
+    error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Unable to request the SFTP subsystem. "
+          "Make sure SFTP is enabled on the server."));
+    return;
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "Trying to initialize the sftp session" << endl;
+  if (sftp_init(mSftp) < 0) {
+    closeConnection();
+    error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Could not initialize the SFTP session."));
+    return;
+  }
+
+  // Login succeeded!
+  infoMessage(i18n("Successfully connected to %1").arg(mHost));
+  info.url.setProtocol("sftp");
+  info.url.setHost(mHost);
+  info.url.setPort(mPort);
+  info.url.setUser(mUsername);
+  info.username = mUsername;
+  info.password = mPassword;
+
+  kdDebug(TDEIO_SFTP_DB) << "Caching info.username = " << info.username
+    << ", info.url = " << info.url.prettyURL() << endl;
+
+  cacheAuthentication(info);
+
+  //setTimeoutSpecialCommand(TDEIO_SFTP_SPECIAL_TIMEOUT);
+
+  mConnected = true;
+  connected();
+
+  mPassword.fill('x');
+  mPassword = "";
+  info.password.fill('x');
+  info.password = "";
+
+  return;
+}
+
+void sftpProtocol::closeConnection() {
+  kdDebug(TDEIO_SFTP_DB) << "closeConnection()" << endl;
+
+  sftp_free(mSftp);
+  mSftp = NULL;
+
+  ssh_disconnect(mSession);
+  mSession = NULL;
+
+  mConnected = false;
+}
+
+#if 0
+void sftpProtocol::special(const TQByteArray &data) {
+    int rc;
+    kdDebug(TDEIO_SFTP_DB) << "special(): polling";
+
+    /*
+     * channel_poll() returns the number of bytes that may be read on the
+     * channel. It does so by checking the input buffer and eventually the
+     * network socket for data to read. If the input buffer is not empty, it
+     * will not probe the network (and such not read packets nor reply to
+     * keepalives).
+     *
+     * As channel_poll can act on two specific buffers (a channel has two
+     * different stream: stdio and stderr), polling for data on the stderr
+     * stream has more chance of not being in the problematic case (data left
+     * in the buffer). Checking the return value (for >0) would be a good idea
+     * to debug the problem.
+     */
+    rc = channel_poll(mSftp->channel, 0);
+    if (rc > 0) {
+        rc = channel_poll(mSftp->channel, 1);
+    }
+
+    if (rc < 0) {
+        kdDebug(TDEIO_SFTP_DB) << "channel_poll failed: " << ssh_get_error(mSession);
+    }
+
+    setTimeoutSpecialCommand(TDEIO_SFTP_SPECIAL_TIMEOUT);
+}
+#endif
+
+void sftpProtocol::statMime(const KURL &url) {
+  kdDebug(TDEIO_SFTP_DB) << "stat: " << url.url() << endl;
+
+  openConnection();
+  if (!mConnected) {
+    error(TDEIO::ERR_CONNECTION_BROKEN, url.prettyURL());
+    return;
+  }
+
+  const TQString path = url.path();
+  const TQByteArray path_c = path.utf8();
+
+  sftp_attributes sb = sftp_lstat(mSftp, path_c.data());
+  if (sb == NULL) {
+    reportError(url, sftp_get_error(mSftp));
+    return;
+  }
+
+  switch (sb->type) {
+    case SSH_FILEXFER_TYPE_DIRECTORY:
+      sftp_attributes_free(sb);
+      emit mimeType("inode/directory");
+      return;
+    case SSH_FILEXFER_TYPE_SPECIAL:
+    case SSH_FILEXFER_TYPE_UNKNOWN:
+      error(TDEIO::ERR_CANNOT_OPEN_FOR_READING, url.prettyURL());
+      sftp_attributes_free(sb);
+      return;
+    case SSH_FILEXFER_TYPE_SYMLINK:
+    case SSH_FILEXFER_TYPE_REGULAR:
       break;
   }
 
-  return false;
+  size_t fileSize = sb->size;
+  sftp_attributes_free(sb);
+
+  int flags = 0;
+
+  flags = O_RDONLY;
+
+  mOpenFile = sftp_open(mSftp, path_c.data(), flags, 0);
+
+  if (mOpenFile == NULL) {
+    error(TDEIO::ERR_CANNOT_OPEN_FOR_READING, path);
+    return;
+  }
+
+  // Determine the mimetype of the file to be retrieved, and emit it.
+  // This is mandatory in all slaves (for KRun/BrowserRun to work).
+  // If we're not opening the file ReadOnly or ReadWrite, don't attempt to
+  // read the file and send the mimetype.
+  size_t bytesRequested = 1024;
+  ssize_t bytesRead = 0;
+  TQByteArray buffer(bytesRequested);
+
+  bytesRead = sftp_read(mOpenFile, buffer.data(), bytesRequested);
+  if (bytesRead < 0) {
+      error(TDEIO::ERR_COULD_NOT_READ, mOpenUrl.prettyURL());
+      closeFile();
+      return;
+  } else {
+      TQByteArray fileData;
+      fileData.setRawData(buffer.data(), bytesRead);
+      KMimeMagicResult *p_mimeType = KMimeMagic::self()->findBufferFileType(fileData, mOpenUrl.fileName());
+      emit mimeType(p_mimeType->mimeType());
+  }
+
+  sftp_close(mOpenFile);
+
+  mOpenFile = NULL;
+}
+
+#if 0
+void sftpProtocol::read(TDEIO::filesize_t bytes) {
+  kdDebug(TDEIO_SFTP_DB) << "read, offset = " << openOffset << ", bytes = " << bytes;
+
+  ASSERT(mOpenFile != NULL);
+
+  TQVarLengthArray<char> buffer(bytes);
+
+  ssize_t bytesRead = sftp_read(mOpenFile, buffer.data(), bytes);
+  ASSERT(bytesRead <= static_cast<ssize_t>(bytes));
+
+  if (bytesRead < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not read " << mOpenUrl;
+    error(TDEIO::ERR_COULD_NOT_READ, mOpenUrl.prettyURL());
+    close();
+    return;
+  }
+
+  TQByteArray fileData = TQByteArray::fromRawData(buffer.data(), bytesRead);
+  data(fileData);
+}
+
+void sftpProtocol::write(const TQByteArray &data) {
+  kdDebug(TDEIO_SFTP_DB) << "write, offset = " << openOffset << ", bytes = " << data.size();
+
+  ASSERT(mOpenFile != NULL);
+
+  ssize_t bytesWritten = sftp_write(mOpenFile, data.data(), data.size());
+  if (bytesWritten < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not write to " << mOpenUrl;
+    error(TDEIO::ERR_COULD_NOT_WRITE, mOpenUrl.prettyURL());
+    close();
+    return;
+  }
+
+  written(bytesWritten);
+}
+
+void sftpProtocol::seek(TDEIO::filesize_t offset) {
+  kdDebug(TDEIO_SFTP_DB) << "seek, offset = " << offset;
+
+  ASSERT(mOpenFile != NULL);
+
+  if (sftp_seek64(mOpenFile, static_cast<uint64_t>(offset)) < 0) {
+    error(TDEIO::ERR_COULD_NOT_SEEK, mOpenUrl.path());
+    close();
+  }
+
+  position(sftp_tell64(mOpenFile));
+}
+#endif
+
+void sftpProtocol::closeFile() {
+  if (mOpenFile) {
+    sftp_close(mOpenFile);
+
+    mOpenFile = NULL;
+    finished();
+  }
+}
+
+void sftpProtocol::get(const KURL& url) {
+  kdDebug(TDEIO_SFTP_DB) << "get(): " << url.url() << endl;
+
+  openConnection();
+  if (!mConnected) {
+    return;
+  }
+
+  TQByteArray path = url.path().utf8();
+
+  char buf[MAX_XFER_BUF_SIZE] = {0};
+  sftp_file file = NULL;
+  ssize_t bytesread = 0;
+  // time_t curtime = 0;
+  time_t lasttime = 0;
+  time_t starttime = 0;
+  ssize_t totalbytesread  = 0;
+
+  sftp_attributes sb = sftp_lstat(mSftp, path.data());
+  if (sb == NULL) {
+    reportError(url, sftp_get_error(mSftp));
+    return;
+  }
+
+  switch (sb->type) {
+    case SSH_FILEXFER_TYPE_DIRECTORY:
+      error(TDEIO::ERR_IS_DIRECTORY, url.prettyURL());
+      sftp_attributes_free(sb);
+      return;
+    case SSH_FILEXFER_TYPE_SPECIAL:
+    case SSH_FILEXFER_TYPE_UNKNOWN:
+    error(TDEIO::ERR_CANNOT_OPEN_FOR_READING, url.prettyURL());
+      sftp_attributes_free(sb);
+      return;
+    case SSH_FILEXFER_TYPE_SYMLINK:
+    case SSH_FILEXFER_TYPE_REGULAR:
+      break;
+  }
+
+  // Open file
+  file = sftp_open(mSftp, path.data(), O_RDONLY, 0);
+  if (file == NULL) {
+    error( TDEIO::ERR_CANNOT_OPEN_FOR_READING, url.prettyURL());
+    sftp_attributes_free(sb);
+    return;
+  }
+
+  // Determine the mimetype of the file to be retrieved, and emit it.
+  // This is mandatory in all slaves (for KRun/BrowserRun to work)
+  // In real "remote" slaves, this is usually done using findByNameAndContent
+  // after receiving some data. But we don't know how much data the mimemagic rules
+  // need, so for local files, better use findByUrl with localUrl=true.
+  KMimeType::Ptr mt = KMimeType::findByURL( url, sb->permissions, false /* remote URL */ );
+  emit mimeType( mt->name() ); // FIXME test me
+
+  kdDebug(TDEIO_SFTP_DB) << "Total size: " << TQString::number(sb->size) << endl;
+  // Set the total size
+  totalSize(sb->size);
+
+  const TQString resumeOffset = metaData(TQString("resume"));
+  if (!resumeOffset.isEmpty()) {
+    bool ok;
+    ssize_t offset = resumeOffset.toLong(&ok);
+    if (ok && (offset > 0) && ((unsigned long long) offset < sb->size))
+    {
+      if (sftp_seek64(file, offset) == 0) {
+        canResume();
+        totalbytesread = offset;
+        kdDebug(TDEIO_SFTP_DB) << "Resume offset: " << TQString::number(offset) << endl;
+      }
+    }
+  }
+
+  if (file != NULL) {
+    bool isFirstPacket = true;
+    lasttime = starttime = time(NULL);
+
+    for (;;) {
+      bytesread = sftp_read(file, buf, MAX_XFER_BUF_SIZE);
+      kdDebug(TDEIO_SFTP_DB) << "bytesread=" << TQString::number(bytesread) << endl;
+      if (bytesread == 0) {
+        // All done reading
+        break;
+      } else if (bytesread < 0) {
+        kdDebug(TDEIO_SFTP_DB) << "Failed to read";
+        error(TDEIO::ERR_COULD_NOT_READ, url.prettyURL());
+        sftp_attributes_free(sb);
+        return;
+      }
+
+      TQByteArray  filedata;
+      filedata.setRawData(buf, bytesread);
+      if (isFirstPacket) {
+        KMimeMagicResult *p_mimeType = KMimeMagic::self()->findBufferFileType(filedata, mOpenUrl.fileName());
+        mimeType(p_mimeType->mimeType());
+        kdDebug(TDEIO_SFTP_DB) << "mimetype=" << p_mimeType->mimeType() << endl;
+        isFirstPacket = false;
+      }
+      data(filedata);
+      filedata.resetRawData(buf, bytesread);
+
+      // increment total bytes read
+      totalbytesread += bytesread;
+
+      processedSize(totalbytesread);
+    }
+
+    kdDebug(TDEIO_SFTP_DB) << "size processed=" << totalbytesread << endl;
+    sftp_close(file);
+    //data(TQByteArray());
+    processedSize((sb->size));
+  }
+
+  sftp_attributes_free(sb);
+  finished();
+}
+
+void sftpProtocol::put(const KURL& url, int permissions, bool overwrite, bool resume) {
+  kdDebug(TDEIO_SFTP_DB) << "put(): " << url.url()
+                      << " , permissions = " << TQString::number(permissions)
+                      << ", overwrite = " << overwrite
+                      << ", resume = " << resume << endl;
+
+  openConnection();
+  if (!mConnected) {
+    return;
+  }
+
+  const TQString dest_orig = url.path();
+  const TQByteArray dest_orig_c = dest_orig.utf8();
+  const TQString dest_part = dest_orig + ".part";
+  const TQByteArray dest_part_c = dest_part.utf8();
+  uid_t owner = 0;
+  gid_t group = 0;
+
+  sftp_attributes sb = sftp_lstat(mSftp, dest_orig_c.data());
+  const bool bOrigExists = (sb != NULL);
+  bool bPartExists = false;
+  const bool bMarkPartial = config()->readEntry("MarkPartial", "true") == "true";
+
+  // Don't change permissions of the original file
+  if (bOrigExists) {
+      permissions = sb->permissions;
+      owner = sb->uid;
+      group = sb->gid;
+  }
+
+  if (bMarkPartial) {
+    sftp_attributes sbPart = sftp_lstat(mSftp, dest_part_c.data());
+    bPartExists = (sbPart != NULL);
+
+    if (bPartExists && !resume && !overwrite &&
+        sbPart->size > 0 && sbPart->type == SSH_FILEXFER_TYPE_REGULAR) {
+      kdDebug(TDEIO_SFTP_DB) << "put : calling canResume with "
+        << TQString::number(sbPart->size) << endl;
+
+      // Maybe we can use this partial file for resuming
+      // Tell about the size we have, and the app will tell us
+      // if it's ok to resume or not.
+      if (canResume(sbPart->size)) {
+          resume = true;
+      }
+
+      kdDebug(TDEIO_SFTP_DB) << "put got answer " << resume << endl;
+
+      delete sbPart;
+    }
+  }
+
+  if (bOrigExists && !(overwrite) && !(resume)) {
+    if (sb->type == SSH_FILEXFER_TYPE_DIRECTORY) {
+      error(TDEIO::ERR_DIR_ALREADY_EXIST, dest_orig);
+    } else {
+      error(TDEIO::ERR_FILE_ALREADY_EXIST, dest_orig);
+    }
+    sftp_attributes_free(sb);
+    return;
+  }
+
+  int result;
+  TQByteArray dest;
+  sftp_file file = NULL;
+
+  // Loop until we got 0 (end of data)
+  do {
+    TQByteArray buffer;
+    dataReq(); // Request for data
+    result = readData(buffer);
+
+    if (result >= 0) {
+      if (dest.isEmpty()) {
+        if (bMarkPartial) {
+          kdDebug(TDEIO_SFTP_DB) << "Appending .part extension to " << dest_orig << endl;
+          dest = dest_part_c;
+          if (bPartExists && !(resume)) {
+            kdDebug(TDEIO_SFTP_DB) << "Deleting partial file " << dest_part << endl;
+            sftp_unlink(mSftp, dest_part_c.data());
+            // Catch errors when we try to open the file.
+          }
+        } else {
+          dest = dest_orig_c;
+          if (bOrigExists && !(resume)) {
+            kdDebug(TDEIO_SFTP_DB) << "Deleting destination file " << dest_orig << endl;
+            sftp_unlink(mSftp, dest_orig_c.data());
+            // Catch errors when we try to open the file.
+          }
+        } // bMarkPartial
+
+        if ((resume)) {
+          sftp_attributes fstat;
+
+          kdDebug(TDEIO_SFTP_DB) << "Trying to append: " << dest.data() << endl;
+          file = sftp_open(mSftp, dest.data(), O_RDWR, 0);  // append if resuming
+          if (file) {
+             fstat = sftp_fstat(file);
+             if (fstat) {
+                sftp_seek64(file, fstat->size); // Seek to end TODO
+                sftp_attributes_free(fstat);
+             }
+          }
+        } else {
+          mode_t initialMode;
+
+          if (permissions != -1) {
+            initialMode = permissions | S_IWUSR | S_IRUSR;
+          } else {
+            initialMode = 0644;
+          }
+
+          kdDebug(TDEIO_SFTP_DB) << "Trying to open: " << dest.data() << ", mode=" << TQString::number(initialMode) << endl;
+          file = sftp_open(mSftp, dest.data(), O_CREAT | O_TRUNC | O_WRONLY, initialMode);
+        } // resume
+
+        if (file == NULL) {
+          kdDebug(TDEIO_SFTP_DB) << "COULD NOT WRITE " << dest.data()
+                              << " permissions=" << permissions
+                              << " error=" << ssh_get_error(mSession) << endl;
+          if (sftp_get_error(mSftp) == SSH_FX_PERMISSION_DENIED) {
+            error(TDEIO::ERR_WRITE_ACCESS_DENIED, TQString::fromUtf8(dest));
+          } else {
+            error(TDEIO::ERR_CANNOT_OPEN_FOR_WRITING, TQString::fromUtf8(dest));
+          }
+          sftp_attributes_free(sb);
+          finished();
+          return;
+        } // file
+      } // dest.isEmpty
+
+      ssize_t bytesWritten = sftp_write(file, buffer.data(), buffer.size());
+      if (bytesWritten < 0) {
+        error(TDEIO::ERR_COULD_NOT_WRITE, dest_orig);
+        result = -1;
+      }
+    } // result
+  } while (result > 0);
+  sftp_attributes_free(sb);
+
+  // An error occurred deal with it.
+  if (result < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Error during 'put'. Aborting." << endl;
+
+    if (file != NULL) {
+      sftp_close(file);
+
+      sftp_attributes attr = sftp_stat(mSftp, dest.data());
+      if (bMarkPartial && attr != NULL) {
+        size_t size = config()->readEntry("MinimumKeepSize", DEFAULT_MINIMUM_KEEP_SIZE).toLong();
+        if (attr->size < size) {
+          sftp_unlink(mSftp, dest.data());
+        }
+      }
+      delete attr;
+      sftp_attributes_free(attr);
+    }
+
+    //::exit(255);
+    finished();
+    return;
+  }
+
+  if (file == NULL) { // we got nothing to write out, so we never opened the file
+    finished();
+    return;
+  }
+
+  if (sftp_close(file) < 0) {
+    kdWarning(TDEIO_SFTP_DB) << "Error when closing file descriptor" << endl;
+    error(TDEIO::ERR_COULD_NOT_WRITE, dest_orig);
+    return;
+  }
+
+  // after full download rename the file back to original name
+  if (bMarkPartial) {
+    // If the original URL is a symlink and we were asked to overwrite it,
+    // remove the symlink first. This ensures that we do not overwrite the
+    // current source if the symlink points to it.
+    if ((overwrite)) {
+      sftp_unlink(mSftp, dest_orig_c.data());
+    }
+
+    if (sftp_rename(mSftp, dest.data(), dest_orig_c.data()) < 0) {
+      kdWarning(TDEIO_SFTP_DB) << " Couldn't rename " << dest.data() << " to " << dest_orig << endl;
+      error(TDEIO::ERR_CANNOT_RENAME_PARTIAL, dest_orig);
+      return;
+    }
+  }
+
+  // set final permissions
+  if (permissions != -1 && !(resume)) {
+    kdDebug(TDEIO_SFTP_DB) << "Trying to set final permissions of " << dest_orig << " to " << TQString::number(permissions) << endl;
+    if (sftp_chmod(mSftp, dest_orig_c.data(), permissions) < 0) {
+      warning(i18n( "Could not change permissions for\n%1").arg(dest_orig));
+    }
+  }
+
+  // set original owner and group
+  if (bOrigExists) {
+      kdDebug(TDEIO_SFTP_DB) << "Trying to restore original owner and group of " << dest_orig << endl;
+      if (sftp_chown(mSftp, dest_orig_c.data(), owner, group) < 0) {
+          // warning(i18n( "Could not change owner and group for\n%1", dest_orig));
+      }
+  }
+
+  // set modification time
+#if 0
+  const TQString mtimeStr = metaData("modified");
+  if (!mtimeStr.isEmpty()) {
+    TQDateTime dt = TQDateTime::fromString(mtimeStr, TQt::ISODate);
+    if (dt.isValid()) {
+      struct timeval times[2];
+
+      sftp_attributes attr = sftp_lstat(mSftp, dest_orig_c.data());
+      if (attr != NULL) {
+        times[0].tv_sec = attr->atime; //// access time, unchanged
+        times[1].tv_sec =  dt.toTime_t(); // modification time
+        times[0].tv_usec = times[1].tv_usec = 0;
+
+        sftp_utimes(mSftp, dest_orig_c.data(), times);
+        sftp_attributes_free(attr);
+      }
+    }
+  }
+#endif
+  // We have done our job => finish
+  finished();
 }
 
 void sftpProtocol::copy(const KURL &src, const KURL &dest, int permissions, bool overwrite)
 {
-    kdDebug(TDEIO_SFTP_DB) << "copy(): " << src << " -> " << dest << endl;
+  kdDebug(TDEIO_SFTP_DB) << src.url() << " -> " << dest.url() << " , permissions = " << TQString::number(permissions)
+                                      << ", overwrite = " << overwrite << endl;
 
-    bool srcLocal = src.isLocalFile();
-    bool destLocal = dest.isLocalFile();
-
-    if ( srcLocal && !destLocal ) // Copy file -> sftp
-      sftpCopyPut(src, dest, permissions, overwrite);
-    else if ( destLocal && !srcLocal ) // Copy sftp -> file
-      sftpCopyGet(dest, src, permissions, overwrite);
-    else
-      error(ERR_UNSUPPORTED_ACTION, TQString::null);
+  error(TDEIO::ERR_UNSUPPORTED_ACTION, TQString());
 }
 
-void sftpProtocol::sftpCopyGet(const KURL& dest, const KURL& src, int mode, bool overwrite)
-{
-    kdDebug(TDEIO_SFTP_DB) << "sftpCopyGet(): " << src << " -> " << dest << endl;
+void sftpProtocol::stat(const KURL& url) {
+  kdDebug(TDEIO_SFTP_DB) << url.url() << endl;
 
-    // Attempt to establish a connection...
-    openConnection();
-    if( !mConnected )
+  openConnection();
+  if (!mConnected) {
+    return;
+  }
+
+  if (! url.hasPath() || TQDir::isRelativePath(url.path()) ||
+      url.path().contains("/./") || url.path().contains("/../")) {
+    TQString cPath;
+
+    if (url.hasPath()) {
+      cPath = canonicalizePath(url.path());
+    } else {
+      cPath = canonicalizePath(TQString("."));
+    }
+
+    if (cPath.isEmpty()) {
+      error(TDEIO::ERR_MALFORMED_URL, url.prettyURL());
+      return;
+    }
+    KURL redir(url);
+    redir.setPath(cPath);
+    redirection(redir);
+
+    kdDebug(TDEIO_SFTP_DB) << "redirecting to " << redir.url() << endl;
+
+    finished();
+    return;
+  }
+
+  TQByteArray path = url.path().utf8();
+
+  const TQString sDetails = metaData(TQString("details"));
+  const int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
+
+  UDSEntry entry;
+  entry.clear();
+  if (!createUDSEntry(url.fileName(), path, entry, details)) {
+    error(TDEIO::ERR_DOES_NOT_EXIST, url.prettyURL());
+    return;
+  }
+
+  statEntry(entry);
+
+  finished();
+}
+
+void sftpProtocol::mimetype(const KURL& url){
+  kdDebug(TDEIO_SFTP_DB) << url.url() << endl;
+
+  openConnection();
+  if (!mConnected) {
+    return;
+  }
+
+  // stat() feeds the mimetype
+  statMime(url);
+  closeFile();
+
+  finished();
+}
+
+void sftpProtocol::listDir(const KURL& url) {
+  kdDebug(TDEIO_SFTP_DB) << "list directory: " << url.url() << endl;
+
+  openConnection();
+  if (!mConnected) {
+    return;
+  }
+
+  if (! url.hasPath() || TQDir::isRelativePath(url.path()) ||
+      url.path().contains("/./") || url.path().contains("/../")) {
+    TQString cPath;
+
+    if (url.hasPath()) {
+      cPath = canonicalizePath(url.path());
+    } else {
+      cPath = canonicalizePath(TQString("."));
+    }
+
+    if (cPath.isEmpty()) {
+      error(TDEIO::ERR_MALFORMED_URL, url.prettyURL());
+      return;
+    }
+    KURL redir(url);
+    redir.setPath(cPath);
+    redirection(redir);
+
+    kdDebug(TDEIO_SFTP_DB) << "redirecting to " << redir.url() << endl;
+
+    finished();
+    return;
+  }
+
+  TQByteArray path = url.path().utf8();
+
+  sftp_dir dp = sftp_opendir(mSftp, path.data());
+  if (dp == NULL) {
+    reportError(url, sftp_get_error(mSftp));
+    return;
+  }
+
+  sftp_attributes dirent = NULL;
+  const TQString sDetails = metaData(TQString("details"));
+  const int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
+  TQList<TQByteArray> entryNames;
+  UDSEntry entry;
+
+  kdDebug(TDEIO_SFTP_DB) << "readdir: " << path.data() << ", details: " << TQString::number(details) << endl;
+
+  UDSAtom atom;
+
+  for (;;) {
+    mode_t access;
+    mode_t type;
+    char *link;
+
+    dirent = sftp_readdir(mSftp, dp);
+    if (dirent == NULL) {
+      break;
+    }
+
+    entry.clear();
+    atom.m_uds = UDS_NAME;
+    atom.m_str = TQFile::decodeName(dirent->name);
+    entry.append(atom);
+
+    if (dirent->type == SSH_FILEXFER_TYPE_SYMLINK) {
+      TQCString file = (TQString(path) + "/" + TQFile::decodeName(dirent->name)).utf8().data();
+
+      atom.m_uds = UDS_FILE_TYPE;
+      atom.m_long = S_IFREG;
+      entry.append(atom);
+
+      link = sftp_readlink(mSftp, file.data());
+      if (link == NULL) {
+        sftp_attributes_free(dirent);
+        error(TDEIO::ERR_INTERNAL, i18n("Could not read link: %1").arg(TQString::fromUtf8(file)));
         return;
+      }
+      atom.m_uds = UDS_LINK_DEST;
+      atom.m_str = TQFile::decodeName(link);
+      entry.append(atom);
+      delete link;
+      // A symlink -> follow it only if details > 1
+      if (details > 1) {
+        sftp_attributes sb = sftp_stat(mSftp, file.data());
+        if (sb == NULL) {
+          // It is a link pointing to nowhere
+          type = S_IFMT - 1;
+          access = S_IRWXU | S_IRWXG | S_IRWXO;
+          atom.m_uds = UDS_FILE_TYPE;
+          atom.m_long = type;
+          entry.append(atom);
+          atom.m_uds = UDS_ACCESS;
+          atom.m_long = access;
+          entry.append(atom);
+          atom.m_uds = UDS_SIZE;
+          atom.m_long = 0;
+          entry.append(atom);
 
-    KDE_struct_stat buff_orig;
-    TQCString dest_orig ( TQFile::encodeName(dest.path()) );
-    bool origExists = (KDE_lstat( dest_orig.data(), &buff_orig ) != -1);
-
-    if (origExists)
-    {
-        if (S_ISDIR(buff_orig.st_mode))
-        {
-          error(ERR_IS_DIRECTORY, dest.prettyURL());
-          return;
+          goto notype;
         }
-
-        if (!overwrite)
-        {
-          error(ERR_FILE_ALREADY_EXIST, dest.prettyURL());
-          return;
-        }
-    }
-
-    TDEIO::filesize_t offset = 0;
-    TQCString dest_part ( dest_orig + ".part" );
-
-    int fd = -1;
-    bool partExists = false;
-    bool markPartial = config()->readBoolEntry("MarkPartial", true);
-
-    if (markPartial)
-    {
-        KDE_struct_stat buff_part;
-        partExists = (KDE_stat( dest_part.data(), &buff_part ) != -1);
-
-        if (partExists && buff_part.st_size > 0 && S_ISREG(buff_part.st_mode))
-        {
-            if (canResume( buff_part.st_size ))
-            {
-                offset = buff_part.st_size;
-                kdDebug(TDEIO_SFTP_DB) << "sftpCopyGet: Resuming @ " << offset << endl;
-            }
-        }
-
-        if (offset > 0)
-        {
-            fd = KDE_open(dest_part.data(), O_RDWR);
-            offset = KDE_lseek(fd, 0, SEEK_END);
-            if (offset == 0)
-            {
-              error(ERR_CANNOT_RESUME, dest.prettyURL());
-              return;
-            }
-        }
-        else
-        {
-            // Set up permissions properly, based on what is done in file io-slave
-            int openFlags = (O_CREAT | O_TRUNC | O_WRONLY);
-            int initialMode = (mode == -1) ? 0666 : (mode | S_IWUSR);
-            fd = KDE_open(dest_part.data(), openFlags, initialMode);
-        }
-    }
-    else
-    {
-        // Set up permissions properly, based on what is done in file io-slave
-        int openFlags = (O_CREAT | O_TRUNC | O_WRONLY);
-        int initialMode = (mode == -1) ? 0666 : (mode | S_IWUSR);
-        fd = KDE_open(dest_orig.data(), openFlags, initialMode);
-    }
-
-    if(fd == -1)
-    {
-      kdDebug(TDEIO_SFTP_DB) << "sftpCopyGet: Unable to open (" << fd << ") for writting." << endl;
-      if (errno == EACCES)
-        error (ERR_WRITE_ACCESS_DENIED, dest.prettyURL());
-      else
-        error (ERR_CANNOT_OPEN_FOR_WRITING, dest.prettyURL());
-      return;
-    }
-
-    Status info = sftpGet(src, offset, fd);
-    if ( info.code != 0 )
-    {
-      // Should we keep the partially downloaded file ??
-      TDEIO::filesize_t size = config()->readNumEntry("MinimumKeepSize", DEFAULT_MINIMUM_KEEP_SIZE);
-      if (info.size < size)
-        ::remove(dest_part.data());
-
-      error(info.code, info.text);
-      return;
-    }
-
-    if (::close(fd) != 0)
-    {
-      error(ERR_COULD_NOT_WRITE, dest.prettyURL());
-      return;
-    }
-
-    //
-    if (markPartial)
-    {
-      if (::rename(dest_part.data(), dest_orig.data()) != 0)
-      {
-        error (ERR_CANNOT_RENAME_PARTIAL, dest_part);
-        return;
+        sftp_attributes_free(dirent);
+        dirent = sb;
       }
     }
 
-    data(TQByteArray());
-    kdDebug(TDEIO_SFTP_DB) << "sftpCopyGet(): emit finished()" << endl;
-    finished();
-}
-
-sftpProtocol::Status sftpProtocol::sftpGet( const KURL& src, TDEIO::filesize_t offset, int fd )
-{
-    int code;
-    sftpFileAttr attr(remoteEncoding());
-
-    Status res;
-    res.code = 0;
-    res.size = 0;
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpGet(): " << src << endl;
-
-    // stat the file first to get its size
-    if( (code = sftpStat(src, attr)) != SSH2_FX_OK ) {
-        return doProcessStatus(code, src.prettyURL());
-    }
-
-    // We cannot get file if it is a directory
-    if( attr.fileType() == S_IFDIR ) {
-        res.text = src.prettyURL();
-        res.code = ERR_IS_DIRECTORY;
-        return res;
-    }
-
-    TDEIO::filesize_t fileSize = attr.fileSize();
-    TQ_UINT32 pflags = SSH2_FXF_READ;
-    attr.clear();
-
-    TQByteArray handle;
-    if( (code = sftpOpen(src, pflags, attr, handle)) != SSH2_FX_OK ) {
-        res.text = src.prettyURL();
-        res.code = ERR_CANNOT_OPEN_FOR_READING;
-        return res;
-    }
-
-    // needed for determining mimetype
-    // note: have to emit mimetype before emitting totalsize.
-    TQByteArray buff;
-    TQByteArray mimeBuffer;
-
-    unsigned int oldSize;
-    bool foundMimetype = false;
-
-    // How big should each data packet be? Definitely not bigger than 64kb or
-    // you will overflow the 2 byte size variable in a sftp packet.
-    TQ_UINT32 len = 60*1024;
-    code = SSH2_FX_OK;
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpGet(): offset = " << offset << endl;
-    while( code == SSH2_FX_OK ) {
-        if( (code = sftpRead(handle, offset, len, buff)) == SSH2_FX_OK ) {
-            offset += buff.size();
-
-            // save data for mimetype. Pretty much follows what is in the ftp ioslave
-            if( !foundMimetype ) {
-                oldSize = mimeBuffer.size();
-                mimeBuffer.resize(oldSize + buff.size());
-                memcpy(mimeBuffer.data()+oldSize, buff.data(), buff.size());
-
-                if( mimeBuffer.size() > 1024 ||  offset == fileSize ) {
-                    // determine mimetype
-                    KMimeMagicResult* result =
-                        KMimeMagic::self()->findBufferFileType(mimeBuffer, src.fileName());
-                    kdDebug(TDEIO_SFTP_DB) << "sftpGet(): mimetype is " <<
-                                      result->mimeType() << endl;
-                    mimeType(result->mimeType());
-
-                    // Always send the total size after emitting mime-type...
-                    totalSize(fileSize);
-
-                    if (fd == -1)
-                        data(mimeBuffer);
-                    else
-                    {
-                        if ( (res.code=writeToFile(fd, mimeBuffer.data(), mimeBuffer.size())) != 0 )
-                            return res;
-                    }
-
-                    processedSize(mimeBuffer.size());
-                    mimeBuffer.resize(0);
-                    foundMimetype = true;
-                }
-            }
-            else {
-                if (fd == -1)
-                    data(buff);
-                else
-                {
-                    if ( (res.code= writeToFile(fd, buff.data(), buff.size())) != 0 )
-                        return res;
-                }
-                processedSize(offset);
-            }
-        }
-
-        /*
-          Check if slave was killed.  According to slavebase.h we need to leave
-          the slave methods as soon as possible if the slave is killed. This
-          allows the slave to be cleaned up properly.
-        */
-        if( wasKilled() ) {
-            res.text = i18n("An internal error occurred. Please retry the request again.");
-            res.code = ERR_UNKNOWN;
-            return res;
-        }
-    }
-
-    if( code != SSH2_FX_EOF ) {
-        res.text = src.prettyURL();
-        res.code = ERR_COULD_NOT_READ; // return here or still send empty array to indicate end of read?
-    }
-
-    res.size = offset;
-    sftpClose(handle);
-    processedSize (offset);
-    return res;
-}
-
-void sftpProtocol::get(const KURL& url) {
-    kdDebug(TDEIO_SFTP_DB) << "get(): " << url << endl ;
-
-    openConnection();
-    if( !mConnected )
-        return;
-
-    // Get resume offset
-    TQ_UINT64 offset = config()->readUnsignedLongNumEntry("resume");
-    if( offset > 0 ) {
-        canResume();
-        kdDebug(TDEIO_SFTP_DB) << "get(): canResume(), offset = " << offset << endl;
-    }
-
-    Status info = sftpGet(url, offset);
-
-    if (info.code != 0)
-    {
-      error(info.code, info.text);
-      return;
-    }
-
-    data(TQByteArray());
-    kdDebug(TDEIO_SFTP_DB) << "get(): emit finished()" << endl;
-    finished();
-}
-
-
-void sftpProtocol::setHost (const TQString& h, int port, const TQString& user, const TQString& pass)
-{
-    kdDebug(TDEIO_SFTP_DB) << "setHost(): " << user << "@" << h << ":" << port << endl;
-
-    if( mHost != h || mPort != port || user != mUsername || mPassword != pass )
-        closeConnection();
-
-    mHost = h;
-
-    if( port > 0 )
-        mPort = port;
-    else {
-        mPort = -1;
-    }
-
-    mUsername = user;
-    mPassword = pass;
-
-    if (user.isEmpty())
-    {
-      KUser u;
-      mUsername = u.loginName();
-    }
-}
-
-
-void sftpProtocol::openConnection() {
-
-    if(mConnected)
-      return;
-
-    kdDebug(TDEIO_SFTP_DB) << "openConnection(): " << mUsername << "@"
-                         << mHost << ":" << mPort << endl;
-
-    infoMessage( i18n("Opening SFTP connection to host <b>%1:%2</b>").arg(mHost).arg(mPort));
-
-    if( mHost.isEmpty() ) {
-        kdDebug(TDEIO_SFTP_DB) << "openConnection(): Need hostname..." << endl;
-        error(ERR_UNKNOWN_HOST, i18n("No hostname specified"));
-        return;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////
-    // Setup AuthInfo for use with password caching and the
-    // password dialog box.
-    AuthInfo info;
-    info.url.setProtocol("sftp");
-    info.url.setHost(mHost);
-    info.url.setPort(mPort);
-    info.url.setUser(mUsername);
-    info.caption = i18n("SFTP Login");
-    info.comment = "sftp://" + mHost + ":" + TQString::number(mPort);
-    info.commentLabel = i18n("site:");
-    info.username = mUsername;
-    info.keepPassword = true;
-
-    ///////////////////////////////////////////////////////////////////////////
-    // Check for cached authentication info if a username AND password were
-    // not specified in setHost().
-    if( mUsername.isEmpty() && mPassword.isEmpty() ) {
-        kdDebug(TDEIO_SFTP_DB) << "openConnection(): checking cache "
-                             << "info.username = " << info.username
-                             << ", info.url = " << info.url.prettyURL() << endl;
-
-        if( checkCachedAuthentication(info) ) {
-            mUsername = info.username;
-            mPassword = info.password;
-        }
-    }
-
-    ///////////////////////////////////////////////////////////////////////////
-    // Now setup our ssh options. If we found a cached username
-    // and password we set the SSH_PASSWORD and SSH_USERNAME
-    // options right away.  Otherwise we wait. The other options are
-    // necessary for running sftp over ssh.
-    KSshProcess::SshOpt opt;   // a ssh option, this can be reused
-    KSshProcess::SshOptList opts; // list of SshOpts
-    KSshProcess::SshOptListIterator passwdIt; // points to the opt in opts that specifies the password
-    KSshProcess::SshOptListIterator usernameIt;
-
-//    opt.opt = KSshProcess::SSH_VERBOSE;
-//    opts.append(opt);
-//    opts.append(opt);
-
-    if( mPort != -1 ) {
-        opt.opt = KSshProcess::SSH_PORT;
-        opt.num = mPort;
-        opts.append(opt);
-    }
-
-    opt.opt = KSshProcess::SSH_SUBSYSTEM;
-    opt.str = "sftp";
-    opts.append(opt);
-
-    opt.opt = KSshProcess::SSH_FORWARDX11;
-    opt.boolean = false;
-    opts.append(opt);
-
-    opt.opt = KSshProcess::SSH_FORWARDAGENT;
-    opt.boolean = false;
-    opts.append(opt);
-
-    opt.opt = KSshProcess::SSH_PROTOCOL;
-    opt.num = 2;
-    opts.append(opt);
-
-    opt.opt = KSshProcess::SSH_HOST;
-    opt.str = mHost;
-    opts.append(opt);
-
-    opt.opt = KSshProcess::SSH_ESCAPE_CHAR;
-    opt.num = -1; // don't use any escape character
-    opts.append(opt);
-
-    // set the username and password if we have them
-    if( !mUsername.isEmpty()  ) {
-        opt.opt = KSshProcess::SSH_USERNAME;
-        opt.str = mUsername;
-        usernameIt = opts.append(opt);
-    }
-
-    if( !mPassword.isEmpty() ) {
-        opt.opt = KSshProcess::SSH_PASSWD;
-        opt.str = mPassword;
-        passwdIt = opts.append(opt);
-    }
-
-    ssh.setOptions(opts);
-    ssh.printArgs();
-
-    ///////////////////////////////////////////////////////////////////////////
-    // Start the ssh connection process.
-    //
-
-    int err;           // error code from KSshProcess
-    TQString msg;       // msg for dialog box
-    TQString caption;   // dialog box caption
-    bool firstTime = true;
-    bool dlgResult;
-
-    while( !(mConnected = ssh.connect()) ) {
-        err = ssh.error();
-        kdDebug(TDEIO_SFTP_DB) << "openConnection(): "
-            "Got " << err << " from KSshProcess::connect()" << endl;
-
-        switch(err) {
-        case KSshProcess::ERR_NEED_PASSWD:
-        case KSshProcess::ERR_NEED_PASSPHRASE:
-            // At this point we know that either we didn't set
-            // an username or password in the ssh options list,
-            // or what we did pass did not work. Therefore we
-            // must prompt the user.
-            if( err == KSshProcess::ERR_NEED_PASSPHRASE )
-                info.prompt = i18n("Please enter your username and key passphrase.");
-            else
-                info.prompt = i18n("Please enter your username and password.");
-
-            kdDebug(TDEIO_SFTP_DB) << "openConnection(): info.username = " << info.username
-                                 << ", info.url = " << info.url.prettyURL() << endl;
-
-            if( firstTime )
-                dlgResult = openPassDlg(info);
-            else
-                dlgResult = openPassDlg(info, i18n("Incorrect username or password"));
-
-            if( dlgResult ) {
-               if( info.username.isEmpty() || info.password.isEmpty() ) {
-                    error(ERR_COULD_NOT_AUTHENTICATE,
-                      i18n("Please enter a username and password"));
-                    continue;
-                }
-            }
-            else {
-                // user canceled or dialog failed to open
-                error(ERR_USER_CANCELED, TQString::null);
-                kdDebug(TDEIO_SFTP_DB) << "openConnection(): user canceled, dlgResult = " << dlgResult << endl;
-                closeConnection();
-                return;
-            }
-
-            firstTime = false;
-
-            // Check if the username has changed. SSH only accepts
-            // the username at startup. If the username has changed
-            // we must disconnect ssh, change the SSH_USERNAME
-            // option, and reset the option list. We will also set
-            // the password option so the user is not prompted for
-            // it again.
-            if( mUsername != info.username ) {
-                kdDebug(TDEIO_SFTP_DB) << "openConnection(): Username changed from "
-                                     << mUsername << " to " << info.username << endl;
-
-                ssh.disconnect();
-
-                // if we haven't yet added the username
-                // or password option to the ssh options list then
-                // the iterators will be equal to the empty iterator.
-                // Create the opts now and add them to the opt list.
-                if( usernameIt == KSshProcess::SshOptListIterator() ) {
-                    kdDebug(TDEIO_SFTP_DB) << "openConnection(): "
-                        "Adding username to options list" << endl;
-                    opt.opt = KSshProcess::SSH_USERNAME;
-                    usernameIt = opts.append(opt);
-                }
-
-                if( passwdIt == KSshProcess::SshOptListIterator() ) {
-                    kdDebug(TDEIO_SFTP_DB) << "openConnection(): "
-                        "Adding password to options list" << endl;
-                    opt.opt = KSshProcess::SSH_PASSWD;
-                    passwdIt = opts.append(opt);
-                }
-
-                (*usernameIt).str = info.username;
-                (*passwdIt).str = info.password;
-                ssh.setOptions(opts);
-                ssh.printArgs();
-            }
-            else { // just set the password
-                ssh.setPassword(info.password);
-            }
-
-            mUsername = info.username;
-            mPassword = info.password;
-
-            break;
-
-        case KSshProcess::ERR_NEW_HOST_KEY:
-            caption = i18n("Warning: Cannot verify host's identity.");
-            msg = ssh.errorMsg();
-            if( KMessageBox::Yes != messageBox(WarningYesNo, msg, caption) ) {
-                closeConnection();
-                error(ERR_USER_CANCELED, TQString::null);
-                return;
-            }
-            ssh.acceptHostKey(true);
-            break;
-
-        case KSshProcess::ERR_DIFF_HOST_KEY:
-            caption = i18n("Warning: Host's identity changed.");
-            msg = ssh.errorMsg();
-            if( KMessageBox::Yes != messageBox(WarningYesNo, msg, caption) ) {
-                closeConnection();
-                error(ERR_USER_CANCELED, TQString::null);
-                return;
-            }
-            ssh.acceptHostKey(true);
-            break;
-
-        case KSshProcess::ERR_AUTH_FAILED:
-            infoMessage(i18n("Authentication failed."));
-            error(ERR_COULD_NOT_LOGIN, i18n("Authentication failed."));
-            return;
-
-        case KSshProcess::ERR_AUTH_FAILED_NEW_KEY:
-            msg = ssh.errorMsg();
-            error(ERR_COULD_NOT_LOGIN, msg);
-            return;
-
-        case KSshProcess::ERR_AUTH_FAILED_DIFF_KEY:
-            msg = ssh.errorMsg();
-            error(ERR_COULD_NOT_LOGIN, msg);
-            return;
-
-        case KSshProcess::ERR_CLOSED_BY_REMOTE_HOST:
-            infoMessage(i18n("Connection failed."));
-            caption = i18n("Connection closed by remote host.");
-            msg = ssh.errorMsg();
-            messageBox(Information, msg, caption);
-            closeConnection();
-            error(ERR_COULD_NOT_LOGIN, msg);
-            return;
-
-        case KSshProcess::ERR_INTERACT:
-        case KSshProcess::ERR_INTERNAL:
-        case KSshProcess::ERR_UNKNOWN:
-        case KSshProcess::ERR_INVALID_STATE:
-        case KSshProcess::ERR_CANNOT_LAUNCH:
-        case KSshProcess::ERR_HOST_KEY_REJECTED:
-        default:
-            infoMessage(i18n("Connection failed."));
-            caption = i18n("Unexpected SFTP error: %1").arg(err);
-            msg = ssh.errorMsg();
-            messageBox(Information, msg, caption);
-            closeConnection();
-            error(ERR_UNKNOWN, msg);
-            return;
-        }
-    }
-
-    // catch all in case we did something wrong above
-    if( !mConnected ) {
-        error(ERR_INTERNAL, TQString::null);
-        return;
-    }
-
-    // Now send init packet.
-    kdDebug(TDEIO_SFTP_DB) << "openConnection(): Sending SSH2_FXP_INIT packet." << endl;
-    TQByteArray p;
-    TQDataStream packet(p, IO_WriteOnly);
-    packet << (TQ_UINT32)5;                     // packet length
-    packet << (TQ_UINT8) SSH2_FXP_INIT;         // packet type
-    packet << (TQ_UINT32)SSH2_FILEXFER_VERSION; // client version
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream s(p, IO_ReadOnly);
-    TQ_UINT32 version;
-    TQ_UINT8  type;
-    s >> type;
-    kdDebug(TDEIO_SFTP_DB) << "openConnection(): Got type " << type << endl;
-
-    if( type == SSH2_FXP_VERSION ) {
-        s >> version;
-        kdDebug(TDEIO_SFTP_DB) << "openConnection(): Got server version " << version << endl;
-
-        // XXX Get extensions here
-        sftpVersion = version;
-
-        /* Server should return lowest common version supported by
-         * client and server, but double check just in case.
-         */
-        if( sftpVersion > SSH2_FILEXFER_VERSION ) {
-            error(ERR_UNSUPPORTED_PROTOCOL,
-                i18n("SFTP version %1").arg(version));
-            closeConnection();
-            return;
-        }
-    }
-    else {
-        error(ERR_UNKNOWN, i18n("Protocol error."));
-        closeConnection();
-        return;
-    }
-
-    // Login succeeded!
-    infoMessage(i18n("Successfully connected to %1").arg(mHost));
-    info.url.setProtocol("sftp");
-    info.url.setHost(mHost);
-    info.url.setPort(mPort);
-    info.url.setUser(mUsername);
-    info.username = mUsername;
-    info.password = mPassword;
-    kdDebug(TDEIO_SFTP_DB) << "sftpProtocol(): caching info.username = " << info.username <<
-        ", info.url = " << info.url.prettyURL() << endl;
-    cacheAuthentication(info);
-    mConnected = true;
-    connected();
-
-    mPassword.fill('x');
-    info.password.fill('x');
-
-    return;
-}
-
-void sftpProtocol::closeConnection() {
-    kdDebug(TDEIO_SFTP_DB) << "closeConnection()" << endl;
-    ssh.disconnect();
-    mConnected = false;
-}
-
-void sftpProtocol::sftpCopyPut(const KURL& src, const KURL& dest, int permissions, bool overwrite) {
-
-    KDE_struct_stat buff;
-    TQCString file (TQFile::encodeName(src.path()));
-
-    if (KDE_lstat(file.data(), &buff) == -1) {
-        error (ERR_DOES_NOT_EXIST, src.prettyURL());
-        return;
-    }
-
-    if (S_ISDIR (buff.st_mode)) {
-        error (ERR_IS_DIRECTORY, src.prettyURL());
-        return;
-    }
-
-    int fd = KDE_open (file.data(), O_RDONLY);
-    if (fd == -1) {
-        error (ERR_CANNOT_OPEN_FOR_READING, src.prettyURL());
-        return;
-    }
-
-    totalSize (buff.st_size);
-
-    sftpPut (dest, permissions, false, overwrite, fd);
-
-    // Close the file descriptor...
-    ::close( fd );
-}
-
-void sftpProtocol::sftpPut( const KURL& dest, int permissions, bool resume, bool overwrite, int fd ) {
-
-    openConnection();
-    if( !mConnected )
-        return;
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpPut(): " << dest
-                         << ", resume=" << resume
-                         << ", overwrite=" << overwrite << endl;
-
-    KURL origUrl( dest );
-    sftpFileAttr origAttr(remoteEncoding());
-    bool origExists = false;
-
-    // Stat original (without part ext)  to see if it already exists
-    int code = sftpStat(origUrl, origAttr);
-
-    if( code == SSH2_FX_OK ) {
-        kdDebug(TDEIO_SFTP_DB) << "sftpPut(): <file> already exists" << endl;
-
-        // Delete remote file if its size is zero
-        if( origAttr.fileSize() == 0 ) {
-            if( sftpRemove(origUrl, true) != SSH2_FX_OK ) {
-                error(ERR_CANNOT_DELETE_ORIGINAL, origUrl.prettyURL());
-                return;
-            }
-        }
-        else {
-            origExists = true;
-        }
-    }
-    else if( code != SSH2_FX_NO_SUCH_FILE ) {
-        processStatus(code, origUrl.prettyURL());
-        return;
-    }
-
-    // Do not waste time/resources with more remote stat calls if the file exists
-    // and we weren't instructed to overwrite it...
-    if( origExists && !overwrite ) {
-        error(ERR_FILE_ALREADY_EXIST, origUrl.prettyURL());
-        return;
-    }
-
-    // Stat file with part ext to see if it already exists...
-    KURL partUrl( origUrl );
-    partUrl.setFileName( partUrl.fileName() + ".part" );
-
-    TQ_UINT64 offset = 0;
-    bool partExists = false;
-    bool markPartial = config()->readBoolEntry("MarkPartial", true);
-
-    if( markPartial ) {
-
-        sftpFileAttr partAttr(remoteEncoding());
-        code = sftpStat(partUrl, partAttr);
-
-        if( code == SSH2_FX_OK ) {
-            kdDebug(TDEIO_SFTP_DB) << "sftpPut(): .part file already exists" << endl;
-            partExists = true;
-            offset = partAttr.fileSize();
-
-            // If for some reason, both the original and partial files exist,
-            // skip resumption just like we would if the size of the partial
-            // file is zero...
-            if( origExists || offset == 0 )
-            {
-                if( sftpRemove(partUrl, true) != SSH2_FX_OK ) {
-                    error(ERR_CANNOT_DELETE_PARTIAL, partUrl.prettyURL());
-                    return;
-                }
-
-                if( sftpRename(origUrl, partUrl) != SSH2_FX_OK ) {
-                    error(ERR_CANNOT_RENAME_ORIGINAL, origUrl.prettyURL());
-                    return;
-                }
-
-                offset = 0;
-            }
-            else if( !overwrite && !resume ) {
-                    if (fd != -1)
-                        resume = (KDE_lseek(fd, offset, SEEK_SET) != -1);
-                    else
-                        resume = canResume( offset );
-
-                    kdDebug(TDEIO_SFTP_DB) << "sftpPut(): can resume = " << resume
-                                         << ", offset = " << offset;
-
-                    if( !resume ) {
-                      error(ERR_FILE_ALREADY_EXIST, partUrl.prettyURL());
-                      return;
-                    }
-            }
-            else {
-                offset = 0;
-            }
-        }
-        else if( code == SSH2_FX_NO_SUCH_FILE ) {
-            if( origExists && sftpRename(origUrl, partUrl) != SSH2_FX_OK ) {
-              error(ERR_CANNOT_RENAME_ORIGINAL, origUrl.prettyURL());
-              return;
-            }
-        }
-        else {
-            processStatus(code, partUrl.prettyURL());
-            return;
-        }
-    }
-
-    // Determine the url we will actually write to...
-    KURL writeUrl (markPartial ? partUrl:origUrl);
-
-    TQ_UINT32 pflags = 0;
-    if( overwrite && !resume )
-        pflags = SSH2_FXF_WRITE | SSH2_FXF_CREAT | SSH2_FXF_TRUNC;
-    else if( !overwrite && !resume )
-        pflags = SSH2_FXF_WRITE | SSH2_FXF_CREAT | SSH2_FXF_EXCL;
-    else if( overwrite && resume )
-        pflags = SSH2_FXF_WRITE | SSH2_FXF_CREAT;
-    else if( !overwrite && resume )
-        pflags = SSH2_FXF_WRITE | SSH2_FXF_CREAT | SSH2_FXF_APPEND;
-
-    sftpFileAttr attr(remoteEncoding());
-    TQByteArray handle;
-
-    // Set the permissions of the file we write to if it didn't already exist
-    // and the permission info is supplied, i.e it is not -1
-    if( !partExists && !origExists && permissions != -1)
-        attr.setPermissions(permissions);
-
-    code = sftpOpen( writeUrl, pflags, attr, handle );
-    if( code != SSH2_FX_OK ) {
-
-        // Rename the file back to its original name if a
-        // put fails due to permissions problems...
-        if( markPartial && overwrite ) {
-            (void) sftpRename(partUrl, origUrl);
-            writeUrl = origUrl;
-        }
-
-        if( code == SSH2_FX_FAILURE ) { // assume failure means file exists
-            error(ERR_FILE_ALREADY_EXIST, writeUrl.prettyURL());
-            return;
-        }
-        else {
-            processStatus(code, writeUrl.prettyURL());
-            return;
-        }
-    }
-
-    long nbytes;
-    TQByteArray buff;
-
-    do {
-
-        if( fd != -1 ) {
-            buff.resize( 16*1024 );
-            if ( (nbytes = ::read(fd, buff.data(), buff.size())) > -1 )
-                buff.resize( nbytes );
-        }
-        else {
-            dataReq();
-            nbytes = readData( buff );
-        }
-
-        if( nbytes >= 0 ) {
-            if( (code = sftpWrite(handle, offset, buff)) != SSH2_FX_OK ) {
-                error(ERR_COULD_NOT_WRITE, dest.prettyURL());
-                return;
-            }
-
-            offset += nbytes;
-            processedSize(offset);
-
-            /* Check if slave was killed.  According to slavebase.h we
-              * need to leave the slave methods as soon as possible if
-              * the slave is killed. This allows the slave to be cleaned
-              * up properly.
-              */
-            if( wasKilled() ) {
-                sftpClose(handle);
-                closeConnection();
-                error(ERR_UNKNOWN, i18n("An internal error occurred. Please try again."));
-                return;
-            }
-        }
-
-    } while( nbytes > 0 );
-
-    if( nbytes < 0 ) {
-        sftpClose(handle);
-
-        if( markPartial ) {
-            // Remove remote file if it smaller than our keep size
-            uint minKeepSize = config()->readNumEntry("MinimumKeepSize", DEFAULT_MINIMUM_KEEP_SIZE);
-
-            if( sftpStat(writeUrl, attr) == SSH2_FX_OK ) {
-                if( attr.fileSize() < minKeepSize ) {
-                    sftpRemove(writeUrl, true);
-                }
-            }
-        }
-
-        error( ERR_UNKNOWN, i18n("Unknown error was encountered while copying the file "
-                                 "to '%1'. Please try again.").arg(dest.host()) );
-        return;
-    }
-
-    if( (code = sftpClose(handle)) != SSH2_FX_OK ) {
-        error(ERR_COULD_NOT_WRITE, writeUrl.prettyURL());
-        return;
-    }
-
-    // If wrote to a partial file, then remove the part ext
-    if( markPartial ) {
-        if( sftpRename(partUrl, origUrl) != SSH2_FX_OK ) {
-            error(ERR_CANNOT_RENAME_PARTIAL, origUrl.prettyURL());
-            return;
-        }
-    }
-
-    finished();
-}
-
-void sftpProtocol::put ( const KURL& url, int permissions, bool overwrite, bool resume ){
-    kdDebug(TDEIO_SFTP_DB) << "put(): " << url << ", overwrite = " << overwrite
-                         << ", resume = " << resume << endl;
-
-    sftpPut( url, permissions, resume, overwrite );
-}
-
-void sftpProtocol::stat ( const KURL& url ){
-    kdDebug(TDEIO_SFTP_DB) << "stat(): " << url << endl;
-
-    openConnection();
-    if( !mConnected )
-        return;
-
-    // If the stat URL has no path, do not attempt to determine the real
-    // path and do a redirect. KRun will simply ignore such requests.
-    // Instead, simply return the mime-type as a directory...
-    if( !url.hasPath() ) {
-        UDSEntry entry;
-        UDSAtom atom;
-
-        atom.m_uds = TDEIO::UDS_NAME;
-        atom.m_str = TQString::null;
-        entry.append( atom );
-
-        atom.m_uds = TDEIO::UDS_FILE_TYPE;
+    switch (dirent->type) {
+      case SSH_FILEXFER_TYPE_REGULAR:
+        atom.m_uds = UDS_FILE_TYPE;
+        atom.m_long = S_IFREG;
+        entry.append(atom);
+        break;
+      case SSH_FILEXFER_TYPE_DIRECTORY:
+        atom.m_uds = UDS_FILE_TYPE;
         atom.m_long = S_IFDIR;
-        entry.append( atom );
-
-        atom.m_uds = TDEIO::UDS_ACCESS;
-        atom.m_long = S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH;
-        entry.append( atom );
-
-        atom.m_uds = TDEIO::UDS_USER;
-        atom.m_str = mUsername;
-        entry.append( atom );
-        atom.m_uds = TDEIO::UDS_GROUP;
-        entry.append( atom );
-
-        // no size
-        statEntry( entry );
-        finished();
-        return;
+        entry.append(atom);
+        break;
+      case SSH_FILEXFER_TYPE_SYMLINK:
+        atom.m_uds = UDS_FILE_TYPE;
+        atom.m_long = S_IFLNK;
+        entry.append(atom);
+        break;
+      case SSH_FILEXFER_TYPE_SPECIAL:
+      case SSH_FILEXFER_TYPE_UNKNOWN:
+        break;
     }
 
-    int code;
-    sftpFileAttr attr(remoteEncoding());
-    if( (code = sftpStat(url, attr)) != SSH2_FX_OK ) {
-        processStatus(code, url.prettyURL());
-        return;
-    }
-    else {
-        //kdDebug() << "We sent and received stat packet ok" << endl;
-        attr.setFilename(url.fileName());
-        statEntry(attr.entry());
+    access = dirent->permissions & 07777;
+    atom.m_uds = UDS_ACCESS;
+    atom.m_long = access;
+    entry.append(atom);
+
+    atom.m_uds = UDS_SIZE;
+    atom.m_long = dirent->size;
+    entry.append(atom);
+
+notype:
+    if (details > 0) {
+      atom.m_uds = UDS_USER;
+      if (dirent->owner) {
+          atom.m_str = TQString::fromUtf8(dirent->owner);
+      } else {
+          atom.m_str = TQString::number(dirent->uid);
+      }
+      entry.append(atom);
+
+      atom.m_uds = UDS_GROUP;
+      if (dirent->group) {
+          atom.m_str = TQString::fromUtf8(dirent->group);
+      } else {
+          atom.m_str = TQString::number(dirent->gid);
+      }
+      entry.append(atom);
+
+      atom.m_uds = UDS_ACCESS_TIME;
+      atom.m_long = dirent->atime;
+      entry.append(atom);
+
+      atom.m_uds = UDS_MODIFICATION_TIME;
+      atom.m_long = dirent->mtime;
+      entry.append(atom);
+
+      atom.m_uds = UDS_MODIFICATION_TIME;
+      atom.m_long = dirent->createtime;
+      entry.append(atom);
     }
 
-    finished();
+    sftp_attributes_free(dirent);
+    listEntry(entry, false);
+  } // for ever
+  sftp_closedir(dp);
+  listEntry(entry, true); // ready
 
-    kdDebug(TDEIO_SFTP_DB) << "stat: END" << endl;
+  finished();
+}
+
+void sftpProtocol::mkdir(const KURL &url, int permissions) {
+  kdDebug(TDEIO_SFTP_DB) << "create directory: " << url.url() << endl;
+
+  openConnection();
+  if (!mConnected) {
     return;
-}
+  }
 
+  if (url.path().isEmpty()) {
+    error(TDEIO::ERR_MALFORMED_URL, url.prettyURL());
+    return;
+  }
+  const TQString path = url.path();
+  const TQByteArray path_c = path.utf8();
 
-void sftpProtocol::mimetype ( const KURL& url ){
-    kdDebug(TDEIO_SFTP_DB) << "mimetype(): " << url << endl;
+  // Remove existing file or symlink, if requested.
+  if (metaData(TQString("overwrite")) == TQString("true")) {
+    kdDebug(TDEIO_SFTP_DB) << "overwrite set, remove existing file or symlink: " << url.url() << endl;
+    sftp_unlink(mSftp, path_c.data());
+  }
 
-    openConnection();
-    if( !mConnected )
-        return;
-
-    TQ_UINT32 pflags = SSH2_FXF_READ;
-    TQByteArray handle, mydata;
-    sftpFileAttr attr(remoteEncoding());
-    int code;
-    if( (code = sftpOpen(url, pflags, attr, handle)) != SSH2_FX_OK ) {
-        error(ERR_CANNOT_OPEN_FOR_READING, url.prettyURL());
-        return;
-    }
-
-    TQ_UINT32 len = 1024; // Get first 1k for determining mimetype
-    TQ_UINT64 offset = 0;
-    code = SSH2_FX_OK;
-    while( offset < len && code == SSH2_FX_OK ) {
-        if( (code = sftpRead(handle, offset, len, mydata)) == SSH2_FX_OK ) {
-            data(mydata);
-            offset += mydata.size();
-            processedSize(offset);
-
-            kdDebug(TDEIO_SFTP_DB) << "mimetype(): offset = " << offset << endl;
-        }
-    }
-
-
-    data(TQByteArray());
-    processedSize(offset);
-    sftpClose(handle);
-    finished();
-    kdDebug(TDEIO_SFTP_DB) << "mimetype(): END" << endl;
-}
-
-
-void sftpProtocol::listDir(const KURL& url) {
-    kdDebug(TDEIO_SFTP_DB) << "listDir(): " << url << endl;
-
-    openConnection();
-    if( !mConnected )
-        return;
-
-    if( !url.hasPath() ) {
-        KURL newUrl ( url );
-        if( sftpRealPath(url, newUrl) == SSH2_FX_OK ) {
-            kdDebug(TDEIO_SFTP_DB) << "listDir: Redirecting to " << newUrl << endl;
-            redirection(newUrl);
-            finished();
-            return;
-        }
-    }
-
-    int code;
-    TQByteArray handle;
-
-    if( (code = sftpOpenDirectory(url, handle)) != SSH2_FX_OK ) {
-        kdError(TDEIO_SFTP_DB) << "listDir(): open directory failed" << endl;
-        processStatus(code, url.prettyURL());
-        return;
-    }
-
-
-    code = SSH2_FX_OK;
-    while( code == SSH2_FX_OK ) {
-        code = sftpReadDir(handle, url);
-        if( code != SSH2_FX_OK && code != SSH2_FX_EOF )
-            processStatus(code, url.prettyURL());
-        kdDebug(TDEIO_SFTP_DB) << "listDir(): return code = " << code << endl;
-    }
-
-    if( (code = sftpClose(handle)) != SSH2_FX_OK ) {
-        kdError(TDEIO_SFTP_DB) << "listdir(): closing of directory failed" << endl;
-        processStatus(code, url.prettyURL());
-        return;
-    }
-
-    finished();
-    kdDebug(TDEIO_SFTP_DB) << "listDir(): END" << endl;
-}
-
-/** Make a directory.
-    OpenSSH does not follow the internet draft for sftp in this case.
-    The format of the mkdir request expected by OpenSSH sftp server is:
-        uint32 id
-        string path
-        ATTR   attr
- */
-void sftpProtocol::mkdir(const KURL&url, int permissions){
-
-    kdDebug(TDEIO_SFTP_DB) << "mkdir() creating dir: " << url.path() << endl;
-
-    openConnection();
-    if( !mConnected )
-        return;
-
-    TQCString path = remoteEncoding()->encode(url.path());
-    uint len = path.length();
-
-    sftpFileAttr attr(remoteEncoding());
-
-    if (permissions != -1)
-      attr.setPermissions(permissions);
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << TQ_UINT32(1 /*type*/ + 4 /*id*/ + 4 /*str length*/ + len + attr.size());
-    s << (TQ_UINT8)SSH2_FXP_MKDIR;
-    s << id;
-    s.writeBytes(path.data(), len);
-    s << attr;
-
-    kdDebug(TDEIO_SFTP_DB) << "mkdir(): packet size is " << p.size() << endl;
-
-    putPacket(p);
-    getPacket(p);
-
-    TQ_UINT8 type;
-    TQDataStream r(p, IO_ReadOnly);
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "mkdir: sftp packet id mismatch" << endl;
-        error(ERR_COULD_NOT_MKDIR, path);
+  kdDebug(TDEIO_SFTP_DB) << "Trying to create directory: " << path << endl;
+  sftp_attributes sb = sftp_lstat(mSftp, path_c.data());
+  if (sb == NULL) {
+    if (sftp_mkdir(mSftp, path_c.data(), 0777) < 0) {
+      reportError(url, sftp_get_error(mSftp));
+      sftp_attributes_free(sb);
+      return;
+    } else {
+      kdDebug(TDEIO_SFTP_DB) << "Successfully created directory: " << url.url() << endl;
+      if (permissions != -1) {
+        chmod(url, permissions);
+      } else {
         finished();
-        return;
+      }
+      sftp_attributes_free(sb);
+      return;
     }
+  }
 
-    if( type != SSH2_FXP_STATUS ) {
-        kdError(TDEIO_SFTP_DB) << "mkdir(): unexpected packet type of " << type << endl;
-        error(ERR_COULD_NOT_MKDIR, path);
-        finished();
-        return;
-    }
+  if (sb->type == SSH_FILEXFER_TYPE_DIRECTORY) {
+    error(TDEIO::ERR_DIR_ALREADY_EXIST, path);
+  } else {
+    error(TDEIO::ERR_FILE_ALREADY_EXIST, path);
+  }
 
-    int code;
-    r >> code;
-    if( code != SSH2_FX_OK ) {
-        kdError(TDEIO_SFTP_DB) << "mkdir(): failed with code " << code << endl;
-
-        // Check if mkdir failed because the directory already exists so that
-        // we can return the appropriate message...
-        sftpFileAttr dirAttr(remoteEncoding());
-        if ( sftpStat(url, dirAttr) == SSH2_FX_OK )
-        {
-          error( ERR_DIR_ALREADY_EXIST, url.prettyURL() );
-          return;
-        }
-
-        error(ERR_COULD_NOT_MKDIR, path);
-    }
-
-    finished();
+  sftp_attributes_free(sb);
+  return;
 }
 
-void sftpProtocol::rename(const KURL& src, const KURL& dest, bool overwrite){
-    kdDebug(TDEIO_SFTP_DB) << "rename(" << src << " -> " << dest << ")" << endl;
+void sftpProtocol::rename(const KURL& src, const KURL& dest, bool overwrite) {
+  kdDebug(TDEIO_SFTP_DB) << "rename " << src.url() << " to " << dest.url() << endl;
 
-    if (!isSupportedOperation(SSH2_FXP_RENAME)) {
-      error(ERR_UNSUPPORTED_ACTION,
-          i18n("The remote host does not support renaming files."));
+  openConnection();
+  if (!mConnected) {
+    return;
+  }
+
+  TQByteArray qsrc = src.path().utf8();
+  TQByteArray qdest = dest.path().utf8();
+
+  sftp_attributes sb = sftp_lstat(mSftp, qdest.data());
+  if (sb != NULL) {
+    if (!overwrite) {
+      if (sb->type == SSH_FILEXFER_TYPE_DIRECTORY) {
+        error(TDEIO::ERR_DIR_ALREADY_EXIST, dest.url());
+      } else {
+        error(TDEIO::ERR_FILE_ALREADY_EXIST, dest.url());
+      }
+      sftp_attributes_free(sb);
       return;
     }
 
-    openConnection();
-    if( !mConnected )
-        return;
+    del(dest, sb->type == SSH_FILEXFER_TYPE_DIRECTORY ? true : false);
+  }
+  sftp_attributes_free(sb);
 
-    // Always stat the destination before attempting to rename
-    // a file or a directory...
-    sftpFileAttr attr(remoteEncoding());
-    int code = sftpStat(dest, attr);
+  if (sftp_rename(mSftp, qsrc.data(), qdest.data()) < 0) {
+    reportError(dest, sftp_get_error(mSftp));
+    return;
+  }
 
-    // If the destination directory, exists tell it to the job
-    // so it the proper action can be presented to the user...
-    if( code == SSH2_FX_OK )
-    {
-      if (!overwrite)
-      {
-        if ( S_ISDIR(attr.permissions()) )
-          error( TDEIO::ERR_DIR_ALREADY_EXIST, dest.url() );
-        else
-          error( TDEIO::ERR_FILE_ALREADY_EXIST, dest.url() );
-        return;
-        }
-
-      // If overwrite is specified, then simply remove the existing file/dir first...
-      if( (code = sftpRemove( dest, !S_ISDIR(attr.permissions()) )) != SSH2_FX_OK )
-      {
-        processStatus(code);
-            return;
-        }
-    }
-
-    // Do the renaming...
-    if( (code = sftpRename(src, dest)) != SSH2_FX_OK ) {
-        processStatus(code);
-        return;
-    }
-
-    finished();
-    kdDebug(TDEIO_SFTP_DB) << "rename(): END" << endl;
+  finished();
 }
 
-void sftpProtocol::symlink(const TQString& target, const KURL& dest, bool overwrite){
-    kdDebug(TDEIO_SFTP_DB) << "symlink()" << endl;
+void sftpProtocol::symlink(const TQString& target, const KURL& dest, bool overwrite) {
+  kdDebug(TDEIO_SFTP_DB) << "link " << target << "->" << dest.url()
+                      << ", overwrite = " << overwrite << endl;
 
-    if (!isSupportedOperation(SSH2_FXP_SYMLINK)) {
-      error(ERR_UNSUPPORTED_ACTION,
-          i18n("The remote host does not support creating symbolic links."));
-      return;
-    }
+  openConnection();
+  if (!mConnected) {
+    return;
+  }
 
-    openConnection();
-    if( !mConnected )
-        return;
+  TQByteArray t = target.utf8();
+  TQByteArray d = dest.path().utf8();
 
-    int code;
-    bool failed = false;
-    if( (code = sftpSymLink(target, dest)) != SSH2_FX_OK ) {
-        if( overwrite ) { // try to delete the destination
-            sftpFileAttr attr(remoteEncoding());
-            if( (code = sftpStat(dest, attr)) != SSH2_FX_OK ) {
-                failed = true;
-            }
-            else {
-                if( (code = sftpRemove(dest, !S_ISDIR(attr.permissions())) ) != SSH2_FX_OK ) {
-                    failed = true;
-                }
-                else {
-                    // XXX what if rename fails again? We have lost the file.
-                    // Maybe rename dest to a temporary name first? If rename is
-                    // successful, then delete?
-                    if( (code = sftpSymLink(target, dest)) != SSH2_FX_OK )
-                        failed = true;
-                }
-            }
-        }
-        else if( code == SSH2_FX_FAILURE ) {
-            error(ERR_FILE_ALREADY_EXIST, dest.prettyURL());
-            return;
-        }
-        else
+  bool failed = false;
+  if (sftp_symlink(mSftp, t.data(), d.data()) < 0) {
+    if (overwrite) {
+      sftp_attributes sb = sftp_lstat(mSftp, d.data());
+      if (sb == NULL) {
+        failed = true;
+      } else {
+        if (sftp_unlink(mSftp, d.data()) < 0) {
+          failed = true;
+        } else {
+          if (sftp_symlink(mSftp, t.data(), d.data()) < 0) {
             failed = true;
+          }
+        }
+      }
+      sftp_attributes_free(sb);
     }
+  }
 
-    // What error code do we return? Code for the original symlink command
-    // or for the last command or for both? The second one is implemented here.
-    if( failed )
-        processStatus(code);
+  if (failed) {
+    reportError(dest, sftp_get_error(mSftp));
+    return;
+  }
 
-    finished();
+  finished();
 }
 
-void sftpProtocol::chmod(const KURL& url, int permissions){
-    TQString perms;
-    perms.setNum(permissions, 8);
-    kdDebug(TDEIO_SFTP_DB) << "chmod(" << url << ", " << perms << ")" << endl;
+void sftpProtocol::chmod(const KURL& url, int permissions) {
+  kdDebug(TDEIO_SFTP_DB) << "change permission of " << url.url() << " to " << TQString::number(permissions) << endl;
 
-    openConnection();
-    if( !mConnected )
-        return;
+  openConnection();
+  if (!mConnected) {
+    return;
+  }
 
-    sftpFileAttr attr(remoteEncoding());
+  TQByteArray path = url.path().utf8();
 
-    if (permissions != -1)
-      attr.setPermissions(permissions);
+  if (sftp_chmod(mSftp, path.data(), permissions) < 0) {
+    reportError(url, sftp_get_error(mSftp));
+    return;
+  }
 
-    int code;
-    if( (code = sftpSetStat(url, attr)) != SSH2_FX_OK ) {
-        kdError(TDEIO_SFTP_DB) << "chmod(): sftpSetStat failed with error " << code << endl;
-        if( code == SSH2_FX_FAILURE )
-            error(ERR_CANNOT_CHMOD, TQString::null);
-        else
-            processStatus(code, url.prettyURL());
-    }
-    finished();
+  finished();
 }
-
 
 void sftpProtocol::del(const KURL &url, bool isfile){
-    kdDebug(TDEIO_SFTP_DB) << "del(" << url << ", " << (isfile?"file":"dir") << ")" << endl;
+  kdDebug(TDEIO_SFTP_DB) << "deleting " << (isfile ? "file: " : "directory: ") << url.url() << endl;
 
-    openConnection();
-    if( !mConnected )
-        return;
+  openConnection();
+  if (!mConnected) {
+    return;
+  }
 
-    int code;
-    if( (code = sftpRemove(url, isfile)) != SSH2_FX_OK ) {
-        kdError(TDEIO_SFTP_DB) << "del(): sftpRemove failed with error code " << code << endl;
-        processStatus(code, url.prettyURL());
+  TQByteArray path = url.path().utf8();
+
+  if (isfile) {
+    if (sftp_unlink(mSftp, path.data()) < 0) {
+      reportError(url, sftp_get_error(mSftp));
+      return;
     }
-    finished();
+  } else {
+    if (sftp_rmdir(mSftp, path.data()) < 0) {
+      reportError(url, sftp_get_error(mSftp));
+      return;
+    }
+  }
+
+  finished();
 }
 
 void sftpProtocol::slave_status() {
-    kdDebug(TDEIO_SFTP_DB) << "slave_status(): connected to "
-                         <<  mHost << "? " << mConnected << endl;
-
-    slaveStatus ((mConnected ? mHost : TQString::null), mConnected);
+  kdDebug(TDEIO_SFTP_DB) << "connected to " << mHost << "?: " << mConnected << endl;
+  slaveStatus((mConnected ? mHost : TQString()), mConnected);
 }
-
-bool sftpProtocol::getPacket(TQByteArray& msg) {
-    TQByteArray buf(4096);
-
-    // Get the message length...
-    ssize_t len = atomicio(ssh.stdioFd(), buf.data(), 4, true /*read*/);
-
-    if( len == 0 || len == -1 ) {
-        kdDebug(TDEIO_SFTP_DB) << "getPacket(): read of packet length failed, ret = "
-                             << len << ", error =" << strerror(errno) << endl;
-        closeConnection();
-        error( ERR_CONNECTION_BROKEN, mHost);
-        msg.resize(0);
-        return false;
-    }
-
-    uint msgLen;
-    TQDataStream s(buf, IO_ReadOnly);
-    s >> msgLen;
-
-    //kdDebug(TDEIO_SFTP_DB) << "getPacket(): Message size = " << msgLen << endl;
-
-    msg.resize(0);
-
-    TQBuffer b( msg );
-    b.open( IO_WriteOnly );
-
-    while( msgLen ) {
-        len = atomicio(ssh.stdioFd(), buf.data(), kMin((uint)buf.size(), msgLen), true /*read*/);
-
-        if( len == 0 || len == -1) {
-            TQString errmsg;
-            if (len == 0)
-              errmsg = i18n("Connection closed");
-            else
-              errmsg = i18n("Could not read SFTP packet");
-            kdDebug(TDEIO_SFTP_DB) << "getPacket(): nothing to read, ret = " <<
-                len << ", error =" << strerror(errno) << endl;
-            closeConnection();
-            error(ERR_CONNECTION_BROKEN, errmsg);
-            b.close();
-            return false;
-        }
-
-        b.writeBlock(buf.data(), len);
-
-        //kdDebug(TDEIO_SFTP_DB) << "getPacket(): Read Message size = " << len << endl;
-        //kdDebug(TDEIO_SFTP_DB) << "getPacket(): Copy Message size = " << msg.size() << endl;
-
-        msgLen -= len;
-    }
-
-    b.close();
-
-    return true;
-}
-
-/** Send an sftp packet to stdin of the ssh process. */
-bool sftpProtocol::putPacket(TQByteArray& p){
-//    kdDebug(TDEIO_SFTP_DB) << "putPacket(): size == " << p.size() << endl;
-    int ret;
-    ret = atomicio(ssh.stdioFd(), p.data(), p.size(), false /*write*/);
-    if( ret <= 0 ) {
-        kdDebug(TDEIO_SFTP_DB) << "putPacket(): write failed, ret =" << ret <<
-            ", error = " << strerror(errno) << endl;
-        return false;
-    }
-
-    return true;
-}
-
-/** Used to have the server canonicalize any given path name to an absolute path.
-This is useful for converting path names containing ".." components or relative
-pathnames without a leading slash into absolute paths.
-Returns the canonicalized url. */
-int sftpProtocol::sftpRealPath(const KURL& url, KURL& newUrl){
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpRealPath(" << url << ", newUrl)" << endl;
-
-    TQCString path = remoteEncoding()->encode(url.path());
-    uint len = path.length();
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << TQ_UINT32(1 /*type*/ + 4 /*id*/ + 4 /*str length*/ + len);
-    s << (TQ_UINT8)SSH2_FXP_REALPATH;
-    s << id;
-    s.writeBytes(path.data(), len);
-
-    putPacket(p);
-    getPacket(p);
-
-    TQ_UINT8 type;
-    TQDataStream r(p, IO_ReadOnly);
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpRealPath: sftp packet id mismatch" << endl;
-        return -1;
-    }
-
-    if( type == SSH2_FXP_STATUS ) {
-        TQ_UINT32 code;
-        r >> code;
-        return code;
-    }
-
-    if( type != SSH2_FXP_NAME ) {
-        kdError(TDEIO_SFTP_DB) << "sftpRealPath(): unexpected packet type of " << type << endl;
-        return -1;
-    }
-
-    TQ_UINT32 count;
-    r >> count;
-    if( count != 1 ) {
-        kdError(TDEIO_SFTP_DB) << "sftpRealPath(): Bad number of file attributes for realpath command" << endl;
-        return -1;
-    }
-
-    TQCString newPath;
-    r >> newPath;
-
-    newPath.truncate(newPath.size());
-    if (newPath.isEmpty())
-      newPath = "/";
-    newUrl.setPath(newPath);
-
-    return SSH2_FX_OK;
-}
-
-sftpProtocol::Status sftpProtocol::doProcessStatus(TQ_UINT8 code, const TQString& message)
-{
-    Status res;
-    res.code = 0;
-    res.size = 0;
-    res.text = message;
-
-    switch(code)
-    {
-      case SSH2_FX_OK:
-      case SSH2_FX_EOF:
-          break;
-      case SSH2_FX_NO_SUCH_FILE:
-          res.code = ERR_DOES_NOT_EXIST;
-          break;
-      case SSH2_FX_PERMISSION_DENIED:
-          res.code = ERR_ACCESS_DENIED;
-          break;
-      case SSH2_FX_FAILURE:
-          res.text = i18n("SFTP command failed for an unknown reason.");
-          res.code = ERR_UNKNOWN;
-          break;
-      case SSH2_FX_BAD_MESSAGE:
-          res.text = i18n("The SFTP server received a bad message.");
-          res.code = ERR_UNKNOWN;
-          break;
-      case SSH2_FX_OP_UNSUPPORTED:
-          res.text = i18n("You attempted an operation unsupported by the SFTP server.");
-          res.code = ERR_UNKNOWN;
-          break;
-      default:
-          res.text = i18n("Error code: %1").arg(code);
-          res.code = ERR_UNKNOWN;
-    }
-
-    return res;
-}
-
-/** Process SSH_FXP_STATUS packets. */
-void sftpProtocol::processStatus(TQ_UINT8 code, const TQString& message){
-    Status st = doProcessStatus( code, message );
-    if( st.code != 0 )
-        error( st.code, st.text );
-}
-
-/** Opens a directory handle for url.path. Returns true if succeeds. */
-int sftpProtocol::sftpOpenDirectory(const KURL& url, TQByteArray& handle){
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpOpenDirectory(" << url << ", handle)" << endl;
-
-    TQCString path = remoteEncoding()->encode(url.path());
-    uint len = path.length();
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ + 4 /*str length*/ + len);
-    s << (TQ_UINT8)SSH2_FXP_OPENDIR;
-    s << (TQ_UINT32)id;
-    s.writeBytes(path.data(), len);
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream r(p, IO_ReadOnly);
-    TQ_UINT8 type;
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpOpenDirectory: sftp packet id mismatch: " <<
-            "expected " << expectedId << ", got " << id << endl;
-        return -1;
-    }
-
-    if( type == SSH2_FXP_STATUS ) {
-        TQ_UINT32 errCode;
-        r >> errCode;
-        return errCode;
-    }
-
-    if( type != SSH2_FXP_HANDLE ) {
-        kdError(TDEIO_SFTP_DB) << "sftpOpenDirectory: unexpected message type of " << type << endl;
-        return -1;
-    }
-
-    r >> handle;
-    if( handle.size() > 256 ) {
-        kdError(TDEIO_SFTP_DB) << "sftpOpenDirectory: handle exceeds max length" << endl;
-        return -1;
-    }
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpOpenDirectory: handle (" << handle.size() << "): [" << handle << "]" << endl;
-    return SSH2_FX_OK;
-}
-
-/** Closes a directory or file handle. */
-int sftpProtocol::sftpClose(const TQByteArray& handle){
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpClose()" << endl;
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ + 4 /*str length*/ + handle.size());
-    s << (TQ_UINT8)SSH2_FXP_CLOSE;
-    s << (TQ_UINT32)id;
-    s << handle;
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream r(p, IO_ReadOnly);
-    TQ_UINT8 type;
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpClose: sftp packet id mismatch" << endl;
-        return -1;
-    }
-
-    if( type != SSH2_FXP_STATUS ) {
-        kdError(TDEIO_SFTP_DB) << "sftpClose: unexpected message type of " << type << endl;
-        return -1;
-    }
-
-    TQ_UINT32 code;
-    r >> code;
-    if( code != SSH2_FX_OK ) {
-        kdError(TDEIO_SFTP_DB) << "sftpClose: close failed with err code " << code << endl;
-    }
-
-    return code;
-}
-
-/** Set a files attributes. */
-int sftpProtocol::sftpSetStat(const KURL& url, const sftpFileAttr& attr){
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpSetStat(" << url << ", attr)" << endl;
-
-    TQCString path = remoteEncoding()->encode(url.path());
-    uint len = path.length();
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ + 4 /*str length*/ + len + attr.size());
-    s << (TQ_UINT8)SSH2_FXP_SETSTAT;
-    s << (TQ_UINT32)id;
-    s.writeBytes(path.data(), len);
-    s << attr;
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream r(p, IO_ReadOnly);
-    TQ_UINT8 type;
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpSetStat(): sftp packet id mismatch" << endl;
-        return -1;
-        // XXX How do we do a fatal error?
-    }
-
-    if( type != SSH2_FXP_STATUS ) {
-        kdError(TDEIO_SFTP_DB) << "sftpSetStat(): unexpected message type of " << type << endl;
-        return -1;
-    }
-
-    TQ_UINT32 code;
-    r >> code;
-    if( code != SSH2_FX_OK ) {
-        kdError(TDEIO_SFTP_DB) << "sftpSetStat(): set stat failed with err code " << code << endl;
-    }
-
-    return code;
-}
-
-/** Sends a sftp command to remove a file or directory. */
-int sftpProtocol::sftpRemove(const KURL& url, bool isfile){
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpRemove(): " << url << ", isFile ? " << isfile << endl;
-
-    TQCString path = remoteEncoding()->encode(url.path());
-    uint len = path.length();
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ + 4 /*str length*/ + len);
-    s << (TQ_UINT8)(isfile ? SSH2_FXP_REMOVE : SSH2_FXP_RMDIR);
-    s << (TQ_UINT32)id;
-    s.writeBytes(path.data(), len);
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream r(p, IO_ReadOnly);
-    TQ_UINT8 type;
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "del(): sftp packet id mismatch" << endl;
-        return -1;
-    }
-
-    if( type != SSH2_FXP_STATUS ) {
-        kdError(TDEIO_SFTP_DB) << "del(): unexpected message type of " << type << endl;
-        return -1;
-    }
-
-    TQ_UINT32 code;
-    r >> code;
-    if( code != SSH2_FX_OK ) {
-        kdError(TDEIO_SFTP_DB) << "del(): del failed with err code " << code << endl;
-    }
-
-    return code;
-}
-
-/** Send a sftp command to rename a file or directoy. */
-int sftpProtocol::sftpRename(const KURL& src, const KURL& dest){
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpRename(" << src << " -> " << dest << ")" << endl;
-
-    TQCString srcPath = remoteEncoding()->encode(src.path());
-    TQCString destPath = remoteEncoding()->encode(dest.path());
-
-    uint slen = srcPath.length();
-    uint dlen = destPath.length();
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ +
-                    4 /*str length*/ + slen +
-                    4 /*str length*/ + dlen);
-    s << (TQ_UINT8)SSH2_FXP_RENAME;
-    s << (TQ_UINT32)id;
-    s.writeBytes(srcPath.data(), slen);
-    s.writeBytes(destPath.data(), dlen);
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream r(p, IO_ReadOnly);
-    TQ_UINT8 type;
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpRename(): sftp packet id mismatch" << endl;
-        return -1;
-    }
-
-    if( type != SSH2_FXP_STATUS ) {
-        kdError(TDEIO_SFTP_DB) << "sftpRename(): unexpected message type of " << type << endl;
-        return -1;
-    }
-
-    int code;
-    r >> code;
-    if( code != SSH2_FX_OK ) {
-        kdError(TDEIO_SFTP_DB) << "sftpRename(): rename failed with err code " << code << endl;
-    }
-
-    return code;
-}
-/** Get directory listings. */
-int sftpProtocol::sftpReadDir(const TQByteArray& handle, const KURL& url){
-    // url is needed so we can lookup the link destination
-    kdDebug(TDEIO_SFTP_DB) << "sftpReadDir(): " << url << endl;
-
-    TQ_UINT32 id, expectedId, count;
-    TQ_UINT8 type;
-
-    sftpFileAttr attr (remoteEncoding());
-    attr.setDirAttrsFlag(true);
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    id = expectedId = mMsgId++;
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ + 4 /*str length*/ + handle.size());
-    s << (TQ_UINT8)SSH2_FXP_READDIR;
-    s << (TQ_UINT32)id;
-    s << handle;
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream r(p, IO_ReadOnly);
-    r >> type >> id;
-
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpReadDir(): sftp packet id mismatch" << endl;
-        return -1;
-    }
-
-    int code;
-    if( type == SSH2_FXP_STATUS ) {
-        r >> code;
-        return code;
-    }
-
-    if( type != SSH2_FXP_NAME ) {
-        kdError(TDEIO_SFTP_DB) << "tdeio_sftpProtocl::sftpReadDir(): Unexpected message" << endl;
-        return -1;
-    }
-
-    r >> count;
-    kdDebug(TDEIO_SFTP_DB) << "sftpReadDir(): got " << count << " entries" << endl;
-
-    while(count--) {
-        r >> attr;
-
-        if( S_ISLNK(attr.permissions()) ) {
-             KURL myurl ( url );
-             myurl.addPath(attr.filename());
-
-             // Stat the symlink to find out its type...
-             sftpFileAttr attr2 (remoteEncoding());
-             (void) sftpStat(myurl, attr2);
-
-             attr.setLinkType(attr2.linkType());
-             attr.setLinkDestination(attr2.linkDestination());
-        }
-
-        listEntry(attr.entry(), false);
-    }
-
-    listEntry(attr.entry(), true);
-
-    return SSH2_FX_OK;
-}
-
-int sftpProtocol::sftpReadLink(const KURL& url, TQString& target){
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpReadLink(): " << url << endl;
-
-    TQCString path = remoteEncoding()->encode(url.path());
-    uint len = path.length();
-
-    //kdDebug(TDEIO_SFTP_DB) << "sftpReadLink(): Encoded Path: " << path << endl;
-    //kdDebug(TDEIO_SFTP_DB) << "sftpReadLink(): Encoded Size: " << len << endl;
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ + 4 /*str length*/ + len);
-    s << (TQ_UINT8)SSH2_FXP_READLINK;
-    s << id;
-    s.writeBytes(path.data(), len);
-
-
-    putPacket(p);
-    getPacket(p);
-
-    TQ_UINT8 type;
-    TQDataStream r(p, IO_ReadOnly);
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpReadLink(): sftp packet id mismatch" << endl;
-        return -1;
-    }
-
-    if( type == SSH2_FXP_STATUS ) {
-        TQ_UINT32 code;
-        r >> code;
-        kdDebug(TDEIO_SFTP_DB) << "sftpReadLink(): read link failed with code " << code << endl;
-        return code;
-    }
-
-    if( type != SSH2_FXP_NAME ) {
-        kdError(TDEIO_SFTP_DB) << "sftpReadLink(): unexpected packet type of " << type << endl;
-        return -1;
-    }
-
-    TQ_UINT32 count;
-    r >> count;
-    if( count != 1 ) {
-        kdError(TDEIO_SFTP_DB) << "sftpReadLink(): Bad number of file attributes for realpath command" << endl;
-        return -1;
-    }
-
-    TQCString linkAddress;
-    r >> linkAddress;
-
-    linkAddress.truncate(linkAddress.size());
-    kdDebug(TDEIO_SFTP_DB) << "sftpReadLink(): Link address: " << linkAddress << endl;
-
-    target = remoteEncoding()->decode(linkAddress);
-
-    return SSH2_FX_OK;
-}
-
-int sftpProtocol::sftpSymLink(const TQString& _target, const KURL& dest){
-
-    TQCString destPath = remoteEncoding()->encode(dest.path());
-    TQCString target = remoteEncoding()->encode(_target);
-    uint dlen = destPath.length();
-    uint tlen = target.length();
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpSymLink(" << target << " -> " << destPath << ")" << endl;
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ +
-                    4 /*str length*/ + tlen +
-                    4 /*str length*/ + dlen);
-    s << (TQ_UINT8)SSH2_FXP_SYMLINK;
-    s << (TQ_UINT32)id;
-    s.writeBytes(target.data(), tlen);
-    s.writeBytes(destPath.data(), dlen);
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream r(p, IO_ReadOnly);
-    TQ_UINT8 type;
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpSymLink(): sftp packet id mismatch" << endl;
-        return -1;
-    }
-
-    if( type != SSH2_FXP_STATUS ) {
-        kdError(TDEIO_SFTP_DB) << "sftpSymLink(): unexpected message type of " << type << endl;
-        return -1;
-    }
-
-    TQ_UINT32 code;
-    r >> code;
-    if( code != SSH2_FX_OK ) {
-        kdError(TDEIO_SFTP_DB) << "sftpSymLink(): rename failed with err code " << code << endl;
-    }
-
-    return code;
-}
-
-/** Stats a file. */
-int sftpProtocol::sftpStat(const KURL& url, sftpFileAttr& attr) {
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpStat(): " << url << endl;
-
-    TQCString path = remoteEncoding()->encode(url.path());
-    uint len = path.length();
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ + 4 /*str length*/ + len);
-    s << (TQ_UINT8)SSH2_FXP_LSTAT;
-    s << (TQ_UINT32)id;
-    s.writeBytes(path.data(), len);
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream r(p, IO_ReadOnly);
-    TQ_UINT8 type;
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpStat(): sftp packet id mismatch" << endl;
-        return -1;
-    }
-
-    if( type == SSH2_FXP_STATUS ) {
-        TQ_UINT32 errCode;
-        r >> errCode;
-        kdError(TDEIO_SFTP_DB) << "sftpStat(): stat failed with code " << errCode << endl;
-        return errCode;
-    }
-
-    if( type != SSH2_FXP_ATTRS ) {
-        kdError(TDEIO_SFTP_DB) << "sftpStat(): unexpected message type of " << type << endl;
-        return -1;
-    }
-
-    r >> attr;
-    attr.setFilename(url.fileName());
-    kdDebug(TDEIO_SFTP_DB) << "sftpStat(): " << attr << endl;
-
-    // If the stat'ed resource is a symlink, perform a recursive stat
-    // to determine the actual destination's type (file/dir).
-    if( S_ISLNK(attr.permissions()) && isSupportedOperation(SSH2_FXP_READLINK) ) {
-
-        TQString target;
-        int code = sftpReadLink( url, target );
-
-        if ( code != SSH2_FX_OK ) {
-            kdError(TDEIO_SFTP_DB) << "sftpStat(): Unable to stat symlink destination" << endl;
-            return -1;
-        }
-
-        kdDebug(TDEIO_SFTP_DB) << "sftpStat(): Resource is a symlink to -> " << target << endl;
-
-        KURL dest( url );
-        if( target[0] == '/' )
-            dest.setPath(target);
-        else
-            dest.setFileName(target);
-
-        dest.cleanPath();
-
-        // Ignore symlinks that point to themselves...
-        if ( dest != url ) {
-
-            sftpFileAttr attr2 (remoteEncoding());
-            (void) sftpStat(dest, attr2);
-
-            if (attr2.linkType() == 0)
-                attr.setLinkType(attr2.fileType());
-            else
-                attr.setLinkType(attr2.linkType());
-
-            attr.setLinkDestination(target);
-
-            kdDebug(TDEIO_SFTP_DB) << "sftpStat(): File type: " << attr.fileType() << endl;
-        }
-    }
-
-    return SSH2_FX_OK;
-}
-
-
-int sftpProtocol::sftpOpen(const KURL& url, const TQ_UINT32 pflags,
-                           const sftpFileAttr& attr, TQByteArray& handle) {
-    kdDebug(TDEIO_SFTP_DB) << "sftpOpen(" << url << ", handle" << endl;
-
-    TQCString path = remoteEncoding()->encode(url.path());
-    uint len = path.length();
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ +
-                    4 /*str length*/ + len +
-                    4 /*pflags*/ + attr.size());
-    s << (TQ_UINT8)SSH2_FXP_OPEN;
-    s << (TQ_UINT32)id;
-    s.writeBytes(path.data(), len);
-    s << pflags;
-    s << attr;
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream r(p, IO_ReadOnly);
-    TQ_UINT8 type;
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpOpen(): sftp packet id mismatch" << endl;
-        return -1;
-    }
-
-    if( type == SSH2_FXP_STATUS ) {
-        TQ_UINT32 errCode;
-        r >> errCode;
-        return errCode;
-    }
-
-    if( type != SSH2_FXP_HANDLE ) {
-        kdError(TDEIO_SFTP_DB) << "sftpOpen(): unexpected message type of " << type << endl;
-        return -1;
-    }
-
-    r >> handle;
-    if( handle.size() > 256 ) {
-        kdError(TDEIO_SFTP_DB) << "sftpOpen(): handle exceeds max length" << endl;
-        return -1;
-    }
-
-    kdDebug(TDEIO_SFTP_DB) << "sftpOpen(): handle (" << handle.size() << "): [" << handle << "]" << endl;
-    return SSH2_FX_OK;
-}
-
-
-int sftpProtocol::sftpRead(const TQByteArray& handle, TDEIO::filesize_t offset, TQ_UINT32 len, TQByteArray& data)
-{
- //   kdDebug(TDEIO_SFTP_DB) << "sftpRead( offset = " << offset << ", len = " << len << ")" << endl;
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ +
-                    4 /*str length*/ + handle.size() +
-                    8 /*offset*/ + 4 /*length*/);
-    s << (TQ_UINT8)SSH2_FXP_READ;
-    s << (TQ_UINT32)id;
-    s << handle;
-    s << offset; // we don't have a convienient 64 bit int so set upper int to zero
-    s << len;
-
-    putPacket(p);
-    getPacket(p);
-
-    TQDataStream r(p, IO_ReadOnly);
-    TQ_UINT8 type;
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpRead: sftp packet id mismatch" << endl;
-        return -1;
-    }
-
-    if( type == SSH2_FXP_STATUS ) {
-        TQ_UINT32 errCode;
-        r >> errCode;
-        kdError(TDEIO_SFTP_DB) << "sftpRead: read failed with code " << errCode << endl;
-        return errCode;
-    }
-
-    if( type != SSH2_FXP_DATA ) {
-        kdError(TDEIO_SFTP_DB) << "sftpRead: unexpected message type of " << type << endl;
-        return -1;
-    }
-
-    r >> data;
-
-    return SSH2_FX_OK;
-}
-
-
-int sftpProtocol::sftpWrite(const TQByteArray& handle, TDEIO::filesize_t offset, const TQByteArray& data){
-//    kdDebug(TDEIO_SFTP_DB) << "sftpWrite( offset = " << offset <<
-//        ", data sz = " << data.size() << ")" << endl;
-    TQByteArray p;
-    TQDataStream s(p, IO_WriteOnly);
-
-    TQ_UINT32 id, expectedId;
-    id = expectedId = mMsgId++;
-    s << (TQ_UINT32)(1 /*type*/ + 4 /*id*/ +
-                    4 /*str length*/ + handle.size() +
-                    8 /*offset*/ +
-                    4 /* data size */ + data.size());
-    s << (TQ_UINT8)SSH2_FXP_WRITE;
-    s << (TQ_UINT32)id;
-    s << handle;
-    s << offset; // we don't have a convienient 64 bit int so set upper int to zero
-    s << data;
-
-//    kdDebug(TDEIO_SFTP_DB) << "sftpWrite(): SSH2_FXP_WRITE, id:"
-//        << id << ", handle:" << handle << ", offset:" << offset << ", some data" << endl;
-
-//    kdDebug(TDEIO_SFTP_DB) << "sftpWrite(): send packet [" << p << "]" << endl;
-
-    putPacket(p);
-    getPacket(p);
-
-//    kdDebug(TDEIO_SFTP_DB) << "sftpWrite(): received packet [" << p << "]" << endl;
-
-    TQDataStream r(p, IO_ReadOnly);
-    TQ_UINT8 type;
-
-    r >> type >> id;
-    if( id != expectedId ) {
-        kdError(TDEIO_SFTP_DB) << "sftpWrite(): sftp packet id mismatch, got "
-            << id << ", expected " << expectedId << endl;
-        return -1;
-    }
-
-    if( type != SSH2_FXP_STATUS ) {
-        kdError(TDEIO_SFTP_DB) << "sftpWrite(): unexpected message type of " << type << endl;
-        return -1;
-    }
-
-    TQ_UINT32 code;
-    r >> code;
-    return code;
-}
-
 
