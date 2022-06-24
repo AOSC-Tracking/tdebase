@@ -23,7 +23,7 @@ link_directories(
 tde_create_translated_desktop(
   SOURCE sftp.protocol
   DESTINATION ${SERVICES_INSTALL_DIR}
-  #PO_DIR tdeioslave-desktops
+  PO_DIR tdeioslave-desktops
 )
 
 
@@ -33,6 +33,6 @@ set( target tdeio_sftp )
 
 tde_add_kpart( ${target} AUTOMOC
   SOURCES tdeio_sftp.cpp
-  LINK tdeio-shared
+  LINK tdeio-shared ssh
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

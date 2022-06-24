@@ -6,6 +6,8 @@
  * Copyright (c) 2022  Mavridis Philippe  <mavridisf@gmail.com>
  *                     Trinity port
  *
+ * Portions Copyright (c) 2020-2021 Harald Sitter <sitter@kde.org>
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License (LGPL) as published by the Free Software Foundation;
@@ -66,9 +68,9 @@
 using namespace TDEIO;
 extern "C"
 {
-  int kdemain( int argc, char **argv )
+  int KDE_EXPORT kdemain( int argc, char **argv )
   {
-      TDEInstance instance( "tdeio_sftp" );
+    TDEInstance instance( "tdeio_sftp" );
 
     kdDebug(TDEIO_SFTP_DB) << "*** Starting tdeio_sftp " << endl;
 
@@ -92,7 +94,8 @@ extern "C"
 
 // The callback function for libssh
 int auth_callback(const char *prompt, char *buf, size_t len,
-    int echo, int verify, void *userdata) {
+                  int echo, int verify, void *userdata)
+{
   if (userdata == NULL) {
     return -1;
   }
@@ -117,39 +120,48 @@ void log_callback(ssh_session session, int priority, const char *message,
   slave->log_callback(session, priority, message, userdata);
 }
 
+// Public key authentication
 int sftpProtocol::auth_callback(const char *prompt, char *buf, size_t len,
-    int echo, int verify, void *userdata) {
-  TQString i_prompt = TQString::fromUtf8(prompt);
-
+                                int echo, int verify, void *userdata)
+{
   // unused variables
   (void) echo;
   (void) verify;
   (void) userdata;
 
-  kdDebug(TDEIO_SFTP_DB) << "Entering authentication callback, prompt=" << i_prompt << endl;
+  kdDebug(TDEIO_SFTP_DB) << "Entering public key authentication callback" << endl;
 
-  TDEIO::AuthInfo info;
+  if(!pubKeyInfo)
+  {
+    pubKeyInfo = new TDEIO::AuthInfo;
+  }
+  else
+  {
+    // TODO: inform user about incorrect password
+  }
 
-  info.url.setProtocol("sftp");
-  info.url.setHost(mHost);
-  info.url.setPort(mPort);
-  info.url.setUser(mUsername);
+  pubKeyInfo->url.setProtocol("sftp");
+  pubKeyInfo->url.setHost(mHost);
+  pubKeyInfo->url.setPort(mPort);
+  pubKeyInfo->url.setUser(mUsername);
 
-  info.comment = "sftp://" + mUsername + "@"  + mHost;
-  info.username = i_prompt;
-  info.readOnly = true;
-  info.prompt = i_prompt;
-  info.keepPassword = false; // don't save passwords for public key,
-                             // that's the task of ssh-agent.
+  pubKeyInfo->caption      = i18n("SFTP Login");
+  pubKeyInfo->comment      = "sftp://" + mUsername + "@"  + mHost;
+  pubKeyInfo->username     = mUsername;
+  pubKeyInfo->readOnly     = false;
+  pubKeyInfo->prompt       = TQString::fromUtf8(prompt);
+  pubKeyInfo->keepPassword = false; // don't save passwords for public key,
+                                   // that's the task of ssh-agent.
 
-  if (!openPassDlg(info)) {
-    kdDebug(TDEIO_SFTP_DB) << "Password dialog failed" << endl;
+  if (!openPassDlg(*pubKeyInfo)) {
+    kdDebug(TDEIO_SFTP_DB) << "User canceled entry of public key password." << endl;
     return -1;
   }
 
-  strncpy(buf, info.password.utf8().data(), len - 1);
+  strncpy(buf, pubKeyInfo->password.utf8().data(), len - 1);
 
-  info.password.fill('x');
+  pubKeyInfo->password.fill('x');
+  pubKeyInfo->password = "";
 
   return 0;
 }
@@ -224,7 +236,7 @@ int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
         }
         break;
       } else {
-        if (prompt.lower() == "password") {
+        if (prompt.lower().startsWith("password")) {
           answer = mPassword.utf8().data();
         } else {
           info.readOnly = true; // set username readonly
@@ -286,7 +298,7 @@ bool sftpProtocol::createUDSEntry(const TQString &filename, const TQByteArray &p
   mode_t access;
   char *link;
 
-  ASSERT(entry.count() == 0);
+  Q_ASSERT(entry.count() == 0);
 
   sftp_attributes sb = sftp_lstat(mSftp, path.data());
   if (sb == NULL) {
@@ -531,6 +543,7 @@ void sftpProtocol::openConnection() {
       << ", info.url = " << info.url.prettyURL() << endl;
 
     if (checkCachedAuthentication(info)) {
+      kdDebug() << "using cached" << endl;
       mUsername = info.username;
       mPassword = info.password;
     }
@@ -708,78 +721,110 @@ void sftpProtocol::openConnection() {
   rc = ssh_userauth_none(mSession, NULL);
   if (rc == SSH_AUTH_ERROR) {
     closeConnection();
-    error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."));
+        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
+                                          .arg(i18n("none")));
     return;
   }
 
   int method = ssh_auth_list(mSession);
+  if (!method && rc != SSH_AUTH_SUCCESS)
+  {
+    error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."
+          " The server did not send any authentication methods!"));
+    return;
+  }
+
   bool firstTime = true;
   bool dlgResult;
   while (rc != SSH_AUTH_SUCCESS) {
-
     // Try to authenticate with public key first
-    kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate public key" << endl;
-    if (method & SSH_AUTH_METHOD_PUBLICKEY) {
-      rc = ssh_userauth_autopubkey(mSession, NULL);
-      if (rc == SSH_AUTH_ERROR) {
-        closeConnection();
-        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."));
-        return;
-      } else if (rc == SSH_AUTH_SUCCESS) {
-        break;
+    if (rc != SSH_AUTH_SUCCESS && (method & SSH_AUTH_METHOD_PUBLICKEY) && !mPassword)
+    {
+      kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with public key" << endl;
+      for(;;)
+      {
+        rc = ssh_userauth_publickey_auto(mSession, nullptr, nullptr);
+        if (rc == SSH_AUTH_ERROR)
+        {
+          clearPubKeyAuthInfo();
+          closeConnection();
+          error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
+                                            .arg(i18n("public key")));
+          return;
+        }
+        if (rc == SSH_AUTH_DENIED || !pubKeyInfo || !pubKeyInfo->isModified())
+        {
+          clearPubKeyAuthInfo();
+          break;
+        }
       }
     }
-
-    info.caption = i18n("SFTP Login");
-    info.readOnly = false;
-    if (firstTime) {
-      info.prompt = i18n("Please enter your username and password.");
-    } else {
-      info.prompt =  i18n("Login failed.\nPlease confirm your username and password, and enter them again.");
-    }
-    dlgResult = openPassDlg(info);
-
-    // Handle user canceled or dialog failed to open...
-    if (!dlgResult) {
-      kdDebug(TDEIO_SFTP_DB) << "User canceled, dlgResult = " << dlgResult << endl;
-      closeConnection();
-      error(TDEIO::ERR_USER_CANCELED, TQString());
-      return;
-    }
-
-    firstTime = false;
-
-    if (mUsername != info.username) {
-      kdDebug(TDEIO_SFTP_DB) << "Username changed from " << mUsername
-                                    << " to " << info.username << endl;
-    }
-    mUsername = info.username;
-    mPassword = info.password;
 
     // Try to authenticate with keyboard interactive
-    kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with keyboard interactive" << endl;
-    if (method & SSH_AUTH_METHOD_INTERACTIVE) {
-      rc = authenticateKeyboardInteractive(info);
-      if (rc == SSH_AUTH_ERROR) {
-        closeConnection();
-        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."));
-        return;
-      } else if (rc == SSH_AUTH_SUCCESS) {
-        break;
+    if (rc != SSH_AUTH_SUCCESS && (method & SSH_AUTH_METHOD_INTERACTIVE))
+    {
+      kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with keyboard interactive" << endl;
+
+      TDEIO::AuthInfo tmpInfo(info);
+      rc = authenticateKeyboardInteractive(tmpInfo);
+      if (rc == SSH_AUTH_SUCCESS)
+      {
+        info = tmpInfo;
       }
-    }
+      else if (rc == SSH_AUTH_ERROR)
+      {
+        closeConnection();
+        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
+                                          .arg(i18n("keyboard interactive")));
+        return;
+      }
+   }
 
     // Try to authenticate with password
-    kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with password" << endl;
-    if (method & SSH_AUTH_METHOD_PASSWORD) {
-      rc = ssh_userauth_password(mSession, mUsername.utf8().data(),
-          mPassword.utf8().data());
-      if (rc == SSH_AUTH_ERROR) {
-        closeConnection();
-        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."));
-        return;
-      } else if (rc == SSH_AUTH_SUCCESS) {
-        break;
+    if (rc != SSH_AUTH_SUCCESS && (method & SSH_AUTH_METHOD_PASSWORD))
+    {
+      kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with password" << endl;
+
+      info.keepPassword = true;
+      for(;;)
+      {
+        if(!firstTime || mPassword.isEmpty())
+        {
+          if (firstTime) {
+            info.prompt = i18n("Please enter your username and password.");
+          } else {
+            info.prompt =  i18n("Login failed.\nPlease confirm your username and password, and enter them again.");
+          }
+          dlgResult = openPassDlg(info);
+
+          // Handle user canceled or dialog failed to open...
+          if (!dlgResult) {
+            kdDebug(TDEIO_SFTP_DB) << "User canceled, dlgResult = " << dlgResult << endl;
+            closeConnection();
+            error(TDEIO::ERR_USER_CANCELED, TQString());
+            return;
+          }
+
+          firstTime = false;
+        }
+
+        if (mUsername != info.username) {
+          kdDebug(TDEIO_SFTP_DB) << "Username changed from " << mUsername
+                                 << " to " << info.username << endl;
+        }
+        mUsername = info.username;
+        mPassword = info.password;
+
+        rc = ssh_userauth_password(mSession, mUsername.utf8().data(),
+                                  mPassword.utf8().data());
+        if (rc == SSH_AUTH_ERROR) {
+          closeConnection();
+          error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
+                                            .arg(i18n("password")));
+          return;
+        } else if (rc == SSH_AUTH_SUCCESS) {
+          break;
+        }
       }
     }
   }
@@ -947,12 +992,12 @@ void sftpProtocol::statMime(const KURL &url) {
 void sftpProtocol::read(TDEIO::filesize_t bytes) {
   kdDebug(TDEIO_SFTP_DB) << "read, offset = " << openOffset << ", bytes = " << bytes;
 
-  ASSERT(mOpenFile != NULL);
+  Q_ASSERT(mOpenFile != NULL);
 
   TQVarLengthArray<char> buffer(bytes);
 
   ssize_t bytesRead = sftp_read(mOpenFile, buffer.data(), bytes);
-  ASSERT(bytesRead <= static_cast<ssize_t>(bytes));
+  Q_ASSERT(bytesRead <= static_cast<ssize_t>(bytes));
 
   if (bytesRead < 0) {
     kdDebug(TDEIO_SFTP_DB) << "Could not read " << mOpenUrl;
@@ -968,7 +1013,7 @@ void sftpProtocol::read(TDEIO::filesize_t bytes) {
 void sftpProtocol::write(const TQByteArray &data) {
   kdDebug(TDEIO_SFTP_DB) << "write, offset = " << openOffset << ", bytes = " << data.size();
 
-  ASSERT(mOpenFile != NULL);
+  Q_ASSERT(mOpenFile != NULL);
 
   ssize_t bytesWritten = sftp_write(mOpenFile, data.data(), data.size());
   if (bytesWritten < 0) {
@@ -984,7 +1029,7 @@ void sftpProtocol::write(const TQByteArray &data) {
 void sftpProtocol::seek(TDEIO::filesize_t offset) {
   kdDebug(TDEIO_SFTP_DB) << "seek, offset = " << offset;
 
-  ASSERT(mOpenFile != NULL);
+  Q_ASSERT(mOpenFile != NULL);
 
   if (sftp_seek64(mOpenFile, static_cast<uint64_t>(offset)) < 0) {
     error(TDEIO::ERR_COULD_NOT_SEEK, mOpenUrl.path());
@@ -1193,7 +1238,8 @@ void sftpProtocol::put(const KURL& url, int permissions, bool overwrite, bool re
     dataReq(); // Request for data
     result = readData(buffer);
 
-    if (result >= 0) {
+    if (result >= 0 && buffer.size()) {
+      kdDebug(TDEIO_SFTP_DB) << TQString("Got %1 bytes of data").arg(buffer.size()) << endl;
       if (dest.isEmpty()) {
         if (bMarkPartial) {
           kdDebug(TDEIO_SFTP_DB) << "Appending .part extension to " << dest_orig << endl;
@@ -1253,6 +1299,7 @@ void sftpProtocol::put(const KURL& url, int permissions, bool overwrite, bool re
       } // dest.isEmpty
 
       ssize_t bytesWritten = sftp_write(file, buffer.data(), buffer.size());
+      kdDebug(TDEIO_SFTP_DB) << TQString("Written %1 bytes").arg(bytesWritten) << endl;
       if (bytesWritten < 0) {
         error(TDEIO::ERR_COULD_NOT_WRITE, dest_orig);
         result = -1;
@@ -1270,7 +1317,7 @@ void sftpProtocol::put(const KURL& url, int permissions, bool overwrite, bool re
 
       sftp_attributes attr = sftp_stat(mSftp, dest.data());
       if (bMarkPartial && attr != NULL) {
-        size_t size = config()->readEntry("MinimumKeepSize", DEFAULT_MINIMUM_KEEP_SIZE).toLong();
+        size_t size = config()->readLongNumEntry("MinimumKeepSize", DEFAULT_MINIMUM_KEEP_SIZE);
         if (attr->size < size) {
           sftp_unlink(mSftp, dest.data());
         }
@@ -1466,7 +1513,7 @@ void sftpProtocol::listDir(const KURL& url) {
   sftp_attributes dirent = NULL;
   const TQString sDetails = metaData(TQString("details"));
   const int details = sDetails.isEmpty() ? 2 : sDetails.toInt();
-  TQList<TQByteArray> entryNames;
+  TQValueList<TQByteArray> entryNames;
   UDSEntry entry;
 
   kdDebug(TDEIO_SFTP_DB) << "readdir: " << path.data() << ", details: " << TQString::number(details) << endl;
@@ -1489,7 +1536,7 @@ void sftpProtocol::listDir(const KURL& url) {
     entry.append(atom);
 
     if (dirent->type == SSH_FILEXFER_TYPE_SYMLINK) {
-      TQCString file = (TQString(path) + "/" + TQFile::decodeName(dirent->name)).utf8().data();
+      TQCString file = (TQString::fromUtf8(path) + "/" + TQFile::decodeName(dirent->name)).utf8().data();
 
       atom.m_uds = UDS_FILE_TYPE;
       atom.m_long = S_IFREG;
@@ -1771,3 +1818,11 @@ void sftpProtocol::slave_status() {
   slaveStatus((mConnected ? mHost : TQString()), mConnected);
 }
 
+void sftpProtocol::clearPubKeyAuthInfo()
+{
+  if (!pubKeyInfo)
+  {
+    delete pubKeyInfo;
+    pubKeyInfo = nullptr;
+  }
+}

@@ -89,9 +89,17 @@ endif( )
 
 
 # sys/time.h (tdeioslave/sftp, ksmserver, ksplashml)
-if( BUILD_KSMSERVER OR BUILD_KSPLASHML OR BUILD_TDEIOSLAVES)
+if( BUILD_KSMSERVER OR BUILD_KSPLASHML OR BUILD_TDEIOSLAVES )
   check_include_file( sys/time.h HAVE_SYS_TIME_H )
   check_include_files( "sys/time.h;time.h" TIME_WITH_SYS_TIME )
+endif( )
+
+# libssh (tdeioslave/sftp)
+if( BUILD_TDEIOSLAVES )
+  pkg_search_module( LIBSSH libssh )
+  if( NOT LIBSSH_FOUND )
+    tde_message_fatal( "LibSSH is required, but was not found on your system" )
+  endif( )
 endif( )
 
 
