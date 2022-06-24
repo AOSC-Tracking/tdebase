@@ -2,7 +2,7 @@
 exec=tdeio_sftp
 protocol=sftp
 input=none
-listing=Name,Type,Size,Date,Access,Owner,Group,Link
+listing=Name,Type,Size,Date,Access,Owner,Group,Link,MimeType
 output=filesystem
 copyToFile=true
 copyFromFile=true
@@ -12,7 +12,7 @@ makedir=true
 deleting=true
 moving=true
 Icon=ftp
-Description=A tdeioslave for sftp
+Description=A new tdeioslave for sftp
 X-DocPath=tdeioslave/sftp/index.html
 Icon=ftp
 Class=:internet

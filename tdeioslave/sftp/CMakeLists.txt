@@ -1,13 +1,10 @@
-#################################################
-#
-#  (C) 2010-2011 Serghei Amelian
-#  serghei (DOT) amelian (AT) gmail.com
-#
-#  Improvements and feedback are welcome
-#
-#  This file is released under GPL >= 2
-#
-#################################################
+###########################################
+#                                         #
+#  Improvements and feedback are welcome  #
+#                                         #
+#  This file is released under GPL >= 2   #
+#                                         #
+###########################################
 
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
@@ -21,21 +18,21 @@ link_directories(
 )
 
 
-##### other data ################################
+##### other data #########################
 
 tde_create_translated_desktop(
   SOURCE sftp.protocol
   DESTINATION ${SERVICES_INSTALL_DIR}
-  PO_DIR tdeioslave-desktops
+  #PO_DIR tdeioslave-desktops
 )
 
 
-##### tdeio_sftp (module) #########################
+##### tdeio_sftp (module) ################
 
 set( target tdeio_sftp )
 
 tde_add_kpart( ${target} AUTOMOC
-  SOURCES process.cpp atomicio.cpp tdeio_sftp.cpp sftpfileattr.cpp ksshprocess.cpp
-  LINK tdeio-shared tdesu-shared
+  SOURCES tdeio_sftp.cpp
+  LINK tdeio-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
