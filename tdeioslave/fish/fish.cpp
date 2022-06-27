@@ -570,7 +570,9 @@ int fishProtocol::establishConnection(char *buffer, TDEIO::fileoffset_t len) {
             infoMessage(i18n("Initiating protocol..."));
             if (!connectionAuth.password.isEmpty()) {
                 connectionAuth.password = connectionAuth.password.left(connectionAuth.password.length()-1);
-                cacheAuthentication(connectionAuth);
+                if (connectionAuth.keepPassword) {
+                    cacheAuthentication(connectionAuth);
+                }
             }
             isLoggedIn = true;
             return 0;
