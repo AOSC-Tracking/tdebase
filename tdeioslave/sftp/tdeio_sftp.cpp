@@ -643,14 +643,22 @@ void sftpProtocol::openConnection() {
 
   /* get the hash */
   ssh_key serverKey;
+#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 7, 90)
+  if (ssh_get_publickey(mSession, &serverKey) < 0) {
+#else
   if (ssh_get_server_publickey(mSession, &serverKey) < 0) {
+#endif
     error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
     closeConnection();
     return;
   }
 
   size_t hlen;
+#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 8, 90)
+  if (ssh_get_publickey_hash(serverKey, SSH_PUBLICKEY_HASH_MD5, &hash, &hlen) < 0) {
+#else
   if (ssh_get_publickey_hash(serverKey, SSH_PUBLICKEY_HASH_SHA256, &hash, &hlen) < 0) {
+#endif
     error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
     closeConnection();
     return;
@@ -659,11 +667,15 @@ void sftpProtocol::openConnection() {
   kdDebug(TDEIO_SFTP_DB) << "Checking if the SSH server is known" << endl;
 
   /* check the server public key hash */
+#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 7, 90)
+  state = ssh_is_server_known(mSession);
+#else
   state = ssh_session_is_known_server(mSession);
+#endif
   switch (state) {
-    case SSH_KNOWN_HOSTS_OK:
+    case TDEIO_SSH_KNOWN_HOSTS_OK:
       break;
-    case SSH_KNOWN_HOSTS_OTHER:
+    case TDEIO_SSH_KNOWN_HOSTS_OTHER:
       delete hash;
       error(TDEIO::ERR_CONNECTION_BROKEN, i18n("The host key for this server was "
             "not found, but another type of key exists.\n"
@@ -672,7 +684,7 @@ void sftpProtocol::openConnection() {
             "Please contact your system administrator.\n%1").arg(TQString::fromUtf8(ssh_get_error(mSession))));
       closeConnection();
       return;
-    case SSH_SERVER_KNOWN_CHANGED:
+    case TDEIO_SSH_KNOWN_HOSTS_CHANGED:
       hexa = ssh_get_hexa(hash, hlen);
       delete hash;
       /* TODO print known_hosts file, port? */
@@ -685,8 +697,8 @@ void sftpProtocol::openConnection() {
       delete hexa;
       closeConnection();
       return;
-    case SSH_KNOWN_HOSTS_NOT_FOUND:
-    case SSH_KNOWN_HOSTS_UNKNOWN:
+    case TDEIO_SSH_KNOWN_HOSTS_NOT_FOUND:
+    case TDEIO_SSH_KNOWN_HOSTS_UNKNOWN:
       hexa = ssh_get_hexa(hash, hlen);
       delete hash;
       caption = i18n("Warning: Cannot verify host's identity.");
@@ -703,13 +715,17 @@ void sftpProtocol::openConnection() {
 
       /* write the known_hosts file */
       kdDebug(TDEIO_SFTP_DB) << "Adding server to known_hosts file." << endl;
+#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 7, 90)
+      if (ssh_write_knownhost(mSession) != SSH_OK) {
+#else
       if (ssh_session_update_known_hosts(mSession) != SSH_OK) {
+#endif
         error(TDEIO::ERR_USER_CANCELED, TQString::fromUtf8(ssh_get_error(mSession)));
         closeConnection();
         return;
       }
       break;
-    case SSH_KNOWN_HOSTS_ERROR:
+    case TDEIO_SSH_KNOWN_HOSTS_ERROR:
       delete hash;
       error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
       return;
