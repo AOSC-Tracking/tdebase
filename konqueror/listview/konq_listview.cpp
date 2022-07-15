@@ -273,6 +273,9 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_sortColumnIndexPrimary   = 0;
    m_sortColumnIndexAlternate = 1;
 
+   TDEIO::HiddenFileMatcher* matcher = TDEIO::HiddenFileMatcher::getInstance();
+   matcher->setCriteria( m_pProps->hiddenFileSpec() );
+
    setupActions();
 
    m_pListView->confColumns.resize( 11 );
@@ -479,106 +482,18 @@ void KonqListView::newIconSize( int size )
 
 void KonqListView::slotChangeHiddenFileMatcher()
 {
-
-  /* Temporarily
+  /*
+     Since the user might be providing *updated* hidden file match properties,
+     we first need to make sure that we are showing (not hiding) "hidden" files
+     as defined by the *current*.  Otherwise there can be a lot of confusion!
   */
+  m_paShowDot->setChecked( TRUE );
+  slotShowDot();
 
   TDEIO::HiddenFileMatcher* matcher = TDEIO::HiddenFileMatcher::getInstance();
-
-  // Someday we will do this and it will actually accomplish what we want:
-
-  TQString updated_criteria = matcher->updateCriteria( "Define hidden for listview" );
-  if ( matcher->setCriteria( updated_criteria ) ) {
-    m_pProps->setHiddenFileSpec ( updated_criteria );
+  if ( matcher->getMatchPropertiesFromUser() ) {
+    m_pProps->setHiddenFileSpec ( matcher->getCriteria() );
   }
-  else {
-    kdWarning()
-      << "Failed to update critera - bad input? <"
-      << updated_criteria                   << ">"
-    << endl;
-  }
-
-  // Until the UI dialog is ready, we'll just do a demonstration
-
-  TQString stored_criteria = m_pProps->hiddenFileSpec();
-  TQString stored_criteria_saved = stored_criteria;
-
-  TQString active_criteria = matcher->getCriteria();
-
-  kdWarning()
-    << "Hidden file match criteria before test updates:" << endl
-    << "  Config: <" << stored_criteria << "> (assuming that this is a good match criteria)"           << endl
-    << "  Active: <" << active_criteria << "> (should be same because of KonqListview initialization)" << endl
-  ;
-
-  // What happens with good update?
-
-  updated_criteria = "R^good/criteria$"; // simulation of output of TBD UI dialog:
-    // TQString updated_criteria = Get_HiddenFileCriteri_Dialog(stored_criteria);
-  if ( matcher->setCriteria( updated_criteria ) ) {
-    m_pProps->setHiddenFileSpec ( updated_criteria );
-  }
-  else {
-    kdWarning()
-      << "Failed to update critera - bad input? <"
-      << updated_criteria                   << ">"
-    << endl;
-  }
-
-  active_criteria = matcher->getCriteria();
-  stored_criteria = m_pProps->hiddenFileSpec();
-  kdWarning()
-    << "Hidden file match criteria after test update 1:" << endl
-    << "  Update: <" << updated_criteria << ">" << endl
-    << "  Active: <" << active_criteria  << ">" << endl
-    << "  Config: <" << stored_criteria  << ">" << endl
-  ;
-
-  // What happens with bad update?
-
-  updated_criteria = "^bad/need/leading/W_w_R_r";
-  if ( matcher->setCriteria( updated_criteria ) ) {
-    m_pProps->setHiddenFileSpec ( updated_criteria );
-  }
-  else {
-    kdWarning()
-      << "Failed to update critera - bad input? <"
-      << updated_criteria                   << ">"
-    << endl;
-  }
-
-  active_criteria = matcher->getCriteria();
-  stored_criteria = m_pProps->hiddenFileSpec();
-  kdWarning()
-    << "Hidden file match criteria after test update 2:" << endl
-    << "  Update: <" << updated_criteria << ">" << endl
-    << "  Active: <" << active_criteria  << ">" << endl
-    << "  Config: <" << stored_criteria  << ">" << endl
-  ;
-
-  // Restore the original (and hopefully valid) match criteria
-
-  updated_criteria = stored_criteria_saved;
-  if ( matcher->setCriteria( updated_criteria ) ) {
-    m_pProps->setHiddenFileSpec ( updated_criteria );
-  }
-  else {
-    kdWarning()
-      << "Failed to update critera - bad input? <"
-      << updated_criteria                   << ">"
-    << endl;
-  }
-
-  active_criteria = matcher->getCriteria();
-  stored_criteria = m_pProps->hiddenFileSpec();
-  kdWarning()
-    << "Hidden file match criteria after restoring original criteria:" << endl
-    << "  Update: <" << updated_criteria << ">" << endl
-    << "  Active: <" << active_criteria  << ">" << endl
-    << "  Config: <" << stored_criteria  << ">" << endl
-  ;
-
-  return;
 }
 
 void KonqListView::slotShowDot()
@@ -1033,24 +948,9 @@ void KonqListView::setupActions()
   m_paRenameMovePrev->setToolTip( i18n("Complete rename operation and move the previous item"));
   m_paRenameMovePrev->setEnabled(false);
 
-  m_paChangeHiddenFileMatcher = new TDEAction( i18n( "Change &Hidden File Matcher" ), CTRL+SHIFT+Key_H, this,
-   TQT_SLOT( slotChangeHiddenFileMatcher() ), actionCollection(), "change_hidden_file_matcher" );
-  /* Temporarily
-  */
-  // Initialize hidden file matcher criteria
-  TDEIO::HiddenFileMatcher* matcher = TDEIO::HiddenFileMatcher::getInstance();
-    // This is probably the 1st call that creates the central instance
-  matcher->setCriteria( m_pProps->hiddenFileSpec() );
-  /* Do we want or need to display current match criteria in menu???
-    Sample from konq_iconview.cpp::KonqKfmIconView::KonqKfmIconView
-    //enable menu item representing the saved sorting criterion
-    TQString sortcrit = KonqIconViewFactory::defaultViewProps()->sortCriterion();
-    TDERadioAction *sort_action = tqt_dynamic_cast<TDERadioAction *>(actionCollection()->action(sortcrit.latin1()));
-    if(sort_action!=NULL) sort_action->activate();
-  */
-
   m_paShowDot = new TDEToggleAction( i18n( "Show &Hidden Files" ), CTRL+Key_H, this, TQT_SLOT( slotShowDot() ), actionCollection(), "show_dot" );
-//  m_paShowDot->setCheckedState(i18n("Hide &Hidden Files"));
+  m_paChangeHiddenFileMatcher = new TDEAction( i18n( "Change &Hidden File Matcher" ), ALT+CTRL+Key_H, this,
+   TQT_SLOT( slotChangeHiddenFileMatcher() ), actionCollection(), "change_hidden_file_matcher" );
 
   m_paCaseInsensitive = new TDEToggleAction(i18n("Case Insensitive Sort"), 0, this, TQT_SLOT(slotCaseInsensitive()),actionCollection(), "sort_caseinsensitive" );
 
