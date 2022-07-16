@@ -24,12 +24,10 @@
 #define _defMinOptimizationDepth 1
 
 // Per desktop defaults
-// Before you change this get in touch with me (kb9vqf@pearsoncomputing.net)
-// Thanks!!
 #define _defColorA  TQColor("#003082")
 #define _defColorB  TQColor("#C0C0C0")
 #define _defBackgroundMode KBackgroundSettings::Flat
-#define _defWallpaperMode KBackgroundSettings::Scaled
+#define _defWallpaperMode KBackgroundSettings::ScaleAndCrop
 #define _defMultiMode KBackgroundSettings::NoMulti
 #define _defBlendMode KBackgroundSettings::NoBlending
 #define _defBlendBalance 100

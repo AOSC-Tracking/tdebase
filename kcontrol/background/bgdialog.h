@@ -99,8 +99,11 @@ protected:
    TQValueVector< TQPtrVector<KBackgroundRenderer> > m_renderer; // m_renderer[desk][screen]
    TQMap<TQString,int> m_wallpaper;
    TQStringList m_patterns;
-   int m_slideShowRandom; // Remembers last Slide Show setting
-   int m_wallpaperPos; // Remembers last wallpaper pos
+   int m_slideShowRandom;  // Remembers last Slide Show setting
+   int m_wallpaperPos;     // Remembers last wallpaper pos
+   int m_prevWallpaperPos; // Previous normal wallpaper pos
+   int m_prevTilePos;      // Previous tile wallpaper pos
+   bool m_isTile;          // Whether the wallpaper is a tile (800x600 or smaller)
 
    BGMonitorArrangement * m_pMonitorArrangement;
 
