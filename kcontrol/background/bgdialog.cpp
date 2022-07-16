@@ -1,5 +1,4 @@
 /*
-   
    This file is part of the KDE libraries
 
    Copyright (c) 2005 David Saxton <david@bluehaze.org>
@@ -245,10 +244,36 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
       m_slideShowRandom = KBackgroundSettings::InOrder;
 
    // Wallpaper Position
+   m_prevWallpaperPos = KBackgroundSettings::ScaleAndCrop;
+   m_prevTilePos      = KBackgroundSettings::Tiled;
+
    m_wallpaperPos = eRenderer()->wallpaperMode();
    if (m_wallpaperPos == KBackgroundSettings::NoWallpaper)
       m_wallpaperPos = KBackgroundSettings::Centred; // Default
 
+   const TQString path = eRenderer()->wallpaper();
+   KFileMetaInfo metaInfo(path);
+   if (metaInfo.isValid() && metaInfo.item("Dimensions").isValid())
+   {
+      // If the image is greater than 800x600 default to using the user selected mode
+      // for a normal wallpaper, otherwise default to user selection for tiles.
+      TQSize s = metaInfo.item("Dimensions").value().toSize();
+      m_isTile = (s.width() < 800 || s.height() < 600);
+      if (m_isTile)
+      {
+         m_prevTilePos = m_wallpaperPos;
+      }
+      else
+      {
+         m_prevWallpaperPos = m_wallpaperPos;
+      }
+   }
+   else if (KMimeType::findByPath(path)->is("image/svg+xml"))
+   {
+      m_prevWallpaperPos = m_wallpaperPos;
+   }
+
+   // Restrictions
    if (TDEGlobal::dirs()->isRestrictedResource("wallpaper"))
    {
       m_urlWallpaperButton->hide();
@@ -940,18 +965,22 @@ void BGDialog::slotWallpaperTypeChanged(int i)
       KFileMetaInfo metaInfo(path);
       if (metaInfo.isValid() && metaInfo.item("Dimensions").isValid())
       {
-         // If the image is greater than 800x600 default to using scaled mode,
-         // otherwise default to tiled.
-
+         // If the image is greater than 800x600 default to using the user selected mode
+         // for a normal wallpaper, otherwise default to user selection for tiles.
          TQSize s = metaInfo.item("Dimensions").value().toSize();
-         if (s.width() >= 800 && s.height() >= 600)
-            m_wallpaperPos = KBackgroundSettings::Scaled;
+         m_isTile = (s.width() < 800 || s.height() < 600);
+         if (m_isTile)
+         {
+            m_wallpaperPos = m_prevTilePos;
+         }
          else
-            m_wallpaperPos = KBackgroundSettings::Tiled;
+         {
+            m_wallpaperPos = m_prevWallpaperPos;
+         }
       }
       else if (KMimeType::findByPath(path)->is("image/svg+xml"))
       {
-         m_wallpaperPos = KBackgroundSettings::Scaled;         
+         m_wallpaperPos = m_prevWallpaperPos;
       }
 
       r->setWallpaperMode(m_wallpaperPos);
@@ -997,6 +1026,15 @@ void BGDialog::slotWallpaperPos(int mode)
 
    if (mode == r->wallpaperMode())
       return;
+
+   if (m_isTile)
+   {
+      m_prevTilePos = mode;
+   }
+   else
+   {
+      m_prevWallpaperPos = mode;
+   }
 
    r->stop();
    r->setWallpaperMode(mode);

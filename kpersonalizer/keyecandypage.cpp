@@ -689,7 +689,7 @@ void KEyeCandyPage::getUserDefaults(){
 	st_UserWallpaper.CommonDesktop = kdesktopconf->readBoolEntry("CommonDesktop", true);
 	kdesktopconf->setGroup("Desktop0"); // we only need to set one desktop
 	st_UserWallpaper.MultiWallpaperMode = kdesktopconf->readEntry("MultiWallpaperMode", "NoMulti");
-	st_UserWallpaper.WallpaperMode = kdesktopconf->readEntry("WallpaperMode", "Scaled");
+	st_UserWallpaper.WallpaperMode = kdesktopconf->readEntry("WallpaperMode", "ScaledAndCrop");
 	st_UserWallpaper.Wallpaper = kdesktopconf->readPathEntry("Wallpaper", "NoWallpaper");
 	deskbgimage = kdesktopconf->readPathEntry("Wallpaper", DEFAULT_WALLPAPER);
 	// Wallpaper-User-Defaults (END)

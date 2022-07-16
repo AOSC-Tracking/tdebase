@@ -91,8 +91,10 @@ KWinbindGreeter::KWinbindGreeter( KGreeterPluginHandler *_handler,
 		themer = 0;
 
 	if (!themer)
+	{
 		grid = new TQGridLayout( 0, 0, 10 );
 		layoutItem = TQT_TQLAYOUTITEM(grid);
+	}
 
 	domainLabel = loginLabel = passwdLabel = passwd1Label = passwd2Label = 0;
 	domainCombo = 0;

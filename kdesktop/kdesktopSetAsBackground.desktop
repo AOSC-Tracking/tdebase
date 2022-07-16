@@ -1,14 +1,44 @@
 [Desktop Entry]
 X-TDE-ServiceTypes=image/*
-Actions=setAsBackground;tileAsBackground;
+Actions=centeredAsBackground;tiledAsBackground;centeredTiledAsBackground;centeredMaxpectAsBackground;tiledMaxpectAsBackground;scaledAsBackground;centeredAutoFitAsBackground;scaleAndCropAsBackground
 X-TDE-Submenu=Set as Background
 
-[Desktop Action setAsBackground]
+[Desktop Action centeredAsBackground]
 Name=Centered
 Icon=background
-Exec=dcop kdesktop KBackgroundIface setWallpaper %u 6
+Exec=dcop kdesktop KBackgroundIface setWallpaper %u 1
 
-[Desktop Action tileAsBackground]
+[Desktop Action tiledAsBackground]
 Name=Tiled
 Icon=background
 Exec=dcop kdesktop KBackgroundIface setWallpaper %u 2
+
+[Desktop Action centeredTiledAsBackground]
+Name=Center Tiled
+Icon=background
+Exec=dcop kdesktop KBackgroundIface setWallpaper %u 3
+
+[Desktop Action centeredMaxpectAsBackground]
+Name=Centered Maxpect
+Icon=background
+Exec=dcop kdesktop KBackgroundIface setWallpaper %u 4
+
+[Desktop Action tiledMaxpectAsBackground]
+Name=Tiled Maxpect
+Icon=background
+Exec=dcop kdesktop KBackgroundIface setWallpaper %u 5
+
+[Desktop Action scaledAsBackground]
+Name=Scaled
+Icon=background
+Exec=dcop kdesktop KBackgroundIface setWallpaper %u 6
+
+[Desktop Action centeredAutoFitAsBackground]
+Name=Centered Auto Fit
+Icon=background
+Exec=dcop kdesktop KBackgroundIface setWallpaper %u 7
+
+[Desktop Action scaleAndCropAsBackground]
+Name=Scale & Crop
+Icon=background
+Exec=dcop kdesktop KBackgroundIface setWallpaper %u 8
