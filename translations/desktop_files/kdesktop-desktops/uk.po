@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 02:46+0200\n"
+"POT-Creation-Date: 2022-07-17 18:15+0000\n"
 "PO-Revision-Date: 2020-07-21 05:23+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
@@ -37,6 +37,42 @@ msgstr "По центру"
 #: kdesktopSetAsBackground.desktop:12
 msgid "Tiled"
 msgstr "Плиткою"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:17
+#, fuzzy
+#| msgid "Centered"
+msgid "Center Tiled"
+msgstr "По центру"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:22
+#, fuzzy
+#| msgid "Centered"
+msgid "Centered Maxpect"
+msgstr "По центру"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:27
+msgid "Tiled Maxpect"
+msgstr ""
+
+#. Name
+#: kdesktopSetAsBackground.desktop:32
+msgid "Scaled"
+msgstr ""
+
+#. Name
+#: kdesktopSetAsBackground.desktop:37
+#, fuzzy
+#| msgid "Centered"
+msgid "Centered Auto Fit"
+msgstr "По центру"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:42
+msgid "Scale & Crop"
+msgstr ""
 
 #. Comment
 #: kwebdesktop/kwebdesktop.desktop:2

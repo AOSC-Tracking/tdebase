@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 02:46+0200\n"
+"POT-Creation-Date: 2022-07-17 18:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,6 +35,42 @@ msgstr "Пасярэдзіне"
 #: kdesktopSetAsBackground.desktop:12
 msgid "Tiled"
 msgstr "Расцягнутае"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:17
+#, fuzzy
+#| msgid "Centered"
+msgid "Center Tiled"
+msgstr "Пасярэдзіне"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:22
+#, fuzzy
+#| msgid "Centered"
+msgid "Centered Maxpect"
+msgstr "Пасярэдзіне"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:27
+msgid "Tiled Maxpect"
+msgstr ""
+
+#. Name
+#: kdesktopSetAsBackground.desktop:32
+msgid "Scaled"
+msgstr ""
+
+#. Name
+#: kdesktopSetAsBackground.desktop:37
+#, fuzzy
+#| msgid "Centered"
+msgid "Centered Auto Fit"
+msgstr "Пасярэдзіне"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:42
+msgid "Scale & Crop"
+msgstr ""
 
 #. Comment
 #: kwebdesktop/kwebdesktop.desktop:2
