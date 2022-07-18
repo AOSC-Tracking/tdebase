@@ -17,7 +17,7 @@ needs extra theory to solve a practical problem.</para>
 
 
 <para>Earlier on in history, every developer of a program that was
-capable of producing printable output had to write his own printer
+capable of producing printable output had to write their own printer
 drivers too.  That was quite complicated, because different programs
 have different file formats.  Even programs with the same purpose, for
 example: word processors, often do not understand each other's formats.
@@ -41,8 +41,8 @@ paper (or other output devices, like monitors, photo typesetters, &etc;)
 in a common way, was a move that filled a big gap. <!-- FIXME --></para>
 
 <para>One such development was &PostScript; by Adobe.  It meant that an
-application programmer could concentrate on making his program generate
-a &PostScript; language description of his printable page, while
+application programmer could concentrate on making their program generate
+a &PostScript; language description of their printable page, while
 printing device developers could focus on making their devices
 &PostScript; literate.</para>
 

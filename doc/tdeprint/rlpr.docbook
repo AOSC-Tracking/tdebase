@@ -8,7 +8,7 @@ Utility</title>
 <para>Printer management: basic operations are supported
 (add/remove/modify).</para>
 
-<para>Each user can predefine the printers he wants to use by specifying
+<para>Each user can predefine the printers they want to use by specifying
 the host and related printer queues. Printers are stored on a <quote>per
 user basis</quote>. This module is built around the
 <application>rlpr</application> utility <ulink

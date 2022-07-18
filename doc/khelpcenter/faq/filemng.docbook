@@ -152,7 +152,7 @@ Foo" are properties defined in the <filename>.desktop</filename> file. If
 the icons are not defined, they simply default to the executable name
 <replaceable>foo</replaceable>.</para>
 
-<para>This way a user can change these things in &kmenuedit; for his or her
+<para>This way a user can change these things in &kmenuedit; for their
 applications. The <option>-caption</option> option is important, because no
 user will accept that the menu item <guimenuitem>Editor</guimenuitem> starts
 something called <guilabel>kedit-0.9pl4-build47</guilabel>. Instead, users

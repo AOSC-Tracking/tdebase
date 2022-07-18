@@ -2216,7 +2216,7 @@ indicate the users home directory and the &tde; temporary directory of the
 user, &eg; <filename class="directory">/tmp/tde-bastian</filename></para>
 
 <para>The following rules makes that the user can no longer open local files
-that are outside his $<envar>HOME</envar> directory:</para>
+that are outside their $<envar>HOME</envar> directory:</para>
 
 <screenco><areaspec>
 <area id="local_rule1" coords="3"/>

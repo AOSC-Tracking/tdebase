@@ -53,7 +53,7 @@ which are in in the file <filename>kmailrc</filename>).
 
 <para>So why would you want to touch the configuration files at all? Well, first you need it
 when you want to enforce the KIOSK mode. Perhaps a developer has asked you
-to add an entry to help him to solve a problem with the application. Perhaps you want to recover from
+to add an entry to help them to solve a problem with the application. Perhaps you want to recover from
 a problem without having to remove all the <filename
 class="directory">.kde</filename> directory. Perhaps you want to learn more
 about the depths of &tde;.</para>

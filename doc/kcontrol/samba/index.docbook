@@ -70,12 +70,12 @@ process (<command>smbd</command>), the next column shows the process
 <abbrev>ID</abbrev> (<acronym>pid</acronym>) of this
 <command>smbd</command>. If you kill this process the connected user
 will be disconnected. If the remote user works from &Windows;, as soon
-as this process is killed a new one will be created, so he will almost
+as this process is killed a new one will be created, so they will almost
 not notice it.</para>
 
 <para>The last column shows how many files this user has currently open.
-Here you see only, how many files he has <emphasis>open</emphasis> just
-now, you don't see how many he copied or formerly opened &etc;</para>
+Here you see only how many files they have <emphasis>open</emphasis> just
+now, you don't see how many they copied or formerly opened &etc;</para>
 
 </sect2>
 

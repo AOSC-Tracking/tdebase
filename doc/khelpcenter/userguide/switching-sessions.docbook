@@ -5,9 +5,9 @@
 <para>From version 3.3 onwards, &tde; provides a session management
 system which allows you to switch between different user account on
 one computer. You can stay logged in and &eg; let your sister,
-brother, wife, neigbour or whoever read her or his emails just for a
+brother, wife, neigbour or whoever read their emails just for a
 moment. Before you had to log off (therefore &eg; close programs or
-save documents) and let her or him log in.</para>
+save documents) and let them log in.</para>
 
 <para>Now it's almost as easy as switching to another virtual desktop.</para>
 
@@ -36,8 +36,8 @@ submenu.</para>
 <varlistentry>
 <term>Switch User with the screensaver</term>
 <listitem><para>If you have activated your screensaver and another user
-wants to log in she or he can simply press the <guibutton>Switch
-User...</guibutton> button and log into another session.</para>
+wants to log in, they can simply press the <guibutton>Switch User...</guibutton>
+button and log into another session.</para>
 </listitem>
 </varlistentry>
 
