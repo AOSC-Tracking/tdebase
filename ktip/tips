@@ -704,7 +704,7 @@ href="help:/konqueror/enhanced-browsing.html">the Konqueror Handbook</a>.</p>
 <tip category="Win2Unix">
 <html>
 <p>
-Each UNIX user has a so-called Home folder in which his or her
+Each UNIX user has a so-called Home folder in which their
 files as well as user-dependent configuration files are saved. If you
 work in a Konsole window, you can easily change to your home folder
 by entering the <b>cd</b> command without any parameters.

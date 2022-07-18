@@ -39,8 +39,8 @@ that don't require much background-knowledge and tries to guess a set
 of configuration-settings which fit the users needs best.
 
 Layout: KPersonalizer consists of a window which is not set fullscreen.
-This has the advantage that the user sees on the fly which settings he has
-changed and can step back as he sees that something doesn't fit.
+This has the advantage that the user sees on the fly which settings they
+have changed and can step back as they see that something doesn't fit.
 On the left of each dialog there is a decorative 170x430-pixel-bitmap which
 sort of describes the step in a graphical manner.
 
@@ -204,7 +204,7 @@ There is a preview for each theme.
 
 Step 5: Refinement
 ==============
-The user is told how he can start KPersonalizer again if the user changes his
+The user is told how they can start KPersonalizer again if they change their
 mind on a certain setting later and the advanced user may launch kcontrol to
 refine certain settings.
 

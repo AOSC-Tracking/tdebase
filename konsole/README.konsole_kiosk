@@ -50,7 +50,7 @@ action/scrollbar
 action/keyboard
 
 
-So if you don't want the user to toggle his scrollbar settings, you would add:
+So if you don't want the user to toggle their scrollbar settings, you would add:
 
 [KDE Action Restrictions]
 action/scrollbar=false

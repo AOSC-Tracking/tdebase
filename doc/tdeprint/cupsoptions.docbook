@@ -121,7 +121,7 @@ users:</para>
 <para>will allow the usage of this (believe me: very nice and also very
 professional) printer to only the three mentioned users and at the same
 time deny it to all others. If another user wants to print on the
-DigiMaster via this &CUPS; server, he will receive an error message
+DigiMaster via this &CUPS; server, they will receive an error message
 along the lines <errortype>client-error-not-possible</errortype>.</para>
 
 <screen><userinput><command>lpadmin</command> <option>-p</option> <parameter>HeidelbergDigimaster9110</parameter> <option>-v</option> <parameter>lpd:/10.160.16.99/mqueue</parameter> <option>-u</option> <parameter>deny:tackat,boss,waba</parameter> <option>-E</option> <option>-P</option> <parameter>/home/kurt/PPDs/DVHV.ppd</parameter></userinput></screen>
@@ -129,7 +129,7 @@ along the lines <errortype>client-error-not-possible</errortype>.</para>
 <para>will deny the usage of this same printer to the three mentioned
 users and at the same time allow it to all others. If
 <quote>denied</quote> user wants to print on the DigiMaster via this
-&CUPS; server, he will receive an error message along the lines
+&CUPS; server, they will receive an error message along the lines
 <errortype>client-error-not-possible</errortype>.</para>
 
 <note>
@@ -255,8 +255,8 @@ is defined)</para>
 <sect3>
 <title>Related Error Messages</title>
 
-<para>Once a user reaches his quota limit, he'll get a
-<errortype>client-error-not-possible</errortype> message, if he wants to
+<para>Once a user reaches their quota limit, they'll get a
+<errortype>client-error-not-possible</errortype> message, if they want to
 print.</para>
 
 </sect3>
@@ -315,7 +315,7 @@ file.</para>
 </question>
 <answer>
 <para>User is either not allowed to print to a certain printer or has
-achieved his quota (based on file size and/or page number)</para>
+achieved their quota (based on file size and/or page number)</para>
 </answer>
 </qandaentry>
 

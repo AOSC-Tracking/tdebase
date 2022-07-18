@@ -244,7 +244,7 @@ Available attributes are:</term>
 <para><userinput>kateversion</userinput> specifies the latest supported &kate; version.</para>
 <para><userinput>casesensitive</userinput> defines, whether the keywords are casesensitiv or not.</para>
 <para><userinput>priority</userinput> is necessary if another highlight definition file uses the same extensions. The higher priority will win.</para>
-<para><userinput>author</userinput> contains the name of the author and his email-address.</para>
+<para><userinput>author</userinput> contains the name of the author and their email-address.</para>
 <para><userinput>license</userinput> contains the license, usually LGPL, Artistic, GPL and others.</para>
 <para><userinput>hidden</userinput> defines, whether the name should appear in &kate;'s menus.</para>
 <para>So the next line may look like this:</para>
@@ -459,7 +459,7 @@ do not need to set it, as it defaults to <emphasis>false</emphasis>.</para>
 <userinput>general</userinput> defines which indenter will be used, however we strongly
 recommend to omit this element, as the indenter usually will be set by either defining
 a File Type or by adding a mode line to the text file. If you specify an indenter though,
-you will force a specific indentation on the user, which he might not like at all.
+you will force a specific indentation on the user, which they might not like at all.
 Available attributes are:</term>
 
 <listitem>

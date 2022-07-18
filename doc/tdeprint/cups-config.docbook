@@ -475,7 +475,7 @@ url="http://localhost:631/">http://localhost:631/</ulink>).</para>
 to <systemitem class="username">root</systemitem>, so never do this,
 as it only involves dangers. Should anyone discover security
 vulnerabilities in one of the used file filters, printer drivers or
-<acronym>CGI</acronym> programs, he could remotely execute arbitrary
+<acronym>CGI</acronym> programs, they could remotely execute arbitrary
 commands on your system with root user privileges. Always use an
 unprivileged account for the server directive
 <guilabel>User</guilabel>.</para>

@@ -567,8 +567,8 @@ The toolbar, which is located at the top of the dialog, has left and
 right arrow buttons that let the user move back and forth through
 previously selected folders as well as an up arrow button for moving
 up the folder tree. The button with the little house takes the user
-to his or her home folder and the one with the two arrows curved in
-on each other updates the view of the current folder. The flag button
+to their home folder and the one with the two arrows curved in on
+each other updates the view of the current folder. The flag button
 lets the user set a new bookmark at the current folder or go to one
 that was previously set.
 </para>
@@ -1682,7 +1682,7 @@ a key combination for the command in question by means of the check boxes and
 key button. For example, with the About &tde; command selected in the display
 window, the user could select &Ctrl; and <keycap>Alt</keycap>, click on  the key
 button, and then press the <keycap>K</keycap> key on the keyboard.  This would
-mean that anytime he or she held down the &Ctrl; and  <keycap>Alt</keycap>
+mean that anytime they held down the &Ctrl; and  <keycap>Alt</keycap>
 buttons and pressed <keycap>K</keycap> (while using
 &kwrite;) the About &tde; display box would be called.</para>
 </listitem>
@@ -1814,7 +1814,7 @@ along the bottom of the box the user can control the process.
 </para>
 
 <para>
-She or he may invoke the <guilabel>Help</guilabel> system, accept the
+They may invoke the <guilabel>Help</guilabel> system, accept the
 current settings and close the dialog by means of the
 <guibutton>OK</guibutton> button, or <guibutton>Cancel</guibutton> the
 process. The categories <guilabel>Colors</guilabel>,
@@ -2615,7 +2615,7 @@ follows:</para>
 <para>
 The user can configure the default appearance for
 particular items. This would allow a programmer to more easily identify
-different items (types of entries) in his or her code.
+different items (types of entries) in their code.
 </para>
 
 <variablelist>
