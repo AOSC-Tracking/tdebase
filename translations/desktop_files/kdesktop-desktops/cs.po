@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Slávek Banko <slavek.banko@axis.cz>, 2021.
+# Slávek Banko <slavek.banko@axis.cz>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-17 18:15+0000\n"
-"PO-Revision-Date: 2021-08-26 22:14+0000\n"
+"PO-Revision-Date: 2022-07-19 22:46+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kdesktop-desktop-files/cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.13.1\n"
 
 #. Name
 #: kdesktop.desktop.cmake:10
@@ -39,39 +39,33 @@ msgstr "Dlaždice"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:17
-#, fuzzy
-#| msgid "Centered"
 msgid "Center Tiled"
-msgstr "Na střed"
+msgstr "Vydlážděné centrovaně"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:22
-#, fuzzy
-#| msgid "Centered"
 msgid "Centered Maxpect"
-msgstr "Na střed"
+msgstr "Centrované s maximálním poměrem stran"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:27
 msgid "Tiled Maxpect"
-msgstr ""
+msgstr "Vydlážděné s maximálním poměrem stran"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:32
 msgid "Scaled"
-msgstr ""
+msgstr "Zvětšené"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:37
-#, fuzzy
-#| msgid "Centered"
 msgid "Centered Auto Fit"
-msgstr "Na střed"
+msgstr "Centrované, automatická změna velikosti"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:42
 msgid "Scale & Crop"
-msgstr ""
+msgstr "Zvětšené a oříznuté"
 
 #. Comment
 #: kwebdesktop/kwebdesktop.desktop:2
