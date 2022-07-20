@@ -27,6 +27,7 @@
 #include <tqpainter.h>
 #include <tqheader.h>
 #include <kiconloader.h>
+#include <kdirlister.h>
 
 static TQString retrieveExtraEntry( KFileItem* fileitem, int numExtra )
 {
@@ -95,12 +96,9 @@ void KonqListViewItem::updateContents()
      sortChar = S_ISDIR( m_fileitem->mode() ) ? 1 : 3;
    else
      sortChar = 3;
-
-   /* Temporarily
-   */
-   TDEIO::HiddenFileMatcher* matcher = TDEIO::HiddenFileMatcher::getInstance();
-   if ( m_groupHiddenFirst && matcher->match(m_fileitem->text()) )
+   if ( m_groupHiddenFirst && m_pListViewWidget->m_dirLister->matcher->match( m_fileitem->text() ) )
       --sortChar;
+
 
    //now we have the first column, so let's do the rest
 

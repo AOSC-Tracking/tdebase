@@ -76,11 +76,12 @@ public:
 class KonqBaseListViewWidget : public TDEListView
 {
    friend class KonqBaseListViewItem;
+   friend class KonqListViewItem;
    friend class KonqListView;
    friend class ListViewBrowserExtension;
 
    Q_OBJECT
-   
+
 public:
    KonqBaseListViewWidget( KonqListView *parent, TQWidget *parentWidget );
    virtual ~KonqBaseListViewWidget();

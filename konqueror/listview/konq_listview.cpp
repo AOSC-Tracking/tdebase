@@ -273,8 +273,7 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_sortColumnIndexPrimary   = 0;
    m_sortColumnIndexAlternate = 1;
 
-   TDEIO::HiddenFileMatcher* matcher = TDEIO::HiddenFileMatcher::getInstance();
-   matcher->setCriteria( m_pProps->hiddenFileSpec() );
+   m_pListView->m_dirLister->matcher->setCriteria( m_pProps->hiddenFileSpec() );
 
    setupActions();
 
@@ -485,14 +484,27 @@ void KonqListView::slotChangeHiddenFileMatcher()
   /*
      Since the user might be providing *updated* hidden file match properties,
      we first need to make sure that we are showing (not hiding) "hidden" files
-     as defined by the *current*.  Otherwise there can be a lot of confusion!
+     as defined by the *current* match properties.  Otherwise there can be
+     a lot of confusion!
   */
   m_paShowDot->setChecked( TRUE );
   slotShowDot();
 
-  TDEIO::HiddenFileMatcher* matcher = TDEIO::HiddenFileMatcher::getInstance();
-  if ( matcher->getMatchPropertiesFromUser() ) {
-    m_pProps->setHiddenFileSpec ( matcher->getCriteria() );
+  int result = m_pListView->m_dirLister->matcher->getMatchPropertiesFromUser() ;
+
+  switch ( result ) {
+    case TDEIO::HiddenFileMatcher::criteriaUnchanged:
+      return;
+      break;
+    case TDEIO::HiddenFileMatcher::criteriaApplied:
+      return;
+      break;
+    case TDEIO::HiddenFileMatcher::saveCriteria:
+      m_pProps->setHiddenFileSpec( m_pListView->m_dirLister->matcher->getCriteria() );
+      break;
+    case TDEIO::HiddenFileMatcher::reloadCriteria:
+      m_pListView->m_dirLister->matcher->setCriteria( m_pProps->hiddenFileSpec() );
+      break;
   }
 }
 
