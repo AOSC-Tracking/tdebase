@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-17 20:15+0000\n"
-"PO-Revision-Date: 2022-01-09 06:00+0000\n"
+"POT-Creation-Date: 2022-07-17 18:15+0000\n"
+"PO-Revision-Date: 2022-07-19 22:46+0000\n"
 "Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kdesktop-desktop-files/it/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 #. Name
 #: kdesktop.desktop.cmake:10
@@ -39,36 +39,33 @@ msgstr "Ripetuto"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:17
-#, fuzzy
 msgid "Center Tiled"
-msgstr "Centrato"
+msgstr "Centrato e ripetuto"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:22
-#, fuzzy
 msgid "Centered Maxpect"
-msgstr "Centrato"
+msgstr "Centrato e massimizzato"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:27
 msgid "Tiled Maxpect"
-msgstr ""
+msgstr "Ripetuto e massimizzato"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:32
 msgid "Scaled"
-msgstr ""
+msgstr "Scalato"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:37
-#, fuzzy
 msgid "Centered Auto Fit"
-msgstr "Centrato"
+msgstr "Centrato con adattamento automatico"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:42
 msgid "Scale & Crop"
-msgstr ""
+msgstr "Ridimensiona e ritaglia"
 
 #. Comment
 #: kwebdesktop/kwebdesktop.desktop:2
