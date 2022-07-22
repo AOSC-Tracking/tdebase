@@ -747,7 +747,7 @@ By default the taskbar groups windows when it is full.</string>
                                     <cstring>kcfg_ShowThumbnails</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Show thumbnails on hover</string>
+                                    <string>Show thumbnails on hover (needs TWin compositor enabled)</string>
                                 </property>
                             </widget>
                             <widget class="TQSpinBox" row="3" column="3">
