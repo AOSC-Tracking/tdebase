@@ -1130,6 +1130,12 @@ By default the taskbar groups windows when it is full.</string>
         <slot>setDisabled(bool)</slot>
     </connection>
     <connection>
+      <sender>kcfg_HaloText</sender>
+      <signal>toggled(bool)</signal>
+      <receiver>kcfg_ShowButtonOnHover</receiver>
+      <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
         <sender>kcfg_ShowAllWindows</sender>
         <signal>toggled(bool)</signal>
         <receiver>kcfg_SortByDesktop</receiver>
