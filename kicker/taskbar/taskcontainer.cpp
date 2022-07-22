@@ -392,9 +392,13 @@ TQSizePolicy TaskContainer::sizePolicy() const
 
 void TaskContainer::resizeEvent( TQResizeEvent * )
 {
-    int iconSize = READ_MERGED_TASKBAR_SETTING(iconSize);
+    recalculateIconRect();
+}
 
-    // calculate the icon rect
+void TaskContainer::recalculateIconRect()
+{
+    iconSize = READ_MERGED_TASKBAR_SETTING(iconSize);
+
     if(taskBar->showText())
     {
         TQRect br( style().subRect( TQStyle::SR_PushButtonContents, this ) );
@@ -599,7 +603,7 @@ void TaskContainer::drawButton(TQPainter *p)
                       (m_mouseOver && !halo && isEnabled() &&
                        READ_MERGED_TASKBAR_SETTING(showButtonOnHover));
     TQFont font(TDEGlobalSettings::taskbarFont());
-    int iconSize = READ_MERGED_TASKBAR_SETTING(iconSize);
+    recalculateIconRect();
 
     // draw sunken if we contain the active task
     bool active = false;
@@ -628,7 +632,7 @@ void TaskContainer::drawButton(TQPainter *p)
     font.setBold(active);
 
     TQColorGroup colors = palette().active();
-    
+
     if (READ_MERGED_TASKBAR_SETTING(useCustomColors))
     {
         colors.setColor( TQColorGroup::Button, READ_MERGED_TASKBAR_SETTING(taskBackgroundColor));
@@ -636,7 +640,7 @@ void TaskContainer::drawButton(TQPainter *p)
         colors.setColor( TQColorGroup::ButtonText, READ_MERGED_TASKBAR_SETTING(inactiveTaskTextColor) );
         colors.setColor( TQColorGroup::Text, READ_MERGED_TASKBAR_SETTING(inactiveTaskTextColor) );
     }
-    
+
     if (demandsAttention)
     {
         if (!drawButton)

@@ -118,6 +118,7 @@ protected:
 
     void updateFilteredTaskList();
     void updateIconSize();
+    void recalculateIconRect();
 
 protected slots:
     void animationTimerFired();
@@ -145,6 +146,7 @@ private:
     PixmapList                  frames;
     int                         attentionState;
     TQRect                      iconRect;
+    int                         iconSize;
     TQPixmap                    animBg;
     Task::List                  tasks;
     Task::List                  m_filteredTasks;
