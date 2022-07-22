@@ -153,6 +153,7 @@ private:
     int                 m_displayIconsNText;
     bool			          m_showOnlyIconified;
     int				          m_showTaskStates;
+    int                 m_iconSize;
     ArrowType 			    arrowType;
     TaskContainer::List	containers;
     TaskContainer::List	m_hiddenContainers;

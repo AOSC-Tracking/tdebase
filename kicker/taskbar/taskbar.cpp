@@ -242,6 +242,7 @@ void TaskBar::configure()
     bool wasDisplayIconsNText = m_displayIconsNText;
     bool wasShowOnlyIconified = m_showOnlyIconified;
     int  wasShowTaskStates = m_showTaskStates;
+    int  wasIconSize = m_iconSize;
 
     m_showAllWindows = READ_MERGED_TASKBAR_SETTING(showAllWindows);
     m_sortByDesktop = m_showAllWindows && READ_MERGED_TASKBAR_SETTING(sortByDesktop);
@@ -249,6 +250,7 @@ void TaskBar::configure()
     m_showOnlyIconified = READ_MERGED_TASKBAR_SETTING(showOnlyIconified);
     m_cycleWheel = READ_MERGED_TASKBAR_SETTING(cycleWheel);
     m_showTaskStates = READ_MERGED_TASKBAR_SETTING(showTaskStates);
+    m_iconSize = READ_MERGED_TASKBAR_SETTING(iconSize);
 
     m_currentScreen = -1;    // Show all screens or re-get our screen
     m_showOnlyCurrentScreen = (READ_MERGED_TASKBAR_SETTING(showCurrentScreenOnly) &&
@@ -273,7 +275,8 @@ void TaskBar::configure()
         wasDisplayIconsNText != m_displayIconsNText ||
         wasCycleWheel != m_cycleWheel ||
         wasShowOnlyIconified != m_showOnlyIconified ||
-        wasShowTaskStates != m_showTaskStates)
+        wasShowTaskStates != m_showTaskStates ||
+        wasIconSize != m_iconSize)
     {
         // relevant settings changed, update our task containers
         for (TaskContainer::Iterator it = containers.begin();
