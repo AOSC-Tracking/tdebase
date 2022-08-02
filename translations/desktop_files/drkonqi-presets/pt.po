@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 03:59+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-08-02 14:46+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"Language-Team: Portuguese <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/drkonqi-presets/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 #. Name
 #: developerrc:2
@@ -119,11 +120,11 @@ msgid ""
 "include as much information as possible, maybe the original documents. If "
 "you have a way to reproduce the error, include this also."
 msgstr ""
-"Você poderá querer enviar um relatório de erro para esta aplicação. "
-"Verifique se está listada no http://bugs.trinitydesktop.org; caso contrário, "
-"mande um e-mail ao autor. Por favor inclua o máximo possível de informação, "
-"bem como os documentos em que estava a trabalhar. Se conseguir reproduzir o "
-"erro, inclua também a forma de o fazer."
+"Poderá querer enviar um relatório de erro para esta aplicação. Verifique se "
+"está listada no http://bugs.trinitydesktop.org; caso contrário, mande um e-"
+"mail ao autor. Por favor inclua o máximo possível de informação, bem como os "
+"documentos em que estava a trabalhar. Se conseguir reproduzir o erro, inclua "
+"também a forma de o fazer."
 
 #. Comment
 #: enduserrc:21
