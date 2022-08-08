@@ -148,24 +148,45 @@ void Action_list_widget::new_selected( int type_P )
 
 void Action_list_widget::copy_pressed()
     {
-        if ( !selected_item )
-            return;
+    if ( !selected_item )
+      {
+      return;
+      }
+
     actions_listview->setSelected( create_listview_item( selected_item->action(),
-        selected_item->parent() ? NULL : actions_listview, selected_item->parent(),
-        selected_item, true ), true );
+    selected_item->parent() ? NULL : actions_listview, selected_item->parent(),
+    selected_item, true ), true );
     }
 
 void Action_list_widget::delete_pressed()
     {
-    delete selected_item; // CHECKME snad vyvola signaly pro enable()
+    if ( !selected_item )
+        {
+        return;
+        }
+
+    Action_list_item *nextItem = static_cast< Action_list_item* >(selected_item->nextSibling());
+    delete selected_item;
     selected_item = NULL;
+    if (!nextItem)
+        {
+        // If the last item of the list was deleted, get the new last item
+        nextItem = static_cast< Action_list_item* >(actions_listview->lastItem());
+        }
+    if (nextItem)
+        {
+        actions_listview->setSelected(nextItem, true);
+        current_changed(nextItem);
+        }
     }
 
 void Action_list_widget::modify_pressed()
     {
-        if ( !selected_item )
-            return;
-        edit_listview_item( selected_item );
+    if ( !selected_item )
+        {
+        return;
+        }
+    edit_listview_item( selected_item );
     }
 
 void Action_list_widget::current_changed( TQListViewItem* item_P )

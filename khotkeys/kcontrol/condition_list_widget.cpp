@@ -213,8 +213,11 @@ void Condition_list_widget::new_selected( int type_P )
 
 void Condition_list_widget::copy_pressed()
     {
-        if ( !selected_item )
-            return;
+    if ( !selected_item )
+      {
+      return;
+      }
+
     conditions_listview->setSelected( create_listview_item(
         selected_item->condition()->copy( selected_item->condition()->parent()),
         selected_item->parent() ? NULL : conditions_listview,
@@ -223,19 +226,33 @@ void Condition_list_widget::copy_pressed()
     }
 
 void Condition_list_widget::delete_pressed()
-{
-    if ( selected_item )
     {
-        conditions.remove( selected_item->condition()); // we own it
-        delete selected_item; // CHECKME snad vyvola signaly pro enable()
-        selected_item = NULL;
+    if ( !selected_item )
+        {
+        return;
+        }
+    Condition_list_item *nextItem = static_cast< Condition_list_item* >(selected_item->nextSibling());
+    conditions.remove( selected_item->condition()); // we own it
+    delete selected_item;
+    selected_item = NULL;
+    if (!nextItem)
+        {
+        // If the last item of the list was deleted, get the new last item
+        nextItem = static_cast< Condition_list_item* >(conditions_listview->lastItem());
+        }
+    if (nextItem)
+        {
+        conditions_listview->setSelected(nextItem, true);
+        current_changed(nextItem);
+        }
     }
-}
 
 void Condition_list_widget::modify_pressed()
     {
-        if ( !selected_item )
-            return;
+    if ( !selected_item )
+        {
+        return;
+        }
     edit_listview_item( selected_item );
     }
 
@@ -268,7 +285,7 @@ Condition_list_item* Condition_list_widget::create_listview_item( Condition* con
 #ifdef KHOTKEYS_DEBUG
     kdDebug( 1217 ) << "Condition_list_widget::create_listview_item():" << endl;
     Condition::debug_list( conditions );
-	kdDebug( 1217 ) << kdBacktrace() << endl;
+  kdDebug( 1217 ) << kdBacktrace() << endl;
 #endif
     Condition* new_cond = copy_P ? condition_P->copy( parent2_P
         ? static_cast< Condition_list_base* >( parent2_P->condition()) : NULL ) : condition_P;
