@@ -1,11 +1,11 @@
 /****************************************************************************
 
  KHotKeys
- 
+
  Copyright (C) 1999-2001 Lubos Lunak <l.lunak@kde.org>
 
  Distributed under the terms of the GNU General Public License version 2.
- 
+
 ****************************************************************************/
 
 #define _ACTIONS_LISTVIEW_WIDGET_CPP_
@@ -138,7 +138,7 @@ void Actions_listview_widget::build_up()
     {
     build_up_recursively( module->actions_root(), NULL );
     }
-    
+
 void Actions_listview_widget::build_up_recursively( Action_data_group* parent_P,
     Action_listview_item* item_parent_P )
     {
@@ -147,13 +147,13 @@ void Actions_listview_widget::build_up_recursively( Action_data_group* parent_P,
          it;
          ++it )
         {
-        prev = create_item( item_parent_P, prev, ( *it )); 
+        prev = create_item( item_parent_P, prev, ( *it ));
         Action_data_group* grp = dynamic_cast< Action_data_group* >( *it );
         if( grp != NULL )
             build_up_recursively( grp, prev );
         }
     }
-    
+
 Action_listview_item* Actions_listview_widget::create_item( TQListViewItem* parent_P,
     TQListViewItem* after_P, Action_data_base* data_P )
     {

@@ -1,11 +1,11 @@
 /****************************************************************************
 
  KHotKeys
- 
+
  Copyright (C) 1999-2001 Lubos Lunak <l.lunak@kde.org>
 
  Distributed under the terms of the GNU General Public License version 2.
- 
+
 ****************************************************************************/
 
 #ifndef _CONDITIONS_LIST_WIDGET_H_
@@ -48,6 +48,8 @@ class Condition_list_widget
         virtual void copy_pressed();
         virtual void delete_pressed();
         virtual void modify_pressed();
+        virtual void move_up_pressed();
+        virtual void move_down_pressed();
         virtual void current_changed( TQListViewItem* item_P );
     private:
         void insert_listview_items( const Condition_list_base* parent_P,
@@ -74,14 +76,14 @@ class Condition_list_item
     protected:
         Condition* _condition; // owns it
     };
-        
+
 class Condition_dialog
     {
     public:
         virtual Condition* edit_condition() = 0;
         virtual ~Condition_dialog();
     };
-    
+
 class Active_window_condition_dialog
     : public KDialogBase, public Condition_dialog
     {
@@ -94,7 +96,7 @@ class Active_window_condition_dialog
         Windowdef_list_widget* widget;
         Active_window_condition* condition;
     };
-        
+
 class Existing_window_condition_dialog
     : public KDialogBase, public Condition_dialog
     {
@@ -107,7 +109,7 @@ class Existing_window_condition_dialog
         Windowdef_list_widget* widget;
         Existing_window_condition* condition;
     };
-        
+
 
 //***************************************************************************
 // Inline
@@ -120,7 +122,7 @@ Condition_list_item::Condition_list_item( TQListView* parent_P, Condition* condi
     : TQListViewItem( parent_P ), _condition( condition_P )
     {
     }
-    
+
 inline
 Condition_list_item::Condition_list_item( TQListViewItem* parent_P, Condition* condition_P )
     : TQListViewItem( parent_P ), _condition( condition_P )
@@ -146,7 +148,7 @@ Condition* Condition_list_item::condition() const
     {
     return _condition;
     }
-    
+
 inline
 void Condition_list_item::set_condition( Condition* condition_P )
     {

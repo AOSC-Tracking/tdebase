@@ -97,6 +97,22 @@
                                 <string>Delete</string>
                             </property>
                         </widget>
+                        <widget class="TQPushButton">
+                            <property name="name">
+                                <cstring>move_up_button</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Move &amp;up</string>
+                            </property>
+                        </widget>
+                        <widget class="TQPushButton">
+                            <property name="name">
+                                <cstring>move_down_button</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Move &amp;down</string>
+                            </property>
+                        </widget>
                     </vbox>
                 </widget>
             </hbox>
@@ -148,6 +164,18 @@
         <slot>delete_pressed()</slot>
     </connection>
     <connection>
+        <sender>move_up_button</sender>
+        <signal>clicked()</signal>
+        <receiver>Action_list_widget_ui</receiver>
+        <slot>move_up_pressed()</slot>
+    </connection>
+    <connection>
+        <sender>move_down_button</sender>
+        <signal>clicked()</signal>
+        <receiver>Action_list_widget_ui</receiver>
+        <slot>move_down_pressed()</slot>
+    </connection>
+    <connection>
         <sender>actions_listview</sender>
         <signal>current_changed(TQListViewItem*)</signal>
         <receiver>Action_list_widget_ui</receiver>
@@ -162,6 +190,8 @@
     <slot access="protected" specifier="pure virtual">current_changed(TQListViewItem*)</slot>
     <slot access="protected" specifier="pure virtual">delete_pressed()</slot>
     <slot access="protected" specifier="pure virtual">modify_pressed()</slot>
+    <slot access="protected" specifier="pure virtual">move_up_pressed()</slot>
+    <slot access="protected" specifier="pure virtual">move_down_pressed()</slot>
 </Q_SLOTS>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>

@@ -62,16 +62,13 @@ Action_list_widget::Action_list_widget( TQWidget* parent_P, const char* name_P )
              this, TQT_SLOT( modify_pressed() ) );
 
     // KHotKeys::Module::changed()
-    connect( new_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( copy_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( modify_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( delete_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( comment_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
+    connect(new_button, TQT_SIGNAL(clicked()), module, TQT_SLOT(changed()));
+    connect(copy_button, TQT_SIGNAL(clicked()), module, TQT_SLOT(changed()));
+    connect(modify_button, TQT_SIGNAL(clicked()), module, TQT_SLOT(changed()));
+    connect(delete_button, TQT_SIGNAL(clicked()), module, TQT_SLOT(changed()));
+    connect(move_up_button, TQT_SIGNAL(clicked()), module, TQT_SLOT(changed()));
+    connect(move_down_button, TQT_SIGNAL(clicked()), module, TQT_SLOT(changed()));
+    connect(comment_lineedit, TQT_SIGNAL(textChanged(const TQString&)), module, TQT_SLOT(changed()));
     }
 
 Action_list_widget::~Action_list_widget()
@@ -189,6 +186,42 @@ void Action_list_widget::modify_pressed()
     edit_listview_item( selected_item );
     }
 
+void Action_list_widget::move_up_pressed()
+    {
+    if ( !selected_item )
+        {
+        return;
+        }
+
+    Action_list_item *prevItem = nullptr;
+    TQListViewItem *currItem = actions_listview->firstChild();
+    while (currItem != selected_item)
+        {
+        prevItem = static_cast< Action_list_item* >(currItem);
+        currItem = currItem->nextSibling();
+        }
+    if (prevItem)
+        {
+        prevItem->moveItem(selected_item);
+        current_changed(selected_item);
+        }
+    }
+
+void Action_list_widget::move_down_pressed()
+    {
+    if ( !selected_item )
+        {
+        return;
+        }
+
+    Action_list_item *nextItem = static_cast< Action_list_item* >(selected_item->nextSibling());
+    if (nextItem)
+        {
+        selected_item->moveItem(nextItem);
+        current_changed(selected_item);
+        }
+    }
+
 void Action_list_widget::current_changed( TQListViewItem* item_P )
     {
 //    if( item_P == selected_item )
@@ -198,6 +231,8 @@ void Action_list_widget::current_changed( TQListViewItem* item_P )
     copy_button->setEnabled( item_P != NULL );
     modify_button->setEnabled( item_P != NULL );
     delete_button->setEnabled( item_P != NULL );
+    move_up_button->setEnabled(selected_item != actions_listview->firstChild());
+    move_down_button->setEnabled(selected_item != actions_listview->lastChild());
     }
 
 Action_list_item* Action_list_widget::create_listview_item( Action* action_P,
