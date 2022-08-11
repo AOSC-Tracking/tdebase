@@ -1,11 +1,11 @@
 /****************************************************************************
 
  KHotKeys
- 
+
  Copyright (C) 1999-2001 Lubos Lunak <l.lunak@kde.org>
 
  Distributed under the terms of the GNU General Public License version 2.
- 
+
 ****************************************************************************/
 
 #ifndef _ACTION_LIST_WIDGET_H_
@@ -53,6 +53,8 @@ class Action_list_widget
         virtual void copy_pressed();
         virtual void delete_pressed();
         virtual void modify_pressed();
+        virtual void move_up_pressed();
+        virtual void move_down_pressed();
         virtual void current_changed( TQListViewItem* item_P );
     protected:
         Action_list_item* selected_item;
@@ -75,14 +77,14 @@ class Action_list_item
     protected:
         Action* _action; // owns it
     };
-        
+
 class Action_dialog
     {
     public:
         virtual Action* edit_action() = 0;
         virtual ~Action_dialog();
     };
-    
+
 class Command_url_action_dialog
     : public KDialogBase, public Action_dialog
     {
@@ -95,7 +97,7 @@ class Command_url_action_dialog
         Command_url_widget* widget;
         Command_url_action* action;
     };
-        
+
 class Menuentry_action_dialog
     : public KDialogBase, public Action_dialog
     {
@@ -108,7 +110,7 @@ class Menuentry_action_dialog
         Menuentry_widget* widget;
         Menuentry_action* action;
     };
-        
+
 class Dcop_action_dialog
     : public KDialogBase, public Action_dialog
     {
@@ -121,7 +123,7 @@ class Dcop_action_dialog
         Dcop_widget* widget;
         Dcop_action* action;
     };
-        
+
 class Keyboard_input_action_dialog
     : public KDialogBase, public Action_dialog
     {
@@ -134,7 +136,7 @@ class Keyboard_input_action_dialog
         Keyboard_input_widget* widget;
         Keyboard_input_action* action;
     };
-        
+
 class Activate_window_action_dialog
     : public KDialogBase, public Action_dialog
     {
@@ -147,7 +149,7 @@ class Activate_window_action_dialog
         Activate_window_widget* widget;
         Activate_window_action* action;
     };
-        
+
 //***************************************************************************
 // Inline
 //***************************************************************************
@@ -159,7 +161,7 @@ Action_list_item::Action_list_item( TQListView* parent_P, Action* action_P )
     : TQListViewItem( parent_P ), _action( action_P )
     {
     }
-    
+
 inline
 Action_list_item::Action_list_item( TQListViewItem* parent_P, Action* action_P )
     : TQListViewItem( parent_P ), _action( action_P )
@@ -185,7 +187,7 @@ Action* Action_list_item::action() const
     {
     return _action;
     }
-    
+
 inline
 void Action_list_item::set_action( Action* action_P )
     {

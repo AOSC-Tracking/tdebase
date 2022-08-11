@@ -1,11 +1,11 @@
 /****************************************************************************
 
  KHotKeys
- 
+
  Copyright (C) 1999-2001 Lubos Lunak <l.lunak@kde.org>
 
  Distributed under the terms of the GNU General Public License version 2.
- 
+
 ****************************************************************************/
 
 #ifndef _ACTIONS_LISTVIEW_WIDGET_H_
@@ -27,13 +27,13 @@ class Action_data_base;
 
 class Actions_listview_widget
     : public Actions_listview_widget_ui
-    { 
+    {
     Q_OBJECT
     public:
         Actions_listview_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         Action_listview_item* current_action() const;
         void set_current_action( Action_listview_item* item );
-        Action_data_base* current_action_data() const; 
+        Action_data_base* current_action_data() const;
         void set_action_data( Action_data_base* data_P, bool recent_action_P = false );
         void action_name_changed( const TQString& name_P );
         void clear();
@@ -54,7 +54,7 @@ class Actions_listview_widget
     };
 
 class Actions_listview
-    : public KHListView    
+    : public KHListView
     {
     Q_OBJECT
     public:
@@ -78,7 +78,7 @@ class Action_listview_item
             Action_data_base* data_P );
     protected:
         Action_data_base* _data; // CHECKME doesn't own !!!
-    };    
+    };
 
 //***************************************************************************
 // Inline
@@ -113,7 +113,7 @@ Actions_listview_widget* Actions_listview::widget()
     {
     return _widget;
     }
-    
+
 // Action_listview_item
 
 inline
@@ -139,7 +139,7 @@ Action_data_base* Action_listview_item::data() const
     {
     return _data;
     }
-    
+
 inline
 void Action_listview_item::set_data( Action_data_base* data_P )
     {
