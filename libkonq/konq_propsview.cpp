@@ -99,7 +99,7 @@ KonqPropsView::KonqPropsView( TDEInstance * instance, KonqPropsView * defaultPro
   d->dirsfirst = config->readBoolEntry( "SortDirsFirst", true );
   d->hiddenfirst = config->readBoolEntry( "SortHiddenFirst", true );
   d->descending = config->readBoolEntry( "SortDescending", false );
-  d->hiddenfilecriteria = config->readEntry( "HiddenFileSpec", "w.*" ); // default is wildcard for dotfiles
+  d->hiddenfilecriteria = config->readEntry( "HiddenFileSpec" ); // need fallback to be TQString::null
   m_bShowDot = config->readBoolEntry( "ShowDotFiles", false );
   m_bShowDirectoryOverlays = config->readBoolEntry( "ShowDirectoryOverlays", false );
   m_bShowFreeSpaceOverlays = config->readBoolEntry( "ShowFreeSpaceOverlays", true );
