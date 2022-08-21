@@ -75,9 +75,9 @@
                     <label>Only Running</label>
                 </choice>
             </choices>
-	    <default>ShowAll</default>
+      <default>ShowAll</default>
             <label>Show tasks with state:</label>
-	    <whatsthis>The taskbar can show and/or hide tasks based on their current process state. Select <em>Any</em> to show all tasks regardless of current state.</whatsthis>
+      <whatsthis>The taskbar can show and/or hide tasks based on their current process state. Select <em>Any</em> to show all tasks regardless of current state.</whatsthis>
         </entry>
         <entry key="SortByDesktop" type="Bool" >
             <default>true</default>
@@ -173,19 +173,20 @@
             <label>Draw taskbar entries "flat" and not as a button</label>
             <whatsthis>Turning this option on will cause the taskbar to draw visible button frames for each entry in the taskbar. By default, this option is off.</whatsthis>
         </entry>
+        <entry key="ShowButtonOnHover" type="Bool" >
+            <default>true</default>
+            <label>Show a visible button frame on the task the cursor is positioned over</label>
+            <whatsthis>Turning this option on will cause the taskbar to draw a visible button frame around the item currently under the mouse. By default, this option is on.</whatsthis>
+        </entry>
         <entry key="HaloText" type="Bool" >
             <default>false</default>
             <label>Draw taskbar text with a halo around it</label>
             <whatsthis>Turning this option on will cause the taskbar to draw fancier text that has an outline around it. While this is useful for transparent panels or particularly dark panel backgrounds, it is slower.</whatsthis>
         </entry>
-        <entry key="ShowButtonOnHover" type="Bool" >
-            <default>true</default>
-            <label>Show a visible button frame on the task the cursor is positioned over</label>
-        </entry>
         <entry key="ShowThumbnails" type="Bool" >
             <default>false</default>
             <label>Show thumbnails instead of icons in the mouse-over effects</label>
-            <whatsthis>Enabling this option will draw a thumbnail of the window in its mouse-over effect.<p>If a window is minimized or resides on a different desktop while the taskbar is starting, an icon is shown until the window is restored or the appropriate desktop is activated, respectively.</p></whatsthis>
+            <whatsthis>Enabling this option will draw a thumbnail of the window in its mouse-over effect.<p>If a window is minimized or resides on a different desktop while the taskbar is starting, an icon is shown until the window is restored or the appropriate desktop is activated, respectively. This options needs a TWin compositor in order to work.</p></whatsthis>
         </entry>
         <entry key="ThumbnailMaxDimension" type="UInt" >
             <default>100</default>
@@ -212,8 +213,8 @@
             <default code="true">QColor()</default>
             <whatsthis>This color is used for displaying background of taskbar buttons.</whatsthis>
         </entry>
-	<entry name="IconSize" type="UInt" >
-	    <default>16</default>
-	</entry>
+        <entry name="IconSize" type="UInt" >
+            <default>16</default>
+        </entry>
     </group>
 </kcfg>

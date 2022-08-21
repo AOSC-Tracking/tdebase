@@ -224,6 +224,8 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
 
     connect(m_widget->appearance, TQT_SIGNAL(activated(int)),
             this, TQT_SLOT(appearanceChanged(int)));
+    connect(m_widget->kcfg_DisplayIconsNText, TQT_SIGNAL(activated(int)),
+            this, TQT_SLOT(displayIconsNTextChanged(int)));
     addConfig(m_settingsObject, m_widget);
 
     setQuickHelp(i18n("<h1>Taskbar</h1> You can configure the taskbar here."
@@ -250,7 +252,6 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     {
         m_widget->kcfg_ShowAllWindows->hide();
         m_widget->kcfg_SortByDesktop->hide();
-        // m_widget->spacer2->changeSize(0, 0);
     }
 
     if (!TQApplication::desktop()->isVirtualDesktop() ||
@@ -290,44 +291,44 @@ TaskbarConfig::~TaskbarConfig()
 }
 
 void TaskbarConfig::slotEditGlobalConfiguration() {
-	TQByteArray data;
-	kapp->dcopClient()->send("kicker", "kicker", "reshowTaskBarConfig()", data);
+    TQByteArray data;
+    kapp->dcopClient()->send("kicker", "kicker", "reshowTaskBarConfig()", data);
 }
 
 void TaskbarConfig::processLockouts()
 {
-	m_configFileName = GLOBAL_TASKBAR_CONFIG_FILE_NAME;
-	if (m_isGlobalConfig)
-	{
-		m_widget->globalConfigWarning->show();
-		m_widget->localConfigWarning->hide();
-		m_widget->globalConfigReload->hide();
-		m_widget->globalConfigEdit->hide();
-		m_widget->kcfg_UseGlobalSettings->hide();
-		m_widget->localLikeGlobalSpacer->changeSize(0, 0, TQSizePolicy::Fixed, TQSizePolicy::Maximum);
-	}
-	else {
-		m_widget->globalConfigWarning->hide();
-		m_widget->localConfigWarning->show();
-		m_widget->kcfg_UseGlobalSettings->show();
-		if (m_widget->kcfg_UseGlobalSettings->isChecked()) {
-			m_widget->tabs->hide();
-			m_widget->globalConfigReload->hide();
-			m_widget->globalConfigEdit->show();
-			m_widget->localLikeGlobalSpacer->changeSize(0, 0, TQSizePolicy::Fixed, TQSizePolicy::MinimumExpanding);
-		}
-		else {
-			m_widget->tabs->show();
-			// FIXME
-			// Disable this feature until a method can be found to force the TDECModule to reload its settings from disk after the global settings have been copied!
-			//m_widget->globalConfigReload->show();
-			m_widget->globalConfigReload->hide();
-			m_widget->globalConfigEdit->hide();
-			m_widget->localLikeGlobalSpacer->changeSize(0, 0, TQSizePolicy::Fixed, TQSizePolicy::Maximum);
-		}
-	}
+    m_configFileName = GLOBAL_TASKBAR_CONFIG_FILE_NAME;
+    if (m_isGlobalConfig)
+    {
+        m_widget->globalConfigWarning->show();
+        m_widget->localConfigWarning->hide();
+        m_widget->globalConfigReload->hide();
+        m_widget->globalConfigEdit->hide();
+        m_widget->kcfg_UseGlobalSettings->hide();
+        m_widget->localLikeGlobalSpacer->changeSize(0, 0, TQSizePolicy::Fixed, TQSizePolicy::Maximum);
+    }
+    else {
+        m_widget->globalConfigWarning->hide();
+        m_widget->localConfigWarning->show();
+        m_widget->kcfg_UseGlobalSettings->show();
+        if (m_widget->kcfg_UseGlobalSettings->isChecked()) {
+            m_widget->tabs->hide();
+            m_widget->globalConfigReload->hide();
+            m_widget->globalConfigEdit->show();
+            m_widget->localLikeGlobalSpacer->changeSize(0, 0, TQSizePolicy::Fixed, TQSizePolicy::MinimumExpanding);
+        }
+        else {
+            m_widget->tabs->show();
+            // FIXME
+            // Disable this feature until a method can be found to force the TDECModule to reload its settings from disk after the global settings have been copied!
+            //m_widget->globalConfigReload->show();
+            m_widget->globalConfigReload->hide();
+            m_widget->globalConfigEdit->hide();
+            m_widget->localLikeGlobalSpacer->changeSize(0, 0, TQSizePolicy::Fixed, TQSizePolicy::Maximum);
+        }
+    }
 
-	m_widget->kcfg_AllowDragAndDropReArrange->setEnabled(!m_widget->kcfg_SortByApp->isChecked());
+    m_widget->kcfg_AllowDragAndDropReArrange->setEnabled(!m_widget->kcfg_SortByApp->isChecked());
 }
 
 void TaskbarConfig::slotReloadConfigurationFromGlobals()
@@ -393,12 +394,8 @@ void TaskbarConfig::updateAppearanceCombo()
         return;
     }
 
-    else if (m_widget->appearance->count() == (int)m_appearances.count())
-    {
-        m_widget->customAppearance->setEnabled(true);
-    }
-
     m_widget->appearance->setCurrentItem(m_appearances.count());
+    m_widget->customAppearance->setEnabled(true);
 }
 
 void TaskbarConfig::updateCustomAppearance()
@@ -408,19 +405,35 @@ void TaskbarConfig::updateCustomAppearance()
     m_widget->kcfg_ShowButtonOnHover->setChecked(m_settingsObject->showButtonOnHover());
 }
 
+void TaskbarConfig::updateIconsTextCombo()
+{
+    if (m_widget->kcfg_DisplayIconsNText->currentText() == "Text only")
+    {
+        m_widget->useIconsFrame->setEnabled(false);
+    }
+    else
+    {
+        m_widget->useIconsFrame->setEnabled(true);
+    }
+}
+
 void TaskbarConfig::appearanceChanged(int selected)
 {
     if (selected < m_appearances.count())
     {
         m_widget->customAppearance->setEnabled(false);
-        unmanagedWidgetChangeState(!m_appearances[selected].matchesSettings());
     }
     else if(selected == m_appearances.count())
     {
         m_widget->customAppearance->setEnabled(true);
         updateCustomAppearance();
-        unmanagedWidgetChangeState(true);
     }
+    unmanagedWidgetChangeState(true);
+}
+
+void TaskbarConfig::displayIconsNTextChanged(int selected)
+{
+    m_widget->useIconsFrame->setEnabled(selected != 1);  // 1 == Text only
 }
 
 void TaskbarConfig::load()
@@ -428,6 +441,7 @@ void TaskbarConfig::load()
     TDECModule::load();
     slotUpdateComboBox();
     updateAppearanceCombo();
+    updateIconsTextCombo();
     m_widget->showAllScreens->setChecked(!m_settingsObject->showCurrentScreenOnly());
 
     int iconSize = m_settingsObject->iconSize();
@@ -468,6 +482,7 @@ void TaskbarConfig::defaults()
     TDECModule::defaults();
     slotUpdateComboBox();
     updateAppearanceCombo();
+    updateIconsTextCombo();
 }
 
 void TaskbarConfig::notChanged()

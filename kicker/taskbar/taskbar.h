@@ -144,34 +144,33 @@ private:
     void sortContainersByDesktop(TaskContainer::List& list);
     void setViewportBackground();
 
-    bool			          blocklayout;
-    bool			          m_showAllWindows;
-    bool			          m_cycleWheel;
-    int 			          m_currentScreen;    // The screen to show, -1 for all screens
-    bool			          m_showOnlyCurrentScreen;
-    bool			          m_sortByDesktop;
+    bool                blocklayout;
+    bool                m_showAllWindows;
+    bool                m_cycleWheel;
+    int                 m_currentScreen;    // The screen to show, -1 for all screens
+    bool                m_showOnlyCurrentScreen;
+    bool                m_sortByDesktop;
     int                 m_displayIconsNText;
-    bool			          m_showOnlyIconified;
-    int				          m_showTaskStates;
+    bool                m_showOnlyIconified;
+    int                 m_showTaskStates;
     int                 m_iconSize;
-    ArrowType 			    arrowType;
-    TaskContainer::List	containers;
-    TaskContainer::List	m_hiddenContainers;
-    TaskContainer::List	m_deletableContainers;
-    PixmapList			    frames;
+    ArrowType           arrowType;
+    TaskContainer::List containers;
+    TaskContainer::List m_hiddenContainers;
+    TaskContainer::List m_deletableContainers;
+    PixmapList          frames;
     int                 maximumButtonsWithoutShrinking() const;
     bool                shouldGroup() const;
     bool                isGrouping;
     void                reGroup();
     TDEGlobalAccel*     keys;
-    KTextShadowEngine*	m_textShadowEngine;
-    bool			          m_ignoreUpdates;
-    bool			          m_sortByAppPrev;
-    TQTimer			        m_relayoutTimer;
-    TQImage			        m_blendGradient;
-    TaskBarSettings*		m_settingsObject;
-    TaskBarSettings*		m_globalSettingsObject;
-
+    KTextShadowEngine*  m_textShadowEngine;
+    bool                m_ignoreUpdates;
+    bool                m_sortByAppPrev;
+    TQTimer             m_relayoutTimer;
+    TQImage             m_blendGradient;
+    TaskBarSettings*    m_settingsObject;
+    TaskBarSettings*    m_globalSettingsObject;
 };
 
 #endif

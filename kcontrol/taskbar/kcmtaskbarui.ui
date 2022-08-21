@@ -139,7 +139,7 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="4">
+                            <widget class="TQCheckBox" row="0" column="0" colspan="4">
                                 <property name="name">
                                     <cstring>kcfg_ShowAllWindows</cstring>
                                 </property>
@@ -153,105 +153,7 @@
                                     <bool>true</bool>
                                 </property>
                                 <property name="whatsThis" stdset="0">
-                                    <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; the windows on the current desktop. 
-
-By default, this option is selected and all windows are shown.</string>
-                                </property>
-                            </widget>
-                            <widget class="TQCheckBox" row="1" column="1" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>kcfg_SortByDesktop</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Sort windows by desk&amp;top</string>
-                                </property>
-                                <property name="accel">
-                                    <string>Alt+T</string>
-                                </property>
-                                <property name="checked">
-                                    <bool>true</bool>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Selecting this option causes the taskbar to show windows in order of the desktop they appear on.
-
-By default this option is selected.</string>
-                                </property>
-                            </widget>
-                            <widget class="TQCheckBox" row="3" column="0" rowspan="1" colspan="4">
-                                <property name="name">
-                                    <cstring>kcfg_ShowOnlyIconified</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Show o&amp;nly minimized windows</string>
-                                </property>
-                                <property name="accel">
-                                    <string>Alt+N</string>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Select this option if you want the taskbar to display &lt;b&gt;only&lt;/b&gt; minimized windows. 
-
-By default, this option is not selected and the taskbar will show all windows.</string>
-                                </property>
-                            </widget>
-                            <widget class="KSeparator" row="4" column="0" rowspan="1" colspan="4">
-                                <property name="name">
-                                    <cstring>kSeparator5</cstring>
-                                </property>
-                            </widget>
-                            <spacer row="6" column="3">
-                                <property name="name">
-                                    <cstring>spacer23</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>31</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="TQLabel" row="5" column="0" rowspan="2" colspan="2">
-                                <property name="name">
-                                    <cstring>showTaskStatesLabel</cstring>
-                                </property>
-                                <property name="minimumSize">
-                                    <size>
-                                        <width>250</width>
-                                        <height>0</height>
-                                    </size>
-                                </property>
-                                <property name="text">
-                                    <string>&amp;Show tasks with state:</string>
-                                </property>
-                                <property name="buddy" stdset="0">
-                                    <cstring>kcfg_ShowTaskStates</cstring>
-                                </property>
-                            </widget>
-                            <widget class="TQComboBox" row="5" column="2" rowspan="2" colspan="1">
-                                <property name="name">
-                                    <cstring>kcfg_ShowTaskStates</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>7</hsizetype>
-                                        <vsizetype>0</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="minimumSize">
-                                    <size>
-                                        <width>250</width>
-                                        <height>0</height>
-                                    </size>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>The taskbar can show and/or hide tasks based on their current process state.  Select &lt;em&gt;Any&lt;/em&gt; to show all tasks regardless of current state.</string>
+                                    <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; the windows on the current desktop. By default, this option is selected and all windows are shown.</string>
                                 </property>
                             </widget>
                             <spacer row="1" column="0">
@@ -271,7 +173,24 @@ By default, this option is not selected and the taskbar will show all windows.</
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="4">
+                            <widget class="TQCheckBox" row="1" column="1" colspan="3">
+                                <property name="name">
+                                    <cstring>kcfg_SortByDesktop</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Sort windows by desk&amp;top</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+T</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Selecting this option causes the taskbar to show windows in order of the desktop they appear on. By default this option is selected.</string>
+                                </property>
+                            </widget>
+                            <widget class="TQCheckBox" row="2" column="0" colspan="4">
                                 <property name="name">
                                     <cstring>showAllScreens</cstring>
                                 </property>
@@ -285,11 +204,84 @@ By default, this option is not selected and the taskbar will show all windows.</
                                     <bool>true</bool>
                                 </property>
                                 <property name="whatsThis" stdset="0">
-                                    <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; windows which are on the same Xinerama screen as the taskbar.
-
-By default, this option is selected and all windows are shown.</string>
+                                    <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; windows which are on the same Xinerama screen as the taskbar. By default, this option is selected and all windows are shown.</string>
                                 </property>
                             </widget>
+                            <widget class="TQCheckBox" row="3" column="0" colspan="4">
+                                <property name="name">
+                                    <cstring>kcfg_ShowOnlyIconified</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Show o&amp;nly minimized windows</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+N</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Select this option if you want the taskbar to display &lt;b&gt;only&lt;/b&gt; minimized windows. By default, this option is not selected and the taskbar will show all windows.</string>
+                                </property>
+                            </widget>
+                            <widget class="KSeparator" row="4" column="0" colspan="4">
+                                <property name="name">
+                                    <cstring>kSeparator5</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQLabel" row="5" column="0" rowspan="2" colspan="2">
+                                <property name="name">
+                                    <cstring>showTaskStatesLabel</cstring>
+                                </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>250</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Show tasks with state:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_ShowTaskStates</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQComboBox" row="5" column="2" rowspan="2">
+                                <property name="name">
+                                    <cstring>kcfg_ShowTaskStates</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>250</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>The taskbar can show and/or hide tasks based on their current process state. Select &lt;em&gt;Any&lt;/em&gt; to show all tasks regardless of current state.</string>
+                                </property>
+                            </widget>
+                            <spacer row="6" column="3">
+                                <property name="name">
+                                    <cstring>spacer23</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>31</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
                         </grid>
                     </widget>
                     <widget class="TQButtonGroup">
@@ -328,7 +320,7 @@ By default, this option is selected and all windows are shown.</string>
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="TQCheckBox" row="1" column="1" rowspan="1" colspan="3">
+                            <widget class="TQCheckBox" row="1" column="1" colspan="3">
                                 <property name="name">
                                     <cstring>kcfg_AllowDragAndDropReArrange</cstring>
                                 </property>
@@ -345,7 +337,7 @@ By default, this option is selected and all windows are shown.</string>
                                     <string>Turning this option on will allow tasks on the taskbar to be manually rearranged using drag and drop.</string>
                                 </property>
                             </widget>
-                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="4">
+                            <widget class="TQCheckBox" row="0" column="0" colspan="4">
                                 <property name="name">
                                     <cstring>kcfg_SortByApp</cstring>
                                 </property>
@@ -359,12 +351,12 @@ By default, this option is selected and all windows are shown.</string>
                                     <bool>true</bool>
                                 </property>
                             </widget>
-                            <widget class="KSeparator" row="3" column="0" rowspan="1" colspan="4">
+                            <widget class="KSeparator" row="3" column="0" colspan="4">
                                 <property name="name">
                                     <cstring>kSeparator6</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQLabel" row="4" column="0" rowspan="1" colspan="2">
+                            <widget class="TQLabel" row="4" column="0" colspan="2">
                                 <property name="name">
                                     <cstring>groupTasksLabel</cstring>
                                 </property>
@@ -400,11 +392,7 @@ By default, this option is selected and all windows are shown.</string>
                                     </size>
                                 </property>
                                 <property name="whatsThis" stdset="0">
-                                    <string>The taskbar can group similar windows into single buttons. When one of these window group buttons are clicked on a menu appears showing all the windows in that group. This can be especially useful with the &lt;em&gt;Show all windows&lt;/em&gt; option.
-
-You can set the taskbar to &lt;strong&gt;Never&lt;/strong&gt; group windows, to &lt;strong&gt;Always&lt;/strong&gt; group windows or to group windows only &lt;strong&gt;When the Taskbar is Full&lt;/strong&gt;.
-
-By default the taskbar groups windows when it is full.</string>
+                                    <string>The taskbar can group similar windows into single buttons. When one of these window group buttons are clicked on a menu appears showing all the windows in that group. This can be especially useful with the &lt;em&gt;Show all windows&lt;/em&gt; option. You can set the taskbar to &lt;strong&gt;Never&lt;/strong&gt; group windows, to &lt;strong&gt;Always&lt;/strong&gt; group windows or to group windows only &lt;strong&gt;When the Taskbar is Full&lt;/strong&gt;. By default the taskbar groups windows when it is full.</string>
                                 </property>
                             </widget>
                             <spacer row="4" column="3">
@@ -480,7 +468,7 @@ By default the taskbar groups windows when it is full.</string>
                         <property name="sizePolicy">
                             <sizepolicy>
                                 <hsizetype>3</hsizetype>
-                                <vsizetype>4</vsizetype>
+                                <vsizetype>5</vsizetype>
                                 <horstretch>0</horstretch>
                                 <verstretch>0</verstretch>
                             </sizepolicy>
@@ -509,7 +497,7 @@ By default the taskbar groups windows when it is full.</string>
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="TQCheckBox" row="1" column="0" rowspan="1" colspan="3">
+                            <widget class="TQCheckBox" row="1" column="0" colspan="3">
                                 <property name="name">
                                     <cstring>kcfg_UseCustomColors</cstring>
                                 </property>
@@ -526,7 +514,7 @@ By default the taskbar groups windows when it is full.</string>
                                     <bool>true</bool>
                                 </property>
                             </widget>
-                            <widget class="TQLayoutWidget" row="2" column="1" rowspan="1" colspan="2">
+                            <widget class="TQLayoutWidget" row="2" column="1" colspan="2">
                                 <property name="name">
                                     <cstring>layout19</cstring>
                                 </property>
@@ -576,24 +564,15 @@ By default the taskbar groups windows when it is full.</string>
                                         <property name="name">
                                             <cstring>kcfg_InactiveTaskTextColor</cstring>
                                         </property>
-                                        <property name="text">
-                                            <string></string>
-                                        </property>
                                     </widget>
                                     <widget class="KColorButton" row="1" column="1">
                                         <property name="name">
                                             <cstring>kcfg_ActiveTaskTextColor</cstring>
                                         </property>
-                                        <property name="text">
-                                            <string></string>
-                                        </property>
                                     </widget>
                                     <widget class="KColorButton" row="2" column="1">
                                         <property name="name">
                                             <cstring>kcfg_TaskBackgroundColor</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string></string>
                                         </property>
                                     </widget>
                                     <widget class="TQLabel" row="0" column="0">
@@ -638,7 +617,7 @@ By default the taskbar groups windows when it is full.</string>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="2">
+                            <widget class="TQCheckBox" row="0" column="0" colspan="2">
                                 <property name="name">
                                     <cstring>kcfg_ShowWindowListBtn</cstring>
                                 </property>
@@ -655,7 +634,23 @@ By default the taskbar groups windows when it is full.</string>
                                     <string>Selecting this option causes the taskbar to display a button that, when clicked, shows a list of all windows in a popup menu.</string>
                                 </property>
                             </widget>
-                            <widget class="TQSpinBox" row="1" column="1">
+                            <widget class="KSeparator" row="1" column="0" colspan="2">
+                                <property name="name">
+                                    <cstring>kSeparator7</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQLabel" row="2" column="0">
+                                <property name="name">
+                                    <cstring>maxButtonWidthLabel</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Max width for buttons:</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>This option allows to set the maximum width for taskbar buttons.</string>
+                                </property>
+                            </widget>
+                            <widget class="TQSpinBox" row="2" column="1">
                                 <property name="name">
                                     <cstring>kcfg_MaximumButtonWidth</cstring>
                                 </property>
@@ -670,14 +665,6 @@ By default the taskbar groups windows when it is full.</string>
                                 </property>
                                 <property name="value">
                                     <number>200</number>
-                                </property>
-                            </widget>
-                            <widget class="TQLabel" row="1" column="0">
-                                <property name="name">
-                                    <cstring>maxButtonWidthLabel</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Maximum button width:</string>
                                 </property>
                             </widget>
                         </grid>
@@ -701,7 +688,41 @@ By default the taskbar groups windows when it is full.</string>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="TQComboBox" row="0" column="2" rowspan="1" colspan="2">
+                            <widget class="TQLabel" row="0" column="0">
+                                <property name="name">
+                                    <cstring>displayIconsNTextLabel</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Dis&amp;play:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_DisplayIconsNText</cstring>
+                                </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>130</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
+                            </widget>
+                            <spacer row="0" column="1">
+                                <property name="name">
+                                    <cstring>spacer2_2_2_3_3</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="TQComboBox" row="0" column="2" colspan="2">
                                 <property name="name">
                                     <cstring>kcfg_DisplayIconsNText</cstring>
                                 </property>
@@ -717,97 +738,91 @@ By default the taskbar groups windows when it is full.</string>
                                     <string>Choose taskbar display mode among &lt;strong&gt;Icons and text&lt;/strong&gt;, &lt;strong&gt;Text only&lt;/strong&gt; and &lt;strong&gt;Icons only&lt;/strong&gt;.</string>
                                 </property>
                             </widget>
-                            <widget class="TQLabel" row="0" column="0" rowspan="1" colspan="2">
+                            <widget class="TQFrame" row="1" column="0" colspan="4">
                                 <property name="name">
-                                    <cstring>displayIconsNTextLabel</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>1</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="minimumSize">
-                                    <size>
-                                        <width>100</width>
-                                        <height>0</height>
-                                    </size>
-                                </property>
-                                <property name="text">
-                                    <string>Dis&amp;play:</string>
-                                </property>
-                                <property name="buddy" stdset="0">
-                                    <cstring>kcfg_DisplayIconsNText</cstring>
-                                </property>
-                            </widget>
-                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="4">
-                                <property name="name">
-                                    <cstring>kcfg_ShowThumbnails</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Show thumbnails on hover (needs TWin compositor enabled)</string>
-                                </property>
-                            </widget>
-                            <widget class="TQSpinBox" row="3" column="3">
-                                <property name="name">
-                                    <cstring>kcfg_ThumbnailMaxDimension</cstring>
+                                    <cstring>useIconsFrame</cstring>
                                 </property>
                                 <property name="enabled">
                                     <bool>false</bool>
                                 </property>
-                                <property name="suffix">
-                                    <string> px</string>
+                                <property name="frameShape">
+                                    <enum>StyledPanel</enum>
                                 </property>
-                                <property name="maxValue">
-                                    <number>500</number>
+                                <property name="frameShadow">
+                                    <enum>Raised</enum>
                                 </property>
-                                <property name="minValue">
-                                    <number>50</number>
-                                </property>
-                                <property name="value">
-                                    <number>100</number>
-                                </property>
-                            </widget>
-                            <spacer row="3" column="0">
-                                <property name="name">
-                                    <cstring>spacer2_2_2_3</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="TQLabel" row="3" column="1" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>thumbMaxDimensionLabel</cstring>
-                                </property>
-                                <property name="enabled">
-                                    <bool>false</bool>
-                                </property>
-                                <property name="text">
-                                    <string>Maximum dimension:</string>
-                                </property>
-                            </widget>
-                            <widget class="TQCheckBox" row="1" column="2">
-                                <property name="name">
-                                    <cstring>smallIcons</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Small icons</string>
-                                </property>
-                                <property name="checked">
-                                    <bool>true</bool>
-                                </property>
+                                <grid>
+                                    <widget class="TQCheckBox" row="0" column="0" colspan="3">
+                                        <property name="name">
+                                            <cstring>smallIcons</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Small icons</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>Selecting this option makes the taskbar use small icons.</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQCheckBox" row="1" column="0" colspan="3">
+                                        <property name="name">
+                                            <cstring>kcfg_ShowThumbnails</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Show thumbnails on hover</string>
+                                        </property>
+                                    </widget>
+                                    <spacer row="2" column="0">
+                                        <property name="name">
+                                            <cstring>spacer2_2_2_3</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Fixed</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="TQLabel" row="2" column="1">
+                                        <property name="name">
+                                            <cstring>thumbMaxDimensionLabel</cstring>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                        <property name="text">
+                                            <string>Maximum dimension:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQSpinBox" row="2" column="2">
+                                        <property name="name">
+                                            <cstring>kcfg_ThumbnailMaxDimension</cstring>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                        <property name="suffix">
+                                            <string> px</string>
+                                        </property>
+                                        <property name="maxValue">
+                                            <number>500</number>
+                                        </property>
+                                        <property name="minValue">
+                                            <number>50</number>
+                                        </property>
+                                        <property name="value">
+                                            <number>100</number>
+                                        </property>
+                                    </widget>
+                                </grid>
                             </widget>
                         </grid>
                     </widget>
@@ -840,8 +855,31 @@ By default the taskbar groups windows when it is full.</string>
                                 <property name="buddy" stdset="0">
                                     <cstring>appearance</cstring>
                                 </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>130</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
                             </widget>
-                            <widget class="TQComboBox" row="0" column="1">
+                            <spacer row="0" column="1">
+                                <property name="name">
+                                    <cstring>spacer2_2_2_3_3</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="TQComboBox" row="0" column="2" colspan="2">
                                 <property name="name">
                                     <cstring>appearance</cstring>
                                 </property>
@@ -854,7 +892,7 @@ By default the taskbar groups windows when it is full.</string>
                                     </sizepolicy>
                                 </property>
                             </widget>
-                            <widget class="TQFrame" row="2" column="0" rowspan="1" colspan="2">
+                            <widget class="TQFrame" row="1" column="0" colspan="4">
                                 <property name="name">
                                     <cstring>customAppearance</cstring>
                                 </property>
@@ -871,29 +909,12 @@ By default the taskbar groups windows when it is full.</string>
                                     <property name="name">
                                         <cstring>unnamed</cstring>
                                     </property>
-                                    <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="2">
-                                        <property name="name">
-                                            <cstring>kcfg_HaloText</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Draw halo around text</string>
-                                        </property>
-                                        <property name="accel">
-                                            <string></string>
-                                        </property>
-                                        <property name="checked">
-                                            <bool>true</bool>
-                                        </property>
-                                    </widget>
-                                    <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="2">
+                                    <widget class="TQCheckBox" row="0" column="0" colspan="3">
                                         <property name="name">
                                             <cstring>kcfg_DrawButtons</cstring>
                                         </property>
                                         <property name="text">
                                             <string>Always draw items as buttons</string>
-                                        </property>
-                                        <property name="accel">
-                                            <string></string>
                                         </property>
                                     </widget>
                                     <spacer row="1" column="0">
@@ -913,15 +934,23 @@ By default the taskbar groups windows when it is full.</string>
                                             </size>
                                         </property>
                                     </spacer>
-                                    <widget class="TQCheckBox" row="1" column="1">
+                                    <widget class="TQCheckBox" row="1" column="1" colspan="2">
                                         <property name="name">
                                             <cstring>kcfg_ShowButtonOnHover</cstring>
                                         </property>
                                         <property name="text">
                                             <string>Draw items as buttons on hover</string>
                                         </property>
-                                        <property name="accel">
-                                            <string></string>
+                                    </widget>
+                                    <widget class="TQCheckBox" row="2" column="0" colspan="3">
+                                        <property name="name">
+                                            <cstring>kcfg_HaloText</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Draw halo around text</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>true</bool>
                                         </property>
                                     </widget>
                                 </grid>
@@ -1032,7 +1061,7 @@ By default the taskbar groups windows when it is full.</string>
                                     <cstring>kcfg_RightButtonAction</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQCheckBox" row="4" column="0" rowspan="1" colspan="2">
+                            <widget class="TQCheckBox" row="4" column="0" colspan="2">
                                 <property name="name">
                                     <cstring>kcfg_CycleWheel</cstring>
                                 </property>

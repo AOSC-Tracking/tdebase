@@ -67,6 +67,7 @@ public slots:
 protected slots:
     void slotUpdateComboBox();
     void appearanceChanged(int);
+    void displayIconsNTextChanged(int);
     void notChanged();
     void slotUpdateCustomColors();
 
@@ -78,6 +79,7 @@ private slots:
 private:
     TaskbarAppearance::List m_appearances;
     void updateAppearanceCombo();
+    void updateIconsTextCombo();
     void updateCustomAppearance();
     static const TQStringList& actionList();
     static TQStringList i18nActionList();
