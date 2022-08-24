@@ -145,9 +145,11 @@ void Settings::write_settings()
         gestures_exclude->cfg_write( cfg );
         }
     else
+        {
         cfg.deleteGroup( "GesturesExclude" );
-	cfg.setGroup( "Voice" );
-	cfg.writeEntry("Shortcut" , voice_shortcut.toStringInternal() );
+        }
+    cfg.setGroup( "Voice" );
+    cfg.writeEntry("Shortcut" , voice_shortcut.toStringInternal() );
 
     }
 
