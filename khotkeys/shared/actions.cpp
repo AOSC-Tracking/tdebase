@@ -54,7 +54,9 @@ Action* Action::create_cfg_read( TDEConfig& cfg_P, Action_data* data_P )
         return new Keyboard_input_action( cfg_P, data_P );
     if( type == "ACTIVATE_WINDOW" )
         return new Activate_window_action( cfg_P, data_P );
-    kdWarning( 1217 ) << "Unknown Action type read from cfg file\n";
+    if( type == "WAITING" )
+        return new Waiting_action( cfg_P, data_P );
+    kdWarning( 1217 ) << "Unknown Action type read from cfg file: " << type << endl;
     return NULL;
     }
 
@@ -450,6 +452,36 @@ TQString Activate_window_action::description() const
 Action* Activate_window_action::copy( Action_data* data_P ) const
     {
     return new Activate_window_action( data_P, window()->copy());
+    }
+
+// Waiting_action
+
+Waiting_action::Waiting_action( TDEConfig& cfg_P, Action_data* data_P )
+    : Action( cfg_P, data_P )
+    {
+    _waiting_time = cfg_P.readNumEntry("Time");
+    }
+
+void Waiting_action::cfg_write( TDEConfig& cfg_P ) const
+    {
+    base::cfg_write( cfg_P );
+    cfg_P.writeEntry( "Type", "WAITING" ); // overwrites value set in base::cfg_write()
+    cfg_P.writeEntry( "Time", _waiting_time);
+    }
+
+void Waiting_action::execute()
+    {
+		usleep(_waiting_time * 1000);
+    }
+
+TQString Waiting_action::description() const
+    {
+    return i18n( "Waiting %1 ms" ).arg(_waiting_time);
+    }
+
+Action* Waiting_action::copy( Action_data* data_P ) const
+    {
+    return new Waiting_action( data_P, _waiting_time);
     }
 
 } // namespace KHotKeys

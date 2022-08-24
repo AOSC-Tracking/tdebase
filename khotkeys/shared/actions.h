@@ -50,7 +50,7 @@ class KDE_EXPORT Action_list
     : public TQPtrList< Action >
     {
     public:
-        Action_list( const TQString& comment_P ); // CHECKME nebo i data ?
+        Action_list( const TQString& comment_P );
         Action_list( TDEConfig& cfg_P, Action_data* data_P );
         void cfg_write( TDEConfig& cfg_P ) const;
         typedef TQPtrListIterator< Action > Iterator;
@@ -111,7 +111,7 @@ class KDE_EXPORT Dcop_action
         virtual TQString description() const;
         virtual Action* copy( Action_data* data_P ) const;
     private:
-        TQString app; // CHECKME TQCString ?
+        TQString app;
         TQString obj;
         TQString call;
         TQString args;
@@ -159,6 +159,21 @@ class KDE_EXPORT Activate_window_action
         const Windowdef_list* _window;
     };
         
+class KDE_EXPORT Waiting_action
+    : public Action
+    {
+    typedef Action base;
+    public:
+        Waiting_action( Action_data* data_P, const int waiting_time );
+        Waiting_action( TDEConfig& cfg_P, Action_data* data_P );
+        virtual void cfg_write( TDEConfig& cfg_P ) const;
+        virtual void execute();
+        virtual TQString description() const;
+        virtual Action* copy( Action_data* data_P ) const;
+
+        int _waiting_time;
+    };
+
 //***************************************************************************
 // Inline
 //***************************************************************************
@@ -300,6 +315,14 @@ const Windowdef_list* Activate_window_action::window() const
     return _window;
     }
 
+// Waiting_action
+
+inline
+Waiting_action::Waiting_action( Action_data* data_P, const int waiting_time)
+    : Action( data_P ), _waiting_time(waiting_time)
+    {
+    }
+
 } // namespace KHotKeys
-    
+
 #endif

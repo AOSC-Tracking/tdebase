@@ -32,6 +32,7 @@
 #include "dcop_widget.h"
 #include "keyboard_input_widget.h"
 #include "activate_window_widget.h"
+#include "waiting_widget.h"
 #include "kcmkhotkeys.h"
 
 namespace KHotKeys
@@ -48,6 +49,7 @@ Action_list_widget::Action_list_widget( TQWidget* parent_P, const char* name_P )
     popup->insertItem( i18n( "DCOP Call..." ), TYPE_DCOP_ACTION );
     popup->insertItem( i18n( "Keyboard Input..." ), TYPE_KEYBOARD_INPUT_ACTION );
     popup->insertItem( i18n( "Activate Window..." ), TYPE_ACTIVATE_WINDOW_ACTION );
+    popup->insertItem( i18n( "Waiting..." ), TYPE_WAITING_ACTION );
     connect( popup, TQT_SIGNAL( activated( int )), TQT_SLOT( new_selected( int )));
     new_button->setPopup( popup );
     actions_listview->header()->hide();
@@ -128,6 +130,9 @@ void Action_list_widget::new_selected( int type_P )
           break;
         case TYPE_ACTIVATE_WINDOW_ACTION: // Activate_window_action_dialog
             dlg = new Activate_window_action_dialog( NULL );
+          break;
+        case TYPE_WAITING_ACTION: // Waiting_action_dialog
+            dlg = new Waiting_action_dialog( NULL );
           break;
         default:
           assert( false );
@@ -271,6 +276,8 @@ void Action_list_widget::edit_listview_item( Action_list_item* item_P )
     else if( Activate_window_action* action
         = dynamic_cast< Activate_window_action* >( item_P->action()))
         dlg = new Activate_window_action_dialog( action );
+    else if( Waiting_action* action = dynamic_cast< Waiting_action* >( item_P->action()))
+        dlg = new Waiting_action_dialog( action );
     else // CHECKME TODO pridat dalsi
         assert( false );
     Action* new_action = dlg->edit_action();
@@ -403,6 +410,28 @@ void Activate_window_action_dialog::accept()
     {
     KDialogBase::accept();
     action = new Activate_window_action( NULL, widget->get_data()); // CHECKME NULL ?
+    }
+
+// Waiting_action_dialog
+
+Waiting_action_dialog::Waiting_action_dialog( Waiting_action* action_P )
+    : KDialogBase( NULL, NULL, true, "", Ok | Cancel ), action( NULL )
+    {
+    widget = new Waiting_widget( this );
+    widget->set_data( action_P );
+    setMainWidget( widget );
+    }
+
+Action* Waiting_action_dialog::edit_action()
+    {
+    exec();
+    return action;
+    }
+
+void Waiting_action_dialog::accept()
+    {
+    KDialogBase::accept();
+    action = widget->get_data( NULL );
     }
 
 } // namespace KHotKeys

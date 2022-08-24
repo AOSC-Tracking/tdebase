@@ -28,6 +28,7 @@ class Command_url_widget;
 class Menuentry_widget;
 class Dcop_widget;
 class Keyboard_input_widget;
+class Waiting_widget;
 
 class Action_list_item;
 
@@ -47,7 +48,7 @@ class Action_list_widget
             TQListViewItem* parent2_P, TQListViewItem* after_P, bool copy_P );
         void edit_listview_item( Action_list_item* item_P );
         enum type_t { TYPE_COMMAND_URL_ACTION, TYPE_MENUENTRY_ACTION, TYPE_DCOP_ACTION,
-            TYPE_KEYBOARD_INPUT_ACTION, TYPE_ACTIVATE_WINDOW_ACTION };
+            TYPE_KEYBOARD_INPUT_ACTION, TYPE_ACTIVATE_WINDOW_ACTION, TYPE_WAITING_ACTION };
     protected slots:
         void new_selected( int type_P );
         virtual void copy_pressed();
@@ -148,6 +149,19 @@ class Activate_window_action_dialog
         virtual void accept();
         Activate_window_widget* widget;
         Activate_window_action* action;
+    };
+
+class Waiting_action_dialog
+    : public KDialogBase, public Action_dialog
+    {
+    Q_OBJECT
+    public:
+        Waiting_action_dialog( Waiting_action* action_P );
+        virtual Action* edit_action();
+    protected:
+        virtual void accept();
+        Waiting_widget* widget;
+        Waiting_action* action;
     };
 
 //***************************************************************************

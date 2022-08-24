@@ -4,7 +4,7 @@ kde_module_LTLIBRARIES = kcm_khotkeys.la kcm_khotkeys_init.la
 
 kcm_khotkeys_la_SOURCES = \
     menuedit.cpp window_trigger_widget.cpp tab_widget.cpp main_buttons_widget.cpp \
-    actions_listview_widget.cpp menuentry_widget.cpp general_tab.cpp \
+    actions_listview_widget.cpp menuentry_widget.cpp general_tab.cpp waiting_widget.cpp \
     action_group_tab.cpp kcmkhotkeys.cpp command_url_widget.cpp windowdef_list_widget.cpp \
     windowdef_simple_widget.cpp triggers_tab.cpp dcop_widget.cpp info_tab.cpp \
     action_list_widget.cpp keyboard_input_widget.cpp condition_list_widget.cpp \
