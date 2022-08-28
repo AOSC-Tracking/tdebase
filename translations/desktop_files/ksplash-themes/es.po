@@ -1,99 +1,100 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Real name <sbdc1wdfzk@crossmailjet.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-24 18:26+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-08-29 21:56+0000\n"
+"Last-Translator: Real name <sbdc1wdfzk@crossmailjet.com>\n"
+"Language-Team: Spanish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/ksplash-themes/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 #. Name
 #: pics/themes/TDE-Classic/Theme.rc:4
 #: pics/themes/TDE-Classic/locolor/Theme.rc:4
 msgid "TDE 3.5 Splash Screen"
-msgstr ""
+msgstr "Pantalla Anunciadora de TDE 3.5"
 
 #. Description
 #: pics/themes/TDE-Classic/Theme.rc:5
 #: pics/themes/TDE-Classic/locolor/Theme.rc:5
 msgid "Waves of change"
-msgstr ""
+msgstr "Olas del cambio"
 
 #. Name
 #: pics/themes/blue-bend/Theme.rc:6
 msgid "Blue-Bend KDE Splash Theme"
-msgstr ""
+msgstr "Tema de Anunciador KDE Azul-curvado"
 
 #. Description
 #: pics/themes/blue-bend/Theme.rc:7
 msgid "Load Blue-Bend KDE KSplash theme."
-msgstr ""
+msgstr "Carga el Tema KDE Azul-curvado."
 
 #. Name
 #: pics/themes/default/Theme.rc:6
 msgid "Refresh TDE Splash Theme"
-msgstr ""
+msgstr "Tema de Anunciador TDE Refrescado"
 
 #. Description
 #: pics/themes/default/Theme.rc:7
 msgid "Load Refresh TDE KSplash theme."
-msgstr ""
+msgstr "Carga el tema KSplash TDE Refrescado."
 
 #. Name
 #: pics/themes/none/Theme.rc:4
 msgid "No Splash Screen"
-msgstr ""
+msgstr "Sin Pantalla Anunciadora"
 
 #. Description
 #: pics/themes/none/Theme.rc:5
 msgid "Splash Screen Turned Off"
-msgstr ""
+msgstr "Pantalla Anunciadora Apagada"
 
 #. Name
 #: pics/themes/simple/Theme.rc:4
 msgid "Simple Splash Screen"
-msgstr ""
+msgstr "Pantalla Anunciadora Simple"
 
 #. Description
 #: pics/themes/simple/Theme.rc:5
 msgid "Very Simple Optimized Splash Screen"
-msgstr ""
+msgstr "Pantalla Anunciadora Optimizada y Simple"
 
 #. Name
 #: pics/themes/unified/Theme.rc:4
 msgid "Trinity Unified Splash Screen"
-msgstr ""
+msgstr "Pantalla Anunciadora Unificada de Trinity"
 
 #. Description
 #: pics/themes/unified/Theme.rc:5
 msgid "Unified system startup screen"
-msgstr ""
+msgstr "Pantalla unificada de inicio del sistema"
 
 #. Name
 #: themeengine/redmond/Theme.rc:2
 msgid "Redmond Splash Screen"
-msgstr ""
+msgstr "Pantalla Anunciadora de Redmond"
 
 #. Description
 #: themeengine/redmond/Theme.rc:3
 msgid "KSplash theme inspired by the Microsoft Windows startup screen."
-msgstr ""
+msgstr "Tema KSplash inspirado por la pantalla de inicio de Microsoft Windows."
 
 #. Name
 #: themeengine/standard/Theme.rc:2
 msgid "Standard Splash Screen"
-msgstr ""
+msgstr "Pantalla Anunciadora Estandar"
 
 #. Description
 #: themeengine/standard/Theme.rc:3
 msgid "Standard TDE KSplash theme."
-msgstr ""
+msgstr "Tema KSplash Estandar de TDE."
