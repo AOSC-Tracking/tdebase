@@ -84,9 +84,6 @@
                             <property name="text">
                                 <string>&amp;Wide area network</string>
                             </property>
-                            <property name="accel">
-                                <string>Alt+W</string>
-                            </property>
                             <property name="whatsThis" stdset="0">
                                 <string>Advertise services on Internet domain using public IP. To have this option working you need to configure wide area operation in using administrator mode</string>
                             </property>
@@ -106,9 +103,6 @@
                             <property name="text">
                                 <string>Loc&amp;al network</string>
                             </property>
-                            <property name="accel">
-                                <string>Alt+A</string>
-                            </property>
                             <property name="checked">
                                 <bool>false</bool>
                             </property>
@@ -124,9 +118,6 @@
                         <property name="text">
                             <string>Browse local networ&amp;k</string>
                         </property>
-                        <property name="accel">
-                            <string>Alt+K</string>
-                        </property>
                         <property name="whatsThis" stdset="0">
                             <string>Browse local network (domain .local) using multicast DNS.</string>
                         </property>
@@ -137,9 +128,6 @@
                         </property>
                         <property name="text">
                             <string>Enable &amp;Zeroconf network browsing</string>
-                        </property>
-                        <property name="accel">
-                            <string>Alt+Z</string>
                         </property>
                         <property name="whatsThis" stdset="0">
                             <string>Browse local network (domain .local) using multicast DNS.</string>

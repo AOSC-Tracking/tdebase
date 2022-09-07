@@ -66,9 +66,6 @@
             <property name="text">
                 <string>Colored window border</string>
             </property>
-            <property name="accel">
-                <string></string>
-            </property>
             <property name="whatsThis" stdset="0">
                 <string>Check this option if the window border should be painted in the titlebar color. Otherwise it will be painted in the background color.</string>
             </property>
