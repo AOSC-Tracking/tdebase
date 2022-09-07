@@ -146,9 +146,6 @@
                                 <property name="text">
                                     <string>&amp;Show windows from all desktops</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+S</string>
-                                </property>
                                 <property name="checked">
                                     <bool>true</bool>
                                 </property>
@@ -180,9 +177,6 @@
                                 <property name="text">
                                     <string>Sort windows by desk&amp;top</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+T</string>
-                                </property>
                                 <property name="checked">
                                     <bool>true</bool>
                                 </property>
@@ -197,9 +191,6 @@
                                 <property name="text">
                                     <string>Show windows from all sc&amp;reens</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+R</string>
-                                </property>
                                 <property name="checked">
                                     <bool>true</bool>
                                 </property>
@@ -213,9 +204,6 @@
                                 </property>
                                 <property name="text">
                                     <string>Show o&amp;nly minimized windows</string>
-                                </property>
-                                <property name="accel">
-                                    <string>Alt+N</string>
                                 </property>
                                 <property name="whatsThis" stdset="0">
                                     <string>Select this option if you want the taskbar to display &lt;b&gt;only&lt;/b&gt; minimized windows. By default, this option is not selected and the taskbar will show all windows.</string>
@@ -327,9 +315,6 @@
                                 <property name="text">
                                     <string>&amp;Allow taskbar items to be rearranged using drag and drop</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+A</string>
-                                </property>
                                 <property name="checked">
                                     <bool>true</bool>
                                 </property>
@@ -343,9 +328,6 @@
                                 </property>
                                 <property name="text">
                                     <string>Sort alphabeticall&amp;y by application name</string>
-                                </property>
-                                <property name="accel">
-                                    <string>Alt+Y</string>
                                 </property>
                                 <property name="checked">
                                     <bool>true</bool>
@@ -507,9 +489,6 @@
                                 <property name="text">
                                     <string>Use &amp;custom colors</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+C</string>
-                                </property>
                                 <property name="checked">
                                     <bool>true</bool>
                                 </property>
@@ -623,9 +602,6 @@
                                 </property>
                                 <property name="text">
                                     <string>Show window list &amp;button</string>
-                                </property>
-                                <property name="accel">
-                                    <string>Alt+B</string>
                                 </property>
                                 <property name="checked">
                                     <bool>true</bool>

@@ -216,9 +216,6 @@
                         <property name="text">
                             <string>Edit</string>
                         </property>
-                        <property name="accel">
-                            <string></string>
-                        </property>
                     </widget>
                     <spacer row="4" column="3" rowspan="1" colspan="2">
                         <property name="name">
@@ -487,9 +484,6 @@
                         <property name="text">
                             <string>Edit</string>
                         </property>
-                        <property name="accel">
-                            <string></string>
-                        </property>
                     </widget>
                     <spacer row="4" column="3">
                         <property name="name">
@@ -560,9 +554,6 @@
                         <property name="text">
                             <string>Edit</string>
                         </property>
-                        <property name="accel">
-                            <string></string>
-                        </property>
                     </widget>
                     <spacer row="7" column="3">
                         <property name="name">
@@ -632,9 +623,6 @@
                         </property>
                         <property name="text">
                             <string>Edit</string>
-                        </property>
-                        <property name="accel">
-                            <string></string>
                         </property>
                     </widget>
                     <spacer row="10" column="3">
@@ -1869,9 +1857,6 @@
                         <property name="text">
                             <string>Shortcut</string>
                         </property>
-                        <property name="accel">
-                            <string></string>
-                        </property>
                     </widget>
                     <widget class="KComboBox" row="9" column="1">
                         <item>
@@ -2292,9 +2277,6 @@
                         <property name="text">
                             <string>Strictly obey geometry</string>
                         </property>
-                        <property name="accel">
-                            <string></string>
-                        </property>
                     </widget>
                     <widget class="KComboBox" row="6" column="1">
                         <item>
@@ -2347,9 +2329,6 @@
                         </property>
                         <property name="text">
                             <string>Block global shortcuts</string>
-                        </property>
-                        <property name="accel">
-                            <string></string>
                         </property>
                     </widget>
                     <widget class="KComboBox" row="7" column="1">
