@@ -1,13 +1,20 @@
+Menu Plugins
+============
+
 Thus file explains how to add plugins into the konqpopupmenu
 used by konqueror and kdesktop.
 
-Why?
+Why
+---
+
 Why do we need this kind of functionality? We do have SERVICEMENUS.
 A plugin can be much more dynamic. If you want to add features that
 are runtime specific or need some interaction with different things
-a plugin comes in handy
+a plugin comes in handy.
 
-How?
-Please look at ?no_location? to get the latest plugin template
+How
+---
 
-Holger Freyther 30th October 2001 
+Please look at *no_location* to get the latest plugin template.
+
+Holger Freyther 30th October 2001
