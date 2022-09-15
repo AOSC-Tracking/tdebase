@@ -1006,6 +1006,8 @@ or in Konqueror file manager to change icon size.</li>
 
 <li>Shift+Mouse-Wheel for fast scrolling in all TDE applications.</li>
 
+<li>Mouse-Wheel on the speaker icon on the TDE system tray for quick adjustment of sound volume.</li>
+
 <li>Mouse-Wheel over the taskbar in Kicker to quickly alternate between
 different windows.</li>
 
@@ -1117,10 +1119,12 @@ Open the Control Center, select Peripherals->Keyboard and make your
 <p>Do you already know the <i>TDE IRC channel</i>?</p>
 
 <p>
-<b>network:</b> chat.freenode.net
+<b>network:</b> irc.libera.chat
 <br />
 <b>channel:</b> #trinity-desktop
 <p>
+
+<p>Important to note that we have moved from Freenode to Libera Chat as of <b>May 9th, 2021</b>, so be sure to update any outdated links.</p>
 
 <p>You can join if you have some questions or want to meet some other people from the TDE community.</p>
 
