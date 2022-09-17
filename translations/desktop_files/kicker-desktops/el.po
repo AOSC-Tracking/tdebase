@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# blu.256 <mavridisf@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 16:24+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-09-18 17:59+0000\n"
+"Last-Translator: blu.256 <mavridisf@gmail.com>\n"
+"Language-Team: Greek <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/kicker-desktop-files/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 #. Name
 #: applets/clock/clockapplet.desktop:4
@@ -155,7 +156,7 @@ msgstr "Επέκταση γραμμής προσαρτημένων εφαρμο�
 #. Name
 #: extensions/kasbar/kasbarextension.desktop:2
 msgid "KasBar"
-msgstr ""
+msgstr "KasBar"
 
 #. Comment
 #: extensions/kasbar/kasbarextension.desktop:4
@@ -256,7 +257,7 @@ msgstr "Επέκταση θυγατρικού πίνακα."
 #. Comment
 #: kicker/interfaces/kickoffsearchplugin.desktop:5
 msgid "A search plugin for Kickoff"
-msgstr ""
+msgstr "Ένα πρόσθετο αναζήτησης για το Kickoff"
 
 #. Name
 #: kicker/kcmkicker.desktop:10
@@ -375,7 +376,7 @@ msgstr "Μενού για το σύστημα εκτύπωσης"
 #. Name
 #: menuext/tom/tom.desktop:2
 msgid "TOM"
-msgstr ""
+msgstr "TOM"
 
 #. Comment
 #: menuext/tom/tom.desktop:4
