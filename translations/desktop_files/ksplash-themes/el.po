@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-24 18:26+0100\n"
-"PO-Revision-Date: 2022-09-17 17:56+0000\n"
+"PO-Revision-Date: 2022-09-18 17:59+0000\n"
 "Last-Translator: blu.256 <mavridisf@gmail.com>\n"
 "Language-Team: Greek <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/ksplash-themes/el/>\n"
@@ -21,33 +21,34 @@ msgstr ""
 #: pics/themes/TDE-Classic/Theme.rc:4
 #: pics/themes/TDE-Classic/locolor/Theme.rc:4
 msgid "TDE 3.5 Splash Screen"
-msgstr "Οθόνη φόρτωσης TDE 3.5"
+msgstr "Θέμα KSplash TDE"
 
 #. Description
 #: pics/themes/TDE-Classic/Theme.rc:5
 #: pics/themes/TDE-Classic/locolor/Theme.rc:5
 msgid "Waves of change"
-msgstr ""
+msgstr "Τα κύματα της αλλαγής"
 
 #. Name
 #: pics/themes/blue-bend/Theme.rc:6
 msgid "Blue-Bend KDE Splash Theme"
-msgstr ""
+msgstr "Blue Bend KDE"
 
 #. Description
 #: pics/themes/blue-bend/Theme.rc:7
 msgid "Load Blue-Bend KDE KSplash theme."
-msgstr ""
+msgstr "Χρήση θέματος Blue Bend KDE."
 
 #. Name
 #: pics/themes/default/Theme.rc:6
+#, fuzzy
 msgid "Refresh TDE Splash Theme"
-msgstr ""
+msgstr "KSplash Ανανέωαη"
 
 #. Description
 #: pics/themes/default/Theme.rc:7
 msgid "Load Refresh TDE KSplash theme."
-msgstr ""
+msgstr "Χρήση θέματος"
 
 #. Name
 #: pics/themes/none/Theme.rc:4
