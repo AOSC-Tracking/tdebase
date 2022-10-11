@@ -121,22 +121,22 @@ void TaskRMBMenu::fillMenu(Task::Ptr t)
 
 void TaskRMBMenu::fillMenu()
 {
-	int id;
-	setCheckable( true );
+    int id;
+    setCheckable( true );
 
     Task::List::iterator itEnd = tasks.end();
     for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
     {
-		Task::Ptr t = (*it);
+        Task::Ptr t = (*it);
 
-		id = insertItem( TQIconSet( t->pixmap() ),
-				 t->visibleNameWithState(),
-		                 new TaskRMBMenu(t, this) );
-		setItemChecked( id, t->isActive() );
-		connectItem( id, t, TQT_SLOT( activateRaiseOrIconify() ) );
-	}
+        id = insertItem( TQIconSet( t->pixmap() ),
+                         t->visibleNameWithState(),
+		         new TaskRMBMenu(t, this) );
+        setItemChecked( id, t->isActive() );
+        connectItem( id, t, TQT_SLOT( activateRaiseOrIconify() ) );
+    }
 
-	insertSeparator();
+    insertSeparator();
 
     bool enable = false;
 
@@ -159,48 +159,55 @@ void TaskRMBMenu::fillMenu()
 
     enable = false;
 
-	id = insertItem( i18n( "Mi&nimize All" ), this, TQT_SLOT( slotMinimizeAll() ) );
+    id = insertItem( i18n( "Mi&nimize All" ), this, TQT_SLOT( slotMinimizeAll() ) );
     itEnd = tasks.end();
     for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
     {
-		if( !(*it)->isIconified() ) {
-			enable = true;
-			break;
-		}
-	}
-	setItemEnabled( id, enable );
+        if( !(*it)->isIconified() ) {
+            enable = true;
+            break;
+        }
+    }
+    setItemEnabled( id, enable );
 
-	enable = false;
+    enable = false;
 
-	id = insertItem( i18n( "Ma&ximize All" ), this, TQT_SLOT( slotMaximizeAll() ) );
+    id = insertItem( i18n( "Ma&ximize All" ), this, TQT_SLOT( slotMaximizeAll() ) );
     itEnd = tasks.end();
     for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
     {
         if( !(*it)->isMaximized() ) {
-			enable = true;
-			break;
-		}
-	}
-	setItemEnabled( id, enable );
+            enable = true;
+            break;
+        }
+    }
+    setItemEnabled( id, enable );
 
-	enable = false;
+    enable = false;
 
-	id = insertItem( i18n( "&Restore All" ), this, TQT_SLOT( slotRestoreAll() ) );
+    id = insertItem( i18n( "&Restore All" ), this, TQT_SLOT( slotRestoreAll() ) );
     itEnd = tasks.end();
     for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
     {
-		if( (*it)->isIconified() || (*it)->isMaximized() ) {
-			enable = true;
-			break;
-		}
-	}
-	setItemEnabled( id, enable );
+        if( (*it)->isIconified() || (*it)->isMaximized() ) {
+            enable = true;
+            break;
+        }
+    }
+    setItemEnabled( id, enable );
 
-	insertSeparator();
+    insertSeparator();
 
-	enable = false;
+    enable = false;
 
-	insertItem( SmallIcon( "window-close" ), i18n( "&Close All" ), this, TQT_SLOT( slotCloseAll() ) );
+    if (taskMoveMenu) {
+        taskMoveMenu->reparent(this, taskMoveMenu->getWFlags(), taskMoveMenu->geometry().topLeft(), FALSE);
+        insertItem(i18n("Move Task Button"), taskMoveMenu);
+
+        insertSeparator();
+    }
+
+    insertItem( SmallIcon( "window-close" ), i18n( "&Close All" ), this, TQT_SLOT( slotCloseAll() ) );
 }
 
 TQPopupMenu* TaskRMBMenu::makeAdvancedMenu(Task::Ptr t)
