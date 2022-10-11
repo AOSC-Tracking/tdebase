@@ -200,7 +200,7 @@ void TaskRMBMenu::fillMenu()
 
 	enable = false;
 
-	insertItem( SmallIcon( "remove" ), i18n( "&Close All" ), this, TQT_SLOT( slotCloseAll() ) );
+	insertItem( SmallIcon( "window-close" ), i18n( "&Close All" ), this, TQT_SLOT( slotCloseAll() ) );
 }
 
 TQPopupMenu* TaskRMBMenu::makeAdvancedMenu(Task::Ptr t)
