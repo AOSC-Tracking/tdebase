@@ -1352,11 +1352,6 @@ void TaskContainer::mouseMoveEvent( TQMouseEvent* e )
 
 bool TaskContainer::startDrag(const TQPoint& pos)
 {
-    if (m_filteredTasks.count() != 1)
-    {
-        return false;
-    }
-
     int delay = TDEGlobalSettings::dndEventDelay();
 
     if ((m_dragStartPos - pos).manhattanLength() > delay)
