@@ -308,6 +308,19 @@ void TEWidget::fontChange(const TQFont &)
   update();
 }
 
+void TEWidget::biggerFont(void) {
+    TQFont f = getVTFont();
+    f.setPointSize( f.pointSize() + 1 );
+    setVTFont( f );
+}
+
+void TEWidget::smallerFont(void) {
+    TQFont f = getVTFont();
+    if ( f.pointSize() < 6 ) return;      // A minimum size
+    f.setPointSize( f.pointSize() - 1 );
+    setVTFont( f );
+}
+
 void TEWidget::setVTFont(const TQFont& f)
 {
   TQFont font = f;
@@ -1694,6 +1707,17 @@ void TEWidget::wheelEvent( TQWheelEvent* ev )
 {
   if (ev->orientation() != Qt::Vertical)
     return;
+
+  if (ev->state() & ControlButton) {
+      if (ev->delta() > 0) {
+          biggerFont();
+      }
+      else {
+          smallerFont();
+      }
+      ev->accept();
+      return;
+  }
 
   if ( mouse_marks )
   {

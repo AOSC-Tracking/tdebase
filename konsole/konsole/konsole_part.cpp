@@ -705,19 +705,12 @@ void konsolePart::slotSelectFont() {
 
 void konsolePart::biggerFont(void) {
     if ( !se ) return;
-
-    TQFont f = te->getVTFont();
-    f.setPointSize( f.pointSize() + 1 );
-    te->setVTFont( f );
+    te->biggerFont();
 }
 
 void konsolePart::smallerFont(void) {
     if ( !se ) return;
-
-    TQFont f = te->getVTFont();
-    if ( f.pointSize() < 6 ) return;      // A minimum size
-    f.setPointSize( f.pointSize() - 1 );
-    te->setVTFont( f );
+    te->smallerFont();
 }
 
 void konsolePart::updateKeytabMenu()
