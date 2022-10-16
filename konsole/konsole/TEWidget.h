@@ -125,6 +125,10 @@ public:
      */
     void setVTFont(const TQFont& font);
 
+    /** Changes font size by 1 point */
+    void biggerFont();
+    void smallerFont();
+
     void setMouseMarks(bool on);
     static void setAntialias( bool enable ) { s_antialias = enable; }
     static bool antialias()                 { return s_antialias;   }
