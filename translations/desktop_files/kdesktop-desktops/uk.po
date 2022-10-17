@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Roman Savochenko <roman@oscada.org>, 2020.
+# Roman Savochenko <roman@oscada.org>, 2020, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-17 18:15+0000\n"
-"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"PO-Revision-Date: 2022-10-18 19:56+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kdesktop-desktop-files/uk/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 #. Name
 #: kdesktop.desktop.cmake:10
@@ -40,39 +40,33 @@ msgstr "Плиткою"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:17
-#, fuzzy
-#| msgid "Centered"
 msgid "Center Tiled"
-msgstr "По центру"
+msgstr "По центру Плиткою"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:22
-#, fuzzy
-#| msgid "Centered"
 msgid "Centered Maxpect"
-msgstr "По центру"
+msgstr "По центру Maxpect"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:27
 msgid "Tiled Maxpect"
-msgstr ""
+msgstr "Плиткою Maxpect"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:32
 msgid "Scaled"
-msgstr ""
+msgstr "Масштабовано"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:37
-#, fuzzy
-#| msgid "Centered"
 msgid "Centered Auto Fit"
-msgstr "По центру"
+msgstr "По центру Авто Підлашт."
 
 #. Name
 #: kdesktopSetAsBackground.desktop:42
 msgid "Scale & Crop"
-msgstr ""
+msgstr "Масштаб & Кадрування"
 
 #. Comment
 #: kwebdesktop/kwebdesktop.desktop:2
