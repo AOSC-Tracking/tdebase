@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2022-10-24 17:57+0000\n"
+"PO-Revision-Date: 2022-10-25 18:06+0000\n"
 "Last-Translator: Marek W <coronzon88@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kappfinder-data/pl/>\n"
@@ -70,9 +70,8 @@ msgstr "Edytor okien dialogowych"
 
 #. Name
 #: Development/eclipse.desktop:3
-#, fuzzy
 msgid "Eclipse"
-msgstr "Środowisko programowania Eclipse"
+msgstr "Eclipse"
 
 #. GenericName
 #: Development/eclipse.desktop:4
@@ -87,7 +86,7 @@ msgstr "Projektant okien"
 #. Name
 #: Development/j2mewtk.desktop:2
 msgid "J2ME"
-msgstr ""
+msgstr "J2ME"
 
 #. GenericName
 #: Development/j2mewtk.desktop:3
@@ -921,9 +920,8 @@ msgstr "Interfejs graficzny do BitTorrent używający wxGTK"
 
 #. Name
 #: Internet/coolmail.desktop:2
-#, fuzzy
 msgid "Coolmail"
-msgstr "coolmail"
+msgstr "Coolmail"
 
 #. Name
 #: Internet/dc_gui.desktop:2
@@ -1494,7 +1492,7 @@ msgstr ""
 #: System/Terminal/aterm.desktop:2
 #, fuzzy
 msgid "Terminal"
-msgstr "Oryginał"
+msgstr "Terminal"
 
 #. GenericName
 #: System/Terminal/aterm.desktop:3 Utilities/XUtilities/xterm.desktop:3
@@ -1756,9 +1754,8 @@ msgstr "Powiększenie pulpitu"
 
 #. Name
 #: Utilities/XUtilities/xterm.desktop:2
-#, fuzzy
 msgid "X Terminal"
-msgstr "Oryginał"
+msgstr "Terminal X"
 
 #. Name
 #: Utilities/calctool.desktop:2
