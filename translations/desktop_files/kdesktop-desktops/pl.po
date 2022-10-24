@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-17 18:15+0000\n"
-"PO-Revision-Date: 2022-10-24 17:57+0000\n"
+"PO-Revision-Date: 2022-10-25 18:06+0000\n"
 "Last-Translator: Marek W <coronzon88@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kdesktop-desktop-files/pl/>\n"
@@ -56,19 +56,17 @@ msgstr "Kafelkowanie zmaksymalizowane"
 #. Name
 #: kdesktopSetAsBackground.desktop:32
 msgid "Scaled"
-msgstr ""
+msgstr "Skalowanie"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:37
-#, fuzzy
-#| msgid "Centered"
 msgid "Centered Auto Fit"
-msgstr "Wyśrodkowane"
+msgstr "Wyśrodkowane, automatyczne dopasowanie"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:42
 msgid "Scale & Crop"
-msgstr ""
+msgstr "Skalowanie z przycięciem"
 
 #. Comment
 #: kwebdesktop/kwebdesktop.desktop:2
