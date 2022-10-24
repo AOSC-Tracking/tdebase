@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Jan Stolarek <jwstolarek@gmail.com>, 2020.
+# Marek W <coronzon88@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-16 18:21+0000\n"
-"PO-Revision-Date: 2020-08-12 23:04+0000\n"
-"Last-Translator: Jan Stolarek <jwstolarek@gmail.com>\n"
+"PO-Revision-Date: 2022-10-25 18:06+0000\n"
+"Last-Translator: Marek W <coronzon88@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/l10n-desktop-files/pl/>\n"
 "Language: pl\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 #. Name
 #: caribbean.desktop:2
@@ -497,7 +498,7 @@ msgstr "Wielka Brytania"
 #: gd/entry.desktop:2
 #, fuzzy
 msgid "Grenada"
-msgstr "Kanada"
+msgstr "Grenada"
 
 #. Name
 #: ge/entry.desktop:2
@@ -800,7 +801,7 @@ msgstr "Nowa Zelandia"
 #: mk/entry.desktop:3
 #, fuzzy
 msgid "Macedonia"
-msgstr "Nowa Kaledonia"
+msgstr "Macedonia"
 
 #. Name
 #: ml/entry.desktop:2
@@ -816,7 +817,7 @@ msgstr ""
 #: mn/entry.desktop:2
 #, fuzzy
 msgid "Mongolia"
-msgstr "Kongo"
+msgstr "Mongolia"
 
 #. Name
 #: mo/entry.desktop:2
@@ -900,7 +901,7 @@ msgstr "Wyspy Norfolk"
 #: ng/entry.desktop:2
 #, fuzzy
 msgid "Nigeria"
-msgstr "Algieria"
+msgstr "Nigeria"
 
 #. Name
 #: ni/entry.desktop:2
@@ -966,7 +967,7 @@ msgstr "Filipiny"
 #: pk/entry.desktop:2
 #, fuzzy
 msgid "Pakistan"
-msgstr "Tadżykistan"
+msgstr "Pakistan"
 
 #. Name
 #: pl/entry.desktop:2
@@ -1152,7 +1153,7 @@ msgstr ""
 #: tm/entry.desktop:2
 #, fuzzy
 msgid "Turkmenistan"
-msgstr "Tadżykistan"
+msgstr "Turkmenistan"
 
 #. Name
 #: tn/entry.desktop:2
@@ -1203,7 +1204,7 @@ msgstr "Ukraina"
 #: ug/entry.desktop:2
 #, fuzzy
 msgid "Uganda"
-msgstr "Ruanda"
+msgstr "Uganda"
 
 #. Name
 #: us/entry.desktop:2
@@ -1219,7 +1220,7 @@ msgstr "Urugwaj"
 #: uz/entry.desktop:2
 #, fuzzy
 msgid "Uzbekistan"
-msgstr "Tadżykistan"
+msgstr "Uzbekistan"
 
 #. Name
 #: va/entry.desktop:2
