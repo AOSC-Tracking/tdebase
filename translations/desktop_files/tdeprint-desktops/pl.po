@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Jan Stolarek <jwstolarek@gmail.com>, 2020.
+# Marek W <coronzon88@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2020-08-12 23:04+0000\n"
-"Last-Translator: Jan Stolarek <jwstolarek@gmail.com>\n"
+"PO-Revision-Date: 2022-10-24 17:57+0000\n"
+"Last-Translator: Marek W <coronzon88@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdeprint-desktop-files/pl/>\n"
 "Language: pl\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 #. Name
 #: kjobviewer/kjobviewer-autostart.desktop:7 kjobviewer/kjobviewer.desktop:8
@@ -32,9 +33,8 @@ msgstr "Zadania drukowania"
 
 #. Name
 #: kprinter/kprinter.desktop:9
-#, fuzzy
 msgid "KPrinter"
-msgstr "Drukarka"
+msgstr "KPrinter"
 
 #. GenericName
 #: kprinter/kprinter.desktop:11
