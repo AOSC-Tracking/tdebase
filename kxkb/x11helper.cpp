@@ -1,3 +1,4 @@
+#include <tqdom.h>
 #include <tqdir.h>
 #include <tqstring.h>
 #include <tqwindowdefs.h>
@@ -119,13 +120,12 @@ X11Helper::findXkbRulesFile(TQString x11Dir, Display *dpy)
 		    }
     	}
     }
-	
+
 	return rulesFile;
 }
 
 RulesInfo*
-X11Helper::loadRules(const TQString& file, bool layoutsOnly) 
-{
+X11Helper::loadRules(const TQString& file, bool layoutsOnly) {
 	XkbRF_RulesPtr xkbRules = XkbRF_Load(TQFile::encodeName(file).data(), "", true, true);
 
 	if (xkbRules == NULL) {
@@ -151,32 +151,100 @@ X11Helper::loadRules(const TQString& file, bool layoutsOnly)
 		XkbRF_Free(xkbRules, true);
 		return rulesInfo;
 	}
-  
+
   for (int i = 0; i < xkbRules->models.num_desc; ++i)
       rulesInfo->models.replace(xkbRules->models.desc[i].name, tqstrdup( xkbRules->models.desc[i].desc ) );
-  for (int i = 0; i < xkbRules->options.num_desc; ++i)
-      rulesInfo->options.replace(xkbRules->options.desc[i].name, tqstrdup( xkbRules->options.desc[i].desc ) );
 
-  XkbRF_Free(xkbRules, true);
+  // Prefer XML file for Xkb options
+  if (TQFile(file + ".xml").exists()) {
+      XkbRF_Free(xkbRules, true);
 
-// workaround for empty 'compose' options group description
-   if( rulesInfo->options.find("compose:menu") && !rulesInfo->options.find("compose") ) {
-     rulesInfo->options.replace("compose", "Compose Key Position");
-   }
+      TQDomDocument xmlrules("xkbrules");
+      TQFile xmlfile(file + ".xml");
+      if (!xmlfile.open(IO_ReadOnly)) {
+          return NULL;
+      }
+      if (!xmlrules.setContent(&xmlfile)) {
+          xmlfile.close();
+          return NULL;
+      }
+      xmlfile.close();
+
+      TQDomElement options = xmlrules.documentElement().namedItem("optionList").toElement();
+      TQDomNode optGroupNode = options.firstChild();
+      while (!optGroupNode.isNull()) {
+          TQDomElement optGroupElem = optGroupNode.toElement();
+          if (optGroupElem.tagName() == "group") {
+              TQDomNode optNode = optGroupElem.firstChild();
+              while (!optNode.isNull()) {
+                TQDomElement optElem = optNode.toElement();
+                if (!optElem.isNull()) {
+                    // This might be either a configItem (group) or an option tag
+                    // If it is an option tag, it contains a configItem that describes
+                    // the option
+                    if (optElem.tagName() == "option") {
+                        optElem = optElem.namedItem("configItem").toElement();
+                    }
+
+                    TQString optName = optElem.namedItem("name").toElement().text();
+                    TQString optDesc = optElem.namedItem("description").toElement().text();
+                    if (optDesc.isEmpty()) {
+                        optDesc = optName;
+                    }
+                    // Items from these 'meta' groups fall into other groups
+                    // Admittedly not the best way to handle this
+                    if (optName == "currencysign" || optName == "compat") break;
+
+                    // HACK this should be called "compose" or else the code breaks
+                    if (optName == "Compose key") optName = "compose";
+
+                    rulesInfo->options.replace(optName.ascii(), tqstrdup(optDesc.ascii()));
+                }
+                optNode = optNode.nextSibling();
+              }
+          }
+          optGroupNode = optGroupNode.nextSibling();
+      }
+  }
+  else {
+      for (int i = 0; i < xkbRules->options.num_desc; ++i)
+          rulesInfo->options.replace(xkbRules->options.desc[i].name, tqstrdup( xkbRules->options.desc[i].desc ) );
+
+      XkbRF_Free(xkbRules, true);
+
+      // workaround for empty 'compose' options group description
+      if( rulesInfo->options.find("compose:menu") && !rulesInfo->options.find("compose") ) {
+          rulesInfo->options.replace("compose", "Compose Key Position");
+      }
+  }
+
 
   for(TQDictIterator<char> it(rulesInfo->options) ; it.current() != NULL; ++it ) {
-	  TQString option(it.currentKey());
-	  int columnPos = option.find(":");
-	  
-	  if( columnPos != -1 ) {
-		  TQString group = option.mid(0, columnPos);
-		  if( rulesInfo->options.find(group) == NULL ) {
-			  rulesInfo->options.replace(group, group.latin1());
-			  kdDebug() << "Added missing option group: " << group << endl;
-		  }
-	  }
+      // HACK 2023/06/01 some descriptions in xkb rule files have "< >" in place
+      // of an actual key name, both in *.lst and *.xml files
+      TQString descFix = TQString::null;
+      if (it.currentKey().contains("lsgt_switch")) {
+          descFix = TQString(it.current()).replace("< >", "LSGT");
+      }
+      else if (it.currentKey().startsWith("compose:102")) {
+          descFix = TQString(it.current()).replace("< >", "102");
+      }
+      if (!descFix.isNull()) {
+          rulesInfo->options.replace(it.currentKey(), tqstrdup(descFix.ascii()));
+      }
+
+      // Add missing option groups
+      TQString option(it.currentKey());
+      int columnPos = option.find(":");
+
+      if( columnPos != -1 ) {
+          TQString group = option.mid(0, columnPos);
+          if( rulesInfo->options.find(group) == NULL ) {
+              rulesInfo->options.replace(group, group.latin1());
+              kdDebug() << "Added missing option group: " << group << endl;
+          }
+      }
   }
-  
 //   // workaround for empty misc options group description in XFree86 4.4.0
 //   if( rulesInfo->options.find("numpad:microsoft") && !rulesInfo->options.find("misc") ) {
 //     rulesInfo->options.replace("misc", "Miscellaneous compatibility options" );
