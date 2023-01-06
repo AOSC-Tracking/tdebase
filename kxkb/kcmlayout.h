@@ -27,7 +27,7 @@ public:
   void defaults();
   void initUI();
   virtual TQString handbookDocPath() const;
-  
+
 protected:
   TQString createOptionString();
   void updateIndicator(TQListViewItem* selLayout);
@@ -35,13 +35,14 @@ protected:
 protected slots:
   void moveUp();
   void moveDown();
+  void hotkeyComboChanged();
   void variantChanged();
   void displayNameChanged(const TQString& name);
-  void latinChanged();
   void layoutSelChanged(TQListViewItem *);
   void loadRules();
   void updateLayoutCommand();
   void updateOptionsCommand();
+  void updateHotkeyCombo();
   void add();
   void remove();
 

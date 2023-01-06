@@ -86,15 +86,42 @@
                             </widget>
                             <widget class="TQLabel" row="2" column="2" rowspan="1" colspan="3">
                                 <property name="name">
-                                    <cstring>textLabel1_4_2</cstring>
+                                    <cstring>labelLayouts</cstring>
                                 </property>
                                 <property name="text">
                                     <string>Active layouts:</string>
                                 </property>
                             </widget>
+                            <widget class="TQLabel" row="0" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>labelHotkey</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Key combination to &amp;switch layout:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>comboHotkey</cstring>
+                                </property>
+                            </widget>
+                            <widget class="TQComboBox" row="1" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>comboHotkey</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Here you can choose the key combination you want to use to switch to the next layout. This list includes only the most common variants. If you choose "Other...", then you will be redirected to the "Options" tab where you can pick from all the available variants.</string>
+                                </property>
+                            </widget>
                             <widget class="TQLabel" row="0" column="2" rowspan="1" colspan="3">
                                 <property name="name">
-                                    <cstring>textLabel1_2</cstring>
+                                    <cstring>labelModel</cstring>
                                 </property>
                                 <property name="text">
                                     <string>Keyboard &amp;model:</string>
@@ -163,17 +190,6 @@
                                     </property>
                                     <property name="resizable">
                                         <bool>true</bool>
-                                    </property>
-                                </column>
-                                <column>
-                                    <property name="text">
-                                        <string>5</string>
-                                    </property>
-                                    <property name="clickable">
-                                        <bool>false</bool>
-                                    </property>
-                                    <property name="resizable">
-                                        <bool>false</bool>
                                     </property>
                                 </column>
                                 <column>
@@ -325,20 +341,6 @@
                                 </property>
                                 <property name="whatsThis" stdset="0">
                                     <string>This is the command which is executed when switching to the selected layout. It may help you if you want to debug layout switching, or if you want to switch layouts without the help of TDE.</string>
-                                </property>
-                            </widget>
-                            <widget class="TQCheckBox" row="7" column="2" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>chkLatin</cstring>
-                                </property>
-                                <property name="enabled">
-                                    <bool>false</bool>
-                                </property>
-                                <property name="text">
-                                    <string>Include latin layout</string>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>If after you switch to this layout some keyboard shortcuts based on latin keys do not work try to enable this option.</string>
                                 </property>
                             </widget>
                             <widget class="TQLabel" row="6" column="2">
@@ -832,17 +834,6 @@
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="TQCheckBox">
-                        <property name="name">
-                            <cstring>chkEnableOptions</cstring>
-                        </property>
-                        <property name="text">
-                            <string>&amp;Enable xkb options</string>
-                        </property>
-                        <property name="checked">
-                            <bool>true</bool>
-                        </property>
-                    </widget>
                     <widget class="TQGroupBox">
                         <property name="name">
                             <cstring>groupBox3_2</cstring>
@@ -909,12 +900,6 @@
         <sender>chkEnable</sender>
         <signal>toggled(bool)</signal>
         <receiver>grpLayouts</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>chkEnableOptions</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>groupBox3_2</receiver>
         <slot>setEnabled(bool)</slot>
     </connection>
     <connection>

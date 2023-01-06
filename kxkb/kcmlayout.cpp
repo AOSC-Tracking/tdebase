@@ -43,8 +43,7 @@ enum {
  LAYOUT_COLUMN_NAME = 1,
  LAYOUT_COLUMN_MAP = 2,
  LAYOUT_COLUMN_VARIANT = 3,
- LAYOUT_COLUMN_INCLUDE = 4,
- LAYOUT_COLUMN_DISPLAY_NAME = 5,
+ LAYOUT_COLUMN_DISPLAY_NAME = 4,
  SRC_LAYOUT_COLUMN_COUNT = 3,
  DST_LAYOUT_COLUMN_COUNT = 6
 };
@@ -110,6 +109,9 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   connect( TQT_TQOBJECT(widget->chkEnable), TQT_SIGNAL( toggled( bool )), TQT_TQOBJECT(this), TQT_SLOT(changed()));
   connect( TQT_TQOBJECT(widget->chkShowSingle), TQT_SIGNAL( toggled( bool )), TQT_TQOBJECT(this), TQT_SLOT(changed()));
 
+  connect( TQT_TQOBJECT(widget->comboHotkey), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(hotkeyComboChanged()));
+  connect( TQT_TQOBJECT(widget->comboHotkey), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(updateOptionsCommand()));
+  connect( TQT_TQOBJECT(widget->comboHotkey), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
   connect( TQT_TQOBJECT(widget->comboModel), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
 
   connect( TQT_TQOBJECT(widget->listLayoutsSrc), TQT_SIGNAL(doubleClicked(TQListViewItem*,const TQPoint&, int)),
@@ -123,9 +125,6 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
 		TQT_TQOBJECT(this), TQT_SLOT(layoutSelChanged(TQListViewItem *)));
 
   connect( widget->editDisplayName, TQT_SIGNAL(textChanged(const TQString&)), TQT_TQOBJECT(this), TQT_SLOT(displayNameChanged(const TQString&)));
-
-  connect( widget->chkLatin, TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( widget->chkLatin, TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(latinChanged()));
 
   widget->btnUp->setIconSet(SmallIconSet("1uparrow"));
   connect( widget->btnUp, TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(changed()));
@@ -149,16 +148,12 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
 
   widget->listLayoutsSrc->setColumnText(LAYOUT_COLUMN_FLAG, "");
   widget->listLayoutsDst->setColumnText(LAYOUT_COLUMN_FLAG, "");
-  widget->listLayoutsDst->setColumnText(LAYOUT_COLUMN_INCLUDE, "");
 //  widget->listLayoutsDst->setColumnText(LAYOUT_COLUMN_DISPLAY_NAME, "");
 
   widget->listLayoutsSrc->setColumnWidth(LAYOUT_COLUMN_FLAG, 28);
   widget->listLayoutsDst->setColumnWidth(LAYOUT_COLUMN_FLAG, 28);
 
-  widget->listLayoutsDst->header()->setResizeEnabled(FALSE, LAYOUT_COLUMN_INCLUDE);
   widget->listLayoutsDst->header()->setResizeEnabled(FALSE, LAYOUT_COLUMN_DISPLAY_NAME);
-  widget->listLayoutsDst->setColumnWidthMode(LAYOUT_COLUMN_INCLUDE, TQListView::Manual);
-  widget->listLayoutsDst->setColumnWidth(LAYOUT_COLUMN_INCLUDE, 0);
 //  widget->listLayoutsDst->setColumnWidth(LAYOUT_COLUMN_DISPLAY_NAME, 0);
 
   widget->listLayoutsDst->setSorting(-1);
@@ -212,7 +207,6 @@ void LayoutConfig::initUI() {
 				TQListViewItem* newItem = copyLVI(srcItem, widget->listLayoutsDst);
 
 				newItem->setText(LAYOUT_COLUMN_VARIANT, layoutUnit.variant);
-				newItem->setText(LAYOUT_COLUMN_INCLUDE, layoutUnit.includeGroup);
 				newItem->setText(LAYOUT_COLUMN_DISPLAY_NAME, layoutUnit.displayName);
 				widget->listLayoutsDst->insertItem(newItem);
 				newItem->moveItem(widget->listLayoutsDst->lastItem());
@@ -221,6 +215,24 @@ void LayoutConfig::initUI() {
 			}
 		}
 	}
+
+	// initialize hotkey combo
+	TQDict<char> allOptions = m_rules->options();
+
+	TQStringList commonHotkeys;
+	commonHotkeys << "alt_shift_toggle" << "ctrl_shift_toggle"
+	              << "win_space_toggle" << "alt_space_toggle"
+	              << "caps_toggle" << "menu_toggle"
+	              << "lwin_toggle" << "rwin_toggle";
+
+	for (TQStringList::ConstIterator hk = commonHotkeys.begin(); hk != commonHotkeys.end(); ++hk ) {
+		const char *hkOpt  = tqstrdup(TQString("grp:" + (*hk)).ascii());
+		const char *hkDesc = allOptions[hkOpt];
+		if (hkDesc != 0) { // the option exists
+			widget->comboHotkey->insertItem(i18n(hkDesc));
+		}
+	}
+	widget->comboHotkey->insertItem(i18n("Other..."));
 
 	// display KXKB switching options
 	widget->chkShowSingle->setChecked(m_kxkbConfig.m_showSingle);
@@ -231,7 +243,6 @@ void LayoutConfig::initUI() {
 	widget->radFlagOnly->setChecked( showFlag && !showLabel );
 	widget->radLabelOnly->setChecked( !showFlag && showLabel );
 
-	widget->chkEnableOptions->setChecked( m_kxkbConfig.m_enableXkbOptions );
 	widget->checkResetOld->setChecked(m_kxkbConfig.m_resetOldOptions);
 
 	widget->grpLabel->setButton( ( m_kxkbConfig.m_useThemeColors ? 0 : 1 )  );
@@ -272,8 +283,8 @@ void LayoutConfig::initUI() {
 	widget->optionsFrame->setEnabled( m_kxkbConfig.m_useKxkb );
 
 	// display xkb options
-	TQStringList options = TQStringList::split(',', m_kxkbConfig.m_options);
-	for (TQStringList::ConstIterator it = options.begin(); it != options.end(); ++it)
+	TQStringList activeOptions = TQStringList::split(',', m_kxkbConfig.m_options);
+	for (TQStringList::ConstIterator it = activeOptions.begin(); it != activeOptions.end(); ++it)
 	{
 		TQString option = *it;
 		TQString optionKey = option.mid(0, option.find(':'));
@@ -294,6 +305,7 @@ void LayoutConfig::initUI() {
 	}
 
 	updateOptionsCommand();
+	updateHotkeyCombo();
 	emit TDECModule::changed( false );
 }
 
@@ -303,7 +315,6 @@ void LayoutConfig::save()
 	TQString model = lookupLocalized(m_rules->models(), widget->comboModel->currentText());
 	m_kxkbConfig.m_model = model;
 
-	m_kxkbConfig.m_enableXkbOptions = widget->chkEnableOptions->isChecked();
 	m_kxkbConfig.m_resetOldOptions = widget->checkResetOld->isChecked();
 	m_kxkbConfig.m_options = createOptionString();
 
@@ -320,17 +331,14 @@ void LayoutConfig::save()
 	while (item) {
 		TQString layout = item->text(LAYOUT_COLUMN_MAP);
 		TQString variant = item->text(LAYOUT_COLUMN_VARIANT);
-		TQString includes = item->text(LAYOUT_COLUMN_INCLUDE);
 		TQString displayName = item->text(LAYOUT_COLUMN_DISPLAY_NAME);
 
 		LayoutUnit layoutUnit(layout, variant);
-		layoutUnit.includeGroup = includes;
 		layoutUnit.displayName = displayName;
 		layouts.append( layoutUnit );
 
 		item = item->nextSibling();
 		kdDebug() << "To save: layout " << layoutUnit.toPair()
-				<< ", inc: " << layoutUnit.includeGroup
 				<< ", disp: " << layoutUnit.displayName << endl;
 	}
 	m_kxkbConfig.m_layouts = layouts;
@@ -438,9 +446,6 @@ void LayoutConfig::add()
     // Create a copy of the sel widget, as one might add the same layout more
     // than one time, with different variants.
     TQListViewItem* toadd = copyLVI(sel, widget->listLayoutsDst);
-
-    // Turn on "Include Latin layout" for new language by default (bnc:204402)
-    toadd->setText(LAYOUT_COLUMN_INCLUDE, "us");
 
     widget->listLayoutsDst->insertItem(toadd);
     if( widget->listLayoutsDst->childCount() > 1 )
@@ -551,33 +556,10 @@ void LayoutConfig::updateIndicator(TQListViewItem* selLayout)
 {
 }
 
-
-void LayoutConfig::latinChanged()
-{
-    TQListViewItem* selLayout = widget->listLayoutsDst->selectedItem();
-    if (  !selLayout ) {
-      widget->chkLatin->setChecked( false );
-      widget->chkLatin->setEnabled( false );
-      return;
-    }
-
-	TQString include;
-	if( widget->chkLatin->isChecked() )
-		include = "us";
-    else
-		include = "";
-	selLayout->setText(LAYOUT_COLUMN_INCLUDE, include);
-
- 	LayoutUnit layoutUnitKey = getLayoutUnitKey(selLayout);
-	kdDebug() << "layout " << layoutUnitKey.toPair() << ", inc: " << include << endl;
-}
-
 void LayoutConfig::layoutSelChanged(TQListViewItem *sel)
 {
     widget->comboVariant->clear();
     widget->comboVariant->setEnabled( sel != NULL );
-    widget->chkLatin->setChecked( false );
-    widget->chkLatin->setEnabled( sel != NULL );
 
     if( sel == NULL ) {
         updateLayoutCommand();
@@ -587,21 +569,6 @@ void LayoutConfig::layoutSelChanged(TQListViewItem *sel)
 
 	LayoutUnit layoutUnitKey = getLayoutUnitKey(sel);
 	TQString kbdLayout = layoutUnitKey.layout;
-
-	// TODO: need better algorithm here for determining if needs us group
-    if (  ! m_rules->isSingleGroup(kbdLayout)
-	    		|| kbdLayout.startsWith("us") || kbdLayout.startsWith("en") ) {
-        widget->chkLatin->setEnabled( false );
-    }
-    else {
-		TQString inc = sel->text(LAYOUT_COLUMN_INCLUDE);
-		if ( inc.startsWith("us") || inc.startsWith("en") ) {
-            widget->chkLatin->setChecked(true);
-        }
-        else {
-            widget->chkLatin->setChecked(false);
-        }
-    }
 
 	TQStringList vars = m_rules->getAvailableVariants(kbdLayout);
 	kdDebug() << "layout " << kbdLayout << " has " << vars.count() << " variants" << endl;
@@ -632,11 +599,11 @@ TQWidget* LayoutConfig::makeOptionsTab()
 
   connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(changed()));
   connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(updateOptionsCommand()));
-
-  connect(widget->chkEnableOptions, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+  connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(updateHotkeyCombo()));
 
   connect(widget->checkResetOld, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
   connect(widget->checkResetOld, TQT_SIGNAL(toggled(bool)), TQT_SLOT(updateOptionsCommand()));
+  connect(widget->checkResetOld, TQT_SIGNAL(toggled(bool)), TQT_SLOT(updateHotkeyCombo()));
 
   //Create controllers for all options
   TQDictIterator<char> it(m_rules->options());
@@ -646,7 +613,7 @@ TQWidget* LayoutConfig::makeOptionsTab()
     if (!it.currentKey().contains(':'))
     {
       if( it.currentKey() == "ctrl" || it.currentKey() == "caps"
-          || it.currentKey() == "altwin" ) {
+          || it.currentKey() == "altwin" || it.currentKey() == "grp") {
         parent = new OptionListItem(listView, i18n( it.current() ),
             TQCheckListItem::RadioButtonController, it.currentKey());
         OptionListItem *item = new OptionListItem(parent, i18n( "None" ),
@@ -707,52 +674,114 @@ void LayoutConfig::updateOptionsCommand()
 
 void LayoutConfig::updateLayoutCommand()
 {
-  TQString setxkbmap;
-  TQString layoutDisplayName;
-  TQListViewItem* sel = widget->listLayoutsDst->selectedItem();
+  TQString setxkbmap = "setxkbmap";
+  setxkbmap += " -model " + lookupLocalized(m_rules->models(),
+                                            widget->comboModel->currentText());
+  TQStringList layoutCodes;
+  TQStringList layoutVariants;
+  TQListViewItem *item = widget->listLayoutsDst->firstChild();
+  while (item) {
+    layoutCodes << item->text(LAYOUT_COLUMN_MAP);
 
-  if( sel != NULL ) {
-    TQString kbdLayout = sel->text(LAYOUT_COLUMN_MAP);
-    TQString variant = widget->comboVariant->currentText();
-	if( variant == DEFAULT_VARIANT_NAME )
-		variant = "";
-
-    setxkbmap = "setxkbmap"; //-rules " + m_rule
-    setxkbmap += " -model " + lookupLocalized(m_rules->models(), widget->comboModel->currentText())
-      + " -layout ";
-    setxkbmap += kbdLayout;
-    if( widget->chkLatin->isChecked() )
-      setxkbmap += ",us";
-
-/*	LayoutUnit layoutUnitKey = getLayoutUnitKey(sel);
-	layoutDisplayName = m_kxkbConfig.getLayoutDisplayName( *m_kxkbConfig.m_layouts.find(layoutUnitKey) );*/
-	layoutDisplayName = sel->text(LAYOUT_COLUMN_DISPLAY_NAME);
-	if( layoutDisplayName.isEmpty() ) {
-		int count = 0;
-		TQListViewItem *item = widget->listLayoutsDst->firstChild();
-		while (item) {
-			TQString layout_ = item->text(LAYOUT_COLUMN_MAP);
-			if( layout_ == kbdLayout )
-				++count;
-			item = item->nextSibling();
-		}
-		bool single = count < 2;
-		layoutDisplayName = m_kxkbConfig.getDefaultDisplayName(LayoutUnit(kbdLayout, variant), single);
-	}
-	kdDebug() << "disp: '" << layoutDisplayName << "'" << endl;
-
-    if( !variant.isEmpty() ) {
-      setxkbmap += " -variant ";
-      if( widget->chkLatin->isChecked() )
-        setxkbmap += ",";
-      setxkbmap += variant;
+    TQString layoutVariant = item->text(LAYOUT_COLUMN_VARIANT);
+    if (layoutVariant == DEFAULT_VARIANT_NAME) {
+      layoutVariant = "";
     }
+    layoutVariants << layoutVariant;
+
+    item = item->nextSibling();
+  }
+
+  setxkbmap += " -layout " + layoutCodes.join(",");
+
+  if( !layoutVariants.isEmpty() ) {
+    setxkbmap += " -variant " + layoutVariants.join(",");
   }
 
   widget->editCmdLine->setText(setxkbmap);
 
+  /* update display name field */
+  TQListViewItem *sel = widget->listLayoutsDst->selectedItem();
+  if (!sel) {
+    return;
+  }
+  TQString selLayoutCode = sel->text(LAYOUT_COLUMN_MAP);
+  TQString selLayoutVariant = widget->comboVariant->currentText();
+  TQString selDisplayName = sel->text(LAYOUT_COLUMN_DISPLAY_NAME);
+  if (selDisplayName.isEmpty()) {
+    int count = 0;
+    TQListViewItem *item = widget->listLayoutsDst->firstChild();
+    while (item) {
+      TQString layoutCode_ = item->text(LAYOUT_COLUMN_MAP);
+      if (layoutCode_ == selLayoutCode) {
+        ++count;
+      }
+      item = item->nextSibling();
+    }
+    bool single = count < 2;
+    selDisplayName = m_kxkbConfig.getDefaultDisplayName(LayoutUnit(selLayoutCode, selLayoutVariant), single);
+  }
+
   widget->editDisplayName->setEnabled( sel != NULL );
-  widget->editDisplayName->setText(layoutDisplayName);
+  widget->editDisplayName->setText(selDisplayName);
+}
+
+// Synchronizes Xkb grp options --> hotkeys combobox
+void LayoutConfig::updateHotkeyCombo() {
+    OptionListItem *grpItem = m_optionGroups[i18n("grp")];
+    if (grpItem == NULL) {
+        kdWarning() << "LayoutConfig: cannot find grp item group" << endl;
+        return;
+    }
+
+    OptionListItem *child = (OptionListItem*)grpItem->firstChild();
+    while (child) {
+        if (child->isOn()) {
+            bool found = false;
+            for (int i = 0; i < widget->comboHotkey->count(); ++i) {
+                if (child->text() == widget->comboHotkey->text(i)) {
+                    widget->comboHotkey->setCurrentItem(i);
+                    found = true;
+                }
+            }
+            if (!found) {
+                int other = widget->comboHotkey->count() - 1;
+                widget->comboHotkey->changeItem(i18n("Other (%1)...").arg(child->text()),
+                                                other);
+                widget->comboHotkey->setCurrentItem(other);
+            }
+        }
+        child = (OptionListItem*)child->nextSibling();
+    }
+}
+
+// Synchronizes hotkeys combobox --> Xkb grp options
+void LayoutConfig::hotkeyComboChanged() {
+    TQString hkDesc = widget->comboHotkey->currentText();
+
+    OptionListItem *grpItem = m_optionGroups[i18n("grp")];
+    if (grpItem == NULL) {
+        kdWarning() << "LayoutConfig: cannot find grp item group" << endl;
+        return;
+    }
+
+    OptionListItem *child = (OptionListItem*)grpItem->firstChild();
+    while (child) {
+        child->setOn(child->text() == hkDesc);
+        child = (OptionListItem*)child->nextSibling();
+    }
+
+    // Other...
+    if (widget->comboHotkey->count() - 1 == widget->comboHotkey->currentItem()) {
+        OptionListItem *none = grpItem->findChildItem("none");
+        if (none) {
+            none->setOn(true);
+        }
+        widget->tabWidget->setCurrentPage(2);
+        widget->listOptions->setCurrentItem(none);
+        widget->listOptions->ensureItemVisible(none);
+        widget->listOptions->setFocus();
+    }
 }
 
 void LayoutConfig::changed()
@@ -902,12 +931,8 @@ extern "C"
 			kapp->startServiceByDesktopName("kxkb");
 		}
 		else {
-		// Even if the layouts have been disabled we still want to set Xkb options
-		// user can always switch them off now in the "Options" tab
-			if( m_kxkbConfig.m_enableXkbOptions ) {
-				if( !XKBExtension::setXkbOptions(m_kxkbConfig.m_options, m_kxkbConfig.m_resetOldOptions) ) {
-					kdDebug() << "Setting XKB options failed!" << endl;
-				}
+			if (!XKBExtension::setXkbOptions(m_kxkbConfig.getXkbOptions())) {
+				kdDebug() << "Setting XKB options failed!" << endl;
 			}
 		}
 	}

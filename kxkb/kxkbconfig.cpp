@@ -30,27 +30,14 @@ static const char* switchModes[SWITCH_POLICY_COUNT] = {
 const LayoutUnit DEFAULT_LAYOUT_UNIT = LayoutUnit("us", "");
 const char* DEFAULT_MODEL = "pc104";
 
-LayoutUnit KxkbConfig::getDefaultLayout()
-{
-	if( m_layouts.size() == 0 )
-		return DEFAULT_LAYOUT_UNIT;
-
-	return m_layouts[0];
-}
-
 bool KxkbConfig::load(int loadMode)
 {
 	TDEConfig *config = new TDEConfig("kxkbrc", true, false);
 	config->setGroup("Layout");
 
-// Even if the layouts have been disabled we still want to set Xkb options
-// user can always switch them off now in the "Options" tab
-	m_enableXkbOptions = config->readBoolEntry("EnableXkbOptions", false);
-
-	if( m_enableXkbOptions == true || loadMode == LOAD_ALL ) {
+	if( loadMode == LOAD_ALL ) {
 		m_resetOldOptions = config->readBoolEntry("ResetOldOptions", false);
 		m_options = config->readEntry("Options", "");
-		kdDebug() << "Xkb options (enabled=" << m_enableXkbOptions << "): " << m_options << endl;
 	}
 
 	m_useKxkb = config->readBoolEntry("Use", false);
@@ -81,7 +68,7 @@ bool KxkbConfig::load(int loadMode)
 		kdDebug() << " layout " << LayoutUnit(*it).toPair() << " in list: " << m_layouts.contains( LayoutUnit(*it) ) << endl;
 	}
 
-	kdDebug() << "Found " << m_layouts.count() << " layouts, default is " << getDefaultLayout().toPair() << endl;
+	kdDebug() << "Found " << m_layouts.count() << " layouts" << endl;
 
 	TQStringList displayNamesList = config->readListEntry("DisplayNames", ',');
 	for(TQStringList::ConstIterator it = displayNamesList.begin(); it != displayNamesList.end() ; ++it) {
@@ -90,37 +77,6 @@ bool KxkbConfig::load(int loadMode)
 			LayoutUnit layoutUnit( displayNamePair[0] );
 			if( m_layouts.contains( layoutUnit ) ) {
 				m_layouts[m_layouts.findIndex(layoutUnit)].displayName = displayNamePair[1].left(3);
-			}
-		}
-	}
-
-// 	m_includes.clear();
-	if( X11Helper::areSingleGroupsSupported() ) {
-		if( config->hasKey("IncludeGroups") ) {
-			TQStringList includeList = config->readListEntry("IncludeGroups", ',');
-			for(TQStringList::ConstIterator it = includeList.begin(); it != includeList.end() ; ++it) {
-				TQStringList includePair = TQStringList::split(':', *it );
-				if( includePair.count() == 2 ) {
-					LayoutUnit layoutUnit( includePair[0] );
-					if( m_layouts.contains( layoutUnit ) ) {
-						m_layouts[m_layouts.findIndex(layoutUnit)].includeGroup = includePair[1];
-						kdDebug() << "Got inc group: " << includePair[0] << ": " << includePair[1] << endl;
-					}
-				}
-			}
-		}
-		else { //old includes format
-			kdDebug() << "Old includes..." << endl;
-			TQStringList includeList = config->readListEntry("Includes");
-			for(TQStringList::ConstIterator it = includeList.begin(); it != includeList.end() ; ++it) {
-				TQString layoutName = LayoutUnit::parseLayout( *it );
-				LayoutUnit layoutUnit( layoutName, "" );
-				kdDebug() << "old layout for inc: " << layoutUnit.toPair() << " included " << m_layouts.contains( layoutUnit ) << endl;
-				if( m_layouts.contains( layoutUnit ) ) {
-					TQString variantName = LayoutUnit::parseVariant(*it);
-					m_layouts[m_layouts.findIndex(layoutUnit)].includeGroup = variantName;
-					kdDebug() << "Got inc group: " << layoutUnit.toPair() << ": " <<  variantName << endl;
-				}
 			}
 		}
 	}
@@ -185,12 +141,10 @@ void KxkbConfig::save()
 
 	config->writeEntry("Model", m_model);
 
-	config->writeEntry("EnableXkbOptions", m_enableXkbOptions );
 	config->writeEntry("ResetOldOptions", m_resetOldOptions);
 	config->writeEntry("Options", m_options );
 
 	TQStringList layoutList;
-	TQStringList includeList;
 	TQStringList displayNamesList;
 
 	TQValueList<LayoutUnit>::ConstIterator it;
@@ -198,11 +152,6 @@ void KxkbConfig::save()
 		const LayoutUnit& layoutUnit = *it;
 
 		layoutList.append( layoutUnit.toPair() );
-
-		if( layoutUnit.includeGroup.isEmpty() == false ) {
-			TQString incGroupUnit = TQString("%1:%2").arg(layoutUnit.toPair(), layoutUnit.includeGroup);
-			includeList.append( incGroupUnit );
-		}
 
 		TQString displayName( layoutUnit.displayName );
 		kdDebug() << " displayName " << layoutUnit.toPair() << " : " << displayName << endl;
@@ -214,9 +163,6 @@ void KxkbConfig::save()
 
 	config->writeEntry("LayoutList", layoutList);
 	kdDebug() << "Saving Layouts: " << layoutList << endl;
-
-	config->writeEntry("IncludeGroups", includeList);
- 	kdDebug() << "Saving includeGroups: " << includeList << endl;
 
 //	if( displayNamesList.empty() == false )
 		config->writeEntry("DisplayNames", displayNamesList);
@@ -259,7 +205,6 @@ void KxkbConfig::setDefaults()
 {
 	m_model = DEFAULT_MODEL;
 
-	m_enableXkbOptions = false;
 	m_resetOldOptions = false;
 	m_options = "";
 
@@ -319,6 +264,26 @@ TQString KxkbConfig::getDefaultDisplayName(const LayoutUnit& layoutUnit, bool si
 	if( single == false )
 		displayName += layoutUnit.variant.left(1);
 	return displayName;
+}
+
+const XkbOptions KxkbConfig::getXkbOptions() {
+	load(LOAD_ALL);
+
+	XkbOptions options;
+	TQStringList layouts;
+	TQStringList variants;
+	for(TQValueList<LayoutUnit>::ConstIterator it = m_layouts.begin(); it != m_layouts.end(); ++it) {
+		const LayoutUnit& layoutUnit = *it;
+		layouts << layoutUnit.layout;
+		variants << layoutUnit.variant;
+	}
+	options.layouts  = layouts.join(",");
+	options.variants = variants.join(",");
+	options.model    = m_model;
+	options.options  = m_options;
+	kdDebug() << "[getXkbOptions] options: " << m_options << endl;
+	options.resetOld = m_resetOldOptions;
+	return options;
 }
 
 /**

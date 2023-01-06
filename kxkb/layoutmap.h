@@ -27,13 +27,11 @@
 // LayoutInfo is used for sticky switching and per-window/application switching policy
 struct LayoutState {
 	const LayoutUnit& layoutUnit;
-	int group;
 	
 	LayoutState(const LayoutUnit& layoutUnit_):
-		layoutUnit(layoutUnit_),
-		group(layoutUnit_.defaultGroup)
+		layoutUnit(layoutUnit_)
 	{
-// 		kdDebug() << "new LayoutState " << layoutUnit.toPair() << " group: " << group << endl;
+// 		kdDebug() << "new LayoutState " << layoutUnit.toPair() << endl;
 	}
 };
 
@@ -49,7 +47,6 @@ public:
 //	void setConfig(const KxkbConfig& kxkbConfig);
 	
 	void setCurrentLayout(const LayoutUnit& layoutUnit);
-	void setCurrentGroup(int group);
 	LayoutState& getNextLayout();
 	LayoutState& getCurrentLayout();
 	

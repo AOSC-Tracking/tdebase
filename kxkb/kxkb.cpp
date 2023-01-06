@@ -63,19 +63,14 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
     m_prevWinId(X11Helper::UNKNOWN_WINDOW_ID),
     m_rules(NULL),
     m_tray(NULL),
-    kWinModule(NULL),
-    m_forceSetXKBMap( false )
+    kWinModule(NULL)
 {
 	m_extension = new XKBExtension();
     if( !m_extension->init() ) {
 		kdDebug() << "xkb initialization failed, exiting..." << endl;
 		::exit(1);
     }
-	
-    // keep in sync with kcmlayout.cpp
-    keys = new TDEGlobalAccel(TQT_TQOBJECT(this));
-#include "kxkbbindings.cpp"
-    keys->updateConnections();
+    connect(m_extension, TQT_SIGNAL(groupChanged(uint)), this, TQT_SLOT(slotGroupChanged(uint)));
 
 	m_layoutOwnerMap = new LayoutMap(kxkbConfig);
 
@@ -86,9 +81,6 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
 
 KXKBApp::~KXKBApp()
 {
-//    deletePrecompiledLayouts();
-
-    delete keys;
     delete m_tray;
     delete m_rules;
     delete m_extension;
@@ -98,24 +90,19 @@ KXKBApp::~KXKBApp()
 
 int KXKBApp::newInstance()
 {
-	m_extension->reset();
-	
-    if( settingsRead() )
-		layoutApply();
-	
+    if (settingsRead()) {
+        layoutApply();
+    }
+
     return 0;
 }
 
 bool KXKBApp::settingsRead()
 {
-	kxkbConfig.load( KxkbConfig::LOAD_ACTIVE_OPTIONS );
-
-    if( kxkbConfig.m_enableXkbOptions ) {
-		kdDebug() << "Setting XKB options " << kxkbConfig.m_options << endl;
-		if( !m_extension->setXkbOptions(kxkbConfig.m_options, kxkbConfig.m_resetOldOptions) ) {
-            kdDebug() << "Setting XKB options failed!" << endl;
-        }
-    }
+	XkbOptions options = kxkbConfig.getXkbOptions();
+	if( !m_extension->setXkbOptions(options) ) {
+		kdDebug() << "Setting XKB options failed!" << endl;
+	}
 
     if ( kxkbConfig.m_useKxkb == false ) {
         kapp->quit();
@@ -151,38 +138,19 @@ bool KXKBApp::settingsRead()
 	
 	for(int ii=0; ii<(int)kxkbConfig.m_layouts.count(); ii++) {
 		LayoutUnit& layoutUnit = kxkbConfig.m_layouts[ii];
-		layoutUnit.defaultGroup = m_rules->getDefaultGroup(layoutUnit.layout, layoutUnit.includeGroup);
-		kdDebug() << "default group for " << layoutUnit.toPair() << " is " << layoutUnit.defaultGroup << endl;
 	}
 	
-	m_currentLayout = kxkbConfig.getDefaultLayout();
+	m_currentLayout = kxkbConfig.m_layouts[0];
+	kdDebug() << "default layout is " << m_currentLayout.toPair() << endl;
 	
-	if( kxkbConfig.m_layouts.count() == 1 ) {
-		TQString layoutName = m_currentLayout.layout;
-		TQString variantName = m_currentLayout.variant;
-		TQString includeName = m_currentLayout.includeGroup;
-		int group = m_currentLayout.defaultGroup;
-		
-		if( !m_extension->setLayout(kxkbConfig.m_model, layoutName, variantName, includeName, false) 
-				   || !m_extension->setGroup( group ) ) {
-			kdDebug() << "Error switching to single layout " << m_currentLayout.toPair() << endl;
-			// TODO: alert user
-		}
-	
-		if( kxkbConfig.m_showSingle == false ) {
-			kapp->quit();
-			return false;
-		}
+	if( kxkbConfig.m_layouts.count() == 1 && !kxkbConfig.m_showSingle) {
+		kapp->quit();
+		return false;
  	}
-	else {
-//		initPrecompiledLayouts();
-	}
 
 	initTray();
 	
 	TDEGlobal::config()->reparseConfiguration(); // kcontrol modified kdeglobals
-	keys->readSettings();
-	keys->updateConnections();
 
 	return true;
 }
@@ -197,7 +165,7 @@ void KXKBApp::initTray()
 
 		m_tray = new KxkbLabelController(sysTray, popupMenu);
  		connect(popupMenu, TQT_SIGNAL(activated(int)), this, TQT_SLOT(menuActivated(int)));
-		connect(sysTray, TQT_SIGNAL(toggled()), this, TQT_SLOT(toggled()));
+		connect(sysTray, TQT_SIGNAL(toggled()), this, TQT_SLOT(nextLayout()));
 	}
 	
 	m_tray->setShowFlag(kxkbConfig.m_showFlag);
@@ -223,35 +191,45 @@ bool KXKBApp::setLayout(const TQString& layoutPair)
 	return false;
 }
 
-
 // Activates the keyboard layout specified by 'layoutUnit'
-bool KXKBApp::setLayout(const LayoutUnit& layoutUnit, int group)
+bool KXKBApp::setLayout(const LayoutUnit& layoutUnit)
 {
-	bool res = false;
-
-	if( group == -1 )
-		group = layoutUnit.defaultGroup;
-	
-	res = m_extension->setLayout(kxkbConfig.m_model, 
- 					layoutUnit.layout, layoutUnit.variant, 
- 					layoutUnit.includeGroup);
-	if( res )
-		m_extension->setGroup(group); // not checking for ret - not important
-	
-    if( res )
-        m_currentLayout = layoutUnit;
-
-    if (m_tray) {
-		if( res )
-			m_tray->setCurrentLayout(layoutUnit);
-		else  
-			m_tray->setError(layoutUnit.toPair());
+	uint group = kxkbConfig.m_layouts.findIndex(layoutUnit);
+	bool res = m_extension->setGroup(group);
+	if (res) {
+		m_currentLayout = layoutUnit;
 	}
 
-    return res;
+    if (m_tray) {
+		if (res) {
+			m_tray->setCurrentLayout(layoutUnit);
+		} else {
+			m_tray->setError(layoutUnit.toPair());
+		}
+	}
+
+	return res;
+}
+// Activates the keyboard layout specified by group number
+bool KXKBApp::setLayout(const uint group)
+{
+	bool res = m_extension->setGroup(group);
+	if (res) {
+		m_currentLayout = kxkbConfig.m_layouts[group];
+	}
+
+	if (m_tray) {
+		if (res)
+			m_tray->setCurrentLayout(m_currentLayout);
+		else
+			m_tray->setError(m_currentLayout.toPair());
+	}
+
+	return res;
 }
 
-void KXKBApp::toggled()
+
+void KXKBApp::nextLayout()
 {
 	const LayoutUnit& layout = m_layoutOwnerMap->getNextLayout().layoutUnit;
 	setLayout(layout);
@@ -282,6 +260,11 @@ void KXKBApp::menuActivated(int id)
 //	}
 }
 
+void KXKBApp::slotGroupChanged(uint group) {
+	m_currentLayout = kxkbConfig.m_layouts[group];
+	m_tray->setCurrentLayout(m_currentLayout);
+}
+
 // TODO: we also have to handle deleted windows
 void KXKBApp::windowChanged(WId winId)
 {
@@ -291,15 +274,11 @@ void KXKBApp::windowChanged(WId winId)
 		return;
 	}
 
-	int group = m_extension->getGroup();
-
 	kdDebug() << "old WinId: " << m_prevWinId << ", new WinId: " << winId << endl;
 	
-	if( m_prevWinId != X11Helper::UNKNOWN_WINDOW_ID ) {	// saving layout/group from previous window
-// 		kdDebug() << "storing " << m_currentLayout.toPair() << ":" << group << " for " << m_prevWinId << endl;
+	if( m_prevWinId != X11Helper::UNKNOWN_WINDOW_ID ) {	// saving layout from previous window
 // 		m_layoutOwnerMap->setCurrentWindow(m_prevWinId);
 		m_layoutOwnerMap->setCurrentLayout(m_currentLayout);
-		m_layoutOwnerMap->setCurrentGroup(group);
 	}
  
 	m_prevWinId = winId;
@@ -309,11 +288,8 @@ void KXKBApp::windowChanged(WId winId)
 		const LayoutState& layoutState = m_layoutOwnerMap->getCurrentLayout();
 		
 		if( layoutState.layoutUnit != m_currentLayout ) {
-			kdDebug() << "switching to " << layoutState.layoutUnit.toPair() << ":" << group << " for "  << winId << endl;
-			setLayout( layoutState.layoutUnit, layoutState.group );
-		}
-		else if( layoutState.group != group ) {	// we need to change only the group
-			m_extension->setGroup(layoutState.group);
+			kdDebug() << "switching to " << layoutState.layoutUnit.toPair() << " for "  << winId << endl;
+			setLayout(layoutState.layoutUnit);
 		}
 	}
 }
@@ -325,49 +301,13 @@ void KXKBApp::slotSettingsChanged(int category)
 		return;
 
     TDEGlobal::config()->reparseConfiguration(); // kcontrol modified kdeglobals
-    keys->readSettings();
-    keys->updateConnections();
 }
 
-/*
- Viki (onscreen keyboard) has problems determining some modifiers states
- when kxkb uses precompiled layouts instead of setxkbmap. Probably a bug
- in the xkb functions used for the precompiled layouts *shrug*.
-*/
-void KXKBApp::forceSetXKBMap( bool set )
-{
-    if( m_forceSetXKBMap == set )
-        return;
-    m_forceSetXKBMap = set;
-    layoutApply();
+bool KXKBApp::x11EventFilter(XEvent *e) {
+    // let the extension process the event and emit signals if necessary
+    m_extension->processXEvent(e);
+    return TDEApplication::x11EventFilter(e);
 }
-
-/*Precompiles the keyboard layouts for faster activation later.
-This is done by loading each one of them and then dumping the compiled
-map from the X server into our local buffer.*/
-// void KXKBApp::initPrecompiledLayouts()
-// {
-//     TQStringList dirs = TDEGlobal::dirs()->findDirs ( "tmp", "" );
-//     TQString tempDir = dirs.count() == 0 ? "/tmp/" : dirs[0]; 
-// 
-// 	TQValueList<LayoutUnit>::ConstIterator end = kxkbConfig.m_layouts.end();
-// 
-// 	for (TQValueList<LayoutUnit>::ConstIterator it = kxkbConfig.m_layouts.begin(); it != end; ++it)
-//     {
-// 		LayoutUnit layoutUnit(*it);
-// //	const char* baseGr = m_includes[layout]; 
-// //	int group = m_rules->getGroup(layout, baseGr);
-// //    	if( m_extension->setLayout(m_model, layout, m_variants[layout], group, baseGr) ) {
-// 		TQString compiledLayoutFileName = tempDir + layoutUnit.layout + "." + layoutUnit.variant + ".xkm";
-// //    	    if( m_extension->getCompiledLayout(compiledLayoutFileName) )
-// 		m_compiledLayoutFileNames[layoutUnit.toPair()] = compiledLayoutFileName;
-// //	}
-// //	else {
-// //    	    kdDebug() << "Error precompiling layout " << layout << endl;
-// //	}
-//     }
-// }
-
 
 const char * DESCRIPTION =
   I18N_NOOP("A utility to switch keyboard maps");

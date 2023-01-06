@@ -190,7 +190,6 @@ extern "C"
 #include "../../kicker/kicker/core/kickerbindings.cpp"
 #include "../../kicker/taskbar/taskbarbindings.cpp"
 #include "../../kdesktop/kdesktopbindings.cpp"
-#include "../../kxkb/kxkbbindings.cpp"
 
   // Write all the global keys to kdeglobals.
   // This is needed to be able to check for conflicts with global keys in app's keyconfig

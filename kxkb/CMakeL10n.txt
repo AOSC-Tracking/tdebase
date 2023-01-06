@@ -5,7 +5,6 @@ tde_l10n_create_template(
     SOURCES
         kcmlayout.cpp
         kcmmisc.cpp
-        kxkbbindings.cpp
         pixmap.cpp
         rules.cpp
         *.ui
@@ -16,7 +15,6 @@ tde_l10n_create_template(
     SOURCES
         extension.cpp
         kxkb.cpp
-        kxkbbindings.cpp
         kxkbtraywindow.cpp
         pixmap.cpp
         rules.cpp

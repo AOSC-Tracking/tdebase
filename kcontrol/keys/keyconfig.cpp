@@ -66,7 +66,6 @@ void KKeyModule::init( bool isGlobal, bool _bSeriesOnly, bool bSeriesNone )
 #include "../../kicker/taskbar/taskbarbindings.cpp"
 #include "../../kdesktop/kdesktopbindings.cpp"
 #include "../../klipper/klipperbindings.cpp"
-#include "../../kxkb/kxkbbindings.cpp"
 #undef TDEShortcuts
     KeyScheme = "Global Key Scheme";
     KeySet    = "Global Keys";
@@ -489,7 +488,6 @@ void KKeyModule::init()
 #include "../../kicker/kicker/core/kickerbindings.cpp"
 #include "../../kicker/taskbar/taskbarbindings.cpp"
 #include "../../kdesktop/kdesktopbindings.cpp"
-#include "../../kxkb/kxkbbindings.cpp"
 #undef TDEShortcuts
 
   kdDebug(125) << "KKeyModule::init() - Read Config Bindings\n";

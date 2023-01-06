@@ -2,36 +2,32 @@
 #define __EXTENSION_H__
 
 #include <X11/Xlib.h>
+#include <tqobject.h>
 
+#include "kxkbconfig.h"
 
-class XKBExtension
+class XKBExtension : public TQObject
 {
+    TQ_OBJECT
+
 public:
 	XKBExtension(Display *display=NULL);
 	~XKBExtension();
 	bool init();
-	void reset();
 
-	static bool setXkbOptions(const TQString& options, bool resetOldOptions);
-	bool setLayout(const TQString& model,
-					const TQString& layout, const TQString& variant,
-					const TQString& includeGroup, bool useCompiledLayouts=true);
+	static bool setXkbOptions(const XkbOptions options);
 	bool setGroup(unsigned int group);
 	unsigned int getGroup() const;
+	void processXEvent(XEvent *ev);
 
 private:
     Display *m_dpy;
 	TQString m_tempDir;
+	int m_keycode;
 	static TQMap<TQString, FILE*> fileCache;
-	
-	bool setLayoutInternal(const TQString& model,
-				   const TQString& layout, const TQString& variant,
-				   const TQString& includeGroup);
-	bool compileCurrentLayout(const TQString& layoutKey);
-	bool setCompiledLayout(const TQString& layoutKey);
-	
-	TQString getPrecompiledLayoutFilename(const TQString& layoutKey);
-//	void deletePrecompiledLayouts();
+
+signals:
+	void groupChanged(uint group);
 };
 
 #endif

@@ -19,6 +19,13 @@
 #include <tqptrqueue.h>
 #include <tqmap.h>
 
+struct XkbOptions {
+	TQString layouts;
+	TQString variants;
+	TQString model;
+	TQString options;
+	bool resetOld;
+};
 
 /* Utility classes for per-window/per-application layout implementation
 */
@@ -41,9 +48,7 @@ inline TQString createPair(TQString key, TQString value)
 struct LayoutUnit {
 	TQString layout;
 	TQString variant;
-	TQString includeGroup;
 	TQString displayName;
- 	int defaultGroup;
 
 	LayoutUnit() {}
 
@@ -115,8 +120,6 @@ public:
 	TQString m_options;
 	TQValueList<LayoutUnit> m_layouts;
 
-	LayoutUnit getDefaultLayout();
-
 	bool load(int loadMode);
 	void save();
 	void setDefaults();
@@ -124,6 +127,8 @@ public:
 	TQStringList getLayoutStringList(/*bool compact*/);
 	static TQString getDefaultDisplayName(const TQString& code_);
 	static TQString getDefaultDisplayName(const LayoutUnit& layoutUnit, bool single=false);
+
+	const XkbOptions getXkbOptions();
 
 private:
 	static const TQMap<TQString, TQString> parseIncludesMap(const TQStringList& pairList);
