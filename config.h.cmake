@@ -146,6 +146,7 @@
 
 // kcheckpass
 #cmakedefine KCHECKPASS_PAM_SERVICE "@KCHECKPASS_PAM_SERVICE@"
+#cmakedefine HAVE_PW_ENCRYPT 1
 
 // kdesktop
 #cmakedefine TDESCREENSAVER_PAM_SERVICE "@TDESCREENSAVER_PAM_SERVICE@"
