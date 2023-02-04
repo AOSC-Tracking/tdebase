@@ -1,8 +1,8 @@
 /*
  * Copyright 2015 Timothy Pearson <kb9vqf@pearsoncomputing.net>
- * 
+ *
  * This file is part of hwdevicetray, the TDE Hardware Device Monitor System Tray Application
- * 
+ *
  * hwdevicetray is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, either version 3
@@ -55,7 +55,7 @@
 #include "hwdevicetray.h"
 
 HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
-	: KSystemTray(parent, name)
+	: KSystemTray(parent, name), m_RMBMenu(contextMenu())
 {
 	// Create notifier
 	m_hardwareNotifierContainer = new TDEPassivePopupStackContainer();
@@ -142,16 +142,27 @@ void HwDeviceSystemTray::showEvent (TQShowEvent *) {
 	resizeTrayIcon();
 }
 
-void HwDeviceSystemTray::mousePressEvent(TQMouseEvent* e) {
-	// Popup the context menu with left-click
-	if (e->button() == Qt::LeftButton) {
-		contextMenuAboutToShow(contextMenu());
-		contextMenu()->popup(e->globalPos());
-		e->accept();
-		return;
-	}
+void HwDeviceSystemTray::mousePressEvent(TQMouseEvent* e)
+{
+	switch (e->button())
+	{
+		case Qt::LeftButton:
 
-	KSystemTray::mousePressEvent(e);
+			break;
+
+		case Qt::MidButton:
+			TQTimer::singleShot(0, this, TQT_SLOT(slotHardwareConfig()));
+			break;
+
+		case Qt::RightButton:
+			contextMenuAboutToShow(m_RMBMenu);
+			m_RMBMenu->popup(e->globalPos());
+			break;
+
+		default:
+			// do nothing
+			break;
+	}
 }
 
 bool HwDeviceSystemTray::isMonitoredDevice(TDEStorageDevice* sdevice)
@@ -195,33 +206,17 @@ bool HwDeviceSystemTray::isMonitoredDevice(TDEStorageDevice* sdevice)
 	         sdevice->isDiskOfType(TDEDiskDeviceType::Camera)));
 }
 
-void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu) {
-	menu->clear();
-	menu->setCheckable(true);
-
-	populateMenu(menu);
-
-	menu->insertTitle(SmallIcon("configure"), i18n("Global Configuration"));
-
-	TDEAction *actHardwareConfig = new TDEAction(i18n("Show Device Manager..."), SmallIconSet("kcmpci"), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT(slotHardwareConfig()), actionCollection());
-	actHardwareConfig->plug(menu);
-
-	TDEAction *actShortcutKeys = new TDEAction(i18n("Configure Shortcut Keys..."), SmallIconSet("configure"), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT(slotEditShortcutKeys()), actionCollection());
-	actShortcutKeys->plug(menu);
-
-	menu->insertItem(SmallIcon("help"), KStdGuiItem::help().text(), m_help->menu());
-	TDEAction *quitAction = actionCollection()->action(KStdAction::name(KStdAction::Quit));
-	quitAction->plug(menu);
-
-	m_menu = menu;
-}
-
 void HwDeviceSystemTray::configChanged() {
 	//
 }
 
-void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
-	menu->insertTitle(SmallIcon("drive-harddisk-unmounted"), i18n("Storage Devices"));
+void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
+{
+	menu->clear();
+	menu->setCheckable(true);
+
+	// Device actions
+	menu->insertTitle(SmallIcon("drive-harddisk-unmounted"), i18n("Storage Device Actions"));
 
 	TDEActionMenu *openDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("open_menu"));
 	TDEActionMenu *mountDeviceActionMenu = static_cast<TDEActionMenu*>(actionCollection()->action("mount_menu"));
@@ -409,6 +404,21 @@ void HwDeviceSystemTray::populateMenu(TDEPopupMenu* menu) {
 	{
 		propertiesDeviceActionMenu->plug(menu);
 	}
+
+	// Global Configuration
+	menu->insertTitle(SmallIcon("configure"), i18n("Global Configuration"));
+
+	TDEAction *actHardwareConfig = new TDEAction(i18n("Show Device Manager..."), SmallIconSet("kcmpci"), TDEShortcut(), this, TQT_SLOT(slotHardwareConfig()), actionCollection());
+	actHardwareConfig->plug(menu);
+
+	TDEAction *actShortcutKeys = new TDEAction(i18n("Configure Shortcut Keys..."), SmallIconSet("configure"), TDEShortcut(), this, TQT_SLOT(slotEditShortcutKeys()), actionCollection());
+	actShortcutKeys->plug(menu);
+
+	// Help & Quit
+	menu->insertSeparator();
+	menu->insertItem(SmallIcon("help"), KStdGuiItem::help().text(), m_help->menu());
+	TDEAction *quitAction = actionCollection()->action(KStdAction::name(KStdAction::Quit));
+	quitAction->plug(menu);
 }
 
 void HwDeviceSystemTray::slotOpenDevice(int parameter)

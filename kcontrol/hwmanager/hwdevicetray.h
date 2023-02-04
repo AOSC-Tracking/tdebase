@@ -1,8 +1,8 @@
 /*
  * Copyright 2015 Timothy Pearson <kb9vqf@pearsoncomputing.net>
- * 
+ *
  * This file is part of hwdevicetray, the TDE Hardware Device Monitor System Tray Application
- * 
+ *
  * hwdevicetray is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, either version 3
@@ -45,7 +45,7 @@ public:
 	~HwDeviceSystemTray();
 	TDEGlobalAccel *globalKeys;
 
-	virtual void contextMenuAboutToShow(TDEPopupMenu* menu);
+	virtual void contextMenuAboutToShow(TDEPopupMenu *menu);
 
 	void configChanged();
 
@@ -80,8 +80,6 @@ private slots:
 private:
 	static bool isMonitoredDevice(TDEStorageDevice *sdevice);
 
-private:
-	void populateMenu(TDEPopupMenu* menu);
 	void resizeTrayIcon();
 
 	bool m_popupUp;
@@ -98,7 +96,7 @@ private:
 	TQStringMap m_ejectMenuIndexMap;
 	TQStringMap m_safeRemoveMenuIndexMap;
 	TQStringMap m_propertiesMenuIndexMap;
-	TDEPopupMenu* m_menu;
+	TDEPopupMenu* m_RMBMenu;
 	KSimpleConfig *r_config;
 
 	struct KnownDiskDeviceInfo
