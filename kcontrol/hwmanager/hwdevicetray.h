@@ -20,21 +20,14 @@
 #ifndef TDEHWDEVICETRAY_H
 #define TDEHWDEVICETRAY_H
 
-#include <tqptrlist.h>
-
 #include <ksystemtray.h>
-#include <kglobalaccel.h>
-#include <ksimpleconfig.h>
-#include <tdepassivepopupstack.h>
 
-#include <tdehardwaredevices.h>
-#include <tdestoragedevice.h>
-
-class KHelpMenu;
-class PasswordDlg;
+class HwDeviceSystemTrayPrivate;
+class KPassivePopup;
+class TDEGenericDevice;
+class TDEGlobalAccel;
 class TDEPopupMenu;
-
-typedef TQMap<int, TQString> TQStringMap;
+class TDEStorageDevice;
 
 class HwDeviceSystemTray :  public KSystemTray
 {
@@ -43,6 +36,7 @@ class HwDeviceSystemTray :  public KSystemTray
 public:
 	HwDeviceSystemTray(TQWidget* parent = 0, const char *name = 0);
 	~HwDeviceSystemTray();
+
 	TDEGlobalAccel *globalKeys;
 
 	virtual void contextMenuAboutToShow(TDEPopupMenu *menu);
@@ -70,7 +64,7 @@ protected:
 	void showEvent(TQShowEvent *);
 
 private slots:
-	void _quit();
+	void quitApp();
 	void deviceAdded(TDEGenericDevice*);
 	void deviceRemoved(TDEGenericDevice*);
 	void deviceChanged(TDEGenericDevice*);
@@ -82,29 +76,7 @@ private:
 
 	void resizeTrayIcon();
 
-	bool m_popupUp;
-	KHelpMenu* m_help;
-
-	TQWidget* m_parent;
-	TDEPassivePopupStackContainer* m_hardwareNotifierContainer;
-
-	TQStringMap m_openMenuIndexMap;
-	TQStringMap m_mountMenuIndexMap;
-	TQStringMap m_unmountMenuIndexMap;
-	TQStringMap m_unlockMenuIndexMap;
-	TQStringMap m_lockMenuIndexMap;
-	TQStringMap m_ejectMenuIndexMap;
-	TQStringMap m_safeRemoveMenuIndexMap;
-	TQStringMap m_propertiesMenuIndexMap;
-	TDEPopupMenu* m_RMBMenu;
-	KSimpleConfig *r_config;
-
-	struct KnownDiskDeviceInfo
-	{
-		TQString friendlyName;
-		TQString node;
-	};
-	TQMap<TQString, KnownDiskDeviceInfo> m_knownDiskDevices;
+  HwDeviceSystemTrayPrivate *d;
 };
 
 #endif

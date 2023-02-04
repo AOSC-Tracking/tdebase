@@ -21,56 +21,94 @@
 #include <config.h>
 #endif
 
-#include <tqtimer.h>
-#include <tqimage.h>
-#include <tqtooltip.h>
-#include <tqfileinfo.h>
+#include <cstdlib>
+#include <unistd.h>
 
+#include <tqfileinfo.h>
+#include <tqimage.h>
+#include <tqtimer.h>
+#include <tqtooltip.h>
+
+#include <kcmultidialog.h>
+#include <kglobalaccel.h>
+#include <khelpmenu.h>
+#include "kprocess.h"
+#include <kpropertiesdialog.h>
 #include <krun.h>
+#include <ksimpleconfig.h>
+#include <kstandarddirs.h>
+
 #include <tdeaction.h>
 #include <tdeapplication.h>
-#include <kcmultidialog.h>
-#include <kdebug.h>
-#include <khelpmenu.h>
-#include <kiconloader.h>
-#include "kprocess.h"
-#include <tdelocale.h>
-#include <tdepopupmenu.h>
-#include <kstdaction.h>
-#include <kstdguiitem.h>
 #include <tdeglobal.h>
+#include <tdehardwaredevices.h>
+#include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kpassivepopup.h>
-#include <kstandarddirs.h>
-#include <kpropertiesdialog.h>
-#include "passworddlg.h"
+#include "tdepassivepopupstack.h"
+#include <tdepopupmenu.h>
 
 #include <dcopclient.h>
 #include <dcopref.h>
 
-#include <cstdlib>
-#include <unistd.h>
-
-#include "hwdevicetray_configdialog.h"
 #include "hwdevicetray.h"
+#include "hwdevicetray_configdialog.h"
 
-HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
-	: KSystemTray(parent, name), m_RMBMenu(contextMenu())
+
+typedef TQMap<int, TQString> TQStringMap;
+
+struct KnownDiskDeviceInfo
+{
+	TQString friendlyName;
+	TQString node;
+};
+
+class HwDeviceSystemTrayPrivate
+{
+public:
+	HwDeviceSystemTrayPrivate()
+	{
+	}
+
+	~HwDeviceSystemTrayPrivate()
+	{
+	}
+
+	// Members
+	KHelpMenu *m_help;
+	TDEPopupMenu *m_RMBMenu;
+
+	TQStringMap m_openMenuIndexMap;
+	TQStringMap m_mountMenuIndexMap;
+	TQStringMap m_unmountMenuIndexMap;
+	TQStringMap m_unlockMenuIndexMap;
+	TQStringMap m_lockMenuIndexMap;
+	TQStringMap m_ejectMenuIndexMap;
+	TQStringMap m_safeRemoveMenuIndexMap;
+	TQStringMap m_propertiesMenuIndexMap;
+
+	TQMap<TQString, KnownDiskDeviceInfo> m_knownDiskDevices;
+
+	TDEPassivePopupStackContainer *m_hardwareNotifierContainer;
+};
+
+
+HwDeviceSystemTray::HwDeviceSystemTray(TQWidget *parent, const char *name)
+	: KSystemTray(parent, name), d(new HwDeviceSystemTrayPrivate())
 {
 	// Create notifier
-	m_hardwareNotifierContainer = new TDEPassivePopupStackContainer();
-	connect(m_hardwareNotifierContainer, TQT_SIGNAL(popupClicked(KPassivePopup*, TQPoint, TQString)), this, TQT_SLOT(devicePopupClicked(KPassivePopup*, TQPoint, TQString)));
+	d->m_hardwareNotifierContainer = new TDEPassivePopupStackContainer();
+	connect(d->m_hardwareNotifierContainer, TQT_SIGNAL(popupClicked(KPassivePopup*, TQPoint, TQString)), this, TQT_SLOT(devicePopupClicked(KPassivePopup*, TQPoint, TQString)));
 
-	// Create help submenu
-	m_help = new KHelpMenu(this, TDEGlobal::instance()->aboutData(), false, actionCollection());
-	TDEPopupMenu *help = m_help->menu();
-	help->connectItem(KHelpMenu::menuHelpContents, this, TQT_SLOT(slotHelpContents()));
+	// Create menus
+	d->m_help = new KHelpMenu(this, TDEGlobal::instance()->aboutData(), false, actionCollection());
+	d->m_help->menu()->connectItem(KHelpMenu::menuHelpContents, this, TQT_SLOT(slotHelpContents()));
+
+	d->m_RMBMenu = contextMenu();
 
 	setPixmap(KSystemTray::loadIcon("hwinfo"));
 	setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-	connect(this, TQT_SIGNAL(quitSelected()), this, TQT_SLOT(_quit()));
+	connect(this, TQT_SIGNAL(quitSelected()), this, TQT_SLOT(quitApp()));
 	TQToolTip::add(this, i18n("Device monitor"));
-	m_parent = parent;
 
 	globalKeys = new TDEGlobalAccel(TQT_TQOBJECT(this));
 	TDEGlobalAccel* keys = globalKeys;
@@ -100,7 +138,8 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget* parent, const char *name)
 
 HwDeviceSystemTray::~HwDeviceSystemTray()
 {
-	delete m_hardwareNotifierContainer;
+	delete d->m_hardwareNotifierContainer;
+  delete d;
 }
 
 /*!
@@ -108,14 +147,15 @@ HwDeviceSystemTray::~HwDeviceSystemTray()
  * is asked through a yes/no box if "HwDeviceTray should start automatically on log in" and the
  * result is written to the KDE configfile.
  */
-void HwDeviceSystemTray::_quit () {
-	r_config = new KSimpleConfig("tdehwdevicetrayrc");
+void HwDeviceSystemTray::quitApp()
+{
+	KSimpleConfig *config = new KSimpleConfig("tdehwdevicetrayrc");
 
-	TQString tmp1 = i18n ("Start device monitor automatically when you log in?");
-	int tmp2 = KMessageBox::questionYesNo (0, tmp1, i18n("Question"), i18n("Start Automatically"), i18n("Do Not Start"));
-	r_config->setGroup("General");
-	r_config->writeEntry ("Autostart", tmp2 == KMessageBox::Yes);
-	r_config->sync ();
+	TQString tmp1 = i18n("Start device monitor automatically when you log in?");
+	int tmp2 = KMessageBox::questionYesNo(0, tmp1, i18n("Question"), i18n("Start Automatically"), i18n("Do Not Start"));
+	config->setGroup("General");
+	config->writeEntry("Autostart", tmp2 == KMessageBox::Yes);
+	config->sync();
 
 	exit(0);
 }
@@ -155,8 +195,8 @@ void HwDeviceSystemTray::mousePressEvent(TQMouseEvent* e)
 			break;
 
 		case Qt::RightButton:
-			contextMenuAboutToShow(m_RMBMenu);
-			m_RMBMenu->popup(e->globalPos());
+			contextMenuAboutToShow(d->m_RMBMenu);
+			d->m_RMBMenu->popup(e->globalPos());
 			break;
 
 		default:
@@ -236,14 +276,14 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 	safeRemoveDeviceActionMenu->popupMenu()->clear();
 	propertiesDeviceActionMenu->popupMenu()->clear();
 
-	m_openMenuIndexMap.clear();
-	m_mountMenuIndexMap.clear();
-	m_unmountMenuIndexMap.clear();
-	m_unlockMenuIndexMap.clear();
-	m_lockMenuIndexMap.clear();
-	m_ejectMenuIndexMap.clear();
-	m_safeRemoveMenuIndexMap.clear();
-	m_propertiesMenuIndexMap.clear();
+	d->m_openMenuIndexMap.clear();
+	d->m_mountMenuIndexMap.clear();
+	d->m_unmountMenuIndexMap.clear();
+	d->m_unlockMenuIndexMap.clear();
+	d->m_lockMenuIndexMap.clear();
+	d->m_ejectMenuIndexMap.clear();
+	d->m_safeRemoveMenuIndexMap.clear();
+	d->m_propertiesMenuIndexMap.clear();
 
 	// Find all storage devices and add them to the popup menus
 	int lastOpenIndex = -1;
@@ -275,10 +315,10 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 					lastLockIndex = lockDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 					        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 					lockDeviceActionMenu->popupMenu()->connectItem(lastLockIndex, this, TQT_SLOT(slotLockDevice(int)));
-					m_lockMenuIndexMap[lastLockIndex] = sdevice->diskUUID();
-					if (m_lockMenuIndexMap[lastLockIndex] == "")
+					d->m_lockMenuIndexMap[lastLockIndex] = sdevice->diskUUID();
+					if (d->m_lockMenuIndexMap[lastLockIndex] == "")
 					{
-						m_lockMenuIndexMap[lastLockIndex] = sdevice->systemPath();
+						d->m_lockMenuIndexMap[lastLockIndex] = sdevice->systemPath();
 					}
 				}
 				else
@@ -286,10 +326,10 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 					lastUnlockIndex = unlockDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 					        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 					unlockDeviceActionMenu->popupMenu()->connectItem(lastUnlockIndex, this, TQT_SLOT(slotUnlockDevice(int)));
-					m_unlockMenuIndexMap[lastUnlockIndex] = sdevice->diskUUID();
-					if (m_unlockMenuIndexMap[lastUnlockIndex] == "")
+					d->m_unlockMenuIndexMap[lastUnlockIndex] = sdevice->diskUUID();
+					if (d->m_unlockMenuIndexMap[lastUnlockIndex] == "")
 					{
-						m_unlockMenuIndexMap[lastUnlockIndex] = sdevice->systemPath();
+						d->m_unlockMenuIndexMap[lastUnlockIndex] = sdevice->systemPath();
 					}
 				}
 			}
@@ -301,10 +341,10 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 					lastMountIndex = mountDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 					        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 					mountDeviceActionMenu->popupMenu()->connectItem(lastMountIndex, this, TQT_SLOT(slotMountDevice(int)));
-					m_mountMenuIndexMap[lastMountIndex] = sdevice->diskUUID();
-					if (m_mountMenuIndexMap[lastMountIndex] == "")
+					d->m_mountMenuIndexMap[lastMountIndex] = sdevice->diskUUID();
+					if (d->m_mountMenuIndexMap[lastMountIndex] == "")
 					{
-						m_mountMenuIndexMap[lastMountIndex] = sdevice->systemPath();
+						d->m_mountMenuIndexMap[lastMountIndex] = sdevice->systemPath();
 					}
 				}
 				else
@@ -312,10 +352,10 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 					lastUnmountIndex = unmountDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 					        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 					unmountDeviceActionMenu->popupMenu()->connectItem(lastUnmountIndex, this, TQT_SLOT(slotUnmountDevice(int)));
-					m_unmountMenuIndexMap[lastUnmountIndex] = sdevice->diskUUID();
-					if (m_unmountMenuIndexMap[lastMountIndex] == "")
+					d->m_unmountMenuIndexMap[lastUnmountIndex] = sdevice->diskUUID();
+					if (d->m_unmountMenuIndexMap[lastMountIndex] == "")
 					{
-						m_unmountMenuIndexMap[lastMountIndex] = sdevice->systemPath();
+						d->m_unmountMenuIndexMap[lastMountIndex] = sdevice->systemPath();
 					}
 				}
 
@@ -323,10 +363,10 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 				lastOpenIndex = openDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 				        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 				openDeviceActionMenu->popupMenu()->connectItem(lastOpenIndex, this, TQT_SLOT(slotOpenDevice(int)));
-				m_openMenuIndexMap[lastOpenIndex] = sdevice->diskUUID();
-				if (m_openMenuIndexMap[lastOpenIndex] == "")
+				d->m_openMenuIndexMap[lastOpenIndex] = sdevice->diskUUID();
+				if (d->m_openMenuIndexMap[lastOpenIndex] == "")
 				{
-					m_openMenuIndexMap[lastOpenIndex] = sdevice->systemPath();
+					d->m_openMenuIndexMap[lastOpenIndex] = sdevice->systemPath();
 				}
 			}
 
@@ -336,29 +376,29 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 				lastEjectIndex = ejectDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 				        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 				ejectDeviceActionMenu->popupMenu()->connectItem(lastEjectIndex, this, TQT_SLOT(slotEjectDevice(int)));
-				m_ejectMenuIndexMap[lastEjectIndex] = sdevice->diskUUID();
-				if (m_ejectMenuIndexMap[lastEjectIndex] == "")
+				d->m_ejectMenuIndexMap[lastEjectIndex] = sdevice->diskUUID();
+				if (d->m_ejectMenuIndexMap[lastEjectIndex] == "")
 				{
-					m_ejectMenuIndexMap[lastEjectIndex] = sdevice->systemPath();
+					d->m_ejectMenuIndexMap[lastEjectIndex] = sdevice->systemPath();
 				}
 
 				lastSafeRemoveIndex = safeRemoveDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 				        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 				safeRemoveDeviceActionMenu->popupMenu()->connectItem(lastSafeRemoveIndex, this, TQT_SLOT(slotSafeRemoveDevice(int)));
-				m_safeRemoveMenuIndexMap[lastSafeRemoveIndex] = sdevice->diskUUID();
-				if (m_safeRemoveMenuIndexMap[lastSafeRemoveIndex] == "")
+				d->m_safeRemoveMenuIndexMap[lastSafeRemoveIndex] = sdevice->diskUUID();
+				if (d->m_safeRemoveMenuIndexMap[lastSafeRemoveIndex] == "")
 				{
-					m_safeRemoveMenuIndexMap[lastSafeRemoveIndex] = sdevice->systemPath();
+					d->m_safeRemoveMenuIndexMap[lastSafeRemoveIndex] = sdevice->systemPath();
 				}
 			}
 
 			lastPropertiesIndex = propertiesDeviceActionMenu->popupMenu()->insertItem(hwdevice->icon(TDEIcon::SizeSmall),
 			        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()));
 			propertiesDeviceActionMenu->popupMenu()->connectItem(lastPropertiesIndex, this, TQT_SLOT(slotPropertiesDevice(int)));
-			m_propertiesMenuIndexMap[lastPropertiesIndex] = sdevice->diskUUID();
-			if (m_propertiesMenuIndexMap[lastPropertiesIndex] == "")
+			d->m_propertiesMenuIndexMap[lastPropertiesIndex] = sdevice->diskUUID();
+			if (d->m_propertiesMenuIndexMap[lastPropertiesIndex] == "")
 			{
-				m_propertiesMenuIndexMap[lastPropertiesIndex] = sdevice->systemPath();
+				d->m_propertiesMenuIndexMap[lastPropertiesIndex] = sdevice->systemPath();
 			}
 		}
 	}
@@ -416,14 +456,14 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 
 	// Help & Quit
 	menu->insertSeparator();
-	menu->insertItem(SmallIcon("help"), KStdGuiItem::help().text(), m_help->menu());
+	menu->insertItem(SmallIcon("help"), KStdGuiItem::help().text(), d->m_help->menu());
 	TDEAction *quitAction = actionCollection()->action(KStdAction::name(KStdAction::Quit));
 	quitAction->plug(menu);
 }
 
 void HwDeviceSystemTray::slotOpenDevice(int parameter)
 {
-	TQString uuid = m_openMenuIndexMap[parameter];
+	TQString uuid = d->m_openMenuIndexMap[parameter];
 	if (!uuid.isEmpty())
 	{
 		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -449,7 +489,7 @@ void HwDeviceSystemTray::slotOpenDevice(int parameter)
 
 void HwDeviceSystemTray::slotMountDevice(int parameter)
 {
-	TQString uuid = m_mountMenuIndexMap[parameter];
+	TQString uuid = d->m_mountMenuIndexMap[parameter];
 	if (!uuid.isEmpty())
 	{
 		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -476,7 +516,7 @@ void HwDeviceSystemTray::slotMountDevice(int parameter)
 
 void HwDeviceSystemTray::slotUnmountDevice(int parameter)
 {
-	TQString uuid = m_unmountMenuIndexMap[parameter];
+	TQString uuid = d->m_unmountMenuIndexMap[parameter];
 	if (!uuid.isEmpty())
 	{
 		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -503,7 +543,7 @@ void HwDeviceSystemTray::slotUnmountDevice(int parameter)
 
 void HwDeviceSystemTray::slotUnlockDevice(int parameter)
 {
-	TQString uuid = m_unlockMenuIndexMap[parameter];
+	TQString uuid = d->m_unlockMenuIndexMap[parameter];
 	if (!uuid.isEmpty())
 	{
 		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -528,7 +568,7 @@ void HwDeviceSystemTray::slotUnlockDevice(int parameter)
 void HwDeviceSystemTray::slotLockDevice(int parameter)
 {
 	TDEGenericDevice *hwdevice;
-	TQString uuid = m_lockMenuIndexMap[parameter];
+	TQString uuid = d->m_lockMenuIndexMap[parameter];
 	if (!uuid.isEmpty())
 	{
 		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -551,7 +591,7 @@ void HwDeviceSystemTray::slotLockDevice(int parameter)
 
 void HwDeviceSystemTray::slotEjectDevice(int parameter)
 {
-	TQString uuid = m_ejectMenuIndexMap[parameter];
+	TQString uuid = d->m_ejectMenuIndexMap[parameter];
 	if (!uuid.isEmpty())
 	{
 		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -575,7 +615,7 @@ void HwDeviceSystemTray::slotEjectDevice(int parameter)
 
 void HwDeviceSystemTray::slotSafeRemoveDevice(int parameter)
 {
-	TQString uuid = m_safeRemoveMenuIndexMap[parameter];
+	TQString uuid = d->m_safeRemoveMenuIndexMap[parameter];
 	if (!uuid.isEmpty())
 	{
 		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -599,7 +639,7 @@ void HwDeviceSystemTray::slotSafeRemoveDevice(int parameter)
 
 void HwDeviceSystemTray::slotPropertiesDevice(int parameter)
 {
-	TQString uuid = m_propertiesMenuIndexMap[parameter];
+	TQString uuid = d->m_propertiesMenuIndexMap[parameter];
 	if (!uuid.isEmpty())
 	{
 		TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -652,8 +692,8 @@ void HwDeviceSystemTray::doDiskNotifications(bool scanOnly)
 	// Scan devices for changes and notify new devices if needed.
 	// This is necessary because the device information may not be available
 	// at the time the hardwareAdded signal is emitted
-	TQMap<TQString, KnownDiskDeviceInfo> oldKnownDevices = m_knownDiskDevices;
-	m_knownDiskDevices.clear();
+	TQMap<TQString, KnownDiskDeviceInfo> oldKnownDevices = d->m_knownDiskDevices;
+	d->m_knownDiskDevices.clear();
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	TDEGenericHardwareList diskDeviceList = hwdevices->listByDeviceClass(TDEGenericDeviceType::Disk);
 	for (TDEGenericDevice *hwdevice = diskDeviceList.first(); hwdevice; hwdevice = diskDeviceList.next())
@@ -664,7 +704,7 @@ void HwDeviceSystemTray::doDiskNotifications(bool scanOnly)
 			TQString sysPath = sdevice->systemPath();
 			if (oldKnownDevices.contains(sysPath))
 			{
-				m_knownDiskDevices[sysPath] = oldKnownDevices[sysPath];
+				d->m_knownDiskDevices[sysPath] = oldKnownDevices[sysPath];
 				oldKnownDevices.remove(sysPath);
 			}
 			else
@@ -674,10 +714,10 @@ void HwDeviceSystemTray::doDiskNotifications(bool scanOnly)
 				{
 					friendlyName = sdevice->friendlyName();
 				}
-				m_knownDiskDevices[sysPath] = { friendlyName, sdevice->deviceNode() };
+				d->m_knownDiskDevices[sysPath] = { friendlyName, sdevice->deviceNode() };
 				if (!scanOnly && popupEnable)
 				{
-					m_hardwareNotifierContainer->displayMessage(
+					d->m_hardwareNotifierContainer->displayMessage(
 							i18n("A disk device has been added!"),
 							i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()),
 							SmallIcon("drive-harddisk-unmounted"), 0, 0, "ADD: " + sysPath);
@@ -691,7 +731,7 @@ void HwDeviceSystemTray::doDiskNotifications(bool scanOnly)
 		TQMap<TQString, KnownDiskDeviceInfo>::ConstIterator delIt;
 		for (delIt = oldKnownDevices.begin(); delIt != oldKnownDevices.end(); delIt++)
 		{
-			m_hardwareNotifierContainer->displayMessage(
+			d->m_hardwareNotifierContainer->displayMessage(
 					i18n("A disk device has been removed!"),
 					i18n("%1 (%2)").arg(delIt.data().friendlyName, delIt.data().node),
 					SmallIcon("drive-harddisk-unmounted"), 0, 0, "REMOVE: " + delIt.key());
@@ -707,19 +747,19 @@ void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device)
 		// The device information may not be available at the time the hardwareAdded signal is emitted.
 		// In such case ignore the event and handle that at the subsequent hardwareUpdate signal emission.
 		TQString sysPath = sdevice->systemPath();
-		if (isMonitoredDevice(sdevice) && !m_knownDiskDevices.contains(sysPath))
+		if (isMonitoredDevice(sdevice) && !d->m_knownDiskDevices.contains(sysPath))
 		{
 			TQString friendlyName = sdevice->diskLabel();
 			if (friendlyName.isEmpty())
 			{
 				friendlyName = sdevice->friendlyName();
 			}
-			m_knownDiskDevices[sysPath] = { friendlyName, sdevice->deviceNode() };
+			d->m_knownDiskDevices[sysPath] = { friendlyName, sdevice->deviceNode() };
 			TDEConfig config("mediamanagerrc");
 			config.setGroup("Global");
 			if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
 			{
-				m_hardwareNotifierContainer->displayMessage(
+				d->m_hardwareNotifierContainer->displayMessage(
 						i18n("A disk device has been added!"),
 						i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()),
 						SmallIcon("drive-harddisk-unmounted"), 0, 0, "ADD: " + sysPath);
@@ -734,18 +774,18 @@ void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device)
 	{
 		TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(device);
 		TQString sysPath = sdevice->systemPath();
-		if (isMonitoredDevice(sdevice) && m_knownDiskDevices.contains(sysPath))
+		if (isMonitoredDevice(sdevice) && d->m_knownDiskDevices.contains(sysPath))
 		{
 			TDEConfig config("mediamanagerrc");
 			config.setGroup("Global");
 			if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
 			{
-				m_hardwareNotifierContainer->displayMessage(
+				d->m_hardwareNotifierContainer->displayMessage(
 						i18n("A disk device has been removed!"),
-						i18n("%1 (%2)").arg(m_knownDiskDevices[sysPath].friendlyName, m_knownDiskDevices[sysPath].node),
+						i18n("%1 (%2)").arg(d->m_knownDiskDevices[sysPath].friendlyName, d->m_knownDiskDevices[sysPath].node),
 						SmallIcon("drive-harddisk-unmounted"), 0, 0, "REMOVE: " + sysPath);
 			}
-			m_knownDiskDevices.remove(sysPath);
+			d->m_knownDiskDevices.remove(sysPath);
 		}
 	}
 }
