@@ -24,12 +24,13 @@
 
 class HwDeviceSystemTrayPrivate;
 class KPassivePopup;
+class TDEActionMenu;
 class TDEGenericDevice;
 class TDEGlobalAccel;
 class TDEPopupMenu;
 class TDEStorageDevice;
 
-class HwDeviceSystemTray :  public KSystemTray
+class HwDeviceSystemTray : public KSystemTray
 {
 	Q_OBJECT
 
@@ -48,22 +49,8 @@ protected slots:
 	void slotEditShortcutKeys();
 	void slotSettingsChanged(int category);
 	void slotHelpContents();
+	void slotExecuteDeviceAction(int parameter);
 
-	void slotOpenDevice(int parameter);
-	void slotMountDevice(int parameter);
-	void slotUnmountDevice(int parameter);
-	void slotUnlockDevice(int parameter);
-	void slotLockDevice(int parameter);
-	void slotEjectDevice(int parameter);
-	void slotSafeRemoveDevice(int parameter);
-	void slotPropertiesDevice(int parameter);
-
-protected:
-	void mousePressEvent(TQMouseEvent *e);
-	void resizeEvent(TQResizeEvent *);
-	void showEvent(TQShowEvent *);
-
-private slots:
 	void quitApp();
 	void deviceAdded(TDEGenericDevice*);
 	void deviceRemoved(TDEGenericDevice*);
@@ -71,12 +58,18 @@ private slots:
 	void devicePopupClicked(KPassivePopup*, TQPoint, TQString);
 	void doDiskNotifications(bool scanOnly);
 
-private:
+protected:
+	void mousePressEvent(TQMouseEvent *e);
+	void resizeEvent(TQResizeEvent *);
+	void resizeTrayIcon();
+	void showEvent(TQShowEvent *);
+
 	static bool isMonitoredDevice(TDEStorageDevice *sdevice);
 
-	void resizeTrayIcon();
+	void InitRMBMenu();
+	void AddDeviceToRMBMenu(TDEStorageDevice *sdevice, const int type);
 
-  HwDeviceSystemTrayPrivate *d;
+	HwDeviceSystemTrayPrivate *d;
 };
 
 #endif
