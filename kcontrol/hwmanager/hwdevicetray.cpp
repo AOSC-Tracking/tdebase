@@ -54,11 +54,16 @@
 #include "hwdevicetray_configdialog.h"
 
 
-// Storage Device Action Type
-// use 'int' as underlying type to avoid exposing a bunch of unnecessary
-// enums/structs in the class header file private methods' signature
+#include <map>
+using namespace std;
+
+map<int, char> m = {{1, 'a'}, {3, 'b'}, {5, 'c'}, {7, 'd'}};
+
+// Storage Device Action
 namespace SDActions
 {
+	// use 'int' as underlying type to avoid exposing a bunch of unnecessary
+	// enums/structs in the class header file private methods' signature
 	enum Type : int
 	{
 		Open = 1,
@@ -71,8 +76,31 @@ namespace SDActions
 		Properties
 	};
 
+	struct Details
+	{
+		const char *iconName;
+		const char *actionName;
+		const char *collectionName;
+	};
+
 	// Allows to use a for loop to iterate over all action types
 	static const Type All[] = { Open, Mount, Unmount, Unlock, Lock, Eject, SafeRemove, Properties };
+
+	static const TQMap<Type, Details> populateMap()
+	{
+		TQMap<Type, Details> map;
+		map[Open] = { "window-new", I18N_NOOP("Open"), "open_menu" };
+		map[Mount] = { "drive-harddisk-mounted", I18N_NOOP("Mount"), "mount_menu" };
+		map[Unmount] = { "drive-harddisk-unmounted", I18N_NOOP("Unmount"), "unmount_menu" };
+		map[Unlock] = { "decrypted", I18N_NOOP("Unlock"), "unlock_menu" };
+		map[Lock] = { "encrypted", I18N_NOOP("Lock"), "lock_menu" };
+		map[Eject] = { "player_eject", I18N_NOOP("Eject"), "eject_menu" };
+		map[SafeRemove] = { "player_safe_removal", I18N_NOOP("Safe remove"), "safe_remove_menu" };
+		map[Properties] = { "edit", I18N_NOOP("Properties"), "properties_menu" };
+		return map;
+	}
+
+	static const TQMap<Type, Details> Data = populateMap();
 }
 
 // Storage Device Action Menu Entry, representing an action
@@ -106,11 +134,11 @@ public:
 	TDEAction *m_quitAction;
 	TDEAction *m_shortcutKeysAction;
 	KHelpMenu *m_helpMenu;
+	TDEPopupMenu *m_LMBMenu;
 	TDEPopupMenu *m_RMBMenu;
 
-	int m_menuEntryIdx;
 	TQMap<int, SDActionMenuEntry> m_actionMenuEntryMap;
-	TQMap<SDActions::Type, TDEActionMenu*> m_RMBActionMap;
+	TQMap<SDActions::Type, TDEActionMenu*> m_RMBActionMenuMap;
 
 	TQMap<TQString, KnownDiskDeviceInfo> m_knownDiskDevices;
 
@@ -125,7 +153,7 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget *parent, const char *name)
 	d->m_hardwareNotifierContainer = new TDEPassivePopupStackContainer();
 	connect(d->m_hardwareNotifierContainer, TQT_SIGNAL(popupClicked(KPassivePopup*, TQPoint, TQString)), this, TQT_SLOT(devicePopupClicked(KPassivePopup*, TQPoint, TQString)));
 
-	InitRMBMenu();
+	initMenus();
 
 	setPixmap(KSystemTray::loadIcon("hwinfo"));
 	setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
@@ -200,7 +228,8 @@ void HwDeviceSystemTray::mousePressEvent(TQMouseEvent* e)
 	switch (e->button())
 	{
 		case Qt::LeftButton:
-
+			populateLMBMenu();
+			d->m_LMBMenu->popup(e->globalPos());
 			break;
 
 		case Qt::MidButton:
@@ -259,31 +288,18 @@ bool HwDeviceSystemTray::isMonitoredDevice(TDEStorageDevice* sdevice)
 	         sdevice->isDiskOfType(TDEDiskDeviceType::Camera)));
 }
 
-void HwDeviceSystemTray::configChanged() {
-	//
-}
-
-void HwDeviceSystemTray::InitRMBMenu()
+void HwDeviceSystemTray::initMenus()
 {
+	// RMB menu
 	d->m_RMBMenu = contextMenu();
 
 	// Device actions
-	d->m_RMBActionMap.insert(SDActions::Open, new TDEActionMenu(i18n("Open"),
-	        SmallIcon("window-new", TQIconSet::Automatic), actionCollection(), "open_menu"));
-	d->m_RMBActionMap.insert(SDActions::Mount, new TDEActionMenu(i18n("Mount"),
-	        SmallIcon("drive-harddisk-mounted", TQIconSet::Automatic), actionCollection(), "mount_menu"));
-	d->m_RMBActionMap.insert(SDActions::Unmount, new TDEActionMenu(i18n("Unmount"),
-	        SmallIcon("drive-harddisk-unmounted", TQIconSet::Automatic), actionCollection(), "unmount_menu"));
-	d->m_RMBActionMap.insert(SDActions::Unlock, new TDEActionMenu(i18n("Unlock"),
-	        SmallIcon("decrypted", TQIconSet::Automatic), actionCollection(), "unlock_menu"));
-	d->m_RMBActionMap.insert(SDActions::Lock, new TDEActionMenu(i18n("Lock"),
-	        SmallIcon("encrypted", TQIconSet::Automatic), actionCollection(), "lock_menu"));
-	d->m_RMBActionMap.insert(SDActions::Eject, new TDEActionMenu(i18n("Eject"),
-	        SmallIcon("player_eject", TQIconSet::Automatic), actionCollection(), "eject_menu"));
-	d->m_RMBActionMap.insert(SDActions::SafeRemove, new TDEActionMenu(i18n("Safe remove"),
-	        SmallIcon("player_safe_removal", TQIconSet::Automatic), actionCollection(), "safe_remove_menu"));
-	d->m_RMBActionMap.insert(SDActions::Properties, new TDEActionMenu(i18n("Properties"),
-	        SmallIcon("edit", TQIconSet::Automatic), actionCollection(), "properties_menu"));
+	for (const SDActions::Type &actionType : SDActions::All)
+	{
+		SDActions::Details ad = SDActions::Data[actionType];
+		d->m_RMBActionMenuMap.insert(actionType, new TDEActionMenu(i18n(ad.actionName),
+	        SmallIcon(ad.iconName, TQIconSet::Automatic), actionCollection(), ad.collectionName));
+	}
 
 	// Global Configuration
 	d->m_deviceManagerAction = new TDEAction(i18n("Show Device Manager..."), SmallIconSet("kcmpci"),
@@ -295,19 +311,38 @@ void HwDeviceSystemTray::InitRMBMenu()
 	d->m_helpMenu = new KHelpMenu(this, TDEGlobal::instance()->aboutData(), false, actionCollection());
 	d->m_helpMenu->menu()->connectItem(KHelpMenu::menuHelpContents, this, TQT_SLOT(slotHelpContents()));
 	d->m_quitAction = actionCollection()->action(KStdAction::name(KStdAction::Quit));
+
+	// LMB menu
+	d->m_LMBMenu = new TDEPopupMenu(this);
 }
 
-void HwDeviceSystemTray::AddDeviceToRMBMenu(TDEStorageDevice *sdevice, const int type)
+void HwDeviceSystemTray::AddDeviceToLMBMenu(TDEStorageDevice *sdevice, const int type,
+        TDEActionMenu *actionMenu, int &actionMenuIdx)
 {
-	TQString friendlyName = !sdevice->diskLabel().isEmpty() ? sdevice->diskLabel() : sdevice->friendlyName();
+	TQString friendlyName = !sdevice->diskLabel().isEmpty() ?
+	        sdevice->diskLabel() : sdevice->friendlyName();
 	TQString uuid = !sdevice->diskUUID().isEmpty() ? sdevice->diskUUID() : sdevice->systemPath();
 	SDActions::Type actionType = (SDActions::Type)type;
-	TDEActionMenu *actionMenu = d->m_RMBActionMap[actionType];
+	SDActions::Details ad = SDActions::Data[actionType];
+	actionMenu->popupMenu()->insertItem(SmallIcon(ad.iconName), i18n(ad.actionName), actionMenuIdx);
+	actionMenu->popupMenu()->connectItem(actionMenuIdx, this,
+	        TQT_SLOT(slotExecuteDeviceAction(int)));
+	d->m_actionMenuEntryMap[actionMenuIdx++] = { actionType, uuid };
+}
+
+void HwDeviceSystemTray::AddDeviceToRMBMenu(TDEStorageDevice *sdevice, const int type, int &actionMenuIdx)
+{
+	TQString friendlyName = !sdevice->diskLabel().isEmpty() ?
+	        sdevice->diskLabel() : sdevice->friendlyName();
+	TQString uuid = !sdevice->diskUUID().isEmpty() ? sdevice->diskUUID() : sdevice->systemPath();
+	SDActions::Type actionType = (SDActions::Type)type;
+	TDEActionMenu *actionMenu = d->m_RMBActionMenuMap[actionType];
 	actionMenu->popupMenu()->insertItem(sdevice->icon(TDEIcon::SizeSmall),
-			i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()), d->m_menuEntryIdx);
-	actionMenu->popupMenu()->connectItem(d->m_menuEntryIdx, this, TQT_SLOT(slotExecuteDeviceAction(int)));
+	        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()), actionMenuIdx);
+	actionMenu->popupMenu()->connectItem(actionMenuIdx, this,
+	        TQT_SLOT(slotExecuteDeviceAction(int)));
 	actionMenu->setEnabled(true);
-	d->m_actionMenuEntryMap[d->m_menuEntryIdx++] = { actionType, uuid };
+	d->m_actionMenuEntryMap[actionMenuIdx++] = { actionType, uuid };
 }
 
 void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
@@ -317,14 +352,14 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 
 	for (const SDActions::Type &actionType : SDActions::All)
 	{
-		TDEActionMenu *actionMenu = d->m_RMBActionMap[actionType];
+		TDEActionMenu *actionMenu = d->m_RMBActionMenuMap[actionType];
 		actionMenu->popupMenu()->clear();
 		actionMenu->setEnabled(false);
 		actionMenu->unplug(d->m_RMBMenu);
 	}
 
 	d->m_actionMenuEntryMap.clear();
-	d->m_menuEntryIdx = 0;
+	int actionMenuIdx = 0;
 
 	// Find all storage devices and add them to the popup menus
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
@@ -334,15 +369,16 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 		TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
 		if (isMonitoredDevice(sdevice))
 		{
-			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) || sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted))
+			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) ||
+			    sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted))
 			{
 				if (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt))
 				{
-					AddDeviceToRMBMenu(sdevice, SDActions::Lock);
+					AddDeviceToRMBMenu(sdevice, SDActions::Lock, actionMenuIdx);
 				}
 				else
 				{
-					AddDeviceToRMBMenu(sdevice, SDActions::Unlock);
+					AddDeviceToRMBMenu(sdevice, SDActions::Unlock, actionMenuIdx);
 				}
 			}
 
@@ -350,27 +386,27 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 			{
 				if (sdevice->mountPath().isEmpty())
 				{
-					AddDeviceToRMBMenu(sdevice, SDActions::Mount);
+					AddDeviceToRMBMenu(sdevice, SDActions::Mount, actionMenuIdx);
 				}
 				else
 				{
-					AddDeviceToRMBMenu(sdevice, SDActions::Unmount);
+					AddDeviceToRMBMenu(sdevice, SDActions::Unmount, actionMenuIdx);
 				}
 
 				// Mounted and unmounted disks can also be opened
-				AddDeviceToRMBMenu(sdevice, SDActions::Open);
+				AddDeviceToRMBMenu(sdevice, SDActions::Open, actionMenuIdx);
 			}
 
 
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
 			    sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable))
 			{
-				AddDeviceToRMBMenu(sdevice, SDActions::Eject);
+				AddDeviceToRMBMenu(sdevice, SDActions::Eject, actionMenuIdx);
 
-				AddDeviceToRMBMenu(sdevice, SDActions::SafeRemove);
+				AddDeviceToRMBMenu(sdevice, SDActions::SafeRemove, actionMenuIdx);
 			}
 
-			AddDeviceToRMBMenu(sdevice, SDActions::Properties);
+			AddDeviceToRMBMenu(sdevice, SDActions::Properties, actionMenuIdx);
 		}
 	}
 
@@ -378,10 +414,10 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 	d->m_RMBMenu->insertTitle(SmallIcon("drive-harddisk-unmounted"), i18n("Storage Device Actions"), 0);
 	for (const SDActions::Type &actionType : SDActions::All)
 	{
-		TDEActionMenu *actionMenu = d->m_RMBActionMap[actionType];
+		TDEActionMenu *actionMenu = d->m_RMBActionMenuMap[actionType];
 		if (actionMenu->isEnabled())
 		{
-			actionMenu->plug(d->m_RMBMenu, (int)actionType);
+			actionMenu->plug(d->m_RMBMenu);
 		}
 	}
 
@@ -395,6 +431,76 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 	menu->insertSeparator();
 	menu->insertItem(SmallIcon("help"), KStdGuiItem::help().text(), d->m_helpMenu->menu());
 	d->m_quitAction->plug(menu);
+}
+
+void HwDeviceSystemTray::populateLMBMenu()
+{
+	d->m_LMBMenu->clear();
+	d->m_LMBMenu->insertTitle(SmallIcon("drive-harddisk-unmounted"), i18n("Storage Devices"), 0);
+
+	d->m_actionMenuEntryMap.clear();
+	int actionMenuIdx = 0;
+
+	// Find all storage devices and add them to the popup menus
+	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
+	TDEGenericHardwareList diskDeviceList = hwdevices->listByDeviceClass(TDEGenericDeviceType::Disk);
+	for (TDEGenericDevice *hwdevice = diskDeviceList.first(); hwdevice; hwdevice = diskDeviceList.next())
+	{
+		TDEStorageDevice *sdevice = static_cast<TDEStorageDevice*>(hwdevice);
+		if (isMonitoredDevice(sdevice) &&
+		    (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) ||
+		     sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted) ||
+		     sdevice->checkDiskStatus(TDEDiskDeviceStatus::Mountable) ||
+		     sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
+		     sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)))
+		{
+			TQString friendlyName = !sdevice->diskLabel().isEmpty() ?
+			        sdevice->diskLabel() : sdevice->friendlyName();
+			TDEActionMenu *actionMenu = new TDEActionMenu(i18n("%1 (%2)").arg(friendlyName,
+			        sdevice->deviceNode()), sdevice->icon(TDEIcon::SizeSmall));
+
+			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Mountable))
+			{
+				// Mounted and unmounted disks can also be opened
+				AddDeviceToLMBMenu(sdevice, SDActions::Open, actionMenu, actionMenuIdx);
+
+				if (sdevice->mountPath().isEmpty())
+				{
+					AddDeviceToLMBMenu(sdevice, SDActions::Mount, actionMenu, actionMenuIdx);
+				}
+				else
+				{
+					AddDeviceToLMBMenu(sdevice, SDActions::Unmount, actionMenu, actionMenuIdx);
+				}
+			}
+
+			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) ||
+			    sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted))
+			{
+				if (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt))
+				{
+					AddDeviceToLMBMenu(sdevice, SDActions::Lock, actionMenu, actionMenuIdx);
+				}
+				else
+				{
+					AddDeviceToLMBMenu(sdevice, SDActions::Unlock, actionMenu, actionMenuIdx);
+				}
+			}
+
+
+			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
+			    sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable))
+			{
+				AddDeviceToLMBMenu(sdevice, SDActions::Eject, actionMenu, actionMenuIdx);
+
+				AddDeviceToLMBMenu(sdevice, SDActions::SafeRemove, actionMenu, actionMenuIdx);
+			}
+
+			AddDeviceToLMBMenu(sdevice, SDActions::Properties, actionMenu, actionMenuIdx);
+
+			actionMenu->plug(d->m_LMBMenu);
+		}
+	}
 }
 
 void HwDeviceSystemTray::slotExecuteDeviceAction(int parameter)

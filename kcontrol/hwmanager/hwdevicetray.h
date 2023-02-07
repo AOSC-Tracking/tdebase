@@ -42,8 +42,6 @@ public:
 
 	virtual void contextMenuAboutToShow(TDEPopupMenu *menu);
 
-	void configChanged();
-
 protected slots:
 	void slotHardwareConfig();
 	void slotEditShortcutKeys();
@@ -59,15 +57,18 @@ protected slots:
 	void doDiskNotifications(bool scanOnly);
 
 protected:
+	void initMenus();
 	void mousePressEvent(TQMouseEvent *e);
+	void populateLMBMenu();
 	void resizeEvent(TQResizeEvent *);
 	void resizeTrayIcon();
 	void showEvent(TQShowEvent *);
 
 	static bool isMonitoredDevice(TDEStorageDevice *sdevice);
 
-	void InitRMBMenu();
-	void AddDeviceToRMBMenu(TDEStorageDevice *sdevice, const int type);
+	void AddDeviceToLMBMenu(TDEStorageDevice *sdevice, const int type, TDEActionMenu *actionMenu,
+	        int &actionMenuIdx);
+	void AddDeviceToRMBMenu(TDEStorageDevice *sdevice, const int type, int &actionMenuIdx);
 
 	HwDeviceSystemTrayPrivate *d;
 };
