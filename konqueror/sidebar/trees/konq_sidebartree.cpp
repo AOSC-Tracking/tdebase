@@ -1012,7 +1012,6 @@ void KonqSidebarTree::slotProperties()
     KPropertiesDialog *dlg = new KPropertiesDialog( url );
     dlg->setFileNameReadOnly(true);
     dlg->exec();
-    delete dlg;
 }
 
 void KonqSidebarTree::slotOpenNewWindow()
