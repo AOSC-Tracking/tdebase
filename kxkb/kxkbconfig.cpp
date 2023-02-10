@@ -266,7 +266,7 @@ TQString KxkbConfig::getDefaultDisplayName(const LayoutUnit& layoutUnit, bool si
 	return displayName;
 }
 
-const XkbOptions KxkbConfig::getXkbOptions() {
+const XkbOptions KxkbConfig::getKXkbOptions() {
 	load(LOAD_ALL);
 
 	XkbOptions options;
@@ -281,7 +281,7 @@ const XkbOptions KxkbConfig::getXkbOptions() {
 	options.variants = variants.join(",");
 	options.model    = m_model;
 	options.options  = m_options;
-	kdDebug() << "[getXkbOptions] options: " << m_options << endl;
+	kdDebug() << "[getKXkbOptions] options: " << m_options << endl;
 	options.resetOld = m_resetOldOptions;
 	return options;
 }

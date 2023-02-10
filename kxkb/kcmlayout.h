@@ -31,6 +31,7 @@ public:
 protected:
   TQString createOptionString();
   void updateIndicator(TQListViewItem* selLayout);
+  OptionListItem* itemForOption(TQString option);
 
 protected slots:
   void moveUp();
@@ -43,8 +44,10 @@ protected slots:
   void updateLayoutCommand();
   void updateOptionsCommand();
   void updateHotkeyCombo();
+  void updateHotkeyCombo(bool initial);
   void add();
   void remove();
+  void resolveConflicts(TQListViewItem *lvi);
 
   void changed();
 
@@ -54,10 +57,13 @@ private:
   XkbRules *m_rules;
   KxkbConfig m_kxkbConfig;
   TQDict<OptionListItem> m_optionGroups;
+  bool m_forceGrpOverwrite;
 
   TQWidget* makeOptionsTab();
   void updateStickyLimit();
   static LayoutUnit getLayoutUnitKey(TQListViewItem *sel);
+  void checkConflicts(OptionListItem *current, TQStringList conflicting,
+                      TQStringList &conflicts);
 };
 
 

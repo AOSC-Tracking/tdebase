@@ -58,8 +58,8 @@ public:
 
     virtual int newInstance();
 
-	bool setLayout(const LayoutUnit& layoutUnit);
-	bool setLayout(const uint group);
+    bool setLayout(const LayoutUnit& layoutUnit);
+    bool setLayout(const uint group);
 k_dcop:
     bool setLayout(const TQString& layoutPair);
     TQString getCurrentLayout() { return m_currentLayout.toPair(); }
@@ -72,7 +72,7 @@ protected slots:
     void menuActivated(int id);
     void windowChanged(WId winId);
     void layoutApply();
-	void slotGroupChanged(uint group);
+    void slotGroupChanged(uint group);
 
     void slotSettingsChanged(int category);
 

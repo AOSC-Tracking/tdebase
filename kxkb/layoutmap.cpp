@@ -88,7 +88,7 @@ LayoutState& LayoutMap::getNextLayout() {
 	layoutQueue.enqueue(layoutState);
 	
 	kdDebug() << "map: Next layout: " << layoutQueue.head()->layoutUnit.toPair() 
-			  << " for " << m_currentWinId << endl;
+	          << " for " << m_currentWinId << endl;
 	
 	return *layoutQueue.head();
 }
@@ -96,7 +96,7 @@ LayoutState& LayoutMap::getNextLayout() {
 void LayoutMap::setCurrentLayout(const LayoutUnit& layoutUnit) {
 	LayoutQueue& layoutQueue = getCurrentLayoutQueue(m_currentWinId);
 	kdDebug() << "map: Storing layout: " << layoutUnit.toPair() 
-			  << " for " << m_currentWinId << endl;
+	          << " for " << m_currentWinId << endl;
 	
 	int queueSize = (int)layoutQueue.count();
 	for(int ii=0; ii<queueSize; ii++) {

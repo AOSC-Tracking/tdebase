@@ -15,6 +15,7 @@
 #include <X11/Xlib.h>
 #include <X11/XKBlib.h>
 #include <X11/extensions/XKBfile.h>
+#include <X11/extensions/XKBrules.h>
 #include <X11/extensions/XKBgeom.h>
 #include <X11/extensions/XKM.h>
 
@@ -89,11 +90,17 @@ bool XKBExtension::setXkbOptions(const XkbOptions options)
 	TDEProcess p;
 	p << exe;
 
-	p << "-layout";
-	p << options.layouts;
-	
-	p << "-variant";
-	p << options.variants;
+	if (!options.layouts.isEmpty())
+	{
+		p << "-layout";
+		p << options.layouts;
+	}
+
+	if (!options.variants.isEmpty())
+	{
+		p << "-variant";
+		p << options.variants;
+	}
 	
 	if (!options.model.isEmpty()) {
 		p << "-model";
@@ -103,15 +110,48 @@ bool XKBExtension::setXkbOptions(const XkbOptions options)
 	if (options.resetOld) {
 		p << "-option";
 	}
+
 	if (!options.options.isEmpty()) {
-		p << "-option" << options.options;
+		p << "-option";
+
+		if (options.resetOld)
+		{
+			p << options.options;
+		}
+		else
+		{
+			// Avoid duplication of options in Append mode
+			TQStringList srvOptions = TQStringList::split(",", XKBExtension::getServerOptions());
+			TQStringList kxkbOptions = TQStringList::split(",", options.options);
+			TQStringList newOptions;
+			for (TQStringList::Iterator it = kxkbOptions.begin(); it != kxkbOptions.end(); ++it)
+			{
+				TQString option(*it);
+				if (!srvOptions.contains(option))
+				{
+					newOptions << option;
+				}
+			}
+			p << newOptions.join(",");
+		}
 	}
 
-	kdDebug() << "[kxkb-extension] Command: " << p.args() << endl;
+	kdDebug() << "[setXkbOptions] Command: " << p.args() << endl;
 
 	p.start(TDEProcess::Block);
 
 	return p.normalExit() && (p.exitStatus() == 0);
+}
+
+TQString XKBExtension::getServerOptions()
+{
+    XkbRF_VarDefsRec vd;
+    if (XkbRF_GetNamesProp(tqt_xdisplay(), nullptr, &vd) && vd.options)
+    {
+        kdDebug() << "[kxkb-extension] Got server options " << vd.options << endl;
+        return TQString(vd.options);
+    }
+    return TQString::null;
 }
 
 bool XKBExtension::setGroup(unsigned int group)

@@ -116,7 +116,7 @@
                                     </sizepolicy>
                                 </property>
                                 <property name="whatsThis" stdset="0">
-                                    <string>Here you can choose the key combination you want to use to switch to the next layout. This list includes only the most common variants. If you choose "Other...", then you will be redirected to the "Options" tab where you can pick from all the available variants.</string>
+                                    <string>Here you can choose the key combination you want to use to switch to the next layout. This list includes only the most common variants. If you choose "Other...", then you will be redirected to the "Options" tab where you can pick from all the available variants. Note that if you have selected Append Mode in the Xkb Options tab this option is not available; you have to use the Xkb Options tab instead.</string>
                                 </property>
                             </widget>
                             <widget class="TQLabel" row="0" column="2" rowspan="1" colspan="3">
@@ -430,30 +430,10 @@
                 <attribute name="title">
                     <string>Switching Options</string>
                 </attribute>
-                <grid>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <spacer row="1" column="0">
+                <vbox>
+                    <widget class="TQFrame">
                         <property name="name">
-                            <cstring>spacer1</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>20</width>
-                                <height>40</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="TQFrame" row="0" column="0">
-                        <property name="name">
-                            <cstring>optionsFrame</cstring>
+                            <cstring>swOptsFrame</cstring>
                         </property>
                         <property name="frameShape">
                             <enum>StyledPanel</enum>
@@ -464,231 +444,8 @@
                         <property name="lineWidth">
                             <number>0</number>
                         </property>
-                        <grid>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="TQButtonGroup" row="1" column="0">
-                                <property name="name">
-                                    <cstring>grpStyle</cstring>
-                                </property>
-                                <property name="title">
-                                    <string>Indicator Style</string>
-                                </property>
-                                <property name="exclusive">
-                                    <bool>true</bool>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Here you can choose the way your keyboard layout indicator will look.</string>
-                                </property>
-                                <vbox>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="TQRadioButton">
-                                        <property name="name">
-                                            <cstring>radFlagLabel</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>&amp;Both Flag and Label</string>
-                                        </property>
-                                        <property name="checked">
-                                            <bool>true</bool>
-                                        </property>
-                                    </widget>
-                                    <widget class="TQRadioButton">
-                                        <property name="name">
-                                            <cstring>radFlagOnly</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>&amp;Flag Only</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="TQRadioButton">
-                                        <property name="name">
-                                            <cstring>radLabelOnly</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>&amp;Label Only</string>
-                                        </property>
-                                    </widget>
-                                </vbox>
-                            </widget>
-                            <widget class="TQButtonGroup" row="1" column="1">
-                                <property name="name">
-                                    <cstring>grpLabel</cstring>
-                                </property>
-                                <property name="title">
-                                    <string>Label Style</string>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Here you can choose the way the label of your keyboard layout indicator will be displayed. These options are relevant even when labels are disabled, for locales where the flag is missing.</string>
-                                </property>
-                                <grid>
-                                    <widget class="TQRadioButton" row="0" column="0" rowspan="1" colspan="3">
-                                        <property name="name">
-                                            <cstring>radLabelUseTheme</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Use &amp;theme colors</string>
-                                        </property>
-                                        <property name="checked">
-                                            <bool>false</bool>
-                                        </property>
-                                    </widget>
-                                    <widget class="TQRadioButton" row="1" column="0" rowspan="1" colspan="3">
-                                        <property name="name">
-                                            <cstring>radLabelUseCustom</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Use c&amp;ustom colors</string>
-                                        </property>
-                                        <property name="checked">
-                                            <bool>false</bool>
-                                        </property>
-                                    </widget>
-                                    <widget class="TQFrame" row="2" column="0" colspan="3">
-                                        <property name="name">
-                                            <cstring>grpLabelColors</cstring>
-                                        </property>
-                                        <property name="frameShape">
-                                            <enum>NoFrame</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                            <enum>Plain</enum>
-                                        </property>
-                                        <grid>
-                                            <spacer row="0" column="0">
-                                                <property name="name">
-                                                    <cstring>spacer2</cstring>
-                                                </property>
-                                                <property name="orientation">
-                                                    <enum>Horizontal</enum>
-                                                </property>
-                                                <property name="sizeType">
-                                                    <enum>Fixed</enum>
-                                                </property>
-                                                <property name="sizeHint">
-                                                    <size>
-                                                        <width>20</width>
-                                                        <height>20</height>
-                                                    </size>
-                                                </property>
-                                            </spacer>
-                                            <widget class="TQLabel" row="0" column="1">
-                                                <property name="name">
-                                                    <cstring>labelBgColor</cstring>
-                                                </property>
-                                                <property name="text">
-                                                    <string>Background color:</string>
-                                                </property>
-                                                <property name="whatsThis" stdset="0">
-                                                    <string>This color will be used as the indicator's background unless the indicator was set to display a flag.</string>
-                                                </property>
-                                            </widget>
-                                            <widget class="KColorButton" row="0" column="2">
-                                                <property name="name">
-                                                    <cstring>bgColor</cstring>
-                                                </property>
-                                                <property name="whatsThis" stdset="0">
-                                                    <string>This color will be used as the indicator's background unless the indicator was set to display a flag.</string>
-                                                </property>
-                                            </widget>
-                                            <spacer row="1" column="0">
-                                                <property name="name">
-                                                    <cstring>spacer2</cstring>
-                                                </property>
-                                                <property name="orientation">
-                                                    <enum>Horizontal</enum>
-                                                </property>
-                                                <property name="sizeType">
-                                                    <enum>Fixed</enum>
-                                                </property>
-                                                <property name="sizeHint">
-                                                    <size>
-                                                        <width>20</width>
-                                                        <height>20</height>
-                                                    </size>
-                                                </property>
-                                            </spacer>
-                                            <widget class="TQLabel" row="1" column="1">
-                                                <property name="name">
-                                                    <cstring>labelFgColor</cstring>
-                                                </property>
-                                                <property name="text">
-                                                    <string>Text color:</string>
-                                                </property>
-                                                <property name="whatsThis" stdset="0">
-                                                    <string>This color will be used to draw the language label on the indicator.</string>
-                                                </property>
-                                            </widget>
-                                            <widget class="KColorButton" row="1" column="2">
-                                                <property name="name">
-                                                    <cstring>fgColor</cstring>
-                                                </property>
-                                              <property name="whatsThis" stdset="0">
-                                                  <string>This color will be used to draw the language label on the indicator.</string>
-                                              </property>
-                                            </widget>
-                                        </grid>
-                                    </widget>
-                                    <widget class="TQCheckBox" row="4" column="0" rowspan="1" colspan="3">
-                                        <property name="name">
-                                            <cstring>chkBgTransparent</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Transparent background</string>
-                                        </property>
-                                        <property name="whatsThis" stdset="0">
-                                            <string>Check this to remove the indicator's background. Only applicable in "Label only" mode.</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="KSeparator" row="5" column="0" rowspan="1" colspan="3">
-                                        <property name="name">
-                                            <cstring>separator1</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="TQLabel" row="6" column="0" rowspan="1">
-                                        <property name="name">
-                                            <cstring>labelFontRequester</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Label font:</string>
-                                        </property>
-                                        <property name="whatsThis" stdset="0">
-                                            <string>This is the font which will be used by the layout indicator to draw the label.</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="TDEFontRequester" row="6" column="2">
-                                        <property name="name">
-                                            <cstring>labelFont</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="TQCheckBox" row="7" column="0" rowspan="1" colspan="2">
-                                        <property name="name">
-                                            <cstring>chkLabelShadow</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Enable shadow</string>
-                                        </property>
-                                        <property name="whatsThis" stdset="0">
-                                            <string>Draw a drop shadow behind the language label. In some cases this option can improve readability.</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="KColorButton" row="7" column="2">
-                                        <property name="name">
-                                            <cstring>shColor</cstring>
-                                        </property>
-                                        <property name="whatsThis" stdset="0">
-                                            <string>The drop shadow behind the language label will be of this color.</string>
-                                        </property>
-                                        <property name="enabled">
-                                            <bool>false</bool>
-                                        </property>
-                                    </widget>
-                                </grid>
-                            </widget>
-                            <widget class="TQButtonGroup" row="2" column="0">
+                        <vbox>
+                            <widget class="TQButtonGroup">
                                 <property name="name">
                                     <cstring>grpSwitching</cstring>
                                 </property>
@@ -734,7 +491,7 @@
                                     </widget>
                                 </vbox>
                             </widget>
-                            <widget class="TQGroupBox" row="2" column="1">
+                            <widget class="TQGroupBox">
                                 <property name="name">
                                     <cstring>grpBoxStickySwitching</cstring>
                                 </property>
@@ -773,6 +530,23 @@
                                             </size>
                                         </property>
                                     </spacer>
+                                    <spacer row="1" column="3">
+                                        <property name="name">
+                                            <cstring>spacer2</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Expanding</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
                                     <widget class="TQLabel" row="1" column="1">
                                         <property name="name">
                                             <cstring>textLabel1_5</cstring>
@@ -802,7 +576,7 @@
                                         </property>
                                         <property name="sizePolicy">
                                             <sizepolicy>
-                                                <hsizetype>7</hsizetype>
+                                                <hsizetype>5</hsizetype>
                                                 <vsizetype>0</vsizetype>
                                                 <horstretch>0</horstretch>
                                                 <verstretch>0</verstretch>
@@ -811,17 +585,409 @@
                                     </widget>
                                 </grid>
                             </widget>
-                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="2">
+                        </vbox>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>40</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
+            </widget>
+            <widget class="TQWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Indicator Options</string>
+                </attribute>
+                <vbox>
+                    <widget class="TQFrame">
+                        <property name="name">
+                            <cstring>indOptsFrame</cstring>
+                        </property>
+                        <property name="frameShape">
+                            <enum>StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Raised</enum>
+                        </property>
+                        <property name="lineWidth">
+                            <number>0</number>
+                        </property>
+                        <grid>
+                            <widget class="TQButtonGroup" row="0" column="0">
                                 <property name="name">
-                                    <cstring>chkShowSingle</cstring>
+                                    <cstring>grpStyle</cstring>
                                 </property>
-                                <property name="text">
-                                    <string>Show indicator for single layout</string>
+                                <property name="title">
+                                    <string>Indicator Style</string>
                                 </property>
+                                <property name="exclusive">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Here you can choose the way your keyboard layout indicator will look.</string>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="TQRadioButton">
+                                        <property name="name">
+                                            <cstring>radFlagLabel</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>&amp;Both Flag and Label</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQRadioButton">
+                                        <property name="name">
+                                            <cstring>radFlagOnly</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>&amp;Flag Only</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQRadioButton">
+                                        <property name="name">
+                                            <cstring>radLabelOnly</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>&amp;Label Only</string>
+                                        </property>
+                                    </widget>
+                                </vbox>
+                            </widget>
+                            <widget class="TQButtonGroup" row="1" column="0" colspan="2">
+                                <property name="name">
+                                    <cstring>grpLabel</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Label Style</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Here you can choose the way the label of your keyboard layout indicator will be displayed. These options are relevant even when labels are disabled, for locales where the flag is missing.</string>
+                                </property>
+                                <grid>
+                                    <widget class="TQRadioButton" row="0" column="0" rowspan="1" colspan="3">
+                                        <property name="name">
+                                            <cstring>radLabelUseTheme</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Use &amp;theme colors</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQRadioButton" row="1" column="0" rowspan="1" colspan="3">
+                                        <property name="name">
+                                            <cstring>radLabelUseCustom</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Use c&amp;ustom colors</string>
+                                        </property>
+                                        <property name="checked">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQFrame" row="2" column="0" colspan="3">
+                                        <property name="name">
+                                            <cstring>grpLabelColors</cstring>
+                                        </property>
+                                        <property name="frameShape">
+                                            <enum>NoFrame</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                            <enum>Plain</enum>
+                                        </property>
+                                        <grid>
+                                            <property name="margin">
+                                                <number>0</number>
+                                            </property>
+                                            <spacer row="0" column="0">
+                                                <property name="name">
+                                                    <cstring>spacer2</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Horizontal</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Fixed</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <widget class="TQLabel" row="0" column="1">
+                                                <property name="name">
+                                                    <cstring>labelBgColor</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Background color:</string>
+                                                </property>
+                                                <property name="whatsThis" stdset="0">
+                                                    <string>This color will be used as the indicator's background unless the indicator was set to display a flag.</string>
+                                                </property>
+                                            </widget>
+                                            <widget class="KColorButton" row="0" column="2">
+                                                <property name="name">
+                                                    <cstring>bgColor</cstring>
+                                                </property>
+                                                <property name="whatsThis" stdset="0">
+                                                    <string>This color will be used as the indicator's background unless the indicator was set to display a flag.</string>
+                                                </property>
+                                                <property name="sizePolicy">
+                                                    <sizepolicy>
+                                                        <hsizetype>4</hsizetype>
+                                                        <vsizetype>0</vsizetype>
+                                                        <horstretch>0</horstretch>
+                                                        <verstretch>0</verstretch>
+                                                    </sizepolicy>
+                                                </property>
+                                            </widget>
+                                            <spacer row="0" column="3">
+                                                <property name="name">
+                                                    <cstring>spacer23</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Horizontal</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Expanding</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <spacer row="1" column="0">
+                                                <property name="name">
+                                                    <cstring>spacer2</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Horizontal</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Fixed</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <widget class="TQLabel" row="1" column="1">
+                                                <property name="name">
+                                                    <cstring>labelFgColor</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Text color:</string>
+                                                </property>
+                                                <property name="whatsThis" stdset="0">
+                                                    <string>This color will be used to draw the language label on the indicator.</string>
+                                                </property>
+                                            </widget>
+                                            <widget class="KColorButton" row="1" column="2">
+                                                <property name="name">
+                                                    <cstring>fgColor</cstring>
+                                                </property>
+                                                <property name="whatsThis" stdset="0">
+                                                    <string>This color will be used to draw the language label on the indicator.</string>
+                                                </property>
+                                                <property name="sizePolicy">
+                                                    <sizepolicy>
+                                                        <hsizetype>4</hsizetype>
+                                                        <vsizetype>0</vsizetype>
+                                                        <horstretch>0</horstretch>
+                                                        <verstretch>0</verstretch>
+                                                    </sizepolicy>
+                                                </property>
+                                            </widget>
+                                            <spacer row="1" column="3">
+                                                <property name="name">
+                                                    <cstring>spacer23</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Horizontal</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Expanding</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <spacer row="4" column="0">
+                                                <property name="name">
+                                                    <cstring>spacer22</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Horizontal</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Fixed</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <widget class="TQCheckBox" row="4" column="1" rowspan="1" colspan="3">
+                                                <property name="name">
+                                                    <cstring>chkBgTransparent</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Transparent background</string>
+                                                </property>
+                                                <property name="whatsThis" stdset="0">
+                                                    <string>Check this to remove the indicator's background. Only applicable in "Label only" mode.</string>
+                                                </property>
+                                            </widget>
+                                        </grid>
+                                    </widget>
+                                    <widget class="KSeparator" row="5" column="0" rowspan="1" colspan="3">
+                                        <property name="name">
+                                            <cstring>separator1</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQLabel" row="6" column="0">
+                                        <property name="name">
+                                            <cstring>labelFontRequester</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Label font:</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>This is the font which will be used by the layout indicator to draw the label.</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="TDEFontRequester" row="6" column="1" colspan="2">
+                                        <property name="name">
+                                            <cstring>labelFont</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQCheckBox" row="7" column="0">
+                                        <property name="name">
+                                            <cstring>chkLabelShadow</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Enable shadow</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>Draw a drop shadow behind the language label. In some cases this option can improve readability.</string>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>4</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                    </widget>
+                                    <widget class="KColorButton" row="7" column="1">
+                                        <property name="name">
+                                            <cstring>shColor</cstring>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>The drop shadow behind the language label will be of this color.</string>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>4</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                    </widget>                                           <spacer row="7" column="2">
+                                        <property name="name">
+                                            <cstring>spacer23</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Expanding</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                </grid>
+                            </widget>
+                            <widget class="TQButtonGroup" row="0" column="1">
+                                <property name="name">
+                                    <cstring>grpMisc</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Miscellaneous</string>
+                                </property>
+                                <vbox>
+                                    <widget class="TQCheckBox">
+                                        <property name="name">
+                                            <cstring>chkShowSingle</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Show indicator for single layout</string>
+                                        </property>
+                                    </widget>
+                                </vbox>
                             </widget>
                         </grid>
                     </widget>
-                </grid>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer1</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>40</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
             </widget>
             <widget class="TQWidget">
                 <property name="name">
@@ -848,15 +1014,7 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>checkResetOld</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&amp;Reset old options</string>
-                                </property>
-                            </widget>
-                            <widget class="TQLabel" row="2" column="0">
+                            <widget class="TQLabel" row="1" column="0">
                                 <property name="name">
                                     <cstring>textLabel1_3_2</cstring>
                                 </property>
@@ -864,7 +1022,7 @@
                                     <string>Command:</string>
                                 </property>
                             </widget>
-                            <widget class="TQLineEdit" row="2" column="1">
+                            <widget class="TQLineEdit" row="1" column="1">
                                 <property name="name">
                                     <cstring>editCmdLineOpt</cstring>
                                 </property>
@@ -872,7 +1030,7 @@
                                     <bool>true</bool>
                                 </property>
                             </widget>
-                            <widget class="TQListView" row="1" column="0" rowspan="1" colspan="2">
+                            <widget class="TQListView" row="0" column="0" rowspan="1" colspan="2">
                                 <column>
                                     <property name="text">
                                         <string>Options</string>
@@ -890,6 +1048,41 @@
                             </widget>
                         </grid>
                     </widget>
+                    <widget class="TQButtonGroup">
+                        <property name="name">
+                            <cstring>xkbOptsMode</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Options Mode</string>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>Here you can choose how the options you select here will be applied: in addition to, or instead of existing options.</string>
+                        </property>
+                        <vbox>
+                            <widget class="TQRadioButton">
+                                <property name="name">
+                                    <cstring>radXkbOverwrite</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Overwrite existing options (recommended)</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Overwrite any existing Xkb options that might have been previously set by another program or from a script (e.g. via setxkbmap). This is the recommended option.</string>
+                                </property>
+                            </widget>
+                            <widget class="TQRadioButton">
+                                <property name="name">
+                                    <cstring>radXkbAppend</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Append to existing options</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Append the selected options to any existing Xkb options that might have been previously set by another program or from a script (e.g. via setxkbmap). Only use this if you really need to.</string>
+                                </property>
+                            </widget>
+                        </vbox>
+                    </widget>
                 </vbox>
             </widget>
         </widget>
@@ -900,6 +1093,18 @@
         <sender>chkEnable</sender>
         <signal>toggled(bool)</signal>
         <receiver>grpLayouts</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>chkEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>swOptsFrame</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>chkEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>indOptsFrame</receiver>
         <slot>setEnabled(bool)</slot>
     </connection>
     <connection>
@@ -924,12 +1129,6 @@
         <sender>chkLabelShadow</sender>
         <signal>toggled(bool)</signal>
         <receiver>shColor</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>chkEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>optionsFrame</receiver>
         <slot>setEnabled(bool)</slot>
     </connection>
     <connection>

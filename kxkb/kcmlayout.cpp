@@ -24,6 +24,7 @@
 #include <kdebug.h>
 #include <tdeapplication.h>
 #include <kiconloader.h>
+#include <tdemessagebox.h>
 #include <dcopref.h>
 #include <dcopclient.h>
 
@@ -99,7 +100,8 @@ static TQListViewItem* copyLVI(const TQListViewItem* src, TQListView* parent)
 
 LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   : TDECModule(parent, name),
-    m_rules(NULL)
+    m_rules(NULL),
+    m_forceGrpOverwrite(false)
 {
   TQVBoxLayout *main = new TQVBoxLayout(this, 0, KDialog::spacingHint());
 
@@ -232,6 +234,7 @@ void LayoutConfig::initUI() {
 			widget->comboHotkey->insertItem(i18n(hkDesc));
 		}
 	}
+	widget->comboHotkey->insertItem(i18n("None"));
 	widget->comboHotkey->insertItem(i18n("Other..."));
 
 	// display KXKB switching options
@@ -243,7 +246,7 @@ void LayoutConfig::initUI() {
 	widget->radFlagOnly->setChecked( showFlag && !showLabel );
 	widget->radLabelOnly->setChecked( !showFlag && showLabel );
 
-	widget->checkResetOld->setChecked(m_kxkbConfig.m_resetOldOptions);
+	widget->xkbOptsMode->setButton(m_kxkbConfig.m_resetOldOptions ? 0 : 1);
 
 	widget->grpLabel->setButton( ( m_kxkbConfig.m_useThemeColors ? 0 : 1 )  );
 	widget->bgColor->setColor( m_kxkbConfig.m_colorBackground );
@@ -280,15 +283,22 @@ void LayoutConfig::initUI() {
 
 	widget->chkEnable->setChecked( m_kxkbConfig.m_useKxkb );
 	widget->grpLayouts->setEnabled( m_kxkbConfig.m_useKxkb );
-	widget->optionsFrame->setEnabled( m_kxkbConfig.m_useKxkb );
+	widget->swOptsFrame->setEnabled( m_kxkbConfig.m_useKxkb );
+	widget->indOptsFrame->setEnabled( m_kxkbConfig.m_useKxkb );
 
 	// display xkb options
 	TQStringList activeOptions = TQStringList::split(',', m_kxkbConfig.m_options);
+	bool foundGrp = false;
 	for (TQStringList::ConstIterator it = activeOptions.begin(); it != activeOptions.end(); ++it)
 	{
 		TQString option = *it;
 		TQString optionKey = option.mid(0, option.find(':'));
 		TQString optionName = m_rules->options()[option];
+
+		if (optionKey == "grp") {
+			foundGrp = true;
+		}
+
 		OptionListItem *item = m_optionGroups[i18n(optionKey.latin1())];
 
 		if (item != NULL) {
@@ -304,8 +314,15 @@ void LayoutConfig::initUI() {
 		}
 	}
 
+	if (!foundGrp) {
+		OptionListItem *grpNone = itemForOption("grp:none");
+		if (grpNone) {
+			grpNone->setOn(true);
+		}
+	}
+
 	updateOptionsCommand();
-	updateHotkeyCombo();
+	updateHotkeyCombo(true);
 	emit TDECModule::changed( false );
 }
 
@@ -315,7 +332,7 @@ void LayoutConfig::save()
 	TQString model = lookupLocalized(m_rules->models(), widget->comboModel->currentText());
 	m_kxkbConfig.m_model = model;
 
-	m_kxkbConfig.m_resetOldOptions = widget->checkResetOld->isChecked();
+	m_kxkbConfig.m_resetOldOptions = widget->radXkbOverwrite->isOn();
 	m_kxkbConfig.m_options = createOptionString();
 
 	m_kxkbConfig.m_useThemeColors = widget->radLabelUseTheme->isChecked();
@@ -373,6 +390,35 @@ void LayoutConfig::save()
 
 	m_kxkbConfig.save();
 
+	// We might need to unset previous hotkey options
+	if (m_forceGrpOverwrite)
+	{
+		// First get all the server's options
+		TQStringList srvOptions = TQStringList::split(",", XKBExtension::getServerOptions());
+		TQStringList newOptions;
+
+		// Then remove all grp: options
+		for (TQStringList::Iterator it = srvOptions.begin(); it != srvOptions.end(); ++it)
+		{
+			TQString opt(*it);
+			if (!opt.startsWith("grp:"))
+			{
+				newOptions << opt;
+			}
+		}
+
+		XkbOptions xkbOptions;
+		xkbOptions.options = newOptions.join(",");
+		xkbOptions.resetOld = true;
+
+		if (!XKBExtension::setXkbOptions(xkbOptions))
+		{
+			kdWarning() << "[LayoutConfig::save] Could not overwrite previous grp: options!" << endl;
+		}
+
+		m_forceGrpOverwrite = false;
+	}
+
 	// Get current layout from Kxkb
 	if (!kapp->dcopClient()->isAttached())
 		kapp->dcopClient()->attach();
@@ -404,6 +450,8 @@ void LayoutConfig::save()
 			kdDebug() << "Warning: cannot restore previous layout! (invalid DCOP reply from Kxkb)" << endl;
 		}
 	}
+
+	updateHotkeyCombo();
 
 	emit TDECModule::changed( false );
 }
@@ -518,6 +566,7 @@ void LayoutConfig::variantChanged()
 	if( selectedVariant == DEFAULT_VARIANT_NAME )
 		selectedVariant = "";
 	selLayout->setText(LAYOUT_COLUMN_VARIANT, selectedVariant);
+	updateLayoutCommand();
 }
 
 // helper
@@ -598,12 +647,12 @@ TQWidget* LayoutConfig::makeOptionsTab()
   listView->clear();
 
   connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(changed()));
-  connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(updateOptionsCommand()));
+  connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(resolveConflicts(TQListViewItem *)));
   connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(updateHotkeyCombo()));
 
-  connect(widget->checkResetOld, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(widget->checkResetOld, TQT_SIGNAL(toggled(bool)), TQT_SLOT(updateOptionsCommand()));
-  connect(widget->checkResetOld, TQT_SIGNAL(toggled(bool)), TQT_SLOT(updateHotkeyCombo()));
+  connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(changed()));
+  connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(updateOptionsCommand()));
+  connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(updateHotkeyCombo()));
 
   //Create controllers for all options
   TQDictIterator<char> it(m_rules->options());
@@ -613,12 +662,19 @@ TQWidget* LayoutConfig::makeOptionsTab()
     if (!it.currentKey().contains(':'))
     {
       if( it.currentKey() == "ctrl" || it.currentKey() == "caps"
-          || it.currentKey() == "altwin" || it.currentKey() == "grp") {
+          || it.currentKey() == "altwin") {
         parent = new OptionListItem(listView, i18n( it.current() ),
             TQCheckListItem::RadioButtonController, it.currentKey());
         OptionListItem *item = new OptionListItem(parent, i18n( "None" ),
             TQCheckListItem::RadioButton, "none");
         item->setState(TQCheckListItem::On);
+      }
+      else if (it.currentKey() == "grp") {
+        parent = new OptionListItem(listView, i18n(it.current()),
+            TQCheckListItem::RadioButtonController, it.currentKey());
+        parent->setSelectable(false);
+        OptionListItem *item = new OptionListItem(parent, i18n("None"),
+            TQCheckListItem::CheckBox, "grp:none");
       }
       else {
         parent = new OptionListItem(listView, i18n( it.current() ),
@@ -643,12 +699,13 @@ TQWidget* LayoutConfig::makeOptionsTab()
       // workaroung for mistake in rules file for xkb options in XFree 4.2.0
         TQString text(it.current());
         text = text.replace( "Cap$", "Caps." );
-        if( parent->type() == TQCheckListItem::RadioButtonController )
-            new OptionListItem(parent, i18n(text.utf8()),
-                TQCheckListItem::RadioButton, key);
-        else
+        if ( parent->type() == TQCheckListItem::CheckBoxController
+             || key.startsWith("grp:"))
             new OptionListItem(parent, i18n(text.utf8()),
                 TQCheckListItem::CheckBox, key);
+        else
+            new OptionListItem(parent, i18n(text.utf8()),
+                TQCheckListItem::RadioButton, key);
       }
     }
   }
@@ -662,14 +719,19 @@ void LayoutConfig::updateOptionsCommand()
 {
   TQString setxkbmap;
   TQString options = createOptionString();
+  bool overwrite = widget->radXkbOverwrite->isOn();
 
   if( !options.isEmpty() ) {
     setxkbmap = "setxkbmap -option "; //-rules " + m_rule
-    if( widget->checkResetOld->isChecked() )
+    if (overwrite)
       setxkbmap += "-option ";
     setxkbmap += options;
   }
+  else if (overwrite) {
+    setxkbmap = "setxkbmap -option";
+  }
   widget->editCmdLineOpt->setText(setxkbmap);
+  widget->editCmdLineOpt->setDisabled(setxkbmap.isEmpty());
 }
 
 void LayoutConfig::updateLayoutCommand()
@@ -726,38 +788,268 @@ void LayoutConfig::updateLayoutCommand()
   widget->editDisplayName->setText(selDisplayName);
 }
 
+void LayoutConfig::checkConflicts(OptionListItem *current,
+                                  TQStringList conflicting,
+                                  TQStringList &conflicts)
+{
+    if (!current || conflicting.count() < 2 ||
+        !conflicting.contains(current->optionName()))
+    {
+        return;
+    }
+    TQStringList::Iterator it;
+    for (it = conflicting.begin(); it != conflicting.end(); ++it) {
+        TQString option(*it);
+        if (option == current->optionName()) {
+            continue;
+        }
+
+        OptionListItem *item = itemForOption(option);
+        if (item && item->isOn()) {
+            conflicts << item->text();
+        }
+    }
+}
+
+void LayoutConfig::resolveConflicts(TQListViewItem *lvi) {
+    OptionListItem *current = (OptionListItem*)lvi;
+
+    kdDebug() << "resolveConflicts : " << current->optionName() << endl;
+
+    if (current->optionName().startsWith("grp:")) {
+        OptionListItem *grpItem = m_optionGroups[i18n("grp")];
+        if (grpItem == NULL) {
+            kdWarning() << "LayoutConfig: cannot find grp item group" << endl;
+            return;
+        }
+
+        OptionListItem *noneItem = grpItem->findChildItem("grp:none");
+        if (!noneItem) {
+            kdDebug() << "LayoutConfig: unable to find None item for grp!" << endl;
+        }
+        else {
+            // Option "none" selected, uncheck all other options immediately
+            if (current->optionName() == "grp:none") {
+                if (current->isOn()) {
+                    OptionListItem *child = (OptionListItem*)grpItem->firstChild();
+                    while (child) {
+                        if (child != current) {
+                            child->setOn(false);
+                        }
+                        child = (OptionListItem*)child->nextSibling();
+                    }
+                }
+                else {
+                    current->setOn(true);
+                }
+                updateOptionsCommand();
+                return;
+            }
+
+            // If no options are selected then select "none"
+            bool notNone = false;
+            OptionListItem *child = (OptionListItem*)grpItem->firstChild();
+            while (child) {
+                if (child->isOn() && child->optionName() != "none") {
+                    notNone = true;
+                    break;
+                }
+                child = (OptionListItem*)child->nextSibling();
+            }
+
+            noneItem->setOn(!notNone);
+        }
+    }
+
+    TQStringList conflicts;
+    OptionListItem *conflict;
+
+    TQStringList conflicting;
+    /* Might be incomplete */
+    // Space
+    conflicting << "grp:win_space_toggle"
+                << "grp:alt_space_toggle"
+                << "grp:ctrl_space_toggle";
+    checkConflicts(current, conflicting, conflicts);
+
+    // Shift
+    conflicting.clear();
+    conflicting << "grp:ctrl_shift_toggle"
+                << "grp:alt_shift_toggle";
+    checkConflicts(current, conflicting, conflicts);
+
+    // Control
+    conflicting.clear();
+    conflicting << "grp:ctrl_select"
+                << "grp:ctrl_alt_toggle"
+                << "grp:ctrl_shift_toggle";
+    checkConflicts(current, conflicting, conflicts);
+
+    // Left Ctrl
+    conflicting.clear();
+    conflicting << "grp:lctrl_toggle"
+                << "grp:lctrl_lshift_toggle";
+    checkConflicts(current, conflicting, conflicts);
+
+    // Right Ctrl
+    conflicting.clear();
+    conflicting << "grp:rctrl_toggle"
+                << "grp:rctrl_rshift_toggle";
+    checkConflicts(current, conflicting, conflicts);
+
+    // Win
+    conflicting.clear();
+    conflicting << "grp:win_space_toggle"
+                << "grp:win_switch"
+                << "win_menu_select";
+    checkConflicts(current, conflicting, conflicts);
+
+    // Left Alt
+    conflicting.clear();
+    conflicting << "grp:lalt_toggle"
+                << "grp:lalt_lshift_toggle";
+    checkConflicts(current, conflicting, conflicts);
+
+    // Right Alt
+    conflicting.clear();
+    conflicting << "grp:ralt_toggle"
+                << "grp:ralt_rshift_toggle";
+    checkConflicts(current, conflicting, conflicts);
+
+    // Caps Lock
+    conflicting.clear();
+    conflicting << "grp:caps_toggle"
+                << "grp:caps_select"
+                << "grp:caps_switch"
+                << "grp:alt_caps_toggle";
+    checkConflicts(current, conflicting, conflicts);
+
+    if (conflicts.count()) {
+        TQString curText = current->text();
+        int confirm = KMessageBox::warningYesNoList(this,
+                          i18n("<qt>The option <b>%1</b> might conflict with "
+                               "other options that you have already enabled.<br>"
+                               "Are you sure that you really want to enable "
+                               "<b>%2</b>?</qt>")
+                               .arg(curText).arg(curText),
+                          conflicts,
+                          i18n("Conflicting options"));
+        if (confirm == KMessageBox::No) {
+            current->setOn(false);
+        }
+    }
+    updateOptionsCommand();
+}
+
 // Synchronizes Xkb grp options --> hotkeys combobox
 void LayoutConfig::updateHotkeyCombo() {
+    updateHotkeyCombo(false);
+}
+
+void LayoutConfig::updateHotkeyCombo(bool initial) {
     OptionListItem *grpItem = m_optionGroups[i18n("grp")];
     if (grpItem == NULL) {
         kdWarning() << "LayoutConfig: cannot find grp item group" << endl;
         return;
     }
 
-    OptionListItem *child = (OptionListItem*)grpItem->firstChild();
-    while (child) {
-        if (child->isOn()) {
-            bool found = false;
-            for (int i = 0; i < widget->comboHotkey->count(); ++i) {
-                if (child->text() == widget->comboHotkey->text(i)) {
-                    widget->comboHotkey->setCurrentItem(i);
-                    found = true;
-                }
+    TQStringList hotkeys;
+
+    // Get server options first
+    if (initial || widget->xkbOptsMode->selectedId() == 1)
+    {
+        TQStringList opts = TQStringList::split(",", XKBExtension::getServerOptions());
+        for (TQStringList::Iterator it = opts.begin(); it != opts.end(); ++it)
+        {
+            TQString option(*it);
+
+            if (!option.startsWith("grp:"))
+            {
+                continue;
             }
-            if (!found) {
-                int other = widget->comboHotkey->count() - 1;
-                widget->comboHotkey->changeItem(i18n("Other (%1)...").arg(child->text()),
-                                                other);
-                widget->comboHotkey->setCurrentItem(other);
+
+            // Get description from existing item
+            // This spares us the trouble of querying Xkb rules second time
+            OptionListItem *item = itemForOption(option);
+            if (!item)
+            {
+                kdWarning() << "[updateHotkeyCombo] server has set unknown option: "
+                            << option << endl;
+                continue;
+            }
+
+            TQString optionName = item->text();
+            if (!hotkeys.contains(optionName) && option != "grp:none")
+            {
+                hotkeys << optionName;
             }
         }
+    }
+
+    OptionListItem *child = (OptionListItem*)grpItem->firstChild();
+    while (child) {
+        TQString optionText = child->text();
+        if (child->isOn() && !hotkeys.contains(optionText) && child->optionName() != "grp:none") {
+            hotkeys << optionText;
+        }
         child = (OptionListItem*)child->nextSibling();
+    }
+
+    if (!hotkeys.count()) {
+        OptionListItem *noneItem = itemForOption("grp:none");
+        if (noneItem)
+        {
+            hotkeys << noneItem->text();
+        }
+        else
+        {
+            kdWarning() << "[updateHotkeyCombo] cannot find grp:none item!" << endl;
+            hotkeys << widget->comboHotkey->text(0); // fallback
+        }
+    }
+
+    int other = widget->comboHotkey->count() - 1;
+    widget->comboHotkey->changeItem(i18n("Custom..."), other);
+    if (hotkeys.count() < 2) {
+        bool found = false;
+        for (int i = 0; i < widget->comboHotkey->count(); ++i) {
+            if (hotkeys[0] == widget->comboHotkey->text(i)) {
+                widget->comboHotkey->setCurrentItem(i);
+                found = true;
+            }
+        }
+        if (!found) {
+            widget->comboHotkey->changeItem(i18n("Other (%1)").arg(hotkeys[0]),
+                                            other);
+            widget->comboHotkey->setCurrentItem(other);
+        }
+    }
+    else {
+        widget->comboHotkey->changeItem(i18n("Multiple (%1)").arg(hotkeys.join("; ")),
+                                        other);
+        widget->comboHotkey->setCurrentItem(other);
     }
 }
 
 // Synchronizes hotkeys combobox --> Xkb grp options
 void LayoutConfig::hotkeyComboChanged() {
-    TQString hkDesc = widget->comboHotkey->currentText();
+    TQStringList hotkeys;
+    int other = widget->comboHotkey->count() - 1;
+
+    if (widget->comboHotkey->currentItem() != other) {
+        hotkeys << widget->comboHotkey->currentText();
+    }
+    else {
+        TQString otherStr = widget->comboHotkey->text(other);
+        int i1 = otherStr.find("(");
+        if (i1 != -1) { // custom hotkey(s) set
+            ++i1;
+            int i2 = otherStr.findRev(")");
+            if (i2 != -1) {
+                hotkeys = TQStringList::split("; ", otherStr.mid(i1, i2-i1));
+            }
+        }
+    }
 
     OptionListItem *grpItem = m_optionGroups[i18n("grp")];
     if (grpItem == NULL) {
@@ -767,21 +1059,17 @@ void LayoutConfig::hotkeyComboChanged() {
 
     OptionListItem *child = (OptionListItem*)grpItem->firstChild();
     while (child) {
-        child->setOn(child->text() == hkDesc);
+        child->setOn(hotkeys.contains(child->text()));
         child = (OptionListItem*)child->nextSibling();
     }
 
-    // Other...
-    if (widget->comboHotkey->count() - 1 == widget->comboHotkey->currentItem()) {
-        OptionListItem *none = grpItem->findChildItem("none");
-        if (none) {
-            none->setOn(true);
-        }
-        widget->tabWidget->setCurrentPage(2);
-        widget->listOptions->setCurrentItem(none);
-        widget->listOptions->ensureItemVisible(none);
+    if (widget->comboHotkey->currentItem() == other) {
+        widget->tabWidget->setCurrentPage(3);
+        widget->listOptions->ensureItemVisible(grpItem);
         widget->listOptions->setFocus();
     }
+
+    m_forceGrpOverwrite = true;
 }
 
 void LayoutConfig::changed()
@@ -831,6 +1119,20 @@ void LayoutConfig::loadRules()
 	//TODO: reset options and xkb options
 }
 
+OptionListItem* LayoutConfig::itemForOption(TQString option) {
+    if (!option.contains(':')) {
+        return nullptr;
+    }
+
+    TQString optionKey = option.mid(0, option.find(':'));
+    OptionListItem *item = m_optionGroups[optionKey];
+
+    if( !item ) {
+        kdDebug() << "WARNING: skipping empty group for " << option << endl;
+        return nullptr;
+    }
+    return (OptionListItem*)item->findChildItem(option);
+}
 
 TQString LayoutConfig::createOptionString()
 {
@@ -838,32 +1140,17 @@ TQString LayoutConfig::createOptionString()
   for (TQDictIterator<char> it(m_rules->options()); it.current(); ++it)
   {
     TQString option(it.currentKey());
-
-    if (option.contains(':')) {
-
-      TQString optionKey = option.mid(0, option.find(':'));
-      OptionListItem *item = m_optionGroups[optionKey];
-
-      if( !item ) {
-        kdDebug() << "WARNING: skipping empty group for " << it.currentKey()
-          << endl;
-        continue;
+    OptionListItem *child = itemForOption(option);
+    if (!child) {
+      continue;
+    }
+    if ( child->state() == TQCheckListItem::On ) {
+      TQString selectedName = child->optionName();
+      if ( !selectedName.isEmpty() && selectedName != "none" ) {
+        if (!options.isEmpty())
+          options.append(',');
+        options.append(selectedName);
       }
-
-      OptionListItem *child = item->findChildItem( option );
-
-      if ( child ) {
-        if ( child->state() == TQCheckListItem::On ) {
-          TQString selectedName = child->optionName();
-          if ( !selectedName.isEmpty() && selectedName != "none" ) {
-            if (!options.isEmpty())
-              options.append(',');
-            options.append(selectedName);
-          }
-        }
-      }
-      else
-        kdDebug() << "Empty option button for group " << it.currentKey() << endl;
     }
   }
   return options;
@@ -931,7 +1218,7 @@ extern "C"
 			kapp->startServiceByDesktopName("kxkb");
 		}
 		else {
-			if (!XKBExtension::setXkbOptions(m_kxkbConfig.getXkbOptions())) {
+			if (!XKBExtension::setXkbOptions(m_kxkbConfig.getKXkbOptions())) {
 				kdDebug() << "Setting XKB options failed!" << endl;
 			}
 		}

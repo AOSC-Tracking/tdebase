@@ -128,7 +128,7 @@ public:
 	static TQString getDefaultDisplayName(const TQString& code_);
 	static TQString getDefaultDisplayName(const LayoutUnit& layoutUnit, bool single=false);
 
-	const XkbOptions getXkbOptions();
+	const XkbOptions getKXkbOptions();
 
 private:
 	static const TQMap<TQString, TQString> parseIncludesMap(const TQStringList& pairList);

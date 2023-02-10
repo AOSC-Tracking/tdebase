@@ -16,6 +16,7 @@ public:
 	bool init();
 
 	static bool setXkbOptions(const XkbOptions options);
+	static TQString getServerOptions();
 	bool setGroup(unsigned int group);
 	unsigned int getGroup() const;
 	void processXEvent(XEvent *ev);

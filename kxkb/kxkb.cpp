@@ -99,7 +99,7 @@ int KXKBApp::newInstance()
 
 bool KXKBApp::settingsRead()
 {
-	XkbOptions options = kxkbConfig.getXkbOptions();
+	XkbOptions options = kxkbConfig.getKXkbOptions();
 	if( !m_extension->setXkbOptions(options) ) {
 		kdDebug() << "Setting XKB options failed!" << endl;
 	}
