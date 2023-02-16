@@ -699,6 +699,13 @@ void HwDeviceSystemTray::deviceChanged(TDEGenericDevice* device)
 void HwDeviceSystemTray::devicePopupClicked(KPassivePopup* popup, TQPoint point, TQString uuid) {
 	TDEGenericDevice *hwdevice;
 	if (uuid.startsWith("ADD: ")) {
+		TDEConfig config("mediamanagerrc");
+		config.setGroup("Global");
+		if (config.readBoolEntry("NotificationPopupsEnabled", true))
+		{
+			return;
+		}
+
 		uuid = uuid.right(uuid.length() - strlen("ADD: "));
 		if (uuid != "") {
 			TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
