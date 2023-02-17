@@ -58,15 +58,15 @@ public:
 k_dcop:
 
 private slots:
+	void cryptographicCardPinRequested(TQString prompt, TDECryptographicCardDevice* cdevice);
 	void populateTreeView();
 	void populateTreeViewLeaf(DeviceIconItem *parent, bool show_by_connection, TQString selected_syspath);
-	void deviceChanged(TDEGenericDevice*);
-	void cryptographicCardPinRequested(TQString prompt, TDECryptographicCardDevice* cdevice);
+	void scheduleDeviceUpdate();
 
 private:
 	TDEHWManagerBase *base;
-
 	TDEConfig *config;
+	bool deviceUpdateScheduled;
 };
 
 #endif

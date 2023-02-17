@@ -87,6 +87,8 @@ TDEHWManager::TDEHWManager(TQWidget *parent, const char *name, const TQStringLis
 
 	base->deviceFilter->setListView(base->deviceTree);
 
+	deviceUpdateScheduled = false;
+
 	setRootOnlyMsg(i18n("<b>Device settings are system wide, and therefore require administrator access</b><br>To alter the system's device settings, click on the \"Administrator Mode\" button below."));
 	setUseRootOnlyMsg(true);
 
@@ -96,9 +98,8 @@ TDEHWManager::TDEHWManager(TQWidget *parent, const char *name, const TQStringLis
 	connect(base->showByConnection, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
 	connect(base->showByConnection, TQT_SIGNAL(clicked()), TQT_SLOT(populateTreeView()));
 
-	connect(hwdevices, TQT_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQT_SLOT(populateTreeView()));
-	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(populateTreeView()));
-	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(deviceChanged(TDEGenericDevice*)));
+	connect(hwdevices, TQT_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQT_SLOT(scheduleDeviceUpdate()));
+	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(scheduleDeviceUpdate()));
 
 	load();
 
@@ -132,8 +133,19 @@ void TDEHWManager::defaults()
 	load( true );
 }
 
+void TDEHWManager::scheduleDeviceUpdate()
+{
+	if (!deviceUpdateScheduled)
+	{
+		deviceUpdateScheduled = true;
+		TQTimer::singleShot(1000, this, TQT_SLOT(populateTreeView()));
+	}
+}
+
 void TDEHWManager::populateTreeView()
 {
+	deviceUpdateScheduled = false;
+
 	bool show_by_connection = base->showByConnection->isChecked();
 
 	// Figure out which device, if any, was selected
@@ -212,24 +224,6 @@ void TDEHWManager::populateTreeViewLeaf(DeviceIconItem *parent, bool show_by_con
 				populateTreeViewLeaf(item, show_by_connection, selected_syspath);
 			}
 		}
-	}
-}
-
-void TDEHWManager::deviceChanged(TDEGenericDevice* device) {
-	TQListViewItemIterator it(base->deviceTree);
-	while (it.current()) {
-		DeviceIconItem* item = dynamic_cast<DeviceIconItem*>(it.current());
-		if (item) {
-			TDEGenericDevice* candidate = item->device();
-			if (candidate) {
-				if (candidate->systemPath() == device->systemPath()) {
-					if (item->text(0) != device->detailedFriendlyName()) {
-						item->setText(0, device->detailedFriendlyName());
-					}
-				}
-			}
-		}
-		++it;
 	}
 }
 
