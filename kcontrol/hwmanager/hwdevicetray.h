@@ -65,10 +65,11 @@ protected:
 	void showEvent(TQShowEvent *);
 
 	static bool isMonitoredDevice(TDEStorageDevice *sdevice);
+	static TQString getDeviceLabel(TDEStorageDevice *sdevice);
 
-	void AddDeviceToLMBMenu(TDEStorageDevice *sdevice, const int type, TDEActionMenu *actionMenu,
+	void addDeviceToLMBMenu(TDEStorageDevice *sdevice, const int type, TDEActionMenu *actionMenu,
 	        int &actionMenuIdx);
-	void AddDeviceToRMBMenu(TDEStorageDevice *sdevice, const int type, int &actionMenuIdx);
+	void addDeviceToRMBMenu(TDEStorageDevice *sdevice, const int type, int &actionMenuIdx);
 
 	HwDeviceSystemTrayPrivate *d;
 };

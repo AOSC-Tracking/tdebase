@@ -113,7 +113,7 @@ struct SDActionMenuEntry
 
 struct KnownDiskDeviceInfo
 {
-	TQString friendlyName;
+	TQString deviceLabel;
 	TQString node;
 };
 
@@ -316,11 +316,39 @@ void HwDeviceSystemTray::initMenus()
 	d->m_LMBMenu = new TDEPopupMenu(this);
 }
 
-void HwDeviceSystemTray::AddDeviceToLMBMenu(TDEStorageDevice *sdevice, const int type,
+TQString HwDeviceSystemTray::getDeviceLabel(TDEStorageDevice *sdevice)
+{
+	if (!sdevice)
+	{
+		return TQString::null;
+	}
+
+	DCOPRef mediamanager("kded", "mediamanager");
+	DCOPReply reply = mediamanager.call("properties", sdevice->deviceNode());
+	TQString deviceLabel = TQString::null;
+	if (reply.isValid())
+	{
+		// TODO R14.2.0: make sure the reply is a valid Medium
+		// once the media library is part of tdelibs
+		TQStringList properties = reply;
+		if (properties.size() >= 4)
+		{
+			deviceLabel = properties[3]; // medium label
+		}
+	}
+
+	if (deviceLabel.isEmpty())
+	{
+		deviceLabel = !sdevice->diskLabel().isEmpty() ? sdevice->diskLabel() : sdevice->friendlyName();
+		deviceLabel += sdevice->deviceNode();
+	}
+
+	return deviceLabel;
+}
+
+void HwDeviceSystemTray::addDeviceToLMBMenu(TDEStorageDevice *sdevice, const int type,
         TDEActionMenu *actionMenu, int &actionMenuIdx)
 {
-	TQString friendlyName = !sdevice->diskLabel().isEmpty() ?
-	        sdevice->diskLabel() : sdevice->friendlyName();
 	TQString uuid = !sdevice->diskUUID().isEmpty() ? sdevice->diskUUID() : sdevice->systemPath();
 	SDActions::Type actionType = (SDActions::Type)type;
 	SDActions::Details ad = SDActions::Data[actionType];
@@ -330,15 +358,13 @@ void HwDeviceSystemTray::AddDeviceToLMBMenu(TDEStorageDevice *sdevice, const int
 	d->m_actionMenuEntryMap[actionMenuIdx++] = { actionType, uuid };
 }
 
-void HwDeviceSystemTray::AddDeviceToRMBMenu(TDEStorageDevice *sdevice, const int type, int &actionMenuIdx)
+void HwDeviceSystemTray::addDeviceToRMBMenu(TDEStorageDevice *sdevice, const int type, int &actionMenuIdx)
 {
-	TQString friendlyName = !sdevice->diskLabel().isEmpty() ?
-	        sdevice->diskLabel() : sdevice->friendlyName();
 	TQString uuid = !sdevice->diskUUID().isEmpty() ? sdevice->diskUUID() : sdevice->systemPath();
 	SDActions::Type actionType = (SDActions::Type)type;
 	TDEActionMenu *actionMenu = d->m_RMBActionMenuMap[actionType];
 	actionMenu->popupMenu()->insertItem(sdevice->icon(TDEIcon::SizeSmall),
-	        i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()), actionMenuIdx);
+	        getDeviceLabel(sdevice), actionMenuIdx);
 	actionMenu->popupMenu()->connectItem(actionMenuIdx, this,
 	        TQT_SLOT(slotExecuteDeviceAction(int)));
 	actionMenu->setEnabled(true);
@@ -374,11 +400,11 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 			{
 				if (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt))
 				{
-					AddDeviceToRMBMenu(sdevice, SDActions::Lock, actionMenuIdx);
+					addDeviceToRMBMenu(sdevice, SDActions::Lock, actionMenuIdx);
 				}
 				else
 				{
-					AddDeviceToRMBMenu(sdevice, SDActions::Unlock, actionMenuIdx);
+					addDeviceToRMBMenu(sdevice, SDActions::Unlock, actionMenuIdx);
 				}
 			}
 
@@ -386,27 +412,27 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 			{
 				if (sdevice->mountPath().isEmpty())
 				{
-					AddDeviceToRMBMenu(sdevice, SDActions::Mount, actionMenuIdx);
+					addDeviceToRMBMenu(sdevice, SDActions::Mount, actionMenuIdx);
 				}
 				else
 				{
-					AddDeviceToRMBMenu(sdevice, SDActions::Unmount, actionMenuIdx);
+					addDeviceToRMBMenu(sdevice, SDActions::Unmount, actionMenuIdx);
 				}
 
 				// Mounted and unmounted disks can also be opened
-				AddDeviceToRMBMenu(sdevice, SDActions::Open, actionMenuIdx);
+				addDeviceToRMBMenu(sdevice, SDActions::Open, actionMenuIdx);
 			}
 
 
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
 			    sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable))
 			{
-				AddDeviceToRMBMenu(sdevice, SDActions::Eject, actionMenuIdx);
+				addDeviceToRMBMenu(sdevice, SDActions::Eject, actionMenuIdx);
 
-				AddDeviceToRMBMenu(sdevice, SDActions::SafeRemove, actionMenuIdx);
+				addDeviceToRMBMenu(sdevice, SDActions::SafeRemove, actionMenuIdx);
 			}
 
-			AddDeviceToRMBMenu(sdevice, SDActions::Properties, actionMenuIdx);
+			addDeviceToRMBMenu(sdevice, SDActions::Properties, actionMenuIdx);
 		}
 	}
 
@@ -454,49 +480,47 @@ void HwDeviceSystemTray::populateLMBMenu()
 		     sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
 		     sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)))
 		{
-			TQString friendlyName = !sdevice->diskLabel().isEmpty() ?
-			        sdevice->diskLabel() : sdevice->friendlyName();
-			TDEActionMenu *actionMenu = new TDEActionMenu(i18n("%1 (%2)").arg(friendlyName,
-			        sdevice->deviceNode()), sdevice->icon(TDEIcon::SizeSmall));
+			TDEActionMenu *actionMenu = new TDEActionMenu(getDeviceLabel(sdevice),
+			        sdevice->icon(TDEIcon::SizeSmall));
 
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Mountable))
 			{
 				// Mounted and unmounted disks can also be opened
-				AddDeviceToLMBMenu(sdevice, SDActions::Open, actionMenu, actionMenuIdx);
+				addDeviceToLMBMenu(sdevice, SDActions::Open, actionMenu, actionMenuIdx);
 
 				if (sdevice->mountPath().isEmpty())
 				{
-					AddDeviceToLMBMenu(sdevice, SDActions::Mount, actionMenu, actionMenuIdx);
+					addDeviceToLMBMenu(sdevice, SDActions::Mount, actionMenu, actionMenuIdx);
 				}
 				else
 				{
-					AddDeviceToLMBMenu(sdevice, SDActions::Unmount, actionMenu, actionMenuIdx);
+					addDeviceToLMBMenu(sdevice, SDActions::Unmount, actionMenu, actionMenuIdx);
 				}
 			}
 
 			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) ||
-			    sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted))
+					sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted))
 			{
 				if (sdevice->isDiskOfType(TDEDiskDeviceType::UnlockedCrypt))
 				{
-					AddDeviceToLMBMenu(sdevice, SDActions::Lock, actionMenu, actionMenuIdx);
+					addDeviceToLMBMenu(sdevice, SDActions::Lock, actionMenu, actionMenuIdx);
 				}
 				else
 				{
-					AddDeviceToLMBMenu(sdevice, SDActions::Unlock, actionMenu, actionMenuIdx);
+					addDeviceToLMBMenu(sdevice, SDActions::Unlock, actionMenu, actionMenuIdx);
 				}
 			}
 
 
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
-			    sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable))
+					sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable))
 			{
-				AddDeviceToLMBMenu(sdevice, SDActions::Eject, actionMenu, actionMenuIdx);
+				addDeviceToLMBMenu(sdevice, SDActions::Eject, actionMenu, actionMenuIdx);
 
-				AddDeviceToLMBMenu(sdevice, SDActions::SafeRemove, actionMenu, actionMenuIdx);
+				addDeviceToLMBMenu(sdevice, SDActions::SafeRemove, actionMenu, actionMenuIdx);
 			}
 
-			AddDeviceToLMBMenu(sdevice, SDActions::Properties, actionMenu, actionMenuIdx);
+			addDeviceToLMBMenu(sdevice, SDActions::Properties, actionMenu, actionMenuIdx);
 
 			actionMenu->plug(d->m_LMBMenu);
 		}
@@ -610,17 +634,12 @@ void HwDeviceSystemTray::doDiskNotifications(bool scanOnly)
 			}
 			else
 			{
-				TQString friendlyName = sdevice->diskLabel();
-				if (friendlyName.isEmpty())
-				{
-					friendlyName = sdevice->friendlyName();
-				}
-				d->m_knownDiskDevices[sysPath] = { friendlyName, sdevice->deviceNode() };
+				TQString deviceLabel = getDeviceLabel(sdevice);
+				d->m_knownDiskDevices[sysPath] = { deviceLabel, sdevice->deviceNode() };
 				if (!scanOnly && popupEnable)
 				{
 					d->m_hardwareNotifierContainer->displayMessage(
-							i18n("A disk device has been added!"),
-							i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()),
+							i18n("A disk device has been added!"), deviceLabel,
 							SmallIcon("drive-harddisk-unmounted"), 0, 0, "ADD: " + sysPath);
 				}
 			}
@@ -633,8 +652,7 @@ void HwDeviceSystemTray::doDiskNotifications(bool scanOnly)
 		for (delIt = oldKnownDevices.begin(); delIt != oldKnownDevices.end(); delIt++)
 		{
 			d->m_hardwareNotifierContainer->displayMessage(
-					i18n("A disk device has been removed!"),
-					i18n("%1 (%2)").arg(delIt.data().friendlyName, delIt.data().node),
+					i18n("A disk device has been removed!"), delIt.data().deviceLabel,
 					SmallIcon("drive-harddisk-unmounted"), 0, 0, "REMOVE: " + delIt.key());
 		}
 	}
@@ -650,19 +668,14 @@ void HwDeviceSystemTray::deviceAdded(TDEGenericDevice* device)
 		TQString sysPath = sdevice->systemPath();
 		if (isMonitoredDevice(sdevice) && !d->m_knownDiskDevices.contains(sysPath))
 		{
-			TQString friendlyName = sdevice->diskLabel();
-			if (friendlyName.isEmpty())
-			{
-				friendlyName = sdevice->friendlyName();
-			}
-			d->m_knownDiskDevices[sysPath] = { friendlyName, sdevice->deviceNode() };
+			TQString deviceLabel = getDeviceLabel(sdevice);
+			d->m_knownDiskDevices[sysPath] = { deviceLabel, sdevice->deviceNode() };
 			TDEConfig config("mediamanagerrc");
 			config.setGroup("Global");
 			if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
 			{
 				d->m_hardwareNotifierContainer->displayMessage(
-						i18n("A disk device has been added!"),
-						i18n("%1 (%2)").arg(friendlyName, sdevice->deviceNode()),
+						i18n("A disk device has been added!"), deviceLabel,
 						SmallIcon("drive-harddisk-unmounted"), 0, 0, "ADD: " + sysPath);
 			}
 		}
@@ -681,9 +694,9 @@ void HwDeviceSystemTray::deviceRemoved(TDEGenericDevice* device)
 			config.setGroup("Global");
 			if (config.readBoolEntry("DeviceMonitorPopupsEnabled", true))
 			{
+				TQString deviceLabel = getDeviceLabel(sdevice);
 				d->m_hardwareNotifierContainer->displayMessage(
-						i18n("A disk device has been removed!"),
-						i18n("%1 (%2)").arg(d->m_knownDiskDevices[sysPath].friendlyName, d->m_knownDiskDevices[sysPath].node),
+						i18n("A disk device has been removed!"), deviceLabel,
 						SmallIcon("drive-harddisk-unmounted"), 0, 0, "REMOVE: " + sysPath);
 			}
 			d->m_knownDiskDevices.remove(sysPath);
