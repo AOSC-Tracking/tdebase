@@ -519,7 +519,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		// Default
 		mimeType = "media/cdrom" + MOUNT_MEDIA_SUFFIX;
 		if (useDefaultLabel) {
-			diskLabel = i18n("%1 Removable Device").arg(sdevice->deviceFriendlySize());
+			diskLabel = i18n("%1 Removable Disk (%2)").arg(sdevice->deviceFriendlySize(), sdevice->deviceNode());
 		}
 
 		if (sdevice->isDiskOfType(TDEDiskDeviceType::CDROM)) {
@@ -775,7 +775,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 		    || sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)) {
 			mimeType = "media/removable" + MOUNT_MEDIA_SUFFIX;
 			if (useDefaultLabel) {
-				diskLabel = i18n("%1 Removable Device").arg(sdevice->deviceFriendlySize());
+				diskLabel = i18n("%1 Removable Disk (%2)").arg(sdevice->deviceFriendlySize(), sdevice->deviceNode());
 			}
 		}
 
@@ -882,7 +882,7 @@ bool TDEBackend::setFloppyProperties(Medium* medium)
 		// Set label
 		TQString diskLabel = sdevice->diskLabel();
 		if (diskLabel.isNull()) {
-			diskLabel = i18n("%1 Zip Disk").arg(sdevice->deviceFriendlySize());
+			diskLabel = i18n("%1 Zip Disk (%2)").arg(sdevice->deviceFriendlySize(), sdevice->deviceNode());
 		}
 		medium->setLabel(diskLabel);
 	}
