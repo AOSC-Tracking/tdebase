@@ -484,6 +484,7 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 	if (useDefaultLabel) {
 		diskLabel = i18n("%1 Removable Device").arg(sdevice->deviceFriendlySize());
 	}
+	diskLabel += " (" + sdevice->deviceNode() + ")";
 
 	TQString mimeType;
 
