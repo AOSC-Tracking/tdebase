@@ -9,7 +9,7 @@ COMPILE_AFTER_kcontrol = tdm kdesktop
 
 AUTOMAKE_OPTIONS = foreign 1.6.1
 
-bin_SCRIPTS = starttde migratekde3 r14-xdg-update tde_release_notes
+bin_SCRIPTS = starttde migratekde3 r14-xdg-update tde_release_notes tde_show_license_info
 
 EXTRA_DIST = admin bsd-port debian tdebase.spec.in README.pam kde.pamd tdescreensaver.pamd mkpamserv
 

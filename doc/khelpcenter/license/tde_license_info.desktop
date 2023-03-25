@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=tde_show_license_info
+Exec=tde_show_license_info
+Type=Application
+X-TDE-autostart-phase=2
+X-TDE-StartupNotify=false
+X-TDE-UniqueApplet=true
+Categories=System;

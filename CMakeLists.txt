@@ -302,7 +302,7 @@ tde_conditional_add_subdirectory( BUILD_TQT3INTEGRATION tqt3integration )
 ##### install starttde & related stuff ##########
 
 if( BUILD_STARTTDE )
-  install( PROGRAMS starttde migratekde3 r14-xdg-update tde_release_notes
+  install( PROGRAMS starttde migratekde3 r14-xdg-update tde_release_notes tde_show_license_info
            DESTINATION ${BIN_INSTALL_DIR} )
 endif()
 

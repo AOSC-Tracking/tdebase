@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# A script to open/autostart the dialog showing the licenses
+# under which TDE components are provided.
+# The dialog will be shown once for each TDE minor releases (R14.x.0)
+
+# As this script is run as a global TDE autostart app, all
+# environment variables should already be set.
+
+if [ "$TDEDIR" = "" ] || [ "$TDEHOME" = "" ]; then
+  exit 1
+fi
+
+RELEASE_MINOR_VERSION="$( ${TDEDIR}/bin/tde-config --version | sed -n  's|^TDE: \(R[0-9]\+\.[0-9]\+\)\.[0-9]\+[^0-9]*|\1|p' )"
+LICENSE_INFO="$( ${TDEDIR}/bin/kreadconfig --file ${TDEHOME}/share/config/kdeglobals --group "License Info" --key "${RELEASE_MINOR_VERSION}" )"
+
+if [ "$LICENSE_INFO" = "" ] || [ "$LICENSE_INFO" != "true" ]; then
+  echo "[tde_license_info] Release minor version: $RELEASE_MINOR_VERSION"
+  echo "[tde_license_info] License info: $LICENSE_INFO"
+  ${TDEDIR}/bin/tde_license_info
+  ${TDEDIR}/bin/kwriteconfig --file ${TDEHOME}/share/config/kdeglobals --group "License Info" --key "$RELEASE_MINOR_VERSION" --type bool "true"
+  LICENSE_INFO="$( ${TDEDIR}/bin/kreadconfig --file ${TDEHOME}/share/config/kdeglobals --group "License Info" --key "$RELEASE_MINOR_VERSION" )"
+  echo "[tde_license_info] License info: $LICENSE_INFO"
+fi
+
+unset LICENSE_INFO RELEASE_MINOR_VERSION
+exit 0
+
