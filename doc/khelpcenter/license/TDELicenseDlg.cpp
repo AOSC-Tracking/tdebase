@@ -17,7 +17,7 @@ TDELicenseDlg::TDELicenseDlg(TQWidget *parent, const char *name)
 {
   setCaption(i18n("TDE License"));
   setIcon(TDEGlobal::iconLoader()->loadIcon("about_kde", TDEIcon::NoGroup, TDEIcon::SizeSmall));
-  resize(850, 750);
+  setMinimumSize(600, 600);
 
   TQVBoxLayout *vbox = new TQVBoxLayout(this, marginHint(), spacingHint());
 
