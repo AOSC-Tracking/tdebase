@@ -27,10 +27,10 @@
 #include "kcheckpass.h"
 
 /*******************************************************************
- * This is the authentication code for Shadow-Passwords
+ * This is the authentication code for /etc/passwd and Shadow-Passwords
  *******************************************************************/
 
-#ifdef HAVE_SHADOW
+#if defined(HAVE_SHADOW) || defined(HAVE_ETCPASSWD)
 #include <string.h>
 #include <stdlib.h>
 #include <pwd.h>
@@ -47,7 +47,6 @@ AuthReturn Authenticate(const char *method,
   char          *crpt_passwd;
   char          *password;
   struct passwd *pw;
-  struct spwd   *spw;
 
   if (strcmp(method, "classic"))
     return AuthError;
@@ -55,8 +54,12 @@ AuthReturn Authenticate(const char *method,
   if (!(pw = getpwnam(login)))
     return AuthAbort;
 
-  spw = getspnam(login);
+#ifdef HAVE_SHADOW
+  struct spwd *spw = getspnam(login);
   password = spw ? spw->sp_pwdp : pw->pw_passwd;
+#else
+  password = pw->pw_passwd;
+#endif
 
   if (!*password)
     return AuthOk;
@@ -70,11 +73,11 @@ AuthReturn Authenticate(const char *method,
   crpt_passwd = crypt(typed_in_password, password);
 #endif
 
-  if (!strcmp(password, crpt_passwd )) {
-    dispose(typed_in_password);
-    return AuthOk; /* Success */
-  }
   dispose(typed_in_password);
+
+  if (crpt_passwd && !strcmp(password, crpt_passwd))
+    return AuthOk; /* Success */
+
   return AuthBad; /* Password wrong or account locked */
 }
 

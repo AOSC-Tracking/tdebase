@@ -24,7 +24,7 @@ include_directories(
 
 tde_add_executable( kcheckpass AUTOMOC
   SOURCES
-    kcheckpass.c checkpass_etcpasswd.c checkpass_pam.c
+    kcheckpass.c checkpass_pam.c
     checkpass_shadow.c checkpass_osfc2passwd.c checkpass_aix.c
   LINK tdefakes-shared ${CRYPT_LIBRARY} ${PAM_LIBRARY}
   DESTINATION ${BIN_INSTALL_DIR}

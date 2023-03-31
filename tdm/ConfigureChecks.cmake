@@ -122,18 +122,6 @@ if( WITH_XDMCP )
 endif()
 
 
-if( WITH_PAM )
-
-  set( USE_PAM 1 CACHE INTERNAL "" FORCE )
-
-elseif( WITH_SHADOW )
-
-  set( HAVE_SHADOW 1 CACHE INTERNAL "" FORCE )
-  set( USESHADOW 1 CACHE INTERNAL "" FORCE )
-
-endif( )
-
-
 # If a tdm.service file is wanted, find systemd, then work out which
 # distribution is running, select an appropriate template and create the file.
 # When it is not possible to identify the distribution or there is no specific

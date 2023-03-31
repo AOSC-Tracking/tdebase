@@ -43,16 +43,8 @@
 #include <crypt.h>
 #endif
 
-#ifdef HAVE_PATHS_H
-#include <paths.h>
-#endif
-
 #include <pwd.h>
 #include <sys/types.h>
-
-#ifndef _PATH_TMP
-#define _PATH_TMP "/tmp/"
-#endif
 
 
 #ifdef ultrix
