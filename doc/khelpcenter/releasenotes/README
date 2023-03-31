@@ -1,9 +1,0 @@
-To update the Release Notes in the help handbook:
-
-* For archival purposes, copy index.docbook to index-Rxx.yy.zz.docbook,
-  where Rxx.yy.zz is the previous release version. For example.
-  index-R14.0.0.docbook.
-
-* Edit index.docbook as necessary for the next release. For example, R14.0.1.
-
-No changes or updates are needed in ./release_notes.desktop or ../../tde_release_notes.

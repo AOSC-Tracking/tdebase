@@ -6,8 +6,4 @@
 #
 #################################################
 
-tde_auto_add_subdirectories()
-
-tde_create_handbook( DESTINATION khelpcenter/releasenotes )
-
-install( FILES tde_release_notes.desktop DESTINATION ${AUTOSTART_INSTALL_DIR} )
+tde_create_handbook( DESTINATION khelpcenter/releasenotes/r14.0.x )

@@ -9,6 +9,9 @@
 <para>The Trinity team welcomes you to user-friendly &UNIX; desktop computing.</para>
 
 <sect1 id="welcome-information-about-tde">
+<title></title>
+
+<sect2 id="welcome-to-tde-section">
 <title>Information about &tde;</title>
 
 <para>The Trinity Desktop Environment (&tde;) is a graphical desktop environment for &UNIX; workstations. The
@@ -26,10 +29,7 @@ professional graphical design along with the technical advantages of
 
 <para><link linkend="support">Supporting the &tde; Project</link></para>
 
-</sect1>
-
-<sect1 id="welcome-getting-the-most-out-of-tde">
-<title>Getting the most out of &tde;</title>
+</sect2>
 
 <sect2 id="welcome-general-documentation">
 <title>General documentation</title>
@@ -42,15 +42,5 @@ professional graphical design along with the technical advantages of
 
 </sect2>
 
-<sect2 id="welcome-basic-applications">
-<title>Basic applications</title>
-
-<para><ulink url="help:/kicker">Desktop Panel (Kicker)</ulink></para>
-
-<para><ulink url="help:/kcontrol">Control Center</ulink></para>
-
-<para><ulink url="help:/konqueror">File Manager</ulink></para>
-
-</sect2>
 </sect1>
 </chapter>

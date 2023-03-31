@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
+
+  <!ENTITY r14.0.00 SYSTEM "r14.0.00.docbook">
+  <!ENTITY r14.0.01 SYSTEM "r14.0.01.docbook">
+  <!ENTITY r14.0.02 SYSTEM "r14.0.02.docbook">
+  <!ENTITY r14.0.03 SYSTEM "r14.0.03.docbook">
+  <!ENTITY r14.0.04 SYSTEM "r14.0.04.docbook">
+  <!ENTITY r14.0.05 SYSTEM "r14.0.05.docbook">
+  <!ENTITY r14.0.06 SYSTEM "r14.0.06.docbook">
+  <!ENTITY r14.0.07 SYSTEM "r14.0.07.docbook">
+  <!ENTITY r14.0.08 SYSTEM "r14.0.08.docbook">
+  <!ENTITY r14.0.09 SYSTEM "r14.0.09.docbook">
+  <!ENTITY r14.0.10 SYSTEM "r14.0.10.docbook">
+  <!ENTITY r14.0.11 SYSTEM "r14.0.11.docbook">
+  <!ENTITY r14.0.12 SYSTEM "r14.0.12.docbook">
+  <!ENTITY r14.0.13 SYSTEM "r14.0.13.docbook">
+
+]>
+
+<article id="release-notes-14-0-x" lang="&language;">
+<title>Release Notes for R14.0.x series</title>
+
+<articleinfo>
+<authorgroup>
+<author>&tde-authors;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<date>&tde-release-date;</date>
+<releaseinfo>&tde-release-version;</releaseinfo>
+
+<copyright>
+<year>&tde-copyright-date;</year>
+<holder>&tde-team;</holder>
+</copyright>
+
+<!-- <legalnotice>&FDLNotice;</legalnotice> -->
+
+<keywordset>
+<keyword>TDE</keyword>
+<keyword>release notes</keyword>
+<keyword>R14.0.x</keyword>
+</keywordset>
+
+</articleinfo>
+
+<!-- empty section to avoid the first docbook to be shown
+     as part of the index page, instead of just a link-->
+<sect1 id="release-notes-r14-0-x-introduction">
+<title></title>
+<para></para>
+</sect1>
+
+&r14.0.13;
+&r14.0.12;
+&r14.0.11;
+&r14.0.10;
+&r14.0.09;
+&r14.0.08;
+&r14.0.07;
+&r14.0.06;
+&r14.0.05;
+&r14.0.04;
+&r14.0.03;
+&r14.0.02;
+&r14.0.01;
+&r14.0.00;
+
+</article>

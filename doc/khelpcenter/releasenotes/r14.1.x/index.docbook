@@ -3,11 +3,11 @@
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
 
-
+  <!ENTITY r14.1.00 SYSTEM "r14.1.00.docbook">
 ]>
 
-<article id="release-notes" lang="&language;">
-<title>&tde-release-version; Release Notes</title>
+<article id="release-notes-14-1-x" lang="&language;">
+<title>Release Notes for R14.1.x series</title>
 
 <articleinfo>
 <authorgroup>
@@ -25,23 +25,21 @@
 
 <!-- <legalnotice>&FDLNotice;</legalnotice> -->
 
-<abstract>
-<para>&tde-release-version; Release Notes</para>
-</abstract>
-
 <keywordset>
 <keyword>TDE</keyword>
 <keyword>release notes</keyword>
+<keyword>R14.1.x</keyword>
 </keywordset>
 
 </articleinfo>
 
-<sect1 id="release-notes-introduction">
+<!-- empty section to avoid the first docbook to be shown
+     as part of the index page, instead of just a link-->
+<sect1 id="release-notes-r14-1-x-introduction">
 <title></title>
-
-<para><ulink url="help:/khelpcenter/releasenotes/r14.1.x">Release Notes for R14.1.x series</ulink></para>
-<para><ulink url="help:/khelpcenter/releasenotes/r14.0.x">Release Notes for R14.0.x series</ulink></para>
-
+<para></para>
 </sect1>
+
+&r14.1.00;
 
 </article>
