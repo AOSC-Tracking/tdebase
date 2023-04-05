@@ -40,7 +40,7 @@ namespace KWinInternal
   Resizes the workspace after an XRANDR screen size change
  */
 void Workspace::desktopResized()
-    {
+{
     //printf("Workspace::desktopResized()\n");
     TQRect geom = TDEApplication::desktop()->geometry();
     NETSize desktop_geometry;
@@ -49,24 +49,17 @@ void Workspace::desktopResized()
     rootInfo->setDesktopGeometry( -1, desktop_geometry );
 
     updateClientArea( true );
-    checkElectricBorders( true );
-    }
+    destroyActiveBorders();
+    updateActiveBorders();
+}
 
 /*!
   Resizes the workspace after kdesktop signals a desktop resize
  */
 void Workspace::kDestopResized()
-    {
-    //printf("Workspace::kDesktopResized()\n");
-    TQRect geom = TDEApplication::desktop()->geometry();
-    NETSize desktop_geometry;
-    desktop_geometry.width = geom.width();
-    desktop_geometry.height = geom.height();
-    rootInfo->setDesktopGeometry( -1, desktop_geometry );
-
-    updateClientArea( true );
-    checkElectricBorders( true );
-    }
+{
+	desktopResized();
+}
 
 /*!
   Updates the current client areas according to the current clients.
@@ -2302,7 +2295,7 @@ class EatAllPaintEvents
 static EatAllPaintEvents* eater = 0;
 
 bool Client::startMoveResize()
-    {
+{
     assert( !moveResizeMode );
     assert( TQWidget::keyboardGrabber() == NULL );
     assert( TQWidget::mouseGrabber() == NULL );
@@ -2324,28 +2317,55 @@ bool Client::startMoveResize()
     if( XGrabKeyboard( tqt_xdisplay(), frameId(), False, GrabModeAsync, GrabModeAsync, GET_QT_X_TIME() ) == Success )
         has_grab = true;
     if( !has_grab ) // at least one grab is necessary in order to be able to finish move/resize
-        {
+    {
         XDestroyWindow( tqt_xdisplay(), move_resize_grab_window );
         move_resize_grab_window = None;
         return false;
-        }
-    if ( maximizeMode() != MaximizeRestore )
-        resetMaximize();
+    }
+
     removeShadow();
     moveResizeMode = true;
+    initialMoveResizeGeom = geometry();
+
+    if (activeTiled)
+    {
+        // Restore original geometry
+        activeTiled = false;
+        if (options->resetMaximizedWindowGeometry() && isMove()) {
+            setGeometry(activeTiledOrigGeom);
+        }
+    }
+
+    if ( maximizeMode() != MaximizeRestore )
+    {
+        if (options->resetMaximizedWindowGeometry() && isMove()) {
+            maximize(MaximizeRestore);
+        }
+        else {
+            resetMaximize();
+        }
+        activeTiled = false;
+    }
+
+    moveResizeGeom = geometry();
     workspace()->setClientIsMoving(this);
-    initialMoveResizeGeom = moveResizeGeom = geometry();
     checkUnrestrictedMoveResize();
+
     // rule out non opaque windows from useless translucency settings, maybe resizes?
     if ((isResize() && options->removeShadowsOnResize) || (isMove() && options->removeShadowsOnMove))
+    {
         setShadowSize(0);
-    if (rules()->checkMoveResizeMode( options->moveMode ) == Options::Opaque){
+    }
+
+    if (rules()->checkMoveResizeMode( options->moveMode ) == Options::Opaque)
+    {
         savedOpacity_ = opacity_;
         setOpacity(options->translucentMovingWindows, options->movingWindowOpacity);
     }
+
     if ( ( isMove() && rules()->checkMoveResizeMode( options->moveMode ) != Options::Opaque )
       || ( isResize() && rules()->checkMoveResizeMode( options->resizeMode ) != Options::Opaque ) )
-        {
+    {
         grabXServer();
         kapp->sendPostedEvents();
         // we have server grab -> nothing should cause paint events
@@ -2355,25 +2375,57 @@ bool Client::startMoveResize()
         // paint events for the geometrytip need to be allowed, though
         eater = new EatAllPaintEvents;
 // not needed anymore?        kapp->installEventFilter( eater );
-        }
+    }
     Notify::raise( isResize() ? Notify::ResizeStart : Notify::MoveStart );
-    return true;
+
+    if (options->activeBorders() == Options::ActiveSwitchOnMove ||
+        options->activeBorders() == Options::ActiveTileMaximize ||
+        options->activeBorders() == Options::ActiveTileOnly)
+
+    {
+        workspace()->reserveActiveBorderSwitching(true);
     }
 
+    return true;
+}
+
 void Client::finishMoveResize( bool cancel )
-    {
+{
     leaveMoveResize();
-    if( cancel )
-        setGeometry( initialMoveResizeGeom );
+
+    if (!isActiveBorderMaximizing()) {
+        setGeometry(cancel ? initialMoveResizeGeom : moveResizeGeom);
+    }
+
     else
-        setGeometry( moveResizeGeom );
+    {
+        kdDebug() <<"finishing moveresize in active mode, cancel is " << cancel << endl;
+        activeMaximizing = false;
+        activeTiled = true;
+        activeTiledOrigGeom = initialMoveResizeGeom;
+        switch(activeMode)
+        {
+            case ActiveMaximizeMode:
+            {
+                if (!cancel) {
+                    bool full = (maximizeMode() == MaximizeFull);
+                    setMaximize(!full, !full);
+                }
+                break;
+            }
+            default:
+                setGeometry(cancel ? initialMoveResizeGeom
+                                   : activeBorderMaximizeGeometry());
+        }
+    }
+
     checkMaximizeGeometry();
 // FRAME    update();
     Notify::raise( isResize() ? Notify::ResizeEnd : Notify::MoveEnd );
-    }
+}
 
 void Client::leaveMoveResize()
-    {
+{
     // rule out non opaque windows from useless translucency settings, maybe resizes?
     if (rules()->checkMoveResizeMode( options->moveMode ) == Options::Opaque)
         setOpacity(true, savedOpacity_);
@@ -2401,11 +2453,18 @@ void Client::leaveMoveResize()
     delete eater;
     eater = 0;
     if (options->shadowEnabled(isActive()))
-        {
+    {
         drawIntersectingShadows();
         updateOpacityCache();
-        }
     }
+
+    if (options->activeBorders() == Options::ActiveSwitchOnMove ||
+        options->activeBorders() == Options::ActiveTileMaximize ||
+        options->activeBorders() == Options::ActiveTileOnly)
+    {
+        workspace()->reserveActiveBorderSwitching(false);
+    }
+}
 
 // This function checks if it actually makes sense to perform a restricted move/resize.
 // If e.g. the titlebar is already outside of the workarea, there's no point in performing
@@ -2454,25 +2513,25 @@ void Client::checkUnrestrictedMoveResize()
 
 void Client::handleMoveResize( int x, int y, int x_root, int y_root )
     {
-    if(( mode == PositionCenter && !isMovable())
-        || ( mode != PositionCenter && ( isShade() || !isResizable())))
+    if ( (mode == PositionCenter && !isMovable())
+        || (mode != PositionCenter && (isShade() || !isResizable())) )
         return;
 
-    if ( !moveResizeMode )
-        {
-        TQPoint p( TQPoint( x, y ) - moveOffset );
+    if (!moveResizeMode)
+    {
+        TQPoint p(TQPoint( x, y ) - moveOffset);
         if (p.manhattanLength() >= 6)
+        {
+            if(!startMoveResize())
             {
-            if( !startMoveResize())
-                {
                 buttonDown = false;
                 setCursor( mode );
                 return;
-                }
             }
+        }
         else
             return;
-        }
+    }
 
     // ShadeHover or ShadeActive, ShadeNormal was already avoided above
     if ( mode != PositionCenter && shade_mode != ShadeNone )
@@ -2494,7 +2553,7 @@ void Client::handleMoveResize( int x, int y, int x_root, int y_root )
     if( unrestrictedMoveResize ) // unrestricted, just don't let it go out completely
         left_marge = right_marge = top_marge = bottom_marge = titlebar_marge = 5;
     else // restricted move/resize - keep at least part of the titlebar always visible 
-        {        
+    {
         // how much must remain visible when moved away in that direction
         left_marge = KMIN( 100 + border_right, moveResizeGeom.width());
         right_marge = KMIN( 100 + border_left, moveResizeGeom.width());
@@ -2502,16 +2561,16 @@ void Client::handleMoveResize( int x, int y, int x_root, int y_root )
         titlebar_marge = initialMoveResizeGeom.height();
         top_marge = border_bottom;
         bottom_marge = border_top;
-        }
+    }
 
     bool update = false;
-    if( isResize())
-        {
+    if (isResize())
+    {
         // first resize (without checking constraints), then snap, then check bounds, then check constraints
         TQRect orig = initialMoveResizeGeom;
         Sizemode sizemode = SizemodeAny;
         switch ( mode )
-            {
+        {
             case PositionTopLeft:
                 moveResizeGeom =  TQRect( topleft, orig.bottomRight() ) ;
                 break;
@@ -2544,7 +2603,7 @@ void Client::handleMoveResize( int x, int y, int x_root, int y_root )
             default:
                 assert( false );
                 break;
-            }
+        }
 
         // adjust new size to snap to other windows/borders
         moveResizeGeom = workspace()->adjustClientSize( this, moveResizeGeom, mode );
@@ -2567,7 +2626,7 @@ void Client::handleMoveResize( int x, int y, int x_root, int y_root )
         bottomright = TQPoint( moveResizeGeom.left() + size.width() - 1, moveResizeGeom.top() + size.height() - 1 );
         orig = moveResizeGeom;
         switch ( mode )
-            { // these 4 corners ones are copied from above
+        { // these 4 corners ones are copied from above
             case PositionTopLeft:
                 moveResizeGeom =  TQRect( topleft, orig.bottomRight() ) ;
                 break;
@@ -2599,12 +2658,12 @@ void Client::handleMoveResize( int x, int y, int x_root, int y_root )
             default:
                 assert( false );
                 break;
-            }
-        if( moveResizeGeom.size() != previousMoveResizeGeom.size())
-            update = true;
         }
-    else if( isMove())
-        {
+        if (moveResizeGeom.size() != previousMoveResizeGeom.size())
+            update = true;
+    }
+    else if (isMove())
+    {
         assert( mode == PositionCenter );
         // first move, then snap, then check bounds
         moveResizeGeom.moveTopLeft( topleft );
@@ -2621,29 +2680,98 @@ void Client::handleMoveResize( int x, int y, int x_root, int y_root )
             moveResizeGeom.moveLeft(desktopArea.right() - right_marge );
         if( moveResizeGeom.topLeft() != previousMoveResizeGeom.topLeft())
             update = true;
-        }
+    }
     else
-        assert( false );
+        assert(false);
 
-    if( update )
+    if (update)
+    {
+        if (rules()->checkMoveResizeMode(isResize() ? options->resizeMode : options->moveMode) == Options::Opaque
+            && !isActiveBorderMaximizing())
         {
-        if( rules()->checkMoveResizeMode
-            ( isResize() ? options->resizeMode : options->moveMode ) == Options::Opaque )
-            {
             setGeometry( moveResizeGeom );
             positionGeometryTip();
-            }
-        else if( rules()->checkMoveResizeMode
-            ( isResize() ? options->resizeMode : options->moveMode ) == Options::Transparent )
-            {
-            clearbound();  // it's necessary to move the geometry tip when there's no outline
-            positionGeometryTip(); // shown, otherwise it would cause repaint problems in case
-            drawbound( moveResizeGeom ); // they overlap; the paint event will come after this,
-            }                               // so the geometry tip will be painted above the outline
         }
-    if ( isMove() )
-      workspace()->clientMoved(globalPos, GET_QT_X_TIME());
+        else if (rules()->checkMoveResizeMode(isResize() ? options->resizeMode : options->moveMode) == Options::Transparent )
+        {
+        /* It's necessary to move the geometry tip when there's no outline
+         * shown, otherwise it would cause repaint problems in case
+         * they overlap; the paint event will come after this,
+         * so the geometry tip will be painted above the outline
+         */
+            clearbound();
+            positionGeometryTip();
+            drawbound(isActiveBorderMaximizing() ? activeBorderMaximizeGeometry() : moveResizeGeom);
+        }
+    }
+    if (isMove())
+       workspace()->checkActiveBorder(globalPos, GET_QT_X_TIME());
+}
+
+void Client::setActiveBorderMode( ActiveMaximizingMode mode )
+{
+    activeMode = mode;
+}
+
+ActiveMaximizingMode Client::activeBorderMode() const
+{
+    return activeMode;
+}
+
+bool Client::isActiveBorderMaximizing() const
+{
+    return activeMaximizing;
+}
+
+void Client::setActiveBorderMaximizing( bool maximizing )
+{
+    activeMaximizing = maximizing;
+
+    if (maximizing || rules()->checkMoveResizeMode(isResize() ? options->resizeMode : options->moveMode) == Options::Opaque) {
+        clearbound();
     }
 
+    if (maximizing) {
+        drawbound(activeBorderMaximizeGeometry());
+    }
+}
+
+TQRect Client::activeBorderMaximizeGeometry()
+{
+    TQRect ret;
+    TQRect max = workspace()->clientArea(MaximizeArea, TQCursor::pos(), workspace()->currentDesktop());
+    switch (activeMode)
+    {
+        case ActiveMaximizeMode:
+        {
+            if (maximizeMode() == MaximizeFull)
+                ret = geometryRestore();
+            else
+                ret = max;
+            break;
+        }
+        case ActiveLeftMode:
+        {
+            ret = TQRect( max.x(), max.y(), max.width()/2, max.height() );
+            break;
+        }
+        case ActiveRightMode:
+        {
+            ret = TQRect( max.x() + max.width()/2, max.y(), max.width()/2, max.height() );
+            break;
+        }
+        case ActiveTopMode:
+        {
+            ret = TQRect( max.x(), max.y(), max.width(), max.height()/2 );
+            break;
+        }
+        case ActiveBottomMode:
+        {
+            ret = TQRect( max.x(), max.y() + max.height()/2, max.width(), max.height()/2 );
+            break;
+        }
+    }
+    return ret;
+}
 
 } // namespace

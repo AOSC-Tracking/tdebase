@@ -129,43 +129,50 @@ void Workspace::updateStackingOrder( bool propagate_new_clients )
 void Workspace::propagateClients( bool propagate_new_clients )
     {
     Window *cl; // MW we should not assume WId and Window to be compatible
-                                // when passig pointers around.
+                                // when passing pointers around.
 
     // restack the windows according to the stacking order
-#if 0
-    Window* new_stack = new Window[ stacking_order.count() + 2 ];
-    int pos = 0;
-#endif
     NET::WindowType t;
     Window shadow;
     Window *dock_shadow_stack, *window_stack;
     int i, numDocks, pos, topmenu_space_pos;
- 
+
+    // Dock Stack size magic number explanation:
+    // -> (count * 2) because we might need to also store the shadow window
+    //    for each dock window (Chakra shadow patch, introduced in 9cc1e2c1aa)
     dock_shadow_stack = new Window[ stacking_order.count() * 2 ];
-    window_stack = new Window[ stacking_order.count() * 2 + 2 ];
+
+    // Window Stack size magic number explanation:
+    // -> (count * 2) because we might need to store shadow windows (see above)
+    // -> + 1 for supportWindow
+    // -> + 1 for topmenu_space
+    // -> + 8 for active borders
+    window_stack = new Window[ stacking_order.count() * 2 + 1 + 1 + 8 ];
     i = 0;
     pos = 0;
     topmenu_space_pos = 1; // not 0, that's supportWindow !!!
 
-    // Stack all windows under the support window. The support window is
-    // not used for anything (besides the NETWM property), and it's not shown,
-    // but it was lowered after twin startup. Stacking all clients below
-    // it ensures that no client will be ever shown above override-redirect
-    // windows (e.g. popups).
-#if 0
-    new_stack[ pos++ ] = supportWindow->winId();
-    int topmenu_space_pos = 1; // not 0, that's supportWindow !!!
-#endif
+    // Stack active windows under the support window.
+    /* The support window is not used for anything (besides the NETWM property),
+     * and it's not shown, but it was lowered after TWin startup.
+     * Stacking all clients below it ensures that no client will be ever shown
+     * above override-redirect windows (e.g. popups).
+     */
+    for (int i = 0; i < ACTIVE_BORDER_COUNT; ++i)
+    {
+        if (active_windows[i] != None)
+        {
+            window_stack[pos++] = active_windows[i];
+        }
+    }
+
+    // Stack all windows under the support and active borders windows.
     window_stack[pos++] = supportWindow->winId();
     for( ClientList::ConstIterator it = stacking_order.fromLast();
          it != stacking_order.end();
          --it )
         {
-#if 0
-        new_stack[ pos++ ] = (*it)->frameId();
-        if( (*it)->belongsToLayer() >= DockLayer )
-            topmenu_space_pos = pos;
-#endif
+
 	t = (*it)->windowType();
 	switch (t)
 		{
@@ -202,15 +209,14 @@ void Workspace::propagateClients( bool propagate_new_clients )
         new_stack[ topmenu_space_pos ] = topmenu_space->winId();
 #endif
             window_stack[ i ] = window_stack[ i - 1 ];
-	window_stack[ topmenu_space_pos ] = topmenu_space->winId();
-        ++pos;
+            window_stack[ topmenu_space_pos ] = topmenu_space->winId();
+            ++pos;
         }
 #if 0
     // TODO isn't it too inefficient to restart always all clients?
     // TODO don't restack not visible windows?
     assert( new_stack[ 0 ] = supportWindow->winId());
-#endif
-#if 0
+
     XRestackWindows(tqt_xdisplay(), new_stack, pos);
     delete [] new_stack;
 #endif

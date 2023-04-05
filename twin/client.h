@@ -232,6 +232,11 @@ class Client : public TQObject, public KDecorationDefines
         void resizeWithChecks( int w, int h, ForceGeometry_t force = NormalGeometrySet );
         void resizeWithChecks( const TQSize& s, ForceGeometry_t force = NormalGeometrySet );
         void keepInArea( TQRect area, bool partial = false );
+        void setActiveBorderMode( ActiveMaximizingMode mode );
+        ActiveMaximizingMode activeBorderMode() const;
+        void setActiveBorderMaximizing(bool maximizing);
+        bool isActiveBorderMaximizing() const;
+        TQRect activeBorderMaximizeGeometry();
 
         void growHorizontal();
         void shrinkHorizontal();
@@ -599,6 +604,11 @@ class Client : public TQObject, public KDecorationDefines
         //int shadeOriginalHeight;
         bool isBMP_;
         TQTimer* demandAttentionKNotifyTimer;
+
+        bool activeMaximizing;
+        bool activeTiled;
+        TQRect activeTiledOrigGeom;
+        ActiveMaximizingMode activeMode;
 
         friend bool performTransiencyCheck();
         bool minimized_before_suspend;

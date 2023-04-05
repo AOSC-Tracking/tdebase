@@ -29,6 +29,7 @@
 #include <tqslider.h>
 #include <tqwhatsthis.h>
 #include <tqvbuttongroup.h>
+#include <tqhbox.h>
 #include <tqcheckbox.h>
 #include <tqradiobutton.h>
 #include <tqlabel.h>
@@ -69,6 +70,7 @@
 #define KWIN_CLICKRAISE            "ClickRaise"
 #define KWIN_ANIMSHADE             "AnimateShade"
 #define KWIN_MOVE_RESIZE_MAXIMIZED "MoveResizeMaximizedWindows"
+#define KWIN_RESET_MAX_WIN_GEOM    "ResetMaximizedWindowGeometry"
 #define KWIN_ALTTABMODE            "AltTabStyle"
 #define KWIN_TRAVERSE_ALL          "TraverseAll"
 #define KWIN_SHOW_POPUP            "ShowPopup"
@@ -79,10 +81,12 @@
 #define KWIN_HIDE_UTILITY          "HideUtilityWindowsForInactive"
 #define KWIN_SEPARATE_SCREEN_FOCUS "SeparateScreenFocus"
 #define KWIN_ACTIVE_MOUSE_SCREEN   "ActiveMouseScreen"
+#define KWIN_ACTIVE_BORDERS        "ActiveBorders"
+#define KWIN_ACTIVE_BORDER_DELAY   "ActiveBorderDelay"
 
-// kwm config keywords
-#define KWM_ELECTRIC_BORDER                  "ElectricBorders"
-#define KWM_ELECTRIC_BORDER_DELAY            "ElectricBorderDelay"
+// legacy options
+#define KWIN_OLD_ACTIVE_BORDERS      "ElectricBorders"
+#define KWIN_OLD_ACTIVE_BORDER_DELAY "ElectricBorderDelay"
 
 //CT 15mar 98 - magics
 #define KWM_BRDR_SNAP_ZONE                   "BorderSnapZone"
@@ -662,31 +666,59 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget
     connect(shadeHoverOn, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
     connect(shadeHover, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
 
-    electricBox = new TQVButtonGroup(i18n("Active Desktop Borders"), this);
-    electricBox->setMargin(15);
+    active_box = new TQButtonGroup(i18n("Active Desktop Borders"), this);
+    TQVBoxLayout *active_vbox = new TQVBoxLayout(active_box);
+    active_vbox->setSpacing(5);
+    active_vbox->setMargin(15);
+    TQWhatsThis::add( active_box, i18n("If this option is enabled, moving the mouse to a screen border"
+       " will perform an action. It will either change your desktop or tile the window that is currently"
+       " dragged.") );
 
-    TQWhatsThis::add( electricBox, i18n("If this option is enabled, moving the mouse to a screen border"
-       " will change your desktop. This is e.g. useful if you want to drag windows from one desktop"
-       " to the other.") );
-    active_disable = new TQRadioButton(i18n("D&isabled"), electricBox);
-    active_move    = new TQRadioButton(i18n("Only &when moving windows"), electricBox);
-    active_always  = new TQRadioButton(i18n("A&lways enabled"), electricBox);
+    TQLabel *active_func_label = new TQLabel(i18n("Function:"), active_box);
 
-    delays = new KIntNumInput(10, electricBox);
+    active_disable = new TQRadioButton(i18n("D&isabled"), active_box);
+
+    active_desktop = new TQRadioButton(i18n("Switch &desktop"), active_box);
+    active_desktop_conf = new TQWidget(active_box);
+    TQHBoxLayout *active_desktop_conf_hbox = new TQHBoxLayout(active_desktop_conf);
+    active_desktop_conf_hbox->addSpacing(20);
+    active_desktop_conf_hbox->setAutoAdd(true);
+    active_move = new TQCheckBox(i18n("Switch desktop only when &moving a window"), active_desktop_conf);
+
+    active_tile = new TQRadioButton(i18n("Tile &window"), active_box);
+    active_tile_conf = new TQWidget(active_box);
+    TQHBoxLayout *active_tile_conf_hbox = new TQHBoxLayout(active_tile_conf);
+    active_tile_conf_hbox->addSpacing(20);
+    active_tile_conf_hbox->setAutoAdd(true);
+    active_maximize = new TQCheckBox(i18n("Maximize windows by dragging them to the &top of the screen"), active_tile_conf);
+
+    delays = new KIntNumInput(10, active_box);
     delays->setRange(0, MAX_EDGE_RES, 50, true);
     delays->setSuffix(i18n(" msec"));
-    delays->setLabel(i18n("Desktop &switch delay:"));
-    TQWhatsThis::add( delays, i18n("Here you can set a delay for switching desktops using the active"
-       " borders feature. Desktops will be switched after the mouse has been pushed against a screen border"
-       " for the specified number of milliseconds.") );
+    delays->setLabel(i18n("Border &activation delay:"));
+    TQWhatsThis::add( delays, i18n("Here you can set a delay for the activation of"
+       " active borders feature. The selected action will be performed after the mouse "
+       " has been pushed against a screen border for the specified number of milliseconds.") );
 
-    connect( electricBox, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(setEBorders()));
+    active_vbox->addSpacing(10);
+    active_vbox->addWidget(active_func_label);
+    active_vbox->addWidget(active_disable);
+    active_vbox->addWidget(active_desktop);
+    active_vbox->addWidget(active_desktop_conf);
+    active_vbox->addWidget(active_tile);
+    active_vbox->addWidget(active_tile_conf);
+    active_vbox->addSpacing(15);
+    active_vbox->addWidget(delays);
+
+    connect(active_box, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(setEBorders()));
 
     // Any changes goes to slotChanged()
-    connect(electricBox, TQT_SIGNAL(clicked(int)), TQT_SLOT(changed()));
-    connect(delays, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
+    connect(active_box,      TQT_SIGNAL(clicked(int)),      this, TQT_SLOT(changed()));
+    connect(active_move,     TQT_SIGNAL(clicked()),         this, TQT_SLOT(changed()));
+    connect(active_maximize, TQT_SIGNAL(clicked()),         this, TQT_SLOT(changed()));
+    connect(delays,            TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
 
-    lay->addWidget(electricBox);
+    lay->addWidget(active_box);
 
     hideUtilityWindowsForInactive = new TQCheckBox( i18n( "Hide utility windows for inactive applications" ), this );
     TQWhatsThis::add( hideUtilityWindowsForInactive,
@@ -736,8 +768,19 @@ void KAdvancedConfig::load( void )
     setShadeHover(config->readBoolEntry(KWIN_SHADEHOVER, false));
     setShadeHoverInterval(config->readNumEntry(KWIN_SHADEHOVER_INTERVAL, 250));
 
-    setElectricBorders(config->readNumEntry(KWM_ELECTRIC_BORDER, 0));
-    setElectricBorderDelay(config->readNumEntry(KWM_ELECTRIC_BORDER_DELAY, 150));
+    // compatibility with old option names
+    int active_borders = config->readNumEntry(KWIN_ACTIVE_BORDERS, -1);
+    if (active_borders == -1) {
+        active_borders = config->readNumEntry(KWIN_OLD_ACTIVE_BORDERS, 0);
+    }
+
+    int active_borders_delay = config->readNumEntry(KWIN_ACTIVE_BORDER_DELAY, -1);
+    if (active_borders_delay == -1) {
+        active_borders_delay = config->readNumEntry(KWIN_OLD_ACTIVE_BORDER_DELAY, 150);
+    }
+
+    setActiveBorders(active_borders);
+    setActiveBorderDelay(active_borders_delay);
 
     setHideUtilityWindowsForInactive( config->readBoolEntry( KWIN_HIDE_UTILITY, true ));
 
@@ -759,10 +802,14 @@ void KAdvancedConfig::save( void )
     if (v<0) v = 0;
     config->writeEntry(KWIN_SHADEHOVER_INTERVAL, v);
 
-    config->writeEntry(KWM_ELECTRIC_BORDER, getElectricBorders());
-    config->writeEntry(KWM_ELECTRIC_BORDER_DELAY,getElectricBorderDelay());
+    config->writeEntry(KWIN_ACTIVE_BORDERS, getActiveBorders());
+    config->writeEntry(KWIN_ACTIVE_BORDER_DELAY, getActiveBorderDelay());
 
     config->writeEntry(KWIN_HIDE_UTILITY, hideUtilityWindowsForInactive->isChecked());
+
+    // remove replaced legacy entries
+    config->deleteEntry(KWIN_OLD_ACTIVE_BORDERS);
+    config->deleteEntry(KWIN_OLD_ACTIVE_BORDER_DELAY);
 
     if (standAlone)
     {
@@ -779,42 +826,59 @@ void KAdvancedConfig::defaults()
     setAnimateShade(true);
     setShadeHover(false);
     setShadeHoverInterval(250);
-    setElectricBorders(0);
-    setElectricBorderDelay(150);
+    setActiveBorders(0);
+    setActiveBorderDelay(150);
     setHideUtilityWindowsForInactive( true );
     emit TDECModule::changed(true);
 }
 
 void KAdvancedConfig::setEBorders()
 {
-    delays->setEnabled(!active_disable->isChecked());
+    active_desktop_conf->setEnabled(active_desktop->isChecked());
+    active_tile_conf->setEnabled(active_tile->isChecked());
 }
 
-int KAdvancedConfig::getElectricBorders()
+int KAdvancedConfig::getActiveBorders()
 {
-    if (active_move->isChecked())
-       return 1;
-    if (active_always->isChecked())
-       return 2;
+    if (active_desktop->isChecked())
+    {
+        return active_move->isChecked() ? 1 : 2;
+    }
+
+    if (active_tile->isChecked())
+    {
+        return active_maximize->isChecked() ? 4 : 3;
+    }
+
     return 0;
 }
 
-int KAdvancedConfig::getElectricBorderDelay()
+int KAdvancedConfig::getActiveBorderDelay()
 {
     return delays->value();
 }
 
-void KAdvancedConfig::setElectricBorders(int i){
+void KAdvancedConfig::setActiveBorders(int i){
     switch(i)
     {
-      case 1: active_move->setChecked(true); break;
-      case 2: active_always->setChecked(true); break;
-      default: active_disable->setChecked(true); break;
+      case 1:
+          active_move->setChecked(true);
+      case 2:
+          active_desktop->setChecked(true);
+          break;
+      case 4:
+          active_maximize->setChecked(true);
+      case 3:
+          active_tile->setChecked(true);
+          break;
+      default:
+          active_disable->setChecked(true);
+          break;
     }
     setEBorders();
 }
 
-void KAdvancedConfig::setElectricBorderDelay(int delay)
+void KAdvancedConfig::setActiveBorderDelay(int delay)
 {
     delays->setValue(delay);
 }
@@ -899,6 +963,11 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
     TQWhatsThis::add(moveResizeMaximized, i18n("When enabled, this feature activates the border of maximized windows"
                                               " and allows you to move or resize them,"
                                               " just like for normal windows"));
+
+    resetMaximizedWindowGeometry = new TQCheckBox( i18n("Restore size of maximized/tiled windows when moving"), windowsBox);
+    bLay->addWidget(resetMaximizedWindowGeometry);
+    TQWhatsThis::add(resetMaximizedWindowGeometry, i18n("If this feature is enabled, dragging a maximized or tiled window"
+                                                        " will restore the window to its original size."));
 
     TQBoxLayout *vLay = new TQHBoxLayout(bLay);
 
@@ -994,6 +1063,7 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
     connect( minimizeAnimOn, TQT_SIGNAL(clicked() ), TQT_SLOT(changed()));
     connect( minimizeAnimSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
     connect( moveResizeMaximized, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+    connect( resetMaximizedWindowGeometry, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
     connect( placementCombo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
     connect( BrdrSnap, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
     connect( BrdrSnap, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotBrdrSnapChanged(int)));
@@ -1074,6 +1144,10 @@ void KMovingConfig::setMoveResizeMaximized(bool a) {
     moveResizeMaximized->setChecked(a);
 }
 
+void KMovingConfig::setResetMaximizedWindowGeometry(bool a) {
+    resetMaximizedWindowGeometry->setChecked(a);
+}
+
 void KMovingConfig::slotBrdrSnapChanged(int value) {
     BrdrSnap->setSuffix(i18n(" pixel", " pixels", value));
 }
@@ -1149,6 +1223,7 @@ void KMovingConfig::load( void )
 //  }
 
     setMoveResizeMaximized(config->readBoolEntry(KWIN_MOVE_RESIZE_MAXIMIZED, false));
+    setResetMaximizedWindowGeometry(config->readBoolEntry(KWIN_RESET_MAX_WIN_GEOM, false));
 
     int v;
 
@@ -1212,6 +1287,7 @@ void KMovingConfig::save( void )
         config->writeEntry(KWIN_RESIZE_OPAQUE, "Transparent");
 
     config->writeEntry(KWIN_MOVE_RESIZE_MAXIMIZED, moveResizeMaximized->isChecked());
+    config->writeEntry(KWIN_RESET_MAX_WIN_GEOM, resetMaximizedWindowGeometry->isChecked());
 
 
     config->writeEntry(KWM_BRDR_SNAP_ZONE,getBorderSnapZone());
@@ -1235,6 +1311,7 @@ void KMovingConfig::defaults()
     setGeometryTip(false);
     setPlacement(SMART_PLACEMENT);
     setMoveResizeMaximized(false);
+    setResetMaximizedWindowGeometry(false);
 
     //copied from kcontrol/konq/twindesktop, aleXXX
     setWindowSnapZone(KWM_WNDW_SNAP_ZONE_DEFAULT);

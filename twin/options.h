@@ -269,6 +269,13 @@ class Options : public KDecorationOptions
         bool showGeometryTip();
 
         /**
+        * @returns true if a maximized or tiled window should be reset to its original
+        *          size when dragging it.
+        * @since R14.1.1
+        */
+        bool resetMaximizedWindowGeometry();
+
+        /**
         * @returns A TQColor representing the colour that window drop shadows should
         *          be.
         */
@@ -307,18 +314,22 @@ class Options : public KDecorationOptions
         */
         int shadowYOffset(bool active=true);
 
-        enum { ElectricDisabled = 0, ElectricMoveOnly = 1, ElectricAlways = 2 };
+        enum { ActiveDisabled = 0,
+               ActiveSwitchOnMove = 1,
+               ActiveSwitchAlways = 2,
+               ActiveTileOnly = 3,
+               ActiveTileMaximize = 4 };
         /**
-        * @returns true if electric borders are enabled. With electric borders
+        * @returns true if active borders are enabled. With active borders
         * you can change desktop by moving the mouse pointer towards the edge
         * of the screen
         */
-        int electricBorders();
+        int activeBorders();
 
         /**
-        * @returns the activation delay for electric borders in milliseconds.
+        * @returns the activation delay for active borders in milliseconds.
         */
-        int electricBorderDelay();
+        int activeBorderDelay();
 
         bool topMenuEnabled() const { return topmenus; }
         bool desktopTopMenu() const { return desktop_topmenu; }
@@ -373,9 +384,10 @@ class Options : public KDecorationOptions
         bool CmdAllRevWheel;
         uint CmdAllModKey;
 
-        int electric_borders;
-        int electric_border_delay;
+        int active_borders;
+        int active_border_delay;
         bool show_geometry_tip;
+        bool reset_maximized_window_geometry;
         bool topmenus;
         bool desktop_topmenu;
         TQColor shadow_colour;

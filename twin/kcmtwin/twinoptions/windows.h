@@ -68,6 +68,7 @@ class KIntNumInput;
 #define  FOCUS_STRICTLY_UNDER_MOUSE   3
 
 class TQSpinBox;
+class TQHBox;
 
 class KFocusConfig : public TDECModule
 {
@@ -88,7 +89,7 @@ private slots:
   void clickRaiseOnTog(bool);
   void updateAltTabMode();
   void updateActiveMouseScreen();
-	void changed() { emit TDECModule::changed(true); }
+  void changed() { emit TDECModule::changed(true); }
 
 
 private:
@@ -163,6 +164,7 @@ private:
   void setGeometryTip(bool); //KS
   void setPlacement(int); //CT
   void setMoveResizeMaximized(bool);
+  void setResetMaximizedWindowGeometry(bool);
 
   TQButtonGroup *windowsBox;
   TQCheckBox *opaque;
@@ -172,6 +174,7 @@ private:
   TQSlider *minimizeAnimSlider;
   TQLabel *minimizeAnimSlowLabel, *minimizeAnimFastLabel;
   TQCheckBox *moveResizeMaximized;
+  TQCheckBox *resetMaximizedWindowGeometry;
 
   TQComboBox *placementCombo;
 
@@ -223,17 +226,21 @@ private:
   TDEConfig *config;
   bool     standAlone;
 
-  int getElectricBorders( void );
-  int getElectricBorderDelay();
-  void setElectricBorders( int );
-  void setElectricBorderDelay( int );
+  int getActiveBorders( void );
+  int getActiveBorderDelay();
+  void setActiveBorders( int );
+  void setActiveBorderDelay( int );
 
-  TQVButtonGroup *electricBox;
+  TQButtonGroup *active_box;
   TQRadioButton *active_disable;
-  TQRadioButton *active_move;
-  TQRadioButton *active_always;
+  TQRadioButton *active_desktop;
+  TQCheckBox *active_move;
+  TQRadioButton *active_tile;
+  TQCheckBox *active_maximize;
   KIntNumInput *delays;
-  
+  TQWidget *active_desktop_conf;
+  TQWidget *active_tile_conf;
+
   void setHideUtilityWindowsForInactive( bool );
 
   TQCheckBox* hideUtilityWindowsForInactive;
