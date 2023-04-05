@@ -19,17 +19,18 @@ fi
 
 RELEASE_VERSION="$( ${TDEDIR}/bin/tde-config --version | sed -n 's|^TDE: ||p' )"
 RELEASE_NOTES="$( ${TDEDIR}/bin/kreadconfig --file ${TDEHOME}/share/config/kdeglobals --group "Release Notes" --key "$RELEASE_VERSION" )"
+RELEASE_SERIES="$( ${TDEDIR}/bin/tde-config --version | sed -n 's|^TDE: \([^\.]*\.[^\.]*\).*|\l\1.x|p' )"
 
 if [ "$RELEASE_NOTES" = "" ] || [ "$RELEASE_NOTES" != "true" ]; then
   echo "[release_notes] Release version: $RELEASE_VERSION"
   echo "[release_notes] Release notes: $RELEASE_NOTES"
-  if ${TDEDIR}/bin/khelpcenter help:/khelpcenter/releasenotes ; then
+  if ${TDEDIR}/bin/khelpcenter help:/khelpcenter/releasenotes/${RELEASE_SERIES} ; then
     ${TDEDIR}/bin/kwriteconfig --file ${TDEHOME}/share/config/kdeglobals --group "Release Notes" --key "$RELEASE_VERSION" --type bool "true"
   fi
   RELEASE_NOTES="$( ${TDEDIR}/bin/kreadconfig --file ${TDEHOME}/share/config/kdeglobals --group "Release Notes" --key "$RELEASE_VERSION" )"
   echo "[release_notes] Release notes: $RELEASE_NOTES"
 fi
 
-unset RELEASE_NOTES RELEASE_VERSION
+unset RELEASE_NOTES RELEASE_VERSION RELEASE_SERIES
 exit 0
 

@@ -1,6 +1,193 @@
 <sect1 id="release-notes-r14.1.0">
 <title>R14.1.0 Release Notes</title>
 
-<para>TODO</para>
+<para>This document tracks some of the most important changes introduced in release R14.1.0, which marks the switch from the old R14.0.x to the new R14.1.x series and therefore
+comes with a bigger list of changes.</para><para>Several items in this list refer to a multitude of commits, so direct link to them has not been provided to avoid cluttering the overall page. Please refer to the detailed commit <ulink url="https://wiki.trinitydesktop.org/Changelog_For_R14.1.0">change log</ulink> for further information.</para>
+<para>Additionally, the <ulink url="https://wiki.trinitydesktop.org/Release_Notes_For_R14.1.0">full release notes</ulink> on TDE wiki contains screenshots of some of the new features.</para>
+
+<sect2 id="release-notes-r14.1.0-new-applications">
+<title>New applications</title>
+  <itemizedlist>
+    <listitem><para>tdebluez: provides modern Bluetooth functionality (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebluez">TDE/tdebluez</ulink>)</para></listitem>
+    <listitem><para>kplayer: multimedia player with mplayer backend (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kplayer">TDE/kplayer</ulink>)</para></listitem>
+    <listitem><para>tdehwdevicetray: provides an easy access to storage devices and their operations</para></listitem>
+    <listitem><para>ksplash: added new Moodin-based theme "Architecture" (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=2553">bug 2553</ulink>)</para></listitem>
+    <listitem><para>icewm-based Helix theme (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdeartwork/pulls/2">TDE/artwork#2</ulink>)</para></listitem>
+    <listitem><para>icewm-based Brise theme (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdeartwork/pulls/6">TDE/artwork#6</ulink>) (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=2833">bug 2833</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.1.0-new-functionalities">
+<title>New functionalities</title>
+  <itemizedlist>
+    <listitem><para>Added support for Python 3 throughout TDE</para></listitem>
+    <listitem><para>Added support for LUKS disks. Common LUKS operations can now be handled via GUI, tdeio_media_mounthelper and DCOP calls</para></listitem>
+    <listitem><para>Added support for PKI (X.509, PKCS, cryptographic card devices) as part of tdehw library and libtdeldap</para></listitem>
+    <listitem><para>New notification interface for storage device plug/unplugged events (through tdehwdevicetray)</para></listitem>
+    <listitem><para>Expanded DCOP interface for mediamanager with several new fuctions available, which allow finer control over storage device operations</para></listitem>
+		<listitem><para>Added support for hybrid suspend (aka suspend to RAM + suspend to disk)</para></listitem>
+    <listitem><para>Ark: added support for lzip/tar-lzma files</para></listitem>
+    <listitem><para>tdelibs: added passive notification panel (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/commit/9cca7662">9cca7662</ulink>)</para></listitem>
+    <listitem><para>Added MIT license to the set of distributed licenses and new application to show TDE license information (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/197">TDE/tdelibs#197</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/318">TDE/tdebase#318</ulink>)</para></listitem>
+    <listitem><para>New "session panel" in Kate to ease managing multiple sessions and switching among them. Note: the format for save session files has changed, but existing session will transparently be imported and updated to the newer format </para></listitem>
+    <listitem><para>konqueror: added "double-click moves to parent folder" feature (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/commit/3aa5fc08">3aa5fc08</ulink>)</para></listitem>
+    <listitem><para>konqueror: new sorting/grouping actions for listviews</para></listitem>
+    <listitem><para>konqueror: added support for locale based file sorting</para></listitem>
+    <listitem><para>New TCC configuration module for Trash and additional options to control the trash size policy</para></listitem>
+    <listitem><para>KSSLCertificate: added CRL handling support</para></listitem>
+    <listitem><para>tdemultimedia/tdeutils: added initial basic support for PulseAudio</para></listitem>
+    <listitem><para>tdefilereplace: several new options and functions added (sorting results, max depth, save/restore search results and search strings)</para></listitem>
+    <listitem><para>krusader: added support for xz archives</para></listitem>
+    <listitem><para>kweather: added support for XDG icon names, revamped configuration dialog, add support for system icon theme  </para></listitem>
+    <listitem><para>ksnapshot: added option to view/edit the image in KolourPaint or in another application (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdegraphics/pulls/50">TDE/tdegraphics#50</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.1.0-enhancements">
+<title>Enhancements</title>
+  <itemizedlist>
+    <listitem><para>Major rework of storage media handling code, providing improved support for LUKS disks, udisks2 and udevil and a consistent interface across TDE. </para></listitem>
+    <listitem><para>Enhanced taskbar setting GUI (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/266">TDE/tdebase#266</ulink>)</para></listitem>
+    <listitem><para>kate: added option to suppress 'Find in files' error dialog (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=1911">bug 1911</ulink>)</para></listitem>
+    <listitem><para>Added 'Delete Line' menu entry in Kate, KWrite and TDevelop (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=1907">bug 1907</ulink>)</para></listitem>
+    <listitem><para>Major enhancement of performances under specific heavy load tasks (for example Konqueror scanning huge folder structures) (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/issues/309">TDE/tdebase#309</ulink>)</para></listitem>
+    <listitem><para>kxkb: improved configuration dialog which simplifies setting keyboard shortcuts for layout switching (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/304">TDE/tdebase#304</ulink>)</para></listitem>
+    <listitem><para>dbus-1-tqt: vast improvements to dbusxml2qt3 tool and to the contents and usage of the generated code (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/dbus-1-tqt/pulls">dbus-1-tqt PRs</ulink>)</para></listitem>
+    <listitem><para>dbus-1-tqt: added generation of api documentation based on doxygen (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/dbus-1-tqt/pulls/10">TDE/dbus-1-tqt#10</ulink>)</para></listitem>
+    <listitem><para>kdcop: added double click functionality to expand/collapse non leaf items (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=2503">bug 2503</ulink>)</para></listitem>
+    <listitem><para>tqt3: new TQStringVariantMap type and iterators (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tqt3/commit/d795939c">d795939c</ulink>)</para></listitem>
+    <listitem><para>tqt3: added "operator[]" to TQPtrList (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tqt3/commit/6b220f98">6b220f98</ulink>)</para></listitem>
+    <listitem><para>Extended KEditListBox's API with new signals (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/commit/88413aaa">88413aaa</ulink> - commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/commit/fa49e53">fa49e53a</ulink>)</para></listitem>
+    <listitem><para>konsole: added support for mouse wheel events in the alternate screen, i.e. in applications such as vim, less, ... (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=2597">bug 2597</ulink>)</para></listitem>
+    <listitem><para>ksnapshot: remember window position before/after a snapshot is taken (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdegraphics/issues/55">TDE/tdegraphics#55</ulink>)</para></listitem>
+    <listitem><para>ksmserver: added 'startupCompleted()' DCOP method to check when session restoration/creation has finished (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/commit/b45b9ed9">b45b9ed9</ulink>)</para></listitem>
+    <listitem><para>dolphin: fixed navigation through jar, txz and lzma archives (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/dolphin/issues/4">TDE/dolphin#4</ulink>)</para></listitem>
+    <listitem><para>knights: added additional theme pack (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=2663">bug 2663</ulink>)</para></listitem>
+    <listitem><para>tdenetwork: use standalone libvncserver for krfb and libvncclient for krdc</para></listitem>
+  </itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.1.0-bug-fixes">
+<title>Bug fixes</title>
+  <itemizedlist>
+    <listitem><para>filelight: fixed SEGV caused by dereferencing null pointer (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/filelight/issues/3">TDE/filelight#3</ulink>)</para></listitem>
+    <listitem><para>gtk-tqt-engine: fixed crash when SESSION_MANAGER environment variable is not set (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/gtk-qt-engine/commit/959798f45">959798f45</ulink>)</para></listitem>
+    <listitem><para>yakuake: fixed support for dcop calls with multiple terminals (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=2537">bug 2537</ulink>)</para></listitem>
+    <listitem><para>Fixed incorrect handling of certificate dates in viewer module (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/commit/a837e132">a837e132</ulink>)</para></listitem>
+    <listitem><para>tdefile: autocalculate folder size in KPropertiesDialog only for real local items (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/190">TDE/tdelibs#190</ulink>)</para></listitem>
+    <listitem><para>tdeprint: relaxed page orientation and size selection when an initial setting is already provided (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/194">TDE/tdelibs#194</ulink>)</para></listitem>
+    <listitem><para>Fixed mangling of '@' in KURL's pretty printing (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdepim/issues/71">TDE/tdepim#71</ulink>)</para></listitem>
+    <listitem><para>kalarm: fixed problem with date/time selection for recurrent events (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=304">bug 304</ulink>)</para></listitem>
+    <listitem><para>kalarm: fixed long startup delay when autostarted at login (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=1610">bug 1610</ulink>)</para></listitem>
+    <listitem><para>konqueror: fixed SEGV when the KPropertiesDialog is opened on the root (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/issues/310">TDE/tdebase#310</ulink>)</para></listitem>
+    <listitem><para>kmail: added menu options to toggle "Show Message Structure" (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdepim/pulls/25">TDE/tdepim#25</ulink>)</para></listitem>
+    <listitem><para>kpdf: fixed issue with certain fonts not being correctly displayed (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdegraphics/pulls/57">TDE/tdegraphics#57</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.1.0-renames-and-moves">
+<title>Renames and moves</title>
+  <itemizedlist>
+    <listitem><para>tdefilereplace has been moved from tdewebdev to tdeutils (<ulink url="https://bugs.trinitydesktop.org/show_bug.cgi?id=767">bug 767</ulink>)</para></listitem>
+    <listitem><para>sip4-tqt: python module renamed to sip_tqt (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/sip4-tqt/pulls/2">TDE/sip4-tqt#2</ulink>)</para></listitem>
+    <listitem><para>sip4-tqt: entry step to rename qt* python modules to tqt* (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/sip4-tqt/pulls/10">TDE/sip4-tqt#10</ulink>)</para></listitem>
+    <listitem><para>pytqt: repository renamed from python-tqt to pytqt (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/pytqt">TDE/pytqt</ulink>)</para></listitem>
+    <listitem><para>pytqt: rename qt* python modules to tqt* (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/pytqt/pulls/13">TDE/pytqt#13</ulink>)</para></listitem>
+    <listitem><para>pytqt: renamed QScintilla to TQScintilla (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/pytqt/pulls/5">TDE/pytqt#5</ulink>)</para></listitem>
+    <listitem><para>pytqt: renamed python extension module from python_tqt to PyTQt (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/pytqt/pulls/12">TDE/pytqt#12</ulink>)</para></listitem>
+    <listitem><para>python-trinity repository renamed to pytde (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/pytde">TDE/pytde</ulink>)</para></listitem>
+    <listitem><para>tde-common-cmake moved from common to dependencies and renamed to tde-cmake (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde-cmake">TDE/tde-cmake</ulink>)</para></listitem>
+    <listitem><para>tqt3: several QT_* macros have been renamed into TQT_* equivalents.</para></listitem>
+    <listitem><para>tqt3: IconView widget moved to src/widgets folder (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tqt3/commit/a41a0349">a41a0349</ulink>)</para></listitem>
+    <listitem><para>tqt3: removed dummy "int" parameter from "TQVariant(bool, int)" (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tqt3/commit/cfc76de7">cfc76de7</ulink>)</para></listitem>
+    <listitem><para>tqt3: renamed tqt-kde integration to tqt-tde (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tqt3/commit/a410cb03">a410cb03</ulink>)</para></listitem>
+    <listitem><para>tdelibs: tdehw lib is now built as a standalone library</para></listitem>
+    <listitem><para>tdeaddons: removed mediarealfolder konqueror plugin, which has been integrated into tdebase's media tdeioslave (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdeaddons/commit/025f091b">025f091b</ulink>)</para></listitem>
+    <listitem><para>renamed "Suspend to disk" to "Hibernate" and "Suspend to RAM" to "Suspend"</para></listitem>
+  </itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.1.0-removed-applications">
+<title>Removed applications, code repositories or features</title>
+  <itemizedlist>
+    <listitem><para>Removed support for Python 2 throughout TDE</para></listitem>
+    <listitem><para>Removed any pending support for HAL</para></listitem>
+    <listitem><para>Removed the following modules: adept, libraries/mlt, libraries/mlt++, kpowersave, knetworkmanager8, tde-construct</para></listitem>
+    <listitem><para>Removed support for building using qt3. Now TDE only uses TQt3</para></listitem>
+    <listitem><para>tqt3: removed the following Qt2 classes (TQList/TQListIterator, TQStack, TQVector) and replaced them with TQt3 equivalent ones (TQPtrList/TQPtrListIterator, TQPtrStack, TQPtrVector). Also removed some old Qt1-related code.</para></listitem>
+    <listitem><para>kpdf: drop suport for t1lib (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdegraphics/issues/39">TDE/tdegraphics#39</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.1.0-deprecated-applications">
+<title>Deprecated applications</title>
+  <para>These are no longer built by default and will be removed in R14.2.0</para>
+  <itemizedlist>
+    <listitem><para>tdegraphics: kmrml (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdegraphics/commit/ff75de8d">ff75de8d</ulink>)</para></listitem>
+    <listitem><para>tdepim: kitchensync (commit <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdepim/commit/43f0ce5">43f0ce5</ulink>)</para></listitem>
+    <listitem><para>tqtinterface: this module is not deprecated but it will be merged with tqt3 in R14.2.0 and no longer required (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tqtinterface">TDE/tqtinterface</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.1.0-distro-support">
+<title>Distro support</title>
+  <itemizedlist>
+    <listitem><para>Ubuntu: dropped Hirsute (21.04), added Lunar (23.04)</para></listitem>
+    <listitem><para>Raspbian: dropped raspbian-stretch</para></listitem>
+  </itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.1.0-cmake-conversions">
+<title>CMake conversions and dropped autotools</title>
+  <itemizedlist>
+    <listitem><para>Modules converted to cmake:</para>
+      <itemizedlist>
+        <listitem><para>bibletime (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/bibletime/pulls/2">TDE/bibletime#2</ulink>)</para></listitem>
+        <listitem><para>desktop-effects-tde (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/desktop-effects-tde/pulls/3">TDE/desktop-effects-tde#3</ulink>)</para></listitem>
+      </itemizedlist>
+    </listitem>
+  </itemizedlist>
+  <itemizedlist>
+    <listitem><para>Dropped autotools support for the following modules:</para>
+      <itemizedlist>
+        <listitem><para>bibletime (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/bibletime/pulls/3">TDE/bibletime#3</ulink>)</para></listitem>
+        <listitem><para>gtk3-tqt-engine (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/gtk3-tqt-engine/pulls/3">TDE/gtk3-tqt-engine#3</ulink>)</para></listitem>
+				<listitem><para>gwenview-i18n (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/gwenview-i18n/pulls/1">TDE/gwenview-i18n#1</ulink>)</para></listitem>
+				<listitem><para>kbfx (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kbfx/pulls/2">TDE/kbfx#2</ulink>)</para></listitem>
+        <listitem><para>kgtk-qt3 (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kgtk-qt3/pulls/6">TDE/kgtk-qt3#6</ulink>)</para></listitem>
+				<listitem><para>kmymoney (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kmymoney/pulls/4">TDE/kmymoney#4</ulink>)</para></listitem>
+        <listitem><para>koffice-i18n (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/koffice-i18n/pulls/2">TDE/koffice-i18n#2</ulink>) (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/koffice-i18n/pulls/3">TDE/koffice-i18n#3</ulink>)</para></listitem>
+				<listitem><para>konversation (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/konversation/pulls/3">TDE/konversation#3</ulink>)</para></listitem>
+				<listitem><para>kpilot (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kpilot/pulls/7">TDE/kpilot#7</ulink>)</para></listitem>
+        <listitem><para>tderadio (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tderadio/pulls/6">TDE/tderadio#6</ulink>)</para></listitem>
+				<listitem><para>tdesvn (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdesvn/pulls/7">TDE/tdesvn#7</ulink>)</para></listitem>
+      </itemizedlist>
+    </listitem>
+  </itemizedlist>
+</sect2>
+
+
+<sect2 id="release-notes-r14.1.0-updating-from-r14.0.x">
+<title>Updating from R14.0.x</title>
+<para>There will be no more releases in the R14.0.x series, therefore you should consider switching to R14.1.x during the next TDE update. This will require updating the URL from which packages are downloaded and should be a relatively straight forward process.</para>
+</sect2>
+
+
+<sect2 id="release-notes-r14.1.0-additional-info">
+<title>Additional info</title>
+  <itemizedlist>
+    <listitem><para><ulink url="https://wiki.trinitydesktop.org/Release_Notes_For_R14.1.0">Full release notes</ulink> on TDE wiki</para></listitem>
+    <listitem><para>TGW <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/3">issue list</ulink></para></listitem>
+    <listitem><para>Detailed commit <ulink url="https://wiki.trinitydesktop.org/Changelog_For_R14.1.0">change log</ulink></para></listitem>
+  </itemizedlist>
+</sect2>
 
 </sect1>
