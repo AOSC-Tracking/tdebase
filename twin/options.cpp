@@ -31,8 +31,8 @@ namespace KWinInternal
 #ifndef KCMRULES
 
 Options::Options()
-    :   electric_borders( 0 ),
-        electric_border_delay(0)
+    :   active_borders( 0 ),
+        active_border_delay(0)
     {
     d = new KDecorationOptionsPrivate;
     d->defaultKWinSettings();
@@ -54,6 +54,7 @@ unsigned long Options::updateSettings()
     moveMode = stringToMoveResizeMode( config->readEntry("MoveMode", "Opaque" ));
     resizeMode = stringToMoveResizeMode( config->readEntry("ResizeMode", "Opaque" ));
     show_geometry_tip = config->readBoolEntry("GeometryTip", false);
+    reset_maximized_window_geometry = config->readBoolEntry("ResetMaximizedWindowGeometry", false);
     tabboxOutline = config->readBoolEntry("TabboxOutline", true);
 
     TQString val;
@@ -125,8 +126,16 @@ unsigned long Options::updateSettings()
     borderSnapZone = config->readNumEntry("BorderSnapZone", 10);
     windowSnapZone = config->readNumEntry("WindowSnapZone", 10);
     snapOnlyWhenOverlapping=config->readBoolEntry("SnapOnlyWhenOverlapping",FALSE);
-    electric_borders = config->readNumEntry("ElectricBorders", 0);
-    electric_border_delay = config->readNumEntry("ElectricBorderDelay", 150);
+
+    // active borders: compatibility with old option names (Electric*)
+    active_borders = config->readNumEntry("ActiveBorders", -1);
+    if (active_borders == -1) {
+        active_borders = config->readNumEntry("ElectricBorders", 0);
+    }
+    active_border_delay = config->readNumEntry("ActiveBorderDelay", -1);
+    if (active_border_delay == -1) {
+        active_border_delay = config->readNumEntry("ElectricBorderDelay", 150);
+    }
 
     OpTitlebarDblClick = windowOperation( config->readEntry("TitlebarDoubleClickCommand", "Shade"), true );
     d->OpMaxButtonLeftClick = windowOperation( config->readEntry("MaximizeButtonLeftClickCommand", "Maximize"), true );
@@ -308,6 +317,11 @@ bool Options::showGeometryTip()
     return show_geometry_tip;
     }
 
+bool Options::resetMaximizedWindowGeometry()
+    {
+    return reset_maximized_window_geometry;
+    }
+
 TQColor &Options::shadowColour(bool active)
     {
     return active ? shadow_colour : shadow_inactive_colour;
@@ -373,14 +387,14 @@ int Options::shadowYOffset(bool active)
     return active ? shadow_y_offset : shadow_inactive_y_offset;
     }
 
-int Options::electricBorders()
+int Options::activeBorders()
     {
-    return electric_borders;
+    return active_borders;
     }
 
-int Options::electricBorderDelay()
+int Options::activeBorderDelay()
     {
-    return electric_border_delay;
+    return active_border_delay;
     }
 
 bool Options::checkIgnoreFocusStealing( const Client* c )

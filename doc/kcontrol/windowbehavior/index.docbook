@@ -616,6 +616,13 @@ to allow moving or resizing maximized windows.</para>
 </varlistentry>
 
 <varlistentry>
+<term><guilabel>Restore size of maximized/tiled windows when moving</guilabel></term>
+<listitem>
+<para>When enabled, this feature restores the original size of a maximized or <link linkend="active-borders">tiled</link> window when the window is dragged.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><guilabel>Placement</guilabel></term>
 <listitem>
 <para>This feature determines where new windows are placed on the desktop.</para>
@@ -739,35 +746,45 @@ Use the slider widget to configure the delay.
 
 </variablelist>
 
-<variablelist>
-<title>Active Desktop Borders</title>
+<variablelist id="active-borders">
+<title>Active Borders</title>
+
+<para>Active Borders is a feature which allows you to quickly perform window management actions by moving your mouse into a desktop border.</para>
+
+<para>The corresponding section allows you to configure the function that will be performed when pushing your mouse cursor against a border or moving a window into it:</para>
 
 <varlistentry>
 <term><guilabel>Disabled</guilabel></term>
 <listitem>
-<para>When this option is enabled, moving the mouse pointer to a screen
-border will change your desktop. This is useful when you want to drag
-windows from one desktop to another.</para>
+<para>This option disables the Active Borders feature.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Only when moving windows</guilabel></term>
+<term><guilabel>Switch desktop</guilabel></term>
 <listitem>
-<para>Moving your mouse pointer against the side of the screen will
-switch to a new desktop only while moving a window.</para>
+<para>Moving your mouse pointer against the side of the screen will switch to another desktop.</para>
+<para>By default the switch occurs both when moving your mouse pointer into a border and dragging a window into it. The <guilabel>Switch desktop only when moving a window</guilabel> checkbox disables the former behaviour and only switches to another desktop when a window is being dragged into a desktop border.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Always enabled</guilabel></term>
+<term><guilabel>Tile window</guilabel></term>
 <listitem>
-<para>Moving your mouse pointer against the side of the screen will
-always switch to a new desktop.</para>
+<para>Dragging a window into a desktop border will tile that window at that side of the screen. This feature is also known as <quote>Aerosnap</quote> or <quote>Quick Tile</quote>.</para>
+<para><guilabel>Maximize windows by dragging them to the top of the screen</guilabel> changes the behaviour of the top border of the desktop. If this option is enabled, dragging a window into the top border will not result in tiling, but the window will become maximized instead.</para>
+<para>By default dragging a tiled window does not reset its original size. This behaviour is controlled by an option in the <link linkend="moving">Moving</link> tab of this control module.</para>
 </listitem>
 </varlistentry>
-
 </variablelist>
+
+<para>
+<guilabel>Border activation delay</guilabel>.
+This option controls the delay before the designated active border function is performed. A higher value can prevent accidental activations of this feature.
+</para>
+
+<sect3>
+<title>Other</title>
 
 <para>
 <guilabel>Hide utility windows for inactive applications</guilabel>. When
@@ -776,6 +793,7 @@ inactive applications will be hidden and will be shown only when the
 application becomes active. Note that applications have to mark the windows 
 with the proper window type for this feature to work.
 </para>
+</sect3>
 
 </sect2>
 

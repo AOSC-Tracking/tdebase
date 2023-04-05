@@ -156,7 +156,10 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void clientHidden( Client*  );
         void clientAttentionChanged( Client* c, bool set );
 
-        void clientMoved(const TQPoint &pos, Time time);
+        void checkActiveBorder(const TQPoint &pos, Time time);
+        void reserveActiveBorder(ActiveBorder border);
+        void unreserveActiveBorder(ActiveBorder border);
+        void reserveActiveBorderSwitching(bool reserve);
 
         /**
          * Returns the current virtual desktop of this workspace
@@ -302,7 +305,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void requestDelayFocus( Client* );
         void updateFocusMousePosition( const TQPoint& pos );
         TQPoint focusMousePosition() const;
-        
+
         void toggleTopDockShadows(bool on);
 
     public slots:
@@ -406,6 +409,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void cleanupTemporaryRules();
         void writeWindowRules();
         void kipcMessage( int id, int data );
+        void updateActiveBorders();
         // kompmgr
         void setPopupClientOpacity(int v);
         void resetClientOpacity();
@@ -486,12 +490,10 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void tabBoxKeyPress( const KKeyNative& keyX );
         void tabBoxKeyRelease( const XKeyEvent& ev );
 
-    // electric borders
-        void checkElectricBorders( bool force = false );
-        void createBorderWindows();
-        void destroyBorderWindows();
-        bool electricBorder(XEvent * e);
-        void raiseElectricBorders();
+    // active borders
+        void destroyActiveBorders();
+        bool activeBorderEvent(XEvent *e);
+        void activeBorderSwitchDesktop(ActiveBorder border, const TQPoint& pos);
 
     // ------------------
     
@@ -617,19 +619,17 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
 
         TDEStartupInfo* startup;
 
-        bool electric_have_borders;
-        int electric_current_border;
-        WId electric_top_border;
-        WId electric_bottom_border;
-        WId electric_left_border;
-        WId electric_right_border;
-        int electricLeft;
-        int electricRight;
-        int electricTop;
-        int electricBottom;
-        Time electric_time_first;
-        Time electric_time_last;
-        TQPoint electric_push_point;
+        ActiveBorder active_current_border;
+        Window active_windows[ ACTIVE_BORDER_COUNT ];
+        int activeLeft;
+        int activeRight;
+        int activeTop;
+        int activeBottom;
+        Time active_time_first;
+        Time active_time_last;
+        Time active_time_last_trigger;
+        TQPoint active_push_point;
+        int active_reserved[ ACTIVE_BORDER_COUNT ]; // corners/edges used by something
 
         Qt::Orientation layoutOrientation;
         int layoutX;
@@ -663,7 +663,11 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         int maximizedWindowCounter;
         int topDockShadowSize;*/
         //end
-        
+
+        Window outline_left;
+        Window outline_right;
+        Window outline_top;
+        Window outline_bottom;
      signals:
         void kompmgrStarted();
         void kompmgrStopped();

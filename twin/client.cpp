@@ -120,7 +120,9 @@ Client::Client( Workspace *ws )
         border_top( 0 ),
         border_bottom( 0 ),
         opacity_( 0 ),
-        demandAttentionKNotifyTimer( NULL )
+        demandAttentionKNotifyTimer( NULL ),
+        activeMaximizing(false),
+        activeTiled(false)
 // SELI do all as initialization
     {
     autoRaiseTimer = 0;

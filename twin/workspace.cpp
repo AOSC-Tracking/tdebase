@@ -167,12 +167,7 @@ Workspace::Workspace( bool restore )
     global_shortcuts_disabled_for_client( false ),
     root              (0),
     workspaceInit     (true),
-    startup(0), electric_have_borders(false),
-    electric_current_border(0),
-    electric_top_border(None),
-    electric_bottom_border(None),
-    electric_left_border(None),
-    electric_right_border(None),
+    startup(0),
     layoutOrientation(Qt::Vertical),
     layoutX(-1),
     layoutY(2),
@@ -194,6 +189,12 @@ Workspace::Workspace( bool restore )
     installed_colormap = default_colormap;
     session.setAutoDelete( TRUE );
 
+    for (int i = 0; i < ACTIVE_BORDER_COUNT; ++i)
+    {
+        active_reserved[i] = 0;
+        active_windows[i] = None;
+    }
+
     connect( &temporaryRulesMessages, TQT_SIGNAL( gotMessage( const TQString& )),
         this, TQT_SLOT( gotTemporaryRulesMessage( const TQString& )));
     connect( &rulesUpdatedTimer, TQT_SIGNAL( timeout()), this, TQT_SLOT( writeWindowRules()));
@@ -202,8 +203,8 @@ Workspace::Workspace( bool restore )
 
     delayFocusTimer = 0; 
     
-    electric_time_first = GET_QT_X_TIME();
-    electric_time_last = GET_QT_X_TIME();
+    active_time_first = GET_QT_X_TIME();
+    active_time_last = GET_QT_X_TIME();
 
     if ( restore )
       loadSessionInfo();
@@ -304,8 +305,12 @@ Workspace::Workspace( bool restore )
 
 
 void Workspace::init()
+{
+    if (options->activeBorders() == Options::ActiveSwitchAlways)
     {
-    checkElectricBorders();
+        reserveActiveBorderSwitching(true);
+    }
+    updateActiveBorders();
 
 // not used yet
 //     topDock = 0L;
@@ -483,7 +488,6 @@ void Workspace::init()
         updateStackingOrder( true );
 
         updateClientArea();
-        raiseElectricBorders();
 
     // NETWM spec says we have to set it to (0,0) if we don't support it
         NETPoint* viewports = new NETPoint[ number_of_desktops ];
@@ -514,12 +518,27 @@ void Workspace::init()
         }
     if( new_active_client != NULL )
         activateClient( new_active_client );
+
+    // outline windows for active border maximize window mode
+    outline_left = XCreateWindow(tqt_xdisplay(), rootWin(), 0, 0, 1, 1, 0,
+                                 CopyFromParent, CopyFromParent, CopyFromParent,
+                                 CWOverrideRedirect, &attr);
+    outline_right = XCreateWindow(tqt_xdisplay(), rootWin(), 0, 0, 1, 1, 0,
+                                  CopyFromParent, CopyFromParent, CopyFromParent,
+                                  CWOverrideRedirect, &attr);
+    outline_top = XCreateWindow(tqt_xdisplay(), rootWin(), 0, 0, 1, 1, 0,
+                                CopyFromParent, CopyFromParent, CopyFromParent,
+                                CWOverrideRedirect, &attr);
+    outline_bottom = XCreateWindow(tqt_xdisplay(), rootWin(), 0, 0, 1, 1, 0,
+                                   CopyFromParent, CopyFromParent, CopyFromParent,
+                                   CWOverrideRedirect, &attr);
+
     // SELI TODO this won't work with unreasonable focus policies,
     // and maybe in rare cases also if the selected client doesn't
     // want focus
     workspaceInit = false;
 // TODO ungrabXServer()
-    }
+}
 
 Workspace::~Workspace()
     {
@@ -549,6 +568,12 @@ Workspace::~Workspace()
 
     writeWindowRules();
     TDEGlobal::config()->sync();
+
+    // destroy outline windows for active border maximize window mode
+    XDestroyWindow(tqt_xdisplay(), outline_left);
+    XDestroyWindow(tqt_xdisplay(), outline_right);
+    XDestroyWindow(tqt_xdisplay(), outline_top);
+    XDestroyWindow(tqt_xdisplay(), outline_bottom);
 
     delete rootInfo;
     delete supportWindow;
@@ -1038,6 +1063,11 @@ void Workspace::slotReconfigure()
     kdDebug(1212) << "Workspace::slotReconfigure()" << endl;
     reconfigureTimer.stop();
 
+    if (options->activeBorders() == Options::ActiveSwitchAlways)
+    {
+        reserveActiveBorderSwitching(false);
+    }
+
     TDEGlobal::config()->reparseConfiguration();
     unsigned long changed = options->updateSettings();
     tab_box->reconfigure();
@@ -1068,7 +1098,10 @@ void Workspace::slotReconfigure()
         forEachClient( CheckBorderSizesProcedure());
         }
 
-    checkElectricBorders();
+    if (options->activeBorders() == Options::ActiveSwitchAlways)
+    {
+        reserveActiveBorderSwitching(true);
+    }
 
     if( options->topMenuEnabled() && !managingTopMenus())
         {
@@ -2357,7 +2390,7 @@ void Workspace::delayFocus()
     requestFocus( delayfocus_client );
     cancelDelayFocus();
     }
-    
+
 void Workspace::requestDelayFocus( Client* c )
     {
     delayfocus_client = c;
@@ -2366,283 +2399,353 @@ void Workspace::requestDelayFocus( Client* c )
     connect( delayFocusTimer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( delayFocus() ) );
     delayFocusTimer->start( options->delayFocusInterval, TRUE  );
     }
-    
+
 void Workspace::cancelDelayFocus()
     {
     delete delayFocusTimer;
     delayFocusTimer = 0;
     }
 
-// Electric Borders
-//========================================================================//
-// Electric Border Window management. Electric borders allow a user
-// to change the virtual desktop by moving the mouse pointer to the
-// borders. Technically this is done with input only windows. Since
-// electric borders can be switched on and off, we have these two
-// functions to create and destroy them.
-void Workspace::checkElectricBorders( bool force )
+/* Active (Electric) Borders
+ * ========================================================================
+ * Active Border Window management. Active borders allow a user to switch
+ * to another virtual desktop or activate other features by moving
+ * the mouse pointer to the borders or corners of the workspace.
+ * Technically this is done with input only windows.
+ */
+void Workspace::updateActiveBorders()
     {
-    if( force )
-        destroyBorderWindows();
-    
-    electric_current_border = 0;
-
+    active_time_first = GET_QT_X_TIME();
+    active_time_last = GET_QT_X_TIME();
+    active_time_last_trigger = GET_QT_X_TIME();
+    active_current_border = ActiveNone;
     TQRect r = TQApplication::desktop()->geometry();
-    electricTop = r.top();
-    electricBottom = r.bottom();
-    electricLeft = r.left();
-    electricRight = r.right();
+    activeTop = r.top();
+    activeBottom = r.bottom();
+    activeLeft = r.left();
+    activeRight = r.right();
 
-    if (options->electricBorders() == Options::ElectricAlways)
-       createBorderWindows();
-    else
-       destroyBorderWindows();
-    }
-
-void Workspace::createBorderWindows()
+    for (int pos = 0; pos < ACTIVE_BORDER_COUNT; ++pos)
     {
-    if ( electric_have_borders )
+        if (active_reserved[pos] == 0)
+        {
+            if (active_windows[pos] != None)
+            {
+                XDestroyWindow( tqt_xdisplay(), active_windows[pos] );
+            }
+            active_windows[pos] = None;
+            continue;
+        }
+
+        if (active_windows[pos] != None)
+        {
+            continue;
+        }
+
+        XSetWindowAttributes attributes;
+        attributes.override_redirect = True;
+        attributes.event_mask = EnterWindowMask;
+        unsigned long valuemask = CWOverrideRedirect | CWEventMask;
+        int xywh[ ACTIVE_BORDER_COUNT ][ 4 ] =
+            {
+                { r.left() + 1, r.top(), r.width() - 2, 1 }, // top
+                { r.right(), r.top(), 1, 1 }, // topright
+                { r.right(), r.top() + 1, 1, r.height() - 2 }, // etc.
+                { r.right(), r.bottom(), 1, 1 },
+                { r.left() + 1, r.bottom(), r.width() - 2, 1 },
+                { r.left(), r.bottom(), 1, 1 },
+                { r.left(), r.top() + 1, 1, r.height() - 2 },
+                { r.left(), r.top(), 1, 1 }
+            };
+        active_windows[pos] = XCreateWindow(tqt_xdisplay(), tqt_xrootwin(),
+                                              xywh[pos][0], xywh[pos][1],
+                                              xywh[pos][2], xywh[pos][3],
+                                              0, CopyFromParent, InputOnly,
+                                              CopyFromParent, valuemask,
+                                              &attributes);
+        XMapWindow(tqt_xdisplay(), active_windows[pos]);
+
+        // Set XdndAware on the windows, so that DND enter events are received (#86998)
+        Atom version = 4; // XDND version
+        XChangeProperty(tqt_xdisplay(), active_windows[pos],
+                        atoms->xdnd_aware, XA_ATOM, 32, PropModeReplace,
+                        (unsigned char*)&version, 1);
+    }
+}
+
+void Workspace::destroyActiveBorders()
+{
+    for (int pos = 0; pos < ACTIVE_BORDER_COUNT; ++pos)
+    {
+        if (active_windows[ pos ] != None)
+        {
+            XDestroyWindow( tqt_xdisplay(), active_windows[ pos ] );
+        }
+        active_windows[ pos ] = None;
+    }
+}
+
+void Workspace::reserveActiveBorderSwitching( bool reserve )
+{
+    for (int pos = 0; pos < ACTIVE_BORDER_COUNT; ++pos)
+    {
+        if (reserve)
+        {
+            reserveActiveBorder(static_cast<ActiveBorder>(pos));
+        }
+        else
+        {
+            unreserveActiveBorder(static_cast<ActiveBorder>(pos));
+        }
+    }
+}
+
+void Workspace::reserveActiveBorder( ActiveBorder border )
+{
+    if (border == ActiveNone)
         return;
 
-    electric_have_borders = true;
+    if (active_reserved[border]++ == 0)
+        TQTimer::singleShot(0, this, TQT_SLOT(updateActiveBorders()));
+}
 
-    TQRect r = TQApplication::desktop()->geometry();
-    XSetWindowAttributes attributes;
-    unsigned long valuemask;
-    attributes.override_redirect = True;
-    attributes.event_mask =  ( EnterWindowMask | LeaveWindowMask );
-    valuemask=  (CWOverrideRedirect | CWEventMask | CWCursor );
-    attributes.cursor = XCreateFontCursor(tqt_xdisplay(),
-                                          XC_sb_up_arrow);
-    electric_top_border = XCreateWindow (tqt_xdisplay(), tqt_xrootwin(),
-                                0,0,
-                                r.width(),1,
-                                0,
-                                CopyFromParent, InputOnly,
-                                CopyFromParent,
-                                valuemask, &attributes);
-    XMapWindow(tqt_xdisplay(), electric_top_border);
+void Workspace::unreserveActiveBorder( ActiveBorder border )
+{
+    if (border == ActiveNone)
+        return;
 
-    attributes.cursor = XCreateFontCursor(tqt_xdisplay(),
-                                          XC_sb_down_arrow);
-    electric_bottom_border = XCreateWindow (tqt_xdisplay(), tqt_xrootwin(),
-                                   0,r.height()-1,
-                                   r.width(),1,
-                                   0,
-                                   CopyFromParent, InputOnly,
-                                   CopyFromParent,
-                                   valuemask, &attributes);
-    XMapWindow(tqt_xdisplay(), electric_bottom_border);
+    assert(active_reserved[ border ] > 0);
+    if (--active_reserved[ border ] == 0)
+        TQTimer::singleShot(0, this, TQT_SLOT(updateActiveBorders()));
+}
 
-    attributes.cursor = XCreateFontCursor(tqt_xdisplay(),
-                                          XC_sb_left_arrow);
-    electric_left_border = XCreateWindow (tqt_xdisplay(), tqt_xrootwin(),
-                                 0,0,
-                                 1,r.height(),
-                                 0,
-                                 CopyFromParent, InputOnly,
-                                 CopyFromParent,
-                                 valuemask, &attributes);
-    XMapWindow(tqt_xdisplay(), electric_left_border);
-
-    attributes.cursor = XCreateFontCursor(tqt_xdisplay(),
-                                          XC_sb_right_arrow);
-    electric_right_border = XCreateWindow (tqt_xdisplay(), tqt_xrootwin(),
-                                  r.width()-1,0,
-                                  1,r.height(),
-                                  0,
-                                  CopyFromParent, InputOnly,
-                                  CopyFromParent,
-                                  valuemask, &attributes);
-    XMapWindow(tqt_xdisplay(),  electric_right_border);
-    // Set XdndAware on the windows, so that DND enter events are received (#86998)
-    Atom version = 4; // XDND version
-    XChangeProperty( tqt_xdisplay(), electric_top_border, atoms->xdnd_aware, XA_ATOM,
-        32, PropModeReplace, ( unsigned char* )&version, 1 );
-    XChangeProperty( tqt_xdisplay(), electric_bottom_border, atoms->xdnd_aware, XA_ATOM,
-        32, PropModeReplace, ( unsigned char* )&version, 1 );
-    XChangeProperty( tqt_xdisplay(), electric_left_border, atoms->xdnd_aware, XA_ATOM,
-        32, PropModeReplace, ( unsigned char* )&version, 1 );
-    XChangeProperty( tqt_xdisplay(), electric_right_border, atoms->xdnd_aware, XA_ATOM,
-        32, PropModeReplace, ( unsigned char* )&version, 1 );
-    }
-
-
-// Electric Border Window management. Electric borders allow a user
-// to change the virtual desktop by moving the mouse pointer to the
-// borders. Technically this is done with input only windows. Since
-// electric borders can be switched on and off, we have these two
-// functions to create and destroy them.
-void Workspace::destroyBorderWindows()
-    {
-    if( !electric_have_borders)
-      return;
-
-    electric_have_borders = false;
-
-    if(electric_top_border)
-      XDestroyWindow(tqt_xdisplay(),electric_top_border);
-    if(electric_bottom_border)
-      XDestroyWindow(tqt_xdisplay(),electric_bottom_border);
-    if(electric_left_border)
-      XDestroyWindow(tqt_xdisplay(),electric_left_border);
-    if(electric_right_border)
-      XDestroyWindow(tqt_xdisplay(),electric_right_border);
-
-    electric_top_border    = None;
-    electric_bottom_border = None;
-    electric_left_border   = None;
-    electric_right_border  = None;
-    }
-
-void Workspace::clientMoved(const TQPoint &pos, Time now)
-    {
-    if (options->electricBorders() == Options::ElectricDisabled)
-       return;
-
-    if ((pos.x() != electricLeft) &&
-        (pos.x() != electricRight) &&
-        (pos.y() != electricTop) &&
-        (pos.y() != electricBottom))
-       return;
-
-    Time treshold_set = options->electricBorderDelay(); // set timeout
+void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
+{
+    Time treshold_set = options->activeBorderDelay(); // set timeout
+    Time treshold_trigger = 250; // Minimum time between triggers
     Time treshold_reset = 250; // reset timeout
     int distance_reset = 30; // Mouse should not move more than this many pixels
 
-    int border = 0;
-    if (pos.x() == electricLeft)
-       border = 1;
-    else if (pos.x() == electricRight)
-       border = 2;
-    else if (pos.y() == electricTop)
-       border = 3;
-    else if (pos.y() == electricBottom)
-       border = 4;
-
-    if ((electric_current_border == border) &&
-        (timestampDiff(electric_time_last, now) < treshold_reset) &&
-        ((pos-electric_push_point).manhattanLength() < distance_reset))
+    if ((pos.x() > activeLeft   + distance_reset) &&
+        (pos.x() < activeRight  - distance_reset) &&
+        (pos.y() > activeTop    + distance_reset) &&
+        (pos.y() < activeBottom - distance_reset))
+    {
+        if (movingClient &&
+           (options->activeBorders() == Options::ActiveTileMaximize ||
+            options->activeBorders() == Options::ActiveTileOnly))
         {
-        electric_time_last = now;
+            movingClient->setActiveBorderMaximizing(false);
+        }
+    }
 
-        if (timestampDiff(electric_time_first, now) > treshold_set)
+    if ((pos.x() != activeLeft) &&
+        (pos.x() != activeRight) &&
+        (pos.y() != activeTop) &&
+        (pos.y() != activeBottom))
+       return;
+
+    bool have_borders = false;
+    for (int i = 0; i < ACTIVE_BORDER_COUNT; ++i)
+    {
+        if (active_windows[ i ] != None)
+        {
+            have_borders = true;
+        }
+    }
+    if( !have_borders )
+        return;
+
+    ActiveBorder border;
+    if( pos.x() == activeLeft && pos.y() == activeTop )
+        border = ActiveTopLeft;
+    else if( pos.x() == activeRight && pos.y() == activeTop )
+        border = ActiveTopRight;
+    else if( pos.x() == activeLeft && pos.y() == activeBottom )
+        border = ActiveBottomLeft;
+    else if( pos.x() == activeRight && pos.y() == activeBottom )
+        border = ActiveBottomRight;
+    else if( pos.x() == activeLeft )
+        border = ActiveLeft;
+    else if( pos.x() == activeRight )
+        border = ActiveRight;
+    else if( pos.y() == activeTop )
+        border = ActiveTop;
+    else if( pos.y() == activeBottom )
+        border = ActiveBottom;
+    else
+        abort();
+
+    if( active_windows[border] == None )
+        return;
+
+    if ((active_current_border == border) &&
+        (timestampDiff(active_time_last, now) < treshold_reset) &&
+        (timestampDiff(active_time_last_trigger, now) > treshold_trigger) &&
+        ((pos-active_push_point).manhattanLength() < distance_reset))
+    {
+        active_time_last = now;
+
+        if (timestampDiff(active_time_first, now) > treshold_set)
+        {
+            active_time_last_trigger = now;
+            active_current_border = ActiveNone;
+            bool isSide = (border == ActiveTop || border == ActiveRight ||
+                           border == ActiveBottom || border == ActiveLeft);
+
+            if (movingClient)
             {
-            electric_current_border = 0;
-
-            TQRect r = TQApplication::desktop()->geometry();
-            int offset;
-
-            int desk_before = currentDesktop();
-            switch(border)
+                // Desktop switching
+                if (options->activeBorders() == Options::ActiveSwitchAlways ||
+                    options->activeBorders() == Options::ActiveSwitchOnMove)
                 {
-                case 1:
-                 slotSwitchDesktopLeft();
-                 if (currentDesktop() != desk_before) 
-                    {
-                    offset = r.width() / 5;
-                    TQCursor::setPos(r.width() - offset, pos.y());
-                    }
-                break;
-
-               case 2:
-                slotSwitchDesktopRight();
-                if (currentDesktop() != desk_before) 
-                    {
-                    offset = r.width() / 5;
-                    TQCursor::setPos(offset, pos.y());
-                    }
-                break;
-
-               case 3:
-                slotSwitchDesktopUp();
-                if (currentDesktop() != desk_before) 
-                    {
-                    offset = r.height() / 5;
-                    TQCursor::setPos(pos.x(), r.height() - offset);
-                    }
-                break;
-
-               case 4:
-                slotSwitchDesktopDown();
-                if (currentDesktop() != desk_before) 
-                    {
-                    offset = r.height() / 5;
-                    TQCursor::setPos(pos.x(), offset);
-                    }
-                break;
+                    activeBorderSwitchDesktop(border, pos);
+                    return; // Don't reset cursor position
                 }
-            return;
+
+                // Tiling maximize
+                else if (options->activeBorders() == Options::ActiveTileMaximize &&
+                         border == ActiveTop && movingClient->isMaximizable())
+                {
+                    if (!movingClient->isResizable()) return;
+                    bool enable = !movingClient->isActiveBorderMaximizing();
+                    movingClient->setActiveBorderMode(ActiveMaximizeMode);
+                    movingClient->setActiveBorderMaximizing(enable);
+                }
+
+                // Tiling
+                else if ((options->activeBorders() == Options::ActiveTileMaximize ||
+                          options->activeBorders() == Options::ActiveTileOnly) && isSide)
+                {
+                    if (!movingClient->isResizable()) return;
+                    bool enable = !movingClient->isActiveBorderMaximizing();
+                    bool activate = false;
+                    if (border == ActiveLeft)
+                    {
+                        movingClient->setActiveBorderMode( ActiveLeftMode );
+                        activate = true;
+                    }
+                    else if (border == ActiveRight)
+                    {
+                        movingClient->setActiveBorderMode( ActiveRightMode );
+                        activate = true;
+                    }
+                    else if (border == ActiveTop)
+                    {
+                        movingClient->setActiveBorderMode( ActiveTopMode );
+                        activate = true;
+                    }
+                    else if (border == ActiveBottom)
+                    {
+                        movingClient->setActiveBorderMode( ActiveBottomMode );
+                        activate = true;
+                    }
+
+                    if (activate)
+                    {
+                        movingClient->setActiveBorderMaximizing(enable);
+                    }
+                }
+
+                else
+                {
+                    return; // Don't reset cursor position
+                }
+            }
+            else
+            {
+                // Desktop switching
+                if (options->activeBorders() == Options::ActiveSwitchAlways && isSide)
+                {
+                    activeBorderSwitchDesktop(border, pos);
+                    return; // Don't reset cursor position
+                }
             }
         }
-    else 
-        {
-        electric_current_border = border;
-        electric_time_first = now;
-        electric_time_last = now;
-        electric_push_point = pos;
-        }
-
-    int mouse_warp = 1;
-
-  // reset the pointer to find out wether the user is really pushing
-    switch( border)
-        {
-        case 1: TQCursor::setPos(pos.x()+mouse_warp, pos.y()); break;
-        case 2: TQCursor::setPos(pos.x()-mouse_warp, pos.y()); break;
-        case 3: TQCursor::setPos(pos.x(), pos.y()+mouse_warp); break;
-        case 4: TQCursor::setPos(pos.x(), pos.y()-mouse_warp); break;
-        }
+    }
+    else
+    {
+        active_current_border = border;
+        active_time_first = now;
+        active_time_last = now;
+        active_push_point = pos;
     }
 
-// this function is called when the user entered an electric border
+    // reset the pointer to find out wether the user is really pushing
+    // (the direction back from which it came, starting from top clockwise)
+    const int xdiff[ ACTIVE_BORDER_COUNT ] = { 0, -1, -1, -1, 0, 1, 1, 1 };
+    const int ydiff[ ACTIVE_BORDER_COUNT ] = { 1, 1, 0, -1, -1, -1, 0, 1 };
+    TQCursor::setPos(pos.x() + xdiff[border], pos.y() + ydiff[border]);
+
+    }
+
+void Workspace::activeBorderSwitchDesktop(ActiveBorder border, const TQPoint& _pos)
+{
+    TQPoint pos = _pos;
+    TQRect r = TQApplication::desktop()->geometry();
+    const int offset = 5;
+
+    int desk_before = currentDesktop();
+    if (border == ActiveLeft || border == ActiveTopLeft || border == ActiveBottomLeft)
+    {
+            slotSwitchDesktopLeft();
+            pos.setX(r.width() - offset);
+    }
+    if (border == ActiveRight || border == ActiveTopRight || border == ActiveBottomRight)
+    {
+            slotSwitchDesktopRight();
+            pos.setX(offset);
+    }
+
+    if (border == ActiveTop || border == ActiveTopLeft || border == ActiveTopRight)
+    {
+            slotSwitchDesktopUp();
+            pos.setY(r.height() - offset);
+    }
+    if (border == ActiveBottom || border == ActiveBottomLeft || border == ActiveBottomRight)
+    {
+            slotSwitchDesktopDown();
+            pos.setY(offset);
+    }
+
+    if (currentDesktop() != desk_before)
+    {
+        TQCursor::setPos(pos);
+    }
+}
+
+// this function is called when the user entered an active border
 // with the mouse. It may switch to another virtual desktop
-bool Workspace::electricBorder(XEvent *e)
+bool Workspace::activeBorderEvent(XEvent *e)
+{
+    if (e->type == EnterNotify)
     {
-    if( !electric_have_borders )
-        return false;
-    if( e->type == EnterNotify )
+        for (int i = 0; i < ACTIVE_BORDER_COUNT; ++i)
         {
-        if( e->xcrossing.window == electric_top_border ||
-            e->xcrossing.window == electric_left_border ||
-            e->xcrossing.window == electric_bottom_border ||
-            e->xcrossing.window == electric_right_border)
-            // the user entered an electric border
-            {
-            clientMoved( TQPoint( e->xcrossing.x_root, e->xcrossing.y_root ), e->xcrossing.time );
-            return true;
+            if (active_windows[i] != None && e->xcrossing.window == active_windows[i])
+            { // the user entered an active border
+                checkActiveBorder(TQPoint(e->xcrossing.x_root, e->xcrossing.y_root), e->xcrossing.time);
+                return true;
             }
         }
-    if( e->type == ClientMessage )
+    }
+    if (e->type == ClientMessage)
+    {
+        if (e->xclient.message_type == atoms->xdnd_position)
         {
-        if( e->xclient.message_type == atoms->xdnd_position
-            && ( e->xclient.window == electric_top_border
-                 || e->xclient.window == electric_bottom_border
-                 || e->xclient.window == electric_left_border
-                 || e->xclient.window == electric_right_border ))
+            for (int i = 0; i < ACTIVE_BORDER_COUNT; ++i)
             {
-            updateXTime();
-            clientMoved( TQPoint( e->xclient.data.l[2]>>16, e->xclient.data.l[2]&0xffff), GET_QT_X_TIME() );
-            return true;
+                if (active_windows[i] != None && e->xclient.window == active_windows[i])
+                {
+                    updateXTime();
+                    checkActiveBorder(TQPoint(e->xclient.data.l[2]>>16, e->xclient.data.l[2]&0xffff), GET_QT_X_TIME());
+                    return true;
+                }
             }
         }
+    }
     return false;
-    }
-
-// electric borders (input only windows) have to be always on the
-// top. For that reason kwm calls this function always after some
-// windows have been raised.
-void Workspace::raiseElectricBorders()
-    {
-
-    if(electric_have_borders)
-        {
-        XRaiseWindow(tqt_xdisplay(), electric_top_border);
-        XRaiseWindow(tqt_xdisplay(), electric_left_border);
-        XRaiseWindow(tqt_xdisplay(), electric_bottom_border);
-        XRaiseWindow(tqt_xdisplay(), electric_right_border);
-        }
-    }
+}
 
 void Workspace::addTopMenu( Client* c )
     {

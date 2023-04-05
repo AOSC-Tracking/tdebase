@@ -108,6 +108,29 @@ enum ShadeMode
     ShadeActivated // "shaded", but visible due to alt+tab to the window
     };
 
+enum ActiveBorder
+    {
+    ActiveTop,
+    ActiveTopRight,
+    ActiveRight,
+    ActiveBottomRight,
+    ActiveBottom,
+    ActiveBottomLeft,
+    ActiveLeft,
+    ActiveTopLeft,
+    ACTIVE_BORDER_COUNT,
+    ActiveNone
+    };
+
+enum ActiveMaximizingMode
+{
+    ActiveMaximizeMode,
+    ActiveLeftMode,
+    ActiveRightMode,
+    ActiveTopMode,
+    ActiveBottomMode
+};
+
 class Shape 
     {
     public:
