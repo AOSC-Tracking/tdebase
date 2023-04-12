@@ -85,6 +85,7 @@ comes with a bigger list of changes.</para><para>Several items in this list refe
     <listitem><para>konqueror: fixed SEGV when the KPropertiesDialog is opened on the root (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/issues/310">TDE/tdebase#310</ulink>)</para></listitem>
     <listitem><para>kmail: added menu options to toggle "Show Message Structure" (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdepim/pulls/25">TDE/tdepim#25</ulink>)</para></listitem>
     <listitem><para>kpdf: fixed issue with certain fonts not being correctly displayed (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdegraphics/pulls/57">TDE/tdegraphics#57</ulink>)</para></listitem>
+    <listitem><para>tqscintilla: fixed SEGV at runtime caused by invalid platform detection at build time (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tqscintilla/pulls/3">TDE/tqscintilla#3</ulink>)</para></listitem>
   </itemizedlist>
 </sect2>
 
