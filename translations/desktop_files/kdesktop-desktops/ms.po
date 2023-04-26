@@ -39,14 +39,12 @@ msgstr "Berjubin"
 #. Name
 #: kdesktopSetAsBackground.desktop:17
 #, fuzzy
-#| msgid "Centered"
 msgid "Center Tiled"
 msgstr "Tengah"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:22
 #, fuzzy
-#| msgid "Centered"
 msgid "Centered Maxpect"
 msgstr "Tengah"
 
@@ -63,7 +61,6 @@ msgstr ""
 #. Name
 #: kdesktopSetAsBackground.desktop:37
 #, fuzzy
-#| msgid "Centered"
 msgid "Centered Auto Fit"
 msgstr "Tengah"
 

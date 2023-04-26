@@ -259,8 +259,8 @@ msgstr "Prosta akcja"
 msgid ""
 "Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
 msgstr ""
-"Uruchamia KSnapShot w trybie przechwytywania okna po naciśnięciu klawisza "
-"ALT+PrintScrn.\n"
+"Uruchamia KSnapShot w trybie przechwytywania okna po naciśnięciu klawisza ALT"
+"+PrintScrn.\n"
 
 #. Name
 #: printscreen.khotkeys:43

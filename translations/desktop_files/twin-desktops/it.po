@@ -177,7 +177,8 @@ msgstr "(Predefinito) Disabilita la prevenzione della cattura del fuoco per XV"
 #. Description
 #: data/fsp_workarounds_1.twinrules:10
 msgid "(Default) Allow focus stealing by the screen locker"
-msgstr "(Predefinito) Consenti la cattura del focus da parte del blocca schermo"
+msgstr ""
+"(Predefinito) Consenti la cattura del focus da parte del blocca schermo"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:21

@@ -358,7 +358,8 @@ msgstr "Stránka vlastností média"
 #. Comment
 #: media/propsdlgplugin/media_propsdlgplugin.desktop:8
 msgid "Konqueror properties dialog plugin to configure mount behaviour"
-msgstr "Modul dialogu vlastností v Konqueroru pro konfiguraci připojování disků"
+msgstr ""
+"Modul dialogu vlastností v Konqueroru pro konfiguraci připojování disků"
 
 #. Name
 #: media/services/media_eject.desktop:10

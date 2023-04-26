@@ -39,14 +39,12 @@ msgstr "टायल गरिएको"
 #. Name
 #: kdesktopSetAsBackground.desktop:17
 #, fuzzy
-#| msgid "Centered"
 msgid "Center Tiled"
 msgstr "केन्द्रित"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:22
 #, fuzzy
-#| msgid "Centered"
 msgid "Centered Maxpect"
 msgstr "केन्द्रित"
 
@@ -63,7 +61,6 @@ msgstr ""
 #. Name
 #: kdesktopSetAsBackground.desktop:37
 #, fuzzy
-#| msgid "Centered"
 msgid "Centered Auto Fit"
 msgstr "केन्द्रित"
 

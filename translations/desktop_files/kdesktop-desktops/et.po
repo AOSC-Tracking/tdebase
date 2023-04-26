@@ -39,14 +39,12 @@ msgstr "Paanidena"
 #. Name
 #: kdesktopSetAsBackground.desktop:17
 #, fuzzy
-#| msgid "Centered"
 msgid "Center Tiled"
 msgstr "Tsentreeritud"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:22
 #, fuzzy
-#| msgid "Centered"
 msgid "Centered Maxpect"
 msgstr "Tsentreeritud"
 
@@ -63,7 +61,6 @@ msgstr ""
 #. Name
 #: kdesktopSetAsBackground.desktop:37
 #, fuzzy
-#| msgid "Centered"
 msgid "Centered Auto Fit"
 msgstr "Tsentreeritud"
 

@@ -171,8 +171,8 @@ msgid ""
 "Press, move down, move half up, move right, move down, release.\n"
 "(Drawing a lowercase 'h'.)"
 msgstr ""
-"Stisk, posun dolů, posun do půli nahoru, posun doprava, posun dolů, uvolnění."
-"\n"
+"Stisk, posun dolů, posun do půli nahoru, posun doprava, posun dolů, "
+"uvolnění.\n"
 "(Kreslení malého „h“.)"
 
 #. Name

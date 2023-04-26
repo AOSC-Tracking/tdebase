@@ -40,7 +40,8 @@ msgstr "Notifica KDED Home Base URL"
 #. Comment
 #: home/kdedmodule/homedirnotify.desktop:6
 msgid "Provides change notification for user's home folder ($HOME)"
-msgstr "Fornisce notifiche di modifica per la cartella home dell'utente ($HOME)"
+msgstr ""
+"Fornisce notifiche di modifica per la cartella home dell'utente ($HOME)"
 
 #. Name
 #: man/kmanpart.desktop:4

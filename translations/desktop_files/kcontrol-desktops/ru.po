@@ -97,8 +97,8 @@ msgstr "Настройка системного звукового сигнал�
 #: bell/bell.desktop:17
 msgid "Bell;Audio;Sound;Volume;Pitch;Duration;"
 msgstr ""
-"Bell;Audio;Sound;Volume;Pitch;Duration;Звонок;Аудио;Звук;Громкость;Сигнал;Тон"
-";Длительность;"
+"Bell;Audio;Sound;Volume;Pitch;Duration;Звонок;Аудио;Звук;Громкость;Сигнал;"
+"Тон;Длительность;"
 
 #. Name
 #: clock/clock.desktop:13
@@ -129,8 +129,8 @@ msgstr "Настройка цветов"
 #: colors/colors.desktop:16
 msgid "colors;colours;scheme;contrast;Widget colors;Color Scheme;"
 msgstr ""
-"colors;colours;scheme;contrast;Widget colors;Color "
-"Scheme;цвета;схема;тема;контраст;цвет виджетов;цветовая схема;"
+"colors;colours;scheme;contrast;Widget colors;Color Scheme;цвета;схема;тема;"
+"контраст;цвет виджетов;цветовая схема;"
 
 #. Name
 #: componentchooser/EXAMPLE.desktop:1

@@ -646,7 +646,6 @@ msgstr "சப்பான்"
 #. Name
 #: jv/entry.desktop:2
 #, fuzzy
-#| msgid "Indonesia"
 msgid "Indonesia (Java)"
 msgstr "இந்தோனீசியா"
 
