@@ -244,15 +244,12 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, TDEConfig *_co
   TQWhatsThis::add( label, i18n("In this column you can customize mouse clicks into the titlebar"
                                " or the frame of an active window.") );
 
-  // Titlebar and frame, active, mouse button 1
-  combo = new TQComboBox(grid);
-  combo->insertItem(i18n("Raise"));
-  combo->insertItem(i18n("Lower"));
-  combo->insertItem(i18n("Operations Menu"));
-  combo->insertItem(i18n("Toggle Raise & Lower"));
-  combo->insertItem(i18n("Nothing"));
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
-  coTiAct1 = combo;
+  items << i18n("Raise")
+        << i18n("Lower")
+        << i18n("Operations Menu")
+        << i18n("Toggle Raise & Lower")
+        << i18n("Nothing")
+        << i18n("Shade");
 
   txtButton1 = i18n("Behavior on <em>left</em> click into the titlebar or frame of an "
      "<em>active</em> window.");
@@ -261,19 +258,19 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, TDEConfig *_co
      "<em>active</em> window.");
 
   // Be nice to left handed users
-  if ( leftHandedMouse ) tqSwap(txtButton1, txtButton3);
+  if (leftHandedMouse)
+  {
+    tqSwap(txtButton1, txtButton3);
+  }
 
+  // Titlebar and frame, active, mouse button 1
+  combo = new TQComboBox(grid);
+  combo->insertStringList(items);
+  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  coTiAct1 = combo;
   TQWhatsThis::add(combo, txtButton1);
 
   // Titlebar and frame, active, mouse button 2
-
-  items << i18n("Raise")
-        << i18n("Lower")
-        << i18n("Operations Menu")
-        << i18n("Toggle Raise & Lower")
-        << i18n("Nothing")
-        << i18n("Shade");
-
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
   connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
