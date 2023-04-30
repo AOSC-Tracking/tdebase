@@ -68,6 +68,7 @@ private:
   TQCheckBox *cbShowTips;
   TQCheckBox *cbShowPreviewsInTips;
   TQCheckBox *cbRenameDirectlyIcon;
+  TQCheckBox *cbDoubleClickMoveToParent;
 
   TQCheckBox *cbMoveToTrash;
   TQCheckBox *cbDelete;

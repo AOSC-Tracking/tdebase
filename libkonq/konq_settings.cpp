@@ -121,6 +121,8 @@ void KonqFMSettings::init( TDEConfig * config )
 
   /// true if TQString::localeAwareCompare is case sensitive (it usually isn't, when LC_COLLATE is set)
   d->localeAwareCompareIsCaseSensitive = TQString( "a" ).localeAwareCompare( "B" ) > 0; // see #40131
+
+  m_doubleClickMoveToParent = config->readBoolEntry("DoubleClickMoveToParent", true);
 }
 
 bool KonqFMSettings::shouldEmbed( const TQString & serviceType ) const
