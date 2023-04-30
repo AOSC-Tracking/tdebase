@@ -126,6 +126,11 @@ KBehaviourOptions::KBehaviourOptions(TDEConfig *config, TQString group, TQWidget
                                                "renamed by clicking directly on the icon name. "));
     connect(cbRenameDirectlyIcon, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
 
+    cbDoubleClickMoveToParent = new TQCheckBox(i18n("Double click on empty area to move to parent folder"), vbox);
+    TQWhatsThis::add(cbDoubleClickMoveToParent, i18n("When this option is enabled, double clicking an "
+                                                "empty area will navigate to the parent folder."));
+    connect(cbDoubleClickMoveToParent, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+
 	TQHBoxLayout *hlay = new TQHBoxLayout( lay );
 
     label = new TQLabel(i18n("Home &URL:"), this);
@@ -213,6 +218,8 @@ void KBehaviourOptions::load( bool useDefaults )
 
     cbRenameDirectlyIcon->setChecked( g_pConfig->readBoolEntry("RenameIconDirectly",  DEFAULT_RENAMEICONDIRECTLY ) );
 
+    cbDoubleClickMoveToParent->setChecked(g_pConfig->readBoolEntry("DoubleClickMoveToParent", true));
+
     TDEConfig globalconfig("kdeglobals", true, false);
     globalconfig.setGroup( "KDE" );
     cbShowDeleteCommand->setChecked( globalconfig.readBoolEntry("ShowDeleteCommand", false) );
@@ -254,6 +261,7 @@ void KBehaviourOptions::save()
 //    g_pConfig->writeEntry( "FileTipsItems", sbToolTip->value() );
 
     g_pConfig->writeEntry( "RenameIconDirectly", cbRenameDirectlyIcon->isChecked());
+    g_pConfig->writeEntry( "DoubleClickMoveToParent", cbDoubleClickMoveToParent->isChecked());
 
     TDEConfig sidebarconfig("konqsidebartng.rc");
     sidebarconfig.setGroup( "" );

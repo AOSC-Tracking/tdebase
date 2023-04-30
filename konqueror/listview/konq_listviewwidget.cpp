@@ -525,33 +525,37 @@ void KonqBaseListViewWidget::contentsWheelEvent( TQWheelEvent *e )
 
 void KonqBaseListViewWidget::contentsMouseDoubleClickEvent(TQMouseEvent *e)
 {
-	if (m_rubber) {
-		TQRect r(m_rubber->normalize());
-		delete m_rubber;
-		m_rubber = NULL;
-		repaintContents(r, false);
-	}
-		
-	TQPoint vp = contentsToViewport(e->pos());
-	KonqBaseListViewItem* item = isExecuteArea(vp) ?
-		static_cast<KonqBaseListViewItem*>(itemAt(vp)) : NULL;
+  if (m_rubber)
+  {
+    TQRect r(m_rubber->normalize());
+    delete m_rubber;
+    m_rubber = NULL;
+    repaintContents(r, false);
+  }
 
-	if (item)	{
+  TQPoint vp = contentsToViewport(e->pos());
+  KonqBaseListViewItem* item = isExecuteArea(vp) ?
+    static_cast<KonqBaseListViewItem*>(itemAt(vp)) : NULL;
+
+  if (item)
+  {
     TDEListView::contentsMouseDoubleClickEvent(e);
-	}
-	else {
+  }
+  else if (m_pSettings->doubleClickMoveToParent())
+  {
     KParts::URLArgs args;
     args.trustedSource = true;
-	  KURL baseURL(m_dirLister->url().internalReferenceURL());
-	  if (baseURL.isEmpty())
-	  {
-	    baseURL = m_dirLister->url();
-	  }
-	  KURL upURL = baseURL.upURL();
-	  if (!upURL.isEmpty()) {
-	    m_pBrowserView->extension()->openURLRequest(upURL, args);
-	  }
-	}
+    KURL baseURL(m_dirLister->url().internalReferenceURL());
+    if (baseURL.isEmpty())
+    {
+      baseURL = m_dirLister->url();
+    }
+    KURL upURL = baseURL.upURL();
+    if (!upURL.isEmpty())
+    {
+      m_pBrowserView->extension()->openURLRequest(upURL, args);
+    }
+  }
 }
 
 void KonqBaseListViewWidget::leaveEvent( TQEvent *e )

@@ -81,12 +81,13 @@ public:
   bool underlineLink() const { return m_underlineLink; }
   bool fileSizeInBytes() const { return m_fileSizeInBytes; }
   bool alwaysNewWin() const { return m_alwaysNewWin; }
+  bool doubleClickMoveToParent() const { return m_doubleClickMoveToParent; }
   const TQString & homeURL() const { return m_homeURL; }
 
   bool showFileTips() const {return m_showFileTips; }
   bool showPreviewsInFileTips() const;
   int numFileTips() const {return m_numFileTips; }
-    bool renameIconDirectly() const;
+  bool renameIconDirectly() const;
 
   // Font settings
   const TQFont& standardFont() const { return m_standardFont; }
@@ -107,7 +108,7 @@ private:
   bool m_underlineLink;
   bool m_fileSizeInBytes;
   bool m_alwaysNewWin;
-  bool m_bTreeFollow;
+  bool m_doubleClickMoveToParent;
 
   TQMap<TQString, TQString> m_embedMap;
 

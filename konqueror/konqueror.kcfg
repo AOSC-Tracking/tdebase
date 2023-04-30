@@ -45,6 +45,12 @@
       <whatsthis>Checking this option will allow files to be renamed by clicking directly on the icon name.</whatsthis>
       <!-- checked -->
     </entry>
+    <entry key="DoubleClickMoveToParent" type="Bool">
+      <default>true</default>
+      <label>Double click on empty area to move to parent folder</label>
+      <whatsthis>When this option is enabled, double clicking an empty area will navigate to the parent folder.</whatsthis>
+      <!-- checked -->
+    </entry>
     <entry key="ShowDeleteCommand" type="Bool">
       <default>true</default> 
       <label>Show 'Delete' menu entries which bypass the trashcan</label>
