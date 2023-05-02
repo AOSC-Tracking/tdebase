@@ -549,19 +549,147 @@ viewing a folder in Icon Mode.</para></listitem>
 <varlistentry>
 <term><menuchoice>
 <guimenu>View</guimenu>
+<guimenuitem>Show Hidden Files</guimenuitem>
+</menuchoice></term>
+<listitem><para>Show hidden (dot) files.</para></listitem>
+</varlistentry>
+
+
+<varlistentry>
+
+<term><menuchoice>
+<guimenu>View</guimenu>
 <guisubmenu>Sort</guisubmenu>
 </menuchoice></term>
-<listitem><para>Choose order in which items are presented in the
-window when in Icon or MultiColumn View mode.</para></listitem>
+<listitem>
+
+<para>In
+<emphasis role="bold">Icon View</emphasis> or
+<emphasis role="bold">MultiColumn View</emphasis>:
+Choose order in which items are presented in the window.
+</para>
+
+<para>In
+<emphasis role="bold">Detailed List View</emphasis>,
+<emphasis role="bold">Tree View</emphasis>,
+<emphasis role="bold">Text View</emphasis> or
+<emphasis role="bold">Info List View</emphasis>:
+Access the following sort options &amp; actions submenu.
+<variablelist>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Alt;<keycap>1</keycap></keycombo>
+</shortcut>
+<guimenu>View</guimenu>
+<guisubmenu>Sort</guisubmenu>
+<guimenuitem>Unicode based</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Sort file names in numeric Unicode character codepoint order.
+</para></listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Alt;<keycap>2</keycap></keycombo>
+</shortcut>
 <guimenu>View</guimenu>
-<guimenuitem>Case Insensitive Sort</guimenuitem>
+<guisubmenu>Sort</guisubmenu>
+<guimenuitem>Unicode based, case-insensitive</guimenuitem>
 </menuchoice></term>
-<listitem><para>Choose whether the sort order in Tree, Detailed List
-or Text View modes is case sensitive.</para></listitem>
+<listitem><para>
+This is a <guimenuitem>Unicode based</guimenuitem> sort, modified so
+that upper and lower case alphabetic character variants sort together.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Alt;<keycap>3</keycap></keycombo>
+</shortcut>
+<guimenu>View</guimenu>
+<guisubmenu>Sort</guisubmenu>
+<guimenuitem>Locale based</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Sort file names according to the rules of the current locale.
+The current locale can be displayed using the command
+<literal>`locale | grep COLL`</literal>.
+If the value of <literal>'LC_COLLATE'</literal> is either
+<literal>'C'</literal> or <literal>'POSIX'</literal>, then the
+sort order will be identical to <guimenuitem>Unicode based</guimenuitem>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;&Shift;<keycap>F</keycap></keycombo>
+</shortcut>
+<guimenu>View</guimenu>
+<guisubmenu>Sort</guisubmenu>
+<guimenuitem>Group Directories First</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Folders will be listed <emphasis>before</emphasis> non-folders,
+regardless of sort column and order.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;&Shift;<keycap>H</keycap></keycombo>
+</shortcut><guimenu>View</guimenu>
+<guisubmenu>Sort</guisubmenu>
+<guimenuitem>Group Hidden First</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+If "hidden" files and folders are visible, they will be listed
+<emphasis>before</emphasis> non-hidden files and folders,
+regardless of sort column and order.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo>
+</shortcut>
+<guimenu>View</guimenu>
+<guisubmenu>Sort</guisubmenu>
+<guimenuitem>Alternate Sort Order</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Users may sort the list in different ways by clicking on different
+columns. This action allows one to toggle sorting between the two
+most recently clicked sort columns without using the mouse.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>R</keycap></keycombo>
+</shortcut>
+<guimenu>View</guimenu>
+<guisubmenu>Sort</guisubmenu>
+<guimenuitem>Reverse Sort Order</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Toggle between ascending and descending ordering of current sort
+column without using the mouse.
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+</para>
+</listitem>
+
 </varlistentry>
 
 <varlistentry>
@@ -636,14 +764,6 @@ choice.</para></listitem>
 files
 or &HTML; pages instead of the normal icons in Icon or
 MultiColumn View modes.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>View</guimenu>
-<guimenuitem>Show Hidden Files</guimenuitem>
-</menuchoice></term>
-<listitem><para>Show hidden (dot) files.</para></listitem>
 </varlistentry>
 
 <varlistentry>
