@@ -31,6 +31,11 @@
 #include <dmctl.h>
 #include <inttypes.h>
 
+#ifdef Q_OS_SOLARIS
+#include <sys/statvfs.h>
+#define statfs statvfs
+#endif /* Q_OS_SOLARIS */
+
 #include <tqimage.h>
 #include <tqpainter.h>
 #include <tqstyle.h>

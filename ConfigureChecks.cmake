@@ -575,3 +575,18 @@ if( BUILD_KXKB )
   endif( )
 
 endif( )
+
+if( BUILD_KCONTROL OR BUILD_TDM )
+  # SunOS kstat
+  check_library_exists( kstat kstat_open "" HAVE_KSTAT )
+  if( HAVE_KSTAT )
+    set( KSTAT_LIBRARIES kstat )
+  else()
+    if( ${CMAKE_SYSTEM_NAME} MATCHES "SunOS" )
+      tde_message_fatal( "libkstat not found on SunOS platform!" )
+    endif()
+    set( KSTAT_LIBRARIES "" )
+  endif( )
+endif( BUILD_KCONTROL OR BUILD_TDM )
+
+check_include_files( "sys/time.h;sys/loadavg.h" HAVE_SYS_LOADAVG_H )

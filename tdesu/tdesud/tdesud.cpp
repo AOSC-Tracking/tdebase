@@ -45,7 +45,8 @@
 #include <pwd.h>
 #include <errno.h>
 
-#if !defined(__OpenBSD__) && !defined(__FreeBSD__) && !defined(__NetBSD__)
+#if !defined(__OpenBSD__) && !defined(__FreeBSD__) && !defined(__NetBSD__) &&\
+	!defined(Q_OS_SOLARIS)
 #include <sys/prctl.h>
 #endif
 #include <sys/time.h>
@@ -251,7 +252,8 @@ int create_socket()
 
 int main(int argc, char *argv[])
 {
-#if !defined(__OpenBSD__) && !defined(__FreeBSD__) && !defined(__NetBSD__)
+#if !defined(__OpenBSD__) && !defined(__FreeBSD__) && !defined(__NetBSD__) &&\
+	!defined(Q_OS_SOLARIS)
     prctl(PR_SET_DUMPABLE, 0);
 #endif
 

@@ -45,9 +45,9 @@ bool GetInfo_CPU( TQListView *lBox ) {
 	char		*ptr;
 	uint32_t	i, ncpus;
 	unsigned long	state_begin;
-	QString		state;
-	QString		mhz;
-	QString		inst;
+	TQString	state;
+	TQString	mhz;
+	TQString	inst;
 
 	/*
 	 *  get a kstat handle first and update the user's kstat chain
@@ -167,8 +167,8 @@ bool GetInfo_Partitions( TQListView *lBox ) {
 	struct mnttab	mnt;
 	struct statvfs	statbuf;
 	fsblkcnt_t	tmp;
-	QString		total;
-	QString		avail;
+	TQString	total;
+	TQString	avail;
 	time_t		mnttime;
 	char		*timetxt;
 	char		*ptr;
@@ -315,7 +315,7 @@ bool GetInfo_XServer_and_Video( TQListView *lBox ) {
  */
 TQListViewItem *mktree( TQListViewItem *top, const char *path ) {
 
-	QListViewItem	*parent,
+	TQListViewItem	*parent,
 			*previous,
 			*result;
 	char		*str = strdup( path ),
@@ -380,7 +380,7 @@ TQListViewItem *mktree( TQListViewItem *top, const char *path ) {
 /*
  *  prop_type_str()  -- return the property type as a string
  */
-char *prop_type_str( di_prop_t prop ) {
+const char *prop_type_str( di_prop_t prop ) {
 
 	switch( di_prop_type( prop )) {
 		case DI_PROP_TYPE_UNDEF_IT:
@@ -448,8 +448,8 @@ int prop_type_guess( uchar_t *data, int len ) {
  */
 int dump_minor_node( di_node_t node, di_minor_t minor, void *arg ) {
 
-	QListViewItem	*item;
-	QString		majmin;
+	TQListViewItem	*item;
+	TQString	majmin;
 	char		*type;
 	dev_t		dev;
 
@@ -466,7 +466,7 @@ int dump_minor_node( di_node_t node, di_minor_t minor, void *arg ) {
 		(type == NULL) ? "NULL" : type );
 
 	if( (dev = di_minor_devt( minor )) != DDI_DEV_T_NONE ) {
-		majmin.sprintf( "%ld/%ld", major( dev ), minor( dev ));
+		majmin.sprintf( "%u/%u", major( dev ), minor( dev ));
 		new TQListViewItem( item, i18n( "Major/Minor:" ), majmin );
 	}
 
@@ -562,7 +562,7 @@ TQString propvalue( di_prop_t prop ) {
  */
 int dump_node( di_node_t node, void *arg ) {
 
-	QListViewItem	*top = (TQListViewItem *) arg,
+	TQListViewItem	*top = (TQListViewItem *) arg,
 			*parent,
 			*previous;
 	char		*path;
@@ -641,7 +641,7 @@ int dump_node( di_node_t node, void *arg ) {
 			/*
 			 *  property type & value
 			 */
-			QListViewItem	*tmp,
+			TQListViewItem	*tmp,
 					*prev;
 			tmp = new TQListViewItem( previous, di_prop_name( prop ));
 			tmp->setExpandable( true );
@@ -668,7 +668,7 @@ int dump_node( di_node_t node, void *arg ) {
 
 bool GetInfo_Devices( TQListView *lBox ) {
 
-	QListViewItem		*top;
+	TQListViewItem		*top;
 	di_node_t		root_node;
 
 	/*

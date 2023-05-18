@@ -68,7 +68,7 @@
 #include "netdev.h"
 #endif /* OSTYPE_NetBSD */
 
-#ifdef OSTYPE_Solaris
+#if defined(OSTYPE_Solaris) || defined(OSTYPE_SunOS)
 #include "LoadAvg.h"
 #include "Memory.h"
 #include "NetDev.h"
@@ -146,7 +146,7 @@ struct SensorModul SensorModulList[] = {
   { "NetDev", initNetDev, exitNetDev, updateNetDev, checkNetDev, 0, NULLTIME },
 #endif /* OSTYPE_NetBSD */
 
-#ifdef OSTYPE_Solaris
+#if defined(OSTYPE_Solaris) || defined(OSTYPE_SunOS)
   { "LoadAvg", initLoadAvg, exitLoadAvg, updateLoadAvg, NULLVVFUNC, 0, NULLTIME },
   { "Memory", initMemory, exitMemory, updateMemory, NULLVVFUNC, 0, NULLTIME },
   { "NetDev", initNetDev, exitNetDev, updateNetDev, NULLVVFUNC, 0, NULLTIME },

@@ -235,8 +235,36 @@ TQFont KSysInfo::getFixedWidthFont(){
 ///////////////////
 
 ///////////////////
-//#elif defined(__svr4__) && defined(sun)
+#elif defined(Q_OS_SOLARIS)
 ///////////////////
+#include <kstat.h>
+
+	void KSysInfo::initHWInfo() {
+		kstat_ctl_t	*kctl;
+		kstat_t		*ksp;
+		kstat_named_t	*kdata;
+
+		m_cpu_speed = 0;
+		/* cpu_info:0:cpu_info0:current_clock_Hz */
+
+		kctl = kstat_open();
+		if (kctl == NULL)
+			return;
+		if (kstat_chain_update(kctl) != 0)
+			goto out;
+		ksp = kstat_lookup(kctl, "cpu_info", 0, "cpu_info0");
+		if (ksp == NULL)
+			goto out;
+		if (kstat_read(kctl, ksp, NULL) == -1 )
+			goto out;
+
+		kdata = (kstat_named_t *)kstat_data_lookup(ksp,
+			"clock_Hz");
+		if (kdata != NULL)
+			m_cpu_speed = kdata->value.ui64;
+		out:
+		kstat_close(kctl);
+	}
 
 ///////////////////
 //#elif __svr4__

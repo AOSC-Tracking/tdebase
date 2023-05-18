@@ -51,6 +51,12 @@ from the copyright holder.
 # include <sys/vt.h>
 #endif
 
+#ifdef HAVE_PTHREAD_SETNAME_NP
+#include <pthread.h>
+#endif /* pthread_setname_np() */
+
+#include <tqglobal.h>
+
 // Limited by the number of VTs configured into the kernel or 256, whichever is less
 #define MAX_VT_NUMBER 48
 
@@ -66,7 +72,8 @@ static void MainLoop( void );
 
 static int signalFds[2];
 
-#if !defined(HAVE_SETPROCTITLE) && !defined(NOXDMTITLE)
+#if !defined(HAVE_SETPROCTITLE) && !defined(NOXDMTITLE) && \
+    !defined(HAVE_PTHREAD_SETNAME_NP)
 static char *Title;
 static int TitleLen;
 #endif
@@ -104,12 +111,22 @@ main( int argc, char **argv )
 		if (!StrDup( &progpath, argv[0] ))
 			Panic( "Out of memory" );
 	} else
-#ifdef __linux__
+#ifdef Q_OS_LINUX
 	{
 		/* note that this will resolve symlinks ... */
 		int len;
 		char fullpath[PATH_MAX];
 		if ((len = readlink( "/proc/self/exe", fullpath, sizeof(fullpath) )) < 0)
+			Panic( "Invoke with full path specification or mount /proc" );
+		if (!StrNDup( &progpath, fullpath, len ))
+			Panic( "Out of memory" );
+	}
+#elif defined(Q_OS_SOLARIS)
+	{
+		/* note that this will resolve symlinks ... */
+		int len;
+		char fullpath[PATH_MAX];
+		if ((len = readlink( "/proc/self/path/a.out", fullpath, sizeof(fullpath) )) < 0)
 			Panic( "Invoke with full path specification or mount /proc" );
 		if (!StrNDup( &progpath, fullpath, len ))
 			Panic( "Out of memory" );
@@ -161,7 +178,8 @@ main( int argc, char **argv )
 #endif
 	prog = strrchr( progpath, '/' ) + 1;
 
-#if !defined(HAVE_SETPROCTITLE) && !defined(NOXDMTITLE)
+#if !defined(HAVE_SETPROCTITLE) && !defined(NOXDMTITLE) && \
+    !defined(HAVE_PTHREAD_SETNAME_NP)
 	Title = argv[0];
 	TitleLen = (argv[argc - 1] + strlen( argv[argc - 1] )) - Title;
 #endif
@@ -1685,7 +1703,8 @@ UnlockPidFile( void )
 void
 SetTitle( const char *name )
 {
-#if !defined(HAVE_SETPROCTITLE) && !defined(NOXDMTITLE)
+#if !defined(HAVE_SETPROCTITLE) && !defined(NOXDMTITLE) && \
+    !defined(HAVE_PTHREAD_SETNAME_NP)
 	char *p;
 	int left;
 #endif
@@ -1694,6 +1713,8 @@ SetTitle( const char *name )
 	ReInitErrorLog();
 #ifdef HAVE_SETPROCTITLE
 	setproctitle( "%s", name );
+#elif defined(HAVE_PTHREAD_SETNAME_NP)
+	pthread_setname_np(pthread_self(), name);
 #elif !defined(NOXDMTITLE)
 	p = Title;
 	left = TitleLen;

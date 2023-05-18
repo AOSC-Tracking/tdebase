@@ -161,7 +161,11 @@ void delete_pid_file()
         printf("compton-tde lost connection to X server, restarting...\n"); fflush(stdout);
         sleep(1);
         char me[2048];
+#ifdef Q_OS_SOLARIS
+        int chars = readlink("/proc/self/path/a.out", me, sizeof(me));
+#else /* default */
         int chars = readlink("/proc/self/exe", me, sizeof(me));
+#endif /* self exe */
         me[chars] = 0;
         me[2047] = 0;
 	execl(me, basename(me), (char*)NULL);

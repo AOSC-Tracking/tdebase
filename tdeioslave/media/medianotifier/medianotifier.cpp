@@ -19,14 +19,18 @@
 
 #include "medianotifier.h"
 
-#if defined (__OpenBSD__) || defined(__FreeBSD__) || defined(__NetBSD__)
+#if defined (__OpenBSD__) || defined(__FreeBSD__) || defined(__NetBSD__)\
+ || defined(Q_OS_SOLARIS)
+#ifdef Q_OS_SOLARIS
+#include <sys/types.h>
+#endif /* Q_OS_SOLARIS */
 #include <sys/statvfs.h>
 #include <sys/param.h>
 #include <sys/mount.h>
 #else
 #include <sys/vfs.h>
 #endif
-#if defined(__NetBSD__)
+#if defined(__NetBSD__) || defined(Q_OS_SOLARIS)
 #define statfs statvfs
 #endif
 
