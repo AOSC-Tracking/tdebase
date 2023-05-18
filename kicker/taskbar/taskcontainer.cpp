@@ -26,6 +26,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <assert.h>
 
+#ifdef Q_OS_SOLARIS
+#include <procfs.h>
+#endif /* SunOS */
+
 #include <tqbitmap.h>
 #include <tqcolor.h>
 #include <tqcursor.h>
@@ -96,6 +100,18 @@ static void create_atoms(Display *d) {
 }
 
 bool is_process_resumable(pid_t pid) {
+#ifdef Q_OS_SOLARIS
+	TQFile procStatFile(TQString("/proc/%1/lwp/1/lwpsinfo").arg(pid));
+	if (procStatFile.open(IO_ReadOnly)) {
+		TQByteArray statRaw = procStatFile.readAll();
+		lwpsinfo_t *inf = (lwpsinfo_t *)statRaw.data();
+
+		procStatFile.close();
+		if( inf->pr_sname == 'T' ) {
+			return true;
+		}
+	}
+#else /* default */
 	TQFile procStatFile(TQString("/proc/%1/stat").arg(pid));
 	if (procStatFile.open(IO_ReadOnly)) {
 		TQByteArray statRaw = procStatFile.readAll();
@@ -107,13 +123,9 @@ bool is_process_resumable(pid_t pid) {
 		if( state == "T" ) {
 			return true;
 		}
-		else {
-			return false;
-		}
 	}
-	else {
-		return false;
-	}
+#endif /* read process status */
+	return false;
 }
 
 TaskContainer::TaskContainer(Task::Ptr task, TaskBar* bar, TaskBarSettings* settingsObject, TaskBarSettings* globalSettingsObject, TQWidget *parent, const char *name)

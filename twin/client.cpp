@@ -27,6 +27,11 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <tdelocale.h>
 #include <stdlib.h>
 
+#ifdef Q_OS_SOLARIS
+#include <procfs.h>
+#include <libgen.h>
+#endif /* SunOS */
+
 #include "bridge.h"
 #include "group.h"
 #include "workspace.h"
@@ -1860,15 +1865,30 @@ bool Client::isSuspendable() const
         }
     else
         {
+#ifdef Q_OS_SOLARIS
+        TQFile procStatFile(TQString("/proc/%1/lwp/1/lwpsinfo").arg(pid));
+#else /* default */
         TQFile procStatFile(TQString("/proc/%1/stat").arg(pid));
+#endif
         if (procStatFile.open(IO_ReadOnly))
             {
             TQByteArray statRaw = procStatFile.readAll();
             procStatFile.close();
+#ifdef Q_OS_SOLARIS
+            lwpsinfo_t *inf = (lwpsinfo_t *)statRaw.data();
+            char tbuf[PATH_MAX];
+            TQString tcomm;
+            TQString state(TQChar(inf->pr_sname));
+
+            readlink(TQString("/proc/%1/path/a.out").arg(pid).latin1(),
+                tbuf, sizeof(tbuf));
+            tcomm = basename(tbuf);
+#else /* default */
             TQString statString(statRaw);
             TQStringList statFields = TQStringList::split(" ", statString, TRUE);
             TQString tcomm = statFields[1];
             TQString state = statFields[2];
+#endif /* default */
             if( state != "T" )
                 {
                 // Make sure no windows of this process are special
@@ -1921,15 +1941,24 @@ bool Client::isResumeable() const
         }
     else
         {
+#ifdef Q_OS_SOLARIS
+        TQFile procStatFile(TQString("/proc/%1/lwp/1/lwpsinfo").arg(pid));
+#else /* default */
         TQFile procStatFile(TQString("/proc/%1/stat").arg(pid));
+#endif
         if (procStatFile.open(IO_ReadOnly))
             {
             TQByteArray statRaw = procStatFile.readAll();
             procStatFile.close();
+#ifdef Q_OS_SOLARIS
+            lwpsinfo_t *inf = (lwpsinfo_t *)statRaw.data();
+            TQString state(TQChar(inf->pr_sname));
+#else /* default */
             TQString statString(statRaw);
             TQStringList statFields = TQStringList::split(" ", statString, TRUE);
             TQString tcomm = statFields[1];
             TQString state = statFields[2];
+#endif /* default */
             if( state == "T" )
                 {
                 return true;

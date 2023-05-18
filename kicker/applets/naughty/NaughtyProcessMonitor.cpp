@@ -39,6 +39,10 @@
 #include <signal.h>
 #include <unistd.h>
 
+#ifdef Q_OS_SOLARIS
+#include <procfs.h>
+#endif
+
 #include <tqfile.h>
 #include <tqstring.h>
 #include <tqstringlist.h>
@@ -210,7 +214,7 @@ NaughtyProcessMonitor::_process(ulong pid, uint load)
   bool
 NaughtyProcessMonitor::canKill(ulong pid) const
 {
-#ifdef __linux__
+#ifdef Q_OS_LINUX
   TQFile f("/proc/" + TQString::number(pid) + "/status");
 
   if (!f.open(IO_ReadOnly))
@@ -240,6 +244,17 @@ NaughtyProcessMonitor::canKill(ulong pid) const
       return false ;
   
   return geteuid () == d->uidMap_[pid] ;
+#elif defined(Q_OS_SOLARIS)
+  TQFile f("/proc/" + TQString::number(pid) + "/psinfo");
+  TQByteArray raw;
+  psinfo_t *inf;
+
+  if (!f.open(IO_ReadOnly))
+    return false;
+  raw = f.readAll();
+  f.close();
+  inf = (psinfo_t *)raw.data();
+  return geteuid() == inf->pr_euid;
 #else
   Q_UNUSED( pid );
   return false;
@@ -249,8 +264,9 @@ NaughtyProcessMonitor::canKill(ulong pid) const
   TQString
 NaughtyProcessMonitor::processName(ulong pid) const
 {
-#if defined(__linux__) || defined(__OpenBSD__) || defined(__NetBSD__)
-#ifdef __linux__
+#if defined(Q_OS_LINUX) || defined(__OpenBSD__) || defined(__NetBSD__) || \
+    defined(Q_OS_SOLARIS)
+#if defined(Q_OS_LINUX) || defined(Q_OS_SOLARIS)
   TQFile f("/proc/" + TQString::number(pid) + "/cmdline");
 
   if (!f.open(IO_ReadOnly))
@@ -344,7 +360,7 @@ NaughtyProcessMonitor::processName(ulong pid) const
   uint
 NaughtyProcessMonitor::cpuLoad() const
 {
-#ifdef __linux__
+#ifdef Q_OS_LINUX
   TQFile f("/proc/stat");
 
   if (!f.open(IO_ReadOnly))
@@ -400,7 +416,7 @@ NaughtyProcessMonitor::cpuLoad() const
   TQValueList<ulong>
 NaughtyProcessMonitor::pidList() const
 {
-#ifdef __linux__
+#if defined(Q_OS_LINUX) || defined(Q_OS_SOLARIS)
   TQStringList dl(TQDir("/proc").entryList());
 
   TQValueList<ulong> pl;
@@ -505,7 +521,7 @@ NaughtyProcessMonitor::pidList() const
   bool
 NaughtyProcessMonitor::getLoad(ulong pid, uint & load) const
 {
-#ifdef __linux__
+#ifdef Q_OS_LINUX
   TQFile f("/proc/" + TQString::number(pid) + "/stat");
 
   if (!f.open(IO_ReadOnly))
@@ -540,7 +556,8 @@ NaughtyProcessMonitor::getLoad(ulong pid, uint & load) const
   bool
 NaughtyProcessMonitor::kill(ulong pid) const
 {
-#if defined(__linux__) || defined(__OpenBSD__) || defined(__NetBSD__)
+#if defined(Q_OS_LINUX) || defined(__OpenBSD__) || defined(__NetBSD__) ||\
+  defined(Q_OS_SOLARIS)
   return 0 == ::kill(pid, SIGKILL);
 #else
   Q_UNUSED( pid );

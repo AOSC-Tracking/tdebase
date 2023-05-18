@@ -19,6 +19,8 @@
 // kdesktop, konsole, kcontrol, kicker
 #cmakedefine HAVE_XRENDER 1
 
+#cmakedefine HAVE_SYS_LOADAVG_H 1
+
 // taskmanager, klipper
 #cmakedefine HAVE_XFIXES 1
 
@@ -137,6 +139,7 @@
 // tdesu
 #cmakedefine HAVE_STRUCT_UCRED 1
 #cmakedefine HAVE_GETPEEREID 1
+#cmakedefine HAVE_GETPEERUCRED 1
 #cmakedefine HAVE_SYS_SELECT_H 1
 #cmakedefine HAVE_SYS_WAIT_H 1
 #cmakedefine DEFAULT_SUPER_USER_COMMAND "@DEFAULT_SUPER_USER_COMMAND@"
@@ -163,6 +166,7 @@
 #cmakedefine HAVE_INITGROUPS 1
 #cmakedefine HAVE_MKSTEMP 1
 #cmakedefine HAVE_SETPROCTITLE 1
+#cmakedefine HAVE_PTHREAD_SETNAME_NP 1
 #cmakedefine HAVE_SYSINFO 1
 #cmakedefine HAVE_STRNLEN 1
 #cmakedefine HAVE_CRYPT 1

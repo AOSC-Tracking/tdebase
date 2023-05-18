@@ -18,6 +18,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/tdm/kfrontend
   ${XAU_INCLUDE_DIRS}
   ${XDMCP_INCLUDE_DIRS}
+  ${TQT_INCLUDE_DIRS}
 )
 
 link_directories(

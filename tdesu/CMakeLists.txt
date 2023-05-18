@@ -40,6 +40,8 @@ else()
 endif()
 
 check_function_exists( getpeereid HAVE_GETPEEREID )
+check_function_exists( getpeerucred HAVE_GETPEERUCRED )
+
 check_include_file( "sys/select.h" HAVE_SYS_SELECT_H )
 check_include_file( "sys/wait.h" HAVE_SYS_WAIT_H )
 

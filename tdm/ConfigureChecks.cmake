@@ -10,11 +10,15 @@
 #################################################
 
 find_library( UTIL_LIBRARY util )
+if( ${CMAKE_SYSTEM_NAME} MATCHES "SunOS" )
+  set( UTIL_LIBRARY "" )
+endif()
 
 check_function_exists( getdomainname HAVE_GETDOMAINNAME )
 check_function_exists( initgroups HAVE_INITGROUPS )
 check_function_exists( mkstemp HAVE_MKSTEMP )
 check_function_exists( setproctitle HAVE_SETPROCTITLE )
+check_function_exists( pthread_setname_np HAVE_PTHREAD_SETNAME_NP )
 check_function_exists( sysinfo HAVE_SYSINFO )
 check_function_exists( strnlen HAVE_STRNLEN )
 check_function_exists( getifaddrs HAVE_GETIFADDRS )

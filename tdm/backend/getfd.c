@@ -4,9 +4,11 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <sys/ioctl.h>
-#ifdef __linux__
+#ifdef Q_OS_LINUX
 #include <linux/kd.h>
 #endif
+#include <tqglobal.h>
+
 #include "getfd.h"
 
 /*
@@ -22,7 +24,8 @@ is_a_console(int fd) {
 	char arg;
 
 	arg = 0;
-#if defined(__OpenBSD__) || defined(__FreeBSD__) || defined(__NetBSD__)
+#if defined(__OpenBSD__) || defined(__FreeBSD__) || defined(__NetBSD__) ||\
+    defined(Q_OS_SOLARIS)
 	return arg;
 #else
 	return (ioctl(fd, KDGKBTYPE, &arg) == 0

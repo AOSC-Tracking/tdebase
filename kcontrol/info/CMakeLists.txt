@@ -39,10 +39,14 @@ tde_create_translated_desktop(
 )
 
 
+##### configure checks ##########################
+
+include( ConfigureChecks.cmake )
+
 ##### kcm_info (module) #########################
 
 tde_add_kpart( kcm_info AUTOMOC
   SOURCES main.cpp memory.cpp ${OPENGL_SOURCES}
-  LINK tdeui-shared ${GL_LIBRARIES} ${GLU_LIBRARIES}
+  LINK tdeui-shared ${GL_LIBRARIES} ${GLU_LIBRARIES} ${KSTAT_LIBRARIES} ${DEVINFO_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
