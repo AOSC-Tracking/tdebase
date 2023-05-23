@@ -1,3 +1,5 @@
+#include <tqglobal.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -7,7 +9,6 @@
 #ifdef Q_OS_LINUX
 #include <linux/kd.h>
 #endif
-#include <tqglobal.h>
 
 #include "getfd.h"
 

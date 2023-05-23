@@ -34,6 +34,8 @@ from the copyright holder.
  * display manager
  */
 
+#include <tqglobal.h>
+
 #include "dm.h"
 #include "dm_auth.h"
 #include "dm_error.h"
@@ -54,8 +56,6 @@ from the copyright holder.
 #ifdef HAVE_PTHREAD_SETNAME_NP
 #include <pthread.h>
 #endif /* pthread_setname_np() */
-
-#include <tqglobal.h>
 
 // Limited by the number of VTs configured into the kernel or 256, whichever is less
 #define MAX_VT_NUMBER 48
