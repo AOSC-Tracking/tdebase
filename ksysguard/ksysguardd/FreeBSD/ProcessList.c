@@ -98,18 +98,12 @@ typedef struct
 	 * The total amount of memory the process uses. This includes shared and
 	 * swapped memory.
 	 */
-	unsigned int vmSize;
+	size_t vmSize;
 
 	/*
 	 * The amount of physical memory the process currently uses.
 	 */
-	unsigned int vmRss;
-
-	/*
-	 * The amount of memory (shared/swapped/etc) the process shares with
-	 * other processes.
-	 */
-	unsigned int vmLib;
+	size_t vmRss;
 
 	/*
 	 * The number of 1/100 of a second the process has spend in user space.
@@ -264,20 +258,20 @@ updateProcess(int pid)
 #if __FreeBSD_version >= 500015
 		ps->userLoad = 100.0 * (double) p.ki_pctcpu / fscale;
 	ps->vmSize   = p.ki_size;
-	ps->vmRss    = p.ki_rssize * getpagesize();
+	ps->vmRss    = (size_t)(p.ki_rssize) * (size_t)(getpagesize());
 	strlcpy(ps->name,p.ki_comm? p.ki_comm:"????",sizeof(ps->name));
 	strcpy(ps->status,(p.ki_stat>=1)&&(p.ki_stat<=5)? statuses[p.ki_stat-1]:"????");
 #elif defined (__DragonFly__) && __DragonFly_version >= 190000
 		ps->userLoad = 100.0 * (double) p.kp_lwp.kl_pctcpu / fscale;
 	ps->vmSize   = p.kp_vm_map_size;
-	ps->vmRss    = p.kp_vm_rssize * getpagesize();
+	ps->vmRss    = (size_t)(p.kp_vm_rssize) * (size_t)(getpagesize());
 	strlcpy(ps->name,p.kp_comm ? p.kp_comm : "????", 
 		sizeof(ps->name));
 	strcpy(ps->status,(p.kp_stat>=1)&&(p.kp_stat<=5)? statuses[p.kp_stat-1]:"????");
 #else
 	ps->userLoad = 100.0 * (double) p.kp_proc.p_pctcpu / fscale;
 	ps->vmSize   = p.kp_eproc.e_vm.vm_map.size;
-	ps->vmRss    = p.kp_eproc.e_vm.vm_rssize * getpagesize();
+	ps->vmRss    = (size_t)(p.kp_eproc.e_vm.vm_rssize) * (size_t)(getpagesize());
 #if defined (__DragonFly__)
 	strlcpy(ps->name,p.kp_thread.td_comm ? p.kp_thread.td_comm : "????",
 		sizeof(ps->name));
@@ -417,7 +411,7 @@ printProcessList(const char* cmd)
 	ps = first_ctnr(ProcessList); /* skip 'kernel' entry */
 	for (ps = next_ctnr(ProcessList); ps; ps = next_ctnr(ProcessList))
 	{
-		fprintf(CurrentClient, "%s\t%ld\t%ld\t%ld\t%ld\t%s\t%.2f\t%.2f\t%d\t%d\t%d\t%s\t%s\n",
+		fprintf(CurrentClient, "%s\t%ld\t%ld\t%ld\t%ld\t%s\t%.2f\t%.2f\t%d\t%zu\t%zu\t%s\t%s\n",
 			   ps->name, (long)ps->pid, (long)ps->ppid,
 			   (long)ps->uid, (long)ps->gid, ps->status,
 			   ps->userLoad, ps->sysLoad, ps->niceLevel,

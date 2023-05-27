@@ -88,18 +88,12 @@ typedef struct
 	 * The total amount of memory the process uses. This includes shared and
 	 * swapped memory.
 	 */
-	unsigned int vmSize;
+	size_t vmSize;
 
 	/*
 	 * The amount of physical memory the process currently uses.
 	 */
-	unsigned int vmRss;
-
-	/*
-	 * The amount of memory (shared/swapped/etc) the process shares with
-	 * other processes.
-	 */
-	unsigned int vmLib;
+	size_t vmRss;
 
 	/*
 	 * The number of 1/100 of a second the process has spend in user space.
@@ -245,10 +239,10 @@ updateProcess(struct kinfo_proc *p)
 	ps->userName[sizeof(ps->userName)-1]='\0';
 
         ps->userLoad = p->p_pctcpu / 100;
-	ps->vmSize   = (p->p_vm_tsize +
-			p->p_vm_dsize +
-			p->p_vm_ssize) * getpagesize();
-	ps->vmRss    = p->p_vm_rssize * getpagesize();
+	ps->vmSize   = ((size_t)(p->p_vm_tsize) +
+			(size_t)(p->p_vm_dsize) +
+			(size_t)(p->p_vm_ssize)) * (size_t)(getpagesize());
+	ps->vmRss    = (size_t)(p->p_vm_rssize) * (size_t)(getpagesize());
 	strlcpy(ps->name,p->p_comm ? p->p_comm : "????", sizeof(ps->name));
 	strlcpy(ps->status,(p->p_stat>=1)&&(p->p_stat<=5)? statuses[p->p_stat-1]:"????", sizeof(ps->status));
 
@@ -362,7 +356,7 @@ printProcessList(const char* cmd)
 
 	for (ps = first_ctnr(ProcessList); ps; ps = next_ctnr(ProcessList))
 	{
-		fprintf(CurrentClient, "%s\t%ld\t%ld\t%ld\t%ld\t%s\t%.2f\t%.2f\t%d\t%d\t%d\t%s\t%s\n",
+		fprintf(CurrentClient, "%s\t%ld\t%ld\t%ld\t%ld\t%s\t%.2f\t%.2f\t%d\t%zu\t%zu\t%s\t%s\n",
 			   ps->name, (long)ps->pid, (long)ps->ppid,
 			   (long)ps->uid, (long)ps->gid, ps->status,
 			   ps->userLoad, ps->sysLoad, ps->niceLevel,
