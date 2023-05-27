@@ -84,10 +84,10 @@ typedef struct {
     The total amount of memory the process uses. This includes shared and
     swapped memory.
    */
-  unsigned int vmSize;
+  size_t vmSize;
 
 	/* The amount of physical memory the process currently uses. */
-  unsigned int vmRss;
+  size_t vmRss;
 
 	/**
     The number of 1/100 of a second the process has spend in user space.
@@ -215,7 +215,7 @@ static int updateProcess( int pid )
     return -1;
 
   if ( fscanf( fd, "%*d %*s %c %d %d %*d %d %*d %*u %*u %*u %*u %*u %d %d"
-                   "%*d %*d %*d %d %*u %*u %*d %u %u",
+                   "%*d %*d %*d %d %*u %*u %*d %zu %zu",
                    &status, (int*)&ps->ppid, (int*)&ps->gid, &ps->ttyNo,
                    &userTime, &sysTime, &ps->niceLevel, &ps->vmSize,
                    &ps->vmRss) != 9 ) {
@@ -419,7 +419,7 @@ void printProcessList( const char* cmd )
   (void)cmd;
 
   for ( ps = first_ctnr( ProcessList ); ps; ps = next_ctnr( ProcessList ) ) {
-    fprintf( CurrentClient, "%s\t%ld\t%ld\t%ld\t%ld\t%s\t%.2f\t%.2f\t%d\t%d\t%d"
+    fprintf( CurrentClient, "%s\t%ld\t%ld\t%ld\t%ld\t%s\t%.2f\t%.2f\t%d\t%zu\t%zu"
              "\t%s\t%s\n", ps->name, (long)ps->pid, (long)ps->ppid,
              (long)ps->uid, (long)ps->gid, ps->status, ps->userLoad,
              ps->sysLoad, ps->niceLevel, ps->vmSize / 1024, ps->vmRss / 1024,
