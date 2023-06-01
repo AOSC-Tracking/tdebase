@@ -13,6 +13,7 @@
 #include <tqlistview.h>
 #include <tqbuttongroup.h>
 #include <tqspinbox.h>
+#include <tqvbox.h>
 
 #include <tdefontrequester.h>
 #include <kcolorbutton.h>
@@ -25,6 +26,7 @@
 #include <tdeapplication.h>
 #include <kiconloader.h>
 #include <tdemessagebox.h>
+#include <kglobalaccel.h>
 #include <dcopref.h>
 #include <dcopclient.h>
 
@@ -168,9 +170,14 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   //Read rules - we _must_ read _before_ creating xkb-options comboboxes
   loadRules();
 
-  makeOptionsTab();
+  // Load global shortcuts
+#define NOSLOTS
+  keys = new TDEGlobalAccel(TQT_TQOBJECT(this));
+#include "kxkbbindings.cpp"
 
+  makeOptionsTab();
   load();
+  makeShortcutsTab();
 }
 
 
@@ -183,6 +190,8 @@ LayoutConfig::~LayoutConfig()
 void LayoutConfig::load()
 {
 	m_kxkbConfig.load(KxkbConfig::LOAD_ALL);
+
+	keys->readSettings();
 
 	initUI();
 }
@@ -418,6 +427,10 @@ void LayoutConfig::save()
 
 		m_forceGrpOverwrite = false;
 	}
+
+	// Save and apply global shortcuts
+	m_keyChooser->commitChanges();
+	keys->writeSettings(0, true);
 
 	// Get current layout from Kxkb
 	if (!kapp->dcopClient()->isAttached())
@@ -713,6 +726,13 @@ TQWidget* LayoutConfig::makeOptionsTab()
   //scroll->setMinimumSize(450, 330);
 
   return listView;
+}
+
+TQWidget* LayoutConfig::makeShortcutsTab() {
+  m_keyChooser = new KKeyChooser(keys, widget->tabShortcuts, false, false);
+  connect(m_keyChooser, SIGNAL(keyChange()), this, SLOT(changed()));
+  widget->tabShortcuts->layout()->add(m_keyChooser);
+  return m_keyChooser;
 }
 
 void LayoutConfig::updateOptionsCommand()
@@ -1064,7 +1084,7 @@ void LayoutConfig::hotkeyComboChanged() {
     }
 
     if (widget->comboHotkey->currentItem() == other) {
-        widget->tabWidget->setCurrentPage(3);
+        widget->tabWidget->setCurrentPage(4);
         widget->listOptions->ensureItemVisible(grpItem);
         widget->listOptions->setFocus();
     }

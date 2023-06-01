@@ -58,8 +58,11 @@ private:
   KxkbConfig m_kxkbConfig;
   TQDict<OptionListItem> m_optionGroups;
   bool m_forceGrpOverwrite;
+  KKeyChooser *m_keyChooser;
+  TDEGlobalAccel *keys;
 
   TQWidget* makeOptionsTab();
+  TQWidget* makeShortcutsTab();
   void updateStickyLimit();
   static LayoutUnit getLayoutUnitKey(TQListViewItem *sel);
   void checkConflicts(OptionListItem *current, TQStringList conflicting,

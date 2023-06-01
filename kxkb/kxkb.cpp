@@ -74,6 +74,10 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
 
 	m_layoutOwnerMap = new LayoutMap(kxkbConfig);
 
+	// keep in sync with kcmlayout.cpp
+	keys = new TDEGlobalAccel(TQT_TQOBJECT(this));
+#include "kxkbbindings.cpp"
+
     connect( this, TQT_SIGNAL(settingsChanged(int)), TQT_SLOT(slotSettingsChanged(int)) );
     addKipcEventMask( KIPC::SettingsChanged );
 }
@@ -81,11 +85,12 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
 
 KXKBApp::~KXKBApp()
 {
-    delete m_tray;
-    delete m_rules;
-    delete m_extension;
+	delete m_tray;
+	delete m_rules;
+	delete m_extension;
 	delete m_layoutOwnerMap;
 	delete kWinModule;
+	delete keys;
 }
 
 int KXKBApp::newInstance()
@@ -151,6 +156,8 @@ bool KXKBApp::settingsRead()
 	initTray();
 	
 	TDEGlobal::config()->reparseConfiguration(); // kcontrol modified kdeglobals
+	keys->readSettings();
+	keys->updateConnections();
 
 	return true;
 }
@@ -235,6 +242,13 @@ void KXKBApp::nextLayout()
 	setLayout(layout);
 }
 
+void KXKBApp::prevLayout()
+{
+	const LayoutUnit& layout = m_layoutOwnerMap->getPrevLayout().layoutUnit;
+	setLayout(layout);
+}
+
+
 void KXKBApp::menuActivated(int id)
 {
 	if( KxkbLabelController::START_MENU_ID <= id 
@@ -297,10 +311,11 @@ void KXKBApp::windowChanged(WId winId)
 
 void KXKBApp::slotSettingsChanged(int category)
 {
-    if ( category != TDEApplication::SETTINGS_SHORTCUTS)
-		return;
-
-    TDEGlobal::config()->reparseConfiguration(); // kcontrol modified kdeglobals
+	if (category == TDEApplication::SETTINGS_SHORTCUTS) {
+		TDEGlobal::config()->reparseConfiguration(); // kcontrol modified kdeglobals
+		keys->readSettings();
+		keys->updateConnections();
+    }
 }
 
 bool KXKBApp::x11EventFilter(XEvent *e) {
@@ -309,8 +324,7 @@ bool KXKBApp::x11EventFilter(XEvent *e) {
     return TDEApplication::x11EventFilter(e);
 }
 
-const char * DESCRIPTION =
-  I18N_NOOP("A utility to switch keyboard maps");
+const char *DESCRIPTION = I18N_NOOP("A utility to switch keyboard maps");
 
 extern "C" KDE_EXPORT int kdemain(int argc, char *argv[])
 {

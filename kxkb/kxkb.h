@@ -67,6 +67,7 @@ k_dcop:
 
 public slots:
     void nextLayout();
+    void prevLayout();
 
 protected slots:
     void menuActivated(int id);

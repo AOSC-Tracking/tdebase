@@ -36,7 +36,7 @@ bool KxkbConfig::load(int loadMode)
 	config->setGroup("Layout");
 
 	if( loadMode == LOAD_ALL ) {
-		m_resetOldOptions = config->readBoolEntry("ResetOldOptions", false);
+		m_resetOldOptions = config->readBoolEntry("ResetOldOptions", true);
 		m_options = config->readEntry("Options", "");
 	}
 
@@ -205,7 +205,7 @@ void KxkbConfig::setDefaults()
 {
 	m_model = DEFAULT_MODEL;
 
-	m_resetOldOptions = false;
+	m_resetOldOptions = true;
 	m_options = "";
 
 	m_layouts.clear();

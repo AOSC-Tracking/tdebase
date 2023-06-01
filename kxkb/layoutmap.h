@@ -48,6 +48,7 @@ public:
 	
 	void setCurrentLayout(const LayoutUnit& layoutUnit);
 	LayoutState& getNextLayout();
+	LayoutState& getPrevLayout();
 	LayoutState& getCurrentLayout();
 	
 	void setCurrentWindow(WId winId);
