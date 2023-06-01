@@ -76,7 +76,7 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="TQLabel" row="2" column="0" rowspan="1" colspan="2">
+                            <widget class="TQLabel" row="0" column="0" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>textLabel1_4</cstring>
                                 </property>
@@ -90,33 +90,6 @@
                                 </property>
                                 <property name="text">
                                     <string>Active layouts:</string>
-                                </property>
-                            </widget>
-                            <widget class="TQLabel" row="0" column="0" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>labelHotkey</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Key combination to &amp;switch layout:</string>
-                                </property>
-                                <property name="buddy" stdset="0">
-                                    <cstring>comboHotkey</cstring>
-                                </property>
-                            </widget>
-                            <widget class="TQComboBox" row="1" column="0" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>comboHotkey</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>7</hsizetype>
-                                        <vsizetype>0</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Here you can choose the key combination you want to use to switch to the next layout. This list includes only the most common variants. If you choose "Other...", then you will be redirected to the "Options" tab where you can pick from all the available variants. Note that if you have selected Append Mode in the Xkb Options tab this option is not available; you have to use the Xkb Options tab instead.</string>
                                 </property>
                             </widget>
                             <widget class="TQLabel" row="0" column="2" rowspan="1" colspan="3">
@@ -282,7 +255,7 @@
                                     <cstring>editCmdLine</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQListView" row="3" column="0" rowspan="5" colspan="2">
+                            <widget class="TQListView" row="1" column="0" rowspan="6" colspan="2">
                                 <column>
                                     <property name="text">
                                         <string></string>
@@ -422,6 +395,59 @@
                         </grid>
                     </widget>
                 </grid>
+            </widget>
+            <widget class="TQWidget">
+                <property name="name">
+                    <cstring>tabShortcuts</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Keyboard Shortcuts</string>
+                </attribute>
+                <vbox>
+                    <widget class="TQLabel">
+                        <property name="name">
+                            <cstring>labelHotkey</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&lt;qt&gt;&lt;b&gt;Key combination to switch layout (X11):&lt;/b&gt;&lt;/qt&gt;</string>
+                        </property>
+                        <property name="buddy" stdset="0">
+                            <cstring>comboHotkey</cstring>
+                        </property>
+                    </widget>
+                    <widget class="TQComboBox">
+                        <property name="name">
+                            <cstring>comboHotkey</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>0</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="whatsThis" stdset="0">
+                            <string>Here you can choose the key combination you want to use to switch to the next layout. This list includes only the most common variants. If you choose "Other...", then you will be redirected to the "Options" tab where you can pick from all the available variants. Note that if you have selected Append Mode in the Xkb Options tab this option is not available; you have to use the Xkb Options tab instead.</string>
+                        </property>
+                    </widget>
+                    <widget class="KSeparator">
+                        <property name="name">
+                            <cstring>switchingGrpSeparator</cstring>
+                        </property>
+                    </widget>
+                    <widget class="TQLabel">
+                        <property name="name">
+                            <cstring>labelHotkey</cstring>
+                        </property>
+                        <property name="text">
+                            <string>&lt;qt&gt;&lt;b&gt;TDE shortcuts to switch layout:&lt;/b&gt;&lt;/qt&gt;</string>
+                        </property>
+                        <property name="buddy" stdset="0">
+                            <cstring>comboHotkey</cstring>
+                        </property>
+                    </widget>
+                </vbox>
             </widget>
             <widget class="TQWidget">
                 <property name="name">
