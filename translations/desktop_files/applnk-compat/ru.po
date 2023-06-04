@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Alexander Golubev <fatzer2@gmail.com>, 2021.
+# Andrei Stepanov <adem4ik@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2021-01-21 09:11+0000\n"
-"Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
+"PO-Revision-Date: 2023-06-04 15:15+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/applnk-compat/ru/>\n"
 "Language: ru\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: battery.desktop:2 bwarning.desktop:2 cwarning.desktop:2 power.desktop:2
@@ -42,6 +43,13 @@ msgid ""
 "Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
 "Client;"
 msgstr ""
+"EMail;Mail;E-Mail;Address;Email server;IMAP;POP3;Local mailbox;mailbox;User "
+"Information;Reply Address;Server information;User Name;Passwords;Host;"
+"Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
+"Client;Электронная почта;Почта;Эл. почта;Адрес;Почтовый сервер;Локальный "
+"почтовый ящик;почтовый ящик;Информация о пользователе;Адрес ответа;"
+"Информация о сервере;Имя пользователя;Пароли;Хост;Текущий профиль;Профиль;"
+"Организация;Входящий хост;Исходящий хост;Почтовый клиент;"
 
 #. Name
 #: kcmkonq.desktop:2
@@ -72,11 +80,13 @@ msgstr "Настройка паролей"
 #: passwords.desktop:15
 msgid "Passwords;tdesu;Echo characters;Remember passwords;Timeout;"
 msgstr ""
+"Passwords;tdesu;Echo characters;Remember passwords;Timeout;Пароли;"
+"Запоминание паролей;Сохранение паролей;Тайм-аут;"
 
 #. Name
 #: socks.desktop:2
 msgid "Socks"
-msgstr ""
+msgstr "Socks"
 
 #. Name
 #: userinfo.desktop:13
