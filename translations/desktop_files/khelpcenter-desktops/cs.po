@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Slávek Banko <slavek.banko@axis.cz>, 2020.
+# Slávek Banko <slavek.banko@axis.cz>, 2020, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-05 18:15+0000\n"
-"PO-Revision-Date: 2020-09-24 00:40+0000\n"
+"PO-Revision-Date: 2023-06-06 19:15+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/khelpcenter-desktop-files/cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.2.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Help.desktop:10
@@ -166,7 +166,7 @@ msgstr "Úvodní seznámení"
 #. Name
 #: plugins/releasenotes.desktop:6
 msgid "TDE Release Notes"
-msgstr ""
+msgstr "Poznámky k vydání TDE"
 
 #. Name
 #: plugins/support.desktop:6
