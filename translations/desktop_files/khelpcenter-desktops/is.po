@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 09:37+0200\n"
+"POT-Creation-Date: 2023-06-05 18:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -161,6 +161,11 @@ msgstr "TDE á vefnum"
 #: plugins/quickstart.desktop:6
 msgid "Quickstart Guide"
 msgstr "Skyndileiðbeiningar"
+
+#. Name
+#: plugins/releasenotes.desktop:6
+msgid "TDE Release Notes"
+msgstr ""
 
 #. Name
 #: plugins/support.desktop:6

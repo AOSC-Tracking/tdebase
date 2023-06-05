@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 09:37+0200\n"
+"POT-Creation-Date: 2023-06-05 18:15+0000\n"
 "PO-Revision-Date: 2020-07-21 05:23+0000\n"
 "Last-Translator: Emanoil Kotsev <deloptes@gmail.com>\n"
 "Language-Team: Bulgarian <https://mirror.git.trinitydesktop.org/weblate/"
@@ -163,6 +163,11 @@ msgstr "TDE в Интернет"
 #: plugins/quickstart.desktop:6
 msgid "Quickstart Guide"
 msgstr "Ръководство за начинаещите"
+
+#. Name
+#: plugins/releasenotes.desktop:6
+msgid "TDE Release Notes"
+msgstr ""
 
 #. Name
 #: plugins/support.desktop:6
