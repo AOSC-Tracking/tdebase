@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 09:37+0200\n"
+"POT-Creation-Date: 2023-06-05 18:15+0000\n"
 "PO-Revision-Date: 2022-10-25 18:06+0000\n"
 "Last-Translator: Marek W <coronzon88@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
@@ -162,6 +162,11 @@ msgstr "TDE w sieci"
 #: plugins/quickstart.desktop:6
 msgid "Quickstart Guide"
 msgstr "Przewodnik startowy"
+
+#. Name
+#: plugins/releasenotes.desktop:6
+msgid "TDE Release Notes"
+msgstr ""
 
 #. Name
 #: plugins/support.desktop:6
