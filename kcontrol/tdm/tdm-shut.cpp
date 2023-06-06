@@ -208,9 +208,16 @@ void TDMSessionsWidget::load()
   readSD(sdrcombo, "Root");
 
   config->setGroup("Shutdown");
+#if defined(Q_OS_SOLARIS)
+  restart_lined->setURL(config->readEntry("RebootCmd", "/usr/sbin/reboot"));
+#else /* default */
   restart_lined->setURL(config->readEntry("RebootCmd", "/sbin/reboot"));
+#endif /* default */
+
 #if defined(__OpenBSD__)
   shutdown_lined->setURL(config->readEntry("HaltCmd", "/sbin/halt -p"));
+#elif defined(Q_OS_SOLARIS)
+  shutdown_lined->setURL(config->readEntry("HaltCmd", "/usr/sbin/poweroff"));
 #else
   shutdown_lined->setURL(config->readEntry("HaltCmd", "/sbin/poweroff"));
 #endif
@@ -222,8 +229,13 @@ void TDMSessionsWidget::load()
 
 void TDMSessionsWidget::defaults()
 {
+#if defined(Q_OS_SOLARIS)
+  restart_lined->setURL("/usr/sbin/reboot");
+  shutdown_lined->setURL("/usr/sbin/poweroff");
+#else /* default */
   restart_lined->setURL("/sbin/reboot");
   shutdown_lined->setURL("/sbin/poweroff");
+#endif /* default */
 
   sdlcombo->setCurrentItem(SdAll);
   sdrcombo->setCurrentItem(SdRoot);
