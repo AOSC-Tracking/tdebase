@@ -593,6 +593,92 @@ if( BUILD_KCONTROL OR BUILD_TDM )
     endif()
     set( KSTAT_LIBRARIES "" )
   endif( )
+
+  if( NOT DEFINED REBOOT_BINARY )
+    message( STATUS "Looking for reboot" )
+    find_program( REBOOT_BINARY reboot
+                  HINTS /sbin
+                        /usr/sbin
+    )
+    if( REBOOT_BINARY )
+      message( STATUS "Looking for reboot - ${REBOOT_BINARY}" )
+    endif( REBOOT_BINARY )
+  endif( NOT DEFINED REBOOT_BINARY )
+
+  if( NOT DEFINED POWEROFF_BINARY )
+    message( STATUS "Looking for poweroff" )
+    find_program( POWEROFF_BINARY poweroff
+                  HINTS /sbin
+                        /usr/sbin
+    )
+    if( POWEROFF_BINARY )
+      message( STATUS "Looking for poweroff - ${POWEROFF_BINARY}" )
+    endif( POWEROFF_BINARY )
+  endif( NOT DEFINED POWEROFF_BINARY )
+
+  if( NOT DEFINED HALT_BINARY )
+    message( STATUS "Looking for halt" )
+    find_program( HALT_BINARY halt
+                  HINTS /sbin
+                        /usr/sbin
+    )
+    if( HALT_BINARY )
+      message( STATUS "Looking for halt - ${HALT_BINARY}" )
+    endif( HALT_BINARY )
+  endif( NOT DEFINED HALT_BINARY )
+
+  if( NOT DEFINED SHUTDOWN_BINARY )
+    message( STATUS "Looking for shutdown" )
+    find_program( SHUTDOWN_BINARY shutdown
+                  HINTS /sbin
+                        /usr/sbin
+    )
+    if( SHUTDOWN_BINARY )
+      message( STATUS "Looking for shutdown - ${SHUTDOWN_BINARY}" )
+    endif( SHUTDOWN_BINARY )
+  endif( NOT DEFINED SHUTDOWN_BINARY )
+
+  if( ${CMAKE_SYSTEM_NAME} MATCHES "SunOS" )
+    # SunOS based systems
+    if( NOT REBOOT_BINARY AND SHUTDOWN_BINARY )
+      # emulate reboot
+      set( REBOOT_BINARY "${SHUTDOWN_BINARY} -y -i 6")
+    endif( NOT REBOOT_BINARY AND SHUTDOWN_BINARY )
+
+    if( NOT POWEROFF_BINARY AND SHUTDOWN_BINARY )
+      # emulate poweroff
+      set( POWEROFF_BINARY "${SHUTDOWN_BINARY} -y -i 5")
+    endif( NOT POWEROFF_BINARY AND SHUTDOWN_BINARY )
+
+  else( ) # default condition
+    if( NOT REBOOT_BINARY AND SHUTDOWN_BINARY )
+      # emulate reboot
+      set( REBOOT_BINARY "${SHUTDOWN_BINARY} -r now")
+    endif( NOT REBOOT_BINARY AND SHUTDOWN_BINARY )
+
+    if( NOT POWEROFF_BINARY AND SHUTDOWN_BINARY )
+      # emulate poweroff
+      set( POWEROFF_BINARY "${SHUTDOWN_BINARY} -h now")
+    endif( NOT POWEROFF_BINARY AND SHUTDOWN_BINARY )
+
+    if( NOT POWEROFF_BINARY AND HALT_BINARY )
+      # emulate poweroff
+      set( POWEROFF_BINARY "${HALT_BINARY} -p")
+    endif( NOT POWEROFF_BINARY AND HALT_BINARY )
+
+  endif( ${CMAKE_SYSTEM_NAME} MATCHES "SunOS" )
+
+  if( NOT REBOOT_BINARY )
+    tde_message_fatal( "reboot command is not defined" )
+  endif( NOT REBOOT_BINARY )
+
+  if( NOT POWEROFF_BINARY )
+    tde_message_fatal( "poweroff command is not defined" )
+  endif( NOT POWEROFF_BINARY )
+
+  message( STATUS "poweroff - ${POWEROFF_BINARY}" )
+  message( STATUS "reboot - ${REBOOT_BINARY}" )
+
 endif( BUILD_KCONTROL OR BUILD_TDM )
 
 check_include_files( "sys/time.h;sys/loadavg.h" HAVE_SYS_LOADAVG_H )
