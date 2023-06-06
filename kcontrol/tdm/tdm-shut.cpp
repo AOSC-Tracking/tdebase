@@ -17,6 +17,8 @@
     Boston, MA 02110-1301, USA.
 */
 
+#include "config.h"
+
 #include <unistd.h>
 #include <sys/types.h>
 
@@ -91,7 +93,7 @@ TDMSessionsWidget::TDMSessionsWidget(TQWidget *parent, const char *name)
       bm_combo = new KBackedComboBox( group4 );
       bm_combo->insertItem("None", i18n("boot manager", "None"));
       bm_combo->insertItem("Grub", i18n("Grub"));
-#if defined(__linux__) && ( defined(__i386__) || defined(__amd64__) )
+#if defined(Q_OS_LINUX) && ( defined(__i386__) || defined(__amd64__) )
       bm_combo->insertItem("Lilo", i18n("Lilo"));
 #endif
       TQLabel *bm_label = new TQLabel( bm_combo, i18n("Boot manager:"), group4 );
@@ -208,12 +210,8 @@ void TDMSessionsWidget::load()
   readSD(sdrcombo, "Root");
 
   config->setGroup("Shutdown");
-  restart_lined->setURL(config->readEntry("RebootCmd", "/sbin/reboot"));
-#if defined(__OpenBSD__)
-  shutdown_lined->setURL(config->readEntry("HaltCmd", "/sbin/halt -p"));
-#else
-  shutdown_lined->setURL(config->readEntry("HaltCmd", "/sbin/poweroff"));
-#endif
+  restart_lined->setURL(config->readEntry("RebootCmd", REBOOT_BINARY));
+  shutdown_lined->setURL(config->readEntry("HaltCmd", POWEROFF_BINARY));
 
   bm_combo->setCurrentId(config->readEntry("BootManager", "None"));
 }
@@ -222,8 +220,8 @@ void TDMSessionsWidget::load()
 
 void TDMSessionsWidget::defaults()
 {
-  restart_lined->setURL("/sbin/reboot");
-  shutdown_lined->setURL("/sbin/poweroff");
+  restart_lined->setURL(REBOOT_BINARY);
+  shutdown_lined->setURL(POWEROFF_BINARY);
 
   sdlcombo->setCurrentItem(SdAll);
   sdrcombo->setCurrentItem(SdRoot);

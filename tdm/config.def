@@ -33,19 +33,8 @@
 #define TDMCONF KDE_CONFDIR "/tdm"
 #define TDMDATA KDE_DATADIR "/tdm"
 
-#ifdef _AIX
-# define HALT_CMD	"/usr/sbin/shutdown -h now"
-# define REBOOT_CMD	"/usr/sbin/shutdown -r now"
-#elif defined(BSD)
-# define HALT_CMD	"/sbin/shutdown -h now"
-# define REBOOT_CMD	"/sbin/shutdown -r now"
-#elif defined(__SVR4)
-# define HALT_CMD	"/usr/sbin/halt"
-# define REBOOT_CMD	"/usr/sbin/reboot"
-#else
-# define HALT_CMD	"/sbin/poweroff"
-# define REBOOT_CMD	"/sbin/reboot"
-#endif
+# define HALT_CMD	POWEROFF_BINARY
+# define REBOOT_CMD	REBOOT_BINARY
 
 #if defined(BSD) || defined(__linux__)
 # define DEF_USER_PATH "/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games"

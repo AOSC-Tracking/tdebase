@@ -238,3 +238,7 @@
 
 // TDE man installation folder
 #define TDE_MANDIR "@MAN_INSTALL_DIR@"
+
+// System control binaries used in kcontrol/tdm
+#define POWEROFF_BINARY "@POWEROFF_BINARY@"
+#define REBOOT_BINARY "@REBOOT_BINARY@"
