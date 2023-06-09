@@ -1,5 +1,3 @@
-#AM_CPPFLAGS = -DTQT_NO_CAST_ASCII -DTQT_NO_COMPAT
-
 AM_CPPFLAGS = $(all_includes)
 
 SUBDIRS = default pics
