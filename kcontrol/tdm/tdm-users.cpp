@@ -48,7 +48,7 @@ extern KSimpleConfig *config;
 TDMUsersWidget::TDMUsersWidget(TQWidget *parent, const char *name)
     : TQWidget(parent, name)
 {
-#ifdef __linux__
+#ifdef Q_OS_LINUX
     struct stat st;
     if (!stat( "/etc/debian_version", &st )) {	/* debian */
 	defminuid = "1000";
@@ -66,10 +66,18 @@ TDMUsersWidget::TDMUsersWidget(TQWidget *parent, const char *name)
 	defminuid = "500";
 	defmaxuid = "65000";
     }
-#else
+#elif defined(Q_OS_SOLARIS)
+    struct stat st;
+    if (stat( "/etc/dilos_version_build", &st ) == 0) { /* DilOS */
+	defminuid = "1000";
+    } else { /* other illumos distro */
+	defminuid = "100";
+    }
+    defmaxuid = "60000";
+#else /* default */
     defminuid = "1000";
     defmaxuid = "65000";
-#endif
+#endif /* default */
 
     // We assume that $kde_datadir/tdm exists, but better check for pics/ and pics/users,
     // and create them if necessary.
