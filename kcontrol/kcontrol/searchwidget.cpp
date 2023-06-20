@@ -20,7 +20,6 @@
 
 #include <tqlabel.h>
 #include <tqlayout.h>
-#include <tqsortedlist.h>
 #include <tqregexp.h>
 
 #include <klineedit.h>
