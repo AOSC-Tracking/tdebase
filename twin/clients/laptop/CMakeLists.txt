@@ -30,9 +30,9 @@ tde_create_translated_desktop(
 )
 
 
-##### twin3_laptop (module) #####################
+##### twin_laptop (module) #####################
 
-tde_add_kpart( twin3_laptop AUTOMOC
+tde_add_kpart( twin_laptop AUTOMOC
   SOURCES laptopclient.cpp
   LINK tdecorations-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}

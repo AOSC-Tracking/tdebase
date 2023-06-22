@@ -22,13 +22,13 @@ link_directories(
 ##### other data ################################
 
 install( FILES
-    twin.upd twinsticky.upd twiniconify.upd twin3_plugin.upd
+    twin.upd twinsticky.upd twiniconify.upd
     twin_focus1.upd twinupdatewindowsettings.upd
     twin_focus2.upd twin_fsp_workarounds_1.upd
   DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 
 install( PROGRAMS
-    pluginlibFix.pl twin3_plugin.pl twin_focus1.sh twin_focus2.sh
+    pluginlibFix.pl twin_focus1.sh twin_focus2.sh
   DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 
 install( FILES

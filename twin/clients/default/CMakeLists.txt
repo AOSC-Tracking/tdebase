@@ -23,9 +23,9 @@ link_directories(
 )
 
 
-##### twin3_default (module) ####################
+##### twin_default (module) ####################
 
-tde_add_kpart( twin3_default AUTOMOC
+tde_add_kpart( twin_default AUTOMOC
   SOURCES kdedefault.cpp
   LINK tdecorations-shared tdecore-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}

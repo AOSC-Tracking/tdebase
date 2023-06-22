@@ -34,9 +34,9 @@ tde_create_translated_desktop(
 )
 
 
-##### twin3_plastik (module) ####################
+##### twin_plastik (module) ####################
 
-tde_add_kpart( twin3_plastik AUTOMOC
+tde_add_kpart( twin_plastik AUTOMOC
   SOURCES plastik.cpp plastikclient.cpp plastikbutton.cpp misc.cpp
   LINK tdecorations-shared tdeui-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}

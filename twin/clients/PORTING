@@ -2,13 +2,9 @@ It's suggested you check sources of some KDE CVS decoration if in doubts or in n
 Also, the API is documented in the .h header files.
 
 Makefile.am:
-- Change twin_ to twin3_ (in LDFLAGS, LIBADD, kde_module_LTLIBRARIES, SOURCES).
 - Make sure LDFLAGS contains $(KDE_PLUGIN) and -module .
 - Add -ltdecorations to LIBADD.
 - Do NOT rename the directory where the .desktop file is installed ( $(kde_datadir)/twin/ ).
-
-.desktop file:
-- Change twin_ to twin3_ in X-TDE-Library.
 
 Sources:
 - There are no twin/something.h includes, and don't use the KWinInternal namespace.

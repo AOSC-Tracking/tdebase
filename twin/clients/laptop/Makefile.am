@@ -1,11 +1,11 @@
 
 INCLUDES = -I$(srcdir)/../../lib $(all_includes)
 
-kde_module_LTLIBRARIES = twin3_laptop.la
+kde_module_LTLIBRARIES = twin_laptop.la
 
-twin3_laptop_la_SOURCES = laptopclient.cpp
-twin3_laptop_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN) -module 
-twin3_laptop_la_LIBADD  = ../../lib/libtdecorations.la
+twin_laptop_la_SOURCES = laptopclient.cpp
+twin_laptop_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN) -module 
+twin_laptop_la_LIBADD  = ../../lib/libtdecorations.la
 
 METASOURCES = AUTO
 noinst_HEADERS = laptopclient.h

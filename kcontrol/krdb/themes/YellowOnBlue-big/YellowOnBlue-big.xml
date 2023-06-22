@@ -135,7 +135,7 @@
     <inactiveHandle rgb="#1e1ee1" object="twin" />
   </colors>
   <cursors name="" />
-  <wm type="builtin" name="twin3_quartz" >
+  <wm type="builtin" name="twin_quartz" >
     <border size="1" />
   </wm>
   <konqueror>

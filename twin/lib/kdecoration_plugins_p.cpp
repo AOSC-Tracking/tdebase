@@ -42,7 +42,7 @@ KDecorationPlugins::KDecorationPlugins( TDEConfig* cfg )
         fact( NULL ),
         old_library( NULL ),
         old_fact( NULL ),
-        pluginStr( "twin3_undefined " ),
+        pluginStr( "twin_undefined " ),
         config( cfg )
     {
     }

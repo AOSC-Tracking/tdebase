@@ -29,9 +29,9 @@ tde_create_translated_desktop(
 )
 
 
-##### twin3_web (module) ########################
+##### twin_web (module) ########################
 
-tde_add_kpart( twin3_web AUTOMOC
+tde_add_kpart( twin_web AUTOMOC
   SOURCES Web.cpp WebButton.cpp
   LINK tdecorations-shared tdeui-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}

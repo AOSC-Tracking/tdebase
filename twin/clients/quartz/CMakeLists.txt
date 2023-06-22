@@ -32,9 +32,9 @@ tde_create_translated_desktop(
 )
 
 
-##### twin3_quartz (module) #####################
+##### twin_quartz (module) #####################
 
-tde_add_kpart( twin3_quartz AUTOMOC
+tde_add_kpart( twin_quartz AUTOMOC
   SOURCES quartz.cpp
   LINK tdecorations-shared tdeui-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}

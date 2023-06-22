@@ -31,9 +31,9 @@ tde_create_translated_desktop(
 )
 
 
-##### twin3_modernsys (module) ##################
+##### twin_modernsys (module) ##################
 
-tde_add_kpart( twin3_modernsys
+tde_add_kpart( twin_modernsys
   SOURCES modernsys.cpp
   LINK tdecorations-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}

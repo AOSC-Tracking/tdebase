@@ -10,13 +10,13 @@ embedtool_SOURCES         = embedtool.cpp
 embedtool_LDADD           = $(LIB_TQT)
 embedtool_LDFLAGS         = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
-kde_module_LTLIBRARIES    = twin3_keramik.la
+kde_module_LTLIBRARIES    = twin_keramik.la
 
-twin3_keramik_la_SOURCES   = keramik.cpp
-twin3_keramik_la_COMPILE_FIRST = tiles.h
-twin3_keramik_la_LDFLAGS   = $(all_libraries) $(KDE_PLUGIN) -module
-twin3_keramik_la_LIBADD    = $(LIB_TDEUI) ../../lib/libtdecorations.la
-#twin3_keramik_la_LDFLAGS   = $(all_libraries) -avoid-version -module $(KDE_RPATH) $(KDE_MT_LDFLAGS)
+twin_keramik_la_SOURCES   = keramik.cpp
+twin_keramik_la_COMPILE_FIRST = tiles.h
+twin_keramik_la_LDFLAGS   = $(all_libraries) $(KDE_PLUGIN) -module
+twin_keramik_la_LIBADD    = $(LIB_TDEUI) ../../lib/libtdecorations.la
+#twin_keramik_la_LDFLAGS   = $(all_libraries) -avoid-version -module $(KDE_RPATH) $(KDE_MT_LDFLAGS)
 
 METASOURCES               = AUTO
 noinst_headers        	  = keramik.h tiles.h

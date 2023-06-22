@@ -30,9 +30,9 @@ tde_create_translated_desktop(
 )
 
 
-##### twin3_redmond (module) ####################
+##### twin_redmond (module) ####################
 
-tde_add_kpart( twin3_redmond AUTOMOC
+tde_add_kpart( twin_redmond AUTOMOC
   SOURCES redmond.cpp
   LINK tdecorations-shared tdecore-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}

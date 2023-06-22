@@ -1,4 +1,0 @@
-Id=trinity.2
-File=twinrc
-Options=overwrite
-Script=twin3_plugin.pl,perl

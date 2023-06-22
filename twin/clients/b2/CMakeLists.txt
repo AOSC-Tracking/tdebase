@@ -32,9 +32,9 @@ tde_create_translated_desktop(
 )
 
 
-##### twin3_b2 (module) #########################
+##### twin_b2 (module) #########################
 
-tde_add_kpart( twin3_b2 AUTOMOC
+tde_add_kpart( twin_b2 AUTOMOC
   SOURCES b2client.cpp
   LINK tdecorations-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}

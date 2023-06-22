@@ -16,9 +16,9 @@ METASOURCES = AUTO
 sounddir= $(kde_sounddir)
 sound_DATA = pop.wav
 
-update_DATA = twin.upd twinsticky.upd twiniconify.upd twin3_plugin.upd twin_focus1.upd \
+update_DATA = twin.upd twinsticky.upd twiniconify.upd twin_focus1.upd \
         twinupdatewindowsettings.upd twin_focus2.upd twin_fsp_workarounds_1.upd
-update_SCRIPTS = pluginlibFix.pl twin3_plugin.pl twin_focus1.sh twin_focus2.sh
+update_SCRIPTS = pluginlibFix.pl twin_focus1.sh twin_focus2.sh
 updatedir = $(kde_datadir)/tdeconf_update
 
 twin_default_rules_DATA = fsp_workarounds_1.twinrules

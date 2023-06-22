@@ -100,7 +100,7 @@
     <inactiveTitleBtnBg rgb="#dcdcdc" object="twin" />
   </colors>
   <cursors name="" />
-  <wm type="builtin" name="twin3_plastik" >
+  <wm type="builtin" name="twin_plastik" >
     <border size="1" />
   </wm>
   <konqueror>

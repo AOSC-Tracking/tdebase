@@ -32,12 +32,12 @@ tde_create_translated_desktop(
 )
 
 
-##### twin3_keramik (module) ####################
+##### twin_keramik (module) ####################
 
 set_source_files_properties( keramik.cpp
   PROPERTIES OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/tiles.h )
 
-tde_add_kpart( twin3_keramik AUTOMOC
+tde_add_kpart( twin_keramik AUTOMOC
   SOURCES keramik.cpp
   LINK tdecorations-shared tdeui-shared
   DESTINATION ${PLUGIN_INSTALL_DIR}
