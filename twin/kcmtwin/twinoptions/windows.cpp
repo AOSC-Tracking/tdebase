@@ -56,33 +56,34 @@
 
 
 // twin config keywords
-#define KWIN_FOCUS                 "FocusPolicy"
-#define KWIN_PLACEMENT             "Placement"
-#define KWIN_MOVE                  "MoveMode"
-#define KWIN_MINIMIZE_ANIM         "AnimateMinimize"
-#define KWIN_MINIMIZE_ANIM_SPEED   "AnimateMinimizeSpeed"
-#define KWIN_RESIZE_OPAQUE         "ResizeMode"
-#define KWIN_GEOMETRY              "GeometryTip"
-#define KWIN_AUTORAISE_INTERVAL    "AutoRaiseInterval"
-#define KWIN_AUTORAISE             "AutoRaise"
-#define KWIN_DELAYFOCUS_INTERVAL   "DelayFocusInterval"
-#define KWIN_DELAYFOCUS            "DelayFocus"
-#define KWIN_CLICKRAISE            "ClickRaise"
-#define KWIN_ANIMSHADE             "AnimateShade"
-#define KWIN_MOVE_RESIZE_MAXIMIZED "MoveResizeMaximizedWindows"
-#define KWIN_RESET_MAX_WIN_GEOM    "ResetMaximizedWindowGeometry"
-#define KWIN_ALTTABMODE            "AltTabStyle"
-#define KWIN_TRAVERSE_ALL          "TraverseAll"
-#define KWIN_SHOW_POPUP            "ShowPopup"
-#define KWIN_ROLL_OVER_DESKTOPS    "RollOverDesktops"
-#define KWIN_SHADEHOVER            "ShadeHover"
-#define KWIN_SHADEHOVER_INTERVAL   "ShadeHoverInterval"
-#define KWIN_FOCUS_STEALING        "FocusStealingPreventionLevel"
-#define KWIN_HIDE_UTILITY          "HideUtilityWindowsForInactive"
-#define KWIN_SEPARATE_SCREEN_FOCUS "SeparateScreenFocus"
-#define KWIN_ACTIVE_MOUSE_SCREEN   "ActiveMouseScreen"
-#define KWIN_ACTIVE_BORDERS        "ActiveBorders"
-#define KWIN_ACTIVE_BORDER_DELAY   "ActiveBorderDelay"
+#define KWIN_FOCUS                  "FocusPolicy"
+#define KWIN_PLACEMENT              "Placement"
+#define KWIN_MOVE                   "MoveMode"
+#define KWIN_MINIMIZE_ANIM          "AnimateMinimize"
+#define KWIN_MINIMIZE_ANIM_SPEED    "AnimateMinimizeSpeed"
+#define KWIN_RESIZE_OPAQUE          "ResizeMode"
+#define KWIN_GEOMETRY               "GeometryTip"
+#define KWIN_AUTORAISE_INTERVAL     "AutoRaiseInterval"
+#define KWIN_AUTORAISE              "AutoRaise"
+#define KWIN_DELAYFOCUS_INTERVAL    "DelayFocusInterval"
+#define KWIN_DELAYFOCUS             "DelayFocus"
+#define KWIN_CLICKRAISE             "ClickRaise"
+#define KWIN_ANIMSHADE              "AnimateShade"
+#define KWIN_MOVE_RESIZE_MAXIMIZED  "MoveResizeMaximizedWindows"
+#define KWIN_RESET_MAX_WIN_GEOM     "ResetMaximizedWindowGeometry"
+#define KWIN_ALTTABMODE             "AltTabStyle"
+#define KWIN_TRAVERSE_ALL           "TraverseAll"
+#define KWIN_SHOW_POPUP             "ShowPopup"
+#define KWIN_ROLL_OVER_DESKTOPS     "RollOverDesktops"
+#define KWIN_SHADEHOVER             "ShadeHover"
+#define KWIN_SHADEHOVER_INTERVAL    "ShadeHoverInterval"
+#define KWIN_FOCUS_STEALING         "FocusStealingPreventionLevel"
+#define KWIN_HIDE_UTILITY           "HideUtilityWindowsForInactive"
+#define KWIN_SEPARATE_SCREEN_FOCUS  "SeparateScreenFocus"
+#define KWIN_ACTIVE_MOUSE_SCREEN    "ActiveMouseScreen"
+#define KWIN_ACTIVE_BORDERS         "ActiveBorders"
+#define KWIN_ACTIVE_BORDER_DELAY    "ActiveBorderDelay"
+#define KWIN_ACTIVE_BORDER_DISTANCE "ActiveBorderDistance"
 
 // legacy options
 #define KWIN_OLD_ACTIVE_BORDERS      "ElectricBorders"
@@ -700,6 +701,16 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget
        " active borders feature. The selected action will be performed after the mouse "
        " has been pushed against a screen border for the specified number of milliseconds.") );
 
+    distance = new KIntNumInput(10, active_box);
+    distance->setRange(1, 100, 1, true);
+    distance->setSuffix(i18n(" px"));
+    distance->setLabel(i18n("Border &activation distance:"));
+    TQWhatsThis::add( distance, i18n("The distance from which an active border can"
+       " be activated. A lower value requires you to push repeatedly into the edge."
+       " Setting this to a higher value (e.g. 30) activates the borders when the"
+       " mouse is close enough, making them easier to activate but also more prone"
+       " to false activations."));
+
     active_vbox->addSpacing(10);
     active_vbox->addWidget(active_func_label);
     active_vbox->addWidget(active_disable);
@@ -709,6 +720,7 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget
     active_vbox->addWidget(active_tile_conf);
     active_vbox->addSpacing(15);
     active_vbox->addWidget(delays);
+    active_vbox->addWidget(distance);
 
     connect(active_box, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(setEBorders()));
 
@@ -716,7 +728,8 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget
     connect(active_box,      TQT_SIGNAL(clicked(int)),      this, TQT_SLOT(changed()));
     connect(active_move,     TQT_SIGNAL(clicked()),         this, TQT_SLOT(changed()));
     connect(active_maximize, TQT_SIGNAL(clicked()),         this, TQT_SLOT(changed()));
-    connect(delays,            TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
+    connect(delays,          TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
+    connect(distance,        TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
 
     lay->addWidget(active_box);
 
@@ -781,6 +794,7 @@ void KAdvancedConfig::load( void )
 
     setActiveBorders(active_borders);
     setActiveBorderDelay(active_borders_delay);
+    setActiveBorderDistance(config->readNumEntry(KWIN_ACTIVE_BORDER_DISTANCE, 10));
 
     setHideUtilityWindowsForInactive( config->readBoolEntry( KWIN_HIDE_UTILITY, true ));
 
@@ -804,6 +818,7 @@ void KAdvancedConfig::save( void )
 
     config->writeEntry(KWIN_ACTIVE_BORDERS, getActiveBorders());
     config->writeEntry(KWIN_ACTIVE_BORDER_DELAY, getActiveBorderDelay());
+    config->writeEntry(KWIN_ACTIVE_BORDER_DISTANCE, getActiveBorderDistance());
 
     config->writeEntry(KWIN_HIDE_UTILITY, hideUtilityWindowsForInactive->isChecked());
 
@@ -828,6 +843,7 @@ void KAdvancedConfig::defaults()
     setShadeHoverInterval(250);
     setActiveBorders(0);
     setActiveBorderDelay(150);
+    setActiveBorderDistance(10);
     setHideUtilityWindowsForInactive( true );
     emit TDECModule::changed(true);
 }
@@ -858,6 +874,10 @@ int KAdvancedConfig::getActiveBorderDelay()
     return delays->value();
 }
 
+int KAdvancedConfig::getActiveBorderDistance() {
+    return distance->value();
+}
+
 void KAdvancedConfig::setActiveBorders(int i){
     switch(i)
     {
@@ -883,6 +903,9 @@ void KAdvancedConfig::setActiveBorderDelay(int delay)
     delays->setValue(delay);
 }
 
+void KAdvancedConfig::setActiveBorderDistance(int d) {
+    distance->setValue(d);
+}
 
 KMovingConfig::~KMovingConfig ()
 {

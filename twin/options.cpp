@@ -136,6 +136,7 @@ unsigned long Options::updateSettings()
     if (active_border_delay == -1) {
         active_border_delay = config->readNumEntry("ElectricBorderDelay", 150);
     }
+    active_border_distance = config->readNumEntry("ActiveBorderDistance", 10);
 
     OpTitlebarDblClick = windowOperation( config->readEntry("TitlebarDoubleClickCommand", "Shade"), true );
     d->OpMaxButtonLeftClick = windowOperation( config->readEntry("MaximizeButtonLeftClickCommand", "Maximize"), true );
@@ -395,6 +396,11 @@ int Options::activeBorders()
 int Options::activeBorderDelay()
     {
     return active_border_delay;
+    }
+
+int Options::borderActivationDistance()
+    {
+    return active_border_distance;
     }
 
 bool Options::checkIgnoreFocusStealing( const Client* c )

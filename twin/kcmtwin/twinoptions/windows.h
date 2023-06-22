@@ -228,8 +228,10 @@ private:
 
   int getActiveBorders( void );
   int getActiveBorderDelay();
+  int getActiveBorderDistance();
   void setActiveBorders( int );
   void setActiveBorderDelay( int );
+  void setActiveBorderDistance( int );
 
   TQButtonGroup *active_box;
   TQRadioButton *active_disable;
@@ -238,6 +240,7 @@ private:
   TQRadioButton *active_tile;
   TQCheckBox *active_maximize;
   KIntNumInput *delays;
+  KIntNumInput *distance;
   TQWidget *active_desktop_conf;
   TQWidget *active_tile_conf;
 

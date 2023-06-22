@@ -124,11 +124,9 @@ enum ActiveBorder
 
 enum ActiveMaximizingMode
 {
-    ActiveMaximizeMode,
-    ActiveLeftMode,
-    ActiveRightMode,
-    ActiveTopMode,
-    ActiveBottomMode
+    ActiveNoMode,
+    ActiveTilingMode,
+    ActiveMaximizeMode
 };
 
 class Shape 
