@@ -98,9 +98,6 @@ bool KDecorationPlugins::loadPlugin( TQString nameStr )
         TDEConfigGroupSaver saver( config, "Style" );
         nameStr = config->readEntry("PluginLib", defaultPlugin );
         }
-    // make sure people can switch between HEAD and twin_iii branch
-    if( nameStr.startsWith( "twin_" ))
-	nameStr = "twin3_" + nameStr.mid( 5 );
 
     KLibrary *oldLibrary = library;
     KDecorationFactory* oldFactory = fact;

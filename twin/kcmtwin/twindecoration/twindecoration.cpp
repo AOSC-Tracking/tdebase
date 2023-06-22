@@ -414,7 +414,7 @@ void KWinDecorationModule::findDecorations()
 					KDesktopFile desktopFile(filename);
 					TQString libName = desktopFile.readEntry("X-TDE-Library");
 
-					if (!libName.isEmpty() && libName.startsWith( "twin3_" ))
+					if (!libName.isEmpty() && libName.startsWith("twin_") || libName.startsWith("twin3_"))
 					{
 						DecorationInfo di;
 						di.name = desktopFile.readName();
@@ -614,7 +614,7 @@ TQString KWinDecorationModule::decorationLibName( const TQString& name )
 void KWinDecorationModule::resetPlugin( TDEConfig* conf, const TQString& currentDecoName )
 {
 	// Config names are "twin_icewm_config"
-	// for "twin3_icewm" twin client
+	// for "twin_icewm" twin client
 
 	TQString oldName = styleToConfigLib( oldLibraryName );
 
@@ -938,7 +938,7 @@ void KWinDecorationModule::checkSupportedBorderSizes()
 
 TQString KWinDecorationModule::styleToConfigLib( TQString& styleLib )
 {
-        if( styleLib.startsWith( "twin3_" ))
+        if( styleLib.startsWith( "twin_" ))
             return "twin_" + styleLib.mid( 6 ) + "_config";
         else
             return styleLib + "_config";
