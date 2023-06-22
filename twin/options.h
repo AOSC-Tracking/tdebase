@@ -326,6 +326,8 @@ class Options : public KDecorationOptions
         */
         int activeBorders();
 
+        int borderActivationDistance();
+
         /**
         * @returns the activation delay for active borders in milliseconds.
         */
@@ -386,6 +388,7 @@ class Options : public KDecorationOptions
 
         int active_borders;
         int active_border_delay;
+        int active_border_distance;
         bool show_geometry_tip;
         bool reset_maximized_window_geometry;
         bool topmenus;

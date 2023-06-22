@@ -2718,6 +2718,14 @@ ActiveMaximizingMode Client::activeBorderMode() const
     return activeMode;
 }
 
+void Client::setActiveBorder(ActiveBorder border) {
+    currentActiveBorder = border;
+}
+
+ActiveBorder Client::activeBorder() const {
+    return currentActiveBorder;
+}
+
 bool Client::isActiveBorderMaximizing() const
 {
     return activeMaximizing;
@@ -2740,7 +2748,7 @@ TQRect Client::activeBorderMaximizeGeometry()
 {
     TQRect ret;
     TQRect max = workspace()->clientArea(MaximizeArea, TQCursor::pos(), workspace()->currentDesktop());
-    switch (activeMode)
+    switch (activeBorderMode())
     {
         case ActiveMaximizeMode:
         {
@@ -2750,25 +2758,52 @@ TQRect Client::activeBorderMaximizeGeometry()
                 ret = max;
             break;
         }
-        case ActiveLeftMode:
+
+        case ActiveTilingMode:
         {
-            ret = TQRect( max.x(), max.y(), max.width()/2, max.height() );
-            break;
-        }
-        case ActiveRightMode:
-        {
-            ret = TQRect( max.x() + max.width()/2, max.y(), max.width()/2, max.height() );
-            break;
-        }
-        case ActiveTopMode:
-        {
-            ret = TQRect( max.x(), max.y(), max.width(), max.height()/2 );
-            break;
-        }
-        case ActiveBottomMode:
-        {
-            ret = TQRect( max.x(), max.y() + max.height()/2, max.width(), max.height()/2 );
-            break;
+            switch (activeBorder())
+            {
+                case ActiveLeft:
+                {
+                    ret = TQRect( max.x(), max.y(), max.width()/2, max.height() );
+                    break;
+                }
+                case ActiveRight:
+                {
+                    ret = TQRect( max.x() + max.width()/2, max.y(), max.width()/2, max.height() );
+                    break;
+                }
+                case ActiveTop:
+                {
+                    ret = TQRect( max.x(), max.y(), max.width(), max.height()/2 );
+                    break;
+                }
+                case ActiveBottom:
+                {
+                    ret = TQRect( max.x(), max.y() + max.height()/2, max.width(), max.height()/2 );
+                    break;
+                }
+                case ActiveTopLeft:
+                {
+                    ret = TQRect( max.x(), max.y(), max.width()/2, max.height()/2 );
+                    break;
+                }
+                case ActiveTopRight:
+                {
+                    ret = TQRect( max.x() + max.width()/2, max.y(), max.width()/2, max.height()/2 );
+                    break;
+                }
+                case ActiveBottomLeft:
+                {
+                    ret = TQRect( max.x(), max.y() + max.height()/2, max.width()/2, max.height()/2 );
+                    break;
+                }
+                case ActiveBottomRight:
+                {
+                    ret = TQRect( max.x() + max.width()/2, max.y() + max.height()/2, max.width()/2, max.height()/2);
+                    break;
+                }
+            }
         }
     }
     return ret;

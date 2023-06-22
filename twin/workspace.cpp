@@ -2524,26 +2524,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
     Time treshold_set = options->activeBorderDelay(); // set timeout
     Time treshold_trigger = 250; // Minimum time between triggers
     Time treshold_reset = 250; // reset timeout
-    int distance_reset = 30; // Mouse should not move more than this many pixels
-
-    if ((pos.x() > activeLeft   + distance_reset) &&
-        (pos.x() < activeRight  - distance_reset) &&
-        (pos.y() > activeTop    + distance_reset) &&
-        (pos.y() < activeBottom - distance_reset))
-    {
-        if (movingClient &&
-           (options->activeBorders() == Options::ActiveTileMaximize ||
-            options->activeBorders() == Options::ActiveTileOnly))
-        {
-            movingClient->setActiveBorderMaximizing(false);
-        }
-    }
-
-    if ((pos.x() != activeLeft) &&
-        (pos.x() != activeRight) &&
-        (pos.y() != activeTop) &&
-        (pos.y() != activeBottom))
-       return;
+    int activation_distance = options->borderActivationDistance();
 
     bool have_borders = false;
     for (int i = 0; i < ACTIVE_BORDER_COUNT; ++i)
@@ -2556,22 +2537,52 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
     if( !have_borders )
         return;
 
-    ActiveBorder border;
-    if( pos.x() == activeLeft && pos.y() == activeTop )
+    // Mouse should not move more than this many pixels
+    int distance_reset = activation_distance + 10;
+
+    // Leave active maximizing mode when window moved away
+    if (active_current_border != ActiveNone &&
+       (pos.x() > activeLeft   + distance_reset) &&
+       (pos.x() < activeRight  - distance_reset) &&
+       (pos.y() > activeTop    + distance_reset) &&
+       (pos.y() < activeBottom - distance_reset))
+    {
+        if (movingClient &&
+           (options->activeBorders() == Options::ActiveTileMaximize ||
+            options->activeBorders() == Options::ActiveTileOnly))
+        {
+            movingClient->setActiveBorderMaximizing(false);
+            return;
+        }
+    }
+
+   bool active_left   = pos.x() < activeLeft   + activation_distance,
+        active_right  = pos.x() > activeRight  - activation_distance,
+        active_top    = pos.y() < activeTop    + activation_distance,
+        active_bottom = pos.y() > activeBottom - activation_distance;
+
+    if (!active_left && !active_right && !active_top && !active_bottom)
+       return;
+
+    kdDebug() << "active border activated " 
+              << pos.x() << ":" << pos.y() << endl;
+
+    ActiveBorder border = ActiveNone;
+    if (active_left && active_top)
         border = ActiveTopLeft;
-    else if( pos.x() == activeRight && pos.y() == activeTop )
+    else if (active_right && active_top)
         border = ActiveTopRight;
-    else if( pos.x() == activeLeft && pos.y() == activeBottom )
+    else if (active_left && active_bottom)
         border = ActiveBottomLeft;
-    else if( pos.x() == activeRight && pos.y() == activeBottom )
+    else if (active_right && active_bottom)
         border = ActiveBottomRight;
-    else if( pos.x() == activeLeft )
+    else if (active_left)
         border = ActiveLeft;
-    else if( pos.x() == activeRight )
+    else if (active_right)
         border = ActiveRight;
-    else if( pos.y() == activeTop )
+    else if (active_top)
         border = ActiveTop;
-    else if( pos.y() == activeBottom )
+    else if (active_bottom)
         border = ActiveBottom;
     else
         abort();
@@ -2586,6 +2597,9 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
     {
         active_time_last = now;
 
+        kdDebug() << "time diff between first time and now is: "
+                  << timestampDiff(active_time_first, now)
+                  << " vs threshold " << treshold_set << endl;
         if (timestampDiff(active_time_first, now) > treshold_set)
         {
             active_time_last_trigger = now;
@@ -2608,43 +2622,19 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
                          border == ActiveTop && movingClient->isMaximizable())
                 {
                     if (!movingClient->isResizable()) return;
-                    bool enable = !movingClient->isActiveBorderMaximizing();
                     movingClient->setActiveBorderMode(ActiveMaximizeMode);
-                    movingClient->setActiveBorderMaximizing(enable);
+                    movingClient->setActiveBorder(ActiveNone);
+                    movingClient->setActiveBorderMaximizing(true);
                 }
 
                 // Tiling
                 else if ((options->activeBorders() == Options::ActiveTileMaximize ||
-                          options->activeBorders() == Options::ActiveTileOnly) && isSide)
+                          options->activeBorders() == Options::ActiveTileOnly))
                 {
                     if (!movingClient->isResizable()) return;
-                    bool enable = !movingClient->isActiveBorderMaximizing();
-                    bool activate = false;
-                    if (border == ActiveLeft)
-                    {
-                        movingClient->setActiveBorderMode( ActiveLeftMode );
-                        activate = true;
-                    }
-                    else if (border == ActiveRight)
-                    {
-                        movingClient->setActiveBorderMode( ActiveRightMode );
-                        activate = true;
-                    }
-                    else if (border == ActiveTop)
-                    {
-                        movingClient->setActiveBorderMode( ActiveTopMode );
-                        activate = true;
-                    }
-                    else if (border == ActiveBottom)
-                    {
-                        movingClient->setActiveBorderMode( ActiveBottomMode );
-                        activate = true;
-                    }
-
-                    if (activate)
-                    {
-                        movingClient->setActiveBorderMaximizing(enable);
-                    }
+                    movingClient->setActiveBorderMode(ActiveTilingMode);
+                    movingClient->setActiveBorder(border);
+                    movingClient->setActiveBorderMaximizing(true);
                 }
 
                 else
@@ -2671,13 +2661,16 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
         active_push_point = pos;
     }
 
-    // reset the pointer to find out wether the user is really pushing
-    // (the direction back from which it came, starting from top clockwise)
-    const int xdiff[ ACTIVE_BORDER_COUNT ] = { 0, -1, -1, -1, 0, 1, 1, 1 };
-    const int ydiff[ ACTIVE_BORDER_COUNT ] = { 1, 1, 0, -1, -1, -1, 0, 1 };
-    TQCursor::setPos(pos.x() + xdiff[border], pos.y() + ydiff[border]);
-
+    if ((options->activeBorders() == Options::ActiveSwitchAlways && !movingClient) ||
+        activation_distance < 2)
+    {
+        // reset the pointer to find out whether the user is really pushing
+        // (the direction back from which it came, starting from top clockwise)
+        const int xdiff[ ACTIVE_BORDER_COUNT ] = { 0, -1, -1, -1, 0, 1, 1, 1 };
+        const int ydiff[ ACTIVE_BORDER_COUNT ] = { 1, 1, 0, -1, -1, -1, 0, 1 };
+        TQCursor::setPos(pos.x() + xdiff[border], pos.y() + ydiff[border]);
     }
+}
 
 void Workspace::activeBorderSwitchDesktop(ActiveBorder border, const TQPoint& _pos)
 {

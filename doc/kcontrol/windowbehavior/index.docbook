@@ -771,7 +771,7 @@ Use the slider widget to configure the delay.
 <varlistentry>
 <term><guilabel>Tile window</guilabel></term>
 <listitem>
-<para>Dragging a window into a desktop border will tile that window at that side of the screen. This feature is also known as <quote>Aerosnap</quote> or <quote>Quick Tile</quote>.</para>
+<para>Dragging a window into a desktop border will tile that window at that side or corner of the screen. This feature is also known as <quote>Aerosnap</quote> or <quote>Quick Tile</quote>.</para>
 <para><guilabel>Maximize windows by dragging them to the top of the screen</guilabel> changes the behaviour of the top border of the desktop. If this option is enabled, dragging a window into the top border will not result in tiling, but the window will become maximized instead.</para>
 <para>By default dragging a tiled window does not reset its original size. This behaviour is controlled by an option in the <link linkend="moving">Moving</link> tab of this control module.</para>
 </listitem>

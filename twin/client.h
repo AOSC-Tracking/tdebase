@@ -233,7 +233,9 @@ class Client : public TQObject, public KDecorationDefines
         void resizeWithChecks( const TQSize& s, ForceGeometry_t force = NormalGeometrySet );
         void keepInArea( TQRect area, bool partial = false );
         void setActiveBorderMode( ActiveMaximizingMode mode );
+        void setActiveBorder( ActiveBorder border);
         ActiveMaximizingMode activeBorderMode() const;
+        ActiveBorder activeBorder() const;
         void setActiveBorderMaximizing(bool maximizing);
         bool isActiveBorderMaximizing() const;
         TQRect activeBorderMaximizeGeometry();
@@ -609,6 +611,7 @@ class Client : public TQObject, public KDecorationDefines
         bool activeTiled;
         TQRect activeTiledOrigGeom;
         ActiveMaximizingMode activeMode;
+        ActiveBorder currentActiveBorder;
 
         friend bool performTransiencyCheck();
         bool minimized_before_suspend;
