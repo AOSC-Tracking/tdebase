@@ -1,0 +1,17 @@
+[Desktop Entry]
+Icon=kcmkwm
+Type=Application
+Exec=tdecmshell twinoptions
+X-DocPath=kcontrol/windowbehavior/index.html
+
+X-TDE-ModuleType=Library
+X-TDE-Library=twinoptions
+X-TDE-FactoryName=twinaborders
+
+Name=Active Borders
+
+Comment=Configure active borders/corners feature
+
+Keywords=window behavior;windows;frame;titlebar;borders;corners;active borders;aerosnap;
+
+Categories=Qt;TDE;X-TDE-settings-desktop;

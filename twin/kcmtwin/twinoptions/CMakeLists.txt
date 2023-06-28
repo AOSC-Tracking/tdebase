@@ -31,7 +31,7 @@ tde_create_translated_desktop(
 tde_create_translated_desktop(
   SOURCE
     twinactions.desktop twinadvanced.desktop twinfocus.desktop
-    twinmoving.desktop twintranslucency.desktop
+    twinmoving.desktop twintranslucency.desktop twinactiveborders.desktop
   DESTINATION ${APPS_INSTALL_DIR}/.hidden
   PO_DIR twin-desktops
 )

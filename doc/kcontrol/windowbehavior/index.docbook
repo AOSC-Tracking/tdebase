@@ -714,6 +714,52 @@ less.</para>
 
 </sect2>
 
+<sect2 id="active-borders">
+<title>Active Borders</title>
+
+<para><guilabel>Active Borders</guilabel> is a feature which allows you to quickly perform window management actions by moving your mouse into a desktop border.</para>
+
+<para>The corresponding section allows you to configure the function that will be performed when pushing your mouse cursor against a border or moving a window into it:</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Disabled</guilabel></term>
+<listitem>
+<para>This option disables the Active Borders feature.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Switch desktop</guilabel></term>
+<listitem>
+<para>Moving your mouse pointer against the side of the screen will switch to another desktop.</para>
+<para>By default the switch occurs both when moving your mouse pointer into a border and dragging a window into it. The <guilabel>Switch desktop only when moving a window</guilabel> checkbox disables the former behaviour and only switches to another desktop when a window is being dragged into a desktop border.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Tile window</guilabel></term>
+<listitem>
+<para>Dragging a window into a desktop border will tile that window at that side or corner of the screen. This feature is also known as <quote>Aerosnap</quote> or <quote>Quick Tile</quote>.</para>
+<para><guilabel>Maximize windows by dragging them to the top of the screen</guilabel> changes the behaviour of the top border of the desktop. If this option is enabled, dragging a window into the top border will not result in tiling, but the window will become maximized instead.</para>
+<para>By default dragging a tiled window does not reset its original size. This behaviour is controlled by an option in the <link linkend="moving">Moving</link> tab of this control module.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+<guilabel>Border activation delay</guilabel>.
+This option controls the delay before the designated active border function is performed. A higher value can prevent accidental activations of this feature.
+</para>
+
+<para>
+<guilabel>Border activation distance</guilabel>.
+This option controls how far from a desktop edge the mouse cursor should be in order to be able to activate the corresponding function. The default value is low,
+meaning that you have to be very close to the border or corner to trigger it, preventing accidental activations. A higher value means easier activation without
+having to actually push against the borders and corners.
+</para>
+</sect2>
+
 <sect2 id="advanced">
 <title>Advanced</title>
 
@@ -745,43 +791,6 @@ Use the slider widget to configure the delay.
 </varlistentry>
 
 </variablelist>
-
-<variablelist id="active-borders">
-<title>Active Borders</title>
-
-<para>Active Borders is a feature which allows you to quickly perform window management actions by moving your mouse into a desktop border.</para>
-
-<para>The corresponding section allows you to configure the function that will be performed when pushing your mouse cursor against a border or moving a window into it:</para>
-
-<varlistentry>
-<term><guilabel>Disabled</guilabel></term>
-<listitem>
-<para>This option disables the Active Borders feature.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><guilabel>Switch desktop</guilabel></term>
-<listitem>
-<para>Moving your mouse pointer against the side of the screen will switch to another desktop.</para>
-<para>By default the switch occurs both when moving your mouse pointer into a border and dragging a window into it. The <guilabel>Switch desktop only when moving a window</guilabel> checkbox disables the former behaviour and only switches to another desktop when a window is being dragged into a desktop border.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><guilabel>Tile window</guilabel></term>
-<listitem>
-<para>Dragging a window into a desktop border will tile that window at that side or corner of the screen. This feature is also known as <quote>Aerosnap</quote> or <quote>Quick Tile</quote>.</para>
-<para><guilabel>Maximize windows by dragging them to the top of the screen</guilabel> changes the behaviour of the top border of the desktop. If this option is enabled, dragging a window into the top border will not result in tiling, but the window will become maximized instead.</para>
-<para>By default dragging a tiled window does not reset its original size. This behaviour is controlled by an option in the <link linkend="moving">Moving</link> tab of this control module.</para>
-</listitem>
-</varlistentry>
-</variablelist>
-
-<para>
-<guilabel>Border activation delay</guilabel>.
-This option controls the delay before the designated active border function is performed. A higher value can prevent accidental activations of this feature.
-</para>
 
 <sect3>
 <title>Other</title>
