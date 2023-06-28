@@ -32,6 +32,7 @@ class TDEConfig;
 class KFocusConfig;
 class KTitleBarActionsConfig;
 class KWindowActionsConfig;
+class KActiveBorderConfig;
 class KAdvancedConfig;
 class KTranslucencyConfig;
 
@@ -64,6 +65,7 @@ private:
   KTitleBarActionsConfig *mTitleBarActions;
   KWindowActionsConfig *mWindowActions;
   KMovingConfig *mMoving;
+  KActiveBorderConfig *mABorders;
   KAdvancedConfig *mAdvanced;
   KTranslucencyConfig *mTranslucency;
 

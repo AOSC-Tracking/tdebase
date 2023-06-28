@@ -192,6 +192,47 @@ private:
 
 };
 
+class KActiveBorderConfig : public TDECModule
+{
+    TQ_OBJECT
+    public:
+        KActiveBorderConfig(bool _standAlone, TDEConfig *config, TQWidget *parent=0, const char *name = 0);
+        ~KActiveBorderConfig();
+
+        void load();
+        void save();
+        void defaults();
+
+    private slots:
+        // copied from kcontrol/konq/twindesktop, aleXXX
+        // original name: setEBorders()
+        void updateActiveBorders();
+
+        void changed() { emit TDECModule::changed(true); }
+
+    private:
+        int getActiveBorders( void );
+        int getActiveBorderDelay();
+        int getActiveBorderDistance();
+        void setActiveBorders( int );
+        void setActiveBorderDelay( int );
+        void setActiveBorderDistance( int );
+
+        TQButtonGroup *active_box;
+        TQRadioButton *active_disable;
+        TQRadioButton *active_desktop;
+        TQCheckBox *active_move;
+        TQRadioButton *active_tile;
+        TQCheckBox *active_maximize;
+        KIntNumInput *delays;
+        KIntNumInput *distance;
+        TQWidget *active_desktop_conf;
+        TQWidget *active_tile_conf;
+
+        TDEConfig *config;
+        bool standAlone;
+};
+
 class KAdvancedConfig : public TDECModule
 {
   Q_OBJECT
@@ -205,9 +246,6 @@ public:
 
 private slots:
   void shadeHoverChanged(bool);
-
-  //copied from kcontrol/konq/twindesktop, aleXXX
-  void setEBorders();
 
   void changed() { emit TDECModule::changed(true); }
 
@@ -225,24 +263,6 @@ private:
 
   TDEConfig *config;
   bool     standAlone;
-
-  int getActiveBorders( void );
-  int getActiveBorderDelay();
-  int getActiveBorderDistance();
-  void setActiveBorders( int );
-  void setActiveBorderDelay( int );
-  void setActiveBorderDistance( int );
-
-  TQButtonGroup *active_box;
-  TQRadioButton *active_disable;
-  TQRadioButton *active_desktop;
-  TQCheckBox *active_move;
-  TQRadioButton *active_tile;
-  TQCheckBox *active_maximize;
-  KIntNumInput *delays;
-  KIntNumInput *distance;
-  TQWidget *active_desktop_conf;
-  TQWidget *active_tile_conf;
 
   void setHideUtilityWindowsForInactive( bool );
 

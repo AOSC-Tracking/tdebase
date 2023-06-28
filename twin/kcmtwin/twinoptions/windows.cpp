@@ -612,60 +612,14 @@ void KFocusConfig::defaults()
     emit TDECModule::changed(true);
 }
 
-KAdvancedConfig::~KAdvancedConfig ()
-{
-    if (standAlone)
-        delete config;
+KActiveBorderConfig::~KActiveBorderConfig() {
+    if (standAlone) delete config;
 }
 
-KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget *parent, const char *)
-    : TDECModule(parent, "kcmkwm"), config(_config), standAlone(_standAlone)
-{
-    TQString wtstr;
-    TQBoxLayout *lay = new TQVBoxLayout (this, 0, KDialog::spacingHint());
+KActiveBorderConfig::KActiveBorderConfig(bool _standAlone, TDEConfig *_config, TQWidget *parent, const char*)
+    : TDECModule(parent, "kcmkwm"), config(_config), standAlone(_standAlone) {
 
-    //iTLabel = new TQLabel(i18n("  Allowed overlap:\n"
-    //                         "(% of desktop space)"),
-    //             plcBox);
-    //iTLabel->setAlignment(AlignTop|AlignHCenter);
-    //pLay->addWidget(iTLabel,1,1);
-
-    //interactiveTrigger = new TQSpinBox(0, 500, 1, plcBox);
-    //pLay->addWidget(interactiveTrigger,1,2);
-
-    //pLay->addRowSpacing(2,KDialog::spacingHint());
-
-    //lay->addWidget(plcBox);
-
-    shBox = new TQVButtonGroup(i18n("Shading"), this);
-
-    animateShade = new TQCheckBox(i18n("Anima&te"), shBox);
-    TQWhatsThis::add(animateShade, i18n("Animate the action of reducing the window to its titlebar (shading)"
-                                       " as well as the expansion of a shaded window") );
-
-    shadeHoverOn = new TQCheckBox(i18n("&Enable hover"), shBox);
-
-    connect(shadeHoverOn, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(shadeHoverChanged(bool)));
-
-    shadeHover = new KIntNumInput(500, shBox);
-    shadeHover->setLabel(i18n("Dela&y:"), Qt::AlignVCenter|Qt::AlignLeft);
-    shadeHover->setRange(0, 3000, 100, true);
-    shadeHover->setSteps(100, 100);
-    shadeHover->setSuffix(i18n(" msec"));
-
-    TQWhatsThis::add(shadeHoverOn, i18n("If Shade Hover is enabled, a shaded window will un-shade automatically "
-                                       "when the mouse pointer has been over the title bar for some time."));
-
-    wtstr = i18n("Sets the time in milliseconds before the window unshades "
-                "when the mouse pointer goes over the shaded window.");
-    TQWhatsThis::add(shadeHover, wtstr);
-
-    lay->addWidget(shBox);
-
-    // Any changes goes to slotChanged()
-    connect(animateShade, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-    connect(shadeHoverOn, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-    connect(shadeHover, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
+    TQBoxLayout *lay = new TQVBoxLayout(this, 0, KDialog::spacingHint());
 
     active_box = new TQButtonGroup(i18n("Active Desktop Borders"), this);
     TQVBoxLayout *active_vbox = new TQVBoxLayout(active_box);
@@ -722,7 +676,7 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget
     active_vbox->addWidget(delays);
     active_vbox->addWidget(distance);
 
-    connect(active_box, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(setEBorders()));
+    connect(active_box, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(updateActiveBorders()));
 
     // Any changes goes to slotChanged()
     connect(active_box,      TQT_SIGNAL(clicked(int)),      this, TQT_SLOT(changed()));
@@ -732,6 +686,169 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget
     connect(distance,        TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
 
     lay->addWidget(active_box);
+    lay->addStretch();
+    load();
+}
+
+void KActiveBorderConfig::load() {
+    config->setGroup("Windows");
+
+    // compatibility with old option names
+    int active_borders = config->readNumEntry(KWIN_ACTIVE_BORDERS, -1);
+    if (active_borders == -1) {
+        active_borders = config->readNumEntry(KWIN_OLD_ACTIVE_BORDERS, 0);
+    }
+
+    int active_borders_delay = config->readNumEntry(KWIN_ACTIVE_BORDER_DELAY, -1);
+    if (active_borders_delay == -1) {
+        active_borders_delay = config->readNumEntry(KWIN_OLD_ACTIVE_BORDER_DELAY, 150);
+    }
+
+    setActiveBorders(active_borders);
+    setActiveBorderDelay(active_borders_delay);
+    setActiveBorderDistance(config->readNumEntry(KWIN_ACTIVE_BORDER_DISTANCE, 10));
+
+    emit TDECModule::changed(false);
+}
+
+void KActiveBorderConfig::save() {
+    config->setGroup("Windows");
+
+    config->writeEntry(KWIN_ACTIVE_BORDERS, getActiveBorders());
+    config->writeEntry(KWIN_ACTIVE_BORDER_DELAY, getActiveBorderDelay());
+    config->writeEntry(KWIN_ACTIVE_BORDER_DISTANCE, getActiveBorderDistance());
+
+    // remove replaced legacy entries
+    config->deleteEntry(KWIN_OLD_ACTIVE_BORDERS);
+    config->deleteEntry(KWIN_OLD_ACTIVE_BORDER_DELAY);
+
+    if (standAlone)
+    {
+        config->sync();
+        if (!kapp->dcopClient()->isAttached())
+            kapp->dcopClient()->attach();
+        kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+    }
+    emit TDECModule::changed(false);
+}
+
+void KActiveBorderConfig::defaults() {
+    setActiveBorders(0);
+    setActiveBorderDelay(150);
+    setActiveBorderDistance(10);
+    emit TDECModule::changed(true);
+}
+
+void KActiveBorderConfig::updateActiveBorders() {
+    active_desktop_conf->setEnabled(active_desktop->isChecked());
+    active_tile_conf->setEnabled(active_tile->isChecked());
+}
+
+int KActiveBorderConfig::getActiveBorders() {
+    if (active_desktop->isChecked())
+    {
+        return active_move->isChecked() ? 1 : 2;
+    }
+
+    if (active_tile->isChecked())
+    {
+        return active_maximize->isChecked() ? 4 : 3;
+    }
+
+    return 0;
+}
+
+int KActiveBorderConfig::getActiveBorderDelay() {
+    return delays->value();
+}
+
+int KActiveBorderConfig::getActiveBorderDistance() {
+    return distance->value();
+}
+
+void KActiveBorderConfig::setActiveBorders(int i) {
+    switch(i)
+    {
+      case 1:
+          active_move->setChecked(true);
+      case 2:
+          active_desktop->setChecked(true);
+          break;
+      case 4:
+          active_maximize->setChecked(true);
+      case 3:
+          active_tile->setChecked(true);
+          break;
+      default:
+          active_disable->setChecked(true);
+          break;
+    }
+    updateActiveBorders();
+}
+
+void KActiveBorderConfig::setActiveBorderDelay(int delay)
+{
+    delays->setValue(delay);
+}
+
+void KActiveBorderConfig::setActiveBorderDistance(int d) {
+    distance->setValue(d);
+}
+
+KAdvancedConfig::~KAdvancedConfig ()
+{
+    if (standAlone)
+        delete config;
+}
+
+KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget *parent, const char *)
+    : TDECModule(parent, "kcmkwm"), config(_config), standAlone(_standAlone)
+{
+    TQString wtstr;
+    TQBoxLayout *lay = new TQVBoxLayout (this, 0, KDialog::spacingHint());
+
+    //iTLabel = new TQLabel(i18n("  Allowed overlap:\n"
+    //                         "(% of desktop space)"),
+    //             plcBox);
+    //iTLabel->setAlignment(AlignTop|AlignHCenter);
+    //pLay->addWidget(iTLabel,1,1);
+
+    //interactiveTrigger = new TQSpinBox(0, 500, 1, plcBox);
+    //pLay->addWidget(interactiveTrigger,1,2);
+
+    //pLay->addRowSpacing(2,KDialog::spacingHint());
+
+    //lay->addWidget(plcBox);
+
+    shBox = new TQVButtonGroup(i18n("Shading"), this);
+
+    animateShade = new TQCheckBox(i18n("Anima&te"), shBox);
+    TQWhatsThis::add(animateShade, i18n("Animate the action of reducing the window to its titlebar (shading)"
+                                       " as well as the expansion of a shaded window") );
+
+    shadeHoverOn = new TQCheckBox(i18n("&Enable hover"), shBox);
+
+    connect(shadeHoverOn, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(shadeHoverChanged(bool)));
+
+    shadeHover = new KIntNumInput(500, shBox);
+    shadeHover->setLabel(i18n("Dela&y:"), Qt::AlignVCenter|Qt::AlignLeft);
+    shadeHover->setRange(0, 3000, 100, true);
+    shadeHover->setSteps(100, 100);
+    shadeHover->setSuffix(i18n(" msec"));
+
+    TQWhatsThis::add(shadeHoverOn, i18n("If Shade Hover is enabled, a shaded window will un-shade automatically "
+                                       "when the mouse pointer has been over the title bar for some time."));
+
+    wtstr = i18n("Sets the time in milliseconds before the window unshades "
+                "when the mouse pointer goes over the shaded window.");
+    TQWhatsThis::add(shadeHover, wtstr);
+
+    lay->addWidget(shBox);
+
+    // Any changes goes to slotChanged()
+    connect(animateShade, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+    connect(shadeHoverOn, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+    connect(shadeHover, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
 
     hideUtilityWindowsForInactive = new TQCheckBox( i18n( "Hide utility windows for inactive applications" ), this );
     TQWhatsThis::add( hideUtilityWindowsForInactive,
@@ -781,21 +898,6 @@ void KAdvancedConfig::load( void )
     setShadeHover(config->readBoolEntry(KWIN_SHADEHOVER, false));
     setShadeHoverInterval(config->readNumEntry(KWIN_SHADEHOVER_INTERVAL, 250));
 
-    // compatibility with old option names
-    int active_borders = config->readNumEntry(KWIN_ACTIVE_BORDERS, -1);
-    if (active_borders == -1) {
-        active_borders = config->readNumEntry(KWIN_OLD_ACTIVE_BORDERS, 0);
-    }
-
-    int active_borders_delay = config->readNumEntry(KWIN_ACTIVE_BORDER_DELAY, -1);
-    if (active_borders_delay == -1) {
-        active_borders_delay = config->readNumEntry(KWIN_OLD_ACTIVE_BORDER_DELAY, 150);
-    }
-
-    setActiveBorders(active_borders);
-    setActiveBorderDelay(active_borders_delay);
-    setActiveBorderDistance(config->readNumEntry(KWIN_ACTIVE_BORDER_DISTANCE, 10));
-
     setHideUtilityWindowsForInactive( config->readBoolEntry( KWIN_HIDE_UTILITY, true ));
 
     emit TDECModule::changed(false);
@@ -815,16 +917,7 @@ void KAdvancedConfig::save( void )
     v = getShadeHoverInterval();
     if (v<0) v = 0;
     config->writeEntry(KWIN_SHADEHOVER_INTERVAL, v);
-
-    config->writeEntry(KWIN_ACTIVE_BORDERS, getActiveBorders());
-    config->writeEntry(KWIN_ACTIVE_BORDER_DELAY, getActiveBorderDelay());
-    config->writeEntry(KWIN_ACTIVE_BORDER_DISTANCE, getActiveBorderDistance());
-
     config->writeEntry(KWIN_HIDE_UTILITY, hideUtilityWindowsForInactive->isChecked());
-
-    // remove replaced legacy entries
-    config->deleteEntry(KWIN_OLD_ACTIVE_BORDERS);
-    config->deleteEntry(KWIN_OLD_ACTIVE_BORDER_DELAY);
 
     if (standAlone)
     {
@@ -841,70 +934,8 @@ void KAdvancedConfig::defaults()
     setAnimateShade(true);
     setShadeHover(false);
     setShadeHoverInterval(250);
-    setActiveBorders(0);
-    setActiveBorderDelay(150);
-    setActiveBorderDistance(10);
     setHideUtilityWindowsForInactive( true );
     emit TDECModule::changed(true);
-}
-
-void KAdvancedConfig::setEBorders()
-{
-    active_desktop_conf->setEnabled(active_desktop->isChecked());
-    active_tile_conf->setEnabled(active_tile->isChecked());
-}
-
-int KAdvancedConfig::getActiveBorders()
-{
-    if (active_desktop->isChecked())
-    {
-        return active_move->isChecked() ? 1 : 2;
-    }
-
-    if (active_tile->isChecked())
-    {
-        return active_maximize->isChecked() ? 4 : 3;
-    }
-
-    return 0;
-}
-
-int KAdvancedConfig::getActiveBorderDelay()
-{
-    return delays->value();
-}
-
-int KAdvancedConfig::getActiveBorderDistance() {
-    return distance->value();
-}
-
-void KAdvancedConfig::setActiveBorders(int i){
-    switch(i)
-    {
-      case 1:
-          active_move->setChecked(true);
-      case 2:
-          active_desktop->setChecked(true);
-          break;
-      case 4:
-          active_maximize->setChecked(true);
-      case 3:
-          active_tile->setChecked(true);
-          break;
-      default:
-          active_disable->setChecked(true);
-          break;
-    }
-    setEBorders();
-}
-
-void KAdvancedConfig::setActiveBorderDelay(int delay)
-{
-    delays->setValue(delay);
-}
-
-void KAdvancedConfig::setActiveBorderDistance(int d) {
-    distance->setValue(d);
 }
 
 KMovingConfig::~KMovingConfig ()

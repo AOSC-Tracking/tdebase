@@ -59,6 +59,13 @@ extern "C"
 		return new KMovingConfig(true, c, parent, name);
 	}
 
+	KDE_EXPORT TDECModule *create_twinaborders(TQWidget *parent, const char *name)
+	{
+	   TDEGlobal::locale()->insertCatalogue("kcmkwm");
+	   TDEConfig *c = new TDEConfig("twinrc", false, true);
+	   return new KActiveBorderConfig(true, c, parent, name);
+	}
+
 	KDE_EXPORT TDECModule *create_twinadvanced(TQWidget *parent, const char *name)
 	{
 		//CT there's need for decision: kwm or twin?
@@ -66,7 +73,7 @@ extern "C"
 		TDEConfig *c = new TDEConfig("twinrc", false, true);
 		return new KAdvancedConfig(true, c, parent, name);
 	}
-        
+
 	KDE_EXPORT TDECModule *create_twintranslucency(TQWidget *parent, const char *name)
 	{
 		//CT there's need for decision: kwm or twin?
@@ -112,6 +119,11 @@ KWinOptions::KWinOptions(TQWidget *parent, const char *name)
   tab->addTab(mMoving, i18n("&Moving"));
   connect(mMoving, TQT_SIGNAL(changed(bool)), this, TQT_SLOT(moduleChanged(bool)));
 
+  mABorders = new KActiveBorderConfig(false, mConfig, this, "TWin Active Borders");
+  mABorders->layout()->setMargin(KDialog::marginHint());
+  tab->addTab(mABorders, i18n("Active &Borders"));
+  connect(mABorders, TQT_SIGNAL(changed(bool)), this, TQT_SLOT(moduleChanged(bool)));
+
   mAdvanced = new KAdvancedConfig(false, mConfig, this, "TWin Advanced");
   mAdvanced->layout()->setMargin( KDialog::marginHint() );
   tab->addTab(mAdvanced, i18n("Ad&vanced"));
@@ -121,7 +133,7 @@ KWinOptions::KWinOptions(TQWidget *parent, const char *name)
   mTranslucency->layout()->setMargin( KDialog::marginHint() );
   tab->addTab(mTranslucency, i18n("&Translucency"));
   connect(mTranslucency, TQT_SIGNAL(changed(bool)), this, TQT_SLOT(moduleChanged(bool)));
-    
+
   TDEAboutData *about =
     new TDEAboutData(I18N_NOOP("kcmtwinoptions"), I18N_NOOP("Window Behavior Configuration Module"),
                   0, 0, TDEAboutData::License_GPL,
@@ -151,6 +163,7 @@ void KWinOptions::load()
   mTitleBarActions->load();
   mWindowActions->load();
   mMoving->load();
+  mABorders->load();
   mAdvanced->load();
   mTranslucency->load();
   emit TDECModule::changed( false );
@@ -163,6 +176,7 @@ void KWinOptions::save()
   mTitleBarActions->save();
   mWindowActions->save();
   mMoving->save();
+  mABorders->save();
   mAdvanced->save();
   mTranslucency->save();
 
@@ -181,6 +195,7 @@ void KWinOptions::defaults()
   mTitleBarActions->defaults();
   mWindowActions->defaults();
   mMoving->defaults();
+  mABorders->defaults();
   mAdvanced->defaults();
   mTranslucency->defaults();
 }
@@ -222,9 +237,13 @@ TQString KWinOptions::handbookSection() const
     }
     else if (index == 4)
     {
-        return "advanced";
+        return "active-borders";
     }
     else if (index == 5)
+    {
+        return "advanced";
+    }
+    else if (index == 6)
     {
         return "translucency";
     }
