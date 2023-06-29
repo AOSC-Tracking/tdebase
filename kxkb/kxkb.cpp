@@ -274,7 +274,12 @@ void KXKBApp::menuActivated(int id)
 //	}
 }
 
-void KXKBApp::slotGroupChanged(uint group) {
+void KXKBApp::slotGroupChanged(uint group)
+{
+	if (group >= kxkbConfig.m_layouts.count())
+	{
+		group = 0;
+	}
 	m_currentLayout = kxkbConfig.m_layouts[group];
 	m_tray->setCurrentLayout(m_currentLayout);
 }
