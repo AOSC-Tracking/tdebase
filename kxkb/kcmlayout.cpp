@@ -837,7 +837,7 @@ void LayoutConfig::resolveConflicts(TQListViewItem *lvi) {
     kdDebug() << "resolveConflicts : " << current->optionName() << endl;
 
     if (current->optionName().startsWith("grp:")) {
-        OptionListItem *grpItem = m_optionGroups[i18n("grp")];
+        OptionListItem *grpItem = m_optionGroups["grp"];
         if (grpItem == NULL) {
             kdWarning() << "LayoutConfig: cannot find grp item group" << endl;
             return;
@@ -967,7 +967,7 @@ void LayoutConfig::updateHotkeyCombo() {
 }
 
 void LayoutConfig::updateHotkeyCombo(bool initial) {
-    OptionListItem *grpItem = m_optionGroups[i18n("grp")];
+    OptionListItem *grpItem = m_optionGroups["grp"];
     if (grpItem == NULL) {
         kdWarning() << "LayoutConfig: cannot find grp item group" << endl;
         return;
@@ -1071,7 +1071,7 @@ void LayoutConfig::hotkeyComboChanged() {
         }
     }
 
-    OptionListItem *grpItem = m_optionGroups[i18n("grp")];
+    OptionListItem *grpItem = m_optionGroups["grp"];
     if (grpItem == NULL) {
         kdWarning() << "LayoutConfig: cannot find grp item group" << endl;
         return;
