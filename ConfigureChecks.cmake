@@ -387,6 +387,15 @@ if( BUILD_TDEIOSLAVES OR BUILD_KSYSGUARD )
 endif( )
 
 
+# strlcat, strlcpy
+if( BUILD_KSYSGUARD OR BUILD_KCHECKPASS )
+  check_function_exists( strlcat HAVE_STRLCAT )
+  check_symbol_exists( strlcat "string.h" HAVE_STRLCAT_PROTO )
+  check_function_exists( strlcpy HAVE_STRLCPY )
+  check_symbol_exists( strlcpy "string.h" HAVE_STRLCPY_PROTO )
+endif( )
+
+
 # getifaddrs (kcontrol, tdm)
 if( BUILD_KCONTROL OR BUILD_TDM )
   check_function_exists( getifaddrs HAVE_GETIFADDRS )

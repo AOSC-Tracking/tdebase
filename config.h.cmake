@@ -132,6 +132,33 @@
 // kcontrol/input
 #cmakedefine HAVE_LIBUSB 1
 
+// ksysguard, kcheckpass
+#cmakedefine HAVE_STRLCAT 1
+#cmakedefine HAVE_STRLCAT_PROTO 1
+#cmakedefine HAVE_STRLCPY 1
+#cmakedefine HAVE_STRLCPY_PROTO 1
+
+#if !defined(HAVE_STRLCAT_PROTO)
+#ifdef __cplusplus
+extern "C" {
+#endif
+unsigned long strlcat(char*, const char*, unsigned long);
+#ifdef __cplusplus
+}
+#endif
+#endif
+
+#if !defined(HAVE_STRLCPY_PROTO)
+#ifdef __cplusplus
+extern "C" {
+#endif
+unsigned long strlcpy(char*, const char*, unsigned long);
+#ifdef __cplusplus
+}
+#endif
+#endif
+
+
 // tdeprint
 #cmakedefine HAVE_SIGACTION 1
 #cmakedefine HAVE_SIGSET 1
