@@ -41,6 +41,7 @@ from the copyright holder.
 #include <string.h>
 #include <signal.h>
 #include <pwd.h>
+#include <sys/ioctl.h>
 #include <sys/stat.h>
 
 #ifdef __linux__
