@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"POT-Creation-Date: 2023-07-04 18:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,6 +61,25 @@ msgid ""
 "shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
 "resize;"
 msgstr "topla;küçült;büyüt;indir;işlemler;araç çubuğu;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactiveborders.desktop:11
+msgid "Active Borders"
+msgstr ""
+
+#. Comment
+#: kcmtwin/twinoptions/twinactiveborders.desktop:13
+#, fuzzy
+#| msgid "Configure advanced window management features"
+msgid "Configure active borders/corners feature"
+msgstr "Gelişmiş pencere yönetim özelliklerini yapılandır"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactiveborders.desktop:15
+msgid ""
+"window behavior;windows;frame;titlebar;borders;corners;active borders;"
+"aerosnap;"
+msgstr ""
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
