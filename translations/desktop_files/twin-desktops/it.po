@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"POT-Creation-Date: 2023-07-04 20:14+0000\n"
 "PO-Revision-Date: 2022-03-13 09:11+0000\n"
 "Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
@@ -64,6 +64,24 @@ msgid ""
 msgstr ""
 "arrotola;massimizza;ingrandisci;minimizza;alza;abbassa;menu operazioni; "
 "barra del titolo;titolo;ridimensiona;sposta;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactiveborders.desktop:11
+msgid "Active Borders"
+msgstr ""
+
+#. Comment
+#: kcmtwin/twinoptions/twinactiveborders.desktop:13
+#, fuzzy
+msgid "Configure active borders/corners feature"
+msgstr "Configura le funzioni avanzate del gestore delle finestre"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactiveborders.desktop:15
+msgid ""
+"window behavior;windows;frame;titlebar;borders;corners;active borders;"
+"aerosnap;"
+msgstr ""
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11

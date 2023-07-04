@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-25 21:32+0200\n"
+"POT-Creation-Date: 2023-07-04 20:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,6 +63,24 @@ msgid ""
 msgstr ""
 "bildu;maximizatu;minimizatu;atzera eraman;eragiketak; menua;titulu-barra;"
 "tamaina aldatu;"
+
+#. Name
+#: kcmtwin/twinoptions/twinactiveborders.desktop:11
+msgid "Active Borders"
+msgstr ""
+
+#. Comment
+#: kcmtwin/twinoptions/twinactiveborders.desktop:13
+#, fuzzy
+msgid "Configure active borders/corners feature"
+msgstr "Konfiguratu leiho kudeaketaren ezaugarri aurreratuak"
+
+#. Keywords
+#: kcmtwin/twinoptions/twinactiveborders.desktop:15
+msgid ""
+"window behavior;windows;frame;titlebar;borders;corners;active borders;"
+"aerosnap;"
+msgstr ""
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
