@@ -110,16 +110,19 @@ enum ShadeMode
 
 enum ActiveBorder
     {
-    ActiveTop,
-    ActiveTopRight,
-    ActiveRight,
-    ActiveBottomRight,
-    ActiveBottom,
-    ActiveBottomLeft,
-    ActiveLeft,
-    ActiveTopLeft,
-    ACTIVE_BORDER_COUNT,
-    ActiveNone
+    ActiveNone   = 0,
+
+    ActiveLeft   = 1,
+    ActiveRight  = 2,
+    ActiveTop    = 4,
+    ActiveBottom = 8,
+
+    ActiveTopLeft     = ActiveTop | ActiveLeft,
+    ActiveTopRight    = ActiveTop | ActiveRight,
+    ActiveBottomLeft  = ActiveBottom | ActiveLeft,
+    ActiveBottomRight = ActiveBottom | ActiveRight,
+
+    ACTIVE_BORDER_COUNT
     };
 
 enum ActiveMaximizingMode
@@ -129,7 +132,7 @@ enum ActiveMaximizingMode
     ActiveMaximizeMode
 };
 
-class Shape 
+class Shape
     {
     public:
         static bool available() { return twin_shape_version > 0; }
@@ -147,12 +150,12 @@ class Shape
 const int ShapeInput = 2;
 #endif
 
-class Motif 
+class Motif
     {
     public:
         static void readFlags( WId w, bool& noborder, bool& resize, bool& move,
             bool& minimize, bool& maximize, bool& close );
-        struct MwmHints 
+        struct MwmHints
             {
             ulong flags;
             ulong functions;
@@ -248,7 +251,7 @@ KWIN_CHECK_PREDICATE( TruePredicate, cl == cl /*true, avoid warning about 'cl' *
 template< typename T >
 Client* findClientInList( const ClientList& list, T predicate )
     {
-    for ( ClientList::ConstIterator it = list.begin(); it != list.end(); ++it) 
+    for ( ClientList::ConstIterator it = list.begin(); it != list.end(); ++it)
         {
         if ( predicate( const_cast< const Client* >( *it)))
             return *it;

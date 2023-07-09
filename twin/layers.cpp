@@ -424,7 +424,7 @@ void Workspace::raiseClientWithinApplication( Client* c )
 
     StackingUpdatesBlocker blocker( this );
     // ignore mainwindows
-    
+
     // first try to put it above the top-most window of the application
     for( ClientList::Iterator it = unconstrained_stacking_order.fromLast();
          it != unconstrained_stacking_order.end();
@@ -596,10 +596,10 @@ ClientList Workspace::constrainedStackingOrder()
         minimum_layer[ (*it)->group() ] = l;
         layer[ l ].append( *it );
         }
-    ClientList stacking;    
+    ClientList stacking;
     for( Layer lay = FirstLayer;
          lay < NumLayers;
-         ++lay )    
+         ++lay )
         stacking += layer[ lay ];
 #if 0
     kdDebug() << "stacking2:" << endl;
@@ -757,7 +757,7 @@ void Client::restackWindow( Window /*above TODO */, int detail, NET::RequestSour
     if( send_event )
         sendSyntheticConfigureNotify();
     }
-    
+
 void Client::setKeepAbove( bool b )
     {
     b = rules()->checkKeepAbove( b );

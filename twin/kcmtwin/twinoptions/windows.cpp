@@ -233,7 +233,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
                   "in the Notifications control module.</p>" );
     TQWhatsThis::add( focusStealing, wtstr );
     TQWhatsThis::add( focusStealingLabel, wtstr );
-    
+
     TQWhatsThis::add( autoRaiseOn, i18n("When this option is enabled, a window in the background will automatically"
                                        " come to the front when the mouse pointer has been over it for some time.") );
     wtstr = i18n("This is the delay after which the window that the mouse pointer is over will automatically"
@@ -265,7 +265,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
     connect(focusCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(updateActiveMouseScreen()));
 
     if (!TQApplication::desktop()->isVirtualDesktop() ||
-        TQApplication::desktop()->numScreens() == 1) // No Ximerama 
+        TQApplication::desktop()->numScreens() == 1) // No Ximerama
     {
         separateScreenFocus->hide();
         activeMouseScreen->hide();
@@ -498,7 +498,7 @@ void KFocusConfig::load( void )
     setClickRaise(key != "off");
     setAutoRaiseEnabled();      // this will disable/hide the auto raise delay widget if focus==click
     setDelayFocusEnabled();
-    
+
     setSeparateScreenFocus( config->readBoolEntry(KWIN_SEPARATE_SCREEN_FOCUS, false));
     // on by default for non click to focus policies
     setActiveMouseScreen( config->readBoolEntry(KWIN_ACTIVE_MOUSE_SCREEN, focusCombo->currentItem() != 0 ));
@@ -1428,12 +1428,12 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
   TQWidget *tGroup = new TQWidget(tabW);
   TQVBoxLayout *vLay = new TQVBoxLayout (tGroup,KDialog::marginHint(), KDialog::spacingHint());
   vLay->addSpacing(11); // to get the proper gb top offset
-  
+
   onlyDecoTranslucent = new TQCheckBox(i18n("Apply translucency only to decoration"),tGroup);
   vLay->addWidget(onlyDecoTranslucent);
-  
+
   vLay->addSpacing(11);
-  
+
   TQGridLayout *gLay = new TQGridLayout(vLay,4,2,KDialog::spacingHint());
   gLay->setColStretch(1,1);
 

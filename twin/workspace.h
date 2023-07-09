@@ -170,7 +170,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
          */
         int numberOfDesktops() const;
         void setNumberOfDesktops( int n );
-        
+
         int activeScreen() const;
         int numScreens() const;
         void checkActiveScreen( const Client* c );
@@ -257,7 +257,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
 
         void sendPingToWindow( Window w, Time timestamp ); // called from Client::pingWindow()
         void sendTakeActivity( Client* c, Time timestamp, long flags ); // called from Client::takeActivity()
-        
+
         bool kompmgrIsRunning();
         void setOpacity(unsigned long winId, unsigned int opacityPercent);
         void setShadowSize(unsigned long winId, unsigned int shadowSizePercent);
@@ -276,7 +276,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void focusToNull(); // SELI public?
         enum FocusChainChange { FocusChainMakeFirst, FocusChainMakeLast, FocusChainUpdate };
         void updateFocusChains( Client* c, FocusChainChange change );
-        
+
         bool forcedGlobalMouseGrab() const;
         void clientShortcutUpdated( Client* c );
         bool shortcutAvailable( const TDEShortcut& cut, Client* ignore = NULL ) const;
@@ -390,7 +390,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void setupWindowShortcutDone( bool );
 
         void updateClientArea();
-        
+
         // kompmgr, also dcop
         void startKompmgr();
 
@@ -496,7 +496,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void activeBorderSwitchDesktop(ActiveBorder border, const TQPoint& pos);
 
     // ------------------
-    
+
         void helperDialog( const TQString& message, const Client* c );
 
         void calcDesktopLayout(int &x, int &y) const;
@@ -552,7 +552,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         ClientList global_focus_chain; // this one is only for things like tabbox's MRU
         ClientList should_get_focus; // last is most recent
         ClientList attention_chain;
-        
+
         bool showing_desktop;
         ClientList showing_desktop_clients;
         int block_showing_desktop;
@@ -654,7 +654,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         bool forced_global_mouse_grab;
         friend class StackingUpdatesBlocker;
         friend class Client;
-        
+
         //kompmgr
         TQSlider *transSlider;
         TQPushButton *transButton;

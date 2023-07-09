@@ -201,8 +201,8 @@ Workspace::Workspace( bool restore )
 
     updateXTime(); // needed for proper initialization of user_time in Client ctor
 
-    delayFocusTimer = 0; 
-    
+    delayFocusTimer = 0;
+
     active_time_first = GET_QT_X_TIME();
     active_time_last = GET_QT_X_TIME();
 
@@ -315,7 +315,7 @@ void Workspace::init()
 // not used yet
 //     topDock = 0L;
 //     maximizedWindowCounter = 0;
-    
+
     supportWindow = new TQWidget;
     XLowerWindow( tqt_xdisplay(), supportWindow->winId()); // see usage in layers.cpp
 
@@ -461,7 +461,7 @@ void Workspace::init()
         unsigned int i, nwins;
         Window root_return, parent_return, *wins;
         XQueryTree(tqt_xdisplay(), root, &root_return, &parent_return, &wins, &nwins);
-        for (i = 0; i < nwins; i++) 
+        for (i = 0; i < nwins; i++)
             {
             XWindowAttributes attr;
             XGetWindowAttributes(tqt_xdisplay(), wins[i], &attr);
@@ -469,12 +469,12 @@ void Workspace::init()
                 continue;
             if( topmenu_space && topmenu_space->winId() == wins[ i ] )
                 continue;
-            if (attr.map_state != IsUnmapped) 
+            if (attr.map_state != IsUnmapped)
                 {
                 if ( addSystemTrayWin( wins[i] ) )
                     continue;
                 Client* c = createClient( wins[i], true );
-                if ( c != NULL && root != tqt_xrootwin() ) 
+                if ( c != NULL && root != tqt_xrootwin() )
                     { // TODO what is this?
                 // TODO may use TQWidget:.create
                     XReparentWindow( tqt_xdisplay(), c->frameId(), root, 0, 0 );
@@ -810,7 +810,7 @@ void Workspace::updateFocusChains( Client* c, FocusChainChange change )
 void Workspace::updateOverlappingShadows(unsigned long window)
     {
     Client *client;
-    
+
     if ((client = findClient(WindowMatchPredicate((WId)window))))
         // Redraw overlapping shadows without waiting for the specified window
         // to redraw its own shadow
@@ -820,7 +820,7 @@ void Workspace::updateOverlappingShadows(unsigned long window)
 void Workspace::setShadowed(unsigned long window, bool shadowed)
     {
     Client *client;
-    
+
     if ((client = findClient(WindowMatchPredicate((WId)window))))
         client->setShadowed(shadowed);
     }
@@ -916,7 +916,7 @@ void Workspace::updateCurrentTopMenu()
         }
 
     // ... then hide the other ones. Avoids flickers.
-    for ( ClientList::ConstIterator it = clients.begin(); it != clients.end(); ++it) 
+    for ( ClientList::ConstIterator it = clients.begin(); it != clients.end(); ++it)
         {
         if( (*it)->isTopMenu() && (*it) != menubar )
             (*it)->hideClient( true );
@@ -1033,7 +1033,7 @@ void Workspace::updateColormap()
     Colormap cmap = default_colormap;
     if ( activeClient() && activeClient()->colormap() != None )
         cmap = activeClient()->colormap();
-    if ( cmap != installed_colormap ) 
+    if ( cmap != installed_colormap )
         {
         XInstallColormap(tqt_xdisplay(), cmap );
         installed_colormap = cmap;
@@ -1228,7 +1228,7 @@ void Workspace::loadDesktopSettings()
     desktop_focus_chain.resize( n );
     // make it +1, so that it can be accessed as [1..numberofdesktops]
     focus_chain.resize( n + 1 );
-    for(int i = 1; i <= n; i++) 
+    for(int i = 1; i <= n; i++)
         {
         TQString s = c->readEntry(TQString("Name_%1").arg(i),
                                 i18n("Desktop %1").arg(i));
@@ -1248,21 +1248,21 @@ void Workspace::saveDesktopSettings()
     TDEConfigGroupSaver saver(c,groupname);
 
     c->writeEntry("Number", number_of_desktops );
-    for(int i = 1; i <= number_of_desktops; i++) 
+    for(int i = 1; i <= number_of_desktops; i++)
         {
         TQString s = desktopName( i );
         TQString defaultvalue = i18n("Desktop %1").arg(i);
-        if ( s.isEmpty() ) 
+        if ( s.isEmpty() )
             {
             s = defaultvalue;
             rootInfo->setDesktopName( i, s.utf8().data() );
             }
 
-        if (s != defaultvalue) 
+        if (s != defaultvalue)
             {
             c->writeEntry( TQString("Name_%1").arg(i), s );
             }
-        else 
+        else
             {
             TQString currentvalue = c->readEntry(TQString("Name_%1").arg(i));
             if (currentvalue != defaultvalue)
@@ -1300,10 +1300,10 @@ void Workspace::doNotManage( TQString title )
  */
 bool Workspace::isNotManaged( const TQString& title )
     {
-    for ( TQStringList::Iterator it = doNotManageList.begin(); it != doNotManageList.end(); ++it ) 
+    for ( TQStringList::Iterator it = doNotManageList.begin(); it != doNotManageList.end(); ++it )
         {
         TQRegExp r( (*it) );
-        if (r.search(title) != -1) 
+        if (r.search(title) != -1)
             {
             doNotManageList.remove( it );
             return TRUE;
@@ -1315,7 +1315,7 @@ bool Workspace::isNotManaged( const TQString& title )
 /*!
   Refreshes all the client windows
  */
-void Workspace::refresh() 
+void Workspace::refresh()
     {
     TQWidget w;
     w.setGeometry( TQApplication::desktop()->geometry() );
@@ -1352,7 +1352,7 @@ void ObscuringWindows::create( Client* c )
     Window obs_win;
     XWindowChanges chngs;
     int mask = CWSibling | CWStackMode;
-    if( cached->count() > 0 ) 
+    if( cached->count() > 0 )
         {
         cached->remove( obs_win = cached->first());
         chngs.x = c->x();
@@ -1361,7 +1361,7 @@ void ObscuringWindows::create( Client* c )
         chngs.height = c->height();
         mask |= CWX | CWY | CWWidth | CWHeight;
         }
-    else 
+    else
         {
         XSetWindowAttributes a;
         a.background_pixmap = None;
@@ -1382,7 +1382,7 @@ ObscuringWindows::~ObscuringWindows()
     max_cache_size = TQMAX( max_cache_size, obscuring_windows.count() + 4 ) - 1;
     for( TQValueList<Window>::ConstIterator it = obscuring_windows.begin();
          it != obscuring_windows.end();
-         ++it ) 
+         ++it )
         {
         XUnmapWindow( tqt_xdisplay(), *it );
         if( cached->count() < max_cache_size )
@@ -1410,7 +1410,7 @@ bool Workspace::setCurrentDesktop( int new_desktop )
     StackingUpdatesBlocker blocker( this );
 
     int old_desktop = current_desktop;
-    if (new_desktop != current_desktop) 
+    if (new_desktop != current_desktop)
         {
         ++block_showing_desktop;
         /*
@@ -1449,7 +1449,7 @@ bool Workspace::setCurrentDesktop( int new_desktop )
         }
 
         if (desktopHasCompositing) {
-            // If composition is in use then we cannot hide the old windows before showing the new ones, 
+            // If composition is in use then we cannot hide the old windows before showing the new ones,
             // unless you happen to like the "flicker annoyingly to desktop" effect... :-P
             XSync( tqt_xdisplay(), false);	// Make absolutely certain all new windows are shown before hiding the old ones
             for ( ClientList::ConstIterator it = stacking_order.begin(); it != stacking_order.end(); ++it) {
@@ -1472,7 +1472,7 @@ bool Workspace::setCurrentDesktop( int new_desktop )
     --block_focus;
     Client* c = 0;
 
-    if ( options->focusPolicyIsReasonable()) 
+    if ( options->focusPolicyIsReasonable())
         {
         // Search in focus chain
         if ( movingClient != NULL && active_client == movingClient
@@ -1481,7 +1481,7 @@ bool Workspace::setCurrentDesktop( int new_desktop )
             {
             c = active_client; // the requestFocus below will fail, as the client is already active
             }
-        if ( !c ) 
+        if ( !c )
             {
             for( ClientList::ConstIterator it = focus_chain[currentDesktop()].fromLast();
                  it != focus_chain[currentDesktop()].end();
@@ -1508,9 +1508,9 @@ bool Workspace::setCurrentDesktop( int new_desktop )
     if( c != active_client )
         setActiveClient( NULL, Allowed );
 
-    if ( c ) 
+    if ( c )
         requestFocus( c );
-    else 
+    else
         focusToNull();
 
     updateCurrentTopMenu();
@@ -1556,7 +1556,7 @@ int Workspace::desktopToRight( int desktop ) const
     if (layoutOrientation == Qt::Vertical)
         {
         dt += y;
-        if ( dt >= numberOfDesktops() ) 
+        if ( dt >= numberOfDesktops() )
             {
             if ( options->rollOverDesktops )
               dt -= numberOfDesktops();
@@ -1567,7 +1567,7 @@ int Workspace::desktopToRight( int desktop ) const
     else
         {
         int d = (dt % x) + 1;
-        if ( d >= x ) 
+        if ( d >= x )
             {
             if ( options->rollOverDesktops )
               d -= x;
@@ -1587,7 +1587,7 @@ int Workspace::desktopToLeft( int desktop ) const
     if (layoutOrientation == Qt::Vertical)
         {
         dt -= y;
-        if ( dt < 0 ) 
+        if ( dt < 0 )
             {
             if ( options->rollOverDesktops )
               dt += numberOfDesktops();
@@ -1598,7 +1598,7 @@ int Workspace::desktopToLeft( int desktop ) const
     else
         {
         int d = (dt % x) - 1;
-        if ( d < 0 ) 
+        if ( d < 0 )
             {
             if ( options->rollOverDesktops )
               d += x;
@@ -1618,7 +1618,7 @@ int Workspace::desktopUp( int desktop ) const
     if (layoutOrientation == Qt::Horizontal)
         {
         dt -= x;
-        if ( dt < 0 ) 
+        if ( dt < 0 )
             {
             if ( options->rollOverDesktops )
               dt += numberOfDesktops();
@@ -1629,7 +1629,7 @@ int Workspace::desktopUp( int desktop ) const
     else
         {
         int d = (dt % y) - 1;
-        if ( d < 0 ) 
+        if ( d < 0 )
             {
             if ( options->rollOverDesktops )
               d += y;
@@ -1649,7 +1649,7 @@ int Workspace::desktopDown( int desktop ) const
     if (layoutOrientation == Qt::Horizontal)
         {
         dt += x;
-        if ( dt >= numberOfDesktops() ) 
+        if ( dt >= numberOfDesktops() )
             {
             if ( options->rollOverDesktops )
               dt -= numberOfDesktops();
@@ -1660,7 +1660,7 @@ int Workspace::desktopDown( int desktop ) const
     else
         {
         int d = (dt % y) + 1;
-        if ( d >= y ) 
+        if ( d >= y )
             {
             if ( options->rollOverDesktops )
               d -= y;
@@ -1688,7 +1688,7 @@ void Workspace::setNumberOfDesktops( int n )
 
     // if increasing the number, do the resizing now,
     // otherwise after the moving of windows to still existing desktops
-    if( old_number_of_desktops < number_of_desktops ) 
+    if( old_number_of_desktops < number_of_desktops )
         {
         rootInfo->setNumberOfDesktops( number_of_desktops );
         NETPoint* viewports = new NETPoint[ number_of_desktops ];
@@ -1700,17 +1700,17 @@ void Workspace::setNumberOfDesktops( int n )
 
     // if the number of desktops decreased, move all
     // windows that would be hidden to the last visible desktop
-    if( old_number_of_desktops > number_of_desktops ) 
+    if( old_number_of_desktops > number_of_desktops )
         {
         for( ClientList::ConstIterator it = clients.begin();
               it != clients.end();
-              ++it) 
+              ++it)
             {
             if( !(*it)->isOnAllDesktops() && (*it)->desktop() > numberOfDesktops())
                 sendClientToDesktop( *it, numberOfDesktops(), true );
             }
         }
-    if( old_number_of_desktops > number_of_desktops ) 
+    if( old_number_of_desktops > number_of_desktops )
         {
         rootInfo->setNumberOfDesktops( number_of_desktops );
         NETPoint* viewports = new NETPoint[ number_of_desktops ];
@@ -1750,7 +1750,7 @@ void Workspace::sendClientToDesktop( Client* c, int desk, bool dont_activate )
         else
             restackClientUnderActive( c );
         }
-    else 
+    else
         {
         raiseClient( c );
         }
@@ -1937,7 +1937,7 @@ void Workspace::propagateSystemTrayWins()
     Window *cl = new Window[ systemTrayWins.count()];
 
     int i = 0;
-    for ( SystemTrayWindowList::ConstIterator it = systemTrayWins.begin(); it != systemTrayWins.end(); ++it ) 
+    for ( SystemTrayWindowList::ConstIterator it = systemTrayWins.begin(); it != systemTrayWins.end(); ++it )
         {
         cl[i++] =  (*it).win;
         }
@@ -1953,7 +1953,7 @@ void Workspace::killWindowId( Window window_to_kill )
         return;
     Window window = window_to_kill;
     Client* client = NULL;
-    for(;;) 
+    for(;;)
         {
         client = findClient( FrameIdMatchPredicate( window ));
         if( client != NULL ) // found the client
@@ -2086,12 +2086,12 @@ void Workspace::sendTakeActivity( Client* c, Time timestamp, long flags )
 */
 void Workspace::slotGrabWindow()
     {
-    if ( active_client ) 
+    if ( active_client )
         {
         TQPixmap snapshot = TQPixmap::grabWindow( active_client->frameId() );
 
 	//No XShape - no work.
-        if( Shape::available()) 
+        if( Shape::available())
             {
 	    //As the first step, get the mask from XShape.
             int count, order;
@@ -2101,7 +2101,7 @@ void Workspace::slotGrabWindow()
 	    //ShapeBounding - ShapeClipping is defined to be the border.
 	    //Since the border area is part of the window, we use bounding
 	    // to limit our work region
-            if (rects) 
+            if (rects)
                 {
 		//Create a TQRegion from the rectangles describing the bounding mask.
                 TQRegion contents;
@@ -2152,7 +2152,7 @@ void Workspace::slotGrabDesktop()
 void Workspace::slotMouseEmulation()
     {
 
-    if ( mouse_emulation ) 
+    if ( mouse_emulation )
         {
         XUngrabKeyboard(tqt_xdisplay(), GET_QT_X_TIME());
         mouse_emulation = FALSE;
@@ -2162,7 +2162,7 @@ void Workspace::slotMouseEmulation()
     if ( XGrabKeyboard(tqt_xdisplay(),
                        root, FALSE,
                        GrabModeAsync, GrabModeAsync,
-                       GET_QT_X_TIME()) == GrabSuccess ) 
+                       GET_QT_X_TIME()) == GrabSuccess )
         {
         mouse_emulation = TRUE;
         mouse_emulation_state = 0;
@@ -2184,7 +2184,7 @@ WId Workspace::getMouseEmulationWindow()
     uint state;
     Window w;
     Client * c = 0;
-    do 
+    do
         {
         w = child;
         if (!c)
@@ -2206,12 +2206,12 @@ unsigned int Workspace::sendFakedMouseEvent( TQPoint pos, WId w, MouseEmulation 
     if ( !w )
         return state;
     TQWidget* widget = TQWidget::find( w );
-    if ( (!widget ||  widget->inherits(TQTOOLBUTTON_OBJECT_NAME_STRING) ) && !findClient( WindowMatchPredicate( w )) ) 
+    if ( (!widget ||  widget->inherits(TQTOOLBUTTON_OBJECT_NAME_STRING) ) && !findClient( WindowMatchPredicate( w )) )
         {
         int x, y;
         Window xw;
         XTranslateCoordinates( tqt_xdisplay(), tqt_xrootwin(), w, pos.x(), pos.y(), &x, &y, &xw );
-        if ( type == EmuMove ) 
+        if ( type == EmuMove )
             { // motion notify events
             XEvent e;
             e.type = MotionNotify;
@@ -2227,7 +2227,7 @@ unsigned int Workspace::sendFakedMouseEvent( TQPoint pos, WId w, MouseEmulation 
             e.xmotion.is_hint = NotifyNormal;
             XSendEvent( tqt_xdisplay(), w, TRUE, ButtonMotionMask, &e );
             }
-        else 
+        else
             {
             XEvent e;
             e.type = type == EmuRelease ? ButtonRelease : ButtonPress;
@@ -2243,9 +2243,9 @@ unsigned int Workspace::sendFakedMouseEvent( TQPoint pos, WId w, MouseEmulation 
             e.xbutton.button = button;
             XSendEvent( tqt_xdisplay(), w, TRUE, ButtonPressMask, &e );
 
-            if ( type == EmuPress ) 
+            if ( type == EmuPress )
                 {
-                switch ( button ) 
+                switch ( button )
                     {
                     case 2:
                         state |= Button2Mask;
@@ -2258,9 +2258,9 @@ unsigned int Workspace::sendFakedMouseEvent( TQPoint pos, WId w, MouseEmulation 
                         break;
                     }
                 }
-            else 
+            else
                 {
-                switch ( button ) 
+                switch ( button )
                     {
                     case 2:
                         state &= ~Button2Mask;
@@ -2294,7 +2294,7 @@ bool Workspace::keyPressMouseEmulation( XKeyEvent& ev )
     int delta = is_control?1:is_alt?32:8;
     TQPoint pos = TQCursor::pos();
 
-    switch ( kc ) 
+    switch ( kc )
         {
         case XK_Left:
         case XK_KP_Left:
@@ -2339,16 +2339,16 @@ bool Workspace::keyPressMouseEmulation( XKeyEvent& ev )
         case XK_Return:
         case XK_space:
         case XK_KP_Enter:
-        case XK_KP_Space: 
+        case XK_KP_Space:
             {
-            if ( !mouse_emulation_state ) 
+            if ( !mouse_emulation_state )
                 {
             // nothing was pressed, fake a LMB click
                 mouse_emulation_window = getMouseEmulationWindow();
                 mouse_emulation_state = sendFakedMouseEvent( pos, mouse_emulation_window, EmuPress, Button1, mouse_emulation_state );
                 mouse_emulation_state = sendFakedMouseEvent( pos, mouse_emulation_window, EmuRelease, Button1, mouse_emulation_state );
                 }
-            else 
+            else
                 { // release all
                 if ( mouse_emulation_state & Button1Mask )
                     mouse_emulation_state = sendFakedMouseEvent( pos, mouse_emulation_window, EmuRelease, Button1, mouse_emulation_state );
@@ -2534,8 +2534,9 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
             have_borders = true;
         }
     }
-    if( !have_borders )
+    if (!have_borders) {
         return;
+    }
 
     // Mouse should not move more than this many pixels
     int distance_reset = activation_distance + 10;
@@ -2575,49 +2576,37 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
          active_qtop    = pos.y() < activeTop    + active_height_quart,
          active_qbottom = pos.y() > activeBottom - active_height_quart;
 
-    if (!active_left && !active_right && !active_top && !active_bottom)
-       return;
+    int border = ActiveNone;
 
-    kdDebug() << "active border activated "
-              << pos.x() << ":" << pos.y() << endl;
+    if (active_left)   border |= ActiveLeft;
+    if (active_right)  border |= ActiveRight;
+    if (active_top)    border |= ActiveTop;
+    if (active_bottom) border |= ActiveBottom;
 
-    ActiveBorder border = ActiveNone;
-    if (active_left && active_top) {
-        border = ActiveTopLeft;
+    if (border == ActiveLeft || border == ActiveRight) {
+        if (active_qtop)     border |= ActiveTop;
+        if (active_qbottom)  border |= ActiveBottom;
     }
-    else if (active_right && active_top) {
-        border = ActiveTopRight;
-    }
-    else if (active_left && active_bottom) {
-        border = ActiveBottomLeft;
-    }
-    else if (active_right && active_bottom) {
-        border = ActiveBottomRight;
-    }
-    else if (active_left) {
-        border = active_qtop ? ActiveTopLeft
-                             : (active_qbottom ? ActiveBottomLeft
-                                               : ActiveLeft);
-    }
-    else if (active_right) {
-        border = active_qtop ? ActiveTopRight
-                             : (active_qbottom ? ActiveBottomRight
-                                               : ActiveRight);
-    }
-    else if (active_top) {
-        border = active_qleft ? ActiveTopLeft
-                              : (active_qright ? ActiveTopRight
-                                               : ActiveTop);
-    }
-    else if (active_bottom) {
-        border = active_qleft ? ActiveBottomLeft
-                              : (active_qright ? ActiveBottomRight
-                                               : ActiveBottom);
-    }
-    else abort();
 
-    if( active_windows[border] == None )
+    else if (border == ActiveTop || border == ActiveBottom) {
+        if (active_qleft)    border |= ActiveLeft;
+        if (active_qright)   border |= ActiveRight;
+    }
+
+    bool border_valid = false;
+    for (int i = 0; i < ACTIVE_BORDER_COUNT; ++i) {
+        if (border == (ActiveBorder)i) {
+            border_valid = true;
+        }
+    }
+
+    if (!border_valid) {
+        abort();
+    }
+
+    if (border == ActiveNone || active_windows[border] == None) {
         return;
+    }
 
     if ((active_current_border == border) &&
         (timestampDiff(active_time_last, now) < treshold_reset) &&
@@ -2625,10 +2614,6 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
         ((pos-active_push_point).manhattanLength() < distance_reset))
     {
         active_time_last = now;
-
-        kdDebug() << "time diff between first time and now is: "
-                  << timestampDiff(active_time_first, now)
-                  << " vs threshold " << treshold_set << endl;
         if (timestampDiff(active_time_first, now) > treshold_set)
         {
             active_time_last_trigger = now;
@@ -2642,7 +2627,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
                 if (options->activeBorders() == Options::ActiveSwitchAlways ||
                     options->activeBorders() == Options::ActiveSwitchOnMove)
                 {
-                    activeBorderSwitchDesktop(border, pos);
+                    activeBorderSwitchDesktop((ActiveBorder)border, pos);
                     return; // Don't reset cursor position
                 }
 
@@ -2662,7 +2647,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
                 {
                     if (!movingClient->isResizable()) return;
                     movingClient->setActiveBorderMode(ActiveTilingMode);
-                    movingClient->setActiveBorder(border);
+                    movingClient->setActiveBorder((ActiveBorder)border);
                     movingClient->setActiveBorderMaximizing(true);
                 }
 
@@ -2676,7 +2661,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
                 // Desktop switching
                 if (options->activeBorders() == Options::ActiveSwitchAlways && isSide)
                 {
-                    activeBorderSwitchDesktop(border, pos);
+                    activeBorderSwitchDesktop((ActiveBorder)border, pos);
                     return; // Don't reset cursor position
                 }
             }
@@ -2684,7 +2669,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
     }
     else
     {
-        active_current_border = border;
+        active_current_border = (ActiveBorder)border;
         active_time_first = now;
         active_time_last = now;
         active_push_point = pos;
@@ -2693,11 +2678,11 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
     if ((options->activeBorders() == Options::ActiveSwitchAlways && !movingClient) ||
         activation_distance < 2)
     {
-        // reset the pointer to find out whether the user is really pushing
-        // (the direction back from which it came, starting from top clockwise)
-        const int xdiff[ ACTIVE_BORDER_COUNT ] = { 0, -1, -1, -1, 0, 1, 1, 1 };
-        const int ydiff[ ACTIVE_BORDER_COUNT ] = { 1, 1, 0, -1, -1, -1, 0, 1 };
-        TQCursor::setPos(pos.x() + xdiff[border], pos.y() + ydiff[border]);
+        // Reset the pointer to find out whether the user is really pushing
+        // (ordered according to enum ActiveBorder minus ActiveNone)
+        const int xdiff[ACTIVE_BORDER_COUNT] = {1, -1, 0,  0, 1, -1,  1, -1};
+        const int ydiff[ACTIVE_BORDER_COUNT] = {0,  0, 1, -1, 1,  1, -1, -1};
+        TQCursor::setPos(pos.x() + xdiff[border - 1], pos.y() + ydiff[border - 1]);
     }
 }
 
@@ -3113,8 +3098,8 @@ void Workspace::handleKompmgrOutput( TDEProcess* , char *buffer, int buflen)
         proc.start(TDEProcess::DontCare);
         }
 }
-    
-        
+
+
 void Workspace::setOpacity(unsigned long winId, unsigned int opacityPercent)
 {
     if (opacityPercent > 100) opacityPercent = 100;
