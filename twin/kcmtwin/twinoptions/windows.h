@@ -276,11 +276,11 @@ class KTranslucencyConfig : public TDECModule
 public:
   KTranslucencyConfig( bool _standAlone, TDEConfig *config, TQWidget *parent=0, const char* name=0 );
   ~KTranslucencyConfig();
-  
+
   void load();
   void save();
   void defaults();
-  
+
 private:
   TQCheckBox *useTranslucency;
   TQCheckBox *activeWindowTransparency;

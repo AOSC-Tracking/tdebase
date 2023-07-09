@@ -455,7 +455,7 @@ class Client : public TQObject, public KDecorationDefines
         static void sendClientMessage( Window w, Atom a, Atom protocol,
             long data1 = 0, long data2 = 0, long data3 = 0 );
 
-        void embedClient( Window w, const XWindowAttributes &attr );    
+        void embedClient( Window w, const XWindowAttributes &attr );
         void detectNoBorder();
         void detectShapable();
         void destroyDecoration();
@@ -482,11 +482,11 @@ class Client : public TQObject, public KDecorationDefines
         bool move_faked_activity;
         Window move_resize_grab_window;
         bool unrestrictedMoveResize;
-        bool isMove() const 
+        bool isMove() const
             {
             return moveResizeMode && mode == PositionCenter;
             }
-        bool isResize() const 
+        bool isResize() const
             {
             return moveResizeMode && mode != PositionCenter;
             }
@@ -959,7 +959,7 @@ inline bool Client::hasUserTimeSupport() const
     {
     return info->userTime() != -1U;
     }
-    
+
 inline bool Client::ignoreFocusStealing() const
     {
     return ignore_focus_stealing;

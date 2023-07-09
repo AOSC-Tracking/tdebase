@@ -178,7 +178,7 @@ Client::Client( Workspace *ws )
 
     max_mode = MaximizeRestore;
     maxmode_restore = MaximizeRestore;
-    
+
     cmap = None;
 
     frame_geometry = TQRect( 0, 0, 100, 100 ); // so that decorations don't start with size being (0,0)
@@ -262,7 +262,7 @@ void Client::releaseWindow( bool on_shutdown )
         {
         // Make sure it's not mapped if the app unmapped it (#65279). The app
         // may do map+unmap before we initially map the window by calling rawShow() from manage().
-        XUnmapWindow( tqt_xdisplay(), client ); 
+        XUnmapWindow( tqt_xdisplay(), client );
         }
     client = None;
     XDestroyWindow( tqt_xdisplay(), wrapper );
@@ -526,7 +526,7 @@ bool Client::isModalSystemNotification() const
 void Client::updateShape()
     {
     // workaround for #19644 - shaped windows shouldn't have decoration
-    if( shape() && !noBorder()) 
+    if( shape() && !noBorder())
         {
         noborder = true;
         updateDecoration( true );
@@ -605,7 +605,7 @@ TQRegion Client::mask() const
         return TQRegion( 0, 0, width(), height());
     return _mask;
     }
-    
+
 void Client::setShapable(bool b)
     {
     long tmp = b?1:0;
@@ -747,12 +747,12 @@ void Client::animateMinimizeOrUnminimize( bool minimize )
     TQPixmap pm = animationPixmap( minimize ? width() : icongeom.width() );
 
     TQRect before, after;
-    if ( minimize ) 
+    if ( minimize )
         {
         before = TQRect( x(), y(), width(), pm.height() );
         after = TQRect( icongeom.x(), icongeom.y(), icongeom.width(), pm.height() );
         }
-    else 
+    else
         {
         before = TQRect( icongeom.x(), icongeom.y(), icongeom.width(), pm.height() );
         after = TQRect( x(), y(), width(), pm.height() );
@@ -776,14 +776,14 @@ void Client::animateMinimizeOrUnminimize( bool minimize )
     TQPainter p ( workspace()->desktopWidget() );
     bool need_to_clear = FALSE;
     TQPixmap pm3;
-    do 
+    do
         {
         if (area2 != area)
             {
             pm = animationPixmap( area.width() );
             pm2 = TQPixmap::grabWindow( tqt_xrootwin(), area.x(), area.y(), area.width(), area.height() );
             p.drawPixmap( area.x(), area.y(), pm );
-            if ( need_to_clear ) 
+            if ( need_to_clear )
                 {
                 p.drawPixmap( area2.x(), area2.y(), pm3 );
                 need_to_clear = FALSE;
@@ -799,11 +799,11 @@ void Client::animateMinimizeOrUnminimize( bool minimize )
         area.setRight(before.right() + int(diff*rf));
         area.setTop(before.top() + int(diff*tf));
         area.setBottom(before.bottom() + int(diff*bf));
-        if (area2 != area ) 
+        if (area2 != area )
             {
             if ( area2.intersects( area ) )
                 p.drawPixmap( area2.x(), area2.y(), pm2 );
-            else 
+            else
                 { // no overlap, we can clear later to avoid flicker
                 pm3 = pm2;
                 need_to_clear = TRUE;
@@ -877,7 +877,7 @@ void Client::setShade( ShadeMode mode )
 
     int as = options->animateShade? 10 : 1;
 // TODO all this unmapping, resizing etc. feels too much duplicated from elsewhere
-    if ( isShade()) 
+    if ( isShade())
         { // shade_mode == ShadeNormal
         // we're about to shade, texx xcompmgr to prepare
         long _shade = 1;
@@ -891,13 +891,13 @@ void Client::setShade( ShadeMode mode )
         XUnmapWindow( tqt_xdisplay(), wrapper );
         XUnmapWindow( tqt_xdisplay(), client );
         XSelectInput( tqt_xdisplay(), wrapper, ClientWinMask | SubstructureNotifyMask );
-        //as we hid the unmap event, xcompmgr didn't recognize the client wid has vanished, so we'll extra inform it        
+        //as we hid the unmap event, xcompmgr didn't recognize the client wid has vanished, so we'll extra inform it
         //done xcompmgr workaround
 // FRAME       repaint( FALSE );
 //        bool wasStaticContents = testWFlags( WStaticContents );
 //        setWFlags( WStaticContents );
         int step = TQMAX( 4, QABS( h - s.height() ) / as )+1;
-        do 
+        do
             {
             h -= step;
             XResizeWindow( tqt_xdisplay(), frameId(), s.width(), h );
@@ -917,9 +917,9 @@ void Client::setShade( ShadeMode mode )
             }
         // tell xcompmgr shade's done
         _shade = 2;
-        XChangeProperty(tqt_xdisplay(), frameId(), atoms->net_wm_window_shade, XA_CARDINAL, 32, PropModeReplace, (unsigned char *) &_shade, 1L);    
+        XChangeProperty(tqt_xdisplay(), frameId(), atoms->net_wm_window_shade, XA_CARDINAL, 32, PropModeReplace, (unsigned char *) &_shade, 1L);
         }
-    else 
+    else
         {
         int h = height();
         shade_geometry_change = true;
@@ -927,7 +927,7 @@ void Client::setShade( ShadeMode mode )
 // FRAME       bool wasStaticContents = testWFlags( WStaticContents );
 //        setWFlags( WStaticContents );
         int step = TQMAX( 4, QABS( h - s.height() ) / as )+1;
-        do 
+        do
             {
             h += step;
             XResizeWindow( tqt_xdisplay(), frameId(), s.width(), h );
@@ -1733,14 +1733,14 @@ void Client::closeWindow()
     if( !isCloseable())
         return;
     // Update user time, because the window may create a confirming dialog.
-    updateUserTime(); 
+    updateUserTime();
     if ( Pdeletewindow )
         {
         Notify::raise( Notify::Close );
         sendClientMessage( window(), atoms->wm_protocols, atoms->wm_delete_window);
         pingWindow();
         }
-    else 
+    else
         {
         // client will not react on wm_delete_window. We have not choice
         // but destroy his connection to the XServer.
@@ -2267,7 +2267,7 @@ bool Client::providesContextHelp() const
  */
 void Client::showContextHelp()
     {
-    if ( Pcontexthelp ) 
+    if ( Pcontexthelp )
         {
         sendClientMessage(window(), atoms->wm_protocols, atoms->net_wm_context_help);
         TQWhatsThis::enterWhatsThisMode(); // SELI?
@@ -2286,17 +2286,17 @@ void Client::fetchName()
 
 TQString Client::readName() const
     {
-    if ( info->name() && info->name()[ 0 ] != '\0' ) 
+    if ( info->name() && info->name()[ 0 ] != '\0' )
         return TQString::fromUtf8( info->name() );
-    else 
+    else
         return KWin::readNameProperty( window(), XA_WM_NAME );
     }
-    
+
 KWIN_COMPARE_PREDICATE( FetchNameInternalPredicate, const Client*, (!cl->isSpecialWindow() || cl->isToolbar()) && cl != value && cl->caption() == value->caption());
 
 void Client::setCaption( const TQString& s, bool force )
     {
-    if ( s != cap_normal || force ) 
+    if ( s != cap_normal || force )
         {
         bool reset_name = force;
         for( unsigned int i = 0;
@@ -2311,10 +2311,10 @@ void Client::setCaption( const TQString& s, bool force )
             machine_suffix = " <@" + wmClientMachine( true ) + ">";
         TQString shortcut_suffix = !shortcut().isNull() ? ( " {" + shortcut().toString() + "}" ) : "";
         cap_suffix = machine_suffix + shortcut_suffix;
-        if ( ( !isSpecialWindow() || isToolbar()) && workspace()->findClient( FetchNameInternalPredicate( this ))) 
+        if ( ( !isSpecialWindow() || isToolbar()) && workspace()->findClient( FetchNameInternalPredicate( this )))
             {
             int i = 2;
-            do 
+            do
                 {
                 cap_suffix = machine_suffix + " <" + TQString::number(i) + ">" + shortcut_suffix;
                 i++;
@@ -2344,11 +2344,11 @@ void Client::updateCaption()
 void Client::fetchIconicName()
     {
     TQString s;
-    if ( info->iconName() && info->iconName()[ 0 ] != '\0' ) 
+    if ( info->iconName() && info->iconName()[ 0 ] != '\0' )
         s = TQString::fromUtf8( info->iconName() );
-    else 
+    else
         s = KWin::readNameProperty( window(), XA_WM_ICON_NAME );
-    if ( s != cap_iconic ) 
+    if ( s != cap_iconic )
         {
 	bool was_set = !cap_iconic.isEmpty();
         cap_iconic = s;
@@ -2409,7 +2409,7 @@ void Client::getMotifHints()
     }
 
 void Client::readIcons( Window win, TQPixmap* icon, TQPixmap* miniicon )
-    {    
+    {
     // get the icons, allow scaling
     if( icon != NULL )
         *icon = KWin::icon( win, 32, 32, TRUE, KWin::NETWM | KWin::WMHints );
@@ -2525,7 +2525,7 @@ Window Client::staticWmClientLeader(WId w)
                                  FALSE, XA_WINDOW, &type, &format,
                                  &nitems, &extra, &data );
     XSetErrorHandler(oldHandler);
-    if (status  == Success ) 
+    if (status  == Success )
         {
         if (data && nitems > 0)
             result = *((Window*) data);
@@ -2703,7 +2703,7 @@ void Client::setCursor( Position m )
         {
         m = PositionCenter;
         }
-    switch ( m ) 
+    switch ( m )
         {
         case PositionTopLeft:
         case PositionBottomRight:
@@ -2977,7 +2977,7 @@ void Client::updateOpacity()
             }
         }
     }
-    
+
 void Client::updateShadowSize()
 // extra syncscreen flag allows to avoid double syncs when active state changes (as it will usually change for two windows)
     {
@@ -2998,7 +2998,7 @@ uint Client::ruleOpacityActive()
     {
     return rule_opacity_active;// != 0;
     }
-    
+
 bool Client::getWindowOpacity() //query translucency settings from X, returns true if window opacity is set
     {
     unsigned char *data = 0;
@@ -3016,12 +3016,12 @@ bool Client::getWindowOpacity() //query translucency settings from X, returns tr
         }
     return FALSE;
     }
-    
+
 void Client::setCustomOpacityFlag(bool custom)
     {
     custom_opacity = custom;
     }
-    
+
 uint Client::opacity()
     {
     return opacity_;
@@ -3031,7 +3031,7 @@ int Client::opacityPercentage()
     {
     return int(100*((double)opacity_/0xffffffff));
     }
-    
+
 bool Client::touches(const Client* c)
 // checks if this client borders c, needed to test beep media player window state
     {
@@ -3045,7 +3045,7 @@ bool Client::touches(const Client* c)
         return TRUE;
     return FALSE;
     }
-    
+
 void Client::setDecoHashProperty(uint topHeight, uint rightWidth, uint bottomHeight, uint leftWidth)
 {
    long data = (topHeight < 255 ? topHeight : 255) << 24 |
@@ -3059,7 +3059,7 @@ void Client::unsetDecoHashProperty()
 {
    XDeleteProperty( tqt_xdisplay(), frameId(), atoms->net_wm_window_decohash);
 }
-    
+
 #ifndef NDEBUG
 kdbgstream& operator<<( kdbgstream& stream, const Client* cl )
     {
