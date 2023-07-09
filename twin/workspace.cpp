@@ -2556,36 +2556,65 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
         }
     }
 
-   bool active_left   = pos.x() < activeLeft   + activation_distance,
-        active_right  = pos.x() > activeRight  - activation_distance,
-        active_top    = pos.y() < activeTop    + activation_distance,
-        active_bottom = pos.y() > activeBottom - activation_distance;
+    // These checks take activation distance into account, creating a
+    // virtual "activation band" for easier border/corner activation.
+    bool active_left   = pos.x() < activeLeft   + activation_distance,
+         active_right  = pos.x() > activeRight  - activation_distance,
+         active_top    = pos.y() < activeTop    + activation_distance,
+         active_bottom = pos.y() > activeBottom - activation_distance;
+
+    // These checks are used to make corner activation easier: we assume
+    // a 25% zone on the edge of each border where instead of half size
+    // tiling we perform quarter size tiling. The rest 50% is left for
+    // normal half size tiling.
+    uint active_width_quart = activeRight / 4,
+         active_height_quart = activeBottom / 4;
+
+    bool active_qleft   = pos.x() < activeLeft   + active_width_quart,
+         active_qright  = pos.x() > activeRight  - active_width_quart,
+         active_qtop    = pos.y() < activeTop    + active_height_quart,
+         active_qbottom = pos.y() > activeBottom - active_height_quart;
 
     if (!active_left && !active_right && !active_top && !active_bottom)
        return;
 
-    kdDebug() << "active border activated " 
+    kdDebug() << "active border activated "
               << pos.x() << ":" << pos.y() << endl;
 
     ActiveBorder border = ActiveNone;
-    if (active_left && active_top)
+    if (active_left && active_top) {
         border = ActiveTopLeft;
-    else if (active_right && active_top)
+    }
+    else if (active_right && active_top) {
         border = ActiveTopRight;
-    else if (active_left && active_bottom)
+    }
+    else if (active_left && active_bottom) {
         border = ActiveBottomLeft;
-    else if (active_right && active_bottom)
+    }
+    else if (active_right && active_bottom) {
         border = ActiveBottomRight;
-    else if (active_left)
-        border = ActiveLeft;
-    else if (active_right)
-        border = ActiveRight;
-    else if (active_top)
-        border = ActiveTop;
-    else if (active_bottom)
-        border = ActiveBottom;
-    else
-        abort();
+    }
+    else if (active_left) {
+        border = active_qtop ? ActiveTopLeft
+                             : (active_qbottom ? ActiveBottomLeft
+                                               : ActiveLeft);
+    }
+    else if (active_right) {
+        border = active_qtop ? ActiveTopRight
+                             : (active_qbottom ? ActiveBottomRight
+                                               : ActiveRight);
+    }
+    else if (active_top) {
+        border = active_qleft ? ActiveTopLeft
+                              : (active_qright ? ActiveTopRight
+                                               : ActiveTop);
+    }
+    else if (active_bottom) {
+        border = active_qleft ? ActiveBottomLeft
+                              : (active_qright ? ActiveBottomRight
+                                               : ActiveBottom);
+    }
+    else abort();
 
     if( active_windows[border] == None )
         return;
