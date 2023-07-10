@@ -3593,8 +3593,8 @@ void KonqMainWindow::slotClipboardDataChanged()
 
 void KonqMainWindow::slotCheckComboSelection()
 {
-  //kdDebug(1202) << "m_combo->lineEdit()->hasMarkedText() : " << hasSelection << endl;
   bool hasSelection = m_combo->lineEdit()->hasSelectedText();
+  //kdDebug(1202) << "m_combo->lineEdit()->hasSelectedText() : " << hasSelection << endl;
   m_paCopy->setEnabled( hasSelection );
   m_paCut->setEnabled( hasSelection );
 }
