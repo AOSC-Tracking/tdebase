@@ -3,7 +3,7 @@
 # A script to perform R14.0.0 XDG compliance updates.
 
 SCRIPT_NAME="$(basename -- "$0")"
-SCRIPT_VERSION=202202130
+SCRIPT_VERSION=202307100
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -731,7 +731,7 @@ if [ "$R14_VERSION" -lt "201310190" ]; then
     mv $PROFILE_DIR/share/config/kwinrulesrc $PROFILE_DIR/share/config/twinrulesrc 2>/dev/null
     mv $PROFILE_DIR/share/config/kwin_rules_dialogrc $PROFILE_DIR/share/config/twin_rules_dialogrc 2>/dev/null
     sed -i 's|PluginLib=kwin_|PluginLib=twin_|' $PROFILE_DIR/share/config/twinrc
-    sed -i 's|PluginLib=kwin3_|PluginLib=twin3_|' $PROFILE_DIR/share/config/twinrc
+    sed -i 's|PluginLib=kwin3_|PluginLib=twin_|' $PROFILE_DIR/share/config/twinrc
   fi
 fi
 if [ "$R14_VERSION" -lt "201309150" ]; then
@@ -1010,10 +1010,20 @@ fi
 
 # Remove Konqueror's icon cache entry for / (issue TDE/tdebase#1)
 if [ "$R14_VERSION" -lt "202103280" ]; then
-  if [ "`grep \"\([=,]\)/,[^,\n]*[,]*\" ${TDEHOME}/share/config/konq_history`" ]; then
-    sed -i "s|\([=,]\)/,[^,\n]*[,]*|\1|" ${TDEHOME}/share/config/konq_history
+  if [ "`grep \"\([=,]\)/,[^,\n]*[,]*\" ${PROFILE_DIR}/share/config/konq_history`" ]; then
+    sed -i "s|\([=,]\)/,[^,\n]*[,]*|\1|" ${PROFILE_DIR}/share/config/konq_history
     Log "  Removed icon cache entry for root directory (Gitea issue TDE/tdebase#1)"
   fi
+fi
+
+# Rename twin3_ to twin_ in theme config files
+if [ "$R14_VERSION" -lt "202307100" ]; then
+  find "${PROFILE_DIR}/share/apps/tdestyle/themes/" -type f -iname "*.xml" -print0 2>/dev/null | \
+    xargs -r0 sed -ri "s|twin3_|twin_|g"
+  if [ -f $PROFILE_DIR/share/config/twinrc ]; then
+    sed -i 's|PluginLib=twin3_|PluginLib=twin_|' $PROFILE_DIR/share/config/twinrc
+  fi
+  Log "  Renamed twin3_ to twin_ in theme files"
 fi
 
 # Perform some nominal update validations.
