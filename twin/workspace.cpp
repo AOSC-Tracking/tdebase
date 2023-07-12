@@ -2206,7 +2206,7 @@ unsigned int Workspace::sendFakedMouseEvent( TQPoint pos, WId w, MouseEmulation 
     if ( !w )
         return state;
     TQWidget* widget = TQWidget::find( w );
-    if ( (!widget ||  widget->inherits(TQTOOLBUTTON_OBJECT_NAME_STRING) ) && !findClient( WindowMatchPredicate( w )) )
+    if ( (!widget ||  widget->inherits("TQToolButton") ) && !findClient( WindowMatchPredicate( w )) )
         {
         int x, y;
         Window xw;

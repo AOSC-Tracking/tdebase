@@ -115,7 +115,7 @@ public:
 
 protected:
 	virtual TQObject *createObject(TQObject * = 0, const char * = 0,
-		const char *className = TQOBJECT_OBJECT_NAME_STRING, const TQStringList &args = TQStringList());
+		const char *className = "TQObject", const TQStringList &args = TQStringList());
 };
 
 TQObject *KonqSoundFactory::createObject(TQObject *, const char *,

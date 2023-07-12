@@ -105,7 +105,7 @@ TQString KCGlobal::baseGroup()
 
 void KCGlobal::repairAccels( TQWidget * tw )
 {
-    TQObjectList * l = tw->queryList( TQACCEL_OBJECT_NAME_STRING );
+    TQObjectList * l = tw->queryList( "TQAccel" );
     TQObjectListIt it( *l );             // iterate over the buttons
     TQObject * obj;
     while ( (obj=it.current()) != 0 ) { // for each found object...

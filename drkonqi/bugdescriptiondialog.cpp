@@ -94,7 +94,7 @@ BugDescriptionDialog::BugDescriptionDialog( TQWidget * parentw, bool modal, cons
 	lay->addWidget( m_descriptionLabel );
 	
 	// The multiline-edit
-	m_lineedit = new TQMultiLineEdit( parent, TQMULTILINEEDIT_OBJECT_NAME_STRING );
+	m_lineedit = new TQMultiLineEdit( parent, "TQMultiLineEdit" );
 	m_lineedit->setMinimumHeight( 180 ); // make it big
 	m_lineedit->setWordWrap(TQMultiLineEdit::WidgetWidth);
 	lay->addWidget( m_lineedit, 10 /*stretch*/ );
