@@ -472,7 +472,7 @@ void KonqView::connectPart(  )
 
   m_pPart->widget()->installEventFilter( this );
 
-  if (m_bBackRightClick && m_pPart->widget()->inherits(TQSCROLLVIEW_OBJECT_NAME_STRING) )
+  if (m_bBackRightClick && m_pPart->widget()->inherits("TQScrollView") )
   {
     (static_cast<TQScrollView *>(m_pPart->widget()))->viewport()->installEventFilter( this );
   }
@@ -1220,7 +1220,7 @@ void KonqView::reparseConfiguration()
     bool b = KonqSettings::backRightClick();
     if ( m_bBackRightClick != b )
     {
-        if (m_bBackRightClick && m_pPart->widget()->inherits(TQSCROLLVIEW_OBJECT_NAME_STRING) )
+        if (m_bBackRightClick && m_pPart->widget()->inherits("TQScrollView") )
         {
             (static_cast<TQScrollView *>(m_pPart->widget()))->viewport()->installEventFilter( this );
         }
@@ -1265,7 +1265,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
             KURL::List lstDragURLs;
             bool ok = KURLDrag::decode( ev, lstDragURLs );
 
-            TQObjectList *children = m_pPart->widget()->queryList( TQWIDGET_OBJECT_NAME_STRING );
+            TQObjectList *children = m_pPart->widget()->queryList( "TQWidget" );
 
             if ( ok &&
                  !lstDragURLs.first().url().contains( "javascript:", false ) && // ### this looks like a hack to me

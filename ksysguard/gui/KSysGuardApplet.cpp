@@ -142,7 +142,7 @@ void KSysGuardApplet::applySettings()
   resizeDocks( mSettingsDlg->numDisplay() );
 
   for ( uint i = 0; i < mDockCount; ++i )
-    if ( !mDockList[ i ]->isA( TQFRAME_OBJECT_NAME_STRING ) )
+    if ( !mDockList[ i ]->isA( "TQFrame" ) )
       ((KSGRD::SensorDisplay*)mDockList[ i ])->setUpdateInterval( updateInterval() );
 
   save();
@@ -201,7 +201,7 @@ void KSysGuardApplet::dropEvent( TQDropEvent *e )
       return;
 
     int dock = findDock( e->pos() );
-    if ( mDockList[ dock ]->isA( TQFRAME_OBJECT_NAME_STRING ) ) {
+    if ( mDockList[ dock ]->isA( "TQFrame" ) ) {
       if ( sensorType == "integer" || sensorType == "float" ) {
         TDEPopupMenu popup;
         TQWidget *wdg = 0;
@@ -246,7 +246,7 @@ void KSysGuardApplet::dropEvent( TQDropEvent *e )
       }
     }
 
-    if ( !mDockList[ dock ]->isA( TQFRAME_OBJECT_NAME_STRING ) )
+    if ( !mDockList[ dock ]->isA( "TQFrame" ) )
       ((KSGRD::SensorDisplay*)mDockList[ dock ])->
                   addSensor( hostName, sensorName, sensorType, sensorDescr );
   }
@@ -429,7 +429,7 @@ bool KSysGuardApplet::save()
   TQStringList hosts;
   uint i;
   for ( i = 0; i < mDockCount; ++i )
-    if ( !mDockList[ i ]->isA( TQFRAME_OBJECT_NAME_STRING ) )
+    if ( !mDockList[ i ]->isA( "TQFrame" ) )
       ((KSGRD::SensorDisplay*)mDockList[ i ])->hosts( hosts );
 
   // save host information (name, shell, etc.)
@@ -449,7 +449,7 @@ bool KSysGuardApplet::save()
   }
 
   for ( i = 0; i < mDockCount; ++i )
-    if ( !mDockList[ i ]->isA( TQFRAME_OBJECT_NAME_STRING ) ) {
+    if ( !mDockList[ i ]->isA( "TQFrame" ) ) {
       TQDomElement element = doc.createElement( "display" );
       ws.appendChild( element );
       element.setAttribute( "dock", i );

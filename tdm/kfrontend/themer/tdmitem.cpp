@@ -663,7 +663,7 @@ KdmItem::parentWidget() const
   if (!this->parent())
     return 0;
 
-  if (parent()->tqt_cast(TQWIDGET_OBJECT_NAME_STRING))
+  if (parent()->tqt_cast("TQWidget"))
     return (TQWidget*)parent();
   return ((KdmItem*)parent())->parentWidget();
 }

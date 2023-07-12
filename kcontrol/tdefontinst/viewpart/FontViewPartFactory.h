@@ -45,7 +45,7 @@ class CFontViewPartFactory : public KLibFactory
 
     CFontViewPartFactory();
     virtual ~CFontViewPartFactory();
-    virtual TQObject *createObject(TQObject *parent = 0, const char *name = 0, const char *classname = TQOBJECT_OBJECT_NAME_STRING, const TQStringList &args = TQStringList());
+    virtual TQObject *createObject(TQObject *parent = 0, const char *name = 0, const char *classname = "TQObject", const TQStringList &args = TQStringList());
 
     static TDEInstance * instance();
 

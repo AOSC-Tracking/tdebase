@@ -411,7 +411,7 @@ KdmThemer::slotActivated( const TQString &id )
 	}
 	
 	item->widget()->setFocus();
-	TQLineEdit *le = (TQLineEdit*)item->widget()->tqt_cast(TQLINEEDIT_OBJECT_NAME_STRING);
+	TQLineEdit *le = (TQLineEdit*)item->widget()->tqt_cast("TQLineEdit");
 	if (le) {
 		le->selectAll();
 	}

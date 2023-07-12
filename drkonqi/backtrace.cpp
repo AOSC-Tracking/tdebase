@@ -89,7 +89,7 @@ void BackTrace::start()
   {
     TQObject * o = parent();
 
-    if (o && !o->inherits(TQWIDGET_OBJECT_NAME_STRING))
+    if (o && !o->inherits("TQWidget"))
     {
       o = NULL;
     }

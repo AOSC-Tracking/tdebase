@@ -450,7 +450,7 @@ void KateViewSpaceContainer::splitViewSpace( KateViewSpace* vs,
 
   TQValueList<int> psizes;
   if ( ! isFirstTime )
-    if ( TQSplitter *ps = static_cast<TQSplitter*>(vs->parentWidget()->tqt_cast(TQSPLITTER_OBJECT_NAME_STRING)) )
+    if ( TQSplitter *ps = static_cast<TQSplitter*>(vs->parentWidget()->tqt_cast("TQSplitter")) )
       psizes = ps->sizes();
 
   Qt::Orientation o = isHoriz ? Qt::Vertical : Qt::Horizontal;
@@ -471,7 +471,7 @@ void KateViewSpaceContainer::splitViewSpace( KateViewSpace* vs,
     s->moveToFirst( vsNew );
 
   if (!isFirstTime)
-    if (TQSplitter *ps = static_cast<TQSplitter*>(s->parentWidget()->tqt_cast(TQSPLITTER_OBJECT_NAME_STRING)) )
+    if (TQSplitter *ps = static_cast<TQSplitter*>(s->parentWidget()->tqt_cast("TQSplitter")) )
       ps->setSizes( psizes );
 
   s->show();

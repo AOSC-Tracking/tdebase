@@ -244,7 +244,7 @@ void TDELocaleApplication::slotTranslate()
   // The untranslated string for TQLabel are stored in
   // the name() so we use that when retranslating
   TQObject *wc;
-  TQObjectList *list = queryList(TQWIDGET_OBJECT_NAME_STRING);
+  TQObjectList *list = queryList("TQWidget");
   TQObjectListIt it(*list);
   while ( (wc = it.current()) != 0 )
   {
@@ -260,15 +260,15 @@ void TDELocaleApplication::slotTranslate()
     if (::qstrcmp(wc->name(), "unnamed") == 0)
       continue;
 
-    if (::qstrcmp(wc->className(), TQLABEL_OBJECT_NAME_STRING) == 0)
+    if (::qstrcmp(wc->className(), "TQLabel") == 0)
       ((TQLabel *)wc)->setText( m_locale->translate( wc->name() ) );
-    else if (::qstrcmp(wc->className(), TQGROUPBOX_OBJECT_NAME_STRING) == 0 ||
-             ::qstrcmp(wc->className(), TQVGROUPBOX_OBJECT_NAME_STRING) == 0)
+    else if (::qstrcmp(wc->className(), "TQGroupBox") == 0 ||
+             ::qstrcmp(wc->className(), "TQVGroupBox") == 0)
       ((TQGroupBox *)wc)->setTitle( m_locale->translate( wc->name() ) );
-    else if (::qstrcmp(wc->className(), TQPUSHBUTTON_OBJECT_NAME_STRING) == 0 ||
+    else if (::qstrcmp(wc->className(), "TQPushButton") == 0 ||
              ::qstrcmp(wc->className(), "KMenuButton") == 0)
       ((TQPushButton *)wc)->setText( m_locale->translate( wc->name() ) );
-    else if (::qstrcmp(wc->className(), TQCHECKBOX_OBJECT_NAME_STRING) == 0)
+    else if (::qstrcmp(wc->className(), "TQCheckBox") == 0)
       ((TQCheckBox *)wc)->setText( m_locale->translate( wc->name() ) );
   }
   delete list;

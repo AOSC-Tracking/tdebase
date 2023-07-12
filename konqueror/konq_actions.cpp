@@ -94,7 +94,7 @@ int KonqBidiHistoryAction::plug( TQWidget *widget, int index )
     return -1;
 
   // Go menu
-  if ( widget->inherits(TQPOPUPMENU_OBJECT_NAME_STRING) )
+  if ( widget->inherits("TQPopupMenu") )
   {
     m_goMenu = (TQPopupMenu*)widget;
     // Forward signal (to main view)

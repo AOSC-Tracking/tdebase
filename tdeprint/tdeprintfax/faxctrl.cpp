@@ -604,7 +604,7 @@ void FaxCtrl::slotCloseLog()
 	{
 		TQTextEdit	*view = m_logview;
 		m_logview = 0;
-		if (obj && obj->inherits(TQPUSHBUTTON_OBJECT_NAME_STRING))
+		if (obj && obj->inherits("TQPushButton"))
 			delete view->parentWidget();
 kdDebug() << "slotClose()" << endl;
 	}

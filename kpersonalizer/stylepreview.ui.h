@@ -41,7 +41,7 @@ void StylePreview::init()
 {
     // Ensure that the user can't toy with the child widgets.
     // Method borrowed from Qt's qtconfig.
-    TQObjectList* l = queryList(TQWIDGET_OBJECT_NAME_STRING);
+    TQObjectList* l = queryList("TQWidget");
     TQObjectListIt it(*l);
     TQObject* obj;
     while ((obj = it.current()) != 0)
