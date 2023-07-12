@@ -51,8 +51,9 @@ unsigned long Options::updateSettings()
     changed |= d->updateKWinSettings( config ); // read decoration settings
 
     config->setGroup( "Windows" );
-    moveMode = stringToMoveResizeMode( config->readEntry("MoveMode", "Opaque" ));
-    resizeMode = stringToMoveResizeMode( config->readEntry("ResizeMode", "Opaque" ));
+    moveMode   = stringToMoveResizeMode(config->readEntry("MoveMode",   "Opaque"));
+    resizeMode = stringToMoveResizeMode(config->readEntry("ResizeMode", "Opaque"));
+    tilingMode = stringToMoveResizeMode(config->readEntry("TilingMode", "Opaque"));
     show_geometry_tip = config->readBoolEntry("GeometryTip", false);
     reset_maximized_window_geometry = config->readBoolEntry("ResetMaximizedWindowGeometry", false);
     tabboxOutline = config->readBoolEntry("TabboxOutline", true);

@@ -2216,8 +2216,8 @@ void Client::updateFullScreenHack( const TQRect& geom )
     workspace()->updateClientLayer( this ); // active fullscreens get different layer
     }
 
-static TQRect*       visible_bound  = 0;
-static GeometryTip* geometryTip    = 0;
+static TQRect*       visible_bound  = nullptr;
+static GeometryTip*  geometryTip    = nullptr;
 
 void Client::drawbound( const TQRect& geom )
     {
@@ -2258,34 +2258,33 @@ void Client::doDrawbound( const TQRect& geom, bool clear )
     p.drawRect( g );
     }
 
-void Client::positionGeometryTip()
-    {
-    assert( isMove() || isResize());
+void Client::positionGeometryTip() {
+    assert(isMove() || isResize());
+
     // Position and Size display
-    if (options->showGeometryTip())
-        {
-        if( !geometryTip )
-            { // save under is not necessary with opaque, and seem to make things slower
+    if (options->showGeometryTip()) {
+        if (!geometryTip) {
+            // save under is not necessary with opaque, and seem to make things slower
             bool save_under = ( isMove() && rules()->checkMoveResizeMode( options->moveMode ) != Options::Opaque )
-                        || ( isResize() && rules()->checkMoveResizeMode( options->resizeMode ) != Options::Opaque );
+                           || ( isResize() && rules()->checkMoveResizeMode( options->resizeMode ) != Options::Opaque );
             geometryTip = new GeometryTip( &xSizeHint, save_under );
-            }
-        TQRect wgeom( moveResizeGeom ); // position of the frame, size of the window itself
-        wgeom.setWidth( wgeom.width() - ( width() - clientSize().width()));
-        wgeom.setHeight( wgeom.height() - ( height() - clientSize().height()));
-        if( isShade())
-            wgeom.setHeight( 0 );
-        geometryTip->setGeometry( wgeom );
-        if( !geometryTip->isVisible())
-            {
+        }
+
+        // position of the frame, size of the window itself
+        TQRect wgeom(isActiveBorderMaximizing() ? activeBorderMaximizeGeometry() : moveResizeGeom);
+        wgeom.setWidth(wgeom.width() - (width() - clientSize().width()));
+        wgeom.setHeight(isShade() ? 0 : wgeom.height() - (height() - clientSize().height()));
+
+        geometryTip->setGeometry(wgeom);
+        if (!geometryTip->isVisible()) {
             geometryTip->show();
             geometryTip->raise();
-            }
         }
     }
+}
 
 class EatAllPaintEvents
-    : public QObject
+    : public TQObject
     {
     protected:
         virtual bool eventFilter( TQObject* o, TQEvent* e )
@@ -2373,7 +2372,7 @@ bool Client::startMoveResize()
         // paint events on some widgets due to FocusIn(?)
         // eat them, otherwise XOR painting will be broken (#58054)
         // paint events for the geometrytip need to be allowed, though
-        eater = new EatAllPaintEvents;
+        // eater = new EatAllPaintEvents;
 // not needed anymore?        kapp->installEventFilter( eater );
     }
     Notify::raise( isResize() ? Notify::ResizeStart : Notify::MoveStart );
@@ -2403,10 +2402,9 @@ void Client::finishMoveResize( bool cancel )
         activeMaximizing = false;
         activeTiled = true;
         activeTiledOrigGeom = initialMoveResizeGeom;
-        switch(activeMode)
+        switch (activeMode)
         {
-            case ActiveMaximizeMode:
-            {
+            case ActiveMaximizeMode: {
                 if (!cancel) {
                     bool full = (maximizeMode() == MaximizeFull);
                     setMaximize(!full, !full);
@@ -2511,26 +2509,21 @@ void Client::checkUnrestrictedMoveResize()
         }
     }
 
-void Client::handleMoveResize( int x, int y, int x_root, int y_root )
-    {
+void Client::handleMoveResize(int x, int y, int x_root, int y_root) {
     if ( (mode == PositionCenter && !isMovable())
         || (mode != PositionCenter && (isShade() || !isResizable())) )
         return;
 
-    if (!moveResizeMode)
-    {
+    if (!moveResizeMode) {
         TQPoint p(TQPoint( x, y ) - moveOffset);
-        if (p.manhattanLength() >= 6)
-        {
-            if(!startMoveResize())
-            {
+        if (p.manhattanLength() >= 6) {
+            if (!startMoveResize()) {
                 buttonDown = false;
                 setCursor( mode );
                 return;
             }
         }
-        else
-            return;
+        else return;
     }
 
     // ShadeHover or ShadeActive, ShadeNormal was already avoided above
@@ -2686,13 +2679,16 @@ void Client::handleMoveResize( int x, int y, int x_root, int y_root )
 
     if (update)
     {
-        if (rules()->checkMoveResizeMode(isResize() ? options->resizeMode : options->moveMode) == Options::Opaque
-            && !isActiveBorderMaximizing())
+        bool active = isActiveBorderMaximizing();
+        auto mode = active ? options->tilingMode
+                  : isResize() ? options->resizeMode : options->moveMode;
+
+        if (rules()->checkMoveResizeMode(mode) == Options::Opaque)
         {
-            setGeometry( moveResizeGeom );
+            setGeometry(active ? activeBorderMaximizeGeometry() : moveResizeGeom);
             positionGeometryTip();
         }
-        else if (rules()->checkMoveResizeMode(isResize() ? options->resizeMode : options->moveMode) == Options::Transparent )
+        else if (rules()->checkMoveResizeMode(mode) == Options::Transparent)
         {
         /* It's necessary to move the geometry tip when there's no outline
          * shown, otherwise it would cause repaint problems in case
@@ -2701,11 +2697,12 @@ void Client::handleMoveResize( int x, int y, int x_root, int y_root )
          */
             clearbound();
             positionGeometryTip();
-            drawbound(isActiveBorderMaximizing() ? activeBorderMaximizeGeometry() : moveResizeGeom);
+            drawbound(active ? activeBorderMaximizeGeometry() : moveResizeGeom);
         }
     }
-    if (isMove())
-       workspace()->checkActiveBorder(globalPos, GET_QT_X_TIME());
+    if (isMove()) {
+        workspace()->checkActiveBorder(globalPos, GET_QT_X_TIME());
+    }
 }
 
 void Client::setActiveBorderMode( ActiveMaximizingMode mode )
@@ -2734,13 +2731,21 @@ bool Client::isActiveBorderMaximizing() const
 void Client::setActiveBorderMaximizing( bool maximizing )
 {
     activeMaximizing = maximizing;
+    bool opaque = rules()->checkMoveResizeMode(options->tilingMode) == Options::Opaque;
 
-    if (maximizing || rules()->checkMoveResizeMode(isResize() ? options->resizeMode : options->moveMode) == Options::Opaque) {
+    if (maximizing || opaque) {
         clearbound();
     }
 
-    if (maximizing) {
+    if (maximizing && !opaque) {
         drawbound(activeBorderMaximizeGeometry());
+    }
+}
+
+void Client::cancelActiveBorderMaximizing() {
+    activeMaximizing = false;
+    if (rules()->checkMoveResizeMode(options->tilingMode) == Options::Transparent) {
+        clearbound();
     }
 }
 

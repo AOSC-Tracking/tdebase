@@ -237,6 +237,7 @@ class Client : public TQObject, public KDecorationDefines
         ActiveMaximizingMode activeBorderMode() const;
         ActiveBorder activeBorder() const;
         void setActiveBorderMaximizing(bool maximizing);
+        void cancelActiveBorderMaximizing();
         bool isActiveBorderMaximizing() const;
         TQRect activeBorderMaximizeGeometry();
 

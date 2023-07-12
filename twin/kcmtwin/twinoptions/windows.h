@@ -50,9 +50,6 @@ class KIntNumInput;
 #define TITLEBAR_PLAIN  0
 #define TITLEBAR_SHADED 1
 
-#define RESIZE_TRANSPARENT  0
-#define RESIZE_OPAQUE       1
-
 #define SMART_PLACEMENT        0
 #define MAXIMIZING_PLACEMENT   1
 #define CASCADE_PLACEMENT      2
@@ -147,30 +144,30 @@ public:
 private slots:
   void setMinimizeAnim( bool );
   void setMinimizeAnimSpeed( int );
-	void changed() { emit TDECModule::changed(true); }
+  void changed() { emit TDECModule::changed(true); }
   void slotBrdrSnapChanged( int );
   void slotWndwSnapChanged( int );
 
 private:
-  int getMove( void );
+  int  getMoveMode( void );
+  int  getResizeMode ( void );
   bool getMinimizeAnim( void );
-  int getMinimizeAnimSpeed( void );
-  int getResizeOpaque ( void );
+  int  getMinimizeAnimSpeed( void );
   bool getGeometryTip( void ); //KS
-  int getPlacement( void ); //CT
+  int  getPlacement( void ); //CT
 
-  void setMove(int);
-  void setResizeOpaque(int);
+  void setMoveMode(int);
+  void setResizeMode(int);
   void setGeometryTip(bool); //KS
   void setPlacement(int); //CT
   void setMoveResizeMaximized(bool);
   void setResetMaximizedWindowGeometry(bool);
 
   TQButtonGroup *windowsBox;
-  TQCheckBox *opaque;
-  TQCheckBox *resizeOpaqueOn;
+  TQCheckBox *moveOpaque;
+  TQCheckBox *resizeOpaque;
   TQCheckBox *geometryTipOn;
-  TQCheckBox* minimizeAnimOn;
+  TQCheckBox *minimizeAnimOn;
   TQSlider *minimizeAnimSlider;
   TQLabel *minimizeAnimSlowLabel, *minimizeAnimFastLabel;
   TQCheckBox *moveResizeMaximized;
@@ -211,12 +208,15 @@ class KActiveBorderConfig : public TDECModule
         void changed() { emit TDECModule::changed(true); }
 
     private:
-        int getActiveBorders( void );
+        int getActiveBorders();
         int getActiveBorderDelay();
         int getActiveBorderDistance();
-        void setActiveBorders( int );
-        void setActiveBorderDelay( int );
-        void setActiveBorderDistance( int );
+        int getTilingMode();
+
+        void setActiveBorders(int);
+        void setActiveBorderDelay(int);
+        void setActiveBorderDistance(int);
+        void setTilingMode(int);
 
         TQButtonGroup *active_box;
         TQRadioButton *active_disable;
@@ -228,6 +228,7 @@ class KActiveBorderConfig : public TDECModule
         KIntNumInput *distance;
         TQWidget *active_desktop_conf;
         TQWidget *active_tile_conf;
+        TQCheckBox *tilingOpaque;
 
         TDEConfig *config;
         bool standAlone;
