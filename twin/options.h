@@ -147,8 +147,9 @@ class Options : public KDecorationOptions
          */
         enum MoveResizeMode { Transparent, Opaque };
 
-        MoveResizeMode resizeMode;
         MoveResizeMode moveMode;
+        MoveResizeMode resizeMode;
+        MoveResizeMode tilingMode;
 
         static MoveResizeMode stringToMoveResizeMode( const TQString& s );
         static const char* moveResizeModeToString( MoveResizeMode mode );

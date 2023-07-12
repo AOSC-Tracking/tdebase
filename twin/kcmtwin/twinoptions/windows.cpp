@@ -29,7 +29,7 @@
 #include <tqslider.h>
 #include <tqwhatsthis.h>
 #include <tqvbuttongroup.h>
-#include <tqhbox.h>
+#include <tqvbox.h>
 #include <tqcheckbox.h>
 #include <tqradiobutton.h>
 #include <tqlabel.h>
@@ -58,10 +58,11 @@
 // twin config keywords
 #define KWIN_FOCUS                  "FocusPolicy"
 #define KWIN_PLACEMENT              "Placement"
-#define KWIN_MOVE                   "MoveMode"
+#define KWIN_MOVE_MODE              "MoveMode"
+#define KWIN_RESIZE_MODE            "ResizeMode"
+#define KWIN_TILING_MODE            "TilingMode"
 #define KWIN_MINIMIZE_ANIM          "AnimateMinimize"
 #define KWIN_MINIMIZE_ANIM_SPEED    "AnimateMinimizeSpeed"
-#define KWIN_RESIZE_OPAQUE          "ResizeMode"
 #define KWIN_GEOMETRY               "GeometryTip"
 #define KWIN_AUTORAISE_INTERVAL     "AutoRaiseInterval"
 #define KWIN_AUTORAISE              "AutoRaise"
@@ -644,8 +645,15 @@ KActiveBorderConfig::KActiveBorderConfig(bool _standAlone, TDEConfig *_config, T
     active_tile_conf = new TQWidget(active_box);
     TQHBoxLayout *active_tile_conf_hbox = new TQHBoxLayout(active_tile_conf);
     active_tile_conf_hbox->addSpacing(20);
-    active_tile_conf_hbox->setAutoAdd(true);
-    active_maximize = new TQCheckBox(i18n("Maximize windows by dragging them to the &top of the screen"), active_tile_conf);
+    TQVBox *active_tile_conf_vbox = new TQVBox(active_tile_conf);
+    active_tile_conf_hbox->addWidget(active_tile_conf_vbox);
+    active_maximize = new TQCheckBox(i18n("Maximize windows by dragging them to the &top of the screen"), active_tile_conf_vbox);
+    tilingOpaque = new TQCheckBox(i18n("Display content &while tiling windows"), active_tile_conf_vbox);
+    TQWhatsThis::add(tilingOpaque, i18n("Enable this option if you want a window's"
+                                       " content to be shown while tiling it,"
+                                       " instead of just showing a window"
+                                       " 'skeleton'. The result may not be "
+                                       " satisfying on slow machines."));
 
     delays = new KIntNumInput(10, active_box);
     delays->setRange(0, MAX_EDGE_RES, 50, true);
@@ -675,15 +683,18 @@ KActiveBorderConfig::KActiveBorderConfig(bool _standAlone, TDEConfig *_config, T
     active_vbox->addSpacing(15);
     active_vbox->addWidget(delays);
     active_vbox->addWidget(distance);
+    active_vbox->addSpacing(15);
+    active_vbox->addWidget(tilingOpaque);
 
     connect(active_box, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(updateActiveBorders()));
 
-    // Any changes goes to slotChanged()
+    // Any changes go to slotChanged()
     connect(active_box,      TQT_SIGNAL(clicked(int)),      this, TQT_SLOT(changed()));
     connect(active_move,     TQT_SIGNAL(clicked()),         this, TQT_SLOT(changed()));
     connect(active_maximize, TQT_SIGNAL(clicked()),         this, TQT_SLOT(changed()));
     connect(delays,          TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
     connect(distance,        TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
+    connect(tilingOpaque,    TQT_SIGNAL(clicked()),         this, TQT_SLOT(changed()));
 
     lay->addWidget(active_box);
     lay->addStretch();
@@ -708,6 +719,12 @@ void KActiveBorderConfig::load() {
     setActiveBorderDelay(active_borders_delay);
     setActiveBorderDistance(config->readNumEntry(KWIN_ACTIVE_BORDER_DISTANCE, 10));
 
+    TQString tilingMode = config->readEntry(KWIN_TILING_MODE, "Opaque");
+    if (tilingMode == "Opaque")
+        setTilingMode(OPAQUE);
+    else if (tilingMode == "Transparent")
+        setTilingMode(TRANSPARENT);
+
     emit TDECModule::changed(false);
 }
 
@@ -721,6 +738,12 @@ void KActiveBorderConfig::save() {
     // remove replaced legacy entries
     config->deleteEntry(KWIN_OLD_ACTIVE_BORDERS);
     config->deleteEntry(KWIN_OLD_ACTIVE_BORDER_DELAY);
+
+    int tilingMode = getTilingMode();
+    if (tilingMode == OPAQUE)
+        config->writeEntry(KWIN_TILING_MODE, "Opaque");
+    else
+        config->writeEntry(KWIN_TILING_MODE, "Transparent");
 
     if (standAlone)
     {
@@ -736,7 +759,16 @@ void KActiveBorderConfig::defaults() {
     setActiveBorders(0);
     setActiveBorderDelay(150);
     setActiveBorderDistance(10);
+    setTilingMode(TRANSPARENT);
     emit TDECModule::changed(true);
+}
+
+int KActiveBorderConfig::getTilingMode() {
+    return tilingOpaque->isChecked() ? OPAQUE : TRANSPARENT;
+}
+
+void KActiveBorderConfig::setTilingMode(int opaque) {
+    tilingOpaque->setChecked(opaque == OPAQUE);
 }
 
 void KActiveBorderConfig::updateActiveBorders() {
@@ -958,17 +990,17 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
     TQBoxLayout *bLay = new TQVBoxLayout;
     wLay->addLayout(bLay);
 
-    opaque = new TQCheckBox(i18n("Di&splay content in moving windows"), windowsBox);
-    bLay->addWidget(opaque);
-    TQWhatsThis::add( opaque, i18n("Enable this option if you want a window's content to be fully shown"
-                                  " while moving it, instead of just showing a window 'skeleton'. The result may not be satisfying"
-                                  " on slow machines without graphic acceleration.") );
+    moveOpaque = new TQCheckBox(i18n("Di&splay content in moving windows"), windowsBox);
+    bLay->addWidget(moveOpaque);
+    TQWhatsThis::add(moveOpaque, i18n("Enable this option if you want a window's content to be fully shown"
+                                     " while moving it, instead of just showing a window 'skeleton'. The result may not be satisfying"
+                                     " on slow machines without graphic acceleration."));
 
-    resizeOpaqueOn = new TQCheckBox(i18n("Display content in &resizing windows"), windowsBox);
-    bLay->addWidget(resizeOpaqueOn);
-    TQWhatsThis::add( resizeOpaqueOn, i18n("Enable this option if you want a window's content to be shown"
-                                          " while resizing it, instead of just showing a window 'skeleton'. The result may not be satisfying"
-                                          " on slow machines.") );
+    resizeOpaque = new TQCheckBox(i18n("Display content in &resizing windows"), windowsBox);
+    bLay->addWidget(resizeOpaque);
+    TQWhatsThis::add(resizeOpaque, i18n("Enable this option if you want a window's content to be shown"
+                                       " while resizing it, instead of just showing a window 'skeleton'. The result may not be satisfying"
+                                       " on slow machines."));
 
     geometryTipOn = new TQCheckBox(i18n("Display window &geometry when moving or resizing"), windowsBox);
     bLay->addWidget(geometryTipOn);
@@ -988,7 +1020,7 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
                                           " windows are minimized or restored." ) );
     rLay->addWidget(minimizeAnimOn,0,0);
 
-    minimizeAnimSlider = new TQSlider(0,10,10,0,Qt::Horizontal, windowsBox);
+    minimizeAnimSlider = new TQSlider(0,10,10,0,TQt::Horizontal, windowsBox);
     minimizeAnimSlider->setSteps(1, 1);
     // TQSlider::Below clashes with a X11/X.h #define
     #undef Below
@@ -1111,8 +1143,8 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
     load();
 
     // Any changes goes to slotChanged()
-    connect( opaque, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-    connect( resizeOpaqueOn, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
+    connect( moveOpaque, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
+    connect( resizeOpaque, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
     connect( geometryTipOn, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
     connect( minimizeAnimOn, TQT_SIGNAL(clicked() ), TQT_SLOT(changed()));
     connect( minimizeAnimSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
@@ -1128,16 +1160,6 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
     // To get suffix to BrdrSnap and WndwSnap inputs with default values.
     slotBrdrSnapChanged(BrdrSnap->value());
     slotWndwSnapChanged(WndwSnap->value());
-}
-
-int KMovingConfig::getMove()
-{
-    return (opaque->isChecked())? OPAQUE : TRANSPARENT;
-}
-
-void KMovingConfig::setMove(int trans)
-{
-    opaque->setChecked(trans == OPAQUE);
 }
 
 void KMovingConfig::setGeometryTip(bool showGeometryTip)
@@ -1184,14 +1206,23 @@ void KMovingConfig::setMinimizeAnimSpeed(int speed)
     minimizeAnimSlider->setValue(speed);
 }
 
-int KMovingConfig::getResizeOpaque()
-{
-    return (resizeOpaqueOn->isChecked())? RESIZE_OPAQUE : RESIZE_TRANSPARENT;
+int KMovingConfig::getMoveMode() {
+    return moveOpaque->isChecked() ? OPAQUE : TRANSPARENT;
 }
 
-void KMovingConfig::setResizeOpaque(int opaque)
+void KMovingConfig::setMoveMode(int opaque)
 {
-    resizeOpaqueOn->setChecked(opaque == RESIZE_OPAQUE);
+    moveOpaque->setChecked(opaque == OPAQUE);
+}
+
+int KMovingConfig::getResizeMode()
+{
+    return resizeOpaque->isChecked() ? OPAQUE : TRANSPARENT;
+}
+
+void KMovingConfig::setResizeMode(int opaque)
+{
+    resizeOpaque->setChecked(opaque == OPAQUE);
 }
 
 void KMovingConfig::setMoveResizeMaximized(bool a) {
@@ -1216,11 +1247,18 @@ void KMovingConfig::load( void )
 
     config->setGroup( "Windows" );
 
-    key = config->readEntry(KWIN_MOVE, "Opaque");
-    if( key == "Transparent")
-        setMove(TRANSPARENT);
-    else if( key == "Opaque")
-        setMove(OPAQUE);
+    // DF: please keep the default consistent with twin (options.cpp)
+    key = config->readEntry(KWIN_MOVE_MODE, "Opaque");
+    if (key == "Opaque")
+        setMoveMode(OPAQUE);
+    else if (key == "Transparent")
+        setMoveMode(TRANSPARENT);
+
+    key = config->readEntry(KWIN_RESIZE_MODE, "Opaque");
+    if (key == "Opaque")
+        setResizeMode(OPAQUE);
+    else if (key == "Transparent")
+        setResizeMode(TRANSPARENT);
 
     //CT 17Jun1998 - variable animation speed from 0 (none!!) to 10 (max)
     bool anim = config->readBoolEntry(KWIN_MINIMIZE_ANIM, true );
@@ -1229,13 +1267,6 @@ void KMovingConfig::load( void )
     if( animSpeed > 10 ) animSpeed = 10;
     setMinimizeAnim( anim );
     setMinimizeAnimSpeed( animSpeed );
-
-    // DF: please keep the default consistent with twin (options.cpp line 145)
-    key = config->readEntry(KWIN_RESIZE_OPAQUE, "Opaque");
-    if( key == "Opaque")
-        setResizeOpaque(RESIZE_OPAQUE);
-    else if ( key == "Transparent")
-        setResizeOpaque(RESIZE_TRANSPARENT);
 
     //KS 10Jan2003 - Geometry Tip during window move/resize
     bool showGeomTip = config->readBoolEntry(KWIN_GEOMETRY, false);
@@ -1301,16 +1332,22 @@ void KMovingConfig::save( void )
 
     config->setGroup( "Windows" );
 
-    v = getMove();
-    if (v == TRANSPARENT)
-        config->writeEntry(KWIN_MOVE,"Transparent");
+    v = getMoveMode();
+    if (v == OPAQUE)
+        config->writeEntry(KWIN_MOVE_MODE, "Opaque");
     else
-        config->writeEntry(KWIN_MOVE,"Opaque");
+        config->writeEntry(KWIN_MOVE_MODE, "Transparent");
+
+    v = getResizeMode();
+    if (v == OPAQUE)
+        config->writeEntry(KWIN_RESIZE_MODE, "Opaque");
+    else
+        config->writeEntry(KWIN_RESIZE_MODE, "Transparent");
 
     config->writeEntry(KWIN_GEOMETRY, getGeometryTip());
 
     // placement policy --- CT 31jan98 ---
-    v =getPlacement();
+    v = getPlacement();
     if (v == RANDOM_PLACEMENT)
         config->writeEntry(KWIN_PLACEMENT, "Random");
     else if (v == CASCADE_PLACEMENT)
@@ -1334,12 +1371,6 @@ void KMovingConfig::save( void )
     config->writeEntry(KWIN_MINIMIZE_ANIM, getMinimizeAnim());
     config->writeEntry(KWIN_MINIMIZE_ANIM_SPEED, getMinimizeAnimSpeed());
 
-    v = getResizeOpaque();
-    if (v == RESIZE_OPAQUE)
-        config->writeEntry(KWIN_RESIZE_OPAQUE, "Opaque");
-    else
-        config->writeEntry(KWIN_RESIZE_OPAQUE, "Transparent");
-
     config->writeEntry(KWIN_MOVE_RESIZE_MAXIMIZED, moveResizeMaximized->isChecked());
     config->writeEntry(KWIN_RESET_MAX_WIN_GEOM, resetMaximizedWindowGeometry->isChecked());
 
@@ -1360,8 +1391,8 @@ void KMovingConfig::save( void )
 
 void KMovingConfig::defaults()
 {
-    setMove(OPAQUE);
-    setResizeOpaque(RESIZE_TRANSPARENT);
+    setMoveMode(OPAQUE);
+    setResizeMode(TRANSPARENT);
     setGeometryTip(false);
     setPlacement(SMART_PLACEMENT);
     setMoveResizeMaximized(false);

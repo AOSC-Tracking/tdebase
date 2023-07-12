@@ -2552,7 +2552,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
            (options->activeBorders() == Options::ActiveTileMaximize ||
             options->activeBorders() == Options::ActiveTileOnly))
         {
-            movingClient->setActiveBorderMaximizing(false);
+            movingClient->cancelActiveBorderMaximizing();
             return;
         }
     }
