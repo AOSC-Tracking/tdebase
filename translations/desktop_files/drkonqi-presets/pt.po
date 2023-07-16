@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2022.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 03:59+0200\n"
-"PO-Revision-Date: 2022-08-02 14:46+0000\n"
+"PO-Revision-Date: 2023-07-16 17:52+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/drkonqi-presets/pt/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: developerrc:2
@@ -45,7 +45,7 @@ msgstr "Pode desejar corrigir o programa. Examine a página do 'backtrace'."
 #. Name
 #: developerrc:20 enduserrc:20
 msgid "SIGILL"
-msgstr ""
+msgstr "SIGILL"
 
 #. Comment
 #: developerrc:21
@@ -55,7 +55,7 @@ msgstr "Instrução inválida."
 #. Name
 #: developerrc:24 enduserrc:24
 msgid "SIGABRT"
-msgstr ""
+msgstr "SIGABRT"
 
 #. Comment
 #: developerrc:25
@@ -65,7 +65,7 @@ msgstr "Abortado."
 #. Name
 #: developerrc:28 enduserrc:28
 msgid "SIGFPE"
-msgstr ""
+msgstr "SIGFPE"
 
 #. Comment
 #: developerrc:29
@@ -75,7 +75,7 @@ msgstr "Excepção de virgula flutuante."
 #. Name
 #: developerrc:32 enduserrc:32
 msgid "SIGSEGV"
-msgstr ""
+msgstr "SIGSEGV"
 
 #. Comment
 #: developerrc:33
