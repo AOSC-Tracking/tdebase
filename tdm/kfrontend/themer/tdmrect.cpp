@@ -182,7 +182,7 @@ KdmRect::setWidget( TQWidget *widget )
         if ( rect.normal.color.isValid() && widget ) 
         {
      	     TQPalette p = widget->palette();
-	     p.setColor( TQPalette::Normal, TQColorGroup::Text, rect.normal.color );
+	     p.setColor( TQPalette::Active, TQColorGroup::Text, rect.normal.color );
 	     widget->setPalette(p);
 	}
 	KdmItem::setWidget( widget );

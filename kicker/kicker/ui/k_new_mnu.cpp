@@ -228,7 +228,7 @@ KMenu::KMenu()
     setupUi();
 
     m_userInfo->setBackgroundMode( PaletteBase );
-    TQColor userInfoColor = TQApplication::palette().color( TQPalette::Normal, TQColorGroup::Mid );
+    TQColor userInfoColor = TQApplication::palette().color( TQPalette::Active, TQColorGroup::Mid );
     if ( tqGray( userInfoColor.rgb() ) > 120 )
         userInfoColor = userInfoColor.dark( 200 );
     else
