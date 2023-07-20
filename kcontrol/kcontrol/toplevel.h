@@ -41,7 +41,7 @@ class ModuleTitle;
 
 class TopLevel : public TDEMainWindow
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   TopLevel( const char* name=0 );

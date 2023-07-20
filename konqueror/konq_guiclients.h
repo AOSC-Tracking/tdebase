@@ -71,7 +71,7 @@ private:
 
 class ToggleViewGUIClient : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   ToggleViewGUIClient( KonqMainWindow *mainWindow );
   virtual ~ToggleViewGUIClient();

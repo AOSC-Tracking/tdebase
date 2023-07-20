@@ -27,7 +27,7 @@
 class TQListViewItem;
 
 class TDEStylePage : public TDEStylePageDlg  {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	TDEStylePage(TQWidget *parent=0, const char *name=0);

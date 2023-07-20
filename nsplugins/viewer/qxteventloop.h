@@ -49,7 +49,7 @@ class QXtEventLoopPrivate;
 
 class QXtEventLoop : public TQEventLoop
 {
-    Q_OBJECT
+    TQ_OBJECT
     
 
 public:

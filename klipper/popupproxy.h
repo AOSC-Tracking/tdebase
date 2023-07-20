@@ -36,7 +36,7 @@ class KlipperPopup;
  */
 class PopupProxy : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     /**

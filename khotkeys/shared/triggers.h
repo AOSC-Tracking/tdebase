@@ -82,7 +82,7 @@ class KDE_EXPORT Shortcut_trigger
 class KDE_EXPORT Window_trigger
     : public TQObject, public Trigger        
     {
-    Q_OBJECT
+    TQ_OBJECT
     typedef Trigger base;
     public:
         enum window_action_t
@@ -124,7 +124,7 @@ class KDE_EXPORT Window_trigger
 class KDE_EXPORT Gesture_trigger
     : public TQObject, public Trigger
     {
-    Q_OBJECT
+    TQ_OBJECT
     typedef Trigger base;
     public:
         Gesture_trigger( Action_data* data_P, const TQString& gesture_P );
@@ -145,7 +145,7 @@ class KDE_EXPORT Gesture_trigger
 class KDE_EXPORT Voice_trigger
     : public TQObject, public Trigger
     {
-    Q_OBJECT
+    TQ_OBJECT
     typedef Trigger base;
     public:
 		Voice_trigger( Action_data* data_P, const TQString& Voice_P, const VoiceSignature & signature1_P, const VoiceSignature & signature2_P );

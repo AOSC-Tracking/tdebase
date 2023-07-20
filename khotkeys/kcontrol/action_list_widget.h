@@ -35,7 +35,7 @@ class Action_list_item;
 class Action_list_widget
     : public Action_list_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Action_list_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         virtual ~Action_list_widget();
@@ -89,7 +89,7 @@ class Action_dialog
 class Command_url_action_dialog
     : public KDialogBase, public Action_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Command_url_action_dialog( Command_url_action* action_P );
         virtual Action* edit_action();
@@ -102,7 +102,7 @@ class Command_url_action_dialog
 class Menuentry_action_dialog
     : public KDialogBase, public Action_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Menuentry_action_dialog( Menuentry_action* action_P );
         virtual Action* edit_action();
@@ -115,7 +115,7 @@ class Menuentry_action_dialog
 class Dcop_action_dialog
     : public KDialogBase, public Action_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Dcop_action_dialog( Dcop_action* action_P );
         virtual Action* edit_action();
@@ -128,7 +128,7 @@ class Dcop_action_dialog
 class Keyboard_input_action_dialog
     : public KDialogBase, public Action_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Keyboard_input_action_dialog( Keyboard_input_action* action_P );
         virtual Action* edit_action();
@@ -141,7 +141,7 @@ class Keyboard_input_action_dialog
 class Activate_window_action_dialog
     : public KDialogBase, public Action_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Activate_window_action_dialog( Activate_window_action* action_P );
         virtual Action* edit_action();
@@ -154,7 +154,7 @@ class Activate_window_action_dialog
 class Waiting_action_dialog
     : public KDialogBase, public Action_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Waiting_action_dialog( Waiting_action* action_P );
         virtual Action* edit_action();

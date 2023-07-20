@@ -22,7 +22,7 @@ class KStatusBar;
 
 class KfindDlg: public KDialogBase
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
   KfindDlg(const KURL & url, TQWidget * parent = 0, const char * name = 0);

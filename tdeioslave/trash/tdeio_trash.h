@@ -30,7 +30,7 @@ typedef TrashImpl::TrashedFileInfoList TrashedFileInfoList;
 
 class TrashProtocol : public TQObject, public TDEIO::SlaveBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     TrashProtocol( const TQCString& protocol, const TQCString &pool, const TQCString &app);
     virtual ~TrashProtocol();

@@ -35,7 +35,7 @@
 
 class KDesktopApp : public KUniqueApplication
 {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         KDesktopApp();
         KDesktopApp(Display * dpy, Qt::HANDLE visual = 0,

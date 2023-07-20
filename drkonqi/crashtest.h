@@ -31,7 +31,7 @@
 
 class WorkerObject : public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public slots:
 		void run();

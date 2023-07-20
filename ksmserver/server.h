@@ -49,7 +49,7 @@ typedef TQMap<WId,SMData> WindowMap;
 
 class KSMServer : public TQObject, public KSMServerInterface
 {
-Q_OBJECT
+TQ_OBJECT
 K_DCOP
 k_dcop:
     void notifySlot(TQString,TQString,TQString,TQString,TQString,int,int,int,int);

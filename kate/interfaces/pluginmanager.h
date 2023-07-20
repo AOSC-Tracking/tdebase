@@ -31,7 +31,7 @@ class KDE_EXPORT PluginManager : public TQObject
 {
   friend class PrivatePluginManager;
 
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     PluginManager ( void *pluginManager  );

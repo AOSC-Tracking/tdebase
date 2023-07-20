@@ -53,7 +53,7 @@ private:
 
 class KDE_EXPORT TaskLMBMenu : public TQPopupMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     TaskLMBMenu(const Task::List& list, TQWidget *parent = 0, const char *name = 0);

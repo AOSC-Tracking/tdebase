@@ -32,7 +32,7 @@ Boston, MA 02110-1301, USA.
 
 class MyApplication : public TDEApplication
 {
-	Q_OBJECT
+	TQ_OBJECT
 
   public:
 	MyApplication( const char * );

@@ -30,7 +30,7 @@ class Condition_list_item;
 class Condition_list_widget
     : public Condition_list_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Condition_list_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         virtual ~Condition_list_widget();
@@ -87,7 +87,7 @@ class Condition_dialog
 class Active_window_condition_dialog
     : public KDialogBase, public Condition_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Active_window_condition_dialog( Active_window_condition* condition_P );
         virtual Condition* edit_condition();
@@ -100,7 +100,7 @@ class Active_window_condition_dialog
 class Existing_window_condition_dialog
     : public KDialogBase, public Condition_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Existing_window_condition_dialog( Existing_window_condition* condition_P );
         virtual Condition* edit_condition();

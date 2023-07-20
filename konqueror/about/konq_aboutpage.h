@@ -34,7 +34,7 @@ private:
 
 class KonqAboutPage : public TDEHTMLPart
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KonqAboutPage( /*KonqMainWindow *mainWindow,*/
                    TQWidget *parentWidget, const char *widgetName,

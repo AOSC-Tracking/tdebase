@@ -47,7 +47,7 @@ class KateExternalToolsMenuAction;
 
 class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   friend class KateConfigDialog;
   friend class KateViewManager;
@@ -222,7 +222,7 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
 
 class KateSessionListActionMenu : public TDEActionMenu
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KateSessionListActionMenu(KateMainWindow *mw, const TQString &text, TQObject *parent = NULL, const char *name = NULL);

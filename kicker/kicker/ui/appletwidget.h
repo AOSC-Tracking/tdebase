@@ -36,7 +36,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class AppletWidget: public AppletItem
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         typedef TQValueList<AppletWidget*> List;

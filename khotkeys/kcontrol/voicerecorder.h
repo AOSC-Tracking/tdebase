@@ -30,7 +30,7 @@ namespace KHotKeys
 
 class VoiceRecorder : public Voice_input_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         VoiceRecorder(const Sound& sound_P, const TQString &voiceId, TQWidget *parent, const char *name);

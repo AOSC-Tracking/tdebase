@@ -72,7 +72,7 @@ typedef TQValueList<SystemTrayWindow> SystemTrayWindowList;
 
 class Workspace : public TQObject, public KWinInterface, public KDecorationDefines
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Workspace( bool restore = FALSE );
         virtual ~Workspace();

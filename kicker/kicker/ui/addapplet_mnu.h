@@ -33,7 +33,7 @@ class ContainerArea;
 
 class PanelAddAppletMenu : public TQPopupMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PanelAddAppletMenu(ContainerArea *cArea, TQWidget *parent=0, const char *name=0);

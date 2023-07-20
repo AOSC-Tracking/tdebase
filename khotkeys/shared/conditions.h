@@ -87,7 +87,7 @@ class KDE_EXPORT Condition_list
 class KDE_EXPORT Active_window_condition
     : public TQObject, public Condition
     {
-    Q_OBJECT
+    TQ_OBJECT
     typedef Condition base;
     public:
         Active_window_condition( Windowdef_list* window_P, Condition_list_base* parent_P );
@@ -114,7 +114,7 @@ class KDE_EXPORT Active_window_condition
 class KDE_EXPORT Existing_window_condition
     : public TQObject, public Condition
     {
-    Q_OBJECT
+    TQ_OBJECT
     typedef Condition base;
     public:
         Existing_window_condition( Windowdef_list* window_P, Condition_list_base* parent_P );

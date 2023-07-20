@@ -31,7 +31,7 @@ class KComboBox;
 
 class SMBRoOptions : public TDECModule
 {
-   Q_OBJECT
+   TQ_OBJECT
    public:
       SMBRoOptions(TQWidget *parent = 0);
       ~SMBRoOptions();

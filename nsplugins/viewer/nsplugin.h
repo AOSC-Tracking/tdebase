@@ -65,7 +65,7 @@ class TQTimer;
 
 class NSPluginStreamBase : public TQObject
 {
-Q_OBJECT
+TQ_OBJECT
 friend class NSPluginInstance;
 public:
   NSPluginStreamBase( class NSPluginInstance *instance );
@@ -115,7 +115,7 @@ private:
 
 class NSPluginStream : public NSPluginStreamBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   NSPluginStream( class NSPluginInstance *instance );
@@ -140,7 +140,7 @@ protected:
 
 class NSPluginBufStream : public NSPluginStreamBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   NSPluginBufStream( class NSPluginInstance *instance );
@@ -159,7 +159,7 @@ protected:
 
 class NSPluginInstance : public TQObject, public virtual NSPluginInstanceIface
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 
@@ -275,7 +275,7 @@ private:
 
 class NSPluginClass : public TQObject, virtual public NSPluginClassIface
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
 
   NSPluginClass( const TQString &library, TQObject *parent, const char *name=0 );
@@ -325,7 +325,7 @@ private:
 
 class NSPluginViewer : public TQObject, virtual public NSPluginViewerIface
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
    NSPluginViewer( TQCString dcopId, TQObject *parent, const char *name=0 );
    virtual ~NSPluginViewer();

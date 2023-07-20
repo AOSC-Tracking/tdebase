@@ -88,7 +88,7 @@ private:
 class TreeView : public TDEListView
 {
     friend class TreeItem;
-    Q_OBJECT
+    TQ_OBJECT
 public:
     TreeView(bool controlCenter, TDEActionCollection *ac, TQWidget *parent=0, const char *name=0);
     ~TreeView();

@@ -29,7 +29,7 @@ class TQT_DBusProxy;
 
 class SaverEngineThreadHelperObject : public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 	
 public slots:
 	void terminateThread();
@@ -48,7 +48,7 @@ signals:
  */
 class SaverEngine : public TQWidget, public KScreensaverIface
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	SaverEngine();
 	~SaverEngine();

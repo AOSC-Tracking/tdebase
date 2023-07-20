@@ -49,7 +49,7 @@ class SearchJob
 
 class SearchHandler : public QObject
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     static SearchHandler *initFromFile( const TQString &filename );
 

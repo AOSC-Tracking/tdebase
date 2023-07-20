@@ -31,7 +31,7 @@ class KDialogBase;
 
 class CSSConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 	  

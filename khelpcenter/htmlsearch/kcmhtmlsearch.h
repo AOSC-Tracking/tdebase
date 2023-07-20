@@ -35,7 +35,7 @@ class KURLRequester;
 
 class TDEHTMLSearchConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 

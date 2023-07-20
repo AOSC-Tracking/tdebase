@@ -24,7 +24,7 @@ protected:
 
 class KWMThemeClient : public KDecoration
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KWMThemeClient( KDecorationBridge* b, KDecorationFactory* f );
     ~KWMThemeClient(){;}

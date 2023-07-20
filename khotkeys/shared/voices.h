@@ -30,7 +30,7 @@ class VoiceSignature;
 
 class KDE_EXPORT Voice  : public TQObject
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Voice( bool enabled_P, TQObject* parent_P );
         virtual ~Voice();

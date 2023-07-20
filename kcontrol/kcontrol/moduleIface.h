@@ -28,7 +28,7 @@
 
 class ModuleIface : public TQObject, public DCOPObject {
 
-Q_OBJECT
+TQ_OBJECT
 K_DCOP
 
 public:

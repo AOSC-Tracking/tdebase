@@ -32,7 +32,7 @@ class TQPushButton;
 
 class FaxAB : public KDialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	FaxAB(TQWidget *parent = 0, const char *name = 0);
 	~FaxAB();

@@ -30,7 +30,7 @@
 
 class ImportsView: public TQWidget
 {
-   Q_OBJECT
+   TQ_OBJECT
    public:
       ImportsView(TQWidget *parent, TDEConfig *config=0, const char * name=0);
       virtual ~ImportsView() {};

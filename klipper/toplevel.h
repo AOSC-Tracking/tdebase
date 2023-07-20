@@ -42,7 +42,7 @@ class KlipperSessionManaged;
 
 class KlipperWidget : public TQWidget, public DCOPObject
 {
-  Q_OBJECT
+  TQ_OBJECT
   K_DCOP
 
 k_dcop:
@@ -215,7 +215,7 @@ private:
 
 class Klipper : public KlipperWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 k_dcop:
     int newInstance();

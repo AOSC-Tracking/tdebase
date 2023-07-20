@@ -24,7 +24,7 @@
 
 class MediaModule : public TDECModule
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	MediaModule( TQWidget *parent, const char *name, const TQStringList& );

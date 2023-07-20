@@ -30,7 +30,7 @@
 
 class BarGraph : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   friend class DancingBars;
 

@@ -28,7 +28,7 @@
 
 class MacProtocol : public TQObject, public TDEIO::SlaveBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     MacProtocol(const TQCString &pool, const TQCString &app);
     ~MacProtocol();

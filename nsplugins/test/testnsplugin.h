@@ -34,7 +34,7 @@ class NSPluginInstance;
 
 class TestNSPlugin : public TDEMainWindow
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   TestNSPlugin();

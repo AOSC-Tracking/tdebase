@@ -64,7 +64,7 @@ struct HistoryEntry
  */
 class KonqView : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
 
   /**

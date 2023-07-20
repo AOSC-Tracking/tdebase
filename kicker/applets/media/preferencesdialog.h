@@ -30,7 +30,7 @@
 
 class PreferencesDialog : public KDialogBase
 {
-   Q_OBJECT
+   TQ_OBJECT
 public:
 	PreferencesDialog(KFileItemList media, TQWidget *parent=0, const char *name=0);
 	~PreferencesDialog();

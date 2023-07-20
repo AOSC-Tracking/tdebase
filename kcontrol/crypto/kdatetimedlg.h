@@ -34,7 +34,7 @@ class KDateTimeDlgPrivate;
 
 class KDateTimeDlg : public KDialog
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KDateTimeDlg(TQWidget *parent = 0L, const char *name = 0L);
   virtual ~KDateTimeDlg();

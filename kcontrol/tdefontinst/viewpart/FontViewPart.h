@@ -45,7 +45,7 @@ class CFontPreview;
 
 class CFontViewPart : public KParts::ReadOnlyPart
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
 

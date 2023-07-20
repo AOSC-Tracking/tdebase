@@ -33,7 +33,7 @@ class KIntNumInput;
 
 class KMiscHTMLOptions : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KMiscHTMLOptions(TDEConfig *config, TQString group, TQWidget *parent = 0L, const char *name = 0L );

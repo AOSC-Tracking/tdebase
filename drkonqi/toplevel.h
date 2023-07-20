@@ -42,7 +42,7 @@ class BugDescription;
 
 class Toplevel : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   Toplevel(KrashConfig *krash, TQWidget *parent = 0, const char * name = 0);

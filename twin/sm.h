@@ -61,7 +61,7 @@ enum SMSavePhase
 class SessionSaveDoneHelper
     : public QObject
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         SessionSaveDoneHelper();
         virtual ~SessionSaveDoneHelper();

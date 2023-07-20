@@ -74,7 +74,7 @@ protected:
 class LIBKONQ_EXPORT KonqHistoryManager : public KParts::HistoryProvider,
 			   public KonqHistoryComm
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     static KonqHistoryManager *kself() {

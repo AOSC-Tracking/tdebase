@@ -63,7 +63,7 @@ class KasBar;
  */
 class KasAboutDialog : public KDialogBase
 {
-   Q_OBJECT
+   TQ_OBJECT
 
 public:
    KasAboutDialog( TQWidget *parent=0 );

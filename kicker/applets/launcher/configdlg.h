@@ -31,7 +31,7 @@ class Prefs;
 
 class ConfigDlg : public TDEConfigDialog
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     ConfigDlg(TQWidget *parent, const char *name, Prefs *config, int autoSize,

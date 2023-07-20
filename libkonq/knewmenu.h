@@ -51,7 +51,7 @@ class TQPopupMenu;
  */
 class LIBKONQ_EXPORT KNewMenu : public TDEActionMenu
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
 
     /**
@@ -184,7 +184,7 @@ private:
  */
 class KURLDesktopFileDlg : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KURLDesktopFileDlg( const TQString& textFileName, const TQString& textUrl );
     KURLDesktopFileDlg( const TQString& textFileName, const TQString& textUrl, TQWidget *parent );

@@ -36,7 +36,7 @@ class KonqMainWindow;
  */
 class LIBKONQ_EXPORT KonqOperations : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 protected:
     KonqOperations( TQWidget * parent );
     virtual ~KonqOperations();
@@ -197,7 +197,7 @@ private:
 /// Restore multiple trashed files
 class KonqMultiRestoreJob : public TDEIO::Job
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KonqMultiRestoreJob( const KURL::List& urls, bool showProgressInfo );

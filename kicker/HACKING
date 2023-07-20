@@ -255,7 +255,7 @@ from tight loops or is in a hot path) or if it is a simple, one-liner
 setter/getter method. Otherwise methods should be implemented outside of
 the class definition.
 
-[1] macros include things like Q_OBJECT and K_DCOP. the should ONLY appear in
+[1] macros include things like TQ_OBJECT and K_DCOP. the should ONLY appear in
 files where they are actually necessary and not just randomly thrown in there
 for fun. ;-)
 

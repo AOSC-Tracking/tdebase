@@ -24,7 +24,7 @@
 
 class TestTrash : public QObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     TestTrash() {}

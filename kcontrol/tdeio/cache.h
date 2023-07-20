@@ -28,7 +28,7 @@ class CacheDlgUI;
 
 class KCacheConfigDialog : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 public:
   KCacheConfigDialog( TQWidget* parent = 0 );

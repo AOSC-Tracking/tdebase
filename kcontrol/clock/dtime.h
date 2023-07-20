@@ -39,7 +39,7 @@ class Kclock;
 
 class HMSTimeWidget : public KIntSpinBox
 {
-  Q_OBJECT
+  TQ_OBJECT
  public:
   HMSTimeWidget(TQWidget *parent=0, const char *name=0);
  protected:
@@ -48,7 +48,7 @@ class HMSTimeWidget : public KIntSpinBox
 
 class Dtime : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
  public:
   Dtime( TQWidget *parent=0, const char* name=0 );
 
@@ -97,7 +97,7 @@ private:
 
 class Kclock : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   Kclock( TQWidget *parent=0, const char *name=0 ) 

@@ -37,7 +37,7 @@
 // Clipboard/dnd data for: Icons + URLS + isCut
 class LIBKONQ_EXPORT KonqIconDrag : public TQIconDrag
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KonqIconDrag( TQWidget * dragSource, const char* name = 0 );
@@ -65,7 +65,7 @@ protected: // KDE4: private. And d pointer...
  */
 class LIBKONQ_EXPORT KonqIconDrag2 : public KonqIconDrag
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KonqIconDrag2( TQWidget * dragSource );

@@ -43,7 +43,7 @@ struct PluginPageListItem
 
 class KateConfigDialog : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KateConfigDialog (KateMainWindow *parent, Kate::View *view);

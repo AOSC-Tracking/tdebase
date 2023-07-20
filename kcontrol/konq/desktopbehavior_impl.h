@@ -28,7 +28,7 @@
 
 class DesktopBehavior : public DesktopBehaviorBase
 {
-        Q_OBJECT
+        TQ_OBJECT
 public:
         DesktopBehavior(TDEConfig *config, TQWidget *parent = 0L, const char *name = 0L );
         virtual void load();
@@ -69,7 +69,7 @@ private:
 
 class DesktopBehaviorModule : public TDECModule
 {
-        Q_OBJECT
+        TQ_OBJECT
 
 public:
         DesktopBehaviorModule(TDEConfig *config, TQWidget *parent = 0L, const char *name = 0L );

@@ -52,7 +52,7 @@ class PolicyDialog;
  * @author Leo Savernik
  */
 class DomainListView : public TQGroupBox {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   /** Enumerates the available buttons.
     */

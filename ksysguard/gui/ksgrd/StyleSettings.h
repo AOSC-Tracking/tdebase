@@ -35,7 +35,7 @@ class TQPushButton;
 
 class StyleSettings : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     StyleSettings( TQWidget *parent = 0, const char *name = 0 );

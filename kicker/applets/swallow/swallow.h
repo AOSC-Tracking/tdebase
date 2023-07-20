@@ -44,7 +44,7 @@ typedef TQPtrList<SwallowApp> SwallowAppList;
 
 class SwallowApplet : public KPanelApplet
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     SwallowApplet( const TQString& configFile, TQWidget *parent,
@@ -88,7 +88,7 @@ private:
 
 class SwallowApp : public QXEmbed
 {
-    Q_OBJECT
+    TQ_OBJECT
 	
 public:
     SwallowApp( const SwallowCommand * swc, TQWidget* parent = 0,

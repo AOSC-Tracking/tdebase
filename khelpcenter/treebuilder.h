@@ -30,7 +30,7 @@ namespace KHC
 class NavigatorItem;
 class TreeBuilder : public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 	public:
 		TreeBuilder( TQObject *parent, const char *name = 0 );
 

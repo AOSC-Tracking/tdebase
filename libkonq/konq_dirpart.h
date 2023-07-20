@@ -38,7 +38,7 @@ class KonqDirPartBrowserExtension;
 
 class LIBKONQ_EXPORT KonqDirPart: public KParts::ReadOnlyPart
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     friend class KonqDirPartBrowserExtension;
 

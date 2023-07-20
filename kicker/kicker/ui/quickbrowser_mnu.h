@@ -28,7 +28,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class PanelQuickBrowser : public KPanelMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PanelQuickBrowser(TQWidget *parent=0, const char *name=0);

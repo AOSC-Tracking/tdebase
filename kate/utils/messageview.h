@@ -50,7 +50,7 @@ namespace Kate
 {
 
 class MessageView : public DockViewBase {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     MessageView( TQWidget *parent=0, const char *name=0 );
     ~MessageView();

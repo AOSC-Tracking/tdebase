@@ -27,7 +27,7 @@ class ManagerModuleView;
 
 class ManagerModule : public TDECModule
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	ManagerModule( TQWidget* parent = 0, const char* name = 0);

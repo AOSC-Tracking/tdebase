@@ -30,7 +30,7 @@ namespace KickoffSearch
 {
     class KDE_EXPORT KickoffSearchInterface :public TQObject
     {
-        Q_OBJECT
+        TQ_OBJECT
 
     public:
         KickoffSearchInterface( TQObject* parent, const char* name = 0);

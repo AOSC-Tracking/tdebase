@@ -66,7 +66,7 @@ class KasTaskItem;
  */
 class KasTaskPopup : public KasPopup
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KasTaskPopup( KasTaskItem *item, const char *name=0 );

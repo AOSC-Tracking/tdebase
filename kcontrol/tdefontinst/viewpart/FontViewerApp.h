@@ -38,7 +38,7 @@ namespace KFI
 
 class CFontViewerAppMainWindow : public KParts::MainWindow
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
 

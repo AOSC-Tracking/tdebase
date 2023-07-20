@@ -29,7 +29,7 @@ class TDEAboutData;
 
 class PrintPart : public KParts::ReadOnlyPart
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	PrintPart(TQWidget *parentWidget, const char *widgetName,
 		  TQObject *parent, const char *name,
@@ -49,7 +49,7 @@ private:
 
 class PrintPartExtension : public KParts::BrowserExtension
 {
-	Q_OBJECT
+	TQ_OBJECT
 	friend class PrintPart;
 public:
 	PrintPartExtension(PrintPart *parent);

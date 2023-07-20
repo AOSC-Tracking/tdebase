@@ -822,7 +822,7 @@ class RotWidget;
 
 class Cfg2k: public ThemeEngineConfig
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   Cfg2k( TDEConfig * );
 };
@@ -830,7 +830,7 @@ public:
 class ObjKsTheme;
 class Theme2k: public ThemeEngine
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   Theme2k( QWidget *, const char *, const QStringList&amp; );
 
@@ -1218,7 +1218,7 @@ void Theme2k::readSettings()
  */
 class 	RotWidget: public QWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   RotWidget( QWidget *, const QColor&amp;, const QColor&amp;, int );
   ~RotWidget();

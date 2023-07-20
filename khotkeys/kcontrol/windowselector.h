@@ -19,7 +19,7 @@ namespace KHotKeys
 class WindowSelector
     : public QWidget
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         WindowSelector( TQObject* receiver, const char* slot );
         void select();

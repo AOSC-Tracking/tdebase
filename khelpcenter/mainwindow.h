@@ -24,7 +24,7 @@ class View;
 
 class MainWindow : public TDEMainWindow, public DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
   public:
     MainWindow();

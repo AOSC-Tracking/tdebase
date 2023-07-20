@@ -28,7 +28,7 @@ class TQSocketNotifier;
 
 class KShellCommandExecutor:public TQTextView
 {
-   Q_OBJECT
+   TQ_OBJECT
    public:
       KShellCommandExecutor(const TQString& command, TQWidget* parent=0);
       virtual ~KShellCommandExecutor();

@@ -31,7 +31,7 @@ class KfFileLVI : public TQListViewItem
 
 class KfindWindow: public   TDEListView
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KfindWindow( TQWidget * parent = 0, const char * name = 0 );
 

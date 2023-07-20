@@ -27,7 +27,7 @@ class TQCheckBox;
 
 class PrintSettings : public KPrintDialogPage
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	PrintSettings(TQWidget *parent = 0, const char *name = 0);
 	~PrintSettings();

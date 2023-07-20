@@ -25,7 +25,7 @@ class Action_list;
 class General_tab
     : public General_tab_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         General_tab( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void set_data( const Action_data* data_P );

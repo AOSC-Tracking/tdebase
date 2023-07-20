@@ -41,7 +41,7 @@ class TDEProcess;
 class LocalDomainURIFilter : public KURIFilterPlugin, public DCOPObject
 {
   K_DCOP
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     LocalDomainURIFilter( TQObject* parent, const char* name, const TQStringList& args );

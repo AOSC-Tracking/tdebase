@@ -31,7 +31,7 @@ class KfDirDialog;
 
 class KfindTabWidget: public TQTabWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KfindTabWidget(TQWidget * parent = 0, const char *name=0);
@@ -121,7 +121,7 @@ private:
 
 class KDigitValidator : public TQValidator
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KDigitValidator(TQWidget * parent, const char *name = 0 );

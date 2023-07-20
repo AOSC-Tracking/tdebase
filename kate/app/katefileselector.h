@@ -48,7 +48,7 @@ class KFileView;
 /* I think this fix for not moving toolbars is better */
 class KateFileSelectorToolBar: public TDEToolBar
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	KateFileSelectorToolBar(TQWidget *parent);
 	virtual ~KateFileSelectorToolBar();
@@ -58,7 +58,7 @@ public:
 
 class KateFileSelectorToolBarParent: public TQFrame
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	KateFileSelectorToolBarParent(TQWidget *parent);
 	~KateFileSelectorToolBarParent();
@@ -71,7 +71,7 @@ protected:
 
 class KateFileSelector : public TQVBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   friend class KFSConfigPage;
 
@@ -144,7 +144,7 @@ class KateFileSelector : public TQVBox
     user closed session.
 */
 class KFSConfigPage : public Kate::ConfigPage {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     KFSConfigPage( TQWidget* parent=0, const char *name=0, KateFileSelector *kfs=0);
     virtual ~KFSConfigPage() {};

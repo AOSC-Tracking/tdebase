@@ -34,7 +34,7 @@ class KateMainWindow;
 
 class KateViewSpaceContainer: public TQVBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   friend class KateViewSpace;
   friend class KateVSStatusBar;

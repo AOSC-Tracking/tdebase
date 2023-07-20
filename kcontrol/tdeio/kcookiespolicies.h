@@ -38,7 +38,7 @@ class KCookiesPolicyDlgUI;
 
 class KCookiesPolicies : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KCookiesPolicies(TQWidget *parent = 0);

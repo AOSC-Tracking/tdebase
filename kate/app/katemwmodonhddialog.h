@@ -33,7 +33,7 @@ class TDEProcess;
  */
 class KateMwModOnHdDialog : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     KateMwModOnHdDialog( DocVector docs, TQWidget *parent=0, const char *name=0 );
     ~KateMwModOnHdDialog();

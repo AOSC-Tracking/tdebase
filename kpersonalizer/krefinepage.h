@@ -25,7 +25,7 @@
   */
 
 class KRefinePage : public KRefinePageDlg  {
-   Q_OBJECT
+   TQ_OBJECT
 public: 
 	KRefinePage(TQWidget *parent=0, const char *name=0);
 	~KRefinePage();

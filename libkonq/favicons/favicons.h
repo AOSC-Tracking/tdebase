@@ -44,7 +44,7 @@ namespace TDEIO { class Job; }
  */
 class FaviconsModule : public KDEDModule
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 public:
     FaviconsModule(const TQCString &obj);

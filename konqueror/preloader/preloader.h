@@ -26,7 +26,7 @@
 class KonqyPreloader
     : public KDEDModule
     {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
     public:
         KonqyPreloader( const TQCString& obj );

@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class PrintMenu : public KPanelMenu, public KPReloadObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PrintMenu(TQWidget *parent, const char *name, const TQStringList & /*args*/);

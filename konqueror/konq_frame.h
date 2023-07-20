@@ -64,7 +64,7 @@ namespace KParts
  */
 class KonqCheckBox : public TQCheckBox
 {
-    Q_OBJECT // for classname
+    TQ_OBJECT // for classname
 public:
     KonqCheckBox(TQWidget *parent=0, const char *name=0)
       :TQCheckBox( parent, name ) {}
@@ -80,7 +80,7 @@ protected:
  */
 class KonqFrameStatusBar : public KStatusBar
 {
-  Q_OBJECT
+  TQ_OBJECT
 
    public:
       KonqFrameStatusBar( KonqFrame *_parent = 0L, const char *_name = 0L );
@@ -198,7 +198,7 @@ protected:
 
 class KonqFrame : public TQWidget, public KonqFrameBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KonqFrame( TQWidget* parent, KonqFrameContainerBase *parentContainer = 0L,
@@ -346,7 +346,7 @@ protected:
 
 class KonqFrameContainer : public TQSplitter, public KonqFrameContainerBase
 {
-  Q_OBJECT
+  TQ_OBJECT
   friend class KonqFrame; //for emitting ctrlTabPressed() only, aleXXX
 public:
   KonqFrameContainer( Orientation o,

@@ -43,7 +43,7 @@ typedef TQValueList<KatePluginInfo> KatePluginList;
 
 class KatePluginManager : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KatePluginManager(TQObject *parent);

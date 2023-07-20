@@ -32,7 +32,7 @@
 
 class TrashButton : public PanelPopupButton
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
 	TrashButton(TQWidget *parent);

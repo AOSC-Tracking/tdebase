@@ -22,7 +22,7 @@ class KDCOPListView;
 
 class KDCOPWindow : public TDEMainWindow
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
 

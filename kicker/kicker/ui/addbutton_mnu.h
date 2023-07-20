@@ -30,7 +30,7 @@ class ContainerArea;
 
 class PanelAddButtonMenu : public PanelServiceMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PanelAddButtonMenu(ContainerArea* cArea, const TQString & label, const TQString & relPath,

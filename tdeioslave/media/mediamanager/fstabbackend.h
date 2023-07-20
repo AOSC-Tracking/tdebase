@@ -31,7 +31,7 @@
 
 class FstabBackend : public TQObject, public BackendBase
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
 	FstabBackend(MediaList &list, bool networkSharesOnly = false);

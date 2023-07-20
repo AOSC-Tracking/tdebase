@@ -13,7 +13,7 @@ class TQDragObject;
 
 class KDCOPListView : public TDEListView
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
   	KDCOPListView ( TQWidget * parent = 0, const char * name = 0 );
@@ -48,7 +48,7 @@ class DCOPBrowserItem : public TQListViewItem
 
 class DCOPBrowserApplicationItem : public TQObject, public DCOPBrowserItem
 {
- Q_OBJECT
+ TQ_OBJECT
   public:
 
     DCOPBrowserApplicationItem(TQListView * parent, const TQCString & app);

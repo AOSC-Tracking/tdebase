@@ -40,7 +40,7 @@ class KIntNumInput;
  */
 class ReniceDlg : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	ReniceDlg(TQWidget* parent, const char* name, int currentPPrio, int pid);

@@ -313,7 +313,7 @@ protected:
 class KWIN_EXPORT KDecoration
     : public TQObject, public KDecorationDefines
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
 	/**
 	 * Constructs a KDecoration object. Both the arguments are passed from

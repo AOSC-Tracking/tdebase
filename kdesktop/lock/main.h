@@ -25,7 +25,7 @@
 #include <time.h>
 
 class MyApp : public TDEApplication {
-	Q_OBJECT
+	TQ_OBJECT
 	public:
 		MyApp() : TDEApplication(), lastTick( 0 ) {}
 		MyApp(Display *display, Qt::HANDLE visual = 0, Qt::HANDLE colormap = 0, bool allowStyles=true) : TDEApplication(display, visual, colormap, allowStyles), lastTick( 0 ) {}

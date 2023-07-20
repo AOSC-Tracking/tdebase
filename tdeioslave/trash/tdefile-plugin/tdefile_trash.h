@@ -28,7 +28,7 @@ class TQStringList;
 
 class KTrashPlugin: public KFilePlugin
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KTrashPlugin(TQObject *parent, const char *name, const TQStringList& args);

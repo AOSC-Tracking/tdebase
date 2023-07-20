@@ -37,7 +37,7 @@ typedef TQPtrListIterator<AppTreeItem> treeItemListIterator;
 
 class CommandShortcutsModule : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         CommandShortcutsModule( TQWidget *parent = 0, const char *name = 0 );
         ~CommandShortcutsModule();

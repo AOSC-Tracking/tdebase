@@ -14,7 +14,7 @@ class KIntNumInput;
 
 class KIOPreferences : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KIOPreferences( TQWidget* parent = 0);

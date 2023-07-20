@@ -24,7 +24,7 @@
 
 class KateTabWidget : public KTabWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     enum TabWidgetVisibility {

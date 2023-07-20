@@ -75,7 +75,7 @@ typedef enum {
  */
 class KonqSidebarTree : public TDEListView, public KDirNotify
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KonqSidebarTree( KonqSidebar_Tree *parent, TQWidget *parentWidget, int virt, const TQString& path );
     virtual ~KonqSidebarTree();

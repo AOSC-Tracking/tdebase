@@ -51,7 +51,7 @@ namespace KParts
 
 class KonqViewManager : public KParts::PartManager
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KonqViewManager( KonqMainWindow *mainWindow );
   ~KonqViewManager();

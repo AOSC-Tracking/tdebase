@@ -34,7 +34,7 @@ class KLineEdit;
  */
 class KonqSidebarBookmarkModule : public TQObject, public KonqSidebarTreeModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KonqSidebarBookmarkModule( KonqSidebarTree * parentTree );
     virtual ~KonqSidebarBookmarkModule();
@@ -77,7 +77,7 @@ private:
 
 class BookmarkEditDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     BookmarkEditDialog( const TQString& title, const TQString& url,

@@ -18,7 +18,7 @@
 
 class B2Config: public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		B2Config( TDEConfig* conf, TQWidget* parent );

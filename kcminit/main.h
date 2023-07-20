@@ -27,7 +27,7 @@ class TDECmdLineArgs;
 
 class KCMInit : public TQObject, public DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
     k_dcop:
         void runPhase1();

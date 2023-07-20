@@ -40,7 +40,7 @@ class TQGridLayout;
 
 class PanelExtension : public KPanelExtension, virtual public  DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 
 public:
@@ -109,7 +109,7 @@ private:
 
 class MenubarExtension : public PanelExtension
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         MenubarExtension(const AppletInfo& info);

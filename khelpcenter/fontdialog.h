@@ -33,7 +33,7 @@ namespace KHC {
 
 class FontDialog : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 	public:
 		FontDialog( TQWidget *parent, const char *name = 0 );
 

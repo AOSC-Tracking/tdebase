@@ -137,7 +137,7 @@ namespace Keramik {
 
 	class KeramikClient : public KDecoration
 	{
-		Q_OBJECT
+		TQ_OBJECT
 
 		public:
 

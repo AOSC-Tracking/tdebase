@@ -30,7 +30,7 @@ class KBookmarkManager;
 
 class KonsoleBookmarkHandler : public TQObject, public KBookmarkOwner
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KonsoleBookmarkHandler( Konsole *konsole, bool toplevel );

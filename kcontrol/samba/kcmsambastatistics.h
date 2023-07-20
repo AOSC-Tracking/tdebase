@@ -77,7 +77,7 @@ class SambaLog
 
 class StatisticsView: public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   StatisticsView(TQWidget *parent=0, TDEConfig *config=0, const char *name=0);
   virtual ~StatisticsView() {};

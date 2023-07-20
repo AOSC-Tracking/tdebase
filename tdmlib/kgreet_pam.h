@@ -37,7 +37,7 @@ class TQGridLayout;
 class TQLabel;
 
 class KPamGreeter : public TQObject, public KGreeterPlugin {
-	Q_OBJECT
+	TQ_OBJECT
 
   public:
 	KPamGreeter( KGreeterPluginHandler *handler,

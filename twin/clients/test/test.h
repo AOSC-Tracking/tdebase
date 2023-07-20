@@ -15,7 +15,7 @@ const int SUPPORTED_WINDOW_TYPES_MASK = NET::NormalMask | NET::DesktopMask | NET
 class Decoration
     : public KDecoration
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
 	Decoration( KDecorationBridge* bridge, KDecorationFactory* factory );
         virtual void init();

@@ -35,7 +35,7 @@ class TDESelectAction;
 class KonqInfoListViewWidget : public KonqBaseListViewWidget
 {
 //   friend class KonqTextViewItem;
-   Q_OBJECT
+   TQ_OBJECT
    public:
       KonqInfoListViewWidget( KonqListView *parent, TQWidget *parentWidget );
       ~KonqInfoListViewWidget();

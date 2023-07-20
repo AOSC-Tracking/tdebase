@@ -44,7 +44,7 @@ class SaverEngine;
 
 class KRootWidget : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
    KRootWidget();
    bool eventFilter( TQObject *, TQEvent * e );
@@ -63,7 +63,7 @@ signals:
 class KDesktop : public TQWidget,
                  public KDesktopIface
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 

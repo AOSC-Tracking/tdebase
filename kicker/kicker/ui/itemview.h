@@ -156,7 +156,7 @@ class ItemView : public TDEListView
 {
     friend class KMenuItem;
 
-    Q_OBJECT
+    TQ_OBJECT
 public:
     ItemView(TQWidget* parent, const char* name = 0);
 

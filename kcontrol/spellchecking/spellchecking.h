@@ -25,7 +25,7 @@ class KSpellConfig;
 
 class KSpellCheckingConfig  : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
  public:
   KSpellCheckingConfig(TQWidget *parent, const char *name, const TQStringList &);

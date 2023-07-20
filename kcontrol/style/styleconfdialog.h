@@ -26,7 +26,7 @@
 
 class StyleConfigDialog: public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   StyleConfigDialog(TQWidget* parent, TQString styleName);
 

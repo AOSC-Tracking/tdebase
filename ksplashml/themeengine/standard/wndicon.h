@@ -28,7 +28,7 @@
 class WndIcon:
       public TQHBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
 
   enum Position

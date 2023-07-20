@@ -28,7 +28,7 @@ class SMServerConfigImpl;
 
 class SMServerConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   SMServerConfig( TQWidget *parent=0, const char* name=0, const TQStringList &list=TQStringList() );

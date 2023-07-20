@@ -30,7 +30,7 @@ class KDE_EXPORT DocumentManager : public TQObject
 {
   friend class PrivateDocumentManager;
 
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     DocumentManager ( void *documentManager  );

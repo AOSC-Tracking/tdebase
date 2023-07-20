@@ -31,7 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 class KButton : public PanelPopupButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KButton( TQWidget *parent );

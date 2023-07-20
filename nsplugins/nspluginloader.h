@@ -45,7 +45,7 @@ class TQGridLayout;
 
 class NSPluginInstance : public EMBEDCLASS
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
     NSPluginInstance(TQWidget *parent);
@@ -80,7 +80,7 @@ private: // wrappers
 
 class NSPluginLoader : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   NSPluginLoader();

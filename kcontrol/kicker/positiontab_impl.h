@@ -29,7 +29,7 @@ class ExtensionInfo;
 
 class PositionTab : public PositionTabBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PositionTab(TQWidget *parent, const char* name = 0);

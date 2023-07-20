@@ -81,7 +81,7 @@ private:
 
 class KEBListView : public TDEListView
 {
-   Q_OBJECT
+   TQ_OBJECT
 public:
    enum { 
       NameColumn = 0,
@@ -128,7 +128,7 @@ private:
 // DESIGN - make some stuff private if possible
 class ListView : public TQObject
 {
-   Q_OBJECT
+   TQ_OBJECT
 public:
    // init stuff
    void initListViews();

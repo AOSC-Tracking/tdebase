@@ -25,7 +25,7 @@
 
 class clientApp : public TDEApplication
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   /** Parse command-line arguments and "do it" */
   static bool doIt();

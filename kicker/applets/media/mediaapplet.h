@@ -38,7 +38,7 @@ typedef TQValueList<MediumButton*> MediumButtonList;
 
 class MediaApplet : public KPanelApplet
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
 	MediaApplet(const TQString& configFile, Type t = Normal, int actions = 0,

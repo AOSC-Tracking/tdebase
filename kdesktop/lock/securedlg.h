@@ -27,7 +27,7 @@ class TQListView;
 //
 class SecureDlg : public TQDialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		SecureDlg(LockProcess *parent);

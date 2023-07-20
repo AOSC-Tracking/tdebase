@@ -5,7 +5,7 @@
 
 class TDELicenseDlg : public KDialog
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   TDELicenseDlg(TQWidget *parent = 0, const char *name = 0);

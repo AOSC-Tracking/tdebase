@@ -46,7 +46,7 @@ class KURIFilterData;
 
 class Minicli : public KDialog
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   Minicli( TQWidget *parent=0, const char *name=0 );

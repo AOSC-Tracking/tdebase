@@ -51,7 +51,7 @@ namespace Kate
 
 
 class DockViewBase : public TQVBox {
-  Q_OBJECT
+  TQ_OBJECT
   public:
   /**
       Create a KateDockViewBase.

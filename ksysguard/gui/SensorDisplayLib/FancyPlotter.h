@@ -48,7 +48,7 @@ class FPSensorProperties : public KSGRD::SensorProperties
 
 class FancyPlotter : public KSGRD::SensorDisplay
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     FancyPlotter( TQWidget* parent = 0, const char* name = 0,

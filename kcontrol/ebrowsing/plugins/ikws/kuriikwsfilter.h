@@ -32,7 +32,7 @@ class TDEInstance;
 class KAutoWebSearch : public KURIFilterPlugin, public DCOPObject
 {
     K_DCOP
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KAutoWebSearch(TQObject *parent = 0, const char *name = 0,
                    const TQStringList &args = TQStringList() );

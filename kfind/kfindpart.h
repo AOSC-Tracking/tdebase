@@ -41,7 +41,7 @@ class IconViewBrowserExtension;
 class KFindPart : public KonqDirPart//KParts::ReadOnlyPart
 {
   friend class KFindPartBrowserExtension;
-    Q_OBJECT
+    TQ_OBJECT
     TQ_PROPERTY( bool showsResult READ showsResult )
 public:
     KFindPart( TQWidget * parentWidget, const char *widgetName, 

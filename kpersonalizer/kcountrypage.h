@@ -29,7 +29,7 @@ class KFindLanguage;
   */
 
 class KCountryPage : public KCountryPageDlg  {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	KCountryPage(TQWidget *parent=0, const char *name=0);
 	~KCountryPage();

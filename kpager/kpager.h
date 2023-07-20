@@ -36,7 +36,7 @@ class TQPopupMenu;
 
 class KPagerMainWindow : public TDEMainWindow, public virtual KPagerIface
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KPagerMainWindow(TQWidget *parent=0, const char *name=0);
@@ -59,7 +59,7 @@ protected:
 
 class KPager : public TQFrame
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     friend class KPagerMainWindow;
 

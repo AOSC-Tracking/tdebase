@@ -47,7 +47,7 @@ namespace KParts { class GUIActivateEvent; }
 
 class konsoleFactory : public KParts::Factory
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     konsoleFactory();
     virtual ~konsoleFactory();
@@ -68,7 +68,7 @@ public:
 
 class konsolePart: public KParts::ReadOnlyPart, public TerminalInterface, public ExtTerminalInterface
 {
-    Q_OBJECT
+    TQ_OBJECT
 	public:
     konsolePart(TQWidget *parentWidget, const char *widgetName, TQObject * parent, const char *name,
                 const char *classname = 0, const TQString &title = TQString::null);
@@ -217,7 +217,7 @@ public:
 
 class HistoryTypeDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
   HistoryTypeDialog(const HistoryType& histType,
                     unsigned int histSize,
@@ -241,7 +241,7 @@ protected:
 
 class konsoleBrowserExtension : public KParts::BrowserExtension
 {
-    Q_OBJECT
+    TQ_OBJECT
 	friend class konsolePart;
  public:
     konsoleBrowserExtension(konsolePart *parent);

@@ -59,7 +59,7 @@ class TQPopupMenu;
  */
 class ProcessList : public TDEListView
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
 	// possible values for the filter mode

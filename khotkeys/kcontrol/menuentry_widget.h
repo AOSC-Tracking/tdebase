@@ -22,7 +22,7 @@ class Action_data;
 class Menuentry_widget
     : public Menuentry_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Menuentry_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void set_data( const Menuentry_action* data_P );

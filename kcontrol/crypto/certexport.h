@@ -31,7 +31,7 @@ class KSSLCertificate;
 
 class KCertExport : public KDialog
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KCertExport(TQWidget *parent = 0L, const char *name = 0L);
   virtual ~KCertExport();

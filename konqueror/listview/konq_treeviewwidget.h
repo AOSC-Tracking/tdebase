@@ -32,7 +32,7 @@ class KonqTreeViewWidget : public KonqBaseListViewWidget
 {
    friend class KonqListViewDir;
 
-   Q_OBJECT
+   TQ_OBJECT
 public:
    KonqTreeViewWidget( KonqListView *parent, TQWidget *parentWidget );
    virtual ~KonqTreeViewWidget();

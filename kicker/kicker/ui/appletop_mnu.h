@@ -31,7 +31,7 @@ class AppletInfo;
 // The button operations menu (usually right click)
 class PanelAppletOpMenu : public TQPopupMenu
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
     enum OpButton{Move = 9900, Remove = 9901, Help = 9902, About = 9903, Preferences = 9904, ReportBug = 9905 };

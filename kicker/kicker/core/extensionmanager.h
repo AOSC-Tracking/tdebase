@@ -33,7 +33,7 @@ const int XineramaAllScreens = -2;
 
 class ExtensionManager : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     static ExtensionManager* the();

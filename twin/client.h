@@ -45,7 +45,7 @@ class Bridge;
 
 class Client : public TQObject, public KDecorationDefines
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Client( Workspace *ws );
         Window window() const;

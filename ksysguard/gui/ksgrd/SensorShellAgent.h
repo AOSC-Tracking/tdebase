@@ -45,7 +45,7 @@ class SensorManager;
  */
 class SensorShellAgent : public SensorAgent
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     SensorShellAgent( SensorManager *sm );

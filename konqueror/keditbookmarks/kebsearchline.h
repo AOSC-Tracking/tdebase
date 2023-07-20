@@ -24,7 +24,7 @@
 
 class KEBSearchLine : public TDEListViewSearchLine
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KEBSearchLine(TQWidget *parent = 0, TDEListView *listView = 0, const char *name = 0);
 

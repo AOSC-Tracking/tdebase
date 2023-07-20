@@ -30,7 +30,7 @@ class ListViewSettingsWidget;
 
 class ListViewSettings : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
 

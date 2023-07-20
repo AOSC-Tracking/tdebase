@@ -31,7 +31,7 @@
 
 class TEPty: public TDEProcess
 {
-Q_OBJECT
+TQ_OBJECT
 
   public:
 

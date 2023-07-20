@@ -31,7 +31,7 @@ class TDEConfig;
 class TQWidget;
 
 class KCMXinerama : public TDECModule {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	KCMXinerama(TQWidget *parent = 0L, const char *name = 0L);
 	virtual ~KCMXinerama();

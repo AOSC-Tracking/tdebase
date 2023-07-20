@@ -19,7 +19,7 @@ namespace KHotKeys
 class General_settings_tab
     : public General_settings_tab_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         General_settings_tab( TQWidget* parent = NULL, const char* name = NULL );
         void read_data();

@@ -28,7 +28,7 @@
 
 class NotifierModule : public TDECModule
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	NotifierModule( TQWidget* parent = 0, const char* name = 0);

@@ -40,7 +40,7 @@ namespace KateMDI {
 /** This class is needed because TQSplitter cant return an index for a widget. */
 class Splitter : public TQSplitter
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 
   public:
@@ -60,7 +60,7 @@ class Splitter : public TQSplitter
 
 class ToggleToolViewAction : public TDEToggleAction
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 
   public:
@@ -79,7 +79,7 @@ class ToggleToolViewAction : public TDEToggleAction
 
 class GUIClient : public TQObject, public KXMLGUIClient
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 
   public:
@@ -104,7 +104,7 @@ class GUIClient : public TQObject, public KXMLGUIClient
 
 class ToolView : public TQVBox
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 
   friend class Sidebar;
@@ -179,7 +179,7 @@ class ToolView : public TQVBox
 
 class Sidebar : public KMultiTabBar
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 
   public:
@@ -252,7 +252,7 @@ class Sidebar : public KMultiTabBar
 
 class MainWindow : public KParts::MainWindow
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 
   friend class ToolView;

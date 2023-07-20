@@ -40,7 +40,7 @@ class KSGAppletSettings;
 
 class KSysGuardApplet : public KPanelApplet, public KSGRD::SensorBoard
 {
-	Q_OBJECT
+	TQ_OBJECT
 
   public:
     KSysGuardApplet( const TQString& configFile, Type type = Normal,

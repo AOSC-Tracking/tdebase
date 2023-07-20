@@ -38,7 +38,7 @@ class TQStringList;
 
 class ButtonInfo: public TQObject, public KonqSidebarIface
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	ButtonInfo(const TQString& file_, class KonqSidebarIface *part, class KDockWidget *dock_,
 			const TQString &url_,const TQString &lib,
@@ -72,7 +72,7 @@ public:
 
 class addBackEnd: public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	addBackEnd(TQWidget *parent,class TQPopupMenu *addmenu, bool universal,
                    const TQString &currentProfile, const char *name=0);
@@ -95,7 +95,7 @@ private:
 
 class KDE_EXPORT Sidebar_Widget: public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	friend class ButtonInfo;
 public:

@@ -29,7 +29,7 @@ class TQListView;
 
 class KCMNic:public TDECModule
 {
-   Q_OBJECT
+   TQ_OBJECT
    public:
       KCMNic(TQWidget *parent=0, const char * name=0, const TQStringList &list = TQStringList( ));
 

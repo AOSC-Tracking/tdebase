@@ -30,7 +30,7 @@ namespace KHC {
 
 class HtmlSearchConfig : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     HtmlSearchConfig(TQWidget *parent = 0L, const char *name = 0L);
     virtual ~HtmlSearchConfig();

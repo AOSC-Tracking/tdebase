@@ -26,7 +26,7 @@ class TDECryptographicCardDevice;
 
 class CardWatcher : public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		CardWatcher();

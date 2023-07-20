@@ -36,7 +36,7 @@ class TQColor;
 
 class SignalPlotter : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     SignalPlotter( TQWidget *parent = 0, const char *name = 0 );

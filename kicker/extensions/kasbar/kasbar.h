@@ -74,7 +74,7 @@ typedef TQPtrList<KasItem> KasItemList;
  */
 class KDE_EXPORT KasBar : public TQWidget
 {
-   Q_OBJECT
+   TQ_OBJECT
    TQ_PROPERTY( int maxBoxes READ maxBoxes )
    TQ_PROPERTY( uint boxesPerLine READ boxesPerLine )
    TQ_PROPERTY( Direction direction READ direction )

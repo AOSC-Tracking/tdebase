@@ -30,7 +30,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class ServiceButton : public PanelButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     ServiceButton( const TQString& desktopFile, TQWidget* parent );

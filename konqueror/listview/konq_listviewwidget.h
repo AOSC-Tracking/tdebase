@@ -79,7 +79,7 @@ class KonqBaseListViewWidget : public TDEListView
    friend class KonqListView;
    friend class ListViewBrowserExtension;
 
-   Q_OBJECT
+   TQ_OBJECT
    
 public:
    KonqBaseListViewWidget( KonqListView *parent, TQWidget *parentWidget );

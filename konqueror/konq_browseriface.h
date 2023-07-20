@@ -7,7 +7,7 @@ class KonqView;
 
 class KonqBrowserInterface : public KParts::BrowserInterface
 {
-    Q_OBJECT
+    TQ_OBJECT
     TQ_PROPERTY( uint historyLength READ historyLength )
 public:
     KonqBrowserInterface( KonqView *view, const char *name );

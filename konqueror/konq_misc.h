@@ -111,7 +111,7 @@ public:
 
 class KonqDraggableLabel : public TQLabel
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KonqDraggableLabel( KonqMainWindow * mw, const TQString & text );
 

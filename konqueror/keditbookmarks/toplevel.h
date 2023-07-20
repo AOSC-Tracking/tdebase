@@ -44,7 +44,7 @@ struct SelcAbilities {
 };
 
 class CmdHistory : public TQObject {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     CmdHistory(TDEActionCollection *collection);
     virtual ~CmdHistory() { ; }
@@ -72,7 +72,7 @@ class KBookmark;
 class KBookmarkManager;
 
 class CurrentMgr : public TQObject {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     typedef enum {HTMLExport, OperaExport, IEExport, MozillaExport, NetscapeExport} ExportType;
 
@@ -107,7 +107,7 @@ private:
 };
 
 class KEBApp : public TDEMainWindow {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     static KEBApp* self() { return s_topLevel; }
 

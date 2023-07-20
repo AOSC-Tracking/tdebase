@@ -33,7 +33,7 @@ class KJavaScriptOptions;
 /** JavaScript-specific enhancements to the domain list view
   */
 class JSDomainListView : public DomainListView {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   JSDomainListView(TDEConfig *config,const TQString &group,KJavaScriptOptions *opt,
   		TQWidget *parent,const char *name = 0);
@@ -56,7 +56,7 @@ private:
 
 class KJavaScriptOptions : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KJavaScriptOptions( TDEConfig* config, TQString group, TQWidget* parent = 0, const char* name = 0 );
 

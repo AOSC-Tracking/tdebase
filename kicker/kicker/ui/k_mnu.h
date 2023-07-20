@@ -45,7 +45,7 @@ class Panel;
 
 class PanelKMenu : public PanelServiceMenu, public DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 
 k_dcop:

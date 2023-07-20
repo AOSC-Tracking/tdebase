@@ -43,7 +43,7 @@ class ConfigDialog;
 
 class GeneralWidget : public TQVBox
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     friend class ConfigDialog;
 
@@ -67,7 +67,7 @@ private:
 // only for use inside ActionWidget
 class AdvancedWidget : public TQVBox
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     AdvancedWidget( TQWidget *parent = 0L, const char *name = 0L );
@@ -82,7 +82,7 @@ private:
 
 class ActionWidget : public TQVBox
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     friend class ConfigDialog;
 
@@ -118,7 +118,7 @@ private:
 
 /*class KeysWidget : public QVBox
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     friend class ConfigDialog;
 
@@ -133,7 +133,7 @@ private:
 
 class ConfigDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     ConfigDialog( const ActionList *list, TDEGlobalAccel *accel, bool isApplet );

@@ -33,7 +33,7 @@ namespace KParts { class ReadOnlyPart; }
  */
 class KonqExtensionManager : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		KonqExtensionManager(TQWidget *parent, KonqMainWindow *mainWindow, KParts::ReadOnlyPart* activePart);

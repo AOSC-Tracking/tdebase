@@ -31,7 +31,7 @@
 
 class NotificationDialog : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	NotificationDialog( KFileItem medium, NotifierSettings *settings,

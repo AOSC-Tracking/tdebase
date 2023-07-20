@@ -38,7 +38,7 @@ class BackTrace;
 
 class KrashDebugger : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KrashDebugger(const KrashConfig *krashconf, TQWidget *parent = 0, const char *name = 0);

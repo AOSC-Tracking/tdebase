@@ -22,7 +22,7 @@ class Windowdef_list_item;
 class Windowdef_simple_widget
     : public Windowdef_simple_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Windowdef_simple_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void set_data( const Windowdef_simple* data_P );

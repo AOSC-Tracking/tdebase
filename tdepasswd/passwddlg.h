@@ -14,7 +14,7 @@
 class TDEpasswd1Dialog
     : public KPasswordDialog
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     TDEpasswd1Dialog();
@@ -30,7 +30,7 @@ protected:
 class TDEpasswd2Dialog
     : public KPasswordDialog
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     TDEpasswd2Dialog(const TQString &oldpass, const TQString &user);

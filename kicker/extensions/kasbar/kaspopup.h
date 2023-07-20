@@ -69,7 +69,7 @@ class KasBar;
  */
 class KasPopup : public TQHBox
 {
-   Q_OBJECT
+   TQ_OBJECT
 
 public:
    KasPopup( KasItem *item, const char *name=0 );

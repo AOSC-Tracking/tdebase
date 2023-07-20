@@ -19,7 +19,7 @@
 
 class KDEDefaultConfig: public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		KDEDefaultConfig( TDEConfig* conf, TQWidget* parent );

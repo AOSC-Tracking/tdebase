@@ -45,7 +45,7 @@ class FavIconUpdater;
 
 class FavIconsItr : public BookmarkIterator
 {
-   Q_OBJECT
+   TQ_OBJECT
 
 public:
    FavIconsItr(TQValueList<KBookmark> bks);

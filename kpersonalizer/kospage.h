@@ -26,7 +26,7 @@
   */
 
 class KOSPage : public KOSPageDlg  {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	KOSPage(TQWidget *parent=0, const char *name=0);
 	~KOSPage();

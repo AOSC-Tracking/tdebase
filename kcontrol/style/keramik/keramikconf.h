@@ -28,7 +28,7 @@ class TQCheckBox;
 
 class KeramikStyleConfig: public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	KeramikStyleConfig(TQWidget* parent);
 	~KeramikStyleConfig();

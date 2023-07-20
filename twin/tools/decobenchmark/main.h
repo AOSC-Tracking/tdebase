@@ -31,7 +31,7 @@ enum Tests {
 
 class DecoBenchApplication : public TDEApplication
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	DecoBenchApplication(const TQString &library, Tests tests, int count);
 	~DecoBenchApplication();

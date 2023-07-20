@@ -32,7 +32,7 @@
 
 class MediumButton : public PanelPopupButton
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
 	MediumButton(TQWidget *parent, const KFileItem &fileItem);

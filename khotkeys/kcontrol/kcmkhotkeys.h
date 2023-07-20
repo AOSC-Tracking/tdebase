@@ -30,7 +30,7 @@ class Main_buttons_widget;
 class Module
     : public TDECModule
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Module( TQWidget *parent_P, const char *name_P );
         virtual ~Module();

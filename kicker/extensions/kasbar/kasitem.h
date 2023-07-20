@@ -75,7 +75,7 @@ class KasPopup;
  */
 class KDE_EXPORT KasItem : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     friend class KasBar;

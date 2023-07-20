@@ -32,7 +32,7 @@ class TDEStorageDevice;
 
 class HwDeviceSystemTray : public KSystemTray
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	HwDeviceSystemTray(TQWidget* parent = 0, const char *name = 0);

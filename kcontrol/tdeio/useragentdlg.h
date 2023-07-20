@@ -33,7 +33,7 @@ class UserAgentDlgUI;
 
 class UserAgentDlg : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   UserAgentDlg ( TQWidget * parent = 0) ;

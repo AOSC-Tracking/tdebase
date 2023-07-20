@@ -31,7 +31,7 @@ class QptrListIterator;
 
 class History : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     History( TQWidget* parent, const char* name );
     ~History();

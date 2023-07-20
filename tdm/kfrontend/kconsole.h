@@ -30,7 +30,7 @@ class TQSocketNotifier;
 class KPty;
 
 class KConsole : public TQTextEdit {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef TQTextEdit inherited;
 
   public:

@@ -12,7 +12,7 @@ class TQToolButton;
 
 class Lockout : public KPanelApplet
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     Lockout( const TQString& configFile,

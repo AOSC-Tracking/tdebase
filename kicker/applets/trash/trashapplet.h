@@ -33,7 +33,7 @@
 
 class TrashApplet : public KPanelApplet
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
 	TrashApplet(const TQString& configFile, Type t = Normal, int actions = 0,

@@ -42,7 +42,7 @@ class TDELocaleSample;
 
 class TDELocaleApplication : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   TDELocaleApplication(TQWidget *parent, const char *name, const TQStringList &);

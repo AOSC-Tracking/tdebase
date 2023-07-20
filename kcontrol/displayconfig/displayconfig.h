@@ -50,7 +50,7 @@ typedef TQMap< TQString, TQPtrList< SingleScreenData > > ScreenConfigurationMap;
 class KDisplayConfig : public TDECModule, public DCOPObject
 {
   K_DCOP
-  Q_OBJECT
+  TQ_OBJECT
 
 
 public:

@@ -26,7 +26,7 @@ class TQListView;
 //
 class InfoDlg : public TQDialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		InfoDlg(LockProcess *parent);

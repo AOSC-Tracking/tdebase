@@ -32,7 +32,7 @@ class KDecorationPreviewOptions;
 class KDecorationPreview
     : public TQWidget
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         // Note: Windows can't be added or removed without making changes to
         //       the code, since parts of it assume there's just an active

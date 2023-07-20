@@ -30,7 +30,7 @@
 class KURIFilter;
 
 class KURIFilterModule : public TDECModule {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KURIFilterModule(TQWidget *parent, const char *name, const TQStringList &);

@@ -29,7 +29,7 @@ class TQPushButton;
 
 class KBellConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
  public:
   KBellConfig(TQWidget *parent, const char *name);

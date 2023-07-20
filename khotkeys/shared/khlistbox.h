@@ -21,7 +21,7 @@ namespace KHotKeys
 class KHListBox
     : public TQListBox
     {
-    Q_OBJECT
+    TQ_OBJECT
     TQ_PROPERTY( bool forceSelect READ forceSelect WRITE setForceSelect )
     public:
         KHListBox( TQWidget* parent_P, const char* name_P = NULL );

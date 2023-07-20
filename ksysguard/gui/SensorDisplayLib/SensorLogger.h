@@ -59,7 +59,7 @@ private:
 
 class LogSensor : public TQObject, public KSGRD::SensorClient
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	LogSensor(TQListView *parent);
 	~LogSensor(void);
@@ -141,7 +141,7 @@ private:
 
 class SensorLogger : public KSGRD::SensorDisplay
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	SensorLogger(TQWidget *parent = 0, const char *name = 0, const TQString& title = 0);
 	~SensorLogger(void);

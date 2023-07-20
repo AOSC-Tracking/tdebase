@@ -70,7 +70,7 @@ struct KonqCommand
 
 class KonqCommandRecorder : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KonqCommandRecorder( KonqCommand::Type op, const KURL::List &src, const KURL &dst, TDEIO::Job *job );
   virtual ~KonqCommandRecorder();
@@ -88,7 +88,7 @@ private:
 
 class LIBKONQ_EXPORT KonqUndoManager : public TQObject, public DCOPObject
 {
-  Q_OBJECT
+  TQ_OBJECT
   K_DCOP
   friend class KonqUndoJob;
 public:

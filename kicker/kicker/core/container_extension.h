@@ -51,7 +51,7 @@ class TQColor;
 
 class ExtensionContainer : public TQFrame
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     enum UserHidden { Unhidden, LeftTop, RightBottom };
@@ -203,7 +203,7 @@ private:
 
 class PopupWidgetFilter : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     PopupWidgetFilter( TQObject *parent );

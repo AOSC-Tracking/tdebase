@@ -33,7 +33,7 @@ class TQListView;
 //
 class PasswordDlg : public TQDialog, public KGreeterPluginHandler
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		PasswordDlg(LockProcess *parent, GreeterPluginHandle *plugin);

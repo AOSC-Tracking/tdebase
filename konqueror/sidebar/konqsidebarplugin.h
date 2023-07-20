@@ -32,7 +32,7 @@ class KonqSidebarPluginPrivate;
 
 class KDE_EXPORT KonqSidebarPlugin : public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 	public:
 		KonqSidebarPlugin(TDEInstance *instance,TQObject *parent,TQWidget *widgetParent,TQString &desktopName_, const char* name=0);
 		~KonqSidebarPlugin();

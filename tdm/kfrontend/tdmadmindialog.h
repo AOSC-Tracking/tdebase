@@ -37,7 +37,7 @@ class TQButtonGroup;
 class TQComboBox;
 
 class TDMAdmin : public FDialog, public KGVerifyHandler {
-    Q_OBJECT
+    TQ_OBJECT
     typedef FDialog inherited;
 
 public:

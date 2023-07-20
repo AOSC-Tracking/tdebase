@@ -27,7 +27,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <tqframe.h>
 
 class KdmClock : public TQFrame {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef TQFrame inherited;
 
   public:

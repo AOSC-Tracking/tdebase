@@ -16,7 +16,7 @@
 
 class QuartzConfig: public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		QuartzConfig( TDEConfig* conf, TQWidget* parent );

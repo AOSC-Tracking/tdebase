@@ -39,7 +39,7 @@ class KateViewSpaceContainer;
 
 class KateVSStatusBar : public KStatusBar
 {
-  Q_OBJECT
+  TQ_OBJECT
 
    public:
       KateVSStatusBar ( KateViewSpace *parent = 0L, const char *name = 0L );
@@ -73,7 +73,7 @@ class KateViewSpace : public TQVBox
   friend class KateViewSpaceContainer;
   friend class KateVSStatusBar;
 
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KateViewSpace(KateViewSpaceContainer *, TQWidget* parent=0, const char* name=0);

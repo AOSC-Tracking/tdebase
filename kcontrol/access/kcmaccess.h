@@ -26,7 +26,7 @@ class TDEAboutData;
 
 class ExtendedIntNumInput : public KIntNumInput
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
     /**
@@ -59,7 +59,7 @@ class ExtendedIntNumInput : public KIntNumInput
 
 class KAccessConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 

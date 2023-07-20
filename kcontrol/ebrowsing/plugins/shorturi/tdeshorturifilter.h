@@ -40,7 +40,7 @@ class TDEInstance;
 class TDEShortURIFilter : public KURIFilterPlugin , public DCOPObject
 {
     K_DCOP
-    Q_OBJECT
+    TQ_OBJECT
 public:
 
     /**

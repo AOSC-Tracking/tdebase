@@ -36,7 +36,7 @@ class Config;
  */
 class KCMUserAccount : public TDECModule
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	KCMUserAccount(TQWidget* parent, const char* name = "KCMUserAccount",

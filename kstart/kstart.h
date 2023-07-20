@@ -16,7 +16,7 @@
 class KWinModule;
 
 class KStart: public TQObject {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KStart();

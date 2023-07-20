@@ -39,7 +39,7 @@ typedef TQValueList<TQPixmap*> PixmapList;
 
 class TaskContainer : public TQToolButton, public KickerTip::Client
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     typedef TQValueList<TaskContainer*> List;

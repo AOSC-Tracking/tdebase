@@ -32,7 +32,7 @@ class ConfigDialog;
 
 class PlastikConfig : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     PlastikConfig(TDEConfig* config, TQWidget* parent);
     ~PlastikConfig();

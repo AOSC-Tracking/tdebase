@@ -48,7 +48,7 @@ enum SuspendType {
 // The (singleton) widget that makes/fades the desktop gray.
 class KSMShutdownFeedback : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	static void start() { s_pSelf = new KSMShutdownFeedback(); }
@@ -82,7 +82,7 @@ private:
 // The (singleton) widget that shows either pretty pictures or a black screen during logout
 class KSMShutdownIPFeedback : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	static void start() { s_pSelf = new KSMShutdownIPFeedback(); }
@@ -125,7 +125,7 @@ private:
 // The confirmation dialog
 class KSMShutdownDlg : public TQDialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	static bool confirmShutdown( bool maysd, bool mayrb, TDEApplication::ShutdownType& sdtype, TQString& bopt, int* selection=0 );
@@ -156,7 +156,7 @@ private:
 // The shutdown-in-progress dialog
 class KSMShutdownIPDlg : public KSMModalDialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	static TQWidget* showShutdownIP();
@@ -182,7 +182,7 @@ private:
 
 class KSMDelayedPushButton : public KPushButton
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 
@@ -201,7 +201,7 @@ private:
 
 class KSMPushButton : public KPushButton
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 
@@ -221,7 +221,7 @@ private:
 
 class FlatButton : public TQToolButton
 {
-  Q_OBJECT
+  TQ_OBJECT
 
  public:
 
@@ -250,7 +250,7 @@ class TQLabel;
 
 class  KSMDelayedMessageBox : public TimedLogoutDlg
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	KSMDelayedMessageBox( TDEApplication::ShutdownType sdtype, const TQString &bootOption, int confirmDelay );

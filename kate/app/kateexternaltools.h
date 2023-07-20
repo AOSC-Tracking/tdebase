@@ -55,7 +55,7 @@ class KateExternalToolsMenuAction : public TDEActionMenu
 {
   friend class KateExternalToolAction;
 
-  Q_OBJECT
+  TQ_OBJECT
   public:
     KateExternalToolsMenuAction( const TQString &text=TQString::null, TQObject *parent=0, const char* name=0, class KateMainWindow *mw=0 );
     ~KateExternalToolsMenuAction() {};
@@ -80,7 +80,7 @@ class KateExternalToolsMenuAction : public TDEActionMenu
  */
 class KateExternalToolAction : public TDEAction, public KWordMacroExpander
 {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     KateExternalToolAction( TQObject *parent, const char *name, class KateExternalTool *t );
     ~KateExternalToolAction();
@@ -142,7 +142,7 @@ class KateExternalTool
  */
 class KateExternalToolsConfigWidget : public Kate::ConfigPage
 {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     KateExternalToolsConfigWidget( TQWidget *parent, const char* name);
     virtual ~KateExternalToolsConfigWidget();
@@ -201,7 +201,7 @@ class KateExternalToolsConfigWidget : public Kate::ConfigPage
  */
 class KateExternalToolServiceEditor : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
 

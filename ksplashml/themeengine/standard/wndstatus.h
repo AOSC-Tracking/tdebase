@@ -27,7 +27,7 @@ class KProgress;
 class WndStatus:
       public TQHBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   WndStatus( TQPalette,
              int, // Xinerama screen

@@ -37,7 +37,7 @@ class ListViewSettings;
 
 class PrivateListView : public TQListView
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
   enum ColumnType { Text, Int, Float, Time, DiskStat };
 
@@ -74,7 +74,7 @@ private:
 
 class ListView : public KSGRD::SensorDisplay
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	ListView(TQWidget* parent = 0, const char* name = 0,
 			const TQString& = TQString::null, int min = 0, int max = 0);

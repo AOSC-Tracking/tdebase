@@ -36,7 +36,7 @@ class KBookmarkOwner;
  */
 class BookmarksButton : public PanelPopupButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     BookmarksButton(TQWidget* parent);

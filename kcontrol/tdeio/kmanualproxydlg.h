@@ -30,7 +30,7 @@ class ManualProxyDlgUI;
 
 class KManualProxyDlg : public KProxyDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 public:
   KManualProxyDlg( TQWidget* parent = 0, const char* name = 0 );

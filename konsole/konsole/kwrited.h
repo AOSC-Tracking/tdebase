@@ -29,7 +29,7 @@
 class KPty;
 
 class KWrited : public TQTextEdit
-{ Q_OBJECT
+{ TQ_OBJECT
 public:
   KWrited();
  ~KWrited();
@@ -44,7 +44,7 @@ private:
 
 class KWritedModule : public KDEDModule
 {
-  Q_OBJECT
+  TQ_OBJECT
   K_DCOP
 public:
   KWritedModule( const TQCString& obj );

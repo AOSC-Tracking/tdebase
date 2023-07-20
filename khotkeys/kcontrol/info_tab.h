@@ -19,7 +19,7 @@ namespace KHotKeys
 class Info_tab
     : public Info_tab_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Info_tab( TQWidget* parent_P = NULL, const char* name_P = NULL );
     public slots:

@@ -30,7 +30,7 @@ class KBackedComboBox;
 
 class TDMSessionsWidget : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	TDMSessionsWidget(TQWidget *parent=0, const char *name=0);

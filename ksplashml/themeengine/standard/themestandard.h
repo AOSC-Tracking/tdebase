@@ -42,7 +42,7 @@
  */
 class ThemeStandard: public ThemeEngine
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   ThemeStandard( TQWidget *, const char*, const TQStringList& );
   //inline const ThemeEngineConfig *config( TQWidget *p, TDEConfig *kc ) { return 0L; }

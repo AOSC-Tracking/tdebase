@@ -26,7 +26,7 @@ class advancedKickerOptions;
 
 class advancedDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         advancedDialog(TQWidget* parent, const char* name);

@@ -35,7 +35,7 @@ class TQVButtonGroup;
 
 class KSocksConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KSocksConfig(TQWidget *parent);
   virtual ~KSocksConfig();

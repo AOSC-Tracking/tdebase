@@ -307,7 +307,7 @@ KdmItem::paint( TQPainter *p, const TQRect &rect )
 	}
 
 	if (myWidget || (myLayoutItem && myLayoutItem->widget())) {
-            // TDEListView because it's missing a Q_OBJECT
+            // TDEListView because it's missing a TQ_OBJECT
             // FIXME: This is a nice idea in theory, but in practice it is
             // very confusing for the user not to see the empty list box
             // delineated from the rest of the greeter.

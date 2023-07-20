@@ -28,7 +28,7 @@ class GestureRecorder;
 
 class GestureRecordPage : public TQVBox
     {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         GestureRecordPage(const TQString &gesture,

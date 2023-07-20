@@ -32,7 +32,7 @@ static const int maxDesktops = 20;
 
 class KDesktopConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
  public:
   KDesktopConfig(TQWidget *parent = 0L, const char *name = 0L);

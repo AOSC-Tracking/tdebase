@@ -33,7 +33,7 @@ class TDEProcess;
 
 class MountHelper : public TDEApplication
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	MountHelper();

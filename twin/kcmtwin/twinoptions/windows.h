@@ -72,7 +72,7 @@ class TQHBox;
 
 class KFocusConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KFocusConfig( bool _standAlone, TDEConfig *_config, TQWidget *parent=0, const char* name=0 );
   ~KFocusConfig();
@@ -135,7 +135,7 @@ private:
 
 class KMovingConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KMovingConfig( bool _standAlone, TDEConfig *config, TQWidget *parent=0, const char* name=0 );
   ~KMovingConfig();
@@ -235,7 +235,7 @@ class KActiveBorderConfig : public TDECModule
 
 class KAdvancedConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KAdvancedConfig( bool _standAlone, TDEConfig *config, TQWidget *parent=0, const char* name=0 );
   ~KAdvancedConfig();
@@ -272,7 +272,7 @@ private:
 class TDEProcess;
 class KTranslucencyConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KTranslucencyConfig( bool _standAlone, TDEConfig *config, TQWidget *parent=0, const char* name=0 );
   ~KTranslucencyConfig();

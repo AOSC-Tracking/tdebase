@@ -26,7 +26,7 @@ class TQListViewItem;
 class TDEListView;
 
 class KateSaveModifiedDialog: public KDialogBase {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	KateSaveModifiedDialog(TQWidget *parent, TQPtrList<Kate::Document> documents);
 	virtual ~KateSaveModifiedDialog();

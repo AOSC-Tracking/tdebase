@@ -32,7 +32,7 @@ namespace KHC {
 
 class TOC : public QObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 	public:
 		TOC( NavigatorItem *parentItem );
 

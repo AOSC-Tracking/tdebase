@@ -26,7 +26,7 @@ class TQTabWidget;
 
 class KCMDisplay : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KCMDisplay( TQWidget *parent, const char *name, const TQStringList& );

@@ -27,7 +27,7 @@
 
 class FavIconWebGrabber : public QObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     FavIconWebGrabber(KParts::ReadOnlyPart *part, const KURL &url);
     ~FavIconWebGrabber() {}
@@ -45,7 +45,7 @@ class FavIconBrowserInterface;
 
 class FavIconUpdater : public KonqFavIconMgr 
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     FavIconUpdater(TQObject *parent, const char *name);
@@ -75,7 +75,7 @@ private:
 
 class FavIconBrowserInterface : public KParts::BrowserInterface
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     FavIconBrowserInterface(FavIconUpdater *view, const char *name)
         : KParts::BrowserInterface(view, name), m_view(view) {

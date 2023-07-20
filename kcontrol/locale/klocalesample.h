@@ -34,7 +34,7 @@ class TDELocale;
 
 class TDELocaleSample : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   TDELocaleSample(TDELocale *_locale,
                 TQWidget *parent = 0, const char*name = 0);

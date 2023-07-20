@@ -28,7 +28,7 @@
 
 class KFileMediaPlugin : public KFilePlugin
 {
-Q_OBJECT
+TQ_OBJECT
 public:
 	KFileMediaPlugin(TQObject *parent, const char *name,
 	                 const TQStringList &args);

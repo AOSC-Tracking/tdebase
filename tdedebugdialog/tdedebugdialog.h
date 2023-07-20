@@ -39,7 +39,7 @@ class TDEConfig;
  */
 class TDEDebugDialog : public KAbstractDebugDialog
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   TDEDebugDialog( TQStringList areaList, TQWidget *parent=0, const char *name=0, bool modal=true );

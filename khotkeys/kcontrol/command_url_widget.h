@@ -22,7 +22,7 @@ class Action_data;
 class Command_url_widget
     : public Command_url_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Command_url_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void set_data( const Command_url_action* data_P );

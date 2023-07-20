@@ -35,7 +35,7 @@ namespace TDEIO { class Job; }
 
 class DesktopPathConfig : public TDECModule
 {
-        Q_OBJECT
+        TQ_OBJECT
 public:
         DesktopPathConfig(TQWidget *parent = 0L, const char *name = 0L );
         virtual void load();

@@ -40,7 +40,7 @@ class TQPushButton;
 
 class TDELocaleConfig : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   TDELocaleConfig( TDELocale *_locale,

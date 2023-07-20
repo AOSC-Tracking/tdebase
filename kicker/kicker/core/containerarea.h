@@ -45,7 +45,7 @@ class AddAppletDialog;
 
 class ContainerArea : public Panner
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     ContainerArea( TDEConfig* config, TQWidget* parent, TQPopupMenu* opMenu, const char* name = 0 );
@@ -174,7 +174,7 @@ private:
 
 class DragIndicator : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     DragIndicator(TQWidget* parent = 0, const char* name = 0);

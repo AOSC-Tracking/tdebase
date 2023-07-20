@@ -93,7 +93,7 @@ private:
 
 class B2Client : public KDecoration
 {
-    Q_OBJECT
+    TQ_OBJECT
     friend class B2Titlebar;
 public:
     B2Client(KDecorationBridge *b, KDecorationFactory *f);

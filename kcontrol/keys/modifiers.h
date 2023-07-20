@@ -10,7 +10,7 @@ class TDEListView;
 
 class ModifiersModule : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
  public:
 	ModifiersModule( TQWidget *parent = 0, const char *name = 0 );
 

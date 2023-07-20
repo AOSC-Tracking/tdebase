@@ -28,7 +28,7 @@
 
 class KDE_EXPORT SimpleButton : public TQButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         SimpleButton(TQWidget *parent, const char *name = 0, bool forceStandardCursor = FALSE);
@@ -63,7 +63,7 @@ class KDE_EXPORT SimpleButton : public TQButton
 
 class KDE_EXPORT SimpleArrowButton: public SimpleButton
 {
-    Q_OBJECT
+    TQ_OBJECT
     
     public:
         SimpleArrowButton(TQWidget *parent = 0, Qt::ArrowType arrow = Qt::UpArrow, const char *name = 0, bool forceStandardCursor = FALSE);

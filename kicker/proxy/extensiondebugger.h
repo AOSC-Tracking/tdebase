@@ -29,7 +29,7 @@ class KPanelExtension;
 
 class ExtensionContainer : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     ExtensionContainer(KPanelExtension *extension, TQWidget* parent = 0, const char* name = 0);

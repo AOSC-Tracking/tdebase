@@ -32,7 +32,7 @@ class KWinModule;
 
 class DockBarExtension : public KPanelExtension
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     DockBarExtension(const TQString& configFile, Type t = Normal,

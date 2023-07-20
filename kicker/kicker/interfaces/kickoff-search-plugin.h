@@ -91,7 +91,7 @@ namespace KickoffSearch {
 
     class KDE_EXPORT Plugin : public TQObject
     {
-        Q_OBJECT
+        TQ_OBJECT
 
     public:
         Plugin(TQObject *parent, const char* name=0);

@@ -33,7 +33,7 @@ namespace KHC {
 
 class ScrollKeeperTreeBuilder : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     ScrollKeeperTreeBuilder( TQObject *parent, const char *name = 0 );
 

@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class KDE_EXPORT TaskRMBMenu : public TQPopupMenu
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	TaskRMBMenu(const Task::List&, bool showAll = true, TQPopupMenu* moveMenu = NULL, TQWidget *parent = 0, const char *name = 0);

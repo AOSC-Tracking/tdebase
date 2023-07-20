@@ -33,7 +33,7 @@ class TDELocale;
 
 class TDELocaleConfigOther : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   TDELocaleConfigOther(TDELocale *locale, TQWidget *parent = 0, const char *name = 0);

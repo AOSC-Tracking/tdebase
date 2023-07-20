@@ -31,7 +31,7 @@ class NewThemeWidget;
  */
 class KNewThemeDlg: public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KNewThemeDlg( TQWidget * parent = 0, const char * name = 0);
     ~KNewThemeDlg();

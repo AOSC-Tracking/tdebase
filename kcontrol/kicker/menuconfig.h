@@ -24,7 +24,7 @@ class MenuTab;
 
 class MenuConfig : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     MenuConfig(TQWidget *parent = 0, const char *name = 0);

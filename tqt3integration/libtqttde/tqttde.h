@@ -26,7 +26,7 @@
 class tqttde_EventLoop
     : public TQObject
     {
-    Q_OBJECT
+    TQ_OBJECT
 
     public slots:
         void block( bool );

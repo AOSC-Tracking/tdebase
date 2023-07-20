@@ -5,7 +5,7 @@
 
 class TestWin : public KSWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     TestWin();
 };

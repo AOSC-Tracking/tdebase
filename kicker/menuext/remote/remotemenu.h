@@ -26,7 +26,7 @@
 
 class RemoteMenu : public KPanelMenu, public KDirNotify
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 
     public:

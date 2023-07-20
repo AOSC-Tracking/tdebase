@@ -31,7 +31,7 @@ class KPanelMenu;
 
 class ExtensionButton : public PanelPopupButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     ExtensionButton( const TQString& desktopFile, TQWidget* parent );

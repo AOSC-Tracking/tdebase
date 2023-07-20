@@ -28,7 +28,7 @@ class KIntNumInput;
 
 class NaughtyConfigDialog : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
 

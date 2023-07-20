@@ -31,7 +31,7 @@ class VoiceSignature;
 
 class VoiceRecordPage : public TQVBox
     {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         VoiceRecordPage(const TQString &voiceip_P, TQWidget *parent, const char *name);

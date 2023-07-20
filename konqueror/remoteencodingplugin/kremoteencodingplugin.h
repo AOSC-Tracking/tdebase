@@ -32,7 +32,7 @@ class KonqDirPart;
 
 class KRemoteEncodingPlugin: public KParts::Plugin
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KRemoteEncodingPlugin(TQObject * parent, const char *name,
 			const TQStringList &);

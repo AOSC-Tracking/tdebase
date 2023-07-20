@@ -46,7 +46,7 @@ namespace KNotify
 
 class KCMKNotify : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KCMKNotify(TQWidget *parent, const char *name, const TQStringList &);
@@ -74,7 +74,7 @@ private:
 
 class PlayerSettingsDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PlayerSettingsDialog( TQWidget *parent, bool modal );

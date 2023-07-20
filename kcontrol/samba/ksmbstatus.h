@@ -34,7 +34,7 @@ class TDEProcess;
 
 class NetMon : public TQWidget
 {
-Q_OBJECT
+TQ_OBJECT
 public:
    NetMon(TQWidget *parent, TDEConfig * config=0, const char * name=0);
    void saveSettings() {};

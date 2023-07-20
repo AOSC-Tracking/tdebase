@@ -81,7 +81,7 @@ class TQLayoutItem;
  */
 
 class KdmItem : public TQObject {
-	Q_OBJECT
+	TQ_OBJECT
 
 	friend class KdmThemer;
 

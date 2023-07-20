@@ -23,7 +23,7 @@ class Windowdef_list;
 class Action_group_tab
     : public Action_group_tab_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Action_group_tab( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void set_data( const Action_data_group* data_P );

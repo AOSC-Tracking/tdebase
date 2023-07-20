@@ -35,7 +35,7 @@
  */
 
 class KdmPixmap : public KdmItem {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	KdmPixmap( KdmItem *parent, const TQDomNode &node, const char *name = 0 );

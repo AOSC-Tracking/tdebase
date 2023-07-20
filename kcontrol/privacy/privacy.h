@@ -30,7 +30,7 @@
 
 class Privacy: public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     Privacy( TQWidget *parent=0, const char *name=0 );

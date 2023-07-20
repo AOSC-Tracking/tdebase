@@ -29,7 +29,7 @@ class TQTabWidget;
 
 class KBrowserOptions : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KBrowserOptions(TDEConfig *config, TQString group, TQWidget *parent=0, const char *name=0);
 

@@ -39,7 +39,7 @@ class KBackgroundRenderer:
 	public TQObject,
 	public KBackgroundSettings
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KBackgroundRenderer(int desk, int screen, bool drawBackgroundPerScreen, TDEConfig *config=0);
@@ -122,7 +122,7 @@ private:
  */
 class KVirtualBGRenderer : public QObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KVirtualBGRenderer(int desk, TDEConfig *config=0l);
     ~KVirtualBGRenderer();

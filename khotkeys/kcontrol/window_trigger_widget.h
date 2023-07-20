@@ -22,7 +22,7 @@ class Action_data;
 class Window_trigger_widget
     : public Window_trigger_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Window_trigger_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void set_data( const Window_trigger* trigger_P );

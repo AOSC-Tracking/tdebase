@@ -68,7 +68,7 @@ class Task;
  */
 class KasGroupItem : public KasItem
 {
-   Q_OBJECT
+   TQ_OBJECT
 
 public:
    enum GroupType {

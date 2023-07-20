@@ -36,7 +36,7 @@ class KTempFile;
 
 class BackTrace : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   BackTrace(const KrashConfig *krashconf, TQObject *parent,

@@ -33,7 +33,7 @@ class TQTimer;
 
 class KDE_EXPORT Panner : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     Panner( TQWidget* parent, const char* name = 0 );

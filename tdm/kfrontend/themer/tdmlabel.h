@@ -34,7 +34,7 @@ class TQTimer;
  */
 
 class KdmLabel : public KdmItem {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	KdmLabel( KdmItem *parent, const TQDomNode &node, const char *name = 0 );

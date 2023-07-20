@@ -44,7 +44,7 @@ public:
 
 class BGMultiWallpaperDialog : public KDialogBase
 {
-   Q_OBJECT
+   TQ_OBJECT
 public:
    BGMultiWallpaperDialog(KBackgroundSettings *settings, TQWidget *parent, const char *name=0);
 

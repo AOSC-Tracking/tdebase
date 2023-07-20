@@ -41,7 +41,7 @@ class TDECmdLineArgs;
  */
 class KDE_EXPORT KateApp : public TDEApplication
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   /**
    * constructors & accessor to app object + plugin interface for it

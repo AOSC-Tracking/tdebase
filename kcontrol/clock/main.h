@@ -30,7 +30,7 @@ class TQTabWidget;
 
 class KclockModule : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KclockModule(TQWidget *parent, const char *name, const TQStringList &);

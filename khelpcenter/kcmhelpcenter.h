@@ -47,7 +47,7 @@ class SearchEngine;
 
 class IndexDirDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     IndexDirDialog( TQWidget *parent );
 
@@ -60,7 +60,7 @@ class IndexDirDialog : public KDialogBase
 
 class IndexProgressDialog : public KDialog
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     IndexProgressDialog( TQWidget *parent );
     ~IndexProgressDialog();
@@ -105,7 +105,7 @@ class KCMHelpCenterIface : virtual public DCOPObject
 
 class KCMHelpCenter : public KDialogBase, virtual public KCMHelpCenterIface
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     KCMHelpCenter( KHC::SearchEngine *, TQWidget *parent = 0,
       const char *name = 0 );

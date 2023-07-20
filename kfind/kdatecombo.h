@@ -19,7 +19,7 @@ class KDatePicker;
 class TDEPopupFrame;
 
 class KDateCombo : public TQComboBox  {
-   Q_OBJECT
+   TQ_OBJECT
 
 public:
 	KDateCombo(TQWidget *parent=0, const char *name=0);

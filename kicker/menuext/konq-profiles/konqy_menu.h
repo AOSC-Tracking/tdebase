@@ -30,7 +30,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class KonquerorProfilesMenu : public KPanelMenu
 {
-   Q_OBJECT
+   TQ_OBJECT
 
    public:
       KonquerorProfilesMenu(TQWidget *parent, const char *name, const TQStringList & /*args*/);

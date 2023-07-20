@@ -29,7 +29,7 @@ namespace KHC
   class NavigatorItem;
   class InfoTree : public TreeBuilder
   {
-    Q_OBJECT
+    TQ_OBJECT
     public:
       InfoTree( TQObject *parent, const char *name = 0 );
 

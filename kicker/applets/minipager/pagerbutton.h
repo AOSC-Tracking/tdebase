@@ -37,7 +37,7 @@ class TQLineEdit;
 
 class KMiniPagerButton : public TQButton, public KickerTip::Client
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KMiniPagerButton(int desk, bool useViewports, const TQPoint& viewport,
             KMiniPager *parent=0, const char *name=0);

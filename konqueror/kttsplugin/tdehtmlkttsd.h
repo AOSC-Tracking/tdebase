@@ -27,7 +27,7 @@ class TDEInstance;
  */
 class TDEHTMLPluginKTTSD : public KParts::Plugin
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
 
     /**

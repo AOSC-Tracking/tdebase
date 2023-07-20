@@ -50,7 +50,7 @@ class SensorProperties;
  */
 class SensorDisplay : public TQWidget, public SensorClient
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     /**

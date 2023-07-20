@@ -27,7 +27,7 @@ public:
 
 class KScreenSaverAdvancedDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KScreenSaverAdvancedDialog(TQWidget *parent, const char* name = 0);
       

@@ -21,7 +21,7 @@ namespace KHotKeys
 class Tab_widget
     : public TQTabWidget
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         enum action_type_t
             {

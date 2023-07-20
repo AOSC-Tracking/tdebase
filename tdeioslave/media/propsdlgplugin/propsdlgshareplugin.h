@@ -24,7 +24,7 @@
 
 class PropsDlgSharePlugin : public KPropsDlgPlugin
 {
-Q_OBJECT
+TQ_OBJECT
 public:
   PropsDlgSharePlugin( KPropertiesDialog *dlg, const char *, const TQStringList & );
   virtual ~PropsDlgSharePlugin();

@@ -27,7 +27,7 @@
 
 class SystemMenu : public KPanelMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         SystemMenu(TQWidget *parent, const char *name,

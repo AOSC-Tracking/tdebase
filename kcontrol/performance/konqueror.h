@@ -27,7 +27,7 @@ namespace KCMPerformance
 class Konqueror
     : public Konqueror_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Konqueror( TQWidget* parent_P = NULL );
         void load(bool useDefaults);

@@ -37,7 +37,7 @@ class KLineEdit;
  */
 class TDEListDebugDialog : public KAbstractDebugDialog
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   TDEListDebugDialog( TQStringList areaList, TQWidget *parent=0, const char *name=0, bool modal=true );

@@ -17,7 +17,7 @@ class KFileItem;
 
 class KQuery : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
  public:
   KQuery(TQObject *parent = 0, const char * name = 0);

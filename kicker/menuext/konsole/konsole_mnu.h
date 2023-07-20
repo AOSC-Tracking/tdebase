@@ -35,7 +35,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class KonsoleMenu : public KPanelMenu/*, public KPReloadObject*/
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KonsoleMenu(TQWidget *parent, const char *name, const TQStringList& /* args */);

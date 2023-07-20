@@ -30,7 +30,7 @@ class TQStringList;
 
 class FindMenu : public KPanelMenu
 {
-	Q_OBJECT
+	TQ_OBJECT
 
   public:
     FindMenu( TQWidget* parent, const char* name, const TQStringList &/*args*/ );

@@ -24,7 +24,7 @@ class SearchHandler;
 
 class SearchTraverser : public TQObject, public DocEntryTraverser
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     SearchTraverser( SearchEngine *engine, int level );
     ~SearchTraverser();
@@ -66,7 +66,7 @@ class SearchTraverser : public TQObject, public DocEntryTraverser
 
 class SearchEngine : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     enum Operation { And, Or };
 

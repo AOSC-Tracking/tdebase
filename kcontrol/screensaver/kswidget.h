@@ -6,7 +6,7 @@
 
 class KSWidget : public QXEmbed
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KSWidget( TQWidget *parent = NULL, const char* name = NULL, int flags = 0 );
     virtual ~KSWidget();

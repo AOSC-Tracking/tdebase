@@ -53,7 +53,7 @@ public:
 /** Plugin-specific enhancements to the domain list view
   */
 class PluginDomainListView : public DomainListView {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   PluginDomainListView(TDEConfig *config,const TQString &group,KPluginOptions *opt,
   		TQWidget *parent,const char *name = 0);
@@ -74,7 +74,7 @@ private:
  * dialog for embedding a PluginDomainListView widget
  */
 class PluginDomainDialog : public TQWidget {
-  Q_OBJECT
+  TQ_OBJECT
 public:
 
   PluginDomainDialog(TQWidget *parent);
@@ -92,7 +92,7 @@ private:
 
 class KPluginOptions : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KPluginOptions( TDEConfig* config, TQString group, TQWidget* parent = 0, const char* name = 0 );

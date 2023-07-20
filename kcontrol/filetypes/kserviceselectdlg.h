@@ -23,7 +23,7 @@
 
 class KServiceSelectDlg : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     /**
      * Create a dialog to select a service (not application) for a given service type.

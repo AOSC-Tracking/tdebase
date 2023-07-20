@@ -28,7 +28,7 @@ class TDEConfig;
  */
 class KDE_EXPORT ObjKsTheme : public QObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   explicit ObjKsTheme( const TQString& );
   virtual ~ObjKsTheme();

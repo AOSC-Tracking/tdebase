@@ -49,7 +49,7 @@ class PollingThread;
 
 class LinuxCDPolling : public TQObject, public BackendBase
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
 

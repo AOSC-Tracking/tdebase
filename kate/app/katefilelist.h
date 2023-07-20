@@ -76,7 +76,7 @@ class KateFileListItem : public TQListViewItem
 
 class KateFileList : public TDEListView
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   friend class KFLConfigPage;
 
@@ -172,7 +172,7 @@ class KateFileList : public TDEListView
 };
 
 class KFLConfigPage : public Kate::ConfigPage {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     KFLConfigPage( TQWidget* parent=0, const char *name=0, KateFileList *fl=0 );
     virtual ~KFLConfigPage() {};

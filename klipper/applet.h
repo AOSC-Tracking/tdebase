@@ -28,7 +28,7 @@ class KlipperAppletWidget;
 
 class KlipperApplet : public KPanelApplet
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
     KlipperApplet(const TQString& configFile, Type t = Normal, int actions = 0,
                   TQWidget *parent = 0, const char *name = 0);
@@ -49,7 +49,7 @@ private:
 
 class KlipperAppletWidget : public KlipperWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 k_dcop:
     int newInstance();

@@ -51,7 +51,7 @@ class ItemView;
 
 class BackFrame : public TQFrame
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     BackFrame( TQWidget *parent );
@@ -71,7 +71,7 @@ private:
 
 class FlipScrollView : public TQScrollView
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     enum State{ StoppedLeft, StoppedRight, ScrollingLeft, ScrollingRight };
     FlipScrollView( TQWidget * parent = 0, const char * name = 0 );

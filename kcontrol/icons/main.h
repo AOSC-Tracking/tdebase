@@ -31,7 +31,7 @@
 
 class IconModule : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   IconModule(TQWidget *parent, const char *name, const TQStringList &);

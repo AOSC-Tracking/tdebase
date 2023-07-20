@@ -69,7 +69,7 @@ struct SessType {
 //
 class ControlPipeHandlerObject : public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		ControlPipeHandlerObject();
@@ -93,7 +93,7 @@ class ControlPipeHandlerObject : public TQObject
 // TDM greeter
 //
 class KGreeter : public KGDialog, public KGVerifyHandler {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef KGDialog inherited;
 
   public:
@@ -166,7 +166,7 @@ class KGreeter : public KGDialog, public KGVerifyHandler {
 };
 
 class KStdGreeter : public KGreeter {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef KGreeter inherited;
 
   public:
@@ -187,7 +187,7 @@ class KStdGreeter : public KGreeter {
 };
 
 class KThemedGreeter : public KGreeter {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef KGreeter inherited;
 
   public:

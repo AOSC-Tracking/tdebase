@@ -23,7 +23,7 @@
 
 class PreferencesWidget : public PreferencesWidgetBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	PreferencesWidget( SwallowCommandList* swc, TQWidget* parent = 0 );

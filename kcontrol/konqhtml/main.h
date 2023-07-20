@@ -35,7 +35,7 @@ class TQTabWidget;
 
 class KJSParts : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 

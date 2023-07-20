@@ -45,7 +45,7 @@ class KShadowEngine;
  */
 class KDE_EXPORT PanelButton: public TQButton, public KickerTip::Client
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     /**
@@ -422,7 +422,7 @@ private:
  */
 class KDE_EXPORT PanelPopupButton : public PanelButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
    /**

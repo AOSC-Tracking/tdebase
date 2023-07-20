@@ -72,7 +72,7 @@ class KasResources;
  */
 class KasPrefsDialog : public KDialogBase
 {
-   Q_OBJECT
+   TQ_OBJECT
 
 public:
    KasPrefsDialog( KasTasker *kas, TQWidget *parent=0 );

@@ -40,7 +40,7 @@ typedef TQPtrListIterator<ClipAction> ActionListIterator;
 
 class URLGrabber : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   URLGrabber( TDEConfig* config );

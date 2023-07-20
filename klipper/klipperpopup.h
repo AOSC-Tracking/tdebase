@@ -36,7 +36,7 @@ class KLineEdit;
  */
 class KlipperPopup : public TDEPopupMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KlipperPopup( History* history, TQWidget* parent=0, const char* name=0 );

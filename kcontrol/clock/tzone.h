@@ -31,7 +31,7 @@ class TQLabel;
 
 class Tzone : public TQVGroupBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   Tzone( TQWidget *parent=0, const char* name=0 );

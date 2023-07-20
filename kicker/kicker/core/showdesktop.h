@@ -33,7 +33,7 @@ class KWinModule;
  */
 class ShowDesktop : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     static ShowDesktop* the();

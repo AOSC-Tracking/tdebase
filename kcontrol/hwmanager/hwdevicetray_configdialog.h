@@ -42,7 +42,7 @@ class ConfigDialog;
 
 class ConfigDialog : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 	
 	public:
 		ConfigDialog(TDEGlobalAccel *accel, bool isApplet );

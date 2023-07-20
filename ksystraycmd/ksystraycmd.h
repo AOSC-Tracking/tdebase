@@ -14,7 +14,7 @@ class KWinModule;
  */
 class KSysTrayCmd : public TQLabel
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KSysTrayCmd();
   ~KSysTrayCmd();

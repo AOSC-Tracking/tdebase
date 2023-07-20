@@ -32,7 +32,7 @@ class TDEPopupMenu;
 
 class KBookmarkHandler : public TQObject, public KBookmarkOwner
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KBookmarkHandler( KateFileSelector *parent, TDEPopupMenu *tdepopupmenu=0 );
