@@ -40,7 +40,7 @@ class TQPopupMenu;
 
 class KDE_EXPORT PluginManager : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     static PluginManager* the();
@@ -90,7 +90,7 @@ private:
 
 class LibUnloader : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     static void unload( const TQString &libName );
 

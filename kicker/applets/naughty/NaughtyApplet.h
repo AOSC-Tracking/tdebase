@@ -31,7 +31,7 @@ class TQPushButton;
 
 class NaughtyApplet : public KPanelApplet
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
 

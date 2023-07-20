@@ -55,7 +55,7 @@ struct Effect
  */
 class TDEIconConfig: public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     TDEIconConfig(TQWidget *parent, const char *name=0);
@@ -123,7 +123,7 @@ private:
 
 class TDEIconEffectSetupDialog: public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
      
 public:
     TDEIconEffectSetupDialog(const Effect &, const Effect &,

@@ -27,7 +27,7 @@ class TQCheckBox;
 
 class TDMFontWidget : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	TDMFontWidget(TQWidget *parent=0, const char *name=0);

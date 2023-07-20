@@ -29,7 +29,7 @@ class NonKDEButtonSettings;
 
 class PanelExeDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     PanelExeDialog(const TQString& title, const TQString& description,
                    const TQString &path, const TQString &pixmap=TQString::null,

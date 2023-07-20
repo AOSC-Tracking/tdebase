@@ -45,7 +45,7 @@ public:
  */
 class KServiceListWidget : public TQGroupBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   enum { SERVICELIST_APPLICATIONS, SERVICELIST_SERVICES };
   KServiceListWidget(int kind, TQWidget *parent = 0, const char *name = 0);

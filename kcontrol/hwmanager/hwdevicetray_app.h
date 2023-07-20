@@ -27,7 +27,7 @@ class HwDeviceSystemTray;
 
 class HwDeviceApp : public KUniqueApplication
 {
-	Q_OBJECT
+	TQ_OBJECT
 	
 	public:
 		HwDeviceApp();

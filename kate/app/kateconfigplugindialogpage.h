@@ -31,7 +31,7 @@ class KatePluginListItem;
 
 class KatePluginListView : public TDEListView
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   friend class KatePluginListItem;
 
@@ -47,7 +47,7 @@ class KatePluginListView : public TDEListView
 
 class KateConfigPluginPage: public TQVBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KateConfigPluginPage(TQWidget *parent, class KateConfigDialog *dialog);

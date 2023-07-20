@@ -23,7 +23,7 @@
 
 class KonqExtendedBookmarkOwner : public KExtendedBookmarkOwner
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KonqExtendedBookmarkOwner(KonqMainWindow *);
   // for KBookmarkOwner

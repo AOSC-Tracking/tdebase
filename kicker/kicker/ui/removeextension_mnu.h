@@ -31,7 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class PanelRemoveExtensionMenu : public TQPopupMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PanelRemoveExtensionMenu( TQWidget *parent=0, const char *name=0 );

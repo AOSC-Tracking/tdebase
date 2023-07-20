@@ -21,7 +21,7 @@ class KComboBox;
 
 class KAccessApp : public KUniqueApplication
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 
@@ -88,7 +88,7 @@ private:
 
 class VisualBell : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 

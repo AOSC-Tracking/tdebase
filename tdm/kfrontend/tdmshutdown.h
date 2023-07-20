@@ -46,7 +46,7 @@ class TQLineEdit;
 enum { Authed = TQDialog::Accepted + 1, Schedule };
 
 class TDMShutdownBase : public FDialog, public KGVerifyHandler {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef FDialog inherited;
 
   public:
@@ -94,7 +94,7 @@ class TDMShutdownBase : public FDialog, public KGVerifyHandler {
 
 
 class TDMShutdown : public TDMShutdownBase {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef TDMShutdownBase inherited;
 
   public:
@@ -124,7 +124,7 @@ class TDMShutdown : public TDMShutdownBase {
 };
 
 class TDMRadioButton : public TQRadioButton {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef TQRadioButton inherited;
 
   public:
@@ -139,7 +139,7 @@ class TDMRadioButton : public TQRadioButton {
 };
 
 class TDMDelayedPushButton : public KPushButton {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef KPushButton inherited;
 
   public:
@@ -157,7 +157,7 @@ class TDMDelayedPushButton : public KPushButton {
 };
 
 class TDMSlimShutdown : public FDialog {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef FDialog inherited;
 
   public:
@@ -178,7 +178,7 @@ class TDMSlimShutdown : public FDialog {
 };
 
 class TDMConfShutdown : public TDMShutdownBase {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef TDMShutdownBase inherited;
 
   public:
@@ -187,7 +187,7 @@ class TDMConfShutdown : public TDMShutdownBase {
 };
 
 class TDMCancelShutdown : public TDMShutdownBase {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef TDMShutdownBase inherited;
 
   public:
@@ -197,7 +197,7 @@ class TDMCancelShutdown : public TDMShutdownBase {
 
 class KSMPushButton : public KPushButton
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 
@@ -215,7 +215,7 @@ private:
 
 class FlatButton : public TQToolButton
 {
-  Q_OBJECT
+  TQ_OBJECT
 
  public:
 

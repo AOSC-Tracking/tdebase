@@ -29,7 +29,7 @@
 
 class KPrivacyManager : public TQObject
 {
-Q_OBJECT
+TQ_OBJECT
 public:
     KPrivacyManager();
 

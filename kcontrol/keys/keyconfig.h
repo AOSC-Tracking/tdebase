@@ -22,7 +22,7 @@ class KeyChooserSpec;
 
 class KKeyModule : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	TDEAccelActions actions;
         //TDEAccelActions dict;
@@ -77,7 +77,7 @@ protected:
 
 class KeyChooserSpec : public KKeyChooser
 {
-        Q_OBJECT
+        TQ_OBJECT
 public:
         KeyChooserSpec( TDEAccelActions& actions, TQWidget* parent,
                  bool bGlobal );

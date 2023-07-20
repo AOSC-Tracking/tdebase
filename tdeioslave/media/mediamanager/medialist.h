@@ -25,7 +25,7 @@
 
 class MediaList : public QObject
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
 	MediaList();

@@ -31,7 +31,7 @@ class JoyDevice;
 
 class CalDialog : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
   
   public:
     CalDialog(TQWidget *parent, JoyDevice *joy);

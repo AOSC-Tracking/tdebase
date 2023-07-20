@@ -29,7 +29,7 @@ class TQComboBox;
 
 class ConfSystem : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	ConfSystem(TQWidget *parent = 0, const char *name = 0);
 

@@ -26,7 +26,7 @@ class TQVBox;
 
 class SidebarExtension : public KPanelExtension
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     SidebarExtension( const TQString& configFile,

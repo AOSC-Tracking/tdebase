@@ -38,7 +38,7 @@ class TQWidgetStack;
 
 class ConfigModule : public TQObject, public TDECModuleInfo
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 
@@ -124,7 +124,7 @@ protected:
 
 class KControlEmbed : public QXEmbed
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         KControlEmbed( TQWidget* w ) : QXEmbed( w ) {}
         virtual void windowChanged( WId w ) { if( w ) emit windowEmbedded( w ); }

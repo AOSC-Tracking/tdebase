@@ -31,7 +31,7 @@
 
 class SessionEditor : public SessionDialog
 {
-  Q_OBJECT 
+  TQ_OBJECT 
   public:
     SessionEditor(TQWidget* parent=0, const char *name=0);
     ~SessionEditor();

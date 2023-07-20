@@ -37,7 +37,7 @@ class TDERecentFilesAction;
 
 class KWrite : public KParts::MainWindow
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 
   public:
@@ -122,7 +122,7 @@ class KWrite : public KParts::MainWindow
 
 class KWriteEditorChooser: public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 
   public:

@@ -33,7 +33,7 @@ class KDE_EXPORT MainWindow : public TQObject
 {
   friend class PrivateMainWindow;
 
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     MainWindow (void *mainWindow);

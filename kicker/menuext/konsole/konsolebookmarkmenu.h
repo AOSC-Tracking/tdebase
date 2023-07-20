@@ -23,7 +23,7 @@ class KonsoleBookmarkMenu;
 
 class KonsoleBookmarkMenu : public KBookmarkMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KonsoleBookmarkMenu( KBookmarkManager* mgr,

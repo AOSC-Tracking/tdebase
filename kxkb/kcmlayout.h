@@ -16,7 +16,7 @@ class XkbRules;
 
 class LayoutConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   LayoutConfig(TQWidget *parent = 0L, const char *name = 0L);

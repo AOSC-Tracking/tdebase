@@ -33,7 +33,7 @@ class TQPopupMenu;
  */
 class KonqBidiHistoryAction : public TDEAction
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
     KonqBidiHistoryAction( const TQString & text, TQObject* parent = 0, const char* name = 0 );
 
@@ -70,7 +70,7 @@ private:
 
 class KonqLogoAction : public TDEAction
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
     KonqLogoAction( const TQString& text, int accel = 0, TQObject* parent = 0, const char* name = 0 );
     KonqLogoAction( const TQString& text, int accel,
@@ -95,7 +95,7 @@ private:
 
 class KonqViewModeAction : public TDERadioAction
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KonqViewModeAction( const TQString &text, const TQString &icon,
                         TQObject *parent, const char *name );
@@ -126,7 +126,7 @@ protected:
 
 class KonqMostOftenURLSAction : public TDEActionMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KonqMostOftenURLSAction( const TQString& text, TQObject *parent,

@@ -24,7 +24,7 @@ class userInterOpts;
 
 class userInterConfig : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     userInterConfig(TDEConfig *config, TQString group,

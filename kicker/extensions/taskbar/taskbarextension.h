@@ -34,7 +34,7 @@ class TaskBarContainer;
 
 class TaskBarExtension : public KPanelExtension, virtual public DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 
 k_dcop:

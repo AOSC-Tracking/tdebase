@@ -61,7 +61,7 @@ private:
 
 class KCookiesManagement : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KCookiesManagement(TQWidget *parent = 0 );

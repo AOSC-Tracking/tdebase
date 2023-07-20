@@ -36,7 +36,7 @@ namespace KHotKeys
 */
 class KDE_EXPORT SoundRecorder : public TQObject
 {
-Q_OBJECT
+TQ_OBJECT
 public:
     static SoundRecorder* create( TQObject* parent = 0, const char* name = 0 );
     virtual ~SoundRecorder();

@@ -30,7 +30,7 @@ class SensorLoggerDlgWidget;
 
 class SensorLoggerDlg : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
 

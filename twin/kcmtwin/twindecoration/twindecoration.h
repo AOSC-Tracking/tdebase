@@ -61,7 +61,7 @@ struct DecorationInfo
 
 class KWinDecorationModule : public TDECModule, virtual public KWinDecorationIface, public KDecorationDefines
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		KWinDecorationModule(TQWidget* parent, const char* name, const TQStringList &);

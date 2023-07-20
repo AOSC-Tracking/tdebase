@@ -41,7 +41,7 @@ class SensorClient;
  */
 class SensorSocketAgent : public SensorAgent
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     SensorSocketAgent( SensorManager *sm );

@@ -41,7 +41,7 @@ namespace TDEIO { class Job; }
  */
 class LIBKONQ_EXPORT KonqIconViewWidget : public TDEIconView
 {
-    Q_OBJECT
+    TQ_OBJECT
     TQ_PROPERTY( bool sortDirectoriesFirst READ sortDirectoriesFirst WRITE setSortDirectoriesFirst )
     TQ_PROPERTY( TQRect iconArea READ iconArea WRITE setIconArea )
     TQ_PROPERTY( int lineupMode READ lineupMode WRITE setLineupMode )

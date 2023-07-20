@@ -35,7 +35,7 @@ class KSSLCertificate;
 
 class TDEUI_EXPORT CryptPasswordDialog : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	/**
 	* Create a dialog that allows a user to enter LUKS passwords or password files

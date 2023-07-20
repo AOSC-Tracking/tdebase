@@ -28,7 +28,7 @@
 
 class kSubMenuItem : public TQObject, public TQCheckListItem
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         kSubMenuItem(TQListView* parent, 
@@ -51,7 +51,7 @@ class kSubMenuItem : public TQObject, public TQCheckListItem
 
 class MenuTab : public MenuTabBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     MenuTab( TQWidget *parent=0, const char* name=0 );

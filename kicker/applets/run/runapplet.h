@@ -35,7 +35,7 @@ class KURIFilterData;
 
 class RunApplet : public KPanelApplet
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     RunApplet(const TQString& configFile, Type t = Stretch, int actions = 0,

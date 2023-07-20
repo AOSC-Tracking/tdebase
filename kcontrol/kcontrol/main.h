@@ -27,7 +27,7 @@ class TopLevel;
 
 class KControlApp : public KUniqueApplication
 {
-  Q_OBJECT 
+  TQ_OBJECT 
 
 public:
   KControlApp();

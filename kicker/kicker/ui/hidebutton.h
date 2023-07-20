@@ -25,7 +25,7 @@
 
 class HideButton : public TQButton
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     HideButton(TQWidget *parent, const char *name = 0);

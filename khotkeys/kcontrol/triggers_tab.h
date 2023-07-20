@@ -35,7 +35,7 @@ class KHotKeysShortcutList;
 class Triggers_tab
     : public Triggers_tab_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Triggers_tab( TQWidget* parent_P = NULL, const char* name_P = NULL );
         virtual ~Triggers_tab();
@@ -82,7 +82,7 @@ class Trigger_dialog
 class Shortcut_trigger_widget
     : public TQWidget
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Shortcut_trigger_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void set_data( const Shortcut_trigger* trigger_P );
@@ -100,7 +100,7 @@ typedef Shortcut_trigger_widget Shortcut_trigger_tab;
 class Shortcut_trigger_dialog
     : public KDialogBase, public Trigger_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Shortcut_trigger_dialog( Shortcut_trigger* trigger_P );
         virtual Trigger* edit_trigger();
@@ -113,7 +113,7 @@ class Shortcut_trigger_dialog
 class Window_trigger_dialog
     : public KDialogBase, public Trigger_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Window_trigger_dialog( Window_trigger* trigger_P );
         virtual Trigger* edit_trigger();
@@ -128,7 +128,7 @@ class GestureRecordPage;
 class Gesture_trigger_dialog
     : public KDialogBase, public Trigger_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Gesture_trigger_dialog( Gesture_trigger* trigger_P );
         virtual Trigger* edit_trigger();
@@ -144,7 +144,7 @@ class VoiceRecordPage;
 class Voice_trigger_dialog
 	: public KDialogBase, public Trigger_dialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 	public:
 		Voice_trigger_dialog( Voice_trigger* trigger_P );
 		virtual Trigger* edit_trigger();

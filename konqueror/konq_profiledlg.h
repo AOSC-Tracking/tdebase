@@ -46,7 +46,7 @@ public:
 
 class KonqProfileDlg : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KonqProfileDlg( KonqViewManager *manager, const TQString &preselectProfile, TQWidget *parent = 0L );
   ~KonqProfileDlg();

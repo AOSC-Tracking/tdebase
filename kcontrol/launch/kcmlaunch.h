@@ -28,7 +28,7 @@ class KIntNumInput;
 
 class LaunchConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
 

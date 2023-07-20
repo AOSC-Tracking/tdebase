@@ -32,7 +32,7 @@
  */
 
 class KdmRect : public KdmItem {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	KdmRect( KdmItem *parent, const TQDomNode &node, const char *name = 0 );

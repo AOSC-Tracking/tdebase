@@ -30,7 +30,7 @@ class Windowdef_list_item;
 class Windowdef_list_widget
     : public Windowdef_list_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Windowdef_list_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         virtual ~Windowdef_list_widget();
@@ -84,7 +84,7 @@ class Windowdef_dialog
 class Windowdef_simple_dialog
     : public KDialogBase, public Windowdef_dialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Windowdef_simple_dialog( Windowdef_simple* window_P, TQObject* obj_P, const char* slot_P );
         virtual Windowdef* edit_windowdef();

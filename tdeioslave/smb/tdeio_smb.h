@@ -94,7 +94,7 @@ class TDEProcess;
 
 class SMBSlave : public TQObject, public TDEIO::SlaveBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 private:
     //---------------------------------------------------------------------

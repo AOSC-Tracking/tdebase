@@ -22,7 +22,7 @@ class TQLabel;
 
 class KBackground: public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KBackground(TQWidget *parent=0, const char *name=0);
     ~KBackground();

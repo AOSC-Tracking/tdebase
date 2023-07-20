@@ -40,7 +40,7 @@ class TQTimer;
 
 class AddAppletVisualFeedback : TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         AddAppletVisualFeedback(AppletWidget* parent,

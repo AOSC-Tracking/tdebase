@@ -34,7 +34,7 @@ class FstabBackend;
 
 class MediaManager : public KDEDModule
 {
-Q_OBJECT
+TQ_OBJECT
 K_DCOP
 public:
 	MediaManager(const TQCString &obj);

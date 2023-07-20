@@ -32,7 +32,7 @@ class TrashImpl;
 
 class KTrashPropsWidget : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KTrashPropsWidget(TQWidget *parent=0, const char *name=0);

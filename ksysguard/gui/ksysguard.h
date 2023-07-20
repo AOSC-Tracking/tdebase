@@ -43,7 +43,7 @@ class Workspace;
 
 class TopLevel : public TDEMainWindow, public KSGRD::SensorClient, public DCOPObject
 {
-  Q_OBJECT
+  TQ_OBJECT
   K_DCOP
 
   public:

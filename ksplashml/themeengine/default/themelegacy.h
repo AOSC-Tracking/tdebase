@@ -29,7 +29,7 @@ class TQCheckBox;
 
 class DefaultConfig: public ThemeEngineConfig
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   DefaultConfig( TQWidget *, TDEConfig * );
   void save();
@@ -43,7 +43,7 @@ protected:
 class ObjKsTheme;
 class KDE_EXPORT ThemeDefault : public ThemeEngine
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   ThemeDefault( TQWidget *, const char *, const TQStringList& );
    virtual ~ThemeDefault();

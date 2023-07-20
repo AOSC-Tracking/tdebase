@@ -30,7 +30,7 @@ class ContainerArea;
 
 class RemoveContainerMenu : public TQPopupMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     RemoveContainerMenu(ContainerArea* cArea, TQWidget *parent=0, const char *name=0);

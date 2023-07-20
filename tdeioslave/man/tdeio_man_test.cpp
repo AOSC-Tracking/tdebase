@@ -11,7 +11,7 @@
 
 class tdeio_man_test : public  MANProtocol
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   tdeio_man_test(const TQCString &pool_socket, const TQCString &app_socket);

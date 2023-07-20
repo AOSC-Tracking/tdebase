@@ -20,7 +20,7 @@ class BGDialog;
  */
 class KBackground: public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KBackground(TQWidget *parent, const char *name, const TQStringList &);

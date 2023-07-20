@@ -32,7 +32,7 @@ namespace KHC {
 
 class IndexBuilder : public QObject
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     IndexBuilder(const TQString& cmdFile);
 

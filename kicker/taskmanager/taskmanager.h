@@ -70,7 +70,7 @@ typedef TQValueList<WId> WindowList;
  */
 class KDE_EXPORT Task: public TQObject, public TDEShared
 {
-    Q_OBJECT
+    TQ_OBJECT
     TQ_PROPERTY( TQString visibleIconicName READ visibleIconicName )
     TQ_PROPERTY( TQString iconicName READ iconicName )
     TQ_PROPERTY( TQString visibleIconicNameWithState READ visibleIconicNameWithState )
@@ -513,7 +513,7 @@ public:
  */
 class KDE_EXPORT Startup: public TQObject, public TDEShared
 {
-    Q_OBJECT
+    TQ_OBJECT
     TQ_PROPERTY( TQString text READ text )
     TQ_PROPERTY( TQString bin READ bin )
     TQ_PROPERTY( TQString icon READ icon )
@@ -567,7 +567,7 @@ private:
  */
 class KDE_EXPORT TaskManager : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     TQ_PROPERTY( int currentDesktop READ currentDesktop )
     TQ_PROPERTY( int numberOfDesktops READ numberOfDesktops )
 

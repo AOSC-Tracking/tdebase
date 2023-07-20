@@ -65,7 +65,7 @@ public:
 
 class PolicyDlg : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   PolicyDlg (const TQString& caption, TQWidget *parent = 0,

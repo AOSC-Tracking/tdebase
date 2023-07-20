@@ -28,7 +28,7 @@ using namespace KickoffSearch;
 
 class MyKickoffSearchInterface :public KickoffSearchInterface
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     MyKickoffSearchInterface( KMenu*, TQObject* parent, const char* name = 0 );

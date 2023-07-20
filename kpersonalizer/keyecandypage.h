@@ -29,7 +29,7 @@ class KSysInfo;
   */
 
 class KEyeCandyPage : public KEyeCandyPageDlg {
-	Q_OBJECT
+	TQ_OBJECT
 public: 
 	KEyeCandyPage(TQWidget *parent=0, const char *name=0);
 	~KEyeCandyPage();

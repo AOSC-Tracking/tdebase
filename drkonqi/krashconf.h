@@ -36,7 +36,7 @@
 
 class KrashConfig : public TQObject, public KrashDCOPInterface
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KrashConfig();

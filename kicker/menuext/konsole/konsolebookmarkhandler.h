@@ -14,7 +14,7 @@ class KonsoleMenu;
 
 class KonsoleBookmarkHandler : public TQObject, public KBookmarkOwner
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KonsoleBookmarkHandler( KonsoleMenu *konsole, bool toplevel );

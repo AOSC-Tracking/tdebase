@@ -61,7 +61,7 @@ public:
 
 class WidgetCanvas : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     WidgetCanvas( TQWidget *parent=0, const char *name=0 );

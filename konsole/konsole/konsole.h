@@ -68,7 +68,7 @@ const char *konsole_shell(TQStrList &args);
 
 class Konsole : public TDEMainWindow, virtual public KonsoleIface
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     friend class KonsoleSessionManaged;
 public:
@@ -469,7 +469,7 @@ class TQSpinBox;
 
 class HistoryTypeDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
   HistoryTypeDialog(const HistoryType& histType,
                     unsigned int histSize,
@@ -493,7 +493,7 @@ protected:
 
 class SizeDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
   SizeDialog(unsigned int const columns,
              unsigned int const lines,
@@ -512,7 +512,7 @@ protected:
 
 class KonsoleFind : public KEdFind
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
   KonsoleFind( TQWidget *parent = 0, const char *name=0, bool modal=true );
   bool reg_exp() const;

@@ -29,7 +29,7 @@ class RedmondDeco;
 
 class RedmondButton : public KCommonDecorationButton
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	RedmondButton(ButtonType type, RedmondDeco *parent, const char *name);
 	void setBitmap(const unsigned char *bitmap);
@@ -72,7 +72,7 @@ private:
 
 class RedmondDecoFactory : public TQObject, public KDecorationFactory
 {
-   Q_OBJECT
+   TQ_OBJECT
 public:
 	RedmondDecoFactory();
 	virtual ~RedmondDecoFactory();

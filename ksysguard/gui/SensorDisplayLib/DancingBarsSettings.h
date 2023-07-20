@@ -38,7 +38,7 @@ class TQPushButton;
 
 class DancingBarsSettings : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     DancingBarsSettings( TQWidget* parent = 0, const char* name = 0 );

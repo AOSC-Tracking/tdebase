@@ -24,7 +24,7 @@
 
 class DelayedInitializer : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     DelayedInitializer( int eventType, TQObject *parent, const char *name = 0 );
 

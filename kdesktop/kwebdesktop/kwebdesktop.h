@@ -28,7 +28,7 @@ namespace TDEIO { class Job; }
 
 class KWebDesktop : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KWebDesktop( TQObject* parent, const TQCString & imageFile, int width, int height )
         : TQObject( parent ),
@@ -53,7 +53,7 @@ private:
 
 class KWebDesktopRun : public QObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KWebDesktopRun( KWebDesktop* webDesktop, const KURL & url );
     ~KWebDesktopRun() {}

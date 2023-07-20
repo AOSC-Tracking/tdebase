@@ -21,7 +21,7 @@ class Action_data_group;
 class KHotKeysApp
     : public KUniqueApplication
     {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
     k_dcop:
         ASYNC reread_configuration();

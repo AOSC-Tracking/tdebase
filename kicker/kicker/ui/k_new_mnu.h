@@ -78,7 +78,7 @@ enum OverflowCategoryState { None, Filling, NotNeeded };
 
 class KMenu : public KMenuBase
 {
-    Q_OBJECT
+    TQ_OBJECT
     TQ_PROPERTY (bool TDEStyleMenuDropShadow READ useTDEStyleMenuDropShadow )
 
 public:

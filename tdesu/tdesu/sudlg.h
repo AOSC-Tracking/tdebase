@@ -12,7 +12,7 @@
 class TDEsuDialog
     : public KPasswordDialog
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     TDEsuDialog(TQCString user, TQCString auth_user, bool enableKeep, const TQString& icon , bool withIgnoreButton=false, int timeout=-1);

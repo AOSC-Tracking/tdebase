@@ -24,7 +24,7 @@
 
 class KShellCmdPlugin : public KParts::Plugin
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KShellCmdPlugin( TQObject* parent, const char* name, const TQStringList & );
     ~KShellCmdPlugin() {}

@@ -44,7 +44,7 @@ class KateMainWindow;
  */
 class KateConsole : public TQVBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     /**

@@ -217,7 +217,7 @@ private:
 
 class KCryptoConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KCryptoConfig(TQWidget *parent = 0L, const char *name = 0L, const TQStringList &list = TQStringList());
   virtual ~KCryptoConfig();

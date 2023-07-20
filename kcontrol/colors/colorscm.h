@@ -36,7 +36,7 @@ class KColorSchemeList;
  */
 class KColorScheme: public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KColorScheme(TQWidget *parent, const char *name, const TQStringList &);

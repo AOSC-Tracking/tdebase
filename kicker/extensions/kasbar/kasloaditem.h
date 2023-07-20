@@ -10,7 +10,7 @@
  */
 class KDE_EXPORT KasLoadItem : public KasItem
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KasLoadItem( KasBar *parent );

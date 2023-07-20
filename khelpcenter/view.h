@@ -18,7 +18,7 @@ class Formatter;
 
 class View : public TDEHTMLPart
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     View( TQWidget *parentWidget, const char *widgetName,
           TQObject *parent, const char *name, TDEHTMLPart::GUIProfile prof,

@@ -44,7 +44,7 @@ class TQStringList;
  */
 class WorkSheet : public TQWidget, public KSGRD::SensorBoard
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     WorkSheet( TQWidget* parent, const char *name = 0 );

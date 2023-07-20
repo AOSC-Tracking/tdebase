@@ -33,7 +33,7 @@ class TQListView;
 class TQListViewItem;
 
 class ChooserDlg : public KGDialog {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef KGDialog inherited;
 
   public:

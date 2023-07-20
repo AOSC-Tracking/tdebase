@@ -38,7 +38,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 // helper class, nuke when qt supports suspend()/resume()
 class QXTimer : public TQObject {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef TQObject inherited;
 
   public:
@@ -89,7 +89,7 @@ struct GreeterPluginHandle {
 typedef TQValueVector<int> PluginList;
 
 class KGVerify : public TQObject, public KGreeterPluginHandler {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef TQObject inherited;
 
   public:
@@ -191,7 +191,7 @@ class KGVerify : public TQObject, public KGreeterPluginHandler {
 };
 
 class KGStdVerify : public KGVerify {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef KGVerify inherited;
 
   public:
@@ -216,7 +216,7 @@ class KGStdVerify : public KGVerify {
 };
 
 class KGThemedVerify : public KGVerify {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef KGVerify inherited;
 
   public:
@@ -237,7 +237,7 @@ class KGThemedVerify : public KGVerify {
 };
 
 class KGChTok : public FDialog, public KGVerifyHandler {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef FDialog inherited;
 
   public:

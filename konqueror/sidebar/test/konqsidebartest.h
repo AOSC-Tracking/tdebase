@@ -22,7 +22,7 @@
 
 class SidebarTest : public KonqSidebarPlugin
 	{
-		Q_OBJECT
+		TQ_OBJECT
 		public:
 		SidebarTest(TDEInstance *inst,TQObject *parent,TQWidget *widgetParent, TQString &desktopName_, const char* name=0):
                    KonqSidebarPlugin(inst,parent,widgetParent,desktopName_,name)

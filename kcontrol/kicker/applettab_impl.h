@@ -33,7 +33,7 @@ class TQListViewItem;
 
 class AppletTab : public AppletTabBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
  public:
   AppletTab( TQWidget *parent=0, const char* name=0 );

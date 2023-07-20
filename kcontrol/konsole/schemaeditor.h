@@ -32,7 +32,7 @@ class TDESharedPixmap;
 /** SchemaEditor is the base class of the porject */
 class SchemaEditor : public SchemaDialog
 {
-  Q_OBJECT 
+  TQ_OBJECT 
   public:
     /** constructor */
     SchemaEditor(TQWidget* parent=0, const char *name=0);

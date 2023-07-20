@@ -49,7 +49,7 @@ class TQEvent;
 
 
 class KdmThemer : public TQObject {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	/*

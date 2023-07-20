@@ -41,7 +41,7 @@ class KdmThemer;
 class KProcIO;
 
 class KWinbindGreeter : public TQObject, public KGreeterPlugin {
-	Q_OBJECT
+	TQ_OBJECT
 
   public:
 	KWinbindGreeter( KGreeterPluginHandler *handler,

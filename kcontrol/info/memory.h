@@ -28,7 +28,7 @@ typedef unsigned long t_memsize;
 #define COLOR_FREE_MEMORY TQColor(127,255,212)
 
 class KMemoryWidget:public TDECModule {
-  Q_OBJECT 
+  TQ_OBJECT 
 	  
   public:
     KMemoryWidget(TQWidget * parent, const char *name = 0);

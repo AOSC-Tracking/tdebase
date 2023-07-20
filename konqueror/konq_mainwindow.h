@@ -87,7 +87,7 @@ class KonqExtendedBookmarkOwner;
 
 class KonqMainWindow : public KParts::MainWindow, public KonqFrameContainerBase
 {
-  Q_OBJECT
+  TQ_OBJECT
   TQ_PROPERTY( int viewCount READ viewCount )
   TQ_PROPERTY( int activeViewsCount READ activeViewsCount )
   TQ_PROPERTY( int linkableViewsCount READ linkableViewsCount )

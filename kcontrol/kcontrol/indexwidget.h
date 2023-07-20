@@ -31,7 +31,7 @@ class ModuleIconView;
 
 class IndexWidget : public TQWidgetStack
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 public:   
   IndexWidget(ConfigModuleList *list, TQWidget *parent, const char *name=0);

@@ -8,7 +8,7 @@
  */
 class KDE_EXPORT KasClockItem : public KasItem
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KasClockItem( KasBar *parent );

@@ -45,7 +45,7 @@ class SensorManagerIterator;
  */
 class KDE_EXPORT SensorManager : public QObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   friend class SensorManagerIterator;
 

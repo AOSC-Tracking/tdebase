@@ -38,7 +38,7 @@ class PanelPopupButton;
 
 class Kicker : public KUniqueApplication
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 
 public:

@@ -28,7 +28,7 @@
 class KonqSidebarHistorySettings : public TQObject, public DCOPObject
 {
     K_DCOP
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     enum { MINUTES, DAYS };

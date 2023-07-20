@@ -23,7 +23,7 @@ class TQTextView;
 
 class USBViewer : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 

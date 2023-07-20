@@ -52,7 +52,7 @@ typedef TQValueList<Window> TQXLibWindowList;
 //
 class ControlPipeHandlerObject : public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		ControlPipeHandlerObject();
@@ -81,7 +81,7 @@ class ControlPipeHandlerObject : public TQObject
 //
 class LockProcess : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		LockProcess();

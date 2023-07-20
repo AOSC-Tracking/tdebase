@@ -32,7 +32,7 @@ class TQSpinBox;
 
 class KDE_EXPORT TimerSettings : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     TimerSettings( TQWidget *parent, const char *name = 0 );

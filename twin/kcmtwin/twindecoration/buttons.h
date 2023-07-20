@@ -111,7 +111,7 @@ class ButtonSourceItem : public TQListViewItem
  */
 class ButtonSource : public TDEListView
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		ButtonSource(TQWidget *parent = 0, const char* name = 0);
@@ -138,7 +138,7 @@ typedef TQValueList<ButtonDropSiteItem*> ButtonList;
  */
 class ButtonDropSite: public TQFrame
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		ButtonDropSite( TQWidget* parent=0, const char* name=0 );
@@ -191,7 +191,7 @@ class ButtonDropSite: public TQFrame
 
 class ButtonPositionWidget : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		ButtonPositionWidget(TQWidget *parent = 0, const char* name = 0);

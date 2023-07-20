@@ -36,7 +36,7 @@ class View;
 
 class History : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     friend class foo; // to make gcc shut up
     struct Entry

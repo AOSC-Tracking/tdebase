@@ -35,7 +35,7 @@ class KURLRequester;
 
 class KBehaviourOptions : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KBehaviourOptions(TDEConfig *config, TQString group, TQWidget *parent=0, const char *name=0);
     ~KBehaviourOptions();

@@ -33,7 +33,7 @@ class MultiMeterSettings;
 
 class MultiMeter : public KSGRD::SensorDisplay
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	MultiMeter(TQWidget* parent = 0, const char* name = 0,

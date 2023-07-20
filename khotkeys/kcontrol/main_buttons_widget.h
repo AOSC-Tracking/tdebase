@@ -19,7 +19,7 @@ namespace KHotKeys
 class Main_buttons_widget
     : public Main_buttons_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Main_buttons_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void enable_delete( bool enable_P );

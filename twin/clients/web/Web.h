@@ -69,7 +69,7 @@ namespace Web
 
   class WebFactory : public TQObject, public KDecorationFactory
   {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
 

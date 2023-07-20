@@ -37,7 +37,7 @@ class PasswordDlg;
 
 class TDEUI_EXPORT SensorDisplayLabelsWidget : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	/**
 	* Create a simple sensor name and value display widget
@@ -65,7 +65,7 @@ private:
 
 class TDEUI_EXPORT SensorBar : public TQProgressBar
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	SensorBar(TQWidget* parent=0, const char* name=0, WFlags f=0) : TQProgressBar(parent, name, f) {}
 	SensorBar(int totalSteps, TQWidget* parent=0, const char* name=0, WFlags f=0): TQProgressBar(totalSteps, parent, name, f) {}
@@ -93,7 +93,7 @@ public:
 
 class TDEUI_EXPORT SensorDisplayWidget : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	/**
 	* Simple sensor information display widget
@@ -167,7 +167,7 @@ typedef TQMap<TDESystemHibernationMethod::TDESystemHibernationMethod, int> Hiber
 
 class TDEUI_EXPORT DevicePropertiesDialog : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	/**
 	* Create a dialog that allows a user to view and edit hardware device properties

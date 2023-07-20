@@ -39,7 +39,7 @@ class KDE_EXPORT Application : public TQObject
 {
   friend class PrivateApplication;
 
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     /**

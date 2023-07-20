@@ -38,7 +38,7 @@ class TQToolButton;
 
 class KateViewManager : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KateViewManager (KateMainWindow *parent);

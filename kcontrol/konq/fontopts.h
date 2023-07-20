@@ -51,7 +51,7 @@ class TDEFontCombo;
 
 class KonqFontOptions : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   KonqFontOptions(TDEConfig *config, TQString group, bool desktop, TQWidget *parent=0, const char *name=0);
   TQString quickHelp() const;

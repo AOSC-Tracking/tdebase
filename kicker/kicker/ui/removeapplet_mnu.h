@@ -34,7 +34,7 @@ class ContainerArea;
 
 class PanelRemoveAppletMenu : public TQPopupMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PanelRemoveAppletMenu(ContainerArea* cArea, TQWidget* parent = 0, const char* name = 0);

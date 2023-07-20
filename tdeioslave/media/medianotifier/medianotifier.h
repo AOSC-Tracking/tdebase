@@ -34,7 +34,7 @@ typedef TQPtrList<NotificationDialog> NotificationDialogList;
 
 class MediaNotifier:  public KDEDModule
 {
-	Q_OBJECT
+	TQ_OBJECT
 	K_DCOP
 
 public:

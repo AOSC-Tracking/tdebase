@@ -33,7 +33,7 @@ class TDEProcess;
 //===========================================================================
 class KScreenSaver : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KScreenSaver(TQWidget *parent, const char *name, const TQStringList &);
     ~KScreenSaver();

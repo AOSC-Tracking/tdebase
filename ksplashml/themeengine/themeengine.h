@@ -27,7 +27,7 @@ class TQMouseEvent;
  */
 class KDE_EXPORT ThemeEngineConfig: public TQVBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
 
   ThemeEngineConfig( TQWidget *p, TDEConfig *c )
@@ -50,7 +50,7 @@ protected:
  */
 class KDE_EXPORT ThemeEngine: public TQVBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   ThemeEngine( TQWidget *parent, const char *name, const TQStringList &args );
   virtual ~ThemeEngine() = 0;

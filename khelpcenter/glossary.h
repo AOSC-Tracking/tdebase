@@ -99,7 +99,7 @@ inline TQDataStream &operator>>( TQDataStream &stream, GlossaryEntry &e )
 
 class Glossary : public TDEListView
 {
-	Q_OBJECT
+	TQ_OBJECT
 	public:
 		Glossary( TQWidget *parent );
 		virtual ~Glossary();

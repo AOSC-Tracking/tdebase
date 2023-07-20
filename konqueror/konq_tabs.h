@@ -43,7 +43,7 @@ class TDEAction;
 
 class KonqFrameTabs : public KTabWidget, public KonqFrameContainerBase
 {
-  Q_OBJECT
+  TQ_OBJECT
   friend class KonqFrame; //for emitting ctrlTabPressed() only, aleXXX
 
 public:

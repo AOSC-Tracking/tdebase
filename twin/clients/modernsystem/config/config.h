@@ -10,7 +10,7 @@
 
 class ModernSysConfig : public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		ModernSysConfig(TDEConfig* conf, TQWidget* parent);

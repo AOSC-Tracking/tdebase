@@ -23,7 +23,7 @@ class TQWidgetStack;
 
 class FileTypesView : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   FileTypesView(TQWidget *p = 0, const char *name = 0);
   ~FileTypesView();

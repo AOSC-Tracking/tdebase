@@ -34,7 +34,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class UnhideTrigger : public QObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	enum Trigger { None = 0, Top, TopRight, Right, BottomRight, Bottom, BottomLeft, Left, TopLeft };
 	static UnhideTrigger* the();

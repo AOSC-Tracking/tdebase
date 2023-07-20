@@ -27,7 +27,7 @@ class FileTypeDetails;
 // A dialog for ONE file type to be edited.
 class FileTypeDialog : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   FileTypeDialog( KMimeType::Ptr mime );
   FileTypeDialog( KMimeType::Ptr mime, bool newItem );

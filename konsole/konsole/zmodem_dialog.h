@@ -25,7 +25,7 @@ class TQTextEdit;
 
 class ZModemDialog : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   ZModemDialog(TQWidget *parent, bool modal, const TQString &caption);
   

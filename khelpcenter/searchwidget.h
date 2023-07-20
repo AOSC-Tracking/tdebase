@@ -44,7 +44,7 @@ class SearchEngine;
 
 class SearchWidget : public TQWidget, public DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 
   k_dcop:

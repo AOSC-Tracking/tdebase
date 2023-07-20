@@ -22,7 +22,7 @@ class Workspace;
 
 class PopupInfo : public TQWidget
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         PopupInfo( Workspace* ws, const char *name=0 );
         ~PopupInfo();

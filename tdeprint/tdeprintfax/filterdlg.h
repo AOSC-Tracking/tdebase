@@ -27,7 +27,7 @@ class TQLineEdit;
 
 class FilterDlg : public KDialogBase
 {
-  	Q_OBJECT
+  	TQ_OBJECT
 public:
 	FilterDlg(TQWidget *parent = 0, const char *name = 0);
 

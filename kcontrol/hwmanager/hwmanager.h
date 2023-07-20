@@ -41,7 +41,7 @@ class TDEListViewItem;
 class TDEHWManager : public TDECModule, public DCOPObject
 {
 	K_DCOP
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	//TDEHWManager(TQWidget *parent = 0L, const char *name = 0L);

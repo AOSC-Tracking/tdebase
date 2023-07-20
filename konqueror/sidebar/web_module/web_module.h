@@ -31,7 +31,7 @@
 // A wrapper for TDEHTMLPart to make it behave the way we want it to.
 class TDEHTMLSideBar : public TDEHTMLPart
 {
-	Q_OBJECT
+	TQ_OBJECT
 	public:
 		TDEHTMLSideBar(bool universal) : TDEHTMLPart() {
 			setStatusMessagesEnabled(false);
@@ -164,7 +164,7 @@ class TDEHTMLSideBar : public TDEHTMLPart
 
 class KonqSideBarWebModule : public KonqSidebarPlugin
 {
-	Q_OBJECT
+	TQ_OBJECT
 	public:
 		KonqSideBarWebModule(TDEInstance *instance, TQObject *parent,
 			       	TQWidget *widgetParent, TQString &desktopName,

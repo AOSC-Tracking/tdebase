@@ -22,7 +22,7 @@ namespace KHotKeys
 class KDE_EXPORT KHListView
     : public TDEListView
     {
-    Q_OBJECT
+    TQ_OBJECT
     TQ_PROPERTY( bool forceSelect READ forceSelect WRITE setForceSelect )
     public:
         KHListView( TQWidget* parent_P, const char* name_P = NULL );

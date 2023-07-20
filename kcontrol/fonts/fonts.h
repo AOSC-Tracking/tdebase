@@ -25,7 +25,7 @@ class FontAASettings;
 
 class FontUseItem : public TDEFontRequester
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
     FontUseItem(TQWidget * parent, const TQString &name, const TQString &grp, 
@@ -50,7 +50,7 @@ private:
 
 class FontAASettings : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 
@@ -92,7 +92,7 @@ private:
  */
 class TDEFonts : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     TDEFonts(TQWidget *parent, const char *name, const TQStringList &);

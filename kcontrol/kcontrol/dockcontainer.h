@@ -30,7 +30,7 @@ class TQLabel;
 
 class ModuleWidget : public TQVBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     ModuleWidget( TQWidget *parent, const char *name );
@@ -48,7 +48,7 @@ class ModuleWidget : public TQVBox
 
 class DockContainer : public TQWidgetStack
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   DockContainer(TQWidget *parent=0);

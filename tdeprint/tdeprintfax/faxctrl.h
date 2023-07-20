@@ -32,7 +32,7 @@ class TQTextEdit;
 
 class FaxCtrl : public TQObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	FaxCtrl(TQWidget *parent = 0, const char *name = 0);
 	~FaxCtrl();

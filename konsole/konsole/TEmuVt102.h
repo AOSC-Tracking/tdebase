@@ -52,7 +52,7 @@ struct CharCodes
 };
 
 class TEmuVt102 : public TEmulation
-{ Q_OBJECT
+{ TQ_OBJECT
 
 public:
 

@@ -27,7 +27,7 @@ class Client;
 
 class TabBox : public TQFrame
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         TabBox( Workspace *ws, const char *name=0 );
         ~TabBox();

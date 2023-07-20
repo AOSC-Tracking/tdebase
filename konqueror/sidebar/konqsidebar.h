@@ -36,7 +36,7 @@ class KonqSidebarFactory;
 
 class KonqSidebarBrowserExtension : public KParts::BrowserExtension
 {
-	Q_OBJECT
+	TQ_OBJECT
 	
 	public:
 	KonqSidebarBrowserExtension(KonqSidebar *part_,Sidebar_Widget *widget_,const char *name):
@@ -73,7 +73,7 @@ class KonqSidebarBrowserExtension : public KParts::BrowserExtension
  */
 class KonqSidebar : public KParts::ReadOnlyPart, public KonqSidebarIface
 {
-    Q_OBJECT
+    TQ_OBJECT
     
 public:
     /**
@@ -111,7 +111,7 @@ class TDEAboutData;
 
 class KonqSidebarFactory : public KParts::Factory
 {
-    Q_OBJECT
+    TQ_OBJECT
     
 public:
     KonqSidebarFactory();

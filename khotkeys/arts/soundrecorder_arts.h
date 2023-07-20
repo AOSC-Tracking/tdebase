@@ -38,7 +38,7 @@ namespace KHotKeys
 */
 class SoundRecorderArts : public SoundRecorder
 {
-Q_OBJECT
+TQ_OBJECT
 public:
     SoundRecorderArts(TQObject *parent = 0, const char *name = 0);
     virtual ~SoundRecorderArts();

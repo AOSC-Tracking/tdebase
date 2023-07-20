@@ -40,7 +40,7 @@ typedef TQValueList<PanelPopupButton*> KButtonList;
  */
 class MenuManager : public TQObject, DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     static MenuManager* the();
 

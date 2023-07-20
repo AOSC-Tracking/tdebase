@@ -37,7 +37,7 @@ class TQHBox;
 // the widget which displays all buttons, values, etc.
 class JoyWidget : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
   
   public:
     JoyWidget(TQWidget *parent = 0, const char *name = 0);

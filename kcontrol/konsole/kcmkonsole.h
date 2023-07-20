@@ -28,7 +28,7 @@ class TQStringList;
 class KCMKonsole
 	: public TDECModule
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	KCMKonsole (TQWidget *parent = 0, const char *name = 0, const TQStringList& = 0);

@@ -40,7 +40,7 @@ class ConfigModuleList;
 
 class ModuleMenu : public TDEPopupMenu
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   ModuleMenu(ConfigModuleList *list, TQWidget * parent = 0, const char * name = 0);

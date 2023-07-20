@@ -27,7 +27,7 @@
 
 class KickoffTabBar : public TQTabBar
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KickoffTabBar(TQWidget* parent, const char* name);
 

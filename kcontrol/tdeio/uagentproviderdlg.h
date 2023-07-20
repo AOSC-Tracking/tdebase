@@ -29,7 +29,7 @@ class UAProviderDlgUI;
 
 class UALineEdit : public KLineEdit
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   UALineEdit( TQWidget *parent, const char *name=0 );
@@ -40,7 +40,7 @@ protected:
 
 class UAProviderDlg : public KDialog
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   UAProviderDlg( const TQString& caption, TQWidget *parent = 0,

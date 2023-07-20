@@ -34,7 +34,7 @@ class KDE_EXPORT ViewManager : public TQObject
 {
   friend class PrivateViewManager;
 
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     /**

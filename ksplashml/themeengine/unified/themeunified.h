@@ -28,7 +28,7 @@ class TQCheckBox;
 
 class UnifiedConfig: public ThemeEngineConfig
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   UnifiedConfig( TQWidget *, TDEConfig * );
   void save();
@@ -42,7 +42,7 @@ protected:
 class ObjKsTheme;
 class KDE_EXPORT ThemeUnified : public ThemeEngine
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   ThemeUnified( TQWidget *, const char *, const TQStringList& );
    virtual ~ThemeUnified();

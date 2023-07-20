@@ -28,7 +28,7 @@ class TQTabWidget;
 
 class LanBrowser : public TDECModule
 {
-   Q_OBJECT
+   TQ_OBJECT
    public:
       LanBrowser(TQWidget *parent=0);
       virtual void load();

@@ -24,7 +24,7 @@
 
 class ProgressDialog : public KProgressDialog, virtual public ProgressDialogIface
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
       ProgressDialog(TQWidget* parent = 0, const TQString& caption = TQString::null, const TQString& text = TQString::null, int totalSteps = 100);

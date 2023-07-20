@@ -51,7 +51,7 @@ extern TDEApplication* Kapp;
  */
 class ProcessController : public KSGRD::SensorDisplay
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	ProcessController(TQWidget* parent = 0, const char* name = 0, const TQString &title = TQString::null, bool nf = false);

@@ -33,7 +33,7 @@ class PanelBrowserMenu;
  */
 class BrowserButton : public PanelPopupButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     BrowserButton( const TQString& icon, const TQString& startDir, TQWidget* parent );

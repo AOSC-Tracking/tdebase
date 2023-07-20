@@ -40,7 +40,7 @@ namespace KSGRD {
 
 class KDE_EXPORT StyleEngine : public QObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     StyleEngine();

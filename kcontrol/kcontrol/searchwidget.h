@@ -50,7 +50,7 @@ class KeywordListEntry
 
 class SearchWidget : public TQWidget
 {  
-  Q_OBJECT    
+  TQ_OBJECT    
   
 public:   
   SearchWidget(TQWidget *parent, const char *name=0);

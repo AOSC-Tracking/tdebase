@@ -73,7 +73,7 @@ class KasBar;
  */
 class KasResources : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KasResources( KasBar *parent, const char *name=0 );

@@ -47,7 +47,7 @@ public:
 
 class CfgComponent: public ComponentConfig_UI,public CfgPlugin
 {
-Q_OBJECT
+TQ_OBJECT
 public:
 	CfgComponent(TQWidget *parent);
 	virtual ~CfgComponent();
@@ -67,7 +67,7 @@ signals:
 
 class CfgEmailClient: public EmailClientConfig_UI,public CfgPlugin
 {
-Q_OBJECT
+TQ_OBJECT
 public:
 	CfgEmailClient(TQWidget *parent);
 	virtual ~CfgEmailClient();
@@ -87,7 +87,7 @@ signals:
 
 class CfgFileManager: public FileManagerConfig_UI,public CfgPlugin
 {
-Q_OBJECT
+TQ_OBJECT
 public:
 	CfgFileManager(TQWidget *parent);
 	virtual ~CfgFileManager();
@@ -105,7 +105,7 @@ signals:
 
 class CfgTerminalEmulator: public TerminalEmulatorConfig_UI,public CfgPlugin
 {
-Q_OBJECT
+TQ_OBJECT
 public:
 	CfgTerminalEmulator(TQWidget *parent);
 	virtual ~CfgTerminalEmulator();
@@ -123,7 +123,7 @@ signals:
 
 class CfgBrowser: public BrowserConfig_UI,public CfgPlugin
 {
-Q_OBJECT
+TQ_OBJECT
 public:
 	CfgBrowser(TQWidget *parent);
 	virtual ~CfgBrowser();
@@ -146,7 +146,7 @@ private:
 class ComponentChooser : public ComponentChooser_UI
 {
 
-Q_OBJECT
+TQ_OBJECT
 
 public:
 	ComponentChooser(TQWidget *parent=0, const char *name=0);

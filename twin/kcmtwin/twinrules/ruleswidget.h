@@ -36,7 +36,7 @@ class DetectDialog;
 class RulesWidget
     : public RulesWidgetBase
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         RulesWidget( TQWidget* parent = NULL, const char* name = NULL );
         void setRules( Rules* r );
@@ -97,7 +97,7 @@ class RulesWidget
 class RulesDialog
     : public KDialogBase
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         RulesDialog( TQWidget* parent = NULL, const char* name = NULL );
         Rules* edit( Rules* r, WId window, bool show_hints );
@@ -113,7 +113,7 @@ class RulesDialog
 class EditShortcut
     : public EditShortcutBase
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         EditShortcut( TQWidget* parent = NULL, const char* name = NULL );
     protected:
@@ -124,7 +124,7 @@ class EditShortcut
 class EditShortcutDialog
     : public KDialogBase
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         EditShortcutDialog( TQWidget* parent = NULL, const char* name = NULL );
         void setShortcut( const TQString& cut );
@@ -137,7 +137,7 @@ class EditShortcutDialog
 class ShortcutDialog
     : public TDEShortcutDialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         ShortcutDialog( const TDEShortcut& cut, TQWidget* parent = NULL, const char* name = NULL );
         virtual void accept();

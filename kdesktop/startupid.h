@@ -34,7 +34,7 @@ class TQStyle;
 class StartupId
     : public TQWidget
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         StartupId( TQWidget* parent = 0, const char* name = 0 );
         virtual ~StartupId();

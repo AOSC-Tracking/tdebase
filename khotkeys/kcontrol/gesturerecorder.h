@@ -24,7 +24,7 @@ namespace KHotKeys
 
 class GestureRecorder : public TQFrame
     {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         GestureRecorder(TQWidget *parent, const char *name);

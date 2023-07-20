@@ -48,7 +48,7 @@ class TDEActionSelector;
 
 class SystemTrayApplet : public KPanelApplet, public DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
     typedef TQValueVector<TrayEmbed*> TrayEmbedList;
 
@@ -125,7 +125,7 @@ private:
 
 class TrayEmbed : public QXEmbed
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     TrayEmbed( bool kdeTray, TQWidget* parent = NULL );
     ~TrayEmbed();

@@ -33,7 +33,7 @@ class KonqPropsView;
 
 class KonqSidebarDirTreeModule : public TQObject, public KonqSidebarTreeModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KonqSidebarDirTreeModule( KonqSidebarTree * parentTree, bool );
     virtual ~KonqSidebarDirTreeModule();

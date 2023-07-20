@@ -38,7 +38,7 @@ class TQListViewItem;
 
 class KdeprintFax : public TDEMainWindow
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	struct FaxItem
 	{

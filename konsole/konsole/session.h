@@ -36,7 +36,7 @@ class TDEProcess;
 class ZModemDialog;
 
 class TESession : public TQObject, virtual public SessionIface
-{ Q_OBJECT
+{ TQ_OBJECT
 
 public:
 

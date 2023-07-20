@@ -34,7 +34,7 @@ class KPropertiesDialog;
  */
 class URLButton : public PanelButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     URLButton( const TQString& url, TQWidget* parent );

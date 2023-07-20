@@ -34,7 +34,7 @@ typedef TQPtrList<TQPopupMenu> PopupMenuList;
 
 class PrefMenu : public KPanelMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         PrefMenu(TQWidget *parent,

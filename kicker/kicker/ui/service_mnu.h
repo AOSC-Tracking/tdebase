@@ -50,7 +50,7 @@ typedef TQMap<PanelServiceMenu*,int> PanelServiceMenuMap;
 
 class KDE_EXPORT PanelServiceMenu : public KPanelMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PanelServiceMenu(const TQString & label, const TQString & relPath,

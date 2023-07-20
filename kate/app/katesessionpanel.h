@@ -45,7 +45,7 @@ class TDEActionCollection;
 //FIXME improve string to distinguish between new session and saving an unnamed session
 class KateSessionNameChooser : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 
@@ -72,7 +72,7 @@ class KateSessionNameChooser : public KDialogBase
 //BEGIN KateSessionPanelToolBarParent
 class KateSessionPanelToolBarParent: public TQFrame
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KateSessionPanelToolBarParent(TQWidget *parent) : TQFrame(parent), m_tbar(0) {}
@@ -109,7 +109,7 @@ class KateSessionPanelItem : public TDEListViewItem
 //BEGIN KateSessionPanel
 class KateSessionPanel : public TQVBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 
  	friend class KateMainWindow;
  	

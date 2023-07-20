@@ -27,7 +27,7 @@ class TQTabWidget;
 
 class TrashModule : public TDECModule
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	TrashModule(TQWidget *parent, const char *name);

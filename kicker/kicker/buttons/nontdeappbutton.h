@@ -37,8 +37,8 @@ class PanelExeDialog;
  */
 class NonKDEAppButton : public PanelButton
 {
-    // the Q_OBJECT macro provides the magic glue for signals 'n slots
-    Q_OBJECT
+    // the TQ_OBJECT macro provides the magic glue for signals 'n slots
+    TQ_OBJECT
 
 public:
     // define our two constructors, one used for creating new buttons...

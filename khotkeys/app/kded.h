@@ -22,7 +22,7 @@ class Action_data_group;
 class KHotKeysModule
     : public KDEDModule
     {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
     k_dcop:
         ASYNC reread_configuration();

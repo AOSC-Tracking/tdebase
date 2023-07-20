@@ -21,7 +21,7 @@ namespace KHotKeys
 class Voice_settings_tab
     : public Voice_settings_tab_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Voice_settings_tab( TQWidget* parent = NULL, const char* name = NULL );
         void read_data();

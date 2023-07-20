@@ -45,7 +45,7 @@ class OuiDb
 
 class View1394: public TDECModule
 {
-   Q_OBJECT
+   TQ_OBJECT
    public:
       View1394(TQWidget *parent = 0L, const char *name = 0L);
       virtual ~View1394();

@@ -55,7 +55,7 @@ private:
 
 class DeviceIconView : public TDEListView
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	DeviceIconView(TQWidget * parent = 0, const char * name = 0);

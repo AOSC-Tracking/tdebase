@@ -36,7 +36,7 @@ class KTrashPropsWidget;
 
 class KTrashPropsDlgPlugin : public KPropsDlgPlugin
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const char*, const TQStringList& );

@@ -40,7 +40,7 @@ class AppletHandle;
 
 class AppletContainer : public BaseContainer
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     AppletContainer(const AppletInfo& info, TQPopupMenu* opMenu, bool isImmutable = false, TQWidget* parent = 0);

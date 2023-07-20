@@ -29,7 +29,7 @@
 
 class HomeImpl : public QObject
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
 	HomeImpl();

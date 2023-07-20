@@ -32,7 +32,7 @@ class TQStringList;
 
 class IconThemesConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   IconThemesConfig(TQWidget *parent = 0L, const char *name = 0L);

@@ -36,7 +36,7 @@ class KDE_EXPORT Plugin : public TQObject
 {
   friend class PrivatePlugin;
 
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     Plugin (Application *application = 0, const char *name = 0 );

@@ -36,7 +36,7 @@ class KLanguageCombo;
 
 class TDELocaleConfigNumber : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   TDELocaleConfigNumber( TDELocale *_locale,

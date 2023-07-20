@@ -34,7 +34,7 @@
  */
 class KLanguageCombo : public KTagComboBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KLanguageCombo(TQWidget *parent=0, const char *name=0);

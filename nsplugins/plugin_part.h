@@ -61,7 +61,7 @@ private:
 
 class PluginFactory : public KParts::Factory
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   PluginFactory();
@@ -84,7 +84,7 @@ private:
 
 class PluginCanvasWidget : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
 
   PluginCanvasWidget(TQWidget *parent=0, const char *name=0)
@@ -100,7 +100,7 @@ signals:
 
 class PluginPart: public KParts::ReadOnlyPart
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   PluginPart(TQWidget *parentWidget, const char *widgetName, TQObject *parent,
              const char *name, const TQStringList &args = TQStringList());
@@ -137,7 +137,7 @@ private:
 
 class PluginLiveConnectExtension : public KParts::LiveConnectExtension
 {
-Q_OBJECT
+TQ_OBJECT
 public:
     PluginLiveConnectExtension(PluginPart* part);
     virtual ~PluginLiveConnectExtension();

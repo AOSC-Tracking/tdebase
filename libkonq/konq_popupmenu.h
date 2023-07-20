@@ -55,7 +55,7 @@ class KBookmarkManager;
  */
 class LIBKONQ_EXPORT KonqPopupMenu : public TQPopupMenu, public KonqXMLGUIClient
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
 
   /**
@@ -210,7 +210,7 @@ private:
 };
 
 class LIBKONQ_EXPORT KonqPopupMenuPlugin : public TQObject, public KonqXMLGUIClient {
-	Q_OBJECT
+	TQ_OBJECT
 public:
   /**
   * Constructor

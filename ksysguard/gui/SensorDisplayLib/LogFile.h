@@ -37,7 +37,7 @@ class TQListBox;
 
 class LogFile : public KSGRD::SensorDisplay
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	LogFile(TQWidget *parent = 0, const char *name = 0, const TQString& title = 0);
 	~LogFile(void);

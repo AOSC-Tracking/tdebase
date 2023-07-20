@@ -24,7 +24,7 @@ class LookAndFeelTab;
 
 class LookAndFeelConfig : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     LookAndFeelConfig(TQWidget *parent = 0, const char *name = 0);

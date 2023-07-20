@@ -35,7 +35,7 @@ class TQPushButton;
 
 class TopLevel : public KDialog
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     TopLevel( const TQString &destDir, TQWidget *parent = 0, const char *name = 0 );

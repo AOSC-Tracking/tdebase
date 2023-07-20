@@ -19,7 +19,7 @@ namespace KWinInternal
 
 class GeometryTip: public TQLabel
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         GeometryTip( const XSizeHints* xSizeHints, bool save_under );
         ~GeometryTip();

@@ -66,7 +66,7 @@ private:
 
 class ModuleTreeView : public TDEListView
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   ModuleTreeView(ConfigModuleList *list, TQWidget * parent = 0, const char * name = 0);

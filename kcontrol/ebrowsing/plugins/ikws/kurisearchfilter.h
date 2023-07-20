@@ -31,7 +31,7 @@ class TDEInstance;
 
 class KURISearchFilter : public KURIFilterPlugin, public DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 public:
     KURISearchFilter(TQObject *parent = 0, const char *name = 0, 

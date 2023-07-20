@@ -54,7 +54,7 @@ class Formatter;
 
 class Navigator : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
   public:
     Navigator(View *, TQWidget *parent=0, const char *name=0);
     virtual ~Navigator();

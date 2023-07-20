@@ -52,7 +52,7 @@ class TaskbarAppearance
 
 class TaskbarConfig : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     TaskbarConfig(TQWidget *parent = 0, const char* name = 0,

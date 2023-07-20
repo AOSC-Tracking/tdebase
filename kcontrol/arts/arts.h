@@ -48,7 +48,7 @@ class DeviceManager;
 
 class KArtsModule : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 
@@ -118,7 +118,7 @@ private:
 
 class KStartArtsProgressDialog : public KProgressDialog
 {
-   Q_OBJECT
+   TQ_OBJECT
 public:
    KStartArtsProgressDialog(KArtsModule *parent, const char *name,
                           const TQString &caption, const TQString &text);

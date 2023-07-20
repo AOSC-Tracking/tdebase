@@ -33,7 +33,7 @@ namespace KWinInternal
 class DetectWidget
     : public DetectWidgetBase
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         DetectWidget( TQWidget* parent = NULL, const char* name = NULL );
     };
@@ -41,7 +41,7 @@ class DetectWidget
 class DetectDialog
     : public KDialogBase
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         DetectDialog( TQWidget* parent = NULL, const char* name = NULL );
         void detect( WId window );

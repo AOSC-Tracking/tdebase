@@ -48,7 +48,7 @@ class KDesktopShadowSettings;
  */
 class KDIconView : public KonqIconViewWidget, public KDirNotify
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KDIconView( TQWidget *parent, const char* name = 0L );

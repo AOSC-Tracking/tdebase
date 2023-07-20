@@ -28,7 +28,7 @@ class Medium;
 
 class PropertiesPage : public PropertiesPageGUI
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   PropertiesPage(TQWidget* parent, const TQString &_id);

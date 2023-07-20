@@ -30,7 +30,7 @@ class JobTray;
 
 class KJobViewerApp : public KUniqueApplication, public KPReloadObject
 {
-	Q_OBJECT
+	TQ_OBJECT
 	friend class JobTray;
 public:
 	KJobViewerApp();

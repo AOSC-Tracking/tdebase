@@ -115,7 +115,7 @@ class CFontListViewItem : public TDEListViewItem
  */
 class CKFileFontView : public TDEListView, public KFileView
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
 

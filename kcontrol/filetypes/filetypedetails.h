@@ -20,7 +20,7 @@ class KServiceListWidget;
  */
 class FileTypeDetails : public TQTabWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   FileTypeDetails(TQWidget *parent = 0, const char *name = 0);
 

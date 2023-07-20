@@ -56,7 +56,7 @@ typedef QPair<KURL,TQDateTime> TPair;
 
 class KateDocManager : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KateDocManager (TQObject *parent);

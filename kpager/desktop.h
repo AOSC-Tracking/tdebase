@@ -37,7 +37,7 @@ class TQPoint;
 
 class Desktop : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
   Desktop( int desk, TQString desktopName, TQWidget *parent=0,

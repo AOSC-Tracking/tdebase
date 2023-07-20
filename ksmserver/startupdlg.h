@@ -34,7 +34,7 @@ class TDEAction;
 // The startup-in-progress dialog
 class KSMStartupIPDlg : public KSMModalDialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	static TQWidget* showStartupIP();

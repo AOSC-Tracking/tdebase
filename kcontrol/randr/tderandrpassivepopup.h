@@ -27,7 +27,7 @@
 class KRandrPassivePopup
     : public KPassivePopup
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
 	static KRandrPassivePopup *message( const TQString &caption, const TQString &text,
 	    const TQPixmap &icon, TQWidget *parent, const char *name=0, int timeout = -1 );

@@ -33,7 +33,7 @@
  */
 class TrashImpl : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     TrashImpl();
 

@@ -30,7 +30,7 @@ class SystemWidget;
 class Config
     : public TDECModule
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Config( TQWidget* parent_P, const char* name_P );
         virtual void load();
@@ -47,7 +47,7 @@ class Config
 class KonquerorConfig
     : public TDECModule
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         KonquerorConfig( TQWidget* parent_P, const char* name_P );
         virtual void load();

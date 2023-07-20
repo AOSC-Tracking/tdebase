@@ -31,7 +31,7 @@
 
 class SystemImpl : public TQObject
 {
-Q_OBJECT
+TQ_OBJECT
 public:
 	SystemImpl();
 

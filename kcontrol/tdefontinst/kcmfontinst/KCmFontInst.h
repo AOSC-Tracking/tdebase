@@ -58,7 +58,7 @@ namespace KFI
 
 class CKCmFontInst : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
 

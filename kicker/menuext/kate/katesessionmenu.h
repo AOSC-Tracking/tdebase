@@ -24,7 +24,7 @@
 #include <kpanelmenu.h>
 
 class KateSessionMenu : public KPanelMenu {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     KateSessionMenu( TQWidget *parent=0, const char *name=0, const TQStringList& /*args*/=TQStringList() );
     ~KateSessionMenu();

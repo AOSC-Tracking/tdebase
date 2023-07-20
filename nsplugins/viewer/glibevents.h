@@ -28,7 +28,7 @@
 class GlibEvents
     : public QWidget
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         GlibEvents();
         virtual ~GlibEvents();

@@ -19,7 +19,7 @@ class TQCheckBox;
 
 class KRandomSetup : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 	public:
 		KRandomSetup( TQWidget *parent = NULL, const char *name = NULL );
 

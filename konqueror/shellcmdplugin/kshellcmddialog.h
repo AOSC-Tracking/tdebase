@@ -29,7 +29,7 @@ class KShellCommandExecutor;
 
 class KShellCommandDialog:public KDialog
 {
-   Q_OBJECT
+   TQ_OBJECT
    public:
       KShellCommandDialog(const TQString& title, const TQString& command, TQWidget* parent=0, bool modal=false);
       virtual ~KShellCommandDialog();

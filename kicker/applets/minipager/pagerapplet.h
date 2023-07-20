@@ -46,7 +46,7 @@ class PagerSettings;
 
 class KMiniPager : public KPanelApplet
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KMiniPager(const TQString& configFile, Type t = Normal, int actions = 0,

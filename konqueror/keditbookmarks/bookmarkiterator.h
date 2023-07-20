@@ -28,7 +28,7 @@ class BookmarkIteratorHolder;
 
 class BookmarkIterator : public QObject
 {
-   Q_OBJECT
+   TQ_OBJECT
 
 public:
    BookmarkIterator(TQValueList<KBookmark> bks);

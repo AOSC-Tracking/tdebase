@@ -38,7 +38,7 @@ class KonqSidebarTreeItem;
 
 class KonqSidebarHistoryModule : public TQObject, public KonqSidebarTreeModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     enum {

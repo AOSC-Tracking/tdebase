@@ -44,7 +44,7 @@ class IconViewBrowserExtension;
 class KonqKfmIconView : public KonqDirPart
 {
   friend class IconViewBrowserExtension; // to access m_pProps
-  Q_OBJECT
+  TQ_OBJECT
   TQ_PROPERTY( bool supportsUndo READ supportsUndo )
   TQ_PROPERTY( TQString viewMode READ viewMode WRITE setViewMode )
 public:
@@ -238,7 +238,7 @@ protected:
 
 class IconViewBrowserExtension : public KonqDirPartBrowserExtension
 {
-  Q_OBJECT
+  TQ_OBJECT
   friend class KonqKfmIconView; // so that it can emit our signals
 public:
   IconViewBrowserExtension( KonqKfmIconView *iconView );
@@ -276,7 +276,7 @@ private:
 
 class SpringLoadingManager : public QObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 private:
     SpringLoadingManager();
     static SpringLoadingManager *s_self;

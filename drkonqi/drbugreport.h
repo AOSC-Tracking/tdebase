@@ -34,7 +34,7 @@ class TDEAboutData;
 
 class DrKBugReport : public KBugReport
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   /**

@@ -29,7 +29,7 @@
  */
 class KCustomMenu : public TQPopupMenu
 {
-   Q_OBJECT
+   TQ_OBJECT
 public:
    /**
     * Create a custome menu described by @p configfile.

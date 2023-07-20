@@ -27,7 +27,7 @@ namespace Kate
 {
 
 class ListboxView : public DockViewBase {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     ListboxView( TQWidget *parent=0, const char *name=0 );
     ListboxView( const TQString &titlePrefix, const TQString &title, TQWidget *parent=0, const char *name=0 );

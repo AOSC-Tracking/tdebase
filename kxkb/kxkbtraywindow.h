@@ -30,7 +30,7 @@ class XkbRules;
 
 class KxkbLabelController: public QObject
 {
-// 	Q_OBJECT
+// 	TQ_OBJECT
 			
 public:
 	enum { START_MENU_ID = 100, CONFIG_MENU_ID = 130, HELP_MENU_ID = 131 };
@@ -69,7 +69,7 @@ private:
 
 class KxkbSystemTray : public KSystemTray
 {
-	Q_OBJECT 
+	TQ_OBJECT 
 			
 	public:
 	KxkbSystemTray():

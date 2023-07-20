@@ -41,7 +41,7 @@ class TQTimer;
 
 class AddAppletDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         AddAppletDialog(ContainerArea* cArea, TQWidget* parent, const char* name);

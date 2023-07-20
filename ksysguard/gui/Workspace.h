@@ -34,7 +34,7 @@ class WorkSheet;
 
 class Workspace : public TQTabWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     Workspace( TQWidget* parent, const char* name = 0 );

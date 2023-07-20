@@ -27,7 +27,7 @@
  */
 class PreviewRedmond: public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
 
   PreviewRedmond( TQWidget* );

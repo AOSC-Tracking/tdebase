@@ -58,7 +58,7 @@ class KCommonDecorationPrivate;
  */
 class KWIN_EXPORT KCommonDecoration : public KDecoration
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         KCommonDecoration(KDecorationBridge* bridge, KDecorationFactory* factory);
@@ -293,7 +293,7 @@ class KWIN_EXPORT KCommonDecorationButton : public TQButton
 {
     friend class KCommonDecoration;
 
-    Q_OBJECT
+    TQ_OBJECT
     
 
     public:

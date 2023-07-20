@@ -33,7 +33,7 @@ class KWindowListMenu;
  */
 class WindowListButton : public PanelPopupButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     WindowListButton( TQWidget* parent );

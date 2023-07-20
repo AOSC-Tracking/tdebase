@@ -26,7 +26,7 @@
 
 class RemovableBackend : public TQObject, public BackendBase
 {
-Q_OBJECT
+TQ_OBJECT
 
 public:
 	RemovableBackend(MediaList &list);

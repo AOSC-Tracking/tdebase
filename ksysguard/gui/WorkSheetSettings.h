@@ -31,7 +31,7 @@ class KIntNumInput;
 
 class WorkSheetSettings : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     WorkSheetSettings( TQWidget* parent = 0, const char* name = 0 );

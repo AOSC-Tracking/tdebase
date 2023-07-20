@@ -64,7 +64,7 @@ class KRootWmThreadHelperObject;
  * This class is the handler for the menus (root popup menu and desktop menubar)
  */
 class KRootWm: public TQObject {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KRootWm(SaverEngine*, KDesktop*);

@@ -26,7 +26,7 @@ class Action_data;
 class Gesture_triggers_tab
     : public Gesture_triggers_tab_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Gesture_triggers_tab( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void set_data( const Trigger_list* triggers_P );
@@ -46,7 +46,7 @@ class GestureRecordPage;
 class Gesture_edit_dialog
     : public KDialogBase
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Gesture_edit_dialog( const TQString& gesture_P );
         TQString edit_gesture();

@@ -32,7 +32,7 @@
 enum { NOTIFYNORMAL=0, NOTIFYBELL=1, NOTIFYACTIVITY=2, NOTIFYSILENCE=3 };
 
 class TEmulation : public QObject
-{ Q_OBJECT
+{ TQ_OBJECT
 
 public:
 

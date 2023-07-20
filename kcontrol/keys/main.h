@@ -33,7 +33,7 @@ class ModifiersModule;
 
 class KeyModule : public TDECModule
 {
-	Q_OBJECT
+	TQ_OBJECT
  public:
 	KeyModule( TQWidget *parent, const char *name );
         ~KeyModule();

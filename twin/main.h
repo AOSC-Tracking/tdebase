@@ -21,7 +21,7 @@ namespace KWinInternal
 
 class Application : public  TDEApplication
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Application();
         ~Application();

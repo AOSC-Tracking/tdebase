@@ -17,7 +17,7 @@ class KColorButton;
 
 class KBlankSaver : public KScreenSaver
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	KBlankSaver( WId drawable );
 	virtual ~KBlankSaver();
@@ -34,7 +34,7 @@ private:
 
 class KBlankSetup : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	KBlankSetup( TQWidget *parent = NULL, const char *name = NULL );
 

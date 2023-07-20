@@ -24,7 +24,7 @@ class TDEAboutData;
 
 class KCMComponentChooser : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     KCMComponentChooser( TQWidget *parent = 0, const char *name = 0 );
  

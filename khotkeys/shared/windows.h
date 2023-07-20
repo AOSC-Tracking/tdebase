@@ -37,7 +37,7 @@ class Windowdef_list;
 class KDE_EXPORT Windows
     : public TQObject
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Windows( bool enable_signals_P, TQObject* parent_P );
         virtual ~Windows();

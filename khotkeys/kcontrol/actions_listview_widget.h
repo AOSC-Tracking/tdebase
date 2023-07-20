@@ -28,7 +28,7 @@ class Action_data_base;
 class Actions_listview_widget
     : public Actions_listview_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Actions_listview_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         Action_listview_item* current_action() const;
@@ -56,7 +56,7 @@ class Actions_listview_widget
 class Actions_listview
     : public KHListView
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Actions_listview( TQWidget* parent_P = NULL, const char* name_P = NULL );
         Actions_listview_widget* widget();

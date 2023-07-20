@@ -35,7 +35,7 @@
 
 class ShortcutsModule : public TQWidget
 {
-	Q_OBJECT
+	TQ_OBJECT
  public:
 	ShortcutsModule( TQWidget *parent = 0, const char *name = 0 );
 	~ShortcutsModule();

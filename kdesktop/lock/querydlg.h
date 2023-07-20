@@ -28,7 +28,7 @@ class TQListView;
 //
 class QueryDlg : public TQDialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		QueryDlg(LockProcess *parent);

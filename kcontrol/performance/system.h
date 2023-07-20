@@ -29,7 +29,7 @@ namespace KCMPerformance
 class SystemWidget
     : public System_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         SystemWidget( TQWidget* parent_P = NULL );
         void load( bool useDefaults );

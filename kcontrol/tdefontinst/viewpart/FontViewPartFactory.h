@@ -39,7 +39,7 @@ namespace KFI
 
 class CFontViewPartFactory : public KLibFactory
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
 

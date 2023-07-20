@@ -30,7 +30,7 @@
 
 class FingerProtocol : public TQObject, public TDEIO::SlaveBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 

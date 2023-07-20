@@ -54,7 +54,7 @@ class KBackgroundManager
     : public TQObject,
       public KBackgroundIface
 {
-    Q_OBJECT
+    TQ_OBJECT
     
 
 public:

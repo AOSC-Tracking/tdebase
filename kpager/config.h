@@ -30,7 +30,7 @@ class TQButtonGroup;
 
 class KPagerConfigDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KPagerConfigDialog(TQWidget *parent);

@@ -64,7 +64,7 @@ class KonqListView : public KonqDirPart
   friend class KonqBaseListViewWidget;
   friend class ListViewBrowserExtension;
 
-  Q_OBJECT
+  TQ_OBJECT
   TQ_PROPERTY( bool supportsUndo READ supportsUndo )
 
 public:
@@ -211,7 +211,7 @@ private:
 
 class ListViewBrowserExtension : public KonqDirPartBrowserExtension
 {
-   Q_OBJECT
+   TQ_OBJECT
    friend class KonqListView;
    friend class KonqBaseListViewWidget;
    public:

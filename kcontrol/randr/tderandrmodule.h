@@ -27,7 +27,7 @@ class TQCheckBox;
 
 class KRandRModule : public TDECModule, public KRandrSimpleAPI
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	KRandRModule(TQWidget *parent, const char *name, const TQStringList& _args);

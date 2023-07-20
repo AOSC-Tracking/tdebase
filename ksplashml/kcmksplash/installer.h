@@ -24,7 +24,7 @@ class ThemeListBox;
 
 class SplashInstaller : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   SplashInstaller(TQWidget *parent=0, const char *aName=0, bool aInit=FALSE);
   ~SplashInstaller();
@@ -62,7 +62,7 @@ private:
 
 class ThemeListBox: public TDEListBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   ThemeListBox(TQWidget *parent);
   TQMap<TQString, TQString> text2path;

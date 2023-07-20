@@ -37,7 +37,7 @@ class AppletHandleButton;
 
 class AppletHandle : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
     
     public:
         AppletHandle(AppletContainer* parent);
@@ -87,7 +87,7 @@ class AppletHandle : public TQWidget
 
 class AppletHandleDrag : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
     
     public:
         AppletHandleDrag(AppletHandle* parent);
@@ -109,7 +109,7 @@ class AppletHandleDrag : public TQWidget
 
 class AppletHandleButton : public SimpleArrowButton
 {
-    Q_OBJECT
+    TQ_OBJECT
     
     public:
         AppletHandleButton(AppletHandle *parent);

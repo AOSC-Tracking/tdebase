@@ -31,7 +31,7 @@ class TQPoint;
 
 class RecentDocsMenu : public KPanelMenu
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	RecentDocsMenu(TQWidget* parent, const char* name, const TQStringList &/*args*/);

@@ -31,7 +31,7 @@ class KFileIVI;
 
 class LIBKONQ_EXPORT KIVFreeSpaceOverlay : public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     
 public:
     KIVFreeSpaceOverlay(KFileIVI* freespace);

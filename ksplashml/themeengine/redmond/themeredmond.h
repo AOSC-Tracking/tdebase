@@ -23,7 +23,7 @@ class TQCheckBox;
 
 class CfgRedmond: public ThemeEngineConfig
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   CfgRedmond( TQWidget *, TDEConfig * );
 
@@ -39,7 +39,7 @@ protected:
 class ObjKsTheme;
 class ThemeRedmond: public ThemeEngine
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   ThemeRedmond( TQWidget *, const char *, const TQStringList& );
 

@@ -65,7 +65,7 @@ class KDE_EXPORT Stroke
 class KDE_EXPORT Gesture
     : public TQWidget // not TQObject because of x11EventFilter()
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Gesture( bool enabled_P, TQObject* parent_P );
         virtual ~Gesture();
@@ -103,7 +103,7 @@ class KDE_EXPORT Gesture
 class DeleteObject
     : public TQObject
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         DeleteObject( TQWidget* widget_P, TQObject* parent_P )
             : TQObject( parent_P ), widget( widget_P ) {}

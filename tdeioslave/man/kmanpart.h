@@ -39,7 +39,7 @@ class TDEAboutData;
  */
 class KManPartFactory: public KParts::Factory
 {
-   Q_OBJECT
+   TQ_OBJECT
    public:
       KManPartFactory( TQObject * parent = 0, const char * name = 0 );
       virtual ~KManPartFactory();
@@ -58,7 +58,7 @@ class KManPartFactory: public KParts::Factory
 
 class KManPart : public TDEHTMLPart
 {
-   Q_OBJECT
+   TQ_OBJECT
    public:
       KManPart( TQWidget * parent, const char * name = 0L );
       KParts::BrowserExtension * extension() {return m_extension;}

@@ -33,7 +33,7 @@ class PanelServiceMenu;
  */
 class ServiceMenuButton : public PanelPopupButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     ServiceMenuButton( const TQString& relPath, TQWidget* parent );

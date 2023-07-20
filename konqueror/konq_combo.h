@@ -32,7 +32,7 @@ class TDEConfig;
 // KComboBox would do fine.
 class KonqCombo : public KHistoryCombo
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KonqCombo( TQWidget *parent, const char *name );

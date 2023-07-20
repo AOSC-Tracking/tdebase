@@ -53,7 +53,7 @@ private:
 
 class TestLinkItr : public BookmarkIterator
 {
-   Q_OBJECT
+   TQ_OBJECT
 
 public:
    TestLinkItr(TQValueList<KBookmark> bks);

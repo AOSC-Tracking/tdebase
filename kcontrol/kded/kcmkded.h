@@ -30,7 +30,7 @@ class TQPushButton;
 
 class KDEDConfig : public TDECModule
 {
-Q_OBJECT
+TQ_OBJECT
 public:
 	KDEDConfig(TQWidget* parent, const char* name= 0L, const TQStringList& foo = TQStringList());
 	~KDEDConfig() {};
@@ -64,7 +64,7 @@ private:
 
 class CheckListItem : public TQObject, public TQCheckListItem
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	CheckListItem(TQListView* parent, const TQString &text);
 	~CheckListItem() { }

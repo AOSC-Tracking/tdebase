@@ -29,7 +29,7 @@ s
 #include "service_mnu.h"
 
 class QuickAddAppsMenu: public PanelServiceMenu {
-   Q_OBJECT
+   TQ_OBJECT
 public:
    QuickAddAppsMenu(const TQString &label, const TQString &relPath, TQWidget *target, TQWidget *parent=0, const char *name=0, const TQString &sender=TQString(""));
    QuickAddAppsMenu(TQWidget *target, TQWidget *parent=0, const TQString &sender=TQString(""), const char *name=0);

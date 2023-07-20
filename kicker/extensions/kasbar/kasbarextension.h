@@ -64,7 +64,7 @@ class KasTasker;
  */
 class KasBarExtension : public KPanelExtension
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KasBarExtension( const TQString& configFile,

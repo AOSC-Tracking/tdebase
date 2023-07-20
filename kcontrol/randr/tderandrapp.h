@@ -26,7 +26,7 @@ class KRandRSystemTray;
 
 class KRandRApp : public KUniqueApplication
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	KRandRApp();

@@ -29,7 +29,7 @@
 class KSimpleConfig;
 class KCMDnssd: public ConfigDialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	KCMDnssd( TQWidget *parent=0, const char *name=0, const TQStringList& = TQStringList() );

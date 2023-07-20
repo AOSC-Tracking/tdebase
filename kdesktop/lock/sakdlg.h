@@ -26,7 +26,7 @@ class TQListView;
 //
 class SAKDlg : public TQDialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		SAKDlg(LockProcess *parent);

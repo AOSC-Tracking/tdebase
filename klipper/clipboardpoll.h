@@ -27,7 +27,7 @@
 class ClipboardPoll
     : public TQWidget
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         ClipboardPoll( TQWidget* parent );
     signals:

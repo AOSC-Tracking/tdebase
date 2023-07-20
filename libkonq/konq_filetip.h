@@ -37,7 +37,7 @@ class TQTimer;
 
 class LIBKONQ_EXPORT KonqFileTip : public TQFrame
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     KonqFileTip( TQScrollView *parent );

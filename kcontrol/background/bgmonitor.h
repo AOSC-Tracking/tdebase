@@ -38,7 +38,7 @@ class KPixmap;
  */
 class BGMonitorArrangement : public TQWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     BGMonitorArrangement(TQWidget *parent, const char *name=0L);
     
@@ -94,7 +94,7 @@ protected:
  */
 class BGMonitor : public TQLabel
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     BGMonitor(TQWidget *parent, const char *name=0L);
 

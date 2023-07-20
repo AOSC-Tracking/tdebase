@@ -36,7 +36,7 @@ namespace TDEIntegration
 class Module
     : public KDEDModule
     {
-    Q_OBJECT
+    TQ_OBJECT
   
     public:
         Module( const TQCString& obj );
@@ -69,7 +69,7 @@ class Module
 class KFileDialog
     : public ::KFileDialog
     {
-    Q_OBJECT
+    TQ_OBJECT
   
     public:
         KFileDialog(const TQString& startDir, const TQString& filter,
@@ -86,7 +86,7 @@ class KFileDialog
 class KDirSelectDialog
     : public ::KDirSelectDialog
     {
-    Q_OBJECT
+    TQ_OBJECT
   
     public:
         KDirSelectDialog(const TQString& startDir, bool localOnly,
@@ -103,7 +103,7 @@ class KDirSelectDialog
 class KColorDialog
     : public ::KColorDialog
     {
-    Q_OBJECT
+    TQ_OBJECT
   
     public:
         KColorDialog( TQWidget *parent, const char *name, bool modal )
@@ -118,7 +118,7 @@ class KColorDialog
 class TDEFontDialog
     : public ::TDEFontDialog
     {
-    Q_OBJECT
+    TQ_OBJECT
   
     public:
         TDEFontDialog( TQWidget *parent, const char *name, bool onlyFixed, bool modal,
@@ -135,7 +135,7 @@ class TDEFontDialog
 class KDialogBase
     : public ::KDialogBase
     {
-    Q_OBJECT
+    TQ_OBJECT
   
     public:
         KDialogBase( const TQString &caption, int buttonMask=Yes|No|Cancel,

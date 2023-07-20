@@ -41,7 +41,7 @@ class KGVerify;
 #define ex_choose  3
 
 class KGDialog : public FDialog {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef FDialog inherited;
 
   public:

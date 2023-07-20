@@ -45,7 +45,7 @@ class SensorRequest;
 */
 class KDE_EXPORT SensorAgent : public QObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     SensorAgent( SensorManager *sm );

@@ -66,7 +66,7 @@ private:
 
 
 class QuickButton: public SimpleButton, public KickerTip::Client {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     enum { DEFAULT_ICON_DIM = 16 };

@@ -30,7 +30,7 @@ class KonqView;
 
 class KonqRun : public KParts::BrowserRun
 {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   /**
    * Create a KonqRun instance, associated to the main view and an

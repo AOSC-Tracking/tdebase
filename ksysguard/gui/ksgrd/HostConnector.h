@@ -31,7 +31,7 @@ class TQSpinBox;
 
 class HostConnector : public KDialogBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     HostConnector( TQWidget *parent, const char *name = 0 );

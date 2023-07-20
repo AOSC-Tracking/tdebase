@@ -30,7 +30,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class MediaWatcher : public TQObject, public DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 
     TQStringList m_devices;

@@ -31,7 +31,7 @@ class TQPalette;
 
 class TaskbarApplet : public KPanelApplet
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     TaskbarApplet( const TQString& configFile, Type t = Normal, int actions = 0,

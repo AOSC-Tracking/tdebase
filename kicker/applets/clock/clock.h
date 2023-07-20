@@ -66,7 +66,7 @@ class SettingsWidgetImp;
 
 class SettingsWidgetImp : public SettingsWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
     
     public:
         SettingsWidgetImp(Prefs *p=0,
@@ -84,7 +84,7 @@ class SettingsWidgetImp : public SettingsWidget
 
 class TDEConfigDialogSingle : public TDEConfigDialog
 {
-    Q_OBJECT
+    TQ_OBJECT
     
     public:
         TDEConfigDialogSingle(Zone *zone,
@@ -139,7 +139,7 @@ class ClockWidget
 
 class PlainClock : public TQLabel, public ClockWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         PlainClock(ClockApplet *applet, Prefs *prefs, TQWidget *parent=0, const char *name=0);
@@ -162,7 +162,7 @@ class PlainClock : public TQLabel, public ClockWidget
 
 class DigitalClock : public TQLCDNumber, public ClockWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         DigitalClock(ClockApplet *applet, Prefs *prefs, TQWidget *parent=0, const char *name=0);
@@ -189,7 +189,7 @@ class DigitalClock : public TQLCDNumber, public ClockWidget
 
 class AnalogClock : public TQFrame, public ClockWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         AnalogClock(ClockApplet *applet, Prefs *prefs, TQWidget *parent=0, const char *name=0);
@@ -216,7 +216,7 @@ class AnalogClock : public TQFrame, public ClockWidget
 
 class FuzzyClock : public TQFrame, public ClockWidget
 {
-    Q_OBJECT
+    TQ_OBJECT
 
     public:
         FuzzyClock(ClockApplet *applet, Prefs* prefs, TQWidget *parent=0, const char *name=0);
@@ -260,7 +260,7 @@ class ClockAppletToolTip : public TQToolTip
 
 class ClockApplet : public KPanelApplet, public KickerTip::Client, public DCOPObject
 {
-  Q_OBJECT
+  TQ_OBJECT
   K_DCOP
 
   friend class ClockAppletToolTip;

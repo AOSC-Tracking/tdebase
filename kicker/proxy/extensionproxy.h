@@ -35,7 +35,7 @@ class KPanelExtension;
 
 class ExtensionProxy : public TQObject, DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     ExtensionProxy(TQObject* parent, const char* name = 0);

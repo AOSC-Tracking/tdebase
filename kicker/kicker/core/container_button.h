@@ -36,7 +36,7 @@ class TDEConfigGroup;
 
 class ButtonContainer : public BaseContainer
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     ButtonContainer(TQPopupMenu* opMenu, TQWidget* parent = 0);

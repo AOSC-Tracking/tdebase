@@ -33,7 +33,7 @@ class KDE_EXPORT ToolViewManager : public TQObject
 {
   friend class PrivateToolViewManager;
 
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     /**

@@ -34,7 +34,7 @@ class ShutUpCompiler;
 
 class UserSizeSel : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
     public:
         static TQRect select(const TQRect& rect, const KPanelExtension::Position pos, const TQColor& color);

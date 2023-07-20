@@ -61,7 +61,7 @@ private:
 class AppTreeView : public TDEListView
 {
     friend class AppTreeItem;
-    Q_OBJECT
+    TQ_OBJECT
 public:
     AppTreeView(TQWidget *parent=0, const char *name=0);
     ~AppTreeView();

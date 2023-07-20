@@ -45,7 +45,7 @@ typedef QuickButtonGroup ButtonGroup;
 
 class QuickLauncher: public KPanelApplet, public DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 
 k_dcop:

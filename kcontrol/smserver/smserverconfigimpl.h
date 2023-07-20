@@ -26,7 +26,7 @@
   */
 
 class SMServerConfigImpl : public SMServerConfigDlg  {
-   Q_OBJECT
+   TQ_OBJECT
 public:
 	SMServerConfigImpl(TQWidget *parent=0, const char *name=0);
 	~SMServerConfigImpl();

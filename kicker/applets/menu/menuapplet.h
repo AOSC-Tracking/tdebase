@@ -66,7 +66,7 @@ class MenuEmbed;
 
 class Applet : public KPanelApplet, public DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
     K_DCOP
 
 k_dcop:
@@ -186,7 +186,7 @@ private:
 class MenuEmbed
     : public QXEmbed
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
 

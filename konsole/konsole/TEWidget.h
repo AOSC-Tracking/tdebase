@@ -44,7 +44,7 @@ class TQTimer;
 class TEWidget : public TQFrame
 // a widget representing attributed text
 {
-   Q_OBJECT
+   TQ_OBJECT
    
 
   friend class Konsole;

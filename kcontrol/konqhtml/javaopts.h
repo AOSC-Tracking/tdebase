@@ -63,7 +63,7 @@ public:
 /** Java-specific enhancements to the domain list view
   */
 class JavaDomainListView : public DomainListView {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   JavaDomainListView(TDEConfig *config,const TQString &group,KJavaOptions *opt,
   		TQWidget *parent,const char *name = 0);
@@ -86,7 +86,7 @@ private:
 
 class KJavaOptions : public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KJavaOptions( TDEConfig* config, TQString group, TQWidget* parent = 0, const char* name = 0 );

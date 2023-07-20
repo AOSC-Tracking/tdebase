@@ -38,7 +38,7 @@ class TDEConfig;
 
 class KSplash: public TQWidget, virtual public KSplashIface
 {
-  Q_OBJECT
+  TQ_OBJECT
   
 
 public:

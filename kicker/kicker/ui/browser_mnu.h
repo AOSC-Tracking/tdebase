@@ -31,7 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class PanelBrowserMenu : public KPanelMenu
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PanelBrowserMenu(TQString path, TQWidget *parent = 0, const char *name = 0, int startid = 0);

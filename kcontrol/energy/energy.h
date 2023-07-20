@@ -25,7 +25,7 @@ extern "C" void init_energy();
  */
 class KEnergy: public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KEnergy(TQWidget *parent, const char *name);

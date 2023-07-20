@@ -35,7 +35,7 @@ class Kbd_receiver
 class Kbd
     : public TQObject
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
 	Kbd( bool grabbing_enabled_P, TQObject* parent_P );
         virtual ~Kbd();

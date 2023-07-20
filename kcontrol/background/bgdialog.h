@@ -34,7 +34,7 @@ class TDEStandardDirs;
 
 class BGDialog : public BGDialog_UI
 {
-   Q_OBJECT
+   TQ_OBJECT
 public:
    BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop = true);
    ~BGDialog();

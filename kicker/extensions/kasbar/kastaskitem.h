@@ -67,7 +67,7 @@ class KPixmap;
  */
 class KasTaskItem : public KasItem
 {
-    Q_OBJECT
+    TQ_OBJECT
 
  public:
     KasTaskItem( KasTasker *parent, Task::Ptr task );

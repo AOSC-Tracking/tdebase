@@ -73,7 +73,7 @@ enum ButtonIcon {
 
 class PlastikHandler: public TQObject, public KDecorationFactory
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     PlastikHandler();
     ~PlastikHandler();

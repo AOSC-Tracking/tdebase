@@ -34,7 +34,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #endif
 
 class GreeterApp : public TDEApplication {
-	Q_OBJECT
+	TQ_OBJECT
 	typedef TDEApplication inherited;
 
   public:

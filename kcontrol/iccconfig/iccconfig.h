@@ -38,7 +38,7 @@ class TDEListViewItem;
 class KICCConfig : public TDECModule, public DCOPObject
 {
   K_DCOP
-    Q_OBJECT
+    TQ_OBJECT
 
 
 public:

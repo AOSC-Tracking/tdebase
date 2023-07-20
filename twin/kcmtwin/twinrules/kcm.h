@@ -34,7 +34,7 @@ class KCMRulesList;
 class KCMRules
     : public TDECModule
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         KCMRules( TQWidget *parent, const char *name );
         virtual void load();

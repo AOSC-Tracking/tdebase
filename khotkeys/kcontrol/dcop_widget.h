@@ -22,7 +22,7 @@ class Action_data;
 class Dcop_widget
     : public Dcop_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Dcop_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void set_data( const Dcop_action* data_P );

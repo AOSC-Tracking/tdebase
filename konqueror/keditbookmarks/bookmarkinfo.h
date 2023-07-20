@@ -29,7 +29,7 @@
 class TQTimer;
 
 class BookmarkLineEdit : public KLineEdit {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     BookmarkLineEdit( TQWidget * );
 public slots:
@@ -38,7 +38,7 @@ public slots:
 
 
 class BookmarkInfoWidget : public TQWidget {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     BookmarkInfoWidget(TQWidget * = 0, const char * = 0);
     void showBookmark(const KBookmark &bk);

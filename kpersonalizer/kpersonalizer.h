@@ -37,7 +37,7 @@ class KRefinePage;
 
 /** KPersonalizer is the base class of the project */
 class KPersonalizer : public KWizard {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	/** construtor */
 	KPersonalizer(TQWidget* parent=0, const char *name=0);

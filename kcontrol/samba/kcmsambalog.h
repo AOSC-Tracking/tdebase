@@ -38,7 +38,7 @@
 
 class LogView: public TQWidget
 {
-   Q_OBJECT
+   TQ_OBJECT
    public:
       LogView(TQWidget *parent=0, TDEConfig *config=0, const char *name=0);
       virtual ~LogView() {};

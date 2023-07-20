@@ -27,7 +27,7 @@ class TDEHTMLPart;
 
 class HTMLCreator : public TQObject, public ThumbCreator
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     HTMLCreator();
     virtual ~HTMLCreator();

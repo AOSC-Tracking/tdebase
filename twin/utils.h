@@ -179,7 +179,7 @@ class Motif
 class KWinSelectionOwner
     : public TDESelectionOwner
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         KWinSelectionOwner( int screen );
     protected:
@@ -280,7 +280,7 @@ void checkNonExistentClients();
 class ShortcutDialog
     : public TDEShortcutDialog
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         ShortcutDialog( const TDEShortcut& cut );
         virtual void accept();

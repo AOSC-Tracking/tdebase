@@ -175,7 +175,7 @@ class KateSession
 //FIXME add kdDebug statement to ease debugging
 class KateSessionManager : public TQObject
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 	public:
 
@@ -503,7 +503,7 @@ class KateSessionChooserItem : public TDEListViewItem
 //FIXME create one single KateSessionChooser and reuse it all the time
 class KateSessionChooser : public KDialogBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		enum Result

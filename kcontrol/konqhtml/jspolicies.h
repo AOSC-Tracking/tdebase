@@ -202,7 +202,7 @@ private:
  * @author Leo Savernik
  */
 class JSPoliciesFrame : public TQGroupBox {
-  Q_OBJECT
+  TQ_OBJECT
 public:
   /**
    * constructor

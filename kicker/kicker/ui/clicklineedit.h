@@ -35,7 +35,7 @@ namespace KPIM {
 */
 class KDE_EXPORT ClickLineEdit : public KLineEdit
 {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     ClickLineEdit( TQWidget *parent, const TQString &msg = TQString::null, const char* name = 0 );
     ~ClickLineEdit();

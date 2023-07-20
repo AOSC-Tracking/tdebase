@@ -36,7 +36,7 @@ class KateMainWindow;
     
 */
 class KateMailDialog : public KDialogBase {
-  Q_OBJECT
+  TQ_OBJECT
   public:
     KateMailDialog( TQWidget *parent=0,
                           KateMainWindow *mainwin=0 );

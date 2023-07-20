@@ -35,7 +35,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 class KNewButton : public KButton
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KNewButton( TQWidget *parent );

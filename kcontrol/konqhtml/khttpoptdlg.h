@@ -17,7 +17,7 @@
 */
 class KHTTPOptions : public TDECModule
 {
-Q_OBJECT
+TQ_OBJECT
   public:
     KHTTPOptions(TDEConfig *config, TQString group, TQWidget *parent = 0L, const char *name = 0L);
 

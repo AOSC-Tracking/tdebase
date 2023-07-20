@@ -41,7 +41,7 @@ class KryptoMedia;
 class Dialog : public KDialogBase
 {
 
-Q_OBJECT	
+TQ_OBJECT	
 
 public:
 	Dialog(TQString url, TQString iconName);

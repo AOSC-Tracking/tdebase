@@ -34,7 +34,7 @@ namespace KWinInternal
 class KCMRulesList
     : public KCMRulesListBase
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         KCMRulesList( TQWidget* parent = NULL, const char* name = NULL );
         virtual ~KCMRulesList();

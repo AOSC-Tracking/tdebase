@@ -37,7 +37,7 @@ class KLanguageCombo;
 
 class TDELocaleConfigMoney : public TQWidget
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   TDELocaleConfigMoney(TDELocale *locale, TQWidget *parent = 0, const char *name = 0);

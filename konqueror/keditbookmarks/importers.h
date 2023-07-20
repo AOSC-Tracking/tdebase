@@ -33,7 +33,7 @@
 // part pure
 class ImportCommand : public TQObject, public KCommand, public IKEBCommand
 {
-   Q_OBJECT
+   TQ_OBJECT
 public:
    ImportCommand()
       : KCommand(), m_utf8(false), m_folder(false), m_cleanUpCmd(0L)

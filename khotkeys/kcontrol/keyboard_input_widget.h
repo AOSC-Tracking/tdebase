@@ -22,7 +22,7 @@ class Action_data;
 class Keyboard_input_widget
     : public Keyboard_input_widget_ui
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         Keyboard_input_widget( TQWidget* parent_P = NULL, const char* name_P = NULL );
         void set_data( const Keyboard_input_action* data_P );

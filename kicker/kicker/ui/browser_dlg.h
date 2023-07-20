@@ -31,7 +31,7 @@ class KLineEdit;
 
 class PanelBrowserDialog : public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     PanelBrowserDialog( const TQString &path = TQString::null, const TQString &icon = TQString::null, TQWidget *parent = 0, const char *name = 0 );

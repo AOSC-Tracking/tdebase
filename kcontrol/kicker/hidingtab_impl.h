@@ -26,7 +26,7 @@ class ExtensionInfo;
 
 class HidingTab : public HidingTabBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     HidingTab(TQWidget *parent = 0, const char* name = 0);

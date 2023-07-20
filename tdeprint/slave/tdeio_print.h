@@ -32,7 +32,7 @@ namespace TDEIO {
 
 class TDEIO_Print : public TQObject, public TDEIO::SlaveBase
 {
-	Q_OBJECT
+	TQ_OBJECT
 public:
 	TDEIO_Print(const TQCString& pool, const TQCString& app);
 

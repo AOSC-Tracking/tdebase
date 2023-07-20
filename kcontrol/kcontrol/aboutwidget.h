@@ -33,7 +33,7 @@ class KURL;
 
 class AboutWidget : public TQHBox
 {  
-  Q_OBJECT    
+  TQ_OBJECT    
   
 public:   
   AboutWidget(TQWidget *parent, const char *name=0, TQListViewItem* category=0, const TQString &caption=TQString::null);

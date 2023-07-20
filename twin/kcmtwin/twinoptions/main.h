@@ -38,7 +38,7 @@ class KTranslucencyConfig;
 
 class KWinOptions : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 
@@ -74,7 +74,7 @@ private:
 
 class TDEActionsOptions : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 

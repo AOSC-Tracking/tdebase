@@ -67,7 +67,7 @@ class TQTimer;
  */
 class KasStartupItem : public KasItem
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KasStartupItem( KasBar *parent, Startup::Ptr startup );

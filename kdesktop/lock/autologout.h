@@ -22,7 +22,7 @@ class TQProgressBar;
 
 class AutoLogout : public TQDialog
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 	public:
 		AutoLogout(LockProcess *parent);

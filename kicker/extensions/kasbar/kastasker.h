@@ -82,7 +82,7 @@ class KasGrouper;
  */
 class KDE_EXPORT KasTasker : public KasBar
 {
-    Q_OBJECT
+    TQ_OBJECT
     TQ_PROPERTY( bool isTopLevel READ isTopLevel )
     TQ_PROPERTY( bool showClock READ showClock )
     TQ_PROPERTY( bool showLoad READ showLoad )

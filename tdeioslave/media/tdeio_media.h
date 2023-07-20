@@ -26,7 +26,7 @@
 
 class MediaProtocol : public TDEIO::ForwardingSlaveBase
 {
-Q_OBJECT
+TQ_OBJECT
 public:
 	MediaProtocol(const TQCString &protocol, const TQCString &pool,
 	              const TQCString &app);

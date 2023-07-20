@@ -24,7 +24,7 @@ namespace KHotKeys
 
 class GestureDrawer : public TQFrame
     {
-    Q_OBJECT
+    TQ_OBJECT
     public:
         GestureDrawer(TQWidget *parent, const char *name);
         ~GestureDrawer();

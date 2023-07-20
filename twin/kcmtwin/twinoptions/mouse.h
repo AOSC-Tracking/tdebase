@@ -33,7 +33,7 @@ class TDEConfig;
 
 class ToolTipComboBox: public TQComboBox
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   ToolTipComboBox(TQWidget * owner, char const * const * toolTips_)
@@ -51,7 +51,7 @@ protected:
 
 class KTitleBarActionsConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 
@@ -97,7 +97,7 @@ private slots:
 
 class KWindowActionsConfig : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
 

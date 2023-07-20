@@ -24,7 +24,7 @@
       
 class userInterOpts : public userInterOptsBase
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     userInterOpts(TDEConfig *config, TQString groupName,

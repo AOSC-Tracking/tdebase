@@ -36,7 +36,7 @@ class KickerPluginManager;
 
 class AppletProxy : public TQObject, DCOPObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     AppletProxy(TQObject* parent, const char* name = 0);

@@ -42,7 +42,7 @@ class KRootBackingData;
  */
 class KRootBacking: public TQObject
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     /**

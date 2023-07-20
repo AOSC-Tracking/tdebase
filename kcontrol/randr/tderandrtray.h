@@ -37,7 +37,7 @@ class TDEPopupMenu;
 
 class KRandRSystemTray :  public KSystemTray, public KRandrSimpleAPI
 {
-	Q_OBJECT
+	TQ_OBJECT
 
 public:
 	KRandRSystemTray(TQWidget* parent = 0, const char *name = 0);

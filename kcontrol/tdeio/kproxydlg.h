@@ -33,7 +33,7 @@ class KProxyDialogUI;
 
 class KProxyOptions : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KProxyOptions( TQWidget* parent = 0 );
@@ -54,7 +54,7 @@ private:
 
 class KProxyDialog : public TDECModule
 {
-  Q_OBJECT
+  TQ_OBJECT
 
 public:
   KProxyDialog( TQWidget* parent = 0 );

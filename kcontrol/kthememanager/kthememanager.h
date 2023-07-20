@@ -60,7 +60,7 @@ private:
  */
 class kthememanager: public TDECModule
 {
-    Q_OBJECT
+    TQ_OBJECT
 public:
     kthememanager( TQWidget *parent=0, const char *name=0 );
     virtual ~kthememanager();

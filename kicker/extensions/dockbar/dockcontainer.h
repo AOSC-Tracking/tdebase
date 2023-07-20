@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class DockContainer : public TQFrame
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     typedef TQValueVector<DockContainer*> Vector;

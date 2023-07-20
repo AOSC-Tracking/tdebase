@@ -45,7 +45,7 @@ class HostInfo;
  */
 class SensorBrowser : public TDEListView, public KSGRD::SensorClient
 {
-  Q_OBJECT
+  TQ_OBJECT
 
   public:
     SensorBrowser( TQWidget* parent, KSGRD::SensorManager* sm, const char* name = 0 );

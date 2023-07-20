@@ -38,7 +38,7 @@ class KBackgroundProgram;
 
 class BGAdvancedDialog : public KDialogBase
 {
-   Q_OBJECT
+   TQ_OBJECT
 public:
    BGAdvancedDialog(KBackgroundRenderer *_r, TQWidget *parent, bool m_multidesktop);
 
@@ -95,7 +95,7 @@ private:
  */
 class KProgramEditDialog: public KDialogBase
 {
-    Q_OBJECT
+    TQ_OBJECT
 
 public:
     KProgramEditDialog(const TQString &program=TQString::null, TQWidget *parent=0L,
