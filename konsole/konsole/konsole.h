@@ -245,6 +245,7 @@ private slots:
   void slotTabDetachSession();
   void slotTabRenameSession();
   void slotTabSelectColor();
+  void slotTabResetColor();
   void slotTabCloseSession();
   void slotTabToggleMonitor();
   void slotTabToggleMasterMode();
