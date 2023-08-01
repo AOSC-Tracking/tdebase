@@ -862,6 +862,7 @@ void Konsole::makeGUI()
 
    m_tabPopupMenu->insertSeparator();
    m_tabPopupMenu->insertItem( SmallIconSet("colors"), i18n("Select &Tab Color..."), TQT_TQOBJECT(this), TQT_SLOT(slotTabSelectColor()) );
+   m_tabPopupMenu->insertItem( i18n("Reset Tab Color"), TQT_TQOBJECT(this), TQT_SLOT(slotTabResetColor()) );
 
    m_tabPopupMenu->insertSeparator();
    m_tabPopupTabsMenu = new TDEPopupMenu( m_tabPopupMenu );
@@ -1379,10 +1380,16 @@ void Konsole::slotTabRenameSession() {
 void Konsole::slotTabSelectColor()
 {
   TQColor color = tabwidget->tabColor( m_contextMenuSession->widget() );
-  int result = KColorDialog::getColor( color );
+  int result = KColorDialog::getColor( color, tabwidget->colorGroup().foreground() );
 
-  if ( result == KColorDialog::Accepted )
+  if ( result == KColorDialog::Accepted ) {
     tabwidget->setTabColor(m_contextMenuSession->widget(), color);
+  }
+}
+
+void Konsole::slotTabResetColor()
+{
+  tabwidget->resetTabColor(m_contextMenuSession->widget());
 }
 
 void Konsole::slotTabToggleMonitor()
@@ -1625,7 +1632,7 @@ void Konsole::readProperties(TDEConfig* config, const TQString &schema, bool glo
        // Signal that we want to be transparent to the desktop, not to windows behind us...
        XChangeProperty(tqt_xdisplay(), winId(), kde_wm_transparent_to_desktop, XA_INTEGER, 32, PropModeReplace, (unsigned char *) "TRUE", 1L);
      }
- 
+
      TQPtrList<TEWidget> tes = activeTEs();
      for (TEWidget *_te = tes.first(); _te; _te = tes.next()) {
        _te->setWordCharacters(s_word_seps);
@@ -1730,7 +1737,7 @@ void Konsole::readProperties(TDEConfig* config, const TQString &schema, bool glo
       // profile scrollbar entry differs from the konsolerc scrollbar entry.
       TQPtrList<TEWidget> tes = activeTEs();
       for (TEWidget *_te = tes.first(); _te; _te = tes.next()) {
-        if (_te->getScrollbarLocation() != n_scroll) 
+        if (_te->getScrollbarLocation() != n_scroll)
            _te->setScrollbarLocation(n_scroll);
       }
    }
@@ -2297,7 +2304,7 @@ void Konsole::updateTitle(TESession* _se)
   TDERadioAction *ra = session2action.find(_se);
   if (ra && (ra->icon() != icon))
     ra->setIcon(icon);
-  if (m_tabViewMode == ShowIconOnly) 
+  if (m_tabViewMode == ShowIconOnly)
     tabwidget->changeTab( _se->widget(), TQString::null );
   else if (b_matchTabWinTitle)
     tabwidget->setTabLabel( _se->widget(), _se->fullTitle().replace('&',"&&"));
@@ -2384,7 +2391,7 @@ void Konsole::disableMasterModeConnections()
           disconnect(from->widget(), TQT_SIGNAL(keyReleasedSignal(TQKeyEvent*)),
                      to->getEmulation(), TQT_SLOT(onKeyReleased(TQKeyEvent*)));
           disconnect(from->widget(), TQT_SIGNAL(focusInSignal(TQFocusEvent*)),
-                     to->getEmulation(), TQT_SLOT(onFocusIn(TQFocusEvent*))); 
+                     to->getEmulation(), TQT_SLOT(onFocusIn(TQFocusEvent*)));
         }
       }
     }
@@ -2407,7 +2414,7 @@ void Konsole::enableMasterModeConnections()
           connect(from->widget(), TQT_SIGNAL(keyReleasedSignal(TQKeyEvent*)),
                   to->getEmulation(), TQT_SLOT(onKeyReleased(TQKeyEvent*)));
           connect(from->widget(), TQT_SIGNAL(focusInSignal(TQFocusEvent*)),
-                  to->getEmulation(), TQT_SLOT(onFocusIn(TQFocusEvent*))); 
+                  to->getEmulation(), TQT_SLOT(onFocusIn(TQFocusEvent*)));
         }
       }
     }
@@ -2664,8 +2671,8 @@ void Konsole::activateSession(TESession *s)
   pmPath = cs->imagePath();
   n_render = cs->alignment();
 
-// BR 106464 temporary fix... 
-//  only 2 sessions opened, 2nd session viewable, right-click on 1st tab and 
+// BR 106464 temporary fix...
+//  only 2 sessions opened, 2nd session viewable, right-click on 1st tab and
 //  select 'Detach', close original Konsole window... crash
 //  s is not set properly on original Konsole window
   TDERadioAction *ra = session2action.find(se);
@@ -2749,7 +2756,7 @@ void Konsole::setSessionEncoding( const TQString &encoding, TESession *session )
 
     while ( it != encodingNames.end() && !found_encoding )
     {
-      if ( TQString::compare( TDEGlobal::charsets()->encodingForName(*it), 
+      if ( TQString::compare( TDEGlobal::charsets()->encodingForName(*it),
                              t_encoding ) == 0 ) {
          found_encoding = true;
       }
@@ -2972,7 +2979,7 @@ TQString Konsole::newSession(KSimpleConfig *co, TQString program, const TQStrLis
   s->setMonitorSilenceSeconds(monitorSilenceSeconds);
   s->enableFullScripting(b_fullScripting);
   s->setMetaAsAltMode(b_metaAsAlt);
-  
+
   // If you add any new signal-slot connection below, think about doing it in konsolePart too
   connect( s,TQT_SIGNAL(done(TESession*)),
            this,TQT_SLOT(doneSession(TESession*)));
@@ -3221,16 +3228,16 @@ void Konsole::moveSessionLeft()
   ra->plug(m_view,(m_view->count()-sessions.count()+1)+position-1);
 
   TQColor oldcolor = tabwidget->tabColor(se->widget());
-  
+
   tabwidget->blockSignals(true);
   tabwidget->removePage(se->widget());
   tabwidget->blockSignals(false);
   TQString title = se->Title();
-  createSessionTab(se->widget(), iconSetForSession(se), 
+  createSessionTab(se->widget(), iconSetForSession(se),
                    title.replace('&', "&&"), position-1);
   tabwidget->showPage(se->widget());
   tabwidget->setTabColor(se->widget(),oldcolor);
-  
+
   if (!m_menuCreated)
     makeGUI();
   m_moveSessionLeft->setEnabled(position-1>0);
@@ -3254,16 +3261,16 @@ void Konsole::moveSessionRight()
   ra->plug(m_view,(m_view->count()-sessions.count()+1)+position+1);
 
   TQColor oldcolor = tabwidget->tabColor(se->widget());
-  
+
   tabwidget->blockSignals(true);
   tabwidget->removePage(se->widget());
   tabwidget->blockSignals(false);
   TQString title = se->Title();
-  createSessionTab(se->widget(), iconSetForSession(se), 
+  createSessionTab(se->widget(), iconSetForSession(se),
                    title.replace('&', "&&"), position+1);
   tabwidget->showPage(se->widget());
   tabwidget->setTabColor(se->widget(),oldcolor);
-  
+
   if (!m_menuCreated)
     makeGUI();
   m_moveSessionLeft->setEnabled(true);
@@ -4476,7 +4483,7 @@ void Konsole::setMenuAcceleratos()
     if (m_help)
       menubar->changeItem(m_help_id, m_help_string);
   }
-  else  
+  else
   {
     menubar->changeItem(m_session_id, TQString(m_session_string).replace(TQRegExp("&([^&])"), "\\1"));
     menubar->changeItem(m_edit_id, TQString(m_edit_string).replace(TQRegExp("&([^&])"), "\\1"));
@@ -4489,5 +4496,5 @@ void Konsole::setMenuAcceleratos()
       menubar->changeItem(m_help_id, TQString(m_help_string).replace(TQRegExp("&([^&])"), "\\1"));
   }
 }
-  
+
 #include "konsole.moc"
