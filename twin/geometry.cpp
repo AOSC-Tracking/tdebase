@@ -2331,6 +2331,14 @@ bool Client::startMoveResize()
         // Restore original geometry
         activeTiled = false;
         if (options->resetMaximizedWindowGeometry() && isMove()) {
+            /* Original geometry might be smaller than the tiled one, so the
+             * mouse pointer might appear off-window when untiling.
+             * Here we center the window horizontally under the mouse pointer.
+             * This should work with most window decorations.
+             */
+            activeTiledOrigGeom.moveLeft(TQCursor::pos().x() - (activeTiledOrigGeom.width() / 2));
+            moveOffset.setX(TQCursor::pos().x() - activeTiledOrigGeom.x());
+
             setGeometry(activeTiledOrigGeom);
         }
     }
@@ -2415,6 +2423,7 @@ void Client::finishMoveResize( bool cancel )
                 setGeometry(cancel ? initialMoveResizeGeom
                                    : activeBorderMaximizeGeometry());
         }
+        activeTiledOrigGeom.moveTopLeft(rect().topLeft());
     }
 
     checkMaximizeGeometry();
@@ -2743,7 +2752,10 @@ void Client::setActiveBorderMaximizing( bool maximizing )
 }
 
 void Client::cancelActiveBorderMaximizing() {
+    if (!activeMaximizing) return;
     activeMaximizing = false;
+
+    // If we are in transparent mode, we need to clear out the bound we had drawn
     if (rules()->checkMoveResizeMode(options->tilingMode) == Options::Transparent) {
         clearbound();
     }
