@@ -103,7 +103,7 @@ class KDecorationBridge : public KDecorationDefines
         // not part of public API
         virtual int currentDesktop() const = 0;
         virtual TQWidget* initialParentWidget() const = 0;
-        virtual Qt::WFlags initialWFlags() const = 0;
+        virtual TQt::WFlags initialWFlags() const = 0;
         virtual void helperShowHide( bool ) = 0;
         virtual void grabXServer( bool grab ) = 0;
     };

@@ -176,7 +176,7 @@ bool DetectDialog::eventFilter( TQObject* o, TQEvent* e )
         return false;
     delete grabber;
     grabber = NULL;
-    if( TQT_TQMOUSEEVENT( e )->button() != Qt::LeftButton )
+    if( TQT_TQMOUSEEVENT( e )->button() != TQt::LeftButton )
         {
         emit detectionDone( false );
         return true;

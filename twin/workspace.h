@@ -631,7 +631,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         TQPoint active_push_point;
         int active_reserved[ ACTIVE_BORDER_COUNT ]; // corners/edges used by something
 
-        Qt::Orientation layoutOrientation;
+        TQt::Orientation layoutOrientation;
         int layoutX;
         int layoutY;
 

@@ -349,7 +349,7 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                           btn = createButton(MenuButton);
                           if (!btn) break;
                           btn->setTipText(i18n("Menu") );
-                          btn->setRealizeButtons(Qt::LeftButton|Qt::RightButton);
+                          btn->setRealizeButtons(TQt::LeftButton|TQt::RightButton);
                           connect(btn, TQT_SIGNAL(pressed()), TQT_SLOT(menuButtonPressed()));
                           connect(btn, TQT_SIGNAL(released()), this, TQT_SLOT(menuButtonReleased()));
 
@@ -396,7 +396,7 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                   if ((!m_button[MaxButton]) && isMaximizable()){
                       btn = createButton(MaxButton);
                       if (!btn) break;
-                      btn->setRealizeButtons(Qt::LeftButton|Qt::MidButton|Qt::RightButton);
+                      btn->setRealizeButtons(TQt::LeftButton|TQt::MidButton|TQt::RightButton);
                       const bool max = maximizeMode()==MaximizeFull;
                       btn->setTipText(max?i18n("Restore"):i18n("Maximize") );
                       btn->setToggleButton(true);
@@ -710,7 +710,7 @@ void KCommonDecoration::resizeWidget(int w, int h, TQWidget *widget) const
 
 void KCommonDecoration::mouseDoubleClickEvent(TQMouseEvent *e)
 {
-    if( e->button() != Qt::LeftButton )
+    if( e->button() != TQt::LeftButton )
         return;
 
     int tb = layoutMetric(LM_TitleEdgeTop)+layoutMetric(LM_TitleHeight)+layoutMetric(LM_TitleEdgeBottom);
@@ -900,8 +900,8 @@ KCommonDecorationButton::KCommonDecorationButton(ButtonType type, KCommonDecorat
     : TQButton(parent->widget(), name),
         m_decoration(parent),
         m_type(type),
-        m_realizeButtons(Qt::LeftButton),
-        m_lastMouse(Qt::NoButton),
+        m_realizeButtons(TQt::LeftButton),
+        m_lastMouse(TQt::NoButton),
         m_isLeft(true)
 {
     setCursor(ArrowCursor);
@@ -975,7 +975,7 @@ void KCommonDecorationButton::mousePressEvent(TQMouseEvent* e)
     m_lastMouse = e->button();
     // pass on event after changing button to LeftButton
     TQMouseEvent me(e->type(), e->pos(), e->globalPos(),
-                   (e->button()&m_realizeButtons)?Qt::LeftButton:Qt::NoButton, e->state());
+                   (e->button()&m_realizeButtons)?TQt::LeftButton:TQt::NoButton, e->state());
 
     TQButton::mousePressEvent(&me);
 }
@@ -985,7 +985,7 @@ void KCommonDecorationButton::mouseReleaseEvent(TQMouseEvent* e)
     m_lastMouse = e->button();
     // pass on event after changing button to LeftButton
     TQMouseEvent me(e->type(), e->pos(), e->globalPos(),
-                   (e->button()&m_realizeButtons)?Qt::LeftButton:Qt::NoButton, e->state());
+                   (e->button()&m_realizeButtons)?TQt::LeftButton:TQt::NoButton, e->state());
 
     TQButton::mouseReleaseEvent(&me);
 }

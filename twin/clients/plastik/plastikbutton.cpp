@@ -170,17 +170,17 @@ void PlastikButton::drawButton(TQPainter *painter)
     if(type() == CloseButton) {
         highlightColor = TQColor(255,64,0);
     } else {
-        highlightColor = Qt::white;
+        highlightColor = TQt::white;
     }
 
     TQColor contourTop = alphaBlendColors(Handler()->getColor(TitleGradient2, active),
-            Qt::black, 215);
+            TQt::black, 215);
     TQColor contourBottom = alphaBlendColors(Handler()->getColor(TitleGradient3, active),
-            Qt::black, 215);
+            TQt::black, 215);
     TQColor sourfaceTop = alphaBlendColors(Handler()->getColor(TitleGradient2, active),
-            Qt::white, 210);
+            TQt::white, 210);
     TQColor sourfaceBottom = alphaBlendColors(Handler()->getColor(TitleGradient3, active),
-            Qt::white, 210);
+            TQt::white, 210);
 
     int highlightAlpha = static_cast<int>(255-((60/static_cast<double>(ANIMATIONSTEPS))*
                                           static_cast<double>(animProgress) ) );
@@ -190,10 +190,10 @@ void PlastikButton::drawButton(TQPainter *painter)
     sourfaceBottom = alphaBlendColors(sourfaceBottom, highlightColor, highlightAlpha);
 
     if (isDown() ) {
-        contourTop = alphaBlendColors(contourTop, Qt::black, 200);
-        contourBottom = alphaBlendColors(contourBottom, Qt::black, 200);
-        sourfaceTop = alphaBlendColors(sourfaceTop, Qt::black, 200);
-        sourfaceBottom = alphaBlendColors(sourfaceBottom, Qt::black, 200);
+        contourTop = alphaBlendColors(contourTop, TQt::black, 200);
+        contourBottom = alphaBlendColors(contourBottom, TQt::black, 200);
+        sourfaceTop = alphaBlendColors(sourfaceTop, TQt::black, 200);
+        sourfaceBottom = alphaBlendColors(sourfaceBottom, TQt::black, 200);
     }
 
     TQPixmap buffer;
@@ -291,10 +291,10 @@ TQBitmap IconEngine::icon(ButtonIcon icon, int size)
         --size;
 
     TQBitmap bitmap(size,size);
-    bitmap.fill(Qt::color0);
+    bitmap.fill(TQt::color0);
     TQPainter p(&bitmap);
 
-    p.setPen(Qt::color1);
+    p.setPen(TQt::color1);
 
     TQRect r = bitmap.rect();
 

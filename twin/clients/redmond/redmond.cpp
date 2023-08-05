@@ -210,9 +210,9 @@ static void create_pixmaps ()
 
     // Make sure button pixmaps contrast with the current colour scheme.
     if (tqGray(options()->color(KDecoration::ColorButtonBg, true).rgb()) > 127)
-        btnForeground = new TQColor(Qt::black);
+        btnForeground = new TQColor(TQt::black);
     else
-        btnForeground = new TQColor(Qt::white);
+        btnForeground = new TQColor(TQt::white);
 }
 
 void delete_pixmaps()
@@ -283,7 +283,7 @@ void RedmondButton::setBitmap(const unsigned char *bitmap)
 		deco = TQBitmap(10, 10, bitmap, true);
 	else {
 		deco = TQBitmap(10,10);
-		deco.fill(Qt::color0);
+		deco.fill(TQt::color0);
 	}
 	deco.setMask(deco);
 }
@@ -556,7 +556,7 @@ void RedmondDeco::paintEvent( TQPaintEvent* )
             TQImage image = KImageEffect::gradient(titleBuffer->size(), c1, c2,
                                     KImageEffect::HorizontalGradient);
 
-            titleBuffer->convertFromImage(image, Qt::OrderedDither);
+            titleBuffer->convertFromImage(image, TQt::OrderedDither);
         }
 
         TQPainter p2( titleBuffer, this );

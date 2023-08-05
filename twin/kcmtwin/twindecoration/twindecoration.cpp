@@ -98,7 +98,7 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	pluginLayout->addWidget(decorationList);
 
 	TQGroupBox *pluginSettingsGrp = new TQGroupBox( i18n("Decoration Options"), pluginPage );
-	pluginSettingsGrp->setColumnLayout( 0, Qt::Vertical );
+	pluginSettingsGrp->setColumnLayout( 0, TQt::Vertical );
 	pluginSettingsGrp->setFlat( true );
 	pluginSettingsGrp->layout()->setMargin( 0 );
 	pluginSettingsGrp->layout()->setSpacing( KDialog::spacingHint() );
@@ -184,11 +184,11 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 			i18n("Enabling this checkbox will allow you to choose a kind of "
 				 "drop shadow to draw under each window."));
 
-	activeShadowSettings = new TQGroupBox(1, Qt::Horizontal,
+	activeShadowSettings = new TQGroupBox(1, TQt::Horizontal,
 			i18n("Active Window Shadow"), shadowPage);
-	inactiveShadowSettings = new TQGroupBox(1, Qt::Horizontal,
+	inactiveShadowSettings = new TQGroupBox(1, TQt::Horizontal,
 			i18n("Inactive Window Shadows"), shadowPage);
-	whichShadowSettings = new TQGroupBox(3, Qt::Horizontal,
+	whichShadowSettings = new TQGroupBox(3, TQt::Horizontal,
 			i18n("Draw Shadow Under Normal Windows And..."), shadowPage);
 
 	cbShadowDocks = new TQCheckBox(i18n("Docks and &panels"),
@@ -223,7 +223,7 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	shadowOpacityHBox = new TQHBox(activeShadowSettings);
 	shadowOpacityHBox->setSpacing(KDialog::spacingHint());
 	shadowOpacityLabel = new TQLabel(i18n("Maximum opacity:"), shadowOpacityHBox);
-	shadowOpacitySlider = new TQSlider(1, 100, 10, 50, Qt::Horizontal,
+	shadowOpacitySlider = new TQSlider(1, 100, 10, 50, TQt::Horizontal,
 			shadowOpacityHBox);
 	shadowOpacitySlider->setTickmarks(TQSlider::Below);
 	shadowOpacitySlider->setTickInterval(10);
@@ -240,7 +240,7 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	inactiveShadowOpacityHBox->setSpacing(KDialog::spacingHint());
 	inactiveShadowOpacityLabel = new TQLabel(i18n("Maximum opacity:"),
 			inactiveShadowOpacityHBox);
-	inactiveShadowOpacitySlider = new TQSlider(1, 100, 10, 50, Qt::Horizontal,
+	inactiveShadowOpacitySlider = new TQSlider(1, 100, 10, 50, TQt::Horizontal,
 			inactiveShadowOpacityHBox);
 	inactiveShadowOpacitySlider->setTickmarks(TQSlider::Below);
 	inactiveShadowOpacitySlider->setTickInterval(10);
@@ -895,7 +895,7 @@ void KWinDecorationModule::defaults()
         border_size = BorderNormal;
         checkSupportedBorderSizes();
 
-	shadowColourButton->setColor(Qt::black);
+	shadowColourButton->setColor(TQt::black);
 	shadowOpacitySlider->setValue(70);
 	shadowXOffsetSpinBox->setValue(0);
 	shadowYOffsetSpinBox->setValue(10);
@@ -904,7 +904,7 @@ void KWinDecorationModule::defaults()
 	cbShadowOverrides->setChecked(false);
 	cbShadowTopMenus->setChecked(false);
 	cbInactiveShadow->setChecked(false);
-	inactiveShadowColourButton->setColor(Qt::black);
+	inactiveShadowColourButton->setColor(TQt::black);
 	inactiveShadowOpacitySlider->setValue(70);
 	inactiveShadowXOffsetSpinBox->setValue(0);
 	inactiveShadowYOffsetSpinBox->setValue(5);

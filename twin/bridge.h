@@ -65,7 +65,7 @@ class Bridge : public KDecorationBridge
         virtual void setKeepBelow( bool );
         virtual int currentDesktop() const;
         virtual TQWidget* initialParentWidget() const;
-        virtual Qt::WFlags initialWFlags() const;
+        virtual TQt::WFlags initialWFlags() const;
         virtual void helperShowHide( bool show );
         virtual void grabXServer( bool grab );
     private:

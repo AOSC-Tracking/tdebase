@@ -174,7 +174,7 @@ unsigned long Options::updateSettings()
     CmdWindow1 = mouseCommand(config->readEntry("CommandWindow1","Activate, raise and pass click"), false );
     CmdWindow2 = mouseCommand(config->readEntry("CommandWindow2","Activate and pass click"), false );
     CmdWindow3 = mouseCommand(config->readEntry("CommandWindow3","Activate and pass click"), false );
-    CmdAllModKey = (config->readEntry("CommandAllKey","Alt") == "Meta") ? Qt::Key_Meta : Qt::Key_Alt;
+    CmdAllModKey = (config->readEntry("CommandAllKey","Alt") == "Meta") ? TQt::Key_Meta : TQt::Key_Alt;
     CmdAll1 = mouseCommand(config->readEntry("CommandAll1","Move"), false );
     CmdAll2 = mouseCommand(config->readEntry("CommandAll2","Toggle raise and lower"), false );
     CmdAll3 = mouseCommand(config->readEntry("CommandAll3","Resize"), false );
