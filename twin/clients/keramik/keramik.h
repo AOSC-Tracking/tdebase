@@ -92,7 +92,7 @@ namespace Keramik {
 			void addWidth  (int width,  TQPixmap *&pix, bool left, TQPixmap *bottomPix);
 			void addHeight (int height, TQPixmap *&pix);
 			void flip( TQPixmap *&, TQPixmap *& );
-			void pretile( TQPixmap *&, int, Qt::Orientation );
+			void pretile( TQPixmap *&, int, TQt::Orientation );
 			TQPixmap *composite( TQImage *, TQImage * );
 			TQImage  *loadImage( const TQString &, const TQColor & );
 			TQPixmap *loadPixmap( const TQString &, const TQColor & );
@@ -114,7 +114,7 @@ namespace Keramik {
 	class KeramikButton : public TQButton
 	{
 		public:
-			KeramikButton( KeramikClient *, const char *, Button, const TQString &, const int realizeBtns = Qt::LeftButton );
+			KeramikButton( KeramikClient *, const char *, Button, const TQString &, const int realizeBtns = TQt::LeftButton );
 			~KeramikButton();
 
 			ButtonState lastButton() const { return lastbutton; }

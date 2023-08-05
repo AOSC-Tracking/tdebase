@@ -130,7 +130,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
 
     // focus policy
     fcsBox = new TQButtonGroup(i18n("Focus"),this);
-    fcsBox->setColumnLayout( 0, Qt::Horizontal );
+    fcsBox->setColumnLayout( 0, TQt::Horizontal );
 
     TQBoxLayout *fLay = new TQVBoxLayout(fcsBox->layout(),
         KDialog::spacingHint());
@@ -143,7 +143,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
     focusCombo->insertItem(i18n("Focus Follows Mouse"), FOCUS_FOLLOWS_MOUSE);
     focusCombo->insertItem(i18n("Focus Under Mouse"), FOCUS_UNDER_MOUSE);
     focusCombo->insertItem(i18n("Focus Strictly Under Mouse"), FOCUS_STRICTLY_UNDER_MOUSE);
-    cLay->addWidget(focusCombo,1 ,Qt::AlignLeft);
+    cLay->addWidget(focusCombo,1 ,TQt::AlignLeft);
     fLabel->setBuddy(focusCombo);
 
     // FIXME, when more policies have been added to TWin
@@ -177,7 +177,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
     connect(autoRaiseOn,TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(autoRaiseOnTog(bool)));
 
     autoRaise = new KIntNumInput(500, fcsBox);
-    autoRaise->setLabel(i18n("Dela&y:"), Qt::AlignVCenter|Qt::AlignLeft);
+    autoRaise->setLabel(i18n("Dela&y:"), TQt::AlignVCenter|TQt::AlignLeft);
     autoRaise->setRange(0, 3000, 100, true);
     autoRaise->setSteps(100,100);
     autoRaise->setSuffix(i18n(" msec"));
@@ -190,7 +190,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
     connect(delayFocusOn,TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(delayFocusOnTog(bool)));
 
     delayFocus = new KIntNumInput(500, fcsBox);
-    delayFocus->setLabel(i18n("Dela&y:"), Qt::AlignVCenter|Qt::AlignLeft);
+    delayFocus->setLabel(i18n("Dela&y:"), TQt::AlignVCenter|TQt::AlignLeft);
     delayFocus->setRange(0, 3000, 100, true);
     delayFocus->setSteps(100,100);
     delayFocus->setSuffix(i18n(" msec"));
@@ -212,7 +212,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
     focusStealing->insertItem( i18n( "Focus Stealing Prevention Level", "High" ));
     focusStealing->insertItem( i18n( "Focus Stealing Prevention Level", "Extreme" ));
     focusStealingLabel->setBuddy( focusStealing );
-    cLay->addWidget(focusStealing,2 ,Qt::AlignLeft);
+    cLay->addWidget(focusStealing,2 ,TQt::AlignLeft);
     wtstr = i18n( "<p>This option specifies how much TWin will try to prevent unwanted focus stealing "
                   "caused by unexpected activation of new windows. (Note: This feature does not "
                   "work with the Focus Under Mouse or Focus Strictly Under Mouse focus policies.)"
@@ -275,7 +275,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
     lay->addWidget(fcsBox);
 
     kbdBox = new TQButtonGroup(i18n("Navigation"), this);
-    kbdBox->setColumnLayout( 0, Qt::Horizontal );
+    kbdBox->setColumnLayout( 0, TQt::Horizontal );
     TQVBoxLayout *kLay = new TQVBoxLayout(kbdBox->layout(), KDialog::spacingHint());
 
     altTabPopup = new TQCheckBox( i18n("Show window list while switching windows"), kbdBox );
@@ -863,7 +863,7 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget
     connect(shadeHoverOn, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(shadeHoverChanged(bool)));
 
     shadeHover = new KIntNumInput(500, shBox);
-    shadeHover->setLabel(i18n("Dela&y:"), Qt::AlignVCenter|Qt::AlignLeft);
+    shadeHover->setLabel(i18n("Dela&y:"), TQt::AlignVCenter|TQt::AlignLeft);
     shadeHover->setRange(0, 3000, 100, true);
     shadeHover->setSteps(100, 100);
     shadeHover->setSuffix(i18n(" msec"));
@@ -983,7 +983,7 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
     TQBoxLayout *lay = new TQVBoxLayout (this, 0, KDialog::spacingHint());
 
     windowsBox = new TQButtonGroup(i18n("Windows"), this);
-    windowsBox->setColumnLayout( 0, Qt::Horizontal );
+    windowsBox->setColumnLayout( 0, TQt::Horizontal );
 
     TQBoxLayout *wLay = new TQVBoxLayout (windowsBox->layout(), KDialog::spacingHint());
 
@@ -1031,11 +1031,11 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
     connect(minimizeAnimSlider, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(setMinimizeAnimSpeed(int)));
 
     minimizeAnimSlowLabel= new TQLabel(i18n("Slow"),windowsBox);
-    minimizeAnimSlowLabel->setAlignment(Qt::AlignTop|Qt::AlignLeft);
+    minimizeAnimSlowLabel->setAlignment(TQt::AlignTop|TQt::AlignLeft);
     rLay->addWidget(minimizeAnimSlowLabel,1,1);
 
     minimizeAnimFastLabel= new TQLabel(i18n("Fast"),windowsBox);
-    minimizeAnimFastLabel->setAlignment(Qt::AlignTop|Qt::AlignRight);
+    minimizeAnimFastLabel->setAlignment(TQt::AlignTop|TQt::AlignRight);
     rLay->addWidget(minimizeAnimFastLabel,1,2);
 
     wtstr = i18n("Here you can set the speed of the animation shown when windows are"
@@ -1090,7 +1090,7 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
 
     plcLabel->setBuddy(placementCombo);
     vLay->addWidget(plcLabel, 0);
-    vLay->addWidget(placementCombo, 1, Qt::AlignLeft);
+    vLay->addWidget(placementCombo, 1, TQt::AlignLeft);
 
     bLay->addSpacing(10);
 
@@ -1602,7 +1602,7 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
 
   TQLabel *label6 = new TQLabel(i18n("Shadow color:"),sGroup);
   gLay2->addWidget(label6,7,0);
-  shadowColor = new KColorButton(Qt::black,sGroup);
+  shadowColor = new KColorButton(TQt::black,sGroup);
   gLay2->addWidget(shadowColor,7,1);
   gLay2->setColStretch(1,1);
   vLay2->addSpacing(11);
@@ -1804,7 +1804,7 @@ void KTranslucencyConfig::load( void )
   r = g = b = 256;
 
   if (sscanf(hex.latin1(), "0x%02x%02x%02x", &r, &g, &b)!=3 || r > 255 || g > 255 || b > 255)
-    shadowColor->setColor(Qt::black);
+    shadowColor->setColor(TQt::black);
   else
     shadowColor->setColor(TQColor(r,g,b));
 
@@ -2012,7 +2012,7 @@ void KTranslucencyConfig::defaults()
   useShadowsOnDockWindows->setChecked(FALSE);
   removeShadowsOnMove->setChecked(FALSE);
   removeShadowsOnResize->setChecked(FALSE);
-  shadowColor->setColor(Qt::black);
+  shadowColor->setColor(TQt::black);
   fadeInWindows->setChecked(FALSE);
   fadeInMenuWindows->setChecked(TRUE);
   fadeInToolTipWindows->setChecked(TRUE);

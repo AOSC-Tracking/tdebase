@@ -185,9 +185,9 @@ static void create_pixmaps()
 
 
     if(tqGray(btnColor.background().rgb()) < 150)
-        buttonFg = new TQColor(Qt::white);
+        buttonFg = new TQColor(TQt::white);
     else
-        buttonFg = new TQColor(Qt::black);
+        buttonFg = new TQColor(TQt::black);
 
     delete lcDark1;
     delete lcDark2;
@@ -342,7 +342,7 @@ void ModernButton::setBitmap(const unsigned char *bitmap)
         deco = TQBitmap(8, 8, bitmap, true);
     else {
         deco = TQBitmap(8,8);
-        deco.fill(Qt::color0);
+        deco.fill(TQt::color0);
     }
     deco.setMask(deco);
 }
@@ -631,7 +631,7 @@ void ModernSys::paintEvent( TQPaintEvent* )
         p.drawLine(width()-hw, height()-hs-1, width()-4, height()-hs-1);
         p.drawLine(width()-hs-1, height()-hw, width()-hs-1, height()-4);
 
-        p.setPen(Qt::black);
+        p.setPen(TQt::black);
         p.drawRect(0, 0, w, h);
 
         // handle outline
@@ -640,7 +640,7 @@ void ModernSys::paintEvent( TQPaintEvent* )
         p.drawLine(width()-hs, height()-2, width()-2, height()-2);
         p.drawLine(width()-hs, height()-hw, width()-hs, height()-2);
     } else {
-        p.setPen(Qt::black);
+        p.setPen(TQt::black);
         p.drawRect(0, 0, w, h);
     }
 }

@@ -121,11 +121,11 @@ static void create_pixmaps()
     int i, x, y;
     titlePix = new TQPixmap(33, 12);
     TQBitmap mask(33, 12);
-    mask.fill(Qt::color0);
+    mask.fill(TQt::color0);
 
     p.begin(titlePix);
     maskPainter.begin(&mask);
-    maskPainter.setPen(Qt::color1);
+    maskPainter.setPen(TQt::color1);
     for(i=0, y=2; i < 3; ++i, y+=4){
         for(x=1; x <= 33; x+=3){
             p.setPen(options()->color(KDecoration::ColorTitleBar, true).light(150));
@@ -221,9 +221,9 @@ static void create_pixmaps()
     drawButtonFrame(iBtnDownPix2, g, true);
 
     if(tqGray(options()->color(KDecoration::ColorButtonBg, true).rgb()) > 128)
-        btnForeground = Qt::black;
+        btnForeground = TQt::black;
     else
-        btnForeground = Qt::white;
+        btnForeground = TQt::white;
 }
 
 static void delete_pixmaps()
@@ -290,7 +290,7 @@ void LaptopButton::setBitmap(const unsigned char *bitmap)
         deco = TQBitmap(8, 8, bitmap, true);
     else {
         deco = TQBitmap(8,8);
-        deco.fill(Qt::color0);
+        deco.fill(TQt::color0);
     }
     deco.setMask(deco);
     repaint();
@@ -472,7 +472,7 @@ void LaptopClient::paintEvent( TQPaintEvent* )
     TQColorGroup g = options()->colorGroup(KDecoration::ColorFrame, isActive());
 
     TQRect r(widget()->rect());
-    p.setPen(Qt::black);
+    p.setPen(TQt::black);
     p.drawRect(r);
 
     // fill mid frame...

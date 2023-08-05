@@ -170,7 +170,7 @@ WebButton::drawButton(TQPainter *p)
       {
         // Draw edge.
 
-        p->setPen(Qt::black);
+        p->setPen(TQt::black);
 
         p->drawLine(0, 0, width(), 0);
         p->drawLine(0, 1, 0, height() - 1);
@@ -207,7 +207,7 @@ WebButton::drawButton(TQPainter *p)
       {
         // Draw edge.
 
-        p->setPen(Qt::black);
+        p->setPen(TQt::black);
         p->drawLine(0, 0, width(), 0);
         p->drawLine(width() - 1, 1, width() - 1, height() - 1);
         if (shape_)
@@ -244,7 +244,7 @@ WebButton::drawButton(TQPainter *p)
       {
         // Draw edge.
 
-        p->setPen(Qt::black);
+        p->setPen(TQt::black);
         p->drawLine(0, 0, width(), 0);
 
         // Draw highlight.
@@ -266,7 +266,7 @@ WebButton::drawButton(TQPainter *p)
   int bhby2(bitmap_.height() / 2);   // Bitmap Height BY 2
 
   p->setBrush(NoBrush);
-  p->setPen(Qt::black);
+  p->setPen(TQt::black);
 
   p->drawPixmap(center.x() - bwby2 + 1, center.y() - bhby2 + 1, bitmap_);
 }

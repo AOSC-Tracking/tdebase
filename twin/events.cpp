@@ -1046,11 +1046,11 @@ void Client::updateMouseGrab()
 
 int qtToX11Button( TQt::ButtonState button )
     {
-    if( button == Qt::LeftButton )
+    if( button == TQt::LeftButton )
         return Button1;
-    else if( button == Qt::MidButton )
+    else if( button == TQt::MidButton )
         return Button2;
-    else if( button == Qt::RightButton )
+    else if( button == TQt::RightButton )
         return Button3;
     return AnyButton;
     }
@@ -1058,11 +1058,11 @@ int qtToX11Button( TQt::ButtonState button )
 int qtToX11State( TQt::ButtonState state )
     {
     int ret = 0;
-    if( state & Qt::LeftButton )
+    if( state & TQt::LeftButton )
         ret |= Button1Mask;
-    if( state & Qt::MidButton )
+    if( state & TQt::MidButton )
         ret |= Button2Mask;
-    if( state & Qt::RightButton )
+    if( state & TQt::RightButton )
         ret |= Button3Mask;
     if( state & TQt::ShiftButton )
         ret |= ShiftMask;
@@ -1092,11 +1092,11 @@ bool Client::eventFilter( TQObject* o, TQEvent* e )
             removeShadow();
             switch (qe->button())
                 {
-                case Qt::MidButton:
+                case TQt::MidButton:
                     buttonMask = Button2Mask;
                     buttonPressed = Button2;
                     break;
-                case Qt::RightButton:
+                case TQt::RightButton:
                     buttonMask = Button3Mask;
                     buttonPressed = Button3;
                     break;
@@ -1348,7 +1348,7 @@ bool Client::buttonPressEvent( Window w, int button, int state, int x, int y, in
           // FRAME something out of this would be processed before it gets decorations
         updateUserTime();
         workspace()->setWasUserInteraction();
-        uint keyModX = (options->keyCmdAllModKey() == Qt::Key_Meta) ?
+        uint keyModX = (options->keyCmdAllModKey() == TQt::Key_Meta) ?
             KKeyNative::modX(KKey::WIN) :
             KKeyNative::modX(KKey::ALT);
         bool bModKeyHeld = keyModX != 0 && ( state & KKeyNative::accelModMaskX()) == keyModX;
@@ -1481,13 +1481,13 @@ void Client::processMousePressEvent( TQMouseEvent* e )
     int button;
     switch( e->button())
         {
-        case Qt::LeftButton:
+        case TQt::LeftButton:
             button = Button1;
           break;
-        case Qt::MidButton:
+        case TQt::MidButton:
             button = Button2;
           break;
-        case Qt::RightButton:
+        case TQt::RightButton:
             button = Button3;
           break;
         default:
@@ -1728,8 +1728,8 @@ void Client::keyPressEvent( uint key_code )
     updateUserTime();
     if ( !isMove() && !isResize() )
         return;
-    bool is_control = key_code & Qt::CTRL;
-    bool is_alt = key_code & Qt::ALT;
+    bool is_control = key_code & TQt::CTRL;
+    bool is_alt = key_code & TQt::ALT;
     key_code = key_code & 0xffff;
     int delta = is_control?1:is_alt?32:8;
     TQPoint pos = TQCursor::pos();

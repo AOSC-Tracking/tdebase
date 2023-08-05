@@ -185,9 +185,9 @@ void PlastikHandler::readConfig()
         m_titleHeightTool++;
 
     TQString value = config.readEntry("TitleAlignment", "AlignLeft");
-    if (value == "AlignLeft")         m_titleAlign = Qt::AlignLeft;
-    else if (value == "AlignHCenter") m_titleAlign = Qt::AlignHCenter;
-    else if (value == "AlignRight")   m_titleAlign = Qt::AlignRight;
+    if (value == "AlignLeft")         m_titleAlign = TQt::AlignLeft;
+    else if (value == "AlignHCenter") m_titleAlign = TQt::AlignHCenter;
+    else if (value == "AlignRight")   m_titleAlign = TQt::AlignRight;
 
     m_coloredBorder = config.readBoolEntry("ColoredBorder", true);
     m_animateButtons = config.readBoolEntry("AnimateButtons", true);
@@ -210,27 +210,27 @@ TQColor PlastikHandler::getColor(KWinPlastik::ColorType type, const bool active)
             break;
         case ShadeTitleLight:
             return alphaBlendColors(KDecoration::options()->color(ColorTitleBar, active),
-                                    Qt::white, active?205:215);
+                                    TQt::white, active?205:215);
             break;
         case ShadeTitleDark:
             return alphaBlendColors(KDecoration::options()->color(ColorTitleBar, active),
-                                    Qt::black, active?205:215);
+                                    TQt::black, active?205:215);
             break;
         case Border:
             return KDecoration::options()->color(ColorFrame, active);
         case TitleFont:
             return KDecoration::options()->color(ColorFont, active);
         default:
-            return Qt::black;
+            return TQt::black;
     }
 }
 
-void PlastikHandler::pretile( TQPixmap *&pix, int size, Qt::Orientation dir ) const
+void PlastikHandler::pretile( TQPixmap *&pix, int size, TQt::Orientation dir ) const
 {
     TQPixmap *newpix;
     TQPainter p;
 
-    if ( dir == Qt::Horizontal )
+    if ( dir == TQt::Horizontal )
         newpix = new TQPixmap( size, pix->height() );
     else
         newpix = new TQPixmap( pix->width(), size );
@@ -300,7 +300,7 @@ const TQPixmap &PlastikHandler::pixmap(Pixmaps type, bool active, bool toolWindo
                 painter.end();
             }
 
-            pretile(pm, 64, Qt::Horizontal);
+            pretile(pm, 64, TQt::Horizontal);
 
             break;
         }
@@ -399,7 +399,7 @@ const TQPixmap &PlastikHandler::pixmap(Pixmaps type, bool active, bool toolWindo
 
             painter.end();
 
-            pretile(pm, 64, Qt::Vertical);
+            pretile(pm, 64, TQt::Vertical);
 
             break;
         }
@@ -433,7 +433,7 @@ const TQPixmap &PlastikHandler::pixmap(Pixmaps type, bool active, bool toolWindo
             }
             painter.end();
 
-            pretile(pm, 64, Qt::Vertical);
+            pretile(pm, 64, TQt::Vertical);
 
             break;
         }
@@ -523,7 +523,7 @@ const TQPixmap &PlastikHandler::pixmap(Pixmaps type, bool active, bool toolWindo
             painter.drawPoint(0, h-1);
             painter.end();
 
-            pretile(pm, 64, Qt::Horizontal);
+            pretile(pm, 64, TQt::Horizontal);
 
             break;
         }

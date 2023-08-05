@@ -28,7 +28,7 @@ class B2Client;
 class B2Button : public TQButton
 {
 public:
-    B2Button(B2Client *_client=0, TQWidget *parent=0, const TQString& tip=NULL, const int realizeBtns = Qt::LeftButton);
+    B2Button(B2Client *_client=0, TQWidget *parent=0, const TQString& tip=NULL, const int realizeBtns = TQt::LeftButton);
     ~B2Button() {};
 
     void setBg(const TQColor &c){bg = c;}

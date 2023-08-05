@@ -463,7 +463,7 @@ void QuartzButton::drawButton(TQPainter *p)
 	{
 		int xOff = (width()-10)/2;
 		int yOff = (height()-10)/2;
-		p->setPen( Qt::black );
+		p->setPen( TQt::black );
 		p->drawPixmap(isDown() ? xOff+2: xOff+1, isDown() ? yOff+2 : yOff+1, *deco);
 		p->setPen( KDecoration::options()->color(KDecoration::ColorButtonBg, decoration()->isActive()).light(150) );
 		p->drawPixmap(isDown() ? xOff+1: xOff, isDown() ? yOff+1 : yOff, *deco);

@@ -2240,7 +2240,7 @@ void Client::doDrawbound( const TQRect& geom, bool clear )
     if( decoration != NULL && decoration->drawbound( geom, clear ))
         return; // done by decoration
     TQPainter p ( workspace()->desktopWidget() );
-    p.setPen( TQPen( Qt::white, 5 ) );
+    p.setPen( TQPen( TQt::white, 5 ) );
     p.setRasterOp( TQt::XorROP );
     // the line is 5 pixel thick, so compensate for the extra two pixels
     // on outside (#88657)

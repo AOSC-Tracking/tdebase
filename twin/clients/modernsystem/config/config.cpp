@@ -47,7 +47,7 @@ ModernSysConfig::ModernSysConfig(TDEConfig* conf, TQWidget* parent) : TQObject(p
 	connect(cbShowHandle, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotSelectionChanged()));
 
 	sliderBox = new TQVBox(handleBox);
-	handleSizeSlider = new TQSlider(0, 4, 1, 0, Qt::Horizontal, sliderBox);
+	handleSizeSlider = new TQSlider(0, 4, 1, 0, TQt::Horizontal, sliderBox);
 	TQWhatsThis::add(handleSizeSlider,
 			i18n("Here you can change the size of the resize handle."));
 	handleSizeSlider->setTickInterval(1);

@@ -168,7 +168,7 @@ Workspace::Workspace( bool restore )
     root              (0),
     workspaceInit     (true),
     startup(0),
-    layoutOrientation(Qt::Vertical),
+    layoutOrientation(TQt::Vertical),
     layoutX(-1),
     layoutY(2),
     workarea(NULL),
@@ -1553,7 +1553,7 @@ int Workspace::desktopToRight( int desktop ) const
     int x,y;
     calcDesktopLayout(x,y);
     int dt = desktop-1;
-    if (layoutOrientation == Qt::Vertical)
+    if (layoutOrientation == TQt::Vertical)
         {
         dt += y;
         if ( dt >= numberOfDesktops() )
@@ -1584,7 +1584,7 @@ int Workspace::desktopToLeft( int desktop ) const
     int x,y;
     calcDesktopLayout(x,y);
     int dt = desktop-1;
-    if (layoutOrientation == Qt::Vertical)
+    if (layoutOrientation == TQt::Vertical)
         {
         dt -= y;
         if ( dt < 0 )
@@ -1615,7 +1615,7 @@ int Workspace::desktopUp( int desktop ) const
     int x,y;
     calcDesktopLayout(x,y);
     int dt = desktop-1;
-    if (layoutOrientation == Qt::Horizontal)
+    if (layoutOrientation == TQt::Horizontal)
         {
         dt -= x;
         if ( dt < 0 )
@@ -1646,7 +1646,7 @@ int Workspace::desktopDown( int desktop ) const
     int x,y;
     calcDesktopLayout(x,y);
     int dt = desktop-1;
-    if (layoutOrientation == Qt::Horizontal)
+    if (layoutOrientation == TQt::Horizontal)
         {
         dt += x;
         if ( dt >= numberOfDesktops() )
@@ -1846,7 +1846,7 @@ void Workspace::updateDesktopLayout()
     {
     // rootInfo->desktopLayoutCorner(); // I don't find this worth bothering, feel free to
     layoutOrientation = ( rootInfo->desktopLayoutOrientation() == NET::OrientationHorizontal
-        ? Qt::Horizontal : Qt::Vertical );
+        ? TQt::Horizontal : TQt::Vertical );
     layoutX = rootInfo->desktopLayoutColumnsRows().width();
     layoutY = rootInfo->desktopLayoutColumnsRows().height();
     if( layoutX == 0 && layoutY == 0 ) // not given, set default layout
@@ -2120,9 +2120,9 @@ void Workspace::slotGrabWindow()
 		//Construct a bitmap mask from the rectangles
                 TQBitmap mask( snapshot.width(), snapshot.height());
                 TQPainter p(&mask);
-                p.fillRect(0, 0, mask.width(), mask.height(), Qt::color1);
+                p.fillRect(0, 0, mask.width(), mask.height(), TQt::color1);
                 for (uint pos = 0; pos < maskedAwayRects.count(); pos++)
-                    p.fillRect(maskedAwayRects[pos], Qt::color0);
+                    p.fillRect(maskedAwayRects[pos], TQt::color0);
                 p.end();
                 snapshot.setMask(mask);
                 }

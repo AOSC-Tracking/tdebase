@@ -267,11 +267,11 @@ void KDEDefaultHandler::createPixmaps()
 		int i, x, y;
 		titlePix = new TQPixmap(132, normalTitleHeight+2);
 		TQBitmap mask(132, normalTitleHeight+2);
-		mask.fill(Qt::color0);
+		mask.fill(TQt::color0);
 
 		p.begin(titlePix);
 		maskPainter.begin(&mask);
-		maskPainter.setPen(Qt::color1);
+		maskPainter.setPen(TQt::color1);
 		for(i=0, y=2; i < 9; ++i, y+=4)
 			for(x=1; x <= 132; x+=3)
 			{
@@ -681,9 +681,9 @@ void KDEDefaultButton::drawButton(TQPainter *p)
 				active).rgb() ) > 127;
 
 		if (isMouseOver)
-			p->setPen( darkDeco ? Qt::darkGray : Qt::lightGray );
+			p->setPen( darkDeco ? TQt::darkGray : TQt::lightGray );
 		else
-			p->setPen( darkDeco ? Qt::black : Qt::white );
+			p->setPen( darkDeco ? TQt::black : TQt::white );
 
 		int xOff = (width()-10)/2;
 		int yOff = (height()-10)/2;
@@ -905,7 +905,7 @@ void KDEDefaultClient::paintEvent( TQPaintEvent* )
     titleBuffer->resize( rightOffset-3, titleHeight+1 );
 
 	// Draw an outer black frame
-	p.setPen(Qt::black);
+	p.setPen(TQt::black);
 	p.drawRect(x,y,w,h);
 
     // Draw part of the frame that is the titlebar color
@@ -923,7 +923,7 @@ void KDEDefaultClient::paintEvent( TQPaintEvent* )
 	           options()->color(ColorTitleBar, isActive() ));
 
 	// Finish drawing the titlebar extension
-	p.setPen(Qt::black);
+	p.setPen(TQt::black);
 	p.drawLine(x+1, leftFrameStart+borderWidth-4, x+borderWidth-2, leftFrameStart-1);
 	p.setPen(g.mid());
 	p.drawLine(x+borderWidth-2, y+titleHeight+3, x+borderWidth-2, leftFrameStart-2);
@@ -939,7 +939,7 @@ void KDEDefaultClient::paintEvent( TQPaintEvent* )
 
 	p.setPen(options()->color(ColorFrame, isActive()));
 	TQPointArray a;
-	TQBrush brush( options()->color(ColorFrame, isActive()), Qt::SolidPattern );
+	TQBrush brush( options()->color(ColorFrame, isActive()), TQt::SolidPattern );
 	p.setBrush( brush );                       // use solid, yellow brush
     a.setPoints( 4, x+2,             leftFrameStart+borderWidth-4,
 	                x+borderWidth-2, leftFrameStart,

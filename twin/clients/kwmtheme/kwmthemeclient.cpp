@@ -141,11 +141,11 @@ static void create_pixmaps()
     
     tmpStr = config->readEntry("TitleAlignment");
     if(tmpStr == "right")
-        titleAlign = Qt::AlignRight | Qt::AlignVCenter;
+        titleAlign = TQt::AlignRight | TQt::AlignVCenter;
     else if(tmpStr == "middle")
-        titleAlign = Qt::AlignCenter;
+        titleAlign = TQt::AlignCenter;
     else
-        titleAlign = Qt::AlignLeft | Qt::AlignVCenter;
+        titleAlign = TQt::AlignLeft | TQt::AlignVCenter;
     titleSunken = config->readBoolEntry("TitleFrameShaded", true);
     // titleSunken = true; // is this fixed?
     titleTransparent = config->readBoolEntry("PixmapUnderTitleText", true);

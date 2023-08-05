@@ -101,7 +101,7 @@ public:
 private:
     void readConfig();
 
-    void pretile(TQPixmap *&pix, int size, Qt::Orientation dir) const;
+    void pretile(TQPixmap *&pix, int size, TQt::Orientation dir) const;
 
     bool m_coloredBorder;
     bool m_titleShadow;

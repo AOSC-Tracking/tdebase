@@ -209,7 +209,7 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, TDEConfig *_co
   TQWhatsThis::add( box, i18n("Here you can customize mouse click behavior when clicking on the"
                              " titlebar or the frame of a window.") );
 
-  grid = new TQGrid(4, Qt::Vertical, box);
+  grid = new TQGrid(4, TQt::Vertical, box);
 
 
   new TQLabel(grid); // dummy
@@ -611,7 +611,7 @@ KWindowActionsConfig::KWindowActionsConfig (bool _standAlone, TDEConfig *_config
   TQWhatsThis::add( box, i18n("Here you can customize mouse click behavior when clicking on an inactive"
                              " inner window ('inner' means: not titlebar, not frame).") );
 
-  grid = new TQGrid(3, Qt::Vertical, box);
+  grid = new TQGrid(3, TQt::Vertical, box);
 
   strMouseButton1 = i18n("Left button:");
   txtButton1 = i18n("In this row you can customize left click behavior when clicking into"
@@ -681,7 +681,7 @@ KWindowActionsConfig::KWindowActionsConfig (bool _standAlone, TDEConfig *_config
   TQWhatsThis::add( box, i18n("Here you can customize TDE's behavior when clicking somewhere into"
                              " a window while pressing a modifier key."));
 
-  grid = new TQGrid(6, Qt::Vertical, box);
+  grid = new TQGrid(6, TQt::Vertical, box);
 
   // Labels
   label = new TQLabel(i18n("Modifier key:"), grid);

@@ -18,29 +18,29 @@
 	keys->insert( "Program:twin", i18n("System") );
 
 	keys->insert( "Group:Navigation", i18n("Navigation") );
-	DEF( I18N_NOOP("Walk Through Windows"),                ALT+Qt::Key_Tab, ALT+Qt::Key_Tab, slotWalkThroughWindows() );
-	DEF( I18N_NOOP("Walk Through Windows (Reverse)"),      ALT+SHIFT+Qt::Key_Tab, ALT+SHIFT+Qt::Key_Tab, slotWalkBackThroughWindows() );
-  DEF( I18N_NOOP("Walk Through Windows of Same Application"),                ALT+Qt::Key_QuoteLeft, ALT+Qt::Key_QuoteLeft, slotWalkThroughApps() );
-  DEF( I18N_NOOP("Walk Through Windows of Same Application (Reverse)"),      ALT+Qt::Key_AsciiTilde, ALT+Qt::Key_AsciiTilde, slotWalkBackThroughApps() );
-	DEF( I18N_NOOP("Walk Through Desktops"),               0, WIN+Qt::Key_Tab, slotWalkThroughDesktops() );
-	DEF( I18N_NOOP("Walk Through Desktops (Reverse)"),     0, WIN+SHIFT+Qt::Key_Tab, slotWalkBackThroughDesktops() );
+	DEF( I18N_NOOP("Walk Through Windows"),                ALT+TQt::Key_Tab, ALT+TQt::Key_Tab, slotWalkThroughWindows() );
+	DEF( I18N_NOOP("Walk Through Windows (Reverse)"),      ALT+SHIFT+TQt::Key_Tab, ALT+SHIFT+TQt::Key_Tab, slotWalkBackThroughWindows() );
+  DEF( I18N_NOOP("Walk Through Windows of Same Application"),                ALT+TQt::Key_QuoteLeft, ALT+TQt::Key_QuoteLeft, slotWalkThroughApps() );
+  DEF( I18N_NOOP("Walk Through Windows of Same Application (Reverse)"),      ALT+TQt::Key_AsciiTilde, ALT+TQt::Key_AsciiTilde, slotWalkBackThroughApps() );
+	DEF( I18N_NOOP("Walk Through Desktops"),               0, WIN+TQt::Key_Tab, slotWalkThroughDesktops() );
+	DEF( I18N_NOOP("Walk Through Desktops (Reverse)"),     0, WIN+SHIFT+TQt::Key_Tab, slotWalkBackThroughDesktops() );
 	DEF( I18N_NOOP("Walk Through Desktop List"),           0, 0, slotWalkThroughDesktopList() );
 	DEF( I18N_NOOP("Walk Through Desktop List (Reverse)"), 0, 0, slotWalkBackThroughDesktopList() );
 
 	keys->insert( "Group:Windows", i18n("Windows") );
-	DEF( I18N_NOOP("Window Operations Menu"),              ALT+Qt::Key_F3, ALT+Qt::Key_Menu, slotWindowOperations() );
+	DEF( I18N_NOOP("Window Operations Menu"),              ALT+TQt::Key_F3, ALT+TQt::Key_Menu, slotWindowOperations() );
 	DEF2( "Window Close", I18N_NOOP("Close Window"),
-            ALT+Qt::Key_F4, "Alt+Escape;Alt+F4", slotWindowClose() );
+            ALT+TQt::Key_F4, "Alt+Escape;Alt+F4", slotWindowClose() );
 	DEF2( "Window Maximize", I18N_NOOP("Maximize Window"),
-            0, WIN+Qt::Key_Plus, slotWindowMaximize() );
+            0, WIN+TQt::Key_Plus, slotWindowMaximize() );
 	DEF2( "Window Maximize Vertical", I18N_NOOP("Maximize Window Vertically"),
-            0, WIN+Qt::Key_Bar, slotWindowMaximizeVertical() );
+            0, WIN+TQt::Key_Bar, slotWindowMaximizeVertical() );
 	DEF2( "Window Maximize Horizontal", I18N_NOOP("Maximize Window Horizontally"),
-            0, WIN+Qt::Key_Equal, slotWindowMaximizeHorizontal() );
+            0, WIN+TQt::Key_Equal, slotWindowMaximizeHorizontal() );
 	DEF2( "Window Minimize", I18N_NOOP("Minimize Window"),
-            0, WIN+Qt::Key_Minus, slotWindowMinimize() );
+            0, WIN+TQt::Key_Minus, slotWindowMinimize() );
 	DEF2( "Window Shade", I18N_NOOP("Shade Window"),
-            0, WIN+Qt::Key_Underscore, slotWindowShade() );
+            0, WIN+TQt::Key_Underscore, slotWindowShade() );
 	DEF2( "Window Move", I18N_NOOP("Move Window"),
             0, 0, slotWindowMove() );
 	DEF2( "Window Resize", I18N_NOOP("Resize Window"),
@@ -58,7 +58,7 @@
             0, 0, slotWindowAbove() );
         DEF2( "Window Below Other Windows", I18N_NOOP("Keep Window Below Others"),
             0, 0, slotWindowBelow() );
-        DEF( I18N_NOOP("Activate Window Demanding Attention"), CTRL+ALT+Qt::Key_A, 0, slotActivateAttentionWindow());
+        DEF( I18N_NOOP("Activate Window Demanding Attention"), CTRL+ALT+TQt::Key_A, 0, slotActivateAttentionWindow());
         DEF( I18N_NOOP("Setup Window Shortcut"), 0, 0, slotSetupWindowShortcut());
         DEF2( "Window Pack Right", I18N_NOOP("Pack Window to the Right"),
             0, 0, slotWindowPackRight() );
@@ -80,16 +80,16 @@
 	keys->insert( "Group:Window Desktop", i18n("Window & Desktop") );
         DEF2( "Window On All Desktops", I18N_NOOP("Keep Window on All Desktops"),
             0, 0, slotWindowOnAllDesktops() );
-	DEF( I18N_NOOP("Window to Desktop 1"),                 0, WIN+ALT+Qt::Key_F1, slotWindowToDesktop(int) );
-	DEF( I18N_NOOP("Window to Desktop 2"),                 0, WIN+ALT+Qt::Key_F2, slotWindowToDesktop(int) );
-	DEF( I18N_NOOP("Window to Desktop 3"),                 0, WIN+ALT+Qt::Key_F3, slotWindowToDesktop(int) );
-	DEF( I18N_NOOP("Window to Desktop 4"),                 0, WIN+ALT+Qt::Key_F4, slotWindowToDesktop(int) );
-	DEF( I18N_NOOP("Window to Desktop 5"),                 0, WIN+ALT+Qt::Key_F5, slotWindowToDesktop(int) );
-	DEF( I18N_NOOP("Window to Desktop 6"),                 0, WIN+ALT+Qt::Key_F6, slotWindowToDesktop(int) );
-	DEF( I18N_NOOP("Window to Desktop 7"),                 0, WIN+ALT+Qt::Key_F7, slotWindowToDesktop(int) );
-	DEF( I18N_NOOP("Window to Desktop 8"),                 0, WIN+ALT+Qt::Key_F8, slotWindowToDesktop(int) );
-	DEF( I18N_NOOP("Window to Desktop 9"),                 0, WIN+ALT+Qt::Key_F9, slotWindowToDesktop(int) );
-	DEF( I18N_NOOP("Window to Desktop 10"),                0, WIN+ALT+Qt::Key_F10, slotWindowToDesktop(int) );
+	DEF( I18N_NOOP("Window to Desktop 1"),                 0, WIN+ALT+TQt::Key_F1, slotWindowToDesktop(int) );
+	DEF( I18N_NOOP("Window to Desktop 2"),                 0, WIN+ALT+TQt::Key_F2, slotWindowToDesktop(int) );
+	DEF( I18N_NOOP("Window to Desktop 3"),                 0, WIN+ALT+TQt::Key_F3, slotWindowToDesktop(int) );
+	DEF( I18N_NOOP("Window to Desktop 4"),                 0, WIN+ALT+TQt::Key_F4, slotWindowToDesktop(int) );
+	DEF( I18N_NOOP("Window to Desktop 5"),                 0, WIN+ALT+TQt::Key_F5, slotWindowToDesktop(int) );
+	DEF( I18N_NOOP("Window to Desktop 6"),                 0, WIN+ALT+TQt::Key_F6, slotWindowToDesktop(int) );
+	DEF( I18N_NOOP("Window to Desktop 7"),                 0, WIN+ALT+TQt::Key_F7, slotWindowToDesktop(int) );
+	DEF( I18N_NOOP("Window to Desktop 8"),                 0, WIN+ALT+TQt::Key_F8, slotWindowToDesktop(int) );
+	DEF( I18N_NOOP("Window to Desktop 9"),                 0, WIN+ALT+TQt::Key_F9, slotWindowToDesktop(int) );
+	DEF( I18N_NOOP("Window to Desktop 10"),                0, WIN+ALT+TQt::Key_F10, slotWindowToDesktop(int) );
 	DEF( I18N_NOOP("Window to Desktop 11"),                0, 0, slotWindowToDesktop(int) );
 	DEF( I18N_NOOP("Window to Desktop 12"),                0, 0, slotWindowToDesktop(int) );
 	DEF( I18N_NOOP("Window to Desktop 13"),                0, 0, slotWindowToDesktop(int) );
@@ -117,26 +117,26 @@
 	DEF( I18N_NOOP("Window to Next Screen"),               0, 0, slotWindowToNextScreen() );
 
 	keys->insert( "Group:Desktop Switching", i18n("Desktop Switching") );
-	DEF( I18N_NOOP("Switch to Desktop 1"),  CTRL+Qt::Key_F1, WIN+Qt::Key_F1, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 2"),  CTRL+Qt::Key_F2, WIN+Qt::Key_F2, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 3"),  CTRL+Qt::Key_F3, WIN+Qt::Key_F3, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 4"),  CTRL+Qt::Key_F4, WIN+Qt::Key_F4, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 5"),  CTRL+Qt::Key_F5, WIN+Qt::Key_F5, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 6"),  CTRL+Qt::Key_F6, WIN+Qt::Key_F6, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 7"),  CTRL+Qt::Key_F7, WIN+Qt::Key_F7, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 8"),  CTRL+Qt::Key_F8, WIN+Qt::Key_F8, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 9"),  CTRL+Qt::Key_F9, WIN+Qt::Key_F9, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 10"),  CTRL+Qt::Key_F10, WIN+Qt::Key_F10, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 11"),  CTRL+Qt::Key_F11, 0, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 12"),  CTRL+Qt::Key_F12, 0, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 13"),  CTRL+SHIFT+Qt::Key_F1, 0, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 14"),  CTRL+SHIFT+Qt::Key_F2, 0, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 15"),  CTRL+SHIFT+Qt::Key_F3, 0, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 16"),  CTRL+SHIFT+Qt::Key_F4, 0, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 17"),  CTRL+SHIFT+Qt::Key_F5, 0, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 18"),  CTRL+SHIFT+Qt::Key_F6, 0, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 19"),  CTRL+SHIFT+Qt::Key_F7, 0, slotSwitchToDesktop(int) );
-	DEF( I18N_NOOP("Switch to Desktop 20"),  CTRL+SHIFT+Qt::Key_F8, 0, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 1"),  CTRL+TQt::Key_F1, WIN+TQt::Key_F1, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 2"),  CTRL+TQt::Key_F2, WIN+TQt::Key_F2, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 3"),  CTRL+TQt::Key_F3, WIN+TQt::Key_F3, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 4"),  CTRL+TQt::Key_F4, WIN+TQt::Key_F4, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 5"),  CTRL+TQt::Key_F5, WIN+TQt::Key_F5, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 6"),  CTRL+TQt::Key_F6, WIN+TQt::Key_F6, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 7"),  CTRL+TQt::Key_F7, WIN+TQt::Key_F7, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 8"),  CTRL+TQt::Key_F8, WIN+TQt::Key_F8, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 9"),  CTRL+TQt::Key_F9, WIN+TQt::Key_F9, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 10"),  CTRL+TQt::Key_F10, WIN+TQt::Key_F10, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 11"),  CTRL+TQt::Key_F11, 0, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 12"),  CTRL+TQt::Key_F12, 0, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 13"),  CTRL+SHIFT+TQt::Key_F1, 0, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 14"),  CTRL+SHIFT+TQt::Key_F2, 0, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 15"),  CTRL+SHIFT+TQt::Key_F3, 0, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 16"),  CTRL+SHIFT+TQt::Key_F4, 0, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 17"),  CTRL+SHIFT+TQt::Key_F5, 0, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 18"),  CTRL+SHIFT+TQt::Key_F6, 0, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 19"),  CTRL+SHIFT+TQt::Key_F7, 0, slotSwitchToDesktop(int) );
+	DEF( I18N_NOOP("Switch to Desktop 20"),  CTRL+SHIFT+TQt::Key_F8, 0, slotSwitchToDesktop(int) );
 	DEF( I18N_NOOP("Switch to Next Desktop"),              0, 0, slotSwitchDesktopNext() );
 	DEF( I18N_NOOP("Switch to Previous Desktop"),          0, 0, slotSwitchDesktopPrevious() );
 	DEF( I18N_NOOP("Switch One Desktop to the Right"),     0, 0, slotSwitchDesktopRight() );
@@ -154,10 +154,10 @@
 	DEF( I18N_NOOP("Switch to Next Screen"),               0, 0, slotSwitchToNextScreen() );
 
 	keys->insert( "Group:Miscellaneous", i18n("Miscellaneous") );
-	DEF( I18N_NOOP("Mouse Emulation"),                     ALT+Qt::Key_F12, 0, slotMouseEmulation() );
-	DEF( I18N_NOOP("Kill Window"),                         ALT+CTRL+Qt::Key_Escape, WIN+CTRL+Qt::Key_Delete, slotKillWindow() );
-	DEF( I18N_NOOP("Window Screenshot"),                   ALT+Qt::Key_Print, ALT+Qt::Key_Print, slotGrabWindow() );
-	DEF( I18N_NOOP("Desktop Screenshot"),                  CTRL+Qt::Key_Print, WIN+Qt::Key_Print, slotGrabDesktop() );
+	DEF( I18N_NOOP("Mouse Emulation"),                     ALT+TQt::Key_F12, 0, slotMouseEmulation() );
+	DEF( I18N_NOOP("Kill Window"),                         ALT+CTRL+TQt::Key_Escape, WIN+CTRL+TQt::Key_Delete, slotKillWindow() );
+	DEF( I18N_NOOP("Window Screenshot"),                   ALT+TQt::Key_Print, ALT+TQt::Key_Print, slotGrabWindow() );
+	DEF( I18N_NOOP("Desktop Screenshot"),                  CTRL+TQt::Key_Print, WIN+TQt::Key_Print, slotGrabDesktop() );
 #ifdef IN_KWIN
         {
         TDEGlobalAccel* keys = disable_shortcuts_keys;
@@ -169,28 +169,28 @@
 
 /*This belongs in taskbar rather than here, so it'll have to wait until after 2.2 is done.
   -- ellis
-DEF( I18N_NOOP("Switch to Window 1", WIN+Qt::Key_1"));
-DEF( I18N_NOOP("Switch to Window 2", WIN+Qt::Key_2"));
-DEF( I18N_NOOP("Switch to Window 3", WIN+Qt::Key_3"));
-DEF( I18N_NOOP("Switch to Window 4", WIN+Qt::Key_4"));
-DEF( I18N_NOOP("Switch to Window 5", WIN+Qt::Key_5"));
-DEF( I18N_NOOP("Switch to Window 6", WIN+Qt::Key_6"));
-DEF( I18N_NOOP("Switch to Window 7", WIN+Qt::Key_7"));
-DEF( I18N_NOOP("Switch to Window 8", WIN+Qt::Key_8"));
-DEF( I18N_NOOP("Switch to Window 9", WIN+Qt::Key_9"));
+DEF( I18N_NOOP("Switch to Window 1", WIN+TQt::Key_1"));
+DEF( I18N_NOOP("Switch to Window 2", WIN+TQt::Key_2"));
+DEF( I18N_NOOP("Switch to Window 3", WIN+TQt::Key_3"));
+DEF( I18N_NOOP("Switch to Window 4", WIN+TQt::Key_4"));
+DEF( I18N_NOOP("Switch to Window 5", WIN+TQt::Key_5"));
+DEF( I18N_NOOP("Switch to Window 6", WIN+TQt::Key_6"));
+DEF( I18N_NOOP("Switch to Window 7", WIN+TQt::Key_7"));
+DEF( I18N_NOOP("Switch to Window 8", WIN+TQt::Key_8"));
+DEF( I18N_NOOP("Switch to Window 9", WIN+TQt::Key_9"));
 
 #ifdef WITH_LABELS
 DEF( I18N_NOOP("Window & Taskbar"Group:Window Desktop", 0);
 #endif
-DEF( I18N_NOOP("Window to Taskbar Position 1", WIN+Qt::Key_Alt+1"));
-DEF( I18N_NOOP("Window to Taskbar Position 2", WIN+Qt::Key_Alt+2"));
-DEF( I18N_NOOP("Window to Taskbar Position 3", WIN+Qt::Key_Alt+3"));
-DEF( I18N_NOOP("Window to Taskbar Position 4", WIN+Qt::Key_Alt+4"));
-DEF( I18N_NOOP("Window to Taskbar Position 5", WIN+Qt::Key_Alt+5"));
-DEF( I18N_NOOP("Window to Taskbar Position 6", WIN+Qt::Key_Alt+6"));
-DEF( I18N_NOOP("Window to Taskbar Position 7", WIN+Qt::Key_Alt+7"));
-DEF( I18N_NOOP("Window to Taskbar Position 8", WIN+Qt::Key_Alt+8"));
-DEF( I18N_NOOP("Window to Taskbar Position 9", WIN+Qt::Key_Alt+9"));
+DEF( I18N_NOOP("Window to Taskbar Position 1", WIN+TQt::Key_Alt+1"));
+DEF( I18N_NOOP("Window to Taskbar Position 2", WIN+TQt::Key_Alt+2"));
+DEF( I18N_NOOP("Window to Taskbar Position 3", WIN+TQt::Key_Alt+3"));
+DEF( I18N_NOOP("Window to Taskbar Position 4", WIN+TQt::Key_Alt+4"));
+DEF( I18N_NOOP("Window to Taskbar Position 5", WIN+TQt::Key_Alt+5"));
+DEF( I18N_NOOP("Window to Taskbar Position 6", WIN+TQt::Key_Alt+6"));
+DEF( I18N_NOOP("Window to Taskbar Position 7", WIN+TQt::Key_Alt+7"));
+DEF( I18N_NOOP("Window to Taskbar Position 8", WIN+TQt::Key_Alt+8"));
+DEF( I18N_NOOP("Window to Taskbar Position 9", WIN+TQt::Key_Alt+9"));
 */
 
 #undef DEF

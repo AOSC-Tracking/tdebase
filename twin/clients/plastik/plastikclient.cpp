@@ -402,10 +402,10 @@ TQRect PlastikClient::captionRect() const
     } else {
         tW = caption.width();
     }
-    if (a == Qt::AlignLeft || (caption.width() > titleWidth) ) {
+    if (a == TQt::AlignLeft || (caption.width() > titleWidth) ) {
         // Align left
         tX = titleLeft;
-    } else if (a == Qt::AlignHCenter) {
+    } else if (a == TQt::AlignHCenter) {
         // Align center
         tX = titleLeft+(titleWidth- caption.width() )/2;
     } else {

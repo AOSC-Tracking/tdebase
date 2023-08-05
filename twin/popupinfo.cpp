@@ -92,9 +92,9 @@ void PopupInfo::paintContents()
     p.fillRect( r, colorGroup().brush( TQColorGroup::Background ) );
 
     /*
-    p.setPen(Qt::white);
+    p.setPen(TQt::white);
     p.drawText( r, AlignCenter, m_infoString );
-    p.setPen(Qt::black);
+    p.setPen(TQt::black);
     r.moveBy( -1, -1 );
     p.drawText( r, AlignCenter, m_infoString );
     r.moveBy( -1, 0 );

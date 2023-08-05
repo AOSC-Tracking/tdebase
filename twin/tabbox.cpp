@@ -474,7 +474,7 @@ void TabBox::drawContents( TQPainter * )
                     p.setPen(colorGroup().text());
 
                   p.drawText(x+5 + iconWidth + 8, y, r.width() - 5 - iconWidth - 8, lineHeight,
-                              Qt::AlignLeft | Qt::AlignVCenter | TQt::SingleLine, s);
+                              TQt::AlignLeft | TQt::AlignVCenter | TQt::SingleLine, s);
 
                   y += lineHeight;
                   }
@@ -521,7 +521,7 @@ void TabBox::drawContents( TQPainter * )
             // draw desktop-number
             p.setFont(f);
             TQString num = TQString::number(iDesktop);
-            p.drawText(x+5, y+2, iconWidth, iconHeight, Qt::AlignCenter, num);
+            p.drawText(x+5, y+2, iconWidth, iconHeight, TQt::AlignCenter, num);
 
             p.restore();
 
@@ -532,7 +532,7 @@ void TabBox::drawContents( TQPainter * )
               p.setPen(colorGroup().text());
 
             p.drawText(x+5 + iconWidth + 8, y, r.width() - 5 - iconWidth - 8, lineHeight,
-                       Qt::AlignLeft | Qt::AlignVCenter | TQt::SingleLine,
+                       TQt::AlignLeft | TQt::AlignVCenter | TQt::SingleLine,
                        workspace()->desktopName(iDesktop));
 
             // show mini icons from that desktop aligned to each other
@@ -1180,7 +1180,7 @@ void Workspace::tabBoxKeyPress( const KKeyNative& keyX )
     if (control_grab || tab_grab)
         {
         uint keyQt = keyX.keyCodeQt();
-        if ( ((keyQt & 0xffff) == Qt::Key_Escape)
+        if ( ((keyQt & 0xffff) == TQt::Key_Escape)
             && !(forward || backward) )
             { // if Escape is part of the shortcut, don't cancel
             closeTabBox();
