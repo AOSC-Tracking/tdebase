@@ -113,7 +113,7 @@ bool KNewButton::eventFilter(TQObject *o, TQEvent *e)
         e->type() == TQEvent::MouseButtonDblClick )
     {
         TQMouseEvent *me = TQT_TQMOUSEEVENT(e);
-        if (TQT_TQRECT_OBJECT(rect()).contains(mapFromGlobal(me->globalPos())))
+        if (rect().contains(mapFromGlobal(me->globalPos())))
         {
             if (m_pressedDuringPopup && m_popup && m_openTimer != -1
                     && (me->button() & Qt::LeftButton) )

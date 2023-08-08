@@ -2570,7 +2570,7 @@ bool LockProcess::forwardVkbdEvent( XEvent* event )
 	}
 	// vkbd windows are kept topmost, so just find the first one in the position
 	for( TQValueList< VkbdWindow >::ConstIterator it = mVkbdWindows.begin(); it != mVkbdWindows.end(); ++it ) {
-		if( TQT_TQRECT_OBJECT((*it).rect).contains( pos )) {
+		if( (*it).rect.contains( pos )) {
 			// Find the subwindow where the event should actually go.
 			// Not exactly cheap in the number of X roundtrips but oh well.
 			Window window = (*it).id;

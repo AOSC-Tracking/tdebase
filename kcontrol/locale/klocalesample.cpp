@@ -90,9 +90,9 @@ void TDELocaleSample::slotUpdateTime()
 {
   TQDateTime dt = TQDateTime::currentDateTime();
 
-  m_dateSample->setText(m_locale->formatDate(TQT_TQDATE_OBJECT(dt.date()), false));
-  m_dateShortSample->setText(m_locale->formatDate(TQT_TQDATE_OBJECT(dt.date()), true));
-  m_timeSample->setText(m_locale->formatTime(TQT_TQTIME_OBJECT(dt.time()), true));
+  m_dateSample->setText(m_locale->formatDate(dt.date(), false));
+  m_dateShortSample->setText(m_locale->formatDate(dt.date(), true));
+  m_timeSample->setText(m_locale->formatTime(dt.time(), true));
 }
 
 void TDELocaleSample::slotLocaleChanged()

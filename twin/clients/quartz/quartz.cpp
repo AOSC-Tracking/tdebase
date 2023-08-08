@@ -723,7 +723,7 @@ void QuartzClient::paintEvent( TQPaintEvent* )
     // Draw the title bar.
     // ===================
     int r_x, r_y, r_x2, r_y2;
-    TQT_TQRECT_OBJECT(widget()->rect()).coords(&r_x, &r_y, &r_x2, &r_y2);
+    widget()->rect().coords(&r_x, &r_y, &r_x2, &r_y2);
     const int titleEdgeLeft = layoutMetric(LM_TitleEdgeLeft);
     const int titleEdgeTop = layoutMetric(LM_TitleEdgeTop);
     const int titleEdgeRight = layoutMetric(LM_TitleEdgeRight);

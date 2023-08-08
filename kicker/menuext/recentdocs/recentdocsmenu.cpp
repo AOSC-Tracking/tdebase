@@ -114,7 +114,7 @@ void RecentDocsMenu::mouseMoveEvent(TQMouseEvent* e) {
 	if (!(e->state() & Qt::LeftButton))
 		return;
 
-	if (!TQT_TQRECT_OBJECT(rect()).contains(_mouseDown))
+	if (!rect().contains(_mouseDown))
 		return;
 
 	int dragLength = (e->pos() - _mouseDown).manhattanLength();

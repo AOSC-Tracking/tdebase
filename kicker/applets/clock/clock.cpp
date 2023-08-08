@@ -1542,14 +1542,14 @@ void ClockApplet::aboutToShowContextMenu()
 
     TDELocale *loc = TDEGlobal::locale();
     TQDateTime dt = TQDateTime::currentDateTime();
-    dt = TQT_TQDATETIME_OBJECT(dt.addSecs(TZoffset));
+    dt = dt.addSecs(TZoffset);
 
     TDEPopupMenu *copyMenu = new TDEPopupMenu( menu );
     copyMenu->insertItem(loc->formatDateTime(dt), 201);
-    copyMenu->insertItem(loc->formatDate(TQT_TQDATE_OBJECT(dt.date())), 202);
-    copyMenu->insertItem(loc->formatDate(TQT_TQDATE_OBJECT(dt.date()), true), 203);
-    copyMenu->insertItem(loc->formatTime(TQT_TQTIME_OBJECT(dt.time())), 204);
-    copyMenu->insertItem(loc->formatTime(TQT_TQTIME_OBJECT(dt.time()), true), 205);
+    copyMenu->insertItem(loc->formatDate(dt.date()), 202);
+    copyMenu->insertItem(loc->formatDate(dt.date(), true), 203);
+    copyMenu->insertItem(loc->formatTime(dt.time()), 204);
+    copyMenu->insertItem(loc->formatTime(dt.time(), true), 205);
     copyMenu->insertItem(dt.date().toString(), 206);
     copyMenu->insertItem(dt.time().toString(), 207);
     copyMenu->insertItem(dt.toString(), 208);
@@ -1610,12 +1610,12 @@ void ClockApplet::slotCopyMenuActivated( int id )
 
 TQTime ClockApplet::clockGetTime()
 {
-    return TQT_TQTIME_OBJECT(TQTime::currentTime().addSecs(TZoffset));
+    return TQTime::currentTime().addSecs(TZoffset);
 }
 
 TQDate ClockApplet::clockGetDate()
 {
-    return TQT_TQDATE_OBJECT(TQDateTime::currentDateTime().addSecs(TZoffset).date());
+    return TQDateTime::currentDateTime().addSecs(TZoffset).date();
 }
 
 void ClockApplet::showZone(int z)
@@ -1840,7 +1840,7 @@ void ClockAppletToolTip::maybeTip( const TQPoint & /*point*/ )
          (m_clock->type() == Prefs::EnumType::Analog) )
     {
         // show full time (incl. hour) as tooltip for Fuzzy clock
-        tipText = TDEGlobal::locale()->formatDateTime(TQT_TQDATETIME_OBJECT(TQDateTime::currentDateTime().addSecs(m_clock->TZoffset)));
+        tipText = TDEGlobal::locale()->formatDateTime(TQDateTime::currentDateTime().addSecs(m_clock->TZoffset));
     }
     else
     {

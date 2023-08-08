@@ -637,7 +637,7 @@ bool TrashImpl::readInfoFile( const TQString& infoPath, TrashedFileInfo& info, i
     }
     TQString line = cfg.readEntry( "DeletionDate" );
     if ( !line.isEmpty() ) {
-        info.deletionDate = TQT_TQDATETIME_OBJECT(TQDateTime::fromString( line, Qt::ISODate ));
+        info.deletionDate = TQDateTime::fromString( line, Qt::ISODate );
     }
     return true;
 }

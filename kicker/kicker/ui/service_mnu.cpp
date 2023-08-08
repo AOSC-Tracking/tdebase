@@ -840,7 +840,7 @@ void PanelServiceMenu::dragEnterEvent(TQDragEnterEvent *event)
 void PanelServiceMenu::dragLeaveEvent(TQDragLeaveEvent *)
 {
     // see PanelServiceMenu::dragEnterEvent why this is nescessary
-    if (!TQT_TQRECT_OBJECT(frameGeometry()).contains(TQCursor::pos()))
+    if (!frameGeometry().contains(TQCursor::pos()))
     {
         KURLDrag::setTarget(0);
     }

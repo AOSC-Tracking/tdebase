@@ -597,7 +597,7 @@ bool KateDocManager::computeUrlMD5(const KURL &url, TQCString &result)
   {
     KMD5 md5;
 
-    if (!md5.update(TQT_TQIODEVICE_OBJECT(f)))
+    if (!md5.update(f))
       return false;
 
     md5.hexDigest(result);

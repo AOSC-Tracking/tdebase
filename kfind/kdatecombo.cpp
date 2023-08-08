@@ -86,7 +86,7 @@ void KDateCombo::mousePressEvent (TQMouseEvent * e)
 {
   if (e->button() & Qt::LeftButton)
   {
-    if  (TQT_TQRECT_OBJECT(rect()).contains( e->pos()))
+    if  (rect().contains( e->pos()))
     {
       TQDate tempDate;
       getDate(& tempDate);
@@ -103,7 +103,7 @@ bool KDateCombo::eventFilter (TQObject*, TQEvent* e)
   {
       TQMouseEvent *me = (TQMouseEvent *)e;
       TQPoint p = mapFromGlobal( me->globalPos() );
-      if (TQT_TQRECT_OBJECT(rect()).contains( p ) )
+      if (rect().contains( p ) )
       {
         TQTimer::singleShot(10, this, TQT_SLOT(dateEnteredEvent()));
         return true;

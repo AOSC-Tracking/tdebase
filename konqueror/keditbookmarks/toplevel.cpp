@@ -183,7 +183,7 @@ TQString CurrentMgr::makeTimeStr(int b)
     TQDateTime dt;
     dt.setTime_t(b);
     return (dt.daysTo(TQDateTime::currentDateTime()) > 31)
-        ? TDEGlobal::locale()->formatDate(TQT_TQDATE_OBJECT(dt.date()), false)
+        ? TDEGlobal::locale()->formatDate(dt.date(), false)
         : TDEGlobal::locale()->formatDateTime(dt, false);
 }
 

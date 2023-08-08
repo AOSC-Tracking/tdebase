@@ -962,7 +962,7 @@ void ContainerArea::mouseMoveEvent(TQMouseEvent *ev)
         return;
     }
 
-    if (ev->state() == Qt::LeftButton && !TQT_TQRECT_OBJECT(rect()).contains(ev->pos()))
+    if (ev->state() == Qt::LeftButton && !rect().contains(ev->pos()))
     {
         // leaveEvent() doesn't work, while grabbing the mouse
         _autoScrollTimer.stop();
