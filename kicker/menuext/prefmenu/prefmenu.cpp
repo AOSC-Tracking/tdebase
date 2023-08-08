@@ -224,7 +224,7 @@ void PrefMenu::dragEnterEvent(TQDragEnterEvent *event)
 void PrefMenu::dragLeaveEvent(TQDragLeaveEvent */*event*/)
 {
     // see PrefMenu::dragEnterEvent why this is nescessary
-    if (!TQT_TQRECT_OBJECT(frameGeometry()).contains(TQCursor::pos()))
+    if (!frameGeometry().contains(TQCursor::pos()))
     {
         KURLDrag::setTarget(0);
     }

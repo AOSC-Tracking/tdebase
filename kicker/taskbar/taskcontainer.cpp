@@ -1061,7 +1061,7 @@ void TaskContainer::mouseReleaseEvent(TQMouseEvent *e)
 
     // This is to avoid the flicker caused by redrawing the
     // button as unpressed just before it's activated.
-    if (!TQT_TQRECT_OBJECT(rect()).contains(e->pos()))
+    if (!rect().contains(e->pos()))
     {
         TQToolButton::mouseReleaseEvent(e);
         return;

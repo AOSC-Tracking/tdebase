@@ -107,7 +107,7 @@ void KDateTimeDlg::setTime(const TQTime& qtime) {
 
 
 void KDateTimeDlg::setDateTime(const TQDateTime& qdatetime) {
-   _date->setDate(TQT_TQDATE_OBJECT(qdatetime.date()));
+   _date->setDate(qdatetime.date());
    _hours->setValue(qdatetime.time().hour());
    _mins->setValue(qdatetime.time().minute());
    _secs->setValue(qdatetime.time().second());

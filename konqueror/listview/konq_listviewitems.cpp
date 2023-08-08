@@ -161,7 +161,7 @@ void KonqListViewItem::updateContents()
              const TQString entryStr = retrieveExtraEntry( m_fileitem, numExtra );
              if ( tmpColumn->type == TQVariant::DateTime )
              {
-                 TQDateTime dt = TQT_TQDATETIME_OBJECT(TQDateTime::fromString( entryStr, Qt::ISODate ));
+                 TQDateTime dt = TQDateTime::fromString( entryStr, Qt::ISODate );
                  setText(tmpColumn->displayInColumn,
                          TDEGlobal::locale()->formatDateTime(dt));
              }
@@ -292,9 +292,9 @@ int KonqBaseListViewItem::compare( TQListViewItem* item, int col, bool ascending
             {
                 if ( cInfo->type & TQVariant::DateTime ) {
                     const TQString entryStr1 = retrieveExtraEntry( m_fileitem, numExtra );
-                    TQDateTime dt1 = TQT_TQDATETIME_OBJECT(TQDateTime::fromString( entryStr1, Qt::ISODate ));
+                    TQDateTime dt1 = TQDateTime::fromString( entryStr1, Qt::ISODate );
                     const TQString entryStr2 = retrieveExtraEntry( k->m_fileitem, numExtra );
-                    TQDateTime dt2 = TQT_TQDATETIME_OBJECT(TQDateTime::fromString( entryStr2, Qt::ISODate ));
+                    TQDateTime dt2 = TQDateTime::fromString( entryStr2, Qt::ISODate );
                     return ( dt1 > dt2 ) ? 1 : ( dt1 < dt2 ) ? -1 : 0;
                 }
             }

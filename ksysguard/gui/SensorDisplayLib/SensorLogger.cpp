@@ -117,8 +117,8 @@ LogSensor::answerReceived(int id, const TQString& answer)
 				KNotifyClient::event(monitor->winId(), "sensor_alarm", TQString("sensor '%1' at '%2' reached upper limit").arg(sensorName).arg(hostName));
 				timerOn();
 			}
-			TQDate date = TQT_TQDATE_OBJECT(TQDateTime::currentDateTime().date());
-			TQTime time = TQT_TQTIME_OBJECT(TQDateTime::currentDateTime().time());
+			TQDate date = TQDateTime::currentDateTime().date();
+			TQTime time = TQDateTime::currentDateTime().time();
 
 			stream << TQString("%1 %2 %3 %4 %5: %6\n").arg(date.shortMonthName(date.month())).arg(date.day()).arg(time.toString()).arg(hostName).arg(sensorName).arg(value);
 		}

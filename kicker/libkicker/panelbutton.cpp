@@ -568,7 +568,7 @@ void PanelButton::drawButton(TQPainter *p)
     if (hasFocus() || m_hasAcceptedDrag)
     {
         int x1, y1, x2, y2;
-        TQT_TQRECT_OBJECT(rect()).coords(&x1, &y1, &x2, &y2);
+        rect().coords(&x1, &y1, &x2, &y2);
         TQRect r(x1+2, y1+2, x2-x1-3, y2-y1-3);
         style().tqdrawPrimitive(TQStyle::PE_FocusRect, p, r, colorGroup(),
         TQStyle::Style_Default, colorGroup().button());
@@ -607,7 +607,7 @@ void PanelButton::drawDeepButton(TQPainter *p)
     if (hasFocus() || m_hasAcceptedDrag)
     {
         int x1, y1, x2, y2;
-        TQT_TQRECT_OBJECT(rect()).coords(&x1, &y1, &x2, &y2);
+        rect().coords(&x1, &y1, &x2, &y2);
         TQRect r(x1+2, y1+2, x2-x1-3, y2-y1-3);
         style().tqdrawPrimitive(TQStyle::PE_FocusRect, p, r, colorGroup(),
         TQStyle::Style_Default, colorGroup().button());
@@ -997,7 +997,7 @@ bool PanelPopupButton::eventFilter(TQObject *, TQEvent *e)
     if (e->type() == TQEvent::MouseMove)
     {
         TQMouseEvent *me = TQT_TQMOUSEEVENT(e);
-        if (TQT_TQRECT_OBJECT(rect()).contains(mapFromGlobal(me->globalPos())) &&
+        if (rect().contains(mapFromGlobal(me->globalPos())) &&
             ((me->state() & ControlButton) != 0 ||
              (me->state() & ShiftButton) != 0))
         {
@@ -1009,7 +1009,7 @@ bool PanelPopupButton::eventFilter(TQObject *, TQEvent *e)
              e->type() == TQEvent::MouseButtonDblClick)
     {
         TQMouseEvent *me = TQT_TQMOUSEEVENT(e);
-        if (TQT_TQRECT_OBJECT(rect()).contains(mapFromGlobal(me->globalPos())))
+        if (rect().contains(mapFromGlobal(me->globalPos())))
         {
             m_pressedDuringPopup = true;
             return true;
@@ -1018,7 +1018,7 @@ bool PanelPopupButton::eventFilter(TQObject *, TQEvent *e)
     else if (e->type() == TQEvent::MouseButtonRelease)
     {
         TQMouseEvent *me = TQT_TQMOUSEEVENT(e);
-        if (TQT_TQRECT_OBJECT(rect()).contains(mapFromGlobal(me->globalPos())))
+        if (rect().contains(mapFromGlobal(me->globalPos())))
         {
             if (m_pressedDuringPopup && m_popup)
             {
