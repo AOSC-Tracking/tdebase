@@ -1144,7 +1144,7 @@ void Sidebar_Widget::createNewWindow( const KURL &url, const KParts::URLArgs &ar
 
 void Sidebar_Widget::enableAction( const char * name, bool enabled )
 {
- 	if (TQT_TQOBJECT_CONST(sender())->parent()->isA("ButtonInfo"))
+ 	if (sender()->parent()->isA("ButtonInfo"))
 	{
 		ButtonInfo *btninfo = static_cast<ButtonInfo*>(sender()->parent());
 		if (btninfo)
@@ -1169,7 +1169,7 @@ void Sidebar_Widget::enableAction( const char * name, bool enabled )
 
 bool  Sidebar_Widget::doEnableActions()
 {
- 	if (!(TQT_TQOBJECT_CONST(sender())->parent()->isA("ButtonInfo")))
+ 	if (!(sender()->parent()->isA("ButtonInfo")))
 	{
 		kdDebug()<<"Couldn't set active module, aborting"<<endl;
 		return false;

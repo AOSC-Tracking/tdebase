@@ -149,7 +149,7 @@ void KonsoleBookmarkMenu::fillBookmarkMenu()
 void KonsoleBookmarkMenu::slotBookmarkSelected()
 {
     if ( !m_pOwner ) return; // this view doesn't handle bookmarks...
-    m_kOwner->openBookmarkURL( TQString::fromUtf8(TQT_TQOBJECT_CONST(sender())->name()), /* URL */
+    m_kOwner->openBookmarkURL( TQString::fromUtf8(sender()->name()), /* URL */
                                ( (TDEAction *)sender() )->text() /* Title */ );
 }
 

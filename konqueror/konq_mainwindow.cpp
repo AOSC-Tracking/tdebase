@@ -979,7 +979,7 @@ void KonqMainWindow::slotOpenURLRequest( const KURL &url, const KParts::URLArgs 
 {
   kdDebug(1202) << "KonqMainWindow::slotOpenURLRequest frameName=" << args.frameName << endl;
 
-  KParts::ReadOnlyPart *callingPart = static_cast<KParts::ReadOnlyPart *>( TQT_TQOBJECT_CONST(sender())->parent() );
+  KParts::ReadOnlyPart *callingPart = static_cast<KParts::ReadOnlyPart *>( sender()->parent() );
   TQString frameName = args.frameName;
 
   if ( !frameName.isEmpty() )
@@ -1508,7 +1508,7 @@ void KonqMainWindow::slotOpenLocation()
 
 void KonqMainWindow::slotToolFind()
 {
-  kdDebug(1202) << "KonqMainWindow::slotToolFind sender:" << TQT_TQOBJECT_CONST(sender())->className() << endl;
+  kdDebug(1202) << "KonqMainWindow::slotToolFind sender:" << sender()->className() << endl;
 
   if ( m_currentView && m_currentView->part()->inherits("KonqDirPart") )
   {
@@ -1538,7 +1538,7 @@ void KonqMainWindow::slotToolFind()
     connect( dirPart, TQT_SIGNAL( findClosed(KonqDirPart *) ),
              this, TQT_SLOT( slotFindClosed(KonqDirPart *) ) );
   }
-  else if ( TQT_TQOBJECT_CONST(sender())->inherits( "TDEAction" ) ) // don't go there if called by the singleShot below
+  else if ( sender()->inherits( "TDEAction" ) ) // don't go there if called by the singleShot below
   {
       KURL url;
       if ( m_currentView && m_currentView->url().isLocalFile() )
@@ -1587,7 +1587,7 @@ void KonqMainWindow::slotOpenWith()
   KURL::List lst;
   lst.append( m_currentView->url() );
 
-  TQString serviceName = TQT_TQOBJECT_CONST(sender())->name();
+  TQString serviceName = sender()->name();
 
   TDETrader::OfferList offers = m_currentView->appServiceOffers();
   TDETrader::OfferList::ConstIterator it = offers.begin();
@@ -1605,7 +1605,7 @@ void KonqMainWindow::slotViewModeToggle( bool toggle )
   if ( !toggle )
     return;
 
-  TQString modeName = TQT_TQOBJECT_CONST(sender())->name();
+  TQString modeName = sender()->name();
 
   if ( m_currentView->service()->desktopEntryName() == modeName )
     return;
@@ -2945,7 +2945,7 @@ void KonqMainWindow::slotActivatePrevTab()
 
 void KonqMainWindow::slotActivateTab()
 {
-  m_pViewManager->activateTab( TQString( TQT_TQOBJECT_CONST(sender())->name() ).right( 2 ).toInt() -1 );
+  m_pViewManager->activateTab( TQString( sender()->name() ).right( 2 ).toInt() -1 );
 }
 
 void KonqMainWindow::slotDumpDebugInfo()
@@ -4660,7 +4660,7 @@ void KonqMainWindow::slotPopupMenu( KXMLGUIClient *client, const TQPoint &_globa
 {
   KonqView * m_oldView = m_currentView;
 
-  KonqView * currentView = childView( static_cast<KParts::ReadOnlyPart *>( TQT_TQOBJECT_CONST(sender())->parent() ) );
+  KonqView * currentView = childView( static_cast<KParts::ReadOnlyPart *>( sender()->parent() ) );
 
   //kdDebug() << "KonqMainWindow::slotPopupMenu m_oldView=" << m_oldView << " new currentView=" << currentView << " passive:" << currentView->isPassiveMode() << endl;
 
@@ -4926,7 +4926,7 @@ void KonqMainWindow::slotItemsRemoved( const KFileItemList &items )
 
 void KonqMainWindow::slotOpenEmbedded()
 {
-  TQCString name = TQT_TQOBJECT_CONST(sender())->name();
+  TQCString name = sender()->name();
 
   m_popupService = m_popupEmbeddingServices[ name.toInt() ]->desktopEntryName();
 

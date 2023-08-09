@@ -85,7 +85,7 @@ void KCMDisplay::save()
 
 void KCMDisplay::moduleChanged( bool isChanged )
 {
-  TQMap<TDECModule*, bool>::Iterator currentModule = m_modules.find(static_cast<TDECModule*>(TQT_TQWIDGET(const_cast<TQObject*>(TQT_TQOBJECT_CONST(sender())))));
+  TQMap<TDECModule*, bool>::Iterator currentModule = m_modules.find(static_cast<TDECModule*>(const_cast<TQObject*>(sender())));
   Q_ASSERT(currentModule != m_modules.end());
   if (currentModule.data() == isChanged)
     return;

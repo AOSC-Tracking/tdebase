@@ -1087,7 +1087,7 @@ void KonqPopupMenu::slotPopupAddToBookmark()
 
 void KonqPopupMenu::slotRunService()
 {
-  TQCString senderName = TQT_TQOBJECT_CONST(sender())->name();
+  TQCString senderName = sender()->name();
   int id = senderName.mid( senderName.find( '_' ) + 1 ).toInt();
 
   // Is it a usual service (application)

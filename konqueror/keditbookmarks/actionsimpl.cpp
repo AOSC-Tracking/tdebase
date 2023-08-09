@@ -392,7 +392,7 @@ void ActionsImpl::slotImport() {
     // kdDebug() << "ActionsImpl::slotImport() where sender()->name() == "
     //           << sender()->name() << endl;
     ImportCommand* import
-        = ImportCommand::performImport(TQT_TQOBJECT_CONST(sender())->name()+6, KEBApp::self());
+        = ImportCommand::performImport(sender()->name()+6, KEBApp::self());
     if (!import)
         return;
     CmdHistory::self()->addCommand(import);

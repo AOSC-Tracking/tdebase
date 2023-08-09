@@ -599,7 +599,7 @@ void FaxCtrl::slotClearLog()
 
 void FaxCtrl::slotCloseLog()
 {
-	const TQObject	*obj = TQT_TQOBJECT_CONST(sender());
+	const TQObject	*obj = sender();
 	if (m_logview)
 	{
 		TQTextEdit	*view = m_logview;

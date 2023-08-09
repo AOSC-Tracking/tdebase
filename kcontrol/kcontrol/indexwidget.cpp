@@ -60,7 +60,7 @@ void IndexWidget::resizeEvent(TQResizeEvent *e)
 
 void IndexWidget::moduleSelected(ConfigModule *m)
 {
-  const TQObject *obj = TQT_TQOBJECT_CONST(sender());
+  const TQObject *obj = sender();
   if(!m) return;
 
   emit moduleActivated(m);

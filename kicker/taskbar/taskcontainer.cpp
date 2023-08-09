@@ -256,7 +256,7 @@ void TaskContainer::taskChanged(bool geometryOnlyChange)
         return;
     }
 
-    const TQObject* source = TQT_TQOBJECT_CONST(sender());
+    const TQObject* source = sender();
     Task::Ptr task = 0;
     Task::List::const_iterator itEnd = tasks.constEnd();
     for (Task::List::const_iterator it = tasks.constBegin(); it != itEnd; ++it)
@@ -279,7 +279,7 @@ void TaskContainer::taskChanged(bool geometryOnlyChange)
 
 void TaskContainer::iconChanged()
 {
-    const TQObject* source = TQT_TQOBJECT_CONST(sender());
+    const TQObject* source = sender();
     Task::Ptr task = 0;
     Task::List::const_iterator itEnd = tasks.constEnd();
     for (Task::List::const_iterator it = tasks.constBegin(); it != itEnd; ++it)

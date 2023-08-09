@@ -1490,7 +1490,7 @@ KonqBaseListViewWidget::iterator KonqBaseListViewWidget::iterator::operator++(in
 
 void KonqBaseListViewWidget::paintEmptyArea( TQPainter *p, const TQRect &r )
 {
-   const TQPixmap *pm = TQT_TQPIXMAP_CONST(viewport()->paletteBackgroundPixmap());
+   const TQPixmap *pm = viewport()->paletteBackgroundPixmap();
 
    if (!pm || pm->isNull())
       p->fillRect(r, viewport()->backgroundColor());
