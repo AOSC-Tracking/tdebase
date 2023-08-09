@@ -2591,7 +2591,7 @@ void Konsole::listSessions()
 
 void Konsole::switchToSession()
 {
-  activateSession( TQString( TQT_TQOBJECT_CONST(sender())->name() ).right( 2 ).toInt() -1 );
+  activateSession( TQString( sender()->name() ).right( 2 ).toInt() -1 );
 }
 
 void Konsole::activateSession(int position)

@@ -218,7 +218,7 @@ void KonqInfoListViewItem::paintCell( TQPainter *_painter, const TQColorGroup & 
     cg.setColor( TQColorGroup::Text, m_pListViewWidget->itemColor() );
 
     TDEListView *lv = static_cast< TDEListView* >( listView() );
-    const TQPixmap *pm = TQT_TQPIXMAP_CONST(lv->viewport()->paletteBackgroundPixmap());
+    const TQPixmap *pm = lv->viewport()->paletteBackgroundPixmap();
     if ( _column == 0 && isSelected() && !lv->allColumnsShowFocus() )
     {
         int newWidth = width( lv->fontMetrics(), lv, _column );

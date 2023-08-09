@@ -2765,7 +2765,7 @@ void KMenu::slotStartURL(const TQString& u)
 
 void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos, int /*col*/ )
 {
-    const TQObject* source = TQT_TQOBJECT_CONST(sender());
+    const TQObject* source = sender();
 
     if (!item)
         return;

@@ -169,7 +169,7 @@ public:
         // painting of list background for now.
         return TDEListView::paintEmptyArea(p, rect );
 
-        const TQPixmap *pm = TQT_TQPIXMAP_CONST(paletteBackgroundPixmap());
+        const TQPixmap *pm = paletteBackgroundPixmap();
         if (!pm || pm->isNull()) {
             return;
         }

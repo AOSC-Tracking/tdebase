@@ -235,7 +235,7 @@ TQPtrList<TDEAction> ToggleViewGUIClient::actions() const
 
 void ToggleViewGUIClient::slotToggleView( bool toggle )
 {
-  TQString serviceName = TQString::fromLatin1( TQT_TQOBJECT_CONST(sender())->name() );
+  TQString serviceName = TQString::fromLatin1( sender()->name() );
 
   bool horizontal = m_mapOrientation[ serviceName ];
 

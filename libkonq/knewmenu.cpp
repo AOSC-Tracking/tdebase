@@ -368,11 +368,11 @@ void KNewMenu::slotNewDir()
 
 void KNewMenu::slotNewFile()
 {
-    int id = TQString( TQT_TQOBJECT_CONST(sender())->name() + 7 ).toInt(); // skip "newmenu"
+    int id = TQString( sender()->name() + 7 ).toInt(); // skip "newmenu"
     if (id == 0)
     {
 	// run the command for the templates
-	KRun::runCommand(TQString(TQT_TQOBJECT_CONST(sender())->name()));
+	KRun::runCommand(TQString(sender()->name()));
 	return;
     }
 

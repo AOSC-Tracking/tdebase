@@ -436,7 +436,7 @@ const KFileItem * KonqKfmIconView::currentItem()
 
 void KonqKfmIconView::slotPreview( bool toggle )
 {
-    TQCString name = TQT_TQOBJECT_CONST(sender())->name(); // e.g. clipartthumbnail (or audio/, special case)
+    TQCString name = sender()->name(); // e.g. clipartthumbnail (or audio/, special case)
     if (name == "iconview_preview_all")
     {
         m_pProps->setShowingPreview( toggle );
