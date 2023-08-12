@@ -100,7 +100,7 @@ TQSize Decoration::minimumSize() const
     
 bool Decoration::eventFilter( TQObject* o, TQEvent* e )
     {
-    if( TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(widget()))
+    if( o == widget())
         {
         switch( e->type())
             {

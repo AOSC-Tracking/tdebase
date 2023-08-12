@@ -225,7 +225,7 @@ void ButtonContainer::dragButton(const TQPixmap icon)
 
 bool ButtonContainer::eventFilter(TQObject *o, TQEvent *e)
 {
-    if (TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(_button) && e->type() == TQEvent::MouseButtonPress)
+    if (o == _button && e->type() == TQEvent::MouseButtonPress)
     {
         static bool sentinal = false;
 

@@ -1675,7 +1675,7 @@ void ClockApplet::wheelEvent(TQWheelEvent* e)
 // catch the mouse clicks of our child widgets
 bool ClockApplet::eventFilter( TQObject *o, TQEvent *e )
 {
-    if (( TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(_clock->widget()) || TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(_date) || TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(_dayOfWeek)) &&
+    if (( o == _clock->widget() || o == _date || o == _dayOfWeek) &&
         e->type() == TQEvent::MouseButtonPress )
     {
         mousePressEvent(TQT_TQMOUSEEVENT(e) );

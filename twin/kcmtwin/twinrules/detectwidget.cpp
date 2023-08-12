@@ -170,7 +170,7 @@ void DetectDialog::selectWindow()
 
 bool DetectDialog::eventFilter( TQObject* o, TQEvent* e )
     {
-    if( TQT_BASE_OBJECT(o) != TQT_BASE_OBJECT(grabber) )
+    if( o != grabber )
         return false;
     if( e->type() != TQEvent::MouseButtonRelease )
         return false;

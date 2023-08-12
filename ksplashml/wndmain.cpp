@@ -427,7 +427,7 @@ TQPtrList<Action> KSplash::actionList()
 
 bool KSplash::eventFilter( TQObject *o, TQEvent *e )
 {
-  if ( ( e->type() == TQEvent::MouseButtonRelease ) && ( TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(mThemeEngine) ) )
+  if ( ( e->type() == TQEvent::MouseButtonRelease ) && ( o == mThemeEngine ) )
   {
     TQTimer::singleShot( 0, this, TQT_SLOT(close()));
     return TRUE;

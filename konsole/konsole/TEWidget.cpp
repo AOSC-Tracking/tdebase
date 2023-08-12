@@ -1938,7 +1938,7 @@ bool TEWidget::eventFilter( TQObject *obj, TQEvent *e )
       TQT_TQKEYEVENT( e )->ignore();
       return false;
   }
-  if ( TQT_BASE_OBJECT(obj) != TQT_BASE_OBJECT(this) /* when embedded */ && TQT_BASE_OBJECT(obj) != TQT_BASE_OBJECT(parent()) /* when standalone */ )
+  if ( obj != this /* when embedded */ && obj != parent() /* when standalone */ )
       return false; // not us
   if ( e->type() == TQEvent::KeyPress )
   {

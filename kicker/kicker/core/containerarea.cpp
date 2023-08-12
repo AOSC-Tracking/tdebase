@@ -1201,7 +1201,7 @@ void ContainerArea::dropEvent(TQDropEvent *ev)
         }
 
         TQObject *parent = ev->source() ? ev->source()->parent() : 0;
-        while (parent && (TQT_BASE_OBJECT(parent) != TQT_BASE_OBJECT(this)))
+        while (parent && (parent != this))
         {
             parent = parent->parent();
         }
@@ -1387,7 +1387,7 @@ bool ContainerArea::eventFilter(TQObject* o, TQEvent* e)
     // which contain a ContainerArea can react to layout changes of its
     // contents. For example: If an applets grows, the top level widget may
     // want to grow as well.
-    if (TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(m_contents))
+    if (o == m_contents)
     {
         if (e->type() == TQEvent::LayoutHint)
         {

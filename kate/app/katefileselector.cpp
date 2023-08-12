@@ -485,7 +485,7 @@ bool KateFileSelector::eventFilter( TQObject* o, TQEvent *e )
       And the popup is rather useless, if the paths are only partly visible.
   */
   TQListBox *lb = cmbPath->listBox();
-  if ( TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(lb) && e->type() == TQEvent::Show ) {
+  if ( o == lb && e->type() == TQEvent::Show ) {
     int add = lb->height() < lb->contentsHeight() ? lb->verticalScrollBar()->width() : 0;
     int w = TQMIN( mainwin->width(), lb->contentsWidth() + add );
     lb->resize( w, lb->height() );

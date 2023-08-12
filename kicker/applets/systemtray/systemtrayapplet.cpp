@@ -833,7 +833,7 @@ int SystemTrayApplet::maxIconHeight() const
 
 bool SystemTrayApplet::eventFilter(TQObject* watched, TQEvent* e)
 {
-    if (TQT_BASE_OBJECT(watched) == TQT_BASE_OBJECT(m_expandButton))
+    if (watched == m_expandButton)
     {
         TQPoint p;
         if (e->type() == TQEvent::ContextMenu)
