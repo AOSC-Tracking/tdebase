@@ -2288,7 +2288,7 @@ class EatAllPaintEvents
     {
     protected:
         virtual bool eventFilter( TQObject* o, TQEvent* e )
-            { return e->type() == TQEvent::Paint && TQT_BASE_OBJECT(o) != TQT_BASE_OBJECT(geometryTip); }
+            { return e->type() == TQEvent::Paint && o != geometryTip; }
     };
 
 static EatAllPaintEvents* eater = 0;

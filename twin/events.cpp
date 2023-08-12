@@ -1079,7 +1079,7 @@ int qtToX11State( TQt::ButtonState state )
 // for the decoration window cannot be (easily) intercepted as X11 events
 bool Client::eventFilter( TQObject* o, TQEvent* e )
     {
-    if (TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(shadowWidget))
+    if (o == shadowWidget)
         {
         if (e->type() == TQEvent::MouseButtonRelease)
             {
@@ -1291,7 +1291,7 @@ bool Client::eventFilter( TQObject* o, TQEvent* e )
             }
         }
     if( decoration == NULL
-        || TQT_BASE_OBJECT(o) != TQT_BASE_OBJECT(decoration->widget()))
+        || o != decoration->widget())
         return false;
     if( e->type() == TQEvent::MouseButtonPress )
         {

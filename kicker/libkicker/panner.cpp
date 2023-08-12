@@ -336,7 +336,7 @@ void Panner::ensureVisible( int x, int y, int xmargin, int ymargin )
 
 bool Panner::eventFilter( TQObject *obj, TQEvent *e )
 {
-    if ( TQT_BASE_OBJECT(obj) == TQT_BASE_OBJECT(_viewport) || TQT_BASE_OBJECT(obj) == TQT_BASE_OBJECT(_clipper) ) 
+    if ( obj == _viewport || obj == _clipper ) 
     {
         switch ( e->type() ) 
         {

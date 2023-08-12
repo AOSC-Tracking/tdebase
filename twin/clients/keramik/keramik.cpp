@@ -1796,7 +1796,7 @@ TQSize KeramikClient::minimumSize() const
 
 bool KeramikClient::eventFilter( TQObject* o, TQEvent* e )
 {
-	if ( TQT_BASE_OBJECT(o) != TQT_BASE_OBJECT(widget()) )
+	if ( o != widget() )
 		return false;
 
 	switch ( e->type() )

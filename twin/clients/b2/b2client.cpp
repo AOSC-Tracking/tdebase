@@ -1179,7 +1179,7 @@ bool B2Client::drawbound(const TQRect& geom, bool clear)
 
 bool B2Client::eventFilter(TQObject *o, TQEvent *e)
 {
-    if (TQT_BASE_OBJECT(o) != TQT_BASE_OBJECT(widget()))
+    if (o != widget())
 	return false;
     switch (e->type()) {
     case TQEvent::Resize:

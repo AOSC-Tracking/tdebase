@@ -3462,7 +3462,7 @@ void KonqMainWindow::slotClearComboHistory()
 bool KonqMainWindow::eventFilter(TQObject*obj,TQEvent *ev)
 {
   if ( ( ev->type()==TQEvent::FocusIn || ev->type()==TQEvent::FocusOut ) &&
-       m_combo && TQT_BASE_OBJECT(m_combo->lineEdit()) == TQT_BASE_OBJECT(obj) )
+       m_combo && m_combo->lineEdit() == obj )
   {
     //kdDebug(1202) << "KonqMainWindow::eventFilter " << obj << " " << obj->className() << " " << obj->name() << endl;
 

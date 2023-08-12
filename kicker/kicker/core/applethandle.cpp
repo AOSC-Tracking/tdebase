@@ -220,7 +220,7 @@ bool AppletHandle::eventFilter(TQObject *o, TQEvent *e)
 
         return TQWidget::eventFilter( o, e );
     }
-    else if (TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(m_dragBar))
+    else if (o == m_dragBar)
     {
         if (e->type() == TQEvent::MouseButtonPress)
         {

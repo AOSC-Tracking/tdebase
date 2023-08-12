@@ -196,7 +196,7 @@ bool Lockout::eventFilter( TQObject *o, TQEvent *e )
         TQMouseEvent *me = TQT_TQMOUSEEVENT( e );
         if( me->button() == Qt::RightButton )
         {
-            if( TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(lockButton) )
+            if( o == lockButton )
             {
                 TQPopupMenu *popup = new TQPopupMenu();
 
@@ -219,7 +219,7 @@ bool Lockout::eventFilter( TQObject *o, TQEvent *e )
 
                 return true;
             }
-            else if ( TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(logoutButton) )
+            else if ( o == logoutButton )
             {
                 TQPopupMenu *popup = new TQPopupMenu();
 

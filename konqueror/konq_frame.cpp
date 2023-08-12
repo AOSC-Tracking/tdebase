@@ -173,7 +173,7 @@ void KonqFrameStatusBar::splitFrameMenu()
 
 bool KonqFrameStatusBar::eventFilter(TQObject* o, TQEvent *e)
 {
-   if (TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(m_pStatusLabel) && e->type()==TQEvent::MouseButtonPress)
+   if (o == m_pStatusLabel && e->type()==TQEvent::MouseButtonPress)
    {
       emit clicked();
       update();
@@ -181,7 +181,7 @@ bool KonqFrameStatusBar::eventFilter(TQObject* o, TQEvent *e)
          splitFrameMenu();
       return true;
    }
-   else if ( TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(this) && e->type() == TQEvent::ApplicationPaletteChange )
+   else if ( o == this && e->type() == TQEvent::ApplicationPaletteChange )
    {
       unsetPalette();
       updateActiveStatus();

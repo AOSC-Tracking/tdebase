@@ -1256,7 +1256,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
     if ( !m_pPart )
         return false;
 //  kdDebug() << "--" << obj->className() << "--" << e->type() << "--"  << endl;
-    if ( e->type() == TQEvent::DragEnter && m_bURLDropHandling && TQT_BASE_OBJECT(obj) == TQT_BASE_OBJECT(m_pPart->widget()) )
+    if ( e->type() == TQEvent::DragEnter && m_bURLDropHandling && obj == m_pPart->widget() )
     {
         TQDragEnterEvent *ev = static_cast<TQDragEnterEvent *>( e );
 
@@ -1277,7 +1277,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
             delete children;
         }
     }
-    else if ( e->type() == TQEvent::Drop && m_bURLDropHandling && TQT_BASE_OBJECT(obj) == TQT_BASE_OBJECT(m_pPart->widget()) )
+    else if ( e->type() == TQEvent::Drop && m_bURLDropHandling && obj == m_pPart->widget() )
     {
         TQDropEvent *ev = static_cast<TQDropEvent *>( e );
 

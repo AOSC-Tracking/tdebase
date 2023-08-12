@@ -747,7 +747,7 @@ void KMiniPagerButton::slotToggled( bool b )
 
 bool KMiniPagerButton::eventFilter( TQObject *o, TQEvent * e)
 {
-    if (o && TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(m_lineEdit) &&
+    if (o && o == m_lineEdit &&
         (e->type() == TQEvent::FocusOut || e->type() == TQEvent::Hide))
     {
         m_pager->twin()->setDesktopName( m_desktop, m_lineEdit->text() );

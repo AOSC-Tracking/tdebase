@@ -489,7 +489,7 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
         }
 
         while (receiver) {
-            if (TQT_BASE_OBJECT(receiver) == TQT_BASE_OBJECT(m_tabBar) && (e->type()!=TQEvent::MouseMove || KickerSettings::kickoffSwitchTabsOnHover() ) ) {
+            if (receiver == m_tabBar && (e->type()!=TQEvent::MouseMove || KickerSettings::kickoffSwitchTabsOnHover() ) ) {
                 TQTab* s = m_tabBar->selectTab(m_tabBar->mapFromGlobal(p));
                 if (s && s->identifier() == ApplicationsTab)
                     raiseWidget = m_browserView;
@@ -509,8 +509,8 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
 
             /* we do not want hover activation for the search line edit as this can be
              * pretty disturbing */
-            if ( (TQT_BASE_OBJECT(receiver) == TQT_BASE_OBJECT(m_searchPixmap) ||
-                 ( ( TQT_BASE_OBJECT(receiver) == TQT_BASE_OBJECT(m_searchLabel) || TQT_BASE_OBJECT(receiver)==TQT_BASE_OBJECT(m_kcommand->lineEdit()) ) &&
+            if ( (receiver == m_searchPixmap ||
+                 ( ( receiver == m_searchLabel || receiver==m_kcommand->lineEdit() ) &&
                  ( e->type() == TQEvent::KeyPress || e->type() == TQEvent::Wheel
                    || e->type() == TQEvent::MouseButtonPress ) ) ) &&
                     !m_isShowing) {
@@ -666,7 +666,7 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
         r = true;
     }
 
-    if (e->type() == TQEvent::Enter && TQT_BASE_OBJECT(receiver) == TQT_BASE_OBJECT(m_stacker))
+    if (e->type() == TQEvent::Enter && receiver == m_stacker)
     {
         TQRect r(m_stacker->mapToGlobal(TQPoint(-8,-32)), m_stacker->size());
         r.setSize(r.size()+TQSize(16,128));
@@ -2800,7 +2800,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
 
     m_popupMenu->insertTitle(SmallIcon(kitem->icon()),kitem->title());
 
-     if (TQT_BASE_OBJECT_CONST(source)==TQT_BASE_OBJECT(m_favoriteView))
+     if (source==m_favoriteView)
      {
          hasEntries = true;
          m_popupMenu->insertItem(SmallIconSet("remove"),
@@ -2832,7 +2832,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
          }
      }
 
-     if (TQT_BASE_OBJECT_CONST(source)!=TQT_BASE_OBJECT(m_exitView)) {
+     if (source!=m_exitView) {
         if (m_popupService || (!m_popupPath.path.startsWith("kicker:/") && !m_popupPath.path.startsWith("system:/") && !m_popupPath.path.startsWith("kaddressbook:/"))) {
             if (hasEntries)
                 m_popupMenu->insertSeparator();
@@ -2872,7 +2872,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
                i18n("Put Into Run Dialog"), PutIntoRunDialog);
             }
         }
-        if (TQT_BASE_OBJECT_CONST(source)==TQT_BASE_OBJECT(m_searchResultsWidget) || ((TQT_BASE_OBJECT_CONST(source)==TQT_BASE_OBJECT(m_favoriteView) || TQT_BASE_OBJECT_CONST(source)==TQT_BASE_OBJECT(m_recentlyView) || TQT_BASE_OBJECT_CONST(source) == TQT_BASE_OBJECT(m_systemView)) && !m_popupService && !m_popupPath.path.startsWith("kicker:/")) ) {
+        if (source==m_searchResultsWidget || ((source==m_favoriteView || source==m_recentlyView || source == m_systemView) && !m_popupService && !m_popupPath.path.startsWith("kicker:/")) ) {
             TQString uri;
             if (m_popupService)
                 uri = locate("apps", m_popupService->desktopEntryPath());
@@ -2909,7 +2909,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
         }
     }
 
-    if (TQT_BASE_OBJECT_CONST(source)==TQT_BASE_OBJECT(m_recentlyView)) {
+    if (source==m_recentlyView) {
        m_popupMenu->insertSeparator();
        if (m_popupService)
          m_popupMenu->insertItem(SmallIconSet("history_clear"),

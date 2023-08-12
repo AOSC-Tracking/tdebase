@@ -396,7 +396,7 @@ bool KonqCombo::eventFilter( TQObject *o, TQEvent *ev )
     // Handle Ctrl+Del/Backspace etc better than the Qt widget, which always
     // jumps to the next whitespace.
     TQLineEdit *edit = lineEdit();
-    if ( TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(edit) ) {
+    if ( o == edit ) {
         int type = ev->type();
         if ( type == TQEvent::KeyPress ) {
             TQKeyEvent *e = TQT_TQKEYEVENT( ev );

@@ -984,7 +984,7 @@ void Konsole::makeTabWidget()
 
 bool Konsole::eventFilter( TQObject *o, TQEvent *ev )
 {
-  if (TQT_BASE_OBJECT(o) == TQT_BASE_OBJECT(m_newSessionButton))
+  if (o == m_newSessionButton)
   {
     // Popup the menu when the left mousebutton is pressed and the mouse
     // is moved by a small distance.
