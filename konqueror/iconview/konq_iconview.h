@@ -224,6 +224,7 @@ protected:
   KonqIconViewWidget *m_pIconView;
 
   TQTimer *m_pTimeoutRefreshTimer;
+  TQTimer *m_pActivateDoubleClickTimer;
 
   TQPtrDict<KFileIVI> m_itemDict; // maps KFileItem * -> KFileIVI *
 
