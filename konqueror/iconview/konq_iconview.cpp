@@ -348,8 +348,6 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
              this, TQT_SLOT( slotMouseButtonClicked(int, TQIconViewItem*, const TQPoint&)) );
     connect( m_pIconView, TQT_SIGNAL( contextMenuRequested(TQIconViewItem*, const TQPoint&)),
              this, TQT_SLOT( slotContextMenuRequested(TQIconViewItem*, const TQPoint&)) );
-    connect( m_pIconView, TQT_SIGNAL( mouseDoubleClicked(TQIconViewItem*)),
-             this, TQT_SLOT( slotDoubleClicked(TQIconViewItem*)) );
 
     // Signals needed to implement the spring loading folders behavior
     connect( m_pIconView, TQT_SIGNAL( held( TQIconViewItem * ) ),
@@ -412,6 +410,8 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
     //    m_pIconView->calculateGridX();
 
     setViewMode( mode );
+
+    m_pActivateDoubleClickTimer = new TQTimer(this);
 }
 
 KonqKfmIconView::~KonqKfmIconView()
@@ -869,21 +869,40 @@ void KonqKfmIconView::slotMouseButtonPressed(int _button, TQIconViewItem* _item,
 
 void KonqKfmIconView::slotMouseButtonClicked(int _button, TQIconViewItem* _item, const TQPoint& )
 {
-    if( _button == Qt::MidButton )
+    if (_button == Qt::MidButton)
+    {
         mmbClicked( _item ? static_cast<KFileIVI*>(_item)->item() : 0L );
+    }
+    else if (!_item && _button == Qt::LeftButton)
+    {
+        if (m_pActivateDoubleClickTimer->isActive())
+        {
+            m_pActivateDoubleClickTimer->stop();
+            slotDoubleClicked(_item);
+        }
+        else
+        {
+            m_pActivateDoubleClickTimer->start(TQApplication::doubleClickInterval(), true);
+        }
+    }
 }
 
 void KonqKfmIconView::slotDoubleClicked(TQIconViewItem *_item)
 { 
-    if (!_item)
+    if (!_item && KonqFMSettings::settings()->doubleClickMoveToParent())
     {
         KParts::URLArgs args;
         args.trustedSource = true;
-        KURL upURL = m_dirLister->url().upURL();
+        KURL baseURL(m_dirLister->url().internalReferenceURL());
+        if (baseURL.isEmpty())
+        {
+            baseURL = m_dirLister->url();
+        }
+        KURL upURL = baseURL.upURL();
         if (!upURL.isEmpty())
-	{  
-	m_extension->openURLRequest(upURL, args);
-	}
+        {
+            m_extension->openURLRequest(upURL, args);
+        }
     }
 }
   
