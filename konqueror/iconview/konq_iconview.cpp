@@ -427,6 +427,13 @@ KonqKfmIconView::~KonqKfmIconView()
     delete m_pProps;
     //no need for that, KParts deletes our widget already ;-)
     //    delete m_pIconView;
+    m_pActivateDoubleClickTimer->stop();
+    delete m_pActivateDoubleClickTimer;
+    if (m_pTimeoutRefreshTimer)
+    {
+      m_pTimeoutRefreshTimer->stop();
+      delete m_pTimeoutRefreshTimer;
+    }
 }
 
 const KFileItem * KonqKfmIconView::currentItem()
