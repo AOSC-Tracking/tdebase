@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-04 18:14+0000\n"
-"PO-Revision-Date: 2022-03-13 09:11+0000\n"
+"PO-Revision-Date: 2023-08-23 07:29+0000\n"
 "Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/twin-desktop-files/it/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: kcmtwin/showdesktop.desktop:4
@@ -68,14 +68,12 @@ msgstr ""
 #. Name
 #: kcmtwin/twinoptions/twinactiveborders.desktop:11
 msgid "Active Borders"
-msgstr ""
+msgstr "Bordi Attivi"
 
 #. Comment
 #: kcmtwin/twinoptions/twinactiveborders.desktop:13
-#, fuzzy
-#| msgid "Configure advanced window management features"
 msgid "Configure active borders/corners feature"
-msgstr "Configura le funzioni avanzate del gestore delle finestre"
+msgstr "Configura le funzioni dei bordi/angoli attivi"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinactiveborders.desktop:15
@@ -83,6 +81,8 @@ msgid ""
 "window behavior;windows;frame;titlebar;borders;corners;active borders;"
 "aerosnap;"
 msgstr ""
+"comportamento delle finestre;finestre;cornice;barra del titolo;bordi;angoli;"
+"bordi attivi;aerosnap;"
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
