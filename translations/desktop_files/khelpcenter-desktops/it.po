@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-05 18:15+0000\n"
-"PO-Revision-Date: 2022-01-15 09:00+0000\n"
+"PO-Revision-Date: 2023-08-23 07:29+0000\n"
 "Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/khelpcenter-desktop-files/it/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Help.desktop:10
@@ -165,7 +165,7 @@ msgstr "Guida rapida"
 #. Name
 #: plugins/releasenotes.desktop:6
 msgid "TDE Release Notes"
-msgstr ""
+msgstr "Note sulla versione di TDE"
 
 #. Name
 #: plugins/support.desktop:6
