@@ -460,11 +460,7 @@ void KonqFrame::slotLinkedViewClicked( bool mode )
 void
 KonqFrame::paintEvent( TQPaintEvent* )
 {
-#ifdef USE_QT4
-   #warning [INFO] Repaint call disabled in Qt4 to prevent recursive repaint (which otherwise occurs for unknown reasons)
-#else // USE_QT4
    m_pStatusBar->repaint();
-#endif // USE_QT4
 }
 
 void KonqFrame::slotRemoveView()

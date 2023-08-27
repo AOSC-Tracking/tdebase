@@ -39,9 +39,7 @@
 class KURL;
 class TQCString;
 template <typename T> class TQMemArray;
-#ifdef USE_QT3
 typedef TQMemArray<char> TQByteArray;
-#endif // USE_QT3
 
 namespace KioSMTP {
   class Response;

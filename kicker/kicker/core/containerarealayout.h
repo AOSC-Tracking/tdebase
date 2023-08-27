@@ -108,12 +108,6 @@ class ContainerAreaLayout : public TQLayout
         int leftR() const;
         int rightR() const;
 
-#ifdef USE_QT4
-
-        QLAYOUT_REQUIRED_METHOD_DECLARATIONS
-
-#endif // USE_QT4
-
     private:
         int moveContainerPushRecursive(ItemList::const_iterator it, int distance);
         int distanceToPreviousItem(ItemList::const_iterator it) const;

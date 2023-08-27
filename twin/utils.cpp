@@ -37,10 +37,6 @@ License. See the file "COPYING" for the exact licensing terms.
 #include "atoms.h"
 #include "notifications.h"
 
-#ifdef USE_QT4
-#include <Qt/qx11info_x11.h>
-#endif // USE_QT4
-
 #endif
 
 namespace KWinInternal

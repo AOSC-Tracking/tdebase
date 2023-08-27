@@ -122,9 +122,6 @@ void PanelKMenu::hideMenu()
 {
     hide();
 
-#ifdef USE_QT4
-    // The hacks below aren't needed any more because Qt4 supports true transparency for the fading logout screen
-#else // USE_QT4
     // Try to redraw the area under the menu
     // Qt makes this surprisingly difficult to do in a timely fashion!
     while (isShown() == true)
@@ -148,7 +145,6 @@ void PanelKMenu::hideMenu()
     delaytimer->start( 100, TRUE );	// Wait for 100 milliseconds
     while (windowTimerTimedOut == false)
         kapp->eventLoop()->processEvents(TQEventLoop::ExcludeUserInput, 1000);
-#endif // USE_QT4
 }
 
 void PanelKMenu::windowClearTimeout()
