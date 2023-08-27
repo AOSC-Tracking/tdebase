@@ -297,7 +297,7 @@ private:
   TQPtrDict<TDERadioAction> session2action;
   TQPtrList<TESession> sessions;
 
-  TQIntDict<KSimpleConfig> no2command;     //QT4 - convert to QList
+  TQIntDict<KSimpleConfig> no2command;
 
   KSimpleConfig* m_defaultSession;
   TQString m_defaultSessionFilename;

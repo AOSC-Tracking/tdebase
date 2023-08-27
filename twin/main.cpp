@@ -84,10 +84,6 @@ int x11ErrorHandler(Display *d, XErrorEvent *e)
 Application::Application( )
 : TDEApplication( ), owner( screen_number )
     {
-#ifdef USE_QT4
-    // I'm special...
-    setQuitOnLastWindowClosed(false);
-#endif // USE_QT4
     TDECmdLineArgs* args = TDECmdLineArgs::parsedArgs();
     if (!config()->isImmutable() && args->isSet("lock"))
         {

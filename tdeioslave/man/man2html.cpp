@@ -4190,13 +4190,13 @@ static char *scan_request(char *c)
                         if (mode)
                         {
                             // .rm ReMove
-                            s_stringDefinitionMap.remove(name); // ### QT4: removeAll
+                            s_stringDefinitionMap.remove(name);
                         }
                         else
                         {
                             // .rn ReName
                             StringDefinition def=(*it);
-                            s_stringDefinitionMap.remove(name); // ### QT4: removeAll
+                            s_stringDefinitionMap.remove(name);
                             s_stringDefinitionMap.insert(name2,def);
                         }
                     }
@@ -5152,7 +5152,7 @@ static char *scan_request(char *c)
                     else
                     {
                         NumberDefinition def=(*it);
-                        s_numberDefinitionMap.remove(name); // ### QT4: removeAll
+                        s_numberDefinitionMap.remove(name);
                         s_numberDefinitionMap.insert(name2,def);
                     }
                     kdDebug(7107) << "end .rnn" << endl;

@@ -118,9 +118,6 @@ private:
 };
 
 extern bool tqt_qclipboard_bailout_hack;
-#if KDE_IS_VERSION( 15, 0, 0 )
-#error Check status of #80072 with Qt4.
-#endif
 
 static void ensureGlobalSyncOff(TDEConfig* config);
 

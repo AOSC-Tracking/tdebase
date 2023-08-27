@@ -211,38 +211,6 @@ ContainerAreaLayout::ContainerAreaLayout(TQWidget* parent)
 {
 }
 
-#ifdef USE_QT4
-/*!
-    \reimp
-*/
-int ContainerAreaLayout::count() const {
-	return m_items.count();
-}
-
-/*!
-    \reimp
-*/
-TQLayoutItem* ContainerAreaLayout::itemAt(int index) const {
-	return index >= 0 && index < m_items.count() ? (*m_items.at(index))->item : 0;
-}
-
-/*!
-    \reimp
-*/
-TQLayoutItem* ContainerAreaLayout::takeAt(int index) {
-	if (index < 0 || index >= m_items.count())
-		return 0;
-	ContainerAreaLayoutItem *b = *m_items.at(index);
-	m_items.remove(m_items.at(index));
-	TQLayoutItem *item = b->item;
-	b->item = 0;
-	delete b;
-
-	invalidate();
-	return item;
-}
-#endif // USE_QT4
-
 void ContainerAreaLayout::addItem(TQLayoutItem* item)
 {
     m_items.append(new ContainerAreaLayoutItem(static_cast<TQLayoutItem*>(item), this));
@@ -445,13 +413,7 @@ TQSize ContainerAreaLayout::minimumSize() const
 
 TQLayoutIterator ContainerAreaLayout::iterator()
 {
-    // [FIXME]
-#ifdef USE_QT4
-    #warning [FIXME] ContainerAreaLayout iterators may not function correctly under Qt4
-    return TQLayoutIterator(this);	    	// [FIXME]
-#else // USE_QT4
     return TQLayoutIterator(new ContainerAreaLayoutIterator(&m_items));
-#endif // USE_QT4
 }
 
 void ContainerAreaLayout::setGeometry(const TQRect& rect)
