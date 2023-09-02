@@ -432,7 +432,7 @@ TEWidget::TEWidget(TQWidget *parent, const char *name)
   setAcceptDrops(true); // attempt
   dragInfo.state = diNone;
 
-  setFocusPolicy( TQ_WheelFocus );
+  setFocusPolicy( TQWidget::WheelFocus );
 
   // im
   setInputMethodEnabled(true);

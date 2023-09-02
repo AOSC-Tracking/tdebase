@@ -405,7 +405,7 @@ void kthememanager::updatePreview( const TQString & pixFile )
      TQImage preview( pixFile, "PNG" );
      if (preview.width()>dlg->lbPreview->contentsRect().width() ||
          preview.height()>dlg->lbPreview->contentsRect().height() )
-         preview = preview.smoothScale( dlg->lbPreview->contentsRect().size(), TQ_ScaleMin );
+         preview = preview.smoothScale( dlg->lbPreview->contentsRect().size(), TQImage::ScaleMin );
      TQPixmap pix;
      pix.convertFromImage( preview );
      dlg->lbPreview->setPixmap( pix );

@@ -76,7 +76,7 @@ KickerTip::KickerTip(TQWidget * parent)
       m_timer(0, "KickerTip::m_timer"),
       m_frameTimer(0, "KickerTip::m_frameTimer")
 {
-    setFocusPolicy(TQ_NoFocus);
+    setFocusPolicy(TQWidget::NoFocus);
     setBackgroundMode(NoBackground);
     resize(0, 0);
     hide();

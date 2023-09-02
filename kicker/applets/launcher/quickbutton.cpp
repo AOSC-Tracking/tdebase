@@ -138,7 +138,7 @@ TQPixmap QuickURL::pixmap( mode_t _mode, TDEIcon::Group _group,
        pxmap = KMimeType::pixmapForURL(_kurl, _mode, _group, _force_size, _state);
    }
    // Resize to fit button
-   pxmap.convertFromImage(pxmap.convertToImage().smoothScale(_force_size,_force_size, TQ_ScaleMin));
+   pxmap.convertFromImage(pxmap.convertToImage().smoothScale(_force_size,_force_size, TQImage::ScaleMin));
    return pxmap;
 }
 

@@ -331,7 +331,7 @@ KMenu::KMenu()
     m_searchResultsWidget->setItemMargin(4);
 //    m_searchResultsWidget->setIconSize(16);
     m_searchActions = new ItemView (m_searchWidget, "m_searchActions");
-    m_searchActions->setFocusPolicy(TQ_NoFocus);
+    m_searchActions->setFocusPolicy(TQWidget::NoFocus);
     m_searchActions->setItemMargin(4);
     m_searchInternet = new TQListViewItem(m_searchActions, i18n("Search Internet"));
     m_searchInternet->setPixmap(0,icon);
@@ -450,9 +450,9 @@ void KMenu::setupUi()
     m_stacker->setGeometry( TQRect( 90, 260, 320, 220 ) );
     m_stacker->setSizePolicy( TQSizePolicy( (TQSizePolicy::SizeType)3, (TQSizePolicy::SizeType)3, 1, 1, m_stacker->sizePolicy().hasHeightForWidth() ) );
     m_stacker->setPaletteBackgroundColor( TQColor( 255, 255, 255 ) );
-   // m_stacker->setFocusPolicy( TQ_StrongFocus );
+   // m_stacker->setFocusPolicy( TQWidget::StrongFocus );
     m_stacker->setLineWidth( 0 );
-    m_stacker->setFocusPolicy(TQ_NoFocus);
+    m_stacker->setFocusPolicy(TQWidget::NoFocus);
     connect(m_stacker, TQT_SIGNAL(aboutToShow(TQWidget*)), TQT_SLOT(stackWidgetRaised(TQWidget*)));
 
     m_kcommand->setName("m_kcommand");
@@ -528,19 +528,19 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
         }
 
         if (e->type() == TQEvent::FocusIn && receiver && raiseWidget) {
-            m_searchResultsWidget->setFocusPolicy(TQ_StrongFocus);
+            m_searchResultsWidget->setFocusPolicy(TQWidget::StrongFocus);
             m_searchActions->setFocusPolicy(raiseWidget == m_searchWidget ?
-                    TQ_StrongFocus : TQ_NoFocus);
+                    TQWidget::StrongFocus : TQWidget::NoFocus);
             setTabOrder(raiseWidget, m_searchResultsWidget);
             if (raiseWidget != m_stacker->visibleWidget()
-                && TQT_TQWIDGET(receiver)->focusPolicy() == TQ_NoFocus
+                && TQT_TQWIDGET(receiver)->focusPolicy() == TQWidget::NoFocus
                 && m_stacker->id(raiseWidget) >= 0) {
 
                 m_stacker->raiseWidget(raiseWidget);
                 return true;
             }
 
-            if (raiseWidget->focusPolicy() != TQ_NoFocus)
+            if (raiseWidget->focusPolicy() != TQWidget::NoFocus)
                 return false;
         }
 
@@ -2283,7 +2283,7 @@ TQString KMenu::insertBreaks(const TQString& text, TQFontMetrics fm, int width, 
 void KMenu::clearSearchResults(bool showHelp)
 {
     m_searchResultsWidget->clear();
-    m_searchResultsWidget->setFocusPolicy(showHelp ? TQ_NoFocus : TQ_StrongFocus);
+    m_searchResultsWidget->setFocusPolicy(showHelp ? TQWidget::NoFocus : TQWidget::StrongFocus);
     setTabOrder(m_kcommand, m_searchResultsWidget);
 
     if (showHelp) {

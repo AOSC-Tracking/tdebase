@@ -272,7 +272,7 @@ void TDMUsersWidget::slotUserSelected()
 	rstuserbutton->setEnabled( false );
     }
     if (!p.isNull()) {
-	    userbutton->setPixmap( p.smoothScale( 48, 48, TQ_ScaleMin ) );
+	    userbutton->setPixmap( p.smoothScale( 48, 48, TQImage::ScaleMin ) );
     }
 }
 
@@ -296,7 +296,7 @@ void TDMUsersWidget::changeUserPix(const TQString &pix)
 	return;
     }
 
-    p = p.smoothScale( 48, 48, TQ_ScaleMin );
+    p = p.smoothScale( 48, 48, TQImage::ScaleMin );
     TQString userpix = m_userPixDir + user + ".face.icon";
     if (!p.save( userpix, "PNG" ))
         KMessageBox::sorry(this,

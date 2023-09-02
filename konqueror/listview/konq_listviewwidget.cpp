@@ -174,8 +174,8 @@ KonqBaseListViewWidget::KonqBaseListViewWidget( KonqListView *parent, TQWidget *
    connect( header(), TQT_SIGNAL(sizeChange( int, int, int )), TQT_SLOT(slotUpdateBackground()) );
 
    viewport()->setMouseTracking( true );
-   viewport()->setFocusPolicy( TQ_WheelFocus );
-   setFocusPolicy( TQ_WheelFocus );
+   viewport()->setFocusPolicy( TQWidget::WheelFocus );
+   setFocusPolicy( TQWidget::WheelFocus );
    setAcceptDrops( true );
 
    //looks better with the statusbar

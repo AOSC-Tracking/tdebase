@@ -61,7 +61,7 @@ AppletWidget::AppletWidget(const AppletInfo& info, bool odd, TQWidget *parent)
       m_odd(odd),
       m_selected(false)
 {
-    setFocusPolicy(TQ_StrongFocus);
+    setFocusPolicy(TQWidget::StrongFocus);
     setSelected(m_selected);
     
     itemTitle->setText("<h3>" + info.name() + "</h3>");

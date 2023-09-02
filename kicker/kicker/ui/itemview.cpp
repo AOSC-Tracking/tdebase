@@ -635,7 +635,7 @@ ItemView::ItemView(TQWidget* parent, const char* name)
     setItemMargin(0);
     setSorting(-1);
     setTreeStepSize(38);
-    setFocusPolicy(TQ_NoFocus);
+    setFocusPolicy(TQWidget::NoFocus);
 
     m_lastOne = 0;
     m_old_contentY = -1;

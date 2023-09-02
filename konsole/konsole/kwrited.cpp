@@ -72,7 +72,7 @@ KWrited::KWrited() : TQTextEdit()
   setMinimumWidth(pref_width);
   setMinimumHeight(pref_height);
   setReadOnly(true);
-  setFocusPolicy(TQ_NoFocus);
+  setFocusPolicy(TQWidget::NoFocus);
   setWordWrap(TQTextEdit::WidgetWidth);
   setTextFormat(TQt::PlainText);
 

@@ -94,7 +94,7 @@ KateFileList::KateFileList (KateMainWindow *main,
   m_editShade = TQColor( 255, 102, 153 );
   m_enableBgShading = false;
 
-  setFocusPolicy ( TQ_NoFocus  );
+  setFocusPolicy ( TQWidget::NoFocus  );
 
   viewManager = _viewManager;
 

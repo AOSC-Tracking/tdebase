@@ -80,7 +80,7 @@ KonqFrameStatusBar::KonqFrameStatusBar( KonqFrame *_parent, const char *_name )
     addWidget( m_pStatusLabel, 1 /*stretch*/, false ); // status label
 
     m_pLinkedViewCheckBox = new KonqCheckBox( this, "m_pLinkedViewCheckBox" );
-    m_pLinkedViewCheckBox->setFocusPolicy(TQ_NoFocus);
+    m_pLinkedViewCheckBox->setFocusPolicy(TQWidget::NoFocus);
     m_pLinkedViewCheckBox->setSizePolicy(TQSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Fixed ));
     TQWhatsThis::add( m_pLinkedViewCheckBox,
                      i18n("Checking this box on at least two views sets those views as 'linked'. "

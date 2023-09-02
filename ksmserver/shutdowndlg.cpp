@@ -1436,7 +1436,7 @@ void FlatButton::init()
 	setUsesBigPixmap(true);
 	setAutoRaise(true);
 	setTextPosition( TQToolButton::Under );
-	setFocusPolicy(TQ_StrongFocus);
+	setFocusPolicy(TQWidget::StrongFocus);
  }
 
 

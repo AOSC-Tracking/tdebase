@@ -283,7 +283,7 @@ void PanelKMenu::initialize()
 	}
         searchEdit = new KPIM::ClickLineEdit( hbox, placeholder );
 
-        hbox->setFocusPolicy(TQ_StrongFocus);
+        hbox->setFocusPolicy(TQWidget::StrongFocus);
         hbox->setFocusProxy(searchEdit);
         hbox->setSpacing( 3 );
         connect(clearButton, TQT_SIGNAL(clicked()), searchEdit, TQT_SLOT(clear()));

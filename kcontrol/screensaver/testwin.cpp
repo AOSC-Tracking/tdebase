@@ -6,7 +6,7 @@ class QXEmbed;
 TestWin::TestWin()
     : KSWidget(0, 0, WStyle_Customize | WStyle_NoBorder | WX11BypassWM )
 {
-    setFocusPolicy(TQ_StrongFocus);
+    setFocusPolicy(TQWidget::StrongFocus);
     KWin::setState( winId(), NET::StaysOnTop );
 }
 

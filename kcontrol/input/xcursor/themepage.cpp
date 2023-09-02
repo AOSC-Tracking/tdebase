@@ -621,7 +621,7 @@ TQPixmap ThemePage::createIcon( const TQString &theme, const TQString &sample ) 
 
 		// Scale down the image if we need to
 		if ( image.width() > iconSize || image.height() > iconSize )
-			image = image.smoothScale( iconSize, iconSize, TQ_ScaleMin );
+			image = image.smoothScale( iconSize, iconSize, TQImage::ScaleMin );
 
 		pix.convertFromImage( image );
 		XcursorImageDestroy( xcur );

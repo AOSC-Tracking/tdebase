@@ -34,7 +34,7 @@ MenuPreview::MenuPreview( TQWidget* parent, int opacity, PreviewMode pvm )
 	pixBackground(NULL), pixOverlay(NULL), pixBlended(NULL)
 {
 	setFixedSize(150, 150);
-	setFocusPolicy( TQ_NoFocus );
+	setFocusPolicy( TQWidget::NoFocus );
 
 	mode = pvm;
 	if (opacity < 0)   opacity = 0;

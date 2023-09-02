@@ -91,7 +91,7 @@ LogView::LogView(TQWidget *parent,TDEConfig *config, const char *name)
    logFileName.setURL("/var/log/samba.log");
 
    viewHistory.setAllColumnsShowFocus(TRUE);
-   viewHistory.setFocusPolicy(TQ_ClickFocus);
+   viewHistory.setFocusPolicy(TQWidget::ClickFocus);
    viewHistory.setShowSortIndicator(true);
 
    viewHistory.addColumn(i18n("Date & Time"),130);
