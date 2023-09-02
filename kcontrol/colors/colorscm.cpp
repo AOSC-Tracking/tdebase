@@ -256,7 +256,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
 
     sb = new TQSlider( Qt::Horizontal,group,"Slider" );
     sb->setRange( 0, 10 );
-    sb->setFocusPolicy( TQ_StrongFocus );
+    sb->setFocusPolicy( TQWidget::StrongFocus );
     connect(sb, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(sliderValueChanged(int)));
 
     TQWhatsThis::add(sb, i18n("Use this slider to change the contrast level"

@@ -145,7 +145,7 @@ void KlipperPopup::buildFromScratch() {
     m_filterWidget = new KLineEditBlackKey( this, "Klipper filter widget" );
     insertTitle( SmallIcon( "klipper" ), i18n("Klipper - Clipboard Tool"));
     m_filterWidgetId = insertItem( m_filterWidget, m_filterWidgetId, 1 );
-    m_filterWidget->setFocusPolicy( TQ_NoFocus );
+    m_filterWidget->setFocusPolicy( TQWidget::NoFocus );
     setItemVisible( m_filterWidgetId,  false );
     m_filterWidget->hide();
     TQString lastGroup;

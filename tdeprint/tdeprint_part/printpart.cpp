@@ -43,7 +43,7 @@ PrintPart::PrintPart(TQWidget *parentWidget, const char * /*widgetName*/ ,
 	m_extension = new PrintPartExtension(this);
 
 	m_view = new KMMainView(parentWidget, "MainView", actionCollection());
-	m_view->setFocusPolicy(TQ_ClickFocus);
+	m_view->setFocusPolicy(TQWidget::ClickFocus);
 	m_view->enableToolbar(false);
 	setWidget(m_view);
 

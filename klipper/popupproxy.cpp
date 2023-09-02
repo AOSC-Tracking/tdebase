@@ -98,7 +98,7 @@ void PopupProxy::tryInsertItem( HistoryItem const * const item,
     } else {
         const TQSize max_size( m_menu_width,m_menu_height/4 );
         if ( image.height() > max_size.height() || image.width() > max_size.width() ) {
-            image.convertFromImage( TQImage(image.convertToImage()).smoothScale( max_size, TQ_ScaleMin ) );
+            image.convertFromImage( TQImage(image.convertToImage()).smoothScale( max_size, TQImage::ScaleMin ) );
         }
         id = proxy_for_menu->insertItem( image,  -1,  index );
     }

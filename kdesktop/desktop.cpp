@@ -165,7 +165,7 @@ KDesktop::KDesktop( SaverEngine* saver, bool x_root_hack, bool wait_for_kded ) :
   m_bInit = true;
 
   // It's the child widget that gets the focus, not us
-  setFocusPolicy( TQ_NoFocus );
+  setFocusPolicy( TQWidget::NoFocus );
 
   if ( x_root_hack )
   {
@@ -279,8 +279,8 @@ KDesktop::initRoot()
      m_pIconView->setDragAutoScroll( false );
      m_pIconView->setFrameStyle( TQFrame::NoFrame );
      m_pIconView->viewport()->setBackgroundMode( X11ParentRelative );
-     m_pIconView->setFocusPolicy( TQ_StrongFocus );
-     m_pIconView->viewport()->setFocusPolicy( TQ_StrongFocus );
+     m_pIconView->setFocusPolicy( TQWidget::StrongFocus );
+     m_pIconView->viewport()->setFocusPolicy( TQWidget::StrongFocus );
      m_pIconView->setGeometry( geometry() );
      m_pIconView->show();
 

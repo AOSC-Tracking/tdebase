@@ -401,7 +401,7 @@ KGreeter::insertUser( const TQImage &default_pix,
 		p = ir.image();
 		TQSize ns( 48, 48 );
 		if (p.size() != ns) {
-			p = p.convertDepth( 32 ).smoothScale( ns, TQ_ScaleMin );
+			p = p.convertDepth( 32 ).smoothScale( ns, TQImage::ScaleMin );
 		}
 		break;
 	} while (--nd >= 0);
@@ -490,7 +490,7 @@ KGreeter::insertUsers(int limit_users)
 		TQSize ns( 48, 48 );
 		if (default_pix.size() != ns)
 			default_pix =
-			  default_pix.convertDepth( 32 ).smoothScale( ns, TQ_ScaleMin );
+			  default_pix.convertDepth( 32 ).smoothScale( ns, TQImage::ScaleMin );
 	}
 	if (_showUsers == SHOW_ALL) {
 		KGreeterUserList noUsers( _noUsers );

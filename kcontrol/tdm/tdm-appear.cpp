@@ -370,7 +370,7 @@ bool TDMAppearanceWidget::setLogo(TQString logo)
     if (p.isNull())
         return false;
     if (p.width() > 100 || p.height() > 100)
-        p = p.smoothScale(100, 100, TQ_ScaleMin);
+        p = p.smoothScale(100, 100, TQImage::ScaleMin);
     logobutton->setPixmap(p);
     uint bd = style().pixelMetric( TQStyle::PM_ButtonMargin ) * 2;
     logobutton->setFixedSize(p.width() + bd, p.height() + bd);

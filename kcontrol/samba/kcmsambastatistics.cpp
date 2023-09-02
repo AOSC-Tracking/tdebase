@@ -60,7 +60,7 @@ StatisticsView::StatisticsView(TQWidget *parent,TDEConfig *config, const char *n
   expandedUserCb = new TQCheckBox( i18n( "Show expanded host info" ), this );
 
    viewStatistics->setAllColumnsShowFocus(TRUE);
-   viewStatistics->setFocusPolicy(TQ_ClickFocus);
+   viewStatistics->setFocusPolicy(TQWidget::ClickFocus);
    viewStatistics->setShowSortIndicator(true);
    
    viewStatistics->addColumn(i18n("Nr"),30);

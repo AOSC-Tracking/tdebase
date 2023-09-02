@@ -228,7 +228,7 @@ PluginPart::PluginPart(TQWidget *parentWidget, const char *widgetName, TQObject 
     // create a canvas to insert our widget
     _canvas = new PluginCanvasWidget( parentWidget, widgetName );
     //_canvas->setFocusPolicy( TQWidget::ClickFocus );
-    _canvas->setFocusPolicy( TQ_WheelFocus );
+    _canvas->setFocusPolicy( TQWidget::WheelFocus );
     _canvas->setBackgroundMode( TQWidget::NoBackground );
     setWidget(_canvas);
     _canvas->show();

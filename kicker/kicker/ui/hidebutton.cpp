@@ -138,7 +138,7 @@ void HideButton::generateIcons()
     }
 
     TQImage image = pixmap()->convertToImage();
-    image = image.smoothScale(size() - TQSize(4, 4), TQ_ScaleMin);
+    image = image.smoothScale(size() - TQSize(4, 4), TQImage::ScaleMin);
 
     TDEIconEffect effect;
 

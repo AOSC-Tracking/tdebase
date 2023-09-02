@@ -128,7 +128,7 @@ void ChFaceDlg::addCustomPixmap( TQString imPath, bool saveCopy )
   }
   if ( (pix.width() > KCFGUserAccount::faceSize())
 	|| (pix.height() > KCFGUserAccount::faceSize()) )
-    pix = pix.scale( KCFGUserAccount::faceSize(), KCFGUserAccount::faceSize(), TQ_ScaleMin );// Should be no bigger than certain size.
+    pix = pix.scale( KCFGUserAccount::faceSize(), KCFGUserAccount::faceSize(), TQImage::ScaleMin );// Should be no bigger than certain size.
 
   if ( saveCopy )
   {

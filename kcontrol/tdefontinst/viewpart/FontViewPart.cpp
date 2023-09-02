@@ -81,7 +81,7 @@ CFontViewPart::CFontViewPart(TQWidget *parent, const char *name)
     TQHBoxLayout *toolsLayout=new TQHBoxLayout(itsToolsFrame, 0, KDialog::spacingHint());
 
     itsFrame->setFrameShape(TQFrame::NoFrame);
-    itsFrame->setFocusPolicy(TQ_ClickFocus);
+    itsFrame->setFocusPolicy(TQWidget::ClickFocus);
     itsToolsFrame->setFrameShape(TQFrame::NoFrame);
     previewFrame->setFrameShadow(kcm ? TQFrame::Sunken : TQFrame::Raised);
     previewFrame->setFrameShape(TQFrame::Panel);

@@ -54,7 +54,7 @@ AddAppletVisualFeedback::AddAppletVisualFeedback(AppletWidget* widget,
       m_moveTimer(0, "m_moveTimer"),
       m_dirty(false)
 {
-    setFocusPolicy(TQ_NoFocus);
+    setFocusPolicy(TQWidget::NoFocus);
     setBackgroundMode(NoBackground);
     connect(&m_moveTimer, TQT_SIGNAL(timeout()), TQT_SLOT(swoopCloser()));
 
