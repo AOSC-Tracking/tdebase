@@ -514,7 +514,7 @@ bool LinuxCDPolling::hasDirectory(const TQCString &devNode, const TQCString &dir
 		close(fd);
 		return false;
 	}
-	if (Q_BYTE_ORDER != Q_LITTLE_ENDIAN)
+	if (TQ_BYTE_ORDER != TQ_LITTLE_ENDIAN)
 		bs = ((bs << 8) & 0xFF00) | ((bs >> 8) & 0xFF);
 
 	// read in size of path table
@@ -524,7 +524,7 @@ bool LinuxCDPolling::hasDirectory(const TQCString &devNode, const TQCString &dir
 		close(fd);
 		return false;
 	}
-	if (Q_BYTE_ORDER != Q_LITTLE_ENDIAN)
+	if (TQ_BYTE_ORDER != TQ_LITTLE_ENDIAN)
 		ts = ((ts << 8) & 0xFF00) | ((ts >> 8) & 0xFF);
 
 	// read in which block path table is in
@@ -534,7 +534,7 @@ bool LinuxCDPolling::hasDirectory(const TQCString &devNode, const TQCString &dir
 		close(fd);
 		return false;
 	}
-	if (Q_BYTE_ORDER != Q_LITTLE_ENDIAN)
+	if (TQ_BYTE_ORDER != TQ_LITTLE_ENDIAN)
 		tl = ((tl << 24) & 0xFF000000) | ((tl << 8) & 0xFF0000) |
 		     ((tl >> 8) & 0xFF00) | ((tl >> 24) & 0xFF);
 
@@ -559,7 +559,7 @@ bool LinuxCDPolling::hasDirectory(const TQCString &devNode, const TQCString &dir
 			ret = false;
 			break;
 		}
-		if (Q_BYTE_ORDER != Q_LITTLE_ENDIAN)
+		if (TQ_BYTE_ORDER != TQ_LITTLE_ENDIAN)
 			parent = ((parent << 8) & 0xFF00) | ((parent >> 8) & 0xFF);
 
 		// read the name
