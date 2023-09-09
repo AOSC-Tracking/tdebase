@@ -94,7 +94,7 @@ SearchWidget::SearchWidget( SearchEngine *engine, TQWidget *parent )
   mScopeListView->addColumn( i18n("Scope") );
   topLayout->addWidget( mScopeListView, 1 );
 
-  TQPushButton *indexButton = new TQPushButton( i18n("Build Search &Index..."),
+  TQPushButton *indexButton = new TQPushButton( i18n("Build Search &Index…"),
                                               this );
   connect( indexButton, TQT_SIGNAL( clicked() ), TQT_SIGNAL( showIndexDialog() ) );
   topLayout->addWidget( indexButton );

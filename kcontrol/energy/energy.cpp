@@ -246,13 +246,13 @@ connect(logo, TQT_SIGNAL(leftClickedURL(const TQString&)), TQT_SLOT(openURL(cons
         m_pOffSlider = 0;
         if(m_bKPowersave) {
             TQPushButton* btnKPowersave = new TQPushButton(this);
-            btnKPowersave->setText(i18n("Configure KPowersave..."));
+            btnKPowersave->setText(i18n("Configure KPowersave…"));
             connect(btnKPowersave, TQT_SIGNAL(clicked()), TQT_SLOT(slotLaunchKPowersave()));
             top->addWidget(btnKPowersave);
         }
         if(m_bTDEPowersave) {
             TQPushButton* btnTDEPowersave = new TQPushButton(this);
-            btnTDEPowersave->setText(i18n("Configure TDEPowersave..."));
+            btnTDEPowersave->setText(i18n("Configure TDEPowersave…"));
             connect(btnTDEPowersave, TQT_SIGNAL(clicked()), TQT_SLOT(slotLaunchTDEPowersave()));
             top->addWidget(btnTDEPowersave);
 		}

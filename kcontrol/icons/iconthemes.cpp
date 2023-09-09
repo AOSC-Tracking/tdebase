@@ -85,7 +85,7 @@ IconThemesConfig::IconThemesConfig(TQWidget *parent, const char *name)
   connect(m_iconThemes,TQT_SIGNAL(selectionChanged(TQListViewItem *)),
 		TQT_SLOT(themeSelected(TQListViewItem *)));
 
-  TQPushButton *installButton=new TQPushButton( i18n("Install New Theme..."),
+  TQPushButton *installButton=new TQPushButton( i18n("Install New Theme…"),
 	this, "InstallNewTheme");
   connect(installButton,TQT_SIGNAL(clicked()),TQT_SLOT(installNewTheme()));
   m_removeButton=new TQPushButton( i18n("Remove Theme"),

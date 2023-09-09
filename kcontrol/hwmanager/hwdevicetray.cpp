@@ -300,9 +300,9 @@ void HwDeviceSystemTray::initMenus()
 	}
 
 	// Global Configuration
-	d->m_deviceManagerAction = new TDEAction(i18n("Show Device Manager..."), SmallIconSet("kcmpci"),
+	d->m_deviceManagerAction = new TDEAction(i18n("Show Device Manager…"), SmallIconSet("kcmpci"),
 	        TDEShortcut(), this, TQT_SLOT(slotHardwareConfig()), actionCollection());
-	d->m_shortcutKeysAction = new TDEAction(i18n("Configure Shortcut Keys..."), SmallIconSet("configure"),
+	d->m_shortcutKeysAction = new TDEAction(i18n("Configure Shortcut Keys…"), SmallIconSet("configure"),
 	        TDEShortcut(), this, TQT_SLOT(slotEditShortcutKeys()), actionCollection());
 
 	// Help & Quit

@@ -144,7 +144,7 @@ void Glossary::rebuildGlossaryCache()
 {
 	TDEMainWindow *mainWindow = dynamic_cast<TDEMainWindow *>( kapp->mainWidget() );
 	Q_ASSERT( mainWindow );
-	mainWindow->statusBar()->message( i18n( "Rebuilding cache..." ) );
+	mainWindow->statusBar()->message( i18n( "Rebuilding cache…" ) );
 
 	TDEProcess *meinproc = new TDEProcess;
 	connect( meinproc, TQT_SIGNAL( processExited( TDEProcess * ) ),
@@ -174,7 +174,7 @@ void Glossary::meinprocExited( TDEProcess *meinproc )
 
 	TDEMainWindow *mainWindow = dynamic_cast<TDEMainWindow *>( kapp->mainWidget() );
 	Q_ASSERT( mainWindow );
-	mainWindow->statusBar()->message( i18n( "Rebuilding cache... done." ), 2000 );
+	mainWindow->statusBar()->message( i18n( "Rebuilding cache… done." ), 2000 );
 
 	buildGlossaryTree();
 }

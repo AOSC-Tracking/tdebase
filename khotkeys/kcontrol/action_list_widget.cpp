@@ -44,12 +44,12 @@ Action_list_widget::Action_list_widget( TQWidget* parent_P, const char* name_P )
     : Action_list_widget_ui( parent_P, name_P ), selected_item( NULL )
     {
     TQPopupMenu* popup = new TQPopupMenu; // CHECKME looks like setting parent doesn't work
-    popup->insertItem( i18n( "Command/URL..." ), TYPE_COMMAND_URL_ACTION );
-    popup->insertItem( i18n( "TDE Menu Entry..." ), TYPE_MENUENTRY_ACTION );
-    popup->insertItem( i18n( "DCOP Call..." ), TYPE_DCOP_ACTION );
-    popup->insertItem( i18n( "Keyboard Input..." ), TYPE_KEYBOARD_INPUT_ACTION );
-    popup->insertItem( i18n( "Activate Window..." ), TYPE_ACTIVATE_WINDOW_ACTION );
-    popup->insertItem( i18n( "Waiting..." ), TYPE_WAITING_ACTION );
+    popup->insertItem( i18n( "Command/URL…" ), TYPE_COMMAND_URL_ACTION );
+    popup->insertItem( i18n( "TDE Menu Entry…" ), TYPE_MENUENTRY_ACTION );
+    popup->insertItem( i18n( "DCOP Call…" ), TYPE_DCOP_ACTION );
+    popup->insertItem( i18n( "Keyboard Input…" ), TYPE_KEYBOARD_INPUT_ACTION );
+    popup->insertItem( i18n( "Activate Window…" ), TYPE_ACTIVATE_WINDOW_ACTION );
+    popup->insertItem( i18n( "Waiting…" ), TYPE_WAITING_ACTION );
     connect( popup, TQT_SIGNAL( activated( int )), TQT_SLOT( new_selected( int )));
     new_button->setPopup( popup );
     actions_listview->header()->hide();

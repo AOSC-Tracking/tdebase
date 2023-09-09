@@ -290,7 +290,7 @@ void KCMHelpCenter::setupMainWidget( TQWidget *parent )
   mIndexDirLabel = new TQLabel( parent );
   urlLayout->addWidget( mIndexDirLabel, 1 );
 
-  TQPushButton *button = new TQPushButton( i18n("Change..."), parent );
+  TQPushButton *button = new TQPushButton( i18n("Change…"), parent );
   connect( button, TQT_SIGNAL( clicked() ), TQT_SLOT( showIndexDirDialog() ) );
   urlLayout->addWidget( button );
 

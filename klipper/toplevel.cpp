@@ -162,7 +162,7 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
                                       "clearHistoryAction" );
     connect( clearHistoryAction, TQT_SIGNAL( activated() ), TQT_SLOT( slotClearClipboard() ) );
     clearHistoryAction->setGroup( defaultGroup );
-    configureAction = new TDEAction( i18n("&Configure Klipper..."),
+    configureAction = new TDEAction( i18n("&Configure Klipper…"),
                                    "configure",
                                    0,
                                    TQT_TQOBJECT(this),

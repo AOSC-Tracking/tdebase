@@ -388,9 +388,9 @@ int TOM::appendTaskGroup(TDEConfig& config, bool inSubMenu)
             title->setText(i18n("%1 Menu Editor").arg(name));
             rmbMenu->insertItem(title, contextMenuTitleID);
             rmbMenu->insertItem(i18n("Add This Task to Panel"));
-            rmbMenu->insertItem(i18n("Modify This Task..."));
-            rmbMenu->insertItem(i18n("Remove This Task..."), this, TQT_SLOT(removeTask()));
-            rmbMenu->insertItem(i18n("Insert New Task..."));
+            rmbMenu->insertItem(i18n("Modify This Task…"));
+            rmbMenu->insertItem(i18n("Remove This Task…"), this, TQT_SLOT(removeTask()));
+            rmbMenu->insertItem(i18n("Insert New Task…"));
         }
     }
 
@@ -486,7 +486,7 @@ void TOM::initialize()
     }
     else if (kapp->authorize("run_command"))
     {
-        insertItem(DesktopIcon("system-run", TDEIcon::SizeMedium), i18n("Run Command..."), this, TQT_SLOT(runCommand()));
+        insertItem(DesktopIcon("system-run", TDEIcon::SizeMedium), i18n("Run Command…"), this, TQT_SLOT(runCommand()));
     }
 
     // RECENTLY USED ITEMS
@@ -512,7 +512,7 @@ void TOM::initialize()
     // if we have no destinations, put the run command here
     if (numDests == 0 && kapp->authorize("run_command"))
     {
-        insertItem(DesktopIcon("system-run", TDEIcon::SizeMedium), i18n("Run Command..."), this, TQT_SLOT(runCommand()));
+        insertItem(DesktopIcon("system-run", TDEIcon::SizeMedium), i18n("Run Command…"), this, TQT_SLOT(runCommand()));
     }
 
 

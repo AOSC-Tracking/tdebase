@@ -157,7 +157,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     TQWhatsThis::add( mSaverListView, i18n("Select the screen saver to use.") );
 
     TQBoxLayout* hlay = new TQHBoxLayout(groupLayout, KDialog::spacingHint());
-    mSetupBt = new TQPushButton( i18n("&Setup..."), mSaverGroup );
+    mSetupBt = new TQPushButton( i18n("&Setup…"), mSaverGroup );
     connect( mSetupBt, TQT_SIGNAL( clicked() ), TQT_SLOT( slotSetup() ) );
     mSetupBt->setEnabled(false);
     hlay->addWidget( mSetupBt );
@@ -511,7 +511,7 @@ void KScreenSaver::findSavers()
     if ( !mNumLoaded ) {
         mSaverFileList = TDEGlobal::dirs()->findAllResources("scrsav",
                             "*.desktop", false, true);
-        new TQListViewItem ( mSaverListView, i18n("Loading...") );
+        new TQListViewItem ( mSaverListView, i18n("Loading…") );
         if ( mSaverFileList.isEmpty() )
             mLoadTimer->stop();
         else

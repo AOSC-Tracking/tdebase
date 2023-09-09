@@ -35,7 +35,7 @@ FilterOptions::FilterOptions(TQWidget *parent, const char *name)
 
     TQGridLayout *lay = new TQGridLayout(this, 1, 1, 10, 5);
 
-    lay->addWidget(new TQLabel(i18n("Under construction..."), this), 0, 0);
+    lay->addWidget(new TQLabel(i18n("Under construction…"), this), 0, 0);
     lay->activate();
 
 }

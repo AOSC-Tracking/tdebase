@@ -168,7 +168,7 @@ decodeSess( dpySpec *sess, TQString &user, TQString &loc )
 				*sess->user ?
 					i18n("user: session type", "%1: %2")
 						.arg( sess->user ).arg( sess->session ) :
-					i18n("... host", "X login on %1").arg( sess->session );
+					i18n("… host", "X login on %1").arg( sess->session );
 		loc =
 #ifdef HAVE_VTS
 			sess->vt ?

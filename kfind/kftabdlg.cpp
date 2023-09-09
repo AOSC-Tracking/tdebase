@@ -68,7 +68,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     TQLabel * lookinL = new TQLabel(dirBox, i18n("Look &in:"), pages[0], "named");
     subdirsCb  = new TQCheckBox(i18n("Include &subfolders"), pages[0]);
     caseSensCb  = new TQCheckBox(i18n("Case s&ensitive search"), pages[0]);
-    browseB    = new TQPushButton(i18n("&Browse..."), pages[0]);
+    browseB    = new TQPushButton(i18n("&Browse…"), pages[0]);
     useLocateCb = new TQCheckBox(i18n("&Use files index"), pages[0]);
 
     // Setup
@@ -274,7 +274,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     TQPushButton* editRegExp = 0;
     if ( !TDETrader::self()->query("KRegExpEditor/KRegExpEditor").isEmpty() ) {
       // The editor is available, so lets use it.
-      editRegExp = new TQPushButton(i18n("&Edit..."), pages[2], "editRegExp");
+      editRegExp = new TQPushButton(i18n("&Edit…"), pages[2], "editRegExp");
     }
 
     metainfokeyEdit=new KLineEdit(pages[2], "textEdit" );
@@ -287,7 +287,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     typeBox->insertItem(i18n("Files"));
     typeBox->insertItem(i18n("Folders"));
     typeBox->insertItem(i18n("Symbolic Links"));
-    typeBox->insertItem(i18n("Special Files (Sockets, Device Files, ...)"));
+    typeBox->insertItem(i18n("Special Files (Sockets, Device Files, …)"));
     typeBox->insertItem(i18n("Executable Files"));
     typeBox->insertItem(i18n("SUID Executable Files"));
     typeBox->insertItem(i18n("All Images"));

@@ -120,7 +120,7 @@ KServiceListWidget::KServiceListWidget(int kind, TQWidget *parent, const char *n
                    i18n("Assigns a lower priority to the selected\n"
                         "service, moving it down in the list."));
 
-  servNewButton = new TQPushButton(i18n("Add..."), gb);
+  servNewButton = new TQPushButton(i18n("Add…"), gb);
   servNewButton->setEnabled(false);
   connect(servNewButton, TQT_SIGNAL(clicked()), TQT_SLOT(addService()));
   grid->addWidget(servNewButton, 1, 1);
@@ -128,7 +128,7 @@ KServiceListWidget::KServiceListWidget(int kind, TQWidget *parent, const char *n
   TQWhatsThis::add( servNewButton, i18n( "Add a new application for this file type." ) );
 
 
-  servEditButton = new TQPushButton(i18n("Edit..."), gb);
+  servEditButton = new TQPushButton(i18n("Edit…"), gb);
   servEditButton->setEnabled(false);
   connect(servEditButton, TQT_SIGNAL(clicked()), TQT_SLOT(editService()));
   grid->addWidget(servEditButton, 4, 1);

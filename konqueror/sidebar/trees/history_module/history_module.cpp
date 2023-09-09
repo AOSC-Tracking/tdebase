@@ -81,7 +81,7 @@ KonqSidebarHistoryModule::KonqSidebarHistoryModule( KonqSidebarTree * parentTree
 			TQT_SLOT( slotRemoveEntry() ), m_collection, "remove");
     (void) new TDEAction( i18n("C&lear History"), "history_clear", 0, this,
 			TQT_SLOT( slotClearHistory() ), m_collection, "clear");
-    (void) new TDEAction( i18n("&Preferences..."), "configure", 0, this,
+    (void) new TDEAction( i18n("&Preferences…"), "configure", 0, this,
 			TQT_SLOT( slotPreferences()), m_collection, "preferences");
 
     TDERadioAction *sort;

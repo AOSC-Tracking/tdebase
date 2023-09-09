@@ -219,7 +219,7 @@ KonqDirPart::KonqDirPart( TQObject *parent, const char *name )
     m_iIconSize[4] = TDEIcon::SizeHuge;
     // ... up to here
 
-    TDEAction *a = new TDEAction( i18n( "Configure Background..." ), "background", 0, this, TQT_SLOT( slotBackgroundSettings() ),
+    TDEAction *a = new TDEAction( i18n( "Configure Background…" ), "background", 0, this, TQT_SLOT( slotBackgroundSettings() ),
                               actionCollection(), "bgsettings" );
 
     a->setToolTip( i18n( "Allows choosing of background settings for this view" ) );

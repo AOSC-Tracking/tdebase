@@ -274,7 +274,7 @@ void KSMServer::shutdownInternal( TDEApplication::ShutdownConfirm confirm,
 		if (shutdownNotifierIPDlg) {
 			connect(shutdownNotifierIPDlg, SIGNAL(abortLogoutClicked()), this, SLOT(cancelShutdown()));
 			connect(shutdownNotifierIPDlg, SIGNAL(skipNotificationClicked()), this, SLOT(forceSkipSaveYourself()));
-			static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying applications of logout request..."));
+			static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying applications of logout request…"));
 			notificationTimer.start( KSMSERVER_NOTIFICATION_MANUAL_OPTIONS_TIMEOUT, true );
 		}
 	}
@@ -512,10 +512,10 @@ void KSMServer::updateLogoutStatusDialog()
                 static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->show();
                 static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setNotificationActionButtonsSkipText(i18n("Skip Notification (%1)").arg(((KSMSERVER_SHUTDOWN_CLIENT_UNRESPONSIVE_TIMEOUT - (protectionTimerCounter*1000))/1000)+1));
                 if (nextClientToKill == "") {
-                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying remaining applications of logout request (%1/%2)...").arg(phase2ClientCount-waitingClients).arg(phase2ClientCount));
+                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying remaining applications of logout request (%1/%2)…").arg(phase2ClientCount-waitingClients).arg(phase2ClientCount));
                 }
                 else {
-                     static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying remaining applications of logout request (%1/%2, %3)...").arg(phase2ClientCount-waitingClients).arg(phase2ClientCount).arg(nextClientToKill));
+                     static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying remaining applications of logout request (%1/%2, %3)…").arg(phase2ClientCount-waitingClients).arg(phase2ClientCount).arg(nextClientToKill));
                 }
             }
         }
@@ -530,10 +530,10 @@ void KSMServer::updateLogoutStatusDialog()
                 static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->hideNotificationActionButtons();
 #endif
                 if (nextClientToKill == "") {
-                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("An application is requesting attention, logout paused..."));
+                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("An application is requesting attention, logout paused…"));
                 }
                 else {
-                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("%3 is requesting attention, logout paused...").arg(nextClientToKill));
+                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("%3 is requesting attention, logout paused…").arg(nextClientToKill));
                 }
             }
             else {
@@ -543,10 +543,10 @@ void KSMServer::updateLogoutStatusDialog()
                 static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->show();
                 static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setNotificationActionButtonsSkipText(i18n("Skip Notification (%1)").arg(((KSMSERVER_SHUTDOWN_CLIENT_UNRESPONSIVE_TIMEOUT - (protectionTimerCounter*1000))/1000)+1));
                 if (nextClientToKill == "") {
-                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying applications of logout request (%1/%2)...").arg(clients.count()-waitingClients).arg(clients.count()));
+                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying applications of logout request (%1/%2)…").arg(clients.count()-waitingClients).arg(clients.count()));
                 }
                 else {
-                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying applications of logout request (%1/%2, %3)...").arg(clients.count()-waitingClients).arg(clients.count()).arg(nextClientToKill));
+                    static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying applications of logout request (%1/%2, %3)…").arg(clients.count()-waitingClients).arg(clients.count()).arg(nextClientToKill));
                 }
             }
         }
@@ -701,7 +701,7 @@ void KSMServer::handleProtectionTimeout()
     if (shutdownNotifierIPDlg) {
         static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->hideNotificationActionButtons();
         static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->show();
-        static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Forcing interacting application termination").append("..."));
+        static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Forcing interacting application termination").append("…"));
     }
 
     for ( KSMClient* c = clients.first(); c; c = clients.next() ) {
@@ -751,7 +751,7 @@ void KSMServer::completeShutdownOrCheckpoint()
         SHUTDOWN_MARKER("completeShutdownOrCheckpoint state still waiting for Phase 2");
         if (shutdownNotifierIPDlg) {
             static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->show();
-            static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying remaining applications of logout request..."));
+            static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying remaining applications of logout request…"));
             notificationTimer.start( KSMSERVER_NOTIFICATION_MANUAL_OPTIONS_TIMEOUT, true );
         }
         return;
@@ -781,13 +781,13 @@ void KSMServer::completeShutdownOrCheckpoint()
     // synchronize any folders that were requested for shutdown sync
     if (shutdownNotifierIPDlg) {
         static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->show();
-        static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Synchronizing remote folders").append("..."));
+        static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Synchronizing remote folders").append("…"));
     }
     KRsync krs(this, "");
     krs.executeLogoutAutoSync();
     if (shutdownNotifierIPDlg) {
         static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->show();
-        static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Saving your settings..."));
+        static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Saving your settings…"));
     }
 
     if ( saveSession ) {
@@ -837,10 +837,10 @@ void KSMServer::completeShutdownOrCheckpoint()
             shutdownNotifierDlg->setProgressBarTotalSteps(initialClientCount);
             shutdownNotifierDlg->setProgressBarProgress(initialClientCount-clients.count());
             if (nextClientToKill == "") {
-                shutdownNotifierDlg->setStatusMessage(i18n("Closing applications (%1/%2)...").arg(initialClientCount-clients.count()).arg(initialClientCount));
+                shutdownNotifierDlg->setStatusMessage(i18n("Closing applications (%1/%2)…").arg(initialClientCount-clients.count()).arg(initialClientCount));
             }
             else {
-                shutdownNotifierDlg->setStatusMessage(i18n("Closing applications (%1/%2, %3)...").arg(initialClientCount-clients.count()).arg(initialClientCount).arg(nextClientToKill));
+                shutdownNotifierDlg->setStatusMessage(i18n("Closing applications (%1/%2, %3)…").arg(initialClientCount-clients.count()).arg(initialClientCount).arg(nextClientToKill));
             }
         }
         if( waitForKNotify ) {
@@ -911,10 +911,10 @@ void KSMServer::completeKilling()
                 shutdownNotifierDlg->setProgressBarProgress(initialClientCount-clients.count());
                 shutdownNotifierDlg->show();
                 if (nextClientToKill == "") {
-                    shutdownNotifierDlg->setStatusMessage(i18n("Closing applications (%1/%2)...").arg(initialClientCount-clients.count()).arg(initialClientCount));
+                    shutdownNotifierDlg->setStatusMessage(i18n("Closing applications (%1/%2)…").arg(initialClientCount-clients.count()).arg(initialClientCount));
                 }
                 else {
-                    shutdownNotifierDlg->setStatusMessage(i18n("Closing applications (%1/%2, %3)...").arg(initialClientCount-clients.count()).arg(initialClientCount).arg(nextClientToKill));
+                    shutdownNotifierDlg->setStatusMessage(i18n("Closing applications (%1/%2, %3)…").arg(initialClientCount-clients.count()).arg(initialClientCount).arg(nextClientToKill));
                 }
             }
             return;
@@ -922,7 +922,7 @@ void KSMServer::completeKilling()
         else {
             if (shutdownNotifierIPDlg) {
                 static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->show();
-                static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Terminating services..."));
+                static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Terminating services…"));
             }
         }
         killWM();

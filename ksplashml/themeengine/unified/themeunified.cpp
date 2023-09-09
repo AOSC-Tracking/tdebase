@@ -73,7 +73,7 @@ void ThemeUnified::_initUi()
   resize(10,10);
 
   mSysModalDialog = new KSMModalDialog(this);
-  mSysModalDialog->setStatusMessage(i18n("Trinity is starting up").append("..."));
+  mSysModalDialog->setStatusMessage(i18n("Trinity is starting up").append("…"));
   mSysModalDialog->show();
   mSysModalDialog->setActiveWindow();
 

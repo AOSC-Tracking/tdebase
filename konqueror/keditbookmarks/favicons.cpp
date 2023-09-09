@@ -81,7 +81,7 @@ bool FavIconsItr::isApplicable(const KBookmark &bk) const {
 
 void FavIconsItr::doAction() {
     // kdDebug() << "FavIconsItr::doAction()" << endl;
-    curItem()->setTmpStatus(i18n("Updating favicon..."));
+    curItem()->setTmpStatus(i18n("Updating favicon…"));
     if (!m_updater) {
         m_updater = new FavIconUpdater(TQT_TQOBJECT(kapp), "FavIconUpdater");
         connect(m_updater, TQT_SIGNAL( done(bool) ),

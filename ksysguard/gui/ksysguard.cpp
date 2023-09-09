@@ -105,10 +105,10 @@ TopLevel::TopLevel( const char *name )
   statusBar()->hide();
 
   // create actions for menue entries
-  new TDEAction( i18n( "&New Worksheet..." ), "tab_new", 0, TQT_TQOBJECT(mWorkSpace),
+  new TDEAction( i18n( "&New Worksheet…" ), "tab_new", 0, TQT_TQOBJECT(mWorkSpace),
 		   TQT_SLOT( newWorkSheet() ), actionCollection(), "new_worksheet" );
   
-  new TDEAction( i18n( "Import Worksheet..." ), "document-open", 0, TQT_TQOBJECT(mWorkSpace),
+  new TDEAction( i18n( "Import Worksheet…" ), "document-open", 0, TQT_TQOBJECT(mWorkSpace),
 		   TQT_SLOT( loadWorkSheet() ), actionCollection(), "import_worksheet" );
   
   mActionOpenRecent = new TDERecentFilesAction( i18n( "&Import Recent Worksheet" ),"document-open", 0,
@@ -117,12 +117,12 @@ TopLevel::TopLevel( const char *name )
   new TDEAction( i18n( "&Remove Worksheet" ), "tab_remove", 0, TQT_TQOBJECT(mWorkSpace),
 		   TQT_SLOT( deleteWorkSheet() ), actionCollection(), "remove_worksheet" );
 
-  new TDEAction( i18n( "&Export Worksheet..." ), "document-save-as", 0, TQT_TQOBJECT(mWorkSpace),
+  new TDEAction( i18n( "&Export Worksheet…" ), "document-save-as", 0, TQT_TQOBJECT(mWorkSpace),
 		   TQT_SLOT( saveWorkSheetAs() ), actionCollection(), "export_worksheet" );
    
   KStdAction::quit( TQT_TQOBJECT(this), TQT_SLOT( close() ), actionCollection() );
 
-  new TDEAction( i18n( "C&onnect Host..." ), "connect_established", 0, TQT_TQOBJECT(this),
+  new TDEAction( i18n( "C&onnect Host…" ), "connect_established", 0, TQT_TQOBJECT(this),
                TQT_SLOT( connectHost() ), actionCollection(), "connect_host" );
   new TDEAction( i18n( "D&isconnect Host" ), "connect_no", 0, TQT_TQOBJECT(this),
                TQT_SLOT( disconnectHost() ), actionCollection(), "disconnect_host" );
@@ -137,7 +137,7 @@ TopLevel::TopLevel( const char *name )
                0, TQT_TQOBJECT(this), TQT_SLOT( resetWorkSheets() ),
                actionCollection(), "revert_all_worksheets"  );
 
-  new TDEAction( i18n( "Configure &Style..." ), "colorize", 0, TQT_TQOBJECT(this),
+  new TDEAction( i18n( "Configure &Style…" ), "colorize", 0, TQT_TQOBJECT(this),
                TQT_SLOT( editStyle() ), actionCollection(), "configure_style" );
 
   // TODO remove resize and fix so sizeHints() determines default size.

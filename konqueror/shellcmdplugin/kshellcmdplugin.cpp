@@ -33,7 +33,7 @@ KShellCmdPlugin::KShellCmdPlugin( TQObject* parent, const char* name,
     if (!kapp->authorize("shell_access"))
        return;
 
-    new TDEAction( i18n( "&Execute Shell Command..." ), "system-run", CTRL+Key_E, this,
+    new TDEAction( i18n( "&Execute Shell Command…" ), "system-run", CTRL+Key_E, this,
                  TQT_SLOT( slotExecuteShellCommand() ), actionCollection(), "executeshellcommand" );
 }
 

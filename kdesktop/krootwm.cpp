@@ -134,14 +134,14 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
 
   if (kapp->authorize("run_command"))
   {
-     new TDEAction(i18n("Run Command..."), "system-run", 0, TQT_TQOBJECT(m_pDesktop), TQT_SLOT( slotExecuteCommand() ), m_actionCollection, "exec" );
-     new TDEAction(i18n("Open Terminal Here..." ), "terminal", CTRL+Key_T, this, TQT_SLOT( slotOpenTerminal() ),
+     new TDEAction(i18n("Run Command…"), "system-run", 0, TQT_TQOBJECT(m_pDesktop), TQT_SLOT( slotExecuteCommand() ), m_actionCollection, "exec" );
+     new TDEAction(i18n("Open Terminal Here…" ), "terminal", CTRL+Key_T, this, TQT_SLOT( slotOpenTerminal() ),
 	m_actionCollection, "open_terminal" );
   }
 
   if (!TDEGlobal::config()->isImmutable())
   {
-     new TDEAction(i18n("Configure Desktop..."), "configure", 0, this, TQT_SLOT( slotConfigureDesktop() ),
+     new TDEAction(i18n("Configure Desktop…"), "configure", 0, this, TQT_SLOT( slotConfigureDesktop() ),
                  m_actionCollection, "configdesktop" );
      new TDEAction(i18n("Disable Desktop Menu"), 0, this, TQT_SLOT( slotToggleDesktopMenu() ),
                  m_actionCollection, "togglemenubar" );
@@ -196,7 +196,7 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
   }
   if (kapp->authorize("logout"))
   {
-      new TDEAction(i18n("Log Out \"%1\"...").arg(KUser().loginName()), "system-log-out", 0,
+      new TDEAction(i18n("Log Out \"%1\"…").arg(KUser().loginName()), "system-log-out", 0,
                   this, TQT_SLOT( slotLogout() ), m_actionCollection, "logout" );
   }
 

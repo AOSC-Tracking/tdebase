@@ -563,7 +563,7 @@ bool LockProcess::lock()
 {
 #ifdef USE_SECURING_DESKTOP_NOTIFICATION
 	m_startupStatusDialog = new KSMModalDialog(this);
-	m_startupStatusDialog->setStatusMessage(i18n("Securing desktop session").append("..."));
+	m_startupStatusDialog->setStatusMessage(i18n("Securing desktop session").append("…"));
 	m_startupStatusDialog->show();
 	m_startupStatusDialog->setActiveWindow();
 	tqApp->processEvents();
@@ -719,7 +719,7 @@ bool LockProcess::runSecureDialog()
 {
 #ifdef USE_SECURING_DESKTOP_NOTIFICATION
 	m_startupStatusDialog = new KSMModalDialog(this);
-	m_startupStatusDialog->setStatusMessage(i18n("Securing desktop session").append("..."));
+	m_startupStatusDialog->setStatusMessage(i18n("Securing desktop session").append("…"));
 	m_startupStatusDialog->show();
 	m_startupStatusDialog->setActiveWindow();
 	tqApp->processEvents();

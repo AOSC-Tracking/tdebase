@@ -104,7 +104,7 @@ SplashInstaller::SplashInstaller (TQWidget *aParent, const char *aName, bool aIn
   connect(mThemesList, TQT_SIGNAL(filesDropped(const KURL::List&)), TQT_SLOT(slotFilesDropped(const KURL::List&)));
   leftbox->addWidget(mThemesList);
 
-  mBtnAdd = new KPushButton( i18n("Add..."), this );
+  mBtnAdd = new KPushButton( i18n("Add…"), this );
   leftbox->addWidget( mBtnAdd );
   connect(mBtnAdd, TQT_SIGNAL(clicked()), TQT_SLOT(slotAdd()));
 

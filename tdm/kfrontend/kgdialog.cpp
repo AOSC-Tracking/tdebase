@@ -86,7 +86,7 @@ KGDialog::completeMenu()
 
 	if (_allowShutdown != SHUT_NONE) {
                 ensureMenu();
-                optMenu->insertItem(SmallIconSet( "system-log-out" ), i18n("&Shutdown..."), this, TQT_SLOT(slotShutdown(int)), ALT+Key_S );
+                optMenu->insertItem(SmallIconSet( "system-log-out" ), i18n("&Shutdown…"), this, TQT_SLOT(slotShutdown(int)), ALT+Key_S );
 		TQAccel *accel = new TQAccel( this );
 		accel->insertItem( ALT+CTRL+Key_Delete );
 		connect( accel, TQT_SIGNAL(activated( int )), TQT_SLOT(slotShutdown( int )) );

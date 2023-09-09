@@ -88,7 +88,7 @@ StyleSettings::StyleSettings( TQWidget *parent, const char *name )
   mColorListBox = new TQListBox( page );
   layout->addWidget( mColorListBox, 0, 0 );
 
-  mEditColorButton = new TQPushButton( i18n( "Change Color..." ), page );
+  mEditColorButton = new TQPushButton( i18n( "Change Color…" ), page );
   mEditColorButton->setEnabled( false );
   layout->addWidget( mEditColorButton, 0, 1, Qt::AlignTop );
 

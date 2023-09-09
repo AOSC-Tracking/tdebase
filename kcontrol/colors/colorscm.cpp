@@ -159,7 +159,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
        " to the current scheme, those changes will be lost if you select"
        " another color scheme.") );
 
-    addBt = new TQPushButton(i18n("&Save Scheme..."), group);
+    addBt = new TQPushButton(i18n("&Save Scheme…"), group);
     connect(addBt, TQT_SIGNAL(clicked()), TQT_SLOT(slotAdd()));
 
     TQWhatsThis::add( addBt, i18n("Press this button if you want to save"
@@ -174,7 +174,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
        " color scheme. Note that this button is disabled if you do not have"
        " permission to delete the color scheme.") );
 
-	importBt = new TQPushButton(i18n("I&mport Scheme..."), group);
+	importBt = new TQPushButton(i18n("I&mport Scheme…"), group);
 	connect(importBt, TQT_SIGNAL(clicked()),TQT_SLOT(slotImport()));
 
 	TQWhatsThis::add( importBt, i18n("Press this button to import a new color"

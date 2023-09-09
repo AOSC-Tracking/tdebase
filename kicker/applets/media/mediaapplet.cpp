@@ -430,7 +430,7 @@ void MediaApplet::mousePressEvent(TQMouseEvent *e)
         TDEPopupMenu menu(this);
     
         menu.insertTitle(i18n("Media"));
-        menu.insertItem(SmallIcon("configure"), i18n("&Configure..."), 1);
+        menu.insertItem(SmallIcon("configure"), i18n("&Configure…"), 1);
     
         int choice = menu.exec(this->mapToGlobal(e->pos()));
     

@@ -397,7 +397,7 @@ void KNewMenu::slotNewFile()
     	    m_isURLDesktopFile = true;
     	    // entry.comment contains i18n("Enter link to location (URL):"). JFYI :)
     	    KURLDesktopFileDlg dlg( i18n("File name:"), entry.comment, d->m_parentWidget );
-    	    // TODO dlg.setCaption( i18n( ... ) );
+    	    // TODO dlg.setCaption( i18n( … ) );
     	    if ( dlg.exec() )
     	    {
                 name = dlg.fileName();

@@ -75,7 +75,7 @@ KSMStartupIPDlg::KSMStartupIPDlg(TQWidget* parent)
   : KSMModalDialog( parent )
 
 {
-	setStatusMessage(i18n("Loading your settings").append("..."));
+	setStatusMessage(i18n("Loading your settings").append("…"));
 
 	show();
 	setActiveWindow();

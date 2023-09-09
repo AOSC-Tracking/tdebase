@@ -314,7 +314,7 @@ void fishProtocol::openConnection() {
        return;
     }
 
-    infoMessage(i18n("Connecting..."));
+    infoMessage(i18n("Connecting…"));
 
     myDebug( << "connecting to: " << connectionUser << "@" << connectionHost << ":" << connectionPort << endl);
     sendCommand(FISH_FISH);
@@ -567,7 +567,7 @@ int fishProtocol::establishConnection(char *buffer, TDEIO::fileoffset_t len) {
             continue;
         if (str == "FISH:\n") {
             thisFn = TQString::null;
-            infoMessage(i18n("Initiating protocol..."));
+            infoMessage(i18n("Initiating protocol…"));
             if (!connectionAuth.password.isEmpty()) {
                 connectionAuth.password = connectionAuth.password.left(connectionAuth.password.length()-1);
                 if (connectionAuth.keepPassword) {

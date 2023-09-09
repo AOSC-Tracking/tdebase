@@ -498,7 +498,7 @@ KGVerify::VMsgBox( TQWidget *parent, const TQString &user,
                    TQMessageBox::Icon type, const TQString &mesg )
 {
 	FDialog::box( parent, type, user.isEmpty() ?
-	              mesg : i18n("Authenticating %1...\n\n").arg( user ) + mesg );
+	              mesg : i18n("Authenticating %1…\n\n").arg( user ) + mesg );
 }
 
 static const char *msgs[]= {
@@ -1144,8 +1144,8 @@ KGStdVerify::updateStatus()
 		failedLabelState = nfls;
 		if (nfls < 0) {
 			failedLabel->setPaletteForegroundColor( Qt::black );
-			failedLabel->setText( i18n( "Automatic login in 1 second...",
-			                            "Automatic login in %n seconds...",
+			failedLabel->setText( i18n( "Automatic login in 1 second…",
+			                            "Automatic login in %n seconds…",
 			                            timedLeft ) );
 		} else {
 			switch (nfls) {

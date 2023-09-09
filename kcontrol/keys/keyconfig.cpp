@@ -123,7 +123,7 @@ void KKeyModule::init( bool isGlobal, bool _bSeriesOnly, bool bSeriesNone )
   TQWhatsThis::add( label, wtstr );
   TQWhatsThis::add( sList, wtstr );
 
-  addBt = new TQPushButton(  i18n("&Save Scheme..."), this );
+  addBt = new TQPushButton(  i18n("&Save Scheme…"), this );
   connect( addBt, TQT_SIGNAL( clicked() ), TQT_SLOT( slotAdd() ) );
   TQWhatsThis::add(addBt, i18n("Click here to add a new key bindings scheme. You will be prompted for a name."));
 

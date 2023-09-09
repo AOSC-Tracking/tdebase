@@ -154,7 +154,7 @@ void KWrite::setupActions()
               actionCollection(), "view_new_view");
   a->setWhatsThis(i18n("Create another view containing the current document"));
 
-  a=new TDEAction(i18n("Choose Editor Component..."),0,TQT_TQOBJECT(this),TQT_SLOT(changeEditor()),
+  a=new TDEAction(i18n("Choose Editor Component…"),0,TQT_TQOBJECT(this),TQT_SLOT(changeEditor()),
 		actionCollection(),"settings_choose_editor");
   a->setWhatsThis(i18n("Override the system wide setting for the default editing component"));
 
@@ -561,7 +561,7 @@ extern "C" KDE_EXPORT int kdemain(int argc, char **argv)
   aboutData.addAuthor ("Hamish Rodda",I18N_NOOP("Core Developer"), "rodda@kde.org");
   aboutData.addAuthor ("Waldo Bastian", I18N_NOOP( "The cool buffersystem" ), "bastian@kde.org" );
   aboutData.addAuthor ("Charles Samuels", I18N_NOOP("The Editing Commands"), "charles@kde.org");
-  aboutData.addAuthor ("Matt Newell", I18N_NOOP("Testing, ..."), "newellm@proaxis.com");
+  aboutData.addAuthor ("Matt Newell", i18n_NOOP("Testing, …"), "newellm@proaxis.com");
   aboutData.addAuthor ("Michael Bartl", I18N_NOOP("Former Core Developer"), "michael.bartl1@chello.at");
   aboutData.addAuthor ("Michael McCallum", I18N_NOOP("Core Developer"), "gholam@xtra.co.nz");
   aboutData.addAuthor ("Jochen Wilhemly", I18N_NOOP( "KWrite Author" ), "digisnap@cs.tu-berlin.de" );

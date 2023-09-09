@@ -153,7 +153,7 @@ void KrashDebugger :: slotSomeError()
 
 void KrashDebugger :: slotAppend(const TQString &str)
 {
-  m_status->setText(i18n("Loading backtrace..."));
+  m_status->setText(i18n("Loading backtrace…"));
 
   // append doesn't work here because it will add a newline as well
   m_backtrace->setText(m_backtrace->text() + str);
@@ -191,7 +191,7 @@ void KrashDebugger :: startDebugger()
     m_prependText += msg + '\n';
     m_backtrace->setText( m_prependText );
   }
-  m_status->setText(i18n("Loading symbols..."));
+  m_status->setText(i18n("Loading symbols…"));
 
   m_proctrace = new BackTrace(m_krashconf, TQT_TQOBJECT(this));
 

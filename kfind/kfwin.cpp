@@ -415,7 +415,7 @@ void KfindWindow::slotContextMenu(TDEListView *,TQListViewItem *item,const TQPoi
      m_menu->insertItem(SmallIcon("edit-copy"),i18n("Copy"), this, TQT_SLOT(copySelection()));
      m_menu->insertItem(SmallIcon("edit-delete"),i18n("Delete"), this, TQT_SLOT(deleteFiles()));
      m_menu->insertSeparator();
-     m_menu->insertItem(i18n("Open With..."), this, TQT_SLOT(slotOpenWith()));
+     m_menu->insertItem(i18n("Open With…"), this, TQT_SLOT(slotOpenWith()));
      m_menu->insertSeparator();
      m_menu->insertItem(i18n("Properties"), this, TQT_SLOT(fileProperties()));
   }

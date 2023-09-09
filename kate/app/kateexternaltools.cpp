@@ -564,7 +564,7 @@ KateExternalToolsConfigWidget::KateExternalToolsConfigWidget( TQWidget *parent, 
   lo->addMultiCellWidget( lbTools, 1, 4, 0, 3 );
   connect( lbTools, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()) );
 
-  btnNew = new TQPushButton( i18n("&New..."), this );
+  btnNew = new TQPushButton( i18n("&New…"), this );
   lo->addWidget( btnNew, 5, 0 );
   connect( btnNew, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotNew()) );
 
@@ -572,7 +572,7 @@ KateExternalToolsConfigWidget::KateExternalToolsConfigWidget( TQWidget *parent, 
   lo->addWidget( btnRemove, 5, 2 );
   connect( btnRemove, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotRemove()) );
 
-  btnEdit = new TQPushButton( i18n("&Edit..."), this );
+  btnEdit = new TQPushButton( i18n("&Edit…"), this );
   lo->addWidget( btnEdit, 5, 1 );
   connect( btnEdit, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotEdit()) );
 

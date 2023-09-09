@@ -93,10 +93,10 @@ void TestLinkItr::doAction() {
     connect(m_job, TQT_SIGNAL( data( TDEIO::Job *,  const TQByteArray &)),
             this, TQT_SLOT( slotJobData(TDEIO::Job *, const TQByteArray &)));
 
-    curItem()->setTmpStatus(i18n("Checking..."));
+    curItem()->setTmpStatus(i18n("Checking…"));
     TQString oldModDate = TestLinkItrHolder::self()->getMod(curBk().url().url());
     curItem()->setOldStatus(oldModDate);
-    TestLinkItrHolder::self()->setMod(curBk().url().url(), i18n("Checking..."));
+    TestLinkItrHolder::self()->setMod(curBk().url().url(), i18n("Checking…"));
 }
 
 void TestLinkItr::slotJobData(TDEIO::Job *job, const TQByteArray &data) {

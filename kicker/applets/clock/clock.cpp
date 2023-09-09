@@ -1573,7 +1573,7 @@ void ClockApplet::aboutToShowContextMenu()
         }
         zoneMenu->setItemChecked(500 + zone->zoneIndex(),true);
         zoneMenu->insertSeparator();
-        zoneMenu->insertItem(SmallIcon("configure"), i18n("&Configure Timezones..."), 110);
+        zoneMenu->insertItem(SmallIcon("configure"), i18n("&Configure Timezones…"), 110);
 
         TDEPopupMenu *type_menu = new TDEPopupMenu(menu);
         connect(type_menu, TQT_SIGNAL(activated(int)), TQT_SLOT(contextMenuActivated(int)));
@@ -1587,16 +1587,16 @@ void ClockApplet::aboutToShowContextMenu()
         menu->insertItem(i18n("Show Time&zone"), zoneMenu, 110, 2);
         if (kapp->authorize("user/root"))
         {
-            menu->insertItem(SmallIcon("date"), i18n("&Adjust Date && Time..."), 103, 4);
+            menu->insertItem(SmallIcon("date"), i18n("&Adjust Date && Time…"), 103, 4);
         }
-        menu->insertItem(SmallIcon("kcontrol"), i18n("Date && Time &Format..."), 104, 5);
+        menu->insertItem(SmallIcon("kcontrol"), i18n("Date && Time &Format…"), 104, 5);
     }
 
     menu->insertItem(SmallIcon("edit-copy"), i18n("C&opy to Clipboard"), copyMenu, 105, 6);
     if (!bImmutable)
     {
         menu->insertSeparator(7);
-        menu->insertItem(SmallIcon("configure"), i18n("&Configure Clock..."), 102, 8);
+        menu->insertItem(SmallIcon("configure"), i18n("&Configure Clock…"), 102, 8);
     }
 }
 

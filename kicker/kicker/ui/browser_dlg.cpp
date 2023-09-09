@@ -60,7 +60,7 @@ PanelBrowserDialog::PanelBrowserDialog( const TQString& path, const TQString &ic
     pathInput->setText( path );
     pathInput->setFocus();
     label2->setBuddy( pathInput );
-    browseBtn = new TQPushButton( i18n( "&Browse..." ), hbox1 );
+    browseBtn = new TQPushButton( i18n( "&Browse…" ), hbox1 );
     if ( icon.isEmpty() ) {
         KURL u;
         u.setPath( path );

@@ -76,11 +76,11 @@ ChFaceDlg::ChFaceDlg(const TQString& picsdir, TQWidget *parent, const char *name
 
   // Buttons to get more pics
   TQHBoxLayout * morePics = new TQHBoxLayout( 0, 0, spacingHint() );
-  TQPushButton *browseBtn = new TQPushButton( i18n("Custom &Image..."), page );
+  TQPushButton *browseBtn = new TQPushButton( i18n("Custom &Image…"), page );
   connect( browseBtn, TQT_SIGNAL( clicked() ), TQT_SLOT( slotGetCustomImage() ) );
   morePics->addWidget( browseBtn );
 #if 0
-  TQPushButton *acquireBtn = new TQPushButton( i18n("&Acquire Image..."), page );
+  TQPushButton *acquireBtn = new TQPushButton( i18n("&Acquire Image…"), page );
   acquireBtn->setEnabled( false );
   morePics->addWidget( acquireBtn );
 #endif

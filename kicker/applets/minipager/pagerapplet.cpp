@@ -757,7 +757,7 @@ void KMiniPager::aboutToShowContextMenu()
     m_contextMenu->insertItem(i18n("&Pager Options"),showMenu);
 
     m_contextMenu->insertItem(SmallIcon("configure"),
-                              i18n("&Configure Desktops..."),
+                              i18n("&Configure Desktops…"),
                               ConfigureDesktops);
 
     rowMenu->setItemChecked(m_settings->numberOfRows() + rowOffset, true);

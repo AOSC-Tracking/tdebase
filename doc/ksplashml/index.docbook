@@ -955,7 +955,7 @@ void Theme2k::readSettings()
   mRotColor2 = cfg-&gt;readColorEntry( "Rotator Color 2", &amp;DefaultRot2 );
 
   mRotSpeed = cfg-&gt;readNumEntry( "Rotator Speed", 30 );
-  mWndTitle = cfg-&gt;readEntry( "Window Title", i18n("Please wait...") );
+  mWndTitle = cfg-&gt;readEntry( "Window Title", i18n("Please wait…") );
   mLogoFile = cfg-&gt;readEntry( "Logo File", QString::null );
 }
 </programlisting>
@@ -1195,7 +1195,7 @@ void Theme2k::readSettings()
   mRotColor2 = cfg-&gt;readColorEntry( "Rotator Color 2", &amp;DefaultRot2 );
 
   mRotSpeed = cfg-&gt;readNumEntry( "Rotator Speed", 30 );
-  mWndTitle = cfg-&gt;readEntry( "Window Title", i18n("Please wait...") );
+  mWndTitle = cfg-&gt;readEntry( "Window Title", i18n("Please wait…") );
   mLogoFile = cfg-&gt;readEntry( "Logo File", QString::null );
 }
 </programlisting>

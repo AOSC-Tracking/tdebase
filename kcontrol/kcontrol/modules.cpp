@@ -151,7 +151,7 @@ void ConfigModule::runAsRoot()
   _embedWidget = new KControlEmbed(_embedStack);
   _module->hide();
   _embedFrame->show();
-  TQLabel *_busy = new TQLabel(i18n("<big>Loading...</big>"), _embedStack);
+  TQLabel *_busy = new TQLabel(i18n("<big>Loading…</big>"), _embedStack);
   _busy->setAlignment(AlignCenter);
   _busy->setTextFormat(RichText);
   _busy->setGeometry(0,0, _module->width(), _module->height());

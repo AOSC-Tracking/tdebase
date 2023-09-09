@@ -3818,19 +3818,19 @@ void KonqMainWindow::initActions()
   TQObject::connect( m_pMenuNew->popupMenu(), TQT_SIGNAL(aboutToShow()),
                     this, TQT_SLOT(slotFileNewAboutToShow()) );
 
-  (void) new TDEAction( i18n( "&Edit File Type..." ), 0, actionCollection(), "editMimeType" );
+  (void) new TDEAction( i18n( "&Edit File Type…" ), 0, actionCollection(), "editMimeType" );
   (void) new TDEAction( i18n( "Properties" ), ALT+Key_Return, actionCollection(), "properties" );
   (void) new TDEAction( i18n( "New &Window" ), "window-new", TDEStdAccel::shortcut(TDEStdAccel::New), TQT_TQOBJECT(this), TQT_SLOT( slotNewWindow() ), actionCollection(), "new_window" );
   (void) new TDEAction( i18n( "&Duplicate Window" ), "window_duplicate", CTRL+Key_D, TQT_TQOBJECT(this), TQT_SLOT( slotDuplicateWindow() ), actionCollection(), "duplicate_window" );
-  (void) new TDEAction( i18n( "Send &Link Address..." ), "mail_generic", 0, TQT_TQOBJECT(this), TQT_SLOT( slotSendURL() ), actionCollection(), "sendURL" );
-  (void) new TDEAction( i18n( "S&end File..." ), "mail_generic", 0, TQT_TQOBJECT(this), TQT_SLOT( slotSendFile() ), actionCollection(), "sendPage" );
+  (void) new TDEAction( i18n( "Send &Link Address…" ), "mail_generic", 0, TQT_TQOBJECT(this), TQT_SLOT( slotSendURL() ), actionCollection(), "sendURL" );
+  (void) new TDEAction( i18n( "S&end File…" ), "mail_generic", 0, TQT_TQOBJECT(this), TQT_SLOT( slotSendFile() ), actionCollection(), "sendPage" );
   if (kapp->authorize("shell_access"))
   {
      (void) new TDEAction( i18n( "Open &Terminal" ), "openterm", Key_F4, TQT_TQOBJECT(this), TQT_SLOT( slotOpenTerminal() ), actionCollection(), "open_terminal" );
   }
-  (void) new TDEAction( i18n( "&Open Location..." ), "document-open", TDEStdAccel::shortcut(TDEStdAccel::Open), TQT_TQOBJECT(this), TQT_SLOT( slotOpenLocation() ), actionCollection(), "open_location" );
+  (void) new TDEAction( i18n( "&Open Location…" ), "document-open", TDEStdAccel::shortcut(TDEStdAccel::Open), TQT_TQOBJECT(this), TQT_SLOT( slotOpenLocation() ), actionCollection(), "open_location" );
 
-  m_paFindFiles = new TDEToggleAction( i18n( "&Find File..." ), "filefind", TDEStdAccel::shortcut(TDEStdAccel::Find), TQT_TQOBJECT(this), TQT_SLOT( slotToolFind() ), actionCollection(), "findfile" );
+  m_paFindFiles = new TDEToggleAction( i18n( "&Find File…" ), "filefind", TDEStdAccel::shortcut(TDEStdAccel::Find), TQT_TQOBJECT(this), TQT_SLOT( slotToolFind() ), actionCollection(), "findfile" );
 
   m_paPrint = KStdAction::print( 0, 0, actionCollection(), "print" );
   (void) KStdAction::quit( TQT_TQOBJECT(this), TQT_SLOT( close() ), actionCollection(), "quit" );
@@ -3882,7 +3882,7 @@ void KonqMainWindow::initActions()
 
   // Settings menu
 
-  m_paSaveViewProfile = new TDEAction( i18n( "&Save View Profile..." ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotSaveViewProfile() ), actionCollection(), "saveviewprofile" );
+  m_paSaveViewProfile = new TDEAction( i18n( "&Save View Profile…" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotSaveViewProfile() ), actionCollection(), "saveviewprofile" );
   m_paSaveViewPropertiesLocally = new TDEToggleAction( i18n( "Save View Changes per &Folder" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotSaveViewPropertiesLocally() ), actionCollection(), "saveViewPropertiesLocally" );
    // "Remove" ? "Reset" ? The former is more correct, the latter is more kcontrol-like...
   m_paRemoveLocalProperties = new TDEAction( i18n( "Remove Folder Properties" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotRemoveLocalProperties() ), actionCollection(), "removeLocalProperties" );
@@ -3905,8 +3905,8 @@ void KonqMainWindow::initActions()
   KStdAction::keyBindings( guiFactory(), TQT_SLOT( configureShortcuts() ), actionCollection() );
   KStdAction::configureToolbars( TQT_TQOBJECT(this), TQT_SLOT( slotConfigureToolbars() ), actionCollection() );
 
-  m_paConfigureExtensions = new TDEAction( i18n("Configure Extensions..."), 0, TQT_TQOBJECT(this), TQT_SLOT( slotConfigureExtensions()), actionCollection(), "options_configure_extensions");
-  m_paConfigureSpellChecking = new TDEAction( i18n("Configure Spell Checking..."), "tools-check-spelling", 0,TQT_TQOBJECT(this), TQT_SLOT( slotConfigureSpellChecking()), actionCollection(), "configurespellcheck");
+  m_paConfigureExtensions = new TDEAction( i18n("Configure Extensions…"), 0, TQT_TQOBJECT(this), TQT_SLOT( slotConfigureExtensions()), actionCollection(), "options_configure_extensions");
+  m_paConfigureSpellChecking = new TDEAction( i18n("Configure Spell Checking…"), "tools-check-spelling", 0,TQT_TQOBJECT(this), TQT_SLOT( slotConfigureSpellChecking()), actionCollection(), "configurespellcheck");
 
   // Window menu
   m_paSplitViewHor = new TDEAction( i18n( "Split View &Left/Right" ), "view_left_right", CTRL+SHIFT+Key_L, TQT_TQOBJECT(this), TQT_SLOT( slotSplitViewHorizontal() ), actionCollection(), "splitviewh" );
@@ -3934,7 +3934,7 @@ void KonqMainWindow::initActions()
   (void) new TDEAction( i18n( "Dump Debug Info" ), "view_dump_debug_info", 0, TQT_TQOBJECT(this), TQT_SLOT( slotDumpDebugInfo() ), actionCollection(), "dumpdebuginfo" );
 #endif
 
-  m_paSaveRemoveViewProfile = new TDEAction( i18n( "C&onfigure View Profiles..." ), 0, m_pViewManager, TQT_SLOT( slotProfileDlg() ), actionCollection(), "saveremoveviewprofile" );
+  m_paSaveRemoveViewProfile = new TDEAction( i18n( "C&onfigure View Profiles…" ), 0, m_pViewManager, TQT_SLOT( slotProfileDlg() ), actionCollection(), "saveremoveviewprofile" );
   m_pamLoadViewProfile = new TDEActionMenu( i18n( "Load &View Profile" ), actionCollection(), "loadviewprofile" );
 
   m_pViewManager->setProfiles( m_pamLoadViewProfile );
@@ -3974,10 +3974,10 @@ void KonqMainWindow::initActions()
 
   m_paDelete = new TDEAction( i18n( "&Delete" ), "edit-delete", SHIFT+Key_Delete, actionCollection(), "del" );
   // F5 is the default key binding for Reload.... a la Windows. mc users want F5 for Copy and F6 for move, but I can't make that default.
-  m_paCopyFiles = new TDEAction( i18n("Copy &Files..."), "copyfiles", Key_F7, TQT_TQOBJECT(this), TQT_SLOT( slotCopyFiles() ), actionCollection(), "copyfiles" );
-  m_paMoveFiles = new TDEAction( i18n("M&ove Files..."), "movefiles", Key_F8, TQT_TQOBJECT(this), TQT_SLOT( slotMoveFiles() ), actionCollection(), "movefiles" );
+  m_paCopyFiles = new TDEAction( i18n("Copy &Files…"), "copyfiles", Key_F7, TQT_TQOBJECT(this), TQT_SLOT( slotCopyFiles() ), actionCollection(), "copyfiles" );
+  m_paMoveFiles = new TDEAction( i18n("M&ove Files…"), "movefiles", Key_F8, TQT_TQOBJECT(this), TQT_SLOT( slotMoveFiles() ), actionCollection(), "movefiles" );
   // This action doesn't appear in the GUI, it's for the shortcut only. KNewMenu takes care of the GUI stuff.
-  m_paNewDir = new TDEAction( i18n("Create Folder..." ), "konq_create_dir", Key_F10, TQT_TQOBJECT(this), TQT_SLOT( slotNewDir() ), actionCollection(), "konq_create_dir" );
+  m_paNewDir = new TDEAction( i18n("Create Folder…" ), "konq_create_dir", Key_F10, TQT_TQOBJECT(this), TQT_SLOT( slotNewDir() ), actionCollection(), "konq_create_dir" );
   m_paAnimatedLogo = new KonqLogoAction( i18n("Animated Logo"), 0, TQT_TQOBJECT(this), TQT_SLOT( slotDuplicateWindow() ), actionCollection(), "animated_logo" );
 
   // Location bar
@@ -4433,8 +4433,8 @@ void KonqMainWindow::currentProfileChanged()
 {
     bool enabled = !m_pViewManager->currentProfile().isEmpty();
     m_paSaveViewProfile->setEnabled( enabled );
-    m_paSaveViewProfile->setText( enabled ? i18n("&Save View Profile \"%1\"...").arg(m_pViewManager->currentProfileText())
-                                          : i18n("&Save View Profile...") );
+    m_paSaveViewProfile->setText( enabled ? i18n("&Save View Profile \"%1\"…").arg(m_pViewManager->currentProfileText())
+                                          : i18n("&Save View Profile…") );
 }
 
 void KonqMainWindow::enableAllActions( bool enable )

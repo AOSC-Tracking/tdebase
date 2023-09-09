@@ -6959,7 +6959,7 @@ i18n("Photo CcMmY Color");
 // xgettext: no-c-format
 i18n("Photo CcMmYK Color");
 // xgettext: no-c-format
-i18n("Photo (CMYK, gamma correction, ...)");
+i18n("Photo (CMYK, gamma correction, …)");
 // xgettext: no-c-format
 i18n("Photo Full Bleed");
 // xgettext: no-c-format

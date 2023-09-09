@@ -89,7 +89,7 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
             needSeparator = false;
         }
 
-        insertItem(i18n("Report &Bug..."), ReportBug);
+        insertItem(i18n("Report &Bug…"), ReportBug);
     }
 
     if (actions & KPanelApplet::About)
@@ -123,12 +123,12 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
         if (isButton)
         {
             insertItem(SmallIcon("configure"),
-                       i18n("&Configure %1 Button...").arg(titleText), Preferences);
+                       i18n("&Configure %1 Button…").arg(titleText), Preferences);
         }
         else
         {
             insertItem(SmallIcon("configure"),
-                       i18n("&Configure %1...").arg(titleText), Preferences);
+                       i18n("&Configure %1…").arg(titleText), Preferences);
         }
         needSeparator = true;
     }

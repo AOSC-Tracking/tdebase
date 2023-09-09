@@ -852,7 +852,7 @@ bool SystemTrayApplet::eventFilter(TQObject* watched, TQEvent* e)
         if (!p.isNull())
         {
             TQPopupMenu* contextMenu = new TQPopupMenu(this);
-            contextMenu->insertItem(SmallIcon("configure"), i18n("Configure System Tray..."),
+            contextMenu->insertItem(SmallIcon("configure"), i18n("Configure System Tray…"),
                                     this, TQT_SLOT(configure()));
 
             contextMenu->exec(TQT_TQCONTEXTMENUEVENT(e)->globalPos());

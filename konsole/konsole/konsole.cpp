@@ -647,13 +647,13 @@ void Konsole::makeGUI()
                            SmallIconSet( "fontsizedown" ), 0, TQT_TQOBJECT(this),
                            TQT_SLOT( smallerFont() ), actions,
                            "shrink_font" ) );
-      m_fontsizes->insert( new TDEAction( i18n( "Se&lect..." ),
+      m_fontsizes->insert( new TDEAction( i18n( "Se&lect…" ),
                            SmallIconSet( "font-x-generic" ), 0, TQT_TQOBJECT(this),
                            TQT_SLOT( slotSelectFont() ), actions,
                            "select_font" ) );
       if ( b_installBitmapFonts )
       {
-         m_fontsizes->insert( new TDEAction( i18n( "&Install Bitmap..." ),
+         m_fontsizes->insert( new TDEAction( i18n( "&Install Bitmap…" ),
                               SmallIconSet( "font-x-generic" ), 0, TQT_TQOBJECT(this),
                               TQT_SLOT( slotInstallBitmapFonts() ), actions,
                               "install_fonts" ) );
@@ -687,12 +687,12 @@ void Konsole::makeGUI()
             << i18n("80x40 (&XTerm)")
             << i18n("80x52 (IBM V&GA)")
             << ""
-            << i18n("&Custom...");
+            << i18n("&Custom…");
          selectSize->setItems(sizeitems);
          selectSize->plug(m_options);
       }
 
-      TDEAction *historyType = new TDEAction(i18n("Hist&ory..."), "history", 0, TQT_TQOBJECT(this),
+      TDEAction *historyType = new TDEAction(i18n("Hist&ory…"), "history", 0, TQT_TQOBJECT(this),
                                       TQT_SLOT(slotHistoryType()), actions, "history");
       historyType->plug(m_options);
 
@@ -826,7 +826,7 @@ void Konsole::makeGUI()
    }
    m_detachSession->plug(m_tabPopupMenu);
 
-   m_tabPopupMenu->insertItem( i18n("&Rename Session..."), TQT_TQOBJECT(this),
+   m_tabPopupMenu->insertItem( i18n("&Rename Session…"), TQT_TQOBJECT(this),
                          TQT_SLOT(slotTabRenameSession()) );
    m_tabPopupMenu->insertSeparator();
 
@@ -861,7 +861,7 @@ void Konsole::makeGUI()
    m_moveSessionRight->plug(m_tabPopupMenu);
 
    m_tabPopupMenu->insertSeparator();
-   m_tabPopupMenu->insertItem( SmallIconSet("colors"), i18n("Select &Tab Color..."), TQT_TQOBJECT(this), TQT_SLOT(slotTabSelectColor()) );
+   m_tabPopupMenu->insertItem( SmallIconSet("colors"), i18n("Select &Tab Color…"), TQT_TQOBJECT(this), TQT_SLOT(slotTabSelectColor()) );
 
    m_tabPopupMenu->insertSeparator();
    m_tabPopupTabsMenu = new TDEPopupMenu( m_tabPopupMenu );
@@ -1099,7 +1099,7 @@ void Konsole::makeBasicGUI()
                                 TQT_SLOT(slotClearTerminal()), m_shortcuts, "clear_terminal");
   m_resetClearTerminal = new TDEAction(i18n("&Reset && Clear Terminal"), 0, TQT_TQOBJECT(this),
                                      TQT_SLOT(slotResetClearTerminal()), m_shortcuts, "reset_clear_terminal");
-  m_findHistory = new TDEAction(i18n("&Find in History..."), "edit-find", 0, TQT_TQOBJECT(this),
+  m_findHistory = new TDEAction(i18n("&Find in History…"), "edit-find", 0, TQT_TQOBJECT(this),
                               TQT_SLOT(slotFindHistory()), m_shortcuts, "find_history");
   m_findHistory->setEnabled(b_histEnabled);
 
@@ -1111,7 +1111,7 @@ void Konsole::makeBasicGUI()
                                TQT_SLOT(slotFindPrevious()), m_shortcuts, "find_previous");
   m_findPrevious->setEnabled( b_histEnabled );
 
-  m_saveHistory = new TDEAction(i18n("S&ave History As..."), "document-save-as", 0, TQT_TQOBJECT(this),
+  m_saveHistory = new TDEAction(i18n("S&ave History As…"), "document-save-as", 0, TQT_TQOBJECT(this),
                               TQT_SLOT(slotSaveHistory()), m_shortcuts, "save_history");
   m_saveHistory->setEnabled(b_histEnabled );
 
@@ -1129,11 +1129,11 @@ void Konsole::makeBasicGUI()
   }
   m_detachSession->setEnabled(false);
 
-  m_renameSession = new TDEAction(i18n("&Rename Session..."), Qt::CTRL+Qt::SHIFT+Qt::Key_R, TQT_TQOBJECT(this),
+  m_renameSession = new TDEAction(i18n("&Rename Session…"), Qt::CTRL+Qt::SHIFT+Qt::Key_R, TQT_TQOBJECT(this),
                                 TQT_SLOT(slotRenameSession()), m_shortcuts, "rename_session");
 
   if (kapp->authorizeTDEAction("zmodem_upload"))
-    m_zmodemUpload = new TDEAction( i18n( "&ZModem Upload..." ),
+    m_zmodemUpload = new TDEAction( i18n( "&ZModem Upload…" ),
                                   Qt::CTRL+Qt::ALT+Qt::Key_U, TQT_TQOBJECT(this),
                                   TQT_SLOT( slotZModemUpload() ),
                                   m_shortcuts, "zmodem_upload" );
@@ -1159,7 +1159,7 @@ void Konsole::makeBasicGUI()
   connect( m_fullscreen,TQT_SIGNAL(toggled(bool)), TQT_TQOBJECT(this),TQT_SLOT(updateFullScreen(bool)));
   m_fullscreen->setChecked(b_fullscreen);
 
-  m_saveProfile = new TDEAction( i18n( "Save Sessions &Profile..." ), SmallIconSet("document-save-as"), 0, TQT_TQOBJECT(this),
+  m_saveProfile = new TDEAction( i18n( "Save Sessions &Profile…" ), SmallIconSet("document-save-as"), 0, TQT_TQOBJECT(this),
                          TQT_SLOT( slotSaveSessionsProfile() ), m_shortcuts, "save_sessions_profile" );
 
   //help menu
@@ -1170,7 +1170,7 @@ void Konsole::makeBasicGUI()
 
   m_closeSession = new TDEAction(i18n("C&lose Session"), "window-close", 0, TQT_TQOBJECT(this),
                                TQT_SLOT(confirmCloseCurrentSession()), m_shortcuts, "close_session");
-  m_print = new TDEAction(i18n("&Print Screen..."), "document-print", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPrint() ), m_shortcuts, "file_print");
+  m_print = new TDEAction(i18n("&Print Screen…"), "document-print", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPrint() ), m_shortcuts, "file_print");
   m_quit = new TDEAction(i18n("&Quit"), "system-log-out", 0, TQT_TQOBJECT(this), TQT_SLOT( close() ), m_shortcuts, "file_quit");
 
   TDEShortcut shortcut(Qt::CTRL+Qt::ALT+Qt::Key_N);
@@ -4343,7 +4343,7 @@ KonsoleFind::KonsoleFind( TQWidget *parent, const char *name, bool /*modal*/ )
   m_asRegExp = new TQCheckBox( i18n("As &regular expression"), row, "asRegexp" );
 
   if (!TDETrader::self()->query("KRegExpEditor/KRegExpEditor").isEmpty()) {
-    m_editRegExp = new TQPushButton( i18n("&Edit..."), row, "editRegExp" );
+    m_editRegExp = new TQPushButton( i18n("&Edit…"), row, "editRegExp" );
     connect( m_asRegExp, TQT_SIGNAL( toggled(bool) ), m_editRegExp, TQT_SLOT( setEnabled(bool) ) );
     connect( m_editRegExp, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotEditRegExp() ) );
     m_editRegExp->setEnabled( false );

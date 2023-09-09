@@ -208,7 +208,7 @@ void KateSessionPanel::setup_toolbar()
   a->setWhatsThis(i18n("Save the selected session."));
   a->plug(m_toolbar);
 
-  a = new TDEAction(i18n("Save as..."), SmallIcon("document-save-as"), 0,
+  a = new TDEAction(i18n("Save as…"), SmallIcon("document-save-as"), 0,
           TQT_TQOBJECT(this), TQT_SLOT(slotSaveSessionAs()), m_actionCollection, "session_save_as");
   a->setWhatsThis(i18n("Save an unsaved session with a new name or clone an already saved session "
                        "into a new session."));

@@ -169,7 +169,7 @@ KdeprintFax::KdeprintFax(TQWidget *parent, const char *name)
 
 	m_msglabel = new KSqueezedTextLabel(statusBar());
 	statusBar()->addWidget(m_msglabel, 1);
-	statusBar()->insertFixedItem(i18n("Processing..."), 1);
+	statusBar()->insertFixedItem(i18n("Processing…"), 1);
 	statusBar()->changeItem(i18n("Idle"), 1);
 	statusBar()->insertFixedItem("hylafax/efax", 2);
 	initActions();
@@ -188,14 +188,14 @@ KdeprintFax::~KdeprintFax()
 
 void KdeprintFax::initActions()
 {
-	new TDEAction(i18n("&Add File..."), "document-new", Qt::Key_Insert, TQT_TQOBJECT(this), TQT_SLOT(slotAdd()), actionCollection(), "file_add");
+	new TDEAction(i18n("&Add File…"), "document-new", Qt::Key_Insert, TQT_TQOBJECT(this), TQT_SLOT(slotAdd()), actionCollection(), "file_add");
 	new TDEAction(i18n("&Remove File"), "remove", Qt::Key_Delete, TQT_TQOBJECT(this), TQT_SLOT(slotRemove()), actionCollection(), "file_remove");
 	new TDEAction(i18n("&Send Fax"), "connect_established", Qt::Key_Return, TQT_TQOBJECT(this), TQT_SLOT(slotFax()), actionCollection(), "fax_send");
 	new TDEAction(i18n("A&bort"), "process-stop", Qt::Key_Escape, TQT_TQOBJECT(this), TQT_SLOT(slotAbort()), actionCollection(), "fax_stop");
 	new TDEAction(i18n("A&ddress Book"), "kaddressbook", Qt::CTRL+Qt::Key_A, TQT_TQOBJECT(this), TQT_SLOT(slotKab()), actionCollection(), "fax_ab");
 	new TDEAction(i18n("V&iew Log"), "contents", Qt::CTRL+Qt::Key_L, TQT_TQOBJECT(this), TQT_SLOT(slotViewLog()), actionCollection(), "fax_log");
 	new TDEAction(i18n("Vi&ew File"), "filefind", Qt::CTRL+Qt::Key_O, TQT_TQOBJECT(this), TQT_SLOT(slotView()), actionCollection(), "file_view");
-	new TDEAction( i18n( "&New Fax Recipient..." ), "edit", Qt::CTRL+Qt::Key_N, TQT_TQOBJECT(this), TQT_SLOT( slotFaxAdd() ), actionCollection(), "fax_add" );
+	new TDEAction( i18n( "&New Fax Recipient…" ), "edit", Qt::CTRL+Qt::Key_N, TQT_TQOBJECT(this), TQT_SLOT( slotFaxAdd() ), actionCollection(), "fax_add" );
 
 	KStdAction::quit(TQT_TQOBJECT(this), TQT_SLOT(slotQuit()), actionCollection());
 	setStandardToolBarMenuEnabled(true);
@@ -249,7 +249,7 @@ void KdeprintFax::slotFax()
 	{
 		actionCollection()->action("fax_send")->setEnabled(false);
 		actionCollection()->action("fax_stop")->setEnabled(true);
-		statusBar()->changeItem(i18n("Processing..."), 1);
+		statusBar()->changeItem(i18n("Processing…"), 1);
 	}
 	else
 		KMessageBox::error(this, i18n("Unable to start Fax process."));

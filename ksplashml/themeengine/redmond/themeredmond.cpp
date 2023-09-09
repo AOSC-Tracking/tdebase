@@ -74,7 +74,7 @@ CfgRedmond::CfgRedmond( TQWidget *p, TDEConfig *c )
   _preview->setIcon( c->readEntry( "User Icon", "kmenu" ) );
 
   TQLabel *lbl = new TQLabel( vbox );
-  lbl->setText( i18n("(Sorry, but I haven't finished writing this one yet...)") );
+  lbl->setText( i18n("(Sorry, but I haven't finished writing this one yet…)") );
 }
 
 ThemeRedmond::ThemeRedmond( TQWidget *parent, const char *name, const TQStringList &args )

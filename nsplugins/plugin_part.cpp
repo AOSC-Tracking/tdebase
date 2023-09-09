@@ -217,7 +217,7 @@ PluginPart::PluginPart(TQWidget *parentWidget, const char *widgetName, TQObject 
     // Only create this if we have no parent since the parent part is
     // responsible for "Save As" then
     if (!parent || !parent->inherits("Part")) {
-        new TDEAction(i18n("&Save As..."), CTRL+Key_S, this, TQT_SLOT(saveAs()), actionCollection(), "saveDocument");
+        new TDEAction(i18n("&Save As…"), CTRL+Key_S, this, TQT_SLOT(saveAs()), actionCollection(), "saveDocument");
         setXMLFile("nspluginpart.rc");
     }
 

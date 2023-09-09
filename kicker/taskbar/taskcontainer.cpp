@@ -1779,7 +1779,7 @@ void TaskContainer::updateKickerTip(KickerTip::Data& data)
     {
         data.message = m_startup->text();
         data.duration = 4000;
-        data.subtext = i18n("Loading application ...");
+        data.subtext = i18n("Loading application …");
         data.icon = TDEGlobal::iconLoader()->loadIcon(m_startup->icon(),
                                                     TDEIcon::Small,
 						    iconSize,

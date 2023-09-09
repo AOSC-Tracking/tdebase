@@ -57,7 +57,7 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
     " associated with the file type 'text/plain'; all files ending in '.txt' are recognized"
     " as plain text files.") );
 
-  addExtButton = new TQPushButton(i18n("Add..."), gb);
+  addExtButton = new TQPushButton(i18n("Add…"), gb);
   addExtButton->setEnabled(false);
   connect(addExtButton, TQT_SIGNAL(clicked()),
           this, TQT_SLOT(addExtension()));

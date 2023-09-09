@@ -56,7 +56,7 @@ KCMCgi::KCMCgi(TQWidget *parent, const char *name)
   TQHBox *buttonBox = new TQHBox( topBox );
   buttonBox->setSpacing( KDialog::spacingHint() );
 
-  mAddButton = new TQPushButton( i18n("Add..."), buttonBox );
+  mAddButton = new TQPushButton( i18n("Add…"), buttonBox );
   connect( mAddButton, TQT_SIGNAL( clicked() ), TQT_SLOT( addPath() ) );
 
   mRemoveButton = new TQPushButton( i18n("Remove"), buttonBox );

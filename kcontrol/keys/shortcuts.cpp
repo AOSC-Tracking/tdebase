@@ -165,7 +165,7 @@ void ShortcutsModule::initGUI()
 	pGroup->insert( m_prbNew );
 	pHLayout->addWidget( m_prbNew );
 
-	m_pbtnSave = new TQPushButton( i18n("&Save..."), this );
+	m_pbtnSave = new TQPushButton( i18n("&Save…"), this );
 	m_pbtnSave->setEnabled( false );
 	TQWhatsThis::add( m_pbtnSave, i18n("Click here to add a new key bindings scheme. You will be prompted for a name.") );
 	connect( m_pbtnSave, TQT_SIGNAL(clicked()), TQT_SLOT(slotSaveSchemeAs()) );

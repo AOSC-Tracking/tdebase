@@ -196,7 +196,7 @@ void URLGrabber::actionMenu( bool wm_class_check )
         }
         myMenu->insertSeparator();
         // add an edit-possibility
-        myMenu->insertItem( SmallIcon("edit"), i18n("&Edit Contents..."),
+        myMenu->insertItem( SmallIcon("edit"), i18n("&Edit Contents…"),
                             URL_EDIT_ITEM );
         myMenu->insertItem( SmallIconSet("cancel"), i18n("&Cancel"), DO_NOTHING_ITEM );
 

@@ -313,17 +313,17 @@ void KRandRSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu)
 
 	menu->insertTitle(SmallIcon("randr"), i18n("Global Configuration"));
 
-	TDEAction *actColors = new TDEAction( i18n( "Configure Displays..." ),
+	TDEAction *actColors = new TDEAction( i18n( "Configure Displays…" ),
 		SmallIconSet( "configure" ), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT( slotDisplayConfig() ),
 		actionCollection() );
 	actColors->plug( menu );
 
-// 	TDEAction *actPrefs = new TDEAction( i18n( "Configure Display..." ),
+// 	TDEAction *actPrefs = new TDEAction( i18n( "Configure Display…" ),
 // 		SmallIconSet( "configure" ), TDEShortcut(), this, TQT_SLOT( slotPrefs() ),
 // 		actionCollection() );
 // 	actPrefs->plug( menu );
 
-	TDEAction *actSKeys = new TDEAction( i18n( "Configure Shortcut Keys..." ),
+	TDEAction *actSKeys = new TDEAction( i18n( "Configure Shortcut Keys…" ),
 		SmallIconSet( "configure" ), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT( slotSKeys() ),
 		actionCollection() );
 	actSKeys->plug( menu );

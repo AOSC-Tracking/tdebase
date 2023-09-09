@@ -270,15 +270,15 @@ void PanelKMenu::initialize()
 	switch( cuts.count() )
 	{
 	    case 0:
-	        placeholder = i18n(" Click here to search...");
+	        placeholder = i18n(" Click here to search…");
 	        break;
 
             case 1:
-	        placeholder = i18n(" Press '%1' to search...").arg(cuts[0]);
+	        placeholder = i18n(" Press '%1' to search…").arg(cuts[0]);
 		break;
 
 	    case 2:
-	        placeholder = i18n(" Press '%1' or '%2' to search...").arg(cuts[0], cuts[1]);
+	        placeholder = i18n(" Press '%1' or '%2' to search…").arg(cuts[0], cuts[1]);
 		break;
 	}
         searchEdit = new KPIM::ClickLineEdit( hbox, placeholder );
@@ -388,7 +388,7 @@ void PanelKMenu::initialize()
     if (kapp->authorize("run_command"))
     {
         insertItem(KickerLib::menuIconSet("system-run"),
-                   i18n("Run Command..."),
+                   i18n("Run Command…"),
                    this,
                    TQT_SLOT( slotRunCommand()));
         insertSeparator();
@@ -419,7 +419,7 @@ void PanelKMenu::initialize()
 
     if (kapp->authorize("logout"))
     {
-        insertItem(KickerLib::menuIconSet("system-log-out"), i18n("Log Out..."), this, TQT_SLOT(slotLogout()));
+        insertItem(KickerLib::menuIconSet("system-log-out"), i18n("Log Out…"), this, TQT_SLOT(slotLogout()));
     }
 
 #if 0

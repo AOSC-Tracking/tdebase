@@ -337,8 +337,8 @@ void PanelExtension::slotBuildOpMenu()
         // setup addmenu and removemenu
         if (_containerArea->canAddContainers())
         {
-            _opMnu->insertItem(isMenuBar ? i18n("Add &Applet to Menubar...")
-                                         : i18n("Add &Applet to Panel..."),
+            _opMnu->insertItem(isMenuBar ? i18n("Add &Applet to Menubar…")
+                                         : i18n("Add &Applet to Panel…"),
                                _containerArea, TQT_SLOT(showAddAppletDialog()));
             m_panelAddMenu = new PanelAddButtonMenu(_containerArea, this);
             _opMnu->insertItem(isMenuBar ? i18n("Add Appli&cation to Menubar")
@@ -376,13 +376,13 @@ void PanelExtension::slotBuildOpMenu()
     if (!isMenuBar && !Kicker::the()->isKioskImmutable())
     {
         _opMnu->insertItem(SmallIconSet("configure"),
-                            i18n("&Configure Panel..."),
+                            i18n("&Configure Panel…"),
                             this, TQT_SLOT(showConfig()));
         _opMnu->insertSeparator();
     }
 
     _opMnu->insertItem(SmallIconSet("fork"),
-                            i18n("&Launch Process Manager..."),
+                            i18n("&Launch Process Manager…"),
                             this, TQT_SLOT(showProcessManager()));
     _opMnu->insertSeparator();
 

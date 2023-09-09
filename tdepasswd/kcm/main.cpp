@@ -65,7 +65,7 @@ KCMUserAccount::KCMUserAccount( TQWidget *parent, const char *name,
 
 	connect( _mw->btnChangeFace, TQT_SIGNAL(clicked()), TQT_SLOT(slotFaceButtonClicked()));
 	connect( _mw->btnChangePassword, TQT_SIGNAL(clicked()), TQT_SLOT(slotChangePassword()));
-	_mw->btnChangePassword->setGuiItem( KGuiItem( i18n("Change &Password..."), "password" ));
+	_mw->btnChangePassword->setGuiItem( KGuiItem( i18n("Change &Password…"), "password" ));
 	
 	connect( _mw->leRealname, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(changed()));
 	connect( _mw->leOrganization, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(changed()));

@@ -73,9 +73,9 @@ KCMFilter::KCMFilter(TDEConfig *config, TQString group,
     mRemoveButton = new TQPushButton( i18n("Remove"), buttonBox );
     connect( mRemoveButton, TQT_SIGNAL( clicked() ), TQT_SLOT( removeFilter() ) );
 
-    mImportButton = new TQPushButton(i18n("Import..."),buttonBox);
+    mImportButton = new TQPushButton(i18n("Import…"),buttonBox);
     connect( mImportButton, TQT_SIGNAL( clicked() ), TQT_SLOT( importFilters() ) );
-    mExportButton = new TQPushButton(i18n("Export..."),buttonBox);
+    mExportButton = new TQPushButton(i18n("Export…"),buttonBox);
     connect( mExportButton, TQT_SIGNAL( clicked() ), TQT_SLOT( exportFilters() ) );
 
     connect( mEnableCheck, TQT_SIGNAL( clicked()), this, TQT_SLOT( slotEnableChecked()));

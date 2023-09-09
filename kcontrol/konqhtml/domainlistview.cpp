@@ -52,11 +52,11 @@ DomainListView::DomainListView(TDEConfig *config,const TQString &title,
   connect(domainSpecificLV, TQT_SIGNAL(selectionChanged()), TQT_SLOT(updateButton()));
   thisLayout->addMultiCellWidget(domainSpecificLV, 0, 5, 0, 0);
 
-  addDomainPB = new TQPushButton(i18n("&New..."), this);
+  addDomainPB = new TQPushButton(i18n("&New…"), this);
   thisLayout->addWidget(addDomainPB, 0, 1);
   connect(addDomainPB, TQT_SIGNAL(clicked()), TQT_SLOT(addPressed()));
 
-  changeDomainPB = new TQPushButton( i18n("Chan&ge..."), this);
+  changeDomainPB = new TQPushButton( i18n("Chan&ge…"), this);
   thisLayout->addWidget(changeDomainPB, 1, 1);
   connect(changeDomainPB, TQT_SIGNAL(clicked()), this, TQT_SLOT(changePressed()));
 
@@ -64,13 +64,13 @@ DomainListView::DomainListView(TDEConfig *config,const TQString &title,
   thisLayout->addWidget(deleteDomainPB, 2, 1);
   connect(deleteDomainPB, TQT_SIGNAL(clicked()), this, TQT_SLOT(deletePressed()));
 
-  importDomainPB = new TQPushButton(i18n("&Import..."), this);
+  importDomainPB = new TQPushButton(i18n("&Import…"), this);
   thisLayout->addWidget(importDomainPB, 3, 1);
   connect(importDomainPB, TQT_SIGNAL(clicked()), this, TQT_SLOT(importPressed()));
   importDomainPB->setEnabled(false);
   importDomainPB->hide();
 
-  exportDomainPB = new TQPushButton(i18n("&Export..."), this);
+  exportDomainPB = new TQPushButton(i18n("&Export…"), this);
   thisLayout->addWidget(exportDomainPB, 4, 1);
   connect(exportDomainPB, TQT_SIGNAL(clicked()), this, TQT_SLOT(exportPressed()));
   exportDomainPB->setEnabled(false);

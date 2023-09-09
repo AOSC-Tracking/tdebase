@@ -456,11 +456,11 @@ TQString whatstr;
   yourSSLBox->addColumn(i18n("Email Address"));
   connect(yourSSLBox, TQT_SIGNAL(selectionChanged()), TQT_SLOT(slotYourCertSelect()));
 
-  yourSSLImport = new TQPushButton(i18n("I&mport..."), tabYourSSLCert);
+  yourSSLImport = new TQPushButton(i18n("I&mport…"), tabYourSSLCert);
   connect(yourSSLImport, TQT_SIGNAL(clicked()), TQT_SLOT(slotYourImport()));
   grid->addWidget(yourSSLImport, 0, 5);
 
-  yourSSLExport = new TQPushButton(i18n("&Export..."), tabYourSSLCert);
+  yourSSLExport = new TQPushButton(i18n("&Export…"), tabYourSSLCert);
   yourSSLExport->setEnabled(false);
   connect(yourSSLExport, TQT_SIGNAL(clicked()), TQT_SLOT(slotYourExport()));
   grid->addWidget(yourSSLExport, 1, 5);
@@ -480,7 +480,7 @@ TQString whatstr;
   connect(yourSSLVerify, TQT_SIGNAL(clicked()), TQT_SLOT(slotYourVerify()));
   grid->addWidget(yourSSLVerify, 4, 5);
 
-  yourSSLPass = new TQPushButton(i18n("Chan&ge Password..."), tabYourSSLCert);
+  yourSSLPass = new TQPushButton(i18n("Chan&ge Password…"), tabYourSSLCert);
   yourSSLPass->setEnabled(false);
   connect(yourSSLPass, TQT_SIGNAL(clicked()), TQT_SLOT(slotYourPass()));
   grid->addWidget(yourSSLPass, 5, 5);
@@ -512,7 +512,7 @@ TQString whatstr;
   TQWhatsThis::add(yHash, whatstr);
 
 #if 0
-  TQHButtonGroup *ocbg = new TQHButtonGroup(i18n("On SSL Connection..."), tabYourSSLCert);
+  TQHButtonGroup *ocbg = new TQHButtonGroup(i18n("On SSL Connection…"), tabYourSSLCert);
   yourSSLUseDefault = new TQRadioButton(i18n("&Use default certificate"), ocbg);
   yourSSLList = new TQRadioButton(i18n("&List upon connection"), ocbg);
   yourSSLDont = new TQRadioButton(i18n("&Do not use certificates"), ocbg);
@@ -615,7 +615,7 @@ TQString whatstr;
   otherSSLBox->addColumn(i18n("Common Name"));
   grid->addMultiCellWidget(otherSSLBox, 0, 7, 0, 4);
 
-  otherSSLExport = new TQPushButton(i18n("&Export..."), tabOtherSSLCert);
+  otherSSLExport = new TQPushButton(i18n("&Export…"), tabOtherSSLCert);
   connect(otherSSLExport, TQT_SIGNAL(clicked()), TQT_SLOT(slotExportCert()));
   grid->addWidget(otherSSLExport, 0, 5);
   whatstr = i18n("This button allows you to export the selected certificate"
@@ -731,7 +731,7 @@ TQString whatstr;
   caList->addColumn(i18n("Common Name"));
   connect(caList, TQT_SIGNAL(selectionChanged()), TQT_SLOT(slotCAItemChanged()));
 
-  caSSLImport = new TQPushButton(i18n("I&mport..."), tabSSLCA);
+  caSSLImport = new TQPushButton(i18n("I&mport…"), tabSSLCA);
   connect(caSSLImport, TQT_SIGNAL(clicked()), TQT_SLOT(slotCAImport()));
   grid->addWidget(caSSLImport, 0, 7);
 

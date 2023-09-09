@@ -268,7 +268,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   soundLabel = new TQLabel(soundEdit, i18n("Sound &to play:"), grp);
   hbox->addWidget(soundLabel);
   hbox->addWidget(soundEdit);
-  soundButton = new TQPushButton(i18n("Browse..."), grp);
+  soundButton = new TQPushButton(i18n("Browse…"), grp);
   hbox->addWidget(soundButton);
   TQString wtstr = i18n("If the option \"Use customized bell\" is enabled, you can choose a sound file here."
     " Click \"Browse...\" to choose a sound file using the file dialog.");
@@ -387,7 +387,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
 
   hbox = new TQHBoxLayout(vvbox, KDialog::spacingHint());
   hbox->addStretch(1);
-  kNotifyModifiersButton = new TQPushButton(i18n("Configure System Notification..."), grp);
+  kNotifyModifiersButton = new TQPushButton(i18n("Configure System Notification…"), grp);
   kNotifyModifiersButton->setSizePolicy(TQSizePolicy::Fixed, TQSizePolicy::Fixed);
   hbox->addWidget(kNotifyModifiersButton);
 
@@ -535,7 +535,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
 
   hbox = new TQHBoxLayout(vvbox, KDialog::spacingHint());
   hbox->addStretch(1);
-  kNotifyAccessXButton = new TQPushButton(i18n("Configure System Notification..."), grp);
+  kNotifyAccessXButton = new TQPushButton(i18n("Configure System Notification…"), grp);
   kNotifyAccessXButton->setSizePolicy(TQSizePolicy::Fixed, TQSizePolicy::Fixed);
   hbox->addWidget(kNotifyAccessXButton);
 

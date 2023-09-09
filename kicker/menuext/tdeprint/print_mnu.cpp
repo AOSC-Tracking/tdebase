@@ -64,7 +64,7 @@ void PrintMenu::initialize()
     KMManager::self();
 
     if ((KMManager::self()->printerOperationMask() & KMManager::PrinterCreation) && KMManager::self()->hasManagement())
-        insertItem(SmallIconSet("wizard"), i18n("Add Printer..."), ADD_PRINTER_ID);
+        insertItem(SmallIconSet("wizard"), i18n("Add Printer…"), ADD_PRINTER_ID);
     insertItem(SmallIconSet("tdeprint_configmgr"), i18n("TDE Print Settings"), TDEPRINT_SETTINGS_ID);
     if (KMManager::self()->serverOperationMask() & KMManager::ServerConfigure)
         insertItem(SmallIconSet("tdeprint_configsrv"), i18n("Configure Server"), CONFIG_SERVER_ID);
@@ -72,7 +72,7 @@ void PrintMenu::initialize()
     insertItem(SmallIconSet("kcontrol"), i18n("Print Manager"), PRINT_MANAGER_ID);
     insertItem(SmallIconSet("konqueror"), i18n("Print Browser (Konqueror)"), PRINT_BROWSER_ID);
     insertSeparator();
-    insertItem(SmallIconSet("document-print"), i18n("Print File..."), KPRINTER_ID);
+    insertItem(SmallIconSet("document-print"), i18n("Print File…"), KPRINTER_ID);
 
     // printer list
     TQPtrList<KMPrinter>    *l = KMManager::self()->printerList();

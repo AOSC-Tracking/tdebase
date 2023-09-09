@@ -98,7 +98,7 @@ TDMSessionsWidget::TDMSessionsWidget(TQWidget *parent, const char *name)
 #endif
       TQLabel *bm_label = new TQLabel( bm_combo, i18n("Boot manager:"), group4 );
       connect(bm_combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
-      wtstr = i18n("Enable boot options in the \"Shutdown...\" dialog.");
+      wtstr = i18n("Enable boot options in the \"Shutdown…\" dialog.");
       TQWhatsThis::add( bm_label, wtstr );
       TQWhatsThis::add( bm_combo, wtstr );
 

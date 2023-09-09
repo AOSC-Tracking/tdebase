@@ -1,7 +1,7 @@
 /**
  *  kcmhtmlsearch.cpp
  *
- *  Copyright (c) 2000 Matthias H�lzer-Kl�pfel <hoelzer@kde.org>
+ *  Copyright (c) 2000 Matthias Hölzer-Klüpfel <hoelzer@kde.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -124,12 +124,12 @@ TDEHTMLSearchConfig::TDEHTMLSearchConfig(TQWidget *parent, const char *name)
 
   gb = new TQGroupBox(i18n("Additional Search Paths"), this);
   hbox->addWidget(gb);
-  TQWhatsThis::add( gb, i18n( "Here you can add additional paths to search for documentation. To add a path, click on the <em>Add...</em> button and select the folder from where additional documentation should be searched. You can remove folders by clicking on the <em>Delete</em> button." ) );
+  TQWhatsThis::add( gb, i18n( "Here you can add additional paths to search for documentation. To add a path, click on the <em>Add…</em> button and select the folder from where additional documentation should be searched. You can remove folders by clicking on the <em>Delete</em> button." ) );
 
   grid = new TQGridLayout(gb, 4,3, 6,2);
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
 
-  addButton = new TQPushButton(i18n("Add..."), gb);
+  addButton = new TQPushButton(i18n("Add…"), gb);
   grid->addWidget(addButton, 1,0);
 
   delButton = new TQPushButton(i18n("Delete"), gb);
@@ -155,7 +155,7 @@ TDEHTMLSearchConfig::TDEHTMLSearchConfig(TQWidget *parent, const char *name)
 
   vbox->addStretch(1);
 
-  runButton = new TQPushButton(i18n("Generate Index..."), this);
+  runButton = new TQPushButton(i18n("Generate Index…"), this);
   TQWhatsThis::add( runButton, i18n( "Click this button to generate the index for the fulltext search." ) );
   runButton->setFixedSize(runButton->sizeHint());
   vbox->addWidget(runButton, AlignRight);

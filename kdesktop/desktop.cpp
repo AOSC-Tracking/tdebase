@@ -952,7 +952,7 @@ void KDesktop::handleImageDropEvent(TQDropEvent * e)
 {
     TDEPopupMenu popup;
     if ( m_pIconView )
-    popup.insertItem(SmallIconSet("document-save"),i18n("&Save to Desktop..."), 1);
+    popup.insertItem(SmallIconSet("document-save"),i18n("&Save to Desktop…"), 1);
     if ( ( m_pIconView && m_pIconView->maySetWallpaper() ) || m_pRootWidget )
        popup.insertItem(SmallIconSet("background"),i18n("Set as &Wallpaper"), 2);
     popup.insertSeparator();

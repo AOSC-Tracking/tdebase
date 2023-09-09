@@ -35,7 +35,7 @@ ProgressDialog::ProgressDialog(TQWidget *parent, const char *name)
   check2 = new TQLabel(plainPage());
   grid->addWidget(check2, 2,0);
 
-  l = new TQLabel(i18n("Generating index..."), plainPage());
+  l = new TQLabel(i18n("Generating index…"), plainPage());
   grid->addMultiCellWidget(l, 4,4, 1,2);
 
   check3 = new TQLabel(plainPage());

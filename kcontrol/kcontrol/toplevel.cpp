@@ -273,7 +273,7 @@ actionCollection());
   createGUI("kcontrolui.rc");
 
   report_bug = actionCollection()->action("help_report_bug");
-  report_bug->setText(i18n("&Report Bug..."));
+  report_bug->setText(i18n("&Report Bug…"));
   report_bug->disconnect();
   connect(report_bug, TQT_SIGNAL(activated()), TQT_SLOT(reportBug()));
 }
@@ -349,9 +349,9 @@ void TopLevel::newModule(const TQString &name, const TQString& docPath, const TQ
   if (!report_bug) return;
 
   if(name.isEmpty())
-    report_bug->setText(i18n("&Report Bug..."));
+    report_bug->setText(i18n("&Report Bug…"));
   else
-    report_bug->setText(i18n("Report Bug on Module %1...").arg( handleAmpersand( name)));
+    report_bug->setText(i18n("Report Bug on Module %1…").arg( handleAmpersand( name)));
 }
 
 void TopLevel::changedModule(ConfigModule *changed)

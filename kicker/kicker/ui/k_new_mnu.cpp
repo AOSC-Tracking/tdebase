@@ -1388,7 +1388,7 @@ void KMenu::insertStaticItems()
     // run command
     if (kapp->authorize("run_command"))
     {
-        m_systemView->insertItem( "system-run", i18n("Run Command..."),
+        m_systemView->insertItem( "system-run", i18n("Run Command…"),
                    "", "kicker:/runusercommand", nId++, index++ );
     }
 

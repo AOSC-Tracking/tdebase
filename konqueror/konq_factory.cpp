@@ -217,7 +217,7 @@ const TDEAboutData *KonqFactory::aboutData()
   {
     s_aboutData = new TDEAboutData( "konqueror", I18N_NOOP("Konqueror"),
                         KONQUEROR_VERSION,
-                        I18N_NOOP("Web browser, file manager, ..."),
+                        I18N_NOOP("Web browser, file manager, …"),
                         TDEAboutData::License_GPL,
                         I18N_NOOP("(c) 2011-2014, The Trinity Desktop project\n(c) 1999-2010, The Konqueror developers"),
                         0,

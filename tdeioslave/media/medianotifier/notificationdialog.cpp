@@ -69,7 +69,7 @@ NotificationDialog::NotificationDialog( KFileItem medium, NotifierSettings *sett
 		= locateLocal( "data", "konqueror/servicemenus", true );
 	m_actionWatcher->addDir( services_dir );
 
-	setButtonText( User1, i18n("Configure...") );
+	setButtonText( User1, i18n("Configure…") );
 
 	connect( m_actionWatcher, TQT_SIGNAL( dirty( const TQString & ) ),
 	         this, TQT_SLOT( slotActionsChanged( const TQString & ) ) );

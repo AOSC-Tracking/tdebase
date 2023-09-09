@@ -250,7 +250,7 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
     m_pamPreview->insert( soundPreview );
     m_paPreviewPlugins.append( soundPreview );
 
-    //    m_pamSort = new TDEActionMenu( i18n( "Sort..." ), actionCollection(), "sort" );
+    //    m_pamSort = new TDEActionMenu( i18n( "Sort…" ), actionCollection(), "sort" );
 
     TDEToggleAction *aSortByNameCS = new TDERadioAction( i18n( "By Name (Case Sensitive)" ), 0, actionCollection(), "sort_nc" );
     TDEToggleAction *aSortByNameCI = new TDERadioAction( i18n( "By Name (Case Insensitive)" ), 0, actionCollection(), "sort_nci" );
@@ -307,9 +307,9 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
 
     m_pamSort->insert( aSortDescending );
     */
-    m_paSelect = new TDEAction( i18n( "Se&lect..." ), CTRL+Key_Plus, this, TQT_SLOT( slotSelect() ),
+    m_paSelect = new TDEAction( i18n( "Se&lect…" ), CTRL+Key_Plus, this, TQT_SLOT( slotSelect() ),
                               actionCollection(), "select" );
-    m_paUnselect = new TDEAction( i18n( "Unselect..." ), CTRL+Key_Minus, this, TQT_SLOT( slotUnselect() ),
+    m_paUnselect = new TDEAction( i18n( "Unselect…" ), CTRL+Key_Minus, this, TQT_SLOT( slotUnselect() ),
                                 actionCollection(), "unselect" );
     m_paSelectAll = KStdAction::selectAll( this, TQT_SLOT( slotSelectAll() ), actionCollection(), "selectall" );
     m_paUnselectAll = new TDEAction( i18n( "Unselect All" ), CTRL+Key_U, this, TQT_SLOT( slotUnselectAll() ),

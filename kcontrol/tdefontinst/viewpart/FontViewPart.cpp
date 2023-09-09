@@ -91,7 +91,7 @@ CFontViewPart::CFontViewPart(TQWidget *parent, const char *name)
     itsPreview->setSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
     itsFaceLabel=new TQLabel(i18n("Face:"), itsToolsFrame);
     itsFaceSelector=new KIntNumInput(1, itsToolsFrame);
-    itsInstallButton=new TQPushButton(i18n("Install..."), itsToolsFrame, "button");
+    itsInstallButton=new TQPushButton(i18n("Install…"), itsToolsFrame, "button");
     itsInstallButton->hide();
     previewLayout->addWidget(itsPreview, 0, 0);
     layout->addWidget(previewFrame);
@@ -107,7 +107,7 @@ CFontViewPart::CFontViewPart(TQWidget *parent, const char *name)
     connect(itsInstallButton, TQT_SIGNAL(clicked()), TQT_SLOT(install()));
     connect(itsFaceSelector, TQT_SIGNAL(valueChanged(int)), itsPreview, TQT_SLOT(showFace(int)));
 
-    itsChangeTextAction=new TDEAction(i18n("Change Text..."), "text", TDEShortcut(),
+    itsChangeTextAction=new TDEAction(i18n("Change Text…"), "text", TDEShortcut(),
                                     this, TQT_SLOT(changeText()), actionCollection(), "changeText");
     itsChangeTextAction->setEnabled(false);
     itsPrintAction=KStdAction::print(this, TQT_SLOT(print()), actionCollection(), "print");

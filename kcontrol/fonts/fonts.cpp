@@ -609,7 +609,7 @@ TDEFonts::TDEFonts(TQWidget *parent, const char *name, const TQStringList &)
 
    TQHBoxLayout *hblay = new TQHBoxLayout(layout, KDialog::spacingHint());
    hblay->addStretch();
-   TQPushButton * fontAdjustButton = new TQPushButton(i18n("Ad&just All Fonts..."), this);
+   TQPushButton * fontAdjustButton = new TQPushButton(i18n("Ad&just All Fonts…"), this);
    TQWhatsThis::add(fontAdjustButton, i18n("Click to change all fonts"));
    hblay->addWidget( fontAdjustButton );
    connect(fontAdjustButton, TQT_SIGNAL(clicked()), TQT_SLOT(slotApplyFontDiff()));
@@ -626,7 +626,7 @@ TDEFonts::TDEFonts(TQWidget *parent, const char *name, const TQStringList &)
    cbAA->insertItem( i18n( "Disabled" ));
    TQWhatsThis::add(cbAA, i18n("If this option is selected, TDE will smooth the edges of curves in "
                               "fonts."));
-   aaSettingsButton = new TQPushButton( i18n( "Configure..." ), this);
+   aaSettingsButton = new TQPushButton( i18n( "Configure…" ), this);
    connect(aaSettingsButton, TQT_SIGNAL(clicked()), TQT_SLOT(slotCfgAa()));
    label->setBuddy( cbAA );
    lay->addWidget( cbAA, 0, 1 );

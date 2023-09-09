@@ -198,7 +198,7 @@ TDEPopupMenu *KasTasker::contextMenu()
 
 	menu->insertSeparator();
 
-	menu->insertItem( SmallIcon("configure"), i18n("&Configure Kasbar..."), TQT_TQOBJECT(this), TQT_SLOT( showPreferences() ) );
+	menu->insertItem( SmallIcon("configure"), i18n("&Configure Kasbar…"), TQT_TQOBJECT(this), TQT_SLOT( showPreferences() ) );
 
 	// Help menu
 	TDEPopupMenu *help = new TDEPopupMenu;

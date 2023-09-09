@@ -62,8 +62,8 @@ KMenuEdit::~KMenuEdit()
 
 void KMenuEdit::setupActions()
 {
-    (void)new TDEAction(i18n("&New Submenu..."), "menu_new", 0, actionCollection(), "newsubmenu");
-    (void)new TDEAction(i18n("New &Item..."), "document-new", TDEStdAccel::openNew(), actionCollection(), "newitem");
+    (void)new TDEAction(i18n("&New Submenu…"), "menu_new", 0, actionCollection(), "newsubmenu");
+    (void)new TDEAction(i18n("New &Item…"), "document-new", TDEStdAccel::openNew(), actionCollection(), "newitem");
     if (!m_controlCenter)
        (void)new TDEAction(i18n("New S&eparator"), "menu_new_sep", 0, actionCollection(), "newsep");
 

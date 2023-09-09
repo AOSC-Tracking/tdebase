@@ -232,7 +232,7 @@ void MainWindow::setupActions()
                                      actionCollection(), "lastsearch" );
     mLastSearchAction->setEnabled( false );
 
-    new TDEAction( i18n("Build Search Index..."), 0, TQT_TQOBJECT(mNavigator),
+    new TDEAction( i18n("Build Search Index…"), 0, TQT_TQOBJECT(mNavigator),
       TQT_SLOT( showIndexDialog() ), actionCollection(), "build_index" );
     KStdAction::keyBindings( guiFactory(), TQT_SLOT( configureShortcuts() ),
       actionCollection() );
@@ -247,7 +247,7 @@ void MainWindow::setupActions()
 
     History::self().setupActions( actionCollection() );
 
-    new TDEAction( i18n( "Configure Fonts..." ), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT( slotConfigureFonts() ), actionCollection(), "configure_fonts" );
+    new TDEAction( i18n( "Configure Fonts…" ), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT( slotConfigureFonts() ), actionCollection(), "configure_fonts" );
     new TDEAction( i18n( "Increase Font Sizes" ), "zoom-in", TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT( slotIncFontSizes() ), actionCollection(), "incFontSizes" );
     new TDEAction( i18n( "Decrease Font Sizes" ), "zoom-out", TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT( slotDecFontSizes() ), actionCollection(), "decFontSizes" );
 }

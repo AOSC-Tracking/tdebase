@@ -376,7 +376,7 @@ void konsolePart::makeGUI()
       m_fontsizes = new TDEActionMenu( i18n( "Font" ), SmallIconSet( "text" ), settingsActions, 0L );
       m_fontsizes->insert( new TDEAction( i18n( "&Enlarge Font" ), SmallIconSet( "zoom-in" ), 0, this, TQT_SLOT( biggerFont() ), settingsActions, "enlarge_font" ) );
       m_fontsizes->insert( new TDEAction( i18n( "&Shrink Font" ), SmallIconSet( "zoom-out" ), 0, this, TQT_SLOT( smallerFont() ), settingsActions, "shrink_font" ) );
-      m_fontsizes->insert( new TDEAction( i18n( "Se&lect..." ), SmallIconSet( "font-x-generic" ), 0, this, TQT_SLOT( slotSelectFont() ), settingsActions, "select_font" ) );
+      m_fontsizes->insert( new TDEAction( i18n( "Se&lect…" ), SmallIconSet( "font-x-generic" ), 0, this, TQT_SLOT( slotSelectFont() ), settingsActions, "select_font" ) );
       m_fontsizes->plug(m_options);
 
       // encoding menu, start with default checked !
@@ -407,7 +407,7 @@ void konsolePart::makeGUI()
      }
 
 
-     TDEAction *historyType = new TDEAction(i18n("&History..."), "history", 0, this,
+     TDEAction *historyType = new TDEAction(i18n("&History…"), "history", 0, this,
                                         TQT_SLOT(slotHistoryType()), settingsActions, "history");
      historyType->plug(m_options);
      m_options->insertSeparator();
@@ -448,7 +448,7 @@ void konsolePart::makeGUI()
      metaAsAlt->plug(m_options);
 
      // Word Connectors
-     TDEAction *WordSeps = new TDEAction(i18n("Wor&d Connectors..."), 0, this,
+     TDEAction *WordSeps = new TDEAction(i18n("Wor&d Connectors…"), 0, this,
                                   TQT_SLOT(slotWordSeps()), settingsActions);
      WordSeps->plug(m_options);
 

@@ -310,7 +310,7 @@ void KateMainWindow::setupActions()
       TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotNewSession()), actionCollection(), "session_new");
   new TDEAction(i18n("&Save"), "document-save", 0, 
       TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSaveSession()), actionCollection(), "session_save");
-  new TDEAction(i18n("Save &As..."), "document-save-as", 0, 
+  new TDEAction(i18n("Save &As…"), "document-save-as", 0, 
       TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSaveSessionAs()), actionCollection(), "session_save_as");
   new TDEAction(i18n("&Rename"), "edit_user", 0,
       TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotRenameSession()), actionCollection(), "session_rename");
@@ -638,7 +638,7 @@ void KateMainWindow::mSlotFixOpenWithMenu()
     documentOpenWith->popupMenu()->insertItem( SmallIcon( (*it)->icon() ), (*it)->name() );
   }
   // append "Other..." to call the TDE "open with" dialog.
-  documentOpenWith->popupMenu()->insertItem(i18n("&Other..."));
+  documentOpenWith->popupMenu()->insertItem(i18n("&Other…"));
 }
 
 void KateMainWindow::slotOpenWithMenuAction(int idx)
@@ -648,7 +648,7 @@ void KateMainWindow::slotOpenWithMenuAction(int idx)
   TQString appname = documentOpenWith->popupMenu()->text(idx);
 
   appname = appname.remove('&'); //Remove a possible accelerator ... otherwise the application might not get found.
-  if ( appname.compare(i18n("Other...")) == 0 ) {
+  if ( appname.compare(i18n("Other…")) == 0 ) {
     // display "open with" dialog
     KOpenWithDlg dlg(list);
     if (dlg.exec())

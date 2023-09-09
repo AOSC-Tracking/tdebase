@@ -302,7 +302,7 @@ ActionWidget::ActionWidget( const ActionList *list, ConfigDialog* configWidget, 
     box->setStretchFactor( label, 5 );
 
     box = new TQHBox( this );
-    TQPushButton *advanced = new TQPushButton( i18n("Advanced..."), box );
+    TQPushButton *advanced = new TQPushButton( i18n("Advanced…"), box );
     advanced->setFixedSize( advanced->sizeHint() );
     connect( advanced, TQT_SIGNAL( clicked() ), TQT_SLOT( slotAdvanced() ));
     (void) new TQWidget( box ); // spacer

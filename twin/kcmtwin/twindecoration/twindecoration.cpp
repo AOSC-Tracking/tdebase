@@ -189,7 +189,7 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	inactiveShadowSettings = new TQGroupBox(1, TQt::Horizontal,
 			i18n("Inactive Window Shadows"), shadowPage);
 	whichShadowSettings = new TQGroupBox(3, TQt::Horizontal,
-			i18n("Draw Shadow Under Normal Windows And..."), shadowPage);
+			i18n("Draw Shadow Under Normal Windows And…"), shadowPage);
 
 	cbShadowDocks = new TQCheckBox(i18n("Docks and &panels"),
 			whichShadowSettings);

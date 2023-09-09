@@ -523,7 +523,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         {
             if (d->m_itemFlags & KParts::BrowserExtension::ShowCreateDirectory)
             {
-                TDEAction *actNewDir = new TDEAction( i18n( "Create &Folder..." ), "folder-new", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupNewDir() ), &m_ownActions, "newdir" );
+                TDEAction *actNewDir = new TDEAction( i18n( "Create &Folder…" ), "folder-new", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupNewDir() ), &m_ownActions, "newdir" );
                 addAction( actNewDir );
                 addSeparator();
             }
@@ -926,18 +926,18 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
                 if ( menu != m_menuElement ) // submenu
                 {
                     addSeparator( menu );
-                    openWithActionName = i18n( "&Other..." );
+                    openWithActionName = i18n( "&Other…" );
                 }
                 else
                 {
-                    openWithActionName = i18n( "&Open With..." );
+                    openWithActionName = i18n( "&Open With…" );
                 }
                 TDEAction *openWithAct = new TDEAction( openWithActionName, 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupOpenWith() ), &m_ownActions, "openwith" );
                 addAction( openWithAct, menu );
             }
             else // no app offers -> Open With...
             {
-                act = new TDEAction( i18n( "&Open With..." ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupOpenWith() ), &m_ownActions, "openwith" );
+                act = new TDEAction( i18n( "&Open With…" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotPopupOpenWith() ), &m_ownActions, "openwith" );
                 addAction( act );
             }
 

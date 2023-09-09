@@ -468,7 +468,7 @@ void FaxCtrl::sendFax()
 		if (!m_process->start(TDEProcess::NotifyOnExit, TDEProcess::AllOutput))
 			emit faxSent(false);
 		else
-			emit message(i18n("Sending fax to %1...").arg( item.number ));
+			emit message(i18n("Sending fax to %1…").arg( item.number ));
 	}
 }
 
@@ -479,7 +479,7 @@ void FaxCtrl::filter()
 		TQString	mimeType = KMimeType::findByURL(KURL(m_files[0]), 0, true)->name();
 		if (mimeType == "application/postscript" || mimeType == "image/tiff")
 		{
-			emit message(i18n("Skipping %1...").arg(m_files[0]));
+			emit message(i18n("Skipping %1…").arg(m_files[0]));
 			m_filteredfiles.prepend(m_files[0]);
 			m_files.remove(m_files.begin());
 			filter();
@@ -497,7 +497,7 @@ void FaxCtrl::filter()
 			if (!m_process->start(TDEProcess::NotifyOnExit, TDEProcess::AllOutput))
 				emit faxSent(false);
 			else
-				emit message(i18n("Filtering %1...").arg(m_files[0]));
+				emit message(i18n("Filtering %1…").arg(m_files[0]));
 		}
 	}
 	else

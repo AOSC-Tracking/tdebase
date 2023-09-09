@@ -171,7 +171,7 @@ DancingBarsSettings::DancingBarsSettings( TQWidget* parent, const char* name )
   mSensorView->setAllColumnsShowFocus( true );
   pageLayout->addMultiCellWidget( mSensorView, 0, 2, 0, 0 );
 
-  mEditButton = new TQPushButton( i18n( "Edit..." ), page );
+  mEditButton = new TQPushButton( i18n( "Edit…" ), page );
   mEditButton->setEnabled( false );
   TQWhatsThis::add( mEditButton, i18n( "Push this button to configure the label." ) );
   pageLayout->addWidget( mEditButton, 0, 1 );

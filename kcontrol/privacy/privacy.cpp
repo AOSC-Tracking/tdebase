@@ -257,7 +257,7 @@ void Privacy::cleanup()
   if (KMessageBox::warningContinueCancel(this, i18n("You are deleting data that is potentially valuable to you. Are you sure?")) != KMessageBox::Continue) return;
 
   cleaningDialog->statusTextEdit->clear();
-  cleaningDialog->statusTextEdit->setText(i18n("Starting cleanup..."));
+  cleaningDialog->statusTextEdit->setText(i18n("Starting cleanup…"));
 
   TQCheckListItem *item;
   bool error = false;
@@ -266,7 +266,7 @@ void Privacy::cleanup()
   {
     if(item->isOn())
     {
-      TQString statusText = i18n("Clearing %1...").arg(item->text());
+      TQString statusText = i18n("Clearing %1…").arg(item->text());
       cleaningDialog->statusTextEdit->append(statusText);
 
       if(item == clearThumbnails)

@@ -207,7 +207,7 @@ bool Lockout::eventFilter( TQObject *o, TQEvent *e )
                 i18n("&Transparent");
                 //popup->insertItem( i18n( "&Transparent" ), 100 );
                 popup->insertItem( SmallIcon( "configure" ),
-                                   i18n( "&Configure Screen Saver..." ),
+                                   i18n( "&Configure Screen Saver…" ),
                                    this, TQT_SLOT( slotLockPrefs() ) );
 
                 //popup->setItemChecked( 100, bTransparent );
@@ -223,12 +223,12 @@ bool Lockout::eventFilter( TQObject *o, TQEvent *e )
             {
                 TQPopupMenu *popup = new TQPopupMenu();
 
-                popup->insertItem( SmallIcon( "system-log-out" ), i18n("&Log Out..."),
+                popup->insertItem( SmallIcon( "system-log-out" ), i18n("&Log Out…"),
                                    this, TQT_SLOT( logout() ) );
                 popup->insertSeparator();
                 //popup->insertItem( i18n( "&Transparent" ), 100 );
                 popup->insertItem( SmallIcon( "configure" ),
-                                   i18n( "&Configure Session Manager..." ),
+                                   i18n( "&Configure Session Manager…" ),
                                    this, TQT_SLOT( slotLogoutPrefs() ) );
 
                 //popup->setItemChecked( 100, bTransparent );

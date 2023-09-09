@@ -163,7 +163,7 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
 
 	KSeparator *sep = new KSeparator( KSeparator::HLine, frame );
 
-	mNewSessButton = new KPushButton( KGuiItem(i18n("Sw&itch User..."), "fork"), frame );
+	mNewSessButton = new KPushButton( KGuiItem(i18n("Sw&itch User…"), "fork"), frame );
 	ok = new KPushButton( i18n("Unl&ock"), frame );
 	ok->setDefault(true);
 

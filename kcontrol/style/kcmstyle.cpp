@@ -168,7 +168,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	cbStyle->setEditable( FALSE );
 	hbLayout->addWidget( cbStyle );
 
-	pbConfigStyle = new TQPushButton( i18n("Con&figure..."), gbWidgetStyle );
+	pbConfigStyle = new TQPushButton( i18n("Con&figure…"), gbWidgetStyle );
 	pbConfigStyle->setSizePolicy( TQSizePolicy::Maximum, TQSizePolicy::Minimum );
 	pbConfigStyle->setEnabled( FALSE );
 	hbLayout->addWidget( pbConfigStyle );
@@ -757,7 +757,7 @@ void KCMStyle::loadStyle( TDEConfig& config )
 		if (strWidgetStyle.isNull())
 			continue;
 
-		// We have a widgetstyle, so lets read the i18n entries for it...
+		// We have a widgetstyle, so lets read the i18n entries for it…
 		StyleEntry* entry = new StyleEntry;
 		config.setGroup("Misc");
 		entry->name = config.readEntry("Name");

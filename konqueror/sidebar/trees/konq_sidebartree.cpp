@@ -908,7 +908,7 @@ void KonqSidebarTree::showToplevelContextMenu()
     if (!m_collection)
     {
         m_collection = new TDEActionCollection( this, "bookmark actions" );
-        (void) new TDEAction( i18n("&Create New Folder..."), "folder-new", 0, TQT_TQOBJECT(this),
+        (void) new TDEAction( i18n("&Create New Folder…"), "folder-new", 0, TQT_TQOBJECT(this),
                             TQT_SLOT( slotCreateFolder() ), m_collection, "create_folder");
         (void) new TDEAction( i18n("Delete Folder"), "edit-delete", 0, TQT_TQOBJECT(this),
                             TQT_SLOT( slotDelete() ), m_collection, "delete_folder");

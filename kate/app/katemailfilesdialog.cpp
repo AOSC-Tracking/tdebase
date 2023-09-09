@@ -49,7 +49,7 @@ KateMailDialog::KateMailDialog( TQWidget *parent, KateMainWindow  *mainwin )
                 KGuiItem( i18n("&Show All Documents >>") ) ),
     mainWindow( mainwin )
 {
-  setButtonGuiItem( KDialogBase::Ok, KGuiItem( i18n("&Mail..."), "mail-send") );
+  setButtonGuiItem( KDialogBase::Ok, KGuiItem( i18n("&Mail…"), "mail-send") );
   mw = makeVBoxMainWidget();
   mw->installEventFilter( this );
 
@@ -102,7 +102,7 @@ void KateMailDialog::slotShowButton()
   else {
     list->show();
     setButtonText( User1, i18n("&Hide Document List <<") );
-    lInfo->setText( i18n("Press <strong>Mail...</strong> to send selected documents") );
+    lInfo->setText( i18n("Press <strong>Mail…</strong> to send selected documents") );
 
   }
   mw->setMinimumSize( TQSize( lInfo->sizeHint().width(), mw->sizeHint().height()) );

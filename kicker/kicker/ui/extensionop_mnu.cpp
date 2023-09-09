@@ -40,7 +40,7 @@ PanelExtensionOpMenu::PanelExtensionOpMenu(const TQString& extension, int action
     if (actions & KPanelExtension::ReportBug)
     {
         insertSeparator();
-        insertItem(i18n("Report &Bug..."), ReportBug);
+        insertItem(i18n("Report &Bug…"), ReportBug);
     }
 
     if (actions & KPanelExtension::Help
@@ -59,7 +59,7 @@ PanelExtensionOpMenu::PanelExtensionOpMenu(const TQString& extension, int action
 
     if (!Kicker::the()->isImmutable() && (actions & KPanelExtension::Preferences)) {
 	insertSeparator();
-	insertItem(SmallIcon("configure"), i18n("&Configure %1...").arg(extension), Preferences);
+	insertItem(SmallIcon("configure"), i18n("&Configure %1…").arg(extension), Preferences);
     }
 
     adjustSize();

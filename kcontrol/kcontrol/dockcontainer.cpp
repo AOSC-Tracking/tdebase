@@ -130,7 +130,7 @@ DockContainer::DockContainer(TQWidget *parent)
   , _basew(0L)
   , _module(0L)
 {
-  _busyw = new TQLabel(i18n("<big><b>Loading...</b></big>"), this);
+  _busyw = new TQLabel(i18n("<big><b>Loading…</b></big>"), this);
   _busyw->setAlignment(AlignCenter);
   _busyw->setTextFormat(RichText);
   _busyw->setGeometry(0,0, width(), height());

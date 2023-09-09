@@ -42,7 +42,7 @@ Windowdef_list_widget::Windowdef_list_widget( TQWidget* parent_P, const char* na
         autodetect_slot( NULL ), selected_item( NULL )
     {
     TQPopupMenu* popup = new TQPopupMenu; // CHECKME looks like setting parent doesn't work
-    popup->insertItem( i18n( "Simple Window..." ), TYPE_WINDOWDEF_SIMPLE );
+    popup->insertItem( i18n( "Simple Window…" ), TYPE_WINDOWDEF_SIMPLE );
     connect( popup, TQT_SIGNAL( activated( int )), TQT_SLOT( new_selected( int )));
 
     connect( windows_listview, TQT_SIGNAL( doubleClicked ( TQListViewItem *, const TQPoint &, int ) ),

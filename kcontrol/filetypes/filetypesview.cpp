@@ -92,7 +92,7 @@ FileTypesView::FileTypesView(TQWidget *p, const char *name)
     " (e.g. text/html for HTML files) to view/edit the information for that"
     " file type using the controls on the right.") );
 
-  TQPushButton *addTypeB = new TQPushButton(i18n("Add..."), this);
+  TQPushButton *addTypeB = new TQPushButton(i18n("Add…"), this);
   connect(addTypeB, TQT_SIGNAL(clicked()), TQT_SLOT(addType()));
   leftLayout->addWidget(addTypeB, 3, 0);
 

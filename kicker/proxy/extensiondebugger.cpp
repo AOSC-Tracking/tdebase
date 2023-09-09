@@ -142,7 +142,7 @@ ExtensionContainer::ExtensionContainer( KPanelExtension *extension, TQWidget *pa
 {
     ( new TQVBoxLayout( this ) )->setAutoAdd( true );
 
-    TQPushButton *configButton = new TQPushButton( i18n( "Configure..." ), this );
+    TQPushButton *configButton = new TQPushButton( i18n( "Configure…" ), this );
     connect( configButton, TQT_SIGNAL( clicked() ),
              this, TQT_SLOT( showPreferences() ) );
 

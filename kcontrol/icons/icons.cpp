@@ -128,7 +128,7 @@ TQPushButton *TDEIconConfig::addPreviewIcon(int i, const TQString &str, TQWidget
     mpPreview[i]->setAlignment(AlignCenter);
     mpPreview[i]->setMinimumSize(105, 105);
     lay->addWidget(mpPreview[i], 2, i);
-    TQPushButton *push = new TQPushButton(i18n("Set Effect..."), parent);
+    TQPushButton *push = new TQPushButton(i18n("Set Effect…"), parent);
     lay->addWidget(push, 3, i, Qt::AlignCenter);
     return push;
 }

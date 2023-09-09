@@ -115,7 +115,7 @@ void KEBApp::createActions() {
         i18n("C&hange Comment"), "text", Key_F4,
         TQT_TQOBJECT(actn), TQT_SLOT( slotChangeComment() ), actionCollection(), "changecomment");
     (void) new TDEAction(
-        i18n("Chan&ge Icon..."), "icons", 0,
+        i18n("Chan&ge Icon…"), "icons", 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotChangeIcon() ), actionCollection(), "changeicon");
     (void) new TDEAction(
         i18n("Update Favicon"), 0,
@@ -124,7 +124,7 @@ void KEBApp::createActions() {
         i18n("Recursive Sort"), 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotRecursiveSort() ), actionCollection(), "recursivesort");
     (void) new TDEAction(
-        i18n("&New Folder..."), "folder-new", CTRL+Key_N,
+        i18n("&New Folder…"), "folder-new", CTRL+Key_N,
         TQT_TQOBJECT(actn), TQT_SLOT( slotNewFolder() ), actionCollection(), "newfolder");
     (void) new TDEAction(
         i18n("&New Bookmark"), "www", 0,
@@ -173,40 +173,40 @@ void KEBApp::createActions() {
         TQT_TQOBJECT(actn), TQT_SLOT( slotCancelFavIconUpdates() ), actionCollection(),
         "cancelfaviconupdates" );
     (void) new TDEAction(
-        i18n("Import &Netscape Bookmarks..."), "netscape", 0,
+        i18n("Import &Netscape Bookmarks…"), "netscape", 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotImport() ), actionCollection(), "importNS");
     (void) new TDEAction(
-        i18n("Import &Opera Bookmarks..."), "opera", 0,
+        i18n("Import &Opera Bookmarks…"), "opera", 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotImport() ), actionCollection(), "importOpera");
     (void) new TDEAction(
-        i18n("Import All &Crash Sessions as Bookmarks..."), 0,
+        i18n("Import All &Crash Sessions as Bookmarks…"), 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotImport() ), actionCollection(), "importCrashes");
     (void) new TDEAction(
-        i18n("Import &Galeon Bookmarks..."), 0,
+        i18n("Import &Galeon Bookmarks…"), 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotImport() ), actionCollection(), "importGaleon");
     (void) new TDEAction(
-        i18n("Import &KDE2/KDE3/TDE Bookmarks..."), 0,
+        i18n("Import &KDE2/KDE3/TDE Bookmarks…"), 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotImport() ), actionCollection(), "importKDE2");
     (void) new TDEAction(
-        i18n("Import &IE Bookmarks..."), 0,
+        i18n("Import &IE Bookmarks…"), 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotImport() ), actionCollection(), "importIE");
     (void) new TDEAction(
-        i18n("Import &Mozilla Bookmarks..."), "mozilla", 0,
+        i18n("Import &Mozilla Bookmarks…"), "mozilla", 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotImport() ), actionCollection(), "importMoz");
     (void) new TDEAction(
         i18n("Export to &Netscape Bookmarks"), "netscape", 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotExportNS() ), actionCollection(), "exportNS");
     (void) new TDEAction(
-        i18n("Export to &Opera Bookmarks..."), "opera", 0,
+        i18n("Export to &Opera Bookmarks…"), "opera", 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotExportOpera() ), actionCollection(), "exportOpera");
     (void) new TDEAction(
-        i18n("Export to &HTML Bookmarks..."), "text-html", 0,
+        i18n("Export to &HTML Bookmarks…"), "text-html", 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotExportHTML() ), actionCollection(), "exportHTML");
     (void) new TDEAction(
-        i18n("Export to &IE Bookmarks..."), 0,
+        i18n("Export to &IE Bookmarks…"), 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotExportIE() ), actionCollection(), "exportIE");
     (void) new TDEAction(
-        i18n("Export to &Mozilla Bookmarks..."), "mozilla", 0,
+        i18n("Export to &Mozilla Bookmarks…"), "mozilla", 0,
         TQT_TQOBJECT(actn), TQT_SLOT( slotExportMoz() ), actionCollection(), "exportMoz");
 }
 

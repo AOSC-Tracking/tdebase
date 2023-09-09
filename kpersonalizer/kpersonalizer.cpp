@@ -68,7 +68,7 @@ KPersonalizer::KPersonalizer(TQWidget *parent, const char *name)
 	setHelpEnabled(TQWizard::page(0), false);
 
 	ospage= new KOSPage(this);
-	addPage(ospage, i18n( "Step 2: I want it my Way..." ) );
+	addPage(ospage, i18n( "Step 2: I want it my Way…" ) );
 	setHelpEnabled(TQWizard::page(1), false);
 
 	eyecandy= new KEyeCandyPage(this);

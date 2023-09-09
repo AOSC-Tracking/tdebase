@@ -48,12 +48,12 @@ Triggers_tab::Triggers_tab( TQWidget* parent_P, const char* name_P )
     : Triggers_tab_ui( parent_P, name_P ), selected_item( NULL )
     {
     TQPopupMenu* popup = new TQPopupMenu; // CHECKME looks like setting parent doesn't work
-    popup->insertItem( i18n( "Shortcut Trigger..." ), TYPE_SHORTCUT_TRIGGER );
-    popup->insertItem( i18n( "Gesture Trigger..." ), TYPE_GESTURE_TRIGGER );
-    popup->insertItem( i18n( "Window Trigger..." ), TYPE_WINDOW_TRIGGER );
+    popup->insertItem( i18n( "Shortcut Trigger…" ), TYPE_SHORTCUT_TRIGGER );
+    popup->insertItem( i18n( "Gesture Trigger…" ), TYPE_GESTURE_TRIGGER );
+    popup->insertItem( i18n( "Window Trigger…" ), TYPE_WINDOW_TRIGGER );
 #ifdef HAVE_ARTS
     if( haveArts())
-        popup->insertItem( i18n( "Voice Trigger..." ), TYPE_VOICE_TRIGGER );
+        popup->insertItem( i18n( "Voice Trigger…" ), TYPE_VOICE_TRIGGER );
 #endif
     connect( popup, TQT_SIGNAL( activated( int )), TQT_SLOT( new_selected( int )));
     connect( triggers_listview, TQT_SIGNAL( doubleClicked ( TQListViewItem *, const TQPoint &, int ) ),

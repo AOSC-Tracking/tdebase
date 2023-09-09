@@ -381,7 +381,7 @@ SensorLogger::RMBClicked(TQListViewItem* item, const TQPoint& point, int)
 	pm.insertItem(i18n("&Remove Display"), 2);
 	pm.insertSeparator(-1);
 	pm.insertItem(i18n("&Remove Sensor"), 3);
-	pm.insertItem(i18n("&Edit Sensor..."), 4);
+	pm.insertItem(i18n("&Edit Sensor…"), 4);
 
 	if ( !item )
 	{

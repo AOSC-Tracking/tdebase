@@ -834,7 +834,7 @@ ProcessList::handleRMBPressed(TQListViewItem* lvi, const TQPoint& p, int col)
 	if (killSupported && lvi->isSelected())
 	{
 		processPM.insertSeparator();
-		processPM.insertItem(i18n("Renice Process..."), 300);
+		processPM.insertItem(i18n("Renice Process…"), 300);
 	}
 
 	int id;

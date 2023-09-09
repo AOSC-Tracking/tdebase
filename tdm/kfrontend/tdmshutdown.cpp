@@ -125,7 +125,7 @@ TDMShutdownBase::complete( TQWidget *prevWidget )
 	}
 	if (maySched) {
 		KPushButton *schedButton =
-			new KPushButton( KGuiItem( i18n("&Schedule...") ), this );
+			new KPushButton( KGuiItem( i18n("&Schedule…") ), this );
 		schedButton->setSizePolicy( fp );
 		hlay->addWidget( schedButton );
 		hlay->addStretch( 1 );
@@ -599,7 +599,7 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
 	
 		if (_scheduledSd != SHUT_NEVER) {
 			KPushButton *btnSched = new
-				KPushButton( KGuiItem( i18n("&Schedule...") ), this );
+				KPushButton( KGuiItem( i18n("&Schedule…") ), this );
 			buttonlay->addWidget( btnSched );
 			connect( btnSched, TQT_SIGNAL(clicked()), TQT_SLOT(slotSched()) );
 	

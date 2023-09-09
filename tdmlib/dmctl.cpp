@@ -398,7 +398,7 @@ void
 DM::sess2Str2( const SessEnt &se, TQString &user, TQString &loc )
 {
 	if (se.tty) {
-		user = i18n("user: ...", "%1: TTY login").arg( se.user );
+		user = i18n("user: …", "%1: TTY login").arg( se.user );
 		loc = se.vt ? TQString(TQString("vt%1").arg( se.vt )) : se.display ;
 	} else {
 		user =
@@ -407,7 +407,7 @@ DM::sess2Str2( const SessEnt &se, TQString &user, TQString &loc )
 					i18n("Unused") :
 					se.session == "<remote>" ?
 						i18n("X login on remote host") :
-						TQString(i18n("... host", "X login on %1").arg( se.session )) :
+						TQString(i18n("… host", "X login on %1").arg( se.session )) :
 				se.session == "<unknown>" ?
 					se.user :
 					TQString(i18n("user: session type", "%1: %2")

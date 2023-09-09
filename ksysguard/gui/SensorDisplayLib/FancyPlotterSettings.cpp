@@ -239,7 +239,7 @@ FancyPlotterSettings::FancyPlotterSettings( TQWidget* parent, const char* name )
   mSensorView->setAllColumnsShowFocus( true );
   pageLayout->addMultiCellWidget( mSensorView, 0, 5, 0, 0 );
   mSensorView->setSortColumn ( -1 );
-  mEditButton = new TQPushButton( i18n( "Set Color..." ), page );
+  mEditButton = new TQPushButton( i18n( "Set Color…" ), page );
   mEditButton->setEnabled( false );
   TQWhatsThis::add( mEditButton, i18n( "Push this button to configure the color of the sensor in the diagram." ) );
   pageLayout->addWidget( mEditButton, 0, 1 );

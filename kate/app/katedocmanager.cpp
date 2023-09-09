@@ -481,7 +481,7 @@ void KateDocManager::restoreDocumentList (TDEConfig* config)
   }
 
   TQProgressDialog *pd = new TQProgressDialog(
-        i18n("Reopening files from the last session..."),
+        i18n("Reopening files from the last session…"),
         TQString::null,
         count,
         0,

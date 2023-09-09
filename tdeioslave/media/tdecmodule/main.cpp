@@ -98,7 +98,7 @@ void MediaModule::moduleChanged( bool state )
 
 TQString MediaModule::quickHelp() const
 {
-	return i18n("FIXME : Write me...");
+	return i18n("FIXME : Write me…");
 }
 
 #include "main.moc"

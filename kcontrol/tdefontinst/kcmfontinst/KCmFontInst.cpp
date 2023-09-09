@@ -155,7 +155,7 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
     itsDirOp->setSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
     fontsLayout->addMultiCellWidget(itsDirOp, 0, 0, 0, 1);
 
-    KPushButton *button=new KPushButton(KGuiItem(i18n("Add Fonts..."), "newfont"), fontsFrame);
+    KPushButton *button=new KPushButton(KGuiItem(i18n("Add Fonts…"), "newfont"), fontsFrame);
     connect(button, TQT_SIGNAL(clicked()), TQT_SLOT(addFonts()));
     button->setSizePolicy(TQSizePolicy::Minimum, TQSizePolicy::Minimum);
     fontsLayout->addWidget(button, 1, 0);
@@ -218,7 +218,7 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
 
     toolbar->insertLineSeparator();
 
-    act=new TDEAction(i18n("Add Fonts..."), "newfont", 0, TQT_TQOBJECT(this), TQT_SLOT(addFonts()), itsDirOp->actionCollection(), "addfonts");
+    act=new TDEAction(i18n("Add Fonts…"), "newfont", 0, TQT_TQOBJECT(this), TQT_SLOT(addFonts()), itsDirOp->actionCollection(), "addfonts");
     act->plug(toolbar);
     topMnu->insert(act);
 
@@ -232,11 +232,11 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
     }
 
     toolbar->insertLineSeparator();
-    act=new TDEAction(i18n("Configure..."), "configure", 0, TQT_TQOBJECT(this), TQT_SLOT(configure()), itsDirOp->actionCollection(), "configure");
+    act=new TDEAction(i18n("Configure…"), "configure", 0, TQT_TQOBJECT(this), TQT_SLOT(configure()), itsDirOp->actionCollection(), "configure");
     act->plug(toolbar);
 #ifdef HAVE_XFT
     toolbar->insertLineSeparator();
-    act=new TDEAction(i18n("Print..."), "document-print", 0, TQT_TQOBJECT(this), TQT_SLOT(print()), itsDirOp->actionCollection(), "print");
+    act=new TDEAction(i18n("Print…"), "document-print", 0, TQT_TQOBJECT(this), TQT_SLOT(print()), itsDirOp->actionCollection(), "print");
     act->plug(toolbar);
 #endif
 

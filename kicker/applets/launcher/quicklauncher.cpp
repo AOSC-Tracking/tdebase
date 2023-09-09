@@ -107,7 +107,7 @@ QuickLauncher::QuickLauncher(const TQString& configFile, Type type, int actions,
     m_oldButtons = 0;
     m_dragButtons = 0;
 
-    m_configAction = new TDEAction(i18n("Configure Quicklauncher..."), "configure", TDEShortcut(),
+    m_configAction = new TDEAction(i18n("Configure Quicklauncher…"), "configure", TDEShortcut(),
         TQT_TQOBJECT(this), TQT_SLOT(slotConfigure()), TQT_TQOBJECT(this));
 
     m_saveTimer = new TQTimer(this, "m_saveTimer");

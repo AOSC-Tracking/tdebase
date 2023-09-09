@@ -907,8 +907,8 @@ void KonqListView::setupActions()
    m_paShowPermissions->setCheckedState(i18n("Hide Permissions"));
    m_paShowURL=new TDEToggleAction(i18n("Show URL"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_url" );
 
-   m_paSelect = new TDEAction( i18n( "Se&lect..." ), CTRL+Key_Plus, this, TQT_SLOT( slotSelect() ), actionCollection(), "select" );
-  m_paUnselect = new TDEAction( i18n( "Unselect..." ), CTRL+Key_Minus, this, TQT_SLOT( slotUnselect() ), actionCollection(), "unselect" );
+   m_paSelect = new TDEAction( i18n( "Se&lect…" ), CTRL+Key_Plus, this, TQT_SLOT( slotSelect() ), actionCollection(), "select" );
+  m_paUnselect = new TDEAction( i18n( "Unselect…" ), CTRL+Key_Minus, this, TQT_SLOT( slotUnselect() ), actionCollection(), "unselect" );
   m_paSelectAll = KStdAction::selectAll( this, TQT_SLOT( slotSelectAll() ), actionCollection(), "selectall" );
   m_paUnselectAll = new TDEAction( i18n( "Unselect All" ), CTRL+Key_U, this, TQT_SLOT( slotUnselectAll() ), actionCollection(), "unselectall" );
   m_paInvertSelection = new TDEAction( i18n( "&Invert Selection" ), CTRL+Key_Asterisk, this, TQT_SLOT( slotInvertSelection() ), actionCollection(), "invertselection" );

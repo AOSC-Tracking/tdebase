@@ -108,7 +108,7 @@ ThemePage::ThemePage( TQWidget* parent, const char* name )
 
 	TQHBox *hbox = new TQHBox( this );
 	hbox->setSpacing( KDialog::spacingHint() );
-	installButton = new TQPushButton( i18n("Install New Theme..."), hbox );
+	installButton = new TQPushButton( i18n("Install New Theme…"), hbox );
 	removeButton = new TQPushButton( i18n("Remove Theme"), hbox );
 
 	connect( installButton, TQT_SIGNAL( clicked() ), TQT_SLOT( installClicked() ) );

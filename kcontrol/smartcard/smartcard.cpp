@@ -70,7 +70,7 @@ KSmartcardConfig::KSmartcardConfig(TQWidget *parent, const char *name)
      layout->add(base);
 
      _popUpKardChooser = new TDEPopupMenu(this,"KpopupKardChooser");
-     _popUpKardChooser->insertItem(i18n("Change Module..."),
+     _popUpKardChooser->insertItem(i18n("Change Module…"),
 				   this,
 				   TQT_SLOT(slotLaunchChooser()));
      // The config backend

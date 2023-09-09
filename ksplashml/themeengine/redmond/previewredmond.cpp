@@ -105,7 +105,7 @@ void PreviewRedmond::_updateCache()
       rect().height()/2 + (int)(p.fontMetrics().height()*0.85) + 15 );
     p.setPen( m_statusColor );
     p.setFont( m_statusFont );
-    p.drawText( statusTextPos, i18n("Starting TDE...") );
+    p.drawText( statusTextPos, i18n("Starting TDE…") );
   }
 
   p.end();

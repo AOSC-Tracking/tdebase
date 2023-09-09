@@ -71,7 +71,7 @@ void VoiceRecorder::slotRecordPressed()
        buttonPlay->setEnabled(false);
        buttonStop->setEnabled(true);
       _recorder->start();
-       label->setText(i18n("Recording..."));
+       label->setText(i18n("Recording…"));
 }
 
 void VoiceRecorder::slotStopPressed()

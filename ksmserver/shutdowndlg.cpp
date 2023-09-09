@@ -1242,7 +1242,7 @@ KSMShutdownIPDlg::KSMShutdownIPDlg(TQWidget* parent)
 	m_gridlayout->invalidate();
 	setFixedSize(sizeHint());
 
-	setStatusMessage(i18n("Saving your settings..."));
+	setStatusMessage(i18n("Saving your settings…"));
 
 	setNotificationActionButtonsSkipText(i18n("Skip Notification"));
 	m_button2->setText(i18n("Abort Logout"));

@@ -57,7 +57,7 @@ void SystemMenu::initialize()
 
     if (m_entries.isEmpty())
     {
-        insertItem(i18n("Empty..."));
+        insertItem(i18n("Empty…"));
         return;
     }
 

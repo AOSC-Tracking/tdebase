@@ -51,7 +51,7 @@ KfindDlg::KfindDlg(const KURL & url, TQWidget *parent, const char *name)
   win = new KfindWindow(frame,"window");
 
   mStatusBar = new KStatusBar(frame);
-  mStatusBar->insertFixedItem(i18n("AMiddleLengthText..."), 0, true);
+  mStatusBar->insertFixedItem(i18n("AMiddleLengthText…"), 0, true);
   setStatusMsg(i18n("Ready."));
   mStatusBar->setItemAlignment(0, AlignLeft | AlignVCenter);
   mStatusBar->insertItem(TQString::null, 1, 1, true);
@@ -149,7 +149,7 @@ void KfindDlg::startSearch()
   win->beginSearch(query->url());
   tabWidget->beginSearch();
 
-  setStatusMsg(i18n("Searching..."));
+  setStatusMsg(i18n("Searching…"));
   query->start();
 }
 

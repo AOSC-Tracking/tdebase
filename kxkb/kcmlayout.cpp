@@ -244,7 +244,7 @@ void LayoutConfig::initUI() {
 		}
 	}
 	widget->comboHotkey->insertItem(i18n("None"));
-	widget->comboHotkey->insertItem(i18n("Other..."));
+	widget->comboHotkey->insertItem(i18n("Other…"));
 
 	// display KXKB switching options
 	widget->chkShowSingle->setChecked(m_kxkbConfig.m_showSingle);
@@ -1029,7 +1029,7 @@ void LayoutConfig::updateHotkeyCombo(bool initial) {
     }
 
     int other = widget->comboHotkey->count() - 1;
-    widget->comboHotkey->changeItem(i18n("Custom..."), other);
+    widget->comboHotkey->changeItem(i18n("Custom…"), other);
     if (hotkeys.count() < 2) {
         bool found = false;
         for (int i = 0; i < widget->comboHotkey->count(); ++i) {
