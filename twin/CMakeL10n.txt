@@ -5,6 +5,7 @@ tde_l10n_create_template(
     EXCLUDES
         "^clients/"
         "^kcmtwin/"
+        "^lib/"
 )
 
 tde_l10n_auto_add_subdirectories( )

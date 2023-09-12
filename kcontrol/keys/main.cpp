@@ -150,6 +150,7 @@ extern "C"
   {
 	// What does this do?  Why not insert klipper and kxkb, too? --ellis, 2002/01/15
 	TDEGlobal::locale()->insertCatalogue("twin");
+	TDEGlobal::locale()->insertCatalogue("twin_lib");
 	TDEGlobal::locale()->insertCatalogue("kdesktop");
 	TDEGlobal::locale()->insertCatalogue("kicker");
 	return new KeyModule(parent, "kcmkeys");
