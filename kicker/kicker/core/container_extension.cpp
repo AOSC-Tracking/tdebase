@@ -1262,11 +1262,11 @@ int ExtensionContainer::arrangeHideButtons()
             _layout->remove(_ltHB);
             if (kapp->reverseLayout())
             {
-                _layout->addWidget(_ltHB, 1, 2, (TQ_Alignment)vertAlignment);
+                _layout->addWidget(_ltHB, 1, 2, (Qt::AlignmentFlags)vertAlignment);
             }
             else
             {
-                _layout->addWidget(_ltHB, 1, 0, (TQ_Alignment)(leftAlignment | vertAlignment));
+                _layout->addWidget(_ltHB, 1, 0, (Qt::AlignmentFlags)(leftAlignment | vertAlignment));
             }
         }
 
@@ -1277,11 +1277,11 @@ int ExtensionContainer::arrangeHideButtons()
             _layout->remove(_rbHB);
             if (kapp->reverseLayout())
             {
-                _layout->addWidget(_rbHB, 1, 0, (TQ_Alignment)(leftAlignment | vertAlignment));
+                _layout->addWidget(_rbHB, 1, 0, (Qt::AlignmentFlags)(leftAlignment | vertAlignment));
             }
             else
             {
-                _layout->addWidget(_rbHB, 1, 2, (TQ_Alignment)vertAlignment);
+                _layout->addWidget(_rbHB, 1, 2, (Qt::AlignmentFlags)vertAlignment);
             }
         }
     }

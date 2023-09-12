@@ -196,7 +196,7 @@ void PanelButton::setPopupDirection(KPanelApplet::Direction d)
     setArrowDirection(KickerLib::directionToPopupPosition(d));
 }
 
-void PanelButton::setIconAlignment(TQ_Alignment align)
+void PanelButton::setIconAlignment(Qt::AlignmentFlags align)
 {
     m_iconAlignment = align;
     update();
