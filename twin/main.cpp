@@ -310,6 +310,7 @@ KDE_EXPORT int kdemain( int argc, char * argv[] )
         }
 
     TDEGlobal::locale()->setMainCatalogue("twin");
+    TDELocale::insertCatalogue("twin_lib");
 
     TDEAboutData aboutData( "twin", I18N_NOOP("TWin"),
                           version, description, TDEAboutData::License_GPL,
