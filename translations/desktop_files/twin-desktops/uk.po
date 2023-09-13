@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Roman Savochenko <roman@oscada.org>, 2020.
+# Roman Savochenko <roman@oscada.org>, 2020, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-04 20:14+0000\n"
-"PO-Revision-Date: 2020-07-21 05:23+0000\n"
+"POT-Creation-Date: 2023-07-04 18:14+0000\n"
+"PO-Revision-Date: 2023-09-13 06:31+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/twin-desktop-files/uk/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: kcmtwin/showdesktop.desktop:4
@@ -69,13 +69,12 @@ msgstr ""
 #. Name
 #: kcmtwin/twinoptions/twinactiveborders.desktop:11
 msgid "Active Borders"
-msgstr ""
+msgstr "Активні Межі"
 
 #. Comment
 #: kcmtwin/twinoptions/twinactiveborders.desktop:13
-#, fuzzy
 msgid "Configure active borders/corners feature"
-msgstr "Налаштування додаткових можливостей керування вікнами"
+msgstr "Налаштувати властивості активних меж/кутів"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinactiveborders.desktop:15
@@ -83,6 +82,8 @@ msgid ""
 "window behavior;windows;frame;titlebar;borders;corners;active borders;"
 "aerosnap;"
 msgstr ""
+"поведінка вікна;вікна;рамка;смужка заголовку;межі;кути;активні межі;"
+"повітряний клік;"
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
