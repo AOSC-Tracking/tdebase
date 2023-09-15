@@ -310,7 +310,6 @@ KDE_EXPORT int kdemain( int argc, char * argv[] )
         }
 
     TDEGlobal::locale()->setMainCatalogue("twin");
-    TDEGlobal::locale()->insertCatalogue( "twin_lib" );
 
     TDEAboutData aboutData( "twin", I18N_NOOP("TWin"),
                           version, description, TDEAboutData::License_GPL,
@@ -342,6 +341,8 @@ KDE_EXPORT int kdemain( int argc, char * argv[] )
         appname = "twin";
     else
         appname.sprintf("twin-screen-%d", KWinInternal::screen_number);
+
+    TDEGlobal::locale()->insertCatalogue("twin_lib");
 
     DCOPClient* client = a.dcopClient();
     client->registerAs( appname.data(), false);
