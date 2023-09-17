@@ -29,7 +29,7 @@
                 <cstring>new_button</cstring>
             </property>
             <property name="text">
-                <string>&amp;New...</string>
+                <string>&amp;New…</string>
             </property>
         </widget>
         <widget class="KPushButton" row="1" column="1">
@@ -37,7 +37,7 @@
                 <cstring>modify_button</cstring>
             </property>
             <property name="text">
-                <string>&amp;Modify...</string>
+                <string>&amp;Modify…</string>
             </property>
         </widget>
         <widget class="KPushButton" row="2" column="1">

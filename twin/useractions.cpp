@@ -67,13 +67,13 @@ TQPopupMenu* Workspace::clientPopup()
         advanced_popup->insertItem( i18n("&No Border")+'\t'+keys->shortcut("Window No Border").seq(0).toString(), Options::NoBorderOp );
 	advanced_popup->insertItem( i18n("Shad&ow"), Options::ShadowOp );
         advanced_popup->insertItem( SmallIconSet("key_bindings"),
-            i18n("Window &Shortcut...")+'\t'+keys->shortcut("Setup Window Shortcut").seq(0).toString(), Options::SetupWindowShortcutOp );
+            i18n("Window &Shortcut…")+'\t'+keys->shortcut("Setup Window Shortcut").seq(0).toString(), Options::SetupWindowShortcutOp );
         advanced_popup->insertSeparator();
         advanced_popup->insertItem( SmallIconSet( "suspend" ), i18n("&Suspend Application"), Options::SuspendWindowOp );
         advanced_popup->insertItem( SmallIconSet( "application-x-executable" ), i18n("&Resume Application"), Options::ResumeWindowOp );
         advanced_popup->insertSeparator();
-        advanced_popup->insertItem( SmallIconSet( "wizard" ), i18n("&Special Window Settings..."), Options::WindowRulesOp );
-        advanced_popup->insertItem( SmallIconSet( "wizard" ), i18n("&Special Application Settings..."), Options::ApplicationRulesOp );
+        advanced_popup->insertItem( SmallIconSet( "wizard" ), i18n("&Special Window Settings…"), Options::WindowRulesOp );
+        advanced_popup->insertItem( SmallIconSet( "wizard" ), i18n("&Special Application Settings…"), Options::ApplicationRulesOp );
 
         popup->insertItem(i18n("Ad&vanced"), advanced_popup );
         desk_popup_index = popup->count();
@@ -105,7 +105,7 @@ TQPopupMenu* Workspace::clientPopup()
         if (!TDEGlobal::config()->isImmutable() && 
             !kapp->authorizeControlModules(Workspace::configModules(true)).isEmpty())
             {
-            popup->insertItem(SmallIconSet( "configure" ), i18n("Configur&e Window Behavior..."), this, TQT_SLOT( configureWM() ));
+            popup->insertItem(SmallIconSet( "configure" ), i18n("Configur&e Window Behavior…"), this, TQT_SLOT( configureWM() ));
             popup->insertSeparator();
             }
 

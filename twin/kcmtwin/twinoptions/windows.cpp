@@ -884,7 +884,7 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget
 
     hideUtilityWindowsForInactive = new TQCheckBox( i18n( "Hide utility windows for inactive applications" ), this );
     TQWhatsThis::add( hideUtilityWindowsForInactive,
-        i18n( "When turned on, utility windows (tool windows, torn-off menus,...) of inactive applications will be"
+        i18n( "When turned on, utility windows (tool windows, torn-off menus,…) of inactive applications will be"
               " hidden and will be shown only when the application becomes active. Note that applications"
               " have to mark the windows with the proper window type for this feature to work." ));
     connect(hideUtilityWindowsForInactive, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
