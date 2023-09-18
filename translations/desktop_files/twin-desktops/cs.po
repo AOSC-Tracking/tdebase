@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Slávek Banko <slavek.banko@axis.cz>, 2020.
+# Slávek Banko <slavek.banko@axis.cz>, 2020, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-04 18:14+0000\n"
-"PO-Revision-Date: 2020-09-24 00:40+0000\n"
+"PO-Revision-Date: 2023-09-19 19:39+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/twin-desktop-files/cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.2.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: kcmtwin/showdesktop.desktop:4
@@ -68,21 +68,19 @@ msgstr ""
 #. Name
 #: kcmtwin/twinoptions/twinactiveborders.desktop:11
 msgid "Active Borders"
-msgstr ""
+msgstr "Aktivní okraje"
 
 #. Comment
 #: kcmtwin/twinoptions/twinactiveborders.desktop:13
-#, fuzzy
-#| msgid "Configure advanced window management features"
 msgid "Configure active borders/corners feature"
-msgstr "Nastavení pokročilých vlastností správce oken"
+msgstr "Nastavení vlastností aktivních okrajů/rohů"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinactiveborders.desktop:15
 msgid ""
 "window behavior;windows;frame;titlebar;borders;corners;active borders;"
 "aerosnap;"
-msgstr ""
+msgstr "chování oken;okna;rám;titulek;okraje;rohy;aktivní okraje;aerosnap;"
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
