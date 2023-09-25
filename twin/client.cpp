@@ -1260,7 +1260,7 @@ void Client::drawShadow()
 
     removeShadow();
 
-    TQMemArray<QRgb> pixelData;
+    TQMemArray<TQRgb> pixelData;
     TQPixmap shadowPixmap;
     TQRect shadow;
     TQRegion exposedRegion;
@@ -1433,7 +1433,7 @@ TQRegion Client::getExposedRegion(TQRegion occludedRegion, int x, int y, int w,
  */
 void Client::imposeCachedShadow(TQPixmap &pixmap, TQRegion exposed)
 {
-    QRgb pixel;
+    TQRgb pixel;
     double opacity;
     int red, green, blue, pixelRed, pixelGreen, pixelBlue;
     int subW, subH, w, x, y, zeroX, zeroY;
@@ -1490,7 +1490,7 @@ void Client::imposeRegionShadow(TQPixmap &pixmap, TQRegion occluded,
         TQRegion exposed, int thickness, double maxOpacity)
 {
     int distance, intersectCount, i, j, x, y;
-    QRgb pixel;
+    TQRgb pixel;
     double decay, factor, opacity;
     int red, green, blue, pixelRed, pixelGreen, pixelBlue;
     int lineIntersects, maxIntersects, maxY;

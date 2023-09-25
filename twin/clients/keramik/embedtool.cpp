@@ -101,7 +101,7 @@ void KeramikEmbedder::embed( const char *name )
 	
 	codename = codename.replace( TQRegExp("[^a-zA-Z0-9]"), "_" );
 	
-	stream << "\tstatic const QRgb " << codename << "_data[] = {" << endl << "\t\t";
+	stream << "\tstatic const TQRgb " << codename << "_data[] = {" << endl << "\t\t";
 	stream.setf( TQTextStream::hex | TQTextStream::right );
 	stream.fill( '0' );
 	
@@ -147,7 +147,7 @@ void KeramikEmbedder::writeIndex()
 	stream << "\t\tint width;\n";
 	stream << "\t\tint height;\n";
 	stream << "\t\tbool alpha;\n";
-	stream << "\t\tconst QRgb *data;\n";
+	stream << "\t\tconst TQRgb *data;\n";
 	stream << "\t};\n\n";
 
 	uint i = 0;

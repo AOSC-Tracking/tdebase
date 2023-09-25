@@ -26,7 +26,7 @@
 #include <glib.h>
 
 class GlibEvents
-    : public QWidget
+    : public TQWidget
     {
     TQ_OBJECT
     public:

@@ -22,7 +22,7 @@
 
 #include <tqobject.h>
 
-class TestTrash : public QObject
+class TestTrash : public TQObject
 {
     TQ_OBJECT
 

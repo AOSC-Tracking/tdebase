@@ -38,7 +38,7 @@ class StyleSettings;
 
 namespace KSGRD {
 
-class KDE_EXPORT StyleEngine : public QObject
+class KDE_EXPORT StyleEngine : public TQObject
 {
   TQ_OBJECT
 

@@ -47,7 +47,7 @@ class SearchJob
     TQString mError;
 };
 
-class SearchHandler : public QObject
+class SearchHandler : public TQObject
 {
     TQ_OBJECT
   public:

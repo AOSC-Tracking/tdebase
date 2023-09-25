@@ -134,8 +134,8 @@ Navigator::Navigator( View *view, TQWidget *parent, const char *name )
       mSearchWidget->readConfig( TDEGlobal::config() );
     }
 
-    connect( mTabWidget, TQT_SIGNAL( currentChanged( QWidget * ) ),
-             TQT_SLOT( slotTabChanged( QWidget * ) ) );
+    connect( mTabWidget, TQT_SIGNAL( currentChanged( TQWidget * ) ),
+             TQT_SLOT( slotTabChanged( TQWidget * ) ) );
 }
 
 Navigator::~Navigator()

@@ -91,7 +91,7 @@ void ManagerModule::load()
 	else
 	    view->option_atime->setNoChange();
 	
-	QString value;	
+	TQString value;	
 	
 	value = config.readEntry("shortname", "lower").lower();
 	for (int i = 0; i < view->option_shortname->count(); i++)

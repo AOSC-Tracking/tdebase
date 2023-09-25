@@ -3,10 +3,10 @@ The Short Story
 Four space tabs, braces on their own lines, 80 character lines.
 Code should look something like this:
 
-QString ExtensionManager::uniqueId()
+TQString ExtensionManager::uniqueId()
 {
-    QString idBase = "Extension_%1";
-    QString newId;
+    TQString idBase = "Extension_%1";
+    TQString newId;
     int i = 0;
     bool unique = false;
 

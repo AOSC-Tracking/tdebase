@@ -607,7 +607,7 @@ follows:</para>
 
 <programlisting>
 DCOPClient *c = kapp-&gt;dcopClient();
-QString error;
+TQString error;
 QCString KSplashName;
 int pid = 0;
 QStringList args;
@@ -644,10 +644,10 @@ data))
 <para>Whenever you want to display a message with or without an icon, use</para>
 
 <programlisting>
-    arg &lt;&lt; QString("iconName") &lt;&lt; QString("programName") &lt;&lt;
-QString("Some description");
+    arg &lt;&lt; TQString("iconName") &lt;&lt; TQString("programName") &lt;&lt;
+TQString("Some description");
     if (!(c-&gt;send(KSplashName, "KSplashIface",
-"programStarted(QString,QString,QString)", data))
+"programStarted(TQString,TQString,TQString)", data))
     {
       // Some error processing here.
     }
@@ -791,7 +791,7 @@ functions <function>slotSetText</function>,
 <function>slotSetPixmap</function>, <function>slotUpdateProgress</function> and
 <function>slotUpdateSteps</function> to make it usable.</para></listitem>
 <listitem><para>The constructor should take the form
-<literal>ThemeEngine( QWidget *parent, const char *name, const QStringList
+<literal>ThemeEngine( TQWidget *parent, const char *name, const QStringList
 &amp;args )</literal>
 so that it can be used with
 <classname>KGenericFactory</classname>.</para></listitem>
@@ -832,11 +832,11 @@ class Theme2k: public ThemeEngine
 {
   TQ_OBJECT
 public:
-  Theme2k( QWidget *, const char *, const QStringList&amp; );
+  Theme2k( TQWidget *, const char *, const QStringList&amp; );
 
-  inline const QString name()
+  inline const TQString name()
   {
-    return( QString("KSplash2k") );
+    return( TQString("KSplash2k") );
   }
   inline const KDialogBase *config( TDEConfig *kc )
   {
@@ -853,7 +853,7 @@ public:
   };
 
 public slots:
-  inline void slotSetText( const QString&amp; s )
+  inline void slotSetText( const TQString&amp; s )
   {
     if( mText &amp;&amp; mText-&gt;text() != s ) mText-&gt;setText( s );
   };
@@ -864,9 +864,9 @@ private:
 
   QLabel *mText;
   RotWidget *mRotator;
-  QColor mTBgColor, mTFgColor, mRotColor1, mRotColor2, mStatusColor;
+  TQColor mTBgColor, mTFgColor, mRotColor1, mRotColor2, mStatusColor;
   int mRotSpeed;
-  QString mWndTitle, mLogoFile;
+  TQString mWndTitle, mLogoFile;
 };
 
 #endif
@@ -878,7 +878,7 @@ the naming conventions, and is inherited from
 <classname>ThemeEngine</classname>. It provides
 a <methodname>Theme2k::names()</methodname>, and has a constructor that takes
 the required
-parameters: <function>Theme2k( QWidget *, const char *, const QStringList&amp;
+parameters: <function>Theme2k( TQWidget *, const char *, const QStringList&amp;
 );</function>
 and also provides a simple <methodname>Theme2k::slotSetText()</methodname>
 method. For the moment,
@@ -913,7 +913,7 @@ straightforward.</para>
 <example>
 <title>Plugin constructor</title>
 <programlisting>
-Theme2k::Theme2k( QWidget *parent, const char *name, const QStringList &amp;args
+Theme2k::Theme2k( TQWidget *parent, const char *name, const QStringList &amp;args
  )
     :ThemeEngine( parent, name, args )
 {
@@ -938,10 +938,10 @@ void Theme2k::readSettings()
   if( !cfg )
     return;
 
-  cfg-&gt;setGroup( QString("KSplash Theme: %1").arg(mTheme-&gt;theme()) );
+  cfg-&gt;setGroup( TQString("KSplash Theme: %1").arg(mTheme-&gt;theme()) );
 
-  QColor DefaultTBgColor( Qt::darkBlue );
-  QColor DefaultTFgColor( Qt::white );
+  TQColor DefaultTBgColor( Qt::darkBlue );
+  TQColor DefaultTFgColor( Qt::white );
 
   mTBgColor = cfg-&gt;readColorEntry( "Title Background Color",
 &amp;DefaultTBgColor );
@@ -949,14 +949,14 @@ void Theme2k::readSettings()
 &amp;DefaultTFgColor );
   mStatusColor = cfg-&gt;readColorEntry("Status Text Color", &amp;mTBgColor );
 
-  QColor DefaultRot1( Qt::darkBlue );
-  QColor DefaultRot2( Qt::cyan );
+  TQColor DefaultRot1( Qt::darkBlue );
+  TQColor DefaultRot2( Qt::cyan );
   mRotColor1 = cfg-&gt;readColorEntry( "Rotator Color 1", &amp;DefaultRot1 );
   mRotColor2 = cfg-&gt;readColorEntry( "Rotator Color 2", &amp;DefaultRot2 );
 
   mRotSpeed = cfg-&gt;readNumEntry( "Rotator Speed", 30 );
   mWndTitle = cfg-&gt;readEntry( "Window Title", i18n("Please wait...") );
-  mLogoFile = cfg-&gt;readEntry( "Logo File", QString::null );
+  mLogoFile = cfg-&gt;readEntry( "Logo File", TQString::null );
 }
 </programlisting>
 </example>
@@ -1112,7 +1112,7 @@ K_EXPORT_COMPONENT_FACTORY( ksplash2k, KGenericFactory&lt;Theme2k&gt; );
 Cfg2k::Cfg2k( TDEConfig * )
 {}
 
-Theme2k::Theme2k( QWidget *parent, const char *name, const QStringList &amp;args
+Theme2k::Theme2k( TQWidget *parent, const char *name, const QStringList &amp;args
  )
     :ThemeEngine( parent, name, args )
 {
@@ -1136,8 +1136,8 @@ void Theme2k::initUi()
   QLabel *logo = new QLabel( vbox );
   logo-&gt;setPalette( Qt::white );
 
-  QString px( locate( "appdata", mTheme-&gt;themeDir() +
-(mLogoFile.isNull()?QString("/Logo.png"):mLogoFile) ) );
+  TQString px( locate( "appdata", mTheme-&gt;themeDir() +
+(mLogoFile.isNull()?TQString("/Logo.png"):mLogoFile) ) );
   if (px.isNull())
     px = locate("appdata","Themes/Default/splash_top.png");
   if( !px.isNull() )
@@ -1178,10 +1178,10 @@ void Theme2k::readSettings()
   if( !cfg )
     return;
 
-  cfg-&gt;setGroup( QString("KSplash Theme: %1").arg(mTheme-&gt;theme()) );
+  cfg-&gt;setGroup( TQString("KSplash Theme: %1").arg(mTheme-&gt;theme()) );
 
-  QColor DefaultTBgColor( Qt::darkBlue );
-  QColor DefaultTFgColor( Qt::white );
+  TQColor DefaultTBgColor( Qt::darkBlue );
+  TQColor DefaultTFgColor( Qt::white );
 
   mTBgColor = cfg-&gt;readColorEntry( "Title Background Color",
 &amp;DefaultTBgColor );
@@ -1189,14 +1189,14 @@ void Theme2k::readSettings()
 &amp;DefaultTFgColor );
   mStatusColor = cfg-&gt;readColorEntry("Status Text Color", &amp;mTBgColor );
 
-  QColor DefaultRot1( Qt::darkBlue );
-  QColor DefaultRot2( Qt::cyan );
+  TQColor DefaultRot1( Qt::darkBlue );
+  TQColor DefaultRot2( Qt::cyan );
   mRotColor1 = cfg-&gt;readColorEntry( "Rotator Color 1", &amp;DefaultRot1 );
   mRotColor2 = cfg-&gt;readColorEntry( "Rotator Color 2", &amp;DefaultRot2 );
 
   mRotSpeed = cfg-&gt;readNumEntry( "Rotator Speed", 30 );
   mWndTitle = cfg-&gt;readEntry( "Window Title", i18n("Please wait...") );
-  mLogoFile = cfg-&gt;readEntry( "Logo File", QString::null );
+  mLogoFile = cfg-&gt;readEntry( "Logo File", TQString::null );
 }
 </programlisting>
 </sect1>
@@ -1216,11 +1216,11 @@ void Theme2k::readSettings()
 /**
  * @short Display a rotating-gradient widget.
  */
-class 	RotWidget: public QWidget
+class 	RotWidget: public TQWidget
 {
   TQ_OBJECT
 public:
-  RotWidget( QWidget *, const QColor&amp;, const QColor&amp;, int );
+  RotWidget( TQWidget *, const TQColor&amp;, const TQColor&amp;, int );
   ~RotWidget();
 
 private slots:
@@ -1231,7 +1231,7 @@ protected:
   void	paintEvent( QPaintEvent * );
   void	resizeEvent( QResizeEvent * );
 
-  QColor m_color1, m_color2;
+  TQColor m_color1, m_color2;
   int m_step, m_speed;
   QTimer *m_stepTimer;
 
@@ -1255,9 +1255,9 @@ protected:
 #include "rotwidget.h"
 #include "rotwidget.moc"
 
-RotWidget::RotWidget( QWidget *parent, const QColor&amp; c1, const QColor&amp;
+RotWidget::RotWidget( TQWidget *parent, const TQColor&amp; c1, const TQColor&amp;
 c2, int sp )
-    :QWidget(parent), m_color1(c1), m_color2(c2), m_step(0), m_speed(sp)
+    :TQWidget(parent), m_color1(c1), m_color2(c2), m_step(0), m_speed(sp)
 {
   if( (m_speed &lt;= 0) || (m_speed &gt; 20) )
     m_speed = 1;

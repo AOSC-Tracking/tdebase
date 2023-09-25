@@ -71,7 +71,7 @@ private:
   TDMUsersWidget	*users;
   TDMConvenienceWidget	*convenience;
 
-  TQMap<TQString, QPair<int,TQStringList> >	usermap;
+  TQMap<TQString, TQPair<int,TQStringList> >	usermap;
   TQMap<TQString,int>	groupmap;
   int			minshowuid, maxshowuid;
   bool			updateOK;

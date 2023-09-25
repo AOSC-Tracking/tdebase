@@ -51,7 +51,7 @@ private:
 };
 
 
-class KWebDesktopRun : public QObject
+class KWebDesktopRun : public TQObject
 {
     TQ_OBJECT
 public:

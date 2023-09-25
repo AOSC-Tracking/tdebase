@@ -1254,7 +1254,7 @@ TQImage* TaskBar::blendGradient(const TQSize& size)
 
 void TaskBar::sortContainersByDesktop(TaskContainer::List& list)
 {
-    typedef TQValueVector<QPair<int, QPair<int, TaskContainer*> > > SortVector;
+    typedef TQValueVector<TQPair<int, TQPair<int, TaskContainer*> > > SortVector;
     SortVector sorted;
     sorted.resize(list.count());
     int i = 0;

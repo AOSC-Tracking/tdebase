@@ -303,9 +303,9 @@ KdmPixmap::drawContents( TQPainter *p, const TQRect &r )
 			float tint_alpha = pClass->alpha;
 
 			for (int y = 0; y < h; ++y) {
-				QRgb *ls = (QRgb *)scaledImage.scanLine( y );
+				TQRgb *ls = (TQRgb *)scaledImage.scanLine( y );
 				for (int x = 0; x < w; ++x) {
-					QRgb l = ls[x];
+					TQRgb l = ls[x];
 					int r = int( tqRed( l ) * tint_red );
 					int g = int( tqGreen( l ) * tint_green );
 					int b = int( tqBlue( l ) * tint_blue );

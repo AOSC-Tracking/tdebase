@@ -292,8 +292,8 @@ void LayoutIcon::dimPixmap(TQPixmap& pm)
 	for (int y=0; y<image.height(); y++)
 		for(int x=0; x<image.width(); x++)
 	{
-		QRgb rgb = image.pixel(x,y);
-		QRgb dimRgb(tqRgb(tqRed(rgb)*3/4, tqGreen(rgb)*3/4, tqBlue(rgb)*3/4));
+		TQRgb rgb = image.pixel(x,y);
+		TQRgb dimRgb(tqRgb(tqRed(rgb)*3/4, tqGreen(rgb)*3/4, tqBlue(rgb)*3/4));
 		image.setPixel(x, y, dimRgb);
 	}
 	pm.convertFromImage(image);

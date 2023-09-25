@@ -46,12 +46,12 @@ private slots:
 private:
   KURL                  *myURL;
 
-  QString	        *myPerlPath;
+  TQString	        *myPerlPath;
   TQString               *myFingerPath;
   TQString               *myFingerPerlScript;
   TQString               *myFingerCSSFile;
 
-  QString		*myStdStream;
+  TQString		*myStdStream;
 
 
   TDEProcess	        *myTDEProcess;

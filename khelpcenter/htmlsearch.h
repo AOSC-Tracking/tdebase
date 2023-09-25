@@ -10,7 +10,7 @@ namespace KHC {
 
 class DocEntry;
 
-class HTMLSearch : public QObject
+class HTMLSearch : public TQObject
 {
     TQ_OBJECT
   public:

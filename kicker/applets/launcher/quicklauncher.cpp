@@ -1077,7 +1077,7 @@ void QuickLauncher::updateStickyHighlightLayer()
     m_stickyHighlightLayer = TQImage(width(), height(), 32);
     m_stickyHighlightLayer.setAlphaBuffer(true);
     int pix, tlPix, brPix, w(width()), h(height());
-    QRgb transparent(tqRgba(0, 0, 0, 0));
+    TQRgb transparent(tqRgba(0, 0, 0, 0));
     for (int y = h-1; y >= 0; --y)
     {
         for (int x = w-1; x >= 0; --x)

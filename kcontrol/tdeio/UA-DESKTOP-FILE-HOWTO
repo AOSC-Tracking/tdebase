@@ -29,7 +29,7 @@ NEW PROPERTIES:
 ===============
 X-TDE-UA-TAG
 FIELD:        REQUIRED
-TYPE:         QString
+TYPE:         TQString
 TRANSLATE:    NO
 DESCRIPTION:
 An abbreviation of the actual browser-brand and is used
@@ -42,7 +42,7 @@ actual user-agent name (X-TDE-UA-NAME).
 
 X-TDE-UA-FULL
 FIELD:        REQUIRED
-TYPE:         QString
+TYPE:         TQString
 TRANSLATE:    NO
 DESCRIPTION:
 The full user-agent description that will be sent to the remote
@@ -62,21 +62,21 @@ and set its value to 1 (for true).
 
 X-TDE-UA-NAME
 FIELD:        REQUIRED
-TYPE:         QString
+TYPE:         TQString
 TRANSLATE:    YES
 DESCRIPTION:
 The actual name of the browser or user-agent.
 
 X-TDE-UA-VERSION
 FIELD:        REQUIRED
-TYPE:         QString
+TYPE:         TQString
 TRANSLATE:    YES
 DESCRIPTION:
 The actual version of the browser or user-agent.
 
 X-TDE-UA-SYSNAME
 FIELD:        OPTIONAL
-TYPE:         QString
+TYPE:         TQString
 TRANSLATE:    YES
 DESCRIPTION:
 The system name (for example Linux) where the browser
@@ -84,7 +84,7 @@ identification was obtained from.
 
 X-TDE-UA-SYSRELEASE
 FIELD:        OPTIONAL
-TYPE:         QString
+TYPE:         TQString
 TRANSLATE:    YES
 DESCRIPTION:
 The system version (for example 2.4.1) where the browser

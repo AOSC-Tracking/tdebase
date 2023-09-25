@@ -9,7 +9,7 @@ Makefile.am:
 Sources:
 - There are no twin/something.h includes, and don't use the KWinInternal namespace.
 - Use QToolTip instead of KWinToolTip.
-- Use QButton instead of KWinButton, QToolButton instead of KWinToolButton and QWidget
+- Use QButton instead of KWinButton, QToolButton instead of KWinToolButton and TQWidget
   instead of KWinWidgetButton.
 - For tooltips, use simply QToolTip::add().
 - Change Client* to MyClient* (or whatever is your main client class) in your MyButton.
@@ -22,11 +22,11 @@ Sources:
 - As the first thing in init(), call createMainWidget(); if your client class took some
   flags such as WResizeNoErase, pass them to this function.
 - Then, do 'widget()->installEventFilter( this );'.
-- Implement MyClient::eventFilter() - as MyClient is now no longer QWidget, you need the event
+- Implement MyClient::eventFilter() - as MyClient is now no longer TQWidget, you need the event
   filter to call all the functions that used to be called directly. Usually, it's something
   like:
 =====
-bool MyClient::eventFilter( QObject* o, QEvent* e )
+bool MyClient::eventFilter( TQObject* o, QEvent* e )
 {
 	if ( o != widget() )
 		return false;
@@ -63,7 +63,7 @@ bool MyClient::eventFilter( QObject* o, QEvent* e )
 }
 =====
 - In MyClient, 'this' will have to be often replaced with 'widget()', pay special attention
-  to cases where this won't cause compile error (e.g. in connect() calls, which take QObject* ).
+  to cases where this won't cause compile error (e.g. in connect() calls, which take TQObject* ).
 - Also, many calls may need 'widget()->' prepended.
 - Layout is created in init(), so call createLayout() directly there (if it's implemented).
 - Remove calls to Client methods (Client::resizeEvent() and so on).

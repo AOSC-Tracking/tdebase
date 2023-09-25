@@ -26,7 +26,7 @@
 class KEBListViewItem;
 class BookmarkIteratorHolder;
 
-class BookmarkIterator : public QObject
+class BookmarkIterator : public TQObject
 {
    TQ_OBJECT
 

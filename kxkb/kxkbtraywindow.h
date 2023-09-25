@@ -28,7 +28,7 @@ class XkbRules;
     catching keyboard/mouse events and displaying menu when selected
 */
 
-class KxkbLabelController: public QObject
+class KxkbLabelController: public TQObject
 {
 // 	TQ_OBJECT
 			

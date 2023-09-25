@@ -30,7 +30,7 @@ class TDEProcess;
 
 namespace KHC {
 
-class TOC : public QObject
+class TOC : public TQObject
 {
 	TQ_OBJECT
 	public:

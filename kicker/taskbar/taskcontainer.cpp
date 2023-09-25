@@ -1726,7 +1726,7 @@ void TaskContainer::updateFilteredTaskList()
     // sort container list by desktop
     if (taskBar->sortByDesktop() && m_filteredTasks.count() > 1)
     {
-        TQValueVector<QPair<int, Task::Ptr> > sorted;
+        TQValueVector<TQPair<int, Task::Ptr> > sorted;
         sorted.resize(m_filteredTasks.count());
         int i = 0;
 
@@ -1741,7 +1741,7 @@ void TaskContainer::updateFilteredTaskList()
         qHeapSort(sorted);
 
         m_filteredTasks.clear();
-        for (TQValueVector<QPair<int, Task::Ptr> >::iterator it = sorted.begin();
+        for (TQValueVector<TQPair<int, Task::Ptr> >::iterator it = sorted.begin();
              it != sorted.end();
              ++it)
         {

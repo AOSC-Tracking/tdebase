@@ -580,7 +580,7 @@ TQPixmap ThemePage::createIcon( const TQString &theme, const TQString &sample ) 
 		// Calculate the image size
 		int size = kMax( iconSize, kMax( r.width(), r.height() ) );
 
-		// Create the intermediate QImage
+		// Create the intermediate TQImage
 		TQImage image( size, size, 32 );
 		image.setAlphaBuffer( true );
 
