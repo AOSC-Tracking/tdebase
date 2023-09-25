@@ -25,7 +25,7 @@
 #include <tdeparts/part.h>
 #include <tdeparts/browserinterface.h>
 
-class FavIconWebGrabber : public QObject
+class FavIconWebGrabber : public TQObject
 {
     TQ_OBJECT
 public:

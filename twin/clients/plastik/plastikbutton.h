@@ -65,7 +65,7 @@ private:
 /**
  * This class creates bitmaps which can be used as icons on buttons. The icons
  * are "hardcoded".
- * Over the previous "Gimp->xpm->QImage->recolor->SmoothScale->TQPixmap" solution
+ * Over the previous "Gimp->xpm->TQImage->recolor->SmoothScale->TQPixmap" solution
  * it has the important advantage that icons are more scalable and at the same
  * time sharp and not blurred.
  */

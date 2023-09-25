@@ -23,7 +23,7 @@
 
 #include "medium.h"
 
-class MediaList : public QObject
+class MediaList : public TQObject
 {
 TQ_OBJECT
 

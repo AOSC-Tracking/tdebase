@@ -43,7 +43,7 @@ class SensorManagerIterator;
   connection yet or the hostname is empty, a dialog will be shown to
   enter the connections details.
  */
-class KDE_EXPORT SensorManager : public QObject
+class KDE_EXPORT SensorManager : public TQObject
 {
   TQ_OBJECT
 

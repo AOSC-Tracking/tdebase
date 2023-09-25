@@ -30,7 +30,7 @@ class KDecorationPreviewBridge;
 class KDecorationPreviewOptions;
 
 class KDecorationPreview
-    : public QWidget
+    : public TQWidget
     {
     public:
         KDecorationPreview( KDecorationPlugins* plugin, TQWidget* parent = NULL, const char* name = NULL );

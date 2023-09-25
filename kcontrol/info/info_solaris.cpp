@@ -486,7 +486,7 @@ TQString propvalue( di_prop_t prop ) {
 	char	*strp;
 	int	*intp;
 	uchar_t	*bytep;
-	QString	result;
+	TQString result;
 
 	/*
 	 *  Since a lot of printable strings seem to be tagged as 'byte',
@@ -565,11 +565,11 @@ int dump_node( di_node_t node, void *arg ) {
 	TQListViewItem	*top = (TQListViewItem *) arg,
 			*parent,
 			*previous;
-	char		*path;
-	char		*drivername;
-	char		*names;
-	QString		compatnames;
-	int		i, n;
+	char *path;
+	char *drivername;
+	char *names;
+	TQString compatnames;
+	int i, n;
 	di_prop_t	prop;
 
 	path = di_devfs_path( node );

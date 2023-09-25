@@ -640,8 +640,8 @@ acknowledged if the following part of the searched string does match
 its <emphasis>PATTERN</emphasis>.</para>
 <para>The expression <userinput>const \w+\b(?!\s*&amp;)</userinput>
 will match at <quote>const char</quote> in the string <quote>const
-char* foo</quote> while it can not match <quote>const QString</quote>
-in <quote>const QString&amp; bar</quote> because the
+char* foo</quote> while it can not match <quote>const TQString</quote>
+in <quote>const TQString&amp; bar</quote> because the
 <quote>&amp;</quote> matches the negative lookahead assertion
 pattern.</para>
 </listitem>

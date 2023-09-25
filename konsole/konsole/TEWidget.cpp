@@ -647,7 +647,7 @@ void TEWidget::drawAttrStr(TQPainter &paint, TQRect rect,
         // draw background colors with 75% opacity
         if ( draw_translucent_background_colors && argb_visual && tqAlpha(blend_color) < 0xff )
         {
-          QRgb col = bColor.rgb();
+          TQRgb col = bColor.rgb();
 
           TQ_UINT8 salpha = 192;
           TQ_UINT8 dalpha = 255 - salpha;

@@ -531,7 +531,7 @@ TQValueList< TQStringList > FancyPlotterSettings::sensors() const
     entry << it.current()->text( 2 );
     entry << it.current()->text( 3 );
     entry << it.current()->text( 4 );
-    QRgb rgb = it.current()->pixmap( 2 )->convertToImage().pixel( 1, 1 );
+    TQRgb rgb = it.current()->pixmap( 2 )->convertToImage().pixel( 1, 1 );
     TQColor color( tqRed( rgb ), tqGreen( rgb ), tqBlue( rgb ) );
     entry << ( color.name() );
 

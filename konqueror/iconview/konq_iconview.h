@@ -275,7 +275,7 @@ private:
   bool m_bSaveViewPropertiesLocally;
 };
 
-class SpringLoadingManager : public QObject
+class SpringLoadingManager : public TQObject
 {
     TQ_OBJECT
 private:

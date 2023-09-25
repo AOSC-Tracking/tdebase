@@ -27,7 +27,7 @@
 
 #include <tqstring.h>
 
-class HomeImpl : public QObject
+class HomeImpl : public TQObject
 {
 TQ_OBJECT
 

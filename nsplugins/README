@@ -79,11 +79,11 @@ it can be resized, focused and unfocused with standard X11 functions
 as long as we know its' window ID.
 
 PluginPart gets a NSPluginInstance (from NSPluginLoader::newInstance),
-which it sees as a regular QWidget. e.g. it can resize the QWidget and
+which it sees as a regular TQWidget. e.g. it can resize the TQWidget and
 nspluginviewer's window will resize.
 
 This magic happens thanks to KJavaEmbed which NSPluginInstance inherits.
-KJavaEmbed inherits QWidget and hooks up to QWidget's events, mapping
+KJavaEmbed inherits TQWidget and hooks up to TQWidget's events, mapping
 those events to the appropriate X11 window operations.
 Resizing, focusing in and out is about all PluginPart could ever do
 with the nspluginviewer.

@@ -272,7 +272,7 @@ KDesktop::initRoot()
      connect( m_pIconView, TQT_SIGNAL( wheelRolled( int ) ),
               this, TQT_SLOT( slotSwitchDesktops( int ) ) );
 
-     // All the QScrollView/QWidget-specific stuff should go here, so that we can use
+     // All the QScrollView/TQWidget-specific stuff should go here, so that we can use
      // another qscrollview/widget instead of the iconview and use the same code
      m_pIconView->setVScrollBarMode( TQScrollView::AlwaysOff );
      m_pIconView->setHScrollBarMode( TQScrollView::AlwaysOff );

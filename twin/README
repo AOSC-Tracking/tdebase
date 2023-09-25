@@ -163,16 +163,16 @@ WM_TRANSIENT_FOR property is manually set using the XSetTransientForHint()
 call (see tdelibs/tdeioslave/http/kcookiejar/kcookiewin.cpp). The arguments
 to XSetTransientForHint() call are the X display (i.e. qt_xdisplay()),
 the window id on which the WM_TRANSIENT_FOR property is to be set
-(i.e. use QWidget::winId()), and the window id of the mainwindow.
+(i.e. use TQWidget::winId()), and the window id of the mainwindow.
 
 
   Simple short HOWTO:
   
  To put it simply: Let's say you have a daemon application that has
-DCOP call "showDialog( QString text )", and when this is called, it shows
+DCOP call "showDialog( TQString text )", and when this is called, it shows
 a dialog with the given text. This won't work properly with focus stealing
 prevention. The DCOP call should be changed to
-"showDialog( QString text, long id )". The caller should pass something like
+"showDialog( TQString text, long id )". The caller should pass something like
 myMainWindow->winId() as the second argument. In the daemon, before
 the dialog is shown, a call to XSetTransientHint() should be added:
 

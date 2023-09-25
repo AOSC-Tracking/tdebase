@@ -97,7 +97,7 @@
     a .desktop file from the TDE Menu to execute (e.g. 'System/konsole.desktop')
   - DCOP call tab settings - enter the application, object, DCOP method and
     arguments (e.g. 'kdesktop', 'KBackgroundIface',
-    'setWallpaper(QString,int)' and '"/some/pic.jpg" 1')
+    'setWallpaper(TQString,int)' and '"/some/pic.jpg" 1')
   - Keyboard input tab settings - enter the keyboard input you want to be
     simulated ( no, sorry, the 'Edit' button doesn't really work yet ).
     The "keypresses" are separated by a colon ( ':' ) and are written

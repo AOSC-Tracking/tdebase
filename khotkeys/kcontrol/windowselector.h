@@ -17,7 +17,7 @@ namespace KHotKeys
 {
 
 class WindowSelector
-    : public QWidget
+    : public TQWidget
     {
     TQ_OBJECT
     public:

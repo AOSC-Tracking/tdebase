@@ -32,7 +32,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <tqobject.h>
 
-class UnhideTrigger : public QObject
+class UnhideTrigger : public TQObject
 {
 	TQ_OBJECT
 public:

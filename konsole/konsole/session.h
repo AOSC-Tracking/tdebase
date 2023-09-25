@@ -208,7 +208,7 @@ private:
   bool           xon_xoff;
   bool           fullScripting;
 
-  QString	 stateIconName;
+  TQString	 stateIconName;
 
   TQString        pgm;
   TQStrList       args;

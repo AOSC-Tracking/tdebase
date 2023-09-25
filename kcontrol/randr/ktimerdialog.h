@@ -67,9 +67,9 @@ class KTimerDialog : public KDialogBase
      *
      * For the rest of the arguments, See @see KDialogBase .
      */
-    KTimerDialog( int msec, TimerStyle style=CountDown, QWidget *parent=0,
+    KTimerDialog( int msec, TimerStyle style=CountDown, TQWidget *parent=0,
                  const char *name=0, bool modal=true,
-                 const QString &caption=QString::null,
+                 const TQString &caption=TQString::null,
                  int buttonMask=Ok|Apply|Cancel, ButtonCode defaultButton=Ok,
                  bool separator=false,
                  const KGuiItem &user1=KGuiItem(),
@@ -117,7 +117,7 @@ class KTimerDialog : public KDialogBase
      * Overridden function which is used to set the main widget of the dialog.
      * @see KDialogBase::setMainWidget.
      */
-    void setMainWidget( QWidget *widget );
+    void setMainWidget( TQWidget *widget );
 
   signals:
     /**

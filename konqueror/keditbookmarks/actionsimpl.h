@@ -21,7 +21,7 @@
 
 #include <tqobject.h>
 
-class ActionsImpl : public QObject
+class ActionsImpl : public TQObject
 {
    TQ_OBJECT
 

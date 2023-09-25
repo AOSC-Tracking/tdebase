@@ -428,7 +428,7 @@ const TQImage& ThumbnailProtocol::getIcon()
         int h = icon->height();
         for ( int y = 0; y < h; y++ )
         {
-            QRgb *line = (QRgb *) icon->scanLine( y );
+            TQRgb *line = (TQRgb *) icon->scanLine( y );
             for ( int x = 0; x < w; x++ )
                 line[x] &= m_iconAlpha; // transparency
         }

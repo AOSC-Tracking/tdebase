@@ -59,7 +59,7 @@ enum SMSavePhase
     };
     
 class SessionSaveDoneHelper
-    : public QObject
+    : public TQObject
     {
     TQ_OBJECT
     public:

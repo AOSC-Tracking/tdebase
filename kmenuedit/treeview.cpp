@@ -378,7 +378,7 @@ TreeItem *TreeView::createTreeItem(TreeItem *parent, TQListViewItem *after, Menu
    else
      item = new TreeItem(parent, after, entryInfo->menuId(),_init);
 
-   QString	name;
+   TQString	name;
 	 
    if (m_detailedMenuEntries && entryInfo->description.length() != 0)
    {
@@ -566,7 +566,7 @@ void TreeView::currentChanged(MenuEntryInfo *entryInfo)
     if (item == 0) return;
     if (entryInfo == 0) return;
 
-    QString	name;
+    TQString	name;
 	 
     if (m_detailedMenuEntries && entryInfo->description.length() != 0)
     {

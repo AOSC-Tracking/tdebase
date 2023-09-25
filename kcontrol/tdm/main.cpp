@@ -127,13 +127,13 @@ TDModule::TDModule(TQWidget *parent, const char *name, const TQStringList &)
   TQMap<gid_t,TQStringList> tgmap;
   TQMap<gid_t,TQStringList>::Iterator tgmapi;
   TQMap<gid_t,TQStringList>::ConstIterator tgmapci;
-  TQMap<TQString, QPair<int,TQStringList> >::Iterator umapi;
+  TQMap<TQString, TQPair<int,TQStringList> >::Iterator umapi;
 
   struct passwd *ps;
   for (setpwent(); (ps = getpwent()); ) {
     TQString un( TQFile::decodeName( ps->pw_name ) );
     if (usermap.find( un ) == usermap.end()) {
-      usermap.insert( un, QPair<int,TQStringList>( ps->pw_uid, sl ) );
+      usermap.insert( un, TQPair<int,TQStringList>( ps->pw_uid, sl ) );
       if ((tgmapi = tgmap.find( ps->pw_gid )) != tgmap.end())
         (*tgmapi).append( un );
       else
@@ -298,7 +298,7 @@ void TDModule::propagateUsers()
   groupmap.clear();
   emit clearUsers();
   TQMap<TQString,int> lusers;
-  TQMapConstIterator<TQString, QPair<int,TQStringList> > it;
+  TQMapConstIterator<TQString, TQPair<int,TQStringList> > it;
   TQStringList::ConstIterator jt;
   TQMap<TQString,int>::Iterator gmapi;
   for (it = usermap.begin(); it != usermap.end(); ++it) {
@@ -321,7 +321,7 @@ void TDModule::slotMinMaxUID(int min, int max)
 {
   if (updateOK) {
     TQMap<TQString,int> alusers, dlusers;
-    TQMapConstIterator<TQString, QPair<int,TQStringList> > it;
+    TQMapConstIterator<TQString, TQPair<int,TQStringList> > it;
     TQStringList::ConstIterator jt;
     TQMap<TQString,int>::Iterator gmapi;
     for (it = usermap.begin(); it != usermap.end(); ++it) {

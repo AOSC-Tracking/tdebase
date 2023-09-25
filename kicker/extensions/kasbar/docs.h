@@ -36,19 +36,19 @@
 
 
 
-class QObject
+class TQObject
 {
 };
 
-class TQWidget : public QObject
+class TQWidget : public TQObject
 {
 };
 
-class TQDialog : public QWidget
+class TQDialog : public TQWidget
 {
 };
 
-class TQFrame : public QWidget
+class TQFrame : public TQWidget
 {
 };
 
@@ -64,6 +64,6 @@ class KDialogBase : public QDialog
 {
 };
 
-class KPanelExtension : public QWidget
+class KPanelExtension : public TQWidget
 {
 };

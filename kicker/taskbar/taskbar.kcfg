@@ -200,17 +200,17 @@
         </entry>
         <entry name="ActiveTaskTextColor" type="Color" >
             <label>Color to use for active task button text</label>
-            <default code="true">QColor()</default>
+            <default code="true">TQColor()</default>
             <whatsthis>This color is used for displaying text on taskbar button for task which is active at the moment.</whatsthis>
         </entry>
         <entry name="InactiveTaskTextColor" type="Color" >
             <label>Color to use for inactive tasks button text</label>
-            <default code="true">QColor()</default>
+            <default code="true">TQColor()</default>
             <whatsthis>This color is used for displaying text on taskbar button for tasks other than active.</whatsthis>
         </entry>
         <entry name="TaskBackgroundColor" type="Color" >
             <label>Color to use for taskbar buttons background</label>
-            <default code="true">QColor()</default>
+            <default code="true">TQColor()</default>
             <whatsthis>This color is used for displaying background of taskbar buttons.</whatsthis>
         </entry>
         <entry name="IconSize" type="UInt" >

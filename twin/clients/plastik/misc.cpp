@@ -54,8 +54,8 @@ TQColor alphaBlendColors(const TQColor &bgColor, const TQColor &fgColor, const i
 {
 
     // normal button...
-    QRgb rgb = bgColor.rgb();
-    QRgb rgb_b = fgColor.rgb();
+    TQRgb rgb = bgColor.rgb();
+    TQRgb rgb_b = fgColor.rgb();
     int alpha = a;
     if(alpha>255) alpha = 255;
     if(alpha<0) alpha = 0;

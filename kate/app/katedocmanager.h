@@ -52,7 +52,7 @@ class KateDocumentInfo
     unsigned char modifiedOnDiscReason;
 };
 
-typedef QPair<KURL,TQDateTime> TPair;
+typedef TQPair<KURL,TQDateTime> TPair;
 
 class KateDocManager : public TQObject
 {

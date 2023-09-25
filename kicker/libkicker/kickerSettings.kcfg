@@ -316,7 +316,7 @@
 
 <entry name="KMenuTileColor" type="Color" >
       <label>Color to use for Kmenu button background</label>
-      <default code="true">QColor()</default>
+      <default code="true">TQColor()</default>
    </entry>
 
 <entry name="DesktopButtonTile" type="Path" >
@@ -325,7 +325,7 @@
 
 <entry name="DesktopButtonTileColor" type="Color" >
       <label>Color to use for Kmenu button background</label>
-      <default code="true">QColor()</default>
+      <default code="true">TQColor()</default>
    </entry>
 
 <entry name="URLTile" type="Path" >
@@ -334,7 +334,7 @@
 
 <entry name="URLTileColor" type="Color" >
       <label>Color to use for Application, URL and special button backgrounds</label>
-      <default code="true">QColor()</default>
+      <default code="true">TQColor()</default>
    </entry>
 
 <entry name="BrowserTile" type="Path" >
@@ -343,7 +343,7 @@
 
 <entry name="BrowserTileColor" type="Color" >
       <label>Color to use for Browser button background</label>
-      <default code="true">QColor()</default>
+      <default code="true">TQColor()</default>
    </entry>
 
 <entry name="WindowListTile" type="Path" >
@@ -352,7 +352,7 @@
 
 <entry name="WindowListTileColor" type="Color" >
       <label>Color to use for Window List button background</label>
-      <default code="true">QColor()</default>
+      <default code="true">TQColor()</default>
    </entry>
 
 </group>
@@ -416,7 +416,7 @@
 
    <entry name="CustomKMenuIcon" key="CustomIcon" type="Path" >
       <label>Custom TDE Menu Button Icon</label>
-      <default code="true">QString("kmenu")</default>
+      <default code="true">TQString("kmenu")</default>
    </entry>
 
    <entry name="SearchShortcut" type="String" >

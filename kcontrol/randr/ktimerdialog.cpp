@@ -35,9 +35,9 @@
 #include "ktimerdialog.h"
 #include "ktimerdialog.moc"
 
-KTimerDialog::KTimerDialog( int msec, TimerStyle style, QWidget *parent,
+KTimerDialog::KTimerDialog( int msec, TimerStyle style, TQWidget *parent,
                  const char *name, bool modal,
-                 const QString &caption,
+                 const TQString &caption,
                  int buttonMask, ButtonCode defaultButton,
                  bool separator,
                  const KGuiItem &user1,
@@ -90,7 +90,7 @@ int KTimerDialog::exec()
     return KDialogBase::exec();
 }
 
-void KTimerDialog::setMainWidget( QWidget *widget )
+void KTimerDialog::setMainWidget( TQWidget *widget )
 {
     // yuck, here goes.
     QVBox *newWidget = new QVBox( this );

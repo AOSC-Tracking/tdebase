@@ -16,7 +16,7 @@ class TDEProcess;
 class ProgressDialog;
 
 
-class HTMLSearch : public QObject
+class HTMLSearch : public TQObject
 {
   TQ_OBJECT
 

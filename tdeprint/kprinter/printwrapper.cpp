@@ -395,7 +395,7 @@ void PrintWrapper::slotPrintRequested(KPrinter *kprinter)
 	// if nobody complains.
 	/*else
 	{
-		QString	msg = i18n("<nobr>File(s) sent to printer <b>%1</b>.</nobr>").arg(kprinter->printerName());
+		TQString msg = i18n("<nobr>File(s) sent to printer <b>%1</b>.</nobr>").arg(kprinter->printerName());
 		showmsg(msg,0);
 	}*/
 }

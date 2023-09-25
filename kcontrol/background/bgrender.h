@@ -120,7 +120,7 @@ private:
  * images. Usage is similar to KBackgroundRenderer: connect to the imageDone
  * signal.
  */
-class KVirtualBGRenderer : public QObject
+class KVirtualBGRenderer : public TQObject
 {
     TQ_OBJECT
 public:

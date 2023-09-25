@@ -528,7 +528,7 @@ void BGDialog::loadWallpaperFilesList() {
    // Wallpapers
    // the following TQMap is lower cased names mapped to cased names and URLs
    // this way we get case insensitive sorting
-   TQMap<TQString, QPair<TQString, TQString> > papers;
+   TQMap<TQString, TQPair<TQString, TQString> > papers;
 
    //search for .desktop files before searching for images without .desktop files
    TQStringList lst = m_pDirs->findAllResources("wallpaper", "*desktop", false, true);
@@ -620,7 +620,7 @@ void BGDialog::loadWallpaperFilesList() {
    comboWallpaper->clear();
    m_wallpaper.clear();
    int i = 0;
-   for (TQMap<TQString, QPair<TQString, TQString> >::Iterator it = papers.begin();
+   for (TQMap<TQString, TQPair<TQString, TQString> >::Iterator it = papers.begin();
         it != papers.end();
         ++it)
    {

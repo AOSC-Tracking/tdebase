@@ -114,7 +114,7 @@ void KJobViewerApp::initialize()
 	TDECmdLineArgs	*args = TDECmdLineArgs::parsedArgs();
 	bool 	showIt = args->isSet("show");
 	bool	all = args->isSet("all");
-	QString	prname = args->getOption("d");
+	TQString	prname = args->getOption("d");
 	KMJobViewer	*view(0);
 
 	if (!m_timer)
