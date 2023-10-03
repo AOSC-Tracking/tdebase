@@ -96,7 +96,7 @@ void KonqListViewItem::updateContents()
      sortChar = S_ISDIR( m_fileitem->mode() ) ? 1 : 3;
    else
      sortChar = 3;
-   if ( m_fileitem->isHidden( m_pListViewWidget->m_dirLister->matcher ) )
+   if ( m_groupHiddenFirst && m_fileitem->isHidden() )
      --sortChar;
 
    //now we have the first column, so let's do the rest

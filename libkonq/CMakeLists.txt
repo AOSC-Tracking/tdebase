@@ -44,6 +44,8 @@ install( FILES
     kivdirectoryoverlay.h kivfreespaceoverlay.h konq_faviconmgr.h
     konq_xmlguiclient.h konqbookmarkmanager.h konq_filetip.h
     konq_sort_constants.h konq_string_compare.h
+    update_tdestringmatcher.h
+
   DESTINATION ${INCLUDE_INSTALL_DIR} )
 
 
@@ -72,6 +74,7 @@ tde_add_library( konq SHARED AUTOMOC
     konq_undo.skel konq_historymgr.cpp konq_historycomm.cpp konq_historycomm.skel
     konq_pixmapprovider.cpp kivdirectoryoverlay.cpp kivfreespaceoverlay.cpp
     konq_faviconmgr.cpp konq_faviconmgr.skel konq_filetip.cpp
+    update_tdestringmatcher_dialog.cpp update_tdestringmatcher.cpp
   VERSION 4.2.0
   LINK tdeparts-shared
   DESTINATION ${LIB_INSTALL_DIR}

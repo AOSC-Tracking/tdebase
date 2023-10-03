@@ -49,6 +49,8 @@
 #include <kinstance.h>
 
 #include <konq_sort_constants.h>
+#include <tdestringmatcher.h>
+#include <update_tdestringmatcher.h>
 
 KonqListViewFactory::KonqListViewFactory()
 {
@@ -273,10 +275,19 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    m_sortColumnIndexPrimary   = 0;
    m_sortColumnIndexAlternate = 1;
 
+   TSMTRACE << "KonqListView::KonqListView: Begin initializing KDirLister->hiddenFileSpec" << endl;
    TQString hiddenFileSpec = m_pProps->hiddenFileSpec() ;
-   if ( ! hiddenFileSpec.isNull() ) {
-     m_pListView->m_dirLister->matcher->setCriteria( hiddenFileSpec );
-   } // otherwise we rely on matcher's default criteria
+   if ( hiddenFileSpec.isEmpty() ) {
+     // Use global (default) matcher criteria
+     TSMTRACE << "KonqListView::KonqListView: using Global HFM pattern string" << endl;
+     TDEStringMatcher *globalMatcher = TDEGlobal::hiddenFileMatcher();
+     hiddenFileSpec = globalMatcher->getMatchSpecString();
+     TSMTRACE << "KonqListView::KonqListView: just finished with global getMatchSpecString(): " << hiddenFileSpec << endl;
+   } else {
+     TSMTRACE << "KonqListView::KonqListView: using view-specific pattern string" << endl;
+   }
+   m_pListView->m_dirLister->hiddenFileMatcher()->setMatchSpecs( hiddenFileSpec );
+   TSMTRACE << "KonqListView::KonqListView: Done initializing KDirLister->hiddenFileMatcher" << endl;
 
    setupActions();
 
@@ -496,31 +507,42 @@ void KonqListView::slotChangeHiddenFileMatcher()
     slotShowDot();
   }
 
-  int result = m_pListView->m_dirLister->matcher->getMatchPropertiesFromUser( "Konqueror Listview" ) ;
+  // int result = m_pListView->m_dirLister->hiddenFileMatcher->getMatchPropertiesFromUser( "Define 'Hidden' for<br>Konqueror Listview" );
+  TSMTRACE << "KonqListView::slotChangeHiddenFileMatcher using next generation dialog" << endl;
+  UIresult result = getTDEStringMatcherPatternsFromUser(
+    m_pListView->m_dirLister->hiddenFileMatcher(), "Define 'Hidden' for Konqueror Listview"
+  );
   switch ( result ) {
-    case TDEIO::HiddenFileMatcher::criteriaUnchanged:
+
+      case UIresult::NOCHANGE :
       if ( ! wasShowingHidden ) {
         m_paShowDot->setChecked( FALSE );
         slotShowDot();
       }
       return;
       break;
-    case TDEIO::HiddenFileMatcher::criteriaApplied:
-      // On-the-fly change
+
+      case UIresult::APPLY :
+      // On-the-fly change to hiddenFileMatcher made by getMatchPropertiesFromUser()
       break;
-    case TDEIO::HiddenFileMatcher::saveCriteria:
-      m_pProps->setHiddenFileSpec( m_pListView->m_dirLister->matcher->getCriteria() );
+
+      case UIresult::SAVE :
+      // On-the-fly change to hiddenFileMatcher made by getMatchPropertiesFromUser(), store it
+      m_pProps->setHiddenFileSpec( m_pListView->m_dirLister->hiddenFileMatcher()->getMatchSpecString() );
       break;
-    case TDEIO::HiddenFileMatcher::reloadCriteria:
+
+      case UIresult::RELOAD :
       TQString hiddenFileSpec = m_pProps->hiddenFileSpec() ;
-      if ( ! hiddenFileSpec.isNull() ) {
+      if ( ! hiddenFileSpec.isEmpty() ) {
         // Reload from current listview setting
-        m_pListView->m_dirLister->matcher->setCriteria( hiddenFileSpec );
+        TSMTRACE << "KonqListView::slotChangeHiddenFileMatcher: reloading view-specific match criteria" << endl;
+        m_pListView->m_dirLister->hiddenFileMatcher()->setMatchSpecs( hiddenFileSpec );
       }
       else {
         // Reload from current systemwide default setting
-        TDEIO::HiddenFileMatcher *commonMatcher = TDEIO::CommonHiddenFileMatcher::getMatcher();
-        m_pListView->m_dirLister->matcher->setCriteria( commonMatcher->getCriteria() );
+        TSMTRACE << "KonqListView::slotChangeHiddenFileMatcher: reloading global match criteria" << endl;
+        TDEStringMatcher *globalMatcher = TDEGlobal::hiddenFileMatcher();
+        m_pListView->m_dirLister->hiddenFileMatcher()->setMatchSpecs( globalMatcher->getMatchSpecString() );
       }
       break;
   }
@@ -533,8 +555,7 @@ void KonqListView::slotChangeHiddenFileMatcher()
 
   // "Show Hidden Files" option
   m_paShowDot->setChecked( wasShowingHidden );
-  slotShowDot(); // 
-
+  slotShowDot();
 }
 
 void KonqListView::slotShowDot()
