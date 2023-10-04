@@ -938,10 +938,7 @@ void KWinDecorationModule::checkSupportedBorderSizes()
 
 TQString KWinDecorationModule::styleToConfigLib( TQString& styleLib )
 {
-        if( styleLib.startsWith( "twin_" ))
-            return "twin_" + styleLib.mid( 6 ) + "_config";
-        else
-            return styleLib + "_config";
+        return styleLib + "_config";
 }
 
 TQString KWinDecorationModule::quickHelp() const
