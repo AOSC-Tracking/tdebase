@@ -18,6 +18,7 @@ tde_create_translated_desktop(
     KDEOne.kcsrc KDETwo.kcsrc MediaPeach.kcsrc Windows95.kcsrc EveX.kcsrc
     WindowsXP.kcsrc Keramik.kcsrc KeramikEmerald.kcsrc KeramikWhite.kcsrc
     BlackOnWhite.kcsrc WhiteOnBlack.kcsrc YellowOnBlue.kcsrc Plastik.kcsrc
+    Human.kcsrc Last.fm.kcsrc Lizard.kcsrc Sienna.kcsrc Platinum.kcsrc WedgieWeb.kcsrc
   DESTINATION ${DATA_INSTALL_DIR}/tdedisplay/color-schemes
   PO_DIR kcontrol-color-schemes
 )

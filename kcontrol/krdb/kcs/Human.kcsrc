@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Human
+activeBackground=204,134,62
+activeBlend=204,134,62
+activeForeground=255,255,255
+activeTitleBtnBg=245,243,240
+alternateBackground=245,242,237
+background=239,235,231
+buttonBackground=225,217,209
+buttonForeground=0,0,0
+contrast=7
+foreground=16,16,16
+frame=239,239,239
+handle=239,239,239
+inactiveBackground=235,231,227
+inactiveBlend=235,231,227
+inactiveForeground=179,175,171
+inactiveFrame=239,239,239
+inactiveHandle=239,239,239
+inactiveTitleBtnBg=179,175,171
+linkColor=0,0,238
+selectBackground=214,114,45
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=82,24,139
+windowBackground=255,255,255
+windowForeground=0,0,0

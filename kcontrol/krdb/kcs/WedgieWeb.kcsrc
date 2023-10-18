@@ -1,0 +1,22 @@
+[Color Scheme]
+Name=WedgieWeb
+activeBackground=68,68,119
+activeBlend=68,68,119
+activeForeground=204,119,34
+activeTitleBtnBg=116,132,115
+alternateBackground=226,234,226
+background=65,68,115
+buttonBackground=49,48,98
+buttonForeground=156,161,164
+contrast=0
+foreground=153,119,0
+inactiveBackground=68,68,119
+inactiveBlend=68,68,119
+inactiveForeground=120,70,20
+inactiveTitleBtnBg=162,184,160
+linkColor=156,161,164
+selectBackground=65,48,49
+selectForeground=204,119,34
+visitedLinkColor=156,161,164
+windowBackground=0,16,32
+windowForeground=153,119,0
