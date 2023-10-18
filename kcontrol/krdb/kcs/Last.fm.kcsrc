@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Last.fm
+activeBackground=210,0,57
+activeBlend=183,0,29
+activeForeground=255,255,255
+activeTitleBtnBg=186,7,38
+alternateBackground=252,250,251
+background=227,230,216
+buttonBackground=219,222,210
+buttonForeground=0,0,0
+contrast=7
+foreground=0,0,0
+frame=239,239,239
+handle=239,239,239
+inactiveBackground=145,153,142
+inactiveBlend=136,143,133
+inactiveForeground=255,255,255
+inactiveFrame=239,239,239
+inactiveHandle=239,239,239
+inactiveTitleBtnBg=145,153,142
+linkColor=0,0,238
+selectBackground=210,0,57
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=82,24,139
+windowBackground=255,255,255
+windowForeground=0,0,0

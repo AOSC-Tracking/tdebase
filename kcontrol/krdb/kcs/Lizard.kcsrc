@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Lizard
+activeBackground=130,209,34
+activeBlend=97,176,0
+activeForeground=255,255,255
+activeTitleBtnBg=156,250,41
+alternateBackground=241,249,237
+background=239,239,239
+buttonBackground=221,223,228
+buttonForeground=0,0,0
+contrast=7
+foreground=0,0,0
+frame=239,239,239
+handle=239,239,239
+inactiveBackground=170,209,122
+inactiveBlend=131,169,84
+inactiveForeground=0,0,0
+inactiveFrame=239,239,239
+inactiveHandle=239,239,239
+inactiveTitleBtnBg=167,181,199
+linkColor=0,0,238
+selectBackground=180,250,95
+selectForeground=0,0,0
+shadeSortColumn=true
+visitedLinkColor=82,24,139
+windowBackground=255,255,255
+windowForeground=0,0,0

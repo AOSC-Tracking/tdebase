@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Platinum
+activeBackground=212,212,212
+activeBlend=136,136,136
+activeForeground=0,0,0
+activeTitleBtnBg=212,212,212
+alternateBackground=242,242,255
+background=241,241,241
+buttonBackground=212,212,212
+buttonForeground=0,0,0
+contrast=7
+foreground=0,0,0
+frame=239,239,239
+handle=239,239,239
+inactiveBackground=136,136,136
+inactiveBlend=212,212,212
+inactiveForeground=0,0,0
+inactiveFrame=239,239,239
+inactiveHandle=239,239,239
+inactiveTitleBtnBg=212,212,212
+linkColor=0,0,238
+selectBackground=170,170,214
+selectForeground=0,0,0
+shadeSortColumn=true
+visitedLinkColor=82,24,139
+windowBackground=255,255,255
+windowForeground=0,0,0
