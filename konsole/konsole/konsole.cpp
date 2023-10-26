@@ -1659,10 +1659,6 @@ void Konsole::readProperties(TDEConfig* config, const TQString &schema, bool glo
      config->setGroup("UTMP");
      b_addToUtmp = config->readBoolEntry("AddToUtmp",true);
      config->setDesktopGroup();
-
-     // Do not set a default value; this allows the System-wide Scheme
-     // to set the tab text color.
-     m_tabColor = config->readColorEntry("TabColor");
    }
 
    if (!globalConfigOnly)
@@ -2032,8 +2028,6 @@ void Konsole::createSessionTab(TEWidget *widget, const TQIconSet &iconSet,
     tabwidget->insertTab(widget, iconSet, TQString::null, index);
     break;
   }
-  if ( m_tabColor.isValid() )
-    tabwidget->setTabColor(widget, m_tabColor);
 }
 
 TQIconSet Konsole::iconSetForSession(TESession *session) const
