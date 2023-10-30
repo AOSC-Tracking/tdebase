@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # blu.256 <mavridisf@gmail.com>, 2021.
+# "blu.256" <mavridisf@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2021-06-18 12:07+0000\n"
-"Last-Translator: blu.256 <mavridisf@gmail.com>\n"
+"PO-Revision-Date: 2023-10-30 19:13+0000\n"
+"Last-Translator: \"blu.256\" <mavridisf@gmail.com>\n"
 "Language-Team: Greek <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kdesktop-icons/el/>\n"
 "Language: el\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.6.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Home.desktop:2
@@ -35,7 +36,7 @@ msgstr "Περιέχει προσωπικά αρχεία"
 #. Name
 #: My_Computer:5
 msgid "My Computer"
-msgstr "Ο υπολογιστής μου"
+msgstr "Υπολογιστής"
 
 #. Comment
 #: My_Computer:7
@@ -45,7 +46,7 @@ msgstr "Πρόσβαση σε μέσα αποθήκευσης"
 #. Name
 #: My_Documents:5
 msgid "My Documents"
-msgstr "Τα έγγραφά μου"
+msgstr "Έγγραφα"
 
 #. Comment
 #: My_Documents:7
@@ -55,7 +56,7 @@ msgstr "Περιέχει προσωπικά έγγραφα"
 #. Name
 #: My_Network_Places:5
 msgid "My Network Places"
-msgstr "Απομακρυσμένες τοποθεσίες"
+msgstr "Θέσεις δικτύου"
 
 #. Comment
 #: My_Network_Places:7
@@ -80,7 +81,7 @@ msgstr "Σύστημα"
 #. GenericName
 #: System.desktop:4
 msgid "System Locations"
-msgstr "Τοποθεσίες συστήματος"
+msgstr "Σύστημα"
 
 #. Comment
 #: System.desktop:6
@@ -241,7 +242,7 @@ msgstr "Νέα συσκευή ZIP"
 #. Name
 #: Trash:8
 msgid "Trash"
-msgstr "Κάδος απορριμμάτων"
+msgstr "Απορρίμματα"
 
 #. Comment
 #: Trash:10
@@ -252,7 +253,7 @@ msgstr "Περιέχει αρχεία προς διαγραφή"
 #. GenericName
 #: Web_Browser:6 Web_Browser:8
 msgid "Web Browser"
-msgstr "Περιηγητής ιστού"
+msgstr "Φυλλομετρητής"
 
 #. Comment
 #: Web_Browser:10
