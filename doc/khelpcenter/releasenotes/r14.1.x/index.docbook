@@ -5,6 +5,7 @@
 
   <!ENTITY r14.1.00 SYSTEM "r14.1.00.docbook">
   <!ENTITY r14.1.01 SYSTEM "r14.1.01.docbook">
+  <!ENTITY r14.1.02 SYSTEM "r14.1.02.docbook">
 ]>
 
 <article id="release-notes-14-1-x" lang="&language;">
@@ -43,5 +44,6 @@
 
 &r14.1.01;
 &r14.1.00;
+&r14.1.02;
 
 </article>
