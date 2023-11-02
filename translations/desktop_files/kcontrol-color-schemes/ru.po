@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 21:04+0200\n"
+"POT-Creation-Date: 2023-11-02 18:13+0000\n"
 "PO-Revision-Date: 2022-01-16 15:00+0000\n"
 "Last-Translator: blu.256 <mavridisf@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
@@ -64,6 +64,11 @@ msgid "EveX"
 msgstr "EveX"
 
 #. Name
+#: Human.kcsrc:2
+msgid "Human"
+msgstr ""
+
+#. Name
 #: KDEOne.kcsrc:2
 msgid "KDE 1"
 msgstr "KDE 1"
@@ -89,6 +94,16 @@ msgid "Keramik White"
 msgstr "Керамика белая"
 
 #. Name
+#: Last.fm.kcsrc:2
+msgid "Last.fm"
+msgstr ""
+
+#. Name
+#: Lizard.kcsrc:2
+msgid "Lizard"
+msgstr ""
+
+#. Name
 #: MediaPeach.kcsrc:2
 msgid "Media Peach"
 msgstr "Медиаперсик"
@@ -109,6 +124,11 @@ msgid "Plastik"
 msgstr "Пластик"
 
 #. Name
+#: Platinum.kcsrc:2
+msgid "Platinum"
+msgstr ""
+
+#. Name
 #: PointReyesGreen.kcsrc:2
 msgid "Point Reyes Green"
 msgstr "Зелёный из Point Reyes"
@@ -117,6 +137,11 @@ msgstr "Зелёный из Point Reyes"
 #: Pumpkin.kcsrc:3
 msgid "Pumpkin"
 msgstr "Тыква"
+
+#. Name
+#: Sienna.kcsrc:2
+msgid "Sienna"
+msgstr ""
 
 #. Name
 #: SolarisCDE.kcsrc:2
@@ -132,6 +157,11 @@ msgstr "Шторм"
 #: System.kcsrc:2
 msgid "System"
 msgstr "Система"
+
+#. Name
+#: WedgieWeb.kcsrc:2
+msgid "WedgieWeb"
+msgstr ""
 
 #. Name
 #: WhiteOnBlack.kcsrc:2
