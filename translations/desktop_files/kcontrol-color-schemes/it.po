@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Fiflagar Lorizen <fiflagar.lorizen@posteo.net>, 2021.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-02 18:13+0000\n"
-"PO-Revision-Date: 2021-04-18 18:00+0000\n"
-"Last-Translator: Fiflagar Lorizen <fiflagar.lorizen@posteo.net>\n"
+"PO-Revision-Date: 2023-11-08 01:13+0000\n"
+"Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/color-schemes/it/>\n"
 "Language: it\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.3\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: AtlasGreen.kcsrc:3
@@ -65,7 +66,7 @@ msgstr "EveX"
 #. Name
 #: Human.kcsrc:2
 msgid "Human"
-msgstr ""
+msgstr "Umano"
 
 #. Name
 #: KDEOne.kcsrc:2
@@ -95,12 +96,12 @@ msgstr "Ceramica bianca"
 #. Name
 #: Last.fm.kcsrc:2
 msgid "Last.fm"
-msgstr ""
+msgstr "Last.fm"
 
 #. Name
 #: Lizard.kcsrc:2
 msgid "Lizard"
-msgstr ""
+msgstr "Lucertola"
 
 #. Name
 #: MediaPeach.kcsrc:2
@@ -125,7 +126,7 @@ msgstr "Plastica"
 #. Name
 #: Platinum.kcsrc:2
 msgid "Platinum"
-msgstr ""
+msgstr "Platino"
 
 #. Name
 #: PointReyesGreen.kcsrc:2
@@ -140,7 +141,7 @@ msgstr "Zucca"
 #. Name
 #: Sienna.kcsrc:2
 msgid "Sienna"
-msgstr ""
+msgstr "Sienna"
 
 #. Name
 #: SolarisCDE.kcsrc:2
@@ -160,7 +161,7 @@ msgstr "Sistema"
 #. Name
 #: WedgieWeb.kcsrc:2
 msgid "WedgieWeb"
-msgstr ""
+msgstr "WedgieWeb"
 
 #. Name
 #: WhiteOnBlack.kcsrc:2
