@@ -848,14 +848,14 @@ void Konsole::makeGUI()
    if (!m_moveSessionLeft)
    {
      m_moveSessionLeft = new TDEAction(i18n("&Move Session Left"), TQApplication::reverseLayout() ? "forward" : "back",
-                                       TQApplication::reverseLayout() ? Qt::CTRL+Qt::SHIFT+Qt::Key_Right : Qt::CTRL+Qt::SHIFT+Qt::Key_Left, TQT_TQOBJECT(this),
+                                       TQApplication::reverseLayout() ? TQt::CTRL+TQt::SHIFT+TQt::Key_Right : TQt::CTRL+TQt::SHIFT+TQt::Key_Left, TQT_TQOBJECT(this),
                                        TQT_SLOT(moveSessionLeft()), m_shortcuts, "move_session_left");
    }
    m_moveSessionLeft->plug(m_tabPopupMenu);
    if (!m_moveSessionRight)
    {
      m_moveSessionRight = new TDEAction(i18n("M&ove Session Right"), TQApplication::reverseLayout() ? "back" : "forward",
-                                        TQApplication::reverseLayout() ? Qt::CTRL+Qt::SHIFT+Qt::Key_Left : Qt::CTRL+Qt::SHIFT+Qt::Key_Right, TQT_TQOBJECT(this),
+                                        TQApplication::reverseLayout() ? TQt::CTRL+TQt::SHIFT+TQt::Key_Left : TQt::CTRL+TQt::SHIFT+TQt::Key_Right, TQT_TQOBJECT(this),
                                         TQT_SLOT(moveSessionRight()), m_shortcuts, "move_session_right");
    }
    m_moveSessionRight->plug(m_tabPopupMenu);
@@ -1091,9 +1091,9 @@ void Konsole::makeBasicGUI()
 
   m_copyClipboard = new TDEAction(i18n("&Copy"), "edit-copy", 0, TQT_TQOBJECT(this),
                                  TQT_SLOT(slotCopyClipboard()), m_shortcuts, "edit_copy");
-  m_pasteClipboard = new TDEAction(i18n("&Paste"), "edit-paste", Qt::SHIFT+Qt::Key_Insert, TQT_TQOBJECT(this),
+  m_pasteClipboard = new TDEAction(i18n("&Paste"), "edit-paste", TQt::SHIFT+TQt::Key_Insert, TQT_TQOBJECT(this),
                                  TQT_SLOT(slotPasteClipboard()), m_shortcuts, "edit_paste");
-  m_pasteSelection = new TDEAction(i18n("Paste Selection"), Qt::CTRL+Qt::SHIFT+Qt::Key_Insert, TQT_TQOBJECT(this),
+  m_pasteSelection = new TDEAction(i18n("Paste Selection"), TQt::CTRL+TQt::SHIFT+TQt::Key_Insert, TQT_TQOBJECT(this),
                                  TQT_SLOT(slotPasteSelection()), m_shortcuts, "pasteselection");
 
   m_clearTerminal = new TDEAction(i18n("C&lear Terminal"), 0, TQT_TQOBJECT(this),
@@ -1130,12 +1130,12 @@ void Konsole::makeBasicGUI()
   }
   m_detachSession->setEnabled(false);
 
-  m_renameSession = new TDEAction(i18n("&Rename Session..."), Qt::CTRL+Qt::SHIFT+Qt::Key_R, TQT_TQOBJECT(this),
+  m_renameSession = new TDEAction(i18n("&Rename Session..."), TQt::CTRL+TQt::SHIFT+TQt::Key_R, TQT_TQOBJECT(this),
                                 TQT_SLOT(slotRenameSession()), m_shortcuts, "rename_session");
 
   if (kapp->authorizeTDEAction("zmodem_upload"))
     m_zmodemUpload = new TDEAction( i18n( "&ZModem Upload..." ),
-                                  Qt::CTRL+Qt::ALT+Qt::Key_U, TQT_TQOBJECT(this),
+                                  TQt::CTRL+TQt::ALT+TQt::Key_U, TQT_TQOBJECT(this),
                                   TQT_SLOT( slotZModemUpload() ),
                                   m_shortcuts, "zmodem_upload" );
 
@@ -1152,7 +1152,7 @@ void Konsole::makeBasicGUI()
   masterMode = new TDEToggleAction ( i18n( "Send &Input to All Sessions" ), "remote", 0, TQT_TQOBJECT(this),
                                    TQT_SLOT( slotToggleMasterMode() ), m_shortcuts, "send_input_to_all_sessions" );
 
-  showMenubar = new TDEToggleAction ( i18n( "Show &Menubar" ), "showmenu", Qt::CTRL+Qt::SHIFT+Qt::ALT+Qt::Key_M, TQT_TQOBJECT(this),
+  showMenubar = new TDEToggleAction ( i18n( "Show &Menubar" ), "showmenu", TQt::CTRL+TQt::SHIFT+TQt::ALT+TQt::Key_M, TQT_TQOBJECT(this),
                                     TQT_SLOT( slotToggleMenubar() ), m_shortcuts, "show_menubar" );
   showMenubar->setCheckedState( KGuiItem( i18n("Hide &Menubar"), "showmenu", TQString::null, TQString::null ) );
 
@@ -1174,28 +1174,28 @@ void Konsole::makeBasicGUI()
   m_print = new TDEAction(i18n("&Print Screen..."), "document-print", 0, TQT_TQOBJECT(this), TQT_SLOT( slotPrint() ), m_shortcuts, "file_print");
   m_quit = new TDEAction(i18n("&Quit"), "system-log-out", 0, TQT_TQOBJECT(this), TQT_SLOT( close() ), m_shortcuts, "file_quit");
 
-  TDEShortcut shortcut(Qt::CTRL+Qt::ALT+Qt::Key_N);
-  shortcut.append(TDEShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_N));
+  TDEShortcut shortcut(TQt::CTRL+TQt::ALT+TQt::Key_N);
+  shortcut.append(TDEShortcut(TQt::CTRL+TQt::SHIFT+TQt::Key_N));
   new TDEAction(i18n("New Session"), shortcut, TQT_TQOBJECT(this), TQT_SLOT(newSession()), m_shortcuts, "new_session");
-  new TDEAction(i18n("Activate Menu"), Qt::CTRL+Qt::ALT+Qt::Key_M, TQT_TQOBJECT(this), TQT_SLOT(activateMenu()), m_shortcuts, "activate_menu");
+  new TDEAction(i18n("Activate Menu"), TQt::CTRL+TQt::ALT+TQt::Key_M, TQT_TQOBJECT(this), TQT_SLOT(activateMenu()), m_shortcuts, "activate_menu");
   new TDEAction(i18n("List Sessions"), 0, TQT_TQOBJECT(this), TQT_SLOT(listSessions()), m_shortcuts, "list_sessions");
 
   if (!m_moveSessionLeft)
   {
     m_moveSessionLeft = new TDEAction(i18n("&Move Session Left"), TQApplication::reverseLayout() ? "forward" : "back",
-                                      TQApplication::reverseLayout() ? Qt::CTRL+Qt::SHIFT+Qt::Key_Right : Qt::CTRL+Qt::SHIFT+Qt::Key_Left, TQT_TQOBJECT(this),
+                                      TQApplication::reverseLayout() ? TQt::CTRL+TQt::SHIFT+TQt::Key_Right : TQt::CTRL+TQt::SHIFT+TQt::Key_Left, TQT_TQOBJECT(this),
                                       TQT_SLOT(moveSessionLeft()), m_shortcuts, "move_session_left");
   }
   if (!m_moveSessionRight)
   {
     m_moveSessionRight = new TDEAction(i18n("M&ove Session Right"), TQApplication::reverseLayout() ? "back" : "forward",
-                                       TQApplication::reverseLayout() ? Qt::CTRL+Qt::SHIFT+Qt::Key_Left : Qt::CTRL+Qt::SHIFT+Qt::Key_Right, TQT_TQOBJECT(this),
+                                       TQApplication::reverseLayout() ? TQt::CTRL+TQt::SHIFT+TQt::Key_Left : TQt::CTRL+TQt::SHIFT+TQt::Key_Right, TQT_TQOBJECT(this),
                                        TQT_SLOT(moveSessionRight()), m_shortcuts, "move_session_right");
   }
 
-  new TDEAction(i18n("Go to Previous Session"), TQApplication::reverseLayout() ? Qt::SHIFT+Qt::Key_Right : Qt::SHIFT+Qt::Key_Left,
+  new TDEAction(i18n("Go to Previous Session"), TQApplication::reverseLayout() ? TQt::SHIFT+TQt::Key_Right : TQt::SHIFT+TQt::Key_Left,
               TQT_TQOBJECT(this), TQT_SLOT(prevSession()), m_shortcuts, "previous_session");
-  new TDEAction(i18n("Go to Next Session"), TQApplication::reverseLayout() ? Qt::SHIFT+Qt::Key_Left : Qt::SHIFT+Qt::Key_Right,
+  new TDEAction(i18n("Go to Next Session"), TQApplication::reverseLayout() ? TQt::SHIFT+TQt::Key_Left : TQt::SHIFT+TQt::Key_Right,
               TQT_TQOBJECT(this), TQT_SLOT(nextSession()), m_shortcuts, "next_session");
 
   for (int i=1;i<13;i++) { // Due to 12 function keys?
@@ -1205,7 +1205,7 @@ void Konsole::makeBasicGUI()
   new TDEAction(i18n("Enlarge Font"), 0, TQT_TQOBJECT(this), TQT_SLOT(biggerFont()), m_shortcuts, "bigger_font");
   new TDEAction(i18n("Shrink Font"), 0, TQT_TQOBJECT(this), TQT_SLOT(smallerFont()), m_shortcuts, "smaller_font");
 
-  new TDEAction(i18n("Toggle Bidi"), Qt::CTRL+Qt::ALT+Qt::Key_B, TQT_TQOBJECT(this), TQT_SLOT(toggleBidi()), m_shortcuts, "toggle_bidi");
+  new TDEAction(i18n("Toggle Bidi"), TQt::CTRL+TQt::ALT+TQt::Key_B, TQT_TQOBJECT(this), TQT_SLOT(toggleBidi()), m_shortcuts, "toggle_bidi");
 
   // Should we load all *.desktop files now?  Required for Session shortcuts.
   if ( TDEConfigGroup(TDEGlobal::config(), "General").readBoolEntry("SessionShortcutsEnabled", false) ) {

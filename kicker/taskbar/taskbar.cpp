@@ -746,7 +746,7 @@ void TaskBar::reLayout()
     int minButtonHeight = buttonHeight();
 
     // horizontal layout
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         int bwidth=buttonWidth();
         int rows = contentsRect().height() / minButtonHeight;
@@ -1005,7 +1005,7 @@ int TaskBar::maximumButtonsWithoutShrinking() const
         rows = 1;
     }
 
-    if ( orientation() == Qt::Horizontal ) {
+    if ( orientation() == TQt::Horizontal ) {
         // maxWidth of 0 means no max width, drop back to default
         int maxWidth = READ_MERGED_TASKBAR_SETTING(maximumButtonWidth);
         if (maxWidth == 0)

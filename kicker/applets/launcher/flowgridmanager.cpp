@@ -17,7 +17,7 @@ FlowGridManager::FlowGridManager(TQSize p_item_size,
                                  TQSize p_space_size,
                                  TQSize p_border_size,
                                  TQSize p_frame_size,
-                                 Qt::Orientation orient,
+                                 TQt::Orientation orient,
                                  int num_items,
                                  Slack slack_x,Slack slack_y)
 {
@@ -65,15 +65,15 @@ void FlowGridManager::setFrameSize(TQSize p_frame_size)
         return;
     _pFrameSize=p_frame_size;
     if (_pFrameSize.width()<=0) {
-        _orientation=Qt::Vertical;
+        _orientation=TQt::Vertical;
     }
     if (_pFrameSize.height()<=0) {
-        _orientation=Qt::Horizontal;
+        _orientation=TQt::Horizontal;
     }
     _dirty=true;
 }
 
-void FlowGridManager::setOrientation(Qt::Orientation orient)
+void FlowGridManager::setOrientation(TQt::Orientation orient)
 {   if (orient==_orientation)
         return;
     _orientation=orient; _dirty=true;
@@ -114,7 +114,7 @@ TQSize  FlowGridManager::frameSize() const
 TQPoint FlowGridManager::origin() const
 {   _checkReconfigure();  return _origin;}
 
-Qt::Orientation FlowGridManager::orientation() const
+TQt::Orientation FlowGridManager::orientation() const
 {   _checkReconfigure();  return _orientation;}
 
 /*Slack FlowGridManager::slackX() const
@@ -154,7 +154,7 @@ TQPoint FlowGridManager::cell(int index) const
 // return height if orientation is Horizontal
 // return width if orientation is Vertical
 int FlowGridManager::_getHH(TQSize size) const
-{  if (_orientation==Qt::Horizontal)
+{  if (_orientation==TQt::Horizontal)
         return size.height();
     return size.width();
 }
@@ -162,14 +162,14 @@ int FlowGridManager::_getHH(TQSize size) const
 // return height if orientation is Vertical
 // return width if orientation is Horizontal
 int FlowGridManager::_getWH(TQSize size) const
-{  if (_orientation==Qt::Horizontal)
+{  if (_orientation==TQt::Horizontal)
         return size.width();
     return size.height();
 }
 
 // swap horizontal and vertical if orientation is Vertical, otherwise return arg
 TQSize FlowGridManager::_swapHV(TQSize hv) const
-{  if (_orientation==Qt::Horizontal)
+{  if (_orientation==TQt::Horizontal)
         return hv;
     TQSize temp=hv;
     temp.transpose();

@@ -62,7 +62,7 @@ Lockout::Lockout( const TQString& configFile, TQWidget *parent, const char *name
     //setFrameStyle(Panel | Sunken);
     setBackgroundOrigin( AncestorOrigin );
 
-    if ( orientation() == Qt::Horizontal )
+    if ( orientation() == TQt::Horizontal )
         layout = new TQBoxLayout( this, TQBoxLayout::TopToBottom );
     else
         layout = new TQBoxLayout( this, TQBoxLayout::LeftToRight );
@@ -117,13 +117,13 @@ void Lockout::checkLayout( int height ) const
     TQBoxLayout::Direction direction = layout->direction();
 
     if ( direction == TQBoxLayout::LeftToRight &&
-         ( ( orientation() == Qt::Vertical   && s.width() - 2 >= height ) ||
-           ( orientation() == Qt::Horizontal && s.width() - 2 < height ) ) ) {
+         ( ( orientation() == TQt::Vertical   && s.width() - 2 >= height ) ||
+           ( orientation() == TQt::Horizontal && s.width() - 2 < height ) ) ) {
         layout->setDirection( TQBoxLayout::TopToBottom );
     }
     else if ( direction == TQBoxLayout::TopToBottom &&
-              ( ( orientation() == Qt::Vertical   && s.height() - 2 < height ) ||
-                ( orientation() == Qt::Horizontal && s.height() - 2 >= height ) ) ) {
+              ( ( orientation() == TQt::Vertical   && s.height() - 2 < height ) ||
+                ( orientation() == TQt::Horizontal && s.height() - 2 >= height ) ) ) {
         layout->setDirection( TQBoxLayout::LeftToRight );
     }
 }
@@ -194,7 +194,7 @@ bool Lockout::eventFilter( TQObject *o, TQEvent *e )
         conf->setGroup("lockout");
 
         TQMouseEvent *me = TQT_TQMOUSEEVENT( e );
-        if( me->button() == Qt::RightButton )
+        if( me->button() == TQt::RightButton )
         {
             if( o == lockButton )
             {

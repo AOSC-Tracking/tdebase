@@ -121,12 +121,12 @@ void TrashApplet::resizeEvent( TQResizeEvent * )
 	int size = 1;
 
 	size = std::max( size, 
-			 orientation() == Qt::Vertical ?
+			 orientation() == TQt::Vertical ?
 			 	mButton->heightForWidth( width() ) :
 				mButton->widthForHeight( height() ) );
 
 	
-	if(orientation() == Qt::Vertical)
+	if(orientation() == TQt::Vertical)
 	{
 		mButton->resize( width(), size );
 	}

@@ -146,7 +146,7 @@ void KasBarExtension::showEvent( TQShowEvent */*se*/ )
 
 TQSize KasBarExtension::detachedSize()
 {
-    if ( orientation() == Qt::Vertical )
+    if ( orientation() == TQt::Vertical )
 	return TQSize( kasbar->itemExtent()/2, 0 );
     else
 	return TQSize( 0, kasbar->itemExtent()/2 );
@@ -155,13 +155,13 @@ TQSize KasBarExtension::detachedSize()
 
 TQSize KasBarExtension::sizeHint(Position p, TQSize maxSize ) const
 {
-   Orientation o = Qt::Horizontal;
+   Orientation o = TQt::Horizontal;
 
    if ( p == Left || p == Right )
-      o = Qt::Vertical;
+      o = TQt::Vertical;
 
    if ( detached_ ) {
-       if ( o == Qt::Vertical )
+       if ( o == TQt::Vertical )
 	   return TQSize( kasbar->itemExtent()/2, 0 );
        else
 	   return TQSize( 0, kasbar->itemExtent()/2 );

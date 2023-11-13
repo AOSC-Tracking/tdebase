@@ -47,11 +47,11 @@ KonqBgndDialog::KonqBgndDialog( TQWidget* parent,
     TQVBoxLayout* mainLayout = new TQVBoxLayout( page, 0, KDialog::spacingHint() );
 
     m_buttonGroup = new TQButtonGroup( i18n("Background"), page );
-    m_buttonGroup->setColumnLayout( 0, Qt::Vertical );
+    m_buttonGroup->setColumnLayout( 0, TQt::Vertical );
     m_buttonGroup->layout()->setMargin( KDialog::marginHint() );
     m_buttonGroup->layout()->setSpacing( KDialog::spacingHint() );
     TQGridLayout* groupLayout = new TQGridLayout( m_buttonGroup->layout() );
-    groupLayout->setAlignment( Qt::AlignTop );
+    groupLayout->setAlignment( TQt::AlignTop );
     mainLayout->addWidget( m_buttonGroup );
 
     connect( m_buttonGroup, TQT_SIGNAL( clicked(int) ),

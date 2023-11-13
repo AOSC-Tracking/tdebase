@@ -114,19 +114,19 @@ KPanelApplet::Direction arrowToDirection(TQt::ArrowType p)
 {
     switch (p)
     {
-        case Qt::DownArrow:
+        case TQt::DownArrow:
             return KPanelApplet::Down;
         break;
 
-        case Qt::LeftArrow:
+        case TQt::LeftArrow:
             return KPanelApplet::Left;
         break;
 
-        case Qt::RightArrow:
+        case TQt::RightArrow:
             return KPanelApplet::Right;
         break;
 
-        case Qt::UpArrow:
+        case TQt::UpArrow:
         default:
             return KPanelApplet::Up;
         break;
@@ -464,7 +464,7 @@ TQIconSet menuIconSet(const TQString& icon)
 void drawBlendedRect(TQPainter *p, const TQRect &r, const TQColor &color, int alpha)
 {
     static TQPixmap pix;
-    static TQColor last_color = Qt::black;
+    static TQColor last_color = TQt::black;
     static int last_alpha = 0;
     
     if (pix.isNull() || last_color != color || last_alpha != alpha)

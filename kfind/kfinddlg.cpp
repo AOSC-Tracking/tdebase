@@ -31,7 +31,7 @@ KfindDlg::KfindDlg(const KURL & url, TQWidget *parent, const char *name)
 	KStdGuiItem::saveAs())
 {
   TQWidget::setCaption( i18n("Find Files/Folders" ) );
-  setButtonBoxOrientation(Qt::Vertical);
+  setButtonBoxOrientation(TQt::Vertical);
 
   enableButton(Apply, true); // Enable "Find"
   enableButton(User1, false); // Disable "Stop"

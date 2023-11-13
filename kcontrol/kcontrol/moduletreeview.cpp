@@ -340,7 +340,7 @@ void ModuleTreeItem::paintCell( TQPainter * p, const TQColorGroup & cg, int colu
     if (offset > 0)
     {
       TQPixmap pixmap(offset, offset);
-      pixmap.fill(Qt::color0);
+      pixmap.fill(TQt::color0);
       pixmap.setMask(pixmap.createHeuristicMask());
       TQBitmap mask( pixmap.size(), true );
       pixmap.setMask( mask );

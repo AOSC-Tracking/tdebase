@@ -175,7 +175,7 @@ void BGAdvancedDialog::setTextBackgroundColor(const TQColor &color)
     else
     {
         dlg->m_cbSolidTextBackground->setChecked(false);
-        dlg->m_colorTextBackground->setColor(Qt::white);
+        dlg->m_colorTextBackground->setColor(TQt::white);
         dlg->m_colorTextBackground->setEnabled(false);
     }
     dlg->m_colorTextBackground->blockSignals(false);
@@ -434,7 +434,7 @@ KProgramEditDialog::KProgramEditDialog(const TQString &program, TQWidget *parent
     m_RefreshEdit->setSuffix(i18n(" min"));
     m_RefreshEdit->setFixedSize(m_RefreshEdit->sizeHint());
     lbl->setBuddy(m_RefreshEdit);
-    grid->addWidget(m_RefreshEdit, 5, 1, Qt::AlignLeft);
+    grid->addWidget(m_RefreshEdit, 5, 1, TQt::AlignLeft);
 
     m_Program = program;
     if (m_Program.isEmpty()) {

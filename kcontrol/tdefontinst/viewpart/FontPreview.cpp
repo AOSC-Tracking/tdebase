@@ -65,7 +65,7 @@ void CFontPreview::showFont()
     if(!itsCurrentUrl.isEmpty() &&
        itsEngine.draw(itsCurrentUrl, itsLastWidth, itsLastHeight, itsPixmap, itsCurrentFace-1, false))
     {
-        setEraseColor(Qt::white);
+        setEraseColor(TQt::white);
         update();
         emit status(true);
     }

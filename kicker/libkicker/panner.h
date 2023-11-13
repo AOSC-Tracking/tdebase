@@ -41,8 +41,8 @@ public:
 
     TQSize minimumSizeHint() const { return TQWidget::minimumSizeHint(); }
 
-    Qt::Orientation orientation() const { return _orient; }
-    virtual void setOrientation(Qt::Orientation orientation);
+    TQt::Orientation orientation() const { return _orient; }
+    virtual void setOrientation(TQt::Orientation orientation);
     
     TQWidget *viewport() const { return _viewport; }
     

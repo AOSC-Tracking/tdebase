@@ -132,7 +132,7 @@ void KAccessApp::readSettings()
   _artsBellFile = config->readPathEntry("ArtsBellFile");
   _visibleBell = config->readBoolEntry("VisibleBell", false);
   _visibleBellInvert = config->readBoolEntry("VisibleBellInvert", false);
-  TQColor def(Qt::red);
+  TQColor def(TQt::red);
   _visibleBellColor = config->readColorEntry("VisibleBellColor", &def);
   _visibleBellPause = config->readNumEntry("VisibleBellPause", 500);
 
@@ -579,7 +579,7 @@ void KAccessApp::createDialogContents() {
          pixmap = TQMessageBox::standardIcon(TQMessageBox::Warning);
       label1->setPixmap(pixmap);
 
-      lay->addWidget( label1, 0, Qt::AlignCenter );
+      lay->addWidget( label1, 0, TQt::AlignCenter );
       lay->addSpacing(KDialog::spacingHint());
 
       TQVBoxLayout * vlay = new TQVBoxLayout(lay);

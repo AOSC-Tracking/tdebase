@@ -245,7 +245,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
       KDialogBase::spacingHint());
 
   TQGroupBox *grp = new TQGroupBox(i18n("Audible Bell"), bell);
-  grp->setColumnLayout( 0, Qt::Horizontal );
+  grp->setColumnLayout( 0, TQt::Horizontal );
   vbox->addWidget(grp);
 
   TQVBoxLayout *vvbox = new TQVBoxLayout(grp->layout(),
@@ -288,7 +288,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
 
   // visible bell ----------------------------------------
   grp = new TQGroupBox(i18n("Visible Bell"), bell);
-  grp->setColumnLayout( 0, Qt::Horizontal );
+  grp->setColumnLayout( 0, TQt::Horizontal );
   vbox->addWidget(grp);
 
   vvbox = new TQVBoxLayout(grp->layout(), KDialog::spacingHint());
@@ -350,7 +350,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   vbox = new TQVBoxLayout(modifiers, KDialog::marginHint(), KDialog::spacingHint());
 
   grp = new TQGroupBox(i18n("S&ticky Keys"), modifiers);
-  grp->setColumnLayout( 0, Qt::Horizontal );
+  grp->setColumnLayout( 0, TQt::Horizontal );
   vbox->addWidget(grp);
 
   vvbox = new TQVBoxLayout(grp->layout(), KDialog::spacingHint());
@@ -374,7 +374,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   hbox->addWidget(stickyKeysBeep);
 
   grp = new TQGroupBox(i18n("Locking Keys"), modifiers);
-  grp->setColumnLayout( 0, Qt::Horizontal );
+  grp->setColumnLayout( 0, TQt::Horizontal );
   vbox->addWidget(grp);
 
   vvbox = new TQVBoxLayout(grp->layout(), KDialog::spacingHint());
@@ -412,7 +412,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   vbox = new TQVBoxLayout(filters, KDialog::marginHint(), KDialog::spacingHint());
 
   grp = new TQGroupBox(i18n("Slo&w Keys"), filters);
-  grp->setColumnLayout( 0, Qt::Horizontal );
+  grp->setColumnLayout( 0, TQt::Horizontal );
   vbox->addWidget(grp);
 
   vvbox = new TQVBoxLayout(grp->layout(), KDialog::spacingHint());
@@ -444,7 +444,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   hbox->addWidget(slowKeysRejectBeep);
 
   grp = new TQGroupBox(i18n("Bounce Keys"), filters);
-  grp->setColumnLayout( 0, Qt::Horizontal );
+  grp->setColumnLayout( 0, TQt::Horizontal );
   vbox->addWidget(grp);
 
   vvbox = new TQVBoxLayout(grp->layout(), KDialog::spacingHint());
@@ -488,7 +488,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   vbox = new TQVBoxLayout(features, KDialog::marginHint(), KDialog::spacingHint());
 
   grp = new TQGroupBox(i18n("Activation Gestures"), features);
-  grp->setColumnLayout( 0, Qt::Horizontal );
+  grp->setColumnLayout( 0, TQt::Horizontal );
   vbox->addWidget(grp);
 
   vvbox = new TQVBoxLayout(grp->layout(), KDialog::spacingHint());
@@ -518,7 +518,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   hbox->addWidget(timeoutDelay);
 
   grp = new TQGroupBox(i18n("Notification"), features);
-  grp->setColumnLayout( 0, Qt::Horizontal );
+  grp->setColumnLayout( 0, TQt::Horizontal );
   vbox->addWidget(grp);
 
   vvbox = new TQVBoxLayout(grp->layout(), KDialog::spacingHint());
@@ -614,7 +614,7 @@ void KAccessConfig::load( bool useDefaults )
   visibleBell->setChecked(config->readBoolEntry("VisibleBell", false));
   invertScreen->setChecked(config->readBoolEntry("VisibleBellInvert", true));
   flashScreen->setChecked(!invertScreen->isChecked());
-  TQColor def(Qt::red);
+  TQColor def(TQt::red);
   colorButton->setColor(config->readColorEntry("VisibleBellColor", &def));
 
   durationSlider->setValue(config->readNumEntry("VisibleBellPause", 500));

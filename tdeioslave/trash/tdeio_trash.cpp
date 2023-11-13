@@ -435,7 +435,7 @@ bool TrashProtocol::createUDSEntry( const TQString& physicalPath, const TQString
     addAtom( entry, TDEIO::UDS_MODIFICATION_TIME, buff.st_mtime );
     addAtom( entry, TDEIO::UDS_ACCESS_TIME, buff.st_atime ); // ## or use it for deletion time?
     addAtom( entry, TDEIO::UDS_EXTRA, 0, info.origPath );
-    addAtom( entry, TDEIO::UDS_EXTRA, 0, info.deletionDate.toString( Qt::ISODate ) );
+    addAtom( entry, TDEIO::UDS_EXTRA, 0, info.deletionDate.toString( TQt::ISODate ) );
     return true;
 }
 

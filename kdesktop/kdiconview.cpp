@@ -650,7 +650,7 @@ void KDIconView::contentsMousePressEvent( TQMouseEvent *e )
     if (!m_dirLister) return;
     //kdDebug(1204) << "KDIconView::contentsMousePressEvent" << endl;
     // TQIconView, as of Qt 2.2, doesn't emit mouseButtonPressed for LMB on background
-    if ( e->button() == Qt::LeftButton && KRootWm::self()->hasLeftButtonMenu() )
+    if ( e->button() == TQt::LeftButton && KRootWm::self()->hasLeftButtonMenu() )
     {
         TQIconViewItem *item = findItem( e->pos() );
         if ( !item )
@@ -731,7 +731,7 @@ void KDIconView::slotMouseButtonClickedKDesktop(int _button, TQIconViewItem* _it
 {
     if (!m_dirLister) return;
     //kdDebug(1204) << "KDIconView::slotMouseButtonClickedKDesktop" << endl;
-    if ( _item && _button == Qt::MidButton ) {
+    if ( _item && _button == TQt::MidButton ) {
         slotExecuted(_item);
     }
 }

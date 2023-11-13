@@ -48,7 +48,7 @@ KCMCgi::KCMCgi(TQWidget *parent, const char *name)
 
   TQVBoxLayout *topLayout = new TQVBoxLayout(this, 0, KDialog::spacingHint());
 
-  TQGroupBox *topBox = new TQGroupBox( 1, Qt::Horizontal, i18n("Paths to Local CGI Programs"), this );
+  TQGroupBox *topBox = new TQGroupBox( 1, TQt::Horizontal, i18n("Paths to Local CGI Programs"), this );
   topLayout->addWidget( topBox );
 
   mListBox = new TQListBox( topBox );

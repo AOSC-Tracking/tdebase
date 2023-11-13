@@ -52,7 +52,7 @@ CfgRedmond::CfgRedmond( TQWidget *p, TDEConfig *c )
   TQFont defaultUsernameFont( "Arial", 16, TQFont::Bold );
   TQFont defaultActionFont( "Arial", 12, TQFont::Bold );
   TQColor defaultDarkColor( 3, 47, 156 );
-  TQColor defaultWhiteColor( Qt::white );
+  TQColor defaultWhiteColor( TQt::white );
 
   TQHBox *hbox = new TQHBox( vbox );
   hbox->setFrameStyle( TQFrame::WinPanel );
@@ -356,7 +356,7 @@ void ThemeRedmond::_readSettings()
   mActionFont        = cfg->readFontEntry( "Action Font", &defaultActionFont );
 
   TQColor defaultDarkColor( 3, 47, 156 );
-  TQColor defaultWhiteColor( Qt::white );
+  TQColor defaultWhiteColor( TQt::white );
 
   mWelcomeTextColor       = cfg->readColorEntry( "Welcome Text Color", &defaultWhiteColor );
   mWelcomeTextShadowColor = cfg->readColorEntry( "Welcome Shadow Color", &defaultDarkColor );

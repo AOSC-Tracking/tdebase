@@ -123,7 +123,7 @@ KMiniPager::KMiniPager(const TQString& configFile, Type type, int actions,
         m_curDesk = 1;
     }
 
-    desktopLayoutOrientation = Qt::Horizontal;
+    desktopLayoutOrientation = TQt::Horizontal;
     desktopLayoutX = -1;
     desktopLayoutY = -1;
 
@@ -246,7 +246,7 @@ void KMiniPager::slotButtonSelected( int desk )
 
 int KMiniPager::widthForHeight(int h) const
 {
-    if (orientation() == Qt::Vertical)
+    if (orientation() == TQt::Vertical)
     {
         return width();
     }
@@ -302,7 +302,7 @@ int KMiniPager::widthForHeight(int h) const
 
 int KMiniPager::heightForWidth(int w) const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return height();
     }
@@ -374,14 +374,14 @@ void KMiniPager::updateDesktopLayout(int o, int x, int y)
             return;
         }
     }
-    NET::Orientation orient = o == Qt::Horizontal ? NET::OrientationHorizontal : NET::OrientationVertical;
+    NET::Orientation orient = o == TQt::Horizontal ? NET::OrientationHorizontal : NET::OrientationVertical;
     NETRootInfo i( tqt_xdisplay(), 0 );
     i.setDesktopLayout( orient, x, y, NET::DesktopLayoutCornerTopLeft );
 }
 
 void KMiniPager::resizeEvent(TQResizeEvent*)
 {
-    bool horiz = orientation() == Qt::Horizontal;
+    bool horiz = orientation() == TQt::Horizontal;
 
     int deskNum = m_desktops.count();
     int rowNum = m_settings->numberOfRows();
@@ -408,13 +408,13 @@ void KMiniPager::resizeEvent(TQResizeEvent*)
     {
         nDX = rowNum;
         nDY = deskCols;
-        updateDesktopLayout(Qt::Horizontal, -1, nDX);
+        updateDesktopLayout(TQt::Horizontal, -1, nDX);
     }
     else
     {
         nDX = deskCols;
         nDY = rowNum;
-        updateDesktopLayout(Qt::Horizontal, nDY, -1);
+        updateDesktopLayout(TQt::Horizontal, nDY, -1);
     }
 
     // 1 pixel spacing.
@@ -728,7 +728,7 @@ void KMiniPager::aboutToShowContextMenu()
     rowMenu->insertItem(i18n("two rows or columns", "&2"), 2 + rowOffset);
     rowMenu->insertItem( i18n("three rows or columns", "&3"), 3 + rowOffset);
     connect(rowMenu, TQT_SIGNAL(activated(int)), TQT_SLOT(contextMenuActivated(int)));
-    showMenu->insertItem((orientation()==Qt::Horizontal) ? i18n("&Rows"):
+    showMenu->insertItem((orientation()==TQt::Horizontal) ? i18n("&Rows"):
                                                        i18n("&Columns"),
                          rowMenu);
 

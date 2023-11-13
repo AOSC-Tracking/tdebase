@@ -229,7 +229,7 @@ void TaskLMBMenu::dragSwitch()
 
 void TaskLMBMenu::mousePressEvent( TQMouseEvent* e )
 {
-    if (e->button() == Qt::LeftButton)
+    if (e->button() == TQt::LeftButton)
     {
         m_dragStartPos = e->pos();
     }

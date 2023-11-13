@@ -56,7 +56,7 @@ LaunchConfig::LaunchConfig(TQWidget * parent, const char * name, const TQStringL
      "notification. In this case, the cursor stops blinking after the time\n"
      "given in the section 'Startup indication timeout'"));
 
-    GroupBox1->setColumnLayout(0, Qt::Vertical );
+    GroupBox1->setColumnLayout(0, TQt::Vertical );
     GroupBox1->layout()->setSpacing( 0 );
     GroupBox1->layout()->setMargin( 0 );
     Form1Layout->addWidget( GroupBox1 );
@@ -96,7 +96,7 @@ LaunchConfig::LaunchConfig(TQWidget * parent, const char * name, const TQStringL
      "notification. In this case, the button disappears after the time\n"
      "given in the section 'Startup indication timeout'"));
 
-    GroupBox2->setColumnLayout( 0, Qt::Vertical );
+    GroupBox2->setColumnLayout( 0, TQt::Vertical );
     GroupBox2->layout()->setSpacing( 0 );
     GroupBox2->layout()->setMargin( 0 );
     Form1Layout->addWidget( GroupBox2 );

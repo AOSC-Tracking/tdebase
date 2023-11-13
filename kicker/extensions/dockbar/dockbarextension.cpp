@@ -174,7 +174,7 @@ void DockBarExtension::layoutContainers()
          it != containers.constEnd();
          ++it)
     {
-        if (orientation() == Qt::Horizontal)
+        if (orientation() == TQt::Horizontal)
             (*it)->move(DockContainer::sz() * i, 0);
         else
             (*it)->move(0, DockContainer::sz() * i);
@@ -345,17 +345,17 @@ int DockBarExtension::findContainerAtPoint(const TQPoint& p)
 }
 
 void DockBarExtension::mousePressEvent(TQMouseEvent *e ) {
-    if (e->button() == Qt::LeftButton) {
+    if (e->button() == TQt::LeftButton) {
         // Store the position of the mouse clic.
         mclic_pos = e->pos();
-    } else if (e->button() == Qt::RightButton) {
+    } else if (e->button() == TQt::RightButton) {
         int pos = findContainerAtPoint(e->pos());
         if (pos != -1) containers.at(pos)->popupMenu(e->globalPos());
     }
 }
 
 void DockBarExtension::mouseReleaseEvent(TQMouseEvent *e ) {
-    if (e->button() != Qt::LeftButton) return;
+    if (e->button() != TQt::LeftButton) return;
     if (dragging_container) {  
         releaseMouse();
         original_container->embed(dragging_container->embeddedWinId());
@@ -366,7 +366,7 @@ void DockBarExtension::mouseReleaseEvent(TQMouseEvent *e ) {
 }
 
 void DockBarExtension::mouseMoveEvent(TQMouseEvent *e) {
-    if (! (e->state() & Qt::LeftButton) ) return;
+    if (! (e->state() & TQt::LeftButton) ) return;
     if (dragging_container == 0) {
         // Check whether the user has moved far enough.
         int delay = TQApplication::startDragDistance();
@@ -393,7 +393,7 @@ void DockBarExtension::mouseMoveEvent(TQMouseEvent *e) {
         int pdrag1,pdrag2,psz;
         pdrag1 = dragpos.x() - barpos.x() + DockContainer::sz()/2;
         pdrag2 = dragpos.y() - barpos.y() + DockContainer::sz()/2;
-        if (orientation() == Qt::Vertical) {
+        if (orientation() == TQt::Vertical) {
             int tmp = pdrag1; pdrag1 = pdrag2; pdrag2 = tmp;
             psz = height();
         } else psz = width();

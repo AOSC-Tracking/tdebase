@@ -33,7 +33,7 @@
 /*
  * The dither flags used to display the shadow image
  */
-#define DITHER_FLAGS (Qt::DiffuseAlphaDither | Qt::ColorOnly | Qt::AvoidDither)
+#define DITHER_FLAGS (TQt::DiffuseAlphaDither | TQt::ColorOnly | TQt::AvoidDither)
 
 
 class TQFont;

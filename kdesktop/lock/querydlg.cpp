@@ -111,7 +111,7 @@ QueryDlg::QueryDlg(LockProcess *parent)
 	layButtons->addWidget( ok );
 
 	frameLayout = new TQGridLayout( frame, 1, 1, KDialog::marginHint(), KDialog::spacingHint() );
-	frameLayout->addMultiCellWidget( mpixLabel, 0, 2, 0, 0, Qt::AlignTop );
+	frameLayout->addMultiCellWidget( mpixLabel, 0, 2, 0, 0, TQt::AlignTop );
 	frameLayout->addLayout( layStatus, 0, 1 );
 	frameLayout->addLayout( layPin, 2, 1 );
 	frameLayout->addMultiCellWidget( sep, 3, 3, 0, 1 );
@@ -140,7 +140,7 @@ TQString QueryDlg::getEntry()
 
 void QueryDlg::updateLabel(TQString &txt)
 {
-	mStatusLabel->setPaletteForegroundColor(Qt::black);
+	mStatusLabel->setPaletteForegroundColor(TQt::black);
 	mStatusLabel->setText("<b>" + txt + "</b>");
 }
 

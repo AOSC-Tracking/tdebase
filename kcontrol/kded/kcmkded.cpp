@@ -96,7 +96,7 @@ KDEDConfig::KDEDConfig(TQWidget* parent, const char* name, const TQStringList &)
 	_lvStartup->setAllColumnsShowFocus(true);
 	_lvStartup->header()->setStretchEnabled(true, 2);
 
-	KButtonBox *buttonBox = new KButtonBox( gb, Qt::Horizontal);
+	KButtonBox *buttonBox = new KButtonBox( gb, TQt::Horizontal);
 	_pbStart = buttonBox->addButton( i18n("Start"));
 	_pbStop = buttonBox->addButton( i18n("Stop"));
 

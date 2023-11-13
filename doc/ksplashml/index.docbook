@@ -940,8 +940,8 @@ void Theme2k::readSettings()
 
   cfg-&gt;setGroup( TQString("KSplash Theme: %1").arg(mTheme-&gt;theme()) );
 
-  TQColor DefaultTBgColor( Qt::darkBlue );
-  TQColor DefaultTFgColor( Qt::white );
+  TQColor DefaultTBgColor( TQt::darkBlue );
+  TQColor DefaultTFgColor( TQt::white );
 
   mTBgColor = cfg-&gt;readColorEntry( "Title Background Color",
 &amp;DefaultTBgColor );
@@ -949,8 +949,8 @@ void Theme2k::readSettings()
 &amp;DefaultTFgColor );
   mStatusColor = cfg-&gt;readColorEntry("Status Text Color", &amp;mTBgColor );
 
-  TQColor DefaultRot1( Qt::darkBlue );
-  TQColor DefaultRot2( Qt::cyan );
+  TQColor DefaultRot1( TQt::darkBlue );
+  TQColor DefaultRot2( TQt::cyan );
   mRotColor1 = cfg-&gt;readColorEntry( "Rotator Color 1", &amp;DefaultRot1 );
   mRotColor2 = cfg-&gt;readColorEntry( "Rotator Color 2", &amp;DefaultRot2 );
 
@@ -1134,7 +1134,7 @@ void Theme2k::initUi()
   lbl-&gt;setPaletteForegroundColor( mTFgColor );
 
   QLabel *logo = new QLabel( vbox );
-  logo-&gt;setPalette( Qt::white );
+  logo-&gt;setPalette( TQt::white );
 
   TQString px( locate( "appdata", mTheme-&gt;themeDir() +
 (mLogoFile.isNull()?TQString("/Logo.png"):mLogoFile) ) );
@@ -1180,8 +1180,8 @@ void Theme2k::readSettings()
 
   cfg-&gt;setGroup( TQString("KSplash Theme: %1").arg(mTheme-&gt;theme()) );
 
-  TQColor DefaultTBgColor( Qt::darkBlue );
-  TQColor DefaultTFgColor( Qt::white );
+  TQColor DefaultTBgColor( TQt::darkBlue );
+  TQColor DefaultTFgColor( TQt::white );
 
   mTBgColor = cfg-&gt;readColorEntry( "Title Background Color",
 &amp;DefaultTBgColor );
@@ -1189,8 +1189,8 @@ void Theme2k::readSettings()
 &amp;DefaultTFgColor );
   mStatusColor = cfg-&gt;readColorEntry("Status Text Color", &amp;mTBgColor );
 
-  TQColor DefaultRot1( Qt::darkBlue );
-  TQColor DefaultRot2( Qt::cyan );
+  TQColor DefaultRot1( TQt::darkBlue );
+  TQColor DefaultRot2( TQt::cyan );
   mRotColor1 = cfg-&gt;readColorEntry( "Rotator Color 1", &amp;DefaultRot1 );
   mRotColor2 = cfg-&gt;readColorEntry( "Rotator Color 2", &amp;DefaultRot2 );
 
@@ -1296,7 +1296,7 @@ void RotWidget::paintEvent( QPaintEvent *pe )
     bitBlt( this, r.x(), r.y(), m_stepPixmap.at( m_step ), r.x(), r.y(),
 r.width(), r.height() );
   else
-    p.fillRect( rect(), Qt::black );
+    p.fillRect( rect(), TQt::black );
   p.end();
 }
 

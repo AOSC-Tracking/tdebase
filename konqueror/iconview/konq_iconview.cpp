@@ -839,7 +839,7 @@ void KonqKfmIconView::slotContextMenuRequested(TQIconViewItem* _item, const TQPo
 
 void KonqKfmIconView::slotMouseButtonPressed(int _button, TQIconViewItem* _item, const TQPoint&)
 {
-    if ( _button == Qt::RightButton && !_item )
+    if ( _button == TQt::RightButton && !_item )
     {
         // Right click on viewport
         KFileItem * item = m_dirLister->rootItem();
@@ -876,11 +876,11 @@ void KonqKfmIconView::slotMouseButtonPressed(int _button, TQIconViewItem* _item,
 
 void KonqKfmIconView::slotMouseButtonClicked(int _button, TQIconViewItem* _item, const TQPoint& )
 {
-    if (_button == Qt::MidButton)
+    if (_button == TQt::MidButton)
     {
         mmbClicked( _item ? static_cast<KFileIVI*>(_item)->item() : 0L );
     }
-    else if (!_item && _button == Qt::LeftButton)
+    else if (!_item && _button == TQt::LeftButton)
     {
         if (m_pActivateDoubleClickTimer->isActive())
         {

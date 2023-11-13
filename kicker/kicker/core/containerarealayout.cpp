@@ -122,7 +122,7 @@ void ContainerAreaLayoutItem::setFreeSpaceRatio(double ratio)
         m_freeSpaceRatio = ratio;
 }
 
-Qt::Orientation ContainerAreaLayoutItem::orientation() const
+TQt::Orientation ContainerAreaLayoutItem::orientation() const
 {
     return m_layout->orientation();
 }
@@ -139,7 +139,7 @@ void ContainerAreaLayoutItem::setGeometryR(const TQRect& r)
 
 int ContainerAreaLayoutItem::widthForHeightR(int h) const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return widthForHeight(h);
     }
@@ -151,7 +151,7 @@ int ContainerAreaLayoutItem::widthForHeightR(int h) const
 
 int ContainerAreaLayoutItem::widthR() const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return geometry().width();
     }
@@ -163,7 +163,7 @@ int ContainerAreaLayoutItem::widthR() const
 
 int ContainerAreaLayoutItem::heightR() const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return geometry().height();
     }
@@ -175,7 +175,7 @@ int ContainerAreaLayoutItem::heightR() const
 
 int ContainerAreaLayoutItem::leftR() const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         if (TQApplication::reverseLayout())
             return m_layout->geometry().right() - geometry().right();
@@ -190,7 +190,7 @@ int ContainerAreaLayoutItem::leftR() const
 
 int ContainerAreaLayoutItem::rightR() const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         if (TQApplication::reverseLayout())
             return m_layout->geometry().right() - geometry().left();
@@ -206,7 +206,7 @@ int ContainerAreaLayoutItem::rightR() const
 
 ContainerAreaLayout::ContainerAreaLayout(TQWidget* parent)
     : TQLayout(parent),
-      m_orientation(Qt::Horizontal),
+      m_orientation(TQt::Horizontal),
       m_stretchEnabled(true)
 {
 }
@@ -251,7 +251,7 @@ void ContainerAreaLayout::insertIntoFreeSpace(TQWidget* widget, TQPoint insertio
         return;
     }
 
-    int insPos = (orientation() == Qt::Horizontal) ? insertionPoint.x(): insertionPoint.y();
+    int insPos = (orientation() == TQt::Horizontal) ? insertionPoint.x(): insertionPoint.y();
     Item* current = *currentIt;
     Item* next = *nextIt;
 
@@ -387,7 +387,7 @@ TQSize ContainerAreaLayout::sizeHint() const
 {
     const int size = KickerLib::sizeValue(KPanelExtension::SizeSmall);
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return TQSize(widthForHeight(size), size);
     }
@@ -401,7 +401,7 @@ TQSize ContainerAreaLayout::minimumSize() const
 {
     const int size = KickerLib::sizeValue(KPanelExtension::SizeTiny);
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return TQSize(widthForHeight(size), size);
     }
@@ -521,7 +521,7 @@ int ContainerAreaLayout::distanceToPreviousItem(ItemList::const_iterator it) con
 
 void ContainerAreaLayout::moveContainerSwitch(TQWidget* container, int distance)
 {
-    const bool horizontal    = orientation() == Qt::Horizontal;
+    const bool horizontal    = orientation() == TQt::Horizontal;
     const bool reverseLayout = TQApplication::reverseLayout();
 
     if (horizontal && reverseLayout)
@@ -658,7 +658,7 @@ void ContainerAreaLayout::moveContainerSwitch(TQWidget* container, int distance)
 
 int ContainerAreaLayout::moveContainerPush(TQWidget* a, int distance)
 {
-    const bool horizontal    = orientation() == Qt::Horizontal;
+    const bool horizontal    = orientation() == TQt::Horizontal;
     const bool reverseLayout = TQApplication::reverseLayout();
 
     // Get the iterator 'it' pointing to the layoutitem representing 'a'.
@@ -729,7 +729,7 @@ int ContainerAreaLayout::moveContainerPushRecursive(ItemList::const_iterator it,
 
 TQRect ContainerAreaLayout::transform(const TQRect& r) const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         if (TQApplication::reverseLayout())
         {
@@ -750,7 +750,7 @@ TQRect ContainerAreaLayout::transform(const TQRect& r) const
 
 int ContainerAreaLayout::widthForHeightR(int h) const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return widthForHeight(h);
     }
@@ -762,7 +762,7 @@ int ContainerAreaLayout::widthForHeightR(int h) const
 
 int ContainerAreaLayout::widthR() const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return geometry().width();
     }
@@ -774,7 +774,7 @@ int ContainerAreaLayout::widthR() const
 
 int ContainerAreaLayout::heightR() const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return geometry().height();
     }
@@ -786,7 +786,7 @@ int ContainerAreaLayout::heightR() const
 
 int ContainerAreaLayout::leftR() const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
         return geometry().left();
     else
         return geometry().top();
@@ -794,7 +794,7 @@ int ContainerAreaLayout::leftR() const
 
 int ContainerAreaLayout::rightR() const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
         return geometry().right();
     else
         return geometry().bottom();

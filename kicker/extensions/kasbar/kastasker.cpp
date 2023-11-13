@@ -635,7 +635,7 @@ void KasTasker::readConfig( TDEConfig *conf )
    conf->setGroup("Layout");
 
    setDirection( (Direction) conf->readNumEntry( "Direction", TQBoxLayout::LeftToRight ) );
-   setOrientation( (Qt::Orientation) conf->readNumEntry( "Orientation", Qt::Horizontal ) );
+   setOrientation( (TQt::Orientation) conf->readNumEntry( "Orientation", TQt::Horizontal ) );
    setMaxBoxes( conf->readUnsignedNumEntry( "MaxBoxes", 0 ) );
 
    TQPoint pos(100, 100);

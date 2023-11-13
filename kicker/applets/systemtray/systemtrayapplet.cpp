@@ -119,7 +119,7 @@ void SystemTrayApplet::updateClockGeometry()
     if (m_clockApplet)
     {
         m_clockApplet->setPosition(position());
-			  if (orientation() == Qt::Horizontal)
+			  if (orientation() == TQt::Horizontal)
 			  {
 	          m_clockApplet->setFixedSize(m_clockApplet->widthForHeight(height()),height());
    			}
@@ -253,7 +253,7 @@ void SystemTrayApplet::preferences()
     connect(m_settingsDialog, TQT_SIGNAL(okClicked()), this, TQT_SLOT(applySettings()));
     connect(m_settingsDialog, TQT_SIGNAL(finished()), this, TQT_SLOT(settingsDialogFinished()));
 
-    TQGrid *settingsGrid = m_settingsDialog->makeGridMainWidget( 2, Qt::Vertical);
+    TQGrid *settingsGrid = m_settingsDialog->makeGridMainWidget( 2, TQt::Vertical);
 
     m_showClockSettingCB = new TQCheckBox(i18n("Show Clock in Tray"), settingsGrid);
     m_showClockSettingCB->setChecked(m_showClockInTray);
@@ -432,11 +432,11 @@ void SystemTrayApplet::showExpandButton(bool show)
     {
         if (!m_expandButton)
         {
-            m_expandButton = new SimpleArrowButton(this, Qt::UpArrow, 0, KickerSettings::showDeepButtons());
+            m_expandButton = new SimpleArrowButton(this, TQt::UpArrow, 0, KickerSettings::showDeepButtons());
             m_expandButton->installEventFilter(this);
             refreshExpandButton();
 
-            if (orientation() == Qt::Vertical)
+            if (orientation() == TQt::Vertical)
             {
                 m_expandButton->setFixedSize(width() - 4,
                                              m_expandButton->sizeHint()
@@ -677,12 +677,12 @@ void SystemTrayApplet::refreshExpandButton()
         return;
     }
 
-    Qt::ArrowType a;
+    TQt::ArrowType a;
 
-    if (orientation() == Qt::Vertical)
-        a = m_showHidden ? Qt::DownArrow : Qt::UpArrow;
+    if (orientation() == TQt::Vertical)
+        a = m_showHidden ? TQt::DownArrow : TQt::UpArrow;
     else
-        a = (m_showHidden ^ kapp->reverseLayout()) ? Qt::RightArrow : Qt::LeftArrow;
+        a = (m_showHidden ^ kapp->reverseLayout()) ? TQt::RightArrow : TQt::LeftArrow;
     
     m_expandButton->setArrowType(a);
 }
@@ -843,7 +843,7 @@ bool SystemTrayApplet::eventFilter(TQObject* watched, TQEvent* e)
         else if (e->type() == TQEvent::MouseButtonPress)
         {
             TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
-            if (me->button() == Qt::RightButton)
+            if (me->button() == TQt::RightButton)
             {
                 p = me->globalPos();
             }
@@ -867,7 +867,7 @@ bool SystemTrayApplet::eventFilter(TQObject* watched, TQEvent* e)
 
 int SystemTrayApplet::widthForHeight(int h) const
 {
-    if (orientation() == Qt::Vertical)
+    if (orientation() == TQt::Vertical)
     {
         return width();
     }
@@ -886,7 +886,7 @@ int SystemTrayApplet::widthForHeight(int h) const
 
 int SystemTrayApplet::heightForWidth(int w) const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return height();
     }
@@ -937,7 +937,7 @@ void SystemTrayApplet::layoutTray()
 
     if (m_expandButton)
     {
-        if (orientation() == Qt::Vertical)
+        if (orientation() == TQt::Vertical)
         {
             m_expandButton->setFixedSize(width() - 4, m_expandButton->sizeHint().height());
         }
@@ -961,7 +961,7 @@ void SystemTrayApplet::layoutTray()
     // This fix makes the workarounds in the heightForWidth() and widthForHeight() methods unneeded.
     //
 
-    if (orientation() == Qt::Vertical)
+    if (orientation() == TQt::Vertical)
     {
         int iconWidth = maxIconWidth() + ICON_MARGIN; // +2 for the margins that implied by the layout
         heightWidth = width() - ICON_MARGIN;
@@ -972,7 +972,7 @@ void SystemTrayApplet::layoutTray()
         m_layout->addMultiCellWidget(m_leftSpacer,
                                      0, 0,
                                      0, nbrOfLines - 1,
-                                     Qt::AlignHCenter | Qt::AlignVCenter);
+                                     TQt::AlignHCenter | TQt::AlignVCenter);
         col = 1;
 
         if (showExpandButton)
@@ -980,7 +980,7 @@ void SystemTrayApplet::layoutTray()
             m_layout->addMultiCellWidget(m_expandButton,
                                          1, 1,
                                          0, nbrOfLines - 1,
-                                         Qt::AlignHCenter | Qt::AlignVCenter);
+                                         TQt::AlignHCenter | TQt::AlignVCenter);
             col = 2;
         }
 
@@ -993,7 +993,7 @@ void SystemTrayApplet::layoutTray()
                 line = i % nbrOfLines;
                 (*emb)->show();
                 m_layout->addWidget((*emb), col, line,
-                                    Qt::AlignHCenter | Qt::AlignVCenter);
+                                    TQt::AlignHCenter | TQt::AlignVCenter);
 
                 if ((line + 1) == nbrOfLines)
                 {
@@ -1011,7 +1011,7 @@ void SystemTrayApplet::layoutTray()
             line = i % nbrOfLines;
             (*emb)->show();
             m_layout->addWidget((*emb), col, line,
-                                Qt::AlignHCenter | Qt::AlignVCenter);
+                                TQt::AlignHCenter | TQt::AlignVCenter);
 
             if ((line + 1) == nbrOfLines)
             {
@@ -1024,7 +1024,7 @@ void SystemTrayApplet::layoutTray()
         m_layout->addMultiCellWidget(m_rightSpacer,
                                      col, col,
                                      0, nbrOfLines - 1,
-                                     Qt::AlignHCenter | Qt::AlignVCenter);
+                                     TQt::AlignHCenter | TQt::AlignVCenter);
 
         if (m_clockApplet) {
             if (m_showClockInTray)
@@ -1035,7 +1035,7 @@ void SystemTrayApplet::layoutTray()
             m_layout->addMultiCellWidget(m_clockApplet,
                                      col+1, col+1,
                                      0, nbrOfLines - 1,
-                                     Qt::AlignHCenter | Qt::AlignVCenter);
+                                     TQt::AlignHCenter | TQt::AlignVCenter);
         }
     }
     else // horizontal
@@ -1048,7 +1048,7 @@ void SystemTrayApplet::layoutTray()
         m_layout->addMultiCellWidget(m_leftSpacer,
                                      0, nbrOfLines - 1,
                                      0, 0,
-                                     Qt::AlignHCenter | Qt::AlignVCenter);
+                                     TQt::AlignHCenter | TQt::AlignVCenter);
         col = 1;
 
         if (showExpandButton)
@@ -1056,7 +1056,7 @@ void SystemTrayApplet::layoutTray()
             m_layout->addMultiCellWidget(m_expandButton,
                                          0, nbrOfLines - 1,
                                          1, 1,
-                                         Qt::AlignHCenter | Qt::AlignVCenter);
+                                         TQt::AlignHCenter | TQt::AlignVCenter);
             col = 2;
         }
 
@@ -1068,7 +1068,7 @@ void SystemTrayApplet::layoutTray()
                 line = i % nbrOfLines;
                 (*emb)->show();
                 m_layout->addWidget((*emb), line, col,
-                                    Qt::AlignHCenter | Qt::AlignVCenter);
+                                    TQt::AlignHCenter | TQt::AlignVCenter);
 
                 if ((line + 1) == nbrOfLines)
                 {
@@ -1086,7 +1086,7 @@ void SystemTrayApplet::layoutTray()
             line = i % nbrOfLines;
             (*emb)->show();
             m_layout->addWidget((*emb), line, col,
-                                Qt::AlignHCenter | Qt::AlignVCenter);
+                                TQt::AlignHCenter | TQt::AlignVCenter);
 
             if ((line + 1) == nbrOfLines)
             {
@@ -1099,7 +1099,7 @@ void SystemTrayApplet::layoutTray()
         m_layout->addMultiCellWidget(m_rightSpacer,
                                      0, nbrOfLines - 1,
                                      col, col,
-                                     Qt::AlignHCenter | Qt::AlignVCenter);
+                                     TQt::AlignHCenter | TQt::AlignVCenter);
 
         if (m_clockApplet) {
             if (m_showClockInTray)
@@ -1110,7 +1110,7 @@ void SystemTrayApplet::layoutTray()
             m_layout->addMultiCellWidget(m_clockApplet,
                                          0, nbrOfLines - 1,
                                          col+1, col+1,
-                                         Qt::AlignHCenter | Qt::AlignVCenter);
+                                         TQt::AlignHCenter | TQt::AlignVCenter);
         }
     }
 

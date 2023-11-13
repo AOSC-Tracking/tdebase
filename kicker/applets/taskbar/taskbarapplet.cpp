@@ -72,14 +72,14 @@ TaskbarApplet::~TaskbarApplet()
 
 int TaskbarApplet::widthForHeight(int h) const
 {
-    if (orientation() == Qt::Vertical)
+    if (orientation() == TQt::Vertical)
     {
         return width();
     }
 
     // FIXME KDE4: when either TaskBarContainer or Applet smartens up
     //             simplify this
-    KPanelExtension::Position d = orientation() == Qt::Horizontal ?
+    KPanelExtension::Position d = orientation() == TQt::Horizontal ?
                                   KPanelExtension::Top :
                                   KPanelExtension::Left;
     return container->sizeHint(d, TQSize(200, h)).width();
@@ -87,14 +87,14 @@ int TaskbarApplet::widthForHeight(int h) const
 
 int TaskbarApplet::heightForWidth(int w) const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return height();
     }
 
     // FIXME KDE4: when either TaskBarContainer or Applet smartens up
     //             simplify this
-    KPanelExtension::Position d = orientation() == Qt::Horizontal ?
+    KPanelExtension::Position d = orientation() == TQt::Horizontal ?
                                   KPanelExtension::Top :
                                   KPanelExtension::Left;
     return container->sizeHint(d, TQSize(w, 200)).height();

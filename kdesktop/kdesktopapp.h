@@ -38,8 +38,8 @@ class KDesktopApp : public KUniqueApplication
     TQ_OBJECT
     public:
         KDesktopApp();
-        KDesktopApp(Display * dpy, Qt::HANDLE visual = 0,
-                    Qt::HANDLE colormap = 0);
+        KDesktopApp(Display * dpy, TQt::HANDLE visual = 0,
+                    TQt::HANDLE colormap = 0);
 
 #ifdef COMPOSITE
         bool x11EventFilter (XEvent *);

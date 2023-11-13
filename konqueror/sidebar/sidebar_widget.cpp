@@ -853,7 +853,7 @@ bool Sidebar_Widget::addButton(const TQString &desktoppath,int pos)
 bool Sidebar_Widget::eventFilter(TQObject *obj, TQEvent *ev)
 {
 	if ( kapp->authorize( "action/konqsidebarmenu" ) ) {
-		if (ev->type()==TQEvent::MouseButtonPress && ((TQMouseEvent *)ev)->button()==Qt::RightButton)
+		if (ev->type()==TQEvent::MouseButtonPress && ((TQMouseEvent *)ev)->button()==TQt::RightButton)
 		{
 			KMultiTabBarTab *bt=tqt_dynamic_cast<KMultiTabBarTab*>(obj);
 			if (bt)
@@ -902,7 +902,7 @@ bool Sidebar_Widget::eventFilter(TQObject *obj, TQEvent *ev)
 void Sidebar_Widget::mousePressEvent(TQMouseEvent *ev)
 {
 	if ( kapp->authorize( "action/konqsidebarmenu" ) ) {
-		if (ev->type()==TQEvent::MouseButtonPress && ((TQMouseEvent *)ev)->button()==Qt::RightButton) {
+		if (ev->type()==TQEvent::MouseButtonPress && ((TQMouseEvent *)ev)->button()==TQt::RightButton) {
 			m_menu->exec(TQCursor::pos());
 		}
 	}

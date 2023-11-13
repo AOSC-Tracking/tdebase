@@ -379,7 +379,7 @@ KdmItem::paint( TQPainter *p, const TQRect &rect )
 
 #ifdef DRAW_OUTLINE
 	// Draw bounding rect for this item
-	p->setPen( Qt::white );
+	p->setPen( TQt::white );
 	p->drawRect( area );
 #endif
 

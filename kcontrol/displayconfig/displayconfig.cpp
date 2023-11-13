@@ -914,16 +914,16 @@ void KDisplayConfig::identifyMonitors () {
 		if (!randr_screen_info->outputs[i]->cur_crtc) {
 			continue;
 		}
-		idWidget = new TQLabel(TQString("Screen\n%1").arg(i+1), (TQWidget*)0, "", Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_StaysOnTop | Qt::WX11BypassWM | Qt::WDestructiveClose);
+		idWidget = new TQLabel(TQString("Screen\n%1").arg(i+1), (TQWidget*)0, "", TQt::WStyle_Customize | TQt::WStyle_NoBorder | TQt::WStyle_StaysOnTop | TQt::WX11BypassWM | TQt::WDestructiveClose);
 		widgetList.append(idWidget);
 		idWidget->resize(150, 100);
-		idWidget->setAlignment(Qt::AlignCenter);
+		idWidget->setAlignment(TQt::AlignCenter);
 		TQFont font = idWidget->font();
 		font.setBold( true );
 		font.setPointSize(24);
 		idWidget->setFont( font );
-		idWidget->setPaletteForegroundColor(Qt::white);
-		idWidget->setPaletteBackgroundColor(Qt::black);
+		idWidget->setPaletteForegroundColor(TQt::white);
+		idWidget->setPaletteBackgroundColor(TQt::black);
 		idWidget->show();
 		KDialog::centerOnScreen(idWidget, i);
 		TQTimer::singleShot(3000, idWidget, SLOT(close()));

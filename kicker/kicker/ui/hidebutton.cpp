@@ -34,7 +34,7 @@
 HideButton::HideButton(TQWidget *parent, const char *name)
     : TQButton(parent, name),
       m_highlight(false),
-      m_arrow(Qt::LeftArrow)
+      m_arrow(TQt::LeftArrow)
 {
     setBackgroundOrigin(AncestorOrigin);
 
@@ -49,22 +49,22 @@ HideButton::HideButton(TQWidget *parent, const char *name)
 
 void HideButton::drawButton(TQPainter *p)
 {
-    if (m_arrow == Qt::LeftArrow)
+    if (m_arrow == TQt::LeftArrow)
     {
         p->setPen(colorGroup().mid());
         p->drawLine(width()-1, 0, width()-1, height());
     }
-    else if (m_arrow == Qt::RightArrow)
+    else if (m_arrow == TQt::RightArrow)
     {
         p->setPen(colorGroup().mid());
         p->drawLine(0, 0, 0, height());
     }
-    else if (m_arrow == Qt::UpArrow)
+    else if (m_arrow == TQt::UpArrow)
     {
         p->setPen(colorGroup().mid());
         p->drawLine(0, height()-1, width(), height()-1);
     }
-    else if (m_arrow == Qt::DownArrow)
+    else if (m_arrow == TQt::DownArrow)
     {
         p->setPen(colorGroup().mid());
         p->drawLine(0, 0, width(), 0);
@@ -106,24 +106,24 @@ void HideButton::setPixmap(const TQPixmap &pix)
     generateIcons();
 }
 
-void HideButton::setArrowType(Qt::ArrowType arrow)
+void HideButton::setArrowType(TQt::ArrowType arrow)
 {
     m_arrow = arrow;
     switch (arrow)
     {
-        case Qt::LeftArrow:
+        case TQt::LeftArrow:
             setPixmap(SmallIcon("1leftarrow"));
         break;
 
-        case Qt::RightArrow:
+        case TQt::RightArrow:
             setPixmap(SmallIcon("1rightarrow"));
         break;
 
-        case Qt::UpArrow:
+        case TQt::UpArrow:
             setPixmap(SmallIcon("1uparrow"));
         break;
 
-        case Qt::DownArrow:
+        case TQt::DownArrow:
         default:
             setPixmap(SmallIcon("1downarrow"));
         break;

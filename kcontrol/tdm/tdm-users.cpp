@@ -93,7 +93,7 @@ TDMUsersWidget::TDMUsersWidget(TQWidget *parent, const char *name)
 
     TQString wtstr;
 
-    minGroup = new TQGroupBox( 2, Qt::Horizontal, i18n("System U&IDs"), this );
+    minGroup = new TQGroupBox( 2, TQt::Horizontal, i18n("System U&IDs"), this );
     TQWhatsThis::add( minGroup, i18n("Users with a UID (numerical user identification) outside this range will not be listed by TDM and this setup dialog."
       " Note that users with the UID 0 (typically root) are not affected by this and must be"
       " explicitly hidden in \"Not hidden\" mode."));
@@ -114,7 +114,7 @@ TDMUsersWidget::TDMUsersWidget(TQWidget *parent, const char *name)
     connect(lemaxuid, TQT_SIGNAL(textChanged( const TQString & )), TQT_SLOT(slotChanged()) );
     connect(lemaxuid, TQT_SIGNAL(textChanged( const TQString & )), TQT_SLOT(slotMinMaxChanged()) );
 
-    usrGroup = new TQButtonGroup( 5, Qt::Vertical, i18n("Users"), this );
+    usrGroup = new TQButtonGroup( 5, TQt::Vertical, i18n("Users"), this );
     connect( usrGroup, TQT_SIGNAL(clicked( int )), TQT_SLOT(slotShowOpts()) );
     connect( usrGroup, TQT_SIGNAL(clicked( int )), TQT_SLOT(slotChanged()) );
     cbshowlist = new TQCheckBox( i18n("Show list"), usrGroup );
@@ -154,7 +154,7 @@ TDMUsersWidget::TDMUsersWidget(TQWidget *parent, const char *name)
     connect( optoutlv, TQT_SIGNAL(clicked( TQListViewItem * )),
 	     TQT_SLOT(slotChanged()) );
 
-    faceGroup = new TQButtonGroup( 5, Qt::Vertical, i18n("User Image Source"), this );
+    faceGroup = new TQButtonGroup( 5, TQt::Vertical, i18n("User Image Source"), this );
     TQWhatsThis::add( faceGroup, i18n("Here you can specify where TDM will obtain the images that represent users."
       " \"Admin\" represents the global folder; these are the pictures you can set below."
       " \"User\" means that TDM should read the user's $HOME/.face.icon file."
@@ -191,8 +191,8 @@ TDMUsersWidget::TDMUsersWidget(TQWidget *parent, const char *name)
     hlpl->addWidget( userlabel, 0, 0 );
 //    hlpl->addSpacing( KDialog::spacingHint() );
     hlpl->addWidget( usercombo, 0, 1 );
-    hlpl->addMultiCellWidget( userbutton, 1,1, 0,1, Qt::AlignHCenter );
-    hlpl->addMultiCellWidget( rstuserbutton, 2,2, 0,1, Qt::AlignHCenter );
+    hlpl->addMultiCellWidget( userbutton, 1,1, 0,1, TQt::AlignHCenter );
+    hlpl->addMultiCellWidget( rstuserbutton, 2,2, 0,1, TQt::AlignHCenter );
 
     TQHBoxLayout *main = new TQHBoxLayout( this, 10 );
 

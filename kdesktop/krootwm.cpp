@@ -609,15 +609,15 @@ void KRootWm::mousePressed( const TQPoint& _global, int _button )
 {
     if (!desktopMenu) return; // initialisation not yet done
     switch ( _button ) {
-    case Qt::LeftButton:
+    case TQt::LeftButton:
         if ( m_bShowMenuBar && menuBar )
             menuBar->raise();
         activateMenu( leftButtonChoice, _global );
         break;
-    case Qt::MidButton:
+    case TQt::MidButton:
         activateMenu( middleButtonChoice, _global );
         break;
-    case Qt::RightButton:
+    case TQt::RightButton:
         if (!kapp->authorize("action/kdesktop_rmb")) return;
         activateMenu( rightButtonChoice, _global );
         break;

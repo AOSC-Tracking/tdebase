@@ -223,7 +223,7 @@ void KickoffTabBar::dragMoveEvent(TQDragMoveEvent* event)
 
 void KickoffTabBar::mousePressEvent( TQMouseEvent * e )
 {
-    if ( e->button() != Qt::LeftButton ) {
+    if ( e->button() != TQt::LeftButton ) {
 	e->ignore();
 	return;
     }

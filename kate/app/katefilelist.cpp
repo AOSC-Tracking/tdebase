@@ -267,7 +267,7 @@ void KateFileList::slotActivateView( TQListViewItem *item )
   if (info && info->modifiedOnDisc) {
     // Simulate mouse button release, otherwise the paused DND operation
     // will reactivate as soon as the mouse re-enters the list view!
-    TQMouseEvent e(TQEvent::MouseButtonRelease, m_lastMouseDownPos, Qt::LeftButton, 0);
+    TQMouseEvent e(TQEvent::MouseButtonRelease, m_lastMouseDownPos, TQt::LeftButton, 0);
     contentsMouseReleaseEvent(&e);
   }
 
@@ -659,7 +659,7 @@ KFLConfigPage::KFLConfigPage( TQWidget* parent, const char *name, KateFileList *
   int spacing = KDialog::spacingHint();
   lo1->setSpacing( spacing );
 
-  TQGroupBox *gb = new TQGroupBox( 1, Qt::Horizontal, i18n("Background Shading"), this );
+  TQGroupBox *gb = new TQGroupBox( 1, TQt::Horizontal, i18n("Background Shading"), this );
   lo1->addWidget( gb );
 
   TQWidget *g = new TQWidget( gb );

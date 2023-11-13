@@ -283,10 +283,10 @@ void KickerTip::plainMask()
 {
     TQPainter maskPainter(&m_mask);
 
-    m_mask.fill(Qt::color0);
+    m_mask.fill(TQt::color0);
 
-    maskPainter.setBrush(Qt::color1);
-    maskPainter.setPen(Qt::NoPen);
+    maskPainter.setBrush(TQt::color1);
+    maskPainter.setPen(TQt::NoPen);
     //maskPainter.drawRoundRect(m_mask.rect(), 1600 / m_mask.rect().width(), 1600 / m_mask.rect().height());
     drawRoundRect(maskPainter, m_mask.rect());
     setMask(m_mask);
@@ -297,10 +297,10 @@ void KickerTip::dissolveMask()
 {
     TQPainter maskPainter(&m_mask);
 
-    m_mask.fill(Qt::color0);
+    m_mask.fill(TQt::color0);
 
-    maskPainter.setBrush(Qt::color1);
-    maskPainter.setPen(Qt::NoPen);
+    maskPainter.setBrush(TQt::color1);
+    maskPainter.setPen(TQt::NoPen);
     //maskPainter.drawRoundRect(m_mask.rect(), 1600 / m_mask.rect().width(), 1600 / m_mask.rect().height());
     drawRoundRect(maskPainter, m_mask.rect());
 

@@ -607,7 +607,7 @@ void TEWidget::drawTextFixed(TQPainter &paint, int x, int y,
         }
     }
 
-    paint.drawText(x,y, w, font_h, Qt::AlignHCenter | TQt::DontClip, drawstr, -1);
+    paint.drawText(x,y, w, font_h, TQt::AlignHCenter | TQt::DontClip, drawstr, -1);
     x += w;
   }
 }
@@ -621,7 +621,7 @@ void TEWidget::drawAttrStr(TQPainter &paint, TQRect rect,
                            TQString& str, const ca *attr, bool pm, bool clear)
 {
   int a = font_a + m_lineSpacing / 2;
-  TQColor fColor = printerFriendly ? Qt::black : attr->f.color(color_table);
+  TQColor fColor = printerFriendly ? TQt::black : attr->f.color(color_table);
   TQColor bColor = attr->b.color(color_table);
   TQString drawstr;
 
@@ -634,7 +634,7 @@ void TEWidget::drawAttrStr(TQPainter &paint, TQRect rect,
     if (attr->isTransparent(color_table))
     {
       if (pm)
-        paint.setBackgroundMode( Qt::TransparentMode );
+        paint.setBackgroundMode( TQt::TransparentMode );
       if (clear || (blinking && (attr->r & RE_BLINK))) {
         erase(rect);
       }
@@ -676,7 +676,7 @@ void TEWidget::drawAttrStr(TQPainter &paint, TQRect rect,
         tmpRect.setWidth( tmpRect.width() + font_w );
       }
 
-      paint.fillRect( tmpRect, Qt::darkCyan );  // currently use hard code color
+      paint.fillRect( tmpRect, TQt::darkCyan );  // currently use hard code color
     }
 
     if ( m_isIMSel && !tmpStr.isEmpty() ) { // imput method selection background color
@@ -691,13 +691,13 @@ void TEWidget::drawAttrStr(TQPainter &paint, TQRect rect,
         tmpRect.setWidth( tmpRect.width() + font_w );
       }
 
-      paint.fillRect( tmpRect, Qt::darkGray );   // currently use hard code color
+      paint.fillRect( tmpRect, TQt::darkGray );   // currently use hard code color
     }
   }
 
   // Paint cursor
   if ((attr->r & RE_CURSOR) && !isPrinting) {
-    paint.setBackgroundMode( Qt::TransparentMode );
+    paint.setBackgroundMode( TQt::TransparentMode );
     int h = font_h - m_lineSpacing;
     TQRect r(rect.x(),rect.y()+m_lineSpacing/2,rect.width(),h);
     if (hasFocus())
@@ -740,7 +740,7 @@ void TEWidget::drawAttrStr(TQPainter &paint, TQRect rect,
       int y = rect.y(); // top of rect
 
       if ( shadow ) {
-        paint.setPen( Qt::black );
+        paint.setPen( TQt::black );
         drawTextFixed(paint, x+1, y+1, str, attr);
         paint.setPen(fColor);
       }
@@ -753,7 +753,7 @@ void TEWidget::drawAttrStr(TQPainter &paint, TQRect rect,
       int y = rect.y()+a; // baseline
 
       if ( shadow ) {
-        paint.setPen( Qt::black );
+        paint.setPen( TQt::black );
         paint.drawText(x+1,y+1, str, -1, bidiEnabled ? TQPainter::Auto : TQPainter::LTR );
         paint.setPen(fColor);
       }
@@ -771,7 +771,7 @@ void TEWidget::drawAttrStr(TQPainter &paint, TQRect rect,
     {
       paint.setClipRect(rect);
       // On screen we use overstrike for bold
-      paint.setBackgroundMode( Qt::TransparentMode );
+      paint.setBackgroundMode( TQt::TransparentMode );
       int x = rect.x()+1;
       if(!fixed_font)
       {
@@ -1016,7 +1016,7 @@ void TEWidget::paintEvent( TQPaintEvent* pe )
   TQPainter paint;
   setUpdatesEnabled(false);
   paint.begin( this );
-  paint.setBackgroundMode( Qt::TransparentMode );
+  paint.setBackgroundMode( TQt::TransparentMode );
 
   // Note that the actual widget size can be slightly larger
   // that the image (the size is truncated towards the smaller
@@ -1311,7 +1311,7 @@ void TEWidget::mousePressEvent(TQMouseEvent* ev)
 {
 //printf("press [%d,%d] %d\n",ev->x()/font_w,ev->y()/font_h,ev->button());
 
-  if ( possibleTripleClick && (ev->button()==Qt::LeftButton) ) {
+  if ( possibleTripleClick && (ev->button()==TQt::LeftButton) ) {
     mouseTripleClickEvent(ev);
     return;
   }
@@ -1324,7 +1324,7 @@ void TEWidget::mousePressEvent(TQMouseEvent* ev)
   TQPoint pos = TQPoint((ev->x()-tLx-bX+(font_w/2))/font_w,(ev->y()-tLy-bY)/font_h);
 
 //printf("press top left [%d,%d] by=%d\n",tLx,tLy, bY);
-  if ( ev->button() == Qt::LeftButton)
+  if ( ev->button() == TQt::LeftButton)
   {
     line_selection_mode = false;
     word_selection_mode = false;
@@ -1361,14 +1361,14 @@ void TEWidget::mousePressEvent(TQMouseEvent* ev)
       }
     }
   }
-  else if ( ev->button() == Qt::MidButton )
+  else if ( ev->button() == TQt::MidButton )
   {
     if ( mouse_marks || (!mouse_marks && (ev->state() & ShiftButton)) )
       emitSelection(true,ev->state() & ControlButton);
     else
       emit mouseSignal( 1, (ev->x()-tLx-bX)/font_w +1, (ev->y()-tLy-bY)/font_h +1 +scrollbar->value() -scrollbar->maxValue() );
   }
-  else if ( ev->button() == Qt::RightButton )
+  else if ( ev->button() == TQt::RightButton )
   {
     if (mouse_marks || (ev->state() & ShiftButton)) {
       configureRequestPoint = TQPoint( ev->x(), ev->y() );
@@ -1382,7 +1382,7 @@ void TEWidget::mousePressEvent(TQMouseEvent* ev)
 void TEWidget::mouseMoveEvent(TQMouseEvent* ev)
 {
   // for auto-hiding the cursor, we need mouseTracking
-  if (ev->state() == Qt::NoButton ) return;
+  if (ev->state() == TQt::NoButton ) return;
 
   if (dragInfo.state == diPending) {
     // we had a mouse down, but haven't confirmed a drag yet
@@ -1406,7 +1406,7 @@ void TEWidget::mouseMoveEvent(TQMouseEvent* ev)
   if (actSel == 0) return;
 
  // don't extend selection while pasting
-  if (ev->state() & Qt::MidButton) return;
+  if (ev->state() & TQt::MidButton) return;
 
   extendSelection( ev->pos() );
 }
@@ -1600,7 +1600,7 @@ void TEWidget::extendSelection( TQPoint pos )
 void TEWidget::mouseReleaseEvent(TQMouseEvent* ev)
 {
 //printf("release [%d,%d] %d\n",ev->x()/font_w,ev->y()/font_h,ev->button());
-  if ( ev->button() == Qt::LeftButton)
+  if ( ev->button() == TQt::LeftButton)
   {
     emit isBusySelecting(false); // Ok.. we can breath again.
     if(dragInfo.state == diPending)
@@ -1630,8 +1630,8 @@ void TEWidget::mouseReleaseEvent(TQMouseEvent* ev)
     }
     dragInfo.state = diNone;
   }
-  if ( !mouse_marks && ((ev->button() == Qt::RightButton && !(ev->state() & ShiftButton))
-                        || ev->button() == Qt::MidButton) ) {
+  if ( !mouse_marks && ((ev->button() == TQt::RightButton && !(ev->state() & ShiftButton))
+                        || ev->button() == TQt::MidButton) ) {
     TQPoint tL  = contentsRect().topLeft();
     int    tLx = tL.x();
     int    tLy = tL.y();
@@ -1643,7 +1643,7 @@ void TEWidget::mouseReleaseEvent(TQMouseEvent* ev)
 
 void TEWidget::mouseDoubleClickEvent(TQMouseEvent* ev)
 {
-  if ( ev->button() != Qt::LeftButton) return;
+  if ( ev->button() != TQt::LeftButton) return;
 
   TQPoint tL  = contentsRect().topLeft();
   int    tLx = tL.x();
@@ -1701,7 +1701,7 @@ void TEWidget::mouseDoubleClickEvent(TQMouseEvent* ev)
 
 void TEWidget::wheelEvent( TQWheelEvent* ev )
 {
-  if (ev->orientation() != Qt::Vertical)
+  if (ev->orientation() != TQt::Vertical)
     return;
 
   if (ev->state() & ControlButton) {

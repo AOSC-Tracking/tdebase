@@ -284,9 +284,9 @@ SensorLogger::restoreSettings(TQDomElement& element)
 {
 	TQColorGroup cgroup = monitor->colorGroup();
 
-	cgroup.setColor(TQColorGroup::Text, restoreColor(element, "textColor", Qt::green));
-	cgroup.setColor(TQColorGroup::Base, restoreColor(element, "backgroundColor", Qt::black));
-	cgroup.setColor(TQColorGroup::Foreground, restoreColor(element, "alarmColor", Qt::red));
+	cgroup.setColor(TQColorGroup::Text, restoreColor(element, "textColor", TQt::green));
+	cgroup.setColor(TQColorGroup::Base, restoreColor(element, "backgroundColor", TQt::black));
+	cgroup.setColor(TQColorGroup::Foreground, restoreColor(element, "alarmColor", TQt::red));
 	monitor->setPalette(TQPalette(cgroup, cgroup, cgroup));
 
 	logSensors.clear();

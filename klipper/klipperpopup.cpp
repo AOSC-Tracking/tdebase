@@ -45,16 +45,16 @@ namespace {
 #ifdef DEBUG_EVENTS__
 kdbgstream& operator<<( kdbgstream& stream,  const TQKeyEvent& e ) {
     stream << "(TQKeyEvent(text=" << e.text() << ",key=" << e.key() << ( e.isAccepted()?",accepted":",ignored)" ) << ",count=" << e.count();
-    if ( e.state() & Qt::AltButton ) {
+    if ( e.state() & TQt::AltButton ) {
         stream << ",ALT";
     }
-    if ( e.state() & Qt::ControlButton ) {
+    if ( e.state() & TQt::ControlButton ) {
         stream << ",CTRL";
     }
-    if ( e.state() & Qt::MetaButton ) {
+    if ( e.state() & TQt::MetaButton ) {
         stream << ",META";
     }
-    if ( e.state() & Qt::ShiftButton ) {
+    if ( e.state() & TQt::ShiftButton ) {
         stream << ",SHIFT";
     }
     if ( e.isAutoRepeat() ) {
@@ -249,15 +249,15 @@ void KlipperPopup::keyPressEvent( TQKeyEvent* e ) {
     // widget, except a few used for navigation:
     // These go to the superobject.
     switch( e->key() ) {
-    case Qt::Key_Up:
-    case Qt::Key_Down:
-    case Qt::Key_Right:
-    case Qt::Key_Left:
-    case Qt::Key_Tab:
-    case Qt::Key_Backtab:
-    case Qt::Key_Escape:
-    case Qt::Key_Return:
-    case Qt::Key_Enter:
+    case TQt::Key_Up:
+    case TQt::Key_Down:
+    case TQt::Key_Right:
+    case TQt::Key_Left:
+    case TQt::Key_Tab:
+    case TQt::Key_Backtab:
+    case TQt::Key_Escape:
+    case TQt::Key_Return:
+    case TQt::Key_Enter:
     {
 #ifdef DEBUG_EVENTS__
         kdDebug() << "Passing this event to ancestor (TDEPopupMenu): " << e << endl;

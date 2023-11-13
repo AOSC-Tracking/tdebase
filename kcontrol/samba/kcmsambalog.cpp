@@ -59,7 +59,7 @@ LogView::LogView(TQWidget *parent,TDEConfig *config, const char *name)
    subLayout->addWidget(&showConnClose,1,0);
    subLayout->addWidget(&showFileOpen,0,1);
    subLayout->addWidget(&showFileClose,1,1);
-   mainLayout->addWidget(&updateButton,0,Qt::AlignLeft);
+   mainLayout->addWidget(&updateButton,0,TQt::AlignLeft);
 
    TQWhatsThis::add( &logFileName, i18n("This page presents the contents of"
      " your samba log file in a friendly layout. Check that the correct log"

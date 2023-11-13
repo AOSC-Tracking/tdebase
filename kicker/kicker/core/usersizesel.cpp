@@ -69,7 +69,7 @@ UserSizeSel::~UserSizeSel()
 
 void UserSizeSel::mouseReleaseEvent(TQMouseEvent * e)
 {
-    if (e->button() == Qt::LeftButton)
+    if (e->button() == TQt::LeftButton)
     {
         tqApp->exit_loop();
     }
@@ -156,7 +156,7 @@ void UserSizeSel::paintCurrent()
         for (i = 0; i < 4; i++)
         {
             _frame[i] = new TQWidget(0, 0, (WFlags)(WStyle_Customize | WStyle_NoBorder | WX11BypassWM));
-            _frame[i]->setPaletteBackgroundColor(Qt::black);
+            _frame[i]->setPaletteBackgroundColor(TQt::black);
         }
         for (i = 4; i < 8; i++)
         {

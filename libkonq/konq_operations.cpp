@@ -579,7 +579,7 @@ void KonqOperations::doFileCopy()
         if (bSetWallpaper)
             popup.insertItem(SmallIconSet("background"), i18n( "Set as &Wallpaper" ), 4 );
         popup.insertSeparator();
-        popup.insertItem(SmallIconSet("cancel"), i18n( "C&ancel" ) + "\t" + KKey( Qt::Key_Escape ).toString(), 5);
+        popup.insertItem(SmallIconSet("cancel"), i18n( "C&ancel" ) + "\t" + KKey( TQt::Key_Escape ).toString(), 5);
 
         int result = popup.exec( m_info->mousePos );
 

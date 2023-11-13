@@ -32,7 +32,7 @@ GestureRecorder::~GestureRecorder()
 
 void GestureRecorder::mousePressEvent(TQMouseEvent *ev)
     {
-    if (ev->button() == Qt::LeftButton)
+    if (ev->button() == TQt::LeftButton)
         {
         _mouseButtonDown = true;
         stroke.reset();
@@ -43,7 +43,7 @@ void GestureRecorder::mousePressEvent(TQMouseEvent *ev)
 
 void GestureRecorder::mouseReleaseEvent(TQMouseEvent *ev)
     {
-    if ((ev->button() == Qt::LeftButton) && (_mouseButtonDown))
+    if ((ev->button() == TQt::LeftButton) && (_mouseButtonDown))
         {
         TQPoint pos = ev->pos();
         stroke.record(pos.x(), pos.y());

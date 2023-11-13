@@ -90,7 +90,7 @@ KonqViewManager::~KonqViewManager()
   clear();
 }
 
-KonqView* KonqViewManager::splitView ( Qt::Orientation orientation,
+KonqView* KonqViewManager::splitView ( TQt::Orientation orientation,
                                        const TQString &serviceType,
                                        const TQString &serviceName,
                                        bool newOneFirst, bool forceAutoEmbed )
@@ -200,7 +200,7 @@ KonqView* KonqViewManager::splitView ( Qt::Orientation orientation,
   return newView;
 }
 
-KonqView* KonqViewManager::splitWindow( Qt::Orientation orientation,
+KonqView* KonqViewManager::splitWindow( TQt::Orientation orientation,
                                         const TQString &serviceType,
                                         const TQString &serviceName,
                                         bool newOneFirst )
@@ -1574,14 +1574,14 @@ void KonqViewManager::loadItem( TDEConfig &cfg, KonqFrameContainerBase *parent,
     //load container config
     TQString ostr = cfg.readEntry( TQString::fromLatin1( "Orientation" ).prepend( prefix ) );
     //kdDebug(1202) << "Orientation: " << ostr << endl;
-    Qt::Orientation o;
+    TQt::Orientation o;
     if( ostr == "Vertical" )
-      o = Qt::Vertical;
+      o = TQt::Vertical;
     else if( ostr == "Horizontal" )
-      o = Qt::Horizontal;
+      o = TQt::Horizontal;
     else {
         kdWarning() << "Profile Loading Error: No orientation specified in " << name << endl;
-      o = Qt::Horizontal;
+      o = TQt::Horizontal;
     }
 
     TQValueList<int> sizes =

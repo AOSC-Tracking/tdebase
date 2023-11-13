@@ -85,7 +85,7 @@ bool AppletWidget::eventFilter(TQObject*, TQEvent* e)
     if (e->type() == TQEvent::MouseButtonPress)
     {
         TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
-        if (me->button() & Qt::LeftButton)
+        if (me->button() & TQt::LeftButton)
         {
             m_dragStart = me->pos();
         }
@@ -123,21 +123,21 @@ bool AppletWidget::eventFilter(TQObject*, TQEvent* e)
 
 void AppletWidget::keyPressEvent(TQKeyEvent *e)
 {
-    if (e->key() == Qt::Key_Enter ||
-        e->key() == Qt::Key_Return)
+    if (e->key() == TQt::Key_Enter ||
+        e->key() == TQt::Key_Return)
     {
         emit doubleClicked(this);
     }
-    else if (e->key() == Qt::Key_Up)
+    else if (e->key() == TQt::Key_Up)
     {
         TQKeyEvent fakedKeyPress(TQEvent::KeyPress, TQt::Key_BackTab, 0, 0);
         TQKeyEvent fakedKeyRelease(TQEvent::KeyRelease, Key_BackTab, 0, 0);
         TQApplication::sendEvent(this, &fakedKeyPress);
         TQApplication::sendEvent(this, &fakedKeyRelease);
     }
-    else if (e->key() == Qt::Key_Down)
+    else if (e->key() == TQt::Key_Down)
     {
-        TQKeyEvent fakedKeyPress(TQEvent::KeyPress, Qt::Key_Tab, 0, 0);
+        TQKeyEvent fakedKeyPress(TQEvent::KeyPress, TQt::Key_Tab, 0, 0);
         TQKeyEvent fakedKeyRelease(TQEvent::KeyRelease, Key_Escape, 0, 0);
         TQApplication::sendEvent(this, &fakedKeyPress);
         TQApplication::sendEvent(this, &fakedKeyRelease);
@@ -150,7 +150,7 @@ void AppletWidget::keyPressEvent(TQKeyEvent *e)
 
 void AppletWidget::mousePressEvent(TQMouseEvent *e)
 {
-    if (e->button() == Qt::LeftButton)
+    if (e->button() == TQt::LeftButton)
     {
         emit clicked(this);
         m_dragStart = e->pos();
@@ -162,7 +162,7 @@ void AppletWidget::mousePressEvent(TQMouseEvent *e)
 
 void AppletWidget::mouseMoveEvent(TQMouseEvent *e)
 {
-    if (e->button() == Qt::LeftButton &&
+    if (e->button() == TQt::LeftButton &&
         !m_dragStart.isNull() &&
         (e->pos() - m_dragStart).manhattanLength() >
          TDEGlobalSettings::dndEventDelay())
@@ -186,7 +186,7 @@ void AppletWidget::mouseReleaseEvent(TQMouseEvent *e)
 
 void AppletWidget::mouseDoubleClickEvent(TQMouseEvent *e)
 {
-    if (!e->button() == Qt::LeftButton)
+    if (!e->button() == TQt::LeftButton)
     {
         AppletItem::mouseDoubleClickEvent(e);
         return;

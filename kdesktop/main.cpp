@@ -247,7 +247,7 @@ extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
             *qt_no_foreign_hack = true;
         // else argb_visual = false ... ? *shrug*
         if( argb_visual )
-            myApp = new KDesktopApp( dpy, Qt::HANDLE( visual ), 0 );
+            myApp = new KDesktopApp( dpy, TQt::HANDLE( visual ), 0 );
         else
             XCloseDisplay( dpy );
     }

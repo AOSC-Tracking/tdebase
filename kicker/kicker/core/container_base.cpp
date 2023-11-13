@@ -37,7 +37,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 BaseContainer::BaseContainer( TQPopupMenu* appletOpMenu, TQWidget* parent, const char * name )
   : TQWidget( parent, name )
   , _dir(KPanelApplet::Up)
-  , _orient(Qt::Horizontal)
+  , _orient(TQt::Horizontal)
   , _alignment(KPanelExtension::LeftTop)
   , _fspace(0)
   , _moveOffset(TQPoint(0,0))

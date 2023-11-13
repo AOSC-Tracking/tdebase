@@ -94,7 +94,7 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
     m_pNormalText = new KColorButton( normalTextColor, this );
     label = new TQLabel( m_pNormalText, i18n("Normal te&xt color:"), this );
     lay->addWidget(label,row,0);
-    lay->addWidget(m_pNormalText,row,COLOR_BUTTON_COL,(Qt::AlignmentFlags)hAlign);
+    lay->addWidget(m_pNormalText,row,COLOR_BUTTON_COL,(TQt::AlignmentFlags)hAlign);
 
     wtstr = i18n("This is the color used to display text in Konqueror windows.");
     TQWhatsThis::add( label, wtstr );
@@ -129,7 +129,7 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
                  TQT_SLOT( slotTextBackgroundClicked() ) );
 
         m_pTextBackground = new KColorButton( textBackgroundColor, this );
-        lay->addWidget(m_pTextBackground,row,COLOR_BUTTON_COL,(Qt::AlignmentFlags)hAlign);
+        lay->addWidget(m_pTextBackground,row,COLOR_BUTTON_COL,(TQt::AlignmentFlags)hAlign);
 
         wtstr = i18n("This is the color used behind the text for the icons on the desktop.");
         TQWhatsThis::add( label, wtstr );
@@ -179,7 +179,7 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
     }
 
     cbUnderline = new TQCheckBox(i18n("&Underline filenames"), this);
-    lay->addMultiCellWidget(cbUnderline,row,row,0,LASTCOLUMN,(Qt::AlignmentFlags)hAlign);
+    lay->addMultiCellWidget(cbUnderline,row,row,0,LASTCOLUMN,(TQt::AlignmentFlags)hAlign);
     connect(cbUnderline, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
 
     TQWhatsThis::add( cbUnderline, i18n("Checking this option will result in filenames"
@@ -192,7 +192,7 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
         row++;
 
         m_pSizeInBytes = new TQCheckBox(i18n("Display file sizes in b&ytes"), this);
-        lay->addMultiCellWidget( m_pSizeInBytes,row,row,0,LASTCOLUMN,(Qt::AlignmentFlags)hAlign );
+        lay->addMultiCellWidget( m_pSizeInBytes,row,row,0,LASTCOLUMN,(TQt::AlignmentFlags)hAlign );
         connect( m_pSizeInBytes, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()) );
 
         TQWhatsThis::add( m_pSizeInBytes, i18n("Checking this option will result in file sizes"
@@ -263,7 +263,7 @@ void KonqFontOptions::load( bool useDefaults )
         m_pTextBackground->setColor( textBackgroundColor );
 	// Don't keep an invalid color around, otherwise checking the checkbox still gives invalid.
 	if ( !textBackgroundColor.isValid() )
-            textBackgroundColor = Qt::black;
+            textBackgroundColor = TQt::black;
     }
     else
     {

@@ -213,7 +213,7 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
 
 void PanelAppletOpMenu::keyPressEvent(TQKeyEvent* e)
 {
-    if (e->key() == Qt::Key_Escape)
+    if (e->key() == TQt::Key_Escape)
     {
         emit escapePressed();
     }

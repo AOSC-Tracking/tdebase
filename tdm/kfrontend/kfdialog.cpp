@@ -181,7 +181,7 @@ KFMsgBox::KFMsgBox( TQWidget *parent, TQMessageBox::Icon type, const TQString &t
 	connect( button, TQT_SIGNAL(clicked()), TQT_SLOT(accept()) );
 
 	TQGridLayout *grid = new TQGridLayout( this, 2, 2, 10 );
-	grid->addWidget( label1, 0, 0, Qt::AlignCenter );
-	grid->addWidget( label2, 0, 1, Qt::AlignCenter );
-	grid->addMultiCellWidget( button, 1,1, 0,1, Qt::AlignCenter );
+	grid->addWidget( label1, 0, 0, TQt::AlignCenter );
+	grid->addWidget( label2, 0, 1, TQt::AlignCenter );
+	grid->addMultiCellWidget( button, 1,1, 0,1, TQt::AlignCenter );
 }

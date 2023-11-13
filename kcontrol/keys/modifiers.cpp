@@ -172,7 +172,7 @@ void ModifiersModule::initGUI()
 	TQGridLayout* pLayoutTop = new TQGridLayout( this, 6, 2, KDialog::marginHint() );
 	pLayoutTop->setColStretch( 1, 1 );
 
-	TQGroupBox* pGroup = new TQGroupBox( 2, Qt::Horizontal, i18n("TDE Modifiers"), this );
+	TQGroupBox* pGroup = new TQGroupBox( 2, TQt::Horizontal, i18n("TDE Modifiers"), this );
 	pLayoutTop->addWidget( pGroup, 0, 0 );
 
 	TQLabel* plbl = new TQLabel( i18n("Modifier"), pGroup );
@@ -226,7 +226,7 @@ void ModifiersModule::initGUI()
 	//------------------
 	pLayoutTop->addRowSpacing( 3, KDialog::spacingHint() * 3 );
 
-	pGroup = new TQGroupBox( 1, Qt::Horizontal, i18n("X Modifier Mapping"), this );
+	pGroup = new TQGroupBox( 1, TQt::Horizontal, i18n("X Modifier Mapping"), this );
 	pLayoutTop->addWidget( pGroup, 4, 0 );
 
 	m_plstXMods = new TDEListView( pGroup );

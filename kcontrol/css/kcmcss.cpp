@@ -342,13 +342,13 @@ void CSSConfig::slotPreview()
 
   if (customDialog->blackOnWhite->isChecked())
     {
-      back = Qt::white;
-      fore = Qt::black;
+      back = TQt::white;
+      fore = TQt::black;
     }
   else if (customDialog->whiteOnBlack->isChecked())
     {
-      back = Qt::black;
-      fore = Qt::white;
+      back = TQt::black;
+      fore = TQt::white;
     }
   else
     {

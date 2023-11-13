@@ -69,9 +69,9 @@ static bool checkSearchPathTimestamps( TQStringList paths, TQStringList timestam
         TQDateTime current = lastChanged( *it );
         // store non-existent directory as "N" string rather than empty string, TDEConfig
         // has a bug with storing a list of empty items
-        if( *t == "N" ? !current.isNull() : current != TQDateTime::fromString( *t, Qt::ISODate ))
+        if( *t == "N" ? !current.isNull() : current != TQDateTime::fromString( *t, TQt::ISODate ))
             changed = true;
-        currentTimestamps.append( current.isNull() ? "N" : current.toString( Qt::ISODate ));
+        currentTimestamps.append( current.isNull() ? "N" : current.toString( TQt::ISODate ));
     }
     if( changed )
     {

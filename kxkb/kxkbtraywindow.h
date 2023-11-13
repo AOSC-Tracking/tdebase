@@ -78,7 +78,7 @@ class KxkbSystemTray : public KSystemTray
 	
 	void mouseReleaseEvent(TQMouseEvent *ev)
 	{
-		if (ev->button() == Qt::LeftButton)
+		if (ev->button() == TQt::LeftButton)
 			emit toggled();
 		KSystemTray::mouseReleaseEvent(ev);
 	}

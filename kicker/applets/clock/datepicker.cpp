@@ -69,7 +69,7 @@ void DatePicker::keyPressEvent(TQKeyEvent *e)
 {
     TQVBox::keyPressEvent(e);
 
-    if (e->key() == Qt::Key_Escape)
+    if (e->key() == TQt::Key_Escape)
     {
         close();
     }

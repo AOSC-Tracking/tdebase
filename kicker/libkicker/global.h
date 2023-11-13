@@ -57,7 +57,7 @@ KDE_EXPORT void colorize(TQImage& image);
 /**
  * Blend a color rectangle on a painter
  */
-KDE_EXPORT void drawBlendedRect(TQPainter *p, const TQRect &r, const TQColor &color = Qt::black, int alpha = 0x40);
+KDE_EXPORT void drawBlendedRect(TQPainter *p, const TQRect &r, const TQColor &color = TQt::black, int alpha = 0x40);
 
 /**
  * Blend two colours together to get a colour halfway in between

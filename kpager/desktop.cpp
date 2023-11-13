@@ -78,7 +78,7 @@ void Desktop::mouseMoveEvent( TQMouseEvent *ev )
 {
     if ( !KPagerConfigDialog::m_windowDragging )
 	return;
-    if ( (ev->state() & Qt::LeftButton) == 0 )
+    if ( (ev->state() & TQt::LeftButton) == 0 )
 	return;
     TQPoint p( ev->pos() - pressPos );
     if ( p.manhattanLength() >= tqApp->startDragDistance() )
@@ -88,12 +88,12 @@ void Desktop::mouseMoveEvent( TQMouseEvent *ev )
 void Desktop::mousePressEvent( TQMouseEvent * ev)
 {
     bool showWindows= KPagerConfigDialog::m_showWindows;
-    if (ev->button()==Qt::LeftButton){
+    if (ev->button()==TQt::LeftButton){
 	pressPos = ev->pos();
     }
-    else if ((ev->button()==Qt::MidButton)&&(showWindows))
+    else if ((ev->button()==TQt::MidButton)&&(showWindows))
 	startDrag(ev->pos());
-    else if (ev->button()==Qt::RightButton) {
+    else if (ev->button()==TQt::RightButton) {
 	TQPoint pos;
 	KWin::WindowInfo *info = windowAtPosition(ev->pos(), &pos);
 	if ( info && showWindows )
@@ -107,7 +107,7 @@ void Desktop::mouseReleaseEvent( TQMouseEvent *ev )
 {
 /** Note that mouseReleaseEvent is not called when releasing the mouse
  to drop a window in this desktop */
-  if (ev->button()==Qt::LeftButton)
+  if (ev->button()==TQt::LeftButton)
   {
     bool showWindows= KPagerConfigDialog::m_showWindows;
     TQPoint pos;
@@ -426,7 +426,7 @@ void Desktop::paintEvent( TQPaintEvent * )
   p.begin(&pixmap);
 //  p.setFont(font());
 //  p.fillRect(rect(), colorGroup().brush(TQColorGroup::Dark));
-//  p.setPen(Qt::black);
+//  p.setPen(TQt::black);
 //  p.drawRect(rect());
 
   if (KPagerConfigDialog::m_showBackground )
@@ -447,7 +447,7 @@ void Desktop::paintEvent( TQPaintEvent * )
 
       p.drawPixmap(0,0,tmp);
     }
-     else pixmap.fill(Qt::gray);
+     else pixmap.fill(TQt::gray);
   }
   else
     p.fillRect(rect(), colorGroup().brush(TQColorGroup::Mid));
@@ -528,7 +528,7 @@ void Desktop::paintWindowPlain(TQPainter &p, const KWin::WindowInfo *info, bool 
 
   if ( m_transparentMode==AllWindows
       || (m_transparentMode==MaximizedWindows && ( info->state() & NET::Max )) )
-    brush.setStyle(Qt::Dense4Pattern);
+    brush.setStyle(TQt::Dense4Pattern);
 
   if ( isActive )
   {

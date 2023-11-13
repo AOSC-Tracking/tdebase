@@ -571,7 +571,7 @@ void PanelServiceMenu::mousePressEvent(TQMouseEvent * ev)
 
 void PanelServiceMenu::mouseReleaseEvent(TQMouseEvent * ev)
 {
-    if (ev->button() == Qt::RightButton && !Kicker::the()->isKioskImmutable())
+    if (ev->button() == TQt::RightButton && !Kicker::the()->isKioskImmutable())
     {
         int id = idAt( ev->pos() );
 
@@ -758,7 +758,7 @@ void PanelServiceMenu::mouseMoveEvent(TQMouseEvent * ev)
     if (Kicker::the()->isKioskImmutable())
         return;
 
-    if ( (ev->state() & Qt::LeftButton ) != Qt::LeftButton )
+    if ( (ev->state() & TQt::LeftButton ) != TQt::LeftButton )
         return;
 
     TQPoint p = ev->pos() - startPos_;

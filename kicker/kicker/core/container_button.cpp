@@ -238,7 +238,7 @@ bool ButtonContainer::eventFilter(TQObject *o, TQEvent *e)
         TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
         switch (me->button())
         {
-        case Qt::MidButton:
+        case TQt::MidButton:
         {
             if (isImmutable())
             {
@@ -252,7 +252,7 @@ bool ButtonContainer::eventFilter(TQObject *o, TQEvent *e)
             return true;
         }
 
-        case Qt::RightButton:
+        case TQt::RightButton:
         {
             if (!kapp->authorizeTDEAction("kicker_rmb") ||
                 isImmutable())
@@ -263,7 +263,7 @@ bool ButtonContainer::eventFilter(TQObject *o, TQEvent *e)
             TQPopupMenu* menu = opMenu();
             connect( menu, TQT_SIGNAL( aboutToHide() ), this, TQT_SLOT( slotMenuClosed() ) );
             TQPoint pos = KickerLib::popupPosition(popupDirection(), menu, TQT_TQWIDGET(this),
-                                                  (orientation() == Qt::Horizontal) ?
+                                                  (orientation() == TQt::Horizontal) ?
                                                    TQPoint(0, 0) : me->pos());
 
             Kicker::the()->setInsertionPoint(me->globalPos());

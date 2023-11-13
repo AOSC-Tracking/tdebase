@@ -311,29 +311,29 @@ KateVSStatusBar::KateVSStatusBar ( KateViewSpace *parent, const char *name )
 {
   m_lineColLabel = new TQLabel( this );
   addWidget( m_lineColLabel, 0, false );
-  m_lineColLabel->setAlignment( Qt::AlignCenter );
+  m_lineColLabel->setAlignment( TQt::AlignCenter );
   m_lineColLabel->installEventFilter( this );
 
   m_modifiedLabel = new TQLabel( TQString("   "), this );
   addWidget( m_modifiedLabel, 0, false );
-  m_modifiedLabel->setAlignment( Qt::AlignCenter );
+  m_modifiedLabel->setAlignment( TQt::AlignCenter );
   m_modifiedLabel->installEventFilter( this );
 
   m_insertModeLabel = new TQLabel( i18n(" INS "), this );
   addWidget( m_insertModeLabel, 0, false );
-  m_insertModeLabel->setAlignment( Qt::AlignCenter );
+  m_insertModeLabel->setAlignment( TQt::AlignCenter );
   m_insertModeLabel->installEventFilter( this );
 
   m_selectModeLabel = new TQLabel( i18n(" NORM "), this );
   addWidget( m_selectModeLabel, 0, false );
-  m_selectModeLabel->setAlignment( Qt::AlignCenter );
+  m_selectModeLabel->setAlignment( TQt::AlignCenter );
   m_selectModeLabel->installEventFilter( this );
 
   m_fileNameLabel=new KSqueezedTextLabel( this );
   addWidget( m_fileNameLabel, 1, true );
   m_fileNameLabel->setMinimumSize( 0, 0 );
   m_fileNameLabel->setSizePolicy(TQSizePolicy( TQSizePolicy::Ignored, TQSizePolicy::Fixed ));
-  m_fileNameLabel->setAlignment( /*Qt::AlignRight*/Qt::AlignLeft );
+  m_fileNameLabel->setAlignment( /*TQt::AlignRight*/TQt::AlignLeft );
   m_fileNameLabel->installEventFilter( this );
 
   installEventFilter( this );
@@ -412,7 +412,7 @@ bool KateVSStatusBar::eventFilter(TQObject*,TQEvent *e)
     if ( m_viewSpace->currentView() )
       m_viewSpace->currentView()->setFocus();
 
-    if ( ((TQMouseEvent*)e)->button()==Qt::RightButton)
+    if ( ((TQMouseEvent*)e)->button()==TQt::RightButton)
       showMenu();
 
     return true;

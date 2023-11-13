@@ -200,7 +200,7 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
 
 		if (!m_lockStartDT.isNull()) {
 			frameLayout = new TQGridLayout( frame, 1, 1, KDialog::marginHint(), KDialog::spacingHint() );
-			frameLayout->addMultiCellWidget( theader, 0, 0, 0, 2, Qt::AlignTop );
+			frameLayout->addMultiCellWidget( theader, 0, 0, 0, 2, TQt::AlignTop );
 			frameLayout->addWidget( greetLabel, 1, 1 );
 			frameLayout->addWidget( lockDTLabel, 2, 1 );
 			frameLayout->addItem( greet->getLayoutItem(), 3, 1 );
@@ -210,7 +210,7 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
 		}
 		else {
 			frameLayout = new TQGridLayout( frame, 1, 1, KDialog::marginHint(), KDialog::spacingHint() );
-			frameLayout->addMultiCellWidget( theader, 0, 0, 0, 2, Qt::AlignTop );
+			frameLayout->addMultiCellWidget( theader, 0, 0, 0, 2, TQt::AlignTop );
 			frameLayout->addWidget( greetLabel, 1, 1 );
 			frameLayout->addItem( greet->getLayoutItem(), 2, 1 );
 			frameLayout->addLayout( layStatus, 3, 1 );
@@ -220,7 +220,7 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
 	}
 	else {
 		frameLayout = new TQGridLayout( frame, 1, 1, KDialog::marginHint(), KDialog::spacingHint() );
-		frameLayout->addMultiCellWidget( pixLabel, 0, 2, 0, 0, Qt::AlignTop );
+		frameLayout->addMultiCellWidget( pixLabel, 0, 2, 0, 0, TQt::AlignTop );
 		frameLayout->addWidget( greetLabel, 0, 1 );
 		frameLayout->addItem( greet->getLayoutItem(), 1, 1 );
 		frameLayout->addLayout( layStatus, 2, 1 );
@@ -329,12 +329,12 @@ void PasswordDlg::setLayoutText( const TQString &txt )
 void PasswordDlg::updateLabel()
 {
 	if (mUnlockingFailed) {
-		mStatusLabel->setPaletteForegroundColor(Qt::black);
+		mStatusLabel->setPaletteForegroundColor(TQt::black);
 		mStatusLabel->setText(i18n("<b>Unlocking failed</b>"));
 // 		mStatusLabel->show();
 	}
 	else if (mCapsLocked) {
-		mStatusLabel->setPaletteForegroundColor(Qt::red);
+		mStatusLabel->setPaletteForegroundColor(TQt::red);
 		mStatusLabel->setText(i18n("<b>Warning: Caps Lock on</b>"));
 // 		mStatusLabel->show();
 	}
@@ -715,9 +715,9 @@ void PasswordDlg::gplugMsgBox( TQMessageBox::Icon type, const TQString &text )
 	connect( button, TQT_SIGNAL( clicked() ), TQT_SLOT( accept() ) );
 
 	TQGridLayout *grid = new TQGridLayout( winFrame, 2, 2, 10 );
-	grid->addWidget( label1, 0, 0, Qt::AlignCenter );
-	grid->addWidget( label2, 0, 1, Qt::AlignCenter );
-	grid->addMultiCellWidget( button, 1,1, 0,1, Qt::AlignCenter );
+	grid->addWidget( label1, 0, 0, TQt::AlignCenter );
+	grid->addWidget( label2, 0, 1, TQt::AlignCenter );
+	grid->addMultiCellWidget( button, 1,1, 0,1, TQt::AlignCenter );
 
 	static_cast< LockProcess* >(parent())->execDialog( &dialog );
 }
@@ -791,8 +791,8 @@ void PasswordDlg::slotStartNewSession()
 
 	TQGridLayout *grid = new TQGridLayout( mbox, 2, 2, 2 * KDialog::spacingHint() );
 	grid->setMargin( KDialog::marginHint() );
-	grid->addWidget( label1, 0, 0, Qt::AlignCenter );
-	grid->addWidget( label2, 0, 1, Qt::AlignCenter );
+	grid->addWidget( label1, 0, 0, TQt::AlignCenter );
+	grid->addWidget( label2, 0, 1, TQt::AlignCenter );
 	TQCheckBox *cb = new TQCheckBox( i18n("&Do not ask again"), winFrame );
 	grid->addMultiCellWidget( cb, 1,1, 0,1 );
 

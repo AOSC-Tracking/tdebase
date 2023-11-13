@@ -380,7 +380,7 @@ void PanelBrowserMenu::mouseMoveEvent(TQMouseEvent *e)
 {
     TQPopupMenu::mouseMoveEvent(e);
 
-    if (!(e->state() & Qt::LeftButton)) return;
+    if (!(e->state() & TQt::LeftButton)) return;
     if(_lastpress == TQPoint(-1, -1)) return;
 
     // DND delay
@@ -422,7 +422,7 @@ void PanelBrowserMenu::dragEnterEvent( TQDragEnterEvent *ev )
 
 void PanelBrowserMenu::dragMoveEvent(TQDragMoveEvent *ev)
 {
-    TQMouseEvent mev(TQEvent::MouseMove, ev->pos(), Qt::NoButton, Qt::LeftButton);
+    TQMouseEvent mev(TQEvent::MouseMove, ev->pos(), TQt::NoButton, TQt::LeftButton);
     TQPopupMenu::mouseMoveEvent(&mev);
 }
 

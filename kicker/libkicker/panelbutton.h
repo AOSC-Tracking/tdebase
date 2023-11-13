@@ -263,7 +263,7 @@ public slots:
 
 protected:
 
-    void setIconAlignment(Qt::AlignmentFlags align);
+    void setIconAlignment(TQt::AlignmentFlags align);
     /**
      * Subclasses must implement this to define the name of the button which is
      * used to identify this button for saving and loading. It must be unique
@@ -406,7 +406,7 @@ private:
     TQPixmap m_iconz; // mouse over
     KPanelExtension::Position m_arrowDirection;
     KPanelApplet::Direction m_popupDirection;
-    Qt::AlignmentFlags m_iconAlignment;
+    TQt::AlignmentFlags m_iconAlignment;
     Orientation m_orientation;
     int m_size;
     double m_fontPercent;

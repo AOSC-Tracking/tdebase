@@ -646,7 +646,7 @@ class KeyPressEater : public TQObject {
 bool KeyPressEater::eventFilter(TQObject *, TQEvent *pe) {
     if (pe->type() == TQEvent::KeyPress) {
         TQKeyEvent *k = (TQKeyEvent *) pe;
-        if ((k->key() == Qt::Key_Backtab || k->key() == Qt::Key_Tab)
+        if ((k->key() == TQt::Key_Backtab || k->key() == TQt::Key_Tab)
                 && !(k->state() & ControlButton || k->state() & AltButton)
            ) {
             if (m_allowedToTab) {
@@ -655,7 +655,7 @@ bool KeyPressEater::eventFilter(TQObject *, TQEvent *pe) {
             }
             return true;
         } else {
-            m_allowedToTab = (k->key() == Qt::Key_Escape || k->key() == Qt::Key_Enter);
+            m_allowedToTab = (k->key() == TQt::Key_Escape || k->key() == TQt::Key_Enter);
         }
     }
     return false;
@@ -911,7 +911,7 @@ void KEBListViewItem::setOpen(bool open) {
 void KEBListViewItem::greyStyle(TQColorGroup &cg) {
   int h, s, v;
   cg.background().hsv(&h, &s, &v);
-  TQColor color = (v > 180 && v < 220) ? (Qt::darkGray) : (Qt::gray);
+  TQColor color = (v > 180 && v < 220) ? (TQt::darkGray) : (TQt::gray);
   cg.setColor(TQColorGroup::Text, color);
 }
 

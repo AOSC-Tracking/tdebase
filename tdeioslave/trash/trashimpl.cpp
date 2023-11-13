@@ -263,7 +263,7 @@ bool TrashImpl::createInfo( const TQString& origPath, int& trashId, TQString& fi
         info += KURL::encode_string( makeRelativePath( topDirectoryPath( trashId ), origPath ), m_mibEnum ).latin1();
     info += "\n";
     info += "DeletionDate=";
-    info += TQDateTime::currentDateTime().toString( Qt::ISODate ).latin1();
+    info += TQDateTime::currentDateTime().toString( TQt::ISODate ).latin1();
     info += "\n";
     size_t sz = info.size() - 1; // avoid trailing 0 from QCString
 
@@ -637,7 +637,7 @@ bool TrashImpl::readInfoFile( const TQString& infoPath, TrashedFileInfo& info, i
     }
     TQString line = cfg.readEntry( "DeletionDate" );
     if ( !line.isEmpty() ) {
-        info.deletionDate = TQDateTime::fromString( line, Qt::ISODate );
+        info.deletionDate = TQDateTime::fromString( line, TQt::ISODate );
     }
     return true;
 }

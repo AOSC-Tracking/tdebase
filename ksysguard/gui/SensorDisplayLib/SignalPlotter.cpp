@@ -445,7 +445,7 @@ void SignalPlotter::paintEvent( TQPaintEvent* )
     top = p.fontMetrics().height();
     h -= top;
     int h0 = top - 2; // h0 is our new top.  It's at least 5 pixels high
-    p.drawText(0, 0, x0, top - 2, Qt::AlignCenter, mTitle );
+    p.drawText(0, 0, x0, top - 2, TQt::AlignCenter, mTitle );
 
     p.drawLine( x0 - 1, 1, x0 - 1, h0 );
     p.drawLine( 0, top - 1, w - 2, top - 1 );

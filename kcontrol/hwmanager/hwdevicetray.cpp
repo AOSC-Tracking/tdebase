@@ -154,7 +154,7 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget *parent, const char *name)
 	initMenus();
 
 	setPixmap(KSystemTray::loadIcon("hwinfo"));
-	setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+	setAlignment(TQt::AlignHCenter | TQt::AlignVCenter);
 	connect(this, TQT_SIGNAL(quitSelected()), this, TQT_SLOT(quitApp()));
 	TQToolTip::add(this, i18n("Device monitor"));
 
@@ -225,16 +225,16 @@ void HwDeviceSystemTray::mousePressEvent(TQMouseEvent* e)
 {
 	switch (e->button())
 	{
-		case Qt::LeftButton:
+		case TQt::LeftButton:
 			populateLMBMenu();
 			d->m_LMBMenu->popup(e->globalPos());
 			break;
 
-		case Qt::MidButton:
+		case TQt::MidButton:
 			TQTimer::singleShot(0, this, TQT_SLOT(slotHardwareConfig()));
 			break;
 
-		case Qt::RightButton:
+		case TQt::RightButton:
 			contextMenuAboutToShow(d->m_RMBMenu);
 			d->m_RMBMenu->popup(e->globalPos());
 			break;

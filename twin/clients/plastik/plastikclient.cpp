@@ -394,7 +394,7 @@ TQRect PlastikClient::captionRect() const
             buttonsLeftWidth() - buttonsRightWidth() -
             marginLeft - marginRight;
 
-    Qt::AlignmentFlags a = Handler()->titleAlign();
+    TQt::AlignmentFlags a = Handler()->titleAlign();
 
     int tX, tW; // position/width of the title buffer
     if (caption.width() >  titleWidth) {

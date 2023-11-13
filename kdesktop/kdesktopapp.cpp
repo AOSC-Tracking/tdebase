@@ -27,7 +27,7 @@ KUniqueApplication()
 #endif
 }
 
-KDesktopApp::KDesktopApp(Display * dpy, Qt::HANDLE visual, Qt::HANDLE colormap):
+KDesktopApp::KDesktopApp(Display * dpy, TQt::HANDLE visual, TQt::HANDLE colormap):
 KUniqueApplication(dpy, visual, colormap)
 {
 #ifdef COMPOSITE

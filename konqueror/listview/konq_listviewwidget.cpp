@@ -426,13 +426,13 @@ void KonqBaseListViewWidget::contentsMousePressEvent( TQMouseEvent *e ) {
 		TDEListView::contentsMousePressEvent( e );
 	}
 	else {
-		if ( e->button() == Qt::LeftButton ) {
+		if ( e->button() == TQt::LeftButton ) {
 			m_rubber = new TQRect( e->x(), e->y(), 0, 0 );
 			clearSelection();
 			emit selectionChanged();
 			m_fileTip->setItem( 0 );
 		}
-		if ( e->button() != Qt::RightButton ) {
+		if ( e->button() != TQt::RightButton ) {
 			TQListView::contentsMousePressEvent( e );
 		}
 	}
@@ -972,7 +972,7 @@ void KonqBaseListViewWidget::slotSelectionChanged()
 void KonqBaseListViewWidget::slotMouseButtonClicked2( int _button,
       TQListViewItem *_item, const TQPoint& pos, int )
 {
-   if ( _button == Qt::MidButton )
+   if ( _button == TQt::MidButton )
    {
       if ( _item && isExecuteArea( viewport()->mapFromGlobal(pos) ) )
          m_pBrowserView->mmbClicked( static_cast<KonqBaseListViewItem *>(_item)->item() );

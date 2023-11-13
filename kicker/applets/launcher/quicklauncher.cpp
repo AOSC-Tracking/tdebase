@@ -338,7 +338,7 @@ int QuickLauncher::widthForHeight(int h) const
 {
     FlowGridManager temp_manager = *m_manager;
     temp_manager.setFrameSize(TQSize(h,h));
-    temp_manager.setOrientation(Qt::Horizontal); // ??? probably not necessary
+    temp_manager.setOrientation(TQt::Horizontal); // ??? probably not necessary
     if (temp_manager.isValid())
     {
         return temp_manager.frameSize().width();
@@ -351,7 +351,7 @@ int QuickLauncher::heightForWidth(int w) const
 {
     FlowGridManager temp_manager=*m_manager;
     temp_manager.setFrameSize(TQSize(w,w));
-    temp_manager.setOrientation(Qt::Vertical); // ??? probably not necessary
+    temp_manager.setOrientation(TQt::Vertical); // ??? probably not necessary
     if (temp_manager.isValid())
     {
         return temp_manager.frameSize().height();
@@ -362,7 +362,7 @@ int QuickLauncher::heightForWidth(int w) const
 
 int QuickLauncher::dimension() const
 {
-    if (orientation()==Qt::Vertical)
+    if (orientation()==TQt::Vertical)
     {
         return size().width();
     }
@@ -507,7 +507,7 @@ void QuickLauncher::about()
 
 void QuickLauncher::mousePressEvent(TQMouseEvent *e)
 {
-    if (e->button() == Qt::RightButton)
+    if (e->button() == TQt::RightButton)
     {
         m_popup->popup(e->globalPos());
     }

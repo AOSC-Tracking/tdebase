@@ -154,7 +154,7 @@ void MediaApplet::arrangeButtons()
         MediumButton *button = *it;
         
         button_size = std::max(button_size,
-                            orientation() == Qt::Vertical ?
+                            orientation() == TQt::Vertical ?
                     button->heightForWidth(width()) :
                 button->widthForHeight(height()) );
     //		                           button->widthForHeight(height()) :
@@ -162,7 +162,7 @@ void MediaApplet::arrangeButtons()
     }
     
     int kicker_size;
-    if (orientation() == Qt::Vertical)
+    if (orientation() == TQt::Vertical)
     {
         kicker_size = width();
     }
@@ -200,7 +200,7 @@ void MediaApplet::arrangeButtons()
         
         ++pack_count;
     
-        if(orientation() == Qt::Vertical)
+        if(orientation() == TQt::Vertical)
                     {
         if (pack_count < max_packed_buttons)
         {
@@ -425,7 +425,7 @@ void MediaApplet::reloadList()
 
 void MediaApplet::mousePressEvent(TQMouseEvent *e)
 {
-    if(e->button()==Qt::RightButton)
+    if(e->button()==TQt::RightButton)
     {
         TDEPopupMenu menu(this);
     

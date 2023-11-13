@@ -45,8 +45,8 @@ void UALineEdit::keyPressEvent( TQKeyEvent* e )
 {
   int key = e->key();
   TQString keycode = e->text();
-  if ( (key >= Qt::Key_Escape && key <= Qt::Key_Help) || key == Qt::Key_Period ||
-       (cursorPosition() > 0 && key == Qt::Key_Minus) ||
+  if ( (key >= TQt::Key_Escape && key <= TQt::Key_Help) || key == TQt::Key_Period ||
+       (cursorPosition() > 0 && key == TQt::Key_Minus) ||
        (!keycode.isEmpty() && keycode.unicode()->isLetterOrNumber()) )
   {
     KLineEdit::keyPressEvent(e);

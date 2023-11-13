@@ -140,7 +140,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
         new TQVBoxLayout(leftColumnLayout, KDialog::spacingHint());
 
     mSaverGroup = new TQGroupBox(i18n("Screen Saver"), this );
-    mSaverGroup->setColumnLayout( 0, Qt::Horizontal );
+    mSaverGroup->setColumnLayout( 0, TQt::Horizontal );
     vLayout->addWidget(mSaverGroup);
     vLayout->setStretchFactor( mSaverGroup, 10 );
     TQBoxLayout *groupLayout = new TQVBoxLayout( mSaverGroup->layout(),
@@ -170,7 +170,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     TQWhatsThis::add( mTestBt, i18n("Show a full screen preview of the screen saver.") );
 
     mSettingsGroup = new TQGroupBox( i18n("Settings"), this );
-    mSettingsGroup->setColumnLayout( 0, Qt::Vertical );
+    mSettingsGroup->setColumnLayout( 0, TQt::Vertical );
     leftColumnLayout->addWidget( mSettingsGroup );
     TQGridLayout *settingsGroupLayout = new TQGridLayout( mSettingsGroup->layout(), 5, 2, KDialog::spacingHint() );
 

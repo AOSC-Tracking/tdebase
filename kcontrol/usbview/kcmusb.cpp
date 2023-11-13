@@ -36,7 +36,7 @@ USBViewer::USBViewer(TQWidget *parent, const char *name, const TQStringList &)
 
   TQVBoxLayout *vbox = new TQVBoxLayout(this, 0, KDialog::spacingHint());
   TQGroupBox *gbox = new TQGroupBox(i18n("USB Devices"), this);
-  gbox->setColumnLayout( 0, Qt::Horizontal );
+  gbox->setColumnLayout( 0, TQt::Horizontal );
   vbox->addWidget(gbox);
 
   TQVBoxLayout *vvbox = new TQVBoxLayout(gbox->layout(), KDialog::spacingHint());

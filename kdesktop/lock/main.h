@@ -28,7 +28,7 @@ class MyApp : public TDEApplication {
 	TQ_OBJECT
 	public:
 		MyApp() : TDEApplication(), lastTick( 0 ) {}
-		MyApp(Display *display, Qt::HANDLE visual = 0, Qt::HANDLE colormap = 0, bool allowStyles=true) : TDEApplication(display, visual, colormap, allowStyles), lastTick( 0 ) {}
+		MyApp(Display *display, TQt::HANDLE visual = 0, TQt::HANDLE colormap = 0, bool allowStyles=true) : TDEApplication(display, visual, colormap, allowStyles), lastTick( 0 ) {}
 
 	protected:
 		bool x11EventFilter( XEvent * );

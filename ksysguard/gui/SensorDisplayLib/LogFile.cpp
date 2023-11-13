@@ -181,8 +181,8 @@ LogFile::restoreSettings(TQDomElement& element)
 	TQFont font;
 	TQColorGroup cgroup = monitor->colorGroup();
 
-	cgroup.setColor(TQColorGroup::Text, restoreColor(element, "textColor", Qt::green));
-	cgroup.setColor(TQColorGroup::Base, restoreColor(element, "backgroundColor", Qt::black));
+	cgroup.setColor(TQColorGroup::Text, restoreColor(element, "textColor", TQt::green));
+	cgroup.setColor(TQColorGroup::Base, restoreColor(element, "backgroundColor", TQt::black));
 	monitor->setPalette(TQPalette(cgroup, cgroup, cgroup));
 
 	addSensor(element.attribute("hostName"), element.attribute("sensorName"), (element.attribute("sensorType").isEmpty() ? "logfile" : element.attribute("sensorType")), element.attribute("title"));

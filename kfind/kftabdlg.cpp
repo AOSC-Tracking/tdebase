@@ -212,7 +212,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
 
     grid1->addWidget(rb[0], 1, 1 );
     grid1->addWidget(fromDate, 1, 2 );
-    grid1->addWidget(andL, 1, 3, Qt::AlignHCenter );
+    grid1->addWidget(andL, 1, 3, TQt::AlignHCenter );
     grid1->addWidget(toDate, 1, 4 );
 
     grid1->addWidget(rb[1], 2, 1 );
@@ -330,7 +330,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
 
     grid2->addWidget( textMetaKey, 4, 0 );
     grid2->addWidget( metainfokeyEdit, 4, 1 );
-    grid2->addWidget( textMetaInfo, 4, 2, Qt::AlignHCenter  );
+    grid2->addWidget( textMetaInfo, 4, 2, TQt::AlignHCenter  );
     grid2->addWidget( metainfoEdit, 4, 3 );
 
     metainfokeyEdit->setText("*");

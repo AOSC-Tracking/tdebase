@@ -42,7 +42,7 @@
 SimpleButton::SimpleButton(TQWidget *parent, const char *name, bool forceStandardCursor)
     : TQButton(parent, name),
       m_highlight(false),
-      m_orientation(Qt::Horizontal),
+      m_orientation(TQt::Horizontal),
       m_forceStandardCursor(forceStandardCursor)
 {
     setBackgroundOrigin( AncestorOrigin );
@@ -65,7 +65,7 @@ void SimpleButton::setPixmap(const TQPixmap &pix)
     update();
 }
 
-void SimpleButton::setOrientation(Qt::Orientation orientation)
+void SimpleButton::setOrientation(TQt::Orientation orientation)
 {
     m_orientation = orientation;
     update();
@@ -220,7 +220,7 @@ void SimpleButton::resizeEvent( TQResizeEvent * )
 }
 
 
-SimpleArrowButton::SimpleArrowButton(TQWidget *parent, Qt::ArrowType arrow, const char *name, bool forceStandardCursor)
+SimpleArrowButton::SimpleArrowButton(TQWidget *parent, TQt::ArrowType arrow, const char *name, bool forceStandardCursor)
     : SimpleButton(parent, name, forceStandardCursor),
       m_forceStandardCursor(forceStandardCursor)
 {
@@ -234,7 +234,7 @@ TQSize SimpleArrowButton::sizeHint() const
     return TQSize( 12, 12 );
 }
 
-void SimpleArrowButton::setArrowType(Qt::ArrowType a)
+void SimpleArrowButton::setArrowType(TQt::ArrowType a)
 {
     if (_arrow != a) 
     {
@@ -243,7 +243,7 @@ void SimpleArrowButton::setArrowType(Qt::ArrowType a)
     }
 }
 
-Qt::ArrowType SimpleArrowButton::arrowType() const
+TQt::ArrowType SimpleArrowButton::arrowType() const
 {
     return _arrow;
 }
@@ -255,10 +255,10 @@ void SimpleArrowButton::drawButton( TQPainter *p )
     TQStyle::PrimitiveElement pe = TQStyle::PE_ArrowLeft;
     switch (_arrow)
     {
-        case Qt::LeftArrow: pe = TQStyle::PE_ArrowLeft; break;
-        case Qt::RightArrow: pe = TQStyle::PE_ArrowRight; break;
-        case Qt::UpArrow: pe = TQStyle::PE_ArrowUp; break;
-        case Qt::DownArrow: pe = TQStyle::PE_ArrowDown; break;
+        case TQt::LeftArrow: pe = TQStyle::PE_ArrowLeft; break;
+        case TQt::RightArrow: pe = TQStyle::PE_ArrowRight; break;
+        case TQt::UpArrow: pe = TQStyle::PE_ArrowUp; break;
+        case TQt::DownArrow: pe = TQStyle::PE_ArrowDown; break;
     }
 
     int flags = TQStyle::Style_Default | TQStyle::Style_Enabled;

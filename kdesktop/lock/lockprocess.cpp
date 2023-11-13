@@ -2046,7 +2046,7 @@ int LockProcess::execDialog( TQDialog *dlg )
 void LockProcess::slotForcePaintBackground()
 {
 	TQPixmap blankPixmap(mRootWidth, mRootHeight);
-	blankPixmap.fill(Qt::black);
+	blankPixmap.fill(TQt::black);
 	slotPaintBackground(blankPixmap);
 	printf("[WARNING] Unable to obtain desktop wallpaper in a timely manner.  High system load or possibly a TDE bug!\n"); fflush(stdout);
 }
@@ -2447,9 +2447,9 @@ void LockProcess::msgBox( TQMessageBox::Icon type, const TQString &txt )
 	TQVBoxLayout *vbox = new TQVBoxLayout( &box );
 	vbox->addWidget( winFrame );
 	TQGridLayout *grid = new TQGridLayout( winFrame, 2, 2, 10 );
-	grid->addWidget( label1, 0, 0, Qt::AlignCenter );
-	grid->addWidget( label2, 0, 1, Qt::AlignCenter );
-	grid->addMultiCellWidget( button, 1,1, 0,1, Qt::AlignCenter );
+	grid->addWidget( label1, 0, 0, TQt::AlignCenter );
+	grid->addWidget( label2, 0, 1, TQt::AlignCenter );
+	grid->addMultiCellWidget( button, 1,1, 0,1, TQt::AlignCenter );
 
 	execDialog( &box );
 }

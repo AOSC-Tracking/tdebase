@@ -158,8 +158,8 @@ bool KFileMediaPlugin::readInfo(KFileMetaInfo &info, uint /*what*/)
 			TQPixmap bar(150, 20);
 			TQPainter p(&bar);
 
-			p.fillRect(0, 0, length, 20, Qt::red);
-			p.fillRect(length, 0, 150-length, 20, Qt::green);
+			p.fillRect(0, 0, length, 20, TQt::red);
+			p.fillRect(length, 0, 150-length, 20, TQt::green);
 
 			TQColorGroup cg = TQApplication::palette().active();
 

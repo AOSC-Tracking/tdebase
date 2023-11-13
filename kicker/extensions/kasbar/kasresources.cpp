@@ -126,10 +126,10 @@ static const char *micro_shade[]={
 KasResources::KasResources( KasBar *parent, const char *name )
     : TQObject( parent, name ? name : "kasbar_resources" ),
       kasbar( parent ),
-      labelPenColor_( Qt::white ), labelBgColor_( Qt::black ),
-      activePenColor_( Qt::black ), activeBgColor_( Qt::white ),
-      inactivePenColor_( Qt::black ), inactiveBgColor_( Qt::white ),
-      progressColor_( Qt::green ), attentionColor_( Qt::red ),
+      labelPenColor_( TQt::white ), labelBgColor_( TQt::black ),
+      activePenColor_( TQt::black ), activeBgColor_( TQt::white ),
+      inactivePenColor_( TQt::black ), inactiveBgColor_( TQt::white ),
+      progressColor_( TQt::green ), attentionColor_( TQt::red ),
       startupFrames_()
 {
 }

@@ -43,17 +43,17 @@ KonqTextViewWidget::KonqTextViewWidget( KonqListView *parent, TQWidget *parentWi
    setAllColumnsShowFocus(TRUE);
    setRootIsDecorated(false);
 
-   colors[KTVI_REGULAR]=Qt::black;
+   colors[KTVI_REGULAR]=TQt::black;
    colors[KTVI_EXEC]=TQColor(0,170,0);
-   colors[KTVI_REGULARLINK]=Qt::black;
-   colors[KTVI_DIR]=Qt::black;
-   colors[KTVI_DIRLINK]=Qt::black;
-   colors[KTVI_BADLINK]=Qt::red;
-   colors[KTVI_SOCKET]=Qt::magenta;
-   colors[KTVI_FIFO]=Qt::magenta;
-   colors[KTVI_UNKNOWN]=Qt::red;
-   colors[KTVI_CHARDEV]=Qt::blue;
-   colors[KTVI_BLOCKDEV]=Qt::blue;
+   colors[KTVI_REGULARLINK]=TQt::black;
+   colors[KTVI_DIR]=TQt::black;
+   colors[KTVI_DIRLINK]=TQt::black;
+   colors[KTVI_BADLINK]=TQt::red;
+   colors[KTVI_SOCKET]=TQt::magenta;
+   colors[KTVI_FIFO]=TQt::magenta;
+   colors[KTVI_UNKNOWN]=TQt::red;
+   colors[KTVI_CHARDEV]=TQt::blue;
+   colors[KTVI_BLOCKDEV]=TQt::blue;
 
    m_showIcons=FALSE;
 }

@@ -1086,7 +1086,7 @@ KGStdVerify::KGStdVerify( KGVerifyHandler *_handler, TQWidget *_parent,
 
 	failedLabel = new TQLabel( parent );
 	failedLabel->setFont( _failFont );
-	grid->addWidget( failedLabel, 1, 0, Qt::AlignCenter );
+	grid->addWidget( failedLabel, 1, 0, TQt::AlignCenter );
 
 	updateLockStatus();
 }
@@ -1143,7 +1143,7 @@ KGStdVerify::updateStatus()
 	if (failedLabelState != nfls) {
 		failedLabelState = nfls;
 		if (nfls < 0) {
-			failedLabel->setPaletteForegroundColor( Qt::black );
+			failedLabel->setPaletteForegroundColor( TQt::black );
 			failedLabel->setText( i18n( "Automatic login in 1 second...",
 			                            "Automatic login in %n seconds...",
 			                            timedLeft ) );
@@ -1153,11 +1153,11 @@ KGStdVerify::updateStatus()
 				failedLabel->clear();
 				break;
 			case 3:
-				failedLabel->setPaletteForegroundColor( Qt::red );
+				failedLabel->setPaletteForegroundColor( TQt::red );
 				failedLabel->setText( i18n("Warning: Caps Lock on") );
 				break;
 			case 2:
-				failedLabel->setPaletteForegroundColor( Qt::black );
+				failedLabel->setPaletteForegroundColor( TQt::black );
 				failedLabel->setText( authTok ?
 				                         i18n("Change failed") :
 				                         fixedEntity.isEmpty() ?

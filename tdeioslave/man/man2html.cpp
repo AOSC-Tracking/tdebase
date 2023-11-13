@@ -330,7 +330,7 @@ static void InitNumberDefinitions( void )
 {
     // As the date number registers are more for end-users, better choose local time.
     // Groff seems to support Gregorian dates only
-    TQDate today( TQDate::currentDate( Qt::LocalTime ) );
+    TQDate today( TQDate::currentDate( TQt::LocalTime ) );
     s_numberDefinitionMap.insert( "year", today.year() ); // Y2K-correct year
     s_numberDefinitionMap.insert( "yr", today.year() - 1900 ); // Y2K-incorrect year
     s_numberDefinitionMap.insert( "mo", today.month() );

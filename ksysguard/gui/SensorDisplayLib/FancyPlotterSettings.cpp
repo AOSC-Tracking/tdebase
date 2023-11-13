@@ -65,7 +65,7 @@ FancyPlotterSettings::FancyPlotterSettings( TQWidget* parent, const char* name )
   pageLayout->addWidget( mTitle, 0, 1 );
   label->setBuddy( mTitle );
 
-  TQButtonGroup *buttonBox = new TQButtonGroup( 2, Qt::Vertical,
+  TQButtonGroup *buttonBox = new TQButtonGroup( 2, TQt::Vertical,
                                               i18n( "Graph Drawing Style" ), page );
 
   mUsePolygonStyle = new TQRadioButton( i18n( "Basic polygons" ), buttonBox );
@@ -78,7 +78,7 @@ FancyPlotterSettings::FancyPlotterSettings( TQWidget* parent, const char* name )
   page = addPage( i18n( "Scales" ) );
   pageLayout = new TQGridLayout( page, 2, 1, 0, spacingHint() );
 
-  groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Vertical Scale" ), page );
+  groupBox = new TQGroupBox( 0, TQt::Vertical, i18n( "Vertical Scale" ), page );
   boxLayout = new TQGridLayout( groupBox->layout(), 2, 5, spacingHint() );
   boxLayout->setColStretch( 2, 1 );
 
@@ -108,7 +108,7 @@ FancyPlotterSettings::FancyPlotterSettings( TQWidget* parent, const char* name )
 
   pageLayout->addWidget( groupBox, 0, 0 );
 
-  groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Horizontal Scale" ), page );
+  groupBox = new TQGroupBox( 0, TQt::Vertical, i18n( "Horizontal Scale" ), page );
   boxLayout = new TQGridLayout( groupBox->layout(), 2, 2, spacingHint() );
   boxLayout->setRowStretch( 1, 1 );
 
@@ -126,7 +126,7 @@ FancyPlotterSettings::FancyPlotterSettings( TQWidget* parent, const char* name )
   page = addPage( i18n( "Grid" ) );
   pageLayout = new TQGridLayout( page, 3, 2, 0, spacingHint() );
 
-  groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Lines" ), page );
+  groupBox = new TQGroupBox( 0, TQt::Vertical, i18n( "Lines" ), page );
   boxLayout = new TQGridLayout( groupBox->layout(), 2, 5, spacingHint() );
   boxLayout->setColStretch( 1, 1 );
 
@@ -165,7 +165,7 @@ FancyPlotterSettings::FancyPlotterSettings( TQWidget* parent, const char* name )
 
   pageLayout->addMultiCellWidget( groupBox, 0, 0, 0, 1 );
 
-  groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Text" ), page );
+  groupBox = new TQGroupBox( 0, TQt::Vertical, i18n( "Text" ), page );
   boxLayout = new TQGridLayout( groupBox->layout(), 3, 4, spacingHint() );
   boxLayout->setColStretch( 1, 1 );
 
@@ -190,7 +190,7 @@ FancyPlotterSettings::FancyPlotterSettings( TQWidget* parent, const char* name )
 
   pageLayout->addWidget( groupBox, 1, 0 );
 
-  groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Colors" ), page );
+  groupBox = new TQGroupBox( 0, TQt::Vertical, i18n( "Colors" ), page );
   boxLayout = new TQGridLayout( groupBox->layout(), 4, 2, spacingHint() );
 
   label = new TQLabel( i18n( "Vertical lines:" ), groupBox );

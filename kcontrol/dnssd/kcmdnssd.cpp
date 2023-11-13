@@ -84,7 +84,7 @@ KCMDnssd::~KCMDnssd()
 
 void KCMDnssd::save()
 {
-	setCursor(TQCursor(Qt::BusyCursor));
+	setCursor(TQCursor(TQt::BusyCursor));
 	TDECModule::save();
 	if (geteuid()==0 && m_wdchanged) saveMdnsd(); 
 	domain->setFileWriteMode(0644); // this should be readable for everyone
@@ -112,7 +112,7 @@ void KCMDnssd::save()
 	    proc->start(TDEProcess::Block);
 	  }
 	}
-	setCursor(TQCursor(Qt::ArrowCursor));
+	setCursor(TQCursor(TQt::ArrowCursor));
 }
 
 void KCMDnssd::load()

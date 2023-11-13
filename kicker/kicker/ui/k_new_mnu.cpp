@@ -743,8 +743,8 @@ void KMenu::paintSearchTab( bool active )
 
         m_tabBar->deactivateTabs(true);
 
-        p.setBrush( Qt::white );
-        p.setPen( Qt::NoPen );
+        p.setBrush( TQt::white );
+        p.setPen( TQt::NoPen );
 
         if ( m_orientation == BottomUp ) {
             search_tab_center.convertFromImage( search_tab_center.convertToImage().scale(search_tab_center.width(), m_searchFrame->height()));
@@ -2001,7 +2001,7 @@ void KMenu::createNewProgramList()
     m_seenPrograms = KickerSettings::firstSeenApps();
     m_newInstalledPrograms.clear();
 
-    m_currentDate = TQDate::currentDate().toString(Qt::ISODate);
+    m_currentDate = TQDate::currentDate().toString(TQt::ISODate);
 
     bool initialize = (m_seenPrograms.count() == 0);
 
@@ -2063,7 +2063,7 @@ void KMenu::createNewProgramList(TQString relPath)
                             else {
                                 ++it_find;
                                 if (*(it_find)!="-") {
-                                   TQDate date = TQDate::fromString(*(it_find),Qt::ISODate);
+                                   TQDate date = TQDate::fromString(*(it_find),TQt::ISODate);
                                    if (date.daysTo(TQDate::currentDate())<3) {
                                       if (m_newInstalledPrograms.find(s->storageId())==m_newInstalledPrograms.end())
                                          m_newInstalledPrograms+=s->storageId();

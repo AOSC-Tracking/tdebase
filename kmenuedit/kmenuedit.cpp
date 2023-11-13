@@ -80,7 +80,7 @@ void KMenuEdit::setupActions()
 
 void KMenuEdit::setupView()
 {
-    m_splitter = new TQSplitter(Qt::Horizontal, this);
+    m_splitter = new TQSplitter(TQt::Horizontal, this);
     m_tree = new TreeView(m_controlCenter, actionCollection(), m_splitter);
     m_basicTab = new BasicTab(m_splitter);
 

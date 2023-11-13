@@ -123,8 +123,8 @@ class UserListView : public TDEListView {
                 // FIXME: This must be configurable, so disable
                 // painting of list background for now.
 //		if (themed) {
-//		  setBackgroundMode( Qt::NoBackground );
-//		  viewport()->setBackgroundMode( Qt::NoBackground );
+//		  setBackgroundMode( TQt::NoBackground );
+//		  viewport()->setBackgroundMode( TQt::NoBackground );
 //		  setFrameStyle( TQFrame::NoFrame );
 //		}
 	}
@@ -993,7 +993,7 @@ KStdGreeter::KStdGreeter()
 		                    "open windows on it or intercept your input.") );
 		complainLabel->setAlignment( AlignCenter );
 		complainLabel->setFont( _failFont );
-		complainLabel->setPaletteForegroundColor( Qt::red );
+		complainLabel->setPaletteForegroundColor( TQt::red );
 		inner_box->addWidget( complainLabel );
 	}
 	if (_logoArea == LOGO_NONE) {

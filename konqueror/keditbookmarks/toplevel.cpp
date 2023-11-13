@@ -229,7 +229,7 @@ KEBApp::KEBApp(
 
     m_bkinfo = new BookmarkInfoWidget(vsplitter);
 
-    vsplitter->setOrientation(Qt::Vertical);
+    vsplitter->setOrientation(TQt::Vertical);
     vsplitter->setSizes(TQValueList<int>() << h << 380
                                           << m_bkinfo->sizeHint().height() );
 

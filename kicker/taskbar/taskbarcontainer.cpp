@@ -207,7 +207,7 @@ void TaskBarContainer::preferences()
 
 void TaskBarContainer::orientationChange(Orientation o)
 {
-    if (o == Qt::Horizontal)
+    if (o == TQt::Horizontal)
      {
         if (windowListButton)
         {

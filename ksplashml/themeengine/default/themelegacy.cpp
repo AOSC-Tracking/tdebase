@@ -120,19 +120,19 @@ void ThemeDefault::_initUi()
   if (mActivePixmap->isNull())
   {
     mActivePixmap->resize(200,100);
-    mActivePixmap->fill(Qt::blue);
+    mActivePixmap->fill(TQt::blue);
   }
   if (mInactivePixmap->isNull())
   {
     mInactivePixmap->resize(200,100);
-    mInactivePixmap->fill(Qt::black);
+    mInactivePixmap->fill(TQt::black);
   }
 
   TQPixmap tlimage( _findPicture(TQString("splash_top.png")) );
   if (tlimage.isNull())
   {
     tlimage.resize(200,100);
-    tlimage.fill(Qt::blue);
+    tlimage.fill(TQt::blue);
   }
   TQLabel *top_label = new TQLabel( vbox );
   top_label->setPixmap( tlimage );
@@ -147,7 +147,7 @@ void ThemeDefault::_initUi()
   if (blimage.isNull())
   {
     blimage.resize(200,100);
-    blimage.fill(Qt::black);
+    blimage.fill(TQt::black);
   }
   TQLabel *bottom_label = new TQLabel( vbox );
   bottom_label->setPaletteBackgroundPixmap( blimage );
@@ -212,7 +212,7 @@ void ThemeDefault::_readSettings()
   cfg->setGroup( TQString("KSplash Theme: %1").arg(mTheme->theme()) );
 
   mIconsFlashing = cfg->readBoolEntry( "Icons Flashing", true );
-  TQColor df(Qt::white);
+  TQColor df(TQt::white);
   mLabelForeground = cfg->readColorEntry( "Label Foreground", &df );
   TQValueList<int> io_list=cfg->readIntListEntry("Icon Offsets");
   if (io_list.size() == MAX_ICONS)

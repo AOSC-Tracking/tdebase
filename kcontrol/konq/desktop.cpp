@@ -86,7 +86,7 @@ KDesktopConfig::KDesktopConfig(TQWidget *parent, const char * /*name*/)
   // name group
   TQGroupBox *name_group = new TQGroupBox(i18n("Desktop &Names"), this);
 
-  name_group->setColumnLayout(4, Qt::Horizontal);
+  name_group->setColumnLayout(4, TQt::Horizontal);
 
   for(int i = 0; i < (maxDesktops/2); i++)
     {

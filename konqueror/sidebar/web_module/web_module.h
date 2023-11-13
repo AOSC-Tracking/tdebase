@@ -82,7 +82,7 @@ class TDEHTMLSideBar : public TDEHTMLPart
 		virtual void urlSelected( const TQString &url, int button,
 				int state, const TQString &_target,
 				KParts::URLArgs args = KParts::URLArgs()) {
-			if (button == Qt::LeftButton ){
+			if (button == TQt::LeftButton ){
 				if (_target.lower() == "_self") {
 					openURL(url);
 				} else if (_target.lower() == "_blank") {
@@ -92,7 +92,7 @@ class TDEHTMLSideBar : public TDEHTMLPart
 				}
 				return;
 			}
-			if (button == Qt::MidButton) {
+			if (button == TQt::MidButton) {
 				emit openURLNewWindow(completeURL(url).url(),
 						args);
 				return;

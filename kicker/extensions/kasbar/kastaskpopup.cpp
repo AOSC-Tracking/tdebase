@@ -91,7 +91,7 @@ KasTaskPopup::KasTaskPopup( KasTaskItem *item, const char *name )
     }
 
     KPixmapEffect::gradient( titleBg, 
-                             Qt::black, colorGroup().mid(),
+                             TQt::black, colorGroup().mid(),
                              KPixmapEffect::DiagonalGradient );
 
     connect( item->task(), TQT_SIGNAL( thumbnailChanged() ), TQT_SLOT( refresh() ) );
@@ -119,7 +119,7 @@ void KasTaskPopup::paintEvent( TQPaintEvent * )
 
     TQString text = item->task()->visibleIconicName();
 
-    p.setPen( Qt::white );
+    p.setPen( TQt::white );
     if ( fontMetrics().width( text ) > width() - 4 )
         p.drawText( 1, 1, width() - 4, TITLE_HEIGHT - 1, AlignLeft | AlignVCenter,
                      text );
@@ -133,7 +133,7 @@ void KasTaskPopup::paintEvent( TQPaintEvent * )
     //
     // Draw border
     //
-    p.setPen( Qt::black );
+    p.setPen( TQt::black );
     p.drawRect( 0, 0, width(), height() );
 }
 

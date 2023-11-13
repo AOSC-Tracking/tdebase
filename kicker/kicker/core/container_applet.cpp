@@ -79,7 +79,7 @@ AppletContainer::AppletContainer(const AppletInfo& info,
     _appletframe->setFrameStyle(TQFrame::NoFrame);
     _appletframe->installEventFilter(this);
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         _layout = new TQBoxLayout(this, TQBoxLayout::LeftToRight, 0, 0);
     }
@@ -191,7 +191,7 @@ void AppletContainer::resetLayout()
 {
     _handle->resetLayout();
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         _layout->setDirection( TQBoxLayout::LeftToRight );
     }
@@ -298,7 +298,7 @@ void AppletContainer::doSaveConfiguration( TDEConfigGroup& config,
                                            bool layoutOnly ) const
 {
     // immutability is checked by ContainerBase
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         config.writeEntry( "WidthForHeightHint", widthForHeight(height()) );
     }

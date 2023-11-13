@@ -1208,7 +1208,7 @@ int ExtensionContainer::arrangeHideButtons()
         _layout->setEnabled(false);
     }
 
-    if (orientation() == Qt::Vertical)
+    if (orientation() == TQt::Vertical)
     {
         int maxWidth = width();
 
@@ -1227,7 +1227,7 @@ int ExtensionContainer::arrangeHideButtons()
             _ltHB->setMaximumWidth(maxWidth);
             _ltHB->setMaximumHeight(14);
             _layout->remove(_ltHB);
-            _layout->addWidget(_ltHB, 0, 1, Qt::AlignBottom | Qt::AlignLeft);
+            _layout->addWidget(_ltHB, 0, 1, TQt::AlignBottom | TQt::AlignLeft);
         }
 
         if (_rbHB)
@@ -1252,8 +1252,8 @@ int ExtensionContainer::arrangeHideButtons()
             maxHeight = maxHeight - (PANEL_RESIZE_HANDLE_WIDTH + PANEL_BOTTOM_SPACING_W_RESIZE_HANDLE);
         }
 
-        int vertAlignment = (position() == KPanelExtension::Top) ? Qt::AlignTop : 0;
-        int leftAlignment = Qt::AlignRight;
+        int vertAlignment = (position() == KPanelExtension::Top) ? TQt::AlignTop : 0;
+        int leftAlignment = TQt::AlignRight;
 
         if (_ltHB)
         {
@@ -1262,11 +1262,11 @@ int ExtensionContainer::arrangeHideButtons()
             _layout->remove(_ltHB);
             if (kapp->reverseLayout())
             {
-                _layout->addWidget(_ltHB, 1, 2, (Qt::AlignmentFlags)vertAlignment);
+                _layout->addWidget(_ltHB, 1, 2, (TQt::AlignmentFlags)vertAlignment);
             }
             else
             {
-                _layout->addWidget(_ltHB, 1, 0, (Qt::AlignmentFlags)(leftAlignment | vertAlignment));
+                _layout->addWidget(_ltHB, 1, 0, (TQt::AlignmentFlags)(leftAlignment | vertAlignment));
             }
         }
 
@@ -1277,11 +1277,11 @@ int ExtensionContainer::arrangeHideButtons()
             _layout->remove(_rbHB);
             if (kapp->reverseLayout())
             {
-                _layout->addWidget(_rbHB, 1, 0, (Qt::AlignmentFlags)(leftAlignment | vertAlignment));
+                _layout->addWidget(_rbHB, 1, 0, (TQt::AlignmentFlags)(leftAlignment | vertAlignment));
             }
             else
             {
-                _layout->addWidget(_rbHB, 1, 2, (Qt::AlignmentFlags)vertAlignment);
+                _layout->addWidget(_rbHB, 1, 2, (TQt::AlignmentFlags)vertAlignment);
             }
         }
     }
@@ -1315,7 +1315,7 @@ int ExtensionContainer::setupBorderSpace()
     TQRect r = TQApplication::desktop()->screenGeometry(xineramaScreen());
     TQRect h = geometry();
 
-    if (orientation() == Qt::Vertical)
+    if (orientation() == TQt::Vertical)
     {
         if (h.top() > 0)
         {
@@ -1582,11 +1582,11 @@ KPanelExtension::Orientation ExtensionContainer::orientation() const
 {
     if (position() == KPanelExtension::Top || position() == KPanelExtension::Bottom)
     {
-        return Qt::Horizontal;
+        return TQt::Horizontal;
     }
     else
     {
-        return Qt::Vertical;
+        return TQt::Vertical;
     }
 }
 
@@ -1631,14 +1631,14 @@ void ExtensionContainer::resetLayout()
             haveToArrangeButtons = true;
         }
 
-        if (orientation() == Qt::Horizontal)
+        if (orientation() == TQt::Horizontal)
         {
-            _ltHB->setArrowType(Qt::LeftArrow);
+            _ltHB->setArrowType(TQt::LeftArrow);
             _ltHB->setFixedSize(m_settings.hideButtonSize(), height());
         }
         else
         {
-            _ltHB->setArrowType(Qt::UpArrow);
+            _ltHB->setArrowType(TQt::UpArrow);
             _ltHB->setFixedSize(width(), m_settings.hideButtonSize());
         }
 
@@ -1662,14 +1662,14 @@ void ExtensionContainer::resetLayout()
             haveToArrangeButtons = true;
         }
 
-        if ( orientation() == Qt::Horizontal)
+        if ( orientation() == TQt::Horizontal)
         {
-            _rbHB->setArrowType(Qt::RightArrow);
+            _rbHB->setArrowType(TQt::RightArrow);
             _rbHB->setFixedSize(m_settings.hideButtonSize(), height());
         }
         else
         {
-            _rbHB->setArrowType(Qt::DownArrow);
+            _rbHB->setArrowType(TQt::DownArrow);
             _rbHB->setFixedSize(width(), m_settings.hideButtonSize());
         }
 
@@ -1709,7 +1709,7 @@ void ExtensionContainer::resetLayout()
     updateGeometry();
     int endBorderWidth = haveToArrangeButtons ? arrangeHideButtons() : setupBorderSpace();
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         if (m_extension)
         {
@@ -2146,7 +2146,7 @@ bool ExtensionContainer::eventFilter( TQObject*, TQEvent * e)
         case TQEvent::MouseButtonPress:
         {
             TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
-            if ( me->button() == Qt::LeftButton )
+            if ( me->button() == TQt::LeftButton )
             {
                 if (inResizeArea(me->pos()))
                 {
@@ -2170,7 +2170,7 @@ bool ExtensionContainer::eventFilter( TQObject*, TQEvent * e)
                     _is_lmb_down = true;
                 }
             }
-            else if (me->button() == Qt::RightButton)
+            else if (me->button() == TQt::RightButton)
             {
                 showPanelMenu(me->globalPos());
                 return true; // don't crash!
@@ -2181,7 +2181,7 @@ bool ExtensionContainer::eventFilter( TQObject*, TQEvent * e)
         case TQEvent::MouseButtonRelease:
         {
             TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
-            if ( me->button() == Qt::LeftButton )
+            if ( me->button() == TQt::LeftButton )
             {
                 _is_lmb_down = false;
             }
@@ -2241,7 +2241,7 @@ bool ExtensionContainer::eventFilter( TQObject*, TQEvent * e)
             }
 
             if (_is_lmb_down &&
-                ((me->state() & Qt::LeftButton) == Qt::LeftButton) &&
+                ((me->state() & TQt::LeftButton) == TQt::LeftButton) &&
                 !Kicker::the()->isImmutable() &&
                 !m_settings.config()->isImmutable() &&
                 !ExtensionManager::the()->isMenuBar(this))
