@@ -46,7 +46,7 @@ TDELocaleSample::TDELocaleSample(TDELocale *locale,
 
   // Whatever the color scheme is, we want black text
   TQColorGroup a = palette().active();
-  a.setColor(TQColorGroup::Foreground, Qt::black);
+  a.setColor(TQColorGroup::Foreground, TQt::black);
   TQPalette pal(a, a, a);
 
   m_labNumber = new TQLabel(this, I18N_NOOP("Numbers:"));

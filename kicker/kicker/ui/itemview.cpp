@@ -944,14 +944,14 @@ void ItemView::contentsMouseMoveEvent(TQMouseEvent *e)
     if (m_mouseMoveSelects) {
       if(i && i->isEnabled() && !i->isSelected() &&
          // FIXME: This is wrong if you drag over the items.
-         (e->state() & (Qt::LeftButton|Qt::MidButton|Qt::RightButton)) == 0)
+         (e->state() & (TQt::LeftButton|TQt::MidButton|TQt::RightButton)) == 0)
           TDEListView::setSelected(i, true);
       else if (!i && selectedItem())
           TDEListView::setSelected(selectedItem(), false);
     }
 
     if ( link_cursor )
-        setCursor( Qt::PointingHandCursor );
+        setCursor( TQt::PointingHandCursor );
     else
         unsetCursor();
 
@@ -999,7 +999,7 @@ void ItemView::contentsWheelEvent(TQWheelEvent *e)
 
     if(i && i->isEnabled() && !i->isSelected() &&
        // FIXME: This is wrong if you drag over the items.
-       (e->state() & (Qt::LeftButton|Qt::MidButton|Qt::RightButton)) == 0)
+       (e->state() & (TQt::LeftButton|TQt::MidButton|TQt::RightButton)) == 0)
         TDEListView::setSelected(i, true);
     else if (!i && selectedItem())
         TDEListView::setSelected(selectedItem(), false);
@@ -1029,7 +1029,7 @@ TQDragObject * ItemView::dragObject()
           mask = *pix.mask();
       else {
 	  mask.resize(pix.size());
-	  mask.fill(Qt::color1);
+	  mask.fill(TQt::color1);
       }
 
       bitBlt( &mask, pix.width()-add.width(), pix.height()-add.height(), add.mask(), 0, 0, add.width(), add.height(), OrROP );

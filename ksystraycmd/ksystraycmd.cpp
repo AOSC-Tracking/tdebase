@@ -292,7 +292,7 @@ void KSysTrayCmd::windowChanged( WId w )
 
 void KSysTrayCmd::mousePressEvent( TQMouseEvent *e )
 {
-  if ( e->button() == Qt::RightButton )
+  if ( e->button() == TQt::RightButton )
     execContextMenu( e->globalPos() );
   else if ( lazyStart && ( !hasRunningClient() ) )
   {

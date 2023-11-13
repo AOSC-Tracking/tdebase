@@ -561,7 +561,7 @@ bool KonqIconViewWidget::initConfig( bool bInit )
       if ( itemTextBg.isValid() )
           setItemTextBackground( itemTextBg );
       else
-          setItemTextBackground( Qt::NoBrush );
+          setItemTextBackground( TQt::NoBrush );
     }
 
     bool on = m_pSettings->showFileTips() && TQToolTip::isGloballyEnabled();
@@ -1300,7 +1300,7 @@ void KonqIconViewWidget::doubleClickTimeout()
             if ( url.isLocalFile() && (url.directory(false) == TDEGlobalSettings::trashPath() || url.path(1).startsWith(TDEGlobalSettings::trashPath())))
                 brenameTrash = true;
 
-            if ( url.isLocalFile() && !brenameTrash && d->renameItem && m_pSettings->renameIconDirectly() && e.button() == Qt::LeftButton && item->textRect( false ).contains(e.pos()))
+            if ( url.isLocalFile() && !brenameTrash && d->renameItem && m_pSettings->renameIconDirectly() && e.button() == TQt::LeftButton && item->textRect( false ).contains(e.pos()))
             {
                 if( d->pActivateDoubleClick->isActive () )
                     d->pActivateDoubleClick->stop();
@@ -1378,7 +1378,7 @@ void KonqIconViewWidget::contentsMousePressEvent( TQMouseEvent *e )
          bool brenameTrash =false;
          if ( url.isLocalFile() && (url.directory(false) == TDEGlobalSettings::trashPath() || url.path(1).startsWith(TDEGlobalSettings::trashPath())))
              brenameTrash = true;
-         if ( !brenameTrash && !TDEGlobalSettings::singleClick() && m_pSettings->renameIconDirectly() && e->button() == Qt::LeftButton && item->textRect( false ).contains(e->pos())&& !d->firstClick &&  url.isLocalFile() && (!url.protocol().find("device", 0, false)==0))
+         if ( !brenameTrash && !TDEGlobalSettings::singleClick() && m_pSettings->renameIconDirectly() && e->button() == TQt::LeftButton && item->textRect( false ).contains(e->pos())&& !d->firstClick &&  url.isLocalFile() && (!url.protocol().find("device", 0, false)==0))
          {
              d->firstClick = true;
              d->mousePos = e->pos();

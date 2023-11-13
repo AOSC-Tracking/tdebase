@@ -116,7 +116,7 @@ bool KNewButton::eventFilter(TQObject *o, TQEvent *e)
         if (rect().contains(mapFromGlobal(me->globalPos())))
         {
             if (m_pressedDuringPopup && m_popup && m_openTimer != -1
-                    && (me->button() & Qt::LeftButton) )
+                    && (me->button() & TQt::LeftButton) )
                 return true;
         }
     }

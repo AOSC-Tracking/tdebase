@@ -35,11 +35,11 @@
 DomainListView::DomainListView(TDEConfig *config,const TQString &title,
 		TQWidget *parent,const char *name) :
 	TQGroupBox(title, parent, name), config(config) {
-  setColumnLayout(0, Qt::Vertical);
+  setColumnLayout(0, TQt::Vertical);
   layout()->setSpacing(0);
   layout()->setMargin(0);
   TQGridLayout* thisLayout = new TQGridLayout(layout());
-  thisLayout->setAlignment(Qt::AlignTop);
+  thisLayout->setAlignment(TQt::AlignTop);
   thisLayout->setSpacing(KDialog::spacingHint());
   thisLayout->setMargin(KDialog::marginHint());
 

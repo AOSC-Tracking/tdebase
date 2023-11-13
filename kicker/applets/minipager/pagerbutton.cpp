@@ -528,10 +528,10 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
 
 void KMiniPagerButton::mousePressEvent(TQMouseEvent * e)
 {
-    if (e->button() == Qt::RightButton)
+    if (e->button() == TQt::RightButton)
     {
         // prevent LMB down -> RMB down -> LMB up sequence
-        if ((e->state() & Qt::MouseButtonMask ) == Qt::NoButton)
+        if ((e->state() & TQt::MouseButtonMask ) == TQt::NoButton)
         {
             emit showMenu(e->globalPos(), m_desktop);
             return;

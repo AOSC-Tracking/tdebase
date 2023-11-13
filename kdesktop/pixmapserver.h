@@ -24,7 +24,7 @@
 
 struct KPixmapInode 
 {
-    Qt::HANDLE handle;
+    TQt::HANDLE handle;
     Atom selection;
 };
 
@@ -37,7 +37,7 @@ struct KPixmapData
 
 struct TDESelectionInode
 {
-    Qt::HANDLE handle;
+    TQt::HANDLE handle;
     TQString name;
 };
 

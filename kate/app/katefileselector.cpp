@@ -532,7 +532,7 @@ KFSConfigPage::KFSConfigPage( TQWidget *parent, const char *name, KateFileSelect
   lo->setSpacing( spacing );
 
   // Toolbar - a lot for a little...
-  TQGroupBox *gbToolbar = new TQGroupBox( 1, Qt::Vertical, i18n("Toolbar"), this );
+  TQGroupBox *gbToolbar = new TQGroupBox( 1, TQt::Vertical, i18n("Toolbar"), this );
   acSel = new TDEActionSelector( gbToolbar );
   acSel->setAvailableLabel( i18n("A&vailable actions:") );
   acSel->setSelectedLabel( i18n("S&elected actions:") );
@@ -543,7 +543,7 @@ KFSConfigPage::KFSConfigPage( TQWidget *parent, const char *name, KateFileSelect
   connect( acSel, TQT_SIGNAL( movedDown( TQListBoxItem * ) ), this, TQT_SLOT( slotMyChanged() ) );
 
   // Sync
-  TQGroupBox *gbSync = new TQGroupBox( 1, Qt::Horizontal, i18n("Auto Synchronization"), this );
+  TQGroupBox *gbSync = new TQGroupBox( 1, TQt::Horizontal, i18n("Auto Synchronization"), this );
   cbSyncActive = new TQCheckBox( i18n("When a docu&ment becomes active"), gbSync );
   cbSyncShow = new TQCheckBox( i18n("When the file selector becomes visible"), gbSync );
   lo->addWidget( gbSync );
@@ -566,7 +566,7 @@ KFSConfigPage::KFSConfigPage( TQWidget *parent, const char *name, KateFileSelect
   connect( sbFilterHistLength, TQT_SIGNAL( valueChanged ( int ) ), this, TQT_SLOT( slotMyChanged() ) );
 
   // Session
-  TQGroupBox *gbSession = new TQGroupBox( 1, Qt::Horizontal, i18n("Session"), this );
+  TQGroupBox *gbSession = new TQGroupBox( 1, TQt::Horizontal, i18n("Session"), this );
   cbSesLocation = new TQCheckBox( i18n("Restore loca&tion"), gbSession );
   cbSesFilter = new TQCheckBox( i18n("Restore last f&ilter"), gbSession );
   lo->addWidget( gbSession );

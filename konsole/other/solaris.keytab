@@ -13,7 +13,7 @@ keyboard "Solaris"
 #   "key" Keyname { ("+"|"-") Modename } ":" (String|Operation)
 #
 # Keynames are those defined in <qnamespace.h> with the
-# "Qt::Key_" removed. (We'd better insert the list here)
+# "TQt::Key_" removed. (We'd better insert the list here)
 #
 # Mode names are :
 #

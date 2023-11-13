@@ -1903,7 +1903,7 @@ void KonqMainWindow::slotHome(TDEAction::ActivationReason, TQt::ButtonState stat
 
     if( state & TQt::ControlButton ) // Ctrl Left/MMB
 	openFilteredURL( homeURL, req);
-    else if( state & Qt::MidButton )
+    else if( state & TQt::MidButton )
     {
         if(KonqSettings::mmbOpensTab())
 	    openFilteredURL( homeURL, req);
@@ -1920,7 +1920,7 @@ void KonqMainWindow::slotHome(TDEAction::ActivationReason, TQt::ButtonState stat
 
 void KonqMainWindow::slotHome()
 {
-    slotHome(TDEAction::UnknownActivation, Qt::LeftButton);
+    slotHome(TDEAction::UnknownActivation, TQt::LeftButton);
 }
 
 void KonqMainWindow::slotGoSystem()
@@ -2642,14 +2642,14 @@ void KonqMainWindow::slotFileNewAboutToShow()
 
 void KonqMainWindow::slotSplitViewHorizontal()
 {
-  KonqView * newView = m_pViewManager->splitView( Qt::Horizontal );
+  KonqView * newView = m_pViewManager->splitView( TQt::Horizontal );
   if (newView == 0L) return;
   newView->openURL( m_currentView->url(), m_currentView->locationBarURL() );
 }
 
 void KonqMainWindow::slotSplitViewVertical()
 {
-  KonqView * newView = m_pViewManager->splitView( Qt::Vertical );
+  KonqView * newView = m_pViewManager->splitView( TQt::Vertical );
   if (newView == 0L) return;
   newView->openURL( m_currentView->url(), m_currentView->locationBarURL() );
 }
@@ -3133,7 +3133,7 @@ void KonqMainWindow::slotUp(TDEAction::ActivationReason, TQt::ButtonState state)
 
 void KonqMainWindow::slotUp()
 {
-    m_goState = Qt::LeftButton;
+    m_goState = TQt::LeftButton;
     TQTimer::singleShot( 0, this, TQT_SLOT( slotUpDelayed() ) );
 }
 
@@ -3151,7 +3151,7 @@ void KonqMainWindow::slotUpDelayed()
     const TQString& url = m_currentView->upURL().url();
     if(m_goState & TQt::ControlButton)
 	openFilteredURL(url, req );
-    else if(m_goState & Qt::MidButton)
+    else if(m_goState & TQt::MidButton)
     {
         if(KonqSettings::mmbOpensTab())
 	    openFilteredURL( url, req);
@@ -3160,7 +3160,7 @@ void KonqMainWindow::slotUpDelayed()
     }
     else
 	openFilteredURL( url, false );
-    m_goState = Qt::LeftButton;
+    m_goState = TQt::LeftButton;
 }
 
 void KonqMainWindow::slotUpActivated( int id )
@@ -3181,7 +3181,7 @@ void KonqMainWindow::slotGoMenuAboutToShow()
 
 void KonqMainWindow::slotGoHistoryActivated( int steps )
 {
-    slotGoHistoryActivated( steps, Qt::LeftButton );
+    slotGoHistoryActivated( steps, TQt::LeftButton );
 }
 
 void KonqMainWindow::slotGoHistoryActivated( int steps, TQt::ButtonState state )
@@ -3212,7 +3212,7 @@ void KonqMainWindow::slotGoHistoryDelayed()
       if (newView && inFront)
 	  m_pViewManager->showTab( newView );
   }
-  else if(m_goState & Qt::MidButton)
+  else if(m_goState & TQt::MidButton)
   {
       if(mmbOpensTab)
       {
@@ -3230,7 +3230,7 @@ void KonqMainWindow::slotGoHistoryDelayed()
   }
 
   m_goBuffer = 0;
-  m_goState = Qt::LeftButton;
+  m_goState = TQt::LeftButton;
 }
 
 
@@ -3605,7 +3605,7 @@ void KonqMainWindow::slotClearLocationBar( TDEAction::ActivationReason, TQt::But
   slotStop();
   m_combo->clearTemporary();
   focusLocationBar();
-  if ( state & Qt::MidButton )
+  if ( state & TQt::MidButton )
       m_combo->setURL( TQApplication::clipboard()->text( TQClipboard::Selection ) );
 }
 
@@ -4143,7 +4143,7 @@ void KonqMainWindow::slotOpenBookmarkURL( const TQString & url, TQt::ButtonState
 
     if( state & TQt::ControlButton ) // Ctrl Left/MMB
 	openFilteredURL( url, req);
-    else if( state & Qt::MidButton )
+    else if( state & TQt::MidButton )
     {
         if(KonqSettings::mmbOpensTab())
 	    openFilteredURL( url, req);

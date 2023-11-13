@@ -101,7 +101,7 @@ GreeterApp::GreeterApp(Display *dpy) : TDEApplication(dpy)
 	init();
 }
 
-GreeterApp::GreeterApp(Display *dpy, Qt::HANDLE visual, Qt::HANDLE colormap) : TDEApplication(dpy, visual, colormap)
+GreeterApp::GreeterApp(Display *dpy, TQt::HANDLE visual, TQt::HANDLE colormap) : TDEApplication(dpy, visual, colormap)
 {
 	init();
 }
@@ -201,7 +201,7 @@ checkSAK(GreeterApp* app)
 	app->restoreOverrideCursor();
 	SAKDlg sak(0);
 	sak.exec();
-	app->setOverrideCursor( Qt::WaitCursor );
+	app->setOverrideCursor( TQt::WaitCursor );
 }
 
 void
@@ -284,7 +284,7 @@ kg_main( const char *argv0 )
 
 	GreeterApp *app;
 	if ((!_compositor.isEmpty()) && ( argb_visual_available == true )) {
-		app = new GreeterApp(dpyi, Qt::HANDLE( visual ), Qt::HANDLE( colormap ));
+		app = new GreeterApp(dpyi, TQt::HANDLE( visual ), TQt::HANDLE( colormap ));
 	}
 	else {
 		argb_visual_available = false;
@@ -418,7 +418,7 @@ kg_main( const char *argv0 )
 		}
 
 		TDEProcess *proc2 = 0;
-		app->setOverrideCursor( Qt::WaitCursor );
+		app->setOverrideCursor( TQt::WaitCursor );
 		FDialog *dialog = NULL;
 #ifdef XDMCP
 		if (cmd == G_Choose) {

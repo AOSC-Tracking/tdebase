@@ -147,7 +147,7 @@ TQWidget* Bridge::initialParentWidget() const
     return NULL;
     }
 
-Qt::WFlags Bridge::initialWFlags() const
+TQt::WFlags Bridge::initialWFlags() const
     {
     return 0;
     }

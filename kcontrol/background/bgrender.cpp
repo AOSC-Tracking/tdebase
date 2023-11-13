@@ -384,7 +384,7 @@ wp_load:
 	    wpmode = NoWallpaper;
 	    goto wp_out;
 	}
-	m_Wallpaper = m_Wallpaper.convertDepth(32, Qt::DiffuseAlphaDither);
+	m_Wallpaper = m_Wallpaper.convertDepth(32, TQt::DiffuseAlphaDither);
 
 	// If we're previewing, scale the wallpaper down to make the preview
 	// look more like the real desktop.
@@ -628,7 +628,7 @@ void KBackgroundRenderer::fullWallpaperBlend()
 	m_Image = m_Background.copy();
 
 	if (m_Image.depth() < 32)
-	    m_Image = m_Image.convertDepth(32, Qt::DiffuseAlphaDither);
+	    m_Image = m_Image.convertDepth(32, TQt::DiffuseAlphaDither);
 
     } else {
 	m_Image.create(w, h, 32);
@@ -1160,7 +1160,7 @@ void KVirtualBGRenderer::desktopResized()
     {
         delete m_pPixmap;
         m_pPixmap = new TQPixmap(m_size);
-        m_pPixmap->fill(Qt::black);
+        m_pPixmap->fill(TQt::black);
     }
 
     initRenderers();
@@ -1317,7 +1317,7 @@ void KVirtualBGRenderer::start()
         // If are screen sizes do not properly tile the overall virtual screen
         // size, then we want the untiled parts to be black for use in desktop
         // previews, etc
-        m_pPixmap->fill(Qt::black);
+        m_pPixmap->fill(TQt::black);
     }
 
     m_bFinished.fill(false);

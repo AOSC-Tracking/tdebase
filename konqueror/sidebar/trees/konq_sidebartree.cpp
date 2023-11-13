@@ -483,7 +483,7 @@ void KonqSidebarTree::slotExecuted( TQListViewItem *item )
 void KonqSidebarTree::slotMouseButtonPressed( int _button, TQListViewItem* _item, const TQPoint&, int col )
 {
     KonqSidebarTreeItem * item = static_cast<KonqSidebarTreeItem*>( _item );
-    if (_button == Qt::RightButton)
+    if (_button == TQt::RightButton)
     {
         if ( item && col < 2)
         {
@@ -502,10 +502,10 @@ void KonqSidebarTree::slotSidebarMouseButtonClicked(int _button, TQListViewItem*
     if(_item && col < 2)
     {
         switch( _button ) {
-        case Qt::LeftButton:
+        case TQt::LeftButton:
             slotExecuted( item );
             break;
-        case Qt::MidButton:
+        case TQt::MidButton:
             item->middleButtonClicked();
             break;
         }

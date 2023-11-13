@@ -161,10 +161,10 @@ void BarGraph::paintEvent( TQPaintEvent* )
 
       if ( showLabels ) {
         p.drawText( b * barWidth + 3, h - ( 2 * fm.lineSpacing() ) - 2,
-                    barWidth - 2 * 3, fm.lineSpacing(), Qt::AlignCenter,
+                    barWidth - 2 * 3, fm.lineSpacing(), TQt::AlignCenter,
                     footers[ b ] );
         p.drawText( b * barWidth + 3, h - fm.lineSpacing() - 2,
-                    barWidth - 2 * 3, fm.lineSpacing(), Qt::AlignCenter,
+                    barWidth - 2 * 3, fm.lineSpacing(), TQt::AlignCenter,
                     TQString( "%1" ).arg( samples[ b ] ) );
       }
     }

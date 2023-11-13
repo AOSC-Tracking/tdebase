@@ -776,7 +776,7 @@ int fishProtocol::handleResponse(const TQString &str){
 
 int fishProtocol::makeTimeFromLs(const TQString &monthStr, const TQString &dayStr, const TQString &timeyearStr)
 {
-    TQDateTime dt(TQDate::currentDate(Qt::UTC));
+    TQDateTime dt(TQDate::currentDate(TQt::UTC));
     int year = dt.date().year();
     int month = dt.date().month();
     int currentMonth = month;

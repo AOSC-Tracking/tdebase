@@ -62,7 +62,7 @@ KPluginOptions::KPluginOptions( TDEConfig* config, TQString group, TQWidget *par
     enableHTTPOnly = new TQCheckBox( i18n( "Only allow &HTTP and HTTPS URLs for plugins" ), globalGB );
     enableUserDemand = new TQCheckBox( i18n( "&Load plugins on demand only" ), globalGB );
     priorityLabel = new TQLabel(i18n("CPU priority for plugins: %1").arg(TQString()), globalGB);
-    priority = new TQSlider(5, 100, 5, 100, Qt::Horizontal, globalGB);
+    priority = new TQSlider(5, 100, 5, 100, TQt::Horizontal, globalGB);
     connect( enablePluginsGloballyCB, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotChanged() ) );
     connect( enablePluginsGloballyCB, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotTogglePluginsEnabled() ) );
     connect( enableHTTPOnly, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotChanged() ) );

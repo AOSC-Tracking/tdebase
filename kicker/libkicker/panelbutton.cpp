@@ -74,7 +74,7 @@ PanelButton::PanelButton( TQWidget* parent, const char* name, bool forceStandard
       m_arrowDirection(KPanelExtension::Bottom),
       m_popupDirection(KPanelApplet::Up),
       m_iconAlignment(AlignCenter),
-      m_orientation(Qt::Horizontal),
+      m_orientation(TQt::Horizontal),
       m_size((TDEIcon::StdSizes)-1),
       m_fontPercent(0.40),
       m_forceStandardCursor(forceStandardCursor)
@@ -196,7 +196,7 @@ void PanelButton::setPopupDirection(KPanelApplet::Direction d)
     setArrowDirection(KickerLib::directionToPopupPosition(d));
 }
 
-void PanelButton::setIconAlignment(Qt::AlignmentFlags align)
+void PanelButton::setIconAlignment(TQt::AlignmentFlags align)
 {
     m_iconAlignment = align;
     update();
@@ -305,7 +305,7 @@ int PanelButton::widthForHeight(int height) const
 
     // we only paint the text when horizontal, so make sure we're horizontal
     // before adding the text in here
-    if (orientation() == Qt::Horizontal && !m_buttonText.isEmpty())
+    if (orientation() == TQt::Horizontal && !m_buttonText.isEmpty())
     {
         TQFont f(font());
         //f.setPixelSize(KMIN(height, KMAX(int(float(height) * m_fontPercent), 16)));
@@ -483,7 +483,7 @@ void PanelButton::dropEvent(TQDropEvent* e)
 
 void PanelButton::mouseMoveEvent(TQMouseEvent *e)
 {
-    if (!m_isLeftMouseButtonDown || (e->state() & Qt::LeftButton) == 0)
+    if (!m_isLeftMouseButtonDown || (e->state() & TQt::LeftButton) == 0)
     {
         return;
     }
@@ -501,7 +501,7 @@ void PanelButton::mouseMoveEvent(TQMouseEvent *e)
 
 void PanelButton::mousePressEvent(TQMouseEvent *e)
 {
-    if (e->button() == Qt::LeftButton)
+    if (e->button() == TQt::LeftButton)
     {
         m_lastLeftMouseButtonPress = e->pos();
         m_isLeftMouseButtonDown = true;
@@ -511,7 +511,7 @@ void PanelButton::mousePressEvent(TQMouseEvent *e)
 
 void PanelButton::mouseReleaseEvent(TQMouseEvent *e)
 {
-    if (e->button() == Qt::LeftButton)
+    if (e->button() == TQt::LeftButton)
     {
         m_isLeftMouseButtonDown = false;
 	
@@ -645,7 +645,7 @@ void PanelButton::drawButtonLabel(TQPainter *p, int voffset, bool drawArrow)
     else if (m_iconAlignment & AlignBottom)
         y = (height() - icon.height());
 
-    if (!m_buttonText.isEmpty() && orientation() == Qt::Horizontal)
+    if (!m_buttonText.isEmpty() && orientation() == TQt::Horizontal)
     {
         int h = height();
         int w = width();
@@ -749,7 +749,7 @@ void PanelButton::drawButtonLabel(TQPainter *p, int voffset, bool drawArrow)
                 r = TQRect(0, (height() - arrowSize)/2, arrowSize, arrowSize);
                 break;
             case KPanelExtension::Floating:
-                if (orientation() == Qt::Horizontal)
+                if (orientation() == TQt::Horizontal)
                 {
                     e = TQStyle::PE_ArrowDown;
                     r.moveBy(0, height() - arrowSize);
@@ -795,7 +795,7 @@ int PanelButton::preferredIconSize(int proposed_size) const
 
     if (proposed_size < 0)
     {
-        proposed_size = (orientation() == Qt::Horizontal) ? height() : width();
+        proposed_size = (orientation() == TQt::Horizontal) ? height() : width();
     }
 
     // determine the upper limit on the size.  Normally, this is panelSize,

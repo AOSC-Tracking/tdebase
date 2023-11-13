@@ -115,7 +115,7 @@ RunApplet::~RunApplet()
 
 void RunApplet::resizeEvent(TQResizeEvent*)
 {
-    if(orientation() == Qt::Horizontal)
+    if(orientation() == TQt::Horizontal)
 	{
 	    _btn->hide();
 	    _input->reparent(this, TQPoint(0,0), true);
@@ -288,7 +288,7 @@ void RunApplet::run_command(const TQString& command)
     return;
 
  hide:
-    if (orientation() == Qt::Vertical)
+    if (orientation() == TQt::Vertical)
 	_hbox->hide();
     needsFocus(focusNeeded);
 }

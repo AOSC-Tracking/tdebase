@@ -109,10 +109,10 @@ void AddAppletVisualFeedback::makeMask()
 {
     TQPainter maskPainter(&m_mask);
 
-    m_mask.fill(Qt::black);
+    m_mask.fill(TQt::black);
 
-    maskPainter.setBrush(Qt::white);
-    maskPainter.setPen(Qt::white);
+    maskPainter.setBrush(TQt::white);
+    maskPainter.setPen(TQt::white);
     maskPainter.drawRoundRect(m_mask.rect(), 1600 / m_mask.rect().width(),
                               1600 / m_mask.rect().height());
     setMask(m_mask);
@@ -156,7 +156,7 @@ void AddAppletVisualFeedback::displayInternal()
 
     // draw background
     TQPainter bufferPainter(&m_pixmap);
-    bufferPainter.setPen(Qt::black);
+    bufferPainter.setPen(TQt::black);
     bufferPainter.setBrush(colorGroup().background());
     bufferPainter.drawRoundRect(0, 0, width, height,
                                 1600 / width, 1600 / height);

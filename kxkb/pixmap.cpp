@@ -141,11 +141,11 @@ LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& d
 
 		if( m_labelShadow ) {
 			p.setPen(m_shColor);
-			p.drawText(1, 1, pm->width(), pm->height(), Qt::AlignCenter, displayName);
+			p.drawText(1, 1, pm->width(), pm->height(), TQt::AlignCenter, displayName);
 		}
 
 		p.setPen(m_fgColor);
-		p.drawText(0, 0, pm->width(), pm->height(), Qt::AlignCenter, displayName);
+		p.drawText(0, 0, pm->width(), pm->height(), TQt::AlignCenter, displayName);
 
 		if( m_bgTransparent && !m_showFlag )
 		{
@@ -156,10 +156,10 @@ LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& d
 			maskp.setPen(TQt::black);
 			maskp.setFont(m_labelFont);
 
-			maskp.drawText(0, 0, maskpix.width(), maskpix.height(), Qt::AlignCenter, displayName);
+			maskp.drawText(0, 0, maskpix.width(), maskpix.height(), TQt::AlignCenter, displayName);
 			if( m_labelShadow )
 			{
-				maskp.drawText(1, 1, maskpix.width(), maskpix.height(), Qt::AlignCenter, displayName);
+				maskp.drawText(1, 1, maskpix.width(), maskpix.height(), TQt::AlignCenter, displayName);
 			}
 
 			TQBitmap mask;
@@ -305,15 +305,15 @@ static const char* ERROR_LABEL = "err";
 TQPixmap* LayoutIcon::createErrorPixmap()
 {
 	TQPixmap* pm = new TQPixmap(21, 14);
-	pm->fill(Qt::white);
+	pm->fill(TQt::white);
 
 	TQPainter p(pm);
 
 	p.setFont(m_labelFont);
-	p.setPen(Qt::red);
-	p.drawText(1, 1, pm->width(), pm->height()-2, Qt::AlignCenter, ERROR_LABEL);
-	p.setPen(Qt::blue);
-	p.drawText(0, 0, pm->width(), pm->height()-2, Qt::AlignCenter, ERROR_LABEL);
+	p.setPen(TQt::red);
+	p.drawText(1, 1, pm->width(), pm->height()-2, TQt::AlignCenter, ERROR_LABEL);
+	p.setPen(TQt::blue);
+	p.drawText(0, 0, pm->width(), pm->height()-2, TQt::AlignCenter, ERROR_LABEL);
 	m_pixmapCache.insert(ERROR_CODE, pm);
 
 	return pm;

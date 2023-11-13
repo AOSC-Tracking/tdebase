@@ -56,7 +56,7 @@ void ThemeListBox::dropEvent(TQDropEvent* event)
 
 void ThemeListBox::slotMouseButtonPressed(int button, TQListBoxItem *item, const TQPoint &p)
 {
-   if ((button & Qt::LeftButton) == 0) return;
+   if ((button & TQt::LeftButton) == 0) return;
    mOldPos = p;
    mDragFile = TQString::null;
    int cur = index(item);
@@ -66,7 +66,7 @@ void ThemeListBox::slotMouseButtonPressed(int button, TQListBoxItem *item, const
 
 void ThemeListBox::mouseMoveEvent(TQMouseEvent *e)
 {
-   if (((e->state() & Qt::LeftButton) != 0) && !mDragFile.isEmpty())
+   if (((e->state() & TQt::LeftButton) != 0) && !mDragFile.isEmpty())
    {
       int delay = TDEGlobalSettings::dndEventDelay();
       TQPoint newPos = e->globalPos();
@@ -123,7 +123,7 @@ SplashInstaller::SplashInstaller (TQWidget *aParent, const char *aName, bool aIn
   mPreview->setSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Expanding );
   mPreview->setFrameStyle(TQFrame::Panel|TQFrame::Sunken);
   mPreview->setMinimumSize(TQSize(320,240));
-  mPreview->setAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+  mPreview->setAlignment(TQt::AlignHCenter|TQt::AlignVCenter);
   rightbox->addWidget(mPreview);
   rightbox->setStretchFactor( mPreview, 3 );
 

@@ -61,7 +61,7 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
 	TDEPopupMenu *help = m_help->menu();
 	help->connectItem(KHelpMenu::menuHelpContents, this, TQT_SLOT(slotHelpContents()));
 	setPixmap(KSystemTray::loadIcon("randr"));
-	setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+	setAlignment(TQt::AlignHCenter | TQt::AlignVCenter);
 	connect(this, TQT_SIGNAL(quitSelected()), this, TQT_SLOT(_quit()));
 	TQToolTip::add(this, i18n("Screen resize & rotate"));
 	my_parent = parent;
@@ -147,7 +147,7 @@ void KRandRSystemTray::showEvent ( TQShowEvent * )
 void KRandRSystemTray::mousePressEvent(TQMouseEvent* e)
 {
 	// Popup the context menu with left-click
-	if (e->button() == Qt::LeftButton) {
+	if (e->button() == TQt::LeftButton) {
 		contextMenuAboutToShow(contextMenu());
 		contextMenu()->popup(e->globalPos());
 		e->accept();

@@ -253,7 +253,7 @@ void SAKDlg::reject()
 
 void SAKDlg::updateLabel(TQString &txt)
 {
-	mStatusLabel->setPaletteForegroundColor(Qt::black);
+	mStatusLabel->setPaletteForegroundColor(TQt::black);
 	mStatusLabel->setText("<b>" + txt + "</b>");
 }
 

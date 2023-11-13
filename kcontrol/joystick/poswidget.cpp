@@ -32,7 +32,7 @@ PosWidget::PosWidget(TQWidget *parent, const char *name)
 {
   setMinimumSize(XY_WIDTH, XY_WIDTH);
   setMaximumSize(XY_WIDTH, XY_WIDTH);
-  setPaletteBackgroundColor(Qt::white);
+  setPaletteBackgroundColor(TQt::white);
 }
 
 //-----------------------------------------------------------------
@@ -42,7 +42,7 @@ void PosWidget::paintEvent(TQPaintEvent *)
   TQPainter paint(this);
 
   paint.drawRect(0, 0, width(), height());
-  paint.setPen(Qt::gray);
+  paint.setPen(TQt::gray);
 
   // draw a center grid
   paint.drawLine(XY_WIDTH/2, 1,
@@ -52,7 +52,7 @@ void PosWidget::paintEvent(TQPaintEvent *)
                  XY_WIDTH - 2, XY_WIDTH/2);
 
   // draw the current position marker
-  paint.setPen(Qt::blue);
+  paint.setPen(TQt::blue);
 
   paint.drawLine(x - MARK_WIDTH/2, y - MARK_WIDTH/2,
                  x + MARK_WIDTH/2, y + MARK_WIDTH/2);
@@ -111,7 +111,7 @@ void PosWidget::eraseOld()
   //paint.eraseRect(x - MARK_WIDTH/2, y - MARK_WIDTH/2, MARK_WIDTH + 1, MARK_WIDTH + 1);
 
   // erase previous cross (don't use eraseRect() so that trace flags will be not destroyed so much)
-  paint.setPen(Qt::white);
+  paint.setPen(TQt::white);
 
   paint.drawLine(x - MARK_WIDTH/2, y - MARK_WIDTH/2,
                  x + MARK_WIDTH/2, y + MARK_WIDTH/2);
@@ -121,7 +121,7 @@ void PosWidget::eraseOld()
 
   if ( trace )  // show previous position with a smaller black cross
   {
-    paint.setPen(Qt::black);
+    paint.setPen(TQt::black);
 
     paint.drawLine(x - 2, y - 2,
                    x + 2, y + 2);

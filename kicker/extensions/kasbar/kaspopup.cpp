@@ -95,7 +95,7 @@ TQPoint KasPopup::calcPosition( KasItem *item, int w, int h )
    int x = pos.x();
    int y = pos.y();
 
-   if ( kasbar->orientation() == Qt::Horizontal ) {
+   if ( kasbar->orientation() == TQt::Horizontal ) {
       if ( y < ( tqApp->desktop()->height() / 2 ) )
 	 y = y + kasbar->itemExtent();
       else

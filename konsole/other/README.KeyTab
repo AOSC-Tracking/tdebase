@@ -14,7 +14,7 @@ The syntax is that each entry has the form :
   "key" Keyname { ("+"|"-") Modename } ":" (String|Operation)
 
 Keynames are those defined in <qnamespace.h> with the
-"Qt::Key_" prefix removed.
+"TQt::Key_" prefix removed.
 
 Mode names are: 
 

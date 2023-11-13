@@ -97,7 +97,7 @@ void ThemeUnified::_readSettings()
 
   cfg->setGroup( TQString("KSplash Theme: %1").arg(mTheme->theme()) );
 
-  TQColor df(Qt::white);
+  TQColor df(TQt::white);
   mLabelForeground = cfg->readColorEntry( "Label Foreground", &df );
 }
 

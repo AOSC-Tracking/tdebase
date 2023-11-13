@@ -37,12 +37,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #ifdef LAUNCH_MENU
 	keys->insert("Program:kicker", i18n("Panel"));
-	DEF(I18N_NOOP("Popup Launch Menu" ), ALT+Qt::Key_F1, WIN+Qt::Key_Menu,
+	DEF(I18N_NOOP("Popup Launch Menu" ), ALT+TQt::Key_F1, WIN+TQt::Key_Menu,
                       MenuManager::the(), kmenuAccelActivated());
 #endif
 
 #ifdef SHOW_DESKTOP
-	DEF(I18N_NOOP( "Toggle Showing Desktop" ), ALT+CTRL+Qt::Key_D, WIN+CTRL+Qt::Key_D,
+	DEF(I18N_NOOP( "Toggle Showing Desktop" ), ALT+CTRL+TQt::Key_D, WIN+CTRL+TQt::Key_D,
             this, slotToggleShowDesktop());
 #endif
 

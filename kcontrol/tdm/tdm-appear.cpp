@@ -130,7 +130,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   logobutton->installEventFilter(this); // for drag and drop
   connect(logobutton, TQT_SIGNAL(clicked()), TQT_SLOT(slotLogoButtonClicked()));
   hglay->addWidget(logoLabel, 1, 0);
-  hglay->addWidget(logobutton, 1, 1, Qt::AlignCenter);
+  hglay->addWidget(logobutton, 1, 1, TQt::AlignCenter);
   hglay->addRowSpacing(1, 110);
   wtstr = i18n("Click here to choose an image that TDM will display. "
 	       "You can also drag and drop an image onto this button "
@@ -145,7 +145,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   grid->addLayout(hglay, 2, 1);
 
   label = new TQLabel(i18n("Position:"), group);
-  hglay->addMultiCellWidget(label, 0,1, 0,0, Qt::AlignVCenter);
+  hglay->addMultiCellWidget(label, 0,1, 0,0, TQt::AlignVCenter);
   TQValidator *posValidator = new TQIntValidator(0, 100, TQT_TQOBJECT(group));
   TQLabel *xLineLabel = new TQLabel(i18n("&X:"), group);
   hglay->addWidget(xLineLabel, 0, 1);
@@ -226,7 +226,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
 
 
   // The Language group box
-  group = new TQGroupBox(0, Qt::Vertical, i18n("Locale"), this);
+  group = new TQGroupBox(0, TQt::Vertical, i18n("Locale"), this);
   vbox->addWidget(group);
 
   langcombo = new KLanguageButton(group);
@@ -243,7 +243,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   TQWhatsThis::add( langcombo, wtstr );
 
   // The SAK group box
-  group = new TQGroupBox(0, Qt::Vertical, i18n("Secure Attention Key"), this);
+  group = new TQGroupBox(0, TQt::Vertical, i18n("Secure Attention Key"), this);
   vbox->addWidget(group);
 
   sakbox = new TQCheckBox( i18n("Enable Secure Attention Key"), group );
@@ -262,7 +262,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   TQWhatsThis::add( sakbox, wtstr );
 
   // Keyboard group box
-  group = new TQGroupBox(0, Qt::Vertical, i18n("Keyboard"), this);
+  group = new TQGroupBox(0, TQt::Vertical, i18n("Keyboard"), this);
   vbox->addWidget(group);
 
   kbdledbox = new TQCheckBox(i18n("Sync keyboard led status"), group);

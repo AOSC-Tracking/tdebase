@@ -453,7 +453,7 @@ void KateViewSpaceContainer::splitViewSpace( KateViewSpace* vs,
     if ( TQSplitter *ps = static_cast<TQSplitter*>(vs->parentWidget()->tqt_cast("TQSplitter")) )
       psizes = ps->sizes();
 
-  Qt::Orientation o = isHoriz ? Qt::Vertical : Qt::Horizontal;
+  TQt::Orientation o = isHoriz ? TQt::Vertical : TQt::Horizontal;
   KateMDI::Splitter* s = new KateMDI::Splitter(o, vs->parentWidget());
   s->setOpaqueResize( TDEGlobalSettings::opaqueResize() );
 
@@ -716,7 +716,7 @@ void KateViewSpaceContainer::restoreSplitter( TDEConfig* config, const TQString 
 {
   config->setGroup( group );
 
-  KateMDI::Splitter* s = new KateMDI::Splitter((Qt::Orientation)config->readNumEntry("Orientation"), parent);
+  KateMDI::Splitter* s = new KateMDI::Splitter((TQt::Orientation)config->readNumEntry("Orientation"), parent);
 
   TQStringList children = config->readListEntry( "Children" );
   for (TQStringList::Iterator it=children.begin(); it!=children.end(); ++it)

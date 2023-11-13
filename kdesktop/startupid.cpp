@@ -176,7 +176,7 @@ void StartupId::start_startupid( const TQString& icon_P )
     {
 
     const TQColor startup_colors[ StartupId::NUM_BLINKING_PIXMAPS ]
-    = { Qt::black, Qt::darkGray, Qt::lightGray, Qt::white, Qt::white };
+    = { TQt::black, TQt::darkGray, TQt::lightGray, TQt::white, TQt::white };
 
 
     TQPixmap icon_pixmap = TDEGlobal::iconLoader()->loadIcon( icon_P, TDEIcon::Small, 0,

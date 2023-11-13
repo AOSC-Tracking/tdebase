@@ -101,7 +101,7 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
 
   TQLabel *lPattern = new TQLabel(i18n("Pattern:"), this);
   lPattern->setFixedSize(lPattern->sizeHint());
-  loInput->addWidget(lPattern, 0, 0, Qt::AlignRight | Qt::AlignVCenter);
+  loInput->addWidget(lPattern, 0, 0, TQt::AlignRight | TQt::AlignVCenter);
 
   TQBoxLayout *loPattern = new TQHBoxLayout( 4 );
   loInput->addLayout( loPattern, 0, 1 );
@@ -128,7 +128,7 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
 
   TQLabel *lTemplate = new TQLabel(i18n("Template:"), this);
   lTemplate->setFixedSize(lTemplate->sizeHint());
-  loInput->addWidget(lTemplate, 1, 0, Qt::AlignRight | Qt::AlignVCenter);
+  loInput->addWidget(lTemplate, 1, 0, TQt::AlignRight | TQt::AlignVCenter);
 
   TQBoxLayout *loTemplate = new TQHBoxLayout(4);
   loInput->addLayout(loTemplate, 1, 1);
@@ -147,7 +147,7 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
 
   TQLabel *lFiles = new TQLabel(i18n("Files:"), this);
   lFiles->setFixedSize(lFiles->sizeHint());
-  loInput->addWidget(lFiles, 2, 0, Qt::AlignRight | Qt::AlignVCenter);
+  loInput->addWidget(lFiles, 2, 0, TQt::AlignRight | TQt::AlignVCenter);
 
   TQBoxLayout *loFiles = new TQHBoxLayout( 2 );
   loInput->addLayout( loFiles, 2, 1 );
@@ -168,7 +168,7 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
 
   TQLabel *lDir = new TQLabel(i18n("Folder:"), this);
   lDir->setFixedSize(lDir->sizeHint());
-  loInput->addWidget(lDir, 3, 0, Qt::AlignRight | Qt::AlignVCenter);
+  loInput->addWidget(lDir, 3, 0, TQt::AlignRight | TQt::AlignVCenter);
 
   TQBoxLayout *loDir = new TQHBoxLayout(3);
   loInput->addLayout(loDir, 3, 1);
@@ -189,7 +189,7 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
   cbRecursive->setChecked(config->readBoolEntry("Recursive", true));
   loDir->addWidget(cbRecursive);
 
-  KButtonBox *actionbox = new KButtonBox(this, Qt::Vertical);
+  KButtonBox *actionbox = new KButtonBox(this, TQt::Vertical);
   layout->addWidget(actionbox, 0, 2);
   actionbox->addStretch();
   btnSearch = static_cast<KPushButton*>(actionbox->addButton(KGuiItem(i18n("Find"),"edit-find")));
@@ -397,7 +397,7 @@ void GrepTool::slotSearch()
            TQT_SLOT(receivedErrOutput(TDEProcess *, char *, int)) );
 
   // actually it should be checked whether the process was started successfully
-  lbResult->setCursor( TQCursor(Qt::WaitCursor) );
+  lbResult->setCursor( TQCursor(TQt::WaitCursor) );
   btnClear->setEnabled( false );
   btnSearch->setGuiItem( KGuiItem(i18n("Cancel"), "button_cancel"));
   childproc->start(TDEProcess::NotifyOnExit, TDEProcess::AllOutput);
@@ -532,8 +532,8 @@ void GrepTool::setDirName(const TQString &dir){
 bool GrepTool::eventFilter( TQObject *o, TQEvent *e )
 {
   if ( e->type() == TQEvent::KeyPress && (
-       ((TQKeyEvent*)e)->key() == Qt::Key_Return ||
-       ((TQKeyEvent*)e)->key() == Qt::Key_Enter ) )
+       ((TQKeyEvent*)e)->key() == TQt::Key_Return ||
+       ((TQKeyEvent*)e)->key() == TQt::Key_Enter ) )
   {
     slotSearch();
     return true;

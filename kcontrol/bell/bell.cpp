@@ -71,7 +71,7 @@ KBellConfig::KBellConfig(TQWidget *parent, const char *name):
 
   int row = 0;
   TQGroupBox *box = new TQGroupBox( i18n("Bell Settings"), this );
-  box->setColumnLayout( 0, Qt::Horizontal );
+  box->setColumnLayout( 0, TQt::Horizontal );
   layout->addWidget(box);
   layout->addStretch();
   TQGridLayout *grid = new TQGridLayout(box->layout(), KDialog::spacingHint());

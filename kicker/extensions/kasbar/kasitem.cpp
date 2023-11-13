@@ -179,11 +179,11 @@ void KasItem::mouseEnter()
 
 void KasItem::mouseReleaseEvent( TQMouseEvent *ev )
 {
-    if ( ev->button() == Qt::LeftButton )
+    if ( ev->button() == TQt::LeftButton )
 	emit leftButtonClicked( ev );
-    else if ( ev->button() == Qt::RightButton )
+    else if ( ev->button() == TQt::RightButton )
 	emit rightButtonClicked( ev );
-    else if ( ev->button() == Qt::MidButton )
+    else if ( ev->button() == TQt::MidButton )
 	emit middleButtonClicked( ev );
 }
 
@@ -312,13 +312,13 @@ void KasItem::paintFrame( TQPainter *p )
 	   p->drawRect( 0, 0, extent(), extent());
        }
        else {
-	   pen = TQPen( Qt::white );
+	   pen = TQPen( TQt::white );
 	   p->setPen( pen );
 	   p->drawRect(0, 0, extent(), extent());
        }
    }
    else if ( kas->paintInactiveFrames() ) {
-       p->setPen( attention_ ? resources()->attentionColor() : Qt::black );
+       p->setPen( attention_ ? resources()->attentionColor() : TQt::black );
        p->drawRect(0, 0, extent(), extent());
    }
 }

@@ -304,9 +304,9 @@ TDMShutdown::TDMShutdown( int _uid, TQWidget *_parent )
 
 	TQGridLayout *grid = new TQGridLayout( schedGroup, 0, 0, KDmh, KDsh );
 	grid->addRowSpacing( 0, schedGroup->fontMetrics().height() - 5 );
-	grid->addWidget( lab1, 1, 0, Qt::AlignRight );
+	grid->addWidget( lab1, 1, 0, TQt::AlignRight );
 	grid->addWidget( le_start, 1, 1 );
-	grid->addWidget( lab2, 2, 0, Qt::AlignRight );
+	grid->addWidget( lab2, 2, 0, TQt::AlignRight );
 	grid->addWidget( le_timeout, 2, 1 );
 	grid->addMultiCellWidget( cb_force, 3,3, 0,1 );
 
@@ -494,7 +494,7 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
 
 		// first line of buttons
 		hbuttonbox = new TQHBoxLayout( vbox, 8 * KDialog::spacingHint() );
-		hbuttonbox->setAlignment( Qt::AlignHCenter );
+		hbuttonbox->setAlignment( TQt::AlignHCenter );
 
 		// Reboot
 		FlatButton* btnReboot = new FlatButton( lfrm );
@@ -538,7 +538,7 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
 
 		// cancel buttonbox
 		TQHBoxLayout* hbuttonbox2 = new TQHBoxLayout( vbox, 8 * KDialog::spacingHint()  );
-		hbuttonbox2->setAlignment( Qt::AlignRight );
+		hbuttonbox2->setAlignment( TQt::AlignRight );
 
 		// Back to tdm
 		KSMPushButton* btnBack = new KSMPushButton( KStdGuiItem::cancel(), lfrm );
@@ -885,13 +885,13 @@ TDMCancelShutdown::TDMCancelShutdown( int how, int start, int timeout,
 		strt = i18n("now");
 	else {
 		qdt.setTime_t( start );
-		strt = qdt.toString( Qt::LocalDate );
+		strt = qdt.toString( TQt::LocalDate );
 	}
 	if (timeout == TO_INF)
 		end = i18n("infinite");
 	else {
 		qdt.setTime_t( timeout );
-		end = qdt.toString( Qt::LocalDate );
+		end = qdt.toString( TQt::LocalDate );
 	}
 	TQString trg =
 		i18n("Owner: %1"

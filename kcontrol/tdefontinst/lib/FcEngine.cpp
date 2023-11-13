@@ -491,7 +491,7 @@ bool CFcEngine::draw(const KURL &url, int w, int h, TQPixmap &pix, int faceNo, b
             x=offset, y=offset;
 
         pix.resize(w, h);
-        pix.fill(Qt::white);
+        pix.fill(TQt::white);
 
         TQPainter painter(&pix);
 
@@ -580,7 +580,7 @@ bool CFcEngine::draw(const KURL &url, int w, int h, TQPixmap &pix, int faceNo, b
                         title=i18n("%1 [1 pixel]", "%1 [%n pixels]", itsSizes[0]).arg(title);
 
                     painter.setFont(TDEGlobalSettings::generalFont());
-                    painter.setPen(Qt::black);
+                    painter.setPen(TQt::black);
                     y=painter.fontMetrics().height();
                     drawText(painter, x, y, w-offset, title);
                     y+=4;

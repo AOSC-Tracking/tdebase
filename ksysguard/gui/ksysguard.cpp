@@ -76,7 +76,7 @@ TopLevel::TopLevel( const char *name )
   mTimerId = -1;
 
   mSplitter = new TQSplitter( this );
-  mSplitter->setOrientation( Qt::Horizontal );
+  mSplitter->setOrientation( TQt::Horizontal );
   mSplitter->setOpaqueResize( TDEGlobalSettings::opaqueResize() );
   setCentralWidget( mSplitter );
 

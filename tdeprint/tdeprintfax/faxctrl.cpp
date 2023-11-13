@@ -522,7 +522,7 @@ void FaxCtrl::viewLog(TQWidget *)
 		m_logview = new KTextEdit(topView);
 		m_logview->setTextFormat( TQt::LogText );
 		m_logview->setWordWrap( TQTextEdit::WidgetWidth );
-		m_logview->setPaper( Qt::white );
+		m_logview->setPaper( TQt::white );
 		//m_logview->setReadOnly(true);
 		//m_logview->setWordWrap(TQTextEdit::NoWrap);
 		TQPushButton	*m_clear = new KPushButton(KStdGuiItem::clear(), topView);

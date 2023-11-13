@@ -68,7 +68,7 @@ public:
    *
    * @param newOneFirst if true, move the new view as the first one (left or top)
    */
-  KonqView* splitView( Qt::Orientation orientation,
+  KonqView* splitView( TQt::Orientation orientation,
                        const TQString & serviceType = TQString::null,
                        const TQString & serviceName = TQString::null,
                        bool newOneFirst = false, bool forceAutoEmbed = false );
@@ -80,7 +80,7 @@ public:
    *
    * @param newOneFirst if true, move the new view as the first one (left or top)
    */
-  KonqView* splitWindow( Qt::Orientation orientation,
+  KonqView* splitWindow( TQt::Orientation orientation,
                          const TQString & serviceType = TQString::null,
                          const TQString & serviceName = TQString::null,
                          bool newOneFirst = false);

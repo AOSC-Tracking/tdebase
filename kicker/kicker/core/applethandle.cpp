@@ -89,7 +89,7 @@ int AppletHandle::widthForHeight( int /* h */ ) const
 
 void AppletHandle::setPopupDirection(KPanelApplet::Direction d)
 {
-    Qt::ArrowType a = Qt::UpArrow;
+    TQt::ArrowType a = TQt::UpArrow;
 
     if (d == m_popupDirection || !m_menuButton)
     {
@@ -102,19 +102,19 @@ void AppletHandle::setPopupDirection(KPanelApplet::Direction d)
     {
         case KPanelApplet::Up:
             m_layout->setDirection(TQBoxLayout::BottomToTop);
-            a = Qt::UpArrow;
+            a = TQt::UpArrow;
             break;
         case KPanelApplet::Down:
             m_layout->setDirection(TQBoxLayout::TopToBottom);
-            a = Qt::DownArrow;
+            a = TQt::DownArrow;
             break;
         case KPanelApplet::Left:
             m_layout->setDirection(TQBoxLayout::RightToLeft);
-            a = Qt::LeftArrow;
+            a = TQt::LeftArrow;
             break;
         case KPanelApplet::Right:
             m_layout->setDirection(TQBoxLayout::LeftToRight);
-            a = Qt::RightArrow;
+            a = TQt::RightArrow;
             break;
     }
 
@@ -225,7 +225,7 @@ bool AppletHandle::eventFilter(TQObject *o, TQEvent *e)
         if (e->type() == TQEvent::MouseButtonPress)
         {
             TQMouseEvent* ev = TQT_TQMOUSEEVENT(e);
-            if (ev->button() == Qt::LeftButton || ev->button() == Qt::MidButton)
+            if (ev->button() == TQt::LeftButton || ev->button() == TQt::MidButton)
             {
                 emit moveApplet(m_applet->mapFromGlobal(ev->globalPos()));
             }
@@ -235,7 +235,7 @@ bool AppletHandle::eventFilter(TQObject *o, TQEvent *e)
     if (m_menuButton && e->type() == TQEvent::MouseButtonPress)
     {
         TQMouseEvent* ev = TQT_TQMOUSEEVENT(e);
-        if (ev->button() == Qt::RightButton)
+        if (ev->button() == TQt::RightButton)
         {
             if (!m_menuButton->isDown())
             {
@@ -312,7 +312,7 @@ TQSize AppletHandleDrag::minimumSizeHint() const
 {
     int wh = style().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
 
-    if (m_parent->orientation() == Qt::Horizontal)
+    if (m_parent->orientation() == TQt::Horizontal)
     {
         return TQSize(wh, 0);
     }
@@ -322,7 +322,7 @@ TQSize AppletHandleDrag::minimumSizeHint() const
 
 TQSizePolicy AppletHandleDrag::sizePolicy() const
 {
-    if (m_parent->orientation() == Qt::Horizontal)
+    if (m_parent->orientation() == TQt::Horizontal)
     {
         return TQSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Preferred );
     }
@@ -360,7 +360,7 @@ void AppletHandleDrag::paintEvent(TQPaintEvent *)
         
         TQStyle::SFlags flags = TQStyle::Style_Default;
         flags |= TQStyle::Style_Enabled;
-        if (m_parent->orientation() == Qt::Horizontal)
+        if (m_parent->orientation() == TQt::Horizontal)
         {
             flags |= TQStyle::Style_Horizontal;
         }
@@ -387,7 +387,7 @@ TQSize AppletHandleButton::minimumSizeHint() const
     int height = style().pixelMetric(TQStyle::PM_DockWindowHandleExtent, this);
     int width = height;
 
-    if (m_parent->orientation() == Qt::Horizontal)
+    if (m_parent->orientation() == TQt::Horizontal)
     {
         return TQSize(width, height);
     }

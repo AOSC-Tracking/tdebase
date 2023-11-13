@@ -240,7 +240,7 @@ void SensorBrowser::viewportMouseMoveEvent( TQMouseEvent *e )
    * mouse tracking cannot be turned off. So we have to check each event
    * whether the LMB is really pressed. */
 
-  if ( !( e->state() & Qt::LeftButton ) )
+  if ( !( e->state() & TQt::LeftButton ) )
     return;
 
   TQListViewItem* item = itemAt( e->pos() );

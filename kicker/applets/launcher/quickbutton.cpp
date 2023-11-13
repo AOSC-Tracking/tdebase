@@ -219,9 +219,9 @@ void QuickButton::resizeEvent(TQResizeEvent *e)
 
 void QuickButton::mousePressEvent(TQMouseEvent *e)
 {
-   if (e->button() == Qt::RightButton)
+   if (e->button() == TQt::RightButton)
       _popup->popup(e->globalPos());
-   else if (e->button() == Qt::LeftButton) {
+   else if (e->button() == TQt::LeftButton) {
       _dragPos = e->pos();
       TQButton::mousePressEvent(e);
    }
@@ -229,7 +229,7 @@ void QuickButton::mousePressEvent(TQMouseEvent *e)
 
 void QuickButton::mouseMoveEvent(TQMouseEvent *e)
 {
-   if ((e->state() & Qt::LeftButton) == 0) return;
+   if ((e->state() & TQt::LeftButton) == 0) return;
    TQPoint p(e->pos() - _dragPos);
    if (p.manhattanLength() <= TDEGlobalSettings::dndEventDelay())
       return;
@@ -246,7 +246,7 @@ void QuickButton::mouseMoveEvent(TQMouseEvent *e)
        dd->drag();
        releaseKeyboard();
    } else {
-       setCursor(Qt::ForbiddenCursor);
+       setCursor(TQt::ForbiddenCursor);
    }
 }
 

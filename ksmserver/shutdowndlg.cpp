@@ -511,7 +511,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 				KPixmap pixmap;
 				pixmap = TQPixmap(TQPixmap::grabWindow( tqt_xrootwin(), 0, m_currentY, width(), 10 ));
 				TQImage image = pixmap.convertToImage();
-				KImageEffect::blend( Qt::black, image, 0.4 );
+				KImageEffect::blend( TQt::black, image, 0.4 );
 				KImageEffect::toGray( image, true );
 				pixmap.convertFromImage( image );
 				bitBlt( this, 0, m_currentY, &pixmap );
@@ -529,7 +529,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 KSMShutdownIPFeedback * KSMShutdownIPFeedback::s_pSelf = 0L;
 
 KSMShutdownIPFeedback::KSMShutdownIPFeedback()
-: TQWidget( 0L, "systemmodaldialogclass", Qt::WStyle_Customize | Qt::WStyle_NoBorder | Qt::WStyle_StaysOnTop ), m_timeout(0), m_isPainted(false), m_paintedFromSharedRootPixmap(false), m_sharedRootPixmap(NULL), mPixmapTimeout(0)
+: TQWidget( 0L, "systemmodaldialogclass", TQt::WStyle_Customize | TQt::WStyle_NoBorder | TQt::WStyle_StaysOnTop ), m_timeout(0), m_isPainted(false), m_paintedFromSharedRootPixmap(false), m_sharedRootPixmap(NULL), mPixmapTimeout(0)
 
 {
 	setShown(false);
@@ -653,7 +653,7 @@ void KSMShutdownIPFeedback::slotPaintEffect()
 		}
 		else {
 			pm = TQPixmap(kapp->desktop()->width(), kapp->desktop()->height());
-			pm.fill(Qt::black);
+			pm.fill(TQt::black);
 			m_paintedFromSharedRootPixmap = false;
 		}
 	}
@@ -757,7 +757,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 	{
 		// first line of buttons
 		hbuttonbox = new TQHBoxLayout( hbox, factor * KDialog::spacingHint() );
-		hbuttonbox->setAlignment( Qt::AlignHCenter );
+		hbuttonbox->setAlignment( TQt::AlignHCenter );
 		// End session
 		FlatButton* btnLogout = new FlatButton( frame );
 		btnLogout->setTextLabel( TQString("&") + i18n("Log out"), false );
@@ -776,7 +776,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		hbox->addWidget( lfrm, AlignCenter );
 
 		buttonlay = new TQVBoxLayout( hbox, factor * KDialog::spacingHint() );
-		buttonlay->setAlignment( Qt::AlignHCenter );
+		buttonlay->setAlignment( TQt::AlignHCenter );
 
 		TQLabel* icon = new TQLabel( lfrm );
 		if (TDEConfigGroup(TDEGlobal::config(), "Logout").readBoolEntry("doNotUseKonqyPicture", false)) {
@@ -898,7 +898,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			// bottom buttons
 			TQHBoxLayout* hbuttonbox2 = new TQHBoxLayout( vbox, factor * KDialog::spacingHint() );
-			hbuttonbox2->setAlignment( Qt::AlignHCenter );
+			hbuttonbox2->setAlignment( TQt::AlignHCenter );
 
 			if (mayrb) {
 				// Reboot
@@ -958,7 +958,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 
 			// cancel buttonbox
 			TQHBoxLayout* hbuttonbox3 = new TQHBoxLayout( vbox, factor * KDialog::spacingHint() );
-			hbuttonbox3->setAlignment( Qt::AlignRight );
+			hbuttonbox3->setAlignment( TQt::AlignRight );
 
 			// Back to Desktop
 			KSMPushButton* btnBack = new KSMPushButton( KStdGuiItem::cancel(), frame );
@@ -1083,7 +1083,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		{
 			// cancel buttonbox
 			TQHBoxLayout* hbuttonbox3 = new TQHBoxLayout( vbox, factor * KDialog::spacingHint() );
-			hbuttonbox3->setAlignment( Qt::AlignRight );
+			hbuttonbox3->setAlignment( TQt::AlignRight );
 
 			// Back to Desktop
 			KSMPushButton* btnBack = new KSMPushButton( KStdGuiItem::cancel(), frame );

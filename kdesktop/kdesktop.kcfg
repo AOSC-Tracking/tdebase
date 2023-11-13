@@ -123,7 +123,7 @@
   </group>
   <group name="FMSettings"> 
     <entry key="NormalTextColor" type="Color"> <!--SHARED-->
-      <default>Qt::white</default>
+      <default>TQt::white</default>
       <label>Normal text color used for icon labels</label>
       <whatsthis></whatsthis>
     </entry>

@@ -227,7 +227,7 @@ void KasPrefsDialog::addBackgroundPage()
    TQLabel *tintStrengthLabel = new TQLabel( i18n("Tint &strength: "), tintAmtBox );
 
    int percent = (int) (kasbar->tintAmount() * 100.0);
-   tintAmount = new TQSlider( 0, 100, 1, percent, Qt::Horizontal, tintAmtBox );
+   tintAmount = new TQSlider( 0, 100, 1, percent, TQt::Horizontal, tintAmtBox );
    tintAmount->setTracking( true );
    connect( tintAmount, TQT_SIGNAL( valueChanged( int ) ),
 	    kasbar, TQT_SLOT( setTintAmount( int ) ) );
@@ -261,7 +261,7 @@ void KasPrefsDialog::addThumbsPage()
 			  "cause performance problems." ) );
    TQLabel *thumbSizeLabel = new TQLabel( i18n("Thumbnail &size: "), thumbSizeBox );
    int percent = (int) (kasbar->thumbnailSize() * 100.0);
-   thumbSizeSlider = new TQSlider( 0, 100, 1, percent, Qt::Horizontal, thumbSizeBox );
+   thumbSizeSlider = new TQSlider( 0, 100, 1, percent, TQt::Horizontal, thumbSizeBox );
    connect( thumbSizeSlider, TQT_SIGNAL( valueChanged( int ) ),
 	    kasbar, TQT_SLOT( setThumbnailSize( int ) ) );
    thumbSizeLabel->setBuddy( thumbSizeSlider );

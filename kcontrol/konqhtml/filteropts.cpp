@@ -55,7 +55,7 @@ KCMFilter::KCMFilter(TDEConfig *config, TQString group,
     mKillCheck = new TQCheckBox(i18n("Hide filtered images"), this);
     topLayout->addWidget( mKillCheck );
 
-    TQGroupBox *topBox = new TQGroupBox( 1, Qt::Horizontal, i18n("URL Expressions to Filter"), this );
+    TQGroupBox *topBox = new TQGroupBox( 1, TQt::Horizontal, i18n("URL Expressions to Filter"), this );
     topLayout->addWidget( topBox );
 
     mListBox = new TQListBox( topBox );

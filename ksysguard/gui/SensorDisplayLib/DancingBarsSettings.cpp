@@ -47,7 +47,7 @@ DancingBarsSettings::DancingBarsSettings( TQWidget* parent, const char* name )
   TQFrame *page = addPage( i18n( "Range" ) );
   TQGridLayout *pageLayout = new TQGridLayout( page, 3, 1, 0, spacingHint() );
 
-  TQGroupBox *groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Title" ), page );
+  TQGroupBox *groupBox = new TQGroupBox( 0, TQt::Vertical, i18n( "Title" ), page );
   TQGridLayout *boxLayout = new TQGridLayout( groupBox->layout(), 1, 1 );
 
   mTitle = new KLineEdit( groupBox );
@@ -56,7 +56,7 @@ DancingBarsSettings::DancingBarsSettings( TQWidget* parent, const char* name )
 
   pageLayout->addWidget( groupBox, 0, 0 );
 
-  groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Display Range" ), page );
+  groupBox = new TQGroupBox( 0, TQt::Vertical, i18n( "Display Range" ), page );
   boxLayout = new TQGridLayout( groupBox->layout(), 1, 5 );
   boxLayout->setColStretch( 2, 1 );
 
@@ -84,7 +84,7 @@ DancingBarsSettings::DancingBarsSettings( TQWidget* parent, const char* name )
   page = addPage( i18n( "Alarms" ) );
   pageLayout = new TQGridLayout( page, 3, 1, 0, spacingHint() );
 
-  groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Alarm for Minimum Value" ), page );
+  groupBox = new TQGroupBox( 0, TQt::Vertical, i18n( "Alarm for Minimum Value" ), page );
   boxLayout = new TQGridLayout( groupBox->layout(), 1, 4 );
   boxLayout->setColStretch( 1, 1 );
 
@@ -102,7 +102,7 @@ DancingBarsSettings::DancingBarsSettings( TQWidget* parent, const char* name )
 
   pageLayout->addWidget( groupBox, 0, 0 );
 
-  groupBox = new TQGroupBox( 0, Qt::Vertical, i18n( "Alarm for Maximum Value" ), page );
+  groupBox = new TQGroupBox( 0, TQt::Vertical, i18n( "Alarm for Maximum Value" ), page );
   boxLayout = new TQGridLayout( groupBox->layout(), 1, 4 );
   boxLayout->setColStretch( 1, 1 );
 

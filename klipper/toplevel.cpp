@@ -280,7 +280,7 @@ void KlipperWidget::clearClipboardHistory()
 
 void KlipperWidget::mousePressEvent(TQMouseEvent *e)
 {
-    if ( e->button() != Qt::LeftButton && e->button() != Qt::RightButton )
+    if ( e->button() != TQt::LeftButton && e->button() != TQt::RightButton )
         return;
 
     // if we only hid the menu less than a third of a second ago,
@@ -786,8 +786,8 @@ bool KlipperWidget::blockFetchingNewData()
 //   contents, so in practice it's like the user has selected only the part which was
 //   selected when Klipper asked first.
     ButtonState buttonstate = kapp->keyboardMouseState();
-    if( ( buttonstate & ( ShiftButton | Qt::LeftButton )) == ShiftButton // #85198
-        || ( buttonstate & Qt::LeftButton ) == Qt::LeftButton ) { // #80302
+    if( ( buttonstate & ( ShiftButton | TQt::LeftButton )) == ShiftButton // #85198
+        || ( buttonstate & TQt::LeftButton ) == TQt::LeftButton ) { // #80302
         m_pendingContentsCheck = true;
         m_pendingCheckTimer.start( 100, true );
         return true;

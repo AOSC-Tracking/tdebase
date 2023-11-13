@@ -25,7 +25,7 @@ Kate::MessageView::MessageView( TQWidget *parent, const char *name )
   : Kate::DockViewBase( parent, name )
 {
   m_view = new TQTextBrowser( this );
-  // m_view->setFormat( Qt::richText ); // should be!!
+  // m_view->setFormat( TQt::richText ); // should be!!
   connect( m_view, TQT_SIGNAL( linkClicked( const TQString & ) ), 
            TQT_SIGNAL( linkClicked( const TQString & ) ) );
 }

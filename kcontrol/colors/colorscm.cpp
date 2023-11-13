@@ -254,7 +254,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
     groupLayout = new TQHBoxLayout;
     groupLayout2->addLayout(groupLayout);
 
-    sb = new TQSlider( Qt::Horizontal,group,"Slider" );
+    sb = new TQSlider( TQt::Horizontal,group,"Slider" );
     sb->setRange( 0, 10 );
     sb->setFocusPolicy( TQWidget::StrongFocus );
     connect(sb, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(sliderValueChanged(int)));

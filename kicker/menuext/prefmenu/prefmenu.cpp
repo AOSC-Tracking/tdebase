@@ -136,7 +136,7 @@ void PrefMenu::mouseMoveEvent(TQMouseEvent * ev)
 {
     KPanelMenu::mouseMoveEvent(ev);
 
-    if ((ev->state() & Qt::LeftButton) != Qt::LeftButton)
+    if ((ev->state() & TQt::LeftButton) != TQt::LeftButton)
     {
         return;
     }

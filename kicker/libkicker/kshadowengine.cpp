@@ -236,7 +236,7 @@ void KTextShadowEngine::drawText(TQPainter &p, const TQRect &tr, int tf, const T
 
     // draw text
     pixPainter.begin(&textPixmap);
-    pixPainter.setPen(Qt::white);
+    pixPainter.setPen(TQt::white);
     pixPainter.setFont(p.font()); // get the font from the root painter
     pixPainter.drawText(tr, tf, str);
     pixPainter.end();

@@ -210,7 +210,7 @@ void KonqTextViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg,
    cg.setColor(TQColorGroup::Text, static_cast<KonqTextViewWidget *>(listView())->colors[type]);
    // Don't do that! Keep things readable whatever the selection background color is
 //   cg.setColor(TQColorGroup::HighlightedText, static_cast<KonqTextViewWidget *>(listView())->highlight[type]);
-//   cg.setColor(TQColorGroup::Highlight, Qt::darkGray);
+//   cg.setColor(TQColorGroup::Highlight, TQt::darkGray);
 
    TDEListViewItem::paintCell( _painter, cg, _column, _width, _alignment );
 }
@@ -223,7 +223,7 @@ void KonqTextViewItem::paintCell( TQPainter *_painter, const TQColorGroup & _cg,
    TQPixmap pix( _r.width(), _r.height() );
    bitBlt( &pix, 0, 0, _p->device(), _r.left(), _r.top(), _r.width(), _r.height() );
    TQImage im = pix.convertToImage();
-   im = KImageEffect::fade( im, 0.25, Qt::black );
+   im = KImageEffect::fade( im, 0.25, TQt::black );
    _p->drawImage( _r.topLeft(), im );
 }*/
 

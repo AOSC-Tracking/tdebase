@@ -122,7 +122,7 @@ AppTreeView::~AppTreeView()
 
 void AppTreeView::fill()
 {
-    TQApplication::setOverrideCursor(Qt::WaitCursor);
+    TQApplication::setOverrideCursor(TQt::WaitCursor);
     clear();
     fillBranch(TQString::null, 0);
     TQApplication::restoreOverrideCursor();

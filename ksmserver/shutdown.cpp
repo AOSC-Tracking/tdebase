@@ -289,7 +289,7 @@ void KSMServer::shutdownInternal( TDEApplication::ShutdownConfirm confirm,
         // Set the real desktop background to black so that exit looks
         // clean regardless of what was on "our" desktop.
         if (!showLogoutStatusDlg) {
-            TQT_TQWIDGET(kapp->desktop())->setBackgroundColor( Qt::black );
+            TQT_TQWIDGET(kapp->desktop())->setBackgroundColor( TQt::black );
         }
         state = Shutdown;
         wmPhase1WaitingCount = 0;

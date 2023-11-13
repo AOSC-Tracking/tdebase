@@ -45,7 +45,7 @@ KJavaScriptOptions::KJavaScriptOptions( TDEConfig* config, TQString group, TQWid
   TQVBoxLayout* toplevel = new TQVBoxLayout( this, 10, 5 );
 
   // the global checkbox
-  TQGroupBox* globalGB = new TQGroupBox( 2, Qt::Vertical, i18n( "Global Settings" ), this );
+  TQGroupBox* globalGB = new TQGroupBox( 2, TQt::Vertical, i18n( "Global Settings" ), this );
   toplevel->addWidget( globalGB );
 
   enableJavaScriptGloballyCB = new TQCheckBox( i18n( "Ena&ble JavaScript globally" ), globalGB );

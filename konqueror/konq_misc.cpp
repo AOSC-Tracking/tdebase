@@ -225,8 +225,8 @@ KonqDraggableLabel::KonqDraggableLabel( KonqMainWindow* mw, const TQString& text
   , m_mw(mw)
 {
   setBackgroundMode( TQt::PaletteButton );
-  setAlignment( (TQApplication::reverseLayout() ? Qt::AlignRight : Qt::AlignLeft) |
-                 Qt::AlignVCenter | TQt::ShowPrefix );
+  setAlignment( (TQApplication::reverseLayout() ? TQt::AlignRight : TQt::AlignLeft) |
+                 TQt::AlignVCenter | TQt::ShowPrefix );
   setAcceptDrops(true);
   adjustSize();
   validDrag = false;

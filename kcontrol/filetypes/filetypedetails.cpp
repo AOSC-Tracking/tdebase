@@ -76,7 +76,7 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
   gb = new TQGroupBox(i18n("Description"), firstWidget);
   firstLayout->addWidget(gb);
 
-  gb->setColumnLayout(1, Qt::Horizontal);
+  gb->setColumnLayout(1, TQt::Horizontal);
   description = new KLineEdit(gb);
   connect(description, TQT_SIGNAL(textChanged(const TQString &)),
           TQT_SLOT(updateDescription(const TQString &)));

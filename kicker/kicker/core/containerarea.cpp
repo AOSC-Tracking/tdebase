@@ -153,7 +153,7 @@ void ContainerArea::defaultContainerConfig()
     containers.append(new KMenuButtonContainer(m_opMenu, m_contents));
 
     int dsize;
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         dsize = width();
     }
@@ -850,7 +850,7 @@ void ContainerArea::resizeContents()
     int w = width();
     int h = height();
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         int newWidth = m_layout->widthForHeight(h);
         if (newWidth > w)
@@ -962,7 +962,7 @@ void ContainerArea::mouseMoveEvent(TQMouseEvent *ev)
         return;
     }
 
-    if (ev->state() == Qt::LeftButton && !rect().contains(ev->pos()))
+    if (ev->state() == TQt::LeftButton && !rect().contains(ev->pos()))
     {
         // leaveEvent() doesn't work, while grabbing the mouse
         _autoScrollTimer.stop();
@@ -986,7 +986,7 @@ void ContainerArea::mouseMoveEvent(TQMouseEvent *ev)
         return;
     }
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         int oldX = _moveAC->x() + _moveAC->moveOffset().x();
         int x = ev->pos().x() + contentsX();
@@ -1082,7 +1082,7 @@ void ContainerArea::dragEnterEvent(TQDragEnterEvent *ev)
         preferedHeight = draggedContainer->heightForWidth(width());
     }
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         _dragIndicator->setPreferredSize(TQSize(preferedWidth, height()));
     }
@@ -1103,9 +1103,9 @@ void ContainerArea::dragEnterEvent(TQDragEnterEvent *ev)
             --it;
             BaseContainer* a = *it;
 
-            if ((orientation() == Qt::Horizontal &&
+            if ((orientation() == TQt::Horizontal &&
                  a->x() < (ev->pos().x() + contentsX()) - _dragMoveOffset.x()) ||
-                (orientation() == Qt::Vertical &&
+                (orientation() == TQt::Vertical &&
                  a->y() < (ev->pos().y() + contentsY()) - _dragMoveOffset.y()))
             {
                 _dragMoveAC = a;
@@ -1114,7 +1114,7 @@ void ContainerArea::dragEnterEvent(TQDragEnterEvent *ev)
         } while (it != m_containers.begin());
     }
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         moveDragIndicator(ev->pos().x() + contentsX() - _dragMoveOffset.x());
     }
@@ -1143,7 +1143,7 @@ void ContainerArea::dragMoveEvent(TQDragMoveEvent* ev)
         startContainerMove(_moveAC);
 
         // Align the container to the mouse position.
-        if (orientation() == Qt::Horizontal)
+        if (orientation() == TQt::Horizontal)
         {
             m_layout->moveContainerSwitch(_moveAC, ev->pos().x() + contentsX() - _moveAC->x());
         }
@@ -1159,7 +1159,7 @@ void ContainerArea::dragMoveEvent(TQDragMoveEvent* ev)
         return;
     }
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         moveDragIndicator(ev->pos().x() + contentsX() - _dragMoveOffset.x());
     }
@@ -1209,13 +1209,13 @@ void ContainerArea::dropEvent(TQDropEvent *ev)
         if (parent)
         {
             // Move container a
-            if (orientation() == Qt::Horizontal)
+            if (orientation() == TQt::Horizontal)
             {
                 int oldX = a->x();
                 int x = _dragIndicator->x();
                 m_layout->moveContainerSwitch(a, x - oldX);
             }
-            else if (orientation() == Qt::Vertical)
+            else if (orientation() == TQt::Vertical)
             {
                 int oldY = a->y();
                 int y = _dragIndicator->y();
@@ -1408,7 +1408,7 @@ void ContainerArea::resizeEvent(TQResizeEvent *ev)
 void ContainerArea::viewportResizeEvent(TQResizeEvent* ev)
 {
     Panner::viewportResizeEvent(ev);
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         m_contents->resize(kMax(widthForHeight(ev->size().height()),
                                 ev->size().width()),
@@ -1487,7 +1487,7 @@ void ContainerArea::setBackground()
         {
             TQImage bgImage = srcImage;
 
-            if (orientation() == Qt::Vertical)
+            if (orientation() == TQt::Vertical)
             {
                 if (KickerSettings::rotateBackground())
                 {
@@ -1565,7 +1565,7 @@ TQRect ContainerArea::availableSpaceFollowing(BaseContainer* a)
         }
     }
 
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         if (a)
         {
@@ -1599,7 +1599,7 @@ void ContainerArea::moveDragIndicator(int pos)
 
     // Move _dragIndicator to position pos, restricted by availableSpace.
     // Resize _dragIndicator if necessary.
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         if (availableSpace.size().width() <
             _dragIndicator->preferredSize().width())
@@ -1680,9 +1680,9 @@ void ContainerArea::setPosition(KPanelExtension::Position p)
     }
 
     _pos = p;
-    Qt::Orientation o = (p == KPanelExtension::Top ||
+    TQt::Orientation o = (p == KPanelExtension::Top ||
                          p == KPanelExtension::Bottom) ?
-                        Qt::Horizontal : Qt::Vertical;
+                        TQt::Horizontal : TQt::Vertical;
     bool orientationChanged = (orientation() != o);
     m_layout->setEnabled(false);
 
@@ -1696,7 +1696,7 @@ void ContainerArea::setPosition(KPanelExtension::Position p)
         // when that gets called AFTER we've been moved
         // it's not always safe to do the resize here, as scroll buttons
         // from the panner may get in our way. =/
-        if (o == Qt::Horizontal)
+        if (o == TQt::Horizontal)
         {
             resizeContents(0, height());
         }
@@ -1742,7 +1742,7 @@ void ContainerArea::autoScroll()
 {
     if(!_moveAC) return;
 
-    if(orientation() == Qt::Horizontal) {
+    if(orientation() == TQt::Horizontal) {
         if(_moveAC->pos().x() <= 80)
             scrollBy(-10, 0);
         else if(_moveAC->pos().x() >= width() - _moveAC->width() - 80)

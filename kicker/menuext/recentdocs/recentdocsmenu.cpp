@@ -111,7 +111,7 @@ void RecentDocsMenu::mousePressEvent(TQMouseEvent* e) {
 void RecentDocsMenu::mouseMoveEvent(TQMouseEvent* e) {
 	KPanelMenu::mouseMoveEvent(e);
 
-	if (!(e->state() & Qt::LeftButton))
+	if (!(e->state() & TQt::LeftButton))
 		return;
 
 	if (!rect().contains(_mouseDown))

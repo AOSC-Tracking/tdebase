@@ -88,7 +88,7 @@ int main( int argc, char **argv )
   TDEConfig conf( "kasbarrc" );
 
   if ( args->isSet("test") ) {
-      kasbar = new KasBar( Qt::Vertical, 0, "testkas", (TQt::WFlags)wflags );
+      kasbar = new KasBar( TQt::Vertical, 0, "testkas", (TQt::WFlags)wflags );
       kasbar->setItemSize( KasBar::Large );
       kasbar->append( new KasClockItem(kasbar) );
       kasbar->append( new KasItem(kasbar) );
@@ -97,7 +97,7 @@ int main( int argc, char **argv )
       kasbar->addTestItems();
   }
   else {
-      KasTasker *kastasker = new KasTasker( Qt::Vertical, 0, "testkas", (TQt::WFlags)wflags );
+      KasTasker *kastasker = new KasTasker( TQt::Vertical, 0, "testkas", (TQt::WFlags)wflags );
       kastasker->setConfig( &conf );
       kastasker->setStandAlone( true );
       kasbar = kastasker;

@@ -64,9 +64,9 @@ SensorDisplay::SensorDisplay( TQWidget *parent, const char *name,
   TQWhatsThis::add( this, "dummy" );
   
   if(!nf) {
-    mFrame = new TQGroupBox( 2, Qt::Vertical, "", this, "displayFrame");
+    mFrame = new TQGroupBox( 2, TQt::Vertical, "", this, "displayFrame");
     mFrame->setFlat(true);
-    mFrame->setAlignment(Qt::AlignHCenter);
+    mFrame->setAlignment(TQt::AlignHCenter);
     mFrame->setInsideMargin(2);
 
     setTitle( title );
@@ -156,7 +156,7 @@ void SensorDisplay::resizeEvent( TQResizeEvent* )
 bool SensorDisplay::eventFilter( TQObject *object, TQEvent *event )
 {
   if ( event->type() == TQEvent::MouseButtonPress &&
-     ( (TQMouseEvent*)event)->button() == Qt::RightButton ) {
+     ( (TQMouseEvent*)event)->button() == TQt::RightButton ) {
     TQPopupMenu pm;
     if ( mIsApplet ) {
       pm.insertItem( i18n( "Launch &System Guard"), 1 );
@@ -200,7 +200,7 @@ bool SensorDisplay::eventFilter( TQObject *object, TQEvent *event )
 
     return true;
   } else if ( event->type() == TQEvent::MouseButtonRelease &&
-            ( ( TQMouseEvent*)event)->button() == Qt::LeftButton ) {
+            ( ( TQMouseEvent*)event)->button() == TQt::LeftButton ) {
     setFocus();
   }
 

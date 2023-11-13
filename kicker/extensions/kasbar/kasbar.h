@@ -84,8 +84,8 @@ class KDE_EXPORT KasBar : public TQWidget
 
    friend class KasItem;
 public:
-   KasBar( Qt::Orientation o, TQWidget *parent=0, const char *name=0, WFlags f=0 );
-   KasBar( Qt::Orientation o, KasBar *master, 
+   KasBar( TQt::Orientation o, TQWidget *parent=0, const char *name=0, WFlags f=0 );
+   KasBar( TQt::Orientation o, KasBar *master, 
 	   TQWidget* parent=0, const char* name=0, WFlags f=0 );
 
    virtual ~KasBar();
@@ -99,7 +99,7 @@ public:
    KasBar *master() const { return master_; }
 
    /** Creates a child bar of the kasbar. The child will inherit the appearance options. */
-   virtual KasBar *createChildBar( Qt::Orientation o, TQWidget *parent, const char *name=0 );
+   virtual KasBar *createChildBar( TQt::Orientation o, TQWidget *parent, const char *name=0 );
 
    /** Factory method that returns the singleton resources object. */
    virtual KasResources *resources();
@@ -136,8 +136,8 @@ public:
    int maxBoxes() const { return maxBoxes_; }
    uint boxesPerLine() const { return boxesPerLine_; }
 
-   void setOrientation( Qt::Orientation o );
-   Qt::Orientation orientation() const { return orient; }
+   void setOrientation( TQt::Orientation o );
+   TQt::Orientation orientation() const { return orient; }
 
    void setDirection( Direction dir );
    Direction direction() const { return direction_; }
@@ -147,7 +147,7 @@ public:
 
    bool isDrag() const { return inDrag; }
 
-   TQSize sizeHint( Qt::Orientation,  TQSize max );
+   TQSize sizeHint( TQt::Orientation,  TQSize max );
 
    //
    // Look and feel options
@@ -282,7 +282,7 @@ private:
    TQPixmap offscreen;
    KasBar *master_;
    KasItemList items;
-   Qt::Orientation orient;
+   TQt::Orientation orient;
    Direction direction_;
    KasItem *itemUnderMouse_;
    uint boxesPerLine_;

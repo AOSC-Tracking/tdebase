@@ -84,7 +84,7 @@ void KDateCombo::dateEnteredEvent(TQDate newDate)
 
 void KDateCombo::mousePressEvent (TQMouseEvent * e)
 {
-  if (e->button() & Qt::LeftButton)
+  if (e->button() & TQt::LeftButton)
   {
     if  (rect().contains( e->pos()))
     {
@@ -113,12 +113,12 @@ bool KDateCombo::eventFilter (TQObject*, TQEvent* e)
   {
       TQKeyEvent *k = (TQKeyEvent *)e;
       //Press return == pick selected date and close the combo
-      if((k->key()==Qt::Key_Return)||(k->key()==Qt::Key_Enter))
+      if((k->key()==TQt::Key_Return)||(k->key()==TQt::Key_Enter))
       {
         dateEnteredEvent(datePicker->date());
         return true;
       }
-      else if (k->key()==Qt::Key_Escape)
+      else if (k->key()==TQt::Key_Escape)
       {
         popupFrame->hide();
         return true;

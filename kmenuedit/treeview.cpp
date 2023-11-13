@@ -310,7 +310,7 @@ void TreeView::readMenuFolderInfo(MenuFolderInfo *folderInfo, KServiceGroup::Ptr
 
 void TreeView::fill()
 {
-    TQApplication::setOverrideCursor(Qt::WaitCursor);
+    TQApplication::setOverrideCursor(TQt::WaitCursor);
     clear();
     fillBranch(m_rootFolder, 0);
     TQApplication::restoreOverrideCursor();

@@ -156,12 +156,12 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	// Add Page1 (Style)
 	// -----------------
 	gbWidgetStyle = new TQGroupBox( i18n("Widget Style"), page1, "gbWidgetStyle" );
-	gbWidgetStyle->setColumnLayout( 0, Qt::Vertical );
+	gbWidgetStyle->setColumnLayout( 0, TQt::Vertical );
 	gbWidgetStyle->layout()->setMargin( KDialog::marginHint() );
 	gbWidgetStyle->layout()->setSpacing( KDialog::spacingHint() );
 
 	gbWidgetStyleLayout = new TQVBoxLayout( gbWidgetStyle->layout() );
-	gbWidgetStyleLayout->setAlignment( Qt::AlignTop );
+	gbWidgetStyleLayout->setAlignment( TQt::AlignTop );
 	hbLayout = new TQHBoxLayout( KDialog::spacingHint(), "hbLayout" );
 
 	cbStyle = new KComboBox( gbWidgetStyle, "cbStyle" );
@@ -205,7 +205,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	gbWidgetStyleLayout->addSpacing(10);
 
 	TQGroupBox *gbPreview = new TQGroupBox( i18n( "Preview" ), page1 );
-	gbPreview->setColumnLayout( 0, Qt::Vertical );
+	gbPreview->setColumnLayout( 0, TQt::Vertical );
 	gbPreview->layout()->setMargin( 0 );
 	gbPreview->layout()->setSpacing( KDialog::spacingHint() );
 	gbPreview->setFlat( true );
@@ -304,7 +304,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	sliderBox = new TQVBox( menuContainer );
 	sliderBox->setSpacing( KDialog::spacingHint() );
 	sliderBox->setMargin( 0 );
-	slOpacity = new TQSlider( 0, 100, 5, /*opacity*/ 90, Qt::Horizontal, sliderBox );
+	slOpacity = new TQSlider( 0, 100, 5, /*opacity*/ 90, TQt::Horizontal, sliderBox );
 	slOpacity->setTickmarks( TQSlider::Below );
 	slOpacity->setTickInterval( 10 );
 	TQHBox* box1 = new TQHBox( sliderBox );
@@ -813,7 +813,7 @@ void KCMStyle::loadStyle( TDEConfig& config )
 	// they use QPopupMenus for the drop-down list!
 
 	// ##### Since Trolltech likes to seemingly copy & paste code,
-	// TQStringList::findItem() doesn't have a Qt::StringComparisonMode field.
+	// TQStringList::findItem() doesn't have a TQt::StringComparisonMode field.
 	// We roll our own (yuck)
 	cfgStyle = cfgStyle.lower();
 	int item = 0;

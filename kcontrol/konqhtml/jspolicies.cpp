@@ -132,11 +132,11 @@ JSPoliciesFrame::JSPoliciesFrame(JSPolicies *policies, const TQString &title,
 
   bool is_per_domain = !policies->isGlobal();
 
-  setColumnLayout(0, Qt::Vertical);
+  setColumnLayout(0, TQt::Vertical);
   layout()->setSpacing(0);
   layout()->setMargin(0);
   TQGridLayout *this_layout = new TQGridLayout(layout(),5,10+is_per_domain*2);
-  this_layout->setAlignment(Qt::AlignTop);
+  this_layout->setAlignment(TQt::AlignTop);
   this_layout->setSpacing(3);
   this_layout->setMargin(11);
 

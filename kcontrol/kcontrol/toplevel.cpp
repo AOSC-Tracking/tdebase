@@ -86,7 +86,7 @@ TopLevel::TopLevel(const char* name)
   }
 
   // create the layout box
-  _splitter = new TQSplitter( Qt::Horizontal, this );
+  _splitter = new TQSplitter( TQt::Horizontal, this );
 
   TQFrame* leftFrame = new TQFrame ( _splitter );
   TQBoxLayout *leftFrameLayout = new TQVBoxLayout( leftFrame );

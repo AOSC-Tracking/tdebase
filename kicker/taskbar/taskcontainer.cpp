@@ -666,7 +666,7 @@ void TaskContainer::drawButton(TQPainter *p)
             for (int i = 0; i < 2; ++i)
             {
                 line = KickerLib::blendColors(line, colors.background());
-                p->setPen(TQPen(line, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+                p->setPen(TQPen(line, 1, TQt::SolidLine, TQt::RoundCap, TQt::RoundJoin));
                 r.addCoords(-1, -1, 1, 1);
                 p->drawRect(r);
             }
@@ -894,10 +894,10 @@ void TaskContainer::drawButton(TQPainter *p)
 
         switch (arrowType)
         {
-            case Qt::LeftArrow:  e = TQStyle::PE_ArrowLeft;  break;
-            case Qt::RightArrow: e = TQStyle::PE_ArrowRight; break;
-            case Qt::UpArrow:    e = TQStyle::PE_ArrowUp;    break;
-            case Qt::DownArrow:  e = TQStyle::PE_ArrowDown;  break;
+            case TQt::LeftArrow:  e = TQStyle::PE_ArrowLeft;  break;
+            case TQt::RightArrow: e = TQStyle::PE_ArrowRight; break;
+            case TQt::UpArrow:    e = TQStyle::PE_ArrowUp;    break;
+            case TQt::DownArrow:  e = TQStyle::PE_ArrowDown;  break;
         }
 
         int flags = TQStyle::Style_Enabled;
@@ -1015,7 +1015,7 @@ void TaskContainer::mousePressEvent( TQMouseEvent* e )
         return;
     }
 
-    if (e->button() == Qt::LeftButton)
+    if (e->button() == TQt::LeftButton)
     {
         m_dragStartPos = e->pos();
     }
@@ -1030,13 +1030,13 @@ void TaskContainer::mousePressEvent( TQMouseEvent* e )
     // Other actions will be handled in mouseReleaseEvent
     switch (e->button())
     {
-        case Qt::LeftButton:
+        case TQt::LeftButton:
             buttonAction = READ_MERGED_TASKBAR_ACTION(m_settingsObject->LeftButton);
             break;
-        case Qt::MidButton:
+        case TQt::MidButton:
             buttonAction = READ_MERGED_TASKBAR_ACTION(m_settingsObject->MiddleButton);
             break;
-        case Qt::RightButton:
+        case TQt::RightButton:
         default:
             buttonAction = READ_MERGED_TASKBAR_ACTION(m_settingsObject->RightButton);
             break;
@@ -1071,13 +1071,13 @@ void TaskContainer::mouseReleaseEvent(TQMouseEvent *e)
 
     switch (e->button())
     {
-        case Qt::LeftButton:
+        case TQt::LeftButton:
             buttonAction = READ_MERGED_TASKBAR_ACTION(m_settingsObject->LeftButton);
             break;
-        case Qt::MidButton:
+        case TQt::MidButton:
             buttonAction = READ_MERGED_TASKBAR_ACTION(m_settingsObject->MiddleButton);
             break;
-        case Qt::RightButton:
+        case TQt::RightButton:
         default:
             buttonAction = READ_MERGED_TASKBAR_ACTION(m_settingsObject->RightButton);
             break;
@@ -1406,7 +1406,7 @@ bool TaskContainer::eventFilter(TQObject *o, TQEvent *e)
             if ( TQApplication::widgetAt( p, true ) == this )
             {
                 if (me->type() == TQEvent::MouseButtonPress &&
-                    me->button() == Qt::LeftButton)
+                    me->button() == TQt::LeftButton)
                 {
                     m_dragStartPos = mapFromGlobal(p);
                 }
@@ -1427,7 +1427,7 @@ bool TaskContainer::eventFilter(TQObject *o, TQEvent *e)
                 TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
                 TQPoint p(me->globalPos());
 
-                if (me->state() & Qt::LeftButton &&
+                if (me->state() & TQt::LeftButton &&
                     TQApplication::widgetAt(p, true) == this)
                 {
                     kdDebug() << "event move" << endl;

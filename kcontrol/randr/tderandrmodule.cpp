@@ -121,7 +121,7 @@ KRandRModule::KRandRModule(TQWidget *parent, const char *name, const TQStringLis
 	connect(m_refreshRates, TQT_SIGNAL(activated(int)), TQT_SLOT(slotRefreshChanged(int)));
         rateLabel->setBuddy( m_refreshRates );
 
-	m_rotationGroup = new TQButtonGroup(2, Qt::Horizontal, i18n("Orientation (degrees counterclockwise)"), this);
+	m_rotationGroup = new TQButtonGroup(2, TQt::Horizontal, i18n("Orientation (degrees counterclockwise)"), this);
 	topLayout->addWidget(m_rotationGroup);
 	m_rotationGroup->setRadioButtonExclusive(true);
 	TQWhatsThis::add(m_rotationGroup, i18n("The options in this section allow you to change the rotation of your screen."));

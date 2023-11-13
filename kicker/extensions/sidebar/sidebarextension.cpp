@@ -73,7 +73,7 @@ SidebarExtension::SidebarExtension( const TQString& configFile,
     m_resizeHandle->setFrameShape(TQFrame::Panel);
     m_resizeHandle->setFrameShadow(TQFrame::Raised);
     m_resizeHandle->setFixedWidth(6);
-    m_resizeHandle->setCursor(TQCursor(Qt::SizeHorCursor));
+    m_resizeHandle->setCursor(TQCursor(TQt::SizeHorCursor));
     connect(p->widget(),TQT_SIGNAL(panelHasBeenExpanded(bool)),this,TQT_SLOT(needLayoutUpdate(bool)));
     needLayoutUpdate(false);
     m_resizeHandle->installEventFilter(this);

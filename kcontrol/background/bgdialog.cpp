@@ -443,7 +443,7 @@ void BGDialog::slotIdentifyScreens()
       screenLabel->setFrameStyle(TQFrame::Panel);
       screenLabel->setFrameShadow(TQFrame::Plain);
 
-      screenLabel->setAlignment(Qt::AlignCenter);
+      screenLabel->setAlignment(TQt::AlignCenter);
       screenLabel->setNum(int(s + 1));
         // BUGLET: we should not allow the identification to be entered again
         //         until the timer fires.

@@ -967,17 +967,17 @@ void TEmuVt102::doKeyPress( TQKeyEvent* ev )
   {
     switch(ev->key())
     {
-    case Qt::Key_Down : gui->doScroll(+1); return;
-    case Qt::Key_Up : gui->doScroll(-1); return;
-    case Qt::Key_PageUp : gui->doScroll(-gui->Lines()/2); return;
-    case Qt::Key_PageDown : gui->doScroll(gui->Lines()/2); return;
+    case TQt::Key_Down : gui->doScroll(+1); return;
+    case TQt::Key_Up : gui->doScroll(-1); return;
+    case TQt::Key_PageUp : gui->doScroll(-gui->Lines()/2); return;
+    case TQt::Key_PageDown : gui->doScroll(gui->Lines()/2); return;
     }
   }
   
   // revert to non-history when typing
   if (scr->getHistCursor() != scr->getHistLines() && (!ev->text().isEmpty()
-    || ev->key()==Qt::Key_Down || ev->key()==Qt::Key_Up || ev->key()==Qt::Key_Left || ev->key()==Qt::Key_Right
-    || ev->key()==Qt::Key_PageUp || ev->key()==Qt::Key_PageDown))
+    || ev->key()==TQt::Key_Down || ev->key()==TQt::Key_Up || ev->key()==TQt::Key_Left || ev->key()==TQt::Key_Right
+    || ev->key()==TQt::Key_PageUp || ev->key()==TQt::Key_PageDown))
     scr->setHistCursor(scr->getHistLines());
 
   if (cmd==CMD_send)
@@ -1231,7 +1231,7 @@ char TEmuVt102::getErase()
   int len;
   bool metaspecified;
   
-  if (keytrans->findEntry(Qt::Key_Backspace, 0, &cmd, &txt, &len,
+  if (keytrans->findEntry(TQt::Key_Backspace, 0, &cmd, &txt, &len,
       &metaspecified) && (cmd==CMD_send) && (len == 1))
     return txt[0];
     

@@ -48,7 +48,7 @@ private:
 
 void JobTray::mousePressEvent(TQMouseEvent *e)
 {
-	if (e->button() == Qt::RightButton)
+	if (e->button() == TQt::RightButton)
 		KSystemTray::mousePressEvent(e);
 	else if (m_app->m_views.count() > 0)
 	{

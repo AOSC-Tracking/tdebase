@@ -85,7 +85,7 @@ int Zone::calc_TZ_offset(const TQString& zone, bool /* reset */)
 
   if (z)
   {
-    return -z->offset(Qt::LocalTime);
+    return -z->offset(TQt::LocalTime);
   }
 
   return 0;

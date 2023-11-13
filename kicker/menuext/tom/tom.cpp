@@ -105,7 +105,7 @@ class runMenuWidget : public TQWidget, public QMenuItem
             l1->setPixmap(foo);
             runLayout->addWidget(l1);*/
             /*TQLabel* l2 = new TQLabel(i18n("&Run: "), this);
-            l2->setBackgroundMode(Qt::X11ParentRelative, Qt::X11ParentRelative);
+            l2->setBackgroundMode(TQt::X11ParentRelative, TQt::X11ParentRelative);
             l2->setBuddy(this);
             runLayout->addWidget(l2);*/
             m_runEdit = new KHistoryCombo(this);
@@ -116,21 +116,21 @@ class runMenuWidget : public TQWidget, public QMenuItem
             TQSettings settings;
             if (settings.readEntry("/TDEStyle/Settings/MenuTransparencyEngine", "Disabled") != "Disabled")
             {
-                setBackgroundMode(Qt::X11ParentRelative, Qt::X11ParentRelative);
-                //l1->setBackgroundMode(Qt::X11ParentRelative, Qt::X11ParentRelative);
-                //l2->setBackgroundMode(Qt::X11ParentRelative, Qt::X11ParentRelative);
-                m_runEdit->setBackgroundMode(Qt::X11ParentRelative, Qt::X11ParentRelative);
+                setBackgroundMode(TQt::X11ParentRelative, TQt::X11ParentRelative);
+                //l1->setBackgroundMode(TQt::X11ParentRelative, TQt::X11ParentRelative);
+                //l2->setBackgroundMode(TQt::X11ParentRelative, TQt::X11ParentRelative);
+                m_runEdit->setBackgroundMode(TQt::X11ParentRelative, TQt::X11ParentRelative);
             }
             else
             {
-                /*setBackgroundMode(Qt::NoBackground, Qt::NoBackground);
-                l1->setBackgroundMode(Qt::NoBackground, Qt::NoBackground);
-                l2->setBackgroundMode(Qt::NoBackground, Qt::NoBackground);
-                m_runEdit->setBackgroundMode(Qt::NoBackground, Qt::NoBackground);*/
+                /*setBackgroundMode(TQt::NoBackground, TQt::NoBackground);
+                l1->setBackgroundMode(TQt::NoBackground, TQt::NoBackground);
+                l2->setBackgroundMode(TQt::NoBackground, TQt::NoBackground);
+                m_runEdit->setBackgroundMode(TQt::NoBackground, TQt::NoBackground);*/
                 //l1->setAutoMask(true);
-                //l1->setBackgroundMode(Qt::NoBackground, Qt::NoBackground);
-                //l2->setBackgroundMode(Qt::X11ParentRelative, Qt::X11ParentRelative);
-                //m_runEdit->setBackgroundMode(Qt::X11ParentRelative, Qt::X11ParentRelative);
+                //l1->setBackgroundMode(TQt::NoBackground, TQt::NoBackground);
+                //l2->setBackgroundMode(TQt::X11ParentRelative, TQt::X11ParentRelative);
+                //m_runEdit->setBackgroundMode(TQt::X11ParentRelative, TQt::X11ParentRelative);
             }
 
             setMinimumHeight(TDEIcon::SizeMedium + 2);

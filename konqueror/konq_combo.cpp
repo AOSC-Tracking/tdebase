@@ -95,7 +95,7 @@ KonqCombo::KonqCombo( TQWidget *parent, const char *name )
           : KHistoryCombo( parent, name ),
             m_returnPressed( false ), 
             m_permanent( false ),
-            m_modifier( Qt::NoButton ),
+            m_modifier( TQt::NoButton ),
 	    m_pageSecurity( KonqMainWindow::NotCrypted )
 {
     setInsertionPolicy( NoInsertion );
@@ -537,7 +537,7 @@ void KonqCombo::mousePressEvent( TQMouseEvent *e )
 {
     m_dragStart = TQPoint(); // null QPoint
 
-    if ( e->button() == Qt::LeftButton && pixmap( currentItem()) ) {
+    if ( e->button() == TQt::LeftButton && pixmap( currentItem()) ) {
         // check if the pixmap was clicked
         int x = e->pos().x();
         int x0 = TQStyle::visualRect( style().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxEditField ), this ).x();
@@ -548,7 +548,7 @@ void KonqCombo::mousePressEvent( TQMouseEvent *e )
         }
     }
 
-    if ( e->button() == Qt::LeftButton && m_pageSecurity!=KonqMainWindow::NotCrypted ) {
+    if ( e->button() == TQt::LeftButton && m_pageSecurity!=KonqMainWindow::NotCrypted ) {
         // check if the lock icon was clicked
         int x = e->pos().x();
         int x0 = TQStyle::visualRect( style().querySubControlMetrics( TQStyle::CC_ComboBox, this, TQStyle::SC_ComboBoxArrow ), this ).x();
@@ -566,7 +566,7 @@ void KonqCombo::mouseMoveEvent( TQMouseEvent *e )
     if ( m_dragStart.isNull() || currentText().isEmpty() )
         return;
 
-    if ( e->state() & Qt::LeftButton &&
+    if ( e->state() & TQt::LeftButton &&
          (e->pos() - m_dragStart).manhattanLength() >
          TDEGlobalSettings::dndEventDelay() )
     {
@@ -591,7 +591,7 @@ void KonqCombo::slotActivated( const TQString& text )
     applyPermanent();
     m_returnPressed = true;
     emit activated( text, m_modifier );
-    m_modifier = Qt::NoButton;
+    m_modifier = TQt::NoButton;
 }
 
 void KonqCombo::setConfig( TDEConfig *kc )
@@ -731,7 +731,7 @@ void KonqComboListBoxPixmap::paint( TQPainter *painter )
     if ( !text().isEmpty() ) {
         TQString squeezedText = KStringHandler::rPixelSqueeze( text(), listBox()->fontMetrics(), urlWidth );
         painter->drawText( pmWidth, 0, urlWidth + pmWidth, itemHeight, 
-                           Qt::AlignLeft | Qt::AlignTop, squeezedText );
+                           TQt::AlignLeft | TQt::AlignTop, squeezedText );
 
         //painter->setPen( TDEGlobalSettings::inactiveTextColor() );
         squeezedText = KStringHandler::rPixelSqueeze( title, listBox()->fontMetrics(), titleWidth );
@@ -739,7 +739,7 @@ void KonqComboListBoxPixmap::paint( TQPainter *painter )
         font.setItalic( true );
         painter->setFont( font );
         painter->drawText( entryWidth - titleWidth, 0, titleWidth,
-                           itemHeight, Qt::AlignLeft | Qt::AlignTop, squeezedText );
+                           itemHeight, TQt::AlignLeft | TQt::AlignTop, squeezedText );
     }
 }
 

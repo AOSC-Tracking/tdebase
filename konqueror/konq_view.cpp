@@ -1302,7 +1302,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
         else if ( e->type() == TQEvent::MouseButtonPress )
         {
             TQMouseEvent *ev = TQT_TQMOUSEEVENT( e );
-            if ( ev->button() == Qt::RightButton )
+            if ( ev->button() == TQt::RightButton )
             {
                 return true;
             }
@@ -1310,7 +1310,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
         else if ( e->type() == TQEvent::MouseButtonRelease )
         {
             TQMouseEvent *ev = TQT_TQMOUSEEVENT( e );
-            if ( ev->button() == Qt::RightButton )
+            if ( ev->button() == TQt::RightButton )
             {
                 emit backRightClick();
                 return true;
@@ -1319,7 +1319,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
         else if ( e->type() == TQEvent::MouseMove )
         {
             TQMouseEvent *ev = TQT_TQMOUSEEVENT( e );
-            if ( ev->state() == Qt::RightButton )
+            if ( ev->state() == TQt::RightButton )
             {
                 obj->removeEventFilter( this );
                 TQMouseEvent me( TQEvent::MouseButtonPress, ev->pos(), 2, 2 );

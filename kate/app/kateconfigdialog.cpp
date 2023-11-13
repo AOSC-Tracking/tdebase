@@ -102,7 +102,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   config->setGroup("General");
 
   // GROUP with the one below: "Appearance"
-  TQButtonGroup *bgStartup = new TQButtonGroup( 1, Qt::Horizontal, i18n("&Appearance"), frGeneral );
+  TQButtonGroup *bgStartup = new TQButtonGroup( 1, TQt::Horizontal, i18n("&Appearance"), frGeneral );
   lo->addWidget( bgStartup );
 
   // show full path in title
@@ -127,7 +127,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   connect( cb_sortFiles, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
 
   // GROUP with the one below: "Behavior"
-  bgStartup = new TQButtonGroup( 1, Qt::Horizontal, i18n("&Behavior"), frGeneral );
+  bgStartup = new TQButtonGroup( 1, TQt::Horizontal, i18n("&Behavior"), frGeneral );
   lo->addWidget( bgStartup );
 
   // number of recent files
@@ -176,7 +176,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
            this, TQT_SLOT( slotChanged() ) );
 
   // GROUP with the one below: "Meta-informations"
-  bgStartup = new TQButtonGroup( 2, Qt::Horizontal, i18n("Meta-Information"), frGeneral );
+  bgStartup = new TQButtonGroup( 2, TQt::Horizontal, i18n("Meta-Information"), frGeneral );
   lo->addWidget( bgStartup );
 
   // save meta infos
@@ -214,7 +214,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   lo->setSpacing(KDialog::spacingHint());
 
   // GROUP with the one below: "Startup"
-  bgStartup = new TQButtonGroup( 1, Qt::Horizontal, i18n("Elements of Sessions"), frSessions );
+  bgStartup = new TQButtonGroup( 1, TQt::Horizontal, i18n("Elements of Sessions"), frSessions );
   lo->addWidget( bgStartup );
 
   // restore view  config
@@ -228,7 +228,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
 
   TQRadioButton *rb1, *rb2, *rb3;
 
-  sessions_start = new TQButtonGroup( 1, Qt::Horizontal, i18n("Behavior on Application Startup"), frSessions );
+  sessions_start = new TQButtonGroup( 1, TQt::Horizontal, i18n("Behavior on Application Startup"), frSessions );
   lo->add (sessions_start);
 
   sessions_start->setRadioButtonExclusive( true );
@@ -249,7 +249,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   connect(rb2, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
   connect(rb3, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
 
-  sessions_exit = new TQButtonGroup( 1, Qt::Horizontal, i18n("Behavior on Application Exit or Session Switch"), frSessions );
+  sessions_exit = new TQButtonGroup( 1, TQt::Horizontal, i18n("Behavior on Application Exit or Session Switch"), frSessions );
   lo->add (sessions_exit);
 
   sessions_exit->setRadioButtonExclusive( true );

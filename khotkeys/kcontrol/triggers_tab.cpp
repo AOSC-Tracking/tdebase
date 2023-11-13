@@ -227,7 +227,7 @@ Shortcut_trigger_widget::Shortcut_trigger_widget( TQWidget* parent_P, const char
     lay->addWidget( lbl );
     lay->addSpacing( 10 );
     bt = new KKeyButton( this );
-    lay->addWidget( bt, 0 , Qt::AlignHCenter );
+    lay->addWidget( bt, 0 , TQt::AlignHCenter );
     lay->addStretch();
     clear_data();
     connect( bt, TQT_SIGNAL( capturedShortcut( const TDEShortcut& )),

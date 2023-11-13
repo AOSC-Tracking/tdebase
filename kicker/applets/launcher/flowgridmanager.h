@@ -26,7 +26,7 @@ public:
                                      TQSize p_space_size=TQSize(0,0),
                                      TQSize p_border_size=TQSize(0,0),
                                      TQSize frame_size=TQSize(0,0),
-                                     Qt::Orientation orient=Qt::Horizontal,
+                                     TQt::Orientation orient=TQt::Horizontal,
                                      int num_items=0,
                                      Slack slack_x=ItemSlack,
                                      Slack slack_y=ItemSlack);
@@ -36,7 +36,7 @@ public:
     void setItemSize(TQSize item_size);
     void setSpaceSize(TQSize space_size);
     void setBorderSize(TQSize border_size);
-    void setOrientation(Qt::Orientation orient);
+    void setOrientation(TQt::Orientation orient);
     void setFrameSize(TQSize frame_size);
     void setSlack(Slack slack_x, Slack slack_y);
     void setConserveSpace(bool conserve);
@@ -49,7 +49,7 @@ public:
     TQSize  gridSpacing() const;
     TQSize  frameSize() const;
     TQPoint origin() const;
-    Qt::Orientation orientation() const;
+    TQt::Orientation orientation() const;
     bool   conserveSpace() const;
 
 //    Slack  slackX() const;
@@ -76,7 +76,7 @@ protected:
     TQSize _pItemSize,_pSpaceSize,_pBorderSize,_pFrameSize;
     Slack _slackX, _slackY;
     bool _conserveSpace;
-    Qt::Orientation _orientation;
+    TQt::Orientation _orientation;
     int _numItems;
 
     // results

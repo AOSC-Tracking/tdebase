@@ -29,7 +29,7 @@ class HideButton : public TQButton
 
   public:
     HideButton(TQWidget *parent, const char *name = 0);
-    void setArrowType(Qt::ArrowType arrow);
+    void setArrowType(TQt::ArrowType arrow);
     void setPixmap(const TQPixmap &pix);
 
   protected:
@@ -44,7 +44,7 @@ class HideButton : public TQButton
     bool m_highlight;
     TQPixmap m_normalIcon;
     TQPixmap m_activeIcon;
-    Qt::ArrowType m_arrow;
+    TQt::ArrowType m_arrow;
 
   protected slots:
     void slotSettingsChanged( int category );

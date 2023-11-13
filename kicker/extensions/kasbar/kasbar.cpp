@@ -80,7 +80,7 @@ KasBar::KasBar( Orientation o, TQWidget *parent, const char *name, WFlags f )
    : TQWidget( parent, name, f ),
      master_(0),
      orient( o ),
-     direction_( o == Qt::Horizontal ? TQBoxLayout::LeftToRight : TQBoxLayout::TopToBottom ),
+     direction_( o == TQt::Horizontal ? TQBoxLayout::LeftToRight : TQBoxLayout::TopToBottom ),
      itemUnderMouse_( 0 ),
      boxesPerLine_(10), // Temp value
      inDrag( false ),
@@ -109,7 +109,7 @@ KasBar::KasBar( Orientation o, KasBar *master, TQWidget *parent, const char *nam
    : TQWidget( parent, name, f ),
      master_(master),
      orient( o ),
-     direction_( o == Qt::Horizontal ? TQBoxLayout::LeftToRight : TQBoxLayout::TopToBottom ),
+     direction_( o == TQt::Horizontal ? TQBoxLayout::LeftToRight : TQBoxLayout::TopToBottom ),
      itemUnderMouse_( 0 ),
      boxesPerLine_(10), // Temp value
      inDrag( false ),
@@ -318,9 +318,9 @@ void KasBar::setDirection( Direction dir )
 	return;
 
     if ( ( dir == TQBoxLayout::LeftToRight ) || ( dir == TQBoxLayout::RightToLeft ) )
-	orient = Qt::Horizontal;
+	orient = TQt::Horizontal;
     else
-	orient = Qt::Vertical;
+	orient = TQt::Vertical;
 
     direction_ = dir;
     emit directionChanged();
@@ -332,7 +332,7 @@ void KasBar::setOrientation( Orientation o )
     if ( orient == o )
 	return;
 
-    if ( o == Qt::Horizontal )
+    if ( o == TQt::Horizontal )
 	setDirection( TQBoxLayout::LeftToRight );
     else
 	setDirection( TQBoxLayout::TopToBottom );
@@ -377,7 +377,7 @@ void KasBar::setDetached( bool detach )
 
 TQSize KasBar::sizeHint( Orientation o,  TQSize sz )
 {
-    if ( o == Qt::Horizontal )
+    if ( o == TQt::Horizontal )
 	setBoxesPerLine( sz.width() / itemExtent() );
     else
 	setBoxesPerLine( sz.height() / itemExtent() );
@@ -396,7 +396,7 @@ TQSize KasBar::sizeHint( Orientation o,  TQSize sz )
       ++r;
 
    TQSize s;
-   if( o == Qt::Horizontal ) {
+   if( o == TQt::Horizontal ) {
       s.setWidth( c*itemExtent() );
       s.setHeight( r*itemExtent() );
    }
@@ -434,7 +434,7 @@ void KasBar::updateLayout()
       ++r;
 
    TQSize sz;
-   if ( orient == Qt::Horizontal )
+   if ( orient == TQt::Horizontal )
        sz = TQSize( c * itemExtent(), r * itemExtent() );
    else
        sz = TQSize( r * itemExtent(), c * itemExtent() );
@@ -449,7 +449,7 @@ void KasBar::updateLayout()
    TQRegion mask;
 
    KasItem *i;
-   if ( orient == Qt::Horizontal ) {
+   if ( orient == TQt::Horizontal ) {
        for ( i = items.first(); i; i = items.next() ) {
 	   int x = (items.at() % c) * itemExtent();
 

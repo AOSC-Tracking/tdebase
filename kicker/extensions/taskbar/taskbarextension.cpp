@@ -101,7 +101,7 @@ void TaskBarExtension::positionChange( Position p )
         m_container->popupDirectionChange(KPanelApplet::Right);
         break;
     case Floating:
-        if (orientation() == Qt::Horizontal)
+        if (orientation() == TQt::Horizontal)
         {
             m_container->popupDirectionChange(KPanelApplet::Down);
         }
@@ -185,7 +185,7 @@ void TaskBarExtension::setBackgroundTheme()
         {
             TQImage bgImage = m_bgImage;
 
-            if (orientation() == Qt::Vertical)
+            if (orientation() == TQt::Vertical)
             {
                 if (KickerSettings::rotateBackground())
                 {

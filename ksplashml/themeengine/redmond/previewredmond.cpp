@@ -33,10 +33,10 @@ PreviewRedmond::PreviewRedmond( TQWidget* parent )
     m_userFont (TQFont( "Arial", 16 )),
     m_statusFont (TQFont( "Arial", 12, TQFont::Bold )),
 
-    m_welcomeColor (Qt::white),
-    m_welcomeShadowColor (Qt::darkGray),
-    m_userColor (Qt::darkGray),
-    m_statusColor (Qt::white),
+    m_welcomeColor (TQt::white),
+    m_welcomeShadowColor (TQt::darkGray),
+    m_userColor (TQt::darkGray),
+    m_statusColor (TQt::white),
 
     m_icon (DesktopIcon("kmenu")),
 
@@ -71,7 +71,7 @@ void PreviewRedmond::_updateCache()
   TQPainter p;
   p.begin( &m_cache );
 
-  p.fillRect( rect(), Qt::gray );
+  p.fillRect( rect(), TQt::gray );
 
   m_welcomeFont.setItalic( true );
   p.setFont( m_welcomeFont );

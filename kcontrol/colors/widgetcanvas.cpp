@@ -315,7 +315,7 @@ void WidgetCanvas::drawSampleWidgets()
     // Create a scrollbar and redirect drawing into a temp. pixmap to save a
     // lot of fiddly drawing later.
 
-    TQScrollBar *vertScrollBar = new TQScrollBar( Qt::Vertical, this );
+    TQScrollBar *vertScrollBar = new TQScrollBar( TQt::Vertical, this );
     // TODO: vertScrollBar->setStyle( new TQMotifStyle() );
     vertScrollBar->setGeometry( 400, 400, SCROLLBAR_SIZE, height());
     vertScrollBar->setRange( 0,  0 );

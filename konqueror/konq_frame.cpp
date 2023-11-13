@@ -68,7 +68,7 @@ KonqFrameStatusBar::KonqFrameStatusBar( KonqFrame *_parent, const char *_name )
     setSizeGripEnabled( false );
 
     m_led = new TQLabel( this );
-    m_led->setAlignment( Qt::AlignCenter );
+    m_led->setAlignment( TQt::AlignCenter );
     m_led->setSizePolicy(TQSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Fixed ));
     addWidget( m_led, 0, false ); // led (active view indicator)
     m_led->hide();
@@ -177,7 +177,7 @@ bool KonqFrameStatusBar::eventFilter(TQObject* o, TQEvent *e)
    {
       emit clicked();
       update();
-      if ( TQT_TQMOUSEEVENT(e)->button() == Qt::RightButton)
+      if ( TQT_TQMOUSEEVENT(e)->button() == TQt::RightButton)
          splitFrameMenu();
       return true;
    }
@@ -530,9 +530,9 @@ void KonqFrameContainer::saveConfig( TDEConfig* config, const TQString &prefix, 
 
   //write orientation
   TQString o;
-  if( orientation() == Qt::Horizontal )
+  if( orientation() == TQt::Horizontal )
     o = TQString::fromLatin1("Horizontal");
-  else if( orientation() == Qt::Vertical )
+  else if( orientation() == TQt::Vertical )
     o = TQString::fromLatin1("Vertical");
   config->writeEntry( TQString::fromLatin1( "Orientation" ).prepend( prefix ), o );
 

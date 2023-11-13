@@ -425,7 +425,7 @@ void DigitalClock::drawContents( TQPainter * p)
     p->translate( +1, +1 );
     TQLCDNumber::drawContents( p );
     if (_prefs->digitalLCDStyle())
-        pal.setColor( TQColorGroup::Foreground, Qt::black);
+        pal.setColor( TQColorGroup::Foreground, TQt::black);
     else
         pal.setColor( TQColorGroup::Foreground, _prefs->digitalForegroundColor());
     setPalette( pal );
@@ -633,8 +633,8 @@ void AnalogClock::paintEvent( TQPaintEvent * )
         }
 
         if (_prefs->analogLCDStyle()) {
-            paint.setPen( TQPen(Qt::black, aaFactor) );
-            paint.setBrush( Qt::black );
+            paint.setPen( TQPen(TQt::black, aaFactor) );
+            paint.setBrush( TQt::black );
         } else {
             paint.setPen( TQPen(_prefs->analogForegroundColor(), aaFactor) );
             paint.setBrush( _prefs->analogForegroundColor() );
@@ -854,7 +854,7 @@ void FuzzyClock::drawContents(TQPainter *p)
 
     TQRect tr;
 
-    if (_applet->getOrientation() == Qt::Vertical)
+    if (_applet->getOrientation() == TQt::Vertical)
     {
         p->rotate(90);
         tr = TQRect(4, -2, height() - 8, -(width()) + 2);
@@ -970,7 +970,7 @@ KTextShadowEngine *ClockApplet::shadowEngine()
 
 int ClockApplet::widthForHeight(int h) const
 {
-    if (orientation() == Qt::Vertical)
+    if (orientation() == TQt::Vertical)
     {
         return width();
     }
@@ -1081,7 +1081,7 @@ int ClockApplet::widthForHeight(int h) const
 
 int ClockApplet::heightForWidth(int w) const
 {
-    if (orientation() == Qt::Horizontal)
+    if (orientation() == TQt::Horizontal)
     {
         return height();
     }
@@ -1642,13 +1642,13 @@ void ClockApplet::mousePressEvent(TQMouseEvent *ev)
 {
     switch (ev->button()) 
     {
-        case Qt::LeftButton:
+        case TQt::LeftButton:
             toggleCalendar();
             break;
-        case Qt::RightButton:
+        case TQt::RightButton:
             openContextMenu();
             break;
-        case Qt::MidButton:
+        case TQt::MidButton:
             nextZone();
             TQToolTip::remove(_clock->widget());
             break;
@@ -1794,7 +1794,7 @@ void ClockApplet::fixupLayout()
     // this fixes problems triggered by having the date first
     // because of the date format (e.g. YY/MM/DD) and then hiding
     // the date
-    if (orientation() == Qt::Horizontal && height() < 32)
+    if (orientation() == TQt::Horizontal && height() < 32)
     {
         bool mustShowDate = showDate || (zone->zoneIndex() != 0);
 
