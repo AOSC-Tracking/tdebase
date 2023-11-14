@@ -23,6 +23,11 @@ tde_setup_largefiles( )
 find_package( TQt )
 find_package( TDE )
 
+# strlcat and strlcpy check
+check_function_exists( strlcat HAVE_STRLCAT )
+check_symbol_exists( strlcat "string.h" HAVE_STRLCAT_PROTO )
+check_function_exists( strlcpy HAVE_STRLCPY )
+check_symbol_exists( strlcpy "string.h" HAVE_STRLCPY_PROTO )
 
 ##### look for the usb.ids file, Its location can be set EG: -DWITH_USBIDS="/opt/share/misc/usb.ids"
 
@@ -384,15 +389,6 @@ endif( )
 # kde_socklen_t
 if( BUILD_TDEIOSLAVES OR BUILD_KSYSGUARD )
   set( kde_socklen_t socklen_t )
-endif( )
-
-
-# strlcat, strlcpy
-if( BUILD_KSYSGUARD OR BUILD_KCHECKPASS )
-  check_function_exists( strlcat HAVE_STRLCAT )
-  check_symbol_exists( strlcat "string.h" HAVE_STRLCAT_PROTO )
-  check_function_exists( strlcpy HAVE_STRLCPY )
-  check_symbol_exists( strlcpy "string.h" HAVE_STRLCPY_PROTO )
 endif( )
 
 
