@@ -128,6 +128,9 @@ Client::Client( Workspace *ws )
     autoRaiseTimer = 0;
     shadeHoverTimer = 0;
 
+    configureRequestTimer = new TQTimer(this);
+    connect(configureRequestTimer, TQT_SIGNAL(timeout()), TQT_SLOT(configureRequestTimeout()));
+
     shadowDelayTimer = new TQTimer(this);
     opacityCache = &activeOpacityCache;
     shadowAfterClient = NULL;
@@ -967,6 +970,12 @@ void Client::setShade( ShadeMode mode )
     workspace()->updateMinimizedOfTransients( this );
     decoration->shadeChange();
     updateWindowRules();
+    }
+
+void Client::configureRequestTimeout()
+    {
+    moveResizeMode = false;
+    sendSyntheticConfigureNotify();
     }
 
 void Client::shadeHover()
