@@ -818,7 +818,7 @@ void Client::configureRequestEvent( XConfigureRequestEvent* e )
         restackWindow( e->above, e->detail, NET::FromApplication, userTime(), false );
 
     // TODO sending a synthetic configure notify always is fine, even in cases where
-    // the ICCCM doesn't require this - it can be though of as 'the WM decided to move
+    // the ICCCM doesn't require this - it can be thought of as 'the WM decided to move
     // the window later'. The client should not cause that many configure request,
     // so this should not have any significant impact. With user moving/resizing
     // the it should be optimized though (see also Client::setGeometry()/plainResize()/move()).
