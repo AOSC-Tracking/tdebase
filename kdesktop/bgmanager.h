@@ -12,6 +12,7 @@
 
 #include <tqstring.h>
 #include <tqptrvector.h>
+#include <kpixmap.h>
 
 #include <tqdatetime.h>
 #include <KBackgroundIface.h>
@@ -37,7 +38,7 @@ struct KBackgroundCacheEntry
     int hash;
     int atime;
     int exp_from;
-    KPixmap *pixmap;
+    KPixmap pixmap;
 };
 
 
@@ -105,12 +106,12 @@ private:
 
     void renderBackground(int desk);
     void exportBackground(int pixmap, int desk);
-    int pixmapSize(TQPixmap *pm);
+    int pixmapSize(const TQPixmap &pm);
     int cacheSize();
     void removeCache(int desk);
     bool freeCache(int size);
-    void addCache(KPixmap *pm, int hash, int desk);
-    void setPixmap(KPixmap *pm, int hash, int desk);
+    void addCache(const KPixmap &pm, int hash, int desk);
+    void setPixmap(const KPixmap &pm, int hash, int desk);
 
     bool m_bExport, m_bCommon;
     bool m_bLimitCache, m_bInit;
@@ -124,7 +125,7 @@ private:
     TQWidget *m_pDesktop;
     TQTimer *m_pTimer;
 
-    KPixmap *m_tPixmap;
+    KPixmap m_tPixmap;
 	
     TQPtrVector<KVirtualBGRenderer> m_Renderer;
     TQPtrVector<KBackgroundCacheEntry> m_Cache;
@@ -138,7 +139,7 @@ private:
     TQTimer * m_crossTimer;
     double mAlpha;
     TQPixmap  mNextScreen;
-    TQPixmap  * mOldScreen;
+    TQPixmap  mOldScreen;
     int fadeDesk;
     TQTime mBenchmark;
     bool crossInit;

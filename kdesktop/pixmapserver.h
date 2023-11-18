@@ -30,7 +30,7 @@ struct KPixmapInode
 
 struct KPixmapData
 {
-    TQPixmap *pixmap;
+    TQPixmap pixmap;
     int usecount;
     int refcount;
 };
@@ -70,7 +70,7 @@ public:
      * @param pm A pointer to the pixmap.
      * @param overwrite Should an pixmap with the same name be overwritten?
      */
-    void add(TQString name, TQPixmap *pm, bool overwrite=true);
+    void add(TQString name, const TQPixmap &pm, bool overwrite=true);
 
     /**
      * Remove a pixmap from the server. This will delete the pixmap after 

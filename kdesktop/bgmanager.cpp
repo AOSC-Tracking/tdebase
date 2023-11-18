@@ -93,7 +93,7 @@ KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* twinModule
     for (unsigned i=0; i<m_Renderer.size(); i++)
     {
 	m_Cache.insert(i, new KBackgroundCacheEntry);
-        m_Cache[i]->pixmap = 0L;
+        m_Cache[i]->pixmap = KPixmap();
         m_Cache[i]->hash = 0;
         m_Cache[i]->exp_from = -1;
         m_Renderer.insert (i, new KVirtualBGRenderer(i,m_pConfig));
@@ -102,8 +102,8 @@ KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* twinModule
     }
 
 #ifdef COMPOSITE
-    m_tPixmap = new KPixmap(kapp->desktop()->size());
-    m_tPixmap->fill(TQColor(0, 0x0));
+    m_tPixmap = KPixmap(kapp->desktop()->size());
+    m_tPixmap.fill(TQColor(0, 0x0));
     connect(myApp, TQT_SIGNAL(cmBackgroundChanged( bool )),
             TQT_SLOT(slotCmBackgroundChanged( bool )));
 #endif
@@ -175,10 +175,7 @@ KBackgroundManager::~KBackgroundManager()
         return;
 
     for (unsigned i=0; i<m_Cache.size(); i++)
-    {
-        delete m_Cache[i]->pixmap;
         delete m_Cache[i];
-    }
 }
 
 
@@ -334,7 +331,7 @@ void KBackgroundManager::slotChangeNumberOfDesktops(int num)
 	for (int i=oldsz; i<num; i++)
 	{
 	    m_Cache.insert(i, new KBackgroundCacheEntry);
-	    m_Cache[i]->pixmap = 0L;
+	    m_Cache[i]->pixmap = KPixmap();
 	    m_Cache[i]->hash = 0;
 	    m_Cache[i]->exp_from = -1;
             m_Renderer.insert(i, new KVirtualBGRenderer(i,m_pConfig));
@@ -382,7 +379,7 @@ void KBackgroundManager::slotChangeDesktop(int desk)
     // If we have the background already rendered: set it
     for (unsigned i=0; i<m_Cache.size(); i++)
     {
-	if (!m_Cache[i]->pixmap)
+	if (m_Cache[i]->pixmap.isNull())
 	    continue;
 	if (m_Cache[i]->hash != m_Renderer[edesk]->hash())
 	    continue;
@@ -392,6 +389,7 @@ void KBackgroundManager::slotChangeDesktop(int desk)
 	setPixmap(m_Cache[i]->pixmap, m_Cache[i]->hash, i);
 	m_Cache[i]->atime = m_Serial;
 	exportBackground(i, desk);
+
 	return;
     }
 
@@ -443,7 +441,7 @@ void KBackgroundManager::slotChangeViewport(int desk, const TQPoint& viewport)
     // If we have the background already rendered: set it
     for (unsigned i=0; i<m_Cache.size(); i++)
     {
-        if (!m_Cache[i]->pixmap)
+        if (m_Cache[i]->pixmap.isNull())
             continue;
         if (m_Cache[i]->hash != m_Renderer[edesk]->hash())
             continue;
@@ -490,16 +488,16 @@ void KBackgroundManager::exportBackground(int pixmap, int desk)
 /*
  * Paint the pixmap to the root window.
  */
-void KBackgroundManager::setPixmap(KPixmap *pm, int hash, int desk)
+void KBackgroundManager::setPixmap(const KPixmap &pm, int hash, int desk)
 {
-    KPixmap *ep = pm;
+    KPixmap ep = pm;
 
 #ifdef COMPOSITE
     if (argb_visual && (KDesktopSettings::backgroundOpacity() < 100
         || myApp->cmBackground()))
     {
         ep = m_tPixmap;
-        if (KDesktopSettings::backgroundOpacity() > 0 && pm
+        if (KDesktopSettings::backgroundOpacity() > 0 && !pm.isNull()
             && !myApp->cmBackground())
         {
             XRenderPictFormat *format;
@@ -514,13 +512,13 @@ void KBackgroundManager::setPixmap(KPixmap *pm, int hash, int desk)
             fillColor.alpha = color;
 
             Picture fill = XRenderCreateSolidFill (tqt_xdisplay(), &fillColor);
-            Picture src = XRenderCreatePicture(tqt_xdisplay(), pm->handle(),
+            Picture src = XRenderCreatePicture(tqt_xdisplay(), pm.handle(),
                                                format, 0, NULL);
-            Picture dst = XRenderCreatePicture(tqt_xdisplay(), ep->handle(),
+            Picture dst = XRenderCreatePicture(tqt_xdisplay(), ep.handle(),
                                                format, 0, NULL);
 
             XRenderComposite (tqt_xdisplay(), PictOpSrc, src, fill, dst, 0, 0, 0,
-                              0, 0, 0, pm->width(), pm->height());
+                              0, 0, 0, pm.width(), pm.height());
 
             XRenderFreePicture (tqt_xdisplay(), fill);
             XRenderFreePicture (tqt_xdisplay(), src);
@@ -536,7 +534,7 @@ void KBackgroundManager::setPixmap(KPixmap *pm, int hash, int desk)
          // Qt eats repaint events in this case :-((
          sv->viewport()->update();
        }
-       m_pDesktop->setErasePixmap(*ep);
+       m_pDesktop->setErasePixmap(ep);
        m_pDesktop->repaint();
        static bool root_cleared = false;
        if( !root_cleared )
@@ -544,18 +542,18 @@ void KBackgroundManager::setPixmap(KPixmap *pm, int hash, int desk)
           root_cleared = true;
 	  TQTimer::singleShot( 0, this, TQT_SLOT( clearRoot()));
           // but make the pixmap visible until m_pDesktop is visible
-          TQT_TQWIDGET(TDEApplication::desktop()->screen())->setErasePixmap(*ep);
+          TQT_TQWIDGET(TDEApplication::desktop()->screen())->setErasePixmap(ep);
           TQT_TQWIDGET(TDEApplication::desktop()->screen())->erase();
        }
     }
     else
     {
-        TQT_TQWIDGET(TDEApplication::desktop()->screen())->setErasePixmap(*ep);
+        TQT_TQWIDGET(TDEApplication::desktop()->screen())->setErasePixmap(ep);
         TQT_TQWIDGET(TDEApplication::desktop()->screen())->erase();
     }
 
      // and export it via Esetroot-style for gnome/GTK apps to share in the pretties
-    Pixmap bgPm = pm->handle(); // fetch the actual X handle to it
+    Pixmap bgPm = pm.handle(); // fetch the actual X handle to it
     //kdDebug() << "Esetroot compat:  setting pixmap to " << bgPm << endl;
 
     // don't set the ESETROOT_PMAP_ID property - that would result in possible XKillClient()
@@ -605,15 +603,15 @@ void KBackgroundManager::slotCrossFadeTimeout()
         mAlpha = 1;
         m_crossTimer->stop();
         KPixmap pixm(mNextScreen);
-        setPixmap(&pixm, r->hash(), fadeDesk);
+        setPixmap(pixm, r->hash(), fadeDesk);
         return;
     }
     // Reset Timer
     mBenchmark.start();
 
-    TQPixmap dst = crossFade(*mOldScreen, mNextScreen, mAlpha, crossInit);
+    TQPixmap dst = crossFade(mOldScreen, mNextScreen, mAlpha, crossInit);
     KPixmap pixm(dst);
-    setPixmap(&pixm, r->hash(), fadeDesk);
+    setPixmap(pixm, r->hash(), fadeDesk);
 
     mAlpha -=0.03;
     crossInit = false;
@@ -631,7 +629,7 @@ void KBackgroundManager::slotImageDone(int desk)
         m_numberOfViewports = 1;
     }
 
-    KPixmap *pm = new KPixmap();
+    KPixmap pm = KPixmap();
     KVirtualBGRenderer *r = m_Renderer[desk];
     bool do_cleanup = true;
     fadeDesk = desk;
@@ -639,7 +637,7 @@ void KBackgroundManager::slotImageDone(int desk)
     int width,height;
 
 
-    *pm = r->pixmap();
+    pm = r->pixmap();
     // If current: paint it
     bool current = (r->hash() == m_Renderer[effectiveDesktop()]->hash());
     if (current)
@@ -653,20 +651,22 @@ void KBackgroundManager::slotImageDone(int desk)
             if (mode == KBackgroundSettings::NoWallpaper || mode == KBackgroundSettings::Tiled || mode  == KBackgroundSettings::CenterTiled ){
                 mNextScreen = TQPixmap(width,height);
                 TQPainter p (&mNextScreen);
-                p.drawTiledPixmap(0,0,width,height,*pm);
+                p.drawTiledPixmap(0,0,width,height,pm);
             } else {
-                mNextScreen = TQPixmap(*pm);
+                mNextScreen = TQPixmap(pm);
             }
 
+	    TQPixmap *mOldScreen_ = NULL;
             if (m_pDesktop){
-                mOldScreen = const_cast<TQPixmap *>( m_pDesktop->backgroundPixmap() );
+                mOldScreen_ = const_cast<TQPixmap *>( m_pDesktop->backgroundPixmap() );
             }else{
-                mOldScreen = const_cast<TQPixmap *>(
+                mOldScreen_ = const_cast<TQPixmap *>(
                 TQApplication::desktop()->screen()->backgroundPixmap() );
             }
 
             //TODO Find a way to discover if CrossFade effect needs to run
-            if (mOldScreen){
+            if (mOldScreen_){
+		mOldScreen = *mOldScreen_;
                 crossInit = true;
                 m_crossTimer->start(70);
             } else{
@@ -687,9 +687,6 @@ void KBackgroundManager::slotImageDone(int desk)
     }
     if (m_bExport || !m_bCommon) {
 	addCache(pm, r->hash(), desk);
-    }
-    else {
-        delete pm;
     }
 
     if (current) {
@@ -717,9 +714,9 @@ void KBackgroundManager::saveImages()
 /*
  * Size in bytes of a TQPixmap. For use in the pixmap cache.
  */
-int KBackgroundManager::pixmapSize(TQPixmap *pm)
+int KBackgroundManager::pixmapSize(const TQPixmap &pm)
 {
-    return (pm->width() * pm->height()) * ((pm->depth() + 7) / 8);
+    return (pm.width() * pm.height()) * ((pm.depth() + 7) / 8);
 }
 
 
@@ -731,7 +728,7 @@ int KBackgroundManager::cacheSize()
     int total = 0;
     for (unsigned i=0; i<m_Cache.size(); i++)
     {
-        if (m_Cache[i]->pixmap)
+        if (!m_Cache[i]->pixmap.isNull())
             total += pixmapSize(m_Cache[i]->pixmap);
     }
     return total;
@@ -745,9 +742,7 @@ void KBackgroundManager::removeCache(int desk)
 {
     if (m_bExport)
 	m_pPixmapServer->remove(KRootPixmap::pixmapName(desk+1));
-    else
-        delete m_Cache[desk]->pixmap;
-    m_Cache[desk]->pixmap = 0L;
+    m_Cache[desk]->pixmap = KPixmap();
     m_Cache[desk]->hash = 0;
     m_Cache[desk]->exp_from = -1;
     m_Cache[desk]->atime = 0;
@@ -784,7 +779,7 @@ bool KBackgroundManager::freeCache(int size)
 	min = m_Serial+1; j = 0;
 	for (unsigned i=0; i<m_Cache.size(); i++)
 	{
-	    if (m_Cache[i]->pixmap && (m_Cache[i]->atime < min))
+	    if (!m_Cache[i]->pixmap.isNull() && (m_Cache[i]->atime < min))
 	    {
 		min = m_Cache[i]->atime;
 		j = i;
@@ -800,15 +795,14 @@ bool KBackgroundManager::freeCache(int size)
  * Try to add a pixmap to the pixmap cache. We don't use TQPixmapCache here
  * because if we're exporting pixmaps, this needs special care.
  */
-void KBackgroundManager::addCache(KPixmap *pm, int hash, int desk)
+void KBackgroundManager::addCache(const KPixmap &pm, int hash, int desk)
 {
-    if (m_Cache[desk]->pixmap)
+    if (!m_Cache[desk]->pixmap.isNull())
 	removeCache(desk);
 
     if (m_bLimitCache && !m_bExport && !freeCache(pixmapSize(pm)))
     {
 	// pixmap does not fit in cache
-	delete pm;
 	return;
     }
 
@@ -1024,10 +1018,8 @@ void KBackgroundManager::desktopResized()
     }
 
 #ifdef COMPOSITE
-    if (m_tPixmap)
-	delete m_tPixmap;
-    m_tPixmap = new KPixmap(kapp->desktop()->size());
-    m_tPixmap->fill(TQColor(0, 0x0));
+    m_tPixmap = KPixmap(kapp->desktop()->size());
+    m_tPixmap.fill(TQColor(0, 0x0));
 #endif
     
     m_Hash = 0;
@@ -1100,7 +1092,7 @@ void KBackgroundManager::setBackgroundEnabled( const bool enable )
 #ifdef COMPOSITE
 void KBackgroundManager::slotCmBackgroundChanged( bool )
 {
-    m_tPixmap->fill(TQColor(0, 0x0));
+    m_tPixmap.fill(TQColor(0, 0x0));
     m_Hash = 0;
     slotChangeDesktop(0);
 }

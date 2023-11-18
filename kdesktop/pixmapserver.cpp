@@ -49,14 +49,10 @@ KPixmapServer::~KPixmapServer()
     SelectionIterator it;
     for (it=m_Selections.begin(); it!=m_Selections.end(); it++)
 	XSetSelectionOwner(tqt_xdisplay(), it.key(), None, CurrentTime);
-
-    DataIterator it2;
-    for (it2=m_Data.begin(); it2!=m_Data.end(); it2++)
-	delete it2.data().pixmap;
 }
 
 
-void KPixmapServer::add(TQString name, TQPixmap *pm, bool overwrite)
+void KPixmapServer::add(TQString name, const TQPixmap &pm, bool overwrite)
 {
     if (m_Names.contains(name)) 
     {
@@ -68,23 +64,23 @@ void KPixmapServer::add(TQString name, TQPixmap *pm, bool overwrite)
     TQString str = TQString("KDESHPIXMAP:%1").arg(name);
     Atom sel = XInternAtom(tqt_xdisplay(), str.latin1(), false);
     KPixmapInode pi;
-    pi.handle = pm->handle();
+    pi.handle = pm.handle();
     pi.selection = sel;
     m_Names[name] = pi;
 
     TDESelectionInode si;
     si.name = name;
-    si.handle = pm->handle();
+    si.handle = pm.handle();
     m_Selections[sel] = si;
 
-    DataIterator it = m_Data.find(pm->handle());
+    DataIterator it = m_Data.find(pm.handle());
     if (it == m_Data.end()) 
     {
 	KPixmapData data;
 	data.pixmap = pm;
 	data.usecount = 0;
 	data.refcount = 1;
-	m_Data[pm->handle()] = data;
+	m_Data[pm.handle()] = data;
     } else
 	it.data().refcount++;
 
@@ -111,11 +107,8 @@ void KPixmapServer::remove(TQString name)
     DataIterator it3 = m_Data.find(pi.handle);
     assert(it3 != m_Data.end());
     it3.data().refcount--;
-    if (!it3.data().refcount && !it3.data().usecount) 
-    {
-	delete it3.data().pixmap;
+    if (!it3.data().refcount && !it3.data().usecount)
 	m_Data.remove(it3);
-    }
 }
 
 
@@ -226,10 +219,7 @@ bool KPixmapServer::x11Event(XEvent *event)
 	assert(it2 != m_Data.end());
 	it2.data().usecount--;
 	if (!it2.data().usecount && !it2.data().refcount) 
-	{
-	    delete it2.data().pixmap;
 	    m_Data.remove(it2);
-	}
 	return true;
     }
         
