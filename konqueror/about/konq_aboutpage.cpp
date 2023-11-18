@@ -54,7 +54,7 @@ KParts::Part *KonqAboutPageFactory::createPartObject( TQWidget *parentWidget, co
                                                       TQObject *parent, const char *name,
                                                       const char *, const TQStringList & )
 {
-    //KonqFrame *frame = tqt_dynamic_cast<KonqFrame *>( parentWidget );
+    //KonqFrame *frame = dynamic_cast<KonqFrame *>( parentWidget );
     //if ( !frame ) return 0;
 
     return new KonqAboutPage( //frame->childView()->mainWindow(),

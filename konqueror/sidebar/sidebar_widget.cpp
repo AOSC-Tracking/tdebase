@@ -855,7 +855,7 @@ bool Sidebar_Widget::eventFilter(TQObject *obj, TQEvent *ev)
 	if ( kapp->authorize( "action/konqsidebarmenu" ) ) {
 		if (ev->type()==TQEvent::MouseButtonPress && ((TQMouseEvent *)ev)->button()==TQt::RightButton)
 		{
-			KMultiTabBarTab *bt=tqt_dynamic_cast<KMultiTabBarTab*>(obj);
+			KMultiTabBarTab *bt=dynamic_cast<KMultiTabBarTab*>(obj);
 			if (bt)
 			{
 				kdDebug()<<"Request for popup"<<endl;

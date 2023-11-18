@@ -148,7 +148,7 @@ void KonqRun::init()
     KParts::BrowserRun::init();
     // Maybe init went to the "let's try stat'ing" part. Then connect to info messages.
     // (in case it goes to scanFile, this will be done below)
-    TDEIO::StatJob *job = tqt_dynamic_cast<TDEIO::StatJob*>( m_job );
+    TDEIO::StatJob *job = dynamic_cast<TDEIO::StatJob*>( m_job );
     if ( job && !job->error() && m_pView ) {
         connect( job, TQT_SIGNAL( infoMessage( TDEIO::Job*, const TQString& ) ),
                  m_pView, TQT_SLOT( slotInfoMessage(TDEIO::Job*, const TQString& ) ) );
@@ -160,7 +160,7 @@ void KonqRun::scanFile()
     KParts::BrowserRun::scanFile();
     // could be a static cast as of now, but who would notify when
     // BrowserRun changes
-    TDEIO::TransferJob *job = tqt_dynamic_cast<TDEIO::TransferJob*>( m_job );
+    TDEIO::TransferJob *job = dynamic_cast<TDEIO::TransferJob*>( m_job );
     if ( job && !job->error() ) {
         connect( job, TQT_SIGNAL( redirection( TDEIO::Job *, const KURL& )),
                  TQT_SLOT( slotRedirection( TDEIO::Job *, const KURL& ) ));
