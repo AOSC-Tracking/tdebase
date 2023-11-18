@@ -856,7 +856,7 @@ void QuickLauncher::loadConfig()
     int n = 0;
     while (iter != urls.end()) {
         TQString url = *iter;
-        addApp(url, n, false);
+        if(!url.isEmpty()) addApp(url, n, false);
         ++iter;
         ++n;
     }
