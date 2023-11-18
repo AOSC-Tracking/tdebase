@@ -55,7 +55,7 @@ KRemoteEncodingPlugin::KRemoteEncodingPlugin(TQObject * parent,
   m_menu->setEnabled(false);
   m_menu->setDelayed(false);
 
-  m_part = tqt_dynamic_cast<KonqDirPart*>(parent);
+  m_part = dynamic_cast<KonqDirPart*>(parent);
   if (m_part)
     // if parent is not a KonqDirPart, our menu will never show
     TQObject::connect(m_part, TQT_SIGNAL(aboutToOpenURL()),

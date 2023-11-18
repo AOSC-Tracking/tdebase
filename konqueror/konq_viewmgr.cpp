@@ -408,7 +408,7 @@ void KonqViewManager::duplicateTab( KonqFrameBase* tab, bool openAfterCurrentPag
 
   KonqFrameBase* currentFrame;
   if ( tab == 0L )
-    currentFrame = tqt_dynamic_cast<KonqFrameBase*>(tabContainer->currentPage());
+    currentFrame = dynamic_cast<KonqFrameBase*>(tabContainer->currentPage());
   else
     currentFrame = tab;
 
@@ -449,7 +449,7 @@ void KonqViewManager::duplicateTab( KonqFrameBase* tab, bool openAfterCurrentPag
   else
   tabContainer->setCurrentPage( tabContainer->count() - 1 );
 
-  KonqFrameBase* duplicatedFrame = tqt_dynamic_cast<KonqFrameBase*>(tabContainer->currentPage());
+  KonqFrameBase* duplicatedFrame = dynamic_cast<KonqFrameBase*>(tabContainer->currentPage());
   if (duplicatedFrame)
     duplicatedFrame->copyHistory( currentFrame );
 
@@ -478,7 +478,7 @@ void KonqViewManager::breakOffTab( KonqFrameBase* tab )
 
   KonqFrameBase* currentFrame;
   if ( tab == 0L )
-    currentFrame = tqt_dynamic_cast<KonqFrameBase*>(tabContainer->currentPage());
+    currentFrame = dynamic_cast<KonqFrameBase*>(tabContainer->currentPage());
   else
     currentFrame = tab;
 
@@ -506,7 +506,7 @@ void KonqViewManager::breakOffTab( KonqFrameBase* tab )
   if( newDocContainer && newDocContainer->frameType() == "Tabs")
   {
     KonqFrameTabs *kft = static_cast<KonqFrameTabs *>(newDocContainer);
-    KonqFrameBase *newFrame = tqt_dynamic_cast<KonqFrameBase*>(kft->currentPage());
+    KonqFrameBase *newFrame = dynamic_cast<KonqFrameBase*>(kft->currentPage());
     if(newFrame)
       newFrame->copyHistory( currentFrame );
   }
@@ -551,7 +551,7 @@ void KonqViewManager::removeTab( KonqFrameBase* tab )
   if ( tab != 0L ) {
     currentFrame = tab;
   } else {
-    currentFrame = tqt_dynamic_cast<KonqFrameBase*>(tabContainer->currentPage());
+    currentFrame = dynamic_cast<KonqFrameBase*>(tabContainer->currentPage());
     if (!currentFrame) {
       return;
     }
@@ -620,7 +620,7 @@ void KonqViewManager::removeOtherTabs( KonqFrameBase* tab )
   KonqFrameBase *currentFrame;
 
   if ( tab == 0L )
-    currentFrame = tqt_dynamic_cast<KonqFrameBase*>(tabContainer->currentPage());
+    currentFrame = dynamic_cast<KonqFrameBase*>(tabContainer->currentPage());
   else
     currentFrame = tab;
 
@@ -1641,7 +1641,7 @@ void KonqViewManager::loadItem( TDEConfig &cfg, KonqFrameContainerBase *parent,
         loadItem( cfg, newContainer, *it, defaultURL, openURL );
         TQWidget* currentPage = newContainer->currentPage();
         if (currentPage != 0L) {
-          KonqView* activeChildView = tqt_dynamic_cast<KonqFrameBase*>(currentPage)->activeChildView();
+          KonqView* activeChildView = dynamic_cast<KonqFrameBase*>(currentPage)->activeChildView();
           if (activeChildView != 0L) {
             activeChildView->setCaption( activeChildView->caption() );
             activeChildView->setTabIcon( activeChildView->url() );
@@ -1649,7 +1649,7 @@ void KonqViewManager::loadItem( TDEConfig &cfg, KonqFrameContainerBase *parent,
         }
     }
 
-    newContainer->setActiveChild( tqt_dynamic_cast<KonqFrameBase*>(newContainer->page(index)) );
+    newContainer->setActiveChild( dynamic_cast<KonqFrameBase*>(newContainer->page(index)) );
     newContainer->setCurrentPage( index );
 
     newContainer->show();

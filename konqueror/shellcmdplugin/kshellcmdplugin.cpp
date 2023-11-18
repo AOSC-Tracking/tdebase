@@ -39,7 +39,7 @@ KShellCmdPlugin::KShellCmdPlugin( TQObject* parent, const char* name,
 
 void KShellCmdPlugin::slotExecuteShellCommand()
 {
-   KonqDirPart * part = tqt_dynamic_cast<KonqDirPart *>(parent());
+   KonqDirPart * part = dynamic_cast<KonqDirPart *>(parent());
    if ( !part )
    {
       KMessageBox::sorry(0L, "KShellCmdPlugin::slotExecuteShellCommand: Program error, please report a bug.");

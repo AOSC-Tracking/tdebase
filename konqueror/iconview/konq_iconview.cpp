@@ -278,7 +278,7 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
 
     //enable menu item representing the saved sorting criterion
     TQString sortcrit = KonqIconViewFactory::defaultViewProps()->sortCriterion();
-    TDERadioAction *sort_action = tqt_dynamic_cast<TDERadioAction *>(actionCollection()->action(sortcrit.latin1()));
+    TDERadioAction *sort_action = dynamic_cast<TDERadioAction *>(actionCollection()->action(sortcrit.latin1()));
     if(sort_action!=NULL) sort_action->activate();
 
     m_paSortDirsFirst = new TDEToggleAction( i18n( "Folders First" ), 0, actionCollection(), "sort_directoriesfirst" );

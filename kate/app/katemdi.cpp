@@ -449,7 +449,7 @@ bool Sidebar::eventFilter(TQObject *obj, TQEvent *ev)
   if (ev->type()==TQEvent::ContextMenu)
   {
     TQContextMenuEvent *e = (TQContextMenuEvent *) ev;
-    KMultiTabBarTab *bt = tqt_dynamic_cast<KMultiTabBarTab*>(obj);
+    KMultiTabBarTab *bt = dynamic_cast<KMultiTabBarTab*>(obj);
     if (bt)
     {
       kdDebug()<<"Request for popup"<<endl;

@@ -339,7 +339,7 @@ void KonqFrameTabs::removeChildFrame( KonqFrameBase * frame )
 void KonqFrameTabs::slotCurrentChanged( TQWidget* newPage )
 {
   setTabColor( newPage, TDEGlobalSettings::textColor() );
-  KonqFrameBase* currentFrame = tqt_dynamic_cast<KonqFrameBase*>(newPage);
+  KonqFrameBase* currentFrame = dynamic_cast<KonqFrameBase*>(newPage);
 
   if (currentFrame && !m_pViewManager->isLoadingProfile()) {
     m_pActiveChild = currentFrame;
@@ -367,7 +367,7 @@ void KonqFrameTabs::slotMovedTab( int from, int to )
   m_pChildFrameList->remove( fromFrame );
   m_pChildFrameList->insert( to, fromFrame );
 
-  KonqFrameBase* currentFrame = tqt_dynamic_cast<KonqFrameBase*>( currentPage() );
+  KonqFrameBase* currentFrame = dynamic_cast<KonqFrameBase*>( currentPage() );
   if ( currentFrame && !m_pViewManager->isLoadingProfile() ) {
     m_pActiveChild = currentFrame;
     currentFrame->activateChild();
@@ -451,11 +451,11 @@ void KonqFrameTabs::slotContextMenu( TQWidget *w, const TQPoint &p )
   m_pPopupMenu->setItemEnabled( OTHERTABS_ID, tabCount>1 );
   m_pSubPopupMenuTab->setItemEnabled( m_closeOtherTabsId, true );
 
-  // Yes, I know this is an unchecked tqt_dynamic_cast - I'm casting sideways in a
+  // Yes, I know this is an unchecked dynamic_cast - I'm casting sideways in a
   // class hierarchy and it could crash one day, but I haven't checked
   // setWorkingTab so I don't know if it can handle nulls.
 
-  m_pViewManager->mainWindow()->setWorkingTab( tqt_dynamic_cast<KonqFrameBase*>(w) );
+  m_pViewManager->mainWindow()->setWorkingTab( dynamic_cast<KonqFrameBase*>(w) );
   m_pPopupMenu->exec( p );
 }
 
@@ -495,8 +495,8 @@ void KonqFrameTabs::refreshSubPopupMenuTab()
 void KonqFrameTabs::slotCloseRequest( TQWidget *w )
 {
   if ( m_pChildFrameList->count() > 1 ) {
-    // Yes, I know this is an unchecked tqt_dynamic_cast - I'm casting sideways in a class hierarchy and it could crash one day, but I haven't checked setWorkingTab so I don't know if it can handle nulls.
-    m_pViewManager->mainWindow()->setWorkingTab( tqt_dynamic_cast<KonqFrameBase*>(w) );
+    // Yes, I know this is an unchecked dynamic_cast - I'm casting sideways in a class hierarchy and it could crash one day, but I haven't checked setWorkingTab so I don't know if it can handle nulls.
+    m_pViewManager->mainWindow()->setWorkingTab( dynamic_cast<KonqFrameBase*>(w) );
     emit ( removeTabPopup() );
   }
 }
@@ -523,8 +523,8 @@ void KonqFrameTabs::slotMouseMiddleClick( TQWidget *w )
 {
   if ( m_MouseMiddleClickClosesTab ) {
     if ( m_pChildFrameList->count() > 1 ) {
-      // Yes, I know this is an unchecked tqt_dynamic_cast - I'm casting sideways in a class hierarchy and it could crash one day, but I haven't checked setWorkingTab so I don't know if it can handle nulls.
-      m_pViewManager->mainWindow()->setWorkingTab( tqt_dynamic_cast<KonqFrameBase*>(w) );
+      // Yes, I know this is an unchecked dynamic_cast - I'm casting sideways in a class hierarchy and it could crash one day, but I haven't checked setWorkingTab so I don't know if it can handle nulls.
+      m_pViewManager->mainWindow()->setWorkingTab( dynamic_cast<KonqFrameBase*>(w) );
       emit ( removeTabPopup() );
     }
   }
@@ -532,7 +532,7 @@ void KonqFrameTabs::slotMouseMiddleClick( TQWidget *w )
   TQApplication::clipboard()->setSelectionMode( TQClipboard::Selection );
   KURL filteredURL ( KonqMisc::konqFilteredURL( this, TQApplication::clipboard()->text() ) );
   if ( !filteredURL.isEmpty() ) {
-    KonqFrameBase* frame = tqt_dynamic_cast<KonqFrameBase*>(w);
+    KonqFrameBase* frame = dynamic_cast<KonqFrameBase*>(w);
     if (frame) {
       m_pViewManager->mainWindow()->openURL( frame->activeChildView(), filteredURL );
     }
@@ -562,7 +562,7 @@ void KonqFrameTabs::slotReceivedDropEvent( TQWidget *w, TQDropEvent *e )
 {
   KURL::List lstDragURLs;
   bool ok = KURLDrag::decode( e, lstDragURLs );
-  KonqFrameBase* frame = tqt_dynamic_cast<KonqFrameBase*>(w);
+  KonqFrameBase* frame = dynamic_cast<KonqFrameBase*>(w);
   if ( ok && lstDragURLs.first().isValid() && frame ) {
     KURL lstDragURL = lstDragURLs.first();
     if ( lstDragURL != frame->activeChildView()->url() )
@@ -572,7 +572,7 @@ void KonqFrameTabs::slotReceivedDropEvent( TQWidget *w, TQDropEvent *e )
 
 void KonqFrameTabs::slotInitiateDrag( TQWidget *w )
 {
-  KonqFrameBase* frame = tqt_dynamic_cast<KonqFrameBase*>( w );
+  KonqFrameBase* frame = dynamic_cast<KonqFrameBase*>( w );
   if (frame) {
     KURL::List lst;
     lst.append( frame->activeChildView()->url() );
