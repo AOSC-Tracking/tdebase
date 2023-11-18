@@ -1074,7 +1074,7 @@
                             </widget>
                         </grid>
                     </widget>
-                    <widget class="TQButtonGroup">
+                    <!--<widget class="TQButtonGroup">
                         <property name="name">
                             <cstring>xkbOptsMode</cstring>
                         </property>
@@ -1108,7 +1108,7 @@
                                 </property>
                             </widget>
                         </vbox>
-                    </widget>
+                    </widget>-->
                 </vbox>
             </widget>
         </widget>

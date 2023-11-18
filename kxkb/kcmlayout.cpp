@@ -255,7 +255,7 @@ void LayoutConfig::initUI() {
 	widget->radFlagOnly->setChecked( showFlag && !showLabel );
 	widget->radLabelOnly->setChecked( !showFlag && showLabel );
 
-	widget->xkbOptsMode->setButton(m_kxkbConfig.m_resetOldOptions ? 0 : 1);
+	//widget->xkbOptsMode->setButton(m_kxkbConfig.m_resetOldOptions ? 0 : 1);
 
 	widget->grpLabel->setButton( ( m_kxkbConfig.m_useThemeColors ? 0 : 1 )  );
 	widget->bgColor->setColor( m_kxkbConfig.m_colorBackground );
@@ -296,7 +296,8 @@ void LayoutConfig::initUI() {
 	widget->indOptsFrame->setEnabled( m_kxkbConfig.m_useKxkb );
 
 	// display xkb options
-	TQStringList activeOptions = TQStringList::split(',', m_kxkbConfig.m_options);
+	TQStringList activeOptions = TQStringList::split(",", XKBExtension::getServerOptions());
+				     //TQStringList::split(',', m_kxkbConfig.m_options);
 	bool foundGrp = false;
 	for (TQStringList::ConstIterator it = activeOptions.begin(); it != activeOptions.end(); ++it)
 	{
@@ -308,7 +309,7 @@ void LayoutConfig::initUI() {
 			foundGrp = true;
 		}
 
-		OptionListItem *item = m_optionGroups[i18n(optionKey.latin1())];
+		OptionListItem *item = m_optionGroups[optionKey.latin1()];
 
 		if (item != NULL) {
 			OptionListItem *child = item->findChildItem( option );
@@ -341,7 +342,7 @@ void LayoutConfig::save()
 	TQString model = lookupLocalized(m_rules->models(), widget->comboModel->currentText());
 	m_kxkbConfig.m_model = model;
 
-	m_kxkbConfig.m_resetOldOptions = widget->radXkbOverwrite->isOn();
+	m_kxkbConfig.m_resetOldOptions = true;// widget->radXkbOverwrite->isOn();
 	m_kxkbConfig.m_options = createOptionString();
 
 	m_kxkbConfig.m_useThemeColors = widget->radLabelUseTheme->isChecked();
@@ -663,9 +664,9 @@ TQWidget* LayoutConfig::makeOptionsTab()
   connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(resolveConflicts(TQListViewItem *)));
   connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(updateHotkeyCombo()));
 
-  connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(changed()));
-  connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(updateOptionsCommand()));
-  connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(updateHotkeyCombo()));
+  //connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(changed()));
+  //connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(updateOptionsCommand()));
+  //connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(updateHotkeyCombo()));
 
   //Create controllers for all options
   TQDictIterator<char> it(m_rules->options());
@@ -694,7 +695,7 @@ TQWidget* LayoutConfig::makeOptionsTab()
             TQCheckListItem::CheckBoxController, it.currentKey());
       }
       parent->setOpen(true);
-      m_optionGroups.insert(i18n(it.currentKey().local8Bit()), parent);
+      m_optionGroups.insert(it.currentKey().local8Bit(), parent);
     }
   }
 
@@ -739,7 +740,7 @@ void LayoutConfig::updateOptionsCommand()
 {
   TQString setxkbmap;
   TQString options = createOptionString();
-  bool overwrite = widget->radXkbOverwrite->isOn();
+  bool overwrite = true; //widget->radXkbOverwrite->isOn();
 
   if( !options.isEmpty() ) {
     setxkbmap = "setxkbmap -option "; //-rules " + m_rule
@@ -976,7 +977,7 @@ void LayoutConfig::updateHotkeyCombo(bool initial) {
     TQStringList hotkeys;
 
     // Get server options first
-    if (initial || widget->xkbOptsMode->selectedId() == 1)
+    if (initial /*|| widget->xkbOptsMode->selectedId() == 1*/)
     {
         TQStringList opts = TQStringList::split(",", XKBExtension::getServerOptions());
         for (TQStringList::Iterator it = opts.begin(); it != opts.end(); ++it)
@@ -1234,14 +1235,17 @@ extern "C"
 		KxkbConfig m_kxkbConfig;
 		m_kxkbConfig.load(KxkbConfig::LOAD_INIT_OPTIONS);
 
-		if( m_kxkbConfig.m_useKxkb == true ) {
+		if( m_kxkbConfig.m_useKxkb == true )
 			kapp->startServiceByDesktopName("kxkb");
+
+		XkbOptions opts = m_kxkbConfig.getKXkbOptions();
+		//Only Xkb options processing for compatibility
+		if(!m_kxkbConfig.m_useKxkb) {
+		    opts.layouts = opts.variants = opts.model = "";
+		    opts.resetOld = false;
 		}
-		else {
-			if (!XKBExtension::setXkbOptions(m_kxkbConfig.getKXkbOptions())) {
-				kdDebug() << "Setting XKB options failed!" << endl;
-			}
-		}
+		if(!XKBExtension::setXkbOptions(opts))
+		    kdDebug() << "Setting XKB options failed!" << endl;
 	}
 }
 
