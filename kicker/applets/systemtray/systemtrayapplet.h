@@ -119,7 +119,9 @@ private:
     bool m_autoRetract;
     int m_iconSize;
     bool m_showClockInTray;
+    bool m_opressDoubleNmIcons;
     TQCheckBox *m_showClockSettingCB;
+    TQCheckBox *m_opressDoubleNmIconsCB;
     TQGridLayout* m_layout;
 };
 

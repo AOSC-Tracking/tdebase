@@ -86,7 +86,9 @@ SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int ac
     m_autoRetract(false),
     m_iconSize(24),
     m_showClockInTray(false),
+    m_opressDoubleNmIcons(true),
     m_showClockSettingCB(0),
+    m_opressDoubleNmIconsCB(0),
     m_layout(0)
 {
     DCOPObject::setObjId("SystemTrayApplet");
@@ -253,10 +255,13 @@ void SystemTrayApplet::preferences()
     connect(m_settingsDialog, TQT_SIGNAL(okClicked()), this, TQT_SLOT(applySettings()));
     connect(m_settingsDialog, TQT_SIGNAL(finished()), this, TQT_SLOT(settingsDialogFinished()));
 
-    TQGrid *settingsGrid = m_settingsDialog->makeGridMainWidget( 2, TQt::Vertical);
+    TQGrid *settingsGrid = m_settingsDialog->makeGridMainWidget( 3, TQt::Vertical);
 
     m_showClockSettingCB = new TQCheckBox(i18n("Show Clock in Tray"), settingsGrid);
     m_showClockSettingCB->setChecked(m_showClockInTray);
+
+    m_opressDoubleNmIconsCB = new TQCheckBox(i18n("Oppress double named icons"), settingsGrid);
+    m_opressDoubleNmIconsCB->setChecked(m_opressDoubleNmIcons);
 
     //m_iconSelector = new TDEActionSelector(m_settingsDialog);
     m_iconSelector = new TDEActionSelector(settingsGrid);
@@ -307,6 +312,7 @@ void SystemTrayApplet::applySettings()
     }
 
     m_showClockInTray = m_showClockSettingCB->isChecked();
+    m_opressDoubleNmIcons = m_opressDoubleNmIconsCB->isChecked();
 
     TDEConfig *conf = config();
 
@@ -356,6 +362,7 @@ void SystemTrayApplet::applySettings()
 
     conf->setGroup("System Tray");
     conf->writeEntry("ShowClockInTray", m_showClockInTray);
+    conf->writeEntry("OpressDoubleNmIcons", m_opressDoubleNmIcons);
 
     conf->sync();
 
@@ -516,6 +523,7 @@ void SystemTrayApplet::loadSettings()
     conf->setGroup("System Tray");
     m_iconSize = conf->readNumEntry("systrayIconWidth", 22);
     m_showClockInTray = conf->readNumEntry("ShowClockInTray", false);
+    m_opressDoubleNmIcons = conf->readNumEntry("OpressDoubleNmIcons", true);
 }
 
 void SystemTrayApplet::systemTrayWindowAdded( WId w )
@@ -582,7 +590,8 @@ bool SystemTrayApplet::isWinManaged(WId w)
     TrayEmbedList::const_iterator lastEmb = m_shownWins.end();
     for (TrayEmbedList::const_iterator emb = m_shownWins.begin(); emb != lastEmb; ++emb)
     {
-        if ((*emb)->embeddedWinId() == w) // we already manage it
+        if ((*emb)->embeddedWinId() == w ||
+	    (m_opressDoubleNmIcons && KWin::windowInfo((*emb)->embeddedWinId()).name() == KWin::windowInfo(w).name())) // we already manage it
         {
             return true;
         }
@@ -591,7 +600,8 @@ bool SystemTrayApplet::isWinManaged(WId w)
     lastEmb = m_hiddenWins.end();
     for (TrayEmbedList::const_iterator emb = m_hiddenWins.begin(); emb != lastEmb; ++emb)
     {
-        if ((*emb)->embeddedWinId() == w) // we already manage it
+        if ((*emb)->embeddedWinId() == w ||
+	    (m_opressDoubleNmIcons && KWin::windowInfo((*emb)->embeddedWinId()).name() == KWin::windowInfo(w).name())) // we already manage it
         {
             return true;
         }
