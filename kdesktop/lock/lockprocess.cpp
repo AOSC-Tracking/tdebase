@@ -661,7 +661,7 @@ void LockProcess::startSecureDialog()
 		mBusy = true;
 		trinity_desktop_lock_forced = true;
 		// Make sure the cursor is not showing busy status
-		setCursor( tqarrowCursor );
+		setCursor( TQt::arrowCursor );
 		if (startLock())
 		{
 			if (trinity_desktop_lock_delay_screensaver_start) {
@@ -1243,10 +1243,10 @@ bool LockProcess::grabMouse()
 {
 	HANDLE cursorHandle;
 	if (mHackActive) {
-		cursorHandle = TQCursor(tqblankCursor).handle();
+		cursorHandle = TQCursor(TQt::blankCursor).handle();
 	}
 	else {
-		cursorHandle = TQCursor(tqbusyCursor).handle();
+		cursorHandle = TQCursor(TQt::busyCursor).handle();
 	}
 	int rv = XGrabPointer( tqt_xdisplay(), TQApplication::desktop()->winId(),
 		True, GRABEVENTS, GrabModeAsync, GrabModeAsync, None,
@@ -1602,8 +1602,8 @@ bool LockProcess::startHack()
 		return false;
 	}
 
-	setCursor( tqblankCursor );
-	XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, TQCursor(tqblankCursor).handle(), CurrentTime);
+	setCursor( TQt::blankCursor );
+	XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, TQCursor(TQt::blankCursor).handle(), CurrentTime);
 
 	if (mSaverExec.isEmpty()) {
 		return false;
@@ -1659,7 +1659,7 @@ bool LockProcess::startHack()
 				mSuspended = false;
 			}
 
-			XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, TQCursor(tqblankCursor).handle(), CurrentTime);
+			XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, TQCursor(TQt::blankCursor).handle(), CurrentTime);
 			if (mHackProc.start() == true) {
 #ifdef HAVE_SETPRIORITY
 				setpriority(PRIO_PROCESS, mHackProc.pid(), mPriority);
@@ -1733,7 +1733,7 @@ void LockProcess::stopHack()
 			mHackProc.kill(SIGKILL);
 		}
 	}
-	setCursor( tqarrowCursor );
+	setCursor( TQt::arrowCursor );
 
 	mHackActive = FALSE;
 }
@@ -1989,7 +1989,7 @@ int LockProcess::execDialog( TQDialog *dlg )
 
 	if (mDialogs.isEmpty()) {
 		suspend();
-		XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, TQCursor(tqarrowCursor).handle(), CurrentTime);
+		XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, TQCursor(TQt::arrowCursor).handle(), CurrentTime);
 	}
 	mDialogs.prepend( dlg );
 	fakeFocusIn( dlg->winId());
@@ -2016,10 +2016,10 @@ int LockProcess::execDialog( TQDialog *dlg )
 	if( mDialogs.isEmpty() ) {
 		HANDLE cursorHandle;
 		if (mHackActive) {
-			cursorHandle = TQCursor(tqblankCursor).handle();
+			cursorHandle = TQCursor(TQt::blankCursor).handle();
 		}
 		else {
-			cursorHandle = TQCursor(tqbusyCursor).handle();
+			cursorHandle = TQCursor(TQt::busyCursor).handle();
 		}
 		XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, cursorHandle, CurrentTime);
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
@@ -2695,7 +2695,7 @@ void LockProcess::slotMouseActivity(XEvent *event)
 			m_dialogPrevY = oldPoint.y();
 			m_mousePrevX = be->x_root;
 			m_mousePrevY = be->y_root;
-			XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, TQCursor(tqsizeAllCursor).handle(), CurrentTime);
+			XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, TQCursor(TQt::sizeAllCursor).handle(), CurrentTime);
 		}
 	}
 
@@ -2715,7 +2715,7 @@ void LockProcess::slotMouseActivity(XEvent *event)
 
 	if (event->type == ButtonRelease) {
 		m_mouseDown = 0;
-		XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, TQCursor(tqarrowCursor).handle(), CurrentTime);
+		XChangeActivePointerGrab( tqt_xdisplay(), GRABEVENTS, TQCursor(TQt::arrowCursor).handle(), CurrentTime);
 	}
 }
 

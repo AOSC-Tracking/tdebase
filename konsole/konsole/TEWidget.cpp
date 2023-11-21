@@ -414,7 +414,7 @@ TEWidget::TEWidget(TQWidget *parent, const char *name)
                     this, TQT_SLOT(onClearSelection()) );
 
   scrollbar = new TQScrollBar(this);
-  scrollbar->setCursor( tqarrowCursor );
+  scrollbar->setCursor( TQt::arrowCursor );
   connect(scrollbar, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(scrollChanged(int)));
 
   blinkT   = new TQTimer(this);
@@ -1830,7 +1830,7 @@ void TEWidget::setWordCharacters(TQString wc)
 void TEWidget::setMouseMarks(bool on)
 {
   mouse_marks = on;
-  setCursor( mouse_marks ? tqibeamCursor : tqarrowCursor );
+  setCursor( mouse_marks ? TQt::ibeamCursor : TQt::arrowCursor );
 }
 
 /* ------------------------------------------------------------------------- */

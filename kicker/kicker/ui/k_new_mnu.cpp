@@ -1752,7 +1752,7 @@ void KMenu::setOrientation(MenuOrientation orientation)
 
     m_orientation=orientation;
 
-    m_resizeHandle->setCursor(m_orientation == BottomUp ? tqsizeBDiagCursor : tqsizeFDiagCursor);
+    m_resizeHandle->setCursor(m_orientation == BottomUp ? TQt::sizeBDiagCursor : TQt::sizeFDiagCursor);
 
     TQPixmap pix;
     if ( m_orientation == BottomUp )

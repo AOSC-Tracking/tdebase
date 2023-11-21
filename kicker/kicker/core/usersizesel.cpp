@@ -46,7 +46,7 @@ UserSizeSel::UserSizeSel(const TQRect& rect, const KPanelExtension::Position pos
     }
     if ((pos == KPanelExtension::Top) || (pos == KPanelExtension::Bottom))
     {
-        setCursor(tqsizeVerCursor);
+        setCursor(TQt::sizeVerCursor);
     }
 
     setGeometry(-10, -10, 2, 2);

@@ -134,7 +134,7 @@ void StatisticsView::setListInfo(TQListView *list, int nrOfFiles, int nrOfConnec
 void StatisticsView::calculate()
 {
    if (dataList==0) return;
-   TQApplication::setOverrideCursor(tqwaitCursor);
+   TQApplication::setOverrideCursor(TQt::waitCursor);
    int connCount(0);
    if (eventCb->currentText()==i18n("Connection"))
       connCount=1;

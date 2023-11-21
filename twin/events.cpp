@@ -924,7 +924,7 @@ void Client::leaveNotifyEvent( XCrossingEvent* e )
         if ( !buttonDown )
             {
             mode = PositionCenter;
-            setCursor( tqarrowCursor );
+            setCursor( TQt::arrowCursor );
             }
         bool lostMouse = !rect().contains( TQPoint( e->x, e->y ) );
         // 'lostMouse' wouldn't work with e.g. B2 or Keramik, which have non-rectangular decorations
