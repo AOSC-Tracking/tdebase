@@ -72,7 +72,7 @@ bool has_twin = false;
 bool is_themed = false;
 bool trinity_desktop_lock_use_sak = TRUE;
 bool trinity_desktop_synchronize_keyboard_lights = TRUE;
-bool trinity_desktop_watch_cryptographic_cards = TRUE;
+bool trinity_desktop_watch_cryptographic_cards = FALSE;
 TQPoint primaryScreenPosition;
 
 static int
