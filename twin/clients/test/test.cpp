@@ -22,7 +22,7 @@ void Decoration::init()
 	{
         button = new TQPushButton( widget());
         button->show();
-        button->setCursor( tqarrowCursor );
+        button->setCursor( TQt::arrowCursor );
 	button->move( 0, 0 );
         connect( button, TQT_SIGNAL( clicked()), TQT_SLOT( closeWindow()));
 	TQToolTip::add( button, "Zelva Mana" );

@@ -923,7 +923,7 @@ void ContainerArea::startContainerMove(BaseContainer *a)
     KickerTip::enableTipping(false);
     emit maintainFocus(true);
     setMouseTracking(true);
-    grabMouse(tqsizeAllCursor);
+    grabMouse(TQt::sizeAllCursor);
 
     m_layout->setStretchEnabled(false);
     a->raise();
@@ -940,7 +940,7 @@ void ContainerArea::mouseReleaseEvent(TQMouseEvent *)
     // so we need to complete the move here
     _autoScrollTimer.stop();
     releaseMouse();
-    setCursor(tqarrowCursor);
+    setCursor(TQt::arrowCursor);
     setMouseTracking(false);
 
     _moveAC->completeMoveOperation();
@@ -967,7 +967,7 @@ void ContainerArea::mouseMoveEvent(TQMouseEvent *ev)
         // leaveEvent() doesn't work, while grabbing the mouse
         _autoScrollTimer.stop();
         releaseMouse();
-        setCursor(tqarrowCursor);
+        setCursor(TQt::arrowCursor);
         setMouseTracking(false);
 
         _moveAC->completeMoveOperation();

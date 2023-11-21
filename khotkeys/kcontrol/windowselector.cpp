@@ -34,7 +34,7 @@ WindowSelector::WindowSelector( TQObject* receiver_P, const char* slot_P )
 
 void WindowSelector::select()
     {
-    kapp->desktop()->grabMouse( TQCursor( tqcrossCursor ));
+    kapp->desktop()->grabMouse( TQCursor( TQt::crossCursor ));
     kapp->installX11EventFilter( TQT_TQWIDGET(this) );
     }
 

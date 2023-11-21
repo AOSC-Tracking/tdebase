@@ -1213,7 +1213,7 @@ B2Button::B2Button(B2Client *_client, TQWidget *parent,
    : TQButton(parent, 0), hover(false)
 {
     setBackgroundMode(NoBackground);
-    setCursor(tqarrowCursor);
+    setCursor(TQt::arrowCursor);
     realizeButtons = realizeBtns;
     client = _client;
     useMiniIcon = false;

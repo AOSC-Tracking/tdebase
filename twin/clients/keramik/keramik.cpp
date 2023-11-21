@@ -765,7 +765,7 @@ KeramikButton::KeramikButton( KeramikClient* c, const char *name, Button btn, co
 
 	TQToolTip::add( this, tip ); // FRAME
 	setBackgroundMode( NoBackground );
-        setCursor( tqarrowCursor );
+        setCursor( TQt::arrowCursor );
 	int size = clientHandler->roundButton()->height();
 	setFixedSize( size, size );
 

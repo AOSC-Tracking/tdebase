@@ -2202,7 +2202,7 @@ bool ExtensionContainer::eventFilter( TQObject*, TQEvent * e)
                     }
                     else
                     {
-                        setCursor(tqarrowCursor);
+                        setCursor(TQt::arrowCursor);
                     }
                 }
                 else if (pos == KPanelExtension::Right)
@@ -2213,29 +2213,29 @@ bool ExtensionContainer::eventFilter( TQObject*, TQEvent * e)
                     }
                     else
                     {
-                        setCursor(tqarrowCursor);
+                        setCursor(TQt::arrowCursor);
                     }
                 }
                 else if (pos == KPanelExtension::Top)
                 {
                     if (inResizeArea(me->pos()))
                     {
-                        setCursor(tqsizeVerCursor);
+                        setCursor(TQt::sizeVerCursor);
                     }
                     else
                     {
-                        setCursor(tqarrowCursor);
+                        setCursor(TQt::arrowCursor);
                     }
                 }
                 else
                 {
                     if (inResizeArea(me->pos()))
                     {
-                        setCursor(tqsizeVerCursor);
+                        setCursor(TQt::sizeVerCursor);
                     }
                     else
                     {
-                        setCursor(tqarrowCursor);
+                        setCursor(TQt::arrowCursor);
                     }
                 }
             }

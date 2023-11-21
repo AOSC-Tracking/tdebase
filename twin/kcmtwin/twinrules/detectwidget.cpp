@@ -164,7 +164,7 @@ void DetectDialog::selectWindow()
     grabber = new TQDialog( NULL, NULL, true, (WFlags)WX11BypassWM );
     grabber->move( -1000, -1000 );
     grabber->show();
-    grabber->grabMouse( tqcrossCursor );
+    grabber->grabMouse( TQt::crossCursor );
     grabber->installEventFilter( this );
     }
 

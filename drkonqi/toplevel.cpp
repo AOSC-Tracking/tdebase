@@ -156,7 +156,7 @@ void Toplevel :: slotUser1()
   m_bugreport = new DrKBugReport(0, true, m_krashconf->aboutData());
 
   if (i == KMessageBox::Yes) {
-    TQApplication::setOverrideCursor ( tqwaitCursor );
+    TQApplication::setOverrideCursor ( TQt::waitCursor );
 
     // generate the backtrace
     BackTrace *backtrace = new BackTrace(m_krashconf, TQT_TQOBJECT(this));
@@ -195,7 +195,7 @@ void Toplevel :: slotNewDebuggingApp(const TQString& launchName)
 void Toplevel :: slotUser3()
 {
 	enableButton(User3, false);
-	TQApplication::setOverrideCursor ( tqwaitCursor );
+	TQApplication::setOverrideCursor ( TQt::waitCursor );
 
 	// generate the backtrace
 	BackTrace *backtrace = new BackTrace(m_krashconf, TQT_TQOBJECT(this));

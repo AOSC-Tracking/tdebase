@@ -556,7 +556,7 @@ void Navigator::slotSearch()
 
   // disable search Button during searches
   mSearchButton->setEnabled(false);
-  TQApplication::setOverrideCursor(tqwaitCursor);
+  TQApplication::setOverrideCursor(TQt::waitCursor);
 
   if ( !mSearchEngine->search( words, method, pages, scope ) ) {
     slotSearchFinished();

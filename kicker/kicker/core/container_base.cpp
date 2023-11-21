@@ -47,7 +47,7 @@ BaseContainer::BaseContainer( TQPopupMenu* appletOpMenu, TQWidget* parent, const
   , _opMnu(0)
   , _appletOpMnu(appletOpMenu)
 {
-    setCursor(tqarrowCursor);
+    setCursor(TQt::arrowCursor);
 }
 
 BaseContainer::~BaseContainer()

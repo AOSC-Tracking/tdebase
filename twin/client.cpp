@@ -2707,25 +2707,25 @@ void Client::setCursor( Position m )
         {
         case PositionTopLeft:
         case PositionBottomRight:
-            setCursor( tqsizeFDiagCursor );
+            setCursor( TQt::sizeFDiagCursor );
             break;
         case PositionBottomLeft:
         case PositionTopRight:
-            setCursor( tqsizeBDiagCursor );
+            setCursor( TQt::sizeBDiagCursor );
             break;
         case PositionTop:
         case PositionBottom:
-            setCursor( tqsizeVerCursor );
+            setCursor( TQt::sizeVerCursor );
             break;
         case PositionLeft:
         case PositionRight:
-            setCursor( tqsizeHorCursor );
+            setCursor( TQt::sizeHorCursor );
             break;
         default:
             if( buttonDown && isMovable())
-                setCursor( tqsizeAllCursor );
+                setCursor( TQt::sizeAllCursor );
             else
-                setCursor( tqarrowCursor );
+                setCursor( TQt::arrowCursor );
             break;
         }
     }

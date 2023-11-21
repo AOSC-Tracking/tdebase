@@ -161,7 +161,7 @@ void LogView::updateList()
    TQFile logFile(logFileName.url());
    if (logFile.open(IO_ReadOnly))
    {
-      TQApplication::setOverrideCursor(tqwaitCursor);
+      TQApplication::setOverrideCursor(TQt::waitCursor);
       viewHistory.clear();
       filesCount=0;
       connectionsCount=0;

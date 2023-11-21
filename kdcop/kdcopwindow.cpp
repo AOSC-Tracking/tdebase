@@ -158,7 +158,7 @@ DCOPBrowserApplicationItem::setOpen(bool o)
   void
 DCOPBrowserApplicationItem::populate()
 {
-  TDEApplication::setOverrideCursor(tqwaitCursor);
+  TDEApplication::setOverrideCursor(TQt::waitCursor);
 
   bool ok = false;
   bool isDefault = false;
@@ -241,7 +241,7 @@ DCOPBrowserInterfaceItem::setOpen(bool o)
   void
 DCOPBrowserInterfaceItem::populate()
 {
-  TDEApplication::setOverrideCursor(tqwaitCursor);
+  TDEApplication::setOverrideCursor(TQt::waitCursor);
 
   bool ok = false;
 
@@ -892,7 +892,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
 
 void KDCOPWindow::slotFillApplications()
 {
-  TDEApplication::setOverrideCursor(tqwaitCursor);
+  TDEApplication::setOverrideCursor(TQt::waitCursor);
 
   QCStringList apps = dcopClient->registeredApplications();
   TQCString appId = dcopClient->appId();

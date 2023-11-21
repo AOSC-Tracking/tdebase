@@ -163,7 +163,7 @@ void DockContainer::setBaseWidget(TQWidget *widget)
 
 ProxyWidget* DockContainer::loadModule( ConfigModule *module )
 {
-  TQApplication::setOverrideCursor( tqwaitCursor );
+  TQApplication::setOverrideCursor( TQt::waitCursor );
 
   ProxyWidget *widget = _modulew->load( module );
 
