@@ -1704,7 +1704,7 @@ void Client::sendClientMessage(Window w, Atom a, Atom protocol, long data1, long
     ev.xclient.message_type = a;
     ev.xclient.format = 32;
     ev.xclient.data.l[0] = protocol;
-    ev.xclient.data.l[1] = GET_QT_X_TIME();
+    ev.xclient.data.l[1] = get_tqt_x_time();
     ev.xclient.data.l[2] = data1;
     ev.xclient.data.l[3] = data2;
     ev.xclient.data.l[4] = data3;
@@ -1783,7 +1783,7 @@ void Client::pingWindow()
     ping_timer = new TQTimer( this );
     connect( ping_timer, TQT_SIGNAL( timeout()), TQT_SLOT( pingTimeout()));
     ping_timer->start( options->killPingTimeout, true );
-    ping_timestamp = GET_QT_X_TIME();
+    ping_timestamp = get_tqt_x_time();
     workspace()->sendPingToWindow( window(), ping_timestamp );
     }
 
@@ -2203,15 +2203,15 @@ void Client::takeActivity( int flags, bool handled, allowed_t )
 #ifndef NDEBUG
     static Time previous_activity_timestamp;
     static Client* previous_client;
-    if( previous_activity_timestamp == GET_QT_X_TIME() && previous_client != this )
+    if( previous_activity_timestamp == get_tqt_x_time() && previous_client != this )
         {
         kdDebug( 1212 ) << "Repeated use of the same X timestamp for activity" << endl;
         kdDebug( 1212 ) << kdBacktrace() << endl;
         }
-    previous_activity_timestamp = GET_QT_X_TIME();
+    previous_activity_timestamp = get_tqt_x_time();
     previous_client = this;
 #endif
-    workspace()->sendTakeActivity( this, GET_QT_X_TIME(), flags );
+    workspace()->sendTakeActivity( this, get_tqt_x_time(), flags );
     }
 
 // performs the actual focusing of the window using XSetInputFocus and WM_TAKE_FOCUS
@@ -2220,17 +2220,17 @@ void Client::takeFocus( allowed_t )
 #ifndef NDEBUG
     static Time previous_focus_timestamp;
     static Client* previous_client;
-    if( previous_focus_timestamp == GET_QT_X_TIME() && previous_client != this )
+    if( previous_focus_timestamp == get_tqt_x_time() && previous_client != this )
         {
         kdDebug( 1212 ) << "Repeated use of the same X timestamp for focus" << endl;
         kdDebug( 1212 ) << kdBacktrace() << endl;
         }
-    previous_focus_timestamp = GET_QT_X_TIME();
+    previous_focus_timestamp = get_tqt_x_time();
     previous_client = this;
 #endif
     if ( rules()->checkAcceptFocus( input ))
         {
-        XSetInputFocus( tqt_xdisplay(), window(), RevertToPointerRoot, GET_QT_X_TIME() );
+        XSetInputFocus( tqt_xdisplay(), window(), RevertToPointerRoot, get_tqt_x_time() );
         // Work around opacity bug
         bool activePrev = active;
         active = true;

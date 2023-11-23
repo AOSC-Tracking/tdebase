@@ -197,7 +197,7 @@ bool Workspace::workspaceEvent( XEvent * e )
     if ( mouse_emulation && (e->type == ButtonPress || e->type == ButtonRelease ) )
         {
         mouse_emulation = FALSE;
-        XUngrabKeyboard( tqt_xdisplay(), GET_QT_X_TIME() );
+        XUngrabKeyboard( tqt_xdisplay(), get_tqt_x_time() );
         }
 
     if( e->type == PropertyNotify || e->type == ClientMessage )
@@ -292,11 +292,11 @@ bool Workspace::workspaceEvent( XEvent * e )
                  !e->xcreatewindow.override_redirect )
             {
         // see comments for allowClientActivation()
-            Time my_qtx_time = GET_QT_X_TIME();
+            Time my_qtx_time = get_tqt_x_time();
             XChangeProperty(tqt_xdisplay(), e->xcreatewindow.window,
                             atoms->kde_net_wm_user_creation_time, XA_CARDINAL,
                             32, PropModeReplace, (unsigned char *)&my_qtx_time, 1);
-            SET_QT_X_TIME(my_qtx_time);
+            set_tqt_x_time(my_qtx_time);
             }
         break;
 
@@ -1550,7 +1550,7 @@ static bool waitingMotionEvent()
 // of processes events reaches the timestamp of the last suitable
 // MotionNotify event in the queue.
     if( next_motion_time != CurrentTime
-        && timestampCompare( GET_QT_X_TIME(), next_motion_time ) < 0 )
+        && timestampCompare( get_tqt_x_time(), next_motion_time ) < 0 )
         return true;
     was_motion = false;
     XSync( tqt_xdisplay(), False ); // this helps to discard more MotionNotify events

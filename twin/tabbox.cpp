@@ -708,7 +708,7 @@ void TabBox::delayedShow()
 
 void TabBox::handleMouseEvent( XEvent* e )
     {
-    XAllowEvents( tqt_xdisplay(), AsyncPointer, GET_QT_X_TIME() );
+    XAllowEvents( tqt_xdisplay(), AsyncPointer, get_tqt_x_time() );
     if( e->type != ButtonPress )
         return;
     TQPoint pos( e->xbutton.x_root, e->xbutton.y_root );
@@ -866,7 +866,7 @@ void Workspace::slotWalkThroughWindows()
         return;
     if ( options->altTabStyle == Options::CDE || !options->focusPolicyIsReasonable())
         {
-        //XUngrabKeyboard(tqt_xdisplay(), GET_QT_X_TIME()); // need that because of accelerator raw mode
+        //XUngrabKeyboard(tqt_xdisplay(), get_tqt_x_time()); // need that because of accelerator raw mode
         // CDE style raise / lower
         CDEWalkThroughWindows( true );
         }
@@ -1360,7 +1360,7 @@ Client* Workspace::previousStaticClient( Client* c ) const
 bool Workspace::establishTabBoxGrab()
     {
     if( XGrabKeyboard( tqt_xdisplay(), root, FALSE,
-        GrabModeAsync, GrabModeAsync, GET_QT_X_TIME()) != GrabSuccess )
+        GrabModeAsync, GrabModeAsync, get_tqt_x_time()) != GrabSuccess )
         return false;
     // Don't try to establish a global mouse grab using XGrabPointer, as that would prevent
     // using Alt+Tab while DND (#44972). However force passive grabs on all windows
@@ -1376,7 +1376,7 @@ bool Workspace::establishTabBoxGrab()
 
 void Workspace::removeTabBoxGrab()
     {
-    XUngrabKeyboard(tqt_xdisplay(), GET_QT_X_TIME());
+    XUngrabKeyboard(tqt_xdisplay(), get_tqt_x_time());
     assert( forced_global_mouse_grab );
     forced_global_mouse_grab = false;
     if( active_client != NULL )

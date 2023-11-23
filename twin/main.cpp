@@ -194,7 +194,7 @@ Application::~Application()
     delete Workspace::self();
     if( owner.ownerWindow() != None ) // if there was no --replace (no new WM)
         {
-        XSetInputFocus( tqt_xdisplay(), PointerRoot, RevertToPointerRoot, GET_QT_X_TIME() );
+        XSetInputFocus( tqt_xdisplay(), PointerRoot, RevertToPointerRoot, get_tqt_x_time() );
         DCOPRef ref( "kded", "kded" );
         if( !ref.send( "loadModule", TQCString( "kdetrayproxy" )))
             kdWarning( 176 ) << "Loading of kdetrayproxy failed." << endl;

@@ -674,7 +674,7 @@ void Workspace::unfakeActivity( Client* c )
 void Client::updateUserTime( Time time )
     { // copied in Group::updateUserTime
     if( time == CurrentTime )
-        time = GET_QT_X_TIME();
+        time = get_tqt_x_time();
     if( time != -1U
         && ( user_time == CurrentTime
             || timestampCompare( time, user_time ) > 0 )) // time > user_time
@@ -1005,7 +1005,7 @@ void Group::startupIdChanged()
 void Group::updateUserTime( Time time )
     { // copy of Client::updateUserTime
     if( time == CurrentTime )
-        time = GET_QT_X_TIME();
+        time = get_tqt_x_time();
     if( time != -1U
         && ( user_time == CurrentTime
             || timestampCompare( time, user_time ) > 0 )) // time > user_time

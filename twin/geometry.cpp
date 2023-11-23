@@ -679,7 +679,7 @@ void Workspace::updateTopMenuGeometry( Client* c )
         static Atom msg_type_atom = XInternAtom( tqt_xdisplay(), "_KDE_TOPMENU_MINSIZE", False );
         ev.xclient.message_type = msg_type_atom;
         ev.xclient.format = 32;
-        ev.xclient.data.l[0] = GET_QT_X_TIME();
+        ev.xclient.data.l[0] = get_tqt_x_time();
         ev.xclient.data.l[1] = topmenu_space->width();
         ev.xclient.data.l[2] = topmenu_space->height();
         ev.xclient.data.l[3] = 0;
@@ -2311,9 +2311,9 @@ bool Client::startMoveResize()
     XMapRaised( tqt_xdisplay(), move_resize_grab_window );
     if( XGrabPointer( tqt_xdisplay(), move_resize_grab_window, False,
         ButtonPressMask | ButtonReleaseMask | PointerMotionMask | EnterWindowMask | LeaveWindowMask,
-        GrabModeAsync, GrabModeAsync, move_resize_grab_window, cursor.handle(), GET_QT_X_TIME() ) == Success )
+        GrabModeAsync, GrabModeAsync, move_resize_grab_window, cursor.handle(), get_tqt_x_time() ) == Success )
         has_grab = true;
-    if( XGrabKeyboard( tqt_xdisplay(), frameId(), False, GrabModeAsync, GrabModeAsync, GET_QT_X_TIME() ) == Success )
+    if( XGrabKeyboard( tqt_xdisplay(), frameId(), False, GrabModeAsync, GrabModeAsync, get_tqt_x_time() ) == Success )
         has_grab = true;
     if( !has_grab ) // at least one grab is necessary in order to be able to finish move/resize
     {
@@ -2448,8 +2448,8 @@ void Client::leaveMoveResize()
     if ( ( isMove() && rules()->checkMoveResizeMode( options->moveMode ) != Options::Opaque )
       || ( isResize() && rules()->checkMoveResizeMode( options->resizeMode ) != Options::Opaque ) )
         ungrabXServer();
-    XUngrabKeyboard( tqt_xdisplay(), GET_QT_X_TIME() );
-    XUngrabPointer( tqt_xdisplay(), GET_QT_X_TIME() );
+    XUngrabKeyboard( tqt_xdisplay(), get_tqt_x_time() );
+    XUngrabPointer( tqt_xdisplay(), get_tqt_x_time() );
     XDestroyWindow( tqt_xdisplay(), move_resize_grab_window );
     move_resize_grab_window = None;
     workspace()->setClientIsMoving(0);
@@ -2710,7 +2710,7 @@ void Client::handleMoveResize(int x, int y, int x_root, int y_root) {
         }
     }
     if (isMove()) {
-        workspace()->checkActiveBorder(globalPos, GET_QT_X_TIME());
+        workspace()->checkActiveBorder(globalPos, get_tqt_x_time());
     }
 }
 

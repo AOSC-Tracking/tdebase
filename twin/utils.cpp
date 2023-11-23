@@ -274,7 +274,7 @@ void updateXTime()
         XCheckIfEvent( tqt_xdisplay(), &dummy, update_x_time_predicate, NULL );
         }
     assert( next_x_time != CurrentTime );
-    SET_QT_X_TIME(next_x_time);
+    set_tqt_x_time(next_x_time);
     XEvent ev; // remove the PropertyNotify event from the events queue
     XWindowEvent( tqt_xdisplay(), w->winId(), PropertyChangeMask, &ev );
     }
