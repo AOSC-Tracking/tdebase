@@ -1114,7 +1114,7 @@ void KlipperWidget::updateTimestamp()
 { // Qt3.3.0 and 3.3.1 use tqt_x_user_time for clipboard operations
     Time time = ( strcmp( tqVersion(), "3.3.1" ) == 0
                 || strcmp( tqVersion(), "3.3.0" ) == 0 )
-                ? GET_QT_X_USER_TIME() : GET_QT_X_TIME();
+                ? get_tqt_x_user_time() : get_tqt_x_time();
     static TQWidget* w = 0;
     if ( !w )
         w = new TQWidget;

@@ -203,8 +203,8 @@ Workspace::Workspace( bool restore )
 
     delayFocusTimer = 0;
 
-    active_time_first = GET_QT_X_TIME();
-    active_time_last = GET_QT_X_TIME();
+    active_time_first = get_tqt_x_time();
+    active_time_last = get_tqt_x_time();
 
     if ( restore )
       loadSessionInfo();
@@ -2154,7 +2154,7 @@ void Workspace::slotMouseEmulation()
 
     if ( mouse_emulation )
         {
-        XUngrabKeyboard(tqt_xdisplay(), GET_QT_X_TIME());
+        XUngrabKeyboard(tqt_xdisplay(), get_tqt_x_time());
         mouse_emulation = FALSE;
         return;
         }
@@ -2162,7 +2162,7 @@ void Workspace::slotMouseEmulation()
     if ( XGrabKeyboard(tqt_xdisplay(),
                        root, FALSE,
                        GrabModeAsync, GrabModeAsync,
-                       GET_QT_X_TIME()) == GrabSuccess )
+                       get_tqt_x_time()) == GrabSuccess )
         {
         mouse_emulation = TRUE;
         mouse_emulation_state = 0;
@@ -2218,7 +2218,7 @@ unsigned int Workspace::sendFakedMouseEvent( TQPoint pos, WId w, MouseEmulation 
             e.xmotion.window = w;
             e.xmotion.root = tqt_xrootwin();
             e.xmotion.subwindow = w;
-            e.xmotion.time = GET_QT_X_TIME();
+            e.xmotion.time = get_tqt_x_time();
             e.xmotion.x = x;
             e.xmotion.y = y;
             e.xmotion.x_root = pos.x();
@@ -2234,7 +2234,7 @@ unsigned int Workspace::sendFakedMouseEvent( TQPoint pos, WId w, MouseEmulation 
             e.xbutton.window = w;
             e.xbutton.root = tqt_xrootwin();
             e.xbutton.subwindow = w;
-            e.xbutton.time = GET_QT_X_TIME();
+            e.xbutton.time = get_tqt_x_time();
             e.xbutton.x = x;
             e.xbutton.y = y;
             e.xbutton.x_root = pos.x();
@@ -2360,7 +2360,7 @@ bool Workspace::keyPressMouseEmulation( XKeyEvent& ev )
             }
     // fall through
         case XK_Escape:
-            XUngrabKeyboard(tqt_xdisplay(), GET_QT_X_TIME());
+            XUngrabKeyboard(tqt_xdisplay(), get_tqt_x_time());
             mouse_emulation = FALSE;
             return TRUE;
         default:
@@ -2415,9 +2415,9 @@ void Workspace::cancelDelayFocus()
  */
 void Workspace::updateActiveBorders()
     {
-    active_time_first = GET_QT_X_TIME();
-    active_time_last = GET_QT_X_TIME();
-    active_time_last_trigger = GET_QT_X_TIME();
+    active_time_first = get_tqt_x_time();
+    active_time_last = get_tqt_x_time();
+    active_time_last_trigger = get_tqt_x_time();
     active_current_border = ActiveNone;
     TQRect r = TQApplication::desktop()->geometry();
     activeTop = r.top();
@@ -2745,7 +2745,7 @@ bool Workspace::activeBorderEvent(XEvent *e)
                 if (active_windows[i] != None && e->xclient.window == active_windows[i])
                 {
                     updateXTime();
-                    checkActiveBorder(TQPoint(e->xclient.data.l[2]>>16, e->xclient.data.l[2]&0xffff), GET_QT_X_TIME());
+                    checkActiveBorder(TQPoint(e->xclient.data.l[2]>>16, e->xclient.data.l[2]&0xffff), get_tqt_x_time());
                     return true;
                 }
             }
@@ -2868,7 +2868,7 @@ bool Workspace::checkStartupNotification( Window w, TDEStartupInfoId& id, TDESta
  */
 void Workspace::focusToNull()
     {
-    XSetInputFocus(tqt_xdisplay(), null_focus_window, RevertToPointerRoot, GET_QT_X_TIME() );
+    XSetInputFocus(tqt_xdisplay(), null_focus_window, RevertToPointerRoot, get_tqt_x_time() );
     }
 
 void Workspace::helperDialog( const TQString& message, const Client* c )

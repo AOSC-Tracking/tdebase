@@ -151,7 +151,7 @@ void KSMServer::performLegacySessionSave()
             ev.xclient.message_type = wm_protocols;
             ev.xclient.format = 32;
             ev.xclient.data.l[0] = wm_save_yourself;
-            ev.xclient.data.l[1] = GET_QT_X_TIME();
+            ev.xclient.data.l[1] = get_tqt_x_time();
             XSelectInput(newdisplay, w, PropertyChangeMask|StructureNotifyMask);
             XSendEvent(newdisplay, w, False, 0, &ev);
         }

@@ -520,9 +520,9 @@ bool Client::manage( Window w, bool isMapped )
 
     if( user_time == CurrentTime || user_time == -1U ) // no known user time, set something old
         {
-        user_time = GET_QT_X_TIME() - 1000000;
+        user_time = get_tqt_x_time() - 1000000;
         if( user_time == CurrentTime || user_time == -1U ) // let's be paranoid
-            user_time = GET_QT_X_TIME() - 1000000 + 10;
+            user_time = get_tqt_x_time() - 1000000 + 10;
         }
 
     updateWorkareaDiffs();

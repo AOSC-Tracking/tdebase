@@ -1310,7 +1310,7 @@ void KonqMainWindow::slotCreateNewWindow( const KURL &url, const KParts::URLArgs
 // well. If the WM has support for _NET_WM_USER_TIME, it will be just set to 0 (=don't focus on show),
 // and the WM should take care of it itself.
     bool wm_usertime_support = false;
-    Time saved_last_input_time = GET_QT_X_USER_TIME();
+    Time saved_last_input_time = get_tqt_x_user_time();
     if ( windowArgs.lowerWindow )
     {
         NETRootInfo wm_info( tqt_xdisplay(), NET::Supported );
@@ -1320,7 +1320,7 @@ void KonqMainWindow::slotCreateNewWindow( const KURL &url, const KParts::URLArgs
         // *sigh*, and I thought nobody would need TQWidget::dontFocusOnShow().
         // Avoid Qt's support for user time by setting it to 0, and
         // set the property ourselves.
-            SET_QT_X_USER_TIME(0);
+            set_tqt_x_user_time(0);
             KWin::setUserTime( mainWindow->winId(), 0 );
         }
         // Put below the current window before showing, in case that actually works with the WM.
@@ -1333,7 +1333,7 @@ void KonqMainWindow::slotCreateNewWindow( const KURL &url, const KParts::URLArgs
 
     if ( windowArgs.lowerWindow )
     {
-        SET_QT_X_USER_TIME(saved_last_input_time);
+        set_tqt_x_user_time(saved_last_input_time);
         if( !wm_usertime_support )
         { // No WM support. Let's try ugly tricks.
             mainWindow->lower();
@@ -5833,7 +5833,7 @@ void KonqMainWindow::resetWindow()
     static Atom atom = XInternAtom( tqt_xdisplay(), "_TDE_NET_WM_USER_CREATION_TIME", False );
     XChangeProperty( tqt_xdisplay(), winId(), atom, XA_CARDINAL, 32,
 		     PropModeReplace, (unsigned char *) &x_time, 1);
-    SET_QT_X_USER_TIME(CurrentTime); // won't have _NET_WM_USER_TIME set
+    set_tqt_x_user_time(CurrentTime); // won't have _NET_WM_USER_TIME set
 #if !KDE_IS_VERSION( 3, 2, 90 ) // _KDE_NET_USER_TIME is obsolete
     static Atom atom2 = XInternAtom( tqt_xdisplay(), "_KDE_NET_USER_TIME", False );
     timeval tv;
