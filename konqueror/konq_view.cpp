@@ -1097,7 +1097,7 @@ bool KonqView::callExtensionBoolMethod( const char *methodName, bool value )
     return false;
   TQUObject o[ 2 ];
 
-  static_TQUType_bool.set( o + 1, value );
+  static_QUType_bool.set( o + 1, value );
 
   obj->tqt_invoke( id, o );
   return true;
@@ -1114,7 +1114,7 @@ bool KonqView::callExtensionStringMethod( const char *methodName, TQString value
     return false;
   TQUObject o[ 2 ];
 
-  static_TQUType_TQString.set( o + 1, value );
+  static_QUType_TQString.set( o + 1, value );
 
   obj->tqt_invoke( id, o );
   return true;
@@ -1131,7 +1131,7 @@ bool KonqView::callExtensionURLMethod( const char *methodName, const KURL& value
     return false;
   TQUObject o[ 2 ];
 
-  static_TQUType_ptr.set( o + 1, &value );
+  static_QUType_ptr.set( o + 1, &value );
 
   obj->tqt_invoke( id, o );
   return true;
