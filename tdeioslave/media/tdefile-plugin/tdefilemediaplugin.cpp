@@ -163,7 +163,7 @@ bool KFileMediaPlugin::readInfo(KFileMetaInfo &info, uint /*what*/)
 
 			TQColorGroup cg = TQApplication::palette().active();
 
-			TQApplication::style().tqdrawPrimitive(TQStyle::PE_Panel, &p,
+			TQApplication::style().drawPrimitive(TQStyle::PE_Panel, &p,
 							    TQRect(0, 0, 150, 20), cg,
 							    TQStyle::Style_Sunken);
 

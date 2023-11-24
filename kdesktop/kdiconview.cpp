@@ -1667,7 +1667,7 @@ void KDIconView::slotAboutToCreate(const TQPoint &pos, const TQValueList<TDEIO::
            saveIconPosition(m_dotDirectory, m_lastDropPos.x(), m_lastDropPos.y());
            int dX = m_lastDropPos.x() - m_dropPos.x();
            int dY = m_lastDropPos.y() - m_dropPos.y();
-           if ((QABS(dX) > QABS(dY)) || (m_lastDropPos.x() + 2*gridX > width()))
+           if ((TQABS(dX) > TQABS(dY)) || (m_lastDropPos.x() + 2*gridX > width()))
               m_lastDropPos = TQPoint(m_dropPos.x(), m_lastDropPos.y() + gridY);
            else
               m_lastDropPos = TQPoint(m_lastDropPos.x() + gridX, m_lastDropPos.y());

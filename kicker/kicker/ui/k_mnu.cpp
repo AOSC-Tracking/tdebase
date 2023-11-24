@@ -655,7 +655,7 @@ void PanelKMenu::paintEvent(TQPaintEvent * e)
     TQPainter p(this);
     p.setClipRegion(e->region());
 
-    style().tqdrawPrimitive( TQStyle::PE_PanelPopup, &p,
+    style().drawPrimitive( TQStyle::PE_PanelPopup, &p,
                            TQRect( 0, 0, width(), height() ),
                            colorGroup(), TQStyle::Style_Default,
                            TQStyleOption( frameWidth(), 0 ) );

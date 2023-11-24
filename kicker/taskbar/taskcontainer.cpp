@@ -700,12 +700,12 @@ void TaskContainer::drawButton(TQPainter *p)
     if (drawButton)
     {
         if (READ_MERGED_TASKBAR_SETTING(drawButtons) && KickerSettings::showDeepButtons()) {
-            style().tqdrawPrimitive(TQStyle::PE_ButtonBevel, p,
+            style().drawPrimitive(TQStyle::PE_ButtonBevel, p,
                               TQRect(1, 1, width()-3, height()-2),
                               colors, sunken ? TQStyle::Style_On : TQStyle::Style_Raised);
         }
         else {
-            style().tqdrawPrimitive(TQStyle::PE_ButtonTool, p,
+            style().drawPrimitive(TQStyle::PE_ButtonTool, p,
                               TQRect(1, 1, width()-2, height()-2),
                               colors, sunken ? TQStyle::Style_Down : TQStyle::Style_Raised);
         }
@@ -908,7 +908,7 @@ void TaskContainer::drawButton(TQPainter *p)
             flags |= TQStyle::Style_Down;
         }
 
-        style().tqdrawPrimitive(e, p, ar, colors, flags);
+        style().drawPrimitive(e, p, ar, colors, flags);
     }
     
     // draw mouse over frame in transparent mode

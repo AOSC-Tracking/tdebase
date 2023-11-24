@@ -337,23 +337,23 @@ TQPoint Workspace::adjustClientPosition( Client* c, TQPoint pos )
         int snap = options->borderSnapZone; //snap trigger
         if (snap)
             {
-            if ((sOWO?(cx<xmin):true) && (QABS(xmin-cx)<snap))
+            if ((sOWO?(cx<xmin):true) && (TQABS(xmin-cx)<snap))
                 {
                 deltaX = xmin-cx;
                 nx = xmin;
                 }
-            if ((sOWO?(rx>xmax):true) && (QABS(rx-xmax)<snap) && (QABS(xmax-rx) < deltaX))
+            if ((sOWO?(rx>xmax):true) && (TQABS(rx-xmax)<snap) && (TQABS(xmax-rx) < deltaX))
                 {
                 deltaX = rx-xmax;
                 nx = xmax - cw;
                 }
 
-            if ((sOWO?(cy<ymin):true) && (QABS(ymin-cy)<snap))
+            if ((sOWO?(cy<ymin):true) && (TQABS(ymin-cy)<snap))
                 {
                 deltaY = ymin-cy;
                 ny = ymin;
                 }
-            if ((sOWO?(ry>ymax):true) && (QABS(ry-ymax)<snap) && (QABS(ymax-ry) < deltaY))
+            if ((sOWO?(ry>ymax):true) && (TQABS(ry-ymax)<snap) && (TQABS(ymax-ry) < deltaY))
                 {
                 deltaY =ry-ymax;
                 ny = ymax - ch;
@@ -380,14 +380,14 @@ TQPoint Workspace::adjustClientPosition( Client* c, TQPoint pos )
                          (( ry >= ly  ) && ( ry  <= lry ))  ||
                          (( cy <= ly  ) && ( ry >= lry  )) )
                         {
-                        if ((sOWO?(cx<lrx):true) && (QABS(lrx-cx)<snap) && ( QABS(lrx -cx) < deltaX) )
+                        if ((sOWO?(cx<lrx):true) && (TQABS(lrx-cx)<snap) && ( TQABS(lrx -cx) < deltaX) )
                             {
-                            deltaX = QABS( lrx - cx );
+                            deltaX = TQABS( lrx - cx );
                             nx = lrx;
                             }
-                        if ((sOWO?(rx>lx):true) && (QABS(rx-lx)<snap) && ( QABS( rx - lx )<deltaX) )
+                        if ((sOWO?(rx>lx):true) && (TQABS(rx-lx)<snap) && ( TQABS( rx - lx )<deltaX) )
                             {
-                            deltaX = QABS(rx - lx);
+                            deltaX = TQABS(rx - lx);
                             nx = lx - cw;
                             }
                         }
@@ -396,15 +396,15 @@ TQPoint Workspace::adjustClientPosition( Client* c, TQPoint pos )
                          (( rx >= lx  ) && ( rx  <= lrx ))  ||
                          (( cx <= lx  ) && ( rx >= lrx  )) )
                         {
-                        if ((sOWO?(cy<lry):true) && (QABS(lry-cy)<snap) && (QABS( lry -cy ) < deltaY))
+                        if ((sOWO?(cy<lry):true) && (TQABS(lry-cy)<snap) && (TQABS( lry -cy ) < deltaY))
                             {
-                            deltaY = QABS( lry - cy );
+                            deltaY = TQABS( lry - cy );
                             ny = lry;
                             }
-                  //if ( (QABS( ry-ly ) < snap) && (QABS( ry - ly ) < deltaY ))
-                        if ((sOWO?(ry>ly):true) && (QABS(ry-ly)<snap) && (QABS( ry - ly ) < deltaY ))
+                  //if ( (TQABS( ry-ly ) < snap) && (TQABS( ry - ly ) < deltaY ))
+                        if ((sOWO?(ry>ly):true) && (TQABS(ry-ly)<snap) && (TQABS( ry - ly ) < deltaY ))
                             {
-                            deltaY = QABS( ry - ly );
+                            deltaY = TQABS( ry - ly );
                             ny = ly - ch;
                             }
                         }
@@ -451,30 +451,30 @@ TQRect Workspace::adjustClientSize( Client* c, TQRect moveResizeGeom, int mode )
             deltaY = int(snap);
 
 #define SNAP_BORDER_TOP \
-            if ((sOWO?(newcy<ymin):true) && (QABS(ymin-newcy)<deltaY)) \
+            if ((sOWO?(newcy<ymin):true) && (TQABS(ymin-newcy)<deltaY)) \
               { \
-                deltaY = QABS(ymin-newcy); \
+                deltaY = TQABS(ymin-newcy); \
                 newcy = ymin; \
                }
 
 #define SNAP_BORDER_BOTTOM \
-            if ((sOWO?(newry>ymax):true) && (QABS(ymax-newry)<deltaY)) \
+            if ((sOWO?(newry>ymax):true) && (TQABS(ymax-newry)<deltaY)) \
               { \
-                deltaY = QABS(ymax-newcy); \
+                deltaY = TQABS(ymax-newcy); \
                 newry = ymax; \
                }
 
 #define SNAP_BORDER_LEFT \
-            if ((sOWO?(newcx<xmin):true) && (QABS(xmin-newcx)<deltaX)) \
+            if ((sOWO?(newcx<xmin):true) && (TQABS(xmin-newcx)<deltaX)) \
               { \
-                deltaX = QABS(xmin-newcx); \
+                deltaX = TQABS(xmin-newcx); \
                 newcx = xmin; \
                }
 
 #define SNAP_BORDER_RIGHT \
-            if ((sOWO?(newrx>xmax):true) && (QABS(xmax-newrx)<deltaX)) \
+            if ((sOWO?(newrx>xmax):true) && (TQABS(xmax-newrx)<deltaX)) \
               { \
-                deltaX = QABS(xmax-newrx); \
+                deltaX = TQABS(xmax-newrx); \
                 newrx = xmax; \
                }
                      switch ( mode )
@@ -543,30 +543,30 @@ TQRect Workspace::adjustClientSize( Client* c, TQRect moveResizeGeom, int mode )
 
 #define SNAP_WINDOW_TOP  if ( (sOWO?(newcy<lry):true) \
                   && WITHIN_WIDTH  \
-                  && (QABS( lry - newcy ) < deltaY) ) {  \
-                  deltaY = QABS( lry - newcy ); \
+                  && (TQABS( lry - newcy ) < deltaY) ) {  \
+                  deltaY = TQABS( lry - newcy ); \
                   newcy=lry; \
                   }
 
 #define SNAP_WINDOW_BOTTOM  if ( (sOWO?(newry>ly):true)  \
                      && WITHIN_WIDTH  \
-                     && (QABS( ly - newry ) < deltaY) ) {  \
-                     deltaY = QABS( ly - newry );  \
+                     && (TQABS( ly - newry ) < deltaY) ) {  \
+                     deltaY = TQABS( ly - newry );  \
                      newry=ly;  \
                      }
 
 #define SNAP_WINDOW_LEFT  if ( (sOWO?(newcx<lrx):true)  \
                    && WITHIN_HEIGHT  \
-                   && (QABS( lrx - newcx ) < deltaX)) {  \
-                   deltaX = QABS( lrx - newcx );  \
+                   && (TQABS( lrx - newcx ) < deltaX)) {  \
+                   deltaX = TQABS( lrx - newcx );  \
                    newcx=lrx;  \
                    }
 
 #define SNAP_WINDOW_RIGHT  if ( (sOWO?(newrx>lx):true)  \
                     && WITHIN_HEIGHT  \
-                    && (QABS( lx - newrx ) < deltaX))  \
+                    && (TQABS( lx - newrx ) < deltaX))  \
                     {  \
-                    deltaX = QABS( lx - newrx );  \
+                    deltaX = TQABS( lx - newrx );  \
                     newrx=lx;  \
                     }
 

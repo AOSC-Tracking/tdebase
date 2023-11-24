@@ -121,7 +121,7 @@ int KonqDirPart::KonqDirPartPrivate::findNearestIconSize(int preferred)
 
 int KonqDirPart::KonqDirPartPrivate::nearestIconSizeError(int size)
 {
-    return QABS(size - findNearestIconSize(size));
+    return TQABS(size - findNearestIconSize(size));
 }
 
 KonqDirPart::KonqDirPart( TQObject *parent, const char *name )

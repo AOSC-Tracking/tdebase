@@ -113,14 +113,14 @@ KateFileSelector::KateFileSelector( KateMainWindow *mainWindow,
 {
   mActionCollection = new TDEActionCollection( this );
 
-  TQtMsgHandler oldHandler = tqInstallMsgHandler( silenceQToolBar );
+  TQtMsgHandler oldHandler = qInstallMsgHandler( silenceQToolBar );
 
   KateFileSelectorToolBarParent *tbp=new KateFileSelectorToolBarParent(this);
   toolbar = new KateFileSelectorToolBar(tbp);
   tbp->setToolBar(toolbar);
   toolbar->setMovingEnabled(false);
   toolbar->setFlat(true);
-  tqInstallMsgHandler( oldHandler );
+  qInstallMsgHandler( oldHandler );
 
   cmbPath = new KURLComboBox( KURLComboBox::Directories, true, this, "path combo" );
   cmbPath->setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed ));

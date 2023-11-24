@@ -367,7 +367,7 @@ void AppletHandleDrag::paintEvent(TQPaintEvent *)
     
         TQRect r = rect();
     
-        style().tqdrawPrimitive(TQStyle::PE_DockWindowHandle, &p, r,
+        style().drawPrimitive(TQStyle::PE_DockWindowHandle, &p, r,
                             colorGroup(), flags);
     }
     else

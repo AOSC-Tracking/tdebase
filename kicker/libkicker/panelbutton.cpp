@@ -540,7 +540,7 @@ void PanelButton::drawButton(TQPainter *p)
     if (m_tileColor.isValid())
     {
         p->fillRect(rect(), m_tileColor);
-        style().tqdrawPrimitive(TQStyle::PE_Panel, p, rect(), colorGroup());
+        style().drawPrimitive(TQStyle::PE_Panel, p, rect(), colorGroup());
     }
     else if (paletteBackgroundPixmap())
     {
@@ -560,7 +560,7 @@ void PanelButton::drawButton(TQPainter *p)
     else if (isDown() || isOn())
     {
         // Draw shapes to indicate the down state.
-        style().tqdrawPrimitive(TQStyle::PE_Panel, p, rect(), colorGroup(), TQStyle::Style_Sunken);
+        style().drawPrimitive(TQStyle::PE_Panel, p, rect(), colorGroup(), TQStyle::Style_Sunken);
     }
 
     drawButtonLabel(p);
@@ -570,7 +570,7 @@ void PanelButton::drawButton(TQPainter *p)
         int x1, y1, x2, y2;
         rect().coords(&x1, &y1, &x2, &y2);
         TQRect r(x1+2, y1+2, x2-x1-3, y2-y1-3);
-        style().tqdrawPrimitive(TQStyle::PE_FocusRect, p, r, colorGroup(),
+        style().drawPrimitive(TQStyle::PE_FocusRect, p, r, colorGroup(),
         TQStyle::Style_Default, colorGroup().button());
     }
 }
@@ -582,7 +582,7 @@ void PanelButton::drawDeepButton(TQPainter *p)
     if (m_tileColor.isValid())
     {
         p->fillRect(rect(), m_tileColor);
-        style().tqdrawPrimitive(TQStyle::PE_Panel, p, rect(), colorGroup());
+        style().drawPrimitive(TQStyle::PE_Panel, p, rect(), colorGroup());
     }
     else if (paletteBackgroundPixmap())
     {
@@ -596,10 +596,10 @@ void PanelButton::drawDeepButton(TQPainter *p)
 
     TQRect btn_rect = TQRect(rect().x(), rect().y()+1, rect().width(), rect().height()-2);
     if (isDown() || isOn()) {
-        style().tqdrawPrimitive(TQStyle::PE_ButtonBevel, p, btn_rect, colorGroup(), TQStyle::Style_Down);
+        style().drawPrimitive(TQStyle::PE_ButtonBevel, p, btn_rect, colorGroup(), TQStyle::Style_Down);
     }
     else {
-        style().tqdrawPrimitive(TQStyle::PE_ButtonBevel, p, btn_rect, colorGroup(), TQStyle::Style_Raised);
+        style().drawPrimitive(TQStyle::PE_ButtonBevel, p, btn_rect, colorGroup(), TQStyle::Style_Raised);
     }
 
     drawButtonLabel(p,0,FALSE);
@@ -609,7 +609,7 @@ void PanelButton::drawDeepButton(TQPainter *p)
         int x1, y1, x2, y2;
         rect().coords(&x1, &y1, &x2, &y2);
         TQRect r(x1+2, y1+2, x2-x1-3, y2-y1-3);
-        style().tqdrawPrimitive(TQStyle::PE_FocusRect, p, r, colorGroup(),
+        style().drawPrimitive(TQStyle::PE_FocusRect, p, r, colorGroup(),
         TQStyle::Style_Default, colorGroup().button());
     }
 }
@@ -772,7 +772,7 @@ void PanelButton::drawButtonLabel(TQPainter *p, int voffset, bool drawArrow)
         {
             flags |= TQStyle::Style_Down;
         }
-        style().tqdrawPrimitive(e, p, r, colorGroup(), flags);
+        style().drawPrimitive(e, p, r, colorGroup(), flags);
     }
 }
 
