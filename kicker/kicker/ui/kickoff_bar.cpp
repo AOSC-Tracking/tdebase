@@ -199,7 +199,7 @@ void KickoffTabBar::layoutTabs()
         int w = TQMAX(st.width() / count(), parentWidget()->width() / count());
 
         TQRect r = tab->rect();
-        tab->setRect(TQRect(TQPoint(x, 0), style().tqsizeFromContents(TQStyle::CT_TabBarTab, this,
+        tab->setRect(TQRect(TQPoint(x, 0), style().sizeFromContents(TQStyle::CT_TabBarTab, this,
                     TQSize(w, h), TQStyleOption(tab))));
         x += tab->rect().width() - overlap;
     }

@@ -896,7 +896,7 @@ void Client::setShade( ShadeMode mode )
 // FRAME       repaint( FALSE );
 //        bool wasStaticContents = testWFlags( WStaticContents );
 //        setWFlags( WStaticContents );
-        int step = TQMAX( 4, QABS( h - s.height() ) / as )+1;
+        int step = TQMAX( 4, TQABS( h - s.height() ) / as )+1;
         do
             {
             h -= step;
@@ -926,7 +926,7 @@ void Client::setShade( ShadeMode mode )
         TQSize s( sizeForClientSize( clientSize()));
 // FRAME       bool wasStaticContents = testWFlags( WStaticContents );
 //        setWFlags( WStaticContents );
-        int step = TQMAX( 4, QABS( h - s.height() ) / as )+1;
+        int step = TQMAX( 4, TQABS( h - s.height() ) / as )+1;
         do
             {
             h += step;

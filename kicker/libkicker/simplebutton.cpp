@@ -99,7 +99,7 @@ void SimpleButton::drawButton( TQPainter *p )
         if (m_highlight || isDown() || isOn()) {
             int flags = TQStyle::Style_Default | TQStyle::Style_Enabled;
             if (isDown() || isOn()) flags |= TQStyle::Style_Down;
-            style().tqdrawPrimitive(TQStyle::PE_ButtonTool, p, r, colorGroup(), flags);
+            style().drawPrimitive(TQStyle::PE_ButtonTool, p, r, colorGroup(), flags);
         }
     }
 
@@ -263,7 +263,7 @@ void SimpleArrowButton::drawButton( TQPainter *p )
 
     int flags = TQStyle::Style_Default | TQStyle::Style_Enabled;
     if (isDown() || isOn())	flags |= TQStyle::Style_Down;
-    style().tqdrawPrimitive(pe, p, r, colorGroup(), flags);
+    style().drawPrimitive(pe, p, r, colorGroup(), flags);
 
     if (m_forceStandardCursor) {
         SimpleButton::drawButton(p);

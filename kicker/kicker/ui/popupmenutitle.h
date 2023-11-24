@@ -46,7 +46,7 @@ public:
     {
         p->save();
         TQRect r(x, y, w, h);
-        kapp->style().tqdrawPrimitive(TQStyle::PE_HeaderSectionMenu,
+        kapp->style().drawPrimitive(TQStyle::PE_HeaderSectionMenu,
                                     p, r, cg);
 
         if (!m_desktopName.isEmpty())

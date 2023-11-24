@@ -1647,10 +1647,10 @@ void KeramikClient::resizeEvent( TQResizeEvent *e )
 		int dy = 0;
 
 		if ( e->oldSize().width() != width() )
-			dx = 32 + QABS( e->oldSize().width() -  width() );
+			dx = 32 + TQABS( e->oldSize().width() -  width() );
 
 		if ( e->oldSize().height() != height() )
-			dy = 8 + QABS( e->oldSize().height() -  height() );
+			dy = 8 + TQABS( e->oldSize().height() -  height() );
 
 		if ( dy )
 			widget()->update( 0, height() - dy + 1, width(), dy );
