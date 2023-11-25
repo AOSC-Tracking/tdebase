@@ -232,7 +232,7 @@ KdmItem::setWidget( TQWidget *widget )
 		myWidget->show();
 
 	// Remove borders so that it blends nicely with the theme background
-	TQFrame* frame = ::tqqt_cast<TQFrame *>( widget );
+	TQFrame* frame = ::tqt_cast<TQFrame *>( widget );
 	if (frame)
 		frame->setFrameStyle( TQFrame::NoFrame );
 

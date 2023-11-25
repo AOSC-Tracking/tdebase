@@ -1189,9 +1189,9 @@ void KonqMainWindow::slotCreateNewWindow( const KURL &url, const KParts::URLArgs
     {
         KParts::BrowserHostExtension *hostExtension = 0;
         KParts::ReadOnlyPart *ro_part = 0L;
-        KParts::BrowserExtension *be = ::tqqt_cast<KParts::BrowserExtension *>(sender());
+        KParts::BrowserExtension *be = ::tqt_cast<KParts::BrowserExtension *>(sender());
         if (be)
-            ro_part = ::tqqt_cast<KParts::ReadOnlyPart *>(be->parent());
+            ro_part = ::tqt_cast<KParts::ReadOnlyPart *>(be->parent());
         if ( findChildView( ro_part, args.frameName, &mainWindow, &hostExtension, &part ) )
         {
             // Found a view. If url isn't empty, we should open it - but this never happens currently
@@ -4839,7 +4839,7 @@ void KonqMainWindow::slotPopupMenu( KXMLGUIClient *client, const TQPoint &_globa
   if ( client )
     pPopupMenu->factory()->addClient( client );
 
-  KParts::BrowserExtension *be = ::tqqt_cast<KParts::BrowserExtension *>(sender());
+  KParts::BrowserExtension *be = ::tqt_cast<KParts::BrowserExtension *>(sender());
 
   if ( be )
   {
@@ -4905,7 +4905,7 @@ void KonqMainWindow::slotPopupMenu( KXMLGUIClient *client, const TQPoint &_globa
         }
         // Special case: RMB + renaming in sidebar; setFocus would abort editing.
         TQWidget* fw = focusWidget();
-        if ( !fw || !::tqqt_cast<TQLineEdit*>( fw ) )
+        if ( !fw || !::tqt_cast<TQLineEdit*>( fw ) )
             m_oldView->part()->widget()->setFocus();
     }
   }

@@ -74,7 +74,7 @@ KParts::ReadOnlyPart *KonqViewFactory::create( TQWidget *parentWidget, const cha
       kdError(1202) << "Part " << obj << " (" << obj->className() << ") doesn't inherit KParts::ReadOnlyPart !" << endl;
 
   KParts::ReadOnlyPart* part = static_cast<KParts::ReadOnlyPart *>( obj );
-  TQFrame* frame = ::tqqt_cast<TQFrame*>( part->widget() );
+  TQFrame* frame = ::tqt_cast<TQFrame*>( part->widget() );
   if (frame)
   {
       frame->setFrameStyle( TQFrame::NoFrame );
