@@ -203,7 +203,7 @@ void KCommonDecoration::updateLayout() const
             if (*it) {
                 if (!(*it)->isHidden() ) {
                     moveWidget(x,y, *it);
-                    x += layoutMetric(LM_ButtonWidth, true, ::tqqt_cast<KCommonDecorationButton*>(*it) );
+                    x += layoutMetric(LM_ButtonWidth, true, ::tqt_cast<KCommonDecorationButton*>(*it) );
                     elementLayouted = true;
                 }
             } else {
@@ -226,7 +226,7 @@ void KCommonDecoration::updateLayout() const
             if (*it) {
                 if (!(*it)->isHidden() ) {
                     moveWidget(x,y, *it);
-                    x += layoutMetric(LM_ButtonWidth, true, ::tqqt_cast<KCommonDecorationButton*>(*it) );;
+                    x += layoutMetric(LM_ButtonWidth, true, ::tqt_cast<KCommonDecorationButton*>(*it) );;
                     elementLayouted = true;
                 }
             } else {
