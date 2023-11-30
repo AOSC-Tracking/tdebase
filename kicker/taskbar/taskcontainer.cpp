@@ -1424,7 +1424,7 @@ bool TaskContainer::eventFilter(TQObject *o, TQEvent *e)
         {
             if (!m_dragStartPos.isNull())
             {
-                TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
+                TQMouseEvent* me = static_cast<TQMouseEvent*>(e);
                 TQPoint p(me->globalPos());
 
                 if (me->state() & TQt::LeftButton &&

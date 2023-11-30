@@ -1293,7 +1293,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
     {
         if ( e->type() == TQEvent::ContextMenu )
         {
-            TQContextMenuEvent *ev = TQT_TQCONTEXTMENUEVENT( e );
+            TQContextMenuEvent *ev = static_cast<TQContextMenuEvent*>( e );
             if ( ev->reason() == TQContextMenuEvent::Mouse )
             {
                 return true;
@@ -1301,7 +1301,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
         }
         else if ( e->type() == TQEvent::MouseButtonPress )
         {
-            TQMouseEvent *ev = TQT_TQMOUSEEVENT( e );
+            TQMouseEvent *ev = static_cast<TQMouseEvent*>( e );
             if ( ev->button() == TQt::RightButton )
             {
                 return true;
@@ -1309,7 +1309,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
         }
         else if ( e->type() == TQEvent::MouseButtonRelease )
         {
-            TQMouseEvent *ev = TQT_TQMOUSEEVENT( e );
+            TQMouseEvent *ev = static_cast<TQMouseEvent*>( e );
             if ( ev->button() == TQt::RightButton )
             {
                 emit backRightClick();
@@ -1318,7 +1318,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
         }
         else if ( e->type() == TQEvent::MouseMove )
         {
-            TQMouseEvent *ev = TQT_TQMOUSEEVENT( e );
+            TQMouseEvent *ev = static_cast<TQMouseEvent*>( e );
             if ( ev->state() == TQt::RightButton )
             {
                 obj->removeEventFilter( this );

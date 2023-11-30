@@ -399,7 +399,7 @@ bool KonqCombo::eventFilter( TQObject *o, TQEvent *ev )
     if ( o == edit ) {
         int type = ev->type();
         if ( type == TQEvent::KeyPress ) {
-            TQKeyEvent *e = TQT_TQKEYEVENT( ev );
+            TQKeyEvent *e = static_cast<TQKeyEvent*>( ev );
 
             if ( e->key() == Key_Return || e->key() == Key_Enter ) {
                 m_modifier = e->state();

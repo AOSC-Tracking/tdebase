@@ -3466,7 +3466,7 @@ bool KonqMainWindow::eventFilter(TQObject*obj,TQEvent *ev)
   {
     //kdDebug(1202) << "KonqMainWindow::eventFilter " << obj << " " << obj->className() << " " << obj->name() << endl;
 
-    TQFocusEvent * focusEv = TQT_TQFOCUSEVENT(ev);
+    TQFocusEvent * focusEv = static_cast<TQFocusEvent*>(ev);
     if (focusEv->reason() == TQFocusEvent::Popup)
     {
       return KParts::MainWindow::eventFilter( obj, ev );

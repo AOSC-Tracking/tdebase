@@ -235,7 +235,7 @@ bool ButtonContainer::eventFilter(TQObject *o, TQEvent *e)
         }
 
         sentinal = true;
-        TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
+        TQMouseEvent* me = static_cast<TQMouseEvent*>(e);
         switch (me->button())
         {
         case TQt::MidButton:

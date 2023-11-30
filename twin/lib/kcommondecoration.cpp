@@ -849,19 +849,19 @@ bool KCommonDecoration::eventFilter( TQObject* o, TQEvent* e )
     switch( e->type())
     {
         case TQEvent::Resize:
-            resizeEvent(TQT_TQRESIZEEVENT(e) );
+            resizeEvent(static_cast<TQResizeEvent*>(e) );
             return true;
         case TQEvent::Paint:
-            paintEvent(TQT_TQPAINTEVENT( e ));
+            paintEvent(static_cast<TQPaintEvent*>( e ));
             return true;
         case TQEvent::MouseButtonDblClick:
-            mouseDoubleClickEvent(TQT_TQMOUSEEVENT( e ));
+            mouseDoubleClickEvent(static_cast<TQMouseEvent*>( e ));
             return true;
         case TQEvent::MouseButtonPress:
-            processMousePressEvent(TQT_TQMOUSEEVENT( e ));
+            processMousePressEvent(static_cast<TQMouseEvent*>( e ));
             return true;
         case TQEvent::Wheel:
-            wheelEvent(TQT_TQWHEELEVENT( e ));
+            wheelEvent(static_cast<TQWheelEvent*>( e ));
             return true;
         default:
             return false;

@@ -1183,22 +1183,22 @@ bool B2Client::eventFilter(TQObject *o, TQEvent *e)
 	return false;
     switch (e->type()) {
     case TQEvent::Resize:
-	resizeEvent(TQT_TQRESIZEEVENT(e));
+	resizeEvent(static_cast<TQResizeEvent*>(e));
 	return true;
     case TQEvent::Paint:
-	paintEvent(TQT_TQPAINTEVENT(e));
+	paintEvent(static_cast<TQPaintEvent*>(e));
 	return true;
     case TQEvent::MouseButtonDblClick:
-	titlebar->mouseDoubleClickEvent(TQT_TQMOUSEEVENT(e));
+	titlebar->mouseDoubleClickEvent(static_cast<TQMouseEvent*>(e));
 	return true;
     case TQEvent::Wheel:
-	titlebar->wheelEvent(TQT_TQWHEELEVENT(e));
+	titlebar->wheelEvent(static_cast<TQWheelEvent*>(e));
 	return true;
     case TQEvent::MouseButtonPress:
-	processMousePressEvent(TQT_TQMOUSEEVENT(e));
+	processMousePressEvent(static_cast<TQMouseEvent*>(e));
 	return true;
     case TQEvent::Show:
-	showEvent(TQT_TQSHOWEVENT(e));
+	showEvent(static_cast<TQShowEvent*>(e));
 	return true;
     default:
 	break;

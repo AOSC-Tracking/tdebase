@@ -79,13 +79,13 @@ bool KRootWidget::eventFilter ( TQObject *, TQEvent * e )
 {
      if (e->type() == TQEvent::MouseButtonPress)
      {
-       TQMouseEvent *me = TQT_TQMOUSEEVENT(e);
+       TQMouseEvent *me = static_cast<TQMouseEvent*>(e);
        KRootWm::self()->mousePressed( me->globalPos(), me->button() );
        return true;
      }
      else if (e->type() == TQEvent::Wheel)
      {
-       TQWheelEvent *we = TQT_TQWHEELEVENT(e);
+       TQWheelEvent *we = static_cast<TQWheelEvent*>(e);
        emit wheelRolled(we->delta());
        return true;
      }

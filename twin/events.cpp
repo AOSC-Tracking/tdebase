@@ -1300,25 +1300,25 @@ bool Client::eventFilter( TQObject* o, TQEvent* e )
         return false;
     if( e->type() == TQEvent::MouseButtonPress )
         {
-        TQMouseEvent* ev = TQT_TQMOUSEEVENT( e );
+        TQMouseEvent* ev = static_cast<TQMouseEvent*>( e );
         return buttonPressEvent( decorationId(), qtToX11Button( ev->button()), qtToX11State( ev->state()),
             ev->x(), ev->y(), ev->globalX(), ev->globalY() );
         }
     if( e->type() == TQEvent::MouseButtonRelease )
         {
-        TQMouseEvent* ev = TQT_TQMOUSEEVENT( e );
+        TQMouseEvent* ev = static_cast<TQMouseEvent*>( e );
         return buttonReleaseEvent( decorationId(), qtToX11Button( ev->button()), qtToX11State( ev->state()),
             ev->x(), ev->y(), ev->globalX(), ev->globalY() );
         }
     if( e->type() == TQEvent::MouseMove ) // FRAME i fake z enter/leave?
         {
-        TQMouseEvent* ev = TQT_TQMOUSEEVENT( e );
+        TQMouseEvent* ev = static_cast<TQMouseEvent*>( e );
         return motionNotifyEvent( decorationId(), qtToX11State( ev->state()),
             ev->x(), ev->y(), ev->globalX(), ev->globalY() );
         }
     if( e->type() == TQEvent::Wheel )
         {
-        TQWheelEvent* ev = TQT_TQWHEELEVENT( e );
+        TQWheelEvent* ev = static_cast<TQWheelEvent*>( e );
         bool r = buttonPressEvent( decorationId(), ev->delta() > 0 ? Button4 : Button5, qtToX11State( ev->state()),
             ev->x(), ev->y(), ev->globalX(), ev->globalY() );
         r = r || buttonReleaseEvent( decorationId(), ev->delta() > 0 ? Button4 : Button5, qtToX11State( ev->state()),
@@ -1327,7 +1327,7 @@ bool Client::eventFilter( TQObject* o, TQEvent* e )
         }
     if( e->type() == TQEvent::Resize )
         {
-        TQResizeEvent* ev = TQT_TQRESIZEEVENT( e );
+        TQResizeEvent* ev = static_cast<TQResizeEvent*>( e );
         // Filter out resize events that inform about size different than frame size.
         // This will ensure that decoration->width() etc. and decoration->widget()->width() will be in sync.
         // These events only seem to be delayed events from initial resizing before show() was called

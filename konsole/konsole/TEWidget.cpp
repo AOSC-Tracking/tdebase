@@ -1931,14 +1931,14 @@ bool TEWidget::eventFilter( TQObject *obj, TQEvent *e )
   if ( (e->type() == TQEvent::Accel ||
        e->type() == TQEvent::AccelAvailable ) && tqApp->focusWidget() == this )
   {
-      TQT_TQKEYEVENT( e )->ignore();
+      static_cast<TQKeyEvent*>( e )->ignore();
       return false;
   }
   if ( obj != this /* when embedded */ && obj != parent() /* when standalone */ )
       return false; // not us
   if ( e->type() == TQEvent::KeyPress )
   {
-    TQKeyEvent *ke = TQT_TQKEYEVENT(e);
+    TQKeyEvent *ke = static_cast<TQKeyEvent*>(e);
 
     actSel=0; // Key stroke implies a screen update, so TEWidget won't
               // know where the current selection is.
@@ -1956,13 +1956,13 @@ bool TEWidget::eventFilter( TQObject *obj, TQEvent *e )
   }
   if ( e->type() == TQEvent::KeyRelease )
   {
-    TQKeyEvent *ke = TQT_TQKEYEVENT(e);
+    TQKeyEvent *ke = static_cast<TQKeyEvent*>(e);
     emit keyReleasedSignal(ke);
     return true;
   }
   if ( e->type() == TQEvent::FocusIn )
   {
-    TQFocusEvent *fe = TQT_TQFOCUSEVENT(e);
+    TQFocusEvent *fe = static_cast<TQFocusEvent*>(e);
     if (fe->gotFocus())
     {
       emit focusInSignal(fe);
@@ -2050,7 +2050,7 @@ bool TEWidget::event( TQEvent *e )
 {
   if ( e->type() == TQEvent::AccelOverride )
   {
-    TQKeyEvent *ke = TQT_TQKEYEVENT( e );
+    TQKeyEvent *ke = static_cast<TQKeyEvent*>( e );
     KKey key( ke );
     int keyCodeQt = key.keyCodeQt();
 

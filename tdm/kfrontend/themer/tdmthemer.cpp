@@ -139,19 +139,19 @@ KdmThemer::widgetEvent( TQEvent *e )
 	switch (e->type()) {
 	case TQEvent::MouseMove:
 		{
-			TQMouseEvent *me = TQT_TQMOUSEEVENT(e);
+			TQMouseEvent *me = static_cast<TQMouseEvent*>(e);
 			rootItem->mouseEvent( me->x(), me->y() );
 		}
 		break;
 	case TQEvent::MouseButtonPress:
 		{
-			TQMouseEvent *me = TQT_TQMOUSEEVENT(e);
+			TQMouseEvent *me = static_cast<TQMouseEvent*>(e);
 			rootItem->mouseEvent( me->x(), me->y(), true );
 		}
 		break;
 	case TQEvent::MouseButtonRelease:
 		{
-			TQMouseEvent *me = TQT_TQMOUSEEVENT(e);
+			TQMouseEvent *me = static_cast<TQMouseEvent*>(e);
 			rootItem->mouseEvent( me->x(), me->y(), false, true );
 		}
 		break;
@@ -164,7 +164,7 @@ KdmThemer::widgetEvent( TQEvent *e )
 		break;
 	case TQEvent::Paint:
 		{
-			TQRect paintRect = TQT_TQPAINTEVENT(e)->rect();
+			TQRect paintRect = static_cast<TQPaintEvent*>(e)->rect();
 			kdDebug() << timestamp() << " paint on: " << paintRect << endl;
 
 			if (!argb_visual_available) {

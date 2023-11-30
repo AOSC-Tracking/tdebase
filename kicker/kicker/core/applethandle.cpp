@@ -224,7 +224,7 @@ bool AppletHandle::eventFilter(TQObject *o, TQEvent *e)
     {
         if (e->type() == TQEvent::MouseButtonPress)
         {
-            TQMouseEvent* ev = TQT_TQMOUSEEVENT(e);
+            TQMouseEvent* ev = static_cast<TQMouseEvent*>(e);
             if (ev->button() == TQt::LeftButton || ev->button() == TQt::MidButton)
             {
                 emit moveApplet(m_applet->mapFromGlobal(ev->globalPos()));
@@ -234,7 +234,7 @@ bool AppletHandle::eventFilter(TQObject *o, TQEvent *e)
 
     if (m_menuButton && e->type() == TQEvent::MouseButtonPress)
     {
-        TQMouseEvent* ev = TQT_TQMOUSEEVENT(e);
+        TQMouseEvent* ev = static_cast<TQMouseEvent*>(e);
         if (ev->button() == TQt::RightButton)
         {
             if (!m_menuButton->isDown())
