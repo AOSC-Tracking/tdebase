@@ -838,11 +838,11 @@ bool SystemTrayApplet::eventFilter(TQObject* watched, TQEvent* e)
         TQPoint p;
         if (e->type() == TQEvent::ContextMenu)
         {
-            p = TQT_TQCONTEXTMENUEVENT(e)->globalPos();
+            p = static_cast<TQContextMenuEvent*>(e)->globalPos();
         }
         else if (e->type() == TQEvent::MouseButtonPress)
         {
-            TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
+            TQMouseEvent* me = static_cast<TQMouseEvent*>(e);
             if (me->button() == TQt::RightButton)
             {
                 p = me->globalPos();
@@ -855,7 +855,7 @@ bool SystemTrayApplet::eventFilter(TQObject* watched, TQEvent* e)
             contextMenu->insertItem(SmallIcon("configure"), i18n("Configure System Tray..."),
                                     this, TQT_SLOT(configure()));
 
-            contextMenu->exec(TQT_TQCONTEXTMENUEVENT(e)->globalPos());
+            contextMenu->exec(static_cast<TQContextMenuEvent*>(e)->globalPos());
 
             delete contextMenu;
             return true;

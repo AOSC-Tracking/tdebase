@@ -676,7 +676,7 @@ void KDIconView::wheelEvent( TQWheelEvent* e )
     TQIconViewItem *item = findItem( e->pos() );
     if ( !item )
     {
-      TQWheelEvent *we = TQT_TQWHEELEVENT(e);
+      TQWheelEvent *we = static_cast<TQWheelEvent*>(e);
 
       if ( we->state() == ControlButton )
       {

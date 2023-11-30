@@ -106,7 +106,7 @@ bool Decoration::eventFilter( TQObject* o, TQEvent* e )
             {
             case TQEvent::MouseButtonPress:
 	        { // FRAME
-                processMousePressEvent( TQT_TQMOUSEEVENT( e ));
+                processMousePressEvent( static_cast<TQMouseEvent*>( e ));
         	return true;
 	        }
             case TQEvent::Show:

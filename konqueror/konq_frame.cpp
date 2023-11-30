@@ -177,7 +177,7 @@ bool KonqFrameStatusBar::eventFilter(TQObject* o, TQEvent *e)
    {
       emit clicked();
       update();
-      if ( TQT_TQMOUSEEVENT(e)->button() == TQt::RightButton)
+      if ( static_cast<TQMouseEvent*>(e)->button() == TQt::RightButton)
          splitFrameMenu();
       return true;
    }
@@ -397,7 +397,7 @@ bool KonqFrame::eventFilter(TQObject* /*obj*/, TQEvent *ev)
 {
    if (ev->type()==TQEvent::KeyPress)
    {
-      TQKeyEvent * keyEv = TQT_TQKEYEVENT(ev);
+      TQKeyEvent * keyEv = static_cast<TQKeyEvent*>(ev);
       if ((keyEv->key()==Key_Tab) && (keyEv->state()==ControlButton))
       {
          emit ((KonqFrameContainer*)parent())->ctrlTabPressed();

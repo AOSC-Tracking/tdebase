@@ -480,11 +480,11 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
         TQPoint p;
 
         if (e->type() == TQEvent::MouseMove || e->type() == TQEvent::MouseButtonPress) {
-            TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
+            TQMouseEvent* me = static_cast<TQMouseEvent*>(e);
             p = me->globalPos();
         }
         else if (e->type() == TQEvent::Wheel) {
-            TQWheelEvent* we = TQT_TQWHEELEVENT(e);
+            TQWheelEvent* we = static_cast<TQWheelEvent*>(e);
             p = we->globalPos();
         }
 
@@ -589,7 +589,7 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
         if (view)
         {
             bool handled = true;
-            switch (TQT_TQKEYEVENT(e)->key()) {
+            switch (static_cast<TQKeyEvent*>(e)->key()) {
                 case Key_Up:
                     if (view->selectedItem()) {
                         view->setSelected(view->selectedItem()->itemAbove(),true);

@@ -112,7 +112,7 @@ bool KNewButton::eventFilter(TQObject *o, TQEvent *e)
         e->type() == TQEvent::MouseButtonPress   ||
         e->type() == TQEvent::MouseButtonDblClick )
     {
-        TQMouseEvent *me = TQT_TQMOUSEEVENT(e);
+        TQMouseEvent *me = static_cast<TQMouseEvent*>(e);
         if (rect().contains(mapFromGlobal(me->globalPos())))
         {
             if (m_pressedDuringPopup && m_popup && m_openTimer != -1

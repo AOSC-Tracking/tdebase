@@ -1678,7 +1678,7 @@ bool ClockApplet::eventFilter( TQObject *o, TQEvent *e )
     if (( o == _clock->widget() || o == _date || o == _dayOfWeek) &&
         e->type() == TQEvent::MouseButtonPress )
     {
-        mousePressEvent(TQT_TQMOUSEEVENT(e) );
+        mousePressEvent(static_cast<TQMouseEvent*>(e) );
         return true;
     }
 

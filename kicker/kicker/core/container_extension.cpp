@@ -2145,7 +2145,7 @@ bool ExtensionContainer::eventFilter( TQObject*, TQEvent * e)
     {
         case TQEvent::MouseButtonPress:
         {
-            TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
+            TQMouseEvent* me = static_cast<TQMouseEvent*>(e);
             if ( me->button() == TQt::LeftButton )
             {
                 if (inResizeArea(me->pos()))
@@ -2180,7 +2180,7 @@ bool ExtensionContainer::eventFilter( TQObject*, TQEvent * e)
 
         case TQEvent::MouseButtonRelease:
         {
-            TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
+            TQMouseEvent* me = static_cast<TQMouseEvent*>(e);
             if ( me->button() == TQt::LeftButton )
             {
                 _is_lmb_down = false;
@@ -2190,7 +2190,7 @@ bool ExtensionContainer::eventFilter( TQObject*, TQEvent * e)
 
         case TQEvent::MouseMove:
         {
-            TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
+            TQMouseEvent* me = static_cast<TQMouseEvent*>(e);
             if (KickerSettings::useResizeHandle())
             {
                 KPanelExtension::Position pos = position();

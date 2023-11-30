@@ -193,7 +193,7 @@ bool Lockout::eventFilter( TQObject *o, TQEvent *e )
         TDEConfig *conf = config();
         conf->setGroup("lockout");
 
-        TQMouseEvent *me = TQT_TQMOUSEEVENT( e );
+        TQMouseEvent *me = static_cast<TQMouseEvent*>( e );
         if( me->button() == TQt::RightButton )
         {
             if( o == lockButton )

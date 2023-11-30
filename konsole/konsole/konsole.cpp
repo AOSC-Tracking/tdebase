@@ -991,12 +991,12 @@ bool Konsole::eventFilter( TQObject *o, TQEvent *ev )
     // is moved by a small distance.
     if (ev->type() == TQEvent::MouseButtonPress)
     {
-      TQMouseEvent* mev = TQT_TQMOUSEEVENT(ev);
+      TQMouseEvent* mev = static_cast<TQMouseEvent*>(ev);
       m_newSessionButtonMousePressPos = mev->pos();
     }
     else if (ev->type() == TQEvent::MouseMove)
     {
-      TQMouseEvent* mev = TQT_TQMOUSEEVENT(ev);
+      TQMouseEvent* mev = static_cast<TQMouseEvent*>(ev);
       if ((mev->pos() - m_newSessionButtonMousePressPos).manhattanLength()
             > TDEGlobalSettings::dndEventDelay())
       {
@@ -1006,7 +1006,7 @@ bool Konsole::eventFilter( TQObject *o, TQEvent *ev )
     }
     else if (ev->type() == TQEvent::ContextMenu)
     {
-      TQMouseEvent* mev = TQT_TQMOUSEEVENT(ev);
+      TQMouseEvent* mev = static_cast<TQMouseEvent*>(ev);
       slotTabbarContextMenu(mev->globalPos());
       return true;
     }

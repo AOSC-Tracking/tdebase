@@ -84,7 +84,7 @@ bool AppletWidget::eventFilter(TQObject*, TQEvent* e)
 {
     if (e->type() == TQEvent::MouseButtonPress)
     {
-        TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
+        TQMouseEvent* me = static_cast<TQMouseEvent*>(e);
         if (me->button() & TQt::LeftButton)
         {
             m_dragStart = me->pos();
@@ -97,7 +97,7 @@ bool AppletWidget::eventFilter(TQObject*, TQEvent* e)
 
     if (e->type() == TQEvent::MouseMove)
     {
-        TQMouseEvent* me = TQT_TQMOUSEEVENT(e);
+        TQMouseEvent* me = static_cast<TQMouseEvent*>(e);
         if ((me->pos() - m_dragStart).manhattanLength() >
             TDEGlobalSettings::dndEventDelay())
         {

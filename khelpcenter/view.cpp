@@ -329,7 +329,7 @@ bool View::eventFilter( TQObject *o, TQEvent *e )
        htmlDocument().links().length() == 0 )
     return TDEHTMLPart::eventFilter( o, e );
 
-  TQKeyEvent *ke = TQT_TQKEYEVENT( e );
+  TQKeyEvent *ke = static_cast<TQKeyEvent*>( e );
   if ( ke->state() & TQt::ShiftButton && ke->key() == Key_Space ) {
     // If we're on the first page, it does not make sense to go back.
     if ( baseURL().path().endsWith( "/index.html" ) )
