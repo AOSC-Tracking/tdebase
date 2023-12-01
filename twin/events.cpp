@@ -786,7 +786,12 @@ void Client::configureRequestEvent( XConfigureRequestEvent* e )
     if( e->window != window())
         return; // ignore frame/wrapper
     if ( isResize() || isMove())
+        {
+        // Send a synthetic configure notification to make sure the
+        // window contents get updated by the application
+        sendSyntheticConfigureNotify();
         return; // we have better things to do right now
+        }
 
     if( fullscreen_mode == FullScreenNormal ) // refuse resizing of fullscreen windows
         { // but allow resizing fullscreen hacks in order to let them cancel fullscreen mode
