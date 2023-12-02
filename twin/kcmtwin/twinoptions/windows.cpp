@@ -1010,7 +1010,7 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
                                         " its size."));
 
     TQGridLayout *rLay = new TQGridLayout(2,3);
-    bLay->addLayout(TQT_TQLAYOUT(rLay));
+    bLay->addLayout(rLay);
     rLay->setColStretch(0,0);
     rLay->setColStretch(1,1);
 

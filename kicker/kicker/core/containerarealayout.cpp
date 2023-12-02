@@ -213,7 +213,7 @@ ContainerAreaLayout::ContainerAreaLayout(TQWidget* parent)
 
 void ContainerAreaLayout::addItem(TQLayoutItem* item)
 {
-    m_items.append(new ContainerAreaLayoutItem(static_cast<TQLayoutItem*>(item), this));
+    m_items.append(new ContainerAreaLayoutItem(item, this));
 }
 
 void ContainerAreaLayout::insertIntoFreeSpace(TQWidget* widget, TQPoint insertionPoint)

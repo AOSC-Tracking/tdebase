@@ -363,11 +363,11 @@ void KeyTrans::readConfig()
       TQBuffer* newbuf;
       newbuf = new TQBuffer();
       newbuf->setBuffer(txt);
-      buf=TQT_TQIODEVICE(newbuf);
+      buf=newbuf;
    }
    else
    {
-      buf=TQT_TQIODEVICE(new TQFile(m_path));
+      buf=new TQFile(m_path);
    };
    KeytabReader ktr(m_path,*buf);
    ktr.parseTo(this);

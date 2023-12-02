@@ -83,7 +83,7 @@ KClassicGreeter::KClassicGreeter( KGreeterPluginHandler *_handler,
 
 	if (!themer)
 		grid = new TQGridLayout( 0, 0, 10 );
-		layoutItem = TQT_TQLAYOUTITEM(grid);
+		layoutItem = grid;
 
 	loginLabel = passwdLabel = passwd1Label = passwd2Label = 0;
 	loginEdit = 0;
@@ -174,7 +174,7 @@ KClassicGreeter::~KClassicGreeter()
 		delete passwdEdit;
 		return;
 	}
-	TQLayoutIterator it = TQT_TQLAYOUT(layoutItem)->iterator();
+	TQLayoutIterator it = static_cast<TQLayout*>(layoutItem)->iterator();
 	for (TQLayoutItem *itm = it.current(); itm; itm = ++it)
 		 delete itm->widget();
 	delete layoutItem;

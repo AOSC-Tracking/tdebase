@@ -159,7 +159,7 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
     connect(button, TQT_SIGNAL(clicked()), TQT_SLOT(addFonts()));
     button->setSizePolicy(TQSizePolicy::Minimum, TQSizePolicy::Minimum);
     fontsLayout->addWidget(button, 1, 0);
-    TQT_TQLAYOUT(fontsLayout)->addItem(new TQSpacerItem(4, 4, TQSizePolicy::Expanding, TQSizePolicy::Minimum));
+    fontsLayout->addItem(new TQSpacerItem(4, 4, TQSizePolicy::Expanding, TQSizePolicy::Minimum));
 
     layout->addWidget(toolbar);
 #ifdef HAVE_XFT

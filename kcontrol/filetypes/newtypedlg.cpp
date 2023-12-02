@@ -19,7 +19,7 @@ NewTypeDialog::NewTypeDialog(TQStringList groups,
 
   TQGridLayout *grid = new TQGridLayout(2, 2);
   grid->setColStretch(1, 1);
-  topl->addLayout(TQT_TQLAYOUT(grid));
+  topl->addLayout(grid);
 
   TQLabel *l = new TQLabel(i18n("Group:"), main);
   grid->addWidget(l, 0, 0);

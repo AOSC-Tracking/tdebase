@@ -393,7 +393,7 @@ KGreeter::insertUser( const TQImage &default_pix,
 		TQBuffer buf( fc );
 		buf.open( IO_ReadOnly );
 		TQImageIO ir;
-		ir.setIODevice( TQT_TQIODEVICE(&buf) );
+		ir.setIODevice( &buf );
 		if (!ir.read()) {
 			LogInfo( "%s is no valid image\n", fn.data() );
 			continue;
