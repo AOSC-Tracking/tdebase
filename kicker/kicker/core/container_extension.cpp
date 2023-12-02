@@ -1427,7 +1427,7 @@ void ExtensionContainer::paintEvent(TQPaintEvent *e)
             // Nastiness to both vertically flip the PE_Separator
             // and make sure it pops out of, not sinks into, the screen
             TQPixmap inv_pm(width(),PANEL_RESIZE_HANDLE_WIDTH);
-            TQPainter myp(TQT_TQPAINTDEVICE(&inv_pm));
+            TQPainter myp(&inv_pm);
             rect = TQRect(0,0,width(),PANEL_RESIZE_HANDLE_WIDTH);
             TQColorGroup darkcg = colorGroup();
             darkcg.setColor(TQColorGroup::Light, colorGroup().dark());

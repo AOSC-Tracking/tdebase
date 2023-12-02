@@ -877,7 +877,7 @@ void Minicli::setIcon ()
       {
         TQBitmap mask = *icon.mask();
         bitBlt( &mask, x, y,
-                overlay.mask() ? TQT_TQPIXMAP(const_cast<TQBitmap *>(overlay.mask())) : &overlay,
+                overlay.mask() ? const_cast<TQBitmap *>(overlay.mask()) : &overlay,
                 0, 0, overlay.width(), overlay.height(),
                 overlay.mask() ? OrROP : SetROP );
         icon.setMask(mask);

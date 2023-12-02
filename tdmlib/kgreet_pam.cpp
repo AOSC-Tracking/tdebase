@@ -111,7 +111,7 @@ KPamGreeter::KPamGreeter( KGreeterPluginHandler *_handler,
         m_themer = themer;
 
 	if (!themer)
-		layoutItem = TQT_TQLAYOUTITEM(new TQGridLayout( 0, 0, 10 ));
+		layoutItem = new TQGridLayout( 0, 0, 10 );
 
         loginLabel = 0;
         authLabel.clear();
@@ -211,7 +211,7 @@ KPamGreeter::~KPamGreeter()
 		delete loginEdit;
 		return;
 	}
-	TQLayoutIterator it = TQT_TQLAYOUT(layoutItem)->iterator();
+	TQLayoutIterator it = static_cast<TQLayout*>(layoutItem)->iterator();
 	for (TQLayoutItem *itm = it.current(); itm; itm = ++it)
 		 delete itm->widget();
 	delete layoutItem;

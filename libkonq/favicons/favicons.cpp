@@ -219,7 +219,7 @@ void FaviconsModule::slotResult(TDEIO::Job *job)
         TQBuffer buffer(download.iconData);
         buffer.open(IO_ReadOnly);
         TQImageIO io;
-        io.setIODevice(TQT_TQIODEVICE(&buffer));
+        io.setIODevice(&buffer);
         io.setParameters("size=16");
         // Check here too, the job might have had no error, but the downloaded
         // file contains just a 404 message sent with a 200 status.

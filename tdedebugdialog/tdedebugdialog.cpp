@@ -60,7 +60,7 @@ TDEDebugDialog::TDEDebugDialog( TQStringList areaList, TQWidget *parent, const c
 
   TQGridLayout *gbox = new TQGridLayout( 2, 2, KDialog::marginHint() );
   if( gbox == 0 ) { return; }
-  topLayout->addLayout( TQT_TQLAYOUT(gbox) );
+  topLayout->addLayout( gbox );
 
   TQStringList destList;
   destList.append( i18n("File") );

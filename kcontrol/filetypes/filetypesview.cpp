@@ -57,7 +57,7 @@ FileTypesView::FileTypesView(TQWidget *p, const char *name)
   leftLayout->setSpacing( KDialog::spacingHint() );
   leftLayout->setColStretch(1, 1);
 
-  l->addLayout( TQT_TQLAYOUT(leftLayout) );
+  l->addLayout( leftLayout );
 
   TQLabel *patternFilterLBL = new TQLabel(i18n("F&ind filename pattern:"), this);
   leftLayout->addMultiCellWidget(patternFilterLBL, 0, 0, 0, 2);

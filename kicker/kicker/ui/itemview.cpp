@@ -158,12 +158,12 @@ void KMenuItem::setup()
     float min_font_size = 7. * TQMAX(1., TDEGlobalSettings::generalFont().pointSizeFloat() / 10.);
 
     const int expected_height = 38;
-    description_font_size = TQMAX( pointSize( expected_height * .3, TQT_TQPAINTDEVICE(listView()) ) + KickerSettings::kickoffFontPointSizeOffset(), min_font_size ) ;
-    title_font_size = TQMAX( pointSize( expected_height * .25, TQT_TQPAINTDEVICE(listView()) ) + KickerSettings::kickoffFontPointSizeOffset(), min_font_size + 1 );
+    description_font_size = TQMAX( pointSize( expected_height * .3, listView() ) + KickerSettings::kickoffFontPointSizeOffset(), min_font_size ) ;
+    title_font_size = TQMAX( pointSize( expected_height * .25, listView() ) + KickerSettings::kickoffFontPointSizeOffset(), min_font_size + 1 );
 
     //kdDebug() << description_font_size << " " << title_font_size << " " << pointSize( expected_height * .25, listView() ) << endl;
     TQListViewItem::setup();
-    setHeight( (int)TQMAX( expected_height, pixelSize( title_font_size + description_font_size * 2.3, TQT_TQPAINTDEVICE(listView()))));
+    setHeight( (int)TQMAX( expected_height, pixelSize( title_font_size + description_font_size * 2.3, listView())));
 }
 
 void KMenuItem::paintCell(TQPainter* p, const TQColorGroup & cg, int column, int width, int align)
@@ -278,7 +278,7 @@ void KMenuItem::paintCellInter(TQPainter* p, const TQColorGroup & cg, int column
     if ( m_description.isEmpty() )
         spacing = ( height() - f1h ) / 2;
 
-    int right_triangle_size = pixelSize( 7, TQT_TQPAINTDEVICE(listView()) );
+    int right_triangle_size = pixelSize( 7, listView() );
 
     int right_margin = listView()->verticalScrollBar()->width();
     if ( m_has_children )
@@ -531,7 +531,7 @@ void KMenuItemHeader::paintCell(TQPainter* p, const TQColorGroup & cg, int , int
     int r = left_margin + margin * 2;
 
     const int min_font_size = 7;
-    int title_font_pixelSize = tqRound( pixelSize( TQMAX( pointSize( 12, TQT_TQPAINTDEVICE(listView()) ) + KickerSettings::kickoffFontPointSizeOffset(), min_font_size + 1 ), TQT_TQPAINTDEVICE(listView()) ) );
+    int title_font_pixelSize = tqRound( pixelSize( TQMAX( pointSize( 12, listView() ) + KickerSettings::kickoffFontPointSizeOffset(), min_font_size + 1 ), listView() ) );
 
     TQFont f1 = p->font();
     f1.setPixelSize( title_font_pixelSize );

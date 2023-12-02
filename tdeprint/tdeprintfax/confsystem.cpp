@@ -75,7 +75,7 @@ ConfSystem::ConfSystem(TQWidget *parent, const char *name)
  
 	TQVBoxLayout	*l0 = new TQVBoxLayout(this, 10, 10);
 	TQGridLayout	*l1 = new TQGridLayout(0, 2, 2, 0, 10);
-	l0->addLayout(TQT_TQLAYOUT(l1));
+	l0->addLayout(l1);
 	l1->setColStretch(1, 1);
 	l1->addWidget(syslabel, 0, 0);
 	l1->addWidget(cmdlabel, 1, 0);

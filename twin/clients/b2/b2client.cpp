@@ -982,7 +982,7 @@ static void redraw_pixmaps()
 	TQColor color = is_act ? aGrp.button() : iGrp.button();
 	drawB2Rect(&thinBox, color, is_down);
 	pix->fill(TQt::black);
-	bitBlt(TQT_TQPAINTDEVICE(pix), 0, 0, TQT_TQPAINTDEVICE(&thinBox), 
+	bitBlt(pix, 0, 0, &thinBox, 
 		0, 0, thinBox.width(), thinBox.height(), TQt::CopyROP, true);
     }
 
@@ -1005,12 +1005,12 @@ static void redraw_pixmaps()
 	drawB2Rect(&smallBox, is_act ? aGrp.button() : iGrp.button(), is_down);
 	drawB2Rect(&largeBox, is_act ? aGrp.button() : iGrp.button(), is_down);
 	pix->fill(options()->color(KDecoration::ColorTitleBar, is_act));
-	bitBlt(TQT_TQPAINTDEVICE(pix), pix->width() - 12, pix->width() - 12, TQT_TQPAINTDEVICE(&largeBox),
+	bitBlt(pix, pix->width() - 12, pix->width() - 12, &largeBox,
 	       0, 0, 12, 12, TQt::CopyROP, true);
-	bitBlt(TQT_TQPAINTDEVICE(pix), 0, 0, TQT_TQPAINTDEVICE(&smallBox), 0, 0, 10, 10, TQt::CopyROP, true);
+	bitBlt(pix, 0, 0, &smallBox, 0, 0, 10, 10, TQt::CopyROP, true);
 
-	bitBlt(TQT_TQPAINTDEVICE(pixmap[P_ICONIFY * NumStates + i]), 0, 0,
-	       TQT_TQPAINTDEVICE(&smallBox), 0, 0, 10, 10, TQt::CopyROP, true);
+	bitBlt(pixmap[P_ICONIFY * NumStates + i], 0, 0,
+	       &smallBox, 0, 0, 10, 10, TQt::CopyROP, true);
     }
     
     // resize
@@ -1020,8 +1020,8 @@ static void redraw_pixmaps()
 	*pixmap[P_RESIZE * NumStates + i] = *pixmap[P_CLOSE * NumStates + i];
 	pixmap[P_RESIZE * NumStates + i]->detach();
 	drawB2Rect(&smallBox, is_act ? aGrp.button() : iGrp.button(), is_down);
-	bitBlt(TQT_TQPAINTDEVICE(pixmap[P_RESIZE * NumStates + i]), 
-		0, 0, TQT_TQPAINTDEVICE(&smallBox), 0, 0, 10, 10, TQt::CopyROP, true);
+	bitBlt(pixmap[P_RESIZE * NumStates + i], 
+		0, 0, &smallBox, 0, 0, 10, 10, TQt::CopyROP, true);
     }
 
 
@@ -1395,7 +1395,7 @@ void B2Titlebar::resizeEvent(TQResizeEvent *)
 void B2Titlebar::paintEvent(TQPaintEvent *)
 {
     if(client->isActive())
-        bitBlt(TQT_TQPAINTDEVICE(this), 0, 0, TQT_TQPAINTDEVICE(&titleBuffer), 0, 0, titleBuffer.width(),
+        bitBlt(this, 0, 0, &titleBuffer, 0, 0, titleBuffer.width(),
                titleBuffer.height(), TQt::CopyROP, true);
     else {
         TQPainter p(this);
