@@ -647,10 +647,12 @@ bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalP
     return replay;
     }
 
-// KDE4 remove me
-void Workspace::showWindowMenuAt( unsigned long, int, int )
+void Workspace::showWindowMenuAt( unsigned long window, int x, int y )
     {
-    slotWindowOperations();
+    Client *client;
+    if ((client = findClient(WindowMatchPredicate((WId)window))))
+        showWindowMenu( x, y, client );
+
     }
 
 void Workspace::slotActivateAttentionWindow()
