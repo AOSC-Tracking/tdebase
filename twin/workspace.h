@@ -206,6 +206,10 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
 
         void showWindowMenuAt( unsigned long id, int x, int y );
         void showWindowMenu( unsigned long id );
+
+        void tileHorizontally(unsigned long w1, unsigned long w2);
+        void tileVertically(unsigned long w1, unsigned long w2);
+        void tileGrid(unsigned long w1, unsigned long w2, unsigned long w3, unsigned long w4);
         void kDestopResized();
 
         /**

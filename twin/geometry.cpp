@@ -2828,4 +2828,16 @@ TQRect Client::activeBorderMaximizeGeometry()
     return ret;
 }
 
+void Client::tile(ActiveBorder border) {
+    if (!isResizable()) return;
+    activeTiled = true;
+    setActiveBorderMode(ActiveTilingMode);
+    setActiveBorder(border);
+    TQRect geo = activeBorderMaximizeGeometry();
+    if (geo.isValid() && !geo.isEmpty()) {
+        setGeometry(geo);
+    }
+    workspace()->raiseClient(this);
+}
+
 } // namespace
