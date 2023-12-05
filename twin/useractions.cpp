@@ -652,7 +652,6 @@ void Workspace::showWindowMenuAt( unsigned long window, int x, int y )
     Client *client;
     if ((client = findClient(WindowMatchPredicate((WId)window))))
         showWindowMenu( x, y, client );
-
     }
 
 void Workspace::slotActivateAttentionWindow()
@@ -1072,17 +1071,21 @@ void Workspace::showWindowMenu( const TQRect &pos, Client* cl )
     active_popup = p;
     int x = pos.left();
     int y = pos.bottom();
-    if (y == pos.top())
-	p->exec( TQPoint( x, y ) );
+    clientPopupAboutToShow(); // needed for sizeHint() to be correct :-/
+
+    TQRect area = clientArea(ScreenArea, TQPoint(x, y), currentDesktop());
+    TQSize hint = p->sizeHint();
+    if (x < 0) x = area.right() - hint.width() + x;
+    if (y < 0) y = area.bottom() - hint.height() + y;
+
+    if (pos.bottom() == pos.top())
+        p->exec( TQPoint( x, y ) );
     else
         {
-	TQRect area = clientArea(ScreenArea, TQPoint(x, y), currentDesktop());
-        clientPopupAboutToShow(); // needed for sizeHint() to be correct :-/
-	int popupHeight = p->sizeHint().height();
-	if (y + popupHeight < area.height())
-	    p->exec( TQPoint( x, y ) );
-	else
-	    p->exec( TQPoint( x, pos.top() - popupHeight ) );
+        if (y + hint.height() < area.height())
+            p->exec( TQPoint( x, y ) );
+        else
+            p->exec( TQPoint( x, pos.top() - hint.height() ) );
         }
     // active popup may be already changed (e.g. the window shortcut dialog)
     if( active_popup == p )
