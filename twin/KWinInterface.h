@@ -29,6 +29,9 @@ class KWinInterface : virtual public DCOPObject
     virtual void circulateDesktopApplications() = 0;
     virtual void updateOverlappingShadows(unsigned long window) = 0;
     virtual void setShadowed(unsigned long window, bool shadowed) = 0;
+    virtual void tileHorizontally(unsigned long w1, unsigned long w2) = 0;
+    virtual void tileVertically(unsigned long w1, unsigned long w2) = 0;
+    virtual void tileGrid(unsigned long w1, unsigned long w2, unsigned long w3, unsigned long w4) = 0;
 
     // kompmgr stuff
     virtual void startKompmgr() = 0;

@@ -664,6 +664,44 @@ void Workspace::showWindowMenu( unsigned long window )
         }
     }
 
+void Workspace::tileHorizontally(unsigned long w1, unsigned long w2) {
+    if (w1 == w2) return;
+
+    Client *c1 = findClient(WindowMatchPredicate((WId)w1));
+    Client *c2 = findClient(WindowMatchPredicate((WId)w2));
+    if (!c1 || !c2) return;
+
+    c1->tile(ActiveTop);
+    c2->tile(ActiveBottom);
+}
+
+void Workspace::tileVertically(unsigned long w1, unsigned long w2) {
+    if (w1 == w2) return;
+
+    Client *c1 = findClient(WindowMatchPredicate((WId)w1));
+    Client *c2 = findClient(WindowMatchPredicate((WId)w2));
+    if (!c1 || !c2) return;
+
+    c1->tile(ActiveLeft);
+    c2->tile(ActiveRight);
+}
+
+void Workspace::tileGrid(unsigned long w1, unsigned long w2, unsigned long w3, unsigned long w4) {
+    if (w1 == w2 || w1 == w3 || w1 == w4 || w2 == w3 || w2 == w4 || w3 == w4)
+        return;
+
+    Client *c1 = findClient(WindowMatchPredicate((WId)w1));
+    Client *c2 = findClient(WindowMatchPredicate((WId)w2));
+    Client *c3 = findClient(WindowMatchPredicate((WId)w3));
+    Client *c4 = findClient(WindowMatchPredicate((WId)w4));
+    if (!c1 || !c2 || !c3 || !c4) return;
+
+    c1->tile(ActiveTopLeft);
+    c2->tile(ActiveTopRight);
+    c3->tile(ActiveBottomLeft);
+    c4->tile(ActiveBottomRight);
+}
+
 void Workspace::slotActivateAttentionWindow()
     {
     if( attention_chain.count() > 0 )
