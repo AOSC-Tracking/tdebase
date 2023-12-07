@@ -99,6 +99,7 @@ Client::Client( Workspace *ws )
         decoration( NULL ),
         wspace( ws ),
         bridge( new Bridge( this )),
+        inhibitConfigureRequests(false),
         move_faked_activity( false ),
         move_resize_grab_window( None ),
         transient_for( NULL ),
@@ -974,7 +975,7 @@ void Client::setShade( ShadeMode mode )
 
 void Client::configureRequestTimeout()
     {
-    moveResizeMode = false;
+    inhibitConfigureRequests = false;
     sendSyntheticConfigureNotify();
     }
 
