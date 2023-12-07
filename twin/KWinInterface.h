@@ -18,7 +18,8 @@ class KWinInterface : virtual public DCOPObject
     virtual bool isResumeableWindowID(unsigned long winId) = 0;
     virtual void refresh() = 0;
     virtual void doNotManage(TQString)= 0;
-    virtual void showWindowMenuAt(unsigned long winId, int x, int y)= 0;
+    virtual void showWindowMenuAt(unsigned long winId, int x, int y) = 0;
+    virtual void showWindowMenu(unsigned long winId) = 0;
     virtual void kDestopResized() = 0;
     virtual void setDesktopLayout(int orientation, int x, int y)= 0;
     virtual bool setCurrentDesktop(int)= 0;

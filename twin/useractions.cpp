@@ -654,6 +654,16 @@ void Workspace::showWindowMenuAt( unsigned long window, int x, int y )
         showWindowMenu( x, y, client );
     }
 
+void Workspace::showWindowMenu( unsigned long window )
+    {
+    Client *client;
+    if ((client = findClient(WindowMatchPredicate((WId)window))))
+        {
+        TQPoint pos = client->pos() + client->clientPos();
+        showWindowMenu( pos, client );
+        }
+    }
+
 void Workspace::slotActivateAttentionWindow()
     {
     if( attention_chain.count() > 0 )

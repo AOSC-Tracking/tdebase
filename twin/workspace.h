@@ -204,8 +204,8 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void windowToNextDesktop( Client* c );
         void sendClientToScreen( Client* c, int screen );
 
-    // KDE4 remove me - and it's also in the DCOP interface :(
         void showWindowMenuAt( unsigned long id, int x, int y );
+        void showWindowMenu( unsigned long id );
         void kDestopResized();
 
         /**
