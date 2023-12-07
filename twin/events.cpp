@@ -785,7 +785,7 @@ void Client::configureRequestEvent( XConfigureRequestEvent* e )
     {
     if( e->window != window())
         return; // ignore frame/wrapper
-    if ( isResize() || isMove())
+    if ( isResize() || isMove() || inhibitConfigureRequests)
         {
         // Send a synthetic configure notification to make sure the
         // window contents get updated by the application
