@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Alexander Golubev <fatzer2@gmail.com>, 2021, 2022.
+# Andrei Stepanov <adem4ik@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2022-02-27 19:02+0000\n"
-"Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
+"PO-Revision-Date: 2023-12-07 21:14+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
 "Language: ru\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -231,7 +232,7 @@ msgstr ""
 #. Name
 #: crypto/crypto.desktop:10
 msgid "Crypto"
-msgstr "Криптография"
+msgstr "Шифрование"
 
 #. Comment
 #: crypto/crypto.desktop:12
