@@ -19,6 +19,8 @@
 #include <tqptrqueue.h>
 #include <tqmap.h>
 
+#include "layoutunit.h"
+
 struct XkbOptions {
 	TQString layouts;
 	TQString variants;
@@ -34,59 +36,6 @@ enum SwitchingPolicy {
 	SWITCH_POLICY_WIN_CLASS = 1,
 	SWITCH_POLICY_WINDOW = 2,
 	SWITCH_POLICY_COUNT = 3
-};
-
-
-
-inline TQString createPair(TQString key, TQString value)
-{
-	if( value.isEmpty() )
-		return key;
-	return TQString("%1(%2)").arg(key, value);
-}
-
-struct LayoutUnit {
-	TQString layout;
-	TQString variant;
-	TQString displayName;
-
-	LayoutUnit() {}
-
-	LayoutUnit(TQString layout_, TQString variant_):
-		layout(layout_),
-		variant(variant_)
-	{}
-
-	LayoutUnit(TQString pair) {
-		setFromPair( pair );
-	}
-
-	void setFromPair(const TQString& pair) {
-		layout = parseLayout(pair);
-		variant = parseVariant(pair);
-	}
-
-	TQString toPair() const {
-		return createPair(layout, variant);
-	}
-
-	bool operator<(const LayoutUnit& lu) const {
-		return layout<lu.layout ||
-				(layout==lu.layout && variant<lu.variant);
-	}
-
-	bool operator!=(const LayoutUnit& lu) const {
-		return layout!=lu.layout || variant!=lu.variant;
-	}
-
-	bool operator==(const LayoutUnit& lu) const {
-// 		kdDebug() << layout << "==" << lu.layout << "&&" << variant << "==" << lu.variant << endl;
-		return layout==lu.layout && variant==lu.variant;
-	}
-
-//private:
-	static const TQString parseLayout(const TQString &layvar);
-	static const TQString parseVariant(const TQString &layvar);
 };
 
 extern const LayoutUnit DEFAULT_LAYOUT_UNIT;

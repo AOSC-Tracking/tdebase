@@ -5,6 +5,7 @@
 #include <tqdict.h>
 #include <tqmap.h>
 
+#include "layoutunit.h"
 
 class XkbRules
 {
@@ -17,6 +18,8 @@ public:
   const TQDict<char> &options() const { return m_options; };
 
   TQStringList getAvailableVariants(const TQString& layout);
+
+  TQString getLayoutName(LayoutUnit layout) const;
 
 protected:
   void loadRules(TQString filename, bool layoutsOnly=false);

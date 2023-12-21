@@ -90,13 +90,15 @@ void KxkbLabelController::initLayoutList(const TQValueList<LayoutUnit>& layouts,
 		const TQString layoutName = (*it).layout;
 		const TQString variantName = (*it).variant;
 
-		const TQPixmap& layoutPixmap = LayoutIcon::getInstance().findPixmap(layoutName, PIXMAP_STYLE_CONTEXTMENU, (*it).displayName);
-        const TQPixmap pix = iconeffect.apply(layoutPixmap, TDEIcon::Small, TDEIcon::DefaultState);
+		const TQPixmap& layoutPixmap = LayoutIcon::getInstance().findPixmap(
+			(*it).layout, PIXMAP_STYLE_CONTEXTMENU, (*it).displayName);
+		const TQPixmap pix = iconeffect.apply(layoutPixmap, TDEIcon::Small,
+			TDEIcon::DefaultState);
 
-		TQString fullName = i18n((rules.layouts()[layoutName]));
-		if( variantName.isEmpty() == false )
-			fullName += " (" + variantName + ")";
-		contextMenu->insertItem(pix, fullName, START_MENU_ID + cnt, m_menuStartIndex + cnt);
+		TQString fullName = rules.getLayoutName((*it));
+		contextMenu->insertItem(pix, fullName, START_MENU_ID + cnt,
+			m_menuStartIndex + cnt);
+
 		m_descriptionMap.insert((*it).toPair(), fullName);
 
 		cnt++;
