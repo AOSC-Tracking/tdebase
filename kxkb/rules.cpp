@@ -73,3 +73,10 @@ XkbRules::getAvailableVariants(const TQString& layout)
     return *result;
 }
 
+TQString XkbRules::getLayoutName(LayoutUnit layout) const {
+	TQString fullName = i18n(m_layouts[layout.layout]);
+	if (!layout.variant.isEmpty()) {
+		fullName += " (" + layout.variant + ")";
+	}
+	return fullName;
+}

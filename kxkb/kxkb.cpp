@@ -248,7 +248,6 @@ void KXKBApp::prevLayout()
 	setLayout(layout);
 }
 
-
 void KXKBApp::menuActivated(int id)
 {
 	if( KxkbLabelController::START_MENU_ID <= id 
