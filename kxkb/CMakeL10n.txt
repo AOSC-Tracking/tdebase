@@ -27,3 +27,9 @@ tde_l10n_create_template(
     SOURCES *.desktop
     DESTINATION "${CMAKE_SOURCE_DIR}/translations"
 )
+
+tde_l10n_create_template(
+    CATALOG "desktop_files/kxkb-eventsrc/"
+    SOURCES eventsrc
+    DESTINATION "${CMAKE_SOURCE_DIR}/translations"
+)

@@ -129,6 +129,10 @@ bool KxkbConfig::load(int loadMode)
 		}
 	}
 
+	config->setGroup("Notifications");
+	m_enableNotify = config->readBoolEntry("Enable", false);
+	m_notifyUseKMilo = config->readBoolEntry("UseKMilo", true);
+
 	delete config;
 
 	return true;
@@ -195,6 +199,10 @@ void KxkbConfig::save()
 	config->deleteEntry("AdditionalEncodings");
 	config->deleteEntry("Additional");
 	config->deleteEntry("Layout");
+
+	config->setGroup("Notifications");
+	config->writeEntry("Enable", m_enableNotify);
+	config->writeEntry("UseKMilo", m_notifyUseKMilo);
 
 	config->sync();
 

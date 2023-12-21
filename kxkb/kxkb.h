@@ -76,6 +76,7 @@ protected slots:
     void slotGroupChanged(uint group);
 
     void slotSettingsChanged(int category);
+    void maybeShowLayoutNotification();
 
 protected:
     // Read settings, and apply them.

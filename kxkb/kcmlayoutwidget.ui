@@ -611,6 +611,41 @@
                                     </widget>
                                 </grid>
                             </widget>
+                            <widget class="TQGroupBox">
+                                <property name="name">
+                                    <cstring>grpBoxNotifications</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Notifications</string>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="TQCheckBox">
+                                        <property name="name">
+                                            <cstring>chkEnableNotify</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Enable keyboard layout notification</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>If this option is enabled, a little notification will pop up on the screen displaying the name of the currently selected layout whenever it changes.</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQCheckBox">
+                                        <property name="name">
+                                            <cstring>chkNotifyUseKMilo</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Use KMilo for notifications, if available</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>If this option is enabled and KMilo is available, it will be used to display the notifications instead of the standard notification system. If KMilo is not available, notifications will be showed via the standard TDE notification system.</string>
+                                        </property>
+                                    </widget>
+                                </vbox>
+                            </widget>
                         </vbox>
                     </widget>
                     <spacer>
@@ -1192,6 +1227,12 @@
         <signal>toggled(bool)</signal>
         <receiver>labelBgColor</receiver>
         <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>chkEnableNotify</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>chkNotifyUseKMilo</receiver>
+        <slot>setEnabled(bool)</slot>
     </connection>
 </connections>
 <includes>

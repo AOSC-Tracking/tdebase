@@ -150,6 +150,9 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   connect( widget->chkEnableSticky, TQT_SIGNAL(toggled(bool)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
   connect( widget->spinStickyDepth, TQT_SIGNAL(valueChanged(int)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
 
+  connect(widget->chkEnableNotify,       SIGNAL(toggled(bool)), SLOT(changed()));
+  connect(widget->chkNotifyUseKMilo,     SIGNAL(toggled(bool)), SLOT(changed()));
+
   widget->listLayoutsSrc->setColumnText(LAYOUT_COLUMN_FLAG, "");
   widget->listLayoutsDst->setColumnText(LAYOUT_COLUMN_FLAG, "");
 //  widget->listLayoutsDst->setColumnText(LAYOUT_COLUMN_DISPLAY_NAME, "");
@@ -288,6 +291,9 @@ void LayoutConfig::initUI() {
 	widget->spinStickyDepth->setEnabled(m_kxkbConfig.m_stickySwitching);
 	widget->spinStickyDepth->setValue( m_kxkbConfig.m_stickySwitchingDepth);
 
+	widget->chkEnableNotify->setChecked(m_kxkbConfig.m_enableNotify);
+	widget->chkNotifyUseKMilo->setChecked(m_kxkbConfig.m_notifyUseKMilo);
+
 	updateStickyLimit();
 
 	widget->chkEnable->setChecked( m_kxkbConfig.m_useKxkb );
@@ -396,6 +402,9 @@ void LayoutConfig::save()
 
 	m_kxkbConfig.m_stickySwitching = widget->chkEnableSticky->isChecked();
 	m_kxkbConfig.m_stickySwitchingDepth = widget->spinStickyDepth->value();
+
+	m_kxkbConfig.m_enableNotify = widget->chkEnableNotify->isChecked();
+	m_kxkbConfig.m_notifyUseKMilo = widget->chkNotifyUseKMilo->isChecked();
 
 	m_kxkbConfig.save();
 

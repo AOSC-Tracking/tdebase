@@ -1,0 +1,8 @@
+[!Global!]
+IconName=kxkb
+Comment=TDE Keyboard Tool
+
+[LayoutChange]
+Name=Keyboard layout switch
+Comment=The keyboard layout was switched
+default_presentation=16

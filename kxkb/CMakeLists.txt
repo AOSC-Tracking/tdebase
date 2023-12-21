@@ -33,6 +33,12 @@ tde_create_translated_desktop(
   PO_DIR kxkb-desktops
 )
 
+tde_create_translated_desktop(
+  SOURCE eventsrc
+  DESTINATION ${DATA_INSTALL_DIR}/kxkb
+  PO_DIR kxkb-eventsrc
+)
+
 install( FILES kxkb_groups DESTINATION ${CONFIG_INSTALL_DIR} )
 
 tde_create_translated_desktop(

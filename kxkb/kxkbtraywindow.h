@@ -43,6 +43,8 @@ public:
 	void setError(const TQString& layoutInfo="");
     void setShowFlag(bool showFlag) { m_showFlag = showFlag; }
 	void show() { label->show(); }
+
+	WId winId() { return label->winId(); }
 	
 // signals:
 // 
