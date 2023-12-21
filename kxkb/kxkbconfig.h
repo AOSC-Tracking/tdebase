@@ -56,6 +56,8 @@ public:
 	SwitchingPolicy m_switchingPolicy;
 	bool m_stickySwitching;
 	int m_stickySwitchingDepth;
+	bool m_enableNotify;
+	bool m_notifyUseKMilo;
 
 	bool m_useThemeColors;
 	TQColor m_colorBackground;

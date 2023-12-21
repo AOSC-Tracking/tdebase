@@ -47,6 +47,9 @@ DESCRIPTION
 #include <tdepopupmenu.h>
 #include <kdebug.h>
 #include <tdeconfig.h>
+#include <knotifyclient.h>
+#include <dcopclient.h>
+#include <dcopref.h>
 
 #include "x11helper.h"
 #include "kxkb.h"
@@ -205,9 +208,10 @@ bool KXKBApp::setLayout(const LayoutUnit& layoutUnit)
 	bool res = m_extension->setGroup(group);
 	if (res) {
 		m_currentLayout = layoutUnit;
+		maybeShowLayoutNotification();
 	}
 
-    if (m_tray) {
+	if (m_tray) {
 		if (res) {
 			m_tray->setCurrentLayout(layoutUnit);
 		} else {
@@ -281,6 +285,44 @@ void KXKBApp::slotGroupChanged(uint group)
 	}
 	m_currentLayout = kxkbConfig.m_layouts[group];
 	m_tray->setCurrentLayout(m_currentLayout);
+	maybeShowLayoutNotification();
+}
+
+void KXKBApp::maybeShowLayoutNotification() {
+	if (!kxkbConfig.m_enableNotify) return;
+
+	TQString layoutName(m_rules->getLayoutName(m_currentLayout));
+	bool useKMilo = kxkbConfig.m_notifyUseKMilo;
+	bool notificationSent = false;
+
+	// Query KDED whether KMiloD is loaded
+	if (useKMilo) {
+		QCStringList modules;
+		TQCString replyType;
+		TQByteArray replyData;
+		if (kapp->dcopClient()->call("kded", "kded", "loadedModules()",
+			TQByteArray(), replyType, replyData))
+		{
+			if (replyType == "QCStringList") {
+				TQDataStream reply(replyData, IO_ReadOnly);
+				reply >> modules;
+
+				if (!modules.contains("kmilod")) {
+					useKMilo = false;
+				}
+			}
+		}
+	}
+
+	if (useKMilo) {
+		DCOPRef kmilo("kded", "kmilod");
+		if (kmilo.send("displayText(TQString,TQPixmap)", layoutName, kapp->miniIcon()))
+			notificationSent = true;
+	}
+
+	if (!notificationSent) {
+		KNotifyClient::event(m_tray->winId(), "LayoutChange", layoutName);
+	}
 }
 
 // TODO: we also have to handle deleted windows
