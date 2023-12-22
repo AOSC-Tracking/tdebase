@@ -119,7 +119,7 @@ void KCMDnssd::load()
 {
 	if (geteuid()==0) loadMdnsd();
 	enableZeroconf->setChecked(false);
-	TQProcess avahiStatus(TQString("/usr/share/avahi/avahi_status"), TQT_TQOBJECT(this), "avahiStatus");
+	TQProcess avahiStatus(TQString("/usr/share/avahi/avahi_status"), this, "avahiStatus");
 	avahiStatus.start();
 	while (avahiStatus.isRunning()) {
 	  kapp->processEvents();

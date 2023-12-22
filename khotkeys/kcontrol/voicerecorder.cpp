@@ -46,7 +46,7 @@ bool VoiceRecorder::init( KLibrary* lib )
 }
 
 VoiceRecorder::VoiceRecorder(const Sound& sound_P, const TQString &voiceId, TQWidget *parent, const char *name)
-	: Voice_input_widget_ui(parent, name) , _recorder( SoundRecorder::create(TQT_TQOBJECT(this))) , _state(sNotModified), _tempFile(0L) ,  _voiceId(voiceId)
+	: Voice_input_widget_ui(parent, name) , _recorder( SoundRecorder::create(this)) , _state(sNotModified), _tempFile(0L) ,  _voiceId(voiceId)
 {
 	_sound=sound_P;
 	buttonPlay->setEnabled(sound_P.size() > 50);

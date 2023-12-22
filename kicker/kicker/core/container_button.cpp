@@ -262,7 +262,7 @@ bool ButtonContainer::eventFilter(TQObject *o, TQEvent *e)
 
             TQPopupMenu* menu = opMenu();
             connect( menu, TQT_SIGNAL( aboutToHide() ), this, TQT_SLOT( slotMenuClosed() ) );
-            TQPoint pos = KickerLib::popupPosition(popupDirection(), menu, TQT_TQWIDGET(this),
+            TQPoint pos = KickerLib::popupPosition(popupDirection(), menu, this,
                                                   (orientation() == TQt::Horizontal) ?
                                                    TQPoint(0, 0) : me->pos());
 

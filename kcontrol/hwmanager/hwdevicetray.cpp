@@ -158,7 +158,7 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget *parent, const char *name)
 	connect(this, TQT_SIGNAL(quitSelected()), this, TQT_SLOT(quitApp()));
 	TQToolTip::add(this, i18n("Device monitor"));
 
-	globalKeys = new TDEGlobalAccel(TQT_TQOBJECT(this));
+	globalKeys = new TDEGlobalAccel(this);
 	TDEGlobalAccel* keys = globalKeys;
 	#include "hwdevicetray_bindings.cpp"
 	// the keys need to be read from tdeglobals, not kickerrc

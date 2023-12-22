@@ -1093,7 +1093,7 @@ void TEWidget::print(TQPainter &paint, bool friendly, bool exact)
      pm.fill();
 
      TQPainter pm_paint;
-     pm_paint.begin(&pm, TQT_TQWIDGET(this));
+     pm_paint.begin(&pm, this);
      paintContents(pm_paint, contentsRect(), true);
      pm_paint.end();
      paint.drawPixmap(0, 0, pm);

@@ -44,7 +44,7 @@ KCMRules::KCMRules( TQWidget *parent, const char *name )
     {
     TQVBoxLayout *layout = new TQVBoxLayout( this );
     widget = new KCMRulesList( this );
-    layout->addWidget( TQT_TQWIDGET(widget) );
+    layout->addWidget( widget );
     connect( widget, TQT_SIGNAL( changed( bool )), TQT_SLOT( moduleChanged( bool )));
     TDEAboutData *about = new TDEAboutData(I18N_NOOP( "kcmtwinrules" ),
         I18N_NOOP( "Window-Specific Settings Configuration Module" ),

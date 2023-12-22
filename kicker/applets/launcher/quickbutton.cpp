@@ -175,7 +175,7 @@ QuickButton::QuickButton(const TQString &u, TDEAction* configAction,
             this, TQT_SLOT(removeApp()));
 
     m_stickyAction = new TDEToggleAction(i18n("Never Remove Automatically"),
-        TDEShortcut(), TQT_TQOBJECT(this));
+        TDEShortcut(), this);
     connect(m_stickyAction, TQT_SIGNAL(toggled(bool)), 
         this, TQT_SLOT(slotStickyToggled(bool)));
     m_stickyAction->plug(_popup, 2);

@@ -178,7 +178,7 @@ KdeprintFax::KdeprintFax(TQWidget *parent, const char *name)
 	updateState();
 
 	resize(550,500);
-	TQWidget	*d = TQT_TQWIDGET(kapp->desktop());
+	TQWidget	*d = kapp->desktop();
 	move((d->width()-width())/2, (d->height()-height())/2);
 }
 
@@ -188,19 +188,19 @@ KdeprintFax::~KdeprintFax()
 
 void KdeprintFax::initActions()
 {
-	new TDEAction(i18n("&Add File..."), "document-new", TQt::Key_Insert, TQT_TQOBJECT(this), TQT_SLOT(slotAdd()), actionCollection(), "file_add");
-	new TDEAction(i18n("&Remove File"), "remove", TQt::Key_Delete, TQT_TQOBJECT(this), TQT_SLOT(slotRemove()), actionCollection(), "file_remove");
-	new TDEAction(i18n("&Send Fax"), "connect_established", TQt::Key_Return, TQT_TQOBJECT(this), TQT_SLOT(slotFax()), actionCollection(), "fax_send");
-	new TDEAction(i18n("A&bort"), "process-stop", TQt::Key_Escape, TQT_TQOBJECT(this), TQT_SLOT(slotAbort()), actionCollection(), "fax_stop");
-	new TDEAction(i18n("A&ddress Book"), "kaddressbook", TQt::CTRL+TQt::Key_A, TQT_TQOBJECT(this), TQT_SLOT(slotKab()), actionCollection(), "fax_ab");
-	new TDEAction(i18n("V&iew Log"), "contents", TQt::CTRL+TQt::Key_L, TQT_TQOBJECT(this), TQT_SLOT(slotViewLog()), actionCollection(), "fax_log");
-	new TDEAction(i18n("Vi&ew File"), "filefind", TQt::CTRL+TQt::Key_O, TQT_TQOBJECT(this), TQT_SLOT(slotView()), actionCollection(), "file_view");
-	new TDEAction( i18n( "&New Fax Recipient..." ), "edit", TQt::CTRL+TQt::Key_N, TQT_TQOBJECT(this), TQT_SLOT( slotFaxAdd() ), actionCollection(), "fax_add" );
+	new TDEAction(i18n("&Add File..."), "document-new", TQt::Key_Insert, this, TQT_SLOT(slotAdd()), actionCollection(), "file_add");
+	new TDEAction(i18n("&Remove File"), "remove", TQt::Key_Delete, this, TQT_SLOT(slotRemove()), actionCollection(), "file_remove");
+	new TDEAction(i18n("&Send Fax"), "connect_established", TQt::Key_Return, this, TQT_SLOT(slotFax()), actionCollection(), "fax_send");
+	new TDEAction(i18n("A&bort"), "process-stop", TQt::Key_Escape, this, TQT_SLOT(slotAbort()), actionCollection(), "fax_stop");
+	new TDEAction(i18n("A&ddress Book"), "kaddressbook", TQt::CTRL+TQt::Key_A, this, TQT_SLOT(slotKab()), actionCollection(), "fax_ab");
+	new TDEAction(i18n("V&iew Log"), "contents", TQt::CTRL+TQt::Key_L, this, TQT_SLOT(slotViewLog()), actionCollection(), "fax_log");
+	new TDEAction(i18n("Vi&ew File"), "filefind", TQt::CTRL+TQt::Key_O, this, TQT_SLOT(slotView()), actionCollection(), "file_view");
+	new TDEAction( i18n( "&New Fax Recipient..." ), "edit", TQt::CTRL+TQt::Key_N, this, TQT_SLOT( slotFaxAdd() ), actionCollection(), "fax_add" );
 
-	KStdAction::quit(TQT_TQOBJECT(this), TQT_SLOT(slotQuit()), actionCollection());
+	KStdAction::quit(this, TQT_SLOT(slotQuit()), actionCollection());
 	setStandardToolBarMenuEnabled(true);
-	KStdAction::showMenubar(TQT_TQOBJECT(this), TQT_SLOT(slotToggleMenuBar()), actionCollection());
-	KStdAction::preferences(TQT_TQOBJECT(this), TQT_SLOT(slotConfigure()), actionCollection());
+	KStdAction::showMenubar(this, TQT_SLOT(slotToggleMenuBar()), actionCollection());
+	KStdAction::preferences(this, TQT_SLOT(slotConfigure()), actionCollection());
         KStdAction::keyBindings(guiFactory(), TQT_SLOT(configureShortcuts()), 
 actionCollection());
 	actionCollection()->action("fax_stop")->setEnabled(false);

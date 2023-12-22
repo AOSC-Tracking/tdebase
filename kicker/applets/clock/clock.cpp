@@ -84,7 +84,7 @@ TDEConfigDialogSingle::TDEConfigDialogSingle(Zone *zone, TQWidget *parent,
     setIcon(SmallIcon("date"));
 
     settings = new SettingsWidgetImp(prefs, zone, 0, "General");
-    connect(TQT_TQOBJECT(settings->kcfg_Type), TQT_SIGNAL(activated(int)), TQT_SLOT(selectPage(int)));
+    connect(settings->kcfg_Type, TQT_SIGNAL(activated(int)), TQT_SLOT(selectPage(int)));
 
     settings->kcfg_PlainBackgroundColor->setDefaultColor(TDEApplication::palette().active().background());
     settings->kcfg_DateBackgroundColor->setDefaultColor(TDEApplication::palette().active().background());
@@ -104,23 +104,23 @@ TDEConfigDialogSingle::TDEConfigDialogSingle(Zone *zone, TQWidget *parent,
     settings->widgetStack->addWidget(fuzzyPage, 3);
     fuzzyPage->kcfg_FuzzyBackgroundColor->setDefaultColor(TDEApplication::palette().active().background());
 
-    connect(TQT_TQOBJECT(settings->kcfg_PlainShowDate), TQT_SIGNAL(toggled(bool)),
+    connect(settings->kcfg_PlainShowDate, TQT_SIGNAL(toggled(bool)),
             TQT_SLOT(dateToggled()));
-    connect(TQT_TQOBJECT(settings->kcfg_PlainShowDayOfWeek), TQT_SIGNAL(toggled(bool)),
+    connect(settings->kcfg_PlainShowDayOfWeek, TQT_SIGNAL(toggled(bool)),
             TQT_SLOT(dateToggled()));
-    connect(TQT_TQOBJECT(digitalPage->kcfg_DigitalShowDate), TQT_SIGNAL(toggled(bool)),
+    connect(digitalPage->kcfg_DigitalShowDate, TQT_SIGNAL(toggled(bool)),
             TQT_SLOT(dateToggled()));
-    connect(TQT_TQOBJECT(digitalPage->kcfg_DigitalShowDayOfWeek), TQT_SIGNAL(toggled(bool)),
+    connect(digitalPage->kcfg_DigitalShowDayOfWeek, TQT_SIGNAL(toggled(bool)),
             TQT_SLOT(dateToggled()));
-    connect(TQT_TQOBJECT(digitalPage->kcfg_DigitalShowDate), TQT_SIGNAL(toggled(bool)),
+    connect(digitalPage->kcfg_DigitalShowDate, TQT_SIGNAL(toggled(bool)),
             TQT_SLOT(dateToggled()));
-    connect(TQT_TQOBJECT(analogPage->kcfg_AnalogShowDate), TQT_SIGNAL(toggled(bool)),
+    connect(analogPage->kcfg_AnalogShowDate, TQT_SIGNAL(toggled(bool)),
             TQT_SLOT(dateToggled()));
-    connect(TQT_TQOBJECT(analogPage->kcfg_AnalogShowDayOfWeek), TQT_SIGNAL(toggled(bool)),
+    connect(analogPage->kcfg_AnalogShowDayOfWeek, TQT_SIGNAL(toggled(bool)),
             TQT_SLOT(dateToggled()));
-    connect(TQT_TQOBJECT(fuzzyPage->kcfg_FuzzyShowDate), TQT_SIGNAL(toggled(bool)),
+    connect(fuzzyPage->kcfg_FuzzyShowDate, TQT_SIGNAL(toggled(bool)),
             TQT_SLOT(dateToggled()));
-    connect(TQT_TQOBJECT(fuzzyPage->kcfg_FuzzyShowDayOfWeek), TQT_SIGNAL(toggled(bool)),
+    connect(fuzzyPage->kcfg_FuzzyShowDayOfWeek, TQT_SIGNAL(toggled(bool)),
             TQT_SLOT(dateToggled()));
 
     addPage(settings, i18n("General"), TQString::fromLatin1("package_settings"));

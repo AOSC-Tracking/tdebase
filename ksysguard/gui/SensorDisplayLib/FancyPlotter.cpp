@@ -58,7 +58,7 @@ FancyPlotter::FancyPlotter( TQWidget* parent, const char* name,
    * SensorDisplay::eventFilter. */
 	mPlotter->installEventFilter( this );
 
-  setPlotterWidget( TQT_TQWIDGET(mPlotter) );
+  setPlotterWidget( mPlotter );
 
   setModified( false );
 }
@@ -242,8 +242,8 @@ bool FancyPlotter::addSensor( const TQString &hostName, const TQString &name,
                                    .arg( sensors().at( mBeams - i - 1  )->name() );
   }
 
-  TQToolTip::remove( TQT_TQWIDGET(mPlotter) );
-  TQToolTip::add( TQT_TQWIDGET(mPlotter), tooltip );
+  TQToolTip::remove( mPlotter );
+  TQToolTip::add( mPlotter, tooltip );
 
   return true;
 }
@@ -267,8 +267,8 @@ bool FancyPlotter::removeSensor( uint pos )
                                    .arg( sensors().at( mBeams - i - 1  )->name() );
   }
 
-  TQToolTip::remove( TQT_TQWIDGET(mPlotter) );
-  TQToolTip::add( TQT_TQWIDGET(mPlotter), tooltip );
+  TQToolTip::remove( mPlotter );
+  TQToolTip::add( mPlotter, tooltip );
 
   return true;
 }

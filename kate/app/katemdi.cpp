@@ -256,8 +256,8 @@ bool ToolView::visible () const
 void ToolView::childEvent ( TQChildEvent *ev )
 {
   // set the widget to be focus proxy if possible
-  if (ev->inserted() && ev->child() && TQT_TQOBJECT(ev->child())->tqt_cast("TQWidget")) {
-    setFocusProxy (::tqt_cast<TQWidget*>(TQT_TQOBJECT(ev->child())));
+  if (ev->inserted() && ev->child() && ev->child()->tqt_cast("TQWidget")) {
+    setFocusProxy (::tqt_cast<TQWidget*>(ev->child()));
 }
 
   TQVBox::childEvent (ev);

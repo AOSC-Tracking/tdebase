@@ -390,7 +390,7 @@ void KasTaskItem::showPropertiesDialog()
     tabs->addTab( createTaskProps( task_, tabs ), i18n("Task") );
 
     tabs->addTab( createTaskProps( this, tabs ), i18n("Item") );
-    tabs->addTab( createTaskProps( TQT_TQOBJECT(kasbar()), tabs, false ), i18n("Bar") );
+    tabs->addTab( createTaskProps( kasbar(), tabs, false ), i18n("Bar") );
 
 #if 0
     tabs->addTab( createNETProps( tabs ), i18n("NET") );

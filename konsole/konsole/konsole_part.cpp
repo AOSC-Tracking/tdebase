@@ -151,7 +151,7 @@ konsolePart::konsolePart(TQWidget *_parentWidget, const char *widgetName, TQObje
   te = new TEWidget(parentWidget,widgetName);
   te->setMinimumSize(150,70);    // allow resizing, cause resize in TEWidget
 
-  setWidget(TQT_TQWIDGET(te));
+  setWidget(te);
   te->setFocus();
   connect( te,TQT_SIGNAL(configureRequest(TEWidget*,int,int,int)),
            this,TQT_SLOT(configureRequest(TEWidget*,int,int,int)) );
@@ -469,16 +469,16 @@ void konsolePart::makeGUI()
 
   // Popup Menu -------------------------------------------------------------------
   m_popupMenu = new TDEPopupMenu((TDEMainWindow*)parentWidget);
-  TDEAction* selectionEnd = new TDEAction(i18n("Set Selection End"), 0, TQT_TQOBJECT(te),
+  TDEAction* selectionEnd = new TDEAction(i18n("Set Selection End"), 0, te,
                                TQT_SLOT(setSelectionEnd()), actions, "selection_end");
   selectionEnd->plug(m_popupMenu);
 
   TDEAction *copyClipboard = new TDEAction(i18n("&Copy"), "edit-copy", 0,
-                                        TQT_TQOBJECT(te), TQT_SLOT(copyClipboard()), actions, "edit_copy");
+                                        te, TQT_SLOT(copyClipboard()), actions, "edit_copy");
   copyClipboard->plug(m_popupMenu);
 
   TDEAction *pasteClipboard = new TDEAction(i18n("&Paste"), "edit-paste", 0,
-                                        TQT_TQOBJECT(te), TQT_SLOT(pasteClipboard()), actions, "edit_paste");
+                                        te, TQT_SLOT(pasteClipboard()), actions, "edit_paste");
   pasteClipboard->plug(m_popupMenu);
 
   if (m_signals)
@@ -608,7 +608,7 @@ void konsolePart::readProperties()
   if (sch->useTransparency()) {
     if (!argb_visual) {
       if (!rootxpm)
-        rootxpm = new KRootPixmap(TQT_TQWIDGET(te));
+        rootxpm = new KRootPixmap(te);
       rootxpm->setFadeEffect(sch->tr_x(), TQColor(sch->tr_r(), sch->tr_g(), sch->tr_b()));
       rootxpm->start();
       rootxpm->repaint(true);
@@ -796,7 +796,7 @@ void konsolePart::setSchema(ColorSchema* s)
   if (s->useTransparency()) {
     if (!argb_visual) {
       if (!rootxpm)
-        rootxpm = new KRootPixmap(TQT_TQWIDGET(te));
+        rootxpm = new KRootPixmap(te);
       rootxpm->setFadeEffect(s->tr_x(), TQColor(s->tr_r(), s->tr_g(), s->tr_b()));
       rootxpm->start();
       rootxpm->repaint(true);

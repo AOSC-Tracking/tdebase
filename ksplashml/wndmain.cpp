@@ -383,7 +383,7 @@ ThemeEngine *KSplash::_loadThemeEngine( const TQString& pluginName, const TQStri
   {
     TQStringList themeTitle;
     themeTitle << theme;
-    return static_cast<ThemeEngine *>(TQT_TQWIDGET(factory->create(TQT_TQOBJECT(this), "theme", objName.latin1(), themeTitle)));
+    return static_cast<ThemeEngine *>(factory->create(this, "theme", objName.latin1(), themeTitle));
   }
   else
     return 0L;

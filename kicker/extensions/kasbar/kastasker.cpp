@@ -152,57 +152,57 @@ TDEPopupMenu *KasTasker::contextMenu()
 	menu = new TDEPopupMenu;
 
 	showAllWindowsAction = new TDEToggleAction( i18n("Show &All Windows"), TDEShortcut(),
-						  TQT_TQOBJECT(this), "toggle_show_all_windows" );
+						  this, "toggle_show_all_windows" );
 	showAllWindowsAction->setChecked( showAllWindows() );
 	showAllWindowsAction->plug( menu );
 	connect( showAllWindowsAction, TQT_SIGNAL(toggled(bool)), TQT_SLOT(setShowAllWindows(bool)) );
-	connect( TQT_TQOBJECT(this), TQT_SIGNAL(showAllWindowsChanged(bool)), showAllWindowsAction, TQT_SLOT(setChecked(bool)) );
+	connect( this, TQT_SIGNAL(showAllWindowsChanged(bool)), showAllWindowsAction, TQT_SLOT(setChecked(bool)) );
 
 	groupWindowsAction = new TDEToggleAction( i18n("&Group Windows"), TDEShortcut(),
-						TQT_TQOBJECT(this), "toggle_group_windows" );
+						this, "toggle_group_windows" );
 	groupWindowsAction->setChecked( groupWindows() );
 	groupWindowsAction->plug( menu );
 	connect( groupWindowsAction, TQT_SIGNAL(toggled(bool)), TQT_SLOT(setGroupWindows(bool)) );
-	connect( TQT_TQOBJECT(this), TQT_SIGNAL(groupWindowsChanged(bool)), groupWindowsAction, TQT_SLOT(setChecked(bool)) );
+	connect( this, TQT_SIGNAL(groupWindowsChanged(bool)), groupWindowsAction, TQT_SLOT(setChecked(bool)) );
 
-	showClockAction = new TDEToggleAction( i18n("Show &Clock"), TDEShortcut(), TQT_TQOBJECT(this), "toggle_show_clock" );
+	showClockAction = new TDEToggleAction( i18n("Show &Clock"), TDEShortcut(), this, "toggle_show_clock" );
 	showClockAction->setChecked( showClock() );
 	showClockAction->plug( menu );
 	connect( showClockAction, TQT_SIGNAL(toggled(bool)), TQT_SLOT(setShowClock(bool)) );
-	connect( TQT_TQOBJECT(this), TQT_SIGNAL(showClockChanged(bool)), showClockAction, TQT_SLOT(setChecked(bool)) );
+	connect( this, TQT_SIGNAL(showClockChanged(bool)), showClockAction, TQT_SLOT(setChecked(bool)) );
 
-	showLoadAction = new TDEToggleAction( i18n("Show &Load Meter"), TDEShortcut(), TQT_TQOBJECT(this), "toggle_show_load" );
+	showLoadAction = new TDEToggleAction( i18n("Show &Load Meter"), TDEShortcut(), this, "toggle_show_load" );
 	showLoadAction->setChecked( showLoad() );
 	showLoadAction->plug( menu );
 	connect( showLoadAction, TQT_SIGNAL(toggled(bool)), TQT_SLOT(setShowLoad(bool)) );
-	connect( TQT_TQOBJECT(this), TQT_SIGNAL(showLoadChanged(bool)), showLoadAction, TQT_SLOT(setChecked(bool)) );
+	connect( this, TQT_SIGNAL(showLoadChanged(bool)), showLoadAction, TQT_SLOT(setChecked(bool)) );
 
 	menu->insertSeparator();
 
 	if ( !standalone_ ) {
-	    toggleDetachedAction = new TDEToggleAction( i18n("&Floating"), TDEShortcut(), TQT_TQOBJECT(this), "toggle_detached" );
+	    toggleDetachedAction = new TDEToggleAction( i18n("&Floating"), TDEShortcut(), this, "toggle_detached" );
 	    toggleDetachedAction->setChecked( isDetached() );
 	    toggleDetachedAction->plug( menu );
 	    connect( toggleDetachedAction, TQT_SIGNAL(toggled(bool)), TQT_SLOT(setDetached(bool)) );
-	    connect( TQT_TQOBJECT(this), TQT_SIGNAL(detachedChanged(bool)), toggleDetachedAction, TQT_SLOT(setChecked(bool)) );
+	    connect( this, TQT_SIGNAL(detachedChanged(bool)), toggleDetachedAction, TQT_SLOT(setChecked(bool)) );
 	}
 
 	rotateBarAction = new TDEAction( i18n("R&otate Bar"), TQString("rotate"), TDEShortcut(),
-				       TQT_TQOBJECT(this), TQT_SLOT( toggleOrientation() ),
-				       TQT_TQOBJECT(this), "rotate_bar" );
+				       this, TQT_SLOT( toggleOrientation() ),
+				       this, "rotate_bar" );
 	rotateBarAction->plug( menu );
-	connect( TQT_TQOBJECT(this), TQT_SIGNAL(detachedChanged(bool)), rotateBarAction, TQT_SLOT(setEnabled(bool)) );
+	connect( this, TQT_SIGNAL(detachedChanged(bool)), rotateBarAction, TQT_SLOT(setEnabled(bool)) );
 	connect( rotateBarAction, TQT_SIGNAL(activated()), TQT_SLOT(writeConfigLater()) );
 
-	menu->insertItem( SmallIcon("reload"), i18n("&Refresh"), TQT_TQOBJECT(this), TQT_SLOT( refreshAll() ) );
+	menu->insertItem( SmallIcon("reload"), i18n("&Refresh"), this, TQT_SLOT( refreshAll() ) );
 
 	menu->insertSeparator();
 
-	menu->insertItem( SmallIcon("configure"), i18n("&Configure Kasbar..."), TQT_TQOBJECT(this), TQT_SLOT( showPreferences() ) );
+	menu->insertItem( SmallIcon("configure"), i18n("&Configure Kasbar..."), this, TQT_SLOT( showPreferences() ) );
 
 	// Help menu
 	TDEPopupMenu *help = new TDEPopupMenu;
-	help->insertItem( SmallIcon("about"), i18n("&About Kasbar"), TQT_TQOBJECT(this), TQT_SLOT( showAbout() ) );
+	help->insertItem( SmallIcon("about"), i18n("&About Kasbar"), this, TQT_SLOT( showAbout() ) );
 	menu->insertItem( SmallIcon("help"), i18n("&Help"), help );
 
 	if ( standalone_ ) {

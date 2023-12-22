@@ -260,8 +260,8 @@ void TDELocaleConfigMoney::slotMonNegMonSignPosChanged(int i)
 void TDELocaleConfigMoney::slotTranslate()
 {
   TQObjectList list;
-  list.append(TQT_TQOBJECT(m_cmbMonPosMonSignPos));
-  list.append(TQT_TQOBJECT(m_cmbMonNegMonSignPos));
+  list.append(m_cmbMonPosMonSignPos);
+  list.append(m_cmbMonNegMonSignPos);
 
   TQComboBox *wc;
   for (TQObjectListIt li(list) ; (wc = (TQComboBox *)li.current()) != 0; ++li)

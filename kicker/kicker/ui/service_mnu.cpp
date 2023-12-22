@@ -696,7 +696,7 @@ void PanelServiceMenu::slotContextMenu(int selected)
         }
 
 	case EditItem:
-            proc = new TDEProcess(TQT_TQOBJECT(this));
+            proc = new TDEProcess(this);
             *proc << TDEStandardDirs::findExe(TQString::fromLatin1("kmenuedit"));
             *proc << "/"+relPath_ << static_cast<KService *>(contextKSycocaEntry_)->menuId();
             proc->start();
@@ -740,7 +740,7 @@ void PanelServiceMenu::slotContextMenu(int selected)
         }
 
         case EditMenu:
-            proc = new TDEProcess(TQT_TQOBJECT(this));
+            proc = new TDEProcess(this);
             *proc << TDEStandardDirs::findExe(TQString::fromLatin1("kmenuedit"));
             *proc << "/"+static_cast<KServiceGroup *>(contextKSycocaEntry_)->relPath();
             proc->start();

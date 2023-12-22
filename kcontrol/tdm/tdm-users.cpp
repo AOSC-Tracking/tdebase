@@ -98,7 +98,7 @@ TDMUsersWidget::TDMUsersWidget(TQWidget *parent, const char *name)
       " Note that users with the UID 0 (typically root) are not affected by this and must be"
       " explicitly hidden in \"Not hidden\" mode."));
     TQSizePolicy sp_ign_fix( TQSizePolicy::Ignored, TQSizePolicy::Fixed );
-    TQValidator *valid = new TQIntValidator( 0, 999999, TQT_TQOBJECT(minGroup) );
+    TQValidator *valid = new TQIntValidator( 0, 999999, minGroup );
     TQLabel *minlab = new TQLabel( i18n("Below:"), minGroup );
     leminuid = new KLineEdit( minGroup );
     minlab->setBuddy( leminuid );

@@ -71,7 +71,7 @@ public:
 		new TQLabel(caption + ": ", l);
 		KLineEdit* e = new KLineEdit( l );
 		m_widgets.insert(key, e ) ;
-        	e->setValidator( new TQIntValidator( TQT_TQOBJECT(e) ) );
+        	e->setValidator( new TQIntValidator( e ) );
 	}
 	int field(int key)
 	{
@@ -303,12 +303,12 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
           TQT_SLOT(slotResultListContextMenu(TQListBoxItem*, const TQPoint&)));
 
   // set up the actions
-  KStdAction::quit( TQT_TQOBJECT(this), TQT_SLOT( close() ), actionCollection() );
-  KStdAction::copy( TQT_TQOBJECT(this), TQT_SLOT( slotCopy()), actionCollection() );
+  KStdAction::quit( this, TQT_SLOT( close() ), actionCollection() );
+  KStdAction::copy( this, TQT_SLOT( slotCopy()), actionCollection() );
   KStdAction::keyBindings( guiFactory(), TQT_SLOT( configureShortcuts() ), actionCollection() );
 
 
-  (void) new TDEAction( i18n( "&Reload" ), "reload", TDEStdAccel::shortcut(TDEStdAccel::Reload), TQT_TQOBJECT(this), TQT_SLOT( slotReload() ), actionCollection(), "reload" );
+  (void) new TDEAction( i18n( "&Reload" ), "reload", TDEStdAccel::shortcut(TDEStdAccel::Reload), this, TQT_SLOT( slotReload() ), actionCollection(), "reload" );
 
   exeaction =
     new TDEAction
@@ -316,7 +316,7 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
      i18n("&Execute"),
       "application-x-executable",
      CTRL + Key_E,
-     TQT_TQOBJECT(this),
+     this,
      TQT_SLOT(slotItemExecuted()),
      actionCollection(),
      "execute"
@@ -327,7 +327,7 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
 
   langmode = new TDESelectAction ( i18n("Language Mode"),
   		CTRL + Key_M,
-		TQT_TQOBJECT(this),
+		this,
 		TQT_SLOT(slotMode()),
 		actionCollection(),
 		"langmode");
@@ -458,7 +458,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
         KLineEdit* e = new KLineEdit( frame );
         grid->addWidget( e, i, 2 );
         wl.append( e );
-        e->setValidator( new TQIntValidator( TQT_TQOBJECT(e) ) );
+        e->setValidator( new TQIntValidator( e ) );
       }
       else if ( type == "unsigned"  || type == "uint" || type == "unsigned int"
              || type == "TQ_UINT32" )
@@ -471,7 +471,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
         grid->addWidget( e, i, 2 );
         wl.append( e );
 
-        TQIntValidator* iv = new TQIntValidator( TQT_TQOBJECT(e) );
+        TQIntValidator* iv = new TQIntValidator( e );
         iv->setBottom( 0 );
         e->setValidator( iv );
       }
@@ -484,7 +484,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
         KLineEdit* e = new KLineEdit( frame );
         grid->addWidget( e, i, 2 );
         wl.append( e );
-        e->setValidator( new TQIntValidator( TQT_TQOBJECT(e) ) );
+        e->setValidator( new TQIntValidator( e ) );
       }
       else if ( type == "ulong" || type == "unsigned long" || type == "unsigned long int"
              || type == "TQ_UINT64" )
@@ -496,7 +496,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
         KLineEdit* e = new KLineEdit( frame );
         grid->addWidget( e, i, 2 );
         wl.append( e );
-        e->setValidator( new TQIntValidator( TQT_TQOBJECT(e) ) );
+        e->setValidator( new TQIntValidator( e ) );
       }
       else if ( type == "short" || type == "short int" )
       {
@@ -507,7 +507,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
         KLineEdit* e = new KLineEdit( frame );
         grid->addWidget( e, i, 2 );
         wl.append( e );
-        e->setValidator( new TQIntValidator( TQT_TQOBJECT(e) ) );
+        e->setValidator( new TQIntValidator( e ) );
       }
       else if ( type == "ushort" || type == "unsigned short" || type == "unsigned short int"  )
       {
@@ -518,7 +518,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
         KLineEdit* e = new KLineEdit( frame );
         grid->addWidget( e, i, 2 );
         wl.append( e );
-        e->setValidator( new TQIntValidator( TQT_TQOBJECT(e) ) );
+        e->setValidator( new TQIntValidator( e ) );
       }
       else if ( type == "float" )
       {
@@ -529,7 +529,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
         KLineEdit* e = new KLineEdit( frame );
         grid->addWidget( e, i, 2 );
         wl.append( e );
-        e->setValidator( new TQDoubleValidator( TQT_TQOBJECT(e) ) );
+        e->setValidator( new TQDoubleValidator( e ) );
       }
       else if ( type == "double" )
       {
@@ -540,7 +540,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
         KLineEdit* e = new KLineEdit( frame );
         grid->addWidget( e, i, 2 );
         wl.append( e );
-        e->setValidator( new TQDoubleValidator( TQT_TQOBJECT(e) ) );
+        e->setValidator( new TQDoubleValidator( e ) );
       }
       else if ( type == "bool" )
       {

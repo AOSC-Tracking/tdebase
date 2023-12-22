@@ -113,7 +113,7 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
     {
         itsSplitter=new TQSplitter(this);
         fontsFrame=new TQFrame(itsSplitter),
-        itsPreview=(KParts::ReadOnlyPart *)factory->create(TQT_TQOBJECT(itsSplitter), "kcmfontinst", "KParts::ReadOnlyPart");
+        itsPreview=(KParts::ReadOnlyPart *)factory->create(itsSplitter, "kcmfontinst", "KParts::ReadOnlyPart");
         itsSplitter->setSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding);
 
         TQValueList<int> sizes(itsConfig.readIntListEntry(CFG_SPLITTER_SIZES));
@@ -211,14 +211,14 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
         itsListAct->plug(toolbar);
     }
 
-    itsShowBitmapAct=new TDEToggleAction(i18n("Show Bitmap Fonts"), "application-x-font-snf", 0, TQT_TQOBJECT(this), TQT_SLOT(filterFonts()), 
+    itsShowBitmapAct=new TDEToggleAction(i18n("Show Bitmap Fonts"), "application-x-font-snf", 0, this, TQT_SLOT(filterFonts()), 
                                        itsDirOp->actionCollection(), "showbitmap");
     itsShowBitmapAct->setChecked(showBitmap);
     itsShowBitmapAct->plug(toolbar);
 
     toolbar->insertLineSeparator();
 
-    act=new TDEAction(i18n("Add Fonts..."), "newfont", 0, TQT_TQOBJECT(this), TQT_SLOT(addFonts()), itsDirOp->actionCollection(), "addfonts");
+    act=new TDEAction(i18n("Add Fonts..."), "newfont", 0, this, TQT_SLOT(addFonts()), itsDirOp->actionCollection(), "addfonts");
     act->plug(toolbar);
     topMnu->insert(act);
 
@@ -232,11 +232,11 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
     }
 
     toolbar->insertLineSeparator();
-    act=new TDEAction(i18n("Configure..."), "configure", 0, TQT_TQOBJECT(this), TQT_SLOT(configure()), itsDirOp->actionCollection(), "configure");
+    act=new TDEAction(i18n("Configure..."), "configure", 0, this, TQT_SLOT(configure()), itsDirOp->actionCollection(), "configure");
     act->plug(toolbar);
 #ifdef HAVE_XFT
     toolbar->insertLineSeparator();
-    act=new TDEAction(i18n("Print..."), "document-print", 0, TQT_TQOBJECT(this), TQT_SLOT(print()), itsDirOp->actionCollection(), "print");
+    act=new TDEAction(i18n("Print..."), "document-print", 0, this, TQT_SLOT(print()), itsDirOp->actionCollection(), "print");
     act->plug(toolbar);
 #endif
 

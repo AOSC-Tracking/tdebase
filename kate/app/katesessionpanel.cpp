@@ -199,45 +199,45 @@ void KateSessionPanel::setup_toolbar()
   TDEAction *a;
 
   a = new TDEAction(i18n("New"), SmallIcon("list-add"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(slotNewSession()), m_actionCollection, "session_new");
+          this, TQT_SLOT(slotNewSession()), m_actionCollection, "session_new");
   a->setWhatsThis(i18n("Create a new session and switch to it."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Save"), SmallIcon("document-save"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(slotSaveSession()), m_actionCollection, "session_save");
+          this, TQT_SLOT(slotSaveSession()), m_actionCollection, "session_save");
   a->setWhatsThis(i18n("Save the selected session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Save as..."), SmallIcon("document-save-as"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(slotSaveSessionAs()), m_actionCollection, "session_save_as");
+          this, TQT_SLOT(slotSaveSessionAs()), m_actionCollection, "session_save_as");
   a->setWhatsThis(i18n("Save an unsaved session with a new name or clone an already saved session "
                        "into a new session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Rename"), SmallIcon("edit_user"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(slotRenameSession()), m_actionCollection, "session_rename");
+          this, TQT_SLOT(slotRenameSession()), m_actionCollection, "session_rename");
   a->setWhatsThis(i18n("Rename the selected session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Delete"), SmallIcon("edit-delete"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(slotDeleteSession()), m_actionCollection, "session_delete");
+          this, TQT_SLOT(slotDeleteSession()), m_actionCollection, "session_delete");
   a->setWhatsThis(i18n("Delete the selected session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Reload"), SmallIcon("reload"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(slotReloadSession()), m_actionCollection, "session_reload");
+          this, TQT_SLOT(slotReloadSession()), m_actionCollection, "session_reload");
   a->setWhatsThis(i18n("Reload the last saved state of the selected session."));
   a->plug(m_toolbar);
 
   m_toolbar->insertLineSeparator();
 
   a = new TDEAction(i18n("Activate"), SmallIcon("forward"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(slotActivateSession()), m_actionCollection, "session_activate");
+          this, TQT_SLOT(slotActivateSession()), m_actionCollection, "session_activate");
   a->setWhatsThis(i18n("Activate the selected session."));
   a->plug(m_toolbar);
 
 	TDEToggleAction *tglA = new TDEToggleAction(i18n("Toggle read only"), SmallIcon("encrypted"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(slotSessionToggleReadOnly()), m_actionCollection, "session_toggle_read_only");
+          this, TQT_SLOT(slotSessionToggleReadOnly()), m_actionCollection, "session_toggle_read_only");
   tglA->setWhatsThis(i18n("Toggle read only status for the selected session.<p>"
 					"In a read only session, you can work as usual but the list of documents in the session "
           "will not be saved when you exit Kate or switch to another session.<p>"
@@ -245,12 +245,12 @@ void KateSessionPanel::setup_toolbar()
   tglA->plug(m_toolbar);
 
   a = new TDEAction(i18n("Move Up"), SmallIcon("go-up"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(slotSessionMoveUp()), m_actionCollection, "session_move_up");
+          this, TQT_SLOT(slotSessionMoveUp()), m_actionCollection, "session_move_up");
   a->setWhatsThis(i18n("Move up the selected session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Move Down"), SmallIcon("go-down"), 0,
-          TQT_TQOBJECT(this), TQT_SLOT(slotSessionMoveDown()), m_actionCollection, "session_move_down");
+          this, TQT_SLOT(slotSessionMoveDown()), m_actionCollection, "session_move_down");
   a->setWhatsThis(i18n("Move down the selected session."));
   a->plug(m_toolbar);
 }

@@ -78,7 +78,7 @@ KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* twinModule
 
     m_pDesktop = desktop;
     if (desktop == 0L)
-        desktop = TQT_TQWIDGET(TDEApplication::desktop()->screen());
+        desktop = TDEApplication::desktop()->screen();
 
     m_Renderer.resize( 1 );
     m_Cache.resize( 1 );
@@ -544,14 +544,14 @@ void KBackgroundManager::setPixmap(KPixmap *pm, int hash, int desk)
           root_cleared = true;
 	  TQTimer::singleShot( 0, this, TQT_SLOT( clearRoot()));
           // but make the pixmap visible until m_pDesktop is visible
-          TQT_TQWIDGET(TDEApplication::desktop()->screen())->setErasePixmap(*ep);
-          TQT_TQWIDGET(TDEApplication::desktop()->screen())->erase();
+          TDEApplication::desktop()->screen()->setErasePixmap(*ep);
+          TDEApplication::desktop()->screen()->erase();
        }
     }
     else
     {
-        TQT_TQWIDGET(TDEApplication::desktop()->screen())->setErasePixmap(*ep);
-        TQT_TQWIDGET(TDEApplication::desktop()->screen())->erase();
+        TDEApplication::desktop()->screen()->setErasePixmap(*ep);
+        TDEApplication::desktop()->screen()->erase();
     }
 
      // and export it via Esetroot-style for gnome/GTK apps to share in the pretties
@@ -571,8 +571,8 @@ void KBackgroundManager::setPixmap(KPixmap *pm, int hash, int desk)
 
 void KBackgroundManager::clearRoot()
 {
-    TQT_TQWIDGET(TDEApplication::desktop()->screen())->setErasePixmap( TQPixmap());
-    TQT_TQWIDGET(TDEApplication::desktop()->screen())->erase();
+    TDEApplication::desktop()->screen()->setErasePixmap( TQPixmap());
+    TDEApplication::desktop()->screen()->erase();
 }
 
 /*
@@ -1004,7 +1004,7 @@ void KBackgroundManager::repaintBackground()
     if (m_pDesktop)
        m_pDesktop->repaint();
     else
-        TQT_TQWIDGET(TDEApplication::desktop()->screen())->erase();
+        TDEApplication::desktop()->screen()->erase();
 }
 
 void KBackgroundManager::desktopResized()

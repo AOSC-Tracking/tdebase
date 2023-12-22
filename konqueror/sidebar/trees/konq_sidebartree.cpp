@@ -908,21 +908,21 @@ void KonqSidebarTree::showToplevelContextMenu()
     if (!m_collection)
     {
         m_collection = new TDEActionCollection( this, "bookmark actions" );
-        (void) new TDEAction( i18n("&Create New Folder..."), "folder-new", 0, TQT_TQOBJECT(this),
+        (void) new TDEAction( i18n("&Create New Folder..."), "folder-new", 0, this,
                             TQT_SLOT( slotCreateFolder() ), m_collection, "create_folder");
-        (void) new TDEAction( i18n("Delete Folder"), "edit-delete", 0, TQT_TQOBJECT(this),
+        (void) new TDEAction( i18n("Delete Folder"), "edit-delete", 0, this,
                             TQT_SLOT( slotDelete() ), m_collection, "delete_folder");
-        (void) new TDEAction( i18n("Rename"), 0, TQT_TQOBJECT(this),
+        (void) new TDEAction( i18n("Rename"), 0, this,
                             TQT_SLOT( slotRename() ), m_collection, "rename");
-        (void) new TDEAction( i18n("Delete Link"), "edit-delete", 0, TQT_TQOBJECT(this),
+        (void) new TDEAction( i18n("Delete Link"), "edit-delete", 0, this,
                             TQT_SLOT( slotDelete() ), m_collection, "delete_link");
-        (void) new TDEAction( i18n("Properties"), "edit", 0, TQT_TQOBJECT(this),
+        (void) new TDEAction( i18n("Properties"), "edit", 0, this,
                             TQT_SLOT( slotProperties() ), m_collection, "item_properties");
-        (void) new TDEAction( i18n("Open in New Window"), "window-new", 0, TQT_TQOBJECT(this),
+        (void) new TDEAction( i18n("Open in New Window"), "window-new", 0, this,
                             TQT_SLOT( slotOpenNewWindow() ), m_collection, "open_window");
-        (void) new TDEAction( i18n("Open in New Tab"), "tab_new", 0, TQT_TQOBJECT(this),
+        (void) new TDEAction( i18n("Open in New Tab"), "tab_new", 0, this,
                             TQT_SLOT( slotOpenTab() ), m_collection, "open_tab");
-        (void) new TDEAction( i18n("Copy Link Address"), "edit-copy", 0, TQT_TQOBJECT(this),
+        (void) new TDEAction( i18n("Copy Link Address"), "edit-copy", 0, this,
                             TQT_SLOT( slotCopyLocation() ), m_collection, "copy_location");
     }
 

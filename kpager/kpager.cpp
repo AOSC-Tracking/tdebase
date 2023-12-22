@@ -187,7 +187,7 @@ KPager::KPager(KPagerMainWindow *parent, const char *name)
     m_windows.setAutoDelete(true); // delete windows info after removal
 
     setBackgroundColor( black );
-    m_winmodule=new KWinModule(TQT_TQOBJECT(this));
+    m_winmodule=new KWinModule(this);
     m_currentDesktop=m_winmodule->currentDesktop();
 
     m_grabWinTimer=new TQTimer(this,"grabWinTimer");
@@ -231,8 +231,8 @@ KPager::KPager(KPagerMainWindow *parent, const char *name)
     defFont = cfg->readFontEntry("Font", &defFont);
     setFont(defFont);
 
-    m_prefs_action = KStdAction::preferences(TQT_TQOBJECT(this), TQT_SLOT(configureDialog()), parent->actionCollection());
-    m_quit_action = KStdAction::quit(TQT_TQOBJECT(kapp), TQT_SLOT(quit()), parent->actionCollection());
+    m_prefs_action = KStdAction::preferences(this, TQT_SLOT(configureDialog()), parent->actionCollection());
+    m_quit_action = KStdAction::quit(kapp, TQT_SLOT(quit()), parent->actionCollection());
 
     updateLayout();
 }

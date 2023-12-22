@@ -57,7 +57,7 @@ SidebarExtension::SidebarExtension( const TQString& configFile,
 						"konq_sidebar",
                                                  m_sbWrapper,
                                                  "SideBar_View",
-                                                 TQT_TQOBJECT(this),
+                                                 this,
                                                  "Sidebar","universal");
 
     KParts::BrowserExtension *be=KParts::BrowserExtension::childObject(p);

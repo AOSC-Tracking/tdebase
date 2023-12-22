@@ -1271,7 +1271,7 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
                  !lstDragURLs.first().url().contains( "javascript:", false ) && // ### this looks like a hack to me
                  ev->source() != m_pPart->widget() &&
                  children &&
-                 children->findRef( TQT_TQOBJECT(ev->source()) ) == -1 )
+                 children->findRef( ev->source() ) == -1 )
                 ev->acceptAction();
 
             delete children;

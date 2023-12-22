@@ -432,8 +432,8 @@ KdmThemer::slotPaintRoot()
 	}
 	else return;
 	
-	TQT_TQWIDGET(TQApplication::desktop()->screen())->setErasePixmap(pm);
-	TQT_TQWIDGET(TQApplication::desktop()->screen())->erase();
+	TQApplication::desktop()->screen()->setErasePixmap(pm);
+	TQApplication::desktop()->screen()->erase();
 }
 
 #include "tdmthemer.moc"

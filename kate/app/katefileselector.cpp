@@ -168,7 +168,7 @@ KateFileSelector::KateFileSelector( KateMainWindow *mainWindow,
 
   // tdeaction for the dir sync method
   acSyncDir = new TDEAction( i18n("Current Document Folder"), "curfiledir", 0,
-        TQT_TQOBJECT(this), TQT_SLOT( setActiveDocumentDir() ), mActionCollection, "sync_dir" );
+        this, TQT_SLOT( setActiveDocumentDir() ), mActionCollection, "sync_dir" );
   toolbar->setIconText( TDEToolBar::IconOnly );
   toolbar->setIconSize( 16 );
   toolbar->setEnableContextMenu( false );

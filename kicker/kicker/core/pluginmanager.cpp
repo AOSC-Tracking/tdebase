@@ -159,7 +159,7 @@ KPanelApplet* PluginManager::loadApplet(const AppletInfo& info,
 
     if (applet)
     {
-        _dict.insert( TQT_TQOBJECT(applet), new AppletInfo( info ) );
+        _dict.insert( applet, new AppletInfo( info ) );
         connect( applet, TQT_SIGNAL( destroyed( TQObject* ) ),
                  TQT_SLOT( slotPluginDestroyed( TQObject* ) ) );
     }
@@ -197,7 +197,7 @@ KPanelExtension* PluginManager::loadExtension(
     KPanelExtension* extension = init_ptr( parent, info.configFile() );
 
     if( extension ) {
-        _dict.insert( TQT_TQOBJECT(extension), new AppletInfo( info ) );
+        _dict.insert( extension, new AppletInfo( info ) );
         connect( extension, TQT_SIGNAL( destroyed( TQObject* ) ),
                  TQT_SLOT( slotPluginDestroyed( TQObject* ) ) );
     }
@@ -365,7 +365,7 @@ LibUnloader::LibUnloader( const TQString &libName, TQObject *parent )
 
 void LibUnloader::unload( const TQString &libName )
 {
-    (void)new LibUnloader( libName, TQT_TQOBJECT(kapp) );
+    (void)new LibUnloader( libName, kapp );
 }
 
 void LibUnloader::unload()

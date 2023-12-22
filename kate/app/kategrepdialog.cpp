@@ -153,7 +153,7 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
   loInput->addLayout( loFiles, 2, 1 );
 
   cmbFiles = new KComboBox(true, this);
-  lFiles->setBuddy(TQT_TQWIDGET(cmbFiles->focusProxy()));
+  lFiles->setBuddy(cmbFiles->focusProxy());
   cmbFiles->setMinimumSize(cmbFiles->sizeHint());
   cmbFiles->setInsertionPolicy(TQComboBox::NoInsertion);
   cmbFiles->setDuplicatesEnabled(false);

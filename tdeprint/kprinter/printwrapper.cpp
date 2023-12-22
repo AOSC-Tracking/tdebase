@@ -265,7 +265,7 @@ void PrintWrapper::slotPrint()
 			connect(dlg, TQT_SIGNAL(printRequested(KPrinter*)), TQT_SLOT(slotPrintRequested(KPrinter*)));
 			if( check_stdin )
 			{
-			    notif = new TQSocketNotifier( 0, TQSocketNotifier::Read, TQT_TQOBJECT(this) );
+			    notif = new TQSocketNotifier( 0, TQSocketNotifier::Read, this );
 			    connect( notif, TQT_SIGNAL( activated( int )), this, TQT_SLOT( slotGotStdin()));
 			    kdDebug( 500 ) << "waiting for input on stdin" << endl;
 			}

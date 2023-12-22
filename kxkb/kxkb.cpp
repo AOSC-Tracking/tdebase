@@ -78,7 +78,7 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
 	m_layoutOwnerMap = new LayoutMap(kxkbConfig);
 
 	// keep in sync with kcmlayout.cpp
-	keys = new TDEGlobalAccel(TQT_TQOBJECT(this));
+	keys = new TDEGlobalAccel(this);
 #include "kxkbbindings.cpp"
 
     connect( this, TQT_SIGNAL(settingsChanged(int)), TQT_SLOT(slotSettingsChanged(int)) );

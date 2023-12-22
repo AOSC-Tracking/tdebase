@@ -193,7 +193,7 @@ void KrashDebugger :: startDebugger()
   }
   m_status->setText(i18n("Loading symbols..."));
 
-  m_proctrace = new BackTrace(m_krashconf, TQT_TQOBJECT(this));
+  m_proctrace = new BackTrace(m_krashconf, this);
 
   connect(m_proctrace, TQT_SIGNAL(append(const TQString &)),
           TQT_SLOT(slotAppend(const TQString &)));

@@ -434,8 +434,8 @@ void KDisplayConfig::updateDraggableMonitorInformationInternal (int monitor_id, 
 	monitors = base->monitorPhyArrange->childrenListObject();
 	if ( monitors.count() ) {
 		for ( i = 0; i < int(monitors.count()); ++i ) {
-			if (::tqt_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )))) {
-				DraggableMonitor *monitor = static_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )));
+			if (::tqt_cast<DraggableMonitor*>(monitors.at( i ))) {
+				DraggableMonitor *monitor = static_cast<DraggableMonitor*>(monitors.at( i ));
 				if (monitor->screen_id == monitor_id) {
 					moved_monitor = monitor;
 					screendata = m_screenInfoArray[activeProfileName].at(moved_monitor->screen_id);
@@ -475,8 +475,8 @@ void KDisplayConfig::updateDraggableMonitorInformationInternal (int monitor_id, 
 	primary_monitor = NULL;
 	if ( monitors.count() ) {
 		for ( i = 0; i < int(monitors.count()); ++i ) {
-			if (::tqt_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )))) {
-				DraggableMonitor *monitor = static_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )));
+			if (::tqt_cast<DraggableMonitor*>(monitors.at( i ))) {
+				DraggableMonitor *monitor = static_cast<DraggableMonitor*>(monitors.at( i ));
 				if (monitor->screen_id == j) {
 					monitor->is_primary = true;	// Prevent dragging of the primary monitor
 					primary_monitor = monitor;
@@ -548,8 +548,8 @@ bool KDisplayConfig::applyMonitorLayoutRules(DraggableMonitor* monitor_to_move) 
 	monitors = base->monitorPhyArrange->childrenListObject();
 	if ( monitors.count() ) {
 		for ( i = 0; i < int(monitors.count()); ++i ) {
-			if (::tqt_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )))) {
-				DraggableMonitor *monitor = static_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )));
+			if (::tqt_cast<DraggableMonitor*>(monitors.at( i ))) {
+				DraggableMonitor *monitor = static_cast<DraggableMonitor*>(monitors.at( i ));
 				if (monitor != monitor_to_move) {
 					other_monitors = other_monitors.unite(MonitorRegion(monitor->geometry()));
 				}
@@ -592,8 +592,8 @@ bool KDisplayConfig::applyMonitorLayoutRules(DraggableMonitor* monitor_to_move) 
 			monitors = base->monitorPhyArrange->childrenListObject();
 			if ( monitors.count() ) {
 				for ( i = 0; i < int(monitors.count()); ++i ) {
-					if (::tqt_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )))) {
-						DraggableMonitor *monitor = static_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )));
+					if (::tqt_cast<DraggableMonitor*>(monitors.at( i ))) {
+						DraggableMonitor *monitor = static_cast<DraggableMonitor*>(monitors.at( i ));
 						if (monitor != monitor_to_move) {
 							other_monitors2 = other_monitors2.unite(MonitorRegion(monitor->geometry()));
 						}
@@ -641,8 +641,8 @@ void KDisplayConfig::moveMonitor(DraggableMonitor* monitor, int realx, int realy
 	primary_monitor = NULL;
 	if ( monitors.count() ) {
 		for ( i = 0; i < int(monitors.count()); ++i ) {
-			if (::tqt_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )))) {
-				DraggableMonitor *monitor = static_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )));
+			if (::tqt_cast<DraggableMonitor*>(monitors.at( i ))) {
+				DraggableMonitor *monitor = static_cast<DraggableMonitor*>(monitors.at( i ));
 				if (monitor->screen_id == j) {
 					monitor->is_primary = true;	// Prevent dragging of the primary monitor
 					primary_monitor = monitor;
@@ -1329,8 +1329,8 @@ void KDisplayConfig::updateDragDropDisplay() {
 	monitors = base->monitorPhyArrange->childrenListObject();
 	if ( monitors.count() ) {
 		for ( i = 0; i < int(monitors.count()); ++i ) {
-			if (::tqt_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )))) {
-				TQWidget *monitor = TQT_TQWIDGET(monitors.at( i ));
+			if (::tqt_cast<DraggableMonitor*>(monitors.at( i ))) {
+				TQWidget *monitor = static_cast<TQWidget*>(monitors.at( i ));
 				if ( !monitor->close(TRUE) ) {
 					Q_ASSERT("zombie monitor will not go away!");
 				}
@@ -1381,8 +1381,8 @@ void KDisplayConfig::layoutDragDropDisplay() {
 	monitors = base->monitorPhyArrange->childrenListObject();
 	if ( monitors.count() ) {
 		for ( i = 0; i < int(monitors.count()); ++i ) {
-			if (::tqt_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )))) {
-				DraggableMonitor *monitor = static_cast<DraggableMonitor*>(TQT_TQWIDGET(monitors.at( i )));
+			if (::tqt_cast<DraggableMonitor*>(monitors.at( i ))) {
+				DraggableMonitor *monitor = static_cast<DraggableMonitor*>(monitors.at( i ));
 				screendata = m_screenInfoArray[activeProfileName].at(monitor->screen_id);
 				moveMonitor(monitor, screendata->absolute_x_position, screendata->absolute_y_position);
 			}

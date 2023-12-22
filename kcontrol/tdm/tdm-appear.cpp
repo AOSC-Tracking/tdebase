@@ -146,7 +146,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
 
   label = new TQLabel(i18n("Position:"), group);
   hglay->addMultiCellWidget(label, 0,1, 0,0, TQt::AlignVCenter);
-  TQValidator *posValidator = new TQIntValidator(0, 100, TQT_TQOBJECT(group));
+  TQValidator *posValidator = new TQIntValidator(0, 100, group);
   TQLabel *xLineLabel = new TQLabel(i18n("&X:"), group);
   hglay->addWidget(xLineLabel, 0, 1);
   xLineEdit = new TQLineEdit (group);

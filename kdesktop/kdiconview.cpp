@@ -427,28 +427,28 @@ void KDIconView::createActions()
              undo, TQT_SLOT( setText( const TQString & ) ) );
         undo->setEnabled( KonqUndoManager::self()->undoAvailable() );
 
-        TDEAction* paCut = KStdAction::cut( TQT_TQOBJECT(this), TQT_SLOT( slotCut() ), &m_actionCollection, "cut" );
+        TDEAction* paCut = KStdAction::cut( this, TQT_SLOT( slotCut() ), &m_actionCollection, "cut" );
         TDEShortcut cutShortCut = paCut->shortcut();
         cutShortCut.remove( KKey( SHIFT + Key_Delete ) ); // used for deleting files
         paCut->setShortcut( cutShortCut );
 
-        KStdAction::copy( TQT_TQOBJECT(this), TQT_SLOT( slotCopy() ), &m_actionCollection, "copy" );
-        KStdAction::paste( TQT_TQOBJECT(this), TQT_SLOT( slotPaste() ), &m_actionCollection, "paste" );
-        TDEAction *pasteTo = KStdAction::paste( TQT_TQOBJECT(this), TQT_SLOT( slotPopupPasteTo() ), &m_actionCollection, "pasteto" );
+        KStdAction::copy( this, TQT_SLOT( slotCopy() ), &m_actionCollection, "copy" );
+        KStdAction::paste( this, TQT_SLOT( slotPaste() ), &m_actionCollection, "paste" );
+        TDEAction *pasteTo = KStdAction::paste( this, TQT_SLOT( slotPopupPasteTo() ), &m_actionCollection, "pasteto" );
         pasteTo->setEnabled( false ); // only enabled during popupMenu()
 
         TDEShortcut reloadShortcut = TDEStdAccel::shortcut(TDEStdAccel::Reload);
-        new TDEAction( i18n( "&Reload" ), "reload", reloadShortcut, TQT_TQOBJECT(this), TQT_SLOT( refreshIcons() ), &m_actionCollection, "reload" );
+        new TDEAction( i18n( "&Reload" ), "reload", reloadShortcut, this, TQT_SLOT( refreshIcons() ), &m_actionCollection, "reload" );
 
-        (void) new TDEAction( i18n( "&Rename" ), /*"editrename",*/ Key_F2, TQT_TQOBJECT(this), TQT_SLOT( renameSelectedItem() ), &m_actionCollection, "rename" );
-        (void) new TDEAction( i18n( "&Properties" ), ALT+Key_Return, TQT_TQOBJECT(this), TQT_SLOT( slotProperties() ), &m_actionCollection, "properties" );
+        (void) new TDEAction( i18n( "&Rename" ), /*"editrename",*/ Key_F2, this, TQT_SLOT( renameSelectedItem() ), &m_actionCollection, "rename" );
+        (void) new TDEAction( i18n( "&Properties" ), ALT+Key_Return, this, TQT_SLOT( slotProperties() ), &m_actionCollection, "properties" );
         TDEAction* trash = new TDEAction( i18n( "&Move to Trash" ), "edittrash", Key_Delete, &m_actionCollection, "trash" );
         connect( trash, TQT_SIGNAL( activated( TDEAction::ActivationReason, TQt::ButtonState ) ),
                  this, TQT_SLOT( slotTrashActivated( TDEAction::ActivationReason, TQt::ButtonState ) ) );
 
         TDEConfig config("kdeglobals", true, false);
         config.setGroup( "KDE" );
-        (void) new TDEAction( i18n( "&Delete" ), "edit-delete", SHIFT+Key_Delete, TQT_TQOBJECT(this), TQT_SLOT( slotDelete() ), &m_actionCollection, "del" );
+        (void) new TDEAction( i18n( "&Delete" ), "edit-delete", SHIFT+Key_Delete, this, TQT_SLOT( slotDelete() ), &m_actionCollection, "del" );
 
         // Initial state of the actions (cut/copy/paste/...)
         slotSelectionChanged();

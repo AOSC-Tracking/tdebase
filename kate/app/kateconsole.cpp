@@ -64,7 +64,7 @@ void KateConsole::loadConsoleIfNeeded()
 
   if (!factory) return;
 
-  m_part = static_cast<KParts::ReadOnlyPart *>(factory->create(TQT_TQOBJECT(this),"libkonsolepart", "KParts::ReadOnlyPart"));
+  m_part = static_cast<KParts::ReadOnlyPart *>(factory->create(this,"libkonsolepart", "KParts::ReadOnlyPart"));
 
   if (!m_part) return;
 

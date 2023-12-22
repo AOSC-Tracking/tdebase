@@ -26,7 +26,7 @@
 ModuleIface::ModuleIface(TQObject *parent, const char *name) 
 	: TQObject(parent, name), DCOPObject(name) {
 
-	_parent = TQT_TQWIDGET(parent);
+	_parent = static_cast<TQWidget*>(parent);
 
 }
 

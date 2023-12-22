@@ -522,7 +522,7 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
             if(raiseWidget)
                 break;
             if(receiver->isWidgetType())
-                receiver = TQT_TQOBJECT(TQT_TQWIDGET(receiver)->parentWidget(true));
+                receiver = static_cast<TQWidget*>(receiver)->parentWidget(true);
             else
                 break;
         }
@@ -533,7 +533,7 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
                     TQWidget::StrongFocus : TQWidget::NoFocus);
             setTabOrder(raiseWidget, m_searchResultsWidget);
             if (raiseWidget != m_stacker->visibleWidget()
-                && TQT_TQWIDGET(receiver)->focusPolicy() == TQWidget::NoFocus
+                && static_cast<TQWidget*>(receiver)->focusPolicy() == TQWidget::NoFocus
                 && m_stacker->id(raiseWidget) >= 0) {
 
                 m_stacker->raiseWidget(raiseWidget);
@@ -562,7 +562,7 @@ bool KMenu::eventFilter ( TQObject * receiver, TQEvent* e)
     }
 
     if(e->type() == TQEvent::Enter && receiver->isWidgetType()) {
-	TQT_TQWIDGET(receiver)->setMouseTracking(true);
+	static_cast<TQWidget*>(receiver)->setMouseTracking(true);
         TQToolTip::hide();
     }
 
@@ -1445,7 +1445,7 @@ void KMenu::insertStaticItems()
     m_systemView->insertItem( "network", i18n( "Network Folders" ),
                               "remote:/", "remote:/", nId++, index++ );
 
-    m_mediaWatcher = new MediaWatcher( TQT_TQOBJECT(this) );
+    m_mediaWatcher = new MediaWatcher( this );
     connect( m_mediaWatcher, TQT_SIGNAL( mediumChanged() ), TQT_SLOT( updateMedia() ) );
     m_media_id = 0;
 
@@ -1534,7 +1534,7 @@ void KMenu::slotSessionActivated( int ent )
 void KMenu::doNewSession( bool lock )
 {
     int result = KMessageBox::warningContinueCancel(
-        TQT_TQWIDGET(kapp->desktop()->screen(kapp->desktop()->screenNumber(this))),
+        kapp->desktop()->screen(kapp->desktop()->screenNumber(this)),
         i18n("<p>You have chosen to open another desktop session.<br>"
                "The current session will be hidden "
                "and a new login screen will be displayed.<br>"
@@ -2979,7 +2979,7 @@ void KMenu::slotContextMenu(int selected)
 	case EditItem:
         case EditMenu:
 	    accept();
-            proc = new TDEProcess(TQT_TQOBJECT(this));
+            proc = new TDEProcess(this);
             *proc << TDEStandardDirs::findExe(TQString::fromLatin1("kmenuedit"));
             *proc << "/"+m_popupPath.menuPath.section('/',-200,-2) << m_popupPath.menuPath.section('/', -1);
             proc->start();

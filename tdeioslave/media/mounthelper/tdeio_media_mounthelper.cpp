@@ -143,7 +143,7 @@ void MountHelper::eject(const Medium &medium)
 #endif
 
 	// Otherwise fall back to tdeeject
-	TDEProcess *proc = new TDEProcess(TQT_TQOBJECT(this));
+	TDEProcess *proc = new TDEProcess(this);
 	*proc << "tdeeject";
 	*proc << medium.deviceNode();
 	connect(proc, TQT_SIGNAL(processExited(TDEProcess*)),	this, TQT_SLOT(ejectFinished(TDEProcess*)));

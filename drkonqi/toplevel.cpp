@@ -159,7 +159,7 @@ void Toplevel :: slotUser1()
     TQApplication::setOverrideCursor ( TQt::waitCursor );
 
     // generate the backtrace
-    BackTrace *backtrace = new BackTrace(m_krashconf, TQT_TQOBJECT(this));
+    BackTrace *backtrace = new BackTrace(m_krashconf, this);
     connect(backtrace, TQT_SIGNAL(someError()), TQT_SLOT(slotBacktraceSomeError()));
     connect(backtrace, TQT_SIGNAL(done(const TQString &)), TQT_SLOT(slotBacktraceDone(const TQString &)));
 
@@ -198,7 +198,7 @@ void Toplevel :: slotUser3()
 	TQApplication::setOverrideCursor ( TQt::waitCursor );
 
 	// generate the backtrace
-	BackTrace *backtrace = new BackTrace(m_krashconf, TQT_TQOBJECT(this));
+	BackTrace *backtrace = new BackTrace(m_krashconf, this);
 	connect(backtrace, TQT_SIGNAL(someError()), TQT_SLOT(slotSendReportBacktraceSomeError()));
 	connect(backtrace, TQT_SIGNAL(done(const TQString &)), TQT_SLOT(slotSendReportBacktraceDone(const TQString &)));
 

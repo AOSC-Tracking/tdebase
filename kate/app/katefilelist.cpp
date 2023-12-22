@@ -136,20 +136,20 @@ KateFileList::~KateFileList ()
 
 void KateFileList::setupActions ()
 {
-  windowNext = KStdAction::back(TQT_TQOBJECT(this), TQT_SLOT(slotPrevDocument()), m_main->actionCollection());
-  windowPrev = KStdAction::forward(TQT_TQOBJECT(this), TQT_SLOT(slotNextDocument()), m_main->actionCollection());
+  windowNext = KStdAction::back(this, TQT_SLOT(slotPrevDocument()), m_main->actionCollection());
+  windowPrev = KStdAction::forward(this, TQT_SLOT(slotNextDocument()), m_main->actionCollection());
   sortAction = new TDESelectAction( i18n("Sort &By"), 0,
       m_main->actionCollection(), "filelist_sortby"  );
   listMoveFileUp = new TDEAction( i18n("Move File Up"), 0, m_main->actionCollection(), "filelist_move_up" );
   //listMoveFileUp->setShortcut(TDEShortcut(CTRL + SHIFT + Key_Comma));
   listMoveFileDown = new TDEAction( i18n("Move File Down"), 0, m_main->actionCollection(), "filelist_move_down" );
   //listMoveFileDown->setShortcut(TDEShortcut(CTRL + SHIFT + Key_Period));
-  connect( listMoveFileUp, TQT_SIGNAL(activated()), TQT_TQOBJECT(this), TQT_SLOT(moveFileUp()) );
-  connect( listMoveFileDown, TQT_SIGNAL(activated()), TQT_TQOBJECT(this), TQT_SLOT(moveFileDown()) );
+  connect( listMoveFileUp, TQT_SIGNAL(activated()), this, TQT_SLOT(moveFileUp()) );
+  connect( listMoveFileDown, TQT_SIGNAL(activated()), this, TQT_SLOT(moveFileDown()) );
   TQStringList l;
   l << i18n("Opening Order") << i18n("Document Name") << i18n("URL") << i18n("Manual Placement");
   sortAction->setItems( l );
-  connect( sortAction, TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(setSortType(int)) );
+  connect( sortAction, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setSortType(int)) );
 }
 
 void KateFileList::updateActions ()

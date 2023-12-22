@@ -114,7 +114,7 @@ KMiniPager::KMiniPager(const TQString& configFile, Type type, int actions,
 
     setFont( TDEGlobalSettings::taskbarFont() );
 
-    m_twin = new KWinModule(TQT_TQOBJECT(this));
+    m_twin = new KWinModule(this);
     m_activeWindow = m_twin->activeWindow();
     m_curDesk = m_twin->currentDesktop();
 
@@ -366,7 +366,7 @@ void KMiniPager::updateDesktopLayout(int o, int x, int y)
     { // must own manager selection before setting global desktop layout
         int screen = DefaultScreen( tqt_xdisplay());
         m_desktopLayoutOwner = new TDESelectionOwner( TQString( "_NET_DESKTOP_LAYOUT_S%1" ).arg( screen ).latin1(),
-            screen, TQT_TQOBJECT(this) );
+            screen, this );
         if( !m_desktopLayoutOwner->claim( false ))
         {
             delete m_desktopLayoutOwner;

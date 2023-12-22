@@ -243,25 +243,25 @@ void KateMainWindow::setupActions()
 {
   TDEAction *a;
 
-  KStdAction::openNew( TQT_TQOBJECT(m_viewManager), TQT_SLOT( slotDocumentNew() ), actionCollection(), "file_new" )->setWhatsThis(i18n("Create a new document"));
-  KStdAction::open( TQT_TQOBJECT(m_viewManager), TQT_SLOT( slotDocumentOpen() ), actionCollection(), "file_open" )->setWhatsThis(i18n("Open an existing document for editing"));
+  KStdAction::openNew( m_viewManager, TQT_SLOT( slotDocumentNew() ), actionCollection(), "file_new" )->setWhatsThis(i18n("Create a new document"));
+  KStdAction::open( m_viewManager, TQT_SLOT( slotDocumentOpen() ), actionCollection(), "file_open" )->setWhatsThis(i18n("Open an existing document for editing"));
 
-  fileOpenRecent = KStdAction::openRecent (TQT_TQOBJECT(m_viewManager), TQT_SLOT(openURL (const KURL&)), actionCollection());
+  fileOpenRecent = KStdAction::openRecent (m_viewManager, TQT_SLOT(openURL (const KURL&)), actionCollection());
   fileOpenRecent->setWhatsThis(i18n("This lists files which you have opened recently, and allows you to easily open them again."));
 
   a=new TDEAction( i18n("Save A&ll"),"save_all", CTRL+Key_L, KateDocManager::self(), TQT_SLOT( saveAll() ), actionCollection(), "file_save_all" );
   a->setWhatsThis(i18n("Save all open, modified documents to disk."));
 
-  KStdAction::close( TQT_TQOBJECT(m_viewManager), TQT_SLOT( slotDocumentClose() ), actionCollection(), "file_close" )->setWhatsThis(i18n("Close the current document."));
+  KStdAction::close( m_viewManager, TQT_SLOT( slotDocumentClose() ), actionCollection(), "file_close" )->setWhatsThis(i18n("Close the current document."));
 
-  a=new TDEAction( i18n( "Clos&e All" ), 0, TQT_TQOBJECT(this), TQT_SLOT( slotDocumentCloseAll() ), actionCollection(), "file_close_all" );
+  a=new TDEAction( i18n( "Clos&e All" ), 0, this, TQT_SLOT( slotDocumentCloseAll() ), actionCollection(), "file_close_all" );
   a->setWhatsThis(i18n("Close all open documents."));
 
-  KStdAction::mail( TQT_TQOBJECT(this), TQT_SLOT(slotMail()), actionCollection() )->setWhatsThis(i18n("Send one or more of the open documents as email attachments."));
+  KStdAction::mail( this, TQT_SLOT(slotMail()), actionCollection() )->setWhatsThis(i18n("Send one or more of the open documents as email attachments."));
 
-  KStdAction::quit( TQT_TQOBJECT(this), TQT_SLOT( slotFileQuit() ), actionCollection(), "file_quit" )->setWhatsThis(i18n("Close this window"));
+  KStdAction::quit( this, TQT_SLOT( slotFileQuit() ), actionCollection(), "file_quit" )->setWhatsThis(i18n("Close this window"));
 
-  a=new TDEAction(i18n("&New Window"), "window-new", 0, TQT_TQOBJECT(this), TQT_SLOT(newWindow()), actionCollection(), "view_new_view");
+  a=new TDEAction(i18n("&New Window"), "window-new", 0, this, TQT_SLOT(newWindow()), actionCollection(), "view_new_view");
   a->setWhatsThis(i18n("Create a new Kate view (a new window with the same document list)."));
 
   if ( KateApp::self()->authorize("shell_access") )
@@ -278,57 +278,57 @@ void KateMainWindow::setupActions()
   connect(documentOpenWith->popupMenu(), TQT_SIGNAL(aboutToShow()), this, TQT_SLOT(mSlotFixOpenWithMenu()));
   connect(documentOpenWith->popupMenu(), TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotOpenWithMenuAction(int)));
 
-  a=KStdAction::keyBindings(TQT_TQOBJECT(this), TQT_SLOT(editKeys()), actionCollection());
+  a=KStdAction::keyBindings(this, TQT_SLOT(editKeys()), actionCollection());
   a->setWhatsThis(i18n("Configure the application's keyboard shortcut assignments."));
 
-  a=KStdAction::configureToolbars(TQT_TQOBJECT(this), TQT_SLOT(slotEditToolbars()), actionCollection());
+  a=KStdAction::configureToolbars(this, TQT_SLOT(slotEditToolbars()), actionCollection());
   a->setWhatsThis(i18n("Configure which items should appear in the toolbar(s)."));
 
-  TDEAction* settingsConfigure = KStdAction::preferences(TQT_TQOBJECT(this), TQT_SLOT(slotConfigure()), actionCollection(), "settings_configure");
+  TDEAction* settingsConfigure = KStdAction::preferences(this, TQT_SLOT(slotConfigure()), actionCollection(), "settings_configure");
   settingsConfigure->setWhatsThis(i18n("Configure various aspects of this application and the editing component."));
 
   // pipe to terminal action
   if (KateApp::self()->authorize("shell_access"))
-    new TDEAction(i18n("&Pipe to Console"), "pipe", 0, TQT_TQOBJECT(console), TQT_SLOT(slotPipeToConsole()), actionCollection(), "tools_pipe_to_terminal");
+    new TDEAction(i18n("&Pipe to Console"), "pipe", 0, console, TQT_SLOT(slotPipeToConsole()), actionCollection(), "tools_pipe_to_terminal");
 
   // tip of the day :-)
-  KStdAction::tipOfDay( TQT_TQOBJECT(this), TQT_SLOT( tipOfTheDay() ), actionCollection() )->setWhatsThis(i18n("This shows useful tips on the use of this application."));
+  KStdAction::tipOfDay( this, TQT_SLOT( tipOfTheDay() ), actionCollection() )->setWhatsThis(i18n("This shows useful tips on the use of this application."));
 
   if (KatePluginManager::self()->pluginList().count() > 0)
   {
-    a=new TDEAction(i18n("&Plugins Handbook"), 0, TQT_TQOBJECT(this), TQT_SLOT(pluginHelp()), actionCollection(), "help_plugins_contents");
+    a=new TDEAction(i18n("&Plugins Handbook"), 0, this, TQT_SLOT(pluginHelp()), actionCollection(), "help_plugins_contents");
     a->setWhatsThis(i18n("This shows help files for various available plugins."));
   }
 
-  connect(m_viewManager,TQT_SIGNAL(viewChanged()),TQT_TQOBJECT(this),TQT_SLOT(slotWindowActivated()));
-  connect(m_viewManager,TQT_SIGNAL(viewChanged()),TQT_TQOBJECT(this),TQT_SLOT(slotUpdateOpenWith()));
+  connect(m_viewManager,TQT_SIGNAL(viewChanged()),this,TQT_SLOT(slotWindowActivated()));
+  connect(m_viewManager,TQT_SIGNAL(viewChanged()),this,TQT_SLOT(slotUpdateOpenWith()));
 
   slotWindowActivated ();
 
   // session actions
   new TDEAction(i18n("&New"), "list-add", 0, 
-      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotNewSession()), actionCollection(), "session_new");
+      m_sessionpanel, TQT_SLOT(slotNewSession()), actionCollection(), "session_new");
   new TDEAction(i18n("&Save"), "document-save", 0, 
-      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSaveSession()), actionCollection(), "session_save");
+      m_sessionpanel, TQT_SLOT(slotSaveSession()), actionCollection(), "session_save");
   new TDEAction(i18n("Save &As..."), "document-save-as", 0, 
-      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSaveSessionAs()), actionCollection(), "session_save_as");
+      m_sessionpanel, TQT_SLOT(slotSaveSessionAs()), actionCollection(), "session_save_as");
   new TDEAction(i18n("&Rename"), "edit_user", 0,
-      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotRenameSession()), actionCollection(), "session_rename");
+      m_sessionpanel, TQT_SLOT(slotRenameSession()), actionCollection(), "session_rename");
   new TDEAction(i18n("&Delete"), "edit-delete", 0,
-      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotDeleteSession()), actionCollection(), "session_delete");
+      m_sessionpanel, TQT_SLOT(slotDeleteSession()), actionCollection(), "session_delete");
   new TDEAction(i18n("Re&load"), "reload", 0,
-      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotReloadSession()), actionCollection(), "session_reload");
+      m_sessionpanel, TQT_SLOT(slotReloadSession()), actionCollection(), "session_reload");
   new TDEAction(i18n("Acti&vate"), "forward", 0,
-      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotActivateSession()), actionCollection(), "session_activate");
+      m_sessionpanel, TQT_SLOT(slotActivateSession()), actionCollection(), "session_activate");
   new TDEToggleAction(i18n("Toggle read &only"), "encrypted", 0,
-      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSessionToggleReadOnly()), actionCollection(), "session_toggle_read_only");
+      m_sessionpanel, TQT_SLOT(slotSessionToggleReadOnly()), actionCollection(), "session_toggle_read_only");
   new TDEAction(i18n("Move &Up"), "go-up", 0,
-      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSessionMoveUp()), actionCollection(), "session_move_up");
+      m_sessionpanel, TQT_SLOT(slotSessionMoveUp()), actionCollection(), "session_move_up");
   new TDEAction(i18n("Move Do&wn"), "go-down", 0,
-      TQT_TQOBJECT(m_sessionpanel), TQT_SLOT(slotSessionMoveDown()), actionCollection(), "session_move_down");
+      m_sessionpanel, TQT_SLOT(slotSessionMoveDown()), actionCollection(), "session_move_down");
   new KateSessionListActionMenu(this, i18n("Sele&ct session"), actionCollection(), "session_list");
 
-  connect(m_sessionpanel, TQT_SIGNAL(selectionChanged()), TQT_TQOBJECT(this), TQT_SLOT(slotSelectionChanged()));
+  connect(m_sessionpanel, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()));
 }
 
 KateTabWidget *KateMainWindow::tabWidget ()

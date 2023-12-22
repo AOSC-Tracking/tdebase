@@ -84,11 +84,11 @@ int KShellCommandExecutor::exec()
       return 0;
    }
 
-   m_readNotifier=new TQSocketNotifier(m_shellProcess->fd(),TQSocketNotifier::Read, TQT_TQOBJECT(this));
-   m_writeNotifier=new TQSocketNotifier(m_shellProcess->fd(),TQSocketNotifier::Write, TQT_TQOBJECT(this));
+   m_readNotifier=new TQSocketNotifier(m_shellProcess->fd(),TQSocketNotifier::Read, this);
+   m_writeNotifier=new TQSocketNotifier(m_shellProcess->fd(),TQSocketNotifier::Write, this);
    m_writeNotifier->setEnabled(false);
-   connect (m_readNotifier, TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this),TQT_SLOT(readDataFromShell()));
-   connect (m_writeNotifier, TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this),TQT_SLOT(writeDataToShell()));
+   connect (m_readNotifier, TQT_SIGNAL(activated(int)), this,TQT_SLOT(readDataFromShell()));
+   connect (m_writeNotifier, TQT_SIGNAL(activated(int)), this,TQT_SLOT(writeDataToShell()));
 
    return 1;
 }

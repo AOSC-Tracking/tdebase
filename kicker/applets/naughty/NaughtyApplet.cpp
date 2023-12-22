@@ -71,7 +71,7 @@ NaughtyApplet::NaughtyApplet
   TQVBoxLayout * layout = new TQVBoxLayout(this);
   layout->addWidget(button_);
 
-  monitor_ = new NaughtyProcessMonitor(2, 20, TQT_TQOBJECT(this));
+  monitor_ = new NaughtyProcessMonitor(2, 20, this);
 
   connect
     (

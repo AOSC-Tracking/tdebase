@@ -67,12 +67,12 @@ void KMenuEdit::setupActions()
     if (!m_controlCenter)
        (void)new TDEAction(i18n("New S&eparator"), "menu_new_sep", 0, actionCollection(), "newsep");
 
-    (void)new TDEAction(i18n("Save && Quit"), "filesave_and_close", 0, TQT_TQOBJECT(this), TQT_SLOT( slotSave_and_close()), actionCollection(), "file_save_and_quit");
+    (void)new TDEAction(i18n("Save && Quit"), "filesave_and_close", 0, this, TQT_SLOT( slotSave_and_close()), actionCollection(), "file_save_and_quit");
 
     m_actionDelete = 0;
 
-    KStdAction::save(TQT_TQOBJECT(this), TQT_SLOT( slotSave() ), actionCollection());
-    KStdAction::quit(TQT_TQOBJECT(this), TQT_SLOT( close() ), actionCollection());
+    KStdAction::save(this, TQT_SLOT( slotSave() ), actionCollection());
+    KStdAction::quit(this, TQT_SLOT( close() ), actionCollection());
     KStdAction::cut(0, 0, actionCollection());
     KStdAction::copy(0, 0, actionCollection());
     KStdAction::paste(0, 0, actionCollection());

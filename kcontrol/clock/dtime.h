@@ -118,7 +118,7 @@ class KStrictIntValidator : public TQIntValidator
 public:
   KStrictIntValidator(int bottom, int top, TQWidget * parent,
 		      const char * name = 0 )
-    : TQIntValidator(bottom, top, TQT_TQOBJECT(parent), name) {};
+    : TQIntValidator(bottom, top, parent, name) {};
   
   TQValidator::State validate( TQString & input, int & d ) const; 
 };
