@@ -834,7 +834,7 @@ bool Sidebar_Widget::addButton(const TQString &desktoppath,int pos)
 	{
 	  	m_buttonBar->appendTab(SmallIcon(icon), lastbtn, name);
 		ButtonInfo *bi = new ButtonInfo(desktoppath, ((KonqSidebar*)m_partParent),0, url, lib, name,
-						icon, TQT_TQOBJECT(this));
+						icon, this);
 		/*int id=*/m_buttons.insert(lastbtn, bi);
 		KMultiTabBarTab *tab = m_buttonBar->tab(lastbtn);
 		tab->installEventFilter(this);
@@ -1323,7 +1323,7 @@ TQSplitter *Sidebar_Widget::splitter() const
 	TQObject *p = parent();
 	if (!p) return 0;
 	p = p->parent();
-	return static_cast<TQSplitter*>(TQT_TQWIDGET(p));
+	return static_cast<TQSplitter*>(p);
 }
 
 void Sidebar_Widget::userMovedSplitter()

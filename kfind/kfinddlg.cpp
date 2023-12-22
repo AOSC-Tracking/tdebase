@@ -72,7 +72,7 @@ KfindDlg::KfindDlg(const KURL & url, TQWidget *parent, const char *name)
   connect(win ,TQT_SIGNAL(resultSelected(bool)),
 	  this,TQT_SIGNAL(resultSelected(bool)));
 
-  query = new KQuery(TQT_TQOBJECT(frame));
+  query = new KQuery(frame);
   connect(query, TQT_SIGNAL(addFile(const KFileItem*,const TQString&)),
 	  TQT_SLOT(addFile(const KFileItem*,const TQString&)));
   connect(query, TQT_SIGNAL(result(int)), TQT_SLOT(slotResult(int)));

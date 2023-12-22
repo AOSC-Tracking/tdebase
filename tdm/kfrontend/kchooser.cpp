@@ -106,7 +106,7 @@ ChooserDlg::ChooserDlg()
 		vbox->addWidget( consoleView );
 #endif
 
-	sn = new TQSocketNotifier( rfd, TQSocketNotifier::Read, TQT_TQOBJECT(this) );
+	sn = new TQSocketNotifier( rfd, TQSocketNotifier::Read, this );
 	connect( sn, TQT_SIGNAL(activated( int )), TQT_SLOT(slotReadPipe()) );
 
 	connect( pingButton, TQT_SIGNAL(clicked()), TQT_SLOT(pingHosts()) );

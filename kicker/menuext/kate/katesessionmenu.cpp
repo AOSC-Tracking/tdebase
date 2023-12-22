@@ -136,7 +136,7 @@ void KateSessionMenu::slotExec( int id )
     TQString name = KInputDialog::getText( i18n("Session Name"),
                                           i18n("Please enter a name for the new session"),
                                           TQString::null,
-                                          &ok, 0, 0, new Validator( TQT_TQOBJECT(m_parent) ) );
+                                          &ok, 0, 0, new Validator( m_parent ) );
     if ( ! ok )
       return;
 

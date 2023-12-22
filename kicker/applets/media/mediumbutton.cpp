@@ -45,13 +45,13 @@
 #include <konq_drag.h>
 
 MediumButton::MediumButton(TQWidget *parent, const KFileItem &fileItem)
-	: PanelPopupButton(parent), mActions(TQT_TQWIDGET(this), TQT_TQOBJECT(this)), mFileItem(fileItem), mOpenTimer(0,
+	: PanelPopupButton(parent), mActions(this, this), mFileItem(fileItem), mOpenTimer(0,
                 "MediumButton::mOpenTimer")
 {
-    TDEAction *a = KStdAction::paste(TQT_TQOBJECT(this), TQT_SLOT(slotPaste()),
+    TDEAction *a = KStdAction::paste(this, TQT_SLOT(slotPaste()),
                                     &mActions, "pasteto");
     a->setShortcut(0);
-    a = KStdAction::copy(TQT_TQOBJECT(this), TQT_SLOT(slotCopy()), &mActions, "copy");
+    a = KStdAction::copy(this, TQT_SLOT(slotCopy()), &mActions, "copy");
     a->setShortcut(0);
     
     setBackgroundOrigin(AncestorOrigin);

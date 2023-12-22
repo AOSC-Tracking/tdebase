@@ -308,7 +308,7 @@ void KonqIconViewWidget::slotOnItem( TQIconViewItem *_item )
                         if (!hasPixmap && backgroundMode() != NoBackground)
                            d->m_movie->setBackgroundColor( viewport()->backgroundColor() );
                         d->m_movie->connectUpdate( this, TQT_SLOT( slotMovieUpdate(const TQRect &) ) );
-                        d->m_movie->connectStatus( TQT_TQOBJECT(this), TQT_SLOT( slotMovieStatus(int) ) );
+                        d->m_movie->connectStatus( this, TQT_SLOT( slotMovieStatus(int) ) );
                         d->movieFileName = d->pActiveItem->mouseOverAnimation();
                         d->pActiveItem->setAnimated( true );
                     }
@@ -840,7 +840,7 @@ void KonqIconViewWidget::startImagePreview( const TQStringList &, bool force )
       KLibFactory *factory = KLibLoader::self()->factory("konq_sound");
       if (factory)
         d->pSoundPlayer = static_cast<KonqSoundPlayer *>(
-          factory->create(TQT_TQOBJECT(this), 0, "KonqSoundPlayer"));
+          factory->create(this, 0, "KonqSoundPlayer"));
       d->bSoundPreviews = (d->pSoundPlayer != 0L);
     }
 

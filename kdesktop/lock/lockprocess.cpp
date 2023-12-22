@@ -533,7 +533,7 @@ void LockProcess::setupSignals()
 	if (pipe(signal_pipe) == -1) {
 		// Error handler to shut up gcc warnings
 	}
-	TQSocketNotifier* notif = new TQSocketNotifier(signal_pipe[0], TQSocketNotifier::Read, TQT_TQOBJECT(this) );
+	TQSocketNotifier* notif = new TQSocketNotifier(signal_pipe[0], TQSocketNotifier::Read, this );
 	connect( notif, TQT_SIGNAL(activated(int)), TQT_SLOT(signalPipeSignal()));
 }
 
@@ -1353,7 +1353,7 @@ bool LockProcess::startSaver(bool notify_ready)
 	saveVRoot();
 
 	if (mParent) {
-		TQSocketNotifier *notifier = new TQSocketNotifier(mParent, TQSocketNotifier::Read, TQT_TQOBJECT(this), "notifier");
+		TQSocketNotifier *notifier = new TQSocketNotifier(mParent, TQSocketNotifier::Read, this, "notifier");
 		connect(notifier, TQT_SIGNAL( activated (int)), TQT_SLOT( quitSaver()));
 	}
 	createSaverWindow();

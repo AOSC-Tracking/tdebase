@@ -69,10 +69,10 @@ KateApp::KateApp (TDECmdLineArgs *args)
   m_application = new Kate::Application (this);
 
   // doc + project man
-  m_docManager = new KateDocManager (TQT_TQOBJECT(this));
+  m_docManager = new KateDocManager (this);
 
   // init all normal plugins
-  m_pluginManager = new KatePluginManager (TQT_TQOBJECT(this));
+  m_pluginManager = new KatePluginManager (this);
 
   // session manager up
   m_sessionManager = KateSessionManager::self();

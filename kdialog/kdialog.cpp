@@ -125,7 +125,7 @@ bool WinIdEmbedder::eventFilter(TQObject *o, TQEvent *e)
     if (e->type() == TQEvent::Show && o->isWidgetType()
         && o->inherits("KDialog"))
     {
-        TQWidget *w = TQT_TQWIDGET(o);
+        TQWidget *w = static_cast<TQWidget*>(o);
         if (print)
             cout << "winId: " << w->winId() << endl;
 #ifdef Q_WS_X11

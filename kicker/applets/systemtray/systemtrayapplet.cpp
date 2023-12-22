@@ -104,7 +104,7 @@ SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int ac
 
     setBackgroundOrigin(AncestorOrigin);
 
-    twin_module = new KWinModule(TQT_TQOBJECT(this));
+    twin_module = new KWinModule(this);
 
     // kApplication notifies us of settings changes. added to support
     // disabling of frame effect on mouse hover

@@ -92,7 +92,7 @@ AppletContainer::AppletContainer(const AppletInfo& info,
 
     _layout->addSpacing(APPLET_MARGIN);
     _handle = new AppletHandle(this);
-    _layout->addWidget(TQT_TQWIDGET(_handle), 0);
+    _layout->addWidget(_handle, 0);
     connect(_handle, TQT_SIGNAL(moveApplet(const TQPoint&)),
             this, TQT_SLOT(moveApplet(const TQPoint&)));
     connect(_handle, TQT_SIGNAL(showAppletMenu()), this, TQT_SLOT(showAppletMenu()));
@@ -225,7 +225,7 @@ void AppletContainer::showAppletMenu()
 
     Kicker::the()->setInsertionPoint(_handle->mapToGlobal(_handle->rect().center()));
 
-    switch(menu->exec(KickerLib::popupPosition(popupDirection(), menu, TQT_TQWIDGET(_handle))))
+    switch(menu->exec(KickerLib::popupPosition(popupDirection(), menu, _handle)))
     {
         case PanelAppletOpMenu::Move:
             moveApplet(_handle->mapToParent(_handle->rect().center()));
@@ -471,7 +471,7 @@ void AppletContainer::setImmutable(bool immutable)
     }
     else if (!_handle->isVisibleTo(this))
     {
-        TQToolTip::add(TQT_TQWIDGET(_handle), _info.name());
+        TQToolTip::add(_handle, _info.name());
         _handle->show();
         setBackground();
     }

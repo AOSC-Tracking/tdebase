@@ -37,8 +37,8 @@ KonqSidebar::KonqSidebar( TQWidget *parentWidget, const char *widgetName,
 	connect(m_widget,TQT_SIGNAL(completed()),this,TQT_SIGNAL(completed()));
 	connect(m_extension, TQT_SIGNAL(addWebSideBar(const KURL&, const TQString&)),
 		m_widget, TQT_SLOT(addWebSideBar(const KURL&, const TQString&)));
-        TDEAcceleratorManager::setNoAccel(TQT_TQWIDGET(m_widget));
-	setWidget(TQT_TQWIDGET(m_widget));
+        TDEAcceleratorManager::setNoAccel(m_widget);
+	setWidget(m_widget);
 }
 
 TDEInstance *KonqSidebar::getInstance()

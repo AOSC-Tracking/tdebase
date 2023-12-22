@@ -67,7 +67,7 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
 	my_parent = parent;
 
 	//printf("Reading configuration...\n");
-	globalKeys = new TDEGlobalAccel(TQT_TQOBJECT(this));
+	globalKeys = new TDEGlobalAccel(this);
 	TDEGlobalAccel* keys = globalKeys;
 #include "tderandrbindings.cpp"
 	// the keys need to be read from kdeglobals, not kickerrc
@@ -314,7 +314,7 @@ void KRandRSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu)
 	menu->insertTitle(SmallIcon("randr"), i18n("Global Configuration"));
 
 	TDEAction *actColors = new TDEAction( i18n( "Configure Displays..." ),
-		SmallIconSet( "configure" ), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT( slotDisplayConfig() ),
+		SmallIconSet( "configure" ), TDEShortcut(), this, TQT_SLOT( slotDisplayConfig() ),
 		actionCollection() );
 	actColors->plug( menu );
 
@@ -324,7 +324,7 @@ void KRandRSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu)
 // 	actPrefs->plug( menu );
 
 	TDEAction *actSKeys = new TDEAction( i18n( "Configure Shortcut Keys..." ),
-		SmallIconSet( "configure" ), TDEShortcut(), TQT_TQOBJECT(this), TQT_SLOT( slotSKeys() ),
+		SmallIconSet( "configure" ), TDEShortcut(), this, TQT_SLOT( slotSKeys() ),
 		actionCollection() );
 	actSKeys->plug( menu );
 

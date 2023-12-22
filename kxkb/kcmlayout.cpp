@@ -108,47 +108,47 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   TQVBoxLayout *main = new TQVBoxLayout(this, 0, KDialog::spacingHint());
 
   widget = new LayoutConfigWidget(this, "widget");
-  main->addWidget(TQT_TQWIDGET(widget));
+  main->addWidget(widget);
 
-  connect( TQT_TQOBJECT(widget->chkEnable), TQT_SIGNAL( toggled( bool )), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( TQT_TQOBJECT(widget->chkShowSingle), TQT_SIGNAL( toggled( bool )), TQT_TQOBJECT(this), TQT_SLOT(changed()));
+  connect( widget->chkEnable, TQT_SIGNAL( toggled( bool )), this, TQT_SLOT(changed()));
+  connect( widget->chkShowSingle, TQT_SIGNAL( toggled( bool )), this, TQT_SLOT(changed()));
 
-  connect( TQT_TQOBJECT(widget->comboHotkey), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(hotkeyComboChanged()));
-  connect( TQT_TQOBJECT(widget->comboHotkey), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(updateOptionsCommand()));
-  connect( TQT_TQOBJECT(widget->comboHotkey), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( TQT_TQOBJECT(widget->comboModel), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
+  connect( widget->comboHotkey, TQT_SIGNAL(activated(int)), this, TQT_SLOT(hotkeyComboChanged()));
+  connect( widget->comboHotkey, TQT_SIGNAL(activated(int)), this, TQT_SLOT(updateOptionsCommand()));
+  connect( widget->comboHotkey, TQT_SIGNAL(activated(int)), this, TQT_SLOT(changed()));
+  connect( widget->comboModel, TQT_SIGNAL(activated(int)), this, TQT_SLOT(changed()));
 
-  connect( TQT_TQOBJECT(widget->listLayoutsSrc), TQT_SIGNAL(doubleClicked(TQListViewItem*,const TQPoint&, int)),
-									TQT_TQOBJECT(this), TQT_SLOT(add()));
-  connect( TQT_TQOBJECT(widget->btnAdd), TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(add()));
-  connect( TQT_TQOBJECT(widget->btnRemove), TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(remove()));
+  connect( widget->listLayoutsSrc, TQT_SIGNAL(doubleClicked(TQListViewItem*,const TQPoint&, int)),
+									this, TQT_SLOT(add()));
+  connect( widget->btnAdd, TQT_SIGNAL(clicked()), this, TQT_SLOT(add()));
+  connect( widget->btnRemove, TQT_SIGNAL(clicked()), this, TQT_SLOT(remove()));
 
-  connect( TQT_TQOBJECT(widget->comboVariant), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( TQT_TQOBJECT(widget->comboVariant), TQT_SIGNAL(activated(int)), TQT_TQOBJECT(this), TQT_SLOT(variantChanged()));
-  connect( TQT_TQOBJECT(widget->listLayoutsDst), TQT_SIGNAL(selectionChanged(TQListViewItem *)),
-		TQT_TQOBJECT(this), TQT_SLOT(layoutSelChanged(TQListViewItem *)));
+  connect( widget->comboVariant, TQT_SIGNAL(activated(int)), this, TQT_SLOT(changed()));
+  connect( widget->comboVariant, TQT_SIGNAL(activated(int)), this, TQT_SLOT(variantChanged()));
+  connect( widget->listLayoutsDst, TQT_SIGNAL(selectionChanged(TQListViewItem *)),
+		this, TQT_SLOT(layoutSelChanged(TQListViewItem *)));
 
-  connect( widget->editDisplayName, TQT_SIGNAL(textChanged(const TQString&)), TQT_TQOBJECT(this), TQT_SLOT(displayNameChanged(const TQString&)));
+  connect( widget->editDisplayName, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(displayNameChanged(const TQString&)));
 
   widget->btnUp->setIconSet(SmallIconSet("1uparrow"));
-  connect( widget->btnUp, TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( widget->btnUp, TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(moveUp()));
+  connect( widget->btnUp, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+  connect( widget->btnUp, TQT_SIGNAL(clicked()), this, TQT_SLOT(moveUp()));
   widget->btnDown->setIconSet(SmallIconSet("1downarrow"));
-  connect( widget->btnDown, TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( widget->btnDown, TQT_SIGNAL(clicked()), TQT_TQOBJECT(this), TQT_SLOT(moveDown()));
+  connect( widget->btnDown, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+  connect( widget->btnDown, TQT_SIGNAL(clicked()), this, TQT_SLOT(moveDown()));
 
   connect( widget->grpStyle, TQT_SIGNAL( clicked( int ) ), TQT_SLOT(changed()));
   connect( widget->grpSwitching, TQT_SIGNAL( clicked( int ) ), TQT_SLOT(changed()));
   connect( widget->grpLabel, TQT_SIGNAL( clicked( int ) ), TQT_SLOT(changed()));
 
-  connect( widget->bgColor, TQT_SIGNAL( changed(const TQColor&) ), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( widget->fgColor, TQT_SIGNAL( changed(const TQColor&) ), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( widget->labelFont, TQT_SIGNAL( fontSelected(const TQFont&) ), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( widget->chkLabelShadow, TQT_SIGNAL( toggled( bool ) ), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( widget->shColor, TQT_SIGNAL( changed(const TQColor&) ), TQT_TQOBJECT(this), TQT_SLOT(changed()));
+  connect( widget->bgColor, TQT_SIGNAL( changed(const TQColor&) ), this, TQT_SLOT(changed()));
+  connect( widget->fgColor, TQT_SIGNAL( changed(const TQColor&) ), this, TQT_SLOT(changed()));
+  connect( widget->labelFont, TQT_SIGNAL( fontSelected(const TQFont&) ), this, TQT_SLOT(changed()));
+  connect( widget->chkLabelShadow, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT(changed()));
+  connect( widget->shColor, TQT_SIGNAL( changed(const TQColor&) ), this, TQT_SLOT(changed()));
 
-  connect( widget->chkEnableSticky, TQT_SIGNAL(toggled(bool)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
-  connect( widget->spinStickyDepth, TQT_SIGNAL(valueChanged(int)), TQT_TQOBJECT(this), TQT_SLOT(changed()));
+  connect( widget->chkEnableSticky, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(changed()));
+  connect( widget->spinStickyDepth, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
 
   connect(widget->chkEnableNotify,       SIGNAL(toggled(bool)), SLOT(changed()));
   connect(widget->chkNotifyUseKMilo,     SIGNAL(toggled(bool)), SLOT(changed()));
@@ -175,7 +175,7 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
 
   // Load global shortcuts
 #define NOSLOTS
-  keys = new TDEGlobalAccel(TQT_TQOBJECT(this));
+  keys = new TDEGlobalAccel(this);
 #include "kxkbbindings.cpp"
 
   makeOptionsTab();

@@ -149,7 +149,7 @@ void ExtensionContainer::init()
     connect(UnhideTrigger::the(), TQT_SIGNAL(triggerUnhide(UnhideTrigger::Trigger,int)),
             this, TQT_SLOT(unhideTriggered(UnhideTrigger::Trigger,int)));
 
-    _popupWidgetFilter = new PopupWidgetFilter( TQT_TQOBJECT(this) );
+    _popupWidgetFilter = new PopupWidgetFilter( this );
     connect(_popupWidgetFilter, TQT_SIGNAL(popupWidgetHiding()), TQT_SLOT(maybeStartAutoHideTimer()));
 
     // layout
@@ -733,7 +733,7 @@ void ExtensionContainer::autoHideTimeout()
 {
 //    kdDebug(1210) << "PanelContainer::autoHideTimeout() " << name() << endl;
     // Hack: If there is a popup open, don't autohide until it closes.
-    TQWidget* popup = TQT_TQWIDGET(TQApplication::activePopupWidget());
+    TQWidget* popup = TQApplication::activePopupWidget();
     if (popup)
     {
 

@@ -305,7 +305,7 @@ bool AddAppletDialog::eventFilter(TQObject *o, TQEvent *e)
     if (e->type() == TQEvent::Resize)
         TQTimer::singleShot(0, this, TQT_SLOT(resizeAppletView()));
     
-    return TQT_TQOBJECT(this)->TQObject::eventFilter(o, e);
+    return this->TQObject::eventFilter(o, e);
 }
 
 void AddAppletDialog::populateApplets()

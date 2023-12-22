@@ -155,7 +155,7 @@ KDesktop::KDesktop( SaverEngine* saver, bool x_root_hack, bool wait_for_kded ) :
   setCaption( "KDE Desktop");
 
   setAcceptDrops(true); // WStyle_Customize seems to disable that
-  m_pKwinmodule = new KWinModule( TQT_TQOBJECT(this) );
+  m_pKwinmodule = new KWinModule( this );
 
   kapp->dcopClient()->setNotifications(true);
   kapp->dcopClient()->connectDCOPSignal(kicker_name, kicker_name, "desktopIconsAreaChanged(TQRect, int)",
@@ -359,7 +359,7 @@ KDesktop::backgroundInitDone()
     // avoid flicker
     if (m_bDesktopEnabled)
     {
-       const TQPixmap *bg = TQT_TQWIDGET(TQApplication::desktop()->screen())->backgroundPixmap();
+       const TQPixmap *bg = TQApplication::desktop()->screen()->backgroundPixmap();
        if ( bg )
           m_pIconView->setErasePixmap( *bg );
 
@@ -396,7 +396,7 @@ KDesktop::slotStart()
      m_pIconView->start();
 
   // Global keys
-  keys = new TDEGlobalAccel( TQT_TQOBJECT(this) );
+  keys = new TDEGlobalAccel( this );
   (void) new KRootWm( m_pSaver, this );
 
 #include "kdesktopbindings.cpp"

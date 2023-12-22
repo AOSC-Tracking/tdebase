@@ -37,7 +37,7 @@ KonqInfoListViewWidget::KonqInfoListViewWidget( KonqListView* parent,
 {
     m_metaInfoJob = 0;
 
-    m_mtSelector = new TDESelectAction(i18n("View &As"), 0, TQT_TQOBJECT(this),
+    m_mtSelector = new TDESelectAction(i18n("View &As"), 0, this,
                                      TQT_SLOT(slotSelectMimeType()),
                                      parent->actionCollection(), "view_as" );
 

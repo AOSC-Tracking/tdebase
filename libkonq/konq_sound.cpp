@@ -122,7 +122,7 @@ TQObject *KonqSoundFactory::createObject(TQObject *, const char *,
 	const char *className, const TQStringList &)
 {
 	if (qstrcmp(className, "KonqSoundPlayer") == 0)
-		return TQT_TQOBJECT(new KonqSoundPlayerImpl());
+		return new KonqSoundPlayerImpl();
 	return 0;
 }
 

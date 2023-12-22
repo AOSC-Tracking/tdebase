@@ -294,14 +294,14 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
 
 void Navigator::insertInfoDocs( NavigatorItem *topItem )
 {
-  InfoTree *infoTree = new InfoTree( TQT_TQOBJECT(this) );
+  InfoTree *infoTree = new InfoTree( this );
   infoTree->build( topItem );
 }
 
 NavigatorItem *Navigator::insertScrollKeeperDocs( NavigatorItem *topItem,
                                                   NavigatorItem *after )
 {
-  ScrollKeeperTreeBuilder *builder = new ScrollKeeperTreeBuilder( TQT_TQOBJECT(this) );
+  ScrollKeeperTreeBuilder *builder = new ScrollKeeperTreeBuilder( this );
   return builder->build( topItem, after );
 }
 

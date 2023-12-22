@@ -63,7 +63,7 @@ PolicyDlg::PolicyDlg (const TQString& caption, TQWidget *parent,
   m_dlgUI = new PolicyDlgUI (this);
   setMainWidget(m_dlgUI);
 
-  m_dlgUI->leDomain->setValidator(new DomainLineValidator(TQT_TQOBJECT(m_dlgUI->leDomain)));
+  m_dlgUI->leDomain->setValidator(new DomainLineValidator(m_dlgUI->leDomain));
   m_dlgUI->cbPolicy->setMinimumWidth( m_dlgUI->cbPolicy->fontMetrics().maxWidth() * 25 );
   
   enableButtonOK( false );

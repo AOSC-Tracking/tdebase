@@ -234,40 +234,40 @@ bool TopLevel::queryClose()
 
 void TopLevel::setupActions()
 {
-  KStdAction::quit(TQT_TQOBJECT(this), TQT_SLOT(close()), actionCollection());
+  KStdAction::quit(this, TQT_SLOT(close()), actionCollection());
   KStdAction::keyBindings(guiFactory(), TQT_SLOT(configureShortcuts()),
 actionCollection());
   icon_view = new TDERadioAction
-    (i18n("&Icon View"), 0, TQT_TQOBJECT(this), TQT_SLOT(activateIconView()),
+    (i18n("&Icon View"), 0, this, TQT_SLOT(activateIconView()),
      actionCollection(), "activate_iconview");
   icon_view->setExclusiveGroup( "viewmode" );
 
   tree_view = new TDERadioAction
-    (i18n("&Tree View"), 0, TQT_TQOBJECT(this), TQT_SLOT(activateTreeView()),
+    (i18n("&Tree View"), 0, this, TQT_SLOT(activateTreeView()),
      actionCollection(), "activate_treeview");
   tree_view->setExclusiveGroup( "viewmode" );
 
   icon_small = new TDERadioAction
-    (i18n("&Small"), 0, TQT_TQOBJECT(this), TQT_SLOT(activateSmallIcons()),
+    (i18n("&Small"), 0, this, TQT_SLOT(activateSmallIcons()),
      actionCollection(), "activate_smallicons");
   icon_small->setExclusiveGroup( "iconsize" );
 
   icon_medium = new TDERadioAction
-    (i18n("&Medium"), 0, TQT_TQOBJECT(this), TQT_SLOT(activateMediumIcons()),
+    (i18n("&Medium"), 0, this, TQT_SLOT(activateMediumIcons()),
      actionCollection(), "activate_mediumicons");
   icon_medium->setExclusiveGroup( "iconsize" );
 
   icon_large = new TDERadioAction
-    (i18n("&Large"), 0, TQT_TQOBJECT(this), TQT_SLOT(activateLargeIcons()),
+    (i18n("&Large"), 0, this, TQT_SLOT(activateLargeIcons()),
      actionCollection(), "activate_largeicons");
   icon_large->setExclusiveGroup( "iconsize" );
 
   icon_huge = new TDERadioAction
-    (i18n("&Huge"), 0, TQT_TQOBJECT(this), TQT_SLOT(activateHugeIcons()),
+    (i18n("&Huge"), 0, this, TQT_SLOT(activateHugeIcons()),
      actionCollection(), "activate_hugeicons");
   icon_huge->setExclusiveGroup( "iconsize" );
 
-  about_module = new TDEAction(i18n("About Current Module"), 0, TQT_TQOBJECT(this), TQT_SLOT(aboutModule()), actionCollection(), "help_about_module");
+  about_module = new TDEAction(i18n("About Current Module"), 0, this, TQT_SLOT(aboutModule()), actionCollection(), "help_about_module");
   about_module->setEnabled(false);
 
   createGUI("kcontrolui.rc");

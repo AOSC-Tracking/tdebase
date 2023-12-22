@@ -153,13 +153,13 @@ TQMap<TQCString,DCOPRef> KonqMainWindowIface::actionMap()
 
 QCStringList KonqMainWindowIface::functionsDynamic()
 {
-    return DCOPObject::functionsDynamic() + KDCOPPropertyProxy::functions( TQT_TQOBJECT(m_pMainWindow) );
+    return DCOPObject::functionsDynamic() + KDCOPPropertyProxy::functions( m_pMainWindow );
 }
 
 bool KonqMainWindowIface::processDynamic( const TQCString &fun, const TQByteArray &data, TQCString &replyType, TQByteArray &replyData )
 {
-    if ( KDCOPPropertyProxy::isPropertyRequest( fun, TQT_TQOBJECT(m_pMainWindow) ) )
-        return KDCOPPropertyProxy::processPropertyRequest( fun, data, replyType, replyData, TQT_TQOBJECT(m_pMainWindow) );
+    if ( KDCOPPropertyProxy::isPropertyRequest( fun, m_pMainWindow ) )
+        return KDCOPPropertyProxy::processPropertyRequest( fun, data, replyType, replyData, m_pMainWindow );
 
     return DCOPObject::processDynamic( fun, data, replyType, replyData );
 }

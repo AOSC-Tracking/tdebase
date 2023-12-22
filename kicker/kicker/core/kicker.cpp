@@ -116,7 +116,7 @@ Kicker::Kicker()
 
     // initialize our keys
     // note that this creates the KMenu by calling MenuManager::the()
-    keys = new TDEGlobalAccel( TQT_TQOBJECT(this) );
+    keys = new TDEGlobalAccel( this );
 #define KICKER_ALL_BINDINGS
 #include "kickerbindings.cpp"
     keys->readSettings();

@@ -156,7 +156,7 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
     clearHistoryAction = new TDEAction( i18n("C&lear Clipboard History"),
                                       "history_clear",
                                       0,
-                                      TQT_TQOBJECT(history()),
+                                      history(),
                                       TQT_SLOT( slotClear() ),
                                       collection,
                                       "clearHistoryAction" );
@@ -165,7 +165,7 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
     configureAction = new TDEAction( i18n("&Configure Klipper..."),
                                    "configure",
                                    0,
-                                   TQT_TQOBJECT(this),
+                                   this,
                                    TQT_SLOT( slotConfigure() ),
                                    collection,
                                    "configureAction" );
@@ -173,7 +173,7 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
     quitAction = new TDEAction( i18n("&Quit"),
                               "system-log-out",
                               0,
-                              TQT_TQOBJECT(this),
+                              this,
                               TQT_SLOT( slotQuit() ),
                               collection,
                               "quitAction" );
@@ -203,7 +203,7 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
     m_iconOrigHeight = m_pixmap.height();
     adjustSize();
 
-    globalKeys = new TDEGlobalAccel(TQT_TQOBJECT(this));
+    globalKeys = new TDEGlobalAccel(this);
     TDEGlobalAccel* keys = globalKeys;
 #include "klipperbindings.cpp"
     // the keys need to be read from kdeglobals, not kickerrc --ellis, 22/9/02

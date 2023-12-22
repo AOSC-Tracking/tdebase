@@ -1305,7 +1305,7 @@ void Task::updateThumbnail()
     // by the thumbnail generation. This makes things much smoother
     // on slower machines.
     //
-    TQWidget *rootWin = TQT_TQWIDGET(tqApp->desktop());
+    TQWidget *rootWin = tqApp->desktop();
     TQRect geom = _info.geometry();
     _grab = TQPixmap::grabWindow(rootWin->winId(),
                                 geom.x(), geom.y(),

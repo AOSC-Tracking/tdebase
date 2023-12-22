@@ -79,7 +79,7 @@ KWrited::KWrited() : TQTextEdit()
   pty = new KPty();
   pty->open();
   pty->login(KUser().loginName().local8Bit().data(), getenv("DISPLAY"));
-  TQSocketNotifier *sn = new TQSocketNotifier(pty->masterFd(), TQSocketNotifier::Read, TQT_TQOBJECT(this));
+  TQSocketNotifier *sn = new TQSocketNotifier(pty->masterFd(), TQSocketNotifier::Read, this);
   connect(sn, TQT_SIGNAL(activated(int)), this, TQT_SLOT(block_in(int)));
 
   TQString txt = i18n("KWrited - Listening on Device %1").arg(pty->ttyName());

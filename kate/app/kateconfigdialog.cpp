@@ -297,7 +297,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   /*TQVBox **/page=addVBoxPage(path,i18n("Plugin Manager"),
                           BarIcon("connect_established",TDEIcon::SizeSmall));
   KateConfigPluginPage *configPluginPage = new KateConfigPluginPage(page, this);
-  connect( configPluginPage, TQT_SIGNAL( changed() ), TQT_TQOBJECT(this), TQT_SLOT( slotChanged() ) );
+  connect( configPluginPage, TQT_SIGNAL( changed() ), this, TQT_SLOT( slotChanged() ) );
 
   // Tools->External Tools menu
   path.clear();
@@ -305,7 +305,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   page = addVBoxPage( path, i18n("External Tools"),
       BarIcon("configure", TDEIcon::SizeSmall) );
   configExternalToolsPage = new KateExternalToolsConfigWidget(page, "external tools config page");
-  connect( configExternalToolsPage, TQT_SIGNAL(changed()), TQT_TQOBJECT(this), TQT_SLOT(slotChanged()) );
+  connect( configExternalToolsPage, TQT_SIGNAL(changed()), this, TQT_SLOT(slotChanged()) );
 
   // editor widgets from kwrite/kwdialog
   path.clear();

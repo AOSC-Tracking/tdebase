@@ -67,7 +67,7 @@ Module::Module( TQWidget* parent_P, const char* )
     {
     setButtons( Help | Cancel | Apply | Ok );
     module = this;
-    init_global_data( false, TQT_TQOBJECT(this) ); // don't grab keys
+    init_global_data( false, this ); // don't grab keys
     init_arts();
     TQVBoxLayout* vbox = new TQVBoxLayout( this ); 
     vbox->setSpacing( 6 );

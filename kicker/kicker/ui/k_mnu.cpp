@@ -528,7 +528,7 @@ void PanelKMenu::slotSessionActivated( int ent )
 void PanelKMenu::doNewSession( bool lock )
 {
     int result = KMessageBox::warningContinueCancel(
-        TQT_TQWIDGET(kapp->desktop()->screen(kapp->desktop()->screenNumber(this))),
+        kapp->desktop()->screen(kapp->desktop()->screenNumber(this)),
         i18n("<p>You have chosen to open another desktop session.<br>"
                "The current session will be hidden "
                "and a new login screen will be displayed.<br>"

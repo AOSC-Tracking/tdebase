@@ -157,7 +157,7 @@ void Windowdef_simple_widget::autodetect_clicked()
     
 void Windowdef_simple_widget::autodetect()
     {
-    WindowSelector* sel = new WindowSelector( TQT_TQOBJECT(this), TQT_SLOT( autodetect_window_selected( WId )));
+    WindowSelector* sel = new WindowSelector( this, TQT_SLOT( autodetect_window_selected( WId )));
     sel->select();
     }
 

@@ -73,7 +73,7 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
    m_previewUpdates = true;
    
    KWinModule *m_twin;
-   m_twin = new KWinModule(TQT_TQOBJECT(this));
+   m_twin = new KWinModule(this);
    m_curDesk = m_twin->currentDesktop();
    TQSize s(m_twin->numberOfViewports(m_twin->currentDesktop()));
    m_useViewports = s.width() * s.height() > 1;

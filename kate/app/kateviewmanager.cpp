@@ -94,47 +94,47 @@ void KateViewManager::setupActions ()
   /**
    * tabbing
    */
-  a=new TDEAction ( i18n("New Tab"),"tab_new", 0, TQT_TQOBJECT(this), TQT_SLOT(slotNewTab()),
+  a=new TDEAction ( i18n("New Tab"),"tab_new", 0, this, TQT_SLOT(slotNewTab()),
                   m_mainWindow->actionCollection(), "view_new_tab" );
 
-  m_closeTab = new TDEAction ( i18n("Close Current Tab"),"tab_remove",0,TQT_TQOBJECT(this),TQT_SLOT(slotCloseTab()),
+  m_closeTab = new TDEAction ( i18n("Close Current Tab"),"tab_remove",0,this,TQT_SLOT(slotCloseTab()),
                              m_mainWindow->actionCollection(),"view_close_tab");
 
   m_activateNextTab
       = new TDEAction( i18n( "Activate Next Tab" ),
                      TQApplication::reverseLayout() ? TDEStdAccel::tabPrev() : TDEStdAccel::tabNext(),
-                     TQT_TQOBJECT(this), TQT_SLOT( activateNextTab() ), m_mainWindow->actionCollection(), "view_next_tab" );
+                     this, TQT_SLOT( activateNextTab() ), m_mainWindow->actionCollection(), "view_next_tab" );
 
   m_activatePrevTab
       = new TDEAction( i18n( "Activate Previous Tab" ),
                      TQApplication::reverseLayout() ? TDEStdAccel::tabNext() : TDEStdAccel::tabPrev(),
-                     TQT_TQOBJECT(this), TQT_SLOT( activatePrevTab() ), m_mainWindow->actionCollection(), "view_prev_tab" );
+                     this, TQT_SLOT( activatePrevTab() ), m_mainWindow->actionCollection(), "view_prev_tab" );
 
   /**
    * view splitting
    */
-  a=new TDEAction ( i18n("Split Ve&rtical"), "view_right", CTRL+SHIFT+Key_L, TQT_TQOBJECT(this), TQT_SLOT(
+  a=new TDEAction ( i18n("Split Ve&rtical"), "view_right", CTRL+SHIFT+Key_L, this, TQT_SLOT(
                   slotSplitViewSpaceVert() ), m_mainWindow->actionCollection(), "view_split_vert");
 
   a->setWhatsThis(i18n("Split the currently active view vertically into two views."));
 
-  a=new TDEAction ( i18n("Split &Horizontal"), "view_bottom", CTRL+SHIFT+Key_T, TQT_TQOBJECT(this), TQT_SLOT(
+  a=new TDEAction ( i18n("Split &Horizontal"), "view_bottom", CTRL+SHIFT+Key_T, this, TQT_SLOT(
                   slotSplitViewSpaceHoriz() ), m_mainWindow->actionCollection(), "view_split_horiz");
 
   a->setWhatsThis(i18n("Split the currently active view horizontally into two views."));
 
-  m_closeView = new TDEAction ( i18n("Cl&ose Current View"), "view_remove", CTRL+SHIFT+Key_R, TQT_TQOBJECT(this),
+  m_closeView = new TDEAction ( i18n("Cl&ose Current View"), "view_remove", CTRL+SHIFT+Key_R, this,
                     TQT_SLOT( slotCloseCurrentViewSpace() ), m_mainWindow->actionCollection(),
                     "view_close_current_space" );
 
   m_closeView->setWhatsThis(i18n("Close the currently active splitted view"));
 
-  goNext=new TDEAction(i18n("Next View"),Key_F8,TQT_TQOBJECT(this),
+  goNext=new TDEAction(i18n("Next View"),Key_F8,this,
                      TQT_SLOT(activateNextView()),m_mainWindow->actionCollection(),"go_next");
 
   goNext->setWhatsThis(i18n("Make the next split view the active one."));
 
-  goPrev=new TDEAction(i18n("Previous View"),SHIFT+Key_F8, TQT_TQOBJECT(this), TQT_SLOT(activatePrevView()),m_mainWindow->actionCollection(),"go_prev");
+  goPrev=new TDEAction(i18n("Previous View"),SHIFT+Key_F8, this, TQT_SLOT(activatePrevView()),m_mainWindow->actionCollection(),"go_prev");
 
   goPrev->setWhatsThis(i18n("Make the previous split view the active one."));
 

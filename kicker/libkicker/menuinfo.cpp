@@ -64,5 +64,5 @@ KPanelMenu* MenuInfo::load(TQWidget *parent, const char *name)
 
     return KParts::ComponentFactory::createInstanceFromLibrary<KPanelMenu>(
                TQFile::encodeName( library_ ),
-               TQT_TQOBJECT(parent), name );
+               parent, name );
 }

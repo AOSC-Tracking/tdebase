@@ -119,7 +119,7 @@ void AutoLogout::slotActivity()
 
 void AutoLogout::logout()
 {
-	TQT_TQOBJECT(this)->killTimers();
+	this->killTimers();
 	DCOPRef("ksmserver","ksmserver").send("logout", 0, 0, 0);
 }
 

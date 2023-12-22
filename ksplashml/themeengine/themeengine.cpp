@@ -77,7 +77,7 @@ ThemeEngine::~ThemeEngine()
 bool ThemeEngine::eventFilter( TQObject* o, TQEvent* e )
 {
     if( e->type() == TQEvent::Show && o->isWidgetType())
-        addSplashWindow( TQT_TQWIDGET( o ));
+        addSplashWindow( static_cast<TQWidget*>( o ));
     return false;
 }
 
@@ -107,7 +107,7 @@ void ThemeEngine::addSplashWindow( TQWidget* w )
 
 void ThemeEngine::splashWindowDestroyed( TQObject* obj )
 {
-    d->mSplashWindows.remove( TQT_TQWIDGET( obj )->winId());
+    d->mSplashWindows.remove( static_cast<TQWidget*>( obj )->winId());
 }
 
 bool ThemeEngine::x11Event( XEvent* e )

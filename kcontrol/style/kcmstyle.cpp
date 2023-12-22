@@ -851,7 +851,7 @@ void KCMStyle::styleChanged()
 void KCMStyle::switchStyle(const TQString& styleName, bool force)
 {
 	// Don't flicker the preview if the same style is chosen in the cb
-	if (!force && appliedStyle && TQT_TQOBJECT(appliedStyle)->name() == styleName) 
+	if (!force && appliedStyle && appliedStyle->name() == styleName) 
 		return;
          
 	// Create an instance of the new style...

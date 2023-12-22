@@ -94,7 +94,7 @@ void KRandrPassivePopup::startWatchingWidget( TQWidget* widget_P )
 bool KRandrPassivePopup::eventFilter( TQObject* o, TQEvent* e )
     {
     if( e->type() == TQEvent::Move && o->isWidgetType()
-	&& watched_widgets.contains( TQT_TQWIDGET( o )))
+	&& watched_widgets.contains( static_cast<TQWidget*>( o )))
         TQTimer::singleShot( 0, this, TQT_SLOT( slotPositionSelf()));
     return false;
     }

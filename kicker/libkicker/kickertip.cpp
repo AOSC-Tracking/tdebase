@@ -452,7 +452,7 @@ void KickerTip::tipperDestroyed(TQObject* o)
 {
     // we can't do a dynamic cast because we are in the process of dying
     // so static it is.
-    untipFor(TQT_TQWIDGET(o));
+    untipFor(static_cast<TQWidget*>(o));
 }
 
 void KickerTip::internalUpdate()
@@ -508,7 +508,7 @@ bool KickerTip::eventFilter(TQObject *object, TQEvent *event)
         return false;
     }
 
-    TQWidget *widget = TQT_TQWIDGET(object);
+    TQWidget *widget = static_cast<TQWidget*>(object);
 
     switch (event->type())
     {

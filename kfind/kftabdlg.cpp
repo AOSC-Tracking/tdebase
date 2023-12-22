@@ -496,7 +496,7 @@ void KfindTabWidget::loadHistory()
 void KfindTabWidget::slotEditRegExp()
 {
   if ( ! regExpDialog )
-    regExpDialog = KParts::ComponentFactory::createInstanceFromQuery<TQDialog>( "KRegExpEditor/KRegExpEditor", TQString(), TQT_TQOBJECT(this) );
+    regExpDialog = KParts::ComponentFactory::createInstanceFromQuery<TQDialog>( "KRegExpEditor/KRegExpEditor", TQString(), this );
 
   KRegExpEditorInterface *iface = static_cast<KRegExpEditorInterface *>( regExpDialog->tqt_cast( "KRegExpEditorInterface" ) );
   if ( !iface )
@@ -807,7 +807,7 @@ bool KfindTabWidget::isSearchRecursive()
    Digit validator. Allows only digits to be typed.
 **/
 KDigitValidator::KDigitValidator( TQWidget * parent, const char *name )
-  : TQValidator( TQT_TQOBJECT(parent), name )
+  : TQValidator( parent, name )
 {
   r = new TQRegExp("^[0-9]*$");
 }

@@ -77,18 +77,18 @@ TopLevel::TopLevel( const TQString &destDir, TQWidget *parent, const char *name 
   layout->addWidget( mSummary );
 
   KButtonBox* bbox = new KButtonBox( this );
-  mScanButton = bbox->addButton( KGuiItem( i18n( "Scan" ), "edit-find"), TQT_TQOBJECT(this), TQT_SLOT( slotScan() ) );
+  mScanButton = bbox->addButton( KGuiItem( i18n( "Scan" ), "edit-find"), this, TQT_SLOT( slotScan() ) );
   bbox->addStretch( 5 );
-  mSelectButton = bbox->addButton( i18n( "Select All" ), TQT_TQOBJECT(this),
+  mSelectButton = bbox->addButton( i18n( "Select All" ), this,
                                    TQT_SLOT( slotSelectAll() ) );
   mSelectButton->setEnabled( false );
-  mUnSelectButton = bbox->addButton( i18n( "Unselect All" ), TQT_TQOBJECT(this),
+  mUnSelectButton = bbox->addButton( i18n( "Unselect All" ), this,
                                      TQT_SLOT( slotUnselectAll() ) );
   mUnSelectButton->setEnabled( false );
   bbox->addStretch( 5 );
-  mApplyButton = bbox->addButton( KStdGuiItem::apply(), TQT_TQOBJECT(this), TQT_SLOT( slotCreate() ) );
+  mApplyButton = bbox->addButton( KStdGuiItem::apply(), this, TQT_SLOT( slotCreate() ) );
   mApplyButton->setEnabled( false );
-  bbox->addButton( KStdGuiItem::close(), TQT_TQOBJECT(kapp), TQT_SLOT( quit() ) );
+  bbox->addButton( KStdGuiItem::close(), kapp, TQT_SLOT( quit() ) );
   bbox->layout();
 
   layout->addWidget( bbox );
