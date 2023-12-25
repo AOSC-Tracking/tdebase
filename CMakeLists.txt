@@ -97,6 +97,7 @@ option( WITH_ALL_OPTIONS "Enable all optional support" OFF )
 option( WITH_SASL "Enable SASL support" ${WITH_ALL_OPTIONS} )
 option( WITH_LDAP "Enable LDAP support" ${WITH_ALL_OPTIONS} )
 option( WITH_SAMBA "Enable SAMBA support" ${WITH_ALL_OPTIONS} )
+option( WITH_SFTP "Enable SFTP support" ${WITH_ALL_OPTIONS} )
 option( WITH_OPENEXR "Enable openexr support" ${WITH_ALL_OPTIONS} )
 option( WITH_XCOMPOSITE "Enable xcomposite support" ${WITH_ALL_OPTIONS} )
 option( WITH_XCURSOR "Enable xcursor support" ${WITH_ALL_OPTIONS} )
@@ -130,6 +131,7 @@ option( WITH_GCC_VISIBILITY "Enable fvisibility and fvisibility-inlines-hidden" 
 # WITH_SASL         affects tdeioslaves(tdeio_ldap tdeio_smtp tdeio_pop3)
 # WITH_LDAP         affects tdeioslaves(tdeio_ldap)
 # WITH_SAMBA        affects tdeioslaves(tdeio_samba) kcontrol
+# WITH_SFTP         affects tdeioslaves(tdeio_sftp)
 # WITH_OPENEXR      affects tdeioslaves(thumbnail)
 # WITH_XCOMPOSITE   affects twin kicker(taskmanager) tdm
 # WITH_XCURSOR      affects tdeioslaves(thumbnail), kcontrol(input), kdesktop
