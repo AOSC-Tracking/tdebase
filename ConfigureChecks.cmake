@@ -100,7 +100,7 @@ if( BUILD_KSMSERVER OR BUILD_KSPLASHML OR BUILD_TDEIOSLAVES )
 endif( )
 
 # libssh (tdeioslave/sftp)
-if( BUILD_TDEIOSLAVES )
+if( BUILD_TDEIOSLAVES AND WITH_SFTP )
   pkg_search_module( LIBSSH libssh )
   if( NOT LIBSSH_FOUND )
     tde_message_fatal( "LibSSH is required, but was not found on your system" )
