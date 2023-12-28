@@ -771,9 +771,8 @@ void TDEBackend::setVolumeProperties(Medium* medium)
 			diskLabel = i18n("%1 Fixed Disk (%2)").arg(sdevice->deviceFriendlySize(), sdevice->deviceNode());
 		}
 
-		if (sdevice->isDiskOfType(TDEDiskDeviceType::USB)
-		    || sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable)
-		    || sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)) {
+		if (sdevice->isDiskOfType(TDEDiskDeviceType::USB) ||
+		    sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable)) {
 			mimeType = "media/removable" + MOUNT_MEDIA_SUFFIX;
 			if (useDefaultLabel) {
 				diskLabel = i18n("%1 Removable Disk (%2)").arg(sdevice->deviceFriendlySize(), sdevice->deviceNode());
@@ -1035,7 +1034,7 @@ TQStringList TDEBackend::mountoptions(const TQString &name)
 
 	bool removable = false;
 	if (!drive_udi.isNull()) {
-		removable = ((sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable)) || (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)));
+		removable = sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable);
 	}
 
 	TQString tmp;

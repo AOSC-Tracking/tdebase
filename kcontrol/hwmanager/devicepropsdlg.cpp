@@ -493,9 +493,6 @@ void DevicePropertiesDialog::populateDeviceInformation()
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::ContainsFilesystem)) {
 				status_text += i18n("Contains a filesystem") + "<br>";
 			}
-			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)) {
-				status_text += i18n("Hotpluggable") + "<br>";
-			}
 			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hidden)) {
 				status_text += i18n("Hidden") + "<br>";
 			}
@@ -537,8 +534,7 @@ void DevicePropertiesDialog::populateDeviceInformation()
 				showGroup = true;
 			}
 			if (isMonitoredDevice(sdevice) &&
-					(sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
-					 sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)))
+			    sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable))
 			{
 				base->buttonDiskEject->setEnabled(true);
 				base->buttonDiskSafeRemove->setEnabled(true);

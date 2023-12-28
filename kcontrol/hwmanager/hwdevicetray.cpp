@@ -426,8 +426,7 @@ void HwDeviceSystemTray::contextMenuAboutToShow(TDEPopupMenu *menu)
 				(*rmbMenuEntries[SDActions::Open])[deviceLabel] = sdevice;
 			}
 
-			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
-			    sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable))
+			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable))
 			{
 				(*rmbMenuEntries[SDActions::Eject])[deviceLabel] = sdevice;
 
@@ -487,8 +486,7 @@ void HwDeviceSystemTray::populateLMBMenu()
 		    (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS) ||
 		     sdevice->isDiskOfType(TDEDiskDeviceType::OtherCrypted) ||
 		     sdevice->checkDiskStatus(TDEDiskDeviceStatus::Mountable) ||
-		     sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
-		     sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable)))
+		     sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable)))
 		{
 			TQString deviceLabel = getDeviceLabel(sdevice);
 			TDEActionMenu *actionMenu = new TDEActionMenu(deviceLabel,
@@ -523,8 +521,7 @@ void HwDeviceSystemTray::populateLMBMenu()
 			}
 
 
-			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable) ||
-					sdevice->checkDiskStatus(TDEDiskDeviceStatus::Hotpluggable))
+			if (sdevice->checkDiskStatus(TDEDiskDeviceStatus::Removable))
 			{
 				addDeviceToLMBMenu(sdevice, SDActions::Eject, actionMenu, actionMenuIdx);
 
