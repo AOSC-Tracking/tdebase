@@ -26,8 +26,8 @@ Kate::MessageView::MessageView( TQWidget *parent, const char *name )
 {
   m_view = new TQTextBrowser( this );
   // m_view->setFormat( TQt::richText ); // should be!!
-  connect( m_view, TQT_SIGNAL( linkClicked( const TQString & ) ), 
-           TQT_SIGNAL( linkClicked( const TQString & ) ) );
+  connect( m_view, TQ_SIGNAL( linkClicked( const TQString & ) ), 
+           TQ_SIGNAL( linkClicked( const TQString & ) ) );
 }
 
 Kate::MessageView::~MessageView()

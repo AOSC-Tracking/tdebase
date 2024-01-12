@@ -1008,7 +1008,7 @@ void Workspace::gotTemporaryRulesMessage( const TQString& message )
     Rules* rule = new Rules( message, true );
     rules.prepend( rule ); // highest priority first
     if( !was_temporary )
-        TQTimer::singleShot( 60000, this, TQT_SLOT( cleanupTemporaryRules()));
+        TQTimer::singleShot( 60000, this, TQ_SLOT( cleanupTemporaryRules()));
     }
 
 void Workspace::cleanupTemporaryRules()
@@ -1028,7 +1028,7 @@ void Workspace::cleanupTemporaryRules()
             }
         }
     if( has_temporary )
-        TQTimer::singleShot( 60000, this, TQT_SLOT( cleanupTemporaryRules()));
+        TQTimer::singleShot( 60000, this, TQ_SLOT( cleanupTemporaryRules()));
     }
 
 void Workspace::discardUsedWindowRules( Client* c, bool withdrawn )

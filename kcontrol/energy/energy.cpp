@@ -176,7 +176,7 @@ KEnergy::KEnergy(TQWidget *parent, const char *name)
         TDEGlobal::locale()->insertCatalogue("kpowersave");
         // ### these i18n strings need to be synced with kpowersave !!
         m_pCBEnable= new TQCheckBox(i18n("&Enable display power management" ), this);
-        connect(m_pCBEnable, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChangeEnable(bool)));
+        connect(m_pCBEnable, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChangeEnable(bool)));
         hbox->addWidget(m_pCBEnable);
 
         TQWhatsThis::add( m_pCBEnable, i18n("Check this option to enable the"
@@ -198,7 +198,7 @@ KEnergy::KEnergy(TQWidget *parent, const char *name)
     logo->setPixmap(TQPixmap(locate("data", "kcontrol/pics/energybig.png")));
     logo->setTipText(i18n("Learn more about the Energy Star program"));
     logo->setUseTips(true); 
-connect(logo, TQT_SIGNAL(leftClickedURL(const TQString&)), TQT_SLOT(openURL(const TQString &)));
+connect(logo, TQ_SIGNAL(leftClickedURL(const TQString&)), TQ_SLOT(openURL(const TQString &)));
 
     hbox->addStretch();
     hbox->addWidget(logo);
@@ -210,7 +210,7 @@ connect(logo, TQT_SIGNAL(leftClickedURL(const TQString&)), TQT_SLOT(openURL(cons
     m_pStandbySlider->setRange(0, 120, 10);
     m_pStandbySlider->setSuffix(i18n(" min"));
     m_pStandbySlider->setSpecialValueText(i18n("Disabled"));
-    connect(m_pStandbySlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotChangeStandby(int)));
+    connect(m_pStandbySlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotChangeStandby(int)));
     top->addWidget(m_pStandbySlider);
     TQWhatsThis::add( m_pStandbySlider, i18n("Choose the period of inactivity"
        " after which the display should enter \"standby\" mode. This is the"
@@ -221,7 +221,7 @@ connect(logo, TQT_SIGNAL(leftClickedURL(const TQString&)), TQT_SLOT(openURL(cons
     m_pSuspendSlider->setRange(0, 120, 10);
     m_pSuspendSlider->setSuffix(i18n(" min"));
     m_pSuspendSlider->setSpecialValueText(i18n("Disabled"));
-    connect(m_pSuspendSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotChangeSuspend(int)));
+    connect(m_pSuspendSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotChangeSuspend(int)));
     top->addWidget(m_pSuspendSlider);
     TQWhatsThis::add( m_pSuspendSlider, i18n("Choose the period of inactivity"
        " after which the display should enter \"suspend\" mode. This is the"
@@ -233,7 +233,7 @@ connect(logo, TQT_SIGNAL(leftClickedURL(const TQString&)), TQT_SLOT(openURL(cons
     m_pOffSlider->setRange(0, 120, 10);
     m_pOffSlider->setSuffix(i18n(" min"));
     m_pOffSlider->setSpecialValueText(i18n("Disabled"));
-    connect(m_pOffSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotChangeOff(int)));
+    connect(m_pOffSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotChangeOff(int)));
     top->addWidget(m_pOffSlider);
     TQWhatsThis::add( m_pOffSlider, i18n("Choose the period of inactivity"
        " after which the display should be powered off. This is the"
@@ -247,13 +247,13 @@ connect(logo, TQT_SIGNAL(leftClickedURL(const TQString&)), TQT_SLOT(openURL(cons
         if(m_bKPowersave) {
             TQPushButton* btnKPowersave = new TQPushButton(this);
             btnKPowersave->setText(i18n("Configure KPowersave..."));
-            connect(btnKPowersave, TQT_SIGNAL(clicked()), TQT_SLOT(slotLaunchKPowersave()));
+            connect(btnKPowersave, TQ_SIGNAL(clicked()), TQ_SLOT(slotLaunchKPowersave()));
             top->addWidget(btnKPowersave);
         }
         if(m_bTDEPowersave) {
             TQPushButton* btnTDEPowersave = new TQPushButton(this);
             btnTDEPowersave->setText(i18n("Configure TDEPowersave..."));
-            connect(btnTDEPowersave, TQT_SIGNAL(clicked()), TQT_SLOT(slotLaunchTDEPowersave()));
+            connect(btnTDEPowersave, TQ_SIGNAL(clicked()), TQ_SLOT(slotLaunchTDEPowersave()));
             top->addWidget(btnTDEPowersave);
 		}
     }

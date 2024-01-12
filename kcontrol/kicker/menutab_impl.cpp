@@ -79,12 +79,12 @@ MenuTab::MenuTab( TQWidget *parent, const char* name )
     m_kmenu_button_changed(false)
 {
     // connections
-    connect(m_editKMenuButton, TQT_SIGNAL(clicked()), TQT_SLOT(launchMenuEditor()));
-    connect(btnCustomKMenuIcon, TQT_SIGNAL(clicked()), TQT_SLOT(launchIconEditor()));
-    connect(kcfg_KMenuText, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(kmenuChanged()));
-    connect(kcfg_ShowKMenuText, TQT_SIGNAL(toggled(bool)), TQT_SLOT(kmenuChanged()));
-    //connect(kcfg_ButtonFont, TQT_SIGNAL(fontSelected(const TQFont &)), TQT_SLOT(kmenuChanged()));
-    connect(maxrecentdocs, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(kmenuChanged()));
+    connect(m_editKMenuButton, TQ_SIGNAL(clicked()), TQ_SLOT(launchMenuEditor()));
+    connect(btnCustomKMenuIcon, TQ_SIGNAL(clicked()), TQ_SLOT(launchIconEditor()));
+    connect(kcfg_KMenuText, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(kmenuChanged()));
+    connect(kcfg_ShowKMenuText, TQ_SIGNAL(toggled(bool)), TQ_SLOT(kmenuChanged()));
+    //connect(kcfg_ButtonFont, TQ_SIGNAL(fontSelected(const TQFont &)), TQ_SLOT(kmenuChanged()));
+    connect(maxrecentdocs, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(kmenuChanged()));
 
     // FIXME
     // When top pixmap support is ready for end-user visibility, replace
@@ -129,7 +129,7 @@ void MenuTab::load( bool useDefaults )
                                       TQString::null,
                                       SmallIcon("bookmark"),
                                       c->readBoolEntry("UseBookmarks", false));
-    connect(m_bookmarkMenu, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
+    connect(m_bookmarkMenu, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
 
     // show the quick menus menu?
     m_quickBrowserMenu = new kSubMenuItem(m_subMenus,
@@ -137,7 +137,7 @@ void MenuTab::load( bool useDefaults )
                                           TQString::null,
                                           SmallIcon("kdisknav"),
                                           c->readBoolEntry("UseBrowser", false));
-    connect(m_quickBrowserMenu, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
+    connect(m_quickBrowserMenu, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
 
     TQStringList ext_default;
     ext_default << "prefmenu.desktop" << "systemmenu.desktop";
@@ -156,7 +156,7 @@ void MenuTab::load( bool useDefaults )
                                         *it,
                                         SmallIcon(df.readIcon()),
                                         tqFind(ext.begin(), ext.end(), *it) != ext.end());
-            connect(menuItem, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
+            connect(menuItem, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
         }
     }
 
@@ -165,16 +165,16 @@ void MenuTab::load( bool useDefaults )
     m_openOnHover->setChecked( c->readBoolEntry("OpenOnHover", true) );
     menuStyleChanged();
 
-    connect(m_comboMenuStyle, TQT_SIGNAL(activated(int)), TQT_SIGNAL(changed()));
-    connect(m_comboMenuStyle, TQT_SIGNAL(activated(int)), TQT_SLOT(menuStyleChanged()));
-    connect(m_openOnHover, TQT_SIGNAL(clicked()), TQT_SIGNAL(changed()));
+    connect(m_comboMenuStyle, TQ_SIGNAL(activated(int)), TQ_SIGNAL(changed()));
+    connect(m_comboMenuStyle, TQ_SIGNAL(activated(int)), TQ_SLOT(menuStyleChanged()));
+    connect(m_openOnHover, TQ_SIGNAL(clicked()), TQ_SIGNAL(changed()));
 
     m_showFrequent->setChecked(true);
     
     c->setGroup("KMenu");
     m_searchShortcut->setShortcut(TDEShortcut(c->readEntry("SearchShortcut", "/")), false);
-    connect(m_searchShortcut, TQT_SIGNAL(capturedShortcut(const TDEShortcut&)), TQT_SIGNAL(changed()));
-    connect(m_searchShortcut, TQT_SIGNAL(capturedShortcut(const TDEShortcut&)), TQT_SLOT(setSearchShortcut(const TDEShortcut&)));
+    connect(m_searchShortcut, TQ_SIGNAL(capturedShortcut(const TDEShortcut&)), TQ_SIGNAL(changed()));
+    connect(m_searchShortcut, TQ_SIGNAL(capturedShortcut(const TDEShortcut&)), TQ_SLOT(setSearchShortcut(const TDEShortcut&)));
     
     if ( useDefaults )
        emit changed();

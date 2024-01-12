@@ -52,7 +52,7 @@ Tzone::Tzone(TQWidget * parent, const char *name)
     setTitle(i18n("To change the timezone, select your area from the list below"));
 
     tzonelist = new KTimezoneWidget(this, "ComboBox_1", &m_zoneDb);
-    connect( tzonelist, TQT_SIGNAL(selectionChanged()), TQT_SLOT(handleZoneChange()) );
+    connect( tzonelist, TQ_SIGNAL(selectionChanged()), TQ_SLOT(handleZoneChange()) );
 
     m_local = new TQLabel(this);
 

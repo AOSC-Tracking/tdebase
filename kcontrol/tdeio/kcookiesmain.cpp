@@ -46,7 +46,7 @@ KCookiesMain::KCookiesMain(TQWidget *parent)
     tab->addTab(policies, i18n("&Policy"));
     policiesTabNumber = currentTabNumber;
     currentTabNumber++;
-    connect(policies, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
+    connect(policies, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
 
     if( managerOK )
     {
@@ -54,7 +54,7 @@ KCookiesMain::KCookiesMain(TQWidget *parent)
         tab->addTab(management, i18n("&Management"));
         managementTabNumber = currentTabNumber;
         currentTabNumber++;
-        connect(management, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
+        connect(management, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
     }
 }
 

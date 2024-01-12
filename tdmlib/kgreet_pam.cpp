@@ -127,10 +127,10 @@ KPamGreeter::KPamGreeter( KGreeterPluginHandler *_handler,
 		if (fixedUser.isEmpty()) {
 			loginEdit = new KLineEdit( parent );
 			loginEdit->setContextMenuEnabled( false );
-			connect( loginEdit, TQT_SIGNAL(lostFocus()), TQT_SLOT(slotLoginLostFocus()) );
-			connect( loginEdit, TQT_SIGNAL(lostFocus()), TQT_SLOT(slotActivity()) );
-			connect( loginEdit, TQT_SIGNAL(textChanged( const TQString & )), TQT_SLOT(slotActivity()) );
-			connect( loginEdit, TQT_SIGNAL(selectionChanged()), TQT_SLOT(slotActivity()) );
+			connect( loginEdit, TQ_SIGNAL(lostFocus()), TQ_SLOT(slotLoginLostFocus()) );
+			connect( loginEdit, TQ_SIGNAL(lostFocus()), TQ_SLOT(slotActivity()) );
+			connect( loginEdit, TQ_SIGNAL(textChanged( const TQString & )), TQ_SLOT(slotActivity()) );
+			connect( loginEdit, TQ_SIGNAL(selectionChanged()), TQ_SLOT(slotActivity()) );
 			if (pred) {
 				parent->setTabOrder( pred, loginEdit );
 				pred = loginEdit;
@@ -154,9 +154,9 @@ KPamGreeter::KPamGreeter( KGreeterPluginHandler *_handler,
 		else
 			passwdEdit = new TDMPasswordEdit( echoMode,
 			                                  parent );
-		connect( passwdEdit, TQT_SIGNAL(textChanged( const TQString & )),
-		         TQT_SLOT(slotActivity()) );
-		connect( passwdEdit, TQT_SIGNAL(lostFocus()), TQT_SLOT(slotActivity()) );
+		connect( passwdEdit, TQ_SIGNAL(textChanged( const TQString & )),
+		         TQ_SLOT(slotActivity()) );
+		connect( passwdEdit, TQ_SIGNAL(lostFocus()), TQ_SLOT(slotActivity()) );
 		if (pred) {
 			parent->setTabOrder( pred, passwdEdit );
 			pred = passwdEdit;
@@ -377,7 +377,7 @@ KPamGreeter::textPrompt( const char *prompt, bool echo, bool nonBlocking )
             if (tdmlabel) {
                 //userLabel->setText(TQString::fromUtf8(prompt));
                 tdmlabel->label.text = TQString::fromUtf8(prompt);
-                TQTimer::singleShot(0, tdmlabel, TQT_SLOT(update()));
+                TQTimer::singleShot(0, tdmlabel, TQ_SLOT(update()));
             }
         }
     }
@@ -395,7 +395,7 @@ KPamGreeter::textPrompt( const char *prompt, bool echo, bool nonBlocking )
                 //userLabel->setText(TQString::fromUtf8(prompt));
                 TQString str = TQString::fromUtf8(prompt);
                 tdmlabel->label.text = str;
-                TQTimer::singleShot(0, tdmlabel, TQT_SLOT(update()));
+                TQTimer::singleShot(0, tdmlabel, TQ_SLOT(update()));
             }
         }
 
@@ -405,9 +405,9 @@ KPamGreeter::textPrompt( const char *prompt, bool echo, bool nonBlocking )
 	    passwdEdit = new TDMPasswordEdit( m_parentWidget );
 	else
 	    passwdEdit = new TDMPasswordEdit( echoMode, m_parentWidget);
-	connect( passwdEdit, TQT_SIGNAL(textChanged( const TQString & )),
-		TQT_SLOT(slotActivity()) );
-	connect( passwdEdit, TQT_SIGNAL(lostFocus()), TQT_SLOT(slotActivity()) );
+	connect( passwdEdit, TQ_SIGNAL(textChanged( const TQString & )),
+		TQ_SLOT(slotActivity()) );
+	connect( passwdEdit, TQ_SIGNAL(lostFocus()), TQ_SLOT(slotActivity()) );
 	authEdit << passwdEdit;
 
 #if 1
@@ -435,7 +435,7 @@ KPamGreeter::textPrompt( const char *prompt, bool echo, bool nonBlocking )
            if (0) {
                 //userLabel->setText(TQString::fromUtf8(prompt));
                 //tdmlabel->label.text = TQString::fromUtf8(prompt);
-                //TQTimer::singleShot(0, tdmlabel, TQT_SLOT(update()));
+                //TQTimer::singleShot(0, tdmlabel, TQ_SLOT(update()));
            }
        } 
        else

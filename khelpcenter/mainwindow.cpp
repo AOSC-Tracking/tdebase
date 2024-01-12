@@ -91,36 +91,36 @@ MainWindow::MainWindow()
     mSplitter = new TQSplitter( this );
 
     mDoc = new View( mSplitter, 0, this, 0, TDEHTMLPart::DefaultGUI, actionCollection() );
-    connect( mDoc, TQT_SIGNAL( setWindowCaption( const TQString & ) ),
-             TQT_SLOT( setCaption( const TQString & ) ) );
-    connect( mDoc, TQT_SIGNAL( setStatusBarText( const TQString & ) ),
-             TQT_SLOT( statusBarMessage( const TQString & ) ) );
-    connect( mDoc, TQT_SIGNAL( onURL( const TQString & ) ),
-             TQT_SLOT( statusBarMessage( const TQString & ) ) );
-    connect( mDoc, TQT_SIGNAL( started( TDEIO::Job * ) ),
-             TQT_SLOT( slotStarted( TDEIO::Job * ) ) );
-    connect( mDoc, TQT_SIGNAL( completed() ),
-             TQT_SLOT( documentCompleted() ) );
-    connect( mDoc, TQT_SIGNAL( searchResultCacheAvailable() ),
-             TQT_SLOT( enableLastSearchAction() ) );
+    connect( mDoc, TQ_SIGNAL( setWindowCaption( const TQString & ) ),
+             TQ_SLOT( setCaption( const TQString & ) ) );
+    connect( mDoc, TQ_SIGNAL( setStatusBarText( const TQString & ) ),
+             TQ_SLOT( statusBarMessage( const TQString & ) ) );
+    connect( mDoc, TQ_SIGNAL( onURL( const TQString & ) ),
+             TQ_SLOT( statusBarMessage( const TQString & ) ) );
+    connect( mDoc, TQ_SIGNAL( started( TDEIO::Job * ) ),
+             TQ_SLOT( slotStarted( TDEIO::Job * ) ) );
+    connect( mDoc, TQ_SIGNAL( completed() ),
+             TQ_SLOT( documentCompleted() ) );
+    connect( mDoc, TQ_SIGNAL( searchResultCacheAvailable() ),
+             TQ_SLOT( enableLastSearchAction() ) );
 
-    connect( mDoc, TQT_SIGNAL( selectionChanged() ),
-             TQT_SLOT( enableCopyTextAction() ) );
+    connect( mDoc, TQ_SIGNAL( selectionChanged() ),
+             TQ_SLOT( enableCopyTextAction() ) );
 
     statusBar()->insertItem(i18n("Preparing Index"), 0, 1);
     statusBar()->setItemAlignment(0, AlignLeft | AlignVCenter);
 
     connect( mDoc->browserExtension(),
-             TQT_SIGNAL( openURLRequest( const KURL &,
+             TQ_SIGNAL( openURLRequest( const KURL &,
                                      const KParts::URLArgs & ) ),
-             TQT_SLOT( slotOpenURLRequest( const KURL &,
+             TQ_SLOT( slotOpenURLRequest( const KURL &,
                                        const KParts::URLArgs & ) ) );
 
     mNavigator = new Navigator( mDoc, mSplitter, "nav" );
-    connect( mNavigator, TQT_SIGNAL( itemSelected( const TQString & ) ),
-             TQT_SLOT( viewUrl( const TQString & ) ) );
-    connect( mNavigator, TQT_SIGNAL( glossSelected( const GlossaryEntry & ) ),
-             TQT_SLOT( slotGlossSelected( const GlossaryEntry & ) ) );
+    connect( mNavigator, TQ_SIGNAL( itemSelected( const TQString & ) ),
+             TQ_SLOT( viewUrl( const TQString & ) ) );
+    connect( mNavigator, TQ_SIGNAL( glossSelected( const GlossaryEntry & ) ),
+             TQ_SLOT( slotGlossSelected( const GlossaryEntry & ) ) );
 
     mSplitter->moveToFirst(mNavigator);
     mSplitter->setResizeMode(mNavigator, TQSplitter::KeepSize);
@@ -150,10 +150,10 @@ MainWindow::MainWindow()
 
     History::self().installMenuBarHook( this );
 
-    connect( &History::self(), TQT_SIGNAL( goInternalUrl( const KURL & ) ),
-             mNavigator, TQT_SLOT( openInternalUrl( const KURL & ) ) );
-    connect( &History::self(), TQT_SIGNAL( goUrl( const KURL & ) ),
-             mNavigator, TQT_SLOT( selectItem( const KURL & ) ) );
+    connect( &History::self(), TQ_SIGNAL( goInternalUrl( const KURL & ) ),
+             mNavigator, TQ_SLOT( openInternalUrl( const KURL & ) ) );
+    connect( &History::self(), TQ_SIGNAL( goUrl( const KURL & ) ),
+             mNavigator, TQ_SLOT( selectItem( const KURL & ) ) );
 
     statusBarMessage(i18n("Ready"));
     enableCopyTextAction();
@@ -208,48 +208,48 @@ void MainWindow::writeConfig()
 
 void MainWindow::setupActions()
 {
-    KStdAction::quit( this, TQT_SLOT( close() ), actionCollection() );
-    KStdAction::print( this, TQT_SLOT( print() ), actionCollection(),
+    KStdAction::quit( this, TQ_SLOT( close() ), actionCollection() );
+    KStdAction::print( this, TQ_SLOT( print() ), actionCollection(),
                        "printFrame" );
 
-    TDEAction *prevPage  = new TDEAction( i18n( "Previous Page" ), CTRL+Key_PageUp, mDoc, TQT_SLOT( prevPage() ),
+    TDEAction *prevPage  = new TDEAction( i18n( "Previous Page" ), CTRL+Key_PageUp, mDoc, TQ_SLOT( prevPage() ),
                          actionCollection(), "prevPage" );
     prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
 
-    TDEAction *nextPage  = new TDEAction( i18n( "Next Page" ), CTRL + Key_PageDown, mDoc, TQT_SLOT( nextPage() ),
+    TDEAction *nextPage  = new TDEAction( i18n( "Next Page" ), CTRL + Key_PageDown, mDoc, TQ_SLOT( nextPage() ),
                          actionCollection(), "nextPage" );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
 
-    TDEAction *home = KStdAction::home( this, TQT_SLOT( slotShowHome() ), actionCollection() );
+    TDEAction *home = KStdAction::home( this, TQ_SLOT( slotShowHome() ), actionCollection() );
     home->setText(i18n("Table of &Contents"));
     home->setToolTip(i18n("Table of contents"));
     home->setWhatsThis(i18n("Go back to the table of contents"));
 
-    mCopyText = KStdAction::copy( this, TQT_SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
+    mCopyText = KStdAction::copy( this, TQ_SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
 
     mLastSearchAction = new TDEAction( i18n("&Last Search Result"), 0, this,
-                                     TQT_SLOT( slotLastSearch() ),
+                                     TQ_SLOT( slotLastSearch() ),
                                      actionCollection(), "lastsearch" );
     mLastSearchAction->setEnabled( false );
 
     new TDEAction( i18n("Build Search Index..."), 0, mNavigator,
-      TQT_SLOT( showIndexDialog() ), actionCollection(), "build_index" );
-    KStdAction::keyBindings( guiFactory(), TQT_SLOT( configureShortcuts() ),
+      TQ_SLOT( showIndexDialog() ), actionCollection(), "build_index" );
+    KStdAction::keyBindings( guiFactory(), TQ_SLOT( configureShortcuts() ),
       actionCollection() );
 
     TDEConfig *cfg = TDEGlobal::config();
     cfg->setGroup( "Debug" );
     if ( cfg->readBoolEntry( "SearchErrorLog", false ) ) {
       new TDEAction( i18n("Show Search Error Log"), 0, this,
-                   TQT_SLOT( showSearchStderr() ), actionCollection(),
+                   TQ_SLOT( showSearchStderr() ), actionCollection(),
                    "show_search_stderr" );
     }
 
     History::self().setupActions( actionCollection() );
 
-    new TDEAction( i18n( "Configure Fonts..." ), TDEShortcut(), this, TQT_SLOT( slotConfigureFonts() ), actionCollection(), "configure_fonts" );
-    new TDEAction( i18n( "Increase Font Sizes" ), "zoom-in", TDEShortcut(), this, TQT_SLOT( slotIncFontSizes() ), actionCollection(), "incFontSizes" );
-    new TDEAction( i18n( "Decrease Font Sizes" ), "zoom-out", TDEShortcut(), this, TQT_SLOT( slotDecFontSizes() ), actionCollection(), "decFontSizes" );
+    new TDEAction( i18n( "Configure Fonts..." ), TDEShortcut(), this, TQ_SLOT( slotConfigureFonts() ), actionCollection(), "configure_fonts" );
+    new TDEAction( i18n( "Increase Font Sizes" ), "zoom-in", TDEShortcut(), this, TQ_SLOT( slotIncFontSizes() ), actionCollection(), "incFontSizes" );
+    new TDEAction( i18n( "Decrease Font Sizes" ), "zoom-out", TDEShortcut(), this, TQ_SLOT( slotDecFontSizes() ), actionCollection(), "decFontSizes" );
 }
 
 void MainWindow::slotCopySelectedText()
@@ -265,8 +265,8 @@ void MainWindow::print()
 void MainWindow::slotStarted(TDEIO::Job *job)
 {
     if (job)
-       connect(job, TQT_SIGNAL(infoMessage( TDEIO::Job *, const TQString &)),
-               TQT_SLOT(slotInfoMessage(TDEIO::Job *, const TQString &)));
+       connect(job, TQ_SIGNAL(infoMessage( TDEIO::Job *, const TQString &)),
+               TQ_SLOT(slotInfoMessage(TDEIO::Job *, const TQString &)));
 
     History::self().updateActions();
 }

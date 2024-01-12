@@ -97,8 +97,8 @@ KasBarExtension::KasBarExtension( const TQString& configFile,
 //    setBackgroundMode( NoBackground );
     kasbar = new KasTasker( orientation(), this, name );
 
-    connect( kasbar, TQT_SIGNAL( layoutChanged() ), this, TQT_SIGNAL( updateLayout() ) );
-    connect( kasbar, TQT_SIGNAL( detachedChanged(bool) ), this, TQT_SLOT( setDetached(bool) ) );
+    connect( kasbar, TQ_SIGNAL( layoutChanged() ), this, TQ_SIGNAL( updateLayout() ) );
+    connect( kasbar, TQ_SIGNAL( detachedChanged(bool) ), this, TQ_SLOT( setDetached(bool) ) );
 
     kasbar->setConfig( config() );
     kasbar->readConfig();

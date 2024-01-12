@@ -78,61 +78,61 @@ KonqFrameTabs::KonqFrameTabs(TQWidget* parent, KonqFrameContainerBase* parentCon
   m_pActiveChild = 0L;
   m_pViewManager = viewManager;
 
-  connect( this, TQT_SIGNAL( currentChanged ( TQWidget * ) ),
-           this, TQT_SLOT( slotCurrentChanged( TQWidget* ) ) );
+  connect( this, TQ_SIGNAL( currentChanged ( TQWidget * ) ),
+           this, TQ_SLOT( slotCurrentChanged( TQWidget* ) ) );
 
   m_pPopupMenu = new TQPopupMenu( this );
   m_pPopupMenu->insertItem( SmallIcon( "tab_new" ),
                             i18n("&New Tab"),
                             m_pViewManager->mainWindow(),
-                            TQT_SLOT( slotAddTab() ),
+                            TQ_SLOT( slotAddTab() ),
                             m_pViewManager->mainWindow()->action("newtab")->shortcut() );
   m_pPopupMenu->insertItem( SmallIconSet( "reload" ),
                             i18n( "&Reload Tab" ),
                             m_pViewManager->mainWindow(),
-                            TQT_SLOT( slotReloadPopup() ),
+                            TQ_SLOT( slotReloadPopup() ),
                             m_pViewManager->mainWindow()->action("reload")->shortcut(), RELOAD_ID );
   m_pPopupMenu->insertItem( SmallIconSet( "tab_duplicate" ),
                             i18n("&Duplicate Tab"),
                             m_pViewManager->mainWindow(),
-                            TQT_SLOT( slotDuplicateTabPopup() ),
+                            TQ_SLOT( slotDuplicateTabPopup() ),
                             m_pViewManager->mainWindow()->action("duplicatecurrenttab")->shortcut(),
                             DUPLICATE_ID );
   m_pPopupMenu->insertItem( SmallIconSet( "tab_breakoff" ),
                             i18n("D&etach Tab"),
                             m_pViewManager->mainWindow(),
-                            TQT_SLOT( slotBreakOffTabPopup() ),
+                            TQ_SLOT( slotBreakOffTabPopup() ),
                             m_pViewManager->mainWindow()->action("breakoffcurrenttab")->shortcut(),
                             BREAKOFF_ID );
   m_pPopupMenu->insertSeparator();
   m_pPopupMenu->insertItem( SmallIconSet( "tab_move_left" ),
                             i18n("Move Tab &Left"),
                             m_pViewManager->mainWindow(),
-                            TQT_SLOT( slotMoveTabLeft() ),
+                            TQ_SLOT( slotMoveTabLeft() ),
                             m_pViewManager->mainWindow()->action("tab_move_left")->shortcut(),
                             MOVE_LEFT_ID );
   m_pPopupMenu->insertItem( SmallIconSet( "tab_move_right" ),
                             i18n("Move Tab &Right"),
                             m_pViewManager->mainWindow(),
-                            TQT_SLOT( slotMoveTabRight() ),
+                            TQ_SLOT( slotMoveTabRight() ),
                             m_pViewManager->mainWindow()->action("tab_move_right")->shortcut(),
                             MOVE_RIGHT_ID );
   m_pPopupMenu->insertSeparator();
   m_pSubPopupMenuTab = new TQPopupMenu( this );
   m_pPopupMenu->insertItem( i18n("Other Tabs" ), m_pSubPopupMenuTab, OTHERTABS_ID );
-  connect( m_pSubPopupMenuTab, TQT_SIGNAL( activated ( int ) ),
-           this, TQT_SLOT( slotSubPopupMenuTabActivated( int ) ) );
+  connect( m_pSubPopupMenuTab, TQ_SIGNAL( activated ( int ) ),
+           this, TQ_SLOT( slotSubPopupMenuTabActivated( int ) ) );
   m_pPopupMenu->insertSeparator();
   m_pPopupMenu->insertItem( SmallIconSet( "tab_remove" ),
                             i18n("&Close Tab"),
                             m_pViewManager->mainWindow(),
-                            TQT_SLOT( slotRemoveTabPopup() ),
+                            TQ_SLOT( slotRemoveTabPopup() ),
                             m_pViewManager->mainWindow()->action("removecurrenttab")->shortcut(),
                             CLOSETAB_ID );
-  connect( this, TQT_SIGNAL( contextMenu( TQWidget *, const TQPoint & ) ),
-           TQT_SLOT(slotContextMenu( TQWidget *, const TQPoint & ) ) );
-  connect( this, TQT_SIGNAL( contextMenu( const TQPoint & ) ),
-           TQT_SLOT(slotContextMenu( const TQPoint & ) ) );
+  connect( this, TQ_SIGNAL( contextMenu( TQWidget *, const TQPoint & ) ),
+           TQ_SLOT(slotContextMenu( TQWidget *, const TQPoint & ) ) );
+  connect( this, TQ_SIGNAL( contextMenu( const TQPoint & ) ),
+           TQ_SLOT(slotContextMenu( const TQPoint & ) ) );
 
   m_MouseMiddleClickClosesTab = KonqSettings::mouseMiddleClickClosesTab();
 
@@ -146,14 +146,14 @@ KonqFrameTabs::KonqFrameTabs(TQWidget* parent, KonqFrameContainerBase* parentCon
   setTabCloseActivatePrevious( KonqSettings::tabCloseActivatePrevious() );
   if (KonqSettings::tabPosition()=="Bottom")
     setTabPosition(TQTabWidget::Bottom);
-  connect( this, TQT_SIGNAL( closeRequest( TQWidget * )), TQT_SLOT(slotCloseRequest( TQWidget * )));
-  connect( this, TQT_SIGNAL( removeTabPopup() ),
-           m_pViewManager->mainWindow(), TQT_SLOT( slotRemoveTabPopup() ) );
+  connect( this, TQ_SIGNAL( closeRequest( TQWidget * )), TQ_SLOT(slotCloseRequest( TQWidget * )));
+  connect( this, TQ_SIGNAL( removeTabPopup() ),
+           m_pViewManager->mainWindow(), TQ_SLOT( slotRemoveTabPopup() ) );
 
   if ( KonqSettings::addTabButton() ) {
     m_leftWidget = new TQToolButton( this );
-    connect( m_leftWidget, TQT_SIGNAL( clicked() ),
-             m_pViewManager->mainWindow(), TQT_SLOT( slotAddTab() ) );
+    connect( m_leftWidget, TQ_SIGNAL( clicked() ),
+             m_pViewManager->mainWindow(), TQ_SLOT( slotAddTab() ) );
     m_leftWidget->setIconSet( SmallIcon( "tab_new" ) );
     m_leftWidget->adjustSize();
     TQToolTip::add(m_leftWidget, i18n("Open a new tab"));
@@ -161,8 +161,8 @@ KonqFrameTabs::KonqFrameTabs(TQWidget* parent, KonqFrameContainerBase* parentCon
   }
   if ( KonqSettings::closeTabButton() ) {
     m_rightWidget = new TQToolButton( this );
-    connect( m_rightWidget, TQT_SIGNAL( clicked() ),
-             m_pViewManager->mainWindow(), TQT_SLOT( slotRemoveTab() ) );
+    connect( m_rightWidget, TQ_SIGNAL( clicked() ),
+             m_pViewManager->mainWindow(), TQ_SLOT( slotRemoveTab() ) );
     m_rightWidget->setIconSet( SmallIconSet( "tab_remove" ) );
     m_rightWidget->adjustSize();
     TQToolTip::add(m_rightWidget, i18n("Close the current tab"));
@@ -171,23 +171,23 @@ KonqFrameTabs::KonqFrameTabs(TQWidget* parent, KonqFrameContainerBase* parentCon
 
   setAutomaticResizeTabs( true );
   setTabReorderingEnabled( true );
-  connect( this, TQT_SIGNAL( movedTab( int, int ) ),
-           TQT_SLOT( slotMovedTab( int, int ) ) );
-  connect( this, TQT_SIGNAL( mouseMiddleClick() ),
-           TQT_SLOT( slotMouseMiddleClick() ) );
-  connect( this, TQT_SIGNAL( mouseMiddleClick( TQWidget * ) ),
-           TQT_SLOT( slotMouseMiddleClick( TQWidget * ) ) );
-  connect( this, TQT_SIGNAL( mouseDoubleClick() ),
-           m_pViewManager->mainWindow(), TQT_SLOT( slotAddTab() ) );
+  connect( this, TQ_SIGNAL( movedTab( int, int ) ),
+           TQ_SLOT( slotMovedTab( int, int ) ) );
+  connect( this, TQ_SIGNAL( mouseMiddleClick() ),
+           TQ_SLOT( slotMouseMiddleClick() ) );
+  connect( this, TQ_SIGNAL( mouseMiddleClick( TQWidget * ) ),
+           TQ_SLOT( slotMouseMiddleClick( TQWidget * ) ) );
+  connect( this, TQ_SIGNAL( mouseDoubleClick() ),
+           m_pViewManager->mainWindow(), TQ_SLOT( slotAddTab() ) );
 
-  connect( this, TQT_SIGNAL( testCanDecode(const TQDragMoveEvent *, bool & )),
-           TQT_SLOT( slotTestCanDecode(const TQDragMoveEvent *, bool & ) ) );
-  connect( this, TQT_SIGNAL( receivedDropEvent( TQDropEvent * )),
-           TQT_SLOT( slotReceivedDropEvent( TQDropEvent * ) ) );
-  connect( this, TQT_SIGNAL( receivedDropEvent( TQWidget *, TQDropEvent * )),
-           TQT_SLOT( slotReceivedDropEvent( TQWidget *, TQDropEvent * ) ) );
-  connect( this, TQT_SIGNAL( initiateDrag( TQWidget * )),
-           TQT_SLOT( slotInitiateDrag( TQWidget * ) ) );
+  connect( this, TQ_SIGNAL( testCanDecode(const TQDragMoveEvent *, bool & )),
+           TQ_SLOT( slotTestCanDecode(const TQDragMoveEvent *, bool & ) ) );
+  connect( this, TQ_SIGNAL( receivedDropEvent( TQDropEvent * )),
+           TQ_SLOT( slotReceivedDropEvent( TQDropEvent * ) ) );
+  connect( this, TQ_SIGNAL( receivedDropEvent( TQWidget *, TQDropEvent * )),
+           TQ_SLOT( slotReceivedDropEvent( TQWidget *, TQDropEvent * ) ) );
+  connect( this, TQ_SIGNAL( initiateDrag( TQWidget * )),
+           TQ_SLOT( slotInitiateDrag( TQWidget * ) ) );
 
   setMouseWheelScroll(KonqSettings::tabsCycleWheel());
 }
@@ -466,7 +466,7 @@ void KonqFrameTabs::refreshSubPopupMenuTab()
     m_pSubPopupMenuTab->insertItem( SmallIcon( "reload_all_tabs" ),
                                     i18n( "&Reload All Tabs" ),
                                     m_pViewManager->mainWindow(),
-                                    TQT_SLOT( slotReloadAllTabs() ),
+                                    TQ_SLOT( slotReloadAllTabs() ),
                                     m_pViewManager->mainWindow()->action("reload_all_tabs")->shortcut() );
     m_pSubPopupMenuTab->insertSeparator();
     for (KonqFrameBase* it = m_pChildFrameList->first(); it; it = m_pChildFrameList->next())
@@ -488,7 +488,7 @@ void KonqFrameTabs::refreshSubPopupMenuTab()
       m_pSubPopupMenuTab->insertItem( SmallIconSet( "tab_remove_other" ),
 				      i18n( "Close &Other Tabs" ),
 				      m_pViewManager->mainWindow(),
-				      TQT_SLOT( slotRemoveOtherTabsPopup() ),
+				      TQ_SLOT( slotRemoveOtherTabsPopup() ),
 				      m_pViewManager->mainWindow()->action("removeothertabs")->shortcut() );
 }
 

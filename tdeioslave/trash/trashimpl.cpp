@@ -374,8 +374,8 @@ bool TrashImpl::move( const TQString& src, const TQString& dest )
 #ifdef TDEIO_COPYJOB_HAS_SETINTERACTIVE
     job->setInteractive( false );
 #endif
-    connect( job, TQT_SIGNAL( result(TDEIO::Job *) ),
-             this, TQT_SLOT( jobFinished(TDEIO::Job *) ) );
+    connect( job, TQ_SIGNAL( result(TDEIO::Job *) ),
+             this, TQ_SLOT( jobFinished(TDEIO::Job *) ) );
     tqApp->eventLoop()->enterLoop();
 
     return m_lastErrorCode == 0;
@@ -424,8 +424,8 @@ bool TrashImpl::copy( const TQString& src, const TQString& dest )
 #ifdef TDEIO_COPYJOB_HAS_SETINTERACTIVE
     job->setInteractive( false );
 #endif
-    connect( job, TQT_SIGNAL( result( TDEIO::Job* ) ),
-             this, TQT_SLOT( jobFinished( TDEIO::Job* ) ) );
+    connect( job, TQ_SIGNAL( result( TDEIO::Job* ) ),
+             this, TQ_SLOT( jobFinished( TDEIO::Job* ) ) );
     tqApp->eventLoop()->enterLoop();
 
     return m_lastErrorCode == 0;
@@ -513,15 +513,15 @@ bool TrashImpl::synchronousDel( const TQString& path, bool setLastErrorCode, boo
         KFileItemList fileItemList;
         fileItemList.append( &fileItem );
         TDEIO::ChmodJob* chmodJob = TDEIO::chmod( fileItemList, 0200, 0200, TQString::null, TQString::null, true /*recursive*/, false /*showProgressInfo*/ );
-        connect( chmodJob, TQT_SIGNAL( result(TDEIO::Job *) ),
-                 this, TQT_SLOT( jobFinished(TDEIO::Job *) ) );
+        connect( chmodJob, TQ_SIGNAL( result(TDEIO::Job *) ),
+                 this, TQ_SLOT( jobFinished(TDEIO::Job *) ) );
         tqApp->eventLoop()->enterLoop();
     }
 
     kdDebug() << k_funcinfo << "deleting " << url << endl;
     TDEIO::DeleteJob *job = TDEIO::del( url, false, false );
-    connect( job, TQT_SIGNAL( result(TDEIO::Job *) ),
-             this, TQT_SLOT( jobFinished(TDEIO::Job *) ) );
+    connect( job, TQ_SIGNAL( result(TDEIO::Job *) ),
+             this, TQ_SLOT( jobFinished(TDEIO::Job *) ) );
     tqApp->eventLoop()->enterLoop();
     bool ok = m_lastErrorCode == 0;
     if ( !setLastErrorCode ) {

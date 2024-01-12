@@ -96,11 +96,11 @@ KWrite::KWrite (KTextEditor::Document *doc)
 
   setAcceptDrops(true);
 
-  connect(m_view,TQT_SIGNAL(newStatus()),this,TQT_SLOT(newCaption()));
-  connect(m_view,TQT_SIGNAL(viewStatusMsg(const TQString &)),this,TQT_SLOT(newStatus(const TQString &)));
-  connect(m_view->document(),TQT_SIGNAL(fileNameChanged()),this,TQT_SLOT(newCaption()));
-  connect(m_view->document(),TQT_SIGNAL(fileNameChanged()),this,TQT_SLOT(slotFileNameChanged()));
-  connect(m_view,TQT_SIGNAL(dropEventPass(TQDropEvent *)),this,TQT_SLOT(slotDropEvent(TQDropEvent *)));
+  connect(m_view,TQ_SIGNAL(newStatus()),this,TQ_SLOT(newCaption()));
+  connect(m_view,TQ_SIGNAL(viewStatusMsg(const TQString &)),this,TQ_SLOT(newStatus(const TQString &)));
+  connect(m_view->document(),TQ_SIGNAL(fileNameChanged()),this,TQ_SLOT(newCaption()));
+  connect(m_view->document(),TQ_SIGNAL(fileNameChanged()),this,TQ_SLOT(slotFileNameChanged()));
+  connect(m_view,TQ_SIGNAL(dropEventPass(TQDropEvent *)),this,TQ_SLOT(slotDropEvent(TQDropEvent *)));
 
   setXMLFile( "kwriteui.rc" );
   createShellGUI( true );
@@ -139,41 +139,41 @@ KWrite::~KWrite()
 
 void KWrite::setupActions()
 {
-  KStdAction::close( this, TQT_SLOT(slotFlush()), actionCollection(), "file_close" )->setWhatsThis(i18n("Use this to close the current document"));
+  KStdAction::close( this, TQ_SLOT(slotFlush()), actionCollection(), "file_close" )->setWhatsThis(i18n("Use this to close the current document"));
 
   // setup File menu
-  KStdAction::print(this, TQT_SLOT(printDlg()), actionCollection())->setWhatsThis(i18n("Use this command to print the current document"));
-  KStdAction::openNew( this, TQT_SLOT(slotNew()), actionCollection(), "file_new" )->setWhatsThis(i18n("Use this command to create a new document"));
-  KStdAction::open( this, TQT_SLOT( slotOpen() ), actionCollection(), "file_open" )->setWhatsThis(i18n("Use this command to open an existing document for editing"));
+  KStdAction::print(this, TQ_SLOT(printDlg()), actionCollection())->setWhatsThis(i18n("Use this command to print the current document"));
+  KStdAction::openNew( this, TQ_SLOT(slotNew()), actionCollection(), "file_new" )->setWhatsThis(i18n("Use this command to create a new document"));
+  KStdAction::open( this, TQ_SLOT( slotOpen() ), actionCollection(), "file_open" )->setWhatsThis(i18n("Use this command to open an existing document for editing"));
 
-  m_recentFiles = KStdAction::openRecent(this, TQT_SLOT(slotOpen(const KURL&)),
+  m_recentFiles = KStdAction::openRecent(this, TQ_SLOT(slotOpen(const KURL&)),
                                          actionCollection());
   m_recentFiles->setWhatsThis(i18n("This lists files which you have opened recently, and allows you to easily open them again."));
 
-  TDEAction *a=new TDEAction(i18n("&New Window"), "window-new", 0, this, TQT_SLOT(newView()),
+  TDEAction *a=new TDEAction(i18n("&New Window"), "window-new", 0, this, TQ_SLOT(newView()),
               actionCollection(), "view_new_view");
   a->setWhatsThis(i18n("Create another view containing the current document"));
 
-  a=new TDEAction(i18n("Choose Editor Component..."),0,this,TQT_SLOT(changeEditor()),
+  a=new TDEAction(i18n("Choose Editor Component..."),0,this,TQ_SLOT(changeEditor()),
 		actionCollection(),"settings_choose_editor");
   a->setWhatsThis(i18n("Override the system wide setting for the default editing component"));
 
-  KStdAction::quit(this, TQT_SLOT(close()), actionCollection())->setWhatsThis(i18n("Close the current document view"));
+  KStdAction::quit(this, TQ_SLOT(close()), actionCollection())->setWhatsThis(i18n("Close the current document view"));
 
   // setup Settings menu
   setStandardToolBarMenuEnabled(true);
 
-  m_paShowStatusBar = KStdAction::showStatusbar(this, TQT_SLOT(toggleStatusBar()), actionCollection(), "settings_show_statusbar");
+  m_paShowStatusBar = KStdAction::showStatusbar(this, TQ_SLOT(toggleStatusBar()), actionCollection(), "settings_show_statusbar");
   m_paShowStatusBar->setWhatsThis(i18n("Use this command to show or hide the view's statusbar"));
 
-  m_paShowPath = new TDEToggleAction(i18n("Sho&w Path"), 0, this, TQT_SLOT(newCaption()),
+  m_paShowPath = new TDEToggleAction(i18n("Sho&w Path"), 0, this, TQ_SLOT(newCaption()),
                     actionCollection(), "set_showPath");
   m_paShowPath->setCheckedState(i18n("Hide Path"));
   m_paShowPath->setWhatsThis(i18n("Show the complete document path in the window caption"));
-  a=KStdAction::keyBindings(this, TQT_SLOT(editKeys()), actionCollection());
+  a=KStdAction::keyBindings(this, TQ_SLOT(editKeys()), actionCollection());
   a->setWhatsThis(i18n("Configure the application's keyboard shortcut assignments."));
 
-  a=KStdAction::configureToolbars(this, TQT_SLOT(editToolbars()), actionCollection());
+  a=KStdAction::configureToolbars(this, TQ_SLOT(editToolbars()), actionCollection());
   a->setWhatsThis(i18n("Configure which items should appear in the toolbar(s)."));
 }
 
@@ -299,7 +299,7 @@ void KWrite::editToolbars()
 {
   saveMainWindowSettings( kapp->config(), "MainWindow" );
   KEditToolbar *dlg = new KEditToolbar(guiFactory());
-  connect( dlg, TQT_SIGNAL(newToolbarConfig()), this, TQT_SLOT(slotNewToolbarConfig()) );
+  connect( dlg, TQ_SIGNAL(newToolbarConfig()), this, TQ_SLOT(slotNewToolbarConfig()) );
   dlg->exec();
   delete dlg;
 }

@@ -134,12 +134,12 @@ SaverEngine::SaverEngine()
 	m_helperThread->start();
 	m_threadHelperObject = new SaverEngineThreadHelperObject;
 	m_threadHelperObject->moveToThread(m_helperThread);
-	connect(this, TQT_SIGNAL(terminateHelperThread()), m_threadHelperObject, TQT_SLOT(terminateThread()));
-	connect(m_threadHelperObject, TQT_SIGNAL(lockProcessWaiting()), this, TQT_SLOT(lockProcessWaiting()));
-	connect(m_threadHelperObject, TQT_SIGNAL(lockProcessFullyActivated()), this, TQT_SLOT(lockProcessFullyActivated()));
+	connect(this, TQ_SIGNAL(terminateHelperThread()), m_threadHelperObject, TQ_SLOT(terminateThread()));
+	connect(m_threadHelperObject, TQ_SIGNAL(lockProcessWaiting()), this, TQ_SLOT(lockProcessWaiting()));
+	connect(m_threadHelperObject, TQ_SIGNAL(lockProcessFullyActivated()), this, TQ_SLOT(lockProcessFullyActivated()));
 
-	connect(&mLockProcess, TQT_SIGNAL(processExited(TDEProcess *)),
-						TQT_SLOT(lockProcessExited()));
+	connect(&mLockProcess, TQ_SIGNAL(processExited(TDEProcess *)),
+						TQ_SLOT(lockProcessExited()));
 
 	configure();
 
@@ -160,8 +160,8 @@ SaverEngine::SaverEngine()
 	if (useSAKProcess) {
 		mSAKProcess = new TDEProcess;
 		*mSAKProcess << "tdmtsak";
-		connect(mSAKProcess, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(slotSAKProcessExited()));
-		TQTimer::singleShot( 0, this, TQT_SLOT(handleSecureDialog()) );
+		connect(mSAKProcess, TQ_SIGNAL(processExited(TDEProcess*)), this, TQ_SLOT(slotSAKProcessExited()));
+		TQTimer::singleShot( 0, this, TQ_SLOT(handleSecureDialog()) );
 	}
 
 	mLockProcess.clearArguments();
@@ -207,8 +207,8 @@ SaverEngine::SaverEngine()
 	TDEGenericHardwareList cardReaderList = hwdevices->listByDeviceClass(TDEGenericDeviceType::CryptographicCard);
 	for (hwdevice = cardReaderList.first(); hwdevice; hwdevice = cardReaderList.next()) {
 		TDECryptographicCardDevice* cdevice = static_cast<TDECryptographicCardDevice*>(hwdevice);
-		connect(cdevice, TQT_SIGNAL(certificateListAvailable(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardInserted(TDECryptographicCardDevice*)));
-		connect(cdevice, TQT_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
+		connect(cdevice, TQ_SIGNAL(certificateListAvailable(TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardInserted(TDECryptographicCardDevice*)));
+		connect(cdevice, TQ_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
 		cdevice->enableCardMonitoring(true);
 	}
 
@@ -220,7 +220,7 @@ SaverEngine::SaverEngine()
 		TQTextStream stream(&flagFile);
 		if (stream.readLine().startsWith("1")) {
 			// Card was likely used to log in
-			TQTimer::singleShot(5000, this, SLOT(cardStartupTimeout()));
+			TQTimer::singleShot(5000, this, TQ_SLOT(cardStartupTimeout()));
 		}
 		flagFile.close();
 	}
@@ -409,7 +409,7 @@ bool SaverEngine::enable( bool e )
 	if (mEnabled) {
 		if ( !mXAutoLock ) {
 			mXAutoLock = new XAutoLock();
-			connect(mXAutoLock, TQT_SIGNAL(timeout()), TQT_SLOT(idleTimeout()));
+			connect(mXAutoLock, TQ_SIGNAL(timeout()), TQ_SLOT(idleTimeout()));
 		}
 		mXAutoLock->setTimeout(mTimeout);
 		mXAutoLock->setDPMS(true);
@@ -702,7 +702,7 @@ void SaverEngine::lockProcessExited()
 		// PROBABLE HACKING ATTEMPT DETECTED
 		restartDesktopLockProcess();
 		mState = Waiting;
-		TQTimer::singleShot( 100, this, SLOT(recoverFromHackingAttempt()) );
+		TQTimer::singleShot( 100, this, TQ_SLOT(recoverFromHackingAttempt()) );
 	}
 	else {
 		// Restart the lock process
@@ -849,19 +849,19 @@ bool SaverEngine::dBusConnect() {
 	dBusConn = TQT_DBusConnection::addConnection(TQT_DBusConnection::SystemBus, DBUS_CONN_NAME);
 	if( !dBusConn.isConnected() ) {
 		kdError() << "Failed to open connection to system message bus: " << dBusConn.lastError().message() << endl;
-		TQTimer::singleShot(4000, this, TQT_SLOT(dBusReconnect()));
+		TQTimer::singleShot(4000, this, TQ_SLOT(dBusReconnect()));
 		return false;
 	}
 
 	// watcher for Disconnect signal
 	dBusLocal = new TQT_DBusProxy(DBUS_SERVICE_DBUS, DBUS_PATH_LOCAL, DBUS_INTERFACE_LOCAL, dBusConn);
-	TQObject::connect(dBusLocal, TQT_SIGNAL(dbusSignal(const TQT_DBusMessage&)),
-			  this, TQT_SLOT(handleDBusSignal(const TQT_DBusMessage&)));
+	TQObject::connect(dBusLocal, TQ_SIGNAL(dbusSignal(const TQT_DBusMessage&)),
+			  this, TQ_SLOT(handleDBusSignal(const TQT_DBusMessage&)));
 
 	// watcher for NameOwnerChanged signals
 	dBusWatch = new TQT_DBusProxy(DBUS_SERVICE_DBUS, DBUS_PATH_DBUS, DBUS_INTERFACE_DBUS, dBusConn);
-	TQObject::connect(dBusWatch, TQT_SIGNAL(dbusSignal(const TQT_DBusMessage&)),
-			  this, TQT_SLOT(handleDBusSignal(const TQT_DBusMessage&)));
+	TQObject::connect(dBusWatch, TQ_SIGNAL(dbusSignal(const TQT_DBusMessage&)),
+			  this, TQ_SLOT(handleDBusSignal(const TQT_DBusMessage&)));
 
 	// find already running SystemD
 	TQT_DBusProxy checkSystemD(DBUS_SERVICE_DBUS, DBUS_PATH_DBUS, DBUS_INTERFACE_DBUS, dBusConn);
@@ -895,8 +895,8 @@ void SaverEngine::onDBusServiceRegistered(const TQString& service) {
 		// wather for systemd session signals
 		if( systemdSessionPath.isValid() ) {
 			systemdSession = new TQT_DBusProxy(SYSTEMD_LOGIN1_SERVICE, systemdSessionPath, SYSTEMD_LOGIN1_SESSION_IFACE, dBusConn);
-			TQObject::connect(systemdSession, TQT_SIGNAL(dbusSignal(const TQT_DBusMessage&)),
-					  this, TQT_SLOT(handleDBusSignal(const TQT_DBusMessage&)));
+			TQObject::connect(systemdSession, TQ_SIGNAL(dbusSignal(const TQT_DBusMessage&)),
+					  this, TQ_SLOT(handleDBusSignal(const TQT_DBusMessage&)));
 		}
 		return;
 	}
@@ -924,7 +924,7 @@ void SaverEngine::handleDBusSignal(const TQT_DBusMessage& msg) {
 	 && msg.interface() == DBUS_INTERFACE_LOCAL
 	 && msg.member() == "Disconnected" ) {
 		dBusClose();
-		TQTimer::singleShot(1000, this, TQT_SLOT(dBusReconnect()));
+		TQTimer::singleShot(1000, this, TQ_SLOT(dBusReconnect()));
 		return;
 	}
 

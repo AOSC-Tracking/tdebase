@@ -238,7 +238,7 @@ void KNewMenu::fillMenu()
                 // The best way to identify the "Create Directory", "Link to Location", "Link to Application" was the template
                 if ( (*templ).templatePath.endsWith( "emptydir" ) )
                 {
-                    TDEAction * act = new TDEAction( (*templ).text, (*templ).icon, 0, this, TQT_SLOT( slotNewDir() ),
+                    TDEAction * act = new TDEAction( (*templ).text, (*templ).icon, 0, this, TQ_SLOT( slotNewDir() ),
                                      d->m_actionCollection, TQCString().sprintf("newmenu%d", i ) );
                     act->setGroup( "KNewMenu" );
                     act->plug( popupMenu() );
@@ -248,7 +248,7 @@ void KNewMenu::fillMenu()
                 }
                 else
                 {
-                    TDEAction * act = new TDEAction( (*templ).text, (*templ).icon, 0, this, TQT_SLOT( slotNewFile() ),
+                    TDEAction * act = new TDEAction( (*templ).text, (*templ).icon, 0, this, TQ_SLOT( slotNewFile() ),
                                              d->m_actionCollection, TQCString().sprintf("newmenu%d", i ) );
                     act->setGroup( "KNewMenu" );
 
@@ -302,12 +302,12 @@ void KNewMenu::slotFillTemplates()
             //kdDebug(1203) << "Templates resource dir: " << *it << endl;
             s_pDirWatch->addDir( *it );
         }
-        connect ( s_pDirWatch, TQT_SIGNAL( dirty( const TQString & ) ),
-                  this, TQT_SLOT ( slotFillTemplates() ) );
-        connect ( s_pDirWatch, TQT_SIGNAL( created( const TQString & ) ),
-                  this, TQT_SLOT ( slotFillTemplates() ) );
-        connect ( s_pDirWatch, TQT_SIGNAL( deleted( const TQString & ) ),
-                  this, TQT_SLOT ( slotFillTemplates() ) );
+        connect ( s_pDirWatch, TQ_SIGNAL( dirty( const TQString & ) ),
+                  this, TQ_SLOT ( slotFillTemplates() ) );
+        connect ( s_pDirWatch, TQ_SIGNAL( created( const TQString & ) ),
+                  this, TQ_SLOT ( slotFillTemplates() ) );
+        connect ( s_pDirWatch, TQ_SIGNAL( deleted( const TQString & ) ),
+                  this, TQ_SLOT ( slotFillTemplates() ) );
         // Ok, this doesn't cope with new dirs in TDEDIRS, but that's another story
     }
     s_templatesVersion++;
@@ -468,11 +468,11 @@ void KNewMenu::slotNewFile()
         //kdDebug(1203) << "KNewMenu : TDEIO::copyAs( " << uSrc.url() << ", " << dest.url() << ")" << endl;
         TDEIO::CopyJob * job = TDEIO::copyAs( uSrc, dest );
         job->setDefaultPermissions( true );
-        connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ),
-                TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+        connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ),
+                TQ_SLOT( slotResult( TDEIO::Job * ) ) );
         if ( m_isURLDesktopFile )
-		connect( job, TQT_SIGNAL( renamed( TDEIO::Job *, const KURL&, const KURL& ) ),
-        	     TQT_SLOT( slotRenamed( TDEIO::Job *, const KURL&, const KURL& ) ) );
+		connect( job, TQ_SIGNAL( renamed( TDEIO::Job *, const KURL&, const KURL& ) ),
+        	     TQ_SLOT( slotRenamed( TDEIO::Job *, const KURL&, const KURL& ) ) );
     	KURL::List lst;
     	lst.append( uSrc );
     	(void)new KonqCommandRecorder( KonqCommand::COPY, lst, dest, job );
@@ -549,8 +549,8 @@ void KURLDesktopFileDlg::initDialog( const TQString& textFileName, const TQStrin
     label->setBuddy(m_leFileName);  // please "scheck" style
     m_leFileName->setText( defaultName );
     m_leFileName->setSelection(0, m_leFileName->text().length()); // autoselect
-    connect( m_leFileName, TQT_SIGNAL(textChanged(const TQString&)),
-             TQT_SLOT(slotNameTextChanged(const TQString&)) );
+    connect( m_leFileName, TQ_SIGNAL(textChanged(const TQString&)),
+             TQ_SLOT(slotNameTextChanged(const TQString&)) );
 
     // Second line: url
     TQHBox * urlBox = new TQHBox( plainPage() );
@@ -560,13 +560,13 @@ void KURLDesktopFileDlg::initDialog( const TQString& textFileName, const TQStrin
     m_urlRequester->setMode( KFile::File | KFile::Directory );
 
     m_urlRequester->setMinimumWidth( m_urlRequester->sizeHint().width() * 3 );
-    connect( m_urlRequester->lineEdit(), TQT_SIGNAL(textChanged(const TQString&)),
-             TQT_SLOT(slotURLTextChanged(const TQString&)) );
+    connect( m_urlRequester->lineEdit(), TQ_SIGNAL(textChanged(const TQString&)),
+             TQ_SLOT(slotURLTextChanged(const TQString&)) );
     label->setBuddy(m_urlRequester);  // please "scheck" style
 
     m_urlRequester->setFocus();
     enableButtonOK( !defaultName.isEmpty() && !defaultUrl.isEmpty() );
-    connect( this, TQT_SIGNAL(user1Clicked()), this, TQT_SLOT(slotClear()) );
+    connect( this, TQ_SIGNAL(user1Clicked()), this, TQ_SLOT(slotClear()) );
     m_fileNameEdited = false;
 }
 

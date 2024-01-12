@@ -71,7 +71,7 @@ PanelExtension::PanelExtension(const TQString& configFile, TQWidget *parent, con
 
     // container area
     _containerArea = new ContainerArea( config(), this, opMenu() );
-    connect(_containerArea, TQT_SIGNAL(maintainFocus(bool)), this, TQT_SIGNAL(maintainFocus(bool)));
+    connect(_containerArea, TQ_SIGNAL(maintainFocus(bool)), this, TQ_SIGNAL(maintainFocus(bool)));
     _layout->addWidget(_containerArea);
 
     _containerArea->viewport()->installEventFilter(this);
@@ -81,15 +81,15 @@ PanelExtension::PanelExtension(const TQString& configFile, TQWidget *parent, con
     // beginning.
     positionChange(position());
 
-    connect(Kicker::the(), TQT_SIGNAL(configurationChanged()),
-            TQT_SLOT(configurationChanged()));
-    connect(Kicker::the(), TQT_SIGNAL(immutabilityChanged(bool)),
-            TQT_SLOT(immutabilityChanged(bool)));
+    connect(Kicker::the(), TQ_SIGNAL(configurationChanged()),
+            TQ_SLOT(configurationChanged()));
+    connect(Kicker::the(), TQ_SIGNAL(immutabilityChanged(bool)),
+            TQ_SLOT(immutabilityChanged(bool)));
 
     // we wait to get back to the event loop to start up the container area so that
     // the main panel in ExtensionManager will be assigned and we can tell in a
     // relatively non-hackish way that we are (or aren't) the "main panel"
-    TQTimer::singleShot(0, this, TQT_SLOT(populateContainerArea()));
+    TQTimer::singleShot(0, this, TQ_SLOT(populateContainerArea()));
 }
 
 PanelExtension::~PanelExtension()
@@ -129,7 +129,7 @@ TQPopupMenu* PanelExtension::opMenu()
     }
 
     _opMnu = new TQPopupMenu(this);
-    connect(_opMnu, TQT_SIGNAL(aboutToShow()), this, TQT_SLOT(slotBuildOpMenu()));
+    connect(_opMnu, TQ_SIGNAL(aboutToShow()), this, TQ_SLOT(slotBuildOpMenu()));
 
     return _opMnu;
 }
@@ -339,7 +339,7 @@ void PanelExtension::slotBuildOpMenu()
         {
             _opMnu->insertItem(isMenuBar ? i18n("Add &Applet to Menubar...")
                                          : i18n("Add &Applet to Panel..."),
-                               _containerArea, TQT_SLOT(showAddAppletDialog()));
+                               _containerArea, TQ_SLOT(showAddAppletDialog()));
             m_panelAddMenu = new PanelAddButtonMenu(_containerArea, this);
             _opMnu->insertItem(isMenuBar ? i18n("Add Appli&cation to Menubar")
                                          : i18n("Add Appli&cation to Panel"),
@@ -362,7 +362,7 @@ void PanelExtension::slotBuildOpMenu()
         }
 
         _opMnu->insertItem(SmallIconSet("system-lock-screen"), i18n("&Lock Panels"),
-                Kicker::the(), TQT_SLOT(toggleLock()));
+                Kicker::the(), TQ_SLOT(toggleLock()));
     }
     else if (!Kicker::the()->isKioskImmutable())
     {
@@ -370,20 +370,20 @@ void PanelExtension::slotBuildOpMenu()
                                             SmallIconSet("system-lock-screen"),
                            kickerImmutable ? i18n("Un&lock Panels") :
                                              i18n("&Lock Panels"),
-                           Kicker::the(), TQT_SLOT(toggleLock()));
+                           Kicker::the(), TQ_SLOT(toggleLock()));
     }
 
     if (!isMenuBar && !Kicker::the()->isKioskImmutable())
     {
         _opMnu->insertItem(SmallIconSet("configure"),
                             i18n("&Configure Panel..."),
-                            this, TQT_SLOT(showConfig()));
+                            this, TQ_SLOT(showConfig()));
         _opMnu->insertSeparator();
     }
 
     _opMnu->insertItem(SmallIconSet("fork"),
                             i18n("&Launch Process Manager..."),
-                            this, TQT_SLOT(showProcessManager()));
+                            this, TQ_SLOT(showProcessManager()));
     _opMnu->insertSeparator();
 
     if (kapp->authorize("action/help"))

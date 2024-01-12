@@ -136,10 +136,10 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
        " \"Widget color\" box will change to reflect the part of the preview"
        " image you clicked.") );
 
-    connect( cs, TQT_SIGNAL( widgetSelected( int ) ),
-         TQT_SLOT( slotWidgetColor( int ) ) );
-    connect( cs, TQT_SIGNAL( colorDropped( int, const TQColor&)),
-         TQT_SLOT( slotColorForWidget( int, const TQColor&)));
+    connect( cs, TQ_SIGNAL( widgetSelected( int ) ),
+         TQ_SLOT( slotWidgetColor( int ) ) );
+    connect( cs, TQ_SIGNAL( colorDropped( int, const TQColor&)),
+         TQ_SLOT( slotColorForWidget( int, const TQColor&)));
     topLayout->addMultiCellWidget( cs, 0, 0, 0, 1 );
 
     TQGroupBox *group = new TQVGroupBox( i18n("Color Scheme"), this );
@@ -149,7 +149,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
     mSchemeList = new KColorSchemeList();
     readSchemeNames();
     sList->setCurrentItem( 0 );
-    connect(sList, TQT_SIGNAL(highlighted(int)), TQT_SLOT(slotPreviewScheme(int)));
+    connect(sList, TQ_SIGNAL(highlighted(int)), TQ_SLOT(slotPreviewScheme(int)));
 
     TQWhatsThis::add( sList, i18n("This is a list of predefined color schemes,"
        " including any that you may have created. You can preview an existing"
@@ -160,7 +160,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
        " another color scheme.") );
 
     addBt = new TQPushButton(i18n("&Save Scheme..."), group);
-    connect(addBt, TQT_SIGNAL(clicked()), TQT_SLOT(slotAdd()));
+    connect(addBt, TQ_SIGNAL(clicked()), TQ_SLOT(slotAdd()));
 
     TQWhatsThis::add( addBt, i18n("Press this button if you want to save"
        " the current color settings as a color scheme. You will be"
@@ -168,14 +168,14 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
 
     removeBt = new TQPushButton(i18n("R&emove Scheme"), group);
     removeBt->setEnabled(FALSE);
-    connect(removeBt, TQT_SIGNAL(clicked()), TQT_SLOT(slotRemove()));
+    connect(removeBt, TQ_SIGNAL(clicked()), TQ_SLOT(slotRemove()));
 
     TQWhatsThis::add( removeBt, i18n("Press this button to remove the selected"
        " color scheme. Note that this button is disabled if you do not have"
        " permission to delete the color scheme.") );
 
 	importBt = new TQPushButton(i18n("I&mport Scheme..."), group);
-	connect(importBt, TQT_SIGNAL(clicked()),TQT_SLOT(slotImport()));
+	connect(importBt, TQ_SIGNAL(clicked()),TQ_SLOT(slotImport()));
 
 	TQWhatsThis::add( importBt, i18n("Press this button to import a new color"
 		" scheme. Note that the color scheme will only be available for the"
@@ -221,7 +221,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
     setColorName(i18n("Alternate Background in Lists"), CSM_Alternate_background);
 
     wcCombo->adjustSize();
-    connect(wcCombo, TQT_SIGNAL(activated(int)), TQT_SLOT(slotWidgetColor(int)));
+    connect(wcCombo, TQ_SIGNAL(activated(int)), TQ_SLOT(slotWidgetColor(int)));
     groupLayout->addWidget(wcCombo);
 
     TQWhatsThis::add( wcCombo, i18n("Click here to select an element of"
@@ -230,8 +230,8 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
        " of the preview image above.") );
 
     colorButton = new KColorButton( group );
-    connect( colorButton, TQT_SIGNAL( changed(const TQColor &)),
-             TQT_SLOT(slotSelectColor(const TQColor &)));
+    connect( colorButton, TQ_SIGNAL( changed(const TQColor &)),
+             TQ_SLOT(slotSelectColor(const TQColor &)));
 
     groupLayout->addWidget( colorButton );
 
@@ -241,7 +241,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
 
     cbShadeList = new TQCheckBox(i18n("Shade sorted column in lists"), this);
     stackLayout->addWidget(cbShadeList);
-    connect(cbShadeList, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotShadeSortColumnChanged(bool)));
+    connect(cbShadeList, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotShadeSortColumnChanged(bool)));
 
     TQWhatsThis::add(cbShadeList,
        i18n("Check this box to show the sorted column in a list with a shaded background"));
@@ -257,7 +257,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
     sb = new TQSlider( TQt::Horizontal,group,"Slider" );
     sb->setRange( 0, 10 );
     sb->setFocusPolicy( TQWidget::StrongFocus );
-    connect(sb, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(sliderValueChanged(int)));
+    connect(sb, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(sliderValueChanged(int)));
 
     TQWhatsThis::add(sb, i18n("Use this slider to change the contrast level"
        " of the current color scheme. Contrast does not affect all of the"
@@ -272,7 +272,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
 
     cbExportColors = new TQCheckBox(i18n("Apply colors to &non-TDE applications"), this);
     topLayout->addMultiCellWidget( cbExportColors, 2, 2, 0, 1 );
-    connect(cbExportColors, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(changed()));
+    connect(cbExportColors, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(changed()));
 
     TQWhatsThis::add(cbExportColors, i18n("Check this box to apply the"
        " current color scheme to non-TDE applications."));
@@ -550,8 +550,8 @@ void KColorScheme::slotAdd()
             valid = true;
     }
 
-    disconnect(sList, TQT_SIGNAL(highlighted(int)), this,
-               TQT_SLOT(slotPreviewScheme(int)));
+    disconnect(sList, TQ_SIGNAL(highlighted(int)), this,
+               TQ_SLOT(slotPreviewScheme(int)));
 
     if (exists != -1)
     {
@@ -574,7 +574,7 @@ void KColorScheme::slotAdd()
     TQPixmap preview = mkColorPreview(cs);
     int current = sList->currentItem();
     sList->changeItem(preview, sList->text(current), current);
-    connect(sList, TQT_SIGNAL(highlighted(int)), TQT_SLOT(slotPreviewScheme(int)));
+    connect(sList, TQ_SIGNAL(highlighted(int)), TQ_SLOT(slotPreviewScheme(int)));
     slotPreviewScheme(current);
 }
 
@@ -605,7 +605,7 @@ void KColorScheme::slotImport()
 		TQPixmap preview = mkColorPreview(cs);
 		int current = sList->currentItem();
 		sList->changeItem(preview, sList->text(current), current);
-		connect(sList, TQT_SIGNAL(highlighted(int)), TQT_SLOT(slotPreviewScheme(int)));
+		connect(sList, TQ_SIGNAL(highlighted(int)), TQ_SLOT(slotPreviewScheme(int)));
 		slotPreviewScheme(current);
 	}
 }

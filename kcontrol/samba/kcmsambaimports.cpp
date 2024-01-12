@@ -56,7 +56,7 @@ ImportsView::ImportsView(TQWidget * parent, TDEConfig *config, const char * name
       " resource is mounted.") );
  
     timer.start(10000);
-    TQObject::connect(&timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(updateList()));
+    TQObject::connect(&timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(updateList()));
     updateList();
 }
 

@@ -94,7 +94,7 @@ KasTaskPopup::KasTaskPopup( KasTaskItem *item, const char *name )
                              TQt::black, colorGroup().mid(),
                              KPixmapEffect::DiagonalGradient );
 
-    connect( item->task(), TQT_SIGNAL( thumbnailChanged() ), TQT_SLOT( refresh() ) );
+    connect( item->task(), TQ_SIGNAL( thumbnailChanged() ), TQ_SLOT( refresh() ) );
 }
 
 KasTaskPopup::~KasTaskPopup()

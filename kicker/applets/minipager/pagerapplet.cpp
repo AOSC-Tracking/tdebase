@@ -132,22 +132,22 @@ KMiniPager::KMiniPager(const TQString& configFile, Type type, int actions,
 
     drawButtons();
 
-    connect( m_twin, TQT_SIGNAL( currentDesktopChanged(int)), TQT_SLOT( slotSetDesktop(int) ) );
-    connect( m_twin, TQT_SIGNAL( currentDesktopViewportChanged(int, const TQPoint&)), TQT_SLOT(slotSetDesktopViewport(int, const TQPoint&)));
-    connect( m_twin, TQT_SIGNAL( numberOfDesktopsChanged(int)), TQT_SLOT( slotSetDesktopCount(int) ) );
-    connect( m_twin, TQT_SIGNAL( desktopGeometryChanged(int)), TQT_SLOT( slotRefreshViewportCount(int) ) );
-    connect( m_twin, TQT_SIGNAL( activeWindowChanged(WId)), TQT_SLOT( slotActiveWindowChanged(WId) ) );
-    connect( m_twin, TQT_SIGNAL( windowAdded(WId) ), this, TQT_SLOT( slotWindowAdded(WId) ) );
-    connect( m_twin, TQT_SIGNAL( windowRemoved(WId) ), this, TQT_SLOT( slotWindowRemoved(WId) ) );
-    connect( m_twin, TQT_SIGNAL( windowChanged(WId,unsigned int) ), this, TQT_SLOT( slotWindowChanged(WId,unsigned int) ) );
-    connect( m_twin, TQT_SIGNAL( desktopNamesChanged() ), this, TQT_SLOT( slotDesktopNamesChanged() ) );
-    connect( kapp, TQT_SIGNAL(backgroundChanged(int)), TQT_SLOT(slotBackgroundChanged(int)) );
+    connect( m_twin, TQ_SIGNAL( currentDesktopChanged(int)), TQ_SLOT( slotSetDesktop(int) ) );
+    connect( m_twin, TQ_SIGNAL( currentDesktopViewportChanged(int, const TQPoint&)), TQ_SLOT(slotSetDesktopViewport(int, const TQPoint&)));
+    connect( m_twin, TQ_SIGNAL( numberOfDesktopsChanged(int)), TQ_SLOT( slotSetDesktopCount(int) ) );
+    connect( m_twin, TQ_SIGNAL( desktopGeometryChanged(int)), TQ_SLOT( slotRefreshViewportCount(int) ) );
+    connect( m_twin, TQ_SIGNAL( activeWindowChanged(WId)), TQ_SLOT( slotActiveWindowChanged(WId) ) );
+    connect( m_twin, TQ_SIGNAL( windowAdded(WId) ), this, TQ_SLOT( slotWindowAdded(WId) ) );
+    connect( m_twin, TQ_SIGNAL( windowRemoved(WId) ), this, TQ_SLOT( slotWindowRemoved(WId) ) );
+    connect( m_twin, TQ_SIGNAL( windowChanged(WId,unsigned int) ), this, TQ_SLOT( slotWindowChanged(WId,unsigned int) ) );
+    connect( m_twin, TQ_SIGNAL( desktopNamesChanged() ), this, TQ_SLOT( slotDesktopNamesChanged() ) );
+    connect( kapp, TQ_SIGNAL(backgroundChanged(int)), TQ_SLOT(slotBackgroundChanged(int)) );
 
     if (kapp->authorizeTDEAction("kicker_rmb") && kapp->authorizeControlModule("tde-kcmtaskbar.desktop"))
     {
         m_contextMenu = new TQPopupMenu();
-        connect(m_contextMenu, TQT_SIGNAL(aboutToShow()), TQT_SLOT(aboutToShowContextMenu()));
-        connect(m_contextMenu, TQT_SIGNAL(activated(int)), TQT_SLOT(contextMenuActivated(int)));
+        connect(m_contextMenu, TQ_SIGNAL(aboutToShow()), TQ_SLOT(aboutToShowContextMenu()));
+        connect(m_contextMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(contextMenuActivated(int)));
         setCustomMenu(m_contextMenu);
     }
 
@@ -484,10 +484,10 @@ void KMiniPager::drawButtons()
             m_desktops.append( desk );
             m_group->insert( desk, count );
 
-            connect(desk, TQT_SIGNAL(buttonSelected(int)),
-                    TQT_SLOT(slotButtonSelected(int)) );
-            connect(desk, TQT_SIGNAL(showMenu(const TQPoint&, int )),
-                    TQT_SLOT(slotShowMenu(const TQPoint&, int )) );
+            connect(desk, TQ_SIGNAL(buttonSelected(int)),
+                    TQ_SLOT(slotButtonSelected(int)) );
+            connect(desk, TQ_SIGNAL(showMenu(const TQPoint&, int )),
+                    TQ_SLOT(slotShowMenu(const TQPoint&, int )) );
 
             desk->show();
             ++count;
@@ -727,7 +727,7 @@ void KMiniPager::aboutToShowContextMenu()
     rowMenu->insertItem(i18n("one row or column", "&1"), 1 + rowOffset);
     rowMenu->insertItem(i18n("two rows or columns", "&2"), 2 + rowOffset);
     rowMenu->insertItem( i18n("three rows or columns", "&3"), 3 + rowOffset);
-    connect(rowMenu, TQT_SIGNAL(activated(int)), TQT_SLOT(contextMenuActivated(int)));
+    connect(rowMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(contextMenuActivated(int)));
     showMenu->insertItem((orientation()==TQt::Horizontal) ? i18n("&Rows"):
                                                        i18n("&Columns"),
                          rowMenu);
@@ -753,7 +753,7 @@ void KMiniPager::aboutToShowContextMenu()
         showMenu->insertItem(i18n("&Desktop Wallpaper"),
                          PagerSettings::EnumBackgroundType::BgLive + bgOffset);
     }
-    connect(showMenu, TQT_SIGNAL(activated(int)), TQT_SLOT(contextMenuActivated(int)));
+    connect(showMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(contextMenuActivated(int)));
     m_contextMenu->insertItem(i18n("&Pager Options"),showMenu);
 
     m_contextMenu->insertItem(SmallIcon("configure"),
@@ -892,7 +892,7 @@ void KMiniPager::showPager()
     else
     {
     // Let's run kpager if it isn't running
-        connect( dcop, TQT_SIGNAL( applicationRegistered(const TQCString &) ), this, TQT_SLOT(applicationRegistered(const TQCString &)) );
+        connect( dcop, TQ_SIGNAL( applicationRegistered(const TQCString &) ), this, TQ_SLOT(applicationRegistered(const TQCString &)) );
         dcop->setNotifications(true);
         TQString strAppPath(locate("exe", "kpager"));
         if (!strAppPath.isEmpty())
@@ -941,8 +941,8 @@ void KMiniPager::applicationRegistered( const TQCString  & appName )
 {
     if (appName == "kpager")
     {
-        disconnect( kapp->dcopClient(), TQT_SIGNAL( applicationRegistered(const TQCString &) ),
-                    this, TQT_SLOT(applicationRegistered(const TQCString &)) );
+        disconnect( kapp->dcopClient(), TQ_SIGNAL( applicationRegistered(const TQCString &) ),
+                    this, TQ_SLOT(applicationRegistered(const TQCString &)) );
         showKPager(false);
     }
 }

@@ -112,8 +112,8 @@ void KKeyModule::init( bool isGlobal, bool _bSeriesOnly, bool bSeriesNone )
 
   //readSchemeNames();
   sList->setCurrentItem( 0 );
-  connect( sList, TQT_SIGNAL( highlighted( int ) ),
-           TQT_SLOT( slotPreviewScheme( int ) ) );
+  connect( sList, TQ_SIGNAL( highlighted( int ) ),
+           TQ_SLOT( slotPreviewScheme( int ) ) );
 
   TQLabel *label = new TQLabel( sList, i18n("&Key Scheme"), this );
 
@@ -124,12 +124,12 @@ void KKeyModule::init( bool isGlobal, bool _bSeriesOnly, bool bSeriesNone )
   TQWhatsThis::add( sList, wtstr );
 
   addBt = new TQPushButton(  i18n("&Save Scheme..."), this );
-  connect( addBt, TQT_SIGNAL( clicked() ), TQT_SLOT( slotAdd() ) );
+  connect( addBt, TQ_SIGNAL( clicked() ), TQ_SLOT( slotAdd() ) );
   TQWhatsThis::add(addBt, i18n("Click here to add a new key bindings scheme. You will be prompted for a name."));
 
   removeBt = new TQPushButton(  i18n("&Remove Scheme"), this );
   removeBt->setEnabled(FALSE);
-  connect( removeBt, TQT_SIGNAL( clicked() ), TQT_SLOT( slotRemove() ) );
+  connect( removeBt, TQ_SIGNAL( clicked() ), TQ_SLOT( slotRemove() ) );
   TQWhatsThis::add( removeBt, i18n("Click here to remove the selected key bindings scheme. You can not"
     " remove the standard system wide schemes, 'Current scheme' and 'TDE default'.") );
 
@@ -143,7 +143,7 @@ void KKeyModule::init( bool isGlobal, bool _bSeriesOnly, bool bSeriesNone )
 	if( !KKeySequence::keyboardHasMetaKey() )
 		preferMetaBt->setEnabled( false );
 	preferMetaBt->setChecked( KKeySequence::useFourModifierKeys() );
-	connect( preferMetaBt, TQT_SIGNAL(clicked()), TQT_SLOT(slotPreferMeta()) );
+	connect( preferMetaBt, TQ_SIGNAL(clicked()), TQ_SLOT(slotPreferMeta()) );
 	TQWhatsThis::add( preferMetaBt, i18n("If your keyboard has a Meta key, but you would "
 		"like TDE to prefer the 3-modifier configuration defaults, then this option "
 		"should be unchecked.") );
@@ -153,7 +153,7 @@ void KKeyModule::init( bool isGlobal, bool _bSeriesOnly, bool bSeriesNone )
   KSeparator* line = new KSeparator( KSeparator::HLine, this );
 
   kc = new KeyChooserSpec( actions, this, isGlobal );
-  connect( kc, TQT_SIGNAL(keyChange()), this, TQT_SLOT(slotKeyChange()) );
+  connect( kc, TQ_SIGNAL(keyChange()), this, TQ_SLOT(slotKeyChange()) );
 
   readScheme();
 
@@ -356,8 +356,8 @@ void KKeyModule::readScheme( int index )
 
   } while ( nameValid == FALSE );
 
-  disconnect( sList, TQT_SIGNAL( highlighted( int ) ), this,
-              TQT_SLOT( slotPreviewScheme( int ) ) );
+  disconnect( sList, TQ_SIGNAL( highlighted( int ) ), this,
+              TQ_SLOT( slotPreviewScheme( int ) ) );
 
 
   TQString kksPath = TDEGlobal::dirs()->saveLocation("data", "kcmkeys/");
@@ -403,8 +403,8 @@ void KKeyModule::readScheme( int index )
 
   slotSave();
 
-  connect( sList, TQT_SIGNAL( highlighted( int ) ), this,
-           TQT_SLOT( slotPreviewScheme( int ) ) );
+  connect( sList, TQ_SIGNAL( highlighted( int ) ), this,
+           TQ_SLOT( slotPreviewScheme( int ) ) );
 
   slotPreviewScheme( sList->currentItem() );
 }*/

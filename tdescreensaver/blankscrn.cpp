@@ -55,8 +55,8 @@ KBlankSetup::KBlankSetup( TQWidget *parent, const char *name )
 
 	KColorButton *colorPush = new KColorButton( color, main );
 	colorPush->setMinimumWidth(80);
-	connect( colorPush, TQT_SIGNAL( changed(const TQColor &) ),
-		TQT_SLOT( slotColor(const TQColor &) ) );
+	connect( colorPush, TQ_SIGNAL( changed(const TQColor &) ),
+		TQ_SLOT( slotColor(const TQColor &) ) );
 	grid->addWidget(colorPush, 1, 0);
 
 	preview = new TQWidget( main );

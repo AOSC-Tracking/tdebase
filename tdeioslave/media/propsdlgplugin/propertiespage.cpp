@@ -64,43 +64,43 @@ PropertiesPage::PropertiesPage(TQWidget* parent, const TQString &_id)
       option_ro->hide();
     else
       option_ro->setChecked(options["ro"] == "true");
-    connect( option_ro, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );
+    connect( option_ro, TQ_SIGNAL( stateChanged(int) ), TQ_SIGNAL( changed() ) );
 
     if (!options.contains("quiet"))
       option_quiet->hide();
     else
       option_quiet->setChecked(options["quiet"] == "true");
-    connect( option_quiet, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );
+    connect( option_quiet, TQ_SIGNAL( stateChanged(int) ), TQ_SIGNAL( changed() ) );
 
     if (!options.contains("sync"))
       option_sync->hide();
     else
       option_sync->setChecked(options["sync"] == "true");
-    connect( option_sync, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );
+    connect( option_sync, TQ_SIGNAL( stateChanged(int) ), TQ_SIGNAL( changed() ) );
 
     if (!options.contains("atime"))
       option_atime->hide();
     else
       option_atime->setChecked(options["atime"] == "true");
-    connect( option_atime, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );
+    connect( option_atime, TQ_SIGNAL( stateChanged(int) ), TQ_SIGNAL( changed() ) );
 
     if (!options.contains("flush"))
       option_flush->hide();
     else
       option_flush->setChecked(options["flush"] == "true");
-    connect( option_flush, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );
+    connect( option_flush, TQ_SIGNAL( stateChanged(int) ), TQ_SIGNAL( changed() ) );
 
     if (!options.contains("utf8"))
       option_utf8->hide();
     else
       option_utf8->setChecked(options["utf8"] == "true");
-    connect( option_utf8, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );
+    connect( option_utf8, TQ_SIGNAL( stateChanged(int) ), TQ_SIGNAL( changed() ) );
 
     if (!options.contains("uid"))
       option_uid->hide();
     else
       option_uid->setChecked(options["uid"] == "true");
-    connect( option_uid, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );
+    connect( option_uid, TQ_SIGNAL( stateChanged(int) ), TQ_SIGNAL( changed() ) );
 
     if (!options.contains("shortname"))
       {
@@ -115,7 +115,7 @@ PropertiesPage::PropertiesPage(TQWidget* parent, const TQString &_id)
 	      option_shortname->setCurrentItem(index);
 	      break;
 	    }
-	connect( option_shortname, TQT_SIGNAL( activated(int) ), TQT_SIGNAL( changed() ) );
+	connect( option_shortname, TQ_SIGNAL( activated(int) ), TQ_SIGNAL( changed() ) );
       }
 
     if (!options.contains("journaling"))
@@ -131,14 +131,14 @@ PropertiesPage::PropertiesPage(TQWidget* parent, const TQString &_id)
 	      option_journaling->setCurrentItem(index);
 	      break;
 	    }
-	connect( option_journaling, TQT_SIGNAL( activated(int) ), TQT_SIGNAL( changed() ) );
+	connect( option_journaling, TQ_SIGNAL( activated(int) ), TQ_SIGNAL( changed() ) );
       }
 
     label_filesystem->setText(i18n("Filesystem: %1").arg(options["filesystem"]));
     option_mountpoint->setText(options["mountpoint"]);
-    connect( option_mountpoint, TQT_SIGNAL( textChanged( const TQString &) ), TQT_SIGNAL( changed() ) );
+    connect( option_mountpoint, TQ_SIGNAL( textChanged( const TQString &) ), TQ_SIGNAL( changed() ) );
     option_automount->setChecked(options["automount"] == "true");
-    connect( option_automount, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );
+    connect( option_automount, TQ_SIGNAL( stateChanged(int) ), TQ_SIGNAL( changed() ) );
 
     bool has_groupbox_specific = true;
     if (!options.contains("journaling") &&
@@ -152,11 +152,11 @@ PropertiesPage::PropertiesPage(TQWidget* parent, const TQString &_id)
 
     // The order is important - we want groupboxes to hide automatically depending on use_defaults
     // but don't want to emit changed() until user actually changes something.
-    connect( option_defaults, TQT_SIGNAL( toggled(bool) ), groupbox_generic, SLOT( setHidden(bool) ) );
+    connect( option_defaults, TQ_SIGNAL( toggled(bool) ), groupbox_generic, TQ_SLOT( setHidden(bool) ) );
     if (has_groupbox_specific)
-      connect( option_defaults, TQT_SIGNAL( toggled(bool) ), groupbox_specific, SLOT( setHidden(bool) ) );
+      connect( option_defaults, TQ_SIGNAL( toggled(bool) ), groupbox_specific, TQ_SLOT( setHidden(bool) ) );
     option_defaults->setChecked(options["use_defaults"] == "true");
-    connect( option_defaults, TQT_SIGNAL( stateChanged(int) ), TQT_SIGNAL( changed() ) );    
+    connect( option_defaults, TQ_SIGNAL( stateChanged(int) ), TQ_SIGNAL( changed() ) );    
 
   } else {
 

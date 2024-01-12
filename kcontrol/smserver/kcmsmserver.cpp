@@ -48,7 +48,7 @@ SMServerConfig::SMServerConfig( TQWidget *parent, const char* name, const TQStri
 
     TQVBoxLayout *topLayout = new TQVBoxLayout(this);
     dialog = new SMServerConfigImpl(this);
-    connect(dialog, TQT_SIGNAL(changed()), TQT_SLOT(changed()));
+    connect(dialog, TQ_SIGNAL(changed()), TQ_SLOT(changed()));
 
     dialog->show();
     topLayout->add(dialog);

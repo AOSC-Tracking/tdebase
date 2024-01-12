@@ -221,8 +221,8 @@ void KonqOperations::_del( int method, const KURL::List & _selectedURLs, Confirm
             delete this;
             return;
         }
-        connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ),
-                 TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+        connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ),
+                 TQ_SLOT( slotResult( TDEIO::Job * ) ) );
     } else
         delete this;
 }
@@ -231,8 +231,8 @@ void KonqOperations::_restoreTrashedItems( const KURL::List& urls )
 {
     m_method = RESTORE;
     KonqMultiRestoreJob* job = new KonqMultiRestoreJob( urls, true );
-    connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ),
-             TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+    connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ),
+             TQ_SLOT( slotResult( TDEIO::Job * ) ) );
 }
 
 bool KonqOperations::askDeleteConfirmation( const KURL::List & selectedURLs, int method, ConfirmationType confirmation, TQWidget* widget )
@@ -376,7 +376,7 @@ void KonqOperations::doDrop( const KFileItem * destItem, const KURL & dest, TQDr
         else
         {
             // we need to stat to get it.
-            op->_statURL( dest, op, TQT_SLOT( asyncDrop( const KFileItem * ) ) );
+            op->_statURL( dest, op, TQ_SLOT( asyncDrop( const KFileItem * ) ) );
         }
         // In both cases asyncDrop will delete op when done
 
@@ -458,7 +458,7 @@ void KonqOperations::asyncDrop( const KFileItem * destItem )
                     bool ro = desktopFile.readBoolEntry( "ReadOnly", false );
                     TQString fstype = desktopFile.readEntry( "FSType" );
                     KAutoMount* am = new KAutoMount( ro, fstype, dev, point, m_destURL.path(), false );
-                    connect( am, TQT_SIGNAL( finished() ), this, TQT_SLOT( doFileCopy() ) );
+                    connect( am, TQ_SIGNAL( finished() ), this, TQ_SLOT( doFileCopy() ) );
                 }
                 return;
             }
@@ -658,16 +658,16 @@ void KonqOperations::setOperation( TDEIO::Job * job, int method, const KURL::Lis
     m_destURL = dest;
     if ( job )
     {
-        connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ),
-                 TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+        connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ),
+                 TQ_SLOT( slotResult( TDEIO::Job * ) ) );
         TDEIO::CopyJob *copyJob = dynamic_cast<TDEIO::CopyJob*>(job);
         KonqIconViewWidget *iconView = dynamic_cast<KonqIconViewWidget*>(parent());
         if (copyJob && iconView)
         {
-            connect(copyJob, TQT_SIGNAL(aboutToCreate(TDEIO::Job *,const TQValueList<TDEIO::CopyInfo> &)),
-                 this, TQT_SLOT(slotAboutToCreate(TDEIO::Job *,const TQValueList<TDEIO::CopyInfo> &)));
-            connect(this, TQT_SIGNAL(aboutToCreate(const TQPoint &, const TQValueList<TDEIO::CopyInfo> &)),
-                 iconView, TQT_SLOT(slotAboutToCreate(const TQPoint &, const TQValueList<TDEIO::CopyInfo> &)));
+            connect(copyJob, TQ_SIGNAL(aboutToCreate(TDEIO::Job *,const TQValueList<TDEIO::CopyInfo> &)),
+                 this, TQ_SLOT(slotAboutToCreate(TDEIO::Job *,const TQValueList<TDEIO::CopyInfo> &)));
+            connect(this, TQ_SIGNAL(aboutToCreate(const TQPoint &, const TQValueList<TDEIO::CopyInfo> &)),
+                 iconView, TQ_SLOT(slotAboutToCreate(const TQPoint &, const TQValueList<TDEIO::CopyInfo> &)));
         }
     }
     else // for link
@@ -688,10 +688,10 @@ void KonqOperations::statURL( const KURL & url, const TQObject *receiver, const 
 
 void KonqOperations::_statURL( const KURL & url, const TQObject *receiver, const char *member )
 {
-    connect( this, TQT_SIGNAL( statFinished( const KFileItem * ) ), receiver, member );
+    connect( this, TQ_SIGNAL( statFinished( const KFileItem * ) ), receiver, member );
     TDEIO::StatJob * job = TDEIO::stat( url /*, false?*/ );
-    connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ),
-             TQT_SLOT( slotStatResult( TDEIO::Job * ) ) );
+    connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ),
+             TQ_SLOT( slotStatResult( TDEIO::Job * ) ) );
 }
 
 void KonqOperations::slotStatResult( TDEIO::Job * job )
@@ -763,7 +763,7 @@ KonqMultiRestoreJob::KonqMultiRestoreJob( const KURL::List& urls, bool showProgr
       m_urls( urls ), m_urlsIterator( m_urls.begin() ),
       m_progress( 0 )
 {
-  TQTimer::singleShot(0, this, TQT_SLOT(slotStart()));
+  TQTimer::singleShot(0, this, TQ_SLOT(slotStart()));
 }
 
 void KonqMultiRestoreJob::slotStart()

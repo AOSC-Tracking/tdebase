@@ -55,7 +55,7 @@ KStart::KStart()
         sendRule();
     else {
         // connect to window add to get the NEW windows
-        connect(twinmodule, TQT_SIGNAL(windowAdded(WId)), TQT_SLOT(windowAdded(WId)));
+        connect(twinmodule, TQ_SIGNAL(windowAdded(WId)), TQ_SLOT(windowAdded(WId)));
         if (windowtitle != 0)
     	    twinmodule->doNotManage( windowtitle );
     }
@@ -76,7 +76,7 @@ KStart::KStart()
     else
         TDEStartupInfo::sendFinish( id ); // failed to start
 
-  TQTimer::singleShot( useRule ? 0 : 120 * 1000, kapp, TQT_SLOT( quit()));
+  TQTimer::singleShot( useRule ? 0 : 120 * 1000, kapp, TQ_SLOT( quit()));
 }
 
 void KStart::sendRule() {

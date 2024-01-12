@@ -38,8 +38,8 @@ KonsoleBookmarkHandler::KonsoleBookmarkHandler( KonsoleMenu *konsole, bool )
     manager->setUpdate( true );
     manager->setShowNSBookmarks( false );
 
-    connect( manager, TQT_SIGNAL( changed(const TQString &, const TQString &) ),
-             TQT_SLOT( slotBookmarksChanged(const TQString &, const TQString &) ) );
+    connect( manager, TQ_SIGNAL( changed(const TQString &, const TQString &) ),
+             TQ_SLOT( slotBookmarksChanged(const TQString &, const TQString &) ) );
     m_bookmarkMenu = new KonsoleBookmarkMenu( manager, this, m_menu,
                              NULL, false, /*Not toplevel*/
 			     false /*No 'Add Bookmark'*/ );
@@ -62,13 +62,13 @@ void KonsoleBookmarkHandler::importOldBookmarks( const TQString& path,
 
     KNSBookmarkImporter importer( path );
     connect( &importer,
-             TQT_SIGNAL( newBookmark( const TQString&, const TQCString&, const TQString& )),
-             TQT_SLOT( slotNewBookmark( const TQString&, const TQCString&, const TQString& )));
+             TQ_SIGNAL( newBookmark( const TQString&, const TQCString&, const TQString& )),
+             TQ_SLOT( slotNewBookmark( const TQString&, const TQCString&, const TQString& )));
     connect( &importer,
-             TQT_SIGNAL( newFolder( const TQString&, bool, const TQString& )),
-             TQT_SLOT( slotNewFolder( const TQString&, bool, const TQString& )));
-    connect( &importer, TQT_SIGNAL( newSeparator() ), TQT_SLOT( newSeparator() ));
-    connect( &importer, TQT_SIGNAL( endMenu() ), TQT_SLOT( endMenu() ));
+             TQ_SIGNAL( newFolder( const TQString&, bool, const TQString& )),
+             TQ_SLOT( slotNewFolder( const TQString&, bool, const TQString& )));
+    connect( &importer, TQ_SIGNAL( newSeparator() ), TQ_SLOT( newSeparator() ));
+    connect( &importer, TQ_SIGNAL( endMenu() ), TQ_SLOT( endMenu() ));
 
     importer.parseNSBookmarks( false );
 

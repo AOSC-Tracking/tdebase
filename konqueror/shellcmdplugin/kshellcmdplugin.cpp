@@ -34,7 +34,7 @@ KShellCmdPlugin::KShellCmdPlugin( TQObject* parent, const char* name,
        return;
 
     new TDEAction( i18n( "&Execute Shell Command..." ), "system-run", CTRL+Key_E, this,
-                 TQT_SLOT( slotExecuteShellCommand() ), actionCollection(), "executeshellcommand" );
+                 TQ_SLOT( slotExecuteShellCommand() ), actionCollection(), "executeshellcommand" );
 }
 
 void KShellCmdPlugin::slotExecuteShellCommand()

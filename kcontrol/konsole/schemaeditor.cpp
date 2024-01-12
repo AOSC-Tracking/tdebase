@@ -75,7 +75,7 @@ SchemaEditor::SchemaEditor(TQWidget * parent, const char *name)
     defaultSchema = "";
     spix = new TDESharedPixmap;
 
-    connect(spix, TQT_SIGNAL(done(bool)), TQT_SLOT(previewLoaded(bool)));
+    connect(spix, TQ_SIGNAL(done(bool)), TQ_SLOT(previewLoaded(bool)));
 
     DCOPClient *client = kapp->dcopClient();
     if (!client->isAttached())
@@ -94,29 +94,29 @@ SchemaEditor::SchemaEditor(TQWidget * parent, const char *name)
 
 
     TDEGlobal::locale()->insertCatalogue("konsole"); // For schema translations
-    connect(imageBrowse, TQT_SIGNAL(clicked()), this, TQT_SLOT(imageSelect()));
-    connect(saveButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(saveCurrent()));
-    connect(removeButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(removeCurrent()));
-    connect(colorCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotColorChanged(int)));
-    connect(typeCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotTypeChanged(int)));
-    connect(schemaList, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(readSchema(int)));
-    connect(shadeColor, TQT_SIGNAL(changed(const TQColor&)), this, TQT_SLOT(updatePreview()));
-    connect(shadeSlide, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(updatePreview()));
-    connect(transparencyCheck, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(updatePreview()));
-    connect(backgndLine, TQT_SIGNAL(returnPressed()), this, TQT_SLOT(updatePreview()));
+    connect(imageBrowse, TQ_SIGNAL(clicked()), this, TQ_SLOT(imageSelect()));
+    connect(saveButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(saveCurrent()));
+    connect(removeButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(removeCurrent()));
+    connect(colorCombo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(slotColorChanged(int)));
+    connect(typeCombo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(slotTypeChanged(int)));
+    connect(schemaList, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(readSchema(int)));
+    connect(shadeColor, TQ_SIGNAL(changed(const TQColor&)), this, TQ_SLOT(updatePreview()));
+    connect(shadeSlide, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(updatePreview()));
+    connect(transparencyCheck, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(updatePreview()));
+    connect(backgndLine, TQ_SIGNAL(returnPressed()), this, TQ_SLOT(updatePreview()));
 
-    connect(titleLine, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(schemaModified()));
-    connect(shadeColor, TQT_SIGNAL(changed(const TQColor&)), this, TQT_SLOT(schemaModified()));
-    connect(shadeSlide, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(schemaModified()));
-    connect(transparencyCheck, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(schemaModified()));
-    connect(modeCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(schemaModified()));
-    connect(backgndLine, TQT_SIGNAL(returnPressed()), this, TQT_SLOT(schemaModified()));
-    connect(transparentCheck, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(schemaModified()));
-    connect(boldCheck, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(schemaModified()));
-    connect(colorButton, TQT_SIGNAL(changed(const TQColor&)), this, TQT_SLOT(schemaModified()));
-    connect(backgndLine, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(schemaModified()));
+    connect(titleLine, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(schemaModified()));
+    connect(shadeColor, TQ_SIGNAL(changed(const TQColor&)), this, TQ_SLOT(schemaModified()));
+    connect(shadeSlide, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(schemaModified()));
+    connect(transparencyCheck, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(schemaModified()));
+    connect(modeCombo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(schemaModified()));
+    connect(backgndLine, TQ_SIGNAL(returnPressed()), this, TQ_SLOT(schemaModified()));
+    connect(transparentCheck, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(schemaModified()));
+    connect(boldCheck, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(schemaModified()));
+    connect(colorButton, TQ_SIGNAL(changed(const TQColor&)), this, TQ_SLOT(schemaModified()));
+    connect(backgndLine, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(schemaModified()));
 
-    connect(defaultSchemaCB, TQT_SIGNAL(toggled(bool)), this, TQT_SIGNAL(changed()));
+    connect(defaultSchemaCB, TQ_SIGNAL(toggled(bool)), this, TQ_SIGNAL(changed()));
     removeButton->setEnabled( schemaList->currentItem() );
 }
 
@@ -230,7 +230,7 @@ void SchemaEditor::loadAllSchema(TQString currentFile)
 {
     TQStringList list = TDEGlobal::dirs()->findAllResources("data", "konsole/*.schema");
     TQStringList::ConstIterator it;
-    disconnect(schemaList, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(readSchema(int)));
+    disconnect(schemaList, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(readSchema(int)));
     schemaList->clear();
 
     TQListBoxItem* currentItem = 0;
@@ -253,7 +253,7 @@ void SchemaEditor::loadAllSchema(TQString currentFile)
     schemaList->sort();
     schemaList->setCurrentItem(0);   // select the first added item correctly too
     schemaList->setCurrentItem(currentItem);
-    connect(schemaList, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(readSchema(int)));
+    connect(schemaList, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(readSchema(int)));
     schemaListChanged();
 }
 
@@ -528,11 +528,11 @@ void SchemaEditor::readSchema(int num)
 	}
 
 	if(schMod) {
-	    disconnect(schemaList, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(readSchema(int)));
+	    disconnect(schemaList, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(readSchema(int)));
 	    schemaList->setCurrentItem(oldSchema);
 	    querySave();
 	    schemaList->setCurrentItem(num);
-	    connect(schemaList, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(readSchema(int)));
+	    connect(schemaList, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(readSchema(int)));
 	    schMod=false;
 	}
 

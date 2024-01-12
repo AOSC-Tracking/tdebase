@@ -114,8 +114,8 @@ void KSysTrayCmd::setTargetWindow( WId w )
 
 void KSysTrayCmd::setTargetWindow( const KWin::WindowInfo &info )
 {
-  disconnect( twinmodule, TQT_SIGNAL(windowAdded(WId)), this, TQT_SLOT(windowAdded(WId)) );
-  connect( twinmodule, TQT_SIGNAL(windowChanged(WId)), TQT_SLOT(windowChanged(WId)) );
+  disconnect( twinmodule, TQ_SIGNAL(windowAdded(WId)), this, TQ_SLOT(windowAdded(WId)) );
+  connect( twinmodule, TQ_SIGNAL(windowChanged(WId)), TQ_SLOT(windowChanged(WId)) );
   win = info.win();
   KWin::setSystemTrayWindowFor( winId(), win );
   refresh();
@@ -179,9 +179,9 @@ bool KSysTrayCmd::startClient()
 {
   client = new KShellProcess();
   *client << command;
-  connect( twinmodule, TQT_SIGNAL(windowAdded(WId)), TQT_SLOT(windowAdded(WId)) );
-  connect( client, TQT_SIGNAL( processExited(TDEProcess *) ),
-	   this, TQT_SLOT( clientExited() ) );
+  connect( twinmodule, TQ_SIGNAL(windowAdded(WId)), TQ_SLOT(windowAdded(WId)) );
+  connect( client, TQ_SIGNAL( processExited(TDEProcess *) ),
+	   this, TQ_SLOT( clientExited() ) );
 
   return client->start();
 }

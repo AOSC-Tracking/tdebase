@@ -38,8 +38,8 @@ QuickAddAppsMenu::QuickAddAppsMenu(const TQString &label, const TQString &relPat
 {
    _targetObject = target;
    _sender = sender;
-   connect(this, TQT_SIGNAL(addAppBefore(TQString,TQString)), 
-           target, TQT_SLOT(addAppBeforeManually(TQString,TQString)));
+   connect(this, TQ_SIGNAL(addAppBefore(TQString,TQString)), 
+           target, TQ_SLOT(addAppBeforeManually(TQString,TQString)));
 }
 
 QuickAddAppsMenu::QuickAddAppsMenu(TQWidget *target, TQWidget *parent, const TQString &sender, const char *name)
@@ -47,8 +47,8 @@ QuickAddAppsMenu::QuickAddAppsMenu(TQWidget *target, TQWidget *parent, const TQS
 {
    _targetObject = target;
    _sender = sender;
-   connect(this, TQT_SIGNAL(addAppBefore(TQString,TQString)),
-           target, TQT_SLOT(addAppBeforeManually(TQString,TQString)));
+   connect(this, TQ_SIGNAL(addAppBefore(TQString,TQString)),
+           target, TQ_SLOT(addAppBeforeManually(TQString,TQString)));
 }
 
 void QuickAddAppsMenu::slotExec(int id)

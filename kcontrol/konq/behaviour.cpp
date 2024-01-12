@@ -66,13 +66,13 @@ KBehaviourOptions::KBehaviourOptions(TDEConfig *config, TQString group, TQWidget
     cbNewWin = new TQCheckBox(i18n("Open folders in separate &windows"), vbox);
     TQWhatsThis::add( cbNewWin, i18n("If this option is checked, Konqueror will open a new window when "
                                     "you open a folder, rather than showing that folder's contents in the current window."));
-    connect(cbNewWin, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
-    connect(cbNewWin, TQT_SIGNAL(toggled(bool)), TQT_SLOT(updateWinPixmap(bool)));
+    connect(cbNewWin, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
+    connect(cbNewWin, TQ_SIGNAL(toggled(bool)), TQ_SLOT(updateWinPixmap(bool)));
 
     // ----
 
     cbListProgress = new TQCheckBox( i18n( "&Show network operations in a single window" ), vbox );
-    connect(cbListProgress, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(cbListProgress, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
     TQWhatsThis::add( cbListProgress, i18n("Checking this option will group the"
                                           " progress information for all network file transfers into a single window"
@@ -83,7 +83,7 @@ KBehaviourOptions::KBehaviourOptions(TDEConfig *config, TQString group, TQWidget
     // ----
 
     cbShowArchivesAsFolders = new TQCheckBox( i18n( "Show archived &files as folders" ), vbox );
-    connect(cbShowArchivesAsFolders, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(cbShowArchivesAsFolders, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
     TQWhatsThis::add( cbShowArchivesAsFolders, i18n("Checking this option will list archived"
                                           " files as folders when using tree view.") );
@@ -92,16 +92,16 @@ KBehaviourOptions::KBehaviourOptions(TDEConfig *config, TQString group, TQWidget
     // --
 
     cbShowTips = new TQCheckBox( i18n( "Show file &tips" ), vbox );
-    connect(cbShowTips, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(cbShowTips, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
     TQWhatsThis::add( cbShowTips, i18n("Here you can control if, when moving the mouse over a file, you want to see a "
                                     "small popup window with additional information about that file."
                                     "This feature requires 'Enable tooltips' in KControl, Appearance & Themes, Style."));
 
-    connect(cbShowTips, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotShowTips(bool)));
+    connect(cbShowTips, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotShowTips(bool)));
 /*
-    //connect(cbShowTips, TQT_SIGNAL(toggled(bool)), sbToolTip, TQT_SLOT(setEnabled(bool)));
-    //connect(cbShowTips, TQT_SIGNAL(toggled(bool)), fileTips, TQT_SLOT(setEnabled(bool)));
+    //connect(cbShowTips, TQ_SIGNAL(toggled(bool)), sbToolTip, TQ_SLOT(setEnabled(bool)));
+    //connect(cbShowTips, TQ_SIGNAL(toggled(bool)), fileTips, TQ_SLOT(setEnabled(bool)));
     fileTips->setBuddy(sbToolTip);
     TQString tipstr = i18n("If you move the mouse over a file, you usually see a small popup window that shows some "
                           "additional information about that file. Here, you can set how many items of information "
@@ -116,7 +116,7 @@ KBehaviourOptions::KBehaviourOptions(TDEConfig *config, TQString group, TQWidget
     spacer->setSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Minimum );
 
     cbShowPreviewsInTips = new TQCheckBox( i18n( "Show &previews in file tips" ), hboxpreview );
-    connect(cbShowPreviewsInTips, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(cbShowPreviewsInTips, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
     TQWhatsThis::add( cbShowPreviewsInTips, i18n("Here you can control if you want the "
                           "popup window to contain a larger preview for the file, when moving the mouse over it."));
@@ -124,12 +124,12 @@ KBehaviourOptions::KBehaviourOptions(TDEConfig *config, TQString group, TQWidget
     cbRenameDirectlyIcon = new TQCheckBox(i18n("Rename icons in&line"), vbox);
     TQWhatsThis::add(cbRenameDirectlyIcon, i18n("Checking this option will allow files to be "
                                                "renamed by clicking directly on the icon name. "));
-    connect(cbRenameDirectlyIcon, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(cbRenameDirectlyIcon, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
     cbDoubleClickMoveToParent = new TQCheckBox(i18n("Double click on empty area to move to parent folder"), vbox);
     TQWhatsThis::add(cbDoubleClickMoveToParent, i18n("When this option is enabled, double clicking an "
                                                 "empty area will navigate to the parent folder."));
-    connect(cbDoubleClickMoveToParent, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(cbDoubleClickMoveToParent, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
 	TQHBoxLayout *hlay = new TQHBoxLayout( lay );
 
@@ -140,7 +140,7 @@ KBehaviourOptions::KBehaviourOptions(TDEConfig *config, TQString group, TQWidget
 	homeURL->setMode(KFile::Directory);
 	homeURL->setCaption(i18n("Select Home Folder"));
 	hlay->addWidget( homeURL );
-    connect(homeURL, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(changed()));
+    connect(homeURL, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(changed()));
     label->setBuddy(homeURL);
 
     TQString homestr = i18n("This is the URL (e.g. a folder or a web page) where "
@@ -153,7 +153,7 @@ KBehaviourOptions::KBehaviourOptions(TDEConfig *config, TQString group, TQWidget
 
     cbShowDeleteCommand = new TQCheckBox( i18n( "Show 'Delete' context me&nu entries which bypass the trashcan" ), this );
     lay->addWidget( cbShowDeleteCommand );
-    connect(cbShowDeleteCommand, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(cbShowDeleteCommand, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
     TQWhatsThis::add( cbShowDeleteCommand, i18n("Check this if you want 'Delete' menu commands to be displayed "
                                                 "on the desktop and in the file manager's context menus. "
@@ -169,7 +169,7 @@ KBehaviourOptions::KBehaviourOptions(TDEConfig *config, TQString group, TQWidget
        " <li><em>Delete:</em> simply deletes the file.</li>"
        " </li></ul>") );
 
-    connect(bg, TQT_SIGNAL( clicked( int ) ), TQT_SLOT( changed() ));
+    connect(bg, TQ_SIGNAL( clicked( int ) ), TQ_SLOT( changed() ));
 
     cbMoveToTrash = new TQCheckBox( i18n("&Move to trash"), bg );
 

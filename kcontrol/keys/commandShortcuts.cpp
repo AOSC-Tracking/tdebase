@@ -84,8 +84,8 @@ void CommandShortcutsModule::initGUI()
                         "To edit, add or remove entries from this list use the "
                         "<a href=\"launchMenuEditor\">TDE menu editor</a>.</qt>"));
     label->setSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Minimum);
-    disconnect(label, TQT_SIGNAL(linkClicked(const TQString &)), label, TQT_SLOT(openLink(const TQString &)));
-    connect(label, TQT_SIGNAL(linkClicked(const TQString &)), this, TQT_SLOT(launchMenuEditor()));
+    disconnect(label, TQ_SIGNAL(linkClicked(const TQString &)), label, TQ_SLOT(openLink(const TQString &)));
+    connect(label, TQ_SIGNAL(linkClicked(const TQString &)), this, TQ_SLOT(launchMenuEditor()));
     mainLayout->addWidget(label);
 
     m_tree = new AppTreeView(this, "appTreeView");
@@ -97,10 +97,10 @@ void CommandShortcutsModule::initGUI()
                          "currently defined on this system. Click to select a command to "
                          "assign a keyboard shortcut to. Complete management of these "
                          "entries can be done via the menu editor program."));
-    connect(m_tree, TQT_SIGNAL(entrySelected(const TQString&, const TQString &, bool)),
-            this, TQT_SLOT(commandSelected(const TQString&, const TQString &, bool)));
-    connect(m_tree, TQT_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint &, int)),
-            this, TQT_SLOT(commandDoubleClicked(TQListViewItem *, const TQPoint &, int)));
+    connect(m_tree, TQ_SIGNAL(entrySelected(const TQString&, const TQString &, bool)),
+            this, TQ_SLOT(commandSelected(const TQString&, const TQString &, bool)));
+    connect(m_tree, TQ_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint &, int)),
+            this, TQ_SLOT(commandDoubleClicked(TQListViewItem *, const TQPoint &, int)));
     m_shortcutBox = new TQButtonGroup(i18n("Shortcut for Selected Command"), this);
     mainLayout->addWidget(m_shortcutBox);
     TQHBoxLayout* buttonLayout = new TQHBoxLayout(m_shortcutBox, KDialog::marginHint() * 2);
@@ -121,10 +121,10 @@ void CommandShortcutsModule::initGUI()
                          "to the currently selected command."));
     buttonLayout->addSpacing(KDialog::spacingHint() * 2);
     buttonLayout->addWidget(m_shortcutButton);
-    connect(m_shortcutButton, TQT_SIGNAL(capturedShortcut(const TDEShortcut&)),
-            this, TQT_SLOT(shortcutChanged(const TDEShortcut&)));
-    connect(m_customRadio, TQT_SIGNAL(toggled(bool)), m_shortcutButton, TQT_SLOT(setEnabled(bool)));
-    connect(m_noneRadio, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(shortcutRadioToggled(bool)));
+    connect(m_shortcutButton, TQ_SIGNAL(capturedShortcut(const TDEShortcut&)),
+            this, TQ_SLOT(shortcutChanged(const TDEShortcut&)));
+    connect(m_customRadio, TQ_SIGNAL(toggled(bool)), m_shortcutButton, TQ_SLOT(setEnabled(bool)));
+    connect(m_noneRadio, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(shortcutRadioToggled(bool)));
     buttonLayout->addStretch(1);
 }
 

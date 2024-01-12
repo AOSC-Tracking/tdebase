@@ -95,10 +95,10 @@ void FavIconUpdater::downloadIconActual(const KBookmark &bk) {
         part->setProperty("javaEnabled", TQVariant(false));
         part->setProperty("autoloadImages", TQVariant(false));
 
-        connect(part, TQT_SIGNAL( canceled(const TQString &) ),
-                this, TQT_SLOT( slotCompleted() ));
-        connect(part, TQT_SIGNAL( completed() ),
-                this, TQT_SLOT( slotCompleted() ));
+        connect(part, TQ_SIGNAL( canceled(const TQString &) ),
+                this, TQ_SLOT( slotCompleted() ));
+        connect(part, TQ_SIGNAL( completed() ),
+                this, TQ_SLOT( slotCompleted() ));
 
         KParts::BrowserExtension *ext = KParts::BrowserExtension::childObject(part);
         assert(ext);
@@ -106,8 +106,8 @@ void FavIconUpdater::downloadIconActual(const KBookmark &bk) {
         m_browserIface = new FavIconBrowserInterface(this, "browseriface");
         ext->setBrowserInterface(m_browserIface);
 
-        connect(ext, TQT_SIGNAL( setIconURL(const KURL &) ),
-                this, TQT_SLOT( setIconURL(const KURL &) ));
+        connect(ext, TQ_SIGNAL( setIconURL(const KURL &) ),
+                this, TQ_SLOT( setIconURL(const KURL &) ));
 
         m_part = part;
     }
@@ -115,7 +115,7 @@ void FavIconUpdater::downloadIconActual(const KBookmark &bk) {
     if (!m_timer) {
         // Timeout to stop the updating hanging
       m_timer = new TQTimer(this);
-      connect( m_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(timerDone()) );
+      connect( m_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(timerDone()) );
     }
     m_timer->start(15000,false);
     m_webGrabber = new FavIconWebGrabber(m_part, bk.url());
@@ -149,10 +149,10 @@ FavIconWebGrabber::FavIconWebGrabber(KParts::ReadOnlyPart *part, const KURL &url
 
     TDEIO::Job *job = TDEIO::get(m_url, false, false);
     job->addMetaData( TQString("cookies"), TQString("none") );
-    connect(job, TQT_SIGNAL( result( TDEIO::Job *)),
-            this, TQT_SLOT( slotFinished(TDEIO::Job *) ));
-    connect(job, TQT_SIGNAL( mimetype( TDEIO::Job *, const TQString &) ),
-            this, TQT_SLOT( slotMimetype(TDEIO::Job *, const TQString &) ));
+    connect(job, TQ_SIGNAL( result( TDEIO::Job *)),
+            this, TQ_SLOT( slotFinished(TDEIO::Job *) ));
+    connect(job, TQ_SIGNAL( mimetype( TDEIO::Job *, const TQString &) ),
+            this, TQ_SLOT( slotMimetype(TDEIO::Job *, const TQString &) ));
 }
 
 void FavIconWebGrabber::slotMimetype(TDEIO::Job *job, const TQString & /*type*/) {

@@ -48,16 +48,16 @@ KAppearanceOptions::KAppearanceOptions(TDEConfig *config, TQString group, TQWidg
   m_minSize = new KIntNumInput( fMinSize, gb );
   m_minSize->setLabel( i18n( "M&inimum font size:" ) );
   m_minSize->setRange( 2, 30 );
-  connect( m_minSize, TQT_SIGNAL( valueChanged( int ) ), this, TQT_SLOT( slotMinimumFontSize( int ) ) );
-  connect( m_minSize, TQT_SIGNAL( valueChanged( int ) ), this, TQT_SLOT( changed() ) );
+  connect( m_minSize, TQ_SIGNAL( valueChanged( int ) ), this, TQ_SLOT( slotMinimumFontSize( int ) ) );
+  connect( m_minSize, TQ_SIGNAL( valueChanged( int ) ), this, TQ_SLOT( changed() ) );
   TQWhatsThis::add( m_minSize, i18n( "Konqueror will never display text smaller than "
                                     "this size,<br>overriding any other settings" ) );
 
   m_MedSize = new KIntNumInput( m_minSize, fSize, gb );
   m_MedSize->setLabel( i18n( "&Medium font size:" ) );
   m_MedSize->setRange( 2, 30 );
-  connect( m_MedSize, TQT_SIGNAL( valueChanged( int ) ), this, TQT_SLOT( slotFontSize( int ) ) );
-  connect( m_MedSize, TQT_SIGNAL( valueChanged( int ) ), this, TQT_SLOT( changed() ) );
+  connect( m_MedSize, TQ_SIGNAL( valueChanged( int ) ), this, TQ_SLOT( slotFontSize( int ) ) );
+  connect( m_MedSize, TQ_SIGNAL( valueChanged( int ) ), this, TQ_SLOT( changed() ) );
   TQWhatsThis::add( m_MedSize,
                    i18n("This is the relative font size Konqueror uses "
                         "to display web sites.") );
@@ -76,14 +76,14 @@ KAppearanceOptions::KAppearanceOptions(TDEConfig *config, TQString group, TQWidg
   TQWhatsThis::add( label, wtstr );
   TQWhatsThis::add( m_pFonts[0], wtstr );
 
-  connect( m_pFonts[0], TQT_SIGNAL( activated(const TQString&) ),
-	   TQT_SLOT( slotStandardFont(const TQString&) ) );
-  connect( m_pFonts[0], TQT_SIGNAL( activated(const TQString&) ),
-	   TQT_SLOT(changed() ) );
-  connect( m_pFonts[0]->lineEdit(), TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT( slotStandardFont(const TQString&) ) );
-  connect( m_pFonts[0], TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT(changed() ) );
+  connect( m_pFonts[0], TQ_SIGNAL( activated(const TQString&) ),
+	   TQ_SLOT( slotStandardFont(const TQString&) ) );
+  connect( m_pFonts[0], TQ_SIGNAL( activated(const TQString&) ),
+	   TQ_SLOT(changed() ) );
+  connect( m_pFonts[0]->lineEdit(), TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT( slotStandardFont(const TQString&) ) );
+  connect( m_pFonts[0], TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT(changed() ) );
 
   label = new TQLabel( i18n( "&Fixed font:"), this );
   lay->addWidget( label, ++r, E );
@@ -97,14 +97,14 @@ KAppearanceOptions::KAppearanceOptions(TDEConfig *config, TQString group, TQWidg
   TQWhatsThis::add( label, wtstr );
   TQWhatsThis::add( m_pFonts[1], wtstr );
 
-  connect( m_pFonts[1], TQT_SIGNAL( activated(const TQString&) ),
-	   TQT_SLOT( slotFixedFont(const TQString&) ) );
-  connect( m_pFonts[1], TQT_SIGNAL( activated(const TQString&) ),
-	   TQT_SLOT(changed() ) );
-  connect( m_pFonts[1]->lineEdit(), TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT( slotFixedFont(const TQString&) ) );
-  connect( m_pFonts[1], TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT(changed() ) );
+  connect( m_pFonts[1], TQ_SIGNAL( activated(const TQString&) ),
+	   TQ_SLOT( slotFixedFont(const TQString&) ) );
+  connect( m_pFonts[1], TQ_SIGNAL( activated(const TQString&) ),
+	   TQ_SLOT(changed() ) );
+  connect( m_pFonts[1]->lineEdit(), TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT( slotFixedFont(const TQString&) ) );
+  connect( m_pFonts[1], TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT(changed() ) );
 
   label = new TQLabel( i18n( "S&erif font:" ), this );
   lay->addWidget( label, ++r, E );
@@ -118,14 +118,14 @@ KAppearanceOptions::KAppearanceOptions(TDEConfig *config, TQString group, TQWidg
   TQWhatsThis::add( label, wtstr );
   TQWhatsThis::add( m_pFonts[2], wtstr );
 
-  connect( m_pFonts[2], TQT_SIGNAL( activated( const TQString& ) ),
-	   TQT_SLOT( slotSerifFont( const TQString& ) ) );
-  connect( m_pFonts[2], TQT_SIGNAL( activated( const TQString& ) ),
-	   TQT_SLOT( changed() ) );
-  connect( m_pFonts[2]->lineEdit(), TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT( slotSerifFont(const TQString&) ) );
-  connect( m_pFonts[2], TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT(changed() ) );
+  connect( m_pFonts[2], TQ_SIGNAL( activated( const TQString& ) ),
+	   TQ_SLOT( slotSerifFont( const TQString& ) ) );
+  connect( m_pFonts[2], TQ_SIGNAL( activated( const TQString& ) ),
+	   TQ_SLOT( changed() ) );
+  connect( m_pFonts[2]->lineEdit(), TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT( slotSerifFont(const TQString&) ) );
+  connect( m_pFonts[2], TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT(changed() ) );
 
   label = new TQLabel( i18n( "Sa&ns serif font:" ), this );
   lay->addWidget( label, ++r, E );
@@ -139,14 +139,14 @@ KAppearanceOptions::KAppearanceOptions(TDEConfig *config, TQString group, TQWidg
   TQWhatsThis::add( label, wtstr );
   TQWhatsThis::add( m_pFonts[3], wtstr );
 
-  connect( m_pFonts[3], TQT_SIGNAL( activated( const TQString& ) ),
-	   TQT_SLOT( slotSansSerifFont( const TQString& ) ) );
-  connect( m_pFonts[3], TQT_SIGNAL( activated( const TQString& ) ),
-	   TQT_SLOT( changed() ) );
-  connect( m_pFonts[3]->lineEdit(), TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT( slotSansSerifFont(const TQString&) ) );
-  connect( m_pFonts[3], TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT(changed() ) );
+  connect( m_pFonts[3], TQ_SIGNAL( activated( const TQString& ) ),
+	   TQ_SLOT( slotSansSerifFont( const TQString& ) ) );
+  connect( m_pFonts[3], TQ_SIGNAL( activated( const TQString& ) ),
+	   TQ_SLOT( changed() ) );
+  connect( m_pFonts[3]->lineEdit(), TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT( slotSansSerifFont(const TQString&) ) );
+  connect( m_pFonts[3], TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT(changed() ) );
 
 
   label = new TQLabel( i18n( "C&ursive font:" ), this );
@@ -161,14 +161,14 @@ KAppearanceOptions::KAppearanceOptions(TDEConfig *config, TQString group, TQWidg
   TQWhatsThis::add( label, wtstr );
   TQWhatsThis::add( m_pFonts[4], wtstr );
 
-  connect( m_pFonts[4], TQT_SIGNAL( activated( const TQString& ) ),
-	   TQT_SLOT( slotCursiveFont( const TQString& ) ) );
-  connect( m_pFonts[4], TQT_SIGNAL( activated( const TQString& ) ),
-	   TQT_SLOT( changed() ) );
-  connect( m_pFonts[4]->lineEdit(), TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT( slotCursiveFont(const TQString&) ) );
-  connect( m_pFonts[4], TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT(changed() ) );
+  connect( m_pFonts[4], TQ_SIGNAL( activated( const TQString& ) ),
+	   TQ_SLOT( slotCursiveFont( const TQString& ) ) );
+  connect( m_pFonts[4], TQ_SIGNAL( activated( const TQString& ) ),
+	   TQ_SLOT( changed() ) );
+  connect( m_pFonts[4]->lineEdit(), TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT( slotCursiveFont(const TQString&) ) );
+  connect( m_pFonts[4], TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT(changed() ) );
 
 
   label = new TQLabel( i18n( "Fantas&y font:" ), this );
@@ -183,14 +183,14 @@ KAppearanceOptions::KAppearanceOptions(TDEConfig *config, TQString group, TQWidg
   TQWhatsThis::add( label, wtstr );
   TQWhatsThis::add( m_pFonts[5], wtstr );
 
-  connect( m_pFonts[5], TQT_SIGNAL( activated( const TQString& ) ),
-	   TQT_SLOT( slotFantasyFont( const TQString& ) ) );
-  connect( m_pFonts[5], TQT_SIGNAL( activated( const TQString& ) ),
-	   TQT_SLOT( changed() ) );
-  connect( m_pFonts[5]->lineEdit(), TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT( slotFantasyFont(const TQString&) ) );
-  connect( m_pFonts[5], TQT_SIGNAL( textChanged(const TQString&) ),
-	   TQT_SLOT(changed() ) );
+  connect( m_pFonts[5], TQ_SIGNAL( activated( const TQString& ) ),
+	   TQ_SLOT( slotFantasyFont( const TQString& ) ) );
+  connect( m_pFonts[5], TQ_SIGNAL( activated( const TQString& ) ),
+	   TQ_SLOT( changed() ) );
+  connect( m_pFonts[5]->lineEdit(), TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT( slotFantasyFont(const TQString&) ) );
+  connect( m_pFonts[5], TQ_SIGNAL( textChanged(const TQString&) ),
+	   TQ_SLOT(changed() ) );
 
 
   label = new TQLabel( i18n( "Font &size adjustment for this encoding:" ), this );
@@ -200,10 +200,10 @@ KAppearanceOptions::KAppearanceOptions(TDEConfig *config, TQString group, TQWidg
   label->setBuddy( m_pFontSizeAdjust );
   lay->addMultiCellWidget( m_pFontSizeAdjust, r, r, M+1, W );
 
-  connect( m_pFontSizeAdjust, TQT_SIGNAL( valueChanged( int ) ),
-	   TQT_SLOT( slotFontSizeAdjust( int ) ) );
-  connect( m_pFontSizeAdjust, TQT_SIGNAL( valueChanged( int ) ),
-	   TQT_SLOT( changed() ) );
+  connect( m_pFontSizeAdjust, TQ_SIGNAL( valueChanged( int ) ),
+	   TQ_SLOT( slotFontSizeAdjust( int ) ) );
+  connect( m_pFontSizeAdjust, TQ_SIGNAL( valueChanged( int ) ),
+	   TQ_SLOT( changed() ) );
 
   label = new TQLabel( i18n( "Default encoding:"), this );
   //++r;
@@ -222,10 +222,10 @@ KAppearanceOptions::KAppearanceOptions(TDEConfig *config, TQString group, TQWidg
   TQWhatsThis::add( label, wtstr );
   TQWhatsThis::add( m_pEncoding, wtstr );
 
-  connect( m_pEncoding, TQT_SIGNAL( activated(const TQString& ) ),
-	   TQT_SLOT( slotEncoding(const TQString&) ) );
-  connect( m_pEncoding, TQT_SIGNAL( activated(const TQString& ) ),
-	   TQT_SLOT( changed() ) );
+  connect( m_pEncoding, TQ_SIGNAL( activated(const TQString& ) ),
+	   TQ_SLOT( slotEncoding(const TQString&) ) );
+  connect( m_pEncoding, TQ_SIGNAL( activated(const TQString& ) ),
+	   TQ_SLOT( changed() ) );
 
   ++r; lay->setRowStretch(r, 8);
 

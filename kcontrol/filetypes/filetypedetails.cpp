@@ -30,7 +30,7 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
 
   iconButton = new TDEIconButton(firstWidget);
   iconButton->setIconType(TDEIcon::Desktop, TDEIcon::MimeType);
-  connect(iconButton, TQT_SIGNAL(iconChanged(TQString)), TQT_SLOT(updateIcon(TQString)));
+  connect(iconButton, TQ_SIGNAL(iconChanged(TQString)), TQ_SLOT(updateIcon(TQString)));
 
   iconButton->setFixedSize(70, 70);
   hBox->addWidget(iconButton);
@@ -46,7 +46,7 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
   grid->addRowSpacing(0, fontMetrics().lineSpacing());
 
   extensionLB = new TQListBox(gb);
-  connect(extensionLB, TQT_SIGNAL(highlighted(int)), TQT_SLOT(enableExtButtons(int)));
+  connect(extensionLB, TQ_SIGNAL(highlighted(int)), TQ_SLOT(enableExtButtons(int)));
   grid->addMultiCellWidget(extensionLB, 1, 2, 0, 0);
   grid->setRowStretch(0, 0);
   grid->setRowStretch(1, 1);
@@ -59,16 +59,16 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
 
   addExtButton = new TQPushButton(i18n("Add..."), gb);
   addExtButton->setEnabled(false);
-  connect(addExtButton, TQT_SIGNAL(clicked()),
-          this, TQT_SLOT(addExtension()));
+  connect(addExtButton, TQ_SIGNAL(clicked()),
+          this, TQ_SLOT(addExtension()));
   grid->addWidget(addExtButton, 1, 1);
 
   TQWhatsThis::add( addExtButton, i18n("Add a new pattern for the selected file type.") );
 
   removeExtButton = new TQPushButton(i18n("Remove"), gb);
   removeExtButton->setEnabled(false);
-  connect(removeExtButton, TQT_SIGNAL(clicked()),
-          this, TQT_SLOT(removeExtension()));
+  connect(removeExtButton, TQ_SIGNAL(clicked()),
+          this, TQ_SLOT(removeExtension()));
   grid->addWidget(removeExtButton, 2, 1);
 
   TQWhatsThis::add( removeExtButton, i18n("Remove the selected filename pattern.") );
@@ -78,8 +78,8 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
 
   gb->setColumnLayout(1, TQt::Horizontal);
   description = new KLineEdit(gb);
-  connect(description, TQT_SIGNAL(textChanged(const TQString &)),
-          TQT_SLOT(updateDescription(const TQString &)));
+  connect(description, TQ_SIGNAL(textChanged(const TQString &)),
+          TQ_SLOT(updateDescription(const TQString &)));
 
   wtstr = i18n("You can enter a short description for files of the selected"
     " file type (e.g. 'HTML Page'). This description will be used by applications"
@@ -88,7 +88,7 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
   TQWhatsThis::add( description, wtstr );
 
   serviceListWidget = new KServiceListWidget( KServiceListWidget::SERVICELIST_APPLICATIONS, firstWidget );
-  connect( serviceListWidget, TQT_SIGNAL(changed(bool)), this, TQT_SIGNAL(changed(bool)));
+  connect( serviceListWidget, TQ_SIGNAL(changed(bool)), this, TQ_SIGNAL(changed(bool)));
   firstLayout->addWidget(serviceListWidget, 5);
 
   // Second tab - Embedding
@@ -106,10 +106,10 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
   new TQRadioButton( i18n("Show file in embedded viewer"), m_autoEmbed );
   new TQRadioButton( i18n("Show file in separate viewer"), m_autoEmbed );
   m_rbGroupSettings = new TQRadioButton( i18n("Use settings for '%1' group"), m_autoEmbed );
-  connect(m_autoEmbed, TQT_SIGNAL( clicked( int ) ), TQT_SLOT( slotAutoEmbedClicked( int ) ));
+  connect(m_autoEmbed, TQ_SIGNAL( clicked( int ) ), TQ_SLOT( slotAutoEmbedClicked( int ) ));
 
   m_chkAskSave = new TQCheckBox( i18n("Ask whether to save to disk instead"), m_autoEmbed);
-  connect(m_chkAskSave, TQT_SIGNAL( toggled(bool) ), TQT_SLOT( slotAskSaveToggled(bool) ));
+  connect(m_chkAskSave, TQ_SIGNAL( toggled(bool) ), TQ_SLOT( slotAskSaveToggled(bool) ));
 
   TQWhatsThis::add( m_autoEmbed, i18n("Here you can configure what the Konqueror file manager"
     " will do when you click on a file of this type. Konqueror can display the file in"
@@ -121,7 +121,7 @@ FileTypeDetails::FileTypeDetails( TQWidget * parent, const char * name )
 
   embedServiceListWidget = new KServiceListWidget( KServiceListWidget::SERVICELIST_SERVICES, secondWidget );
   embedServiceListWidget->setMinimumHeight( serviceListWidget->sizeHint().height() );
-  connect( embedServiceListWidget, TQT_SIGNAL(changed(bool)), this, TQT_SIGNAL(changed(bool)));
+  connect( embedServiceListWidget, TQ_SIGNAL(changed(bool)), this, TQ_SIGNAL(changed(bool)));
   secondLayout->addWidget(embedServiceListWidget, 3);
 
   addTab( firstWidget, i18n("&General") );

@@ -616,7 +616,7 @@ NSPluginInstance::NSPluginInstance(NPP privateData, NPPluginFuncs *pluginFuncs,
    memcpy(&_pluginFuncs, pluginFuncs, sizeof(_pluginFuncs));
 
    _timer = new TQTimer( this );
-   connect( _timer, TQT_SIGNAL(timeout()), TQT_SLOT(timer()) );
+   connect( _timer, TQ_SIGNAL(timeout()), TQ_SLOT(timer()) );
 
    kdDebug(1431) << "NSPluginInstance::NSPluginInstance" << endl;
    kdDebug(1431) << "pdata = " << _npp->pdata << endl;
@@ -809,8 +809,8 @@ void NSPluginInstance::timer()
                 if (req.post) {
                     // create stream
                     NSPluginStream *s = new NSPluginStream( this );
-                    connect( s, TQT_SIGNAL(finished(NSPluginStreamBase*)),
-                             TQT_SLOT(streamFinished(NSPluginStreamBase*)) );
+                    connect( s, TQ_SIGNAL(finished(NSPluginStreamBase*)),
+                             TQ_SLOT(streamFinished(NSPluginStreamBase*)) );
                     _streams.append( s );
 
                     kdDebug() << "posting to " << url << endl;
@@ -828,8 +828,8 @@ void NSPluginInstance::timer()
                 } else {
                     // create stream
                     NSPluginStream *s = new NSPluginStream( this );
-                    connect( s, TQT_SIGNAL(finished(NSPluginStreamBase*)),
-                             TQT_SLOT(streamFinished(NSPluginStreamBase*)) );
+                    connect( s, TQ_SIGNAL(finished(NSPluginStreamBase*)),
+                             TQ_SLOT(streamFinished(NSPluginStreamBase*)) );
                     _streams.append( s );
 
                     kdDebug() << "getting " << url << endl;
@@ -1026,8 +1026,8 @@ void NSPluginInstance::javascriptResult(TQ_INT32 id, TQString result) {
         Request *req = i.data();
         _jsrequests.remove( i );
         NSPluginStream *s = new NSPluginStream( this );
-        connect( s, TQT_SIGNAL(finished(NSPluginStreamBase*)),
-                 TQT_SLOT(streamFinished(NSPluginStreamBase*)) );
+        connect( s, TQ_SIGNAL(finished(NSPluginStreamBase*)),
+                 TQ_SLOT(streamFinished(NSPluginStreamBase*)) );
         _streams.append( s );
 
         int len = result.length();
@@ -1254,9 +1254,9 @@ NSPluginViewer::NSPluginViewer( TQCString dcopId,
 {
     _classes.setAutoDelete( true );
     connect(TDEApplication::dcopClient(),
-            TQT_SIGNAL(applicationRemoved(const TQCString&)),
+            TQ_SIGNAL(applicationRemoved(const TQCString&)),
             this,
-            TQT_SLOT(appUnregistered(const TQCString&)));
+            TQ_SLOT(appUnregistered(const TQCString&)));
 }
 
 
@@ -1348,7 +1348,7 @@ NSPluginClass::NSPluginClass( const TQString &library,
     _NP_Shutdown = 0;
 
     _timer = new TQTimer( this );
-    connect( _timer, TQT_SIGNAL(timeout()), TQT_SLOT(timer()) );
+    connect( _timer, TQ_SIGNAL(timeout()), TQ_SLOT(timer()) );
 
     // check lib handle
     if (!_handle) {
@@ -1832,7 +1832,7 @@ NSPluginBufStream::NSPluginBufStream( class NSPluginInstance *instance )
     : NSPluginStreamBase( instance )
 {
     _timer = new TQTimer( this );
-    connect( _timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(timer()) );
+    connect( _timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(timer()) );
 }
 
 
@@ -1878,7 +1878,7 @@ NSPluginStream::NSPluginStream( NSPluginInstance *instance )
     : NSPluginStreamBase( instance ), _job(0)
 {
    _resumeTimer = new TQTimer( this );
-   connect(_resumeTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(resume()));
+   connect(_resumeTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(resume()));
 }
 
 
@@ -1902,15 +1902,15 @@ bool NSPluginStream::get( const TQString& url, const TQString& mimeType,
         if (reload) {
             _job->addMetaData("cache", "reload");
         }
-        connect(_job, TQT_SIGNAL(data(TDEIO::Job *, const TQByteArray &)),
-                TQT_SLOT(data(TDEIO::Job *, const TQByteArray &)));
-        connect(_job, TQT_SIGNAL(result(TDEIO::Job *)), TQT_SLOT(result(TDEIO::Job *)));
-        connect(_job, TQT_SIGNAL(totalSize(TDEIO::Job *, TDEIO::filesize_t )),
-                TQT_SLOT(totalSize(TDEIO::Job *, TDEIO::filesize_t)));
-        connect(_job, TQT_SIGNAL(mimetype(TDEIO::Job *, const TQString &)),
-                TQT_SLOT(mimetype(TDEIO::Job *, const TQString &)));
-        connect(_job, TQT_SIGNAL(redirection(TDEIO::Job *, const KURL&)),
-                TQT_SLOT(redirection(TDEIO::Job *, const KURL&)));
+        connect(_job, TQ_SIGNAL(data(TDEIO::Job *, const TQByteArray &)),
+                TQ_SLOT(data(TDEIO::Job *, const TQByteArray &)));
+        connect(_job, TQ_SIGNAL(result(TDEIO::Job *)), TQ_SLOT(result(TDEIO::Job *)));
+        connect(_job, TQ_SIGNAL(totalSize(TDEIO::Job *, TDEIO::filesize_t )),
+                TQ_SLOT(totalSize(TDEIO::Job *, TDEIO::filesize_t)));
+        connect(_job, TQ_SIGNAL(mimetype(TDEIO::Job *, const TQString &)),
+                TQ_SLOT(mimetype(TDEIO::Job *, const TQString &)));
+        connect(_job, TQ_SIGNAL(redirection(TDEIO::Job *, const KURL&)),
+                TQ_SLOT(redirection(TDEIO::Job *, const KURL&)));
     }
 
     return false;
@@ -1928,15 +1928,15 @@ bool NSPluginStream::post( const TQString& url, const TQByteArray& data,
         _job->addMetaData("errorPage", "false");
         _job->addMetaData("PropagateHttpHeader", "true");
         _job->addMetaData("AllowCompressedPage", "false");
-        connect(_job, TQT_SIGNAL(data(TDEIO::Job *, const TQByteArray &)),
-                TQT_SLOT(data(TDEIO::Job *, const TQByteArray &)));
-        connect(_job, TQT_SIGNAL(result(TDEIO::Job *)), TQT_SLOT(result(TDEIO::Job *)));
-        connect(_job, TQT_SIGNAL(totalSize(TDEIO::Job *, TDEIO::filesize_t )),
-                TQT_SLOT(totalSize(TDEIO::Job *, TDEIO::filesize_t)));
-        connect(_job, TQT_SIGNAL(mimetype(TDEIO::Job *, const TQString &)),
-                TQT_SLOT(mimetype(TDEIO::Job *, const TQString &)));
-        connect(_job, TQT_SIGNAL(redirection(TDEIO::Job *, const KURL&)),
-                TQT_SLOT(redirection(TDEIO::Job *, const KURL&)));
+        connect(_job, TQ_SIGNAL(data(TDEIO::Job *, const TQByteArray &)),
+                TQ_SLOT(data(TDEIO::Job *, const TQByteArray &)));
+        connect(_job, TQ_SIGNAL(result(TDEIO::Job *)), TQ_SLOT(result(TDEIO::Job *)));
+        connect(_job, TQ_SIGNAL(totalSize(TDEIO::Job *, TDEIO::filesize_t )),
+                TQ_SLOT(totalSize(TDEIO::Job *, TDEIO::filesize_t)));
+        connect(_job, TQ_SIGNAL(mimetype(TDEIO::Job *, const TQString &)),
+                TQ_SLOT(mimetype(TDEIO::Job *, const TQString &)));
+        connect(_job, TQ_SIGNAL(redirection(TDEIO::Job *, const KURL&)),
+                TQ_SLOT(redirection(TDEIO::Job *, const KURL&)));
     }
 
     return false;

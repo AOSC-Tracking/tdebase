@@ -90,9 +90,9 @@ KPersonalizer::KPersonalizer(TQWidget *parent, const char *name)
 	locale = new TDELocale("kpersonalizer");
 	locale->setLanguage(TDELocale::defaultLanguage());
 
-	connect(ospage, TQT_SIGNAL(selectedOS(const TQString&)), stylepage, TQT_SLOT(presetStyle(const TQString&)));
-	connect(ospage, TQT_SIGNAL(selectedOS(const TQString&)), eyecandy, TQT_SLOT(slotPresetSlider(const TQString&)));
-	connect(refinepage->pb_kcontrol, TQT_SIGNAL(clicked()), this, TQT_SLOT(accept()));
+	connect(ospage, TQ_SIGNAL(selectedOS(const TQString&)), stylepage, TQ_SLOT(presetStyle(const TQString&)));
+	connect(ospage, TQ_SIGNAL(selectedOS(const TQString&)), eyecandy, TQ_SLOT(slotPresetSlider(const TQString&)));
+	connect(refinepage->pb_kcontrol, TQ_SIGNAL(clicked()), this, TQ_SLOT(accept()));
 
 	setPosition();
 
@@ -125,7 +125,7 @@ void KPersonalizer::next() {
 	else if(currentPage()==eyecandy){
 		eye_dirty=true;  // set the dirty flag, changes done that need reverting
 		eyecandy->save();
-		TQTimer::singleShot(0, this, TQT_SLOT(slotNext()));
+		TQTimer::singleShot(0, this, TQ_SLOT(slotNext()));
 	}
 	else if(currentPage()==stylepage){
 		style_dirty=true;  // set the dirty flag, changes done that need reverting
@@ -215,7 +215,7 @@ void KPersonalizer::slotRestart() {
 }
 
 void KPersonalizer::delayedRestart() {
-	TQTimer::singleShot(0, this, TQT_SLOT(slotRestart()));
+	TQTimer::singleShot(0, this, TQ_SLOT(slotRestart()));
 }
 
 /** this session is restarted, so we want to start with ospage */

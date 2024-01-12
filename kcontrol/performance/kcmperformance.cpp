@@ -52,11 +52,11 @@ Config::Config( TQWidget* parent_P, const char* )
     tabs = new TQTabWidget( this );
     konqueror_widget = new Konqueror( tabs );
     konqueror_widget->layout()->setMargin( KDialog::marginHint() );
-    connect( konqueror_widget, TQT_SIGNAL( changed()), TQT_SLOT( changed()));
+    connect( konqueror_widget, TQ_SIGNAL( changed()), TQ_SLOT( changed()));
     tabs->addTab( konqueror_widget, i18n( "Konqueror" ));
     system_widget = new SystemWidget( tabs );
     system_widget->layout()->setMargin( KDialog::marginHint() );
-    connect( system_widget, TQT_SIGNAL( changed()), TQT_SLOT( changed()));
+    connect( system_widget, TQ_SIGNAL( changed()), TQ_SLOT( changed()));
     tabs->addTab( system_widget, i18n( "System" ));
     topLayout->add( tabs );
     load();
@@ -110,7 +110,7 @@ KonquerorConfig::KonquerorConfig( TQWidget* parent_P, const char* )
 
     TQVBoxLayout *topLayout = new TQVBoxLayout( this );
     widget = new Konqueror( this );
-    connect( widget, TQT_SIGNAL( changed()), TQT_SLOT( changed()));
+    connect( widget, TQ_SIGNAL( changed()), TQ_SLOT( changed()));
     topLayout->add( widget );
     load();
     }

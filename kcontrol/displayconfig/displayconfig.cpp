@@ -745,7 +745,7 @@ KDisplayConfig::KDisplayConfig(TQWidget *parent, const char *name, const TQStrin
 {
 #ifdef WITH_TDEHWLIB
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
-	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(deviceChanged(TDEGenericDevice*)));
+	connect(hwdevices, TQ_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQ_SLOT(deviceChanged(TDEGenericDevice*)));
 #endif
 
 	m_randrsimple = new KRandrSimpleAPI();
@@ -769,7 +769,7 @@ KDisplayConfig::KDisplayConfig(TQWidget *parent, const char *name, const TQStrin
 	setAboutData( about );
 
 	m_gammaApplyTimer = new TQTimer();
-	connect(m_gammaApplyTimer, SIGNAL(timeout()), this, SLOT(applyGamma()));
+	connect(m_gammaApplyTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(applyGamma()));
 
 	base = new DisplayConfigBase(this);
 	profileRulesGrid = new TQGridLayout(base->profileRulesGridWidget, 1, 1, KDialog::marginHint());
@@ -792,54 +792,54 @@ KDisplayConfig::KDisplayConfig(TQWidget *parent, const char *name, const TQStrin
 		base->nonRootWarningLabel->hide();
 	}
 
-	connect(base->systemEnableSupport, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-	connect(base->systemEnableSupport, TQT_SIGNAL(clicked()), TQT_SLOT(processLockoutControls()));
-	connect(base->addProfileButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(addProfile()));
-	connect(base->renameProfileButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(renameProfile()));
-	connect(base->deleteProfileButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(deleteProfile()));
-	connect(base->activateProfileButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(activateProfile()));
-	connect(base->reloadProfileButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(reloadProfileFromDisk()));
-	connect(base->saveProfileButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(saveProfile()));
-	connect(base->systemEnableStartupProfile, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
-	connect(base->systemEnableStartupProfile, TQT_SIGNAL(clicked()), this, TQT_SLOT(processLockoutControls()));
-	connect(base->startupDisplayProfileList, TQT_SIGNAL(activated(int)), this, TQT_SLOT(changed()));
-	connect(base->startupDisplayProfileList, TQT_SIGNAL(activated(int)), this, TQT_SLOT(selectDefaultProfile(int)));
-	connect(base->displayProfileList, TQT_SIGNAL(activated(int)), this, TQT_SLOT(selectProfile(int)));
+	connect(base->systemEnableSupport, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+	connect(base->systemEnableSupport, TQ_SIGNAL(clicked()), TQ_SLOT(processLockoutControls()));
+	connect(base->addProfileButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(addProfile()));
+	connect(base->renameProfileButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(renameProfile()));
+	connect(base->deleteProfileButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(deleteProfile()));
+	connect(base->activateProfileButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(activateProfile()));
+	connect(base->reloadProfileButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(reloadProfileFromDisk()));
+	connect(base->saveProfileButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(saveProfile()));
+	connect(base->systemEnableStartupProfile, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
+	connect(base->systemEnableStartupProfile, TQ_SIGNAL(clicked()), this, TQ_SLOT(processLockoutControls()));
+	connect(base->startupDisplayProfileList, TQ_SIGNAL(activated(int)), this, TQ_SLOT(changed()));
+	connect(base->startupDisplayProfileList, TQ_SIGNAL(activated(int)), this, TQ_SLOT(selectDefaultProfile(int)));
+	connect(base->displayProfileList, TQ_SIGNAL(activated(int)), this, TQ_SLOT(selectProfile(int)));
 
-	connect(base->monitorDisplaySelectDD, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
-	connect(base->gammamonitorDisplaySelectDD, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
-	connect(base->gammaTargetSelectDD, TQT_SIGNAL(activated(int)), TQT_SLOT(gammaTargetChanged(int)));
-	connect(base->rotationSelectDD, TQT_SIGNAL(activated(int)), TQT_SLOT(rotationInfoChanged()));
-	connect(base->refreshRateDD, TQT_SIGNAL(activated(int)), TQT_SLOT(refreshInfoChanged()));
-	connect(base->orientationHFlip, TQT_SIGNAL(clicked()), TQT_SLOT(rotationInfoChanged()));
-	connect(base->orientationVFlip, TQT_SIGNAL(clicked()), TQT_SLOT(rotationInfoChanged()));
-	connect(base->resolutionSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(resolutionSliderChanged(int)));
-	connect(base->gammaAllSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(gammaAllSliderChanged(int)));
-	connect(base->gammaRedSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(gammaRedSliderChanged(int)));
-	connect(base->gammaGreenSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(gammaGreenSliderChanged(int)));
-	connect(base->gammaBlueSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(gammaBlueSliderChanged(int)));
-	connect(base->monitorDisplaySelectDD, TQT_SIGNAL(activated(int)), TQT_SLOT(selectScreen(int)));
-	connect(base->gammamonitorDisplaySelectDD, TQT_SIGNAL(activated(int)), TQT_SLOT(gammaselectScreen(int)));
-	connect(base->systemEnableDPMS, TQT_SIGNAL(clicked()), TQT_SLOT(dpmsChanged()));
-	connect(base->systemEnableDPMSStandby, TQT_SIGNAL(clicked()), TQT_SLOT(dpmsChanged()));
-	connect(base->systemEnableDPMSSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(dpmsChanged()));
-	connect(base->systemEnableDPMSPowerDown, TQT_SIGNAL(clicked()), TQT_SLOT(dpmsChanged()));
-	connect(base->dpmsStandbyTimeout, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(dpmsChanged()));
-	connect(base->dpmsSuspendTimeout, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(dpmsChanged()));
-	connect(base->dpmsPowerDownTimeout, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(dpmsChanged()));
-	connect(base->monitorPhyArrange, TQT_SIGNAL(workspaceRelayoutNeeded()), this, TQT_SLOT(layoutDragDropDisplay()));
+	connect(base->monitorDisplaySelectDD, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
+	connect(base->gammamonitorDisplaySelectDD, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
+	connect(base->gammaTargetSelectDD, TQ_SIGNAL(activated(int)), TQ_SLOT(gammaTargetChanged(int)));
+	connect(base->rotationSelectDD, TQ_SIGNAL(activated(int)), TQ_SLOT(rotationInfoChanged()));
+	connect(base->refreshRateDD, TQ_SIGNAL(activated(int)), TQ_SLOT(refreshInfoChanged()));
+	connect(base->orientationHFlip, TQ_SIGNAL(clicked()), TQ_SLOT(rotationInfoChanged()));
+	connect(base->orientationVFlip, TQ_SIGNAL(clicked()), TQ_SLOT(rotationInfoChanged()));
+	connect(base->resolutionSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(resolutionSliderChanged(int)));
+	connect(base->gammaAllSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(gammaAllSliderChanged(int)));
+	connect(base->gammaRedSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(gammaRedSliderChanged(int)));
+	connect(base->gammaGreenSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(gammaGreenSliderChanged(int)));
+	connect(base->gammaBlueSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(gammaBlueSliderChanged(int)));
+	connect(base->monitorDisplaySelectDD, TQ_SIGNAL(activated(int)), TQ_SLOT(selectScreen(int)));
+	connect(base->gammamonitorDisplaySelectDD, TQ_SIGNAL(activated(int)), TQ_SLOT(gammaselectScreen(int)));
+	connect(base->systemEnableDPMS, TQ_SIGNAL(clicked()), TQ_SLOT(dpmsChanged()));
+	connect(base->systemEnableDPMSStandby, TQ_SIGNAL(clicked()), TQ_SLOT(dpmsChanged()));
+	connect(base->systemEnableDPMSSuspend, TQ_SIGNAL(clicked()), TQ_SLOT(dpmsChanged()));
+	connect(base->systemEnableDPMSPowerDown, TQ_SIGNAL(clicked()), TQ_SLOT(dpmsChanged()));
+	connect(base->dpmsStandbyTimeout, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(dpmsChanged()));
+	connect(base->dpmsSuspendTimeout, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(dpmsChanged()));
+	connect(base->dpmsPowerDownTimeout, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(dpmsChanged()));
+	connect(base->monitorPhyArrange, TQ_SIGNAL(workspaceRelayoutNeeded()), this, TQ_SLOT(layoutDragDropDisplay()));
 
-	connect(base->isPrimaryMonitorCB, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-	connect(base->isPrimaryMonitorCB, TQT_SIGNAL(clicked()), TQT_SLOT(ensurePrimaryMonitorIsAvailable()));
-	connect(base->isExtendedMonitorCB, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-	connect(base->isExtendedMonitorCB, TQT_SIGNAL(clicked()), TQT_SLOT(updateExtendedMonitorInformation()));
+	connect(base->isPrimaryMonitorCB, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+	connect(base->isPrimaryMonitorCB, TQ_SIGNAL(clicked()), TQ_SLOT(ensurePrimaryMonitorIsAvailable()));
+	connect(base->isExtendedMonitorCB, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+	connect(base->isExtendedMonitorCB, TQ_SIGNAL(clicked()), TQ_SLOT(updateExtendedMonitorInformation()));
 
-	connect(base->systemEnableSupport, TQT_SIGNAL(toggled(bool)), base->monitorDisplaySelectDD, TQT_SLOT(setEnabled(bool)));
+	connect(base->systemEnableSupport, TQ_SIGNAL(toggled(bool)), base->monitorDisplaySelectDD, TQ_SLOT(setEnabled(bool)));
 
-	connect(base->rescanHardware, TQT_SIGNAL(clicked()), TQT_SLOT(rescanHardware()));
-	connect(base->loadExistingProfile, TQT_SIGNAL(clicked()), TQT_SLOT(reloadProfile()));
-	connect(base->previewConfiguration, TQT_SIGNAL(clicked()), TQT_SLOT(activatePreview()));
-	connect(base->identifyMonitors, TQT_SIGNAL(clicked()), TQT_SLOT(identifyMonitors()));
+	connect(base->rescanHardware, TQ_SIGNAL(clicked()), TQ_SLOT(rescanHardware()));
+	connect(base->loadExistingProfile, TQ_SIGNAL(clicked()), TQ_SLOT(reloadProfile()));
+	connect(base->previewConfiguration, TQ_SIGNAL(clicked()), TQ_SLOT(activatePreview()));
+	connect(base->identifyMonitors, TQ_SIGNAL(clicked()), TQ_SLOT(identifyMonitors()));
 
 	load();
 
@@ -926,7 +926,7 @@ void KDisplayConfig::identifyMonitors () {
 		idWidget->setPaletteBackgroundColor(TQt::black);
 		idWidget->show();
 		KDialog::centerOnScreen(idWidget, i);
-		TQTimer::singleShot(3000, idWidget, SLOT(close()));
+		TQTimer::singleShot(3000, idWidget, TQ_SLOT(close()));
 	}
 
 	m_randrsimple->freeScreenInfoStructure(randr_screen_info);
@@ -1349,9 +1349,9 @@ void KDisplayConfig::updateDragDropDisplay() {
 			if (((j==0) && (screendata->is_primary==true)) || ((j==1) && (screendata->is_primary==false))) {	// This ensures that the primary monitor is always the first one created and placed on the configuration widget
 				bool isvisiblyrotated = ((screendata->current_rotation_index == ROTATION_90_DEGREES_INDEX) || (screendata->current_rotation_index == ROTATION_270_DEGREES_INDEX));
 				DraggableMonitor *m = new DraggableMonitor( base->monitorPhyArrange, 0, WStyle_Customize | WDestructiveClose | WStyle_NoBorder | WX11BypassWM );
-				connect(m, TQT_SIGNAL(workspaceRelayoutNeeded()), this, TQT_SLOT(layoutDragDropDisplay()));
-				connect(m, TQT_SIGNAL(monitorSelected(int)), this, TQT_SLOT(selectScreen(int)));
-				connect(m, TQT_SIGNAL(monitorDragComplete(int)), this, TQT_SLOT(updateDraggableMonitorInformation(int)));
+				connect(m, TQ_SIGNAL(workspaceRelayoutNeeded()), this, TQ_SLOT(layoutDragDropDisplay()));
+				connect(m, TQ_SIGNAL(monitorSelected(int)), this, TQ_SLOT(selectScreen(int)));
+				connect(m, TQ_SIGNAL(monitorDragComplete(int)), this, TQ_SLOT(updateDraggableMonitorInformation(int)));
 				m->screen_id = i;
 				if (isvisiblyrotated)
 					m->setFixedSize(screendata->current_y_pixel_count*base->monitorPhyArrange->resize_factor, screendata->current_x_pixel_count*base->monitorPhyArrange->resize_factor);
@@ -1670,8 +1670,8 @@ void KDisplayConfig::createHotplugRulesGrid() {
 			int index = (*it2).outputs.findIndex(m_hardwareScreenInfoArray.at(j)->screenUniqueName);
 
 			TQCheckBox* cb = new TQCheckBox(base->profileRulesGridWidget, (TQString("%1:%2").arg(i).arg(j)).ascii());
-			connect(cb, TQT_SIGNAL(stateChanged(int)), this, TQT_SLOT(profileRuleCheckBoxStateChanged(int)));
-			connect(cb, TQT_SIGNAL(stateChanged(int)), this, TQT_SLOT(changed()));
+			connect(cb, TQ_SIGNAL(stateChanged(int)), this, TQ_SLOT(profileRuleCheckBoxStateChanged(int)));
+			connect(cb, TQ_SIGNAL(stateChanged(int)), this, TQ_SLOT(changed()));
 			cb->setTristate(true);
 			if (index < 0) {
 				cb->setNoChange();
@@ -1693,7 +1693,7 @@ void KDisplayConfig::createHotplugRulesGrid() {
 			cb->show();
 		}
 		KComboBox* combo = new KComboBox(base->profileRulesGridWidget, (TQString("%1").arg(i)).ascii());
-		connect(combo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(changed()));
+		connect(combo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(changed()));
 		combo->insertItem(i18n("<default>"));
 		for (TQStringList::Iterator it3 = availableProfileNames.begin(); it3 != availableProfileNames.end(); ++it3) {
 			combo->insertItem(*it3);
@@ -1703,8 +1703,8 @@ void KDisplayConfig::createHotplugRulesGrid() {
 		combo->show();
 		TQPushButton* button = new TQPushButton(base->profileRulesGridWidget, (TQString("%1").arg(i)).ascii());
 		button->setText(i18n("Delete Rule"));
-		connect(button, TQT_SIGNAL(clicked()), this, TQT_SLOT(deleteProfileRule()));
-		connect(button, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+		connect(button, TQ_SIGNAL(clicked()), this, TQ_SLOT(deleteProfileRule()));
+		connect(button, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 		profileRulesGrid->addWidget(button, i+1, j+2);
 		button->show();
 		i++;
@@ -1712,8 +1712,8 @@ void KDisplayConfig::createHotplugRulesGrid() {
 
 	TQPushButton* button = new TQPushButton(base->profileRulesGridWidget);
 	button->setText(i18n("Add New Rule"));
-	connect(button, TQT_SIGNAL(clicked()), this, TQT_SLOT(addNewProfileRule()));
-	connect(button, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+	connect(button, TQ_SIGNAL(clicked()), this, TQ_SLOT(addNewProfileRule()));
+	connect(button, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 	profileRulesGrid->addMultiCellWidget(button, i+2, i+2, 0, numberOfScreens+2);
 	button->show();
 }
@@ -1921,7 +1921,7 @@ TDECModule* KDisplayConfig::addTab( const TQString name, const TQString label )
 		top->addWidget( kcm );
 		base->mainTabContainerWidget->addTab( page, label );
 
-		connect( kcm, TQT_SIGNAL( changed(bool) ), this, TQT_SLOT( changed() ) );
+		connect( kcm, TQ_SIGNAL( changed(bool) ), this, TQ_SLOT( changed() ) );
 		//m_modules.insert(kcm, false);
 		return kcm;
 	}
@@ -2020,7 +2020,7 @@ void KDisplayConfig::save()
 	else {
 		// Signal that settings were NOT applied
 		TQTimer *t = new TQTimer( this );
-		connect(t, SIGNAL(timeout()), SLOT(changed()) );
+		connect(t, TQ_SIGNAL(timeout()), TQ_SLOT(changed()) );
 		t->start( 100, FALSE );
 	}
 }

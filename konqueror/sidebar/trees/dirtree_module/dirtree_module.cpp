@@ -52,8 +52,8 @@ KonqSidebarDirTreeModule::~KonqSidebarDirTreeModule()
     // KDirLister may still emit canceled while being deleted.
     if (m_dirLister)
     {
-       disconnect( m_dirLister, TQT_SIGNAL( canceled( const KURL & ) ),
-                   this, TQT_SLOT( slotListingStopped( const KURL & ) ) );
+       disconnect( m_dirLister, TQ_SIGNAL( canceled( const KURL & ) ),
+                   this, TQ_SLOT( slotListingStopped( const KURL & ) ) );
        delete m_dirLister;
     }
 }
@@ -303,18 +303,18 @@ void KonqSidebarDirTreeModule::openSubFolder( KonqSidebarTreeItem *item )
 //	mimetypes<<TQString("inode/directory");
 //	m_dirLister->setMimeFilter(mimetypes);
 
-        connect( m_dirLister, TQT_SIGNAL( newItems( const KFileItemList & ) ),
-                 this, TQT_SLOT( slotNewItems( const KFileItemList & ) ) );
-        connect( m_dirLister, TQT_SIGNAL( refreshItems( const KFileItemList & ) ),
-                 this, TQT_SLOT( slotRefreshItems( const KFileItemList & ) ) );
-        connect( m_dirLister, TQT_SIGNAL( deleteItem( KFileItem * ) ),
-                 this, TQT_SLOT( slotDeleteItem( KFileItem * ) ) );
-        connect( m_dirLister, TQT_SIGNAL( completed( const KURL & ) ),
-                 this, TQT_SLOT( slotListingStopped( const KURL & ) ) );
-        connect( m_dirLister, TQT_SIGNAL( canceled( const KURL & ) ),
-                 this, TQT_SLOT( slotListingStopped( const KURL & ) ) );
-        connect( m_dirLister, TQT_SIGNAL( redirection( const KURL &, const KURL & ) ),
-                 this, TQT_SLOT( slotRedirection( const KURL &, const KURL & ) ) );
+        connect( m_dirLister, TQ_SIGNAL( newItems( const KFileItemList & ) ),
+                 this, TQ_SLOT( slotNewItems( const KFileItemList & ) ) );
+        connect( m_dirLister, TQ_SIGNAL( refreshItems( const KFileItemList & ) ),
+                 this, TQ_SLOT( slotRefreshItems( const KFileItemList & ) ) );
+        connect( m_dirLister, TQ_SIGNAL( deleteItem( KFileItem * ) ),
+                 this, TQ_SLOT( slotDeleteItem( KFileItem * ) ) );
+        connect( m_dirLister, TQ_SIGNAL( completed( const KURL & ) ),
+                 this, TQ_SLOT( slotListingStopped( const KURL & ) ) );
+        connect( m_dirLister, TQ_SIGNAL( canceled( const KURL & ) ),
+                 this, TQ_SLOT( slotListingStopped( const KURL & ) ) );
+        connect( m_dirLister, TQ_SIGNAL( redirection( const KURL &, const KURL & ) ),
+                 this, TQ_SLOT( slotRedirection( const KURL &, const KURL & ) ) );
     }
 
 

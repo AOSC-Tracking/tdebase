@@ -169,10 +169,10 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
         }
 
         if (KickerSettings::legacyKMenu()) 
-//          insertItem(SmallIcon("kickoff"), i18n("Switch to Kickoff Menu Style"), this, TQT_SLOT(toggleLegacy()));
-          insertItem(SmallIcon("launch"), i18n("Switch to Kickoff Menu Style"), this, TQT_SLOT(toggleLegacy()));
+//          insertItem(SmallIcon("kickoff"), i18n("Switch to Kickoff Menu Style"), this, TQ_SLOT(toggleLegacy()));
+          insertItem(SmallIcon("launch"), i18n("Switch to Kickoff Menu Style"), this, TQ_SLOT(toggleLegacy()));
         else
-          insertItem(SmallIcon("about_kde"), i18n("Switch to Trinity Classic Menu Style"), this, TQT_SLOT(toggleLegacy()));
+          insertItem(SmallIcon("about_kde"), i18n("Switch to Trinity Classic Menu Style"), this, TQ_SLOT(toggleLegacy()));
     }
 
     if ((actions & PanelAppletOpMenu::KMenuEditor) && kapp->authorizeTDEAction("menuedit"))

@@ -71,8 +71,8 @@ MenuManager::MenuManager(TQObject *parent)
 	m_kmenu = new KMenuStub(new KMenu);
 
     kapp->dcopClient()->setNotifications(true);
-    connect(kapp->dcopClient(), TQT_SIGNAL(applicationRemoved(const TQCString&)),
-            this, TQT_SLOT(applicationRemoved(const TQCString&)));
+    connect(kapp->dcopClient(), TQ_SIGNAL(applicationRemoved(const TQCString&)),
+            this, TQ_SLOT(applicationRemoved(const TQCString&)));
 }
 
 MenuManager::~MenuManager()
@@ -164,7 +164,7 @@ void MenuManager::kmenuAccelActivated()
         // the item under the cursor gets selected. The single shot
         // avoids this from happening by allowing the item to be selected
         // when the event loop is enterred, and then resetting it.
-        TQTimer::singleShot(0, this, TQT_SLOT(slotSetKMenuItemActive()));
+        TQTimer::singleShot(0, this, TQ_SLOT(slotSetKMenuItemActive()));
     }
     else
     {

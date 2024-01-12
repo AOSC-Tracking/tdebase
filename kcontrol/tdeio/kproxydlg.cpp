@@ -54,9 +54,9 @@ KProxyOptions::KProxyOptions (TQWidget* parent )
   mTab->addTab(mProxy, i18n("&Proxy"));
   mTab->addTab(mSocks, i18n("&SOCKS"));
 
-  connect(mProxy, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
-  connect(mSocks, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
-  connect(mTab, TQT_SIGNAL(currentChanged(TQWidget *)), TQT_SIGNAL(quickHelpChanged()));
+  connect(mProxy, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
+  connect(mSocks, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
+  connect(mTab, TQ_SIGNAL(currentChanged(TQWidget *)), TQ_SIGNAL(quickHelpChanged()));
 }
 
 KProxyOptions::~KProxyOptions()
@@ -121,27 +121,27 @@ KProxyDialog::KProxyDialog( TQWidget* parent)
   mainLayout->addStretch();
   
   // signals and slots connections
-  connect( mDlg->rbNoProxy, TQT_SIGNAL( toggled(bool) ),
-            TQT_SLOT( slotUseProxyChanged() ) );
+  connect( mDlg->rbNoProxy, TQ_SIGNAL( toggled(bool) ),
+            TQ_SLOT( slotUseProxyChanged() ) );
   
-  connect( mDlg->rbAutoDiscover, TQT_SIGNAL( toggled(bool) ),
-            TQT_SLOT( slotChanged() ) );
-  connect( mDlg->rbAutoScript, TQT_SIGNAL( toggled(bool) ),
-            TQT_SLOT( slotChanged() ) );
+  connect( mDlg->rbAutoDiscover, TQ_SIGNAL( toggled(bool) ),
+            TQ_SLOT( slotChanged() ) );
+  connect( mDlg->rbAutoScript, TQ_SIGNAL( toggled(bool) ),
+            TQ_SLOT( slotChanged() ) );
   
-  connect( mDlg->rbPrompt, TQT_SIGNAL( toggled(bool) ),
-            TQT_SLOT( slotChanged() ) );
-  connect( mDlg->rbPresetLogin, TQT_SIGNAL( toggled(bool) ),
-            TQT_SLOT( slotChanged() ) );
+  connect( mDlg->rbPrompt, TQ_SIGNAL( toggled(bool) ),
+            TQ_SLOT( slotChanged() ) );
+  connect( mDlg->rbPresetLogin, TQ_SIGNAL( toggled(bool) ),
+            TQ_SLOT( slotChanged() ) );
   
-  connect( mDlg->cbPersConn, TQT_SIGNAL( toggled(bool) ),
-            TQT_SLOT( slotChanged() ) );
+  connect( mDlg->cbPersConn, TQ_SIGNAL( toggled(bool) ),
+            TQ_SLOT( slotChanged() ) );
   
-  connect( mDlg->location, TQT_SIGNAL( textChanged(const TQString&) ),
-            TQT_SLOT( slotChanged() ) );
+  connect( mDlg->location, TQ_SIGNAL( textChanged(const TQString&) ),
+            TQ_SLOT( slotChanged() ) );
   
-  connect( mDlg->pbEnvSetup, TQT_SIGNAL( clicked() ), TQT_SLOT( setupEnvProxy() ) );
-  connect( mDlg->pbManSetup, TQT_SIGNAL( clicked() ), TQT_SLOT( setupManProxy() ) );
+  connect( mDlg->pbEnvSetup, TQ_SIGNAL( clicked() ), TQ_SLOT( setupEnvProxy() ) );
+  connect( mDlg->pbManSetup, TQ_SIGNAL( clicked() ), TQ_SLOT( setupManProxy() ) );
   
   load();
 }

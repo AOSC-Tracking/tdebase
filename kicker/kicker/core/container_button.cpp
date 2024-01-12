@@ -161,13 +161,13 @@ void ButtonContainer::embedButton(PanelButton* b)
     }
     _layout = vbox;
 
-    connect(_button, TQT_SIGNAL(requestSave()), TQT_SIGNAL(requestSave()));
-    connect(_button, TQT_SIGNAL(hideme(bool)), TQT_SLOT(hideRequested(bool)));
-    connect(_button, TQT_SIGNAL(removeme()), TQT_SLOT(removeRequested()));
-    connect(_button, TQT_SIGNAL(dragme(const TQPixmap)),
-            TQT_SLOT(dragButton(const TQPixmap)));
-    connect(_button, TQT_SIGNAL(dragme(const KURL::List, const TQPixmap)),
-            TQT_SLOT(dragButton(const KURL::List, const TQPixmap)));
+    connect(_button, TQ_SIGNAL(requestSave()), TQ_SIGNAL(requestSave()));
+    connect(_button, TQ_SIGNAL(hideme(bool)), TQ_SLOT(hideRequested(bool)));
+    connect(_button, TQ_SIGNAL(removeme()), TQ_SLOT(removeRequested()));
+    connect(_button, TQ_SIGNAL(dragme(const TQPixmap)),
+            TQ_SLOT(dragButton(const TQPixmap)));
+    connect(_button, TQ_SIGNAL(dragme(const KURL::List, const TQPixmap)),
+            TQ_SLOT(dragButton(const KURL::List, const TQPixmap)));
 }
 
 TQPopupMenu* ButtonContainer::createOpMenu()
@@ -261,7 +261,7 @@ bool ButtonContainer::eventFilter(TQObject *o, TQEvent *e)
             }
 
             TQPopupMenu* menu = opMenu();
-            connect( menu, TQT_SIGNAL( aboutToHide() ), this, TQT_SLOT( slotMenuClosed() ) );
+            connect( menu, TQ_SIGNAL( aboutToHide() ), this, TQ_SLOT( slotMenuClosed() ) );
             TQPoint pos = KickerLib::popupPosition(popupDirection(), menu, this,
                                                   (orientation() == TQt::Horizontal) ?
                                                    TQPoint(0, 0) : me->pos());

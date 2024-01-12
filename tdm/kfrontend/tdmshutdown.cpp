@@ -108,7 +108,7 @@ TDMShutdownBase::complete( TQWidget *prevWidget )
 		box->addLayout( verify->getLayout() );
 		TQAccel *accel = new TQAccel( this );
 		accel->insertItem( ALT+Key_A, 0 );
-		connect( accel, TQT_SIGNAL(activated( int )), TQT_SLOT(slotActivatePlugMenu()) );
+		connect( accel, TQ_SIGNAL(activated( int )), TQ_SLOT(slotActivatePlugMenu()) );
 	}
 
 	box->addWidget( new KSeparator( KSeparator::HLine, this ) );
@@ -121,7 +121,7 @@ TDMShutdownBase::complete( TQWidget *prevWidget )
 		okButton->setDefault( true );
 		hlay->addWidget( okButton );
 		hlay->addStretch( 1 );
-		connect( okButton, TQT_SIGNAL(clicked()), TQT_SLOT(accept()) );
+		connect( okButton, TQ_SIGNAL(clicked()), TQ_SLOT(accept()) );
 	}
 	if (maySched) {
 		KPushButton *schedButton =
@@ -129,7 +129,7 @@ TDMShutdownBase::complete( TQWidget *prevWidget )
 		schedButton->setSizePolicy( fp );
 		hlay->addWidget( schedButton );
 		hlay->addStretch( 1 );
-		connect( schedButton, TQT_SIGNAL(clicked()), TQT_SLOT(slotSched()) );
+		connect( schedButton, TQ_SIGNAL(clicked()), TQ_SLOT(slotSched()) );
 	}
 	cancelButton = new KPushButton( KStdGuiItem::cancel(), this );
 	cancelButton->setSizePolicy( fp );
@@ -137,7 +137,7 @@ TDMShutdownBase::complete( TQWidget *prevWidget )
 		cancelButton->setDefault( true );
 	hlay->addWidget( cancelButton );
 	hlay->addStretch( 1 );
-	connect( cancelButton, TQT_SIGNAL(clicked()), TQT_SLOT(reject()) );
+	connect( cancelButton, TQ_SIGNAL(clicked()), TQ_SLOT(reject()) );
 
 	updateNeedRoot();
 }
@@ -260,8 +260,8 @@ TDMShutdown::TDMShutdown( int _uid, TQWidget *_parent )
 
 	restart_rb = new TDMRadioButton( i18n("&Restart computer"), howGroup );
 
-	connect( rb, TQT_SIGNAL(doubleClicked()), TQT_SLOT(accept()) );
-	connect( restart_rb, TQT_SIGNAL(doubleClicked()), TQT_SLOT(accept()) );
+	connect( rb, TQ_SIGNAL(doubleClicked()), TQ_SLOT(accept()) );
+	connect( restart_rb, TQ_SIGNAL(doubleClicked()), TQ_SLOT(accept()) );
 
 	GSet( 1 );
 	GSendInt( G_ListBootOpts );
@@ -280,7 +280,7 @@ TDMShutdown::TDMShutdown( int _uid, TQWidget *_parent )
 		          + howGroup->insideSpacing();
 		hb->addSpacing( spc );
 		hb->addWidget( targets );
-		connect( targets, TQT_SIGNAL(activated( int )), TQT_SLOT(slotTargetChanged()) );
+		connect( targets, TQ_SIGNAL(activated( int )), TQ_SLOT(slotTargetChanged()) );
 	}
 	GSet( 0 );
 
@@ -297,7 +297,7 @@ TDMShutdown::TDMShutdown( int _uid, TQWidget *_parent )
 
 	cb_force = new TQCheckBox( i18n("&Force after timeout"), schedGroup );
 	if (_allowNuke != SHUT_NONE) {
-		connect( cb_force, TQT_SIGNAL(clicked()), TQT_SLOT(slotWhenChanged()) );
+		connect( cb_force, TQ_SIGNAL(clicked()), TQ_SLOT(slotWhenChanged()) );
 		mayNuke = true;
 	} else
 		cb_force->setEnabled( false );
@@ -437,9 +437,9 @@ TDMDelayedPushButton::TDMDelayedPushButton( const KGuiItem &item,
 	: inherited( item, parent, name )
 	, pop( 0 )
 {
-	connect( this, TQT_SIGNAL(pressed()), TQT_SLOT(slotPressed()) );
-	connect( this, TQT_SIGNAL(released()), TQT_SLOT(slotReleased()) );
-	connect( &popt, TQT_SIGNAL(timeout()), TQT_SLOT(slotTimeout()) );
+	connect( this, TQ_SIGNAL(pressed()), TQ_SLOT(slotPressed()) );
+	connect( this, TQ_SIGNAL(released()), TQ_SLOT(slotReleased()) );
+	connect( &popt, TQ_SIGNAL(timeout()), TQ_SLOT(slotTimeout()) );
 }
 
 void TDMDelayedPushButton::setPopup( TQPopupMenu *p )
@@ -503,7 +503,7 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
                 int i = btnReboot->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
                 btnReboot->setAccel( "ALT+" + btnReboot->textLabel().lower()[i+1] ) ;
 		hbuttonbox->addWidget ( btnReboot);
-		connect(btnReboot, TQT_SIGNAL(clicked()), TQT_SLOT(slotReboot()));
+		connect(btnReboot, TQ_SIGNAL(clicked()), TQ_SLOT(slotReboot()));
 		
 		// Copied completely from the standard restart/shutdown dialog
 		GSet( 1 );
@@ -522,7 +522,7 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
 									t, i );
 			}
 			btnReboot->setPopup( targets );
-			connect( targets, TQT_SIGNAL(activated(int)), TQT_SLOT(slotReboot(int)) );
+			connect( targets, TQ_SIGNAL(activated(int)), TQ_SLOT(slotReboot(int)) );
 		}
 		GSet( 0 );
 		// Copied completely from the standard restart/shutdown dialog
@@ -534,7 +534,7 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
                 i = btnHalt->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
                 btnHalt->setAccel( "ALT+" + btnHalt->textLabel().lower()[i+1] ) ;
 		hbuttonbox->addWidget ( btnHalt );
-		connect(btnHalt, TQT_SIGNAL(clicked()), TQT_SLOT(slotHalt()));
+		connect(btnHalt, TQ_SIGNAL(clicked()), TQ_SLOT(slotHalt()));
 
 		// cancel buttonbox
 		TQHBoxLayout* hbuttonbox2 = new TQHBoxLayout( vbox, 8 * KDialog::spacingHint()  );
@@ -543,7 +543,7 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
 		// Back to tdm
 		KSMPushButton* btnBack = new KSMPushButton( KStdGuiItem::cancel(), lfrm );
 		hbuttonbox2->addWidget( btnBack );
-		connect(btnBack, TQT_SIGNAL(clicked()), TQT_SLOT(reject()));
+		connect(btnBack, TQ_SIGNAL(clicked()), TQ_SLOT(reject()));
 	}
 	else
 	{
@@ -567,14 +567,14 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
 		KPushButton *btnHalt = new
 			KPushButton( KGuiItem( i18n("&Turn Off Computer"), "system-log-out" ), this );
 		buttonlay->addWidget( btnHalt );
-		connect( btnHalt, TQT_SIGNAL(clicked()), TQT_SLOT(slotHalt()) );
+		connect( btnHalt, TQ_SIGNAL(clicked()), TQ_SLOT(slotHalt()) );
 	
 		buttonlay->addSpacing( KDialog::spacingHint() );
 	
 		TDMDelayedPushButton *btnReboot = new
 			TDMDelayedPushButton( KGuiItem( i18n("&Restart Computer"), "reload" ), this );
 		buttonlay->addWidget( btnReboot );
-		connect( btnReboot, TQT_SIGNAL(clicked()), TQT_SLOT(slotReboot()) );
+		connect( btnReboot, TQ_SIGNAL(clicked()), TQ_SLOT(slotReboot()) );
 	
 		GSet( 1 );
 		GSendInt( G_ListBootOpts );
@@ -591,7 +591,7 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
 									t, i );
 			}
 			btnReboot->setPopup( targets );
-			connect( targets, TQT_SIGNAL(activated(int)), TQT_SLOT(slotReboot(int)) );
+			connect( targets, TQ_SIGNAL(activated(int)), TQ_SLOT(slotReboot(int)) );
 		}
 		GSet( 0 );
 	
@@ -601,7 +601,7 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
 			KPushButton *btnSched = new
 				KPushButton( KGuiItem( i18n("&Schedule...") ), this );
 			buttonlay->addWidget( btnSched );
-			connect( btnSched, TQT_SIGNAL(clicked()), TQT_SLOT(slotSched()) );
+			connect( btnSched, TQ_SIGNAL(clicked()), TQ_SLOT(slotSched()) );
 	
 			buttonlay->addStretch( 1 );
 		}
@@ -612,7 +612,7 @@ TDMSlimShutdown::TDMSlimShutdown( TQWidget *_parent )
 	
 		KPushButton *btnBack = new KPushButton( KStdGuiItem::cancel(), this );
 		buttonlay->addWidget( btnBack );
-		connect( btnBack, TQT_SIGNAL(clicked()), TQT_SLOT(reject()) );
+		connect( btnBack, TQ_SIGNAL(clicked()), TQ_SLOT(reject()) );
 	
 		buttonlay->addSpacing( KDialog::spacingHint() );	
 	}

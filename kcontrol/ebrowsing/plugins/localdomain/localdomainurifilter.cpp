@@ -84,8 +84,8 @@ bool LocalDomainURIFilter::isLocalDomainHost( TQString& cmd ) const
 
         TDEProcess proc;
         proc << helper << host;
-        connect( &proc, TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
-                 TQT_SLOT(receiveOutput(TDEProcess *, char *, int)) );
+        connect( &proc, TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
+                 TQ_SLOT(receiveOutput(TDEProcess *, char *, int)) );
         if( !proc.start( TDEProcess::NotifyOnExit, TDEProcess::Stdout ))
             return last_result = false;
 

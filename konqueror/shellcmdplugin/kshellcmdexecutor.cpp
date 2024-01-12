@@ -87,8 +87,8 @@ int KShellCommandExecutor::exec()
    m_readNotifier=new TQSocketNotifier(m_shellProcess->fd(),TQSocketNotifier::Read, this);
    m_writeNotifier=new TQSocketNotifier(m_shellProcess->fd(),TQSocketNotifier::Write, this);
    m_writeNotifier->setEnabled(false);
-   connect (m_readNotifier, TQT_SIGNAL(activated(int)), this,TQT_SLOT(readDataFromShell()));
-   connect (m_writeNotifier, TQT_SIGNAL(activated(int)), this,TQT_SLOT(writeDataToShell()));
+   connect (m_readNotifier, TQ_SIGNAL(activated(int)), this,TQ_SLOT(readDataFromShell()));
+   connect (m_writeNotifier, TQ_SIGNAL(activated(int)), this,TQ_SLOT(writeDataToShell()));
 
    return 1;
 }

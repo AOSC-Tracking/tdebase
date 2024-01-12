@@ -51,7 +51,7 @@ SystemWidget::SystemWidget( TQWidget* parent_P )
               " or turn on the developer mode for the crash handler).</p>" );
     TQWhatsThis::add( cb_disable_tdebuildsycoca, tmp );
     TQWhatsThis::add( label_tdebuildsycoca, tmp );
-    connect( cb_disable_tdebuildsycoca, TQT_SIGNAL( clicked()), TQT_SIGNAL( changed()));
+    connect( cb_disable_tdebuildsycoca, TQ_SIGNAL( clicked()), TQ_SIGNAL( changed()));
     defaults();
     }
 

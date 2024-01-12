@@ -91,12 +91,12 @@ void IndexBuilder::processCmdQueue()
   *proc << args;
 
 
-  connect( proc, TQT_SIGNAL( processExited( TDEProcess * ) ),
-           TQT_SLOT( slotProcessExited( TDEProcess * ) ) );
-  connect( proc, TQT_SIGNAL( receivedStdout(TDEProcess *, char *, int ) ),
-           TQT_SLOT( slotReceivedStdout(TDEProcess *, char *, int ) ) );
-  connect( proc, TQT_SIGNAL( receivedStderr(TDEProcess *, char *, int ) ),
-           TQT_SLOT( slotReceivedStderr(TDEProcess *, char *, int ) ) );
+  connect( proc, TQ_SIGNAL( processExited( TDEProcess * ) ),
+           TQ_SLOT( slotProcessExited( TDEProcess * ) ) );
+  connect( proc, TQ_SIGNAL( receivedStdout(TDEProcess *, char *, int ) ),
+           TQ_SLOT( slotReceivedStdout(TDEProcess *, char *, int ) ) );
+  connect( proc, TQ_SIGNAL( receivedStderr(TDEProcess *, char *, int ) ),
+           TQ_SLOT( slotReceivedStderr(TDEProcess *, char *, int ) ) );
 
   mCmdQueue.remove( it );
 
@@ -211,7 +211,7 @@ int main( int argc, char **argv )
 
   IndexBuilder builder(cmdFile);
 
-  TQTimer::singleShot(0, &builder, TQT_SLOT(buildIndices()));
+  TQTimer::singleShot(0, &builder, TQ_SLOT(buildIndices()));
 
   return app.exec();
 }

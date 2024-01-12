@@ -148,10 +148,10 @@ void BackTrace::start()
     *m_proc << "tdesu -t --comment \"" << i18n("Administrative access is required to generate a backtrace") << "\" -c \"" << m_temp_cmd->name() << "\"";
   }
 
-  connect(m_proc, TQT_SIGNAL(receivedStdout(TDEProcess*, char*, int)),
-          TQT_SLOT(slotReadInput(TDEProcess*, char*, int)));
-  connect(m_proc, TQT_SIGNAL(processExited(TDEProcess*)),
-          TQT_SLOT(slotProcessExited(TDEProcess*)));
+  connect(m_proc, TQ_SIGNAL(receivedStdout(TDEProcess*, char*, int)),
+          TQ_SLOT(slotReadInput(TDEProcess*, char*, int)));
+  connect(m_proc, TQ_SIGNAL(processExited(TDEProcess*)),
+          TQ_SLOT(slotProcessExited(TDEProcess*)));
 
   m_proc->start ( TDEProcess::NotifyOnExit, TDEProcess::All );
 }

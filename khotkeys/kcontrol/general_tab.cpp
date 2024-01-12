@@ -73,22 +73,22 @@ General_tab::General_tab( TQWidget* parent_P, const char* name_P )
             }
     clear_data();
     // KHotKeys::Module::changed()
-    connect( action_name_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
-    connect( disable_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( comment_multilineedit, TQT_SIGNAL( textChanged()),
-        module, TQT_SLOT( changed()));
-    connect( action_type_combo, TQT_SIGNAL( activated( int )),
-        module, TQT_SLOT( changed()));
+    connect( action_name_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
+    connect( disable_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( comment_multilineedit, TQ_SIGNAL( textChanged()),
+        module, TQ_SLOT( changed()));
+    connect( action_type_combo, TQ_SIGNAL( activated( int )),
+        module, TQ_SLOT( changed()));
     }
     
 void General_tab::clear_data()
     {
-    disconnect( action_name_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        this, TQT_SLOT( action_name_changed( const TQString& )));
-    disconnect( action_type_combo, TQT_SIGNAL( activated( int )),
-        this, TQT_SIGNAL( action_type_changed( int ))); // CHECKME neodpoji to sloty od nej ?
+    disconnect( action_name_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        this, TQ_SLOT( action_name_changed( const TQString& )));
+    disconnect( action_type_combo, TQ_SIGNAL( activated( int )),
+        this, TQ_SIGNAL( action_type_changed( int ))); // CHECKME neodpoji to sloty od nej ?
     action_name_lineedit->clear();
     disable_checkbox->setChecked( false );
     disable_checkbox->setText( i18n( "&Disable" ));
@@ -113,10 +113,10 @@ void General_tab::set_data( const Action_data* data_P )
     comment_multilineedit->setText( data_P->comment());
     action_type_combo->setCurrentItem( Tab_widget::type( data_P ));
 //    module->set_action_type( data_P->type());
-    connect( action_name_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        TQT_SLOT( action_name_changed( const TQString& )));
-    connect( action_type_combo, TQT_SIGNAL( activated( int )),
-        TQT_SIGNAL( action_type_changed( int )));
+    connect( action_name_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        TQ_SLOT( action_name_changed( const TQString& )));
+    connect( action_type_combo, TQ_SIGNAL( activated( int )),
+        TQ_SIGNAL( action_type_changed( int )));
     }
 
 void General_tab::get_data( TQString& name_O, TQString& comment_O, bool& enabled_O )

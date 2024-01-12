@@ -356,10 +356,10 @@ FaxCtrl::FaxCtrl(TQWidget *parent, const char *name)
 {
 	m_process = new TDEProcess();
 	m_process->setUseShell(true);
-	connect(m_process, TQT_SIGNAL(receivedStdout(TDEProcess*,char*,int)), TQT_SLOT(slotReceivedStdout(TDEProcess*,char*,int)));
-	connect(m_process, TQT_SIGNAL(receivedStderr(TDEProcess*,char*,int)), TQT_SLOT(slotReceivedStdout(TDEProcess*,char*,int)));
-	connect(m_process, TQT_SIGNAL(processExited(TDEProcess*)), TQT_SLOT(slotProcessExited(TDEProcess*)));
-	connect(this, TQT_SIGNAL(faxSent(bool)), TQT_SLOT(cleanTempFiles()));
+	connect(m_process, TQ_SIGNAL(receivedStdout(TDEProcess*,char*,int)), TQ_SLOT(slotReceivedStdout(TDEProcess*,char*,int)));
+	connect(m_process, TQ_SIGNAL(receivedStderr(TDEProcess*,char*,int)), TQ_SLOT(slotReceivedStdout(TDEProcess*,char*,int)));
+	connect(m_process, TQ_SIGNAL(processExited(TDEProcess*)), TQ_SLOT(slotProcessExited(TDEProcess*)));
+	connect(this, TQ_SIGNAL(faxSent(bool)), TQ_SLOT(cleanTempFiles()));
 	m_logview = 0;
 }
 
@@ -530,11 +530,11 @@ void FaxCtrl::viewLog(TQWidget *)
 		TQPushButton *m_print = new KPushButton( KStdGuiItem::print(), topView );
 		TQPushButton *m_save = new KPushButton( KStdGuiItem::saveAs(), topView );
 		m_close->setDefault(true);
-		connect(m_clear, TQT_SIGNAL(clicked()), TQT_SLOT(slotClearLog()));
-		connect(m_close, TQT_SIGNAL(clicked()), TQT_SLOT(slotCloseLog()));
-		connect(m_logview, TQT_SIGNAL(destroyed()), TQT_SLOT(slotCloseLog()));
-		connect( m_print, TQT_SIGNAL( clicked() ), TQT_SLOT( slotPrintLog() ) );
-		connect( m_save, TQT_SIGNAL( clicked() ), TQT_SLOT( slotSaveLog() ) );
+		connect(m_clear, TQ_SIGNAL(clicked()), TQ_SLOT(slotClearLog()));
+		connect(m_close, TQ_SIGNAL(clicked()), TQ_SLOT(slotCloseLog()));
+		connect(m_logview, TQ_SIGNAL(destroyed()), TQ_SLOT(slotCloseLog()));
+		connect( m_print, TQ_SIGNAL( clicked() ), TQ_SLOT( slotPrintLog() ) );
+		connect( m_save, TQ_SIGNAL( clicked() ), TQ_SLOT( slotSaveLog() ) );
 
 		TQVBoxLayout	*l0 = new TQVBoxLayout(topView, 10, 10);
 		l0->addWidget(m_logview);

@@ -216,9 +216,9 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	page1Layout->addWidget( gbPreview );
 
 	// Connect all required stuff
-	connect( cbStyle, TQT_SIGNAL(activated(int)), this, TQT_SLOT(styleChanged()) );
-	connect( cbStyle, TQT_SIGNAL(activated(int)), this, TQT_SLOT(updateConfigButton()));
-	connect( pbConfigStyle, TQT_SIGNAL(clicked()), this, TQT_SLOT(styleSpecificConfig()));
+	connect( cbStyle, TQ_SIGNAL(activated(int)), this, TQ_SLOT(styleChanged()) );
+	connect( cbStyle, TQ_SIGNAL(activated(int)), this, TQ_SLOT(updateConfigButton()));
+	connect( pbConfigStyle, TQ_SIGNAL(clicked()), this, TQ_SLOT(styleSpecificConfig()));
 
 	// Add Page2 (Effects)
 	// -------------------
@@ -338,13 +338,13 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	page2Layout->addItem( sp1 );
 
 	// Data flow stuff.
-	connect( cbEnableEffects,     TQT_SIGNAL(toggled(bool)), containerFrame, TQT_SLOT(setEnabled(bool)) );
-	connect( cbEnableEffects,     TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(menuEffectChanged(bool)) );
-	connect( slOpacity,           TQT_SIGNAL(valueChanged(int)),menuPreview, TQT_SLOT(setOpacity(int)) );
-	connect( comboMenuEffect,     TQT_SIGNAL(activated(int)), this, TQT_SLOT(menuEffectChanged()) );
-	connect( comboMenuEffect,     TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(menuEffectChanged()) );
-	connect( comboMenuEffectType, TQT_SIGNAL(activated(int)), this, TQT_SLOT(menuEffectTypeChanged()) );
-	connect( comboMenuEffectType, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(menuEffectTypeChanged()) );
+	connect( cbEnableEffects,     TQ_SIGNAL(toggled(bool)), containerFrame, TQ_SLOT(setEnabled(bool)) );
+	connect( cbEnableEffects,     TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(menuEffectChanged(bool)) );
+	connect( slOpacity,           TQ_SIGNAL(valueChanged(int)),menuPreview, TQ_SLOT(setOpacity(int)) );
+	connect( comboMenuEffect,     TQ_SIGNAL(activated(int)), this, TQ_SLOT(menuEffectChanged()) );
+	connect( comboMenuEffect,     TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(menuEffectChanged()) );
+	connect( comboMenuEffectType, TQ_SIGNAL(activated(int)), this, TQ_SLOT(menuEffectTypeChanged()) );
+	connect( comboMenuEffectType, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(menuEffectTypeChanged()) );
 
 	// Add Page3 (Miscellaneous)
 	// -------------------------
@@ -379,29 +379,29 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	load();
 
 	// Do all the setDirty connections.
-	connect(cbStyle, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setStyleDirty()));
+	connect(cbStyle, TQ_SIGNAL(activated(int)), this, TQ_SLOT(setStyleDirty()));
 	// Page2
-	connect( cbEnableEffects,     TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setEffectsDirty()));
-	connect( cbEnableEffects,     TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setStyleDirty()));
-	connect( comboTooltipEffect,  TQT_SIGNAL(activated(int)), this, TQT_SLOT(setEffectsDirty()));
-	connect( comboRubberbandEffect, TQT_SIGNAL(activated(int)),   this, TQT_SLOT(setStyleDirty()));
-	connect( comboComboEffect,    TQT_SIGNAL(activated(int)), this, TQT_SLOT(setEffectsDirty()));
-	connect( comboMenuEffect,     TQT_SIGNAL(activated(int)), this, TQT_SLOT(setStyleDirty()));
-	connect( comboMenuHandle,     TQT_SIGNAL(activated(int)), this, TQT_SLOT(setStyleDirty()));
-	connect( comboMenuEffectType, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setStyleDirty()));
-	connect( slOpacity,           TQT_SIGNAL(valueChanged(int)),this, TQT_SLOT(setStyleDirty()));
-	connect( cbMenuShadow,        TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setStyleDirty()));
+	connect( cbEnableEffects,     TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setEffectsDirty()));
+	connect( cbEnableEffects,     TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setStyleDirty()));
+	connect( comboTooltipEffect,  TQ_SIGNAL(activated(int)), this, TQ_SLOT(setEffectsDirty()));
+	connect( comboRubberbandEffect, TQ_SIGNAL(activated(int)),   this, TQ_SLOT(setStyleDirty()));
+	connect( comboComboEffect,    TQ_SIGNAL(activated(int)), this, TQ_SLOT(setEffectsDirty()));
+	connect( comboMenuEffect,     TQ_SIGNAL(activated(int)), this, TQ_SLOT(setStyleDirty()));
+	connect( comboMenuHandle,     TQ_SIGNAL(activated(int)), this, TQ_SLOT(setStyleDirty()));
+	connect( comboMenuEffectType, TQ_SIGNAL(activated(int)), this, TQ_SLOT(setStyleDirty()));
+	connect( slOpacity,           TQ_SIGNAL(valueChanged(int)),this, TQ_SLOT(setStyleDirty()));
+	connect( cbMenuShadow,        TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setStyleDirty()));
 	// Page1 & Page3
-	connect( cbHoverButtons,        TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setToolbarsDirty()));
-	connect( cbTransparentToolbars, TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setToolbarsDirty()));
-	connect( cbEnableTooltips,      TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setEffectsDirty()));
-	connect( cbIconsOnButtons,      TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setEffectsDirty()));
-	connect( cbScrollablePopupMenus,TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setEffectsDirty()));
-	connect( cbAutoHideAccelerators,TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setEffectsDirty()));
-	connect( cbMenuAltKeyNavigation,TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setEffectsDirty()));
-	connect( cbTearOffHandles,      TQT_SIGNAL(toggled(bool)),    this, TQT_SLOT(setEffectsDirty()));
-	connect( comboToolbarIcons,     TQT_SIGNAL(activated(int)), this, TQT_SLOT(setToolbarsDirty()));
-	connect( m_popupMenuDelay,      TQT_SIGNAL(valueChanged(int)),this, TQT_SLOT(setStyleDirty()));
+	connect( cbHoverButtons,        TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setToolbarsDirty()));
+	connect( cbTransparentToolbars, TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setToolbarsDirty()));
+	connect( cbEnableTooltips,      TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setEffectsDirty()));
+	connect( cbIconsOnButtons,      TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setEffectsDirty()));
+	connect( cbScrollablePopupMenus,TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setEffectsDirty()));
+	connect( cbAutoHideAccelerators,TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setEffectsDirty()));
+	connect( cbMenuAltKeyNavigation,TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setEffectsDirty()));
+	connect( cbTearOffHandles,      TQ_SIGNAL(toggled(bool)),    this, TQ_SLOT(setEffectsDirty()));
+	connect( comboToolbarIcons,     TQ_SIGNAL(activated(int)), this, TQ_SLOT(setToolbarsDirty()));
+	connect( m_popupMenuDelay,      TQ_SIGNAL(valueChanged(int)),this, TQ_SLOT(setStyleDirty()));
 
 	addWhatsThis();
 
@@ -479,9 +479,9 @@ void KCMStyle::styleSpecificConfig()
 	dial->setMainWidget( pluginConfig );
 
 	//..and connect it to the wrapper
-	connect(pluginConfig, TQT_SIGNAL(changed(bool)), dial, TQT_SLOT(setDirty(bool)));
-	connect(dial, TQT_SIGNAL(defaults()), pluginConfig, TQT_SLOT(defaults()));
-	connect(dial, TQT_SIGNAL(save()), pluginConfig, TQT_SLOT(save()));
+	connect(pluginConfig, TQ_SIGNAL(changed(bool)), dial, TQ_SLOT(setDirty(bool)));
+	connect(dial, TQ_SIGNAL(defaults()), pluginConfig, TQ_SLOT(defaults()));
+	connect(dial, TQ_SIGNAL(save()), pluginConfig, TQ_SLOT(save()));
 
 	if (dial->exec() == TQDialog::Accepted  && dial->isDirty() ) {
 		// Force re-rendering of the preview, to apply settings

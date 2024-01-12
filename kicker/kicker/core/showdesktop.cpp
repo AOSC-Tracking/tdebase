@@ -49,8 +49,8 @@ ShowDesktop::ShowDesktop()
     m_wmSupport = i.isSupported( NET::WM2ShowingDesktop );
     if( m_wmSupport )
     {
-        connect( Kicker::the()->twinModule(), TQT_SIGNAL( showingDesktopChanged( bool )),
-            TQT_SLOT( showingDesktopChanged( bool )));
+        connect( Kicker::the()->twinModule(), TQ_SIGNAL( showingDesktopChanged( bool )),
+            TQ_SLOT( showingDesktopChanged( bool )));
         showingDesktopChanged( m_showingDesktop = Kicker::the()->twinModule()->showingDesktop());
     }
 }
@@ -161,21 +161,21 @@ void ShowDesktop::showDesktop( bool b )
         }
 
         // on desktop changes or when a window is deiconified, we abort the show desktop mode
-        connect(Kicker::the()->twinModule(), TQT_SIGNAL(currentDesktopChanged(int)),
-                TQT_SLOT(slotCurrentDesktopChanged(int)));
-        connect(Kicker::the()->twinModule(), TQT_SIGNAL(windowChanged(WId,unsigned int)),
-                TQT_SLOT(slotWindowChanged(WId,unsigned int)));
-        connect(Kicker::the()->twinModule(), TQT_SIGNAL(windowAdded(WId)),
-                TQT_SLOT(slotWindowAdded(WId)));
+        connect(Kicker::the()->twinModule(), TQ_SIGNAL(currentDesktopChanged(int)),
+                TQ_SLOT(slotCurrentDesktopChanged(int)));
+        connect(Kicker::the()->twinModule(), TQ_SIGNAL(windowChanged(WId,unsigned int)),
+                TQ_SLOT(slotWindowChanged(WId,unsigned int)));
+        connect(Kicker::the()->twinModule(), TQ_SIGNAL(windowAdded(WId)),
+                TQ_SLOT(slotWindowAdded(WId)));
     }
     else
     {
-        disconnect(Kicker::the()->twinModule(), TQT_SIGNAL(currentDesktopChanged(int)),
-                   this, TQT_SLOT(slotCurrentDesktopChanged(int)));
-        disconnect(Kicker::the()->twinModule(), TQT_SIGNAL(windowChanged(WId,unsigned int)),
-                   this, TQT_SLOT(slotWindowChanged(WId,unsigned int)));
-        disconnect(Kicker::the()->twinModule(), TQT_SIGNAL(windowAdded(WId)),
-                   this, TQT_SLOT(slotWindowAdded(WId)));
+        disconnect(Kicker::the()->twinModule(), TQ_SIGNAL(currentDesktopChanged(int)),
+                   this, TQ_SLOT(slotCurrentDesktopChanged(int)));
+        disconnect(Kicker::the()->twinModule(), TQ_SIGNAL(windowChanged(WId,unsigned int)),
+                   this, TQ_SLOT(slotWindowChanged(WId,unsigned int)));
+        disconnect(Kicker::the()->twinModule(), TQ_SIGNAL(windowAdded(WId)),
+                   this, TQ_SLOT(slotWindowAdded(WId)));
 
         for (TQValueVector<WId>::ConstIterator it = m_iconifiedList.begin();
              it != m_iconifiedList.end();

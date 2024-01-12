@@ -53,12 +53,12 @@ TrashApplet::TrashApplet(const TQString& configFile, Type type, int actions, TQW
 
 	mpDirLister = new KDirLister();
 
-	connect( mpDirLister, TQT_SIGNAL( clear() ),
-	         this, TQT_SLOT( slotClear() ) );
-	connect( mpDirLister, TQT_SIGNAL( completed() ),
-	         this, TQT_SLOT( slotCompleted() ) );
-	connect( mpDirLister, TQT_SIGNAL( deleteItem( KFileItem * ) ),
-	         this, TQT_SLOT( slotDeleteItem( KFileItem * ) ) );
+	connect( mpDirLister, TQ_SIGNAL( clear() ),
+	         this, TQ_SLOT( slotClear() ) );
+	connect( mpDirLister, TQ_SIGNAL( completed() ),
+	         this, TQ_SLOT( slotCompleted() ) );
+	connect( mpDirLister, TQ_SIGNAL( deleteItem( KFileItem * ) ),
+	         this, TQ_SLOT( slotDeleteItem( KFileItem * ) ) );
 
 	mpDirLister->openURL("trash:/");
 }
@@ -67,8 +67,8 @@ TrashApplet::~TrashApplet()
 {
 	// disconnect the dir lister before quitting so as not to crash
 	// on kicker exit
-	disconnect( mpDirLister, TQT_SIGNAL( clear() ),
-	            this, TQT_SLOT( slotClear() ) );
+	disconnect( mpDirLister, TQ_SIGNAL( clear() ),
+	            this, TQ_SLOT( slotClear() ) );
 	delete mpDirLister;
 	TDEGlobal::locale()->removeCatalogue("trashapplet");
 }

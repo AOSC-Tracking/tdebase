@@ -39,10 +39,10 @@ Actions_listview_widget::Actions_listview_widget( TQWidget* parent_P, const char
     actions_listview->header()->hide();
     actions_listview->addColumn( "" );
     actions_listview->setRootIsDecorated( true ); // CHECKME
-    connect( actions_listview, TQT_SIGNAL( current_changed( TQListViewItem* )),
-        TQT_SLOT( current_changed( TQListViewItem* )));
-    connect( actions_listview, TQT_SIGNAL( moved( TQListViewItem*, TQListViewItem*, TQListViewItem* )),
-        TQT_SLOT( item_moved( TQListViewItem*, TQListViewItem*, TQListViewItem* )));
+    connect( actions_listview, TQ_SIGNAL( current_changed( TQListViewItem* )),
+        TQ_SLOT( current_changed( TQListViewItem* )));
+    connect( actions_listview, TQ_SIGNAL( moved( TQListViewItem*, TQListViewItem*, TQListViewItem* )),
+        TQ_SLOT( item_moved( TQListViewItem*, TQListViewItem*, TQListViewItem* )));
     // KHotKeys::Module::changed()
     }
 

@@ -100,7 +100,7 @@ void KNewButton::show()
      KButton::show();
 
      if (KickerSettings::firstRun()) {
-         TQTimer::singleShot(0,this,TQT_SLOT(slotExecMenu()));
+         TQTimer::singleShot(0,this,TQ_SLOT(slotExecMenu()));
          KickerSettings::setFirstRun(false);
          KickerSettings::writeConfig();
      }

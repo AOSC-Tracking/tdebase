@@ -72,19 +72,19 @@ KSmartcardConfig::KSmartcardConfig(TQWidget *parent, const char *name)
      _popUpKardChooser = new TDEPopupMenu(this,"KpopupKardChooser");
      _popUpKardChooser->insertItem(i18n("Change Module..."),
 				   this,
-				   TQT_SLOT(slotLaunchChooser()));
+				   TQ_SLOT(slotLaunchChooser()));
      // The config backend
 
-     connect(base->launchManager, TQT_SIGNAL(clicked()), TQT_SLOT( changed() ));
-     connect(base->beepOnInsert,  TQT_SIGNAL(clicked()), TQT_SLOT( changed() ));
-     connect(base->enableSupport, TQT_SIGNAL(clicked()), TQT_SLOT( changed() ));
+     connect(base->launchManager, TQ_SIGNAL(clicked()), TQ_SLOT( changed() ));
+     connect(base->beepOnInsert,  TQ_SIGNAL(clicked()), TQ_SLOT( changed() ));
+     connect(base->enableSupport, TQ_SIGNAL(clicked()), TQ_SLOT( changed() ));
 
 
-     connect(base->enablePolling, TQT_SIGNAL(clicked()), TQT_SLOT( changed() ));
+     connect(base->enablePolling, TQ_SIGNAL(clicked()), TQ_SLOT( changed() ));
      connect(base->_readerHostsListView,
-	     TQT_SIGNAL(rightButtonPressed(TQListViewItem *,const TQPoint &,int)),
+	     TQ_SIGNAL(rightButtonPressed(TQListViewItem *,const TQPoint &,int)),
 	     this,
-	     TQT_SLOT(slotShowPopup(TQListViewItem *,const TQPoint &,int)));
+	     TQ_SLOT(slotShowPopup(TQListViewItem *,const TQPoint &,int)));
 
 
 

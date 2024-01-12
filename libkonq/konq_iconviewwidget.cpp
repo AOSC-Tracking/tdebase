@@ -121,17 +121,17 @@ KonqIconViewWidget::KonqIconViewWidget( TQWidget * parent, const char * name, WF
       m_bSetGridX( !kdesktop ) /* No line breaking on the desktop */
 {
     d = new KonqIconViewWidgetPrivate;
-    connect( this, TQT_SIGNAL( dropped( TQDropEvent *, const TQValueList<TQIconDragItem> & ) ),
-             this, TQT_SLOT( slotDropped( TQDropEvent*, const TQValueList<TQIconDragItem> & ) ) );
+    connect( this, TQ_SIGNAL( dropped( TQDropEvent *, const TQValueList<TQIconDragItem> & ) ),
+             this, TQ_SLOT( slotDropped( TQDropEvent*, const TQValueList<TQIconDragItem> & ) ) );
 
-    connect( this, TQT_SIGNAL( selectionChanged() ),
-             this, TQT_SLOT( slotSelectionChanged() ) );
+    connect( this, TQ_SIGNAL( selectionChanged() ),
+             this, TQ_SLOT( slotSelectionChanged() ) );
 
     kapp->addKipcEventMask( KIPC::IconChanged );
-    connect( kapp, TQT_SIGNAL(iconChanged(int)), TQT_SLOT(slotIconChanged(int)) );
-    connect( this, TQT_SIGNAL(onItem(TQIconViewItem *)), TQT_SLOT(slotOnItem(TQIconViewItem *)) );
-    connect( this, TQT_SIGNAL(onViewport()), TQT_SLOT(slotOnViewport()) );
-    connect( this, TQT_SIGNAL(itemRenamed(TQIconViewItem *, const TQString &)), TQT_SLOT(slotItemRenamed(TQIconViewItem *, const TQString &)) );
+    connect( kapp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(slotIconChanged(int)) );
+    connect( this, TQ_SIGNAL(onItem(TQIconViewItem *)), TQ_SLOT(slotOnItem(TQIconViewItem *)) );
+    connect( this, TQ_SIGNAL(onViewport()), TQ_SLOT(slotOnViewport()) );
+    connect( this, TQ_SIGNAL(itemRenamed(TQIconViewItem *, const TQString &)), TQ_SLOT(slotItemRenamed(TQIconViewItem *, const TQString &)) );
 
     m_pSettings = KonqFMSettings::settings();  // already needed in setItemTextPos(), calculateGridX()
     d->bBoostPreview = boostPreview();
@@ -284,7 +284,7 @@ void KonqIconViewWidget::slotOnItem( TQIconViewItem *_item )
                     else {
                         kdDebug(1203) << "we go ahead.." << endl;
                         d->m_movieBlocked++;
-                        TQTimer::singleShot(300, this, TQT_SLOT(slotReenableAnimation()));
+                        TQTimer::singleShot(300, this, TQ_SLOT(slotReenableAnimation()));
                         d->m_movie->restart();
                         d->m_movie->unpause();
                     }
@@ -307,8 +307,8 @@ void KonqIconViewWidget::slotOnItem( TQIconViewItem *_item )
                         }
                         if (!hasPixmap && backgroundMode() != NoBackground)
                            d->m_movie->setBackgroundColor( viewport()->backgroundColor() );
-                        d->m_movie->connectUpdate( this, TQT_SLOT( slotMovieUpdate(const TQRect &) ) );
-                        d->m_movie->connectStatus( this, TQT_SLOT( slotMovieStatus(int) ) );
+                        d->m_movie->connectUpdate( this, TQ_SLOT( slotMovieUpdate(const TQRect &) ) );
+                        d->m_movie->connectStatus( this, TQ_SLOT( slotMovieStatus(int) ) );
                         d->movieFileName = d->pActiveItem->mouseOverAnimation();
                         d->pActiveItem->setAnimated( true );
                     }
@@ -356,7 +356,7 @@ void KonqIconViewWidget::slotOnItem( TQIconViewItem *_item )
         if (!d->pSoundTimer)
         {
             d->pSoundTimer = new TQTimer(this);
-            connect(d->pSoundTimer, TQT_SIGNAL(timeout()), TQT_SLOT(slotStartSoundPreview()));
+            connect(d->pSoundTimer, TQ_SIGNAL(timeout()), TQ_SLOT(slotStartSoundPreview()));
         }
         if (d->pSoundTimer->isActive())
             d->pSoundTimer->stop();
@@ -394,7 +394,7 @@ void KonqIconViewWidget::slotOnViewport()
             d->m_movie->pause();
             d->m_movieBlocked++;
             kdDebug(1203) << "on viewport, blocking" << endl;
-            TQTimer::singleShot(300, this, TQT_SLOT(slotReenableAnimation()));
+            TQTimer::singleShot(300, this, TQ_SLOT(slotReenableAnimation()));
         }
 #endif
         d->pActiveItem->refreshIcon( true );
@@ -874,10 +874,10 @@ void KonqIconViewWidget::startImagePreview( const TQStringList &, bool force )
     d->pPreviewJob = TDEIO::filePreview( items, size, size, iconSize,
         m_pSettings->textPreviewIconTransparency(), true /* scale */,
         true /* save */, &(d->previewSettings) );
-    connect( d->pPreviewJob, TQT_SIGNAL( gotPreview( const KFileItem *, const TQPixmap & ) ),
-             this, TQT_SLOT( slotPreview( const KFileItem *, const TQPixmap & ) ) );
-    connect( d->pPreviewJob, TQT_SIGNAL( result( TDEIO::Job * ) ),
-             this, TQT_SLOT( slotPreviewResult() ) );
+    connect( d->pPreviewJob, TQ_SIGNAL( gotPreview( const KFileItem *, const TQPixmap & ) ),
+             this, TQ_SLOT( slotPreview( const KFileItem *, const TQPixmap & ) ) );
+    connect( d->pPreviewJob, TQ_SIGNAL( result( TDEIO::Job * ) ),
+             this, TQ_SLOT( slotPreviewResult() ) );
 }
 
 void KonqIconViewWidget::stopImagePreview()
@@ -1386,7 +1386,7 @@ void KonqIconViewWidget::contentsMousePressEvent( TQMouseEvent *e )
              if (!d->pActivateDoubleClick)
              {
                  d->pActivateDoubleClick = new TQTimer(this);
-                 connect(d->pActivateDoubleClick, TQT_SIGNAL(timeout()), this, TQT_SLOT(doubleClickTimeout()));
+                 connect(d->pActivateDoubleClick, TQ_SIGNAL(timeout()), this, TQ_SLOT(doubleClickTimeout()));
              }
              if( d->pActivateDoubleClick->isActive () )
                  d->pActivateDoubleClick->stop();

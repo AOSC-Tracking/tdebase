@@ -49,15 +49,15 @@ TDELocaleConfigOther::TDELocaleConfigOther(TDELocale *locale,
   lay->addWidget(m_labPageSize, 0, 0);
   m_combPageSize = new TQComboBox(this);
   lay->addWidget(m_combPageSize, 0, 1);
-  connect( m_combPageSize, TQT_SIGNAL( activated(int) ),
-           TQT_SLOT( slotPageSizeChanged(int) ) );
+  connect( m_combPageSize, TQ_SIGNAL( activated(int) ),
+           TQ_SLOT( slotPageSizeChanged(int) ) );
 
   m_labMeasureSystem = new TQLabel(this, I18N_NOOP("Measure system:"));
   lay->addWidget(m_labMeasureSystem, 1, 0);
   m_combMeasureSystem = new TQComboBox(this);
   lay->addWidget(m_combMeasureSystem, 1, 1);
-  connect( m_combMeasureSystem, TQT_SIGNAL( activated(int) ),
-           TQT_SLOT( slotMeasureSystemChanged(int) ) );
+  connect( m_combMeasureSystem, TQ_SIGNAL( activated(int) ),
+           TQ_SLOT( slotMeasureSystemChanged(int) ) );
 
   m_combPageSize->insertItem(TQString::null);
   m_combPageSize->insertItem(TQString::null);

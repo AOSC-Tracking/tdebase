@@ -38,7 +38,7 @@ void KDateCombo::initObject(const TQDate & date, TQWidget *, const char *)
   popupFrame->setMainWidget(datePicker);
   setDate(date);
 
-  connect(datePicker, TQT_SIGNAL(dateSelected(TQDate)), this, TQT_SLOT(dateEnteredEvent(TQDate)));
+  connect(datePicker, TQ_SIGNAL(dateSelected(TQDate)), this, TQ_SLOT(dateEnteredEvent(TQDate)));
 }
 
 KDateCombo::~KDateCombo()
@@ -105,7 +105,7 @@ bool KDateCombo::eventFilter (TQObject*, TQEvent* e)
       TQPoint p = mapFromGlobal( me->globalPos() );
       if (rect().contains( p ) )
       {
-        TQTimer::singleShot(10, this, TQT_SLOT(dateEnteredEvent()));
+        TQTimer::singleShot(10, this, TQ_SLOT(dateEnteredEvent()));
         return true;
       }
   }

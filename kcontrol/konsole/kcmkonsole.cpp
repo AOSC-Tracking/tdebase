@@ -60,28 +60,28 @@ KCMKonsole::KCMKonsole(TQWidget * parent, const char *name, const TQStringList&)
     ab->addAuthor("Andrea Rizzi",0, "rizzi@kde.org");
     setAboutData( ab );
 
-    connect(dialog->terminalSizeHintCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->warnCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->ctrldragCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->cutToBeginningOfLineCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->allowResizeCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->bidiCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->xonXoffCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->blinkingCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->frameCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->line_spacingSB,TQT_SIGNAL(valueChanged(int)), TQT_SLOT( changed() ));
-    connect(dialog->matchTabWinTitleCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->tabsCycleWheelCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->menuAcceleratorsCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->metaAsAltModeCB,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->realTransparency,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
-    connect(dialog->silence_secondsSB,TQT_SIGNAL(valueChanged(int)), TQT_SLOT( changed() ));
-    connect(dialog->word_connectorLE,TQT_SIGNAL(textChanged(const TQString &)), TQT_SLOT( changed() ));
-    connect(dialog->SchemaEditor1, TQT_SIGNAL(changed()), TQT_SLOT( changed() ));
-    connect(dialog->SessionEditor1, TQT_SIGNAL(changed()), TQT_SLOT( changed() ));
-    connect(dialog->SchemaEditor1, TQT_SIGNAL(schemaListChanged(const TQStringList &,const TQStringList &)),
-            dialog->SessionEditor1, TQT_SLOT(schemaListChanged(const TQStringList &,const TQStringList &)));
-    connect(dialog->SessionEditor1, TQT_SIGNAL(getList()), dialog->SchemaEditor1, TQT_SLOT(getList()));
+    connect(dialog->terminalSizeHintCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->warnCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->ctrldragCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->cutToBeginningOfLineCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->allowResizeCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->bidiCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->xonXoffCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->blinkingCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->frameCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->line_spacingSB,TQ_SIGNAL(valueChanged(int)), TQ_SLOT( changed() ));
+    connect(dialog->matchTabWinTitleCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->tabsCycleWheelCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->menuAcceleratorsCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->metaAsAltModeCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->realTransparency,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->silence_secondsSB,TQ_SIGNAL(valueChanged(int)), TQ_SLOT( changed() ));
+    connect(dialog->word_connectorLE,TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT( changed() ));
+    connect(dialog->SchemaEditor1, TQ_SIGNAL(changed()), TQ_SLOT( changed() ));
+    connect(dialog->SessionEditor1, TQ_SIGNAL(changed()), TQ_SLOT( changed() ));
+    connect(dialog->SchemaEditor1, TQ_SIGNAL(schemaListChanged(const TQStringList &,const TQStringList &)),
+            dialog->SessionEditor1, TQ_SLOT(schemaListChanged(const TQStringList &,const TQStringList &)));
+    connect(dialog->SessionEditor1, TQ_SIGNAL(getList()), dialog->SchemaEditor1, TQ_SLOT(getList()));
 }
 
 void KCMKonsole::load()

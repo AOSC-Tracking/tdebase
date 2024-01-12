@@ -99,7 +99,7 @@ TaskLMBMenu::TaskLMBMenu(const Task::List& tasks, TQWidget *parent, const char *
     setAcceptDrops(true); // Always enabled to activate task during drag&drop.
 
     m_dragSwitchTimer = new TQTimer(this, "DragSwitchTimer");
-    connect(m_dragSwitchTimer, TQT_SIGNAL(timeout()), TQT_SLOT(dragSwitch()));
+    connect(m_dragSwitchTimer, TQ_SIGNAL(timeout()), TQ_SLOT(dragSwitch()));
 }
 
 void TaskLMBMenu::fillMenu()
@@ -118,7 +118,7 @@ void TaskLMBMenu::fillMenu()
                                                   t->isIconified(),
                                                   t->demandsAttention());
         int id = insertItem(TQIconSet(t->pixmap()), menuItem);
-        connectItem(id, t, TQT_SLOT(activateRaiseOrIconify()));
+        connectItem(id, t, TQ_SLOT(activateRaiseOrIconify()));
         setItemChecked(id, t->isActive());
 
         if (t->demandsAttention())
@@ -131,7 +131,7 @@ void TaskLMBMenu::fillMenu()
     if (m_attentionState)
     {
         m_attentionTimer = new TQTimer(this, "AttentionTimer");
-        connect(m_attentionTimer, TQT_SIGNAL(timeout()), TQT_SLOT(attentionTimeout()));
+        connect(m_attentionTimer, TQ_SIGNAL(timeout()), TQ_SLOT(attentionTimeout()));
         m_attentionTimer->start(500, true);
     }
 }

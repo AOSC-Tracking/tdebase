@@ -55,8 +55,8 @@ KonqViewManager::KonqViewManager( KonqMainWindow *mainWindow )
   m_bLoadingProfile = false;
 
   m_activePartChangedTimer = new TQTimer(this);
-  connect(m_activePartChangedTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(emitActivePartChanged()));
-  connect( this, TQT_SIGNAL( activePartChanged ( KParts::Part * ) ), this, TQT_SLOT( slotActivePartChanged ( KParts::Part * ) ) );
+  connect(m_activePartChangedTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(emitActivePartChanged()));
+  connect( this, TQ_SIGNAL( activePartChanged ( KParts::Part * ) ), this, TQ_SLOT( slotActivePartChanged ( KParts::Part * ) ) );
 }
 
 KonqView* KonqViewManager::Initialize( const TQString &serviceType, const TQString &serviceName )
@@ -139,7 +139,7 @@ KonqView* KonqViewManager::splitView ( TQt::Orientation orientation,
 
   //kdDebug(1202) << "Create new Container" << endl;
   KonqFrameContainer *newContainer = new KonqFrameContainer( orientation, parentContainer->widget(), parentContainer );
-  connect(newContainer,TQT_SIGNAL(ctrlTabPressed()),m_pMainWindow,TQT_SLOT(slotCtrlTabPressed()));
+  connect(newContainer,TQ_SIGNAL(ctrlTabPressed()),m_pMainWindow,TQ_SLOT(slotCtrlTabPressed()));
 
   parentContainer->insertChildFrame( newContainer, index );
   if ( moveNewContainer ) {
@@ -231,7 +231,7 @@ KonqView* KonqViewManager::splitWindow( TQt::Orientation orientation,
   m_pMainWindow->removeChildFrame( mainFrame );
 
   KonqFrameContainer *newContainer = new KonqFrameContainer( orientation, m_pMainWindow, 0L);
-  connect(newContainer,TQT_SIGNAL(ctrlTabPressed()),m_pMainWindow,TQT_SLOT(slotCtrlTabPressed()));
+  connect(newContainer,TQ_SIGNAL(ctrlTabPressed()),m_pMainWindow,TQ_SLOT(slotCtrlTabPressed()));
 
   m_pMainWindow->insertChildFrame( newContainer );
 
@@ -286,7 +286,7 @@ void KonqViewManager::convertDocContainer()
 
   KonqFrameTabs* newContainer = new KonqFrameTabs( parentContainer->widget() , parentContainer, this);
   parentContainer->insertChildFrame( newContainer );
-  connect( newContainer, TQT_SIGNAL(ctrlTabPressed()), m_pMainWindow, TQT_SLOT(slotCtrlTabPressed()) );
+  connect( newContainer, TQ_SIGNAL(ctrlTabPressed()), m_pMainWindow, TQ_SLOT(slotCtrlTabPressed()) );
 
   m_pDocContainer->widget()->reparent( newContainer, pos );
   newContainer->insertChildFrame( m_pDocContainer );
@@ -882,7 +882,7 @@ void KonqViewManager::slotPassiveModePartDeleted()
   // Passive mode parts aren't registered to the part manager,
   // so we have to handle suicidal ones ourselves
   KParts::ReadOnlyPart * part = const_cast<KParts::ReadOnlyPart *>( static_cast<const KParts::ReadOnlyPart *>( sender() ) );
-  disconnect( part, TQT_SIGNAL( destroyed() ), this, TQT_SLOT( slotPassiveModePartDeleted() ) );
+  disconnect( part, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( slotPassiveModePartDeleted() ) );
   kdDebug(1202) << "KonqViewManager::slotPassiveModePartDeleted part=" << part << endl;
   KonqView * view = m_pMainWindow->childView( part );
   kdDebug(1202) << "view=" << view << endl;
@@ -1038,8 +1038,8 @@ KonqView *KonqViewManager::setupView( KonqFrameContainerBase *parentContainer,
                               m_pMainWindow, service, partServiceOffers, appServiceOffers, sType, passiveMode );
   //kdDebug(1202) << "KonqView created - v=" << v << " v->part()=" << v->part() << endl;
 
-  TQObject::connect( v, TQT_SIGNAL( sigPartChanged( KonqView *, KParts::ReadOnlyPart *, KParts::ReadOnlyPart * ) ),
-                    m_pMainWindow, TQT_SLOT( slotPartChanged( KonqView *, KParts::ReadOnlyPart *, KParts::ReadOnlyPart * ) ) );
+  TQObject::connect( v, TQ_SIGNAL( sigPartChanged( KonqView *, KParts::ReadOnlyPart *, KParts::ReadOnlyPart * ) ),
+                    m_pMainWindow, TQ_SLOT( slotPartChanged( KonqView *, KParts::ReadOnlyPart *, KParts::ReadOnlyPart * ) ) );
 
   m_pMainWindow->insertChildView( v );
 
@@ -1063,7 +1063,7 @@ KonqView *KonqViewManager::setupView( KonqFrameContainerBase *parentContainer,
   else
   {
     // Passive views aren't registered, but we still want to detect the suicidal ones
-    connect( v->part(), TQT_SIGNAL( destroyed() ), this, TQT_SLOT( slotPassiveModePartDeleted() ) );
+    connect( v->part(), TQ_SIGNAL( destroyed() ), this, TQ_SLOT( slotPassiveModePartDeleted() ) );
   }
 
   //kdDebug(1202) << "KonqViewManager::setupView done" << endl;
@@ -1599,7 +1599,7 @@ void KonqViewManager::loadItem( TDEConfig &cfg, KonqFrameContainerBase *parent,
     else
     {
       KonqFrameContainer *newContainer = new KonqFrameContainer( o, parent->widget(), parent );
-      connect(newContainer,TQT_SIGNAL(ctrlTabPressed()),m_pMainWindow,TQT_SLOT(slotCtrlTabPressed()));
+      connect(newContainer,TQ_SIGNAL(ctrlTabPressed()),m_pMainWindow,TQ_SLOT(slotCtrlTabPressed()));
 
       int tabindex = -1;
       if(openAfterCurrentPage && parent->frameType() == "Tabs") // Need to honor it, if possible
@@ -1628,7 +1628,7 @@ void KonqViewManager::loadItem( TDEConfig &cfg, KonqFrameContainerBase *parent,
     //kdDebug(1202) << "KonqViewManager::loadItem: Item is a Tabs" << endl;
 
     KonqFrameTabs *newContainer = new KonqFrameTabs( parent->widget(), parent, this );
-    connect(newContainer,TQT_SIGNAL(ctrlTabPressed()),m_pMainWindow,TQT_SLOT(slotCtrlTabPressed()));
+    connect(newContainer,TQ_SIGNAL(ctrlTabPressed()),m_pMainWindow,TQ_SLOT(slotCtrlTabPressed()));
 
     parent->insertChildFrame( newContainer );
     m_pDocContainer = newContainer;
@@ -1666,10 +1666,10 @@ void KonqViewManager::setProfiles( TDEActionMenu *profiles )
 
   if ( m_pamProfiles )
   {
-    connect( m_pamProfiles->popupMenu(), TQT_SIGNAL( activated( int ) ),
-             this, TQT_SLOT( slotProfileActivated( int ) ) );
-    connect( m_pamProfiles->popupMenu(), TQT_SIGNAL( aboutToShow() ),
-             this, TQT_SLOT( slotProfileListAboutToShow() ) );
+    connect( m_pamProfiles->popupMenu(), TQ_SIGNAL( activated( int ) ),
+             this, TQ_SLOT( slotProfileActivated( int ) ) );
+    connect( m_pamProfiles->popupMenu(), TQ_SIGNAL( aboutToShow() ),
+             this, TQ_SLOT( slotProfileListAboutToShow() ) );
   }
   //KonqMainWindow::enableAllActions will call it anyway
   //profileListDirty();

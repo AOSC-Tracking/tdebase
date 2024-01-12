@@ -127,7 +127,7 @@ KonqView::~KonqView()
   {
     finishedWithCurrentURL();
     if ( isPassiveMode() )
-      disconnect( m_pPart, TQT_SIGNAL( destroyed() ), m_pMainWindow->viewManager(), TQT_SLOT( slotObjectDestroyed() ) );
+      disconnect( m_pPart, TQ_SIGNAL( destroyed() ), m_pMainWindow->viewManager(), TQ_SLOT( slotObjectDestroyed() ) );
 
     delete m_pPart;
   }
@@ -372,16 +372,16 @@ bool KonqView::changeViewMode( const TQString &serviceType,
 void KonqView::connectPart(  )
 {
   //kdDebug(1202) << "KonqView::connectPart" << endl;
-  connect( m_pPart, TQT_SIGNAL( started( TDEIO::Job * ) ),
-           this, TQT_SLOT( slotStarted( TDEIO::Job * ) ) );
-  connect( m_pPart, TQT_SIGNAL( completed() ),
-           this, TQT_SLOT( slotCompleted() ) );
-  connect( m_pPart, TQT_SIGNAL( completed(bool) ),
-           this, TQT_SLOT( slotCompleted(bool) ) );
-  connect( m_pPart, TQT_SIGNAL( canceled( const TQString & ) ),
-           this, TQT_SLOT( slotCanceled( const TQString & ) ) );
-  connect( m_pPart, TQT_SIGNAL( setWindowCaption( const TQString & ) ),
-           this, TQT_SLOT( setCaption( const TQString & ) ) );
+  connect( m_pPart, TQ_SIGNAL( started( TDEIO::Job * ) ),
+           this, TQ_SLOT( slotStarted( TDEIO::Job * ) ) );
+  connect( m_pPart, TQ_SIGNAL( completed() ),
+           this, TQ_SLOT( slotCompleted() ) );
+  connect( m_pPart, TQ_SIGNAL( completed(bool) ),
+           this, TQ_SLOT( slotCompleted(bool) ) );
+  connect( m_pPart, TQ_SIGNAL( canceled( const TQString & ) ),
+           this, TQ_SLOT( slotCanceled( const TQString & ) ) );
+  connect( m_pPart, TQ_SIGNAL( setWindowCaption( const TQString & ) ),
+           this, TQ_SLOT( setCaption( const TQString & ) ) );
 
   KParts::BrowserExtension *ext = browserExtension();
 
@@ -389,8 +389,8 @@ void KonqView::connectPart(  )
   {
       ext->setBrowserInterface( m_browserIface );
 
-      connect( ext, TQT_SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs &) ),
-               m_pMainWindow, TQT_SLOT( slotOpenURLRequest( const KURL &, const KParts::URLArgs & ) ) );
+      connect( ext, TQ_SIGNAL( openURLRequestDelayed( const KURL &, const KParts::URLArgs &) ),
+               m_pMainWindow, TQ_SLOT( slotOpenURLRequest( const KURL &, const KParts::URLArgs & ) ) );
 
       if ( m_bPopupMenuEnabled )
       {
@@ -398,59 +398,59 @@ void KonqView::connectPart(  )
           enablePopupMenu( true );
       }
 
-      connect( ext, TQT_SIGNAL( setLocationBarURL( const TQString & ) ),
-               this, TQT_SLOT( setLocationBarURL( const TQString & ) ) );
+      connect( ext, TQ_SIGNAL( setLocationBarURL( const TQString & ) ),
+               this, TQ_SLOT( setLocationBarURL( const TQString & ) ) );
 
-      connect( ext, TQT_SIGNAL( setIconURL( const KURL & ) ),
-               this, TQT_SLOT( setIconURL( const KURL & ) ) );
+      connect( ext, TQ_SIGNAL( setIconURL( const KURL & ) ),
+               this, TQ_SLOT( setIconURL( const KURL & ) ) );
 
-      connect( ext, TQT_SIGNAL( setPageSecurity( int ) ),
-               this, TQT_SLOT( setPageSecurity( int ) ) );
+      connect( ext, TQ_SIGNAL( setPageSecurity( int ) ),
+               this, TQ_SLOT( setPageSecurity( int ) ) );
 
-      connect( ext, TQT_SIGNAL( createNewWindow( const KURL &, const KParts::URLArgs & ) ),
-               m_pMainWindow, TQT_SLOT( slotCreateNewWindow( const KURL &, const KParts::URLArgs & ) ) );
+      connect( ext, TQ_SIGNAL( createNewWindow( const KURL &, const KParts::URLArgs & ) ),
+               m_pMainWindow, TQ_SLOT( slotCreateNewWindow( const KURL &, const KParts::URLArgs & ) ) );
 
-      connect( ext, TQT_SIGNAL( createNewWindow( const KURL &, const KParts::URLArgs &, const KParts::WindowArgs &, KParts::ReadOnlyPart *& ) ),
-               m_pMainWindow, TQT_SLOT( slotCreateNewWindow( const KURL &, const KParts::URLArgs &, const KParts::WindowArgs &, KParts::ReadOnlyPart *& ) ) );
+      connect( ext, TQ_SIGNAL( createNewWindow( const KURL &, const KParts::URLArgs &, const KParts::WindowArgs &, KParts::ReadOnlyPart *& ) ),
+               m_pMainWindow, TQ_SLOT( slotCreateNewWindow( const KURL &, const KParts::URLArgs &, const KParts::WindowArgs &, KParts::ReadOnlyPart *& ) ) );
 
-      connect( ext, TQT_SIGNAL( loadingProgress( int ) ),
-               m_pKonqFrame->statusbar(), TQT_SLOT( slotLoadingProgress( int ) ) );
+      connect( ext, TQ_SIGNAL( loadingProgress( int ) ),
+               m_pKonqFrame->statusbar(), TQ_SLOT( slotLoadingProgress( int ) ) );
 
-      connect( ext, TQT_SIGNAL( speedProgress( int ) ),
-               m_pKonqFrame->statusbar(), TQT_SLOT( slotSpeedProgress( int ) ) );
+      connect( ext, TQ_SIGNAL( speedProgress( int ) ),
+               m_pKonqFrame->statusbar(), TQ_SLOT( slotSpeedProgress( int ) ) );
 
-      connect( ext, TQT_SIGNAL( selectionInfo( const KFileItemList & ) ),
-               this, TQT_SLOT( slotSelectionInfo( const KFileItemList & ) ) );
+      connect( ext, TQ_SIGNAL( selectionInfo( const KFileItemList & ) ),
+               this, TQ_SLOT( slotSelectionInfo( const KFileItemList & ) ) );
 
-      connect( ext, TQT_SIGNAL( mouseOverInfo( const KFileItem * ) ),
-               this, TQT_SLOT( slotMouseOverInfo( const KFileItem * ) ) );
+      connect( ext, TQ_SIGNAL( mouseOverInfo( const KFileItem * ) ),
+               this, TQ_SLOT( slotMouseOverInfo( const KFileItem * ) ) );
 
-      connect( ext, TQT_SIGNAL( openURLNotify() ),
-               this, TQT_SLOT( slotOpenURLNotify() ) );
+      connect( ext, TQ_SIGNAL( openURLNotify() ),
+               this, TQ_SLOT( slotOpenURLNotify() ) );
 
-      connect( ext, TQT_SIGNAL( enableAction( const char *, bool ) ),
-               this, TQT_SLOT( slotEnableAction( const char *, bool ) ) );
+      connect( ext, TQ_SIGNAL( enableAction( const char *, bool ) ),
+               this, TQ_SLOT( slotEnableAction( const char *, bool ) ) );
 
-      connect( ext, TQT_SIGNAL( setActionText( const char *, const TQString& ) ),
-               this, TQT_SLOT( slotSetActionText( const char *, const TQString& ) ) );
+      connect( ext, TQ_SIGNAL( setActionText( const char *, const TQString& ) ),
+               this, TQ_SLOT( slotSetActionText( const char *, const TQString& ) ) );
 
-      connect( ext, TQT_SIGNAL( moveTopLevelWidget( int, int ) ),
-               this, TQT_SLOT( slotMoveTopLevelWidget( int, int ) ) );
+      connect( ext, TQ_SIGNAL( moveTopLevelWidget( int, int ) ),
+               this, TQ_SLOT( slotMoveTopLevelWidget( int, int ) ) );
 
-      connect( ext, TQT_SIGNAL( resizeTopLevelWidget( int, int ) ),
-               this, TQT_SLOT( slotResizeTopLevelWidget( int, int ) ) );
+      connect( ext, TQ_SIGNAL( resizeTopLevelWidget( int, int ) ),
+               this, TQ_SLOT( slotResizeTopLevelWidget( int, int ) ) );
 
-      connect( ext, TQT_SIGNAL( requestFocus(KParts::ReadOnlyPart *) ),
-               this, TQT_SLOT( slotRequestFocus(KParts::ReadOnlyPart *) ) );
+      connect( ext, TQ_SIGNAL( requestFocus(KParts::ReadOnlyPart *) ),
+               this, TQ_SLOT( slotRequestFocus(KParts::ReadOnlyPart *) ) );
 
       if (service()->desktopEntryName() != "konq_sidebartng") {
-          connect( ext, TQT_SIGNAL( infoMessage( const TQString & ) ),
-               m_pKonqFrame->statusbar(), TQT_SLOT( message( const TQString & ) ) );
+          connect( ext, TQ_SIGNAL( infoMessage( const TQString & ) ),
+               m_pKonqFrame->statusbar(), TQ_SLOT( message( const TQString & ) ) );
 
           connect( ext,
-                   TQT_SIGNAL( addWebSideBar(const KURL&, const TQString&) ),
+                   TQ_SIGNAL( addWebSideBar(const KURL&, const TQString&) ),
                    m_pMainWindow,
-                   TQT_SLOT( slotAddWebSideBar(const KURL&, const TQString&) ) );
+                   TQ_SLOT( slotAddWebSideBar(const KURL&, const TQString&) ) );
       }
 
       callExtensionBoolMethod( "setSaveViewPropertiesLocally(bool)", m_pMainWindow->saveViewPropertiesLocally() );
@@ -480,8 +480,8 @@ void KonqView::connectPart(  )
   // KonqDirPart signal
   if ( m_pPart->inherits("KonqDirPart") )
   {
-      connect( m_pPart, TQT_SIGNAL( findOpen( KonqDirPart * ) ),
-               m_pMainWindow, TQT_SLOT( slotFindOpen( KonqDirPart * ) ) );
+      connect( m_pPart, TQ_SIGNAL( findOpen( KonqDirPart * ) ),
+               m_pMainWindow, TQ_SLOT( slotFindOpen( KonqDirPart * ) ) );
   }
 }
 
@@ -532,9 +532,9 @@ void KonqView::slotStarted( TDEIO::Job * job )
         job->setWindow (m_pMainWindow->topLevelWidget ());
       }
 
-      connect( job, TQT_SIGNAL( percent( TDEIO::Job *, unsigned long ) ), this, TQT_SLOT( slotPercent( TDEIO::Job *, unsigned long ) ) );
-      connect( job, TQT_SIGNAL( speed( TDEIO::Job *, unsigned long ) ), this, TQT_SLOT( slotSpeed( TDEIO::Job *, unsigned long ) ) );
-      connect( job, TQT_SIGNAL( infoMessage( TDEIO::Job *, const TQString & ) ), this, TQT_SLOT( slotInfoMessage( TDEIO::Job *, const TQString & ) ) );
+      connect( job, TQ_SIGNAL( percent( TDEIO::Job *, unsigned long ) ), this, TQ_SLOT( slotPercent( TDEIO::Job *, unsigned long ) ) );
+      connect( job, TQ_SIGNAL( speed( TDEIO::Job *, unsigned long ) ), this, TQ_SLOT( slotSpeed( TDEIO::Job *, unsigned long ) ) );
+      connect( job, TQ_SIGNAL( infoMessage( TDEIO::Job *, const TQString & ) ), this, TQ_SLOT( slotInfoMessage( TDEIO::Job *, const TQString & ) ) );
   }
 }
 
@@ -1165,39 +1165,39 @@ void KonqView::enablePopupMenu( bool b )
   if ( b ) {
     m_bPopupMenuEnabled = true;
 
-    connect( ext, TQT_SIGNAL( popupMenu( const TQPoint &, const KFileItemList & ) ),
-             m_pMainWindow, TQT_SLOT( slotPopupMenu( const TQPoint &, const KFileItemList & ) ) );
+    connect( ext, TQ_SIGNAL( popupMenu( const TQPoint &, const KFileItemList & ) ),
+             m_pMainWindow, TQ_SLOT( slotPopupMenu( const TQPoint &, const KFileItemList & ) ) );
 
-    connect( ext, TQT_SIGNAL( popupMenu( const TQPoint &, const KURL &, const TQString &, mode_t ) ),
-             m_pMainWindow, TQT_SLOT( slotPopupMenu( const TQPoint &, const KURL &, const TQString &, mode_t ) ) );
+    connect( ext, TQ_SIGNAL( popupMenu( const TQPoint &, const KURL &, const TQString &, mode_t ) ),
+             m_pMainWindow, TQ_SLOT( slotPopupMenu( const TQPoint &, const KURL &, const TQString &, mode_t ) ) );
 
-    connect( ext, TQT_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList & ) ),
-             m_pMainWindow, TQT_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList & ) ) );
+    connect( ext, TQ_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList & ) ),
+             m_pMainWindow, TQ_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList & ) ) );
 
-    connect( ext, TQT_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList &, const KParts::URLArgs &, KParts::BrowserExtension::PopupFlags ) ),
-             m_pMainWindow, TQT_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList &, const KParts::URLArgs &, KParts::BrowserExtension::PopupFlags ) ) );
+    connect( ext, TQ_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList &, const KParts::URLArgs &, KParts::BrowserExtension::PopupFlags ) ),
+             m_pMainWindow, TQ_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList &, const KParts::URLArgs &, KParts::BrowserExtension::PopupFlags ) ) );
 
-    connect( ext, TQT_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const TQString &, mode_t ) ),
-             m_pMainWindow, TQT_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const TQString &, mode_t ) ) );
+    connect( ext, TQ_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const TQString &, mode_t ) ),
+             m_pMainWindow, TQ_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const TQString &, mode_t ) ) );
 
-    connect( ext, TQT_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const KParts::URLArgs &, KParts::BrowserExtension::PopupFlags, mode_t ) ),
-             m_pMainWindow, TQT_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const KParts::URLArgs &, KParts::BrowserExtension::PopupFlags, mode_t ) ) );
+    connect( ext, TQ_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const KParts::URLArgs &, KParts::BrowserExtension::PopupFlags, mode_t ) ),
+             m_pMainWindow, TQ_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const KParts::URLArgs &, KParts::BrowserExtension::PopupFlags, mode_t ) ) );
   }
   else // disable context popup
   {
     m_bPopupMenuEnabled = false;
 
-    disconnect( ext, TQT_SIGNAL( popupMenu( const TQPoint &, const KFileItemList & ) ),
-             m_pMainWindow, TQT_SLOT( slotPopupMenu( const TQPoint &, const KFileItemList & ) ) );
+    disconnect( ext, TQ_SIGNAL( popupMenu( const TQPoint &, const KFileItemList & ) ),
+             m_pMainWindow, TQ_SLOT( slotPopupMenu( const TQPoint &, const KFileItemList & ) ) );
 
-    disconnect( ext, TQT_SIGNAL( popupMenu( const TQPoint &, const KURL &, const TQString &, mode_t ) ),
-             m_pMainWindow, TQT_SLOT( slotPopupMenu( const TQPoint &, const KURL &, const TQString &, mode_t ) ) );
+    disconnect( ext, TQ_SIGNAL( popupMenu( const TQPoint &, const KURL &, const TQString &, mode_t ) ),
+             m_pMainWindow, TQ_SLOT( slotPopupMenu( const TQPoint &, const KURL &, const TQString &, mode_t ) ) );
 
-    disconnect( ext, TQT_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList & ) ),
-             m_pMainWindow, TQT_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList & ) ) );
+    disconnect( ext, TQ_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList & ) ),
+             m_pMainWindow, TQ_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KFileItemList & ) ) );
 
-    disconnect( ext, TQT_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const TQString &, mode_t ) ),
-             m_pMainWindow, TQT_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const TQString &, mode_t ) ) );
+    disconnect( ext, TQ_SIGNAL( popupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const TQString &, mode_t ) ),
+             m_pMainWindow, TQ_SLOT( slotPopupMenu( KXMLGUIClient *, const TQPoint &, const KURL &, const TQString &, mode_t ) ) );
   }
   enableBackRightClick( m_bBackRightClick );
 }
@@ -1207,11 +1207,11 @@ void KonqView::enableBackRightClick( bool b )
 {
     m_bBackRightClick = b;
     if ( b )
-        connect( this, TQT_SIGNAL( backRightClick() ),
-                 m_pMainWindow, TQT_SLOT( slotBack() ) );
+        connect( this, TQ_SIGNAL( backRightClick() ),
+                 m_pMainWindow, TQ_SLOT( slotBack() ) );
     else
-        disconnect( this, TQT_SIGNAL( backRightClick() ),
-                    m_pMainWindow, TQT_SLOT( slotBack() ) );
+        disconnect( this, TQ_SIGNAL( backRightClick() ),
+                    m_pMainWindow, TQ_SLOT( slotBack() ) );
 }
 
 void KonqView::reparseConfiguration()

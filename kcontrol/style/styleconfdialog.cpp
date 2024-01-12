@@ -29,8 +29,8 @@ StyleConfigDialog::StyleConfigDialog(TQWidget* parent, TQString styleName):
            KDialogBase::Cancel)
 {
   m_dirty = false;
-  connect( this, TQT_SIGNAL( defaultClicked() ), this, TQT_SIGNAL( defaults() ));
-  connect( this, TQT_SIGNAL( okClicked() ), this, TQT_SIGNAL( save() ));
+  connect( this, TQ_SIGNAL( defaultClicked() ), this, TQ_SIGNAL( defaults() ));
+  connect( this, TQ_SIGNAL( okClicked() ), this, TQ_SIGNAL( save() ));
 }
 
 bool StyleConfigDialog::isDirty() const

@@ -39,7 +39,7 @@ KasClockItem::KasClockItem( KasBar *parent )
     setCustomPopup( true );
 
     TQTimer *t = new TQTimer( this, "t" );
-    connect( t, TQT_SIGNAL( timeout() ), TQT_SLOT( updateTime() ) );
+    connect( t, TQ_SIGNAL( timeout() ), TQ_SLOT( updateTime() ) );
     t->start( 1000 );
 
     lcd = new LCD( parent );
@@ -53,8 +53,8 @@ KasClockItem::KasClockItem( KasBar *parent )
     lcd->setAutoMask( true );
     updateTime();
 
-    connect( this, TQT_SIGNAL(leftButtonClicked(TQMouseEvent *)), TQT_SLOT(togglePopup()) );
-    connect( this, TQT_SIGNAL(rightButtonClicked(TQMouseEvent *)), TQT_SLOT(showMenuAt(TQMouseEvent *) ) );
+    connect( this, TQ_SIGNAL(leftButtonClicked(TQMouseEvent *)), TQ_SLOT(togglePopup()) );
+    connect( this, TQ_SIGNAL(rightButtonClicked(TQMouseEvent *)), TQ_SLOT(showMenuAt(TQMouseEvent *) ) );
 }
 
 KasClockItem::~KasClockItem()

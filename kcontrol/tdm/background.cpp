@@ -54,14 +54,14 @@ KBackground::KBackground(TQWidget *parent, const char *name)
     m_simpleConf=new KSimpleConfig(config->readEntry( "BackgroundCfg",KDE_CONFDIR "/tdm/backgroundrc" ) );
     m_background = new BGDialog( this, m_simpleConf, false );
 
-    connect(m_background, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
+    connect(m_background, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
 
     // Top layout
     TQVBoxLayout *top = new TQVBoxLayout(this, KDialog::marginHint(), KDialog::spacingHint() );
     top->addWidget(m_pCBEnable);
     top->addWidget(m_background);
     top->addStretch();
-    connect( m_pCBEnable, TQT_SIGNAL(toggled( bool )), TQT_SLOT(slotEnableChanged()) );
+    connect( m_pCBEnable, TQ_SIGNAL(toggled( bool )), TQ_SLOT(slotEnableChanged()) );
 }
 
 KBackground::~KBackground()

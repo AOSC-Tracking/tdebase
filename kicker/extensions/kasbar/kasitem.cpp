@@ -94,8 +94,8 @@ KasItem::KasItem( KasBar *parent )
      frame(true), modified(false), attention_(false), prog( -1 ),
      anim(), aniFrame( 0 ), drawAnim( false )
 {
-    connect( parent, TQT_SIGNAL( dragStarted() ), TQT_SLOT( hidePopup() ) );
-    connect( this, TQT_SIGNAL( middleButtonClicked(TQMouseEvent *) ), parent, TQT_SLOT( toggleOrientation() ) );
+    connect( parent, TQ_SIGNAL( dragStarted() ), TQ_SLOT( hidePopup() ) );
+    connect( this, TQ_SIGNAL( middleButtonClicked(TQMouseEvent *) ), parent, TQ_SLOT( toggleOrientation() ) );
 }
 
 KasItem::~KasItem()
@@ -169,7 +169,7 @@ void KasItem::mouseEnter()
 
    if ( (!customPopup) && (popupTimer == 0) ) {
       popupTimer = new TQTimer( this, "popupTimer" );
-      connect( popupTimer, TQT_SIGNAL( timeout() ), TQT_SLOT( showPopup() ) );
+      connect( popupTimer, TQ_SIGNAL( timeout() ), TQ_SLOT( showPopup() ) );
       popupTimer->start( POPUP_DELAY, true );
    }
 
@@ -205,7 +205,7 @@ void KasItem::checkPopup()
 	    hidePopup();
     }
     else {
-	TQTimer::singleShot( KASITEM_CHECK_POPUP_DELAY, this, TQT_SLOT( checkPopup() ) );
+	TQTimer::singleShot( KASITEM_CHECK_POPUP_DELAY, this, TQ_SLOT( checkPopup() ) );
     }
 }
 
@@ -215,7 +215,7 @@ void KasItem::dragEnter()
 
    if ( dragTimer == 0 ) {
       dragTimer = new TQTimer( this, "dragTimer" );
-      connect( dragTimer, TQT_SIGNAL( timeout() ), TQT_SLOT( dragOverAction() ) );
+      connect( dragTimer, TQ_SIGNAL( timeout() ), TQ_SLOT( dragOverAction() ) );
       dragTimer->start( DRAG_SWITCH_DELAY, true );
    }
 
@@ -268,7 +268,7 @@ void KasItem::showPopup()
    pop->show();
    update();
 
-   TQTimer::singleShot( KASITEM_CHECK_POPUP_DELAY, this, TQT_SLOT( checkPopup() ) );
+   TQTimer::singleShot( KASITEM_CHECK_POPUP_DELAY, this, TQ_SLOT( checkPopup() ) );
 }
 
 void KasItem::hidePopup()

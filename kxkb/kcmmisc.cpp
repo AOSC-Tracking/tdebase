@@ -71,14 +71,14 @@ KeyboardConfig::KeyboardConfig (TQWidget * parent, const char *)
   ui->rateSlider->setSteps(50, 500);
   ui->rateSlider->setTickInterval(500);
 
-  connect(ui->repeatBox, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
-  connect(ui->delay, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(delaySpinboxChanged(int)));
-  connect(ui->delaySlider, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(delaySliderChanged(int)));
-  connect(ui->rate, TQT_SIGNAL(valueChanged(double)), this, TQT_SLOT(rateSpinboxChanged(double)));
-  connect(ui->rateSlider, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(rateSliderChanged(int)));
+  connect(ui->repeatBox, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
+  connect(ui->delay, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(delaySpinboxChanged(int)));
+  connect(ui->delaySlider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(delaySliderChanged(int)));
+  connect(ui->rate, TQ_SIGNAL(valueChanged(double)), this, TQ_SLOT(rateSpinboxChanged(double)));
+  connect(ui->rateSlider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(rateSliderChanged(int)));
 
-  connect(ui->click, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-  connect(ui->numlockGroup, TQT_SIGNAL(released(int)), this, TQT_SLOT(changed()));
+  connect(ui->click, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+  connect(ui->numlockGroup, TQ_SIGNAL(released(int)), this, TQ_SLOT(changed()));
 
 #if !defined(HAVE_XTEST) && !defined(HAVE_XKB)
   ui->numlockGroup->setDisabled( true );

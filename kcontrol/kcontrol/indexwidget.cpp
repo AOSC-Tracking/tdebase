@@ -69,19 +69,19 @@ void IndexWidget::moduleSelected(ConfigModule *m)
 	{
 	  _tree->makeVisible(m);
 
-	  _tree->disconnect(TQT_SIGNAL(moduleSelected(ConfigModule*)));
+	  _tree->disconnect(TQ_SIGNAL(moduleSelected(ConfigModule*)));
 	  _tree->makeSelected(m);
-	  connect(_tree, TQT_SIGNAL(moduleSelected(ConfigModule*)),
-			  this, TQT_SLOT(moduleSelected(ConfigModule*)));
+	  connect(_tree, TQ_SIGNAL(moduleSelected(ConfigModule*)),
+			  this, TQ_SLOT(moduleSelected(ConfigModule*)));
 	}
   else if (obj->inherits("ModuleTreeView") && _icon)
 	{
 	  _icon->makeVisible(m);
 
-	  _icon->disconnect(TQT_SIGNAL(moduleSelected(ConfigModule*)));
+	  _icon->disconnect(TQ_SIGNAL(moduleSelected(ConfigModule*)));
 	  _icon->makeSelected(m);
-	  connect(_icon, TQT_SIGNAL(moduleSelected(ConfigModule*)),
-			 this, TQT_SLOT(moduleSelected(ConfigModule*)));
+	  connect(_icon, TQ_SIGNAL(moduleSelected(ConfigModule*)),
+			 this, TQ_SLOT(moduleSelected(ConfigModule*)));
 	}
 }
 
@@ -89,17 +89,17 @@ void IndexWidget::makeSelected(ConfigModule *module)
 {
   if (_icon)
   {
-   _icon->disconnect(TQT_SIGNAL(moduleSelected(ConfigModule*)));
+   _icon->disconnect(TQ_SIGNAL(moduleSelected(ConfigModule*)));
    _icon->makeSelected(module);
-   connect(_icon, TQT_SIGNAL(moduleSelected(ConfigModule*)),
-		  this, TQT_SLOT(moduleSelected(ConfigModule*)));
+   connect(_icon, TQ_SIGNAL(moduleSelected(ConfigModule*)),
+		  this, TQ_SLOT(moduleSelected(ConfigModule*)));
   }
   if (_tree)
   {
-    _tree->disconnect(TQT_SIGNAL(moduleSelected(ConfigModule*)));
+    _tree->disconnect(TQ_SIGNAL(moduleSelected(ConfigModule*)));
     _tree->makeSelected(module);
-    connect(_tree, TQT_SIGNAL(moduleSelected(ConfigModule*)),
-		  this, TQT_SLOT(moduleSelected(ConfigModule*)));
+    connect(_tree, TQ_SIGNAL(moduleSelected(ConfigModule*)),
+		  this, TQ_SLOT(moduleSelected(ConfigModule*)));
   }
 }
 
@@ -121,8 +121,8 @@ void IndexWidget::activateView(IndexViewMode mode)
     {
       _icon=new ModuleIconView(_modules, this);
       _icon->fill();
-	  connect(_icon, TQT_SIGNAL(moduleSelected(ConfigModule*)),
-		  this, TQT_SLOT(moduleSelected(ConfigModule*)));
+	  connect(_icon, TQ_SIGNAL(moduleSelected(ConfigModule*)),
+		  this, TQ_SLOT(moduleSelected(ConfigModule*)));
     }
     raiseWidget( _icon );
   }
@@ -132,10 +132,10 @@ void IndexWidget::activateView(IndexViewMode mode)
     {
       _tree=new ModuleTreeView(_modules, this);
       _tree->fill();
-      connect(_tree, TQT_SIGNAL(moduleSelected(ConfigModule*)),
-		  this, TQT_SLOT(moduleSelected(ConfigModule*)));
-	  connect(_tree, TQT_SIGNAL(categorySelected(TQListViewItem*)),
-		  this, TQT_SIGNAL(categorySelected(TQListViewItem*)));
+      connect(_tree, TQ_SIGNAL(moduleSelected(ConfigModule*)),
+		  this, TQ_SLOT(moduleSelected(ConfigModule*)));
+	  connect(_tree, TQ_SIGNAL(categorySelected(TQListViewItem*)),
+		  this, TQ_SIGNAL(categorySelected(TQListViewItem*)));
     }
     raiseWidget( _tree );
   }

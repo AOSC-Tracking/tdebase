@@ -103,14 +103,14 @@ CFontViewPart::CFontViewPart(TQWidget *parent, const char *name)
     toolsLayout->addItem(new TQSpacerItem(5, 5, TQSizePolicy::MinimumExpanding, TQSizePolicy::Minimum));
     toolsLayout->addWidget(itsInstallButton);
     itsToolsFrame->hide();
-    connect(itsPreview, TQT_SIGNAL(status(bool)), TQT_SLOT(previewStatus(bool)));
-    connect(itsInstallButton, TQT_SIGNAL(clicked()), TQT_SLOT(install()));
-    connect(itsFaceSelector, TQT_SIGNAL(valueChanged(int)), itsPreview, TQT_SLOT(showFace(int)));
+    connect(itsPreview, TQ_SIGNAL(status(bool)), TQ_SLOT(previewStatus(bool)));
+    connect(itsInstallButton, TQ_SIGNAL(clicked()), TQ_SLOT(install()));
+    connect(itsFaceSelector, TQ_SIGNAL(valueChanged(int)), itsPreview, TQ_SLOT(showFace(int)));
 
     itsChangeTextAction=new TDEAction(i18n("Change Text..."), "text", TDEShortcut(),
-                                    this, TQT_SLOT(changeText()), actionCollection(), "changeText");
+                                    this, TQ_SLOT(changeText()), actionCollection(), "changeText");
     itsChangeTextAction->setEnabled(false);
-    itsPrintAction=KStdAction::print(this, TQT_SLOT(print()), actionCollection(), "print");
+    itsPrintAction=KStdAction::print(this, TQ_SLOT(print()), actionCollection(), "print");
     itsPrintAction->setEnabled(false);
 
     setXMLFile("tdefontviewpart.rc");
@@ -143,7 +143,7 @@ bool CFontViewPart::openFile()
 {
     // NOTE: Cant do the real open here, as dont seem to be able to use TDEIO::NetAccess functions during initial start-up.
     // Bug report 111535 indicates that calling "konqueror <font>" crashes.
-    TQTimer::singleShot(0, this, TQT_SLOT(timeout()));
+    TQTimer::singleShot(0, this, TQ_SLOT(timeout()));
     return true;
 }
 

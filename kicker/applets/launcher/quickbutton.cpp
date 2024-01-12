@@ -158,7 +158,7 @@ QuickButton::QuickButton(const TQString &u, TDEAction* configAction,
     if (_qurl->url() == "SPECIAL_BUTTON__SHOW_DESKTOP") {
         setToggleButton(true);
         setOn( ShowDesktop::the()->desktopShowing() );
-        connect( ShowDesktop::the(), TQT_SIGNAL(desktopShown(bool)), this, TQT_SLOT(toggle(bool)) );
+        connect( ShowDesktop::the(), TQ_SIGNAL(desktopShown(bool)), this, TQ_SLOT(toggle(bool)) );
     }
 
     TQToolTip::add(this, _qurl->name());
@@ -172,18 +172,18 @@ QuickButton::QuickButton(const TQString &u, TDEAction* configAction,
     configAction->plug(_popup);
         _popup->insertSeparator();
     _popup->insertItem(SmallIcon("remove"), i18n("Remove Application"), 
-            this, TQT_SLOT(removeApp()));
+            this, TQ_SLOT(removeApp()));
 
     m_stickyAction = new TDEToggleAction(i18n("Never Remove Automatically"),
         TDEShortcut(), this);
-    connect(m_stickyAction, TQT_SIGNAL(toggled(bool)), 
-        this, TQT_SLOT(slotStickyToggled(bool)));
+    connect(m_stickyAction, TQ_SIGNAL(toggled(bool)), 
+        this, TQ_SLOT(slotStickyToggled(bool)));
     m_stickyAction->plug(_popup, 2);
     m_stickyId = _popup->idAt(2);
 
-    connect(this, TQT_SIGNAL(clicked()), TQT_SLOT(launch()));
-    connect(this, TQT_SIGNAL(removeApp(QuickButton *)), parent,
-        TQT_SLOT(removeAppManually(QuickButton *)));
+    connect(this, TQ_SIGNAL(clicked()), TQ_SLOT(launch()));
+    connect(this, TQ_SIGNAL(removeApp(QuickButton *)), parent,
+        TQ_SLOT(removeAppManually(QuickButton *)));
 }
 
 QuickButton::~QuickButton()
@@ -303,7 +303,7 @@ void QuickButton::removeApp()
 void QuickButton::flash()
 {
    m_flashCounter = 2000;
-   TQTimer::singleShot(0, this, TQT_SLOT(slotFlash()));
+   TQTimer::singleShot(0, this, TQ_SLOT(slotFlash()));
 }
 
 void QuickButton::slotFlash()
@@ -314,7 +314,7 @@ void QuickButton::slotFlash()
         m_flashCounter -= timeout;
         if (m_flashCounter < 0) m_flashCounter = 0;
         update();
-        TQTimer::singleShot(timeout, this, TQT_SLOT(slotFlash()));
+        TQTimer::singleShot(timeout, this, TQ_SLOT(slotFlash()));
     }
 }
 

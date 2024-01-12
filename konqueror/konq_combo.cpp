@@ -122,14 +122,14 @@ KonqCombo::KonqCombo( TQWidget *parent, const char *name )
     // Make the lineedit consume the Key_Enter event...
     setTrapReturnKey( true );
 
-    connect( KonqHistoryManager::kself(), TQT_SIGNAL(cleared()), TQT_SLOT(slotCleared()) );
-    connect( this, TQT_SIGNAL(cleared() ), TQT_SLOT(slotCleared()) );
-    connect( this, TQT_SIGNAL(highlighted( int )), TQT_SLOT(slotSetIcon( int )) );
-    connect( this, TQT_SIGNAL(activated( const TQString& )),
-             TQT_SLOT(slotActivated( const TQString& )) );
+    connect( KonqHistoryManager::kself(), TQ_SIGNAL(cleared()), TQ_SLOT(slotCleared()) );
+    connect( this, TQ_SIGNAL(cleared() ), TQ_SLOT(slotCleared()) );
+    connect( this, TQ_SIGNAL(highlighted( int )), TQ_SLOT(slotSetIcon( int )) );
+    connect( this, TQ_SIGNAL(activated( const TQString& )),
+             TQ_SLOT(slotActivated( const TQString& )) );
 
     setHistoryEditorEnabled( true ); 
-    connect( this, TQT_SIGNAL(removed( const TQString&) ), TQT_SLOT(slotRemoved( const TQString& )) );
+    connect( this, TQ_SIGNAL(removed( const TQString&) ), TQ_SLOT(slotRemoved( const TQString& )) );
 
     if ( !kapp->dcopClient()->isAttached() )
         kapp->dcopClient()->attach();

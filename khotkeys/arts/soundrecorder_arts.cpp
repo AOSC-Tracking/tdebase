@@ -61,7 +61,7 @@ SoundRecorderArts::SoundRecorderArts(TQObject *parent, const char *name)
         ( void ) check;
 
 	m_recStream->usePolling( false );
-	connect( m_recStream, TQT_SIGNAL(data (TQByteArray &)), this, TQT_SLOT(slotDataReceived(TQByteArray& )));
+	connect( m_recStream, TQ_SIGNAL(data (TQByteArray &)), this, TQ_SLOT(slotDataReceived(TQByteArray& )));
 }
 
 SoundRecorderArts::~SoundRecorderArts()
@@ -80,7 +80,7 @@ void SoundRecorderArts::start()
 void SoundRecorderArts::stop()
 {
 	m_recStream->stop();
-	TQTimer::singleShot(400,this,TQT_SLOT(slotEmitSignal()));
+	TQTimer::singleShot(400,this,TQ_SLOT(slotEmitSignal()));
 }
 
 void SoundRecorderArts::abort()

@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
   TDECmdLineArgs::init(argc,argv, &aboutData);
   TDEApplication::addCmdLineOptions();
   TDEApplication app;
-  TQObject::connect(tqApp, TQT_SIGNAL(lastWindowClosed()), tqApp, TQT_SLOT(quit()));
+  TQObject::connect(tqApp, TQ_SIGNAL(lastWindowClosed()), tqApp, TQ_SLOT(quit()));
 
   TDELicenseDlg *licenseDlg = new TDELicenseDlg();
   app.setMainWidget(licenseDlg);

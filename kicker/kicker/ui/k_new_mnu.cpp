@@ -206,15 +206,15 @@ KMenu::KMenu()
     m_iconName(TQString()),  m_orientation(UnDetermined), m_search_plugin( 0 )
 {
     setMouseTracking(true);
-    connect(&m_sloppyTimer, TQT_SIGNAL(timeout()), TQT_SLOT(slotSloppyTimeout()));
+    connect(&m_sloppyTimer, TQ_SIGNAL(timeout()), TQ_SLOT(slotSloppyTimeout()));
 
     // set the first client id to some arbitrarily large value.
     client_id = 10000;
     // Don't automatically clear the main menu.
     actionCollection = new TDEActionCollection(this);
 
-    connect(Kicker::the(), TQT_SIGNAL(configurationChanged()),
-            this, TQT_SLOT(configChanged()));
+    connect(Kicker::the(), TQ_SIGNAL(configurationChanged()),
+            this, TQ_SLOT(configChanged()));
 
     KUser * user = new KUser();
 
@@ -236,7 +236,7 @@ KMenu::KMenu()
     m_userInfo->setPaletteForegroundColor( userInfoColor );
 
     m_tabBar = new KickoffTabBar(this, "m_tabBar");
-    connect(m_tabBar, TQT_SIGNAL(tabClicked(TQTab*)), TQT_SLOT(tabClicked(TQTab*)));
+    connect(m_tabBar, TQ_SIGNAL(tabClicked(TQTab*)), TQ_SLOT(tabClicked(TQTab*)));
 
     const int tab_icon_size = 32;
 
@@ -284,8 +284,8 @@ KMenu::KMenu()
 	m_tabs[LeaveTab]->setIconSet(BarIcon("leave", tab_icon_size));
     }
 
-    connect(m_tabBar, TQT_SIGNAL(selected(int)), m_stacker, TQT_SLOT(raiseWidget(int)));
-    connect(m_stacker, TQT_SIGNAL(aboutToShow(int)), m_tabBar, TQT_SLOT(setCurrentTab(int)));
+    connect(m_tabBar, TQ_SIGNAL(selected(int)), m_stacker, TQ_SLOT(raiseWidget(int)));
+    connect(m_stacker, TQ_SIGNAL(aboutToShow(int)), m_tabBar, TQ_SLOT(setCurrentTab(int)));
 
     m_favoriteView = new FavoritesItemView (m_stacker, "m_favoriteView");
     m_favoriteView->setAcceptDrops(true);
@@ -300,11 +300,11 @@ KMenu::KMenu()
 
     m_browserView = new FlipScrollView(m_stacker, "m_browserView");
     m_stacker->addWidget(m_browserView, ApplicationsTab);
-    connect( m_browserView, TQT_SIGNAL( backButtonClicked() ), TQT_SLOT( slotGoBack() ) );
+    connect( m_browserView, TQ_SIGNAL( backButtonClicked() ), TQ_SLOT( slotGoBack() ) );
 
     m_exitView = new FlipScrollView(m_stacker, "m_exitView");
     m_stacker->addWidget(m_exitView, LeaveTab);
-    connect( m_exitView, TQT_SIGNAL( backButtonClicked() ), TQT_SLOT( slotGoExitMainMenu() ) );
+    connect( m_exitView, TQ_SIGNAL( backButtonClicked() ), TQ_SLOT( slotGoExitMainMenu() ) );
 
     m_searchWidget = new TQVBox (m_stacker, "m_searchWidget");
     m_searchWidget->setSpacing(0);
@@ -341,40 +341,40 @@ KMenu::KMenu()
 
     m_searchActions->setMaximumHeight(5+m_searchInternet->height());
 
-    connect(m_searchActions, TQT_SIGNAL(clicked(TQListViewItem*)), TQT_SLOT(searchActionClicked(TQListViewItem*)));
-    connect(m_searchActions, TQT_SIGNAL(returnPressed(TQListViewItem*)), TQT_SLOT(searchActionClicked(TQListViewItem*)));
-    connect(m_searchActions, TQT_SIGNAL(spacePressed(TQListViewItem*)), TQT_SLOT(searchActionClicked(TQListViewItem*)));
+    connect(m_searchActions, TQ_SIGNAL(clicked(TQListViewItem*)), TQ_SLOT(searchActionClicked(TQListViewItem*)));
+    connect(m_searchActions, TQ_SIGNAL(returnPressed(TQListViewItem*)), TQ_SLOT(searchActionClicked(TQListViewItem*)));
+    connect(m_searchActions, TQ_SIGNAL(spacePressed(TQListViewItem*)), TQ_SLOT(searchActionClicked(TQListViewItem*)));
 
-    connect(m_searchResultsWidget, TQT_SIGNAL(startService(KService::Ptr)), TQT_SLOT(slotStartService(KService::Ptr)));
-    connect(m_searchResultsWidget, TQT_SIGNAL(startURL(const TQString&)), TQT_SLOT(slotStartURL(const TQString&)));
-    connect(m_searchResultsWidget, TQT_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int )), TQT_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
+    connect(m_searchResultsWidget, TQ_SIGNAL(startService(KService::Ptr)), TQ_SLOT(slotStartService(KService::Ptr)));
+    connect(m_searchResultsWidget, TQ_SIGNAL(startURL(const TQString&)), TQ_SLOT(slotStartURL(const TQString&)));
+    connect(m_searchResultsWidget, TQ_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int )), TQ_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
 
-    connect(m_recentlyView, TQT_SIGNAL(startService(KService::Ptr)), TQT_SLOT(slotStartService(KService::Ptr)));
-    connect(m_recentlyView, TQT_SIGNAL(startURL(const TQString&)), TQT_SLOT(slotStartURL(const TQString&)));
-    connect(m_recentlyView, TQT_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int  )), TQT_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
+    connect(m_recentlyView, TQ_SIGNAL(startService(KService::Ptr)), TQ_SLOT(slotStartService(KService::Ptr)));
+    connect(m_recentlyView, TQ_SIGNAL(startURL(const TQString&)), TQ_SLOT(slotStartURL(const TQString&)));
+    connect(m_recentlyView, TQ_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int  )), TQ_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
 
-    connect(m_favoriteView, TQT_SIGNAL(startService(KService::Ptr)), TQT_SLOT(slotStartService(KService::Ptr)));
-    connect(m_favoriteView, TQT_SIGNAL(startURL(const TQString&)), TQT_SLOT(slotStartURL(const TQString&)));
-    connect(m_favoriteView, TQT_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int  )), TQT_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
-    connect(m_favoriteView, TQT_SIGNAL(moved(TQListViewItem*, TQListViewItem*, TQListViewItem*)), TQT_SLOT(slotFavoritesMoved( TQListViewItem*, TQListViewItem*, TQListViewItem* )));
+    connect(m_favoriteView, TQ_SIGNAL(startService(KService::Ptr)), TQ_SLOT(slotStartService(KService::Ptr)));
+    connect(m_favoriteView, TQ_SIGNAL(startURL(const TQString&)), TQ_SLOT(slotStartURL(const TQString&)));
+    connect(m_favoriteView, TQ_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int  )), TQ_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
+    connect(m_favoriteView, TQ_SIGNAL(moved(TQListViewItem*, TQListViewItem*, TQListViewItem*)), TQ_SLOT(slotFavoritesMoved( TQListViewItem*, TQListViewItem*, TQListViewItem* )));
 
-    connect(m_systemView, TQT_SIGNAL(startURL(const TQString&)), TQT_SLOT(slotStartURL(const TQString&)));
-    connect(m_systemView, TQT_SIGNAL(startService(KService::Ptr)), TQT_SLOT(slotStartService(KService::Ptr)));
-    connect(m_systemView, TQT_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int )), TQT_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
+    connect(m_systemView, TQ_SIGNAL(startURL(const TQString&)), TQ_SLOT(slotStartURL(const TQString&)));
+    connect(m_systemView, TQ_SIGNAL(startService(KService::Ptr)), TQ_SLOT(slotStartService(KService::Ptr)));
+    connect(m_systemView, TQ_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int )), TQ_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
 
-    connect(m_browserView, TQT_SIGNAL(startURL(const TQString&)), TQT_SLOT(slotGoSubMenu(const TQString&)));
-    connect(m_browserView, TQT_SIGNAL(startService(KService::Ptr)), TQT_SLOT(slotStartService(KService::Ptr)));
-    connect(m_browserView, TQT_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int )), TQT_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
+    connect(m_browserView, TQ_SIGNAL(startURL(const TQString&)), TQ_SLOT(slotGoSubMenu(const TQString&)));
+    connect(m_browserView, TQ_SIGNAL(startService(KService::Ptr)), TQ_SLOT(slotStartService(KService::Ptr)));
+    connect(m_browserView, TQ_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int )), TQ_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
 
-    connect(m_exitView, TQT_SIGNAL(startURL(const TQString&)), TQT_SLOT(slotStartURL(const TQString&)));
-    connect(m_exitView, TQT_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int )), TQT_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
+    connect(m_exitView, TQ_SIGNAL(startURL(const TQString&)), TQ_SLOT(slotStartURL(const TQString&)));
+    connect(m_exitView, TQ_SIGNAL(rightButtonPressed( TQListViewItem*, const TQPoint &, int )), TQ_SLOT(slotContextMenuRequested( TQListViewItem*, const TQPoint &, int )));
 
     m_kcommand->setDuplicatesEnabled( false );
     m_kcommand->setLineEdit(new KLineEdit(m_kcommand, "m_kcommand-lineedit"));
     m_kcommand->setCompletionMode( TDEGlobalSettings::CompletionAuto );
-    connect(m_kcommand, TQT_SIGNAL(cleared()), TQT_SLOT(clearedHistory()));
-    connect(m_kcommand->lineEdit(), TQT_SIGNAL(returnPressed()), TQT_SLOT(searchAccept()));
-    connect(m_kcommand->lineEdit(), TQT_SIGNAL(textChanged(const TQString &)), TQT_SLOT(searchChanged(const TQString &)));
+    connect(m_kcommand, TQ_SIGNAL(cleared()), TQ_SLOT(clearedHistory()));
+    connect(m_kcommand->lineEdit(), TQ_SIGNAL(returnPressed()), TQ_SLOT(searchAccept()));
+    connect(m_kcommand->lineEdit(), TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT(searchChanged(const TQString &)));
 
     // URI Filter meta object...
     m_filterData = new KURIFilterData();
@@ -383,14 +383,14 @@ KMenu::KMenu()
     categorised_hit_total = new int [num_categories];
 
     input_timer = new TQTimer (this, "input_timer");
-    connect( input_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(doQuery()) );
+    connect( input_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(doQuery()) );
 
     init_search_timer = new TQTimer (this, "init_search_timer");
-    connect( init_search_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(initSearch()) );
+    connect( init_search_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(initSearch()) );
     init_search_timer->start(2000, true);
 
-    connect( m_favoriteView, TQT_SIGNAL( dropped (TQDropEvent *, TQListViewItem * ) ),
-             TQT_SLOT( slotFavDropped( TQDropEvent *, TQListViewItem * ) ) );
+    connect( m_favoriteView, TQ_SIGNAL( dropped (TQDropEvent *, TQListViewItem * ) ),
+             TQ_SLOT( slotFavDropped( TQDropEvent *, TQListViewItem * ) ) );
 
     this->installEventFilter(this);
     m_tabBar->installEventFilter(this);
@@ -453,7 +453,7 @@ void KMenu::setupUi()
    // m_stacker->setFocusPolicy( TQWidget::StrongFocus );
     m_stacker->setLineWidth( 0 );
     m_stacker->setFocusPolicy(TQWidget::NoFocus);
-    connect(m_stacker, TQT_SIGNAL(aboutToShow(TQWidget*)), TQT_SLOT(stackWidgetRaised(TQWidget*)));
+    connect(m_stacker, TQ_SIGNAL(aboutToShow(TQWidget*)), TQ_SLOT(stackWidgetRaised(TQWidget*)));
 
     m_kcommand->setName("m_kcommand");
 }
@@ -1225,17 +1225,17 @@ void KMenu::initialize()
     kdDebug(1210) << "KMenu::initialize()" << endl;
 
     // in case we've been through here before, let's disconnect
-    disconnect(kapp, TQT_SIGNAL(tdedisplayPaletteChanged()),
-            this, TQT_SLOT(paletteChanged()));
-    connect(kapp, TQT_SIGNAL(tdedisplayPaletteChanged()),
-            this, TQT_SLOT(paletteChanged()));
+    disconnect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()),
+            this, TQ_SLOT(paletteChanged()));
+    connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()),
+            this, TQ_SLOT(paletteChanged()));
 
    /*
        If  the user configured ksmserver to
      */
     TDEConfig ksmserver("ksmserverrc", false, false);
     ksmserver.setGroup("General");
-    connect( m_branding, TQT_SIGNAL(clicked()), TQT_SLOT(slotOpenHomepage()));
+    connect( m_branding, TQ_SIGNAL(clicked()), TQ_SLOT(slotOpenHomepage()));
     m_tabBar->setTabEnabled(LeaveTab, kapp->authorize("logout"));
 
     // load search field history
@@ -1446,10 +1446,10 @@ void KMenu::insertStaticItems()
                               "remote:/", "remote:/", nId++, index++ );
 
     m_mediaWatcher = new MediaWatcher( this );
-    connect( m_mediaWatcher, TQT_SIGNAL( mediumChanged() ), TQT_SLOT( updateMedia() ) );
+    connect( m_mediaWatcher, TQ_SIGNAL( mediumChanged() ), TQ_SLOT( updateMedia() ) );
     m_media_id = 0;
 
-    connect(&m_mediaFreeTimer, TQT_SIGNAL(timeout()), TQT_SLOT( updateMedia()));
+    connect(&m_mediaFreeTimer, TQ_SIGNAL(timeout()), TQ_SLOT( updateMedia()));
 }
 
 int KMenu::insertClientMenu(KickerClientMenu *)
@@ -2795,7 +2795,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
     }
 
     m_popupMenu = new TDEPopupMenu(this);
-    connect(m_popupMenu, TQT_SIGNAL(activated(int)), TQT_SLOT(slotContextMenu(int)));
+    connect(m_popupMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(slotContextMenu(int)));
     bool hasEntries = false;
 
     m_popupMenu->insertTitle(SmallIcon(kitem->icon()),kitem->title());

@@ -464,8 +464,8 @@ void B2Client::addButtons(const TQString& s, const TQString tips[],
 			TQt::LeftButton | TQt::RightButton);
 		button[BtnMenu]->setPixmaps(P_MENU);
 		button[BtnMenu]->setUseMiniIcon();
-		connect(button[BtnMenu], TQT_SIGNAL(pressed()),
-			this, TQT_SLOT(menuButtonPressed()));
+		connect(button[BtnMenu], TQ_SIGNAL(pressed()),
+			this, TQ_SLOT(menuButtonPressed()));
 		titleLayout->addWidget(button[BtnMenu]);
 	    }
 	  }
@@ -477,8 +477,8 @@ void B2Client::addButtons(const TQString& s, const TQString tips[],
 		button[BtnSticky]->setPixmaps(P_PINUP);
 		button[BtnSticky]->setToggle();
 		button[BtnSticky]->setDown(isOnAllDesktops());
-		connect(button[BtnSticky], TQT_SIGNAL(clicked()),
-			this, TQT_SLOT(toggleOnAllDesktops()));
+		connect(button[BtnSticky], TQ_SIGNAL(clicked()),
+			this, TQ_SLOT(toggleOnAllDesktops()));
 		titleLayout->addWidget(button[BtnSticky]);
 	    }
 	  }
@@ -487,8 +487,8 @@ void B2Client::addButtons(const TQString& s, const TQString tips[],
 	    if (providesContextHelp() && (!button[BtnHelp])) {
 		button[BtnHelp] = new B2Button(this, tb, tips[BtnHelp]);
 		button[BtnHelp]->setPixmaps(P_HELP);
-		connect(button[BtnHelp], TQT_SIGNAL(clicked()),
-			this, TQT_SLOT(showContextHelp()));
+		connect(button[BtnHelp], TQ_SIGNAL(clicked()),
+			this, TQ_SLOT(showContextHelp()));
 		titleLayout->addWidget(button[BtnHelp]);
 	    }
 	    break;
@@ -496,8 +496,8 @@ void B2Client::addButtons(const TQString& s, const TQString tips[],
 	    if (isMinimizable() && (!button[BtnIconify])) {
 		button[BtnIconify] = new B2Button(this, tb,tips[BtnIconify]);
 		button[BtnIconify]->setPixmaps(P_ICONIFY);
-		connect(button[BtnIconify], TQT_SIGNAL(clicked()),
-			this, TQT_SLOT(minimize()));
+		connect(button[BtnIconify], TQ_SIGNAL(clicked()),
+			this, TQ_SLOT(minimize()));
 		titleLayout->addWidget(button[BtnIconify]);
 	    }
 	    break;
@@ -507,8 +507,8 @@ void B2Client::addButtons(const TQString& s, const TQString tips[],
 			TQt::LeftButton | TQt::MidButton | TQt::RightButton);
 		button[BtnMax]->setPixmaps(maximizeMode() == MaximizeFull ?
 			P_NORMALIZE : P_MAX);
-		connect(button[BtnMax], TQT_SIGNAL(clicked()),
-			this, TQT_SLOT(maxButtonClicked()));
+		connect(button[BtnMax], TQ_SIGNAL(clicked()),
+			this, TQ_SLOT(maxButtonClicked()));
 		titleLayout->addWidget(button[BtnMax]);
 	    }
 	    break;
@@ -516,8 +516,8 @@ void B2Client::addButtons(const TQString& s, const TQString tips[],
 	    if (isCloseable() && !button[BtnClose]) {
 		button[BtnClose] = new B2Button(this, tb, tips[BtnClose]);
 		button[BtnClose]->setPixmaps(P_CLOSE);
-		connect(button[BtnClose], TQT_SIGNAL(clicked()),
-			this, TQT_SLOT(closeWindow()));
+		connect(button[BtnClose], TQ_SIGNAL(clicked()),
+			this, TQ_SLOT(closeWindow()));
 		titleLayout->addWidget(button[BtnClose]);
 	    }
 	    break;
@@ -525,8 +525,8 @@ void B2Client::addButtons(const TQString& s, const TQString tips[],
 	    if (isShadeable() && !button[BtnShade]) {
 		button[BtnShade] = new B2Button(this, tb, tips[BtnShade]);
 		button[BtnShade]->setPixmaps(P_SHADE);
-		connect(button[BtnShade], TQT_SIGNAL(clicked()),
-			this, TQT_SLOT(shadeButtonClicked()));
+		connect(button[BtnShade], TQ_SIGNAL(clicked()),
+			this, TQ_SLOT(shadeButtonClicked()));
 		titleLayout->addWidget(button[BtnShade]);
 	    }
 	    break;
@@ -534,8 +534,8 @@ void B2Client::addButtons(const TQString& s, const TQString tips[],
 	    if (resizable && !button[BtnResize]) {
 		button[BtnResize] = new B2Button(this, tb, tips[BtnResize]);
 		button[BtnResize]->setPixmaps(P_RESIZE);
-		connect(button[BtnResize], TQT_SIGNAL(pressed()),
-			this, TQT_SLOT(resizeButtonPressed()));
+		connect(button[BtnResize], TQ_SIGNAL(pressed()),
+			this, TQ_SLOT(resizeButtonPressed()));
 		titleLayout->addWidget(button[BtnResize]);
 	    }
 	    break;

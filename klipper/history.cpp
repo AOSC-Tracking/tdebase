@@ -29,7 +29,7 @@ History::History( TQWidget* parent, const char* name )
       m_popup( new KlipperPopup( this, parent, "main_widget" ) ),
       m_topIsUserSelected( false )
 {
-    connect( this, TQT_SIGNAL( changed() ), m_popup,  TQT_SLOT( slotHistoryChanged() ) );
+    connect( this, TQ_SIGNAL( changed() ), m_popup,  TQ_SLOT( slotHistoryChanged() ) );
     itemList.setAutoDelete( true );
 
 }

@@ -62,15 +62,15 @@ KJavaOptions::KJavaOptions( TDEConfig* config, TQString group,
     TQVGroupBox* globalGB = new TQVGroupBox( i18n( "Global Settings" ), this );
     toplevel->addWidget( globalGB );
     enableJavaGloballyCB = new TQCheckBox( i18n( "Enable Ja&va globally" ), globalGB );
-    connect( enableJavaGloballyCB, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotChanged() ) );
-    connect( enableJavaGloballyCB, TQT_SIGNAL( clicked() ), this, TQT_SLOT( toggleJavaControls() ) );
+    connect( enableJavaGloballyCB, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotChanged() ) );
+    connect( enableJavaGloballyCB, TQ_SIGNAL( clicked() ), this, TQ_SLOT( toggleJavaControls() ) );
 
 
     /***************************************************************************
      ***************** Domain Specific Settings ********************************
      **************************************************************************/
     domainSpecific = new JavaDomainListView(m_pConfig,m_groupname,this,this);
-    connect(domainSpecific,TQT_SIGNAL(changed(bool)),TQT_SLOT(slotChanged()));
+    connect(domainSpecific,TQ_SIGNAL(changed(bool)),TQ_SLOT(slotChanged()));
     toplevel->addWidget( domainSpecific, 2 );
 
     /***************************************************************************
@@ -84,37 +84,37 @@ KJavaOptions::KJavaOptions( TDEConfig* config, TQString group,
 
     javaSecurityManagerCB = new TQCheckBox( i18n("&Use security manager" ), checkboxes );
     grid->addWidget( javaSecurityManagerCB, 0, 0 );
-    connect( javaSecurityManagerCB, TQT_SIGNAL(toggled( bool )), this, TQT_SLOT(slotChanged()) );
+    connect( javaSecurityManagerCB, TQ_SIGNAL(toggled( bool )), this, TQ_SLOT(slotChanged()) );
 
     useKioCB = new TQCheckBox( i18n("Use &TDEIO"), checkboxes );
     grid->addWidget( useKioCB, 0, 1 );
-    connect( useKioCB, TQT_SIGNAL(toggled( bool )), this, TQT_SLOT(slotChanged()) );
+    connect( useKioCB, TQ_SIGNAL(toggled( bool )), this, TQ_SLOT(slotChanged()) );
 
     enableShutdownCB = new TQCheckBox( i18n("Shu&tdown applet server when inactive"), checkboxes );
     grid->addWidget( enableShutdownCB, 1, 0 );
-    connect( enableShutdownCB, TQT_SIGNAL(toggled( bool )), this, TQT_SLOT(slotChanged()) );
-    connect( enableShutdownCB, TQT_SIGNAL(clicked()), this, TQT_SLOT(toggleJavaControls()) );
+    connect( enableShutdownCB, TQ_SIGNAL(toggled( bool )), this, TQ_SLOT(slotChanged()) );
+    connect( enableShutdownCB, TQ_SIGNAL(clicked()), this, TQ_SLOT(toggleJavaControls()) );
 
     TQHBox* secondsHB = new TQHBox( javartGB );
     serverTimeoutSB = new KIntNumInput( secondsHB );
     serverTimeoutSB->setRange( 0, 1000, 5 );
     serverTimeoutSB->setLabel( i18n("App&let server timeout:"), AlignLeft );
     serverTimeoutSB->setSuffix(i18n(" sec"));
-    connect(serverTimeoutSB, TQT_SIGNAL(valueChanged(int)),this,TQT_SLOT(slotChanged()));
+    connect(serverTimeoutSB, TQ_SIGNAL(valueChanged(int)),this,TQ_SLOT(slotChanged()));
 
     TQHBox* pathHB = new TQHBox( javartGB );
     pathHB->setSpacing( 10 );
     TQLabel* pathLA = new TQLabel( i18n( "&Path to Java executable, or 'java':" ),
                                  pathHB );
     pathED = new  KURLRequester( pathHB );
-    connect( pathED, TQT_SIGNAL(textChanged( const TQString& )), this, TQT_SLOT(slotChanged()) );
+    connect( pathED, TQ_SIGNAL(textChanged( const TQString& )), this, TQ_SLOT(slotChanged()) );
     pathLA->setBuddy( pathED );
 
     TQHBox* addArgHB = new TQHBox( javartGB );
     addArgHB->setSpacing( 10 );
     TQLabel* addArgLA = new TQLabel( i18n( "Additional Java a&rguments:" ), addArgHB  );
     addArgED = new TQLineEdit( addArgHB );
-    connect( addArgED, TQT_SIGNAL(textChanged( const TQString& )), this, TQT_SLOT(slotChanged()) );
+    connect( addArgED, TQ_SIGNAL(textChanged( const TQString& )), this, TQ_SLOT(slotChanged()) );
     addArgLA->setBuddy( addArgED );
 
     /***************************************************************************

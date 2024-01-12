@@ -102,9 +102,9 @@ void DiscSpaceUtil::done()
 void DiscSpaceUtil::calculateFullSize()
 {
   KDiskFreeSp *sp = KDiskFreeSp::findUsageInfo( mDirectory );
-  connect( sp, TQT_SIGNAL( foundMountPoint( const TQString&, unsigned long, unsigned long, unsigned long ) ),
-           this, TQT_SLOT( foundMountPoint( const TQString&, unsigned long, unsigned long, unsigned long ) ) );
-  connect( sp, TQT_SIGNAL( done() ), this, TQT_SLOT( done() ) );
+  connect( sp, TQ_SIGNAL( foundMountPoint( const TQString&, unsigned long, unsigned long, unsigned long ) ),
+           this, TQ_SLOT( foundMountPoint( const TQString&, unsigned long, unsigned long, unsigned long ) ) );
+  connect( sp, TQ_SIGNAL( done() ), this, TQ_SLOT( done() ) );
 
   tqApp->eventLoop()->enterLoop();
 }

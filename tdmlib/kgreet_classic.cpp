@@ -94,10 +94,10 @@ KClassicGreeter::KClassicGreeter( KGreeterPluginHandler *_handler,
 		if (fixedUser.isEmpty()) {
 			loginEdit = new KLineEdit( parent );
 			loginEdit->setContextMenuEnabled( false );
-			connect( loginEdit, TQT_SIGNAL(lostFocus()), TQT_SLOT(slotLoginLostFocus()) );
-			connect( loginEdit, TQT_SIGNAL(lostFocus()), TQT_SLOT(slotActivity()) );
-			connect( loginEdit, TQT_SIGNAL(textChanged( const TQString & )), TQT_SLOT(slotActivity()) );
-			connect( loginEdit, TQT_SIGNAL(selectionChanged()), TQT_SLOT(slotActivity()) );
+			connect( loginEdit, TQ_SIGNAL(lostFocus()), TQ_SLOT(slotLoginLostFocus()) );
+			connect( loginEdit, TQ_SIGNAL(lostFocus()), TQ_SLOT(slotActivity()) );
+			connect( loginEdit, TQ_SIGNAL(textChanged( const TQString & )), TQ_SLOT(slotActivity()) );
+			connect( loginEdit, TQ_SIGNAL(selectionChanged()), TQ_SLOT(slotActivity()) );
 			if (pred) {
 				parent->setTabOrder( pred, loginEdit );
 				pred = loginEdit;
@@ -120,9 +120,9 @@ KClassicGreeter::KClassicGreeter( KGreeterPluginHandler *_handler,
 		else
 			passwdEdit = new TDMPasswordEdit( (KPasswordEdit::EchoModes)echoMode,
 			                                  parent );
-		connect( passwdEdit, TQT_SIGNAL(textChanged( const TQString & )),
-		         TQT_SLOT(slotActivity()) );
-		connect( passwdEdit, TQT_SIGNAL(lostFocus()), TQT_SLOT(slotActivity()) );
+		connect( passwdEdit, TQ_SIGNAL(textChanged( const TQString & )),
+		         TQ_SLOT(slotActivity()) );
+		connect( passwdEdit, TQ_SIGNAL(lostFocus()), TQ_SLOT(slotActivity()) );
 		if (pred) {
 			parent->setTabOrder( pred, passwdEdit );
 			pred = passwdEdit;

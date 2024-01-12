@@ -202,8 +202,8 @@ TDELocaleConfigTime::TDELocaleConfigTime(TDELocale *_locale,
 
   m_labCalendarSystem = new TQLabel(this, I18N_NOOP("Calendar system:"));
   m_comboCalendarSystem = new TQComboBox(false, this);
-  connect(m_comboCalendarSystem, TQT_SIGNAL(activated(int)),
-	  this, TQT_SLOT(slotCalendarSystemChanged(int)));
+  connect(m_comboCalendarSystem, TQ_SIGNAL(activated(int)),
+	  this, TQ_SLOT(slotCalendarSystemChanged(int)));
   TQStringList tmpCalendars;
   tmpCalendars << TQString::null << TQString::null;
   m_comboCalendarSystem->insertStringList(tmpCalendars);
@@ -212,29 +212,29 @@ TDELocaleConfigTime::TDELocaleConfigTime(TDELocale *_locale,
   m_comboTimeFmt = new TQComboBox(true, this);
   //m_edTimeFmt = m_comboTimeFmt->lineEdit();
   //m_edTimeFmt = new TQLineEdit(this);
-  connect( m_comboTimeFmt, TQT_SIGNAL( textChanged(const TQString &) ),
-	   this, TQT_SLOT( slotTimeFmtChanged(const TQString &) ) );
+  connect( m_comboTimeFmt, TQ_SIGNAL( textChanged(const TQString &) ),
+	   this, TQ_SLOT( slotTimeFmtChanged(const TQString &) ) );
 
   m_labDateFmt = new TQLabel(this, I18N_NOOP("Date format:"));
   m_comboDateFmt = new TQComboBox(true, this);
-  connect( m_comboDateFmt, TQT_SIGNAL( textChanged(const TQString &) ),
-	   this, TQT_SLOT( slotDateFmtChanged(const TQString &) ) );
+  connect( m_comboDateFmt, TQ_SIGNAL( textChanged(const TQString &) ),
+	   this, TQ_SLOT( slotDateFmtChanged(const TQString &) ) );
 
   m_labDateFmtShort = new TQLabel(this, I18N_NOOP("Short date format:"));
   m_comboDateFmtShort = new TQComboBox(true, this);
-  connect( m_comboDateFmtShort, TQT_SIGNAL( textChanged(const TQString &) ),
-	   this, TQT_SLOT( slotDateFmtShortChanged(const TQString &) ) );
+  connect( m_comboDateFmtShort, TQ_SIGNAL( textChanged(const TQString &) ),
+	   this, TQ_SLOT( slotDateFmtShortChanged(const TQString &) ) );
 
   m_labWeekStartDay = new TQLabel(this, I18N_NOOP("First day of the week:"));
   m_comboWeekStartDay = new TQComboBox(false, this);
-  connect (m_comboWeekStartDay, TQT_SIGNAL(activated(int)),
-           this, TQT_SLOT(slotWeekStartDayChanged(int)));
+  connect (m_comboWeekStartDay, TQ_SIGNAL(activated(int)),
+           this, TQ_SLOT(slotWeekStartDayChanged(int)));
 
   updateWeekDayNames();
 
   m_chDateMonthNamePossessive = new TQCheckBox(this, I18N_NOOP("Use declined form of month name"));
-  connect( m_chDateMonthNamePossessive, TQT_SIGNAL( clicked() ),
-	     TQT_SLOT( slotDateMonthNamePossChanged() ) );
+  connect( m_chDateMonthNamePossessive, TQ_SIGNAL( clicked() ),
+	     TQ_SLOT( slotDateMonthNamePossChanged() ) );
 
   lay->setColStretch(1, 1);
 }

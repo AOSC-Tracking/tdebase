@@ -56,7 +56,7 @@ AddAppletVisualFeedback::AddAppletVisualFeedback(AppletWidget* widget,
 {
     setFocusPolicy(TQWidget::NoFocus);
     setBackgroundMode(NoBackground);
-    connect(&m_moveTimer, TQT_SIGNAL(timeout()), TQT_SLOT(swoopCloser()));
+    connect(&m_moveTimer, TQ_SIGNAL(timeout()), TQ_SLOT(swoopCloser()));
 
     TQString m = "<qt><h3>" + i18n("%1 Added").arg(widget->info().name());
 
@@ -218,7 +218,7 @@ void AddAppletVisualFeedback::swoopCloser()
     {
         m_moveTimer.stop();
         displayInternal();
-        TQTimer::singleShot(2000, this, TQT_SLOT(deleteLater()));
+        TQTimer::singleShot(2000, this, TQ_SLOT(deleteLater()));
     }
 }
 

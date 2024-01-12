@@ -112,7 +112,7 @@ KlipperPopup::KlipperPopup( History* history, TQWidget* parent, const char* name
 
     m_popupProxy = new PopupProxy( this, "popup_proxy", menu_height, menu_width );
 
-    connect( this, TQT_SIGNAL( aboutToShow() ), TQT_SLOT( slotAboutToShow() ) );
+    connect( this, TQ_SIGNAL( aboutToShow() ), TQ_SLOT( slotAboutToShow() ) );
 }
 
 KlipperPopup::~KlipperPopup() {

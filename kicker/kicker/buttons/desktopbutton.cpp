@@ -45,8 +45,8 @@ DesktopButton::DesktopButton( TQWidget* parent )
     setTitle(i18n("Desktop Access"));
     setIcon("desktop");
 
-    connect( this, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(showDesktop(bool)) );
-    connect( ShowDesktop::the(), TQT_SIGNAL(desktopShown(bool)), this, TQT_SLOT(toggle(bool)) );
+    connect( this, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(showDesktop(bool)) );
+    connect( ShowDesktop::the(), TQ_SIGNAL(desktopShown(bool)), this, TQ_SLOT(toggle(bool)) );
 
     setOn( ShowDesktop::the()->desktopShowing() );
 }

@@ -137,20 +137,20 @@ void ExtensionContainer::init()
     KWin::setState(winId(), NET::Sticky);
     KWin::setOnAllDesktops(winId(), true);
 
-    connect(Kicker::the()->twinModule(), TQT_SIGNAL(strutChanged()), this, TQT_SLOT(strutChanged()));
-    connect(Kicker::the()->twinModule(), TQT_SIGNAL(currentDesktopChanged(int)),
-            this, TQT_SLOT( currentDesktopChanged(int)));
+    connect(Kicker::the()->twinModule(), TQ_SIGNAL(strutChanged()), this, TQ_SLOT(strutChanged()));
+    connect(Kicker::the()->twinModule(), TQ_SIGNAL(currentDesktopChanged(int)),
+            this, TQ_SLOT( currentDesktopChanged(int)));
 
     setBackgroundOrigin(AncestorOrigin);
     setFrameStyle(NoFrame);
     setLineWidth(0);
     setMargin(0);
 
-    connect(UnhideTrigger::the(), TQT_SIGNAL(triggerUnhide(UnhideTrigger::Trigger,int)),
-            this, TQT_SLOT(unhideTriggered(UnhideTrigger::Trigger,int)));
+    connect(UnhideTrigger::the(), TQ_SIGNAL(triggerUnhide(UnhideTrigger::Trigger,int)),
+            this, TQ_SLOT(unhideTriggered(UnhideTrigger::Trigger,int)));
 
     _popupWidgetFilter = new PopupWidgetFilter( this );
-    connect(_popupWidgetFilter, TQT_SIGNAL(popupWidgetHiding()), TQT_SLOT(maybeStartAutoHideTimer()));
+    connect(_popupWidgetFilter, TQ_SIGNAL(popupWidgetHiding()), TQ_SLOT(maybeStartAutoHideTimer()));
 
     // layout
     _layout = new TQGridLayout(this, 3, 3, 0, 0);
@@ -160,15 +160,15 @@ void ExtensionContainer::init()
 
     // instantiate the autohide timer
     _autohideTimer = new TQTimer(this, "_autohideTimer");
-    connect(_autohideTimer, TQT_SIGNAL(timeout()), TQT_SLOT(autoHideTimeout()));
+    connect(_autohideTimer, TQ_SIGNAL(timeout()), TQ_SLOT(autoHideTimeout()));
 
     // instantiate the updateLayout event compressor timer
     _updateLayoutTimer = new TQTimer(this, "_updateLayoutTimer");
-    connect(_updateLayoutTimer, TQT_SIGNAL(timeout()), TQT_SLOT(actuallyUpdateLayout()));
+    connect(_updateLayoutTimer, TQ_SIGNAL(timeout()), TQ_SLOT(actuallyUpdateLayout()));
 
     installEventFilter(this); // for mouse event handling
 
-    connect(Kicker::the(), TQT_SIGNAL(tdedisplayPaletteChanged()), this, TQT_SLOT(updateHighlightColor()));
+    connect(Kicker::the(), TQ_SIGNAL(tdedisplayPaletteChanged()), this, TQ_SLOT(updateHighlightColor()));
     updateHighlightColor();
 
     // if we were hidden when kicker quit, let's start out hidden as well!
@@ -207,9 +207,9 @@ void ExtensionContainer::init()
             item->setDefaultValue(m_extension->customSize());
         }
 
-        connect(m_extension, TQT_SIGNAL(updateLayout()), TQT_SLOT(updateLayout()));
-        connect(m_extension, TQT_SIGNAL(maintainFocus(bool)),
-                TQT_SLOT(maintainFocus(bool)));
+        connect(m_extension, TQ_SIGNAL(updateLayout()), TQ_SLOT(updateLayout()));
+        connect(m_extension, TQ_SIGNAL(maintainFocus(bool)),
+                TQ_SLOT(maintainFocus(bool)));
 
         _layout->addWidget(m_extension, 1, 1);
     }
@@ -885,7 +885,7 @@ void ExtensionContainer::autoHide(bool hide)
 
     _in_autohide = false;
 
-    TQTimer::singleShot(100, this, TQT_SLOT(enableMouseOverEffects()));
+    TQTimer::singleShot(100, this, TQ_SLOT(enableMouseOverEffects()));
 }
 
 void ExtensionContainer::animatedHide(bool left)
@@ -925,7 +925,7 @@ void ExtensionContainer::animatedHide(bool left)
                 !TQApplication::desktop()->screenGeometry(s).intersects(geometry()))
             {
                 blockUserInput(false);
-                TQTimer::singleShot(100, this, TQT_SLOT(enableMouseOverEffects()));
+                TQTimer::singleShot(100, this, TQ_SLOT(enableMouseOverEffects()));
                 return;
             }
         }
@@ -988,7 +988,7 @@ void ExtensionContainer::animatedHide(bool left)
     config->setGroup(extensionId());
     config->writeEntry("UserHidden", userHidden());
 
-    TQTimer::singleShot(100, this, TQT_SLOT(enableMouseOverEffects()));
+    TQTimer::singleShot(100, this, TQ_SLOT(enableMouseOverEffects()));
 }
 
 bool ExtensionContainer::reserveStrut() const
@@ -1486,7 +1486,7 @@ void ExtensionContainer::unhideIfHidden(int showForAtLeastHowManyMS)
     {
         autoHide(false);
         TQTimer::singleShot(showForAtLeastHowManyMS,
-                           this, TQT_SLOT(maybeStartAutoHideTimer()));
+                           this, TQ_SLOT(maybeStartAutoHideTimer()));
         return;
     }
 
@@ -1627,7 +1627,7 @@ void ExtensionContainer::resetLayout()
             _ltHB = new HideButton(this);
             _ltHB->installEventFilter(this);
             _ltHB->setEnabled(true);
-            connect(_ltHB, TQT_SIGNAL(clicked()), this, TQT_SLOT(hideLeft()));
+            connect(_ltHB, TQ_SIGNAL(clicked()), this, TQ_SLOT(hideLeft()));
             haveToArrangeButtons = true;
         }
 
@@ -1658,7 +1658,7 @@ void ExtensionContainer::resetLayout()
             _rbHB = new HideButton(this);
             _rbHB->installEventFilter(this);
             _rbHB->setEnabled(true);
-            connect(_rbHB, TQT_SIGNAL(clicked()), this, TQT_SLOT(hideRight()));
+            connect(_rbHB, TQ_SIGNAL(clicked()), this, TQ_SLOT(hideRight()));
             haveToArrangeButtons = true;
         }
 

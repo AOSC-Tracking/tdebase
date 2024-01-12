@@ -289,20 +289,20 @@ KonqListView::KonqListView( TQWidget *parentWidget, TQObject *parent, const char
    // Note: File Type is in fact the mimetype comment. We use UDS_FILE_TYPE but that's not what we show in fact :/
    m_pListView->confColumns[10].setData(I18N_NOOP("File Type"),"Type",TDEIO::UDS_FILE_TYPE,m_paShowType);
 
-   connect( m_pListView, TQT_SIGNAL( selectionChanged() ),
-            m_extension, TQT_SLOT( updateActions() ) );
-   connect( m_pListView, TQT_SIGNAL( selectionChanged() ),
-            this, TQT_SLOT( slotSelectionChanged() ) );
+   connect( m_pListView, TQ_SIGNAL( selectionChanged() ),
+            m_extension, TQ_SLOT( updateActions() ) );
+   connect( m_pListView, TQ_SIGNAL( selectionChanged() ),
+            this, TQ_SLOT( slotSelectionChanged() ) );
 
-   connect( m_pListView, TQT_SIGNAL( currentChanged(TQListViewItem*) ),
-            m_extension, TQT_SLOT( updateActions() ) );
-   connect(m_pListView->header(),TQT_SIGNAL(indexChange(int,int,int)),this,TQT_SLOT(headerDragged(int,int,int)));
-   connect(m_pListView->header(),TQT_SIGNAL(clicked(int)),this,TQT_SLOT(slotHeaderClicked(int)));
-   connect(m_pListView->header(),TQT_SIGNAL(sizeChange(int,int,int)),TQT_SLOT(slotHeaderSizeChanged()));
+   connect( m_pListView, TQ_SIGNAL( currentChanged(TQListViewItem*) ),
+            m_extension, TQ_SLOT( updateActions() ) );
+   connect(m_pListView->header(),TQ_SIGNAL(indexChange(int,int,int)),this,TQ_SLOT(headerDragged(int,int,int)));
+   connect(m_pListView->header(),TQ_SIGNAL(clicked(int)),this,TQ_SLOT(slotHeaderClicked(int)));
+   connect(m_pListView->header(),TQ_SIGNAL(sizeChange(int,int,int)),TQ_SLOT(slotHeaderSizeChanged()));
 
    // signals from konqdirpart (for BC reasons)
-   connect( this, TQT_SIGNAL( findOpened( KonqDirPart * ) ), TQT_SLOT( slotKFindOpened() ) );
-   connect( this, TQT_SIGNAL( findClosed( KonqDirPart * ) ), TQT_SLOT( slotKFindClosed() ) );
+   connect( this, TQ_SIGNAL( findOpened( KonqDirPart * ) ), TQ_SLOT( slotKFindOpened() ) );
+   connect( this, TQ_SIGNAL( findClosed( KonqDirPart * ) ), TQ_SLOT( slotKFindClosed() ) );
 
    loadPlugins( this, this, instance() );
 }
@@ -789,7 +789,7 @@ void KonqListView::headerDragged(int sec, int from, int to)
    kdDebug(1202)<<"section: "<<sec<<" fromIndex: "<<from<<" toIndex "<<to<<endl;
    //at this point the columns aren't moved yet, so I let the listview
    //rearrange the stuff and use a single shot timer
-   TQTimer::singleShot(200,this,TQT_SLOT(slotSaveAfterHeaderDrag()));
+   TQTimer::singleShot(200,this,TQ_SLOT(slotSaveAfterHeaderDrag()));
 }
 
 const KFileItem * KonqListView::currentItem()
@@ -863,7 +863,7 @@ void KonqListView::slotHeaderSizeChanged()
    if ( !m_headerTimer )
    {
       m_headerTimer = new TQTimer( this );
-      connect( m_headerTimer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( slotSaveColumnWidths() ) );
+      connect( m_headerTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( slotSaveColumnWidths() ) );
    }
    else
       m_headerTimer->stop();
@@ -885,33 +885,33 @@ void KonqListView::slotKFindClosed()
 
 void KonqListView::setupActions()
 {
-   m_paShowTime=new TDEToggleAction(i18n("Show &Modification Time"), 0,this, TQT_SLOT(slotColumnToggled()), actionCollection(), "show_time" );
+   m_paShowTime=new TDEToggleAction(i18n("Show &Modification Time"), 0,this, TQ_SLOT(slotColumnToggled()), actionCollection(), "show_time" );
    m_paShowTime->setCheckedState(i18n("Hide &Modification Time"));
-   m_paShowType=new TDEToggleAction(i18n("Show &File Type"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_type" );
+   m_paShowType=new TDEToggleAction(i18n("Show &File Type"), 0, this, TQ_SLOT(slotColumnToggled()),actionCollection(), "show_type" );
    m_paShowType->setCheckedState(i18n("Hide &File Type"));
-   m_paShowMimeType=new TDEToggleAction(i18n("Show MimeType"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_mimetype" );
+   m_paShowMimeType=new TDEToggleAction(i18n("Show MimeType"), 0, this, TQ_SLOT(slotColumnToggled()),actionCollection(), "show_mimetype" );
    m_paShowMimeType->setCheckedState(i18n("Hide MimeType"));
-   m_paShowAccessTime=new TDEToggleAction(i18n("Show &Access Time"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_access_time" );
+   m_paShowAccessTime=new TDEToggleAction(i18n("Show &Access Time"), 0, this, TQ_SLOT(slotColumnToggled()),actionCollection(), "show_access_time" );
    m_paShowAccessTime->setCheckedState(i18n("Hide &Access Time"));
-   m_paShowCreateTime=new TDEToggleAction(i18n("Show &Creation Time"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_creation_time" );
+   m_paShowCreateTime=new TDEToggleAction(i18n("Show &Creation Time"), 0, this, TQ_SLOT(slotColumnToggled()),actionCollection(), "show_creation_time" );
    m_paShowCreateTime->setCheckedState(i18n("Hide &Creation Time"));
-   m_paShowLinkDest=new TDEToggleAction(i18n("Show &Link Destination"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_link_dest" );
+   m_paShowLinkDest=new TDEToggleAction(i18n("Show &Link Destination"), 0, this, TQ_SLOT(slotColumnToggled()),actionCollection(), "show_link_dest" );
    m_paShowLinkDest->setCheckedState(i18n("Hide &Link Destination"));
-   m_paShowSize=new TDEToggleAction(i18n("Show Filesize"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_size" );
+   m_paShowSize=new TDEToggleAction(i18n("Show Filesize"), 0, this, TQ_SLOT(slotColumnToggled()),actionCollection(), "show_size" );
    m_paShowSize->setCheckedState(i18n("Hide Filesize"));
-   m_paShowOwner=new TDEToggleAction(i18n("Show Owner"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_owner" );
+   m_paShowOwner=new TDEToggleAction(i18n("Show Owner"), 0, this, TQ_SLOT(slotColumnToggled()),actionCollection(), "show_owner" );
    m_paShowOwner->setCheckedState(i18n("Hide Owner"));
-   m_paShowGroup=new TDEToggleAction(i18n("Show Group"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_group" );
+   m_paShowGroup=new TDEToggleAction(i18n("Show Group"), 0, this, TQ_SLOT(slotColumnToggled()),actionCollection(), "show_group" );
    m_paShowGroup->setCheckedState(i18n("Hide Group"));
-   m_paShowPermissions=new TDEToggleAction(i18n("Show Permissions"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_permissions" );
+   m_paShowPermissions=new TDEToggleAction(i18n("Show Permissions"), 0, this, TQ_SLOT(slotColumnToggled()),actionCollection(), "show_permissions" );
    m_paShowPermissions->setCheckedState(i18n("Hide Permissions"));
-   m_paShowURL=new TDEToggleAction(i18n("Show URL"), 0, this, TQT_SLOT(slotColumnToggled()),actionCollection(), "show_url" );
+   m_paShowURL=new TDEToggleAction(i18n("Show URL"), 0, this, TQ_SLOT(slotColumnToggled()),actionCollection(), "show_url" );
 
-   m_paSelect = new TDEAction( i18n( "Se&lect..." ), CTRL+Key_Plus, this, TQT_SLOT( slotSelect() ), actionCollection(), "select" );
-  m_paUnselect = new TDEAction( i18n( "Unselect..." ), CTRL+Key_Minus, this, TQT_SLOT( slotUnselect() ), actionCollection(), "unselect" );
-  m_paSelectAll = KStdAction::selectAll( this, TQT_SLOT( slotSelectAll() ), actionCollection(), "selectall" );
-  m_paUnselectAll = new TDEAction( i18n( "Unselect All" ), CTRL+Key_U, this, TQT_SLOT( slotUnselectAll() ), actionCollection(), "unselectall" );
-  m_paInvertSelection = new TDEAction( i18n( "&Invert Selection" ), CTRL+Key_Asterisk, this, TQT_SLOT( slotInvertSelection() ), actionCollection(), "invertselection" );
+   m_paSelect = new TDEAction( i18n( "Se&lect..." ), CTRL+Key_Plus, this, TQ_SLOT( slotSelect() ), actionCollection(), "select" );
+  m_paUnselect = new TDEAction( i18n( "Unselect..." ), CTRL+Key_Minus, this, TQ_SLOT( slotUnselect() ), actionCollection(), "unselect" );
+  m_paSelectAll = KStdAction::selectAll( this, TQ_SLOT( slotSelectAll() ), actionCollection(), "selectall" );
+  m_paUnselectAll = new TDEAction( i18n( "Unselect All" ), CTRL+Key_U, this, TQ_SLOT( slotUnselectAll() ), actionCollection(), "unselectall" );
+  m_paInvertSelection = new TDEAction( i18n( "&Invert Selection" ), CTRL+Key_Asterisk, this, TQ_SLOT( slotInvertSelection() ), actionCollection(), "invertselection" );
 
   // These 2 actions are 'fake' actions. They are defined so that the keyboard shortcuts
   // can be set from the 'Configure Shortcuts..." dialog.
@@ -929,16 +929,16 @@ void KonqListView::setupActions()
   m_paRenameMovePrev->setToolTip( i18n("Complete rename operation and move the previous item"));
   m_paRenameMovePrev->setEnabled(false);
 
-  m_paShowDot = new TDEToggleAction( i18n( "Show &Hidden Files" ), 0, this, TQT_SLOT( slotShowDot() ), actionCollection(), "show_dot" );
+  m_paShowDot = new TDEToggleAction( i18n( "Show &Hidden Files" ), 0, this, TQ_SLOT( slotShowDot() ), actionCollection(), "show_dot" );
 //  m_paShowDot->setCheckedState(i18n("Hide &Hidden Files"));
 
-  m_paCaseInsensitive = new TDEToggleAction(i18n("Case Insensitive Sort"), 0, this, TQT_SLOT(slotCaseInsensitive()),actionCollection(), "sort_caseinsensitive" );
+  m_paCaseInsensitive = new TDEToggleAction(i18n("Case Insensitive Sort"), 0, this, TQ_SLOT(slotCaseInsensitive()),actionCollection(), "sort_caseinsensitive" );
 
   m_paSortAlternate = new TDEAction( i18n( "&Alternate Sort Order" ), CTRL+Key_S, this,
-    TQT_SLOT( slotSortAlternate() ), actionCollection(), "alternate_sort_order");
+    TQ_SLOT( slotSortAlternate() ), actionCollection(), "alternate_sort_order");
   m_paSortAlternate->setToolTip( i18n( "Sort by PREVIOUS sort column" ) );
   m_paSortReverse = new TDEAction( i18n( "&Reverse Sort Order" ), CTRL+Key_R, this,
-    TQT_SLOT( slotSortReverse() ), actionCollection(), "reverse_sort_order");
+    TQ_SLOT( slotSortReverse() ), actionCollection(), "reverse_sort_order");
   m_paSortReverse->setToolTip( i18n( "Reverse sort order of current sort column" ) );
 
   /*
@@ -948,17 +948,17 @@ void KonqListView::setupActions()
   TextSortOrder initialOrder = m_pProps->getSortOrder();
 
   m_paOrderUnicodeUnmodified = new TDEToggleAction( i18n( "&Unicode based" ), ALT+Key_1, this,
-    TQT_SLOT( slotOrderUnicodeUnmodified() ), actionCollection(), "order_unicode_based" );
+    TQ_SLOT( slotOrderUnicodeUnmodified() ), actionCollection(), "order_unicode_based" );
   m_paOrderUnicodeUnmodified->setToolTip( i18n( "Strict numeric Unicode based order" ) );
   m_paOrderUnicodeUnmodified->setChecked( initialOrder == UNICODE_UNMODIFIED );
 
   m_paOrderUnicodeCaseInsensitive = new TDEToggleAction( i18n( "Unicode based, &case insensitive" ), ALT+Key_2, this,
-    TQT_SLOT( slotOrderUnicodeCaseInsensitive() ), actionCollection(), "order_unicode_based_case_insensitive" );
+    TQ_SLOT( slotOrderUnicodeCaseInsensitive() ), actionCollection(), "order_unicode_based_case_insensitive" );
   m_paOrderUnicodeCaseInsensitive->setToolTip( i18n( "Unicode based order but with lower/upper case ASCII letters adjacent" ) );
   m_paOrderUnicodeCaseInsensitive->setChecked(initialOrder == UNICODE_CASEINSENSITIVE);
 
   m_paOrderLocale = new TDEToggleAction( i18n( "&Locale based" ), ALT+Key_3, this,
-    TQT_SLOT( slotOrderLocale() ), actionCollection(), "order_locale_based" );
+    TQ_SLOT( slotOrderLocale() ), actionCollection(), "order_locale_based" );
   m_paOrderLocale->setToolTip( i18n( "Locale based order, usually \"friendly\"" ) );
   m_paOrderLocale->setChecked(initialOrder == LOCALE_UNMODIFIED);
 
@@ -968,12 +968,12 @@ void KonqListView::setupActions()
   m_paOrderLocale->setExclusiveGroup( "sortOrder" );
 
   m_paDisplayDirectoriesFirst = new TDEToggleAction( i18n("Group &Directories First"), CTRL+SHIFT+Key_F, this,
-    TQT_SLOT(slotToggleDisplayDirectoriesFirst()), actionCollection(), "group_directories_first");
+    TQ_SLOT(slotToggleDisplayDirectoriesFirst()), actionCollection(), "group_directories_first");
   m_paDisplayDirectoriesFirst->setToolTip( i18n( "Always display directories before non-directories" ) );
   m_paDisplayDirectoriesFirst->setChecked(m_pProps->isDirsFirst());
 
   m_paDisplayHiddenFirst = new TDEToggleAction( i18n("Group &Hidden First"), CTRL+SHIFT+Key_H, this,
-    TQT_SLOT(slotToggleDisplayHiddenFirst()), actionCollection(), "group_hidden_first");
+    TQ_SLOT(slotToggleDisplayHiddenFirst()), actionCollection(), "group_hidden_first");
   m_paDisplayHiddenFirst->setToolTip( i18n( "Always display hidden files before non-hidden files" ) );
   m_paDisplayHiddenFirst->setChecked(m_pProps->isHiddenFirst());
 

@@ -217,7 +217,7 @@ PluginPart::PluginPart(TQWidget *parentWidget, const char *widgetName, TQObject 
     // Only create this if we have no parent since the parent part is
     // responsible for "Save As" then
     if (!parent || !parent->inherits("Part")) {
-        new TDEAction(i18n("&Save As..."), CTRL+Key_S, this, TQT_SLOT(saveAs()), actionCollection(), "saveDocument");
+        new TDEAction(i18n("&Save As..."), CTRL+Key_S, this, TQ_SLOT(saveAs()), actionCollection(), "saveDocument");
         setXMLFile("nspluginpart.rc");
     }
 
@@ -232,8 +232,8 @@ PluginPart::PluginPart(TQWidget *parentWidget, const char *widgetName, TQObject 
     _canvas->setBackgroundMode( TQWidget::NoBackground );
     setWidget(_canvas);
     _canvas->show();
-    TQObject::connect( _canvas, TQT_SIGNAL(resized(int,int)),
-                      this, TQT_SLOT(pluginResized(int,int)) );
+    TQObject::connect( _canvas, TQ_SIGNAL(resized(int,int)),
+                      this, TQ_SLOT(pluginResized(int,int)) );
 }
 
 

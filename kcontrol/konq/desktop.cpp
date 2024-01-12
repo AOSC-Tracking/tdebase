@@ -70,8 +70,8 @@ KDesktopConfig::KDesktopConfig(TQWidget *parent, const char * /*name*/)
   TQLabel *label = new TQLabel(i18n("N&umber of desktops: "), number_group);
   _numInput = new KIntNumInput(4, number_group);
   _numInput->setRange(1, maxDesktops, 1, true);
-  connect(_numInput, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotValueChanged(int)));
-  connect(_numInput, TQT_SIGNAL(valueChanged(int)),  TQT_SLOT( changed() ));
+  connect(_numInput, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotValueChanged(int)));
+  connect(_numInput, TQ_SIGNAL(valueChanged(int)),  TQ_SLOT( changed() ));
   label->setBuddy( _numInput );
   TQString wtstr = i18n( "Here you can set how many virtual desktops you want on your TDE desktop. Move the slider to change the value." );
   TQWhatsThis::add( label, wtstr );
@@ -99,10 +99,10 @@ KDesktopConfig::KDesktopConfig(TQWidget *parent, const char * /*name*/)
       TQWhatsThis::add( _nameLabel[i+(maxDesktops/2)], i18n( "Here you can enter the name for desktop %1" ).arg( i+(maxDesktops/2)+1 ) );
       TQWhatsThis::add( _nameInput[i+(maxDesktops/2)], i18n( "Here you can enter the name for desktop %1" ).arg( i+(maxDesktops/2)+1 ) );
 
-      connect(_nameInput[i], TQT_SIGNAL(textChanged(const TQString&)),
-           TQT_SLOT( changed() ));
-      connect(_nameInput[i+(maxDesktops/2)], TQT_SIGNAL(textChanged(const TQString&)),
-           TQT_SLOT( changed() ));
+      connect(_nameInput[i], TQ_SIGNAL(textChanged(const TQString&)),
+           TQ_SLOT( changed() ));
+      connect(_nameInput[i+(maxDesktops/2)], TQ_SIGNAL(textChanged(const TQString&)),
+           TQ_SLOT( changed() ));
     }
 
   for(int i = 1; i < maxDesktops; i++)
@@ -111,7 +111,7 @@ KDesktopConfig::KDesktopConfig(TQWidget *parent, const char * /*name*/)
   layout->addWidget(name_group);
 
   _wheelOption = new TQCheckBox(i18n("Mouse wheel over desktop background switches desktop"), this);
-  connect(_wheelOption,TQT_SIGNAL(toggled(bool)), TQT_SLOT( changed() ));
+  connect(_wheelOption,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
 
   layout->addWidget(_wheelOption);
   layout->addStretch(1);

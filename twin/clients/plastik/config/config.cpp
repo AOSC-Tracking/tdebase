@@ -49,16 +49,16 @@ PlastikConfig::PlastikConfig(TDEConfig* config, TQWidget* parent)
     load(config);
 
     // setup the connections
-    connect(m_dialog->titleAlign, TQT_SIGNAL(clicked(int)),
-            this, TQT_SIGNAL(changed()));
-    connect(m_dialog->animateButtons, TQT_SIGNAL(toggled(bool)),
-            this, TQT_SIGNAL(changed()));
-    connect(m_dialog->menuClose, TQT_SIGNAL(toggled(bool)),
-            this, TQT_SIGNAL(changed()));
-    connect(m_dialog->titleShadow, TQT_SIGNAL(toggled(bool)),
-            this, TQT_SIGNAL(changed()));
-    connect(m_dialog->coloredBorder, TQT_SIGNAL(toggled(bool)),
-            this, TQT_SIGNAL(changed()));
+    connect(m_dialog->titleAlign, TQ_SIGNAL(clicked(int)),
+            this, TQ_SIGNAL(changed()));
+    connect(m_dialog->animateButtons, TQ_SIGNAL(toggled(bool)),
+            this, TQ_SIGNAL(changed()));
+    connect(m_dialog->menuClose, TQ_SIGNAL(toggled(bool)),
+            this, TQ_SIGNAL(changed()));
+    connect(m_dialog->titleShadow, TQ_SIGNAL(toggled(bool)),
+            this, TQ_SIGNAL(changed()));
+    connect(m_dialog->coloredBorder, TQ_SIGNAL(toggled(bool)),
+            this, TQ_SIGNAL(changed()));
 }
 
 PlastikConfig::~PlastikConfig()

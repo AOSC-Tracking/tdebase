@@ -27,8 +27,8 @@ General_settings_tab::General_settings_tab( TQWidget* parent_P, const char* name
     : General_settings_tab_ui( parent_P, name_P )
     {
     // KHotKeys::Module::changed()
-    connect( disable_daemon_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
+    connect( disable_daemon_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
     }
 
 void General_settings_tab::import_clicked()

@@ -24,7 +24,7 @@ void Decoration::init()
         button->show();
         button->setCursor( TQt::arrowCursor );
 	button->move( 0, 0 );
-        connect( button, TQT_SIGNAL( clicked()), TQT_SLOT( closeWindow()));
+        connect( button, TQ_SIGNAL( clicked()), TQ_SLOT( closeWindow()));
 	TQToolTip::add( button, "Zelva Mana" );
 	}
     }

@@ -78,7 +78,7 @@ void TaskRMBMenu::fillMenu(Task::Ptr t)
         if (showAll)
         {
             id = insertItem(i18n("&To Current Desktop"),
-                            t, TQT_SLOT(toCurrentDesktop()));
+                            t, TQ_SLOT(toCurrentDesktop()));
             setItemEnabled( id, !t->isOnCurrentDesktop() );
         }
 
@@ -88,21 +88,21 @@ void TaskRMBMenu::fillMenu(Task::Ptr t)
         }
     }
 
-    id = insertItem(SmallIconSet("move"), i18n("&Move"), t, TQT_SLOT(move()));
+    id = insertItem(SmallIconSet("move"), i18n("&Move"), t, TQ_SLOT(move()));
     setItemEnabled(id, !checkActions || t->info().actionSupported(NET::ActionMove));
 
-    id = insertItem(i18n("Re&size"), t, TQT_SLOT(resize()));
+    id = insertItem(i18n("Re&size"), t, TQ_SLOT(resize()));
     setItemEnabled(id, !checkActions || t->info().actionSupported(NET::ActionResize));
 
-    id = insertItem(i18n("Mi&nimize"), t, TQT_SLOT(toggleIconified()));
+    id = insertItem(i18n("Mi&nimize"), t, TQ_SLOT(toggleIconified()));
     setItemChecked(id, t->isIconified());
     setItemEnabled(id, !checkActions || t->info().actionSupported(NET::ActionMinimize));
 
-    id = insertItem(i18n("Ma&ximize"), t, TQT_SLOT(toggleMaximized()));
+    id = insertItem(i18n("Ma&ximize"), t, TQ_SLOT(toggleMaximized()));
     setItemChecked(id, t->isMaximized());
     setItemEnabled(id, !checkActions || t->info().actionSupported(NET::ActionMax));
 
-    id = insertItem(i18n("&Shade"), t, TQT_SLOT(toggleShaded()));
+    id = insertItem(i18n("&Shade"), t, TQ_SLOT(toggleShaded()));
     setItemChecked(id, t->isShaded());
     setItemEnabled(id, !checkActions || t->info().actionSupported(NET::ActionShade));
 
@@ -115,7 +115,7 @@ void TaskRMBMenu::fillMenu(Task::Ptr t)
         insertSeparator();
     }
 
-    id = insertItem(SmallIcon("window-close"), i18n("&Close"), t, TQT_SLOT(close()));
+    id = insertItem(SmallIcon("window-close"), i18n("&Close"), t, TQ_SLOT(close()));
     setItemEnabled(id, !checkActions || t->info().actionSupported(NET::ActionClose));
 }
 
@@ -133,7 +133,7 @@ void TaskRMBMenu::fillMenu()
                          t->visibleNameWithState(),
 		         new TaskRMBMenu(t, this) );
         setItemChecked( id, t->isActive() );
-        connectItem( id, t, TQT_SLOT( activateRaiseOrIconify() ) );
+        connectItem( id, t, TQ_SLOT( activateRaiseOrIconify() ) );
     }
 
     insertSeparator();
@@ -144,7 +144,7 @@ void TaskRMBMenu::fillMenu()
     {
         id = insertItem(i18n("All to &Desktop"), makeDesktopsMenu());
 
-        id = insertItem(i18n("All &to Current Desktop"), this, TQT_SLOT(slotAllToCurrentDesktop()));
+        id = insertItem(i18n("All &to Current Desktop"), this, TQ_SLOT(slotAllToCurrentDesktop()));
         Task::List::iterator itEnd = tasks.end();
         for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
         {
@@ -159,7 +159,7 @@ void TaskRMBMenu::fillMenu()
 
     enable = false;
 
-    id = insertItem( i18n( "Mi&nimize All" ), this, TQT_SLOT( slotMinimizeAll() ) );
+    id = insertItem( i18n( "Mi&nimize All" ), this, TQ_SLOT( slotMinimizeAll() ) );
     itEnd = tasks.end();
     for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
     {
@@ -172,7 +172,7 @@ void TaskRMBMenu::fillMenu()
 
     enable = false;
 
-    id = insertItem( i18n( "Ma&ximize All" ), this, TQT_SLOT( slotMaximizeAll() ) );
+    id = insertItem( i18n( "Ma&ximize All" ), this, TQ_SLOT( slotMaximizeAll() ) );
     itEnd = tasks.end();
     for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
     {
@@ -185,7 +185,7 @@ void TaskRMBMenu::fillMenu()
 
     enable = false;
 
-    id = insertItem( i18n( "&Restore All" ), this, TQT_SLOT( slotRestoreAll() ) );
+    id = insertItem( i18n( "&Restore All" ), this, TQ_SLOT( slotRestoreAll() ) );
     itEnd = tasks.end();
     for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
     {
@@ -207,7 +207,7 @@ void TaskRMBMenu::fillMenu()
         insertSeparator();
     }
 
-    insertItem( SmallIcon( "window-close" ), i18n( "&Close All" ), this, TQT_SLOT( slotCloseAll() ) );
+    insertItem( SmallIcon( "window-close" ), i18n( "&Close All" ), this, TQ_SLOT( slotCloseAll() ) );
 }
 
 TQPopupMenu* TaskRMBMenu::makeAdvancedMenu(Task::Ptr t)
@@ -219,17 +219,17 @@ TQPopupMenu* TaskRMBMenu::makeAdvancedMenu(Task::Ptr t)
 
     id = menu->insertItem(SmallIconSet("go-up"),
                           i18n("Keep &Above Others"),
-                          t, TQT_SLOT(toggleAlwaysOnTop()));
+                          t, TQ_SLOT(toggleAlwaysOnTop()));
     menu->setItemChecked(id, t->isAlwaysOnTop());
 
     id = menu->insertItem(SmallIconSet("go-down"),
                           i18n("Keep &Below Others"),
-                          t, TQT_SLOT(toggleKeptBelowOthers()));
+                          t, TQ_SLOT(toggleKeptBelowOthers()));
     menu->setItemChecked(id, t->isKeptBelowOthers());
 
     id = menu->insertItem(SmallIconSet("view-fullscreen"),
                           i18n("&Fullscreen"),
-                          t, TQT_SLOT(toggleFullScreen()));
+                          t, TQ_SLOT(toggleFullScreen()));
     menu->setItemChecked(id, t->isFullScreen());
 
     if (KWin::allowedActionsSupported())
@@ -245,7 +245,7 @@ TQPopupMenu* TaskRMBMenu::makeDesktopsMenu(Task::Ptr t)
 	TQPopupMenu* m = new TQPopupMenu( this );
 	m->setCheckable( true );
 
-	int id = m->insertItem( i18n("&All Desktops"), t, TQT_SLOT( toDesktop(int) ) );
+	int id = m->insertItem( i18n("&All Desktops"), t, TQ_SLOT( toDesktop(int) ) );
 	m->setItemParameter( id, 0 ); // 0 means all desktops
 	m->setItemChecked( id, t->isOnAllDesktops() );
 
@@ -253,7 +253,7 @@ TQPopupMenu* TaskRMBMenu::makeDesktopsMenu(Task::Ptr t)
 
 	for (int i = 1; i <= TaskManager::the()->numberOfDesktops(); i++) {
 		TQString name = TQString("&%1 %2").arg(i).arg(TaskManager::the()->desktopName(i).replace('&', "&&"));
-		id = m->insertItem( name, t, TQT_SLOT( toDesktop(int) ) );
+		id = m->insertItem( name, t, TQ_SLOT( toDesktop(int) ) );
 		m->setItemParameter( id, i );
 		m->setItemChecked( id, !t->isOnAllDesktops() && t->desktop() == i );
 	}
@@ -266,14 +266,14 @@ TQPopupMenu* TaskRMBMenu::makeDesktopsMenu()
 	TQPopupMenu* m = new TQPopupMenu( this );
 	m->setCheckable( true );
 
-	int id = m->insertItem( i18n("&All Desktops"), this, TQT_SLOT( slotAllToDesktop(int) ) );
+	int id = m->insertItem( i18n("&All Desktops"), this, TQ_SLOT( slotAllToDesktop(int) ) );
 	m->setItemParameter( id, 0 ); // 0 means all desktops
 
 	m->insertSeparator();
 
 	for (int i = 1; i <= TaskManager::the()->numberOfDesktops(); i++) {
 		TQString name = TQString("&%1 %2").arg(i).arg(TaskManager::the()->desktopName(i).replace('&', "&&"));
-		id = m->insertItem( name, this, TQT_SLOT( slotAllToDesktop(int) ) );
+		id = m->insertItem( name, this, TQ_SLOT( slotAllToDesktop(int) ) );
 		m->setItemParameter( id, i );
 	}
 

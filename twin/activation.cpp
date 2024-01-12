@@ -727,7 +727,7 @@ void Client::demandAttention( bool set )
         if( demandAttentionKNotifyTimer == NULL )
             {
             demandAttentionKNotifyTimer = new TQTimer( this );
-            connect( demandAttentionKNotifyTimer, TQT_SIGNAL( timeout()), TQT_SLOT( demandAttentionKNotify()));
+            connect( demandAttentionKNotifyTimer, TQ_SIGNAL( timeout()), TQ_SLOT( demandAttentionKNotify()));
             }
         demandAttentionKNotifyTimer->start( 1000, true );
         }

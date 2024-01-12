@@ -39,7 +39,7 @@ TrashButton::TrashButton(TQWidget *parent)
 	TDEIO::NetAccess::stat("trash:/", entry, 0L);
 	mFileItem.assign(KFileItem(entry, "trash:/"));
 
-	TDEAction *a = KStdAction::paste(this, TQT_SLOT(slotPaste()),
+	TDEAction *a = KStdAction::paste(this, TQ_SLOT(slotPaste()),
 	                               &mActions, "paste");
 	a->setShortcut(0);
 
@@ -53,7 +53,7 @@ TrashButton::TrashButton(TQWidget *parent)
 
 	// Activate this code only if we find a way to have both an
 	// action and a popup menu for the same kicker button
-	//connect(this, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotClicked()));
+	//connect(this, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotClicked()));
 
 	setPopup(new TQPopupMenu());
 }

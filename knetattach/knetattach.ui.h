@@ -13,8 +13,8 @@
 void KNetAttach::init()
 {
     setIcon(SmallIcon("knetattach"));
-    disconnect(finishButton(), TQT_SIGNAL(clicked()), (TQDialog*)this, TQT_SLOT(accept()));
-    connect(finishButton(), TQT_SIGNAL(clicked()), this, TQT_SLOT(finished()));
+    disconnect(finishButton(), TQ_SIGNAL(clicked()), (TQDialog*)this, TQ_SLOT(accept()));
+    connect(finishButton(), TQ_SIGNAL(clicked()), this, TQ_SLOT(finished()));
     finishButton()->setText(i18n("Save && C&onnect"));
     //setResizeMode(Fixed); FIXME: make the wizard fixed-geometry
     setFinishEnabled(_folderParameters, false);

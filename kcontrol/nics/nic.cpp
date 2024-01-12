@@ -103,8 +103,8 @@ KCMNic::KCMNic(TQWidget *parent, const char * name, const TQStringList &)
    hbox->addStretch(1);
    TQTimer* timer=new TQTimer(this);
    timer->start(60000);
-   connect(m_updateButton,TQT_SIGNAL(clicked()),this,TQT_SLOT(update()));
-   connect(timer,TQT_SIGNAL(timeout()),this,TQT_SLOT(update()));
+   connect(m_updateButton,TQ_SIGNAL(clicked()),this,TQ_SLOT(update()));
+   connect(timer,TQ_SIGNAL(timeout()),this,TQ_SLOT(update()));
    update();
    TDEAboutData *about =
    new TDEAboutData(I18N_NOOP("kcminfo"),

@@ -47,7 +47,7 @@ BGMonitorArrangement::BGMonitorArrangement(TQWidget *parent, const char *name)
         BGMonitorLabel * label = new BGMonitorLabel(this);
         m_pBGMonitor[screen] = label;
         
-        connect( label->monitor(), TQT_SIGNAL(imageDropped(const TQString &)), this, TQT_SIGNAL(imageDropped(const TQString &)) );
+        connect( label->monitor(), TQ_SIGNAL(imageDropped(const TQString &)), this, TQ_SIGNAL(imageDropped(const TQString &)) );
     }
     
     parent->setFixedSize(200, 186);

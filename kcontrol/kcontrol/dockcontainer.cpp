@@ -105,7 +105,7 @@ ModuleWidget::ModuleWidget( TQWidget *parent, const char *name )
   m_title = new ModuleTitle( titleLine, "m_title" );
   TQPushButton *helpButton = new TQPushButton( titleLine );
   helpButton->setIconSet( SmallIconSet("help") );
-  connect (helpButton, TQT_SIGNAL( clicked() ), this, TQT_SIGNAL( helpRequest() ) );
+  connect (helpButton, TQ_SIGNAL( clicked() ), this, TQ_SIGNAL( helpRequest() ) );
   m_body = new TQVBox( this, "m_body" );
   setStretchFactor( m_body, 10 );
 }
@@ -137,7 +137,7 @@ DockContainer::DockContainer(TQWidget *parent)
   addWidget( _busyw );
 
   _modulew = new ModuleWidget( this, "_modulew" );
-  connect (_modulew, TQT_SIGNAL( helpRequest() ), TQT_SLOT( slotHelpRequest() ) );
+  connect (_modulew, TQ_SIGNAL( helpRequest() ), TQ_SLOT( slotHelpRequest() ) );
   addWidget( _modulew );
 }
 
@@ -170,10 +170,10 @@ ProxyWidget* DockContainer::loadModule( ConfigModule *module )
   if (widget)
   {
     _module = module;
-    connect(_module, TQT_SIGNAL(childClosed()), TQT_SLOT(removeModule()));
-    connect(_module, TQT_SIGNAL(changed(ConfigModule *)),
-            TQT_SIGNAL(changedModule(ConfigModule *)));
-    connect(widget, TQT_SIGNAL(quickHelpChanged()), TQT_SLOT(quickHelpChanged()));
+    connect(_module, TQ_SIGNAL(childClosed()), TQ_SLOT(removeModule()));
+    connect(_module, TQ_SIGNAL(changed(ConfigModule *)),
+            TQ_SIGNAL(changedModule(ConfigModule *)));
+    connect(widget, TQ_SIGNAL(quickHelpChanged()), TQ_SLOT(quickHelpChanged()));
 
     raiseWidget( _modulew );
     emit newModule(widget->caption(), module->docPath(), widget->quickHelp());

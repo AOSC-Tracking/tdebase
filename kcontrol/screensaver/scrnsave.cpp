@@ -124,12 +124,12 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     readSettings( false );
 
     mSetupProc = new TDEProcess;
-    connect(mSetupProc, TQT_SIGNAL(processExited(TDEProcess *)),
-            this, TQT_SLOT(slotSetupDone(TDEProcess *)));
+    connect(mSetupProc, TQ_SIGNAL(processExited(TDEProcess *)),
+            this, TQ_SLOT(slotSetupDone(TDEProcess *)));
 
     mPreviewProc = new TDEProcess;
-    connect(mPreviewProc, TQT_SIGNAL(processExited(TDEProcess *)),
-            this, TQT_SLOT(slotPreviewExited(TDEProcess *)));
+    connect(mPreviewProc, TQ_SIGNAL(processExited(TDEProcess *)),
+            this, TQ_SLOT(slotPreviewExited(TDEProcess *)));
 
     TQBoxLayout *topLayout = new TQHBoxLayout(this, 0, KDialog::spacingHint());
 
@@ -153,18 +153,18 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mSaverListView->header()->hide();
     mSelected = -1;
     groupLayout->addWidget( mSaverListView, 10 );
-    connect( mSaverListView, TQT_SIGNAL(doubleClicked ( TQListViewItem *)), this, TQT_SLOT( slotSetup()));
+    connect( mSaverListView, TQ_SIGNAL(doubleClicked ( TQListViewItem *)), this, TQ_SLOT( slotSetup()));
     TQWhatsThis::add( mSaverListView, i18n("Select the screen saver to use.") );
 
     TQBoxLayout* hlay = new TQHBoxLayout(groupLayout, KDialog::spacingHint());
     mSetupBt = new TQPushButton( i18n("&Setup..."), mSaverGroup );
-    connect( mSetupBt, TQT_SIGNAL( clicked() ), TQT_SLOT( slotSetup() ) );
+    connect( mSetupBt, TQ_SIGNAL( clicked() ), TQ_SLOT( slotSetup() ) );
     mSetupBt->setEnabled(false);
     hlay->addWidget( mSetupBt );
     TQWhatsThis::add( mSetupBt, i18n("Configure the screen saver's options, if any.") );
 
     mTestBt = new TQPushButton( i18n("&Test"), mSaverGroup );
-    connect( mTestBt, TQT_SIGNAL( clicked() ), TQT_SLOT( slotTest() ) );
+    connect( mTestBt, TQ_SIGNAL( clicked() ), TQ_SLOT( slotTest() ) );
     mTestBt->setEnabled(false);
     hlay->addWidget( mTestBt );
     TQWhatsThis::add( mTestBt, i18n("Show a full screen preview of the screen saver.") );
@@ -177,7 +177,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mEnabledCheckBox = new TQCheckBox(i18n("Start a&utomatically"), mSettingsGroup);
     mEnabledCheckBox->setChecked(mEnabled);
     TQWhatsThis::add( mEnabledCheckBox, i18n("Automatically start the screen saver after a period of inactivity.") );
-    connect(mEnabledCheckBox, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotEnable(bool)));
+    connect(mEnabledCheckBox, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotEnable(bool)));
     settingsGroupLayout->addWidget(mEnabledCheckBox, 0, 0);
 
     TQBoxLayout *hbox = new TQHBoxLayout();
@@ -192,8 +192,8 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mWaitEdit->setSuffix(i18n(" min"));
     mWaitEdit->setValue(mTimeout/60);
     mWaitEdit->setEnabled(mEnabled);
-    connect(mWaitEdit, TQT_SIGNAL(valueChanged(int)),
-            this, TQT_SLOT(slotTimeoutChanged(int)));
+    connect(mWaitEdit, TQ_SIGNAL(valueChanged(int)),
+            this, TQ_SLOT(slotTimeoutChanged(int)));
     mActivateLbl->setBuddy(mWaitEdit);
     hbox->addWidget(mWaitEdit);
     hbox->addStretch(1);
@@ -204,7 +204,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mLockCheckBox = new TQCheckBox( i18n("&Require password to stop"), mSettingsGroup );
     mLockCheckBox->setEnabled( mEnabled );
     mLockCheckBox->setChecked( mLock );
-    connect( mLockCheckBox, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotLock( bool ) ) );
+    connect( mLockCheckBox, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotLock( bool ) ) );
     settingsGroupLayout->addWidget(mLockCheckBox, 2, 0);
     TQWhatsThis::add( mLockCheckBox, i18n("Prevent potential unauthorized use by requiring a password to stop the screen saver.") );
 
@@ -230,7 +230,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
         mWaitEdit->setFixedWidth( mWaitLockEdit->sizeHint().width() );
         mWaitLockEdit->setFixedWidth( mWaitLockEdit->sizeHint().width() );
     }
-    connect(mWaitLockEdit, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(slotLockTimeoutChanged(int)));
+    connect(mWaitLockEdit, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(slotLockTimeoutChanged(int)));
     mLockLbl->setBuddy(mWaitLockEdit);
     hbox->addWidget(mWaitLockEdit);
     hbox->addStretch(1);
@@ -241,35 +241,35 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     mDelaySaverStartCheckBox = new TQCheckBox( i18n("&Delay saver start after lock"), mSettingsGroup );
     mDelaySaverStartCheckBox->setEnabled( true );
     mDelaySaverStartCheckBox->setChecked( mDelaySaverStart );
-    connect( mDelaySaverStartCheckBox, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotDelaySaverStart( bool ) ) );
+    connect( mDelaySaverStartCheckBox, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotDelaySaverStart( bool ) ) );
     settingsGroupLayout->addWidget(mDelaySaverStartCheckBox, 0, 1);
     TQWhatsThis::add( mDelaySaverStartCheckBox, i18n("When manually locking the screen, wait to start the screen saver until the configured start delay has elapsed.") );
 
     mUseTSAKCheckBox = new TQCheckBox( i18n("&Use Secure Attention Key"), mSettingsGroup );
     mUseTSAKCheckBox->setEnabled( true );
     mUseTSAKCheckBox->setChecked( mUseTSAK );
-    connect( mUseTSAKCheckBox, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotUseTSAK( bool ) ) );
+    connect( mUseTSAKCheckBox, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotUseTSAK( bool ) ) );
     settingsGroupLayout->addWidget(mUseTSAKCheckBox, 1, 1);
     TQWhatsThis::add( mUseTSAKCheckBox, i18n("Require Secure Attention Key prior to displaying the unlock dialog.") );
 
     mUseUnmanagedLockWindowsCheckBox = new TQCheckBox( i18n("Use &legacy lock windows"), mSettingsGroup );
     mUseUnmanagedLockWindowsCheckBox->setEnabled( true );
     mUseUnmanagedLockWindowsCheckBox->setChecked( mUseUnmanagedLockWindows );
-    connect( mUseUnmanagedLockWindowsCheckBox, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotUseUnmanagedLockWindows( bool ) ) );
+    connect( mUseUnmanagedLockWindowsCheckBox, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotUseUnmanagedLockWindows( bool ) ) );
     settingsGroupLayout->addWidget(mUseUnmanagedLockWindowsCheckBox, 2, 1);
     TQWhatsThis::add( mUseUnmanagedLockWindowsCheckBox, i18n("Use old-style unmanaged X11 lock windows.") );
 
     mHideActiveWindowsFromSaverCheckBox = new TQCheckBox( i18n("Hide active &windows from saver"), mSettingsGroup );
     mHideActiveWindowsFromSaverCheckBox->setEnabled( true );
     mHideActiveWindowsFromSaverCheckBox->setChecked( mHideActiveWindowsFromSaver );
-    connect( mHideActiveWindowsFromSaverCheckBox, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotHideActiveWindowsFromSaver( bool ) ) );
+    connect( mHideActiveWindowsFromSaverCheckBox, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotHideActiveWindowsFromSaver( bool ) ) );
     settingsGroupLayout->addWidget(mHideActiveWindowsFromSaverCheckBox, 3, 1);
     TQWhatsThis::add( mHideActiveWindowsFromSaverCheckBox, i18n("Hide all active windows from the screen saver and use the desktop background as the screen saver input.") );
 
     mHideCancelButtonCheckBox = new TQCheckBox( i18n("Hide &cancel button"), mSettingsGroup );
     mHideCancelButtonCheckBox->setEnabled( true );
     mHideCancelButtonCheckBox->setChecked( mHideCancelButton );
-    connect( mHideCancelButtonCheckBox, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotHideCancelButton(bool)) );
+    connect( mHideCancelButtonCheckBox, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotHideCancelButton(bool)) );
     settingsGroupLayout->addWidget(mHideCancelButtonCheckBox, 4, 1);
     TQWhatsThis::add(mHideCancelButtonCheckBox, i18n("Hide Cancel button from the \"Desktop Session Locked\" dialog."));
 
@@ -288,8 +288,8 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
         i18n( "Advanced &Options" ), this, "advancedBtn" );
     advancedBt->setSizePolicy( TQSizePolicy(
         TQSizePolicy::Fixed, TQSizePolicy::Fixed) );
-    connect( advancedBt, TQT_SIGNAL( clicked() ),
-             this, TQT_SLOT( slotAdvanced() ) );
+    connect( advancedBt, TQ_SIGNAL( clicked() ),
+             this, TQ_SLOT( slotAdvanced() ) );
     advancedLayout->addWidget( advancedBt );
     advancedLayout->addWidget( new TQWidget( this ) );
 
@@ -306,7 +306,7 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
     // we've started up.
     mNumLoaded = 0;
     mLoadTimer = new TQTimer( this );
-    connect( mLoadTimer, TQT_SIGNAL(timeout()), TQT_SLOT(findSavers()) );
+    connect( mLoadTimer, TQ_SIGNAL(timeout()), TQ_SLOT(findSavers()) );
     mLoadTimer->start( 100 );
     mChanged = false;
     emit changed(false);
@@ -615,8 +615,8 @@ void KScreenSaver::findSavers()
             mTestBt->setEnabled(true);
         }
 
-        connect( mSaverListView, TQT_SIGNAL( currentChanged( TQListViewItem * ) ),
-                 this, TQT_SLOT( slotScreenSaver( TQListViewItem * ) ) );
+        connect( mSaverListView, TQ_SIGNAL( currentChanged( TQListViewItem * ) ),
+                 this, TQ_SLOT( slotScreenSaver( TQListViewItem * ) ) );
 
         setMonitor();
     }

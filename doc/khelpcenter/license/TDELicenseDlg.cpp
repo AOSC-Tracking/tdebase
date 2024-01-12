@@ -95,7 +95,7 @@ TDELicenseDlg::TDELicenseDlg(TQWidget *parent, const char *name)
           TQSizePolicy::Minimum);
   hboxBottom->addItem(spacerHBottom);
   KPushButton *okButton = new KPushButton(KStdGuiItem::ok(), this);
-  connect(okButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(accept()));
+  connect(okButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(accept()));
   okButton->setDefault(true);
   okButton->setFocus();
   hboxBottom->addWidget(okButton);

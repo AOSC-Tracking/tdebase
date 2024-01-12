@@ -73,11 +73,11 @@ SMBRoOptions::SMBRoOptions(TQWidget *parent)
 
    layout->addWidget(new TQWidget(this),4,0);
 
-//   connect(m_showHiddenShares, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(changed()));
-   connect(m_userLe, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(changed()));
-   connect(m_passwordLe, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(changed()));
-//   connect(m_workgroupLe, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(changed()));
-//   connect( m_encodingList, TQT_SIGNAL( activated( const TQString & ) ), this , TQT_SLOT( changed() ) );
+//   connect(m_showHiddenShares, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(changed()));
+   connect(m_userLe, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(changed()));
+   connect(m_passwordLe, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(changed()));
+//   connect(m_workgroupLe, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(changed()));
+//   connect( m_encodingList, TQ_SIGNAL( activated( const TQString & ) ), this , TQ_SLOT( changed() ) );
 
    layout->setRowStretch(4, 1);
 

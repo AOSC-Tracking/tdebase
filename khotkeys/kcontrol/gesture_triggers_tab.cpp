@@ -35,12 +35,12 @@ Gesture_triggers_tab::Gesture_triggers_tab( TQWidget* parent_P, const char* name
     {
     clear_data();
     // KHotKeys::Module::changed()
-    connect( gesture_edit_button1, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( gesture_edit_button2, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( gesture_edit_button3, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
+    connect( gesture_edit_button1, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( gesture_edit_button2, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( gesture_edit_button3, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
     } 
 
 void Gesture_triggers_tab::clear_data()
@@ -142,8 +142,8 @@ Gesture_edit_dialog::Gesture_edit_dialog( const TQString& gesture_P )
     _page = new GestureRecordPage( _gesture,
                                   this, "GestureRecordPage");
    
-//    connect(_page, TQT_SIGNAL(gestureRecorded(bool)), // allow clearing the gesture
-//            this, TQT_SLOT(enableButtonOK(bool)));
+//    connect(_page, TQ_SIGNAL(gestureRecorded(bool)), // allow clearing the gesture
+//            this, TQ_SLOT(enableButtonOK(bool)));
    
     setMainWidget( _page );
     }

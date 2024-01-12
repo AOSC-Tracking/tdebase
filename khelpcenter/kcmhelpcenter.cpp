@@ -73,7 +73,7 @@ IndexDirDialog::IndexDirDialog( TQWidget *parent )
   urlLayout->addWidget( mIndexUrlRequester );
 
   mIndexUrlRequester->setURL( Prefs::indexDirectory() );
-  connect(mIndexUrlRequester->lineEdit(),TQT_SIGNAL(textChanged ( const TQString & )), this, TQT_SLOT(slotUrlChanged( const TQString &)));
+  connect(mIndexUrlRequester->lineEdit(),TQ_SIGNAL(textChanged ( const TQString & )), this, TQ_SLOT(slotUrlChanged( const TQString &)));
   slotUrlChanged( mIndexUrlRequester->lineEdit()->text() );
 }
 
@@ -120,13 +120,13 @@ IndexProgressDialog::IndexProgressDialog( TQWidget *parent )
   buttonLayout->addStretch( 1 );
 
   mDetailsButton = new TQPushButton( this );
-  connect( mDetailsButton, TQT_SIGNAL( clicked() ), TQT_SLOT( toggleDetails() ) );
+  connect( mDetailsButton, TQ_SIGNAL( clicked() ), TQ_SLOT( toggleDetails() ) );
   buttonLayout->addWidget( mDetailsButton );
 
   hideDetails();
 
   mEndButton = new TQPushButton( this );
-  connect( mEndButton, TQT_SIGNAL( clicked() ), TQT_SLOT( slotEnd() ) );
+  connect( mEndButton, TQ_SIGNAL( clicked() ), TQ_SLOT( slotEnd() ) );
   buttonLayout->addWidget( mEndButton );
 
   setFinished( false );
@@ -279,8 +279,8 @@ void KCMHelpCenter::setupMainWidget( TQWidget *parent )
   mListView->addColumn( i18n("Status") );
   mListView->setColumnAlignment( 1, AlignCenter );
   topLayout->addWidget( mListView );
-  connect( mListView, TQT_SIGNAL( clicked( TQListViewItem * ) ),
-    TQT_SLOT( checkSelection() ) );
+  connect( mListView, TQ_SIGNAL( clicked( TQListViewItem * ) ),
+    TQ_SLOT( checkSelection() ) );
 
   TQBoxLayout *urlLayout = new TQHBoxLayout( topLayout );
 
@@ -291,7 +291,7 @@ void KCMHelpCenter::setupMainWidget( TQWidget *parent )
   urlLayout->addWidget( mIndexDirLabel, 1 );
 
   TQPushButton *button = new TQPushButton( i18n("Change..."), parent );
-  connect( button, TQT_SIGNAL( clicked() ), TQT_SLOT( showIndexDirDialog() ) );
+  connect( button, TQ_SIGNAL( clicked() ), TQ_SLOT( showIndexDirDialog() ) );
   urlLayout->addWidget( button );
 
   TQBoxLayout *buttonLayout = new TQHBoxLayout( topLayout );
@@ -446,10 +446,10 @@ bool KCMHelpCenter::buildIndex()
 
   if ( !mProgressDialog ) {
     mProgressDialog = new IndexProgressDialog( this );
-    connect( mProgressDialog, TQT_SIGNAL( cancelled() ),
-             TQT_SLOT( cancelBuildIndex() ) );
-    connect( mProgressDialog, TQT_SIGNAL( closed() ),
-             TQT_SLOT( slotProgressClosed() ) );
+    connect( mProgressDialog, TQ_SIGNAL( cancelled() ),
+             TQ_SLOT( cancelBuildIndex() ) );
+    connect( mProgressDialog, TQ_SIGNAL( closed() ),
+             TQ_SLOT( slotProgressClosed() ) );
   }
   mProgressDialog->setLabelText( name );
   mProgressDialog->setTotalSteps( mIndexQueue.count() );
@@ -476,12 +476,12 @@ void KCMHelpCenter::startIndexProcess()
   *mProcess << mCmdFile->name();
   *mProcess << Prefs::indexDirectory();
 
-  connect( mProcess, TQT_SIGNAL( processExited( TDEProcess * ) ),
-           TQT_SLOT( slotIndexFinished( TDEProcess * ) ) );
-  connect( mProcess, TQT_SIGNAL( receivedStdout( TDEProcess *, char *, int ) ),
-           TQT_SLOT( slotReceivedStdout(TDEProcess *, char *, int ) ) );
-  connect( mProcess, TQT_SIGNAL( receivedStderr( TDEProcess *, char *, int ) ),
-           TQT_SLOT( slotReceivedStderr( TDEProcess *, char *, int ) ) );
+  connect( mProcess, TQ_SIGNAL( processExited( TDEProcess * ) ),
+           TQ_SLOT( slotIndexFinished( TDEProcess * ) ) );
+  connect( mProcess, TQ_SIGNAL( receivedStdout( TDEProcess *, char *, int ) ),
+           TQ_SLOT( slotReceivedStdout(TDEProcess *, char *, int ) ) );
+  connect( mProcess, TQ_SIGNAL( receivedStderr( TDEProcess *, char *, int ) ),
+           TQ_SLOT( slotReceivedStderr( TDEProcess *, char *, int ) ) );
 
   if ( !mProcess->start( TDEProcess::NotifyOnExit, TDEProcess::AllOutput ) ) {
     kdError() << "KCMHelpcenter::startIndexProcess(): Failed to start process."

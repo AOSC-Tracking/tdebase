@@ -133,7 +133,7 @@ DCOPBrowserApplicationItem::DCOPBrowserApplicationItem
 	TQString mainWindowName= rx.cap(1) + "-mainwindow#1" ;
 
 	TQByteArray data;
-	int callId=kapp->dcopClient()->callAsync( app_, mainWindowName.utf8(), "icon()", data, this, TQT_SLOT(retreiveIcon(int, const TQCString&, const TQByteArray&)));
+	int callId=kapp->dcopClient()->callAsync( app_, mainWindowName.utf8(), "icon()", data, this, TQ_SLOT(retreiveIcon(int, const TQCString&, const TQByteArray&)));
 
 	if(!callId)
 	{
@@ -142,7 +142,7 @@ DCOPBrowserApplicationItem::DCOPBrowserApplicationItem
 		TQDataStream arg(data, IO_WriteOnly);
 		arg << TQCString( "MainWindow" );
 
-		kapp->dcopClient()->callAsync( app_, "qt", "find(TQCString)", data, this, TQT_SLOT(slotGotWindowName(int, const TQCString&, const TQByteArray& )));
+		kapp->dcopClient()->callAsync( app_, "qt", "find(TQCString)", data, this, TQ_SLOT(slotGotWindowName(int, const TQCString&, const TQByteArray& )));
 	}
 }
 
@@ -192,7 +192,7 @@ void DCOPBrowserApplicationItem::slotGotWindowName(int /*callId*/, const TQCStri
 		{
 			TQByteArray data;
 			kapp->dcopClient()->callAsync( app_, mainWindowName.utf8(), "icon()", data,
-				this, TQT_SLOT(retreiveIcon(int, const TQCString&, const TQByteArray&)));
+				this, TQ_SLOT(retreiveIcon(int, const TQCString&, const TQByteArray&)));
 		}
 	}
 }
@@ -297,18 +297,18 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
 //	mainView->lv->addColumn(i18n("Function"));
 	mainView->lv->setDragAutoScroll( FALSE );
 	mainView->lv->setRootIsDecorated( TRUE );
-  connect(mainView->lv, TQT_SIGNAL(doubleClicked(TQListViewItem *)), TQT_SLOT(slotCallFunction(TQListViewItem *)));
-  connect(mainView->lv, TQT_SIGNAL(currentChanged(TQListViewItem *)), TQT_SLOT(slotCurrentChanged(TQListViewItem *)));
-  connect(mainView->lb_replyData, TQT_SIGNAL(contextMenuRequested(TQListBoxItem*, const TQPoint&)),
-          TQT_SLOT(slotResultListContextMenu(TQListBoxItem*, const TQPoint&)));
+  connect(mainView->lv, TQ_SIGNAL(doubleClicked(TQListViewItem *)), TQ_SLOT(slotCallFunction(TQListViewItem *)));
+  connect(mainView->lv, TQ_SIGNAL(currentChanged(TQListViewItem *)), TQ_SLOT(slotCurrentChanged(TQListViewItem *)));
+  connect(mainView->lb_replyData, TQ_SIGNAL(contextMenuRequested(TQListBoxItem*, const TQPoint&)),
+          TQ_SLOT(slotResultListContextMenu(TQListBoxItem*, const TQPoint&)));
 
   // set up the actions
-  KStdAction::quit( this, TQT_SLOT( close() ), actionCollection() );
-  KStdAction::copy( this, TQT_SLOT( slotCopy()), actionCollection() );
-  KStdAction::keyBindings( guiFactory(), TQT_SLOT( configureShortcuts() ), actionCollection() );
+  KStdAction::quit( this, TQ_SLOT( close() ), actionCollection() );
+  KStdAction::copy( this, TQ_SLOT( slotCopy()), actionCollection() );
+  KStdAction::keyBindings( guiFactory(), TQ_SLOT( configureShortcuts() ), actionCollection() );
 
 
-  (void) new TDEAction( i18n( "&Reload" ), "reload", TDEStdAccel::shortcut(TDEStdAccel::Reload), this, TQT_SLOT( slotReload() ), actionCollection(), "reload" );
+  (void) new TDEAction( i18n( "&Reload" ), "reload", TDEStdAccel::shortcut(TDEStdAccel::Reload), this, TQ_SLOT( slotReload() ), actionCollection(), "reload" );
 
   exeaction =
     new TDEAction
@@ -317,7 +317,7 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
       "application-x-executable",
      CTRL + Key_E,
      this,
-     TQT_SLOT(slotItemExecuted()),
+     TQ_SLOT(slotItemExecuted()),
      actionCollection(),
      "execute"
     );
@@ -328,7 +328,7 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
   langmode = new TDESelectAction ( i18n("Language Mode"),
   		CTRL + Key_M,
 		this,
-		TQT_SLOT(slotMode()),
+		TQ_SLOT(slotMode()),
 		actionCollection(),
 		"langmode");
   langmode->setEditable(false);
@@ -339,22 +339,22 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
   connect
     (
      dcopClient,
-     TQT_SIGNAL(applicationRegistered(const TQCString &)),
-     TQT_SLOT(slotApplicationRegistered(const TQCString &))
+     TQ_SIGNAL(applicationRegistered(const TQCString &)),
+     TQ_SLOT(slotApplicationRegistered(const TQCString &))
     );
 
   connect
     (
      dcopClient,
-     TQT_SIGNAL(applicationRemoved(const TQCString &)),
-     TQT_SLOT(slotApplicationUnregistered(const TQCString &))
+     TQ_SIGNAL(applicationRemoved(const TQCString &)),
+     TQ_SLOT(slotApplicationUnregistered(const TQCString &))
     );
 
   dcopClient->setNotifications(true);
   createGUI();
   setCaption(i18n("DCOP Browser"));
 	mainView->lb_replyData->hide();
-  TQTimer::singleShot(0, this, TQT_SLOT(slotFillApplications()));
+  TQTimer::singleShot(0, this, TQ_SLOT(slotFillApplications()));
 }
 
 
@@ -1233,7 +1233,7 @@ void KDCOPWindow::slotMode()
 void KDCOPWindow::slotResultListContextMenu(TQListBoxItem *item, const TQPoint &point)
 {
 	TQPopupMenu* contextMenu = new TQPopupMenu(this);
-	contextMenu->insertItem(i18n("&Copy"), this, TQT_SLOT(slotCopy()));
+	contextMenu->insertItem(i18n("&Copy"), this, TQ_SLOT(slotCopy()));
 	contextMenu->exec(point);
 }
 

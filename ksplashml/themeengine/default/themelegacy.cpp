@@ -71,7 +71,7 @@ ThemeDefault::ThemeDefault( TQWidget *parent, const char *name, const TQStringLi
   if( mIconsFlashing )
   {
     mFlashTimer = new TQTimer( this );
-    connect( mFlashTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(flash()) );
+    connect( mFlashTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(flash()) );
     mFlashPixmap1 = new TQPixmap();
     mFlashPixmap2 = new TQPixmap();
 

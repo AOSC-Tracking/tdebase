@@ -68,9 +68,9 @@ void RemoteMenu::initialize()
     }
 
     id = insertItem(SmallIcon("wizard"), i18n("Add Network Folder"));
-    connectItem(id, this, TQT_SLOT(startWizard()));
+    connectItem(id, this, TQ_SLOT(startWizard()));
     id = insertItem(SmallIcon("kfm"), i18n("Manage Network Folders"));
-    connectItem(id, this, TQT_SLOT(openRemoteDir()));
+    connectItem(id, this, TQ_SLOT(openRemoteDir()));
 
     insertSeparator();
 

@@ -21,7 +21,7 @@ void WorkerObject::run()
 #define SET_UP_WORKER(x, y)												\
 	WorkerObject x;													\
 	x.moveToThread(&y);												\
-	TQTimer::singleShot(0, &x, SLOT(run()));
+	TQTimer::singleShot(0, &x, TQ_SLOT(run()));
 
 static TDECmdLineOptions options[] =
 {

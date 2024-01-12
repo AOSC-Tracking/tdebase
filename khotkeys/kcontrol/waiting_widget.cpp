@@ -33,8 +33,8 @@ Waiting_widget::Waiting_widget( TQWidget* parent_P, const char* name_P )
     : Waiting_widget_ui( parent_P, name_P )
     {
     // KHotKeys::Module::changed()
-    connect(waiting_spinbox, TQT_SIGNAL(valueChanged(int)),
-        module, TQT_SLOT(changed()));
+    connect(waiting_spinbox, TQ_SIGNAL(valueChanged(int)),
+        module, TQ_SLOT(changed()));
     }
 
 void Waiting_widget::set_data( const Waiting_action* data_P )

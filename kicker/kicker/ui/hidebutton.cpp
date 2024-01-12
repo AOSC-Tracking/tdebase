@@ -38,8 +38,8 @@ HideButton::HideButton(TQWidget *parent, const char *name)
 {
     setBackgroundOrigin(AncestorOrigin);
 
-    connect(kapp, TQT_SIGNAL(settingsChanged(int)), TQT_SLOT(slotSettingsChanged(int)));
-    connect(kapp, TQT_SIGNAL(iconChanged(int)), TQT_SLOT(slotIconChanged(int)));
+    connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
+    connect(kapp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(slotIconChanged(int)));
 
     kapp->addKipcEventMask(KIPC::SettingsChanged);
     kapp->addKipcEventMask(KIPC::IconChanged);

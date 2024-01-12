@@ -73,7 +73,7 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
 		kdDebug() << "xkb initialization failed, exiting..." << endl;
 		::exit(1);
     }
-    connect(m_extension, TQT_SIGNAL(groupChanged(uint)), this, TQT_SLOT(slotGroupChanged(uint)));
+    connect(m_extension, TQ_SIGNAL(groupChanged(uint)), this, TQ_SLOT(slotGroupChanged(uint)));
 
 	m_layoutOwnerMap = new LayoutMap(kxkbConfig);
 
@@ -81,7 +81,7 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
 	keys = new TDEGlobalAccel(this);
 #include "kxkbbindings.cpp"
 
-    connect( this, TQT_SIGNAL(settingsChanged(int)), TQT_SLOT(slotSettingsChanged(int)) );
+    connect( this, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)) );
     addKipcEventMask( KIPC::SettingsChanged );
 }
 
@@ -132,7 +132,7 @@ bool KXKBApp::settingsRead()
 		
 		if( kWinModule == NULL ) {
 			kWinModule = new KWinModule(0, KWinModule::INFO_DESKTOP);
-			connect(kWinModule, TQT_SIGNAL(activeWindowChanged(WId)), TQT_SLOT(windowChanged(WId)));
+			connect(kWinModule, TQ_SIGNAL(activeWindowChanged(WId)), TQ_SLOT(windowChanged(WId)));
 		}
 		m_prevWinId = kWinModule->activeWindow();
 		kdDebug() << "Active window " << m_prevWinId << endl;
@@ -174,8 +174,8 @@ void KXKBApp::initTray()
 	//	popupMenu->insertTitle( kapp->miniIcon(), kapp->caption() );
 
 		m_tray = new KxkbLabelController(sysTray, popupMenu);
- 		connect(popupMenu, TQT_SIGNAL(activated(int)), this, TQT_SLOT(menuActivated(int)));
-		connect(sysTray, TQT_SIGNAL(toggled()), this, TQT_SLOT(nextLayout()));
+ 		connect(popupMenu, TQ_SIGNAL(activated(int)), this, TQ_SLOT(menuActivated(int)));
+		connect(sysTray, TQ_SIGNAL(toggled()), this, TQ_SLOT(nextLayout()));
 	}
 	
 	m_tray->setShowFlag(kxkbConfig.m_showFlag);

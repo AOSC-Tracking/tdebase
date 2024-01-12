@@ -55,7 +55,7 @@ TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
     TQWhatsThis::add( alGroup, i18n("Turn on the auto-login feature."
 	" This applies only to TDM's graphical login."
 	" Think twice before enabling this!") );
-    connect(alGroup, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
+    connect(alGroup, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
 
     TQWidget *hlpw1 = new TQWidget( alGroup );
     userlb = new KComboBox( hlpw1 );
@@ -64,7 +64,7 @@ TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
     hlpl1->setColStretch(2, 1);
     hlpl1->addWidget(u_label, 0, 0);
     hlpl1->addWidget(userlb, 0, 1);
-    connect(userlb, TQT_SIGNAL(highlighted(int)), TQT_SLOT(slotChanged()));
+    connect(userlb, TQ_SIGNAL(highlighted(int)), TQ_SLOT(slotChanged()));
     wtstr = i18n("Select the user to be logged in automatically.");
     TQWhatsThis::add( u_label, wtstr );
     TQWhatsThis::add( userlb, wtstr );
@@ -74,18 +74,18 @@ TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
     d_label = new TQLabel( delaysb, i18n("D&elay:"), hlpw1 );
     hlpl1->addWidget(d_label, 1, 0);
     hlpl1->addWidget(delaysb, 1, 1);
-    connect(delaysb, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotChanged()));
+    connect(delaysb, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotChanged()));
     wtstr = i18n("The delay (in seconds) before the automatic login kicks in. "
                  "This feature is also known as \"timed login\".");
     TQWhatsThis::add( d_label, wtstr );
     TQWhatsThis::add( delaysb, wtstr );
     againcb = new TQCheckBox( i18n("P&ersistent"), alGroup );
-    connect( againcb, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()) );
+    connect( againcb, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()) );
     TQWhatsThis::add( againcb, i18n("Normally, automatic login is performed only "
 	"when TDM starts up. If this is checked, automatic login will kick in "
 	"after finishing a session as well.") );
     autoLockCheck = new TQCheckBox( i18n("Loc&k session"), alGroup );
-    connect( autoLockCheck, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()) );
+    connect( autoLockCheck, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()) );
     TQWhatsThis::add( autoLockCheck, i18n("If checked, the automatically started session "
 	"will be locked immediately (provided it is a TDE session). This can "
 	"be used to obtain a super-fast login restricted to one user.") );
@@ -94,8 +94,8 @@ TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
     puGroup = new TQVButtonGroup(i18n("Preselect User"), this );
     puGroup->setSizePolicy( vpref );
 
-    connect(puGroup, TQT_SIGNAL(clicked(int)), TQT_SLOT(slotPresChanged()));
-    connect(puGroup, TQT_SIGNAL(clicked(int)), TQT_SLOT(slotChanged()));
+    connect(puGroup, TQ_SIGNAL(clicked(int)), TQ_SLOT(slotPresChanged()));
+    connect(puGroup, TQ_SIGNAL(clicked(int)), TQ_SLOT(slotChanged()));
     npRadio = new TQRadioButton(i18n("preselected user", "&None"), puGroup);
     ppRadio = new TQRadioButton(i18n("Prev&ious"), puGroup);
     TQWhatsThis::add( ppRadio, i18n("Preselect the user that logged in previously. "
@@ -106,7 +106,7 @@ TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
     TQWidget *hlpw = new TQWidget(puGroup);
     puserlb = new KComboBox(true, hlpw);
     pu_label = new TQLabel(puserlb, i18n("Us&er:"), hlpw);
-    connect(puserlb, TQT_SIGNAL(textChanged(const TQString &)), TQT_SLOT(slotChanged()));
+    connect(puserlb, TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT(slotChanged()));
     wtstr = i18n("Select the user to be preselected for login. "
 	"This box is editable, so you can specify an arbitrary non-existent "
 	"user to mislead possible attackers.");
@@ -121,7 +121,7 @@ TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
 	"in the password field instead of the user field after preselecting a user. "
 	"Use this to save one key press per login, if the preselection usually does not need to "
 	"be changed.") );
-    connect(cbjumppw, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
+    connect(cbjumppw, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
 
     npGroup = new TQVGroupBox(i18n("Enable Password-&Less Logins"), this );
     npGroup->setCheckable( true );
@@ -131,7 +131,7 @@ TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
 	" password. This applies only to TDM's graphical login."
 	" Think twice before enabling this!") );
 
-    connect(npGroup, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
+    connect(npGroup, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
 
     pl_label = new TQLabel(i18n("No password re&quired for:"), npGroup);
     npuserlv = new TDEListView(npGroup);
@@ -141,8 +141,8 @@ TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
     npuserlv->setResizeMode(TQListView::LastColumn);
     TQWhatsThis::add(npuserlv, i18n("Check all users you want to allow a password-less login for."
 	" Entries denoted with '@' are user groups. Checking a group is like checking all users in that group."));
-    connect( npuserlv, TQT_SIGNAL(clicked( TQListViewItem * )),
-	     TQT_SLOT(slotChanged()) );
+    connect( npuserlv, TQ_SIGNAL(clicked( TQListViewItem * )),
+	     TQ_SLOT(slotChanged()) );
 
     btGroup = new TQVGroupBox( i18n("Miscellaneous"), this );
 
@@ -152,12 +152,12 @@ TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
 	" X server crash; note that this can open a security hole: if you use"
 	" a screen locker than TDE's integrated one, this will make"
 	" circumventing a password-secured screen lock possible.") );
-    connect(cbarlen, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
+    connect(cbarlen, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
 
     allowRootLogin = new TQCheckBox(i18n("Allow &Root Login"), btGroup);
     TQWhatsThis::add( allowRootLogin, i18n("When set this allows root logins directly in TDM. "
     "This is discouraged by some people. Use with caution.") );
-    connect(allowRootLogin, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
+    connect(allowRootLogin, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
 
     TQGridLayout *main = new TQGridLayout(this, 5, 2, 10);
     main->addWidget(paranoia, 0, 0);
@@ -169,12 +169,12 @@ TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
     main->setColStretch(1, 2);
     main->setRowStretch(3, 1);
 
-    connect( userlb, TQT_SIGNAL(activated( const TQString & )),
-	     TQT_SLOT(slotSetAutoUser( const TQString & )) );
-    connect( puserlb, TQT_SIGNAL(textChanged( const TQString & )),
-	     TQT_SLOT(slotSetPreselUser( const TQString & )) );
-    connect( npuserlv, TQT_SIGNAL(clicked( TQListViewItem * )),
-	     TQT_SLOT(slotUpdateNoPassUser( TQListViewItem * )) );
+    connect( userlb, TQ_SIGNAL(activated( const TQString & )),
+	     TQ_SLOT(slotSetAutoUser( const TQString & )) );
+    connect( puserlb, TQ_SIGNAL(textChanged( const TQString & )),
+	     TQ_SLOT(slotSetPreselUser( const TQString & )) );
+    connect( npuserlv, TQ_SIGNAL(clicked( TQListViewItem * )),
+	     TQ_SLOT(slotUpdateNoPassUser( TQListViewItem * )) );
 
 }
 

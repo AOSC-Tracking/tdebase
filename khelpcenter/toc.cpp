@@ -133,8 +133,8 @@ int TOC::cachedCTime() const
 void TOC::buildCache()
 {
 	TDEProcess *meinproc = new TDEProcess;
-	connect( meinproc, TQT_SIGNAL( processExited( TDEProcess * ) ),
-	         this, TQT_SLOT( meinprocExited( TDEProcess * ) ) );
+	connect( meinproc, TQ_SIGNAL( processExited( TDEProcess * ) ),
+	         this, TQ_SLOT( meinprocExited( TDEProcess * ) ) );
 
 	*meinproc << locate( "exe", "meinproc" );
 	*meinproc << "--stylesheet" << locate( "data", "khelpcenter/table-of-contents.xslt" );

@@ -52,7 +52,7 @@ VoiceRecorder::VoiceRecorder(const Sound& sound_P, const TQString &voiceId, TQWi
 	buttonPlay->setEnabled(sound_P.size() > 50);
 	buttonStop->setEnabled(false);
 
-	connect (_recorder , TQT_SIGNAL(recorded(const Sound& )) , this , TQT_SLOT(slotSoundRecorded(const Sound& ) ));
+	connect (_recorder , TQ_SIGNAL(recorded(const Sound& )) , this , TQ_SLOT(slotSoundRecorded(const Sound& ) ));
 
 	//if(voiceid_P.isEmpty())
 	emit recorded(false);
@@ -168,7 +168,7 @@ bool VoiceRecorder::drawSound()
 	uint lx=0;
 	uint ly=height/2;
 
-	/***     DRAW THE TQT_SIGNAL     ******/
+	/***     DRAW THE TQ_SIGNAL     ******/
 	for(uint f=1; f<length; f++)
 	{
 		uint nx=f*width/length;

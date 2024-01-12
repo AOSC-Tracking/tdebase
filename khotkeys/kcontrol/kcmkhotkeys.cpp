@@ -78,12 +78,12 @@ Module::Module( TQWidget* parent_P, const char* )
     vbox->addWidget( splt );
     buttons_widget = new Main_buttons_widget( this );
     vbox->addWidget( buttons_widget );
-    connect( actions_listview_widget, TQT_SIGNAL( current_action_changed()),
-        TQT_SLOT( listview_current_action_changed()));
-    connect( buttons_widget, TQT_SIGNAL( new_action_pressed()),  TQT_SLOT( new_action()));
-    connect( buttons_widget, TQT_SIGNAL( new_action_group_pressed()),  TQT_SLOT( new_action_group()));
-    connect( buttons_widget, TQT_SIGNAL( delete_action_pressed()),  TQT_SLOT( delete_action()));
-    connect( buttons_widget, TQT_SIGNAL( global_settings_pressed()), TQT_SLOT( global_settings()));
+    connect( actions_listview_widget, TQ_SIGNAL( current_action_changed()),
+        TQ_SLOT( listview_current_action_changed()));
+    connect( buttons_widget, TQ_SIGNAL( new_action_pressed()),  TQ_SLOT( new_action()));
+    connect( buttons_widget, TQ_SIGNAL( new_action_group_pressed()),  TQ_SLOT( new_action_group()));
+    connect( buttons_widget, TQ_SIGNAL( delete_action_pressed()),  TQ_SLOT( delete_action()));
+    connect( buttons_widget, TQ_SIGNAL( global_settings_pressed()), TQ_SLOT( global_settings()));
 //    listview_current_action_changed(); // init
 						
 		TDEAboutData* about = new TDEAboutData("kcmkhotkeys", I18N_NOOP("KHotKeys"), KHOTKEYS_VERSION,

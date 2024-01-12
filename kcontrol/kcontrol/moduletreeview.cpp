@@ -85,8 +85,8 @@ ModuleTreeView::ModuleTreeView(ConfigModuleList *list, TQWidget * parent, const 
 
   new ModuleTreeWhatsThis( this );
 
-  connect(this, TQT_SIGNAL(clicked(TQListViewItem*)),
-                  this, TQT_SLOT(slotItemSelected(TQListViewItem*)));
+  connect(this, TQ_SIGNAL(clicked(TQListViewItem*)),
+                  this, TQ_SLOT(slotItemSelected(TQListViewItem*)));
 }
 
 void ModuleTreeView::fill()

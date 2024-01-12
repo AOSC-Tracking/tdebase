@@ -98,10 +98,10 @@ void KTagComboBox::clear()
   delete old_popup;
   old_popup = popup;
   popup = new TQPopupMenu(this);
-  connect( popup, TQT_SIGNAL(activated(int)),
-                        TQT_SLOT(internalActivate(int)) );
-  connect( popup, TQT_SIGNAL(highlighted(int)),
-                        TQT_SLOT(internalHighlight(int)) );
+  connect( popup, TQ_SIGNAL(activated(int)),
+                        TQ_SLOT(internalActivate(int)) );
+  connect( popup, TQ_SIGNAL(highlighted(int)),
+                        TQ_SLOT(internalHighlight(int)) );
 }
 
 int KTagComboBox::count() const
@@ -176,10 +176,10 @@ void KTagComboBox::insertSubmenu(const TQString &text, const TQString &tag, cons
   checkInsertPos(pi, text, index);
   pi->insertItem(text, p, count(), index);
   tags->append(tag);
-  connect( p, TQT_SIGNAL(activated(int)),
-                        TQT_SLOT(internalActivate(int)) );
-  connect( p, TQT_SIGNAL(highlighted(int)),
-                        TQT_SLOT(internalHighlight(int)) );
+  connect( p, TQ_SIGNAL(activated(int)),
+                        TQ_SLOT(internalActivate(int)) );
+  connect( p, TQ_SIGNAL(highlighted(int)),
+                        TQ_SLOT(internalHighlight(int)) );
 }
 
 void KTagComboBox::paintEvent( TQPaintEvent * ev)

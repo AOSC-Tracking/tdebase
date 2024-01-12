@@ -689,11 +689,11 @@ ButtonPositionWidget::ButtonPositionWidget(TQWidget *parent, const char* name)
 	layout->addWidget(m_dropSite);
 	layout->addWidget(m_buttonSource);
 
-	connect( m_dropSite, TQT_SIGNAL(buttonAdded(TQChar)), m_buttonSource, TQT_SLOT(hideButton(TQChar)) );
-	connect( m_dropSite, TQT_SIGNAL(buttonRemoved(TQChar)), m_buttonSource, TQT_SLOT(showButton(TQChar)) );
-	connect( m_buttonSource, TQT_SIGNAL(dropped(TQDropEvent*, TQListViewItem*)), m_dropSite, TQT_SLOT(removeSelectedButton()) );
+	connect( m_dropSite, TQ_SIGNAL(buttonAdded(TQChar)), m_buttonSource, TQ_SLOT(hideButton(TQChar)) );
+	connect( m_dropSite, TQ_SIGNAL(buttonRemoved(TQChar)), m_buttonSource, TQ_SLOT(showButton(TQChar)) );
+	connect( m_buttonSource, TQ_SIGNAL(dropped(TQDropEvent*, TQListViewItem*)), m_dropSite, TQ_SLOT(removeSelectedButton()) );
 
-	connect( m_dropSite, TQT_SIGNAL(changed()), TQT_SIGNAL(changed()) );
+	connect( m_dropSite, TQ_SIGNAL(changed()), TQ_SIGNAL(changed()) );
 
 	// insert all possible buttons into the source (backwards to keep the preferred order...)
 	bool dummy;

@@ -257,8 +257,8 @@ Active_window_condition::Active_window_condition( TDEConfig& cfg_P, Condition_li
 
 void Active_window_condition::init()
     {
-    connect( windows_handler, TQT_SIGNAL( active_window_changed( WId )),
-        this, TQT_SLOT( active_window_changed( WId )));
+    connect( windows_handler, TQ_SIGNAL( active_window_changed( WId )),
+        this, TQ_SLOT( active_window_changed( WId )));
     }
 
 bool Active_window_condition::match() const
@@ -323,8 +323,8 @@ Existing_window_condition::Existing_window_condition( TDEConfig& cfg_P, Conditio
 
 void Existing_window_condition::init()
     {
-    connect( windows_handler, TQT_SIGNAL( window_added( WId )), this, TQT_SLOT( window_added( WId )));
-    connect( windows_handler, TQT_SIGNAL( window_removed( WId )), this, TQT_SLOT( window_removed( WId )));
+    connect( windows_handler, TQ_SIGNAL( window_added( WId )), this, TQ_SLOT( window_added( WId )));
+    connect( windows_handler, TQ_SIGNAL( window_removed( WId )), this, TQ_SLOT( window_removed( WId )));
     }
 
 bool Existing_window_condition::match() const

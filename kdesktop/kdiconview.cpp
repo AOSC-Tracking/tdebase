@@ -162,32 +162,32 @@ KDIconView::KDIconView( TQWidget *parent, const char* name )
     // Initialize media handler
     mMediaListView = new TQListView();
 
-    connect( TQApplication::clipboard(), TQT_SIGNAL(dataChanged()), this, TQT_SLOT(slotClipboardDataChanged()) );
+    connect( TQApplication::clipboard(), TQ_SIGNAL(dataChanged()), this, TQ_SLOT(slotClipboardDataChanged()) );
 
     setURL( desktopURL() ); // sets m_url
 
     m_desktopDirs = TDEGlobal::dirs()->findDirs( "appdata", "Desktop" );
     initDotDirectories();
 
-    connect( this, TQT_SIGNAL( executed( TQIconViewItem * ) ),
-             TQT_SLOT( slotExecuted( TQIconViewItem * ) ) );
-    connect( this, TQT_SIGNAL( returnPressed( TQIconViewItem * ) ),
-             TQT_SLOT( slotReturnPressed( TQIconViewItem * ) ) );
-    connect( this, TQT_SIGNAL( mouseButtonPressed(int, TQIconViewItem*, const TQPoint&)),
-             TQT_SLOT( slotMouseButtonPressed(int, TQIconViewItem*, const TQPoint&)) );
-    connect( this, TQT_SIGNAL( mouseButtonClicked(int, TQIconViewItem*, const TQPoint&)),
-             TQT_SLOT( slotMouseButtonClickedKDesktop(int, TQIconViewItem*, const TQPoint&)) );
-    connect( this, TQT_SIGNAL( contextMenuRequested(TQIconViewItem*, const TQPoint&)),
-             TQT_SLOT( slotContextMenuRequested(TQIconViewItem*, const TQPoint&)) );
+    connect( this, TQ_SIGNAL( executed( TQIconViewItem * ) ),
+             TQ_SLOT( slotExecuted( TQIconViewItem * ) ) );
+    connect( this, TQ_SIGNAL( returnPressed( TQIconViewItem * ) ),
+             TQ_SLOT( slotReturnPressed( TQIconViewItem * ) ) );
+    connect( this, TQ_SIGNAL( mouseButtonPressed(int, TQIconViewItem*, const TQPoint&)),
+             TQ_SLOT( slotMouseButtonPressed(int, TQIconViewItem*, const TQPoint&)) );
+    connect( this, TQ_SIGNAL( mouseButtonClicked(int, TQIconViewItem*, const TQPoint&)),
+             TQ_SLOT( slotMouseButtonClickedKDesktop(int, TQIconViewItem*, const TQPoint&)) );
+    connect( this, TQ_SIGNAL( contextMenuRequested(TQIconViewItem*, const TQPoint&)),
+             TQ_SLOT( slotContextMenuRequested(TQIconViewItem*, const TQPoint&)) );
 
-    connect( this, TQT_SIGNAL( enableAction( const char * , bool ) ),
-             TQT_SLOT( slotEnableAction( const char * , bool ) ) );
+    connect( this, TQ_SIGNAL( enableAction( const char * , bool ) ),
+             TQ_SLOT( slotEnableAction( const char * , bool ) ) );
 
     // Hack: KonqIconViewWidget::slotItemRenamed is not virtual :-(
-    disconnect( this, TQT_SIGNAL(itemRenamed(TQIconViewItem *, const TQString &)),
-             this, TQT_SLOT(slotItemRenamed(TQIconViewItem *, const TQString &)) );
-    connect( this, TQT_SIGNAL(itemRenamed(TQIconViewItem *, const TQString &)),
-             this, TQT_SLOT(slotItemRenamed(TQIconViewItem *, const TQString &)) );
+    disconnect( this, TQ_SIGNAL(itemRenamed(TQIconViewItem *, const TQString &)),
+             this, TQ_SLOT(slotItemRenamed(TQIconViewItem *, const TQString &)) );
+    connect( this, TQ_SIGNAL(itemRenamed(TQIconViewItem *, const TQString &)),
+             this, TQ_SLOT(slotItemRenamed(TQIconViewItem *, const TQString &)) );
 
     if (!m_bEditableDesktopIcons)
     {
@@ -370,12 +370,12 @@ void KDIconView::start()
 
     m_bNeedSave = false;
 
-    connect( m_dirLister, TQT_SIGNAL( clear() ),                               this, TQT_SLOT( slotClear() ) );
-    connect( m_dirLister, TQT_SIGNAL( started(const KURL&) ),                  this, TQT_SLOT( slotStarted(const KURL&) ) );
-    connect( m_dirLister, TQT_SIGNAL( completed() ),                           this, TQT_SLOT( slotCompleted() ) );
-    connect( m_dirLister, TQT_SIGNAL( newItems( const KFileItemList & ) ),     this, TQT_SLOT( slotNewItems( const KFileItemList & ) ) );
-    connect( m_dirLister, TQT_SIGNAL( deleteItem( KFileItem * ) ),             this, TQT_SLOT( slotDeleteItem( KFileItem * ) ) );
-    connect( m_dirLister, TQT_SIGNAL( refreshItems( const KFileItemList & ) ), this, TQT_SLOT( slotRefreshItems( const KFileItemList & ) ) );
+    connect( m_dirLister, TQ_SIGNAL( clear() ),                               this, TQ_SLOT( slotClear() ) );
+    connect( m_dirLister, TQ_SIGNAL( started(const KURL&) ),                  this, TQ_SLOT( slotStarted(const KURL&) ) );
+    connect( m_dirLister, TQ_SIGNAL( completed() ),                           this, TQ_SLOT( slotCompleted() ) );
+    connect( m_dirLister, TQ_SIGNAL( newItems( const KFileItemList & ) ),     this, TQ_SLOT( slotNewItems( const KFileItemList & ) ) );
+    connect( m_dirLister, TQ_SIGNAL( deleteItem( KFileItem * ) ),             this, TQ_SLOT( slotDeleteItem( KFileItem * ) ) );
+    connect( m_dirLister, TQ_SIGNAL( refreshItems( const KFileItemList & ) ), this, TQ_SLOT( slotRefreshItems( const KFileItemList & ) ) );
 
     // Start the directory lister !
     m_dirLister->setShowingDotFiles( m_bShowDot );
@@ -420,35 +420,35 @@ void KDIconView::createActions()
 {
     if (m_bEditableDesktopIcons)
     {
-        TDEAction *undo = KStdAction::undo( KonqUndoManager::self(), TQT_SLOT( undo() ), &m_actionCollection, "undo" );
-        connect( KonqUndoManager::self(), TQT_SIGNAL( undoAvailable( bool ) ),
-             undo, TQT_SLOT( setEnabled( bool ) ) );
-        connect( KonqUndoManager::self(), TQT_SIGNAL( undoTextChanged( const TQString & ) ),
-             undo, TQT_SLOT( setText( const TQString & ) ) );
+        TDEAction *undo = KStdAction::undo( KonqUndoManager::self(), TQ_SLOT( undo() ), &m_actionCollection, "undo" );
+        connect( KonqUndoManager::self(), TQ_SIGNAL( undoAvailable( bool ) ),
+             undo, TQ_SLOT( setEnabled( bool ) ) );
+        connect( KonqUndoManager::self(), TQ_SIGNAL( undoTextChanged( const TQString & ) ),
+             undo, TQ_SLOT( setText( const TQString & ) ) );
         undo->setEnabled( KonqUndoManager::self()->undoAvailable() );
 
-        TDEAction* paCut = KStdAction::cut( this, TQT_SLOT( slotCut() ), &m_actionCollection, "cut" );
+        TDEAction* paCut = KStdAction::cut( this, TQ_SLOT( slotCut() ), &m_actionCollection, "cut" );
         TDEShortcut cutShortCut = paCut->shortcut();
         cutShortCut.remove( KKey( SHIFT + Key_Delete ) ); // used for deleting files
         paCut->setShortcut( cutShortCut );
 
-        KStdAction::copy( this, TQT_SLOT( slotCopy() ), &m_actionCollection, "copy" );
-        KStdAction::paste( this, TQT_SLOT( slotPaste() ), &m_actionCollection, "paste" );
-        TDEAction *pasteTo = KStdAction::paste( this, TQT_SLOT( slotPopupPasteTo() ), &m_actionCollection, "pasteto" );
+        KStdAction::copy( this, TQ_SLOT( slotCopy() ), &m_actionCollection, "copy" );
+        KStdAction::paste( this, TQ_SLOT( slotPaste() ), &m_actionCollection, "paste" );
+        TDEAction *pasteTo = KStdAction::paste( this, TQ_SLOT( slotPopupPasteTo() ), &m_actionCollection, "pasteto" );
         pasteTo->setEnabled( false ); // only enabled during popupMenu()
 
         TDEShortcut reloadShortcut = TDEStdAccel::shortcut(TDEStdAccel::Reload);
-        new TDEAction( i18n( "&Reload" ), "reload", reloadShortcut, this, TQT_SLOT( refreshIcons() ), &m_actionCollection, "reload" );
+        new TDEAction( i18n( "&Reload" ), "reload", reloadShortcut, this, TQ_SLOT( refreshIcons() ), &m_actionCollection, "reload" );
 
-        (void) new TDEAction( i18n( "&Rename" ), /*"editrename",*/ Key_F2, this, TQT_SLOT( renameSelectedItem() ), &m_actionCollection, "rename" );
-        (void) new TDEAction( i18n( "&Properties" ), ALT+Key_Return, this, TQT_SLOT( slotProperties() ), &m_actionCollection, "properties" );
+        (void) new TDEAction( i18n( "&Rename" ), /*"editrename",*/ Key_F2, this, TQ_SLOT( renameSelectedItem() ), &m_actionCollection, "rename" );
+        (void) new TDEAction( i18n( "&Properties" ), ALT+Key_Return, this, TQ_SLOT( slotProperties() ), &m_actionCollection, "properties" );
         TDEAction* trash = new TDEAction( i18n( "&Move to Trash" ), "edittrash", Key_Delete, &m_actionCollection, "trash" );
-        connect( trash, TQT_SIGNAL( activated( TDEAction::ActivationReason, TQt::ButtonState ) ),
-                 this, TQT_SLOT( slotTrashActivated( TDEAction::ActivationReason, TQt::ButtonState ) ) );
+        connect( trash, TQ_SIGNAL( activated( TDEAction::ActivationReason, TQt::ButtonState ) ),
+                 this, TQ_SLOT( slotTrashActivated( TDEAction::ActivationReason, TQt::ButtonState ) ) );
 
         TDEConfig config("kdeglobals", true, false);
         config.setGroup( "KDE" );
-        (void) new TDEAction( i18n( "&Delete" ), "edit-delete", SHIFT+Key_Delete, this, TQT_SLOT( slotDelete() ), &m_actionCollection, "del" );
+        (void) new TDEAction( i18n( "&Delete" ), "edit-delete", SHIFT+Key_Delete, this, TQ_SLOT( slotDelete() ), &m_actionCollection, "del" );
 
         // Initial state of the actions (cut/copy/paste/...)
         slotSelectionChanged();
@@ -526,8 +526,8 @@ void KDIconView::setAutoAlign( bool b )
         else {
             KRootWm::self()->startup = false;
         }
-        connect( this, TQT_SIGNAL( iconMoved() ),
-                 this, TQT_SLOT( lineupIcons() ) );
+        connect( this, TQ_SIGNAL( iconMoved() ),
+                 this, TQ_SLOT( lineupIcons() ) );
     }
     else {
         // change maxItemWidth, because when grid-align was active, it changed this for the grid
@@ -535,8 +535,8 @@ void KDIconView::setAutoAlign( bool b )
         setMaxItemWidth( TQMAX( TQMAX( sz, previewIconSize( iconSize() ) ), KonqFMSettings::settings()->iconTextWidth() ) );
         setFont( font() );  // Force calcRect()
 
-        disconnect( this, TQT_SIGNAL( iconMoved() ),
-                    this, TQT_SLOT( lineupIcons() ) );
+        disconnect( this, TQ_SIGNAL( iconMoved() ),
+                    this, TQ_SLOT( lineupIcons() ) );
     }
 }
 
@@ -1446,7 +1446,7 @@ void KDIconView::showFreeSpaceOverlay(KFileIVI* item)
            if (!m_paOutstandingFreeSpaceOverlaysTimer)
            {
               m_paOutstandingFreeSpaceOverlaysTimer = new TQTimer(this);
-              connect(m_paOutstandingFreeSpaceOverlaysTimer, TQT_SIGNAL(timeout()), TQT_SLOT(slotFreeSpaceOverlayStart()));
+              connect(m_paOutstandingFreeSpaceOverlaysTimer, TQ_SIGNAL(timeout()), TQ_SLOT(slotFreeSpaceOverlayStart()));
            }
            m_paOutstandingFreeSpaceOverlaysTimer->start(20, true);
         }
@@ -1466,7 +1466,7 @@ void KDIconView::slotFreeSpaceOverlayStart()
 
        if (overlay)
        {
-          connect( overlay, TQT_SIGNAL( finished() ), this, TQT_SLOT( slotFreeSpaceOverlayFinished() ) );
+          connect( overlay, TQ_SIGNAL( finished() ), this, TQ_SLOT( slotFreeSpaceOverlayFinished() ) );
           overlay->start(); // Watch out, may emit finished() immediately!!
           return; // Let it run....
        }

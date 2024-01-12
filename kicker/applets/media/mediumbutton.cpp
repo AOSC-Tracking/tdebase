@@ -48,10 +48,10 @@ MediumButton::MediumButton(TQWidget *parent, const KFileItem &fileItem)
 	: PanelPopupButton(parent), mActions(this, this), mFileItem(fileItem), mOpenTimer(0,
                 "MediumButton::mOpenTimer")
 {
-    TDEAction *a = KStdAction::paste(this, TQT_SLOT(slotPaste()),
+    TDEAction *a = KStdAction::paste(this, TQ_SLOT(slotPaste()),
                                     &mActions, "pasteto");
     a->setShortcut(0);
-    a = KStdAction::copy(this, TQT_SLOT(slotCopy()), &mActions, "copy");
+    a = KStdAction::copy(this, TQ_SLOT(slotCopy()), &mActions, "copy");
     a->setShortcut(0);
     
     setBackgroundOrigin(AncestorOrigin);
@@ -64,11 +64,11 @@ MediumButton::MediumButton(TQWidget *parent, const KFileItem &fileItem)
     
     refreshType();
     
-    connect(&mOpenTimer, TQT_SIGNAL(timeout()), TQT_SLOT(slotDragOpen()));
+    connect(&mOpenTimer, TQ_SIGNAL(timeout()), TQ_SLOT(slotDragOpen()));
     
     // Activate this code only if we find a way to have both an
     // action and a popup menu for the same kicker button
-    //connect(this, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotClicked()));
+    //connect(this, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotClicked()));
     
     setPopup(new TQPopupMenu());
 }

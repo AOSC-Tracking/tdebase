@@ -102,8 +102,8 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
 
     tabwidget->addTab(tab1, i18n("&General"));
 
-    connect(tab1->handedBox, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(changed()));
-    connect(tab1->handedBox, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(slotHandedChanged(int)));
+    connect(tab1->handedBox, TQ_SIGNAL(clicked(int)), this, TQ_SLOT(changed()));
+    connect(tab1->handedBox, TQ_SIGNAL(clicked(int)), this, TQ_SLOT(slotHandedChanged(int)));
 
     wtstr = i18n("If you are left-handed, you may prefer to swap the"
          " functions of the left and right buttons on your pointing device"
@@ -113,7 +113,7 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
          " a three-button mouse, the middle button is unaffected.");
     TQWhatsThis::add( tab1->handedBox, wtstr );
 
-    connect(tab1->doubleClick, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
+    connect(tab1->doubleClick, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
 
     wtstr = i18n("The default behavior in TDE is to select and activate"
          " icons with a single click of the left button on your pointing"
@@ -127,7 +127,7 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     TQWhatsThis::add( tab1->singleClick, wtstr );
 
 
-    connect(tab1->cbAutoSelect, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(tab1->cbAutoSelect, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
     wtstr = i18n("If you check this option, pausing the mouse pointer"
          " over an icon on the screen will automatically select that icon."
@@ -149,16 +149,16 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     wtstr = i18n("Show feedback when clicking an icon");
     TQWhatsThis::add( tab1->cbVisualActivate, wtstr );
 
-    connect(tab1->slAutoSelect, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-    connect(tab1->cbVisualActivate, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(tab1->slAutoSelect, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+    connect(tab1->cbVisualActivate, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
-    connect(tab1->cb_pointershape, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(tab1->cb_pointershape, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
-    connect(tab1->singleClick, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
-    connect(tab1->singleClick, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotClick()));
+    connect(tab1->singleClick, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
+    connect(tab1->singleClick, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotClick()));
 
-    connect( tab1->doubleClick, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotClick() ) );
-    connect( tab1->cbAutoSelect, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotClick() ) );
+    connect( tab1->doubleClick, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotClick() ) );
+    connect( tab1->cbAutoSelect, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotClick() ) );
 
     // Only allow setting reversing scroll polarity if we have scroll buttons
     unsigned char map[20];
@@ -172,12 +172,12 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
       tab1->cbScrollPolarity->setEnabled( false );
       tab1->cbScrollPolarity->hide();
     }
-    connect(tab1->cbScrollPolarity, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
-    connect(tab1->cbScrollPolarity, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotScrollPolarityChanged()));
+    connect(tab1->cbScrollPolarity, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
+    connect(tab1->cbScrollPolarity, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotScrollPolarityChanged()));
 
     // Cursor theme tab
     themetab = new ThemePage(this);
-    connect(themetab, TQT_SIGNAL(changed(bool)), TQT_SLOT(changed()));
+    connect(themetab, TQ_SIGNAL(changed(bool)), TQ_SLOT(changed()));
     tabwidget->addTab(themetab, i18n("&Cursor Theme"));
 
     // Advanced tab
@@ -191,7 +191,7 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     accel->setLabel(i18n("Pointer acceleration:"));
     accel->setSuffix("x");
     lay->addWidget(accel);
-    connect(accel, TQT_SIGNAL(valueChanged(double)), this, TQT_SLOT(changed()));
+    connect(accel, TQ_SIGNAL(valueChanged(double)), this, TQ_SLOT(changed()));
 
     wtstr = i18n("This option allows you to change the relationship"
          " between the distance that the mouse pointer moves on the"
@@ -210,8 +210,8 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     thresh->setRange(0,20,1);
     thresh->setSteps(1,1);
     lay->addWidget(thresh);
-    connect(thresh, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-    connect(thresh, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(slotThreshChanged(int)));
+    connect(thresh, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+    connect(thresh, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(slotThreshChanged(int)));
     slotThreshChanged(thresh->value());
 
     wtstr = i18n("The threshold is the smallest distance that the"
@@ -231,7 +231,7 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     doubleClickInterval->setSuffix(i18n(" msec"));
     doubleClickInterval->setSteps(100, 100);
     lay->addWidget(doubleClickInterval);
-    connect(doubleClickInterval, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
+    connect(doubleClickInterval, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
 
     wtstr = i18n("The double click interval is the maximal time"
          " (in milliseconds) between two mouse clicks which"
@@ -267,9 +267,9 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     lay->addWidget(doubleClickButton);
     // Use the same What's This help for the pushbutton.
     TQWhatsThis::add( doubleClickButton, wtstr );
-    connect(doubleClickButton, TQT_SIGNAL(pressed()), this, TQT_SLOT(slotDoubleClickButtonPressed()));
+    connect(doubleClickButton, TQ_SIGNAL(pressed()), this, TQ_SLOT(slotDoubleClickButtonPressed()));
     doubleClickTimer=new TQTimer();
-    connect(doubleClickTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotDoubleClickTimerDone()) );
+    connect(doubleClickTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(slotDoubleClickTimerDone()) );
 
     lay->addSpacing(10);
 
@@ -279,7 +279,7 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     dragStartTime->setSuffix(i18n(" msec"));
     dragStartTime->setSteps(100, 100);
     lay->addWidget(dragStartTime);
-    connect(dragStartTime, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
+    connect(dragStartTime, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
 
     wtstr = i18n("If you click with the mouse (e.g. in a multi-line"
          " editor) and begin to move the mouse within the"
@@ -291,8 +291,8 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     dragStartDist->setRange(1, 20, 1);
     dragStartDist->setSteps(1,1);
     lay->addWidget(dragStartDist);
-    connect(dragStartDist, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-    connect(dragStartDist, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(slotDragStartDistChanged(int)));
+    connect(dragStartDist, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+    connect(dragStartDist, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(slotDragStartDistChanged(int)));
     slotDragStartDistChanged(dragStartDist->value());
 
     wtstr = i18n("If you click with the mouse and begin to move the"
@@ -305,8 +305,8 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     wheelScrollLines->setRange(1, 12, 1);
     wheelScrollLines->setSteps(1,1);
     lay->addWidget(wheelScrollLines);
-    connect(wheelScrollLines, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-    connect(wheelScrollLines, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotWheelScrollLinesChanged(int)));
+    connect(wheelScrollLines, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+    connect(wheelScrollLines, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotWheelScrollLinesChanged(int)));
     slotWheelScrollLinesChanged(wheelScrollLines->value());
 
     wtstr = i18n("If you use the wheel of a mouse, this value determines the number of lines to scroll for each wheel movement. Note that if this number exceeds the number of visible lines, it will be ignored and the wheel movement will be handled as a page up/down movement.");
@@ -365,13 +365,13 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
   mk_curve->setRange(-1000, 1000, 100);
   hbox->addWidget(mk_curve);
 
-  connect(mouseKeys, TQT_SIGNAL(clicked()), this, TQT_SLOT(checkAccess()));
-  connect(mouseKeys, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
-  connect(mk_delay, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-  connect(mk_interval, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-  connect(mk_time_to_max, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-  connect(mk_max_speed, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-  connect(mk_curve, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
+  connect(mouseKeys, TQ_SIGNAL(clicked()), this, TQ_SLOT(checkAccess()));
+  connect(mouseKeys, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
+  connect(mk_delay, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+  connect(mk_interval, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+  connect(mk_time_to_max, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+  connect(mk_max_speed, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+  connect(mk_curve, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
 
   vbox->addStretch();
 }

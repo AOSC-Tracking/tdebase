@@ -51,8 +51,8 @@ ModuleIconView::ModuleIconView(ConfigModuleList *list, TQWidget * parent, const 
   // This is intentionally _not_ connected with executed(), since
   // honoring doubleclick doesn't make any sense here (changed by
   // large user demand)
-  connect(this, TQT_SIGNAL(clicked(TQListViewItem*)),
-          this, TQT_SLOT(slotItemSelected(TQListViewItem*)));
+  connect(this, TQ_SIGNAL(clicked(TQListViewItem*)),
+          this, TQ_SLOT(slotItemSelected(TQListViewItem*)));
 }
 
 void ModuleIconView::makeSelected(ConfigModule *m)

@@ -99,7 +99,7 @@ TaskBarContainer::TaskBarContainer( bool enableFrame, TQString configFileOverrid
     taskBar = new TaskBar(settingsObject, globalSettingsObject, this);
     layout->addWidget( taskBar );
 
-    connect( taskBar, TQT_SIGNAL( containerCountChanged() ), TQT_SIGNAL( containerCountChanged() ) );
+    connect( taskBar, TQ_SIGNAL( containerCountChanged() ), TQ_SIGNAL( containerCountChanged() ) );
 
     setBackground();
 
@@ -134,10 +134,10 @@ void TaskBarContainer::configure()
         // window list button
         windowListButton = new SimpleButton(this);
         windowListMenu= new KWindowListMenu;
-        connect(windowListButton, TQT_SIGNAL(pressed()),
-                TQT_SLOT(showWindowListMenu()));
-        connect(windowListMenu, TQT_SIGNAL(aboutToHide()),
-                TQT_SLOT(windowListMenuAboutToHide()));
+        connect(windowListButton, TQ_SIGNAL(pressed()),
+                TQ_SLOT(showWindowListMenu()));
+        connect(windowListMenu, TQ_SIGNAL(aboutToHide()),
+                TQ_SLOT(windowListMenuAboutToHide()));
 
         // geometry
         TQString icon;
@@ -299,9 +299,9 @@ void TaskBarContainer::showWindowListMenu()
             break;
     }
 
-    disconnect( windowListButton, TQT_SIGNAL( pressed() ), this, TQT_SLOT( showWindowListMenu() ) );
+    disconnect( windowListButton, TQ_SIGNAL( pressed() ), this, TQ_SLOT( showWindowListMenu() ) );
     windowListMenu->exec( pos );
-    TQTimer::singleShot(100, this, TQT_SLOT(reconnectWindowListButton()));
+    TQTimer::singleShot(100, this, TQ_SLOT(reconnectWindowListButton()));
 }
 
 void TaskBarContainer::windowListMenuAboutToHide()
@@ -313,7 +313,7 @@ void TaskBarContainer::windowListMenuAboutToHide()
 
 void TaskBarContainer::reconnectWindowListButton()
 {
-    connect( windowListButton, TQT_SIGNAL( pressed() ), TQT_SLOT( showWindowListMenu() ) );
+    connect( windowListButton, TQ_SIGNAL( pressed() ), TQ_SLOT( showWindowListMenu() ) );
 }
 
 TQSize TaskBarContainer::sizeHint( KPanelExtension::Position p, TQSize maxSize) const

@@ -417,7 +417,7 @@ SessionSaveDoneHelper::SessionSaveDoneHelper()
     SmcSetProperties( conn, 5, p );
     notifier = new TQSocketNotifier( IceConnectionNumber( SmcGetIceConnection( conn )),
         TQSocketNotifier::Read, this );
-    connect( notifier, TQT_SIGNAL( activated( int )), TQT_SLOT( processData()));
+    connect( notifier, TQ_SIGNAL( activated( int )), TQ_SLOT( processData()));
     }
 
 SessionSaveDoneHelper::~SessionSaveDoneHelper()

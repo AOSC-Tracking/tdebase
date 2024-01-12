@@ -103,9 +103,9 @@ KDEDConfig::KDEDConfig(TQWidget* parent, const char* name, const TQStringList &)
 	_pbStart->setEnabled( false );
 	_pbStop->setEnabled( false );
 
-	connect(_pbStart, TQT_SIGNAL(clicked()), TQT_SLOT(slotStartService()));
-	connect(_pbStop,  TQT_SIGNAL(clicked()), TQT_SLOT(slotStopService()));
-	connect(_lvStartup, TQT_SIGNAL(selectionChanged(TQListViewItem*)), TQT_SLOT(slotEvalItem(TQListViewItem*)) );
+	connect(_pbStart, TQ_SIGNAL(clicked()), TQ_SLOT(slotStartService()));
+	connect(_pbStop,  TQ_SIGNAL(clicked()), TQ_SLOT(slotStopService()));
+	connect(_lvStartup, TQ_SIGNAL(selectionChanged(TQListViewItem*)), TQ_SLOT(slotEvalItem(TQListViewItem*)) );
 
 	load();
 }
@@ -161,7 +161,7 @@ void KDEDConfig::load( bool useDefaults ) {
 
 			if ( file.readBoolEntry("X-TDE-Kded-autoload") ) {
 				clitem = new CheckListItem(_lvStartup, TQString::null);
-				connect(clitem, TQT_SIGNAL(changed(TQCheckListItem*)), TQT_SLOT(slotItemChecked(TQCheckListItem*)));
+				connect(clitem, TQ_SIGNAL(changed(TQCheckListItem*)), TQ_SLOT(slotItemChecked(TQCheckListItem*)));
 				clitem->setOn(autoloadEnabled(&kdedrc, *it));
 				item = clitem;
 				item->setText(1, file.readName());
@@ -212,7 +212,7 @@ void KDEDConfig::save() {
 	kdedrc.sync();
 
 	DCOPRef( "kded", "kded" ).call( "reconfigure" );
-	TQTimer::singleShot(0, this, TQT_SLOT(slotServiceRunningToggled()));
+	TQTimer::singleShot(0, this, TQ_SLOT(slotServiceRunningToggled()));
 }
 
 

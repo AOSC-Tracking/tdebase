@@ -70,14 +70,14 @@ Dtime::Dtime(TQWidget * parent, const char *name)
 
   setDateTimeAuto = new TQCheckBox( privateLayoutWidget, "setDateTimeAuto" );
   setDateTimeAuto->setText(i18n("Set date and time &automatically:"));
-  connect(setDateTimeAuto, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(serverTimeCheck()));
-  connect(setDateTimeAuto, TQT_SIGNAL(toggled(bool)), TQT_SLOT(configChanged()));
+  connect(setDateTimeAuto, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(serverTimeCheck()));
+  connect(setDateTimeAuto, TQ_SIGNAL(toggled(bool)), TQ_SLOT(configChanged()));
   layout1->addWidget( setDateTimeAuto );
 
   timeServerList = new TQComboBox( false, privateLayoutWidget, "timeServerList" );
-  connect(timeServerList, TQT_SIGNAL(activated(int)), TQT_SLOT(configChanged()));
-  connect(timeServerList, TQT_SIGNAL(textChanged(const TQString &)), TQT_SLOT(configChanged()));
-  connect(setDateTimeAuto, TQT_SIGNAL(toggled(bool)), timeServerList, TQT_SLOT(setEnabled(bool)));
+  connect(timeServerList, TQ_SIGNAL(activated(int)), TQ_SLOT(configChanged()));
+  connect(timeServerList, TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT(configChanged()));
+  connect(setDateTimeAuto, TQ_SIGNAL(toggled(bool)), timeServerList, TQ_SLOT(setEnabled(bool)));
   timeServerList->setEnabled(false);
   timeServerList->setEditable(true);
   layout1->addWidget( timeServerList );
@@ -164,12 +164,12 @@ Dtime::Dtime(TQWidget * parent, const char *name)
   // End Dialog
   // *************************************************************
 
-  connect( hour, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(set_time()) );
-  connect( minute, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(set_time()) );
-  connect( second, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(set_time()) );
-  connect( cal, TQT_SIGNAL(dateChanged(TQDate)), TQT_SLOT(changeDate(TQDate)));
+  connect( hour, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(set_time()) );
+  connect( minute, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(set_time()) );
+  connect( second, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(set_time()) );
+  connect( cal, TQ_SIGNAL(dateChanged(TQDate)), TQ_SLOT(changeDate(TQDate)));
 
-  connect( &internalTimer, TQT_SIGNAL(timeout()), TQT_SLOT(timeout()) );
+  connect( &internalTimer, TQ_SIGNAL(timeout()), TQ_SLOT(timeout()) );
 
   load();
 

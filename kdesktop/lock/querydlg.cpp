@@ -117,7 +117,7 @@ QueryDlg::QueryDlg(LockProcess *parent)
 	frameLayout->addMultiCellWidget( sep, 3, 3, 0, 1 );
 	frameLayout->addMultiCellLayout( layButtons, 4, 4, 0, 1 );
 
-	connect(ok, TQT_SIGNAL(clicked()), TQT_SLOT(slotOK()));
+	connect(ok, TQ_SIGNAL(clicked()), TQ_SLOT(slotOK()));
 
 	installEventFilter(this);
 	setFixedSize( sizeHint() );

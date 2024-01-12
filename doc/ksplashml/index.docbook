@@ -1267,7 +1267,7 @@ c2, int sp )
     preparePixmap( i );
 
   m_stepTimer = new QTimer( this );
-  connect(m_stepTimer, SIGNAL(timeout()), this, SLOT(stepEvent()));
+  connect(m_stepTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(stepEvent()));
   m_stepTimer-&gt;start( 50 );
 }
 

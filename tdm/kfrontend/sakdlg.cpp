@@ -133,7 +133,7 @@ SAKDlg::SAKDlg(TQWidget *parent)
 
 	mSAKProcess = new TDEProcess;
 	*mSAKProcess << "tdmtsak" << "dm";
-	connect(mSAKProcess, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(slotSAKProcessExited()));
+	connect(mSAKProcess, TQ_SIGNAL(processExited(TDEProcess*)), this, TQ_SLOT(slotSAKProcessExited()));
 	mSAKProcess->start();
 
 #ifdef WITH_TDEHWLIB
@@ -143,8 +143,8 @@ SAKDlg::SAKDlg(TQWidget *parent)
 	TDEGenericHardwareList cardReaderList = hwdevices->listByDeviceClass(TDEGenericDeviceType::CryptographicCard);
 	for (hwdevice = cardReaderList.first(); hwdevice; hwdevice = cardReaderList.next()) {
 		TDECryptographicCardDevice* cdevice = static_cast<TDECryptographicCardDevice*>(hwdevice);
-		connect(cdevice, TQT_SIGNAL(certificateListAvailable(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardInserted(TDECryptographicCardDevice*)));
-		connect(cdevice, TQT_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
+		connect(cdevice, TQ_SIGNAL(certificateListAvailable(TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardInserted(TDECryptographicCardDevice*)));
+		connect(cdevice, TQ_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
 		cdevice->enableCardMonitoring(true);
 	}
 #endif
@@ -153,8 +153,8 @@ SAKDlg::SAKDlg(TQWidget *parent)
 	mControlPipeHandler = new ControlPipeHandlerObject();
 	mControlPipeHandler->mSAKDlgParent = this;
 	mControlPipeHandler->moveToThread(mControlPipeHandlerThread);
-	TQObject::connect(mControlPipeHandler, SIGNAL(processCommand(TQString)), this, SLOT(processInputPipeCommand(TQString)));
-	TQTimer::singleShot(0, mControlPipeHandler, SLOT(run()));
+	TQObject::connect(mControlPipeHandler, TQ_SIGNAL(processCommand(TQString)), this, TQ_SLOT(processInputPipeCommand(TQString)));
+	TQTimer::singleShot(0, mControlPipeHandler, TQ_SLOT(run()));
 	mControlPipeHandlerThread->start();
 }
 

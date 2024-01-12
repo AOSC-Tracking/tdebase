@@ -104,10 +104,10 @@ PositionTab::PositionTab(TQWidget *parent, const char* name)
     }
 
     // connections
-    connect(m_locationGroup, TQT_SIGNAL(clicked(int)), TQT_SIGNAL(changed()));
-    connect(m_xineramaScreenComboBox, TQT_SIGNAL(highlighted(int)), TQT_SIGNAL(changed()));
+    connect(m_locationGroup, TQ_SIGNAL(clicked(int)), TQ_SIGNAL(changed()));
+    connect(m_xineramaScreenComboBox, TQ_SIGNAL(highlighted(int)), TQ_SIGNAL(changed()));
 
-    connect(m_identifyButton,TQT_SIGNAL(clicked()),TQT_SLOT(showIdentify()));
+    connect(m_identifyButton,TQ_SIGNAL(clicked()),TQ_SLOT(showIdentify()));
 
     for(int s=0; s < TQApplication::desktop()->numScreens(); s++)
     {   /* populate the combobox for the available screens */
@@ -123,38 +123,38 @@ PositionTab::PositionTab(TQWidget *parent, const char* name)
         m_xineramaScreenLabel->hide();
     }
 
-    connect(m_percentSlider, TQT_SIGNAL(valueChanged(int)), TQT_SIGNAL(changed()));
-    connect(m_percentSpinBox, TQT_SIGNAL(valueChanged(int)), TQT_SIGNAL(changed()));
-    connect(m_expandCheckBox, TQT_SIGNAL(clicked()), TQT_SIGNAL(changed()));
+    connect(m_percentSlider, TQ_SIGNAL(valueChanged(int)), TQ_SIGNAL(changed()));
+    connect(m_percentSpinBox, TQ_SIGNAL(valueChanged(int)), TQ_SIGNAL(changed()));
+    connect(m_expandCheckBox, TQ_SIGNAL(clicked()), TQ_SIGNAL(changed()));
 
-    connect(m_sizeGroup, TQT_SIGNAL(clicked(int)), TQT_SIGNAL(changed()));
-    connect(m_customSlider, TQT_SIGNAL(valueChanged(int)), TQT_SIGNAL(changed()));
-    connect(m_customSpinbox, TQT_SIGNAL(valueChanged(int)), TQT_SIGNAL(changed()));
+    connect(m_sizeGroup, TQ_SIGNAL(clicked(int)), TQ_SIGNAL(changed()));
+    connect(m_customSlider, TQ_SIGNAL(valueChanged(int)), TQ_SIGNAL(changed()));
+    connect(m_customSpinbox, TQ_SIGNAL(valueChanged(int)), TQ_SIGNAL(changed()));
 
     m_desktopPreview = new KVirtualBGRenderer(0);
-    connect(m_desktopPreview, TQT_SIGNAL(imageDone(int)),
-            TQT_SLOT(slotBGPreviewReady(int)));
+    connect(m_desktopPreview, TQ_SIGNAL(imageDone(int)),
+            TQ_SLOT(slotBGPreviewReady(int)));
 
-    connect(KickerConfig::the(), TQT_SIGNAL(extensionInfoChanged()),
-            TQT_SLOT(infoUpdated()));
-    connect(KickerConfig::the(), TQT_SIGNAL(extensionAdded(ExtensionInfo*)),
-            TQT_SLOT(extensionAdded(ExtensionInfo*)));
-    connect(KickerConfig::the(), TQT_SIGNAL(extensionRemoved(ExtensionInfo*)),
-            TQT_SLOT(extensionRemoved(ExtensionInfo*)));
-    connect(KickerConfig::the(), TQT_SIGNAL(extensionChanged(const TQString&)),
-            TQT_SLOT(extensionChanged(const TQString&)));
-    connect(KickerConfig::the(), TQT_SIGNAL(extensionAboutToChange(const TQString&)),
-            TQT_SLOT(extensionAboutToChange(const TQString&)));
+    connect(KickerConfig::the(), TQ_SIGNAL(extensionInfoChanged()),
+            TQ_SLOT(infoUpdated()));
+    connect(KickerConfig::the(), TQ_SIGNAL(extensionAdded(ExtensionInfo*)),
+            TQ_SLOT(extensionAdded(ExtensionInfo*)));
+    connect(KickerConfig::the(), TQ_SIGNAL(extensionRemoved(ExtensionInfo*)),
+            TQ_SLOT(extensionRemoved(ExtensionInfo*)));
+    connect(KickerConfig::the(), TQ_SIGNAL(extensionChanged(const TQString&)),
+            TQ_SLOT(extensionChanged(const TQString&)));
+    connect(KickerConfig::the(), TQ_SIGNAL(extensionAboutToChange(const TQString&)),
+            TQ_SLOT(extensionAboutToChange(const TQString&)));
     // position tab tells hiding tab about extension selections and vice versa
-    connect(KickerConfig::the(), TQT_SIGNAL(hidingPanelChanged(int)),
-            TQT_SLOT(jumpToPanel(int)));
-    connect(m_panelList, TQT_SIGNAL(activated(int)),
-            KickerConfig::the(), TQT_SIGNAL(positionPanelChanged(int)));
+    connect(KickerConfig::the(), TQ_SIGNAL(hidingPanelChanged(int)),
+            TQ_SLOT(jumpToPanel(int)));
+    connect(m_panelList, TQ_SIGNAL(activated(int)),
+            KickerConfig::the(), TQ_SIGNAL(positionPanelChanged(int)));
 
-    connect(m_panelSize, TQT_SIGNAL(activated(int)),
-            TQT_SLOT(sizeChanged(int)));
-    connect(m_panelSize, TQT_SIGNAL(activated(int)),
-            TQT_SIGNAL(changed()));
+    connect(m_panelSize, TQ_SIGNAL(activated(int)),
+            TQ_SLOT(sizeChanged(int)));
+    connect(m_panelSize, TQ_SIGNAL(activated(int)),
+            TQ_SIGNAL(changed()));
 }
 
 PositionTab::~PositionTab()
@@ -700,7 +700,7 @@ void PositionTab::showIdentify()
         screenLabel->setNum(s + 1);
         // BUGLET: we should not allow the identification to be entered again
         //         until the timer fires.
-        TQTimer::singleShot(1500, screenLabel, TQT_SLOT(close()));
+        TQTimer::singleShot(1500, screenLabel, TQ_SLOT(close()));
 
         TQPoint screenCenter(TQApplication::desktop()->screenGeometry(s).center());
         TQRect targetGeometry(TQPoint(0,0),screenLabel->sizeHint());

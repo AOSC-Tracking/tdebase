@@ -74,15 +74,15 @@ KCMKNotify::KCMKNotify(TQWidget *parent, const char *name, const TQStringList & 
     hbox->addWidget( m_appCombo, 10 );
 
     m_notifyWidget = new KNotifyWidget( this, "knotify widget", true );
-    connect( m_notifyWidget, TQT_SIGNAL( changed( bool )), TQT_SIGNAL( changed(bool)));
+    connect( m_notifyWidget, TQ_SIGNAL( changed( bool )), TQ_SIGNAL( changed(bool)));
 
     layout->addWidget( m_notifyWidget );
 
-    connect( m_appCombo, TQT_SIGNAL( activated( const TQString& ) ),
-             TQT_SLOT( slotAppActivated( const TQString& )) );
+    connect( m_appCombo, TQ_SIGNAL( activated( const TQString& ) ),
+             TQ_SLOT( slotAppActivated( const TQString& )) );
 
-    connect( m_notifyWidget->m_playerButton, TQT_SIGNAL( clicked() ),
-             TQT_SLOT( slotPlayerSettings()));
+    connect( m_notifyWidget->m_playerButton, TQ_SIGNAL( clicked() ),
+             TQ_SLOT( slotPlayerSettings()));
 
     TDEAboutData* ab = new TDEAboutData(
         "kcmknotify", I18N_NOOP("KNotify"), "3.0",
@@ -231,10 +231,10 @@ PlayerSettingsDialog::PlayerSettingsDialog( TQWidget *parent, bool modal )
     dataChanged = false;
     enableButton(Apply, false);
 
-    connect( m_ui->cbExternal, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( externalToggled( bool ) ) );
-    connect( m_ui->grpPlayers, TQT_SIGNAL( clicked( int ) ), this, TQT_SLOT( slotChanged() ) );
-    connect( m_ui->volumeSlider, TQT_SIGNAL( valueChanged ( int ) ), this, TQT_SLOT( slotChanged() ) );
-    connect( m_ui->reqExternal, TQT_SIGNAL( textChanged( const TQString& ) ), this, TQT_SLOT( slotChanged() ) );
+    connect( m_ui->cbExternal, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( externalToggled( bool ) ) );
+    connect( m_ui->grpPlayers, TQ_SIGNAL( clicked( int ) ), this, TQ_SLOT( slotChanged() ) );
+    connect( m_ui->volumeSlider, TQ_SIGNAL( valueChanged ( int ) ), this, TQ_SLOT( slotChanged() ) );
+    connect( m_ui->reqExternal, TQ_SIGNAL( textChanged( const TQString& ) ), this, TQ_SLOT( slotChanged() ) );
 }
 
 void PlayerSettingsDialog::load( bool useDefaults )

@@ -82,7 +82,7 @@ KateConfigPluginPage::KateConfigPluginPage(TQWidget *parent, KateConfigDialog *d
   listView->addColumn(i18n("Comment"));
   TQWhatsThis::add(listView,i18n("Here you can see all available Kate plugins. Those with a check mark are loaded, and will be loaded again the next time Kate is started."));
 
-  connect(listView, TQT_SIGNAL(stateChange(KatePluginListItem *, bool)), this, TQT_SLOT(stateChange(KatePluginListItem *, bool)));
+  connect(listView, TQ_SIGNAL(stateChange(KatePluginListItem *, bool)), this, TQ_SLOT(stateChange(KatePluginListItem *, bool)));
 
   KatePluginList &pluginList (KatePluginManager::self()->pluginList());
   for (unsigned int i=0; i < pluginList.size(); ++i)

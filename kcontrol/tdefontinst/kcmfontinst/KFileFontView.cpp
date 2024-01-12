@@ -79,15 +79,15 @@ CKFileFontView::CKFileFontView(TQWidget *parent, const char *name)
     setAllColumnsShowFocus(true);
     setDragEnabled(false);
 
-    connect(header(), TQT_SIGNAL(sectionClicked(int)), TQT_SLOT(slotSortingChanged(int)));
-    connect(this, TQT_SIGNAL(returnPressed(TQListViewItem *)), TQT_SLOT(slotActivate(TQListViewItem *)));
-    connect(this, TQT_SIGNAL(clicked(TQListViewItem *, const TQPoint&, int)), TQT_SLOT(selected( TQListViewItem *)));
-    connect(this, TQT_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint &, int)), TQT_SLOT(slotActivate(TQListViewItem *)));
-    connect(this, TQT_SIGNAL(contextMenuRequested(TQListViewItem *, const TQPoint &, int)),
-	    this, TQT_SLOT(slotActivateMenu(TQListViewItem *, const TQPoint &)));
+    connect(header(), TQ_SIGNAL(sectionClicked(int)), TQ_SLOT(slotSortingChanged(int)));
+    connect(this, TQ_SIGNAL(returnPressed(TQListViewItem *)), TQ_SLOT(slotActivate(TQListViewItem *)));
+    connect(this, TQ_SIGNAL(clicked(TQListViewItem *, const TQPoint&, int)), TQ_SLOT(selected( TQListViewItem *)));
+    connect(this, TQ_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint &, int)), TQ_SLOT(slotActivate(TQListViewItem *)));
+    connect(this, TQ_SIGNAL(contextMenuRequested(TQListViewItem *, const TQPoint &, int)),
+	    this, TQ_SLOT(slotActivateMenu(TQListViewItem *, const TQPoint &)));
 
     // DND
-    connect(&(d->itsAutoOpenTimer), TQT_SIGNAL(timeout()), this, TQT_SLOT(slotAutoOpen()));
+    connect(&(d->itsAutoOpenTimer), TQ_SIGNAL(timeout()), this, TQ_SLOT(slotAutoOpen()));
     setSelectionMode(KFileView::selectionMode());
     itsResolver = new KMimeTypeResolver<CFontListViewItem, CKFileFontView>(this);
 }
@@ -211,8 +211,8 @@ void CKFileFontView::highlighted( TQListViewItem *item )
 
 void CKFileFontView::setSelectionMode(KFile::SelectionMode sm)
 {
-    disconnect(TQT_SIGNAL(selectionChanged()), this);
-    disconnect(TQT_SIGNAL(selectionChanged(TQListViewItem *)), this);
+    disconnect(TQ_SIGNAL(selectionChanged()), this);
+    disconnect(TQ_SIGNAL(selectionChanged(TQListViewItem *)), this);
 
     switch (sm)
     {
@@ -233,9 +233,9 @@ void CKFileFontView::setSelectionMode(KFile::SelectionMode sm)
 
     // for highlighting
     if (KFile::Multi==sm || KFile::Extended==sm)
-        connect(this, TQT_SIGNAL(selectionChanged()), TQT_SLOT(slotSelectionChanged()));
+        connect(this, TQ_SIGNAL(selectionChanged()), TQ_SLOT(slotSelectionChanged()));
     else
-        connect(this, TQT_SIGNAL(selectionChanged(TQListViewItem *)), TQT_SLOT(highlighted(TQListViewItem * )));
+        connect(this, TQ_SIGNAL(selectionChanged(TQListViewItem *)), TQ_SLOT(highlighted(TQListViewItem * )));
 }
 
 bool CKFileFontView::isSelected(const KFileItem *i) const

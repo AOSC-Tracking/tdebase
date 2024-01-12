@@ -51,16 +51,16 @@ ManagerModule::ManagerModule( TQWidget* parent, const char* name )
 #endif
 	view->kcfg_CdPollingEnabled->setEnabled( false );
 
-	connect( view->option_automount, SIGNAL( stateChanged(int) ), this, SLOT( emitChanged() ) );
-	connect( view->option_ro, SIGNAL( stateChanged(int) ), this, SLOT( emitChanged() ) );
-	connect( view->option_quiet, SIGNAL( stateChanged(int) ), this, SLOT( emitChanged() ) );
-	connect( view->option_flush, SIGNAL( stateChanged(int) ), this, SLOT( emitChanged() ) );
-	connect( view->option_uid, SIGNAL( stateChanged(int) ), this, SLOT( emitChanged() ) );
-	connect( view->option_utf8, SIGNAL( stateChanged(int) ), this, SLOT( emitChanged() ) );
-	connect( view->option_sync, SIGNAL( stateChanged(int) ), this, SLOT( emitChanged() ) );
-	connect( view->option_atime, SIGNAL( stateChanged(int) ), this, SLOT( emitChanged() ) );
-	connect( view->option_shortname, SIGNAL( activated(int) ), this, SLOT( emitChanged() ) );
-	connect( view->option_journaling, SIGNAL( activated(int) ), this, SLOT( emitChanged() ) );	
+	connect( view->option_automount, TQ_SIGNAL( stateChanged(int) ), this, TQ_SLOT( emitChanged() ) );
+	connect( view->option_ro, TQ_SIGNAL( stateChanged(int) ), this, TQ_SLOT( emitChanged() ) );
+	connect( view->option_quiet, TQ_SIGNAL( stateChanged(int) ), this, TQ_SLOT( emitChanged() ) );
+	connect( view->option_flush, TQ_SIGNAL( stateChanged(int) ), this, TQ_SLOT( emitChanged() ) );
+	connect( view->option_uid, TQ_SIGNAL( stateChanged(int) ), this, TQ_SLOT( emitChanged() ) );
+	connect( view->option_utf8, TQ_SIGNAL( stateChanged(int) ), this, TQ_SLOT( emitChanged() ) );
+	connect( view->option_sync, TQ_SIGNAL( stateChanged(int) ), this, TQ_SLOT( emitChanged() ) );
+	connect( view->option_atime, TQ_SIGNAL( stateChanged(int) ), this, TQ_SLOT( emitChanged() ) );
+	connect( view->option_shortname, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( emitChanged() ) );
+	connect( view->option_journaling, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( emitChanged() ) );	
 
 	load();
 }	

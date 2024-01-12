@@ -93,9 +93,9 @@ AppletContainer::AppletContainer(const AppletInfo& info,
     _layout->addSpacing(APPLET_MARGIN);
     _handle = new AppletHandle(this);
     _layout->addWidget(_handle, 0);
-    connect(_handle, TQT_SIGNAL(moveApplet(const TQPoint&)),
-            this, TQT_SLOT(moveApplet(const TQPoint&)));
-    connect(_handle, TQT_SIGNAL(showAppletMenu()), this, TQT_SLOT(showAppletMenu()));
+    connect(_handle, TQ_SIGNAL(moveApplet(const TQPoint&)),
+            this, TQ_SLOT(moveApplet(const TQPoint&)));
+    connect(_handle, TQ_SIGNAL(showAppletMenu()), this, TQ_SLOT(showAppletMenu()));
 
     _layout->addWidget(_appletframe, 1);
     _layout->activate();
@@ -124,12 +124,12 @@ AppletContainer::AppletContainer(const AppletInfo& info,
 
     setImmutable(immutable);
 
-    connect(_applet, TQT_SIGNAL(updateLayout()), TQT_SLOT(slotUpdateLayout()));
-    connect(_applet, TQT_SIGNAL(requestFocus()), TQT_SLOT(activateWindow()));
-    connect(_applet, TQT_SIGNAL(requestFocus(bool)), TQT_SLOT(focusRequested(bool)));
+    connect(_applet, TQ_SIGNAL(updateLayout()), TQ_SLOT(slotUpdateLayout()));
+    connect(_applet, TQ_SIGNAL(requestFocus()), TQ_SLOT(activateWindow()));
+    connect(_applet, TQ_SIGNAL(requestFocus(bool)), TQ_SLOT(focusRequested(bool)));
 
-    connect(Kicker::the(), TQT_SIGNAL(configurationChanged()),
-            this, TQT_SLOT(slotReconfigure()));
+    connect(Kicker::the(), TQ_SIGNAL(configurationChanged()),
+            this, TQ_SLOT(slotReconfigure()));
 }
 
 void AppletContainer::configure()
@@ -321,8 +321,8 @@ TQPopupMenu* AppletContainer::createOpMenu()
                                                _info.name(), _info.icon(),
                                                this);
 
-    connect(opMenu, TQT_SIGNAL(escapePressed()),
-            _handle, TQT_SLOT(toggleMenuButtonOff()));
+    connect(opMenu, TQ_SIGNAL(escapePressed()),
+            _handle, TQ_SLOT(toggleMenuButtonOff()));
 
     return opMenu;
 }

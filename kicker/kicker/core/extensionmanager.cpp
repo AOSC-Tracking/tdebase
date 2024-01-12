@@ -179,7 +179,7 @@ void ExtensionManager::initialize()
     m_loadingContainers = false;
 
     pm->clearUntrustedLists();
-    connect(Kicker::the(), TQT_SIGNAL(configurationChanged()), TQT_SLOT(configurationChanged()));
+    connect(Kicker::the(), TQ_SIGNAL(configurationChanged()), TQ_SLOT(configurationChanged()));
     DCOPRef r( "ksmserver", "ksmserver" );
     r.send( "resumeStartup", TQCString( "kicker" ));
 }
@@ -222,7 +222,7 @@ void ExtensionManager::configureMenubar(bool duringInit)
         updateMenubar();
 
         m_menubarPanel->show();
-        connect(kapp, TQT_SIGNAL(tdedisplayFontChanged()), TQT_SLOT(updateMenubar()));
+        connect(kapp, TQ_SIGNAL(tdedisplayFontChanged()), TQ_SLOT(updateMenubar()));
     }
     else if (m_menubarPanel)
     {
@@ -437,8 +437,8 @@ void ExtensionManager::addContainer(ExtensionContainer* e)
 
     _containers.append(e);
 
-    connect(e, TQT_SIGNAL(removeme(ExtensionContainer*)),
-            this, TQT_SLOT(removeContainer(ExtensionContainer*)));
+    connect(e, TQ_SIGNAL(removeme(ExtensionContainer*)),
+            this, TQ_SLOT(removeContainer(ExtensionContainer*)));
 
     if (!m_loadingContainers) {
         emit desktopIconsAreaChanged(desktopIconsArea(e->xineramaScreen()),

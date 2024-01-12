@@ -50,16 +50,16 @@ KRemoteEncodingPlugin::KRemoteEncodingPlugin(TQObject * parent,
 {
   m_menu = new TDEActionMenu(i18n("Select Remote Charset"), "charset",
 			   actionCollection(), "changeremoteencoding");
-  connect(m_menu->popupMenu(), TQT_SIGNAL(aboutToShow()),
-	  this, TQT_SLOT(slotAboutToShow()));
+  connect(m_menu->popupMenu(), TQ_SIGNAL(aboutToShow()),
+	  this, TQ_SLOT(slotAboutToShow()));
   m_menu->setEnabled(false);
   m_menu->setDelayed(false);
 
   m_part = dynamic_cast<KonqDirPart*>(parent);
   if (m_part)
     // if parent is not a KonqDirPart, our menu will never show
-    TQObject::connect(m_part, TQT_SIGNAL(aboutToOpenURL()),
-		     this, TQT_SLOT(slotAboutToOpenURL()));
+    TQObject::connect(m_part, TQ_SIGNAL(aboutToOpenURL()),
+		     this, TQ_SLOT(slotAboutToOpenURL()));
 }
 
 KRemoteEncodingPlugin::~KRemoteEncodingPlugin()
@@ -117,11 +117,11 @@ KRemoteEncodingPlugin::fillMenu()
   TQStringList::ConstIterator it;
   int count = 0;
   for (it = m_encodingDescriptions.begin(); it != m_encodingDescriptions.end(); ++it)
-    menu->insertItem(*it, this, TQT_SLOT(slotItemSelected(int)), 0, ++count);
+    menu->insertItem(*it, this, TQ_SLOT(slotItemSelected(int)), 0, ++count);
   menu->insertSeparator();
 
-  menu->insertItem(i18n("Reload"), this, TQT_SLOT(slotReload()), 0, ++count);
-  menu->insertItem(i18n("Default"), this, TQT_SLOT(slotDefault()), 0, ++count);
+  menu->insertItem(i18n("Reload"), this, TQ_SLOT(slotReload()), 0, ++count);
+  menu->insertItem(i18n("Default"), this, TQ_SLOT(slotDefault()), 0, ++count);
   m_idDefault = count;
 }
 

@@ -90,8 +90,8 @@ KonqFrameStatusBar::KonqFrameStatusBar( KonqFrame *_parent, const char *_name )
                           "directory tree with an icon view or detailed view, and possibly a "
                           "terminal emulator window." ) );
     addWidget( m_pLinkedViewCheckBox, 0, true /*permanent->right align*/ );
-    connect( m_pLinkedViewCheckBox, TQT_SIGNAL(toggled(bool)),
-            this, TQT_SIGNAL(linkedViewClicked(bool)) );
+    connect( m_pLinkedViewCheckBox, TQ_SIGNAL(toggled(bool)),
+            this, TQ_SIGNAL(linkedViewClicked(bool)) );
 
     m_progressBar = new KProgress( this );
     m_progressBar->setMaximumHeight(fontMetrics().height());
@@ -151,7 +151,7 @@ void KonqFrameStatusBar::splitFrameMenu()
 
    // We have to ship the remove view action ourselves,
    // since this may not be the active view (passive view)
-   TDEAction actRemoveView(i18n("Close View"), "view_remove", 0, m_pParentKonqFrame, TQT_SLOT(slotRemoveView()), (TQObject*)0, "removethisview");
+   TDEAction actRemoveView(i18n("Close View"), "view_remove", 0, m_pParentKonqFrame, TQ_SLOT(slotRemoveView()), (TQObject*)0, "removethisview");
    //KonqView * nextView = mw->viewManager()->chooseNextView( m_pParentKonqFrame->childView() );
    actRemoveView.setEnabled( mw->mainViewsCount() > 1 || m_pParentKonqFrame->childView()->isToggleView() || m_pParentKonqFrame->childView()->isPassiveMode() );
 
@@ -242,7 +242,7 @@ void KonqFrameStatusBar::slotSpeedProgress( int bytesPerSecond )
 void KonqFrameStatusBar::slotConnectToNewView(KonqView *, KParts::ReadOnlyPart *,KParts::ReadOnlyPart *newOne)
 {
    if (newOne!=0)
-      connect(newOne,TQT_SIGNAL(setStatusBarText(const TQString &)),this,TQT_SLOT(slotDisplayStatusText(const TQString&)));
+      connect(newOne,TQ_SIGNAL(setStatusBarText(const TQString &)),this,TQ_SLOT(slotDisplayStatusText(const TQString&)));
    slotDisplayStatusText( TQString::null );
 }
 
@@ -302,8 +302,8 @@ KonqFrame::KonqFrame( TQWidget* parent, KonqFrameContainerBase *parentContainer,
    // the frame statusbar
    m_pStatusBar = new KonqFrameStatusBar( this, "KonquerorFrameStatusBar");
    m_pStatusBar->setSizePolicy(TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed ));
-   connect(m_pStatusBar, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotStatusBarClicked()));
-   connect( m_pStatusBar, TQT_SIGNAL( linkedViewClicked( bool ) ), this, TQT_SLOT( slotLinkedViewClicked( bool ) ) );
+   connect(m_pStatusBar, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotStatusBarClicked()));
+   connect( m_pStatusBar, TQ_SIGNAL( linkedViewClicked( bool ) ), this, TQ_SLOT( slotLinkedViewClicked( bool ) ) );
    m_separator = 0;
    m_pParentContainer = parentContainer;
 }
@@ -420,8 +420,8 @@ void KonqFrame::setView( KonqView* child )
    m_pView = child;
    if (m_pView)
    {
-     connect(m_pView,TQT_SIGNAL(sigPartChanged(KonqView *, KParts::ReadOnlyPart *,KParts::ReadOnlyPart *)),
-             m_pStatusBar,TQT_SLOT(slotConnectToNewView(KonqView *, KParts::ReadOnlyPart *,KParts::ReadOnlyPart *)));
+     connect(m_pView,TQ_SIGNAL(sigPartChanged(KonqView *, KParts::ReadOnlyPart *,KParts::ReadOnlyPart *)),
+             m_pStatusBar,TQ_SLOT(slotConnectToNewView(KonqView *, KParts::ReadOnlyPart *,KParts::ReadOnlyPart *)));
    }
 }
 

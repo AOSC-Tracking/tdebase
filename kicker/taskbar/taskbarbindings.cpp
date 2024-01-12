@@ -23,7 +23,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #ifndef NOSLOTS
 # define DEF( name, key3, key4, fnSlot ) \
-   keys->insert( name, i18n(name), TQString(), key3, key4, this, TQT_SLOT(fnSlot) )
+   keys->insert( name, i18n(name), TQString(), key3, key4, this, TQ_SLOT(fnSlot) )
 #else
 # define DEF( name, key3, key4, fnSlot ) \
    keys->insert( name, i18n(name), TQString(), key3, key4 )

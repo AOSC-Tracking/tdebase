@@ -139,21 +139,21 @@ void ShortcutsModule::initGUI()
 	pGroup->hide();
 
 	m_prbPre = new TQRadioButton( "", this );
-	connect( m_prbPre, TQT_SIGNAL(clicked()), TQT_SLOT(slotSchemeCur()) );
+	connect( m_prbPre, TQ_SIGNAL(clicked()), TQ_SLOT(slotSchemeCur()) );
 	pGroup->insert( m_prbPre );
 	pHLayout->addWidget( m_prbPre );
 
 	m_pcbSchemes = new KComboBox( this );
 	m_pcbSchemes->setMinimumWidth( 100 );
 	m_pcbSchemes->setSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Fixed );
-	connect( m_pcbSchemes, TQT_SIGNAL(activated(int)), TQT_SLOT(slotSelectScheme(int)) );
+	connect( m_pcbSchemes, TQ_SIGNAL(activated(int)), TQ_SLOT(slotSelectScheme(int)) );
 	pHLayout->addWidget( m_pcbSchemes );
 
 	pHLayout->addSpacing( KDialog::marginHint() );
 
 	m_pbtnRemove = new TQPushButton( i18n("&Remove"), this );
 	m_pbtnRemove->setEnabled( false );
-	connect( m_pbtnRemove, TQT_SIGNAL(clicked()), TQT_SLOT(slotRemoveScheme()) );
+	connect( m_pbtnRemove, TQ_SIGNAL(clicked()), TQ_SLOT(slotRemoveScheme()) );
 	TQWhatsThis::add( m_pbtnRemove, i18n("Click here to remove the selected key bindings scheme. You cannot"
 		" remove the standard system-wide schemes 'Current scheme' and 'TDE default'.") );
 	pHLayout->addWidget( m_pbtnRemove );
@@ -168,7 +168,7 @@ void ShortcutsModule::initGUI()
 	m_pbtnSave = new TQPushButton( i18n("&Save..."), this );
 	m_pbtnSave->setEnabled( false );
 	TQWhatsThis::add( m_pbtnSave, i18n("Click here to add a new key bindings scheme. You will be prompted for a name.") );
-	connect( m_pbtnSave, TQT_SIGNAL(clicked()), TQT_SLOT(slotSaveSchemeAs()) );
+	connect( m_pbtnSave, TQ_SIGNAL(clicked()), TQ_SLOT(slotSaveSchemeAs()) );
 	pHLayout->addWidget( m_pbtnSave );
 
 	pHLayout->addStretch( 1 );
@@ -196,20 +196,20 @@ void ShortcutsModule::initGUI()
 		m_useRmWinKeys->resize( m_useRmWinKeys->sizeHint() );
 		m_useRmWinKeys->setChecked( m_bUseRmWinKeys );
 		pVLayout->addWidget( m_useRmWinKeys, 1, 0 );
-		connect( m_useRmWinKeys, TQT_SIGNAL(clicked()), TQT_SLOT(slotUseRmWinKeysClicked()) );
+		connect( m_useRmWinKeys, TQ_SIGNAL(clicked()), TQ_SLOT(slotUseRmWinKeysClicked()) );
 	}
 	m_pTab->addTab( m_pkcGeneral, i18n("&Global Shortcuts") );
-	connect( m_pkcGeneral, TQT_SIGNAL(keyChange()), TQT_SLOT(slotKeyChange()) );
+	connect( m_pkcGeneral, TQ_SIGNAL(keyChange()), TQ_SLOT(slotKeyChange()) );
 
 	m_pListSequence = new TDEAccelShortcutList( m_actionsSequence, true );
 	m_pkcSequence = new KKeyChooser( m_pListSequence, this, KKeyChooser::Global, false );
 	m_pTab->addTab( m_pkcSequence, i18n("Shortcut Se&quences") );
-	connect( m_pkcSequence, TQT_SIGNAL(keyChange()), TQT_SLOT(slotKeyChange()) );
+	connect( m_pkcSequence, TQ_SIGNAL(keyChange()), TQ_SLOT(slotKeyChange()) );
 
 	m_pListApplication = new TDEStdAccel::ShortcutList;
 	m_pkcApplication = new KKeyChooser( m_pListApplication, this, KKeyChooser::Standard, false );
 	m_pTab->addTab( m_pkcApplication, i18n("App&lication Shortcuts") );
-	connect( m_pkcApplication, TQT_SIGNAL(keyChange()), TQT_SLOT(slotKeyChange()) );
+	connect( m_pkcApplication, TQ_SIGNAL(keyChange()), TQ_SLOT(slotKeyChange()) );
 
 	kdDebug(125) << "G-----------" << endl;
 	readSchemeNames();
@@ -404,7 +404,7 @@ void ShortcutsModule::slotSaveSchemeAs()
 			return;
 	} while( !bNameValid );
 
-	disconnect( m_pcbSchemes, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotSelectScheme(int)) );
+	disconnect( m_pcbSchemes, TQ_SIGNAL(activated(int)), this, TQ_SLOT(slotSelectScheme(int)) );
 
 	TQString kksPath = TDEGlobal::dirs()->saveLocation( "data", "kcmkeys/" );
 
@@ -434,7 +434,7 @@ void ShortcutsModule::slotSaveSchemeAs()
 
 	saveScheme();
 
-	connect( m_pcbSchemes, TQT_SIGNAL(activated(int)), TQT_SLOT(slotSelectScheme(int)) );
+	connect( m_pcbSchemes, TQ_SIGNAL(activated(int)), TQ_SLOT(slotSelectScheme(int)) );
 	slotSelectScheme();
 }
 

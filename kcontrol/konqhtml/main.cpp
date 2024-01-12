@@ -111,11 +111,11 @@ KJSParts::KJSParts(TDEConfig *config, TQWidget *parent, const char *name)
   // ### the groupname is duplicated in KJSParts::save
   java = new KJavaOptions( config, "Java/JavaScript Settings", this, name );
   tab->addTab( java, i18n( "&Java" ) );
-  connect( java, TQT_SIGNAL( changed( bool ) ), TQT_SIGNAL( changed( bool ) ) );
+  connect( java, TQ_SIGNAL( changed( bool ) ), TQ_SIGNAL( changed( bool ) ) );
 
   javascript = new KJavaScriptOptions( config, "Java/JavaScript Settings", this, name );
   tab->addTab( javascript, i18n( "Java&Script" ) );
-  connect( javascript, TQT_SIGNAL( changed( bool ) ), TQT_SIGNAL( changed( bool ) ) );
+  connect( javascript, TQ_SIGNAL( changed( bool ) ), TQ_SIGNAL( changed( bool ) ) );
 }
 
 KJSParts::~KJSParts()

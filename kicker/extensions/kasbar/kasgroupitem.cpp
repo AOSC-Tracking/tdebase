@@ -83,10 +83,10 @@ KasGroupItem::KasGroupItem( KasTasker *parent )
     setGroupItem( true );
     setText( i18n("Group") );
 
-    connect( parent, TQT_SIGNAL( layoutChanged() ), this, TQT_SLOT( hidePopup() ) );
-    connect( parent, TQT_SIGNAL( layoutChanged() ), this, TQT_SLOT( update() ) );
-    connect( this, TQT_SIGNAL(leftButtonClicked(TQMouseEvent *)), TQT_SLOT(togglePopup()) );
-    connect( this, TQT_SIGNAL(rightButtonClicked(TQMouseEvent *)), TQT_SLOT(showGroupMenuAt(TQMouseEvent *) ) );
+    connect( parent, TQ_SIGNAL( layoutChanged() ), this, TQ_SLOT( hidePopup() ) );
+    connect( parent, TQ_SIGNAL( layoutChanged() ), this, TQ_SLOT( update() ) );
+    connect( this, TQ_SIGNAL(leftButtonClicked(TQMouseEvent *)), TQ_SLOT(togglePopup()) );
+    connect( this, TQ_SIGNAL(rightButtonClicked(TQMouseEvent *)), TQ_SLOT(showGroupMenuAt(TQMouseEvent *) ) );
 }
 
 KasGroupItem::~KasGroupItem()
@@ -109,7 +109,7 @@ void KasGroupItem::addTask( Task::Ptr t )
 	updateIcon();
     }
 
-    connect( t, TQT_SIGNAL( changed(bool) ), this, TQT_SLOT( update() ) );
+    connect( t, TQ_SIGNAL( changed(bool) ), this, TQ_SLOT( update() ) );
     update();
 }
 
@@ -257,7 +257,7 @@ KasPopup *KasGroupItem::createPopup()
     KasPopup *pop = new KasPopup( this );
     bar = kasbar()->createChildBar( ( kasbar()->orientation() == TQt::Horizontal ) ? TQt::Vertical : TQt::Horizontal, pop );
 
-    connect( pop, TQT_SIGNAL(shown()), TQT_SLOT(updatePopup()) );
+    connect( pop, TQ_SIGNAL(shown()), TQ_SLOT(updatePopup()) );
 
     return pop;
 
@@ -291,7 +291,7 @@ void KasGroupItem::showGroupMenuAt( TQMouseEvent *ev )
 void KasGroupItem::showGroupMenuAt( const TQPoint &p )
 {
     TaskRMBMenu *tm = new TaskRMBMenu(items, true, NULL, kasbar());
-    tm->insertItem( i18n("&Ungroup" ), this, TQT_SLOT( ungroup() ) );
+    tm->insertItem( i18n("&Ungroup" ), this, TQ_SLOT( ungroup() ) );
     tm->insertSeparator();
     tm->insertItem( i18n("&Kasbar"), kasbar()->contextMenu() );
 

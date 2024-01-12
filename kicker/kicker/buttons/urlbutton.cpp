@@ -90,7 +90,7 @@ void URLButton::initialize( const TQString& _url )
     }
     fileItem = new KFileItem( KFileItem::Unknown, KFileItem::Unknown, url );
     setIcon( fileItem->iconName() );
-    connect( this, TQT_SIGNAL(clicked()), TQT_SLOT(slotExec()) );
+    connect( this, TQ_SIGNAL(clicked()), TQ_SLOT(slotExec()) );
     setToolTip();
 
     if (url.isLocalFile())
@@ -196,6 +196,6 @@ void URLButton::properties()
 
     pDlg = new KPropertiesDialog(fileItem, 0L, 0L, false, false); // will delete itself
     pDlg->setFileNameReadOnly(true);
-    connect(pDlg, TQT_SIGNAL(applied()), TQT_SLOT(updateURL()));
+    connect(pDlg, TQ_SIGNAL(applied()), TQ_SLOT(updateURL()));
     pDlg->show();
 }

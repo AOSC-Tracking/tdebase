@@ -193,8 +193,8 @@ TDEIO::UDSEntry HomeImpl::extractUrlInfos(const KURL &url)
 	m_entryBuffer.clear();
 
 	TDEIO::StatJob *job = TDEIO::stat(url, false);
-	connect( job, TQT_SIGNAL( result(TDEIO::Job *) ),
-	         this, TQT_SLOT( slotStatResult(TDEIO::Job *) ) );
+	connect( job, TQ_SIGNAL( result(TDEIO::Job *) ),
+	         this, TQ_SLOT( slotStatResult(TDEIO::Job *) ) );
 	tqApp->eventLoop()->enterLoop();
 
 	TDEIO::UDSEntry::iterator it = m_entryBuffer.begin();

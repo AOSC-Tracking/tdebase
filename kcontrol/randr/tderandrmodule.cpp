@@ -100,7 +100,7 @@ KRandRModule::KRandRModule(TQWidget *parent, const char *name, const TQStringLis
         screenLabel->setBuddy( m_screenSelector );
 	TQWhatsThis::add(m_screenSelector, i18n("The screen whose settings you would like to change can be selected using this drop-down list."));
 
-	connect(m_screenSelector, TQT_SIGNAL(activated(int)), TQT_SLOT(slotScreenChanged(int)));
+	connect(m_screenSelector, TQ_SIGNAL(activated(int)), TQ_SLOT(slotScreenChanged(int)));
 
 	if (numScreens() <= 1)
 		m_screenSelector->setEnabled(false);
@@ -110,7 +110,7 @@ KRandRModule::KRandRModule(TQWidget *parent, const char *name, const TQStringLis
 	TQLabel *sizeLabel = new TQLabel(i18n("Screen size:"), sizeBox);
 	m_sizeCombo = new KComboBox(sizeBox);
 	TQWhatsThis::add(m_sizeCombo, i18n("The size, otherwise known as the resolution, of your screen can be selected from this drop-down list."));
-	connect(m_sizeCombo, TQT_SIGNAL(activated(int)), TQT_SLOT(slotSizeChanged(int)));
+	connect(m_sizeCombo, TQ_SIGNAL(activated(int)), TQ_SLOT(slotSizeChanged(int)));
         sizeLabel->setBuddy( m_sizeCombo );
 
 	TQHBox* refreshBox = new TQHBox(this);
@@ -118,7 +118,7 @@ KRandRModule::KRandRModule(TQWidget *parent, const char *name, const TQStringLis
 	TQLabel *rateLabel = new TQLabel(i18n("Refresh rate:"), refreshBox);
 	m_refreshRates = new KComboBox(refreshBox);
 	TQWhatsThis::add(m_refreshRates, i18n("The refresh rate of your screen can be selected from this drop-down list."));
-	connect(m_refreshRates, TQT_SIGNAL(activated(int)), TQT_SLOT(slotRefreshChanged(int)));
+	connect(m_refreshRates, TQ_SIGNAL(activated(int)), TQ_SLOT(slotRefreshChanged(int)));
         rateLabel->setBuddy( m_refreshRates );
 
 	m_rotationGroup = new TQButtonGroup(2, TQt::Horizontal, i18n("Orientation (degrees counterclockwise)"), this);
@@ -129,14 +129,14 @@ KRandRModule::KRandRModule(TQWidget *parent, const char *name, const TQStringLis
 	m_applyOnStartup = new TQCheckBox(i18n("Apply settings on TDE startup"), this);
 	topLayout->addWidget(m_applyOnStartup);
 	TQWhatsThis::add(m_applyOnStartup, i18n("If this option is enabled the size and orientation settings will be used when TDE starts."));
-	connect(m_applyOnStartup, TQT_SIGNAL(clicked()), TQT_SLOT(setChanged()));
+	connect(m_applyOnStartup, TQ_SIGNAL(clicked()), TQ_SLOT(setChanged()));
 
 	TQHBox* syncBox = new TQHBox(this);
 	syncBox->layout()->addItem(new TQSpacerItem(20, 1, TQSizePolicy::Maximum));
 	m_syncTrayApp = new TQCheckBox(i18n("Allow tray application to change startup settings"), syncBox);
 	topLayout->addWidget(syncBox);
 	TQWhatsThis::add(m_syncTrayApp, i18n("If this option is enabled, options set by the system tray applet will be saved and loaded when TDE starts instead of being temporary."));
-	connect(m_syncTrayApp, TQT_SIGNAL(clicked()), TQT_SLOT(setChanged()));
+	connect(m_syncTrayApp, TQ_SIGNAL(clicked()), TQ_SLOT(setChanged()));
 
 	topLayout->addStretch(1);
 
@@ -155,11 +155,11 @@ void KRandRModule::addRotationButton(int thisRotation, bool checkbox)
 	if (!checkbox) {
 		TQRadioButton* thisButton = new TQRadioButton(RandRScreen::rotationName(thisRotation), m_rotationGroup);
 		thisButton->setEnabled(thisRotation & currentScreen()->rotations());
-		connect(thisButton, TQT_SIGNAL(clicked()), TQT_SLOT(slotRotationChanged()));
+		connect(thisButton, TQ_SIGNAL(clicked()), TQ_SLOT(slotRotationChanged()));
 	} else {
 		TQCheckBox* thisButton = new TQCheckBox(RandRScreen::rotationName(thisRotation), m_rotationGroup);
 		thisButton->setEnabled(thisRotation & currentScreen()->rotations());
-		connect(thisButton, TQT_SIGNAL(clicked()), TQT_SLOT(slotRotationChanged()));
+		connect(thisButton, TQ_SIGNAL(clicked()), TQ_SLOT(slotRotationChanged()));
 	}
 }
 

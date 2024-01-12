@@ -157,8 +157,8 @@ void SwallowApplet::createApps( SwallowCommandList* list )
     while ( (it.current()) ) {
 	app = new SwallowApp( it.current(), this );
 	app->hide();
-	connect( app, TQT_SIGNAL( embedded(SwallowApp *)),
-		 TQT_SLOT( embedded(SwallowApp *)));
+	connect( app, TQ_SIGNAL( embedded(SwallowApp *)),
+		 TQ_SLOT( embedded(SwallowApp *)));
 	appList->append( app );
 	++it;
 	kapp->processEvents();
@@ -179,8 +179,8 @@ void SwallowApplet::embedded( SwallowApp *app )
     kdDebug() << "--> ratio: " << app->sizeRatio() << endl;
     kdDebug() << "**** " << app << " is embedded now, with (" << app->width() << ", " << app->height() << ")" << endl;
 
-    disconnect( app, TQT_SIGNAL( embedded(SwallowApp *)),
-		this, TQT_SLOT( embedded(SwallowApp *)));
+    disconnect( app, TQ_SIGNAL( embedded(SwallowApp *)),
+		this, TQ_SLOT( embedded(SwallowApp *)));
 
     embeddedList->append( app );
 
@@ -278,8 +278,8 @@ SwallowApp::SwallowApp(const SwallowCommand *swc, TQWidget* parent,
     QXEmbed::initialize();
 
     winTitle = swc->title;
-    connect(SwallowApplet::winModule(), TQT_SIGNAL(windowAdded(WId)),
-	    this, TQT_SLOT(windowAdded(WId)));
+    connect(SwallowApplet::winModule(), TQ_SIGNAL(windowAdded(WId)),
+	    this, TQ_SLOT(windowAdded(WId)));
 
     if (!swc->cmdline.isEmpty()) {
 	TDEProcess *process = new TDEProcess;
@@ -289,8 +289,8 @@ SwallowApp::SwallowApp(const SwallowCommand *swc, TQWidget* parent,
 	//	*process << "-geometry";
 	//	*process << TQString("32x32+%1+%2").arg(kapp->desktop()->width()).arg(kapp->desktop()->height());
 
-	connect(process, TQT_SIGNAL(processExited(TDEProcess*)),
-		this, TQT_SLOT(processExited(TDEProcess*)));
+	connect(process, TQ_SIGNAL(processExited(TDEProcess*)),
+		this, TQ_SLOT(processExited(TDEProcess*)));
 
 	process->start();
     }
@@ -330,8 +330,8 @@ void SwallowApp::windowAdded(WId win)
 	embed(win);
 	XReparentWindow(tqt_xdisplay(), win, winId(), 0, 0);
 
-	disconnect(SwallowApplet::winModule(), TQT_SIGNAL(windowAdded(WId)),
-		   this, TQT_SLOT(windowAdded(WId)));
+	disconnect(SwallowApplet::winModule(), TQ_SIGNAL(windowAdded(WId)),
+		   this, TQ_SLOT(windowAdded(WId)));
 
 	emit embedded( this );
     }

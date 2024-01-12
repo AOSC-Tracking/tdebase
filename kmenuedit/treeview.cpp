@@ -163,23 +163,23 @@ TreeView::TreeView( bool controlCenter, TDEActionCollection *ac, TQWidget *paren
     addColumn("");
     header()->hide();
 
-    connect(this, TQT_SIGNAL(dropped(TQDropEvent*, TQListViewItem*, TQListViewItem*)),
-	    TQT_SLOT(slotDropped(TQDropEvent*, TQListViewItem*, TQListViewItem*)));
+    connect(this, TQ_SIGNAL(dropped(TQDropEvent*, TQListViewItem*, TQListViewItem*)),
+	    TQ_SLOT(slotDropped(TQDropEvent*, TQListViewItem*, TQListViewItem*)));
 
-    connect(this, TQT_SIGNAL(clicked( TQListViewItem* )),
-	    TQT_SLOT(itemSelected( TQListViewItem* )));
+    connect(this, TQ_SIGNAL(clicked( TQListViewItem* )),
+	    TQ_SLOT(itemSelected( TQListViewItem* )));
 
-    connect(this,TQT_SIGNAL(selectionChanged ( TQListViewItem * )),
-            TQT_SLOT(itemSelected( TQListViewItem* )));
+    connect(this,TQ_SIGNAL(selectionChanged ( TQListViewItem * )),
+            TQ_SLOT(itemSelected( TQListViewItem* )));
 
-    connect(this, TQT_SIGNAL(rightButtonPressed(TQListViewItem*, const TQPoint&, int)),
-	    TQT_SLOT(slotRMBPressed(TQListViewItem*, const TQPoint&)));
+    connect(this, TQ_SIGNAL(rightButtonPressed(TQListViewItem*, const TQPoint&, int)),
+	    TQ_SLOT(slotRMBPressed(TQListViewItem*, const TQPoint&)));
 
     // connect actions
-    connect(m_ac->action("newitem"), TQT_SIGNAL(activated()), TQT_SLOT(newitem()));
-    connect(m_ac->action("newsubmenu"), TQT_SIGNAL(activated()), TQT_SLOT(newsubmenu()));
+    connect(m_ac->action("newitem"), TQ_SIGNAL(activated()), TQ_SLOT(newitem()));
+    connect(m_ac->action("newsubmenu"), TQ_SIGNAL(activated()), TQ_SLOT(newsubmenu()));
     if (m_ac->action("newsep"))
-        connect(m_ac->action("newsep"), TQT_SIGNAL(activated()), TQT_SLOT(newsep()));
+        connect(m_ac->action("newsep"), TQ_SIGNAL(activated()), TQ_SLOT(newsep()));
 
     m_menuFile = new MenuFile( locateLocal("xdgconf-menu", "applications-tdemenuedit.menu"));
     m_rootFolder = new MenuFolderInfo;
@@ -215,21 +215,21 @@ void TreeView::setViewMode(bool showHidden)
     if(action) {
         action->plug(m_rmb);
         action->setEnabled(false);
-        connect(action, TQT_SIGNAL(activated()), TQT_SLOT(cut()));
+        connect(action, TQ_SIGNAL(activated()), TQ_SLOT(cut()));
     }
 
     action = m_ac->action("edit_copy");
     if(action) {
         action->plug(m_rmb);
         action->setEnabled(false);
-        connect(action, TQT_SIGNAL(activated()), TQT_SLOT(copy()));
+        connect(action, TQ_SIGNAL(activated()), TQ_SLOT(copy()));
     }
 
     action = m_ac->action("edit_paste");
     if(action) {
         action->plug(m_rmb);
         action->setEnabled(false);
-        connect(action, TQT_SIGNAL(activated()), TQT_SLOT(paste()));
+        connect(action, TQ_SIGNAL(activated()), TQ_SLOT(paste()));
     }
 
     m_rmb->insertSeparator();
@@ -238,7 +238,7 @@ void TreeView::setViewMode(bool showHidden)
     if(action) {
         action->plug(m_rmb);
         action->setEnabled(false);
-        connect(action, TQT_SIGNAL(activated()), TQT_SLOT(del()));
+        connect(action, TQ_SIGNAL(activated()), TQ_SLOT(del()));
     }
 
     m_rmb->insertSeparator();

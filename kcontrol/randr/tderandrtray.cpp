@@ -59,10 +59,10 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
 	, m_help(new KHelpMenu(this, TDEGlobal::instance()->aboutData(), false, actionCollection()))
 {
 	TDEPopupMenu *help = m_help->menu();
-	help->connectItem(KHelpMenu::menuHelpContents, this, TQT_SLOT(slotHelpContents()));
+	help->connectItem(KHelpMenu::menuHelpContents, this, TQ_SLOT(slotHelpContents()));
 	setPixmap(KSystemTray::loadIcon("randr"));
 	setAlignment(TQt::AlignHCenter | TQt::AlignVCenter);
-	connect(this, TQT_SIGNAL(quitSelected()), this, TQT_SLOT(_quit()));
+	connect(this, TQ_SIGNAL(quitSelected()), this, TQ_SLOT(_quit()));
 	TQToolTip::add(this, i18n("Screen resize & rotate"));
 	my_parent = parent;
 
@@ -75,10 +75,10 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
 	globalKeys->setEnabled(true);
 	globalKeys->updateConnections();
 
-	connect(kapp, TQT_SIGNAL(settingsChanged(int)), TQT_SLOT(slotSettingsChanged(int)));
+	connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
 
 #if (TQT_VERSION-0 >= 0x030200) // XRANDR support
-//	connect(this, TQT_SIGNAL(screenSizeChanged(int, int)), kapp->desktop(), TQT_SLOT( desktopResized()));
+//	connect(this, TQ_SIGNAL(screenSizeChanged(int, int)), kapp->desktop(), TQ_SLOT( desktopResized()));
 #endif
 
 	randr_display = XOpenDisplay(NULL);
@@ -98,12 +98,12 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
 
 #ifdef WITH_TDEHWLIB
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
-	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(deviceChanged(TDEGenericDevice*)));
+	connect(hwdevices, TQ_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQ_SLOT(deviceChanged(TDEGenericDevice*)));
 #endif
 }
 
 /*!
- * \b TQT_SLOT which called if tderandrtray is exited by the user. In this case the user
+ * \b TQ_SLOT which called if tderandrtray is exited by the user. In this case the user
  * is asked through a yes/no box if "KRandRTray should start automatically on log in" and the
  * result is written to the KDE configfile.
  */
@@ -271,7 +271,7 @@ void KRandRSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu)
 				m_screenPopups.append(subMenu);
 				populateMenu(subMenu);
 				lastIndex = menu->insertItem(i18n("Screen %1").arg(s+1), subMenu);
-				connect(subMenu, TQT_SIGNAL(activated(int)), TQT_SLOT(slotScreenActivated()));
+				connect(subMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(slotScreenActivated()));
 			}
 		}
 
@@ -293,7 +293,7 @@ void KRandRSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu)
 			menu->setItemChecked(lastIndex, true);
 		}
 		menu->setItemEnabled(lastIndex, t_config->readBoolEntry("EnableICC", false));
-		menu->connectItem(lastIndex, this, TQT_SLOT(slotColorProfileChanged(int)));
+		menu->connectItem(lastIndex, this, TQ_SLOT(slotColorProfileChanged(int)));
 	}
 
 	if (valid) {
@@ -303,10 +303,10 @@ void KRandRSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu)
 		if (!displayProfiles.isEmpty()) {
 			menu->insertTitle(SmallIcon("background"), i18n("Display Profiles"));
 			lastIndex = menu->insertItem(SmallIcon("bookmark"), "<default>");
-			menu->connectItem(lastIndex, this, TQT_SLOT(slotDisplayProfileChanged(int)));
+			menu->connectItem(lastIndex, this, TQ_SLOT(slotDisplayProfileChanged(int)));
 			for (TQStringList::Iterator t(displayProfiles.begin()); t != displayProfiles.end(); ++t) {
 				lastIndex = menu->insertItem(SmallIcon("bookmark"), *t);
-				menu->connectItem(lastIndex, this, TQT_SLOT(slotDisplayProfileChanged(int)));
+				menu->connectItem(lastIndex, this, TQ_SLOT(slotDisplayProfileChanged(int)));
 			}
 		}
 	}
@@ -314,17 +314,17 @@ void KRandRSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu)
 	menu->insertTitle(SmallIcon("randr"), i18n("Global Configuration"));
 
 	TDEAction *actColors = new TDEAction( i18n( "Configure Displays..." ),
-		SmallIconSet( "configure" ), TDEShortcut(), this, TQT_SLOT( slotDisplayConfig() ),
+		SmallIconSet( "configure" ), TDEShortcut(), this, TQ_SLOT( slotDisplayConfig() ),
 		actionCollection() );
 	actColors->plug( menu );
 
 // 	TDEAction *actPrefs = new TDEAction( i18n( "Configure Display..." ),
-// 		SmallIconSet( "configure" ), TDEShortcut(), this, TQT_SLOT( slotPrefs() ),
+// 		SmallIconSet( "configure" ), TDEShortcut(), this, TQ_SLOT( slotPrefs() ),
 // 		actionCollection() );
 // 	actPrefs->plug( menu );
 
 	TDEAction *actSKeys = new TDEAction( i18n( "Configure Shortcut Keys..." ),
-		SmallIconSet( "configure" ), TDEShortcut(), this, TQT_SLOT( slotSKeys() ),
+		SmallIconSet( "configure" ), TDEShortcut(), this, TQ_SLOT( slotSKeys() ),
 		actionCollection() );
 	actSKeys->plug( menu );
 
@@ -442,7 +442,7 @@ void KRandRSystemTray::populateMenu(TDEPopupMenu* menu)
 			menu->setItemChecked(lastIndex, true);
 
 		menu->setItemParameter(lastIndex, highestIndex);
-		menu->connectItem(lastIndex, this, TQT_SLOT(slotResolutionChanged(int)));
+		menu->connectItem(lastIndex, this, TQ_SLOT(slotResolutionChanged(int)));
 	}
 	delete [] sizeSort;
 	sizeSort = 0L;
@@ -460,7 +460,7 @@ void KRandRSystemTray::populateMenu(TDEPopupMenu* menu)
 					menu->setItemChecked(lastIndex, true);
 
 				menu->setItemParameter(lastIndex, 1 << i);
-				menu->connectItem(lastIndex, this, TQT_SLOT(slotOrientationChanged(int)));
+				menu->connectItem(lastIndex, this, TQ_SLOT(slotOrientationChanged(int)));
 			}
 		}
 	}
@@ -478,7 +478,7 @@ void KRandRSystemTray::populateMenu(TDEPopupMenu* menu)
 			menu->setItemChecked(lastIndex, true);
 
 		menu->setItemParameter(lastIndex, i);
-		menu->connectItem(lastIndex, this, TQT_SLOT(slotRefreshRateChanged(int)));
+		menu->connectItem(lastIndex, this, TQ_SLOT(slotRefreshRateChanged(int)));
 	}
 }
 
@@ -764,7 +764,7 @@ void KRandRSystemTray::addOutputMenu(TDEPopupMenu* menu)
 
 			lastIndex = menu->insertItem(i18n("%1 (Active)").arg(output_name));
 			menu->setItemChecked(lastIndex, true);
-			menu->connectItem(lastIndex, this, TQT_SLOT(slotOutputChanged(int)));
+			menu->connectItem(lastIndex, this, TQ_SLOT(slotOutputChanged(int)));
 			menu->setItemParameter(lastIndex, i);
 
 			connected_displays++;
@@ -786,7 +786,7 @@ void KRandRSystemTray::addOutputMenu(TDEPopupMenu* menu)
 
 			lastIndex = menu->insertItem(i18n("%1 (Connected, Inactive)").arg(output_name));
 			menu->setItemChecked(lastIndex, false);
-			menu->connectItem(lastIndex, this, TQT_SLOT(slotOutputChanged(int)));
+			menu->connectItem(lastIndex, this, TQ_SLOT(slotOutputChanged(int)));
 			menu->setItemParameter(lastIndex, i);
 
 			connected_displays++;
@@ -809,7 +809,7 @@ void KRandRSystemTray::addOutputMenu(TDEPopupMenu* menu)
 			lastIndex = menu->insertItem(i18n("%1 (Disconnected, Inactive)").arg(output_name));
 			menu->setItemChecked(lastIndex, false);
 			menu->setItemEnabled(lastIndex, false);
-			menu->connectItem(lastIndex, this, TQT_SLOT(slotOutputChanged(int)));
+			menu->connectItem(lastIndex, this, TQ_SLOT(slotOutputChanged(int)));
 			menu->setItemParameter(lastIndex, i);
 		}
 
@@ -817,7 +817,7 @@ void KRandRSystemTray::addOutputMenu(TDEPopupMenu* menu)
 		if (connected_displays < 2) {
 			menu->setItemEnabled(lastIndex, false);
 		}
-		menu->connectItem(lastIndex, this, TQT_SLOT(slotCycleDisplays()));
+		menu->connectItem(lastIndex, this, TQ_SLOT(slotCycleDisplays()));
 	}
 }
 

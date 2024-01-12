@@ -847,8 +847,8 @@ KateSessionChooser::KateSessionChooser(TQWidget *parent)
   m_listview->setSorting(-1);
   m_listview->setResizeMode(TQListView::LastColumn);
 
-  connect (m_listview, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()));
-  connect (m_listview, TQT_SIGNAL(executed(TQListViewItem*)), this, TQT_SLOT(slotUser2()));
+  connect (m_listview, TQ_SIGNAL(selectionChanged()), this, TQ_SLOT(slotSelectionChanged()));
+  connect (m_listview, TQ_SIGNAL(executed(TQListViewItem*)), this, TQ_SLOT(slotUser2()));
 
   TQPtrList<KateSession> &sessions = KateSessionManager::self()->getSessionsList();
   for (int idx = sessions.count()-1;  idx >= 0;  --idx)

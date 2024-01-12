@@ -101,20 +101,20 @@ FlipScrollView::FlipScrollView( TQWidget * parent, const char * name )
     addChild( mRightView );
 
     mTimer = new TQTimer( this, "mTimer" );
-    connect( mTimer, TQT_SIGNAL( timeout() ), TQT_SLOT( slotScrollTimer() ) );
+    connect( mTimer, TQ_SIGNAL( timeout() ), TQ_SLOT( slotScrollTimer() ) );
 
-    connect( mLeftView, TQT_SIGNAL( startService(KService::Ptr) ),
-             TQT_SIGNAL( startService(KService::Ptr) ) );
-    connect( mLeftView, TQT_SIGNAL( startURL(const TQString& ) ),
-             TQT_SIGNAL( startURL(const TQString& ) ) );
-    connect( mLeftView, TQT_SIGNAL( rightButtonPressed(TQListViewItem*,const TQPoint&,int) ),
-             TQT_SIGNAL( rightButtonPressed(TQListViewItem*,const TQPoint&,int) ) );
-    connect( mRightView, TQT_SIGNAL( startService(KService::Ptr) ),
-             TQT_SIGNAL( startService(KService::Ptr) ) );
-    connect( mRightView, TQT_SIGNAL( startURL(const TQString& ) ),
-             TQT_SIGNAL( startURL(const TQString& ) ) );
-    connect( mRightView, TQT_SIGNAL( rightButtonPressed(TQListViewItem*,const TQPoint&,int) ),
-             TQT_SIGNAL( rightButtonPressed(TQListViewItem*,const TQPoint&,int) ) );
+    connect( mLeftView, TQ_SIGNAL( startService(KService::Ptr) ),
+             TQ_SIGNAL( startService(KService::Ptr) ) );
+    connect( mLeftView, TQ_SIGNAL( startURL(const TQString& ) ),
+             TQ_SIGNAL( startURL(const TQString& ) ) );
+    connect( mLeftView, TQ_SIGNAL( rightButtonPressed(TQListViewItem*,const TQPoint&,int) ),
+             TQ_SIGNAL( rightButtonPressed(TQListViewItem*,const TQPoint&,int) ) );
+    connect( mRightView, TQ_SIGNAL( startService(KService::Ptr) ),
+             TQ_SIGNAL( startService(KService::Ptr) ) );
+    connect( mRightView, TQ_SIGNAL( startURL(const TQString& ) ),
+             TQ_SIGNAL( startURL(const TQString& ) ) );
+    connect( mRightView, TQ_SIGNAL( rightButtonPressed(TQListViewItem*,const TQPoint&,int) ),
+             TQ_SIGNAL( rightButtonPressed(TQListViewItem*,const TQPoint&,int) ) );
 
     // wild hack to make sure it has correct width
     mLeftView->setVScrollBarMode( TQScrollView::AlwaysOn );
@@ -124,7 +124,7 @@ FlipScrollView::FlipScrollView( TQWidget * parent, const char * name )
 
     mBackrow = new BackFrame( this );
     mBackrow->resize( 24, 100 );
-    connect( mBackrow, TQT_SIGNAL( clicked() ), TQT_SIGNAL( backButtonClicked() ) );
+    connect( mBackrow, TQ_SIGNAL( clicked() ), TQ_SIGNAL( backButtonClicked() ) );
 }
 
 ItemView* FlipScrollView::prepareRightMove()

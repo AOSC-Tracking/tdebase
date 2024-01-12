@@ -207,18 +207,18 @@ KGreeter::KGreeter( bool framed )
 	if (_userList) {
                 readFacesList();
 		userView = new UserListView( framed, this );
-		connect( userView, TQT_SIGNAL(clicked( TQListViewItem * )),
-		         TQT_SLOT(slotUserClicked( TQListViewItem * )) );
-		connect( userView, TQT_SIGNAL(doubleClicked( TQListViewItem * )),
-		         TQT_SLOT(accept()) );
+		connect( userView, TQ_SIGNAL(clicked( TQListViewItem * )),
+		         TQ_SLOT(slotUserClicked( TQListViewItem * )) );
+		connect( userView, TQ_SIGNAL(doubleClicked( TQListViewItem * )),
+		         TQ_SLOT(accept()) );
 	}
 	if (_userCompletion) {
 		userList = new TQStringList;
 	}
 
         sessMenu = new TQPopupMenu( this );
-	connect( sessMenu, TQT_SIGNAL(activated( int )),
-	         TQT_SLOT(slotSessionSelected( int )) );
+	connect( sessMenu, TQ_SIGNAL(activated( int )),
+	         TQ_SLOT(slotSessionSelected( int )) );
 	insertSessions();
 
 	if (curPlugin < 0) {
@@ -230,8 +230,8 @@ KGreeter::KGreeter( bool framed )
 	mControlPipeHandler = new ControlPipeHandlerObject();
 	mControlPipeHandler->mKGreeterParent = this;
 	mControlPipeHandler->moveToThread(mControlPipeHandlerThread);
-	TQObject::connect(mControlPipeHandler, SIGNAL(processCommand(TQString)), this, SLOT(processInputPipeCommand(TQString)));
-	TQTimer::singleShot(0, mControlPipeHandler, SLOT(run()));
+	TQObject::connect(mControlPipeHandler, TQ_SIGNAL(processCommand(TQString)), this, TQ_SLOT(processInputPipeCommand(TQString)));
+	TQTimer::singleShot(0, mControlPipeHandler, TQ_SLOT(run()));
 	mControlPipeHandlerThread->start();
 }
 
@@ -258,8 +258,8 @@ void KGreeter::cryptographicCardWatcherSetup() {
 	TDEGenericHardwareList cardReaderList = hwdevices->listByDeviceClass(TDEGenericDeviceType::CryptographicCard);
 	for (hwdevice = cardReaderList.first(); hwdevice; hwdevice = cardReaderList.next()) {
 		TDECryptographicCardDevice* cdevice = static_cast<TDECryptographicCardDevice*>(hwdevice);
-		connect(cdevice, TQT_SIGNAL(certificateListAvailable(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardInserted(TDECryptographicCardDevice*)));
-		connect(cdevice, TQT_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
+		connect(cdevice, TQ_SIGNAL(certificateListAvailable(TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardInserted(TDECryptographicCardDevice*)));
+		connect(cdevice, TQ_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
 		cdevice->enableCardMonitoring(true);
 	}
 #endif
@@ -656,7 +656,7 @@ KGreeter::slotUserEntered()
 	if (isVisible())
 		slotLoadPrevWM();
 	else
-		TQTimer::singleShot( 0, this, TQT_SLOT(slotLoadPrevWM()) );
+		TQTimer::singleShot( 0, this, TQ_SLOT(slotLoadPrevWM()) );
 }
 
 void
@@ -1053,7 +1053,7 @@ KStdGreeter::KStdGreeter()
 
 	goButton = new TQPushButton( i18n("L&ogin"), this );
 	goButton->setDefault( true );
-	connect( goButton, TQT_SIGNAL(clicked()), TQT_SLOT(accept()) );
+	connect( goButton, TQ_SIGNAL(clicked()), TQ_SLOT(accept()) );
 	menuButton = new TQPushButton( i18n("&Menu"), this );
 	//helpButton
 
@@ -1112,7 +1112,7 @@ KStdGreeter::KStdGreeter()
         verify->setInfoMessageDisplay(showInfoMessages);
 	verify->start();
 
-	TQTimer::singleShot(0, this, SLOT(cryptographicCardWatcherSetup()));
+	TQTimer::singleShot(0, this, TQ_SLOT(cryptographicCardWatcherSetup()));
 }
 
 void
@@ -1168,8 +1168,8 @@ KThemedGreeter::KThemedGreeter()
 		return;
 	}
 
-	connect( themer, TQT_SIGNAL(activated( const TQString & )),
-	         TQT_SLOT(slotThemeActivated( const TQString & )) );
+	connect( themer, TQ_SIGNAL(activated( const TQString & )),
+	         TQ_SLOT(slotThemeActivated( const TQString & )) );
 
 	console_rect = themer->findNode( "xconsole" ); // tdm ext
 	userlist_rect = themer->findNode( "userlist" );
@@ -1256,14 +1256,14 @@ KThemedGreeter::KThemedGreeter()
 	system_button = themer->findNode( "system_button" );
 	TQAccel *accel = new TQAccel( this );
 	accel->insertItem( ALT+Key_M, 0 );
-	connect( accel, TQT_SIGNAL(activated( int )), TQT_SLOT(slotActionMenu()) );
+	connect( accel, TQ_SIGNAL(activated( int )), TQ_SLOT(slotActionMenu()) );
 
 	pluginSetup();
 
 	verify->setInfoMessageDisplay(showInfoMessages);
 	verify->start();
 
-	TQTimer::singleShot(0, this, SLOT(cryptographicCardWatcherSetup()));
+	TQTimer::singleShot(0, this, TQ_SLOT(cryptographicCardWatcherSetup()));
 }
 
 bool

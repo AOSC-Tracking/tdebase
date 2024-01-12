@@ -242,10 +242,10 @@ bool MediaImpl::ensureMediumMounted(Medium &medium)
 		                           medium.deviceNode(),
 		                           medium.mountPoint());
 		job->setAutoWarningHandlingEnabled(false);
-		connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ),
-		         this, TQT_SLOT( slotMountResult( TDEIO::Job * ) ) );
-		connect( job, TQT_SIGNAL( warning( TDEIO::Job *, const TQString & ) ),
-		         this, TQT_SLOT( slotWarning( TDEIO::Job *, const TQString & ) ) );
+		connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ),
+		         this, TQ_SLOT( slotMountResult( TDEIO::Job * ) ) );
+		connect( job, TQ_SIGNAL( warning( TDEIO::Job *, const TQString & ) ),
+		         this, TQ_SLOT( slotWarning( TDEIO::Job *, const TQString & ) ) );
 		*/
 		kapp->dcopClient()
 		->connectDCOPSignal("kded", "mediamanager",
@@ -365,10 +365,10 @@ TDEIO::UDSEntry MediaImpl::extractUrlInfos(const KURL &url)
 
 	TDEIO::StatJob *job = TDEIO::stat(url, false);
 	job->setAutoWarningHandlingEnabled( false );
-	connect( job, TQT_SIGNAL( result(TDEIO::Job *) ),
-	         this, TQT_SLOT( slotStatResult(TDEIO::Job *) ) );
-	connect( job, TQT_SIGNAL( warning( TDEIO::Job *, const TQString & ) ),
-	         this, TQT_SLOT( slotWarning( TDEIO::Job *, const TQString & ) ) );
+	connect( job, TQ_SIGNAL( result(TDEIO::Job *) ),
+	         this, TQ_SLOT( slotStatResult(TDEIO::Job *) ) );
+	connect( job, TQ_SIGNAL( warning( TDEIO::Job *, const TQString & ) ),
+	         this, TQ_SLOT( slotWarning( TDEIO::Job *, const TQString & ) ) );
 	tqApp->eventLoop()->enterLoop();
 
 	TDEIO::UDSEntry::iterator it = m_entryBuffer.begin();

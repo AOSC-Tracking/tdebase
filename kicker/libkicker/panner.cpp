@@ -46,7 +46,7 @@ Panner::Panner( TQWidget* parent, const char* name )
     setBackgroundOrigin( AncestorOrigin );
 
     _updateScrollButtonsTimer = new TQTimer(this);
-    connect(_updateScrollButtonsTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(reallyUpdateScrollButtons()));
+    connect(_updateScrollButtonsTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(reallyUpdateScrollButtons()));
 
     _clipper = new TQWidget(this);
     _clipper->setBackgroundOrigin(AncestorOrigin);
@@ -78,8 +78,8 @@ void Panner::createScrollButtons()
     _luSB->setMinimumSize(12, 12);
     _luSB->hide();
     _layout->addWidget(_luSB);
-    connect(_luSB, TQT_SIGNAL(pressed()), TQT_SLOT(startScrollLeftUp()));
-    connect(_luSB, TQT_SIGNAL(released()), TQT_SLOT(stopScroll()));
+    connect(_luSB, TQ_SIGNAL(pressed()), TQ_SLOT(startScrollLeftUp()));
+    connect(_luSB, TQ_SIGNAL(released()), TQ_SLOT(stopScroll()));
 
     // right/down scroll button
     _rdSB = new SimpleArrowButton(this);
@@ -88,8 +88,8 @@ void Panner::createScrollButtons()
     _rdSB->setMinimumSize(12, 12);
     _rdSB->hide();
     _layout->addWidget(_rdSB);
-    connect(_rdSB, TQT_SIGNAL(pressed()), TQT_SLOT(startScrollRightDown()));
-    connect(_rdSB, TQT_SIGNAL(released()), TQT_SLOT(stopScroll()));
+    connect(_rdSB, TQ_SIGNAL(pressed()), TQ_SLOT(startScrollRightDown()));
+    connect(_rdSB, TQ_SIGNAL(released()), TQ_SLOT(stopScroll()));
 
     // set up the buttons
     setupButtons();
@@ -170,7 +170,7 @@ void Panner::scrollLeftUp()
 void Panner::startScrollRightDown()
 {
     _scrollTimer = new TQTimer(this);
-    connect(_scrollTimer, TQT_SIGNAL(timeout()), TQT_SLOT(scrollRightDown()));
+    connect(_scrollTimer, TQ_SIGNAL(timeout()), TQ_SLOT(scrollRightDown()));
     _scrollTimer->start(50);
     _step = 8;
     scrollRightDown();
@@ -179,7 +179,7 @@ void Panner::startScrollRightDown()
 void Panner::startScrollLeftUp()
 {
     _scrollTimer = new TQTimer(this);
-    connect(_scrollTimer, TQT_SIGNAL(timeout()), TQT_SLOT(scrollLeftUp()));
+    connect(_scrollTimer, TQ_SIGNAL(timeout()), TQ_SLOT(scrollLeftUp()));
     _scrollTimer->start(50);
     _step = 8;
     scrollLeftUp();

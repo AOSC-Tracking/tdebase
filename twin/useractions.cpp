@@ -51,13 +51,13 @@ TQPopupMenu* Workspace::clientPopup()
         popup = new TQPopupMenu;
         popup->setCheckable( TRUE );
         popup->setFont(TDEGlobalSettings::menuFont());
-        connect( popup, TQT_SIGNAL( aboutToShow() ), this, TQT_SLOT( clientPopupAboutToShow() ) );
-        connect( popup, TQT_SIGNAL( activated(int) ), this, TQT_SLOT( clientPopupActivated(int) ) );
+        connect( popup, TQ_SIGNAL( aboutToShow() ), this, TQ_SLOT( clientPopupAboutToShow() ) );
+        connect( popup, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( clientPopupActivated(int) ) );
       
         advanced_popup = new TQPopupMenu( popup );
         advanced_popup->setCheckable( TRUE );
         advanced_popup->setFont(TDEGlobalSettings::menuFont());
-        connect( advanced_popup, TQT_SIGNAL( activated(int) ), this, TQT_SLOT( clientPopupActivated(int) ) );
+        connect( advanced_popup, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( clientPopupActivated(int) ) );
         advanced_popup->insertItem( SmallIconSet( "go-up" ),
             i18n("Keep &Above Others")+'\t'+keys->shortcut("Window Above Other Windows").seq(0).toString(), Options::KeepAboveOp );
         advanced_popup->insertItem( SmallIconSet( "go-down" ),
@@ -85,11 +85,11 @@ TQPopupMenu* Workspace::clientPopup()
             TQToolTip::add(transButton, i18n("Reset opacity to default value"));
             transSlider = new TQSlider(0, 100, 1, 100, TQt::Horizontal, transBox, "transSlider");
             TQToolTip::add(transSlider, i18n("Slide this to set the window's opacity"));
-            connect(transButton, TQT_SIGNAL(clicked()), TQT_SLOT(resetClientOpacity()));
-            connect(transButton, TQT_SIGNAL(clicked()), trans_popup, TQT_SLOT(hide()));
-            connect(transSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(setTransButtonText(int)));
-            connect(transSlider, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(setPopupClientOpacity(int)));
-//             connect(transSlider, TQT_SIGNAL(sliderReleased()), trans_popup, TQT_SLOT(hide()));
+            connect(transButton, TQ_SIGNAL(clicked()), TQ_SLOT(resetClientOpacity()));
+            connect(transButton, TQ_SIGNAL(clicked()), trans_popup, TQ_SLOT(hide()));
+            connect(transSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(setTransButtonText(int)));
+            connect(transSlider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setPopupClientOpacity(int)));
+//             connect(transSlider, TQ_SIGNAL(sliderReleased()), trans_popup, TQ_SLOT(hide()));
             trans_popup->insertItem(transBox);
             popup->insertItem(i18n("&Opacity"), trans_popup );
         }
@@ -105,7 +105,7 @@ TQPopupMenu* Workspace::clientPopup()
         if (!TDEGlobal::config()->isImmutable() && 
             !kapp->authorizeControlModules(Workspace::configModules(true)).isEmpty())
             {
-            popup->insertItem(SmallIconSet( "configure" ), i18n("Configur&e Window Behavior…"), this, TQT_SLOT( configureWM() ));
+            popup->insertItem(SmallIconSet( "configure" ), i18n("Configur&e Window Behavior…"), this, TQ_SLOT( configureWM() ));
             popup->insertSeparator();
             }
 
@@ -201,10 +201,10 @@ void Workspace::initDesktopPopup()
     desk_popup = new TQPopupMenu( popup );
     desk_popup->setCheckable( TRUE );
     desk_popup->setFont(TDEGlobalSettings::menuFont());
-    connect( desk_popup, TQT_SIGNAL( activated(int) ),
-             this, TQT_SLOT( slotSendToDesktop(int) ) );
-    connect( desk_popup, TQT_SIGNAL( aboutToShow() ),
-             this, TQT_SLOT( desktopPopupAboutToShow() ) );
+    connect( desk_popup, TQ_SIGNAL( activated(int) ),
+             this, TQ_SLOT( slotSendToDesktop(int) ) );
+    connect( desk_popup, TQ_SIGNAL( aboutToShow() ),
+             this, TQ_SLOT( desktopPopupAboutToShow() ) );
 
     popup->insertItem(i18n("To &Desktop"), desk_popup, -1, desk_popup_index );
     }
@@ -299,7 +299,7 @@ void Workspace::setupWindowShortcut( Client* c )
     client_keys->suspend( true );
     client_keys_dialog = new ShortcutDialog( c->shortcut());
     client_keys_client = c;
-    connect( client_keys_dialog, TQT_SIGNAL( dialogDone( bool )), TQT_SLOT( setupWindowShortcutDone( bool )));
+    connect( client_keys_dialog, TQ_SIGNAL( dialogDone( bool )), TQ_SLOT( setupWindowShortcutDone( bool )));
     TQRect r = clientArea( ScreenArea, c );
     TQSize size = client_keys_dialog->sizeHint();
     TQPoint pos = c->pos() + c->clientPos();
@@ -336,7 +336,7 @@ void Workspace::clientShortcutUpdated( Client* c )
         {
         client_keys->insert( key, key );
         client_keys->setShortcut( key, c->shortcut());
-        client_keys->setSlot( key, c, TQT_SLOT( shortcutActivated()));
+        client_keys->setSlot( key, c, TQ_SLOT( shortcutActivated()));
         client_keys->setActionEnabled( key, true );
         }
     client_keys->updateConnections();

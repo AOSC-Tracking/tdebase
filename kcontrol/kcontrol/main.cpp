@@ -61,8 +61,8 @@ KControlApp::KControlApp()
   // KUniqueApplication does dcop regitration for us
   ModuleIface *modIface = new ModuleIface(toplevel, "moduleIface");
 
-  connect (modIface, TQT_SIGNAL(helpClicked()), toplevel, TQT_SLOT(slotHelpRequest()));
-  connect (modIface, TQT_SIGNAL(handbookClicked()), toplevel, TQT_SLOT(slotHandbookRequest()));
+  connect (modIface, TQ_SIGNAL(helpClicked()), toplevel, TQ_SLOT(slotHelpRequest()));
+  connect (modIface, TQ_SIGNAL(handbookClicked()), toplevel, TQ_SLOT(slotHandbookRequest()));
 
   TQRect desk = TDEGlobalSettings::desktopGeometry(toplevel);
   TDEConfig *config = TDEGlobal::config();

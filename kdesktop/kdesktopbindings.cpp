@@ -1,6 +1,6 @@
 #ifndef NOSLOTS
 # define DEF( name, key3, key4, fnSlot ) \
-   keys->insert( name, i18n(name), TQString(), key3, key4, this, TQT_SLOT(fnSlot) )
+   keys->insert( name, i18n(name), TQString(), key3, key4, this, TQ_SLOT(fnSlot) )
 # define DEF2( name, key3, key4, receiver, slot ) \
    keys->insert( name, i18n(name), TQString(), key3, key4, receiver, slot );
 #else
@@ -28,14 +28,14 @@
 	if (kapp->authorize("lock_screen"))
 	{
 #endif
-		DEF2( I18N_NOOP("Lock Session"), ALT+CTRL+TQt::Key_L, WIN+TQt::Key_ScrollLock, KRootWm::self(), TQT_SLOT(slotLock()) );
-		DEF2( I18N_NOOP("Lock Session (Hotkey)"), TDEShortcut(TQString("XF86ScreenSaver")), TDEShortcut(TQString("XF86ScreenSaver")), KRootWm::self(), TQT_SLOT(slotLock()) );
+		DEF2( I18N_NOOP("Lock Session"), ALT+CTRL+TQt::Key_L, WIN+TQt::Key_ScrollLock, KRootWm::self(), TQ_SLOT(slotLock()) );
+		DEF2( I18N_NOOP("Lock Session (Hotkey)"), TDEShortcut(TQString("XF86ScreenSaver")), TDEShortcut(TQString("XF86ScreenSaver")), KRootWm::self(), TQ_SLOT(slotLock()) );
 #ifndef NOSLOTS
 	}
 	if (kapp->authorize("start_screensaver"))
 	{
 #endif
-		DEF2( I18N_NOOP("Start Screen Saver"), ALT+CTRL+TQt::Key_S, WIN+TQt::Key_S, KRootWm::self(), TQT_SLOT(slotSave()) );
+		DEF2( I18N_NOOP("Start Screen Saver"), ALT+CTRL+TQt::Key_S, WIN+TQt::Key_S, KRootWm::self(), TQ_SLOT(slotSave()) );
 #ifndef NOSLOTS
 	}
 	if (kapp->authorize("logout"))

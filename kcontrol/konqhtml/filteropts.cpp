@@ -67,20 +67,20 @@ KCMFilter::KCMFilter(TDEConfig *config, TQString group,
     buttonBox->setSpacing( KDialog::spacingHint() );
 
     mInsertButton = new TQPushButton( i18n("Insert"), buttonBox );
-    connect( mInsertButton, TQT_SIGNAL( clicked() ), TQT_SLOT( insertFilter() ) );
+    connect( mInsertButton, TQ_SIGNAL( clicked() ), TQ_SLOT( insertFilter() ) );
     mUpdateButton = new TQPushButton( i18n("Update"), buttonBox );
-    connect( mUpdateButton, TQT_SIGNAL( clicked() ), TQT_SLOT( updateFilter() ) );
+    connect( mUpdateButton, TQ_SIGNAL( clicked() ), TQ_SLOT( updateFilter() ) );
     mRemoveButton = new TQPushButton( i18n("Remove"), buttonBox );
-    connect( mRemoveButton, TQT_SIGNAL( clicked() ), TQT_SLOT( removeFilter() ) );
+    connect( mRemoveButton, TQ_SIGNAL( clicked() ), TQ_SLOT( removeFilter() ) );
 
     mImportButton = new TQPushButton(i18n("Import..."),buttonBox);
-    connect( mImportButton, TQT_SIGNAL( clicked() ), TQT_SLOT( importFilters() ) );
+    connect( mImportButton, TQ_SIGNAL( clicked() ), TQ_SLOT( importFilters() ) );
     mExportButton = new TQPushButton(i18n("Export..."),buttonBox);
-    connect( mExportButton, TQT_SIGNAL( clicked() ), TQT_SLOT( exportFilters() ) );
+    connect( mExportButton, TQ_SIGNAL( clicked() ), TQ_SLOT( exportFilters() ) );
 
-    connect( mEnableCheck, TQT_SIGNAL( clicked()), this, TQT_SLOT( slotEnableChecked()));
-    connect( mKillCheck, TQT_SIGNAL( clicked()), this, TQT_SLOT( slotKillChecked()));
-    connect( mListBox, TQT_SIGNAL( selectionChanged ()),this, TQT_SLOT( slotItemSelected()));
+    connect( mEnableCheck, TQ_SIGNAL( clicked()), this, TQ_SLOT( slotEnableChecked()));
+    connect( mKillCheck, TQ_SIGNAL( clicked()), this, TQ_SLOT( slotKillChecked()));
+    connect( mListBox, TQ_SIGNAL( selectionChanged ()),this, TQ_SLOT( slotItemSelected()));
 
 /*
  * Whats this items

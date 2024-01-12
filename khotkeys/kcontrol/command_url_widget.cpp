@@ -37,8 +37,8 @@ Command_url_widget::Command_url_widget( TQWidget* parent_P, const char* name_P )
     {
     clear_data();
     // KHotKeys::Module::changed()
-    connect( command_url_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
+    connect( command_url_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
     }
 
 void Command_url_widget::clear_data()

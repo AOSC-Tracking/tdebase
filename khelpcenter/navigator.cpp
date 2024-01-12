@@ -85,8 +85,8 @@ Navigator::Navigator( View *view, TQWidget *parent, const char *name )
     mShowMissingDocs = config->readBoolEntry("ShowMissingDocs",false);
 
     mSearchEngine = new SearchEngine( view );
-    connect( mSearchEngine, TQT_SIGNAL( searchFinished() ),
-             TQT_SLOT( slotSearchFinished() ) );
+    connect( mSearchEngine, TQ_SIGNAL( searchFinished() ),
+             TQ_SLOT( slotSearchFinished() ) );
 
     DocMetaInfo::self()->scanMetaInfo();
 
@@ -103,18 +103,18 @@ Navigator::Navigator( View *view, TQWidget *parent, const char *name )
     clearButton->setIconSet( TDEApplication::reverseLayout() ?
       SmallIconSet( "clear_left" ) : SmallIconSet("locationbar_erase") );
     searchLayout->addWidget( clearButton );
-    connect( clearButton, TQT_SIGNAL( clicked() ), TQT_SLOT( clearSearch() ) );
+    connect( clearButton, TQ_SIGNAL( clicked() ), TQ_SLOT( clearSearch() ) );
     TQToolTip::add( clearButton, i18n("Clear search") );
 
     mSearchEdit = new TQLineEdit( mSearchFrame );
     searchLayout->addWidget( mSearchEdit );
-    connect( mSearchEdit, TQT_SIGNAL( returnPressed() ), TQT_SLOT( slotSearch() ) );
-    connect( mSearchEdit, TQT_SIGNAL( textChanged( const TQString & ) ),
-             TQT_SLOT( checkSearchButton() ) );
+    connect( mSearchEdit, TQ_SIGNAL( returnPressed() ), TQ_SLOT( slotSearch() ) );
+    connect( mSearchEdit, TQ_SIGNAL( textChanged( const TQString & ) ),
+             TQ_SLOT( checkSearchButton() ) );
 
     mSearchButton = new TQPushButton( i18n("&Search"), mSearchFrame );
     searchLayout->addWidget( mSearchButton );
-    connect( mSearchButton, TQT_SIGNAL( clicked() ), TQT_SLOT( slotSearch() ) );
+    connect( mSearchButton, TQ_SIGNAL( clicked() ), TQ_SLOT( slotSearch() ) );
 
     clearButton->setFixedHeight( mSearchButton->height() );
 
@@ -134,8 +134,8 @@ Navigator::Navigator( View *view, TQWidget *parent, const char *name )
       mSearchWidget->readConfig( TDEGlobal::config() );
     }
 
-    connect( mTabWidget, TQT_SIGNAL( currentChanged( TQWidget * ) ),
-             TQT_SLOT( slotTabChanged( TQWidget * ) ) );
+    connect( mTabWidget, TQ_SIGNAL( currentChanged( TQWidget * ) ),
+             TQ_SLOT( slotTabChanged( TQWidget * ) ) );
 }
 
 Navigator::~Navigator()
@@ -168,22 +168,22 @@ void Navigator::setupContentsTab()
     mContentsTree->setRootIsDecorated(false);
     mContentsTree->setSorting(-1, false);
 
-    connect(mContentsTree, TQT_SIGNAL(clicked(TQListViewItem*)),
-            TQT_SLOT(slotItemSelected(TQListViewItem*)));
-    connect(mContentsTree, TQT_SIGNAL(returnPressed(TQListViewItem*)),
-           TQT_SLOT(slotItemSelected(TQListViewItem*)));
+    connect(mContentsTree, TQ_SIGNAL(clicked(TQListViewItem*)),
+            TQ_SLOT(slotItemSelected(TQListViewItem*)));
+    connect(mContentsTree, TQ_SIGNAL(returnPressed(TQListViewItem*)),
+           TQ_SLOT(slotItemSelected(TQListViewItem*)));
     mTabWidget->addTab(mContentsTree, i18n("&Contents"));
 }
 
 void Navigator::setupSearchTab()
 {
     mSearchWidget = new SearchWidget( mSearchEngine, mTabWidget );
-    connect( mSearchWidget, TQT_SIGNAL( searchResult( const TQString & ) ),
-             TQT_SLOT( slotShowSearchResult( const TQString & ) ) );
-    connect( mSearchWidget, TQT_SIGNAL( scopeCountChanged( int ) ),
-             TQT_SLOT( checkSearchButton() ) );
-    connect( mSearchWidget, TQT_SIGNAL( showIndexDialog() ),
-      TQT_SLOT( showIndexDialog() ) );
+    connect( mSearchWidget, TQ_SIGNAL( searchResult( const TQString & ) ),
+             TQ_SLOT( slotShowSearchResult( const TQString & ) ) );
+    connect( mSearchWidget, TQ_SIGNAL( scopeCountChanged( int ) ),
+             TQ_SLOT( checkSearchButton() ) );
+    connect( mSearchWidget, TQ_SIGNAL( showIndexDialog() ),
+      TQ_SLOT( showIndexDialog() ) );
 
     mTabWidget->addTab( mSearchWidget, i18n("Search Options"));
 }
@@ -191,8 +191,8 @@ void Navigator::setupSearchTab()
 void Navigator::setupGlossaryTab()
 {
     mGlossaryTree = new Glossary( mTabWidget );
-    connect( mGlossaryTree, TQT_SIGNAL( entrySelected( const GlossaryEntry & ) ),
-             this, TQT_SIGNAL( glossSelected( const GlossaryEntry & ) ) );
+    connect( mGlossaryTree, TQ_SIGNAL( entrySelected( const GlossaryEntry & ) ),
+             this, TQ_SIGNAL( glossSelected( const GlossaryEntry & ) ) );
     mTabWidget->addTab( mGlossaryTree, i18n( "G&lossary" ) );
 }
 
@@ -643,8 +643,8 @@ void Navigator::showIndexDialog()
 {
   if ( !mIndexDialog ) {
     mIndexDialog = new KCMHelpCenter( mSearchEngine, this );
-    connect( mIndexDialog, TQT_SIGNAL( searchIndexUpdated() ), mSearchWidget,
-             TQT_SLOT( updateScopeList() ) );
+    connect( mIndexDialog, TQ_SIGNAL( searchIndexUpdated() ), mSearchWidget,
+             TQ_SLOT( updateScopeList() ) );
   }
   mIndexDialog->show();
   mIndexDialog->raise();

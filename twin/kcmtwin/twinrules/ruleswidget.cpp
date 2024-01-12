@@ -41,9 +41,9 @@ namespace KWinInternal
 {
 
 #define SETUP( var, type ) \
-    connect( enable_##var, TQT_SIGNAL( toggled( bool )), rule_##var, TQT_SLOT( setEnabled( bool ))); \
-    connect( enable_##var, TQT_SIGNAL( toggled( bool )), this, TQT_SLOT( updateEnable##var())); \
-    connect( rule_##var, TQT_SIGNAL( activated( int )), this, TQT_SLOT( updateEnable##var())); \
+    connect( enable_##var, TQ_SIGNAL( toggled( bool )), rule_##var, TQ_SLOT( setEnabled( bool ))); \
+    connect( enable_##var, TQ_SIGNAL( toggled( bool )), this, TQ_SLOT( updateEnable##var())); \
+    connect( rule_##var, TQ_SIGNAL( activated( int )), this, TQ_SLOT( updateEnable##var())); \
     TQWhatsThis::add( enable_##var, enableDesc ); \
     TQWhatsThis::add( rule_##var, type##RuleDesc );
 
@@ -550,7 +550,7 @@ void RulesWidget::detectClicked()
     {
     assert( detect_dlg == NULL );
     detect_dlg = new DetectDialog;
-    connect( detect_dlg, TQT_SIGNAL( detectionDone( bool )), this, TQT_SLOT( detected( bool )));
+    connect( detect_dlg, TQ_SIGNAL( detectionDone( bool )), this, TQ_SLOT( detected( bool )));
     detect_dlg->detect( 0 );
     }
 
@@ -702,7 +702,7 @@ Rules* RulesDialog::edit( Rules* r, WId window, bool show_hints )
     if( window != 0 )
         widget->prepareWindowSpecific( window );
     if( show_hints )
-        TQTimer::singleShot( 0, this, TQT_SLOT( displayHints()));
+        TQTimer::singleShot( 0, this, TQ_SLOT( displayHints()));
     exec();
     return rules;
     }

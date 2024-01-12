@@ -126,10 +126,10 @@ void FingerProtocol::get(const KURL& url )
 	      << *myFingerPath << *myFingerCSSFile
 	      << refreshRate << myURL->host() << myURL->user() ;
 
-  connect(myTDEProcess, TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
-	  this, TQT_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
-  //connect(myTDEProcess, TQT_SIGNAL(receivedStderr(TDEProcess *, char *, int)),
-  //	  this, TQT_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
+  connect(myTDEProcess, TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
+	  this, TQ_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
+  //connect(myTDEProcess, TQ_SIGNAL(receivedStderr(TDEProcess *, char *, int)),
+  //	  this, TQ_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
 
   myTDEProcess->start(TDEProcess::Block, TDEProcess::All);
 

@@ -603,9 +603,9 @@ KSMServer::KSMServer( const TQString& windowManager, const TQString& windowManag
     hwDevices = TDEGlobal::hardwareDevices();
 #endif
 
-    connect( &knotifyTimeoutTimer, TQT_SIGNAL( timeout()), TQT_SLOT( knotifyTimeout()));
-    connect( &startupSuspendTimeoutTimer, TQT_SIGNAL( timeout()), TQT_SLOT( startupSuspendTimeout()));
-    connect( &pendingShutdown, TQT_SIGNAL( timeout()), TQT_SLOT( pendingShutdownTimeout()));
+    connect( &knotifyTimeoutTimer, TQ_SIGNAL( timeout()), TQ_SLOT( knotifyTimeout()));
+    connect( &startupSuspendTimeoutTimer, TQ_SIGNAL( timeout()), TQ_SLOT( startupSuspendTimeout()));
+    connect( &pendingShutdown, TQ_SIGNAL( timeout()), TQ_SLOT( pendingShutdownTimeout()));
 
     only_local = _only_local;
 #ifdef HAVE__ICETRANSNOLISTEN
@@ -676,7 +676,7 @@ KSMServer::KSMServer( const TQString& windowManager, const TQString& windowManag
     for ( int i = 0; i < numTransports; i++) {
         con = new KSMListener( listenObjs[i] );
         listener.append( con );
-        connect( con, TQT_SIGNAL( activated(int) ), this, TQT_SLOT( newConnection(int) ) );
+        connect( con, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( newConnection(int) ) );
     }
 
     signal(SIGHUP, sighandler);
@@ -684,11 +684,11 @@ KSMServer::KSMServer( const TQString& windowManager, const TQString& windowManag
     signal(SIGINT, sighandler);
     signal(SIGPIPE, SIG_IGN);
 
-    connect( &notificationTimer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( notificationTimeout() ) );
-    connect( &protectionTimer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( protectionTimerTick() ) );
-    connect( &restoreTimer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( tryRestoreNext() ) );
-    connect( &shutdownTimer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( timeoutQuit() ) );
-    connect( kapp, TQT_SIGNAL( shutDown() ), this, TQT_SLOT( cleanUp() ) );
+    connect( &notificationTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( notificationTimeout() ) );
+    connect( &protectionTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( protectionTimerTick() ) );
+    connect( &restoreTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( tryRestoreNext() ) );
+    connect( &shutdownTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( timeoutQuit() ) );
+    connect( kapp, TQ_SIGNAL( shutDown() ), this, TQ_SLOT( cleanUp() ) );
 }
 
 KSMServer::~KSMServer()
@@ -742,7 +742,7 @@ void KSMServer::cleanUp()
 void* KSMServer::watchConnection( IceConn iceConn )
 {
     KSMConnection* conn = new KSMConnection( iceConn );
-    connect( conn, TQT_SIGNAL( activated(int) ), this, TQT_SLOT( processData(int) ) );
+    connect( conn, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( processData(int) ) );
     return (void*) conn;
 }
 

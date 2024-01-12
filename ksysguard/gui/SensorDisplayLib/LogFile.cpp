@@ -92,16 +92,16 @@ void LogFile::configureSettings(void)
 	lfs->ruleList->insertStringList(filterRules);
 	lfs->title->setText(title());
 
-	connect(lfs->okButton, TQT_SIGNAL(clicked()), lfs, TQT_SLOT(accept()));
-	connect(lfs->applyButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(applySettings()));
-	connect(lfs->cancelButton, TQT_SIGNAL(clicked()), lfs, TQT_SLOT(reject()));
+	connect(lfs->okButton, TQ_SIGNAL(clicked()), lfs, TQ_SLOT(accept()));
+	connect(lfs->applyButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(applySettings()));
+	connect(lfs->cancelButton, TQ_SIGNAL(clicked()), lfs, TQ_SLOT(reject()));
 
-	connect(lfs->fontButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(settingsFontSelection()));
-	connect(lfs->addButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(settingsAddRule()));
-	connect(lfs->deleteButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(settingsDeleteRule()));
-	connect(lfs->changeButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(settingsChangeRule()));
-	connect(lfs->ruleList, TQT_SIGNAL(selected(int)), this, TQT_SLOT(settingsRuleListSelected(int)));
-	connect(lfs->ruleText, TQT_SIGNAL(returnPressed()), this, TQT_SLOT(settingsAddRule()));
+	connect(lfs->fontButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(settingsFontSelection()));
+	connect(lfs->addButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(settingsAddRule()));
+	connect(lfs->deleteButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(settingsDeleteRule()));
+	connect(lfs->changeButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(settingsChangeRule()));
+	connect(lfs->ruleList, TQ_SIGNAL(selected(int)), this, TQ_SLOT(settingsRuleListSelected(int)));
+	connect(lfs->ruleText, TQ_SIGNAL(returnPressed()), this, TQ_SLOT(settingsAddRule()));
 
 	if (lfs->exec()) {
 		applySettings();

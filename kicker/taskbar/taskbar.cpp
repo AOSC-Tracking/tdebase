@@ -92,24 +92,24 @@ TaskBar::TaskBar( TaskBarSettings* settingsObject, TaskBarSettings* globalSettin
     // configure
     configure();
 
-    connect(&m_relayoutTimer, TQT_SIGNAL(timeout()),
-            this, TQT_SLOT(reLayout()));
+    connect(&m_relayoutTimer, TQ_SIGNAL(timeout()),
+            this, TQ_SLOT(reLayout()));
 
-		connect(this, TQT_SIGNAL(contentsMoving(int, int)), TQT_SLOT(setBackground()));
+		connect(this, TQ_SIGNAL(contentsMoving(int, int)), TQ_SLOT(setBackground()));
 
     // connect manager
-    connect(TaskManager::the(), TQT_SIGNAL(taskAdded(Task::Ptr)),
-            this, TQT_SLOT(add(Task::Ptr)));
-    connect(TaskManager::the(), TQT_SIGNAL(taskRemoved(Task::Ptr)),
-            this, TQT_SLOT(remove(Task::Ptr)));
-    connect(TaskManager::the(), TQT_SIGNAL(startupAdded(Startup::Ptr)),
-            this, TQT_SLOT(add(Startup::Ptr)));
-    connect(TaskManager::the(), TQT_SIGNAL(startupRemoved(Startup::Ptr)),
-            this, TQT_SLOT(remove(Startup::Ptr)));
-    connect(TaskManager::the(), TQT_SIGNAL(desktopChanged(int)),
-            this, TQT_SLOT(desktopChanged(int)));
-    connect(TaskManager::the(), TQT_SIGNAL(windowChanged(Task::Ptr)),
-            this, TQT_SLOT(windowChanged(Task::Ptr)));
+    connect(TaskManager::the(), TQ_SIGNAL(taskAdded(Task::Ptr)),
+            this, TQ_SLOT(add(Task::Ptr)));
+    connect(TaskManager::the(), TQ_SIGNAL(taskRemoved(Task::Ptr)),
+            this, TQ_SLOT(remove(Task::Ptr)));
+    connect(TaskManager::the(), TQ_SIGNAL(startupAdded(Startup::Ptr)),
+            this, TQ_SLOT(add(Startup::Ptr)));
+    connect(TaskManager::the(), TQ_SIGNAL(startupRemoved(Startup::Ptr)),
+            this, TQ_SLOT(remove(Startup::Ptr)));
+    connect(TaskManager::the(), TQ_SIGNAL(desktopChanged(int)),
+            this, TQ_SLOT(desktopChanged(int)));
+    connect(TaskManager::the(), TQ_SIGNAL(windowChanged(Task::Ptr)),
+            this, TQ_SLOT(windowChanged(Task::Ptr)));
 
     isGrouping = shouldGroup();
 
@@ -131,7 +131,7 @@ TaskBar::TaskBar( TaskBarSettings* settingsObject, TaskBarSettings* globalSettin
 
     blocklayout = false;
 
-    connect(kapp, TQT_SIGNAL(settingsChanged(int)), TQT_SLOT(slotSettingsChanged(int)));
+    connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
     keys = new TDEGlobalAccel( this );
 #include "taskbarbindings.cpp"
     keys->readSettings();
@@ -261,12 +261,12 @@ void TaskBar::configure()
     // are paying attention to the current Xinerama screen
     // disconnect first in case we've been here before
     // to avoid multiple connections
-    disconnect(TaskManager::the(), TQT_SIGNAL(windowChangedGeometry(Task::Ptr)),
-                this, TQT_SLOT(windowChangedGeometry(Task::Ptr)));
+    disconnect(TaskManager::the(), TQ_SIGNAL(windowChangedGeometry(Task::Ptr)),
+                this, TQ_SLOT(windowChangedGeometry(Task::Ptr)));
     if (m_showOnlyCurrentScreen)
     {
-        connect(TaskManager::the(), TQT_SIGNAL(windowChangedGeometry(Task::Ptr)),
-                 this, TQT_SLOT(windowChangedGeometry(Task::Ptr)));
+        connect(TaskManager::the(), TQ_SIGNAL(windowChangedGeometry(Task::Ptr)),
+                 this, TQ_SLOT(windowChangedGeometry(Task::Ptr)));
     }
     TaskManager::the()->trackGeometry(m_showOnlyCurrentScreen);
 
@@ -386,7 +386,7 @@ void TaskBar::add(Startup::Ptr startup)
     // create new container
     TaskContainer *container = new TaskContainer(startup, frames, this, m_settingsObject, m_globalSettingsObject, viewport());
     m_hiddenContainers.append(container);
-    connect(container, TQT_SIGNAL(showMe(TaskContainer*)), this, TQT_SLOT(showTaskContainer(TaskContainer*)));
+    connect(container, TQ_SIGNAL(showMe(TaskContainer*)), this, TQ_SLOT(showTaskContainer(TaskContainer*)));
 }
 
 void TaskBar::reSort()
@@ -854,7 +854,7 @@ void TaskBar::reLayout()
         }
     }
     
-    TQTimer::singleShot(100, this, TQT_SLOT(publishIconGeometry()));
+    TQTimer::singleShot(100, this, TQ_SLOT(publishIconGeometry()));
 }
 
 void TaskBar::setViewportBackground()

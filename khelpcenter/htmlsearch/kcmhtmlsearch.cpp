@@ -60,8 +60,8 @@ TDEHTMLSearchConfig::TDEHTMLSearchConfig(TQWidget *parent, const char *name)
   url->setText(i18n("ht://dig home page"));
   url->setAlignment(TQLabel::AlignHCenter);
   grid->addMultiCellWidget(url, 2,2, 0, 1);
-  connect(url, TQT_SIGNAL(leftClickedURL(const TQString&)),
-      this, TQT_SLOT(urlClicked(const TQString&)));
+  connect(url, TQ_SIGNAL(leftClickedURL(const TQString&)),
+      this, TQ_SLOT(urlClicked(const TQString&)));
 
   gb = new TQGroupBox(i18n("Program Locations"), this);
 
@@ -74,7 +74,7 @@ TDEHTMLSearchConfig::TDEHTMLSearchConfig(TQWidget *parent, const char *name)
   l->setBuddy( htdigBin );
   grid->addWidget(l, 1,0);
   grid->addWidget(htdigBin, 1,1);
-  connect(htdigBin->lineEdit(), TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(configChanged()));
+  connect(htdigBin->lineEdit(), TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(configChanged()));
   TQString wtstr = i18n( "Enter the path to your htdig program here, e.g. /usr/local/bin/htdig" );
   TQWhatsThis::add( htdigBin, wtstr );
   TQWhatsThis::add( l, wtstr );
@@ -84,7 +84,7 @@ TDEHTMLSearchConfig::TDEHTMLSearchConfig(TQWidget *parent, const char *name)
   l->setBuddy( htsearchBin );
   grid->addWidget(l, 2,0);
   grid->addWidget(htsearchBin, 2,1);
-  connect(htsearchBin->lineEdit(), TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(configChanged()));
+  connect(htsearchBin->lineEdit(), TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(configChanged()));
   wtstr = i18n( "Enter the path to your htsearch program here, e.g. /usr/local/bin/htsearch" );
   TQWhatsThis::add( htsearchBin, wtstr );
   TQWhatsThis::add( l, wtstr );
@@ -94,7 +94,7 @@ TDEHTMLSearchConfig::TDEHTMLSearchConfig(TQWidget *parent, const char *name)
   l->setBuddy( htmergeBin );
   grid->addWidget(l, 3,0);
   grid->addWidget(htmergeBin, 3,1);
-  connect(htmergeBin->lineEdit(), TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(configChanged()));
+  connect(htmergeBin->lineEdit(), TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(configChanged()));
   wtstr = i18n( "Enter the path to your htmerge program here, e.g. /usr/local/bin/htmerge" );
   TQWhatsThis::add( htmergeBin, wtstr );
   TQWhatsThis::add( l, wtstr );
@@ -110,17 +110,17 @@ TDEHTMLSearchConfig::TDEHTMLSearchConfig(TQWidget *parent, const char *name)
 
   indexKDE = new TQCheckBox(i18n("&TDE help"), gb);
   vvbox->addWidget(indexKDE);
-  connect(indexKDE, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
+  connect(indexKDE, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
 
   indexMan = new TQCheckBox(i18n("&Man pages"), gb);
   vvbox->addWidget(indexMan);
   indexMan->setEnabled(false),
-  connect(indexMan, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
+  connect(indexMan, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
 
   indexInfo = new TQCheckBox(i18n("&Info pages"), gb);
   vvbox->addWidget(indexInfo);
   indexInfo->setEnabled(false);
-  connect(indexInfo, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
+  connect(indexInfo, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
 
   gb = new TQGroupBox(i18n("Additional Search Paths"), this);
   hbox->addWidget(gb);
@@ -159,12 +159,12 @@ TDEHTMLSearchConfig::TDEHTMLSearchConfig(TQWidget *parent, const char *name)
   TQWhatsThis::add( runButton, i18n( "Click this button to generate the index for the fulltext search." ) );
   runButton->setFixedSize(runButton->sizeHint());
   vbox->addWidget(runButton, AlignRight);
-  connect(runButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(generateIndex()));
+  connect(runButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(generateIndex()));
 
-  connect(addButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(addClicked()));
-  connect(delButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(delClicked()));
-  connect(searchPaths, TQT_SIGNAL(highlighted(const TQString &)),
-      this, TQT_SLOT(pathSelected(const TQString &)));
+  connect(addButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(addClicked()));
+  connect(delButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(delClicked()));
+  connect(searchPaths, TQ_SIGNAL(highlighted(const TQString &)),
+      this, TQ_SLOT(pathSelected(const TQString &)));
 
   checkButtons();
 
@@ -345,8 +345,8 @@ void TDEHTMLSearchConfig::generateIndex()
   indexProc = new TDEProcess;
   *indexProc << exe << "--lang" << language->currentTag();
 
-  connect(indexProc, TQT_SIGNAL(processExited(TDEProcess *)),
-      this, TQT_SLOT(indexTerminated(TDEProcess *)));
+  connect(indexProc, TQ_SIGNAL(processExited(TDEProcess *)),
+      this, TQ_SLOT(indexTerminated(TDEProcess *)));
 
   runButton->setEnabled(false);
 

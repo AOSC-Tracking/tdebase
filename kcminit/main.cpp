@@ -193,7 +193,7 @@ KCMInit::KCMInit( TDECmdLineArgs* args )
      runModules( 0 );
      kapp->dcopClient()->send( "ksplash", "", "upAndRunning(TQString)",  TQString("kcminit"));
      sendReady();
-     TQTimer::singleShot( 300 * 1000, tqApp, TQT_SLOT( quit())); // just in case
+     TQTimer::singleShot( 300 * 1000, tqApp, TQ_SLOT( quit())); // just in case
      tqApp->exec(); // wait for runPhase1() and runPhase2()
   }
   else

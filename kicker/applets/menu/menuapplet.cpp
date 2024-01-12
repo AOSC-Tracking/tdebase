@@ -89,8 +89,8 @@ Applet::Applet( const TQString& configFile_P, TQWidget* parent_P )
     setBackgroundOrigin(AncestorOrigin);
     dcopclient.registerAs( "menuapplet", false );
     // toolbarAppearanceChanged(int) is sent when changing macstyle
-    connect( kapp, TQT_SIGNAL( toolbarAppearanceChanged( int )),
-        this, TQT_SLOT( readSettings()));
+    connect( kapp, TQ_SIGNAL( toolbarAppearanceChanged( int )),
+        this, TQ_SLOT( readSettings()));
     claimSelection();
     readSettings();
     updateTopEdgeOffset();
@@ -298,11 +298,11 @@ void Applet::claimSelection()
 	{
         delete selection_watcher;
         selection_watcher = NULL;
-        connect( selection, TQT_SIGNAL( lostOwnership()), TQT_SLOT( lostSelection()));
+        connect( selection, TQ_SIGNAL( lostOwnership()), TQ_SLOT( lostSelection()));
         module = new KWinModule;
-	connect( module, TQT_SIGNAL( windowAdded( WId )), this, TQT_SLOT( windowAdded( WId )));
-	connect( module, TQT_SIGNAL( activeWindowChanged( WId )),
-	    this, TQT_SLOT( activeWindowChanged( WId )));
+	connect( module, TQ_SIGNAL( windowAdded( WId )), this, TQ_SLOT( windowAdded( WId )));
+	connect( module, TQ_SIGNAL( activeWindowChanged( WId )),
+	    this, TQ_SLOT( activeWindowChanged( WId )));
 	TQValueList< WId > windows = module->windows();
 	for( TQValueList< WId >::ConstIterator it = windows.begin();
 	     it != windows.end();
@@ -328,7 +328,7 @@ void Applet::lostSelection()
     if( selection_watcher == NULL )
         {
         selection_watcher = new TDESelectionWatcher( makeSelectionAtom(), DefaultScreen( tqt_xdisplay()));
-        connect( selection_watcher, TQT_SIGNAL( lostOwner()), this, TQT_SLOT( claimSelection()));
+        connect( selection_watcher, TQ_SIGNAL( lostOwner()), this, TQ_SLOT( claimSelection()));
         }
     delete module;
     module = NULL;

@@ -24,7 +24,7 @@
 GlibEvents::GlibEvents()
     {
     g_main_context_ref( g_main_context_default());
-    connect( &timer, TQT_SIGNAL( timeout()), TQT_SLOT( process()));
+    connect( &timer, TQ_SIGNAL( timeout()), TQ_SLOT( process()));
     // TODO Poll for now
     timer.start( 10 );
     }

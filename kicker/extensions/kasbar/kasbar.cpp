@@ -102,7 +102,7 @@ KasBar::KasBar( Orientation o, TQWidget *parent, const char *name, WFlags f )
     setMouseTracking( true );
     setMaxBoxes( 0 );
 
-    connect( this, TQT_SIGNAL( configChanged() ), TQT_SLOT( repaint() ) );
+    connect( this, TQ_SIGNAL( configChanged() ), TQ_SLOT( repaint() ) );
 }
 
 KasBar::KasBar( Orientation o, KasBar *master, TQWidget *parent, const char *name, WFlags f )
@@ -130,7 +130,7 @@ KasBar::KasBar( Orientation o, KasBar *master, TQWidget *parent, const char *nam
     items.setAutoDelete( true );
     setMouseTracking( true );
     setMaxBoxes( 0 );
-    connect( master_, TQT_SIGNAL( configChanged() ), TQT_SLOT( repaint() ) );
+    connect( master_, TQ_SIGNAL( configChanged() ), TQ_SLOT( repaint() ) );
 }
 
 KasBar::~KasBar()
@@ -145,8 +145,8 @@ KasResources *KasBar::resources()
 
     if ( isTopLevel() ) {
 	res = new KasResources( this );
-	connect( res, TQT_SIGNAL( changed() ), TQT_SIGNAL( configChanged() ) );
-	connect( this, TQT_SIGNAL( itemSizeChanged(int) ), res, TQT_SLOT( itemSizeChanged() ) );
+	connect( res, TQ_SIGNAL( changed() ), TQ_SIGNAL( configChanged() ) );
+	connect( this, TQ_SIGNAL( itemSizeChanged(int) ), res, TQ_SLOT( itemSizeChanged() ) );
 	return res;
     }
 
@@ -218,8 +218,8 @@ void KasBar::setTransparent( bool enable )
        kdDebug(1345) << "KasBar: Enabling transparency" << endl;
 
        rootPix = new KRootPixmap( this );
-       connect( rootPix, TQT_SIGNAL( backgroundUpdated(const TQPixmap &) ),
-		this, TQT_SLOT( setBackground(const TQPixmap &) ) );
+       connect( rootPix, TQ_SIGNAL( backgroundUpdated(const TQPixmap &) ),
+		this, TQ_SLOT( setBackground(const TQPixmap &) ) );
 
        rootPix->setCustomPainting( true );
 
@@ -720,7 +720,7 @@ void KasBar::addTestItems()
    i->setIcon( TDEGlobal::iconLoader()->loadIcon( "icons", TDEIcon::NoGroup, TDEIcon::SizeMedium ) );
    i->setAnimation( resources()->startupAnimation() );
    TQTimer *aniTimer = new TQTimer( i, "aniTimer" );
-   connect( aniTimer, TQT_SIGNAL( timeout() ), i, TQT_SLOT( advanceAnimation() ) );
+   connect( aniTimer, TQ_SIGNAL( timeout() ), i, TQ_SLOT( advanceAnimation() ) );
    aniTimer->start( 100 );
    i->setShowAnimation( true );
 

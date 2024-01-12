@@ -131,34 +131,34 @@ Minicli::Minicli( TQWidget *parent, const char *name)
   m_pURLCompletion = new KURLCompletion(KURLCompletion::FileCompletion);
   m_pEXECompletion = new KURLCompletion(KURLCompletion::SystemExeCompletion);
   //m_pURLCompletion->setCompletionMode( TDEGlobalSettings::completionMode() );
-  connect( m_pURLCompletion, TQT_SIGNAL( match(const TQString&) ), TQT_SLOT( slotMatch(const TQString&) ));
-  connect( m_pEXECompletion, TQT_SIGNAL( match(const TQString&) ), TQT_SLOT( slotEXEMatch(const TQString&) ));
+  connect( m_pURLCompletion, TQ_SIGNAL( match(const TQString&) ), TQ_SLOT( slotMatch(const TQString&) ));
+  connect( m_pEXECompletion, TQ_SIGNAL( match(const TQString&) ), TQ_SLOT( slotEXEMatch(const TQString&) ));
 
   // Main widget buttons...
-  connect( m_dlg->pbRun, TQT_SIGNAL(clicked()), this, TQT_SLOT(accept()) );
-  connect( m_dlg->pbCancel, TQT_SIGNAL(clicked()), this, TQT_SLOT(reject()) );
-  connect( m_dlg->pbOptions, TQT_SIGNAL(clicked()), TQT_SLOT(slotAdvanced()) );
-  connect( m_parseTimer, TQT_SIGNAL(timeout()), TQT_SLOT(slotParseTimer()) );
+  connect( m_dlg->pbRun, TQ_SIGNAL(clicked()), this, TQ_SLOT(accept()) );
+  connect( m_dlg->pbCancel, TQ_SIGNAL(clicked()), this, TQ_SLOT(reject()) );
+  connect( m_dlg->pbOptions, TQ_SIGNAL(clicked()), TQ_SLOT(slotAdvanced()) );
+  connect( m_parseTimer, TQ_SIGNAL(timeout()), TQ_SLOT(slotParseTimer()) );
 
-  connect( m_dlg->cbCommand, TQT_SIGNAL( textChanged( const TQString& ) ),
-           TQT_SLOT( slotCmdChanged(const TQString&) ) );
+  connect( m_dlg->cbCommand, TQ_SIGNAL( textChanged( const TQString& ) ),
+           TQ_SLOT( slotCmdChanged(const TQString&) ) );
 
-  connect( m_dlg->cbCommand, TQT_SIGNAL( returnPressed() ),
-           m_dlg->pbRun, TQT_SLOT( animateClick() ) );
+  connect( m_dlg->cbCommand, TQ_SIGNAL( returnPressed() ),
+           m_dlg->pbRun, TQ_SLOT( animateClick() ) );
 
   m_dlg->cbCommand->setHistoryEditorEnabled( true );
-  connect( m_dlg->cbCommand, TQT_SIGNAL(removed( const TQString&) ), TQT_SLOT(saveConfig()) );
+  connect( m_dlg->cbCommand, TQ_SIGNAL(removed( const TQString&) ), TQ_SLOT(saveConfig()) );
 
   // Advanced group box...
-  connect(m_dlg->cbPriority, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChangeScheduler(bool)));
-  connect(m_dlg->slPriority, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotPriority(int)));
-  connect(m_dlg->cbRealtime, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotRealtime(bool)));
-  connect(m_dlg->cbAppcomplete, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotAppcompleteToggled(bool)));
-  connect(m_dlg->cbAutocomplete, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotAutocompleteToggled(bool)));
-  connect(m_dlg->cbAutohistory, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotAutohistoryToggled(bool)));
-  connect(m_dlg->cbRunAsOther, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChangeUid(bool)));
-  connect(m_dlg->leUsername, TQT_SIGNAL(lostFocus()), TQT_SLOT(updateAuthLabel()));
-  connect(m_dlg->cbRunInTerminal, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotTerminal(bool)));
+  connect(m_dlg->cbPriority, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChangeScheduler(bool)));
+  connect(m_dlg->slPriority, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotPriority(int)));
+  connect(m_dlg->cbRealtime, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotRealtime(bool)));
+  connect(m_dlg->cbAppcomplete, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotAppcompleteToggled(bool)));
+  connect(m_dlg->cbAutocomplete, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotAutocompleteToggled(bool)));
+  connect(m_dlg->cbAutohistory, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotAutohistoryToggled(bool)));
+  connect(m_dlg->cbRunAsOther, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChangeUid(bool)));
+  connect(m_dlg->leUsername, TQ_SIGNAL(lostFocus()), TQ_SLOT(updateAuthLabel()));
+  connect(m_dlg->cbRunInTerminal, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotTerminal(bool)));
 
   m_dlg->slPriority->setValue(50);
 

@@ -129,7 +129,7 @@ int main( int argc, char ** argv )
     ExtensionContainer *container = new ExtensionContainer( extension );
     container->show();
 
-    TQObject::connect( &a, TQT_SIGNAL( lastWindowClosed() ), &a, TQT_SLOT( quit() ) );
+    TQObject::connect( &a, TQ_SIGNAL( lastWindowClosed() ), &a, TQ_SLOT( quit() ) );
 
     int result = a.exec();
 
@@ -143,8 +143,8 @@ ExtensionContainer::ExtensionContainer( KPanelExtension *extension, TQWidget *pa
     ( new TQVBoxLayout( this ) )->setAutoAdd( true );
 
     TQPushButton *configButton = new TQPushButton( i18n( "Configure..." ), this );
-    connect( configButton, TQT_SIGNAL( clicked() ),
-             this, TQT_SLOT( showPreferences() ) );
+    connect( configButton, TQ_SIGNAL( clicked() ),
+             this, TQ_SLOT( showPreferences() ) );
 
     m_extension->reparent( this, TQPoint( 0, 0 ) );
 }

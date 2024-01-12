@@ -82,14 +82,14 @@ UAProviderDlg::~UAProviderDlg()
 
 void UAProviderDlg::init()
 {
-  connect( dlg->pbOk, TQT_SIGNAL(clicked()), TQT_SLOT(accept()) );
-  connect( dlg->pbCancel, TQT_SIGNAL(clicked()), TQT_SLOT(reject()) );
+  connect( dlg->pbOk, TQ_SIGNAL(clicked()), TQ_SLOT(accept()) );
+  connect( dlg->pbCancel, TQ_SIGNAL(clicked()), TQ_SLOT(reject()) );
 
-  connect( dlg->leSite, TQT_SIGNAL(textChanged(const TQString&)),
-                TQT_SLOT(slotTextChanged( const TQString&)) );
+  connect( dlg->leSite, TQ_SIGNAL(textChanged(const TQString&)),
+                TQ_SLOT(slotTextChanged( const TQString&)) );
 
-  connect( dlg->cbAlias, TQT_SIGNAL(activated(const TQString&)),
-                TQT_SLOT(slotActivated(const TQString&)) );
+  connect( dlg->cbAlias, TQ_SIGNAL(activated(const TQString&)),
+                TQ_SLOT(slotActivated(const TQString&)) );
 
   dlg->cbAlias->clear();
   dlg->cbAlias->insertStringList( m_provider->userAgentAliasList() );

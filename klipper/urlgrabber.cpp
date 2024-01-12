@@ -61,8 +61,8 @@ URLGrabber::URLGrabber( TDEConfig* config )
     readConfiguration( m_config );
 
     myPopupKillTimer = new TQTimer( this );
-    connect( myPopupKillTimer, TQT_SIGNAL( timeout() ),
-             TQT_SLOT( slotKillPopupMenu() ));
+    connect( myPopupKillTimer, TQ_SIGNAL( timeout() ),
+             TQ_SLOT( slotKillPopupMenu() ));
 
     // testing
     /*
@@ -163,8 +163,8 @@ void URLGrabber::actionMenu( bool wm_class_check )
         myPopupKillTimer->stop();
         delete myMenu;
         myMenu = new TDEPopupMenu;
-        connect( myMenu, TQT_SIGNAL( activated( int )),
-                 TQT_SLOT( slotItemSelected( int )));
+        connect( myMenu, TQ_SIGNAL( activated( int )),
+                 TQ_SLOT( slotItemSelected( int )));
 
         for ( action = it.current(); action; action = ++it ) {
             TQPtrListIterator<ClipCommand> it2( action->commands() );
@@ -279,7 +279,7 @@ void URLGrabber::editData()
     if ( dlg->exec() == TQDialog::Accepted ) {
         myClipData = edit->text();
         delete dlg;
-        TQTimer::singleShot( 0, this, TQT_SLOT( slotActionMenu() ) );
+        TQTimer::singleShot( 0, this, TQ_SLOT( slotActionMenu() ) );
     }
     else
     {

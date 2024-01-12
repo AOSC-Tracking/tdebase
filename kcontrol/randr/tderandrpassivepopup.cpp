@@ -28,7 +28,7 @@
 KRandrPassivePopup::KRandrPassivePopup( TQWidget *parent, const char *name, WFlags f )
     : KPassivePopup( parent, name, f )
     {
-    connect( &update_timer, TQT_SIGNAL( timeout()), TQT_SLOT( slotPositionSelf()));
+    connect( &update_timer, TQ_SIGNAL( timeout()), TQ_SLOT( slotPositionSelf()));
     }
     
 KRandrPassivePopup* KRandrPassivePopup::message( const TQString &caption, const TQString &text,
@@ -95,7 +95,7 @@ bool KRandrPassivePopup::eventFilter( TQObject* o, TQEvent* e )
     {
     if( e->type() == TQEvent::Move && o->isWidgetType()
 	&& watched_widgets.contains( static_cast<TQWidget*>( o )))
-        TQTimer::singleShot( 0, this, TQT_SLOT( slotPositionSelf()));
+        TQTimer::singleShot( 0, this, TQ_SLOT( slotPositionSelf()));
     return false;
     }
 

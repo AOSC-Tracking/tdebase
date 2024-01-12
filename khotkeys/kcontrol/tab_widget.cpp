@@ -59,8 +59,8 @@ Tab_widget::Tab_widget( TQWidget* parent_P, const char* name_P )
     pages[ TAB_GESTURES_SETTINGS ] = new Gestures_settings_tab;
     General_tab* general_tab;
     pages[ TAB_GENERAL ] = general_tab = new General_tab;
-    connect( general_tab, TQT_SIGNAL( action_type_changed( int )),
-        TQT_SLOT( set_action_type_slot( int )));
+    connect( general_tab, TQ_SIGNAL( action_type_changed( int )),
+        TQ_SLOT( set_action_type_slot( int )));
     pages[ TAB_GROUP_GENERAL ] = new Action_group_tab;
     pages[ TAB_CONDITIONS ] = new Condition_list_tab;
     pages[ TAB_ACTIONS ] = new Action_list_tab;
@@ -76,7 +76,7 @@ Tab_widget::Tab_widget( TQWidget* parent_P, const char* name_P )
     for( tab_pos_t i = TAB_FIRST;
          i < TAB_END;
          ++i )
-        connect( this, TQT_SIGNAL( clear_pages_signal()), pages[ i ], TQT_SLOT( clear_data()));
+        connect( this, TQ_SIGNAL( clear_pages_signal()), pages[ i ], TQ_SLOT( clear_data()));
 #ifdef HAVE_ARTS
     if( haveArts())
         show_pages(( TAB_INFO, TAB_GENERAL_SETTINGS, TAB_GESTURES_SETTINGS, TAB_VOICE_SETTINGS ));
@@ -441,18 +441,18 @@ void Tab_widget::show_pages( const Pages_set& pages_P )
         {
         removePage( pages[ i ] );
         if( pages_P.is_set( i )) // don't clear page contents if it stays visible
-            disconnect( this, TQT_SIGNAL( clear_pages_signal()), pages[ i ], TQT_SLOT( clear_data()));
+            disconnect( this, TQ_SIGNAL( clear_pages_signal()), pages[ i ], TQ_SLOT( clear_data()));
         }
     clear_pages();
     // reconnect all pages to this signal
-    disconnect( this, TQT_SIGNAL( clear_pages_signal()), NULL, NULL );
+    disconnect( this, TQ_SIGNAL( clear_pages_signal()), NULL, NULL );
     for( tab_pos_t i = TAB_FIRST;
          i < TAB_END;
          ++i )
         {
         if( pages_P.is_set( i ))
             addTab( pages[ i ], i18n( tab_labels[ i ] ));
-        connect( this, TQT_SIGNAL( clear_pages_signal()), pages[ i ], TQT_SLOT( clear_data()));
+        connect( this, TQ_SIGNAL( clear_pages_signal()), pages[ i ], TQ_SLOT( clear_data()));
         }
     show();
     }

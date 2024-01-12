@@ -48,20 +48,20 @@ KPagerConfigDialog::KPagerConfigDialog (TQWidget *parent)
     TQVBox *box = new TQVBox( this );
     m_chkWindowDragging=new TQCheckBox(i18n("Enable window dragging"),box,0);
     (void ) new KSeparator( box );
-    connect(m_chkWindowDragging, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(enableWindowDragging(bool)));
+    connect(m_chkWindowDragging, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(enableWindowDragging(bool)));
 
     TQHBox *page = new TQHBox( box );
     TQVBox *lpage = new TQVBox( page );
     setMainWidget(box);
 
     m_chkShowName=new TQCheckBox(i18n("Show name"),lpage,0);
-    connect(m_chkShowName, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(setShowName(bool)));
+    connect(m_chkShowName, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(setShowName(bool)));
     m_chkShowNumber=new TQCheckBox(i18n("Show number"),lpage,0);
-    connect(m_chkShowNumber, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(setShowNumber(bool)));
+    connect(m_chkShowNumber, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(setShowNumber(bool)));
     m_chkShowBackground=new TQCheckBox(i18n("Show background"),lpage,0);
-    connect(m_chkShowBackground, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(setShowBackground(bool)));
+    connect(m_chkShowBackground, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(setShowBackground(bool)));
     m_chkShowWindows=new TQCheckBox(i18n("Show windows"),lpage,0);
-    connect(m_chkShowWindows, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(setShowWindows(bool)));
+    connect(m_chkShowWindows, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(setShowWindows(bool)));
 
     m_grpWindowDrawMode=new TQButtonGroup(i18n("Type of Window"),page);
     m_grpWindowDrawMode->setExclusive(true);
@@ -75,7 +75,7 @@ KPagerConfigDialog::KPagerConfigDialog (TQWidget *parent)
 //    rbpix->setEnabled(false);
     vbox->addWidget(rbpix);
 
-    connect(m_grpWindowDrawMode, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(setWindowDrawMode(int)));
+    connect(m_grpWindowDrawMode, TQ_SIGNAL(clicked(int)), this, TQ_SLOT(setWindowDrawMode(int)));
 
     m_grpLayoutType=new TQButtonGroup(i18n("Layout"),page);
     m_grpLayoutType->setExclusive(true);
@@ -85,8 +85,8 @@ KPagerConfigDialog::KPagerConfigDialog (TQWidget *parent)
     vbox->addWidget(new TQRadioButton(i18n("Horizontal"),m_grpLayoutType));
     vbox->addWidget(new TQRadioButton(i18n("Vertical"),m_grpLayoutType));
 
-    connect(m_grpLayoutType, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(setLayout(int)));
-    connect(this,TQT_SIGNAL(okClicked()),this,TQT_SLOT(slotOk()));
+    connect(m_grpLayoutType, TQ_SIGNAL(clicked(int)), this, TQ_SLOT(setLayout(int)));
+    connect(this,TQ_SIGNAL(okClicked()),this,TQ_SLOT(slotOk()));
     loadConfiguration();
     setMinimumSize(360, 160);
 }

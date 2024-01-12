@@ -51,8 +51,8 @@ MyApplication::MyApplication( const char *conf )
 	: TDEApplication(),
 	  renderer( 0, new KSimpleConfig( TQFile::decodeName( conf ) ) )
 {
-	connect( &timer, TQT_SIGNAL(timeout()), TQT_SLOT(slotTimeout()) );
-	connect( &renderer, TQT_SIGNAL(imageDone( int )), this, TQT_SLOT(renderDone()) );
+	connect( &timer, TQ_SIGNAL(timeout()), TQ_SLOT(slotTimeout()) );
+	connect( &renderer, TQ_SIGNAL(imageDone( int )), this, TQ_SLOT(renderDone()) );
 	renderer.enableTiling( true ); // optimize
 	renderer.changeWallpaper(); // cannot do it when we're killed, so do it now
 	timer.start( 60000 );

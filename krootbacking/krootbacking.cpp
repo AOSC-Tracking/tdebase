@@ -68,10 +68,10 @@ void KRootBacking::init()
     m_bInit = false;
     m_bActive = false;
 
-    connect(kapp, TQT_SIGNAL(backgroundChanged(int)), TQT_SLOT(slotBackgroundChanged(int)));
-    connect(m_pTimer, TQT_SIGNAL(timeout()), TQT_SLOT(repaint()));
+    connect(kapp, TQ_SIGNAL(backgroundChanged(int)), TQ_SLOT(slotBackgroundChanged(int)));
+    connect(m_pTimer, TQ_SIGNAL(timeout()), TQ_SLOT(repaint()));
 #ifdef Q_WS_X11
-    connect(m_pPixmap, TQT_SIGNAL(done(bool)), TQT_SLOT(slotDone(bool)));
+    connect(m_pPixmap, TQ_SIGNAL(done(bool)), TQ_SLOT(slotDone(bool)));
 
     d->twin = new KWinModule( this );
 #endif
@@ -107,7 +107,7 @@ void KRootBacking::start()
 	// We should get a KIPC message when the shared pixmap is available...
 	enableExports();
 	if (m_timeout < 50) {
-		TQTimer::singleShot( 100, this, SLOT(show()) );	// ...but it doesn't always work!
+		TQTimer::singleShot( 100, this, TQ_SLOT(show()) );	// ...but it doesn't always work!
 		m_timeout++;
 		return;
 	}
@@ -218,7 +218,7 @@ void KRootBacking::slotDone(bool success)
     {
 	kdWarning(270) << k_lineinfo << "loading of desktop background failed.\n";
 	if (m_timeout < 50) {
-		TQTimer::singleShot( 100, this, SLOT(show()) );
+		TQTimer::singleShot( 100, this, TQ_SLOT(show()) );
 		m_timeout++;
 		return;
 	}

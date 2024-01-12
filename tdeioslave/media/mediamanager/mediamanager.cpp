@@ -43,15 +43,15 @@
 MediaManager::MediaManager(const TQCString &obj)
     : KDEDModule(obj), m_dirNotify(m_mediaList)
 {
-    connect( &m_mediaList, TQT_SIGNAL(mediumAdded(const TQString&, const TQString&, bool)),
-             TQT_SLOT(slotMediumAdded(const TQString&, const TQString&, bool)) );
-    connect( &m_mediaList, TQT_SIGNAL(mediumRemoved(const TQString&, const TQString&, bool)),
-             TQT_SLOT(slotMediumRemoved(const TQString&, const TQString&, bool)) );
+    connect( &m_mediaList, TQ_SIGNAL(mediumAdded(const TQString&, const TQString&, bool)),
+             TQ_SLOT(slotMediumAdded(const TQString&, const TQString&, bool)) );
+    connect( &m_mediaList, TQ_SIGNAL(mediumRemoved(const TQString&, const TQString&, bool)),
+             TQ_SLOT(slotMediumRemoved(const TQString&, const TQString&, bool)) );
     connect( &m_mediaList,
-             TQT_SIGNAL(mediumStateChanged(const TQString&, const TQString&, bool, bool)),
-             TQT_SLOT(slotMediumChanged(const TQString&, const TQString&, bool, bool)) );
+             TQ_SIGNAL(mediumStateChanged(const TQString&, const TQString&, bool, bool)),
+             TQ_SLOT(slotMediumChanged(const TQString&, const TQString&, bool, bool)) );
 
-    TQTimer::singleShot( 10, this, TQT_SLOT( loadBackends() ) );
+    TQTimer::singleShot( 10, this, TQ_SLOT( loadBackends() ) );
 }
 
 MediaManager::~MediaManager()

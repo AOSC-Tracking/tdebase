@@ -114,7 +114,7 @@ void KonqFileTip::setItem( KFileItem *item, const TQRect &rect, const TQPixmap *
         // Don't start immediately, because the user could move the mouse over another item
         // This avoids a quick sequence of started preview-jobs
         m_timer->disconnect( this );
-        connect(m_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(startDelayed()));
+        connect(m_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(startDelayed()));
         m_timer->start( 300, true );
     }
 }
@@ -234,7 +234,7 @@ void KonqFileTip::showTip()
     if ( text.isEmpty() ) return;
 
     m_timer->disconnect( this );
-    connect(m_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(hideTip()));
+    connect(m_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(hideTip()));
     m_timer->start( 15000, true );
 
     m_textLabel->setText( text );
@@ -261,14 +261,14 @@ void KonqFileTip::startDelayed()
         oneItem.append( m_item );
 
         m_previewJob = TDEIO::filePreview( oneItem, 256, 256, 64, 70, true, true, 0);
-        connect( m_previewJob, TQT_SIGNAL( gotPreview( const KFileItem *, const TQPixmap & ) ),
-                 this, TQT_SLOT( gotPreview( const KFileItem *, const TQPixmap & ) ) );
-        connect( m_previewJob, TQT_SIGNAL( result( TDEIO::Job * ) ),
-                 this, TQT_SLOT( gotPreviewResult() ) );
+        connect( m_previewJob, TQ_SIGNAL( gotPreview( const KFileItem *, const TQPixmap & ) ),
+                 this, TQ_SLOT( gotPreview( const KFileItem *, const TQPixmap & ) ) );
+        connect( m_previewJob, TQ_SIGNAL( result( TDEIO::Job * ) ),
+                 this, TQ_SLOT( gotPreviewResult() ) );
     }
 
     m_timer->disconnect( this );
-    connect(m_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(showTip()));
+    connect(m_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(showTip()));
     m_timer->start( 400, true );
 }
 

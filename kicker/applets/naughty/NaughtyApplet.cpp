@@ -75,20 +75,20 @@ NaughtyApplet::NaughtyApplet
 
   connect
     (
-     button_,   TQT_SIGNAL(clicked()),
-     this,      TQT_SLOT(slotPreferences())
+     button_,   TQ_SIGNAL(clicked()),
+     this,      TQ_SLOT(slotPreferences())
     );
 
   connect
     (
-     monitor_,  TQT_SIGNAL(runawayProcess(ulong, const TQString &)),
-     this,      TQT_SLOT(slotWarn(ulong, const TQString &))
+     monitor_,  TQ_SIGNAL(runawayProcess(ulong, const TQString &)),
+     this,      TQ_SLOT(slotWarn(ulong, const TQString &))
     );
 
   connect
     (
-     monitor_,  TQT_SIGNAL(load(uint)),
-     this,      TQT_SLOT(slotLoad(uint))
+     monitor_,  TQ_SIGNAL(load(uint)),
+     this,      TQ_SLOT(slotLoad(uint))
     );
 
   loadSettings();

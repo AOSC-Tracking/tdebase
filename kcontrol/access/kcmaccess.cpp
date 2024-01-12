@@ -55,10 +55,10 @@ void ExtendedIntNumInput::setRange(int min, int max, int step, bool slider) {
 	KIntNumInput::setRange (min,max,step, slider);
 
 	if (slider) {
-		disconnect(m_slider, TQT_SIGNAL(valueChanged(int)),
-					  m_spin, TQT_SLOT(setValue(int)));
-		disconnect(m_spin, TQT_SIGNAL(valueChanged(int)),
-					  this, TQT_SLOT(spinValueChanged(int)));
+		disconnect(m_slider, TQ_SIGNAL(valueChanged(int)),
+					  m_spin, TQ_SLOT(setValue(int)));
+		disconnect(m_spin, TQ_SIGNAL(valueChanged(int)),
+					  this, TQ_SLOT(spinValueChanged(int)));
 
 		this->min = min;
 		this->max = max;
@@ -72,10 +72,10 @@ void ExtendedIntNumInput::setRange(int min, int max, int step, bool slider) {
 		double logVal = alpha * (log((double)value())-log((double)min));
 		m_slider->setValue ((int)floor (0.5 + logVal));
 
-		connect(m_slider, TQT_SIGNAL(valueChanged(int)),
-				  this, TQT_SLOT(slotSliderValueChanged(int)));
-		connect(m_spin, TQT_SIGNAL(valueChanged(int)),
-				  this, TQT_SLOT(slotSpinValueChanged(int)));
+		connect(m_slider, TQ_SIGNAL(valueChanged(int)),
+				  this, TQ_SLOT(slotSliderValueChanged(int)));
+		connect(m_spin, TQ_SIGNAL(valueChanged(int)),
+				  this, TQ_SLOT(slotSpinValueChanged(int)));
 	}
 }
 
@@ -276,13 +276,13 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   TQWhatsThis::add( soundLabel, wtstr );
   TQWhatsThis::add( soundButton, wtstr );
 
-  connect(soundButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(selectSound()));
+  connect(soundButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(selectSound()));
 
-  connect(customBell, TQT_SIGNAL(clicked()), this, TQT_SLOT(checkAccess()));
+  connect(customBell, TQ_SIGNAL(clicked()), this, TQ_SLOT(checkAccess()));
 
-  connect(systemBell, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(customBell, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(soundEdit, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(configChanged()));
+  connect(systemBell, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(customBell, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(soundEdit, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(configChanged()));
 
   // -----------------------------------------------------
 
@@ -326,16 +326,16 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   hbox->addWidget(durationSlider);
   TQWhatsThis::add( durationSlider, i18n("Here you can customize the duration of the \"visible bell\" effect being shown.") );
 
-  connect(invertScreen, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(flashScreen, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(visibleBell, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(visibleBell, TQT_SIGNAL(clicked()), this, TQT_SLOT(checkAccess()));
-  connect(colorButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(changeFlashScreenColor()));
+  connect(invertScreen, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(flashScreen, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(visibleBell, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(visibleBell, TQ_SIGNAL(clicked()), this, TQ_SLOT(checkAccess()));
+  connect(colorButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(changeFlashScreenColor()));
 
-  connect(invertScreen, TQT_SIGNAL(clicked()), this, TQT_SLOT(invertClicked()));
-  connect(flashScreen, TQT_SIGNAL(clicked()), this, TQT_SLOT(flashClicked()));
+  connect(invertScreen, TQ_SIGNAL(clicked()), this, TQ_SLOT(invertClicked()));
+  connect(flashScreen, TQ_SIGNAL(clicked()), this, TQ_SLOT(flashClicked()));
 
-  connect(durationSlider, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(configChanged()));
+  connect(durationSlider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(configChanged()));
 
   vbox->addStretch();
 
@@ -391,16 +391,16 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   kNotifyModifiersButton->setSizePolicy(TQSizePolicy::Fixed, TQSizePolicy::Fixed);
   hbox->addWidget(kNotifyModifiersButton);
 
-  connect(stickyKeys, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(stickyKeysLock, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(stickyKeysAutoOff, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(stickyKeys, TQT_SIGNAL(clicked()), this, TQT_SLOT(checkAccess()));
+  connect(stickyKeys, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(stickyKeysLock, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(stickyKeysAutoOff, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(stickyKeys, TQ_SIGNAL(clicked()), this, TQ_SLOT(checkAccess()));
 
-  connect(stickyKeysBeep, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(toggleKeysBeep, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(kNotifyModifiers, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(kNotifyModifiers, TQT_SIGNAL(clicked()), this, TQT_SLOT(checkAccess()));
-  connect(kNotifyModifiersButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(configureKNotify()));
+  connect(stickyKeysBeep, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(toggleKeysBeep, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(kNotifyModifiers, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(kNotifyModifiers, TQ_SIGNAL(clicked()), this, TQ_SLOT(checkAccess()));
+  connect(kNotifyModifiersButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(configureKNotify()));
 
   vbox->addStretch();
 
@@ -465,18 +465,18 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   bounceKeysRejectBeep = new TQCheckBox(i18n("Use the system bell whenever a key is rejected"), grp);
   hbox->addWidget(bounceKeysRejectBeep);
 
-  connect(slowKeysDelay, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(configChanged()));
-  connect(slowKeys, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(slowKeys, TQT_SIGNAL(clicked()), this, TQT_SLOT(checkAccess()));
+  connect(slowKeysDelay, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(configChanged()));
+  connect(slowKeys, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(slowKeys, TQ_SIGNAL(clicked()), this, TQ_SLOT(checkAccess()));
 
-  connect(slowKeysPressBeep, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(slowKeysAcceptBeep, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(slowKeysRejectBeep, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
+  connect(slowKeysPressBeep, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(slowKeysAcceptBeep, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(slowKeysRejectBeep, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
 
-  connect(bounceKeysDelay, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(configChanged()));
-  connect(bounceKeys, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(bounceKeysRejectBeep, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(bounceKeys, TQT_SIGNAL(clicked()), this, TQT_SLOT(checkAccess()));
+  connect(bounceKeysDelay, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(configChanged()));
+  connect(bounceKeys, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(bounceKeysRejectBeep, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(bounceKeys, TQ_SIGNAL(clicked()), this, TQ_SLOT(checkAccess()));
 
   vbox->addStretch();
 
@@ -539,15 +539,15 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   kNotifyAccessXButton->setSizePolicy(TQSizePolicy::Fixed, TQSizePolicy::Fixed);
   hbox->addWidget(kNotifyAccessXButton);
 
-  connect(gestures, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(timeout, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(timeout, TQT_SIGNAL(clicked()), this, TQT_SLOT(checkAccess()));
-  connect(timeoutDelay, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(configChanged()));
-  connect(accessxBeep, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(gestureConfirmation, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(kNotifyAccessX, TQT_SIGNAL(clicked()), this, TQT_SLOT(configChanged()));
-  connect(kNotifyAccessX, TQT_SIGNAL(clicked()), this, TQT_SLOT(checkAccess()));
-  connect(kNotifyAccessXButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(configureKNotify()));
+  connect(gestures, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(timeout, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(timeout, TQ_SIGNAL(clicked()), this, TQ_SLOT(checkAccess()));
+  connect(timeoutDelay, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(configChanged()));
+  connect(accessxBeep, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(gestureConfirmation, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(kNotifyAccessX, TQ_SIGNAL(clicked()), this, TQ_SLOT(configChanged()));
+  connect(kNotifyAccessX, TQ_SIGNAL(clicked()), this, TQ_SLOT(checkAccess()));
+  connect(kNotifyAccessXButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(configureKNotify()));
 
   vbox->addStretch();
 

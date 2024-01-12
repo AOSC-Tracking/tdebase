@@ -55,8 +55,8 @@ InteractiveSMTPServerWindow::~InteractiveSMTPServerWindow() {
     if ( mSocket ) {
         mSocket->close();
         if ( mSocket->state() == TQSocket::Closing )
-            connect( mSocket, TQT_SIGNAL(delayedCloseFinished()),
-                     mSocket, TQT_SLOT(deleteLater()) );
+            connect( mSocket, TQ_SIGNAL(delayedCloseFinished()),
+                     mSocket, TQ_SLOT(deleteLater()) );
         else
             mSocket->deleteLater();
         mSocket = 0;
@@ -108,17 +108,17 @@ InteractiveSMTPServerWindow::InteractiveSMTPServerWindow( TQSocket * socket, TQW
   hlay->addWidget( mLineEdit, 1 );
   hlay->addWidget( but );
 
-  connect( mLineEdit, TQT_SIGNAL(returnPressed()), TQT_SLOT(slotSendResponse()) );
-  connect( but, TQT_SIGNAL(clicked()), TQT_SLOT(slotSendResponse()) );
+  connect( mLineEdit, TQ_SIGNAL(returnPressed()), TQ_SLOT(slotSendResponse()) );
+  connect( but, TQ_SIGNAL(clicked()), TQ_SLOT(slotSendResponse()) );
 
   but = new TQPushButton( "&Close Connection", this );
   vlay->addWidget( but );
 
-  connect( but, TQT_SIGNAL(clicked()), TQT_SLOT(slotConnectionClosed()) );
+  connect( but, TQ_SIGNAL(clicked()), TQ_SLOT(slotConnectionClosed()) );
 
-  connect( socket, TQT_SIGNAL(connectionClosed()), TQT_SLOT(slotConnectionClosed()) );
-  connect( socket, TQT_SIGNAL(error(int)), TQT_SLOT(slotError(int)) );
-  connect( socket, TQT_SIGNAL(readyRead()), TQT_SLOT(slotReadyRead()) );
+  connect( socket, TQ_SIGNAL(connectionClosed()), TQ_SLOT(slotConnectionClosed()) );
+  connect( socket, TQ_SIGNAL(error(int)), TQ_SLOT(slotError(int)) );
+  connect( socket, TQ_SIGNAL(readyRead()), TQ_SLOT(slotReadyRead()) );
 
   mLineEdit->setText( "220 hi there" );
   mLineEdit->setFocus();

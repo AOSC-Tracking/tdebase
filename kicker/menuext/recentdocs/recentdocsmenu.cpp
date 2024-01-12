@@ -52,7 +52,7 @@ RecentDocsMenu::~RecentDocsMenu()
 void RecentDocsMenu::initialize() {
 	if (initialized()) clear();
 
-	insertItem(SmallIconSet("history_clear"), i18n("Clear History"), this, TQT_SLOT(slotClearHistory()));
+	insertItem(SmallIconSet("history_clear"), i18n("Clear History"), this, TQ_SLOT(slotClearHistory()));
 	insertSeparator();
 
 	_fileList = TDERecentDocument::recentDocuments();

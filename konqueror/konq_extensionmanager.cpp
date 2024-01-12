@@ -52,9 +52,9 @@ KonqExtensionManager::KonqExtensionManager(TQWidget *parent, KonqMainWindow *mai
 	(new TQVBoxLayout(plainPage(), 0, 0))->setAutoAdd(true);
 	d->pluginSelector = new KPluginSelector(plainPage());
 	setMainWidget(d->pluginSelector);
-	connect(d->pluginSelector, TQT_SIGNAL(changed(bool)), this, TQT_SLOT(setChanged(bool)));
-	connect(d->pluginSelector, TQT_SIGNAL(configCommitted(const TQCString &)),
-	        KSettings::Dispatcher::self(), TQT_SLOT(reparseConfiguration(const TQCString &)));
+	connect(d->pluginSelector, TQ_SIGNAL(changed(bool)), this, TQ_SLOT(setChanged(bool)));
+	connect(d->pluginSelector, TQ_SIGNAL(configCommitted(const TQCString &)),
+	        KSettings::Dispatcher::self(), TQ_SLOT(reparseConfiguration(const TQCString &)));
 
 	d->mainWindow = mainWindow;
 	d->activePart = activePart;

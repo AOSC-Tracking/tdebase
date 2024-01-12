@@ -41,13 +41,13 @@ MenuConfig::MenuConfig(TQWidget *parent, const char *name)
 
     addConfig(KickerSettings::self(), m_widget);
 
-    connect(m_widget, TQT_SIGNAL(changed()),
-            this, TQT_SLOT(changed()));
-    connect(KickerConfig::the(), TQT_SIGNAL(aboutToNotifyKicker()),
-            this, TQT_SLOT(aboutToNotifyKicker()));
+    connect(m_widget, TQ_SIGNAL(changed()),
+            this, TQ_SLOT(changed()));
+    connect(KickerConfig::the(), TQ_SIGNAL(aboutToNotifyKicker()),
+            this, TQ_SLOT(aboutToNotifyKicker()));
 
     load();
-    TQTimer::singleShot(0, this, TQT_SLOT(notChanged()));
+    TQTimer::singleShot(0, this, TQ_SLOT(notChanged()));
 }
 
 void MenuConfig::notChanged()
@@ -90,7 +90,7 @@ void MenuConfig::defaults()
     // TDEConfigDialogManager may queue an changed(false) signal,
     // so we make sure, that the module is labeled as changedm,
     // while we manage some of the widgets ourselves
-    TQTimer::singleShot(0, this, TQT_SLOT(changed()));
+    TQTimer::singleShot(0, this, TQ_SLOT(changed()));
 }
 
 TQString MenuConfig::handbookSection() const

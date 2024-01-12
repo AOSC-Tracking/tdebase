@@ -71,8 +71,8 @@ ToggleToolViewAction::ToggleToolViewAction ( const TQString& text, const TDEShor
  : TDEToggleAction(text,cut,parent,name)
  , m_tv(tv)
 {
-  connect(this,TQT_SIGNAL(toggled(bool)),this,TQT_SLOT(slotToggled(bool)));
-  connect(m_tv,TQT_SIGNAL(visibleChanged(bool)),this,TQT_SLOT(visibleChanged(bool)));
+  connect(this,TQ_SIGNAL(toggled(bool)),this,TQ_SLOT(slotToggled(bool)));
+  connect(m_tv,TQ_SIGNAL(visibleChanged(bool)),this,TQ_SLOT(visibleChanged(bool)));
 
   setChecked(m_tv->visible());
 }
@@ -123,8 +123,8 @@ GUIClient::GUIClient ( MainWindow *mw )
  , KXMLGUIClient ( mw )
  , m_mw (mw)
 {
-  connect( m_mw->guiFactory(), TQT_SIGNAL( clientAdded( KXMLGUIClient * ) ),
-           this, TQT_SLOT( clientAdded( KXMLGUIClient * ) ) );
+  connect( m_mw->guiFactory(), TQ_SIGNAL( clientAdded( KXMLGUIClient * ) ),
+           this, TQ_SLOT( clientAdded( KXMLGUIClient * ) ) );
 
   if ( domDocument().documentElement().isNull() )
   {
@@ -142,8 +142,8 @@ GUIClient::GUIClient ( MainWindow *mw )
                                             CTRL|ALT|SHIFT|Key_F, actionCollection(), "kate_mdi_sidebar_visibility" );
   m_showSidebarsAction->setCheckedState(i18n("Hide Side&bars"));
   m_showSidebarsAction->setChecked( m_mw->sidebarsVisible() );
-  connect( m_showSidebarsAction, TQT_SIGNAL( toggled( bool ) ),
-           m_mw, TQT_SLOT( setSidebarsVisible( bool ) ) );
+  connect( m_showSidebarsAction, TQ_SIGNAL( toggled( bool ) ),
+           m_mw, TQ_SLOT( setSidebarsVisible( bool ) ) );
 
   m_toolMenu->insert( m_showSidebarsAction );
   m_toolMenu->insert( new TDEActionSeparator( m_toolMenu ) );
@@ -332,7 +332,7 @@ ToolView *Sidebar::addWidget (const TQPixmap &icon, const TQString &text, ToolVi
 
   show ();
 
-  connect(tab(newId),TQT_SIGNAL(clicked(int)),this,TQT_SLOT(tabClicked(int)));
+  connect(tab(newId),TQ_SIGNAL(clicked(int)),this,TQ_SLOT(tabClicked(int)));
   tab(newId)->installEventFilter(this);
 
   return widget;
@@ -480,8 +480,8 @@ bool Sidebar::eventFilter(TQObject *obj, TQEvent *ev)
         if (position() != 3)
           p->insertItem(SmallIconSet("go-down"), i18n("Bottom Sidebar"),3);
 
-        connect(p, TQT_SIGNAL(activated(int)),
-              this, TQT_SLOT(buttonPopupActivate(int)));
+        connect(p, TQ_SIGNAL(activated(int)),
+              this, TQ_SLOT(buttonPopupActivate(int)));
 
         p->exec(e->globalPos());
         delete p;
@@ -596,7 +596,7 @@ void Sidebar::restoreSession (TDEConfig *config)
       // readd the button
       int newId = m_widgetToId[tv];
       appendTab (tv->icon, newId, tv->text);
-      connect(tab(newId),TQT_SIGNAL(clicked(int)),this,TQT_SLOT(tabClicked(int)));
+      connect(tab(newId),TQ_SIGNAL(clicked(int)),this,TQ_SLOT(tabClicked(int)));
       tab(newId)->installEventFilter(this);
 
       // reshuffle in splitter

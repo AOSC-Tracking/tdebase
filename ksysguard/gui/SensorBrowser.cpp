@@ -68,11 +68,11 @@ SensorBrowser::SensorBrowser( TQWidget* parent, KSGRD::SensorManager* sm,
 {
   mHostInfoList.setAutoDelete(true);
 
-  connect( mSensorManager, TQT_SIGNAL( update() ), TQT_SLOT( update() ) );
-  connect( this, TQT_SIGNAL( clicked( TQListViewItem* ) ),
-           TQT_SLOT( newItemSelected( TQListViewItem* ) ) );
-  connect( this, TQT_SIGNAL( returnPressed( TQListViewItem* ) ),
-           TQT_SLOT( newItemSelected( TQListViewItem* ) ) );
+  connect( mSensorManager, TQ_SIGNAL( update() ), TQ_SLOT( update() ) );
+  connect( this, TQ_SIGNAL( clicked( TQListViewItem* ) ),
+           TQ_SLOT( newItemSelected( TQListViewItem* ) ) );
+  connect( this, TQ_SIGNAL( returnPressed( TQListViewItem* ) ),
+           TQ_SLOT( newItemSelected( TQListViewItem* ) ) );
 
   addColumn( i18n( "Sensor Browser" ) );
   addColumn( i18n( "Sensor Type" ) );

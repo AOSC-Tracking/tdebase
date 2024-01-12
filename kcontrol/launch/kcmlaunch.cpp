@@ -71,9 +71,9 @@ LaunchConfig::LaunchConfig(TQWidget * parent, const char * name, const TQStringL
     cb_busyCursor->insertItem( i18n( "Blinking Cursor" ), 2 );
     cb_busyCursor->insertItem( i18n( "Bouncing Cursor" ), 3 );
     GroupBox1Layout->addWidget( cb_busyCursor, 0, 0 );
-    connect( cb_busyCursor, TQT_SIGNAL( activated(int) ),
-            TQT_SLOT ( slotBusyCursor(int)));
-    connect( cb_busyCursor, TQT_SIGNAL( activated(int) ), TQT_SLOT( checkChanged() ) );
+    connect( cb_busyCursor, TQ_SIGNAL( activated(int) ),
+            TQ_SLOT ( slotBusyCursor(int)));
+    connect( cb_busyCursor, TQ_SIGNAL( activated(int) ), TQ_SLOT( checkChanged() ) );
 
     lbl_cursorTimeout = new TQLabel( GroupBox1, "TextLabel1" );
     lbl_cursorTimeout->setText( i18n( "&Startup indication timeout:" ) );
@@ -83,8 +83,8 @@ LaunchConfig::LaunchConfig(TQWidget * parent, const char * name, const TQStringL
     sb_cursorTimeout->setSuffix( i18n(" sec") );
     GroupBox1Layout->addWidget( sb_cursorTimeout, 2, 1 );
     lbl_cursorTimeout->setBuddy( sb_cursorTimeout );
-    connect( sb_cursorTimeout, TQT_SIGNAL( valueChanged(int) ), 
-            TQT_SLOT( checkChanged() ) );
+    connect( sb_cursorTimeout, TQ_SIGNAL( valueChanged(int) ), 
+            TQ_SLOT( checkChanged() ) );
 
     TQGroupBox* GroupBox2 = new TQGroupBox( this, "GroupBox2" );
     GroupBox2->setTitle( i18n( "Taskbar &Notification" ) );
@@ -108,9 +108,9 @@ LaunchConfig::LaunchConfig(TQWidget * parent, const char * name, const TQStringL
     cb_taskbarButton = new TQCheckBox( GroupBox2, "cb_taskbarButton" );
     cb_taskbarButton->setText( i18n( "Enable &taskbar notification" ) );
     GroupBox2Layout->addMultiCellWidget( cb_taskbarButton, 0, 0, 0, 1 );
-    connect( cb_taskbarButton, TQT_SIGNAL( toggled(bool) ), 
-            TQT_SLOT( slotTaskbarButton(bool)));
-    connect( cb_taskbarButton, TQT_SIGNAL( toggled(bool) ), TQT_SLOT( checkChanged()));
+    connect( cb_taskbarButton, TQ_SIGNAL( toggled(bool) ), 
+            TQ_SLOT( slotTaskbarButton(bool)));
+    connect( cb_taskbarButton, TQ_SIGNAL( toggled(bool) ), TQ_SLOT( checkChanged()));
 
     lbl_taskbarTimeout = new TQLabel( GroupBox2, "TextLabel2" );
     lbl_taskbarTimeout->setText( i18n( "Start&up indication timeout:" ) );
@@ -120,8 +120,8 @@ LaunchConfig::LaunchConfig(TQWidget * parent, const char * name, const TQStringL
     sb_taskbarTimeout->setSuffix( i18n(" sec") );
     GroupBox2Layout->addWidget( sb_taskbarTimeout, 1, 1 );
     lbl_taskbarTimeout->setBuddy( sb_taskbarTimeout );
-    connect( sb_taskbarTimeout, TQT_SIGNAL( valueChanged(int) ), 
-            TQT_SLOT( checkChanged() ) );
+    connect( sb_taskbarTimeout, TQ_SIGNAL( valueChanged(int) ), 
+            TQ_SLOT( checkChanged() ) );
 
     Form1Layout->addStretch();
 

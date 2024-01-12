@@ -56,20 +56,20 @@ void History::setupActions( TDEActionCollection *coll )
   TQPair<KGuiItem, KGuiItem> backForward = KStdGuiItem::backAndForward();
 
   m_backAction = new TDEToolBarPopupAction( backForward.first, ALT+Key_Left,
-      this, TQT_SLOT( back() ), coll, "back" );
-  connect( m_backAction->popupMenu(), TQT_SIGNAL( activated( int ) ),
-           TQT_SLOT( backActivated( int ) ) );
-  connect( m_backAction->popupMenu(), TQT_SIGNAL( aboutToShow() ),
-           TQT_SLOT( fillBackMenu() ) );
+      this, TQ_SLOT( back() ), coll, "back" );
+  connect( m_backAction->popupMenu(), TQ_SIGNAL( activated( int ) ),
+           TQ_SLOT( backActivated( int ) ) );
+  connect( m_backAction->popupMenu(), TQ_SIGNAL( aboutToShow() ),
+           TQ_SLOT( fillBackMenu() ) );
   m_backAction->setEnabled( false );
 
   m_forwardAction = new TDEToolBarPopupAction( backForward.second, ALT+Key_Right,
-      this, TQT_SLOT( forward() ), coll,
+      this, TQ_SLOT( forward() ), coll,
       "forward" );
-  connect( m_forwardAction->popupMenu(), TQT_SIGNAL( activated( int ) ),
-           TQT_SLOT( forwardActivated( int ) ) );
-  connect( m_forwardAction->popupMenu(), TQT_SIGNAL( aboutToShow() ),
-           TQT_SLOT( fillForwardMenu() ) );
+  connect( m_forwardAction->popupMenu(), TQ_SIGNAL( activated( int ) ),
+           TQ_SLOT( forwardActivated( int ) ) );
+  connect( m_forwardAction->popupMenu(), TQ_SIGNAL( aboutToShow() ),
+           TQ_SLOT( fillForwardMenu() ) );
   m_forwardAction->setEnabled( false );
 }
 
@@ -78,9 +78,9 @@ void History::installMenuBarHook( TDEMainWindow *mainWindow )
   TQPopupMenu *goMenu = dynamic_cast<TQPopupMenu *>(
       mainWindow->guiFactory()->container( "go_web", mainWindow ) );
   if ( goMenu ) {
-    connect( goMenu, TQT_SIGNAL( aboutToShow() ), TQT_SLOT( fillGoMenu() ) );
-    connect( goMenu, TQT_SIGNAL( activated( int ) ),
-             TQT_SLOT( goMenuActivated( int ) ) );
+    connect( goMenu, TQ_SIGNAL( aboutToShow() ), TQ_SLOT( fillGoMenu() ) );
+    connect( goMenu, TQ_SIGNAL( activated( int ) ),
+             TQ_SLOT( goMenuActivated( int ) ) );
     m_goMenuIndex = goMenu->count();
   }
 }
@@ -178,7 +178,7 @@ void History::goHistoryActivated( int steps )
   if ( m_goBuffer )
     return;
   m_goBuffer = steps;
-  TQTimer::singleShot( 0, this, TQT_SLOT( goHistoryDelayed() ) );
+  TQTimer::singleShot( 0, this, TQ_SLOT( goHistoryDelayed() ) );
 }
 
 void History::goHistoryDelayed()

@@ -51,7 +51,7 @@ ConfSystem::ConfSystem(TQWidget *parent, const char *name)
 	TQLabel	*cmdlabel = new TQLabel(i18n("Co&mmand:"), this);
 	syslabel->setBuddy(m_system);
 	cmdlabel->setBuddy(m_command);
-	connect(m_system, TQT_SIGNAL(activated(int)), TQT_SLOT(slotSystemChanged(int)));
+	connect(m_system, TQ_SIGNAL(activated(int)), TQ_SLOT(slotSystemChanged(int)));
 	m_current = 0;
 	m_system->setCurrentItem(m_current);
 
@@ -66,7 +66,7 @@ ConfSystem::ConfSystem(TQWidget *parent, const char *name)
 	for (int i=0; i<10; i++)
 		m_device->insertItem(TQString(i18n("Serial Port #%1").arg(i)));
 	m_device->insertItem( i18n( "Other" ) );
-	connect( m_device, TQT_SIGNAL( activated( int ) ), TQT_SLOT( slotDeviceChanged( int ) ) );
+	connect( m_device, TQ_SIGNAL( activated( int ) ), TQ_SLOT( slotDeviceChanged( int ) ) );
 	m_device_edit = new TQLineEdit( m_dummy2 );
 	slotDeviceChanged( 0 );
 

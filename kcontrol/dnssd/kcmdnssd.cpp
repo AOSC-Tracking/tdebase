@@ -68,10 +68,10 @@ KCMDnssd::KCMDnssd(TQWidget *parent, const char *name, const TQStringList&)
 	domain = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdednssdrc" ));
 	domain->setGroup("publishing");
 	load();
-	connect(hostedit,TQT_SIGNAL(textChanged(const TQString&)),this,TQT_SLOT(wdchanged()));
-	connect(secretedit,TQT_SIGNAL(textChanged(const TQString&)),this,TQT_SLOT(wdchanged()));
-	connect(domainedit,TQT_SIGNAL(textChanged(const TQString&)),this,TQT_SLOT(wdchanged()));
-	connect(enableZeroconf,TQT_SIGNAL(toggled(bool)),this,TQT_SLOT(enableZeroconfChanged(bool)));
+	connect(hostedit,TQ_SIGNAL(textChanged(const TQString&)),this,TQ_SLOT(wdchanged()));
+	connect(secretedit,TQ_SIGNAL(textChanged(const TQString&)),this,TQ_SLOT(wdchanged()));
+	connect(domainedit,TQ_SIGNAL(textChanged(const TQString&)),this,TQ_SLOT(wdchanged()));
+	connect(enableZeroconf,TQ_SIGNAL(toggled(bool)),this,TQ_SLOT(enableZeroconfChanged(bool)));
 	m_enableZeroconfChanged=false;
 	if (DNSSD::Configuration::self()->publishDomain().isEmpty()) WANButton->setEnabled(false);
 	kcfg_PublishType->hide(); //unused with Avahi

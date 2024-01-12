@@ -113,11 +113,11 @@ void SMBSlave::special( const TQByteArray & data)
          proc << TDEProcess::quote(mountPoint.local8Bit());
          proc << options;
 
-         connect(&proc, TQT_SIGNAL( receivedStdout(TDEProcess *, char *, int )),
-                 TQT_SLOT(readOutput(TDEProcess *, char *, int)));
+         connect(&proc, TQ_SIGNAL( receivedStdout(TDEProcess *, char *, int )),
+                 TQ_SLOT(readOutput(TDEProcess *, char *, int)));
 
-         connect(&proc, TQT_SIGNAL( receivedStderr(TDEProcess *, char *, int )),
-                 TQT_SLOT(readStdErr(TDEProcess *, char *, int)));
+         connect(&proc, TQ_SIGNAL( receivedStderr(TDEProcess *, char *, int )),
+                 TQ_SLOT(readStdErr(TDEProcess *, char *, int)));
 
          if (!proc.start( TDEProcess::Block, TDEProcess::AllOutput ))
          {
@@ -154,11 +154,11 @@ void SMBSlave::special( const TQByteArray & data)
          mybuf.truncate(0);
          mystderr.truncate(0);
 
-         connect(&proc, TQT_SIGNAL( receivedStdout(TDEProcess *, char *, int )),
-                 TQT_SLOT(readOutput(TDEProcess *, char *, int)));
+         connect(&proc, TQ_SIGNAL( receivedStdout(TDEProcess *, char *, int )),
+                 TQ_SLOT(readOutput(TDEProcess *, char *, int)));
 
-         connect(&proc, TQT_SIGNAL( receivedStderr(TDEProcess *, char *, int )),
-                 TQT_SLOT(readStdErr(TDEProcess *, char *, int)));
+         connect(&proc, TQ_SIGNAL( receivedStderr(TDEProcess *, char *, int )),
+                 TQ_SLOT(readStdErr(TDEProcess *, char *, int)));
 
          if ( !proc.start( TDEProcess::Block, TDEProcess::AllOutput ) )
          {

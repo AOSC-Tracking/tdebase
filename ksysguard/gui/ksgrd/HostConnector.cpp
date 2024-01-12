@@ -111,12 +111,12 @@ HostConnector::HostConnector( TQWidget *parent, const char *name )
 
   layout->addMultiCellWidget( group, 1, 1, 0, 1 );
 
-  connect( mUseCustom, TQT_SIGNAL( toggled( bool ) ),
-           mCommands, TQT_SLOT( setEnabled( bool ) ) );
-  connect( mUseDaemon, TQT_SIGNAL( toggled( bool ) ),
-           mPort, TQT_SLOT( setEnabled( bool ) ) );
-  connect( mHostNames->lineEdit(),  TQT_SIGNAL( textChanged ( const TQString & ) ),
-           this, TQT_SLOT(  slotHostNameChanged( const TQString & ) ) );
+  connect( mUseCustom, TQ_SIGNAL( toggled( bool ) ),
+           mCommands, TQ_SLOT( setEnabled( bool ) ) );
+  connect( mUseDaemon, TQ_SIGNAL( toggled( bool ) ),
+           mPort, TQ_SLOT( setEnabled( bool ) ) );
+  connect( mHostNames->lineEdit(),  TQ_SIGNAL( textChanged ( const TQString & ) ),
+           this, TQ_SLOT(  slotHostNameChanged( const TQString & ) ) );
   enableButtonOK( !mHostNames->lineEdit()->text().isEmpty() );
   TDEAcceleratorManager::manage( this );
 }

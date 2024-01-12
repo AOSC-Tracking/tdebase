@@ -24,17 +24,17 @@ KScreenSaverAdvancedDialog::KScreenSaverAdvancedDialog(TQWidget *parent, const c
 
 	readSettings();
 
-	connect(dialog->qcbPriority, TQT_SIGNAL(activated(int)),
-		this, TQT_SLOT(slotPriorityChanged(int)));
+	connect(dialog->qcbPriority, TQ_SIGNAL(activated(int)),
+		this, TQ_SLOT(slotPriorityChanged(int)));
 
-	connect(dialog->qcbTopLeft, TQT_SIGNAL(activated(int)),
-		this, TQT_SLOT(slotChangeTopLeftCorner(int)));
-	connect(dialog->qcbTopRight, TQT_SIGNAL(activated(int)),
-		this, TQT_SLOT(slotChangeTopLeftCorner(int)));
-	connect(dialog->qcbBottomLeft, TQT_SIGNAL(activated(int)),
-		this, TQT_SLOT(slotChangeTopLeftCorner(int)));
-	connect(dialog->qcbBottomRight, TQT_SIGNAL(activated(int)),
-		this, TQT_SLOT(slotChangeTopLeftCorner(int)));
+	connect(dialog->qcbTopLeft, TQ_SIGNAL(activated(int)),
+		this, TQ_SLOT(slotChangeTopLeftCorner(int)));
+	connect(dialog->qcbTopRight, TQ_SIGNAL(activated(int)),
+		this, TQ_SLOT(slotChangeTopLeftCorner(int)));
+	connect(dialog->qcbBottomLeft, TQ_SIGNAL(activated(int)),
+		this, TQ_SLOT(slotChangeTopLeftCorner(int)));
+	connect(dialog->qcbBottomRight, TQ_SIGNAL(activated(int)),
+		this, TQ_SLOT(slotChangeTopLeftCorner(int)));
 
 #ifndef HAVE_SETPRIORITY
     dialog->qgbPriority->setEnabled(false);

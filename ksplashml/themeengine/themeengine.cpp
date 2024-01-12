@@ -101,7 +101,7 @@ void ThemeEngine::addSplashWindow( TQWidget* w )
         XChangeWindowAttributes( tqt_xdisplay(), w->winId(), CWOverrideRedirect, &attrs );
     }
     d->mSplashWindows.prepend( w->winId());
-    connect( w, TQT_SIGNAL( destroyed( TQObject* )), TQT_SLOT( splashWindowDestroyed( TQObject* )));
+    connect( w, TQ_SIGNAL( destroyed( TQObject* )), TQ_SLOT( splashWindowDestroyed( TQObject* )));
     w->raise();
 }
 

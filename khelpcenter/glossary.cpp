@@ -73,10 +73,10 @@ Glossary::Glossary( TQWidget *parent ) : TDEListView( parent )
 {
 	m_initialized = false;
 
-	connect( this, TQT_SIGNAL( clicked( TQListViewItem * ) ),
-	         this, TQT_SLOT( treeItemSelected( TQListViewItem * ) ) );
-	connect( this, TQT_SIGNAL( returnPressed( TQListViewItem * ) ),
-	         this, TQT_SLOT( treeItemSelected( TQListViewItem * ) ) );
+	connect( this, TQ_SIGNAL( clicked( TQListViewItem * ) ),
+	         this, TQ_SLOT( treeItemSelected( TQListViewItem * ) ) );
+	connect( this, TQ_SIGNAL( returnPressed( TQListViewItem * ) ),
+	         this, TQ_SLOT( treeItemSelected( TQListViewItem * ) ) );
 	
 	setFrameStyle( TQFrame::Panel | TQFrame::Sunken );
 	addColumn( TQString::null );
@@ -147,8 +147,8 @@ void Glossary::rebuildGlossaryCache()
 	mainWindow->statusBar()->message( i18n( "Rebuilding cache..." ) );
 
 	TDEProcess *meinproc = new TDEProcess;
-	connect( meinproc, TQT_SIGNAL( processExited( TDEProcess * ) ),
-	         this, TQT_SLOT( meinprocExited( TDEProcess * ) ) );
+	connect( meinproc, TQ_SIGNAL( processExited( TDEProcess * ) ),
+	         this, TQ_SLOT( meinprocExited( TDEProcess * ) ) );
 
 	*meinproc << locate( "exe", TQString::fromLatin1( "meinproc" ) );
 	*meinproc << TQString::fromLatin1( "--output" ) << m_cacheFile;

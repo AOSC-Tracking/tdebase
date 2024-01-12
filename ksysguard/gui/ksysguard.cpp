@@ -83,16 +83,16 @@ TopLevel::TopLevel( const char *name )
   mSensorBrowser = new SensorBrowser( mSplitter, KSGRD::SensorMgr );
   
   mServiceBrowser = new DNSSD::ServiceBrowser("_ksysguard._tcp", 0, true);
-  connect(mServiceBrowser,TQT_SIGNAL(serviceAdded(DNSSD::RemoteService::Ptr)),this,
-  	TQT_SLOT(serviceAdded(DNSSD::RemoteService::Ptr)));
+  connect(mServiceBrowser,TQ_SIGNAL(serviceAdded(DNSSD::RemoteService::Ptr)),this,
+  	TQ_SLOT(serviceAdded(DNSSD::RemoteService::Ptr)));
 
   mWorkSpace = new Workspace( mSplitter );
-  connect( mWorkSpace, TQT_SIGNAL( announceRecentURL( const KURL& ) ),
-           TQT_SLOT( registerRecentURL( const KURL& ) ) );
-  connect( mWorkSpace, TQT_SIGNAL( setCaption( const TQString&, bool ) ),
-           TQT_SLOT( setCaption( const TQString&, bool ) ) );
-  connect( KSGRD::Style, TQT_SIGNAL( applyStyleToWorksheet() ), mWorkSpace,
-           TQT_SLOT( applyStyle() ) );
+  connect( mWorkSpace, TQ_SIGNAL( announceRecentURL( const KURL& ) ),
+           TQ_SLOT( registerRecentURL( const KURL& ) ) );
+  connect( mWorkSpace, TQ_SIGNAL( setCaption( const TQString&, bool ) ),
+           TQ_SLOT( setCaption( const TQString&, bool ) ) );
+  connect( KSGRD::Style, TQ_SIGNAL( applyStyleToWorksheet() ), mWorkSpace,
+           TQ_SLOT( applyStyle() ) );
 
   /* Create the status bar. It displays some information about the
    * number of processes and the memory consumption of the local
@@ -106,39 +106,39 @@ TopLevel::TopLevel( const char *name )
 
   // create actions for menue entries
   new TDEAction( i18n( "&New Worksheet..." ), "tab_new", 0, mWorkSpace,
-		   TQT_SLOT( newWorkSheet() ), actionCollection(), "new_worksheet" );
+		   TQ_SLOT( newWorkSheet() ), actionCollection(), "new_worksheet" );
   
   new TDEAction( i18n( "Import Worksheet..." ), "document-open", 0, mWorkSpace,
-		   TQT_SLOT( loadWorkSheet() ), actionCollection(), "import_worksheet" );
+		   TQ_SLOT( loadWorkSheet() ), actionCollection(), "import_worksheet" );
   
   mActionOpenRecent = new TDERecentFilesAction( i18n( "&Import Recent Worksheet" ),"document-open", 0,
-		   mWorkSpace, TQT_SLOT( loadWorkSheet( const KURL& ) ), actionCollection(), "recent_import_worksheet" );	
+		   mWorkSpace, TQ_SLOT( loadWorkSheet( const KURL& ) ), actionCollection(), "recent_import_worksheet" );	
   
   new TDEAction( i18n( "&Remove Worksheet" ), "tab_remove", 0, mWorkSpace,
-		   TQT_SLOT( deleteWorkSheet() ), actionCollection(), "remove_worksheet" );
+		   TQ_SLOT( deleteWorkSheet() ), actionCollection(), "remove_worksheet" );
 
   new TDEAction( i18n( "&Export Worksheet..." ), "document-save-as", 0, mWorkSpace,
-		   TQT_SLOT( saveWorkSheetAs() ), actionCollection(), "export_worksheet" );
+		   TQ_SLOT( saveWorkSheetAs() ), actionCollection(), "export_worksheet" );
    
-  KStdAction::quit( this, TQT_SLOT( close() ), actionCollection() );
+  KStdAction::quit( this, TQ_SLOT( close() ), actionCollection() );
 
   new TDEAction( i18n( "C&onnect Host..." ), "connect_established", 0, this,
-               TQT_SLOT( connectHost() ), actionCollection(), "connect_host" );
+               TQ_SLOT( connectHost() ), actionCollection(), "connect_host" );
   new TDEAction( i18n( "D&isconnect Host" ), "connect_no", 0, this,
-               TQT_SLOT( disconnectHost() ), actionCollection(), "disconnect_host" );
+               TQ_SLOT( disconnectHost() ), actionCollection(), "disconnect_host" );
 
-//  KStdAction::cut( mWorkSpace, TQT_SLOT( cut() ), actionCollection() );
-//  KStdAction::copy( mWorkSpace, TQT_SLOT( copy() ), actionCollection() );
-//  KStdAction::paste( mWorkSpace, TQT_SLOT( paste() ), actionCollection() );
+//  KStdAction::cut( mWorkSpace, TQ_SLOT( cut() ), actionCollection() );
+//  KStdAction::copy( mWorkSpace, TQ_SLOT( copy() ), actionCollection() );
+//  KStdAction::paste( mWorkSpace, TQ_SLOT( paste() ), actionCollection() );
   new TDEAction( i18n( "&Worksheet Properties" ), "configure", 0, mWorkSpace,
-               TQT_SLOT( configure() ), actionCollection(), "configure_sheet" );
+               TQ_SLOT( configure() ), actionCollection(), "configure_sheet" );
 
   new TDEAction( i18n( "Load Standard Sheets" ), "document-revert",
-               0, this, TQT_SLOT( resetWorkSheets() ),
+               0, this, TQ_SLOT( resetWorkSheets() ),
                actionCollection(), "revert_all_worksheets"  );
 
   new TDEAction( i18n( "Configure &Style..." ), "colorize", 0, this,
-               TQT_SLOT( editStyle() ), actionCollection(), "configure_style" );
+               TQ_SLOT( editStyle() ), actionCollection(), "configure_style" );
 
   // TODO remove resize and fix so sizeHints() determines default size.
   if (!initialGeometrySet())
@@ -293,7 +293,7 @@ void TopLevel::initStatusBar()
   
   TDEToggleAction *sb = dynamic_cast<TDEToggleAction*>(action("options_show_statusbar"));
   if (sb)
-     connect(sb, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(updateStatusBar()));
+     connect(sb, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(updateStatusBar()));
 }
 
 void TopLevel::updateStatusBar()
@@ -319,8 +319,8 @@ void TopLevel::editToolbars()
 {
   saveMainWindowSettings( kapp->config() );
   KEditToolbar dlg( actionCollection() );
-  connect( &dlg, TQT_SIGNAL( newToolbarConfig() ), this,
-           TQT_SLOT( slotNewToolbarConfig() ) );
+  connect( &dlg, TQ_SIGNAL( newToolbarConfig() ), this,
+           TQ_SLOT( slotNewToolbarConfig() ) );
 
   dlg.exec();
 }

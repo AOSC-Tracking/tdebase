@@ -104,7 +104,7 @@ void DancingBars::configureSettings()
   }
   mSettingsDialog->setSensors( list );
 
-  connect( mSettingsDialog, TQT_SIGNAL( applyClicked() ), TQT_SLOT( applySettings() ) );
+  connect( mSettingsDialog, TQ_SIGNAL( applyClicked() ), TQ_SLOT( applySettings() ) );
 
   if ( mSettingsDialog->exec() )
     applySettings();

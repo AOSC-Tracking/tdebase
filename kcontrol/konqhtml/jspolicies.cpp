@@ -197,7 +197,7 @@ JSPoliciesFrame::JSPoliciesFrame(JSPolicies *policies, const TQString &title,
                "window.open()</i> for proper operation. Use "
                "this feature carefully.");
   TQWhatsThis::add(label, wtstr);
-  connect(js_popup, TQT_SIGNAL(clicked(int)), TQT_SLOT(setWindowOpenPolicy(int)));
+  connect(js_popup, TQ_SIGNAL(clicked(int)), TQ_SLOT(setWindowOpenPolicy(int)));
 
   // === window.resizeBy/resizeTo ================================
   colIdx = 0;
@@ -235,7 +235,7 @@ JSPoliciesFrame::JSPoliciesFrame(JSPolicies *policies, const TQString &title,
 		"This option specifies the treatment of such "
 		"attempts.");
   TQWhatsThis::add(label, wtstr);
-  connect(js_resize, TQT_SIGNAL(clicked(int)), TQT_SLOT(setWindowResizePolicy(int)));
+  connect(js_resize, TQ_SIGNAL(clicked(int)), TQ_SLOT(setWindowResizePolicy(int)));
 
   // === window.moveBy/moveTo ================================
   colIdx = 0;
@@ -273,7 +273,7 @@ JSPoliciesFrame::JSPoliciesFrame(JSPolicies *policies, const TQString &title,
 		"This option specifies the treatment of such "
 		"attempts.");
   TQWhatsThis::add(label, wtstr);
-  connect(js_move, TQT_SIGNAL(clicked(int)), TQT_SLOT(setWindowMovePolicy(int)));
+  connect(js_move, TQ_SIGNAL(clicked(int)), TQ_SLOT(setWindowMovePolicy(int)));
 
   // === window.focus ================================
   colIdx = 0;
@@ -314,7 +314,7 @@ JSPoliciesFrame::JSPoliciesFrame(JSPolicies *policies, const TQString &title,
 		"This option specifies the treatment of such "
 		"attempts.");
   TQWhatsThis::add(label, wtstr);
-  connect(js_focus, TQT_SIGNAL(clicked(int)), TQT_SLOT(setWindowFocusPolicy(int)));
+  connect(js_focus, TQ_SIGNAL(clicked(int)), TQ_SLOT(setWindowFocusPolicy(int)));
 
   // === window.status ================================
   colIdx = 0;
@@ -354,7 +354,7 @@ JSPoliciesFrame::JSPoliciesFrame(JSPolicies *policies, const TQString &title,
 		"This option specifies the treatment of such "
 		"attempts.");
   TQWhatsThis::add(label, wtstr);
-  connect(js_statusbar, TQT_SIGNAL(clicked(int)), TQT_SLOT(setWindowStatusPolicy(int)));
+  connect(js_statusbar, TQ_SIGNAL(clicked(int)), TQ_SLOT(setWindowStatusPolicy(int)));
 }
 
 JSPoliciesFrame::~JSPoliciesFrame() {

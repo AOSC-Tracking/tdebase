@@ -45,39 +45,39 @@ KonqSidebarBookmarkModule::KonqSidebarBookmarkModule( KonqSidebarTree * parentTr
     formats << "text/uri-list" << "application/x-xbel" << "text/plain";
     tree()->setDropFormats(formats);
 
-    connect(tree(), TQT_SIGNAL(moved(TQListViewItem*,TQListViewItem*,TQListViewItem*)),
-            this,   TQT_SLOT(slotMoved(TQListViewItem*,TQListViewItem*,TQListViewItem*)));
-    connect(tree(), TQT_SIGNAL(dropped(TDEListView*,TQDropEvent*,TQListViewItem*,TQListViewItem*)),
-            this,   TQT_SLOT(slotDropped(TDEListView*,TQDropEvent*,TQListViewItem*,TQListViewItem*)));
+    connect(tree(), TQ_SIGNAL(moved(TQListViewItem*,TQListViewItem*,TQListViewItem*)),
+            this,   TQ_SLOT(slotMoved(TQListViewItem*,TQListViewItem*,TQListViewItem*)));
+    connect(tree(), TQ_SIGNAL(dropped(TDEListView*,TQDropEvent*,TQListViewItem*,TQListViewItem*)),
+            this,   TQ_SLOT(slotDropped(TDEListView*,TQDropEvent*,TQListViewItem*,TQListViewItem*)));
 
-    connect(tree(), TQT_SIGNAL(expanded(TQListViewItem*)),
-            this,   TQT_SLOT(slotOpenChange(TQListViewItem*)));
-    connect(tree(), TQT_SIGNAL(collapsed(TQListViewItem*)),
-            this,   TQT_SLOT(slotOpenChange(TQListViewItem*)));
+    connect(tree(), TQ_SIGNAL(expanded(TQListViewItem*)),
+            this,   TQ_SLOT(slotOpenChange(TQListViewItem*)));
+    connect(tree(), TQ_SIGNAL(collapsed(TQListViewItem*)),
+            this,   TQ_SLOT(slotOpenChange(TQListViewItem*)));
 
     m_collection = new TDEActionCollection( this, "bookmark actions" );
     (void) new TDEAction( i18n("&Create New Folder"), "folder-new", 0, this,
-                        TQT_SLOT( slotCreateFolder() ), m_collection, "create_folder");
+                        TQ_SLOT( slotCreateFolder() ), m_collection, "create_folder");
     (void) new TDEAction( i18n("Delete Folder"), "edit-delete", 0, this,
-                        TQT_SLOT( slotDelete() ), m_collection, "delete_folder");
+                        TQ_SLOT( slotDelete() ), m_collection, "delete_folder");
     (void) new TDEAction( i18n("Delete Bookmark"), "edit-delete", 0, this,
-                        TQT_SLOT( slotDelete() ), m_collection, "delete_bookmark");
+                        TQ_SLOT( slotDelete() ), m_collection, "delete_bookmark");
     (void) new TDEAction( i18n("Properties"), "edit", 0, this,
-                        TQT_SLOT( slotProperties() ), m_collection, "item_properties");
+                        TQ_SLOT( slotProperties() ), m_collection, "item_properties");
     (void) new TDEAction( i18n("Open in New Window"), "window-new", 0, this,
-                        TQT_SLOT( slotOpenNewWindow() ), m_collection, "open_window");
+                        TQ_SLOT( slotOpenNewWindow() ), m_collection, "open_window");
     (void) new TDEAction( i18n("Open in New Tab"), "tab_new", 0, this,
-                        TQT_SLOT( slotOpenTab() ), m_collection, "open_tab");
+                        TQ_SLOT( slotOpenTab() ), m_collection, "open_tab");
     (void) new TDEAction( i18n("Open Folder in Tabs"), "tab_new", 0, this,
-                        TQT_SLOT( slotOpenTab() ), m_collection, "folder_open_tabs");
+                        TQ_SLOT( slotOpenTab() ), m_collection, "folder_open_tabs");
     (void) new TDEAction( i18n("Copy Link Address"), "edit-copy", 0, this,
-                        TQT_SLOT( slotCopyLocation() ), m_collection, "copy_location");
+                        TQ_SLOT( slotCopyLocation() ), m_collection, "copy_location");
 
-    KStdAction::editBookmarks( KonqBookmarkManager::self(), TQT_SLOT( slotEditBookmarks() ),
+    KStdAction::editBookmarks( KonqBookmarkManager::self(), TQ_SLOT( slotEditBookmarks() ),
 			       m_collection, "edit_bookmarks" );
 
-    connect( KonqBookmarkManager::self(), TQT_SIGNAL(changed(const TQString &, const TQString &) ),
-             TQT_SLOT( slotBookmarksChanged(const TQString &) ) );
+    connect( KonqBookmarkManager::self(), TQ_SIGNAL(changed(const TQString &, const TQString &) ),
+             TQ_SLOT( slotBookmarksChanged(const TQString &) ) );
 }
 
 KonqSidebarBookmarkModule::~KonqSidebarBookmarkModule()

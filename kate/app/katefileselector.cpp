@@ -132,8 +132,8 @@ KateFileSelector::KateFileSelector( KateMainWindow *mainWindow,
   dir = new KDirOperator(KURL(), this, "operator");
   dir->setView(KFile::/* Simple */Detail);
   dir->view()->setSelectionMode(KFile::Extended);
-  connect ( dir, TQT_SIGNAL( viewChanged(KFileView *) ),
-                   this, TQT_SLOT( selectorViewChanged(KFileView *) ) );
+  connect ( dir, TQ_SIGNAL( viewChanged(KFileView *) ),
+                   this, TQ_SLOT( selectorViewChanged(KFileView *) ) );
   setStretchFactor(dir, 2);
 
   TDEActionCollection *coll = dir->actionCollection();
@@ -159,37 +159,37 @@ KateFileSelector::KateFileSelector( KateMainWindow *mainWindow,
   filter = new KHistoryCombo( true, filterBox, "filter");
   filter->setSizePolicy( TQSizePolicy( TQSizePolicy::Expanding, TQSizePolicy::Fixed ));
   filterBox->setStretchFactor(filter, 2);
-  connect( btnFilter, TQT_SIGNAL( clicked() ), this, TQT_SLOT( btnFilterClick() ) );
+  connect( btnFilter, TQ_SIGNAL( clicked() ), this, TQ_SLOT( btnFilterClick() ) );
 
-  connect( filter, TQT_SIGNAL( activated(const TQString&) ),
-                   TQT_SLOT( slotFilterChange(const TQString&) ) );
-  connect( filter, TQT_SIGNAL( returnPressed(const TQString&) ),
-           filter, TQT_SLOT( addToHistory(const TQString&) ) );
+  connect( filter, TQ_SIGNAL( activated(const TQString&) ),
+                   TQ_SLOT( slotFilterChange(const TQString&) ) );
+  connect( filter, TQ_SIGNAL( returnPressed(const TQString&) ),
+           filter, TQ_SLOT( addToHistory(const TQString&) ) );
 
   // tdeaction for the dir sync method
   acSyncDir = new TDEAction( i18n("Current Document Folder"), "curfiledir", 0,
-        this, TQT_SLOT( setActiveDocumentDir() ), mActionCollection, "sync_dir" );
+        this, TQ_SLOT( setActiveDocumentDir() ), mActionCollection, "sync_dir" );
   toolbar->setIconText( TDEToolBar::IconOnly );
   toolbar->setIconSize( 16 );
   toolbar->setEnableContextMenu( false );
 
-  connect( cmbPath, TQT_SIGNAL( urlActivated( const KURL&  )),
-             this,  TQT_SLOT( cmbPathActivated( const KURL& ) ));
-  connect( cmbPath, TQT_SIGNAL( returnPressed( const TQString&  )),
-             this,  TQT_SLOT( cmbPathReturnPressed( const TQString& ) ));
-  connect(dir, TQT_SIGNAL(urlEntered(const KURL&)),
-             this, TQT_SLOT(dirUrlEntered(const KURL&)) );
+  connect( cmbPath, TQ_SIGNAL( urlActivated( const KURL&  )),
+             this,  TQ_SLOT( cmbPathActivated( const KURL& ) ));
+  connect( cmbPath, TQ_SIGNAL( returnPressed( const TQString&  )),
+             this,  TQ_SLOT( cmbPathReturnPressed( const TQString& ) ));
+  connect(dir, TQ_SIGNAL(urlEntered(const KURL&)),
+             this, TQ_SLOT(dirUrlEntered(const KURL&)) );
 
-  connect(dir, TQT_SIGNAL(finishedLoading()),
-             this, TQT_SLOT(dirFinishedLoading()) );
+  connect(dir, TQ_SIGNAL(finishedLoading()),
+             this, TQ_SLOT(dirFinishedLoading()) );
 
   // enable dir sync button if current doc has a valid URL
-  connect ( viewmanager, TQT_SIGNAL( viewChanged() ),
-              this, TQT_SLOT( kateViewChanged() ) );
+  connect ( viewmanager, TQ_SIGNAL( viewChanged() ),
+              this, TQ_SLOT( kateViewChanged() ) );
 
   // Connect the bookmark handler
-  connect( bookmarkHandler, TQT_SIGNAL( openURL( const TQString& )),
-           this, TQT_SLOT( setDir( const TQString& ) ) );
+  connect( bookmarkHandler, TQ_SIGNAL( openURL( const TQString& )),
+           this, TQ_SLOT( setDir( const TQString& ) ) );
 
   waitingUrl = TQString::null;
 
@@ -234,7 +234,7 @@ void KateFileSelector::readConfig(TDEConfig *config, const TQString & name)
     TQString loc( config->readPathEntry( "location" ) );
     if ( ! loc.isEmpty() ) {
 //       waitingDir = loc;
-//       TQTimer::singleShot(0, this, TQT_SLOT(initialDirChangeHack()));
+//       TQTimer::singleShot(0, this, TQ_SLOT(initialDirChangeHack()));
       setDir( loc );
     }
   }
@@ -537,18 +537,18 @@ KFSConfigPage::KFSConfigPage( TQWidget *parent, const char *name, KateFileSelect
   acSel->setAvailableLabel( i18n("A&vailable actions:") );
   acSel->setSelectedLabel( i18n("S&elected actions:") );
   lo->addWidget( gbToolbar );
-  connect( acSel, TQT_SIGNAL( added( TQListBoxItem * ) ), this, TQT_SLOT( slotMyChanged() ) );
-  connect( acSel, TQT_SIGNAL( removed( TQListBoxItem * ) ), this, TQT_SLOT( slotMyChanged() ) );
-  connect( acSel, TQT_SIGNAL( movedUp( TQListBoxItem * ) ), this, TQT_SLOT( slotMyChanged() ) );
-  connect( acSel, TQT_SIGNAL( movedDown( TQListBoxItem * ) ), this, TQT_SLOT( slotMyChanged() ) );
+  connect( acSel, TQ_SIGNAL( added( TQListBoxItem * ) ), this, TQ_SLOT( slotMyChanged() ) );
+  connect( acSel, TQ_SIGNAL( removed( TQListBoxItem * ) ), this, TQ_SLOT( slotMyChanged() ) );
+  connect( acSel, TQ_SIGNAL( movedUp( TQListBoxItem * ) ), this, TQ_SLOT( slotMyChanged() ) );
+  connect( acSel, TQ_SIGNAL( movedDown( TQListBoxItem * ) ), this, TQ_SLOT( slotMyChanged() ) );
 
   // Sync
   TQGroupBox *gbSync = new TQGroupBox( 1, TQt::Horizontal, i18n("Auto Synchronization"), this );
   cbSyncActive = new TQCheckBox( i18n("When a docu&ment becomes active"), gbSync );
   cbSyncShow = new TQCheckBox( i18n("When the file selector becomes visible"), gbSync );
   lo->addWidget( gbSync );
-  connect( cbSyncActive, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotMyChanged() ) );
-  connect( cbSyncShow, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotMyChanged() ) );
+  connect( cbSyncActive, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotMyChanged() ) );
+  connect( cbSyncShow, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotMyChanged() ) );
 
   // Histories
   TQHBox *hbPathHist = new TQHBox ( this );
@@ -556,22 +556,22 @@ KFSConfigPage::KFSConfigPage( TQWidget *parent, const char *name, KateFileSelect
   sbPathHistLength = new TQSpinBox( hbPathHist );
   lbPathHist->setBuddy( sbPathHistLength );
   lo->addWidget( hbPathHist );
-  connect( sbPathHistLength, TQT_SIGNAL( valueChanged ( int ) ), this, TQT_SLOT( slotMyChanged() ) );
+  connect( sbPathHistLength, TQ_SIGNAL( valueChanged ( int ) ), this, TQ_SLOT( slotMyChanged() ) );
 
   TQHBox *hbFilterHist = new TQHBox ( this );
   TQLabel *lbFilterHist = new TQLabel( i18n("Remember &filters:"), hbFilterHist );
   sbFilterHistLength = new TQSpinBox( hbFilterHist );
   lbFilterHist->setBuddy( sbFilterHistLength );
   lo->addWidget( hbFilterHist );
-  connect( sbFilterHistLength, TQT_SIGNAL( valueChanged ( int ) ), this, TQT_SLOT( slotMyChanged() ) );
+  connect( sbFilterHistLength, TQ_SIGNAL( valueChanged ( int ) ), this, TQ_SLOT( slotMyChanged() ) );
 
   // Session
   TQGroupBox *gbSession = new TQGroupBox( 1, TQt::Horizontal, i18n("Session"), this );
   cbSesLocation = new TQCheckBox( i18n("Restore loca&tion"), gbSession );
   cbSesFilter = new TQCheckBox( i18n("Restore last f&ilter"), gbSession );
   lo->addWidget( gbSession );
-  connect( cbSesLocation, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotMyChanged() ) );
-  connect( cbSesFilter, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotMyChanged() ) );
+  connect( cbSesLocation, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotMyChanged() ) );
+  connect( cbSesFilter, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotMyChanged() ) );
 
   // make it look nice
   lo->addStretch( 1 );

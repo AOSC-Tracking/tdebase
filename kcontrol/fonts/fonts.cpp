@@ -270,13 +270,13 @@ FontAASettings::FontAASettings(TQWidget *parent)
   enableWidgets();
   setMainWidget(mw);
 
-  connect(excludeRange, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(useSubPixel, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(excludeFrom, TQT_SIGNAL(valueChanged(double)), TQT_SLOT(changed()));
-  connect(excludeTo, TQT_SIGNAL(valueChanged(double)), TQT_SLOT(changed()));
-  connect(subPixelType, TQT_SIGNAL(activated(const TQString &)), TQT_SLOT(changed()));
+  connect(excludeRange, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(useSubPixel, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(excludeFrom, TQ_SIGNAL(valueChanged(double)), TQ_SLOT(changed()));
+  connect(excludeTo, TQ_SIGNAL(valueChanged(double)), TQ_SLOT(changed()));
+  connect(subPixelType, TQ_SIGNAL(activated(const TQString &)), TQ_SLOT(changed()));
 #ifdef HAVE_FONTCONFIG
-  connect(hintingStyle, TQT_SIGNAL(activated(const TQString &)), TQT_SLOT(changed()));
+  connect(hintingStyle, TQ_SIGNAL(activated(const TQString &)), TQ_SLOT(changed()));
 #endif
 }
 
@@ -596,7 +596,7 @@ TDEFonts::TDEFonts(TQWidget *parent, const char *name, const TQStringList &)
       );
 
     fontUseList.append(i);
-    connect(i, TQT_SIGNAL(fontSelected(const TQFont &)), TQT_SLOT(fontSelected()));
+    connect(i, TQ_SIGNAL(fontSelected(const TQFont &)), TQ_SLOT(fontSelected()));
 
     TQLabel * fontUse = new TQLabel(name+":", this);
     TQWhatsThis::add(fontUse, *quickHelpIt++);
@@ -612,7 +612,7 @@ TDEFonts::TDEFonts(TQWidget *parent, const char *name, const TQStringList &)
    TQPushButton * fontAdjustButton = new TQPushButton(i18n("Ad&just All Fonts..."), this);
    TQWhatsThis::add(fontAdjustButton, i18n("Click to change all fonts"));
    hblay->addWidget( fontAdjustButton );
-   connect(fontAdjustButton, TQT_SIGNAL(clicked()), TQT_SLOT(slotApplyFontDiff()));
+   connect(fontAdjustButton, TQ_SIGNAL(clicked()), TQ_SLOT(slotApplyFontDiff()));
 
    layout->addSpacing(KDialog::spacingHint());
 
@@ -627,11 +627,11 @@ TDEFonts::TDEFonts(TQWidget *parent, const char *name, const TQStringList &)
    TQWhatsThis::add(cbAA, i18n("If this option is selected, TDE will smooth the edges of curves in "
                               "fonts."));
    aaSettingsButton = new TQPushButton( i18n( "Configure..." ), this);
-   connect(aaSettingsButton, TQT_SIGNAL(clicked()), TQT_SLOT(slotCfgAa()));
+   connect(aaSettingsButton, TQ_SIGNAL(clicked()), TQ_SLOT(slotCfgAa()));
    label->setBuddy( cbAA );
    lay->addWidget( cbAA, 0, 1 );
    lay->addWidget( aaSettingsButton, 0, 2 );
-   connect(cbAA, TQT_SIGNAL(activated(int)), TQT_SLOT(slotUseAntiAliasing()));
+   connect(cbAA, TQ_SIGNAL(activated(int)), TQ_SLOT(slotUseAntiAliasing()));
 
    label = new TQLabel( i18n( "Force fonts DPI:" ), this );
    lay->addWidget( label, 1, 0 );
@@ -645,10 +645,10 @@ TDEFonts::TDEFonts(TQWidget *parent, const char *name, const TQStringList &)
        " is also often misused when poor quality fonts are used that do not"
        " look well with DPI values other than 96 or 120 DPI.</p>");
    TQWhatsThis::add(comboForceDpi, whatsthis);
-   connect(comboForceDpi, TQT_SIGNAL(activated(int)), TQT_SLOT(slotUseFontDPI()));
+   connect(comboForceDpi, TQ_SIGNAL(activated(int)), TQ_SLOT(slotUseFontDPI()));
    sbDpiValue = new KIntSpinBox(64, 512, 1, 96, 10, this);
    TQWhatsThis::add(sbDpiValue, whatsthis);
-   connect(sbDpiValue, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
+   connect(sbDpiValue, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
    lay->addWidget( comboForceDpi, 1, 1 );
    lay->addWidget( sbDpiValue, 1, 2 );
 

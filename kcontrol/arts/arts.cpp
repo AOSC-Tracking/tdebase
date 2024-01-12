@@ -100,10 +100,10 @@ void KArtsModule::initAudioIOList()
 	*artsd << "artsd";
 	*artsd << "-A";
 
-	connect(artsd, TQT_SIGNAL(processExited(TDEProcess*)),
-	        this, TQT_SLOT(slotArtsdExited(TDEProcess*)));
-	connect(artsd, TQT_SIGNAL(receivedStderr(TDEProcess*, char*, int)),
-	        this, TQT_SLOT(slotProcessArtsdOutput(TDEProcess*, char*, int)));
+	connect(artsd, TQ_SIGNAL(processExited(TDEProcess*)),
+	        this, TQ_SLOT(slotArtsdExited(TDEProcess*)));
+	connect(artsd, TQ_SIGNAL(receivedStderr(TDEProcess*, char*, int)),
+	        this, TQ_SLOT(slotProcessArtsdOutput(TDEProcess*, char*, int)));
 
 	if (!artsd->start(TDEProcess::Block, TDEProcess::Stderr)) {
 		KMessageBox::error(0, i18n("Unable to start the sound server to "
@@ -216,31 +216,31 @@ KArtsModule::KArtsModule(TQWidget *parent, const char *name)
 
 	suspendTime->setRange( 1, 999, 1, true );
 
-	connect(startServer,TQT_SIGNAL(clicked()),this,TQT_SLOT(slotChanged()));
-	connect(networkTransparent,TQT_SIGNAL(clicked()),this,TQT_SLOT(slotChanged()));
-	connect(startRealtime,TQT_SIGNAL(clicked()),this,TQT_SLOT(slotChanged()));
-	connect(fullDuplex,TQT_SIGNAL(clicked()),this,TQT_SLOT(slotChanged()));
-	connect(customDevice, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
-	connect(deviceName, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(slotChanged()));
-	connect(customRate, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
-	connect(samplingRate, TQT_SIGNAL(valueChanged(const TQString&)), TQT_SLOT(slotChanged()));
-//	connect(general->volumeSystray, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotChanged()) );
+	connect(startServer,TQ_SIGNAL(clicked()),this,TQ_SLOT(slotChanged()));
+	connect(networkTransparent,TQ_SIGNAL(clicked()),this,TQ_SLOT(slotChanged()));
+	connect(startRealtime,TQ_SIGNAL(clicked()),this,TQ_SLOT(slotChanged()));
+	connect(fullDuplex,TQ_SIGNAL(clicked()),this,TQ_SLOT(slotChanged()));
+	connect(customDevice, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
+	connect(deviceName, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(slotChanged()));
+	connect(customRate, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
+	connect(samplingRate, TQ_SIGNAL(valueChanged(const TQString&)), TQ_SLOT(slotChanged()));
+//	connect(general->volumeSystray, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotChanged()) );
 
-	connect(hardware->audioIO,TQT_SIGNAL(highlighted(int)),TQT_SLOT(slotChanged()));
-	connect(hardware->audioIO,TQT_SIGNAL(activated(int)),TQT_SLOT(slotChanged()));
-	connect(hardware->customOptions,TQT_SIGNAL(clicked()),TQT_SLOT(slotChanged()));
-	connect(hardware->addOptions,TQT_SIGNAL(textChanged(const TQString&)),TQT_SLOT(slotChanged()));
-	connect(hardware->soundQuality,TQT_SIGNAL(highlighted(int)),TQT_SLOT(slotChanged()));
-	connect(hardware->soundQuality,TQT_SIGNAL(activated(int)),TQT_SLOT(slotChanged()));
-	connect(general->latencySlider,TQT_SIGNAL(valueChanged(int)),TQT_SLOT(slotChanged()));
-	connect(autoSuspend,TQT_SIGNAL(clicked()),TQT_SLOT(slotChanged()));
-	connect(suspendTime,TQT_SIGNAL(valueChanged(int)),TQT_SLOT(slotChanged()));
-	connect(general->testSound,TQT_SIGNAL(clicked()),TQT_SLOT(slotTestSound()));
-	connect(hardware->midiDevice, TQT_SIGNAL( highlighted(int) ), this, TQT_SLOT( slotChanged() ) );
-	connect(hardware->midiDevice, TQT_SIGNAL( activated(int) ), this, TQT_SLOT( slotChanged() ) );
-	connect(hardware->midiUseMapper, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotChanged() ) );
-	connect(hardware->midiMapper, TQT_SIGNAL( textChanged( const TQString& ) ),
-			this, TQT_SLOT( slotChanged() ) );
+	connect(hardware->audioIO,TQ_SIGNAL(highlighted(int)),TQ_SLOT(slotChanged()));
+	connect(hardware->audioIO,TQ_SIGNAL(activated(int)),TQ_SLOT(slotChanged()));
+	connect(hardware->customOptions,TQ_SIGNAL(clicked()),TQ_SLOT(slotChanged()));
+	connect(hardware->addOptions,TQ_SIGNAL(textChanged(const TQString&)),TQ_SLOT(slotChanged()));
+	connect(hardware->soundQuality,TQ_SIGNAL(highlighted(int)),TQ_SLOT(slotChanged()));
+	connect(hardware->soundQuality,TQ_SIGNAL(activated(int)),TQ_SLOT(slotChanged()));
+	connect(general->latencySlider,TQ_SIGNAL(valueChanged(int)),TQ_SLOT(slotChanged()));
+	connect(autoSuspend,TQ_SIGNAL(clicked()),TQ_SLOT(slotChanged()));
+	connect(suspendTime,TQ_SIGNAL(valueChanged(int)),TQ_SLOT(slotChanged()));
+	connect(general->testSound,TQ_SIGNAL(clicked()),TQ_SLOT(slotTestSound()));
+	connect(hardware->midiDevice, TQ_SIGNAL( highlighted(int) ), this, TQ_SLOT( slotChanged() ) );
+	connect(hardware->midiDevice, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( slotChanged() ) );
+	connect(hardware->midiUseMapper, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotChanged() ) );
+	connect(hardware->midiMapper, TQ_SIGNAL( textChanged( const TQString& ) ),
+			this, TQ_SLOT( slotChanged() ) );
 
 	TDEAboutData *about =  new TDEAboutData(I18N_NOOP("kcmarts"),
                   I18N_NOOP("The Sound Server Control Module"),
@@ -553,8 +553,8 @@ bool KArtsModule::realtimeIsPossible()
 	*checkProcess << "artswrapper";
 	*checkProcess << "check";
 
-	connect(checkProcess, TQT_SIGNAL(processExited(TDEProcess*)),
-	        this, TQT_SLOT(slotArtsdExited(TDEProcess*)));
+	connect(checkProcess, TQ_SIGNAL(processExited(TDEProcess*)),
+	        this, TQ_SLOT(slotArtsdExited(TDEProcess*)));
 	if (!checkProcess->start(TDEProcess::Block))
 	{
 		delete checkProcess;
@@ -672,7 +672,7 @@ KStartArtsProgressDialog::KStartArtsProgressDialog(KArtsModule *parent, const ch
                           const TQString &caption, const TQString &text)
  : KProgressDialog(parent, name, caption, text, true), m_module(parent), m_shutdown(false)
 {
-  connect(&m_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotProgress()));
+  connect(&m_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(slotProgress()));
   progressBar()->setTotalSteps(20);
   m_timeStep = 700;
   m_timer.start(m_timeStep);
@@ -718,7 +718,7 @@ KStartArtsProgressDialog::slotFinished()
 {
   progressBar()->setProgress(20);
   m_timer.stop();
-  TQTimer::singleShot(1000, this, TQT_SLOT(close()));
+  TQTimer::singleShot(1000, this, TQ_SLOT(close()));
 }
 
 

@@ -70,7 +70,7 @@ WndIcon::WndIcon(
   if( mIconJumping )
   {
     TQTimer *t = new TQTimer( this );
-    connect(t, TQT_SIGNAL(timeout()), TQT_SLOT(slotJump()));
+    connect(t, TQ_SIGNAL(timeout()), TQ_SLOT(slotJump()));
     t->start( 50, false );
   }
 }

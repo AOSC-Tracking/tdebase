@@ -176,19 +176,19 @@ private:
 LinuxCDPolling::LinuxCDPolling(MediaList &list)
 	: TQObject(), BackendBase(list)
 {
-	connect(&m_mediaList, TQT_SIGNAL(mediumAdded(const TQString &,
+	connect(&m_mediaList, TQ_SIGNAL(mediumAdded(const TQString &,
 	                                        const TQString &, bool)),
-	        this, TQT_SLOT(slotMediumAdded(const TQString &)) );
+	        this, TQ_SLOT(slotMediumAdded(const TQString &)) );
 
-	connect(&m_mediaList, TQT_SIGNAL(mediumRemoved(const TQString &,
+	connect(&m_mediaList, TQ_SIGNAL(mediumRemoved(const TQString &,
 	                                          const TQString &, bool)),
-	        this, TQT_SLOT(slotMediumRemoved(const TQString &)) );
+	        this, TQ_SLOT(slotMediumRemoved(const TQString &)) );
 
-	connect(&m_mediaList, TQT_SIGNAL(mediumStateChanged(const TQString &,
+	connect(&m_mediaList, TQ_SIGNAL(mediumStateChanged(const TQString &,
 	                                               const TQString &, bool, bool)),
-	        this, TQT_SLOT(slotMediumStateChanged(const TQString &)) );
+	        this, TQ_SLOT(slotMediumStateChanged(const TQString &)) );
 
-	connect(&m_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotTimeout()));
+	connect(&m_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(slotTimeout()));
 }
 
 LinuxCDPolling::~LinuxCDPolling()

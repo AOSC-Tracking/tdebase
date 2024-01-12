@@ -37,31 +37,31 @@ Windowdef_simple_widget::Windowdef_simple_widget( TQWidget* parent_P, const char
     window_title_lineedit->setEnabled( false );
     window_class_lineedit->setEnabled( false );
     window_role_lineedit->setEnabled( false );
-    connect( autodetect_button, TQT_SIGNAL( clicked()), TQT_SLOT( autodetect_clicked()));
+    connect( autodetect_button, TQ_SIGNAL( clicked()), TQ_SLOT( autodetect_clicked()));
     clear_data();
     // KHotKeys::Module::changed()
-    connect( window_title_combo, TQT_SIGNAL( activated( int )),
-        module, TQT_SLOT( changed()));
-    connect( window_title_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
-    connect( window_class_combo, TQT_SIGNAL( activated( int )),
-        module, TQT_SLOT( changed()));
-    connect( window_class_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
-    connect( window_role_combo, TQT_SIGNAL( activated( int )),
-        module, TQT_SLOT( changed()));
-    connect( window_role_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
-    connect( type_normal_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( type_dialog_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( type_dock_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( type_desktop_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( comment_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
+    connect( window_title_combo, TQ_SIGNAL( activated( int )),
+        module, TQ_SLOT( changed()));
+    connect( window_title_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
+    connect( window_class_combo, TQ_SIGNAL( activated( int )),
+        module, TQ_SLOT( changed()));
+    connect( window_class_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
+    connect( window_role_combo, TQ_SIGNAL( activated( int )),
+        module, TQ_SLOT( changed()));
+    connect( window_role_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
+    connect( type_normal_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( type_dialog_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( type_dock_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( type_desktop_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( comment_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
     }
 
 void Windowdef_simple_widget::clear_data()
@@ -144,9 +144,9 @@ void Windowdef_simple_widget::window_title_combo_changed( int item_P )
     
 void Windowdef_simple_widget::set_autodetect( TQObject* obj_P, const char* slot_P )
     {
-    disconnect( TQT_SIGNAL( autodetect_signal()));
+    disconnect( TQ_SIGNAL( autodetect_signal()));
     if( obj_P != NULL )
-        connect( this, TQT_SIGNAL( autodetect_signal()), obj_P, slot_P );
+        connect( this, TQ_SIGNAL( autodetect_signal()), obj_P, slot_P );
     }
     
 void Windowdef_simple_widget::autodetect_clicked()
@@ -157,7 +157,7 @@ void Windowdef_simple_widget::autodetect_clicked()
     
 void Windowdef_simple_widget::autodetect()
     {
-    WindowSelector* sel = new WindowSelector( this, TQT_SLOT( autodetect_window_selected( WId )));
+    WindowSelector* sel = new WindowSelector( this, TQ_SLOT( autodetect_window_selected( WId )));
     sel->select();
     }
 

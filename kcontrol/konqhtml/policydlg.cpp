@@ -34,8 +34,8 @@ PolicyDialog::PolicyDialog( Policies *policies, TQWidget *parent, const char *na
   le_domain = new TQLineEdit(main);
   l->setBuddy( le_domain );
   grid->addWidget(le_domain, 0, 1);
-  connect( le_domain,TQT_SIGNAL(textChanged( const TQString & )),
-      TQT_SLOT(slotTextChanged( const TQString &)));
+  connect( le_domain,TQ_SIGNAL(textChanged( const TQString & )),
+      TQ_SLOT(slotTextChanged( const TQString &)));
 
   TQWhatsThis::add(le_domain, i18n("Enter the name of a host (like www.trinitydesktop.org) "
                                   "or a domain, starting with a dot (like .trinitydesktop.org or .org)") );

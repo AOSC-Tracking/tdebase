@@ -49,7 +49,7 @@ extern "C" int KDE_EXPORT kdemain(int argc, char *argv[])
 	TDEApplication	app;
 	PrintWrapper	*wrap = new PrintWrapper;
 	app.setMainWidget(wrap);
-	TQTimer::singleShot(10,wrap,TQT_SLOT(slotPrint()));
+	TQTimer::singleShot(10,wrap,TQ_SLOT(slotPrint()));
 
 	int	result = app.exec();
 	delete wrap;

@@ -84,7 +84,7 @@ TDEConfigDialogSingle::TDEConfigDialogSingle(Zone *zone, TQWidget *parent,
     setIcon(SmallIcon("date"));
 
     settings = new SettingsWidgetImp(prefs, zone, 0, "General");
-    connect(settings->kcfg_Type, TQT_SIGNAL(activated(int)), TQT_SLOT(selectPage(int)));
+    connect(settings->kcfg_Type, TQ_SIGNAL(activated(int)), TQ_SLOT(selectPage(int)));
 
     settings->kcfg_PlainBackgroundColor->setDefaultColor(TDEApplication::palette().active().background());
     settings->kcfg_DateBackgroundColor->setDefaultColor(TDEApplication::palette().active().background());
@@ -104,24 +104,24 @@ TDEConfigDialogSingle::TDEConfigDialogSingle(Zone *zone, TQWidget *parent,
     settings->widgetStack->addWidget(fuzzyPage, 3);
     fuzzyPage->kcfg_FuzzyBackgroundColor->setDefaultColor(TDEApplication::palette().active().background());
 
-    connect(settings->kcfg_PlainShowDate, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(dateToggled()));
-    connect(settings->kcfg_PlainShowDayOfWeek, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(dateToggled()));
-    connect(digitalPage->kcfg_DigitalShowDate, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(dateToggled()));
-    connect(digitalPage->kcfg_DigitalShowDayOfWeek, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(dateToggled()));
-    connect(digitalPage->kcfg_DigitalShowDate, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(dateToggled()));
-    connect(analogPage->kcfg_AnalogShowDate, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(dateToggled()));
-    connect(analogPage->kcfg_AnalogShowDayOfWeek, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(dateToggled()));
-    connect(fuzzyPage->kcfg_FuzzyShowDate, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(dateToggled()));
-    connect(fuzzyPage->kcfg_FuzzyShowDayOfWeek, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(dateToggled()));
+    connect(settings->kcfg_PlainShowDate, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(dateToggled()));
+    connect(settings->kcfg_PlainShowDayOfWeek, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(dateToggled()));
+    connect(digitalPage->kcfg_DigitalShowDate, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(dateToggled()));
+    connect(digitalPage->kcfg_DigitalShowDayOfWeek, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(dateToggled()));
+    connect(digitalPage->kcfg_DigitalShowDate, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(dateToggled()));
+    connect(analogPage->kcfg_AnalogShowDate, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(dateToggled()));
+    connect(analogPage->kcfg_AnalogShowDayOfWeek, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(dateToggled()));
+    connect(fuzzyPage->kcfg_FuzzyShowDate, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(dateToggled()));
+    connect(fuzzyPage->kcfg_FuzzyShowDayOfWeek, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(dateToggled()));
 
     addPage(settings, i18n("General"), TQString::fromLatin1("package_settings"));
 }
@@ -144,7 +144,7 @@ void TDEConfigDialogSingle::updateWidgetsDefault()
     item->swapDefault();
     // This is ugly, but kcfg_Type does not have its correct setting
     // at this point in time.
-    TQTimer::singleShot(0, this, TQT_SLOT(dateToggled()));
+    TQTimer::singleShot(0, this, TQ_SLOT(dateToggled()));
 }
 
 void TDEConfigDialogSingle::selectPage(int p)
@@ -743,7 +743,7 @@ FuzzyClock::FuzzyClock(ClockApplet *applet, Prefs *prefs, TQWidget *parent, cons
 void FuzzyClock::deleteMyself()
 {
     if(alreadyDrawing) // try again later
-        TQTimer::singleShot(1000, this, TQT_SLOT(deleteMyself()));
+        TQTimer::singleShot(1000, this, TQ_SLOT(deleteMyself()));
     else
         delete this;
 }
@@ -917,9 +917,9 @@ ClockApplet::ClockApplet(const TQString& configFile, Type t, int actions,
     _date->setBackgroundOrigin(AncestorOrigin);
     _date->installEventFilter(this);   // catch mouse clicks
 
-    connect(m_layoutTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(fixupLayout()));
-    connect(_timer, TQT_SIGNAL(timeout()), TQT_SLOT(slotUpdate()));
-    connect(kapp, TQT_SIGNAL(tdedisplayPaletteChanged()), TQT_SLOT(globalPaletteChange()));
+    connect(m_layoutTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(fixupLayout()));
+    connect(_timer, TQ_SIGNAL(timeout()), TQ_SLOT(slotUpdate()));
+    connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(globalPaletteChange()));
 
     reconfigure();    // initialize clock widget
     slotUpdate();
@@ -927,8 +927,8 @@ ClockApplet::ClockApplet(const TQString& configFile, Type t, int actions,
     if (kapp->authorizeTDEAction("kicker_rmb"))
     {
         menu = new TDEPopupMenu();
-        connect(menu, TQT_SIGNAL(aboutToShow()), TQT_SLOT(aboutToShowContextMenu()));
-        connect(menu, TQT_SIGNAL(activated(int)), TQT_SLOT(contextMenuActivated(int)));
+        connect(menu, TQ_SIGNAL(aboutToShow()), TQ_SLOT(aboutToShowContextMenu()));
+        connect(menu, TQ_SIGNAL(activated(int)), TQ_SLOT(contextMenuActivated(int)));
         setCustomMenu(menu);
     }
 
@@ -1156,7 +1156,7 @@ void ClockApplet::preferences(bool timezone)
   if (!dialog)
   {
     dialog = new TDEConfigDialogSingle(zone, this, configFileName, _prefs, KDialogBase::Swallow);
-    connect(dialog, TQT_SIGNAL(settingsChanged()), this, TQT_SLOT(slotReconfigure()));
+    connect(dialog, TQ_SIGNAL(settingsChanged()), this, TQ_SLOT(slotReconfigure()));
   }
 
   if (timezone)
@@ -1242,7 +1242,7 @@ void ClockApplet::reconfigure()
     m_updateOnTheMinute = updateInterval != shortInterval;
     if (m_updateOnTheMinute)
     {
-        connect(_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(setTimerTo60()));
+        connect(_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(setTimerTo60()));
         updateInterval = ((60 - clockGetTime().second()) * 1000) + 500;
     }
     else
@@ -1250,7 +1250,7 @@ void ClockApplet::reconfigure()
         // in case we reconfigure to show seconds but setTimerTo60 is going to be called
         // we need to make sure to disconnect this so we don't end up updating only once
         // a minute ;)
-        disconnect(_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(setTimerTo60()));
+        disconnect(_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(setTimerTo60()));
     }
 
     _timer->start(updateInterval);
@@ -1300,7 +1300,7 @@ void ClockApplet::reconfigure()
 void ClockApplet::setTimerTo60()
 {
 //    kdDebug() << "setTimerTo60" << endl;
-    disconnect(_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(setTimerTo60()));
+    disconnect(_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(setTimerTo60()));
     _timer->changeInterval(60000);
 }
 
@@ -1417,7 +1417,7 @@ void ClockApplet::slotUpdate()
 
         if (seconds > 2)
         {
-            connect(_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(setTimerTo60()));
+            connect(_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(setTimerTo60()));
             _timer->changeInterval(((60 - seconds) * 1000) + 500);
         }
     }
@@ -1430,7 +1430,7 @@ void ClockApplet::slotCalendarDeleted()
     _calendar = 0L;
     // don't reopen the calendar immediately ...
     _disableCalendar = true;
-    TQTimer::singleShot(100, this, TQT_SLOT(slotEnableCalendar()));
+    TQTimer::singleShot(100, this, TQ_SLOT(slotEnableCalendar()));
 
     // we are free to show a tip know :)
     installEventFilter(KickerTip::the());
@@ -1460,7 +1460,7 @@ void ClockApplet::toggleCalendar()
     removeEventFilter(KickerTip::the());
 
     _calendar = new DatePicker(this, _lastDate, _prefs);
-    connect(_calendar, TQT_SIGNAL(destroyed()), TQT_SLOT(slotCalendarDeleted()));
+    connect(_calendar, TQ_SIGNAL(destroyed()), TQ_SLOT(slotCalendarDeleted()));
 
     TQSize size = _prefs->calendarSize();
 
@@ -1554,12 +1554,12 @@ void ClockApplet::aboutToShowContextMenu()
     copyMenu->insertItem(dt.time().toString(), 207);
     copyMenu->insertItem(dt.toString(), 208);
     copyMenu->insertItem(dt.toString("yyyy-MM-dd hh:mm:ss"), 209);
-    connect( copyMenu, TQT_SIGNAL( activated(int) ), this, TQT_SLOT( slotCopyMenuActivated(int) ) );
+    connect( copyMenu, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( slotCopyMenuActivated(int) ) );
 
     if (!bImmutable)
     {
         TDEPopupMenu *zoneMenu = new TDEPopupMenu( menu );
-        connect(zoneMenu, TQT_SIGNAL(activated(int)), TQT_SLOT(contextMenuActivated(int)));
+        connect(zoneMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(contextMenuActivated(int)));
         for (int i = 0; i <= zone->remoteZoneCount(); i++)
         {
             if (i == 0)
@@ -1576,7 +1576,7 @@ void ClockApplet::aboutToShowContextMenu()
         zoneMenu->insertItem(SmallIcon("configure"), i18n("&Configure Timezones..."), 110);
 
         TDEPopupMenu *type_menu = new TDEPopupMenu(menu);
-        connect(type_menu, TQT_SIGNAL(activated(int)), TQT_SLOT(contextMenuActivated(int)));
+        connect(type_menu, TQ_SIGNAL(activated(int)), TQ_SLOT(contextMenuActivated(int)));
         type_menu->insertItem(i18n("&Plain"), Prefs::EnumType::Plain, 1);
         type_menu->insertItem(i18n("&Digital"), Prefs::EnumType::Digital, 2);
         type_menu->insertItem(i18n("&Analog"), Prefs::EnumType::Analog, 3);

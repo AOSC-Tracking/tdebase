@@ -34,25 +34,25 @@ KonqSidebar_Tree::KonqSidebar_Tree(TDEInstance *instance,TQObject *parent,TQWidg
 			TQLabel* slbl = new TQLabel(i18n("Se&arch:"), searchline);
 			TDEListViewSearchLine* listViewSearch = new TDEListViewSearchLine(searchline,tree);
 			slbl->setBuddy(listViewSearch);
-			connect(clearSearch, TQT_SIGNAL(pressed()), listViewSearch, TQT_SLOT(clear()));
+			connect(clearSearch, TQ_SIGNAL(pressed()), listViewSearch, TQ_SLOT(clear()));
 		}
 		else
 			tree=new KonqSidebarTree(this,widget,virt,desktopName_);
 
-    		connect(tree, TQT_SIGNAL( openURLRequest( const KURL &, const KParts::URLArgs &)),
-			this,TQT_SIGNAL( openURLRequest( const KURL &, const KParts::URLArgs &)));
+    		connect(tree, TQ_SIGNAL( openURLRequest( const KURL &, const KParts::URLArgs &)),
+			this,TQ_SIGNAL( openURLRequest( const KURL &, const KParts::URLArgs &)));
 
-		connect(tree,TQT_SIGNAL(createNewWindow( const KURL &, const KParts::URLArgs &)),
-			this,TQT_SIGNAL(createNewWindow( const KURL &, const KParts::URLArgs &)));
+		connect(tree,TQ_SIGNAL(createNewWindow( const KURL &, const KParts::URLArgs &)),
+			this,TQ_SIGNAL(createNewWindow( const KURL &, const KParts::URLArgs &)));
 
-		connect(tree,TQT_SIGNAL(popupMenu( const TQPoint &, const KURL &, const TQString &, mode_t )),
-			this,TQT_SIGNAL(popupMenu( const TQPoint &, const KURL &, const TQString &, mode_t )));
+		connect(tree,TQ_SIGNAL(popupMenu( const TQPoint &, const KURL &, const TQString &, mode_t )),
+			this,TQ_SIGNAL(popupMenu( const TQPoint &, const KURL &, const TQString &, mode_t )));
 
-		connect(tree,TQT_SIGNAL(popupMenu( const TQPoint &, const KFileItemList & )),
-			this,TQT_SIGNAL(popupMenu( const TQPoint &, const KFileItemList & )));
+		connect(tree,TQ_SIGNAL(popupMenu( const TQPoint &, const KFileItemList & )),
+			this,TQ_SIGNAL(popupMenu( const TQPoint &, const KFileItemList & )));
 
-		connect(tree,TQT_SIGNAL(enableAction( const char *, bool )),
-			this,TQT_SIGNAL(enableAction( const char *, bool)));
+		connect(tree,TQ_SIGNAL(enableAction( const char *, bool )),
+			this,TQ_SIGNAL(enableAction( const char *, bool)));
 
         }
 

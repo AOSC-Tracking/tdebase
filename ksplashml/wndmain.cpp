@@ -58,23 +58,23 @@ KSplash::KSplash(const char *name)
   if ( config->readBoolEntry( "CloseOnClick", TRUE ) )
     mThemeEngine->installEventFilter( this );
 
-  connect( mThemeEngine, TQT_SIGNAL(destroyed()), this, TQT_SLOT(close()) );
-  connect( this, TQT_SIGNAL(stepsChanged(int)), TQT_SLOT(slotUpdateSteps(int)) );
-  connect( this, TQT_SIGNAL(progressChanged(int)), TQT_SLOT(slotUpdateProgress(int)) );
+  connect( mThemeEngine, TQ_SIGNAL(destroyed()), this, TQ_SLOT(close()) );
+  connect( this, TQ_SIGNAL(stepsChanged(int)), TQ_SLOT(slotUpdateSteps(int)) );
+  connect( this, TQ_SIGNAL(progressChanged(int)), TQ_SLOT(slotUpdateProgress(int)) );
 
   if( mKsTheme->testing() )
   {
     slotUpdateSteps(7);
-    TQTimer::singleShot( 1000, this, TQT_SLOT(slotExec()));
+    TQTimer::singleShot( 1000, this, TQ_SLOT(slotExec()));
   }
   else
-    TQTimer::singleShot( 100, this, TQT_SLOT(initDcop()));
+    TQTimer::singleShot( 100, this, TQ_SLOT(initDcop()));
 
   // Make sure we don't stay up forever.
   if (!mKsTheme->managedMode())
   {
     close_timer = new TQTimer( this );
-    connect( close_timer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( close() ) );
+    connect( close_timer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( close() ) );
     close_timer->start( 60000, TRUE );
   }
 }
@@ -133,14 +133,14 @@ void KSplash::slotInsertAction( const TQString& pix, const TQString& msg )
 
 void KSplash::slotExec()
 {
-  TQTimer::singleShot( 200, this, TQT_SLOT(nextIcon()));
+  TQTimer::singleShot( 200, this, TQ_SLOT(nextIcon()));
 }
 
 void KSplash::nextIcon()
 {
   if( !mCurrentAction || mTimeToGo )
   {
-    TQTimer::singleShot( 1000, this, TQT_SLOT(close()));
+    TQTimer::singleShot( 1000, this, TQ_SLOT(close()));
     return;
   }
 
@@ -155,12 +155,12 @@ void KSplash::nextIcon()
   }
 
   if( mKsTheme->testing() )
-    TQTimer::singleShot( 1000, this, TQT_SLOT(nextIcon()));
+    TQTimer::singleShot( 1000, this, TQ_SLOT(nextIcon()));
 }
 
 void KSplash::initDcop()
 {
-  disconnect( kapp->dcopClient(), TQT_SIGNAL( attachFailed(const TQString&) ), kapp, TQT_SLOT( dcopFailure(const TQString&) ) );
+  disconnect( kapp->dcopClient(), TQ_SIGNAL( attachFailed(const TQString&) ), kapp, TQ_SLOT( dcopFailure(const TQString&) ) );
 
   if ( kapp->dcopClient()->isAttached() )
     return;
@@ -174,7 +174,7 @@ void KSplash::initDcop()
   }
   else
   {
-    TQTimer::singleShot( 100, this, TQT_SLOT(initDcop()) );
+    TQTimer::singleShot( 100, this, TQ_SLOT(initDcop()) );
   }
 }
 
@@ -247,7 +247,7 @@ void KSplash::upAndRunning( TQString s )
     //if(!mSessMgrCalled) emit nextIcon();
     mTimeToGo = true;
     close_timer->stop();
-    TQTimer::singleShot( 1000, this, TQT_SLOT(close()));
+    TQTimer::singleShot( 1000, this, TQ_SLOT(close()));
   }
   else
   {
@@ -307,7 +307,7 @@ void KSplash::setStartupItemCount( int count )
 void KSplash::startupComplete()
 {
   mTimeToGo = true;
-  TQTimer::singleShot( 1000, this, TQT_SLOT(close()));
+  TQTimer::singleShot( 1000, this, TQ_SLOT(close()));
 }
 
 void KSplash::close()
@@ -426,7 +426,7 @@ bool KSplash::eventFilter( TQObject *o, TQEvent *e )
 {
   if ( ( e->type() == TQEvent::MouseButtonRelease ) && ( o == mThemeEngine ) )
   {
-    TQTimer::singleShot( 0, this, TQT_SLOT(close()));
+    TQTimer::singleShot( 0, this, TQ_SLOT(close()));
     return TRUE;
   }
   else

@@ -77,7 +77,7 @@ Kicker::Kicker()
         // this means we've most likely crashed once. so let's see if we
         // stay up for more than 2 minutes time, and if so reset the
         // crash handler since the crash isn't a frequent offender
-        TQTimer::singleShot(120000, this, TQT_SLOT(setCrashHandler()));
+        TQTimer::singleShot(120000, this, TQ_SLOT(setCrashHandler()));
     }
     else
     {
@@ -125,19 +125,19 @@ Kicker::Kicker()
     // set up our global settings
     configure();
 
-    connect(this, TQT_SIGNAL(settingsChanged(int)), TQT_SLOT(slotSettingsChanged(int)));
-    connect(this, TQT_SIGNAL(tdedisplayPaletteChanged()), TQT_SLOT(paletteChanged()));
-    connect(this, TQT_SIGNAL(tdedisplayStyleChanged()), TQT_SLOT(slotStyleChanged()));
+    connect(this, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
+    connect(this, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(paletteChanged()));
+    connect(this, TQ_SIGNAL(tdedisplayStyleChanged()), TQ_SLOT(slotStyleChanged()));
 
 #if (TQT_VERSION-0 >= 0x030200) // XRANDR support
-    connect(desktop(), TQT_SIGNAL(resized(int)), TQT_SLOT(slotDesktopResized()));
+    connect(desktop(), TQ_SIGNAL(resized(int)), TQ_SLOT(slotDesktopResized()));
 #endif
 
     // the panels, aka extensions
-    TQTimer::singleShot(0, ExtensionManager::the(), TQT_SLOT(initialize()));
+    TQTimer::singleShot(0, ExtensionManager::the(), TQ_SLOT(initialize()));
 
-    connect(ExtensionManager::the(), TQT_SIGNAL(desktopIconsAreaChanged(const TQRect &, int)),
-            this, TQT_SLOT(slotDesktopIconsAreaChanged(const TQRect &, int)));
+    connect(ExtensionManager::the(), TQ_SIGNAL(desktopIconsAreaChanged(const TQRect &, int)),
+            this, TQ_SLOT(slotDesktopIconsAreaChanged(const TQRect &, int)));
 }
 
 Kicker::~Kicker()
@@ -258,7 +258,7 @@ void Kicker::quit()
 void Kicker::restart()
 {
     // do this on a timer to give us time to return true
-    TQTimer::singleShot(0, this, TQT_SLOT(slotRestart()));
+    TQTimer::singleShot(0, this, TQ_SLOT(slotRestart()));
 }
 
 void Kicker::slotRestart()
@@ -352,7 +352,7 @@ void Kicker::showConfig(const TQString& configPath, const TQString& configFile, 
             moduleNumber++;
          }
 
-         connect(m_configDialog, TQT_SIGNAL(finished()), TQT_SLOT(configDialogFinished()));
+         connect(m_configDialog, TQ_SIGNAL(finished()), TQ_SLOT(configDialogFinished()));
     }
 
     if (!configPath.isEmpty())

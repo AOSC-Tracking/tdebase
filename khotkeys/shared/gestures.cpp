@@ -49,9 +49,9 @@ Gesture::Gesture( bool /*enabled_P*/, TQObject* parent_P )
     (void) new DeleteObject( this, parent_P );
     assert( gesture_handler == NULL );
     gesture_handler = this;
-    connect( &nostroke_timer, TQT_SIGNAL( timeout()), TQT_SLOT( stroke_timeout()));
-    connect( windows_handler, TQT_SIGNAL( active_window_changed( WId )),
-        TQT_SLOT( active_window_changed( WId )));
+    connect( &nostroke_timer, TQ_SIGNAL( timeout()), TQ_SLOT( stroke_timeout()));
+    connect( windows_handler, TQ_SIGNAL( active_window_changed( WId )),
+        TQ_SLOT( active_window_changed( WId )));
     }
       
 Gesture::~Gesture()
@@ -108,7 +108,7 @@ void Gesture::register_handler( TQObject* receiver_P, const char* slot_P )
     if( handlers.contains( receiver_P ))
         return;
     handlers[ receiver_P ] = true;
-    connect( this, TQT_SIGNAL( handle_gesture( const TQString&, WId )),
+    connect( this, TQ_SIGNAL( handle_gesture( const TQString&, WId )),
         receiver_P, slot_P );
     if( handlers.count() == 1 )
         update_grab();
@@ -119,7 +119,7 @@ void Gesture::unregister_handler( TQObject* receiver_P, const char* slot_P )
     if( !handlers.contains( receiver_P ))
         return;
     handlers.remove( receiver_P );
-    disconnect( this, TQT_SIGNAL( handle_gesture( const TQString&, WId )),
+    disconnect( this, TQ_SIGNAL( handle_gesture( const TQString&, WId )),
         receiver_P, slot_P );
     if( handlers.count() == 0 )
         update_grab();

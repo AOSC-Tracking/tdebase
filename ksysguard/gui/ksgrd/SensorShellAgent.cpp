@@ -55,14 +55,14 @@ bool SensorShellAgent::start( const TQString &host, const TQString &shell,
   mShell = shell;
   mCommand = command;
 
-  connect( mDaemon, TQT_SIGNAL( processExited( TDEProcess* ) ),
-           TQT_SLOT( daemonExited( TDEProcess* ) ) );
-  connect( mDaemon, TQT_SIGNAL( receivedStdout( TDEProcess*, char*, int ) ),
-           TQT_SLOT( msgRcvd( TDEProcess*, char*, int ) ) );
-  connect( mDaemon, TQT_SIGNAL( receivedStderr( TDEProcess*, char*, int ) ),
-           TQT_SLOT( errMsgRcvd( TDEProcess*, char*, int ) ) );
-  connect( mDaemon, TQT_SIGNAL( wroteStdin( TDEProcess* ) ),
-           TQT_SLOT( msgSent( TDEProcess* ) ) );
+  connect( mDaemon, TQ_SIGNAL( processExited( TDEProcess* ) ),
+           TQ_SLOT( daemonExited( TDEProcess* ) ) );
+  connect( mDaemon, TQ_SIGNAL( receivedStdout( TDEProcess*, char*, int ) ),
+           TQ_SLOT( msgRcvd( TDEProcess*, char*, int ) ) );
+  connect( mDaemon, TQ_SIGNAL( receivedStderr( TDEProcess*, char*, int ) ),
+           TQ_SLOT( errMsgRcvd( TDEProcess*, char*, int ) ) );
+  connect( mDaemon, TQ_SIGNAL( wroteStdin( TDEProcess* ) ),
+           TQ_SLOT( msgSent( TDEProcess* ) ) );
 
   TQString cmd;
   if ( !command.isEmpty() )

@@ -49,8 +49,8 @@ CFontViewerAppMainWindow::CFontViewerAppMainWindow()
 
     if(factory)
     {
-        KStdAction::open(this, TQT_SLOT(fileOpen()), actionCollection());
-        KStdAction::quit(kapp, TQT_SLOT(quit()), actionCollection());
+        KStdAction::open(this, TQ_SLOT(fileOpen()), actionCollection());
+        KStdAction::quit(kapp, TQ_SLOT(quit()), actionCollection());
 
         itsPreview=(KParts::ReadOnlyPart *)factory->create(this, "fontvier", "KParts::ReadOnlyPart");
 

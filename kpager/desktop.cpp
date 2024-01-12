@@ -257,7 +257,7 @@ void Desktop::loadBgPixmap(void)
   if (!m_bgPixmap)
   {
      m_bgPixmap = new TDESharedPixmap;
-     connect(m_bgPixmap, TQT_SIGNAL(done(bool)), TQT_SLOT(backgroundLoaded(bool)));
+     connect(m_bgPixmap, TQ_SIGNAL(done(bool)), TQ_SLOT(backgroundLoaded(bool)));
   }
 
   retval = m_bgPixmap->loadFromShared(TQString("DESKTOP%1").arg(m_isCommon?1:m_desk));

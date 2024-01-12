@@ -29,7 +29,7 @@ namespace KHotKeys
 
 WindowSelector::WindowSelector( TQObject* receiver_P, const char* slot_P )
     {
-    connect( this, TQT_SIGNAL( selected_signal( WId )), receiver_P, slot_P );
+    connect( this, TQ_SIGNAL( selected_signal( WId )), receiver_P, slot_P );
     }
 
 void WindowSelector::select()

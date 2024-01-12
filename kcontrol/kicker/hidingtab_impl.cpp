@@ -38,33 +38,33 @@ HidingTab::HidingTab(TQWidget *parent, const char* name)
     m_panelInfo(0)
 {
     // connections
-    connect(m_manual,TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
-    connect(m_automatic, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
-    connect(m_automatic, TQT_SIGNAL(toggled(bool)), TQT_SLOT(backgroundModeClicked()));
-    connect(m_background, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
-    connect(m_background, TQT_SIGNAL(toggled(bool)), TQT_SLOT(backgroundModeClicked()));
-    connect(m_xineramaHide, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
-    connect(m_hideSlider, TQT_SIGNAL(valueChanged(int)), TQT_SIGNAL(changed()));
-    connect(m_delaySpinBox, TQT_SIGNAL(valueChanged(int)), TQT_SIGNAL(changed()));
-    connect(m_animateHiding, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
-    connect(m_delaySpinBox, TQT_SIGNAL(valueChanged(int)), TQT_SIGNAL(changed()));
-    connect(m_autoHideSwitch, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
-    connect(m_backgroundRaise, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
-    connect(m_backgroundPos, TQT_SIGNAL(activated(int)), TQT_SIGNAL(changed()));
-    connect(m_lHB, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
-    connect(m_rHB, TQT_SIGNAL(toggled(bool)), TQT_SIGNAL(changed()));
+    connect(m_manual,TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
+    connect(m_automatic, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
+    connect(m_automatic, TQ_SIGNAL(toggled(bool)), TQ_SLOT(backgroundModeClicked()));
+    connect(m_background, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
+    connect(m_background, TQ_SIGNAL(toggled(bool)), TQ_SLOT(backgroundModeClicked()));
+    connect(m_xineramaHide, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
+    connect(m_hideSlider, TQ_SIGNAL(valueChanged(int)), TQ_SIGNAL(changed()));
+    connect(m_delaySpinBox, TQ_SIGNAL(valueChanged(int)), TQ_SIGNAL(changed()));
+    connect(m_animateHiding, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
+    connect(m_delaySpinBox, TQ_SIGNAL(valueChanged(int)), TQ_SIGNAL(changed()));
+    connect(m_autoHideSwitch, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
+    connect(m_backgroundRaise, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
+    connect(m_backgroundPos, TQ_SIGNAL(activated(int)), TQ_SIGNAL(changed()));
+    connect(m_lHB, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
+    connect(m_rHB, TQ_SIGNAL(toggled(bool)), TQ_SIGNAL(changed()));
 
-    connect(KickerConfig::the(), TQT_SIGNAL(extensionInfoChanged()),
-            TQT_SLOT(infoUpdated()));
-    connect(KickerConfig::the(), TQT_SIGNAL(extensionAdded(ExtensionInfo*)),
-            TQT_SLOT(extensionAdded(ExtensionInfo*)));
-    connect(KickerConfig::the(), TQT_SIGNAL(extensionRemoved(ExtensionInfo*)),
-            TQT_SLOT(extensionRemoved(ExtensionInfo*)));
+    connect(KickerConfig::the(), TQ_SIGNAL(extensionInfoChanged()),
+            TQ_SLOT(infoUpdated()));
+    connect(KickerConfig::the(), TQ_SIGNAL(extensionAdded(ExtensionInfo*)),
+            TQ_SLOT(extensionAdded(ExtensionInfo*)));
+    connect(KickerConfig::the(), TQ_SIGNAL(extensionRemoved(ExtensionInfo*)),
+            TQ_SLOT(extensionRemoved(ExtensionInfo*)));
     // position tab tells hiding tab about extension selections and vice versa
-    connect(KickerConfig::the(), TQT_SIGNAL(positionPanelChanged(int)),
-            TQT_SLOT(switchPanel(int)));
-    connect(m_panelList, TQT_SIGNAL(activated(int)),
-            KickerConfig::the(), TQT_SIGNAL(hidingPanelChanged(int)));
+    connect(KickerConfig::the(), TQ_SIGNAL(positionPanelChanged(int)),
+            TQ_SLOT(switchPanel(int)));
+    connect(m_panelList, TQ_SIGNAL(activated(int)),
+            KickerConfig::the(), TQ_SIGNAL(hidingPanelChanged(int)));
 }
 
 void HidingTab::load()

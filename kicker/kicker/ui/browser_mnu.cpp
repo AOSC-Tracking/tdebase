@@ -64,12 +64,12 @@ PanelBrowserMenu::PanelBrowserMenu(TQString path, TQWidget *parent, const char *
 
     // we are not interested for dirty events on files inside the
     // directory (see slotClearIfNeeded)
-    connect( &_dirWatch, TQT_SIGNAL(dirty(const TQString&)),
-             this, TQT_SLOT(slotClearIfNeeded(const TQString&)) );
-    connect( &_dirWatch, TQT_SIGNAL(created(const TQString&)),
-             this, TQT_SLOT(slotClear()) );
-    connect( &_dirWatch, TQT_SIGNAL(deleted(const TQString&)),
-             this, TQT_SLOT(slotClear()) );
+    connect( &_dirWatch, TQ_SIGNAL(dirty(const TQString&)),
+             this, TQ_SLOT(slotClearIfNeeded(const TQString&)) );
+    connect( &_dirWatch, TQ_SIGNAL(created(const TQString&)),
+             this, TQ_SLOT(slotClear()) );
+    connect( &_dirWatch, TQ_SIGNAL(deleted(const TQString&)),
+             this, TQ_SLOT(slotClear()) );
 
     kdDebug() << "PanelBrowserMenu Constructor " << path << endl;
 }
@@ -151,9 +151,9 @@ void PanelBrowserMenu::initialize()
        insertTitle(path());
        TDEConfig *c = TDEGlobal::config();
        c->setGroup("menus");
-       insertItem(CICON("kfm"), i18n("Open in File Manager"), this, TQT_SLOT(slotOpenFileManager()));
+       insertItem(CICON("kfm"), i18n("Open in File Manager"), this, TQ_SLOT(slotOpenFileManager()));
 	if (kapp->authorize("shell_access") && KickerSettings::showOpenInTerminal())
-	    insertItem(CICON("terminal"), i18n("Open in Terminal"), this, TQT_SLOT(slotOpenTerminal()));
+	    insertItem(CICON("terminal"), i18n("Open in Terminal"), this, TQ_SLOT(slotOpenTerminal()));
     	insertSeparator();
     }
 
@@ -334,7 +334,7 @@ void PanelBrowserMenu::initialize()
         if(!_mimecheckTimer)
             _mimecheckTimer = new TQTimer(this, "_mimecheckTimer");
 
-        connect(_mimecheckTimer, TQT_SIGNAL(timeout()), TQT_SLOT(slotMimeCheck()));
+        connect(_mimecheckTimer, TQ_SIGNAL(timeout()), TQ_SLOT(slotMimeCheck()));
         _mimecheckTimer->start(0);
     }
 }
@@ -398,7 +398,7 @@ void PanelBrowserMenu::mouseMoveEvent(TQMouseEvent *e)
     url.setPath(path() + "/" + _filemap[id]);
     KURL::List files(url);
     KURLDrag *d = new KURLDrag(files, this);
-    connect(d, TQT_SIGNAL(destroyed()), this, TQT_SLOT(slotDragObjectDestroyed()));
+    connect(d, TQ_SIGNAL(destroyed()), this, TQ_SLOT(slotDragObjectDestroyed()));
     d->setPixmap(iconSet(id)->pixmap());
     d->drag();
 }

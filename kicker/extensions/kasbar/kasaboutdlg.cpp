@@ -129,7 +129,7 @@ void KasAboutDialog::addDemoBar()
    KasPopup *pop = new KasPopup( ci );
    ci->setPopup( pop );
    ci->setCustomPopup( true );
-   connect( ci, TQT_SIGNAL(leftButtonClicked(TQMouseEvent *)), ci, TQT_SLOT(togglePopup()) );
+   connect( ci, TQ_SIGNAL(leftButtonClicked(TQMouseEvent *)), ci, TQ_SLOT(togglePopup()) );
 
    KasBar *groupbar = bar->createChildBar( ( bar->orientation() == TQt::Horizontal ) ? TQt::Vertical : TQt::Horizontal, pop );
    KasItem *i = 0;

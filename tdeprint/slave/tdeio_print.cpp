@@ -455,10 +455,10 @@ bool TDEIO_Print::getDBFile( const KURL& src )
 
 	/* start the transfer job */
 	TDEIO::TransferJob *job = TDEIO::get( src, false, false );
-	connect( job, TQT_SIGNAL( result( TDEIO::Job* ) ), TQT_SLOT( slotResult( TDEIO::Job* ) ) );
-	connect( job, TQT_SIGNAL( data( TDEIO::Job*, const TQByteArray& ) ), TQT_SLOT( slotData( TDEIO::Job*, const TQByteArray& ) ) );
-	connect( job, TQT_SIGNAL( totalSize( TDEIO::Job*, TDEIO::filesize_t ) ), TQT_SLOT( slotTotalSize( TDEIO::Job*, TDEIO::filesize_t ) ) );
-	connect( job, TQT_SIGNAL( processedSize( TDEIO::Job*, TDEIO::filesize_t ) ), TQT_SLOT( slotProcessedSize( TDEIO::Job*, TDEIO::filesize_t ) ) );
+	connect( job, TQ_SIGNAL( result( TDEIO::Job* ) ), TQ_SLOT( slotResult( TDEIO::Job* ) ) );
+	connect( job, TQ_SIGNAL( data( TDEIO::Job*, const TQByteArray& ) ), TQ_SLOT( slotData( TDEIO::Job*, const TQByteArray& ) ) );
+	connect( job, TQ_SIGNAL( totalSize( TDEIO::Job*, TDEIO::filesize_t ) ), TQ_SLOT( slotTotalSize( TDEIO::Job*, TDEIO::filesize_t ) ) );
+	connect( job, TQ_SIGNAL( processedSize( TDEIO::Job*, TDEIO::filesize_t ) ), TQ_SLOT( slotProcessedSize( TDEIO::Job*, TDEIO::filesize_t ) ) );
 	kapp->enter_loop();
 	m_httpBuffer.close();
 

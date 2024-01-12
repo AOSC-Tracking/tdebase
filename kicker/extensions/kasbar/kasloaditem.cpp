@@ -34,11 +34,11 @@ KasLoadItem::KasLoadItem( KasBar *parent )
     : KasItem( parent )
 {
     TQTimer *t = new TQTimer( this, "KasLoadItem::t" );
-    connect( t, TQT_SIGNAL( timeout() ), TQT_SLOT( updateDisplay() ) );
+    connect( t, TQ_SIGNAL( timeout() ), TQ_SLOT( updateDisplay() ) );
     t->start( 1000 );
     updateDisplay();
 
-    connect( this, TQT_SIGNAL(rightButtonClicked(TQMouseEvent *)), TQT_SLOT(showMenuAt(TQMouseEvent *) ) );
+    connect( this, TQ_SIGNAL(rightButtonClicked(TQMouseEvent *)), TQ_SLOT(showMenuAt(TQMouseEvent *) ) );
 }
 
 KasLoadItem::~KasLoadItem()

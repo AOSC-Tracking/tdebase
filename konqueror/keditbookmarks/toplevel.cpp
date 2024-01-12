@@ -58,8 +58,8 @@ CmdHistory* CmdHistory::s_self = 0;
 
 CmdHistory::CmdHistory(TDEActionCollection *collection)
     : m_commandHistory(collection) {
-    connect(&m_commandHistory, TQT_SIGNAL( commandExecuted(KCommand *) ),
-            TQT_SLOT( slotCommandExecuted(KCommand *) ));
+    connect(&m_commandHistory, TQ_SIGNAL( commandExecuted(KCommand *) ),
+            TQ_SLOT( slotCommandExecuted(KCommand *) ));
     assert(!s_self);
     s_self = this; // this is hacky
 }
@@ -138,8 +138,8 @@ void CurrentMgr::createManager(const TQString &filename) {
 
     m_mgr = KBookmarkManager::managerForFile(filename, false);
 
-    connect(m_mgr, TQT_SIGNAL( changed(const TQString &, const TQString &) ),
-            TQT_SLOT( slotBookmarksChanged(const TQString &, const TQString &) ));
+    connect(m_mgr, TQ_SIGNAL( changed(const TQString &, const TQString &) ),
+            TQ_SLOT( slotBookmarksChanged(const TQString &, const TQString &) ));
 }
 
 void CurrentMgr::slotBookmarksChanged(const TQString &, const TQString &) {
@@ -219,8 +219,8 @@ KEBApp::KEBApp(
     TDEListViewSearchLine *searchLineEdit = new KEBSearchLine(quicksearch, 0, "TDEListViewSearchLine");
     quicksearch->setStretchableWidget(searchLineEdit);
     lbl->setBuddy(searchLineEdit);
-    connect(resetQuickSearch, TQT_SIGNAL(activated()), searchLineEdit, TQT_SLOT(clear()));
-    connect(searchLineEdit, TQT_SIGNAL(searchUpdated()), TQT_SLOT(updateActions()));
+    connect(resetQuickSearch, TQ_SIGNAL(activated()), searchLineEdit, TQ_SLOT(clear()));
+    connect(searchLineEdit, TQ_SIGNAL(searchUpdated()), TQ_SLOT(updateActions()));
 
     ListView::createListViews(vsplitter);
     ListView::self()->initListViews();
@@ -245,8 +245,8 @@ KEBApp::KEBApp(
 
     m_dcopIface = new KBookmarkEditorIface();
 
-    connect(kapp->clipboard(), TQT_SIGNAL( dataChanged() ),
-                               TQT_SLOT( slotClipboardDataChanged() ));
+    connect(kapp->clipboard(), TQ_SIGNAL( dataChanged() ),
+                               TQ_SLOT( slotClipboardDataChanged() ));
 
     ListView::self()->connectSignals();
 
@@ -337,8 +337,8 @@ void KEBApp::notifyCommandExecuted() {
 void KEBApp::slotConfigureToolbars() {
     saveMainWindowSettings(TDEGlobal::config(), "MainWindow");
     KEditToolbar dlg(actionCollection());
-    connect(&dlg, TQT_SIGNAL( newToolbarConfig() ),
-                  TQT_SLOT( slotNewToolbarConfig() ));
+    connect(&dlg, TQ_SIGNAL( newToolbarConfig() ),
+                  TQ_SLOT( slotNewToolbarConfig() ));
     dlg.exec();
 }
 

@@ -98,10 +98,10 @@ int KonqBidiHistoryAction::plug( TQWidget *widget, int index )
   {
     m_goMenu = (TQPopupMenu*)widget;
     // Forward signal (to main view)
-    connect( m_goMenu, TQT_SIGNAL( aboutToShow() ),
-             this, TQT_SIGNAL( menuAboutToShow() ) );
-    connect( m_goMenu, TQT_SIGNAL( activated( int ) ),
-             this, TQT_SLOT( slotActivated( int ) ) );
+    connect( m_goMenu, TQ_SIGNAL( aboutToShow() ),
+             this, TQ_SIGNAL( menuAboutToShow() ) );
+    connect( m_goMenu, TQ_SIGNAL( activated( int ) ),
+             this, TQ_SLOT( slotActivated( int ) ) );
     //kdDebug(1202) << "m_goMenu->count()=" << m_goMenu->count() << endl;
     // Store how many items the menu already contains.
     // This means, the KonqBidiHistoryAction has to be plugged LAST in a menu !
@@ -261,12 +261,12 @@ int KonqLogoAction::plug( TQWidget *widget, int index )
 
     int id_ = getToolButtonID();
 
-    bar->insertAnimatedWidget( id_, this, TQT_SIGNAL(activated()), TQString("trinity"), index );
+    bar->insertAnimatedWidget( id_, this, TQ_SIGNAL(activated()), TQString("trinity"), index );
     bar->alignItemRight( id_ );
 
     addContainer( bar, id_ );
 
-    connect( bar, TQT_SIGNAL( destroyed() ), this, TQT_SLOT( slotDestroyed() ) );
+    connect( bar, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( slotDestroyed() ) );
 
     return containerCount() - 1;
   }
@@ -284,12 +284,12 @@ KonqViewModeAction::KonqViewModeAction( const TQString &text, const TQString &ic
 {
     m_menu = new TQPopupMenu;
 
-    connect( m_menu, TQT_SIGNAL( aboutToShow() ),
-             this, TQT_SLOT( slotPopupAboutToShow() ) );
-    connect( m_menu, TQT_SIGNAL( activated( int ) ),
-             this, TQT_SLOT( slotPopupActivated() ) );
-    connect( m_menu, TQT_SIGNAL( aboutToHide() ),
-             this, TQT_SLOT( slotPopupAboutToHide() ) );
+    connect( m_menu, TQ_SIGNAL( aboutToShow() ),
+             this, TQ_SLOT( slotPopupAboutToShow() ) );
+    connect( m_menu, TQ_SIGNAL( activated( int ) ),
+             this, TQ_SLOT( slotPopupActivated() ) );
+    connect( m_menu, TQ_SIGNAL( aboutToHide() ),
+             this, TQ_SLOT( slotPopupAboutToHide() ) );
 }
 
 KonqViewModeAction::~KonqViewModeAction()
@@ -355,10 +355,10 @@ KonqMostOftenURLSAction::KonqMostOftenURLSAction( const TQString& text,
 {
     setDelayed( false );
 
-    connect( popupMenu(), TQT_SIGNAL( aboutToShow() ), TQT_SLOT( slotFillMenu() ));
-    //connect( popupMenu(), TQT_SIGNAL( aboutToHide() ), TQT_SLOT( slotClearMenu() ));
-    connect( popupMenu(), TQT_SIGNAL( activated( int ) ),
-	     TQT_SLOT( slotActivated(int) ));
+    connect( popupMenu(), TQ_SIGNAL( aboutToShow() ), TQ_SLOT( slotFillMenu() ));
+    //connect( popupMenu(), TQ_SIGNAL( aboutToHide() ), TQ_SLOT( slotClearMenu() ));
+    connect( popupMenu(), TQ_SIGNAL( activated( int ) ),
+	     TQ_SLOT( slotActivated(int) ));
     // Need to do all this upfront for a correct initial state
     init();
 }
@@ -380,11 +380,11 @@ void KonqMostOftenURLSAction::parseHistory() // only ever called once
     KonqHistoryManager *mgr = KonqHistoryManager::kself();
     KonqHistoryIterator it( mgr->entries() );
 
-    connect( mgr, TQT_SIGNAL( entryAdded( const KonqHistoryEntry * )),
-             TQT_SLOT( slotEntryAdded( const KonqHistoryEntry * )));
-    connect( mgr, TQT_SIGNAL( entryRemoved( const KonqHistoryEntry * )),
-             TQT_SLOT( slotEntryRemoved( const KonqHistoryEntry * )));
-    connect( mgr, TQT_SIGNAL( cleared() ), TQT_SLOT( slotHistoryCleared() ));
+    connect( mgr, TQ_SIGNAL( entryAdded( const KonqHistoryEntry * )),
+             TQ_SLOT( slotEntryAdded( const KonqHistoryEntry * )));
+    connect( mgr, TQ_SIGNAL( entryRemoved( const KonqHistoryEntry * )),
+             TQ_SLOT( slotEntryRemoved( const KonqHistoryEntry * )));
+    connect( mgr, TQ_SIGNAL( cleared() ), TQ_SLOT( slotHistoryCleared() ));
 
     s_mostEntries = new MostOftenList; // exit() will clean this up for now
     for ( uint i = 0; it.current() && i < s_maxEntries; i++ ) {

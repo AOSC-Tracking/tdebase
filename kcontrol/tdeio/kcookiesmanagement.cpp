@@ -114,15 +114,15 @@ KCookiesManagement::KCookiesManagement(TQWidget *parent)
   mainLayout->addWidget(dlg);
   dlg->lvCookies->setSorting(0);
 
-  connect(dlg->lvCookies, TQT_SIGNAL(expanded(TQListViewItem*)), TQT_SLOT(getCookies(TQListViewItem*)) );
-  connect(dlg->lvCookies, TQT_SIGNAL(selectionChanged(TQListViewItem*)), TQT_SLOT(showCookieDetails(TQListViewItem*)) );
+  connect(dlg->lvCookies, TQ_SIGNAL(expanded(TQListViewItem*)), TQ_SLOT(getCookies(TQListViewItem*)) );
+  connect(dlg->lvCookies, TQ_SIGNAL(selectionChanged(TQListViewItem*)), TQ_SLOT(showCookieDetails(TQListViewItem*)) );
 
-  connect(dlg->pbDelete, TQT_SIGNAL(clicked()), TQT_SLOT(deleteCookie()));
-  connect(dlg->pbDeleteAll, TQT_SIGNAL(clicked()), TQT_SLOT(deleteAllCookies()));
-  connect(dlg->pbReload, TQT_SIGNAL(clicked()), TQT_SLOT(getDomains()));
-  connect(dlg->pbPolicy, TQT_SIGNAL(clicked()), TQT_SLOT(doPolicy()));
+  connect(dlg->pbDelete, TQ_SIGNAL(clicked()), TQ_SLOT(deleteCookie()));
+  connect(dlg->pbDeleteAll, TQ_SIGNAL(clicked()), TQ_SLOT(deleteAllCookies()));
+  connect(dlg->pbReload, TQ_SIGNAL(clicked()), TQ_SLOT(getDomains()));
+  connect(dlg->pbPolicy, TQ_SIGNAL(clicked()), TQ_SLOT(doPolicy()));
 
-  connect(dlg->lvCookies, TQT_SIGNAL(doubleClicked (TQListViewItem *)), TQT_SLOT(doPolicy()));
+  connect(dlg->lvCookies, TQ_SIGNAL(doubleClicked (TQListViewItem *)), TQ_SLOT(doPolicy()));
   deletedCookies.setAutoDelete(true);
   m_bDeleteAll = false;
   mainWidget = parent;

@@ -193,32 +193,32 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 
 	cbShadowDocks = new TQCheckBox(i18n("Docks and &panels"),
 			whichShadowSettings);
-	connect(cbShadowDocks, TQT_SIGNAL(toggled(bool)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(cbShadowDocks, TQ_SIGNAL(toggled(bool)),
+			TQ_SLOT(slotSelectionChanged()));
 	cbShadowOverrides = new TQCheckBox(i18n("O&verride windows"),
 			whichShadowSettings);
-	connect(cbShadowOverrides, TQT_SIGNAL(toggled(bool)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(cbShadowOverrides, TQ_SIGNAL(toggled(bool)),
+			TQ_SLOT(slotSelectionChanged()));
 	cbShadowTopMenus = new TQCheckBox(i18n("&Top menu"),
 			whichShadowSettings);
-	connect(cbShadowTopMenus, TQT_SIGNAL(toggled(bool)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(cbShadowTopMenus, TQ_SIGNAL(toggled(bool)),
+			TQ_SLOT(slotSelectionChanged()));
 	cbInactiveShadow = new TQCheckBox(
 			i18n("Draw shadow under &inactive windows"), inactiveShadowSettings);
-	connect(cbInactiveShadow, TQT_SIGNAL(toggled(bool)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(cbInactiveShadow, TQ_SIGNAL(toggled(bool)),
+			TQ_SLOT(slotSelectionChanged()));
 
 	shadowColourHBox = new TQHBox(activeShadowSettings);
 	shadowColourHBox->setSpacing(KDialog::spacingHint());
 	shadowColourLabel = new TQLabel(i18n("Colour:"), shadowColourHBox);
 	shadowColourButton = new KColorButton(shadowColourHBox);
-	connect(shadowColourButton, TQT_SIGNAL(changed(const TQColor &)), TQT_SLOT(slotSelectionChanged()));
+	connect(shadowColourButton, TQ_SIGNAL(changed(const TQColor &)), TQ_SLOT(slotSelectionChanged()));
 
 	inactiveShadowColourHBox = new TQHBox(inactiveShadowSettings);
 	inactiveShadowColourHBox->setSpacing(KDialog::spacingHint());
 	inactiveShadowColourLabel = new TQLabel(i18n("Colour:"), inactiveShadowColourHBox);
 	inactiveShadowColourButton = new KColorButton(inactiveShadowColourHBox);
-	connect(inactiveShadowColourButton, TQT_SIGNAL(changed(const TQColor &)), TQT_SLOT(slotSelectionChanged()));
+	connect(inactiveShadowColourButton, TQ_SIGNAL(changed(const TQColor &)), TQ_SLOT(slotSelectionChanged()));
 
 	shadowOpacityHBox = new TQHBox(activeShadowSettings);
 	shadowOpacityHBox->setSpacing(KDialog::spacingHint());
@@ -229,12 +229,12 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	shadowOpacitySlider->setTickInterval(10);
 	shadowOpacitySpinBox = new TQSpinBox(1, 100, 1, shadowOpacityHBox);
 	shadowOpacitySpinBox->setSuffix(" %");
-	connect(shadowOpacitySlider, TQT_SIGNAL(valueChanged(int)), shadowOpacitySpinBox,
-			TQT_SLOT(setValue(int)));
-	connect(shadowOpacitySpinBox, TQT_SIGNAL(valueChanged(int)), shadowOpacitySlider,
-			TQT_SLOT(setValue(int)));
-	connect(shadowOpacitySlider, TQT_SIGNAL(valueChanged(int)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(shadowOpacitySlider, TQ_SIGNAL(valueChanged(int)), shadowOpacitySpinBox,
+			TQ_SLOT(setValue(int)));
+	connect(shadowOpacitySpinBox, TQ_SIGNAL(valueChanged(int)), shadowOpacitySlider,
+			TQ_SLOT(setValue(int)));
+	connect(shadowOpacitySlider, TQ_SIGNAL(valueChanged(int)),
+			TQ_SLOT(slotSelectionChanged()));
 
 	inactiveShadowOpacityHBox = new TQHBox(inactiveShadowSettings);
 	inactiveShadowOpacityHBox->setSpacing(KDialog::spacingHint());
@@ -247,14 +247,14 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	inactiveShadowOpacitySpinBox = new TQSpinBox(1, 100, 1,
 			inactiveShadowOpacityHBox);
 	inactiveShadowOpacitySpinBox->setSuffix(" %");
-	connect(inactiveShadowOpacitySlider, TQT_SIGNAL(valueChanged(int)),
+	connect(inactiveShadowOpacitySlider, TQ_SIGNAL(valueChanged(int)),
 			inactiveShadowOpacitySpinBox,
-			TQT_SLOT(setValue(int)));
-	connect(inactiveShadowOpacitySpinBox, TQT_SIGNAL(valueChanged(int)),
+			TQ_SLOT(setValue(int)));
+	connect(inactiveShadowOpacitySpinBox, TQ_SIGNAL(valueChanged(int)),
 			inactiveShadowOpacitySlider,
-			TQT_SLOT(setValue(int)));
-	connect(inactiveShadowOpacitySlider, TQT_SIGNAL(valueChanged(int)),
-			TQT_SLOT(slotSelectionChanged()));
+			TQ_SLOT(setValue(int)));
+	connect(inactiveShadowOpacitySlider, TQ_SIGNAL(valueChanged(int)),
+			TQ_SLOT(slotSelectionChanged()));
 
 	shadowXOffsetHBox = new TQHBox(activeShadowSettings);
 	shadowXOffsetHBox->setSpacing(KDialog::spacingHint());
@@ -263,8 +263,8 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 			shadowXOffsetHBox);
 	shadowXOffsetSpinBox = new TQSpinBox(-1024, 1024, 1, shadowXOffsetHBox);
 	shadowXOffsetSpinBox->setSuffix(i18n(" pixels"));
-	connect(shadowXOffsetSpinBox, TQT_SIGNAL(valueChanged(int)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(shadowXOffsetSpinBox, TQ_SIGNAL(valueChanged(int)),
+			TQ_SLOT(slotSelectionChanged()));
 
 	inactiveShadowXOffsetHBox = new TQHBox(inactiveShadowSettings);
 	inactiveShadowXOffsetHBox->setSpacing(KDialog::spacingHint());
@@ -274,8 +274,8 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	inactiveShadowXOffsetSpinBox = new TQSpinBox(-1024, 1024, 1,
 			inactiveShadowXOffsetHBox);
 	inactiveShadowXOffsetSpinBox->setSuffix(i18n(" pixels"));
-	connect(inactiveShadowXOffsetSpinBox, TQT_SIGNAL(valueChanged(int)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(inactiveShadowXOffsetSpinBox, TQ_SIGNAL(valueChanged(int)),
+			TQ_SLOT(slotSelectionChanged()));
 
 	shadowYOffsetHBox = new TQHBox(activeShadowSettings);
 	shadowYOffsetHBox->setSpacing(KDialog::spacingHint());
@@ -284,8 +284,8 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 			shadowYOffsetHBox);
 	shadowYOffsetSpinBox = new TQSpinBox(-1024, 1024, 1, shadowYOffsetHBox);
 	shadowYOffsetSpinBox->setSuffix(i18n(" pixels"));
-	connect(shadowYOffsetSpinBox, TQT_SIGNAL(valueChanged(int)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(shadowYOffsetSpinBox, TQ_SIGNAL(valueChanged(int)),
+			TQ_SLOT(slotSelectionChanged()));
 
 	inactiveShadowYOffsetHBox = new TQHBox(inactiveShadowSettings);
 	inactiveShadowYOffsetHBox->setSpacing(KDialog::spacingHint());
@@ -295,8 +295,8 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	inactiveShadowYOffsetSpinBox = new TQSpinBox(-1024, 1024, 1,
 			inactiveShadowYOffsetHBox);
 	inactiveShadowYOffsetSpinBox->setSuffix(i18n(" pixels"));
-	connect(inactiveShadowYOffsetSpinBox, TQT_SIGNAL(valueChanged(int)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(inactiveShadowYOffsetSpinBox, TQ_SIGNAL(valueChanged(int)),
+			TQ_SLOT(slotSelectionChanged()));
 
 	shadowThicknessHBox = new TQHBox(activeShadowSettings);
 	shadowThicknessHBox->setSpacing(KDialog::spacingHint());
@@ -306,8 +306,8 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	shadowThicknessSpinBox = new TQSpinBox(1, 100, 1,
 			shadowThicknessHBox);
 	shadowThicknessSpinBox->setSuffix(i18n(" pixels"));
-	connect(shadowThicknessSpinBox, TQT_SIGNAL(valueChanged(int)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(shadowThicknessSpinBox, TQ_SIGNAL(valueChanged(int)),
+			TQ_SLOT(slotSelectionChanged()));
 
 	inactiveShadowThicknessHBox = new TQHBox(inactiveShadowSettings);
 	inactiveShadowThicknessHBox->setSpacing(KDialog::spacingHint());
@@ -317,8 +317,8 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	inactiveShadowThicknessSpinBox = new TQSpinBox(1, 100, 1,
 			inactiveShadowThicknessHBox);
 	inactiveShadowThicknessSpinBox->setSuffix(i18n(" pixels"));
-	connect(inactiveShadowThicknessSpinBox, TQT_SIGNAL(valueChanged(int)),
-			TQT_SLOT(slotSelectionChanged()));
+	connect(inactiveShadowThicknessSpinBox, TQ_SIGNAL(valueChanged(int)),
+			TQ_SLOT(slotSelectionChanged()));
 
 	// Page 4 (WM selector)
 	windowmanagerPage = new TQWidget( tabWidget );
@@ -355,25 +355,25 @@ KWinDecorationModule::KWinDecorationModule(TQWidget* parent, const char* name, c
 	tabWidget->insertTab( shadowPage, i18n("&Shadows") );
 	tabWidget->insertTab( windowmanagerPage, i18n("&Window Manager") );
 
-	connect( buttonPositionWidget, TQT_SIGNAL(changed()), this, TQT_SLOT(slotButtonsChanged()) ); // update preview etc.
-	connect( buttonPositionWidget, TQT_SIGNAL(changed()), this, TQT_SLOT(slotSelectionChanged()) ); // emit changed()...
-	connect( decorationList, TQT_SIGNAL(activated(const TQString&)), TQT_SLOT(slotSelectionChanged()) );
-	connect( decorationList, TQT_SIGNAL(activated(const TQString&)),
-								TQT_SLOT(slotChangeDecoration(const TQString&)) );
-	connect( cbUseCustomButtonPositions, TQT_SIGNAL(clicked()), TQT_SLOT(slotSelectionChanged()) );
-	connect(cbUseCustomButtonPositions, TQT_SIGNAL(toggled(bool)), buttonPositionWidget, TQT_SLOT(setEnabled(bool)));
-	connect(cbUseCustomButtonPositions, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotButtonsChanged()) );
- 	connect(cbWindowShadow, TQT_SIGNAL(toggled(bool)), activeShadowSettings, TQT_SLOT(setEnabled(bool)));
- 	connect(cbWindowShadow, TQT_SIGNAL(toggled(bool)), inactiveShadowSettings, TQT_SLOT(setEnabled(bool)));
- 	connect(cbWindowShadow, TQT_SIGNAL(toggled(bool)), whichShadowSettings, TQT_SLOT(setEnabled(bool)));
+	connect( buttonPositionWidget, TQ_SIGNAL(changed()), this, TQ_SLOT(slotButtonsChanged()) ); // update preview etc.
+	connect( buttonPositionWidget, TQ_SIGNAL(changed()), this, TQ_SLOT(slotSelectionChanged()) ); // emit changed()...
+	connect( decorationList, TQ_SIGNAL(activated(const TQString&)), TQ_SLOT(slotSelectionChanged()) );
+	connect( decorationList, TQ_SIGNAL(activated(const TQString&)),
+								TQ_SLOT(slotChangeDecoration(const TQString&)) );
+	connect( cbUseCustomButtonPositions, TQ_SIGNAL(clicked()), TQ_SLOT(slotSelectionChanged()) );
+	connect(cbUseCustomButtonPositions, TQ_SIGNAL(toggled(bool)), buttonPositionWidget, TQ_SLOT(setEnabled(bool)));
+	connect(cbUseCustomButtonPositions, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotButtonsChanged()) );
+ 	connect(cbWindowShadow, TQ_SIGNAL(toggled(bool)), activeShadowSettings, TQ_SLOT(setEnabled(bool)));
+ 	connect(cbWindowShadow, TQ_SIGNAL(toggled(bool)), inactiveShadowSettings, TQ_SLOT(setEnabled(bool)));
+ 	connect(cbWindowShadow, TQ_SIGNAL(toggled(bool)), whichShadowSettings, TQ_SLOT(setEnabled(bool)));
 
-	connect( cbShowToolTips, TQT_SIGNAL(clicked()), TQT_SLOT(slotSelectionChanged()) );
-	connect( cbWindowShadow, TQT_SIGNAL(clicked()), TQT_SLOT(slotSelectionChanged()) );
-	connect( cBorder, TQT_SIGNAL( activated( int )), TQT_SLOT( slotBorderChanged( int )));
-//	connect( cbUseMiniWindows, TQT_SIGNAL(clicked()), TQT_SLOT(slotSelectionChanged()) );
+	connect( cbShowToolTips, TQ_SIGNAL(clicked()), TQ_SLOT(slotSelectionChanged()) );
+	connect( cbWindowShadow, TQ_SIGNAL(clicked()), TQ_SLOT(slotSelectionChanged()) );
+	connect( cBorder, TQ_SIGNAL( activated( int )), TQ_SLOT( slotBorderChanged( int )));
+//	connect( cbUseMiniWindows, TQ_SIGNAL(clicked()), TQ_SLOT(slotSelectionChanged()) );
 
-	connect( thirdpartyWMList, TQT_SIGNAL(activated(const TQString&)), TQT_SLOT(slotSelectionChanged()) );
-	connect( thirdpartyWMArguments, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(slotSelectionChanged()) );
+	connect( thirdpartyWMList, TQ_SIGNAL(activated(const TQString&)), TQ_SLOT(slotSelectionChanged()) );
+	connect( thirdpartyWMArguments, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(slotSelectionChanged()) );
 
 	// Allow twin dcop signal to update our selection list
 	connectDCOPSignal("twin", 0, "dcopResetAllClients()", "dcopUpdateClientList()", false);
@@ -660,10 +660,10 @@ void KWinDecorationModule::resetPlugin( TDEConfig* conf, const TQString& current
 			pluginObject = (TQObject*)(allocatePlugin( conf, pluginConfigWidget ));
 
 			// connect required signals and slots together...
-			connect( pluginObject, TQT_SIGNAL(changed()), this, TQT_SLOT(slotSelectionChanged()) );
-			connect( this, TQT_SIGNAL(pluginLoad(TDEConfig*)), pluginObject, TQT_SLOT(load(TDEConfig*)) );
-			connect( this, TQT_SIGNAL(pluginSave(TDEConfig*)), pluginObject, TQT_SLOT(save(TDEConfig*)) );
-			connect( this, TQT_SIGNAL(pluginDefaults()), pluginObject, TQT_SLOT(defaults()) );
+			connect( pluginObject, TQ_SIGNAL(changed()), this, TQ_SLOT(slotSelectionChanged()) );
+			connect( this, TQ_SIGNAL(pluginLoad(TDEConfig*)), pluginObject, TQ_SLOT(load(TDEConfig*)) );
+			connect( this, TQ_SIGNAL(pluginSave(TDEConfig*)), pluginObject, TQ_SLOT(save(TDEConfig*)) );
+			connect( this, TQ_SIGNAL(pluginDefaults()), pluginObject, TQ_SLOT(defaults()) );
 			pluginConfigWidget->show();
 			return;
 		}

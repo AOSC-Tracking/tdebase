@@ -59,7 +59,7 @@ TaskbarApplet::TaskbarApplet( const TQString& configFile, Type type, int actions
     TQHBoxLayout* layout = new TQHBoxLayout( this );
     container = new TaskBarContainer( false, configFile, this );
     container->setBackgroundOrigin( AncestorOrigin );
-    connect(container, TQT_SIGNAL(containerCountChanged()), this, TQT_SIGNAL(updateLayout()));
+    connect(container, TQ_SIGNAL(containerCountChanged()), this, TQ_SIGNAL(updateLayout()));
     layout->addWidget( container, 1 );
     container->popupDirectionChange(popupDirection());
 }

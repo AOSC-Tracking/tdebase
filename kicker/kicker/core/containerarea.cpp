@@ -103,11 +103,11 @@ ContainerArea::ContainerArea(TDEConfig* _c,
 
     setBackground();
 
-    connect(&_autoScrollTimer, TQT_SIGNAL(timeout()), TQT_SLOT(autoScroll()));
-    connect(kapp, TQT_SIGNAL(tdedisplayPaletteChanged()), TQT_SLOT(setBackground()));
-    connect(Kicker::the(), TQT_SIGNAL(immutabilityChanged(bool)),
-            TQT_SLOT(immutabilityChanged(bool)));
-    connect(this, TQT_SIGNAL(contentsMoving(int, int)), TQT_SLOT(setBackground()));
+    connect(&_autoScrollTimer, TQ_SIGNAL(timeout()), TQ_SLOT(autoScroll()));
+    connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(setBackground()));
+    connect(Kicker::the(), TQ_SIGNAL(immutabilityChanged(bool)),
+            TQ_SLOT(immutabilityChanged(bool)));
+    connect(this, TQ_SIGNAL(contentsMoving(int, int)), TQ_SLOT(setBackground()));
 }
 
 ContainerArea::~ContainerArea()
@@ -142,7 +142,7 @@ void ContainerArea::initialize(bool useDefaultConfig)
     }
 
     setAcceptDrops(!isImmutable());
-    TQTimer::singleShot(0, this, TQT_SLOT(resizeContents()));
+    TQTimer::singleShot(0, this, TQ_SLOT(resizeContents()));
 }
 
 void ContainerArea::defaultContainerConfig()
@@ -377,7 +377,7 @@ void ContainerArea::loadContainers(const TQStringList& containers)
     // it gets executed too soon. we need to wait until the containers are
     // actually resized, but we enter the event loop prior to that happening
     // above.
-    TQTimer::singleShot(0, this, TQT_SLOT(updateContainersBackground()));
+    TQTimer::singleShot(0, this, TQ_SLOT(updateContainersBackground()));
 }
 
 void ContainerArea::saveContainerConfig(bool layoutOnly)
@@ -728,20 +728,20 @@ void ContainerArea::addContainer(BaseContainer* a, bool arrange, int index)
         m_layout->add(a);
     }
 
-    connect(a, TQT_SIGNAL(moveme(BaseContainer*)),
-            TQT_SLOT(startContainerMove(BaseContainer*)));
-    connect(a, TQT_SIGNAL(removeme(BaseContainer*)),
-            TQT_SLOT(removeContainer(BaseContainer*)));
-    connect(a, TQT_SIGNAL(takeme(BaseContainer*)),
-            TQT_SLOT(takeContainer(BaseContainer*)));
-    connect(a, TQT_SIGNAL(requestSave()),
-            TQT_SLOT(slotSaveContainerConfig()));
-    connect(a, TQT_SIGNAL(maintainFocus(bool)),
-            this, TQT_SIGNAL(maintainFocus(bool)));
+    connect(a, TQ_SIGNAL(moveme(BaseContainer*)),
+            TQ_SLOT(startContainerMove(BaseContainer*)));
+    connect(a, TQ_SIGNAL(removeme(BaseContainer*)),
+            TQ_SLOT(removeContainer(BaseContainer*)));
+    connect(a, TQ_SIGNAL(takeme(BaseContainer*)),
+            TQ_SLOT(takeContainer(BaseContainer*)));
+    connect(a, TQ_SIGNAL(requestSave()),
+            TQ_SLOT(slotSaveContainerConfig()));
+    connect(a, TQ_SIGNAL(maintainFocus(bool)),
+            this, TQ_SIGNAL(maintainFocus(bool)));
 
     if (dynamic_cast<AppletContainer*>(a))
     {
-        connect(a, TQT_SIGNAL(updateLayout()), TQT_SLOT(resizeContents()));
+        connect(a, TQ_SIGNAL(updateLayout()), TQ_SLOT(resizeContents()));
     }
 
     a->configure(orientation(), popupDirection());
@@ -824,16 +824,16 @@ void ContainerArea::takeContainer(BaseContainer* a)
         return;
     }
 
-    disconnect(a, TQT_SIGNAL(moveme(BaseContainer*)),
-               this, TQT_SLOT(startContainerMove(BaseContainer*)));
-    disconnect(a, TQT_SIGNAL(removeme(BaseContainer*)),
-               this, TQT_SLOT(removeContainer(BaseContainer*)));
-    disconnect(a, TQT_SIGNAL(takeme(BaseContainer*)),
-               this, TQT_SLOT(takeContainer(BaseContainer*)));
-    disconnect(a, TQT_SIGNAL(requestSave()),
-               this, TQT_SLOT(slotSaveContainerConfig()));
-    disconnect(a, TQT_SIGNAL(maintainFocus(bool)),
-               this, TQT_SIGNAL(maintainFocus(bool)));
+    disconnect(a, TQ_SIGNAL(moveme(BaseContainer*)),
+               this, TQ_SLOT(startContainerMove(BaseContainer*)));
+    disconnect(a, TQ_SIGNAL(removeme(BaseContainer*)),
+               this, TQ_SLOT(removeContainer(BaseContainer*)));
+    disconnect(a, TQ_SIGNAL(takeme(BaseContainer*)),
+               this, TQ_SLOT(takeContainer(BaseContainer*)));
+    disconnect(a, TQ_SIGNAL(requestSave()),
+               this, TQ_SLOT(slotSaveContainerConfig()));
+    disconnect(a, TQ_SIGNAL(maintainFocus(bool)),
+               this, TQ_SIGNAL(maintainFocus(bool)));
 
     // Just remove the group from our own config file. Leave separate config
     // files untouched.
@@ -1436,8 +1436,8 @@ void ContainerArea::setBackground()
         {
             _rootPixmap = new KRootPixmap(this);
             _rootPixmap->setCustomPainting(true);
-            connect(_rootPixmap, TQT_SIGNAL(backgroundUpdated(const TQPixmap&)),
-                    TQT_SLOT(updateBackground(const TQPixmap&)));
+            connect(_rootPixmap, TQ_SIGNAL(backgroundUpdated(const TQPixmap&)),
+                    TQ_SLOT(updateBackground(const TQPixmap&)));
         }
         else
         {
@@ -1516,7 +1516,7 @@ void ContainerArea::setBackground()
                 KickerLib::colorize(bgImage);
             }
             setPaletteBackgroundPixmap(TQPixmap(bgImage));
-            TQTimer::singleShot(0, this, TQT_SLOT(updateContainersBackground()));
+            TQTimer::singleShot(0, this, TQ_SLOT(updateContainersBackground()));
         }
     }
 
@@ -1538,7 +1538,7 @@ void ContainerArea::immutabilityChanged(bool immutable)
     }
 
     setAcceptDrops(!isImmutable());
-    TQTimer::singleShot(0, this, TQT_SLOT(setBackground()));
+    TQTimer::singleShot(0, this, TQ_SLOT(setBackground()));
 }
 
 TQRect ContainerArea::availableSpaceFollowing(BaseContainer* a)
@@ -1663,7 +1663,7 @@ void ContainerArea::resizeContents(int w, int h)
     if (!m_updateBackgroundsCalled)
     {
         m_updateBackgroundsCalled = true;
-        TQTimer::singleShot(0, this, TQT_SLOT(updateContainersBackground()));
+        TQTimer::singleShot(0, this, TQ_SLOT(updateContainersBackground()));
     }
 }
 
@@ -1793,7 +1793,7 @@ void ContainerArea::updateContainersBackground()
         if( !m_cachedGeometry.contains( *it ))
         {
             m_cachedGeometry[ *it ] = TQRect();
-            connect( *it, TQT_SIGNAL( destroyed()), TQT_SLOT( destroyCachedGeometry()));
+            connect( *it, TQ_SIGNAL( destroyed()), TQ_SLOT( destroyCachedGeometry()));
         }
         if( m_cachedGeometry[ *it ] != (*it)->geometry())
         {
@@ -1910,7 +1910,7 @@ void ContainerArea::showAddAppletDialog()
     if (!m_addAppletDialog)
     {
         m_addAppletDialog = new AddAppletDialog(this, this, 0);
-        connect(m_addAppletDialog, TQT_SIGNAL(finished()), this, TQT_SLOT(addAppletDialogDone()));
+        connect(m_addAppletDialog, TQ_SIGNAL(finished()), this, TQ_SLOT(addAppletDialogDone()));
     }
     else
     {

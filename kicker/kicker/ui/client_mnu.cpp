@@ -46,13 +46,13 @@ void KickerClientMenu::clear()
 
 void KickerClientMenu::insertItem( TQPixmap icon, TQString text, int id )
 {
-    int globalid = TQPopupMenu::insertItem( icon, text, this, TQT_SLOT( slotActivated(int) ) );
+    int globalid = TQPopupMenu::insertItem( icon, text, this, TQ_SLOT( slotActivated(int) ) );
     setItemParameter( globalid, id );
 }
 
 void KickerClientMenu::insertItem( TQString text, int id )
 {
-    int globalid = TQPopupMenu::insertItem( text, this, TQT_SLOT( slotActivated(int) ) );
+    int globalid = TQPopupMenu::insertItem( text, this, TQ_SLOT( slotActivated(int) ) );
     setItemParameter( globalid, id );
 }
 

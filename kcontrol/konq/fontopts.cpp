@@ -66,22 +66,22 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
     TQWhatsThis::add( m_pStandard, wtstr );
 
     row++;
-    connect( m_pStandard, TQT_SIGNAL( activated(const TQString&) ),
-             TQT_SLOT( slotStandardFont(const TQString&) ) );
-    connect( m_pStandard, TQT_SIGNAL( activated(const TQString&) ),
-             TQT_SLOT(changed() ) );
-    connect( m_pStandard, TQT_SIGNAL( textChanged(const TQString&) ),
-             TQT_SLOT( slotStandardFont(const TQString&) ) );
-    connect( m_pStandard, TQT_SIGNAL( textChanged(const TQString&) ),
-             TQT_SLOT(changed() ) );
+    connect( m_pStandard, TQ_SIGNAL( activated(const TQString&) ),
+             TQ_SLOT( slotStandardFont(const TQString&) ) );
+    connect( m_pStandard, TQ_SIGNAL( activated(const TQString&) ),
+             TQ_SLOT(changed() ) );
+    connect( m_pStandard, TQ_SIGNAL( textChanged(const TQString&) ),
+             TQ_SLOT( slotStandardFont(const TQString&) ) );
+    connect( m_pStandard, TQ_SIGNAL( textChanged(const TQString&) ),
+             TQ_SLOT(changed() ) );
 
     m_pSize = new TQSpinBox( 4,18,1,this );
     label = new TQLabel( m_pSize, i18n("Font si&ze:"), this );
     lay->addWidget(label,row,0);
     lay->addMultiCellWidget(m_pSize,row,row,1,1);
 
-    connect( m_pSize, TQT_SIGNAL( valueChanged(int) ),
-             this, TQT_SLOT( slotFontSize(int) ) );
+    connect( m_pSize, TQ_SIGNAL( valueChanged(int) ),
+             this, TQ_SLOT( slotFontSize(int) ) );
     row+=2;
 
     wtstr = i18n("This is the font size used to display text in Konqueror windows.");
@@ -100,8 +100,8 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
     TQWhatsThis::add( label, wtstr );
     TQWhatsThis::add( m_pNormalText, wtstr );
 
-    connect( m_pNormalText, TQT_SIGNAL( changed( const TQColor & ) ),
-             TQT_SLOT( slotNormalTextColorChanged( const TQColor & ) ) );
+    connect( m_pNormalText, TQ_SIGNAL( changed( const TQColor & ) ),
+             TQ_SLOT( slotNormalTextColorChanged( const TQColor & ) ) );
 
     /*
     row++;
@@ -115,8 +115,8 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
     TQWhatsThis::add( label, wtstr );
     TQWhatsThis::add( m_pHighlightedText, wtstr );
 
-    connect( m_pHighlightedText, TQT_SIGNAL( changed( const TQColor & ) ),
-             TQT_SLOT( slotHighlightedTextColorChanged( const TQColor & ) ) );
+    connect( m_pHighlightedText, TQ_SIGNAL( changed( const TQColor & ) ),
+             TQ_SLOT( slotHighlightedTextColorChanged( const TQColor & ) ) );
     */
 
     row++;
@@ -125,8 +125,8 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
     {
         m_cbTextBackground = new TQCheckBox( i18n("&Text background color:"), this );
         lay->addWidget(m_cbTextBackground,row,0);
-        connect( m_cbTextBackground, TQT_SIGNAL( clicked() ),
-                 TQT_SLOT( slotTextBackgroundClicked() ) );
+        connect( m_cbTextBackground, TQ_SIGNAL( clicked() ),
+                 TQ_SLOT( slotTextBackgroundClicked() ) );
 
         m_pTextBackground = new KColorButton( textBackgroundColor, this );
         lay->addWidget(m_pTextBackground,row,COLOR_BUTTON_COL,(TQt::AlignmentFlags)hAlign);
@@ -135,8 +135,8 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
         TQWhatsThis::add( label, wtstr );
         TQWhatsThis::add( m_pTextBackground, wtstr );
 
-        connect( m_pTextBackground, TQT_SIGNAL( changed( const TQColor & ) ),
-                 TQT_SLOT( slotTextBackgroundColorChanged( const TQColor & ) ) );
+        connect( m_pTextBackground, TQ_SIGNAL( changed( const TQColor & ) ),
+                 TQ_SLOT( slotTextBackgroundColorChanged( const TQColor & ) ) );
 
         row++;
     }
@@ -146,10 +146,10 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
         TQLabel* label = new TQLabel( m_pNbLines, i18n("H&eight for icon text:"), this );
         lay->addWidget( label, row, 0 );
         lay->addWidget( m_pNbLines, row, 1 );
-        connect( m_pNbLines, TQT_SIGNAL( valueChanged(int) ),
-                 this, TQT_SLOT( changed() ) );
-        connect( m_pNbLines, TQT_SIGNAL( valueChanged(int) ),
-                 TQT_SLOT( slotPNbLinesChanged(int)) );
+        connect( m_pNbLines, TQ_SIGNAL( valueChanged(int) ),
+                 this, TQ_SLOT( changed() ) );
+        connect( m_pNbLines, TQ_SIGNAL( valueChanged(int) ),
+                 TQ_SLOT( slotPNbLinesChanged(int)) );
 
         TQString thwt = i18n("This is the maximum number of lines that can be"
                             " used to draw icon text. Long file names are"
@@ -165,10 +165,10 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
         label = new TQLabel( m_pNbWidth, i18n("&Width for icon text:"), this );
         lay->addWidget( label, row, 0 );
         lay->addWidget( m_pNbWidth, row, 1 );
-        connect( m_pNbWidth, TQT_SIGNAL( valueChanged(int) ),
-                 this, TQT_SLOT( changed() ) );
-        connect( m_pNbWidth, TQT_SIGNAL( valueChanged(int) ),
-                 TQT_SLOT( slotPNbWidthChanged(int)) );
+        connect( m_pNbWidth, TQ_SIGNAL( valueChanged(int) ),
+                 this, TQ_SLOT( changed() ) );
+        connect( m_pNbWidth, TQ_SIGNAL( valueChanged(int) ),
+                 TQ_SLOT( slotPNbWidthChanged(int)) );
 
         thwt = i18n( "This is the maximum width for the icon text when konqueror "
                      "is used in multi column view mode." );
@@ -180,7 +180,7 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
 
     cbUnderline = new TQCheckBox(i18n("&Underline filenames"), this);
     lay->addMultiCellWidget(cbUnderline,row,row,0,LASTCOLUMN,(TQt::AlignmentFlags)hAlign);
-    connect(cbUnderline, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
+    connect(cbUnderline, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
 
     TQWhatsThis::add( cbUnderline, i18n("Checking this option will result in filenames"
                                        " being underlined, so that they look like links on a web page. Note:"
@@ -193,7 +193,7 @@ KonqFontOptions::KonqFontOptions(TDEConfig *config, TQString group, bool desktop
 
         m_pSizeInBytes = new TQCheckBox(i18n("Display file sizes in b&ytes"), this);
         lay->addMultiCellWidget( m_pSizeInBytes,row,row,0,LASTCOLUMN,(TQt::AlignmentFlags)hAlign );
-        connect( m_pSizeInBytes, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()) );
+        connect( m_pSizeInBytes, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()) );
 
         TQWhatsThis::add( m_pSizeInBytes, i18n("Checking this option will result in file sizes"
                                               " being displayed in bytes. Otherwise file sizes are"

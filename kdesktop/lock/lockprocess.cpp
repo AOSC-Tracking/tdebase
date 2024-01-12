@@ -256,7 +256,7 @@ LockProcess::LockProcess()
 	if (!argb_visual) {
 		// Try to get the root pixmap
 		if (!m_rootPixmap) m_rootPixmap = new KRootPixmap(this);
-		connect(m_rootPixmap, TQT_SIGNAL(backgroundUpdated(const TQPixmap &)), this, TQT_SLOT(slotPaintBackground(const TQPixmap &)));
+		connect(m_rootPixmap, TQ_SIGNAL(backgroundUpdated(const TQPixmap &)), this, TQ_SLOT(slotPaintBackground(const TQPixmap &)));
 		m_rootPixmap->setCustomPainting(true);
 		m_rootPixmap->start();
 	}
@@ -305,9 +305,9 @@ LockProcess::LockProcess()
 	TDEGenericHardwareList cardReaderList = hwdevices->listByDeviceClass(TDEGenericDeviceType::CryptographicCard);
 	for (hwdevice = cardReaderList.first(); hwdevice; hwdevice = cardReaderList.next()) {
 		TDECryptographicCardDevice* cdevice = static_cast<TDECryptographicCardDevice*>(hwdevice);
-		// connect(cdevice, SIGNAL(pinRequested(TQString,TDECryptographicCardDevice*)), this, SLOT(cryptographicCardPinRequested(TQString,TDECryptographicCardDevice*)));
-		connect(cdevice, TQT_SIGNAL(certificateListAvailable(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardInserted(TDECryptographicCardDevice*)));
-		connect(cdevice, TQT_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
+		// connect(cdevice, TQ_SIGNAL(pinRequested(TQString,TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardPinRequested(TQString,TDECryptographicCardDevice*)));
+		connect(cdevice, TQ_SIGNAL(certificateListAvailable(TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardInserted(TDECryptographicCardDevice*)));
+		connect(cdevice, TQ_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
 		cdevice->enableCardMonitoring(true);
 		// cdevice->enablePINEntryCallbacks(true);
 	}
@@ -388,12 +388,12 @@ void LockProcess::init(bool child, bool useBlankOnly)
 	generateBackingImages();
 
 	// Connect all signals
-	connect( mForceContinualLockDisplayTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(displayLockDialogIfNeeded()) );
-	connect( mHackDelayStartupTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(closeDialogAndStartHack()) );
-	connect( mEnsureVRootWindowSecurityTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(repaintRootWindowIfNeeded()) );
-	connect(tqApp, TQT_SIGNAL(mouseInteraction(XEvent *)), TQT_SLOT(slotMouseActivity(XEvent *)));
-	connect(&mHackProc, TQT_SIGNAL(processExited(TDEProcess *)), TQT_SLOT(hackExited(TDEProcess *)));
-	connect(&mSuspendTimer, TQT_SIGNAL(timeout()), TQT_SLOT(suspend()));
+	connect( mForceContinualLockDisplayTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(displayLockDialogIfNeeded()) );
+	connect( mHackDelayStartupTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(closeDialogAndStartHack()) );
+	connect( mEnsureVRootWindowSecurityTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(repaintRootWindowIfNeeded()) );
+	connect(tqApp, TQ_SIGNAL(mouseInteraction(XEvent *)), TQ_SLOT(slotMouseActivity(XEvent *)));
+	connect(&mHackProc, TQ_SIGNAL(processExited(TDEProcess *)), TQ_SLOT(hackExited(TDEProcess *)));
+	connect(&mSuspendTimer, TQ_SIGNAL(timeout()), TQ_SLOT(suspend()));
 
 #ifdef HAVE_DPMS
 	//if the user decided that the screensaver should run independent from
@@ -403,7 +403,7 @@ void LockProcess::init(bool child, bool useBlankOnly)
 		CARD16 state;
 		if (DPMSInfo(tqt_xdisplay(), &state, &on)) {
 			if (on) {
-				connect(&mCheckDPMS, TQT_SIGNAL(timeout()), TQT_SLOT(checkDPMSActive()));
+				connect(&mCheckDPMS, TQ_SIGNAL(timeout()), TQ_SLOT(checkDPMSActive()));
 				// we can save CPU if we stop it as quickly as possible
 				// but we waste CPU if we check too often -> so take 10s
 				mCheckDPMS.start(10000);
@@ -413,7 +413,7 @@ void LockProcess::init(bool child, bool useBlankOnly)
 #endif
 
 #if (TQT_VERSION-0 >= 0x030200) // XRANDR support
-	connect( kapp->desktop(), TQT_SIGNAL( resized( int )), TQT_SLOT( desktopResized()));
+	connect( kapp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized()));
 #endif
 
 	if (!trinity_desktop_lock_use_system_modal_dialogs) {
@@ -435,8 +435,8 @@ void LockProcess::init(bool child, bool useBlankOnly)
 	mControlPipeHandler = new ControlPipeHandlerObject();
 	mControlPipeHandler->mParent = this;
 	mControlPipeHandler->moveToThread(mControlPipeHandlerThread);
-	TQObject::connect(mControlPipeHandler, SIGNAL(processCommand(TQString)), this, SLOT(processInputPipeCommand(TQString)));
-	TQTimer::singleShot(0, mControlPipeHandler, SLOT(run()));
+	TQObject::connect(mControlPipeHandler, TQ_SIGNAL(processCommand(TQString)), this, TQ_SLOT(processInputPipeCommand(TQString)));
+	TQTimer::singleShot(0, mControlPipeHandler, TQ_SLOT(run()));
 	mControlPipeHandlerThread->start();
 }
 
@@ -534,7 +534,7 @@ void LockProcess::setupSignals()
 		// Error handler to shut up gcc warnings
 	}
 	TQSocketNotifier* notif = new TQSocketNotifier(signal_pipe[0], TQSocketNotifier::Read, this );
-	connect( notif, TQT_SIGNAL(activated(int)), TQT_SLOT(signalPipeSignal()));
+	connect( notif, TQ_SIGNAL(activated(int)), TQ_SLOT(signalPipeSignal()));
 }
 
 
@@ -577,7 +577,7 @@ bool LockProcess::lock()
 		// selecting "lock screen", that looks really untidy.
 		mBusy = true;
 		if (startLock()) {
-			TQTimer::singleShot(1000, this, TQT_SLOT(slotDeadTimePassed()));
+			TQTimer::singleShot(1000, this, TQ_SLOT(slotDeadTimePassed()));
 			return true;
 		}
 		stopSaver();
@@ -598,7 +598,7 @@ bool LockProcess::defaultSave()
 	mOverrideHackStartupEnabled = true;
 	if (startSaver()) {
 		if (mLockGrace >= 0) {
-			TQTimer::singleShot(mLockGrace, this, TQT_SLOT(startLock()));
+			TQTimer::singleShot(mLockGrace, this, TQ_SLOT(startLock()));
 		}
 		return true;
 	}
@@ -618,7 +618,7 @@ void LockProcess::quitSaver()
 {
 	DISABLE_CONTINUOUS_LOCKDLG_DISPLAY
 	if (closeCurrentWindow()) {
-		TQTimer::singleShot( 0, this, SLOT(quitSaver()) );
+		TQTimer::singleShot( 0, this, TQ_SLOT(quitSaver()) );
 		return;
 	}
 	stopSaver();
@@ -629,7 +629,7 @@ void LockProcess::quitSaver()
 void LockProcess::startSecureDialog()
 {
 	if ((backingPixmap.isNull()) && (mBackingStartupDelayTimer < 100)) {
-		TQTimer::singleShot(10, this, TQT_SLOT(startSecureDialog()));
+		TQTimer::singleShot(10, this, TQ_SLOT(startSecureDialog()));
 		mBackingStartupDelayTimer++;
 		return;
 	}
@@ -668,7 +668,7 @@ void LockProcess::startSecureDialog()
 				mBusy = false;
 			}
 			else {
-				TQTimer::singleShot(1000, this, TQT_SLOT(slotDeadTimePassed()));
+				TQTimer::singleShot(1000, this, TQ_SLOT(slotDeadTimePassed()));
 			}
 			if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced && trinity_desktop_lock_use_system_modal_dialogs) {
 				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
@@ -728,7 +728,7 @@ bool LockProcess::runSecureDialog()
 	mInSecureDialog = true;
 	if (startSaver()) {
 		mBackingStartupDelayTimer = 0;
-		TQTimer::singleShot(0, this, TQT_SLOT(startSecureDialog()));
+		TQTimer::singleShot(0, this, TQ_SLOT(startSecureDialog()));
 		return true;
 	}
 	else {
@@ -1040,7 +1040,7 @@ void LockProcess::desktopResized()
 		}
 		else {
 			mEnsureScreenHiddenTimer = new TQTimer( this );
-			connect( mEnsureScreenHiddenTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotForcePaintBackground()) );
+			connect( mEnsureScreenHiddenTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(slotForcePaintBackground()) );
 		}
 		mEnsureScreenHiddenTimer->start(DESKTOP_WALLPAPER_OBTAIN_TIMEOUT_MS, true);
 	}
@@ -1063,7 +1063,7 @@ void LockProcess::desktopResized()
 	// being displayed, so we finish the hack restarting/display prettying operations in a separate timed slot
 	if (resizeTimer == NULL) {
 		resizeTimer = new TQTimer( this );
-		connect( resizeTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(doDesktopResizeFinish()) );
+		connect( resizeTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(doDesktopResizeFinish()) );
 	}
 	resizeTimer->start( 100, TRUE ); // 100 millisecond single shot timer; should allow display switching operations to finish before hack is started
 }
@@ -1075,7 +1075,7 @@ void LockProcess::doDesktopResizeFinish()
 	}
 	mDialogControlLock = true;
 	if (closeCurrentWindow()) {
-		TQTimer::singleShot( 0, this, SLOT(doDesktopResizeFinish()) );
+		TQTimer::singleShot( 0, this, TQ_SLOT(doDesktopResizeFinish()) );
 		mDialogControlLock = false;
 		return;
 	}
@@ -1354,7 +1354,7 @@ bool LockProcess::startSaver(bool notify_ready)
 
 	if (mParent) {
 		TQSocketNotifier *notifier = new TQSocketNotifier(mParent, TQSocketNotifier::Read, this, "notifier");
-		connect(notifier, TQT_SIGNAL( activated (int)), TQT_SLOT( quitSaver()));
+		connect(notifier, TQ_SIGNAL( activated (int)), TQ_SLOT( quitSaver()));
 	}
 	createSaverWindow();
 	move(0, 0);
@@ -1542,7 +1542,7 @@ void LockProcess::closeDialogAndStartHack()
 	DISABLE_CONTINUOUS_LOCKDLG_DISPLAY
 	mSuspended = true;
 	if (closeCurrentWindow()) {
-		TQTimer::singleShot( 0, this, SLOT(closeDialogAndStartHack()) );
+		TQTimer::singleShot( 0, this, TQ_SLOT(closeDialogAndStartHack()) );
 	}
 	else {
 		resume(true);
@@ -1669,7 +1669,7 @@ bool LockProcess::startHack()
 				if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced) {
 					// Close any active dialogs
 					if (closeCurrentWindow()) {
-						TQTimer::singleShot( 0, this, SLOT(closeCurrentWindow()) );
+						TQTimer::singleShot( 0, this, TQ_SLOT(closeCurrentWindow()) );
 					}
 				}
 				if (m_startupStatusDialog) { m_startupStatusDialog->closeSMDialog(); m_startupStatusDialog=NULL; }
@@ -2026,7 +2026,7 @@ int LockProcess::execDialog( TQDialog *dlg )
 			// Slight delay before screensaver resume to allow the dialog window to fully disappear
 			if (hackResumeTimer == NULL) {
 				hackResumeTimer = new TQTimer( this );
-				connect( hackResumeTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(resumeUnforced()) );
+				connect( hackResumeTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(resumeUnforced()) );
 			}
 			if (mResizingDesktopLock == false) {
 				hackResumeTimer->start( 10, TRUE );
@@ -2065,7 +2065,7 @@ void LockProcess::slotPaintBackground(const TQPixmap &rpm)
 	}
 	else {
 		mEnsureScreenHiddenTimer = new TQTimer( this );
-		connect( mEnsureScreenHiddenTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotForcePaintBackground()) );
+		connect( mEnsureScreenHiddenTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(slotForcePaintBackground()) );
 	}
 
 	// Only remove the mask widget once the resize is 100% complete!
@@ -2127,7 +2127,7 @@ void LockProcess::doFunctionKeyBroadcast() {
 	// This does NOT work with the SAK or system modal dialogs!
 	if ((!trinity_desktop_lock_use_system_modal_dialogs) && (!trinity_desktop_lock_use_sak)) {
 		mBusy=true;
-		TQTimer::singleShot(1000, this, TQT_SLOT(slotDeadTimePassed()));
+		TQTimer::singleShot(1000, this, TQ_SLOT(slotDeadTimePassed()));
 		if (mkeyCode == XKeysymToKeycode(tqt_xdisplay(), XF86XK_Display)) {
 			while (mDialogControlLock == true) {
 				usleep(100000);
@@ -2167,7 +2167,7 @@ bool LockProcess::x11Event(XEvent *event)
 			(event->xkey.keycode == XKeysymToKeycode(event->xkey.display, XF86XK_AudioRaiseVolume)) || \
 			(event->xkey.keycode == XKeysymToKeycode(event->xkey.display, XF86XK_AudioLowerVolume))) {
 			mkeyCode = event->xkey.keycode;
-			TQTimer::singleShot( 100, this, TQT_SLOT(doFunctionKeyBroadcast()) );
+			TQTimer::singleShot( 100, this, TQ_SLOT(doFunctionKeyBroadcast()) );
 			return true;
 		}
 		// ACPI power keys
@@ -2176,7 +2176,7 @@ bool LockProcess::x11Event(XEvent *event)
 			(event->xkey.keycode == XKeysymToKeycode(event->xkey.display, XF86XK_Suspend)) || \
 			(event->xkey.keycode == XKeysymToKeycode(event->xkey.display, XF86XK_Hibernate))) {
 			mkeyCode = event->xkey.keycode;
-			TQTimer::singleShot( 100, this, TQT_SLOT(doFunctionKeyBroadcast()) );
+			TQTimer::singleShot( 100, this, TQ_SLOT(doFunctionKeyBroadcast()) );
 			return true;
 		}
 	}
@@ -2442,7 +2442,7 @@ void LockProcess::msgBox( TQMessageBox::Icon type, const TQString &txt )
 	KPushButton *button = new KPushButton( KStdGuiItem::ok(), winFrame );
 	button->setDefault( true );
 	button->setSizePolicy( TQSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Preferred ) );
-	connect( button, TQT_SIGNAL( clicked() ), &box, TQT_SLOT( accept() ) );
+	connect( button, TQ_SIGNAL( clicked() ), &box, TQ_SLOT( accept() ) );
 
 	TQVBoxLayout *vbox = new TQVBoxLayout( &box );
 	vbox->addWidget( winFrame );
@@ -2464,7 +2464,7 @@ void LockProcess::showVkbd()
 		mVkbdWindows.clear();
 		mVkbdLastEventWindow = None;
 		mKWinModule = new KWinModule( NULL, KWinModule::INFO_WINDOWS );
-		connect( mKWinModule, TQT_SIGNAL( windowAdded( WId )), TQT_SLOT( windowAdded( WId )));
+		connect( mKWinModule, TQ_SIGNAL( windowAdded( WId )), TQ_SLOT( windowAdded( WId )));
 		mVkbdProcess = new TDEProcess;
 		*mVkbdProcess << "xvkbd" << "-compact" << "-geometry" << "-0-0" << "-xdm";
 		mVkbdProcess->start();
@@ -2849,11 +2849,11 @@ void LockProcess::cryptographicCardInserted(TDECryptographicCardDevice* cdevice)
 			m_loginCardDevice = cdevice;
 			if (dynamic_cast<SAKDlg*>(currentDialog)) {
 				dynamic_cast<SAKDlg*>(currentDialog)->closeDialogForced();
-				TQTimer::singleShot(0, this, SLOT(signalPassDlgToAttemptCardLogin()));
+				TQTimer::singleShot(0, this, TQ_SLOT(signalPassDlgToAttemptCardLogin()));
 			}
 			else if (dynamic_cast<SecureDlg*>(currentDialog)) {
 				dynamic_cast<SecureDlg*>(currentDialog)->closeDialogForced();
-				TQTimer::singleShot(0, this, SLOT(signalPassDlgToAttemptCardLogin()));
+				TQTimer::singleShot(0, this, TQ_SLOT(signalPassDlgToAttemptCardLogin()));
 			}
 			else if (dynamic_cast<PasswordDlg*>(currentDialog)) {
 				signalPassDlgToAttemptCardLogin();
@@ -2871,7 +2871,7 @@ void LockProcess::cryptographicCardRemoved(TDECryptographicCardDevice* cdevice) 
 	}
 	else {
 		m_loginCardDevice = NULL;
-		TQTimer::singleShot(0, this, SLOT(signalPassDlgToAttemptCardAbort()));
+		TQTimer::singleShot(0, this, TQ_SLOT(signalPassDlgToAttemptCardAbort()));
 	}
 #endif
 }
@@ -2886,7 +2886,7 @@ void LockProcess::signalPassDlgToAttemptCardLogin()
 	else {
 		if (currentDialog && m_loginCardDevice) {
 			// Try again later
-			TQTimer::singleShot(0, this, SLOT(signalPassDlgToAttemptCardLogin()));
+			TQTimer::singleShot(0, this, TQ_SLOT(signalPassDlgToAttemptCardLogin()));
 		}
 	}
 #endif
@@ -2902,7 +2902,7 @@ void LockProcess::signalPassDlgToAttemptCardAbort()
 	else {
 		if (currentDialog) {
 			// Try again later
-			TQTimer::singleShot(0, this, SLOT(signalPassDlgToAttemptCardAbort()));
+			TQTimer::singleShot(0, this, TQ_SLOT(signalPassDlgToAttemptCardAbort()));
 		}
 	}
 #endif

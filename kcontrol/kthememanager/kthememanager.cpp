@@ -66,26 +66,26 @@ kthememanager::kthememanager( TQWidget *parent, const char *name )
 
     dlg->lvThemes->setColumnWidthMode( 0, TQListView::Maximum );
 
-    connect( ( TQObject * )dlg->btnInstall, TQT_SIGNAL( clicked() ),
-             this, TQT_SLOT( slotInstallTheme() ) );
+    connect( ( TQObject * )dlg->btnInstall, TQ_SIGNAL( clicked() ),
+             this, TQ_SLOT( slotInstallTheme() ) );
 
-    connect( ( TQObject * )dlg->btnRemove, TQT_SIGNAL( clicked() ),
-             this, TQT_SLOT( slotRemoveTheme() ) );
+    connect( ( TQObject * )dlg->btnRemove, TQ_SIGNAL( clicked() ),
+             this, TQ_SLOT( slotRemoveTheme() ) );
 
-    connect( ( TQObject * )dlg->btnCreate, TQT_SIGNAL( clicked() ),
-             this, TQT_SLOT( slotCreateTheme() ) );
+    connect( ( TQObject * )dlg->btnCreate, TQ_SIGNAL( clicked() ),
+             this, TQ_SLOT( slotCreateTheme() ) );
 
-    connect( ( TQObject * )dlg->lvThemes, TQT_SIGNAL( clicked( TQListViewItem * ) ),
-             this, TQT_SLOT( slotThemeChanged( TQListViewItem * ) ) );
+    connect( ( TQObject * )dlg->lvThemes, TQ_SIGNAL( clicked( TQListViewItem * ) ),
+             this, TQ_SLOT( slotThemeChanged( TQListViewItem * ) ) );
 
-    connect( ( TQObject * )dlg->lvThemes, TQT_SIGNAL( currentChanged( TQListViewItem * ) ),
-             this, TQT_SLOT( slotThemeChanged( TQListViewItem * ) ) );
+    connect( ( TQObject * )dlg->lvThemes, TQ_SIGNAL( currentChanged( TQListViewItem * ) ),
+             this, TQ_SLOT( slotThemeChanged( TQListViewItem * ) ) );
 
-    connect( this, TQT_SIGNAL( filesDropped( const KURL::List& ) ),
-             this, TQT_SLOT( updateButton() ) );
+    connect( this, TQ_SIGNAL( filesDropped( const KURL::List& ) ),
+             this, TQ_SLOT( updateButton() ) );
 
-    connect( ( TQObject * )dlg->lvThemes, TQT_SIGNAL( clicked( TQListViewItem * ) ),
-             this, TQT_SLOT( updateButton() ) );
+    connect( ( TQObject * )dlg->lvThemes, TQ_SIGNAL( clicked( TQListViewItem * ) ),
+             this, TQ_SLOT( updateButton() ) );
 
     m_origTheme = new KTheme( this, true ); // stores the defaults to get back to
     m_origTheme->setName( ORIGINAL_THEME );

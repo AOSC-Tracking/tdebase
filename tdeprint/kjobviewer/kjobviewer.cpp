@@ -39,7 +39,7 @@ class JobTray : public KSystemTray
 {
 public:
 	JobTray(KJobViewerApp *parent, const char *name = 0)
-		: KSystemTray(0, name), m_app(parent) { connect( this, TQT_SIGNAL( quitSelected() ), kapp, TQT_SLOT( quit() ) ); }
+		: KSystemTray(0, name), m_app(parent) { connect( this, TQ_SIGNAL( quitSelected() ), kapp, TQ_SLOT( quit() ) ); }
 protected:
 	void mousePressEvent(TQMouseEvent*);
 private:
@@ -120,7 +120,7 @@ void KJobViewerApp::initialize()
 	if (!m_timer)
 	{
 		m_timer = KMTimer::self();
-		connect(m_timer,TQT_SIGNAL(timeout()),TQT_SLOT(slotTimer()));
+		connect(m_timer,TQ_SIGNAL(timeout()),TQ_SLOT(slotTimer()));
 	}
 
 	if (prname.isEmpty() && all)
@@ -149,10 +149,10 @@ void KJobViewerApp::initialize()
         {
             kdDebug() << "creating new view: " << TQString(prname) << endl;
             view = new KMJobViewer();
-            connect(view, TQT_SIGNAL(jobsShown(KMJobViewer*,bool)), TQT_SLOT(slotJobsShown(KMJobViewer*,bool)));
-            connect(view, TQT_SIGNAL(printerChanged(KMJobViewer*,const TQString&)), TQT_SLOT(slotPrinterChanged(KMJobViewer*,const TQString&)));
-            connect(view, TQT_SIGNAL(refreshClicked()), TQT_SLOT(slotTimer()));
-            connect(view, TQT_SIGNAL(viewerDestroyed(KMJobViewer*)), TQT_SLOT(slotViewerDestroyed(KMJobViewer*)));
+            connect(view, TQ_SIGNAL(jobsShown(KMJobViewer*,bool)), TQ_SLOT(slotJobsShown(KMJobViewer*,bool)));
+            connect(view, TQ_SIGNAL(printerChanged(KMJobViewer*,const TQString&)), TQ_SLOT(slotPrinterChanged(KMJobViewer*,const TQString&)));
+            connect(view, TQ_SIGNAL(refreshClicked()), TQ_SLOT(slotTimer()));
+            connect(view, TQ_SIGNAL(viewerDestroyed(KMJobViewer*)), TQ_SLOT(slotViewerDestroyed(KMJobViewer*)));
             m_views.insert(prname, view);
         }
 

@@ -40,8 +40,8 @@ PanelRemoveButtonMenu::PanelRemoveButtonMenu( ContainerArea* cArea,
                                               TQWidget *parent, const char *name )
     : TQPopupMenu( parent, name ), containerArea( cArea )
 {
-    connect(this, TQT_SIGNAL(activated(int)), TQT_SLOT(slotExec(int)));
-    connect(this, TQT_SIGNAL(aboutToShow()), TQT_SLOT(slotAboutToShow()));
+    connect(this, TQ_SIGNAL(activated(int)), TQ_SLOT(slotExec(int)));
+    connect(this, TQ_SIGNAL(aboutToShow()), TQ_SLOT(slotAboutToShow()));
 }
 
 void PanelRemoveButtonMenu::addToContainers(const TQString& type)
@@ -89,7 +89,7 @@ void PanelRemoveButtonMenu::slotAboutToShow()
     if (containers.count() > 1)
     {
         insertSeparator();
-        insertItem(i18n("All"), this, TQT_SLOT(slotRemoveAll()), 0, id);
+        insertItem(i18n("All"), this, TQ_SLOT(slotRemoveAll()), 0, id);
     }
 }
 

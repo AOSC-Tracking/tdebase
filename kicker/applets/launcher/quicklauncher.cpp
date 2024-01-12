@@ -108,10 +108,10 @@ QuickLauncher::QuickLauncher(const TQString& configFile, Type type, int actions,
     m_dragButtons = 0;
 
     m_configAction = new TDEAction(i18n("Configure Quicklauncher..."), "configure", TDEShortcut(),
-        this, TQT_SLOT(slotConfigure()), this);
+        this, TQ_SLOT(slotConfigure()), this);
 
     m_saveTimer = new TQTimer(this, "m_saveTimer");
-    connect(m_saveTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(saveConfig()));
+    connect(m_saveTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(saveConfig()));
 
     m_popularity = new PopularityStatistics();
 
@@ -168,15 +168,15 @@ void QuickLauncher::buildPopupMenu()
     m_appletPopup = new TQPopupMenu(this);
     m_appletPopup->insertItem(i18n("Add Application"), addAppsMenu);
     m_removeAppsMenu = new TQPopupMenu(this);
-    connect(m_removeAppsMenu, TQT_SIGNAL(aboutToShow()),
-            TQT_SLOT(fillRemoveAppsMenu()));
-    connect(m_removeAppsMenu, TQT_SIGNAL(activated(int)), 
-            TQT_SLOT(removeAppManually(int)));
+    connect(m_removeAppsMenu, TQ_SIGNAL(aboutToShow()),
+            TQ_SLOT(fillRemoveAppsMenu()));
+    connect(m_removeAppsMenu, TQ_SIGNAL(activated(int)), 
+            TQ_SLOT(removeAppManually(int)));
     m_appletPopup->insertItem(i18n("Remove Application"), m_removeAppsMenu);
 
     m_appletPopup->insertSeparator();
     m_appletPopup->setCheckable( true );
-    m_appletPopup->insertItem(i18n("About"), this, TQT_SLOT(about()));
+    m_appletPopup->insertItem(i18n("About"), this, TQ_SLOT(about()));
     setCustomMenu(m_appletPopup);
 }
 
@@ -235,8 +235,8 @@ void QuickLauncher::slotConfigure()
         m_configDialog = new ConfigDlg(this, "configdialog", 
             m_settings, SIZE_AUTO, KDialogBase::Plain, KDialogBase::Ok | 
             KDialogBase::Cancel | KDialogBase::Apply | KDialogBase::Default);
-        connect(m_configDialog, TQT_SIGNAL(settingsChanged()),
-            this, TQT_SLOT(slotSettingsDialogChanged()));
+        connect(m_configDialog, TQ_SIGNAL(settingsChanged()),
+            this, TQ_SLOT(slotSettingsDialogChanged()));
     }
 
     m_configDialog->show();
@@ -392,10 +392,10 @@ void QuickLauncher::addApp(TQString url, bool manuallyAdded)
 QuickButton* QuickLauncher::createButton(TQString url)
 {
     QuickButton* newButton=new QuickButton(url, m_configAction, this);
-    connect(newButton, TQT_SIGNAL(executed(TQString)), 
-            this, TQT_SLOT(slotOwnServiceExecuted(TQString)));
-    connect(newButton, TQT_SIGNAL(stickyToggled(bool)), 
-            this, TQT_SLOT(slotStickyToggled()));
+    connect(newButton, TQ_SIGNAL(executed(TQString)), 
+            this, TQ_SLOT(slotOwnServiceExecuted(TQString)));
+    connect(newButton, TQ_SIGNAL(stickyToggled(bool)), 
+            this, TQ_SLOT(slotStickyToggled()));
     newButton->setPopupDirection(popupDirection());
     return newButton;
 }
@@ -973,7 +973,7 @@ void QuickLauncher::serviceStartedByStorageId(TQString /*starter*/, TQString sto
 
     if (m_settings->autoAdjustEnabled())
     {
-        TQTimer::singleShot(0, this, TQT_SLOT(slotAdjustToCurrentPopularity()));
+        TQTimer::singleShot(0, this, TQ_SLOT(slotAdjustToCurrentPopularity()));
     }
 }
 
@@ -1047,7 +1047,7 @@ void QuickLauncher::slotOwnServiceExecuted(TQString serviceMenuId)
     m_popularity->useService(serviceMenuId);
     if (m_settings->autoAdjustEnabled())
     {
-        TQTimer::singleShot(0, this, TQT_SLOT(slotAdjustToCurrentPopularity()));
+        TQTimer::singleShot(0, this, TQ_SLOT(slotAdjustToCurrentPopularity()));
     }
 }
 

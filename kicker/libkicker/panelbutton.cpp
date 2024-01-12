@@ -93,8 +93,8 @@ PanelButton::PanelButton( TQWidget* parent, const char* name, bool forceStandard
 
     installEventFilter(KickerTip::the());
 
-    connect(kapp, TQT_SIGNAL(settingsChanged(int)), TQT_SLOT(updateSettings(int)));
-    connect(kapp, TQT_SIGNAL(iconChanged(int)), TQT_SLOT(updateIcon(int)));
+    connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(updateSettings(int)));
+    connect(kapp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(updateIcon(int)));
 }
 
 void PanelButton::configure()
@@ -245,7 +245,7 @@ void PanelButton::checkForDeletion(const TQString& path)
     if (path == m_backingFile)
     {
         setEnabled(false);
-        TQTimer::singleShot(1000, this, TQT_SLOT(scheduleForRemoval()));
+        TQTimer::singleShot(1000, this, TQ_SLOT(scheduleForRemoval()));
     }
 }
 
@@ -278,7 +278,7 @@ void PanelButton::scheduleForRemoval()
         }
 
         timelapse *= 2;
-        TQTimer::singleShot(timelapse, this, TQT_SLOT(scheduleForRemoval()));
+        TQTimer::singleShot(timelapse, this, TQ_SLOT(scheduleForRemoval()));
     }
 }
 
@@ -833,16 +833,16 @@ void PanelButton::backedByFile(const TQString& localFilePath)
     }
 
     // avoid multiple connections
-    disconnect(KDirWatch::self(), TQT_SIGNAL(deleted(const TQString&)),
-               this, TQT_SLOT(checkForDeletion(const TQString&)));
+    disconnect(KDirWatch::self(), TQ_SIGNAL(deleted(const TQString&)),
+               this, TQ_SLOT(checkForDeletion(const TQString&)));
 
     if (!KDirWatch::self()->contains(m_backingFile))
     {
         KDirWatch::self()->addFile(m_backingFile);
     }
 
-    connect(KDirWatch::self(), TQT_SIGNAL(deleted(const TQString&)),
-            this, TQT_SLOT(checkForDeletion(const TQString&)));
+    connect(KDirWatch::self(), TQ_SIGNAL(deleted(const TQString&)),
+            this, TQ_SLOT(checkForDeletion(const TQString&)));
 
 }
 
@@ -966,7 +966,7 @@ PanelPopupButton::PanelPopupButton(TQWidget *parent, const char *name, bool forc
     m_pressedDuringPopup(false),
     m_initialized(false)
 {
-    connect(this, TQT_SIGNAL(pressed()), TQT_SLOT(slotExecMenu()));
+    connect(this, TQ_SIGNAL(pressed()), TQ_SLOT(slotExecMenu()));
 }
 
 void PanelPopupButton::setPopup(TQWidget *popup)
@@ -974,7 +974,7 @@ void PanelPopupButton::setPopup(TQWidget *popup)
     if (m_popup)
     {
         m_popup->removeEventFilter(this);
-        disconnect(m_popup, TQT_SIGNAL(aboutToHide()), this, TQT_SLOT(menuAboutToHide()));
+        disconnect(m_popup, TQ_SIGNAL(aboutToHide()), this, TQ_SLOT(menuAboutToHide()));
     }
 
     m_popup = popup;
@@ -983,7 +983,7 @@ void PanelPopupButton::setPopup(TQWidget *popup)
     if (m_popup)
     {
         m_popup->installEventFilter(this);
-        connect(m_popup, TQT_SIGNAL(aboutToHide()), this, TQT_SLOT(menuAboutToHide()));
+        connect(m_popup, TQ_SIGNAL(aboutToHide()), this, TQ_SLOT(menuAboutToHide()));
     }
 }
 

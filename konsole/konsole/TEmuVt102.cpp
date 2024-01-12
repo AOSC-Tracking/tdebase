@@ -81,10 +81,10 @@
 TEmuVt102::TEmuVt102(TEWidget* gui) : TEmulation(gui)
 {
   //kdDebug(1211)<<"TEmuVt102 ctor() connecting"<<endl;
-  TQObject::connect(gui,TQT_SIGNAL(mouseSignal(int,int,int)),
-                   this,TQT_SLOT(onMouse(int,int,int)));
-  TQObject::connect(gui, TQT_SIGNAL(sendStringToEmu(const char*)),
-		   this, TQT_SLOT(sendString(const char*)));
+  TQObject::connect(gui,TQ_SIGNAL(mouseSignal(int,int,int)),
+                   this,TQ_SLOT(onMouse(int,int,int)));
+  TQObject::connect(gui, TQ_SIGNAL(sendStringToEmu(const char*)),
+		   this, TQ_SLOT(sendString(const char*)));
   //kdDebug(1211)<<"TEmuVt102 ctor() initToken..."<<endl;
   initTokenizer();
   //kdDebug(1211)<<"TEmuVt102 ctor() reset()"<<endl;
@@ -100,16 +100,16 @@ void TEmuVt102::changeGUI(TEWidget* newgui)
   if (static_cast<TEWidget *>( gui )==newgui) return;
 
   if ( gui ) {
-    TQObject::disconnect(gui,TQT_SIGNAL(mouseSignal(int,int,int)),
-                        this,TQT_SLOT(onMouse(int,int,int)));
-    TQObject::disconnect(gui, TQT_SIGNAL(sendStringToEmu(const char*)),
-                        this, TQT_SLOT(sendString(const char*)));
+    TQObject::disconnect(gui,TQ_SIGNAL(mouseSignal(int,int,int)),
+                        this,TQ_SLOT(onMouse(int,int,int)));
+    TQObject::disconnect(gui, TQ_SIGNAL(sendStringToEmu(const char*)),
+                        this, TQ_SLOT(sendString(const char*)));
   }
   TEmulation::changeGUI(newgui);
-  TQObject::connect(gui,TQT_SIGNAL(mouseSignal(int,int,int)),
-                   this,TQT_SLOT(onMouse(int,int,int)));
-  TQObject::connect(gui, TQT_SIGNAL(sendStringToEmu(const char*)),
-		   this, TQT_SLOT(sendString(const char*)));
+  TQObject::connect(gui,TQ_SIGNAL(mouseSignal(int,int,int)),
+                   this,TQ_SLOT(onMouse(int,int,int)));
+  TQObject::connect(gui, TQ_SIGNAL(sendStringToEmu(const char*)),
+		   this, TQ_SLOT(sendString(const char*)));
 }
 
 /*!
@@ -1204,8 +1204,8 @@ void TEmuVt102::setConnect(bool c)
   TEmulation::setConnect(c);
   if (gui)
   {
-    TQObject::disconnect(gui, TQT_SIGNAL(sendStringToEmu(const char*)),
-                        this, TQT_SLOT(sendString(const char*)));
+    TQObject::disconnect(gui, TQ_SIGNAL(sendStringToEmu(const char*)),
+                        this, TQ_SLOT(sendString(const char*)));
   }
   if (c)
   { // refresh mouse mode
@@ -1219,8 +1219,8 @@ void TEmuVt102::setConnect(bool c)
     else
       scrolllock_set_off();
 #endif
-    TQObject::connect(gui, TQT_SIGNAL(sendStringToEmu(const char*)),
-                     this, TQT_SLOT(sendString(const char*)));
+    TQObject::connect(gui, TQ_SIGNAL(sendStringToEmu(const char*)),
+                     this, TQ_SLOT(sendString(const char*)));
   }
 }
 

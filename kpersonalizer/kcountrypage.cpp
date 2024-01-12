@@ -37,8 +37,8 @@ KCountryPage::KCountryPage(TQWidget *parent, const char *name ) : KCountryPageDl
 
 	px_introSidebar->setPixmap(UserIcon("step1.png"));
 
-	connect(cb_country, TQT_SIGNAL(activated(const TQString &)), TQT_SLOT(setLangForCountry(const TQString &)));
-	connect(cb_language, TQT_SIGNAL(activated(const TQString &)), TQT_SLOT(setLanguageChanged()));
+	connect(cb_country, TQ_SIGNAL(activated(const TQString &)), TQ_SLOT(setLangForCountry(const TQString &)));
+	connect(cb_language, TQ_SIGNAL(activated(const TQString &)), TQ_SLOT(setLanguageChanged()));
 
 	// naturally, the language is not changed on startup
 	b_savedLanguageChanged = false;

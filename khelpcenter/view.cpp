@@ -35,10 +35,10 @@ View::View( TQWidget *parentWidget, const char *widgetName,
 
     m_zoomStepping = 10;
 
-    connect( this, TQT_SIGNAL( setWindowCaption( const TQString & ) ),
-             this, TQT_SLOT( setTitle( const TQString & ) ) );
-    connect( this, TQT_SIGNAL( popupMenu( const TQString &, const TQPoint& ) ),
-             this, TQT_SLOT( showMenu( const TQString &, const TQPoint& ) ) );
+    connect( this, TQ_SIGNAL( setWindowCaption( const TQString & ) ),
+             this, TQ_SLOT( setTitle( const TQString & ) ) );
+    connect( this, TQ_SIGNAL( popupMenu( const TQString &, const TQPoint& ) ),
+             this, TQ_SLOT( showMenu( const TQString &, const TQPoint& ) ) );
              
     TQString css = langLookup("common/tde-default.css");
     if (!css.isEmpty())
@@ -267,7 +267,7 @@ void View::showMenu( const TQString& url, const TQPoint& pos)
   }
   else
   {
-    pop->insertItem(i18n("Copy Link Address"), this, TQT_SLOT(slotCopyLink()));
+    pop->insertItem(i18n("Copy Link Address"), this, TQ_SLOT(slotCopyLink()));
     mCopyURL = completeURL(url).url();
   }
 	

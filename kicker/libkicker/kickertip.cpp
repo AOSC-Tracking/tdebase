@@ -80,9 +80,9 @@ KickerTip::KickerTip(TQWidget * parent)
     setBackgroundMode(NoBackground);
     resize(0, 0);
     hide();
-    connect(&m_frameTimer, TQT_SIGNAL(timeout()), TQT_SLOT(internalUpdate()));
+    connect(&m_frameTimer, TQ_SIGNAL(timeout()), TQ_SLOT(internalUpdate()));
 //     // FIXME: The settingsChanged(SettingsCategory) signal is not available under Trinity; where was it originally supposed to come from?
-//     connect(kapp, TQT_SIGNAL(settingsChanged(SettingsCategory)), TQT_SLOT(slotSettingsChanged()));
+//     connect(kapp, TQ_SIGNAL(settingsChanged(SettingsCategory)), TQ_SLOT(slotSettingsChanged()));
 }
 
 KickerTip::~KickerTip()
@@ -176,8 +176,8 @@ void KickerTip::display()
     // close the message window after given mS
     if (data.duration > 0)
     {
-        disconnect(&m_timer, TQT_SIGNAL(timeout()), 0, 0);
-        connect(&m_timer, TQT_SIGNAL(timeout()), TQT_SLOT(hide()));
+        disconnect(&m_timer, TQ_SIGNAL(timeout()), 0, 0);
+        connect(&m_timer, TQ_SIGNAL(timeout()), TQ_SLOT(hide()));
         m_timer.start(data.duration, true);
     }
     else
@@ -424,16 +424,16 @@ void KickerTip::tipFor(const TQWidget* w)
 {
     if (m_tippingFor)
     {
-        disconnect(m_tippingFor, TQT_SIGNAL(destroyed(TQObject*)),
-                   this, TQT_SLOT(tipperDestroyed(TQObject*)));
+        disconnect(m_tippingFor, TQ_SIGNAL(destroyed(TQObject*)),
+                   this, TQ_SLOT(tipperDestroyed(TQObject*)));
     }
 
     m_tippingFor = w;
 
     if (m_tippingFor)
     {
-        connect(m_tippingFor, TQT_SIGNAL(destroyed(TQObject*)),
-                this, TQT_SLOT(tipperDestroyed(TQObject*)));
+        connect(m_tippingFor, TQ_SIGNAL(destroyed(TQObject*)),
+                this, TQ_SLOT(tipperDestroyed(TQObject*)));
     }
 }
 
@@ -526,8 +526,8 @@ bool KickerTip::eventFilter(TQObject *object, TQEvent *event)
 
                 tipFor(widget);
                 m_timer.stop();
-                disconnect(&m_timer, TQT_SIGNAL(timeout()), 0, 0);
-                connect(&m_timer, TQT_SIGNAL(timeout()), TQT_SLOT(display()));
+                disconnect(&m_timer, TQ_SIGNAL(timeout()), 0, 0);
+                connect(&m_timer, TQ_SIGNAL(timeout()), TQ_SLOT(display()));
 
                 // delay to avoid false starts
                 // e.g. when the user quickly zooms their mouse over
@@ -547,8 +547,8 @@ bool KickerTip::eventFilter(TQObject *object, TQEvent *event)
 
             if (isTippingFor(widget) && isVisible())
             {
-                disconnect(&m_timer, TQT_SIGNAL(timeout()), 0, 0);
-                connect(&m_timer, TQT_SIGNAL(timeout()), TQT_SLOT(hide()));
+                disconnect(&m_timer, TQ_SIGNAL(timeout()), 0, 0);
+                connect(&m_timer, TQ_SIGNAL(timeout()), TQ_SLOT(hide()));
                 m_timer.start(KickerSettings::mouseOversHideDelay(), true);
             }
 

@@ -69,7 +69,7 @@ MediaNotifier::MediaNotifier(const TQCString &name) : KDEDModule(name)
 
 	m_notificationDialogList.setAutoDelete(FALSE);
 	m_freeTimer = new TQTimer( this );
-	connect( m_freeTimer, TQT_SIGNAL( timeout() ), TQT_SLOT( checkFreeDiskSpace() ) );
+	connect( m_freeTimer, TQ_SIGNAL( timeout() ), TQ_SLOT( checkFreeDiskSpace() ) );
 	m_freeTimer->start( 1000*6*2 /* 20 minutes */ );
 	m_freeDialog = 0;
 }
@@ -123,8 +123,8 @@ void MediaNotifier::onMediumChange( const TQString &name, bool allowNotification
 
 	m_allowNotificationMap[job] = allowNotification;
 	
-	connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ),
-	         this, TQT_SLOT( slotStatResult( TDEIO::Job * ) ) );
+	connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ),
+	         this, TQ_SLOT( slotStatResult( TDEIO::Job * ) ) );
 }
 
 void MediaNotifier::slotStatResult( TDEIO::Job *job )
@@ -347,7 +347,7 @@ void MediaNotifier::notify( KFileItem &medium )
 		if ( actions.size()>1 )
 		{
 			NotificationDialog*  notifier = new NotificationDialog( medium, settings );
-			connect(notifier, TQT_SIGNAL(destroyed(TQObject*)), this, TQT_SLOT(notificationDialogDestroyed(TQObject*)));
+			connect(notifier, TQ_SIGNAL(destroyed(TQObject*)), this, TQ_SLOT(notificationDialogDestroyed(TQObject*)));
 			m_notificationDialogList.append(notifier);
 			notifier->show();
 		}
@@ -407,8 +407,8 @@ void MediaNotifier::checkFreeDiskSpace()
                                            i18n("Do not ask again"),
                                            &checkboxResult, KMessageBox::Notify | KMessageBox::NoExec);
             m_freeDialog->show();
-            connect( m_freeDialog, TQT_SIGNAL( yesClicked() ), TQT_SLOT( slotFreeContinue() ) );
-            connect( m_freeDialog, TQT_SIGNAL( noClicked() ), TQT_SLOT( slotFreeCancel() ) );
+            connect( m_freeDialog, TQ_SIGNAL( yesClicked() ), TQ_SLOT( slotFreeContinue() ) );
+            connect( m_freeDialog, TQ_SIGNAL( noClicked() ), TQ_SLOT( slotFreeCancel() ) );
         }
     }
 }

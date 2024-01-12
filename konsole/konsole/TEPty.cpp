@@ -171,12 +171,12 @@ void TEPty::setWriteable(bool writeable)
 TEPty::TEPty()
 {
   m_bufferFull = false;
-  connect(this, TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int )),
-	  this, TQT_SLOT(dataReceived(TDEProcess *,char *, int)));
-  connect(this, TQT_SIGNAL(processExited(TDEProcess *)),
-          this, TQT_SLOT(donePty()));
-  connect(this, TQT_SIGNAL(wroteStdin(TDEProcess *)),
-          this, TQT_SLOT(writeReady()));
+  connect(this, TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int )),
+	  this, TQ_SLOT(dataReceived(TDEProcess *,char *, int)));
+  connect(this, TQ_SIGNAL(processExited(TDEProcess *)),
+          this, TQ_SLOT(donePty()));
+  connect(this, TQ_SIGNAL(wroteStdin(TDEProcess *)),
+          this, TQ_SLOT(writeReady()));
 
   setUsePty(All, false); // utmp will be overridden later
 }

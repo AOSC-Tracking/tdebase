@@ -76,8 +76,8 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   greetstr_lined = new KLineEdit(group);
   TQLabel *label = new TQLabel(greetstr_lined, i18n("&Greeting:"), group);
   hlay->addWidget(label);
-  connect(greetstr_lined, TQT_SIGNAL(textChanged(const TQString&)),
-      TQT_SLOT(changed()));
+  connect(greetstr_lined, TQ_SIGNAL(textChanged(const TQString&)),
+      TQ_SLOT(changed()));
   hlay->addWidget(greetstr_lined);
   wtstr = i18n("This is the \"headline\" for TDM's login window. You may want to "
            "put some nice greeting or information about the operating system here.<p>"
@@ -107,8 +107,8 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   logoRadio = new TQRadioButton( i18n("Sho&w logo"), group );
   TQButtonGroup *buttonGroup = new TQButtonGroup( group );
   label->setBuddy( buttonGroup );
-  connect( buttonGroup, TQT_SIGNAL(clicked(int)), TQT_SLOT(slotAreaRadioClicked(int)) );
-  connect( buttonGroup, TQT_SIGNAL(clicked(int)), TQT_SLOT(changed()) );
+  connect( buttonGroup, TQ_SIGNAL(clicked(int)), TQ_SLOT(slotAreaRadioClicked(int)) );
+  connect( buttonGroup, TQ_SIGNAL(clicked(int)), TQ_SLOT(changed()) );
   buttonGroup->hide();
   buttonGroup->insert(noneRadio, KdmNone);
   buttonGroup->insert(clockRadio, KdmClock);
@@ -128,7 +128,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   logobutton->setAutoDefault(false);
   logobutton->setAcceptDrops(true);
   logobutton->installEventFilter(this); // for drag and drop
-  connect(logobutton, TQT_SIGNAL(clicked()), TQT_SLOT(slotLogoButtonClicked()));
+  connect(logobutton, TQ_SIGNAL(clicked()), TQ_SLOT(slotLogoButtonClicked()));
   hglay->addWidget(logoLabel, 1, 0);
   hglay->addWidget(logobutton, 1, 1, TQt::AlignCenter);
   hglay->addRowSpacing(1, 110);
@@ -150,14 +150,14 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   TQLabel *xLineLabel = new TQLabel(i18n("&X:"), group);
   hglay->addWidget(xLineLabel, 0, 1);
   xLineEdit = new TQLineEdit (group);
-  connect( xLineEdit, TQT_SIGNAL( textChanged(const TQString&) ), TQT_SLOT( changed() ));
+  connect( xLineEdit, TQ_SIGNAL( textChanged(const TQString&) ), TQ_SLOT( changed() ));
   hglay->addWidget(xLineEdit, 0, 2);
   xLineLabel->setBuddy(xLineEdit);
   xLineEdit->setValidator(posValidator);
   TQLabel *yLineLabel = new TQLabel(i18n("&Y:"), group);
   hglay->addWidget(yLineLabel, 1, 1);
   yLineEdit = new TQLineEdit (group);
-  connect( yLineEdit, TQT_SIGNAL( textChanged(const TQString&) ), TQT_SLOT( changed() ));
+  connect( yLineEdit, TQ_SIGNAL( textChanged(const TQString&) ), TQ_SLOT( changed() ));
   hglay->addWidget(yLineEdit, 1, 2);
   yLineLabel->setBuddy(yLineEdit);
   yLineEdit->setValidator(posValidator);
@@ -179,7 +179,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   compositorcombo->insertItem( "", i18n("None") );
   compositorcombo->insertItem( TDE_COMPOSITOR_BINARY, i18n("Trinity compositor") );
   label = new TQLabel(compositorcombo, i18n("Compositor:"), group);
-  connect(compositorcombo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(compositorcombo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   hglay->addWidget(label, 0, 0);
   hglay->addWidget(compositorcombo, 0, 1);
   wtstr = i18n("Choose a compositor to be used in TDM.  Note that the chosen compositor will continue to run after login.");
@@ -191,7 +191,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   loadGuiStyles(guicombo);
   guicombo->listBox()->sort();
   label = new TQLabel(guicombo, i18n("GUI s&tyle:"), group);
-  connect(guicombo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(guicombo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   hglay->addWidget(label, 1, 0);
   hglay->addWidget(guicombo, 1, 1);
   wtstr = i18n("You can choose a basic GUI style here that will be "
@@ -204,7 +204,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   loadColorSchemes(colcombo);
   colcombo->listBox()->sort();
   label = new TQLabel(colcombo, i18n("&Color scheme:"), group);
-  connect(colcombo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(colcombo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   hglay->addWidget(label, 2, 0);
   hglay->addWidget(colcombo, 2, 1);
   wtstr = i18n("You can choose a basic Color Scheme here that will be "
@@ -217,7 +217,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   echocombo->insertItem("OneStar", i18n("One Star"));
   echocombo->insertItem("ThreeStars", i18n("Three Stars"));
   label = new TQLabel(echocombo, i18n("Echo &mode:"), group);
-  connect(echocombo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(echocombo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   hglay->addWidget(label, 3, 0);
   hglay->addWidget(echocombo, 3, 1);
   wtstr = i18n("You can choose whether and how TDM shows your password when you type it.");
@@ -231,7 +231,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
 
   langcombo = new KLanguageButton(group);
   loadLanguageList(langcombo);
-  connect(langcombo, TQT_SIGNAL(activated(const TQString &)), TQT_SLOT(changed()));
+  connect(langcombo, TQ_SIGNAL(activated(const TQString &)), TQ_SLOT(changed()));
   label = new TQLabel(langcombo, i18n("Languag&e:"), group);
   TQGridLayout *hbox = new TQGridLayout( group->layout(), 2, 2, KDialog::spacingHint() );
   hbox->setColStretch(1, 1);
@@ -247,7 +247,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   vbox->addWidget(group);
 
   sakbox = new TQCheckBox( i18n("Enable Secure Attention Key"), group );
-  connect( sakbox, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()) );
+  connect( sakbox, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()) );
   TQGridLayout *hbox2 = new TQGridLayout( group->layout(), 2, 2, KDialog::spacingHint() );
   hbox2->setColStretch(1, 1);
   hbox2->addWidget(sakbox, 1, 0);
@@ -266,7 +266,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   vbox->addWidget(group);
 
   kbdledbox = new TQCheckBox(i18n("Sync keyboard led status"), group);
-  connect(kbdledbox, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+  connect(kbdledbox, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
   TQGridLayout *hbox3 = new TQGridLayout(group->layout(), 2, 2, KDialog::spacingHint());
   hbox3->setColStretch(1, 1);
   hbox3->addWidget(kbdledbox, 1, 0);
@@ -277,8 +277,8 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
 
 void TDMAppearanceWidget::makeReadOnly()
 {
-    disconnect( logobutton, TQT_SIGNAL(clicked()),
-		this, TQT_SLOT(slotLogoButtonClicked()) );
+    disconnect( logobutton, TQ_SIGNAL(clicked()),
+		this, TQ_SLOT(slotLogoButtonClicked()) );
     logobutton->setAcceptDrops(false);
     greetstr_lined->setReadOnly(true);
     noneRadio->setEnabled(false);

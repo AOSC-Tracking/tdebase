@@ -265,7 +265,7 @@ TQString whatstr;
   grid = new TQGridLayout(tabSSL, 7, 2, KDialog::marginHint(),
                                        KDialog::spacingHint() );
   mUseTLS = new TQCheckBox(i18n("Enable &TLS support if supported by the server"), tabSSL);
-  connect(mUseTLS, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()));
+  connect(mUseTLS, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()));
   grid->addWidget(mUseTLS, 0, 0);
   whatstr = i18n("TLS is the newest revision of the SSL protocol."
                  " It integrates better with other protocols and has"
@@ -273,14 +273,14 @@ TQString whatstr;
   TQWhatsThis::add(mUseTLS, whatstr);
 
   mUseSSLv2 = new TQCheckBox(i18n("Enable SSLv&2"), tabSSL);
-  connect(mUseSSLv2, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()));
+  connect(mUseSSLv2, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()));
   grid->addWidget(mUseSSLv2, 1, 0);
   whatstr = i18n("SSL v2 is the second revision of the SSL protocol."
                 " It is most common to enable v2 and v3.");
   TQWhatsThis::add(mUseSSLv2, whatstr);
 
   mUseSSLv3 = new TQCheckBox(i18n("Enable SSLv&3"), tabSSL);
-  connect(mUseSSLv3, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()));
+  connect(mUseSSLv3, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()));
   grid->addWidget(mUseSSLv3, 1, 1);
   whatstr = i18n("SSL v3 is the third revision of the SSL protocol."
                 " It is most common to enable v2 and v3.");
@@ -296,8 +296,8 @@ TQString whatstr;
   SSLv2Box->setSelectionMode(TQListView::NoSelection);
 
   grid->addWidget( SSLv2Box, 2, 0 );
-  connect( mUseSSLv2, TQT_SIGNAL( toggled( bool ) ),
-	   SSLv2Box, TQT_SLOT( setEnabled( bool )));
+  connect( mUseSSLv2, TQ_SIGNAL( toggled( bool ) ),
+	   SSLv2Box, TQ_SLOT( setEnabled( bool )));
 #else
   TQLabel *nossllabel = new TQLabel(i18n("SSL ciphers cannot be configured"
                                " because this module was not linked"
@@ -321,8 +321,8 @@ TQString whatstr;
   TQWhatsThis::add(SSLv3Box, whatstr);
   SSLv3Box->setSelectionMode(TQListView::NoSelection);
   grid->addWidget(SSLv3Box, 2, 1);
-  connect( mUseSSLv3, TQT_SIGNAL( toggled( bool ) ),
-	   SSLv3Box, TQT_SLOT( setEnabled( bool )));
+  connect( mUseSSLv3, TQ_SIGNAL( toggled( bool ) ),
+	   SSLv3Box, TQ_SLOT( setEnabled( bool )));
 
   loadCiphers();
 
@@ -346,7 +346,7 @@ TQString whatstr;
 
   TQWhatsThis::add(cwcb, whatStr);
 
-  connect(cwcb, TQT_SIGNAL(activated(int)), TQT_SLOT(slotSelectCipher(int)));
+  connect(cwcb, TQ_SIGNAL(activated(int)), TQ_SLOT(slotSelectCipher(int)));
 
 
 
@@ -354,21 +354,21 @@ TQString whatstr;
 #endif
 
   mWarnOnEnter = new TQCheckBox(i18n("Warn on &entering SSL mode"), tabSSL);
-  connect(mWarnOnEnter, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()));
+  connect(mWarnOnEnter, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()));
   grid->addWidget(mWarnOnEnter, 5, 0);
   whatstr = i18n("If selected, you will be notified when entering an SSL"
                 " enabled site");
   TQWhatsThis::add(mWarnOnEnter, whatstr);
 
   mWarnOnLeave = new TQCheckBox(i18n("Warn on &leaving SSL mode"), tabSSL);
-  connect(mWarnOnLeave, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()));
+  connect(mWarnOnLeave, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()));
   grid->addWidget(mWarnOnLeave, 5, 1);
   whatstr = i18n("If selected, you will be notified when leaving an SSL"
                 " based site.");
   TQWhatsThis::add(mWarnOnLeave, whatstr);
 
   mWarnOnUnencrypted = new TQCheckBox(i18n("Warn on sending &unencrypted data"), tabSSL);
-  connect(mWarnOnUnencrypted, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()));
+  connect(mWarnOnUnencrypted, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()));
   grid->addWidget(mWarnOnUnencrypted, 6, 0);
   whatstr = i18n("If selected, you will be notified before sending"
                 " unencrypted data via a web browser.");
@@ -376,7 +376,7 @@ TQString whatstr;
 
 #if 0  // NOT IMPLEMENTED IN KDE 3.0
   mWarnOnMixed = new TQCheckBox(i18n("Warn on &mixed SSL/non-SSL pages"), tabSSL);
-  connect(mWarnOnMixed, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()));
+  connect(mWarnOnMixed, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()));
   grid->addWidget(mWarnOnMixed, 6, 1);
   whatstr = i18n("If selected, you will be notified if you view a page"
                 " that has both encrypted and non-encrypted parts.");
@@ -396,9 +396,9 @@ TQString whatstr;
   oPath = new KURLRequester(oInfo);
   oPath->setMode(KFile::Directory);
   oTest = new TQPushButton(i18n("&Test"), oInfo);
-  connect(oTest, TQT_SIGNAL(clicked()), TQT_SLOT(slotTestOSSL()));
+  connect(oTest, TQ_SIGNAL(clicked()), TQ_SLOT(slotTestOSSL()));
 
-  connect(oPath, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(configChanged()));
+  connect(oPath, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(configChanged()));
 
   //
   //  Settings for the EGD
@@ -406,9 +406,9 @@ TQString whatstr;
   TQFrame *eFrame = new TQFrame(tabOSSL);
   TQVBoxLayout *egrid = new TQVBoxLayout(eFrame);
   mUseEGD = new TQCheckBox(i18n("Use EGD"), eFrame);
-  connect(mUseEGD, TQT_SIGNAL(clicked()), TQT_SLOT(slotUseEGD()));
+  connect(mUseEGD, TQ_SIGNAL(clicked()), TQ_SLOT(slotUseEGD()));
   mUseEFile = new TQCheckBox(i18n("Use entropy file"), eFrame);
-  connect(mUseEFile, TQT_SIGNAL(clicked()), TQT_SLOT(slotUseEFile()));
+  connect(mUseEFile, TQ_SIGNAL(clicked()), TQ_SLOT(slotUseEFile()));
   vbox->addWidget(eFrame);
   egrid->addWidget(mUseEGD);
   egrid->addWidget(mUseEFile);
@@ -419,7 +419,7 @@ TQString whatstr;
   grid2->addWidget(mEGDLabel, 0, 0);
   mEGDPath = new KURLRequester(egdframe);
   grid2->addWidget(mEGDPath, 0, 1);
-  connect(mEGDPath, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(configChanged()));
+  connect(mEGDPath, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(configChanged()));
   vbox->addWidget(egdframe);
   whatstr = i18n("If selected, OpenSSL will be asked to use the entropy gathering"
           " daemon (EGD) for initializing the pseudo-random number generator.");
@@ -454,35 +454,35 @@ TQString whatstr;
   grid->addMultiCellWidget(yourSSLBox, 0, 5, 0, 4);
   yourSSLBox->addColumn(i18n("Common Name"));
   yourSSLBox->addColumn(i18n("Email Address"));
-  connect(yourSSLBox, TQT_SIGNAL(selectionChanged()), TQT_SLOT(slotYourCertSelect()));
+  connect(yourSSLBox, TQ_SIGNAL(selectionChanged()), TQ_SLOT(slotYourCertSelect()));
 
   yourSSLImport = new TQPushButton(i18n("I&mport..."), tabYourSSLCert);
-  connect(yourSSLImport, TQT_SIGNAL(clicked()), TQT_SLOT(slotYourImport()));
+  connect(yourSSLImport, TQ_SIGNAL(clicked()), TQ_SLOT(slotYourImport()));
   grid->addWidget(yourSSLImport, 0, 5);
 
   yourSSLExport = new TQPushButton(i18n("&Export..."), tabYourSSLCert);
   yourSSLExport->setEnabled(false);
-  connect(yourSSLExport, TQT_SIGNAL(clicked()), TQT_SLOT(slotYourExport()));
+  connect(yourSSLExport, TQ_SIGNAL(clicked()), TQ_SLOT(slotYourExport()));
   grid->addWidget(yourSSLExport, 1, 5);
 
   yourSSLRemove = new TQPushButton(i18n("Remo&ve"), tabYourSSLCert);
   yourSSLRemove->setEnabled(false);
-  connect(yourSSLRemove, TQT_SIGNAL(clicked()), TQT_SLOT(slotYourRemove()));
+  connect(yourSSLRemove, TQ_SIGNAL(clicked()), TQ_SLOT(slotYourRemove()));
   grid->addWidget(yourSSLRemove, 2, 5);
 
   yourSSLUnlock = new TQPushButton(i18n("&Unlock"), tabYourSSLCert);
   yourSSLUnlock->setEnabled(false);
-  connect(yourSSLUnlock, TQT_SIGNAL(clicked()), TQT_SLOT(slotYourUnlock()));
+  connect(yourSSLUnlock, TQ_SIGNAL(clicked()), TQ_SLOT(slotYourUnlock()));
   grid->addWidget(yourSSLUnlock, 3, 5);
 
   yourSSLVerify = new TQPushButton(i18n("Verif&y"), tabYourSSLCert);
   yourSSLVerify->setEnabled(false);
-  connect(yourSSLVerify, TQT_SIGNAL(clicked()), TQT_SLOT(slotYourVerify()));
+  connect(yourSSLVerify, TQ_SIGNAL(clicked()), TQ_SLOT(slotYourVerify()));
   grid->addWidget(yourSSLVerify, 4, 5);
 
   yourSSLPass = new TQPushButton(i18n("Chan&ge Password..."), tabYourSSLCert);
   yourSSLPass->setEnabled(false);
-  connect(yourSSLPass, TQT_SIGNAL(clicked()), TQT_SLOT(slotYourPass()));
+  connect(yourSSLPass, TQ_SIGNAL(clicked()), TQ_SLOT(slotYourPass()));
   grid->addWidget(yourSSLPass, 5, 5);
 
   grid->addMultiCellWidget(new KSeparator(KSeparator::HLine, tabYourSSLCert), 6, 6, 0, 5);
@@ -579,14 +579,14 @@ TQString whatstr;
   hostCertBG->setEnabled(false);
   authRemove->setEnabled(false);
 
-  connect(defCertBox, TQT_SIGNAL(activated(int)), this, TQT_SLOT(configChanged()));
-  connect(defCertBG, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(configChanged()));
-  connect(hostAuthList, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotAuthItemChanged()));
-  connect(authAdd, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotNewHostAuth()));
-  connect(authRemove, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotRemoveHostAuth()));
-  connect(authHost, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(slotAuthText(const TQString &)));
-  connect(hostCertBG, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(slotAuthButtons()));
-  connect(hostCertBox, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotAuthCombo()));
+  connect(defCertBox, TQ_SIGNAL(activated(int)), this, TQ_SLOT(configChanged()));
+  connect(defCertBG, TQ_SIGNAL(clicked(int)), this, TQ_SLOT(configChanged()));
+  connect(hostAuthList, TQ_SIGNAL(selectionChanged()), this, TQ_SLOT(slotAuthItemChanged()));
+  connect(authAdd, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotNewHostAuth()));
+  connect(authRemove, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotRemoveHostAuth()));
+  connect(authHost, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(slotAuthText(const TQString &)));
+  connect(hostCertBG, TQ_SIGNAL(clicked(int)), this, TQ_SLOT(slotAuthButtons()));
+  connect(hostCertBox, TQ_SIGNAL(activated(int)), this, TQ_SLOT(slotAuthCombo()));
 
 #else
   nossllabel = new TQLabel(i18n("SSL certificates cannot be managed"
@@ -607,7 +607,7 @@ TQString whatstr;
 
   otherSSLBox = new TQListView(tabOtherSSLCert);
   otherSSLBox->setAllColumnsShowFocus(true);
-  connect(otherSSLBox, TQT_SIGNAL(selectionChanged()), TQT_SLOT(slotOtherCertSelect()));
+  connect(otherSSLBox, TQ_SIGNAL(selectionChanged()), TQ_SLOT(slotOtherCertSelect()));
   whatstr = i18n("This list box shows which site and person certificates TDE"
                 " knows about. You can easily manage them from here.");
   TQWhatsThis::add(otherSSLBox, whatstr);
@@ -616,21 +616,21 @@ TQString whatstr;
   grid->addMultiCellWidget(otherSSLBox, 0, 7, 0, 4);
 
   otherSSLExport = new TQPushButton(i18n("&Export..."), tabOtherSSLCert);
-  connect(otherSSLExport, TQT_SIGNAL(clicked()), TQT_SLOT(slotExportCert()));
+  connect(otherSSLExport, TQ_SIGNAL(clicked()), TQ_SLOT(slotExportCert()));
   grid->addWidget(otherSSLExport, 0, 5);
   whatstr = i18n("This button allows you to export the selected certificate"
                 " to a file of various formats.");
   TQWhatsThis::add(otherSSLExport, whatstr);
 
   otherSSLRemove = new TQPushButton(i18n("&Remove"), tabOtherSSLCert);
-  connect(otherSSLRemove, TQT_SIGNAL(clicked()), TQT_SLOT(slotRemoveCert()));
+  connect(otherSSLRemove, TQ_SIGNAL(clicked()), TQ_SLOT(slotRemoveCert()));
   grid->addWidget(otherSSLRemove, 1, 5);
   whatstr = i18n("This button removes the selected certificate"
                 " from the certificate cache.");
   TQWhatsThis::add(otherSSLRemove, whatstr);
 
   otherSSLVerify = new TQPushButton(i18n("&Verify"), tabOtherSSLCert);
-  connect(otherSSLVerify, TQT_SIGNAL(clicked()), TQT_SLOT(slotVerifyCert()));
+  connect(otherSSLVerify, TQ_SIGNAL(clicked()), TQ_SLOT(slotVerifyCert()));
   grid->addWidget(otherSSLVerify, 2, 5);
   whatstr = i18n("This button tests the selected certificate"
                 " for validity.");
@@ -675,9 +675,9 @@ TQString whatstr;
   cachePerm->setEnabled(false);
   cacheUntil->setEnabled(false);
   untilDate->setEnabled(false);
-  connect(cachePerm, TQT_SIGNAL(clicked()), TQT_SLOT(slotPermanent()));
-  connect(cacheUntil, TQT_SIGNAL(clicked()), TQT_SLOT(slotUntil()));
-  connect(untilDate, TQT_SIGNAL(leftClickedURL()), TQT_SLOT(slotDatePick()));
+  connect(cachePerm, TQ_SIGNAL(clicked()), TQ_SLOT(slotPermanent()));
+  connect(cacheUntil, TQ_SIGNAL(clicked()), TQ_SLOT(slotUntil()));
+  connect(untilDate, TQ_SIGNAL(leftClickedURL()), TQ_SLOT(slotDatePick()));
   whatstr = i18n("Select here to make the cache entry permanent.");
   TQWhatsThis::add(cachePerm, whatstr);
   whatstr = i18n("Select here to make the cache entry temporary.");
@@ -691,7 +691,7 @@ TQString whatstr;
   policyPrompt = new TQRadioButton(i18n("&Prompt"), policyGroup);
   policyGroup->setEnabled(false);
   grid->addMultiCellWidget(policyGroup, 16, 19, 3, 5);
-  connect(policyGroup, TQT_SIGNAL(clicked(int)), TQT_SLOT(slotPolicyChanged(int)));
+  connect(policyGroup, TQ_SIGNAL(clicked(int)), TQ_SLOT(slotPolicyChanged(int)));
   whatstr = i18n("Select this to always accept this certificate.");
   TQWhatsThis::add(policyAccept, whatstr);
   whatstr = i18n("Select this to always reject this certificate.");
@@ -729,19 +729,19 @@ TQString whatstr;
   caList->addColumn(i18n("Organization"));
   caList->addColumn(i18n("Organizational Unit"));
   caList->addColumn(i18n("Common Name"));
-  connect(caList, TQT_SIGNAL(selectionChanged()), TQT_SLOT(slotCAItemChanged()));
+  connect(caList, TQ_SIGNAL(selectionChanged()), TQ_SLOT(slotCAItemChanged()));
 
   caSSLImport = new TQPushButton(i18n("I&mport..."), tabSSLCA);
-  connect(caSSLImport, TQT_SIGNAL(clicked()), TQT_SLOT(slotCAImport()));
+  connect(caSSLImport, TQ_SIGNAL(clicked()), TQ_SLOT(slotCAImport()));
   grid->addWidget(caSSLImport, 0, 7);
 
   caSSLRemove = new TQPushButton(i18n("&Remove"), tabSSLCA);
-  connect(caSSLRemove, TQT_SIGNAL(clicked()), TQT_SLOT(slotCARemove()));
+  connect(caSSLRemove, TQ_SIGNAL(clicked()), TQ_SLOT(slotCARemove()));
   grid->addWidget(caSSLRemove, 1, 7);
   caSSLRemove->setEnabled(false);
 
   caSSLRestore = new TQPushButton(i18n("Res&tore"), tabSSLCA);
-  connect(caSSLRestore, TQT_SIGNAL(clicked()), TQT_SLOT(slotCARestore()));
+  connect(caSSLRestore, TQ_SIGNAL(clicked()), TQ_SLOT(slotCARestore()));
   grid->addWidget(caSSLRestore, 2, 7);
 
   caSubject = KSSLInfoDlg::certInfoWidget(tabSSLCA, TQString(TQString()));
@@ -754,11 +754,11 @@ TQString whatstr;
   caEmail = new TQCheckBox(i18n("Accept for email signing"), tabSSLCA);
   caCode = new TQCheckBox(i18n("Accept for code signing"), tabSSLCA);
   grid->addMultiCellWidget(caSite, 7, 7, 0, 3);
-  connect(caSite, TQT_SIGNAL(clicked()), TQT_SLOT(slotCAChecked()));
+  connect(caSite, TQ_SIGNAL(clicked()), TQ_SLOT(slotCAChecked()));
   grid->addMultiCellWidget(caEmail, 8, 8, 0, 3);
-  connect(caEmail, TQT_SIGNAL(clicked()), TQT_SLOT(slotCAChecked()));
+  connect(caEmail, TQ_SIGNAL(clicked()), TQ_SLOT(slotCAChecked()));
   grid->addMultiCellWidget(caCode, 9, 9, 0, 3);
-  connect(caCode, TQT_SIGNAL(clicked()), TQT_SLOT(slotCAChecked()));
+  connect(caCode, TQ_SIGNAL(clicked()), TQ_SLOT(slotCAChecked()));
   caSite->setEnabled(false);
   caEmail->setEnabled(false);
   caCode->setEnabled(false);
@@ -785,11 +785,11 @@ TQString whatstr;
 #ifdef HAVE_SSL
   grid = new TQGridLayout(tabSSLCOpts, 9, 4, KDialog::marginHint(), KDialog::spacingHint());
   mWarnSelfSigned = new TQCheckBox(i18n("Warn on &self-signed certificates or unknown CA's"), tabSSLCOpts);
-  connect(mWarnSelfSigned, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()));
+  connect(mWarnSelfSigned, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()));
   mWarnExpired = new TQCheckBox(i18n("Warn on &expired certificates"), tabSSLCOpts);
-  connect(mWarnExpired, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()));
+  connect(mWarnExpired, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()));
   mWarnRevoked = new TQCheckBox(i18n("Warn on re&voked certificates"), tabSSLCOpts);
-  connect(mWarnRevoked, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()));
+  connect(mWarnRevoked, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()));
   grid->addMultiCellWidget(mWarnSelfSigned, 0, 0, 0, 3);
   grid->addMultiCellWidget(mWarnExpired, 1, 1, 0, 3);
   grid->addMultiCellWidget(mWarnRevoked, 2, 2, 0, 3);
@@ -807,15 +807,15 @@ TQString whatstr;
   grid->addMultiCellWidget(macBox, 5, 8, 0, 2);
 
   macAdd = new TQPushButton(i18n("&Add"), tabSSLCOpts);
-  //connect(macAdd, TQT_SIGNAL(), TQT_SLOT());
+  //connect(macAdd, TQ_SIGNAL(), TQ_SLOT());
   grid->addWidget(macAdd, 4, 3);
 
   macRemove = new TQPushButton(i18n("&Remove"), tabSSLCOpts);
-  //connect(macRemove, TQT_SIGNAL(), TQT_SLOT());
+  //connect(macRemove, TQ_SIGNAL(), TQ_SLOT());
   grid->addWidget(macRemove, 5, 3);
 
   macClear = new KPushButton(KGuiItem::clear(), tabSSLCOpts);
-  //connect(macAdd, TQT_SIGNAL(), TQT_SLOT());
+  //connect(macAdd, TQ_SIGNAL(), TQ_SLOT());
   grid->addWidget(macClear, 6, 3);
 
 #else

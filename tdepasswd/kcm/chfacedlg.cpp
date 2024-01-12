@@ -68,16 +68,16 @@ ChFaceDlg::ChFaceDlg(const TQString& picsdir, TQWidget *parent, const char *name
   m_FacesWidget->setItemsMovable( false );
   m_FacesWidget->setMinimumSize( 400, 200 );
 
-  connect( m_FacesWidget, TQT_SIGNAL( selectionChanged( TQIconViewItem * ) ), TQT_SLOT( slotFaceWidgetSelectionChanged( TQIconViewItem * ) ) );
+  connect( m_FacesWidget, TQ_SIGNAL( selectionChanged( TQIconViewItem * ) ), TQ_SLOT( slotFaceWidgetSelectionChanged( TQIconViewItem * ) ) );
 
-  connect( m_FacesWidget, TQT_SIGNAL( doubleClicked( TQIconViewItem *, const TQPoint & ) ), TQT_SLOT( slotOk() ) );
+  connect( m_FacesWidget, TQ_SIGNAL( doubleClicked( TQIconViewItem *, const TQPoint & ) ), TQ_SLOT( slotOk() ) );
 
   top->addWidget( m_FacesWidget );
 
   // Buttons to get more pics
   TQHBoxLayout * morePics = new TQHBoxLayout( 0, 0, spacingHint() );
   TQPushButton *browseBtn = new TQPushButton( i18n("Custom &Image..."), page );
-  connect( browseBtn, TQT_SIGNAL( clicked() ), TQT_SLOT( slotGetCustomImage() ) );
+  connect( browseBtn, TQ_SIGNAL( clicked() ), TQ_SLOT( slotGetCustomImage() ) );
   morePics->addWidget( browseBtn );
 #if 0
   TQPushButton *acquireBtn = new TQPushButton( i18n("&Acquire Image..."), page );
@@ -110,7 +110,7 @@ ChFaceDlg::ChFaceDlg(const TQString& picsdir, TQWidget *parent, const char *name
   m_FacesWidget->arrangeItemsInGrid();
 
   enableButtonOK( false );
-  //connect( this, TQT_SIGNAL( okClicked() ), TQT_SLOT( slotSaveCustomImage() ) );
+  //connect( this, TQ_SIGNAL( okClicked() ), TQ_SLOT( slotSaveCustomImage() ) );
 
   resize( 420, 400 );
 }

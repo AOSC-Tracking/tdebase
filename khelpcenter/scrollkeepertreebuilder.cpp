@@ -61,7 +61,7 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
   KProcIO proc;
   proc << "scrollkeeper-get-content-list";
   proc << lang;
-  connect(&proc,TQT_SIGNAL(readReady(KProcIO *)),TQT_SLOT(getContentsList(KProcIO *)));
+  connect(&proc,TQ_SIGNAL(readReady(KProcIO *)),TQ_SLOT(getContentsList(KProcIO *)));
   if (!proc.start(TDEProcess::Block)) {
     kdDebug(1400) << "Could not execute scrollkeeper-get-content-list" << endl;
     return 0;

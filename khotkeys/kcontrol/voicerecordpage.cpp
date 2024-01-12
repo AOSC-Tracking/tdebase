@@ -59,9 +59,9 @@ VoiceRecordPage::VoiceRecordPage( const TQString &voiceid_P, TQWidget *parent, c
     setStretchFactor(spacer, 1);
 
 
-	connect(_recorder1, TQT_SIGNAL(recorded(bool)) , this, TQT_SLOT(slotChanged()));
-	connect(_recorder2, TQT_SIGNAL(recorded(bool)) , this, TQT_SLOT(slotChanged()));
-	connect(_lineEdit , TQT_SIGNAL( textChanged (const TQString&)) , this , TQT_SLOT(slotChanged()));
+	connect(_recorder1, TQ_SIGNAL(recorded(bool)) , this, TQ_SLOT(slotChanged()));
+	connect(_recorder2, TQ_SIGNAL(recorded(bool)) , this, TQ_SLOT(slotChanged()));
+	connect(_lineEdit , TQ_SIGNAL( textChanged (const TQString&)) , this , TQ_SLOT(slotChanged()));
 
 
     }

@@ -57,14 +57,14 @@ KBrowserOptions::KBrowserOptions(TDEConfig *config, TQString group, TQWidget *pa
     tab->addTab(kuick, i18n("&Quick Copy && Move"));
   }
 
-  connect(appearance, TQT_SIGNAL(changed(bool)), this, TQT_SIGNAL(changed(bool)));
-  connect(behavior, TQT_SIGNAL(changed(bool)), this, TQT_SIGNAL(changed(bool)));
-  connect(previews, TQT_SIGNAL(changed(bool)), this, TQT_SIGNAL(changed(bool)));
+  connect(appearance, TQ_SIGNAL(changed(bool)), this, TQ_SIGNAL(changed(bool)));
+  connect(behavior, TQ_SIGNAL(changed(bool)), this, TQ_SIGNAL(changed(bool)));
+  connect(previews, TQ_SIGNAL(changed(bool)), this, TQ_SIGNAL(changed(bool)));
   if (kuick)
-     connect(kuick, TQT_SIGNAL(changed(bool)), this, TQT_SIGNAL(changed(bool)));
+     connect(kuick, TQ_SIGNAL(changed(bool)), this, TQ_SIGNAL(changed(bool)));
 
-  connect(tab, TQT_SIGNAL(currentChanged(TQWidget *)), 
-          this, TQT_SIGNAL(quickHelpChanged()));
+  connect(tab, TQ_SIGNAL(currentChanged(TQWidget *)), 
+          this, TQ_SIGNAL(quickHelpChanged()));
   m_tab = tab;
 }
 

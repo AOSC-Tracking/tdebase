@@ -164,7 +164,7 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, TDEConfig *_co
   combo->insertItem(i18n("On All Desktops"));
   combo->insertItem(i18n("Nothing"));
   combo->setSizePolicy(TQSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::Fixed));
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   hlayout->addWidget(combo);
   coTiDbl = combo;
   TQWhatsThis::add(combo, i18n("Behavior on <em>double</em> click into the titlebar."));
@@ -189,14 +189,14 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, TDEConfig *_co
   comboW->insertItem(i18n("Change Opacity"));
   comboW->insertItem(i18n("Nothing"));
   comboW->setSizePolicy(TQSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::Fixed));
-  connect(comboW, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(comboW, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   hlayoutW->addWidget(comboW);
   coTiW = comboW;
   TQWhatsThis::add(comboW, txtButton4);
   label->setBuddy(comboW);
 
   cbTiRevW = new TQCheckBox(i18n("Reverse wheel direction"), this);
-  connect(cbTiRevW, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+  connect(cbTiRevW, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
   TQWhatsThis::add( cbTiRevW, i18n("Use this to reverse the action of the mouse wheel.") );
   hlayoutW->addWidget(cbTiRevW);
 
@@ -266,21 +266,21 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, TDEConfig *_co
   // Titlebar and frame, active, mouse button 1
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coTiAct1 = combo;
   TQWhatsThis::add(combo, txtButton1);
 
   // Titlebar and frame, active, mouse button 2
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coTiAct2 = combo;
   TQWhatsThis::add(combo, i18n("Behavior on <em>middle</em> click into the titlebar or frame of an <em>active</em> window."));
 
   // Titlebar and frame, active, mouse button 3
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coTiAct3 =  combo;
   TQWhatsThis::add(combo, txtButton3 );
 
@@ -310,19 +310,19 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, TDEConfig *_co
 
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coTiInAct1 = combo;
   TQWhatsThis::add(combo, txtButton1);
 
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coTiInAct2 = combo;
   TQWhatsThis::add(combo, i18n("Behavior on <em>middle</em> click into the titlebar or frame of an <em>inactive</em> window."));
 
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coTiInAct3 = combo;
   TQWhatsThis::add(combo, txtButton3);
 
@@ -362,13 +362,13 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, TDEConfig *_co
 
     coMax[b] = new ToolTipComboBox(box, tbl_Max);
     for (int t = 0; t < 3; ++t) coMax[b]->insertItem(maxButtonPixmaps[t]);
-    connect(coMax[b], TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
-    connect(coMax[b], TQT_SIGNAL(activated(int)), coMax[b], TQT_SLOT(changed()));
+    connect(coMax[b], TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
+    connect(coMax[b], TQ_SIGNAL(activated(int)), coMax[b], TQ_SLOT(changed()));
     TQWhatsThis::add( coMax[b], txtButton[b] );
     coMax[b]->setSizePolicy( TQSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Minimum ));
   }
 
-  connect(kapp, TQT_SIGNAL(tdedisplayPaletteChanged()), TQT_SLOT(paletteChanged()));
+  connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(paletteChanged()));
 
   layout->addStretch();
 
@@ -655,19 +655,19 @@ KWindowActionsConfig::KWindowActionsConfig (bool _standAlone, TDEConfig *_config
 
   TQComboBox* combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coWin1 = combo;
   TQWhatsThis::add( combo, strWin1 );
 
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coWin2 = combo;
   TQWhatsThis::add( combo, strWin2 );
 
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coWin3 = combo;
   TQWhatsThis::add( combo, strWin3 );
 
@@ -727,7 +727,7 @@ KWindowActionsConfig::KWindowActionsConfig (bool _standAlone, TDEConfig *_config
   combo = new TQComboBox(grid);
   combo->insertItem(i18n("Meta"));
   combo->insertItem(i18n("Alt"));
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coAllKey = combo;
   TQWhatsThis::add( combo, strAllKey );
 
@@ -743,19 +743,19 @@ KWindowActionsConfig::KWindowActionsConfig (bool _standAlone, TDEConfig *_config
 
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coAll1 = combo;
   TQWhatsThis::add( combo, strAll1 );
 
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coAll2 = combo;
   TQWhatsThis::add( combo, strAll2 );
 
   combo = new TQComboBox(grid);
   combo->insertStringList(items);
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coAll3 =  combo;
   TQWhatsThis::add( combo, strAll3 );
 
@@ -767,12 +767,12 @@ KWindowActionsConfig::KWindowActionsConfig (bool _standAlone, TDEConfig *_config
   combo->insertItem(i18n("Move to Previous/Next Desktop"));
   combo->insertItem(i18n("Change Opacity"));
   combo->insertItem(i18n("Nothing"));
-  connect(combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+  connect(combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
   coAllW =  combo;
   TQWhatsThis::add( combo, strAllW );
 
   cbAllRevW = new TQCheckBox(i18n("Reverse wheel direction"), grid);
-  connect(cbAllRevW, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+  connect(cbAllRevW, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
   TQWhatsThis::add( cbAllRevW, i18n("Use this to reverse the action of the mouse wheel.") );
 
   layout->addStretch();

@@ -207,7 +207,7 @@ void ModifiersModule::initGUI()
 
 	m_pchkMacKeyboard = new TQCheckBox( i18n("Macintosh keyboard"), this );
 	m_pchkMacKeyboard->setChecked( m_bMacKeyboardOrig );
-	connect( m_pchkMacKeyboard, TQT_SIGNAL(clicked()), TQT_SLOT(slotMacKeyboardClicked()) );
+	connect( m_pchkMacKeyboard, TQ_SIGNAL(clicked()), TQ_SLOT(slotMacKeyboardClicked()) );
 	pLayoutTop->addWidget( m_pchkMacKeyboard, 1, 0 );
 
 	m_pchkMacSwap = new TQCheckBox( i18n("MacOS-style modifier usage"), this );
@@ -220,7 +220,7 @@ void ModifiersModule::initGUI()
 			"<b>Command</b> will be used for application and console commands, "
 			"<b>Option</b> as a command modifier and for navigating menus and dialogs, "
 			"and <b>Control</b> for window manager commands.") );
-	connect( m_pchkMacSwap, TQT_SIGNAL(clicked()), TQT_SLOT(slotMacSwapClicked()) );
+	connect( m_pchkMacSwap, TQ_SIGNAL(clicked()), TQ_SLOT(slotMacSwapClicked()) );
 	pLayoutTop->addWidget( m_pchkMacSwap, 2, 0 );
 
 	//------------------

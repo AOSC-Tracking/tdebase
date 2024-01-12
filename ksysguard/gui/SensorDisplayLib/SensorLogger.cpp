@@ -146,7 +146,7 @@ SensorLogger::SensorLogger(TQWidget *parent, const char *name, const TQString& t
 	monitor->setPalette(TQPalette(cgroup, cgroup, cgroup));
 	monitor->setSelectionMode(TQListView::NoSelection);
 
-	connect(monitor, TQT_SIGNAL(rightButtonClicked(TQListViewItem*, const TQPoint&, int)), this, TQT_SLOT(RMBClicked(TQListViewItem*, const TQPoint&, int)));
+	connect(monitor, TQ_SIGNAL(rightButtonClicked(TQListViewItem*, const TQPoint&, int)), this, TQ_SLOT(RMBClicked(TQListViewItem*, const TQPoint&, int)));
 
 	setTitle(i18n("Sensor Logger"));
 
@@ -237,7 +237,7 @@ SensorLogger::configureSettings()
 	sls = new SensorLoggerSettings(this, "SensorLoggerSettings");
 	TQ_CHECK_PTR(sls);
 
-	connect( sls, TQT_SIGNAL( applyClicked() ), TQT_SLOT( applySettings() ) );
+	connect( sls, TQ_SIGNAL( applyClicked() ), TQ_SLOT( applySettings() ) );
 
 	sls->setTitle(title());
 	sls->setForegroundColor(cgroup.text());

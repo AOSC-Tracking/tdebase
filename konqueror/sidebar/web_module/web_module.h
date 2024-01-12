@@ -41,9 +41,9 @@ class TDEHTMLSideBar : public TDEHTMLPart
 
 			setFormNotification(TDEHTMLPart::Only);
 			connect(this,
-				TQT_SIGNAL(formSubmitNotification(const char*,const TQString&,const TQByteArray&,const TQString&,const TQString&,const TQString&)),
+				TQ_SIGNAL(formSubmitNotification(const char*,const TQString&,const TQByteArray&,const TQString&,const TQString&,const TQString&)),
 				this,
-				TQT_SLOT(formProxy(const char*,const TQString&,const TQByteArray&,const TQString&,const TQString&,const TQString&))
+				TQ_SLOT(formProxy(const char*,const TQString&,const TQByteArray&,const TQString&,const TQString&,const TQString&))
 				);
 
 
@@ -51,22 +51,22 @@ class TDEHTMLSideBar : public TDEHTMLPart
 					"link context menu");
 			if (!universal) {
 				_linkMenu->insertItem(i18n("&Open Link"),
-						this, TQT_SLOT(loadPage()));
+						this, TQ_SLOT(loadPage()));
 				_linkMenu->insertItem(i18n("Open in New &Window"),
-						this, TQT_SLOT(loadNewWindow()));
+						this, TQ_SLOT(loadNewWindow()));
 			} else {
 				_linkMenu->insertItem(i18n("Open in New &Window"),
-						this, TQT_SLOT(loadPage()));
+						this, TQ_SLOT(loadPage()));
 			}
 			_menu = new TDEPopupMenu(widget(), "context menu");
 			_menu->insertItem(SmallIcon("reload"), i18n("&Reload"),
-					this, TQT_SIGNAL(reload()));
-			_menu->insertItem(SmallIcon("reload"), i18n("Set &Automatic Reload"),                                                  this, TQT_SIGNAL(setAutoReload()));
+					this, TQ_SIGNAL(reload()));
+			_menu->insertItem(SmallIcon("reload"), i18n("Set &Automatic Reload"),                                                  this, TQ_SIGNAL(setAutoReload()));
 
 			connect(this,
-				TQT_SIGNAL(popupMenu(const TQString&,const TQPoint&)),
+				TQ_SIGNAL(popupMenu(const TQString&,const TQPoint&)),
 				this,
-				TQT_SLOT(showMenu(const TQString&, const TQPoint&)));
+				TQ_SLOT(showMenu(const TQString&, const TQPoint&)));
 
 		}
 		virtual ~TDEHTMLSideBar() {}

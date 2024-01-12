@@ -60,11 +60,11 @@ PrefMenu::PrefMenu(const TQString& label,
 {
     m_subMenus.setAutoDelete(true);
 
-    connect(KSycoca::self(),  TQT_SIGNAL(databaseChanged()),
-            this, TQT_SLOT(clearOnClose()));
+    connect(KSycoca::self(),  TQ_SIGNAL(databaseChanged()),
+            this, TQ_SLOT(clearOnClose()));
 
-    connect(this, TQT_SIGNAL(aboutToHide()),
-            this, TQT_SLOT(aboutToClose()));
+    connect(this, TQ_SIGNAL(aboutToHide()),
+            this, TQ_SLOT(aboutToClose()));
 }
 
 PrefMenu::~PrefMenu()
@@ -198,7 +198,7 @@ void PrefMenu::mouseMoveEvent(TQMouseEvent * ev)
     // If the path to the desktop file is relative, try to get the full
     // path from KStdDirs.
     KURLDrag *d = new KURLDrag(KURL::List(url), this);
-    connect(d, TQT_SIGNAL(destroyed()), this, TQT_SLOT(dragObjectDestroyed()));
+    connect(d, TQ_SIGNAL(destroyed()), this, TQ_SLOT(dragObjectDestroyed()));
     d->setPixmap(icon);
     d->dragCopy();
 
@@ -246,7 +246,7 @@ void PrefMenu::initialize()
     {
         insertItem(KickerLib::menuIconSet("kcontrol"),
                    i18n("Trinity Control Center"),
-                   this, TQT_SLOT(launchControlCenter()));
+                   this, TQ_SLOT(launchControlCenter()));
         insertSeparator();
     }
 
@@ -358,7 +358,7 @@ void PrefMenu::slotClear()
         // QPopupMenu's aboutToHide() is emitted before the popup is really hidden,
         // and also before a click in the menu is handled, so do the clearing
         // only after that has been handled
-        TQTimer::singleShot( 100, this, TQT_SLOT( slotClear()));
+        TQTimer::singleShot( 100, this, TQ_SLOT( slotClear()));
         return;
     }
 

@@ -140,10 +140,10 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
     setBackgroundMode( X11ParentRelative );
     clip = kapp->clipboard();
 
-    connect( &m_overflowClearTimer, TQT_SIGNAL( timeout()), TQT_SLOT( slotClearOverflow()));
+    connect( &m_overflowClearTimer, TQ_SIGNAL( timeout()), TQ_SLOT( slotClearOverflow()));
     m_overflowClearTimer.start( 1000 );
-    connect( &m_pendingCheckTimer, TQT_SIGNAL( timeout()), TQT_SLOT( slotCheckPending()));
-    connect( &m_setClipboardTimer, TQT_SIGNAL( timeout()), TQT_SLOT( slotDelayedSetClipboard()));
+    connect( &m_pendingCheckTimer, TQ_SIGNAL( timeout()), TQ_SLOT( slotCheckPending()));
+    connect( &m_setClipboardTimer, TQ_SIGNAL( timeout()), TQ_SLOT( slotDelayedSetClipboard()));
 
     m_history = new History( this, "main_history" );
 
@@ -157,16 +157,16 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
                                       "history_clear",
                                       0,
                                       history(),
-                                      TQT_SLOT( slotClear() ),
+                                      TQ_SLOT( slotClear() ),
                                       collection,
                                       "clearHistoryAction" );
-    connect( clearHistoryAction, TQT_SIGNAL( activated() ), TQT_SLOT( slotClearClipboard() ) );
+    connect( clearHistoryAction, TQ_SIGNAL( activated() ), TQ_SLOT( slotClearClipboard() ) );
     clearHistoryAction->setGroup( defaultGroup );
     configureAction = new TDEAction( i18n("&Configure Klipper..."),
                                    "configure",
                                    0,
                                    this,
-                                   TQT_SLOT( slotConfigure() ),
+                                   TQ_SLOT( slotConfigure() ),
                                    collection,
                                    "configureAction" );
     configureAction->setGroup( defaultGroup );
@@ -174,7 +174,7 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
                               "system-log-out",
                               0,
                               this,
-                              TQT_SLOT( slotQuit() ),
+                              TQ_SLOT( slotQuit() ),
                               collection,
                               "quitAction" );
     quitAction->setGroup( "exit" );
@@ -187,11 +187,11 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
     showTimer = new TQTime();
 
     readProperties(m_config);
-    connect(kapp, TQT_SIGNAL(settingsChanged(int)), TQT_SLOT(slotSettingsChanged(int)));
+    connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
 
     poll = new ClipboardPoll( this );
-    connect( poll, TQT_SIGNAL( clipboardChanged( bool ) ),
-             this, TQT_SLOT( newClipData( bool ) ) );
+    connect( poll, TQ_SIGNAL( clipboardChanged( bool ) ),
+             this, TQ_SLOT( newClipData( bool ) ) );
 
     if ( isApplet() || !isShown() ) {
         m_pixmap = KSystemTray::loadIcon( "klipper" );
@@ -211,13 +211,13 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
     globalKeys->updateConnections();
     toggleURLGrabAction->setShortcut(globalKeys->shortcut("Enable/Disable Clipboard Actions"));
 
-    connect( toggleURLGrabAction, TQT_SIGNAL( toggled( bool )),
-             this, TQT_SLOT( setURLGrabberEnabled( bool )));
+    connect( toggleURLGrabAction, TQ_SIGNAL( toggled( bool )),
+             this, TQ_SLOT( setURLGrabberEnabled( bool )));
 
     KlipperPopup* popup = history()->popup();
-    connect ( history(),  TQT_SIGNAL( topChanged() ), TQT_SLOT( slotHistoryTopChanged() ) );
-    connect( popup, TQT_SIGNAL( aboutToHide() ), TQT_SLOT( slotStartHideTimer() ) );
-    connect( popup, TQT_SIGNAL( aboutToShow() ), TQT_SLOT( slotStartShowTimer() ) );
+    connect ( history(),  TQ_SIGNAL( topChanged() ), TQ_SLOT( slotHistoryTopChanged() ) );
+    connect( popup, TQ_SIGNAL( aboutToHide() ), TQ_SLOT( slotStartHideTimer() ) );
+    connect( popup, TQ_SIGNAL( aboutToShow() ), TQ_SLOT( slotStartShowTimer() ) );
 
     popup->plugAction( toggleURLGrabAction );
     popup->plugAction( clearHistoryAction );
@@ -631,10 +631,10 @@ void KlipperWidget::slotRepeatAction()
 {
     if ( !myURLGrabber ) {
         myURLGrabber = new URLGrabber( m_config );
-        connect( myURLGrabber, TQT_SIGNAL( sigPopup( TQPopupMenu * )),
-                 TQT_SLOT( showPopupMenu( TQPopupMenu * )) );
-        connect( myURLGrabber, TQT_SIGNAL( sigDisablePopup() ),
-                 this, TQT_SLOT( disableURLGrabber() ) );
+        connect( myURLGrabber, TQ_SIGNAL( sigPopup( TQPopupMenu * )),
+                 TQ_SLOT( showPopupMenu( TQPopupMenu * )) );
+        connect( myURLGrabber, TQ_SIGNAL( sigDisablePopup() ),
+                 this, TQ_SLOT( disableURLGrabber() ) );
     }
 
     const HistoryStringItem* top = dynamic_cast<const HistoryStringItem*>( history()->first() );
@@ -666,10 +666,10 @@ void KlipperWidget::setURLGrabberEnabled( bool enable )
         toggleURLGrabAction->setText(i18n("&Actions Enabled"));
         if ( !myURLGrabber ) {
             myURLGrabber = new URLGrabber( m_config );
-            connect( myURLGrabber, TQT_SIGNAL( sigPopup( TQPopupMenu * )),
-                     TQT_SLOT( showPopupMenu( TQPopupMenu * )) );
-            connect( myURLGrabber, TQT_SIGNAL( sigDisablePopup() ),
-                     this, TQT_SLOT( disableURLGrabber() ) );
+            connect( myURLGrabber, TQ_SIGNAL( sigPopup( TQPopupMenu * )),
+                     TQ_SLOT( showPopupMenu( TQPopupMenu * )) );
+            connect( myURLGrabber, TQ_SIGNAL( sigDisablePopup() ),
+                     this, TQ_SLOT( disableURLGrabber() ) );
         }
     }
 }

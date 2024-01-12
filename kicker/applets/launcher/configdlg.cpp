@@ -47,8 +47,8 @@ ConfigDlg::ConfigDlg(TQWidget *parent, const char *name, Prefs *config,
         m_ui->iconDim->insertItem(TQString::number(
             m_settings->iconDimChoices()[n]));
     }
-    connect(m_ui->iconDim, TQT_SIGNAL(textChanged(const TQString&)),
-            this, TQT_SLOT(updateButtons()));
+    connect(m_ui->iconDim, TQ_SIGNAL(textChanged(const TQString&)),
+            this, TQ_SLOT(updateButtons()));
     updateWidgets();
     m_oldIconDimText = m_ui->iconDim->currentText();
     updateButtons();

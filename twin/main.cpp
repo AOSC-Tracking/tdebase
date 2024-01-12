@@ -146,7 +146,7 @@ Application::Application( )
             ::exit(1);
             }
         }
-    connect( &owner, TQT_SIGNAL( lostOwnership()), TQT_SLOT( lostSelection()));
+    connect( &owner, TQ_SIGNAL( lostOwnership()), TQ_SLOT( lostSelection()));
     
     // if there was already twin running, it saved its configuration after loosing the selection -> reread
     config()->reparseConfiguration();

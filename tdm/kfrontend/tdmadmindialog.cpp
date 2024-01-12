@@ -70,7 +70,7 @@ TDMAdmin::TDMAdmin( const TQString &user, TQWidget *_parent )
     box->addLayout( verify->getLayout() );
     TQAccel *accel = new TQAccel( this );
     accel->insertItem( ALT+Key_A, 0 );
-    connect( accel, TQT_SIGNAL(activated(int)), TQT_SLOT(slotActivatePlugMenu()) );
+    connect( accel, TQ_SIGNAL(activated(int)), TQ_SLOT(slotActivatePlugMenu()) );
 
     box->addWidget( new KSeparator( KSeparator::HLine, this ) );
 
@@ -87,8 +87,8 @@ TDMAdmin::TDMAdmin( const TQString &user, TQWidget *_parent )
     hlay->addWidget( cancelButton );
     hlay->addStretch( 1 );
 
-    connect( okButton, TQT_SIGNAL(clicked()), TQT_SLOT(accept()) );
-    connect( cancelButton, TQT_SIGNAL(clicked()), TQT_SLOT(reject()) );
+    connect( okButton, TQ_SIGNAL(clicked()), TQ_SLOT(accept()) );
+    connect( cancelButton, TQ_SIGNAL(clicked()), TQ_SLOT(reject()) );
 
     slotWhenChanged();
 }

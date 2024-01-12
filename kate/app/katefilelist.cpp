@@ -107,7 +107,7 @@ KateFileList::KateFileList (KateMainWindow *main,
 
   setupActions ();
 
-  connect(this,TQT_SIGNAL(moved()),this,TQT_SLOT(updateFileListLocations()));
+  connect(this,TQ_SIGNAL(moved()),this,TQ_SLOT(updateFileListLocations()));
 
   for (uint i = 0; i < KateDocManager::self()->documents(); i++)
   {
@@ -115,18 +115,18 @@ KateFileList::KateFileList (KateMainWindow *main,
     slotModChanged (KateDocManager::self()->document(i));
   }
 
-  connect(KateDocManager::self(),TQT_SIGNAL(documentCreated(Kate::Document *)),
-	  this,TQT_SLOT(slotDocumentCreated(Kate::Document *)));
-  connect(KateDocManager::self(),TQT_SIGNAL(documentDeleted(uint)),
-	  this,TQT_SLOT(slotDocumentDeleted(uint)));
+  connect(KateDocManager::self(),TQ_SIGNAL(documentCreated(Kate::Document *)),
+	  this,TQ_SLOT(slotDocumentCreated(Kate::Document *)));
+  connect(KateDocManager::self(),TQ_SIGNAL(documentDeleted(uint)),
+	  this,TQ_SLOT(slotDocumentDeleted(uint)));
 
   // don't Honour KDE single/double click setting, this files are already open,
   // no need for hassle of considering double-click
-  connect(this,TQT_SIGNAL(selectionChanged(TQListViewItem *)),
-	  this,TQT_SLOT(slotActivateView(TQListViewItem *)));
-  connect(viewManager,TQT_SIGNAL(viewChanged()), this,TQT_SLOT(slotViewChanged()));
-  connect(this,TQT_SIGNAL(contextMenuRequested( TQListViewItem *, const TQPoint &, int )),
-	  this,TQT_SLOT(slotMenu ( TQListViewItem *, const TQPoint &, int )));
+  connect(this,TQ_SIGNAL(selectionChanged(TQListViewItem *)),
+	  this,TQ_SLOT(slotActivateView(TQListViewItem *)));
+  connect(viewManager,TQ_SIGNAL(viewChanged()), this,TQ_SLOT(slotViewChanged()));
+  connect(this,TQ_SIGNAL(contextMenuRequested( TQListViewItem *, const TQPoint &, int )),
+	  this,TQ_SLOT(slotMenu ( TQListViewItem *, const TQPoint &, int )));
 }
 
 KateFileList::~KateFileList ()
@@ -136,20 +136,20 @@ KateFileList::~KateFileList ()
 
 void KateFileList::setupActions ()
 {
-  windowNext = KStdAction::back(this, TQT_SLOT(slotPrevDocument()), m_main->actionCollection());
-  windowPrev = KStdAction::forward(this, TQT_SLOT(slotNextDocument()), m_main->actionCollection());
+  windowNext = KStdAction::back(this, TQ_SLOT(slotPrevDocument()), m_main->actionCollection());
+  windowPrev = KStdAction::forward(this, TQ_SLOT(slotNextDocument()), m_main->actionCollection());
   sortAction = new TDESelectAction( i18n("Sort &By"), 0,
       m_main->actionCollection(), "filelist_sortby"  );
   listMoveFileUp = new TDEAction( i18n("Move File Up"), 0, m_main->actionCollection(), "filelist_move_up" );
   //listMoveFileUp->setShortcut(TDEShortcut(CTRL + SHIFT + Key_Comma));
   listMoveFileDown = new TDEAction( i18n("Move File Down"), 0, m_main->actionCollection(), "filelist_move_down" );
   //listMoveFileDown->setShortcut(TDEShortcut(CTRL + SHIFT + Key_Period));
-  connect( listMoveFileUp, TQT_SIGNAL(activated()), this, TQT_SLOT(moveFileUp()) );
-  connect( listMoveFileDown, TQT_SIGNAL(activated()), this, TQT_SLOT(moveFileDown()) );
+  connect( listMoveFileUp, TQ_SIGNAL(activated()), this, TQ_SLOT(moveFileUp()) );
+  connect( listMoveFileDown, TQ_SIGNAL(activated()), this, TQ_SLOT(moveFileDown()) );
   TQStringList l;
   l << i18n("Opening Order") << i18n("Document Name") << i18n("URL") << i18n("Manual Placement");
   sortAction->setItems( l );
-  connect( sortAction, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setSortType(int)) );
+  connect( sortAction, TQ_SIGNAL(activated(int)), this, TQ_SLOT(setSortType(int)) );
 }
 
 void KateFileList::updateActions ()
@@ -227,9 +227,9 @@ void KateFileList::slotPrevDocument()
 void KateFileList::slotDocumentCreated (Kate::Document *doc)
 {
   new KateFileListItem( this, doc/*, doc->documentNumber()*/ );
-  connect(doc,TQT_SIGNAL(modStateChanged(Kate::Document *)),this,TQT_SLOT(slotModChanged(Kate::Document *)));
-  connect(doc,TQT_SIGNAL(nameChanged(Kate::Document *)),this,TQT_SLOT(slotNameChanged(Kate::Document *)));
-  connect(doc,TQT_SIGNAL(modifiedOnDisc(Kate::Document *, bool, unsigned char)),this,TQT_SLOT(slotModifiedOnDisc(Kate::Document *, bool, unsigned char)));
+  connect(doc,TQ_SIGNAL(modStateChanged(Kate::Document *)),this,TQ_SLOT(slotModChanged(Kate::Document *)));
+  connect(doc,TQ_SIGNAL(nameChanged(Kate::Document *)),this,TQ_SLOT(slotNameChanged(Kate::Document *)));
+  connect(doc,TQ_SIGNAL(modifiedOnDisc(Kate::Document *, bool, unsigned char)),this,TQ_SLOT(slotModifiedOnDisc(Kate::Document *, bool, unsigned char)));
 
   sort();
   updateFileListLocations();
@@ -707,11 +707,11 @@ KFLConfigPage::KFLConfigPage( TQWidget* parent, const char *name, KateFileList *
   reload();
 
   slotEnableChanged();
-  connect( cbEnableShading, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotMyChanged()) );
-  connect( cbEnableShading, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotEnableChanged()) );
-  connect( kcbViewShade, TQT_SIGNAL(changed(const TQColor&)), this, TQT_SLOT(slotMyChanged()) );
-  connect( kcbEditShade, TQT_SIGNAL(changed(const TQColor&)), this, TQT_SLOT(slotMyChanged()) );
-  connect( cmbSort, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotMyChanged()) );
+  connect( cbEnableShading, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotMyChanged()) );
+  connect( cbEnableShading, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotEnableChanged()) );
+  connect( kcbViewShade, TQ_SIGNAL(changed(const TQColor&)), this, TQ_SLOT(slotMyChanged()) );
+  connect( kcbEditShade, TQ_SIGNAL(changed(const TQColor&)), this, TQ_SLOT(slotMyChanged()) );
+  connect( cmbSort, TQ_SIGNAL(activated(int)), this, TQ_SLOT(slotMyChanged()) );
 }
 
 void KFLConfigPage::apply()

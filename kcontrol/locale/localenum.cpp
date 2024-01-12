@@ -47,32 +47,32 @@ TDELocaleConfigNumber::TDELocaleConfigNumber(TDELocale *locale,
 
   m_labDecSym = new TQLabel(this, I18N_NOOP("&Decimal symbol:"));
   m_edDecSym = new TQLineEdit(this);
-  connect( m_edDecSym, TQT_SIGNAL( textChanged(const TQString &) ),
-	   this, TQT_SLOT( slotDecSymChanged(const TQString &) ) );
+  connect( m_edDecSym, TQ_SIGNAL( textChanged(const TQString &) ),
+	   this, TQ_SLOT( slotDecSymChanged(const TQString &) ) );
   m_labDecSym->setBuddy(m_edDecSym);
 
   m_labThoSep = new TQLabel(this, I18N_NOOP("Tho&usands separator:"));
   m_edThoSep = new TQLineEdit(this);
-  connect( m_edThoSep, TQT_SIGNAL( textChanged(const TQString &) ),
-	   this, TQT_SLOT( slotThoSepChanged(const TQString &) ) );
+  connect( m_edThoSep, TQ_SIGNAL( textChanged(const TQString &) ),
+	   this, TQ_SLOT( slotThoSepChanged(const TQString &) ) );
   m_labThoSep->setBuddy(m_edThoSep);
 
   m_labMonPosSign = new TQLabel(this, I18N_NOOP("Positive si&gn:"));
   m_edMonPosSign = new TQLineEdit(this);
-  connect( m_edMonPosSign, TQT_SIGNAL( textChanged(const TQString &) ),
-	   this, TQT_SLOT( slotMonPosSignChanged(const TQString &) ) );
+  connect( m_edMonPosSign, TQ_SIGNAL( textChanged(const TQString &) ),
+	   this, TQ_SLOT( slotMonPosSignChanged(const TQString &) ) );
   m_labMonPosSign->setBuddy(m_edMonPosSign);
 
   m_labMonNegSign = new TQLabel(this, I18N_NOOP("&Negative sign:"));
   m_edMonNegSign = new TQLineEdit(this);
-  connect( m_edMonNegSign, TQT_SIGNAL( textChanged(const TQString &) ),
-	   this, TQT_SLOT( slotMonNegSignChanged(const TQString &) ) );
+  connect( m_edMonNegSign, TQ_SIGNAL( textChanged(const TQString &) ),
+	   this, TQ_SLOT( slotMonNegSignChanged(const TQString &) ) );
   m_labMonNegSign->setBuddy(m_edMonNegSign);
 
   lay->setColStretch(1, 1);
 
-  connect(this, TQT_SIGNAL(localeChanged()),
-	  TQT_SLOT(slotLocaleChanged()));
+  connect(this, TQ_SIGNAL(localeChanged()),
+	  TQ_SLOT(slotLocaleChanged()));
 }
 
 TDELocaleConfigNumber::~TDELocaleConfigNumber()

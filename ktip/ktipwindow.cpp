@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 	app.dcopClient()->send("ksplash", "ksplash", "close()", TQByteArray()); // Close splash screen
 	tipDialog->show();
 
-	TQObject::connect(tqApp, TQT_SIGNAL(lastWindowClosed()), tqApp, TQT_SLOT(quit()));
+	TQObject::connect(tqApp, TQ_SIGNAL(lastWindowClosed()), tqApp, TQ_SLOT(quit()));
 
 	app.setMainWidget(tipDialog);
 

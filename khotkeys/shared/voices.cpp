@@ -95,7 +95,7 @@ void Voice::record_start()
 	if(!_recorder)
 	{
 		_recorder= SoundRecorder::create(this);
-		connect(_recorder, TQT_SIGNAL(recorded(const Sound& )), this, TQT_SLOT(slot_sound_recorded(const Sound& )));
+		connect(_recorder, TQ_SIGNAL(recorded(const Sound& )), this, TQ_SLOT(slot_sound_recorded(const Sound& )));
 	}
 
 	_recorder->start();
@@ -208,7 +208,7 @@ void Voice::set_shortcut( const TDEShortcut &shortcut)
         _kga = new TDEGlobalAccel( this );	
     _kga->remove("voice");
 
-	_kga->insert( "voice", i18n("Voice"), TQString::null,  shortcut, 0, this, TQT_SLOT(slot_key_pressed())) ;
+	_kga->insert( "voice", i18n("Voice"), TQString::null,  shortcut, 0, this, TQ_SLOT(slot_key_pressed())) ;
         _kga->updateConnections();
 }
 
@@ -224,7 +224,7 @@ void Voice::slot_key_pressed()
 		if(!_timer)
 		{
 			_timer=new TQTimer(this);
-			connect(_timer, TQT_SIGNAL(timeout()) , this, TQT_SLOT(slot_timeout()));
+			connect(_timer, TQ_SIGNAL(timeout()) , this, TQ_SLOT(slot_timeout()));
 		}
 		
 		_timer->start(1000*20,true);

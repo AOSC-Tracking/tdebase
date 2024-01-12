@@ -51,7 +51,7 @@ PlastikButton::PlastikButton(ButtonType type, PlastikClient *parent, const char 
     // no need to reset here as the button will be resetted on first resize.
 
     animTmr = new TQTimer(this);
-    connect(animTmr, TQT_SIGNAL(timeout() ), this, TQT_SLOT(animate() ) );
+    connect(animTmr, TQ_SIGNAL(timeout() ), this, TQ_SLOT(animate() ) );
     animProgress = 0;
 }
 

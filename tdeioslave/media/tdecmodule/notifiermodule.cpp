@@ -57,18 +57,18 @@ NotifierModule::NotifierModule(TQWidget *parent, const char *name)
 	
 	updateListBox();
 
-	connect( m_view->mimetypesCombo, TQT_SIGNAL( activated(int) ),
-	         this, TQT_SLOT( slotMimeTypeChanged(int) ) );
-	connect( m_view->actionsList, TQT_SIGNAL( selectionChanged(TQListBoxItem*) ),
-	         this, TQT_SLOT( slotActionSelected(TQListBoxItem*) ) );
-	connect( m_view->addButton, TQT_SIGNAL( clicked() ),
-	         this, TQT_SLOT( slotAdd() ) );
-	connect( m_view->editButton, TQT_SIGNAL( clicked() ),
-	         this, TQT_SLOT( slotEdit() ) );
-	connect( m_view->deleteButton, TQT_SIGNAL( clicked() ),
-	         this, TQT_SLOT( slotDelete() ) );
-	connect( m_view->toggleAutoButton, TQT_SIGNAL( clicked() ),
-	         this, TQT_SLOT( slotToggleAuto() ) );
+	connect( m_view->mimetypesCombo, TQ_SIGNAL( activated(int) ),
+	         this, TQ_SLOT( slotMimeTypeChanged(int) ) );
+	connect( m_view->actionsList, TQ_SIGNAL( selectionChanged(TQListBoxItem*) ),
+	         this, TQ_SLOT( slotActionSelected(TQListBoxItem*) ) );
+	connect( m_view->addButton, TQ_SIGNAL( clicked() ),
+	         this, TQ_SLOT( slotAdd() ) );
+	connect( m_view->editButton, TQ_SIGNAL( clicked() ),
+	         this, TQ_SLOT( slotEdit() ) );
+	connect( m_view->deleteButton, TQ_SIGNAL( clicked() ),
+	         this, TQ_SLOT( slotDelete() ) );
+	connect( m_view->toggleAutoButton, TQ_SIGNAL( clicked() ),
+	         this, TQ_SLOT( slotToggleAuto() ) );
 }
 
 NotifierModule::~NotifierModule()

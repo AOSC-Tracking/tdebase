@@ -27,7 +27,7 @@ KCMComponentChooser::KCMComponentChooser( TQWidget *parent, const char *name ):
 
 	(new TQVBoxLayout(this))->setAutoAdd(true);
 	m_chooser=new ComponentChooser(this,"ComponentChooser");
-	connect(m_chooser,TQT_SIGNAL(changed(bool)),this,TQT_SIGNAL(changed(bool)));
+	connect(m_chooser,TQ_SIGNAL(changed(bool)),this,TQ_SIGNAL(changed(bool)));
 	setButtons( Help | Apply );
 
 	TDEAboutData *about =

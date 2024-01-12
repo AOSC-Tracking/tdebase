@@ -61,16 +61,16 @@ TaskManager::TaskManager()
       m_trackGeometry(false)
 {
     TDEGlobal::locale()->insertCatalogue("libtaskmanager");
-    connect(m_winModule, TQT_SIGNAL(windowAdded(WId)),
-            this,        TQT_SLOT(windowAdded(WId)));
-    connect(m_winModule, TQT_SIGNAL(windowRemoved(WId)),
-            this,        TQT_SLOT(windowRemoved(WId)));
-    connect(m_winModule, TQT_SIGNAL(activeWindowChanged(WId)),
-            this,        TQT_SLOT(activeWindowChanged(WId)));
-    connect(m_winModule, TQT_SIGNAL(currentDesktopChanged(int)),
-            this,        TQT_SLOT(currentDesktopChanged(int)));
-    connect(m_winModule, TQT_SIGNAL(windowChanged(WId,unsigned int)),
-            this,        TQT_SLOT(windowChanged(WId,unsigned int)));
+    connect(m_winModule, TQ_SIGNAL(windowAdded(WId)),
+            this,        TQ_SLOT(windowAdded(WId)));
+    connect(m_winModule, TQ_SIGNAL(windowRemoved(WId)),
+            this,        TQ_SLOT(windowRemoved(WId)));
+    connect(m_winModule, TQ_SIGNAL(activeWindowChanged(WId)),
+            this,        TQ_SLOT(activeWindowChanged(WId)));
+    connect(m_winModule, TQ_SIGNAL(currentDesktopChanged(int)),
+            this,        TQ_SLOT(currentDesktopChanged(int)));
+    connect(m_winModule, TQ_SIGNAL(windowChanged(WId,unsigned int)),
+            this,        TQ_SLOT(windowChanged(WId,unsigned int)));
 
     // register existing windows
     const TQValueList<WId> windows = m_winModule->windows();
@@ -99,14 +99,14 @@ void TaskManager::configure_startup()
         return;
     _startup_info = new TDEStartupInfo( TDEStartupInfo::CleanOnCantDetect, this );
     connect( _startup_info,
-        TQT_SIGNAL( gotNewStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )),
-        TQT_SLOT( gotNewStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )));
+        TQ_SIGNAL( gotNewStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )),
+        TQ_SLOT( gotNewStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )));
     connect( _startup_info,
-        TQT_SIGNAL( gotStartupChange( const TDEStartupInfoId&, const TDEStartupInfoData& )),
-        TQT_SLOT( gotStartupChange( const TDEStartupInfoId&, const TDEStartupInfoData& )));
+        TQ_SIGNAL( gotStartupChange( const TDEStartupInfoId&, const TDEStartupInfoData& )),
+        TQ_SLOT( gotStartupChange( const TDEStartupInfoId&, const TDEStartupInfoData& )));
     connect( _startup_info,
-        TQT_SIGNAL( gotRemoveStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )),
-        TQT_SLOT( killStartup( const TDEStartupInfoId& )));
+        TQ_SIGNAL( gotRemoveStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )),
+        TQ_SLOT( killStartup( const TDEStartupInfoId& )));
     c.setGroup( "TaskbarButtonSettings" );
     _startup_info->setTimeout( c.readUnsignedNumEntry( "Timeout", 30 ));
 }
@@ -1313,7 +1313,7 @@ void Task::updateThumbnail()
 
     if (!_grab.isNull())
     {
-       TQTimer::singleShot(200, this, TQT_SLOT(generateThumbnail()));
+       TQTimer::singleShot(200, this, TQ_SLOT(generateThumbnail()));
     }
 }
 

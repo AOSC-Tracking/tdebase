@@ -66,8 +66,8 @@ FileTypesView::FileTypesView(TQWidget *p, const char *name)
   patternFilterLBL->setBuddy( patternFilterLE );
   leftLayout->addMultiCellWidget(patternFilterLE, 1, 1, 0, 2);
 
-  connect(patternFilterLE, TQT_SIGNAL(textChanged(const TQString &)),
-          this, TQT_SLOT(slotFilter(const TQString &)));
+  connect(patternFilterLE, TQ_SIGNAL(textChanged(const TQString &)),
+          this, TQ_SLOT(slotFilter(const TQString &)));
 
   wtstr = i18n("Enter a part of a filename pattern. Only file types with a "
                "matching file pattern will appear in the list.");
@@ -81,10 +81,10 @@ FileTypesView::FileTypesView(TQWidget *p, const char *name)
 
   typesLV->addColumn(i18n("Known Types"));
   leftLayout->addMultiCellWidget(typesLV, 2, 2, 0, 2);
-  connect(typesLV, TQT_SIGNAL(selectionChanged(TQListViewItem *)),
-          this, TQT_SLOT(updateDisplay(TQListViewItem *)));
-  connect(typesLV, TQT_SIGNAL(doubleClicked(TQListViewItem *)),
-          this, TQT_SLOT(slotDoubleClicked(TQListViewItem *)));
+  connect(typesLV, TQ_SIGNAL(selectionChanged(TQListViewItem *)),
+          this, TQ_SLOT(updateDisplay(TQListViewItem *)));
+  connect(typesLV, TQ_SIGNAL(doubleClicked(TQListViewItem *)),
+          this, TQ_SLOT(slotDoubleClicked(TQListViewItem *)));
 
   TQWhatsThis::add( typesLV, i18n("Here you can see a hierarchical list of"
     " the file types which are known on your system. Click on the '+' sign"
@@ -93,13 +93,13 @@ FileTypesView::FileTypesView(TQWidget *p, const char *name)
     " file type using the controls on the right.") );
 
   TQPushButton *addTypeB = new TQPushButton(i18n("Add..."), this);
-  connect(addTypeB, TQT_SIGNAL(clicked()), TQT_SLOT(addType()));
+  connect(addTypeB, TQ_SIGNAL(clicked()), TQ_SLOT(addType()));
   leftLayout->addWidget(addTypeB, 3, 0);
 
   TQWhatsThis::add( addTypeB, i18n("Click here to add a new file type.") );
 
   m_removeTypeB = new TQPushButton(i18n("&Remove"), this);
-  connect(m_removeTypeB, TQT_SIGNAL(clicked()), TQT_SLOT(removeType()));
+  connect(m_removeTypeB, TQ_SIGNAL(clicked()), TQ_SLOT(removeType()));
   leftLayout->addWidget(m_removeTypeB, 3, 2);
   m_removeTypeB->setEnabled(false);
 
@@ -112,16 +112,16 @@ FileTypesView::FileTypesView(TQWidget *p, const char *name)
 
   // File Type Details
   m_details = new FileTypeDetails( m_widgetStack );
-  connect( m_details, TQT_SIGNAL( changed(bool) ),
-           this, TQT_SLOT( setDirty(bool) ) );
-  connect( m_details, TQT_SIGNAL( embedMajor(const TQString &, bool &) ),
-           this, TQT_SLOT( slotEmbedMajor(const TQString &, bool &)));
+  connect( m_details, TQ_SIGNAL( changed(bool) ),
+           this, TQ_SLOT( setDirty(bool) ) );
+  connect( m_details, TQ_SIGNAL( embedMajor(const TQString &, bool &) ),
+           this, TQ_SLOT( slotEmbedMajor(const TQString &, bool &)));
   m_widgetStack->addWidget( m_details, 1 /*id*/ );
 
   // File Group Details
   m_groupDetails = new FileGroupDetails( m_widgetStack );
-  connect( m_groupDetails, TQT_SIGNAL( changed(bool) ),
-           this, TQT_SLOT( setDirty(bool) ) );
+  connect( m_groupDetails, TQ_SIGNAL( changed(bool) ),
+           this, TQ_SLOT( setDirty(bool) ) );
   m_widgetStack->addWidget( m_groupDetails, 2 /*id*/ );
 
   // Widget shown on startup
@@ -132,9 +132,9 @@ FileTypesView::FileTypesView(TQWidget *p, const char *name)
 
   m_widgetStack->raiseWidget( m_emptyWidget );
 
-  TQTimer::singleShot( 0, this, TQT_SLOT( init() ) ); // this takes some time
+  TQTimer::singleShot( 0, this, TQ_SLOT( init() ) ); // this takes some time
 
-  connect( KSycoca::self(), TQT_SIGNAL( databaseChanged() ), TQT_SLOT( slotDatabaseChanged() ) );
+  connect( KSycoca::self(), TQ_SIGNAL( databaseChanged() ), TQ_SLOT( slotDatabaseChanged() ) );
 }
 
 FileTypesView::~FileTypesView()

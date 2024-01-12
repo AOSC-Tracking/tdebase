@@ -1,8 +1,8 @@
 #ifndef NOSLOTS
 # define DEF2( name, descr, key3, key4, fnSlot ) \
-   keys->insert( name, i18n(descr), TQString::null, key3, key4, this, TQT_SLOT(fnSlot) )
+   keys->insert( name, i18n(descr), TQString::null, key3, key4, this, TQ_SLOT(fnSlot) )
 # define DEF( name, key3, key4, fnSlot ) \
-   keys->insert( name, i18n(name), TQString::null, key3, key4, this, TQT_SLOT(fnSlot) )
+   keys->insert( name, i18n(name), TQString::null, key3, key4, this, TQ_SLOT(fnSlot) )
 #else
 # define DEF2( name, descr, key3, key4, fnSlot ) \
    keys->insert( name, i18n(descr), TQString::null, key3, key4 )

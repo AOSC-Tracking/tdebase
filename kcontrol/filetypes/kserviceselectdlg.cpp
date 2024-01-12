@@ -50,7 +50,7 @@ KServiceSelectDlg::KServiceSelectDlg( const TQString& /*serviceType*/, const TQS
     m_listbox->sort();
     m_listbox->setMinimumHeight(350);
     m_listbox->setMinimumWidth(300);
-    connect(m_listbox,TQT_SIGNAL(doubleClicked ( TQListBoxItem * )),TQT_SLOT(slotOk()));
+    connect(m_listbox,TQ_SIGNAL(doubleClicked ( TQListBoxItem * )),TQ_SLOT(slotOk()));
     setMainWidget(vbox);
 }
 

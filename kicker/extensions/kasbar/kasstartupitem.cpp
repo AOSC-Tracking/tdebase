@@ -80,7 +80,7 @@ KasStartupItem::KasStartupItem( KasBar *parent, Startup::Ptr startup )
     setAnimation( resources()->startupAnimation() );
 
     aniTimer = new TQTimer( this, "aniTimer" );
-    connect( aniTimer, TQT_SIGNAL( timeout() ), TQT_SLOT( aniTimerFired() ) );
+    connect( aniTimer, TQ_SIGNAL( timeout() ), TQ_SLOT( aniTimerFired() ) );
     aniTimer->start( 100 );
 }
 

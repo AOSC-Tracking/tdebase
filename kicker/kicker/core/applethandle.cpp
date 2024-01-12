@@ -64,8 +64,8 @@ AppletHandle::AppletHandle(AppletContainer* parent)
         m_menuButton->installEventFilter(this);
         m_layout->addWidget(m_menuButton);
 
-        connect(m_menuButton, TQT_SIGNAL(pressed()),
-                this, TQT_SLOT(menuButtonPressed()));
+        connect(m_menuButton, TQ_SIGNAL(pressed()),
+                this, TQ_SLOT(menuButtonPressed()));
         TQToolTip::add(m_menuButton, i18n("%1 menu").arg(parent->info().name()));
     }
 
@@ -151,8 +151,8 @@ void AppletHandle::setFadeOutHandle(bool fadeOut)
         if (!m_handleHoverTimer)
         {
             m_handleHoverTimer = new TQTimer(this, "m_handleHoverTimer");
-            connect(m_handleHoverTimer, TQT_SIGNAL(timeout()),
-                    this, TQT_SLOT(checkHandleHover()));
+            connect(m_handleHoverTimer, TQ_SIGNAL(timeout()),
+                    this, TQ_SLOT(checkHandleHover()));
             m_applet->installEventFilter(this);
         }
     }

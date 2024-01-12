@@ -61,7 +61,7 @@ KonqHistoryManager::KonqHistoryManager( TQObject *parent, const char *name )
     // and load the history
     loadHistory();
 
-    connect( m_updateTimer, TQT_SIGNAL( timeout() ), TQT_SLOT( slotEmitUpdated() ));
+    connect( m_updateTimer, TQ_SIGNAL( timeout() ), TQ_SLOT( slotEmitUpdated() ));
 }
 
 

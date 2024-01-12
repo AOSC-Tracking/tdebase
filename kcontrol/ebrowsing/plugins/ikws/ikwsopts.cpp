@@ -147,35 +147,35 @@ void FilterOptions::load( bool useDefaults )
       m_dlg->lvSearchProviders->setSelected(m_dlg->lvSearchProviders->firstChild(), true);
 
     // Connect all the signals/slots...
-    connect(m_dlg->cbEnableShortcuts, TQT_SIGNAL(clicked()), this,
-            TQT_SLOT(setWebShortcutState()));
-    connect(m_dlg->cbEnableShortcuts, TQT_SIGNAL(clicked()), this,
-            TQT_SLOT(configChanged()));
+    connect(m_dlg->cbEnableShortcuts, TQ_SIGNAL(clicked()), this,
+            TQ_SLOT(setWebShortcutState()));
+    connect(m_dlg->cbEnableShortcuts, TQ_SIGNAL(clicked()), this,
+            TQ_SLOT(configChanged()));
 
-    connect(m_dlg->lvSearchProviders, TQT_SIGNAL(selectionChanged(TQListViewItem *)),
-           this, TQT_SLOT(updateSearchProvider()));
-    connect(m_dlg->lvSearchProviders, TQT_SIGNAL(doubleClicked(TQListViewItem *)),
-           this, TQT_SLOT(changeSearchProvider()));
-    connect(m_dlg->lvSearchProviders, TQT_SIGNAL(returnPressed(TQListViewItem *)),
-           this, TQT_SLOT(changeSearchProvider()));
-    connect(m_dlg->lvSearchProviders, TQT_SIGNAL(executed(TQListViewItem *)),
-           this, TQT_SLOT(checkFavoritesChanged()));
-    connect(m_dlg->lvSearchProviders, TQT_SIGNAL(spacePressed(TQListViewItem *)),
-           this, TQT_SLOT(checkFavoritesChanged()));
-    connect(m_dlg->lvSearchProviders, TQT_SIGNAL(pressed(TQListViewItem *)),
-           this, TQT_SLOT(checkFavoritesChanged()));
-    connect(m_dlg->lvSearchProviders, TQT_SIGNAL(clicked(TQListViewItem *)),
-           this, TQT_SLOT(checkFavoritesChanged()));
+    connect(m_dlg->lvSearchProviders, TQ_SIGNAL(selectionChanged(TQListViewItem *)),
+           this, TQ_SLOT(updateSearchProvider()));
+    connect(m_dlg->lvSearchProviders, TQ_SIGNAL(doubleClicked(TQListViewItem *)),
+           this, TQ_SLOT(changeSearchProvider()));
+    connect(m_dlg->lvSearchProviders, TQ_SIGNAL(returnPressed(TQListViewItem *)),
+           this, TQ_SLOT(changeSearchProvider()));
+    connect(m_dlg->lvSearchProviders, TQ_SIGNAL(executed(TQListViewItem *)),
+           this, TQ_SLOT(checkFavoritesChanged()));
+    connect(m_dlg->lvSearchProviders, TQ_SIGNAL(spacePressed(TQListViewItem *)),
+           this, TQ_SLOT(checkFavoritesChanged()));
+    connect(m_dlg->lvSearchProviders, TQ_SIGNAL(pressed(TQListViewItem *)),
+           this, TQ_SLOT(checkFavoritesChanged()));
+    connect(m_dlg->lvSearchProviders, TQ_SIGNAL(clicked(TQListViewItem *)),
+           this, TQ_SLOT(checkFavoritesChanged()));
 
 
-    connect(m_dlg->cmbDefaultEngine, TQT_SIGNAL(activated(const TQString &)), this,
-            TQT_SLOT(configChanged()));
-    connect(m_dlg->cmbDelimiter, TQT_SIGNAL(activated(const TQString &)), this,
-            TQT_SLOT(configChanged()));
+    connect(m_dlg->cmbDefaultEngine, TQ_SIGNAL(activated(const TQString &)), this,
+            TQ_SLOT(configChanged()));
+    connect(m_dlg->cmbDelimiter, TQ_SIGNAL(activated(const TQString &)), this,
+            TQ_SLOT(configChanged()));
 
-    connect(m_dlg->pbNew, TQT_SIGNAL(clicked()), this, TQT_SLOT(addSearchProvider()));
-    connect(m_dlg->pbChange, TQT_SIGNAL(clicked()), this, TQT_SLOT(changeSearchProvider()));
-    connect(m_dlg->pbDelete, TQT_SIGNAL(clicked()), this, TQT_SLOT(deleteSearchProvider()));
+    connect(m_dlg->pbNew, TQ_SIGNAL(clicked()), this, TQ_SLOT(addSearchProvider()));
+    connect(m_dlg->pbChange, TQ_SIGNAL(clicked()), this, TQ_SLOT(changeSearchProvider()));
+    connect(m_dlg->pbDelete, TQ_SIGNAL(clicked()), this, TQ_SLOT(deleteSearchProvider()));
 
     emit changed( useDefaults );
 }

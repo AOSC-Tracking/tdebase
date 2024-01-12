@@ -77,7 +77,7 @@ KateMailDialog::KateMailDialog( TQWidget *parent, KateMainWindow  *mainwin )
     i++;
   }
   list->hide();
-  connect( this, TQT_SIGNAL(user1Clicked()), this, TQT_SLOT(slotShowButton()) );
+  connect( this, TQ_SIGNAL(user1Clicked()), this, TQ_SLOT(slotShowButton()) );
   mw->setMinimumSize( lInfo->sizeHint() );
 }
 

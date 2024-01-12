@@ -197,9 +197,9 @@ void AppletProxy::loadApplet(const TQString& desktopFile, const TQString& config
     }
 
     // connect updateLayout signal
-    connect(_applet, TQT_SIGNAL(updateLayout()), TQT_SLOT(slotUpdateLayout()));
+    connect(_applet, TQ_SIGNAL(updateLayout()), TQ_SLOT(slotUpdateLayout()));
     // connect requestFocus signal
-    connect(_applet, TQT_SIGNAL(requestFocus()), TQT_SLOT(slotRequestFocus()));
+    connect(_applet, TQ_SIGNAL(requestFocus()), TQ_SLOT(slotRequestFocus()));
 }
 
 KPanelApplet* AppletProxy::loadApplet(const AppletInfo& info)
@@ -258,8 +258,8 @@ void AppletProxy::dock(const TQCString& callbackID)
     DCOPClient* dcop = kapp->dcopClient();
 
     dcop->setNotifications(true);
-    connect(dcop, TQT_SIGNAL(applicationRemoved(const TQCString&)),
-	    TQT_SLOT(slotApplicationRemoved(const TQCString&)));
+    connect(dcop, TQ_SIGNAL(applicationRemoved(const TQCString&)),
+	    TQ_SLOT(slotApplicationRemoved(const TQCString&)));
 
     WId win;
 

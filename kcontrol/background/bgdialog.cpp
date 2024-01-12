@@ -122,21 +122,21 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
       m_eScreen = 0;
    }
    
-   connect(m_buttonIdentifyScreens, TQT_SIGNAL(clicked()), TQT_SLOT(slotIdentifyScreens()));
+   connect(m_buttonIdentifyScreens, TQ_SIGNAL(clicked()), TQ_SLOT(slotIdentifyScreens()));
 
    // preview monitor
    m_pMonitorArrangement = new BGMonitorArrangement(m_screenArrangement, "monitor arrangement");
-   connect(m_pMonitorArrangement, TQT_SIGNAL(imageDropped(const TQString &)), TQT_SLOT(slotImageDropped(const TQString &)));
+   connect(m_pMonitorArrangement, TQ_SIGNAL(imageDropped(const TQString &)), TQ_SLOT(slotImageDropped(const TQString &)));
    if( m_multidesktop)
    {
        // desktop
-       connect(m_comboDesktop, TQT_SIGNAL(activated(int)),
-	       TQT_SLOT(slotSelectDesk(int)));
+       connect(m_comboDesktop, TQ_SIGNAL(activated(int)),
+	       TQ_SLOT(slotSelectDesk(int)));
    }
    if (m_numScreens > 1)
    {
-       connect(m_comboScreen, TQT_SIGNAL(activated(int)),
-               TQT_SLOT(slotSelectScreen(int)));
+       connect(m_comboScreen, TQ_SIGNAL(activated(int)),
+               TQ_SLOT(slotSelectScreen(int)));
    }
 
    // background image settings
@@ -146,42 +146,42 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
    m_urlWallpaperButton->setFixedSize( pixMap.width()+8, pixMap.height()+8 );
    TQToolTip::add(m_urlWallpaperButton, i18n("Open file dialog"));
 
-   connect(m_buttonGroupBackground, TQT_SIGNAL(clicked(int)),
-           TQT_SLOT(slotWallpaperTypeChanged(int)));
-   connect(m_urlWallpaperBox, TQT_SIGNAL(activated(int)),
-           TQT_SLOT(slotWallpaper(int)));
-   connect(m_urlWallpaperButton, TQT_SIGNAL(clicked()),
-           TQT_SLOT(slotWallpaperSelection()));
-   connect(m_comboWallpaperPos, TQT_SIGNAL(activated(int)),
-           TQT_SLOT(slotWallpaperPos(int)));
-   connect(m_buttonSetupWallpapers, TQT_SIGNAL(clicked()),
-           TQT_SLOT(slotSetupMulti()));
+   connect(m_buttonGroupBackground, TQ_SIGNAL(clicked(int)),
+           TQ_SLOT(slotWallpaperTypeChanged(int)));
+   connect(m_urlWallpaperBox, TQ_SIGNAL(activated(int)),
+           TQ_SLOT(slotWallpaper(int)));
+   connect(m_urlWallpaperButton, TQ_SIGNAL(clicked()),
+           TQ_SLOT(slotWallpaperSelection()));
+   connect(m_comboWallpaperPos, TQ_SIGNAL(activated(int)),
+           TQ_SLOT(slotWallpaperPos(int)));
+   connect(m_buttonSetupWallpapers, TQ_SIGNAL(clicked()),
+           TQ_SLOT(slotSetupMulti()));
 
    // set up the background colour stuff
-   connect(m_colorPrimary, TQT_SIGNAL(changed(const TQColor &)),
-           TQT_SLOT(slotPrimaryColor(const TQColor &)));
-   connect(m_colorSecondary, TQT_SIGNAL(changed(const TQColor &)),
-           TQT_SLOT(slotSecondaryColor(const TQColor &)));
-   connect(m_comboPattern, TQT_SIGNAL(activated(int)),
-           TQT_SLOT(slotPattern(int)));
+   connect(m_colorPrimary, TQ_SIGNAL(changed(const TQColor &)),
+           TQ_SLOT(slotPrimaryColor(const TQColor &)));
+   connect(m_colorSecondary, TQ_SIGNAL(changed(const TQColor &)),
+           TQ_SLOT(slotSecondaryColor(const TQColor &)));
+   connect(m_comboPattern, TQ_SIGNAL(activated(int)),
+           TQ_SLOT(slotPattern(int)));
 
    // blend
-   connect(m_comboBlend, TQT_SIGNAL(activated(int)), TQT_SLOT(slotBlendMode(int)));
-   connect(m_sliderBlend, TQT_SIGNAL(valueChanged(int)),
-           TQT_SLOT(slotBlendBalance(int)));
-   connect(m_cbBlendReverse, TQT_SIGNAL(toggled(bool)),
-           TQT_SLOT(slotBlendReverse(bool)));
+   connect(m_comboBlend, TQ_SIGNAL(activated(int)), TQ_SLOT(slotBlendMode(int)));
+   connect(m_sliderBlend, TQ_SIGNAL(valueChanged(int)),
+           TQ_SLOT(slotBlendBalance(int)));
+   connect(m_cbBlendReverse, TQ_SIGNAL(toggled(bool)),
+           TQ_SLOT(slotBlendReverse(bool)));
 
    // Crossfading background
-   connect(m_cbCrossFadeBg, TQT_SIGNAL(toggled(bool)),
-           TQT_SLOT(slotCrossFadeBg(bool)));
+   connect(m_cbCrossFadeBg, TQ_SIGNAL(toggled(bool)),
+           TQ_SLOT(slotCrossFadeBg(bool)));
 
    // advanced options
-   connect(m_buttonAdvanced, TQT_SIGNAL(clicked()),
-           TQT_SLOT(slotAdvanced()));
+   connect(m_buttonAdvanced, TQ_SIGNAL(clicked()),
+           TQ_SLOT(slotAdvanced()));
 
-   connect(m_buttonGetNew, TQT_SIGNAL(clicked()),
-           TQT_SLOT(slotGetNewStuff()));
+   connect(m_buttonGetNew, TQ_SIGNAL(clicked()),
+           TQ_SLOT(slotGetNewStuff()));
 
    // renderers
    m_renderer.resize(m_numDesks+1);
@@ -198,19 +198,19 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
          // Setup the merged-screen renderer
          KBackgroundRenderer * r = new KBackgroundRenderer(eDesk, 0, false, _config);
          m_renderer[i].insert( 0, r );
-         connect( r, TQT_SIGNAL(imageDone(int,int)), TQT_SLOT(slotPreviewDone(int,int)) );
+         connect( r, TQ_SIGNAL(imageDone(int,int)), TQ_SLOT(slotPreviewDone(int,int)) );
          
          // Setup the common-screen renderer
          r = new KBackgroundRenderer(eDesk, 0, true, _config);
          m_renderer[i].insert( 1, r );
-         connect( r, TQT_SIGNAL(imageDone(int,int)), TQT_SLOT(slotPreviewDone(int,int)) );
+         connect( r, TQ_SIGNAL(imageDone(int,int)), TQ_SLOT(slotPreviewDone(int,int)) );
          
          // Setup the remaining renderers for each screen
          for (unsigned j=0; j < m_numScreens; ++j )
          {
             r = new KBackgroundRenderer(eDesk, j, true, _config);
             m_renderer[i].insert( j+2, r );
-            connect( r, TQT_SIGNAL(imageDone(int,int)), TQT_SLOT(slotPreviewDone(int,int)) );
+            connect( r, TQ_SIGNAL(imageDone(int,int)), TQ_SLOT(slotPreviewDone(int,int)) );
          }
       }
    }
@@ -225,14 +225,14 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
       // set up the common desktop renderer
       KBackgroundRenderer * r = new KBackgroundRenderer(0, 0, false, _config);
       m_renderer[0].insert(0, r);
-      connect(r, TQT_SIGNAL(imageDone(int,int)), TQT_SLOT(slotPreviewDone(int,int)));
+      connect(r, TQ_SIGNAL(imageDone(int,int)), TQ_SLOT(slotPreviewDone(int,int)));
 
       // set up all the other desktop renderers
       for (unsigned i = 0; i < m_numDesks; ++i)
       {
          r = new KBackgroundRenderer(i, 0, false, _config);
          m_renderer[i+1].insert(0, r);
-         connect(r, TQT_SIGNAL(imageDone(int,int)), TQT_SLOT(slotPreviewDone(int,int)));
+         connect(r, TQ_SIGNAL(imageDone(int,int)), TQ_SLOT(slotPreviewDone(int,int)));
       }
    }
 
@@ -285,7 +285,7 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
    updateUI();
 
 #if (TQT_VERSION-0 >= 0x030200)
-   connect( tqApp->desktop(), TQT_SIGNAL( resized( int )), TQT_SLOT( desktopResized())); // RANDR support
+   connect( tqApp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized())); // RANDR support
 #endif
 }
 
@@ -447,7 +447,7 @@ void BGDialog::slotIdentifyScreens()
       screenLabel->setNum(int(s + 1));
         // BUGLET: we should not allow the identification to be entered again
         //         until the timer fires.
-      TQTimer::singleShot(1500, screenLabel, TQT_SLOT(close()));
+      TQTimer::singleShot(1500, screenLabel, TQ_SLOT(close()));
 
       TQPoint screenCenter(TQApplication::desktop()->screenGeometry(s).center());
       TQRect targetGeometry(TQPoint(0,0),screenLabel->sizeHint());

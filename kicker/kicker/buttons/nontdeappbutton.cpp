@@ -61,7 +61,7 @@ NonKDEAppButton::NonKDEAppButton(const TQString& name,
     // to the slotExec() slot
     // we do this here instead of in initialize(...) since initialize(...) may
     // get called later, e.g after reconfiguring it
-    connect(this, TQT_SIGNAL(clicked()), TQT_SLOT(slotExec()));
+    connect(this, TQ_SIGNAL(clicked()), TQ_SLOT(slotExec()));
 }
 
 // this constructor is used when restoring a button, usually at startup
@@ -77,7 +77,7 @@ NonKDEAppButton::NonKDEAppButton( const TDEConfigGroup& config, TQWidget* parent
                config.readBoolEntry("RunInTerminal"));
 
     // see comment on connect in above constructor
-    connect(this, TQT_SIGNAL(clicked()), TQT_SLOT(slotExec()));
+    connect(this, TQ_SIGNAL(clicked()), TQ_SLOT(slotExec()));
 }
 
 void NonKDEAppButton::initialize(const TQString& name,
@@ -278,8 +278,8 @@ void NonKDEAppButton::properties()
 
     // ... connect the signal it emits when it has data for us to save
     // to our updateSettings slot (see above) ...
-    connect(dlg, TQT_SIGNAL(updateSettings(PanelExeDialog*)), this,
-            TQT_SLOT(updateSettings(PanelExeDialog*)));
+    connect(dlg, TQ_SIGNAL(updateSettings(PanelExeDialog*)), this,
+            TQ_SLOT(updateSettings(PanelExeDialog*)));
 
     // ... and then show it to the user
     dlg->show();

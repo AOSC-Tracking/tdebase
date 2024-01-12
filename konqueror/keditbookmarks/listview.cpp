@@ -229,8 +229,8 @@ void ListView::selected(KEBListViewItem * item, bool s)
     }
     //FIXME do it once somewhere
     if (!KEBApp::self()->bkInfo()->connected()) {
-        connect(KEBApp::self()->bkInfo(), TQT_SIGNAL( updateListViewItem() ),
-                                          TQT_SLOT( slotBkInfoUpdateListViewItem() ));
+        connect(KEBApp::self()->bkInfo(), TQ_SIGNAL( updateListViewItem() ),
+                                          TQ_SLOT( slotBkInfoUpdateListViewItem() ));
         KEBApp::self()->bkInfo()->setConnected(true);
     }
 
@@ -716,21 +716,21 @@ void KEBListView::init() {
     setDragEnabled(true);
     setSelectionModeExt((!m_folderList) ? TDEListView::Extended: TDEListView::Single);
     setAllColumnsShowFocus(true);
-    connect(header(), TQT_SIGNAL(sizeChange(int, int, int)),
-            this, TQT_SLOT(slotColumnSizeChanged(int, int, int)));
+    connect(header(), TQ_SIGNAL(sizeChange(int, int, int)),
+            this, TQ_SLOT(slotColumnSizeChanged(int, int, int)));
 }
 
 void KEBListView::makeConnections() {
-    connect(this, TQT_SIGNAL( moved() ),
-            TQT_SLOT( slotMoved() ));
-    connect(this, TQT_SIGNAL( contextMenu(TDEListView *, TQListViewItem*, const TQPoint &) ),
-            TQT_SLOT( slotContextMenu(TDEListView *, TQListViewItem *, const TQPoint &) ));
-    connect(this, TQT_SIGNAL( itemRenamed(TQListViewItem *, const TQString &, int) ),
-            TQT_SLOT( slotItemRenamed(TQListViewItem *, const TQString &, int) ));
-    connect(this, TQT_SIGNAL( doubleClicked(TQListViewItem *, const TQPoint &, int) ),
-            TQT_SLOT( slotDoubleClicked(TQListViewItem *, const TQPoint &, int) ));
-    connect(this, TQT_SIGNAL( dropped(TQDropEvent*, TQListViewItem*, TQListViewItem*) ),
-            TQT_SLOT( slotDropped(TQDropEvent*, TQListViewItem*, TQListViewItem*) ));
+    connect(this, TQ_SIGNAL( moved() ),
+            TQ_SLOT( slotMoved() ));
+    connect(this, TQ_SIGNAL( contextMenu(TDEListView *, TQListViewItem*, const TQPoint &) ),
+            TQ_SLOT( slotContextMenu(TDEListView *, TQListViewItem *, const TQPoint &) ));
+    connect(this, TQ_SIGNAL( itemRenamed(TQListViewItem *, const TQString &, int) ),
+            TQ_SLOT( slotItemRenamed(TQListViewItem *, const TQString &, int) ));
+    connect(this, TQ_SIGNAL( doubleClicked(TQListViewItem *, const TQPoint &, int) ),
+            TQ_SLOT( slotDoubleClicked(TQListViewItem *, const TQPoint &, int) ));
+    connect(this, TQ_SIGNAL( dropped(TQDropEvent*, TQListViewItem*, TQListViewItem*) ),
+            TQ_SLOT( slotDropped(TQDropEvent*, TQListViewItem*, TQListViewItem*) ));
 }
 
 void KEBListView::readonlyFlagInit(bool readonly) {

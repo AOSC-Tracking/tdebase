@@ -221,19 +221,19 @@ ProcessList::ProcessList(TQWidget *parent, const char* name)
 
 	/* The filter mode is controlled by a combo box of the parent. If
 	 * the mode is changed we get a signal. */
-	connect(parent, TQT_SIGNAL(setFilterMode(int)),
-			this, TQT_SLOT(setFilterMode(int)));
+	connect(parent, TQ_SIGNAL(setFilterMode(int)),
+			this, TQ_SLOT(setFilterMode(int)));
 
 	/* We need to catch this signal to show various popup menues. */
 	connect(this,
-			TQT_SIGNAL(rightButtonPressed(TQListViewItem*, const TQPoint&, int)),
+			TQ_SIGNAL(rightButtonPressed(TQListViewItem*, const TQPoint&, int)),
 			this,
-			TQT_SLOT(handleRMBPressed(TQListViewItem*, const TQPoint&, int)));
+			TQ_SLOT(handleRMBPressed(TQListViewItem*, const TQPoint&, int)));
 
 	/* Since Qt does not tell us the sorting details we have to do our
 	 * own bookkeping, so we can save and restore the sorting
 	 * settings. */
-	connect(header(), TQT_SIGNAL(clicked(int)), this, TQT_SLOT(sortingChanged(int)));
+	connect(header(), TQ_SIGNAL(clicked(int)), this, TQ_SLOT(sortingChanged(int)));
 
 	ctrlKeyDown = false;
 	shiftKeyDown = false;
@@ -260,10 +260,10 @@ ProcessList::ProcessList(TQWidget *parent, const char* name)
 	headerPM->insertItem(i18n("Add Column"), HEADER_ADD);
 	headerPM->insertItem(i18n("Help on Column"), HEADER_HELP);
 
-	connect(header(), TQT_SIGNAL(sizeChange(int, int, int)),
-			this, TQT_SLOT(sizeChanged(int, int, int)));
-	connect(header(), TQT_SIGNAL(indexChange(int, int, int)),
-			this, TQT_SLOT(indexChanged(int, int, int)));
+	connect(header(), TQ_SIGNAL(sizeChange(int, int, int)),
+			this, TQ_SLOT(sizeChanged(int, int, int)));
+	connect(header(), TQ_SIGNAL(indexChange(int, int, int)),
+			this, TQ_SLOT(indexChanged(int, int, int)));
 
 	killSupported = false;
 	setModified(false);

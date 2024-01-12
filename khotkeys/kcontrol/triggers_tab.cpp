@@ -55,9 +55,9 @@ Triggers_tab::Triggers_tab( TQWidget* parent_P, const char* name_P )
     if( haveArts())
         popup->insertItem( i18n( "Voice Trigger..." ), TYPE_VOICE_TRIGGER );
 #endif
-    connect( popup, TQT_SIGNAL( activated( int )), TQT_SLOT( new_selected( int )));
-    connect( triggers_listview, TQT_SIGNAL( doubleClicked ( TQListViewItem *, const TQPoint &, int ) ),
-             this, TQT_SLOT( modify_pressed() ) );
+    connect( popup, TQ_SIGNAL( activated( int )), TQ_SLOT( new_selected( int )));
+    connect( triggers_listview, TQ_SIGNAL( doubleClicked ( TQListViewItem *, const TQPoint &, int ) ),
+             this, TQ_SLOT( modify_pressed() ) );
 
     new_button->setPopup( popup );
     copy_button->setEnabled( false );
@@ -69,16 +69,16 @@ Triggers_tab::Triggers_tab( TQWidget* parent_P, const char* name_P )
     triggers_listview->setForceSelect( true );
     clear_data();
     // KHotKeys::Module::changed()
-    connect( new_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( copy_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( modify_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( delete_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( comment_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
+    connect( new_button, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( copy_button, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( modify_button, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( delete_button, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( comment_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
     }
 
 Triggers_tab::~Triggers_tab()
@@ -230,8 +230,8 @@ Shortcut_trigger_widget::Shortcut_trigger_widget( TQWidget* parent_P, const char
     lay->addWidget( bt, 0 , TQt::AlignHCenter );
     lay->addStretch();
     clear_data();
-    connect( bt, TQT_SIGNAL( capturedShortcut( const TDEShortcut& )),
-        this, TQT_SLOT( capturedShortcut( const TDEShortcut& )));
+    connect( bt, TQ_SIGNAL( capturedShortcut( const TDEShortcut& )),
+        this, TQ_SLOT( capturedShortcut( const TDEShortcut& )));
     }
 
 void Shortcut_trigger_widget::clear_data()
@@ -320,8 +320,8 @@ Gesture_trigger_dialog::Gesture_trigger_dialog( Gesture_trigger* trigger_P )
     _page = new GestureRecordPage( _trigger->gesturecode(),
                                   this, "GestureRecordPage");
 
-    connect(_page, TQT_SIGNAL(gestureRecorded(bool)),
-            this, TQT_SLOT(enableButtonOK(bool)));
+    connect(_page, TQ_SIGNAL(gestureRecorded(bool)),
+            this, TQ_SLOT(enableButtonOK(bool)));
 
     setMainWidget( _page );
     }
@@ -343,7 +343,7 @@ _trigger( trigger_P ), _page( NULL )
 {
 	_page = new VoiceRecordPage( _trigger ? _trigger->voicecode() : TQString::null ,  this, "VoiceRecordPage");
 
-	connect(_page, TQT_SIGNAL(voiceRecorded(bool)), this, TQT_SLOT(enableButtonOK(bool)));
+	connect(_page, TQ_SIGNAL(voiceRecorded(bool)), this, TQ_SLOT(enableButtonOK(bool)));
 
 	setMainWidget( _page );
 }

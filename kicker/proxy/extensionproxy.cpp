@@ -161,7 +161,7 @@ void ExtensionProxy::loadExtension(const TQCString& desktopFile, const TQCString
     }
 
     // connect updateLayout signal
-    connect(_extension, TQT_SIGNAL(updateLayout()), TQT_SLOT(slotUpdateLayout()));
+    connect(_extension, TQ_SIGNAL(updateLayout()), TQ_SLOT(slotUpdateLayout()));
 }
 
 KPanelExtension* ExtensionProxy::loadExtension(const AppletInfo& info)
@@ -198,8 +198,8 @@ void ExtensionProxy::dock(const TQCString& callbackID)
     DCOPClient* dcop = kapp->dcopClient();
 
     dcop->setNotifications(true);
-    connect(dcop, TQT_SIGNAL(applicationRemoved(const TQCString&)),
-	    TQT_SLOT(slotApplicationRemoved(const TQCString&)));
+    connect(dcop, TQ_SIGNAL(applicationRemoved(const TQCString&)),
+	    TQ_SLOT(slotApplicationRemoved(const TQCString&)));
 
     WId win;
 

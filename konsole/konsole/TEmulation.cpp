@@ -110,8 +110,8 @@ TEmulation::TEmulation(TEWidget* w)
   screen[1] = new TEScreen(gui->Lines(),gui->Columns());
   scr = screen[0];
 
-  TQObject::connect(&bulk_timer1, TQT_SIGNAL(timeout()), this, TQT_SLOT(showBulk()) );
-  TQObject::connect(&bulk_timer2, TQT_SIGNAL(timeout()), this, TQT_SLOT(showBulk()) );
+  TQObject::connect(&bulk_timer1, TQ_SIGNAL(timeout()), this, TQ_SLOT(showBulk()) );
+  TQObject::connect(&bulk_timer2, TQ_SIGNAL(timeout()), this, TQ_SLOT(showBulk()) );
   connectGUI();
   setKeymap(0); // Default keymap
 }
@@ -121,28 +121,28 @@ TEmulation::TEmulation(TEWidget* w)
 
 void TEmulation::connectGUI()
 {
-  TQObject::connect(gui,TQT_SIGNAL(changedHistoryCursor(int)),
-                   this,TQT_SLOT(onHistoryCursorChange(int)));
-  TQObject::connect(gui,TQT_SIGNAL(keyPressedSignal(TQKeyEvent*)),
-                   this,TQT_SLOT(onKeyPress(TQKeyEvent*)));
-  TQObject::connect(gui,TQT_SIGNAL(keyReleasedSignal(TQKeyEvent*)),
-                   this,TQT_SLOT(onKeyReleased(TQKeyEvent*)));
-  TQObject::connect(gui,TQT_SIGNAL(focusInSignal(TQFocusEvent*)),
-                   this,TQT_SLOT(onFocusIn(TQFocusEvent*)));
-  TQObject::connect(gui,TQT_SIGNAL(beginSelectionSignal(const int,const int,const bool)),
-		   this,TQT_SLOT(onSelectionBegin(const int,const int,const bool)) );
-  TQObject::connect(gui,TQT_SIGNAL(extendSelectionSignal(const int,const int)),
-		   this,TQT_SLOT(onSelectionExtend(const int,const int)) );
-  TQObject::connect(gui,TQT_SIGNAL(endSelectionSignal(const bool)),
-		   this,TQT_SLOT(setSelection(const bool)) );
-  TQObject::connect(gui,TQT_SIGNAL(copySelectionSignal()),
-		   this,TQT_SLOT(copySelection()) );
-  TQObject::connect(gui,TQT_SIGNAL(clearSelectionSignal()),
-		   this,TQT_SLOT(clearSelection()) );
-  TQObject::connect(gui,TQT_SIGNAL(isBusySelecting(bool)),
-		   this,TQT_SLOT(isBusySelecting(bool)) );
-  TQObject::connect(gui,TQT_SIGNAL(testIsSelected(const int, const int, bool &)),
-		   this,TQT_SLOT(testIsSelected(const int, const int, bool &)) );
+  TQObject::connect(gui,TQ_SIGNAL(changedHistoryCursor(int)),
+                   this,TQ_SLOT(onHistoryCursorChange(int)));
+  TQObject::connect(gui,TQ_SIGNAL(keyPressedSignal(TQKeyEvent*)),
+                   this,TQ_SLOT(onKeyPress(TQKeyEvent*)));
+  TQObject::connect(gui,TQ_SIGNAL(keyReleasedSignal(TQKeyEvent*)),
+                   this,TQ_SLOT(onKeyReleased(TQKeyEvent*)));
+  TQObject::connect(gui,TQ_SIGNAL(focusInSignal(TQFocusEvent*)),
+                   this,TQ_SLOT(onFocusIn(TQFocusEvent*)));
+  TQObject::connect(gui,TQ_SIGNAL(beginSelectionSignal(const int,const int,const bool)),
+		   this,TQ_SLOT(onSelectionBegin(const int,const int,const bool)) );
+  TQObject::connect(gui,TQ_SIGNAL(extendSelectionSignal(const int,const int)),
+		   this,TQ_SLOT(onSelectionExtend(const int,const int)) );
+  TQObject::connect(gui,TQ_SIGNAL(endSelectionSignal(const bool)),
+		   this,TQ_SLOT(setSelection(const bool)) );
+  TQObject::connect(gui,TQ_SIGNAL(copySelectionSignal()),
+		   this,TQ_SLOT(copySelection()) );
+  TQObject::connect(gui,TQ_SIGNAL(clearSelectionSignal()),
+		   this,TQ_SLOT(clearSelection()) );
+  TQObject::connect(gui,TQ_SIGNAL(isBusySelecting(bool)),
+		   this,TQ_SLOT(isBusySelecting(bool)) );
+  TQObject::connect(gui,TQ_SIGNAL(testIsSelected(const int, const int, bool &)),
+		   this,TQ_SLOT(testIsSelected(const int, const int, bool &)) );
 }
 
 /*!
@@ -153,28 +153,28 @@ void TEmulation::changeGUI(TEWidget* newgui)
   if (static_cast<TEWidget *>( gui )==newgui) return;
 
   if ( gui ) {
-    TQObject::disconnect(gui,TQT_SIGNAL(changedHistoryCursor(int)),
-                     this,TQT_SLOT(onHistoryCursorChange(int)));
-    TQObject::disconnect(gui,TQT_SIGNAL(keyPressedSignal(TQKeyEvent*)),
-                     this,TQT_SLOT(onKeyPress(TQKeyEvent*)));
-    TQObject::disconnect(gui,TQT_SIGNAL(keyReleasedSignal(TQKeyEvent*)),
-                     this,TQT_SLOT(onKeyReleased(TQKeyEvent*)));
-    TQObject::disconnect(gui,TQT_SIGNAL(focusInSignal(TQFocusEvent*)),
-                     this,TQT_SLOT(onFocusIn(TQFocusEvent*)));
-    TQObject::disconnect(gui,TQT_SIGNAL(beginSelectionSignal(const int,const int,const bool)),
-                     this,TQT_SLOT(onSelectionBegin(const int,const int,const bool)) );
-    TQObject::disconnect(gui,TQT_SIGNAL(extendSelectionSignal(const int,const int)),
-                     this,TQT_SLOT(onSelectionExtend(const int,const int)) );
-    TQObject::disconnect(gui,TQT_SIGNAL(endSelectionSignal(const bool)),
-                     this,TQT_SLOT(setSelection(const bool)) );
-    TQObject::disconnect(gui,TQT_SIGNAL(copySelectionSignal()),
-                     this,TQT_SLOT(copySelection()) );
-    TQObject::disconnect(gui,TQT_SIGNAL(clearSelectionSignal()),
-                     this,TQT_SLOT(clearSelection()) );
-    TQObject::disconnect(gui,TQT_SIGNAL(isBusySelecting(bool)),
-                     this,TQT_SLOT(isBusySelecting(bool)) );
-    TQObject::disconnect(gui,TQT_SIGNAL(testIsSelected(const int, const int, bool &)),
-                     this,TQT_SLOT(testIsSelected(const int, const int, bool &)) );
+    TQObject::disconnect(gui,TQ_SIGNAL(changedHistoryCursor(int)),
+                     this,TQ_SLOT(onHistoryCursorChange(int)));
+    TQObject::disconnect(gui,TQ_SIGNAL(keyPressedSignal(TQKeyEvent*)),
+                     this,TQ_SLOT(onKeyPress(TQKeyEvent*)));
+    TQObject::disconnect(gui,TQ_SIGNAL(keyReleasedSignal(TQKeyEvent*)),
+                     this,TQ_SLOT(onKeyReleased(TQKeyEvent*)));
+    TQObject::disconnect(gui,TQ_SIGNAL(focusInSignal(TQFocusEvent*)),
+                     this,TQ_SLOT(onFocusIn(TQFocusEvent*)));
+    TQObject::disconnect(gui,TQ_SIGNAL(beginSelectionSignal(const int,const int,const bool)),
+                     this,TQ_SLOT(onSelectionBegin(const int,const int,const bool)) );
+    TQObject::disconnect(gui,TQ_SIGNAL(extendSelectionSignal(const int,const int)),
+                     this,TQ_SLOT(onSelectionExtend(const int,const int)) );
+    TQObject::disconnect(gui,TQ_SIGNAL(endSelectionSignal(const bool)),
+                     this,TQ_SLOT(setSelection(const bool)) );
+    TQObject::disconnect(gui,TQ_SIGNAL(copySelectionSignal()),
+                     this,TQ_SLOT(copySelection()) );
+    TQObject::disconnect(gui,TQ_SIGNAL(clearSelectionSignal()),
+                     this,TQ_SLOT(clearSelection()) );
+    TQObject::disconnect(gui,TQ_SIGNAL(isBusySelecting(bool)),
+                     this,TQ_SLOT(isBusySelecting(bool)) );
+    TQObject::disconnect(gui,TQ_SIGNAL(testIsSelected(const int, const int, bool &)),
+                     this,TQ_SLOT(testIsSelected(const int, const int, bool &)) );
   }
   gui=newgui;
   connectGUI();

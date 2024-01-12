@@ -120,9 +120,9 @@ void KSysGuardApplet::preferences()
   }
   mSettingsDlg = new KSGAppletSettings( this );
 
-  connect( mSettingsDlg, TQT_SIGNAL( applyClicked() ), TQT_SLOT( applySettings() ) );
-  connect( mSettingsDlg, TQT_SIGNAL( okClicked() ), TQT_SLOT( applySettings() ) );
-  connect( mSettingsDlg, TQT_SIGNAL( finished() ), TQT_SLOT( preferencesFinished() ) );
+  connect( mSettingsDlg, TQ_SIGNAL( applyClicked() ), TQ_SLOT( applySettings() ) );
+  connect( mSettingsDlg, TQ_SIGNAL( okClicked() ), TQ_SLOT( applySettings() ) );
+  connect( mSettingsDlg, TQ_SIGNAL( finished() ), TQ_SLOT( preferencesFinished() ) );
 
   mSettingsDlg->setNumDisplay( mDockCount );
   mSettingsDlg->setSizeRatio( (int) ( mSizeRatio * 100.0 + 0.5 ) );
@@ -232,8 +232,8 @@ void KSysGuardApplet::dropEvent( TQDropEvent *e )
           mDockList[ dock ] = wdg;
           layout();
 
-          connect( wdg, TQT_SIGNAL( modified( bool ) ),
-                   TQT_SLOT( sensorDisplayModified( bool ) ) );
+          connect( wdg, TQ_SIGNAL( modified( bool ) ),
+                   TQ_SLOT( sensorDisplayModified( bool ) ) );
 
           mDockList[ dock ]->show();
         }
@@ -405,8 +405,8 @@ bool KSysGuardApplet::load()
     delete mDockList[ dock ];
     mDockList[ dock ] = newDisplay;
 
-    connect( newDisplay, TQT_SIGNAL( modified( bool ) ),
-             TQT_SLOT( sensorDisplayModified( bool ) ) );
+    connect( newDisplay, TQ_SIGNAL( modified( bool ) ),
+             TQ_SLOT( sensorDisplayModified( bool ) ) );
   }
 
   return true;

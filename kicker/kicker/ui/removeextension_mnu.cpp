@@ -37,8 +37,8 @@ static const int REMOVEALLID = 1000;
 PanelRemoveExtensionMenu::PanelRemoveExtensionMenu( TQWidget *parent, const char *name )
     : TQPopupMenu( parent, name )
 {
-    connect(this, TQT_SIGNAL(activated(int)), TQT_SLOT(slotExec(int)));
-    connect(this, TQT_SIGNAL(aboutToShow()), TQT_SLOT(slotAboutToShow()));
+    connect(this, TQ_SIGNAL(activated(int)), TQ_SLOT(slotExec(int)));
+    connect(this, TQ_SIGNAL(aboutToShow()), TQ_SLOT(slotAboutToShow()));
 }
 
 PanelRemoveExtensionMenu::PanelRemoveExtensionMenu()

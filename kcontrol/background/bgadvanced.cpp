@@ -77,8 +77,8 @@ BGAdvancedDialog::BGAdvancedDialog(KBackgroundRenderer *_r,
    dlg->m_listPrograms->header()->setStretchEnabled ( true, 1 );
    dlg->m_listPrograms->setAllColumnsShowFocus(true);
 
-   connect(dlg->m_listPrograms, TQT_SIGNAL(clicked(TQListViewItem *)),
-         TQT_SLOT(slotProgramItemClicked(TQListViewItem *)));
+   connect(dlg->m_listPrograms, TQ_SIGNAL(clicked(TQListViewItem *)),
+         TQ_SLOT(slotProgramItemClicked(TQListViewItem *)));
 
    // Load programs
    TQStringList lst = KBackgroundProgram::list();
@@ -100,15 +100,15 @@ BGAdvancedDialog::BGAdvancedDialog(KBackgroundRenderer *_r,
       dlg->m_spinCache->setSpecialValueText(i18n("Unlimited"));
       dlg->m_spinCache->setSuffix(i18n(" KB"));
 
-      connect(dlg->m_buttonAdd, TQT_SIGNAL(clicked()),
-         TQT_SLOT(slotAdd()));
-      connect(dlg->m_buttonRemove, TQT_SIGNAL(clicked()),
-         TQT_SLOT(slotRemove()));
-      connect(dlg->m_buttonModify, TQT_SIGNAL(clicked()),
-         TQT_SLOT(slotModify()));
+      connect(dlg->m_buttonAdd, TQ_SIGNAL(clicked()),
+         TQ_SLOT(slotAdd()));
+      connect(dlg->m_buttonRemove, TQ_SIGNAL(clicked()),
+         TQ_SLOT(slotRemove()));
+      connect(dlg->m_buttonModify, TQ_SIGNAL(clicked()),
+         TQ_SLOT(slotModify()));
 
-      connect(dlg->m_listPrograms, TQT_SIGNAL(doubleClicked(TQListViewItem *)),
-         TQT_SLOT(slotProgramItemDoubleClicked(TQListViewItem *)));
+      connect(dlg->m_listPrograms, TQ_SIGNAL(doubleClicked(TQListViewItem *)),
+         TQ_SLOT(slotProgramItemDoubleClicked(TQListViewItem *)));
    }
    else
    {
@@ -119,8 +119,8 @@ BGAdvancedDialog::BGAdvancedDialog(KBackgroundRenderer *_r,
       dlg->m_groupCache->hide();
    }
 
-   connect( dlg->m_cbProgram, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(slotEnableProgram(bool)));
+   connect( dlg->m_cbProgram, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(slotEnableProgram(bool)));
 
    m_backgroundMode = m_oldBackgroundMode = r->backgroundMode();
    if (m_oldBackgroundMode == KBackgroundSettings::Program)

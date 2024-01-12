@@ -299,20 +299,20 @@ DevicePropertiesDialog::DevicePropertiesDialog(TDEGenericDevice* device, TQWidge
 		}
 
 		if (m_device->type() == TDEGenericDeviceType::CPU) {
-			connect(base->comboCPUGovernor, TQT_SIGNAL(activated(const TQString &)), this, TQT_SLOT(setCPUGovernor(const TQString &)));
+			connect(base->comboCPUGovernor, TQ_SIGNAL(activated(const TQString &)), this, TQ_SLOT(setCPUGovernor(const TQString &)));
 		}
 		if (m_device->type() == TDEGenericDeviceType::Disk) {
 			TDEStorageDevice* sdevice = static_cast<TDEStorageDevice*>(m_device);
-			connect(base->buttonDiskMount, TQT_SIGNAL(clicked()), this, TQT_SLOT(mountDisk()));
-			connect(base->buttonDiskUnmount, TQT_SIGNAL(clicked()), this, TQT_SLOT(unmountDisk()));
-			connect(base->buttonDiskUnlock, TQT_SIGNAL(clicked()), this, TQT_SLOT(unlockDisk()));
-			connect(base->buttonDiskLock, TQT_SIGNAL(clicked()), this, TQT_SLOT(lockDisk()));
-			connect(base->buttonDiskEject, TQT_SIGNAL(clicked()), this, TQT_SLOT(ejectDisk()));
-			connect(base->buttonDiskSafeRemove, TQT_SIGNAL(clicked()), this, TQT_SLOT(safeRemoveDisk()));
+			connect(base->buttonDiskMount, TQ_SIGNAL(clicked()), this, TQ_SLOT(mountDisk()));
+			connect(base->buttonDiskUnmount, TQ_SIGNAL(clicked()), this, TQ_SLOT(unmountDisk()));
+			connect(base->buttonDiskUnlock, TQ_SIGNAL(clicked()), this, TQ_SLOT(unlockDisk()));
+			connect(base->buttonDiskLock, TQ_SIGNAL(clicked()), this, TQ_SLOT(lockDisk()));
+			connect(base->buttonDiskEject, TQ_SIGNAL(clicked()), this, TQ_SLOT(ejectDisk()));
+			connect(base->buttonDiskSafeRemove, TQ_SIGNAL(clicked()), this, TQ_SLOT(safeRemoveDisk()));
 			if (sdevice->isDiskOfType(TDEDiskDeviceType::LUKS)) {
-				connect(base->cryptLUKSAddKey, TQT_SIGNAL(clicked()), this, TQT_SLOT(cryptLUKSAddKey()));
-				connect(base->cryptLUKSDelKey, TQT_SIGNAL(clicked()), this, TQT_SLOT(cryptLUKSDelKey()));
-				connect(base->cryptLUKSKeySlotList, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(processLockouts()));
+				connect(base->cryptLUKSAddKey, TQ_SIGNAL(clicked()), this, TQ_SLOT(cryptLUKSAddKey()));
+				connect(base->cryptLUKSDelKey, TQ_SIGNAL(clicked()), this, TQ_SLOT(cryptLUKSDelKey()));
+				connect(base->cryptLUKSKeySlotList, TQ_SIGNAL(selectionChanged()), this, TQ_SLOT(processLockouts()));
 				base->cryptLUKSKeySlotList->setAllColumnsShowFocus(true);
 				base->cryptLUKSKeySlotList->setFullWidth(true);
 				cryptLUKSPopulateList();
@@ -332,10 +332,10 @@ DevicePropertiesDialog::DevicePropertiesDialog(TDEGenericDevice* device, TQWidge
 			m_sensorDataGridWidgets.setAutoDelete(true);
 		}
 		if (m_device->type() == TDEGenericDeviceType::Backlight) {
-			connect(base->sliderBacklightBrightness, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(setBacklightBrightness(int)));
+			connect(base->sliderBacklightBrightness, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setBacklightBrightness(int)));
 		}
 		if (m_device->type() == TDEGenericDeviceType::RootSystem) {
-			connect(base->comboSystemHibernationMethod, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setHibernationMethod(int)));
+			connect(base->comboSystemHibernationMethod, TQ_SIGNAL(activated(int)), this, TQ_SLOT(setHibernationMethod(int)));
 		}
 
 		TQGridLayout *mainGrid = new TQGridLayout(plainPage(), 1, 1, 0, spacingHint());
@@ -345,8 +345,8 @@ DevicePropertiesDialog::DevicePropertiesDialog(TDEGenericDevice* device, TQWidge
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 
-	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(processHardwareRemoved(TDEGenericDevice*)));
-	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(processHardwareUpdated(TDEGenericDevice*)));
+	connect(hwdevices, TQ_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQ_SLOT(processHardwareRemoved(TDEGenericDevice*)));
+	connect(hwdevices, TQ_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQ_SLOT(processHardwareUpdated(TDEGenericDevice*)));
 
 	populateDeviceInformation();
 }
@@ -881,8 +881,8 @@ void DevicePropertiesDialog::populateDeviceInformation()
 		if (m_device->type() == TDEGenericDeviceType::CryptographicCard) {
 			TDECryptographicCardDevice* cdevice = static_cast<TDECryptographicCardDevice*>(m_device);
 
-			connect(cdevice, TQT_SIGNAL(cardInserted(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardInserted()));
-			connect(cdevice, TQT_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQT_SLOT(cryptographicCardRemoved()));
+			connect(cdevice, TQ_SIGNAL(cardInserted(TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardInserted()));
+			connect(cdevice, TQ_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardRemoved()));
 
 			updateCryptographicCardStatusDisplay();
 		}

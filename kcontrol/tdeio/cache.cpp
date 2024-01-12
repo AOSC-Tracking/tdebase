@@ -66,10 +66,10 @@ void KCacheConfigDialog::load()
       m_dlg->rbCacheIfPossible->setChecked( true );
 
   // Config changed notifications...
-  connect ( m_dlg->cbUseCache, TQT_SIGNAL(toggled(bool)), TQT_SLOT(configChanged()) );
-  connect ( m_dlg->bgCachePolicy, TQT_SIGNAL(clicked (int)), TQT_SLOT(configChanged()) );
-  connect ( m_dlg->sbMaxCacheSize, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(configChanged()) );
-  connect ( m_dlg->pbClearCache, TQT_SIGNAL(clicked()), TQT_SLOT(slotClearCache()) );
+  connect ( m_dlg->cbUseCache, TQ_SIGNAL(toggled(bool)), TQ_SLOT(configChanged()) );
+  connect ( m_dlg->bgCachePolicy, TQ_SIGNAL(clicked (int)), TQ_SLOT(configChanged()) );
+  connect ( m_dlg->sbMaxCacheSize, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(configChanged()) );
+  connect ( m_dlg->pbClearCache, TQ_SIGNAL(clicked()), TQ_SLOT(slotClearCache()) );
   emit changed( false );
 } 
 

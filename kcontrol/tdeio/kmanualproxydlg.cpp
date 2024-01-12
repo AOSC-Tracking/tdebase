@@ -63,19 +63,19 @@ void KManualProxyDlg::init()
     mDlg->sbHttps->setRange( 0, MAX_PORT_VALUE );
     mDlg->sbFtp->setRange( 0, MAX_PORT_VALUE );
 
-    connect( mDlg->pbNew, TQT_SIGNAL( clicked() ), TQT_SLOT( newPressed() ) );
-    connect( mDlg->pbChange, TQT_SIGNAL( clicked() ), TQT_SLOT( changePressed() ) );
-    connect( mDlg->pbDelete, TQT_SIGNAL( clicked() ), TQT_SLOT( deletePressed() ) );
-    connect( mDlg->pbDeleteAll, TQT_SIGNAL( clicked() ), TQT_SLOT( deleteAllPressed() ) );
+    connect( mDlg->pbNew, TQ_SIGNAL( clicked() ), TQ_SLOT( newPressed() ) );
+    connect( mDlg->pbChange, TQ_SIGNAL( clicked() ), TQ_SLOT( changePressed() ) );
+    connect( mDlg->pbDelete, TQ_SIGNAL( clicked() ), TQ_SLOT( deletePressed() ) );
+    connect( mDlg->pbDeleteAll, TQ_SIGNAL( clicked() ), TQ_SLOT( deleteAllPressed() ) );
 
-    connect( mDlg->lbExceptions, TQT_SIGNAL(selectionChanged()), TQT_SLOT(updateButtons()) );
-    connect( mDlg->lbExceptions, TQT_SIGNAL(doubleClicked (TQListBoxItem *)), TQT_SLOT(changePressed()));
+    connect( mDlg->lbExceptions, TQ_SIGNAL(selectionChanged()), TQ_SLOT(updateButtons()) );
+    connect( mDlg->lbExceptions, TQ_SIGNAL(doubleClicked (TQListBoxItem *)), TQ_SLOT(changePressed()));
 
-    connect( mDlg->cbSameProxy, TQT_SIGNAL( toggled(bool) ), TQT_SLOT( sameProxy(bool) ) );
-    connect( mDlg->pbCopyDown, TQT_SIGNAL( clicked() ), TQT_SLOT( copyDown() ) );
+    connect( mDlg->cbSameProxy, TQ_SIGNAL( toggled(bool) ), TQ_SLOT( sameProxy(bool) ) );
+    connect( mDlg->pbCopyDown, TQ_SIGNAL( clicked() ), TQ_SLOT( copyDown() ) );
 
-    connect( mDlg->leHttp, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(textChanged(const TQString&)) );
-    connect( mDlg->sbHttp, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(valueChanged (int)) );
+    connect( mDlg->leHttp, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(textChanged(const TQString&)) );
+    connect( mDlg->sbHttp, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(valueChanged (int)) );
 }
 
 void KManualProxyDlg::setProxyData( const KProxyData &data )

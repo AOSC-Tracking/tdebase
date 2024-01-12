@@ -102,8 +102,8 @@ void MountHelper::unlock(const Medium &medium)
 	}
 	m_mediumId = medium.id();
 	m_dialog = new Dialog(device, iconName);
-	connect(m_dialog, TQT_SIGNAL(user1Clicked()), this, TQT_SLOT(slotSendPassword()));
-	connect(m_dialog, TQT_SIGNAL(cancelClicked()), this, TQT_SLOT(slotCancel()));
+	connect(m_dialog, TQ_SIGNAL(user1Clicked()), this, TQ_SLOT(slotSendPassword()));
+	connect(m_dialog, TQ_SIGNAL(cancelClicked()), this, TQ_SLOT(slotCancel()));
 	m_dialog->show();
 }
 
@@ -146,7 +146,7 @@ void MountHelper::eject(const Medium &medium)
 	TDEProcess *proc = new TDEProcess(this);
 	*proc << "tdeeject";
 	*proc << medium.deviceNode();
-	connect(proc, TQT_SIGNAL(processExited(TDEProcess*)),	this, TQT_SLOT(ejectFinished(TDEProcess*)));
+	connect(proc, TQ_SIGNAL(processExited(TDEProcess*)),	this, TQ_SLOT(ejectFinished(TDEProcess*)));
 	proc->start();
 }
 
