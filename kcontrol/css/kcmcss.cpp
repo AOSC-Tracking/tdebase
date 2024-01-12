@@ -50,46 +50,46 @@ CSSConfig::CSSConfig(TQWidget *parent, const char *name, const TQStringList &)
   TDEFontChooser::getFontList(fonts, 0);
   customDialog->fontFamily->insertStringList(fonts);
 
-  connect(configDialog->useDefault, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
-  connect(configDialog->useAccess, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
-  connect(configDialog->useUser, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
-  connect(configDialog->urlRequester, TQT_SIGNAL(textChanged(const TQString&)),
-	  TQT_SLOT(changed()));
-  connect(configDialog->customize, TQT_SIGNAL(clicked()),
-          TQT_SLOT(slotCustomize()));
-  connect(customDialog->basefontsize, TQT_SIGNAL(highlighted(int)),
-	  TQT_SLOT(changed()));
-  connect(customDialog->basefontsize, TQT_SIGNAL(textChanged(const TQString&)),
-	  TQT_SLOT(changed()));
-  connect(customDialog->dontScale, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
-  connect(customDialog->blackOnWhite, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
-  connect(customDialog->whiteOnBlack, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
-  connect(customDialog->customColor, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
-  connect(customDialog->foregroundColor, TQT_SIGNAL(changed(const TQColor &)),
-	  TQT_SLOT(changed()));
-  connect(customDialog->backgroundColor, TQT_SIGNAL(changed(const TQColor &)),
-	  TQT_SLOT(changed()));
-  connect(customDialog->fontFamily, TQT_SIGNAL(highlighted(int)),
-	  TQT_SLOT(changed()));
-  connect(customDialog->fontFamily, TQT_SIGNAL(textChanged(const TQString&)),
-	  TQT_SLOT(changed()));
-  connect(customDialog->sameFamily, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
-  connect(customDialog->preview, TQT_SIGNAL(clicked()),
-          TQT_SLOT(slotPreview()));
-  connect(customDialog->sameColor, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
-  connect(customDialog->hideImages, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
-  connect(customDialog->hideBackground, TQT_SIGNAL(clicked()),
-	  TQT_SLOT(changed()));
+  connect(configDialog->useDefault, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
+  connect(configDialog->useAccess, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
+  connect(configDialog->useUser, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
+  connect(configDialog->urlRequester, TQ_SIGNAL(textChanged(const TQString&)),
+	  TQ_SLOT(changed()));
+  connect(configDialog->customize, TQ_SIGNAL(clicked()),
+          TQ_SLOT(slotCustomize()));
+  connect(customDialog->basefontsize, TQ_SIGNAL(highlighted(int)),
+	  TQ_SLOT(changed()));
+  connect(customDialog->basefontsize, TQ_SIGNAL(textChanged(const TQString&)),
+	  TQ_SLOT(changed()));
+  connect(customDialog->dontScale, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
+  connect(customDialog->blackOnWhite, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
+  connect(customDialog->whiteOnBlack, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
+  connect(customDialog->customColor, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
+  connect(customDialog->foregroundColor, TQ_SIGNAL(changed(const TQColor &)),
+	  TQ_SLOT(changed()));
+  connect(customDialog->backgroundColor, TQ_SIGNAL(changed(const TQColor &)),
+	  TQ_SLOT(changed()));
+  connect(customDialog->fontFamily, TQ_SIGNAL(highlighted(int)),
+	  TQ_SLOT(changed()));
+  connect(customDialog->fontFamily, TQ_SIGNAL(textChanged(const TQString&)),
+	  TQ_SLOT(changed()));
+  connect(customDialog->sameFamily, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
+  connect(customDialog->preview, TQ_SIGNAL(clicked()),
+          TQ_SLOT(slotPreview()));
+  connect(customDialog->sameColor, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
+  connect(customDialog->hideImages, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
+  connect(customDialog->hideBackground, TQ_SIGNAL(clicked()),
+	  TQ_SLOT(changed()));
 
   TQVBoxLayout *vbox = new TQVBoxLayout(this, 0, 0);
   vbox->addWidget(configDialog);

@@ -80,7 +80,7 @@ KWrited::KWrited() : TQTextEdit()
   pty->open();
   pty->login(KUser().loginName().local8Bit().data(), getenv("DISPLAY"));
   TQSocketNotifier *sn = new TQSocketNotifier(pty->masterFd(), TQSocketNotifier::Read, this);
-  connect(sn, TQT_SIGNAL(activated(int)), this, TQT_SLOT(block_in(int)));
+  connect(sn, TQ_SIGNAL(activated(int)), this, TQ_SLOT(block_in(int)));
 
   TQString txt = i18n("KWrited - Listening on Device %1").arg(pty->ttyName());
   setCaption(txt);
@@ -116,7 +116,7 @@ TQPopupMenu *KWrited::createPopupMenu( const TQPoint &pos )
    TQPopupMenu *menu = TQTextEdit::createPopupMenu( pos );
 
    menu->insertItem( i18n( "Clear Messages" ),
-                     this, TQT_SLOT( clearText() ), 
+                     this, TQ_SLOT( clearText() ), 
                      0, -1, 0 );
 
    return menu;

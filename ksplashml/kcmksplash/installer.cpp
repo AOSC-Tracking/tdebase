@@ -36,8 +36,8 @@ ThemeListBox::ThemeListBox(TQWidget *parent)
   : TDEListBox(parent)
 {
    setAcceptDrops(true);
-   connect(this, TQT_SIGNAL(mouseButtonPressed(int, TQListBoxItem *, const TQPoint &)),
-           this, TQT_SLOT(slotMouseButtonPressed(int, TQListBoxItem *, const TQPoint &)));
+   connect(this, TQ_SIGNAL(mouseButtonPressed(int, TQListBoxItem *, const TQPoint &)),
+           this, TQ_SLOT(slotMouseButtonPressed(int, TQListBoxItem *, const TQPoint &)));
 }
 
 void ThemeListBox::dragEnterEvent(TQDragEnterEvent* event)
@@ -100,21 +100,21 @@ SplashInstaller::SplashInstaller (TQWidget *aParent, const char *aName, bool aIn
 
   mThemesList = new ThemeListBox(this);
   mThemesList->setSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Expanding );
-  connect(mThemesList, TQT_SIGNAL(highlighted(int)), TQT_SLOT(slotSetTheme(int)));
-  connect(mThemesList, TQT_SIGNAL(filesDropped(const KURL::List&)), TQT_SLOT(slotFilesDropped(const KURL::List&)));
+  connect(mThemesList, TQ_SIGNAL(highlighted(int)), TQ_SLOT(slotSetTheme(int)));
+  connect(mThemesList, TQ_SIGNAL(filesDropped(const KURL::List&)), TQ_SLOT(slotFilesDropped(const KURL::List&)));
   leftbox->addWidget(mThemesList);
 
   mBtnAdd = new KPushButton( i18n("Add..."), this );
   leftbox->addWidget( mBtnAdd );
-  connect(mBtnAdd, TQT_SIGNAL(clicked()), TQT_SLOT(slotAdd()));
+  connect(mBtnAdd, TQ_SIGNAL(clicked()), TQ_SLOT(slotAdd()));
 
   mBtnRemove = new KPushButton( i18n("Remove"), this );
   leftbox->addWidget( mBtnRemove );
-  connect(mBtnRemove, TQT_SIGNAL(clicked()), TQT_SLOT(slotRemove()));
+  connect(mBtnRemove, TQ_SIGNAL(clicked()), TQ_SLOT(slotRemove()));
 
   mBtnTest = new KPushButton( i18n("Test"), this );
   leftbox->addWidget( mBtnTest );
-  connect(mBtnTest, TQT_SIGNAL(clicked()), TQT_SLOT(slotTest()));
+  connect(mBtnTest, TQ_SIGNAL(clicked()), TQ_SLOT(slotTest()));
 
   TQVBoxLayout* rightbox = new TQVBoxLayout( hbox, KDialog::spacingHint() );
   hbox->setStretchFactor( rightbox, 3 );

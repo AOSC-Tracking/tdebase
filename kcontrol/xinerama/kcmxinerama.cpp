@@ -59,7 +59,7 @@ KCMXinerama::KCMXinerama(TQWidget *parent, const char *name)
 	config = new TDEConfig("kdeglobals", false, false);
 	ksplashrc = new TDEConfig("ksplashrc", false, false);
 
-	connect(&_timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(clearIndicator()));
+	connect(&_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(clearIndicator()));
 
 	TQGridLayout *grid = new TQGridLayout(this, 1, 1, KDialog::marginHint(),
 							KDialog::spacingHint());
@@ -91,14 +91,14 @@ KCMXinerama::KCMXinerama(TQWidget *parent, const char *name)
 
 		xw->headTable->setRowLabels(dpyList);
 
-		connect(xw->_ksplashDisplay, TQT_SIGNAL(activated(int)),
-			this, TQT_SLOT(windowIndicator(int)));
-		connect(xw->_unmanagedDisplay, TQT_SIGNAL(activated(int)),
-			this, TQT_SLOT(windowIndicator(int)));
-		connect(xw->_identify, TQT_SIGNAL(clicked()),
-			this, TQT_SLOT(indicateWindows()));
+		connect(xw->_ksplashDisplay, TQ_SIGNAL(activated(int)),
+			this, TQ_SLOT(windowIndicator(int)));
+		connect(xw->_unmanagedDisplay, TQ_SIGNAL(activated(int)),
+			this, TQ_SLOT(windowIndicator(int)));
+		connect(xw->_identify, TQ_SIGNAL(clicked()),
+			this, TQ_SLOT(indicateWindows()));
 
-		connect(xw, TQT_SIGNAL(configChanged()), this, TQT_SLOT(changed()));
+		connect(xw, TQ_SIGNAL(configChanged()), this, TQ_SLOT(changed()));
 	} else { // no Xinerama
 		TQLabel *ql = new TQLabel(i18n("<qt><p>This module is only for configuring systems with a single desktop spread across multiple monitors. You do not appear to have this configuration.</p></qt>"), this);
 		grid->addWidget(ql, 0, 0);

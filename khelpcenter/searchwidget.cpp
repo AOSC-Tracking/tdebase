@@ -81,8 +81,8 @@ SearchWidget::SearchWidget( SearchEngine *engine, TQWidget *parent )
   for (int i=0; i < ScopeNum; ++i ) {
     mScopeCombo->insertItem( scopeSelectionLabel( i ) );
   }
-  connect( mScopeCombo, TQT_SIGNAL( activated( int ) ),
-           TQT_SLOT( scopeSelectionChanged( int ) ) );
+  connect( mScopeCombo, TQ_SIGNAL( activated( int ) ),
+           TQ_SLOT( scopeSelectionChanged( int ) ) );
 
   l = new TQLabel( mScopeCombo, i18n("&Scope selection:"), this );
 
@@ -96,16 +96,16 @@ SearchWidget::SearchWidget( SearchEngine *engine, TQWidget *parent )
 
   TQPushButton *indexButton = new TQPushButton( i18n("Build Search &Index..."),
                                               this );
-  connect( indexButton, TQT_SIGNAL( clicked() ), TQT_SIGNAL( showIndexDialog() ) );
+  connect( indexButton, TQ_SIGNAL( clicked() ), TQ_SIGNAL( showIndexDialog() ) );
   topLayout->addWidget( indexButton );
 
 // FIXME: Use SearchHandler on double-clicked document
 #if 0
-  connect( mScopeListView, TQT_SIGNAL( doubleClicked( TQListViewItem * ) ),
-           TQT_SLOT( scopeDoubleClicked( TQListViewItem * ) ) );
+  connect( mScopeListView, TQ_SIGNAL( doubleClicked( TQListViewItem * ) ),
+           TQ_SLOT( scopeDoubleClicked( TQListViewItem * ) ) );
 #endif
-  connect( mScopeListView, TQT_SIGNAL( clicked( TQListViewItem * ) ),
-           TQT_SLOT( scopeClicked( TQListViewItem * ) ) );
+  connect( mScopeListView, TQ_SIGNAL( clicked( TQListViewItem * ) ),
+           TQ_SLOT( scopeClicked( TQListViewItem * ) ) );
 }
 
 

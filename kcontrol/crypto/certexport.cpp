@@ -55,21 +55,21 @@ TQGridLayout *grid = new TQGridLayout(this, 9, 6, marginHint(), spacingHint());
 
    _filename = new KLineEdit(this);
    grid->addMultiCellWidget(_filename, 6, 6, 0, 4);
-   connect(_filename, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(slotTextChanged(const TQString &)));
-   connect(_filename, TQT_SIGNAL(returnPressed()), this, TQT_SLOT(slotExport()));
+   connect(_filename, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(slotTextChanged(const TQString &)));
+   connect(_filename, TQ_SIGNAL(returnPressed()), this, TQ_SLOT(slotExport()));
 
    _choose = new TQPushButton("...", this);
    grid->addWidget(_choose, 6, 5);
-   connect(_choose, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotChoose()));
+   connect(_choose, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotChoose()));
    
    _export = new TQPushButton(i18n("&Export"), this);
    grid->addWidget(_export, 8, 4);
-   connect(_export, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotExport()));
+   connect(_export, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotExport()));
    _export->setEnabled(false);
 
    _cancel = new TQPushButton(i18n("&Cancel"), this);
    grid->addWidget(_cancel, 8, 5);
-   connect(_cancel, TQT_SIGNAL(clicked()), this, TQT_SLOT(reject()));
+   connect(_cancel, TQ_SIGNAL(clicked()), this, TQ_SLOT(reject()));
 }
 
 

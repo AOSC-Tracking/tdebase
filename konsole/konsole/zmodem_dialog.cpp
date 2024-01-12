@@ -32,7 +32,7 @@ ZModemDialog::ZModemDialog(TQWidget *parent, bool modal, const TQString &caption
   textEdit = new TQTextEdit(this);
   textEdit->setMinimumSize(400, 100);
   setMainWidget(textEdit);
-  connect(this, TQT_SIGNAL(user1Clicked()), this, TQT_SLOT(slotClose()));
+  connect(this, TQ_SIGNAL(user1Clicked()), this, TQ_SLOT(slotClose()));
 }
 
 void ZModemDialog::addProgressText(const TQString &txt)

@@ -82,15 +82,15 @@ IconThemesConfig::IconThemesConfig(TQWidget *parent, const char *name)
   m_iconThemes->addColumn(i18n("Description"));
   m_iconThemes->setAllColumnsShowFocus( true );
   m_iconThemes->setFullWidth(true);
-  connect(m_iconThemes,TQT_SIGNAL(selectionChanged(TQListViewItem *)),
-		TQT_SLOT(themeSelected(TQListViewItem *)));
+  connect(m_iconThemes,TQ_SIGNAL(selectionChanged(TQListViewItem *)),
+		TQ_SLOT(themeSelected(TQListViewItem *)));
 
   TQPushButton *installButton=new TQPushButton( i18n("Install New Theme..."),
 	this, "InstallNewTheme");
-  connect(installButton,TQT_SIGNAL(clicked()),TQT_SLOT(installNewTheme()));
+  connect(installButton,TQ_SIGNAL(clicked()),TQ_SLOT(installNewTheme()));
   m_removeButton=new TQPushButton( i18n("Remove Theme"),
 	this, "RemoveTheme");
-  connect(m_removeButton,TQT_SIGNAL(clicked()),TQT_SLOT(removeSelectedTheme()));
+  connect(m_removeButton,TQ_SIGNAL(clicked()),TQ_SLOT(removeSelectedTheme()));
 
   topLayout->addWidget(
 	new TQLabel(i18n("Select the icon theme you want to use:"), this));

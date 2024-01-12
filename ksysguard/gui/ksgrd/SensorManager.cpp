@@ -219,8 +219,8 @@ bool SensorManager::engage( const TQString &hostName, const TQString &shell,
     }
 
     mAgents.insert( hostName, agent );
-    connect( agent, TQT_SIGNAL( reconfigure( const SensorAgent* ) ),
-             TQT_SLOT( reconfigure( const SensorAgent* ) ) );
+    connect( agent, TQ_SIGNAL( reconfigure( const SensorAgent* ) ),
+             TQ_SLOT( reconfigure( const SensorAgent* ) ) );
 
 		emit update();
     return true;

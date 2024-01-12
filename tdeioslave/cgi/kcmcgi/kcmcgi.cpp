@@ -57,11 +57,11 @@ KCMCgi::KCMCgi(TQWidget *parent, const char *name)
   buttonBox->setSpacing( KDialog::spacingHint() );
 
   mAddButton = new TQPushButton( i18n("Add..."), buttonBox );
-  connect( mAddButton, TQT_SIGNAL( clicked() ), TQT_SLOT( addPath() ) );
+  connect( mAddButton, TQ_SIGNAL( clicked() ), TQ_SLOT( addPath() ) );
 
   mRemoveButton = new TQPushButton( i18n("Remove"), buttonBox );
-  connect( mRemoveButton, TQT_SIGNAL( clicked() ), TQT_SLOT( removePath() ) );
-  connect( mListBox, TQT_SIGNAL( clicked ( TQListBoxItem * )),this, TQT_SLOT( slotItemSelected( TQListBoxItem *)));
+  connect( mRemoveButton, TQ_SIGNAL( clicked() ), TQ_SLOT( removePath() ) );
+  connect( mListBox, TQ_SIGNAL( clicked ( TQListBoxItem * )),this, TQ_SLOT( slotItemSelected( TQListBoxItem *)));
 
   mConfig = new TDEConfig("kcmcgirc");
 

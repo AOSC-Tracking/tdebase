@@ -293,8 +293,8 @@ void KWMThemeClient::init()
             iconChange();
             hb->addWidget(mnuBtn);
             mnuBtn->setFixedSize(20, 20);
-            connect(mnuBtn, TQT_SIGNAL(pressed()), this,
-                    TQT_SLOT(menuButtonPressed()));
+            connect(mnuBtn, TQ_SIGNAL(pressed()), this,
+                    TQ_SLOT(menuButtonPressed()));
         }
         else if(val == "Sticky"){
             stickyBtn = new MyButton(widget(), "sticky");
@@ -303,7 +303,7 @@ void KWMThemeClient::init()
                 stickyBtn->setPixmap(*pindownPix);
             else
                 stickyBtn->setPixmap(*pinupPix);
-            connect(stickyBtn, TQT_SIGNAL( clicked() ), this, TQT_SLOT(toggleOnAllDesktops()));
+            connect(stickyBtn, TQ_SIGNAL( clicked() ), this, TQ_SLOT(toggleOnAllDesktops()));
             hb->addWidget(stickyBtn);
             stickyBtn->setFixedSize(20, 20);
         }
@@ -311,7 +311,7 @@ void KWMThemeClient::init()
             btn = new MyButton(widget(), "iconify");
             TQToolTip::add( btn, i18n("Minimize"));
             btn->setPixmap(*iconifyPix);
-            connect(btn, TQT_SIGNAL(clicked()), this, TQT_SLOT(minimize()));
+            connect(btn, TQ_SIGNAL(clicked()), this, TQ_SLOT(minimize()));
             hb->addWidget(btn);
             btn->setFixedSize(20, 20);
         }
@@ -319,7 +319,7 @@ void KWMThemeClient::init()
             maxBtn = new MyButton(widget(), "max");
             TQToolTip::add( maxBtn, i18n("Maximize"));
             maxBtn->setPixmap(*maxPix);
-            connect(maxBtn, TQT_SIGNAL(clicked()), this, TQT_SLOT(maximize()));
+            connect(maxBtn, TQ_SIGNAL(clicked()), this, TQ_SLOT(maximize()));
             hb->addWidget(maxBtn);
             maxBtn->setFixedSize(20, 20);
         }
@@ -327,7 +327,7 @@ void KWMThemeClient::init()
             btn = new MyButton(widget(), "close");
             TQToolTip::add( btn, i18n("Close"));
             btn->setPixmap(*closePix);
-            connect(btn, TQT_SIGNAL(clicked()), this, TQT_SLOT(closeWindow()));
+            connect(btn, TQ_SIGNAL(clicked()), this, TQ_SLOT(closeWindow()));
             hb->addWidget(btn);
             btn->setFixedSize(20, 20);
         }

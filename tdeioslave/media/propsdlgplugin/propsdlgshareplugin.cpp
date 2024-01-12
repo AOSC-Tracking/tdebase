@@ -70,10 +70,10 @@ PropsDlgSharePlugin::PropsDlgSharePlugin( KPropertiesDialog *dlg,
   d = new Private();
 
   d->page = new PropertiesPage(vbox, Medium::create(reply).id());
-  connect(d->page, TQT_SIGNAL(changed()),
-	  TQT_SLOT(slotChanged()));
+  connect(d->page, TQ_SIGNAL(changed()),
+	  TQ_SLOT(slotChanged()));
 
-  //  TQTimer::singleShot(100, this, TQT_SLOT(slotChanged()));
+  //  TQTimer::singleShot(100, this, TQ_SLOT(slotChanged()));
 
 }
 

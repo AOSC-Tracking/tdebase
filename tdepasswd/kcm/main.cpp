@@ -63,14 +63,14 @@ KCMUserAccount::KCMUserAccount( TQWidget *parent, const char *name,
 	_mw = new MainWidget(this);
 	topLayout->addWidget( _mw );
 
-	connect( _mw->btnChangeFace, TQT_SIGNAL(clicked()), TQT_SLOT(slotFaceButtonClicked()));
-	connect( _mw->btnChangePassword, TQT_SIGNAL(clicked()), TQT_SLOT(slotChangePassword()));
+	connect( _mw->btnChangeFace, TQ_SIGNAL(clicked()), TQ_SLOT(slotFaceButtonClicked()));
+	connect( _mw->btnChangePassword, TQ_SIGNAL(clicked()), TQ_SLOT(slotChangePassword()));
 	_mw->btnChangePassword->setGuiItem( KGuiItem( i18n("Change &Password..."), "password" ));
 	
-	connect( _mw->leRealname, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(changed()));
-	connect( _mw->leOrganization, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(changed()));
-	connect( _mw->leEmail, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(changed()));
-	connect( _mw->leSMTP, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(changed()));
+	connect( _mw->leRealname, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(changed()));
+	connect( _mw->leOrganization, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(changed()));
+	connect( _mw->leEmail, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(changed()));
+	connect( _mw->leSMTP, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(changed()));
 
 	_ku = new KUser();
 	_kes = new KEMailSettings();

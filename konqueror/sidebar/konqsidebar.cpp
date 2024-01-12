@@ -32,11 +32,11 @@ KonqSidebar::KonqSidebar( TQWidget *parentWidget, const char *widgetName,
 	// this should be your custom internal widget
 	m_widget = new Sidebar_Widget( parentWidget, this, widgetName ,universalMode, parentWidget->topLevelWidget()->property("currentProfile").toString() );
 	m_extension = new KonqSidebarBrowserExtension( this, m_widget,"KonqSidebar::BrowserExtension" );
-	connect(m_widget,TQT_SIGNAL(started(TDEIO::Job *)),
-		this, TQT_SIGNAL(started(TDEIO::Job*)));
-	connect(m_widget,TQT_SIGNAL(completed()),this,TQT_SIGNAL(completed()));
-	connect(m_extension, TQT_SIGNAL(addWebSideBar(const KURL&, const TQString&)),
-		m_widget, TQT_SLOT(addWebSideBar(const KURL&, const TQString&)));
+	connect(m_widget,TQ_SIGNAL(started(TDEIO::Job *)),
+		this, TQ_SIGNAL(started(TDEIO::Job*)));
+	connect(m_widget,TQ_SIGNAL(completed()),this,TQ_SIGNAL(completed()));
+	connect(m_extension, TQ_SIGNAL(addWebSideBar(const KURL&, const TQString&)),
+		m_widget, TQ_SLOT(addWebSideBar(const KURL&, const TQString&)));
         TDEAcceleratorManager::setNoAccel(m_widget);
 	setWidget(m_widget);
 }

@@ -66,7 +66,7 @@ SambaContainer::SambaContainer(TQWidget *parent, const char* name, const TQStrin
    tabs.addTab(&imports,i18n("&Imports"));
    tabs.addTab(&logView,i18n("&Log"));
    tabs.addTab(&statisticsView,i18n("&Statistics"));
-   connect(&logView,TQT_SIGNAL(contentsChanged(TQListView* , int, int)),&statisticsView,TQT_SLOT(setListInfo(TQListView *, int, int)));
+   connect(&logView,TQ_SIGNAL(contentsChanged(TQListView* , int, int)),&statisticsView,TQ_SLOT(setListInfo(TQListView *, int, int)));
    setButtons(Help);
    load();
 

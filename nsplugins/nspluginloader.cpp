@@ -69,7 +69,7 @@ void NSPluginInstance::init(const TQCString& app, const TQCString& obj)
     if (cfg.readBoolEntry("demandLoad", false)) {
         _button = new TQPushButton(i18n("Start Plugin"), dynamic_cast<EMBEDCLASS*>(this));
         _layout->addWidget(_button, 0, 0);
-        connect(_button, TQT_SIGNAL(clicked()), this, TQT_SLOT(loadPlugin()));
+        connect(_button, TQ_SIGNAL(clicked()), this, TQ_SLOT(loadPlugin()));
         show();
     } else {
         _button = 0L;
@@ -80,7 +80,7 @@ void NSPluginInstance::init(const TQCString& app, const TQCString& obj)
         // and use 'resize_count' to wait for that one more resize to come (plus a timer
         // for a possible timeout). Only then flash is actually initialized ('inited' is true).
         resize_count = 1;
-        TQTimer::singleShot( 1000, this, TQT_SLOT( doLoadPlugin()));
+        TQTimer::singleShot( 1000, this, TQ_SLOT( doLoadPlugin()));
     }
 }
 
@@ -203,8 +203,8 @@ NSPluginLoader::NSPluginLoader()
   // trap dcop register events
   kapp->dcopClient()->setNotifications(true);
   TQObject::connect(kapp->dcopClient(),
-                   TQT_SIGNAL(applicationRegistered(const TQCString&)),
-                   this, TQT_SLOT(applicationRegistered(const TQCString&)));
+                   TQ_SIGNAL(applicationRegistered(const TQCString&)),
+                   this, TQ_SLOT(applicationRegistered(const TQCString&)));
 
   // load configuration
   TDEConfig cfg("kcmnspluginrc", false);
@@ -337,8 +337,8 @@ bool NSPluginLoader::loadViewer(const TQString &mimeType)
    int pid = (int)getpid();
    _dcopid.sprintf("nspluginviewer-%d", pid);
 
-   connect( _process, TQT_SIGNAL(processExited(TDEProcess*)),
-            this, TQT_SLOT(processTerminated(TDEProcess*)) );
+   connect( _process, TQ_SIGNAL(processExited(TDEProcess*)),
+            this, TQ_SLOT(processTerminated(TDEProcess*)) );
 
    // find the external viewer process
    TQString viewer = TDEGlobal::dirs()->findExe("nspluginviewer");

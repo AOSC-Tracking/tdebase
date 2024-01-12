@@ -66,8 +66,8 @@ ThemePage::ThemePage( TQWidget* parent, const char* name )
 	listview->addColumn( i18n("Name") );
 	listview->addColumn( i18n("Description") );
 
-	connect( listview, TQT_SIGNAL(selectionChanged(TQListViewItem*)),
-			TQT_SLOT(selectionChanged(TQListViewItem*)) );
+	connect( listview, TQ_SIGNAL(selectionChanged(TQListViewItem*)),
+			TQ_SLOT(selectionChanged(TQListViewItem*)) );
 
 	insertThemes();
 }

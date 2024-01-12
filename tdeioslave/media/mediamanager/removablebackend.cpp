@@ -37,8 +37,8 @@ RemovableBackend::RemovableBackend(MediaList &list)
 {
 	KDirWatch::self()->addFile(MTAB);
 
-	connect( KDirWatch::self(), TQT_SIGNAL( dirty(const TQString&) ),
-	         this, TQT_SLOT( slotDirty(const TQString&) ) );
+	connect( KDirWatch::self(), TQ_SIGNAL( dirty(const TQString&) ),
+	         this, TQ_SLOT( slotDirty(const TQString&) ) );
 	KDirWatch::self()->startScan();
 }
 

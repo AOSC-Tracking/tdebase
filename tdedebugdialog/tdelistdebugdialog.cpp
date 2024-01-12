@@ -40,8 +40,8 @@ TDEListDebugDialog::TDEListDebugDialog( TQStringList areaList, TQWidget *parent,
 
   m_incrSearch = new KLineEdit( this );
   lay->addWidget( m_incrSearch );
-  connect( m_incrSearch, TQT_SIGNAL( textChanged( const TQString& ) ),
-           TQT_SLOT( generateCheckBoxes( const TQString& ) ) );
+  connect( m_incrSearch, TQ_SIGNAL( textChanged( const TQString& ) ),
+           TQ_SLOT( generateCheckBoxes( const TQString& ) ) );
 
   TQScrollView * scrollView = new TQScrollView( this );
   scrollView->setResizePolicy( TQScrollView::AutoOneFit );
@@ -58,8 +58,8 @@ TDEListDebugDialog::TDEListDebugDialog( TQStringList areaList, TQWidget *parent,
   selectButs->addWidget( all );
   selectButs->addWidget( none );
 
-  connect( all, TQT_SIGNAL( clicked() ), this, TQT_SLOT( selectAll() ) );
-  connect( none, TQT_SIGNAL( clicked() ), this, TQT_SLOT( deSelectAll() ) );
+  connect( all, TQ_SIGNAL( clicked() ), this, TQ_SLOT( selectAll() ) );
+  connect( none, TQ_SIGNAL( clicked() ), this, TQ_SLOT( deSelectAll() ) );
 
   buildButtons( lay );
   resize( 350, 400 );

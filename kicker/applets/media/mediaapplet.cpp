@@ -57,18 +57,18 @@ MediaApplet::MediaApplet(const TQString& configFile, Type type, int actions, TQW
     
     mpDirLister = new KDirLister();
     
-    connect( mpDirLister, TQT_SIGNAL( clear() ),
-            this, TQT_SLOT( slotClear() ) );
-    connect( mpDirLister, TQT_SIGNAL( started(const KURL&) ),
-            this, TQT_SLOT( slotStarted(const KURL&) ) );
-    connect( mpDirLister, TQT_SIGNAL( completed() ),
-            this, TQT_SLOT( slotCompleted() ) );
-    connect( mpDirLister, TQT_SIGNAL( newItems( const KFileItemList & ) ),
-            this, TQT_SLOT( slotNewItems( const KFileItemList & ) ) );
-    connect( mpDirLister, TQT_SIGNAL( deleteItem( KFileItem * ) ),
-            this, TQT_SLOT( slotDeleteItem( KFileItem * ) ) );
-    connect( mpDirLister, TQT_SIGNAL( refreshItems( const KFileItemList & ) ),
-            this, TQT_SLOT( slotRefreshItems( const KFileItemList & ) ) );
+    connect( mpDirLister, TQ_SIGNAL( clear() ),
+            this, TQ_SLOT( slotClear() ) );
+    connect( mpDirLister, TQ_SIGNAL( started(const KURL&) ),
+            this, TQ_SLOT( slotStarted(const KURL&) ) );
+    connect( mpDirLister, TQ_SIGNAL( completed() ),
+            this, TQ_SLOT( slotCompleted() ) );
+    connect( mpDirLister, TQ_SIGNAL( newItems( const KFileItemList & ) ),
+            this, TQ_SLOT( slotNewItems( const KFileItemList & ) ) );
+    connect( mpDirLister, TQ_SIGNAL( deleteItem( KFileItem * ) ),
+            this, TQ_SLOT( slotDeleteItem( KFileItem * ) ) );
+    connect( mpDirLister, TQ_SIGNAL( refreshItems( const KFileItemList & ) ),
+            this, TQ_SLOT( slotRefreshItems( const KFileItemList & ) ) );
     
     reloadList();
 }

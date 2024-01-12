@@ -89,8 +89,8 @@ Toplevel :: Toplevel(KrashConfig *krashconf, TQWidget *parent, const char *name)
   showButton( User2, m_krashconf->showDebugger() );
   showButton( User3, true );
 
-  connect(this, TQT_SIGNAL(closeClicked()), TQT_SLOT(accept()));
-  connect(m_krashconf, TQT_SIGNAL(newDebuggingApplication(const TQString&)), TQT_SLOT(slotNewDebuggingApp(const TQString&)));
+  connect(this, TQ_SIGNAL(closeClicked()), TQ_SLOT(accept()));
+  connect(m_krashconf, TQ_SIGNAL(newDebuggingApplication(const TQString&)), TQ_SLOT(slotNewDebuggingApp(const TQString&)));
 
   if ( !m_krashconf->safeMode() && kapp->dcopClient()->attach() )
     kapp->dcopClient()->registerAs( kapp->name() );
@@ -160,8 +160,8 @@ void Toplevel :: slotUser1()
 
     // generate the backtrace
     BackTrace *backtrace = new BackTrace(m_krashconf, this);
-    connect(backtrace, TQT_SIGNAL(someError()), TQT_SLOT(slotBacktraceSomeError()));
-    connect(backtrace, TQT_SIGNAL(done(const TQString &)), TQT_SLOT(slotBacktraceDone(const TQString &)));
+    connect(backtrace, TQ_SIGNAL(someError()), TQ_SLOT(slotBacktraceSomeError()));
+    connect(backtrace, TQ_SIGNAL(done(const TQString &)), TQ_SLOT(slotBacktraceDone(const TQString &)));
 
     backtrace->start();
 
@@ -199,8 +199,8 @@ void Toplevel :: slotUser3()
 
 	// generate the backtrace
 	BackTrace *backtrace = new BackTrace(m_krashconf, this);
-	connect(backtrace, TQT_SIGNAL(someError()), TQT_SLOT(slotSendReportBacktraceSomeError()));
-	connect(backtrace, TQT_SIGNAL(done(const TQString &)), TQT_SLOT(slotSendReportBacktraceDone(const TQString &)));
+	connect(backtrace, TQ_SIGNAL(someError()), TQ_SLOT(slotSendReportBacktraceSomeError()));
+	connect(backtrace, TQ_SIGNAL(done(const TQString &)), TQ_SLOT(slotSendReportBacktraceDone(const TQString &)));
 
 	backtrace->start();
 
@@ -399,13 +399,13 @@ int Toplevel::postCrashDataToServer(TQCString data) {
 	TDEIO::TransferJob* job = TDEIO::http_post(url, postData, true);
 	job->addMetaData("content-type", TQString("Content-Type: multipart/form-data; boundary=%1").arg(formDataBoundary));
 	job->addMetaData("referrer", "http://drkonqi-client.crashreport.trinitydesktop.org");
-	connect(job, TQT_SIGNAL(data(TDEIO::Job *, const TQByteArray &)), TQT_SLOT(postCrashDataToServerData(TDEIO::Job *, const TQByteArray &)));
-	connect(job, TQT_SIGNAL(result(TDEIO::Job *)), TQT_SLOT(postCrashDataToServerResult(TDEIO::Job *)));
-// 	connect(job, TQT_SIGNAL(totalSize(TDEIO::Job *, TDEIO::filesize_t )),
-// 		TQT_SLOT(totalSize(TDEIO::Job *, TDEIO::filesize_t)));
-// 	connect(job, TQT_SIGNAL(mimetype(TDEIO::Job *, const TQString &)),
-// 		TQT_SLOT(mimetype(TDEIO::Job *, const TQString &)));
-	connect(job, TQT_SIGNAL(redirection(TDEIO::Job *, const KURL&)), TQT_SLOT(postCrashDataToServerDataRedirection(TDEIO::Job *, const KURL&)));
+	connect(job, TQ_SIGNAL(data(TDEIO::Job *, const TQByteArray &)), TQ_SLOT(postCrashDataToServerData(TDEIO::Job *, const TQByteArray &)));
+	connect(job, TQ_SIGNAL(result(TDEIO::Job *)), TQ_SLOT(postCrashDataToServerResult(TDEIO::Job *)));
+// 	connect(job, TQ_SIGNAL(totalSize(TDEIO::Job *, TDEIO::filesize_t )),
+// 		TQ_SLOT(totalSize(TDEIO::Job *, TDEIO::filesize_t)));
+// 	connect(job, TQ_SIGNAL(mimetype(TDEIO::Job *, const TQString &)),
+// 		TQ_SLOT(mimetype(TDEIO::Job *, const TQString &)));
+	connect(job, TQ_SIGNAL(redirection(TDEIO::Job *, const KURL&)), TQ_SLOT(postCrashDataToServerDataRedirection(TDEIO::Job *, const KURL&)));
 
 	return 0;
 }

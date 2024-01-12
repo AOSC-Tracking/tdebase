@@ -53,8 +53,8 @@ TimerSettings::TimerSettings( TQWidget *parent, const char *name )
   mLabel->setBuddy( mInterval );
   TQWhatsThis::add( mInterval, i18n( "All displays of the sheet are updated at the rate specified here." ) );
 
-  connect( mUseGlobalUpdate, TQT_SIGNAL( toggled( bool ) ),
-           TQT_SLOT( globalUpdateChanged( bool ) ) );
+  connect( mUseGlobalUpdate, TQ_SIGNAL( toggled( bool ) ),
+           TQ_SLOT( globalUpdateChanged( bool ) ) );
 
   mUseGlobalUpdate->setChecked( true );
 

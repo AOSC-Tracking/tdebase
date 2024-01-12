@@ -238,7 +238,7 @@ KdmItem::setWidget( TQWidget *widget )
 
 	setGeometry(area, true);
 
-	connect( myWidget, TQT_SIGNAL(destroyed()), TQT_SLOT(widgetGone()) );
+	connect( myWidget, TQ_SIGNAL(destroyed()), TQ_SLOT(widgetGone()) );
 }
 
 void
@@ -253,11 +253,11 @@ KdmItem::setLayoutItem( TQLayoutItem *item )
 	myLayoutItem = item;
 	// XXX hiding not supported - it think it's pointless here
 	if (myLayoutItem->widget())
-		connect( myLayoutItem->widget(), TQT_SIGNAL(destroyed()),
-		         TQT_SLOT(layoutItemGone()) );
+		connect( myLayoutItem->widget(), TQ_SIGNAL(destroyed()),
+		         TQ_SLOT(layoutItemGone()) );
 	else if (myLayoutItem->layout())
-		connect( myLayoutItem->layout(), TQT_SIGNAL(destroyed()),
-		         TQT_SLOT(layoutItemGone()) );
+		connect( myLayoutItem->layout(), TQ_SIGNAL(destroyed()),
+		         TQ_SLOT(layoutItemGone()) );
 }
 
 void
@@ -583,8 +583,8 @@ KdmItem::addChildItem( KdmItem *item )
 	}
 
 	// signal bounce from child to parent
-	connect( item, TQT_SIGNAL(needUpdate( int, int, int, int )), TQT_SIGNAL(needUpdate( int, int, int, int )) );
-	connect( item, TQT_SIGNAL(activated( const TQString & )), TQT_SIGNAL(activated( const TQString & )) );
+	connect( item, TQ_SIGNAL(needUpdate( int, int, int, int )), TQ_SIGNAL(needUpdate( int, int, int, int )) );
+	connect( item, TQ_SIGNAL(activated( const TQString & )), TQ_SIGNAL(activated( const TQString & )) );
 }
 
 void

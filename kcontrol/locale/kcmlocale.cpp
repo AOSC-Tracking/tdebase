@@ -55,34 +55,34 @@ TDELocaleConfig::TDELocaleConfig(TDELocale *locale,
   m_labCountry = new TQLabel(this, I18N_NOOP("Country or region:"));
   m_comboCountry = new KLanguageButton( this );
   m_labCountry->setBuddy(m_comboCountry);
-  connect( m_comboCountry, TQT_SIGNAL(activated(const TQString &)),
-           this, TQT_SLOT(changedCountry(const TQString &)) );
+  connect( m_comboCountry, TQ_SIGNAL(activated(const TQString &)),
+           this, TQ_SLOT(changedCountry(const TQString &)) );
 
   m_labLang = new TQLabel(this, I18N_NOOP("Languages:"));
   m_labLang->setAlignment( AlignTop );
 
   m_languages = new TQListBox(this);
-  connect(m_languages, TQT_SIGNAL(selectionChanged()),
-          TQT_SLOT(slotCheckButtons()));
+  connect(m_languages, TQ_SIGNAL(selectionChanged()),
+          TQ_SLOT(slotCheckButtons()));
 
   TQWidget * vb = new TQWidget(this);
   TQVBoxLayout * boxlay = new TQVBoxLayout(vb, 0, KDialog::spacingHint());
   m_addLanguage = new KLanguageButton(TQString::null, vb, I18N_NOOP("Add Language"));
   boxlay->add(m_addLanguage);
-  connect(m_addLanguage, TQT_SIGNAL(activated(const TQString &)),
-          TQT_SLOT(slotAddLanguage(const TQString &)));
+  connect(m_addLanguage, TQ_SIGNAL(activated(const TQString &)),
+          TQ_SLOT(slotAddLanguage(const TQString &)));
   m_removeLanguage = new TQPushButton(vb, I18N_NOOP("Remove Language"));
   m_upButton = new TQPushButton(vb, I18N_NOOP("Move Up"));
   m_downButton = new TQPushButton(vb, I18N_NOOP("Move Down"));
   boxlay->add(m_removeLanguage);
   boxlay->add(m_upButton);
   boxlay->add(m_downButton);
-  connect(m_removeLanguage, TQT_SIGNAL(clicked()),
-          TQT_SLOT(slotRemoveLanguage()));
-  connect(m_upButton, TQT_SIGNAL(clicked()),
-          TQT_SLOT(slotLanguageUp()));
-  connect(m_downButton, TQT_SIGNAL(clicked()),
-          TQT_SLOT(slotLanguageDown()));
+  connect(m_removeLanguage, TQ_SIGNAL(clicked()),
+          TQ_SLOT(slotRemoveLanguage()));
+  connect(m_upButton, TQ_SIGNAL(clicked()),
+          TQ_SLOT(slotLanguageUp()));
+  connect(m_downButton, TQ_SIGNAL(clicked()),
+          TQ_SLOT(slotLanguageDown()));
   boxlay->insertStretch(-1);
 
   // #### HPB: This should be implemented for KDE 3
@@ -113,9 +113,9 @@ TDELocaleConfig::TDELocaleConfig(TDELocale *locale,
   languageSelectorLayout->addStretch();
   lay->addMultiCellLayout(languageSelectorLayout, 3, 3, 0, 2);
 
-  connect( installLanguage, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotInstallLanguage()) );
-  connect( uninstallLanguage, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotUninstallLanguage()) );
-  connect( selectLanguage, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotSelectLanguage()) );
+  connect( installLanguage, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotInstallLanguage()) );
+  connect( uninstallLanguage, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotUninstallLanguage()) );
+  connect( selectLanguage, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotSelectLanguage()) );
 #endif
 
 }
@@ -126,8 +126,8 @@ void TDELocaleConfig::slotInstallLanguage()
 
   *proc << "tdesu";
   *proc << "qt-language-selector --mode install";
-  TQApplication::connect(proc, TQT_SIGNAL(processExited(TDEProcess *)),
-			this, TQT_SLOT(slotLanguageSelectorExited(TDEProcess *)));
+  TQApplication::connect(proc, TQ_SIGNAL(processExited(TDEProcess *)),
+			this, TQ_SLOT(slotLanguageSelectorExited(TDEProcess *)));
   setEnabled(false);
   proc->start();
 }
@@ -138,8 +138,8 @@ void TDELocaleConfig::slotUninstallLanguage()
 
   *proc << "tdesu";
   *proc << "qt-language-selector --mode uninstall";
-  TQApplication::connect(proc, TQT_SIGNAL(processExited(TDEProcess *)),
-			this, TQT_SLOT(slotLanguageSelectorExited(TDEProcess *)));
+  TQApplication::connect(proc, TQ_SIGNAL(processExited(TDEProcess *)),
+			this, TQ_SLOT(slotLanguageSelectorExited(TDEProcess *)));
   setEnabled(false);
   proc->start();
 }
@@ -150,8 +150,8 @@ void TDELocaleConfig::slotSelectLanguage()
 
   *proc << "tdesu";
   *proc << "qt-language-selector --mode select";
-  TQApplication::connect(proc, TQT_SIGNAL(processExited(TDEProcess *)),
-			this, TQT_SLOT(slotLanguageSelectorExited(TDEProcess *)));
+  TQApplication::connect(proc, TQ_SIGNAL(processExited(TDEProcess *)),
+			this, TQ_SLOT(slotLanguageSelectorExited(TDEProcess *)));
   setEnabled(false);
   proc->start();
 }

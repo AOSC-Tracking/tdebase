@@ -31,14 +31,14 @@ KonsoleBookmarkMenu::KonsoleBookmarkMenu( KBookmarkManager* mgr,
     /*
      * First, we disconnect KBookmarkMenu::slotAboutToShow()
      * Then,  we connect    KonsoleBookmarkMenu::slotAboutToShow().
-     * They are named differently because the TQT_SLOT() macro thinks we want
+     * They are named differently because the TQ_SLOT() macro thinks we want
      * KonsoleBookmarkMenu::KBookmarkMenu::slotAboutToShow()
      * Could this be solved if slotAboutToShow() is virtual in KBookmarMenu?
      */
-    disconnect( _parentMenu, TQT_SIGNAL( aboutToShow() ), this,
-                TQT_SLOT( slotAboutToShow() ) );
-    connect( _parentMenu, TQT_SIGNAL( aboutToShow() ),
-             TQT_SLOT( slotAboutToShow2() ) );
+    disconnect( _parentMenu, TQ_SIGNAL( aboutToShow() ), this,
+                TQ_SLOT( slotAboutToShow() ) );
+    connect( _parentMenu, TQ_SIGNAL( aboutToShow() ),
+             TQ_SLOT( slotAboutToShow2() ) );
 }
 
 /*
@@ -100,8 +100,8 @@ void KonsoleBookmarkMenu::fillBookmarkMenu()
                                          m_actionCollection, false,
 					 m_bAddBookmark, TQString::null );
       m_lstSubMenus.append(subMenu);
-      connect( actionMenu->popupMenu(), TQT_SIGNAL(aboutToShow()), subMenu,
-               TQT_SLOT(slotNSLoad()));
+      connect( actionMenu->popupMenu(), TQ_SIGNAL(aboutToShow()), subMenu,
+               TQ_SLOT(slotNSLoad()));
     }
   }
 
@@ -128,7 +128,7 @@ void KonsoleBookmarkMenu::fillBookmarkMenu()
         // kdDebug(1203) << "Creating URL bookmark menu item for " << bm.text() << endl;
         // create a normal URL item, with ID as a name
         TDEAction * action = new TDEAction( text, bm.icon(), 0,
-                                        this, TQT_SLOT( slotBookmarkSelected() ),
+                                        this, TQ_SLOT( slotBookmarkSelected() ),
                                         m_actionCollection, bm.url().url().utf8() );
 
         action->setStatusText( bm.url().prettyURL() );

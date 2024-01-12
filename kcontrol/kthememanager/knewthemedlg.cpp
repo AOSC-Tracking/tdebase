@@ -28,7 +28,7 @@ KNewThemeDlg::KNewThemeDlg( TQWidget * parent, const char * name )
 {
     m_base = new NewThemeWidget( this, "new_theme_base" );
     setMainWidget( m_base );
-    connect( m_base->leName, TQT_SIGNAL( textChanged ( const TQString & ) ), this, TQT_SLOT( slotThemeNameChanged( const TQString & ) ) );
+    connect( m_base->leName, TQ_SIGNAL( textChanged ( const TQString & ) ), this, TQ_SLOT( slotThemeNameChanged( const TQString & ) ) );
     slotThemeNameChanged( m_base->leName->text() );
 }
 

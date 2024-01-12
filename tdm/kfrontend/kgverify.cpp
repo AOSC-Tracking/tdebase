@@ -105,8 +105,8 @@ KGVerify::KGVerify(KGVerifyHandler *_handler, KdmThemer *_themer,
 	, cardLoginDevice(NULL)
 #endif
 {
-	connect( &timer, TQT_SIGNAL(timeout()), TQT_SLOT(slotTimeout()) );
-	connect( kapp, TQT_SIGNAL(activity()), TQT_SLOT(slotActivity()) );
+	connect( &timer, TQ_SIGNAL(timeout()), TQ_SLOT(slotTimeout()) );
+	connect( kapp, TQ_SIGNAL(activity()), TQ_SLOT(slotActivity()) );
 
 	_parent->installEventFilter( this );
 }
@@ -125,8 +125,8 @@ KGVerify::getPlugMenu()
 		uint np = pluginList.count();
 		if (np > 1) {
 			plugMenu = new TQPopupMenu( parent );
-			connect( plugMenu, TQT_SIGNAL(activated( int )),
-			         TQT_SLOT(slotPluginSelected( int )) );
+			connect( plugMenu, TQ_SIGNAL(activated( int )),
+			         TQ_SLOT(slotPluginSelected( int )) );
 			for (uint i = 0; i < np; i++)
 				plugMenu->insertItem( i18n(greetPlugins[pluginList[i]].info->name), pluginList[i] );
 		}
@@ -1264,10 +1264,10 @@ KGChTok::KGChTok( TQWidget *_parent, const TQString &user,
 	hlay->addWidget( cancelButton );
 	hlay->addStretch( 1 );
 
-	connect( okButton, TQT_SIGNAL(clicked()), TQT_SLOT(accept()) );
-	connect( cancelButton, TQT_SIGNAL(clicked()), TQT_SLOT(reject()) );
+	connect( okButton, TQ_SIGNAL(clicked()), TQ_SLOT(accept()) );
+	connect( cancelButton, TQ_SIGNAL(clicked()), TQ_SLOT(reject()) );
 
-	TQTimer::singleShot( 0, verify, TQT_SLOT(start()) );
+	TQTimer::singleShot( 0, verify, TQ_SLOT(start()) );
 }
 
 KGChTok::~KGChTok()
@@ -1321,7 +1321,7 @@ QXTimer::QXTimer()
 	: inherited( 0 )
 	, left( -1 )
 {
-	connect( &timer, TQT_SIGNAL(timeout()), TQT_SLOT(slotTimeout()) );
+	connect( &timer, TQ_SIGNAL(timeout()), TQ_SLOT(slotTimeout()) );
 }
 
 void

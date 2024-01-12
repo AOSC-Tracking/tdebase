@@ -192,10 +192,10 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     {
         m_isGlobalConfig = true;
     }
-    connect(m_widget->globalConfigReload, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotReloadConfigurationFromGlobals()));
-    connect(m_widget->globalConfigEdit, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotEditGlobalConfiguration()));
-    connect(m_widget->kcfg_UseGlobalSettings, TQT_SIGNAL(clicked()), this, TQT_SLOT(processLockouts()));
-    connect(m_widget->kcfg_SortByApp, TQT_SIGNAL(clicked()), this, TQT_SLOT(processLockouts()));
+    connect(m_widget->globalConfigReload, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotReloadConfigurationFromGlobals()));
+    connect(m_widget->globalConfigEdit, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotEditGlobalConfiguration()));
+    connect(m_widget->kcfg_UseGlobalSettings, TQ_SIGNAL(clicked()), this, TQ_SLOT(processLockouts()));
+    connect(m_widget->kcfg_SortByApp, TQ_SIGNAL(clicked()), this, TQ_SLOT(processLockouts()));
 
     TQFile configFile(locateLocal("config", m_configFileName));
     if (!configFile.exists())
@@ -222,10 +222,10 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     }
     m_widget->appearance->insertItem(i18n("Custom"));
 
-    connect(m_widget->appearance, TQT_SIGNAL(activated(int)),
-            this, TQT_SLOT(appearanceChanged(int)));
-    connect(m_widget->kcfg_DisplayIconsNText, TQT_SIGNAL(activated(int)),
-            this, TQT_SLOT(displayIconsNTextChanged(int)));
+    connect(m_widget->appearance, TQ_SIGNAL(activated(int)),
+            this, TQ_SLOT(appearanceChanged(int)));
+    connect(m_widget->kcfg_DisplayIconsNText, TQ_SIGNAL(activated(int)),
+            this, TQ_SLOT(displayIconsNTextChanged(int)));
     addConfig(m_settingsObject, m_widget);
 
     setQuickHelp(i18n("<h1>Taskbar</h1> You can configure the taskbar here."
@@ -241,9 +241,9 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     m_widget->kcfg_GroupTasks->insertStringList(i18nGroupModeList());
     m_widget->kcfg_ShowTaskStates->insertStringList(i18nShowTaskStatesList());
 
-    connect(m_widget->kcfg_GroupTasks, TQT_SIGNAL(activated(int)),
-            this, TQT_SLOT(slotUpdateComboBox()));
-    connect(m_widget->kcfg_UseCustomColors, TQT_SIGNAL(stateChanged(int)), this, TQT_SLOT(slotUpdateCustomColors()));
+    connect(m_widget->kcfg_GroupTasks, TQ_SIGNAL(activated(int)),
+            this, TQ_SLOT(slotUpdateComboBox()));
+    connect(m_widget->kcfg_UseCustomColors, TQ_SIGNAL(stateChanged(int)), this, TQ_SLOT(slotUpdateCustomColors()));
 
     slotUpdateCustomColors();
     updateAppearanceCombo();
@@ -263,8 +263,8 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     {
         m_widget->showAllScreens->show();
     }
-    connect( m_widget->showAllScreens, TQT_SIGNAL( stateChanged( int )), TQT_SLOT( changed()));
-    connect( m_widget->smallIcons, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()) );
+    connect( m_widget->showAllScreens, TQ_SIGNAL( stateChanged( int )), TQ_SLOT( changed()));
+    connect( m_widget->smallIcons, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()) );
 
     TDEAboutData *about = new TDEAboutData(I18N_NOOP("kcmtaskbar"),
                                        I18N_NOOP("TDE Taskbar Control Module"),
@@ -279,7 +279,7 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     load();
     processLockouts();
 
-    TQTimer::singleShot(0, this, TQT_SLOT(notChanged()));
+    TQTimer::singleShot(0, this, TQ_SLOT(notChanged()));
 }
 
 TaskbarConfig::~TaskbarConfig()

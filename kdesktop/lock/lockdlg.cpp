@@ -237,12 +237,12 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
 	}
 	setTabOrder( mNewSessButton, mLayoutButton );
 
-	connect(mLayoutButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(layoutClicked()));
+	connect(mLayoutButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(layoutClicked()));
 	if (show_cancel_button) {
-		connect(cancel, TQT_SIGNAL(clicked()), TQT_SLOT(reject()));
+		connect(cancel, TQ_SIGNAL(clicked()), TQ_SLOT(reject()));
 	}
-	connect(ok, TQT_SIGNAL(clicked()), TQT_SLOT(slotOK()));
-	connect(mNewSessButton, TQT_SIGNAL(clicked()), TQT_SLOT(slotSwitchUser()));
+	connect(ok, TQ_SIGNAL(clicked()), TQ_SLOT(slotOK()));
+	connect(mNewSessButton, TQ_SIGNAL(clicked()), TQ_SLOT(slotSwitchUser()));
 
 	if (!DM().isSwitchable() || !kapp->authorize("switch_user")) {
 		mNewSessButton->hide();
@@ -253,7 +253,7 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
 
 	mFailedTimerId = 0;
 	mTimeoutTimerId = startTimer(PASSDLG_HIDE_TIMEOUT);
-	connect(tqApp, TQT_SIGNAL(activity()), TQT_SLOT(slotActivity()) );
+	connect(tqApp, TQ_SIGNAL(activity()), TQ_SLOT(slotActivity()) );
 
 	greet->setInfoMessageDisplay(showInfoMessages);
 	greet->start();
@@ -568,7 +568,7 @@ void PasswordDlg::handleVerify()
 						TQString autoPIN = cdevice->autoPIN();
 						if (autoPIN != TQString::null) {
 							greet->setPassword(autoPIN);
-							TQTimer::singleShot(0, this, SLOT(slotOK()));
+							TQTimer::singleShot(0, this, TQ_SLOT(slotOK()));
 						}
 					}
 					mCardLoginInProgress = false;
@@ -712,7 +712,7 @@ void PasswordDlg::gplugMsgBox( TQMessageBox::Icon type, const TQString &text )
 	KPushButton *button = new KPushButton( KStdGuiItem::ok(), winFrame );
 	button->setDefault( true );
 	button->setSizePolicy( TQSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Preferred ) );
-	connect( button, TQT_SIGNAL( clicked() ), TQT_SLOT( accept() ) );
+	connect( button, TQ_SIGNAL( clicked() ), TQ_SLOT( accept() ) );
 
 	TQGridLayout *grid = new TQGridLayout( winFrame, 2, 2, 10 );
 	grid->addWidget( label1, 0, 0, TQt::AlignCenter );
@@ -783,9 +783,9 @@ void PasswordDlg::slotStartNewSession()
 	TQLabel *label2 = new TQLabel( qt_text, winFrame );
 	KPushButton *okbutton = new KPushButton( KGuiItem(i18n("&Start New Session"), "fork"), winFrame );
 	okbutton->setDefault( true );
-	connect( okbutton, TQT_SIGNAL( clicked() ), dialog, TQT_SLOT( accept() ) );
+	connect( okbutton, TQ_SIGNAL( clicked() ), dialog, TQ_SLOT( accept() ) );
 	KPushButton *cbutton = new KPushButton( KStdGuiItem::cancel(), winFrame );
-	connect( cbutton, TQT_SIGNAL( clicked() ), dialog, TQT_SLOT( reject() ) );
+	connect( cbutton, TQ_SIGNAL( clicked() ), dialog, TQ_SLOT( reject() ) );
 
 	TQBoxLayout *mbox = new TQVBoxLayout( winFrame, KDialog::marginHint(), KDialog::spacingHint() );
 
@@ -901,8 +901,8 @@ void PasswordDlg::slotSwitchUser()
 	SessList sess;
 	if (dm.localSessions( sess )) {
 		lv = new TQListView( winFrame );
-		connect( lv, TQT_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint&, int)), TQT_SLOT(slotSessionActivated()) );
-		connect( lv, TQT_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint&, int)), &dialog, TQT_SLOT(accept()) );
+		connect( lv, TQ_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint&, int)), TQ_SLOT(slotSessionActivated()) );
+		connect( lv, TQ_SIGNAL(doubleClicked(TQListViewItem *, const TQPoint&, int)), &dialog, TQ_SLOT(accept()) );
 		lv->setAllColumnsShowFocus( true );
 		lv->addColumn( i18n("Session") );
 		lv->addColumn( i18n("Location") );
@@ -933,16 +933,16 @@ void PasswordDlg::slotSwitchUser()
 		vbox1->addWidget( lv );
 
 		btn = new KPushButton( KGuiItem(i18n("session", "&Activate"), "fork"), winFrame );
-		connect( btn, TQT_SIGNAL(clicked()), TQT_SLOT(slotSessionActivated()) );
-		connect( btn, TQT_SIGNAL(clicked()), &dialog, TQT_SLOT(accept()) );
+		connect( btn, TQ_SIGNAL(clicked()), TQ_SLOT(slotSessionActivated()) );
+		connect( btn, TQ_SIGNAL(clicked()), &dialog, TQ_SLOT(accept()) );
 		vbox2->addWidget( btn );
 		vbox2->addStretch( 2 );
 	}
 
 	if (kapp->authorize("start_new_session") && (p = dm.numReserve()) >= 0) {
 		btn = new KPushButton( KGuiItem(i18n("Start &New Session"), "fork"), winFrame );
-		connect( btn, TQT_SIGNAL(clicked()), TQT_SLOT(slotStartNewSession()) );
-		connect( btn, TQT_SIGNAL(clicked()), &dialog, TQT_SLOT(accept()) );
+		connect( btn, TQ_SIGNAL(clicked()), TQ_SLOT(slotStartNewSession()) );
+		connect( btn, TQ_SIGNAL(clicked()), &dialog, TQ_SLOT(accept()) );
 		if (!p)
 		btn->setEnabled( false );
 		vbox2->addWidget( btn );
@@ -950,7 +950,7 @@ void PasswordDlg::slotSwitchUser()
 	}
 
 	btn = new KPushButton( KStdGuiItem::cancel(), winFrame );
-	connect( btn, TQT_SIGNAL(clicked()), &dialog, TQT_SLOT(reject()) );
+	connect( btn, TQ_SIGNAL(clicked()), &dialog, TQ_SLOT(reject()) );
 	vbox2->addWidget( btn );
 
 	dialog.setFixedSize( dialog.sizeHint() );
@@ -1015,7 +1015,7 @@ void PasswordDlg::attemptCardLogin() {
 	// Bypass initial password prompt
 	greet->start();
 	greet->setPassword("");
-	TQTimer::singleShot(0, this, SLOT(slotOK()));
+	TQTimer::singleShot(0, this, TQ_SLOT(slotOK()));
 #endif
 }
 

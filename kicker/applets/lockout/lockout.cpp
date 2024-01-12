@@ -82,8 +82,8 @@ Lockout::Lockout( const TQString& configFile, TQWidget *parent, const char *name
 
     bTransparent = conf->readBoolEntry( "Transparent", bTransparent );
 
-    connect( lockButton, TQT_SIGNAL( clicked() ), TQT_SLOT( lock() ));
-    connect( logoutButton, TQT_SIGNAL( clicked() ), TQT_SLOT( logout() ));
+    connect( lockButton, TQ_SIGNAL( clicked() ), TQ_SLOT( lock() ));
+    connect( logoutButton, TQ_SIGNAL( clicked() ), TQ_SLOT( logout() ));
 
     lockButton->installEventFilter( this );
     logoutButton->installEventFilter( this );
@@ -100,7 +100,7 @@ Lockout::Lockout( const TQString& configFile, TQWidget *parent, const char *name
     if ( !kapp->dcopClient()->isAttached() )
         kapp->dcopClient()->attach();
 
-    connect( kapp, TQT_SIGNAL( iconChanged(int) ), TQT_SLOT( slotIconChanged() ));
+    connect( kapp, TQ_SIGNAL( iconChanged(int) ), TQ_SLOT( slotIconChanged() ));
 }
 
 Lockout::~Lockout()
@@ -201,17 +201,17 @@ bool Lockout::eventFilter( TQObject *o, TQEvent *e )
                 TQPopupMenu *popup = new TQPopupMenu();
 
                 popup->insertItem( SmallIcon( "system-lock-screen" ), i18n("Lock Session"),
-                                   this, TQT_SLOT( lock() ) );
+                                   this, TQ_SLOT( lock() ) );
                 popup->insertSeparator();
                 
                 i18n("&Transparent");
                 //popup->insertItem( i18n( "&Transparent" ), 100 );
                 popup->insertItem( SmallIcon( "configure" ),
                                    i18n( "&Configure Screen Saver..." ),
-                                   this, TQT_SLOT( slotLockPrefs() ) );
+                                   this, TQ_SLOT( slotLockPrefs() ) );
 
                 //popup->setItemChecked( 100, bTransparent );
-                //popup->connectItem(100, this, TQT_SLOT( slotTransparent() ) );
+                //popup->connectItem(100, this, TQ_SLOT( slotTransparent() ) );
                 //if (conf->entryIsImmutable( "Transparent" ))
                 //    popup->setItemEnabled( 100, false );
                 popup->exec( me->globalPos() );
@@ -224,15 +224,15 @@ bool Lockout::eventFilter( TQObject *o, TQEvent *e )
                 TQPopupMenu *popup = new TQPopupMenu();
 
                 popup->insertItem( SmallIcon( "system-log-out" ), i18n("&Log Out..."),
-                                   this, TQT_SLOT( logout() ) );
+                                   this, TQ_SLOT( logout() ) );
                 popup->insertSeparator();
                 //popup->insertItem( i18n( "&Transparent" ), 100 );
                 popup->insertItem( SmallIcon( "configure" ),
                                    i18n( "&Configure Session Manager..." ),
-                                   this, TQT_SLOT( slotLogoutPrefs() ) );
+                                   this, TQ_SLOT( slotLogoutPrefs() ) );
 
                 //popup->setItemChecked( 100, bTransparent );
-                //popup->connectItem(100, this, TQT_SLOT( slotTransparent() ) );
+                //popup->connectItem(100, this, TQ_SLOT( slotTransparent() ) );
                 //if (conf->entryIsImmutable( "Transparent" ))
                 //    popup->setItemEnabled( 100, false );
                 popup->exec( me->globalPos() );

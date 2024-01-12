@@ -78,24 +78,24 @@ KdmThemer::KdmThemer( const TQString &_filename, const TQString &mode, TQWidget 
 	// Set the root (screen) item
 	rootItem = new KdmRect( parent, TQDomNode(), "tdm root" );
 
-	connect( rootItem, TQT_SIGNAL(needUpdate( int, int, int, int )),
-	         widget(), TQT_SLOT(update( int, int, int, int )) );
+	connect( rootItem, TQ_SIGNAL(needUpdate( int, int, int, int )),
+	         widget(), TQ_SLOT(update( int, int, int, int )) );
 
 	rootItem->setBaseDir( TQFileInfo( filename ).dirPath( true ) );
 
 	// generate all the items defined in the theme
 	generateItems( rootItem );
 
-	connect( rootItem, TQT_SIGNAL(activated( const TQString & )), TQT_SIGNAL(activated( const TQString & )) );
-	connect( rootItem, TQT_SIGNAL(activated( const TQString & )), TQT_SLOT(slotActivated( const TQString & )) );
+	connect( rootItem, TQ_SIGNAL(activated( const TQString & )), TQ_SIGNAL(activated( const TQString & )) );
+	connect( rootItem, TQ_SIGNAL(activated( const TQString & )), TQ_SLOT(slotActivated( const TQString & )) );
 
-	TQTimer::singleShot(800, this, TQT_SLOT(slotPaintRoot()));
+	TQTimer::singleShot(800, this, TQ_SLOT(slotPaintRoot()));
 
 /*	*TODO*
 	// Animation timer
 	TQTimer *time = new TQTimer( this );
 	time->start( 500 );
-	connect( time, TQT_SIGNAL(timeout()), TQT_SLOT(update()) )
+	connect( time, TQ_SIGNAL(timeout()), TQ_SLOT(update()) )
 */
 }
 

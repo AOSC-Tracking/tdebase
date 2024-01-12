@@ -83,7 +83,7 @@ AutoLogout::AutoLogout(LockProcess *parent) : TQDialog(parent, "password dialog"
 	
 	mCountdownTimerId = startTimer(1000/25);
 	
-	connect(tqApp, TQT_SIGNAL(activity()), TQT_SLOT(slotActivity()));
+	connect(tqApp, TQ_SIGNAL(activity()), TQ_SLOT(slotActivity()));
 	
 	setFixedSize( sizeHint() );
 }

@@ -100,8 +100,8 @@ KonqProfileDlg::KonqProfileDlg( KonqViewManager *manager, const TQString & prese
 
   box->setStretchFactor( m_pListView, 1 );
 
-  connect( m_pListView, TQT_SIGNAL( itemRenamed( TQListViewItem * ) ),
-            TQT_SLOT( slotItemRenamed( TQListViewItem * ) ) );
+  connect( m_pListView, TQ_SIGNAL( itemRenamed( TQListViewItem * ) ),
+            TQ_SLOT( slotItemRenamed( TQListViewItem * ) ) );
 
   loadAllProfiles( preselectProfile );
   m_pListView->setMinimumSize( m_pListView->sizeHint() );
@@ -112,11 +112,11 @@ KonqProfileDlg::KonqProfileDlg( KonqViewManager *manager, const TQString & prese
   m_cbSaveSize = new TQCheckBox( i18n("Save &window size in profile"), box );
   m_cbSaveSize->setChecked( KonqSettings::saveWindowSizeInProfile() );
 
-  connect( m_pListView, TQT_SIGNAL( selectionChanged( TQListViewItem * ) ),
-           this, TQT_SLOT( slotSelectionChanged( TQListViewItem * ) ) );
+  connect( m_pListView, TQ_SIGNAL( selectionChanged( TQListViewItem * ) ),
+           this, TQ_SLOT( slotSelectionChanged( TQListViewItem * ) ) );
 
-  connect( m_pProfileNameLineEdit, TQT_SIGNAL( textChanged( const TQString & ) ),
-           this, TQT_SLOT( slotTextChanged( const TQString & ) ) );
+  connect( m_pProfileNameLineEdit, TQ_SIGNAL( textChanged( const TQString & ) ),
+           this, TQ_SLOT( slotTextChanged( const TQString & ) ) );
 
   enableButton( BTN_RENAME, m_pListView->selectedItem ()!=0 );
   enableButton( BTN_DELETE, m_pListView->selectedItem ()!=0 );

@@ -27,8 +27,8 @@
 #include <tqtimer.h>
 
 BookmarkIterator::BookmarkIterator(TQValueList<KBookmark> bks) : m_bklist(bks) {
-    connect(this, TQT_SIGNAL( deleteSelf(BookmarkIterator *) ), 
-            TQT_SLOT( slotCancelTest(BookmarkIterator *) ));
+    connect(this, TQ_SIGNAL( deleteSelf(BookmarkIterator *) ), 
+            TQ_SLOT( slotCancelTest(BookmarkIterator *) ));
     delayedEmitNextOne();
 }
 
@@ -37,7 +37,7 @@ BookmarkIterator::~BookmarkIterator() {
 }
 
 void BookmarkIterator::delayedEmitNextOne() {
-    TQTimer::singleShot(1, this, TQT_SLOT( nextOne() ));
+    TQTimer::singleShot(1, this, TQ_SLOT( nextOne() ));
 }
 
 void BookmarkIterator::slotCancelTest(BookmarkIterator *test) {

@@ -126,7 +126,7 @@ Privacy::Privacy(TQWidget *parent, const char *name)
   clearFavIcons->setText(1, i18n("Clears the FavIcons cached from visited websites"));
   clearKPDFDocData->setText(1, i18n("Clears all KPDF document data files"));
 
-  connect(sw, TQT_SIGNAL(selectionChanged()), TQT_SLOT(changed()));
+  connect(sw, TQ_SIGNAL(selectionChanged()), TQ_SLOT(changed()));
 
   // store all entries in a list for easy access later on
   checklist.append(clearThumbnails);
@@ -141,9 +141,9 @@ Privacy::Privacy(TQWidget *parent, const char *name)
   checklist.append(clearFavIcons);
   checklist.append(clearKPDFDocData);
 
-  connect(cleaningDialog->cleanupButton, TQT_SIGNAL(clicked()), TQT_SLOT(cleanup()));
-  connect(cleaningDialog->selectAllButton, TQT_SIGNAL(clicked()), TQT_SLOT(selectAll()));
-  connect(cleaningDialog->selectNoneButton, TQT_SIGNAL(clicked()), TQT_SLOT(selectNone()));
+  connect(cleaningDialog->cleanupButton, TQ_SIGNAL(clicked()), TQ_SLOT(cleanup()));
+  connect(cleaningDialog->selectAllButton, TQ_SIGNAL(clicked()), TQ_SLOT(selectAll()));
+  connect(cleaningDialog->selectNoneButton, TQ_SIGNAL(clicked()), TQ_SLOT(selectNone()));
 
   load();
 }

@@ -69,14 +69,14 @@ KateViewSpaceContainer::KateViewSpaceContainer (TQWidget *parent, KateViewManage
   m_viewSpaceList.setAutoDelete(true);
 
   KateViewSpace* vs = new KateViewSpace( this, this );
-  connect(this, TQT_SIGNAL(statusChanged(Kate::View *, int, int, int, bool, int, const TQString&)), vs, TQT_SLOT(slotStatusChanged(Kate::View *, int, int, int, bool, int, const TQString&)));
+  connect(this, TQ_SIGNAL(statusChanged(Kate::View *, int, int, int, bool, int, const TQString&)), vs, TQ_SLOT(slotStatusChanged(Kate::View *, int, int, int, bool, int, const TQString&)));
   vs->setActive( true );
   m_viewSpaceList.append(vs);
-  connect( this, TQT_SIGNAL(viewChanged()), this, TQT_SLOT(slotViewChanged()) );
-  connect(KateDocManager::self(), TQT_SIGNAL(initialDocumentReplaced()), this, TQT_SIGNAL(viewChanged()));
+  connect( this, TQ_SIGNAL(viewChanged()), this, TQ_SLOT(slotViewChanged()) );
+  connect(KateDocManager::self(), TQ_SIGNAL(initialDocumentReplaced()), this, TQ_SIGNAL(viewChanged()));
 
-  connect(KateDocManager::self(),TQT_SIGNAL(documentCreated(Kate::Document *)),this,TQT_SLOT(documentCreated(Kate::Document *)));
-  connect(KateDocManager::self(),TQT_SIGNAL(documentDeleted(uint)),this,TQT_SLOT(documentDeleted(uint)));
+  connect(KateDocManager::self(),TQ_SIGNAL(documentCreated(Kate::Document *)),this,TQ_SLOT(documentCreated(Kate::Document *)));
+  connect(KateDocManager::self(),TQ_SIGNAL(documentDeleted(uint)),this,TQ_SLOT(documentDeleted(uint)));
 }
 
 KateViewSpaceContainer::~KateViewSpaceContainer ()
@@ -122,17 +122,17 @@ bool KateViewSpaceContainer::createView ( Kate::Document *doc )
   // popup menu
   view->installPopup ((TQPopupMenu*)(mainWindow()->factory()->container("tdetexteditor_popup", mainWindow())) );
 
-  connect(view->getDoc(),TQT_SIGNAL(nameChanged(Kate::Document *)),this,TQT_SLOT(statusMsg()));
-  connect(view,TQT_SIGNAL(cursorPositionChanged()),this,TQT_SLOT(statusMsg()));
-  connect(view,TQT_SIGNAL(newStatus()),this,TQT_SLOT(statusMsg()));
-  connect(view->getDoc(), TQT_SIGNAL(undoChanged()), this, TQT_SLOT(statusMsg()));
-  connect(view,TQT_SIGNAL(dropEventPass(TQDropEvent *)), mainWindow(),TQT_SLOT(slotDropEvent(TQDropEvent *)));
-  connect(view,TQT_SIGNAL(gotFocus(Kate::View *)),this,TQT_SLOT(activateSpace(Kate::View *)));
+  connect(view->getDoc(),TQ_SIGNAL(nameChanged(Kate::Document *)),this,TQ_SLOT(statusMsg()));
+  connect(view,TQ_SIGNAL(cursorPositionChanged()),this,TQ_SLOT(statusMsg()));
+  connect(view,TQ_SIGNAL(newStatus()),this,TQ_SLOT(statusMsg()));
+  connect(view->getDoc(), TQ_SIGNAL(undoChanged()), this, TQ_SLOT(statusMsg()));
+  connect(view,TQ_SIGNAL(dropEventPass(TQDropEvent *)), mainWindow(),TQ_SLOT(slotDropEvent(TQDropEvent *)));
+  connect(view,TQ_SIGNAL(gotFocus(Kate::View *)),this,TQ_SLOT(activateSpace(Kate::View *)));
 
   activeViewSpace()->addView( view );
   activateView( view );
-  connect( doc, TQT_SIGNAL(modifiedOnDisc(Kate::Document *, bool, unsigned char)),
-      activeViewSpace(), TQT_SLOT(modifiedOnDisc(Kate::Document *, bool, unsigned char)) );
+  connect( doc, TQ_SIGNAL(modifiedOnDisc(Kate::Document *, bool, unsigned char)),
+      activeViewSpace(), TQ_SLOT(modifiedOnDisc(Kate::Document *, bool, unsigned char)) );
 
   return true;
 }
@@ -256,7 +256,7 @@ void KateViewSpaceContainer::reactivateActiveView() {
     activateView(view);
   } else if (m_pendingViewCreation) {
     m_pendingViewCreation=false;
-    disconnect(m_pendingDocument,TQT_SIGNAL(nameChanged(Kate::Document *)),this,TQT_SLOT(slotPendingDocumentNameChanged()));
+    disconnect(m_pendingDocument,TQ_SIGNAL(nameChanged(Kate::Document *)),this,TQ_SLOT(slotPendingDocumentNameChanged()));
     createView(m_pendingDocument);
   }
 }
@@ -378,7 +378,7 @@ void KateViewSpaceContainer::closeViews(uint documentNumber)
     }
 
   if (m_blockViewCreationAndActivation) return;
-  TQTimer::singleShot(0,this,TQT_SIGNAL(viewChanged()));
+  TQTimer::singleShot(0,this,TQ_SIGNAL(viewChanged()));
   //emit m_viewManager->viewChanged ();
 }
 
@@ -481,7 +481,7 @@ void KateViewSpaceContainer::splitViewSpace( KateViewSpace* vs,
   sizes << space << space;
   s->setSizes( sizes );
 
-  connect(this, TQT_SIGNAL(statusChanged(Kate::View *, int, int, int, bool, int, const TQString &)), vsNew, TQT_SLOT(slotStatusChanged(Kate::View *, int, int,int, bool, int, const TQString &)));
+  connect(this, TQ_SIGNAL(statusChanged(Kate::View *, int, int, int, bool, int, const TQString &)), vsNew, TQ_SLOT(slotStatusChanged(Kate::View *, int, int,int, bool, int, const TQString &)));
   m_viewSpaceList.append( vsNew );
   activeViewSpace()->setActive( false );
   vsNew->setActive( true, true );
@@ -726,7 +726,7 @@ void KateViewSpaceContainer::restoreSplitter( TDEConfig* config, const TQString 
     {
      KateViewSpace* vs = new KateViewSpace( this, s );
 
-     connect(this, TQT_SIGNAL(statusChanged(Kate::View *, int, int, int, bool, int, const TQString &)), vs, TQT_SLOT(slotStatusChanged(Kate::View *, int, int, int, bool, int, const TQString &)));
+     connect(this, TQ_SIGNAL(statusChanged(Kate::View *, int, int, int, bool, int, const TQString &)), vs, TQ_SLOT(slotStatusChanged(Kate::View *, int, int, int, bool, int, const TQString &)));
 
      if (m_viewSpaceList.isEmpty())
        vs->setActive (true);

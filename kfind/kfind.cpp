@@ -71,17 +71,17 @@ Kfind::Kfind(TQWidget *parent, const char *name)
 
   mSearch = new KPushButton( KGuiItem(i18n("&Find"), "edit-find"), mButtonBox );
   mButtonBox->setSpacing( (tabWidget->sizeHint().height()-4*mSearch->sizeHint().height()) / 4);
-  connect( mSearch, TQT_SIGNAL(clicked()), this, TQT_SLOT( startSearch() ) );
+  connect( mSearch, TQ_SIGNAL(clicked()), this, TQ_SLOT( startSearch() ) );
   mStop = new KPushButton( KGuiItem(i18n("Stop"), "process-stop"), mButtonBox );
-  connect( mStop, TQT_SIGNAL(clicked()), this, TQT_SLOT( stopSearch() ) );
+  connect( mStop, TQ_SIGNAL(clicked()), this, TQ_SLOT( stopSearch() ) );
   mSave = new KPushButton( KStdGuiItem::saveAs(), mButtonBox );
-  connect( mSave, TQT_SIGNAL(clicked()), this, TQT_SLOT( saveResults() ) );
+  connect( mSave, TQ_SIGNAL(clicked()), this, TQ_SLOT( saveResults() ) );
 
   KPushButton * mClose = new KPushButton( KStdGuiItem::close(), mButtonBox );
-  connect( mClose, TQT_SIGNAL(clicked()), this, TQT_SIGNAL( destroyMe() ) );
+  connect( mClose, TQ_SIGNAL(clicked()), this, TQ_SIGNAL( destroyMe() ) );
 
   // react to search requests from widget
-  connect( tabWidget, TQT_SIGNAL(startSearch()), this, TQT_SLOT( startSearch() ) );
+  connect( tabWidget, TQ_SIGNAL(startSearch()), this, TQ_SLOT( startSearch() ) );
 
   mSearch->setEnabled(true); // Enable "Search"
   mStop->setEnabled(false);  // Disable "Stop"

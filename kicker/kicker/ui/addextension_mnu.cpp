@@ -31,8 +31,8 @@ PanelAddExtensionMenu::PanelAddExtensionMenu(TQWidget *parent, const char *name)
     : TQPopupMenu(parent, name)
 {
     setCheckable(true);
-    connect(this, TQT_SIGNAL(activated(int)), TQT_SLOT(slotExec(int)));
-    connect(this, TQT_SIGNAL(aboutToShow()), TQT_SLOT(slotAboutToShow()));
+    connect(this, TQ_SIGNAL(activated(int)), TQ_SLOT(slotExec(int)));
+    connect(this, TQ_SIGNAL(aboutToShow()), TQ_SLOT(slotAboutToShow()));
 }
 
 void PanelAddExtensionMenu::slotAboutToShow()

@@ -122,8 +122,8 @@ void KCommonDecoration::init()
 
     resetLayout();
 
-    connect(this, TQT_SIGNAL(keepAboveChanged(bool) ), TQT_SLOT(keepAboveChange(bool) ) );
-    connect(this, TQT_SIGNAL(keepBelowChanged(bool) ), TQT_SLOT(keepBelowChange(bool) ) );
+    connect(this, TQ_SIGNAL(keepAboveChanged(bool) ), TQ_SLOT(keepAboveChange(bool) ) );
+    connect(this, TQ_SIGNAL(keepBelowChanged(bool) ), TQ_SLOT(keepBelowChange(bool) ) );
 
     updateCaption();
 }
@@ -350,8 +350,8 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                           if (!btn) break;
                           btn->setTipText(i18n("Menu") );
                           btn->setRealizeButtons(TQt::LeftButton|TQt::RightButton);
-                          connect(btn, TQT_SIGNAL(pressed()), TQT_SLOT(menuButtonPressed()));
-                          connect(btn, TQT_SIGNAL(released()), this, TQT_SLOT(menuButtonReleased()));
+                          connect(btn, TQ_SIGNAL(pressed()), TQ_SLOT(menuButtonPressed()));
+                          connect(btn, TQ_SIGNAL(released()), this, TQ_SLOT(menuButtonReleased()));
 
                           m_button[MenuButton] = btn;
                       }
@@ -366,7 +366,7 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                           btn->setTipText(oad?i18n("Not on all desktops"):i18n("On all desktops") );
                           btn->setToggleButton(true);
                           btn->setOn( oad );
-                          connect(btn, TQT_SIGNAL(clicked()), TQT_SLOT(toggleOnAllDesktops()));
+                          connect(btn, TQ_SIGNAL(clicked()), TQ_SLOT(toggleOnAllDesktops()));
 
                           m_button[OnAllDesktopsButton] = btn;
                       }
@@ -377,7 +377,7 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                       btn = createButton(HelpButton);
                       if (!btn) break;
                       btn->setTipText(i18n("Help") );
-                      connect(btn, TQT_SIGNAL(clicked()), TQT_SLOT(showContextHelp()));
+                      connect(btn, TQ_SIGNAL(clicked()), TQ_SLOT(showContextHelp()));
 
                       m_button[HelpButton] = btn;
                   }
@@ -387,7 +387,7 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                       btn = createButton(MinButton);
                       if (!btn) break;
                       btn->setTipText(i18n("Minimize") );
-                      connect(btn, TQT_SIGNAL(clicked()), TQT_SLOT(minimize()));
+                      connect(btn, TQ_SIGNAL(clicked()), TQ_SLOT(minimize()));
 
                       m_button[MinButton] = btn;
                   }
@@ -401,7 +401,7 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                       btn->setTipText(max?i18n("Restore"):i18n("Maximize") );
                       btn->setToggleButton(true);
                       btn->setOn( max );
-                      connect(btn, TQT_SIGNAL(clicked()), TQT_SLOT(slotMaximize()));
+                      connect(btn, TQ_SIGNAL(clicked()), TQ_SLOT(slotMaximize()));
 
                       m_button[MaxButton] = btn;
                   }
@@ -411,7 +411,7 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                       btn = createButton(CloseButton);
                       if (!btn) break;
                       btn->setTipText(i18n("Close") );
-                      connect(btn, TQT_SIGNAL(clicked()), TQT_SLOT(closeWindow()));
+                      connect(btn, TQ_SIGNAL(clicked()), TQ_SLOT(closeWindow()));
 
                       m_button[CloseButton] = btn;
                   }
@@ -424,7 +424,7 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                       btn->setTipText(above?i18n("Do not keep above others"):i18n("Keep above others") );
                       btn->setToggleButton(true);
                       btn->setOn( above );
-                      connect(btn, TQT_SIGNAL(clicked()), TQT_SLOT(slotKeepAbove()));
+                      connect(btn, TQ_SIGNAL(clicked()), TQ_SLOT(slotKeepAbove()));
 
                       m_button[AboveButton] = btn;
                   }
@@ -437,7 +437,7 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                       btn->setTipText(below?i18n("Do not keep below others"):i18n("Keep below others") );
                       btn->setToggleButton(true);
                       btn->setOn( below );
-                      connect(btn, TQT_SIGNAL(clicked()), TQT_SLOT(slotKeepBelow()));
+                      connect(btn, TQ_SIGNAL(clicked()), TQ_SLOT(slotKeepBelow()));
 
                       m_button[BelowButton] = btn;
                   }
@@ -450,7 +450,7 @@ void KCommonDecoration::addButtons(ButtonContainer &btnContainer, const TQString
                       btn->setTipText(shaded?i18n("Unshade"):i18n("Shade") );
                       btn->setToggleButton(true);
                       btn->setOn( shaded );
-                      connect(btn, TQT_SIGNAL(clicked()), TQT_SLOT(slotShade()));
+                      connect(btn, TQ_SIGNAL(clicked()), TQ_SLOT(slotShade()));
 
                       m_button[ShadeButton] = btn;
                   }

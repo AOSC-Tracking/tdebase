@@ -111,7 +111,7 @@ NaughtyProcessMonitor::NaughtyProcessMonitor
 #ifdef __NetBSD__
   d->kd = kvm_open(NULL, NULL, NULL, KVM_NO_FILES, "kvm_open");
 #endif
-  connect(d->timer_, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotTimeout()));
+  connect(d->timer_, TQ_SIGNAL(timeout()), this, TQ_SLOT(slotTimeout()));
 }
 
 NaughtyProcessMonitor::~NaughtyProcessMonitor()

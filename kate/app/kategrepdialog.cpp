@@ -262,16 +262,16 @@ GrepTool::GrepTool(TQWidget *parent, const char *name)
   cmbFiles->installEventFilter( this );
   cmbDir->comboBox()->installEventFilter( this );
 
-  connect( cmbTemplate, TQT_SIGNAL(activated(int)),
-           TQT_SLOT(templateActivated(int)) );
-  connect( lbResult, TQT_SIGNAL(selected(const TQString&)),
-           TQT_SLOT(itemSelected(const TQString&)) );
-  connect( btnSearch, TQT_SIGNAL(clicked()),
-           TQT_SLOT(slotSearch()) );
-  connect( btnClear, TQT_SIGNAL(clicked()),
-           TQT_SLOT(slotClear()) );
-  connect( cmbPattern->lineEdit(), TQT_SIGNAL(textChanged ( const TQString & )),
-           TQT_SLOT( patternTextChanged( const TQString & )));
+  connect( cmbTemplate, TQ_SIGNAL(activated(int)),
+           TQ_SLOT(templateActivated(int)) );
+  connect( lbResult, TQ_SIGNAL(selected(const TQString&)),
+           TQ_SLOT(itemSelected(const TQString&)) );
+  connect( btnSearch, TQ_SIGNAL(clicked()),
+           TQ_SLOT(slotSearch()) );
+  connect( btnClear, TQ_SIGNAL(clicked()),
+           TQ_SLOT(slotClear()) );
+  connect( cmbPattern->lineEdit(), TQ_SIGNAL(textChanged ( const TQString & )),
+           TQ_SLOT( patternTextChanged( const TQString & )));
 
   patternTextChanged( cmbPattern->lineEdit()->text());
 }
@@ -389,12 +389,12 @@ void GrepTool::slotSearch()
   *childproc << "/dev/null"; //trick to have grep always display the filename
   *childproc << ";";
 
-  connect( childproc, TQT_SIGNAL(processExited(TDEProcess *)),
-           TQT_SLOT(childExited()) );
-  connect( childproc, TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
-           TQT_SLOT(receivedOutput(TDEProcess *, char *, int)) );
-  connect( childproc, TQT_SIGNAL(receivedStderr(TDEProcess *, char *, int)),
-           TQT_SLOT(receivedErrOutput(TDEProcess *, char *, int)) );
+  connect( childproc, TQ_SIGNAL(processExited(TDEProcess *)),
+           TQ_SLOT(childExited()) );
+  connect( childproc, TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
+           TQ_SLOT(receivedOutput(TDEProcess *, char *, int)) );
+  connect( childproc, TQ_SIGNAL(receivedStderr(TDEProcess *, char *, int)),
+           TQ_SLOT(receivedErrOutput(TDEProcess *, char *, int)) );
 
   // actually it should be checked whether the process was started successfully
   lbResult->setCursor( TQCursor(TQt::WaitCursor) );

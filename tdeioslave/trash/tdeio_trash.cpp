@@ -533,12 +533,12 @@ void TrashProtocol::get( const KURL& url )
     KURL fileURL;
     fileURL.setPath( physicalPath );
     TDEIO::Job* job = TDEIO::get( fileURL );
-    connect( job, TQT_SIGNAL( data( TDEIO::Job*, const TQByteArray& ) ),
-             this, TQT_SLOT( slotData( TDEIO::Job*, const TQByteArray& ) ) );
-    connect( job, TQT_SIGNAL( mimetype( TDEIO::Job*, const TQString& ) ),
-             this, TQT_SLOT( slotMimetype( TDEIO::Job*, const TQString& ) ) );
-    connect( job, TQT_SIGNAL( result(TDEIO::Job *) ),
-             this, TQT_SLOT( jobFinished(TDEIO::Job *) ) );
+    connect( job, TQ_SIGNAL( data( TDEIO::Job*, const TQByteArray& ) ),
+             this, TQ_SLOT( slotData( TDEIO::Job*, const TQByteArray& ) ) );
+    connect( job, TQ_SIGNAL( mimetype( TDEIO::Job*, const TQString& ) ),
+             this, TQ_SLOT( slotMimetype( TDEIO::Job*, const TQString& ) ) );
+    connect( job, TQ_SIGNAL( result(TDEIO::Job *) ),
+             this, TQ_SLOT( jobFinished(TDEIO::Job *) ) );
     tqApp->eventLoop()->enterLoop();
 }
 

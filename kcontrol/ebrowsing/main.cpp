@@ -61,7 +61,7 @@ KURIFilterModule::KURIFilterModule(TQWidget *parent, const char *name, const TQS
 #if 0
     opts = new FilterOptions(this);
     tab->addTab(opts, i18n("&Filters"));
-    connect(opts, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
+    connect(opts, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
 #endif
 
     modules.setAutoDelete(true);
@@ -75,7 +75,7 @@ KURIFilterModule::KURIFilterModule(TQWidget *parent, const char *name, const TQS
         {
             modules.append(module);
             helper.insert(it.current()->configName(), module);
-            connect(module, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
+            connect(module, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
         }
     }
 

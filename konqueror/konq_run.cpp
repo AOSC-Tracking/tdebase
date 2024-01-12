@@ -150,8 +150,8 @@ void KonqRun::init()
     // (in case it goes to scanFile, this will be done below)
     TDEIO::StatJob *job = dynamic_cast<TDEIO::StatJob*>( m_job );
     if ( job && !job->error() && m_pView ) {
-        connect( job, TQT_SIGNAL( infoMessage( TDEIO::Job*, const TQString& ) ),
-                 m_pView, TQT_SLOT( slotInfoMessage(TDEIO::Job*, const TQString& ) ) );
+        connect( job, TQ_SIGNAL( infoMessage( TDEIO::Job*, const TQString& ) ),
+                 m_pView, TQ_SLOT( slotInfoMessage(TDEIO::Job*, const TQString& ) ) );
     }
 }
 
@@ -162,11 +162,11 @@ void KonqRun::scanFile()
     // BrowserRun changes
     TDEIO::TransferJob *job = dynamic_cast<TDEIO::TransferJob*>( m_job );
     if ( job && !job->error() ) {
-        connect( job, TQT_SIGNAL( redirection( TDEIO::Job *, const KURL& )),
-                 TQT_SLOT( slotRedirection( TDEIO::Job *, const KURL& ) ));
+        connect( job, TQ_SIGNAL( redirection( TDEIO::Job *, const KURL& )),
+                 TQ_SLOT( slotRedirection( TDEIO::Job *, const KURL& ) ));
         if ( m_pView && m_pView->service()->desktopEntryName() != "konq_sidebartng") {
-            connect( job, TQT_SIGNAL( infoMessage( TDEIO::Job*, const TQString& ) ),
-                     m_pView, TQT_SLOT( slotInfoMessage(TDEIO::Job*, const TQString& ) ) );
+            connect( job, TQ_SIGNAL( infoMessage( TDEIO::Job*, const TQString& ) ),
+                     m_pView, TQ_SLOT( slotInfoMessage(TDEIO::Job*, const TQString& ) ) );
 	}
     }
 }

@@ -45,11 +45,11 @@ IconModule::IconModule(TQWidget *parent, const char *name, const TQStringList &)
 
   tab1 = new IconThemesConfig(this, "themes");
   tab->addTab(tab1, i18n("&Theme"));
-  connect(tab1, TQT_SIGNAL(changed(bool)), this, TQT_SLOT(moduleChanged(bool)));
+  connect(tab1, TQ_SIGNAL(changed(bool)), this, TQ_SLOT(moduleChanged(bool)));
 
   tab2 = new TDEIconConfig(this, "effects");
   tab->addTab(tab2, i18n("Ad&vanced"));
-  connect(tab2, TQT_SIGNAL(changed(bool)), this, TQT_SLOT(moduleChanged(bool)));
+  connect(tab2, TQ_SIGNAL(changed(bool)), this, TQ_SLOT(moduleChanged(bool)));
 
   TDEAboutData* about = new TDEAboutData("kcmicons", I18N_NOOP("Icons"), "3.0",
 	      I18N_NOOP("Icons Control Panel Module"),

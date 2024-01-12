@@ -81,8 +81,8 @@ TopLevel::TopLevel(const char* name)
   _modules->readDesktopEntries();
 
   for ( ConfigModule* m = _modules->first(); m; m = _modules->next() ) {
-      connect( m, TQT_SIGNAL( handbookRequest() ), this, TQT_SLOT( slotHandbookRequest() ) );
-      connect( m, TQT_SIGNAL( helpRequest() ), this, TQT_SLOT( slotHelpRequest() ) );
+      connect( m, TQ_SIGNAL( handbookRequest() ), this, TQ_SLOT( slotHandbookRequest() ) );
+      connect( m, TQ_SIGNAL( helpRequest() ), this, TQ_SLOT( slotHelpRequest() ) );
   }
 
   // create the layout box
@@ -109,11 +109,11 @@ TopLevel::TopLevel(const char* name)
   
   KLineEdit *searchEdit = new KLineEdit( mSearchFrame );
   clearButton->setFixedHeight( searchEdit->height() );
-  connect( clearButton, TQT_SIGNAL( clicked() ), searchEdit, TQT_SLOT( clear() ) );
+  connect( clearButton, TQ_SIGNAL( clicked() ), searchEdit, TQ_SLOT( clear() ) );
   label->setBuddy( searchEdit );
   searchLayout->addWidget( searchEdit );
-  connect( searchEdit, TQT_SIGNAL( textChanged( const TQString & ) ),
-           TQT_SLOT( slotSearchChanged(const TQString &) ) );
+  connect( searchEdit, TQ_SIGNAL( textChanged( const TQString & ) ),
+           TQ_SLOT( slotSearchChanged(const TQString &) ) );
 
   // create the left hand side under search
   _stack = new TQWidgetStack( leftFrame );
@@ -121,18 +121,18 @@ TopLevel::TopLevel(const char* name)
 
   // index tab
   _index = new IndexWidget(_modules, this);
-  connect(_index, TQT_SIGNAL(moduleActivated(ConfigModule*)),
-                  this, TQT_SLOT(activateModule(ConfigModule*)));
+  connect(_index, TQ_SIGNAL(moduleActivated(ConfigModule*)),
+                  this, TQ_SLOT(activateModule(ConfigModule*)));
   _stack->addWidget( _index );
 
-  connect(_index, TQT_SIGNAL(categorySelected(TQListViewItem*)),
-                  this, TQT_SLOT(categorySelected(TQListViewItem*)));
+  connect(_index, TQ_SIGNAL(categorySelected(TQListViewItem*)),
+                  this, TQ_SLOT(categorySelected(TQListViewItem*)));
 
   // search tab
   _search = new SearchWidget(this);
   _search->populateKeywordList(_modules);
-  connect(_search, TQT_SIGNAL(moduleSelected(ConfigModule *)),
-                  this, TQT_SLOT(activateModule(ConfigModule *)));
+  connect(_search, TQ_SIGNAL(moduleSelected(ConfigModule *)),
+                  this, TQ_SLOT(activateModule(ConfigModule *)));
 
   _stack->addWidget( _search );
 
@@ -153,10 +153,10 @@ TopLevel::TopLevel(const char* name)
   // That one does the trick ...
   _splitter->setResizeMode( leftFrame, TQSplitter::KeepSize );
 
-  connect(_dock, TQT_SIGNAL(newModule(const TQString&, const TQString&, const TQString&)),
-                  this, TQT_SLOT(newModule(const TQString&, const TQString&, const TQString&)));
-  connect(_dock, TQT_SIGNAL(changedModule(ConfigModule*)),
-          TQT_SLOT(changedModule(ConfigModule*)));
+  connect(_dock, TQ_SIGNAL(newModule(const TQString&, const TQString&, const TQString&)),
+                  this, TQ_SLOT(newModule(const TQString&, const TQString&, const TQString&)));
+  connect(_dock, TQ_SIGNAL(changedModule(ConfigModule*)),
+          TQ_SLOT(changedModule(ConfigModule*)));
 
   // set the main view
   setCentralWidget( _splitter );
@@ -178,8 +178,8 @@ TopLevel::TopLevel(const char* name)
   if (KCGlobal::isInfoCenter())
   {
       AboutWidget *aw = new AboutWidget( this, 0, _index->firstTreeViewItem());
-      connect( aw, TQT_SIGNAL( moduleSelected( ConfigModule * ) ),
-               TQT_SLOT( activateModule( ConfigModule * ) ) );
+      connect( aw, TQ_SIGNAL( moduleSelected( ConfigModule * ) ),
+               TQ_SLOT( activateModule( ConfigModule * ) ) );
       _dock->setBaseWidget( aw );
       KWin::setIcons(  winId(),
 		       TDEGlobal::iconLoader()->loadIcon("hwinfo",  TDEIcon::NoGroup,  32 ),
@@ -188,8 +188,8 @@ TopLevel::TopLevel(const char* name)
   else
   {
       AboutWidget *aw = new AboutWidget(this);
-      connect( aw, TQT_SIGNAL( moduleSelected( ConfigModule * ) ),
-                   TQT_SLOT( activateModule( ConfigModule * ) ) );
+      connect( aw, TQ_SIGNAL( moduleSelected( ConfigModule * ) ),
+                   TQ_SLOT( activateModule( ConfigModule * ) ) );
       _dock->setBaseWidget(aw);
   }
 }
@@ -234,40 +234,40 @@ bool TopLevel::queryClose()
 
 void TopLevel::setupActions()
 {
-  KStdAction::quit(this, TQT_SLOT(close()), actionCollection());
-  KStdAction::keyBindings(guiFactory(), TQT_SLOT(configureShortcuts()),
+  KStdAction::quit(this, TQ_SLOT(close()), actionCollection());
+  KStdAction::keyBindings(guiFactory(), TQ_SLOT(configureShortcuts()),
 actionCollection());
   icon_view = new TDERadioAction
-    (i18n("&Icon View"), 0, this, TQT_SLOT(activateIconView()),
+    (i18n("&Icon View"), 0, this, TQ_SLOT(activateIconView()),
      actionCollection(), "activate_iconview");
   icon_view->setExclusiveGroup( "viewmode" );
 
   tree_view = new TDERadioAction
-    (i18n("&Tree View"), 0, this, TQT_SLOT(activateTreeView()),
+    (i18n("&Tree View"), 0, this, TQ_SLOT(activateTreeView()),
      actionCollection(), "activate_treeview");
   tree_view->setExclusiveGroup( "viewmode" );
 
   icon_small = new TDERadioAction
-    (i18n("&Small"), 0, this, TQT_SLOT(activateSmallIcons()),
+    (i18n("&Small"), 0, this, TQ_SLOT(activateSmallIcons()),
      actionCollection(), "activate_smallicons");
   icon_small->setExclusiveGroup( "iconsize" );
 
   icon_medium = new TDERadioAction
-    (i18n("&Medium"), 0, this, TQT_SLOT(activateMediumIcons()),
+    (i18n("&Medium"), 0, this, TQ_SLOT(activateMediumIcons()),
      actionCollection(), "activate_mediumicons");
   icon_medium->setExclusiveGroup( "iconsize" );
 
   icon_large = new TDERadioAction
-    (i18n("&Large"), 0, this, TQT_SLOT(activateLargeIcons()),
+    (i18n("&Large"), 0, this, TQ_SLOT(activateLargeIcons()),
      actionCollection(), "activate_largeicons");
   icon_large->setExclusiveGroup( "iconsize" );
 
   icon_huge = new TDERadioAction
-    (i18n("&Huge"), 0, this, TQT_SLOT(activateHugeIcons()),
+    (i18n("&Huge"), 0, this, TQ_SLOT(activateHugeIcons()),
      actionCollection(), "activate_hugeicons");
   icon_huge->setExclusiveGroup( "iconsize" );
 
-  about_module = new TDEAction(i18n("About Current Module"), 0, this, TQT_SLOT(aboutModule()), actionCollection(), "help_about_module");
+  about_module = new TDEAction(i18n("About Current Module"), 0, this, TQ_SLOT(aboutModule()), actionCollection(), "help_about_module");
   about_module->setEnabled(false);
 
   createGUI("kcontrolui.rc");
@@ -275,7 +275,7 @@ actionCollection());
   report_bug = actionCollection()->action("help_report_bug");
   report_bug->setText(i18n("&Report Bug..."));
   report_bug->disconnect();
-  connect(report_bug, TQT_SIGNAL(activated()), TQT_SLOT(reportBug()));
+  connect(report_bug, TQ_SIGNAL(activated()), TQ_SLOT(reportBug()));
 }
 
 void TopLevel::activateIconView()
@@ -399,8 +399,8 @@ void TopLevel::categorySelected(TQListViewItem *category)
   else
   {
     AboutWidget *aw = new AboutWidget( this, 0, firstItem, caption );
-    connect( aw, TQT_SIGNAL( moduleSelected( ConfigModule * ) ),
-             TQT_SLOT( activateModule( ConfigModule * ) ) );
+    connect( aw, TQ_SIGNAL( moduleSelected( ConfigModule * ) ),
+             TQ_SLOT( activateModule( ConfigModule * ) ) );
     _dock->setBaseWidget( aw );
   }
 }
@@ -495,7 +495,7 @@ void TopLevel::reportBug()
     }
     KBugReport *br = new KBugReport(this, false, dummyAbout);
     if (deleteit)
-        connect(br, TQT_SIGNAL(finished()), TQT_SLOT(deleteDummyAbout()));
+        connect(br, TQ_SIGNAL(finished()), TQ_SLOT(deleteDummyAbout()));
     else
         dummyAbout = 0;
     br->show();

@@ -137,11 +137,11 @@ SecureDlg::SecureDlg(LockProcess *parent)
 	frameLayout->addMultiCellWidget( sep, 2, 2, 0, 1 );
 	frameLayout->addMultiCellLayout( layPBGrid, 3, 3, 0, 1, AlignLeft | AlignVCenter);
 
-	connect(mCancelButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotBtnCancel()));
-	connect(mLockButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotBtnLock()));
-	connect(mTaskButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotBtnTask()));
-	connect(mShutdownButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotBtnShutdown()));
-	connect(mSwitchButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotBtnSwitchUser()));
+	connect(mCancelButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotBtnCancel()));
+	connect(mLockButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotBtnLock()));
+	connect(mTaskButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotBtnTask()));
+	connect(mShutdownButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotBtnShutdown()));
+	connect(mSwitchButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotBtnSwitchUser()));
 
 	TQSize dlgSz = sizeHint();
 	int btnSize = dlgSz.width();

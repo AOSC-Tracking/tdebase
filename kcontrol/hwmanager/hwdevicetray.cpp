@@ -149,13 +149,13 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget *parent, const char *name)
 {
 	// Create notifier
 	d->m_hardwareNotifierContainer = new TDEPassivePopupStackContainer();
-	connect(d->m_hardwareNotifierContainer, TQT_SIGNAL(popupClicked(KPassivePopup*, TQPoint, TQString)), this, TQT_SLOT(devicePopupClicked(KPassivePopup*, TQPoint, TQString)));
+	connect(d->m_hardwareNotifierContainer, TQ_SIGNAL(popupClicked(KPassivePopup*, TQPoint, TQString)), this, TQ_SLOT(devicePopupClicked(KPassivePopup*, TQPoint, TQString)));
 
 	initMenus();
 
 	setPixmap(KSystemTray::loadIcon("hwinfo"));
 	setAlignment(TQt::AlignHCenter | TQt::AlignVCenter);
-	connect(this, TQT_SIGNAL(quitSelected()), this, TQT_SLOT(quitApp()));
+	connect(this, TQ_SIGNAL(quitSelected()), this, TQ_SLOT(quitApp()));
 	TQToolTip::add(this, i18n("Device monitor"));
 
 	globalKeys = new TDEGlobalAccel(this);
@@ -166,13 +166,13 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget *parent, const char *name)
 	globalKeys->setEnabled(true);
 	globalKeys->updateConnections();
 
-	connect(kapp, TQT_SIGNAL(settingsChanged(int)), TQT_SLOT(slotSettingsChanged(int)));
+	connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	doDiskNotifications(true);
-	connect(hwdevices, TQT_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQT_SLOT(deviceAdded(TDEGenericDevice*)));
-	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(deviceRemoved(TDEGenericDevice*)));
-	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(deviceChanged(TDEGenericDevice*)));
+	connect(hwdevices, TQ_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQ_SLOT(deviceAdded(TDEGenericDevice*)));
+	connect(hwdevices, TQ_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQ_SLOT(deviceRemoved(TDEGenericDevice*)));
+	connect(hwdevices, TQ_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQ_SLOT(deviceChanged(TDEGenericDevice*)));
 }
 
 HwDeviceSystemTray::~HwDeviceSystemTray()
@@ -182,7 +182,7 @@ HwDeviceSystemTray::~HwDeviceSystemTray()
 }
 
 /*!
- * \b TQT_SLOT which called if hwdevicetray is exited by the user. In this case the user
+ * \b TQ_SLOT which called if hwdevicetray is exited by the user. In this case the user
  * is asked through a yes/no box if "HwDeviceTray should start automatically on log in" and the
  * result is written to the KDE configfile.
  */
@@ -231,7 +231,7 @@ void HwDeviceSystemTray::mousePressEvent(TQMouseEvent* e)
 			break;
 
 		case TQt::MidButton:
-			TQTimer::singleShot(0, this, TQT_SLOT(slotHardwareConfig()));
+			TQTimer::singleShot(0, this, TQ_SLOT(slotHardwareConfig()));
 			break;
 
 		case TQt::RightButton:
@@ -301,13 +301,13 @@ void HwDeviceSystemTray::initMenus()
 
 	// Global Configuration
 	d->m_deviceManagerAction = new TDEAction(i18n("Show Device Manager..."), SmallIconSet("kcmpci"),
-	        TDEShortcut(), this, TQT_SLOT(slotHardwareConfig()), actionCollection());
+	        TDEShortcut(), this, TQ_SLOT(slotHardwareConfig()), actionCollection());
 	d->m_shortcutKeysAction = new TDEAction(i18n("Configure Shortcut Keys..."), SmallIconSet("configure"),
-	        TDEShortcut(), this, TQT_SLOT(slotEditShortcutKeys()), actionCollection());
+	        TDEShortcut(), this, TQ_SLOT(slotEditShortcutKeys()), actionCollection());
 
 	// Help & Quit
 	d->m_helpMenu = new KHelpMenu(this, TDEGlobal::instance()->aboutData(), false, actionCollection());
-	d->m_helpMenu->menu()->connectItem(KHelpMenu::menuHelpContents, this, TQT_SLOT(slotHelpContents()));
+	d->m_helpMenu->menu()->connectItem(KHelpMenu::menuHelpContents, this, TQ_SLOT(slotHelpContents()));
 	d->m_quitAction = actionCollection()->action(KStdAction::name(KStdAction::Quit));
 
 	// LMB menu
@@ -352,7 +352,7 @@ void HwDeviceSystemTray::addDeviceToLMBMenu(TDEStorageDevice *sdevice, const int
 	SDActions::Details ad = SDActions::Data[actionType];
 	actionMenu->popupMenu()->insertItem(SmallIcon(ad.iconName), i18n(ad.actionName), actionMenuIdx);
 	actionMenu->popupMenu()->connectItem(actionMenuIdx, this,
-	        TQT_SLOT(slotExecuteDeviceAction(int)));
+	        TQ_SLOT(slotExecuteDeviceAction(int)));
 	d->m_actionMenuEntryMap[actionMenuIdx++] = { actionType, uuid };
 }
 
@@ -364,7 +364,7 @@ void HwDeviceSystemTray::addDeviceToRMBMenu(TDEStorageDevice *sdevice, const int
 	actionMenu->popupMenu()->insertItem(sdevice->icon(TDEIcon::SizeSmall),
 	        getDeviceLabel(sdevice), actionMenuIdx);
 	actionMenu->popupMenu()->connectItem(actionMenuIdx, this,
-	        TQT_SLOT(slotExecuteDeviceAction(int)));
+	        TQ_SLOT(slotExecuteDeviceAction(int)));
 	actionMenu->setEnabled(true);
 	d->m_actionMenuEntryMap[actionMenuIdx++] = { actionType, uuid };
 }

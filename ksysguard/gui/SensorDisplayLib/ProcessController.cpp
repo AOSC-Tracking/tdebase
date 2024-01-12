@@ -81,12 +81,12 @@ ProcessController::ProcessController(TQWidget* parent, const char* name, const T
 	pListSearchLine = new TDEListViewSearchLineWidget(pList, this, "process_list_search_line");
 	gmSearch->addWidget(pListSearchLine, 1);
 
-	connect(pList, TQT_SIGNAL(killProcess(int, int)),
-			this, TQT_SLOT(killProcess(int, int)));
-	connect(pList, TQT_SIGNAL(reniceProcess(const TQValueList<int> &, int)),
-			this, TQT_SLOT(reniceProcess(const TQValueList<int> &, int)));
-	connect(pList, TQT_SIGNAL(listModified(bool)),
-			this, TQT_SLOT(setModified(bool)));
+	connect(pList, TQ_SIGNAL(killProcess(int, int)),
+			this, TQ_SLOT(killProcess(int, int)));
+	connect(pList, TQ_SIGNAL(reniceProcess(const TQValueList<int> &, int)),
+			this, TQ_SLOT(reniceProcess(const TQValueList<int> &, int)));
+	connect(pList, TQ_SIGNAL(listModified(bool)),
+			this, TQ_SLOT(setModified(bool)));
 
 	/* Create the combo box to configure the process filter. The
 	 * cbFilter must be created prior to constructing pList as the
@@ -103,27 +103,27 @@ ProcessController::ProcessController(TQWidget* parent, const char* name, const T
 	xbTreeView = new TQCheckBox(i18n("&Tree View"), this, "xbTreeView");
 	TQ_CHECK_PTR(xbTreeView);
 	xbTreeView->setMinimumSize(xbTreeView->sizeHint());
-	connect(xbTreeView, TQT_SIGNAL(toggled(bool)),
-			this, TQT_SLOT(setTreeView(bool)));
+	connect(xbTreeView, TQ_SIGNAL(toggled(bool)),
+			this, TQ_SLOT(setTreeView(bool)));
 
 
 	/* When the both cbFilter and pList are constructed we can connect the
 	 * missing link. */
-	connect(cbFilter, TQT_SIGNAL(activated(int)),
-			this, TQT_SLOT(filterModeChanged(int)));
+	connect(cbFilter, TQ_SIGNAL(activated(int)),
+			this, TQ_SLOT(filterModeChanged(int)));
 
 	// Create the 'Refresh' button.
 	bRefresh = new KPushButton( KGuiItem(  i18n( "&Refresh" ), "reload" ),
             this, "bRefresh" );
 	TQ_CHECK_PTR(bRefresh);
 	bRefresh->setMinimumSize(bRefresh->sizeHint());
-	connect(bRefresh, TQT_SIGNAL(clicked()), this, TQT_SLOT(updateList()));
+	connect(bRefresh, TQ_SIGNAL(clicked()), this, TQ_SLOT(updateList()));
 
 	// Create the 'Kill' button.
 	bKill = new KPushButton(i18n("&Kill"), this, "bKill");
 	TQ_CHECK_PTR(bKill);
 	bKill->setMinimumSize(bKill->sizeHint());
-	connect(bKill, TQT_SIGNAL(clicked()), this, TQT_SLOT(killProcess()));
+	connect(bKill, TQ_SIGNAL(clicked()), this, TQ_SLOT(killProcess()));
 	/* Disable the kill button until we know that the daemon supports the
 	 * kill command. */
 	bKill->setEnabled(false);
@@ -154,7 +154,7 @@ ProcessController::ProcessController(TQWidget* parent, const char* name, const T
 void ProcessController::setSearchFocus() {
 	//stupid search line widget.  See rant in fixTabOrder
 	if(!pListSearchLine->searchLine())
-		TQTimer::singleShot(100, this, TQT_SLOT(setSearchFocus()));
+		TQTimer::singleShot(100, this, TQ_SLOT(setSearchFocus()));
 	else {
 		pListSearchLine->searchLine()->setFocus();
 	}
@@ -167,7 +167,7 @@ void ProcessController::fixTabOrder() {
 	//
 	//Did i mention I hate this?
 	if(!pListSearchLine->searchLine())
-		TQTimer::singleShot(100, this, TQT_SLOT(fixTabOrder()));
+		TQTimer::singleShot(100, this, TQ_SLOT(fixTabOrder()));
 	else {
 		setTabOrder(pListSearchLine->searchLine(), cbFilter);
 		setTabOrder(cbFilter, pList);
@@ -224,7 +224,7 @@ ProcessController::killProcess(int pid, int sig)
 
 	if ( !timerOn() )
 	    // give ksysguardd time to update its proccess list
-	    TQTimer::singleShot(3000, this, TQT_SLOT(updateList()));
+	    TQTimer::singleShot(3000, this, TQ_SLOT(updateList()));
 	else
 	    updateList();
 }
@@ -274,7 +274,7 @@ ProcessController::killProcess()
 
 	if ( !timerOn())
 		// give ksysguardd time to update its proccess list
-		TQTimer::singleShot(3000, this, TQT_SLOT(updateList()));
+		TQTimer::singleShot(3000, this, TQ_SLOT(updateList()));
 	else
 		updateList();
 }

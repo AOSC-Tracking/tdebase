@@ -57,7 +57,7 @@ KCustomMenu::KCustomMenu(const TQString &configfile, TQWidget *parent)
  
      insertMenuItem( menuItem, -1 );
   }
-  connect(this, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotActivated(int)));
+  connect(this, TQ_SIGNAL(activated(int)), this, TQ_SLOT(slotActivated(int)));
 }
 
 KCustomMenu::~KCustomMenu()

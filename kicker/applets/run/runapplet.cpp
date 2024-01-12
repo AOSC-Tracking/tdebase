@@ -69,15 +69,15 @@ RunApplet::RunApplet(const TQString& configFile, Type type, int actions,
     f = _btn->font();
     f.setPixelSize(12);
     _btn->setFont(f);
-    connect(_btn, TQT_SIGNAL(clicked()), TQT_SLOT(popup_combo()));
+    connect(_btn, TQ_SIGNAL(clicked()), TQ_SLOT(popup_combo()));
 
     // setup history combo
     _input = new KHistoryCombo(this);
     _input->setFocus();
     _input->clearEdit();
     watchForFocus(_input->lineEdit());
-    connect(_input, TQT_SIGNAL(activated(const TQString&)),
-	    TQT_SLOT(run_command(const TQString&)));
+    connect(_input, TQ_SIGNAL(activated(const TQString&)),
+	    TQ_SLOT(run_command(const TQString&)));
 
     TDEConfig *c = config();
     c->setGroup("General");

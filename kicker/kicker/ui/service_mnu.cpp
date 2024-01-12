@@ -68,10 +68,10 @@ PanelServiceMenu::PanelServiceMenu(const TQString & label, const TQString & relP
 {
     excludeNoDisplay_=true;
 
-    connect(KSycoca::self(), TQT_SIGNAL(databaseChanged()),
-            TQT_SLOT(slotClearOnClose()));
-    connect(this, TQT_SIGNAL(aboutToHide()), this, TQT_SLOT(slotClose()));
-    connect(this, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(slotSetTooltip(int)));
+    connect(KSycoca::self(), TQ_SIGNAL(databaseChanged()),
+            TQ_SLOT(slotClearOnClose()));
+    connect(this, TQ_SIGNAL(aboutToHide()), this, TQ_SLOT(slotClose()));
+    connect(this, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(slotSetTooltip(int)));
 }
 
 PanelServiceMenu::~PanelServiceMenu()
@@ -378,7 +378,7 @@ void PanelServiceMenu::doInitialize()
         if (relPath_ == "")
         {
             insertItem(KickerLib::menuIconSet("application-x-executable"), i18n("Add Non-TDE Application"),
-                       this, TQT_SLOT(addNonKDEApp()));
+                       this, TQ_SLOT(addNonKDEApp()));
         }
 
         if (list.count() > 0) {
@@ -590,7 +590,7 @@ void PanelServiceMenu::mouseReleaseEvent(TQMouseEvent * ev)
 
         delete popupMenu_;
         popupMenu_ = new TDEPopupMenu(this);
-        connect(popupMenu_, TQT_SIGNAL(activated(int)), TQT_SLOT(slotContextMenu(int)));
+        connect(popupMenu_, TQ_SIGNAL(activated(int)), TQ_SLOT(slotContextMenu(int)));
         bool hasEntries = false;
 
         switch (contextKSycocaEntry_->sycocaType())
@@ -814,7 +814,7 @@ void PanelServiceMenu::mouseMoveEvent(TQMouseEvent * ev)
     // path from KStdDirs.
 
     KURLDrag *d = new KURLDrag(KURL::List(url), this);
-    connect(d, TQT_SIGNAL(destroyed()), this, TQT_SLOT(slotDragObjectDestroyed()));
+    connect(d, TQ_SIGNAL(destroyed()), this, TQ_SLOT(slotDragObjectDestroyed()));
     d->setPixmap(icon);
     d->dragCopy();
 
@@ -857,7 +857,7 @@ void PanelServiceMenu::slotDragObjectDestroyed()
         // the execution of any code after the original exec() statement
         // though the panels themselves continue on otherwise normally
         // (we just have some sort of nested event loop)
-        TQTimer::singleShot(0, this, TQT_SLOT(close()));
+        TQTimer::singleShot(0, this, TQ_SLOT(close()));
     }
 }
 
@@ -898,7 +898,7 @@ void PanelServiceMenu::slotClear()
         // QPopupMenu's aboutToHide() is emitted before the popup is really hidden,
         // and also before a click in the menu is handled, so do the clearing
         // only after that has been handled
-        TQTimer::singleShot(100, this, TQT_SLOT(slotClear()));
+        TQTimer::singleShot(100, this, TQ_SLOT(slotClear()));
         return;
     }
 

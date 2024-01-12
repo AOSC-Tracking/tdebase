@@ -257,30 +257,30 @@ FancyPlotterSettings::FancyPlotterSettings( TQWidget* parent, const char* name )
   mMoveDownButton->setEnabled( false );
   pageLayout->addWidget( mMoveDownButton, 4, 1 );
 
-  connect( mUseAutoRange, TQT_SIGNAL( toggled( bool ) ), mMinValue,
-           TQT_SLOT( setDisabled( bool ) ) );
-  connect( mUseAutoRange, TQT_SIGNAL( toggled( bool ) ), mMaxValue,
-           TQT_SLOT( setDisabled( bool ) ) );
-  connect( mShowVerticalLines, TQT_SIGNAL( toggled( bool ) ), mVerticalLinesDistance,
-           TQT_SLOT( setEnabled( bool ) ) );
-  connect( mShowVerticalLines, TQT_SIGNAL( toggled( bool ) ), mVerticalLinesScroll,
-           TQT_SLOT( setEnabled( bool ) ) );
-  connect( mShowVerticalLines, TQT_SIGNAL( toggled( bool ) ), mVerticalLinesColor,
-           TQT_SLOT( setEnabled( bool ) ) );
-  connect( mShowHorizontalLines, TQT_SIGNAL( toggled( bool ) ), mHorizontalLinesCount,
-           TQT_SLOT( setEnabled( bool ) ) );
-  connect( mShowHorizontalLines, TQT_SIGNAL( toggled( bool ) ), mHorizontalLinesColor,
-           TQT_SLOT( setEnabled( bool ) ) );
-  connect( mShowHorizontalLines, TQT_SIGNAL( toggled( bool ) ), mShowLabels,
-           TQT_SLOT( setEnabled( bool ) ) );
-  connect( mSensorView, TQT_SIGNAL( selectionChanged( TQListViewItem* ) ),
-           TQT_SLOT( selectionChanged( TQListViewItem* ) ) );
+  connect( mUseAutoRange, TQ_SIGNAL( toggled( bool ) ), mMinValue,
+           TQ_SLOT( setDisabled( bool ) ) );
+  connect( mUseAutoRange, TQ_SIGNAL( toggled( bool ) ), mMaxValue,
+           TQ_SLOT( setDisabled( bool ) ) );
+  connect( mShowVerticalLines, TQ_SIGNAL( toggled( bool ) ), mVerticalLinesDistance,
+           TQ_SLOT( setEnabled( bool ) ) );
+  connect( mShowVerticalLines, TQ_SIGNAL( toggled( bool ) ), mVerticalLinesScroll,
+           TQ_SLOT( setEnabled( bool ) ) );
+  connect( mShowVerticalLines, TQ_SIGNAL( toggled( bool ) ), mVerticalLinesColor,
+           TQ_SLOT( setEnabled( bool ) ) );
+  connect( mShowHorizontalLines, TQ_SIGNAL( toggled( bool ) ), mHorizontalLinesCount,
+           TQ_SLOT( setEnabled( bool ) ) );
+  connect( mShowHorizontalLines, TQ_SIGNAL( toggled( bool ) ), mHorizontalLinesColor,
+           TQ_SLOT( setEnabled( bool ) ) );
+  connect( mShowHorizontalLines, TQ_SIGNAL( toggled( bool ) ), mShowLabels,
+           TQ_SLOT( setEnabled( bool ) ) );
+  connect( mSensorView, TQ_SIGNAL( selectionChanged( TQListViewItem* ) ),
+           TQ_SLOT( selectionChanged( TQListViewItem* ) ) );
 
-  connect( mEditButton, TQT_SIGNAL( clicked() ), TQT_SLOT( editSensor() ) );
-  connect( mRemoveButton, TQT_SIGNAL( clicked() ), TQT_SLOT( removeSensor() ) );
-  connect( mMoveUpButton, TQT_SIGNAL( clicked() ), TQT_SLOT( moveUpSensor() ) );
-  connect( mMoveDownButton, TQT_SIGNAL( clicked() ), TQT_SLOT( moveDownSensor() ) );
-  connect ( mSensorView, TQT_SIGNAL( doubleClicked( TQListViewItem *, const TQPoint &, int )), TQT_SLOT(editSensor()));
+  connect( mEditButton, TQ_SIGNAL( clicked() ), TQ_SLOT( editSensor() ) );
+  connect( mRemoveButton, TQ_SIGNAL( clicked() ), TQ_SLOT( removeSensor() ) );
+  connect( mMoveUpButton, TQ_SIGNAL( clicked() ), TQ_SLOT( moveUpSensor() ) );
+  connect( mMoveDownButton, TQ_SIGNAL( clicked() ), TQ_SLOT( moveDownSensor() ) );
+  connect ( mSensorView, TQ_SIGNAL( doubleClicked( TQListViewItem *, const TQPoint &, int )), TQ_SLOT(editSensor()));
 
   TDEAcceleratorManager::manage( this );
 }

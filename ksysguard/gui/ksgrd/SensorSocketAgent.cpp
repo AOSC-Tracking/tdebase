@@ -34,10 +34,10 @@ using namespace KSGRD;
 SensorSocketAgent::SensorSocketAgent( SensorManager *sm )
   : SensorAgent( sm )
 {
-  connect( &mSocket, TQT_SIGNAL( gotError( int ) ), TQT_SLOT( error( int ) ) );
-  connect( &mSocket, TQT_SIGNAL( bytesWritten( int ) ), TQT_SLOT( msgSent( int ) ) );
-  connect( &mSocket, TQT_SIGNAL( readyRead() ), TQT_SLOT( msgRcvd() ) );
-  connect( &mSocket, TQT_SIGNAL( closed() ), TQT_SLOT( connectionClosed() ) );
+  connect( &mSocket, TQ_SIGNAL( gotError( int ) ), TQ_SLOT( error( int ) ) );
+  connect( &mSocket, TQ_SIGNAL( bytesWritten( int ) ), TQ_SLOT( msgSent( int ) ) );
+  connect( &mSocket, TQ_SIGNAL( readyRead() ), TQ_SLOT( msgRcvd() ) );
+  connect( &mSocket, TQ_SIGNAL( closed() ), TQ_SLOT( connectionClosed() ) );
 }
 
 SensorSocketAgent::~SensorSocketAgent()

@@ -43,10 +43,10 @@ Windowdef_list_widget::Windowdef_list_widget( TQWidget* parent_P, const char* na
     {
     TQPopupMenu* popup = new TQPopupMenu; // CHECKME looks like setting parent doesn't work
     popup->insertItem( i18n( "Simple Window..." ), TYPE_WINDOWDEF_SIMPLE );
-    connect( popup, TQT_SIGNAL( activated( int )), TQT_SLOT( new_selected( int )));
+    connect( popup, TQ_SIGNAL( activated( int )), TQ_SLOT( new_selected( int )));
 
-    connect( windows_listview, TQT_SIGNAL( doubleClicked ( TQListViewItem *, const TQPoint &, int ) ),
-             this, TQT_SLOT( modify_pressed() ) );
+    connect( windows_listview, TQ_SIGNAL( doubleClicked ( TQListViewItem *, const TQPoint &, int ) ),
+             this, TQ_SLOT( modify_pressed() ) );
     new_button->setPopup( popup );
     windows_listview->header()->hide();
     windows_listview->addColumn( "" );
@@ -57,16 +57,16 @@ Windowdef_list_widget::Windowdef_list_widget( TQWidget* parent_P, const char* na
     delete_button->setEnabled( false );
     clear_data();
     // KHotKeys::Module::changed()
-    connect( new_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( copy_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( modify_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( delete_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( comment_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
+    connect( new_button, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( copy_button, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( modify_button, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( delete_button, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( comment_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
     }
 
 Windowdef_list_widget::~Windowdef_list_widget()

@@ -323,40 +323,40 @@ void KCookiesPolicies::load()
   }
 
   // Connect the main swicth :) Enable/disable cookie support
-  connect( dlg->cbEnableCookies, TQT_SIGNAL( toggled(bool) ),
-           TQT_SLOT( cookiesEnabled(bool) ) );
-  connect( dlg->cbEnableCookies, TQT_SIGNAL( toggled(bool) ),
-           TQT_SLOT( configChanged() ) );
+  connect( dlg->cbEnableCookies, TQ_SIGNAL( toggled(bool) ),
+           TQ_SLOT( cookiesEnabled(bool) ) );
+  connect( dlg->cbEnableCookies, TQ_SIGNAL( toggled(bool) ),
+           TQ_SLOT( configChanged() ) );
 
   // Connect the preference check boxes...
-  connect ( dlg->cbRejectCrossDomainCookies, TQT_SIGNAL(clicked()),
-            TQT_SLOT(configChanged()));
-  connect ( dlg->cbAutoAcceptSessionCookies, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(configChanged()));
-  connect ( dlg->cbIgnoreCookieExpirationDate, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(configChanged()));
+  connect ( dlg->cbRejectCrossDomainCookies, TQ_SIGNAL(clicked()),
+            TQ_SLOT(configChanged()));
+  connect ( dlg->cbAutoAcceptSessionCookies, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(configChanged()));
+  connect ( dlg->cbIgnoreCookieExpirationDate, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(configChanged()));
 
-  connect ( dlg->cbAutoAcceptSessionCookies, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(autoAcceptSessionCookies(bool)));
-  connect ( dlg->cbIgnoreCookieExpirationDate, TQT_SIGNAL(toggled(bool)),
-            TQT_SLOT(ignoreCookieExpirationDate(bool)));
+  connect ( dlg->cbAutoAcceptSessionCookies, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(autoAcceptSessionCookies(bool)));
+  connect ( dlg->cbIgnoreCookieExpirationDate, TQ_SIGNAL(toggled(bool)),
+            TQ_SLOT(ignoreCookieExpirationDate(bool)));
 
   // Connect the default cookie policy radio buttons...
-  connect(dlg->bgDefault, TQT_SIGNAL(clicked(int)), TQT_SLOT(configChanged()));
+  connect(dlg->bgDefault, TQ_SIGNAL(clicked(int)), TQ_SLOT(configChanged()));
 
   // Connect signals from the domain specific policy listview.
-  connect( dlg->lvDomainPolicy, TQT_SIGNAL(selectionChanged()),
-           TQT_SLOT(selectionChanged()) );
-  connect( dlg->lvDomainPolicy, TQT_SIGNAL(doubleClicked (TQListViewItem *)),
-           TQT_SLOT(changePressed() ) );
-  connect( dlg->lvDomainPolicy, TQT_SIGNAL(returnPressed ( TQListViewItem * )),
-           TQT_SLOT(changePressed() ) );
+  connect( dlg->lvDomainPolicy, TQ_SIGNAL(selectionChanged()),
+           TQ_SLOT(selectionChanged()) );
+  connect( dlg->lvDomainPolicy, TQ_SIGNAL(doubleClicked (TQListViewItem *)),
+           TQ_SLOT(changePressed() ) );
+  connect( dlg->lvDomainPolicy, TQ_SIGNAL(returnPressed ( TQListViewItem * )),
+           TQ_SLOT(changePressed() ) );
 
   // Connect the buttons...
-  connect( dlg->pbNew, TQT_SIGNAL(clicked()), TQT_SLOT( addPressed() ) );
-  connect( dlg->pbChange, TQT_SIGNAL( clicked() ), TQT_SLOT( changePressed() ) );
-  connect( dlg->pbDelete, TQT_SIGNAL( clicked() ), TQT_SLOT( deletePressed() ) );
-  connect( dlg->pbDeleteAll, TQT_SIGNAL( clicked() ), TQT_SLOT( deleteAllPressed() ) );
+  connect( dlg->pbNew, TQ_SIGNAL(clicked()), TQ_SLOT( addPressed() ) );
+  connect( dlg->pbChange, TQ_SIGNAL( clicked() ), TQ_SLOT( changePressed() ) );
+  connect( dlg->pbDelete, TQ_SIGNAL( clicked() ), TQ_SLOT( deletePressed() ) );
+  connect( dlg->pbDeleteAll, TQ_SIGNAL( clicked() ), TQ_SLOT( deleteAllPressed() ) );
 }
 
 void KCookiesPolicies::save()

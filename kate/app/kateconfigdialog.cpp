@@ -110,13 +110,13 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   cb_fullPath = new TQCheckBox(i18n("&Show full path in title"), bgStartup);
   cb_fullPath->setChecked(mainWindow->viewManager()->getShowFullPath());
   TQWhatsThis::add(cb_fullPath, i18n("If this option is checked, the full document path will be shown in the window caption."));
-  connect(cb_fullPath, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
+  connect(cb_fullPath, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotChanged()));
 
   // show session name in title
   cb_showSessionName = new TQCheckBox(i18n("Show s&ession name in title"), bgStartup);
   cb_showSessionName->setChecked(parent->showSessionName);
   TQWhatsThis::add(cb_showSessionName, i18n("If this option is checked, the session name will be shown in the window caption."));
-  connect(cb_showSessionName, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
+  connect(cb_showSessionName, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotChanged()));
 
   // sort filelist if desired
   cb_sortFiles = new TQCheckBox(bgStartup);
@@ -124,7 +124,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   cb_sortFiles->setChecked(parent->filelist->sortType() == KateFileList::sortByName);
   TQWhatsThis::add( cb_sortFiles, i18n(
         "If this is checked, the files in the file list will be sorted alphabetically.") );
-  connect( cb_sortFiles, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
+  connect( cb_sortFiles, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotChanged() ) );
 
   // GROUP with the one below: "Behavior"
   bgStartup = new TQButtonGroup( 1, TQt::Horizontal, i18n("&Behavior"), frGeneral );
@@ -142,7 +142,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
         "some items forgotten.</qt>") );
   TQWhatsThis::add( lNrf, numRecentFileHelpString );
   TQWhatsThis::add( sb_numRecentFiles, numRecentFileHelpString );
-  connect( sb_numRecentFiles, TQT_SIGNAL( valueChanged ( int ) ), this, TQT_SLOT( slotChanged() ) );
+  connect( sb_numRecentFiles, TQ_SIGNAL( valueChanged ( int ) ), this, TQ_SLOT( slotChanged() ) );
 
   // Use only one instance of kate (MDI) ?
   cb_useInstance = new TQCheckBox(bgStartup);
@@ -151,7 +151,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   TQWhatsThis::add( cb_useInstance, i18n(
         "When checked, all files opened from outside of Kate will only use the "
         "currently opened instance of Kate.") );
-  connect( cb_useInstance, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
+  connect( cb_useInstance, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotChanged() ) );
 
   // sync the konsole ?
   cb_syncKonsole = new TQCheckBox(bgStartup);
@@ -161,7 +161,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
         "If this is checked, the built in Konsole will <code>cd</code> to the directory "
         "of the active document when started and whenever the active document changes, "
         "if the document is a local file.") );
-  connect( cb_syncKonsole, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
+  connect( cb_syncKonsole, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotChanged() ) );
 
   // modified files notification
   cb_modNotifications = new TQCheckBox(
@@ -172,8 +172,8 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
       "files that have been modified on the hard disk. If not enabled, you will "
       "be asked what to do with a file that has been modified on the hard disk only "
       "when that file gains focus inside Kate.") );
-  connect( cb_modNotifications, TQT_SIGNAL( toggled( bool ) ),
-           this, TQT_SLOT( slotChanged() ) );
+  connect( cb_modNotifications, TQ_SIGNAL( toggled( bool ) ),
+           this, TQ_SLOT( slotChanged() ) );
 
   // GROUP with the one below: "Meta-informations"
   bgStartup = new TQButtonGroup( 2, TQt::Horizontal, i18n("Meta-Information"), frGeneral );
@@ -187,7 +187,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
         "Check this if you want document configuration like for example "
         "bookmarks to be saved past editor sessions. The configuration will be "
         "restored if the document has not changed when reopened."));
-  connect( cb_saveMetaInfos, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
+  connect( cb_saveMetaInfos, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotChanged() ) );
 
   // meta infos days
   TQHBox *hbDmf = new TQHBox( bgStartup );
@@ -198,8 +198,8 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   sb_daysMetaInfos->setSuffix(i18n(" day(s)"));
   sb_daysMetaInfos->setValue( KateDocManager::self()->getDaysMetaInfos() );
   lDmf->setBuddy( sb_daysMetaInfos );
-  connect( cb_saveMetaInfos, TQT_SIGNAL( toggled( bool ) ), hbDmf, TQT_SLOT( setEnabled( bool ) ) );
-  connect( sb_daysMetaInfos, TQT_SIGNAL( valueChanged ( int ) ), this, TQT_SLOT( slotChanged() ) );
+  connect( cb_saveMetaInfos, TQ_SIGNAL( toggled( bool ) ), hbDmf, TQ_SLOT( setEnabled( bool ) ) );
+  connect( sb_daysMetaInfos, TQ_SIGNAL( valueChanged ( int ) ), this, TQ_SLOT( slotChanged() ) );
 
   lo->addStretch(1); // :-] works correct without autoadd
   //END General page
@@ -224,7 +224,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   cb_restoreVC->setChecked( config->readBoolEntry("Restore Window Configuration", true) );
   TQWhatsThis::add(cb_restoreVC, i18n(
         "Check this if you want all your views and frames restored each time you open Kate"));
-  connect( cb_restoreVC, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotChanged() ) );
+  connect( cb_restoreVC, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotChanged() ) );
 
   TQRadioButton *rb1, *rb2, *rb3;
 
@@ -245,9 +245,9 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   else
     sessions_start->setButton (2);
 
-  connect(rb1, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
-  connect(rb2, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
-  connect(rb3, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
+  connect(rb1, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotChanged()));
+  connect(rb2, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotChanged()));
+  connect(rb3, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotChanged()));
 
   sessions_exit = new TQButtonGroup( 1, TQt::Horizontal, i18n("Behavior on Application Exit or Session Switch"), frSessions );
   lo->add (sessions_exit);
@@ -266,9 +266,9 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   else
     sessions_exit->setButton (2);
 
-  connect(rb1, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
-  connect(rb2, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
-  connect(rb3, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(slotChanged()));
+  connect(rb1, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotChanged()));
+  connect(rb2, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotChanged()));
+  connect(rb3, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(slotChanged()));
 
   lo->addStretch(1); // :-] works correct without autoadd
   //END Session page
@@ -282,7 +282,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
                               BarIcon("document-open", TDEIcon::SizeSmall) );
   fileSelConfigPage = new KFSConfigPage( page, "file selector config page",
                                          mainWindow->fileselector );
-  connect( fileSelConfigPage, TQT_SIGNAL( changed() ), this, TQT_SLOT( slotChanged() ) );
+  connect( fileSelConfigPage, TQ_SIGNAL( changed() ), this, TQ_SLOT( slotChanged() ) );
   path.clear();
 
   path << i18n("Application") << i18n("Document List");
@@ -290,14 +290,14 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   BarIcon("view_text", TDEIcon::SizeSmall) );
   filelistConfigPage = new KFLConfigPage( page, "file list config page",
 					  mainWindow->filelist );
-  connect( filelistConfigPage, TQT_SIGNAL( changed() ), this, TQT_SLOT( slotChanged() ) );
+  connect( filelistConfigPage, TQ_SIGNAL( changed() ), this, TQ_SLOT( slotChanged() ) );
   path.clear();
 
   path << i18n("Application") << i18n("Plugins");
   /*TQVBox **/page=addVBoxPage(path,i18n("Plugin Manager"),
                           BarIcon("connect_established",TDEIcon::SizeSmall));
   KateConfigPluginPage *configPluginPage = new KateConfigPluginPage(page, this);
-  connect( configPluginPage, TQT_SIGNAL( changed() ), this, TQT_SLOT( slotChanged() ) );
+  connect( configPluginPage, TQ_SIGNAL( changed() ), this, TQ_SLOT( slotChanged() ) );
 
   // Tools->External Tools menu
   path.clear();
@@ -305,7 +305,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   page = addVBoxPage( path, i18n("External Tools"),
       BarIcon("configure", TDEIcon::SizeSmall) );
   configExternalToolsPage = new KateExternalToolsConfigWidget(page, "external tools config page");
-  connect( configExternalToolsPage, TQT_SIGNAL(changed()), this, TQT_SLOT(slotChanged()) );
+  connect( configExternalToolsPage, TQ_SIGNAL(changed()), this, TQ_SLOT(slotChanged()) );
 
   // editor widgets from kwrite/kwdialog
   path.clear();
@@ -320,7 +320,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
                               KTextEditor::configInterfaceExtension (v->document())->configPagePixmap(i, TDEIcon::SizeSmall) );
 
     KTextEditor::ConfigPage *cPage = KTextEditor::configInterfaceExtension (v->document())->configPage(i, page);
-    connect( cPage, TQT_SIGNAL( changed() ), this, TQT_SLOT( slotChanged() ) );
+    connect( cPage, TQ_SIGNAL( changed() ), this, TQ_SLOT( slotChanged() ) );
     editorPages.append (cPage);
   }
 
@@ -356,7 +356,7 @@ void KateConfigDialog::addPluginPage (Kate::Plugin *plugin)
     PluginPageListItem *info=new PluginPageListItem;
     info->plugin = plugin;
     info->page = Kate::pluginConfigInterfaceExtension(plugin)->configPage (i, page);
-    connect( info->page, TQT_SIGNAL( changed() ), this, TQT_SLOT( slotChanged() ) );
+    connect( info->page, TQ_SIGNAL( changed() ), this, TQ_SLOT( slotChanged() ) );
     pluginPages.append(info);
   }
 }

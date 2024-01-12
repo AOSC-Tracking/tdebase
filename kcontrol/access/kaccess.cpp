@@ -96,10 +96,10 @@ KAccessApp::KAccessApp(bool allowStyles, bool GUIenabled)
                                                  overlay(0), wm(0, KWinModule::INFO_DESKTOP)
 {
   _activeWindow = wm.activeWindow();
-  connect(&wm, TQT_SIGNAL(activeWindowChanged(WId)), this, TQT_SLOT(activeWindowChanged(WId)));
+  connect(&wm, TQ_SIGNAL(activeWindowChanged(WId)), this, TQ_SLOT(activeWindowChanged(WId)));
 
   artsBellTimer = new TQTimer( this );
-  connect( artsBellTimer, TQT_SIGNAL( timeout() ), TQT_SLOT( slotArtsBellTimeout() ));
+  connect( artsBellTimer, TQ_SIGNAL( timeout() ), TQ_SLOT( slotArtsBellTimeout() ));
 
   features = 0;
   requestedFeatures = 0;
@@ -364,7 +364,7 @@ bool KAccessApp::x11EventFilter(XEvent *event)
 void VisualBell::paintEvent(TQPaintEvent *event)
 {
   TQWidget::paintEvent(event);
-  TQTimer::singleShot(_pause, this, TQT_SLOT(hide()));
+  TQTimer::singleShot(_pause, this, TQ_SLOT(hide()));
 }
 
 
@@ -605,9 +605,9 @@ void KAccessApp::createDialogContents() {
       dialog->setMainWidget(topcontents);
       dialog->enableButtonSeparator(false);
 
-      connect (dialog, TQT_SIGNAL(yesClicked()), this, TQT_SLOT(yesClicked()));
-      connect (dialog, TQT_SIGNAL(noClicked()), this, TQT_SLOT(noClicked()));
-      connect (dialog, TQT_SIGNAL(closeClicked()), this, TQT_SLOT(dialogClosed()));
+      connect (dialog, TQ_SIGNAL(yesClicked()), this, TQ_SLOT(yesClicked()));
+      connect (dialog, TQ_SIGNAL(noClicked()), this, TQ_SLOT(noClicked()));
+      connect (dialog, TQ_SIGNAL(closeClicked()), this, TQ_SLOT(dialogClosed()));
    }
 }
 

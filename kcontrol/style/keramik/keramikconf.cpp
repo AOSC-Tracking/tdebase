@@ -63,9 +63,9 @@ KeramikStyleConfig::KeramikStyleConfig(TQWidget* parent): TQWidget(parent)
 	origAnimProgressBar = s.readBoolEntry("/keramik/Settings/animateProgressBar", false);
 	animateProgressBar->setChecked(origAnimProgressBar);
 	
-	//connect(highlightLineEdits, TQT_SIGNAL( toggled(bool) ), TQT_SLOT( updateChanged() ) );
-	connect(highlightScrollBar, TQT_SIGNAL( toggled(bool) ), TQT_SLOT( updateChanged() ) );
-	connect(animateProgressBar, TQT_SIGNAL( toggled(bool) ), TQT_SLOT( updateChanged() ) );
+	//connect(highlightLineEdits, TQ_SIGNAL( toggled(bool) ), TQ_SLOT( updateChanged() ) );
+	connect(highlightScrollBar, TQ_SIGNAL( toggled(bool) ), TQ_SLOT( updateChanged() ) );
+	connect(animateProgressBar, TQ_SIGNAL( toggled(bool) ), TQ_SLOT( updateChanged() ) );
 }
 
 KeramikStyleConfig::~KeramikStyleConfig()

@@ -68,14 +68,14 @@ PanelExeDialog::PanelExeDialog(const TQString& title, const TQString& descriptio
 
     updateIcon();
 
-    connect(ui->m_exec, TQT_SIGNAL(urlSelected(const TQString &)),
-            this, TQT_SLOT(slotSelect(const TQString &)));
-    connect(ui->m_exec, TQT_SIGNAL(textChanged(const TQString &)),
-            this, TQT_SLOT(slotTextChanged(const TQString &)));
-    connect(ui->m_exec, TQT_SIGNAL(returnPressed()),
-            this, TQT_SLOT(slotReturnPressed()));
-    connect(ui->m_icon, TQT_SIGNAL(iconChanged(TQString)),
-            this, TQT_SLOT(slotIconChanged(TQString)));
+    connect(ui->m_exec, TQ_SIGNAL(urlSelected(const TQString &)),
+            this, TQ_SLOT(slotSelect(const TQString &)));
+    connect(ui->m_exec, TQ_SIGNAL(textChanged(const TQString &)),
+            this, TQ_SLOT(slotTextChanged(const TQString &)));
+    connect(ui->m_exec, TQ_SIGNAL(returnPressed()),
+            this, TQ_SLOT(slotReturnPressed()));
+    connect(ui->m_icon, TQ_SIGNAL(iconChanged(TQString)),
+            this, TQ_SLOT(slotIconChanged(TQString)));
 
     // leave decent space for the commandline
     resize(sizeHint().width() > 300 ? sizeHint().width() : 300,

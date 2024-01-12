@@ -130,7 +130,7 @@ int main(int argc, char** argv)
 
 	DecoBenchApplication app(library, test, count);
 
-	TQTimer::singleShot(0, &app, TQT_SLOT(executeTest()));
+	TQTimer::singleShot(0, &app, TQ_SLOT(executeTest()));
 	app.exec();
 }
 #include "main.moc"

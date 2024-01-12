@@ -37,8 +37,8 @@ Menuentry_widget::Menuentry_widget( TQWidget* parent_P, const char* name_P )
     {
     clear_data();
     // KHotKeys::Module::changed()
-    connect( menuentry_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
+    connect( menuentry_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
     }
 
 void Menuentry_widget::clear_data()

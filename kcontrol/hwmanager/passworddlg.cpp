@@ -30,7 +30,7 @@ PasswordDlg::PasswordDlg() :
 	enableButton( User1, false );
 	unlockDialog->encryptedIcon->setPixmap(TDEGlobal::iconLoader()->loadIcon("drive-harddisk-locked",
 				  TDEIcon::NoGroup, TDEIcon::SizeLarge));
-	connect(unlockDialog->passwordEdit, TQT_SIGNAL (textChanged(const TQString &)), this, TQT_SLOT (slotPasswordChanged(const TQString &)));
+	connect(unlockDialog->passwordEdit, TQ_SIGNAL (textChanged(const TQString &)), this, TQ_SLOT (slotPasswordChanged(const TQString &)));
 
 	setMainWidget(unlockDialog);
 }

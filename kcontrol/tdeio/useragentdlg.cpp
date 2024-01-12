@@ -56,22 +56,22 @@ UserAgentDlg::UserAgentDlg( TQWidget * parent )
 
   dlg->lvDomainPolicyList->setSorting(0);
 
-  connect( dlg->cbSendUAString, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()) );
+  connect( dlg->cbSendUAString, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()) );
 
-  connect( dlg->gbDefaultId, TQT_SIGNAL(clicked(int)),
-           TQT_SLOT(changeDefaultUAModifiers(int)));
+  connect( dlg->gbDefaultId, TQ_SIGNAL(clicked(int)),
+           TQ_SLOT(changeDefaultUAModifiers(int)));
 
-  connect( dlg->lvDomainPolicyList, TQT_SIGNAL(selectionChanged()),
-           TQT_SLOT(selectionChanged()) );
-  connect( dlg->lvDomainPolicyList, TQT_SIGNAL(doubleClicked (TQListViewItem *)),
-           TQT_SLOT(changePressed()) );
-  connect( dlg->lvDomainPolicyList, TQT_SIGNAL( returnPressed ( TQListViewItem * ) ),
-           TQT_SLOT( changePressed() ));
+  connect( dlg->lvDomainPolicyList, TQ_SIGNAL(selectionChanged()),
+           TQ_SLOT(selectionChanged()) );
+  connect( dlg->lvDomainPolicyList, TQ_SIGNAL(doubleClicked (TQListViewItem *)),
+           TQ_SLOT(changePressed()) );
+  connect( dlg->lvDomainPolicyList, TQ_SIGNAL( returnPressed ( TQListViewItem * ) ),
+           TQ_SLOT( changePressed() ));
 
-  connect( dlg->pbNew, TQT_SIGNAL(clicked()), TQT_SLOT( addPressed() ) );
-  connect( dlg->pbChange, TQT_SIGNAL( clicked() ), TQT_SLOT( changePressed() ) );
-  connect( dlg->pbDelete, TQT_SIGNAL( clicked() ), TQT_SLOT( deletePressed() ) );
-  connect( dlg->pbDeleteAll, TQT_SIGNAL( clicked() ), TQT_SLOT( deleteAllPressed() ) );
+  connect( dlg->pbNew, TQ_SIGNAL(clicked()), TQ_SLOT( addPressed() ) );
+  connect( dlg->pbChange, TQ_SIGNAL( clicked() ), TQ_SLOT( changePressed() ) );
+  connect( dlg->pbDelete, TQ_SIGNAL( clicked() ), TQ_SLOT( deletePressed() ) );
+  connect( dlg->pbDeleteAll, TQ_SIGNAL( clicked() ), TQ_SLOT( deleteAllPressed() ) );
 
   load();
 }

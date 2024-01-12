@@ -301,8 +301,8 @@ static int directCommand(TDECmdLineArgs *args)
 						       0, // name
 						       duration );
 	TQTimer *timer = new TQTimer();
-	TQObject::connect( timer, TQT_SIGNAL( timeout() ), kapp, TQT_SLOT( quit() ) );
-	TQObject::connect( popup, TQT_SIGNAL( clicked() ), kapp, TQT_SLOT( quit() ) );
+	TQObject::connect( timer, TQ_SIGNAL( timeout() ), kapp, TQ_SLOT( quit() ) );
+	TQObject::connect( popup, TQ_SIGNAL( clicked() ), kapp, TQ_SLOT( quit() ) );
 	timer->start( duration, TRUE );
 
 #ifdef Q_WS_X11	

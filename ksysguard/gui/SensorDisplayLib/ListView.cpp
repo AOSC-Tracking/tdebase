@@ -329,7 +329,7 @@ ListView::configureSettings()
 {
 	lvs = new ListViewSettings(this, "ListViewSettings");
 	TQ_CHECK_PTR(lvs);
-	connect(lvs, TQT_SIGNAL(applyClicked()), TQT_SLOT(applySettings()));
+	connect(lvs, TQ_SIGNAL(applyClicked()), TQ_SLOT(applySettings()));
 
 	TQColorGroup colorGroup = monitor->colorGroup();
 	lvs->setGridColor(colorGroup.color(TQColorGroup::Link));

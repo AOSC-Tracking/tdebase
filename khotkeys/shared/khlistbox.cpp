@@ -25,15 +25,15 @@ KHListBox::KHListBox( TQWidget* parent_P, const char* name_P )
     : TQListBox( parent_P, name_P ), saved_current_item( NULL ),
         in_clear( false ), force_select( false )
     {
-    connect( this, TQT_SIGNAL( selectionChanged( TQListBoxItem* )),
-        TQT_SLOT( slot_selection_changed( TQListBoxItem* )));
-    connect( this, TQT_SIGNAL( currentChanged( TQListBoxItem* )),
-        TQT_SLOT( slot_current_changed( TQListBoxItem* )));
+    connect( this, TQ_SIGNAL( selectionChanged( TQListBoxItem* )),
+        TQ_SLOT( slot_selection_changed( TQListBoxItem* )));
+    connect( this, TQ_SIGNAL( currentChanged( TQListBoxItem* )),
+        TQ_SLOT( slot_current_changed( TQListBoxItem* )));
     // CHECKME grrr
-    connect( this, TQT_SIGNAL( selectionChanged()),
-        TQT_SLOT( slot_selection_changed()));
-    connect( &insert_select_timer, TQT_SIGNAL( timeout()),
-        TQT_SLOT( slot_insert_select()));
+    connect( this, TQ_SIGNAL( selectionChanged()),
+        TQ_SLOT( slot_selection_changed()));
+    connect( &insert_select_timer, TQ_SIGNAL( timeout()),
+        TQ_SLOT( slot_insert_select()));
     }
 
 void KHListBox::slot_selection_changed()

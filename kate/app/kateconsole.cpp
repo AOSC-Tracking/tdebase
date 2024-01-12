@@ -50,7 +50,7 @@ KateConsole::KateConsole (KateMainWindow *mw, KateMDI::ToolView* parent)
 KateConsole::~KateConsole ()
 {
   if (m_part)
-    disconnect ( m_part, TQT_SIGNAL(destroyed()), this, TQT_SLOT(slotDestroyed()) );
+    disconnect ( m_part, TQ_SIGNAL(destroyed()), this, TQ_SLOT(slotDestroyed()) );
 }
 
 void KateConsole::loadConsoleIfNeeded()
@@ -74,7 +74,7 @@ void KateConsole::loadConsoleIfNeeded()
 
   m_part->widget()->show();
 
-  connect ( m_part, TQT_SIGNAL(destroyed()), this, TQT_SLOT(slotDestroyed()) );
+  connect ( m_part, TQ_SIGNAL(destroyed()), this, TQ_SLOT(slotDestroyed()) );
 
   if (m_mw->viewManager()->activeView())
     if (m_mw->viewManager()->activeView()->getDoc()->url().isValid())

@@ -54,8 +54,8 @@ KonqBgndDialog::KonqBgndDialog( TQWidget* parent,
     groupLayout->setAlignment( TQt::AlignTop );
     mainLayout->addWidget( m_buttonGroup );
 
-    connect( m_buttonGroup, TQT_SIGNAL( clicked(int) ),
-             this, TQT_SLOT( slotBackgroundModeChanged() ) );
+    connect( m_buttonGroup, TQ_SIGNAL( clicked(int) ),
+             this, TQ_SLOT( slotBackgroundModeChanged() ) );
 
     // color
     m_radioColor = new TQRadioButton( i18n("Co&lor:"), m_buttonGroup );
@@ -65,8 +65,8 @@ KonqBgndDialog::KonqBgndDialog( TQWidget* parent,
                                 TQSizePolicy::Minimum );
     groupLayout->addWidget( m_buttonColor, 0, 1 );
 
-    connect( m_buttonColor, TQT_SIGNAL( changed( const TQColor& ) ),
-             this, TQT_SLOT( slotColorChanged() ) );
+    connect( m_buttonColor, TQ_SIGNAL( changed( const TQColor& ) ),
+             this, TQ_SLOT( slotColorChanged() ) );
 
     // picture
     m_radioPicture = new TQRadioButton( i18n("&Picture:"), m_buttonGroup );
@@ -75,10 +75,10 @@ KonqBgndDialog::KonqBgndDialog( TQWidget* parent,
     groupLayout->addMultiCellWidget( m_comboPicture, 1, 1, 1, 2 );
     initPictures();
 
-    connect( m_comboPicture->comboBox(), TQT_SIGNAL( activated( int ) ),
-	     this, TQT_SLOT( slotPictureChanged() ) );
-    connect( m_comboPicture, TQT_SIGNAL( urlSelected(const TQString &) ),
-             this, TQT_SLOT( slotPictureChanged() ) );
+    connect( m_comboPicture->comboBox(), TQ_SIGNAL( activated( int ) ),
+	     this, TQ_SLOT( slotPictureChanged() ) );
+    connect( m_comboPicture, TQ_SIGNAL( urlSelected(const TQString &) ),
+             this, TQ_SLOT( slotPictureChanged() ) );
 
     TQSpacerItem* spacer1 = new TQSpacerItem( 0, 0, TQSizePolicy::Expanding,
                                             TQSizePolicy::Minimum );

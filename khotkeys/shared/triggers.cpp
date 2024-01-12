@@ -197,13 +197,13 @@ Window_trigger::~Window_trigger()
 void Window_trigger::init()
     {
     kdDebug( 1217 ) << "Window_trigger::init()" << endl;
-    connect( windows_handler, TQT_SIGNAL( window_added( WId )), this, TQT_SLOT( window_added( WId )));
-    connect( windows_handler, TQT_SIGNAL( window_removed( WId )), this, TQT_SLOT( window_removed( WId )));
+    connect( windows_handler, TQ_SIGNAL( window_added( WId )), this, TQ_SLOT( window_added( WId )));
+    connect( windows_handler, TQ_SIGNAL( window_removed( WId )), this, TQ_SLOT( window_removed( WId )));
     if( window_actions & ( WINDOW_ACTIVATES | WINDOW_DEACTIVATES /*| WINDOW_DISAPPEARS*/ ))
-        connect( windows_handler, TQT_SIGNAL( active_window_changed( WId )),
-            this, TQT_SLOT( active_window_changed( WId )));
-    connect( windows_handler, TQT_SIGNAL( window_changed( WId, unsigned int )),
-        this, TQT_SLOT( window_changed( WId, unsigned int )));
+        connect( windows_handler, TQ_SIGNAL( active_window_changed( WId )),
+            this, TQ_SLOT( active_window_changed( WId )));
+    connect( windows_handler, TQ_SIGNAL( window_changed( WId, unsigned int )),
+        this, TQ_SLOT( window_changed( WId, unsigned int )));
     }
 
 void Window_trigger::activate( bool activate_P )
@@ -335,7 +335,7 @@ Gesture_trigger::Gesture_trigger( TDEConfig& cfg_P, Action_data* data_P )
 
 Gesture_trigger::~Gesture_trigger()
     {
-    gesture_handler->unregister_handler( this, TQT_SLOT( handle_gesture( const TQString&, WId )));
+    gesture_handler->unregister_handler( this, TQ_SLOT( handle_gesture( const TQString&, WId )));
     }
 
 void Gesture_trigger::cfg_write( TDEConfig& cfg_P ) const
@@ -368,9 +368,9 @@ void Gesture_trigger::handle_gesture( const TQString &gesture_P, WId window_P )
 void Gesture_trigger::activate( bool activate_P )
     {
     if( activate_P )
-        gesture_handler->register_handler( this, TQT_SLOT( handle_gesture( const TQString&, WId )));
+        gesture_handler->register_handler( this, TQ_SLOT( handle_gesture( const TQString&, WId )));
     else
-        gesture_handler->unregister_handler( this, TQT_SLOT( handle_gesture( const TQString&, WId )));
+        gesture_handler->unregister_handler( this, TQ_SLOT( handle_gesture( const TQString&, WId )));
     }
 
 

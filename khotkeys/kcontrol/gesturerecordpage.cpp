@@ -49,8 +49,8 @@ GestureRecordPage::GestureRecordPage(const TQString &gesture,
     _recorder = new GestureRecorder(this, "recorder");
     _recorder->setMinimumHeight(150);
     setStretchFactor(_recorder, 1);
-    connect(_recorder, TQT_SIGNAL(recorded(const TQString &)),
-            this, TQT_SLOT(slotRecorded(const TQString &)));
+    connect(_recorder, TQ_SIGNAL(recorded(const TQString &)),
+            this, TQ_SLOT(slotRecorded(const TQString &)));
 
     TQHBox *hBox = new TQHBox(this, "hbox");
 
@@ -62,8 +62,8 @@ GestureRecordPage::GestureRecordPage(const TQString &gesture,
     hBox->setStretchFactor(spacer, 1);
 
     _resetButton = new TQPushButton(i18n("&Reset"), hBox, "resetButton");
-    connect(_resetButton, TQT_SIGNAL(clicked()),
-            this, TQT_SLOT(slotResetClicked()));
+    connect(_resetButton, TQ_SIGNAL(clicked()),
+            this, TQ_SLOT(slotResetClicked()));
 
 
 

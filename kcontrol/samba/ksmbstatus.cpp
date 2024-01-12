@@ -70,7 +70,7 @@ NetMon::NetMon( TQWidget * parent, TDEConfig *config, const char * name )
 
     timer = new TQTimer(this);
     timer->start(15000);
-    TQObject::connect(timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(update()));
+    TQObject::connect(timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(update()));
     update();
 }
 
@@ -175,8 +175,8 @@ void NetMon::update()
    nrpid=0;
    process->setEnvironment("PATH", path);
    connect(process,
-           TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
-           TQT_SLOT(slotReceivedData(TDEProcess *, char *, int)));
+           TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
+           TQ_SLOT(slotReceivedData(TDEProcess *, char *, int)));
    *process << "smbstatus";
    if (!process->start(TDEProcess::Block,TDEProcess::Stdout))
       version->setText(i18n("Error: Unable to run smbstatus"));
@@ -200,12 +200,12 @@ void NetMon::update()
    showmountProc=new TDEProcess();
    showmountProc->setEnvironment("PATH", path);
    *showmountProc<<"showmount"<<"-a"<<"localhost";
-   connect(showmountProc,TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int)),TQT_SLOT(slotReceivedData(TDEProcess *, char *, int)));
+   connect(showmountProc,TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int)),TQ_SLOT(slotReceivedData(TDEProcess *, char *, int)));
    //without this timer showmount hangs up to 5 minutes
    //if the portmapper daemon isn't running
-   TQTimer::singleShot(5000,this,TQT_SLOT(killShowmount()));
+   TQTimer::singleShot(5000,this,TQ_SLOT(killShowmount()));
    //kdDebug()<<"starting kill timer with 5 seconds"<<endl;
-   connect(showmountProc,TQT_SIGNAL(processExited(TDEProcess*)),this,TQT_SLOT(killShowmount()));
+   connect(showmountProc,TQ_SIGNAL(processExited(TDEProcess*)),this,TQ_SLOT(killShowmount()));
    if (!showmountProc->start(TDEProcess::NotifyOnExit,TDEProcess::Stdout)) // run showmount
    {
       delete showmountProc;

@@ -156,7 +156,7 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
     fontsLayout->addMultiCellWidget(itsDirOp, 0, 0, 0, 1);
 
     KPushButton *button=new KPushButton(KGuiItem(i18n("Add Fonts..."), "newfont"), fontsFrame);
-    connect(button, TQT_SIGNAL(clicked()), TQT_SLOT(addFonts()));
+    connect(button, TQ_SIGNAL(clicked()), TQ_SLOT(addFonts()));
     button->setSizePolicy(TQSizePolicy::Minimum, TQSizePolicy::Minimum);
     fontsLayout->addWidget(button, 1, 0);
     fontsLayout->addItem(new TQSpacerItem(4, 4, TQSizePolicy::Expanding, TQSizePolicy::Minimum));
@@ -182,15 +182,15 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
 
     itsViewMenuAct=dynamic_cast<TDEActionMenu *>(itsDirOp->actionCollection()->action("view menu"));
     topMnu->popupMenu()->clear();
-    connect(topMnu->popupMenu(), TQT_SIGNAL(aboutToShow()), TQT_SLOT(setupMenu()));
+    connect(topMnu->popupMenu(), TQ_SIGNAL(aboutToShow()), TQ_SLOT(setupMenu()));
     if((act=itsDirOp->actionCollection()->action("up")))
-        act->disconnect(TQT_SIGNAL(activated()), itsDirOp, TQT_SLOT(cdUp()));
+        act->disconnect(TQ_SIGNAL(activated()), itsDirOp, TQ_SLOT(cdUp()));
     if((act=itsDirOp->actionCollection()->action("home")))
-        act->disconnect(TQT_SIGNAL(activated()), itsDirOp, TQT_SLOT(home()));
+        act->disconnect(TQ_SIGNAL(activated()), itsDirOp, TQ_SLOT(home()));
     if((act=itsDirOp->actionCollection()->action("back")))
-        act->disconnect(TQT_SIGNAL(activated()), itsDirOp, TQT_SLOT(back()));
+        act->disconnect(TQ_SIGNAL(activated()), itsDirOp, TQ_SLOT(back()));
     if((act=itsDirOp->actionCollection()->action("forward")))
-        act->disconnect(TQT_SIGNAL(activated()), itsDirOp, TQT_SLOT(forward()));
+        act->disconnect(TQ_SIGNAL(activated()), itsDirOp, TQ_SLOT(forward()));
 
     if((act=itsDirOp->actionCollection()->action("reload")))
         act->plug(toolbar);
@@ -199,26 +199,26 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
 
     if((itsIconAct=dynamic_cast<TDERadioAction *>(itsDirOp->actionCollection()->action("short view"))))
     {
-        disconnect(itsIconAct, TQT_SIGNAL(activated()), itsDirOp, TQT_SLOT(slotSimpleView()));
-        connect(itsIconAct, TQT_SIGNAL(activated()), TQT_SLOT(iconView()));
+        disconnect(itsIconAct, TQ_SIGNAL(activated()), itsDirOp, TQ_SLOT(slotSimpleView()));
+        connect(itsIconAct, TQ_SIGNAL(activated()), TQ_SLOT(iconView()));
         itsIconAct->plug(toolbar);
     }
 
     if((itsListAct=dynamic_cast<TDERadioAction *>(itsDirOp->actionCollection()->action("detailed view"))))
     {
-        disconnect(itsListAct, TQT_SIGNAL(activated()), itsDirOp, TQT_SLOT(slotDetailedView()));
-        connect(itsListAct, TQT_SIGNAL(activated()), TQT_SLOT(listView()));
+        disconnect(itsListAct, TQ_SIGNAL(activated()), itsDirOp, TQ_SLOT(slotDetailedView()));
+        connect(itsListAct, TQ_SIGNAL(activated()), TQ_SLOT(listView()));
         itsListAct->plug(toolbar);
     }
 
-    itsShowBitmapAct=new TDEToggleAction(i18n("Show Bitmap Fonts"), "application-x-font-snf", 0, this, TQT_SLOT(filterFonts()), 
+    itsShowBitmapAct=new TDEToggleAction(i18n("Show Bitmap Fonts"), "application-x-font-snf", 0, this, TQ_SLOT(filterFonts()), 
                                        itsDirOp->actionCollection(), "showbitmap");
     itsShowBitmapAct->setChecked(showBitmap);
     itsShowBitmapAct->plug(toolbar);
 
     toolbar->insertLineSeparator();
 
-    act=new TDEAction(i18n("Add Fonts..."), "newfont", 0, this, TQT_SLOT(addFonts()), itsDirOp->actionCollection(), "addfonts");
+    act=new TDEAction(i18n("Add Fonts..."), "newfont", 0, this, TQ_SLOT(addFonts()), itsDirOp->actionCollection(), "addfonts");
     act->plug(toolbar);
     topMnu->insert(act);
 
@@ -227,24 +227,24 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
         itsDeleteAct->plug(toolbar);
         itsDeleteAct->setEnabled(false);
         topMnu->insert(itsDeleteAct);
-        disconnect(itsDeleteAct, TQT_SIGNAL(activated()), itsDirOp, TQT_SLOT(deleteSelected()));
-        connect(itsDeleteAct, TQT_SIGNAL(activated()), this, TQT_SLOT(removeFonts()));
+        disconnect(itsDeleteAct, TQ_SIGNAL(activated()), itsDirOp, TQ_SLOT(deleteSelected()));
+        connect(itsDeleteAct, TQ_SIGNAL(activated()), this, TQ_SLOT(removeFonts()));
     }
 
     toolbar->insertLineSeparator();
-    act=new TDEAction(i18n("Configure..."), "configure", 0, this, TQT_SLOT(configure()), itsDirOp->actionCollection(), "configure");
+    act=new TDEAction(i18n("Configure..."), "configure", 0, this, TQ_SLOT(configure()), itsDirOp->actionCollection(), "configure");
     act->plug(toolbar);
 #ifdef HAVE_XFT
     toolbar->insertLineSeparator();
-    act=new TDEAction(i18n("Print..."), "document-print", 0, this, TQT_SLOT(print()), itsDirOp->actionCollection(), "print");
+    act=new TDEAction(i18n("Print..."), "document-print", 0, this, TQ_SLOT(print()), itsDirOp->actionCollection(), "print");
     act->plug(toolbar);
 #endif
 
     if( (itsSepDirsAct=itsDirOp->actionCollection()->action("separate dirs")) &&
         (itsShowHiddenAct=itsDirOp->actionCollection()->action("show hidden")))
     {
-        //disconnect(itsViewMenuAct->popupMenu(), TQT_SIGNAL(aboutToShow()), itsDirOp, TQT_SLOT(insertViewDependentActions()));
-        connect(itsViewMenuAct->popupMenu(), TQT_SIGNAL(aboutToShow()), TQT_SLOT(setupViewMenu()));
+        //disconnect(itsViewMenuAct->popupMenu(), TQ_SIGNAL(aboutToShow()), itsDirOp, TQ_SLOT(insertViewDependentActions()));
+        connect(itsViewMenuAct->popupMenu(), TQ_SIGNAL(aboutToShow()), TQ_SLOT(setupViewMenu()));
         setupViewMenu();
     }
 
@@ -267,12 +267,12 @@ CKCmFontInst::CKCmFontInst(TQWidget *parent, const char *, const TQStringList&)
 
     itsDirOp->dirLister()->setShowingDotFiles(true);
 
-    connect(itsDirOp, TQT_SIGNAL(fileHighlighted(const KFileItem *)), TQT_SLOT(fileHighlighted(const KFileItem *)));
-    connect(itsDirOp, TQT_SIGNAL(finishedLoading()), TQT_SLOT(loadingFinished()));
-    connect(itsDirOp, TQT_SIGNAL(dropped(const KFileItem *, TQDropEvent *, const KURL::List &)),
-                      TQT_SLOT(dropped(const KFileItem *, TQDropEvent *, const KURL::List &)));
-    connect(itsDirOp->dirLister(), TQT_SIGNAL(infoMessage(const TQString &)), TQT_SLOT(infoMessage(const TQString &)));
-    connect(itsDirOp, TQT_SIGNAL(updateInformation(int, int)), TQT_SLOT(updateInformation(int, int)));
+    connect(itsDirOp, TQ_SIGNAL(fileHighlighted(const KFileItem *)), TQ_SLOT(fileHighlighted(const KFileItem *)));
+    connect(itsDirOp, TQ_SIGNAL(finishedLoading()), TQ_SLOT(loadingFinished()));
+    connect(itsDirOp, TQ_SIGNAL(dropped(const KFileItem *, TQDropEvent *, const KURL::List &)),
+                      TQ_SLOT(dropped(const KFileItem *, TQDropEvent *, const KURL::List &)));
+    connect(itsDirOp->dirLister(), TQ_SIGNAL(infoMessage(const TQString &)), TQ_SLOT(infoMessage(const TQString &)));
+    connect(itsDirOp, TQ_SIGNAL(updateInformation(int, int)), TQ_SLOT(updateInformation(int, int)));
 }
 
 CKCmFontInst::~CKCmFontInst()
@@ -465,7 +465,7 @@ void CKCmFontInst::removeFonts()
         if(doIt)
         {
             TDEIO::DeleteJob *job = TDEIO::del(urls, false, true);
-            connect(job, TQT_SIGNAL(result(TDEIO::Job *)), this, TQT_SLOT(delResult(TDEIO::Job *)));
+            connect(job, TQ_SIGNAL(result(TDEIO::Job *)), this, TQ_SLOT(delResult(TDEIO::Job *)));
             job->setWindow(this);
             job->setAutoErrorHandlingEnabled(true, this);
         }
@@ -637,7 +637,7 @@ void CKCmFontInst::addFonts(const KURL::List &src, const KURL &dest)
         }
 
         TDEIO::CopyJob *job=TDEIO::copy(copy, dest, true);
-        connect(job, TQT_SIGNAL(result(TDEIO::Job *)), this, TQT_SLOT(jobResult(TDEIO::Job *)));
+        connect(job, TQ_SIGNAL(result(TDEIO::Job *)), this, TQ_SLOT(jobResult(TDEIO::Job *)));
         job->setWindow(this);
         job->setAutoErrorHandlingEnabled(true, this);
     }

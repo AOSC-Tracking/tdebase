@@ -75,11 +75,11 @@ ProxyWidget *ConfigModule::module()
     {
 
       _module = new ProxyWidget(modWidget, moduleName(), "", run_as_root);
-      connect(_module, TQT_SIGNAL(changed(bool)), this, TQT_SLOT(clientChanged(bool)));
-      connect(_module, TQT_SIGNAL(closed()), this, TQT_SLOT(clientClosed()));
-      connect(_module, TQT_SIGNAL(handbookRequest()), this, TQT_SIGNAL(handbookRequest()));
-      connect(_module, TQT_SIGNAL(helpRequest()), this, TQT_SIGNAL(helpRequest()));
-      connect(_module, TQT_SIGNAL(runAsRoot()), this, TQT_SLOT(runAsRoot()));
+      connect(_module, TQ_SIGNAL(changed(bool)), this, TQ_SLOT(clientChanged(bool)));
+      connect(_module, TQ_SIGNAL(closed()), this, TQ_SLOT(clientClosed()));
+      connect(_module, TQ_SIGNAL(handbookRequest()), this, TQ_SIGNAL(handbookRequest()));
+      connect(_module, TQ_SIGNAL(helpRequest()), this, TQ_SIGNAL(helpRequest()));
+      connect(_module, TQ_SIGNAL(runAsRoot()), this, TQ_SLOT(runAsRoot()));
 
       return _module;
     }
@@ -157,7 +157,7 @@ void ConfigModule::runAsRoot()
   _busy->setGeometry(0,0, _module->width(), _module->height());
   _busy->show();
   _embedStack->raiseWidget(_busy);
-  connect(_embedWidget, TQT_SIGNAL( windowEmbedded(WId)), TQT_SLOT( embedded()));
+  connect(_embedWidget, TQ_SIGNAL( windowEmbedded(WId)), TQ_SLOT( embedded()));
 
   // prepare the process to run the tdecmshell
   TQString cmd = service()->exec().stripWhiteSpace();
@@ -198,7 +198,7 @@ void ConfigModule::runAsRoot()
          *_rootProcess << TQString("%1 --embed %2 --lang %3").arg(cmd).arg(_embedWidget->winId()).arg( TDEGlobal::locale()->language() );
       }
 
-      connect(_rootProcess, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(rootExited(TDEProcess*)));
+      connect(_rootProcess, TQ_SIGNAL(processExited(TDEProcess*)), this, TQ_SLOT(rootExited(TDEProcess*)));
 
       if ( !_rootProcess->start(TDEProcess::NotifyOnExit) )
       {

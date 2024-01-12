@@ -130,14 +130,14 @@ Client::Client( Workspace *ws )
     shadeHoverTimer = 0;
 
     configureRequestTimer = new TQTimer(this);
-    connect(configureRequestTimer, TQT_SIGNAL(timeout()), TQT_SLOT(configureRequestTimeout()));
+    connect(configureRequestTimer, TQ_SIGNAL(timeout()), TQ_SLOT(configureRequestTimeout()));
 
     shadowDelayTimer = new TQTimer(this);
     opacityCache = &activeOpacityCache;
     shadowAfterClient = NULL;
     shadowWidget = NULL;
     shadowMe = true;
-    connect(shadowDelayTimer, TQT_SIGNAL(timeout()), TQT_SLOT(drawShadow()));
+    connect(shadowDelayTimer, TQ_SIGNAL(timeout()), TQ_SLOT(drawShadow()));
 
     // set the initial mapping state
     mapping_state = WithdrawnState;
@@ -1210,7 +1210,7 @@ void Client::drawDelayedShadow()
 void Client::drawShadowAfter(Client *after)
 {
     shadowAfterClient = after;
-    connect(after, TQT_SIGNAL(shadowDrawn()), TQT_SLOT(drawShadow()));
+    connect(after, TQ_SIGNAL(shadowDrawn()), TQ_SLOT(drawShadow()));
 }
 
 /*!
@@ -1224,7 +1224,7 @@ void Client::drawShadow()
 
     // If we are waiting for another Client's shadow to be drawn, stop waiting now
     if (shadowAfterClient != NULL) {
-        disconnect(shadowAfterClient, TQT_SIGNAL(shadowDrawn()), this, TQT_SLOT(drawShadow()));
+        disconnect(shadowAfterClient, TQ_SIGNAL(shadowDrawn()), this, TQ_SLOT(drawShadow()));
         shadowAfterClient = NULL;
     }
 
@@ -1791,7 +1791,7 @@ void Client::pingWindow()
     if( ping_timer != NULL )
         return; // pinging already
     ping_timer = new TQTimer( this );
-    connect( ping_timer, TQT_SIGNAL( timeout()), TQT_SLOT( pingTimeout()));
+    connect( ping_timer, TQ_SIGNAL( timeout()), TQ_SLOT( pingTimeout()));
     ping_timer->start( options->killPingTimeout, true );
     ping_timestamp = get_tqt_x_time();
     workspace()->sendPingToWindow( window(), ping_timestamp );
@@ -1850,8 +1850,8 @@ void Client::killProcess( bool ask, Time timestamp )
             << "--applicationname" << resourceClass()
             << "--wid" << TQCString().setNum( window())
             << "--timestamp" << TQCString().setNum( timestamp );
-        connect( process_killer, TQT_SIGNAL( processExited( TDEProcess* )),
-            TQT_SLOT( processKillerExited()));
+        connect( process_killer, TQ_SIGNAL( processExited( TDEProcess* )),
+            TQ_SLOT( processKillerExited()));
         if( !process_killer->start( TDEProcess::NotifyOnExit ))
             {
             delete process_killer;
@@ -2002,8 +2002,8 @@ bool Client::queryUserSuspendedResume()
                 << "--windowname" << caption().utf8()
                 << "--applicationname" << resourceClass()
                 << "--wid" << TQCString().setNum( window());
-            connect( process_resumer, TQT_SIGNAL( processExited( TDEProcess* )),
-                TQT_SLOT( processResumerExited()));
+            connect( process_resumer, TQ_SIGNAL( processExited( TDEProcess* )),
+                TQ_SLOT( processResumerExited()));
             if( !process_resumer->start( TDEProcess::NotifyOnExit ))
                 {
                 delete process_resumer;

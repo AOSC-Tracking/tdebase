@@ -75,16 +75,16 @@ void KeyModule::initGUI()
 
 	m_pShortcuts = new ShortcutsModule( this );
 	m_pTab->addTab( m_pShortcuts, i18n("Shortcut Schemes") );
-	connect( m_pShortcuts, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)) );
+	connect( m_pShortcuts, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)) );
 
 	m_pCommandShortcuts = new CommandShortcutsModule ( this );
 	m_pTab->addTab( m_pCommandShortcuts, i18n("Command Shortcuts") );
-	connect( m_pCommandShortcuts, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)) );
-    connect( m_pTab, TQT_SIGNAL(currentChanged(TQWidget*)), m_pCommandShortcuts, TQT_SLOT(showing(TQWidget*)) );
+	connect( m_pCommandShortcuts, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)) );
+    connect( m_pTab, TQ_SIGNAL(currentChanged(TQWidget*)), m_pCommandShortcuts, TQ_SLOT(showing(TQWidget*)) );
 
 	m_pModifiers = new ModifiersModule( this );
 	m_pTab->addTab( m_pModifiers, i18n("Modifier Keys") );
-	connect( m_pModifiers, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)) );
+	connect( m_pModifiers, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)) );
 }
 
 void KeyModule::load()

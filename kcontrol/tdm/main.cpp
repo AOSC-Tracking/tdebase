@@ -190,34 +190,34 @@ TDModule::TDModule(TQWidget *parent, const char *name, const TQStringList &)
 
   appearance = new TDMAppearanceWidget(this);
   tab->addTab(appearance, i18n("A&ppearance"));
-  connect(appearance, TQT_SIGNAL(changed(bool)), TQT_SIGNAL( changed(bool)));
+  connect(appearance, TQ_SIGNAL(changed(bool)), TQ_SIGNAL( changed(bool)));
 
   font = new TDMFontWidget(this);
   tab->addTab(font, i18n("&Font"));
-  connect(font, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
+  connect(font, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
 
   background = new KBackground(this);
   tab->addTab(background, i18n("&Background"));
-  connect(background, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
+  connect(background, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
 
   sessions = new TDMSessionsWidget(this);
   tab->addTab(sessions, i18n("&Shutdown"));
-  connect(sessions, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
+  connect(sessions, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
 
   users = new TDMUsersWidget(this, 0);
   tab->addTab(users, i18n("&Users"));
-  connect(users, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
-  connect(users, TQT_SIGNAL(setMinMaxUID(int,int)), TQT_SLOT(slotMinMaxUID(int,int)));
-  connect(this, TQT_SIGNAL(addUsers(const TQMap<TQString,int> &)), users, TQT_SLOT(slotAddUsers(const TQMap<TQString,int> &)));
-  connect(this, TQT_SIGNAL(delUsers(const TQMap<TQString,int> &)), users, TQT_SLOT(slotDelUsers(const TQMap<TQString,int> &)));
-  connect(this, TQT_SIGNAL(clearUsers()), users, TQT_SLOT(slotClearUsers()));
+  connect(users, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
+  connect(users, TQ_SIGNAL(setMinMaxUID(int,int)), TQ_SLOT(slotMinMaxUID(int,int)));
+  connect(this, TQ_SIGNAL(addUsers(const TQMap<TQString,int> &)), users, TQ_SLOT(slotAddUsers(const TQMap<TQString,int> &)));
+  connect(this, TQ_SIGNAL(delUsers(const TQMap<TQString,int> &)), users, TQ_SLOT(slotDelUsers(const TQMap<TQString,int> &)));
+  connect(this, TQ_SIGNAL(clearUsers()), users, TQ_SLOT(slotClearUsers()));
 
   convenience = new TDMConvenienceWidget(this, 0);
   tab->addTab(convenience, i18n("Con&venience"));
-  connect(convenience, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
-  connect(this, TQT_SIGNAL(addUsers(const TQMap<TQString,int> &)), convenience, TQT_SLOT(slotAddUsers(const TQMap<TQString,int> &)));
-  connect(this, TQT_SIGNAL(delUsers(const TQMap<TQString,int> &)), convenience, TQT_SLOT(slotDelUsers(const TQMap<TQString,int> &)));
-  connect(this, TQT_SIGNAL(clearUsers()), convenience, TQT_SLOT(slotClearUsers()));
+  connect(convenience, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
+  connect(this, TQ_SIGNAL(addUsers(const TQMap<TQString,int> &)), convenience, TQ_SLOT(slotAddUsers(const TQMap<TQString,int> &)));
+  connect(this, TQ_SIGNAL(delUsers(const TQMap<TQString,int> &)), convenience, TQ_SLOT(slotDelUsers(const TQMap<TQString,int> &)));
+  connect(this, TQ_SIGNAL(clearUsers()), convenience, TQ_SLOT(slotClearUsers()));
 
   load();
   if (getuid() != 0 || !config->checkConfigFilesWritable( true )) {

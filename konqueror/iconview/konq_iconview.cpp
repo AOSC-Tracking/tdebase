@@ -184,22 +184,22 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
     m_pIconView = new KonqIconViewWidget( parentWidget, "qiconview" );
     m_pIconView->initConfig( true );
 
-    connect( m_pIconView,  TQT_SIGNAL(imagePreviewFinished()),
-             this, TQT_SLOT(slotRenderingFinished()));
+    connect( m_pIconView,  TQ_SIGNAL(imagePreviewFinished()),
+             this, TQ_SLOT(slotRenderingFinished()));
 
     // connect up the icon inc/dec signals
-    connect( m_pIconView,  TQT_SIGNAL(incIconSize()),
-             this, TQT_SLOT(slotIncIconSize()));
-    connect( m_pIconView,  TQT_SIGNAL(decIconSize()),
-             this, TQT_SLOT(slotDecIconSize()));
+    connect( m_pIconView,  TQ_SIGNAL(incIconSize()),
+             this, TQ_SLOT(slotIncIconSize()));
+    connect( m_pIconView,  TQ_SIGNAL(decIconSize()),
+             this, TQ_SLOT(slotDecIconSize()));
 
     // pass signals to the extension
-    connect( m_pIconView, TQT_SIGNAL( enableAction( const char *, bool ) ),
-             m_extension, TQT_SIGNAL( enableAction( const char *, bool ) ) );
+    connect( m_pIconView, TQ_SIGNAL( enableAction( const char *, bool ) ),
+             m_extension, TQ_SIGNAL( enableAction( const char *, bool ) ) );
 
     // signals from konqdirpart (for BC reasons)
-    connect( this, TQT_SIGNAL( findOpened( KonqDirPart * ) ), TQT_SLOT( slotKFindOpened() ) );
-    connect( this, TQT_SIGNAL( findClosed( KonqDirPart * ) ), TQT_SLOT( slotKFindClosed() ) );
+    connect( this, TQ_SIGNAL( findOpened( KonqDirPart * ) ), TQ_SLOT( slotKFindOpened() ) );
+    connect( this, TQ_SIGNAL( findClosed( KonqDirPart * ) ), TQ_SLOT( slotKFindClosed() ) );
 
     setWidget( m_pIconView );
     m_mimeTypeResolver = new KMimeTypeResolver<KFileIVI,KonqKfmIconView>(this);
@@ -211,22 +211,22 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
     // Don't repaint on configuration changes during construction
     m_bInit = true;
 
-    m_paDotFiles = new TDEToggleAction( i18n( "Show &Hidden Files" ), 0, this, TQT_SLOT( slotShowDot() ),
+    m_paDotFiles = new TDEToggleAction( i18n( "Show &Hidden Files" ), 0, this, TQ_SLOT( slotShowDot() ),
                                       actionCollection(), "show_dot" );
 //    m_paDotFiles->setCheckedState(i18n("Hide &Hidden Files"));
     m_paDotFiles->setToolTip( i18n( "Toggle displaying of hidden dot files" ) );
 
-    m_paDirectoryOverlays = new TDEToggleAction( i18n( "&Folder Icons Reflect Contents" ), 0, this, TQT_SLOT( slotShowDirectoryOverlays() ),
+    m_paDirectoryOverlays = new TDEToggleAction( i18n( "&Folder Icons Reflect Contents" ), 0, this, TQ_SLOT( slotShowDirectoryOverlays() ),
                                       actionCollection(), "show_directory_overlays" );
 
-    m_paFreeSpaceOverlays = new TDEToggleAction( i18n( "&Media Icons Reflect Free Space" ), 0, this, TQT_SLOT( slotShowFreeSpaceOverlays() ),
+    m_paFreeSpaceOverlays = new TDEToggleAction( i18n( "&Media Icons Reflect Free Space" ), 0, this, TQ_SLOT( slotShowFreeSpaceOverlays() ),
                                       actionCollection(), "show_free_space_overlays" );
 
     m_pamPreview = new TDEActionMenu( i18n( "&Preview" ), actionCollection(), "iconview_preview" );
 
     m_paEnablePreviews = new TDEToggleAction( i18n("Enable Previews"), 0, actionCollection(), "iconview_preview_all" );
     m_paEnablePreviews->setCheckedState( i18n("Disable Previews") );
-    connect( m_paEnablePreviews, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotPreview( bool ) ) );
+    connect( m_paEnablePreviews, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotPreview( bool ) ) );
     m_paEnablePreviews->setIcon("thumbnail");
     m_pamPreview->insert( m_paEnablePreviews );
     m_pamPreview->insert( new TDEActionSeparator(this) );
@@ -240,13 +240,13 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
         else
         {
             preview = new TDEToggleAction( (*it)->name(), 0, actionCollection(), (*it)->desktopEntryName().latin1() );
-            connect( preview, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotPreview( bool ) ) );
+            connect( preview, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotPreview( bool ) ) );
             m_pamPreview->insert( preview );
             m_paPreviewPlugins.append( preview );
         }
     }
     TDEToggleAction *soundPreview = new TDEToggleAction( i18n("Sound Files"), 0, actionCollection(), "audio/" );
-    connect( soundPreview, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotPreview( bool ) ) );
+    connect( soundPreview, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotPreview( bool ) ) );
     m_pamPreview->insert( soundPreview );
     m_paPreviewPlugins.append( soundPreview );
 
@@ -270,11 +270,11 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
     aSortByType->setChecked( false );
     aSortByDate->setChecked( false );
 
-    connect( aSortByNameCS, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotSortByNameCaseSensitive( bool ) ) );
-    connect( aSortByNameCI, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotSortByNameCaseInsensitive( bool ) ) );
-    connect( aSortBySize, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotSortBySize( bool ) ) );
-    connect( aSortByType, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotSortByType( bool ) ) );
-    connect( aSortByDate, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotSortByDate( bool ) ) );
+    connect( aSortByNameCS, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotSortByNameCaseSensitive( bool ) ) );
+    connect( aSortByNameCI, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotSortByNameCaseInsensitive( bool ) ) );
+    connect( aSortBySize, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotSortBySize( bool ) ) );
+    connect( aSortByType, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotSortByType( bool ) ) );
+    connect( aSortByDate, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotSortByDate( bool ) ) );
 
     //enable menu item representing the saved sorting criterion
     TQString sortcrit = KonqIconViewFactory::defaultViewProps()->sortCriterion();
@@ -286,8 +286,8 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
 
     m_paSortDirsFirst->setChecked( KonqIconViewFactory::defaultViewProps()->isDirsFirst() );
 
-    connect( aSortDescending, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotSortDescending() ) );
-    connect( m_paSortDirsFirst, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotSortDirsFirst() ) );
+    connect( aSortDescending, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotSortDescending() ) );
+    connect( m_paSortDirsFirst, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotSortDirsFirst() ) );
 
     //enable stored settings
     slotSortDirsFirst();
@@ -307,15 +307,15 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
 
     m_pamSort->insert( aSortDescending );
     */
-    m_paSelect = new TDEAction( i18n( "Se&lect..." ), CTRL+Key_Plus, this, TQT_SLOT( slotSelect() ),
+    m_paSelect = new TDEAction( i18n( "Se&lect..." ), CTRL+Key_Plus, this, TQ_SLOT( slotSelect() ),
                               actionCollection(), "select" );
-    m_paUnselect = new TDEAction( i18n( "Unselect..." ), CTRL+Key_Minus, this, TQT_SLOT( slotUnselect() ),
+    m_paUnselect = new TDEAction( i18n( "Unselect..." ), CTRL+Key_Minus, this, TQ_SLOT( slotUnselect() ),
                                 actionCollection(), "unselect" );
-    m_paSelectAll = KStdAction::selectAll( this, TQT_SLOT( slotSelectAll() ), actionCollection(), "selectall" );
-    m_paUnselectAll = new TDEAction( i18n( "Unselect All" ), CTRL+Key_U, this, TQT_SLOT( slotUnselectAll() ),
+    m_paSelectAll = KStdAction::selectAll( this, TQ_SLOT( slotSelectAll() ), actionCollection(), "selectall" );
+    m_paUnselectAll = new TDEAction( i18n( "Unselect All" ), CTRL+Key_U, this, TQ_SLOT( slotUnselectAll() ),
                                    actionCollection(), "unselectall" );
     m_paInvertSelection = new TDEAction( i18n( "&Invert Selection" ), CTRL+Key_Asterisk,
-                                       this, TQT_SLOT( slotInvertSelection() ),
+                                       this, TQ_SLOT( slotInvertSelection() ),
                                        actionCollection(), "invertselection" );
 
     m_paSelect->setToolTip( i18n( "Allows selecting of file or folder items based on a given mask" ) );
@@ -328,65 +328,65 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
     //m_paRightText = new TDEToggleAction( i18n( "Text at &Right" ), 0, actionCollection(), "textright" );
     //m_paBottomText->setExclusiveGroup( "TextPos" );
     //m_paRightText->setExclusiveGroup( "TextPos" );
-    //connect( m_paBottomText, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotTextBottom( bool ) ) );
-    //connect( m_paRightText, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotTextRight( bool ) ) );
+    //connect( m_paBottomText, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotTextBottom( bool ) ) );
+    //connect( m_paRightText, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotTextRight( bool ) ) );
 
-    connect( m_pIconView, TQT_SIGNAL( executed( TQIconViewItem * ) ),
-             this, TQT_SLOT( slotReturnPressed( TQIconViewItem * ) ) );
-    connect( m_pIconView, TQT_SIGNAL( returnPressed( TQIconViewItem * ) ),
-             this, TQT_SLOT( slotReturnPressed( TQIconViewItem * ) ) );
+    connect( m_pIconView, TQ_SIGNAL( executed( TQIconViewItem * ) ),
+             this, TQ_SLOT( slotReturnPressed( TQIconViewItem * ) ) );
+    connect( m_pIconView, TQ_SIGNAL( returnPressed( TQIconViewItem * ) ),
+             this, TQ_SLOT( slotReturnPressed( TQIconViewItem * ) ) );
 
-    connect( m_pIconView, TQT_SIGNAL( onItem( TQIconViewItem * ) ),
-             this, TQT_SLOT( slotOnItem( TQIconViewItem * ) ) );
+    connect( m_pIconView, TQ_SIGNAL( onItem( TQIconViewItem * ) ),
+             this, TQ_SLOT( slotOnItem( TQIconViewItem * ) ) );
 
-    connect( m_pIconView, TQT_SIGNAL( onViewport() ),
-             this, TQT_SLOT( slotOnViewport() ) );
+    connect( m_pIconView, TQ_SIGNAL( onViewport() ),
+             this, TQ_SLOT( slotOnViewport() ) );
 
-    connect( m_pIconView, TQT_SIGNAL( mouseButtonPressed(int, TQIconViewItem*, const TQPoint&)),
-             this, TQT_SLOT( slotMouseButtonPressed(int, TQIconViewItem*, const TQPoint&)) );
-    connect( m_pIconView, TQT_SIGNAL( mouseButtonClicked(int, TQIconViewItem*, const TQPoint&)),
-             this, TQT_SLOT( slotMouseButtonClicked(int, TQIconViewItem*, const TQPoint&)) );
-    connect( m_pIconView, TQT_SIGNAL( contextMenuRequested(TQIconViewItem*, const TQPoint&)),
-             this, TQT_SLOT( slotContextMenuRequested(TQIconViewItem*, const TQPoint&)) );
+    connect( m_pIconView, TQ_SIGNAL( mouseButtonPressed(int, TQIconViewItem*, const TQPoint&)),
+             this, TQ_SLOT( slotMouseButtonPressed(int, TQIconViewItem*, const TQPoint&)) );
+    connect( m_pIconView, TQ_SIGNAL( mouseButtonClicked(int, TQIconViewItem*, const TQPoint&)),
+             this, TQ_SLOT( slotMouseButtonClicked(int, TQIconViewItem*, const TQPoint&)) );
+    connect( m_pIconView, TQ_SIGNAL( contextMenuRequested(TQIconViewItem*, const TQPoint&)),
+             this, TQ_SLOT( slotContextMenuRequested(TQIconViewItem*, const TQPoint&)) );
 
     // Signals needed to implement the spring loading folders behavior
-    connect( m_pIconView, TQT_SIGNAL( held( TQIconViewItem * ) ),
-             this, TQT_SLOT( slotDragHeld( TQIconViewItem * ) ) );
-    connect( m_pIconView, TQT_SIGNAL( dragEntered( bool ) ),
-             this, TQT_SLOT( slotDragEntered( bool ) ) );
-    connect( m_pIconView, TQT_SIGNAL( dragLeft() ),
-             this, TQT_SLOT( slotDragLeft() ) );
-    connect( m_pIconView, TQT_SIGNAL( dragMove( bool ) ),
-             this, TQT_SLOT( slotDragMove( bool ) ) );
-    connect( m_pIconView, TQT_SIGNAL( dragFinished() ),
-             this, TQT_SLOT( slotDragFinished() ) );
+    connect( m_pIconView, TQ_SIGNAL( held( TQIconViewItem * ) ),
+             this, TQ_SLOT( slotDragHeld( TQIconViewItem * ) ) );
+    connect( m_pIconView, TQ_SIGNAL( dragEntered( bool ) ),
+             this, TQ_SLOT( slotDragEntered( bool ) ) );
+    connect( m_pIconView, TQ_SIGNAL( dragLeft() ),
+             this, TQ_SLOT( slotDragLeft() ) );
+    connect( m_pIconView, TQ_SIGNAL( dragMove( bool ) ),
+             this, TQ_SLOT( slotDragMove( bool ) ) );
+    connect( m_pIconView, TQ_SIGNAL( dragFinished() ),
+             this, TQ_SLOT( slotDragFinished() ) );
 
     // Create the directory lister
     m_dirLister = new KDirLister( true );
     setDirLister( m_dirLister );
     m_dirLister->setMainWindow(m_pIconView->topLevelWidget());
 
-    connect( m_dirLister, TQT_SIGNAL( started( const KURL & ) ),
-             this, TQT_SLOT( slotStarted() ) );
-    connect( m_dirLister, TQT_SIGNAL( completed() ), this, TQT_SLOT( slotCompleted() ) );
-    connect( m_dirLister, TQT_SIGNAL( canceled( const KURL& ) ), this, TQT_SLOT( slotCanceled( const KURL& ) ) );
-    connect( m_dirLister, TQT_SIGNAL( clear() ), this, TQT_SLOT( slotClear() ) );
-    connect( m_dirLister, TQT_SIGNAL( newItems( const KFileItemList& ) ),
-             this, TQT_SLOT( slotNewItems( const KFileItemList& ) ) );
-    connect( m_dirLister, TQT_SIGNAL( deleteItem( KFileItem * ) ),
-             this, TQT_SLOT( slotDeleteItem( KFileItem * ) ) );
-    connect( m_dirLister, TQT_SIGNAL( refreshItems( const KFileItemList& ) ),
-             this, TQT_SLOT( slotRefreshItems( const KFileItemList& ) ) );
-    connect( m_dirLister, TQT_SIGNAL( redirection( const KURL & ) ),
-             this, TQT_SLOT( slotRedirection( const KURL & ) ) );
-    connect( m_dirLister, TQT_SIGNAL( itemsFilteredByMime(const KFileItemList& ) ),
-             TQT_SIGNAL( itemsFilteredByMime(const KFileItemList& ) ) );
-    connect( m_dirLister, TQT_SIGNAL( infoMessage( const TQString& ) ),
-             extension(), TQT_SIGNAL( infoMessage( const TQString& ) ) );
-    connect( m_dirLister, TQT_SIGNAL( percent( int ) ),
-             extension(), TQT_SIGNAL( loadingProgress( int ) ) );
-    connect( m_dirLister, TQT_SIGNAL( speed( int ) ),
-             extension(), TQT_SIGNAL( speedProgress( int ) ) );
+    connect( m_dirLister, TQ_SIGNAL( started( const KURL & ) ),
+             this, TQ_SLOT( slotStarted() ) );
+    connect( m_dirLister, TQ_SIGNAL( completed() ), this, TQ_SLOT( slotCompleted() ) );
+    connect( m_dirLister, TQ_SIGNAL( canceled( const KURL& ) ), this, TQ_SLOT( slotCanceled( const KURL& ) ) );
+    connect( m_dirLister, TQ_SIGNAL( clear() ), this, TQ_SLOT( slotClear() ) );
+    connect( m_dirLister, TQ_SIGNAL( newItems( const KFileItemList& ) ),
+             this, TQ_SLOT( slotNewItems( const KFileItemList& ) ) );
+    connect( m_dirLister, TQ_SIGNAL( deleteItem( KFileItem * ) ),
+             this, TQ_SLOT( slotDeleteItem( KFileItem * ) ) );
+    connect( m_dirLister, TQ_SIGNAL( refreshItems( const KFileItemList& ) ),
+             this, TQ_SLOT( slotRefreshItems( const KFileItemList& ) ) );
+    connect( m_dirLister, TQ_SIGNAL( redirection( const KURL & ) ),
+             this, TQ_SLOT( slotRedirection( const KURL & ) ) );
+    connect( m_dirLister, TQ_SIGNAL( itemsFilteredByMime(const KFileItemList& ) ),
+             TQ_SIGNAL( itemsFilteredByMime(const KFileItemList& ) ) );
+    connect( m_dirLister, TQ_SIGNAL( infoMessage( const TQString& ) ),
+             extension(), TQ_SIGNAL( infoMessage( const TQString& ) ) );
+    connect( m_dirLister, TQ_SIGNAL( percent( int ) ),
+             extension(), TQ_SIGNAL( loadingProgress( int ) ) );
+    connect( m_dirLister, TQ_SIGNAL( speed( int ) ),
+             extension(), TQ_SIGNAL( speedProgress( int ) ) );
 
     // Now we may react to configuration changes
     m_bInit = false;
@@ -399,8 +399,8 @@ KonqKfmIconView::KonqKfmIconView( TQWidget *parentWidget, TQObject *parent, cons
     m_bPreviewRunningBeforeCloseURL = false;
     m_pIconView->setResizeMode( TQIconView::Adjust );
 
-    connect( m_pIconView, TQT_SIGNAL( selectionChanged() ),
-             this, TQT_SLOT( slotSelectionChanged() ) );
+    connect( m_pIconView, TQ_SIGNAL( selectionChanged() ),
+             this, TQ_SLOT( slotSelectionChanged() ) );
 
     // Respect kcmkonq's configuration for word-wrap icon text.
     // If we want something else, we have to adapt the configuration or remove it...
@@ -1150,8 +1150,8 @@ void KonqKfmIconView::showDirectoryOverlay(KFileIVI* item)
            if (!m_paOutstandingOverlaysTimer)
            {
               m_paOutstandingOverlaysTimer = new TQTimer(this);
-              connect(m_paOutstandingOverlaysTimer, TQT_SIGNAL(timeout()),
-                      TQT_SLOT(slotDirectoryOverlayStart()));
+              connect(m_paOutstandingOverlaysTimer, TQ_SIGNAL(timeout()),
+                      TQ_SLOT(slotDirectoryOverlayStart()));
            }
            m_paOutstandingOverlaysTimer->start(20, true);
         }
@@ -1166,8 +1166,8 @@ void KonqKfmIconView::showFreeSpaceOverlay(KFileIVI* item)
        if (!m_paOutstandingFreeSpaceOverlaysTimer)
        {
           m_paOutstandingFreeSpaceOverlaysTimer = new TQTimer(this);
-          connect(m_paOutstandingFreeSpaceOverlaysTimer, TQT_SIGNAL(timeout()),
-                  TQT_SLOT(slotFreeSpaceOverlayStart()));
+          connect(m_paOutstandingFreeSpaceOverlaysTimer, TQ_SIGNAL(timeout()),
+                  TQ_SLOT(slotFreeSpaceOverlayStart()));
        }
        m_paOutstandingFreeSpaceOverlaysTimer->start(20, true);
     }
@@ -1185,7 +1185,7 @@ void KonqKfmIconView::slotDirectoryOverlayStart()
 
        if (overlay)
        {
-          connect( overlay, TQT_SIGNAL( finished() ), this, TQT_SLOT( slotDirectoryOverlayFinished() ) );
+          connect( overlay, TQ_SIGNAL( finished() ), this, TQ_SLOT( slotDirectoryOverlayFinished() ) );
           overlay->start(); // Watch out, may emit finished() immediately!!
           return; // Let it run....
        }
@@ -1205,7 +1205,7 @@ void KonqKfmIconView::slotFreeSpaceOverlayStart()
 
        if (overlay)
        {
-          connect( overlay, TQT_SIGNAL( finished() ), this, TQT_SLOT( slotFreeSpaceOverlayFinished() ) );
+          connect( overlay, TQ_SIGNAL( finished() ), this, TQ_SLOT( slotFreeSpaceOverlayFinished() ) );
           overlay->start(); // Watch out, may emit finished() immediately!!
           return; // Let it run....
        }
@@ -1295,8 +1295,8 @@ void KonqKfmIconView::slotClear()
     if ( !m_pTimeoutRefreshTimer )
     {
         m_pTimeoutRefreshTimer = new TQTimer( this );
-        connect( m_pTimeoutRefreshTimer, TQT_SIGNAL( timeout() ),
-                 this, TQT_SLOT( slotRefreshViewport() ) );
+        connect( m_pTimeoutRefreshTimer, TQ_SIGNAL( timeout() ),
+                 this, TQ_SLOT( slotRefreshViewport() ) );
     }
     m_pTimeoutRefreshTimer->start( 700, true );
 
@@ -1575,8 +1575,8 @@ static KStaticDeleter<SpringLoadingManager> s_springManagerDeleter;
 SpringLoadingManager::SpringLoadingManager()
     : m_startPart(0L)
 {
-    connect( &m_endTimer, TQT_SIGNAL( timeout() ),
-             this, TQT_SLOT( finished() ) );
+    connect( &m_endTimer, TQ_SIGNAL( timeout() ),
+             this, TQ_SLOT( finished() ) );
 
 }
 

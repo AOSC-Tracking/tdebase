@@ -95,8 +95,8 @@ bool KManPart::openFile()
    url.setPath( m_file );
 
    m_job = TDEIO::get( url, true, false );
-   connect( m_job, TQT_SIGNAL( data( TDEIO::Job *, const TQByteArray &) ), TQT_SLOT( readData( TDEIO::Job *, const TQByteArray &) ) );
-   connect( m_job, TQT_SIGNAL( result( TDEIO::Job * ) ), TQT_SLOT( jobDone( TDEIO::Job * ) ) );
+   connect( m_job, TQ_SIGNAL( data( TDEIO::Job *, const TQByteArray &) ), TQ_SLOT( readData( TDEIO::Job *, const TQByteArray &) ) );
+   connect( m_job, TQ_SIGNAL( result( TDEIO::Job * ) ), TQ_SLOT( jobDone( TDEIO::Job * ) ) );
    return true;
 }
 

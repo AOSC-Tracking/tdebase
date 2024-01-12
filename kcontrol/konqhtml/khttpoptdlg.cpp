@@ -17,16 +17,16 @@ KHTTPOptions::KHTTPOptions(TDEConfig *config, TQString group, TQWidget *parent, 
 
   le_languages = new TQLineEdit(this);
   lay->addWidget( le_languages );
-  connect(le_languages, TQT_SIGNAL(textChanged(const TQString&)),
-	  this, TQT_SLOT(slotChanged()));
+  connect(le_languages, TQ_SIGNAL(textChanged(const TQString&)),
+	  this, TQ_SLOT(slotChanged()));
 
   lay->addSpacing(10);
   lay->addWidget( new TQLabel(i18n("Accept character sets:"), this) );
 
   le_charsets = new TQLineEdit(this);
   lay->addWidget( le_charsets );
-  connect(le_charsets, TQT_SIGNAL(textChanged(const TQString&)),
-	  this, TQT_SLOT(slotChanged()));
+  connect(le_charsets, TQ_SIGNAL(textChanged(const TQString&)),
+	  this, TQ_SLOT(slotChanged()));
 
   lay->addStretch(10);
 

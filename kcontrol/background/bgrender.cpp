@@ -63,7 +63,7 @@ KBackgroundRenderer::KBackgroundRenderer(int desk, int screen, bool drawBackgrou
     m_TilingEnabled = false;
 
     m_pTimer = new TQTimer(this);
-    connect(m_pTimer, TQT_SIGNAL(timeout()), TQT_SLOT(render()));
+    connect(m_pTimer, TQ_SIGNAL(timeout()), TQ_SLOT(render()));
 }
 
 
@@ -239,8 +239,8 @@ int KBackgroundRenderer::doBackground(bool quit)
         delete m_pProc;
         m_pProc = new KShellProcess;
         *m_pProc << file;
-        connect(m_pProc, TQT_SIGNAL(processExited(TDEProcess *)),
-                TQT_SLOT(slotBackgroundDone(TDEProcess *)));
+        connect(m_pProc, TQ_SIGNAL(processExited(TDEProcess *)),
+                TQ_SLOT(slotBackgroundDone(TDEProcess *)));
         m_pProc->start(KShellProcess::NotifyOnExit);
         retval = Wait;
         break;
@@ -1228,7 +1228,7 @@ void KVirtualBGRenderer::initRenderers()
         KCrossBGRender *r = new KCrossBGRender(m_desk, eScreen, m_bDrawBackgroundPerScreen, m_pConfig);
         m_renderer.insert( i, r );
         r->setSize(renderSize(i));
-        connect( r, TQT_SIGNAL(imageDone(int,int)), this, TQT_SLOT(screenDone(int,int)) );
+        connect( r, TQ_SIGNAL(imageDone(int,int)), this, TQ_SLOT(screenDone(int,int)) );
     }
 }
 

@@ -36,16 +36,16 @@ Keyboard_input_widget::Keyboard_input_widget( TQWidget* parent_P, const char* na
     {
     clear_data();
     // KHotKeys::Module::changed()
-    connect( action_window_radio, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( active_window_radio, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( specific_window_radio, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( keyboard_input_multilineedit, TQT_SIGNAL( textChanged()),
-        module, TQT_SLOT( changed()));
-    connect( modify_button, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
+    connect( action_window_radio, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( active_window_radio, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( specific_window_radio, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( keyboard_input_multilineedit, TQ_SIGNAL( textChanged()),
+        module, TQ_SLOT( changed()));
+    connect( modify_button, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
     }
 
 void Keyboard_input_widget::clear_data()

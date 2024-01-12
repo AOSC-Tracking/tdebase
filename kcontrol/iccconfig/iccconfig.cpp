@@ -87,23 +87,23 @@ KICCConfig::KICCConfig(TQWidget *parent, const char *name, const TQStringList &)
   setRootOnlyMsg(i18n("<b>The global color profile is a system wide setting, and requires administrator access</b><br>To alter the system's global profile, click on the \"Administrator Mode\" button below."));
 //   setUseRootOnlyMsg(true);	// Setting this hides the Apply button!
 
-  connect(base->systemEnableSupport, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-  connect(base->systemEnableSupport, TQT_SIGNAL(toggled(bool)), base->systemIccFile, TQT_SLOT(setEnabled(bool)));
-  connect(base->enableSupport, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-  connect(base->enableSupport, TQT_SIGNAL(toggled(bool)), base->iccFile, TQT_SLOT(setEnabled(bool)));
-  connect(base->enableSupport, TQT_SIGNAL(toggled(bool)), base->randrScreenList, TQT_SLOT(setEnabled(bool)));
-  connect(base->enableSupport, TQT_SIGNAL(toggled(bool)), base->iccProfileList, TQT_SLOT(setEnabled(bool)));
-  connect(base->enableSupport, TQT_SIGNAL(toggled(bool)), base->addProfileButton, TQT_SLOT(setEnabled(bool)));
-  connect(base->enableSupport, TQT_SIGNAL(toggled(bool)), base->renameProfileButton, TQT_SLOT(setEnabled(bool)));
-  connect(base->enableSupport, TQT_SIGNAL(toggled(bool)), base->deleteProfileButton, TQT_SLOT(setEnabled(bool)));
-  connect(base->iccProfileList, TQT_SIGNAL(activated(int)), this, TQT_SLOT(selectProfile(int)));
-  connect(base->randrScreenList, TQT_SIGNAL(activated(int)), this, TQT_SLOT(selectScreen(int)));
-  connect(base->iccFile, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(updateArray()));
-  connect(base->systemIccFile, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(changed()));
+  connect(base->systemEnableSupport, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+  connect(base->systemEnableSupport, TQ_SIGNAL(toggled(bool)), base->systemIccFile, TQ_SLOT(setEnabled(bool)));
+  connect(base->enableSupport, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+  connect(base->enableSupport, TQ_SIGNAL(toggled(bool)), base->iccFile, TQ_SLOT(setEnabled(bool)));
+  connect(base->enableSupport, TQ_SIGNAL(toggled(bool)), base->randrScreenList, TQ_SLOT(setEnabled(bool)));
+  connect(base->enableSupport, TQ_SIGNAL(toggled(bool)), base->iccProfileList, TQ_SLOT(setEnabled(bool)));
+  connect(base->enableSupport, TQ_SIGNAL(toggled(bool)), base->addProfileButton, TQ_SLOT(setEnabled(bool)));
+  connect(base->enableSupport, TQ_SIGNAL(toggled(bool)), base->renameProfileButton, TQ_SLOT(setEnabled(bool)));
+  connect(base->enableSupport, TQ_SIGNAL(toggled(bool)), base->deleteProfileButton, TQ_SLOT(setEnabled(bool)));
+  connect(base->iccProfileList, TQ_SIGNAL(activated(int)), this, TQ_SLOT(selectProfile(int)));
+  connect(base->randrScreenList, TQ_SIGNAL(activated(int)), this, TQ_SLOT(selectScreen(int)));
+  connect(base->iccFile, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(updateArray()));
+  connect(base->systemIccFile, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(changed()));
 
-  connect(base->addProfileButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(addProfile()));
-  connect(base->renameProfileButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(renameProfile()));
-  connect(base->deleteProfileButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(deleteProfile()));
+  connect(base->addProfileButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(addProfile()));
+  connect(base->renameProfileButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(renameProfile()));
+  connect(base->deleteProfileButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(deleteProfile()));
 
   load();
 

@@ -95,11 +95,11 @@ TDEHWManager::TDEHWManager(TQWidget *parent, const char *name, const TQStringLis
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	hwdevices->setTriggerlessHardwareUpdatesEnabled(true);
 
-	connect(base->showByConnection, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-	connect(base->showByConnection, TQT_SIGNAL(clicked()), TQT_SLOT(populateTreeView()));
+	connect(base->showByConnection, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+	connect(base->showByConnection, TQ_SIGNAL(clicked()), TQ_SLOT(populateTreeView()));
 
-	connect(hwdevices, TQT_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQT_SLOT(scheduleDeviceUpdate()));
-	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(scheduleDeviceUpdate()));
+	connect(hwdevices, TQ_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQ_SLOT(scheduleDeviceUpdate()));
+	connect(hwdevices, TQ_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQ_SLOT(scheduleDeviceUpdate()));
 
 	load();
 
@@ -138,7 +138,7 @@ void TDEHWManager::scheduleDeviceUpdate()
 	if (!deviceUpdateScheduled)
 	{
 		deviceUpdateScheduled = true;
-		TQTimer::singleShot(1000, this, TQT_SLOT(populateTreeView()));
+		TQTimer::singleShot(1000, this, TQ_SLOT(populateTreeView()));
 	}
 }
 
@@ -166,7 +166,7 @@ void TDEHWManager::populateTreeView()
 		for ( hwdevice = hwlist.first(); hwdevice; hwdevice = hwlist.next() ) {
 			if (hwdevice->type() == TDEGenericDeviceType::CryptographicCard) {
 				TDECryptographicCardDevice* cdevice = static_cast<TDECryptographicCardDevice*>(hwdevice);
-				connect(cdevice, SIGNAL(pinRequested(TQString,TDECryptographicCardDevice*)), this, SLOT(cryptographicCardPinRequested(TQString,TDECryptographicCardDevice*)));
+				connect(cdevice, TQ_SIGNAL(pinRequested(TQString,TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardPinRequested(TQString,TDECryptographicCardDevice*)));
 				cdevice->enableCardMonitoring(true);
 				cdevice->enablePINEntryCallbacks(true);
 			}
@@ -188,7 +188,7 @@ void TDEHWManager::populateTreeView()
 				for ( hwdevice = hwlist.first(); hwdevice; hwdevice = hwlist.next() ) {
 					if (hwdevice->type() == TDEGenericDeviceType::CryptographicCard) {
 						TDECryptographicCardDevice* cdevice = static_cast<TDECryptographicCardDevice*>(hwdevice);
-						connect(cdevice, SIGNAL(pinRequested(TQString,TDECryptographicCardDevice*)), this, SLOT(cryptographicCardPinRequested(TQString,TDECryptographicCardDevice*)));
+						connect(cdevice, TQ_SIGNAL(pinRequested(TQString,TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardPinRequested(TQString,TDECryptographicCardDevice*)));
 						cdevice->enableCardMonitoring(true);
 						cdevice->enablePINEntryCallbacks(true);
 					}
@@ -211,7 +211,7 @@ void TDEHWManager::populateTreeViewLeaf(DeviceIconItem *parent, bool show_by_con
 		for ( hwdevice = hwlist.first(); hwdevice; hwdevice = hwlist.next() ) {
 			if (hwdevice->type() == TDEGenericDeviceType::CryptographicCard) {
 				TDECryptographicCardDevice* cdevice = static_cast<TDECryptographicCardDevice*>(hwdevice);
-				connect(cdevice, SIGNAL(pinRequested(TQString,TDECryptographicCardDevice*)), this, SLOT(cryptographicCardPinRequested(TQString,TDECryptographicCardDevice*)));
+				connect(cdevice, TQ_SIGNAL(pinRequested(TQString,TDECryptographicCardDevice*)), this, TQ_SLOT(cryptographicCardPinRequested(TQString,TDECryptographicCardDevice*)));
 				cdevice->enableCardMonitoring(true);
 				cdevice->enablePINEntryCallbacks(true);
 			}

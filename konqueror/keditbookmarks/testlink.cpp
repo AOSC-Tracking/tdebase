@@ -88,10 +88,10 @@ void TestLinkItr::doAction() {
     m_job->addMetaData("errorPage", "true");
     m_job->addMetaData( TQString("cookies"), TQString("none") );
 
-    connect(m_job, TQT_SIGNAL( result( TDEIO::Job *)),
-            this, TQT_SLOT( slotJobResult(TDEIO::Job *)));
-    connect(m_job, TQT_SIGNAL( data( TDEIO::Job *,  const TQByteArray &)),
-            this, TQT_SLOT( slotJobData(TDEIO::Job *, const TQByteArray &)));
+    connect(m_job, TQ_SIGNAL( result( TDEIO::Job *)),
+            this, TQ_SLOT( slotJobResult(TDEIO::Job *)));
+    connect(m_job, TQ_SIGNAL( data( TDEIO::Job *,  const TQByteArray &)),
+            this, TQ_SLOT( slotJobData(TDEIO::Job *, const TQByteArray &)));
 
     curItem()->setTmpStatus(i18n("Checking..."));
     TQString oldModDate = TestLinkItrHolder::self()->getMod(curBk().url().url());

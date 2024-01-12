@@ -84,7 +84,7 @@ KBellConfig::KBellConfig(TQWidget *parent, const char *name):
 				  "more sophisticated system notification, see the "
 				  "\"System Notifications\" control module for the "
 				  "\"Something Special Happened in the Program\" event."));
-  connect(m_useBell, TQT_SIGNAL( toggled( bool )), TQT_SLOT( useBell( bool )));
+  connect(m_useBell, TQ_SIGNAL( toggled( bool )), TQ_SLOT( useBell( bool )));
   row++;
   grid->addMultiCellWidget(m_useBell, row, row, 0, 1);
 
@@ -124,13 +124,13 @@ KBellConfig::KBellConfig(TQWidget *parent, const char *name):
   m_testButton = new TQPushButton(i18n("&Test"), box, "test");
   boxLayout->addWidget(m_testButton, 0, AlignRight);
   grid->addLayout( boxLayout, ++row, 1 );
-  connect( m_testButton, TQT_SIGNAL(clicked()), TQT_SLOT(ringBell()));
+  connect( m_testButton, TQ_SIGNAL(clicked()), TQ_SLOT(ringBell()));
   TQWhatsThis::add( m_testButton, i18n("Click \"Test\" to hear how the system bell will sound using your changed settings.") );
 
   // watch for changes
-  connect(m_volume, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(m_pitch, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(m_duration, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
+  connect(m_volume, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(m_pitch, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(m_duration, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
   
   TDEAboutData *about =
     new TDEAboutData(I18N_NOOP("kcmbell"), I18N_NOOP("TDE Bell Control Module"),

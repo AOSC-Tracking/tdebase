@@ -62,8 +62,8 @@ MediaProtocol::MediaProtocol(const TQCString &protocol,
                              const TQCString &pool, const TQCString &app)
 	: ForwardingSlaveBase(protocol, pool, app)
 {
-	connect( &m_impl, TQT_SIGNAL( warning( const TQString & ) ),
-	         this, TQT_SLOT( slotWarning( const TQString & ) ) );
+	connect( &m_impl, TQ_SIGNAL( warning( const TQString & ) ),
+	         this, TQ_SLOT( slotWarning( const TQString & ) ) );
 }
 
 MediaProtocol::~MediaProtocol()

@@ -153,8 +153,8 @@ konsolePart::konsolePart(TQWidget *_parentWidget, const char *widgetName, TQObje
 
   setWidget(te);
   te->setFocus();
-  connect( te,TQT_SIGNAL(configureRequest(TEWidget*,int,int,int)),
-           this,TQT_SLOT(configureRequest(TEWidget*,int,int,int)) );
+  connect( te,TQ_SIGNAL(configureRequest(TEWidget*,int,int,int)),
+           this,TQ_SLOT(configureRequest(TEWidget*,int,int,int)) );
 
   colors = new ColorSchemaList();
   colors->checkSchemas();
@@ -214,7 +214,7 @@ konsolePart::konsolePart(TQWidget *_parentWidget, const char *widgetName, TQObje
 
   applySettingsToGUI();
 
-  TQTimer::singleShot( 0, this, TQT_SLOT( autoShowShell() ) );
+  TQTimer::singleShot( 0, this, TQ_SLOT( autoShowShell() ) );
 }
 
 void konsolePart::autoShowShell()
@@ -240,10 +240,10 @@ void konsolePart::doneSession(TESession*)
   if (se && b_autoDestroy)
   {
 //    kdDebug(1211) << "doneSession - disconnecting done" << endl;
-    disconnect( se,TQT_SIGNAL(done(TESession*)),
-                this,TQT_SLOT(doneSession(TESession*)) );
+    disconnect( se,TQ_SIGNAL(done(TESession*)),
+                this,TQ_SLOT(doneSession(TESession*)) );
     se->setConnect(false);
-    //TQTimer::singleShot(100,se,TQT_SLOT(terminate()));
+    //TQTimer::singleShot(100,se,TQ_SLOT(terminate()));
 //    kdDebug(1211) << "se->terminate()" << endl;
     se->terminate();
   }
@@ -252,7 +252,7 @@ void konsolePart::doneSession(TESession*)
 void konsolePart::sessionDestroyed()
 {
 //  kdDebug(1211) << "sessionDestroyed()" << endl;
-  disconnect( se, TQT_SIGNAL( destroyed() ), this, TQT_SLOT( sessionDestroyed() ) );
+  disconnect( se, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( sessionDestroyed() ) );
   se = 0;
   if (b_autoDestroy)
       delete this;
@@ -275,7 +275,7 @@ konsolePart::~konsolePart()
     while(se && TDEProcessController::theTDEProcessController->waitForProcessExit(1))
         ;
 
-    disconnect( se, TQT_SIGNAL( destroyed() ), this, TQT_SLOT( sessionDestroyed() ) );
+    disconnect( se, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( sessionDestroyed() ) );
 //    kdDebug(1211) << "Deleting se session" << endl;
     delete se;
     se=0;
@@ -343,7 +343,7 @@ void konsolePart::makeGUI()
      m_signals->insertItem( i18n( "&Kill Task" )      + " (KILL)",  SIGKILL);
      m_signals->insertItem( i18n( "User Signal &1")   + " (USR1)", SIGUSR1);
      m_signals->insertItem( i18n( "User Signal &2")   + " (USR2)", SIGUSR2);
-     connect(m_signals, TQT_SIGNAL(activated(int)), TQT_SLOT(sendSignal(int)));
+     connect(m_signals, TQ_SIGNAL(activated(int)), TQ_SLOT(sendSignal(int)));
   }
 
   // Settings Menu ----------------------------------------------------------------
@@ -353,7 +353,7 @@ void konsolePart::makeGUI()
 
      // Scrollbar
      selectScrollbar = new TDESelectAction(i18n("Sc&rollbar"), 0, this,
-                                      TQT_SLOT(slotSelectScrollbar()), settingsActions);
+                                      TQ_SLOT(slotSelectScrollbar()), settingsActions);
 
      TQStringList scrollitems;
      scrollitems << i18n("&Hide") << i18n("&Left") << i18n("&Right");
@@ -363,7 +363,7 @@ void konsolePart::makeGUI()
      // Select Bell
      m_options->insertSeparator();
      selectBell = new TDESelectAction(i18n("&Bell"), SmallIconSet( "bell"), 0 , this,
-                                 TQT_SLOT(slotSelectBell()), settingsActions, "bell");
+                                 TQ_SLOT(slotSelectBell()), settingsActions, "bell");
 
      TQStringList bellitems;
      bellitems << i18n("System &Bell")
@@ -374,13 +374,13 @@ void konsolePart::makeGUI()
      selectBell->plug(m_options);
 
       m_fontsizes = new TDEActionMenu( i18n( "Font" ), SmallIconSet( "text" ), settingsActions, 0L );
-      m_fontsizes->insert( new TDEAction( i18n( "&Enlarge Font" ), SmallIconSet( "zoom-in" ), 0, this, TQT_SLOT( biggerFont() ), settingsActions, "enlarge_font" ) );
-      m_fontsizes->insert( new TDEAction( i18n( "&Shrink Font" ), SmallIconSet( "zoom-out" ), 0, this, TQT_SLOT( smallerFont() ), settingsActions, "shrink_font" ) );
-      m_fontsizes->insert( new TDEAction( i18n( "Se&lect..." ), SmallIconSet( "font-x-generic" ), 0, this, TQT_SLOT( slotSelectFont() ), settingsActions, "select_font" ) );
+      m_fontsizes->insert( new TDEAction( i18n( "&Enlarge Font" ), SmallIconSet( "zoom-in" ), 0, this, TQ_SLOT( biggerFont() ), settingsActions, "enlarge_font" ) );
+      m_fontsizes->insert( new TDEAction( i18n( "&Shrink Font" ), SmallIconSet( "zoom-out" ), 0, this, TQ_SLOT( smallerFont() ), settingsActions, "shrink_font" ) );
+      m_fontsizes->insert( new TDEAction( i18n( "Se&lect..." ), SmallIconSet( "font-x-generic" ), 0, this, TQ_SLOT( slotSelectFont() ), settingsActions, "select_font" ) );
       m_fontsizes->plug(m_options);
 
       // encoding menu, start with default checked !
-      selectSetEncoding = new TDESelectAction( i18n( "&Encoding" ), SmallIconSet("charset" ), 0, this, TQT_SLOT(slotSetEncoding()), settingsActions, "set_encoding" );
+      selectSetEncoding = new TDESelectAction( i18n( "&Encoding" ), SmallIconSet("charset" ), 0, this, TQ_SLOT(slotSetEncoding()), settingsActions, "set_encoding" );
       TQStringList list = TDEGlobal::charsets()->descriptiveEncodingNames();
       list.prepend( i18n( "Default" ) );
       selectSetEncoding->setItems(list);
@@ -392,7 +392,7 @@ void konsolePart::makeGUI()
      {
         m_keytab = new TDEPopupMenu((TDEMainWindow*)parentWidget);
         m_keytab->setCheckable(true);
-        connect(m_keytab, TQT_SIGNAL(activated(int)), TQT_SLOT(keytab_menu_activated(int)));
+        connect(m_keytab, TQ_SIGNAL(activated(int)), TQ_SLOT(keytab_menu_activated(int)));
         m_options->insertItem( SmallIconSet( "key_bindings" ), i18n( "&Keyboard" ), m_keytab );
      }
 
@@ -401,21 +401,21 @@ void konsolePart::makeGUI()
      {
         m_schema = new TDEPopupMenu((TDEMainWindow*)parentWidget);
         m_schema->setCheckable(true);
-        connect(m_schema, TQT_SIGNAL(activated(int)), TQT_SLOT(schema_menu_activated(int)));
-        connect(m_schema, TQT_SIGNAL(aboutToShow()), TQT_SLOT(schema_menu_check()));
+        connect(m_schema, TQ_SIGNAL(activated(int)), TQ_SLOT(schema_menu_activated(int)));
+        connect(m_schema, TQ_SIGNAL(aboutToShow()), TQ_SLOT(schema_menu_check()));
         m_options->insertItem( SmallIconSet( "colorize" ), i18n( "Sch&ema" ), m_schema);
      }
 
 
      TDEAction *historyType = new TDEAction(i18n("&History..."), "history", 0, this,
-                                        TQT_SLOT(slotHistoryType()), settingsActions, "history");
+                                        TQ_SLOT(slotHistoryType()), settingsActions, "history");
      historyType->plug(m_options);
      m_options->insertSeparator();
 
      // Select line spacing
      selectLineSpacing = new TDESelectAction(i18n("Li&ne Spacing"),
         SmallIconSet("format-justify-left"), 0, this,
-        TQT_SLOT(slotSelectLineSpacing()), settingsActions );
+        TQ_SLOT(slotSelectLineSpacing()), settingsActions );
 
      TQStringList lineSpacingList;
      lineSpacingList
@@ -433,35 +433,35 @@ void konsolePart::makeGUI()
 
      // Blinking Cursor
      blinkingCursor = new TDEToggleAction (i18n("Blinking &Cursor"),
-                                      0, this,TQT_SLOT(slotBlinkingCursor()), settingsActions);
+                                      0, this,TQ_SLOT(slotBlinkingCursor()), settingsActions);
      blinkingCursor->plug(m_options);
 
      // Frame on/off
      showFrame = new TDEToggleAction(i18n("Show Fr&ame"), 0,
-                                this, TQT_SLOT(slotToggleFrame()), settingsActions);
+                                this, TQ_SLOT(slotToggleFrame()), settingsActions);
      showFrame->setCheckedState(i18n("Hide Fr&ame"));
      showFrame->plug(m_options);
 
      // Meta key as Alt key
      metaAsAlt = new TDEToggleAction(i18n("Me&ta key as Alt key"), 0,
-                                this, TQT_SLOT(slotToggleMetaAsAltMode()), settingsActions);
+                                this, TQ_SLOT(slotToggleMetaAsAltMode()), settingsActions);
      metaAsAlt->plug(m_options);
 
      // Word Connectors
      TDEAction *WordSeps = new TDEAction(i18n("Wor&d Connectors..."), 0, this,
-                                  TQT_SLOT(slotWordSeps()), settingsActions);
+                                  TQ_SLOT(slotWordSeps()), settingsActions);
      WordSeps->plug(m_options);
 
      // Use Konsole's Settings
      m_options->insertSeparator();
      m_useKonsoleSettings = new TDEToggleAction( i18n("&Use Konsole's Settings"),
-                          0, this, TQT_SLOT(slotUseKonsoleSettings()), 0, "use_konsole_settings" );
+                          0, this, TQ_SLOT(slotUseKonsoleSettings()), 0, "use_konsole_settings" );
      m_useKonsoleSettings->plug(m_options);
 
      // Save Settings
      m_options->insertSeparator();
      TDEAction *saveSettings = new TDEAction(i18n("&Save as Default"), "document-save", 0, this, 
-                    TQT_SLOT(saveProperties()), actions, "save_default");
+                    TQ_SLOT(saveProperties()), actions, "save_default");
      saveSettings->plug(m_options);
      if (TDEGlobalSettings::insertTearOffHandle())
         m_options->insertTearOffHandle();
@@ -470,15 +470,15 @@ void konsolePart::makeGUI()
   // Popup Menu -------------------------------------------------------------------
   m_popupMenu = new TDEPopupMenu((TDEMainWindow*)parentWidget);
   TDEAction* selectionEnd = new TDEAction(i18n("Set Selection End"), 0, te,
-                               TQT_SLOT(setSelectionEnd()), actions, "selection_end");
+                               TQ_SLOT(setSelectionEnd()), actions, "selection_end");
   selectionEnd->plug(m_popupMenu);
 
   TDEAction *copyClipboard = new TDEAction(i18n("&Copy"), "edit-copy", 0,
-                                        te, TQT_SLOT(copyClipboard()), actions, "edit_copy");
+                                        te, TQ_SLOT(copyClipboard()), actions, "edit_copy");
   copyClipboard->plug(m_popupMenu);
 
   TDEAction *pasteClipboard = new TDEAction(i18n("&Paste"), "edit-paste", 0,
-                                        te, TQT_SLOT(pasteClipboard()), actions, "edit_paste");
+                                        te, TQ_SLOT(pasteClipboard()), actions, "edit_paste");
   pasteClipboard->plug(m_popupMenu);
 
   if (m_signals)
@@ -494,7 +494,7 @@ void konsolePart::makeGUI()
   }
 
   TDEAction *closeSession = new TDEAction(i18n("&Close Terminal Emulator"), "window-close", 0, this,
-                                      TQT_SLOT(closeCurrentSession()), actions, "close_session");
+                                      TQ_SLOT(closeCurrentSession()), actions, "close_session");
   closeSession->plug(m_popupMenu);
   if (TDEGlobalSettings::insertTearOffHandle())
     m_popupMenu->insertTearOffHandle();
@@ -1011,15 +1011,15 @@ HistoryTypeDialog::HistoryTypeDialog(const HistoryType& histType,
 
   m_btnEnable    = new TQCheckBox(i18n("&Enable"), mainFrame);
 
-  TQObject::connect(m_btnEnable, TQT_SIGNAL(toggled(bool)),
-                   this,      TQT_SLOT(slotHistEnable(bool)));
+  TQObject::connect(m_btnEnable, TQ_SIGNAL(toggled(bool)),
+                   this,      TQ_SLOT(slotHistEnable(bool)));
 
   m_size = new TQSpinBox(0, 10 * 1000 * 1000, 100, mainFrame);
   m_size->setValue(histSize);
   m_size->setSpecialValueText(i18n("Unlimited (number of lines)", "Unlimited"));
 
   m_setUnlimited = new TQPushButton(i18n("&Set Unlimited"), mainFrame);
-  connect( m_setUnlimited,TQT_SIGNAL(clicked()), this,TQT_SLOT(slotSetUnlimited()) );
+  connect( m_setUnlimited,TQ_SIGNAL(clicked()), this,TQ_SLOT(slotSetUnlimited()) );
 
   hb->addWidget(m_btnEnable);
   hb->addSpacing(10);
@@ -1121,42 +1121,42 @@ void konsolePart::newSession()
   {
     se = new TESession(te, "xterm", parentWidget->winId());
   }
-  connect( se,TQT_SIGNAL(done(TESession*)),
-           this,TQT_SLOT(doneSession(TESession*)) );
-  connect( se,TQT_SIGNAL(openURLRequest(const TQString &)),
-           this,TQT_SLOT(emitOpenURLRequest(const TQString &)) );
-  connect( se, TQT_SIGNAL( updateTitle(TESession*) ),
-           this, TQT_SLOT( updateTitle(TESession*) ) );
-  connect( se, TQT_SIGNAL(enableMasterModeConnections()),
-           this, TQT_SLOT(enableMasterModeConnections()) );
-  connect( se, TQT_SIGNAL( processExited(TDEProcess *) ),
-           this, TQT_SIGNAL( processExited(TDEProcess *) ) );
-  connect( se, TQT_SIGNAL( receivedData( const TQString& ) ),
-           this, TQT_SIGNAL( receivedData( const TQString& ) ) );
-  connect( se, TQT_SIGNAL( forkedChild() ),
-           this, TQT_SIGNAL( forkedChild() ));
-  connect( se, TQT_SIGNAL(getSessionSchema(TESession*, TQString &)),
-           this, TQT_SLOT(slotGetSessionSchema(TESession*, TQString &)));
-  connect( se, TQT_SIGNAL(setSessionSchema(TESession*, const TQString &)),
-           this, TQT_SLOT(slotSetSessionSchema(TESession*, const TQString &)));
-  connect( se, TQT_SIGNAL(setSessionEncoding(TESession*, const TQString &)),
-           this, TQT_SLOT(slotSetSessionEncoding(TESession*, const TQString &)));
-  connect( se, TQT_SIGNAL(updateSessionKeytab(TESession *, const TQString &)),
-           this, TQT_SLOT(slotUpdateSessionKeytab(TESession *, const TQString &)));
+  connect( se,TQ_SIGNAL(done(TESession*)),
+           this,TQ_SLOT(doneSession(TESession*)) );
+  connect( se,TQ_SIGNAL(openURLRequest(const TQString &)),
+           this,TQ_SLOT(emitOpenURLRequest(const TQString &)) );
+  connect( se, TQ_SIGNAL( updateTitle(TESession*) ),
+           this, TQ_SLOT( updateTitle(TESession*) ) );
+  connect( se, TQ_SIGNAL(enableMasterModeConnections()),
+           this, TQ_SLOT(enableMasterModeConnections()) );
+  connect( se, TQ_SIGNAL( processExited(TDEProcess *) ),
+           this, TQ_SIGNAL( processExited(TDEProcess *) ) );
+  connect( se, TQ_SIGNAL( receivedData( const TQString& ) ),
+           this, TQ_SIGNAL( receivedData( const TQString& ) ) );
+  connect( se, TQ_SIGNAL( forkedChild() ),
+           this, TQ_SIGNAL( forkedChild() ));
+  connect( se, TQ_SIGNAL(getSessionSchema(TESession*, TQString &)),
+           this, TQ_SLOT(slotGetSessionSchema(TESession*, TQString &)));
+  connect( se, TQ_SIGNAL(setSessionSchema(TESession*, const TQString &)),
+           this, TQ_SLOT(slotSetSessionSchema(TESession*, const TQString &)));
+  connect( se, TQ_SIGNAL(setSessionEncoding(TESession*, const TQString &)),
+           this, TQ_SLOT(slotSetSessionEncoding(TESession*, const TQString &)));
+  connect( se, TQ_SIGNAL(updateSessionKeytab(TESession *, const TQString &)),
+           this, TQ_SLOT(slotUpdateSessionKeytab(TESession *, const TQString &)));
 
   // We ignore the following signals
-  //connect( se, TQT_SIGNAL(renameSession(TESession*,const TQString&)),
-  //         this, TQT_SLOT(slotRenameSession(TESession*, const TQString&)) );
-  //connect( se->getEmulation(), TQT_SIGNAL(changeColumns(int)),
-  //         this, TQT_SLOT(changeColumns(int)) );
-  //connect( se, TQT_SIGNAL(disableMasterModeConnections()),
-  //        this, TQT_SLOT(disableMasterModeConnections()) );
+  //connect( se, TQ_SIGNAL(renameSession(TESession*,const TQString&)),
+  //         this, TQ_SLOT(slotRenameSession(TESession*, const TQString&)) );
+  //connect( se->getEmulation(), TQ_SIGNAL(changeColumns(int)),
+  //         this, TQ_SLOT(changeColumns(int)) );
+  //connect( se, TQ_SIGNAL(disableMasterModeConnections()),
+  //        this, TQ_SLOT(disableMasterModeConnections()) );
 
   applyProperties();
 
   se->setConnect(true);
   // se->run();
-  connect( se, TQT_SIGNAL( destroyed() ), this, TQT_SLOT( sessionDestroyed() ) );
+  connect( se, TQ_SIGNAL( destroyed() ), this, TQ_SLOT( sessionDestroyed() ) );
 //  setFont( n_font ); // we do this here, to make TEWidget recalculate
                      // its geometry..
 }

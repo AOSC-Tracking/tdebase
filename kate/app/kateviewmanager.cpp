@@ -71,7 +71,7 @@ KateViewManager::KateViewManager (KateMainWindow *parent)
 
   m_viewManager = new Kate::ViewManager (this);
   m_currentContainer=0;
- connect(m_mainWindow->tabWidget(),TQT_SIGNAL(currentChanged(TQWidget*)),this,TQT_SLOT(tabChanged(TQWidget*)));
+ connect(m_mainWindow->tabWidget(),TQ_SIGNAL(currentChanged(TQWidget*)),this,TQ_SLOT(tabChanged(TQWidget*)));
  slotNewTab();
  tabChanged(m_mainWindow->tabWidget()->currentPage());
 
@@ -94,47 +94,47 @@ void KateViewManager::setupActions ()
   /**
    * tabbing
    */
-  a=new TDEAction ( i18n("New Tab"),"tab_new", 0, this, TQT_SLOT(slotNewTab()),
+  a=new TDEAction ( i18n("New Tab"),"tab_new", 0, this, TQ_SLOT(slotNewTab()),
                   m_mainWindow->actionCollection(), "view_new_tab" );
 
-  m_closeTab = new TDEAction ( i18n("Close Current Tab"),"tab_remove",0,this,TQT_SLOT(slotCloseTab()),
+  m_closeTab = new TDEAction ( i18n("Close Current Tab"),"tab_remove",0,this,TQ_SLOT(slotCloseTab()),
                              m_mainWindow->actionCollection(),"view_close_tab");
 
   m_activateNextTab
       = new TDEAction( i18n( "Activate Next Tab" ),
                      TQApplication::reverseLayout() ? TDEStdAccel::tabPrev() : TDEStdAccel::tabNext(),
-                     this, TQT_SLOT( activateNextTab() ), m_mainWindow->actionCollection(), "view_next_tab" );
+                     this, TQ_SLOT( activateNextTab() ), m_mainWindow->actionCollection(), "view_next_tab" );
 
   m_activatePrevTab
       = new TDEAction( i18n( "Activate Previous Tab" ),
                      TQApplication::reverseLayout() ? TDEStdAccel::tabNext() : TDEStdAccel::tabPrev(),
-                     this, TQT_SLOT( activatePrevTab() ), m_mainWindow->actionCollection(), "view_prev_tab" );
+                     this, TQ_SLOT( activatePrevTab() ), m_mainWindow->actionCollection(), "view_prev_tab" );
 
   /**
    * view splitting
    */
-  a=new TDEAction ( i18n("Split Ve&rtical"), "view_right", CTRL+SHIFT+Key_L, this, TQT_SLOT(
+  a=new TDEAction ( i18n("Split Ve&rtical"), "view_right", CTRL+SHIFT+Key_L, this, TQ_SLOT(
                   slotSplitViewSpaceVert() ), m_mainWindow->actionCollection(), "view_split_vert");
 
   a->setWhatsThis(i18n("Split the currently active view vertically into two views."));
 
-  a=new TDEAction ( i18n("Split &Horizontal"), "view_bottom", CTRL+SHIFT+Key_T, this, TQT_SLOT(
+  a=new TDEAction ( i18n("Split &Horizontal"), "view_bottom", CTRL+SHIFT+Key_T, this, TQ_SLOT(
                   slotSplitViewSpaceHoriz() ), m_mainWindow->actionCollection(), "view_split_horiz");
 
   a->setWhatsThis(i18n("Split the currently active view horizontally into two views."));
 
   m_closeView = new TDEAction ( i18n("Cl&ose Current View"), "view_remove", CTRL+SHIFT+Key_R, this,
-                    TQT_SLOT( slotCloseCurrentViewSpace() ), m_mainWindow->actionCollection(),
+                    TQ_SLOT( slotCloseCurrentViewSpace() ), m_mainWindow->actionCollection(),
                     "view_close_current_space" );
 
   m_closeView->setWhatsThis(i18n("Close the currently active splitted view"));
 
   goNext=new TDEAction(i18n("Next View"),Key_F8,this,
-                     TQT_SLOT(activateNextView()),m_mainWindow->actionCollection(),"go_next");
+                     TQ_SLOT(activateNextView()),m_mainWindow->actionCollection(),"go_next");
 
   goNext->setWhatsThis(i18n("Make the next split view the active one."));
 
-  goPrev=new TDEAction(i18n("Previous View"),SHIFT+Key_F8, this, TQT_SLOT(activatePrevView()),m_mainWindow->actionCollection(),"go_prev");
+  goPrev=new TDEAction(i18n("Previous View"),SHIFT+Key_F8, this, TQ_SLOT(activatePrevView()),m_mainWindow->actionCollection(),"go_prev");
 
   goPrev->setWhatsThis(i18n("Make the previous split view the active one."));
 
@@ -142,16 +142,16 @@ void KateViewManager::setupActions ()
    * buttons for tabbing
    */
   TQToolButton *b = new TQToolButton( m_mainWindow->tabWidget() );
-  connect( b, TQT_SIGNAL( clicked() ),
-             this, TQT_SLOT( slotNewTab() ) );
+  connect( b, TQ_SIGNAL( clicked() ),
+             this, TQ_SLOT( slotNewTab() ) );
   b->setIconSet( SmallIcon( "tab_new" ) );
   b->adjustSize();
   TQToolTip::add(b, i18n("Open a new tab"));
   m_mainWindow->tabWidget()->setCornerWidget( b, TopLeft );
 
   b = m_closeTabButton = new TQToolButton( m_mainWindow->tabWidget() );
-  connect( b, TQT_SIGNAL( clicked() ),
-            this, TQT_SLOT( slotCloseTab() ) );
+  connect( b, TQ_SIGNAL( clicked() ),
+            this, TQ_SLOT( slotCloseTab() ) );
   b->setIconSet( SmallIcon( "tab_remove" ) );
   b->adjustSize();
   TQToolTip::add(b, i18n("Close the current tab"));
@@ -199,8 +199,8 @@ void KateViewManager::slotNewTab()
   m_viewSpaceContainerList.append(container);
   m_mainWindow->tabWidget()->addTab (container, "");
 
-  connect(container,TQT_SIGNAL(viewChanged()),this,TQT_SIGNAL(viewChanged()));
-  connect(container,TQT_SIGNAL(viewChanged()),m_viewManager,TQT_SIGNAL(viewChanged()));
+  connect(container,TQ_SIGNAL(viewChanged()),this,TQ_SIGNAL(viewChanged()));
+  connect(container,TQ_SIGNAL(viewChanged()),m_viewManager,TQ_SIGNAL(viewChanged()));
 
   if (!m_init)
   {

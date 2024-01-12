@@ -99,8 +99,8 @@ SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int ac
 
     m_clockApplet = new ClockApplet(configFile, KPanelApplet::Normal, KPanelApplet::Preferences, this, "clockapplet");
     updateClockGeometry();
-    connect(m_clockApplet, TQT_SIGNAL(clockReconfigured()), this, TQT_SLOT(updateClockGeometry()));
-    connect(m_clockApplet, TQT_SIGNAL(updateLayout()), this, TQT_SLOT(updateClockGeometry()));
+    connect(m_clockApplet, TQ_SIGNAL(clockReconfigured()), this, TQ_SLOT(updateClockGeometry()));
+    connect(m_clockApplet, TQ_SIGNAL(updateLayout()), this, TQ_SLOT(updateClockGeometry()));
 
     setBackgroundOrigin(AncestorOrigin);
 
@@ -111,7 +111,7 @@ SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int ac
     kapp->dcopClient()->setNotifications(true);
     connectDCOPSignal("kicker", "kicker", "configurationChanged()", "loadSettings()", false);
 
-    TQTimer::singleShot(0, this, TQT_SLOT(initialize()));
+    TQTimer::singleShot(0, this, TQ_SLOT(initialize()));
 }
 
 void SystemTrayApplet::updateClockGeometry()
@@ -151,10 +151,10 @@ void SystemTrayApplet::initialize()
     }
 
     // the KWinModule notifies us when tray windows are added or removed
-    connect( twin_module, TQT_SIGNAL( systemTrayWindowAdded(WId) ),
-             this, TQT_SLOT( systemTrayWindowAdded(WId) ) );
-    connect( twin_module, TQT_SIGNAL( systemTrayWindowRemoved(WId) ),
-             this, TQT_SLOT( updateTrayWindows() ) );
+    connect( twin_module, TQ_SIGNAL( systemTrayWindowAdded(WId) ),
+             this, TQ_SLOT( systemTrayWindowAdded(WId) ) );
+    connect( twin_module, TQ_SIGNAL( systemTrayWindowRemoved(WId) ),
+             this, TQ_SLOT( updateTrayWindows() ) );
 
     TQCString screenstr;
     screenstr.setNum(tqt_xscreen());
@@ -249,9 +249,9 @@ void SystemTrayApplet::preferences()
                                        KDialogBase::Ok | KDialogBase::Apply | KDialogBase::Cancel,
                                        KDialogBase::Ok, true);
     m_settingsDialog->resize(450, 400);
-    connect(m_settingsDialog, TQT_SIGNAL(applyClicked()), this, TQT_SLOT(applySettings()));
-    connect(m_settingsDialog, TQT_SIGNAL(okClicked()), this, TQT_SLOT(applySettings()));
-    connect(m_settingsDialog, TQT_SIGNAL(finished()), this, TQT_SLOT(settingsDialogFinished()));
+    connect(m_settingsDialog, TQ_SIGNAL(applyClicked()), this, TQ_SLOT(applySettings()));
+    connect(m_settingsDialog, TQ_SIGNAL(okClicked()), this, TQ_SLOT(applySettings()));
+    connect(m_settingsDialog, TQ_SIGNAL(finished()), this, TQ_SLOT(settingsDialogFinished()));
 
     TQGrid *settingsGrid = m_settingsDialog->makeGridMainWidget( 2, TQt::Vertical);
 
@@ -448,12 +448,12 @@ void SystemTrayApplet::showExpandButton(bool show)
                                                             .width(),
                                              height() - 4);
             }
-            connect(m_expandButton, TQT_SIGNAL(clicked()),
-                    this, TQT_SLOT(toggleExpanded()));
+            connect(m_expandButton, TQ_SIGNAL(clicked()),
+                    this, TQ_SLOT(toggleExpanded()));
 
             m_autoRetractTimer = new TQTimer(this, "m_autoRetractTimer");
-            connect(m_autoRetractTimer, TQT_SIGNAL(timeout()),
-                    this, TQT_SLOT(checkAutoRetract()));
+            connect(m_autoRetractTimer, TQ_SIGNAL(timeout()),
+                    this, TQ_SLOT(checkAutoRetract()));
         }
         else
         {
@@ -559,7 +559,7 @@ void SystemTrayApplet::embedWindow( WId w, bool kde_tray )
         return;
     }
 
-    connect(emb, TQT_SIGNAL(embeddedWindowDestroyed()), TQT_SLOT(updateTrayWindows()));
+    connect(emb, TQ_SIGNAL(embeddedWindowDestroyed()), TQ_SLOT(updateTrayWindows()));
     emb->setFixedSize(m_iconSize, m_iconSize);
 
     if (shouldHide(w))
@@ -853,7 +853,7 @@ bool SystemTrayApplet::eventFilter(TQObject* watched, TQEvent* e)
         {
             TQPopupMenu* contextMenu = new TQPopupMenu(this);
             contextMenu->insertItem(SmallIcon("configure"), i18n("Configure System Tray..."),
-                                    this, TQT_SLOT(configure()));
+                                    this, TQ_SLOT(configure()));
 
             contextMenu->exec(static_cast<TQContextMenuEvent*>(e)->globalPos());
 
@@ -913,7 +913,7 @@ void SystemTrayApplet::resizeEvent( TQResizeEvent* )
 {
     layoutTray();
     // we need to give ourselves a chance to adjust our size before calling this
-    TQTimer::singleShot(0, this, TQT_SIGNAL(updateLayout()));
+    TQTimer::singleShot(0, this, TQ_SIGNAL(updateLayout()));
 }
 
 void SystemTrayApplet::layoutTray()

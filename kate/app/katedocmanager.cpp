@@ -116,7 +116,7 @@ Kate::Document *KateDocManager::createDoc ()
   emit documentCreated ((Kate::Document *)doc);
   emit m_documentManager->documentCreated ((Kate::Document *)doc);
 
-  connect(doc,TQT_SIGNAL(modifiedOnDisc(Kate::Document *, bool, unsigned char)),this,TQT_SLOT(slotModifiedOnDisc(Kate::Document *, bool, unsigned char)));
+  connect(doc,TQ_SIGNAL(modifiedOnDisc(Kate::Document *, bool, unsigned char)),this,TQ_SLOT(slotModifiedOnDisc(Kate::Document *, bool, unsigned char)));
   return (Kate::Document *)doc;
 }
 
@@ -256,7 +256,7 @@ Kate::Document *KateDocManager::openURL (const KURL& url,const TQString &encodin
       }
     }
 
-    connect(doc, TQT_SIGNAL(modStateChanged(Kate::Document *)), this, TQT_SLOT(slotModChanged(Kate::Document *)));
+    connect(doc, TQ_SIGNAL(modStateChanged(Kate::Document *)), this, TQ_SLOT(slotModChanged(Kate::Document *)));
 
     emit initialDocumentReplaced();
 

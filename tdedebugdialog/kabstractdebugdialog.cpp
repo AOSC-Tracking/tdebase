@@ -64,10 +64,10 @@ void KAbstractDebugDialog::buildButtons( TQVBoxLayout * topLayout )
   pApplyButton->setFixedWidth( w4 );
   pCancelButton->setFixedWidth( w4 );
 
-  connect( pHelpButton, TQT_SIGNAL( clicked() ), TQT_SLOT( slotShowHelp() ) );
-  connect( pOKButton, TQT_SIGNAL( clicked() ), TQT_SLOT( accept() ) );
-  connect( pApplyButton, TQT_SIGNAL( clicked() ), TQT_SLOT( slotApply() ) );
-  connect( pCancelButton, TQT_SIGNAL( clicked() ), TQT_SLOT( reject() ) );
+  connect( pHelpButton, TQ_SIGNAL( clicked() ), TQ_SLOT( slotShowHelp() ) );
+  connect( pOKButton, TQ_SIGNAL( clicked() ), TQ_SLOT( accept() ) );
+  connect( pApplyButton, TQ_SIGNAL( clicked() ), TQ_SLOT( slotApply() ) );
+  connect( pCancelButton, TQ_SIGNAL( clicked() ), TQ_SLOT( reject() ) );
 }
 
 void KAbstractDebugDialog::slotShowHelp()

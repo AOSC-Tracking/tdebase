@@ -70,8 +70,8 @@ LogitechMouse::LogitechMouse( struct usb_device *usbDev, int mouseCapabilityFlag
         updateResolution();
         resolutionSelector->setEnabled( TRUE );
 
-        connect( button400cpi, TQT_SIGNAL( clicked() ), parent, TQT_SLOT( changed() ) );
-        connect( button800cpi, TQT_SIGNAL( clicked() ), parent, TQT_SLOT( changed() ) );
+        connect( button400cpi, TQ_SIGNAL( clicked() ), parent, TQ_SLOT( changed() ) );
+        connect( button800cpi, TQ_SIGNAL( clicked() ), parent, TQ_SLOT( changed() ) );
 
         if ( 4 == resolution() ) {
             button800cpi->setChecked( TRUE );
@@ -100,12 +100,12 @@ LogitechMouse::LogitechMouse( struct usb_device *usbDev, int mouseCapabilityFlag
         // if the channel is changed, we need to turn off the timer, otherwise it
         // just resets the button to reflect the current status. The timer is
         // started again when we applyChanges()
-        connect( channel1, TQT_SIGNAL( clicked() ), this, TQT_SLOT( stopTimerForNow() ) );
-        connect( channel1, TQT_SIGNAL( clicked() ), parent, TQT_SLOT( changed() ) );
+        connect( channel1, TQ_SIGNAL( clicked() ), this, TQ_SLOT( stopTimerForNow() ) );
+        connect( channel1, TQ_SIGNAL( clicked() ), parent, TQ_SLOT( changed() ) );
         if ( isDualChannelCapable() ) {
             channel2->setEnabled( TRUE );
-            connect( channel2, TQT_SIGNAL( clicked() ), this, TQT_SLOT( stopTimerForNow() ) );
-            connect( channel2, TQT_SIGNAL( clicked() ), parent, TQT_SLOT( changed() ) );
+            connect( channel2, TQ_SIGNAL( clicked() ), this, TQ_SLOT( stopTimerForNow() ) );
+            connect( channel2, TQ_SIGNAL( clicked() ), parent, TQ_SLOT( changed() ) );
         }
 
         updateGUI();
@@ -124,7 +124,7 @@ void LogitechMouse::initCordlessStatusReporting()
 {
     updateCordlessStatus();
     doUpdate = new TQTimer( this ); // will be automatically deleted
-    connect( doUpdate, TQT_SIGNAL( timeout() ), this, TQT_SLOT( updateGUI() ) );
+    connect( doUpdate, TQ_SIGNAL( timeout() ), this, TQ_SLOT( updateGUI() ) );
     doUpdate->start( 20000 );
 }
 

@@ -105,8 +105,8 @@ void MacProtocol::get(const KURL& url) {
     *myTDEProcess << "hpcopy" << mode << path << "-";
 
     //data is now sent directly from the slot
-    connect(myTDEProcess, TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
-            this, TQT_SLOT(slotSetDataStdOutput(TDEProcess *, char *, int)));
+    connect(myTDEProcess, TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
+            this, TQ_SLOT(slotSetDataStdOutput(TDEProcess *, char *, int)));
 
     myTDEProcess->start(TDEProcess::Block, TDEProcess::All);
 
@@ -134,8 +134,8 @@ void MacProtocol::listDir(const KURL& url) {
         *myTDEProcess << "hpls" << "-la" << filename;
 
         standardOutputStream = TQString::null;
-        connect(myTDEProcess, TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
-                this, TQT_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
+        connect(myTDEProcess, TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
+                this, TQ_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
 
         myTDEProcess->start(TDEProcess::Block, TDEProcess::All);
 
@@ -146,8 +146,8 @@ void MacProtocol::listDir(const KURL& url) {
 
         //clean up
         delete myTDEProcess; myTDEProcess = 0;
-        disconnect(myTDEProcess, TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
-                this, TQT_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
+        disconnect(myTDEProcess, TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
+                this, TQ_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
 
         UDSEntry entry;
         if (!standardOutputStream.isEmpty()) {
@@ -191,8 +191,8 @@ TQValueList<TDEIO::UDSAtom> MacProtocol::doStat(const KURL& url) {
         *myTDEProcess << "hpls" << "-ld" << filename;
 
         standardOutputStream = TQString::null;
-        connect(myTDEProcess, TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
-                this, TQT_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
+        connect(myTDEProcess, TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
+                this, TQ_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
 
         myTDEProcess->start(TDEProcess::Block, TDEProcess::All);
 
@@ -203,8 +203,8 @@ TQValueList<TDEIO::UDSAtom> MacProtocol::doStat(const KURL& url) {
 
         //clean up
         delete myTDEProcess; myTDEProcess = 0;
-        disconnect(myTDEProcess, TQT_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
-                this, TQT_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
+        disconnect(myTDEProcess, TQ_SIGNAL(receivedStdout(TDEProcess *, char *, int)),
+                this, TQ_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
 
         if (standardOutputStream.isEmpty()) {
             filename.replace("\\ ", " "); //get rid of escapes
@@ -257,8 +257,8 @@ TQString MacProtocol::prepareHP(const KURL& url) {
     myTDEProcess = new TDEProcess();
     *myTDEProcess << "hpmount";
     standardOutputStream = TQString::null;
-    connect(myTDEProcess, TQT_SIGNAL(receivedStderr(TDEProcess *, char *, int)),
-            this, TQT_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
+    connect(myTDEProcess, TQ_SIGNAL(receivedStderr(TDEProcess *, char *, int)),
+            this, TQ_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
 
     myTDEProcess->start(TDEProcess::Block, TDEProcess::All);
 
@@ -269,8 +269,8 @@ TQString MacProtocol::prepareHP(const KURL& url) {
     }
 
     delete myTDEProcess; myTDEProcess = 0;
-    disconnect(myTDEProcess, TQT_SIGNAL(receivedStderr(TDEProcess *, char *, int)),
-            this, TQT_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
+    disconnect(myTDEProcess, TQ_SIGNAL(receivedStderr(TDEProcess *, char *, int)),
+            this, TQ_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
 
     //now mount the drive
     myTDEProcess = new TDEProcess();

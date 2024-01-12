@@ -74,7 +74,7 @@ KTrashPropsDlgPlugin::KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const cha
 	policyWidget = new KTrashPropsWidget(frame);
   TQVBoxLayout *vLayout = new TQVBoxLayout(frame, 0, 0);
   vLayout->addWidget(policyWidget);
-  connect(policyWidget, TQT_SIGNAL(changed(bool)), TQT_SLOT(setDirty()));
+  connect(policyWidget, TQ_SIGNAL(changed(bool)), TQ_SLOT(setDirty()));
 }
 
 KTrashPropsDlgPlugin::~KTrashPropsDlgPlugin()

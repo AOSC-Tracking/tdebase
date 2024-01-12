@@ -169,12 +169,12 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
     TQWhatsThis::add( focusCombo, wtstr);
     TQWhatsThis::add(fLabel, wtstr);
 
-    connect(focusCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setAutoRaiseEnabled()) );
+    connect(focusCombo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(setAutoRaiseEnabled()) );
 
     // autoraise delay
     autoRaiseOn = new TQCheckBox(i18n("Auto &raise"), fcsBox);
     fLay->addWidget(autoRaiseOn);
-    connect(autoRaiseOn,TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(autoRaiseOnTog(bool)));
+    connect(autoRaiseOn,TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(autoRaiseOnTog(bool)));
 
     autoRaise = new KIntNumInput(500, fcsBox);
     autoRaise->setLabel(i18n("Dela&y:"), TQt::AlignVCenter|TQt::AlignLeft);
@@ -183,11 +183,11 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
     autoRaise->setSuffix(i18n(" msec"));
     fLay->addWidget(autoRaise);
 
-    connect(focusCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setDelayFocusEnabled()) );
+    connect(focusCombo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(setDelayFocusEnabled()) );
 
     delayFocusOn = new TQCheckBox(i18n("Delay focus"), fcsBox);
     fLay->addWidget(delayFocusOn);
-    connect(delayFocusOn,TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(delayFocusOnTog(bool)));
+    connect(delayFocusOn,TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(delayFocusOnTog(bool)));
 
     delayFocus = new KIntNumInput(500, fcsBox);
     delayFocus->setLabel(i18n("Dela&y:"), TQt::AlignVCenter|TQt::AlignLeft);
@@ -197,7 +197,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
     fLay->addWidget(delayFocus);
 
     clickRaiseOn = new TQCheckBox(i18n("Click &raises active window"), fcsBox);
-    connect(clickRaiseOn,TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(clickRaiseOnTog(bool)));
+    connect(clickRaiseOn,TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(clickRaiseOnTog(bool)));
     fLay->addWidget(clickRaiseOn);
 
 //     fLay->addColSpacing(0,TQMAX(autoRaiseOn->sizeHint().width(),
@@ -263,7 +263,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
                   " with the focused window. This option is by default disabled for Click to focus and"
                   " enabled for other focus policies." );
     TQWhatsThis::add( activeMouseScreen, wtstr );
-    connect(focusCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(updateActiveMouseScreen()));
+    connect(focusCombo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(updateActiveMouseScreen()));
 
     if (!TQApplication::desktop()->isVirtualDesktop() ||
         TQApplication::desktop()->numScreens() == 1) // No Ximerama
@@ -291,7 +291,7 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
                  " is pressed, with no popup widget.  In addition, the previously"
                  " activated window will be sent to the back in this mode.");
     TQWhatsThis::add( altTabPopup, wtstr );
-    connect(focusCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(updateAltTabMode()));
+    connect(focusCombo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(updateAltTabMode()));
 
     traverseAll = new TQCheckBox( i18n( "&Traverse windows on all desktops" ), kbdBox );
     kLay->addWidget( traverseAll );
@@ -319,17 +319,17 @@ KFocusConfig::KFocusConfig (bool _standAlone, TDEConfig *_config, TQWidget * par
     lay->addStretch();
 
     // Any changes goes to slotChanged()
-    connect(focusCombo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
-    connect(fcsBox, TQT_SIGNAL(clicked(int)), TQT_SLOT(changed()));
-    connect(autoRaise, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-    connect(delayFocus, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-    connect(separateScreenFocus, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-    connect(activeMouseScreen, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-    connect(altTabPopup, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-    connect(traverseAll, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-    connect(rollOverDesktops, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-    connect(showPopupinfo, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-    connect(focusStealing, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+    connect(focusCombo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
+    connect(fcsBox, TQ_SIGNAL(clicked(int)), TQ_SLOT(changed()));
+    connect(autoRaise, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+    connect(delayFocus, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+    connect(separateScreenFocus, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+    connect(activeMouseScreen, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+    connect(altTabPopup, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+    connect(traverseAll, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+    connect(rollOverDesktops, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+    connect(showPopupinfo, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+    connect(focusStealing, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
 
     load();
 }
@@ -686,15 +686,15 @@ KActiveBorderConfig::KActiveBorderConfig(bool _standAlone, TDEConfig *_config, T
     active_vbox->addSpacing(15);
     active_vbox->addWidget(tilingOpaque);
 
-    connect(active_box, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(updateActiveBorders()));
+    connect(active_box, TQ_SIGNAL(clicked(int)), this, TQ_SLOT(updateActiveBorders()));
 
     // Any changes go to slotChanged()
-    connect(active_box,      TQT_SIGNAL(clicked(int)),      this, TQT_SLOT(changed()));
-    connect(active_move,     TQT_SIGNAL(clicked()),         this, TQT_SLOT(changed()));
-    connect(active_maximize, TQT_SIGNAL(clicked()),         this, TQT_SLOT(changed()));
-    connect(delays,          TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-    connect(distance,        TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
-    connect(tilingOpaque,    TQT_SIGNAL(clicked()),         this, TQT_SLOT(changed()));
+    connect(active_box,      TQ_SIGNAL(clicked(int)),      this, TQ_SLOT(changed()));
+    connect(active_move,     TQ_SIGNAL(clicked()),         this, TQ_SLOT(changed()));
+    connect(active_maximize, TQ_SIGNAL(clicked()),         this, TQ_SLOT(changed()));
+    connect(delays,          TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+    connect(distance,        TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
+    connect(tilingOpaque,    TQ_SIGNAL(clicked()),         this, TQ_SLOT(changed()));
 
     lay->addWidget(active_box);
     lay->addStretch();
@@ -860,7 +860,7 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget
 
     shadeHoverOn = new TQCheckBox(i18n("&Enable hover"), shBox);
 
-    connect(shadeHoverOn, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(shadeHoverChanged(bool)));
+    connect(shadeHoverOn, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(shadeHoverChanged(bool)));
 
     shadeHover = new KIntNumInput(500, shBox);
     shadeHover->setLabel(i18n("Dela&y:"), TQt::AlignVCenter|TQt::AlignLeft);
@@ -878,16 +878,16 @@ KAdvancedConfig::KAdvancedConfig (bool _standAlone, TDEConfig *_config, TQWidget
     lay->addWidget(shBox);
 
     // Any changes goes to slotChanged()
-    connect(animateShade, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-    connect(shadeHoverOn, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-    connect(shadeHover, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
+    connect(animateShade, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+    connect(shadeHoverOn, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+    connect(shadeHover, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
 
     hideUtilityWindowsForInactive = new TQCheckBox( i18n( "Hide utility windows for inactive applications" ), this );
     TQWhatsThis::add( hideUtilityWindowsForInactive,
         i18n( "When turned on, utility windows (tool windows, torn-off menus,…) of inactive applications will be"
               " hidden and will be shown only when the application becomes active. Note that applications"
               " have to mark the windows with the proper window type for this feature to work." ));
-    connect(hideUtilityWindowsForInactive, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+    connect(hideUtilityWindowsForInactive, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
     lay->addWidget( hideUtilityWindowsForInactive );
 
     lay->addStretch();
@@ -1027,8 +1027,8 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
     minimizeAnimSlider->setTickmarks(TQSlider::Below);
     rLay->addMultiCellWidget(minimizeAnimSlider,0,0,1,2);
 
-    connect(minimizeAnimOn, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(setMinimizeAnim(bool)));
-    connect(minimizeAnimSlider, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(setMinimizeAnimSpeed(int)));
+    connect(minimizeAnimOn, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(setMinimizeAnim(bool)));
+    connect(minimizeAnimSlider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setMinimizeAnimSpeed(int)));
 
     minimizeAnimSlowLabel= new TQLabel(i18n("Slow"),windowsBox);
     minimizeAnimSlowLabel->setAlignment(TQt::AlignTop|TQt::AlignLeft);
@@ -1143,19 +1143,19 @@ KMovingConfig::KMovingConfig (bool _standAlone, TDEConfig *_config, TQWidget *pa
     load();
 
     // Any changes goes to slotChanged()
-    connect( moveOpaque, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-    connect( resizeOpaque, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-    connect( geometryTipOn, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
-    connect( minimizeAnimOn, TQT_SIGNAL(clicked() ), TQT_SLOT(changed()));
-    connect( minimizeAnimSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-    connect( moveResizeMaximized, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-    connect( resetMaximizedWindowGeometry, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-    connect( placementCombo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
-    connect( BrdrSnap, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-    connect( BrdrSnap, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotBrdrSnapChanged(int)));
-    connect( WndwSnap, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-    connect( WndwSnap, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotWndwSnapChanged(int)));
-    connect( OverlapSnap, TQT_SIGNAL(clicked()), TQT_SLOT(changed()));
+    connect( moveOpaque, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+    connect( resizeOpaque, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+    connect( geometryTipOn, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
+    connect( minimizeAnimOn, TQ_SIGNAL(clicked() ), TQ_SLOT(changed()));
+    connect( minimizeAnimSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+    connect( moveResizeMaximized, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+    connect( resetMaximizedWindowGeometry, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+    connect( placementCombo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
+    connect( BrdrSnap, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+    connect( BrdrSnap, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotBrdrSnapChanged(int)));
+    connect( WndwSnap, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+    connect( WndwSnap, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotWndwSnapChanged(int)));
+    connect( OverlapSnap, TQ_SIGNAL(clicked()), TQ_SLOT(changed()));
 
     // To get suffix to BrdrSnap and WndwSnap inputs with default values.
     slotBrdrSnapChanged(BrdrSnap->value());
@@ -1640,84 +1640,84 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
   lay->addWidget(useTranslucency);
   lay->addWidget(tabW);
 
-  connect(useTranslucency, TQT_SIGNAL(toggled(bool)), tabW, TQT_SLOT(setEnabled(bool)));
+  connect(useTranslucency, TQ_SIGNAL(toggled(bool)), tabW, TQ_SLOT(setEnabled(bool)));
 
-  connect(activeWindowTransparency, TQT_SIGNAL(toggled(bool)), activeWindowOpacity, TQT_SLOT(setEnabled(bool)));
-  connect(inactiveWindowTransparency, TQT_SIGNAL(toggled(bool)), inactiveWindowOpacity, TQT_SLOT(setEnabled(bool)));
-  connect(movingWindowTransparency, TQT_SIGNAL(toggled(bool)), movingWindowOpacity, TQT_SLOT(setEnabled(bool)));
-  connect(dockWindowTransparency, TQT_SIGNAL(toggled(bool)), dockWindowOpacity, TQT_SLOT(setEnabled(bool)));
+  connect(activeWindowTransparency, TQ_SIGNAL(toggled(bool)), activeWindowOpacity, TQ_SLOT(setEnabled(bool)));
+  connect(inactiveWindowTransparency, TQ_SIGNAL(toggled(bool)), inactiveWindowOpacity, TQ_SLOT(setEnabled(bool)));
+  connect(movingWindowTransparency, TQ_SIGNAL(toggled(bool)), movingWindowOpacity, TQ_SLOT(setEnabled(bool)));
+  connect(dockWindowTransparency, TQ_SIGNAL(toggled(bool)), dockWindowOpacity, TQ_SLOT(setEnabled(bool)));
 
-  connect(useTranslucency, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(onlyDecoTranslucent, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(activeWindowTransparency, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(inactiveWindowTransparency, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(movingWindowTransparency, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(dockWindowTransparency, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(keepAboveAsActive, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(disableARGB, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(useOpenGL, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(useOpenGL, TQT_SIGNAL(toggled(bool)), blurBackground, TQT_SLOT(setEnabled(bool)));
-  connect(blurBackground, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(useOpenGL, TQT_SIGNAL(toggled(bool)), greyscaleBackground, TQT_SLOT(setEnabled(bool)));
-  connect(greyscaleBackground, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(useShadows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(useShadowsOnMenuWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(useShadowsOnToolTipWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(useShadowsOnDockWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(removeShadowsOnResize, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(removeShadowsOnMove, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
+  connect(useTranslucency, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(onlyDecoTranslucent, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(activeWindowTransparency, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(inactiveWindowTransparency, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(movingWindowTransparency, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(dockWindowTransparency, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(keepAboveAsActive, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(disableARGB, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(useOpenGL, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(useOpenGL, TQ_SIGNAL(toggled(bool)), blurBackground, TQ_SLOT(setEnabled(bool)));
+  connect(blurBackground, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(useOpenGL, TQ_SIGNAL(toggled(bool)), greyscaleBackground, TQ_SLOT(setEnabled(bool)));
+  connect(greyscaleBackground, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(useShadows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(useShadowsOnMenuWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(useShadowsOnToolTipWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(useShadowsOnDockWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(removeShadowsOnResize, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(removeShadowsOnMove, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
 
-  connect(activeWindowOpacity, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(inactiveWindowOpacity, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(movingWindowOpacity, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(dockWindowOpacity, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(dockWindowShadowSize, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(menuWindowShadowSize, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(activeWindowShadowSize, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(inactiveWindowShadowSize, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(baseShadowSize, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(shadowTopOffset, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(shadowLeftOffset, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(shadowColor, TQT_SIGNAL(changed(const TQColor&)), TQT_SLOT(changed()));
-  connect(fadeInWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(fadeInMenuWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(fadeInToolTipWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(fadeOnOpacityChange, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()));
-  connect(fadeInSpeed, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
-  connect(fadeOutSpeed, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(changed()));
+  connect(activeWindowOpacity, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(inactiveWindowOpacity, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(movingWindowOpacity, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(dockWindowOpacity, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(dockWindowShadowSize, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(menuWindowShadowSize, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(activeWindowShadowSize, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(inactiveWindowShadowSize, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(baseShadowSize, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(shadowTopOffset, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(shadowLeftOffset, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(shadowColor, TQ_SIGNAL(changed(const TQColor&)), TQ_SLOT(changed()));
+  connect(fadeInWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(fadeInMenuWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(fadeInToolTipWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(fadeOnOpacityChange, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(fadeInSpeed, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
+  connect(fadeOutSpeed, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(changed()));
 
-  connect(useShadows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(processShadowLockouts()));
-  connect(useShadowsOnMenuWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(processShadowLockouts()));
-  connect(useShadowsOnToolTipWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(processShadowLockouts()));
-  connect(useShadowsOnDockWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(processShadowLockouts()));
+  connect(useShadows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(processShadowLockouts()));
+  connect(useShadowsOnMenuWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(processShadowLockouts()));
+  connect(useShadowsOnToolTipWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(processShadowLockouts()));
+  connect(useShadowsOnDockWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(processShadowLockouts()));
 
   load();
 
   tabW->setEnabled(useTranslucency->isChecked());
 
-  connect(useTranslucency, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(showWarning(bool)));
+  connect(useTranslucency, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(showWarning(bool)));
 
   // handle kompmgr restarts if necessary
-  connect(useTranslucency, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(disableARGB, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(useOpenGL, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(blurBackground, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(greyscaleBackground, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(useShadows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(useShadowsOnMenuWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(useShadowsOnToolTipWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(useShadowsOnDockWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(inactiveWindowShadowSize, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(resetKompmgr()));
-  connect(baseShadowSize, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(resetKompmgr()));
-  connect(shadowTopOffset, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(resetKompmgr()));
-  connect(shadowLeftOffset, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(resetKompmgr()));
-  connect(shadowColor, TQT_SIGNAL(changed(const TQColor&)), TQT_SLOT(resetKompmgr()));
-  connect(fadeInWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(fadeInMenuWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(fadeInToolTipWindows, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(fadeOnOpacityChange, TQT_SIGNAL(toggled(bool)), TQT_SLOT(resetKompmgr()));
-  connect(fadeInSpeed, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(resetKompmgr()));
-  connect(fadeOutSpeed, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(resetKompmgr()));
+  connect(useTranslucency, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(disableARGB, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(useOpenGL, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(blurBackground, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(greyscaleBackground, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(useShadows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(useShadowsOnMenuWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(useShadowsOnToolTipWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(useShadowsOnDockWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(inactiveWindowShadowSize, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(resetKompmgr()));
+  connect(baseShadowSize, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(resetKompmgr()));
+  connect(shadowTopOffset, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(resetKompmgr()));
+  connect(shadowLeftOffset, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(resetKompmgr()));
+  connect(shadowColor, TQ_SIGNAL(changed(const TQColor&)), TQ_SLOT(resetKompmgr()));
+  connect(fadeInWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(fadeInMenuWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(fadeInToolTipWindows, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(fadeOnOpacityChange, TQ_SIGNAL(toggled(bool)), TQ_SLOT(resetKompmgr()));
+  connect(fadeInSpeed, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(resetKompmgr()));
+  connect(fadeOutSpeed, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(resetKompmgr()));
 
   }
 }

@@ -53,7 +53,7 @@ public:
 CfgComponent::CfgComponent(TQWidget *parent):ComponentConfig_UI(parent),CfgPlugin(){
 	m_lookupDict.setAutoDelete(true);
 	m_revLookupDict.setAutoDelete(true);
-	connect(ComponentSelector,TQT_SIGNAL(activated(const TQString&)),this,TQT_SLOT(slotComponentChanged(const TQString&)));
+	connect(ComponentSelector,TQ_SIGNAL(activated(const TQString&)),this,TQ_SLOT(slotComponentChanged(const TQString&)));
 }
 
 CfgComponent::~CfgComponent(){}
@@ -126,9 +126,9 @@ void CfgComponent::defaults()
 CfgEmailClient::CfgEmailClient(TQWidget *parent):EmailClientConfig_UI(parent),CfgPlugin(){
 	pSettings = new KEMailSettings();
 
-	connect(kmailCB, TQT_SIGNAL(toggled(bool)), TQT_SLOT(configChanged()) );
-	connect(txtEMailClient, TQT_SIGNAL(textChanged(const TQString&)), TQT_SLOT(configChanged()) );
-	connect(chkRunTerminal, TQT_SIGNAL(clicked()), TQT_SLOT(configChanged()) );
+	connect(kmailCB, TQ_SIGNAL(toggled(bool)), TQ_SLOT(configChanged()) );
+	connect(txtEMailClient, TQ_SIGNAL(textChanged(const TQString&)), TQ_SLOT(configChanged()) );
+	connect(chkRunTerminal, TQ_SIGNAL(clicked()), TQ_SLOT(configChanged()) );
 }
 
 CfgEmailClient::~CfgEmailClient() {
@@ -252,9 +252,9 @@ void CfgFileManager::selectFileAssociations()
 //BEGIN Terminal Emulator Configuration
 
 CfgTerminalEmulator::CfgTerminalEmulator(TQWidget *parent):TerminalEmulatorConfig_UI(parent),CfgPlugin(){
-	connect(terminalLE,TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(configChanged()));
-	connect(terminalCB,TQT_SIGNAL(toggled(bool)),this,TQT_SLOT(configChanged()));
-	connect(otherCB,TQT_SIGNAL(toggled(bool)),this,TQT_SLOT(configChanged()));
+	connect(terminalLE,TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(configChanged()));
+	connect(terminalCB,TQ_SIGNAL(toggled(bool)),this,TQ_SLOT(configChanged()));
+	connect(otherCB,TQ_SIGNAL(toggled(bool)),this,TQ_SLOT(configChanged()));
 }
 
 CfgTerminalEmulator::~CfgTerminalEmulator() {
@@ -323,9 +323,9 @@ void CfgTerminalEmulator::selectTerminalApp()
 //BEGIN Browser Configuration
 
 CfgBrowser::CfgBrowser(TQWidget *parent) : BrowserConfig_UI(parent),CfgPlugin(){
-        connect(lineExec,TQT_SIGNAL(textChanged(const TQString &)),this,TQT_SLOT(configChanged()));
-	connect(radioKIO,TQT_SIGNAL(toggled(bool)),this,TQT_SLOT(configChanged()));
-	connect(radioExec,TQT_SIGNAL(toggled(bool)),this,TQT_SLOT(configChanged()));
+        connect(lineExec,TQ_SIGNAL(textChanged(const TQString &)),this,TQ_SLOT(configChanged()));
+	connect(radioKIO,TQ_SIGNAL(toggled(bool)),this,TQ_SLOT(configChanged()));
+	connect(radioExec,TQ_SIGNAL(toggled(bool)),this,TQ_SLOT(configChanged()));
 }
 
 CfgBrowser::~CfgBrowser() {
@@ -431,7 +431,7 @@ ComponentChooser::ComponentChooser(TQWidget *parent, const char *name):
 	}
 	ServiceChooser->setFixedWidth(ServiceChooser->sizeHint().width());
 	ServiceChooser->sort();
-	connect(ServiceChooser,TQT_SIGNAL(highlighted(TQListBoxItem*)),this,TQT_SLOT(slotServiceSelected(TQListBoxItem*)));
+	connect(ServiceChooser,TQ_SIGNAL(highlighted(TQListBoxItem*)),this,TQ_SLOT(slotServiceSelected(TQListBoxItem*)));
 	ServiceChooser->setSelected(0,true);
 	slotServiceSelected(ServiceChooser->item(0));
 
@@ -504,7 +504,7 @@ void ComponentChooser::slotServiceSelected(TQListBoxItem* it) {
 		configContainer->removeWidget(configWidget);
 		delete configWidget;
 		configWidget=newConfigWidget;
-		connect(configWidget,TQT_SIGNAL(changed(bool)),this,TQT_SLOT(emitChanged(bool)));
+		connect(configWidget,TQ_SIGNAL(changed(bool)),this,TQ_SLOT(emitChanged(bool)));
 	        configContainer->setMinimumSize(configWidget->sizeHint());
 	}
 	

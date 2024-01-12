@@ -63,7 +63,7 @@ void KIVFreeSpaceOverlay::start()
     if ( !m_freespace->item()->isReadable() ) {
         emit finished();
     }
-    TQTimer::singleShot(0, this, TQT_SLOT(slotDisplay()));
+    TQTimer::singleShot(0, this, TQ_SLOT(slotDisplay()));
 }
 
 void KIVFreeSpaceOverlay::timerEvent(TQTimerEvent *)

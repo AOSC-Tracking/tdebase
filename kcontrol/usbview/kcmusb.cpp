@@ -63,9 +63,9 @@ USBViewer::USBViewer(TQWidget *parent, const char *name, const TQStringList &)
   // 1 sec seems to be a good compromise between latency and polling load.
   refreshTimer->start(1000);
 
-  connect(refreshTimer, TQT_SIGNAL(timeout()), TQT_SLOT(refresh()));
-  connect(_devices, TQT_SIGNAL(selectionChanged(TQListViewItem*)),
-	  this, TQT_SLOT(selectionChanged(TQListViewItem*)));
+  connect(refreshTimer, TQ_SIGNAL(timeout()), TQ_SLOT(refresh()));
+  connect(_devices, TQ_SIGNAL(selectionChanged(TQListViewItem*)),
+	  this, TQ_SLOT(selectionChanged(TQListViewItem*)));
 
   TDEAboutData *about =
   new TDEAboutData(I18N_NOOP("kcmusb"), I18N_NOOP("TDE USB Viewer"),

@@ -53,18 +53,18 @@ KFindPart::KFindPart( TQWidget * parentWidget, const char *widgetName,
 
     setWidget( m_kfindWidget );
 
-    connect( m_kfindWidget, TQT_SIGNAL(started()),
-             this, TQT_SLOT(slotStarted()) );
-    connect( m_kfindWidget, TQT_SIGNAL(destroyMe()),
-             this, TQT_SLOT(slotDestroyMe()) );
-    connect(m_kfindWidget->dirlister,TQT_SIGNAL(deleteItem(KFileItem*)), this, TQT_SLOT(removeFile(KFileItem*)));
-    connect(m_kfindWidget->dirlister,TQT_SIGNAL(newItems(const KFileItemList&)), this, TQT_SLOT(newFiles(const KFileItemList&)));
+    connect( m_kfindWidget, TQ_SIGNAL(started()),
+             this, TQ_SLOT(slotStarted()) );
+    connect( m_kfindWidget, TQ_SIGNAL(destroyMe()),
+             this, TQ_SLOT(slotDestroyMe()) );
+    connect(m_kfindWidget->dirlister,TQ_SIGNAL(deleteItem(KFileItem*)), this, TQ_SLOT(removeFile(KFileItem*)));
+    connect(m_kfindWidget->dirlister,TQ_SIGNAL(newItems(const KFileItemList&)), this, TQ_SLOT(newFiles(const KFileItemList&)));
     //setXMLFile( "kfind.rc" );
     query = new KQuery(this);
-    connect(query, TQT_SIGNAL(addFile(const KFileItem *, const TQString&)),
-            TQT_SLOT(addFile(const KFileItem *, const TQString&)));
-    connect(query, TQT_SIGNAL(result(int)),
-            TQT_SLOT(slotResult(int)));
+    connect(query, TQ_SIGNAL(addFile(const KFileItem *, const TQString&)),
+            TQ_SLOT(addFile(const KFileItem *, const TQString&)));
+    connect(query, TQ_SIGNAL(result(int)),
+            TQ_SLOT(slotResult(int)));
 
     m_kfindWidget->setQuery(query);
     m_bShowsResult = false;

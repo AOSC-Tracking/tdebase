@@ -97,10 +97,10 @@ void SearchTraverser::connectHandler( SearchHandler *handler )
   int count = 0;
   if ( it != mConnectCount.end() ) count = *it;
   if ( count == 0 ) {
-    connect( handler, TQT_SIGNAL( searchError( SearchHandler *, DocEntry *, const TQString & ) ),
-      TQT_SLOT( showSearchError( SearchHandler *, DocEntry *, const TQString & ) ) );
-    connect( handler, TQT_SIGNAL( searchFinished( SearchHandler *, DocEntry *, const TQString & ) ),
-      TQT_SLOT( showSearchResult( SearchHandler *, DocEntry *, const TQString & ) ) );
+    connect( handler, TQ_SIGNAL( searchError( SearchHandler *, DocEntry *, const TQString & ) ),
+      TQ_SLOT( showSearchError( SearchHandler *, DocEntry *, const TQString & ) ) );
+    connect( handler, TQ_SIGNAL( searchFinished( SearchHandler *, DocEntry *, const TQString & ) ),
+      TQ_SLOT( showSearchResult( SearchHandler *, DocEntry *, const TQString & ) ) );
   }
   mConnectCount[ handler ] = ++count;
 }
@@ -116,10 +116,10 @@ void SearchTraverser::disconnectHandler( SearchHandler *handler )
     int count = *it;
     --count;
     if ( count == 0 ) {
-      disconnect( handler, TQT_SIGNAL( searchError( SearchHandler *, DocEntry *, const TQString & ) ),
-        this, TQT_SLOT( showSearchError( SearchHandler *, DocEntry *, const TQString & ) ) );
-      disconnect( handler, TQT_SIGNAL( searchFinished( SearchHandler *, DocEntry *, const TQString & ) ),
-        this, TQT_SLOT( showSearchResult( SearchHandler *, DocEntry *, const TQString & ) ) );
+      disconnect( handler, TQ_SIGNAL( searchError( SearchHandler *, DocEntry *, const TQString & ) ),
+        this, TQ_SLOT( showSearchError( SearchHandler *, DocEntry *, const TQString & ) ) );
+      disconnect( handler, TQ_SIGNAL( searchFinished( SearchHandler *, DocEntry *, const TQString & ) ),
+        this, TQ_SLOT( showSearchResult( SearchHandler *, DocEntry *, const TQString & ) ) );
     }
     mConnectCount[ handler ] = count;
   }
@@ -352,12 +352,12 @@ bool SearchEngine::search( TQString words, TQString method, int matches,
       *mProc << arg.utf8();
     }
 
-    connect( mProc, TQT_SIGNAL( receivedStdout( TDEProcess *, char *, int ) ),
-             TQT_SLOT( searchStdout( TDEProcess *, char *, int ) ) );
-    connect( mProc, TQT_SIGNAL( receivedStderr( TDEProcess *, char *, int ) ),
-             TQT_SLOT( searchStderr( TDEProcess *, char *, int ) ) );
-    connect( mProc, TQT_SIGNAL( processExited( TDEProcess * ) ),
-             TQT_SLOT( searchExited( TDEProcess * ) ) );
+    connect( mProc, TQ_SIGNAL( receivedStdout( TDEProcess *, char *, int ) ),
+             TQ_SLOT( searchStdout( TDEProcess *, char *, int ) ) );
+    connect( mProc, TQ_SIGNAL( receivedStderr( TDEProcess *, char *, int ) ),
+             TQ_SLOT( searchStderr( TDEProcess *, char *, int ) ) );
+    connect( mProc, TQ_SIGNAL( processExited( TDEProcess * ) ),
+             TQ_SLOT( searchExited( TDEProcess * ) ) );
 
     mSearchRunning = true;
     mSearchResult = "";

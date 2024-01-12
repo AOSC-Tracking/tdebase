@@ -116,8 +116,8 @@ StatisticsView::StatisticsView(TQWidget *parent,TDEConfig *config, const char *n
    subLayout->addWidget(expandedInfoCb,3,1);
    subLayout->addWidget(expandedUserCb,3,2);
 
-   connect(clearButton,TQT_SIGNAL(clicked()),this,TQT_SLOT(clearStatistics()));
-   connect(calcButton,TQT_SIGNAL(clicked()),this,TQT_SLOT(calculate()));
+   connect(clearButton,TQ_SIGNAL(clicked()),this,TQ_SLOT(clearStatistics()));
+   connect(calcButton,TQ_SIGNAL(clicked()),this,TQ_SLOT(calculate()));
    setListInfo(0,0,0);
 }
 

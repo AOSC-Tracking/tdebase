@@ -252,8 +252,8 @@ KMemoryWidget::KMemoryWidget(TQWidget * parent, const char *name)
 
     timer = new TQTimer(this);
     timer->start(100);
-    TQObject::connect(timer, TQT_SIGNAL(timeout()), this,
-		     TQT_SLOT(update_Values()));
+    TQObject::connect(timer, TQ_SIGNAL(timeout()), this,
+		     TQ_SLOT(update_Values()));
 
     update();
 }

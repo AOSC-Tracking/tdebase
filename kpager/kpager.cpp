@@ -111,7 +111,7 @@ KPagerMainWindow::KPagerMainWindow(TQWidget *parent, const char *name)
     XFree(reinterpret_cast<char *>(hints));
 
     timeout=new TQTimer(this,"timeoutToQuit");
-    connect(timeout,TQT_SIGNAL(timeout()),this, TQT_SLOT(reallyClose()));
+    connect(timeout,TQ_SIGNAL(timeout()),this, TQ_SLOT(reallyClose()));
 }
 
 KPagerMainWindow::~KPagerMainWindow()
@@ -191,7 +191,7 @@ KPager::KPager(KPagerMainWindow *parent, const char *name)
     m_currentDesktop=m_winmodule->currentDesktop();
 
     m_grabWinTimer=new TQTimer(this,"grabWinTimer");
-    connect(m_grabWinTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotGrabWindows()));
+    connect(m_grabWinTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(slotGrabWindows()));
 
     KPagerConfigDialog::initConfiguration();
 
@@ -208,31 +208,31 @@ KPager::KPager(KPagerMainWindow *parent, const char *name)
 
     m_layoutType=static_cast<enum KPager::LayoutTypes>( KPagerConfigDialog::m_layoutType );
 
-    connect( m_winmodule, TQT_SIGNAL( activeWindowChanged(WId)),
-             TQT_SLOT(slotActiveWindowChanged(WId)));
-    connect( m_winmodule, TQT_SIGNAL( windowAdded(WId) ),
-             TQT_SLOT( slotWindowAdded(WId) ) );
-    connect( m_winmodule, TQT_SIGNAL( windowRemoved(WId) ),
-             TQT_SLOT( slotWindowRemoved(WId) ) );
-    connect( m_winmodule, TQT_SIGNAL( windowChanged(WId,unsigned int) ),
-             TQT_SLOT( slotWindowChanged(WId,unsigned int) ) );
-    connect( m_winmodule, TQT_SIGNAL( stackingOrderChanged() ),
-             TQT_SLOT( slotStackingOrderChanged() ) );
-    connect( m_winmodule, TQT_SIGNAL( desktopNamesChanged() ),
-             TQT_SLOT( slotDesktopNamesChanged() ) );
-    connect( m_winmodule, TQT_SIGNAL( numberOfDesktopsChanged(int) ),
-             TQT_SLOT( slotNumberOfDesktopsChanged(int) ) );
-    connect( m_winmodule, TQT_SIGNAL( currentDesktopChanged(int)),
-             TQT_SLOT( slotCurrentDesktopChanged(int) ) );
-    connect(kapp, TQT_SIGNAL(backgroundChanged(int)),
-            TQT_SLOT(slotBackgroundChanged(int)));
+    connect( m_winmodule, TQ_SIGNAL( activeWindowChanged(WId)),
+             TQ_SLOT(slotActiveWindowChanged(WId)));
+    connect( m_winmodule, TQ_SIGNAL( windowAdded(WId) ),
+             TQ_SLOT( slotWindowAdded(WId) ) );
+    connect( m_winmodule, TQ_SIGNAL( windowRemoved(WId) ),
+             TQ_SLOT( slotWindowRemoved(WId) ) );
+    connect( m_winmodule, TQ_SIGNAL( windowChanged(WId,unsigned int) ),
+             TQ_SLOT( slotWindowChanged(WId,unsigned int) ) );
+    connect( m_winmodule, TQ_SIGNAL( stackingOrderChanged() ),
+             TQ_SLOT( slotStackingOrderChanged() ) );
+    connect( m_winmodule, TQ_SIGNAL( desktopNamesChanged() ),
+             TQ_SLOT( slotDesktopNamesChanged() ) );
+    connect( m_winmodule, TQ_SIGNAL( numberOfDesktopsChanged(int) ),
+             TQ_SLOT( slotNumberOfDesktopsChanged(int) ) );
+    connect( m_winmodule, TQ_SIGNAL( currentDesktopChanged(int)),
+             TQ_SLOT( slotCurrentDesktopChanged(int) ) );
+    connect(kapp, TQ_SIGNAL(backgroundChanged(int)),
+            TQ_SLOT(slotBackgroundChanged(int)));
 
     TQFont defFont(TDEGlobalSettings::generalFont().family(), 10, TQFont::Bold);
     defFont = cfg->readFontEntry("Font", &defFont);
     setFont(defFont);
 
-    m_prefs_action = KStdAction::preferences(this, TQT_SLOT(configureDialog()), parent->actionCollection());
-    m_quit_action = KStdAction::quit(kapp, TQT_SLOT(quit()), parent->actionCollection());
+    m_prefs_action = KStdAction::preferences(this, TQ_SLOT(configureDialog()), parent->actionCollection());
+    m_quit_action = KStdAction::quit(kapp, TQ_SLOT(quit()), parent->actionCollection());
 
     updateLayout();
 }
@@ -323,13 +323,13 @@ void KPager::showPopupMenu( WId wid, TQPoint pos)
 
             m_mnu->insertTitle( TQString::fromUtf8("KPager"), 1);
             m_mnu->setCheckable(true);
-            connect(m_mnu, TQT_SIGNAL(aboutToShow()), TQT_SLOT(clientPopupAboutToShow()));
-            connect(m_mnu, TQT_SIGNAL(activated(int)), TQT_SLOT(clientPopupActivated(int)));
+            connect(m_mnu, TQ_SIGNAL(aboutToShow()), TQ_SLOT(clientPopupAboutToShow()));
+            connect(m_mnu, TQ_SIGNAL(activated(int)), TQ_SLOT(clientPopupActivated(int)));
 
             m_dmnu = new TQPopupMenu(m_mnu);
             m_dmnu->setCheckable(true);
-            connect(m_dmnu, TQT_SIGNAL(aboutToShow()), TQT_SLOT(desktopPopupAboutToShow()));
-            connect(m_dmnu, TQT_SIGNAL(activated(int)), TQT_SLOT(sendToDesktop(int)));
+            connect(m_dmnu, TQ_SIGNAL(aboutToShow()), TQ_SLOT(desktopPopupAboutToShow()));
+            connect(m_dmnu, TQ_SIGNAL(activated(int)), TQ_SLOT(sendToDesktop(int)));
 
             m_mnu->insertItem( i18n("Mi&nimize"), IconifyOp );
             m_mnu->insertItem( i18n("Ma&ximize"), MaximizeOp );

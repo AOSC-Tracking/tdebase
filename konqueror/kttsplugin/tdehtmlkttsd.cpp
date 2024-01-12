@@ -42,7 +42,7 @@ TDEHTMLPluginKTTSD::TDEHTMLPluginKTTSD( TQObject* parent, const char* name, cons
     {
         (void) new TDEAction( i18n("&Speak Text"),
             "kttsd", 0,
-            this, TQT_SLOT(slotReadOut()),
+            this, TQ_SLOT(slotReadOut()),
             actionCollection(), "tools_kttsd" );
     }
     else

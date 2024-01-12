@@ -56,16 +56,16 @@ StartupId::StartupId( TQWidget* parent, const char* name )
         XSelectInput( tqt_xdisplay(), tqt_xrootwin(), attrs.your_event_mask | SubstructureNotifyMask);
         kapp->installX11EventFilter( this );
         }
-    connect( &update_timer, TQT_SIGNAL( timeout()), TQT_SLOT( update_startupid()));
+    connect( &update_timer, TQ_SIGNAL( timeout()), TQ_SLOT( update_startupid()));
     connect( &startup_info,
-        TQT_SIGNAL( gotNewStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )),
-        TQT_SLOT( gotNewStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )));
+        TQ_SIGNAL( gotNewStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )),
+        TQ_SLOT( gotNewStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )));
     connect( &startup_info,
-        TQT_SIGNAL( gotStartupChange( const TDEStartupInfoId&, const TDEStartupInfoData& )),
-        TQT_SLOT( gotStartupChange( const TDEStartupInfoId&, const TDEStartupInfoData& )));
+        TQ_SIGNAL( gotStartupChange( const TDEStartupInfoId&, const TDEStartupInfoData& )),
+        TQ_SLOT( gotStartupChange( const TDEStartupInfoId&, const TDEStartupInfoData& )));
     connect( &startup_info,
-        TQT_SIGNAL( gotRemoveStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )),
-        TQT_SLOT( gotRemoveStartup( const TDEStartupInfoId& )));
+        TQ_SIGNAL( gotRemoveStartup( const TDEStartupInfoId&, const TDEStartupInfoData& )),
+        TQ_SLOT( gotRemoveStartup( const TDEStartupInfoId& )));
     }
 
 StartupId::~StartupId()
@@ -129,10 +129,10 @@ bool StartupId::x11Event( XEvent* e )
             if( startups.count() == 0 )
                 start_startupid( KDE_STARTUP_ICON );
             // 60(?) sec timeout - shouldn't be hopefully needed anyway, ksmserver should have it too
-            TQTimer::singleShot( 60000, this, TQT_SLOT( finishKDEStartup()));
+            TQTimer::singleShot( 60000, this, TQ_SLOT( finishKDEStartup()));
             }
         else if( strcmp( s, "session ready" ) == 0 && kde_startup_status < StartupDone )
-            TQTimer::singleShot( 2000, this, TQT_SLOT( finishKDEStartup()));
+            TQTimer::singleShot( 2000, this, TQ_SLOT( finishKDEStartup()));
         }
     return false;
     }

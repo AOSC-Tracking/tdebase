@@ -254,16 +254,16 @@ AddAppletDialog::AddAppletDialog(ContainerArea* cArea,
     m_mainWidget->appletInstall->setGuiItem(addGuiItem);
     m_mainWidget->closeButton->setGuiItem(KStdGuiItem::close());
 
-    connect(m_mainWidget->appletSearch, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(delayedSearch()));
-    connect(m_searchDelay, TQT_SIGNAL(timeout()), this, TQT_SLOT(search()));
-    connect(m_mainWidget->appletFilter, TQT_SIGNAL(activated(int)), this, TQT_SLOT(filter(int)));
-    connect(m_mainWidget->appletInstall, TQT_SIGNAL(clicked()), this, TQT_SLOT(addCurrentApplet()));
-    connect(m_mainWidget->closeButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(close()));
+    connect(m_mainWidget->appletSearch, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(delayedSearch()));
+    connect(m_searchDelay, TQ_SIGNAL(timeout()), this, TQ_SLOT(search()));
+    connect(m_mainWidget->appletFilter, TQ_SIGNAL(activated(int)), this, TQ_SLOT(filter(int)));
+    connect(m_mainWidget->appletInstall, TQ_SIGNAL(clicked()), this, TQ_SLOT(addCurrentApplet()));
+    connect(m_mainWidget->closeButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(close()));
 
     m_selectedType = AppletInfo::Undefined;
     m_appletBox = 0;
 
-    TQTimer::singleShot(0, this, TQT_SLOT(populateApplets()));
+    TQTimer::singleShot(0, this, TQ_SLOT(populateApplets()));
 }
 
 void AddAppletDialog::updateInsertionPoint()
@@ -303,7 +303,7 @@ void AddAppletDialog::resizeAppletView()
 bool AddAppletDialog::eventFilter(TQObject *o, TQEvent *e)
 {
     if (e->type() == TQEvent::Resize)
-        TQTimer::singleShot(0, this, TQT_SLOT(resizeAppletView()));
+        TQTimer::singleShot(0, this, TQ_SLOT(resizeAppletView()));
     
     return this->TQObject::eventFilter(o, e);
 }
@@ -372,10 +372,10 @@ void AddAppletDialog::populateApplets()
         setTabOrder(prevTabWidget, itemWidget);
         prevTabWidget = itemWidget;
 
-        connect(itemWidget, TQT_SIGNAL(clicked(AppletWidget*)),
-                this, TQT_SLOT(selectApplet(AppletWidget*)));
-        connect(itemWidget, TQT_SIGNAL(doubleClicked(AppletWidget*)),
-                this, TQT_SLOT(addApplet(AppletWidget*)));
+        connect(itemWidget, TQ_SIGNAL(clicked(AppletWidget*)),
+                this, TQ_SLOT(selectApplet(AppletWidget*)));
+        connect(itemWidget, TQ_SIGNAL(doubleClicked(AppletWidget*)),
+                this, TQ_SLOT(addApplet(AppletWidget*)));
 
         if (m_closing)
         {
@@ -518,7 +518,7 @@ void AddAppletDialog::search()
         }
     }
     
-    TQTimer::singleShot(0, this, TQT_SLOT(resizeAppletView()));
+    TQTimer::singleShot(0, this, TQ_SLOT(resizeAppletView()));
 }
 
 void AddAppletDialog::filter(int i)

@@ -145,7 +145,7 @@ void KSMServer::restoreSession( TQString sessionName )
         if ((showFancyLogin) && (!startupNotifierIPDlg)) {
             startupNotifierIPDlg = KSMStartupIPDlg::showStartupIP();
         }
-        TQTimer::singleShot( 4000, this, TQT_SLOT( autoStart0() ) );
+        TQTimer::singleShot( 4000, this, TQ_SLOT( autoStart0() ) );
     } else {
         if ((showFancyLogin) && (!startupNotifierIPDlg)) {
             startupNotifierIPDlg = KSMStartupIPDlg::showStartupIP();
@@ -192,7 +192,7 @@ void KSMServer::startDefaultSession()
     if ((showFancyLogin) && (!startupNotifierIPDlg)) {
         startupNotifierIPDlg = KSMStartupIPDlg::showStartupIP();
     }
-    TQTimer::singleShot( 4000, this, TQT_SLOT( autoStart0() ) );
+    TQTimer::singleShot( 4000, this, TQ_SLOT( autoStart0() ) );
 }
 
 
@@ -226,7 +226,7 @@ void KSMServer::autoStart0Done()
     connectDCOPSignal( "kcminit", "kcminit", "phase1Done()",
                        "kcmPhase1Done()", true);
     state = KcmInitPhase1;
-    TQTimer::singleShot( 10000, this, TQT_SLOT( kcmPhase1Timeout())); // protection
+    TQTimer::singleShot( 10000, this, TQ_SLOT( kcmPhase1Timeout())); // protection
     DCOPRef( "kcminit", "kcminit" ).send( "runPhase1" );
 }
 
@@ -333,7 +333,7 @@ void KSMServer::autoStart2()
     DCOPRef( "kdesktop", "KDesktopIface" ).send( "runAutoStart" );
     connectDCOPSignal( "kcminit", "kcminit", "phase2Done()",
                        "kcmPhase2Done()", true);
-    TQTimer::singleShot( 10000, this, TQT_SLOT( kcmPhase2Timeout())); // protection
+    TQTimer::singleShot( 10000, this, TQ_SLOT( kcmPhase2Timeout())); // protection
     DCOPRef( "kcminit", "kcminit" ).send( "runPhase2" );
     if( !defaultSession())
         restoreLegacySession( TDEGlobal::config());

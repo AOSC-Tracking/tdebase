@@ -323,8 +323,8 @@ bool clientApp::createNewWindow(const KURL & url, bool newTab, bool tempFile, co
             TDEStartupInfo::appStarted();
 
             KRun * run = new KRun( url, 0, 0, false, false /* no progress window */ ); // TODO pass tempFile [needs support in the KRun ctor]
-            TQObject::connect( run, TQT_SIGNAL( finished() ), &app, TQT_SLOT( delayedQuit() ));
-            TQObject::connect( run, TQT_SIGNAL( error() ), &app, TQT_SLOT( delayedQuit() ));
+            TQObject::connect( run, TQ_SIGNAL( finished() ), &app, TQ_SLOT( delayedQuit() ));
+            TQObject::connect( run, TQ_SIGNAL( error() ), &app, TQ_SLOT( delayedQuit() ));
             app.exec();
             return !krun_has_error;
         }
@@ -423,7 +423,7 @@ void clientApp::delayedQuit()
 {
     // Quit in 2 seconds. This leaves time for KRun to pop up
     // "app not found" in TDEProcessRunner, if that was the case.
-    TQTimer::singleShot( 2000, this, TQT_SLOT(deref()) );
+    TQTimer::singleShot( 2000, this, TQ_SLOT(deref()) );
     // don't access the KRun instance later, it will be deleted after calling slots
     if( static_cast< const KRun* >( sender())->hasError())
         krun_has_error = true;
@@ -504,8 +504,8 @@ bool clientApp::doIt()
   {
     checkArgumentCount(argc, 2, 2);
     KPropertiesDialog * p = new KPropertiesDialog( args->url(1) );
-    TQObject::connect( p, TQT_SIGNAL( destroyed() ), &app, TQT_SLOT( quit() ));
-    TQObject::connect( p, TQT_SIGNAL( canceled() ), &app, TQT_SLOT( slotDialogCanceled() ));
+    TQObject::connect( p, TQ_SIGNAL( destroyed() ), &app, TQ_SLOT( quit() ));
+    TQObject::connect( p, TQ_SIGNAL( canceled() ), &app, TQ_SLOT( slotDialogCanceled() ));
     app.exec();
     return m_ok;
   }
@@ -520,8 +520,8 @@ bool clientApp::doIt()
     else if ( argc == 2 )
     {
       KRun * run = new KRun( args->url(1), 0, 0, false, false /* no progress window */ );
-      TQObject::connect( run, TQT_SIGNAL( finished() ), &app, TQT_SLOT( delayedQuit() ));
-      TQObject::connect( run, TQT_SIGNAL( error() ), &app, TQT_SLOT( delayedQuit() ));
+      TQObject::connect( run, TQ_SIGNAL( finished() ), &app, TQ_SLOT( delayedQuit() ));
+      TQObject::connect( run, TQ_SIGNAL( error() ), &app, TQ_SLOT( delayedQuit() ));
       app.exec();
       return !krun_has_error;
     }
@@ -538,8 +538,8 @@ bool clientApp::doIt()
   else if ( command == "openBrowser" )
   {
     KRun * run = new KRun( "http://default.browser", 0, 0, false, false /* no progress window */ );
-    TQObject::connect( run, TQT_SIGNAL( finished() ), &app, TQT_SLOT( delayedQuit() ));
-    TQObject::connect( run, TQT_SIGNAL( error() ), &app, TQT_SLOT( delayedQuit() ));
+    TQObject::connect( run, TQ_SIGNAL( finished() ), &app, TQ_SLOT( delayedQuit() ));
+    TQObject::connect( run, TQ_SIGNAL( error() ), &app, TQ_SLOT( delayedQuit() ));
     app.exec();
     return !krun_has_error;
   }
@@ -553,7 +553,7 @@ bool clientApp::doIt()
     TDEIO::Job * job = TDEIO::move( srcLst, args->url(argc - 1) );
     if ( !s_interactive )
         job->setInteractive( false );
-    connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ), &app, TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+    connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ), &app, TQ_SLOT( slotResult( TDEIO::Job * ) ) );
     app.exec();
     return m_ok;
   }
@@ -588,7 +588,7 @@ bool clientApp::doIt()
     TDEIO::Job * job = TDEIO::copy( srcLst, dsturl );
     if ( !s_interactive )
         job->setInteractive( false );
-    connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ), &app, TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+    connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ), &app, TQ_SLOT( slotResult( TDEIO::Job * ) ) );
     app.exec();
     return m_ok;
   }
@@ -602,7 +602,7 @@ bool clientApp::doIt()
     TDEIO::Job * job = TDEIO::copy( srcLst, args->url(argc - 1) );
     if ( !s_interactive )
         job->setInteractive( false );
-    connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ), &app, TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+    connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ), &app, TQ_SLOT( slotResult( TDEIO::Job * ) ) );
     app.exec();
     return m_ok;
   }

@@ -43,8 +43,8 @@ DeviceIconView::DeviceIconView(TQWidget * parent, const char * name)
 	
 	header()->hide();
 	
-	connect(this, TQT_SIGNAL(clicked(TQListViewItem*)), this, TQT_SLOT(slotItemSelected(TQListViewItem*)));
-	connect(this, TQT_SIGNAL(executed(TQListViewItem*)), this, TQT_SLOT(slotItemDoubleClicked(TQListViewItem*)));
+	connect(this, TQ_SIGNAL(clicked(TQListViewItem*)), this, TQ_SLOT(slotItemSelected(TQListViewItem*)));
+	connect(this, TQ_SIGNAL(executed(TQListViewItem*)), this, TQ_SLOT(slotItemDoubleClicked(TQListViewItem*)));
 }
 
 void DeviceIconView::slotItemSelected(TQListViewItem* item)

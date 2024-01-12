@@ -59,8 +59,8 @@ KonsoleBookmarkHandler::KonsoleBookmarkHandler( Konsole *konsole, bool toplevel 
     manager->setUpdate( true );
     manager->setShowNSBookmarks( false );
     
-    connect( manager, TQT_SIGNAL( changed(const TQString &, const TQString &) ),
-             TQT_SLOT( slotBookmarksChanged(const TQString &, const TQString &) ) );
+    connect( manager, TQ_SIGNAL( changed(const TQString &, const TQString &) ),
+             TQ_SLOT( slotBookmarksChanged(const TQString &, const TQString &) ) );
 
     if (toplevel) {
         m_bookmarkMenu = new KonsoleBookmarkMenu( manager, this, m_menu,

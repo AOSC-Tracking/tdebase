@@ -52,21 +52,21 @@ KJavaScriptOptions::KJavaScriptOptions( TDEConfig* config, TQString group, TQWid
   TQWhatsThis::add( enableJavaScriptGloballyCB, i18n("Enables the execution of scripts written in ECMA-Script "
         "(also known as JavaScript) that can be contained in HTML pages. "
         "Note that, as with any browser, enabling scripting languages can be a security problem.") );
-  connect( enableJavaScriptGloballyCB, TQT_SIGNAL( clicked() ), TQT_SLOT( changed() ) );
-  connect( enableJavaScriptGloballyCB, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotChangeJSEnabled() ) );
+  connect( enableJavaScriptGloballyCB, TQ_SIGNAL( clicked() ), TQ_SLOT( changed() ) );
+  connect( enableJavaScriptGloballyCB, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotChangeJSEnabled() ) );
 
   reportErrorsCB = new TQCheckBox( i18n( "Report &errors" ), globalGB );
   TQWhatsThis::add( reportErrorsCB, i18n("Enables the reporting of errors that occur when JavaScript "
 	"code is executed.") );
-  connect( reportErrorsCB, TQT_SIGNAL( clicked() ), TQT_SLOT( changed() ) );
+  connect( reportErrorsCB, TQ_SIGNAL( clicked() ), TQ_SLOT( changed() ) );
 
   jsDebugWindow = new TQCheckBox( i18n( "Enable debu&gger" ), globalGB );
   TQWhatsThis::add( jsDebugWindow, i18n( "Enables builtin JavaScript debugger." ) );
-  connect( jsDebugWindow, TQT_SIGNAL( clicked() ), TQT_SLOT( changed() ) );
+  connect( jsDebugWindow, TQ_SIGNAL( clicked() ), TQ_SLOT( changed() ) );
 
   // the domain-specific listview
   domainSpecific = new JSDomainListView(m_pConfig,m_groupname,this,this);
-  connect(domainSpecific,TQT_SIGNAL(changed(bool)),TQT_SLOT(changed()));
+  connect(domainSpecific,TQ_SIGNAL(changed(bool)),TQ_SLOT(changed()));
   toplevel->addWidget( domainSpecific, 2 );
 
   TQWhatsThis::add( domainSpecific, i18n("Here you can set specific JavaScript policies for any particular "
@@ -97,7 +97,7 @@ KJavaScriptOptions::KJavaScriptOptions( TDEConfig* config, TQString group, TQWid
   js_policies_frame = new JSPoliciesFrame(&js_global_policies,
   		i18n("Global JavaScript Policies"),this);
   toplevel->addWidget(js_policies_frame);
-  connect(js_policies_frame, TQT_SIGNAL(changed()), TQT_SLOT(changed()));
+  connect(js_policies_frame, TQ_SIGNAL(changed()), TQ_SLOT(changed()));
 
   // Finally do the loading
   load();

@@ -101,18 +101,18 @@ BasicTab::BasicTab( TQWidget *parent, const char *name )
     grid->addWidget(_execLabel, 3, 0);
 
     // connect line inputs
-    connect(_nameEdit, TQT_SIGNAL(textChanged(const TQString&)),
-            TQT_SLOT(slotChanged()));
-    connect(_descriptionEdit, TQT_SIGNAL(textChanged(const TQString&)),
-	    TQT_SLOT(slotChanged()));
-    connect(_commentEdit, TQT_SIGNAL(textChanged(const TQString&)),
-            TQT_SLOT(slotChanged()));
-    connect(_execEdit, TQT_SIGNAL(textChanged(const TQString&)),
-            TQT_SLOT(slotChanged()));
-    connect(_execEdit, TQT_SIGNAL(urlSelected(const TQString&)),
-            TQT_SLOT(slotExecSelected()));
-    connect(_launchCB, TQT_SIGNAL(clicked()), TQT_SLOT(launchcb_clicked()));
-    connect(_systrayCB, TQT_SIGNAL(clicked()), TQT_SLOT(systraycb_clicked()));
+    connect(_nameEdit, TQ_SIGNAL(textChanged(const TQString&)),
+            TQ_SLOT(slotChanged()));
+    connect(_descriptionEdit, TQ_SIGNAL(textChanged(const TQString&)),
+	    TQ_SLOT(slotChanged()));
+    connect(_commentEdit, TQ_SIGNAL(textChanged(const TQString&)),
+            TQ_SLOT(slotChanged()));
+    connect(_execEdit, TQ_SIGNAL(textChanged(const TQString&)),
+            TQ_SLOT(slotChanged()));
+    connect(_execEdit, TQ_SIGNAL(urlSelected(const TQString&)),
+            TQ_SLOT(slotExecSelected()));
+    connect(_launchCB, TQ_SIGNAL(clicked()), TQ_SLOT(launchcb_clicked()));
+    connect(_systrayCB, TQ_SIGNAL(clicked()), TQ_SLOT(systraycb_clicked()));
 
     // add line inputs to the grid
     grid->addMultiCellWidget(_nameEdit, 0, 0, 1, 1);
@@ -126,7 +126,7 @@ BasicTab::BasicTab( TQWidget *parent, const char *name )
     _iconButton = new TDEIconButton(general_group);
     _iconButton->setFixedSize(56,56);
     _iconButton->setIconSize(48);
-    connect(_iconButton, TQT_SIGNAL(iconChanged(TQString)), TQT_SLOT(slotChanged()));
+    connect(_iconButton, TQ_SIGNAL(iconChanged(TQString)), TQ_SLOT(slotChanged()));
     grid->addMultiCellWidget(_iconButton, 0, 1, 2, 2);
 
     // add the general group to the main layout
@@ -148,8 +148,8 @@ BasicTab::BasicTab( TQWidget *parent, const char *name )
 
     _pathLabel->setBuddy(_pathEdit);
 
-    connect(_pathEdit, TQT_SIGNAL(textChanged(const TQString&)),
-            TQT_SLOT(slotChanged()));
+    connect(_pathEdit, TQ_SIGNAL(textChanged(const TQString&)),
+            TQ_SLOT(slotChanged()));
     vbox->addWidget(hbox);
     layout->addMultiCellWidget(_path_group, 1, 1, 0, 1);
 
@@ -159,7 +159,7 @@ BasicTab::BasicTab( TQWidget *parent, const char *name )
 			   KDialog::spacingHint());
 
     _terminalCB = new TQCheckBox(i18n("Run in term&inal"), _term_group);
-    connect(_terminalCB, TQT_SIGNAL(clicked()), TQT_SLOT(termcb_clicked()));
+    connect(_terminalCB, TQ_SIGNAL(clicked()), TQ_SLOT(termcb_clicked()));
     vbox->addWidget(_terminalCB);
 
     hbox = new TQHBox(_term_group);
@@ -169,8 +169,8 @@ BasicTab::BasicTab( TQWidget *parent, const char *name )
     _termOptEdit->setAcceptDrops(false);
     _termOptLabel->setBuddy(_termOptEdit);
 
-    connect(_termOptEdit, TQT_SIGNAL(textChanged(const TQString&)),
-            TQT_SLOT(slotChanged()));
+    connect(_termOptEdit, TQ_SIGNAL(textChanged(const TQString&)),
+            TQ_SLOT(slotChanged()));
     vbox->addWidget(hbox);
     layout->addMultiCellWidget(_term_group, 2, 2, 0, 1);
 
@@ -182,7 +182,7 @@ BasicTab::BasicTab( TQWidget *parent, const char *name )
                            KDialog::spacingHint());
 
     _uidCB = new TQCheckBox(i18n("&Run as a different user"), _uid_group);
-    connect(_uidCB, TQT_SIGNAL(clicked()), TQT_SLOT(uidcb_clicked()));
+    connect(_uidCB, TQ_SIGNAL(clicked()), TQ_SLOT(uidcb_clicked()));
     vbox->addWidget(_uidCB);
 
     hbox = new TQHBox(_uid_group);
@@ -192,8 +192,8 @@ BasicTab::BasicTab( TQWidget *parent, const char *name )
     _uidEdit->setAcceptDrops(false);
     _uidLabel->setBuddy(_uidEdit);
 
-    connect(_uidEdit, TQT_SIGNAL(textChanged(const TQString&)),
-	    TQT_SLOT(slotChanged()));
+    connect(_uidEdit, TQ_SIGNAL(textChanged(const TQString&)),
+	    TQ_SLOT(slotChanged()));
     vbox->addWidget(hbox);
     layout->addMultiCellWidget(_uid_group, 3, 3, 0, 1);
 
@@ -216,11 +216,11 @@ BasicTab::BasicTab( TQWidget *parent, const char *name )
     //_keyEdit->setText( "" );
     //TQPushButton* _keyButton = new TQPushButton( i18n( "Change" ),
     //                                           general_group_keybind );
-    //connect( _keyButton, TQT_SIGNAL( clicked()), this, TQT_SLOT( keyButtonPressed()));
+    //connect( _keyButton, TQ_SIGNAL( clicked()), this, TQ_SLOT( keyButtonPressed()));
     _keyEdit = new KKeyButton(general_group_keybind);
     grid_keybind->addWidget(new TQLabel(_keyEdit, i18n("Current shortcut &key:"), general_group_keybind), 0, 0);
-    connect( _keyEdit, TQT_SIGNAL(capturedShortcut(const TDEShortcut&)),
-             this, TQT_SLOT(slotCapturedShortcut(const TDEShortcut&)));
+    connect( _keyEdit, TQ_SIGNAL(capturedShortcut(const TDEShortcut&)),
+             this, TQ_SLOT(slotCapturedShortcut(const TDEShortcut&)));
     grid_keybind->addWidget(_keyEdit, 0, 1);
     //grid_keybind->addWidget(_keyButton, 0, 2 );
 

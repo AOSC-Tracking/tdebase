@@ -48,21 +48,21 @@ LookAndFeelTab::LookAndFeelTab( TQWidget *parent, const char* name )
   : LookAndFeelTabBase(parent, name),
     m_advDialog(0)
 {
-    connect(m_kmenuTile, TQT_SIGNAL(activated(int)), TQT_SIGNAL(changed()));
-    connect(m_desktopTile, TQT_SIGNAL(activated(int)), TQT_SIGNAL(changed()));
-    connect(m_browserTile, TQT_SIGNAL(activated(int)), TQT_SIGNAL(changed()));
-    connect(m_urlTile, TQT_SIGNAL(activated(int)), TQT_SIGNAL(changed()));
-    connect(m_windowListTile, TQT_SIGNAL(activated(int)), TQT_SIGNAL(changed()));
+    connect(m_kmenuTile, TQ_SIGNAL(activated(int)), TQ_SIGNAL(changed()));
+    connect(m_desktopTile, TQ_SIGNAL(activated(int)), TQ_SIGNAL(changed()));
+    connect(m_browserTile, TQ_SIGNAL(activated(int)), TQ_SIGNAL(changed()));
+    connect(m_urlTile, TQ_SIGNAL(activated(int)), TQ_SIGNAL(changed()));
+    connect(m_windowListTile, TQ_SIGNAL(activated(int)), TQ_SIGNAL(changed()));
 
-    connect(m_kmenuTile, TQT_SIGNAL(activated(int)), TQT_SLOT(kmenuTileChanged(int)));
-    connect(m_desktopTile, TQT_SIGNAL(activated(int)), TQT_SLOT(desktopTileChanged(int)));
-    connect(m_browserTile, TQT_SIGNAL(activated(int)), TQT_SLOT(browserTileChanged(int)));
-    connect(m_urlTile, TQT_SIGNAL(activated(int)), TQT_SLOT(urlTileChanged(int)));
-    connect(m_windowListTile, TQT_SIGNAL(activated(int)), TQT_SLOT(wlTileChanged(int)));
+    connect(m_kmenuTile, TQ_SIGNAL(activated(int)), TQ_SLOT(kmenuTileChanged(int)));
+    connect(m_desktopTile, TQ_SIGNAL(activated(int)), TQ_SLOT(desktopTileChanged(int)));
+    connect(m_browserTile, TQ_SIGNAL(activated(int)), TQ_SLOT(browserTileChanged(int)));
+    connect(m_urlTile, TQ_SIGNAL(activated(int)), TQ_SLOT(urlTileChanged(int)));
+    connect(m_windowListTile, TQ_SIGNAL(activated(int)), TQ_SLOT(wlTileChanged(int)));
 
-    connect(kcfg_ColorizeBackground, TQT_SIGNAL(toggled(bool)), TQT_SLOT(browseTheme()));
+    connect(kcfg_ColorizeBackground, TQ_SIGNAL(toggled(bool)), TQ_SLOT(browseTheme()));
 
-    connect(kcfg_BackgroundTheme->lineEdit(), TQT_SIGNAL(lostFocus()), TQT_SLOT(browseTheme()));
+    connect(kcfg_BackgroundTheme->lineEdit(), TQ_SIGNAL(lostFocus()), TQ_SLOT(browseTheme()));
     kcfg_BackgroundTheme->setFilter(KImageIO::pattern(KImageIO::Reading));
     kcfg_BackgroundTheme->setCaption(i18n("Select Image File"));
 
@@ -92,7 +92,7 @@ void LookAndFeelTab::launchAdvancedDialog()
     if (!m_advDialog)
     {
         m_advDialog = new advancedDialog(this, "advancedDialog");
-        connect(m_advDialog, TQT_SIGNAL(finished()), this, TQT_SLOT(finishAdvancedDialog()));
+        connect(m_advDialog, TQ_SIGNAL(finished()), this, TQ_SLOT(finishAdvancedDialog()));
         m_advDialog->show();
     }
     m_advDialog->setActiveWindow();

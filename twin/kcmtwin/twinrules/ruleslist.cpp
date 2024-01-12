@@ -33,22 +33,22 @@ KCMRulesList::KCMRulesList( TQWidget* parent, const char* name )
 : KCMRulesListBase( parent, name )
     {
     // connect both current/selected, so that current==selected (stupid TQListBox :( )
-    connect( rules_listbox, TQT_SIGNAL( currentChanged( TQListBoxItem* )),
-        TQT_SLOT( activeChanged( TQListBoxItem*)));
-    connect( rules_listbox, TQT_SIGNAL( selectionChanged( TQListBoxItem* )),
-        TQT_SLOT( activeChanged( TQListBoxItem*)));
-    connect( new_button, TQT_SIGNAL( clicked()),
-        TQT_SLOT( newClicked()));
-    connect( modify_button, TQT_SIGNAL( clicked()),
-        TQT_SLOT( modifyClicked()));
-    connect( delete_button, TQT_SIGNAL( clicked()),
-        TQT_SLOT( deleteClicked()));
-    connect( moveup_button, TQT_SIGNAL( clicked()),
-        TQT_SLOT( moveupClicked()));
-    connect( movedown_button, TQT_SIGNAL( clicked()),
-        TQT_SLOT( movedownClicked()));
-    connect( rules_listbox, TQT_SIGNAL( doubleClicked ( TQListBoxItem * ) ),
-            TQT_SLOT( modifyClicked()));
+    connect( rules_listbox, TQ_SIGNAL( currentChanged( TQListBoxItem* )),
+        TQ_SLOT( activeChanged( TQListBoxItem*)));
+    connect( rules_listbox, TQ_SIGNAL( selectionChanged( TQListBoxItem* )),
+        TQ_SLOT( activeChanged( TQListBoxItem*)));
+    connect( new_button, TQ_SIGNAL( clicked()),
+        TQ_SLOT( newClicked()));
+    connect( modify_button, TQ_SIGNAL( clicked()),
+        TQ_SLOT( modifyClicked()));
+    connect( delete_button, TQ_SIGNAL( clicked()),
+        TQ_SLOT( deleteClicked()));
+    connect( moveup_button, TQ_SIGNAL( clicked()),
+        TQ_SLOT( moveupClicked()));
+    connect( movedown_button, TQ_SIGNAL( clicked()),
+        TQ_SLOT( movedownClicked()));
+    connect( rules_listbox, TQ_SIGNAL( doubleClicked ( TQListBoxItem * ) ),
+            TQ_SLOT( modifyClicked()));
     load();
     }
 

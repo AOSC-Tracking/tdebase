@@ -156,11 +156,11 @@ KateSaveModifiedDialog::KateSaveModifiedDialog(TQWidget *parent, TQPtrList<Kate:
 		}
 		m_documentRoot->setOpen(true);
 	} else m_documentRoot=0;
-	connect(m_list, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(slotItemSelected()));
-	connect(m_list, TQT_SIGNAL(doubleClicked(TQListViewItem *)), TQT_SLOT(slotItemSelected()));
-	connect(m_list, TQT_SIGNAL(spacePressed(TQListViewItem *)), TQT_SLOT(slotItemSelected()));
+	connect(m_list, TQ_SIGNAL(clicked(TQListViewItem *)), TQ_SLOT(slotItemSelected()));
+	connect(m_list, TQ_SIGNAL(doubleClicked(TQListViewItem *)), TQ_SLOT(slotItemSelected()));
+	connect(m_list, TQ_SIGNAL(spacePressed(TQListViewItem *)), TQ_SLOT(slotItemSelected()));
 	if(documents.count()>3) { //For 3 or less, it would be quicker just to tick or untick them yourself, so don't clutter the gui.
-		connect(new TQPushButton(i18n("Se&lect All"),box),TQT_SIGNAL(clicked()),this,TQT_SLOT(slotSelectAll()));
+		connect(new TQPushButton(i18n("Se&lect All"),box),TQ_SIGNAL(clicked()),this,TQ_SLOT(slotSelectAll()));
 	}
 }
 

@@ -75,33 +75,33 @@ HistorySidebarConfig::HistorySidebarConfig( TQWidget *parent, const char* name, 
     dialog->comboOlder->insertItem( i18n("Days"),
                                     KonqSidebarHistorySettings::DAYS );
 
-    connect( dialog->cbExpire, TQT_SIGNAL( toggled( bool )),
-	     dialog->spinExpire, TQT_SLOT( setEnabled( bool )));
-    connect( dialog->spinExpire, TQT_SIGNAL( valueChanged( int )),
-	     this, TQT_SLOT( slotExpireChanged( int )));
+    connect( dialog->cbExpire, TQ_SIGNAL( toggled( bool )),
+	     dialog->spinExpire, TQ_SLOT( setEnabled( bool )));
+    connect( dialog->spinExpire, TQ_SIGNAL( valueChanged( int )),
+	     this, TQ_SLOT( slotExpireChanged( int )));
 
-    connect( dialog->spinNewer, TQT_SIGNAL( valueChanged( int )),
-	     TQT_SLOT( slotNewerChanged( int )));
-    connect( dialog->spinOlder, TQT_SIGNAL( valueChanged( int )),
-	     TQT_SLOT( slotOlderChanged( int )));
+    connect( dialog->spinNewer, TQ_SIGNAL( valueChanged( int )),
+	     TQ_SLOT( slotNewerChanged( int )));
+    connect( dialog->spinOlder, TQ_SIGNAL( valueChanged( int )),
+	     TQ_SLOT( slotOlderChanged( int )));
 
-    connect( dialog->btnFontNewer, TQT_SIGNAL( clicked() ),
-             TQT_SLOT( slotGetFontNewer() ));
-    connect( dialog->btnFontOlder, TQT_SIGNAL( clicked() ),
-             TQT_SLOT( slotGetFontOlder() ));
-    connect( dialog->btnClearHistory, TQT_SIGNAL( clicked() ),
-             TQT_SLOT( slotClearHistory() ));
+    connect( dialog->btnFontNewer, TQ_SIGNAL( clicked() ),
+             TQ_SLOT( slotGetFontNewer() ));
+    connect( dialog->btnFontOlder, TQ_SIGNAL( clicked() ),
+             TQ_SLOT( slotGetFontOlder() ));
+    connect( dialog->btnClearHistory, TQ_SIGNAL( clicked() ),
+             TQ_SLOT( slotClearHistory() ));
 
-    connect( dialog->cbDetailedTips, TQT_SIGNAL( toggled( bool )),
-             TQT_SLOT( configChanged() ));
-    connect( dialog->cbExpire, TQT_SIGNAL( toggled( bool )),
-             TQT_SLOT( configChanged() ));
-    connect( dialog->spinEntries, TQT_SIGNAL( valueChanged( int )),
-             TQT_SLOT( configChanged() ));
-    connect( dialog->comboNewer, TQT_SIGNAL( activated( int )),
-             TQT_SLOT( configChanged() ));
-    connect( dialog->comboOlder, TQT_SIGNAL( activated( int )),
-             TQT_SLOT( configChanged() ));
+    connect( dialog->cbDetailedTips, TQ_SIGNAL( toggled( bool )),
+             TQ_SLOT( configChanged() ));
+    connect( dialog->cbExpire, TQ_SIGNAL( toggled( bool )),
+             TQ_SLOT( configChanged() ));
+    connect( dialog->spinEntries, TQ_SIGNAL( valueChanged( int )),
+             TQ_SLOT( configChanged() ));
+    connect( dialog->comboNewer, TQ_SIGNAL( activated( int )),
+             TQ_SLOT( configChanged() ));
+    connect( dialog->comboOlder, TQ_SIGNAL( activated( int )),
+             TQ_SLOT( configChanged() ));
 
     dialog->show();
     topLayout->add(dialog);

@@ -44,7 +44,7 @@ ModernSysConfig::ModernSysConfig(TDEConfig* conf, TQWidget* parent) : TQObject(p
 			"easier, especially for trackballs and other mouse replacements "
 			"on laptops."));
         layout->addMultiCellWidget(cbShowHandle, 0, 0, 0, 1);
-	connect(cbShowHandle, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotSelectionChanged()));
+	connect(cbShowHandle, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotSelectionChanged()));
 
 	sliderBox = new TQVBox(handleBox);
 	handleSizeSlider = new TQSlider(0, 4, 1, 0, TQt::Horizontal, sliderBox);
@@ -52,7 +52,7 @@ ModernSysConfig::ModernSysConfig(TDEConfig* conf, TQWidget* parent) : TQObject(p
 			i18n("Here you can change the size of the resize handle."));
 	handleSizeSlider->setTickInterval(1);
 	handleSizeSlider->setTickmarks(TQSlider::Below);
-	connect(handleSizeSlider, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(slotSelectionChanged()));
+	connect(handleSizeSlider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(slotSelectionChanged()));
 
 	hbox = new TQHBox(sliderBox);
 	hbox->setSpacing(6);

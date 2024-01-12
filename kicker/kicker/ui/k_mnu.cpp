@@ -87,8 +87,8 @@ PanelKMenu::PanelKMenu()
     disableAutoClear();
     actionCollection = new TDEActionCollection(this);
     setCaption(i18n("TDE Menu"));
-    connect(Kicker::the(), TQT_SIGNAL(configurationChanged()),
-            this, TQT_SLOT(configChanged()));
+    connect(Kicker::the(), TQ_SIGNAL(configurationChanged()),
+            this, TQ_SLOT(configChanged()));
     DCOPClient *dcopClient = TDEApplication::dcopClient();
     dcopClient->connectDCOPSignal(0, "appLauncher",
         "serviceStartedByStorageId(TQString,TQString)",
@@ -96,7 +96,7 @@ PanelKMenu::PanelKMenu()
         "slotServiceStartedByStorageId(TQString,TQString)",
         false);
     displayRepairTimer = new TQTimer( this );
-    connect( displayRepairTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(repairDisplay()) );
+    connect( displayRepairTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(repairDisplay()) );
 }
 
 PanelKMenu::~PanelKMenu()
@@ -127,7 +127,7 @@ void PanelKMenu::hideMenu()
     while (isShown() == true)
         kapp->eventLoop()->processEvents(1000);
     TQTimer *windowtimer = new TQTimer( this );
-    connect( windowtimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(windowClearTimeout()) );
+    connect( windowtimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(windowClearTimeout()) );
     windowTimerTimedOut = false;
     windowtimer->start( 0, TRUE );	// Wait for all window system events to be processed
     while (windowTimerTimedOut == false)
@@ -140,7 +140,7 @@ void PanelKMenu::hideMenu()
     // thereby removing a bad shutdown screen artifact while still providing
     // a somewhat snappy user interface.
     TQTimer *delaytimer = new TQTimer( this );
-    connect( delaytimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(windowClearTimeout()) );
+    connect( delaytimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(windowClearTimeout()) );
     windowTimerTimedOut = false;
     delaytimer->start( 100, TRUE );	// Wait for 100 milliseconds
     while (windowTimerTimedOut == false)
@@ -247,10 +247,10 @@ void PanelKMenu::initialize()
     if (loadSidePixmap())
     {
         // in case we've been through here before, let's disconnect
-        disconnect(kapp, TQT_SIGNAL(tdedisplayPaletteChanged()),
-                   this, TQT_SLOT(paletteChanged()));
-        connect(kapp, TQT_SIGNAL(tdedisplayPaletteChanged()),
-                this, TQT_SLOT(paletteChanged()));
+        disconnect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()),
+                   this, TQ_SLOT(paletteChanged()));
+        connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()),
+                this, TQ_SLOT(paletteChanged()));
     }
     else
     {
@@ -286,13 +286,13 @@ void PanelKMenu::initialize()
         hbox->setFocusPolicy(TQWidget::StrongFocus);
         hbox->setFocusProxy(searchEdit);
         hbox->setSpacing( 3 );
-        connect(clearButton, TQT_SIGNAL(clicked()), searchEdit, TQT_SLOT(clear()));
-        connect(this, TQT_SIGNAL(aboutToHide()), this, TQT_SLOT(slotClearSearch()));
-        connect(searchEdit, TQT_SIGNAL(textChanged(const TQString&)),
-            this, TQT_SLOT( slotUpdateSearch( const TQString&)));
+        connect(clearButton, TQ_SIGNAL(clicked()), searchEdit, TQ_SLOT(clear()));
+        connect(this, TQ_SIGNAL(aboutToHide()), this, TQ_SLOT(slotClearSearch()));
+        connect(searchEdit, TQ_SIGNAL(textChanged(const TQString&)),
+            this, TQ_SLOT( slotUpdateSearch( const TQString&)));
 	accel->insert("search", i18n("Search"), i18n("TDE Menu search"),
 		      TDEShortcut(KickerSettings::searchShortcut()),
-		      this, TQT_SLOT(slotFocusSearch()));
+		      this, TQ_SLOT(slotFocusSearch()));
 		      
         insertItem(hbox, searchLineID, 0);
     } else {
@@ -390,7 +390,7 @@ void PanelKMenu::initialize()
         insertItem(KickerLib::menuIconSet("system-run"),
                    i18n("Run Command..."),
                    this,
-                   TQT_SLOT( slotRunCommand()));
+                   TQ_SLOT( slotRunCommand()));
         insertSeparator();
     }
 
@@ -398,8 +398,8 @@ void PanelKMenu::initialize()
     {
         sessionsMenu = new TQPopupMenu( this );
         insertItem(KickerLib::menuIconSet("switchuser"), i18n("Switch User"), sessionsMenu);
-        connect( sessionsMenu, TQT_SIGNAL(aboutToShow()), TQT_SLOT(slotPopulateSessions()) );
-        connect( sessionsMenu, TQT_SIGNAL(activated(int)), TQT_SLOT(slotSessionActivated(int)) );
+        connect( sessionsMenu, TQ_SIGNAL(aboutToShow()), TQ_SLOT(slotPopulateSessions()) );
+        connect( sessionsMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(slotSessionActivated(int)) );
     }
 
     /*
@@ -409,17 +409,17 @@ void PanelKMenu::initialize()
     ksmserver.setGroup("General");
     if (ksmserver.readEntry( "loginMode" ) == "restoreSavedSession")
     {
-        insertItem(KickerLib::menuIconSet("document-save"), i18n("Save Session"), this, TQT_SLOT(slotSaveSession()));
+        insertItem(KickerLib::menuIconSet("document-save"), i18n("Save Session"), this, TQ_SLOT(slotSaveSession()));
     }
 
     if (kapp->authorize("lock_screen"))
     {
-        insertItem(KickerLib::menuIconSet("system-lock-screen"), i18n("Lock Session"), this, TQT_SLOT(slotLock()));
+        insertItem(KickerLib::menuIconSet("system-lock-screen"), i18n("Lock Session"), this, TQ_SLOT(slotLock()));
     }
 
     if (kapp->authorize("logout"))
     {
-        insertItem(KickerLib::menuIconSet("system-log-out"), i18n("Log Out..."), this, TQT_SLOT(slotLogout()));
+        insertItem(KickerLib::menuIconSet("system-log-out"), i18n("Log Out..."), this, TQ_SLOT(slotLogout()));
     }
 
 #if 0
@@ -726,7 +726,7 @@ void PanelKMenu::slotUpdateSearch(const TQString& searchString)
 void PanelKMenu::slotClearSearch()
 {
     if (searchEdit && searchEdit->text().isEmpty() == false) {
-        TQTimer::singleShot(0, searchEdit, TQT_SLOT(clear()));
+        TQTimer::singleShot(0, searchEdit, TQ_SLOT(clear()));
     }
 }
 

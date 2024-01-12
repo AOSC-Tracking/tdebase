@@ -58,11 +58,11 @@ void FileTypeDialog::init( KMimeType::Ptr mime, bool newItem )
 
   // This code is very similar to kcdialog.cpp
   setMainWidget( m_details );
-  connect(m_details, TQT_SIGNAL(changed(bool)), this, TQT_SLOT(clientChanged(bool)));
+  connect(m_details, TQ_SIGNAL(changed(bool)), this, TQ_SLOT(clientChanged(bool)));
   // TODO setHelp()
   enableButton(Apply, false);
 
-  connect( KSycoca::self(), TQT_SIGNAL( databaseChanged() ), TQT_SLOT( slotDatabaseChanged() ) );
+  connect( KSycoca::self(), TQ_SIGNAL( databaseChanged() ), TQ_SLOT( slotDatabaseChanged() ) );
 }
 
 void FileTypeDialog::save()

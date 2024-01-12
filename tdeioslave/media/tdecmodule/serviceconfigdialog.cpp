@@ -78,10 +78,10 @@ ServiceConfigDialog::ServiceConfigDialog(NotifierServiceAction *action,
 	setMainWidget(m_view);
 	setCaption( m_action->label() );
 
-	connect( m_view->iconButton, TQT_SIGNAL( iconChanged(TQString) ),
-	         this, TQT_SLOT( slotIconChanged() ) );
-	connect( m_view->commandButton, TQT_SIGNAL( clicked() ),
-	         this, TQT_SLOT( slotCommand() ) );
+	connect( m_view->iconButton, TQ_SIGNAL( iconChanged(TQString) ),
+	         this, TQ_SLOT( slotIconChanged() ) );
+	connect( m_view->commandButton, TQ_SIGNAL( clicked() ),
+	         this, TQ_SLOT( slotCommand() ) );
 }
 
 bool operator==( KDEDesktopMimeType::Service s1, KDEDesktopMimeType::Service s2 )

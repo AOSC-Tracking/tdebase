@@ -44,7 +44,7 @@ RemoveContainerMenu::RemoveContainerMenu( ContainerArea* cArea,
     buttonId = insertItem(i18n("Appli&cation"),
                           new PanelRemoveButtonMenu( containerArea, this ) );
     adjustSize();
-    connect( this, TQT_SIGNAL( aboutToShow() ), TQT_SLOT( slotAboutToShow() ) );
+    connect( this, TQ_SIGNAL( aboutToShow() ), TQ_SLOT( slotAboutToShow() ) );
 }
 
 RemoveContainerMenu::~RemoveContainerMenu()

@@ -85,8 +85,8 @@ View1394::View1394(TQWidget *parent, const char *name)
    m_view->m_listview->setColumnAlignment(8, AlignRight);
    m_view->m_listview->setColumnAlignment(9, AlignRight);
    box->addWidget(m_view);
-   connect(m_view->m_busResetPb, TQT_SIGNAL(clicked()), this, TQT_SLOT(generateBusReset()));
-   connect(&m_rescanTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(rescanBus()));
+   connect(m_view->m_busResetPb, TQ_SIGNAL(clicked()), this, TQ_SLOT(generateBusReset()));
+   connect(&m_rescanTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(rescanBus()));
    m_notifiers.setAutoDelete(true);
    rescanBus();
 }
@@ -188,7 +188,7 @@ void View1394::rescanBus()
       raw1394_set_userdata(handle, this);
       raw1394_set_bus_reset_handler(handle, my_reset_handler);
       TQSocketNotifier *notif=new TQSocketNotifier(raw1394_get_fd(handle),TQSocketNotifier::Read);
-      connect(notif, TQT_SIGNAL(activated(int)), this, TQT_SLOT(callRaw1394EventLoop(int)));
+      connect(notif, TQ_SIGNAL(activated(int)), this, TQ_SLOT(callRaw1394EventLoop(int)));
       m_notifiers.append(notif);
       m_handles.append(handle);
       

@@ -157,7 +157,7 @@ void PopupMenuGUIClient::addEmbeddingService( TQDomElement &menu, int idx, const
   action.setAttribute( "group", "preview" );
 
   (void)new TDEAction( name, service->pixmap( TDEIcon::Small ), 0,
-                     m_mainWindow, TQT_SLOT( slotOpenEmbedded() ), actionCollection(), actName );
+                     m_mainWindow, TQ_SLOT( slotOpenEmbedded() ), actionCollection(), actName );
 }
 
 ToggleViewGUIClient::ToggleViewGUIClient( KonqMainWindow *mainWindow )
@@ -202,8 +202,8 @@ ToggleViewGUIClient::ToggleViewGUIClient( KonqMainWindow *mainWindow )
     if ( (*cIt)->icon() != "unknown" )
       action->setIcon( (*cIt)->icon() );
 
-    connect( action, TQT_SIGNAL( toggled( bool ) ),
-             this, TQT_SLOT( slotToggleView( bool ) ) );
+    connect( action, TQ_SIGNAL( toggled( bool ) ),
+             this, TQ_SLOT( slotToggleView( bool ) ) );
 
     m_actions.insert( name, action );
 
@@ -212,10 +212,10 @@ ToggleViewGUIClient::ToggleViewGUIClient( KonqMainWindow *mainWindow )
     m_mapOrientation.insert( name, horizontal );
   }
 
-  connect( m_mainWindow, TQT_SIGNAL( viewAdded( KonqView * ) ),
-           this, TQT_SLOT( slotViewAdded( KonqView * ) ) );
-  connect( m_mainWindow, TQT_SIGNAL( viewRemoved( KonqView * ) ),
-           this, TQT_SLOT( slotViewRemoved( KonqView * ) ) );
+  connect( m_mainWindow, TQ_SIGNAL( viewAdded( KonqView * ) ),
+           this, TQ_SLOT( slotViewAdded( KonqView * ) ) );
+  connect( m_mainWindow, TQ_SIGNAL( viewRemoved( KonqView * ) ),
+           this, TQ_SLOT( slotViewRemoved( KonqView * ) ) );
 }
 
 ToggleViewGUIClient::~ToggleViewGUIClient()

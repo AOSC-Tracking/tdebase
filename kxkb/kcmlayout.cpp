@@ -110,48 +110,48 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   widget = new LayoutConfigWidget(this, "widget");
   main->addWidget(widget);
 
-  connect( widget->chkEnable, TQT_SIGNAL( toggled( bool )), this, TQT_SLOT(changed()));
-  connect( widget->chkShowSingle, TQT_SIGNAL( toggled( bool )), this, TQT_SLOT(changed()));
+  connect( widget->chkEnable, TQ_SIGNAL( toggled( bool )), this, TQ_SLOT(changed()));
+  connect( widget->chkShowSingle, TQ_SIGNAL( toggled( bool )), this, TQ_SLOT(changed()));
 
-  connect( widget->comboHotkey, TQT_SIGNAL(activated(int)), this, TQT_SLOT(hotkeyComboChanged()));
-  connect( widget->comboHotkey, TQT_SIGNAL(activated(int)), this, TQT_SLOT(updateOptionsCommand()));
-  connect( widget->comboHotkey, TQT_SIGNAL(activated(int)), this, TQT_SLOT(changed()));
-  connect( widget->comboModel, TQT_SIGNAL(activated(int)), this, TQT_SLOT(changed()));
+  connect( widget->comboHotkey, TQ_SIGNAL(activated(int)), this, TQ_SLOT(hotkeyComboChanged()));
+  connect( widget->comboHotkey, TQ_SIGNAL(activated(int)), this, TQ_SLOT(updateOptionsCommand()));
+  connect( widget->comboHotkey, TQ_SIGNAL(activated(int)), this, TQ_SLOT(changed()));
+  connect( widget->comboModel, TQ_SIGNAL(activated(int)), this, TQ_SLOT(changed()));
 
-  connect( widget->listLayoutsSrc, TQT_SIGNAL(doubleClicked(TQListViewItem*,const TQPoint&, int)),
-									this, TQT_SLOT(add()));
-  connect( widget->btnAdd, TQT_SIGNAL(clicked()), this, TQT_SLOT(add()));
-  connect( widget->btnRemove, TQT_SIGNAL(clicked()), this, TQT_SLOT(remove()));
+  connect( widget->listLayoutsSrc, TQ_SIGNAL(doubleClicked(TQListViewItem*,const TQPoint&, int)),
+									this, TQ_SLOT(add()));
+  connect( widget->btnAdd, TQ_SIGNAL(clicked()), this, TQ_SLOT(add()));
+  connect( widget->btnRemove, TQ_SIGNAL(clicked()), this, TQ_SLOT(remove()));
 
-  connect( widget->comboVariant, TQT_SIGNAL(activated(int)), this, TQT_SLOT(changed()));
-  connect( widget->comboVariant, TQT_SIGNAL(activated(int)), this, TQT_SLOT(variantChanged()));
-  connect( widget->listLayoutsDst, TQT_SIGNAL(selectionChanged(TQListViewItem *)),
-		this, TQT_SLOT(layoutSelChanged(TQListViewItem *)));
+  connect( widget->comboVariant, TQ_SIGNAL(activated(int)), this, TQ_SLOT(changed()));
+  connect( widget->comboVariant, TQ_SIGNAL(activated(int)), this, TQ_SLOT(variantChanged()));
+  connect( widget->listLayoutsDst, TQ_SIGNAL(selectionChanged(TQListViewItem *)),
+		this, TQ_SLOT(layoutSelChanged(TQListViewItem *)));
 
-  connect( widget->editDisplayName, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(displayNameChanged(const TQString&)));
+  connect( widget->editDisplayName, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(displayNameChanged(const TQString&)));
 
   widget->btnUp->setIconSet(SmallIconSet("1uparrow"));
-  connect( widget->btnUp, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
-  connect( widget->btnUp, TQT_SIGNAL(clicked()), this, TQT_SLOT(moveUp()));
+  connect( widget->btnUp, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
+  connect( widget->btnUp, TQ_SIGNAL(clicked()), this, TQ_SLOT(moveUp()));
   widget->btnDown->setIconSet(SmallIconSet("1downarrow"));
-  connect( widget->btnDown, TQT_SIGNAL(clicked()), this, TQT_SLOT(changed()));
-  connect( widget->btnDown, TQT_SIGNAL(clicked()), this, TQT_SLOT(moveDown()));
+  connect( widget->btnDown, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
+  connect( widget->btnDown, TQ_SIGNAL(clicked()), this, TQ_SLOT(moveDown()));
 
-  connect( widget->grpStyle, TQT_SIGNAL( clicked( int ) ), TQT_SLOT(changed()));
-  connect( widget->grpSwitching, TQT_SIGNAL( clicked( int ) ), TQT_SLOT(changed()));
-  connect( widget->grpLabel, TQT_SIGNAL( clicked( int ) ), TQT_SLOT(changed()));
+  connect( widget->grpStyle, TQ_SIGNAL( clicked( int ) ), TQ_SLOT(changed()));
+  connect( widget->grpSwitching, TQ_SIGNAL( clicked( int ) ), TQ_SLOT(changed()));
+  connect( widget->grpLabel, TQ_SIGNAL( clicked( int ) ), TQ_SLOT(changed()));
 
-  connect( widget->bgColor, TQT_SIGNAL( changed(const TQColor&) ), this, TQT_SLOT(changed()));
-  connect( widget->fgColor, TQT_SIGNAL( changed(const TQColor&) ), this, TQT_SLOT(changed()));
-  connect( widget->labelFont, TQT_SIGNAL( fontSelected(const TQFont&) ), this, TQT_SLOT(changed()));
-  connect( widget->chkLabelShadow, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT(changed()));
-  connect( widget->shColor, TQT_SIGNAL( changed(const TQColor&) ), this, TQT_SLOT(changed()));
+  connect( widget->bgColor, TQ_SIGNAL( changed(const TQColor&) ), this, TQ_SLOT(changed()));
+  connect( widget->fgColor, TQ_SIGNAL( changed(const TQColor&) ), this, TQ_SLOT(changed()));
+  connect( widget->labelFont, TQ_SIGNAL( fontSelected(const TQFont&) ), this, TQ_SLOT(changed()));
+  connect( widget->chkLabelShadow, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT(changed()));
+  connect( widget->shColor, TQ_SIGNAL( changed(const TQColor&) ), this, TQ_SLOT(changed()));
 
-  connect( widget->chkEnableSticky, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(changed()));
-  connect( widget->spinStickyDepth, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(changed()));
+  connect( widget->chkEnableSticky, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(changed()));
+  connect( widget->spinStickyDepth, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
 
-  connect(widget->chkEnableNotify,       SIGNAL(toggled(bool)), SLOT(changed()));
-  connect(widget->chkNotifyUseKMilo,     SIGNAL(toggled(bool)), SLOT(changed()));
+  connect(widget->chkEnableNotify,       TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(widget->chkNotifyUseKMilo,     TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
 
   widget->listLayoutsSrc->setColumnText(LAYOUT_COLUMN_FLAG, "");
   widget->listLayoutsDst->setColumnText(LAYOUT_COLUMN_FLAG, "");
@@ -668,13 +668,13 @@ TQWidget* LayoutConfig::makeOptionsTab()
   listView->setColumnText( 0, i18n( "Options" ) );
   listView->clear();
 
-  connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(changed()));
-  connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(resolveConflicts(TQListViewItem *)));
-  connect(listView, TQT_SIGNAL(clicked(TQListViewItem *)), TQT_SLOT(updateHotkeyCombo()));
+  connect(listView, TQ_SIGNAL(clicked(TQListViewItem *)), TQ_SLOT(changed()));
+  connect(listView, TQ_SIGNAL(clicked(TQListViewItem *)), TQ_SLOT(resolveConflicts(TQListViewItem *)));
+  connect(listView, TQ_SIGNAL(clicked(TQListViewItem *)), TQ_SLOT(updateHotkeyCombo()));
 
-  connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(changed()));
-  connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(updateOptionsCommand()));
-  connect(widget->xkbOptsMode, TQT_SIGNAL(released(int)), TQT_SLOT(updateHotkeyCombo()));
+  connect(widget->xkbOptsMode, TQ_SIGNAL(released(int)), TQ_SLOT(changed()));
+  connect(widget->xkbOptsMode, TQ_SIGNAL(released(int)), TQ_SLOT(updateOptionsCommand()));
+  connect(widget->xkbOptsMode, TQ_SIGNAL(released(int)), TQ_SLOT(updateHotkeyCombo()));
 
   //Create controllers for all options
   TQDictIterator<char> it(m_rules->options());
@@ -739,7 +739,7 @@ TQWidget* LayoutConfig::makeOptionsTab()
 
 TQWidget* LayoutConfig::makeShortcutsTab() {
   m_keyChooser = new KKeyChooser(keys, widget->tabShortcuts, false, false);
-  connect(m_keyChooser, SIGNAL(keyChange()), this, SLOT(changed()));
+  connect(m_keyChooser, TQ_SIGNAL(keyChange()), this, TQ_SLOT(changed()));
   widget->tabShortcuts->layout()->add(m_keyChooser);
   return m_keyChooser;
 }

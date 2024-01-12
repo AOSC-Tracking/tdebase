@@ -47,8 +47,8 @@ Workspace::Workspace( TQWidget* parent, const char* name )
   mSheetList.setAutoDelete( true );
   mAutoSave = true;
 
-  connect( this, TQT_SIGNAL( currentChanged( TQWidget* ) ),
-           TQT_SLOT( updateCaption( TQWidget* ) ) );
+  connect( this, TQ_SIGNAL( currentChanged( TQWidget* ) ),
+           TQ_SLOT( updateCaption( TQWidget* ) ) );
 
   TQWhatsThis::add( this, i18n( "This is your work space. It holds your worksheets. You need "
                                "to create a new worksheet (Menu File->New) before "
@@ -62,8 +62,8 @@ Workspace::~Workspace()
    * administration data is already deleted but slots are still
    * being triggered. TODO: I need to ask the Trolls about this. */
 
-  disconnect( this, TQT_SIGNAL( currentChanged( TQWidget* ) ), this,
-              TQT_SLOT( updateCaption( TQWidget* ) ) );
+  disconnect( this, TQ_SIGNAL( currentChanged( TQWidget* ) ), this,
+              TQ_SLOT( updateCaption( TQWidget* ) ) );
 }
 
 void Workspace::saveProperties( TDEConfig *cfg )
@@ -148,10 +148,10 @@ void Workspace::newWorkSheet()
     insertTab( sheet, dlg.sheetTitle() );
     mSheetList.append( sheet );
     showPage( sheet );
-    connect( sheet, TQT_SIGNAL( sheetModified( TQWidget* ) ),
-             TQT_SLOT( updateCaption( TQWidget* ) ) );
-    connect( sheet, TQT_SIGNAL( titleChanged( TQWidget* ) ),
-             TQT_SLOT( updateSheetTitle( TQWidget* ) ) );
+    connect( sheet, TQ_SIGNAL( sheetModified( TQWidget* ) ),
+             TQ_SLOT( updateCaption( TQWidget* ) ) );
+    connect( sheet, TQ_SIGNAL( titleChanged( TQWidget* ) ),
+             TQ_SLOT( updateSheetTitle( TQWidget* ) ) );
   }
 }
 
@@ -370,8 +370,8 @@ WorkSheet *Workspace::restoreWorkSheet( const TQString &fileName, const TQString
   }
   
   mSheetList.append( sheet );
-  connect( sheet, TQT_SIGNAL( sheetModified( TQWidget* ) ),
-           TQT_SLOT( updateCaption( TQWidget* ) ) );
+  connect( sheet, TQ_SIGNAL( sheetModified( TQWidget* ) ),
+           TQ_SLOT( updateCaption( TQWidget* ) ) );
 
   /* Force the file name to be the new name. This also sets the modified
    * flag, so that the file will get saved on exit. */

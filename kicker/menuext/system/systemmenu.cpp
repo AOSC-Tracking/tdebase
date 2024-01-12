@@ -32,8 +32,8 @@ SystemMenu::SystemMenu(TQWidget *parent, const char *name,
                        const TQStringList &/*args*/)
   : KPanelMenu( parent, name)
 {
-    connect( &m_dirLister, TQT_SIGNAL( completed() ),
-             this, TQT_SLOT( slotCompleted() ) );
+    connect( &m_dirLister, TQ_SIGNAL( completed() ),
+             this, TQ_SLOT( slotCompleted() ) );
 
     m_dirLister.openURL(KURL("system:/"));
 }

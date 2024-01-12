@@ -150,8 +150,8 @@ void KonsoleMenu::initialize()
     insertItem(SmallIconSet("keditbookmarks"),
                i18n("New Session at Bookmark"), m_bookmarksSession);
     connect(m_bookmarkHandlerSession,
-            TQT_SIGNAL(openURL(const TQString&, const TQString&)),
-            TQT_SLOT(newSession(const TQString&, const TQString&)));
+            TQ_SIGNAL(openURL(const TQString&, const TQString&)),
+            TQ_SLOT(newSession(const TQString&, const TQString&)));
 
 
     screenList.clear();
@@ -229,11 +229,11 @@ void KonsoleMenu::initialize()
         // we don't have any profiles, disable the menu
         setItemEnabled(profileID, false);
     }
-    connect(m_profileMenu, TQT_SIGNAL(activated(int)), TQT_SLOT(launchProfile(int)));
+    connect(m_profileMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(launchProfile(int)));
 
     insertSeparator();
     insertItem(SmallIconSet("reload"),
-               i18n("Reload Sessions"), this, TQT_SLOT(reinitialize()));
+               i18n("Reload Sessions"), this, TQ_SLOT(reinitialize()));
 }
 
 void KonsoleMenu::slotExec(int id)

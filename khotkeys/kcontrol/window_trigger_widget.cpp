@@ -33,14 +33,14 @@ Window_trigger_widget::Window_trigger_widget( TQWidget* parent_P, const char* na
     {
     clear_data();
     // KHotKeys::Module::changed()
-    connect( window_appears_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( window_disappears_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( window_activates_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( window_deactivates_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
+    connect( window_appears_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( window_disappears_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( window_activates_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( window_deactivates_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
     } 
 
 void Window_trigger_widget::clear_data()

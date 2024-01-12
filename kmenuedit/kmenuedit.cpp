@@ -67,12 +67,12 @@ void KMenuEdit::setupActions()
     if (!m_controlCenter)
        (void)new TDEAction(i18n("New S&eparator"), "menu_new_sep", 0, actionCollection(), "newsep");
 
-    (void)new TDEAction(i18n("Save && Quit"), "filesave_and_close", 0, this, TQT_SLOT( slotSave_and_close()), actionCollection(), "file_save_and_quit");
+    (void)new TDEAction(i18n("Save && Quit"), "filesave_and_close", 0, this, TQ_SLOT( slotSave_and_close()), actionCollection(), "file_save_and_quit");
 
     m_actionDelete = 0;
 
-    KStdAction::save(this, TQT_SLOT( slotSave() ), actionCollection());
-    KStdAction::quit(this, TQT_SLOT( close() ), actionCollection());
+    KStdAction::save(this, TQ_SLOT( slotSave() ), actionCollection());
+    KStdAction::quit(this, TQ_SLOT( close() ), actionCollection());
     KStdAction::cut(0, 0, actionCollection());
     KStdAction::copy(0, 0, actionCollection());
     KStdAction::paste(0, 0, actionCollection());
@@ -84,21 +84,21 @@ void KMenuEdit::setupView()
     m_tree = new TreeView(m_controlCenter, actionCollection(), m_splitter);
     m_basicTab = new BasicTab(m_splitter);
 
-    connect(m_tree, TQT_SIGNAL(entrySelected(MenuFolderInfo *)),
-            m_basicTab, TQT_SLOT(setFolderInfo(MenuFolderInfo *)));
-    connect(m_tree, TQT_SIGNAL(entrySelected(MenuEntryInfo *)),
-            m_basicTab, TQT_SLOT(setEntryInfo(MenuEntryInfo *)));
-    connect(m_tree, TQT_SIGNAL(disableAction()),
-            m_basicTab, TQT_SLOT(slotDisableAction() ) );
+    connect(m_tree, TQ_SIGNAL(entrySelected(MenuFolderInfo *)),
+            m_basicTab, TQ_SLOT(setFolderInfo(MenuFolderInfo *)));
+    connect(m_tree, TQ_SIGNAL(entrySelected(MenuEntryInfo *)),
+            m_basicTab, TQ_SLOT(setEntryInfo(MenuEntryInfo *)));
+    connect(m_tree, TQ_SIGNAL(disableAction()),
+            m_basicTab, TQ_SLOT(slotDisableAction() ) );
 
-    connect(m_basicTab, TQT_SIGNAL(changed(MenuFolderInfo *)),
-            m_tree, TQT_SLOT(currentChanged(MenuFolderInfo *)));
+    connect(m_basicTab, TQ_SIGNAL(changed(MenuFolderInfo *)),
+            m_tree, TQ_SLOT(currentChanged(MenuFolderInfo *)));
 
-    connect(m_basicTab, TQT_SIGNAL(changed(MenuEntryInfo *)),
-            m_tree, TQT_SLOT(currentChanged(MenuEntryInfo *)));
+    connect(m_basicTab, TQ_SIGNAL(changed(MenuEntryInfo *)),
+            m_tree, TQ_SLOT(currentChanged(MenuEntryInfo *)));
 
-    connect(m_basicTab, TQT_SIGNAL(findServiceShortcut(const TDEShortcut&, KService::Ptr &)),
-            m_tree, TQT_SLOT(findServiceShortcut(const TDEShortcut&, KService::Ptr &)));
+    connect(m_basicTab, TQ_SIGNAL(findServiceShortcut(const TDEShortcut&, KService::Ptr &)),
+            m_tree, TQ_SLOT(findServiceShortcut(const TDEShortcut&, KService::Ptr &)));
 
     // restore splitter sizes
     TDEConfig* config = TDEGlobal::config();

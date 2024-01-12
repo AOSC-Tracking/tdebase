@@ -60,20 +60,20 @@ SessionEditor::SessionEditor(TQWidget * parent, const char *name)
   TDEGlobal::iconLoader()->addAppDir( "konsole" );
 
   directoryLine->setMode(KFile::Directory);
-  connect(sessionList, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(readSession(int)));
-  connect(saveButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(saveCurrent()));
-  connect(removeButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(removeCurrent()));
+  connect(sessionList, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(readSession(int)));
+  connect(saveButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(saveCurrent()));
+  connect(removeButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(removeCurrent()));
 
-  connect(nameLine, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(sessionModified()));
-  connect(directoryLine, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(sessionModified()));
-  connect(executeLine, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(sessionModified()));
-  connect(termLine, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(sessionModified()));
+  connect(nameLine, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(sessionModified()));
+  connect(directoryLine, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(sessionModified()));
+  connect(executeLine, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(sessionModified()));
+  connect(termLine, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(sessionModified()));
 
-  connect(previewIcon, TQT_SIGNAL(iconChanged(TQString)), this, TQT_SLOT(sessionModified()));
+  connect(previewIcon, TQ_SIGNAL(iconChanged(TQString)), this, TQ_SLOT(sessionModified()));
 
-  connect(fontCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(sessionModified()));
-  connect(keytabCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(sessionModified()));
-  connect(schemaCombo, TQT_SIGNAL(activated(int)), this, TQT_SLOT(sessionModified()));
+  connect(fontCombo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(sessionModified()));
+  connect(keytabCombo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(sessionModified()));
+  connect(schemaCombo, TQ_SIGNAL(activated(int)), this, TQ_SLOT(sessionModified()));
 }
 
 SessionEditor::~SessionEditor()
@@ -190,12 +190,12 @@ void SessionEditor::readSession(int num)
     KSimpleConfig* co;
 
     if(sesMod) {
-        disconnect(sessionList, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(readSession(int)));
+        disconnect(sessionList, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(readSession(int)));
 
         sessionList->setCurrentItem(oldSession);
         querySave();
         sessionList->setCurrentItem(num);
-        connect(sessionList, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(readSession(int)));
+        connect(sessionList, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(readSession(int)));
         sesMod=false;
     }
     if( sessionList->item(num) )

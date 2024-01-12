@@ -262,11 +262,11 @@ void PrintWrapper::slotPrint()
 		dlg = KPrintDialog::printerDialog(&kprinter, 0);
 		if (dlg)
 		{
-			connect(dlg, TQT_SIGNAL(printRequested(KPrinter*)), TQT_SLOT(slotPrintRequested(KPrinter*)));
+			connect(dlg, TQ_SIGNAL(printRequested(KPrinter*)), TQ_SLOT(slotPrintRequested(KPrinter*)));
 			if( check_stdin )
 			{
 			    notif = new TQSocketNotifier( 0, TQSocketNotifier::Read, this );
-			    connect( notif, TQT_SIGNAL( activated( int )), this, TQT_SLOT( slotGotStdin()));
+			    connect( notif, TQ_SIGNAL( activated( int )), this, TQ_SLOT( slotGotStdin()));
 			    kdDebug( 500 ) << "waiting for input on stdin" << endl;
 			}
 			dlg->exec();
@@ -276,7 +276,7 @@ void PrintWrapper::slotPrint()
 			errormsg(i18n("Unable to construct the print dialog."));
 	}
 
-	TQTimer::singleShot(10,kapp,TQT_SLOT(quit()));
+	TQTimer::singleShot(10,kapp,TQ_SLOT(quit()));
 }
 
 void hack( KPrintDialog* dlg );

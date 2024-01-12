@@ -39,7 +39,7 @@ PopupProxy::PopupProxy( KlipperPopup* parent, const char* name, int menu_height,
       m_menu_width( menu_width ),
       nextItemNumber( 0 )
 {
-    connect( parent->history(), TQT_SIGNAL( changed() ), TQT_SLOT( slotHistoryChanged() ) );
+    connect( parent->history(), TQ_SIGNAL( changed() ), TQ_SLOT( slotHistoryChanged() ) );
 }
 
 void PopupProxy::slotHistoryChanged() {
@@ -117,7 +117,7 @@ void PopupProxy::tryInsertItem( HistoryItem const * const item,
     History* history = parent()->history();
     proxy_for_menu->connectItem(  id,
                                   history,
-                                  TQT_SLOT( slotMoveToTop( int ) ) );
+                                  TQ_SLOT( slotMoveToTop( int ) ) );
     proxy_for_menu->setItemParameter(  id,  nextItemNumber );
 
 }
@@ -151,7 +151,7 @@ int PopupProxy::insertFromSpill( int index ) {
     if ( spillPointer.current() ) {
         TDEPopupMenu* moreMenu = new TDEPopupMenu( proxy_for_menu, "a more menu" );
         proxy_for_menu->insertItem( i18n( "&More" ),  moreMenu, -1, index );
-        connect( moreMenu, TQT_SIGNAL( aboutToShow() ), TQT_SLOT( slotAboutToShow() ) );
+        connect( moreMenu, TQ_SIGNAL( aboutToShow() ), TQ_SLOT( slotAboutToShow() ) );
         proxy_for_menu = moreMenu;
     }
 

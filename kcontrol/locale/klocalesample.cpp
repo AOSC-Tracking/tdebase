@@ -78,7 +78,7 @@ TDELocaleSample::TDELocaleSample(TDELocale *locale,
   lay->setColStretch(1, 3);
 
   TQTimer *timer = new TQTimer(this, "clock_timer");
-  connect(timer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotUpdateTime()));
+  connect(timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(slotUpdateTime()));
   timer->start(1000);
 }
 

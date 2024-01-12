@@ -269,7 +269,7 @@ void KonqDraggableLabel::dropEvent( TQDropEvent* ev )
 {
   _savedLst.clear();
   if ( KURLDrag::decode( ev, _savedLst ) ) {
-    TQTimer::singleShot(0, this, TQT_SLOT(delayedOpenURL()));
+    TQTimer::singleShot(0, this, TQ_SLOT(delayedOpenURL()));
   }
 }
 

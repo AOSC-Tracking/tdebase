@@ -59,7 +59,7 @@ KSplashThemeMgr::KSplashThemeMgr( TQWidget *parent, const char *name, const TQSt
   TQHBoxLayout *box = new TQHBoxLayout(this, 0, 0);
   box->addWidget(mInstaller);
 #endif
-  connect( mInstaller, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)) );
+  connect( mInstaller, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)) );
   TDEAboutData *about = new TDEAboutData( "kcmksplash"
                                       ,I18N_NOOP("TDE splash screen theme manager")
                                       ,"0.1"

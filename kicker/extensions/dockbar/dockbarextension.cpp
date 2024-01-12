@@ -58,7 +58,7 @@ DockBarExtension::DockBarExtension(const TQString& configFile, Type type,
 {
     dragging_container = 0;
     twin_module = new KWinModule(this);
-    connect( twin_module, TQT_SIGNAL( windowAdded(WId) ), TQT_SLOT( windowAdded(WId) ) );
+    connect( twin_module, TQ_SIGNAL( windowAdded(WId) ), TQ_SLOT( windowAdded(WId) ) );
     setMinimumSize(DockContainer::sz(), DockContainer::sz());
     setSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding);
     loadContainerConfig();
@@ -236,10 +236,10 @@ void DockBarExtension::addContainer(DockContainer* c, int pos)
 
         containers.insert(it, c);
     }
-    connect(c, TQT_SIGNAL(embeddedWindowDestroyed(DockContainer*)), 
-            TQT_SLOT(embeddedWindowDestroyed(DockContainer*)));
-    connect(c, TQT_SIGNAL(settingsChanged(DockContainer*)), 
-            TQT_SLOT(settingsChanged(DockContainer*)));
+    connect(c, TQ_SIGNAL(embeddedWindowDestroyed(DockContainer*)), 
+            TQ_SLOT(embeddedWindowDestroyed(DockContainer*)));
+    connect(c, TQ_SIGNAL(settingsChanged(DockContainer*)), 
+            TQ_SLOT(settingsChanged(DockContainer*)));
     c->resize(DockContainer::sz(), DockContainer::sz());
     c->show();
 }

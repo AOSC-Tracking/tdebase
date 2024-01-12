@@ -46,33 +46,33 @@ DomainListView::DomainListView(TDEConfig *config,const TQString &title,
   domainSpecificLV = new TDEListView(this);
   domainSpecificLV->addColumn(i18n("Host/Domain"));
   domainSpecificLV->addColumn(i18n("Policy"), 100);
-  connect(domainSpecificLV,TQT_SIGNAL(doubleClicked(TQListViewItem *)), TQT_SLOT(changePressed()));
-  connect(domainSpecificLV,TQT_SIGNAL(returnPressed(TQListViewItem *)), TQT_SLOT(changePressed()));
-  connect(domainSpecificLV, TQT_SIGNAL( executed( TQListViewItem *)), TQT_SLOT( updateButton()));
-  connect(domainSpecificLV, TQT_SIGNAL(selectionChanged()), TQT_SLOT(updateButton()));
+  connect(domainSpecificLV,TQ_SIGNAL(doubleClicked(TQListViewItem *)), TQ_SLOT(changePressed()));
+  connect(domainSpecificLV,TQ_SIGNAL(returnPressed(TQListViewItem *)), TQ_SLOT(changePressed()));
+  connect(domainSpecificLV, TQ_SIGNAL( executed( TQListViewItem *)), TQ_SLOT( updateButton()));
+  connect(domainSpecificLV, TQ_SIGNAL(selectionChanged()), TQ_SLOT(updateButton()));
   thisLayout->addMultiCellWidget(domainSpecificLV, 0, 5, 0, 0);
 
   addDomainPB = new TQPushButton(i18n("&New..."), this);
   thisLayout->addWidget(addDomainPB, 0, 1);
-  connect(addDomainPB, TQT_SIGNAL(clicked()), TQT_SLOT(addPressed()));
+  connect(addDomainPB, TQ_SIGNAL(clicked()), TQ_SLOT(addPressed()));
 
   changeDomainPB = new TQPushButton( i18n("Chan&ge..."), this);
   thisLayout->addWidget(changeDomainPB, 1, 1);
-  connect(changeDomainPB, TQT_SIGNAL(clicked()), this, TQT_SLOT(changePressed()));
+  connect(changeDomainPB, TQ_SIGNAL(clicked()), this, TQ_SLOT(changePressed()));
 
   deleteDomainPB = new TQPushButton(i18n("De&lete"), this);
   thisLayout->addWidget(deleteDomainPB, 2, 1);
-  connect(deleteDomainPB, TQT_SIGNAL(clicked()), this, TQT_SLOT(deletePressed()));
+  connect(deleteDomainPB, TQ_SIGNAL(clicked()), this, TQ_SLOT(deletePressed()));
 
   importDomainPB = new TQPushButton(i18n("&Import..."), this);
   thisLayout->addWidget(importDomainPB, 3, 1);
-  connect(importDomainPB, TQT_SIGNAL(clicked()), this, TQT_SLOT(importPressed()));
+  connect(importDomainPB, TQ_SIGNAL(clicked()), this, TQ_SLOT(importPressed()));
   importDomainPB->setEnabled(false);
   importDomainPB->hide();
 
   exportDomainPB = new TQPushButton(i18n("&Export..."), this);
   thisLayout->addWidget(exportDomainPB, 4, 1);
-  connect(exportDomainPB, TQT_SIGNAL(clicked()), this, TQT_SLOT(exportPressed()));
+  connect(exportDomainPB, TQ_SIGNAL(clicked()), this, TQ_SLOT(exportPressed()));
   exportDomainPB->setEnabled(false);
   exportDomainPB->hide();
 

@@ -43,8 +43,8 @@ KIVDirectoryOverlay::KIVDirectoryOverlay(KFileIVI* directory)
     {
         m_lister = new KDirLister;
         m_lister->setAutoErrorHandlingEnabled(false, 0);
-        connect(m_lister, TQT_SIGNAL(completed()), TQT_SLOT(slotCompleted()));
-        connect(m_lister, TQT_SIGNAL(newItems( const KFileItemList& )), TQT_SLOT(slotNewItems( const KFileItemList& )));
+        connect(m_lister, TQ_SIGNAL(completed()), TQ_SLOT(slotCompleted()));
+        connect(m_lister, TQ_SIGNAL(newItems( const KFileItemList& )), TQ_SLOT(slotNewItems( const KFileItemList& )));
         m_lister->setShowingDotFiles(false);
     }
     m_directory = directory;

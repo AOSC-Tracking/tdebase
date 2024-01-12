@@ -60,42 +60,42 @@ KGDialog::completeMenu()
 	if (_isLocal) {
 		dpyMenu = new TQPopupMenu( this );
 		int id = inserten( i18n("Sw&itch User"), ALT+Key_I, dpyMenu );
-		connect( dpyMenu, TQT_SIGNAL(activated( int )),
-		         TQT_SLOT(slotDisplaySelected( int )) );
-		connect( dpyMenu, TQT_SIGNAL(aboutToShow()),
-		         TQT_SLOT(slotPopulateDisplays()) );
+		connect( dpyMenu, TQ_SIGNAL(activated( int )),
+		         TQ_SLOT(slotDisplaySelected( int )) );
+		connect( dpyMenu, TQ_SIGNAL(aboutToShow()),
+		         TQ_SLOT(slotPopulateDisplays()) );
 		TQAccel *accel = new TQAccel( this );
 		accel->insertItem( ALT+CTRL+Key_Insert, id );
-		connect( accel, TQT_SIGNAL(activated( int )), TQT_SLOT(slotActivateMenu( int )) );
+		connect( accel, TQ_SIGNAL(activated( int )), TQ_SLOT(slotActivateMenu( int )) );
 	}
 #endif
 
 	if (_allowClose)
 		inserten( _isLocal ? i18n("R&estart X Server") : i18n("Clos&e Connection"),
-		          ALT+Key_E, TQT_SLOT(slotExit()) );
+		          ALT+Key_E, TQ_SLOT(slotExit()) );
 
 #ifdef XDMCP
 	if (_isLocal && _loginMode != _switchIf) {
 		switchCode = _switchCode;
-		inserten( _switchMsg, _switchAccel, TQT_SLOT(slotSwitch()) );
+		inserten( _switchMsg, _switchAccel, TQ_SLOT(slotSwitch()) );
 	}
 #endif
 
 	if (_hasConsole)
-		inserten( i18n("Co&nsole Login"), ALT+Key_N, TQT_SLOT(slotConsole()) );
+		inserten( i18n("Co&nsole Login"), ALT+Key_N, TQ_SLOT(slotConsole()) );
 
 	if (_allowShutdown != SHUT_NONE) {
                 ensureMenu();
-                optMenu->insertItem(SmallIconSet( "system-log-out" ), i18n("&Shutdown..."), this, TQT_SLOT(slotShutdown(int)), ALT+Key_S );
+                optMenu->insertItem(SmallIconSet( "system-log-out" ), i18n("&Shutdown..."), this, TQ_SLOT(slotShutdown(int)), ALT+Key_S );
 		TQAccel *accel = new TQAccel( this );
 		accel->insertItem( ALT+CTRL+Key_Delete );
-		connect( accel, TQT_SIGNAL(activated( int )), TQT_SLOT(slotShutdown( int )) );
+		connect( accel, TQ_SIGNAL(activated( int )), TQ_SLOT(slotShutdown( int )) );
 		accel = new TQAccel( this );
 		accel->insertItem( SHIFT+ALT+CTRL+Key_PageUp, SHUT_REBOOT );
-		connect( accel, TQT_SIGNAL(activated( int )), TQT_SLOT(slotShutdown( int )) );
+		connect( accel, TQ_SIGNAL(activated( int )), TQ_SLOT(slotShutdown( int )) );
 		accel = new TQAccel( this );
 		accel->insertItem( SHIFT+ALT+CTRL+Key_PageDown, SHUT_HALT );
-		connect( accel, TQT_SIGNAL(activated( int )), TQT_SLOT(slotShutdown( int )) );
+		connect( accel, TQ_SIGNAL(activated( int )), TQ_SLOT(slotShutdown( int )) );
 	}
 }
 
@@ -125,7 +125,7 @@ KGDialog::inserten( const TQString& txt, int accel, TQPopupMenu *cmnu )
 	ensureMenu();
 	int id = optMenu->insertItem( txt, cmnu );
 	optMenu->setAccel( accel, id );
-	optMenu->connectItem( id, this, TQT_SLOT(slotActivateMenu( int )) );
+	optMenu->connectItem( id, this, TQ_SLOT(slotActivateMenu( int )) );
 	optMenu->setItemParameter( id, id );
 	return id;
 }
@@ -151,7 +151,7 @@ KGDialog::slotSwitch()
 {
 #ifdef XDMCP
 	// workaround for Qt bug
-	TQTimer::singleShot( 0, this, TQT_SLOT(slotReallySwitch()) );
+	TQTimer::singleShot( 0, this, TQ_SLOT(slotReallySwitch()) );
 #endif
 }
 

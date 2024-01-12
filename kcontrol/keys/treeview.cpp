@@ -109,11 +109,11 @@ AppTreeView::AppTreeView( TQWidget *parent, const char *name )
     addColumn(i18n("Shortcut"));
     addColumn(i18n("Alternate"));
 
-    connect(this, TQT_SIGNAL(clicked( TQListViewItem* )),
-            TQT_SLOT(itemSelected( TQListViewItem* )));
+    connect(this, TQ_SIGNAL(clicked( TQListViewItem* )),
+            TQ_SLOT(itemSelected( TQListViewItem* )));
 
-    connect(this,TQT_SIGNAL(selectionChanged ( TQListViewItem * )),
-            TQT_SLOT(itemSelected( TQListViewItem* )));
+    connect(this,TQ_SIGNAL(selectionChanged ( TQListViewItem * )),
+            TQ_SLOT(itemSelected( TQListViewItem* )));
 }
 
 AppTreeView::~AppTreeView()

@@ -41,7 +41,7 @@ KSpellCheckingConfig::KSpellCheckingConfig(TQWidget *parent, const char *name, c
 
   spellConfig = new KSpellConfig(box, 0L ,0L, false );
   layout->addStretch(1);
-  connect(spellConfig,TQT_SIGNAL(configChanged()), TQT_SLOT( changed() ));
+  connect(spellConfig,TQ_SIGNAL(configChanged()), TQ_SLOT( changed() ));
 
   setQuickHelp( i18n("<h1>Spell Checker</h1><p>This control module allows you to configure the TDE spell checking system. You can configure:<ul><li> which spell checking program to use<li> which types of spelling errors are identified<li> which dictionary is used by default.</ul><br>The TDE spell checking system (KSpell) provides support for two common spell checking utilities: ASpell and ISpell. This allows you to share dictionaries between TDE applications and non-TDE applications.</p>"));
 

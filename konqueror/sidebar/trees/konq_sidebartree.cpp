@@ -136,8 +136,8 @@ KonqSidebarTree::KonqSidebarTree( KonqSidebar_Tree *parent, TQWidget *parentWidg
     m_part = parent;
 
     m_animationTimer = new TQTimer( this );
-    connect( m_animationTimer, TQT_SIGNAL( timeout() ),
-             this, TQT_SLOT( slotAnimation() ) );
+    connect( m_animationTimer, TQ_SIGNAL( timeout() ),
+             this, TQ_SLOT( slotAnimation() ) );
 
     m_currentBeforeDropItem = 0;
     m_dropItem = 0;
@@ -148,22 +148,22 @@ KonqSidebarTree::KonqSidebarTree( KonqSidebar_Tree *parent, TQWidget *parentWidg
     setTreeStepSize(15);
 
     m_autoOpenTimer = new TQTimer( this );
-    connect( m_autoOpenTimer, TQT_SIGNAL( timeout() ),
-             this, TQT_SLOT( slotAutoOpenFolder() ) );
+    connect( m_autoOpenTimer, TQ_SIGNAL( timeout() ),
+             this, TQ_SLOT( slotAutoOpenFolder() ) );
 
-    connect( this, TQT_SIGNAL( doubleClicked( TQListViewItem * ) ),
-             this, TQT_SLOT( slotDoubleClicked( TQListViewItem * ) ) );
-    connect( this, TQT_SIGNAL( mouseButtonPressed(int, TQListViewItem*, const TQPoint&, int)),
-             this, TQT_SLOT( slotMouseButtonPressed(int, TQListViewItem*, const TQPoint&, int)) );
-    connect( this, TQT_SIGNAL( mouseButtonClicked( int, TQListViewItem*, const TQPoint&, int ) ),
-	     this, TQT_SLOT( slotSidebarMouseButtonClicked( int, TQListViewItem*, const TQPoint&, int ) ) );
-    connect( this, TQT_SIGNAL( returnPressed( TQListViewItem * ) ),
-             this, TQT_SLOT( slotDoubleClicked( TQListViewItem * ) ) );
-    connect( this, TQT_SIGNAL( selectionChanged() ),
-             this, TQT_SLOT( slotSelectionChanged() ) );
+    connect( this, TQ_SIGNAL( doubleClicked( TQListViewItem * ) ),
+             this, TQ_SLOT( slotDoubleClicked( TQListViewItem * ) ) );
+    connect( this, TQ_SIGNAL( mouseButtonPressed(int, TQListViewItem*, const TQPoint&, int)),
+             this, TQ_SLOT( slotMouseButtonPressed(int, TQListViewItem*, const TQPoint&, int)) );
+    connect( this, TQ_SIGNAL( mouseButtonClicked( int, TQListViewItem*, const TQPoint&, int ) ),
+	     this, TQ_SLOT( slotSidebarMouseButtonClicked( int, TQListViewItem*, const TQPoint&, int ) ) );
+    connect( this, TQ_SIGNAL( returnPressed( TQListViewItem * ) ),
+             this, TQ_SLOT( slotDoubleClicked( TQListViewItem * ) ) );
+    connect( this, TQ_SIGNAL( selectionChanged() ),
+             this, TQ_SLOT( slotSelectionChanged() ) );
 
-    connect( this, TQT_SIGNAL(itemRenamed(TQListViewItem*, const TQString &, int)),
-             this, TQT_SLOT(slotItemRenamed(TQListViewItem*, const TQString &, int)));
+    connect( this, TQ_SIGNAL(itemRenamed(TQListViewItem*, const TQString &, int)),
+             this, TQ_SLOT(slotItemRenamed(TQListViewItem*, const TQString &, int)));
 
 /*    assert( m_part->getInterfaces()->getInstance()->dirs );
     TQString dirtreeDir = m_part->getInterfaces()->getInstance()->dirs()->saveLocation( "data", "konqueror/dirtree/" ); */
@@ -558,7 +558,7 @@ void KonqSidebarTree::FilesAdded( const KURL & dir )
     kdDebug(1201) << "KonqSidebarTree::FilesAdded " << dir.url() << endl;
     if ( m_dirtreeDir.dir.isParentOf( dir ) )
         // We use a timer in case of DCOP re-entrance..
-        TQTimer::singleShot( 0, this, TQT_SLOT( rescanConfiguration() ) );
+        TQTimer::singleShot( 0, this, TQ_SLOT( rescanConfiguration() ) );
 }
 
 void KonqSidebarTree::FilesRemoved( const KURL::List & urls )
@@ -569,7 +569,7 @@ void KonqSidebarTree::FilesRemoved( const KURL::List & urls )
         //kdDebug(1201) <<  "KonqSidebarTree::FilesRemoved " << (*it).prettyURL() << endl;
         if ( m_dirtreeDir.dir.isParentOf( *it ) )
         {
-            TQTimer::singleShot( 0, this, TQT_SLOT( rescanConfiguration() ) );
+            TQTimer::singleShot( 0, this, TQ_SLOT( rescanConfiguration() ) );
             kdDebug(1201) << "KonqSidebarTree::FilesRemoved done" << endl;
             return;
         }
@@ -909,21 +909,21 @@ void KonqSidebarTree::showToplevelContextMenu()
     {
         m_collection = new TDEActionCollection( this, "bookmark actions" );
         (void) new TDEAction( i18n("&Create New Folder..."), "folder-new", 0, this,
-                            TQT_SLOT( slotCreateFolder() ), m_collection, "create_folder");
+                            TQ_SLOT( slotCreateFolder() ), m_collection, "create_folder");
         (void) new TDEAction( i18n("Delete Folder"), "edit-delete", 0, this,
-                            TQT_SLOT( slotDelete() ), m_collection, "delete_folder");
+                            TQ_SLOT( slotDelete() ), m_collection, "delete_folder");
         (void) new TDEAction( i18n("Rename"), 0, this,
-                            TQT_SLOT( slotRename() ), m_collection, "rename");
+                            TQ_SLOT( slotRename() ), m_collection, "rename");
         (void) new TDEAction( i18n("Delete Link"), "edit-delete", 0, this,
-                            TQT_SLOT( slotDelete() ), m_collection, "delete_link");
+                            TQ_SLOT( slotDelete() ), m_collection, "delete_link");
         (void) new TDEAction( i18n("Properties"), "edit", 0, this,
-                            TQT_SLOT( slotProperties() ), m_collection, "item_properties");
+                            TQ_SLOT( slotProperties() ), m_collection, "item_properties");
         (void) new TDEAction( i18n("Open in New Window"), "window-new", 0, this,
-                            TQT_SLOT( slotOpenNewWindow() ), m_collection, "open_window");
+                            TQ_SLOT( slotOpenNewWindow() ), m_collection, "open_window");
         (void) new TDEAction( i18n("Open in New Tab"), "tab_new", 0, this,
-                            TQT_SLOT( slotOpenTab() ), m_collection, "open_tab");
+                            TQ_SLOT( slotOpenTab() ), m_collection, "open_tab");
         (void) new TDEAction( i18n("Copy Link Address"), "edit-copy", 0, this,
-                            TQT_SLOT( slotCopyLocation() ), m_collection, "copy_location");
+                            TQ_SLOT( slotCopyLocation() ), m_collection, "copy_location");
     }
 
     TQPopupMenu *menu = new TQPopupMenu;

@@ -30,10 +30,10 @@ KonqyPreloader::KonqyPreloader( const TQCString& obj )
     : KDEDModule( obj )
     {
     reconfigure();
-    connect( kapp->dcopClient(), TQT_SIGNAL( applicationRemoved( const TQCString& )),
-        TQT_SLOT( appRemoved( const TQCString& )));
-    connect( &check_always_preloaded_timer, TQT_SIGNAL( timeout()),
-	TQT_SLOT( checkAlwaysPreloaded()));
+    connect( kapp->dcopClient(), TQ_SIGNAL( applicationRemoved( const TQCString& )),
+        TQ_SLOT( appRemoved( const TQCString& )));
+    connect( &check_always_preloaded_timer, TQ_SIGNAL( timeout()),
+	TQ_SLOT( checkAlwaysPreloaded()));
     }
 
 KonqyPreloader::~KonqyPreloader()

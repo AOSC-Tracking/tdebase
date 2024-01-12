@@ -63,17 +63,17 @@ TaskBarExtension::TaskBarExtension(const TQString& configFile, Type type,
     positionChange(position());
     layout->addWidget(m_container);
 
-    connect(m_container, TQT_SIGNAL(containerCountChanged()),
-            TQT_SIGNAL(updateLayout()));
+    connect(m_container, TQ_SIGNAL(containerCountChanged()),
+            TQ_SIGNAL(updateLayout()));
 
     kapp->dcopClient()->setNotifications(true);
     connectDCOPSignal("kicker", "kicker", "configurationChanged()",
                       "configure()", false);
 
-    connect(kapp, TQT_SIGNAL(tdedisplayPaletteChanged()),
-            TQT_SLOT(setBackgroundTheme()));
+    connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()),
+            TQ_SLOT(setBackgroundTheme()));
 
-    TQTimer::singleShot(0, this, TQT_SLOT(setBackgroundTheme()));
+    TQTimer::singleShot(0, this, TQ_SLOT(setBackgroundTheme()));
 }
 
 TaskBarExtension::~TaskBarExtension()
@@ -150,8 +150,8 @@ void TaskBarExtension::setBackgroundTheme()
         {
             m_rootPixmap = new KRootPixmap(this);
             m_rootPixmap->setCustomPainting(true);
-            connect(m_rootPixmap, TQT_SIGNAL(backgroundUpdated(const TQPixmap&)),
-                    TQT_SLOT(updateBackground(const TQPixmap&)));
+            connect(m_rootPixmap, TQ_SIGNAL(backgroundUpdated(const TQPixmap&)),
+                    TQ_SLOT(updateBackground(const TQPixmap&)));
         }
         else
         {

@@ -55,7 +55,7 @@ PanelBrowserDialog::PanelBrowserDialog( const TQString& path, const TQString &ic
     hbox1->setSpacing( KDialog::spacingHint() );
     TQLabel *label2 = new TQLabel( i18n ( "Path:" ), hbox1 );
     pathInput = new KLineEdit( hbox1 );
-    connect( pathInput, TQT_SIGNAL( textChanged ( const TQString & )), this, TQT_SLOT( slotPathChanged( const TQString & )));
+    connect( pathInput, TQ_SIGNAL( textChanged ( const TQString & )), this, TQ_SLOT( slotPathChanged( const TQString & )));
 
     pathInput->setText( path );
     pathInput->setFocus();
@@ -69,7 +69,7 @@ PanelBrowserDialog::PanelBrowserDialog( const TQString& path, const TQString &ic
     else
         iconBtn->setIcon( icon );
 
-    connect( browseBtn, TQT_SIGNAL( clicked() ), this, TQT_SLOT( browse() ) );
+    connect( browseBtn, TQ_SIGNAL( clicked() ), this, TQ_SLOT( browse() ) );
 }
 
 PanelBrowserDialog::~PanelBrowserDialog()

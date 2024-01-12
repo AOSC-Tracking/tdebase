@@ -68,10 +68,10 @@ KickerConfig::KickerConfig(TQWidget *parent, const char *name)
                       "jumpToPanel(TQString)", false);
     kapp->dcopClient()->send("kicker", "kicker", "configLaunched()", TQByteArray());
 
-    connect(this, TQT_SIGNAL(hidingPanelChanged(int)),
-            this, TQT_SLOT(setCurrentPanelIndex(int)));
-    connect(this, TQT_SIGNAL(positionPanelChanged(int)),
-            this, TQT_SLOT(setCurrentPanelIndex(int)));
+    connect(this, TQ_SIGNAL(hidingPanelChanged(int)),
+            this, TQ_SLOT(setCurrentPanelIndex(int)));
+    connect(this, TQ_SIGNAL(positionPanelChanged(int)),
+            this, TQ_SLOT(setCurrentPanelIndex(int)));
 }
 
 KickerConfig::~KickerConfig()
@@ -90,7 +90,7 @@ KickerConfig::~KickerConfig()
 // this method may get called multiple times during the life of the control panel!
 void KickerConfig::init()
 {
-    disconnect(configFileWatch, TQT_SIGNAL(dirty(const TQString&)), this, TQT_SLOT(configChanged(const TQString&)));
+    disconnect(configFileWatch, TQ_SIGNAL(dirty(const TQString&)), this, TQ_SLOT(configChanged(const TQString&)));
     configFileWatch->stopScan();
     for (ExtensionInfoList::iterator it = m_extensionInfo.begin();
          it != m_extensionInfo.end();
@@ -128,7 +128,7 @@ void KickerConfig::init()
 
     setupExtensionInfo(*config, true, true);
 
-    connect(configFileWatch, TQT_SIGNAL(dirty(const TQString&)), this, TQT_SLOT(configChanged(const TQString&)));
+    connect(configFileWatch, TQ_SIGNAL(dirty(const TQString&)), this, TQ_SLOT(configChanged(const TQString&)));
     configFileWatch->startScan();
 }
 

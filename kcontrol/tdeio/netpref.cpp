@@ -29,29 +29,29 @@ KIOPreferences::KIOPreferences( TQWidget* parent )
     sb_socketRead = new KIntNumInput( gb_Timeout, "sb_socketRead" );
     sb_socketRead->setSuffix( i18n( " sec" ) );
     sb_socketRead->setLabel( i18n( "Soc&ket read:" ), AlignVCenter);
-    connect(sb_socketRead, TQT_SIGNAL(valueChanged ( int )),
-            this, TQT_SLOT(configChanged()));
+    connect(sb_socketRead, TQ_SIGNAL(valueChanged ( int )),
+            this, TQ_SLOT(configChanged()));
 
     sb_proxyConnect = new KIntNumInput( sb_socketRead, 0, gb_Timeout,
             10, "sb_proxyConnect" );
     sb_proxyConnect->setSuffix( i18n( " sec" ) );
     sb_proxyConnect->setLabel( i18n( "Pro&xy connect:" ), AlignVCenter);
-    connect(sb_proxyConnect, TQT_SIGNAL(valueChanged ( int )),
-            this, TQT_SLOT(configChanged()));
+    connect(sb_proxyConnect, TQ_SIGNAL(valueChanged ( int )),
+            this, TQ_SLOT(configChanged()));
 
     sb_serverConnect = new KIntNumInput( sb_proxyConnect, 0, gb_Timeout,
             10, "sb_serverConnect" );
     sb_serverConnect->setSuffix( i18n( " sec" ) );
     sb_serverConnect->setLabel( i18n("Server co&nnect:"), AlignVCenter);
-    connect(sb_serverConnect, TQT_SIGNAL(valueChanged ( int )),
-            this, TQT_SLOT(configChanged()));
+    connect(sb_serverConnect, TQ_SIGNAL(valueChanged ( int )),
+            this, TQ_SLOT(configChanged()));
 
     sb_serverResponse = new KIntNumInput( sb_serverConnect, 0, gb_Timeout,
             10, "sb_serverResponse" );
     sb_serverResponse->setSuffix( i18n( " sec" ) );
     sb_serverResponse->setLabel( i18n("&Server response:"), AlignVCenter);
-    connect(sb_serverResponse, TQT_SIGNAL(valueChanged ( int )),
-            this, TQT_SLOT(configChanged()));
+    connect(sb_serverResponse, TQ_SIGNAL(valueChanged ( int )),
+            this, TQ_SLOT(configChanged()));
 
     gb_Ftp = new TQVGroupBox( i18n( "FTP Options" ), this, "gb_Ftp" );
     cb_ftpEnablePasv = new TQCheckBox( i18n( "Enable passive &mode (PASV)" ), gb_Ftp );
@@ -64,8 +64,8 @@ KIOPreferences::KIOPreferences( TQWidget* parent )
 
     mainLayout->addWidget( gb_Ftp );
 
-    connect(cb_ftpEnablePasv, TQT_SIGNAL(toggled(bool)), TQT_SLOT(configChanged()));
-    connect(cb_ftpMarkPartial, TQT_SIGNAL(toggled(bool)), TQT_SLOT(configChanged()));
+    connect(cb_ftpEnablePasv, TQ_SIGNAL(toggled(bool)), TQ_SLOT(configChanged()));
+    connect(cb_ftpMarkPartial, TQ_SIGNAL(toggled(bool)), TQ_SLOT(configChanged()));
 
     mainLayout->addStretch();
 

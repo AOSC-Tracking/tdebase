@@ -50,7 +50,7 @@ bool HTMLCreator::create(const TQString &path, int width, int height, TQImage &i
     if (!m_html)
     {
         m_html = new TDEHTMLPart;
-        connect(m_html, TQT_SIGNAL(completed()), TQT_SLOT(slotCompleted()));
+        connect(m_html, TQ_SIGNAL(completed()), TQ_SLOT(slotCompleted()));
         m_html->setJScriptEnabled(false);
         m_html->setJavaEnabled(false);
         m_html->setPluginsEnabled(false);

@@ -49,7 +49,7 @@ ConfGeneral::ConfGeneral(TQWidget *parent, const char *name)
 	m_replace_int_char_val = new TQLineEdit( this );
 	m_replace_int_char_val->setEnabled( false );
 
-	connect( m_replace_int_char, TQT_SIGNAL( toggled( bool ) ), m_replace_int_char_val, TQT_SLOT( setEnabled( bool ) ) );
+	connect( m_replace_int_char, TQ_SIGNAL( toggled( bool ) ), m_replace_int_char_val, TQ_SLOT( setEnabled( bool ) ) );
 
 	TQGridLayout	*l0 = new TQGridLayout(this, 6, 2, 10, 10);
 	l0->setColStretch(1, 1);

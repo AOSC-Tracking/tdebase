@@ -45,7 +45,7 @@ ConfFilters::ConfFilters(TQWidget *parent, const char *name)
 	m_filters->setLineWidth(1);
 	m_filters->setSorting(-1);
 	m_filters->header()->setStretchEnabled(true, 1);
-	connect(m_filters, TQT_SIGNAL(doubleClicked(TQListViewItem*)), TQT_SLOT(slotChange()));
+	connect(m_filters, TQ_SIGNAL(doubleClicked(TQListViewItem*)), TQ_SLOT(slotChange()));
 
 	m_add = new TQPushButton(this);
 	m_add->setPixmap(BarIcon("document-new"));
@@ -57,11 +57,11 @@ ConfFilters::ConfFilters(TQWidget *parent, const char *name)
 	m_up->setIconSet(BarIconSet("go-up"));
 	m_down = new TQPushButton(this);
 	m_down->setIconSet(BarIconSet("go-down"));
-	connect(m_add, TQT_SIGNAL(clicked()), TQT_SLOT(slotAdd()));
-	connect(m_change, TQT_SIGNAL(clicked()), TQT_SLOT(slotChange()));
-	connect(m_remove, TQT_SIGNAL(clicked()), TQT_SLOT(slotRemove()));
-	connect(m_up, TQT_SIGNAL(clicked()), TQT_SLOT(slotUp()));
-	connect(m_down, TQT_SIGNAL(clicked()), TQT_SLOT(slotDown()));
+	connect(m_add, TQ_SIGNAL(clicked()), TQ_SLOT(slotAdd()));
+	connect(m_change, TQ_SIGNAL(clicked()), TQ_SLOT(slotChange()));
+	connect(m_remove, TQ_SIGNAL(clicked()), TQ_SLOT(slotRemove()));
+	connect(m_up, TQ_SIGNAL(clicked()), TQ_SLOT(slotUp()));
+	connect(m_down, TQ_SIGNAL(clicked()), TQ_SLOT(slotDown()));
 	TQToolTip::add(m_add, i18n("Add filter"));
 	TQToolTip::add(m_change, i18n("Modify filter"));
 	TQToolTip::add(m_remove, i18n("Remove filter"));
@@ -80,7 +80,7 @@ ConfFilters::ConfFilters(TQWidget *parent, const char *name)
 	l1->addWidget(m_down);
 	l1->addStretch(1);
 	updateButton();
-	connect(m_filters, TQT_SIGNAL(selectionChanged ()),TQT_SLOT(updateButton()));
+	connect(m_filters, TQ_SIGNAL(selectionChanged ()),TQ_SLOT(updateButton()));
 }
 
 void ConfFilters::load()

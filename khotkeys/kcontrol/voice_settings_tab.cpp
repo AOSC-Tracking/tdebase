@@ -26,7 +26,7 @@ namespace KHotKeys
 Voice_settings_tab::Voice_settings_tab( TQWidget* parent_P, const char* name_P )
     : Voice_settings_tab_ui( parent_P, name_P )
     {
-		connect( keyButton , TQT_SIGNAL(capturedShortcut (const TDEShortcut &)) , this, TQT_SLOT(slotCapturedKey( const TDEShortcut& )));
+		connect( keyButton , TQ_SIGNAL(capturedShortcut (const TDEShortcut &)) , this, TQ_SLOT(slotCapturedKey( const TDEShortcut& )));
     }
 
 void Voice_settings_tab::read_data()

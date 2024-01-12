@@ -93,14 +93,14 @@ KonqCommandRecorder::KonqCommandRecorder( KonqCommand::Type op, const KURL::List
   d->m_cmd.m_valid = true;
   d->m_cmd.m_src = src;
   d->m_cmd.m_dst = dst;
-  connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ),
-           this, TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+  connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ),
+           this, TQ_SLOT( slotResult( TDEIO::Job * ) ) );
 
   if ( op != KonqCommand::MKDIR ) {
-      connect( job, TQT_SIGNAL( copyingDone( TDEIO::Job *, const KURL &, const KURL &, bool, bool ) ),
-               this, TQT_SLOT( slotCopyingDone( TDEIO::Job *, const KURL &, const KURL &, bool, bool ) ) );
-      connect( job, TQT_SIGNAL( copyingLinkDone( TDEIO::Job *, const KURL &, const TQString &, const KURL & ) ),
-               this, TQT_SLOT( slotCopyingLinkDone( TDEIO::Job *, const KURL &, const TQString &, const KURL & ) ) );
+      connect( job, TQ_SIGNAL( copyingDone( TDEIO::Job *, const KURL &, const KURL &, bool, bool ) ),
+               this, TQ_SLOT( slotCopyingDone( TDEIO::Job *, const KURL &, const KURL &, bool, bool ) ) );
+      connect( job, TQ_SIGNAL( copyingLinkDone( TDEIO::Job *, const KURL &, const TQString &, const KURL & ) ),
+               this, TQ_SLOT( slotCopyingLinkDone( TDEIO::Job *, const KURL &, const TQString &, const KURL & ) ) );
   }
 
   KonqUndoManager::incRef();
@@ -411,8 +411,8 @@ void KonqUndoManager::undoStep()
       undoRemovingDirectories();
 
   if ( d->m_currentJob )
-    connect( d->m_currentJob, TQT_SIGNAL( result( TDEIO::Job * ) ),
-             this, TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+    connect( d->m_currentJob, TQ_SIGNAL( result( TDEIO::Job * ) ),
+             this, TQ_SLOT( slotResult( TDEIO::Job * ) ) );
 }
 
 void KonqUndoManager::undoMakingDirectories()

@@ -186,7 +186,7 @@ TaskContainer::TaskContainer(Startup::Ptr startup, PixmapList& startupFrames, Ta
 
     sid = m_startup->bin();
 
-    connect(m_startup, TQT_SIGNAL(changed()), TQT_SLOT(update()));
+    connect(m_startup, TQ_SIGNAL(changed()), TQ_SLOT(update()));
 
     dragSwitchTimer.start(333, true);
 }
@@ -212,10 +212,10 @@ void TaskContainer::init()
 
     installEventFilter(KickerTip::the());
 
-    connect(&animationTimer, TQT_SIGNAL(timeout()), TQT_SLOT(animationTimerFired()));
-    connect(&dragSwitchTimer, TQT_SIGNAL(timeout()), TQT_SLOT(showMe()));
-    connect(&attentionTimer, TQT_SIGNAL(timeout()), TQT_SLOT(attentionTimerFired()));
-    connect(&m_paintEventCompressionTimer, TQT_SIGNAL(timeout()), TQT_SLOT(updateNow()));
+    connect(&animationTimer, TQ_SIGNAL(timeout()), TQ_SLOT(animationTimerFired()));
+    connect(&dragSwitchTimer, TQ_SIGNAL(timeout()), TQ_SLOT(showMe()));
+    connect(&attentionTimer, TQ_SIGNAL(timeout()), TQ_SLOT(attentionTimerFired()));
+    connect(&m_paintEventCompressionTimer, TQ_SIGNAL(timeout()), TQ_SLOT(updateNow()));
 }
 
 TaskContainer::~TaskContainer()
@@ -235,8 +235,8 @@ void TaskContainer::showMe()
         animationTimer.start(100);
 
     emit showMe(this);
-    disconnect(&dragSwitchTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(showMe()));
-    connect(&dragSwitchTimer, TQT_SIGNAL(timeout()), TQT_SLOT(dragSwitch()));
+    disconnect(&dragSwitchTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(showMe()));
+    connect(&dragSwitchTimer, TQ_SIGNAL(timeout()), TQ_SLOT(dragSwitch()));
 }
 
 void TaskContainer::stopTimers()
@@ -442,9 +442,9 @@ void TaskContainer::add(Task::Ptr task)
     KickerTip::Client::updateKickerTip();
     update();
 
-    connect(task, TQT_SIGNAL(changed(bool)), TQT_SLOT(taskChanged(bool)));
-    connect(task, TQT_SIGNAL(iconChanged()), TQT_SLOT(iconChanged()));
-    connect(task, TQT_SIGNAL(activated()), TQT_SLOT(setLastActivated()));
+    connect(task, TQ_SIGNAL(changed(bool)), TQ_SLOT(taskChanged(bool)));
+    connect(task, TQ_SIGNAL(iconChanged()), TQ_SLOT(iconChanged()));
+    connect(task, TQ_SIGNAL(activated()), TQ_SLOT(setLastActivated()));
 }
 
 void TaskContainer::remove(Task::Ptr task)
@@ -1097,7 +1097,7 @@ void TaskContainer::mouseReleaseEvent(TQMouseEvent *e)
     }
 
     performAction( buttonAction );
-    TQTimer::singleShot(0, this, TQT_SLOT(update()));
+    TQTimer::singleShot(0, this, TQ_SLOT(update()));
 }
 
 void TaskContainer::performAction(int action)
@@ -1310,22 +1310,22 @@ TQPopupMenu* TaskContainer::makeTaskMoveMenu()
 
     id = menu->insertItem(SmallIconSet("go-first"),
                           i18n("Move to Beginning"),
-                          this, TQT_SLOT(slotTaskMoveBeginning()));
+                          this, TQ_SLOT(slotTaskMoveBeginning()));
     menu->setItemEnabled(id, (capabilities & TaskMoveDestination::Left));
 
     id = menu->insertItem(SmallIconSet("back"),
                           i18n("Move Left"),
-                          this, TQT_SLOT(slotTaskMoveLeft()));
+                          this, TQ_SLOT(slotTaskMoveLeft()));
     menu->setItemEnabled(id, (capabilities & TaskMoveDestination::Left));
 
     id = menu->insertItem(SmallIconSet("forward"),
                           i18n("Move Right"),
-                          this, TQT_SLOT(slotTaskMoveRight()));
+                          this, TQ_SLOT(slotTaskMoveRight()));
     menu->setItemEnabled(id, (capabilities & TaskMoveDestination::Right));
 
     id = menu->insertItem(SmallIconSet("go-last"),
                           i18n("Move to End"),
-                          this, TQT_SLOT(slotTaskMoveEnd()));
+                          this, TQ_SLOT(slotTaskMoveEnd()));
     menu->setItemEnabled(id, (capabilities & TaskMoveDestination::Right));
 
     return menu;

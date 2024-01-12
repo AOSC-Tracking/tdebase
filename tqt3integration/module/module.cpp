@@ -93,7 +93,7 @@ void* Module::getOpenFileNames( const TQString& filter, TQString workingDirector
     dlg->setMode(( multiple ? KFile::Files : KFile::File ) | KFile::LocalOnly );
     dlg->setPlainCaption( caption.isNull() ? i18n("Open") : caption );
 // TODO    dlg->ops->clearHistory();
-    connect( dlg, TQT_SIGNAL( dialogDone( int )), TQT_SLOT( dialogDone( int )));
+    connect( dlg, TQ_SIGNAL( dialogDone( int )), TQ_SLOT( dialogDone( int )));
     dlg->show();
     return dlg;
     }
@@ -117,7 +117,7 @@ void* Module::getSaveFileName( const TQString& initialSelection, const TQString&
     prepareDialog( dlg, parent, wmclass1, wmclass2 );
     dlg->setOperationMode( KFileDialog::Saving );
     dlg->setPlainCaption( caption.isNull() ? i18n("Save As") : caption );
-    connect( dlg, TQT_SIGNAL( dialogDone( int )), TQT_SLOT( dialogDone( int )));
+    connect( dlg, TQ_SIGNAL( dialogDone( int )), TQ_SLOT( dialogDone( int )));
     dlg->show();
     return dlg;
     }
@@ -130,7 +130,7 @@ void* Module::getExistingDirectory( const TQString& initialDirectory, long paren
         name.isEmpty() ? name : "kdirselect dialog", false );
     prepareDialog( dlg, parent, wmclass1, wmclass2 );
     dlg->setPlainCaption( caption.isNull() ? i18n( "Select Folder" ) : caption );
-    connect( dlg, TQT_SIGNAL( dialogDone( int )), TQT_SLOT( dialogDone( int )));
+    connect( dlg, TQ_SIGNAL( dialogDone( int )), TQ_SLOT( dialogDone( int )));
     dlg->show();
     return dlg;
     }
@@ -144,7 +144,7 @@ void* Module::getColor( const TQColor& color, long parent, const TQCString& name
         dlg->setColor( color );
     prepareDialog( dlg, parent, wmclass1, wmclass2 );
     dlg->setPlainCaption( i18n( "Select Color" ));
-    connect( dlg, TQT_SIGNAL( dialogDone( int )), TQT_SLOT( dialogDone( int )));
+    connect( dlg, TQ_SIGNAL( dialogDone( int )), TQ_SLOT( dialogDone( int )));
     dlg->show();
     return dlg;
     }
@@ -156,7 +156,7 @@ void* Module::getFont( bool /*ok*/, const TQFont& def, long parent, const TQCStr
     dlg->setFont( def, false );
     prepareDialog( dlg, parent, wmclass1, wmclass2 );
     dlg->setPlainCaption( i18n( "Select Font" ));
-    connect( dlg, TQT_SIGNAL( dialogDone( int )), TQT_SLOT( dialogDone( int )));
+    connect( dlg, TQ_SIGNAL( dialogDone( int )), TQ_SLOT( dialogDone( int )));
     dlg->show();
     return dlg;
     }
@@ -245,7 +245,7 @@ void* Module::messageBox1( int type, long parent, const TQString& caption, const
                        &checkboxResult, KMessageBox::Notify | KMessageBox::NoExec);
     prepareDialog( dialog, parent, wmclass1, wmclass2 );
     dialog->setPlainCaption( caption );
-    connect( dialog, TQT_SIGNAL( dialogDone( int )), TQT_SLOT( dialogDone( int )));
+    connect( dialog, TQ_SIGNAL( dialogDone( int )), TQ_SLOT( dialogDone( int )));
     btns b;
     b.buttons[ 0 ] = buttons[ 0 ];
     b.buttons[ 1 ] = buttons[ 1 ];
@@ -277,7 +277,7 @@ void* Module::messageBox2( int type, long parent, const TQString& caption, const
                        &checkboxResult, KMessageBox::Notify | KMessageBox::NoExec);
     prepareDialog( dialog, parent, wmclass1, wmclass2 );
     dialog->setPlainCaption( caption );
-    connect( dialog, TQT_SIGNAL( dialogDone( int )), TQT_SLOT( dialogDone( int )));
+    connect( dialog, TQ_SIGNAL( dialogDone( int )), TQ_SLOT( dialogDone( int )));
     dialog->show();
     return dialog;
     }

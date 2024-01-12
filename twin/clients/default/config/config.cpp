@@ -61,13 +61,13 @@ KDEDefaultConfig::KDEDefaultConfig( TDEConfig* conf, TQWidget* parent )
 	load( conf );
 
 	// Ensure we track user changes properly
-	connect( cbShowStipple, TQT_SIGNAL(clicked()), 
-			 this, TQT_SLOT(slotSelectionChanged()) );
-	connect( cbShowGrabBar, TQT_SIGNAL(clicked()), 
-			 this, TQT_SLOT(slotSelectionChanged()) );
+	connect( cbShowStipple, TQ_SIGNAL(clicked()), 
+			 this, TQ_SLOT(slotSelectionChanged()) );
+	connect( cbShowGrabBar, TQ_SIGNAL(clicked()), 
+			 this, TQ_SLOT(slotSelectionChanged()) );
 	if (highcolor)
-		connect( cbUseGradients, TQT_SIGNAL(clicked()), 
-				 this, TQT_SLOT(slotSelectionChanged()) );
+		connect( cbUseGradients, TQ_SIGNAL(clicked()), 
+				 this, TQ_SLOT(slotSelectionChanged()) );
 
 	// Make the widgets visible in twindecoration
 	gb->show();

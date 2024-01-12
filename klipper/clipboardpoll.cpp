@@ -108,9 +108,9 @@ ClipboardPoll::ClipboardPoll( TQWidget* parent )
     
 void ClipboardPoll::initPolling()
 {
-    connect( kapp->clipboard(), TQT_SIGNAL( selectionChanged() ), TQT_SLOT(qtSelectionChanged()));
-    connect( kapp->clipboard(), TQT_SIGNAL( dataChanged() ), TQT_SLOT( qtClipboardChanged() ));
-    connect( &timer, TQT_SIGNAL( timeout()), TQT_SLOT( timeout()));
+    connect( kapp->clipboard(), TQ_SIGNAL( selectionChanged() ), TQ_SLOT(qtSelectionChanged()));
+    connect( kapp->clipboard(), TQ_SIGNAL( dataChanged() ), TQ_SLOT( qtClipboardChanged() ));
+    connect( &timer, TQ_SIGNAL( timeout()), TQ_SLOT( timeout()));
     timer.start( 1000, false );
     selection.atom = XA_PRIMARY;
     clipboard.atom = xa_clipboard;

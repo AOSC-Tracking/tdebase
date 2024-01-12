@@ -21,9 +21,9 @@ KQuery::KQuery(TQObject *parent, const char * name)
   m_regexps.setAutoDelete(true);
   m_fileItems.setAutoDelete(true);
   processLocate = new TDEProcess(this);
-  connect(processLocate,TQT_SIGNAL(receivedStdout(TDEProcess*, char*, int)),this,TQT_SLOT(slotreceivedSdtout(TDEProcess*,char*,int)));
-  connect(processLocate,TQT_SIGNAL(receivedStderr(TDEProcess*, char*, int)),this,TQT_SLOT(slotreceivedSdterr(TDEProcess*,char*,int)));
-  connect(processLocate,TQT_SIGNAL(processExited(TDEProcess*)),this,TQT_SLOT(slotendProcessLocate(TDEProcess*)));
+  connect(processLocate,TQ_SIGNAL(receivedStdout(TDEProcess*, char*, int)),this,TQ_SLOT(slotreceivedSdtout(TDEProcess*,char*,int)));
+  connect(processLocate,TQ_SIGNAL(receivedStderr(TDEProcess*, char*, int)),this,TQ_SLOT(slotreceivedSdterr(TDEProcess*,char*,int)));
+  connect(processLocate,TQ_SIGNAL(processExited(TDEProcess*)),this,TQ_SLOT(slotendProcessLocate(TDEProcess*)));
 
   // Files with these mime types can be ignored, even if
   // findFormatByFileContent() in some cases may claim that
@@ -87,10 +87,10 @@ void KQuery::start()
   else
     job = TDEIO::listDir( m_url, false );
 
-  connect(job, TQT_SIGNAL(entries(TDEIO::Job *, const TDEIO::UDSEntryList &)),
-	  TQT_SLOT(slotListEntries(TDEIO::Job *, const TDEIO::UDSEntryList &)));
-  connect(job, TQT_SIGNAL(result(TDEIO::Job *)), TQT_SLOT(slotResult(TDEIO::Job *)));
-  connect(job, TQT_SIGNAL(canceled(TDEIO::Job *)), TQT_SLOT(slotCanceled(TDEIO::Job *)));
+  connect(job, TQ_SIGNAL(entries(TDEIO::Job *, const TDEIO::UDSEntryList &)),
+	  TQ_SLOT(slotListEntries(TDEIO::Job *, const TDEIO::UDSEntryList &)));
+  connect(job, TQ_SIGNAL(result(TDEIO::Job *)), TQ_SLOT(slotResult(TDEIO::Job *)));
+  connect(job, TQ_SIGNAL(canceled(TDEIO::Job *)), TQ_SLOT(slotCanceled(TDEIO::Job *)));
 }
 
 void KQuery::slotResult( TDEIO::Job * _job )

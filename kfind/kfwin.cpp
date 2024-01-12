@@ -131,14 +131,14 @@ KfindWindow::KfindWindow( TQWidget *parent, const char *name )
 
   resetColumns(true);
 
-  connect( this, TQT_SIGNAL(selectionChanged()),
-	   this, TQT_SLOT( selectionHasChanged() ));
+  connect( this, TQ_SIGNAL(selectionChanged()),
+	   this, TQ_SLOT( selectionHasChanged() ));
 
-  connect(this, TQT_SIGNAL(contextMenu(TDEListView *, TQListViewItem*,const TQPoint&)),
-	  this, TQT_SLOT(slotContextMenu(TDEListView *,TQListViewItem*,const TQPoint&)));
+  connect(this, TQ_SIGNAL(contextMenu(TDEListView *, TQListViewItem*,const TQPoint&)),
+	  this, TQ_SLOT(slotContextMenu(TDEListView *,TQListViewItem*,const TQPoint&)));
 
-  connect(this, TQT_SIGNAL(executed(TQListViewItem*)),
-	  this, TQT_SLOT(slotExecute(TQListViewItem*)));
+  connect(this, TQ_SIGNAL(executed(TQListViewItem*)),
+	  this, TQ_SLOT(slotExecute(TQListViewItem*)));
   setDragEnabled(true);
 
 }
@@ -409,21 +409,21 @@ void KfindWindow::slotContextMenu(TDEListView *,TQListViewItem *item,const TQPoi
   {
      //menu = new TDEPopupMenu(item->text(0), this);
      m_menu->insertTitle(item->text(0));
-     m_menu->insertItem(SmallIcon("document-open"),i18n("Menu item", "Open"), this, TQT_SLOT(openBinding()));
-     m_menu->insertItem(SmallIcon("window-new"),i18n("Open Folder"), this, TQT_SLOT(openFolder()));
+     m_menu->insertItem(SmallIcon("document-open"),i18n("Menu item", "Open"), this, TQ_SLOT(openBinding()));
+     m_menu->insertItem(SmallIcon("window-new"),i18n("Open Folder"), this, TQ_SLOT(openFolder()));
      m_menu->insertSeparator();
-     m_menu->insertItem(SmallIcon("edit-copy"),i18n("Copy"), this, TQT_SLOT(copySelection()));
-     m_menu->insertItem(SmallIcon("edit-delete"),i18n("Delete"), this, TQT_SLOT(deleteFiles()));
+     m_menu->insertItem(SmallIcon("edit-copy"),i18n("Copy"), this, TQ_SLOT(copySelection()));
+     m_menu->insertItem(SmallIcon("edit-delete"),i18n("Delete"), this, TQ_SLOT(deleteFiles()));
      m_menu->insertSeparator();
-     m_menu->insertItem(i18n("Open With..."), this, TQT_SLOT(slotOpenWith()));
+     m_menu->insertItem(i18n("Open With..."), this, TQ_SLOT(slotOpenWith()));
      m_menu->insertSeparator();
-     m_menu->insertItem(i18n("Properties"), this, TQT_SLOT(fileProperties()));
+     m_menu->insertItem(i18n("Properties"), this, TQ_SLOT(fileProperties()));
   }
   else
   {
      m_menu->insertTitle(i18n("Selected Files"));
-     m_menu->insertItem(SmallIcon("edit-copy"),i18n("Copy"), this, TQT_SLOT(copySelection()));
-     m_menu->insertItem(SmallIcon("edit-delete"),i18n("Delete"), this, TQT_SLOT(deleteFiles()));
+     m_menu->insertItem(SmallIcon("edit-copy"),i18n("Copy"), this, TQ_SLOT(copySelection()));
+     m_menu->insertItem(SmallIcon("edit-delete"),i18n("Delete"), this, TQ_SLOT(deleteFiles()));
   }
   m_menu->popup(p, 1);
 }

@@ -84,8 +84,8 @@ void FavIconsItr::doAction() {
     curItem()->setTmpStatus(i18n("Updating favicon..."));
     if (!m_updater) {
         m_updater = new FavIconUpdater(kapp, "FavIconUpdater");
-        connect(m_updater, TQT_SIGNAL( done(bool) ),
-                this,      TQT_SLOT( slotDone(bool) ) );
+        connect(m_updater, TQ_SIGNAL( done(bool) ),
+                this,      TQ_SLOT( slotDone(bool) ) );
     }
     if (curBk().url().protocol().startsWith("http")) {
         m_updater->downloadIcon(curBk());

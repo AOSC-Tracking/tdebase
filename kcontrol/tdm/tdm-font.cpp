@@ -47,7 +47,7 @@ TDMFontWidget::TDMFontWidget(TQWidget *parent, const char *name)
   stdFontChooser = new TDEFontRequester(this);
   label->setBuddy(stdFontChooser);
   TQWhatsThis::add( stdFontChooser, i18n("This changes the font which is used for all the text in the login manager except for the greeting and failure messages.") );
-  connect(stdFontChooser, TQT_SIGNAL(fontSelected(const TQFont&)),this,TQT_SLOT(configChanged()));
+  connect(stdFontChooser, TQ_SIGNAL(fontSelected(const TQFont&)),this,TQ_SLOT(configChanged()));
   ml->addWidget(label, 1, 0);
   ml->addWidget(stdFontChooser, 1, 1);
 
@@ -55,7 +55,7 @@ TDMFontWidget::TDMFontWidget(TQWidget *parent, const char *name)
   failFontChooser = new TDEFontRequester(this);
   label->setBuddy(failFontChooser);
   TQWhatsThis::add( failFontChooser, i18n("This changes the font which is used for failure messages in the login manager.") );
-  connect(failFontChooser, TQT_SIGNAL(fontSelected(const TQFont&)),this,TQT_SLOT(configChanged()));
+  connect(failFontChooser, TQ_SIGNAL(fontSelected(const TQFont&)),this,TQ_SLOT(configChanged()));
   ml->addWidget(label, 2, 0);
   ml->addWidget(failFontChooser, 2, 1);
 
@@ -63,14 +63,14 @@ TDMFontWidget::TDMFontWidget(TQWidget *parent, const char *name)
   greetingFontChooser = new TDEFontRequester(this);
   label->setBuddy(greetingFontChooser);
   TQWhatsThis::add( greetingFontChooser, i18n("This changes the font which is used for the login manager's greeting.") );
-  connect(greetingFontChooser, TQT_SIGNAL(fontSelected(const TQFont&)),this,TQT_SLOT(configChanged()));
+  connect(greetingFontChooser, TQ_SIGNAL(fontSelected(const TQFont&)),this,TQ_SLOT(configChanged()));
   ml->addWidget(label, 3, 0);
   ml->addWidget(greetingFontChooser, 3, 1);
 
   aacb = new TQCheckBox (i18n("Use anti-aliasing for fonts"), this);
   TQWhatsThis::add( aacb, i18n("If you check this box and your X-Server has the Xft extension, "
 	"fonts will be antialiased (smoothed) in the login dialog.") );
-  connect(aacb, TQT_SIGNAL(toggled ( bool )),this,TQT_SLOT(configChanged()));
+  connect(aacb, TQ_SIGNAL(toggled ( bool )),this,TQ_SLOT(configChanged()));
   ml->addMultiCellWidget(aacb, 4, 4, 0, 1);
   ml->setRowStretch(5, 10);
 }

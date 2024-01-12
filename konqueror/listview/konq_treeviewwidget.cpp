@@ -35,12 +35,12 @@ KonqTreeViewWidget::KonqTreeViewWidget( KonqListView *parent, TQWidget *parentWi
    setRootIsDecorated( true );
    setTreeStepSize( 20 );
 
-   connect( m_dirLister, TQT_SIGNAL( completed( const KURL & ) ),
-            this, TQT_SLOT( slotCompleted( const KURL & ) ) );
-   connect( m_dirLister, TQT_SIGNAL( clear( const KURL & ) ),
-            this, TQT_SLOT( slotClear( const KURL & ) ) );
-   connect( m_dirLister, TQT_SIGNAL( redirection( const KURL &, const KURL & ) ),
-            this, TQT_SLOT( slotRedirection( const KURL &, const KURL & ) ) );
+   connect( m_dirLister, TQ_SIGNAL( completed( const KURL & ) ),
+            this, TQ_SLOT( slotCompleted( const KURL & ) ) );
+   connect( m_dirLister, TQ_SIGNAL( clear( const KURL & ) ),
+            this, TQ_SLOT( slotClear( const KURL & ) ) );
+   connect( m_dirLister, TQ_SIGNAL( redirection( const KURL &, const KURL & ) ),
+            this, TQ_SLOT( slotRedirection( const KURL &, const KURL & ) ) );
 }
 
 KonqTreeViewWidget::~KonqTreeViewWidget()

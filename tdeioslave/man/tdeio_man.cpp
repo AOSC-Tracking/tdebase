@@ -204,8 +204,8 @@ TQMap<TQString, TQString> MANProtocol::buildIndexMap(const TQString &section)
                 TDEProcess proc;
                 proc << "whatis" << "-M" << (*it_dir) << "-w" << "*";
                 myStdStream = TQString::null;
-                connect( &proc, TQT_SIGNAL( receivedStdout(TDEProcess *, char *, int ) ),
-                         TQT_SLOT( slotGetStdOutput( TDEProcess *, char *, int ) ) );
+                connect( &proc, TQ_SIGNAL( receivedStdout(TDEProcess *, char *, int ) ),
+                         TQ_SLOT( slotGetStdOutput( TDEProcess *, char *, int ) ) );
                 proc.start( TDEProcess::Block, TDEProcess::Stdout );
                 TQTextStream t( &myStdStream, IO_ReadOnly );
                 parseWhatIs( i, t, mark );
@@ -555,8 +555,8 @@ char *MANProtocol::readManPage(const char *_filename)
 	getProgramPath();
 	proc << mySgml2RoffPath << filename;
 
-	TQApplication::connect(&proc, TQT_SIGNAL(receivedStdout (TDEProcess *, char *, int)),
-			      this, TQT_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
+	TQApplication::connect(&proc, TQ_SIGNAL(receivedStdout (TDEProcess *, char *, int)),
+			      this, TQ_SLOT(slotGetStdOutput(TDEProcess *, char *, int)));
 	proc.start(TDEProcess::Block, TDEProcess::All);
 
         const TQCString cstr=myStdStream.latin1();
@@ -589,8 +589,8 @@ char *MANProtocol::readManPage(const char *_filename)
 
             proc << "man" << "--recode" << "UTF-8" << filename;
 
-            TQApplication::connect(&proc, TQT_SIGNAL(receivedStdout (TDEProcess *, char *, int)),
-                                   this, TQT_SLOT(slotGetStdOutputUtf8(TDEProcess *, char *, int)));
+            TQApplication::connect(&proc, TQ_SIGNAL(receivedStdout (TDEProcess *, char *, int)),
+                                   this, TQ_SLOT(slotGetStdOutputUtf8(TDEProcess *, char *, int)));
             proc.start(TDEProcess::Block, TDEProcess::All);
 
             const TQCString cstr=myStdStream.utf8();

@@ -139,8 +139,8 @@ void KateViewSpace::addView(Kate::View* v, bool show)
 
 void KateViewSpace::removeView(Kate::View* v)
 {
-  disconnect( v->getDoc(), TQT_SIGNAL(modifiedChanged()),
-              mStatusBar, TQT_SLOT(modifiedChanged()) );
+  disconnect( v->getDoc(), TQ_SIGNAL(modifiedChanged()),
+              mStatusBar, TQ_SLOT(modifiedChanged()) );
 
   bool active = ( v == currentView() );
 
@@ -168,12 +168,12 @@ bool KateViewSpace::showView(uint documentNumber)
   for( ; it.current(); --it ) {
     if (((Kate::Document*)it.current()->getDoc())->documentNumber() == documentNumber) {
       if ( currentView() )
-        disconnect( currentView()->getDoc(), TQT_SIGNAL(modifiedChanged()),
-                    mStatusBar, TQT_SLOT(modifiedChanged()) );
+        disconnect( currentView()->getDoc(), TQ_SIGNAL(modifiedChanged()),
+                    mStatusBar, TQ_SLOT(modifiedChanged()) );
 
       Kate::View* kv = it.current();
-      connect( kv->getDoc(), TQT_SIGNAL(modifiedChanged()),
-               mStatusBar, TQT_SLOT(modifiedChanged()) );
+      connect( kv->getDoc(), TQ_SIGNAL(modifiedChanged()),
+               mStatusBar, TQ_SLOT(modifiedChanged()) );
 
       mViewList.removeRef( kv );
       mViewList.append( kv );

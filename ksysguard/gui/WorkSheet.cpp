@@ -518,10 +518,10 @@ void WorkSheet::replaceDisplay( uint row, uint column, KSGRD::SensorDisplay* new
     mDisplayList[ row ][ column ] = newDisplay;
     if ( mDisplayList[ row ][ column ]->useGlobalUpdateInterval() )
       mDisplayList[ row ][ column ]->setUpdateInterval( updateInterval() );
-    connect( newDisplay, TQT_SIGNAL( showPopupMenu( KSGRD::SensorDisplay* ) ),
-             TQT_SLOT( showPopupMenu( KSGRD::SensorDisplay* ) ) );
-    connect( newDisplay, TQT_SIGNAL( modified( bool ) ),
-             TQT_SLOT( setModified( bool ) ) );
+    connect( newDisplay, TQ_SIGNAL( showPopupMenu( KSGRD::SensorDisplay* ) ),
+             TQ_SLOT( showPopupMenu( KSGRD::SensorDisplay* ) ) );
+    connect( newDisplay, TQ_SIGNAL( modified( bool ) ),
+             TQ_SLOT( setModified( bool ) ) );
   }
 
 

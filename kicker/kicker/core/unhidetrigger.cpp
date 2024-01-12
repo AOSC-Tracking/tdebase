@@ -40,7 +40,7 @@ UnhideTrigger::UnhideTrigger()
 	, enabledCount( 0 )
 {
 	_timer = new TQTimer( this, "UnhideTrigger" );
-	connect( _timer, TQT_SIGNAL(timeout()), TQT_SLOT(pollMouse()) );
+	connect( _timer, TQ_SIGNAL(timeout()), TQ_SLOT(pollMouse()) );
 }
 
 void UnhideTrigger::setEnabled( bool enable )

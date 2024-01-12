@@ -64,10 +64,10 @@ KrashDebugger :: KrashDebugger (const KrashConfig *krashconf, TQWidget *parent, 
   //m_copyButton = new KPushButton( KStdGuiItem::copy(), w );
   KGuiItem item( i18n( "C&opy" ), TQString::fromLatin1( "edit-copy" ) );
   m_copyButton = new KPushButton( item, w );
-  connect( m_copyButton, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotCopy() ) );
+  connect( m_copyButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotCopy() ) );
   m_copyButton->setEnabled( false );
   m_saveButton = new KPushButton( m_krashconf->safeMode() ? KStdGuiItem::save() : KStdGuiItem::saveAs(), w );
-  connect( m_saveButton, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotSave() ) );
+  connect( m_saveButton, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotSave() ) );
   m_saveButton->setEnabled( false );
 }
 
@@ -195,10 +195,10 @@ void KrashDebugger :: startDebugger()
 
   m_proctrace = new BackTrace(m_krashconf, this);
 
-  connect(m_proctrace, TQT_SIGNAL(append(const TQString &)),
-          TQT_SLOT(slotAppend(const TQString &)));
-  connect(m_proctrace, TQT_SIGNAL(done(const TQString&)), TQT_SLOT(slotDone(const TQString&)));
-  connect(m_proctrace, TQT_SIGNAL(someError()), TQT_SLOT(slotSomeError()));
+  connect(m_proctrace, TQ_SIGNAL(append(const TQString &)),
+          TQ_SLOT(slotAppend(const TQString &)));
+  connect(m_proctrace, TQ_SIGNAL(done(const TQString&)), TQ_SLOT(slotDone(const TQString&)));
+  connect(m_proctrace, TQ_SIGNAL(someError()), TQ_SLOT(slotSomeError()));
 
   m_proctrace->start();
 }

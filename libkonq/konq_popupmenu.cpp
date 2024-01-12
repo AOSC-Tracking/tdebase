@@ -287,7 +287,7 @@ int KonqPopupMenu::insertServices(const ServiceList& list,
             name.setNum( id );
             name.prepend( isBuiltin ? "builtinservice_" : "userservice_" );
             TDEAction * act = new TDEAction( TQString((*it).m_strName).replace('&',"&&"), 0,
-                                         this, TQT_SLOT( slotRunService() ),
+                                         this, TQ_SLOT( slotRunService() ),
                                          &m_ownActions, name );
 
             if ( !(*it).m_strIcon.isEmpty() )
@@ -430,8 +430,8 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         d->localURLSlotFired = false;
         TDEIO::LocalURLJob* localURLJob = TDEIO::localURL(m_sViewURL);
         if (localURLJob) {
-            connect(localURLJob, TQT_SIGNAL(localURL(TDEIO::LocalURLJob*, const KURL&, bool)), this, TQT_SLOT(slotLocalURL(TDEIO::LocalURLJob*, const KURL&, bool)));
-            connect(localURLJob, TQT_SIGNAL(destroyed()), this, TQT_SLOT(slotLocalURLKIODestroyed()));
+            connect(localURLJob, TQ_SIGNAL(localURL(TDEIO::LocalURLJob*, const KURL&, bool)), this, TQ_SLOT(slotLocalURL(TDEIO::LocalURLJob*, const KURL&, bool)));
+            connect(localURLJob, TQ_SIGNAL(destroyed()), this, TQ_SLOT(slotLocalURLKIODestroyed()));
             while (!d->localURLSlotFired) {
                 kapp->eventLoop()->enterLoop();
             }
@@ -501,7 +501,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
     if ( ((kpf & ShowNewWindow) != 0) && sReading  && !isEncryptedMediaFile)
     {
         TQString openStr = isKDesktop ? i18n( "&Open" ) : i18n( "Open in New &Window" );
-        TDEAction *actNewWindow = new TDEAction( openStr, "window-new", 0, this, TQT_SLOT( slotPopupNewView() ), &m_ownActions, "newview" );
+        TDEAction *actNewWindow = new TDEAction( openStr, "window-new", 0, this, TQ_SLOT( slotPopupNewView() ), &m_ownActions, "newview" );
         actNewWindow->setToolTip( i18n( "Open item in a new window" ) );
         addAction( actNewWindow );
         addSeparator();
@@ -523,14 +523,14 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         {
             if (d->m_itemFlags & KParts::BrowserExtension::ShowCreateDirectory)
             {
-                TDEAction *actNewDir = new TDEAction( i18n( "Create &Folder..." ), "folder-new", 0, this, TQT_SLOT( slotPopupNewDir() ), &m_ownActions, "newdir" );
+                TDEAction *actNewDir = new TDEAction( i18n( "Create &Folder..." ), "folder-new", 0, this, TQ_SLOT( slotPopupNewDir() ), &m_ownActions, "newdir" );
                 addAction( actNewDir );
                 addSeparator();
             }
         }
     } else if ( isIntoTrash ) {
         // Trashed item, offer restoring
-        act = new TDEAction( i18n( "&Restore" ), 0, this, TQT_SLOT( slotPopupRestoreTrashedItems() ), &m_ownActions, "restore" );
+        act = new TDEAction( i18n( "&Restore" ), 0, this, TQ_SLOT( slotPopupRestoreTrashedItems() ), &m_ownActions, "restore" );
         addAction( act );
     }
 
@@ -598,7 +598,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
     }
     if ( isCurrentTrash )
     {
-        act = new TDEAction( i18n( "&Empty Trash Bin" ), "emptytrash", 0, this, TQT_SLOT( slotPopupEmptyTrashBin() ), &m_ownActions, "empytrash" );
+        act = new TDEAction( i18n( "&Empty Trash Bin" ), "emptytrash", 0, this, TQ_SLOT( slotPopupEmptyTrashBin() ), &m_ownActions, "empytrash" );
         KSimpleConfig trashConfig( "trashrc", true );
         trashConfig.setGroup( "Status" );
         act->setEnabled( !trashConfig.readBoolEntry( "Empty", true ) );
@@ -631,7 +631,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         else
            caption = i18n("&Bookmark This File");
 
-        act = new TDEAction( caption, "bookmark_add", 0, this, TQT_SLOT( slotPopupAddToBookmark() ), &m_ownActions, "bookmark_add" );
+        act = new TDEAction( caption, "bookmark_add", 0, this, TQ_SLOT( slotPopupAddToBookmark() ), &m_ownActions, "bookmark_add" );
         if (m_lstItems.count() > 1)
             act->setEnabled(false);
         if (kapp->authorizeTDEAction("bookmarks"))
@@ -915,7 +915,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
                         actionName = i18n( "Open with %1" ).arg( actionName );
 
                     act = new TDEAction( actionName, (*it)->pixmap( TDEIcon::Small ), 0,
-                                       this, TQT_SLOT( slotRunService() ),
+                                       this, TQ_SLOT( slotRunService() ),
                                        &m_ownActions, nam.prepend( "appservice_" ) );
                     addAction( act, menu );
 
@@ -932,12 +932,12 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
                 {
                     openWithActionName = i18n( "&Open With..." );
                 }
-                TDEAction *openWithAct = new TDEAction( openWithActionName, 0, this, TQT_SLOT( slotPopupOpenWith() ), &m_ownActions, "openwith" );
+                TDEAction *openWithAct = new TDEAction( openWithActionName, 0, this, TQ_SLOT( slotPopupOpenWith() ), &m_ownActions, "openwith" );
                 addAction( openWithAct, menu );
             }
             else // no app offers -> Open With...
             {
-                act = new TDEAction( i18n( "&Open With..." ), 0, this, TQT_SLOT( slotPopupOpenWith() ), &m_ownActions, "openwith" );
+                act = new TDEAction( i18n( "&Open With..." ), 0, this, TQ_SLOT( slotPopupOpenWith() ), &m_ownActions, "openwith" );
                 addAction( act );
             }
 
@@ -991,7 +991,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
 
     if ( KPropertiesDialog::canDisplay( m_lstItems ) && (kpf & ShowProperties) )
     {
-        act = new TDEAction( i18n( "&Properties" ), "edit", 0, this, TQT_SLOT( slotPopupProperties() ),
+        act = new TDEAction( i18n( "&Properties" ), "edit", 0, this, TQ_SLOT( slotPopupProperties() ),
                            &m_ownActions, "properties" );
         addAction( act );
     }
@@ -1005,7 +1005,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         if ( KFileShare::authorization() == KFileShare::Authorized )
         {
             addSeparator();
-            act = new TDEAction( i18n("Share"), 0, this, TQT_SLOT( slotOpenShareFileDialog() ),
+            act = new TDEAction( i18n("Share"), 0, this, TQ_SLOT( slotOpenShareFileDialog() ),
                                &m_ownActions, "sharefile" );
             addAction( act );
         }

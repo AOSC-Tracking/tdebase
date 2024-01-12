@@ -100,7 +100,7 @@ KdmLabel::KdmLabel( KdmItem *parent, const TQDomNode &node, const char *name )
 	if (label.isTimer) {
 		timer = new TQTimer( this );
 		timer->start( 1000 );
-		connect( timer, TQT_SIGNAL(timeout()), TQT_SLOT(update()) );
+		connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(update()) );
 	}
 	setTextInt( lookupText( label.text ) );
 }
@@ -117,7 +117,7 @@ KdmLabel::setTextInt( const TQString &txt)
 	  cText.remove('&');
 	  myAccel = new TQAccel(parentWidget());
 	  myAccel->insertItem(ALT + UNICODE_ACCEL + cText.at(cAccel).lower().unicode());
-	  connect(myAccel, TQT_SIGNAL(activated(int)), TQT_SLOT(slotAccel()));
+	  connect(myAccel, TQ_SIGNAL(activated(int)), TQ_SLOT(slotAccel()));
 	}
 }
 

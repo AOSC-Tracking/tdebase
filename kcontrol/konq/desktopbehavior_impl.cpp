@@ -53,7 +53,7 @@ DesktopBehaviorModule::DesktopBehaviorModule(TDEConfig *config, TQWidget *parent
     TQVBoxLayout* layout = new TQVBoxLayout(this);
     m_behavior = new DesktopBehavior(config, this);
     layout->addWidget(m_behavior);
-    connect(m_behavior, TQT_SIGNAL(changed()), this, TQT_SLOT(changed()));
+    connect(m_behavior, TQ_SIGNAL(changed()), this, TQ_SLOT(changed()));
 }
 
 void DesktopBehaviorModule::changed()
@@ -127,16 +127,16 @@ DesktopBehavior::DesktopBehavior(TDEConfig *config, TQWidget *parent, const char
 
   m_bHasMedia = KProtocolInfo::isKnownProtocol(TQString::fromLatin1("media"));
 
-  connect(desktopMenuGroup, TQT_SIGNAL(clicked(int)), this, TQT_SIGNAL(changed()));
-  connect(iconsEnabledBox, TQT_SIGNAL(clicked()), this, TQT_SLOT(enableChanged()));
-  connect(showHiddenBox, TQT_SIGNAL(clicked()), this, TQT_SIGNAL(changed()));
-  connect(vrootBox, TQT_SIGNAL(clicked()), this, TQT_SIGNAL(changed()));
-  connect(lockInPlaceBox, TQT_SIGNAL(clicked()), this, TQT_SLOT(enableGridChanged()));
-  connect(autoLineupIconsBox, TQT_SIGNAL(clicked()), this, TQT_SLOT(enableGridChanged()));
-  connect(toolTipBox, TQT_SIGNAL(clicked()), this, TQT_SIGNAL(changed()));
-  connect(mediaListView, TQT_SIGNAL(clicked(TQListViewItem *)), this, TQT_SLOT(mediaListViewChanged(TQListViewItem *)));
-  connect(spacingValue, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(spacingChanged(int)));
-  connect(spacingCtrlScroll, TQT_SIGNAL(clicked()), this, TQT_SIGNAL(changed()));
+  connect(desktopMenuGroup, TQ_SIGNAL(clicked(int)), this, TQ_SIGNAL(changed()));
+  connect(iconsEnabledBox, TQ_SIGNAL(clicked()), this, TQ_SLOT(enableChanged()));
+  connect(showHiddenBox, TQ_SIGNAL(clicked()), this, TQ_SIGNAL(changed()));
+  connect(vrootBox, TQ_SIGNAL(clicked()), this, TQ_SIGNAL(changed()));
+  connect(lockInPlaceBox, TQ_SIGNAL(clicked()), this, TQ_SLOT(enableGridChanged()));
+  connect(autoLineupIconsBox, TQ_SIGNAL(clicked()), this, TQ_SLOT(enableGridChanged()));
+  connect(toolTipBox, TQ_SIGNAL(clicked()), this, TQ_SIGNAL(changed()));
+  connect(mediaListView, TQ_SIGNAL(clicked(TQListViewItem *)), this, TQ_SLOT(mediaListViewChanged(TQListViewItem *)));
+  connect(spacingValue, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(spacingChanged(int)));
+  connect(spacingCtrlScroll, TQ_SIGNAL(clicked()), this, TQ_SIGNAL(changed()));
 
   strMouseButton1 = i18n("&Left button:");
   strButtonTxt1 = i18n( "You can choose what happens when"
@@ -155,9 +155,9 @@ DesktopBehavior::DesktopBehavior(TDEConfig *config, TQWidget *parent, const char
   leftLabel->setText( strMouseButton1 );
   leftLabel->setBuddy( leftComboBox );
   fillMenuCombo( leftComboBox );
-  connect(leftEditButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(editButtonPressed()));
-  connect(leftComboBox, TQT_SIGNAL(activated(int)), this, TQT_SIGNAL(changed()));
-  connect(leftComboBox, TQT_SIGNAL(activated(int)), this, TQT_SLOT(comboBoxChanged()));
+  connect(leftEditButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(editButtonPressed()));
+  connect(leftComboBox, TQ_SIGNAL(activated(int)), this, TQ_SIGNAL(changed()));
+  connect(leftComboBox, TQ_SIGNAL(activated(int)), this, TQ_SLOT(comboBoxChanged()));
   TQString wtstr = strButtonTxt1 +
                   i18n(" <ul><li><em>No action:</em> as you might guess, nothing happens!</li>"
                        " <li><em>Window list menu:</em> a menu showing all windows on all"
@@ -177,9 +177,9 @@ DesktopBehavior::DesktopBehavior(TDEConfig *config, TQWidget *parent, const char
 
   middleLabel->setBuddy( middleComboBox );
   fillMenuCombo( middleComboBox );
-  connect(middleEditButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(editButtonPressed()));
-  connect(middleComboBox, TQT_SIGNAL(activated(int)), this, TQT_SIGNAL(changed()));
-  connect(middleComboBox, TQT_SIGNAL(activated(int)), this, TQT_SLOT(comboBoxChanged()));
+  connect(middleEditButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(editButtonPressed()));
+  connect(middleComboBox, TQ_SIGNAL(activated(int)), this, TQ_SIGNAL(changed()));
+  connect(middleComboBox, TQ_SIGNAL(activated(int)), this, TQ_SLOT(comboBoxChanged()));
   wtstr = i18n("You can choose what happens when"
                " you click the middle button of your pointing device on the desktop:"
                " <ul><li><em>No action:</em> as you might guess, nothing happens!</li>"
@@ -201,9 +201,9 @@ DesktopBehavior::DesktopBehavior(TDEConfig *config, TQWidget *parent, const char
   rightLabel->setText( strMouseButton3 );
   rightLabel->setBuddy( rightComboBox );
   fillMenuCombo( rightComboBox );
-  connect(rightEditButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(editButtonPressed()));
-  connect(rightComboBox, TQT_SIGNAL(activated(int)), this, TQT_SIGNAL(changed()));
-  connect(rightComboBox, TQT_SIGNAL(activated(int)), this, TQT_SLOT(comboBoxChanged()));
+  connect(rightEditButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(editButtonPressed()));
+  connect(rightComboBox, TQ_SIGNAL(activated(int)), this, TQ_SIGNAL(changed()));
+  connect(rightComboBox, TQ_SIGNAL(activated(int)), this, TQ_SLOT(comboBoxChanged()));
   wtstr = strButtonTxt3 +
           i18n(" <ul><li><em>No action:</em> as you might guess, nothing happens!</li>"
                " <li><em>Window list menu:</em> a menu showing all windows on all"
@@ -223,8 +223,8 @@ DesktopBehavior::DesktopBehavior(TDEConfig *config, TQWidget *parent, const char
 
   if (m_bHasMedia)
   {
-     connect(enableMediaBox, TQT_SIGNAL(clicked()), this, TQT_SLOT(enableChanged()));
-     connect(enableMediaFreeSpaceOverlayBox, TQT_SIGNAL(clicked()), this, TQT_SLOT(enableChanged()));
+     connect(enableMediaBox, TQ_SIGNAL(clicked()), this, TQ_SLOT(enableChanged()));
+     connect(enableMediaFreeSpaceOverlayBox, TQ_SIGNAL(clicked()), this, TQ_SLOT(enableChanged()));
   }
   else
   {

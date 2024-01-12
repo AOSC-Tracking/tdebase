@@ -272,8 +272,8 @@ void KSMServer::shutdownInternal( TDEApplication::ShutdownConfirm confirm,
 	if (showLogoutStatusDlg) {
 		shutdownNotifierIPDlg = KSMShutdownIPDlg::showShutdownIP();
 		if (shutdownNotifierIPDlg) {
-			connect(shutdownNotifierIPDlg, SIGNAL(abortLogoutClicked()), this, SLOT(cancelShutdown()));
-			connect(shutdownNotifierIPDlg, SIGNAL(skipNotificationClicked()), this, SLOT(forceSkipSaveYourself()));
+			connect(shutdownNotifierIPDlg, TQ_SIGNAL(abortLogoutClicked()), this, TQ_SLOT(cancelShutdown()));
+			connect(shutdownNotifierIPDlg, TQ_SIGNAL(skipNotificationClicked()), this, TQ_SLOT(forceSkipSaveYourself()));
 			static_cast<KSMShutdownIPDlg*>(shutdownNotifierIPDlg)->setStatusMessage(i18n("Notifying applications of logout request..."));
 			notificationTimer.start( KSMSERVER_NOTIFICATION_MANUAL_OPTIONS_TIMEOUT, true );
 		}
@@ -764,8 +764,8 @@ void KSMServer::completeShutdownOrCheckpoint()
         if (!shutdownNotifierIPDlg) {
             shutdownNotifierIPDlg = KSMShutdownIPDlg::showShutdownIP();
             if (shutdownNotifierIPDlg) {
-                connect(shutdownNotifierIPDlg, SIGNAL(abortLogoutClicked()), this, SLOT(cancelShutdown()));
-                connect(shutdownNotifierIPDlg, SIGNAL(skipNotificationClicked()), this, SLOT(forceSkipSaveYourself()));
+                connect(shutdownNotifierIPDlg, TQ_SIGNAL(abortLogoutClicked()), this, TQ_SLOT(cancelShutdown()));
+                connect(shutdownNotifierIPDlg, TQ_SIGNAL(skipNotificationClicked()), this, TQ_SLOT(forceSkipSaveYourself()));
             }
         }
         while (!KSMShutdownIPFeedback::ispainted()) {
@@ -963,7 +963,7 @@ void KSMServer::killWM()
     }
     if( iswm ) {
         completeKillingWM();
-        TQTimer::singleShot( 5000, this, TQT_SLOT( timeoutWMQuit() ) );
+        TQTimer::singleShot( 5000, this, TQ_SLOT( timeoutWMQuit() ) );
     }
     else {
         killingCompleted();

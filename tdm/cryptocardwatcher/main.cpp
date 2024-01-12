@@ -123,8 +123,8 @@ int main(int argc, char *argv[]) {
 	TDEGenericHardwareList cardReaderList = hwdevices->listByDeviceClass(TDEGenericDeviceType::CryptographicCard);
 	for (hwdevice = cardReaderList.first(); hwdevice; hwdevice = cardReaderList.next()) {
 		TDECryptographicCardDevice* cdevice = static_cast<TDECryptographicCardDevice*>(hwdevice);
-		TQObject::connect(cdevice, TQT_SIGNAL(cardInserted(TDECryptographicCardDevice*)), watcher, TQT_SLOT(cryptographicCardInserted(TDECryptographicCardDevice*)));
-		TQObject::connect(cdevice, TQT_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), watcher, TQT_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
+		TQObject::connect(cdevice, TQ_SIGNAL(cardInserted(TDECryptographicCardDevice*)), watcher, TQ_SLOT(cryptographicCardInserted(TDECryptographicCardDevice*)));
+		TQObject::connect(cdevice, TQ_SIGNAL(cardRemoved(TDECryptographicCardDevice*)), watcher, TQ_SLOT(cryptographicCardRemoved(TDECryptographicCardDevice*)));
 		cdevice->enableCardMonitoring(true);
 	}
 

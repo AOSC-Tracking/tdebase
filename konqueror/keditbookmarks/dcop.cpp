@@ -37,8 +37,8 @@
 
 KBookmarkEditorIface::KBookmarkEditorIface()
     : TQObject(), DCOPObject("KBookmarkEditor") {
-    // connect(KBookmarkNotifier_stub, TQT_SIGNAL( updatedAccessMetadata(TQString,TQString) ), 
-    //         this,                   TQT_SLOT( slotDcopUpdatedAccessMetadata(TQString,TQString) ));
+    // connect(KBookmarkNotifier_stub, TQ_SIGNAL( updatedAccessMetadata(TQString,TQString) ), 
+    //         this,                   TQ_SLOT( slotDcopUpdatedAccessMetadata(TQString,TQString) ));
     connectDCOPSignal(0, "KBookmarkNotifier", "updatedAccessMetadata(TQString,TQString)", "slotDcopUpdatedAccessMetadata(TQString,TQString)", false);
 }
 

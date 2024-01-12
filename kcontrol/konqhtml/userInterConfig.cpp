@@ -36,11 +36,11 @@ userInterConfig::userInterConfig(TDEConfig *config, TQString groupName,
     layout->addWidget(m_widget);
     layout->addStretch();
 
-    connect(m_widget, TQT_SIGNAL(changed()),
-            this, TQT_SLOT(changed()));
+    connect(m_widget, TQ_SIGNAL(changed()),
+            this, TQ_SLOT(changed()));
 
     load();
-    TQTimer::singleShot(0, this, TQT_SLOT(notChanged()));
+    TQTimer::singleShot(0, this, TQ_SLOT(notChanged()));
 }
 
 void userInterConfig::notChanged()
@@ -68,5 +68,5 @@ void userInterConfig::defaults()
     // TDEConfigDialogManager may queue an changed(false) signal,
     // so we make sure, that the module is labeled as changed,
     // while we manage some of the widgets ourselves
-    TQTimer::singleShot(0, this, TQT_SLOT(changed()));
+    TQTimer::singleShot(0, this, TQ_SLOT(changed()));
 }

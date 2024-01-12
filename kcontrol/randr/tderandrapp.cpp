@@ -28,7 +28,7 @@
 KRandRApp::KRandRApp()
 	: m_tray(new KRandRSystemTray(0L, "RANDRTray"))
 {
-	connect(&m_eventMergingTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(handleX11ConfigChangeEvent()));
+	connect(&m_eventMergingTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(handleX11ConfigChangeEvent()));
 	m_tray->show();
 }
 

@@ -231,7 +231,7 @@ BookmarkInfoWidget::BookmarkInfoWidget(TQWidget *parent, const char *name)
     : TQWidget(parent, name), m_connected(false) {
 
     timer = new TQTimer(this);
-    connect(timer, TQT_SIGNAL( timeout() ), TQT_SLOT( commitChanges()));
+    connect(timer, TQ_SIGNAL( timeout() ), TQ_SLOT( commitChanges()));
 
     titlecmd = 0;
     urlcmd = 0;
@@ -246,9 +246,9 @@ BookmarkInfoWidget::BookmarkInfoWidget(TQWidget *parent, const char *name)
             new TQLabel(m_title_le, i18n("Name:"), this),
             0, 0);
 
-    connect(m_title_le, TQT_SIGNAL( textChanged(const TQString &) ),
-                        TQT_SLOT( slotTextChangedTitle(const TQString &) ));
-    connect(m_title_le, TQT_SIGNAL( lostFocus() ), TQT_SLOT( commitTitle() ));
+    connect(m_title_le, TQ_SIGNAL( textChanged(const TQString &) ),
+                        TQ_SLOT( slotTextChangedTitle(const TQString &) ));
+    connect(m_title_le, TQ_SIGNAL( lostFocus() ), TQ_SLOT( commitTitle() ));
 
     m_url_le = new BookmarkLineEdit(this);
     grid->addWidget(m_url_le, 1, 1);
@@ -256,18 +256,18 @@ BookmarkInfoWidget::BookmarkInfoWidget(TQWidget *parent, const char *name)
             new TQLabel(m_url_le, i18n("Location:"), this),
             1, 0);
 
-    connect(m_url_le, TQT_SIGNAL( textChanged(const TQString &) ),
-                      TQT_SLOT( slotTextChangedURL(const TQString &) ));
-    connect(m_url_le, TQT_SIGNAL( lostFocus() ), TQT_SLOT( commitURL() ));
+    connect(m_url_le, TQ_SIGNAL( textChanged(const TQString &) ),
+                      TQ_SLOT( slotTextChangedURL(const TQString &) ));
+    connect(m_url_le, TQ_SIGNAL( lostFocus() ), TQ_SLOT( commitURL() ));
 
     m_comment_le = new BookmarkLineEdit(this);
     grid->addWidget(m_comment_le, 2, 1);
     grid->addWidget(
             new TQLabel(m_comment_le, i18n("Comment:"), this),
             2, 0);
-    connect(m_comment_le, TQT_SIGNAL( textChanged(const TQString &) ),
-                          TQT_SLOT( slotTextChangedComment(const TQString &) ));
-    connect(m_comment_le, TQT_SIGNAL( lostFocus() ), TQT_SLOT( commitComment() ));
+    connect(m_comment_le, TQ_SIGNAL( textChanged(const TQString &) ),
+                          TQ_SLOT( slotTextChangedComment(const TQString &) ));
+    connect(m_comment_le, TQ_SIGNAL( lostFocus() ), TQ_SLOT( commitComment() ));
 
     m_credate_le = new KLineEdit(this);
     grid->addWidget(m_credate_le, 0, 3);

@@ -62,20 +62,20 @@ KfindDlg::KfindDlg(const KURL & url, TQWidget *parent, const char *name)
   vBox->addWidget(win, 1);
   vBox->addWidget(mStatusBar, 0);
 
-  connect(this, TQT_SIGNAL(applyClicked()),
-	  this, TQT_SLOT(startSearch()));
-  connect(this, TQT_SIGNAL(user1Clicked()),
-	  this, TQT_SLOT(stopSearch()));
-  connect(this, TQT_SIGNAL(user2Clicked()),
-	  win, TQT_SLOT(saveResults()));
+  connect(this, TQ_SIGNAL(applyClicked()),
+	  this, TQ_SLOT(startSearch()));
+  connect(this, TQ_SIGNAL(user1Clicked()),
+	  this, TQ_SLOT(stopSearch()));
+  connect(this, TQ_SIGNAL(user2Clicked()),
+	  win, TQ_SLOT(saveResults()));
 
-  connect(win ,TQT_SIGNAL(resultSelected(bool)),
-	  this,TQT_SIGNAL(resultSelected(bool)));
+  connect(win ,TQ_SIGNAL(resultSelected(bool)),
+	  this,TQ_SIGNAL(resultSelected(bool)));
 
   query = new KQuery(frame);
-  connect(query, TQT_SIGNAL(addFile(const KFileItem*,const TQString&)),
-	  TQT_SLOT(addFile(const KFileItem*,const TQString&)));
-  connect(query, TQT_SIGNAL(result(int)), TQT_SLOT(slotResult(int)));
+  connect(query, TQ_SIGNAL(addFile(const KFileItem*,const TQString&)),
+	  TQ_SLOT(addFile(const KFileItem*,const TQString&)));
+  connect(query, TQ_SIGNAL(result(int)), TQ_SLOT(slotResult(int)));
 
   dirwatch=NULL;
 }
@@ -121,8 +121,8 @@ void KfindDlg::startSearch()
   if(dirwatch!=NULL)
     delete dirwatch;
   dirwatch=new KDirWatch();
-  connect(dirwatch, TQT_SIGNAL(created(const TQString&)), this, TQT_SLOT(slotNewItems(const TQString&)));
-  connect(dirwatch, TQT_SIGNAL(deleted(const TQString&)), this, TQT_SLOT(slotDeleteItem(const TQString&)));
+  connect(dirwatch, TQ_SIGNAL(created(const TQString&)), this, TQ_SLOT(slotNewItems(const TQString&)));
+  connect(dirwatch, TQ_SIGNAL(deleted(const TQString&)), this, TQ_SLOT(slotDeleteItem(const TQString&)));
   dirwatch->addDir(query->url().path(),true);
 
 #if 0

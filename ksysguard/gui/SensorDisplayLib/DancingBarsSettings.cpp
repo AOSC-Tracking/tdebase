@@ -181,15 +181,15 @@ DancingBarsSettings::DancingBarsSettings( TQWidget* parent, const char* name )
   TQWhatsThis::add( mRemoveButton, i18n( "Push this button to delete the sensor." ) );
   pageLayout->addWidget( mRemoveButton, 1, 1 );
 
-  connect( mUseLowerLimit, TQT_SIGNAL( toggled( bool ) ),
-           mLowerLimit, TQT_SLOT( setEnabled( bool ) ) );
-  connect( mUseUpperLimit, TQT_SIGNAL( toggled( bool ) ),
-           mUpperLimit, TQT_SLOT( setEnabled( bool ) ) );
+  connect( mUseLowerLimit, TQ_SIGNAL( toggled( bool ) ),
+           mLowerLimit, TQ_SLOT( setEnabled( bool ) ) );
+  connect( mUseUpperLimit, TQ_SIGNAL( toggled( bool ) ),
+           mUpperLimit, TQ_SLOT( setEnabled( bool ) ) );
 
-  connect( mSensorView, TQT_SIGNAL( selectionChanged( TQListViewItem* ) ),
-           TQT_SLOT( selectionChanged( TQListViewItem* ) ) );
-  connect( mEditButton, TQT_SIGNAL( clicked() ), TQT_SLOT( editSensor() ) );
-  connect( mRemoveButton, TQT_SIGNAL( clicked() ), TQT_SLOT( removeSensor() ) );
+  connect( mSensorView, TQ_SIGNAL( selectionChanged( TQListViewItem* ) ),
+           TQ_SLOT( selectionChanged( TQListViewItem* ) ) );
+  connect( mEditButton, TQ_SIGNAL( clicked() ), TQ_SLOT( editSensor() ) );
+  connect( mRemoveButton, TQ_SIGNAL( clicked() ), TQ_SLOT( removeSensor() ) );
 
   TDEAcceleratorManager::manage( this );
 

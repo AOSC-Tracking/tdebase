@@ -108,12 +108,12 @@ KWinbindGreeter::KWinbindGreeter( KGreeterPluginHandler *_handler,
 	if (func != ChAuthTok) {
 		if (fixedUser.isEmpty()) {
 			domainCombo = new KComboBox( parent );
-			connect( domainCombo, TQT_SIGNAL(activated( const TQString & )),
-			         TQT_SLOT(slotChangedDomain( const TQString & )) );
-			connect( domainCombo, TQT_SIGNAL(activated( const TQString & )),
-			         TQT_SLOT(slotLoginLostFocus()) );
-			connect( domainCombo, TQT_SIGNAL(activated( const TQString & )),
-			         TQT_SLOT(slotActivity()) );
+			connect( domainCombo, TQ_SIGNAL(activated( const TQString & )),
+			         TQ_SLOT(slotChangedDomain( const TQString & )) );
+			connect( domainCombo, TQ_SIGNAL(activated( const TQString & )),
+			         TQ_SLOT(slotLoginLostFocus()) );
+			connect( domainCombo, TQ_SIGNAL(activated( const TQString & )),
+			         TQ_SLOT(slotActivity()) );
 			// should handle loss of focus
 			loginEdit = new KLineEdit( parent );
 			loginEdit->setContextMenuEnabled( false );
@@ -136,13 +136,13 @@ KWinbindGreeter::KWinbindGreeter( KGreeterPluginHandler *_handler,
 				grid->addWidget( loginLabel, line, 0 );
 				grid->addWidget( loginEdit, line++, 1 );
 			}
-			connect( loginEdit, TQT_SIGNAL(lostFocus()), TQT_SLOT(slotLoginLostFocus()) );
-			connect( loginEdit, TQT_SIGNAL(lostFocus()), TQT_SLOT(slotActivity()) );
-			connect( loginEdit, TQT_SIGNAL(textChanged( const TQString & )), TQT_SLOT(slotActivity()) );
-			connect( loginEdit, TQT_SIGNAL(selectionChanged()), TQT_SLOT(slotActivity()) );
-			connect(&mDomainListTimer, TQT_SIGNAL(timeout()), TQT_SLOT(slotStartDomainList()));
+			connect( loginEdit, TQ_SIGNAL(lostFocus()), TQ_SLOT(slotLoginLostFocus()) );
+			connect( loginEdit, TQ_SIGNAL(lostFocus()), TQ_SLOT(slotActivity()) );
+			connect( loginEdit, TQ_SIGNAL(textChanged( const TQString & )), TQ_SLOT(slotActivity()) );
+			connect( loginEdit, TQ_SIGNAL(selectionChanged()), TQ_SLOT(slotActivity()) );
+			connect(&mDomainListTimer, TQ_SIGNAL(timeout()), TQ_SLOT(slotStartDomainList()));
 			domainCombo->insertStringList( staticDomains );
-			TQTimer::singleShot(0, this, TQT_SLOT(slotStartDomainList()));
+			TQTimer::singleShot(0, this, TQ_SLOT(slotStartDomainList()));
 		} else if (ctx != Login && ctx != Shutdown && grid) {
 			domainLabel = new TQLabel( i18n("Domain:"), parent );
 			grid->addWidget( domainLabel, line, 0 );
@@ -156,9 +156,9 @@ KWinbindGreeter::KWinbindGreeter( KGreeterPluginHandler *_handler,
 		else
 			passwdEdit = new TDMPasswordEdit( (KPasswordEdit::EchoModes)echoMode,
 			                                  parent );
-		connect( passwdEdit, TQT_SIGNAL(textChanged( const TQString & )),
-		         TQT_SLOT(slotActivity()) );
-		connect( passwdEdit, TQT_SIGNAL(lostFocus()), TQT_SLOT(slotActivity()) );
+		connect( passwdEdit, TQ_SIGNAL(textChanged( const TQString & )),
+		         TQ_SLOT(slotActivity()) );
+		connect( passwdEdit, TQ_SIGNAL(lostFocus()), TQ_SLOT(slotActivity()) );
 
 		if (!grid) {
 			passwdEdit->adjustSize();
@@ -613,8 +613,8 @@ KWinbindGreeter::slotStartDomainList()
     mDomainListing.clear();
 
     m_domainLister = new KProcIO;
-    connect(m_domainLister, TQT_SIGNAL(readReady(KProcIO*)), TQT_SLOT(slotReadDomainList()));
-    connect(m_domainLister, TQT_SIGNAL(processExited(TDEProcess*)), TQT_SLOT(slotEndDomainList()));
+    connect(m_domainLister, TQ_SIGNAL(readReady(KProcIO*)), TQ_SLOT(slotReadDomainList()));
+    connect(m_domainLister, TQ_SIGNAL(processExited(TDEProcess*)), TQ_SLOT(slotEndDomainList()));
 
     (*m_domainLister) << "wbinfo" << "--own-domain" << "--trusted-domains";
     m_domainLister->setComm (TDEProcess::Stdout);

@@ -133,12 +133,12 @@ KonqDirPart::KonqDirPart( TQObject *parent, const char *name )
     resetCount();
     //m_bMultipleItemsSelected = false;
 
-    connect( TQApplication::clipboard(), TQT_SIGNAL(dataChanged()), this, TQT_SLOT(slotClipboardDataChanged()) );
+    connect( TQApplication::clipboard(), TQ_SIGNAL(dataChanged()), this, TQ_SLOT(slotClipboardDataChanged()) );
 
     actionCollection()->setHighlightingEnabled( true );
 
-    m_paIncIconSize = new TDEAction( i18n( "Enlarge Icons" ), "zoom-in", 0, this, TQT_SLOT( slotIncIconSize() ), actionCollection(), "incIconSize" );
-    m_paDecIconSize = new TDEAction( i18n( "Shrink Icons" ), "zoom-out", 0, this, TQT_SLOT( slotDecIconSize() ), actionCollection(), "decIconSize" );
+    m_paIncIconSize = new TDEAction( i18n( "Enlarge Icons" ), "zoom-in", 0, this, TQ_SLOT( slotIncIconSize() ), actionCollection(), "incIconSize" );
+    m_paDecIconSize = new TDEAction( i18n( "Shrink Icons" ), "zoom-out", 0, this, TQ_SLOT( slotDecIconSize() ), actionCollection(), "decIconSize" );
 
     m_paDefaultIcons = new TDERadioAction( i18n( "&Default Size" ), 0, actionCollection(), "modedefault" );
     d->aEnormousIcons = new TDERadioAction( i18n( "&Huge" ), 0,
@@ -158,17 +158,17 @@ KonqDirPart::KonqDirPart( TQObject *parent, const char *name )
     d->aSmallMediumIcons->setExclusiveGroup( "ViewMode" );
     m_paSmallIcons->setExclusiveGroup( "ViewMode" );
 
-    connect( m_paDefaultIcons, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotIconSizeToggled( bool ) ) );
-    connect( d->aEnormousIcons, TQT_SIGNAL( toggled( bool ) ),
-	    this, TQT_SLOT( slotIconSizeToggled( bool ) ) );
-    connect( m_paHugeIcons, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotIconSizeToggled( bool ) ) );
-    connect( m_paLargeIcons, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotIconSizeToggled( bool ) ) );
-    connect( m_paMediumIcons, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotIconSizeToggled( bool ) ) );
-    connect( d->aSmallMediumIcons, TQT_SIGNAL( toggled( bool ) ),
-	    this, TQT_SLOT( slotIconSizeToggled( bool ) ) );
-    connect( m_paSmallIcons, TQT_SIGNAL( toggled( bool ) ), this, TQT_SLOT( slotIconSizeToggled( bool ) ) );
+    connect( m_paDefaultIcons, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotIconSizeToggled( bool ) ) );
+    connect( d->aEnormousIcons, TQ_SIGNAL( toggled( bool ) ),
+	    this, TQ_SLOT( slotIconSizeToggled( bool ) ) );
+    connect( m_paHugeIcons, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotIconSizeToggled( bool ) ) );
+    connect( m_paLargeIcons, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotIconSizeToggled( bool ) ) );
+    connect( m_paMediumIcons, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotIconSizeToggled( bool ) ) );
+    connect( d->aSmallMediumIcons, TQ_SIGNAL( toggled( bool ) ),
+	    this, TQ_SLOT( slotIconSizeToggled( bool ) ) );
+    connect( m_paSmallIcons, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotIconSizeToggled( bool ) ) );
 
-    connect( kapp, TQT_SIGNAL(iconChanged(int)), TQT_SLOT(slotIconChanged(int)) );
+    connect( kapp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(slotIconChanged(int)) );
 #if 0
     // Extract 6 icon sizes from the icon theme.
     // Use 16,22,32,48,64,128 as default.
@@ -219,7 +219,7 @@ KonqDirPart::KonqDirPart( TQObject *parent, const char *name )
     m_iIconSize[4] = TDEIcon::SizeHuge;
     // ... up to here
 
-    TDEAction *a = new TDEAction( i18n( "Configure Background..." ), "background", 0, this, TQT_SLOT( slotBackgroundSettings() ),
+    TDEAction *a = new TDEAction( i18n( "Configure Background..." ), "background", 0, this, TQ_SLOT( slotBackgroundSettings() ),
                               actionCollection(), "bgsettings" );
 
     a->setToolTip( i18n( "Allows choosing of background settings for this view" ) );
@@ -665,25 +665,25 @@ void KonqDirPart::setFindPart( KParts::ReadOnlyPart * part )
 {
     assert(part);
     m_findPart = part;
-    connect( m_findPart, TQT_SIGNAL( started() ),
-             this, TQT_SLOT( slotStarted() ) );
-    connect( m_findPart, TQT_SIGNAL( started() ),
-             this, TQT_SLOT( slotStartAnimationSearching() ) );
-    connect( m_findPart, TQT_SIGNAL( clear() ),
-             this, TQT_SLOT( slotClear() ) );
-    connect( m_findPart, TQT_SIGNAL( newItems( const KFileItemList & ) ),
-             this, TQT_SLOT( slotNewItems( const KFileItemList & ) ) );
-    connect( m_findPart, TQT_SIGNAL( finished() ), // can't name it completed, it conflicts with a KROP signal
-             this, TQT_SLOT( slotCompleted() ) );
-    connect( m_findPart, TQT_SIGNAL( finished() ),
-             this, TQT_SLOT( slotStopAnimationSearching() ) );
-    connect( m_findPart, TQT_SIGNAL( canceled() ),
-             this, TQT_SLOT( slotCanceled() ) );
-    connect( m_findPart, TQT_SIGNAL( canceled() ),
-             this, TQT_SLOT( slotStopAnimationSearching() ) );
+    connect( m_findPart, TQ_SIGNAL( started() ),
+             this, TQ_SLOT( slotStarted() ) );
+    connect( m_findPart, TQ_SIGNAL( started() ),
+             this, TQ_SLOT( slotStartAnimationSearching() ) );
+    connect( m_findPart, TQ_SIGNAL( clear() ),
+             this, TQ_SLOT( slotClear() ) );
+    connect( m_findPart, TQ_SIGNAL( newItems( const KFileItemList & ) ),
+             this, TQ_SLOT( slotNewItems( const KFileItemList & ) ) );
+    connect( m_findPart, TQ_SIGNAL( finished() ), // can't name it completed, it conflicts with a KROP signal
+             this, TQ_SLOT( slotCompleted() ) );
+    connect( m_findPart, TQ_SIGNAL( finished() ),
+             this, TQ_SLOT( slotStopAnimationSearching() ) );
+    connect( m_findPart, TQ_SIGNAL( canceled() ),
+             this, TQ_SLOT( slotCanceled() ) );
+    connect( m_findPart, TQ_SIGNAL( canceled() ),
+             this, TQ_SLOT( slotStopAnimationSearching() ) );
 
-    connect( m_findPart, TQT_SIGNAL( findClosed() ),
-             this, TQT_SLOT( slotFindClosed() ) );
+    connect( m_findPart, TQ_SIGNAL( findClosed() ),
+             this, TQ_SLOT( slotFindClosed() ) );
 
     emit findOpened( this );
 

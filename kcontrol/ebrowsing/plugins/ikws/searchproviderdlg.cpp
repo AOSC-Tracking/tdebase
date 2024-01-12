@@ -45,9 +45,9 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider,
 
     m_dlg->leQuery->setMinimumWidth(kapp->fontMetrics().maxWidth() * 40);
 
-    connect(m_dlg->leName, TQT_SIGNAL(textChanged(const TQString &)), TQT_SLOT(slotChanged()));
-    connect(m_dlg->leQuery, TQT_SIGNAL(textChanged(const TQString &)), TQT_SLOT(slotChanged()));
-    connect(m_dlg->leShortcut, TQT_SIGNAL(textChanged(const TQString &)), TQT_SLOT(slotChanged()));
+    connect(m_dlg->leName, TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT(slotChanged()));
+    connect(m_dlg->leQuery, TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT(slotChanged()));
+    connect(m_dlg->leShortcut, TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT(slotChanged()));
 
     // Data init
     TQStringList charsets = TDEGlobal::charsets()->availableEncodingNames();

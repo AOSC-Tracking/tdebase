@@ -74,9 +74,9 @@ KServiceListWidget::KServiceListWidget(int kind, TQWidget *parent, const char *n
   grid->setRowStretch(6, 1);
 
   servicesLB = new TQListBox(gb);
-  connect(servicesLB, TQT_SIGNAL(highlighted(int)), TQT_SLOT(enableMoveButtons(int)));
+  connect(servicesLB, TQ_SIGNAL(highlighted(int)), TQ_SLOT(enableMoveButtons(int)));
   grid->addMultiCellWidget(servicesLB, 1, 6, 0, 0);
-  connect( servicesLB, TQT_SIGNAL( doubleClicked ( TQListBoxItem * )), this, TQT_SLOT( editService()));
+  connect( servicesLB, TQ_SIGNAL( doubleClicked ( TQListBoxItem * )), this, TQ_SLOT( editService()));
 
   TQString wtstr =
     (kind == SERVICELIST_APPLICATIONS ?
@@ -96,7 +96,7 @@ KServiceListWidget::KServiceListWidget(int kind, TQWidget *parent, const char *n
 
   servUpButton = new TQPushButton(i18n("Move &Up"), gb);
   servUpButton->setEnabled(false);
-  connect(servUpButton, TQT_SIGNAL(clicked()), TQT_SLOT(promoteService()));
+  connect(servUpButton, TQ_SIGNAL(clicked()), TQ_SLOT(promoteService()));
   grid->addWidget(servUpButton, 2, 1);
 
   TQWhatsThis::add( servUpButton, kind == SERVICELIST_APPLICATIONS ?
@@ -109,7 +109,7 @@ KServiceListWidget::KServiceListWidget(int kind, TQWidget *parent, const char *n
 
   servDownButton = new TQPushButton(i18n("Move &Down"), gb);
   servDownButton->setEnabled(false);
-  connect(servDownButton, TQT_SIGNAL(clicked()), TQT_SLOT(demoteService()));
+  connect(servDownButton, TQ_SIGNAL(clicked()), TQ_SLOT(demoteService()));
   grid->addWidget(servDownButton, 3, 1);
 
   TQWhatsThis::add( servDownButton, kind == SERVICELIST_APPLICATIONS ?
@@ -122,7 +122,7 @@ KServiceListWidget::KServiceListWidget(int kind, TQWidget *parent, const char *n
 
   servNewButton = new TQPushButton(i18n("Add..."), gb);
   servNewButton->setEnabled(false);
-  connect(servNewButton, TQT_SIGNAL(clicked()), TQT_SLOT(addService()));
+  connect(servNewButton, TQ_SIGNAL(clicked()), TQ_SLOT(addService()));
   grid->addWidget(servNewButton, 1, 1);
 
   TQWhatsThis::add( servNewButton, i18n( "Add a new application for this file type." ) );
@@ -130,7 +130,7 @@ KServiceListWidget::KServiceListWidget(int kind, TQWidget *parent, const char *n
 
   servEditButton = new TQPushButton(i18n("Edit..."), gb);
   servEditButton->setEnabled(false);
-  connect(servEditButton, TQT_SIGNAL(clicked()), TQT_SLOT(editService()));
+  connect(servEditButton, TQ_SIGNAL(clicked()), TQ_SLOT(editService()));
   grid->addWidget(servEditButton, 4, 1);
 
   TQWhatsThis::add( servEditButton, i18n( "Edit command line of the selected application." ) );
@@ -138,7 +138,7 @@ KServiceListWidget::KServiceListWidget(int kind, TQWidget *parent, const char *n
 
   servRemoveButton = new TQPushButton(i18n("Remove"), gb);
   servRemoveButton->setEnabled(false);
-  connect(servRemoveButton, TQT_SIGNAL(clicked()), TQT_SLOT(removeService()));
+  connect(servRemoveButton, TQ_SIGNAL(clicked()), TQ_SLOT(removeService()));
   grid->addWidget(servRemoveButton, 5, 1);
 
   TQWhatsThis::add( servRemoveButton, i18n( "Remove the selected application from the list." ) );

@@ -113,7 +113,7 @@ LogView::LogView(TQWidget *parent,TDEConfig *config, const char *name)
    showFileOpen.setChecked(FALSE);
    showFileClose.setChecked(FALSE);
 
-   connect(&updateButton,TQT_SIGNAL(clicked()),this,TQT_SLOT(updateList()));
+   connect(&updateButton,TQ_SIGNAL(clicked()),this,TQ_SLOT(updateList()));
    emit contentsChanged(&viewHistory,0,0);
 
    label.setMinimumSize(label.sizeHint());

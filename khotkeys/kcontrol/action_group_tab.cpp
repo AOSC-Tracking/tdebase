@@ -36,18 +36,18 @@ Action_group_tab::Action_group_tab( TQWidget* parent_P , const char* name_P )
     {
     clear_data();
     // KHotKeys::Module::changed()
-    connect( action_name_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
-    connect( disable_checkbox, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( comment_multilineedit, TQT_SIGNAL( textChanged()),
-        module, TQT_SLOT( changed()));
+    connect( action_name_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
+    connect( disable_checkbox, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( comment_multilineedit, TQ_SIGNAL( textChanged()),
+        module, TQ_SLOT( changed()));
     }
     
 void Action_group_tab::clear_data()
     {
-    disconnect( action_name_lineedit, TQT_SIGNAL( textChanged( const TQString& )), this,
-        TQT_SLOT( action_group_name_changed( const TQString& )));
+    disconnect( action_name_lineedit, TQ_SIGNAL( textChanged( const TQString& )), this,
+        TQ_SLOT( action_group_name_changed( const TQString& )));
     action_name_lineedit->clear();
     action_name_lineedit->setReadOnly( false );
     disable_checkbox->setChecked( false );
@@ -71,8 +71,8 @@ void Action_group_tab::set_data( const Action_data_group* data_P )
     else
         disable_checkbox->setText( i18n( "&Disable" ));
     comment_multilineedit->setText( data_P->comment());
-    connect( action_name_lineedit, TQT_SIGNAL( textChanged( const TQString& )), this,
-        TQT_SLOT( action_group_name_changed( const TQString& )));
+    connect( action_name_lineedit, TQ_SIGNAL( textChanged( const TQString& )), this,
+        TQ_SLOT( action_group_name_changed( const TQString& )));
     system_group = data_P->system_group();
     }
 

@@ -71,17 +71,17 @@ NotificationDialog::NotificationDialog( KFileItem medium, NotifierSettings *sett
 
 	setButtonText( User1, i18n("Configure...") );
 
-	connect( m_actionWatcher, TQT_SIGNAL( dirty( const TQString & ) ),
-	         this, TQT_SLOT( slotActionsChanged( const TQString & ) ) );
-	connect( this , TQT_SIGNAL( okClicked() ),
-	         this, TQT_SLOT( slotOk() ) );
-	connect( this, TQT_SIGNAL( user1Clicked() ),
-	         this, TQT_SLOT( slotConfigure() ) );
-	connect( m_view->actionsList, TQT_SIGNAL( doubleClicked ( TQListBoxItem*, const TQPoint & ) ),
-	         this, TQT_SLOT( slotOk() ) );
+	connect( m_actionWatcher, TQ_SIGNAL( dirty( const TQString & ) ),
+	         this, TQ_SLOT( slotActionsChanged( const TQString & ) ) );
+	connect( this , TQ_SIGNAL( okClicked() ),
+	         this, TQ_SLOT( slotOk() ) );
+	connect( this, TQ_SIGNAL( user1Clicked() ),
+	         this, TQ_SLOT( slotConfigure() ) );
+	connect( m_view->actionsList, TQ_SIGNAL( doubleClicked ( TQListBoxItem*, const TQPoint & ) ),
+	         this, TQ_SLOT( slotOk() ) );
 
-	connect( this, TQT_SIGNAL( finished() ),
-	         this, TQT_SLOT( delayedDestruct() ) );
+	connect( this, TQ_SIGNAL( finished() ),
+	         this, TQ_SLOT( delayedDestruct() ) );
 
 	m_actionWatcher->startScan();
 	TQPushButton * btn = actionButton( Ok );

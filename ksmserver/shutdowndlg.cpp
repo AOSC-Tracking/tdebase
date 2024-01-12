@@ -105,7 +105,7 @@ KSMShutdownFeedback::KSMShutdownFeedback()
 	m_unfadedImage = m_grayImage;
 	resize(0, 0);
 	setShown(true);
-	TQTimer::singleShot( 500, this, TQT_SLOT( slotPaintEffect() ) );
+	TQTimer::singleShot( 500, this, TQ_SLOT( slotPaintEffect() ) );
 }
 
 // called after stopping shutdown-feedback -> smooth fade-back to color-mode
@@ -243,7 +243,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 				bitBlt( this, 0, start_y1, &img );
 			}
 
-			TQTimer::singleShot( 5, this, TQT_SLOT( slotPaintEffect() ) );
+			TQTimer::singleShot( 5, this, TQ_SLOT( slotPaintEffect() ) );
 		}
 		else {
 			// if slotPaintEffect() is called first time, we have to initialize the gray image
@@ -370,7 +370,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 				bitBlt( this, 0, start_y1, &img );
 			}
 
-			TQTimer::singleShot( 5, this, TQT_SLOT( slotPaintEffect() ) );
+			TQTimer::singleShot( 5, this, TQ_SLOT( slotPaintEffect() ) );
 		}
 	}
 	else {
@@ -486,7 +486,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 					bitBlt( this, 0, start_y1, &img );
 				}
 
-				TQTimer::singleShot( 1, this, TQT_SLOT( slotPaintEffect() ) );
+				TQTimer::singleShot( 1, this, TQ_SLOT( slotPaintEffect() ) );
 			 }
 			 else {
 				if ( m_currentY >= height() ) {
@@ -517,7 +517,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 				bitBlt( this, 0, m_currentY, &pixmap );
 				bitBlt( &m_root, 0, m_currentY, &pixmap );
 				m_currentY += 10;
-				TQTimer::singleShot( 1, this, TQT_SLOT( slotPaintEffect() ) );
+				TQTimer::singleShot( 1, this, TQ_SLOT( slotPaintEffect() ) );
 			}
 		}
 	}
@@ -539,7 +539,7 @@ KSMShutdownIPFeedback::KSMShutdownIPFeedback()
 
 	m_sharedRootPixmap = new KRootPixmap(this);
 	m_sharedRootPixmap->setCustomPainting(true);
-	connect(m_sharedRootPixmap, TQT_SIGNAL(backgroundUpdated(const TQPixmap &)), this, TQT_SLOT(slotSetBackgroundPixmap(const TQPixmap &)));
+	connect(m_sharedRootPixmap, TQ_SIGNAL(backgroundUpdated(const TQPixmap &)), this, TQ_SLOT(slotSetBackgroundPixmap(const TQPixmap &)));
 
 	if (TQPaintDevice::x11AppDepth() == 32) {
 		// The shared pixmap is 24 bits, but we are 32 bits
@@ -571,7 +571,7 @@ void KSMShutdownIPFeedback::showNow()
 
 	if (!m_isPainted) {
 		setGeometry( TQApplication::desktop()->geometry() );
-		TQTimer::singleShot( 0, this, SLOT(slotPaintEffect()) );
+		TQTimer::singleShot( 0, this, TQ_SLOT(slotPaintEffect()) );
 	}
 }
 
@@ -632,7 +632,7 @@ void KSMShutdownIPFeedback::slotPaintEffect()
 			m_sharedRootPixmap->start();
 		}
 
-		TQTimer::singleShot( 100, this, SLOT(slotPaintEffect()) );
+		TQTimer::singleShot( 100, this, TQ_SLOT(slotPaintEffect()) );
 		mPixmapTimeout++;
 		return;
 	}
@@ -647,7 +647,7 @@ void KSMShutdownIPFeedback::slotPaintEffect()
 	}
 	if ((pm.isNull()) || (pm.width() != kapp->desktop()->width()) || (pm.height() != kapp->desktop()->height())) {
 		if (mPixmapTimeout < 10) {
-			TQTimer::singleShot( 100, this, SLOT(slotPaintEffect()) );
+			TQTimer::singleShot( 100, this, TQ_SLOT(slotPaintEffect()) );
 			mPixmapTimeout++;
 			return;
 		}
@@ -766,7 +766,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		int i = btnLogout->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 		btnLogout->setAccel( "ALT+" + btnLogout->textLabel().lower()[i+1] ) ;
 		hbuttonbox->addWidget ( btnLogout );
-		connect(btnLogout, TQT_SIGNAL(clicked()), TQT_SLOT(slotLogout()));
+		connect(btnLogout, TQ_SIGNAL(clicked()), TQ_SLOT(slotLogout()));
 	}
 	else
 	{
@@ -794,7 +794,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		TQToolTip::add( btnLogout, i18n( "<qt><p>Log out of the current session to login as a different user.</p></qt>" ) );
 		btnFont = btnLogout->font();
 		buttonlay->addWidget( btnLogout );
-		connect(btnLogout, TQT_SIGNAL(clicked()), TQT_SLOT(slotLogout()));
+		connect(btnLogout, TQ_SIGNAL(clicked()), TQ_SLOT(slotLogout()));
 	}
 
 	if ((maysd) || (mayrb)) {
@@ -841,7 +841,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				int i = btnFreeze->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnFreeze->setAccel( "ALT+" + btnFreeze->textLabel().lower()[i+1] ) ;
 				hbuttonbox->addWidget ( btnFreeze );
-				connect(btnFreeze, TQT_SIGNAL(clicked()), TQT_SLOT(slotFreeze()));
+				connect(btnFreeze, TQ_SIGNAL(clicked()), TQ_SLOT(slotFreeze()));
 			}
 
 			if (canSuspend && !disableSuspend)
@@ -857,7 +857,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				int i = btnSuspend->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnSuspend->setAccel( "ALT+" + btnSuspend->textLabel().lower()[i+1] ) ;
 				hbuttonbox->addWidget ( btnSuspend );
-				connect(btnSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotSuspend()));
+				connect(btnSuspend, TQ_SIGNAL(clicked()), TQ_SLOT(slotSuspend()));
 			}
 
 			if (canHibernate && !disableHibernate)
@@ -872,7 +872,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				int i = btnHibernate->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnHibernate->setAccel( "ALT+" + btnHibernate->textLabel().lower()[i+1] ) ;
 				hbuttonbox->addWidget ( btnHibernate );
-				connect(btnHibernate, TQT_SIGNAL(clicked()), TQT_SLOT(slotHibernate()));
+				connect(btnHibernate, TQ_SIGNAL(clicked()), TQ_SLOT(slotHibernate()));
 			}
 
 			if (canHybridSuspend && !disableSuspend && !disableHibernate)
@@ -890,7 +890,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				int i = btnHybridSuspend->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnHybridSuspend->setAccel( "ALT+" + btnHybridSuspend->textLabel().lower()[i+1] ) ;
 				hbuttonbox->addWidget ( btnHybridSuspend );
-				connect(btnHybridSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotHybridSuspend()));
+				connect(btnHybridSuspend, TQ_SIGNAL(clicked()), TQ_SLOT(slotHybridSuspend()));
 			}
 			
 			// Separator (within buttonlay)
@@ -909,7 +909,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				int i = btnReboot->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnReboot->setAccel( "ALT+" + btnReboot->textLabel().lower()[i+1] ) ;
 				hbuttonbox2->addWidget ( btnReboot);
-				connect(btnReboot, TQT_SIGNAL(clicked()), TQT_SLOT(slotReboot()));
+				connect(btnReboot, TQ_SIGNAL(clicked()), TQ_SLOT(slotReboot()));
 				if ( sdtype == TDEApplication::ShutdownTypeReboot ) {
 					btnReboot->setFocus();
 				}
@@ -936,7 +936,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 					}
 
 					btnReboot->setPopup(targets);
-					connect( targets, TQT_SIGNAL(activated(int)), TQT_SLOT(slotReboot(int)) );
+					connect( targets, TQ_SIGNAL(activated(int)), TQ_SLOT(slotReboot(int)) );
 				}
 				// BAD KARMA .. this code is copied line by line from standard konqy dialog [EOF]
 			}
@@ -950,7 +950,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				int i = btnHalt->textLabel().find( TQRegExp("\\&"), 0 );    // i == 1
 				btnHalt->setAccel( "ALT+" + btnHalt->textLabel().lower()[i+1] ) ;
 				hbuttonbox2->addWidget ( btnHalt );
-				connect(btnHalt, TQT_SIGNAL(clicked()), TQT_SLOT(slotHalt()));
+				connect(btnHalt, TQ_SIGNAL(clicked()), TQ_SLOT(slotHalt()));
 				if ( sdtype == TDEApplication::ShutdownTypeHalt ) {
 					btnHalt->setFocus();
 				}
@@ -963,7 +963,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			// Back to Desktop
 			KSMPushButton* btnBack = new KSMPushButton( KStdGuiItem::cancel(), frame );
 			hbuttonbox3->addWidget( btnBack );
-			connect(btnBack, TQT_SIGNAL(clicked()), TQT_SLOT(reject()));
+			connect(btnBack, TQ_SIGNAL(clicked()), TQ_SLOT(reject()));
 
 		}
 		else
@@ -975,7 +975,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				TQToolTip::add( btnHalt, i18n( "<qt><p>Log out of the current session and turn off the computer.</p></qt>" ) );
 				btnHalt->setFont( btnFont );
 				buttonlay->addWidget( btnHalt );
-				connect(btnHalt, TQT_SIGNAL(clicked()), TQT_SLOT(slotHalt()));
+				connect(btnHalt, TQ_SIGNAL(clicked()), TQ_SLOT(slotHalt()));
 				if ( sdtype == TDEApplication::ShutdownTypeHalt || getenv("TDM_AUTOLOGIN") ) {
 					btnHalt->setFocus();
 				}
@@ -988,7 +988,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				btnReboot->setFont( btnFont );
 				buttonlay->addWidget( btnReboot );
 
-				connect(btnReboot, TQT_SIGNAL(clicked()), TQT_SLOT(slotReboot()));
+				connect(btnReboot, TQ_SIGNAL(clicked()), TQ_SLOT(slotReboot()));
 				if ( sdtype == TDEApplication::ShutdownTypeReboot ) {
 					btnReboot->setFocus();
 				}
@@ -1014,7 +1014,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 					}
 
 					btnReboot->setPopup(targets);
-					connect( targets, TQT_SIGNAL(activated(int)), TQT_SLOT(slotReboot(int)) );
+					connect( targets, TQ_SIGNAL(activated(int)), TQ_SLOT(slotReboot(int)) );
 				}
 			}
 
@@ -1026,7 +1026,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				" almost instantly.</p><p>This correspond to ACPI S0 mode.</p></qt>"));
 				btnFreeze->setFont( btnFont );
 				buttonlay->addWidget( btnFreeze );
-				connect(btnFreeze, TQT_SIGNAL(clicked()), TQT_SLOT(slotFreeze()));
+				connect(btnFreeze, TQ_SIGNAL(clicked()), TQ_SLOT(slotFreeze()));
 			}
 
 			if (canSuspend && !disableSuspend)
@@ -1038,7 +1038,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				"<p>Also known as Suspend-to-RAM mode.</p></qt>"));
 				btnSuspend->setFont( btnFont );
 				buttonlay->addWidget( btnSuspend );
-				connect(btnSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotSuspend()));
+				connect(btnSuspend, TQ_SIGNAL(clicked()), TQ_SLOT(slotSuspend()));
 			}
 
 			if (canHibernate && !disableHibernate)
@@ -1049,7 +1049,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				" considerable time is required to reactivate the system again.</p><p>This correspond to ACPI S4 mode.</p><p>Also known as Suspend-to-Disk mode.</p></qt>"));
 				btnHibernate->setFont( btnFont );
 				buttonlay->addWidget( btnHibernate );
-				connect(btnHibernate, TQT_SIGNAL(clicked()), TQT_SLOT(slotHibernate()));
+				connect(btnHibernate, TQ_SIGNAL(clicked()), TQ_SLOT(slotHibernate()));
 			}
 
 			if (canHybridSuspend && !disableSuspend && !disableHibernate)
@@ -1063,7 +1063,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				"<p>Also known as Suspend-to-RAM + Suspend-to-Disk mode.</p></qt>"));
 				btnHybridSuspend->setFont( btnFont );
 				buttonlay->addWidget( btnHybridSuspend );
-				connect(btnHybridSuspend, TQT_SIGNAL(clicked()), TQT_SLOT(slotHybridSuspend()));
+				connect(btnHybridSuspend, TQ_SIGNAL(clicked()), TQ_SLOT(slotHybridSuspend()));
 			}
 			
 			buttonlay->addStretch( 1 );
@@ -1074,7 +1074,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			// Back to Desktop
 			KPushButton* btnBack = new KPushButton( KStdGuiItem::cancel(), frame );
 			buttonlay->addWidget( btnBack );
-			connect(btnBack, TQT_SIGNAL(clicked()), TQT_SLOT(reject()));
+			connect(btnBack, TQ_SIGNAL(clicked()), TQ_SLOT(reject()));
 		}
 	}
 	else {
@@ -1089,7 +1089,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			KSMPushButton* btnBack = new KSMPushButton( KStdGuiItem::cancel(), frame );
 			hbuttonbox3->addWidget( btnBack );
 
-			connect(btnBack, TQT_SIGNAL(clicked()), TQT_SLOT(reject()));
+			connect(btnBack, TQ_SIGNAL(clicked()), TQ_SLOT(reject()));
 		}
 		else
 		{
@@ -1100,7 +1100,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 			KPushButton* btnBack = new KPushButton( KStdGuiItem::cancel(), frame );
 			buttonlay->addWidget( btnBack );
 
-			connect(btnBack, TQT_SIGNAL(clicked()), TQT_SLOT(reject()));
+			connect(btnBack, TQ_SIGNAL(clicked()), TQ_SLOT(reject()));
 		}
 	}
 }
@@ -1246,8 +1246,8 @@ KSMShutdownIPDlg::KSMShutdownIPDlg(TQWidget* parent)
 
 	setNotificationActionButtonsSkipText(i18n("Skip Notification"));
 	m_button2->setText(i18n("Abort Logout"));
-	connect(m_button1, SIGNAL(clicked()), this, SIGNAL(skipNotificationClicked()));
-	connect(m_button2, SIGNAL(clicked()), this, SIGNAL(abortLogoutClicked()));
+	connect(m_button1, TQ_SIGNAL(clicked()), this, TQ_SIGNAL(skipNotificationClicked()));
+	connect(m_button2, TQ_SIGNAL(clicked()), this, TQ_SIGNAL(abortLogoutClicked()));
 
 	show();
 	setActiveWindow();
@@ -1264,10 +1264,10 @@ KSMDelayedPushButton::KSMDelayedPushButton( const KGuiItem &item,
 						const char *name)
   : KPushButton( item, parent, name), pop(0), popt(0)
 {
-  connect(this, TQT_SIGNAL(pressed()), TQT_SLOT(slotPressed()));
-  connect(this, TQT_SIGNAL(released()), TQT_SLOT(slotReleased()));
+  connect(this, TQ_SIGNAL(pressed()), TQ_SLOT(slotPressed()));
+  connect(this, TQ_SIGNAL(released()), TQ_SLOT(slotReleased()));
   popt = new TQTimer(this);
-  connect(popt, TQT_SIGNAL(timeout()), TQT_SLOT(slotTimeout()));
+  connect(popt, TQ_SIGNAL(timeout()), TQ_SLOT(slotTimeout()));
 }
 
 void KSMDelayedPushButton::setPopup(TQPopupMenu *p)
@@ -1329,7 +1329,7 @@ KSMDelayedMessageBox::KSMDelayedMessageBox( TDEApplication::ShutdownType sdtype,
 	}
 	TQTimer *timer = new TQTimer( this );
 	timer->start( 1000 );
-	connect( timer, TQT_SIGNAL( timeout() ), TQT_SLOT( updateText() ) );
+	connect( timer, TQ_SIGNAL( timeout() ), TQ_SLOT( updateText() ) );
 	KDialog::centerOnScreen(this);
 }
 

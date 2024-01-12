@@ -225,7 +225,7 @@ KateExternalToolAction::KateExternalToolAction( TQObject *parent,
   if ( ! t->icon.isEmpty() )
     setIconSet( SmallIconSet( t->icon ) );
 
-  connect( this ,TQT_SIGNAL(activated()), this, TQT_SLOT(slotRun()) );
+  connect( this ,TQ_SIGNAL(activated()), this, TQ_SLOT(slotRun()) );
 }
 
 bool KateExternalToolAction::expandMacro( const TQString &str, TQStringList &ret )
@@ -300,7 +300,7 @@ KateExternalToolsMenuAction::KateExternalToolsMenuAction( const TQString &text,
 
   m_actionCollection = new TDEActionCollection( mainwindow );
 
-  connect(KateDocManager::self(),TQT_SIGNAL(documentChanged()),this,TQT_SLOT(slotDocumentChanged()));
+  connect(KateDocManager::self(),TQ_SIGNAL(documentChanged()),this,TQ_SLOT(slotDocumentChanged()));
 
   reload();
 }
@@ -498,7 +498,7 @@ KateExternalToolServiceEditor::KateExternalToolServiceEditor( KateExternalTool *
   TQToolButton *btnMTW = new TQToolButton(w);
   lo->addWidget( btnMTW, 4, 3 );
   btnMTW->setIconSet(TQIconSet(SmallIcon("wizard")));
-  connect(btnMTW, TQT_SIGNAL(clicked()), this, TQT_SLOT(showMTDlg()));
+  connect(btnMTW, TQ_SIGNAL(clicked()), this, TQ_SLOT(showMTDlg()));
   TQWhatsThis::add( btnMTW, i18n(
       "Click for a dialog that can help you creating a list of mimetypes.") );
 
@@ -562,33 +562,33 @@ KateExternalToolsConfigWidget::KateExternalToolsConfigWidget( TQWidget *parent, 
 
   lbTools = new TDEListBox( this );
   lo->addMultiCellWidget( lbTools, 1, 4, 0, 3 );
-  connect( lbTools, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()) );
+  connect( lbTools, TQ_SIGNAL(selectionChanged()), this, TQ_SLOT(slotSelectionChanged()) );
 
   btnNew = new TQPushButton( i18n("&New..."), this );
   lo->addWidget( btnNew, 5, 0 );
-  connect( btnNew, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotNew()) );
+  connect( btnNew, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotNew()) );
 
   btnRemove = new TQPushButton( i18n("&Remove"), this );
   lo->addWidget( btnRemove, 5, 2 );
-  connect( btnRemove, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotRemove()) );
+  connect( btnRemove, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotRemove()) );
 
   btnEdit = new TQPushButton( i18n("&Edit..."), this );
   lo->addWidget( btnEdit, 5, 1 );
-  connect( btnEdit, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotEdit()) );
+  connect( btnEdit, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotEdit()) );
 
   TQPushButton *b = new TQPushButton( i18n("Insert &Separator"), this );
   lo->addWidget( b, 5, 3 );
-  connect( b, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotInsertSeparator()) );
+  connect( b, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotInsertSeparator()) );
 
   btnMoveUp = new TQPushButton( SmallIconSet("go-up"), "", this );
   lo->addWidget( btnMoveUp, 2, 4 );
-  connect( btnMoveUp, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotMoveUp()) );
+  connect( btnMoveUp, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotMoveUp()) );
 
   btnMoveDwn = new TQPushButton( SmallIconSet("go-down"), "", this );
   lo->addWidget( btnMoveDwn, 3, 4 );
-  connect( btnMoveDwn, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotMoveDown()) );
+  connect( btnMoveDwn, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotMoveDown()) );
 
-  connect( lbTools, TQT_SIGNAL( doubleClicked ( TQListBoxItem * ) ), this,  TQT_SLOT( slotEdit() ) );
+  connect( lbTools, TQ_SIGNAL( doubleClicked ( TQListBoxItem * ) ), this,  TQ_SLOT( slotEdit() ) );
 
   lo->setRowStretch( 1, 1 );
   lo->setRowStretch( 4, 1 );

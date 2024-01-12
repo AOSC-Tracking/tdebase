@@ -58,11 +58,11 @@ TQGridLayout *grid = new TQGridLayout(this, 9, 6, marginHint(), spacingHint());
 
    _ok = new KPushButton(KStdGuiItem::ok(), this);
    grid->addWidget(_ok, 8, 4);
-   connect(_ok, TQT_SIGNAL(clicked()), TQT_SLOT(accept()));
+   connect(_ok, TQ_SIGNAL(clicked()), TQ_SLOT(accept()));
 
    _cancel = new KPushButton(KStdGuiItem::cancel(), this);
    grid->addWidget(_cancel, 8, 5);
-   connect(_cancel, TQT_SIGNAL(clicked()), TQT_SLOT(reject()));
+   connect(_cancel, TQ_SIGNAL(clicked()), TQ_SLOT(reject()));
 
 }
 

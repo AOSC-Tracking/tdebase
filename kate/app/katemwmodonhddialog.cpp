@@ -99,7 +99,7 @@ KateMwModOnHdDialog::KateMwModOnHdDialog( DocVector docs, TQWidget *parent, cons
   for ( uint i=0; i < docs.size(); i++ )
     new KateDocItem( docs[i], l[ (uint)KateDocManager::self()->documentInfo( docs[i] )->modifiedOnDiscReason ], lvDocuments );
 
-  connect( lvDocuments, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()) );
+  connect( lvDocuments, TQ_SIGNAL(selectionChanged()), this, TQ_SLOT(slotSelectionChanged()) );
 
   // diff button
   TQHBox *lo2 = new TQHBox ( w );
@@ -111,7 +111,7 @@ KateMwModOnHdDialog::KateMwModOnHdDialog( DocVector docs, TQWidget *parent, cons
       "Calculates the difference between the the editor contents and the disk "
       "file for the selected document, and shows the difference with the "
       "default application. Requires diff(1).") );
-  connect( btnDiff, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotDiff()) );
+  connect( btnDiff, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotDiff()) );
 
   slotSelectionChanged();
   m_tmpfile = 0;
@@ -216,8 +216,8 @@ void KateMwModOnHdDialog::slotDiff()
   KProcIO *p = new KProcIO();
   p->setComm( TDEProcess::All );
   *p << "diff" << "-u" << "-" <<  doc->url().path();
-  connect( p, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(slotPDone(TDEProcess*)) );
-  connect( p, TQT_SIGNAL(readReady(KProcIO*)), this, TQT_SLOT(slotPRead(KProcIO*)) );
+  connect( p, TQ_SIGNAL(processExited(TDEProcess*)), this, TQ_SLOT(slotPDone(TDEProcess*)) );
+  connect( p, TQ_SIGNAL(readReady(KProcIO*)), this, TQ_SLOT(slotPRead(KProcIO*)) );
 
   setCursor( WaitCursor );
 

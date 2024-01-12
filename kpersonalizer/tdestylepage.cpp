@@ -75,8 +75,8 @@ TDEStylePage::TDEStylePage(TQWidget *parent, const char *name ) : TDEStylePageDl
 	platinum->setText( 0, i18n( "Platinum" ) );
 	platinum->setText( 1, i18n( "The platinum style" ) );
 
-	connect(klv_styles, TQT_SIGNAL(selectionChanged()),
-			this, TQT_SLOT(slotCurrentChanged()));
+	connect(klv_styles, TQ_SIGNAL(selectionChanged()),
+			this, TQ_SLOT(slotCurrentChanged()));
 
 	// Note: if the default is changed here it needs to be changed in tdebase/twin/plugins.cpp
 	//       and tdebase/twin/kcmtwin/twindecoration/twindecoration.cpp as well.

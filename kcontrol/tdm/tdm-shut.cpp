@@ -54,13 +54,13 @@ TDMSessionsWidget::TDMSessionsWidget(TQWidget *parent, const char *name)
       sdlcombo->insertItem(i18n("Everybody"), SdAll);
       sdlcombo->insertItem(i18n("Only Root"), SdRoot);
       sdlcombo->insertItem(i18n("Nobody"), SdNone);
-      connect(sdlcombo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+      connect(sdlcombo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
       sdrcombo = new TQComboBox( FALSE, group0 );
       sdrlabel = new TQLabel (sdrcombo, i18n ("&Remote:"), group0);
       sdrcombo->insertItem(i18n("Everybody"), SdAll);
       sdrcombo->insertItem(i18n("Only Root"), SdRoot);
       sdrcombo->insertItem(i18n("Nobody"), SdNone);
-      connect(sdrcombo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+      connect(sdrcombo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
       TQWhatsThis::add( group0, i18n("Here you can select who is allowed to shutdown"
         " the computer using TDM. You can specify different values for local (console) and remote displays. "
 	"Possible values are:<ul>"
@@ -73,16 +73,16 @@ TDMSessionsWidget::TDMSessionsWidget(TQWidget *parent, const char *name)
 
       shutdown_lined = new KURLRequester(group1);
       TQLabel *shutdown_label = new TQLabel(shutdown_lined, i18n("H&alt:"), group1);
-      connect(shutdown_lined, TQT_SIGNAL(textChanged(const TQString&)),
-	      TQT_SLOT(changed()));
+      connect(shutdown_lined, TQ_SIGNAL(textChanged(const TQString&)),
+	      TQ_SLOT(changed()));
       wtstr = i18n("Command to initiate the system halt. Typical value: /sbin/halt");
       TQWhatsThis::add( shutdown_label, wtstr );
       TQWhatsThis::add( shutdown_lined, wtstr );
 
       restart_lined = new KURLRequester(group1);
       TQLabel *restart_label = new TQLabel(restart_lined, i18n("Reb&oot:"), group1);
-      connect(restart_lined, TQT_SIGNAL(textChanged(const TQString&)),
-	      TQT_SLOT(changed()));
+      connect(restart_lined, TQ_SIGNAL(textChanged(const TQString&)),
+	      TQ_SLOT(changed()));
       wtstr = i18n("Command to initiate the system reboot. Typical value: /sbin/reboot");
       TQWhatsThis::add( restart_label, wtstr );
       TQWhatsThis::add( restart_lined, wtstr );
@@ -97,13 +97,13 @@ TDMSessionsWidget::TDMSessionsWidget(TQWidget *parent, const char *name)
       bm_combo->insertItem("Lilo", i18n("Lilo"));
 #endif
       TQLabel *bm_label = new TQLabel( bm_combo, i18n("Boot manager:"), group4 );
-      connect(bm_combo, TQT_SIGNAL(activated(int)), TQT_SLOT(changed()));
+      connect(bm_combo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
       wtstr = i18n("Enable boot options in the \"Shutdown...\" dialog.");
       TQWhatsThis::add( bm_label, wtstr );
       TQWhatsThis::add( bm_combo, wtstr );
 
       tsbox = new TQCheckBox( i18n("Restart X-Server with session exit"), this );
-      connect( tsbox, TQT_SIGNAL(toggled(bool)), TQT_SLOT(changed()) );
+      connect( tsbox, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()) );
       wtstr = i18n("Whether the login manager should restart the local X-Server after a session exit instead of resetting. Use this option when the X-Server leaks memory, crashes the system on reset attempts, or otherwise exhibits display issues or artifacts.");
       TQWhatsThis::add( tsbox, wtstr );
 

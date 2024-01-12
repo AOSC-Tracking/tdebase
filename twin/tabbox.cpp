@@ -53,7 +53,7 @@ TabBox::TabBox( Workspace *ws, const char *name )
     m = DesktopMode; // init variables
     reconfigure();
     reset();
-    connect(&delayedShowTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(show()));
+    connect(&delayedShowTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(show()));
     
     XSetWindowAttributes attr;
     attr.override_redirect = 1;

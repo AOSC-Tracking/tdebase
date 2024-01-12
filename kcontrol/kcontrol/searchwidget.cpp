@@ -87,13 +87,13 @@ SearchWidget::SearchWidget(TQWidget *parent , const char *name)
   l->addWidget(_resultList);
 
 
-  connect(_keyList, TQT_SIGNAL(highlighted(const TQString&)),
-          this, TQT_SLOT(slotKeywordSelected(const TQString&)));
+  connect(_keyList, TQ_SIGNAL(highlighted(const TQString&)),
+          this, TQ_SLOT(slotKeywordSelected(const TQString&)));
 
-  connect(_resultList, TQT_SIGNAL(selected(TQListBoxItem*)),
-          this, TQT_SLOT(slotModuleSelected(TQListBoxItem *)));
-  connect(_resultList, TQT_SIGNAL(clicked(TQListBoxItem *)),
-          this, TQT_SLOT(slotModuleClicked(TQListBoxItem *)));
+  connect(_resultList, TQ_SIGNAL(selected(TQListBoxItem*)),
+          this, TQ_SLOT(slotModuleSelected(TQListBoxItem *)));
+  connect(_resultList, TQ_SIGNAL(clicked(TQListBoxItem *)),
+          this, TQ_SLOT(slotModuleClicked(TQListBoxItem *)));
 }
 
 void SearchWidget::populateKeywordList(ConfigModuleList *list)

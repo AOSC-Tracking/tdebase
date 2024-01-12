@@ -130,14 +130,14 @@ KPreviewOptions::KPreviewOptions( TQWidget *parent, const char */*name*/ )
     m_maxSize->setRange( 0.2, 100, 0.2, true );
     label->setBuddy( m_maxSize );
     lay->addWidget( m_maxSize );
-    connect( m_maxSize, TQT_SIGNAL( valueChanged(double) ), TQT_SLOT( changed() ) );
+    connect( m_maxSize, TQ_SIGNAL( valueChanged(double) ), TQ_SLOT( changed() ) );
 
     m_boostSize = new TQCheckBox(i18n("&Increase size of previews relative to icons"), this);
-    connect( m_boostSize, TQT_SIGNAL( toggled(bool) ), TQT_SLOT( changed() ) );
+    connect( m_boostSize, TQ_SIGNAL( toggled(bool) ), TQ_SLOT( changed() ) );
     lay->addWidget(m_boostSize);
 
     m_useFileThumbnails = new TQCheckBox(i18n("&Use thumbnails embedded in files"), this);
-    connect( m_useFileThumbnails, TQT_SIGNAL( toggled(bool) ), TQT_SLOT( changed() ) );
+    connect( m_useFileThumbnails, TQ_SIGNAL( toggled(bool) ), TQ_SLOT( changed() ) );
 
     lay->addWidget(m_useFileThumbnails);
 

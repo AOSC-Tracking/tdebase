@@ -121,57 +121,57 @@ KonqBaseListViewWidget::KonqBaseListViewWidget( KonqListView *parent, TQWidget *
 
    initConfig();
 #if 0
-   connect( this, TQT_SIGNAL(rightButtonPressed(TQListViewItem*,const TQPoint&,int)),
-            this, TQT_SLOT(slotRightButtonPressed(TQListViewItem*,const TQPoint&,int)));
+   connect( this, TQ_SIGNAL(rightButtonPressed(TQListViewItem*,const TQPoint&,int)),
+            this, TQ_SLOT(slotRightButtonPressed(TQListViewItem*,const TQPoint&,int)));
 #endif
-   connect( this, TQT_SIGNAL(returnPressed( TQListViewItem * )),
-            this, TQT_SLOT(slotReturnPressed( TQListViewItem * )) );
-   connect( this, TQT_SIGNAL(mouseButtonClicked( int, TQListViewItem *, const TQPoint&, int )),
-            this, TQT_SLOT(slotMouseButtonClicked2( int, TQListViewItem *, const TQPoint&, int )) );
-   connect( this, TQT_SIGNAL(executed( TQListViewItem * )),
-            this, TQT_SLOT(slotExecuted( TQListViewItem * )) );
-   connect( this, TQT_SIGNAL(currentChanged( TQListViewItem * )),
-            this, TQT_SLOT(slotCurrentChanged( TQListViewItem * )) );
-   connect( this, TQT_SIGNAL(itemRenamed( TQListViewItem *, const TQString &, int )),
-            this, TQT_SLOT(slotItemRenamed( TQListViewItem *, const TQString &, int )) );
-   connect( this, TQT_SIGNAL(contextMenuRequested( TQListViewItem *, const TQPoint&, int )),
-            this, TQT_SLOT(slotPopupMenu( TQListViewItem *, const TQPoint&, int )) );
-   connect( this, TQT_SIGNAL(renameNext( TQListViewItem *, int )),
-            this, TQT_SLOT(slotRenameNextItem( TQListViewItem*, int)) );
-   connect( this, TQT_SIGNAL(renamePrev( TQListViewItem *, int )),
-            this, TQT_SLOT(slotRenamePrevItem( TQListViewItem*, int)) );
-   connect( this, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()) );
+   connect( this, TQ_SIGNAL(returnPressed( TQListViewItem * )),
+            this, TQ_SLOT(slotReturnPressed( TQListViewItem * )) );
+   connect( this, TQ_SIGNAL(mouseButtonClicked( int, TQListViewItem *, const TQPoint&, int )),
+            this, TQ_SLOT(slotMouseButtonClicked2( int, TQListViewItem *, const TQPoint&, int )) );
+   connect( this, TQ_SIGNAL(executed( TQListViewItem * )),
+            this, TQ_SLOT(slotExecuted( TQListViewItem * )) );
+   connect( this, TQ_SIGNAL(currentChanged( TQListViewItem * )),
+            this, TQ_SLOT(slotCurrentChanged( TQListViewItem * )) );
+   connect( this, TQ_SIGNAL(itemRenamed( TQListViewItem *, const TQString &, int )),
+            this, TQ_SLOT(slotItemRenamed( TQListViewItem *, const TQString &, int )) );
+   connect( this, TQ_SIGNAL(contextMenuRequested( TQListViewItem *, const TQPoint&, int )),
+            this, TQ_SLOT(slotPopupMenu( TQListViewItem *, const TQPoint&, int )) );
+   connect( this, TQ_SIGNAL(renameNext( TQListViewItem *, int )),
+            this, TQ_SLOT(slotRenameNextItem( TQListViewItem*, int)) );
+   connect( this, TQ_SIGNAL(renamePrev( TQListViewItem *, int )),
+            this, TQ_SLOT(slotRenamePrevItem( TQListViewItem*, int)) );
+   connect( this, TQ_SIGNAL(selectionChanged()), this, TQ_SLOT(slotSelectionChanged()) );
 
-   connect( horizontalScrollBar(), TQT_SIGNAL(valueChanged( int )),
-            this, TQT_SIGNAL(viewportAdjusted()) );
-   connect( verticalScrollBar(), TQT_SIGNAL(valueChanged( int )),
-            this, TQT_SIGNAL(viewportAdjusted()) );
+   connect( horizontalScrollBar(), TQ_SIGNAL(valueChanged( int )),
+            this, TQ_SIGNAL(viewportAdjusted()) );
+   connect( verticalScrollBar(), TQ_SIGNAL(valueChanged( int )),
+            this, TQ_SIGNAL(viewportAdjusted()) );
 
    // Connect the directory lister
-   connect( m_dirLister, TQT_SIGNAL(started( const KURL & )),
-            this, TQT_SLOT(slotStarted()) );
-   connect( m_dirLister, TQT_SIGNAL(completed()), this, TQT_SLOT(slotCompleted()) );
-   connect( m_dirLister, TQT_SIGNAL(canceled()), this, TQT_SLOT(slotCanceled()) );
-   connect( m_dirLister, TQT_SIGNAL(clear()), this, TQT_SLOT(slotClear()) );
-   connect( m_dirLister, TQT_SIGNAL(newItems( const KFileItemList & ) ),
-            this, TQT_SLOT(slotNewItems( const KFileItemList & )) );
-   connect( m_dirLister, TQT_SIGNAL(deleteItem( KFileItem * )),
-            this, TQT_SLOT(slotDeleteItem( KFileItem * )) );
-   connect( m_dirLister, TQT_SIGNAL(refreshItems( const KFileItemList & )),
-            this, TQT_SLOT( slotRefreshItems( const KFileItemList & )) );
-   connect( m_dirLister, TQT_SIGNAL(redirection( const KURL & )),
-            this, TQT_SLOT(slotRedirection( const KURL & )) );
-   connect( m_dirLister, TQT_SIGNAL(itemsFilteredByMime( const KFileItemList & )),
-            m_pBrowserView, TQT_SIGNAL(itemsFilteredByMime( const KFileItemList & )) );
+   connect( m_dirLister, TQ_SIGNAL(started( const KURL & )),
+            this, TQ_SLOT(slotStarted()) );
+   connect( m_dirLister, TQ_SIGNAL(completed()), this, TQ_SLOT(slotCompleted()) );
+   connect( m_dirLister, TQ_SIGNAL(canceled()), this, TQ_SLOT(slotCanceled()) );
+   connect( m_dirLister, TQ_SIGNAL(clear()), this, TQ_SLOT(slotClear()) );
+   connect( m_dirLister, TQ_SIGNAL(newItems( const KFileItemList & ) ),
+            this, TQ_SLOT(slotNewItems( const KFileItemList & )) );
+   connect( m_dirLister, TQ_SIGNAL(deleteItem( KFileItem * )),
+            this, TQ_SLOT(slotDeleteItem( KFileItem * )) );
+   connect( m_dirLister, TQ_SIGNAL(refreshItems( const KFileItemList & )),
+            this, TQ_SLOT( slotRefreshItems( const KFileItemList & )) );
+   connect( m_dirLister, TQ_SIGNAL(redirection( const KURL & )),
+            this, TQ_SLOT(slotRedirection( const KURL & )) );
+   connect( m_dirLister, TQ_SIGNAL(itemsFilteredByMime( const KFileItemList & )),
+            m_pBrowserView, TQ_SIGNAL(itemsFilteredByMime( const KFileItemList & )) );
 
-   connect( m_dirLister, TQT_SIGNAL(infoMessage( const TQString& )),
-            m_pBrowserView->extension(), TQT_SIGNAL(infoMessage( const TQString& )) );
-   connect( m_dirLister, TQT_SIGNAL(percent( int )),
-            m_pBrowserView->extension(), TQT_SIGNAL(loadingProgress( int )) );
-   connect( m_dirLister, TQT_SIGNAL(speed( int )),
-            m_pBrowserView->extension(), TQT_SIGNAL(speedProgress( int )) );
+   connect( m_dirLister, TQ_SIGNAL(infoMessage( const TQString& )),
+            m_pBrowserView->extension(), TQ_SIGNAL(infoMessage( const TQString& )) );
+   connect( m_dirLister, TQ_SIGNAL(percent( int )),
+            m_pBrowserView->extension(), TQ_SIGNAL(loadingProgress( int )) );
+   connect( m_dirLister, TQ_SIGNAL(speed( int )),
+            m_pBrowserView->extension(), TQ_SIGNAL(speedProgress( int )) );
 
-   connect( header(), TQT_SIGNAL(sizeChange( int, int, int )), TQT_SLOT(slotUpdateBackground()) );
+   connect( header(), TQ_SIGNAL(sizeChange( int, int, int )), TQ_SLOT(slotUpdateBackground()) );
 
    viewport()->setMouseTracking( true );
    viewport()->setFocusPolicy( TQWidget::WheelFocus );
@@ -453,7 +453,7 @@ void KonqBaseListViewWidget::contentsMouseReleaseEvent( TQMouseEvent *e ) {
 	}
 
 	if ( m_scrollTimer ) {
-		disconnect( m_scrollTimer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( slotAutoScroll() ) );
+		disconnect( m_scrollTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( slotAutoScroll() ) );
 		m_scrollTimer->stop();
 		delete m_scrollTimer;
 		m_scrollTimer = 0;
@@ -762,15 +762,15 @@ void KonqBaseListViewWidget::slotAutoScroll()
       {
          m_scrollTimer = new TQTimer( this );
 
-         connect( m_scrollTimer, TQT_SIGNAL( timeout() ),
-                  this, TQT_SLOT( slotAutoScroll() ) );
+         connect( m_scrollTimer, TQ_SIGNAL( timeout() ),
+                  this, TQ_SLOT( slotAutoScroll() ) );
          m_scrollTimer->start( 100, false );
       }
    }
    else if ( m_scrollTimer )
    {
-      disconnect( m_scrollTimer, TQT_SIGNAL( timeout() ),
-                  this, TQT_SLOT( slotAutoScroll() ) );
+      disconnect( m_scrollTimer, TQ_SIGNAL( timeout() ),
+                  this, TQ_SLOT( slotAutoScroll() ) );
       m_scrollTimer->stop();
       delete m_scrollTimer;
       m_scrollTimer = 0;
@@ -1563,7 +1563,7 @@ void KonqBaseListViewWidget::slotUpdateBackground()
       if ( !m_backgroundTimer )
       {
          m_backgroundTimer = new TQTimer( this );
-         connect( m_backgroundTimer, TQT_SIGNAL( timeout() ), viewport(), TQT_SLOT( update() ) );
+         connect( m_backgroundTimer, TQ_SIGNAL( timeout() ), viewport(), TQ_SLOT( update() ) );
       }
       else
          m_backgroundTimer->stop();

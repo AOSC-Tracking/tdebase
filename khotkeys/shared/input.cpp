@@ -106,12 +106,12 @@ void Kbd::grab_shortcut( const TDEShortcut& shortcut_P )
         // CHECKME ugly ugly hack
         TQString name = ' ' + TQString::number( keycode_P );
         kga->insertItem( "", name, keycode_P );
-        kga->connectItem( name, this, TQT_SLOT( key_slot( int )));
+        kga->connectItem( name, this, TQ_SLOT( key_slot( int )));
 #endif
         TQString name = ' ' + shortcut_P.toStringInternal();
         kga->insert( name, name, TQString::null, shortcut_P, shortcut_P,
-            this, TQT_SLOT( key_slot( TQString )));
-        TQTimer::singleShot( 0, this, TQT_SLOT( update_connections()));
+            this, TQ_SLOT( key_slot( TQString )));
+        TQTimer::singleShot( 0, this, TQ_SLOT( update_connections()));
         }
     }
     
@@ -129,7 +129,7 @@ void Kbd::ungrab_shortcut( const TDEShortcut& shortcut_P )
 #endif
         kga->remove( ' ' + shortcut_P.toStringInternal());
         grabs.remove( shortcut_P );
-        TQTimer::singleShot( 0, this, TQT_SLOT( update_connections()));
+        TQTimer::singleShot( 0, this, TQ_SLOT( update_connections()));
         }
     }
 

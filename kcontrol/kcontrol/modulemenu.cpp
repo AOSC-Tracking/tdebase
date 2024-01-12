@@ -49,7 +49,7 @@ ModuleMenu::ModuleMenu(ConfigModuleList *list, TQWidget * parent, const char * n
 
   fill(this, KCGlobal::baseGroup());
 
-  connect(this, TQT_SIGNAL(activated(int)), this, TQT_SLOT(moduleSelected(int)));
+  connect(this, TQ_SIGNAL(activated(int)), this, TQ_SLOT(moduleSelected(int)));
 }
 
 void ModuleMenu::fill(TDEPopupMenu *parentMenu, const TQString &parentPath)
@@ -65,7 +65,7 @@ void ModuleMenu::fill(TDEPopupMenu *parentMenu, const TQString &parentPath)
      
      // create new menu
      TDEPopupMenu *menu = new TDEPopupMenu(parentMenu);
-     connect(menu, TQT_SIGNAL(activated(int)), this, TQT_SLOT(moduleSelected(int)));
+     connect(menu, TQ_SIGNAL(activated(int)), this, TQ_SLOT(moduleSelected(int)));
 
      // Item names may contain ampersands. To avoid them being converted to 
      // accelators, replace them with two ampersands.

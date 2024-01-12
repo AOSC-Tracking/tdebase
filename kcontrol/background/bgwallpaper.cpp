@@ -114,11 +114,11 @@ BGMultiWallpaperDialog::BGMultiWallpaperDialog(KBackgroundSettings *settings,
    if (m_pSettings->multiWallpaperMode() == KBackgroundSettings::Random)
       dlg->m_cbRandom->setChecked(true);
 
-   connect(dlg->m_buttonAdd, TQT_SIGNAL(clicked()), TQT_SLOT(slotAdd()));
-   connect(dlg->m_buttonRemove, TQT_SIGNAL(clicked()), TQT_SLOT(slotRemove()));
-   connect(dlg->m_buttonMoveUp, TQT_SIGNAL(clicked()), TQT_SLOT(slotMoveUp()));
-   connect(dlg->m_buttonMoveDown, TQT_SIGNAL(clicked()), TQT_SLOT(slotMoveDown()));
-   connect(dlg->m_listImages,  TQT_SIGNAL(clicked ( TQListBoxItem * )), TQT_SLOT(slotItemSelected( TQListBoxItem *)));
+   connect(dlg->m_buttonAdd, TQ_SIGNAL(clicked()), TQ_SLOT(slotAdd()));
+   connect(dlg->m_buttonRemove, TQ_SIGNAL(clicked()), TQ_SLOT(slotRemove()));
+   connect(dlg->m_buttonMoveUp, TQ_SIGNAL(clicked()), TQ_SLOT(slotMoveUp()));
+   connect(dlg->m_buttonMoveDown, TQ_SIGNAL(clicked()), TQ_SLOT(slotMoveDown()));
+   connect(dlg->m_listImages,  TQ_SIGNAL(clicked ( TQListBoxItem * )), TQ_SLOT(slotItemSelected( TQListBoxItem *)));
    dlg->m_buttonRemove->setEnabled( false );
    dlg->m_buttonMoveUp->setEnabled( false );
    dlg->m_buttonMoveDown->setEnabled( false );

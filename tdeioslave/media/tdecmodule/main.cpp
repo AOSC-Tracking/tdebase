@@ -49,13 +49,13 @@ MediaModule::MediaModule( TQWidget *parent, const char *name, const TQStringList
 	
 	m_notifierModule = new NotifierModule( this, "notifier" );
 	tab->addTab( m_notifierModule, i18n( "&Notifications" ) );
-	connect( m_notifierModule, TQT_SIGNAL( changed( bool ) ),
-	         this, TQT_SLOT( moduleChanged( bool ) ) );
+	connect( m_notifierModule, TQ_SIGNAL( changed( bool ) ),
+	         this, TQ_SLOT( moduleChanged( bool ) ) );
 
 	m_managerModule = new ManagerModule( this, "manager" );
 	tab->addTab( m_managerModule, i18n( "&Advanced" ) );
-	connect( m_managerModule, TQT_SIGNAL( changed( bool ) ),
-	         this, TQT_SLOT( moduleChanged( bool ) ) );
+	connect( m_managerModule, TQ_SIGNAL( changed( bool ) ),
+	         this, TQ_SLOT( moduleChanged( bool ) ) );
 
 
 

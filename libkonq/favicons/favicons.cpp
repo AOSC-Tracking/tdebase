@@ -186,9 +186,9 @@ void FaviconsModule::startDownload(const TQString &hostOrURL, bool isHost, const
 
     TDEIO::Job *job = TDEIO::get(iconURL, false, false);
     job->addMetaData(d->metaData);
-    connect(job, TQT_SIGNAL(data(TDEIO::Job *, const TQByteArray &)), TQT_SLOT(slotData(TDEIO::Job *, const TQByteArray &)));
-    connect(job, TQT_SIGNAL(result(TDEIO::Job *)), TQT_SLOT(slotResult(TDEIO::Job *)));
-    connect(job, TQT_SIGNAL(infoMessage(TDEIO::Job *, const TQString &)), TQT_SLOT(slotInfoMessage(TDEIO::Job *, const TQString &)));
+    connect(job, TQ_SIGNAL(data(TDEIO::Job *, const TQByteArray &)), TQ_SLOT(slotData(TDEIO::Job *, const TQByteArray &)));
+    connect(job, TQ_SIGNAL(result(TDEIO::Job *)), TQ_SLOT(slotResult(TDEIO::Job *)));
+    connect(job, TQ_SIGNAL(infoMessage(TDEIO::Job *, const TQString &)), TQ_SLOT(slotInfoMessage(TDEIO::Job *, const TQString &)));
     FaviconsModulePrivate::DownloadInfo download;
     download.hostOrURL = hostOrURL;
     download.isHost = isHost;
@@ -202,7 +202,7 @@ void FaviconsModule::slotData(TDEIO::Job *job, const TQByteArray &data)
     if (oldSize > 0x10000)
     {
         d->killJobs.append(job);
-        TQTimer::singleShot(0, this, TQT_SLOT(slotKill()));
+        TQTimer::singleShot(0, this, TQ_SLOT(slotKill()));
     }
     download.iconData.resize(oldSize + data.size());
     memcpy(download.iconData.data() + oldSize, data.data(), data.size());

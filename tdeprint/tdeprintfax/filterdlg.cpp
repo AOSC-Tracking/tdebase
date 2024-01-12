@@ -47,8 +47,8 @@ FilterDlg::FilterDlg(TQWidget *parent, const char *name)
 	setMainWidget(w);
 	m_mime->setFocus();
 	resize(300, 100);
-	connect(m_mime, TQT_SIGNAL(textChanged ( const TQString & )),this, TQT_SLOT(slotTextFilterChanged()));
-        connect(m_cmd, TQT_SIGNAL(textChanged ( const TQString & )),this, TQT_SLOT(slotTextFilterChanged()));
+	connect(m_mime, TQ_SIGNAL(textChanged ( const TQString & )),this, TQ_SLOT(slotTextFilterChanged()));
+        connect(m_cmd, TQ_SIGNAL(textChanged ( const TQString & )),this, TQ_SLOT(slotTextFilterChanged()));
         slotTextFilterChanged();
 }
 

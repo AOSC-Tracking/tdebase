@@ -55,9 +55,9 @@ TDEBackend::TDEBackend(MediaList &list, TQObject* parent)
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 
 	// Connect device monitoring signals/slots
-	connect(hwdevices, TQT_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQT_SLOT(AddDeviceHandler(TDEGenericDevice*)));
-	connect(hwdevices, TQT_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQT_SLOT(RemoveDeviceHandler(TDEGenericDevice*)));
-	connect(hwdevices, TQT_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQT_SLOT(ModifyDeviceHandler(TDEGenericDevice*)));
+	connect(hwdevices, TQ_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQ_SLOT(AddDeviceHandler(TDEGenericDevice*)));
+	connect(hwdevices, TQ_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQ_SLOT(RemoveDeviceHandler(TDEGenericDevice*)));
+	connect(hwdevices, TQ_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQ_SLOT(ModifyDeviceHandler(TDEGenericDevice*)));
 
 	// List devices at startup
 	ListDevices();
@@ -1235,7 +1235,7 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 		data.medium = medium;
 
 		TDEIO::Job *job = TDEIO::mount(false, 0, medium->deviceNode(), mountPoint);
-		connect(job, TQT_SIGNAL(result(TDEIO::Job*)), TQT_SLOT(slotResult(TDEIO::Job*)));
+		connect(job, TQ_SIGNAL(result(TDEIO::Job*)), TQ_SLOT(slotResult(TDEIO::Job*)));
 		mount_jobs[job] = &data;
 		// The caller expects the device to be mounted when the function
 		// completes. Thus block until the job completes.
@@ -1346,7 +1346,7 @@ TQStringVariantMap TDEBackend::unmount(const TQString &id)
 		data.medium = medium;
 
 		TDEIO::Job *job = TDEIO::unmount( medium->mountPoint(), false );
-		connect(job, TQT_SIGNAL(result(TDEIO::Job*)), TQT_SLOT(slotResult(TDEIO::Job*)));
+		connect(job, TQ_SIGNAL(result(TDEIO::Job*)), TQ_SLOT(slotResult(TDEIO::Job*)));
 		mount_jobs[job] = &data;
 		// The caller expects the device to be unmounted when the function
 		// completes. Thus block until the job completes.

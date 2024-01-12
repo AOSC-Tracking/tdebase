@@ -886,7 +886,7 @@ void Client::enterNotifyEvent( XCrossingEvent* e )
             {
             delete shadeHoverTimer;
             shadeHoverTimer = new TQTimer( this );
-            connect( shadeHoverTimer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( shadeHover() ));
+            connect( shadeHoverTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( shadeHover() ));
             shadeHoverTimer->start( options->shadeHoverInterval, TRUE );
             }
 
@@ -899,7 +899,7 @@ void Client::enterNotifyEvent( XCrossingEvent* e )
             {
             delete autoRaiseTimer;
             autoRaiseTimer = new TQTimer( this );
-            connect( autoRaiseTimer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( autoRaise() ) );
+            connect( autoRaiseTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( autoRaise() ) );
             autoRaiseTimer->start( options->autoRaiseInterval, TRUE  );
             }
 

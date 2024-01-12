@@ -134,11 +134,11 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
 
     // Signals
 
-    connect( browseB, TQT_SIGNAL(clicked()),
-             this, TQT_SLOT(getDirectory()) );
+    connect( browseB, TQ_SIGNAL(clicked()),
+             this, TQ_SLOT(getDirectory()) );
 
-    connect( nameBox, TQT_SIGNAL(activated(int)),
-             this, TQT_SIGNAL(startSearch()));
+    connect( nameBox, TQ_SIGNAL(activated(int)),
+             this, TQ_SIGNAL(startSearch()));
 
     // ************ Page Two
 
@@ -235,9 +235,9 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     grid1->setRowStretch(6,1);
 
     // Connect
-    connect( findCreated,  TQT_SIGNAL(toggled(bool)),   TQT_SLOT(fixLayout()) );
-    connect( bg,  TQT_SIGNAL(clicked(int)), this,   TQT_SLOT(fixLayout()) );
-    connect( sizeBox, TQT_SIGNAL(highlighted(int)), this, TQT_SLOT(slotSizeBoxChanged(int)));
+    connect( findCreated,  TQ_SIGNAL(toggled(bool)),   TQ_SLOT(fixLayout()) );
+    connect( bg,  TQ_SIGNAL(clicked(int)), this,   TQ_SLOT(fixLayout()) );
+    connect( sizeBox, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(slotSizeBoxChanged(int)));
 
 
     // ************ Page Three
@@ -250,7 +250,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     textEdit=new KLineEdit(pages[2], "textEdit" );
     TQLabel * textL   =new TQLabel(textEdit, i18n("C&ontaining text:"), pages[2], "text");
 
-    connect( textEdit, TQT_SIGNAL(returnPressed(const TQString &)), TQT_SIGNAL( startSearch()));
+    connect( textEdit, TQ_SIGNAL(returnPressed(const TQString &)), TQ_SIGNAL( startSearch()));
 
     const TQString containingtext
       = i18n("<qt>If specified, only files that contain this text"
@@ -306,9 +306,9 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
 
     if ( editRegExp ) {
       // The editor was available, so lets use it.
-      connect( regexpContentCb, TQT_SIGNAL(toggled(bool) ), editRegExp, TQT_SLOT(setEnabled(bool)) );
+      connect( regexpContentCb, TQ_SIGNAL(toggled(bool) ), editRegExp, TQ_SLOT(setEnabled(bool)) );
       editRegExp->setEnabled(false);
-      connect( editRegExp, TQT_SIGNAL(clicked()), this, TQT_SLOT( slotEditRegExp() ) );
+      connect( editRegExp, TQ_SIGNAL(clicked()), this, TQ_SLOT( slotEditRegExp() ) );
     }
     else
         regexpContentCb->hide();

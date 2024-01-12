@@ -121,7 +121,7 @@ void ServiceButton::loadServiceFromId(const TQString &id)
 void ServiceButton::initialize()
 {
     readDesktopFile();
-    connect(this, TQT_SIGNAL(clicked()), TQT_SLOT(slotExec()));
+    connect(this, TQ_SIGNAL(clicked()), TQ_SLOT(slotExec()));
 }
 
 void ServiceButton::readDesktopFile()
@@ -192,7 +192,7 @@ void ServiceButton::slotExec()
 {
     // this allows the button to return to a non-pressed state
     // before launching
-    TQTimer::singleShot(0, this, TQT_SLOT(performExec()));
+    TQTimer::singleShot(0, this, TQ_SLOT(performExec()));
 }
 
 void ServiceButton::performExec()
@@ -223,10 +223,10 @@ void ServiceButton::properties()
     KPropertiesDialog* dialog = new KPropertiesDialog(serviceURL, 0, 0,
                                                       false, false);
     dialog->setFileNameReadOnly(true);
-    connect(dialog, TQT_SIGNAL(saveAs(const KURL &, KURL &)),
-            this, TQT_SLOT(slotSaveAs(const KURL &, KURL &)));
-    connect(dialog, TQT_SIGNAL(propertiesClosed()),
-            this, TQT_SLOT(slotUpdate()));
+    connect(dialog, TQ_SIGNAL(saveAs(const KURL &, KURL &)),
+            this, TQ_SLOT(slotSaveAs(const KURL &, KURL &)));
+    connect(dialog, TQ_SIGNAL(propertiesClosed()),
+            this, TQ_SLOT(slotUpdate()));
     dialog->show();
 }
 

@@ -202,7 +202,7 @@ MultiMeter::configureSettings()
 	mms->setAlarmDigitColor(alarmDigitColor);
 	mms->setMeterBackgroundColor(lcd->backgroundColor());
 
-	connect(mms, TQT_SIGNAL(applyClicked()), TQT_SLOT(applySettings()));
+	connect(mms, TQ_SIGNAL(applyClicked()), TQ_SLOT(applySettings()));
 
 	if (mms->exec())
 		applySettings();

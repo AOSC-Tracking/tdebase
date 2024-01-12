@@ -50,15 +50,15 @@ KTrashPropsWidget::KTrashPropsWidget(TQWidget *parent, const char *name)
   mTrashImpl->init();
 
   setupGui();
-  connect(mUseTimeLimit, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(useTypeChanged()));
-  connect(mDays, TQT_SIGNAL(valueChanged(int)),this, TQT_SLOT(setDirty()));
-  connect(mUseSizeLimit, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(useTypeChanged()));
-  connect(mPercentSize, TQT_SIGNAL(valueChanged(double)), this, TQT_SLOT(percentSizeChanged(double)));
-  connect(mFixedSize, TQT_SIGNAL(valueChanged(double)), this, TQT_SLOT(fixedSizeChanged(double)));
-  connect(mFixedSizeUnit, TQT_SIGNAL(activated(int)), this, TQT_SLOT(fixedSizeUnitActivated(int)));
-  connect(mRbPercentSize, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(rbPercentSizeToggled(bool)));
-  connect(mRbFixedSize, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(rbFixedSizeToggled(bool)));
-  connect(mLimitReachedAction, TQT_SIGNAL(activated(int)), this, TQT_SLOT(setDirty()));
+  connect(mUseTimeLimit, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(useTypeChanged()));
+  connect(mDays, TQ_SIGNAL(valueChanged(int)),this, TQ_SLOT(setDirty()));
+  connect(mUseSizeLimit, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(useTypeChanged()));
+  connect(mPercentSize, TQ_SIGNAL(valueChanged(double)), this, TQ_SLOT(percentSizeChanged(double)));
+  connect(mFixedSize, TQ_SIGNAL(valueChanged(double)), this, TQ_SLOT(fixedSizeChanged(double)));
+  connect(mFixedSizeUnit, TQ_SIGNAL(activated(int)), this, TQ_SLOT(fixedSizeUnitActivated(int)));
+  connect(mRbPercentSize, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(rbPercentSizeToggled(bool)));
+  connect(mRbFixedSize, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(rbFixedSizeToggled(bool)));
+  connect(mLimitReachedAction, TQ_SIGNAL(activated(int)), this, TQ_SLOT(setDirty()));
 
   inhibitChangedSignal = true;
   load();
@@ -87,7 +87,7 @@ void KTrashPropsWidget::setupGui()
       mountPoints->insertItem(folderPixmap, util.mountPoint(), it.key());
     }
     mountPoints->setCurrentItem(0);
-    connect(mountPoints, TQT_SIGNAL(highlighted(int)), TQT_SLOT(trashChanged(int)));
+    connect(mountPoints, TQ_SIGNAL(highlighted(int)), TQ_SLOT(trashChanged(int)));
   }
 
   mCurrentTrash = map[0];

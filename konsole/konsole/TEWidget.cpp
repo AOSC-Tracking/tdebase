@@ -410,17 +410,17 @@ TEWidget::TEWidget(TQWidget *parent, const char *name)
   bY = bX = 1;
 
   cb = TQApplication::clipboard();
-  TQObject::connect( (TQObject*)cb, TQT_SIGNAL(selectionChanged()),
-                    this, TQT_SLOT(onClearSelection()) );
+  TQObject::connect( (TQObject*)cb, TQ_SIGNAL(selectionChanged()),
+                    this, TQ_SLOT(onClearSelection()) );
 
   scrollbar = new TQScrollBar(this);
   scrollbar->setCursor( TQt::arrowCursor );
-  connect(scrollbar, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(scrollChanged(int)));
+  connect(scrollbar, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(scrollChanged(int)));
 
   blinkT   = new TQTimer(this);
-  connect(blinkT, TQT_SIGNAL(timeout()), this, TQT_SLOT(blinkEvent()));
+  connect(blinkT, TQ_SIGNAL(timeout()), this, TQ_SLOT(blinkEvent()));
   blinkCursorT   = new TQTimer(this);
-  connect(blinkCursorT, TQT_SIGNAL(timeout()), this, TQT_SLOT(blinkCursorEvent()));
+  connect(blinkCursorT, TQ_SIGNAL(timeout()), this, TQ_SLOT(blinkCursorEvent()));
 
   setMouseMarks(true);
   setColorTable(base_color_table); // init color table
@@ -977,7 +977,7 @@ void TEWidget::setImage(const ca* const newimg, int lines, int columns)
         mResizeWidget->setMinimumWidth(mResizeLabel->fontMetrics().width(i18n("Size: XXX x XXX"))+20);
         mResizeWidget->setMinimumHeight(mResizeLabel->sizeHint().height()+20);
         mResizeTimer = new TQTimer(this);
-        connect(mResizeTimer, TQT_SIGNAL(timeout()), mResizeWidget, TQT_SLOT(hide()));
+        connect(mResizeTimer, TQ_SIGNAL(timeout()), mResizeWidget, TQ_SLOT(hide()));
      }
      TQString sizeStr = i18n("Size: %1 x %2").arg(columns).arg(lines);
      mResizeLabel->setText(sizeStr);
@@ -1254,13 +1254,13 @@ void TEWidget::scrollChanged(int)
 void TEWidget::setScroll(int cursor, int slines)
 {
   //kdDebug(1211)<<"TEWidget::setScroll() disconnect()"<<endl;
-  disconnect(scrollbar, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(scrollChanged(int)));
+  disconnect(scrollbar, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(scrollChanged(int)));
   //kdDebug(1211)<<"TEWidget::setScroll() setRange()"<<endl;
   scrollbar->setRange(0,slines);
   //kdDebug(1211)<<"TEWidget::setScroll() setSteps()"<<endl;
   scrollbar->setSteps(1,lines);
   scrollbar->setValue(cursor);
-  connect(scrollbar, TQT_SIGNAL(valueChanged(int)), this, TQT_SLOT(scrollChanged(int)));
+  connect(scrollbar, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(scrollChanged(int)));
   //kdDebug(1211)<<"TEWidget::setScroll() done"<<endl;
 }
 
@@ -1696,7 +1696,7 @@ void TEWidget::mouseDoubleClickEvent(TQMouseEvent* ev)
    }
 
   possibleTripleClick=true;
-  TQTimer::singleShot(TQApplication::doubleClickInterval(),this,TQT_SLOT(tripleClickTimeout()));
+  TQTimer::singleShot(TQApplication::doubleClickInterval(),this,TQ_SLOT(tripleClickTimeout()));
 }
 
 void TEWidget::wheelEvent( TQWheelEvent* ev )
@@ -1870,15 +1870,15 @@ void TEWidget::setSelection(const TQString& t)
 {
   // Disconnect signal while WE set the clipboard
   TQClipboard *cb = TQApplication::clipboard();
-  TQObject::disconnect( cb, TQT_SIGNAL(selectionChanged()),
-                     this, TQT_SLOT(onClearSelection()) );
+  TQObject::disconnect( cb, TQ_SIGNAL(selectionChanged()),
+                     this, TQ_SLOT(onClearSelection()) );
 
   cb->setSelectionMode( true );
   cb->setText(t);
   cb->setSelectionMode( false );
 
-  TQObject::connect( cb, TQT_SIGNAL(selectionChanged()),
-                     this, TQT_SLOT(onClearSelection()) );
+  TQObject::connect( cb, TQ_SIGNAL(selectionChanged()),
+                     this, TQ_SLOT(onClearSelection()) );
 }
 
 void TEWidget::copyClipboard()
@@ -1972,13 +1972,13 @@ bool TEWidget::eventFilter( TQObject *obj, TQEvent *e )
   }
   if ( e->type() == TQEvent::Enter )
   {
-    TQObject::disconnect( (TQObject*)cb, TQT_SIGNAL(dataChanged()),
-      this, TQT_SLOT(onClearSelection()) );
+    TQObject::disconnect( (TQObject*)cb, TQ_SIGNAL(dataChanged()),
+      this, TQ_SLOT(onClearSelection()) );
   }
   if ( e->type() == TQEvent::Leave )
   {
-    TQObject::connect( (TQObject*)cb, TQT_SIGNAL(dataChanged()),
-      this, TQT_SLOT(onClearSelection()) );
+    TQObject::connect( (TQObject*)cb, TQ_SIGNAL(dataChanged()),
+      this, TQ_SLOT(onClearSelection()) );
   }
   return TQFrame::eventFilter( obj, e );
 }
@@ -2124,7 +2124,7 @@ void TEWidget::Bell(bool visibleSession, TQString message)
     bellTimer.start(BELLVISUAL_DELAY,true);
     
     swapColorTable();
-    TQTimer::singleShot(200,this,TQT_SLOT(swapColorTable()));
+    TQTimer::singleShot(200,this,TQ_SLOT(swapColorTable()));
   }
 }
 
@@ -2270,7 +2270,7 @@ void TEWidget::dropEvent(TQDropEvent* event)
       m_drop->insertItem( "cp", cp );
       m_drop->insertItem( "ln", ln );
       m_drop->insertItem( "mv", mv );
-      connect(m_drop, TQT_SIGNAL(activated(int)), TQT_SLOT(drop_menu_activated(int)));
+      connect(m_drop, TQ_SIGNAL(activated(int)), TQ_SLOT(drop_menu_activated(int)));
    };
     // The current behaviour when url(s) are dropped is
     // * if there is only ONE url and if it's a LOCAL one, ask for paste or cd/cp/ln/mv

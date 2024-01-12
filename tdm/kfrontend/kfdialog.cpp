@@ -178,7 +178,7 @@ KFMsgBox::KFMsgBox( TQWidget *parent, TQMessageBox::Icon type, const TQString &t
 	KPushButton *button = new KPushButton( KStdGuiItem::ok(), this );
 	button->setDefault( true );
 	button->setSizePolicy( TQSizePolicy( TQSizePolicy::Preferred, TQSizePolicy::Preferred ) );
-	connect( button, TQT_SIGNAL(clicked()), TQT_SLOT(accept()) );
+	connect( button, TQ_SIGNAL(clicked()), TQ_SLOT(accept()) );
 
 	TQGridLayout *grid = new TQGridLayout( this, 2, 2, 10 );
 	grid->addWidget( label1, 0, 0, TQt::AlignCenter );

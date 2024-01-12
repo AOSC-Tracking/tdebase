@@ -62,10 +62,10 @@ SidebarExtension::SidebarExtension( const TQString& configFile,
 
     KParts::BrowserExtension *be=KParts::BrowserExtension::childObject(p);
     if (be) {
-	connect(be,TQT_SIGNAL(openURLRequest( const KURL &, const KParts::URLArgs &)),
-                        this,TQT_SLOT(openURLRequest( const KURL &, const KParts::URLArgs &)));
-	connect(be,TQT_SIGNAL(createNewWindow( const KURL &, const KParts::URLArgs &)),
-                        this,TQT_SLOT(openURLRequest( const KURL &, const KParts::URLArgs &)));
+	connect(be,TQ_SIGNAL(openURLRequest( const KURL &, const KParts::URLArgs &)),
+                        this,TQ_SLOT(openURLRequest( const KURL &, const KParts::URLArgs &)));
+	connect(be,TQ_SIGNAL(createNewWindow( const KURL &, const KParts::URLArgs &)),
+                        this,TQ_SLOT(openURLRequest( const KURL &, const KParts::URLArgs &)));
 
     }
 
@@ -74,7 +74,7 @@ SidebarExtension::SidebarExtension( const TQString& configFile,
     m_resizeHandle->setFrameShadow(TQFrame::Raised);
     m_resizeHandle->setFixedWidth(6);
     m_resizeHandle->setCursor(TQCursor(TQt::SizeHorCursor));
-    connect(p->widget(),TQT_SIGNAL(panelHasBeenExpanded(bool)),this,TQT_SLOT(needLayoutUpdate(bool)));
+    connect(p->widget(),TQ_SIGNAL(panelHasBeenExpanded(bool)),this,TQ_SLOT(needLayoutUpdate(bool)));
     needLayoutUpdate(false);
     m_resizeHandle->installEventFilter(this);
     m_resizeHandle->setMouseTracking(true);

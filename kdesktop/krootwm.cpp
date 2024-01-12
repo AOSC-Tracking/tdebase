@@ -89,10 +89,10 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
   if (m_bDesktopEnabled && kapp->authorize("editable_desktop_icons"))
   {
      menuNew = new KNewMenu( m_actionCollection, "new_menu" );
-     connect(menuNew->popupMenu(), TQT_SIGNAL( aboutToShow() ),
-             this, TQT_SLOT( slotFileNewAboutToShow() ) );
-     connect( menuNew, TQT_SIGNAL( activated() ),
-              m_pDesktop->iconView(), TQT_SLOT( slotNewMenuActivated() ) );
+     connect(menuNew->popupMenu(), TQ_SIGNAL( aboutToShow() ),
+             this, TQ_SLOT( slotFileNewAboutToShow() ) );
+     connect( menuNew, TQ_SIGNAL( activated() ),
+              m_pDesktop->iconView(), TQ_SLOT( slotNewMenuActivated() ) );
   }
 
   if (kapp->authorizeTDEAction("bookmarks"))
@@ -114,8 +114,8 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
   // so we create them here
   desktopMenu = new TQPopupMenu;
   windowListMenu = new KWindowListMenu;
-  connect( windowListMenu, TQT_SIGNAL( aboutToShow() ),
-           this, TQT_SLOT( slotWindowListAboutToShow() ) );
+  connect( windowListMenu, TQ_SIGNAL( aboutToShow() ),
+           this, TQ_SLOT( slotWindowListAboutToShow() ) );
 
   // Create the actions
 #if 0
@@ -134,80 +134,80 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
 
   if (kapp->authorize("run_command"))
   {
-     new TDEAction(i18n("Run Command..."), "system-run", 0, m_pDesktop, TQT_SLOT( slotExecuteCommand() ), m_actionCollection, "exec" );
-     new TDEAction(i18n("Open Terminal Here..." ), "terminal", CTRL+Key_T, this, TQT_SLOT( slotOpenTerminal() ),
+     new TDEAction(i18n("Run Command..."), "system-run", 0, m_pDesktop, TQ_SLOT( slotExecuteCommand() ), m_actionCollection, "exec" );
+     new TDEAction(i18n("Open Terminal Here..." ), "terminal", CTRL+Key_T, this, TQ_SLOT( slotOpenTerminal() ),
 	m_actionCollection, "open_terminal" );
   }
 
   if (!TDEGlobal::config()->isImmutable())
   {
-     new TDEAction(i18n("Configure Desktop..."), "configure", 0, this, TQT_SLOT( slotConfigureDesktop() ),
+     new TDEAction(i18n("Configure Desktop..."), "configure", 0, this, TQ_SLOT( slotConfigureDesktop() ),
                  m_actionCollection, "configdesktop" );
-     new TDEAction(i18n("Disable Desktop Menu"), 0, this, TQT_SLOT( slotToggleDesktopMenu() ),
+     new TDEAction(i18n("Disable Desktop Menu"), 0, this, TQ_SLOT( slotToggleDesktopMenu() ),
                  m_actionCollection, "togglemenubar" );
   }
 
-  new TDEAction(i18n("Unclutter Windows"), 0, this, TQT_SLOT( slotUnclutterWindows() ),
+  new TDEAction(i18n("Unclutter Windows"), 0, this, TQ_SLOT( slotUnclutterWindows() ),
               m_actionCollection, "unclutter" );
-  new TDEAction(i18n("Cascade Windows"), 0, this, TQT_SLOT( slotCascadeWindows() ),
+  new TDEAction(i18n("Cascade Windows"), 0, this, TQ_SLOT( slotCascadeWindows() ),
               m_actionCollection, "cascade" );
 
   // arrange menu actions
   if (m_bDesktopEnabled && kapp->authorize("editable_desktop_icons"))
   {
-     new TDEAction(i18n("By Name (Case Sensitive)"), 0, this, TQT_SLOT( slotArrangeByNameCS() ),
+     new TDEAction(i18n("By Name (Case Sensitive)"), 0, this, TQ_SLOT( slotArrangeByNameCS() ),
                  m_actionCollection, "sort_ncs");
-     new TDEAction(i18n("By Name (Case Insensitive)"), 0, this, TQT_SLOT( slotArrangeByNameCI() ),
+     new TDEAction(i18n("By Name (Case Insensitive)"), 0, this, TQ_SLOT( slotArrangeByNameCI() ),
                  m_actionCollection, "sort_nci");
-     new TDEAction(i18n("By Size"), 0, this, TQT_SLOT( slotArrangeBySize() ),
+     new TDEAction(i18n("By Size"), 0, this, TQ_SLOT( slotArrangeBySize() ),
                  m_actionCollection, "sort_size");
-     new TDEAction(i18n("By Type"), 0, this, TQT_SLOT( slotArrangeByType() ),
+     new TDEAction(i18n("By Type"), 0, this, TQ_SLOT( slotArrangeByType() ),
                  m_actionCollection, "sort_type");
-     new TDEAction(i18n("By Date"), 0, this, TQT_SLOT( slotArrangeByDate() ),
+     new TDEAction(i18n("By Date"), 0, this, TQ_SLOT( slotArrangeByDate() ),
                  m_actionCollection, "sort_date");
 
      TDEToggleAction *aSortDirsFirst = new TDEToggleAction( i18n("Directories First"), 0, m_actionCollection, "sort_directoriesfirst" );
-     connect( aSortDirsFirst, TQT_SIGNAL( toggled( bool ) ),
-              this, TQT_SLOT( slotToggleDirFirst( bool ) ) );
+     connect( aSortDirsFirst, TQ_SIGNAL( toggled( bool ) ),
+              this, TQ_SLOT( slotToggleDirFirst( bool ) ) );
      new TDEAction(i18n("Line Up Horizontally"), 0,
-                 this, TQT_SLOT( slotLineupIconsHoriz() ),
+                 this, TQ_SLOT( slotLineupIconsHoriz() ),
                  m_actionCollection, "lineupHoriz" );
      new TDEAction(i18n("Line Up Vertically"), 0,
-                 this, TQT_SLOT( slotLineupIconsVert() ),
+                 this, TQ_SLOT( slotLineupIconsVert() ),
                  m_actionCollection, "lineupVert" );
      TDEToggleAction *aAutoAlign = new TDEToggleAction(i18n("Align to Grid"), 0,
                  m_actionCollection, "realign" );
-     connect( aAutoAlign, TQT_SIGNAL( toggled( bool ) ),
-              this, TQT_SLOT( slotToggleAutoAlign( bool ) ) );
+     connect( aAutoAlign, TQ_SIGNAL( toggled( bool ) ),
+              this, TQ_SLOT( slotToggleAutoAlign( bool ) ) );
      TDEToggleAction *aLockIcons = new TDEToggleAction(i18n("Lock in Place"), 0, m_actionCollection, "lock_icons");
-     connect( aLockIcons, TQT_SIGNAL( toggled( bool ) ),
-              this, TQT_SLOT( slotToggleLockIcons( bool ) ) );
+     connect( aLockIcons, TQ_SIGNAL( toggled( bool ) ),
+              this, TQ_SLOT( slotToggleLockIcons( bool ) ) );
   }
   if (m_bDesktopEnabled)
   {
-     new TDEAction(i18n("Refresh Desktop"), "desktop", 0, this, TQT_SLOT( slotRefreshDesktop() ),
+     new TDEAction(i18n("Refresh Desktop"), "desktop", 0, this, TQ_SLOT( slotRefreshDesktop() ),
                  m_actionCollection, "refresh" );
   }
   // Icons in sync with kicker
   if (kapp->authorize("lock_screen"))
   {
-      new TDEAction(i18n("Lock Session"), "system-lock-screen", 0, this, TQT_SLOT( slotLock() ),
+      new TDEAction(i18n("Lock Session"), "system-lock-screen", 0, this, TQ_SLOT( slotLock() ),
                   m_actionCollection, "lock" );
   }
   if (kapp->authorize("logout"))
   {
       new TDEAction(i18n("Log Out \"%1\"...").arg(KUser().loginName()), "system-log-out", 0,
-                  this, TQT_SLOT( slotLogout() ), m_actionCollection, "logout" );
+                  this, TQ_SLOT( slotLogout() ), m_actionCollection, "logout" );
   }
 
   if (kapp->authorize("start_new_session") && DM().isSwitchable())
   {
       new TDEAction(i18n("Start New Session"), "fork", 0, this,
-                  TQT_SLOT( slotNewSession() ), m_actionCollection, "newsession" );
+                  TQ_SLOT( slotNewSession() ), m_actionCollection, "newsession" );
       if (kapp->authorize("lock_screen"))
       {
           new TDEAction(i18n("Lock Current && Start New Session"), "system-lock-screen", 0, this,
-                      TQT_SLOT( slotLockNNewSession() ), m_actionCollection, "lockNnewsession" );
+                      TQ_SLOT( slotLockNNewSession() ), m_actionCollection, "lockNnewsession" );
       }
   }
 
@@ -314,8 +314,8 @@ void KRootWm::buildMenus()
     if (m_actionCollection->action("newsession"))
     {
         sessionsMenu = new TQPopupMenu;
-        connect( sessionsMenu, TQT_SIGNAL(aboutToShow()), TQT_SLOT(slotPopulateSessions()) );
-        connect( sessionsMenu, TQT_SIGNAL(activated(int)), TQT_SLOT(slotSessionActivated(int)) );
+        connect( sessionsMenu, TQ_SIGNAL(aboutToShow()), TQ_SLOT(slotPopulateSessions()) );
+        connect( sessionsMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(slotSessionActivated(int)) );
     }
 
     if (menuBar) {
@@ -489,7 +489,7 @@ void KRootWm::buildMenus()
         desktopMenu->removeItem(lastSep);
     }
 
-    connect( desktopMenu, TQT_SIGNAL( aboutToShow() ), this, TQT_SLOT( slotFileNewAboutToShow() ) );
+    connect( desktopMenu, TQ_SIGNAL( aboutToShow() ), this, TQ_SLOT( slotFileNewAboutToShow() ) );
 
     if (menuBar) {
         menuBar->insertItem(i18n("File"), file);
@@ -637,13 +637,13 @@ void KRootWm::slotWindowList() {
   else
       r = desktop->screenGeometry( desktop->screenNumber(TQCursor::pos()));
   windowListMenu->init();
-  disconnect( windowListMenu, TQT_SIGNAL( aboutToShow() ),
-           this, TQT_SLOT( slotWindowListAboutToShow() ) ); // avoid calling init() twice
+  disconnect( windowListMenu, TQ_SIGNAL( aboutToShow() ),
+           this, TQ_SLOT( slotWindowListAboutToShow() ) ); // avoid calling init() twice
   // windowListMenu->rect() is not valid before showing, use sizeHint()
   windowListMenu->popup(r.center() - TQRect( TQPoint( 0, 0 ), windowListMenu->sizeHint()).center());
   windowListMenu->selectActiveWindow(); // make the popup more useful
-  connect( windowListMenu, TQT_SIGNAL( aboutToShow() ),
-           this, TQT_SLOT( slotWindowListAboutToShow() ) );
+  connect( windowListMenu, TQ_SIGNAL( aboutToShow() ),
+           this, TQ_SLOT( slotWindowListAboutToShow() ) );
 }
 
 void KRootWm::slotSwitchUser() {
@@ -657,11 +657,11 @@ void KRootWm::slotSwitchUser() {
   else
       r = desktop->screenGeometry( desktop->screenNumber(TQCursor::pos()));
   slotPopulateSessions();
-  disconnect( sessionsMenu, TQT_SIGNAL( aboutToShow() ),
-           this, TQT_SLOT( slotPopulateSessions() ) ); // avoid calling init() twice
+  disconnect( sessionsMenu, TQ_SIGNAL( aboutToShow() ),
+           this, TQ_SLOT( slotPopulateSessions() ) ); // avoid calling init() twice
   sessionsMenu->popup(r.center() - TQRect( TQPoint( 0, 0 ), sessionsMenu->sizeHint()).center());
-  connect( sessionsMenu, TQT_SIGNAL( aboutToShow() ),
-           TQT_SLOT( slotPopulateSessions() ) );
+  connect( sessionsMenu, TQ_SIGNAL( aboutToShow() ),
+           TQ_SLOT( slotPopulateSessions() ) );
 }
 
 void KRootWm::slotArrangeByNameCS()
@@ -786,7 +786,7 @@ void KRootWm::slotConfigureDesktop() {
   if (!m_configDialog)
   {
     m_configDialog = new KCMultiDialog( (TQWidget*)0, "configureDialog" );
-    connect(m_configDialog, TQT_SIGNAL(finished()), this, TQT_SLOT(slotConfigClosed()));
+    connect(m_configDialog, TQ_SIGNAL(finished()), this, TQ_SLOT(slotConfigClosed()));
 
     TQStringList modules = configModules();
     for (TQStringList::const_iterator it = modules.constBegin(); it != modules.constEnd(); ++it)

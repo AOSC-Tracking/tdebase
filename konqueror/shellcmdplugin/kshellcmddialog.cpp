@@ -54,9 +54,9 @@ KShellCommandDialog::KShellCommandDialog(const TQString& title, const TQString& 
 
    m_shell->setFocus();
 
-   connect(cancelButton, TQT_SIGNAL(clicked()), m_shell, TQT_SLOT(slotFinished()));
-   connect(m_shell, TQT_SIGNAL(finished()), this, TQT_SLOT(disableStopButton()));
-   connect(closeButton,TQT_SIGNAL(clicked()), this, TQT_SLOT(slotClose()));
+   connect(cancelButton, TQ_SIGNAL(clicked()), m_shell, TQ_SLOT(slotFinished()));
+   connect(m_shell, TQ_SIGNAL(finished()), this, TQ_SLOT(disableStopButton()));
+   connect(closeButton,TQ_SIGNAL(clicked()), this, TQ_SLOT(slotClose()));
 }
 
 KShellCommandDialog::~KShellCommandDialog()

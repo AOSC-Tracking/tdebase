@@ -42,16 +42,16 @@ AppletTab::AppletTab( TQWidget *parent, const char* name )
   : AppletTabBase (parent, name)
 {
 
-  connect(level_group, TQT_SIGNAL(clicked(int)), TQT_SLOT(level_changed(int)));
+  connect(level_group, TQ_SIGNAL(clicked(int)), TQ_SLOT(level_changed(int)));
 
-  connect(lb_trusted, TQT_SIGNAL(selectionChanged(TQListViewItem*)),
-          TQT_SLOT(trusted_selection_changed(TQListViewItem*)));
+  connect(lb_trusted, TQ_SIGNAL(selectionChanged(TQListViewItem*)),
+          TQ_SLOT(trusted_selection_changed(TQListViewItem*)));
 
-  connect(pb_add, TQT_SIGNAL(clicked()), TQT_SLOT(add_clicked()));
-  connect(pb_remove, TQT_SIGNAL(clicked()), TQT_SLOT(remove_clicked()));
+  connect(pb_add, TQ_SIGNAL(clicked()), TQ_SLOT(add_clicked()));
+  connect(pb_remove, TQ_SIGNAL(clicked()), TQ_SLOT(remove_clicked()));
 
-  connect(lb_available, TQT_SIGNAL(selectionChanged(TQListViewItem*)),
-          TQT_SLOT(available_selection_changed(TQListViewItem*)));
+  connect(lb_available, TQ_SIGNAL(selectionChanged(TQListViewItem*)),
+          TQ_SLOT(available_selection_changed(TQListViewItem*)));
 
   pb_add->setEnabled(false);
   pb_remove->setEnabled(false);

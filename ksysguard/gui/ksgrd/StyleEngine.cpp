@@ -143,8 +143,8 @@ void StyleEngine::configure()
   mSettingsDialog->setFontSize( mFontSize );
   mSettingsDialog->setSensorColors( mSensorColors );
 
-  connect( mSettingsDialog, TQT_SIGNAL( applyClicked() ),
-           this, TQT_SLOT( applyToWorksheet() ) );
+  connect( mSettingsDialog, TQ_SIGNAL( applyClicked() ),
+           this, TQ_SLOT( applyToWorksheet() ) );
 
   if ( mSettingsDialog->exec() )
     apply();

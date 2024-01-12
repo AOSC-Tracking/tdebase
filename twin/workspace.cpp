@@ -195,9 +195,9 @@ Workspace::Workspace( bool restore )
         active_windows[i] = None;
     }
 
-    connect( &temporaryRulesMessages, TQT_SIGNAL( gotMessage( const TQString& )),
-        this, TQT_SLOT( gotTemporaryRulesMessage( const TQString& )));
-    connect( &rulesUpdatedTimer, TQT_SIGNAL( timeout()), this, TQT_SLOT( writeWindowRules()));
+    connect( &temporaryRulesMessages, TQ_SIGNAL( gotMessage( const TQString& )),
+        this, TQ_SLOT( gotTemporaryRulesMessage( const TQString& )));
+    connect( &rulesUpdatedTimer, TQ_SIGNAL( timeout()), this, TQ_SLOT( writeWindowRules()));
 
     updateXTime(); // needed for proper initialization of user_time in Client ctor
 
@@ -259,7 +259,7 @@ Workspace::Workspace( bool restore )
     init();
 
 #if (TQT_VERSION-0 >= 0x030200) // XRANDR support
-    connect( kapp->desktop(), TQT_SIGNAL( resized( int )), TQT_SLOT( desktopResized()));
+    connect( kapp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized()));
 #endif
 
     if (!supportsCompMgr()) {
@@ -274,7 +274,7 @@ Workspace::Workspace( bool restore )
     if (options->useTranslucency)
         {
         kompmgr = new TDEProcess;
-        connect(kompmgr, TQT_SIGNAL(receivedStderr(TDEProcess*, char*, int)), TQT_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
+        connect(kompmgr, TQ_SIGNAL(receivedStderr(TDEProcess*, char*, int)), TQ_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
         *kompmgr << TDE_COMPOSITOR_BINARY;
         if (kompmgrpid)
             {
@@ -427,15 +427,15 @@ void Workspace::init()
     // now we know how many desktops we'll, thus, we initialise the positioning object
     initPositioning = new Placement(this);
 
-    connect(&reconfigureTimer, TQT_SIGNAL(timeout()), this,
-            TQT_SLOT(slotReconfigure()));
-    connect( &updateToolWindowsTimer, TQT_SIGNAL( timeout()), this, TQT_SLOT( slotUpdateToolWindows()));
+    connect(&reconfigureTimer, TQ_SIGNAL(timeout()), this,
+            TQ_SLOT(slotReconfigure()));
+    connect( &updateToolWindowsTimer, TQ_SIGNAL( timeout()), this, TQ_SLOT( slotUpdateToolWindows()));
 
-    connect(kapp, TQT_SIGNAL(appearanceChanged()), this,
-            TQT_SLOT(slotReconfigure()));
-    connect(kapp, TQT_SIGNAL(settingsChanged(int)), this,
-            TQT_SLOT(slotSettingsChanged(int)));
-    connect(kapp, TQT_SIGNAL( kipcMessage( int, int )), this, TQT_SLOT( kipcMessage( int, int )));
+    connect(kapp, TQ_SIGNAL(appearanceChanged()), this,
+            TQ_SLOT(slotReconfigure()));
+    connect(kapp, TQ_SIGNAL(settingsChanged(int)), this,
+            TQ_SLOT(slotSettingsChanged(int)));
+    connect(kapp, TQ_SIGNAL( kipcMessage( int, int )), this, TQ_SLOT( kipcMessage( int, int )));
 
     active_client = NULL;
     rootInfo->setActiveWindow( None );
@@ -1188,10 +1188,10 @@ void Workspace::slotReconfigure()
                 if (!kompmgr)
                     {
                     kompmgr = new TDEProcess;
-                    connect(kompmgr, TQT_SIGNAL(receivedStderr(TDEProcess*, char*, int)), TQT_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
+                    connect(kompmgr, TQ_SIGNAL(receivedStderr(TDEProcess*, char*, int)), TQ_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
                     *kompmgr << TDE_COMPOSITOR_BINARY;
                     }
-                TQTimer::singleShot( 200, this, TQT_SLOT(startKompmgr()) ); // wait some time to ensure system's ready for restart
+                TQTimer::singleShot( 200, this, TQ_SLOT(startKompmgr()) ); // wait some time to ensure system's ready for restart
                 }
             }
         else
@@ -2396,7 +2396,7 @@ void Workspace::requestDelayFocus( Client* c )
     delayfocus_client = c;
     delete delayFocusTimer;
     delayFocusTimer = new TQTimer( this );
-    connect( delayFocusTimer, TQT_SIGNAL( timeout() ), this, TQT_SLOT( delayFocus() ) );
+    connect( delayFocusTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( delayFocus() ) );
     delayFocusTimer->start( options->delayFocusInterval, TRUE  );
     }
 
@@ -2506,7 +2506,7 @@ void Workspace::reserveActiveBorder( ActiveBorder border )
         return;
 
     if (active_reserved[border]++ == 0)
-        TQTimer::singleShot(0, this, TQT_SLOT(updateActiveBorders()));
+        TQTimer::singleShot(0, this, TQ_SLOT(updateActiveBorders()));
 }
 
 void Workspace::unreserveActiveBorder( ActiveBorder border )
@@ -2516,7 +2516,7 @@ void Workspace::unreserveActiveBorder( ActiveBorder border )
 
     assert(active_reserved[ border ] > 0);
     if (--active_reserved[ border ] == 0)
-        TQTimer::singleShot(0, this, TQT_SLOT(updateActiveBorders()));
+        TQTimer::singleShot(0, this, TQ_SLOT(updateActiveBorders()));
 }
 
 void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
@@ -2788,12 +2788,12 @@ void Workspace::lostTopMenuSelection()
     {
 //    kdDebug() << "lost TopMenu selection" << endl;
     // make sure this signal is always set when not owning the selection
-    disconnect( topmenu_watcher, TQT_SIGNAL( lostOwner()), this, TQT_SLOT( lostTopMenuOwner()));
-    connect( topmenu_watcher, TQT_SIGNAL( lostOwner()), this, TQT_SLOT( lostTopMenuOwner()));
+    disconnect( topmenu_watcher, TQ_SIGNAL( lostOwner()), this, TQ_SLOT( lostTopMenuOwner()));
+    connect( topmenu_watcher, TQ_SIGNAL( lostOwner()), this, TQ_SLOT( lostTopMenuOwner()));
     if( !managing_topmenus )
         return;
-    connect( topmenu_watcher, TQT_SIGNAL( lostOwner()), this, TQT_SLOT( lostTopMenuOwner()));
-    disconnect( topmenu_selection, TQT_SIGNAL( lostOwnership()), this, TQT_SLOT( lostTopMenuSelection()));
+    connect( topmenu_watcher, TQ_SIGNAL( lostOwner()), this, TQ_SLOT( lostTopMenuOwner()));
+    disconnect( topmenu_selection, TQ_SIGNAL( lostOwnership()), this, TQ_SLOT( lostTopMenuSelection()));
     managing_topmenus = false;
     delete topmenu_space;
     topmenu_space = NULL;
@@ -2822,8 +2822,8 @@ void Workspace::setupTopMenuHandling()
     {
     if( managing_topmenus )
         return;
-    connect( topmenu_selection, TQT_SIGNAL( lostOwnership()), this, TQT_SLOT( lostTopMenuSelection()));
-    disconnect( topmenu_watcher, TQT_SIGNAL( lostOwner()), this, TQT_SLOT( lostTopMenuOwner()));
+    connect( topmenu_selection, TQ_SIGNAL( lostOwnership()), this, TQ_SLOT( lostTopMenuSelection()));
+    disconnect( topmenu_watcher, TQ_SIGNAL( lostOwner()), this, TQ_SLOT( lostTopMenuOwner()));
     managing_topmenus = true;
     topmenu_space = new TQWidget;
     Window stack[ 2 ];
@@ -2934,7 +2934,7 @@ void Workspace::startKompmgr()
     }
     else {
         // Try again a bit later!
-        TQTimer::singleShot( 200, this, TQT_SLOT(startKompmgr()) );
+        TQTimer::singleShot( 200, this, TQ_SLOT(startKompmgr()) );
         return;
     }
     pid_t kompmgrpid = getCompositorPID();
@@ -2962,12 +2962,12 @@ void Workspace::startKompmgr()
         char selection_name[ 100 ];
         sprintf( selection_name, "_NET_WM_CM_S%d", DefaultScreen( tqt_xdisplay()));
         kompmgr_selection = new TDESelectionOwner( selection_name );
-        connect( kompmgr_selection, TQT_SIGNAL( lostOwnership()), TQT_SLOT( stopKompmgr()));
+        connect( kompmgr_selection, TQ_SIGNAL( lostOwnership()), TQ_SLOT( stopKompmgr()));
         kompmgr_selection->claim( true );
-        connect(kompmgr, TQT_SIGNAL(processExited(TDEProcess*)), TQT_SLOT(restartKompmgr(TDEProcess*)));
+        connect(kompmgr, TQ_SIGNAL(processExited(TDEProcess*)), TQ_SLOT(restartKompmgr(TDEProcess*)));
         options->useTranslucency = TRUE;
         //allowKompmgrRestart = FALSE;
-        //TQTimer::singleShot( 60000, this, TQT_SLOT(unblockKompmgrRestart()) );
+        //TQTimer::singleShot( 60000, this, TQ_SLOT(unblockKompmgrRestart()) );
         TQByteArray ba;
         TQDataStream arg(ba, IO_WriteOnly);
         arg << "";
@@ -2983,7 +2983,7 @@ void Workspace::stopKompmgr()
     }
     delete kompmgr_selection;
     kompmgr_selection = NULL;
-    kompmgr->disconnect(this, TQT_SLOT(restartKompmgr(TDEProcess*)));
+    kompmgr->disconnect(this, TQ_SLOT(restartKompmgr(TDEProcess*)));
     options->useTranslucency = FALSE;
     if (popup){ delete popup; popup = 0L; } // to add/remove opacity slider
     kompmgr->kill(SIGKILL);
@@ -3012,7 +3012,7 @@ void Workspace::unblockKompmgrRestart()
 }
 
 void Workspace::restartKompmgr( TDEProcess *proc )
-// this is for inernal purpose (crashhandling) only, usually you want to use workspace->stopKompmgr(); TQTimer::singleShot(200, workspace, TQT_SLOT(startKompmgr()));
+// this is for inernal purpose (crashhandling) only, usually you want to use workspace->stopKompmgr(); TQTimer::singleShot(200, workspace, TQ_SLOT(startKompmgr()));
 {
     bool crashed;
     if (proc->signalled()) {	// looks like kompmgr may have crashed
@@ -3061,7 +3061,7 @@ void Workspace::restartKompmgr( TDEProcess *proc )
         else
         {
             allowKompmgrRestart = FALSE;
-            TQTimer::singleShot( 60000, this, TQT_SLOT(unblockKompmgrRestart()) );
+            TQTimer::singleShot( 60000, this, TQ_SLOT(unblockKompmgrRestart()) );
         }
     }
 }
@@ -3088,7 +3088,7 @@ void Workspace::handleKompmgrOutput( TDEProcess* , char *buffer, int buflen)
     else return; //skip others
     // kompmgr startup failed or succeeded, release connection
     kompmgr->closeStderr();
-    disconnect(kompmgr, TQT_SIGNAL(receivedStderr(TDEProcess*, char*, int)), this, TQT_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
+    disconnect(kompmgr, TQ_SIGNAL(receivedStderr(TDEProcess*, char*, int)), this, TQ_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
     if( !message.isEmpty())
         {
         TDEProcess proc;

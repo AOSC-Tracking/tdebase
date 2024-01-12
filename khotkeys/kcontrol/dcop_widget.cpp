@@ -36,14 +36,14 @@ Dcop_widget::Dcop_widget( TQWidget* parent_P, const char* name_P )
     clear_data();
     try_button->setText( i18n( "to try", "&Try" )); // Qt designer can't do this
     // KHotKeys::Module::changed()
-    connect( remote_app_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
-    connect( remote_object_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
-    connect( called_function_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
-    connect( arguments_lineedit, TQT_SIGNAL( textChanged( const TQString& )),
-        module, TQT_SLOT( changed()));
+    connect( remote_app_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
+    connect( remote_object_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
+    connect( called_function_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
+    connect( arguments_lineedit, TQ_SIGNAL( textChanged( const TQString& )),
+        module, TQ_SLOT( changed()));
     }
     
 void Dcop_widget::clear_data()

@@ -37,7 +37,7 @@ KdmClock::KdmClock( TQWidget *parent, const char *name )
 {
 	// start timer
 	TQTimer *timer = new TQTimer( this );
-	connect( timer, TQT_SIGNAL(timeout()), TQT_SLOT(timeout()) );
+	connect( timer, TQ_SIGNAL(timeout()), TQ_SLOT(timeout()) );
 	timer->start( 1000 );
 
 	// reading rc file

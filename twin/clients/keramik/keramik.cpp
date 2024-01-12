@@ -907,8 +907,8 @@ KeramikClient::KeramikClient( KDecorationBridge* bridge, KDecorationFactory* fac
 
 void KeramikClient::init()
 {
-	connect( this, TQT_SIGNAL( keepAboveChanged( bool )), TQT_SLOT( keepAboveChange( bool )));
-	connect( this, TQT_SIGNAL( keepBelowChanged( bool )), TQT_SLOT( keepBelowChange( bool )));
+	connect( this, TQ_SIGNAL( keepAboveChanged( bool )), TQ_SLOT( keepAboveChange( bool )));
+	connect( this, TQ_SIGNAL( keepBelowChanged( bool )), TQ_SLOT( keepBelowChange( bool )));
 
         createMainWidget( (WFlags)(WStaticContents | WResizeNoErase | WRepaintNoErase) );
 	widget()->installEventFilter( this );
@@ -1051,7 +1051,7 @@ void KeramikClient::addButtons( TQBoxLayout *layout, const TQString &s )
 				if (!isModalSystemNotification()) {
 					if ( !button[MenuButton] ) {
 						button[MenuButton] = new KeramikButton( this, "menu", MenuButton, i18n("Menu"), TQt::LeftButton|TQt::RightButton );
-						connect( button[MenuButton], TQT_SIGNAL( pressed() ), TQT_SLOT( menuButtonPressed() ) );
+						connect( button[MenuButton], TQ_SIGNAL( pressed() ), TQ_SLOT( menuButtonPressed() ) );
 						layout->addWidget( button[MenuButton] );
 					}
 				}
@@ -1065,7 +1065,7 @@ void KeramikClient::addButtons( TQBoxLayout *layout, const TQString &s )
 								OnAllDesktopsButton, isOnAllDesktops()?i18n("Not on all desktops"):i18n("On all desktops") );
 						if(isOnAllDesktops())
 							button[OnAllDesktopsButton]->toggle();
-						connect( button[OnAllDesktopsButton], TQT_SIGNAL( clicked() ), TQT_SLOT( toggleOnAllDesktops() ) );
+						connect( button[OnAllDesktopsButton], TQ_SIGNAL( clicked() ), TQ_SLOT( toggleOnAllDesktops() ) );
 						layout->addWidget( button[OnAllDesktopsButton] );
 					}
 				}
@@ -1075,7 +1075,7 @@ void KeramikClient::addButtons( TQBoxLayout *layout, const TQString &s )
 			case 'H' :
 				if ( !button[HelpButton] && providesContextHelp() ) {
 					button[HelpButton] = new KeramikButton( this, "help", HelpButton, i18n("Help") );
-					connect( button[HelpButton], TQT_SIGNAL( clicked() ), TQT_SLOT( showContextHelp() ) );
+					connect( button[HelpButton], TQ_SIGNAL( clicked() ), TQ_SLOT( showContextHelp() ) );
 					layout->addWidget( button[HelpButton] );
 				}
 				break;
@@ -1084,7 +1084,7 @@ void KeramikClient::addButtons( TQBoxLayout *layout, const TQString &s )
 			case 'I' :
 				if ( !button[MinButton] && isMinimizable() ) {
 					button[MinButton] = new KeramikButton( this, "minimize", MinButton, i18n("Minimize") );
-					connect( button[MinButton], TQT_SIGNAL( clicked() ), TQT_SLOT( minimize() ) );
+					connect( button[MinButton], TQ_SIGNAL( clicked() ), TQ_SLOT( minimize() ) );
 					layout->addWidget( button[MinButton] );
 				}
 				break;
@@ -1093,7 +1093,7 @@ void KeramikClient::addButtons( TQBoxLayout *layout, const TQString &s )
 			case 'A' :
 				if ( !button[MaxButton] && isMaximizable() ) {
 					button[MaxButton] = new KeramikButton( this, "maximize", MaxButton, i18n("Maximize"), TQt::LeftButton|TQt::MidButton|TQt::RightButton );
-					connect( button[MaxButton], TQT_SIGNAL( clicked() ), TQT_SLOT( slotMaximize() ) );
+					connect( button[MaxButton], TQ_SIGNAL( clicked() ), TQ_SLOT( slotMaximize() ) );
 					layout->addWidget( button[MaxButton] );
 				}
 				break;
@@ -1102,7 +1102,7 @@ void KeramikClient::addButtons( TQBoxLayout *layout, const TQString &s )
 			case 'X' :
 				if ( !button[CloseButton] && isCloseable() ) {
 					button[CloseButton] = new KeramikButton( this, "close", CloseButton, i18n("Close") );
-					connect( button[CloseButton], TQT_SIGNAL( clicked() ), TQT_SLOT( closeWindow() ) );
+					connect( button[CloseButton], TQ_SIGNAL( clicked() ), TQ_SLOT( closeWindow() ) );
 					layout->addWidget( button[CloseButton] );
 				}
 				break;
@@ -1111,7 +1111,7 @@ void KeramikClient::addButtons( TQBoxLayout *layout, const TQString &s )
 			case 'F' :
 				if ( !button[AboveButton]) {
 					button[AboveButton] = new KeramikButton( this, "above", AboveButton, i18n("Keep Above Others") );
-					connect( button[AboveButton], TQT_SIGNAL( clicked() ), TQT_SLOT( slotAbove() ) );
+					connect( button[AboveButton], TQ_SIGNAL( clicked() ), TQ_SLOT( slotAbove() ) );
 					layout->addWidget( button[AboveButton] );
 				}
 				break;
@@ -1120,7 +1120,7 @@ void KeramikClient::addButtons( TQBoxLayout *layout, const TQString &s )
 			case 'B' :
 				if ( !button[BelowButton]) {
 					button[BelowButton] = new KeramikButton( this, "below", BelowButton, i18n("Keep Below Others") );
-					connect( button[BelowButton], TQT_SIGNAL( clicked() ), TQT_SLOT( slotBelow() ) );
+					connect( button[BelowButton], TQ_SIGNAL( clicked() ), TQ_SLOT( slotBelow() ) );
 					layout->addWidget( button[BelowButton] );
 				}
 				break;
@@ -1130,7 +1130,7 @@ void KeramikClient::addButtons( TQBoxLayout *layout, const TQString &s )
 				if ( !button[ShadeButton] && isShadeable() ) {
 					button[ShadeButton] = new KeramikButton( this, "shade", ShadeButton,
                                             isSetShade() ? i18n("Unshade") : i18n( "Shade" ));
-					connect( button[ShadeButton], TQT_SIGNAL( clicked() ), TQT_SLOT( slotShade() ) );
+					connect( button[ShadeButton], TQ_SIGNAL( clicked() ), TQ_SLOT( slotShade() ) );
 					layout->addWidget( button[ShadeButton] );
 				}
 				break;

@@ -640,11 +640,11 @@ ItemView::ItemView(TQWidget* parent, const char* name)
     m_lastOne = 0;
     m_old_contentY = -1;
 
-    connect(this, TQT_SIGNAL(mouseButtonClicked( int, TQListViewItem*, const TQPoint &, int )),
-                  TQT_SLOT(slotItemClicked(int, TQListViewItem*, const TQPoint &, int)));
+    connect(this, TQ_SIGNAL(mouseButtonClicked( int, TQListViewItem*, const TQPoint &, int )),
+                  TQ_SLOT(slotItemClicked(int, TQListViewItem*, const TQPoint &, int)));
 
-    connect(this, TQT_SIGNAL(returnPressed(TQListViewItem*)), TQT_SLOT(slotItemClicked(TQListViewItem*)));
-    connect(this, TQT_SIGNAL(spacePressed(TQListViewItem*)), TQT_SLOT(slotItemClicked(TQListViewItem*)));
+    connect(this, TQ_SIGNAL(returnPressed(TQListViewItem*)), TQ_SLOT(slotItemClicked(TQListViewItem*)));
+    connect(this, TQ_SIGNAL(spacePressed(TQListViewItem*)), TQ_SLOT(slotItemClicked(TQListViewItem*)));
 
     new ItemViewTip( viewport(), this );
 }

@@ -45,9 +45,9 @@ FaxAB::FaxAB(TQWidget *parent, const char *name)
 	m_ok = new KPushButton(KStdGuiItem::ok(), this);
 	TQPushButton	*m_cancel = new KPushButton(KStdGuiItem::cancel(), this);
 	TQPushButton	*m_ab = new KPushButton(KGuiItem(i18n("&Edit Addressbook"), "contents"), this);
-	connect(m_ok, TQT_SIGNAL(clicked()), TQT_SLOT(accept()));
-	connect(m_cancel, TQT_SIGNAL(clicked()), TQT_SLOT(reject()));
-	connect(m_ab, TQT_SIGNAL(clicked()), TQT_SLOT(slotEditAb()));
+	connect(m_ok, TQ_SIGNAL(clicked()), TQ_SLOT(accept()));
+	connect(m_cancel, TQ_SIGNAL(clicked()), TQ_SLOT(reject()));
+	connect(m_ab, TQ_SIGNAL(clicked()), TQ_SLOT(slotEditAb()));
 	m_ok->setDefault(true);
 
 	TQVBoxLayout	*l0 = new TQVBoxLayout(this, 10, 10);
@@ -66,7 +66,7 @@ FaxAB::FaxAB(TQWidget *parent, const char *name)
 	resize( conf->readSizeEntry( "ABSize", &defsize ) );
 
 	initialize();
-	connect(TDEABC::StdAddressBook::self(), TQT_SIGNAL(addressBookChanged(AddressBook*)), TQT_SLOT(slotAbChanged(AddressBook*)));
+	connect(TDEABC::StdAddressBook::self(), TQ_SIGNAL(addressBookChanged(AddressBook*)), TQ_SLOT(slotAbChanged(AddressBook*)));
 }
 
 FaxAB::~FaxAB()

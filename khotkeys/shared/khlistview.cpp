@@ -25,15 +25,15 @@ KHListView::KHListView( TQWidget* parent_P, const char* name_P )
     : TDEListView( parent_P, name_P ), saved_current_item( NULL ),
         in_clear( false ), ignore( false ), force_select( false )
     {
-    connect( this, TQT_SIGNAL( selectionChanged( TQListViewItem* )),
-        TQT_SLOT( slot_selection_changed( TQListViewItem* )));
-    connect( this, TQT_SIGNAL( currentChanged( TQListViewItem* )),
-        TQT_SLOT( slot_current_changed( TQListViewItem* )));
+    connect( this, TQ_SIGNAL( selectionChanged( TQListViewItem* )),
+        TQ_SLOT( slot_selection_changed( TQListViewItem* )));
+    connect( this, TQ_SIGNAL( currentChanged( TQListViewItem* )),
+        TQ_SLOT( slot_current_changed( TQListViewItem* )));
     // CHECKME grrr
-    connect( this, TQT_SIGNAL( selectionChanged()),
-        TQT_SLOT( slot_selection_changed()));
-    connect( &insert_select_timer, TQT_SIGNAL( timeout()),
-        TQT_SLOT( slot_insert_select()));
+    connect( this, TQ_SIGNAL( selectionChanged()),
+        TQ_SLOT( slot_selection_changed()));
+    connect( &insert_select_timer, TQ_SIGNAL( timeout()),
+        TQ_SLOT( slot_insert_select()));
     }
 
 void KHListView::slot_selection_changed()

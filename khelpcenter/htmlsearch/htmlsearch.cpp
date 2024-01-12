@@ -276,11 +276,11 @@ bool HTMLSearch::generateIndex(TQString _lang, TQWidget *parent)
 
         kdDebug() << "Running htdig" << endl;
 
-        connect(_proc, TQT_SIGNAL(receivedStdout(TDEProcess *,char*,int)),
-                this, TQT_SLOT(htdigStdout(TDEProcess *,char*,int)));
+        connect(_proc, TQ_SIGNAL(receivedStdout(TDEProcess *,char*,int)),
+                this, TQ_SLOT(htdigStdout(TDEProcess *,char*,int)));
 
-        connect(_proc, TQT_SIGNAL(processExited(TDEProcess *)),
-                this, TQT_SLOT(htdigExited(TDEProcess *)));
+        connect(_proc, TQ_SIGNAL(processExited(TDEProcess *)),
+                this, TQ_SLOT(htdigExited(TDEProcess *)));
 
         _htdigRunning = true;
 
@@ -340,8 +340,8 @@ bool HTMLSearch::generateIndex(TQString _lang, TQWidget *parent)
 
     kdDebug() << "Running htmerge" << endl;
 
-    connect(_proc, TQT_SIGNAL(processExited(TDEProcess *)),
-            this, TQT_SLOT(htmergeExited(TDEProcess *)));
+    connect(_proc, TQ_SIGNAL(processExited(TDEProcess *)),
+            this, TQ_SLOT(htmergeExited(TDEProcess *)));
 
     _htmergeRunning = true;
 
@@ -444,10 +444,10 @@ TQString HTMLSearch::search(TQString _lang, TQString words, TQString method, int
 
   kdDebug() << "Running htsearch" << endl;
 
-  connect(_proc, TQT_SIGNAL(receivedStdout(TDEProcess *,char*,int)),
-	  this, TQT_SLOT(htsearchStdout(TDEProcess *,char*,int)));
-  connect(_proc, TQT_SIGNAL(processExited(TDEProcess *)),
-	  this, TQT_SLOT(htsearchExited(TDEProcess *)));
+  connect(_proc, TQ_SIGNAL(receivedStdout(TDEProcess *,char*,int)),
+	  this, TQ_SLOT(htsearchStdout(TDEProcess *,char*,int)));
+  connect(_proc, TQ_SIGNAL(processExited(TDEProcess *)),
+	  this, TQ_SLOT(htsearchExited(TDEProcess *)));
 
   _htsearchRunning = true;
   _searchResult = "";

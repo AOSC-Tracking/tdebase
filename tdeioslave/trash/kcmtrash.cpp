@@ -51,7 +51,7 @@ TrashModule::TrashModule(TQWidget *parent, const char *name)
 
 	policyWidget = new KTrashPropsWidget(this);
   tab->addTab(policyWidget, i18n("&Trash Policy"));
-  connect(policyWidget, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
+  connect(policyWidget, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
 
   TQVBoxLayout *top = new TQVBoxLayout(this);
   top->addWidget(tab);

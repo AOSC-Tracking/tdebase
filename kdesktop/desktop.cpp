@@ -184,28 +184,28 @@ KDesktop::KDesktop( SaverEngine* saver, bool x_root_hack, bool wait_for_kded ) :
   setGeometry( TQApplication::desktop()->geometry() );
   lower();
 
-  connect( kapp, TQT_SIGNAL( shutDown() ),
-           this, TQT_SLOT( slotShutdown() ) );
+  connect( kapp, TQ_SIGNAL( shutDown() ),
+           this, TQ_SLOT( slotShutdown() ) );
 
-  connect(kapp, TQT_SIGNAL(settingsChanged(int)),
-          this, TQT_SLOT(slotSettingsChanged(int)));
+  connect(kapp, TQ_SIGNAL(settingsChanged(int)),
+          this, TQ_SLOT(slotSettingsChanged(int)));
   kapp->addKipcEventMask(KIPC::SettingsChanged);
 
   kapp->addKipcEventMask(KIPC::IconChanged);
-  connect(kapp, TQT_SIGNAL(iconChanged(int)), this, TQT_SLOT(slotIconChanged(int)));
+  connect(kapp, TQ_SIGNAL(iconChanged(int)), this, TQ_SLOT(slotIconChanged(int)));
 
-  connect(KSycoca::self(), TQT_SIGNAL(databaseChanged()),
-          this, TQT_SLOT(slotDatabaseChanged()));
+  connect(KSycoca::self(), TQ_SIGNAL(databaseChanged()),
+          this, TQ_SLOT(slotDatabaseChanged()));
 
   m_pIconView = 0;
   m_pRootWidget = 0;
   bgMgr = 0;
   initRoot();
 
-  TQTimer::singleShot(0, this, TQT_SLOT( slotStart() ));
+  TQTimer::singleShot(0, this, TQ_SLOT( slotStart() ));
 
 #if (TQT_VERSION-0 >= 0x030200) // XRANDR support
-  connect( kapp->desktop(), TQT_SIGNAL( resized( int )), TQT_SLOT( desktopResized()));
+  connect( kapp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized()));
 #endif
 }
 
@@ -238,21 +238,21 @@ KDesktop::initRoot()
      XSelectInput(dpy, root, attrs.your_event_mask | ButtonPressMask);
 
      m_pRootWidget = new KRootWidget;
-     connect(m_pRootWidget, TQT_SIGNAL(wheelRolled(int)), this, TQT_SLOT(slotSwitchDesktops(int)));
-     connect(m_pRootWidget, TQT_SIGNAL(colorDropEvent(TQDropEvent*)), this, TQT_SLOT(handleColorDropEvent(TQDropEvent*)) );
-     connect(m_pRootWidget, TQT_SIGNAL(imageDropEvent(TQDropEvent*)), this, TQT_SLOT(handleImageDropEvent(TQDropEvent*)) );
-     connect(m_pRootWidget, TQT_SIGNAL(newWallpaper(const KURL&)), this, TQT_SLOT(slotNewWallpaper(const KURL&)) );
+     connect(m_pRootWidget, TQ_SIGNAL(wheelRolled(int)), this, TQ_SLOT(slotSwitchDesktops(int)));
+     connect(m_pRootWidget, TQ_SIGNAL(colorDropEvent(TQDropEvent*)), this, TQ_SLOT(handleColorDropEvent(TQDropEvent*)) );
+     connect(m_pRootWidget, TQ_SIGNAL(imageDropEvent(TQDropEvent*)), this, TQ_SLOT(handleImageDropEvent(TQDropEvent*)) );
+     connect(m_pRootWidget, TQ_SIGNAL(newWallpaper(const KURL&)), this, TQ_SLOT(slotNewWallpaper(const KURL&)) );
 
      // Geert Jansen: backgroundmanager belongs here
      // TODO tell KBackgroundManager if we change widget()
      bgMgr = new KBackgroundManager( m_pIconView, m_pKwinmodule );
      bgMgr->setExport(1);
-     connect( bgMgr, TQT_SIGNAL( initDone()), TQT_SLOT( backgroundInitDone()));
+     connect( bgMgr, TQ_SIGNAL( initDone()), TQ_SLOT( backgroundInitDone()));
      if (!m_bInit)
      {
         delete KRootWm::self();
         KRootWm* krootwm = new KRootWm( m_pSaver, this ); // handler for root menu (used by kdesktop on RMB click)
-        keys->setSlot("Lock Session", krootwm, TQT_SLOT(slotLock()));
+        keys->setSlot("Lock Session", krootwm, TQ_SLOT(slotLock()));
         keys->updateConnections();
      }
   }
@@ -263,14 +263,14 @@ KDesktop::initRoot()
      delete m_pRootWidget;
      m_pRootWidget = 0;
      m_pIconView = new KDIconView( this, 0 );
-     connect( m_pIconView, TQT_SIGNAL( imageDropEvent( TQDropEvent * ) ),
-              this, TQT_SLOT( handleImageDropEvent( TQDropEvent * ) ) );
-     connect( m_pIconView, TQT_SIGNAL( colorDropEvent( TQDropEvent * ) ),
-              this, TQT_SLOT( handleColorDropEvent( TQDropEvent * ) ) );
-     connect( m_pIconView, TQT_SIGNAL( newWallpaper( const KURL & ) ),
-              this, TQT_SLOT( slotNewWallpaper( const KURL & ) ) );
-     connect( m_pIconView, TQT_SIGNAL( wheelRolled( int ) ),
-              this, TQT_SLOT( slotSwitchDesktops( int ) ) );
+     connect( m_pIconView, TQ_SIGNAL( imageDropEvent( TQDropEvent * ) ),
+              this, TQ_SLOT( handleImageDropEvent( TQDropEvent * ) ) );
+     connect( m_pIconView, TQ_SIGNAL( colorDropEvent( TQDropEvent * ) ),
+              this, TQ_SLOT( handleColorDropEvent( TQDropEvent * ) ) );
+     connect( m_pIconView, TQ_SIGNAL( newWallpaper( const KURL & ) ),
+              this, TQ_SLOT( slotNewWallpaper( const KURL & ) ) );
+     connect( m_pIconView, TQ_SIGNAL( wheelRolled( int ) ),
+              this, TQ_SLOT( slotSwitchDesktops( int ) ) );
 
      // All the QScrollView/TQWidget-specific stuff should go here, so that we can use
      // another qscrollview/widget instead of the iconview and use the same code
@@ -288,7 +288,7 @@ KDesktop::initRoot()
      // TODO tell KBackgroundManager if we change widget()
      bgMgr = new KBackgroundManager( m_pIconView, m_pKwinmodule );
      bgMgr->setExport(1);
-     connect( bgMgr, TQT_SIGNAL( initDone()), TQT_SLOT( backgroundInitDone()));
+     connect( bgMgr, TQ_SIGNAL( initDone()), TQ_SLOT( backgroundInitDone()));
 
      // make sure it is initialized before we first call updateWorkArea()
      m_pIconView->initConfig( m_bInit );
@@ -315,7 +315,7 @@ KDesktop::initRoot()
             // if we failed to get the information from kicker wait a little - probably
             // this is the KDE startup and kicker is simply not running yet
             m_waitForKicker = new TQTimer(this);
-            connect(m_waitForKicker, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotNoKicker()));
+            connect(m_waitForKicker, TQ_SIGNAL(timeout()), this, TQ_SLOT(slotNoKicker()));
             m_waitForKicker->start(15000, true);
           }
           else  // we are not called from the ctor, so kicker should already run
@@ -330,7 +330,7 @@ KDesktop::initRoot()
         m_pIconView->start();
         delete KRootWm::self();
         KRootWm* krootwm = new KRootWm( m_pSaver, this ); // handler for root menu (used by kdesktop on RMB click)
-        keys->setSlot("Lock Session", krootwm, TQT_SLOT(slotLock()));
+        keys->setSlot("Lock Session", krootwm, TQ_SLOT(slotLock()));
         keys->updateConnections();
      }
    } else {
@@ -404,9 +404,9 @@ KDesktop::slotStart()
   keys->readSettings();
   keys->updateConnections();
 
-  connect(kapp, TQT_SIGNAL(appearanceChanged()), TQT_SLOT(slotConfigure()));
+  connect(kapp, TQ_SIGNAL(appearanceChanged()), TQ_SLOT(slotConfigure()));
 
-  TQTimer::singleShot(300, this, TQT_SLOT( slotUpAndRunning() ));
+  TQTimer::singleShot(300, this, TQ_SLOT( slotUpAndRunning() ));
 }
 
 void
@@ -648,21 +648,21 @@ void KDesktop::setShowDesktop( bool b )
         }
 
         // on desktop changes or when a window is deiconified, we abort the show desktop mode
-        connect(twinModule(), TQT_SIGNAL(currentDesktopChanged(int)),
-                TQT_SLOT(slotCurrentDesktopChanged(int)));
-        connect(twinModule(), TQT_SIGNAL(windowChanged(WId,unsigned int)),
-                TQT_SLOT(slotWindowChanged(WId,unsigned int)));
-        connect(twinModule(), TQT_SIGNAL(windowAdded(WId)),
-                TQT_SLOT(slotWindowAdded(WId)));
+        connect(twinModule(), TQ_SIGNAL(currentDesktopChanged(int)),
+                TQ_SLOT(slotCurrentDesktopChanged(int)));
+        connect(twinModule(), TQ_SIGNAL(windowChanged(WId,unsigned int)),
+                TQ_SLOT(slotWindowChanged(WId,unsigned int)));
+        connect(twinModule(), TQ_SIGNAL(windowAdded(WId)),
+                TQ_SLOT(slotWindowAdded(WId)));
     }
     else
     {
-        disconnect(twinModule(), TQT_SIGNAL(currentDesktopChanged(int)),
-                   this, TQT_SLOT(slotCurrentDesktopChanged(int)));
-        disconnect(twinModule(), TQT_SIGNAL(windowChanged(WId,unsigned int)),
-                   this, TQT_SLOT(slotWindowChanged(WId,unsigned int)));
-        disconnect(twinModule(), TQT_SIGNAL(windowAdded(WId)),
-                   this, TQT_SLOT(slotWindowAdded(WId)));
+        disconnect(twinModule(), TQ_SIGNAL(currentDesktopChanged(int)),
+                   this, TQ_SLOT(slotCurrentDesktopChanged(int)));
+        disconnect(twinModule(), TQ_SIGNAL(windowChanged(WId,unsigned int)),
+                   this, TQ_SLOT(slotWindowChanged(WId,unsigned int)));
+        disconnect(twinModule(), TQ_SIGNAL(windowAdded(WId)),
+                   this, TQ_SLOT(slotWindowAdded(WId)));
 
         for (TQValueVector<WId>::ConstIterator it = m_iconifiedList.begin();
              it != m_iconifiedList.end();
@@ -851,7 +851,7 @@ void KDesktop::slotSetVRoot()
         return;
 
     if (KWin::windowInfo(winId()).mappingState() == NET::Withdrawn) {
-        TQTimer::singleShot(100, this, TQT_SLOT(slotSetVRoot()));
+        TQTimer::singleShot(100, this, TQ_SLOT(slotSetVRoot()));
         return;
     }
 

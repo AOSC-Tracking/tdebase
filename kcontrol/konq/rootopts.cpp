@@ -78,7 +78,7 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   urDesktop->setMode( KFile::Directory );
   tmpLabel->setBuddy( urDesktop );
   lay->addMultiCellWidget(urDesktop, row, row, 1, RO_LASTCOL);
-  connect(urDesktop, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(changed()));
+  connect(urDesktop, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(changed()));
   TQString wtstr = i18n("This folder contains all the files"
                        " which you see on your desktop. You can change the location of this"
                        " folder if you want to, and the contents will move automatically"
@@ -93,7 +93,7 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   urAutostart->setMode( KFile::Directory );
   tmpLabel->setBuddy( urAutostart );
   lay->addMultiCellWidget(urAutostart, row, row, 1, RO_LASTCOL);
-  connect(urAutostart, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(changed()));
+  connect(urAutostart, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(changed()));
   wtstr = i18n("This folder contains applications or"
                " links to applications (shortcuts) that you want to have started"
                " automatically whenever TDE starts. You can change the location of this"
@@ -109,7 +109,7 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   urDocument->setMode( KFile::Directory );
   tmpLabel->setBuddy( urDocument );
   lay->addMultiCellWidget(urDocument, row, row, 1, RO_LASTCOL);
-  connect(urDocument, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(changed()));
+  connect(urDocument, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(changed()));
   wtstr = i18n("This folder will be used by default to load or save documents from or to.");
   TQWhatsThis::add( tmpLabel, wtstr );
   TQWhatsThis::add( urDocument, wtstr );
@@ -121,7 +121,7 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   urDownload->setMode( KFile::Directory );
   tmpLabel->setBuddy( urDownload );
   lay->addMultiCellWidget(urDownload, row, row, 1, RO_LASTCOL);
-  connect(urDownload, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(changed()));
+  connect(urDownload, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(changed()));
   wtstr = i18n("This folder will be used by default to load or save downloads from or to.");
   TQWhatsThis::add( tmpLabel, wtstr );
   TQWhatsThis::add( urDownload, wtstr );
@@ -133,7 +133,7 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   urMusic->setMode( KFile::Directory );
   tmpLabel->setBuddy( urMusic );
   lay->addMultiCellWidget(urMusic, row, row, 1, RO_LASTCOL);
-  connect(urMusic, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(changed()));
+  connect(urMusic, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(changed()));
   wtstr = i18n("This folder will be used by default to load or save music from or to.");
   TQWhatsThis::add( tmpLabel, wtstr );
   TQWhatsThis::add( urMusic, wtstr );
@@ -145,7 +145,7 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   urPictures->setMode( KFile::Directory );
   tmpLabel->setBuddy( urPictures );
   lay->addMultiCellWidget(urPictures, row, row, 1, RO_LASTCOL);
-  connect(urPictures, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(changed()));
+  connect(urPictures, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(changed()));
   wtstr = i18n("This folder will be used by default to load or save pictures from or to.");
   TQWhatsThis::add( tmpLabel, wtstr );
   TQWhatsThis::add( urPictures, wtstr );
@@ -157,7 +157,7 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   urPublicShare->setMode( KFile::Directory );
   tmpLabel->setBuddy( urPublicShare );
   lay->addMultiCellWidget(urPublicShare, row, row, 1, RO_LASTCOL);
-  connect(urPublicShare, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(changed()));
+  connect(urPublicShare, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(changed()));
   wtstr = i18n("This folder will be used by default to load or save public shared files from or to.");
   TQWhatsThis::add( tmpLabel, wtstr );
   TQWhatsThis::add( urPublicShare, wtstr );
@@ -169,7 +169,7 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   urTemplates->setMode( KFile::Directory );
   tmpLabel->setBuddy( urTemplates );
   lay->addMultiCellWidget(urTemplates, row, row, 1, RO_LASTCOL);
-  connect(urTemplates, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(changed()));
+  connect(urTemplates, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(changed()));
   wtstr = i18n("This folder will be used by default to load or save templates from or to.");
   TQWhatsThis::add( tmpLabel, wtstr );
   TQWhatsThis::add( urTemplates, wtstr );
@@ -181,7 +181,7 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   urVideos->setMode( KFile::Directory );
   tmpLabel->setBuddy( urVideos );
   lay->addMultiCellWidget(urVideos, row, row, 1, RO_LASTCOL);
-  connect(urVideos, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(changed()));
+  connect(urVideos, TQ_SIGNAL(textChanged(const TQString &)), this, TQ_SLOT(changed()));
   wtstr = i18n("This folder will be used by default to load or save videos from or to.");
   TQWhatsThis::add( tmpLabel, wtstr );
   TQWhatsThis::add( urVideos, wtstr );
@@ -190,7 +190,7 @@ DesktopPathConfig::DesktopPathConfig(TQWidget *parent, const char * )
   Q_ASSERT( row == RO_LASTROW-1 ); // if it fails here, check the row++ and RO_LASTROW above
 
   loadTmr = new TQTimer(this);
-  connect(loadTmr, TQT_SIGNAL(timeout()), this, TQT_SLOT(loadTimerDone()));
+  connect(loadTmr, TQ_SIGNAL(timeout()), this, TQ_SLOT(loadTimerDone()));
 
   load();
 }
@@ -543,8 +543,8 @@ bool DesktopPathConfig::moveDir( const KURL & src, const KURL & dest, const TQSt
             m_copyToDest = dest;
             m_copyFromSrc = src;
             TDEIO::ListJob* job = TDEIO::listDir( src );
-            connect( job, TQT_SIGNAL( entries( TDEIO::Job *, const TDEIO::UDSEntryList& ) ),
-                     this, TQT_SLOT( slotEntries( TDEIO::Job *, const TDEIO::UDSEntryList& ) ) );
+            connect( job, TQ_SIGNAL( entries( TDEIO::Job *, const TDEIO::UDSEntryList& ) ),
+                     this, TQ_SLOT( slotEntries( TDEIO::Job *, const TDEIO::UDSEntryList& ) ) );
             tqApp->enter_loop();
 
             if (m_ok)
@@ -555,7 +555,7 @@ bool DesktopPathConfig::moveDir( const KURL & src, const KURL & dest, const TQSt
         else
         {
             TDEIO::Job * job = TDEIO::move( src, dest );
-            connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ), this, TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+            connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ), this, TQ_SLOT( slotResult( TDEIO::Job * ) ) );
             // wait for job
             tqApp->enter_loop();
         }
@@ -583,7 +583,7 @@ void DesktopPathConfig::slotEntries( TDEIO::Job * job, const TDEIO::UDSEntryList
         }
 
         TDEIO::Job * moveJob = TDEIO::move( file.url(), m_copyToDest );
-        connect( moveJob, TQT_SIGNAL( result( TDEIO::Job * ) ), this, TQT_SLOT( slotResult( TDEIO::Job * ) ) );
+        connect( moveJob, TQ_SIGNAL( result( TDEIO::Job * ) ), this, TQ_SLOT( slotResult( TDEIO::Job * ) ) );
         tqApp->enter_loop();
     }
     tqApp->exit_loop();

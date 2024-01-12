@@ -55,22 +55,22 @@ TDELocaleConfigMoney::TDELocaleConfigMoney(TDELocale *locale,
   lay->addWidget(m_labMonCurSym, 0, 0);
   m_edMonCurSym = new TQLineEdit(this);
   lay->addWidget(m_edMonCurSym, 0, 1);
-  connect( m_edMonCurSym, TQT_SIGNAL( textChanged(const TQString &) ),
-           TQT_SLOT( slotMonCurSymChanged(const TQString &) ) );
+  connect( m_edMonCurSym, TQ_SIGNAL( textChanged(const TQString &) ),
+           TQ_SLOT( slotMonCurSymChanged(const TQString &) ) );
 
   m_labMonDecSym = new TQLabel(this, I18N_NOOP("Decimal symbol:"));
   lay->addWidget(m_labMonDecSym, 1, 0);
   m_edMonDecSym = new TQLineEdit(this);
   lay->addWidget(m_edMonDecSym, 1, 1);
-  connect( m_edMonDecSym, TQT_SIGNAL( textChanged(const TQString &) ),
-           TQT_SLOT( slotMonDecSymChanged(const TQString &) ) );
+  connect( m_edMonDecSym, TQ_SIGNAL( textChanged(const TQString &) ),
+           TQ_SLOT( slotMonDecSymChanged(const TQString &) ) );
 
   m_labMonThoSep = new TQLabel(this, I18N_NOOP("Thousands separator:"));
   lay->addWidget(m_labMonThoSep, 2, 0);
   m_edMonThoSep = new TQLineEdit(this);
   lay->addWidget(m_edMonThoSep, 2, 1);
-  connect( m_edMonThoSep, TQT_SIGNAL( textChanged(const TQString &) ),
-           TQT_SLOT( slotMonThoSepChanged(const TQString &) ) );
+  connect( m_edMonThoSep, TQ_SIGNAL( textChanged(const TQString &) ),
+           TQ_SLOT( slotMonThoSepChanged(const TQString &) ) );
 
   m_labMonFraDig = new TQLabel(this, I18N_NOOP("Fract digits:"));
   lay->addWidget(m_labMonFraDig, 3, 0);
@@ -78,34 +78,34 @@ TDELocaleConfigMoney::TDELocaleConfigMoney(TDELocale *locale,
   m_inMonFraDig->setRange(0, 10, 1, false);
   lay->addWidget(m_inMonFraDig, 3, 1);
 
-  connect( m_inMonFraDig, TQT_SIGNAL( valueChanged(int) ),
-           TQT_SLOT( slotMonFraDigChanged(int) ) );
+  connect( m_inMonFraDig, TQ_SIGNAL( valueChanged(int) ),
+           TQ_SLOT( slotMonFraDigChanged(int) ) );
 
   TQWidget *vbox = new TQVBox(this);
   lay->addMultiCellWidget(vbox, 4, 4, 0, 1);
   TQVGroupBox *vgrp;
   vgrp = new TQVGroupBox( vbox, I18N_NOOP("Positive") );
   m_chMonPosPreCurSym = new TQCheckBox(vgrp, I18N_NOOP("Prefix currency symbol"));
-  connect( m_chMonPosPreCurSym, TQT_SIGNAL( clicked() ),
-           TQT_SLOT( slotMonPosPreCurSymChanged() ) );
+  connect( m_chMonPosPreCurSym, TQ_SIGNAL( clicked() ),
+           TQ_SLOT( slotMonPosPreCurSymChanged() ) );
 
   TQHBox *hbox;
   hbox = new TQHBox( vgrp );
   m_labMonPosMonSignPos = new TQLabel(hbox, I18N_NOOP("Sign position:"));
   m_cmbMonPosMonSignPos = new TQComboBox(hbox, "signpos");
-  connect( m_cmbMonPosMonSignPos, TQT_SIGNAL( activated(int) ),
-           TQT_SLOT( slotMonPosMonSignPosChanged(int) ) );
+  connect( m_cmbMonPosMonSignPos, TQ_SIGNAL( activated(int) ),
+           TQ_SLOT( slotMonPosMonSignPosChanged(int) ) );
 
   vgrp = new TQVGroupBox( vbox, I18N_NOOP("Negative") );
   m_chMonNegPreCurSym = new TQCheckBox(vgrp, I18N_NOOP("Prefix currency symbol"));
-  connect( m_chMonNegPreCurSym, TQT_SIGNAL( clicked() ),
-           TQT_SLOT( slotMonNegPreCurSymChanged() ) );
+  connect( m_chMonNegPreCurSym, TQ_SIGNAL( clicked() ),
+           TQ_SLOT( slotMonNegPreCurSymChanged() ) );
 
   hbox = new TQHBox( vgrp );
   m_labMonNegMonSignPos = new TQLabel(hbox, I18N_NOOP("Sign position:"));
   m_cmbMonNegMonSignPos = new TQComboBox(hbox, "signpos");
-  connect( m_cmbMonNegMonSignPos, TQT_SIGNAL( activated(int) ),
-           TQT_SLOT( slotMonNegMonSignPosChanged(int) ) );
+  connect( m_cmbMonNegMonSignPos, TQ_SIGNAL( activated(int) ),
+           TQ_SLOT( slotMonNegMonSignPosChanged(int) ) );
 
   // insert some items
   int i = 5;

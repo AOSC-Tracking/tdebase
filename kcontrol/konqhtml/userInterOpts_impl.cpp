@@ -39,17 +39,17 @@ userInterOpts::userInterOpts(TDEConfig *config, TQString groupName,
     : userInterOptsBase(parent, name), m_pConfig(config), m_groupName(groupName)
 {
     // connections
-    connect(m_pShowMMBInTabs, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
-    connect(m_pDynamicTabbarHide, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
-    connect(m_pDynamicTabbarCycle, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
-    connect(m_pNewTabsInBackground, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
-    connect(m_pOpenAfterCurrentPage, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
-    connect(m_pTabConfirm, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
-    connect(m_pPermanentCloseButton, TQT_SIGNAL(toggled(bool)),  TQT_SLOT(slotChanged()));
-    connect(m_pHoverCloseButton, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
-    connect(m_pKonquerorTabforExternalURL, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
-    connect(m_pPopupsWithinTabs, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
-    connect(m_pTabCloseActivatePrevious, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotChanged()));
+    connect(m_pShowMMBInTabs, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
+    connect(m_pDynamicTabbarHide, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
+    connect(m_pDynamicTabbarCycle, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
+    connect(m_pNewTabsInBackground, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
+    connect(m_pOpenAfterCurrentPage, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
+    connect(m_pTabConfirm, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
+    connect(m_pPermanentCloseButton, TQ_SIGNAL(toggled(bool)),  TQ_SLOT(slotChanged()));
+    connect(m_pHoverCloseButton, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
+    connect(m_pKonquerorTabforExternalURL, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
+    connect(m_pPopupsWithinTabs, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
+    connect(m_pTabCloseActivatePrevious, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotChanged()));
 }
 
 void userInterOpts::load()

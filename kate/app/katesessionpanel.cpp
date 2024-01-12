@@ -64,7 +64,7 @@ KateSessionNameChooser::KateSessionNameChooser(TQWidget *parent, bool showSwitch
 		m_activateCB->setChecked(true);
 	}
 
-  connect(m_sessionNameLE, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(slotTextChanged()));
+  connect(m_sessionNameLE, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(slotTextChanged()));
   slotTextChanged();  // update button status
 }
 
@@ -146,28 +146,28 @@ KateSessionPanel::KateSessionPanel(KateMainWindow *mainWindow, KateViewManager *
   //m_listview->setRootIsDecorated(true);  // FIXME disabled until doc list software is developed
 
 
-  connect(m_listview, TQT_SIGNAL(selectionChanged()),
-          this, TQT_SLOT(slotSelectionChanged()));
-  connect(m_listview, TQT_SIGNAL(executed(TQListViewItem*)),
-          this, TQT_SLOT(slotItemExecuted(TQListViewItem*)));
-  connect(m_listview, TQT_SIGNAL(returnPressed(TQListViewItem*)),
-          this, TQT_SLOT(slotItemExecuted(TQListViewItem*)));
-  connect(KateApp::self(), TQT_SIGNAL(optionsChanged()),
-          this, TQT_SLOT(slotSelectionChanged()));
-  connect(m_sessionManager, TQT_SIGNAL(switchOptionChanged()),
-          this, TQT_SLOT(slotSelectionChanged()));
-  connect(m_sessionManager, TQT_SIGNAL(sessionActivated(int, int)),
-          this, TQT_SLOT(slotSessionActivated(int, int)));
-  connect(m_sessionManager, TQT_SIGNAL(sessionCreated(int)),
-          this, TQT_SLOT(slotSessionCreated(int)));
-  connect(m_sessionManager, TQT_SIGNAL(sessionDeleted(int)),
-          this, TQT_SLOT(slotSessionDeleted(int)));
-  connect(m_sessionManager, TQT_SIGNAL(sessionsSwapped(int, int)),
-          this, TQT_SLOT(slotSessionsSwapped(int, int)));
-  connect(m_sessionManager, TQT_SIGNAL(sessionRenamed(int)),
-          this, TQT_SLOT(slotSessionRenamed(int)));
-  connect(m_listview, TQT_SIGNAL(itemRenamed(TQListViewItem*)),
-          this, TQT_SLOT(slotLVSessionRenamed(TQListViewItem*)));
+  connect(m_listview, TQ_SIGNAL(selectionChanged()),
+          this, TQ_SLOT(slotSelectionChanged()));
+  connect(m_listview, TQ_SIGNAL(executed(TQListViewItem*)),
+          this, TQ_SLOT(slotItemExecuted(TQListViewItem*)));
+  connect(m_listview, TQ_SIGNAL(returnPressed(TQListViewItem*)),
+          this, TQ_SLOT(slotItemExecuted(TQListViewItem*)));
+  connect(KateApp::self(), TQ_SIGNAL(optionsChanged()),
+          this, TQ_SLOT(slotSelectionChanged()));
+  connect(m_sessionManager, TQ_SIGNAL(switchOptionChanged()),
+          this, TQ_SLOT(slotSelectionChanged()));
+  connect(m_sessionManager, TQ_SIGNAL(sessionActivated(int, int)),
+          this, TQ_SLOT(slotSessionActivated(int, int)));
+  connect(m_sessionManager, TQ_SIGNAL(sessionCreated(int)),
+          this, TQ_SLOT(slotSessionCreated(int)));
+  connect(m_sessionManager, TQ_SIGNAL(sessionDeleted(int)),
+          this, TQ_SLOT(slotSessionDeleted(int)));
+  connect(m_sessionManager, TQ_SIGNAL(sessionsSwapped(int, int)),
+          this, TQ_SLOT(slotSessionsSwapped(int, int)));
+  connect(m_sessionManager, TQ_SIGNAL(sessionRenamed(int)),
+          this, TQ_SLOT(slotSessionRenamed(int)));
+  connect(m_listview, TQ_SIGNAL(itemRenamed(TQListViewItem*)),
+          this, TQ_SLOT(slotLVSessionRenamed(TQListViewItem*)));
 
   TQPtrList<KateSession>& sessions = m_sessionManager->getSessionsList();
   for (int idx = sessions.count() - 1;  idx >= 0;  --idx)
@@ -199,45 +199,45 @@ void KateSessionPanel::setup_toolbar()
   TDEAction *a;
 
   a = new TDEAction(i18n("New"), SmallIcon("list-add"), 0,
-          this, TQT_SLOT(slotNewSession()), m_actionCollection, "session_new");
+          this, TQ_SLOT(slotNewSession()), m_actionCollection, "session_new");
   a->setWhatsThis(i18n("Create a new session and switch to it."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Save"), SmallIcon("document-save"), 0,
-          this, TQT_SLOT(slotSaveSession()), m_actionCollection, "session_save");
+          this, TQ_SLOT(slotSaveSession()), m_actionCollection, "session_save");
   a->setWhatsThis(i18n("Save the selected session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Save as..."), SmallIcon("document-save-as"), 0,
-          this, TQT_SLOT(slotSaveSessionAs()), m_actionCollection, "session_save_as");
+          this, TQ_SLOT(slotSaveSessionAs()), m_actionCollection, "session_save_as");
   a->setWhatsThis(i18n("Save an unsaved session with a new name or clone an already saved session "
                        "into a new session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Rename"), SmallIcon("edit_user"), 0,
-          this, TQT_SLOT(slotRenameSession()), m_actionCollection, "session_rename");
+          this, TQ_SLOT(slotRenameSession()), m_actionCollection, "session_rename");
   a->setWhatsThis(i18n("Rename the selected session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Delete"), SmallIcon("edit-delete"), 0,
-          this, TQT_SLOT(slotDeleteSession()), m_actionCollection, "session_delete");
+          this, TQ_SLOT(slotDeleteSession()), m_actionCollection, "session_delete");
   a->setWhatsThis(i18n("Delete the selected session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Reload"), SmallIcon("reload"), 0,
-          this, TQT_SLOT(slotReloadSession()), m_actionCollection, "session_reload");
+          this, TQ_SLOT(slotReloadSession()), m_actionCollection, "session_reload");
   a->setWhatsThis(i18n("Reload the last saved state of the selected session."));
   a->plug(m_toolbar);
 
   m_toolbar->insertLineSeparator();
 
   a = new TDEAction(i18n("Activate"), SmallIcon("forward"), 0,
-          this, TQT_SLOT(slotActivateSession()), m_actionCollection, "session_activate");
+          this, TQ_SLOT(slotActivateSession()), m_actionCollection, "session_activate");
   a->setWhatsThis(i18n("Activate the selected session."));
   a->plug(m_toolbar);
 
 	TDEToggleAction *tglA = new TDEToggleAction(i18n("Toggle read only"), SmallIcon("encrypted"), 0,
-          this, TQT_SLOT(slotSessionToggleReadOnly()), m_actionCollection, "session_toggle_read_only");
+          this, TQ_SLOT(slotSessionToggleReadOnly()), m_actionCollection, "session_toggle_read_only");
   tglA->setWhatsThis(i18n("Toggle read only status for the selected session.<p>"
 					"In a read only session, you can work as usual but the list of documents in the session "
           "will not be saved when you exit Kate or switch to another session.<p>"
@@ -245,12 +245,12 @@ void KateSessionPanel::setup_toolbar()
   tglA->plug(m_toolbar);
 
   a = new TDEAction(i18n("Move Up"), SmallIcon("go-up"), 0,
-          this, TQT_SLOT(slotSessionMoveUp()), m_actionCollection, "session_move_up");
+          this, TQ_SLOT(slotSessionMoveUp()), m_actionCollection, "session_move_up");
   a->setWhatsThis(i18n("Move up the selected session."));
   a->plug(m_toolbar);
 
   a = new TDEAction(i18n("Move Down"), SmallIcon("go-down"), 0,
-          this, TQT_SLOT(slotSessionMoveDown()), m_actionCollection, "session_move_down");
+          this, TQ_SLOT(slotSessionMoveDown()), m_actionCollection, "session_move_down");
   a->setWhatsThis(i18n("Move down the selected session."));
   a->plug(m_toolbar);
 }

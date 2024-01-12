@@ -279,12 +279,12 @@ void SystemImpl::createEntry(TDEIO::UDSEntry &entry,
 		m_lastListingEmpty = true;
 
 		TDEIO::ListJob *job = TDEIO::listDir(url, false, false);
-		connect( job, TQT_SIGNAL( entries(TDEIO::Job *,
+		connect( job, TQ_SIGNAL( entries(TDEIO::Job *,
 		                      const TDEIO::UDSEntryList &) ),
-		         this, TQT_SLOT( slotEntries(TDEIO::Job *,
+		         this, TQ_SLOT( slotEntries(TDEIO::Job *,
 			             const TDEIO::UDSEntryList &) ) );
-		connect( job, TQT_SIGNAL( result(TDEIO::Job *) ),
-		         this, TQT_SLOT( slotResult(TDEIO::Job *) ) );
+		connect( job, TQ_SIGNAL( result(TDEIO::Job *) ),
+		         this, TQ_SLOT( slotResult(TDEIO::Job *) ) );
 		tqApp->eventLoop()->enterLoop();
 
 		if (m_lastListingEmpty) icon = empty_icon;

@@ -52,10 +52,10 @@ KWebDesktopRun::KWebDesktopRun( KWebDesktop* webDesktop, const KURL & url )
 {
     kdDebug() << "KWebDesktopRun::KWebDesktopRun starting get" << endl;
     TDEIO::Job * job = TDEIO::get(m_url, false, false);
-    connect( job, TQT_SIGNAL( result( TDEIO::Job *)),
-             this, TQT_SLOT( slotFinished(TDEIO::Job *)));
-    connect( job, TQT_SIGNAL( mimetype( TDEIO::Job *, const TQString &)),
-             this, TQT_SLOT( slotMimetype(TDEIO::Job *, const TQString &)));
+    connect( job, TQ_SIGNAL( result( TDEIO::Job *)),
+             this, TQ_SLOT( slotFinished(TDEIO::Job *)));
+    connect( job, TQ_SIGNAL( mimetype( TDEIO::Job *, const TQString &)),
+             this, TQ_SLOT( slotMimetype(TDEIO::Job *, const TQString &)));
 }
 
 void KWebDesktopRun::slotMimetype( TDEIO::Job *job, const TQString &_type )
@@ -166,7 +166,7 @@ KParts::ReadOnlyPart* KWebDesktop::createPart( const TQString& mimeType )
         ((TQScrollView *)htmlPart->widget())->setHScrollBarMode( TQScrollView::AlwaysOff );
         ((TQScrollView *)htmlPart->widget())->setVScrollBarMode( TQScrollView::AlwaysOff );
 
-        connect( htmlPart, TQT_SIGNAL( completed() ), this, TQT_SLOT( slotCompleted() ) );
+        connect( htmlPart, TQ_SIGNAL( completed() ), this, TQ_SLOT( slotCompleted() ) );
         m_part = htmlPart;
     } else {
         // Try to find an appropriate viewer component
@@ -176,13 +176,13 @@ KParts::ReadOnlyPart* KWebDesktop::createPart( const TQString& mimeType )
             kdWarning() << "No handler found for " << mimeType << endl;
         else {
             kdDebug() << "Loaded " << m_part->className() << endl;
-            connect( m_part, TQT_SIGNAL( completed() ),
-                     this, TQT_SLOT( slotCompleted() ) );
+            connect( m_part, TQ_SIGNAL( completed() ),
+                     this, TQ_SLOT( slotCompleted() ) );
         }
     }
     if ( m_part ) {
-        connect( m_part, TQT_SIGNAL( canceled(const TQString &) ),
-                 this, TQT_SLOT( slotCompleted() ) );
+        connect( m_part, TQ_SIGNAL( canceled(const TQString &) ),
+                 this, TQ_SLOT( slotCompleted() ) );
     }
     return m_part;
 }

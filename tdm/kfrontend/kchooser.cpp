@@ -75,7 +75,7 @@ ChooserDlg::ChooserDlg()
 	iline->setEnabled( TRUE );
 	TQLabel *itxt = new TQLabel( iline, i18n("Hos&t:"), this );
 	TQPushButton *addButton = new TQPushButton( i18n("A&dd"), this );
-	connect( addButton, TQT_SIGNAL(clicked()), TQT_SLOT(addHostname()) );
+	connect( addButton, TQ_SIGNAL(clicked()), TQ_SLOT(addHostname()) );
 	TQBoxLayout *hibox = new TQHBoxLayout( vbox, 10 );
 	hibox->addWidget( itxt );
 	hibox->addWidget( iline );
@@ -107,12 +107,12 @@ ChooserDlg::ChooserDlg()
 #endif
 
 	sn = new TQSocketNotifier( rfd, TQSocketNotifier::Read, this );
-	connect( sn, TQT_SIGNAL(activated( int )), TQT_SLOT(slotReadPipe()) );
+	connect( sn, TQ_SIGNAL(activated( int )), TQ_SLOT(slotReadPipe()) );
 
-	connect( pingButton, TQT_SIGNAL(clicked()), TQT_SLOT(pingHosts()) );
-	connect( acceptButton, TQT_SIGNAL(clicked()), TQT_SLOT(accept()) );
-//	connect( helpButton, TQT_SIGNAL(clicked()), TQT_SLOT(slotHelp()) );
-	connect( host_view, TQT_SIGNAL(doubleClicked(TQListViewItem *)), TQT_SLOT(accept()) );
+	connect( pingButton, TQ_SIGNAL(clicked()), TQ_SLOT(pingHosts()) );
+	connect( acceptButton, TQ_SIGNAL(clicked()), TQ_SLOT(accept()) );
+//	connect( helpButton, TQ_SIGNAL(clicked()), TQ_SLOT(slotHelp()) );
+	connect( host_view, TQ_SIGNAL(doubleClicked(TQListViewItem *)), TQ_SLOT(accept()) );
 
 	adjustGeometry();
 }

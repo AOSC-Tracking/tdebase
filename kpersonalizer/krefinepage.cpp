@@ -28,7 +28,7 @@
 
 KRefinePage::KRefinePage(TQWidget *parent, const char *name ) : KRefinePageDlg(parent,name) {
    px_finishSidebar->setPixmap(UserIcon("step5.png"));
-   connect( pb_kcontrol, TQT_SIGNAL(clicked()), TQT_SLOT(startKControl()) );
+   connect( pb_kcontrol, TQ_SIGNAL(clicked()), TQ_SLOT(startKControl()) );
    if( KPersonalizer::beforeSession()) {
        pb_kcontrol->hide();
        lb_kcontrol->hide();

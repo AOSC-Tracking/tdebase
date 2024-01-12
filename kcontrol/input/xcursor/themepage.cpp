@@ -100,8 +100,8 @@ ThemePage::ThemePage( TQWidget* parent, const char* name )
 	listview->addColumn( i18n("Name") );
 	listview->addColumn( i18n("Description") );
 
-	connect( listview, TQT_SIGNAL(selectionChanged(TQListViewItem*)),
-			TQT_SLOT(selectionChanged(TQListViewItem*)) );
+	connect( listview, TQ_SIGNAL(selectionChanged(TQListViewItem*)),
+			TQ_SLOT(selectionChanged(TQListViewItem*)) );
 
 	themeDirs = getThemeBaseDirs();
 	insertThemes();
@@ -111,8 +111,8 @@ ThemePage::ThemePage( TQWidget* parent, const char* name )
 	installButton = new TQPushButton( i18n("Install New Theme..."), hbox );
 	removeButton = new TQPushButton( i18n("Remove Theme"), hbox );
 
-	connect( installButton, TQT_SIGNAL( clicked() ), TQT_SLOT( installClicked() ) );
-	connect( removeButton, TQT_SIGNAL( clicked() ), TQT_SLOT( removeClicked() ) );
+	connect( installButton, TQ_SIGNAL( clicked() ), TQ_SLOT( installClicked() ) );
+	connect( removeButton, TQ_SIGNAL( clicked() ), TQ_SLOT( removeClicked() ) );
 
 	// Disable the install button if ~/.icons isn't writable
 	TQString path = TQDir::homeDirPath() + "/.icons";

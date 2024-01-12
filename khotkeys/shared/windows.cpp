@@ -45,10 +45,10 @@ Windows::Windows( bool enable_signal_P, TQObject* parent_P )
     windows_handler = this;
     if( signals_enabled )
         {
-        connect( twin_module, TQT_SIGNAL( windowAdded( WId )), TQT_SLOT( window_added_slot( WId )));
-        connect( twin_module, TQT_SIGNAL( windowRemoved( WId )), TQT_SLOT( window_removed_slot( WId )));
-        connect( twin_module, TQT_SIGNAL( activeWindowChanged( WId )),
-            TQT_SLOT( active_window_changed_slot( WId )));
+        connect( twin_module, TQ_SIGNAL( windowAdded( WId )), TQ_SLOT( window_added_slot( WId )));
+        connect( twin_module, TQ_SIGNAL( windowRemoved( WId )), TQ_SLOT( window_removed_slot( WId )));
+        connect( twin_module, TQ_SIGNAL( activeWindowChanged( WId )),
+            TQ_SLOT( active_window_changed_slot( WId )));
         }
     }
 

@@ -73,11 +73,11 @@ CryptPasswordDialog::CryptPasswordDialog(TQWidget *parent, TQString passwordProm
 		}
 	}
 
-	connect(m_base->textPasswordButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(processLockouts()));
-	connect(m_base->filePasswordButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(processLockouts()));
-	connect(m_base->cardKeyButton, TQT_SIGNAL(clicked()), this, TQT_SLOT(processLockouts()));
-	connect(m_base->textPasswordEntry, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(processLockouts()));
-	connect(m_base->filePasswordURL, TQT_SIGNAL(textChanged(const TQString&)), this, TQT_SLOT(processLockouts()));
+	connect(m_base->textPasswordButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(processLockouts()));
+	connect(m_base->filePasswordButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(processLockouts()));
+	connect(m_base->cardKeyButton, TQ_SIGNAL(clicked()), this, TQ_SLOT(processLockouts()));
+	connect(m_base->textPasswordEntry, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(processLockouts()));
+	connect(m_base->filePasswordURL, TQ_SIGNAL(textChanged(const TQString&)), this, TQ_SLOT(processLockouts()));
 
 	m_base->textPasswordEntry->setFocus();
 

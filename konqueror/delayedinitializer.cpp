@@ -38,7 +38,7 @@ bool DelayedInitializer::eventFilter( TQObject *receiver, TQEvent *event )
     // Move the emitting of the event to the end of the eventQueue
     // so we are absolutely sure the event we get here is handled before
     // the initialize is fired.
-    TQTimer::singleShot( 0, this, TQT_SLOT( slotInitialize() ) );
+    TQTimer::singleShot( 0, this, TQ_SLOT( slotInitialize() ) );
 
     return false;
 }

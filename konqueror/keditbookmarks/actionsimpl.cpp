@@ -78,136 +78,136 @@ void KEBApp::createActions() {
 
     // save and quit should probably not be in the toplevel???
     (void) KStdAction::quit(
-        this, TQT_SLOT( close() ), actionCollection());
-    KStdAction::keyBindings(guiFactory(), TQT_SLOT(configureShortcuts()), actionCollection());
+        this, TQ_SLOT( close() ), actionCollection());
+    KStdAction::keyBindings(guiFactory(), TQ_SLOT(configureShortcuts()), actionCollection());
     (void) KStdAction::configureToolbars(
-        this, TQT_SLOT( slotConfigureToolbars() ), actionCollection());
+        this, TQ_SLOT( slotConfigureToolbars() ), actionCollection());
 
     if (m_browser) {
         (void) KStdAction::open(
-            actn, TQT_SLOT( slotLoad() ), actionCollection());
+            actn, TQ_SLOT( slotLoad() ), actionCollection());
         (void) KStdAction::saveAs(
-            actn, TQT_SLOT( slotSaveAs() ), actionCollection());
+            actn, TQ_SLOT( slotSaveAs() ), actionCollection());
     }
 
-    (void) KStdAction::cut(actn, TQT_SLOT( slotCut() ), actionCollection());
-    (void) KStdAction::copy(actn, TQT_SLOT( slotCopy() ), actionCollection());
-    (void) KStdAction::paste(actn, TQT_SLOT( slotPaste() ), actionCollection());
-    (void) KStdAction::print(actn, TQT_SLOT( slotPrint() ), actionCollection());
+    (void) KStdAction::cut(actn, TQ_SLOT( slotCut() ), actionCollection());
+    (void) KStdAction::copy(actn, TQ_SLOT( slotCopy() ), actionCollection());
+    (void) KStdAction::paste(actn, TQ_SLOT( slotPaste() ), actionCollection());
+    (void) KStdAction::print(actn, TQ_SLOT( slotPrint() ), actionCollection());
 
     // settings menu
     (void) new TDEToggleAction(
         i18n("&Show Netscape Bookmarks in Konqueror"), 0,
-        actn, TQT_SLOT( slotShowNS() ), actionCollection(),
+        actn, TQ_SLOT( slotShowNS() ), actionCollection(),
         "settings_showNS");
 
     // actions
     (void) new TDEAction(
         i18n("&Delete"), "edit-delete", Key_Delete,
-        actn, TQT_SLOT( slotDelete() ), actionCollection(), "delete");
+        actn, TQ_SLOT( slotDelete() ), actionCollection(), "delete");
     (void) new TDEAction(
         i18n("Rename"), "text", Key_F2,
-        actn, TQT_SLOT( slotRename() ), actionCollection(), "rename");
+        actn, TQ_SLOT( slotRename() ), actionCollection(), "rename");
     (void) new TDEAction(
         i18n("C&hange URL"), "text", Key_F3,
-        actn, TQT_SLOT( slotChangeURL() ), actionCollection(), "changeurl");
+        actn, TQ_SLOT( slotChangeURL() ), actionCollection(), "changeurl");
     (void) new TDEAction(
         i18n("C&hange Comment"), "text", Key_F4,
-        actn, TQT_SLOT( slotChangeComment() ), actionCollection(), "changecomment");
+        actn, TQ_SLOT( slotChangeComment() ), actionCollection(), "changecomment");
     (void) new TDEAction(
         i18n("Chan&ge Icon..."), "icons", 0,
-        actn, TQT_SLOT( slotChangeIcon() ), actionCollection(), "changeicon");
+        actn, TQ_SLOT( slotChangeIcon() ), actionCollection(), "changeicon");
     (void) new TDEAction(
         i18n("Update Favicon"), 0,
-        actn, TQT_SLOT( slotUpdateFavIcon() ), actionCollection(), "updatefavicon");
+        actn, TQ_SLOT( slotUpdateFavIcon() ), actionCollection(), "updatefavicon");
     (void) new TDEAction(
         i18n("Recursive Sort"), 0,
-        actn, TQT_SLOT( slotRecursiveSort() ), actionCollection(), "recursivesort");
+        actn, TQ_SLOT( slotRecursiveSort() ), actionCollection(), "recursivesort");
     (void) new TDEAction(
         i18n("&New Folder..."), "folder-new", CTRL+Key_N,
-        actn, TQT_SLOT( slotNewFolder() ), actionCollection(), "newfolder");
+        actn, TQ_SLOT( slotNewFolder() ), actionCollection(), "newfolder");
     (void) new TDEAction(
         i18n("&New Bookmark"), "www", 0,
-        actn, TQT_SLOT( slotNewBookmark() ), actionCollection(), "newbookmark");
+        actn, TQ_SLOT( slotNewBookmark() ), actionCollection(), "newbookmark");
     (void) new TDEAction(
         i18n("&Insert Separator"), CTRL+Key_I,
-        actn, TQT_SLOT( slotInsertSeparator() ), actionCollection(),
+        actn, TQ_SLOT( slotInsertSeparator() ), actionCollection(),
         "insertseparator");
     (void) new TDEAction(
         i18n("&Sort Alphabetically"), 0,
-        actn, TQT_SLOT( slotSort() ), actionCollection(), "sort");
+        actn, TQ_SLOT( slotSort() ), actionCollection(), "sort");
     (void) new TDEAction(
         i18n("Set as T&oolbar Folder"), "bookmark_toolbar", 0,
-        actn, TQT_SLOT( slotSetAsToolbar() ), actionCollection(), "setastoolbar");
+        actn, TQ_SLOT( slotSetAsToolbar() ), actionCollection(), "setastoolbar");
     (void) new TDEAction(
         i18n("Show in T&oolbar"), "bookmark_toolbar", 0,
-        actn, TQT_SLOT( slotShowInToolbar() ), actionCollection(), "showintoolbar");
+        actn, TQ_SLOT( slotShowInToolbar() ), actionCollection(), "showintoolbar");
     (void) new TDEAction(
         i18n("Hide in T&oolbar"), "bookmark_toolbar", 0,
-        actn, TQT_SLOT( slotHideInToolbar() ), actionCollection(), "hideintoolbar");
+        actn, TQ_SLOT( slotHideInToolbar() ), actionCollection(), "hideintoolbar");
     (void) new TDEAction(
         i18n("&Expand All Folders"), 0,
-        actn, TQT_SLOT( slotExpandAll() ), actionCollection(), "expandall");
+        actn, TQ_SLOT( slotExpandAll() ), actionCollection(), "expandall");
     (void) new TDEAction(
         i18n("Collapse &All Folders"), 0,
-        actn, TQT_SLOT( slotCollapseAll() ), actionCollection(), "collapseall" );
+        actn, TQ_SLOT( slotCollapseAll() ), actionCollection(), "collapseall" );
     (void) new TDEAction(
         i18n("&Open in Konqueror"), "document-open", 0,
-        actn, TQT_SLOT( slotOpenLink() ), actionCollection(), "openlink" );
+        actn, TQ_SLOT( slotOpenLink() ), actionCollection(), "openlink" );
     (void) new TDEAction(
         i18n("Check &Status"), "bookmark", 0,
-        actn, TQT_SLOT( slotTestSelection() ), actionCollection(), "testlink" );
+        actn, TQ_SLOT( slotTestSelection() ), actionCollection(), "testlink" );
 
     (void) new TDEAction(
         i18n("Check Status: &All"), 0,
-        actn, TQT_SLOT( slotTestAll() ), actionCollection(), "testall" );
+        actn, TQ_SLOT( slotTestAll() ), actionCollection(), "testall" );
     (void) new TDEAction(
         i18n("Update All &Favicons"), 0,
-        actn, TQT_SLOT( slotUpdateAllFavIcons() ), actionCollection(),
+        actn, TQ_SLOT( slotUpdateAllFavIcons() ), actionCollection(),
         "updateallfavicons" );
     (void) new TDEAction(
         i18n("Cancel &Checks"), 0,
-        actn, TQT_SLOT( slotCancelAllTests() ), actionCollection(), "canceltests" );
+        actn, TQ_SLOT( slotCancelAllTests() ), actionCollection(), "canceltests" );
     (void) new TDEAction(
         i18n("Cancel &Favicon Updates"), 0,
-        actn, TQT_SLOT( slotCancelFavIconUpdates() ), actionCollection(),
+        actn, TQ_SLOT( slotCancelFavIconUpdates() ), actionCollection(),
         "cancelfaviconupdates" );
     (void) new TDEAction(
         i18n("Import &Netscape Bookmarks..."), "netscape", 0,
-        actn, TQT_SLOT( slotImport() ), actionCollection(), "importNS");
+        actn, TQ_SLOT( slotImport() ), actionCollection(), "importNS");
     (void) new TDEAction(
         i18n("Import &Opera Bookmarks..."), "opera", 0,
-        actn, TQT_SLOT( slotImport() ), actionCollection(), "importOpera");
+        actn, TQ_SLOT( slotImport() ), actionCollection(), "importOpera");
     (void) new TDEAction(
         i18n("Import All &Crash Sessions as Bookmarks..."), 0,
-        actn, TQT_SLOT( slotImport() ), actionCollection(), "importCrashes");
+        actn, TQ_SLOT( slotImport() ), actionCollection(), "importCrashes");
     (void) new TDEAction(
         i18n("Import &Galeon Bookmarks..."), 0,
-        actn, TQT_SLOT( slotImport() ), actionCollection(), "importGaleon");
+        actn, TQ_SLOT( slotImport() ), actionCollection(), "importGaleon");
     (void) new TDEAction(
         i18n("Import &KDE2/KDE3/TDE Bookmarks..."), 0,
-        actn, TQT_SLOT( slotImport() ), actionCollection(), "importKDE2");
+        actn, TQ_SLOT( slotImport() ), actionCollection(), "importKDE2");
     (void) new TDEAction(
         i18n("Import &IE Bookmarks..."), 0,
-        actn, TQT_SLOT( slotImport() ), actionCollection(), "importIE");
+        actn, TQ_SLOT( slotImport() ), actionCollection(), "importIE");
     (void) new TDEAction(
         i18n("Import &Mozilla Bookmarks..."), "mozilla", 0,
-        actn, TQT_SLOT( slotImport() ), actionCollection(), "importMoz");
+        actn, TQ_SLOT( slotImport() ), actionCollection(), "importMoz");
     (void) new TDEAction(
         i18n("Export to &Netscape Bookmarks"), "netscape", 0,
-        actn, TQT_SLOT( slotExportNS() ), actionCollection(), "exportNS");
+        actn, TQ_SLOT( slotExportNS() ), actionCollection(), "exportNS");
     (void) new TDEAction(
         i18n("Export to &Opera Bookmarks..."), "opera", 0,
-        actn, TQT_SLOT( slotExportOpera() ), actionCollection(), "exportOpera");
+        actn, TQ_SLOT( slotExportOpera() ), actionCollection(), "exportOpera");
     (void) new TDEAction(
         i18n("Export to &HTML Bookmarks..."), "text-html", 0,
-        actn, TQT_SLOT( slotExportHTML() ), actionCollection(), "exportHTML");
+        actn, TQ_SLOT( slotExportHTML() ), actionCollection(), "exportHTML");
     (void) new TDEAction(
         i18n("Export to &IE Bookmarks..."), 0,
-        actn, TQT_SLOT( slotExportIE() ), actionCollection(), "exportIE");
+        actn, TQ_SLOT( slotExportIE() ), actionCollection(), "exportIE");
     (void) new TDEAction(
         i18n("Export to &Mozilla Bookmarks..."), "mozilla", 0,
-        actn, TQT_SLOT( slotExportMoz() ), actionCollection(), "exportMoz");
+        actn, TQ_SLOT( slotExportMoz() ), actionCollection(), "exportMoz");
 }
 
 void ActionsImpl::slotLoad() {
@@ -444,7 +444,7 @@ void ActionsImpl::slotPrint() {
 
     s_appId = kapp->dcopClient()->appId();
     s_objId = s_part->property("dcopObjectId").toString().latin1();
-    connect(s_part, TQT_SIGNAL(completed()), this, TQT_SLOT(slotDelayedPrint()));
+    connect(s_part, TQ_SIGNAL(completed()), this, TQ_SLOT(slotDelayedPrint()));
 
     s_part->openURL(KURL( tmpf.name() ));
 }

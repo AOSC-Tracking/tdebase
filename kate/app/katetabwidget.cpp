@@ -32,7 +32,7 @@ KateTabWidget::KateTabWidget(TQWidget* parent, const char* name)
 
   setHoverCloseButton(true);
 
-  connect(this, TQT_SIGNAL(closeRequest(TQWidget*)), this, TQT_SLOT(closeTab(TQWidget*)));
+  connect(this, TQ_SIGNAL(closeRequest(TQWidget*)), this, TQ_SLOT(closeTab(TQWidget*)));
 }
 
 KateTabWidget::~KateTabWidget()

@@ -63,12 +63,12 @@ KPluginOptions::KPluginOptions( TDEConfig* config, TQString group, TQWidget *par
     enableUserDemand = new TQCheckBox( i18n( "&Load plugins on demand only" ), globalGB );
     priorityLabel = new TQLabel(i18n("CPU priority for plugins: %1").arg(TQString()), globalGB);
     priority = new TQSlider(5, 100, 5, 100, TQt::Horizontal, globalGB);
-    connect( enablePluginsGloballyCB, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotChanged() ) );
-    connect( enablePluginsGloballyCB, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotTogglePluginsEnabled() ) );
-    connect( enableHTTPOnly, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotChanged() ) );
-    connect( enableUserDemand, TQT_SIGNAL( clicked() ), this, TQT_SLOT( slotChanged() ) );
-    connect( priority, TQT_SIGNAL( valueChanged(int) ), this, TQT_SLOT( slotChanged() ) );
-    connect( priority, TQT_SIGNAL( valueChanged(int) ), this, TQT_SLOT( updatePLabel(int) ) );
+    connect( enablePluginsGloballyCB, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotChanged() ) );
+    connect( enablePluginsGloballyCB, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotTogglePluginsEnabled() ) );
+    connect( enableHTTPOnly, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotChanged() ) );
+    connect( enableUserDemand, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotChanged() ) );
+    connect( priority, TQ_SIGNAL( valueChanged(int) ), this, TQ_SLOT( slotChanged() ) );
+    connect( priority, TQ_SIGNAL( valueChanged(int) ), this, TQ_SLOT( updatePLabel(int) ) );
 
     TQFrame *hrule = new TQFrame(globalGB);
     hrule->setFrameStyle(TQFrame::HLine | TQFrame::Sunken);
@@ -80,7 +80,7 @@ KPluginOptions::KPluginOptions( TDEConfig* config, TQString group, TQWidget *par
     TQPushButton *domainSpecPB = new TQPushButton(i18n("Domain-Specific Settin&gs"),
     						globalGB);
     domainSpecPB->setSizePolicy(TQSizePolicy::Fixed,TQSizePolicy::Fixed);
-    connect(domainSpecPB,TQT_SIGNAL(clicked()),TQT_SLOT(slotShowDomainDlg()));
+    connect(domainSpecPB,TQ_SIGNAL(clicked()),TQ_SLOT(slotShowDomainDlg()));
 
     domainSpecificDlg = new KDialogBase(KDialogBase::Swallow,
     			i18n("Domain-Specific Policies"),KDialogBase::Close,
@@ -88,7 +88,7 @@ KPluginOptions::KPluginOptions( TDEConfig* config, TQString group, TQWidget *par
 
     domainSpecific = new PluginDomainListView(config,group,this,domainSpecificDlg);
     domainSpecific->setMinimumSize(320,200);
-    connect(domainSpecific,TQT_SIGNAL(changed(bool)),TQT_SLOT(slotChanged()));
+    connect(domainSpecific,TQ_SIGNAL(changed(bool)),TQ_SLOT(slotChanged()));
 
     domainSpecificDlg->setMainWidget(domainSpecific);
 
@@ -134,8 +134,8 @@ KPluginOptions::KPluginOptions( TDEConfig* config, TQString group, TQWidget *par
 	m_widget->dirEdit->setMode(KFile::ExistingOnly | KFile::LocalOnly | KFile::Directory);
 
     // setup widgets
-    connect( m_widget->scanAtStartup, TQT_SIGNAL(clicked()), TQT_SLOT(change()) );
-    connect( m_widget->scanButton, TQT_SIGNAL(clicked()), TQT_SLOT(scan()) );
+    connect( m_widget->scanAtStartup, TQ_SIGNAL(clicked()), TQ_SLOT(change()) );
+    connect( m_widget->scanButton, TQ_SIGNAL(clicked()), TQ_SLOT(scan()) );
 
     m_changed = false;
 
@@ -312,11 +312,11 @@ void KPluginOptions::scan()
     // start nspluginscan
     *m_nspluginscan << scanExe << "--verbose";
     kdDebug() << "Running nspluginscan" << endl;
-    connect(m_nspluginscan, TQT_SIGNAL(readReady(KProcIO*)),
-            this, TQT_SLOT(progress(KProcIO*)));
-    connect(m_nspluginscan, TQT_SIGNAL(processExited(TDEProcess *)),
-            this, TQT_SLOT(scanDone()));
-    connect(m_progress, TQT_SIGNAL(cancelled()), this, TQT_SLOT(scanDone()));
+    connect(m_nspluginscan, TQ_SIGNAL(readReady(KProcIO*)),
+            this, TQ_SLOT(progress(KProcIO*)));
+    connect(m_nspluginscan, TQ_SIGNAL(processExited(TDEProcess *)),
+            this, TQ_SLOT(scanDone()));
+    connect(m_progress, TQ_SIGNAL(cancelled()), this, TQ_SLOT(scanDone()));
 
     m_nspluginscan->start();
 }
@@ -345,22 +345,22 @@ void KPluginOptions::scanDone()
 void KPluginOptions::dirInit()
 {
     m_widget->dirEdit->setCaption(i18n("Select Plugin Scan Folder"));
-    connect( m_widget->dirNew, TQT_SIGNAL(clicked()), TQT_SLOT(dirNew()));
-    connect( m_widget->dirRemove, TQT_SIGNAL(clicked()), TQT_SLOT(dirRemove()));
-    connect( m_widget->dirUp, TQT_SIGNAL(clicked()), TQT_SLOT(dirUp()));
-    connect( m_widget->dirDown, TQT_SIGNAL(clicked()), TQT_SLOT(dirDown()) );
-    connect( m_widget->useArtsdsp, TQT_SIGNAL(clicked()),TQT_SLOT(change()));
+    connect( m_widget->dirNew, TQ_SIGNAL(clicked()), TQ_SLOT(dirNew()));
+    connect( m_widget->dirRemove, TQ_SIGNAL(clicked()), TQ_SLOT(dirRemove()));
+    connect( m_widget->dirUp, TQ_SIGNAL(clicked()), TQ_SLOT(dirUp()));
+    connect( m_widget->dirDown, TQ_SIGNAL(clicked()), TQ_SLOT(dirDown()) );
+    connect( m_widget->useArtsdsp, TQ_SIGNAL(clicked()),TQ_SLOT(change()));
     connect( m_widget->dirEdit,
-             TQT_SIGNAL(textChanged(const TQString&)),
-             TQT_SLOT(dirEdited(const TQString &)) );
+             TQ_SIGNAL(textChanged(const TQString&)),
+             TQ_SLOT(dirEdited(const TQString &)) );
 
     connect( m_widget->dirList,
-             TQT_SIGNAL(executed(TQListBoxItem*)),
-             TQT_SLOT(dirSelect(TQListBoxItem*)) );
+             TQ_SIGNAL(executed(TQListBoxItem*)),
+             TQ_SLOT(dirSelect(TQListBoxItem*)) );
 
     connect( m_widget->dirList,
-             TQT_SIGNAL(selectionChanged(TQListBoxItem*)),
-             TQT_SLOT(dirSelect(TQListBoxItem*)) );
+             TQ_SIGNAL(selectionChanged(TQListBoxItem*)),
+             TQ_SLOT(dirSelect(TQListBoxItem*)) );
 }
 
 
@@ -605,7 +605,7 @@ PluginDomainDialog::PluginDomainDialog(TQWidget *parent) :
   hl->addStretch(10);
 
   TQPushButton *closePB = new KPushButton(KStdGuiItem::close(),this);
-  connect(closePB,TQT_SIGNAL(clicked()),TQT_SLOT(slotClose()));
+  connect(closePB,TQ_SIGNAL(clicked()),TQ_SLOT(slotClose()));
   hl->addWidget(closePB);
   thisLayout->addLayout(hl);
 }

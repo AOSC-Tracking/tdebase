@@ -51,12 +51,12 @@ KMiscHTMLOptions::KMiscHTMLOptions(TDEConfig *config, TQString group, TQWidget *
     m_pAdvancedAddBookmarkCheckBox = new TQCheckBox(i18n( "Ask for name and folder when adding bookmarks" ), bgBookmarks);
     TQWhatsThis::add( m_pAdvancedAddBookmarkCheckBox, i18n( "If this box is checked, Konqueror will allow you to"
                                                         " change the title of the bookmark and choose a folder in which to store it when you add a new bookmark." ) );
-    connect(m_pAdvancedAddBookmarkCheckBox, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
+    connect(m_pAdvancedAddBookmarkCheckBox, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
 
     m_pOnlyMarkedBookmarksCheckBox = new TQCheckBox(i18n( "Show only marked bookmarks in bookmark toolbar" ), bgBookmarks);
     TQWhatsThis::add( m_pOnlyMarkedBookmarksCheckBox, i18n( "If this box is checked, Konqueror will show only those"
                                                          " bookmarks in the bookmark toolbar which you have marked to do so in the bookmark editor." ) );
-    connect(m_pOnlyMarkedBookmarksCheckBox, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
+    connect(m_pOnlyMarkedBookmarksCheckBox, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
 
     lay->addMultiCellWidget( bgBookmarks, row, row, 0, 1 );
     row++;
@@ -67,14 +67,14 @@ KMiscHTMLOptions::KMiscHTMLOptions(TDEConfig *config, TQString group, TQWidget *
     m_pFormCompletionCheckBox = new TQCheckBox(i18n( "Enable com&pletion of forms" ), bgForm);
     TQWhatsThis::add( m_pFormCompletionCheckBox, i18n( "If this box is checked, Konqueror will remember"
                                                         " the data you enter in web forms and suggest it in similar fields for all forms." ) );
-    connect(m_pFormCompletionCheckBox, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
+    connect(m_pFormCompletionCheckBox, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
 
     m_pMaxFormCompletionItems = new KIntNumInput( bgForm );
     m_pMaxFormCompletionItems->setLabel( i18n( "&Maximum completions:" ) );
     m_pMaxFormCompletionItems->setRange( 0, 100 );
     TQWhatsThis::add( m_pMaxFormCompletionItems,
         i18n( "Here you can select how many values Konqueror will remember for a form field." ) );
-    connect(m_pMaxFormCompletionItems, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotChanged()));
+    connect(m_pMaxFormCompletionItems, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotChanged()));
 
     lay->addMultiCellWidget( bgForm, row, row, 0, 1 );
     row++;
@@ -86,19 +86,19 @@ KMiscHTMLOptions::KMiscHTMLOptions(TDEConfig *config, TQString group, TQWidget *
     m_cbCursor = new TQCheckBox(i18n("Chan&ge cursor over links"), bgMouse );
     TQWhatsThis::add( m_cbCursor, i18n("If this option is set, the shape of the cursor will change "
        "(usually to a hand) if it is moved over a hyperlink.") );
-    connect(m_cbCursor, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
+    connect(m_cbCursor, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
 
     m_pOpenMiddleClick = new TQCheckBox( i18n ("M&iddle click opens URL in selection" ), bgMouse );
     TQWhatsThis::add( m_pOpenMiddleClick, i18n (
       "If this box is checked, you can open the URL in the selection by middle clicking on a "
       "Konqueror view." ) );
-    connect(m_pOpenMiddleClick, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
+    connect(m_pOpenMiddleClick, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
 
     m_pBackRightClick = new TQCheckBox( i18n( "Right click goes &back in history" ), bgMouse );
     TQWhatsThis::add( m_pBackRightClick, i18n(
       "If this box is checked, you can go back in history by right clicking on a Konqueror view. "
       "To access the context menu, press the right mouse button and move." ) );
-    connect(m_pBackRightClick, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
+    connect(m_pBackRightClick, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
 
     lay->addMultiCellWidget( bgMouse, row, row, 0, 1 );
     row++;
@@ -107,26 +107,26 @@ KMiscHTMLOptions::KMiscHTMLOptions(TDEConfig *config, TQString group, TQWidget *
 
     m_pAutoLoadImagesCheckBox = new TQCheckBox( i18n( "A&utomatically load images"), this );
     TQWhatsThis::add( m_pAutoLoadImagesCheckBox, i18n( "If this box is checked, Konqueror will automatically load any images that are embedded in a web page. Otherwise, it will display placeholders for the images, and you can then manually load the images by clicking on the image button.<br>Unless you have a very slow network connection, you will probably want to check this box to enhance your browsing experience." ) );
-    connect(m_pAutoLoadImagesCheckBox, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
+    connect(m_pAutoLoadImagesCheckBox, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
     lay->addMultiCellWidget( m_pAutoLoadImagesCheckBox, row, row, 0, 1 );
     row++;
 
     m_pEnableFavIconCheckBox = new TQCheckBox( i18n( "Enable &favicons"), this );
     TQWhatsThis::add( m_pEnableFavIconCheckBox, i18n( "If this box is checked, Konqueror will automatically load and display favicon images that are associated with a web page. These images appear in the Location bar. Otherwise a generic image will appear." ) );
-    connect(m_pEnableFavIconCheckBox, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
+    connect(m_pEnableFavIconCheckBox, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
     lay->addMultiCellWidget( m_pEnableFavIconCheckBox, row, row, 0, 1 );
     row++;
 
     m_pUnfinishedImageFrameCheckBox = new TQCheckBox( i18n( "Dra&w frame around not completely loaded images"), this );
     TQWhatsThis::add( m_pUnfinishedImageFrameCheckBox, i18n( "If this box is checked, Konqueror will draw a frame as placeholder around not yet fully loaded images that are embedded in a web page.<br>Especially if you have a slow network connection, you will probably want to check this box to enhance your browsing experience." ) );
-    connect(m_pUnfinishedImageFrameCheckBox, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
+    connect(m_pUnfinishedImageFrameCheckBox, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
     lay->addMultiCellWidget( m_pUnfinishedImageFrameCheckBox, row, row, 0, 1 );
     row++;
 
     m_pAutoRedirectCheckBox = new TQCheckBox( i18n( "Allow automatic delayed &reloading/redirecting"), this );
     TQWhatsThis::add( m_pAutoRedirectCheckBox,
     i18n( "Some web pages request an automatic reload or redirection after a certain period of time. By unchecking this box Konqueror will ignore these requests." ) );
-    connect(m_pAutoRedirectCheckBox, TQT_SIGNAL(clicked()), TQT_SLOT(slotChanged()));
+    connect(m_pAutoRedirectCheckBox, TQ_SIGNAL(clicked()), TQ_SLOT(slotChanged()));
     lay->addMultiCellWidget( m_pAutoRedirectCheckBox, row, row, 0, 1 );
     row++;
 
@@ -153,7 +153,7 @@ KMiscHTMLOptions::KMiscHTMLOptions(TDEConfig *config, TQString group, TQWidget *
 	    "</ul><br><i>Note: The site's CSS definitions can override this value</i>");
     TQWhatsThis::add( label, whatsThis);
     TQWhatsThis::add( m_pUnderlineCombo, whatsThis);
-    connect(m_pUnderlineCombo, TQT_SIGNAL(activated(int)), TQT_SLOT(slotChanged()));
+    connect(m_pUnderlineCombo, TQ_SIGNAL(activated(int)), TQ_SLOT(slotChanged()));
 
 
 
@@ -172,7 +172,7 @@ KMiscHTMLOptions::KMiscHTMLOptions(TDEConfig *config, TQString group, TQWidget *
 	    "<li><b>Show only once</b>: Show all animations completely but do not repeat them.</li></ul>");
     TQWhatsThis::add( label, whatsThis);
     TQWhatsThis::add( m_pAnimationsCombo, whatsThis);
-    connect(m_pAnimationsCombo, TQT_SIGNAL(activated(int)), TQT_SLOT(slotChanged()));
+    connect(m_pAnimationsCombo, TQ_SIGNAL(activated(int)), TQ_SLOT(slotChanged()));
 
     label = new TQLabel( i18n("Sm&ooth scrolling"), this);
     m_pSmoothScrollingCombo = new TQComboBox( false, this );
@@ -190,7 +190,7 @@ KMiscHTMLOptions::KMiscHTMLOptions(TDEConfig *config, TQString group, TQWidget *
 	    "</ul>");
     TQWhatsThis::add( label, whatsThis);
     TQWhatsThis::add( m_pSmoothScrollingCombo, whatsThis);
-    connect(m_pSmoothScrollingCombo, TQT_SIGNAL(activated(int)), TQT_SLOT(slotChanged()));
+    connect(m_pSmoothScrollingCombo, TQ_SIGNAL(activated(int)), TQ_SLOT(slotChanged()));
 
 
     lay->setRowStretch(row, 1);

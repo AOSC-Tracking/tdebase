@@ -65,7 +65,7 @@ KBackground::KBackground(TQWidget *parent, const char *name, const TQStringList 
     // reparenting that is done.
     setAcceptDrops(true);
 
-    connect(m_base, TQT_SIGNAL(changed(bool)), TQT_SIGNAL(changed(bool)));
+    connect(m_base, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));
 
     TDEAboutData *about =
     new TDEAboutData(I18N_NOOP("kcmbackground"), I18N_NOOP("TDE Background Control Module"),

@@ -61,8 +61,8 @@ HtmlSearchConfig::HtmlSearchConfig(TQWidget *parent, const char *name)
   url->setText(i18n("ht://dig home page"));
   url->setAlignment(TQLabel::AlignHCenter);
   grid->addMultiCellWidget(url, 2,2, 0, 1);
-  connect(url, TQT_SIGNAL(leftClickedURL(const TQString&)),
-      this, TQT_SLOT(urlClicked(const TQString&)));
+  connect(url, TQ_SIGNAL(leftClickedURL(const TQString&)),
+      this, TQ_SLOT(urlClicked(const TQString&)));
 
   gb = new TQGroupBox(i18n("Program Locations"), this);
 
@@ -75,8 +75,8 @@ HtmlSearchConfig::HtmlSearchConfig(TQWidget *parent, const char *name)
   l->setBuddy( mHtsearchUrl );
   grid->addWidget(l, 1,0);
   grid->addWidget(mHtsearchUrl, 1,1);
-  connect( mHtsearchUrl->lineEdit(), TQT_SIGNAL( textChanged( const TQString & ) ),
-           TQT_SIGNAL( changed() ) );
+  connect( mHtsearchUrl->lineEdit(), TQ_SIGNAL( textChanged( const TQString & ) ),
+           TQ_SIGNAL( changed() ) );
   TQString wtstr = i18n( "Enter the URL of the htsearch CGI program." );
   TQWhatsThis::add( mHtsearchUrl, wtstr );
   TQWhatsThis::add( l, wtstr );
@@ -86,8 +86,8 @@ HtmlSearchConfig::HtmlSearchConfig(TQWidget *parent, const char *name)
   l->setBuddy( mIndexerBin );
   grid->addWidget(l, 2,0);
   grid->addWidget(mIndexerBin, 2,1);
-  connect( mIndexerBin->lineEdit(), TQT_SIGNAL( textChanged( const TQString & ) ),
-           TQT_SIGNAL( changed() ) );
+  connect( mIndexerBin->lineEdit(), TQ_SIGNAL( textChanged( const TQString & ) ),
+           TQ_SIGNAL( changed() ) );
   wtstr = i18n( "Enter the path to your htdig indexer program here." );
   TQWhatsThis::add( mIndexerBin, wtstr );
   TQWhatsThis::add( l, wtstr );
@@ -98,8 +98,8 @@ HtmlSearchConfig::HtmlSearchConfig(TQWidget *parent, const char *name)
   l->setBuddy( mDbDir );
   grid->addWidget(l, 3,0);
   grid->addWidget(mDbDir, 3,1);
-  connect( mDbDir->lineEdit(), TQT_SIGNAL( textChanged( const TQString & ) ),
-           TQT_SIGNAL( changed() ) );
+  connect( mDbDir->lineEdit(), TQ_SIGNAL( textChanged( const TQString & ) ),
+           TQ_SIGNAL( changed() ) );
   wtstr = i18n( "Enter the path to the htdig database folder." );
   TQWhatsThis::add( mDbDir, wtstr );
   TQWhatsThis::add( l, wtstr );

@@ -48,7 +48,7 @@ LookAndFeelConfig::LookAndFeelConfig(TQWidget *parent, const char *name)
     layout->addWidget(lookandfeeltab);
     layout->addStretch();
 
-    connect(lookandfeeltab, TQT_SIGNAL(changed()), TQT_SLOT(configChanged()));
+    connect(lookandfeeltab, TQ_SIGNAL(changed()), TQ_SLOT(configChanged()));
 
     load();
 }

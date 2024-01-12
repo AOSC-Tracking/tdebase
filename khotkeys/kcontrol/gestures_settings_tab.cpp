@@ -39,12 +39,12 @@ Gestures_settings_tab::Gestures_settings_tab( TQWidget* parent_P, const char* na
     mouse_button_combo->insertItem( i18n( "Button 8 (if available)" ), 6 );
     mouse_button_combo->insertItem( i18n( "Button 9 (if available)" ), 7 );
     // KHotKeys::Module::changed()
-    connect( mouse_gestures_globally, TQT_SIGNAL( clicked()),
-        module, TQT_SLOT( changed()));
-    connect( mouse_button_combo, TQT_SIGNAL( activated( int )),
-        module, TQT_SLOT( changed()));
-    connect( timeout_input, TQT_SIGNAL( valueChanged( int )),
-        module, TQT_SLOT( changed()));
+    connect( mouse_gestures_globally, TQ_SIGNAL( clicked()),
+        module, TQ_SLOT( changed()));
+    connect( mouse_button_combo, TQ_SIGNAL( activated( int )),
+        module, TQ_SLOT( changed()));
+    connect( timeout_input, TQ_SIGNAL( valueChanged( int )),
+        module, TQ_SLOT( changed()));
     }
 
 void Gestures_settings_tab::read_data()

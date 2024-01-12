@@ -123,8 +123,8 @@ PluginManager::~PluginManager()
     AppletInfo::Dict::const_iterator it = _dict.constBegin();
     for (; it != _dict.constEnd(); ++it)
     {
-        disconnect(it.key(), TQT_SIGNAL(destroyed( TQObject*)),
-                   this, TQT_SLOT(slotPluginDestroyed(TQObject*)));
+        disconnect(it.key(), TQ_SIGNAL(destroyed( TQObject*)),
+                   this, TQ_SLOT(slotPluginDestroyed(TQObject*)));
         delete it.data();
     }
 
@@ -160,8 +160,8 @@ KPanelApplet* PluginManager::loadApplet(const AppletInfo& info,
     if (applet)
     {
         _dict.insert( applet, new AppletInfo( info ) );
-        connect( applet, TQT_SIGNAL( destroyed( TQObject* ) ),
-                 TQT_SLOT( slotPluginDestroyed( TQObject* ) ) );
+        connect( applet, TQ_SIGNAL( destroyed( TQObject* ) ),
+                 TQ_SLOT( slotPluginDestroyed( TQObject* ) ) );
     }
 
     return applet;
@@ -198,8 +198,8 @@ KPanelExtension* PluginManager::loadExtension(
 
     if( extension ) {
         _dict.insert( extension, new AppletInfo( info ) );
-        connect( extension, TQT_SIGNAL( destroyed( TQObject* ) ),
-                 TQT_SLOT( slotPluginDestroyed( TQObject* ) ) );
+        connect( extension, TQ_SIGNAL( destroyed( TQObject* ) ),
+                 TQ_SLOT( slotPluginDestroyed( TQObject* ) ) );
     }
 
     return extension;
@@ -360,7 +360,7 @@ LibUnloader::LibUnloader( const TQString &libName, TQObject *parent )
 {
     // NOTE: this doesn't work on kicker shutdown because the timer never gets
     //       fired.
-    TQTimer::singleShot( 0, this, TQT_SLOT( unload() ) );
+    TQTimer::singleShot( 0, this, TQ_SLOT( unload() ) );
 }
 
 void LibUnloader::unload( const TQString &libName )

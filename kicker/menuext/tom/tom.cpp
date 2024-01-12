@@ -217,7 +217,7 @@ void TOM::initializeRecentDocs()
 {
     m_recentDocsMenu->clear();
     m_recentDocsMenu->insertItem(SmallIconSet("history_clear"), i18n("Clear History"),
-                                 this, TQT_SLOT(clearRecentDocHistory()));
+                                 this, TQ_SLOT(clearRecentDocHistory()));
     m_recentDocsMenu->insertSeparator();
 
     m_recentDocURLs = TDERecentDocument::recentDocuments();
@@ -365,13 +365,13 @@ int TOM::appendTaskGroup(TDEConfig& config, bool inSubMenu)
         return 0;
     }
 
-    connect(taskGroup, TQT_SIGNAL(activated(int)), this, TQT_SLOT(runTask(int)));
+    connect(taskGroup, TQ_SIGNAL(activated(int)), this, TQ_SLOT(runTask(int)));
     // so we have an actual task group menu with tasks, let's add it
 
     if (inSubMenu)
     {
-        TQObject::connect(taskGroup, TQT_SIGNAL(aboutToShowContextMenu(TDEPopupMenu*, int, TQPopupMenu*)),
-                         this, TQT_SLOT(contextualizeRMBmenu(TDEPopupMenu*, int, TQPopupMenu*)));
+        TQObject::connect(taskGroup, TQ_SIGNAL(aboutToShowContextMenu(TDEPopupMenu*, int, TQPopupMenu*)),
+                         this, TQ_SLOT(contextualizeRMBmenu(TDEPopupMenu*, int, TQPopupMenu*)));
 
         m_submenus.append(taskGroup);
 
@@ -389,7 +389,7 @@ int TOM::appendTaskGroup(TDEConfig& config, bool inSubMenu)
             rmbMenu->insertItem(title, contextMenuTitleID);
             rmbMenu->insertItem(i18n("Add This Task to Panel"));
             rmbMenu->insertItem(i18n("Modify This Task..."));
-            rmbMenu->insertItem(i18n("Remove This Task..."), this, TQT_SLOT(removeTask()));
+            rmbMenu->insertItem(i18n("Remove This Task..."), this, TQ_SLOT(removeTask()));
             rmbMenu->insertItem(i18n("Insert New Task..."));
         }
     }
@@ -432,7 +432,7 @@ void TOM::initialize()
     }
     else
     {
-      connect(kapp, TQT_SIGNAL(tdedisplayPaletteChanged()), TQT_SLOT(paletteChanged()));
+      connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(paletteChanged()));
     }*/
 
     // TASKS
@@ -486,7 +486,7 @@ void TOM::initialize()
     }
     else if (kapp->authorize("run_command"))
     {
-        insertItem(DesktopIcon("system-run", TDEIcon::SizeMedium), i18n("Run Command..."), this, TQT_SLOT(runCommand()));
+        insertItem(DesktopIcon("system-run", TDEIcon::SizeMedium), i18n("Run Command..."), this, TQ_SLOT(runCommand()));
     }
 
     // RECENTLY USED ITEMS
@@ -494,8 +494,8 @@ void TOM::initialize()
 
     m_recentDocsMenu = new TDEPopupMenu(this, "recentDocs");
     m_recentDocsMenu->setFont(m_largerFont);
-    connect(m_recentDocsMenu, TQT_SIGNAL(aboutToShow()), this, TQT_SLOT(initializeRecentDocs()));
-    connect(m_recentDocsMenu, TQT_SIGNAL(activated(int)), this, TQT_SLOT(openRecentDocument(int)));
+    connect(m_recentDocsMenu, TQ_SIGNAL(aboutToShow()), this, TQ_SLOT(initializeRecentDocs()));
+    connect(m_recentDocsMenu, TQ_SIGNAL(activated(int)), this, TQ_SLOT(openRecentDocument(int)));
     insertItem(DesktopIcon("text-x-generic", TDEIcon::SizeMedium), i18n("Recent Documents"), m_recentDocsMenu);
     m_submenus.append(m_recentDocsMenu);
 
@@ -512,7 +512,7 @@ void TOM::initialize()
     // if we have no destinations, put the run command here
     if (numDests == 0 && kapp->authorize("run_command"))
     {
-        insertItem(DesktopIcon("system-run", TDEIcon::SizeMedium), i18n("Run Command..."), this, TQT_SLOT(runCommand()));
+        insertItem(DesktopIcon("system-run", TDEIcon::SizeMedium), i18n("Run Command..."), this, TQ_SLOT(runCommand()));
     }
 
 
@@ -564,7 +564,7 @@ void TOM::initialize()
     }
 
     insertItem(DesktopIcon("system-log-out", TDEIcon::SizeMedium),
-               i18n("Logout %1").arg(username), this, TQT_SLOT(logout()));
+               i18n("Logout %1").arg(username), this, TQ_SLOT(logout()));
 }
 
 void TOM::reload()

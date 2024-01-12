@@ -36,30 +36,30 @@ KonqSideBarWebModule::KonqSideBarWebModule(TDEInstance *instance, TQObject *pare
 	: KonqSidebarPlugin(instance, parent, widgetParent, desktopName, name)
 {
 	_htmlPart = new TDEHTMLSideBar(universalMode());
-	connect(_htmlPart, TQT_SIGNAL(reload()), this, TQT_SLOT(reload()));
-	connect(_htmlPart, TQT_SIGNAL(completed()), this, TQT_SLOT(pageLoaded()));
+	connect(_htmlPart, TQ_SIGNAL(reload()), this, TQ_SLOT(reload()));
+	connect(_htmlPart, TQ_SIGNAL(completed()), this, TQ_SLOT(pageLoaded()));
 	connect(_htmlPart,
-		TQT_SIGNAL(setWindowCaption(const TQString&)),
+		TQ_SIGNAL(setWindowCaption(const TQString&)),
 		this,
-		TQT_SLOT(setTitle(const TQString&)));
+		TQ_SLOT(setTitle(const TQString&)));
 	connect(_htmlPart,
-		TQT_SIGNAL(openURLRequest(const TQString&, KParts::URLArgs)),
+		TQ_SIGNAL(openURLRequest(const TQString&, KParts::URLArgs)),
 		this,
-		TQT_SLOT(urlClicked(const TQString&, KParts::URLArgs)));
+		TQ_SLOT(urlClicked(const TQString&, KParts::URLArgs)));
 	connect(_htmlPart->browserExtension(),
-		TQT_SIGNAL(openURLRequest(const KURL&, const KParts::URLArgs&)),
+		TQ_SIGNAL(openURLRequest(const KURL&, const KParts::URLArgs&)),
 		this,
-		TQT_SLOT(formClicked(const KURL&, const KParts::URLArgs&)));
+		TQ_SLOT(formClicked(const KURL&, const KParts::URLArgs&)));
 	connect(_htmlPart,
-		TQT_SIGNAL(setAutoReload()), this, TQT_SLOT( setAutoReload() ));
+		TQ_SIGNAL(setAutoReload()), this, TQ_SLOT( setAutoReload() ));
 	connect(_htmlPart,
-		TQT_SIGNAL(openURLNewWindow(const TQString&, KParts::URLArgs)),
+		TQ_SIGNAL(openURLNewWindow(const TQString&, KParts::URLArgs)),
 		this,
-		TQT_SLOT(urlNewWindow(const TQString&, KParts::URLArgs)));
+		TQ_SLOT(urlNewWindow(const TQString&, KParts::URLArgs)));
 	connect(_htmlPart,
-		TQT_SIGNAL(submitFormRequest(const char*,const TQString&,const TQByteArray&,const TQString&,const TQString&,const TQString&)),
+		TQ_SIGNAL(submitFormRequest(const char*,const TQString&,const TQByteArray&,const TQString&,const TQString&,const TQString&)),
 		this,
-		TQT_SIGNAL(submitFormRequest(const char*,const TQString&,const TQByteArray&,const TQString&,const TQString&,const TQString&)));
+		TQ_SIGNAL(submitFormRequest(const char*,const TQString&,const TQByteArray&,const TQString&,const TQString&,const TQString&)));
 
 	_desktopName = desktopName;
 
@@ -69,7 +69,7 @@ KonqSideBarWebModule::KonqSideBarWebModule(TDEInstance *instance, TQObject *pare
 	_url = ksc.readPathEntry("URL");
 	_htmlPart->openURL(_url );
 	// Must load this delayed
-	TQTimer::singleShot(0, this, TQT_SLOT(loadFavicon()));
+	TQTimer::singleShot(0, this, TQ_SLOT(loadFavicon()));
 }
 
 
@@ -176,7 +176,7 @@ void KonqSideBarWebModule::setTitle(const TQString& title) {
 
 void KonqSideBarWebModule::pageLoaded() {
 	if( reloadTimeout > 0 ) {
-		TQTimer::singleShot( reloadTimeout, this, TQT_SLOT( reload() ) );
+		TQTimer::singleShot( reloadTimeout, this, TQ_SLOT( reload() ) );
 	}
 }
 

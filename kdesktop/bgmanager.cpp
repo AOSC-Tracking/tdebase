@@ -97,40 +97,40 @@ KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* twinModule
         m_Cache[i]->hash = 0;
         m_Cache[i]->exp_from = -1;
         m_Renderer.insert (i, new KVirtualBGRenderer(i,m_pConfig));
-        connect(m_Renderer[i], TQT_SIGNAL(imageDone(int)), TQT_SLOT(slotImageDone(int)));
+        connect(m_Renderer[i], TQ_SIGNAL(imageDone(int)), TQ_SLOT(slotImageDone(int)));
         m_Renderer[i]->enableTiling( true ); // optimize
     }
 
 #ifdef COMPOSITE
     m_tPixmap = new KPixmap(kapp->desktop()->size());
     m_tPixmap->fill(TQColor(0, 0x0));
-    connect(myApp, TQT_SIGNAL(cmBackgroundChanged( bool )),
-            TQT_SLOT(slotCmBackgroundChanged( bool )));
+    connect(myApp, TQ_SIGNAL(cmBackgroundChanged( bool )),
+            TQ_SLOT(slotCmBackgroundChanged( bool )));
 #endif
 
     configure();
 
     m_pTimer = new TQTimer(this);
-    connect(m_pTimer, TQT_SIGNAL(timeout()), TQT_SLOT(slotTimeout()));
+    connect(m_pTimer, TQ_SIGNAL(timeout()), TQ_SLOT(slotTimeout()));
     m_pTimer->start( 60000 );
 
     /*CrossFade's config*/
     m_crossTimer = new TQTimer(this);
-    connect(m_crossTimer, TQT_SIGNAL(timeout()), TQT_SLOT(slotCrossFadeTimeout()));
+    connect(m_crossTimer, TQ_SIGNAL(timeout()), TQ_SLOT(slotCrossFadeTimeout()));
     resizingDesktop = true;
     /*Ends here*/
 
 
-    connect(m_pKwinmodule, TQT_SIGNAL(currentDesktopChanged(int)),
-	    TQT_SLOT(slotChangeDesktop(int)));
-    connect(m_pKwinmodule, TQT_SIGNAL(numberOfDesktopsChanged(int)),
-	    TQT_SLOT(slotChangeNumberOfDesktops(int)));
-    connect(m_pKwinmodule, TQT_SIGNAL(currentDesktopViewportChanged(int, const TQPoint&)),
-            TQT_SLOT(slotChangeViewport(int, const TQPoint&)));
+    connect(m_pKwinmodule, TQ_SIGNAL(currentDesktopChanged(int)),
+	    TQ_SLOT(slotChangeDesktop(int)));
+    connect(m_pKwinmodule, TQ_SIGNAL(numberOfDesktopsChanged(int)),
+	    TQ_SLOT(slotChangeNumberOfDesktops(int)));
+    connect(m_pKwinmodule, TQ_SIGNAL(currentDesktopViewportChanged(int, const TQPoint&)),
+            TQ_SLOT(slotChangeViewport(int, const TQPoint&)));
 
 
 #if (TQT_VERSION-0 >= 0x030200)
-    connect( kapp->desktop(), TQT_SIGNAL( resized( int )), TQT_SLOT( desktopResized())); // RANDR support
+    connect( kapp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized())); // RANDR support
 #endif
 
     TQSize s(m_pKwinmodule->numberOfViewports(m_pKwinmodule->currentDesktop()));
@@ -338,7 +338,7 @@ void KBackgroundManager::slotChangeNumberOfDesktops(int num)
 	    m_Cache[i]->hash = 0;
 	    m_Cache[i]->exp_from = -1;
             m_Renderer.insert(i, new KVirtualBGRenderer(i,m_pConfig));
-	    connect(m_Renderer[i], TQT_SIGNAL(imageDone(int)), TQT_SLOT(slotImageDone(int)));
+	    connect(m_Renderer[i], TQ_SIGNAL(imageDone(int)), TQ_SLOT(slotImageDone(int)));
             m_Renderer[i]->enableTiling( true ); // optimize
 	}
     }
@@ -542,7 +542,7 @@ void KBackgroundManager::setPixmap(KPixmap *pm, int hash, int desk)
        if( !root_cleared )
        { // clear the root window pixmap set by tdm
           root_cleared = true;
-	  TQTimer::singleShot( 0, this, TQT_SLOT( clearRoot()));
+	  TQTimer::singleShot( 0, this, TQ_SLOT( clearRoot()));
           // but make the pixmap visible until m_pDesktop is visible
           TDEApplication::desktop()->screen()->setErasePixmap(*ep);
           TDEApplication::desktop()->screen()->erase();
@@ -681,7 +681,7 @@ void KBackgroundManager::slotImageDone(int desk)
         {
             m_bBgInitDone = true;
             emit initDone();
-            TQTimer::singleShot( 30000, this, TQT_SLOT( saveImages()));
+            TQTimer::singleShot( 30000, this, TQ_SLOT( saveImages()));
             do_cleanup = false;
         }
     }

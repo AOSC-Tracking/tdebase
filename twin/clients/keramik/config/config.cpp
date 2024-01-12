@@ -55,10 +55,10 @@ KeramikConfig::KeramikConfig( TDEConfig* conf, TQWidget* parent )
 	c = new TDEConfig( "twinkeramikrc" );
 	
 	ui = new KeramikConfigUI( parent );
-	connect( ui->showAppIcons,    TQT_SIGNAL(clicked()), TQT_SIGNAL(changed()) );
-	connect( ui->smallCaptions,   TQT_SIGNAL(clicked()), TQT_SIGNAL(changed()) );
-	connect( ui->largeGrabBars,   TQT_SIGNAL(clicked()), TQT_SIGNAL(changed()) );
-	connect( ui->useShadowedText, TQT_SIGNAL(clicked()), TQT_SIGNAL(changed()) );
+	connect( ui->showAppIcons,    TQ_SIGNAL(clicked()), TQ_SIGNAL(changed()) );
+	connect( ui->smallCaptions,   TQ_SIGNAL(clicked()), TQ_SIGNAL(changed()) );
+	connect( ui->largeGrabBars,   TQ_SIGNAL(clicked()), TQ_SIGNAL(changed()) );
+	connect( ui->useShadowedText, TQ_SIGNAL(clicked()), TQ_SIGNAL(changed()) );
 
 	load( conf );
 	ui->show();

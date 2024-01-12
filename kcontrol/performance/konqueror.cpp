@@ -51,9 +51,9 @@ Konqueror::Konqueror( TQWidget* parent_P )
               "thus reducing resource requirements."
               "<p>Be aware that this also means that, if something goes wrong, "
               "all your browsing windows will be closed simultaneously." ));
-    connect( rb_never_reuse, TQT_SIGNAL( clicked()), TQT_SIGNAL( changed()));
-    connect( rb_file_browsing_reuse, TQT_SIGNAL( clicked()), TQT_SIGNAL( changed()));
-    connect( rb_always_reuse, TQT_SIGNAL( clicked()), TQT_SIGNAL( changed()));
+    connect( rb_never_reuse, TQ_SIGNAL( clicked()), TQ_SIGNAL( changed()));
+    connect( rb_file_browsing_reuse, TQ_SIGNAL( clicked()), TQ_SIGNAL( changed()));
+    connect( rb_always_reuse, TQ_SIGNAL( clicked()), TQ_SIGNAL( changed()));
     rb_file_browsing_reuse->setChecked( true );
 
     TQString tmp =
@@ -77,10 +77,10 @@ Konqueror::Konqueror( TQWidget* parent_P )
               "so that windows will always open quickly."
               "<p><b>Warning:</b> In some cases, it is actually possible that this will "
               "reduce perceived performance." ));
-    connect( sb_preload_count, TQT_SIGNAL( valueChanged( int )), TQT_SLOT( preload_count_changed( int )));
-    connect( sb_preload_count, TQT_SIGNAL( valueChanged( int )), TQT_SIGNAL( changed()));
-    connect( cb_preload_on_startup, TQT_SIGNAL( clicked()), TQT_SIGNAL( changed()));
-    connect( cb_always_have_preloaded, TQT_SIGNAL( clicked()), TQT_SIGNAL( changed()));
+    connect( sb_preload_count, TQ_SIGNAL( valueChanged( int )), TQ_SLOT( preload_count_changed( int )));
+    connect( sb_preload_count, TQ_SIGNAL( valueChanged( int )), TQ_SIGNAL( changed()));
+    connect( cb_preload_on_startup, TQ_SIGNAL( clicked()), TQ_SIGNAL( changed()));
+    connect( cb_always_have_preloaded, TQ_SIGNAL( clicked()), TQ_SIGNAL( changed()));
     defaults();
     }
 

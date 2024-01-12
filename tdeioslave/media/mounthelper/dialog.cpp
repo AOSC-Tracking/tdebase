@@ -36,7 +36,7 @@ Dialog::Dialog(TQString url, TQString iconName) :
 	TQPixmap pixmap = TDEGlobal::iconLoader()->loadIcon(iconName, TDEIcon::NoGroup, TDEIcon::SizeLarge);
 	unlockDialog->encryptedIcon->setPixmap( pixmap );
 
-	connect(unlockDialog->passwordEdit, TQT_SIGNAL (textChanged(const TQString &)), this, TQT_SLOT (slotPasswordChanged(const TQString &)));
+	connect(unlockDialog->passwordEdit, TQ_SIGNAL (textChanged(const TQString &)), this, TQ_SLOT (slotPasswordChanged(const TQString &)));
 
 	setMainWidget(unlockDialog);
 }

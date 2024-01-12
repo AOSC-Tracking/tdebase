@@ -114,12 +114,12 @@ void SearchHandler::search( DocEntry *entry, const TQStringList &words,
       *proc << arg.utf8();
     }
 
-    connect( proc, TQT_SIGNAL( receivedStdout( TDEProcess *, char *, int ) ),
-             TQT_SLOT( searchStdout( TDEProcess *, char *, int ) ) );
-    connect( proc, TQT_SIGNAL( receivedStderr( TDEProcess *, char *, int ) ),
-             TQT_SLOT( searchStderr( TDEProcess *, char *, int ) ) );
-    connect( proc, TQT_SIGNAL( processExited( TDEProcess * ) ),
-             TQT_SLOT( searchExited( TDEProcess * ) ) );
+    connect( proc, TQ_SIGNAL( receivedStdout( TDEProcess *, char *, int ) ),
+             TQ_SLOT( searchStdout( TDEProcess *, char *, int ) ) );
+    connect( proc, TQ_SIGNAL( receivedStderr( TDEProcess *, char *, int ) ),
+             TQ_SLOT( searchStderr( TDEProcess *, char *, int ) ) );
+    connect( proc, TQ_SIGNAL( processExited( TDEProcess * ) ),
+             TQ_SLOT( searchExited( TDEProcess * ) ) );
 
     SearchJob *searchJob = new SearchJob;
     searchJob->mEntry = entry;
@@ -139,10 +139,10 @@ void SearchHandler::search( DocEntry *entry, const TQStringList &words,
     kdDebug() << "SearchHandler::search() URL: " << urlString << endl;
   
     TDEIO::TransferJob *job = TDEIO::get( KURL( urlString ) );
-    connect( job, TQT_SIGNAL( result( TDEIO::Job * ) ),
-             TQT_SLOT( slotJobResult( TDEIO::Job * ) ) );
-    connect( job, TQT_SIGNAL( data( TDEIO::Job *, const TQByteArray & ) ),
-             TQT_SLOT( slotJobData( TDEIO::Job *, const TQByteArray & ) ) );
+    connect( job, TQ_SIGNAL( result( TDEIO::Job * ) ),
+             TQ_SLOT( slotJobResult( TDEIO::Job * ) ) );
+    connect( job, TQ_SIGNAL( data( TDEIO::Job *, const TQByteArray & ) ),
+             TQ_SLOT( slotJobData( TDEIO::Job *, const TQByteArray & ) ) );
 
     SearchJob *searchJob = new SearchJob;
     searchJob->mEntry = entry;

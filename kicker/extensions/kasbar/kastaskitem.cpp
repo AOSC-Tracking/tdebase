@@ -99,17 +99,17 @@ KasTaskItem::KasTaskItem( KasTasker *parent, Task::Ptr task )
     setAttention( task->demandsAttention() );
     updateTask(false);
 
-    connect( task, TQT_SIGNAL( changed(bool) ), this, TQT_SLOT( updateTask(bool) ) );
-    connect( task, TQT_SIGNAL( activated() ), this, TQT_SLOT( startAutoThumbnail() ) );
-    connect( task, TQT_SIGNAL( deactivated() ), this, TQT_SLOT( stopAutoThumbnail() ) );
-    connect( task, TQT_SIGNAL( iconChanged() ), this, TQT_SLOT( iconChanged() ) );
-    connect( task, TQT_SIGNAL( thumbnailChanged() ), this, TQT_SLOT( iconChanged() ) );
+    connect( task, TQ_SIGNAL( changed(bool) ), this, TQ_SLOT( updateTask(bool) ) );
+    connect( task, TQ_SIGNAL( activated() ), this, TQ_SLOT( startAutoThumbnail() ) );
+    connect( task, TQ_SIGNAL( deactivated() ), this, TQ_SLOT( stopAutoThumbnail() ) );
+    connect( task, TQ_SIGNAL( iconChanged() ), this, TQ_SLOT( iconChanged() ) );
+    connect( task, TQ_SIGNAL( thumbnailChanged() ), this, TQ_SLOT( iconChanged() ) );
 
-    connect( this, TQT_SIGNAL(leftButtonClicked(TQMouseEvent *)), TQT_SLOT(toggleActivateAction()) );
-    connect( this, TQT_SIGNAL(rightButtonClicked(TQMouseEvent *)), TQT_SLOT(showWindowMenuAt(TQMouseEvent *) ) );
+    connect( this, TQ_SIGNAL(leftButtonClicked(TQMouseEvent *)), TQ_SLOT(toggleActivateAction()) );
+    connect( this, TQ_SIGNAL(rightButtonClicked(TQMouseEvent *)), TQ_SLOT(showWindowMenuAt(TQMouseEvent *) ) );
 
     attentionTimer = new TQTimer( this, "attentionTimer" );
-    connect( attentionTimer, TQT_SIGNAL( timeout() ), TQT_SLOT( checkAttention() ) );
+    connect( attentionTimer, TQ_SIGNAL( timeout() ), TQ_SLOT( checkAttention() ) );
     attentionTimer->start( CHECK_ATTENTION_DELAY );
 }
 
@@ -295,12 +295,12 @@ void KasTaskItem::startAutoThumbnail()
 
     if ( kasbar()->thumbnailUpdateDelay() > 0 ) {
 	thumbTimer = new TQTimer( this, "thumbTimer" );
-	connect( thumbTimer, TQT_SIGNAL( timeout() ), TQT_SLOT( refreshThumbnail() ) );
+	connect( thumbTimer, TQ_SIGNAL( timeout() ), TQ_SLOT( refreshThumbnail() ) );
 
 	thumbTimer->start( kasbar()->thumbnailUpdateDelay() * 1000 );
     }
 
-    TQTimer::singleShot( 200, this, TQT_SLOT( refreshThumbnail() ) );
+    TQTimer::singleShot( 200, this, TQ_SLOT( refreshThumbnail() ) );
 }
 
 void KasTaskItem::stopAutoThumbnail()
@@ -322,7 +322,7 @@ void KasTaskItem::refreshThumbnail()
     // TODO: Check if the popup obscures the window
     KasItem *i = kasbar()->itemUnderMouse();
     if ( i && i->isShowingPopup() ) {
-	TQTimer::singleShot( 200, this, TQT_SLOT( refreshThumbnail() ) );
+	TQTimer::singleShot( 200, this, TQ_SLOT( refreshThumbnail() ) );
 	return;
     }
 
@@ -333,11 +333,11 @@ void KasTaskItem::refreshThumbnail()
 void KasTaskItem::showWindowMenuAt( TQPoint p )
 {
     TaskRMBMenu *tm = new TaskRMBMenu(task_, true, kasbar());
-    tm->insertItem( i18n("To &Tray" ), this, TQT_SLOT( sendToTray() ) );
+    tm->insertItem( i18n("To &Tray" ), this, TQ_SLOT( sendToTray() ) );
     tm->insertSeparator();
     tm->insertItem( i18n("&Kasbar"), kasbar()->contextMenu() );
     tm->insertSeparator();
-    tm->insertItem( i18n("&Properties" ), this, TQT_SLOT( showPropertiesDialog() ) );
+    tm->insertItem( i18n("&Properties" ), this, TQ_SLOT( showPropertiesDialog() ) );
 
     mouseLeave();
     kasbar()->updateMouseOver();

@@ -49,10 +49,10 @@ Condition_list_widget::Condition_list_widget( TQWidget* parent_P, const char* na
     popup->insertItem( i18n( "Not_condition", "Not" ), TYPE_NOT );
     popup->insertItem( i18n( "And_condition", "And" ), TYPE_AND );
     popup->insertItem( i18n( "Or_condition", "Or" ), TYPE_OR );
-    connect( conditions_listview, TQT_SIGNAL( doubleClicked ( TQListViewItem *, const TQPoint &, int ) ),
-             this, TQT_SLOT( modify_pressed() ) );
+    connect( conditions_listview, TQ_SIGNAL( doubleClicked ( TQListViewItem *, const TQPoint &, int ) ),
+             this, TQ_SLOT( modify_pressed() ) );
 
-    connect( popup, TQT_SIGNAL( activated( int )), TQT_SLOT( new_selected( int )));
+    connect( popup, TQ_SIGNAL( activated( int )), TQ_SLOT( new_selected( int )));
     new_button->setPopup( popup );
     conditions_listview->header()->hide();
     conditions_listview->addColumn( "" );
@@ -66,14 +66,14 @@ Condition_list_widget::Condition_list_widget( TQWidget* parent_P, const char* na
     move_down_button->setEnabled( false );
     clear_data();
     // KHotKeys::Module::changed()
-    connect(new_button, TQT_SIGNAL(clicked()), module, TQT_SLOT(changed()));
-    connect(copy_button, TQT_SIGNAL(clicked()), module, TQT_SLOT(changed()));
-    connect(modify_button, TQT_SIGNAL(clicked()), module, TQT_SLOT( changed()));
-    connect(delete_button, TQT_SIGNAL(clicked()), module, TQT_SLOT( changed()));
-    connect(move_up_button, TQT_SIGNAL(clicked()), module, TQT_SLOT(changed()));
-    connect(move_down_button, TQT_SIGNAL(clicked()), module, TQT_SLOT(changed()));
-    connect(comment_lineedit, TQT_SIGNAL(textChanged(const TQString&)),
-            module, TQT_SLOT(changed()));
+    connect(new_button, TQ_SIGNAL(clicked()), module, TQ_SLOT(changed()));
+    connect(copy_button, TQ_SIGNAL(clicked()), module, TQ_SLOT(changed()));
+    connect(modify_button, TQ_SIGNAL(clicked()), module, TQ_SLOT( changed()));
+    connect(delete_button, TQ_SIGNAL(clicked()), module, TQ_SLOT( changed()));
+    connect(move_up_button, TQ_SIGNAL(clicked()), module, TQ_SLOT(changed()));
+    connect(move_down_button, TQ_SIGNAL(clicked()), module, TQ_SLOT(changed()));
+    connect(comment_lineedit, TQ_SIGNAL(textChanged(const TQString&)),
+            module, TQ_SLOT(changed()));
     }
 
 Condition_list_widget::~Condition_list_widget()

@@ -37,7 +37,7 @@ FileGroupDetails::FileGroupDetails(TQWidget *parent, const char *name )
   // The order of those two items is very important. If you change it, fix typeslistitem.cpp !
   new TQRadioButton( i18n("Show file in embedded viewer"), m_autoEmbed );
   new TQRadioButton( i18n("Show file in separate viewer"), m_autoEmbed );
-  connect(m_autoEmbed, TQT_SIGNAL( clicked( int ) ), TQT_SLOT( slotAutoEmbedClicked( int ) ));
+  connect(m_autoEmbed, TQ_SIGNAL( clicked( int ) ), TQ_SLOT( slotAutoEmbedClicked( int ) ));
 
   TQWhatsThis::add( m_autoEmbed, i18n("Here you can configure what the Konqueror file manager"
     " will do when you click on a file belonging to this group. Konqueror can display the file in"

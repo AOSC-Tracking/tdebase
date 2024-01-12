@@ -108,7 +108,7 @@ SAKDlg::SAKDlg(LockProcess *parent)
 
 	mSAKProcess = new TDEProcess;
 	*mSAKProcess << "tdmtsak";
-	connect(mSAKProcess, TQT_SIGNAL(processExited(TDEProcess*)), this, TQT_SLOT(slotSAKProcessExited()));
+	connect(mSAKProcess, TQ_SIGNAL(processExited(TDEProcess*)), this, TQ_SLOT(slotSAKProcessExited()));
 	mSAKProcess->start();
 }
 

@@ -40,10 +40,10 @@ advancedDialog::advancedDialog(TQWidget* parent, const char* name)
                   name,
                   false, false)
 {
-    connect(this, TQT_SIGNAL(applyClicked()),
-            this, TQT_SLOT(save()));
-    connect(this, TQT_SIGNAL(okClicked()),
-            this, TQT_SLOT(save()));
+    connect(this, TQ_SIGNAL(applyClicked()),
+            this, TQ_SLOT(save()));
+    connect(this, TQ_SIGNAL(okClicked()),
+            this, TQ_SLOT(save()));
 
     TQFrame* page = plainPage();
     TQVBoxLayout* layout = new TQVBoxLayout(page);
@@ -53,22 +53,22 @@ advancedDialog::advancedDialog(TQWidget* parent, const char* name)
 
     setMinimumSize( sizeHint() );
 
-    connect(m_advancedWidget->handles, TQT_SIGNAL(clicked(int)),
-            this, TQT_SLOT(changed()));
-    connect(m_advancedWidget->hideButtonSize, TQT_SIGNAL(valueChanged(int)),
-            this, TQT_SLOT(changed()));
-    connect(m_advancedWidget->tintColorB, TQT_SIGNAL(clicked()),
-            this, TQT_SLOT(changed()));
-    connect(m_advancedWidget->tintSlider, TQT_SIGNAL(valueChanged(int)),
-            this, TQT_SLOT(changed()));
-    connect(m_advancedWidget->menubarPanelTransparent, TQT_SIGNAL(clicked()),
-            this, TQT_SLOT(changed()));
-    connect(m_advancedWidget->menubarPanelBlurred, TQT_SIGNAL(clicked()),
-            this, TQT_SLOT(changed()));
-    connect(m_advancedWidget->kickerResizeHandle, TQT_SIGNAL(clicked()),
-            this, TQT_SLOT(changed()));
-    connect(m_advancedWidget->kickerDeepButtons, TQT_SIGNAL(clicked()),
-            this, TQT_SLOT(changed()));
+    connect(m_advancedWidget->handles, TQ_SIGNAL(clicked(int)),
+            this, TQ_SLOT(changed()));
+    connect(m_advancedWidget->hideButtonSize, TQ_SIGNAL(valueChanged(int)),
+            this, TQ_SLOT(changed()));
+    connect(m_advancedWidget->tintColorB, TQ_SIGNAL(clicked()),
+            this, TQ_SLOT(changed()));
+    connect(m_advancedWidget->tintSlider, TQ_SIGNAL(valueChanged(int)),
+            this, TQ_SLOT(changed()));
+    connect(m_advancedWidget->menubarPanelTransparent, TQ_SIGNAL(clicked()),
+            this, TQ_SLOT(changed()));
+    connect(m_advancedWidget->menubarPanelBlurred, TQ_SIGNAL(clicked()),
+            this, TQ_SLOT(changed()));
+    connect(m_advancedWidget->kickerResizeHandle, TQ_SIGNAL(clicked()),
+            this, TQ_SLOT(changed()));
+    connect(m_advancedWidget->kickerDeepButtons, TQ_SIGNAL(clicked()),
+            this, TQ_SLOT(changed()));
     load();
 }
 

@@ -52,26 +52,26 @@ KSocksConfig::KSocksConfig(TQWidget *parent)
   base = new SocksBase(this);
   layout->add(base);
 
-  connect(base->_c_enableSocks, TQT_SIGNAL(clicked()), this, TQT_SLOT(enableChanged()));
-  connect(base->bg, TQT_SIGNAL(clicked(int)), this, TQT_SLOT(methodChanged(int)));
+  connect(base->_c_enableSocks, TQ_SIGNAL(clicked()), this, TQ_SLOT(enableChanged()));
+  connect(base->bg, TQ_SIGNAL(clicked(int)), this, TQ_SLOT(methodChanged(int)));
 
   // The custom library
-  connect(base->_c_customPath, TQT_SIGNAL(openFileDialog(KURLRequester *)), this, TQT_SLOT(chooseCustomLib(KURLRequester *)));
-  connect(base->_c_customPath, TQT_SIGNAL(textChanged(const TQString&)),
-                     this, TQT_SLOT(customPathChanged(const TQString&)));
+  connect(base->_c_customPath, TQ_SIGNAL(openFileDialog(KURLRequester *)), this, TQ_SLOT(chooseCustomLib(KURLRequester *)));
+  connect(base->_c_customPath, TQ_SIGNAL(textChanged(const TQString&)),
+                     this, TQ_SLOT(customPathChanged(const TQString&)));
 
   // Additional libpaths
-  connect(base->_c_newPath, TQT_SIGNAL(openFileDialog(KURLRequester *)), this, TQT_SLOT(chooseCustomLib(KURLRequester *)));
-  connect(base->_c_newPath, TQT_SIGNAL(returnPressed(const TQString&)),
-          this, TQT_SLOT(addThisLibrary(const TQString&)));
-  connect(base->_c_newPath, TQT_SIGNAL(textChanged(const TQString&)),
-          this, TQT_SLOT(libTextChanged(const TQString&)));
-  connect(base->_c_add, TQT_SIGNAL(clicked()), this, TQT_SLOT(addLibrary()));
-  connect(base->_c_remove, TQT_SIGNAL(clicked()), this, TQT_SLOT(removeLibrary()));
-  connect(base->_c_libs, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(libSelection()));
+  connect(base->_c_newPath, TQ_SIGNAL(openFileDialog(KURLRequester *)), this, TQ_SLOT(chooseCustomLib(KURLRequester *)));
+  connect(base->_c_newPath, TQ_SIGNAL(returnPressed(const TQString&)),
+          this, TQ_SLOT(addThisLibrary(const TQString&)));
+  connect(base->_c_newPath, TQ_SIGNAL(textChanged(const TQString&)),
+          this, TQ_SLOT(libTextChanged(const TQString&)));
+  connect(base->_c_add, TQ_SIGNAL(clicked()), this, TQ_SLOT(addLibrary()));
+  connect(base->_c_remove, TQ_SIGNAL(clicked()), this, TQ_SLOT(removeLibrary()));
+  connect(base->_c_libs, TQ_SIGNAL(selectionChanged()), this, TQ_SLOT(libSelection()));
 
   // The "Test" button
-  connect(base->_c_test, TQT_SIGNAL(clicked()), this, TQT_SLOT(testClicked()));
+  connect(base->_c_test, TQ_SIGNAL(clicked()), this, TQ_SLOT(testClicked()));
 
   // The config backend
   load();

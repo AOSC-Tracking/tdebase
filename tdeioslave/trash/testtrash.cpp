@@ -1094,8 +1094,8 @@ void TestTrash::listRootDir()
     m_entryCount = 0;
     m_listResult.clear();
     TDEIO::ListJob* job = TDEIO::listDir( "trash:/" );
-    connect( job, TQT_SIGNAL( entries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ),
-             TQT_SLOT( slotEntries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ) );
+    connect( job, TQ_SIGNAL( entries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ),
+             TQ_SLOT( slotEntries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ) );
     bool ok = TDEIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
     kdDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
@@ -1111,8 +1111,8 @@ void TestTrash::listRecursiveRootDir()
     m_entryCount = 0;
     m_listResult.clear();
     TDEIO::ListJob* job = TDEIO::listRecursive( "trash:/" );
-    connect( job, TQT_SIGNAL( entries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ),
-             TQT_SLOT( slotEntries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ) );
+    connect( job, TQ_SIGNAL( entries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ),
+             TQ_SLOT( slotEntries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ) );
     bool ok = TDEIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
     kdDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;
@@ -1128,8 +1128,8 @@ void TestTrash::listSubDir()
     m_entryCount = 0;
     m_listResult.clear();
     TDEIO::ListJob* job = TDEIO::listDir( "trash:/0-trashDirFromHome" );
-    connect( job, TQT_SIGNAL( entries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ),
-             TQT_SLOT( slotEntries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ) );
+    connect( job, TQ_SIGNAL( entries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ),
+             TQ_SLOT( slotEntries( TDEIO::Job*, const TDEIO::UDSEntryList& ) ) );
     bool ok = TDEIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
     kdDebug() << "listDir done - m_entryCount=" << m_entryCount << endl;

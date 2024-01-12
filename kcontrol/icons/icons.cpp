@@ -52,7 +52,7 @@ TDEIconConfig::TDEIconConfig(TQWidget *parent, const char *name)
                                         KDialog::spacingHint());
     g_vlay->addSpacing(fontMetrics().lineSpacing());
     mpUsageList = new TQListBox(gbox);
-    connect(mpUsageList, TQT_SIGNAL(highlighted(int)), TQT_SLOT(slotUsage(int)));
+    connect(mpUsageList, TQ_SIGNAL(highlighted(int)), TQ_SLOT(slotUsage(int)));
     g_vlay->addWidget(mpUsageList);
 
     KSeparator *sep = new KSeparator( KSeparator::HLine, this );
@@ -65,11 +65,11 @@ TDEIconConfig::TDEIconConfig(TQWidget *parent, const char *name)
     TQPushButton *push;
 
     mPreviewButton1 = addPreviewIcon(0, i18n("Default"), this, g_lay);
-    connect(mPreviewButton1, TQT_SIGNAL(clicked()), TQT_SLOT(slotEffectSetup0()));
+    connect(mPreviewButton1, TQ_SIGNAL(clicked()), TQ_SLOT(slotEffectSetup0()));
     mPreviewButton2 = addPreviewIcon(1, i18n("Active"), this, g_lay);
-    connect(mPreviewButton2, TQT_SIGNAL(clicked()), TQT_SLOT(slotEffectSetup1()));
+    connect(mPreviewButton2, TQ_SIGNAL(clicked()), TQ_SLOT(slotEffectSetup1()));
     mPreviewButton3 = addPreviewIcon(2, i18n("Disabled"), this, g_lay);
-    connect(mPreviewButton3, TQT_SIGNAL(clicked()), TQT_SLOT(slotEffectSetup2()));
+    connect(mPreviewButton3, TQ_SIGNAL(clicked()), TQ_SLOT(slotEffectSetup2()));
 
     m_pTab1 = new TQWidget(this, "General Tab");
     top->addWidget(m_pTab1, 0, 1);
@@ -83,24 +83,24 @@ TDEIconConfig::TDEIconConfig(TQWidget *parent, const char *name)
     lbl->setFixedSize(lbl->sizeHint());
     grid->addWidget(lbl, 0, 0, TQt::AlignLeft);
     mpSizeBox = new TQComboBox(m_pTab1);
-    connect(mpSizeBox, TQT_SIGNAL(activated(int)), TQT_SLOT(slotSize(int)));
+    connect(mpSizeBox, TQ_SIGNAL(activated(int)), TQ_SLOT(slotSize(int)));
     lbl->setBuddy(mpSizeBox);
     grid->addWidget(mpSizeBox, 0, 1, TQt::AlignLeft);
 
     mpDPCheck = new TQCheckBox(i18n("Double-sized pixels"), m_pTab1);
-    connect(mpDPCheck, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotDPCheck(bool)));
+    connect(mpDPCheck, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotDPCheck(bool)));
     grid->addMultiCellWidget(mpDPCheck, 1, 1, 0, 1, TQt::AlignLeft);
 
     mpAnimatedCheck = new TQCheckBox(i18n("Animate icons"), m_pTab1);
-    connect(mpAnimatedCheck, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotAnimatedCheck(bool)));
+    connect(mpAnimatedCheck, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotAnimatedCheck(bool)));
     grid->addMultiCellWidget(mpAnimatedCheck, 2, 2, 0, 1, TQt::AlignLeft);
 
     mpRoundedCheck = new TQCheckBox(i18n("Rounded text selection"), m_pTab1);
-    connect(mpRoundedCheck, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotRoundedCheck(bool)));
+    connect(mpRoundedCheck, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotRoundedCheck(bool)));
     grid->addMultiCellWidget(mpRoundedCheck, 3, 3, 0, 1, TQt::AlignLeft);
 
     mpActiveEffectCheck = new TQCheckBox(i18n("Show icon activation effect"), m_pTab1);
-    connect(mpActiveEffectCheck, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotActiveEffect(bool)));
+    connect(mpActiveEffectCheck, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotActiveEffect(bool)));
     grid->addMultiCellWidget(mpActiveEffectCheck, 4, 4, 0, 1, TQt::AlignLeft);
 
     top->activate();
@@ -698,12 +698,12 @@ TDEIconEffectSetupDialog::TDEIconEffectSetupDialog(const Effect &effect,
     mpEffectBox->insertItem(i18n("Desaturate"));
     mpEffectBox->insertItem(i18n("To Monochrome"));
     mpEffectBox->setMinimumWidth( 100 );
-    connect(mpEffectBox, TQT_SIGNAL(highlighted(int)), TQT_SLOT(slotEffectType(int)));
+    connect(mpEffectBox, TQ_SIGNAL(highlighted(int)), TQ_SLOT(slotEffectType(int)));
     top->addMultiCellWidget(mpEffectBox, 1, 2, 0, 0, TQt::AlignLeft);
     lbl->setBuddy(mpEffectBox);
 
     mpSTCheck = new TQCheckBox(i18n("&Semi-transparent"), page);
-    connect(mpSTCheck, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotSTCheck(bool)));
+    connect(mpSTCheck, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotSTCheck(bool)));
     top->addWidget(mpSTCheck, 3, 0, TQt::AlignLeft);
 
     frame = new TQGroupBox(i18n("Preview"), page);
@@ -726,23 +726,23 @@ TDEIconEffectSetupDialog::TDEIconEffectSetupDialog(const Effect &effect,
     grid->addWidget(mpEffectLabel, 1, 0);
     mpEffectSlider = new TQSlider(0, 100, 5, 10, TQt::Horizontal, mpEffectGroup);
     mpEffectLabel->setBuddy( mpEffectSlider );
-    connect(mpEffectSlider, TQT_SIGNAL(valueChanged(int)), TQT_SLOT(slotEffectValue(int)));
+    connect(mpEffectSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(slotEffectValue(int)));
     grid->addWidget(mpEffectSlider, 1, 1);
 
     mpEffectColor = new TQLabel(i18n("Co&lor:"), mpEffectGroup);
     grid->addWidget(mpEffectColor, 2, 0);
     mpEColButton = new KColorButton(mpEffectGroup);
     mpEffectColor->setBuddy( mpEColButton );
-    connect(mpEColButton, TQT_SIGNAL(changed(const TQColor &)),
-		TQT_SLOT(slotEffectColor(const TQColor &)));
+    connect(mpEColButton, TQ_SIGNAL(changed(const TQColor &)),
+		TQ_SLOT(slotEffectColor(const TQColor &)));
     grid->addWidget(mpEColButton, 2, 1);
 
     mpEffectColor2 = new TQLabel(i18n("&Second color:"), mpEffectGroup);
     grid->addWidget(mpEffectColor2, 3, 0);
     mpECol2Button = new KColorButton(mpEffectGroup);
     mpEffectColor2->setBuddy( mpECol2Button );
-    connect(mpECol2Button, TQT_SIGNAL(changed(const TQColor &)),
-		TQT_SLOT(slotEffectColor2(const TQColor &)));
+    connect(mpECol2Button, TQ_SIGNAL(changed(const TQColor &)),
+		TQ_SLOT(slotEffectColor2(const TQColor &)));
     grid->addWidget(mpECol2Button, 3, 1);
 
     init();

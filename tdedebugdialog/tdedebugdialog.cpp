@@ -79,8 +79,8 @@ TDEDebugDialog::TDEDebugDialog( TQStringList areaList, TQWidget *parent, const c
   pInfoLabel1 = new TQLabel( i18n("Output to:"), pInfoGroup );
   vbox->addWidget( pInfoLabel1 );
   pInfoCombo = new TQComboBox( false, pInfoGroup );
-  connect(pInfoCombo, TQT_SIGNAL(activated(int)),
-	  this, TQT_SLOT(slotDestinationChanged(int)));
+  connect(pInfoCombo, TQ_SIGNAL(activated(int)),
+	  this, TQ_SLOT(slotDestinationChanged(int)));
   vbox->addWidget( pInfoCombo );
   pInfoCombo->insertStringList( destList );
   pInfoLabel2 = new TQLabel( i18n("Filename:"), pInfoGroup );
@@ -104,8 +104,8 @@ TDEDebugDialog::TDEDebugDialog( TQStringList areaList, TQWidget *parent, const c
   pWarnLabel1 = new TQLabel( i18n("Output to:"), pWarnGroup );
   vbox->addWidget( pWarnLabel1 );
   pWarnCombo = new TQComboBox( false, pWarnGroup );
-  connect(pWarnCombo, TQT_SIGNAL(activated(int)),
-	  this, TQT_SLOT(slotDestinationChanged(int)));
+  connect(pWarnCombo, TQ_SIGNAL(activated(int)),
+	  this, TQ_SLOT(slotDestinationChanged(int)));
   vbox->addWidget( pWarnCombo );
   pWarnCombo->insertStringList( destList );
   pWarnLabel2 = new TQLabel( i18n("Filename:"), pWarnGroup );
@@ -129,8 +129,8 @@ TDEDebugDialog::TDEDebugDialog( TQStringList areaList, TQWidget *parent, const c
   pErrorLabel1 = new TQLabel( i18n("Output to:"), pErrorGroup );
   vbox->addWidget( pErrorLabel1 );
   pErrorCombo = new TQComboBox( false, pErrorGroup );
-  connect(pErrorCombo, TQT_SIGNAL(activated(int)),
-	  this, TQT_SLOT(slotDestinationChanged(int)));
+  connect(pErrorCombo, TQ_SIGNAL(activated(int)),
+	  this, TQ_SLOT(slotDestinationChanged(int)));
   vbox->addWidget( pErrorCombo );
   pErrorCombo->insertStringList( destList );
   pErrorLabel2 = new TQLabel( i18n("Filename:"), pErrorGroup );
@@ -154,8 +154,8 @@ TDEDebugDialog::TDEDebugDialog( TQStringList areaList, TQWidget *parent, const c
   pFatalLabel1 = new TQLabel( i18n("Output to:"), pFatalGroup );
   vbox->addWidget( pFatalLabel1 );
   pFatalCombo = new TQComboBox( false, pFatalGroup );
-  connect(pFatalCombo, TQT_SIGNAL(activated(int)),
-	  this, TQT_SLOT(slotDestinationChanged(int)));
+  connect(pFatalCombo, TQ_SIGNAL(activated(int)),
+	  this, TQ_SLOT(slotDestinationChanged(int)));
   vbox->addWidget( pFatalCombo );
   pFatalCombo->insertStringList( destList );
   pFatalLabel2 = new TQLabel( i18n("Filename:"), pFatalGroup );
@@ -179,8 +179,8 @@ TDEDebugDialog::TDEDebugDialog( TQStringList areaList, TQWidget *parent, const c
 
   buildButtons( topLayout );
 
-  connect( pDebugAreas, TQT_SIGNAL( activated( const TQString &) ),
-           TQT_SLOT( slotDebugAreaChanged( const TQString & ) ) );
+  connect( pDebugAreas, TQ_SIGNAL( activated( const TQString &) ),
+           TQ_SLOT( slotDebugAreaChanged( const TQString & ) ) );
 
   // Get initial values ("initial" is understood by the slot)
   slotDebugAreaChanged( "0 initial" );

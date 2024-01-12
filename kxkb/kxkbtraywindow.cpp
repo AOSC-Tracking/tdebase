@@ -116,7 +116,7 @@ void KxkbLabelController::initLayoutList(const TQValueList<LayoutUnit>& layouts,
 
 /*    if( index != -1 ) { //not first start
 		menu->insertSeparator();
-		TDEAction* quitAction = KStdAction::quit(this, TQT_SIGNAL(quitSelected()), actionCollection());
+		TDEAction* quitAction = KStdAction::quit(this, TQ_SIGNAL(quitSelected()), actionCollection());
         if (quitAction)
     	    quitAction->plug(menu);
     }*/

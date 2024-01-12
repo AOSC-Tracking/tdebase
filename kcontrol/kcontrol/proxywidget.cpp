@@ -200,8 +200,8 @@ ProxyWidget::ProxyWidget(TDECModule *client, TQString title, const char *name,
   view = new ProxyView(client, title, this, run_as_root, "proxyview");
   (void) new WhatsThis( this );
 
-  connect(_client, TQT_SIGNAL(changed(bool)), TQT_SLOT(clientChanged(bool)));
-  connect(_client, TQT_SIGNAL(quickHelpChanged()), TQT_SIGNAL(quickHelpChanged()));
+  connect(_client, TQ_SIGNAL(changed(bool)), TQ_SLOT(clientChanged(bool)));
+  connect(_client, TQ_SIGNAL(quickHelpChanged()), TQ_SIGNAL(quickHelpChanged()));
 
   _sep = new KSeparator(KSeparator::HLine, this);
 
@@ -225,11 +225,11 @@ ProxyWidget::ProxyWidget(TDECModule *client, TQString title, const char *name,
   _apply->setEnabled( false );
   _reset->setEnabled( false );
 
-  connect(_handbook, TQT_SIGNAL(clicked()), TQT_SLOT(handbookClicked()));
-  connect(_default, TQT_SIGNAL(clicked()), TQT_SLOT(defaultClicked()));
-  connect(_apply, TQT_SIGNAL(clicked()), TQT_SLOT(applyClicked()));
-  connect(_reset, TQT_SIGNAL(clicked()), TQT_SLOT(resetClicked()));
-  connect(_root, TQT_SIGNAL(clicked()), TQT_SLOT(rootClicked()));
+  connect(_handbook, TQ_SIGNAL(clicked()), TQ_SLOT(handbookClicked()));
+  connect(_default, TQ_SIGNAL(clicked()), TQ_SLOT(defaultClicked()));
+  connect(_apply, TQ_SIGNAL(clicked()), TQ_SLOT(applyClicked()));
+  connect(_reset, TQ_SIGNAL(clicked()), TQ_SLOT(resetClicked()));
+  connect(_root, TQ_SIGNAL(clicked()), TQ_SLOT(rootClicked()));
 
   TQVBoxLayout *top = new TQVBoxLayout(this, KDialog::marginHint(), 
       KDialog::spacingHint());

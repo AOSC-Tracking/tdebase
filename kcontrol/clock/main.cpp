@@ -63,11 +63,11 @@ KclockModule::KclockModule(TQWidget *parent, const char *name, const TQStringLis
 
   dtime = new Dtime(this);
   layout->addWidget(dtime);
-  connect(dtime, TQT_SIGNAL(timeChanged(bool)), this, TQT_SIGNAL(changed(bool)));
+  connect(dtime, TQ_SIGNAL(timeChanged(bool)), this, TQ_SIGNAL(changed(bool)));
 
   tzone = new Tzone(this);
   layout->addWidget(tzone);
-  connect(tzone, TQT_SIGNAL(zoneChanged(bool)), this, TQT_SIGNAL(changed(bool)));
+  connect(tzone, TQ_SIGNAL(zoneChanged(bool)), this, TQ_SIGNAL(changed(bool)));
 
   layout->addStretch();
 

@@ -110,7 +110,7 @@ LanBrowser::LanBrowser(TQWidget *parent)
    tabs.addTab(smbPage, i18n("&Windows Shares"));
    smbPageTabNumber = currentTabNumber;
    currentTabNumber++;
-   connect(smbPage,TQT_SIGNAL(changed(bool)), TQT_SLOT( changed() ));
+   connect(smbPage,TQ_SIGNAL(changed(bool)), TQ_SLOT( changed() ));
 
    lisaPage = TDECModuleLoader::loadModule("kcmlisa", TDECModuleLoader::None, &tabs);
    if (lisaPage)
@@ -118,14 +118,14 @@ LanBrowser::LanBrowser(TQWidget *parent)
      tabs.addTab(lisaPage,i18n("&LISa Daemon"));
      lisaPageTabNumber = currentTabNumber;
      currentTabNumber++;
-     connect(lisaPage,TQT_SIGNAL(changed()), TQT_SLOT( changed() ));
+     connect(lisaPage,TQ_SIGNAL(changed()), TQ_SLOT( changed() ));
    }
 
 //   resLisaPage = TDECModuleLoader::loadModule("kcmreslisa", &tabs);
 //   if (resLisaPage)
 //   {
 //     tabs.addTab(resLisaPage,i18n("R&esLISa Daemon"));
-//     connect(resLisaPage,TQT_SIGNAL(changed()), TQT_SLOT( changed() ));
+//     connect(resLisaPage,TQ_SIGNAL(changed()), TQ_SLOT( changed() ));
 //   }
 
    tdeioLanPage = TDECModuleLoader::loadModule("kcmtdeiolan",  TDECModuleLoader::None, &tabs);
@@ -134,7 +134,7 @@ LanBrowser::LanBrowser(TQWidget *parent)
      tabs.addTab(tdeioLanPage,i18n("lan:/ Iosla&ve"));
      tdeioLanPageTabNumber = currentTabNumber;
      currentTabNumber++;
-     connect(tdeioLanPage,TQT_SIGNAL(changed()), TQT_SLOT( changed() ));
+     connect(tdeioLanPage,TQ_SIGNAL(changed()), TQ_SLOT( changed() ));
    }
 
    setButtons(Apply|Help);

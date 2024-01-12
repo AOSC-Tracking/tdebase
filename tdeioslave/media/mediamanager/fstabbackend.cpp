@@ -61,8 +61,8 @@ FstabBackend::FstabBackend(MediaList &list, bool networkSharesOnly)
 	KDirWatch::self()->addFile(MTAB);
 	KDirWatch::self()->addFile(FSTAB);
 
-	connect( KDirWatch::self(), TQT_SIGNAL( dirty(const TQString&) ),
-	         this, TQT_SLOT( slotDirty(const TQString&) ) );
+	connect( KDirWatch::self(), TQ_SIGNAL( dirty(const TQString&) ),
+	         this, TQ_SLOT( slotDirty(const TQString&) ) );
 
 	handleFstabChange(false);
 	handleMtabChange(false);
@@ -70,8 +70,8 @@ FstabBackend::FstabBackend(MediaList &list, bool networkSharesOnly)
 	KDirWatch::self()->startScan();
 
 #if defined(Q_OS_FREEBSD) || defined(Q_OS_NETBSD)
-	connect( &m_mtabTimer, TQT_SIGNAL( timeout() ),
-	         this, TQT_SLOT( handleMtabChange() ) );
+	connect( &m_mtabTimer, TQ_SIGNAL( timeout() ),
+	         this, TQ_SLOT( handleMtabChange() ) );
 	m_mtabTimer.start(250);
 #endif
 }

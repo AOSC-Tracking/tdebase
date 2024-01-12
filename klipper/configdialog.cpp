@@ -158,11 +158,11 @@ GeneralWidget::GeneralWidget( TQWidget *parent, const char *name )
     maxItems = new KIntNumInput( this );
     maxItems->setLabel(  i18n( "C&lipboard history size:" ) );
     maxItems->setRange( 2, 2048, 1, true );
-    connect( maxItems, TQT_SIGNAL( valueChanged( int )),
-             TQT_SLOT( historySizeChanged( int ) ));
+    connect( maxItems, TQ_SIGNAL( valueChanged( int )),
+             TQ_SLOT( historySizeChanged( int ) ));
 
-    connect( group, TQT_SIGNAL( clicked( int )),
-             TQT_SLOT( slotClipConfigChanged() ));
+    connect( group, TQ_SIGNAL( clicked( int )),
+             TQ_SLOT( slotClipConfigChanged() ));
     slotClipConfigChanged();
 
     // Add some spacing at the end
@@ -243,13 +243,13 @@ ActionWidget::ActionWidget( const ActionList *list, ConfigDialog* configWidget, 
     listView->setMultiSelection( false );
     listView->setAllColumnsShowFocus( true );
     listView->setSelectionMode( TQListView::Single );
-    connect( listView, TQT_SIGNAL(executed( TQListViewItem*, const TQPoint&, int )),
-             TQT_SLOT( slotItemChanged( TQListViewItem*, const TQPoint& , int ) ));
-    connect( listView, TQT_SIGNAL( selectionChanged ( TQListViewItem * )),
-             TQT_SLOT(selectionChanged ( TQListViewItem * )));
+    connect( listView, TQ_SIGNAL(executed( TQListViewItem*, const TQPoint&, int )),
+             TQ_SLOT( slotItemChanged( TQListViewItem*, const TQPoint& , int ) ));
+    connect( listView, TQ_SIGNAL( selectionChanged ( TQListViewItem * )),
+             TQ_SLOT(selectionChanged ( TQListViewItem * )));
     connect(listView,
-            TQT_SIGNAL(contextMenu(TDEListView *, TQListViewItem *, const TQPoint&)),
-            TQT_SLOT( slotContextMenu(TDEListView*, TQListViewItem*, const TQPoint&)));
+            TQ_SIGNAL(contextMenu(TDEListView *, TQListViewItem *, const TQPoint&)),
+            TQ_SLOT( slotContextMenu(TDEListView*, TQListViewItem*, const TQPoint&)));
 
     ClipAction *action   = 0L;
     ClipCommand *command = 0L;
@@ -291,10 +291,10 @@ ActionWidget::ActionWidget( const ActionList *list, ConfigDialog* configWidget, 
     TQHBox *box = new TQHBox( this );
     box->setSpacing( KDialog::spacingHint() );
     TQPushButton *button = new TQPushButton( i18n("&Add Action"), box );
-    connect( button, TQT_SIGNAL( clicked() ), TQT_SLOT( slotAddAction() ));
+    connect( button, TQ_SIGNAL( clicked() ), TQ_SLOT( slotAddAction() ));
 
     delActionButton = new TQPushButton( i18n("&Delete Action"), box );
-    connect( delActionButton, TQT_SIGNAL( clicked() ), TQT_SLOT( slotDeleteAction() ));
+    connect( delActionButton, TQ_SIGNAL( clicked() ), TQ_SLOT( slotDeleteAction() ));
 
     TQLabel *label = new TQLabel(i18n("Click on a highlighted item's column to change it. \"%s\" in a command will be replaced with the clipboard contents."), box);
     label->setAlignment( WordBreak | AlignLeft | AlignVCenter );
@@ -304,7 +304,7 @@ ActionWidget::ActionWidget( const ActionList *list, ConfigDialog* configWidget, 
     box = new TQHBox( this );
     TQPushButton *advanced = new TQPushButton( i18n("Advanced..."), box );
     advanced->setFixedSize( advanced->sizeHint() );
-    connect( advanced, TQT_SIGNAL( clicked() ), TQT_SLOT( slotAdvanced() ));
+    connect( advanced, TQ_SIGNAL( clicked() ), TQ_SLOT( slotAdvanced() ));
     (void) new TQWidget( box ); // spacer
 
     delActionButton->setEnabled(listView->currentItem () !=0);

@@ -77,23 +77,23 @@ TopLevel::TopLevel( const TQString &destDir, TQWidget *parent, const char *name 
   layout->addWidget( mSummary );
 
   KButtonBox* bbox = new KButtonBox( this );
-  mScanButton = bbox->addButton( KGuiItem( i18n( "Scan" ), "edit-find"), this, TQT_SLOT( slotScan() ) );
+  mScanButton = bbox->addButton( KGuiItem( i18n( "Scan" ), "edit-find"), this, TQ_SLOT( slotScan() ) );
   bbox->addStretch( 5 );
   mSelectButton = bbox->addButton( i18n( "Select All" ), this,
-                                   TQT_SLOT( slotSelectAll() ) );
+                                   TQ_SLOT( slotSelectAll() ) );
   mSelectButton->setEnabled( false );
   mUnSelectButton = bbox->addButton( i18n( "Unselect All" ), this,
-                                     TQT_SLOT( slotUnselectAll() ) );
+                                     TQ_SLOT( slotUnselectAll() ) );
   mUnSelectButton->setEnabled( false );
   bbox->addStretch( 5 );
-  mApplyButton = bbox->addButton( KStdGuiItem::apply(), this, TQT_SLOT( slotCreate() ) );
+  mApplyButton = bbox->addButton( KStdGuiItem::apply(), this, TQ_SLOT( slotCreate() ) );
   mApplyButton->setEnabled( false );
-  bbox->addButton( KStdGuiItem::close(), kapp, TQT_SLOT( quit() ) );
+  bbox->addButton( KStdGuiItem::close(), kapp, TQ_SLOT( quit() ) );
   bbox->layout();
 
   layout->addWidget( bbox );
 
-	connect( kapp, TQT_SIGNAL( lastWindowClosed() ), kapp, TQT_SLOT( quit() ) );
+	connect( kapp, TQ_SIGNAL( lastWindowClosed() ), kapp, TQ_SLOT( quit() ) );
 
   mAppCache.setAutoDelete( true );
 
@@ -105,7 +105,7 @@ TopLevel::TopLevel( const TQString &destDir, TQWidget *parent, const char *name 
   TDEStartupInfo::appStarted();
 
   TQAccel *accel = new TQAccel( this );
-  accel->connectItem( accel->insertItem( Key_Q + CTRL ), kapp, TQT_SLOT( quit() ) );
+  accel->connectItem( accel->insertItem( Key_Q + CTRL ), kapp, TQ_SLOT( quit() ) );
 
   TDEAcceleratorManager::manage( this );
 }

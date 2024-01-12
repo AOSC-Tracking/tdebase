@@ -84,64 +84,64 @@ TDELocaleApplication::TDELocaleApplication(TQWidget *parent, const char* /*name*
   m_sample = new TDELocaleSample(m_locale, m_gbox);
 
   // getting signals from childs
-  connect(m_localemain, TQT_SIGNAL(localeChanged()),
-          this, TQT_SIGNAL(localeChanged()));
-  connect(m_localemain, TQT_SIGNAL(languageChanged()),
-          this, TQT_SIGNAL(languageChanged()));
+  connect(m_localemain, TQ_SIGNAL(localeChanged()),
+          this, TQ_SIGNAL(localeChanged()));
+  connect(m_localemain, TQ_SIGNAL(languageChanged()),
+          this, TQ_SIGNAL(languageChanged()));
 
   // run the slots on the childs
-  connect(this, TQT_SIGNAL(localeChanged()),
-          m_localemain, TQT_SLOT(slotLocaleChanged()));
-  connect(this, TQT_SIGNAL(localeChanged()),
-          m_localenum, TQT_SLOT(slotLocaleChanged()));
-  connect(this, TQT_SIGNAL(localeChanged()),
-          m_localemon, TQT_SLOT(slotLocaleChanged()));
-  connect(this, TQT_SIGNAL(localeChanged()),
-          m_localetime, TQT_SLOT(slotLocaleChanged()));
-  connect(this, TQT_SIGNAL(localeChanged()),
-          m_localeother, TQT_SLOT(slotLocaleChanged()));
+  connect(this, TQ_SIGNAL(localeChanged()),
+          m_localemain, TQ_SLOT(slotLocaleChanged()));
+  connect(this, TQ_SIGNAL(localeChanged()),
+          m_localenum, TQ_SLOT(slotLocaleChanged()));
+  connect(this, TQ_SIGNAL(localeChanged()),
+          m_localemon, TQ_SLOT(slotLocaleChanged()));
+  connect(this, TQ_SIGNAL(localeChanged()),
+          m_localetime, TQ_SLOT(slotLocaleChanged()));
+  connect(this, TQ_SIGNAL(localeChanged()),
+          m_localeother, TQ_SLOT(slotLocaleChanged()));
 
   // keep the example up to date
   // NOTE: this will make the sample be updated 6 times the first time
   // because combo boxes++ emits the change signal not only when the user changes
   // it, but also when it's changed by the program.
-  connect(m_localenum, TQT_SIGNAL(localeChanged()),
-          m_sample, TQT_SLOT(slotLocaleChanged()));
-  connect(m_localemon, TQT_SIGNAL(localeChanged()),
-          m_sample, TQT_SLOT(slotLocaleChanged()));
-  connect(m_localetime, TQT_SIGNAL(localeChanged()),
-          m_sample, TQT_SLOT(slotLocaleChanged()));
+  connect(m_localenum, TQ_SIGNAL(localeChanged()),
+          m_sample, TQ_SLOT(slotLocaleChanged()));
+  connect(m_localemon, TQ_SIGNAL(localeChanged()),
+          m_sample, TQ_SLOT(slotLocaleChanged()));
+  connect(m_localetime, TQ_SIGNAL(localeChanged()),
+          m_sample, TQ_SLOT(slotLocaleChanged()));
   // No examples for this yet
-  //connect(m_localeother, TQT_SIGNAL(slotLocaleChanged()),
-  //m_sample, TQT_SLOT(slotLocaleChanged()));
-  connect(this, TQT_SIGNAL(localeChanged()),
-          m_sample, TQT_SLOT(slotLocaleChanged()));
+  //connect(m_localeother, TQ_SIGNAL(slotLocaleChanged()),
+  //m_sample, TQ_SLOT(slotLocaleChanged()));
+  connect(this, TQ_SIGNAL(localeChanged()),
+          m_sample, TQ_SLOT(slotLocaleChanged()));
 
   // make sure we always have translated interface
-  connect(this, TQT_SIGNAL(languageChanged()),
-          this, TQT_SLOT(slotTranslate()));
-  connect(this, TQT_SIGNAL(languageChanged()),
-          m_localemain, TQT_SLOT(slotTranslate()));
-  connect(this, TQT_SIGNAL(languageChanged()),
-          m_localenum, TQT_SLOT(slotTranslate()));
-  connect(this, TQT_SIGNAL(languageChanged()),
-          m_localemon, TQT_SLOT(slotTranslate()));
-  connect(this, TQT_SIGNAL(languageChanged()),
-          m_localetime, TQT_SLOT(slotTranslate()));
-  connect(this, TQT_SIGNAL(languageChanged()),
-          m_localeother, TQT_SLOT(slotTranslate()));
+  connect(this, TQ_SIGNAL(languageChanged()),
+          this, TQ_SLOT(slotTranslate()));
+  connect(this, TQ_SIGNAL(languageChanged()),
+          m_localemain, TQ_SLOT(slotTranslate()));
+  connect(this, TQ_SIGNAL(languageChanged()),
+          m_localenum, TQ_SLOT(slotTranslate()));
+  connect(this, TQ_SIGNAL(languageChanged()),
+          m_localemon, TQ_SLOT(slotTranslate()));
+  connect(this, TQ_SIGNAL(languageChanged()),
+          m_localetime, TQ_SLOT(slotTranslate()));
+  connect(this, TQ_SIGNAL(languageChanged()),
+          m_localeother, TQ_SLOT(slotTranslate()));
 
   // mark it as changed when we change it.
-  connect(m_localemain, TQT_SIGNAL(localeChanged()),
-          TQT_SLOT(slotChanged()));
-  connect(m_localenum, TQT_SIGNAL(localeChanged()),
-          TQT_SLOT(slotChanged()));
-  connect(m_localemon, TQT_SIGNAL(localeChanged()),
-          TQT_SLOT(slotChanged()));
-  connect(m_localetime, TQT_SIGNAL(localeChanged()),
-          TQT_SLOT(slotChanged()));
-  connect(m_localeother, TQT_SIGNAL(localeChanged()),
-          TQT_SLOT(slotChanged()));
+  connect(m_localemain, TQ_SIGNAL(localeChanged()),
+          TQ_SLOT(slotChanged()));
+  connect(m_localenum, TQ_SIGNAL(localeChanged()),
+          TQ_SLOT(slotChanged()));
+  connect(m_localemon, TQ_SIGNAL(localeChanged()),
+          TQ_SLOT(slotChanged()));
+  connect(m_localetime, TQ_SIGNAL(localeChanged()),
+          TQ_SLOT(slotChanged()));
+  connect(m_localeother, TQ_SIGNAL(localeChanged()),
+          TQ_SLOT(slotChanged()));
 
   load();
 }

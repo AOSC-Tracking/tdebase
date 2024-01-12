@@ -92,12 +92,12 @@ StyleSettings::StyleSettings( TQWidget *parent, const char *name )
   mEditColorButton->setEnabled( false );
   layout->addWidget( mEditColorButton, 0, 1, TQt::AlignTop );
 
-  connect( mColorListBox, TQT_SIGNAL( selectionChanged( TQListBoxItem* ) ),
-           TQT_SLOT( selectionChanged( TQListBoxItem* ) ) );
-  connect( mColorListBox, TQT_SIGNAL( doubleClicked( TQListBoxItem* ) ),
-           TQT_SLOT( editSensorColor() ) );
-  connect( mEditColorButton, TQT_SIGNAL( clicked() ),
-           TQT_SLOT( editSensorColor() ) );
+  connect( mColorListBox, TQ_SIGNAL( selectionChanged( TQListBoxItem* ) ),
+           TQ_SLOT( selectionChanged( TQListBoxItem* ) ) );
+  connect( mColorListBox, TQ_SIGNAL( doubleClicked( TQListBoxItem* ) ),
+           TQ_SLOT( editSensorColor() ) );
+  connect( mEditColorButton, TQ_SIGNAL( clicked() ),
+           TQ_SLOT( editSensorColor() ) );
 
   TDEAcceleratorManager::manage( this );
 }

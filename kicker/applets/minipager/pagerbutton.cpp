@@ -83,10 +83,10 @@ KMiniPagerButton::KMiniPagerButton(int desk, bool useViewPorts, const TQPoint& v
 
     m_desktopName = m_pager->twin()->desktopName(m_desktop);
 
-    connect(this, TQT_SIGNAL(clicked()), TQT_SLOT(slotClicked()));
-    connect(this, TQT_SIGNAL(toggled(bool)), TQT_SLOT(slotToggled(bool)));
-    connect(&m_dragSwitchTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(slotDragSwitch()));
-    connect(&m_updateCompressor, TQT_SIGNAL(timeout()), this, TQT_SLOT(update()));
+    connect(this, TQ_SIGNAL(clicked()), TQ_SLOT(slotClicked()));
+    connect(this, TQ_SIGNAL(toggled(bool)), TQ_SLOT(slotToggled(bool)));
+    connect(&m_dragSwitchTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(slotDragSwitch()));
+    connect(&m_updateCompressor, TQ_SIGNAL(timeout()), this, TQ_SLOT(update()));
 
     if (m_pager->desktopPreview())
     {
@@ -247,8 +247,8 @@ void KMiniPagerButton::loadBgPixmap()
         }
         else if (s_commonSharedPixmap)
         { // other button is already fetching the pixmap
-            connect(s_commonSharedPixmap, TQT_SIGNAL(done(bool)),
-                    TQT_SLOT(backgroundLoaded(bool)));
+            connect(s_commonSharedPixmap, TQ_SIGNAL(done(bool)),
+                    TQ_SLOT(backgroundLoaded(bool)));
             return;
         }
     }
@@ -258,8 +258,8 @@ void KMiniPagerButton::loadBgPixmap()
         if (!s_commonSharedPixmap)
         {
             s_commonSharedPixmap = new TDESharedPixmap;
-            connect(s_commonSharedPixmap, TQT_SIGNAL(done(bool)),
-                    TQT_SLOT(backgroundLoaded(bool)));
+            connect(s_commonSharedPixmap, TQ_SIGNAL(done(bool)),
+                    TQ_SLOT(backgroundLoaded(bool)));
         }
         retval = s_commonSharedPixmap->loadFromShared(TQString("DESKTOP1"));
         if (retval == false) {
@@ -274,8 +274,8 @@ void KMiniPagerButton::loadBgPixmap()
         if (!m_sharedPixmap)
         {
             m_sharedPixmap = new TDESharedPixmap;
-            connect(m_sharedPixmap, TQT_SIGNAL(done(bool)),
-                    TQT_SLOT(backgroundLoaded(bool)));
+            connect(m_sharedPixmap, TQ_SIGNAL(done(bool)),
+                    TQ_SLOT(backgroundLoaded(bool)));
         }
         retval = m_sharedPixmap->loadFromShared(TQString("DESKTOP%1").arg(m_desktop));
         if (retval == false) {
@@ -726,7 +726,7 @@ void KMiniPagerButton::rename()
 {
   if ( !m_lineEdit ) {
     m_lineEdit = new TQLineEdit( this );
-    connect( m_lineEdit, TQT_SIGNAL( returnPressed() ), m_lineEdit, TQT_SLOT( hide() ) );
+    connect( m_lineEdit, TQ_SIGNAL( returnPressed() ), m_lineEdit, TQ_SLOT( hide() ) );
     m_lineEdit->installEventFilter( this );
   }
   m_lineEdit->setGeometry( rect() );
@@ -752,7 +752,7 @@ bool KMiniPagerButton::eventFilter( TQObject *o, TQEvent * e)
     {
         m_pager->twin()->setDesktopName( m_desktop, m_lineEdit->text() );
         m_desktopName = m_lineEdit->text();
-        TQTimer::singleShot( 0, m_lineEdit, TQT_SLOT( deleteLater() ) );
+        TQTimer::singleShot( 0, m_lineEdit, TQ_SLOT( deleteLater() ) );
         m_lineEdit = 0;
         return true;
     }

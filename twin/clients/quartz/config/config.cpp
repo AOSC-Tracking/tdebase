@@ -49,8 +49,8 @@ QuartzConfig::QuartzConfig( TDEConfig* conf, TQWidget* parent )
 	load( conf );
 
 	// Ensure we track user changes properly
-	connect( cbColorBorder, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotSelectionChanged()) );
-	connect( cbExtraSmall,  TQT_SIGNAL(clicked()), this, TQT_SLOT(slotSelectionChanged()) );
+	connect( cbColorBorder, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotSelectionChanged()) );
+	connect( cbExtraSmall,  TQ_SIGNAL(clicked()), this, TQ_SLOT(slotSelectionChanged()) );
 
 	// Make the widgets visible in twindecoration
 	gb->show();

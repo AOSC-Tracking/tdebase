@@ -129,7 +129,7 @@ KConsole::OpenConsole()
 
   gotcon:
 	notifier = new TQSocketNotifier( fd, TQSocketNotifier::Read, this );
-	connect( notifier, TQT_SIGNAL(activated( int )), TQT_SLOT(slotData()) );
+	connect( notifier, TQ_SIGNAL(activated( int )), TQ_SLOT(slotData()) );
 	return 1;
 }
 

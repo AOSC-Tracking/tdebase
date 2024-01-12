@@ -65,7 +65,7 @@ JoyWidget::JoyWidget(TQWidget *parent, const char *name)
   new TQLabel(i18n("Device:"), devHbox);
   device = new TQComboBox(true, devHbox);
   device->setInsertionPolicy(TQComboBox::NoInsertion);
-  connect(device, TQT_SIGNAL(activated(const TQString &)), this, TQT_SLOT(deviceChanged(const TQString &)));
+  connect(device, TQ_SIGNAL(activated(const TQString &)), this, TQ_SLOT(deviceChanged(const TQString &)));
   devHbox->setStretchFactor(device, 3);
 
   TQHBox *hbox = new TQHBox(mainVbox);
@@ -77,7 +77,7 @@ JoyWidget::JoyWidget(TQWidget *parent, const char *name)
   new TQLabel(i18n("Position:"), vboxLeft);
   xyPos = new PosWidget(vboxLeft);
   trace = new TQCheckBox(i18n("Show trace"), mainVbox);
-  connect(trace, TQT_SIGNAL(toggled(bool)), this, TQT_SLOT(traceChanged(bool)));
+  connect(trace, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(traceChanged(bool)));
 
   TQVBox *vboxMid = new TQVBox(hbox);
   vboxMid->setSpacing(KDialog::spacingHint());
@@ -111,12 +111,12 @@ JoyWidget::JoyWidget(TQWidget *parent, const char *name)
 
   // calibrate button
   calibrate = new TQPushButton(i18n("Calibrate"), mainVbox);
-  connect(calibrate, TQT_SIGNAL(clicked()), this, TQT_SLOT(calibrateDevice()));
+  connect(calibrate, TQ_SIGNAL(clicked()), this, TQ_SLOT(calibrateDevice()));
   calibrate->setEnabled(false);
 
   // set up a timer for idle processing of joystick events
   idle = new TQTimer(this);
-  connect(idle, TQT_SIGNAL(timeout()), this, TQT_SLOT(checkDevice()));
+  connect(idle, TQ_SIGNAL(timeout()), this, TQ_SLOT(checkDevice()));
 
   // check which devicefiles we have
   init();
