@@ -71,7 +71,6 @@ using KioSMTP::TransactionState;
 #include <tqcstring.h>
 
 #include <memory>
-using std::auto_ptr;
 
 #include <ctype.h>
 #include <stdlib.h>
@@ -446,8 +445,8 @@ void SMTPProtocol::queueCommand( int type ) {
 }
 
 bool SMTPProtocol::execute( int type, TransactionState * ts ) {
-  auto_ptr<Command> cmd( Command::createSimpleCommand( type, this ) );
-  kdFatal( !cmd.get(), 7112 ) << "Command::createSimpleCommand( " << type << " ) returned null!" << endl;
+  std::unique_ptr<Command> cmd( Command::createSimpleCommand( type, this ) );
+  kdFatal( !cmd, 7112 ) << "Command::createSimpleCommand( " << type << " ) returned null!" << endl;
   return execute( cmd.get(), ts );
 }
 
