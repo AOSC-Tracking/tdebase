@@ -114,6 +114,10 @@ public:
     if(f) { f(); f = nullptr; }
   }
 
+  void abort() {
+    f = nullptr;
+  }
+
   ExitGuard(const ExitGuard&) = delete;
   void operator= (const ExitGuard&) = delete;
 
@@ -718,9 +722,10 @@ int sftpProtocol::initializeConnection() {
   rc = ssh_connect(mSession);
   if (rc < 0) {
     error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
-    closeConnection();
     return rc;
   }
+
+  ExitGuard connectionCloser([this](){ closeConnection(); });
 
   kdDebug(TDEIO_SFTP_DB) << "Getting the SSH server hash" << endl;
 
@@ -733,7 +738,6 @@ int sftpProtocol::initializeConnection() {
 #endif
   if (rc<0) {
     error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
-    closeConnection();
     return rc;
   }
 
@@ -745,7 +749,6 @@ int sftpProtocol::initializeConnection() {
 #endif
   if (rc<0) {
     error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
-    closeConnection();
     return rc;
   }
 
@@ -767,7 +770,6 @@ int sftpProtocol::initializeConnection() {
             "An attacker might change the default server key to confuse your "
             "client into thinking the key does not exist.\n"
             "Please contact your system administrator.\n%1").arg(TQString::fromUtf8(ssh_get_error(mSession))));
-      closeConnection();
       return SSH_ERROR;
     case TDEIO_SSH_KNOWN_HOSTS_CHANGED:
       hexa = ssh_get_hexa(hash, hlen);
@@ -780,7 +782,6 @@ int sftpProtocol::initializeConnection() {
           "Please contact your system administrator.\n%3").arg(
           mHost).arg(TQString::fromUtf8(hexa)).arg(TQString::fromUtf8(ssh_get_error(mSession))));
       delete hexa;
-      closeConnection();
       return SSH_ERROR;
     case TDEIO_SSH_KNOWN_HOSTS_NOT_FOUND:
     case TDEIO_SSH_KNOWN_HOSTS_UNKNOWN:
@@ -793,7 +794,6 @@ int sftpProtocol::initializeConnection() {
       delete hexa;
 
       if (KMessageBox::Yes != messageBox(WarningYesNo, msg, caption)) {
-        closeConnection();
         error(TDEIO::ERR_USER_CANCELED, TQString());
         return SSH_ERROR;
       }
@@ -806,7 +806,6 @@ int sftpProtocol::initializeConnection() {
       if (ssh_session_update_known_hosts(mSession) != SSH_OK) {
 #endif
         error(TDEIO::ERR_USER_CANCELED, TQString::fromUtf8(ssh_get_error(mSession)));
-        closeConnection();
         return SSH_ERROR;
       }
       break;
@@ -828,6 +827,8 @@ int sftpProtocol::initializeConnection() {
     }
     ssh_string_free_char(ssh_username);
   }
+
+  connectionCloser.abort();
 
   return SSH_OK;
 }
@@ -876,12 +877,13 @@ void sftpProtocol::openConnection() {
     return;
   }
 
+  ExitGuard connectionCloser([this](){ closeConnection(); });
+
   // Try to authenticate
   rc = ssh_userauth_none(mSession, NULL);
   if (rc == SSH_AUTH_ERROR) {
-    closeConnection();
-        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
-                                          .arg(i18n("none")));
+    error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
+                                      .arg(i18n("none")));
     return;
   }
 
@@ -924,8 +926,6 @@ void sftpProtocol::openConnection() {
           case SSH_AUTH_AGAIN:
             // Returned in case of some errors like if server hangs up or there were too many auth attempts
           case SSH_AUTH_ERROR:
-            closeConnection();
-            /* FIXME: Use scope guard to close connection <2024-01-20 Fat-Zer> */
             error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
                                               .arg(i18n("public key")));
             /* FIXME: add some additional info from ssh_get_error() if available <2024-01-20 Fat-Zer> */
@@ -961,7 +961,6 @@ void sftpProtocol::openConnection() {
       }
       else if (rc == SSH_AUTH_ERROR)
       {
-        closeConnection();
         error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
                                           .arg(i18n("keyboard interactive")));
         return;
@@ -988,7 +987,6 @@ void sftpProtocol::openConnection() {
           // Handle user canceled or dialog failed to open...
           if (!dlgResult) {
             kdDebug(TDEIO_SFTP_DB) << "User canceled, dlgResult = " << dlgResult << endl;
-            closeConnection();
             error(TDEIO::ERR_USER_CANCELED, TQString());
             return;
           }
@@ -1006,7 +1004,6 @@ void sftpProtocol::openConnection() {
         rc = ssh_userauth_password(mSession, mUsername.utf8().data(),
                                   mPassword.utf8().data());
         if (rc == SSH_AUTH_ERROR) {
-          closeConnection();
           error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
                                             .arg(i18n("password")));
           return;
@@ -1021,7 +1018,6 @@ void sftpProtocol::openConnection() {
   kdDebug(TDEIO_SFTP_DB) << "Trying to request the sftp session" << endl;
   mSftp = sftp_new(mSession);
   if (mSftp == NULL) {
-    closeConnection();
     error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Unable to request the SFTP subsystem. "
           "Make sure SFTP is enabled on the server."));
     return;
@@ -1029,7 +1025,6 @@ void sftpProtocol::openConnection() {
 
   kdDebug(TDEIO_SFTP_DB) << "Trying to initialize the sftp session" << endl;
   if (sftp_init(mSftp) < 0) {
-    closeConnection();
     error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Could not initialize the SFTP session."));
     return;
   }
@@ -1051,6 +1046,8 @@ void sftpProtocol::openConnection() {
   //setTimeoutSpecialCommand(TDEIO_SFTP_SPECIAL_TIMEOUT);
 
   mConnected = true;
+  connectionCloser.abort();
+
   connected();
 
   return;
