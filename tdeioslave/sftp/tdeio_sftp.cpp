@@ -33,6 +33,8 @@
 #include <tqfile.h>
 #include <tqdir.h>
 
+#include <functional>
+
 #include <stdlib.h>
 #include <unistd.h>
 #include <errno.h>
@@ -92,6 +94,50 @@ extern "C"
   }
 }
 
+// Some helper functions/classes
+namespace {
+
+// A quick and dirty scope guard implementation
+class ExitGuard {
+public:
+  template<class Callable>
+  ExitGuard(Callable && undo_func) : f(std::forward<Callable>(undo_func)) {}
+  ExitGuard(ExitGuard && other) : f(std::move(other.f)) {
+      other.f = nullptr;
+  }
+
+  ~ExitGuard() {
+    run();
+  }
+
+  void run() noexcept {
+    if(f) { f(); f = nullptr; }
+  }
+
+  ExitGuard(const ExitGuard&) = delete;
+  void operator= (const ExitGuard&) = delete;
+
+private:
+    std::function<void()> f;
+};
+
+// A small helper to purge passwords. Paranoiac's note: this is not enough to guarantee the
+// complete purge of the password and all its copy from memory (ioslaves are sending the passwords
+// via dcop, so it's far beyond calling it "secure" in any way), but it's still better than nothing.
+void purgeString(TQString &s) {
+  s.fill('\0');
+  s.setLength(0);
+  s = TQString::null;
+}
+
+// A helper class to cleanup password when it goes out of the scope
+class PasswordPurger: public ExitGuard {
+public:
+  PasswordPurger(TQString &pw) : ExitGuard( [&pw](){purgeString(pw);} ) {}
+};
+
+} /* namespace */
+
 // The callback function for libssh
 int auth_callback(const char *prompt, char *buf, size_t len,
                   int echo, int verify, void *userdata)
@@ -128,42 +174,73 @@ int sftpProtocol::auth_callback(const char *prompt, char *buf, size_t len,
   (void) echo;
   (void) verify;
   (void) userdata;
+  (void) prompt;
+
+  Q_ASSERT(len>0);
 
   kdDebug(TDEIO_SFTP_DB) << "Entering public key authentication callback" << endl;
 
-  if(!pubKeyInfo)
-  {
-    pubKeyInfo = new TDEIO::AuthInfo;
-  }
-  else
-  {
-    // TODO: inform user about incorrect password
-  }
+  int rc=0;
+  mPubKeyAuthData.wasCalled = true;
 
-  pubKeyInfo->url.setProtocol("sftp");
-  pubKeyInfo->url.setHost(mHost);
-  pubKeyInfo->url.setPort(mPort);
-  pubKeyInfo->url.setUser(mUsername);
+  AuthInfo pubKeyInfo = authInfo();
 
-  pubKeyInfo->caption      = i18n("SFTP Login");
-  pubKeyInfo->comment      = "sftp://" + mUsername + "@"  + mHost;
-  pubKeyInfo->username     = mUsername;
-  pubKeyInfo->readOnly     = false;
-  pubKeyInfo->prompt       = TQString::fromUtf8(prompt);
-  pubKeyInfo->keepPassword = false; // don't save passwords for public key,
+  pubKeyInfo.readOnly     = false;
+  pubKeyInfo.keepPassword = false; // don't save passwords for public key,
                                    // that's the task of ssh-agent.
+  TQString errMsg;
+  TQString keyFile;
+#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 10, 0)
+  // no way to determine keyfile name on older libssh
+#else
+  char *ssh_key_file = 0;
+  rc = ssh_userauth_publickey_auto_get_current_identity(mSession, &ssh_key_file);
 
-  if (!openPassDlg(*pubKeyInfo)) {
-    kdDebug(TDEIO_SFTP_DB) << "User canceled entry of public key password." << endl;
-    return -1;
+  if (rc == 0 && ssh_key_file && ssh_key_file[0]) {
+    keyFile = ssh_key_file;
+  }
+  ssh_string_free_char(ssh_key_file);
+#endif
+
+  bool firstTry = !mPubKeyAuthData.attemptedKeys.contains(keyFile);
+
+  if (!firstTry) {
+    errMsg = i18n("Incorrect or invalid passphrase.");
   }
 
-  strncpy(buf, pubKeyInfo->password.utf8().data(), len - 1);
+  // libssh prompt is trash and we know we use this function only for publickey auth, so we'll give
+  // the user a descent prompt
+  if (!keyFile.isEmpty()) {
+      pubKeyInfo.prompt = i18n("Please enter the passphrase for next public key:\n%1").arg(keyFile);
+  } else { // Generally shouldn't happend but on older libssh
+      pubKeyInfo.prompt = i18n("Please enter the passphrase for your public key.");
+  }
 
-  pubKeyInfo->password.fill('x');
-  pubKeyInfo->password = "";
+  // We don't want to clobber with normal passwords in kpasswdserver's cache
+  pubKeyInfo.realmValue = "keyfile passphrase:" + keyFile;
 
-  return 0;
+  if (openPassDlg(pubKeyInfo, errMsg)) {
+    if (len < pubKeyInfo.password.utf8().length()+1) {
+      kdDebug(TDEIO_SFTP_DB) << "Insufficient buffer size for password: " << len
+        << " (" << pubKeyInfo.password.utf8().length()+1 << "needed)" << endl;
+    }
+
+    strncpy(buf, pubKeyInfo.password.utf8().data(), len-1);
+    buf[len-1]=0; // Just to be on the safe side
+
+    purgeString(pubKeyInfo.password);
+  } else {
+    kdDebug(TDEIO_SFTP_DB) << "User canceled entry of public key passphrase" << endl;
+    rc = -1;
+    mPubKeyAuthData.wasCanceled = true;
+  }
+
+  // take a note that we already tried unlocking this keyfile
+  if(firstTry) {
+    mPubKeyAuthData.attemptedKeys.append(keyFile);
+  }
+
+  return rc;
 }
 
 void sftpProtocol::log_callback(ssh_session session, int priority,
@@ -210,6 +287,15 @@ int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
       kdDebug(TDEIO_SFTP_DB) << "prompt=" << prompt << " echo=" << TQString::number(echo) << endl;
 
       TDEIO::AuthInfo infoKbdInt(info);
+      infoKbdInt.keepPassword = false;
+
+      if (!name.isEmpty()) {
+        infoKbdInt.caption = TQString(i18n("SFTP Login") + " - " + name);
+      }
+
+      // Those strings might or might not contain some sensitive information
+      PasswordPurger answerPurger{answer};
+      PasswordPurger infoPurger{infoKbdInt.password};
 
       if (!echo) {
         // ssh server requests us to ask user a question without displaying an answer. In normal
@@ -230,7 +316,6 @@ int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
           // If the server's request doesn't look like a password, keep the servers prompt and
           // don't bother saving it
           infoKbdInt.prompt = prompt;
-          infoKbdInt.keepPassword = false;
         }
 
         infoKbdInt.readOnly = true; // set username readonly
@@ -242,6 +327,7 @@ int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
             answer = infoKbdInt.password;
             if(isPassword) {
               info.password = infoKbdInt.password; // return the answer to the caller
+              info.setModified( true );
             }
           } else {
             /* FIXME: Some reasonable action upon cancellation? <2024-01-10 Fat-Zer> */
@@ -253,21 +339,15 @@ int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
         // no means of handle that correctly, so we will have to be creative with the password
         // dialog.
         TQString newPrompt;
-        infoKbdInt.comment = "sftp://" + infoKbdInt.username + "@"  + mHost;
-
-        if (!name.isEmpty()) {
-          infoKbdInt.caption = TQString(i18n("SFTP Login") + " - " + name);
-        }
 
         if (!instruction.isEmpty()) {
           newPrompt = instruction + "\n\n";
         }
-
         newPrompt.append(prompt + "\n\n");
-        infoKbdInt.readOnly = false;
-        infoKbdInt.keepPassword = false;
         newPrompt.append(i18n("Use the username input field to answer this question."));
         infoKbdInt.prompt = newPrompt;
+
+        infoKbdInt.readOnly = false;
 
         if (openPassDlg(infoKbdInt)) {
           answer = infoKbdInt.username;
@@ -287,6 +367,22 @@ int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
   } // while (1)
 
   return err;
+}
+
+TDEIO::AuthInfo sftpProtocol::authInfo() {
+  TDEIO::AuthInfo rv;
+
+  rv.url.setProtocol("sftp");
+  rv.url.setHost(mHost);
+  rv.url.setPort(mPort);
+  rv.url.setUser(mUsername);
+
+  rv.caption = i18n("SFTP Login");
+  rv.comment = "sftp://" + mHost + ':' + TQString::number(mPort);
+  rv.commentLabel = i18n("site:");
+  rv.username = mUsername;
+
+  return rv;
 }
 
 void sftpProtocol::reportError(const KURL &url, const int err) {
@@ -553,17 +649,11 @@ void sftpProtocol::openConnection() {
 
   // Setup AuthInfo for use with password caching and the
   // password dialog box.
-  AuthInfo info;
-
-  info.url.setProtocol("sftp");
-  info.url.setHost(mHost);
-  info.url.setPort(mPort);
-  info.url.setUser(mUsername);
-  info.caption = i18n("SFTP Login");
-  info.comment = "sftp://" + mHost + ':' + TQString::number(mPort);
-  info.commentLabel = i18n("site:");
-  info.username = mUsername;
+  AuthInfo info = authInfo();
   info.keepPassword = true; // make the "keep Password" check box visible to the user.
+
+  PasswordPurger pwPurger{mPassword};
+  PasswordPurger infoPurger{info.password};
 
   // Check for cached authentication info if no password is specified...
   if (mPassword.isEmpty()) {
@@ -631,8 +721,8 @@ void sftpProtocol::openConnection() {
   }
 
   // Set the username
-  if (!mUsername.isEmpty()) {
-    rc = ssh_options_set(mSession, SSH_OPTIONS_USER, mUsername.utf8().data());
+  if (!info.username.isEmpty()) {
+    rc = ssh_options_set(mSession, SSH_OPTIONS_USER, info.username.utf8().data());
     if (rc < 0) {
       error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set username."));
       return;
@@ -793,25 +883,54 @@ void sftpProtocol::openConnection() {
   bool firstTime = true;
   bool dlgResult;
   while (rc != SSH_AUTH_SUCCESS) {
+    /* FIXME: if there are problems with auth we are likely to stuck in this loop <2024-01-20 Fat-Zer> */
+
     // Try to authenticate with public key first
-    if (rc != SSH_AUTH_SUCCESS && (method & SSH_AUTH_METHOD_PUBLICKEY) && !mPassword)
-    {
+    if (rc != SSH_AUTH_SUCCESS && (method & SSH_AUTH_METHOD_PUBLICKEY) && !mPassword) {
+      // might mess up next login attempt if we won't clean it up
+      ExitGuard pubKeyInfoCleanser([this]() {
+          mPubKeyAuthData.wasCalled = 0;
+          mPubKeyAuthData.wasCanceled = 0;
+          mPubKeyAuthData.attemptedKeys.clear();
+        });
+
       kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with public key" << endl;
-      for(;;)
+      bool keepTryingPasskey=true;
+      while(keepTryingPasskey)
       {
+        mPubKeyAuthData.wasCalled = 0;
         rc = ssh_userauth_publickey_auto(mSession, nullptr, nullptr);
-        if (rc == SSH_AUTH_ERROR)
-        {
-          clearPubKeyAuthInfo();
-          closeConnection();
-          error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
-                                            .arg(i18n("public key")));
-          return;
-        }
-        if (rc == SSH_AUTH_DENIED || !pubKeyInfo || !pubKeyInfo->isModified())
-        {
-          clearPubKeyAuthInfo();
-          break;
+
+        kdDebug(TDEIO_SFTP_DB) << "ssh_userauth_publickey_auto returned rc=" << rc
+          << " ssh_err=" << ssh_get_error_code(mSession)
+          << " (" <<  ssh_get_error(mSession) << ")" << endl;
+
+        switch (rc) {
+          case SSH_AUTH_SUCCESS:
+          case SSH_AUTH_PARTIAL:
+            keepTryingPasskey=false;
+            break;
+          case SSH_AUTH_AGAIN:
+            // Returned in case of some errors like if server hangs up or there were too many auth attempts
+          case SSH_AUTH_ERROR:
+            closeConnection();
+            /* FIXME: Use scope guard to close connection <2024-01-20 Fat-Zer> */
+            error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
+                                              .arg(i18n("public key")));
+            /* FIXME: add some additional info from ssh_get_error() if available <2024-01-20 Fat-Zer> */
+            return;
+
+          case SSH_AUTH_DENIED:
+            if (!mPubKeyAuthData.wasCalled) {
+              kdDebug(TDEIO_SFTP_DB) << "Passkey auth denied because it has no matching key" << endl;
+              keepTryingPasskey = false;
+            } else if (mPubKeyAuthData.wasCanceled) {
+              kdDebug(TDEIO_SFTP_DB) << "Passkey auth denied because user canceled" << endl;
+              keepTryingPasskey = false;
+            } else {
+              kdDebug(TDEIO_SFTP_DB) << "User entered wrong passphrase for the key" << endl;
+            }
+            break;
         }
       }
     }
@@ -922,11 +1041,6 @@ void sftpProtocol::openConnection() {
 
   mConnected = true;
   connected();
-
-  mPassword.fill('x');
-  mPassword = "";
-  info.password.fill('x');
-  info.password = "";
 
   return;
 }
@@ -1874,13 +1988,4 @@ void sftpProtocol::del(const KURL &url, bool isfile){
 void sftpProtocol::slave_status() {
   kdDebug(TDEIO_SFTP_DB) << "connected to " << mHost << "?: " << mConnected << endl;
   slaveStatus((mConnected ? mHost : TQString()), mConnected);
-}
-
-void sftpProtocol::clearPubKeyAuthInfo()
-{
-  if (!pubKeyInfo)
-  {
-    delete pubKeyInfo;
-    pubKeyInfo = nullptr;
-  }
 }
