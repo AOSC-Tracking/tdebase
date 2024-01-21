@@ -154,7 +154,7 @@ private: // Private variables
   } mPubKeyAuthData;
 
 private: // private methods
-  int authenticateKeyboardInteractive(TDEIO::AuthInfo &info);
+  int authenticateKeyboardInteractive();
 
   /** A small helper function to construct auth info skeleton for the protocol */
   TDEIO::AuthInfo authInfo();
