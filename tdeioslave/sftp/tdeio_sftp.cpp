@@ -255,7 +255,7 @@ void sftpProtocol::log_callback(ssh_session session, int priority,
   kdDebug(TDEIO_SFTP_DB) << "[" << priority << "] " << message << endl;
 }
 
-int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
+int sftpProtocol::authenticateKeyboardInteractive() {
   TQString name, instruction, prompt;
   int err = SSH_AUTH_ERROR;
 
@@ -275,6 +275,7 @@ int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
       break;
     }
 
+    // See RFC4256 Section 3.3 User Interface for meaning of the values
     name = TQString::fromUtf8(ssh_userauth_kbdint_getname(mSession));
     instruction = TQString::fromUtf8(ssh_userauth_kbdint_getinstruction(mSession));
     n = ssh_userauth_kbdint_getnprompts(mSession);
@@ -283,14 +284,14 @@ int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
       << " prompts" << n << endl;
 
     for (i = 0; i < n; ++i) {
-      // See RFC4256 Section 3.3 User Interface
       char echo;
       TQString answer;
 
       prompt = TQString::fromUtf8(ssh_userauth_kbdint_getprompt(mSession, i, &echo));
       kdDebug(TDEIO_SFTP_DB) << "prompt=" << prompt << " echo=" << TQString::number(echo) << endl;
 
-      TDEIO::AuthInfo infoKbdInt(info);
+      TDEIO::AuthInfo infoKbdInt = authInfo();
+      infoKbdInt.realmValue = prompt; // each prompt will be treated on its own by kpasswdserver
       infoKbdInt.keepPassword = false;
 
       if (!name.isEmpty()) {
@@ -305,21 +306,26 @@ int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
         // ssh server requests us to ask user a question without displaying an answer. In normal
         // circumstances this is probably a password, but it might be something else depending
         // on the server configuration.
-        bool isPassword = false;
         if (prompt.lower().startsWith("password")) {
-          // We can assume that the ssh server asks for a password and we want a more
-          // user-friendly prompt in that case
+          // We can assume that the ssh server asks for a password and we will handle that case
+          // with more care since it's what most users will see
           infoKbdInt.prompt = i18n("Please enter your password.");
-          isPassword = true;
+          infoKbdInt.realmValue = TQString::null; // passwords use generic realm
           infoKbdInt.keepPassword = true;
-          if (!mPassword.isNull()) { // if we have a cached password we might use it
+
+          if (!mPassword.isEmpty()) { // if we have a cached password we might use it
             kdDebug(TDEIO_SFTP_DB) << "Using cached password" << endl;
             answer = mPassword;
+            purgeString(mPassword); // if we used up password purge it
           }
         } else {
-          // If the server's request doesn't look like a password, keep the servers prompt and
-          // don't bother saving it
-          infoKbdInt.prompt = prompt;
+          // If the server's request doesn't look like a password, keep the servers prompt but
+          // don't prompt saving it
+          infoKbdInt.prompt = i18n("Please enter answer for the next request:");
+          if (!instruction.isEmpty()) {
+            infoKbdInt.prompt.append("\n\n").append(instruction);
+          }
+          infoKbdInt.prompt.append("\n\n").append(prompt);
         }
 
         infoKbdInt.readOnly = true; // set username readonly
@@ -329,10 +335,6 @@ int sftpProtocol::authenticateKeyboardInteractive(AuthInfo &info) {
           if (openPassDlg(infoKbdInt)) {
             kdDebug(TDEIO_SFTP_DB) << "Got the answer from the password dialog" << endl;
             answer = infoKbdInt.password;
-            if(isPassword) {
-              info.password = infoKbdInt.password; // return the answer to the caller
-              info.setModified( true );
-            }
           } else {
             /* FIXME: Some reasonable action upon cancellation? <2024-01-10 Fat-Zer> */
           }
@@ -950,15 +952,9 @@ void sftpProtocol::openConnection() {
     if (rc != SSH_AUTH_SUCCESS && (method & SSH_AUTH_METHOD_INTERACTIVE))
     {
       kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with keyboard interactive" << endl;
+      rc = authenticateKeyboardInteractive();
 
-      TDEIO::AuthInfo tmpInfo(info);
-      rc = authenticateKeyboardInteractive(tmpInfo);
-      if (rc == SSH_AUTH_SUCCESS)
-      {
-        info = tmpInfo;
-        mUsername = info.username;
-      }
-      else if (rc == SSH_AUTH_ERROR)
+      if (rc == SSH_AUTH_ERROR)
       {
         error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
                                           .arg(i18n("keyboard interactive")));
