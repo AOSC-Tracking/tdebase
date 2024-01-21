@@ -31,6 +31,7 @@
 #include <tdeio/slavebase.h>
 #include <kdebug.h>
 #include <stdint.h>
+#include <memory>
 
 #include <libssh/libssh.h>
 #include <libssh/sftp.h>
@@ -138,12 +139,24 @@ private: // Private variables
   //  TQString text;
   //};
 
-  TDEIO::AuthInfo *pubKeyInfo;
+  /** Some data needed to interact with auth_callback() */
+  struct {
+    /** true if callback was called */
+    bool wasCalled;
+    /** true if user canceled password entry dialog */
+    bool wasCanceled;
+    /** List of keys user was already prompted to enter the passphrase for.
+     *  Note: Under most sane circumstances the list shouldn't go beyond size=2,
+     *        so no fancy containers here
+     */
+    TQStringList attemptedKeys;
+  } mPubKeyAuthData;
 
 private: // private methods
-
   int authenticateKeyboardInteractive(TDEIO::AuthInfo &info);
-  void clearPubKeyAuthInfo();
+
+  /** A small helper function to construct auth info skeleton for the protocol */
+  TDEIO::AuthInfo authInfo();
 
   void reportError(const KURL &url, const int err);
 
