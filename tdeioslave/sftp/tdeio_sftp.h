@@ -118,7 +118,8 @@ private: // Private variables
   /** Username to use when connecting */
   TQString mUsername;
 
-  /** User's password */
+  /** User's password. Note: the password would be set only if it was passed to
+   *  setHost() or received from cache */
   TQString mPassword;
 
   /** The open file */
