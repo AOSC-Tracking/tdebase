@@ -158,6 +158,9 @@ private: // private methods
   /** A small helper function to construct auth info skeleton for the protocol */
   TDEIO::AuthInfo authInfo();
 
+  /** A helper function encapsulating creation of an ssh connection before authentication */
+  int initializeConnection();
+
   void reportError(const KURL &url, const int err);
 
   bool createUDSEntry(const TQString &filename, const TQByteArray &path,

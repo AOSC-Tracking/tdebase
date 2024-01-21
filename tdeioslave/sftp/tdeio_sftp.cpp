@@ -631,6 +631,208 @@ void sftpProtocol::setHost(const TQString& h, int port, const TQString& user, co
   mPassword = pass;
 }
 
+
+int sftpProtocol::initializeConnection() {
+  TQString msg;     // msg for dialog box
+  TQString caption; // dialog box caption
+  unsigned char *hash = NULL; // the server hash
+  char *hexa;
+  char *verbosity;
+  int rc, state;
+  int timeout_sec = 30, timeout_usec = 0;
+
+  mSession = ssh_new();
+  if (mSession == NULL) {
+    error(TDEIO::ERR_INTERNAL, i18n("Could not create a new SSH session."));
+    return SSH_ERROR;
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "Creating the SSH session and setting options" << endl;
+
+  // Set timeout
+  rc = ssh_options_set(mSession, SSH_OPTIONS_TIMEOUT, &timeout_sec);
+  if (rc < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not set a timeout.";
+  }
+  rc = ssh_options_set(mSession, SSH_OPTIONS_TIMEOUT_USEC, &timeout_usec);
+  if (rc < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not set a timeout in usec.";
+  }
+
+  // Don't use any compression
+  rc = ssh_options_set(mSession, SSH_OPTIONS_COMPRESSION_C_S, "none");
+  if (rc < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not set compression client <- server.";
+  }
+
+  rc = ssh_options_set(mSession, SSH_OPTIONS_COMPRESSION_S_C, "none");
+  if (rc < 0) {
+    kdDebug(TDEIO_SFTP_DB) << "Could not set compression server -> client.";
+  }
+
+  // Set host and port
+  rc = ssh_options_set(mSession, SSH_OPTIONS_HOST, mHost.utf8().data());
+  if (rc < 0) {
+    error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set host."));
+    return SSH_ERROR;
+  }
+
+  if (mPort > 0) {
+    rc = ssh_options_set(mSession, SSH_OPTIONS_PORT, &mPort);
+    if (rc < 0) {
+        error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set port."));
+      return SSH_ERROR;
+    }
+  }
+
+  // Set the username
+  if (!mUsername.isEmpty()) {
+    rc = ssh_options_set(mSession, SSH_OPTIONS_USER, mUsername.utf8().data());
+    if (rc < 0) {
+      error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set username."));
+      return rc;
+    }
+  }
+
+  verbosity = getenv("TDEIO_SFTP_LOG_VERBOSITY");
+  if (verbosity) {
+    rc = ssh_options_set(mSession, SSH_OPTIONS_LOG_VERBOSITY_STR, verbosity);
+    if (rc < 0) {
+      error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set log verbosity."));
+      return rc;
+    }
+  }
+
+  // Read ~/.ssh/config
+  rc = ssh_options_parse_config(mSession, NULL);
+  if (rc < 0) {
+    error(TDEIO::ERR_INTERNAL, i18n("Could not parse the config file."));
+    return rc;
+  }
+
+  ssh_set_callbacks(mSession, mCallbacks);
+
+  kdDebug(TDEIO_SFTP_DB) << "Trying to connect to the SSH server" << endl;
+
+  /* try to connect */
+  rc = ssh_connect(mSession);
+  if (rc < 0) {
+    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+    closeConnection();
+    return rc;
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "Getting the SSH server hash" << endl;
+
+  /* get the hash */
+  ssh_key serverKey;
+#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 7, 90)
+  rc = ssh_get_publickey(mSession, &serverKey);
+#else
+  rc = ssh_get_server_publickey(mSession, &serverKey);
+#endif
+  if (rc<0) {
+    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+    closeConnection();
+    return rc;
+  }
+
+  size_t hlen;
+#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 8, 90)
+  rc = ssh_get_publickey_hash(serverKey, SSH_PUBLICKEY_HASH_MD5, &hash, &hlen);
+#else
+  rc = ssh_get_publickey_hash(serverKey, SSH_PUBLICKEY_HASH_SHA256, &hash, &hlen);
+#endif
+  if (rc<0) {
+    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+    closeConnection();
+    return rc;
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "Checking if the SSH server is known" << endl;
+
+  /* check the server public key hash */
+#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 7, 90)
+  state = ssh_is_server_known(mSession);
+#else
+  state = ssh_session_is_known_server(mSession);
+#endif
+  switch (state) {
+    case TDEIO_SSH_KNOWN_HOSTS_OK:
+      break;
+    case TDEIO_SSH_KNOWN_HOSTS_OTHER:
+      delete hash;
+      error(TDEIO::ERR_CONNECTION_BROKEN, i18n("The host key for this server was "
+            "not found, but another type of key exists.\n"
+            "An attacker might change the default server key to confuse your "
+            "client into thinking the key does not exist.\n"
+            "Please contact your system administrator.\n%1").arg(TQString::fromUtf8(ssh_get_error(mSession))));
+      closeConnection();
+      return SSH_ERROR;
+    case TDEIO_SSH_KNOWN_HOSTS_CHANGED:
+      hexa = ssh_get_hexa(hash, hlen);
+      delete hash;
+      /* TODO print known_hosts file, port? */
+      error(TDEIO::ERR_CONNECTION_BROKEN, i18n("The host key for the server %1 has changed.\n"
+          "This could either mean that DNS SPOOFING is happening or the IP "
+          "address for the host and its host key have changed at the same time.\n"
+          "The fingerprint for the key sent by the remote host is:\n %2\n"
+          "Please contact your system administrator.\n%3").arg(
+          mHost).arg(TQString::fromUtf8(hexa)).arg(TQString::fromUtf8(ssh_get_error(mSession))));
+      delete hexa;
+      closeConnection();
+      return SSH_ERROR;
+    case TDEIO_SSH_KNOWN_HOSTS_NOT_FOUND:
+    case TDEIO_SSH_KNOWN_HOSTS_UNKNOWN:
+      hexa = ssh_get_hexa(hash, hlen);
+      delete hash;
+      caption = i18n("Warning: Cannot verify host's identity.");
+      msg = i18n("The authenticity of host %1 cannot be established.\n"
+        "The key fingerprint is: %2\n"
+        "Are you sure you want to continue connecting?").arg(mHost).arg(hexa);
+      delete hexa;
+
+      if (KMessageBox::Yes != messageBox(WarningYesNo, msg, caption)) {
+        closeConnection();
+        error(TDEIO::ERR_USER_CANCELED, TQString());
+        return SSH_ERROR;
+      }
+
+      /* write the known_hosts file */
+      kdDebug(TDEIO_SFTP_DB) << "Adding server to known_hosts file." << endl;
+#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 7, 90)
+      if (ssh_write_knownhost(mSession) != SSH_OK) {
+#else
+      if (ssh_session_update_known_hosts(mSession) != SSH_OK) {
+#endif
+        error(TDEIO::ERR_USER_CANCELED, TQString::fromUtf8(ssh_get_error(mSession)));
+        closeConnection();
+        return SSH_ERROR;
+      }
+      break;
+    case TDEIO_SSH_KNOWN_HOSTS_ERROR:
+      delete hash;
+      error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+      return SSH_ERROR;
+  }
+
+  kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with the server" << endl;
+
+  // If no username was set upon connection, get the name from connection
+  // (probably it'd be the current user's name)
+  if (mUsername.isEmpty()) {
+    char *ssh_username = NULL;
+    rc = ssh_options_get(mSession, SSH_OPTIONS_USER, &ssh_username);
+    if (rc == 0 && ssh_username && ssh_username[0]) {
+      mUsername = ssh_username;
+    }
+    ssh_string_free_char(ssh_username);
+  }
+
+  return SSH_OK;
+}
+
+
 void sftpProtocol::openConnection() {
 
   if (mConnected) {
@@ -667,200 +869,11 @@ void sftpProtocol::openConnection() {
     }
   }
 
+  int rc;
+
   // Start the ssh connection.
-  TQString msg;     // msg for dialog box
-  TQString caption; // dialog box caption
-  unsigned char *hash = NULL; // the server hash
-  char *hexa;
-  char *verbosity;
-  int rc, state;
-  int timeout_sec = 30, timeout_usec = 0;
-
-  mSession = ssh_new();
-  if (mSession == NULL) {
-    error(TDEIO::ERR_INTERNAL, i18n("Could not create a new SSH session."));
+  if (initializeConnection() < 0) {
     return;
-  }
-
-  kdDebug(TDEIO_SFTP_DB) << "Creating the SSH session and setting options" << endl;
-
-  // Set timeout
-  rc = ssh_options_set(mSession, SSH_OPTIONS_TIMEOUT, &timeout_sec);
-  if (rc < 0) {
-    kdDebug(TDEIO_SFTP_DB) << "Could not set a timeout.";
-  }
-  rc = ssh_options_set(mSession, SSH_OPTIONS_TIMEOUT_USEC, &timeout_usec);
-  if (rc < 0) {
-    kdDebug(TDEIO_SFTP_DB) << "Could not set a timeout in usec.";
-  }
-
-  // Don't use any compression
-  rc = ssh_options_set(mSession, SSH_OPTIONS_COMPRESSION_C_S, "none");
-  if (rc < 0) {
-    kdDebug(TDEIO_SFTP_DB) << "Could not set compression client <- server.";
-  }
-
-  rc = ssh_options_set(mSession, SSH_OPTIONS_COMPRESSION_S_C, "none");
-  if (rc < 0) {
-    kdDebug(TDEIO_SFTP_DB) << "Could not set compression server -> client.";
-  }
-
-  // Set host and port
-  rc = ssh_options_set(mSession, SSH_OPTIONS_HOST, mHost.utf8().data());
-  if (rc < 0) {
-    error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set host."));
-    return;
-  }
-
-  if (mPort > 0) {
-    rc = ssh_options_set(mSession, SSH_OPTIONS_PORT, &mPort);
-    if (rc < 0) {
-        error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set port."));
-      return;
-    }
-  }
-
-  // Set the username
-  if (!info.username.isEmpty()) {
-    rc = ssh_options_set(mSession, SSH_OPTIONS_USER, info.username.utf8().data());
-    if (rc < 0) {
-      error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set username."));
-      return;
-    }
-  }
-
-  verbosity = getenv("TDEIO_SFTP_LOG_VERBOSITY");
-  if (verbosity) {
-    rc = ssh_options_set(mSession, SSH_OPTIONS_LOG_VERBOSITY_STR, verbosity);
-    if (rc < 0) {
-      error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set log verbosity."));
-      return;
-    }
-  }
-
-  // Read ~/.ssh/config
-  rc = ssh_options_parse_config(mSession, NULL);
-  if (rc < 0) {
-    error(TDEIO::ERR_INTERNAL, i18n("Could not parse the config file."));
-    return;
-  }
-
-  ssh_set_callbacks(mSession, mCallbacks);
-
-  kdDebug(TDEIO_SFTP_DB) << "Trying to connect to the SSH server" << endl;
-
-  /* try to connect */
-  rc = ssh_connect(mSession);
-  if (rc < 0) {
-    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
-    closeConnection();
-    return;
-  }
-
-  kdDebug(TDEIO_SFTP_DB) << "Getting the SSH server hash" << endl;
-
-  /* get the hash */
-  ssh_key serverKey;
-#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 7, 90)
-  if (ssh_get_publickey(mSession, &serverKey) < 0) {
-#else
-  if (ssh_get_server_publickey(mSession, &serverKey) < 0) {
-#endif
-    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
-    closeConnection();
-    return;
-  }
-
-  size_t hlen;
-#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 8, 90)
-  if (ssh_get_publickey_hash(serverKey, SSH_PUBLICKEY_HASH_MD5, &hash, &hlen) < 0) {
-#else
-  if (ssh_get_publickey_hash(serverKey, SSH_PUBLICKEY_HASH_SHA256, &hash, &hlen) < 0) {
-#endif
-    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
-    closeConnection();
-    return;
-  }
-
-  kdDebug(TDEIO_SFTP_DB) << "Checking if the SSH server is known" << endl;
-
-  /* check the server public key hash */
-#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 7, 90)
-  state = ssh_is_server_known(mSession);
-#else
-  state = ssh_session_is_known_server(mSession);
-#endif
-  switch (state) {
-    case TDEIO_SSH_KNOWN_HOSTS_OK:
-      break;
-    case TDEIO_SSH_KNOWN_HOSTS_OTHER:
-      delete hash;
-      error(TDEIO::ERR_CONNECTION_BROKEN, i18n("The host key for this server was "
-            "not found, but another type of key exists.\n"
-            "An attacker might change the default server key to confuse your "
-            "client into thinking the key does not exist.\n"
-            "Please contact your system administrator.\n%1").arg(TQString::fromUtf8(ssh_get_error(mSession))));
-      closeConnection();
-      return;
-    case TDEIO_SSH_KNOWN_HOSTS_CHANGED:
-      hexa = ssh_get_hexa(hash, hlen);
-      delete hash;
-      /* TODO print known_hosts file, port? */
-      error(TDEIO::ERR_CONNECTION_BROKEN, i18n("The host key for the server %1 has changed.\n"
-          "This could either mean that DNS SPOOFING is happening or the IP "
-          "address for the host and its host key have changed at the same time.\n"
-          "The fingerprint for the key sent by the remote host is:\n %2\n"
-          "Please contact your system administrator.\n%3").arg(
-          mHost).arg(TQString::fromUtf8(hexa)).arg(TQString::fromUtf8(ssh_get_error(mSession))));
-      delete hexa;
-      closeConnection();
-      return;
-    case TDEIO_SSH_KNOWN_HOSTS_NOT_FOUND:
-    case TDEIO_SSH_KNOWN_HOSTS_UNKNOWN:
-      hexa = ssh_get_hexa(hash, hlen);
-      delete hash;
-      caption = i18n("Warning: Cannot verify host's identity.");
-      msg = i18n("The authenticity of host %1 cannot be established.\n"
-        "The key fingerprint is: %2\n"
-        "Are you sure you want to continue connecting?").arg(mHost).arg(hexa);
-      delete hexa;
-
-      if (KMessageBox::Yes != messageBox(WarningYesNo, msg, caption)) {
-        closeConnection();
-        error(TDEIO::ERR_USER_CANCELED, TQString());
-        return;
-      }
-
-      /* write the known_hosts file */
-      kdDebug(TDEIO_SFTP_DB) << "Adding server to known_hosts file." << endl;
-#if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 7, 90)
-      if (ssh_write_knownhost(mSession) != SSH_OK) {
-#else
-      if (ssh_session_update_known_hosts(mSession) != SSH_OK) {
-#endif
-        error(TDEIO::ERR_USER_CANCELED, TQString::fromUtf8(ssh_get_error(mSession)));
-        closeConnection();
-        return;
-      }
-      break;
-    case TDEIO_SSH_KNOWN_HOSTS_ERROR:
-      delete hash;
-      error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
-      return;
-  }
-
-  kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with the server" << endl;
-
-  // If no username was set upon connection, get the name from connection
-  // (probably it'd be the current user's name)
-  if (mUsername.isEmpty()) {
-    char *ssh_username = NULL;
-    rc = ssh_options_get(mSession, SSH_OPTIONS_USER, &ssh_username);
-    if (rc == 0 && ssh_username && ssh_username[0]) {
-      mUsername = ssh_username;
-      info.username = mUsername;
-    }
-    ssh_string_free_char(ssh_username);
   }
 
   // Try to authenticate
@@ -873,8 +886,7 @@ void sftpProtocol::openConnection() {
   }
 
   int method = ssh_auth_list(mSession);
-  if (!method && rc != SSH_AUTH_SUCCESS)
-  {
+  if (!method && rc != SSH_AUTH_SUCCESS) {
     error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."
           " The server did not send any authentication methods!"));
     return;
@@ -896,8 +908,7 @@ void sftpProtocol::openConnection() {
 
       kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with public key" << endl;
       bool keepTryingPasskey=true;
-      while(keepTryingPasskey)
-      {
+      while (keepTryingPasskey) {
         mPubKeyAuthData.wasCalled = 0;
         rc = ssh_userauth_publickey_auto(mSession, nullptr, nullptr);
 
