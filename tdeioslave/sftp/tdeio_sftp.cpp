@@ -599,7 +599,7 @@ sftpProtocol::~sftpProtocol() {
 #endif
   closeConnection();
 
-  delete mCallbacks;
+  free(mCallbacks);
 
   /* cleanup and shut down cryto stuff */
   ssh_finalize();
