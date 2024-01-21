@@ -957,7 +957,6 @@ void sftpProtocol::openConnection() {
       {
         info = tmpInfo;
         mUsername = info.username;
-        mPassword = info.password;
       }
       else if (rc == SSH_AUTH_ERROR)
       {
@@ -999,10 +998,10 @@ void sftpProtocol::openConnection() {
                                  << " to " << info.username << endl;
         }
         mUsername = info.username;
-        mPassword = info.password;
-
+        /* FIXME: libssh doc says that most servers won't allow user switching in-session
+         * <2024-01-21 Fat-Zer> */
         rc = ssh_userauth_password(mSession, mUsername.utf8().data(),
-                                  mPassword.utf8().data());
+                                  info.password.utf8().data());
         if (rc == SSH_AUTH_ERROR) {
           error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
                                             .arg(i18n("password")));
@@ -1031,17 +1030,6 @@ void sftpProtocol::openConnection() {
 
   // Login succeeded!
   infoMessage(i18n("Successfully connected to %1").arg(mHost));
-  info.url.setProtocol("sftp");
-  info.url.setHost(mHost);
-  info.url.setPort(mPort);
-  info.url.setUser(mUsername);
-  info.username = mUsername;
-  info.password = mPassword;
-
-  kdDebug(TDEIO_SFTP_DB) << "Caching info.username = " << info.username
-    << ", info.url = " << info.url.prettyURL() << endl;
-
-  cacheAuthentication(info);
 
   //setTimeoutSpecialCommand(TDEIO_SFTP_SPECIAL_TIMEOUT);
 
