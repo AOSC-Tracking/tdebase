@@ -96,10 +96,18 @@ public:
   void log_callback(ssh_session session, int priority, const char *message,
                     void *userdata);
 
+  // Callbacks for SSHAuthMethod-derived strategies
+  int authenticatePublicKey();
+  int authenticateKeyboardInteractive(bool noPaswordQuery = false);
+  int authenticatePassword(bool noPaswordQuery = false);
+
+  /** Some extra authentication failure reasons intended to use alongside was declared in libssh */
+  enum extra_ssh_auth_e {
+    SSH_AUTH_CANCELED=128,   //< user canceled password entry dialog
+    SSH_AUTH_NEED_RECONNECT  //< it is required to reinitialize connection from scratch
+  };
 
 private: // Private variables
-  void statMime(const KURL &url);
-  void closeFile();
   /** True if ioslave is connected to sftp server. */
   bool mConnected;
 
@@ -118,8 +126,9 @@ private: // Private variables
   /** Username to use when connecting */
   TQString mUsername;
 
-  /** User's password. Note: the password would be set only if it was passed to
-   *  setHost() or received from cache */
+  /** User's password. Note: the password would be set only if it was somehow cached: passed to
+   * setHost(), received from passwdserver's cache or was entered by user before reconnection
+   */
   TQString mPassword;
 
   /** The open file */
@@ -142,19 +151,26 @@ private: // Private variables
 
   /** Some data needed to interact with auth_callback() */
   struct {
-    /** true if callback was called */
-    bool wasCalled;
-    /** true if user canceled password entry dialog */
-    bool wasCanceled;
     /** List of keys user was already prompted to enter the passphrase for.
      *  Note: Under most sane circumstances the list shouldn't go beyond size=2,
      *        so no fancy containers here
      */
     TQStringList attemptedKeys;
+    /** true if callback was called */
+    bool wasCalled;
+    /** true if user canceled password entry dialog */
+    bool wasCanceled;
   } mPubKeyAuthData;
 
+  /** true if the password dialog was prompted to the user at leas once */
+  bool mPasswordWasPrompted = false;
+
 private: // private methods
-  int authenticateKeyboardInteractive();
+  void statMime(const KURL &url);
+  void closeFile();
+
+  /** @returns username used by libssh during the connection */
+  TQString sshUsername();
 
   /** A small helper function to construct auth info skeleton for the protocol */
   TDEIO::AuthInfo authInfo();
@@ -168,6 +184,21 @@ private: // private methods
       TDEIO::UDSEntry &entry, short int details);
 
   TQString canonicalizePath(const TQString &path);
+};
+
+/** A base class for ssh authentication methods. */
+class SSHAuthMethod {
+public:
+  /** libssh's flag for he method */
+  virtual int flag() = 0;
+  /** The user-friendly (probably translated) name of the method */
+  virtual TQString name() = 0;
+  /** Actually do perform the auth process */
+  virtual int authenticate(sftpProtocol *ioslave) const = 0;
+  /** Creates a copy of derived class */
+  virtual SSHAuthMethod* clone() = 0;
+
+  virtual ~SSHAuthMethod() {};
 };
 
 #endif

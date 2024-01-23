@@ -33,6 +33,7 @@
 #include <tqfile.h>
 #include <tqdir.h>
 
+#include <numeric>
 #include <functional>
 
 #include <stdlib.h>
@@ -170,6 +171,46 @@ void log_callback(ssh_session session, int priority, const char *message,
   slave->log_callback(session, priority, message, userdata);
 }
 
+class PublicKeyAuth: public SSHAuthMethod {
+public:
+  int flag() override {return SSH_AUTH_METHOD_PUBLICKEY;};
+  TQString name() override { return i18n("public key"); };
+  int authenticate(sftpProtocol *ioslave) const override {
+    return ioslave->authenticatePublicKey();
+  }
+  SSHAuthMethod* clone() override {return new PublicKeyAuth; }
+};
+
+class KeyboardInteractiveAuth: public SSHAuthMethod {
+public:
+  KeyboardInteractiveAuth(bool noPaswordQuery = false): mNoPaswordQuery(noPaswordQuery) {}
+
+  int flag() override {return SSH_AUTH_METHOD_INTERACTIVE;};
+  TQString name() override { return i18n("keyboard interactive"); };
+  int authenticate(sftpProtocol *ioslave) const override {
+    return ioslave->authenticateKeyboardInteractive(mNoPaswordQuery);
+  }
+  SSHAuthMethod* clone() override {return new KeyboardInteractiveAuth(mNoPaswordQuery); }
+
+private:
+  const bool mNoPaswordQuery;
+};
+
+class PasswordAuth: public SSHAuthMethod {
+public:
+  PasswordAuth(bool noPaswordQuery = false): mNoPaswordQuery(noPaswordQuery) {}
+
+  int flag() override {return SSH_AUTH_METHOD_PASSWORD;};
+  TQString name() override { return i18n("password"); };
+  int authenticate(sftpProtocol *ioslave) const override {
+    return ioslave->authenticatePassword(mNoPaswordQuery);
+  }
+  SSHAuthMethod* clone() override {return new PasswordAuth(mNoPaswordQuery); }
+
+private:
+  const bool mNoPaswordQuery;
+};
+
 // Public key authentication
 int sftpProtocol::auth_callback(const char *prompt, char *buf, size_t len,
                                 int echo, int verify, void *userdata)
@@ -209,7 +250,7 @@ int sftpProtocol::auth_callback(const char *prompt, char *buf, size_t len,
   bool firstTry = !mPubKeyAuthData.attemptedKeys.contains(keyFile);
 
   if (!firstTry) {
-    errMsg = i18n("Incorrect or invalid passphrase.");
+    errMsg = i18n("Incorrect or invalid passphrase.").append('\n');
   }
 
   // libssh prompt is trash and we know we use this function only for publickey auth, so we'll give
@@ -255,9 +296,45 @@ void sftpProtocol::log_callback(ssh_session session, int priority,
   kdDebug(TDEIO_SFTP_DB) << "[" << priority << "] " << message << endl;
 }
 
-int sftpProtocol::authenticateKeyboardInteractive() {
-  TQString name, instruction, prompt;
-  int err = SSH_AUTH_ERROR;
+int sftpProtocol::authenticatePublicKey(){
+  // First let's do some cleanup
+  mPubKeyAuthData.wasCalled = 0;
+  mPubKeyAuthData.wasCanceled = 0;
+  mPubKeyAuthData.attemptedKeys.clear();
+
+  kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with public key" << endl;
+  int rc;
+
+  while (1) {
+    mPubKeyAuthData.wasCalled = 0;
+    rc = ssh_userauth_publickey_auto(mSession, nullptr, nullptr);
+
+    kdDebug(TDEIO_SFTP_DB) << "ssh_userauth_publickey_auto returned rc=" << rc
+      << " ssh_err=" << ssh_get_error_code(mSession)
+      << " (" <<  ssh_get_error(mSession) << ")" << endl;
+    if (rc == SSH_AUTH_DENIED) {
+      if (!mPubKeyAuthData.wasCalled) {
+        kdDebug(TDEIO_SFTP_DB) << "Passkey auth denied because it has no matching key" << endl;
+        break; /* rc == SSH_AUTH_DENIED */
+      } else if (mPubKeyAuthData.wasCanceled) {
+        kdDebug(TDEIO_SFTP_DB) << "Passkey auth denied because user canceled" << endl;
+        rc = sftpProtocol::SSH_AUTH_CANCELED;
+        break;
+      } else {
+        kdDebug(TDEIO_SFTP_DB) << "User entered wrong passphrase for the key" << endl;
+        // Try it again
+      }
+    } else {
+      // every other rc is either error or success
+      break;
+    }
+  }
+
+  return rc;
+}
+
+int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
+  int rc = SSH_AUTH_ERROR;
 
   kdDebug(TDEIO_SFTP_DB) << "Entering keyboard interactive function" << endl;
 
@@ -265,27 +342,30 @@ int sftpProtocol::authenticateKeyboardInteractive() {
     int n = 0;
     int i = 0;
 
-    err = ssh_userauth_kbdint(mSession, NULL, NULL);
+    rc = ssh_userauth_kbdint(mSession, NULL, NULL);
 
-    if (err != SSH_AUTH_INFO) {
-      kdDebug(TDEIO_SFTP_DB) << "Finishing kbdint auth err=" << err
+    if (rc == SSH_AUTH_DENIED) { // do nothing
+      kdDebug(TDEIO_SFTP_DB) << "kb-interactive auth was denied; retrying again" << endl;
+    } else if (rc != SSH_AUTH_INFO) {
+      kdDebug(TDEIO_SFTP_DB) << "Finishing kb-interactive auth rc=" << rc
         << " ssh_err=" << ssh_get_error_code(mSession)
         << " (" <<  ssh_get_error(mSession) << ")" << endl;
-
       break;
     }
 
-    // See RFC4256 Section 3.3 User Interface for meaning of the values
+    // See "RFC4256 Section 3.3 User Interface" for meaning of the values
+    TQString name, instruction, prompt;
     name = TQString::fromUtf8(ssh_userauth_kbdint_getname(mSession));
     instruction = TQString::fromUtf8(ssh_userauth_kbdint_getinstruction(mSession));
     n = ssh_userauth_kbdint_getnprompts(mSession);
 
     kdDebug(TDEIO_SFTP_DB) << "name=" << name << " instruction=" << instruction
-      << " prompts" << n << endl;
+      << " prompts:" << n << endl;
 
     for (i = 0; i < n; ++i) {
       char echo;
       TQString answer;
+      TQString errMsg;
 
       prompt = TQString::fromUtf8(ssh_userauth_kbdint_getprompt(mSession, i, &echo));
       kdDebug(TDEIO_SFTP_DB) << "prompt=" << prompt << " echo=" << TQString::number(echo) << endl;
@@ -309,18 +389,23 @@ int sftpProtocol::authenticateKeyboardInteractive() {
         if (prompt.lower().startsWith("password")) {
           // We can assume that the ssh server asks for a password and we will handle that case
           // with more care since it's what most users will see
-          infoKbdInt.prompt = i18n("Please enter your password.");
-          infoKbdInt.realmValue = TQString::null; // passwords use generic realm
-          infoKbdInt.keepPassword = true;
-
-          if (!mPassword.isEmpty()) { // if we have a cached password we might use it
+          if (noPaswordQuery) { // if we have a cached password we might use it
             kdDebug(TDEIO_SFTP_DB) << "Using cached password" << endl;
             answer = mPassword;
             purgeString(mPassword); // if we used up password purge it
+          } else {
+            infoKbdInt.prompt = i18n("Please enter your password.");
+            infoKbdInt.realmValue = TQString(); // passwords use generic realm
+            infoKbdInt.keepPassword = true;
+
+            if (mPasswordWasPrompted) {
+              errMsg = i18n("Login failed: incorrect password or username.").append('\n');
+            }
+            mPasswordWasPrompted = true;
           }
         } else {
           // If the server's request doesn't look like a password, keep the servers prompt but
-          // don't prompt saving it
+          // don't prompt for saving the answer
           infoKbdInt.prompt = i18n("Please enter answer for the next request:");
           if (!instruction.isEmpty()) {
             infoKbdInt.prompt.append("\n\n").append(instruction);
@@ -332,26 +417,29 @@ int sftpProtocol::authenticateKeyboardInteractive() {
         /* FIXME: We can query a new user name but we will have to reinitialize the connection if
          * it changes <2024-01-10 Fat-Zer> */
         if (answer.isNull()) {
-          if (openPassDlg(infoKbdInt)) {
-            kdDebug(TDEIO_SFTP_DB) << "Got the answer from the password dialog" << endl;
+          if (openPassDlg(infoKbdInt, errMsg)) {
             answer = infoKbdInt.password;
+            kdDebug(TDEIO_SFTP_DB) << "Got the answer from the password dialog" << endl;
           } else {
-            /* FIXME: Some reasonable action upon cancellation? <2024-01-10 Fat-Zer> */
+            return sftpProtocol::SSH_AUTH_CANCELED;
           }
         }
       } else {
         // ssh server asks for some clear-text information from a user (e.g. a one-time
         // identification code) which should be echoed while user enters it. As for now tdeio has
-        // no means of handle that correctly, so we will have to be creative with the password
+        // no means to handle that correctly, so we will have to be creative with the password
         // dialog.
         TQString newPrompt;
 
         if (!instruction.isEmpty()) {
           newPrompt = instruction + "\n\n";
         }
-        newPrompt.append(prompt + "\n\n");
+        newPrompt.append(prompt).append("\n\n");
         newPrompt.append(i18n("Use the username input field to answer this question."));
         infoKbdInt.prompt = newPrompt;
+
+        infoKbdInt.url.setUser(infoKbdInt.username);
+        infoKbdInt.username = TQString::null;
 
         infoKbdInt.readOnly = false;
 
@@ -359,7 +447,7 @@ int sftpProtocol::authenticateKeyboardInteractive() {
           answer = infoKbdInt.username;
           kdDebug(TDEIO_SFTP_DB) << "Got the answer from the password dialog: " << answer << endl;
         } else {
-          /* FIXME: Some reasonable action upon cancellation? <2024-01-10 Fat-Zer> */
+          return sftpProtocol::SSH_AUTH_CANCELED;
         }
       }
 
@@ -372,8 +460,75 @@ int sftpProtocol::authenticateKeyboardInteractive() {
     } // for each ssh_userauth_kbdint_getprompt()
   } // while (1)
 
-  return err;
+  return rc;
 }
+
+int sftpProtocol::authenticatePassword(bool noPaswordQuery) {
+  kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with password" << endl;
+
+  AuthInfo info = authInfo();
+  info.readOnly = false;
+  info.keepPassword = true;
+  info.prompt = i18n("Please enter your username and password.");
+
+  int rc;
+  do {
+    TQString errMsg;
+    TQString password;
+
+    PasswordPurger pPurger(password);
+
+    if(noPaswordQuery) { // on the first try use cached password
+      password = mPassword;
+      purgeString(mPassword);
+    } else {
+      if (mPasswordWasPrompted) {
+        errMsg = i18n("Login failed: incorrect password or username.").append('\n');
+      }
+
+      mPasswordWasPrompted = true;
+
+      // Handle user canceled or dialog failed to open...
+      if (!openPassDlg(info, errMsg)) {
+        kdDebug(TDEIO_SFTP_DB) << "User canceled password dialog" << endl;
+        return sftpProtocol::SSH_AUTH_CANCELED;
+      }
+
+      password = info.password;
+
+      if (info.username != sshUsername()) {
+        kdDebug(TDEIO_SFTP_DB) << "Username changed from " << mUsername
+                               << " to " << info.username << endl;
+        mUsername = info.username;
+        mPassword = info.password;
+        // libssh doc says that most servers don't permit changing the username during
+        // authentication, so we should reinitialize the session here
+        return sftpProtocol::SSH_AUTH_NEED_RECONNECT;
+      }
+    }
+
+    rc = ssh_userauth_password(mSession, info.username.utf8().data(),
+                               password.utf8().data());
+
+  } while (rc == SSH_AUTH_DENIED && !noPaswordQuery);
+  return rc;
+}
+
+
+TQString sftpProtocol::sshUsername() {
+  int rc;
+  TQString rv;
+
+  char *ssh_username = NULL;
+  rc = ssh_options_get(mSession, SSH_OPTIONS_USER, &ssh_username);
+  if (rc == 0 && ssh_username && ssh_username[0]) {
+    rv = TQString::fromUtf8(ssh_username);
+  }
+  ssh_string_free_char(ssh_username);
+
+  return rv;
+}
+
 
 TDEIO::AuthInfo sftpProtocol::authInfo() {
   TDEIO::AuthInfo rv;
@@ -639,8 +794,6 @@ void sftpProtocol::setHost(const TQString& h, int port, const TQString& user, co
 
 
 int sftpProtocol::initializeConnection() {
-  TQString msg;     // msg for dialog box
-  TQString caption; // dialog box caption
   unsigned char *hash = NULL; // the server hash
   char *hexa;
   char *verbosity;
@@ -686,7 +839,7 @@ int sftpProtocol::initializeConnection() {
   if (mPort > 0) {
     rc = ssh_options_set(mSession, SSH_OPTIONS_PORT, &mPort);
     if (rc < 0) {
-        error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set port."));
+      error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set port."));
       return SSH_ERROR;
     }
   }
@@ -786,7 +939,9 @@ int sftpProtocol::initializeConnection() {
       delete hexa;
       return SSH_ERROR;
     case TDEIO_SSH_KNOWN_HOSTS_NOT_FOUND:
-    case TDEIO_SSH_KNOWN_HOSTS_UNKNOWN:
+    case TDEIO_SSH_KNOWN_HOSTS_UNKNOWN: {
+      TQString msg;     // msg for dialog box
+      TQString caption; // dialog box caption
       hexa = ssh_get_hexa(hash, hlen);
       delete hash;
       caption = i18n("Warning: Cannot verify host's identity.");
@@ -811,6 +966,7 @@ int sftpProtocol::initializeConnection() {
         return SSH_ERROR;
       }
       break;
+    }
     case TDEIO_SSH_KNOWN_HOSTS_ERROR:
       delete hash;
       error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
@@ -818,17 +974,6 @@ int sftpProtocol::initializeConnection() {
   }
 
   kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with the server" << endl;
-
-  // If no username was set upon connection, get the name from connection
-  // (probably it'd be the current user's name)
-  if (mUsername.isEmpty()) {
-    char *ssh_username = NULL;
-    rc = ssh_options_get(mSession, SSH_OPTIONS_USER, &ssh_username);
-    if (rc == 0 && ssh_username && ssh_username[0]) {
-      mUsername = ssh_username;
-    }
-    ssh_string_free_char(ssh_username);
-  }
 
   connectionCloser.abort();
 
@@ -852,16 +997,10 @@ void sftpProtocol::openConnection() {
     return;
   }
 
-  // Setup AuthInfo for use with password caching and the
-  // password dialog box.
-  AuthInfo info = authInfo();
-  info.keepPassword = true; // make the "keep Password" check box visible to the user.
-
-  PasswordPurger pwPurger{mPassword};
-  PasswordPurger infoPurger{info.password};
-
   // Check for cached authentication info if no password is specified...
   if (mPassword.isEmpty()) {
+    AuthInfo info = authInfo();
+
     kdDebug(TDEIO_SFTP_DB) << "checking cache: info.username = " << info.username
       << ", info.url = " << info.url.prettyURL() << endl;
 
@@ -869,19 +1008,24 @@ void sftpProtocol::openConnection() {
       kdDebug() << "using cached" << endl;
       mUsername = info.username;
       mPassword = info.password;
+
+      purgeString(info.password); //< not really necessary because of Qt's implicit data sharing
     }
   }
 
+  mPasswordWasPrompted = false;
+  PasswordPurger pwPurger{mPassword};
+
   int rc;
 
+connection_restart:
   // Start the ssh connection.
   if (initializeConnection() < 0) {
     return;
   }
-
   ExitGuard connectionCloser([this](){ closeConnection(); });
 
-  // Try to authenticate
+  // Try to authenticate (this required before calling ssh_auth_list())
   rc = ssh_userauth_none(mSession, NULL);
   if (rc == SSH_AUTH_ERROR) {
     error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
@@ -889,123 +1033,112 @@ void sftpProtocol::openConnection() {
     return;
   }
 
-  int method = ssh_auth_list(mSession);
-  if (!method && rc != SSH_AUTH_SUCCESS) {
-    error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."
-          " The server did not send any authentication methods!"));
-    return;
-  }
 
-  bool firstTime = true;
-  bool dlgResult;
+  // Preinit the list of supported auth methods
+  static const auto authMethodsNormal= [](){
+    std::vector<std::unique_ptr<SSHAuthMethod>> rv;
+    rv.emplace_back(std::make_unique<PublicKeyAuth>());
+    rv.emplace_back(std::make_unique<KeyboardInteractiveAuth>());
+    rv.emplace_back(std::make_unique<PasswordAuth>());
+    return rv;
+  }();
+
+  const static int supportedMethods = std::accumulate(
+      authMethodsNormal.begin(), authMethodsNormal.end(),
+      SSH_AUTH_METHOD_NONE | SSH_AUTH_METHOD_HOSTBASED, //< methods supported automagically
+      [](int acc, const auto &m){ return acc |= m->flag(); });
+
+  int attemptedMethods = 0;
+
   while (rc != SSH_AUTH_SUCCESS) {
-    /* FIXME: if there are problems with auth we are likely to stuck in this loop <2024-01-20 Fat-Zer> */
+    // Note this loop can rerun in case of multistage ssh authentication e.g. "password,publickey"
+    // which will require user to provide a valid password at first and then a valid public key.
+    // see AuthenticationMethods in man 5 sshd_config for more info
+    bool wasCanceled = false;
+    int availableMethodes = ssh_auth_list(mSession);
 
-    // Try to authenticate with public key first
-    if (rc != SSH_AUTH_SUCCESS && (method & SSH_AUTH_METHOD_PUBLICKEY) && !mPassword) {
-      // might mess up next login attempt if we won't clean it up
-      ExitGuard pubKeyInfoCleanser([this]() {
-          mPubKeyAuthData.wasCalled = 0;
-          mPubKeyAuthData.wasCanceled = 0;
-          mPubKeyAuthData.attemptedKeys.clear();
-        });
-
-      kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with public key" << endl;
-      bool keepTryingPasskey=true;
-      while (keepTryingPasskey) {
-        mPubKeyAuthData.wasCalled = 0;
-        rc = ssh_userauth_publickey_auto(mSession, nullptr, nullptr);
-
-        kdDebug(TDEIO_SFTP_DB) << "ssh_userauth_publickey_auto returned rc=" << rc
-          << " ssh_err=" << ssh_get_error_code(mSession)
-          << " (" <<  ssh_get_error(mSession) << ")" << endl;
-
-        switch (rc) {
-          case SSH_AUTH_SUCCESS:
-          case SSH_AUTH_PARTIAL:
-            keepTryingPasskey=false;
-            break;
-          case SSH_AUTH_AGAIN:
-            // Returned in case of some errors like if server hangs up or there were too many auth attempts
-          case SSH_AUTH_ERROR:
-            error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
-                                              .arg(i18n("public key")));
-            /* FIXME: add some additional info from ssh_get_error() if available <2024-01-20 Fat-Zer> */
-            return;
-
-          case SSH_AUTH_DENIED:
-            if (!mPubKeyAuthData.wasCalled) {
-              kdDebug(TDEIO_SFTP_DB) << "Passkey auth denied because it has no matching key" << endl;
-              keepTryingPasskey = false;
-            } else if (mPubKeyAuthData.wasCanceled) {
-              kdDebug(TDEIO_SFTP_DB) << "Passkey auth denied because user canceled" << endl;
-              keepTryingPasskey = false;
-            } else {
-              kdDebug(TDEIO_SFTP_DB) << "User entered wrong passphrase for the key" << endl;
-            }
-            break;
-        }
-      }
+    if (!availableMethodes) {
+      // Technically libssh docs suggest that the server merely MAY send auth methods, but it's
+      // highly unclear what we should do in such case and it looks like openssh doesn't have an
+      // option for that, so let's just consider this server a jerk and don't talk to him anymore.
+      error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."
+            " The server did not send any authentication methods!"));
+      return;
+    } else if (!(availableMethodes & supportedMethods)) {
+      error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."
+            " The server sent only unsupported authentication methods!"));
+      return;
     }
 
-    // Try to authenticate with keyboard interactive
-    if (rc != SSH_AUTH_SUCCESS && (method & SSH_AUTH_METHOD_INTERACTIVE))
-    {
-      kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with keyboard interactive" << endl;
-      rc = authenticateKeyboardInteractive();
+    const auto *authMethods = &authMethodsNormal;
 
-      if (rc == SSH_AUTH_ERROR)
-      {
+    // If we have cached password we want try to use it before public key
+    if(!mPassword.isEmpty()) {
+      static const auto authMethodsWithPassword = []() {
+        std::vector<std::unique_ptr<SSHAuthMethod>> rv;
+        rv.emplace_back(std::make_unique<KeyboardInteractiveAuth>(/* noPasswordQuery = */true));
+        rv.emplace_back(std::make_unique<PasswordAuth>(/* noPasswordQuery = */true));
+        for (const auto &m: authMethodsNormal) { rv.emplace_back(m->clone()); }
+        return rv;
+      }();
+
+      authMethods = &authMethodsWithPassword;
+    }
+
+    // Actually iterate over the list of methods and try them out
+    for (const auto &method: *authMethods) {
+      if (!(availableMethodes & method->flag())) { continue; }
+
+      rc = method->authenticate( this );
+      attemptedMethods |= method->flag();
+      if (rc == SSH_AUTH_SUCCESS || rc == SSH_AUTH_PARTIAL) {
+        kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << ": auth "
+          << (rc == SSH_AUTH_SUCCESS ? "success" : "partial") << endl;
+        break; // either next auth method or continue on with the connect
+      } else if (rc == SSH_AUTH_AGAIN || rc == SSH_AUTH_ERROR ) {
+        // SSH_AUTH_AGAIN returned in case of some errors like if server hangs up or there were too many auth attempts
         error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
-                                          .arg(i18n("keyboard interactive")));
+            .arg(method->name()));
+        /* FIXME: add some additional info from ssh_get_error() if available <2024-01-20 Fat-Zer> */
+        return;
+      } else if (rc == SSH_AUTH_CANCELED) {
+        kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << " was canceled by user"  << endl;
+        // don't quit immediately due to that the user might have canceled one method to use another
+        wasCanceled = true;
+      } else if (rc == SSH_AUTH_NEED_RECONNECT) {
+        kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << " requested reconnection"  << endl;
+        goto connection_restart;
+      } else if (rc == SSH_AUTH_DENIED) {
+        kdDebug(TDEIO_SFTP_DB) << "Auth for method=" << method->name() << " was denied"  << endl;
+        // do nothing, just proceed with next auth method
+      } else {
+        // Shouldn't happen, but to be on the safe side better handle it
+        error(TDEIO::ERR_UNKNOWN, i18n("Authentication failed unexpectedly"));
         return;
       }
     }
 
-    // Try to authenticate with password
-    if (rc != SSH_AUTH_SUCCESS && (method & SSH_AUTH_METHOD_PASSWORD))
-    {
-      kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with password" << endl;
-
-      info.keepPassword = true;
-      for(;;)
-      {
-        if(!firstTime || mPassword.isEmpty())
-        {
-          if (firstTime) {
-            info.prompt = i18n("Please enter your username and password.");
-          } else {
-            info.prompt =  i18n("Login failed.\nPlease confirm your username and password, and enter them again.");
-          }
-          dlgResult = openPassDlg(info);
-
-          // Handle user canceled or dialog failed to open...
-          if (!dlgResult) {
-            kdDebug(TDEIO_SFTP_DB) << "User canceled, dlgResult = " << dlgResult << endl;
-            error(TDEIO::ERR_USER_CANCELED, TQString());
-            return;
-          }
-
-          firstTime = false;
-        }
-
-        if (mUsername != info.username) {
-          kdDebug(TDEIO_SFTP_DB) << "Username changed from " << mUsername
-                                 << " to " << info.username << endl;
-        }
-        mUsername = info.username;
-        /* FIXME: libssh doc says that most servers won't allow user switching in-session
-         * <2024-01-21 Fat-Zer> */
-        rc = ssh_userauth_password(mSession, mUsername.utf8().data(),
-                                  info.password.utf8().data());
-        if (rc == SSH_AUTH_ERROR) {
-          error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
-                                            .arg(i18n("password")));
-          return;
-        } else if (rc == SSH_AUTH_SUCCESS) {
-          break;
-        }
+    // At this point rc values should be one of:
+    //   SSH_AUTH_SUCCESS, SSH_AUTH_PARTIAL, SSH_AUTH_DENIED or SSH_AUTH_CANCELED
+    if (wasCanceled && (rc == SSH_AUTH_CANCELED || rc == SSH_AUTH_DENIED)) {
+      error(TDEIO::ERR_USER_CANCELED, TQString::null);
+      return;
+    } else if (rc != SSH_AUTH_SUCCESS && rc != SSH_AUTH_PARTIAL) {
+      TQStringList attemptedMethodsLst;
+      for (auto &method: authMethodsNormal) {
+        if (attemptedMethods & method->flag()) { attemptedMethodsLst  << method->name(); }
       }
+
+      TQString errMsg = i18n("Authentication denied (attempted method was: %1).",
+                             "Authentication denied (attempted methods were: %1).",
+                              attemptedMethodsLst.size())
+                        .arg(attemptedMethodsLst.join(", "));
+      if (availableMethodes & ~supportedMethods) {
+        errMsg.append("\n")
+              .append(i18n("Note: server also declares some other unsupported authentication methods"));
+      }
+      error(TDEIO::ERR_COULD_NOT_LOGIN, errMsg);
+      return;
     }
   }
 
