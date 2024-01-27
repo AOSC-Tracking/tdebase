@@ -123,8 +123,12 @@ private: // Private variables
   /** The sftp session for the connection */
   sftp_session mSftp;
 
-  /** Username to use when connecting */
+  /** Username to use when connecting, Note: it's the one passed in the URL */
   TQString mUsername;
+
+  /** Username to use with the next connection attempt: it's either from the cached data or from
+   * the password dialog that was prompted to the user. */
+  TQString mCachedUsername;
 
   /** User's password. Note: the password would be set only if it was somehow cached: passed to
    * setHost(), received from passwdserver's cache or was entered by user before reconnection

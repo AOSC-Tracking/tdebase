@@ -230,9 +230,10 @@ int sftpProtocol::auth_callback(const char *prompt, char *buf, size_t len,
 
   AuthInfo pubKeyInfo = authInfo();
 
-  pubKeyInfo.readOnly     = false;
   pubKeyInfo.keepPassword = false; // don't save passwords for public key,
                                    // that's the task of ssh-agent.
+  pubKeyInfo.readOnly     = true;  // We don't want to handle user name change when authing with a key
+
   TQString errMsg;
   TQString keyFile;
 #if LIBSSH_VERSION_INT < SSH_VERSION_INT(0, 10, 0)
@@ -467,7 +468,6 @@ int sftpProtocol::authenticatePassword(bool noPaswordQuery) {
   kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with password" << endl;
 
   AuthInfo info = authInfo();
-  info.readOnly = false;
   info.keepPassword = true;
   info.prompt = i18n("Please enter your username and password.");
 
@@ -496,10 +496,11 @@ int sftpProtocol::authenticatePassword(bool noPaswordQuery) {
 
       password = info.password;
 
-      if (info.username != sshUsername()) {
-        kdDebug(TDEIO_SFTP_DB) << "Username changed from " << mUsername
+      TQString sshUser=sshUsername();
+      if (info.username != sshUser) {
+        kdDebug(TDEIO_SFTP_DB) << "Username changed from " << sshUser
                                << " to " << info.username << endl;
-        mUsername = info.username;
+        mCachedUsername = info.username;
         mPassword = info.password;
         // libssh doc says that most servers don't permit changing the username during
         // authentication, so we should reinitialize the session here
@@ -507,8 +508,7 @@ int sftpProtocol::authenticatePassword(bool noPaswordQuery) {
       }
     }
 
-    rc = ssh_userauth_password(mSession, info.username.utf8().data(),
-                               password.utf8().data());
+    rc = ssh_userauth_password(mSession, NULL, password.utf8().data());
 
   } while (rc == SSH_AUTH_DENIED && !noPaswordQuery);
   return rc;
@@ -541,7 +541,19 @@ TDEIO::AuthInfo sftpProtocol::authInfo() {
   rv.caption = i18n("SFTP Login");
   rv.comment = "sftp://" + mHost + ':' + TQString::number(mPort);
   rv.commentLabel = i18n("site:");
-  rv.username = mUsername;
+
+  if(!mUsername.isEmpty()) {
+    rv.username = mUsername;
+  } if(!mCachedUsername.isEmpty()) {
+    rv.username = mCachedUsername;
+  } else if (mSession) {
+    rv.username = sshUsername();
+  }
+
+  // if username was specified in the address string it shouldn't be changed
+  if (!mUsername.isEmpty()) {
+    rv.readOnly = true;
+  }
 
   return rv;
 }
@@ -790,6 +802,7 @@ void sftpProtocol::setHost(const TQString& h, int port, const TQString& user, co
 
   mUsername = user;
   mPassword = pass;
+  mCachedUsername = TQString::null;
 }
 
 
@@ -845,8 +858,9 @@ int sftpProtocol::initializeConnection() {
   }
 
   // Set the username
-  if (!mUsername.isEmpty()) {
-    rc = ssh_options_set(mSession, SSH_OPTIONS_USER, mUsername.utf8().data());
+  if (!mCachedUsername.isEmpty() || !mUsername.isEmpty()) {
+    TQString username = !mCachedUsername.isEmpty() ? mCachedUsername : mUsername;
+    rc = ssh_options_set(mSession, SSH_OPTIONS_USER, username.utf8().data());
     if (rc < 0) {
       error(TDEIO::ERR_OUT_OF_MEMORY, i18n("Could not set username."));
       return rc;
@@ -1006,7 +1020,7 @@ void sftpProtocol::openConnection() {
 
     if (checkCachedAuthentication(info)) {
       kdDebug() << "using cached" << endl;
-      mUsername = info.username;
+      mCachedUsername = info.username;
       mPassword = info.password;
 
       purgeString(info.password); //< not really necessary because of Qt's implicit data sharing
