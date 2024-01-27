@@ -365,6 +365,7 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
 
     for (i = 0; i < n; ++i) {
       char echo;
+      bool isPassword=false;
       TQString answer;
       TQString errMsg;
 
@@ -390,6 +391,7 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
         if (prompt.lower().startsWith("password")) {
           // We can assume that the ssh server asks for a password and we will handle that case
           // with more care since it's what most users will see
+          isPassword = true;
           if (noPaswordQuery) { // if we have a cached password we might use it
             kdDebug(TDEIO_SFTP_DB) << "Using cached password" << endl;
             answer = mPassword;
@@ -412,15 +414,25 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
             infoKbdInt.prompt.append("\n\n").append(instruction);
           }
           infoKbdInt.prompt.append("\n\n").append(prompt);
+          infoKbdInt.readOnly = true; // set username readonly (enable changing it only with password)
         }
 
-        infoKbdInt.readOnly = true; // set username readonly
-        /* FIXME: We can query a new user name but we will have to reinitialize the connection if
-         * it changes <2024-01-10 Fat-Zer> */
         if (answer.isNull()) {
           if (openPassDlg(infoKbdInt, errMsg)) {
             answer = infoKbdInt.password;
             kdDebug(TDEIO_SFTP_DB) << "Got the answer from the password dialog" << endl;
+
+            if (isPassword) {
+              TQString sshUser=sshUsername();
+              if (infoKbdInt.username != sshUser) {
+                kdDebug(TDEIO_SFTP_DB) << "Username changed from " << sshUser
+                                       << " to " << infoKbdInt.username << endl;
+                mCachedUsername = infoKbdInt.username;
+                mPassword = infoKbdInt.password;
+
+                return sftpProtocol::SSH_AUTH_NEED_RECONNECT;
+              }
+            }
           } else {
             return sftpProtocol::SSH_AUTH_CANCELED;
           }
