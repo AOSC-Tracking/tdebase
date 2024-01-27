@@ -788,6 +788,8 @@ sftpProtocol::~sftpProtocol() {
 
   /* cleanup and shut down cryto stuff */
   ssh_finalize();
+
+  purgeString(mPassword);
 }
 
 void sftpProtocol::setHost(const TQString& h, int port, const TQString& user, const TQString& pass) {
