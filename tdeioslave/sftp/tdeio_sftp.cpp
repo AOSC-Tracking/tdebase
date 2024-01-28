@@ -339,6 +339,8 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
 
   kdDebug(TDEIO_SFTP_DB) << "Entering keyboard interactive function" << endl;
 
+  bool retryDenied = false; // a flag to avoid infinite looping
+
   while (1) {
     int n = 0;
     int i = 0;
@@ -347,6 +349,11 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
 
     if (rc == SSH_AUTH_DENIED) { // do nothing
       kdDebug(TDEIO_SFTP_DB) << "kb-interactive auth was denied; retrying again" << endl;
+      if (retryDenied) {
+        continue;
+      } else {
+        break;
+      }
     } else if (rc != SSH_AUTH_INFO) {
       kdDebug(TDEIO_SFTP_DB) << "Finishing kb-interactive auth rc=" << rc
         << " ssh_err=" << ssh_get_error_code(mSession)
@@ -359,6 +366,11 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
     name = TQString::fromUtf8(ssh_userauth_kbdint_getname(mSession));
     instruction = TQString::fromUtf8(ssh_userauth_kbdint_getinstruction(mSession));
     n = ssh_userauth_kbdint_getnprompts(mSession);
+
+    if (n>0) {
+      // If there is at least one prompt we will want to retry auth if we fail
+      retryDenied = true;
+    }
 
     kdDebug(TDEIO_SFTP_DB) << "name=" << name << " instruction=" << instruction
       << " prompts:" << n << endl;
