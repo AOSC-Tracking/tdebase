@@ -341,6 +341,9 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
 
   bool retryDenied = false; // a flag to avoid infinite looping
 
+  TQString cachablePassword;
+  PasswordPurger cachePurger(cachablePassword);
+
   while (1) {
     int n = 0;
     int i = 0;
@@ -407,6 +410,7 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
           if (noPaswordQuery) { // if we have a cached password we might use it
             kdDebug(TDEIO_SFTP_DB) << "Using cached password" << endl;
             answer = mPassword;
+            cachablePassword = mPassword;
             purgeString(mPassword); // if we used up password purge it
           } else {
             infoKbdInt.prompt = i18n("Please enter your password.");
@@ -485,6 +489,15 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
     } // for each ssh_userauth_kbdint_getprompt()
   } // while (1)
 
+  if (!mPasswordWasPrompted && !cachablePassword.isEmpty() && (rc == SSH_AUTH_SUCCESS || rc == SSH_AUTH_PARTIAL)) {
+    // if the password was never prompted, it was never cached, so we should cache it manually
+    TDEIO::AuthInfo info = authInfo();
+    info.password = cachablePassword;
+    info.keepPassword = false;
+    cacheAuthentication(info);
+    purgeString(info.password);
+  }
+
   return rc;
 }
 
@@ -495,15 +508,14 @@ int sftpProtocol::authenticatePassword(bool noPaswordQuery) {
   info.keepPassword = true;
   info.prompt = i18n("Please enter your username and password.");
 
+  PasswordPurger pPurger(info.password);
+
   int rc;
   do {
     TQString errMsg;
-    TQString password;
-
-    PasswordPurger pPurger(password);
 
     if(noPaswordQuery) { // on the first try use cached password
-      password = mPassword;
+      info.password = mPassword;
       purgeString(mPassword);
     } else {
       if (mPasswordWasPrompted) {
@@ -518,8 +530,6 @@ int sftpProtocol::authenticatePassword(bool noPaswordQuery) {
         return sftpProtocol::SSH_AUTH_CANCELED;
       }
 
-      password = info.password;
-
       TQString sshUser=sshUsername();
       if (info.username != sshUser) {
         kdDebug(TDEIO_SFTP_DB) << "Username changed from " << sshUser
@@ -532,9 +542,15 @@ int sftpProtocol::authenticatePassword(bool noPaswordQuery) {
       }
     }
 
-    rc = ssh_userauth_password(mSession, NULL, password.utf8().data());
+    rc = ssh_userauth_password(mSession, NULL, info.password.utf8().data());
 
   } while (rc == SSH_AUTH_DENIED && !noPaswordQuery);
+
+  if (!mPasswordWasPrompted && (rc == SSH_AUTH_SUCCESS || rc == SSH_AUTH_PARTIAL)) {
+    // if the password was never prompted, it was never cached, so we should cache it manually
+    info.keepPassword = false;
+    cacheAuthentication(info);
+  }
   return rc;
 }
 
