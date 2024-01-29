@@ -174,7 +174,6 @@ void log_callback(ssh_session session, int priority, const char *message,
 class PublicKeyAuth: public SSHAuthMethod {
 public:
   int flag() override {return SSH_AUTH_METHOD_PUBLICKEY;};
-  TQString name() override { return i18n("public key"); };
   int authenticate(sftpProtocol *ioslave) const override {
     return ioslave->authenticatePublicKey();
   }
@@ -186,7 +185,6 @@ public:
   KeyboardInteractiveAuth(bool noPaswordQuery = false): mNoPaswordQuery(noPaswordQuery) {}
 
   int flag() override {return SSH_AUTH_METHOD_INTERACTIVE;};
-  TQString name() override { return i18n("keyboard interactive"); };
   int authenticate(sftpProtocol *ioslave) const override {
     return ioslave->authenticateKeyboardInteractive(mNoPaswordQuery);
   }
@@ -201,7 +199,6 @@ public:
   PasswordAuth(bool noPaswordQuery = false): mNoPaswordQuery(noPaswordQuery) {}
 
   int flag() override {return SSH_AUTH_METHOD_PASSWORD;};
-  TQString name() override { return i18n("password"); };
   int authenticate(sftpProtocol *ioslave) const override {
     return ioslave->authenticatePassword(mNoPaswordQuery);
   }
@@ -210,6 +207,31 @@ public:
 private:
   const bool mNoPaswordQuery;
 };
+
+TQString SSHAuthMethod::flagToStr (int m) {
+  switch (m) {
+    case SSH_AUTH_METHOD_NONE        : return TQString::fromLatin1 ( "none" );
+    case SSH_AUTH_METHOD_PASSWORD    : return TQString::fromLatin1 ( "password" );
+    case SSH_AUTH_METHOD_PUBLICKEY   : return TQString::fromLatin1 ( "publickey" );
+    case SSH_AUTH_METHOD_HOSTBASED   : return TQString::fromLatin1 ( "hostbased" );
+    case SSH_AUTH_METHOD_INTERACTIVE : return TQString::fromLatin1 ( "keyboard-interactive" );
+    case SSH_AUTH_METHOD_GSSAPI_MIC  : return TQString::fromLatin1 ( "gssapi-with-mic" );
+    default                          : return TQString::fromLatin1 ( "unknown" );
+  }
+}
+
+TQStringList SSHAuthMethod::bitsetToStr (int m) {
+  TQStringList rv;
+
+  for (int i=0; m>>i; i++) {
+    int flag = m & (1 << i);
+    if (flag) {
+      rv.append(flagToStr(flag));
+    }
+  }
+  return rv;
+}
+
 
 // Public key authentication
 int sftpProtocol::auth_callback(const char *prompt, char *buf, size_t len,
@@ -1116,7 +1138,7 @@ connection_restart:
   }
 
   // Preinit the list of supported auth methods
-  static const auto authMethodsNormal= [](){
+  static const auto authMethodsNormal = [](){
     std::vector<std::unique_ptr<SSHAuthMethod>> rv;
     rv.emplace_back(std::make_unique<PublicKeyAuth>());
     rv.emplace_back(std::make_unique<KeyboardInteractiveAuth>());
@@ -1126,7 +1148,7 @@ connection_restart:
 
   const static int supportedMethods = std::accumulate(
       authMethodsNormal.begin(), authMethodsNormal.end(),
-      SSH_AUTH_METHOD_NONE | SSH_AUTH_METHOD_HOSTBASED, //< methods supported automagically
+      SSH_AUTH_METHOD_NONE, //< none is supported by default
       [](int acc, const auto &m){ return acc |= m->flag(); });
 
   int attemptedMethods = 0;
@@ -1150,12 +1172,13 @@ connection_restart:
       // Technically libssh docs suggest that the server merely MAY send auth methods, but it's
       // highly unclear what we should do in such case and it looks like openssh doesn't have an
       // option for that, so let's just consider this server a jerk and don't talk to him anymore.
-      error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."
-            " The server did not send any authentication methods!"));
+      error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed.\n"
+            "The server did not send any authentication methods!"));
       return;
     } else if (!(availableMethodes & supportedMethods)) {
-      error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed."
-            " The server sent only unsupported authentication methods!"));
+      error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed.\n"
+            "The server sent only unsupported authentication methods (%1)!")
+            .arg(SSHAuthMethod::bitsetToStr(availableMethodes).join(", ")));
       return;
     }
 
@@ -1216,23 +1239,17 @@ connection_restart:
       error(TDEIO::ERR_USER_CANCELED, TQString::null);
       return;
     } else if (rc != SSH_AUTH_SUCCESS && rc != SSH_AUTH_PARTIAL) {
-      TQStringList attemptedMethodsLst;
-      for (auto &method: authMethodsNormal) {
-        if (attemptedMethods & method->flag()) { attemptedMethodsLst  << method->name(); }
-      }
-
-      TQString errMsg = i18n("Authentication denied (attempted method was: %1).",
-                             "Authentication denied (attempted methods were: %1).",
-                              attemptedMethodsLst.size())
-                        .arg(attemptedMethodsLst.join(", "));
+      TQString errMsg = i18n("Authentication denied (attempted methods: %1).")
+                        .arg(SSHAuthMethod::bitsetToStr(attemptedMethods).join(", "));
       if (availableMethodes & ~supportedMethods) {
         errMsg.append("\n")
-              .append(i18n("Note: server also declares some other unsupported authentication methods"));
+              .append(i18n("Note: server also declares some unsupported authentication methods (%1)")
+              .arg(SSHAuthMethod::bitsetToStr(availableMethodes & ~supportedMethods).join(", ")));
       }
       error(TDEIO::ERR_COULD_NOT_LOGIN, errMsg);
       return;
     }
-  }
+  } // while (rc != SSH_AUTH_SUCCESS)
 
   // start sftp session
   kdDebug(TDEIO_SFTP_DB) << "Trying to request the sftp session" << endl;

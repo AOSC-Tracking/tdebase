@@ -201,13 +201,19 @@ public:
   /** libssh's flag for he method */
   virtual int flag() = 0;
   /** The user-friendly (probably translated) name of the method */
-  virtual TQString name() = 0;
+  virtual TQString name() {return flagToStr(flag());}
   /** Actually do perform the auth process */
   virtual int authenticate(sftpProtocol *ioslave) const = 0;
   /** Creates a copy of derived class */
   virtual SSHAuthMethod* clone() = 0;
 
   virtual ~SSHAuthMethod() {};
+
+  /** Returns a name for the given libssh auth method flag */
+  static TQString flagToStr(int method);
+
+  /** Returns a list of names for all the methods set in the given libssh auth method bitset */
+  static TQStringList bitsetToStr(int method);
 };
 
 #endif
