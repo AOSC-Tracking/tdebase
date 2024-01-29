@@ -226,6 +226,7 @@ int sftpProtocol::auth_callback(const char *prompt, char *buf, size_t len,
   kdDebug(TDEIO_SFTP_DB) << "Entering public key authentication callback" << endl;
 
   int rc=0;
+  bool firstTimeCalled = !mPubKeyAuthData.wasCalled;
   mPubKeyAuthData.wasCalled = true;
 
   AuthInfo pubKeyInfo = authInfo();
@@ -277,15 +278,20 @@ int sftpProtocol::auth_callback(const char *prompt, char *buf, size_t len,
     buf[len-1]=0; // Just to be on the safe side
 
     purgeString(pubKeyInfo.password);
+
+    // take a note that we already tried unlocking this keyfile
+    if(firstTry) {
+      mPubKeyAuthData.attemptedKeys.append(keyFile);
+    }
+
+    // we consider publickey auth canceled only if we cancel all the key dialogs
+    mPubKeyAuthData.wasCanceled = false;
   } else {
     kdDebug(TDEIO_SFTP_DB) << "User canceled entry of public key passphrase" << endl;
     rc = -1;
-    mPubKeyAuthData.wasCanceled = true;
-  }
-
-  // take a note that we already tried unlocking this keyfile
-  if(firstTry) {
-    mPubKeyAuthData.attemptedKeys.append(keyFile);
+    if (firstTimeCalled) {
+      mPubKeyAuthData.wasCanceled = true;
+    }
   }
 
   return rc;

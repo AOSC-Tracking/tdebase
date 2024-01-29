@@ -164,7 +164,7 @@ private: // Private variables
     long current_seqNr;
     /** true if callback was called */
     bool wasCalled;
-    /** true if user canceled password entry dialog */
+    /** true if user canceled all passphrase entry dialogues */
     bool wasCanceled;
   } mPubKeyAuthData;
 
