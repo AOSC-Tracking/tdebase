@@ -160,6 +160,8 @@ private: // Private variables
      *        so no fancy containers here
      */
     TQStringList attemptedKeys;
+    /** A backup for SlaveBase::s_seqNr to pass the same value to prompts for different keys */
+    long current_seqNr;
     /** true if callback was called */
     bool wasCalled;
     /** true if user canceled password entry dialog */

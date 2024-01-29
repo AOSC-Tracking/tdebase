@@ -250,7 +250,9 @@ int sftpProtocol::auth_callback(const char *prompt, char *buf, size_t len,
 
   bool firstTry = !mPubKeyAuthData.attemptedKeys.contains(keyFile);
 
-  if (!firstTry) {
+  if (firstTry) {
+    SlaveBase::s_seqNr = mPubKeyAuthData.current_seqNr;
+  } else {
     errMsg = i18n("Incorrect or invalid passphrase.").append('\n');
   }
 
@@ -298,12 +300,14 @@ void sftpProtocol::log_callback(ssh_session session, int priority,
 }
 
 int sftpProtocol::authenticatePublicKey(){
+  kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with public key" << endl;
+
   // First let's do some cleanup
+  mPubKeyAuthData.attemptedKeys.clear();
+  mPubKeyAuthData.current_seqNr = SlaveBase::s_seqNr;
   mPubKeyAuthData.wasCalled = 0;
   mPubKeyAuthData.wasCanceled = 0;
-  mPubKeyAuthData.attemptedKeys.clear();
 
-  kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with public key" << endl;
   int rc;
 
   while (1) {
@@ -323,6 +327,7 @@ int sftpProtocol::authenticatePublicKey(){
         break;
       } else {
         kdDebug(TDEIO_SFTP_DB) << "User entered wrong passphrase for the key" << endl;
+        mPubKeyAuthData.current_seqNr = SlaveBase::s_seqNr;
         // Try it again
       }
     } else {
@@ -335,14 +340,17 @@ int sftpProtocol::authenticatePublicKey(){
 }
 
 int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
-  int rc = SSH_AUTH_ERROR;
-
   kdDebug(TDEIO_SFTP_DB) << "Entering keyboard interactive function" << endl;
+
+  int rc = SSH_AUTH_ERROR;
 
   bool retryDenied = false; // a flag to avoid infinite looping
 
   TQString cachablePassword;
   PasswordPurger cachePurger(cachablePassword);
+
+  // Different prompts during a single pass should be queried with the same s_seqNr value
+  long current_seqNr = SlaveBase::s_seqNr;
 
   while (1) {
     int n = 0;
@@ -353,6 +361,8 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
     if (rc == SSH_AUTH_DENIED) { // do nothing
       kdDebug(TDEIO_SFTP_DB) << "kb-interactive auth was denied; retrying again" << endl;
       if (retryDenied) {
+        // If we were denied update the s_seqNr
+        current_seqNr = SlaveBase::s_seqNr;
         continue;
       } else {
         break;
@@ -383,6 +393,9 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
       bool isPassword=false;
       TQString answer;
       TQString errMsg;
+
+      // restore the s_seqNr so it would be the same for all the prompts
+      SlaveBase::s_seqNr = current_seqNr;
 
       prompt = TQString::fromUtf8(ssh_userauth_kbdint_getprompt(mSession, i, &echo));
       kdDebug(TDEIO_SFTP_DB) << "prompt=" << prompt << " echo=" << TQString::number(echo) << endl;
@@ -1096,7 +1109,6 @@ connection_restart:
     return;
   }
 
-
   // Preinit the list of supported auth methods
   static const auto authMethodsNormal= [](){
     std::vector<std::unique_ptr<SSHAuthMethod>> rv;
@@ -1113,12 +1125,20 @@ connection_restart:
 
   int attemptedMethods = 0;
 
+  // Backup of the value of the SlaveBase::s_seqNr. This is used to query different data values
+  // with openPassDlg() with the same seqNr. Otherwise it will result in the prompting of the pass
+  // dialog to the user in cases the values should be recovered from the cache.
+  // This is a bit hacky but necessary
+  long current_seqNr = SlaveBase::s_seqNr;
+
   while (rc != SSH_AUTH_SUCCESS) {
     // Note this loop can rerun in case of multistage ssh authentication e.g. "password,publickey"
     // which will require user to provide a valid password at first and then a valid public key.
     // see AuthenticationMethods in man 5 sshd_config for more info
     bool wasCanceled = false;
     int availableMethodes = ssh_auth_list(mSession);
+
+    SlaveBase::s_seqNr = current_seqNr;
 
     if (!availableMethodes) {
       // Technically libssh docs suggest that the server merely MAY send auth methods, but it's
