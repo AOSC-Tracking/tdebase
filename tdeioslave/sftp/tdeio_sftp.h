@@ -176,6 +176,9 @@ private: // private methods
   /** @returns username used by libssh during the connection */
   TQString sshUsername();
 
+  /** Adds ssh error (if any) to the given message string */
+  TQString sshError(TQString errMsg=TQString());
+
   /** A small helper function to construct auth info skeleton for the protocol */
   TDEIO::AuthInfo authInfo();
 
