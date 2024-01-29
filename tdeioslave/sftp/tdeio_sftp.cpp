@@ -483,7 +483,6 @@ int sftpProtocol::authenticateKeyboardInteractive(bool noPaswordQuery) {
       if (ssh_userauth_kbdint_setanswer(mSession, i, answer.utf8().data()) < 0) {
         kdDebug(TDEIO_SFTP_DB) << "An error occurred setting the answer: "
           << ssh_get_error(mSession) << endl;
-        /* FIXME: display the error to the user <2024-01-10 Fat-Zer> */
         return SSH_AUTH_ERROR;
       }
     } // for each ssh_userauth_kbdint_getprompt()
@@ -569,6 +568,14 @@ TQString sftpProtocol::sshUsername() {
   return rv;
 }
 
+
+TQString sftpProtocol::sshError(TQString errMsg) {
+  if (ssh_get_error_code(mSession)) {
+    errMsg.append("\n\n").append(i18n("SSH error: \"%1\" (%2)")
+      .arg(TQString::fromUtf8(ssh_get_error(mSession))).arg(ssh_get_error_code(mSession)));
+  }
+  return errMsg;
+}
 
 TDEIO::AuthInfo sftpProtocol::authInfo() {
   TDEIO::AuthInfo rv;
@@ -932,7 +939,7 @@ int sftpProtocol::initializeConnection() {
   /* try to connect */
   rc = ssh_connect(mSession);
   if (rc < 0) {
-    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+    error(TDEIO::ERR_COULD_NOT_CONNECT, sshError());
     return rc;
   }
 
@@ -948,7 +955,7 @@ int sftpProtocol::initializeConnection() {
   rc = ssh_get_server_publickey(mSession, &serverKey);
 #endif
   if (rc<0) {
-    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+    error(TDEIO::ERR_COULD_NOT_CONNECT, sshError());
     return rc;
   }
 
@@ -959,7 +966,7 @@ int sftpProtocol::initializeConnection() {
   rc = ssh_get_publickey_hash(serverKey, SSH_PUBLICKEY_HASH_SHA256, &hash, &hlen);
 #endif
   if (rc<0) {
-    error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+    error(TDEIO::ERR_COULD_NOT_CONNECT, sshError());
     return rc;
   }
 
@@ -1018,14 +1025,14 @@ int sftpProtocol::initializeConnection() {
 #else
       if (ssh_session_update_known_hosts(mSession) != SSH_OK) {
 #endif
-        error(TDEIO::ERR_USER_CANCELED, TQString::fromUtf8(ssh_get_error(mSession)));
+        error(TDEIO::ERR_USER_CANCELED, sshError());
         return SSH_ERROR;
       }
       break;
     }
     case TDEIO_SSH_KNOWN_HOSTS_ERROR:
       delete hash;
-      error(TDEIO::ERR_COULD_NOT_CONNECT, TQString::fromUtf8(ssh_get_error(mSession)));
+      error(TDEIO::ERR_COULD_NOT_CONNECT, sshError());
       return SSH_ERROR;
   }
 
@@ -1084,8 +1091,8 @@ connection_restart:
   // Try to authenticate (this required before calling ssh_auth_list())
   rc = ssh_userauth_none(mSession, NULL);
   if (rc == SSH_AUTH_ERROR) {
-    error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
-                                      .arg(i18n("none")));
+    error(TDEIO::ERR_COULD_NOT_LOGIN, sshError(i18n("Authentication failed (method: %1).")
+                                      .arg(i18n("none"))));
     return;
   }
 
@@ -1151,11 +1158,14 @@ connection_restart:
         kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << ": auth "
           << (rc == SSH_AUTH_SUCCESS ? "success" : "partial") << endl;
         break; // either next auth method or continue on with the connect
-      } else if (rc == SSH_AUTH_AGAIN || rc == SSH_AUTH_ERROR ) {
-        // SSH_AUTH_AGAIN returned in case of some errors like if server hangs up or there were too many auth attempts
-        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed (method: %1).")
-            .arg(method->name()));
-        /* FIXME: add some additional info from ssh_get_error() if available <2024-01-20 Fat-Zer> */
+      } else if (rc == SSH_AUTH_ERROR || rc == SSH_AUTH_AGAIN) {
+        TQString errMsg = i18n("Authentication failed (method: %1).").arg(method->name());
+        // SSH_AUTH_AGAIN returned in case of some errors when server hangs up unexpectedly like
+        // in case there were too many failed authentication attempts
+        if (rc == SSH_AUTH_AGAIN) {
+          errMsg.append("\n").append(i18n("Server is slow to respond or hung up unexpectedly."));
+        }
+        error(TDEIO::ERR_COULD_NOT_LOGIN, sshError(errMsg));
         return;
       } else if (rc == SSH_AUTH_CANCELED) {
         kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << " was canceled by user"  << endl;
@@ -1169,7 +1179,7 @@ connection_restart:
         // do nothing, just proceed with next auth method
       } else {
         // Shouldn't happen, but to be on the safe side better handle it
-        error(TDEIO::ERR_UNKNOWN, i18n("Authentication failed unexpectedly"));
+        error(TDEIO::ERR_UNKNOWN, sshError(i18n("Authentication failed unexpectedly")));
         return;
       }
     }
@@ -1262,7 +1272,7 @@ void sftpProtocol::special(const TQByteArray &data) {
     }
 
     if (rc < 0) {
-        kdDebug(TDEIO_SFTP_DB) << "channel_poll failed: " << ssh_get_error(mSession);
+        kdDebug(TDEIO_SFTP_DB) << "channel_poll failed: " << ssh_get_error(mSession) << endl;
     }
 
     setTimeoutSpecialCommand(TDEIO_SFTP_SPECIAL_TIMEOUT);
