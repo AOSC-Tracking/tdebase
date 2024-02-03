@@ -424,7 +424,7 @@
 <variables>
     <variable access="private">TQString _type;</variable>
 </variables>
-<Q_SLOTS>
+<slots>
     <slot access="private">init()</slot>
     <slot>setInformationText( const TQString &amp; type )</slot>
     <slot access="private">showPage( TQWidget * page )</slot>
@@ -432,7 +432,7 @@
     <slot access="private">finished()</slot>
     <slot access="private">updatePort( bool encryption )</slot>
     <slot access="private">updateFinishButtonText( bool save )</slot>
-</Q_SLOTS>
+</slots>
 <functions>
     <function access="private" returnType="bool">doConnectionTest( const KURL &amp; url )</function>
     <function access="private" returnType="bool">updateForProtocol( const TQString &amp; protocol )</function>

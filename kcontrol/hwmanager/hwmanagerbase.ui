@@ -74,9 +74,9 @@
 	<include location="local" impldecl="in implementation">TDEHWManagerBase.ui.h</include>
 	<include location="local" impldecl="in implementation">deviceiconview.h</include>
 </includes>
-<Q_SLOTS>
+<slots>
     <slot>enableSupport_toggled(bool)</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
     <include location="global" impldecl="in implementation">tdelistviewsearchline.h</include>

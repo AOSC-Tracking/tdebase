@@ -506,11 +506,11 @@
         <slot>edit_gesture_pressed3()</slot>
     </connection>
 </connections>
-<Q_SLOTS>
+<slots>
     <slot access="protected" specifier="pure virtual">edit_gesture_pressed1()</slot>
     <slot access="protected" specifier="pure virtual">edit_gesture_pressed2()</slot>
     <slot access="protected" specifier="pure virtual">edit_gesture_pressed3()</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
 </includes>

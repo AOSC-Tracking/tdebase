@@ -261,10 +261,10 @@
     <tabstop>try_button</tabstop>
     <tabstop>PushButton1</tabstop>
 </tabstops>
-<Q_SLOTS>
+<slots>
     <slot access="protected" specifier="pure virtual">run_kdcop_pressed()</slot>
     <slot access="protected" specifier="pure virtual">try_pressed()</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
 </includes>

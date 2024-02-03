@@ -185,9 +185,9 @@
 <includes>
 	<include location="local" impldecl="in implementation">ICCConfigBase.ui.h</include>
 </includes>
-<Q_SLOTS>
+<slots>
     <slot>enableSupport_toggled(bool)</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="global" impldecl="in implementation">kcombobox.h</include>
     <include location="global" impldecl="in implementation">kdialog.h</include>

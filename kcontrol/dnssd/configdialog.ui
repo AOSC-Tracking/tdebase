@@ -300,9 +300,9 @@ is configured with 'Browse local network' option above.</string>
         </widget>
     </grid>
 </widget>
-<Q_SLOTS>
+<slots>
     <slot>radioButton2_2_toggled(bool)</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="global" impldecl="in declaration">tdecmodule.h</include>
     <include location="global" impldecl="in implementation">keditlistbox.h</include>

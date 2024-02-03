@@ -2509,7 +2509,7 @@
     <tabstop>rule_disableglobalshortcuts</tabstop>
     <tabstop>disableglobalshortcuts</tabstop>
 </tabstops>
-<Q_SLOTS>
+<slots>
     <slot access="protected" specifier="pure virtual">detectClicked()</slot>
     <slot access="protected" specifier="pure virtual">wmclassMatchChanged()</slot>
     <slot access="protected" specifier="pure virtual">roleMatchChanged()</slot>
@@ -2517,7 +2517,7 @@
     <slot access="protected" specifier="pure virtual">extraMatchChanged()</slot>
     <slot access="protected" specifier="pure virtual">machineMatchChanged()</slot>
     <slot access="protected" specifier="pure virtual">shortcutEditClicked()</slot>
-</Q_SLOTS>
+</slots>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 <includes>
