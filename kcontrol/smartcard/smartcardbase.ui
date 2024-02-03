@@ -297,11 +297,11 @@
 <includes>
     <include location="local" impldecl="in implementation">smartcardbase.ui.h</include>
 </includes>
-<Q_SLOTS>
+<slots>
     <slot>slotTestReader()</slot>
     <slot>enableSupport_toggled(bool)</slot>
     <slot>enablePolling_toggled(bool)</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="local" impldecl="in implementation">kdialog.h</include>
 </includes>

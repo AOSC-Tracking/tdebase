@@ -1759,9 +1759,9 @@
 <includes>
 	<include location="local" impldecl="in implementation">DevicePropertiesDialogBase.ui.h</include>
 </includes>
-<Q_SLOTS>
+<slots>
     <slot>enableSupport_toggled(bool)</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="global" impldecl="in implementation">kactivelabel.h</include>
     <include location="global" impldecl="in implementation">kcombobox.h</include>

@@ -157,12 +157,12 @@
 <forwards>
     <forward>class TQListViewItem;</forward>
 </forwards>
-<Q_SLOTS>
+<slots>
     <slot access="protected" specifier="pure virtual">copy_pressed()</slot>
     <slot access="protected" specifier="pure virtual">current_changed(TQListViewItem*)</slot>
     <slot access="protected" specifier="pure virtual">delete_pressed()</slot>
     <slot access="protected" specifier="pure virtual">modify_pressed()</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
 </includes>

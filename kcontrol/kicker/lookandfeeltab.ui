@@ -624,11 +624,11 @@ This option is only active if 'Enable background image' is selected.</string>
     <include location="global" impldecl="in implementation">klineedit.h</include>
     <include location="global" impldecl="in implementation">kpushbutton.h</include>
 </includes>
-<Q_SLOTS>
+<slots>
     <slot access="protected" specifier="pure virtual">launchAdvancedDialog()</slot>
     <slot access="protected" specifier="pure virtual">browseTheme(const TQString&amp;)</slot>
     <slot access="protected" specifier="pure virtual">enableTransparency(bool)</slot>
-</Q_SLOTS>
+</slots>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 </UI>

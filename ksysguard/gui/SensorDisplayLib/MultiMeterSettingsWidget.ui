@@ -445,9 +445,9 @@
     <include location="global" impldecl="in implementation">knumvalidator.h</include>
     <include location="local"  impldecl="in implementation">MultiMeterSettingsWidget.ui.h</include>
 </includes>
-<Q_SLOTS>
+<slots>
     <slot>setMeterBackgroundColor( const TQColor &amp; c )</slot>
-</Q_SLOTS>
+</slots>
 <functions>
     <function access="private" specifier="non virtual">init()</function>
     <function specifier="non virtual" returnType="TQString">title()</function>

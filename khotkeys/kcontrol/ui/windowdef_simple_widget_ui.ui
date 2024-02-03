@@ -480,11 +480,11 @@
     <tabstop>window_role_lineedit</tabstop>
     <tabstop>autodetect_button</tabstop>
 </tabstops>
-<Q_SLOTS>
+<slots>
     <slot access="protected" specifier="pure virtual">window_class_combo_changed(int)</slot>
     <slot access="protected" specifier="pure virtual">window_role_combo_changed(int)</slot>
     <slot access="protected" specifier="pure virtual">window_title_combo_changed(int)</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
 </includes>

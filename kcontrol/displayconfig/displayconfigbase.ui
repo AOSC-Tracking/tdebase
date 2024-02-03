@@ -913,9 +913,9 @@
 <includes>
 	<include location="local" impldecl="in implementation">DisplayConfigBase.ui.h</include>
 </includes>
-<Q_SLOTS>
+<slots>
     <slot>enableSupport_toggled(bool)</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="local" impldecl="in implementation">kdialog.h</include>
     <include location="local" impldecl="in implementation">kcombobox.h</include>

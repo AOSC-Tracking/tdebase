@@ -155,10 +155,10 @@ For example "&lt;b&gt;Shift+Alt+(123) Shift+Ctrl+(ABC)&lt;/b&gt;" will first try
         <slot>clearShortcut()</slot>
     </connection>
 </connections>
-<Q_SLOTS>
+<slots>
     <slot access="protected" specifier="pure virtual">editShortcut()</slot>
     <slot access="protected" specifier="pure virtual">clearShortcut()</slot>
-</Q_SLOTS>
+</slots>
 <layoutdefaults spacing="6" margin="11"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 <includes>

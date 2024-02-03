@@ -503,7 +503,7 @@
     <include location="local" impldecl="in implementation">kthemedlg.ui.h</include>
     <include location="global" impldecl="in implementation">kurllabel.h</include>
 </includes>
-<Q_SLOTS>
+<slots>
     <slot specifier="non virtual">startKonqui( const TQString &amp; url )</slot>
     <slot specifier="non virtual">startBackground()</slot>
     <slot specifier="non virtual">startColors()</slot>
@@ -511,6 +511,6 @@
     <slot specifier="non virtual">startIcons()</slot>
     <slot specifier="non virtual">startFonts()</slot>
     <slot specifier="non virtual">startSaver()</slot>
-</Q_SLOTS>
+</slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

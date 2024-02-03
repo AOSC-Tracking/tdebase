@@ -50,9 +50,9 @@
         </widget>
     </vbox>
 </widget>
-<Q_SLOTS>
+<slots>
     <slot access="protected" specifier="pure virtual">browse_pressed()</slot>
-</Q_SLOTS>
+</slots>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
     <include location="global" impldecl="in implementation">klineedit.h</include>

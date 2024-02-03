@@ -276,10 +276,10 @@
     <include location="local" impldecl="in implementation">kdialog.h</include>
     <include location="local" impldecl="in implementation">stylepreview.ui.h</include>
 </includes>
-<Q_SLOTS>
+<slots>
     <slot>init()</slot>
     <slot returnType="bool">eventFilter( TQObject *, TQEvent * ev )</slot>
-</Q_SLOTS>
+</slots>
 <layoutdefaults spacing="6" margin="10"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 </UI>
