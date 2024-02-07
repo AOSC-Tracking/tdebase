@@ -3,6 +3,7 @@
 
 #include <tqdict.h>
 #include <tqstringlist.h>
+#include <tqwindowdefs.h>
 
 
 struct RulesInfo {
@@ -36,6 +37,7 @@ public:
 	
 	static bool areLayoutsClean() { return m_layoutsClean; }
 	static bool areSingleGroupsSupported();
+	static void initializeTranslations();
 };
 
 #endif /*X11HELPER_H_*/

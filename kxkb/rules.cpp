@@ -80,3 +80,10 @@ TQString XkbRules::getLayoutName(LayoutUnit layout) const {
 	}
 	return fullName;
 }
+
+TQString XkbRules::trOpt(TQString opt) {
+    // xkeyboard-config's translation is generated directly from the xml and has some querks
+    // like sustitution for the '<' and '>'. We will have to workaroung those manually:
+    TQString translated = i18n(opt.replace("<", "&lt;").replace(">", "&gt;").utf8());
+    return translated.replace("&lt;", "<").replace("&gt;", ">");
+}

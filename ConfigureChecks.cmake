@@ -563,6 +563,20 @@ if( BUILD_KXKB )
     message( STATUS "No additional XKb rules directory found" )
   endif( )
 
+  if( WITH_XKB_TRANSLATIONS )
+    if( NOT XKB_CONFIG_LOCALE_DIR )
+      pkg_get_variable( XKB_CONFIG_DATADIR xkeyboard-config datadir )
+      if( XKB_CONFIG_DATADIR )
+        set( XKB_CONFIG_LOCALE_DIR "${XKB_CONFIG_DATADIR}/locale" CACHE INTERNAL "" )
+        message( STATUS "Found xkeybord-config locale dir: ${XKB_CONFIG_LOCALE_DIR}" )
+      endif( )
+    endif( )
+
+    if( NOT XKB_CONFIG_LOCALE_DIR )
+      tde_message_fatal( "Translations for xkb messages were requested but the xkeyboard-config locale directory could not be determined." )
+    endif( )
+  endif( )
+
 endif( )
 
 if( BUILD_KCONTROL OR BUILD_TDM )

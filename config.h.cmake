@@ -245,7 +245,9 @@ unsigned long strlcpy(char*, const char*, unsigned long);
 #cmakedefine XLIBDIR "@XLIBDIR@"
 
 // kxkb
+#cmakedefine WITH_XKB_TRANSLATIONS 1
 #cmakedefine X11_XKB_RULES_DIR "@X11_XKB_RULES_DIR@"
+#cmakedefine XKB_CONFIG_LOCALE_DIR "@XKB_CONFIG_LOCALE_DIR@"
 
 // tdm, kcontrol
 #cmakedefine WITH_XRANDR "@WITH_XRANDR@"

@@ -48,6 +48,7 @@
 
 #include "kcmmisc.h"
 #include "kcmmiscwidget.h"
+#include "x11helper.h"
 #include <X11/Xlib.h>
 
 KeyboardConfig::KeyboardConfig (TQWidget * parent, const char *)
