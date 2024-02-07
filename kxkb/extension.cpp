@@ -112,11 +112,9 @@ bool XKBExtension::setXkbOptions(const XkbOptions options)
 	}
 
 	if (!options.options.isEmpty()) {
-		p << "-option";
-
 		if (options.resetOld)
 		{
-			p << options.options;
+			p << "-option" << options.options;
 		}
 		else
 		{
@@ -132,7 +130,9 @@ bool XKBExtension::setXkbOptions(const XkbOptions options)
 					newOptions << option;
 				}
 			}
-			p << newOptions.join(",");
+			if (!newOptions.isEmpty()) {
+				p <<  "-option" <<  newOptions.join(",");
+			}
 		}
 	}
 
