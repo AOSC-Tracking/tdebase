@@ -8,6 +8,8 @@
 #include <tqregexp.h>
 
 #include <kdebug.h>
+#include <kstandarddirs.h>
+#include <tdelocale.h>
 
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
@@ -214,25 +216,12 @@ X11Helper::loadRules(const TQString& file, bool layoutsOnly) {
 
       // workaround for empty 'compose' options group description
       if( rulesInfo->options.find("compose:menu") && !rulesInfo->options.find("compose") ) {
-          rulesInfo->options.replace("compose", "Compose Key Position");
+          rulesInfo->options.replace("compose", I18N_NOOP("Compose Key Position"));
       }
   }
 
 
   for(TQDictIterator<char> it(rulesInfo->options) ; it.current() != NULL; ++it ) {
-      // HACK 2023/06/01 some descriptions in xkb rule files have "< >" in place
-      // of an actual key name, both in *.lst and *.xml files
-      TQString descFix = TQString::null;
-      if (it.currentKey().contains("lsgt_switch")) {
-          descFix = TQString(it.current()).replace("< >", "LSGT");
-      }
-      else if (it.currentKey().startsWith("compose:102")) {
-          descFix = TQString(it.current()).replace("< >", "102");
-      }
-      if (!descFix.isNull()) {
-          rulesInfo->options.replace(it.currentKey(), tqstrdup(descFix.ascii()));
-      }
-
       // Add missing option groups
       TQString option(it.currentKey());
       int columnPos = option.find(":");
@@ -402,4 +391,14 @@ X11Helper::getWindowClass(WId winId, Display* dpy)
 bool X11Helper::areSingleGroupsSupported()
 {
 	return true; //TODO:
+}
+
+void X11Helper::initializeTranslations() {
+    // TDE is usually installed into some non-standard prefix and by default system-wide locale
+    // dirs are not considered when searching for gettext message catalogues, so we have to add
+    // it explicitly.
+#ifdef WITH_XKB_TRANSLATIONS
+    TDEGlobal::dirs()->addResourceDir("locale", XKB_CONFIG_LOCALE_DIR);
+    TDEGlobal::locale()->insertCatalogue("xkeyboard-config");
+#endif
 }

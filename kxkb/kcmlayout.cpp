@@ -36,6 +36,7 @@
 #include "pixmap.h"
 #include "kcmmisc.h"
 #include "kcmlayoutwidget.h"
+#include "x11helper.h"
 
 #include "kcmlayout.h"
 #include "kcmlayout.moc"
@@ -105,6 +106,7 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
     m_rules(NULL),
     m_forceGrpOverwrite(false)
 {
+  X11Helper::initializeTranslations();
   TQVBoxLayout *main = new TQVBoxLayout(this, 0, KDialog::spacingHint());
 
   widget = new LayoutConfigWidget(this, "widget");
@@ -244,7 +246,7 @@ void LayoutConfig::initUI() {
 		const char *hkOpt  = tqstrdup(TQString("grp:" + (*hk)).ascii());
 		const char *hkDesc = allOptions[hkOpt];
 		if (hkDesc != 0) { // the option exists
-			widget->comboHotkey->insertItem(i18n(hkDesc));
+			widget->comboHotkey->insertItem(XkbRules::trOpt(hkDesc));
 		}
 	}
 	widget->comboHotkey->insertItem(i18n("None"));
@@ -315,7 +317,7 @@ void LayoutConfig::initUI() {
 			foundGrp = true;
 		}
 
-		OptionListItem *item = m_optionGroups[i18n(optionKey.latin1())];
+		OptionListItem *item = m_optionGroups[optionKey];
 
 		if (item != NULL) {
 			OptionListItem *child = item->findChildItem( option );
@@ -686,25 +688,25 @@ TQWidget* LayoutConfig::makeOptionsTab()
     {
       if( it.currentKey() == "ctrl" || it.currentKey() == "caps"
           || it.currentKey() == "altwin") {
-        parent = new OptionListItem(listView, i18n( it.current() ),
+        parent = new OptionListItem(listView, XkbRules::trOpt( it.current() ),
             TQCheckListItem::RadioButtonController, it.currentKey());
         OptionListItem *item = new OptionListItem(parent, i18n( "None" ),
             TQCheckListItem::RadioButton, "none");
         item->setState(TQCheckListItem::On);
       }
       else if (it.currentKey() == "grp") {
-        parent = new OptionListItem(listView, i18n(it.current()),
+        parent = new OptionListItem(listView, XkbRules::trOpt(it.current()),
             TQCheckListItem::RadioButtonController, it.currentKey());
         parent->setSelectable(false);
         OptionListItem *item = new OptionListItem(parent, i18n("None"),
             TQCheckListItem::CheckBox, "grp:none");
       }
       else {
-        parent = new OptionListItem(listView, i18n( it.current() ),
+        parent = new OptionListItem(listView, XkbRules::trOpt( it.current() ),
             TQCheckListItem::CheckBoxController, it.currentKey());
       }
       parent->setOpen(true);
-      m_optionGroups.insert(i18n(it.currentKey().local8Bit()), parent);
+      m_optionGroups.insert(it.currentKey(), parent);
     }
   }
 
@@ -724,10 +726,10 @@ TQWidget* LayoutConfig::makeOptionsTab()
         text = text.replace( "Cap$", "Caps." );
         if ( parent->type() == TQCheckListItem::CheckBoxController
              || key.startsWith("grp:"))
-            new OptionListItem(parent, i18n(text.utf8()),
+            new OptionListItem(parent, XkbRules::trOpt(text),
                 TQCheckListItem::CheckBox, key);
         else
-            new OptionListItem(parent, i18n(text.utf8()),
+            new OptionListItem(parent, XkbRules::trOpt(text),
                 TQCheckListItem::RadioButton, key);
       }
     }
@@ -1333,7 +1335,7 @@ extern "C"
 
 //these seem to be new in XFree86 4.4.0
  I18N_NOOP("Shift with numpad keys works as in MS Windows.");
- I18N_NOOP("Special keys (Ctrl+Alt+<key>) handled in a server.");
+ I18N_NOOP("Special keys (Ctrl+Alt+&lt;key&gt;) handled in a server.");
  I18N_NOOP("Miscellaneous compatibility options");
  I18N_NOOP("Right Control key works as Right Alt");
 

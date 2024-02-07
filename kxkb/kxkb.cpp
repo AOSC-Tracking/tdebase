@@ -68,6 +68,7 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
     m_tray(NULL),
     kWinModule(NULL)
 {
+    X11Helper::initializeTranslations();
 	m_extension = new XKBExtension();
     if( !m_extension->init() ) {
 		kdDebug() << "xkb initialization failed, exiting..." << endl;

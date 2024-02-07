@@ -3,6 +3,7 @@
 
 #include <tqstring.h>
 #include <tqdict.h>
+#include <tqstringlist.h>
 #include <tqmap.h>
 
 #include "layoutunit.h"
@@ -20,6 +21,9 @@ public:
   TQStringList getAvailableVariants(const TQString& layout);
 
   TQString getLayoutName(LayoutUnit layout) const;
+
+  /// A helper to translate option description
+  static TQString trOpt(TQString opt);
 
 protected:
   void loadRules(TQString filename, bool layoutsOnly=false);

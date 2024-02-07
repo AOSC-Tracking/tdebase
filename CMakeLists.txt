@@ -119,6 +119,7 @@ option( WITH_TDEHWLIB "Enable TDE hardware library support" ${WITH_ALL_OPTIONS} 
 option( WITH_UPOWER "Enable UPOWER support" ${WITH_ALL_OPTIONS} )
 option( WITH_ELFICON "Enable ELF embedded metadata support" ${WITH_ALL_OPTIONS} )
 option( WITH_GCC_VISIBILITY "Enable fvisibility and fvisibility-inlines-hidden" ${WITH_ALL_OPTIONS} )
+option( WITH_XKB_TRANSLATIONS "Use translations for xkb messages provided by xkeyboard-config" ON )
 
 ##### options comments ##########################
 
@@ -155,6 +156,7 @@ option( WITH_GCC_VISIBILITY "Enable fvisibility and fvisibility-inlines-hidden" 
 # WITH_PCRE         affects twin/compot-tde
 # WITH_SUDO_TDESU_BACKEND affects tdesu
 # WITH_SUDO_KONSOLE_SUPER_USER_COMMAND affects launching Konsole super user sessions
+# WITH_XKB_TRANSLATIONS affects kxkb
 
 # NOTE: WITH_SHADOW and WITH_PAM shouldn't be set concurrently
 #       WITH_PAM will override WITH_SHADOW
