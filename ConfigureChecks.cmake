@@ -507,30 +507,16 @@ endif( )
 if( BUILD_KXKB )
 
   if( NOT X11_XKB_RULES_DIR )
-    pkg_search_module( XKB_CONFIG xkeyboard-config )
-    if( XKB_CONFIG_FOUND )
-      execute_process(
-        COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=xkb_base xkeyboard-config
-        OUTPUT_VARIABLE KB_RULES_DIR
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-      )
-      if( NOT "${KB_RULES_DIR}" STREQUAL "" )
-        string(REGEX REPLACE "/xkb$" "/" X11_XKB_RULES_DIR "${KB_RULES_DIR}" )
-      endif( )
+    pkg_get_variable( KB_RULES_DIR xkeyboard-config xkb_base )
+    if( KB_RULES_DIR )
+      string(REGEX REPLACE "/xkb$" "/" X11_XKB_RULES_DIR "${KB_RULES_DIR}" )
     endif( )
   endif( )
 
   if( NOT X11_XKB_RULES_DIR )
-    pkg_search_module( XKBCOMP xkbcomp )
-    if( XKBCOMP_FOUND )
-      execute_process(
-        COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=xkbconfigdir xkbcomp
-        OUTPUT_VARIABLE KB_RULES_DIR
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-      )
-      if( NOT "${KB_RULES_DIR}" STREQUAL "" )
-        string(REGEX REPLACE "/xkb$" "/" X11_XKB_RULES_DIR "${KB_RULES_DIR}" )
-      endif( )
+    pkg_get_variable( KB_RULES_DIR xkbcomp xkbconfigdir )
+    if( KB_RULES_DIR )
+      string(REGEX REPLACE "/xkb$" "/" X11_XKB_RULES_DIR "${KB_RULES_DIR}" )
     endif( )
   endif( )
 
@@ -552,16 +538,8 @@ if( BUILD_KXKB )
   endif( )
 
   if( NOT X11_XKB_RULES_DIR )
-    execute_process(
-      COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=libdir xkbfile
-      OUTPUT_VARIABLE KB_RULES_LIBDIR
-      OUTPUT_STRIP_TRAILING_WHITESPACE
-    )
-    execute_process(
-      COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=prefix xkbfile
-      OUTPUT_VARIABLE KB_RULES_PREFIX
-      OUTPUT_STRIP_TRAILING_WHITESPACE
-    )
+    pkg_get_variable( KB_RULES_LIBDIR xkbfile libdir)
+    pkg_get_variable( KB_RULES_PREFIX xkbfile prefix)
     if( KB_RULES_LIBDIR AND KB_RULES_PREFIX )
       find_file( RULES_FILE
         NAMES xorg xfree86
