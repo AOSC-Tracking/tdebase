@@ -35,13 +35,13 @@
 #include <tqvbox.h>
 #include <tqfile.h>
 
-#if defined Q_WS_X11 && ! defined K_WS_QTONLY
+#if defined TQ_WS_X11 && ! defined K_WS_QTONLY
 #include <netwm.h>
 #endif
 
 void Widgets::handleXGeometry(TQWidget * dlg)
 {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     if ( ! kapp->geometryArgument().isEmpty()) {
 	int x, y;
 	int w, h;

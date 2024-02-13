@@ -48,7 +48,7 @@
 #include <kicondialog.h>
 #include <kdirselectdialog.h>
 
-#if defined Q_WS_X11 && ! defined K_WS_QTONLY
+#if defined TQ_WS_X11 && ! defined K_WS_QTONLY
 #include <netwm.h>
 #endif
 
@@ -56,9 +56,9 @@
 
 using namespace std;
 
-#if defined(Q_WS_X11)
+#if defined(TQ_WS_X11)
 extern "C" { int XSetTransientForHint( Display *, unsigned long, unsigned long ); }
-#endif // Q_WS_X11
+#endif // TQ_WS_X11
 
 static TDECmdLineOptions options[] =
 {
@@ -128,7 +128,7 @@ bool WinIdEmbedder::eventFilter(TQObject *o, TQEvent *e)
         TQWidget *w = static_cast<TQWidget*>(o);
         if (print)
             cout << "winId: " << w->winId() << endl;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
         if (id)
             XSetTransientForHint(w->x11Display(), w->winId(), id);
 #endif
@@ -305,7 +305,7 @@ static int directCommand(TDECmdLineArgs *args)
 	TQObject::connect( popup, TQ_SIGNAL( clicked() ), kapp, TQ_SLOT( quit() ) );
 	timer->start( duration, TRUE );
 
-#ifdef Q_WS_X11	
+#ifdef TQ_WS_X11	
 	if ( ! kapp->geometryArgument().isEmpty()) {
 	    int x, y;
 	    int w, h;
@@ -525,7 +525,7 @@ static int directCommand(TDECmdLineArgs *args)
         TQString startDir;
         startDir = TQString::fromLocal8Bit(args->getOption("getexistingdirectory"));
 	TQString result;
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 	result = TQFileDialog::getExistingDirectory(startDir, 0, "getExistingDirectory",
 							   title, true, true);
 #else

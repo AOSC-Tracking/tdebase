@@ -29,7 +29,7 @@
 #include <tdesycoca.h>
 #include <kstandarddirs.h>
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #endif
@@ -159,7 +159,7 @@ int main(int argc, char ** argv)
   }
 
   FileTypeDialog dlg( mime, createType );
-#if defined Q_WS_X11
+#if defined TQ_WS_X11
   if( args->isSet( "parent" )) {
     bool ok;
     long id = args->getOption("parent").toLong(&ok);

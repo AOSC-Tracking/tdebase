@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
 	KTipDialog *tipDialog = new KTipDialog(new KTipDatabase(locate("data", TQString("tdewizard/tips"))));
 	TQ_CHECK_PTR(tipDialog);
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	KWin::setState(tipDialog->winId(), NET::StaysOnTop);
 #endif
 	tipDialog->setCaption(i18n("Useful Tips"));

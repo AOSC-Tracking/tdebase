@@ -447,7 +447,7 @@ TQString sftpProtocol::canonicalizePath(const TQString &path) {
 sftpProtocol::sftpProtocol(const TQCString &pool_socket, const TQCString &app_socket)
              : SlaveBase("tdeio_sftp", pool_socket, app_socket),
                   mConnected(false), mPort(-1), mSession(NULL), mSftp(NULL) {
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
   kdDebug(TDEIO_SFTP_DB) << "pid = " << getpid() << endl;
 
   kdDebug(TDEIO_SFTP_DB) << "debug = " << getenv("TDEIO_SFTP_LOG_VERBOSITY") << endl;
@@ -470,7 +470,7 @@ sftpProtocol::sftpProtocol(const TQCString &pool_socket, const TQCString &app_so
 }
 
 sftpProtocol::~sftpProtocol() {
-#ifndef Q_WS_WIN
+#ifndef TQ_WS_WIN
   kdDebug(TDEIO_SFTP_DB) << "pid = " << getpid() << endl;
 #endif
   closeConnection();

@@ -35,7 +35,7 @@
 #include <kstandarddirs.h>
 #include <tdeaboutdata.h>
 
-#if defined Q_WS_X11 && !defined K_WS_QTONLY
+#if defined TQ_WS_X11 && !defined K_WS_QTONLY
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 #endif
@@ -396,7 +396,7 @@ void KColorScheme::save()
         flags |= KRdbExportColors;
     else
     {
-#if defined Q_WS_X11 && !defined K_WS_QTONLY
+#if defined TQ_WS_X11 && !defined K_WS_QTONLY
         // Undo the property xrdb has placed on the root window (if any),
         // i.e. remove all entries, including ours
         XDeleteProperty( tqt_xdisplay(), tqt_xrootwin(), XA_RESOURCE_MANAGER );

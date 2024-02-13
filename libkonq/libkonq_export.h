@@ -27,7 +27,7 @@
 /* needed, because e.g. Q_OS_UNIX is so frequently used */
 #include <tqglobal.h>
 
-#ifdef Q_WS_WIN
+#ifdef TQ_WS_WIN
 
 #else /* Q_OS_UNIX */
 
