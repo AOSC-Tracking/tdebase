@@ -577,7 +577,7 @@ void KSMShutdownIPFeedback::showNow()
 
 void KSMShutdownIPFeedback::enableExports()
 {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 	kdDebug(270) << k_lineinfo << "activating background exports.\n";
 	DCOPClient *client = kapp->dcopClient();
 	if (!client->isAttached()) {

@@ -49,7 +49,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kiconloader.h>
 #include <kimageeffect.h>
 
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
 #include <X11/Xlib.h>
 #include <netwm.h>
 #include <fixx11h.h>
@@ -1665,7 +1665,7 @@ void TaskContainer::updateFilteredTaskList()
             (!READ_MERGED_TASKBAR_SETTING(showOnlyIconified) || t->isIconified()))
         {
             pid_t pid = 0;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
             Atom type_ret;
             int format_ret;
             unsigned long nitems_ret = 0, unused = 0;

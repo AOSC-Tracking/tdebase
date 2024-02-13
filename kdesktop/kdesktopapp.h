@@ -23,7 +23,7 @@
 #include <config.h>
 #include <kuniqueapplication.h>
 
-#if defined(Q_WS_X11) && defined(HAVE_XRENDER) && TQT_VERSION >= 0x030300
+#if defined(TQ_WS_X11) && defined(HAVE_XRENDER) && TQT_VERSION >= 0x030300
 #define COMPOSITE
 #endif
 

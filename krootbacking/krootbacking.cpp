@@ -45,7 +45,7 @@ class KRootBackingData
 {
 public:
     TQWidget *toplevel;
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     KWinModule *twin;
 #endif
 };
@@ -70,7 +70,7 @@ void KRootBacking::init()
 
     connect(kapp, TQ_SIGNAL(backgroundChanged(int)), TQ_SLOT(slotBackgroundChanged(int)));
     connect(m_pTimer, TQ_SIGNAL(timeout()), TQ_SLOT(repaint()));
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     connect(m_pPixmap, TQ_SIGNAL(done(bool)), TQ_SLOT(slotDone(bool)));
 
     d->twin = new KWinModule( this );
@@ -88,7 +88,7 @@ KRootBacking::~KRootBacking()
 
 int KRootBacking::currentDesktop() const
 {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     NETRootInfo rinfo( tqt_xdisplay(), NET::CurrentDesktop );
     rinfo.activate();
     return rinfo.currentDesktop();
@@ -153,7 +153,7 @@ void KRootBacking::repaint(bool force)
 	return;
 
     m_Rect = TQRect(p1, p2);
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     m_Desk = currentDesktop();
 
     // TDESharedPixmap will correctly generate a tile for us.
@@ -172,7 +172,7 @@ void KRootBacking::repaint(bool force)
 
 bool KRootBacking::isAvailable() const
 {
-// #ifdef Q_WS_X11
+// #ifdef TQ_WS_X11
 //     return m_pPixmap->isAvailable(pixmapName(m_Desk));
 // #else
     return m_pPixmap->isNull();
@@ -181,7 +181,7 @@ bool KRootBacking::isAvailable() const
 
 TQString KRootBacking::pixmapName(int desk) {
     TQString pattern = TQString("DESKTOP%1");
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     int screen_number = DefaultScreen(tqt_xdisplay());
     if (screen_number) {
         pattern = TQString("SCREEN%1-DESKTOP").arg(screen_number) + "%1";
@@ -193,7 +193,7 @@ TQString KRootBacking::pixmapName(int desk) {
 
 void KRootBacking::enableExports()
 {
-#ifdef Q_WS_X11
+#ifdef TQ_WS_X11
     kdDebug(270) << k_lineinfo << "activating background exports.\n";
     DCOPClient *client = kapp->dcopClient();
     if (!client->isAttached())

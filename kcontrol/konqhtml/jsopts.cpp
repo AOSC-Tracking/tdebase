@@ -19,7 +19,7 @@
 #include <kdebug.h>
 #include <kurlrequester.h>
 
-#if defined Q_WS_X11 && !defined K_WS_QTONLY
+#if defined TQ_WS_X11 && !defined K_WS_QTONLY
 #include <X11/Xlib.h>
 #endif
 

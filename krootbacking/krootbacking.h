@@ -27,7 +27,7 @@
 #include <tqcolor.h>
 #include <tdelibs_export.h>
 
-#ifndef Q_WS_QWS //FIXME
+#ifndef TQ_WS_QWS //FIXME
 
 class TQRect;
 class TQWidget;
@@ -174,6 +174,6 @@ private:
     void init();
 };
 
-#endif // ! Q_WS_QWS
+#endif // ! TQ_WS_QWS
 
 #endif // KROOTBACKING_H
