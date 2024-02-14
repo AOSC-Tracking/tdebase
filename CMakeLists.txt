@@ -53,14 +53,8 @@ tde_setup_paths( )
 
 ##### add apidox targets ############
 
-if( "${CMAKE_VERSION}" VERSION_LESS "3.1" )
-  set( CMAKE_ENV "env" )
-else()
-  set( CMAKE_ENV "${CMAKE_COMMAND};-E;env" )
-endif()
-
 add_custom_target( apidox
-  COMMAND ${CMAKE_ENV}
+  COMMAND ${CMAKE_COMMAND} -E env
     "TQTDOCDIR=/usr/share/tqt3/doc/html"
     "DOXDATA=${HTML_INSTALL_DIR}/en/common"
     ${CMAKE_SOURCE_DIR}/admin/doxygen.sh
