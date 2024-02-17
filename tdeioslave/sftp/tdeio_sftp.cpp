@@ -173,7 +173,7 @@ void log_callback(ssh_session session, int priority, const char *message,
 
 class PublicKeyAuth: public SSHAuthMethod {
 public:
-  int flag() override {return SSH_AUTH_METHOD_PUBLICKEY;};
+  unsigned flag() override {return SSH_AUTH_METHOD_PUBLICKEY;};
   int authenticate(sftpProtocol *ioslave) const override {
     return ioslave->authenticatePublicKey();
   }
@@ -184,7 +184,7 @@ class KeyboardInteractiveAuth: public SSHAuthMethod {
 public:
   KeyboardInteractiveAuth(bool noPaswordQuery = false): mNoPaswordQuery(noPaswordQuery) {}
 
-  int flag() override {return SSH_AUTH_METHOD_INTERACTIVE;};
+  unsigned flag() override {return SSH_AUTH_METHOD_INTERACTIVE;};
   int authenticate(sftpProtocol *ioslave) const override {
     return ioslave->authenticateKeyboardInteractive(mNoPaswordQuery);
   }
@@ -198,7 +198,7 @@ class PasswordAuth: public SSHAuthMethod {
 public:
   PasswordAuth(bool noPaswordQuery = false): mNoPaswordQuery(noPaswordQuery) {}
 
-  int flag() override {return SSH_AUTH_METHOD_PASSWORD;};
+  unsigned flag() override {return SSH_AUTH_METHOD_PASSWORD;};
   int authenticate(sftpProtocol *ioslave) const override {
     return ioslave->authenticatePassword(mNoPaswordQuery);
   }
@@ -208,7 +208,7 @@ private:
   const bool mNoPaswordQuery;
 };
 
-TQString SSHAuthMethod::flagToStr (int m) {
+TQString SSHAuthMethod::flagToStr (unsigned m) {
   switch (m) {
     case SSH_AUTH_METHOD_NONE        : return TQString::fromLatin1 ( "none" );
     case SSH_AUTH_METHOD_PASSWORD    : return TQString::fromLatin1 ( "password" );
@@ -220,11 +220,11 @@ TQString SSHAuthMethod::flagToStr (int m) {
   }
 }
 
-TQStringList SSHAuthMethod::bitsetToStr (int m) {
+TQStringList SSHAuthMethod::bitsetToStr (unsigned m) {
   TQStringList rv;
 
   for (int i=0; m>>i; i++) {
-    int flag = m & (1 << i);
+    unsigned flag = m & (1 << i);
     if (flag) {
       rv.append(flagToStr(flag));
     }
@@ -1151,7 +1151,7 @@ connection_restart:
       SSH_AUTH_METHOD_NONE, //< none is supported by default
       [](int acc, const auto &m){ return acc |= m->flag(); });
 
-  int attemptedMethods = 0;
+  unsigned attemptedMethods = 0;
 
   // Backup of the value of the SlaveBase::s_seqNr. This is used to query different data values
   // with openPassDlg() with the same seqNr. Otherwise it will result in the prompting of the pass
@@ -1164,7 +1164,7 @@ connection_restart:
     // which will require user to provide a valid password at first and then a valid public key.
     // see AuthenticationMethods in man 5 sshd_config for more info
     bool wasCanceled = false;
-    int availableMethodes = ssh_auth_list(mSession);
+    unsigned availableMethodes = ssh_auth_list(mSession);
 
     SlaveBase::s_seqNr = current_seqNr;
 
