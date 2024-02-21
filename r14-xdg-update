@@ -3,7 +3,7 @@
 # A script to perform R14.0.0 XDG compliance updates.
 
 SCRIPT_NAME="$(basename -- "$0")"
-SCRIPT_VERSION=202307100
+SCRIPT_VERSION=202402210
 
 # This script should be needed to run only once, but corner cases
 # and file/directory permissions could cause incomplete updates.
@@ -1024,6 +1024,17 @@ if [ "$R14_VERSION" -lt "202307100" ]; then
     sed -i 's|PluginLib=twin3_|PluginLib=twin_|' $PROFILE_DIR/share/config/twinrc
   fi
   Log "  Renamed twin3_ to twin_ in theme files"
+fi
+
+# Rename kvirc "qt" sound system if found
+if [ "$R14_VERSION" -lt "202402210" ]; then
+	KVIRC_CFG_DIR=`grep LocalKvircDirectory "${PROFILE_DIR}/share/config/kvircrc" | sed "s/LocalKvircDirectory=//"`
+	if [ ! -z "${KVIRC_CFG_DIR}" ]; then
+		find "${KVIRC_CFG_DIR}/" -type f -iname "main.kvc" -print0 2>/dev/null | \
+			xargs -r0 sed -ri "s|stringSoundSystem=qt|stringSoundSystem=tqt|g"
+		Log "  Renamed kvirc sound system"
+	fi
+	unset KVIRC_CFG_DIR
 fi
 
 # Perform some nominal update validations.
