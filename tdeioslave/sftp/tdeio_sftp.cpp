@@ -984,8 +984,6 @@ int sftpProtocol::initializeConnection() {
     return rc;
   }
 
-  ExitGuard connectionCloser([this](){ closeConnection(); });
-
   kdDebug(TDEIO_SFTP_DB) << "Getting the SSH server hash" << endl;
 
   /* get the hash */
@@ -1079,8 +1077,6 @@ int sftpProtocol::initializeConnection() {
 
   kdDebug(TDEIO_SFTP_DB) << "Trying to authenticate with the server" << endl;
 
-  connectionCloser.abort();
-
   return SSH_OK;
 }
 
@@ -1121,135 +1117,140 @@ void sftpProtocol::openConnection() {
   PasswordPurger pwPurger{mPassword};
 
   int rc;
-
-connection_restart:
-  // Start the ssh connection.
-  if (initializeConnection() < 0) {
-    return;
-  }
   ExitGuard connectionCloser([this](){ closeConnection(); });
 
-  // Try to authenticate (this required before calling ssh_auth_list())
-  rc = ssh_userauth_none(mSession, NULL);
-  if (rc == SSH_AUTH_ERROR) {
-    error(TDEIO::ERR_COULD_NOT_LOGIN, sshError(i18n("Authentication failed (method: %1).")
-                                      .arg(i18n("none"))));
-    return;
-  }
-
-  // Preinit the list of supported auth methods
-  static const auto authMethodsNormal = [](){
-    std::vector<std::unique_ptr<SSHAuthMethod>> rv;
-    rv.emplace_back(std::make_unique<PublicKeyAuth>());
-    rv.emplace_back(std::make_unique<KeyboardInteractiveAuth>());
-    rv.emplace_back(std::make_unique<PasswordAuth>());
-    return rv;
-  }();
-
-  const static int supportedMethods = std::accumulate(
-      authMethodsNormal.begin(), authMethodsNormal.end(),
-      SSH_AUTH_METHOD_NONE, //< none is supported by default
-      [](int acc, const auto &m){ return acc |= m->flag(); });
-
-  unsigned attemptedMethods = 0;
-
-  // Backup of the value of the SlaveBase::s_seqNr. This is used to query different data values
-  // with openPassDlg() with the same seqNr. Otherwise it will result in the prompting of the pass
-  // dialog to the user in cases the values should be recovered from the cache.
-  // This is a bit hacky but necessary
-  long current_seqNr = SlaveBase::s_seqNr;
-
-  while (rc != SSH_AUTH_SUCCESS) {
-    // Note this loop can rerun in case of multistage ssh authentication e.g. "password,publickey"
-    // which will require user to provide a valid password at first and then a valid public key.
-    // see AuthenticationMethods in man 5 sshd_config for more info
-    bool wasCanceled = false;
-    unsigned availableMethodes = ssh_auth_list(mSession);
-
-    SlaveBase::s_seqNr = current_seqNr;
-
-    if (!availableMethodes) {
-      // Technically libssh docs suggest that the server merely MAY send auth methods, but it's
-      // highly unclear what we should do in such case and it looks like openssh doesn't have an
-      // option for that, so let's just consider this server a jerk and don't talk to him anymore.
-      error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed.\n"
-            "The server did not send any authentication methods!"));
-      return;
-    } else if (!(availableMethodes & supportedMethods)) {
-      error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed.\n"
-            "The server sent only unsupported authentication methods (%1)!")
-            .arg(SSHAuthMethod::bitsetToStr(availableMethodes).join(", ")));
+  do { // A loop to restart connection when needed
+    // Start the ssh connection.
+    if (initializeConnection() < 0) {
       return;
     }
 
-    const auto *authMethods = &authMethodsNormal;
-
-    // If we have cached password we want try to use it before public key
-    if(!mPassword.isEmpty()) {
-      static const auto authMethodsWithPassword = []() {
-        std::vector<std::unique_ptr<SSHAuthMethod>> rv;
-        rv.emplace_back(std::make_unique<KeyboardInteractiveAuth>(/* noPasswordQuery = */true));
-        rv.emplace_back(std::make_unique<PasswordAuth>(/* noPasswordQuery = */true));
-        for (const auto &m: authMethodsNormal) { rv.emplace_back(m->clone()); }
-        return rv;
-      }();
-
-      authMethods = &authMethodsWithPassword;
+    // Try to authenticate (this required before calling ssh_auth_list())
+    rc = ssh_userauth_none(mSession, NULL);
+    if (rc == SSH_AUTH_ERROR) {
+      error(TDEIO::ERR_COULD_NOT_LOGIN, sshError(i18n("Authentication failed (method: %1).")
+                                        .arg(i18n("none"))));
+      return;
     }
 
-    // Actually iterate over the list of methods and try them out
-    for (const auto &method: *authMethods) {
-      if (!(availableMethodes & method->flag())) { continue; }
+    // Preinit the list of supported auth methods
+    static const auto authMethodsNormal = [](){
+      std::vector<std::unique_ptr<SSHAuthMethod>> rv;
+      rv.emplace_back(std::make_unique<PublicKeyAuth>());
+      rv.emplace_back(std::make_unique<KeyboardInteractiveAuth>());
+      rv.emplace_back(std::make_unique<PasswordAuth>());
+      return rv;
+    }();
 
-      rc = method->authenticate( this );
-      attemptedMethods |= method->flag();
-      if (rc == SSH_AUTH_SUCCESS || rc == SSH_AUTH_PARTIAL) {
-        kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << ": auth "
-          << (rc == SSH_AUTH_SUCCESS ? "success" : "partial") << endl;
-        break; // either next auth method or continue on with the connect
-      } else if (rc == SSH_AUTH_ERROR || rc == SSH_AUTH_AGAIN) {
-        TQString errMsg = i18n("Authentication failed (method: %1).").arg(method->name());
-        // SSH_AUTH_AGAIN returned in case of some errors when server hangs up unexpectedly like
-        // in case there were too many failed authentication attempts
-        if (rc == SSH_AUTH_AGAIN) {
-          errMsg.append("\n").append(i18n("Server is slow to respond or hung up unexpectedly."));
+    const static int supportedMethods = std::accumulate(
+        authMethodsNormal.begin(), authMethodsNormal.end(),
+        SSH_AUTH_METHOD_NONE, //< none is supported by default
+        [](int acc, const auto &m){ return acc |= m->flag(); });
+
+    unsigned attemptedMethods = 0;
+
+    // Backup of the value of the SlaveBase::s_seqNr. This is used to query different data values
+    // with openPassDlg() with the same seqNr. Otherwise it will result in the prompting of the pass
+    // dialog to the user in cases the values should be recovered from the cache.
+    // This is a bit hacky but necessary
+    long current_seqNr = SlaveBase::s_seqNr;
+
+    while (rc != SSH_AUTH_SUCCESS) {
+      // Note this loop can rerun in case of multistage ssh authentication e.g. "password,publickey"
+      // which will require user to provide a valid password at first and then a valid public key.
+      // see AuthenticationMethods in man 5 sshd_config for more info
+      bool wasCanceled = false;
+      unsigned availableMethodes = ssh_auth_list(mSession);
+
+      SlaveBase::s_seqNr = current_seqNr;
+
+      if (!availableMethodes) {
+        // Technically libssh docs suggest that the server merely MAY send auth methods, but it's
+        // highly unclear what we should do in such case and it looks like openssh doesn't have an
+        // option for that, so let's just consider this server a jerk and don't talk to him anymore.
+        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed.\n"
+              "The server did not send any authentication methods!"));
+        return;
+      } else if (!(availableMethodes & supportedMethods)) {
+        error(TDEIO::ERR_COULD_NOT_LOGIN, i18n("Authentication failed.\n"
+              "The server sent only unsupported authentication methods (%1)!")
+              .arg(SSHAuthMethod::bitsetToStr(availableMethodes).join(", ")));
+        return;
+      }
+
+      const auto *authMethods = &authMethodsNormal;
+
+      // If we have cached password we want try to use it before public key
+      if(!mPassword.isEmpty()) {
+        static const auto authMethodsWithPassword = []() {
+          std::vector<std::unique_ptr<SSHAuthMethod>> rv;
+          rv.emplace_back(std::make_unique<KeyboardInteractiveAuth>(/* noPasswordQuery = */true));
+          rv.emplace_back(std::make_unique<PasswordAuth>(/* noPasswordQuery = */true));
+          for (const auto &m: authMethodsNormal) { rv.emplace_back(m->clone()); }
+          return rv;
+        }();
+
+        authMethods = &authMethodsWithPassword;
+      }
+
+      // Actually iterate over the list of methods and try them out
+      for (const auto &method: *authMethods) {
+        if (!(availableMethodes & method->flag())) { continue; }
+
+        rc = method->authenticate( this );
+        attemptedMethods |= method->flag();
+        if (rc == SSH_AUTH_SUCCESS || rc == SSH_AUTH_PARTIAL) {
+          kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << ": auth "
+            << (rc == SSH_AUTH_SUCCESS ? "success" : "partial") << endl;
+          break; // either next auth method or continue on with the connect
+        } else if (rc == SSH_AUTH_ERROR || rc == SSH_AUTH_AGAIN) {
+          TQString errMsg = i18n("Authentication failed (method: %1).").arg(method->name());
+          // SSH_AUTH_AGAIN returned in case of some errors when server hangs up unexpectedly like
+          // in case there were too many failed authentication attempts
+          if (rc == SSH_AUTH_AGAIN) {
+            errMsg.append("\n").append(i18n("Server is slow to respond or hung up unexpectedly."));
+          }
+          error(TDEIO::ERR_COULD_NOT_LOGIN, sshError(errMsg));
+          return;
+        } else if (rc == SSH_AUTH_CANCELED) {
+          kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << " was canceled by user"  << endl;
+          // don't quit immediately due to that the user might have canceled one method to use another
+          wasCanceled = true;
+        } else if (rc == SSH_AUTH_NEED_RECONNECT) {
+          kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << " requested reconnection"  << endl;
+          break;
+        } else if (rc == SSH_AUTH_DENIED) {
+          kdDebug(TDEIO_SFTP_DB) << "Auth for method=" << method->name() << " was denied"  << endl;
+          // do nothing, just proceed with next auth method
+        } else {
+          // Shouldn't happen, but to be on the safe side better handle it
+          error(TDEIO::ERR_UNKNOWN, sshError(i18n("Authentication failed unexpectedly")));
+          return;
         }
-        error(TDEIO::ERR_COULD_NOT_LOGIN, sshError(errMsg));
-        return;
-      } else if (rc == SSH_AUTH_CANCELED) {
-        kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << " was canceled by user"  << endl;
-        // don't quit immediately due to that the user might have canceled one method to use another
-        wasCanceled = true;
-      } else if (rc == SSH_AUTH_NEED_RECONNECT) {
-        kdDebug(TDEIO_SFTP_DB) << "method=" << method->name() << " requested reconnection"  << endl;
-        goto connection_restart;
-      } else if (rc == SSH_AUTH_DENIED) {
-        kdDebug(TDEIO_SFTP_DB) << "Auth for method=" << method->name() << " was denied"  << endl;
-        // do nothing, just proceed with next auth method
-      } else {
-        // Shouldn't happen, but to be on the safe side better handle it
-        error(TDEIO::ERR_UNKNOWN, sshError(i18n("Authentication failed unexpectedly")));
-        return;
       }
-    }
 
-    // At this point rc values should be one of:
-    //   SSH_AUTH_SUCCESS, SSH_AUTH_PARTIAL, SSH_AUTH_DENIED or SSH_AUTH_CANCELED
-    if (wasCanceled && (rc == SSH_AUTH_CANCELED || rc == SSH_AUTH_DENIED)) {
-      error(TDEIO::ERR_USER_CANCELED, TQString::null);
-      return;
-    } else if (rc != SSH_AUTH_SUCCESS && rc != SSH_AUTH_PARTIAL) {
-      TQString errMsg = i18n("Authentication denied (attempted methods: %1).")
-                        .arg(SSHAuthMethod::bitsetToStr(attemptedMethods).join(", "));
-      if (availableMethodes & ~supportedMethods) {
-        errMsg.append("\n")
-              .append(i18n("Note: server also declares some unsupported authentication methods (%1)")
-              .arg(SSHAuthMethod::bitsetToStr(availableMethodes & ~supportedMethods).join(", ")));
+      // At this point rc values should be one of:
+      //   SSH_AUTH_SUCCESS, SSH_AUTH_PARTIAL, SSH_AUTH_DENIED, SSH_AUTH_CANCELED or SSH_AUTH_NEED_RECONNECT
+      if(rc == SSH_AUTH_NEED_RECONNECT) {
+        closeConnection(); //< have to do it manually
+        break;
+      } else if (wasCanceled && (rc == SSH_AUTH_CANCELED || rc == SSH_AUTH_DENIED)) {
+        error(TDEIO::ERR_USER_CANCELED, TQString::null);
+        return;
+      } else if (rc != SSH_AUTH_SUCCESS && rc != SSH_AUTH_PARTIAL) {
+        TQString errMsg = i18n("Authentication denied (attempted methods: %1).")
+                          .arg(SSHAuthMethod::bitsetToStr(attemptedMethods).join(", "));
+        if (availableMethodes & ~supportedMethods) {
+          errMsg.append("\n")
+                .append(i18n("Note: server also declares some unsupported authentication methods (%1)")
+                .arg(SSHAuthMethod::bitsetToStr(availableMethodes & ~supportedMethods).join(", ")));
+        }
+        error(TDEIO::ERR_COULD_NOT_LOGIN, errMsg);
+        return;
       }
-      error(TDEIO::ERR_COULD_NOT_LOGIN, errMsg);
-      return;
-    }
-  } // while (rc != SSH_AUTH_SUCCESS)
+    } // while (rc != SSH_AUTH_SUCCESS)
+  } while(rc == SSH_AUTH_NEED_RECONNECT);
+
 
   // start sftp session
   kdDebug(TDEIO_SFTP_DB) << "Trying to request the sftp session" << endl;
