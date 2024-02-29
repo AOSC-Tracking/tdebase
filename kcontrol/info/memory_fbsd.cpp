@@ -11,9 +11,9 @@
 
 void KMemoryWidget::update()
 {
-    char blah[10], buf[80], *used_str, *total_str;
+    char buf[80], *used_str, *total_str;
     /* Stuff for sysctl */
-    int memory;
+    unsigned long memory;
     size_t len;
     /* Stuff for swap display */
     int used, total, _free;
@@ -22,7 +22,6 @@ void KMemoryWidget::update()
     len=sizeof(memory);
     sysctlbyname("hw.physmem", &memory, &len, NULL, 0);
   
-    snprintf(blah, 10, "%d", memory);
     // Numerical values
 
     // total physical memory (without swap space)
