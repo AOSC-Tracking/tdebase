@@ -62,10 +62,10 @@
                     <bool>false</bool>
                   </property>
                   <property name="text">
-                    <string>Show &amp;logout fadeaway</string>
+                    <string>Fadeaway screen during &amp;logout</string>
                   </property>
                   <property name="whatsThis" stdset="0">
-                    <string>Check this option if you want to see a fadeaway when displaying a logout confirmation dialog box.</string>
+                    <string>Check this option if you want screen to be faded when displaying a logout confirmation dialog box.</string>
                   </property>
                 </widget>
                 <widget class="TQCheckBox">
@@ -76,10 +76,10 @@
                     <bool>false</bool>
                   </property>
                   <property name="text">
-                    <string>Sho&amp;w fancy logout fadeaway</string>
+                    <string>Use effects for logout fadea&amp;way</string>
                   </property>
                   <property name="whatsThis" stdset="0">
-                    <string>Check this option if you want to see a fancy fadeaway when displaying a logout confirmation dialog box.</string>
+                    <string>Check this option if you want to enable additional graphical effects for fadeaway during logout process. Namely the fadeaway will be smoothly animated and semitransparent.</string>
                   </property>
                 </widget>
                 <widget class="TQCheckBox">
