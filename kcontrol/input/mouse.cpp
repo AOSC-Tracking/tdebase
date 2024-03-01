@@ -245,16 +245,17 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
 
     doubleClickLabel = new TQLabel(i18n("Double-click on the image below to test your double-click interval:"), tab2);
     lay->addWidget(doubleClickLabel);
-    wtstr = i18n("The image will change when your double-click"
+    wtstr = i18n("<p>The image will change when your double-click"
          " test time is less than or equal to the interval you"
-         " configured. When changing the interval, be sure to select"
-         " the Apply button before testing. For example, the image"
-         " will not change when you configure a double-click interval"
-         " of 700 milliseconds and the time between two successive"
-         " clicks on the image is 800 milliseconds, but the image will"
-         " change when the time between clicks is 600 milliseconds."
+         " configured. For example, if you configure a double-click interval"
+         " of 700 milliseconds the image will not change when the time between"
+         " two successive clicks on the image is 800 milliseconds, but the image"
+         " will change when the time between clicks is 600 milliseconds."
          " The goal is to select a comfortable interval that you find"
-         " is not too fast or slow.");
+         " is not too fast or slow.</p>"
+         ""
+         " <p>When changing the interval it is not necessary to push"
+         " the <i>Apply</i> button before testing.</p>");
     TQWhatsThis::add( doubleClickLabel, wtstr );
     doubleClickStatus = false;  // First image will be displayed
     doubleClickButton = new TQPushButton( tab2 );
