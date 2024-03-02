@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Andrei Stepanov <adem4ik@gmail.com>, 2023.
+# Alexander Golubev <fatzer2@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-16 18:21+0000\n"
-"PO-Revision-Date: 2023-12-03 17:55+0000\n"
-"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
+"PO-Revision-Date: 2024-03-02 05:44+0000\n"
+"Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/l10n-desktop-files/ru/>\n"
 "Language: ru\n"
@@ -266,7 +267,7 @@ msgstr "Бразилия"
 #. Name
 #: braille/entry.desktop:2
 msgid "Braille"
-msgstr ""
+msgstr "Шрифт Брайля"
 
 #. Name
 #: bs/entry.desktop:2
@@ -436,7 +437,7 @@ msgstr "Западная Сахара"
 #. Name
 #: eo/entry.desktop:2
 msgid "Esperanto"
-msgstr ""
+msgstr "Эсперанто"
 
 #. Name
 #: er/entry.desktop:2
@@ -645,9 +646,8 @@ msgstr "Япония"
 
 #. Name
 #: jv/entry.desktop:2
-#, fuzzy
 msgid "Indonesia (Java)"
-msgstr "Индонезия"
+msgstr "Индонезия (Ява)"
 
 #. Name
 #: ke/entry.desktop:2

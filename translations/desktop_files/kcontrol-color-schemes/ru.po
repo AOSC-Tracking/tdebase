@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # blu.256 <mavridisf@gmail.com>, 2022.
+# Alexander Golubev <fatzer2@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-02 18:13+0000\n"
-"PO-Revision-Date: 2022-01-16 15:00+0000\n"
-"Last-Translator: blu.256 <mavridisf@gmail.com>\n"
+"PO-Revision-Date: 2024-03-02 05:44+0000\n"
+"Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/color-schemes/ru/>\n"
 "Language: ru\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: AtlasGreen.kcsrc:3
@@ -61,12 +62,12 @@ msgstr "Цифровой CDE"
 #. Name
 #: EveX.kcsrc:2
 msgid "EveX"
-msgstr "EveX"
+msgstr "Ева X"
 
 #. Name
 #: Human.kcsrc:2
 msgid "Human"
-msgstr ""
+msgstr "Человек"
 
 #. Name
 #: KDEOne.kcsrc:2
@@ -96,12 +97,12 @@ msgstr "Керамика белая"
 #. Name
 #: Last.fm.kcsrc:2
 msgid "Last.fm"
-msgstr ""
+msgstr "Last.fm"
 
 #. Name
 #: Lizard.kcsrc:2
 msgid "Lizard"
-msgstr ""
+msgstr "Ящерица"
 
 #. Name
 #: MediaPeach.kcsrc:2
@@ -126,7 +127,7 @@ msgstr "Пластик"
 #. Name
 #: Platinum.kcsrc:2
 msgid "Platinum"
-msgstr ""
+msgstr "Платина"
 
 #. Name
 #: PointReyesGreen.kcsrc:2
@@ -141,7 +142,7 @@ msgstr "Тыква"
 #. Name
 #: Sienna.kcsrc:2
 msgid "Sienna"
-msgstr ""
+msgstr "Сиена"
 
 #. Name
 #: SolarisCDE.kcsrc:2
@@ -161,7 +162,7 @@ msgstr "Система"
 #. Name
 #: WedgieWeb.kcsrc:2
 msgid "WedgieWeb"
-msgstr ""
+msgstr "WedgieWeb"
 
 #. Name
 #: WhiteOnBlack.kcsrc:2
@@ -171,17 +172,17 @@ msgstr "Высококонтрастный белый текст"
 #. Name
 #: Windows2000.kcsrc:2
 msgid "Redmond 2000"
-msgstr "Redmond 2000"
+msgstr "Редмонд 2000"
 
 #. Name
 #: Windows95.kcsrc:3
 msgid "Redmond 95"
-msgstr "Redmond 95"
+msgstr "Редмонд 95"
 
 #. Name
 #: WindowsXP.kcsrc:2
 msgid "Redmond XP"
-msgstr "Redmond XP"
+msgstr "Редмонд XP"
 
 #. Name
 #: YellowOnBlue.kcsrc:2

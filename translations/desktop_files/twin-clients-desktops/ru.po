@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Alexander Golubev <fatzer2@gmail.com>, 2022.
+# Alexander Golubev <fatzer2@gmail.com>, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:19+0200\n"
-"PO-Revision-Date: 2022-02-14 23:01+0000\n"
+"PO-Revision-Date: 2024-03-02 05:44+0000\n"
 "Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/twin-clients-desktop-files/ru/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: b2/b2.desktop:2
@@ -26,7 +26,7 @@ msgstr "B II"
 #. Name
 #: keramik/keramik.desktop:2
 msgid "Keramik"
-msgstr ""
+msgstr "Керамика"
 
 #. Name
 #: kwmtheme/kwmtheme.desktop:2
@@ -56,7 +56,7 @@ msgstr "Кварц"
 #. Name
 #: redmond/redmond.desktop:2
 msgid "Redmond"
-msgstr ""
+msgstr "Редмонд"
 
 #. Name
 #: test/test.desktop:2
@@ -66,4 +66,4 @@ msgstr "Проверка KWin"
 #. Name
 #: web/web.desktop:2
 msgid "Web"
-msgstr ""
+msgstr "Web"
