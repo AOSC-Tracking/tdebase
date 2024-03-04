@@ -35,6 +35,7 @@
 
 #include <numeric>
 #include <functional>
+#include <vector>
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -1136,16 +1137,16 @@ void sftpProtocol::openConnection() {
     // Preinit the list of supported auth methods
     static const auto authMethodsNormal = [](){
       std::vector<std::unique_ptr<SSHAuthMethod>> rv;
-      rv.emplace_back(std::make_unique<PublicKeyAuth>());
-      rv.emplace_back(std::make_unique<KeyboardInteractiveAuth>());
-      rv.emplace_back(std::make_unique<PasswordAuth>());
+      rv.emplace_back(std::unique_ptr<PublicKeyAuth>(new PublicKeyAuth));
+      rv.emplace_back(std::unique_ptr<KeyboardInteractiveAuth>(new KeyboardInteractiveAuth));
+      rv.emplace_back(std::unique_ptr<PasswordAuth>(new PasswordAuth));
       return rv;
     }();
 
     const static int supportedMethods = std::accumulate(
         authMethodsNormal.begin(), authMethodsNormal.end(),
         SSH_AUTH_METHOD_NONE, //< none is supported by default
-        [](int acc, const auto &m){ return acc |= m->flag(); });
+        [](int acc, const std::unique_ptr<SSHAuthMethod> &m){ return acc |= m->flag(); });
 
     unsigned attemptedMethods = 0;
 
@@ -1184,8 +1185,10 @@ void sftpProtocol::openConnection() {
       if(!mPassword.isEmpty()) {
         static const auto authMethodsWithPassword = []() {
           std::vector<std::unique_ptr<SSHAuthMethod>> rv;
-          rv.emplace_back(std::make_unique<KeyboardInteractiveAuth>(/* noPasswordQuery = */true));
-          rv.emplace_back(std::make_unique<PasswordAuth>(/* noPasswordQuery = */true));
+          rv.emplace_back(std::unique_ptr<KeyboardInteractiveAuth>(
+                      new KeyboardInteractiveAuth(/* noPasswordQuery = */true) ) );
+          rv.emplace_back(std::unique_ptr<PasswordAuth>(
+                      new PasswordAuth(/* noPasswordQuery = */true) ) );
           for (const auto &m: authMethodsNormal) { rv.emplace_back(m->clone()); }
           return rv;
         }();
