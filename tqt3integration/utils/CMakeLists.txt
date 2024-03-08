@@ -31,7 +31,7 @@ tde_add_executable( gen AUTOMOC
   LINK tdecore-shared
 )
 
-ADD_CUSTOM_COMMAND(
+add_custom_command(
   OUTPUT
     ${CMAKE_CURRENT_BINARY_DIR}/tqttde_functions.cpp
     ${CMAKE_CURRENT_BINARY_DIR}/module_functions.cpp
@@ -44,6 +44,6 @@ ADD_CUSTOM_COMMAND(
   DEPENDS gen
 )
 
-ADD_CUSTOM_TARGET( generate_tqt3_bindings
+add_custom_target( generate_tqt3_bindings
   DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/tqttde_functions.cpp
 )
