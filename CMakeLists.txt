@@ -76,7 +76,7 @@ add_custom_target( install-apidox
 install( CODE "
   if( EXISTS ${CMAKE_BINARY_DIR}/apidocs )
     file(
-      install ${CMAKE_BINARY_DIR}/apidocs/
+      INSTALL ${CMAKE_BINARY_DIR}/apidocs/
       DESTINATION ${HTML_INSTALL_DIR}/en/${PROJECT_NAME}-apidocs
       PATTERN doxygen_sqlite3.db EXCLUDE
       PATTERN installdox-slow EXCLUDE
