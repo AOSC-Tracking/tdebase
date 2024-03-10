@@ -2559,53 +2559,77 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
 
     // These checks take activation distance into account, creating a
     // virtual "activation band" for easier border/corner activation.
-    bool active_left   = pos.x() < activeLeft   + activation_distance,
-         active_right  = pos.x() > activeRight  - activation_distance,
-         active_top    = pos.y() < activeTop    + activation_distance,
-         active_bottom = pos.y() > activeBottom - activation_distance;
+    bool active_left   = pos.x() < activeLeft   + activation_distance;
+    bool active_right  = pos.x() > activeRight  - activation_distance;
+    bool active_top    = pos.y() < activeTop    + activation_distance;
+    bool active_bottom = pos.y() > activeBottom - activation_distance;
+
+    if (!active_left && !active_right && !active_top && !active_bottom)
+       return;
 
     // These checks are used to make corner activation easier: we assume
     // a 25% zone on the edge of each border where instead of half size
     // tiling we perform quarter size tiling. The rest 50% is left for
     // normal half size tiling.
-    uint active_width_quart = activeRight / 4,
-         active_height_quart = activeBottom / 4;
+    // These options make sense only for the tiling mode.
+    int active_width_quart  = (activeRight - activeLeft) / 4;
+    int active_height_quart = (activeBottom - activeTop) / 4;
 
-    bool active_qleft   = pos.x() < activeLeft   + active_width_quart,
-         active_qright  = pos.x() > activeRight  - active_width_quart,
-         active_qtop    = pos.y() < activeTop    + active_height_quart,
-         active_qbottom = pos.y() > activeBottom - active_height_quart;
-
-    int border = ActiveNone;
-
-    if (active_left)   border |= ActiveLeft;
-    if (active_right)  border |= ActiveRight;
-    if (active_top)    border |= ActiveTop;
-    if (active_bottom) border |= ActiveBottom;
-
-    if (border == ActiveLeft || border == ActiveRight) {
-        if (active_qtop)     border |= ActiveTop;
-        if (active_qbottom)  border |= ActiveBottom;
+    bool active_qleft   = false;
+    bool active_qright  = false;
+    bool active_qtop    = false;
+    bool active_qbottom = false;
+    if (options->activeBorders() == Options::ActiveTileMaximize ||
+        options->activeBorders() == Options::ActiveTileOnly)
+    {
+      active_qleft   = pos.x() < activeLeft   + active_width_quart;
+      active_qright  = pos.x() > activeRight  - active_width_quart;
+      active_qtop    = pos.y() < activeTop    + active_height_quart;
+      active_qbottom = pos.y() > activeBottom - active_height_quart;
     }
 
-    else if (border == ActiveTop || border == ActiveBottom) {
-        if (active_qleft)    border |= ActiveLeft;
-        if (active_qright)   border |= ActiveRight;
+    ActiveBorder border = ActiveNone;
+    if ((active_left && active_qtop) || (active_top && active_qleft))
+    {
+      border = ActiveTopLeft;
+    }
+    else if ((active_right && active_qtop) || (active_top && active_qright))
+    {
+      border = ActiveTopRight;
+    }
+    else if ((active_left && active_qbottom) || (active_bottom && active_qleft))
+    {
+      border = ActiveBottomLeft;
+    }
+    else if ((active_right && active_qbottom) || (active_bottom && active_qright))
+    {
+      border = ActiveBottomRight;
+    }
+    else if (active_left)
+    {
+      border = ActiveLeft;
+    }
+    else if (active_right)
+    {
+      border = ActiveRight;
+    }
+    else if (active_top)
+    {
+      border = ActiveTop;
+    }
+    else if (active_bottom)
+    {
+      border = ActiveBottom;
+    }
+    else
+    {
+      // Should never happen
+      abort();
     }
 
-    bool border_valid = false;
-    for (int i = 0; i < ACTIVE_BORDER_COUNT; ++i) {
-        if (border == (ActiveBorder)i) {
-            border_valid = true;
-        }
-    }
-
-    if (!border_valid) {
-        abort();
-    }
-
-    if (border == ActiveNone || active_windows[border] == None) {
-        return;
+    if( active_windows[border] == None )
+    {
+      return;
     }
 
     if ((active_current_border == border) &&
@@ -2627,7 +2651,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
                 if (options->activeBorders() == Options::ActiveSwitchAlways ||
                     options->activeBorders() == Options::ActiveSwitchOnMove)
                 {
-                    activeBorderSwitchDesktop((ActiveBorder)border, pos);
+                    activeBorderSwitchDesktop(border, pos);
                     return; // Don't reset cursor position
                 }
 
@@ -2647,7 +2671,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
                 {
                     if (!movingClient->isResizable()) return;
                     movingClient->setActiveBorderMode(ActiveTilingMode);
-                    movingClient->setActiveBorder((ActiveBorder)border);
+                    movingClient->setActiveBorder(border);
                     movingClient->setActiveBorderMaximizing(true);
                 }
 
@@ -2661,7 +2685,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
                 // Desktop switching
                 if (options->activeBorders() == Options::ActiveSwitchAlways && isSide)
                 {
-                    activeBorderSwitchDesktop((ActiveBorder)border, pos);
+                    activeBorderSwitchDesktop(border, pos);
                     return; // Don't reset cursor position
                 }
             }
@@ -2669,7 +2693,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
     }
     else
     {
-        active_current_border = (ActiveBorder)border;
+        active_current_border = border;
         active_time_first = now;
         active_time_last = now;
         active_push_point = pos;
@@ -2680,9 +2704,9 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
     {
         // Reset the pointer to find out whether the user is really pushing
         // (ordered according to enum ActiveBorder minus ActiveNone)
-        const int xdiff[ACTIVE_BORDER_COUNT] = {1, -1, 0,  0, 1, -1,  1, -1};
-        const int ydiff[ACTIVE_BORDER_COUNT] = {0,  0, 1, -1, 1,  1, -1, -1};
-        TQCursor::setPos(pos.x() + xdiff[border - 1], pos.y() + ydiff[border - 1]);
+        const int xdiff[ ACTIVE_BORDER_COUNT ] = { 0, -1, -1, -1, 0, 1, 1, 1 };
+        const int ydiff[ ACTIVE_BORDER_COUNT ] = { 1, 1, 0, -1, -1, -1, 0, 1 };
+        TQCursor::setPos(pos.x() + xdiff[border], pos.y() + ydiff[border]);
     }
 }
 
@@ -3098,7 +3122,6 @@ void Workspace::handleKompmgrOutput( TDEProcess* , char *buffer, int buflen)
         proc.start(TDEProcess::DontCare);
         }
 }
-
 
 void Workspace::setOpacity(unsigned long winId, unsigned int opacityPercent)
 {
