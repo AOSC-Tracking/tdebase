@@ -110,19 +110,16 @@ enum ShadeMode
 
 enum ActiveBorder
     {
-    ActiveNone   = 0,
-
-    ActiveLeft   = 1,
-    ActiveRight  = 2,
-    ActiveTop    = 4,
-    ActiveBottom = 8,
-
-    ActiveTopLeft     = ActiveTop | ActiveLeft,
-    ActiveTopRight    = ActiveTop | ActiveRight,
-    ActiveBottomLeft  = ActiveBottom | ActiveLeft,
-    ActiveBottomRight = ActiveBottom | ActiveRight,
-
-    ACTIVE_BORDER_COUNT
+    ActiveTop = 0,
+    ActiveTopRight,
+    ActiveRight,
+    ActiveBottomRight,
+    ActiveBottom,
+    ActiveBottomLeft,
+    ActiveLeft,
+    ActiveTopLeft,
+    ACTIVE_BORDER_COUNT,
+    ActiveNone
     };
 
 enum ActiveMaximizingMode
