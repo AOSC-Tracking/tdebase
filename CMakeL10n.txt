@@ -14,7 +14,6 @@
 
 include( TDEVersion )
 cmake_minimum_required( VERSION ${TDE_CMAKE_MINIMUM_VERSION} )
-tde_set_project_version( )
 
 
 ##### include our cmake modules #################
