@@ -18,14 +18,20 @@
 #include "smserverconfigimpl.h"
 #include "smserverconfigimpl.moc"
 
-SMServerConfigImpl::SMServerConfigImpl(TQWidget *parent, const char *name ) : SMServerConfigDlg(parent,name) {
+SMServerConfigImpl::SMServerConfigImpl(TQWidget *parent, const char *name ) : SMServerConfigDlg(parent,name) {}
 
+SMServerConfigImpl::~SMServerConfigImpl() {}
+
+void SMServerConfigImpl::configChanged()
+{
+  emit changed();
 }
-SMServerConfigImpl::~SMServerConfigImpl(){
-}
-/** No descriptions */
-void SMServerConfigImpl::configChanged(){
 
- emit changed();
+void SMServerConfigImpl::fadeAwayConfigChanged()
+{
+  // Update showFadeAway and showFancyFadeAway status correctly
+  showFadeAway->setEnabled(confirmLogoutCheck->isChecked());
+  showFancyFadeAway->setEnabled(confirmLogoutCheck->isChecked() && showFadeAway->isChecked());
 
+  configChanged();
 }
