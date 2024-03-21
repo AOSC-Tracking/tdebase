@@ -33,6 +33,7 @@ public:
 public slots: // Public slots
   /** No descriptions */
   void configChanged();
+  void fadeAwayConfigChanged();
 signals: // Signals
   /** No descriptions */
   void changed();

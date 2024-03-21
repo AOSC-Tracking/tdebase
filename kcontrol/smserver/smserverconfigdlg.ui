@@ -243,40 +243,22 @@
 </widget>
 <connections>
     <connection>
-        <sender>confirmLogoutCheck</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>SMServerConfigDlg</receiver>
-        <slot>configChanged()</slot>
-    </connection>
-    <connection>
       <sender>confirmLogoutCheck</sender>
       <signal>toggled(bool)</signal>
-      <receiver>showFadeAway</receiver>
-      <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-      <sender>confirmLogoutCheck</sender>
-      <signal>toggled(bool)</signal>
-      <receiver>showFancyFadeAway</receiver>
-      <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-      <sender>showFadeAway</sender>
-      <signal>toggled(bool)</signal>
-      <receiver>showFancyFadeAway</receiver>
-      <slot>setEnabled(bool)</slot>
+      <receiver>SMServerConfigDlg</receiver>
+      <slot>fadeAwayConfigChanged()</slot>
     </connection>
     <connection>
       <sender>showFadeAway</sender>
       <signal>toggled(bool)</signal>
       <receiver>SMServerConfigDlg</receiver>
-      <slot>configChanged()</slot>
+      <slot>fadeAwayConfigChanged()</slot>
     </connection>
     <connection>
       <sender>showFancyFadeAway</sender>
       <signal>toggled(bool)</signal>
       <receiver>SMServerConfigDlg</receiver>
-      <slot>configChanged()</slot>
+      <slot>fadeAwayConfigChanged()</slot>
     </connection>
     <connection>
         <sender>showLogoutStatusDialog</sender>
@@ -316,11 +298,13 @@
     </connection>
 </connections>
 <includes>
+    <include location="global" impldecl="in declaration">tqcheckbox.h</include>
     <include location="global" impldecl="in implementation">kdialog.h</include>
     <include location="global" impldecl="in implementation">klineedit.h</include>
 </includes>
 <slots>
     <slot>configChanged()</slot>
+    <slot>fadeAwayConfigChanged()</slot>
 </slots>
 <layoutdefaults spacing="3" margin="6"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
