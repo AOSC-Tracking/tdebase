@@ -104,6 +104,17 @@
                         <string>Check this option if you want to see a dialog box showing the logout status.</string>
                     </property>
                 </widget>
+                <widget class="TQCheckBox">
+                    <property name="name">
+                        <cstring>showUbuntuStyleDialog</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use &amp;alternative shutdown dialog layout</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Check this option if you want to use an alternative shutdown dialog, where buttons are arranged in rows rathen then columns. This layout is popular in Ubuntu and therefore it is also known as 'Ubuntu style' shutdown dialog.</string>
+                    </property>
+                </widget>
             </vbox>
         </widget>
         <widget class="TQButtonGroup">
@@ -262,6 +273,12 @@
     </connection>
     <connection>
         <sender>showLogoutStatusDialog</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SMServerConfigDlg</receiver>
+        <slot>configChanged()</slot>
+    </connection>
+    <connection>
+        <sender>showUbuntuStyleDialog</sender>
         <signal>toggled(bool)</signal>
         <receiver>SMServerConfigDlg</receiver>
         <slot>configChanged()</slot>

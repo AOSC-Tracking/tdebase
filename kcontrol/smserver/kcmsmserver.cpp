@@ -94,6 +94,7 @@ void SMServerConfig::load(bool useDefaults )
 
   c->setGroup("Logout");
   dialog->showLogoutStatusDialog->setChecked(c->readBoolEntry("showLogoutStatusDlg", true));
+  dialog->showUbuntuStyleDialog->setChecked(c->readBoolEntry("doUbuntuLogout", false));
   dialog->showFadeAway->setChecked(c->readBoolEntry("doFadeaway", true));
   dialog->showFancyFadeAway->setChecked(c->readBoolEntry("doFancyLogout", true));
   dialog->showFancyFadeAway->setEnabled(dialog->confirmLogoutCheck->isChecked() && dialog->showFadeAway->isChecked()),
@@ -126,6 +127,7 @@ void SMServerConfig::save()
   c->writeEntry("excludeApps", dialog->excludeLineedit->text());
   c->setGroup("Logout");
   c->writeEntry( "showLogoutStatusDlg", dialog->showLogoutStatusDialog->isChecked());
+  c->writeEntry( "doUbuntuLogout", dialog->showUbuntuStyleDialog->isChecked());
   c->writeEntry( "doFadeaway", dialog->showFadeAway->isChecked());
   c->writeEntry( "doFancyLogout", dialog->showFancyFadeAway->isChecked());
   c->sync();
