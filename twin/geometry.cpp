@@ -2828,7 +2828,7 @@ TQRect Client::activeBorderMaximizeGeometry()
     return ret;
 }
 
-void Client::tile(ActiveBorder border) {
+void Client::tileToBorder(ActiveBorder border) {
     if (!isResizable()) return;
     activeTiled = true;
     setActiveBorderMode(ActiveTilingMode);

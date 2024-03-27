@@ -240,7 +240,7 @@ class Client : public TQObject, public KDecorationDefines
         void cancelActiveBorderMaximizing();
         bool isActiveBorderMaximizing() const;
         TQRect activeBorderMaximizeGeometry();
-        void tile(ActiveBorder border);
+        void tileToBorder(ActiveBorder border);
 
         void growHorizontal();
         void shrinkHorizontal();
