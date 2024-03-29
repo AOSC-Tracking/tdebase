@@ -718,20 +718,23 @@ TQWidget* LayoutConfig::makeOptionsTab()
     if (pos >= 0)
     {
       OptionListItem *parent = m_optionGroups[key.left(pos)];
-      if (parent == NULL )
-        parent = m_optionGroups["misc"];
-      if (parent != NULL) {
-      // workaroung for mistake in rules file for xkb options in XFree 4.2.0
-        TQString text(it.current());
-        text = text.replace( "Cap$", "Caps." );
-        if ( parent->type() == TQCheckListItem::CheckBoxController
-             || key.startsWith("grp:"))
-            new OptionListItem(parent, XkbRules::trOpt(text),
-                TQCheckListItem::CheckBox, key);
-        else
-            new OptionListItem(parent, XkbRules::trOpt(text),
-                TQCheckListItem::RadioButton, key);
+      if (parent == NULL ) { // All unparanted options go into "custom" group
+        parent = m_optionGroups["custom"];
+        if (parent == NULL ) {
+          parent = new OptionListItem(listView, XkbRules::trOpt( I18N_NOOP("Miscellaneous options") ),
+              TQCheckListItem::CheckBoxController, "custom");
+        }
       }
+      // workaroung for mistake in rules file for xkb options in XFree 4.2.0
+      TQString text(it.current());
+      text = text.replace( "Cap$", "Caps." );
+      if ( parent->type() == TQCheckListItem::CheckBoxController
+           || key.startsWith("grp:"))
+          new OptionListItem(parent, XkbRules::trOpt(text),
+              TQCheckListItem::CheckBox, key);
+      else
+          new OptionListItem(parent, XkbRules::trOpt(text),
+              TQCheckListItem::RadioButton, key);
     }
   }
 

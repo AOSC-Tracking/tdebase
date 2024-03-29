@@ -195,7 +195,7 @@ X11Helper::loadRules(const TQString& file, bool layoutsOnly) {
                     }
                     // Items from these 'meta' groups fall into other groups
                     // Admittedly not the best way to handle this
-                    if (optName == "currencysign" || optName == "compat") break;
+                    if (optName == "currencysign" || optName == "compat") continue;
 
                     // HACK this should be called "compose" or else the code breaks
                     if (optName == "Compose key") optName = "compose";
@@ -220,20 +220,6 @@ X11Helper::loadRules(const TQString& file, bool layoutsOnly) {
       }
   }
 
-
-  for(TQDictIterator<char> it(rulesInfo->options) ; it.current() != NULL; ++it ) {
-      // Add missing option groups
-      TQString option(it.currentKey());
-      int columnPos = option.find(":");
-
-      if( columnPos != -1 ) {
-          TQString group = option.mid(0, columnPos);
-          if( rulesInfo->options.find(group) == NULL ) {
-              rulesInfo->options.replace(group, group.latin1());
-              kdDebug() << "Added missing option group: " << group << endl;
-          }
-      }
-  }
 //   // workaround for empty misc options group description in XFree86 4.4.0
 //   if( rulesInfo->options.find("numpad:microsoft") && !rulesInfo->options.find("misc") ) {
 //     rulesInfo->options.replace("misc", "Miscellaneous compatibility options" );
