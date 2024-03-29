@@ -145,7 +145,7 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
 
   connect( widget->bgColor, TQ_SIGNAL( changed(const TQColor&) ), this, TQ_SLOT(changed()));
   connect( widget->fgColor, TQ_SIGNAL( changed(const TQColor&) ), this, TQ_SLOT(changed()));
-  connect( widget->chkBgTransparent, TQ_SIGNAL( changed(const TQFont&) ), this, TQ_SLOT(changed()));
+  connect( widget->chkBgTransparent, TQ_SIGNAL( toggled(bool) ), this, TQ_SLOT(changed()));
   connect( widget->labelFont, TQ_SIGNAL( fontSelected(const TQFont&) ), this, TQ_SLOT(changed()));
   connect( widget->chkLabelShadow, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT(changed()));
   connect( widget->shColor, TQ_SIGNAL( changed(const TQColor&) ), this, TQ_SLOT(changed()));
