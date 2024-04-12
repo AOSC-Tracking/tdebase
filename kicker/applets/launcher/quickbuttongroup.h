@@ -28,7 +28,7 @@ public:
 };
 
 QuickButtonGroup::Index QuickButtonGroup::findDescriptor(const TQString &desc)
-{   return findProperty(desc, std::mem_fun(&QuickButton::url));}
+{   return findProperty(desc, std::mem_fn(&QuickButton::url));}
 
 inline void QuickButtonGroup::setUpdatesEnabled(bool enable)
 {   for (QuickButtonGroup::iterator i=begin();i!=end();++i) {
@@ -38,16 +38,16 @@ inline void QuickButtonGroup::setUpdatesEnabled(bool enable)
 }
 
 inline void QuickButtonGroup::show()
-{   std::for_each(begin(),end(),std::mem_fun(&TQWidget::show));}
+{   std::for_each(begin(),end(),std::mem_fn(&TQWidget::show));}
 
 inline void QuickButtonGroup::hide()
-{   std::for_each(begin(),end(),std::mem_fun(&TQWidget::hide));}
+{   std::for_each(begin(),end(),std::mem_fn(&TQWidget::hide));}
 
 inline void QuickButtonGroup::setDragging(bool drag)
-{   std::for_each(begin(),end(),std::bind2nd(std::mem_fun(&QuickButton::setDragging),drag));}
+{   std::for_each(begin(),end(),std::bind(std::mem_fn(&QuickButton::setDragging),std::placeholders::_1,drag));}
 
 inline void QuickButtonGroup::setEnableDrag(bool enable)
-{   std::for_each(begin(),end(),std::bind2nd(std::mem_fun(&QuickButton::setEnableDrag),enable));}
+{   std::for_each(begin(),end(),std::bind(std::mem_fn(&QuickButton::setEnableDrag),std::placeholders::_1,enable));}
 
 inline void QuickButtonGroup::deleteContents()
 {   for (QuickButtonGroup::iterator i=begin();i!=end();++i) {
