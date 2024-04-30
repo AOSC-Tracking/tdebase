@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Andrei Stepanov <adem4ik@gmail.com>, 2023.
+# Andrei Stepanov <adem4ik@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2023-12-07 21:14+0000\n"
+"PO-Revision-Date: 2024-04-30 23:00+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/applnk-directories/ru/>\n"
@@ -193,7 +193,7 @@ msgstr "Офис"
 #. Name
 #: tde-settings-accessibility.directory:4
 msgid "Regional & Accessibility"
-msgstr "Региональные и специальные возможности"
+msgstr "Региональные и спец. возможности"
 
 #. Name
 #: tde-settings-components.directory:4
