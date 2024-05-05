@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2024-04-12 17:44+0000\n"
+"PO-Revision-Date: 2024-05-06 03:00+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdeioslave-desktop-files/ru/>\n"
@@ -458,7 +458,7 @@ msgstr "Документы"
 #. Name
 #: system/entries/home.desktop:6
 msgid "Home Folder"
-msgstr "Домашняя папка"
+msgstr "Домашний каталог"
 
 #. Name
 #: system/entries/remote.desktop:6
@@ -486,7 +486,7 @@ msgstr "Отслеживание изменений в сетевых папка
 #. Comment
 #: system/mimetypes/system_directory.desktop:6
 msgid "System Folder"
-msgstr "Системная папка"
+msgstr "Системный каталог"
 
 #. Name
 #: thumbnail/cursorthumbnail.desktop:4
