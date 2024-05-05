@@ -27,7 +27,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <tqpopupmenu.h>
 
-class KDE_EXPORT TaskRMBMenu : public TQPopupMenu
+class TDE_EXPORT TaskRMBMenu : public TQPopupMenu
 {
 	TQ_OBJECT
 

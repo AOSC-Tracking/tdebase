@@ -37,7 +37,7 @@ class KDecorationBridge;
 class KDecorationPrivate;
 class KDecorationFactory;
 
-#define KWIN_EXPORT KDE_EXPORT
+#define KWIN_EXPORT TDE_EXPORT
 
 /**
  * This class provides a namespace for all decoration related classes.

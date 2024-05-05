@@ -28,12 +28,12 @@
 
 extern "C"
 {
-    KDE_EXPORT TDECModule* create_performance( TQWidget* parent_P, const char* name_P )
+    TDE_EXPORT TDECModule* create_performance( TQWidget* parent_P, const char* name_P )
     {
     return new KCMPerformance::Config( parent_P, name_P );
     }
 
-    KDE_EXPORT TDECModule* create_konqueror( TQWidget* parent_P, const char* name_P )
+    TDE_EXPORT TDECModule* create_konqueror( TQWidget* parent_P, const char* name_P )
     {
     return new KCMPerformance::KonquerorConfig( parent_P, name_P );
     }

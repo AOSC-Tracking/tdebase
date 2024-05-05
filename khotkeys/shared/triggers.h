@@ -29,7 +29,7 @@ namespace KHotKeys
 class Windowdef_list;
 class Action_data;
 
-class KDE_EXPORT Trigger
+class TDE_EXPORT Trigger
     {
     public:
         Trigger( Action_data* data_P );
@@ -45,7 +45,7 @@ class KDE_EXPORT Trigger
     KHOTKEYS_DISABLE_COPY( Trigger );
     };
 
-class KDE_EXPORT Trigger_list
+class TDE_EXPORT Trigger_list
     : public TQPtrList< Trigger >
     {
     public:
@@ -61,7 +61,7 @@ class KDE_EXPORT Trigger_list
     KHOTKEYS_DISABLE_COPY( Trigger_list );
     };
     
-class KDE_EXPORT Shortcut_trigger
+class TDE_EXPORT Shortcut_trigger
     : public Trigger, public Kbd_receiver
     {
     typedef Trigger base;
@@ -79,7 +79,7 @@ class KDE_EXPORT Shortcut_trigger
         TDEShortcut _shortcut;
     };
 
-class KDE_EXPORT Window_trigger
+class TDE_EXPORT Window_trigger
     : public TQObject, public Trigger        
     {
     TQ_OBJECT
@@ -121,7 +121,7 @@ class KDE_EXPORT Window_trigger
         bool active;
     };
 
-class KDE_EXPORT Gesture_trigger
+class TDE_EXPORT Gesture_trigger
     : public TQObject, public Trigger
     {
     TQ_OBJECT
@@ -142,7 +142,7 @@ class KDE_EXPORT Gesture_trigger
     };
 
 
-class KDE_EXPORT Voice_trigger
+class TDE_EXPORT Voice_trigger
     : public TQObject, public Trigger
     {
     TQ_OBJECT

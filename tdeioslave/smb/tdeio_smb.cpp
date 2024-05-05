@@ -56,7 +56,7 @@ SMBSlave::~SMBSlave()
 SMBSlave* G_TheSlave;
 
 //===========================================================================
-int KDE_EXPORT kdemain( int argc, char **argv )
+int TDE_EXPORT kdemain( int argc, char **argv )
 {
 
     TDEInstance instance( "tdeio_smb" );

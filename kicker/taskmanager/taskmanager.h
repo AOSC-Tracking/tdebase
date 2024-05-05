@@ -68,7 +68,7 @@ typedef TQValueList<WId> WindowList;
  * @see TaskManager
  * @see KWinModule
  */
-class KDE_EXPORT Task: public TQObject, public TDEShared
+class TDE_EXPORT Task: public TQObject, public TDEShared
 {
     TQ_OBJECT
     TQ_PROPERTY( TQString visibleIconicName READ visibleIconicName )
@@ -483,7 +483,7 @@ private:
 /**
  * Provids a drag object for tasks across desktops.
  */
-class KDE_EXPORT TaskDrag : public TQStoredDrag
+class TDE_EXPORT TaskDrag : public TQStoredDrag
 {
 public:
     /**
@@ -511,7 +511,7 @@ public:
  *
  * @see TaskManager
  */
-class KDE_EXPORT Startup: public TQObject, public TDEShared
+class TDE_EXPORT Startup: public TQObject, public TDEShared
 {
     TQ_OBJECT
     TQ_PROPERTY( TQString text READ text )
@@ -565,7 +565,7 @@ private:
  * @see Startup
  * @see KWinModule
  */
-class KDE_EXPORT TaskManager : public TQObject
+class TDE_EXPORT TaskManager : public TQObject
 {
     TQ_OBJECT
     TQ_PROPERTY( int currentDesktop READ currentDesktop )

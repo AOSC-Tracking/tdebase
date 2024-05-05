@@ -688,7 +688,7 @@ TQValueList< RedmondDecoFactory::BorderSize > RedmondDecoFactory::borderSizes() 
 
 }
 
-extern "C" KDE_EXPORT KDecorationFactory *create_factory()
+extern "C" TDE_EXPORT KDecorationFactory *create_factory()
 {
 	return new Redmond::RedmondDecoFactory();
 }

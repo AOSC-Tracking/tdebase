@@ -373,7 +373,7 @@ bool KXKBApp::x11EventFilter(XEvent *e) {
 
 const char *DESCRIPTION = I18N_NOOP("A utility to switch keyboard maps");
 
-extern "C" KDE_EXPORT int kdemain(int argc, char *argv[])
+extern "C" TDE_EXPORT int kdemain(int argc, char *argv[])
 {
     TDEAboutData about("kxkb", I18N_NOOP("TDE Keyboard Tool"), "1.0",
                      DESCRIPTION, TDEAboutData::License_LGPL,

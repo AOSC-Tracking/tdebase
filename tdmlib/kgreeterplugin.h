@@ -312,7 +312,7 @@ protected:
     TQLayoutItem *layoutItem;
 };
 
-struct KDE_EXPORT kgreeterplugin_info {
+struct TDE_EXPORT kgreeterplugin_info {
     /**
      * Human readable name of this plugin (should be a little more
      * informative than just the libary name). Must be I18N_NOOP()ed.

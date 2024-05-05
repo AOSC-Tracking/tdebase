@@ -318,7 +318,7 @@ void Privacy::cleanup()
 extern "C"
 {
 
-  KDE_EXPORT TDECModule *create_privacy(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_privacy(TQWidget *parent, const char * /*name*/)
   {
     TDEGlobal::locale()->insertCatalogue("privacy");
     return new Privacy(parent, "Privacy");

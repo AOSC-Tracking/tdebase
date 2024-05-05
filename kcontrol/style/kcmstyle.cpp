@@ -73,13 +73,13 @@
 // Danimo: Why do we use the old interface?!
 extern "C"
 {
-    KDE_EXPORT TDECModule *create_style(TQWidget *parent, const char*)
+    TDE_EXPORT TDECModule *create_style(TQWidget *parent, const char*)
     {
         TDEGlobal::locale()->insertCatalogue("kcmstyle");
         return new KCMStyle(parent, "kcmstyle");
     }
 
-    KDE_EXPORT void init_style()
+    TDE_EXPORT void init_style()
     {
         uint flags = KRdbExportQtSettings | KRdbExportQtColors | KRdbExportXftSettings;
         TDEConfig config("kcmdisplayrc", true /*readonly*/, false /*don't read kdeglobals etc.*/);

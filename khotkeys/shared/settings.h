@@ -26,7 +26,7 @@ enum ImportType
     ImportSilent // if already imported before, ignore (called from the update script)
     };
 
-class KDE_EXPORT Settings
+class TDE_EXPORT Settings
     {
     public:
         Settings();

@@ -34,7 +34,7 @@
 #endif
 
 
-extern "C" int KDE_EXPORT kdemain(int argc, char *argv[])
+extern "C" int TDE_EXPORT kdemain(int argc, char *argv[])
 {
   Klipper::createAboutData();
   TDECmdLineArgs::init( argc, argv, Klipper::aboutData());

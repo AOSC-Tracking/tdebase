@@ -43,7 +43,7 @@ static const TQString defaultRefreshRate = "60";
 
 extern "C"
 {
-  KDE_EXPORT int kdemain( int argc, char **argv )
+  TDE_EXPORT int kdemain( int argc, char **argv )
   {
     TDEInstance instance( "tdeio_finger" );
 

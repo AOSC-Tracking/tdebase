@@ -483,7 +483,7 @@ void MediaManager::slotMediumChanged(const TQString &/*id*/, const TQString &nam
 
 
 extern "C" {
-    KDE_EXPORT KDEDModule *create_mediamanager(const TQCString &obj)
+    TDE_EXPORT KDEDModule *create_mediamanager(const TQCString &obj)
     {
         TDEGlobal::locale()->insertCatalogue("tdeio_media");
         return new MediaManager(obj);

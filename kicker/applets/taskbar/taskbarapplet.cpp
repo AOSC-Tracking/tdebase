@@ -38,7 +38,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 extern "C"
 {
-    KDE_EXPORT KPanelApplet* init( TQWidget *parent, const TQString& configFile )
+    TDE_EXPORT KPanelApplet* init( TQWidget *parent, const TQString& configFile )
     {
         // FIXME: what about two taskbars? perhaps this should be inserted just once
         TDEGlobal::locale()->insertCatalogue( "ktaskbarapplet" );

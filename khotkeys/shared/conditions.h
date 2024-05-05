@@ -30,7 +30,7 @@ class Action_data_base;
 class Action_data;
 class Condition_list_base;
 
-class KDE_EXPORT Condition
+class TDE_EXPORT Condition
     {
     public:
         Condition( Condition_list_base* parent_P );
@@ -49,7 +49,7 @@ class KDE_EXPORT Condition
     KHOTKEYS_DISABLE_COPY( Condition );
     };
         
-class KDE_EXPORT Condition_list_base
+class TDE_EXPORT Condition_list_base
     : public Condition, public TQPtrList< Condition > // inheritance ?
     {
     typedef Condition base;
@@ -64,7 +64,7 @@ class KDE_EXPORT Condition_list_base
         typedef TQPtrListIterator< Condition > Iterator;
     };
 
-class KDE_EXPORT Condition_list
+class TDE_EXPORT Condition_list
     : public Condition_list_base
     {
     typedef Condition_list_base base;
@@ -84,7 +84,7 @@ class KDE_EXPORT Condition_list
         Action_data_base* data;
     };
 
-class KDE_EXPORT Active_window_condition
+class TDE_EXPORT Active_window_condition
     : public TQObject, public Condition
     {
     TQ_OBJECT
@@ -111,7 +111,7 @@ class KDE_EXPORT Active_window_condition
         bool is_match;
     };
             
-class KDE_EXPORT Existing_window_condition
+class TDE_EXPORT Existing_window_condition
     : public TQObject, public Condition
     {
     TQ_OBJECT
@@ -139,7 +139,7 @@ class KDE_EXPORT Existing_window_condition
         bool is_match;
     };
 
-class KDE_EXPORT Not_condition
+class TDE_EXPORT Not_condition
     : public Condition_list_base
     {
     typedef Condition_list_base base;
@@ -154,7 +154,7 @@ class KDE_EXPORT Not_condition
         virtual bool accepts_children() const;
     };
             
-class KDE_EXPORT And_condition
+class TDE_EXPORT And_condition
     : public Condition_list_base
     {
     typedef Condition_list_base base;
@@ -167,7 +167,7 @@ class KDE_EXPORT And_condition
         virtual const TQString description() const;
     };
             
-class KDE_EXPORT Or_condition
+class TDE_EXPORT Or_condition
     : public Condition_list_base
     {
     typedef Condition_list_base base;

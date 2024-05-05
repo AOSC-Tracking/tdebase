@@ -73,7 +73,7 @@ class KasPopup;
  *
  * @author Richard Moore, rich@kde.org
  */
-class KDE_EXPORT KasItem : public TQObject
+class TDE_EXPORT KasItem : public TQObject
 {
     TQ_OBJECT
 

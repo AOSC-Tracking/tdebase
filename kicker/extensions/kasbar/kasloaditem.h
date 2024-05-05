@@ -8,7 +8,7 @@
 /**
  * An item that displays the system load.
  */
-class KDE_EXPORT KasLoadItem : public KasItem
+class TDE_EXPORT KasLoadItem : public KasItem
 {
     TQ_OBJECT
 

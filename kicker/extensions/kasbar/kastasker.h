@@ -80,7 +80,7 @@ class KasGrouper;
  *
  * @author Richard Moore, rich@kde.org
  */
-class KDE_EXPORT KasTasker : public KasBar
+class TDE_EXPORT KasTasker : public KasBar
 {
     TQ_OBJECT
     TQ_PROPERTY( bool isTopLevel READ isTopLevel )

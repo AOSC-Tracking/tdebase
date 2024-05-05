@@ -273,7 +273,7 @@ static const TDECmdLineOptions options[] =
     };
 
 extern "C"
-KDE_EXPORT int kdemain( int argc, char* argv[] )
+TDE_EXPORT int kdemain( int argc, char* argv[] )
     {
     TDELocale::setMainCatalogue( "kcmtwinrules" );
     TDECmdLineArgs::init( argc, argv, "twin_rules_dialog", I18N_NOOP( "TWin" ),

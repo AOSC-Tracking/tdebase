@@ -371,7 +371,7 @@ TDEAboutData *KickerConfig::aboutData()
 
 extern "C"
 {
-    KDE_EXPORT TDECModule *create_kicker(TQWidget *parent, const char *name)
+    TDE_EXPORT TDECModule *create_kicker(TQWidget *parent, const char *name)
     {
         TDECModuleContainer *container = new TDECModuleContainer(parent, "kcmkicker");
         container->addModule("kicker_config_arrangement");
@@ -381,26 +381,26 @@ extern "C"
         return container;
     }
 
-    KDE_EXPORT TDECModule *create_kicker_arrangement(TQWidget *parent, const char * /*name*/)
+    TDE_EXPORT TDECModule *create_kicker_arrangement(TQWidget *parent, const char * /*name*/)
     {
         TDEGlobal::dirs()->addResourceType("extensions", TDEStandardDirs::kde_default("data") +
                                          "kicker/extensions");
         return new PositionConfig(parent, "kcmkicker");
     }
 
-    KDE_EXPORT TDECModule *create_kicker_hiding(TQWidget *parent, const char * /*name*/)
+    TDE_EXPORT TDECModule *create_kicker_hiding(TQWidget *parent, const char * /*name*/)
     {
         TDEGlobal::dirs()->addResourceType("extensions", TDEStandardDirs::kde_default("data") +
                                          "kicker/extensions");
         return new HidingConfig(parent, "kcmkicker");
     }
 
-    KDE_EXPORT TDECModule *create_kicker_menus(TQWidget *parent, const char * /*name*/)
+    TDE_EXPORT TDECModule *create_kicker_menus(TQWidget *parent, const char * /*name*/)
     {
         return new MenuConfig(parent, "kcmkicker");
     }
 
-    KDE_EXPORT TDECModule *create_kicker_appearance(TQWidget *parent, const char * /*name*/)
+    TDE_EXPORT TDECModule *create_kicker_appearance(TQWidget *parent, const char * /*name*/)
     {
         KImageIO::registerFormats();
         TDEGlobal::dirs()->addResourceType("tiles", TDEStandardDirs::kde_default("data") +

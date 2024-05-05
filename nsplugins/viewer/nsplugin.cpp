@@ -1233,7 +1233,7 @@ void NSPluginInstance::gotFocusOut()
 // Prevent plugins from polling the keyboard regardless of focus.
 static int (*real_xquerykeymap)( Display*, char[32] ) = NULL;
 
-extern "C" KDE_EXPORT
+extern "C" TDE_EXPORT
 int XQueryKeymap( Display* dpy, char k[32] )
 {
     if( real_xquerykeymap == NULL )

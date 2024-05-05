@@ -136,7 +136,7 @@ KWritedModule::~KWritedModule()
 }
 
 extern "C"
-KDE_EXPORT KDEDModule* create_kwrited( const TQCString& obj )
+TDE_EXPORT KDEDModule* create_kwrited( const TQCString& obj )
     {
     return new KWritedModule( obj );
     }

@@ -323,7 +323,7 @@ TQString OuiDb::vendor(octlet_t guid)
 extern "C"
 {
 
-   KDE_EXPORT TDECModule *create_view1394(TQWidget *parent, const char *name)
+   TDE_EXPORT TDECModule *create_view1394(TQWidget *parent, const char *name)
    {
       TDEGlobal::locale()->insertCatalogue("kcmview1394");
       return new View1394(parent, name);

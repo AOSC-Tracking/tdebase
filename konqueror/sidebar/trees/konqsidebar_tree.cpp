@@ -124,7 +124,7 @@ void KonqSidebar_Tree::rename()
 
 extern "C"
 {
-    KDE_EXPORT void*  create_konqsidebar_tree(TDEInstance *inst,TQObject *par,TQWidget *widp,TQString &desktopname,const char *name)
+    TDE_EXPORT void*  create_konqsidebar_tree(TDEInstance *inst,TQObject *par,TQWidget *widp,TQString &desktopname,const char *name)
     {
         return new KonqSidebar_Tree(inst,par,widp,desktopname,name);
     }
@@ -132,7 +132,7 @@ extern "C"
 
 extern "C"
 {
-   KDE_EXPORT bool add_konqsidebar_tree(TQString* fn, TQString*, TQMap<TQString,TQString> *map)
+   TDE_EXPORT bool add_konqsidebar_tree(TQString* fn, TQString*, TQMap<TQString,TQString> *map)
    {
 	  TDEStandardDirs *dirs=TDEGlobal::dirs();
 	  TQStringList list=dirs->findAllResources("data","konqsidebartng/dirtree/*.desktop",false,true);

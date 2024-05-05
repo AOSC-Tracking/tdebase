@@ -40,37 +40,37 @@
 extern "C"
 {
 
-  KDE_EXPORT TDECModule *create_cookie(TQWidget *parent, const char /**name*/)
+  TDE_EXPORT TDECModule *create_cookie(TQWidget *parent, const char /**name*/)
   {
     return new KCookiesMain(parent);
   }
 
-  KDE_EXPORT TDECModule *create_smb(TQWidget *parent, const char /**name*/)
+  TDE_EXPORT TDECModule *create_smb(TQWidget *parent, const char /**name*/)
   {
     return new SMBRoOptions(parent);
   }
 
-  KDE_EXPORT TDECModule *create_useragent(TQWidget *parent, const char /**name*/)
+  TDE_EXPORT TDECModule *create_useragent(TQWidget *parent, const char /**name*/)
   {
     return new UserAgentDlg(parent);
   }
 
-  KDE_EXPORT TDECModule *create_proxy(TQWidget *parent, const char /**name*/)
+  TDE_EXPORT TDECModule *create_proxy(TQWidget *parent, const char /**name*/)
   {
     return new KProxyOptions(parent);
   }
 
-  KDE_EXPORT TDECModule *create_cache(TQWidget *parent, const char /**name*/)
+  TDE_EXPORT TDECModule *create_cache(TQWidget *parent, const char /**name*/)
   {
     return new KCacheConfigDialog( parent );
   }
 
-  KDE_EXPORT TDECModule *create_netpref(TQWidget *parent, const char /**name*/)
+  TDE_EXPORT TDECModule *create_netpref(TQWidget *parent, const char /**name*/)
   {
     return new KIOPreferences(parent);
   }
 
-  KDE_EXPORT TDECModule *create_lanbrowser(TQWidget *parent, const char *)
+  TDE_EXPORT TDECModule *create_lanbrowser(TQWidget *parent, const char *)
   {
     return new LanBrowser(parent);
   }

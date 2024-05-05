@@ -25,7 +25,7 @@
 #include <arts/kplayobjectfactory.h>
 
 extern "C"
-KDE_EXPORT
+TDE_EXPORT
 void khotkeys_voicerecorder_arts_play( const TQString& file )
 {
         KHotKeys::VoiceRecorder::arts_play_fun check = khotkeys_voicerecorder_arts_play; // check the type matches

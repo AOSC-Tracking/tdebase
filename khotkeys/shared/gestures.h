@@ -23,9 +23,9 @@ namespace KHotKeys
 {
 
 class Gesture;
-KDE_EXPORT extern Gesture* gesture_handler;
+TDE_EXPORT extern Gesture* gesture_handler;
 
-class KDE_EXPORT Stroke
+class TDE_EXPORT Stroke
     {
     public:
     // maximum number of numbers in stroke
@@ -62,7 +62,7 @@ class KDE_EXPORT Stroke
 	char ret_val[ MAX_SEQUENCE ];
     };
 
-class KDE_EXPORT Gesture
+class TDE_EXPORT Gesture
     : public TQWidget // not TQObject because of x11EventFilter()
     {
     TQ_OBJECT

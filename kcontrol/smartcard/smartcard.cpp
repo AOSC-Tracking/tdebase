@@ -372,12 +372,12 @@ TQString KSmartcardConfig::quickHelp() const
 
 extern "C"
 {
-  KDE_EXPORT TDECModule *create_smartcard(TQWidget *parent, const char *)
+  TDE_EXPORT TDECModule *create_smartcard(TQWidget *parent, const char *)
   {
     return new KSmartcardConfig(parent, "kcmsmartcard");
   }
 
-  KDE_EXPORT void init_smartcard()
+  TDE_EXPORT void init_smartcard()
   {
     TDEConfig *config = new TDEConfig("ksmartcardrc", false, false);
     bool start = config->readBoolEntry("Enable Support", false);

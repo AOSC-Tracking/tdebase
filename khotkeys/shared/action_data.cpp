@@ -295,7 +295,7 @@ Command_url_shortcut_action_data::Command_url_shortcut_action_data( Action_data_
     set_trigger( new Shortcut_trigger( this, shortcut_P ));
     }
 
-template<> KDE_EXPORT
+template<> TDE_EXPORT
 void Simple_action_data< Shortcut_trigger, Command_url_action >
     ::cfg_write( TDEConfig& cfg_P ) const
     {
@@ -315,7 +315,7 @@ Menuentry_shortcut_action_data::Menuentry_shortcut_action_data( Action_data_grou
     set_trigger( new Shortcut_trigger( this, shortcut_P ));
     }
     
-template<> KDE_EXPORT
+template<> TDE_EXPORT
 void Simple_action_data< Shortcut_trigger, Menuentry_action >
     ::cfg_write( TDEConfig& cfg_P ) const
     {
@@ -325,7 +325,7 @@ void Simple_action_data< Shortcut_trigger, Menuentry_action >
 
 // Dcop_shortcut_action_data
 
-template<> KDE_EXPORT
+template<> TDE_EXPORT
 void Simple_action_data< Shortcut_trigger, Dcop_action >
     ::cfg_write( TDEConfig& cfg_P ) const
     {
@@ -335,7 +335,7 @@ void Simple_action_data< Shortcut_trigger, Dcop_action >
 
 // Keyboard_input_shortcut_action_data
 
-template<> KDE_EXPORT
+template<> TDE_EXPORT
 void Simple_action_data< Shortcut_trigger, Keyboard_input_action >
     ::cfg_write( TDEConfig& cfg_P ) const
     {
@@ -345,7 +345,7 @@ void Simple_action_data< Shortcut_trigger, Keyboard_input_action >
 
 // Activate_window_shortcut_action_data
 
-template<> KDE_EXPORT
+template<> TDE_EXPORT
 void Simple_action_data< Shortcut_trigger, Activate_window_action >
     ::cfg_write( TDEConfig& cfg_P ) const
     {

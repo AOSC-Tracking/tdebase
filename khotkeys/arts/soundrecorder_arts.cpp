@@ -41,7 +41,7 @@
 #define ABS(X) ( ((X)>0) ? (X) : -(X) )
 
 extern "C"
-KDE_EXPORT
+TDE_EXPORT
 KHotKeys::SoundRecorder* khotkeys_soundrecorder_create( TQObject* parent, const char* name )
 {
     return new KHotKeys::SoundRecorderArts( parent, name );

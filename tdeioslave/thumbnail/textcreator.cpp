@@ -30,7 +30,7 @@
 
 extern "C"
 {
-    KDE_EXPORT ThumbCreator *new_creator()
+    TDE_EXPORT ThumbCreator *new_creator()
     {
         return new TextCreator;
     }

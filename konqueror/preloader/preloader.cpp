@@ -143,7 +143,7 @@ void KonqyPreloader::unloadAllPreloaded()
     }
     
 extern "C"
-KDE_EXPORT KDEDModule *create_konqy_preloader( const TQCString& obj )
+TDE_EXPORT KDEDModule *create_konqy_preloader( const TQCString& obj )
     {
     return new KonqyPreloader( obj );
     }

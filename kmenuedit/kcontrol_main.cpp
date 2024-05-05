@@ -32,7 +32,7 @@
 static const char description[] = I18N_NOOP("TDE control center editor");
 static const char version[] = "1.0";
 
-extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
+extern "C" int TDE_EXPORT kdemain( int argc, char **argv )
 {
     TDELocale::setMainCatalogue("kmenuedit");
     TDEAboutData aboutData("kcontroledit", I18N_NOOP("Trinity Control Center Editor"),

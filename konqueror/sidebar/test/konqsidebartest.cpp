@@ -19,7 +19,7 @@
 
 extern "C"
 {
-    KDE_EXPORT void* create_konq_sidebartest(TDEInstance *instance,TQObject *par,TQWidget *widp,TQString &desktopname,const char *name)
+    TDE_EXPORT void* create_konq_sidebartest(TDEInstance *instance,TQObject *par,TQWidget *widp,TQString &desktopname,const char *name)
     {
         return new SidebarTest(instance,par,widp,desktopname,name);
     }

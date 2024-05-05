@@ -62,7 +62,7 @@ public:
 };
 
 
-extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
+extern "C" int TDE_EXPORT kdemain( int argc, char **argv )
 {
     TDEAboutData aboutData("kmenuedit", I18N_NOOP("TDE Menu Editor"),
 			 version, description, TDEAboutData::License_GPL,

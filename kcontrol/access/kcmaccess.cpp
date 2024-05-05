@@ -799,7 +799,7 @@ void KAccessConfig::checkAccess()
 
 extern "C"
 {
-  KDE_EXPORT TDECModule *create_access(TQWidget *parent, const char *name)
+  TDE_EXPORT TDECModule *create_access(TQWidget *parent, const char *name)
   {
     return new KAccessConfig(parent, name);
   }
@@ -807,7 +807,7 @@ extern "C"
   /* This one gets called by kcminit
 
    */
-  KDE_EXPORT void init_access()
+  TDE_EXPORT void init_access()
   {
     TDEConfig *config = new TDEConfig("kaccessrc", true, false);
     bool run = needToRunKAccessDaemon( config );

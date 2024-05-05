@@ -712,7 +712,7 @@ create( KGreeterPluginHandler *handler, KdmThemer *themer,
 	return new KWinbindGreeter( handler, themer, parent, predecessor, fixedEntity, func, ctx );
 }
 
-KDE_EXPORT kgreeterplugin_info kgreeterplugin_info = {
+TDE_EXPORT kgreeterplugin_info kgreeterplugin_info = {
 	I18N_NOOP("Winbind / Samba"), "classic",
 	kgreeterplugin_info::Local | kgreeterplugin_info::Fielded | kgreeterplugin_info::Presettable,
 	init, done, create

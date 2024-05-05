@@ -33,7 +33,7 @@ namespace KPIM {
   @short LineEdit with customizable "Click here" text
   @author Daniel Molkentin
 */
-class KDE_EXPORT ClickLineEdit : public KLineEdit
+class TDE_EXPORT ClickLineEdit : public KLineEdit
 {
   TQ_OBJECT
   public:

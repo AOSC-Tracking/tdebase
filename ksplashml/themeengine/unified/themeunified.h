@@ -40,7 +40,7 @@ protected:
  * @short Traditional Trinity splash screen.
  */
 class ObjKsTheme;
-class KDE_EXPORT ThemeUnified : public ThemeEngine
+class TDE_EXPORT ThemeUnified : public ThemeEngine
 {
   TQ_OBJECT
 public:

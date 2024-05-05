@@ -50,7 +50,7 @@
 
 extern "C"
 {
-	int KDE_EXPORT kdemain(int argc, char **argv);
+	int TDE_EXPORT kdemain(int argc, char **argv);
 }
 
 void addAtom(TDEIO::UDSEntry& entry, unsigned int ID, long l, const TQString& s = TQString())

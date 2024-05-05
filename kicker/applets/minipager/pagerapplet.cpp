@@ -73,7 +73,7 @@ static const int bgOffset = 300;
 
 extern "C"
 {
-    KDE_EXPORT KPanelApplet* init(TQWidget *parent, const TQString& configFile)
+    TDE_EXPORT KPanelApplet* init(TQWidget *parent, const TQString& configFile)
     {
       TDEGlobal::locale()->insertCatalogue("kminipagerapplet");
       return new KMiniPager(configFile, KPanelApplet::Normal, 0, parent, "kminipagerapplet");

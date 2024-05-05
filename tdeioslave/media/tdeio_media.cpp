@@ -40,7 +40,7 @@ static const TDECmdLineOptions options[] =
 };
 
 extern "C" {
-	int KDE_EXPORT kdemain( int argc, char **argv )
+	int TDE_EXPORT kdemain( int argc, char **argv )
 	{
 		// TDEApplication is necessary to use other ioslaves
 		putenv(strdup("SESSION_MANAGER="));

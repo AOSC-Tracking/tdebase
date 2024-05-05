@@ -53,7 +53,7 @@ SwallowApplet * SwallowApplet::self = 0L;
 
 extern "C"
 {
-    KDE_EXPORT KPanelApplet* init(TQWidget *parent, const TQString& configFile) {
+    TDE_EXPORT KPanelApplet* init(TQWidget *parent, const TQString& configFile) {
 	return new SwallowApplet(configFile, parent, "kswallow applet");
     }
 }

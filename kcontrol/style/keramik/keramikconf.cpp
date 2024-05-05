@@ -32,7 +32,7 @@ DEALINGS IN THE SOFTWARE.
 
 extern "C"
 {
-	KDE_EXPORT TQWidget* allocate_tdestyle_config(TQWidget* parent)
+	TDE_EXPORT TQWidget* allocate_tdestyle_config(TQWidget* parent)
 	{
 		return new KeramikStyleConfig(parent);
 	}

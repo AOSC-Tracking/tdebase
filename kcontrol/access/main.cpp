@@ -4,7 +4,7 @@
 #include <tdecmdlineargs.h>
 #include <kdebug.h>
 
-extern "C" KDE_EXPORT int kdemain(int argc, char * argv[] )
+extern "C" TDE_EXPORT int kdemain(int argc, char * argv[] )
 {
   TDEAboutData about(I18N_NOOP("kaccess"), I18N_NOOP("TDE Accessibility Tool"),
                   0, 0, TDEAboutData::License_GPL,

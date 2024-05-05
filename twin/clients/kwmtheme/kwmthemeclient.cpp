@@ -927,7 +927,7 @@ TODO
 
 extern "C"
 {
-	KDE_EXPORT KDecorationFactory *create_factory()
+	TDE_EXPORT KDecorationFactory *create_factory()
 	{
                 return new KWMTheme::KWMThemeFactory();
 	}

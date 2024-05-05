@@ -28,7 +28,7 @@ SystemDirNotifyModule::SystemDirNotifyModule(const TQCString &obj)
 }
 
 extern "C" {
-	KDE_EXPORT KDEDModule *create_systemdirnotify(const TQCString &obj)
+	TDE_EXPORT KDEDModule *create_systemdirnotify(const TQCString &obj)
 	{
 		TDEGlobal::locale()->insertCatalogue("tdeio_system");
 		return new SystemDirNotifyModule(obj);

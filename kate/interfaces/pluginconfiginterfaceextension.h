@@ -26,7 +26,7 @@
 namespace Kate
 {
 
-class KDE_EXPORT PluginConfigPage : public TQWidget
+class TDE_EXPORT PluginConfigPage : public TQWidget
 {
   TQ_OBJECT
 
@@ -60,7 +60,7 @@ class KDE_EXPORT PluginConfigPage : public TQWidget
 /*
 *  This is an interface for the KTextEditor::Document/Plugin/ViewPlugin classes !!!
 */
-class KDE_EXPORT PluginConfigInterfaceExtension
+class TDE_EXPORT PluginConfigInterfaceExtension
 {
   friend class PrivatePluginConfigInterfaceExtension;
 
@@ -97,7 +97,7 @@ class KDE_EXPORT PluginConfigInterfaceExtension
 };
 
 class Plugin;
-KDE_EXPORT PluginConfigInterfaceExtension *pluginConfigInterfaceExtension (Plugin *plugin);
+TDE_EXPORT PluginConfigInterfaceExtension *pluginConfigInterfaceExtension (Plugin *plugin);
 
 }
 

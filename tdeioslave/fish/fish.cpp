@@ -124,7 +124,7 @@ static void ripper(int)
     }
 }
 
-int KDE_EXPORT kdemain( int argc, char **argv )
+int TDE_EXPORT kdemain( int argc, char **argv )
 {
     TDELocale::setMainCatalogue("tdeio_fish");
     TDEInstance instance("fish");

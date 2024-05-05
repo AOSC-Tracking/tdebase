@@ -35,7 +35,7 @@
 using namespace TDEIO;
 
 extern "C" {
-    int KDE_EXPORT kdemain(int, char **argv) {
+    int TDE_EXPORT kdemain(int, char **argv) {
         TDEInstance instance("tdeio_mac");
         MacProtocol slave(argv[2], argv[3]);
         slave.dispatchLoop();

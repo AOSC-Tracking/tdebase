@@ -23,16 +23,16 @@
 // libtdescreensaver interface
 extern "C"
 {
-    KDE_EXPORT const char *kss_applicationName = "kblankscrn.kss";
-    KDE_EXPORT const char *kss_description = I18N_NOOP( "KBlankScreen" );
-    KDE_EXPORT const char *kss_version = "2.2.0";
+    TDE_EXPORT const char *kss_applicationName = "kblankscrn.kss";
+    TDE_EXPORT const char *kss_description = I18N_NOOP( "KBlankScreen" );
+    TDE_EXPORT const char *kss_version = "2.2.0";
 
-    KDE_EXPORT KScreenSaver* kss_create( WId id )
+    TDE_EXPORT KScreenSaver* kss_create( WId id )
     {
         return new KBlankSaver( id );
     }
 
-    KDE_EXPORT TQDialog* kss_setup()
+    TDE_EXPORT TQDialog* kss_setup()
     {
         return new KBlankSetup();
     }

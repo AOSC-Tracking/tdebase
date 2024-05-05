@@ -44,7 +44,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 extern "C"
 {
-    KDE_EXPORT KPanelExtension* init(TQWidget *parent, const TQString& configFile)
+    TDE_EXPORT KPanelExtension* init(TQWidget *parent, const TQString& configFile)
     {
 	TDEGlobal::locale()->insertCatalogue("dockbarextension");
 	return new DockBarExtension(configFile, KPanelExtension::Normal,

@@ -413,7 +413,7 @@ void kthememanager::updatePreview( const TQString & pixFile )
 
 extern "C"
 {
-    KDE_EXPORT TDECModule *create_kthememanager(TQWidget *parent, const char *)
+    TDE_EXPORT TDECModule *create_kthememanager(TQWidget *parent, const char *)
     {
         TDEGlobal::locale()->insertCatalogue( "kthememanager" );
         return new kthememanager( parent, "kthememanager" );

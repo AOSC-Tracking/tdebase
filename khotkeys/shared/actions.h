@@ -30,7 +30,7 @@ class Windowdef_list;
 
 // this one is a base for all "real" resulting actions, e.g. running a command,
 // Action_data instances usually contain at least one Action
-class KDE_EXPORT Action
+class TDE_EXPORT Action
     {
     public:
         Action( Action_data* data_P );
@@ -46,7 +46,7 @@ class KDE_EXPORT Action
     KHOTKEYS_DISABLE_COPY( Action );
     };
 
-class KDE_EXPORT Action_list
+class TDE_EXPORT Action_list
     : public TQPtrList< Action >
     {
     public:
@@ -60,7 +60,7 @@ class KDE_EXPORT Action_list
     KHOTKEYS_DISABLE_COPY( Action_list );
     };
 
-class KDE_EXPORT Command_url_action
+class TDE_EXPORT Command_url_action
     : public Action
     {
     typedef Action base;
@@ -78,7 +78,7 @@ class KDE_EXPORT Command_url_action
         TQString _command_url;
     };
     
-class KDE_EXPORT Menuentry_action
+class TDE_EXPORT Menuentry_action
     : public Command_url_action
     {
     typedef Command_url_action base;
@@ -94,7 +94,7 @@ class KDE_EXPORT Menuentry_action
         KService::Ptr _service;
     };
     
-class KDE_EXPORT Dcop_action
+class TDE_EXPORT Dcop_action
     : public Action
     {
     typedef Action base;
@@ -117,7 +117,7 @@ class KDE_EXPORT Dcop_action
         TQString args;
     };
         
-class KDE_EXPORT Keyboard_input_action
+class TDE_EXPORT Keyboard_input_action
     : public Action
     {
     typedef Action base;
@@ -142,7 +142,7 @@ class KDE_EXPORT Keyboard_input_action
         bool _active_window;
     };
 
-class KDE_EXPORT Activate_window_action
+class TDE_EXPORT Activate_window_action
     : public Action
     {
     typedef Action base;
@@ -159,7 +159,7 @@ class KDE_EXPORT Activate_window_action
         const Windowdef_list* _window;
     };
         
-class KDE_EXPORT Waiting_action
+class TDE_EXPORT Waiting_action
     : public Action
     {
     typedef Action base;

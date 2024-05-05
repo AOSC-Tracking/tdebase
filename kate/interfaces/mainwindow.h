@@ -29,7 +29,7 @@ namespace Kate
 
 class ViewManager;
 
-class KDE_EXPORT MainWindow : public TQObject
+class TDE_EXPORT MainWindow : public TQObject
 {
   friend class PrivateMainWindow;
 

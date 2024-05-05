@@ -367,7 +367,7 @@ void MediaNotifier::notificationDialogDestroyed(TQObject* object)
 
 extern "C"
 {
-	KDE_EXPORT KDEDModule *create_medianotifier(const TQCString &name)
+	TDE_EXPORT KDEDModule *create_medianotifier(const TQCString &name)
 	{
 		TDEGlobal::locale()->insertCatalogue("kay");
 		return new MediaNotifier(name);

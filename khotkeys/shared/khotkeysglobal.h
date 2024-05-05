@@ -38,17 +38,17 @@ extern Windows* windows_handler;
 #define KHOTKEYS_DISABLE_COPY( cls ) private: cls( const cls& ); cls& operator=( const cls& )
 
 // CHECKME hmms :(
-KDE_EXPORT bool khotkeys_active();
-KDE_EXPORT void khotkeys_set_active( bool active_P );
+TDE_EXPORT bool khotkeys_active();
+TDE_EXPORT void khotkeys_set_active( bool active_P );
 
 TQString get_menu_entry_from_path( const TQString& path_P );
 
-KDE_EXPORT void init_global_data( bool active_P, TQObject* owner_P );
+TDE_EXPORT void init_global_data( bool active_P, TQObject* owner_P );
 
 const char* const MENU_EDITOR_ENTRIES_GROUP_NAME = I18N_NOOP( "Menu Editor entries" );
 
-KDE_EXPORT bool haveArts();
-KDE_EXPORT void disableArts();
+TDE_EXPORT bool haveArts();
+TDE_EXPORT void disableArts();
 
 //***************************************************************************
 // Inline

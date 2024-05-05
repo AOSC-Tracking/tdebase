@@ -62,7 +62,7 @@ const int destMenuTitleID = 10001;
 
 extern "C"
 {
-    KDE_EXPORT void* init_kickermenu_tom()
+    TDE_EXPORT void* init_kickermenu_tom()
     {
         TDEGlobal::locale()->insertCatalogue("libkickermenu_tom");
         return new TOMFactory;

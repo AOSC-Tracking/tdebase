@@ -54,7 +54,7 @@ static TDECmdLineOptions options[] =
   TDECmdLineLastOption
 };
 
-extern "C" KDE_EXPORT int kdemain( int argc, char ** argv )
+extern "C" TDE_EXPORT int kdemain( int argc, char ** argv )
 {
     TDEAboutData aboutData( "extensionproxy", I18N_NOOP("Panel Extension Proxy")
                           , "v0.1.0"

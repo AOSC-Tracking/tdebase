@@ -59,7 +59,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 extern "C"
 {
-    KDE_EXPORT KPanelApplet* init( TQWidget* parent_P, const TQString& configFile_P )
+    TDE_EXPORT KPanelApplet* init( TQWidget* parent_P, const TQString& configFile_P )
     {
       TDEGlobal::locale()->insertCatalogue("kmenuapplet");
       return new KickerMenuApplet::Applet( configFile_P, parent_P );

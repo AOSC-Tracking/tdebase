@@ -25,7 +25,7 @@ class TQMouseEvent;
 /**
  * @short The base for the ThemeEngine's configuration widget.
  */
-class KDE_EXPORT ThemeEngineConfig: public TQVBox
+class TDE_EXPORT ThemeEngineConfig: public TQVBox
 {
   TQ_OBJECT
 public:
@@ -48,7 +48,7 @@ protected:
  * @short Base class for all theme engines. Member functions need to be
  * overridden by derived classes in order to provide actual functionality.
  */
-class KDE_EXPORT ThemeEngine: public TQVBox
+class TDE_EXPORT ThemeEngine: public TQVBox
 {
   TQ_OBJECT
 public:

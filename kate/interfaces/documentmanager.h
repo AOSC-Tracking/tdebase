@@ -26,7 +26,7 @@ namespace Kate
 {
 /** This interface provides access to the Kate Document Manager.
 */
-class KDE_EXPORT DocumentManager : public TQObject
+class TDE_EXPORT DocumentManager : public TQObject
 {
   friend class PrivateDocumentManager;
 
@@ -104,7 +104,7 @@ class KDE_EXPORT DocumentManager : public TQObject
  * Returns the document manager object
  * @return DocumentManager document manager object
  */
-KDE_EXPORT DocumentManager *documentManager ();
+TDE_EXPORT DocumentManager *documentManager ();
 
 }
 

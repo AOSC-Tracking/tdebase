@@ -1836,7 +1836,7 @@ bool KeramikClient::eventFilter( TQObject* o, TQEvent* e )
 
 extern "C"
 {
-	KDE_EXPORT KDecorationFactory *create_factory()
+	TDE_EXPORT KDecorationFactory *create_factory()
 	{
 		Keramik::clientHandler = new Keramik::KeramikHandler();
                 return Keramik::clientHandler;

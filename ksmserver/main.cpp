@@ -172,7 +172,7 @@ void sanity_check( int argc, char* argv[] )
   }
 }
 
-extern "C" KDE_EXPORT int kdemain( int argc, char* argv[] )
+extern "C" TDE_EXPORT int kdemain( int argc, char* argv[] )
 {
     sanity_check(argc, argv);
 

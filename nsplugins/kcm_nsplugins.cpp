@@ -86,7 +86,7 @@ static bool checkSearchPathTimestamps( TQStringList paths, TQStringList timestam
 
 extern "C"
 {
-    KDE_EXPORT void init_nsplugin()
+    TDE_EXPORT void init_nsplugin()
     {
         TDEConfig *config = new TDEConfig("kcmnspluginrc", true /* readonly */, false /* no globals*/);
         config->setGroup("Misc");

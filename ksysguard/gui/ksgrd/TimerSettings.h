@@ -30,7 +30,7 @@ class TQCheckBox;
 class TQLabel;
 class TQSpinBox;
 
-class KDE_EXPORT TimerSettings : public KDialogBase
+class TDE_EXPORT TimerSettings : public KDialogBase
 {
   TQ_OBJECT
 
