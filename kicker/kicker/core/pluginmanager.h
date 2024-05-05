@@ -38,7 +38,7 @@ class KPanelApplet;
 class KPanelExtension;
 class TQPopupMenu;
 
-class KDE_EXPORT PluginManager : public TQObject
+class TDE_EXPORT PluginManager : public TQObject
 {
     TQ_OBJECT
 

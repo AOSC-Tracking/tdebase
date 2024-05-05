@@ -240,7 +240,7 @@ static TDECmdLineOptions args[] =
     };
 
 extern "C"
-KDE_EXPORT int kdemain( int argc, char * argv[] )
+TDE_EXPORT int kdemain( int argc, char * argv[] )
     {
     bool restored = false;
     for (int arg = 1; arg < argc; arg++) 

@@ -146,7 +146,7 @@ TQString KeyModule::handbookSection() const
 
 extern "C"
 {
-  KDE_EXPORT TDECModule *create_keys(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_keys(TQWidget *parent, const char * /*name*/)
   {
 	// What does this do?  Why not insert klipper and kxkb, too? --ellis, 2002/01/15
 	TDEGlobal::locale()->insertCatalogue("twin");
@@ -155,7 +155,7 @@ extern "C"
 	return new KeyModule(parent, "kcmkeys");
   }
 
-  KDE_EXPORT void initModifiers()
+  TDE_EXPORT void initModifiers()
   {
 	kdDebug(125) << "KeyModule::initModifiers()" << endl;
 
@@ -165,7 +165,7 @@ extern "C"
 		ModifiersModule::setupMacModifierKeys();
   }
 
-  KDE_EXPORT void init_keys()
+  TDE_EXPORT void init_keys()
   {
 	kdDebug(125) << "KeyModule::init()\n";
 

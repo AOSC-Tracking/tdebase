@@ -93,7 +93,7 @@ private:
 	TQWidget *m_parent;
 };
 
-class KDE_EXPORT Sidebar_Widget: public TQWidget
+class TDE_EXPORT Sidebar_Widget: public TQWidget
 {
 	TQ_OBJECT
 public:

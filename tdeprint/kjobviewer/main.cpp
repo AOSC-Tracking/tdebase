@@ -33,7 +33,7 @@ static TDECmdLineOptions options[] = {
 };
 
 
-extern "C" int KDE_EXPORT kdemain(int argc, char *argv[])
+extern "C" int TDE_EXPORT kdemain(int argc, char *argv[])
 {
 	TDEAboutData	aboutData("kjobviewer",I18N_NOOP("KJobViewer"),"0.1",I18N_NOOP("A print job viewer"),TDEAboutData::License_GPL,"(c) 2001, Michael Goffioul", 0, 0);
 	aboutData.addAuthor("Michael Goffioul",0,"tdeprint@swing.be");

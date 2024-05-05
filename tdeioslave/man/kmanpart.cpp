@@ -30,7 +30,7 @@
 
 extern "C"
 {
-   KDE_EXPORT void* init_libkmanpart()
+   TDE_EXPORT void* init_libkmanpart()
    {
       return new KManPartFactory;
    }

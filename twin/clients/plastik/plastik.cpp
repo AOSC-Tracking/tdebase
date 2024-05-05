@@ -590,7 +590,7 @@ PlastikHandler* Handler()
 
 extern "C"
 {
-    KDE_EXPORT KDecorationFactory *create_factory()
+    TDE_EXPORT KDecorationFactory *create_factory()
     {
         KWinPlastik::handler = new KWinPlastik::PlastikHandler();
         return KWinPlastik::handler;

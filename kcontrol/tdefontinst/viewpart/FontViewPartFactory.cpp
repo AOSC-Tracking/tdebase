@@ -35,7 +35,7 @@
 
 extern "C"
 {
-    KDE_EXPORT void* init_libtdefontviewpart()
+    TDE_EXPORT void* init_libtdefontviewpart()
     {
         TDEGlobal::locale()->insertCatalogue("tdefontinst");
         return new KFI::CFontViewPartFactory;

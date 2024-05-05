@@ -6,7 +6,7 @@
 /**
  * An item that displays a clock.
  */
-class KDE_EXPORT KasClockItem : public KasItem
+class TDE_EXPORT KasClockItem : public KasItem
 {
     TQ_OBJECT
 

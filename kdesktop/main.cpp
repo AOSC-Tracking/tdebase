@@ -105,7 +105,7 @@ void KDesktop::slotUpAndRunning()
         TDECrash::setEmergencySaveFunction(crashHandler); // Try to restart on crash
 }
 
-extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
+extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
 {
     //setup signal handling
     signal(SIGTERM, signalHandler);

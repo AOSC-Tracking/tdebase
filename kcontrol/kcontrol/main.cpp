@@ -98,7 +98,7 @@ KControlApp::~KControlApp()
   delete toplevel;
 }
 
-extern "C" KDE_EXPORT int kdemain(int argc, char *argv[])
+extern "C" TDE_EXPORT int kdemain(int argc, char *argv[])
 {
   TDELocale::setMainCatalogue("kcontrol");
   TDEAboutData aboutKControl( "kcontrol", I18N_NOOP("Trinity Control Center"),

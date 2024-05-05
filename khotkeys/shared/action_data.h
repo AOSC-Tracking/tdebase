@@ -31,7 +31,7 @@ namespace KHotKeys
 
 class Action_data_group;
 
-class KDE_EXPORT Action_data_base
+class TDE_EXPORT Action_data_base
     {
     public:
         Action_data_base( Action_data_group* parent_P, const TQString& name_P,
@@ -61,7 +61,7 @@ class KDE_EXPORT Action_data_base
     KHOTKEYS_DISABLE_COPY( Action_data_base );
     };
 
-class KDE_EXPORT Action_data_group
+class TDE_EXPORT Action_data_group
     : public Action_data_base
     {
     public:
@@ -88,7 +88,7 @@ class KDE_EXPORT Action_data_group
     };
         
 // this one represents a "whole" action, i.e. triggers, resulting actions, etc.
-class KDE_EXPORT Action_data
+class TDE_EXPORT Action_data
     : public Action_data_base
     {
         typedef Action_data_base base;
@@ -121,7 +121,7 @@ class KDE_EXPORT Action_data
 #endif
     };        
 
-class KDE_EXPORT Generic_action_data
+class TDE_EXPORT Generic_action_data
     : public Action_data
     {
         typedef Action_data base;
@@ -141,7 +141,7 @@ class KDE_EXPORT Generic_action_data
     };
 
 template< typename T, typename A >
-class KDE_EXPORT Simple_action_data
+class TDE_EXPORT Simple_action_data
     : public Action_data
     {
         typedef Action_data base;
@@ -157,7 +157,7 @@ class KDE_EXPORT Simple_action_data
         virtual void cfg_write( TDEConfig& cfg_P ) const;
     };
 
-class KDE_EXPORT Command_url_shortcut_action_data
+class TDE_EXPORT Command_url_shortcut_action_data
     : public Simple_action_data< Shortcut_trigger, Command_url_action >
     {
         typedef Simple_action_data< Shortcut_trigger, Command_url_action > base;
@@ -170,7 +170,7 @@ class KDE_EXPORT Command_url_shortcut_action_data
         Command_url_shortcut_action_data( TDEConfig& cfg_P, Action_data_group* parent_P );
     };
 
-class KDE_EXPORT Menuentry_shortcut_action_data
+class TDE_EXPORT Menuentry_shortcut_action_data
     : public Simple_action_data< Shortcut_trigger, Menuentry_action >
     {
         typedef Simple_action_data< Shortcut_trigger, Menuentry_action > base;
@@ -189,7 +189,7 @@ typedef Simple_action_data< Shortcut_trigger, Keyboard_input_action >
 typedef Simple_action_data< Shortcut_trigger, Activate_window_action >
     Activate_window_shortcut_action_data;
 
-class KDE_EXPORT Keyboard_input_gesture_action_data
+class TDE_EXPORT Keyboard_input_gesture_action_data
     : public Action_data
     {
         typedef Action_data base;

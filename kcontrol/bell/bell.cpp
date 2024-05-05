@@ -40,12 +40,12 @@
 
 extern "C"
 {
-  KDE_EXPORT TDECModule *create_bell(TQWidget *parent, const char *)
+  TDE_EXPORT TDECModule *create_bell(TQWidget *parent, const char *)
   {
     return new KBellConfig(parent, "kcmbell");
   }
 
-  KDE_EXPORT void init_bell()
+  TDE_EXPORT void init_bell()
   {
     XKeyboardState kbd;
     XKeyboardControl kbdc;

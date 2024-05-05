@@ -54,7 +54,7 @@ static void sighandler(int)
     TQApplication::exit();
 }
 
-extern "C" KDE_EXPORT int kdemain( int argc, char ** argv )
+extern "C" TDE_EXPORT int kdemain( int argc, char ** argv )
 {
     {
         TQCString multiHead = getenv("TDE_MULTIHEAD");

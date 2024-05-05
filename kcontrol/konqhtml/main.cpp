@@ -44,37 +44,37 @@
 
 extern "C"
 {
-	KDE_EXPORT TDECModule *create_tdehtml_behavior(TQWidget *parent, const char *name)
+	TDE_EXPORT TDECModule *create_tdehtml_behavior(TQWidget *parent, const char *name)
 	{
 		TDEConfig *c = new TDEConfig( "konquerorrc", false, false );
 		return new KMiscHTMLOptions(c, "HTML Settings", parent, name);
 	}
 
-	KDE_EXPORT TDECModule *create_tdehtml_fonts(TQWidget *parent, const char *name)
+	TDE_EXPORT TDECModule *create_tdehtml_fonts(TQWidget *parent, const char *name)
 	{
 		TDEConfig *c = new TDEConfig( "konquerorrc", false, false );
 		return new KAppearanceOptions(c, "HTML Settings", parent, name);
 	}
 
-	KDE_EXPORT TDECModule *create_tdehtml_java_js(TQWidget *parent, const char* /*name*/)
+	TDE_EXPORT TDECModule *create_tdehtml_java_js(TQWidget *parent, const char* /*name*/)
 	{
 		TDEConfig *c = new TDEConfig( "konquerorrc", false, false );
 		return new KJSParts(c, parent, "kcmkonqhtml");
 	}
 
-	KDE_EXPORT TDECModule *create_tdehtml_plugins(TQWidget *parent, const char *name)
+	TDE_EXPORT TDECModule *create_tdehtml_plugins(TQWidget *parent, const char *name)
 	{
 		TDEConfig *c = new TDEConfig( "konquerorrc", false, false );
 		return new KPluginOptions(c, "Java/JavaScript Settings", parent, name);
 	}
 
-  KDE_EXPORT TDECModule *create_tdehtml_filter(TQWidget *parent, const char *name )
+  TDE_EXPORT TDECModule *create_tdehtml_filter(TQWidget *parent, const char *name )
   {
     TDEConfig *c = new TDEConfig( "tdehtmlrc", false, false );
     return new KCMFilter(c, "Filter Settings", parent, name);
   }
 
-  KDE_EXPORT TDECModule *create_tdehtml_userinterface(TQWidget *parent, const char *name )
+  TDE_EXPORT TDECModule *create_tdehtml_userinterface(TQWidget *parent, const char *name )
   {
     TDEConfig *c = new TDEConfig( "konquerorrc", false, false );
     return new userInterConfig(c, "FMSettings", parent, name);

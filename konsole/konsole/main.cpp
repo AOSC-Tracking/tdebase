@@ -150,7 +150,7 @@ public:
 
 
 /* --| main |------------------------------------------------------ */
-extern "C" int KDE_EXPORT kdemain(int argc, char* argv[])
+extern "C" int TDE_EXPORT kdemain(int argc, char* argv[])
 {
   setgid(getgid()); setuid(getuid()); // drop privileges
 

@@ -32,7 +32,7 @@ namespace Kate
 class Application;
 class MainWindow;
 
-class KDE_EXPORT Plugin : public TQObject
+class TDE_EXPORT Plugin : public TQObject
 {
   friend class PrivatePlugin;
 
@@ -52,13 +52,13 @@ class KDE_EXPORT Plugin : public TQObject
     unsigned int myPluginNumber;
 };
 
-KDE_EXPORT Plugin *createPlugin ( const char* libname, Application *application = 0, const char *name = 0,const TQStringList &args = TQStringList() );
+TDE_EXPORT Plugin *createPlugin ( const char* libname, Application *application = 0, const char *name = 0,const TQStringList &args = TQStringList() );
 
 /*
  * view plugin class
  * this plugin will be bound to a tdetexteditor::view
  */
-class KDE_EXPORT PluginViewInterface
+class TDE_EXPORT PluginViewInterface
 {
   friend class PrivatePluginViewInterface;
 
@@ -80,7 +80,7 @@ class KDE_EXPORT PluginViewInterface
     unsigned int myPluginViewInterfaceNumber;
 };
 
-KDE_EXPORT PluginViewInterface *pluginViewInterface (Plugin *plugin);
+TDE_EXPORT PluginViewInterface *pluginViewInterface (Plugin *plugin);
 
 }
 

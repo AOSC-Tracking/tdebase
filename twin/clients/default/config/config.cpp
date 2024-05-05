@@ -17,7 +17,7 @@
 
 extern "C"
 {
-	KDE_EXPORT TQObject* allocate_config( TDEConfig* conf, TQWidget* parent )
+	TDE_EXPORT TQObject* allocate_config( TDEConfig* conf, TQWidget* parent )
 	{
 		return(new KDEDefaultConfig(conf, parent));
 	}

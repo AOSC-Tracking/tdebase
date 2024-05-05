@@ -37,38 +37,38 @@ namespace KickerLib
 /*
  * Functions to convert between various enums
  */
-KDE_EXPORT KPanelExtension::Position directionToPosition(KPanelApplet::Direction d);
-KDE_EXPORT KPanelExtension::Position directionToPopupPosition(KPanelApplet::Direction d);
-KDE_EXPORT KPanelApplet::Direction positionToDirection(KPanelExtension::Position p);
-KDE_EXPORT KPanelApplet::Direction arrowToDirection(TQt::ArrowType p);
-KDE_EXPORT int sizeValue(KPanelExtension::Size s);
+TDE_EXPORT KPanelExtension::Position directionToPosition(KPanelApplet::Direction d);
+TDE_EXPORT KPanelExtension::Position directionToPopupPosition(KPanelApplet::Direction d);
+TDE_EXPORT KPanelApplet::Direction positionToDirection(KPanelExtension::Position p);
+TDE_EXPORT KPanelApplet::Direction arrowToDirection(TQt::ArrowType p);
+TDE_EXPORT int sizeValue(KPanelExtension::Size s);
 
 /**
  * Pixel sizes for but sizes and margins
  */
-KDE_EXPORT int maxButtonDim();
+TDE_EXPORT int maxButtonDim();
 
 /**
  * Tint the image to reflect the current color scheme
  * Used, for instance, by KMenu side bar
  */
-KDE_EXPORT void colorize(TQImage& image);
+TDE_EXPORT void colorize(TQImage& image);
 
 /**
  * Blend a color rectangle on a painter
  */
-KDE_EXPORT void drawBlendedRect(TQPainter *p, const TQRect &r, const TQColor &color = TQt::black, int alpha = 0x40);
+TDE_EXPORT void drawBlendedRect(TQPainter *p, const TQRect &r, const TQColor &color = TQt::black, int alpha = 0x40);
 
 /**
  * Blend two colours together to get a colour halfway in between
  */
-KDE_EXPORT TQColor blendColors(const TQColor& c1, const TQColor& c2);
+TDE_EXPORT TQColor blendColors(const TQColor& c1, const TQColor& c2);
 
 /**
  * Create or copy .desktop files for use in kicker safely and easily
  */
-KDE_EXPORT TQString copyDesktopFile(const KURL&url);
-KDE_EXPORT TQString newDesktopFile(const KURL&url);
+TDE_EXPORT TQString copyDesktopFile(const KURL&url);
+TDE_EXPORT TQString newDesktopFile(const KURL&url);
 
 
 /**
@@ -80,7 +80,7 @@ KDE_EXPORT TQString newDesktopFile(const KURL&url);
  * This function checks whether that is the case and returns either the
  * original menu or the sub-menu when appropriate.
  */
-KDE_EXPORT TQPopupMenu *reduceMenu(TQPopupMenu *);
+TDE_EXPORT TQPopupMenu *reduceMenu(TQPopupMenu *);
 
 
 /**
@@ -88,7 +88,7 @@ KDE_EXPORT TQPopupMenu *reduceMenu(TQPopupMenu *);
  * direction, the size of the menu, the widget geometry, and a optional
  * point in the local coordinates of the widget.
  */
-KDE_EXPORT TQPoint popupPosition(KPanelApplet::Direction d,
+TDE_EXPORT TQPoint popupPosition(KPanelApplet::Direction d,
                                 const TQWidget* popup,
                                 const TQWidget* source,
                                 const TQPoint& offset = TQPoint(0, 0));
@@ -97,7 +97,7 @@ KDE_EXPORT TQPoint popupPosition(KPanelApplet::Direction d,
  * Calculate an acceptable inverse of the given color wich will be used
  * as the shadow color.
  */
-KDE_EXPORT TQColor shadowColor(const TQColor& c);
+TDE_EXPORT TQColor shadowColor(const TQColor& c);
 
 /**
  * Get an appropriate for a menu in Plasma. As the user may set this size
@@ -105,7 +105,7 @@ KDE_EXPORT TQColor shadowColor(const TQColor& c);
  * @param icon the name of icon requested
  * @return the icon set for the requested icon
  */
-KDE_EXPORT TQIconSet menuIconSet(const TQString& icon);
+TDE_EXPORT TQIconSet menuIconSet(const TQString& icon);
 
 }
 

@@ -31,7 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 class TQBoxLayout;
 class TQTimer;
 
-class KDE_EXPORT Panner : public TQWidget
+class TDE_EXPORT Panner : public TQWidget
 {
     TQ_OBJECT
 

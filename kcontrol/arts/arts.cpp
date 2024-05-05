@@ -53,9 +53,9 @@
 #include "arts.h"
 
 extern "C" {
-	KDE_EXPORT void init_arts();
+	TDE_EXPORT void init_arts();
 
-    KDE_EXPORT TDECModule *create_arts(TQWidget *parent, const char* /*name*/)
+    TDE_EXPORT TDECModule *create_arts(TQWidget *parent, const char* /*name*/)
 	{
 		TDEGlobal::locale()->insertCatalogue("kcmarts");
 		return new KArtsModule(parent, "kcmarts" );

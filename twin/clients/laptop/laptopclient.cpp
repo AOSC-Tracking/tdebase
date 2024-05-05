@@ -65,7 +65,7 @@ static bool pixmaps_created = false;
 
 // =====================================
 
-extern "C" KDE_EXPORT KDecorationFactory* create_factory()
+extern "C" TDE_EXPORT KDecorationFactory* create_factory()
 {
     return new Laptop::LaptopClientFactory();
 }

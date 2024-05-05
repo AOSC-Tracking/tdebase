@@ -89,7 +89,7 @@ public:
 
 namespace KickoffSearch {
 
-    class KDE_EXPORT Plugin : public TQObject
+    class TDE_EXPORT Plugin : public TQObject
     {
         TQ_OBJECT
 

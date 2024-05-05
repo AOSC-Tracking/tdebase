@@ -29,7 +29,7 @@
 
 extern "C"
 {
-  KDE_EXPORT TDECModule *create_trash(TQWidget *parent, const char *)
+  TDE_EXPORT TDECModule *create_trash(TQWidget *parent, const char *)
   {
     return new TrashModule(parent, "kcmtrash");
   }

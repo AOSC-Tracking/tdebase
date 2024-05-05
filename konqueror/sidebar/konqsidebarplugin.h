@@ -30,7 +30,7 @@
 
 class KonqSidebarPluginPrivate;
 
-class KDE_EXPORT KonqSidebarPlugin : public TQObject
+class TDE_EXPORT KonqSidebarPlugin : public TQObject
 {
 	TQ_OBJECT
 	public:

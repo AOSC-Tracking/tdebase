@@ -333,7 +333,7 @@ bool Factory::reset( unsigned long changed )
 extern "C"
 {
 
-KDE_EXPORT KDecorationFactory *create_factory()
+TDE_EXPORT KDecorationFactory *create_factory()
     {
     return new KWinTest::Factory();
     }

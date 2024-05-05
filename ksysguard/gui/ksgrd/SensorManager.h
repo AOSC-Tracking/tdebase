@@ -43,7 +43,7 @@ class SensorManagerIterator;
   connection yet or the hostname is empty, a dialog will be shown to
   enter the connections details.
  */
-class KDE_EXPORT SensorManager : public TQObject
+class TDE_EXPORT SensorManager : public TQObject
 {
   TQ_OBJECT
 
@@ -110,9 +110,9 @@ class KDE_EXPORT SensorManager : public TQObject
     HostConnector* mHostConnector;
 };
 
-KDE_EXPORT extern SensorManager* SensorMgr;
+TDE_EXPORT extern SensorManager* SensorMgr;
 
-class KDE_EXPORT SensorManagerIterator : public TQDictIterator<SensorAgent>
+class TDE_EXPORT SensorManagerIterator : public TQDictIterator<SensorAgent>
 {
   public:
     SensorManagerIterator( const SensorManager *sm )

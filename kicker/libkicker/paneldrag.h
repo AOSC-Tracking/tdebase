@@ -32,7 +32,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class BaseContainer;
 
-class KDE_EXPORT PanelDrag : public TQDragObject
+class TDE_EXPORT PanelDrag : public TQDragObject
 {
     public:
         PanelDrag(BaseContainer* container, TQWidget *dragSource);
@@ -48,7 +48,7 @@ class KDE_EXPORT PanelDrag : public TQDragObject
         TQByteArray a;
 };
 
-class KDE_EXPORT AppletInfoDrag : public TQDragObject
+class TDE_EXPORT AppletInfoDrag : public TQDragObject
 {
     public:
         AppletInfoDrag(const AppletInfo& container, TQWidget *dragSource);

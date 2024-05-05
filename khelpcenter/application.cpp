@@ -58,7 +58,7 @@ static TDECmdLineOptions options[] =
   TDECmdLineLastOption
 };
 
-extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
+extern "C" int TDE_EXPORT kdemain( int argc, char **argv )
 {
   TDEAboutData aboutData( "khelpcenter", I18N_NOOP("Trinity Help Center"),
                         HELPCENTER_VERSION,

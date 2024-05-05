@@ -50,7 +50,7 @@ static const TDECmdLineOptions options[] =
 };
 
 extern "C" {
-    int KDE_EXPORT kdemain( int argc, char **argv )
+    int TDE_EXPORT kdemain( int argc, char **argv )
     {
         //TDEInstance instance( "tdeio_trash" );
         // TDEApplication is necessary to use tdeio_file

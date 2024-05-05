@@ -48,7 +48,7 @@ static const TDECmdLineOptions options[] =
   TDECmdLineLastOption
 };
 
-extern "C" KDE_EXPORT int kdemain( int argc, char **argv )
+extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
 {
   TDECmdLineArgs::init( argc, argv, KonqFactory::aboutData() );
 

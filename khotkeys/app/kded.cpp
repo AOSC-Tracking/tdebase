@@ -34,7 +34,7 @@
 #include <voices.h>
 
 extern "C" 
-KDE_EXPORT KDEDModule *create_khotkeys( const TQCString& obj )
+TDE_EXPORT KDEDModule *create_khotkeys( const TQCString& obj )
     {
     return new KHotKeys::KHotKeysModule( obj );
     }

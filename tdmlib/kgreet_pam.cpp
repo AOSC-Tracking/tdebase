@@ -708,7 +708,7 @@ create( KGreeterPluginHandler *handler, KdmThemer *themer,
 	return new KPamGreeter( handler, themer, parent, predecessor, fixedEntity, func, ctx );
 }
 
-KDE_EXPORT kgreeterplugin_info kgreeterplugin_info = {
+TDE_EXPORT kgreeterplugin_info kgreeterplugin_info = {
 	I18N_NOOP("Pam conversation plugin"), "pam",
 	kgreeterplugin_info::Local | kgreeterplugin_info::Presettable,
 	init, done, create

@@ -218,7 +218,7 @@ void KCMInit::runPhase2()
   tqApp->exit( 0 );
 }
 
-extern "C" KDE_EXPORT int kdemain(int argc, char *argv[])
+extern "C" TDE_EXPORT int kdemain(int argc, char *argv[])
 {
   // tdeinit waits for kcminit to finish, but during KDE startup
   // only important kcm's are started very early in the login process,

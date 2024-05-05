@@ -49,7 +49,7 @@ private:
 };
 
 extern "C" {
-	KDE_EXPORT int kdemain( int, char **argv )
+	TDE_EXPORT int kdemain( int, char **argv )
 	{
 	  kdDebug() << "kdemain for settings tdeioslave" << endl;
 	  TDEInstance instance( "tdeio_settings" );

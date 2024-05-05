@@ -48,7 +48,7 @@ typedef TQValueVector<TQPopupMenu*> PopupMenuList;
 class PanelServiceMenu;
 typedef TQMap<PanelServiceMenu*,int> PanelServiceMenuMap;
 
-class KDE_EXPORT PanelServiceMenu : public KPanelMenu
+class TDE_EXPORT PanelServiceMenu : public KPanelMenu
 {
     TQ_OBJECT
 

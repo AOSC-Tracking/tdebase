@@ -33,7 +33,7 @@
 
 extern "C"
 {
-    KDE_EXPORT KPanelApplet* init( TQWidget *parent, const TQString configFile)
+    TDE_EXPORT KPanelApplet* init( TQWidget *parent, const TQString configFile)
     {
         TDEGlobal::locale()->insertCatalogue("mediaapplet");
         return new MediaApplet(configFile, KPanelApplet::Normal,

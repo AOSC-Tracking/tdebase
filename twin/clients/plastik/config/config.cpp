@@ -115,7 +115,7 @@ void PlastikConfig::defaults()
 
 extern "C"
 {
-    KDE_EXPORT TQObject* allocate_config(TDEConfig* config, TQWidget* parent) {
+    TDE_EXPORT TQObject* allocate_config(TDEConfig* config, TQWidget* parent) {
         return (new PlastikConfig(config, parent));
     }
 }

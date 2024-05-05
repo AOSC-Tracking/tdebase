@@ -26,7 +26,7 @@
 
 #include <kdemacros.h>
 
-class KDE_EXPORT SimpleButton : public TQButton
+class TDE_EXPORT SimpleButton : public TQButton
 {
     TQ_OBJECT
 
@@ -61,7 +61,7 @@ class KDE_EXPORT SimpleButton : public TQButton
         SimpleButtonPrivate* d;
 };
 
-class KDE_EXPORT SimpleArrowButton: public SimpleButton
+class TDE_EXPORT SimpleArrowButton: public SimpleButton
 {
     TQ_OBJECT
     

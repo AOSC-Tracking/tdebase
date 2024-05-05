@@ -80,11 +80,11 @@ static const int DFLT_OFF   = 60;
 
 extern "C" {
 
-    KDE_EXPORT TDECModule *create_energy(TQWidget *parent, char *) {
+    TDE_EXPORT TDECModule *create_energy(TQWidget *parent, char *) {
 	return new KEnergy(parent, "kcmenergy");
     }
 
-    KDE_EXPORT void init_energy() {
+    TDE_EXPORT void init_energy() {
 #ifdef HAVE_DPMS
         TDEConfig *cfg = new TDEConfig("kcmdisplayrc", true /*readonly*/, false /*no globals*/);
         cfg->setGroup("DisplayEnergy");

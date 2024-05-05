@@ -28,7 +28,7 @@
 #include "ruleslist.h"
 
 extern "C"
-    KDE_EXPORT TDECModule *create_twinrules( TQWidget *parent, const char *name )
+    TDE_EXPORT TDECModule *create_twinrules( TQWidget *parent, const char *name )
     {
     //CT there's need for decision: kwm or twin?
     TDEGlobal::locale()->insertCatalogue( "kcmtwinrules" );

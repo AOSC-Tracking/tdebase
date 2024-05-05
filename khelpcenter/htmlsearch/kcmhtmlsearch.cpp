@@ -362,7 +362,7 @@ void TDEHTMLSearchConfig::indexTerminated(TDEProcess *)
 
 extern "C"
 {
-  KDE_EXPORT TDECModule *create_htmlsearch(TQWidget *parent, const char *name)
+  TDE_EXPORT TDECModule *create_htmlsearch(TQWidget *parent, const char *name)
   {
     TDEGlobal::locale()->insertCatalogue("kcmhtmlsearch");
     return new TDEHTMLSearchConfig(parent, name);

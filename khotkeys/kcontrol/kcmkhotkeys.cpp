@@ -48,7 +48,7 @@
 
 extern "C"
 {
-    KDE_EXPORT TDECModule* create_khotkeys( TQWidget* parent_P, const char* name_P )
+    TDE_EXPORT TDECModule* create_khotkeys( TQWidget* parent_P, const char* name_P )
     {
 //    sleep( 20 ); // CHECKME DEBUG
     TDEGlobal::locale()->insertCatalogue("khotkeys");

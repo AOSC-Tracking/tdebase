@@ -85,7 +85,7 @@ using namespace TDEIO;
 
 extern "C"
 {
-    KDE_EXPORT int kdemain(int argc, char **argv);
+    TDE_EXPORT int kdemain(int argc, char **argv);
 }
 
 

@@ -27,7 +27,7 @@
 /**
 @author Olivier Goffart
 */
-class KDE_EXPORT Sound{
+class TDE_EXPORT Sound{
 public:
     Sound();
     ~Sound();

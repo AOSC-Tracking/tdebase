@@ -22,7 +22,7 @@
 
 extern "C"
 {
-    KDE_EXPORT void init_khotkeys()
+    TDE_EXPORT void init_khotkeys()
     {
     TDEConfig cfg( "khotkeysrc", true );
     cfg.setGroup( "Main" );

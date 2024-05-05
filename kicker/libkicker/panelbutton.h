@@ -43,7 +43,7 @@ class KShadowEngine;
  * placed in Kicker's panels. It inherits TQButton, and
  * KickerTip::Client.
  */
-class KDE_EXPORT PanelButton: public TQButton, public KickerTip::Client
+class TDE_EXPORT PanelButton: public TQButton, public KickerTip::Client
 {
     TQ_OBJECT
 
@@ -420,7 +420,7 @@ private:
 /**
  * Base class for panelbuttons which popup a menu
  */
-class KDE_EXPORT PanelPopupButton : public PanelButton
+class TDE_EXPORT PanelPopupButton : public PanelButton
 {
     TQ_OBJECT
 

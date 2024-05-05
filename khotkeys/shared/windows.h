@@ -34,7 +34,7 @@ const int SUPPORTED_WINDOW_TYPES_MASK = NET::NormalMask | NET::DesktopMask | NET
 class Windowdef_list;
 /*class Action_data_base;*/
 
-class KDE_EXPORT Windows
+class TDE_EXPORT Windows
     : public TQObject
     {
     TQ_OBJECT
@@ -67,7 +67,7 @@ class KDE_EXPORT Windows
         WId _action_window;
     };
     
-struct KDE_EXPORT Window_data
+struct TDE_EXPORT Window_data
     {
     Window_data( WId id_P );
     TQString title; // _NET_WM_NAME or WM_NAME
@@ -76,7 +76,7 @@ struct KDE_EXPORT Window_data
     NET::WindowType type;
     };
     
-class KDE_EXPORT Windowdef
+class TDE_EXPORT Windowdef
     {
     public:
         Windowdef( const TQString& comment_P );
@@ -93,7 +93,7 @@ class KDE_EXPORT Windowdef
     KHOTKEYS_DISABLE_COPY( Windowdef ); // CHECKME asi pak udelat i pro vsechny potomky, at se nezapomene
     };
 
-class KDE_EXPORT Windowdef_list
+class TDE_EXPORT Windowdef_list
     : public TQPtrList< Windowdef >
     {
     public:
@@ -109,7 +109,7 @@ class KDE_EXPORT Windowdef_list
     KHOTKEYS_DISABLE_COPY( Windowdef_list );
     };
 
-class KDE_EXPORT Windowdef_simple
+class TDE_EXPORT Windowdef_simple
     : public Windowdef
     {
     typedef Windowdef base;

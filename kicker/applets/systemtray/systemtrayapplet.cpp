@@ -63,7 +63,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 extern "C"
 {
-    KDE_EXPORT KPanelApplet* init(TQWidget *parent, const TQString& configFile)
+    TDE_EXPORT KPanelApplet* init(TQWidget *parent, const TQString& configFile)
     {
         TDEGlobal::locale()->insertCatalogue("ksystemtrayapplet");
         return new SystemTrayApplet(configFile, KPanelApplet::Normal,

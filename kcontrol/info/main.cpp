@@ -34,7 +34,7 @@
 extern "C"
 {
 
-  KDE_EXPORT TDECModule *create_cpu(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_cpu(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_CPU_AVAILABLE
     return new KInfoListWidget(i18n("Processor(s)"), parent, "kcminfo", GetInfo_CPU);
@@ -43,7 +43,7 @@ extern "C"
 #endif
   }
 
-  KDE_EXPORT TDECModule *create_irq(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_irq(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_IRQ_AVAILABLE
     return new KInfoListWidget(i18n("Interrupt"), parent, "kcminfo", GetInfo_IRQ);
@@ -52,7 +52,7 @@ extern "C"
 #endif
   }
 
-  KDE_EXPORT TDECModule *create_pci(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_pci(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_PCI_AVAILABLE
     return new KInfoListWidget(i18n("PCI"), parent, "kcminfo", GetInfo_PCI);
@@ -61,7 +61,7 @@ extern "C"
 #endif
   }
 
-  KDE_EXPORT TDECModule *create_dma(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_dma(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_DMA_AVAILABLE
     return new KInfoListWidget(i18n("DMA-Channel"), parent, "kcminfo", GetInfo_DMA);
@@ -70,7 +70,7 @@ extern "C"
 #endif
   }
 
-  KDE_EXPORT TDECModule *create_ioports(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_ioports(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_IOPORTS_AVAILABLE
     return new KInfoListWidget(i18n("I/O-Port"), parent, "kcminfo", GetInfo_IO_Ports);
@@ -79,7 +79,7 @@ extern "C"
 #endif
   }
 
-  KDE_EXPORT TDECModule *create_sound(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_sound(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_SOUND_AVAILABLE
     return new KInfoListWidget(i18n("Soundcard"), parent, "kcminfo", GetInfo_Sound);
@@ -88,7 +88,7 @@ extern "C"
 #endif
   }
 
-  KDE_EXPORT TDECModule *create_scsi(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_scsi(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_SCSI_AVAILABLE
     return new KInfoListWidget(i18n("SCSI"), parent, "kcminfo", GetInfo_SCSI);
@@ -97,7 +97,7 @@ extern "C"
 #endif
   }
 
-  KDE_EXPORT TDECModule *create_devices(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_devices(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_DEVICES_AVAILABLE
     return new KInfoListWidget(i18n("Devices"), parent, "kcminfo", GetInfo_Devices);
@@ -106,7 +106,7 @@ extern "C"
 #endif
   }
 
-  KDE_EXPORT TDECModule *create_partitions(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_partitions(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_PARTITIONS_AVAILABLE
     return new KInfoListWidget(i18n("Partitions"), parent, "kcminfo", GetInfo_Partitions);
@@ -115,7 +115,7 @@ extern "C"
 #endif
   }
 
-  KDE_EXPORT TDECModule *create_xserver(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_xserver(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_XSERVER_AVAILABLE
     return new KInfoListWidget(i18n("X-Server"), parent, "kcminfo", GetInfo_XServer_and_Video);
@@ -124,12 +124,12 @@ extern "C"
 #endif
   }
 
-  KDE_EXPORT TDECModule *create_memory(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_memory(TQWidget *parent, const char * /*name*/)
   { 
     return new KMemoryWidget(parent, "kcminfo");
   }
 
-  KDE_EXPORT TDECModule *create_opengl(TQWidget *parent, const char * )
+  TDE_EXPORT TDECModule *create_opengl(TQWidget *parent, const char * )
   { 
 #ifdef INFO_OPENGL_AVAILABLE
     return new KInfoListWidget(i18n("OpenGL"), parent, "kcminfo", GetInfo_OpenGL);
@@ -139,7 +139,7 @@ extern "C"
   }
 
 /* create_cdinfo function for CD-ROM Info ~Jahshan */
-  KDE_EXPORT TDECModule *create_cdinfo(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_cdinfo(TQWidget *parent, const char * /*name*/)
   { 
 #ifdef INFO_CD_ROM_AVAILABLE
     return new KInfoListWidget(i18n("CD-ROM Info"), parent, "kcminfo", GetInfo_CD_ROM);

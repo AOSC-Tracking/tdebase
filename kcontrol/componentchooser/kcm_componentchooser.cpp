@@ -55,7 +55,7 @@ void KCMComponentChooser::defaults(){
 
 extern "C"
 {
-    KDE_EXPORT TDECModule *create_componentchooser( TQWidget *parent, const char * )
+    TDE_EXPORT TDECModule *create_componentchooser( TQWidget *parent, const char * )
     {
         TDEGlobal::locale()->insertCatalogue("kcmcomponentchooser");
         return new KCMComponentChooser( parent, "kcmcomponentchooser" );

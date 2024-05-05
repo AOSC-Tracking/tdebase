@@ -48,12 +48,12 @@ K_EXPORT_COMPONENT_FACTORY (kcm_randr, KSSFactory("tderandr") )
 extern "C"
 
 {
-	KDE_EXPORT void init_randr()
+	TDE_EXPORT void init_randr()
 	{
 		KRandRModule::performApplyOnStartup();
 	}
 
-	KDE_EXPORT bool test_randr()
+	TDE_EXPORT bool test_randr()
 	{
 	        int eventBase, errorBase;
 		if( XRRQueryExtension(tqt_xdisplay(), &eventBase, &errorBase ) )

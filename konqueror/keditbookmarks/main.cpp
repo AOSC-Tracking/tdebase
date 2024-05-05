@@ -110,7 +110,7 @@ static int askUser(TDEApplication &app, TQString filename, bool &readonly) {
 
 #include <tdeactioncollection.h>
 
-extern "C" KDE_EXPORT int kdemain(int argc, char **argv) {
+extern "C" TDE_EXPORT int kdemain(int argc, char **argv) {
     TDELocale::setMainCatalogue("konqueror");
     TDEAboutData aboutData("keditbookmarks", I18N_NOOP("Bookmark Editor"), VERSION,
             I18N_NOOP("Konqueror Bookmarks Editor"),

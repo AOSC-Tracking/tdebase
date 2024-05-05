@@ -41,7 +41,7 @@
  * @author laur.ivan@corvil.com
  * @since 3.2
  */
-class KDE_EXPORT KShadowSettings
+class TDE_EXPORT KShadowSettings
 {
 	public:
 		/**

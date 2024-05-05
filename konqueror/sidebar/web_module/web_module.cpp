@@ -182,14 +182,14 @@ void KonqSideBarWebModule::pageLoaded() {
 
 
 extern "C" {
-	KDE_EXPORT KonqSidebarPlugin* create_konqsidebar_web(TDEInstance *instance, TQObject *parent, TQWidget *widget, TQString &desktopName, const char *name) {
+	TDE_EXPORT KonqSidebarPlugin* create_konqsidebar_web(TDEInstance *instance, TQObject *parent, TQWidget *widget, TQString &desktopName, const char *name) {
 		return new KonqSideBarWebModule(instance, parent, widget, desktopName, name);
 	}
 }
 
 
 extern "C" {
-	KDE_EXPORT bool add_konqsidebar_web(TQString* fn, TQString* param, TQMap<TQString,TQString> *map) {
+	TDE_EXPORT bool add_konqsidebar_web(TQString* fn, TQString* param, TQMap<TQString,TQString> *map) {
 		Q_UNUSED(param);
 		TDEGlobal::dirs()->addResourceType("websidebardata", TDEStandardDirs::kde_default("data") + "konqsidebartng/websidebar");
 		KURL url;

@@ -128,7 +128,7 @@ TQObject *KonqSoundFactory::createObject(TQObject *, const char *,
 
 extern "C"
 {
-	KDE_EXPORT KLibFactory *init_konq_sound()
+	TDE_EXPORT KLibFactory *init_konq_sound()
 	{
 		return new KonqSoundFactory();
 	}

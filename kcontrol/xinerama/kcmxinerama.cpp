@@ -239,12 +239,12 @@ void KCMXinerama::clearIndicator() {
 }
 
 extern "C" {
-        KDE_EXPORT TDECModule *create_xinerama(TQWidget *parent, const char *name) {
+        TDE_EXPORT TDECModule *create_xinerama(TQWidget *parent, const char *name) {
    	    TDEGlobal::locale()->insertCatalogue("kcmxinerama");
 	    return new KCMXinerama(parent, name);
         }
 
-	KDE_EXPORT bool test_xinerama() {
+	TDE_EXPORT bool test_xinerama() {
 		return TQApplication::desktop()->isVirtualDesktop();
 	}
 }

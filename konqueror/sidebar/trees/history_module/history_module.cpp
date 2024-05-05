@@ -358,7 +358,7 @@ void KonqSidebarHistoryModule::slotClearHistory()
 
 extern "C"
 {
-	KDE_EXPORT KonqSidebarTreeModule* create_konq_sidebartree_history(KonqSidebarTree* par, const bool)
+	TDE_EXPORT KonqSidebarTreeModule* create_konq_sidebartree_history(KonqSidebarTree* par, const bool)
 	{
 		return new KonqSidebarHistoryModule(par);
 	}

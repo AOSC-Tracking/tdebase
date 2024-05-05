@@ -19,7 +19,7 @@
 
 #include "kickoffsearchinterface.h"
 
-KDE_EXPORT KickoffSearch::KickoffSearchInterface::KickoffSearchInterface( TQObject* parent, const char* name )
+TDE_EXPORT KickoffSearch::KickoffSearchInterface::KickoffSearchInterface( TQObject* parent, const char* name )
     :TQObject( parent, name )
 {
 }

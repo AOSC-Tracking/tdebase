@@ -21,7 +21,7 @@
 #ifndef LIBKONQ_EXPORT_H
 #define LIBKONQ_EXPORT_H
 
-/* needed for KDE_EXPORT macros */
+/* needed for TDE_EXPORT macros */
 #include <kdemacros.h>
 
 /* needed, because e.g. Q_OS_UNIX is so frequently used */
@@ -32,7 +32,7 @@
 #else /* Q_OS_UNIX */
 
 /* export statements for unix */
-#define LIBKONQ_EXPORT KDE_EXPORT
+#define LIBKONQ_EXPORT TDE_EXPORT
 
 #endif
 

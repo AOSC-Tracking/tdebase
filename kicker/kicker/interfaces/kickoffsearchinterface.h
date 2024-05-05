@@ -28,7 +28,7 @@ class HitMenuItem;
 
 namespace KickoffSearch
 {
-    class KDE_EXPORT KickoffSearchInterface :public TQObject
+    class TDE_EXPORT KickoffSearchInterface :public TQObject
     {
         TQ_OBJECT
 

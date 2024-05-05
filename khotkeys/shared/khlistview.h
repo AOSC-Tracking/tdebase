@@ -19,7 +19,7 @@
 namespace KHotKeys
 {
 
-class KDE_EXPORT KHListView
+class TDE_EXPORT KHListView
     : public TDEListView
     {
     TQ_OBJECT

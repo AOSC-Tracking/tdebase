@@ -51,7 +51,7 @@ private:
 
 /*****************************************************************************/
 
-class KDE_EXPORT TaskLMBMenu : public TQPopupMenu
+class TDE_EXPORT TaskLMBMenu : public TQPopupMenu
 {
     TQ_OBJECT
 

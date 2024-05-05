@@ -26,7 +26,7 @@ class TDEConfig;
  * of KSplash completely, and offers a friendlier way
  * of installing custom splash screens.
  */
-class KDE_EXPORT ObjKsTheme : public TQObject
+class TDE_EXPORT ObjKsTheme : public TQObject
 {
   TQ_OBJECT
 public:

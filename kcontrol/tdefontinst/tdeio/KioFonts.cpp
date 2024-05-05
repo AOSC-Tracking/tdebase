@@ -97,7 +97,7 @@ static const int    constMaxFcCheckTime=10;
 
 extern "C"
 {
-    KDE_EXPORT int kdemain(int argc, char **argv);
+    TDE_EXPORT int kdemain(int argc, char **argv);
 }
 
 int kdemain(int argc, char **argv)

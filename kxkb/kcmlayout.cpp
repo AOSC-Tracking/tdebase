@@ -1229,17 +1229,17 @@ OptionListItem * OptionListItem::findChildItem( const TQString& optionName )
 
 extern "C"
 {
-	KDE_EXPORT TDECModule *create_keyboard_layout(TQWidget *parent, const char *)
+	TDE_EXPORT TDECModule *create_keyboard_layout(TQWidget *parent, const char *)
 	{
 		return new LayoutConfig(parent, "kcmlayout");
 	}
 
-	KDE_EXPORT TDECModule *create_keyboard(TQWidget *parent, const char *)
+	TDE_EXPORT TDECModule *create_keyboard(TQWidget *parent, const char *)
 	{
 		return new KeyboardConfig(parent, "kcmlayout");
 	}
 
-	KDE_EXPORT void init_keyboard()
+	TDE_EXPORT void init_keyboard()
 	{
 		KeyboardConfig::init_keyboard();
 

@@ -574,7 +574,7 @@ TQString BookmarkEditDialog::finalTitle() const
 
 extern "C"
 {
-   KDE_EXPORT KonqSidebarTreeModule* create_konq_sidebartree_bookmarks(KonqSidebarTree* par,const bool)
+   TDE_EXPORT KonqSidebarTreeModule* create_konq_sidebartree_bookmarks(KonqSidebarTree* par,const bool)
 	{
 		return new KonqSidebarBookmarkModule(par);
 	} 

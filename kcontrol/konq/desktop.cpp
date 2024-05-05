@@ -39,7 +39,7 @@
 
 extern "C"
 {
-  KDE_EXPORT TDECModule *create_virtualdesktops(TQWidget *parent, const char * /*name*/)
+  TDE_EXPORT TDECModule *create_virtualdesktops(TQWidget *parent, const char * /*name*/)
   {
     return new KDesktopConfig(parent, "kcmkonq");
   }

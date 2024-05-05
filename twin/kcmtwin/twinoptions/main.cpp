@@ -36,7 +36,7 @@
 
 extern "C"
 {
-	KDE_EXPORT TDECModule *create_twinfocus(TQWidget *parent, const char *name)
+	TDE_EXPORT TDECModule *create_twinfocus(TQWidget *parent, const char *name)
 	{
 		//CT there's need for decision: kwm or twin?
 		TDEGlobal::locale()->insertCatalogue("kcmkwm");
@@ -44,14 +44,14 @@ extern "C"
 		return new KFocusConfig(true, c, parent, name);
 	}
 
-	KDE_EXPORT TDECModule *create_twinactions(TQWidget *parent, const char *name)
+	TDE_EXPORT TDECModule *create_twinactions(TQWidget *parent, const char *name)
 	{
 		//CT there's need for decision: kwm or twin?
 		TDEGlobal::locale()->insertCatalogue("kcmkwm");
 		return new TDEActionsOptions( parent, name);
 	}
 
-	KDE_EXPORT TDECModule *create_twinmoving(TQWidget *parent, const char *name)
+	TDE_EXPORT TDECModule *create_twinmoving(TQWidget *parent, const char *name)
 	{
 		//CT there's need for decision: kwm or twin?
 		TDEGlobal::locale()->insertCatalogue("kcmkwm");
@@ -59,14 +59,14 @@ extern "C"
 		return new KMovingConfig(true, c, parent, name);
 	}
 
-	KDE_EXPORT TDECModule *create_twinaborders(TQWidget *parent, const char *name)
+	TDE_EXPORT TDECModule *create_twinaborders(TQWidget *parent, const char *name)
 	{
 	   TDEGlobal::locale()->insertCatalogue("kcmkwm");
 	   TDEConfig *c = new TDEConfig("twinrc", false, true);
 	   return new KActiveBorderConfig(true, c, parent, name);
 	}
 
-	KDE_EXPORT TDECModule *create_twinadvanced(TQWidget *parent, const char *name)
+	TDE_EXPORT TDECModule *create_twinadvanced(TQWidget *parent, const char *name)
 	{
 		//CT there's need for decision: kwm or twin?
 		TDEGlobal::locale()->insertCatalogue("kcmkwm");
@@ -74,7 +74,7 @@ extern "C"
 		return new KAdvancedConfig(true, c, parent, name);
 	}
 
-	KDE_EXPORT TDECModule *create_twintranslucency(TQWidget *parent, const char *name)
+	TDE_EXPORT TDECModule *create_twintranslucency(TQWidget *parent, const char *name)
 	{
 		//CT there's need for decision: kwm or twin?
 		TDEGlobal::locale()->insertCatalogue("kcmkwm");
@@ -82,7 +82,7 @@ extern "C"
 		return new KTranslucencyConfig(true, c, parent, name);
 	}
 
-	KDE_EXPORT TDECModule *create_twinoptions ( TQWidget *parent, const char* name)
+	TDE_EXPORT TDECModule *create_twinoptions ( TQWidget *parent, const char* name)
 	{
 		//CT there's need for decision: kwm or twin?
 		TDEGlobal::locale()->insertCatalogue("kcmkwm");

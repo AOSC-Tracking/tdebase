@@ -34,7 +34,7 @@ namespace KHotKeys
 /**
 @author Olivier Goffart
 */
-class KDE_EXPORT SoundRecorder : public TQObject
+class TDE_EXPORT SoundRecorder : public TQObject
 {
 TQ_OBJECT
 public:

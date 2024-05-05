@@ -42,7 +42,7 @@ static TDECmdLineOptions options[] =
 	TDECmdLineLastOption
 };
 
-extern "C" int KDE_EXPORT kdemain(int argc, char *argv[])
+extern "C" int TDE_EXPORT kdemain(int argc, char *argv[])
 {
 	TDECmdLineArgs::init(argc,argv,"kprinter",I18N_NOOP("KPrinter"),I18N_NOOP("A printer tool for TDE" ),"0.0.1");
 	TDECmdLineArgs::addCmdLineOptions(options);

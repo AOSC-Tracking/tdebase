@@ -1060,7 +1060,7 @@ TQRegion KDEDefaultClient::cornerShape(WindowCorner corner)
 } // namespace
 
 // Extended KWin plugin interface
-extern "C" KDE_EXPORT KDecorationFactory* create_factory()
+extern "C" TDE_EXPORT KDecorationFactory* create_factory()
 {
     return new Default::KDEDefaultHandler();
 }

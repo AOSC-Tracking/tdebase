@@ -36,7 +36,7 @@ class KWindowListMenu;
 class TaskBar;
 class TaskBarSettings;
 
-class KDE_EXPORT TaskBarContainer : public TQFrame, public DCOPObject
+class TDE_EXPORT TaskBarContainer : public TQFrame, public DCOPObject
 {
     TQ_OBJECT
     K_DCOP

@@ -27,7 +27,7 @@ namespace Kate
 /*
 *  This is an interface for the KTextEditor::Document/Plugin/ViewPlugin classes !!!
 */
-class KDE_EXPORT PluginConfigInterface
+class TDE_EXPORT PluginConfigInterface
 {
   friend class PrivatePluginConfigInterface;
 
@@ -56,7 +56,7 @@ class KDE_EXPORT PluginConfigInterface
 };
 
 class Plugin;
-KDE_EXPORT PluginConfigInterface *pluginConfigInterface (Plugin *plugin);
+TDE_EXPORT PluginConfigInterface *pluginConfigInterface (Plugin *plugin);
 
 }
 

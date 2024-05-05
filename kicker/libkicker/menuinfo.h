@@ -31,7 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 class KPanelMenu;
 class TQWidget;
 
-class KDE_EXPORT MenuInfo
+class TDE_EXPORT MenuInfo
 {
 public:
     MenuInfo(const TQString& desktopFile);

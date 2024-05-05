@@ -40,7 +40,7 @@ class KShadowSettings;
  * @author laur.ivan@corvil.com
  * @since 3.2
  */
-class KDE_EXPORT KShadowEngine
+class TDE_EXPORT KShadowEngine
 {
 public:
     /// Creates a new shadow engine.
@@ -112,7 +112,7 @@ private:
     void *d;
 };
 
-class KDE_EXPORT KTextShadowEngine : public KShadowEngine
+class TDE_EXPORT KTextShadowEngine : public KShadowEngine
 {
 public:
     KTextShadowEngine();

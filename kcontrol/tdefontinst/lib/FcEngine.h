@@ -45,7 +45,7 @@ typedef struct _XftFont  XftFont;
 namespace KFI
 {
 
-class KDE_EXPORT CFcEngine
+class TDE_EXPORT CFcEngine
 {
     public:
 

@@ -31,7 +31,7 @@
 
 extern "C"
 {
-   KDE_EXPORT KPanelExtension *init( TQWidget *parent, const TQString& configFile )
+   TDE_EXPORT KPanelExtension *init( TQWidget *parent, const TQString& configFile )
    {
       TDEGlobal::locale()->insertCatalogue("kickersidebarextension");
       TDEGlobal::locale()->insertCatalogue("konqueror");

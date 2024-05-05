@@ -611,7 +611,7 @@ create( KGreeterPluginHandler *handler, KdmThemer *themer,
 	return new KClassicGreeter( handler, themer, parent, predecessor, fixedEntity, func, ctx );
 }
 
-KDE_EXPORT kgreeterplugin_info kgreeterplugin_info = {
+TDE_EXPORT kgreeterplugin_info kgreeterplugin_info = {
 	I18N_NOOP("Username + password (classic)"), "classic",
 	kgreeterplugin_info::Local | kgreeterplugin_info::Presettable,
 	init, done, create

@@ -38,7 +38,7 @@ class TQPaintEvent;
 class TQSimpleRichText;
 class TQTimer;
 
-class KDE_EXPORT KickerTip : public TQWidget
+class TDE_EXPORT KickerTip : public TQWidget
 {
     TQ_OBJECT
 
@@ -58,7 +58,7 @@ public:
             TQMimeSourceFactory* mimeFactory;
     };
 
-    class KDE_EXPORT Client
+    class TDE_EXPORT Client
     {
         public:
             virtual void updateKickerTip(KickerTip::Data&) = 0;

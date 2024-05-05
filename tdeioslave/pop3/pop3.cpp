@@ -70,7 +70,7 @@ extern "C" {
 #define POP3_DEBUG kdDebug(7105)
 
 extern "C" {
-  int KDE_EXPORT kdemain(int argc, char **argv);
+  int TDE_EXPORT kdemain(int argc, char **argv);
 }
 
 using namespace TDEIO;

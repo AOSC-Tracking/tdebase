@@ -41,12 +41,12 @@
 
 extern "C"
 {
-  KDE_EXPORT TDECModule *create_mouse(TQWidget *parent, const char *)
+  TDE_EXPORT TDECModule *create_mouse(TQWidget *parent, const char *)
   {
     return new MouseConfig(parent, "kcminput");
   }
 
-  KDE_EXPORT void init_mouse()
+  TDE_EXPORT void init_mouse()
   {
     TDEConfig *config = new TDEConfig("kcminputrc", true, false); // Read-only, no globals
     MouseSettings settings;
