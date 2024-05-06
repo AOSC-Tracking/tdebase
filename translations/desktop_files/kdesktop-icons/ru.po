@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2024-04-30 23:00+0000\n"
+"PO-Revision-Date: 2024-05-06 03:00+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kdesktop-icons/ru/>\n"
@@ -102,7 +102,7 @@ msgstr "Папку..."
 #. Comment
 #: Templates/Directory.desktop:3
 msgid "Enter folder name:"
-msgstr "Введите имя папки:"
+msgstr "Введите имя каталога:"
 
 #. Name
 #: Templates/Floppy.desktop:3

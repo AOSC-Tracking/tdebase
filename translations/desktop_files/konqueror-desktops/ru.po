@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Alexander Golubev <fatzer2@gmail.com>, 2024.
+# Andrei Stepanov <adem4ik@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2024-03-02 05:44+0000\n"
-"Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
+"PO-Revision-Date: 2024-05-06 03:00+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/konqueror-desktop-files/ru/>\n"
 "Language: ru\n"
@@ -227,7 +228,7 @@ msgstr "Список закладок для быстрого доступа"
 #: sidebar/trees/init/dirtree_module.desktop:5
 #: sidebar/trees/init/virtualfolderadd.desktop:6
 msgid "Folder"
-msgstr "Папка"
+msgstr "Каталог"
 
 #. Name
 #: sidebar/trees/init/history.desktop:6
@@ -248,12 +249,12 @@ msgstr ""
 #. Name
 #: sidebar/trees/init/home.desktop:6
 msgid "Home Folder"
-msgstr "Домашняя папка"
+msgstr "Домашний каталог"
 
 #. Comment
 #: sidebar/trees/init/home.desktop:8
 msgid "This folder contains your personal files"
-msgstr "Папка ваших личных файлов"
+msgstr "Каталог ваших личных файлов"
 
 #. Name
 #: sidebar/trees/init/remote.desktop:2 sidebar/trees/init/remote/.directory:2
@@ -283,18 +284,18 @@ msgstr "Основной сайт TDE"
 #. Name
 #: sidebar/trees/init/root.desktop:6
 msgid "Root Folder"
-msgstr "Корневая папка"
+msgstr "Корневой каталог"
 
 #. Comment
 #: sidebar/trees/init/root.desktop:8
 msgid "This is the root of the filesystem"
-msgstr "Корневая папка файловой системы"
+msgstr "Это корневой каталог файловой системы"
 
 #. Name
 #: sidebar/trees/init/services.desktop:4
 #: sidebar/trees/init/services/.directory:3
 msgid "Services"
-msgstr "Сервисы"
+msgstr "Службы"
 
 #. Name
 #: sidebar/trees/init/services/applications.desktop:5
