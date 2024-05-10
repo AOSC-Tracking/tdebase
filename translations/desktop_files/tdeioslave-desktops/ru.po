@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2024-05-06 03:00+0000\n"
+"PO-Revision-Date: 2024-05-11 01:02+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdeioslave-desktop-files/ru/>\n"
@@ -408,7 +408,7 @@ msgstr "Отключить"
 #. Name
 #: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
 msgid "Storage Media"
-msgstr "Устройства хранения данных"
+msgstr "Носители данных"
 
 #. Comment
 #: media/tdecmodule/media.desktop:12
@@ -468,7 +468,7 @@ msgstr "Сетевые ресурсы"
 #. Name
 #: system/entries/users.desktop:6
 msgid "Users Folders"
-msgstr "Пользовательские папки"
+msgstr "Каталоги пользователей"
 
 #. Name
 #: system/kdedmodule/systemdirnotify.desktop:4
