@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2024-04-06 08:44+0000\n"
+"PO-Revision-Date: 2024-05-11 01:02+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
@@ -2250,7 +2250,7 @@ msgstr ""
 #. Name
 #: tdeio/cookies.desktop:12
 msgid "Cookies"
-msgstr ""
+msgstr "Куки"
 
 #. Comment
 #: tdeio/cookies.desktop:14
