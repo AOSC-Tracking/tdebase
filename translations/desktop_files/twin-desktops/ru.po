@@ -1,20 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Andrei Stepanov <adem4ik@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-04 20:14+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2023-07-04 18:14+0000\n"
+"PO-Revision-Date: 2024-05-13 16:01+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
+"Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/twin-desktop-files/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: kcmtwin/showdesktop.desktop:4
@@ -42,6 +44,9 @@ msgid ""
 "twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
 "kwm;decoration;"
 msgstr ""
+"twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
+"kwm;decoration;окно;менеджер;рамка;границы;стиль;тема;вид;схема;кнопка;"
+"управление;декорация;"
 
 #. Name
 #: kcmtwin/twinoptions/twinactions.desktop:11
@@ -59,17 +64,18 @@ msgid ""
 "shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
 "resize;"
 msgstr ""
+"shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
+"resize;свернуть;развернуть;меню действией;заголовок;изменение размера;"
 
 #. Name
 #: kcmtwin/twinoptions/twinactiveborders.desktop:11
 msgid "Active Borders"
-msgstr ""
+msgstr "Активные границы"
 
 #. Comment
 #: kcmtwin/twinoptions/twinactiveborders.desktop:13
-#, fuzzy
 msgid "Configure active borders/corners feature"
-msgstr "Настройка дополнительных функций менеджера окон"
+msgstr "Настройка функции активных границ/углов"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinactiveborders.desktop:15
@@ -77,6 +83,8 @@ msgid ""
 "window behavior;windows;frame;titlebar;borders;corners;active borders;"
 "aerosnap;"
 msgstr ""
+"window behavior;windows;frame;titlebar;borders;corners;active borders;"
+"aerosnap;поведение;окна;границы;углы;активные границы;"
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
@@ -92,6 +100,7 @@ msgstr "Настройка дополнительных функций мене�
 #: kcmtwin/twinoptions/twinadvanced.desktop:15
 msgid "shading;border;hover;active borders;"
 msgstr ""
+"shading;border;hover;active borders;затенение;граница;фокус;активные границы;"
 
 #. Name
 #: kcmtwin/twinoptions/twinfocus.desktop:11
@@ -109,6 +118,8 @@ msgid ""
 "focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
 "desktop;"
 msgstr ""
+"focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
+"desktop;фокус;размещение;клавиатура;весь рабочий стол;"
 
 #. Name
 #: kcmtwin/twinoptions/twinmoving.desktop:11
@@ -124,6 +135,8 @@ msgstr "Настройка способа перемещения окон"
 #: kcmtwin/twinoptions/twinmoving.desktop:15
 msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
 msgstr ""
+"moving;smart;cascade;maximize;maximise;snap zone;snap;border;перемещение;"
+"умный;каскад;свернуть;развернуть;зона привязки;привязка;граница;"
 
 #. Name
 #: kcmtwin/twinoptions/twinoptions.desktop:11
@@ -141,6 +154,9 @@ msgid ""
 "focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
 "titlebar;doubleclick;"
 msgstr ""
+"focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
+"titlebar;doubleclick;фокус;размещение;поведение окна;анимация;окна;рамка;"
+"панель заголовка;двойной щелчок;"
 
 #. Name
 #: kcmtwin/twinoptions/twintranslucency.desktop:11
@@ -155,7 +171,7 @@ msgstr "Настройка полупрозрачности и теней окн
 #. Keywords
 #: kcmtwin/twinoptions/twintranslucency.desktop:15
 msgid "translucency;transparence;shadows;"
-msgstr ""
+msgstr "translucency;transparence;shadows;прозрачность;тени;"
 
 #. Name
 #: kcmtwin/twinrules/twinrules.desktop:11
@@ -173,6 +189,9 @@ msgid ""
 "size;position;state;window behavior;windows;specific;workarounds;remember;"
 "rules;"
 msgstr ""
+"size;position;state;window behavior;windows;specific;workarounds;remember;"
+"rules;размер;положение;состояние;поведение окна;окна;специфические;обходные "
+"пути;запоминание;правила;"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:2
@@ -181,23 +200,23 @@ msgstr "(по умолчанию) отключить предотвращени�
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:10
-#, fuzzy
 msgid "(Default) Allow focus stealing by the screen locker"
-msgstr "(по умолчанию) отключить предотвращение потери для XV"
+msgstr "(По умолчанию) Разрешить перехват фокуса блокировщиком экрана"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:21
-#, fuzzy
 msgid "(Default) Allow focus stealing by the kdesktop run dialog"
-msgstr "(по умолчанию) отключить предотвращение потери для XV"
+msgstr ""
+"(По умолчанию) Разрешить перехват фокуса диалоговым окном запуска kdesktop"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:32
-#, fuzzy
 msgid "(Default) Allow focus stealing by the settings test dialog"
-msgstr "(по умолчанию) отключить предотвращение потери для XV"
+msgstr ""
+"(По умолчанию) Разрешить перехват фокуса диалоговым окном проверки настроек"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:45
 msgid "(Default) Hide system modal dialog class from taskbar"
 msgstr ""
+"(По умолчанию) Скрыть класс системного модального диалога с панели задач"
