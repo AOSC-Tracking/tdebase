@@ -76,7 +76,7 @@ public:
      * Deprecated, use isAvailable() instead.
      * @deprecated
      */
-    KDE_DEPRECATED bool checkAvailable(bool) { return isAvailable(); }
+    TDE_DEPRECATED bool checkAvailable(bool) { return isAvailable(); }
 #endif
 
     /** @since 3.2

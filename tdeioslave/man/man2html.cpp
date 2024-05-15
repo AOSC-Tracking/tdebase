@@ -1075,7 +1075,7 @@ static TQCString set_font( const TQCString& name )
 /// \deprecated
 static TQCString set_font( const char ch )
 #ifndef SIMPLE_MAN2HTML
-        KDE_DEPRECATED;
+        TDE_DEPRECATED;
 
 static TQCString set_font( const char ch )
 #endif
