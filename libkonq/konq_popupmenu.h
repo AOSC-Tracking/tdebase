@@ -79,7 +79,7 @@ public:
                  KURL viewURL,
                  TDEActionCollection & actions,
                  KNewMenu * newMenu,
-                 bool showPropertiesAndFileType = true ) KDE_DEPRECATED;
+                 bool showPropertiesAndFileType = true ) TDE_DEPRECATED;
 
   /**
    * @deprecated uses bool instead of KonqPopupFlags enum,
@@ -91,7 +91,7 @@ public:
                  TDEActionCollection & actions,
                  KNewMenu * newMenu,
 		 TQWidget * parentWidget,
-		 bool showPropertiesAndFileType = true ) KDE_DEPRECATED;
+		 bool showPropertiesAndFileType = true ) TDE_DEPRECATED;
 
   /**
    * Constructor
