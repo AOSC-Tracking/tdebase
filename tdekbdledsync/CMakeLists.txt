@@ -23,7 +23,7 @@ link_directories(
 
 tde_add_executable( tdekbdledsync
   SOURCES getfd.c main.cpp
-  LINK udev X11
+  LINK ${UDEV_LIBRARIES} X11
   DESTINATION ${BIN_INSTALL_DIR}
   SETUID
 )

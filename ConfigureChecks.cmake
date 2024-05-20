@@ -159,11 +159,11 @@ if( WITH_TDEHWLIB )
 endif( )
 
 
-# udev (tsak)
-if( BUILD_TSAK )
-  pkg_search_module( UDEV udev )
+# udev (tsak, tdekbdledsync)
+if( BUILD_TSAK OR BUILD_TDEKBDLEDSYNC )
+  pkg_search_module( UDEV libudev )
   if( NOT UDEV_FOUND )
-    tde_message_fatal( "udev is required, but was not found on your system" )
+    tde_message_fatal( "udev library is required, but was not found on your system" )
   endif( )
 endif( )
 
