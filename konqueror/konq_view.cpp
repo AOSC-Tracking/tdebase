@@ -472,7 +472,7 @@ void KonqView::connectPart(  )
 
   m_pPart->widget()->installEventFilter( this );
 
-  if (m_bBackRightClick && m_pPart->widget()->inherits("TQScrollView") )
+  if (m_pPart->widget()->inherits("TQScrollView"))
   {
     (static_cast<TQScrollView *>(m_pPart->widget()))->viewport()->installEventFilter( this );
   }
@@ -1220,10 +1220,6 @@ void KonqView::reparseConfiguration()
     bool b = KonqSettings::backRightClick();
     if ( m_bBackRightClick != b )
     {
-        if (m_bBackRightClick && m_pPart->widget()->inherits("TQScrollView") )
-        {
-            (static_cast<TQScrollView *>(m_pPart->widget()))->viewport()->installEventFilter( this );
-        }
         enableBackRightClick( b );
     }
 }
@@ -1287,6 +1283,21 @@ bool KonqView::eventFilter( TQObject *obj, TQEvent *e )
         KParts::BrowserExtension *ext = browserExtension();
         if ( ok && ext && lstDragURLs.first().isValid() )
             emit ext->openURLRequest( lstDragURLs.first() ); // this will call m_pMainWindow::slotOpenURLRequest delayed
+    }
+
+    else if (e->type() == TQEvent::MouseButtonRelease)
+    {
+        TQMouseEvent *mouseEvent = static_cast<TQMouseEvent*>(e);
+        switch (mouseEvent->button())
+        {
+            case TQMouseEvent::HistoryBackButton:
+                go(-1);
+                return true;
+
+            case TQMouseEvent::HistoryForwardButton:
+                go(1);
+                return true;
+        }
     }
 
     if ( m_bBackRightClick )
