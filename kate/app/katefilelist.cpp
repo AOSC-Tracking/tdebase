@@ -48,6 +48,7 @@
 #include <kstringhandler.h>
 #include <kcolorbutton.h>
 #include <kdialog.h>
+#include <kmimetype.h>
 //END Includes
 
 //BEGIN ToolTip
@@ -557,20 +558,27 @@ KateFileListItem::~KateFileListItem()
 {
 }
 
+
 const TQPixmap *KateFileListItem::pixmap ( int column ) const
 {
   if ( column == 0) {
-    static TQPixmap noPm = SmallIcon ("null");
+    static TQMap<TQString, TQPixmap> mimeIcons;
     static TQPixmap modPm = SmallIcon("modified");
     static TQPixmap discPm = SmallIcon("modonhd");
     static TQPixmap modmodPm = SmallIcon("modmod");
 
     const KateDocumentInfo *info = KateDocManager::self()->documentInfo(doc);
+    KMimeType::Ptr mime = KMimeType::findByURL(doc->url());
+
+    if (!mimeIcons.contains(mime->name()))
+    {
+        mimeIcons.insert(mime->name(), mime->pixmap(TDEIcon::Small));
+    }
 
     if (info && info->modifiedOnDisc)
       return doc->isModified() ? &modmodPm : &discPm;
     else
-      return doc->isModified() ? &modPm : &noPm;
+      return doc->isModified() ? &modPm : &mimeIcons[mime->name()];
   }
 
   return 0;
