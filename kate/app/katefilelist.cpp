@@ -176,6 +176,7 @@ void KateFileList::keyPressEvent(TQKeyEvent *e) {
 // returning
 void KateFileList::contentsMousePressEvent( TQMouseEvent *e )
 {
+  if (e->button() != TQMouseEvent::LeftButton) return;
   m_lastMouseDownPos = e->pos();
 
   if ( ! itemAt( contentsToViewport( e->pos() ) ) )

@@ -105,16 +105,16 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
     bool queryClose_internal();
 
     void openURL (const TQString &name=0L);
-  
+
   public slots:
     /**
      * update "Sessions" menu status when selection in session panel has changed
      */
     void slotSelectionChanged();
-    
+
     /**
      * activate the specified session. When there is the need to activate a session
-     * from the outside (for example from DCOP), using this method assures that 
+     * from the outside (for example from DCOP), using this method assures that
      * the session activation is consistent with the behavior of the session panel
      * @param sessionId the id of the session to activate
      */
@@ -176,9 +176,10 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
 
     void updateGrepDir (bool visible);
     void slotDocumentCloseAll();
-  
+
   protected:
     bool event( TQEvent * );
+    bool eventFilter(TQObject *obj, TQEvent *ev);
 
   private:
     static uint uniqueID;
@@ -215,7 +216,7 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
 
     KateExternalToolsMenuAction *externalTools;
     GrepTool * greptool;
-    bool m_modignore, m_grrr;
+    bool m_modignore;
 
     KateTabWidget *m_tabWidget;
 };
@@ -230,7 +231,7 @@ class KateSessionListActionMenu : public TDEActionMenu
 
   public slots:
     void slotAboutToShow();
-    
+
   protected:
     KateMainWindow *m_mainWindow;
 };
