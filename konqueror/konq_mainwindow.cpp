@@ -3580,6 +3580,22 @@ bool KonqMainWindow::eventFilter(TQObject*obj,TQEvent *ev)
       }
     }
   }
+
+  else if (ev->type() == TQEvent::MouseButtonRelease)
+  {
+    TQMouseEvent *mouseEv = static_cast<TQMouseEvent*>(ev);
+    switch (mouseEv->button())
+    {
+      case TQMouseEvent::HistoryBackButton:
+        slotBack();
+        return true;
+
+      case TQMouseEvent::HistoryForwardButton:
+        slotForward();
+        return true;
+    }
+  }
+
   return KParts::MainWindow::eventFilter( obj, ev );
 }
 
