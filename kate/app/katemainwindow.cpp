@@ -151,6 +151,8 @@ KateMainWindow::KateMainWindow (TDEConfig *sconfig, const TQString &sgroup)
 
   m_dcop = new KateMainWindowDCOPIface (this);
 
+  m_mainWindow->installEventFilter(this);
+
   // setup the most important widgets
   setupMainWindow();
 
@@ -213,6 +215,7 @@ void KateMainWindow::setupMainWindow ()
   KateMDI::ToolView *ft = createToolView("kate_filelist", KMultiTabBar::Left, SmallIcon("application-vnd.tde.tdemultiple"), i18n("Documents"));
   filelist = new KateFileList (this, m_viewManager, ft, "filelist");
   filelist->readConfig(KateApp::self()->config(), "Filelist");
+  filelist->viewport()->installEventFilter(this);
 
   KateMDI::ToolView *t = createToolView("kate_fileselector", KMultiTabBar::Left, SmallIcon("document-open"), i18n("Filesystem Browser"));
   fileselector = new KateFileSelector( this, m_viewManager, t, "operator");
@@ -306,11 +309,11 @@ void KateMainWindow::setupActions()
   slotWindowActivated ();
 
   // session actions
-  new TDEAction(i18n("&New"), "list-add", 0, 
+  new TDEAction(i18n("&New"), "list-add", 0,
       m_sessionpanel, TQ_SLOT(slotNewSession()), actionCollection(), "session_new");
-  new TDEAction(i18n("&Save"), "document-save", 0, 
+  new TDEAction(i18n("&Save"), "document-save", 0,
       m_sessionpanel, TQ_SLOT(slotSaveSession()), actionCollection(), "session_save");
-  new TDEAction(i18n("Save &As..."), "document-save-as", 0, 
+  new TDEAction(i18n("Save &As..."), "document-save-as", 0,
       m_sessionpanel, TQ_SLOT(slotSaveSessionAs()), actionCollection(), "session_save_as");
   new TDEAction(i18n("&Rename"), "edit_user", 0,
       m_sessionpanel, TQ_SLOT(slotRenameSession()), actionCollection(), "session_rename");
@@ -423,7 +426,7 @@ void KateMainWindow::slotNewToolbarConfig()
 
 void KateMainWindow::slotFileQuit()
 {
-  KateApp::self()->shutdownKate(this);  
+  KateApp::self()->shutdownKate(this);
 }
 
 void KateMainWindow::readOptions ()
@@ -596,7 +599,7 @@ void KateMainWindow::slotConfigure()
   dlg->exec();
 
   delete dlg;
-  
+
   // Inform Kate that options may have been changed
   KateApp::self()->reparse_config();
 }
@@ -888,6 +891,24 @@ void KateMainWindow::readProperties(TDEConfig *config)
   config->setGroup(grp);
 }
 
+bool KateMainWindow::eventFilter(TQObject *obj, TQEvent *ev)
+{
+    if (ev->type() == TQEvent::MouseButtonRelease)
+    {
+        TQMouseEvent *mouseEvent = static_cast<TQMouseEvent *>(ev);
+        switch (mouseEvent->button())
+        {
+            case TQMouseEvent::HistoryBackButton:
+                filelist->slotPrevDocument();
+                return true;
+            case TQMouseEvent::HistoryForwardButton:
+                filelist->slotNextDocument();
+                return true;
+        }
+    }
+    return false;
+}
+
 //-------------------------------------------
 void KateMainWindow::slotSelectionChanged()
 {
@@ -905,8 +926,8 @@ void KateMainWindow::slotSelectionChanged()
     if (a)
     {
       a->setEnabled((*spa_it)->isEnabled());
-    }  
-  }              
+    }
+  }
 }
 
 //-------------------------------------------
@@ -916,7 +937,7 @@ void KateMainWindow::activateSession(int sessionId)
   {
     return;
   }
-  
+
   // Select the required session in the session panel's listview
   TQListViewItem *item = m_sessionpanel->m_listview->firstChild();
   int idx = 0;
