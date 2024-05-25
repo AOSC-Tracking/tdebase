@@ -64,7 +64,7 @@ class KateVSStatusBar : public KStatusBar
       TQLabel* m_insertModeLabel;
       TQLabel* m_selectModeLabel;
       KSqueezedTextLabel* m_fileNameLabel;
-      TQPixmap m_modPm, m_modDiscPm, m_modmodPm, m_noPm;
+      TQPixmap m_modPm, m_modDiscPm, m_modmodPm;
       class KateViewSpace *m_viewSpace;
 };
 

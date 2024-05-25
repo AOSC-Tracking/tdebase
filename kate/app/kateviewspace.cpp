@@ -30,6 +30,7 @@
 #include <kiconloader.h>
 #include <tdelocale.h>
 #include <ksqueezedtextlabel.h>
+#include <kmimetype.h>
 #include <tdeconfig.h>
 #include <kdebug.h>
 
@@ -39,6 +40,7 @@
 #include <tqcursor.h>
 #include <tqpopupmenu.h>
 #include <tqpixmap.h>
+#include <tqtooltip.h>
 
 //BEGIN KVSSBSep
 /*
@@ -340,7 +342,6 @@ KateVSStatusBar::KateVSStatusBar ( KateViewSpace *parent, const char *name )
   m_modPm = SmallIcon("modified");
   m_modDiscPm = SmallIcon("modonhd");
   m_modmodPm = SmallIcon("modmod");
-  m_noPm = SmallIcon("null");
 }
 
 KateVSStatusBar::~KateVSStatusBar ()
@@ -377,6 +378,8 @@ void KateVSStatusBar::updateMod( bool mod )
 
     bool modOnHD = info && info->modifiedOnDisc;
 
+    KMimeType::Ptr mime = KMimeType::findByURL(v->getDoc()->url());
+
     m_modifiedLabel->setPixmap(
         mod ?
           info && modOnHD ?
@@ -384,8 +387,9 @@ void KateVSStatusBar::updateMod( bool mod )
             m_modPm :
           info && modOnHD ?
             m_modDiscPm :
-        m_noPm
+            mime->pixmap(TDEIcon::Small)
         );
+    TQToolTip::add(this, mime->comment());
   }
 }
 
