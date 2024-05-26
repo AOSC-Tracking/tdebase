@@ -438,7 +438,7 @@ TQString KateFileList::tooltip( TQListViewItem *item, int )
       str += i18n("<b>This file was changed (deleted) on disk by another program.</b><br />");
   }
 
-  str += i->document()->url().prettyURL();
+  str += i->document()->url().pathOrURL();
   return str;
 }
 

@@ -44,7 +44,7 @@ class KateDocItem : public TQCheckListItem
 {
   public:
     KateDocItem( Kate::Document *doc, const TQString &status, TDEListView *lv )
-  : TQCheckListItem( lv, doc->url().prettyURL(), CheckBox ),
+  : TQCheckListItem( lv, doc->url().pathOrURL(), CheckBox ),
         document( doc )
     {
       setText( 1, status );
@@ -143,12 +143,12 @@ void KateMwModOnHdDialog::handleSelected( int action )
   for ( TQListViewItemIterator it ( lvDocuments );  it.current(); ++it )
   {
     KateDocItem *item = static_cast<KateDocItem *>(it.current());
-    
+
     if ( item->isOn() )
     {
       int reason = (int)KateDocManager::self()->documentInfo( item->document )->modifiedOnDiscReason;
       bool succes = true;
-      
+
       Kate::DocumentExt *dext = documentExt( item->document );
       if ( ! dext ) continue;
 
@@ -161,7 +161,7 @@ void KateMwModOnHdDialog::handleSelected( int action )
           {
             KMessageBox::sorry( this,
                                 i18n("Could not save the document \n'%1'").
-                                    arg( item->document->url().prettyURL() ) );
+                                    arg( item->document->url().pathOrURL() ) );
           }
           break;
 

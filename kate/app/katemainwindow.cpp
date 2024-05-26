@@ -851,7 +851,7 @@ void KateMainWindow::updateCaption(Kate::Document *doc)
   }
   else
   {
-    c = m_viewManager->activeView()->getDoc()->url().prettyURL();
+    c = m_viewManager->activeView()->getDoc()->url().pathOrURL();
   }
 
   if (showSessionName)
