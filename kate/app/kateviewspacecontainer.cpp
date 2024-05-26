@@ -429,7 +429,7 @@ void KateViewSpaceContainer::statusMsg ()
   }
   else
   {
-    c = v->getDoc()->url().prettyURL();
+    c = v->getDoc()->url().pathOrURL();
   }
 
   m_viewManager->mainWindow()->tabWidget()->changeTab (this, KStringHandler::lsqueeze(c,32));

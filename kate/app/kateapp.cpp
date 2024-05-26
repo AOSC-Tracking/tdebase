@@ -239,7 +239,7 @@ bool KateApp::startupKate()
     }
     else
       KMessageBox::sorry( activeMainWindow(),
-                          i18n("The file '%1' could not be opened: it is not a normal file, it is a folder.").arg(m_args->url(z).url()) );
+                          i18n("The file '%1' could not be opened: it is not a normal file, it is a folder.").arg(m_args->url(z).pathOrURL()) );
   }
 
   Kate::Document::setOpenErrorDialogsActivated (true);
@@ -350,9 +350,9 @@ bool KateApp::query_session_close()
       saveSessions = true;
     }
   }
-  
+
   if (saveSessions)
-  {    
+  {
     m_sessionManager->saveActiveSession();
   }
   m_sessionManager->saveConfig(saveSessions);
@@ -403,7 +403,7 @@ bool KateApp::openURL (const KURL &url, const TQString &encoding, bool isTempFil
   }
   else
     KMessageBox::sorry( mainWindow,
-                        i18n("The file '%1' could not be opened: it is not a normal file, it is a folder.").arg(url.url()) );
+                        i18n("The file '%1' could not be opened: it is not a normal file, it is a folder.").arg(url.pathOrURL()) );
 
   return true;
 }
