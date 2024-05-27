@@ -14,4 +14,4 @@ X-TDE-autostart-condition=tdeprintrc:Jobs:KeepWindow:false
 X-TDE-autostart-phase=1
 X-TDE-StartupNotify=false
 Categories=Qt;TDE;Utility;Printing;HardwareSettings;TrayIcon;
-ShowOnlyIn=TDE;
+OnlyShowIn=TDE;
