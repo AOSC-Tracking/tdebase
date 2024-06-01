@@ -17,8 +17,6 @@ else( )
   include_directories( core )
 endif( )
 
-add_subdirectory( pics )
-
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_BINARY_DIR}
@@ -34,7 +32,7 @@ link_directories(
 ##### other data ################################
 
 tde_create_translated_desktop(
-  SOURCE mouse.desktop
+  SOURCE mouse.desktop touchpad.desktop
   PO_DIR kcontrol-desktops
 )
 
@@ -47,15 +45,38 @@ install( FILES
     mouse_cursor_theme.upd
   DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 
+install(
+    DIRECTORY pics/
+    DESTINATION ${DATA_INSTALL_DIR}/kcminput/pics
+    FILES_MATCHING PATTERN *.png
+)
+
+add_subdirectory(icons)
+
 
 ##### kcm_input (module) ########################
 
 tde_add_kpart( kcm_input AUTOMOC
   SOURCES
-    mouse.cpp kmousedlg.ui main.cpp logitechmouse.cpp
-    logitechmouse_base.ui
-  LINK themepage-static tdeio-shared ${XCURSOR_LIBRARIES} ${LIBUSB_LIBRARIES}
+    mouse.cpp kmousedlg.ui main.cpp
+    logitechmouse.cpp logitechmouse_base.ui
+    touchpad.cpp touchpad_settings.cpp
+  LINK
+    themepage-static tdeio-shared
+    ${XCURSOR_LIBRARIES} ${LIBUSB_LIBRARIES}
+    ${XINPUT_LIBRARIES}
   DESTINATION ${PLUGIN_INSTALL_DIR}
+)
+
+
+##### syndaemon (executable) ####################
+
+tde_add_executable( syndaemon AUTOMOC
+  SOURCES
+    syndaemon.cpp syndaemon_iface.skel
+    touchpad_settings.cpp
+  LINK tdecore-shared ${XINPUT_LIBRARIES}
+  DESTINATION ${BIN_INSTALL_DIR}
 )
 
 

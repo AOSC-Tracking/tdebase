@@ -678,4 +678,13 @@ if( BUILD_KCONTROL OR BUILD_TDM )
 
 endif( BUILD_KCONTROL OR BUILD_TDM )
 
+# XInput (kcontrol/input/touchpad.cpp)
+if( BUILD_KCONTROL )
+  pkg_search_module( XINPUT xi )
+  if( NOT XINPUT_FOUND )
+    tde_message_fatal( "XInput is required, but was not found on your system" )
+  endif( )
+endif ( BUILD_KCONTROL )
+
+
 check_include_files( "sys/time.h;sys/loadavg.h" HAVE_SYS_LOADAVG_H )
