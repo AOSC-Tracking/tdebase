@@ -1,0 +1,16 @@
+[Desktop Entry]
+Exec=tdecmshell touchpad
+Icon=input-touchpad
+Type=Application
+X-DocPath=kcontrol/touchpad/index.html
+
+X-TDE-Library=input
+X-TDE-FactoryName=touchpad
+X-TDE-Init=touchpad
+X-TDE-ParentApp=kcontrol
+X-TDE-Test-Module=true
+
+Name=Touchpad
+Comment=Touchpad settings
+Keywords=Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;Click;mapping;right handed;left handed;
+Categories=Qt;TDE;X-TDE-settings-hardware;

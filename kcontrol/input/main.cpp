@@ -38,6 +38,8 @@
 #endif
 
 #include "mouse.h"
+#include "touchpad_settings.h"
+#include "touchpad.h"
 
 extern "C"
 {
@@ -90,6 +92,23 @@ extern "C"
 #endif
 
     delete config;
+  }
+
+  TDE_EXPORT TDECModule *create_touchpad(TQWidget *parent, const char *)
+  {
+      return new TouchpadConfig(parent, "kcminput");
+  }
+
+  TDE_EXPORT void init_touchpad()
+  {
+      TouchpadSettings settings;
+      settings.apply();
+  }
+
+  TDE_EXPORT bool test_touchpad()
+  {
+      TouchpadSettings settings;
+      return settings.foundTouchpad();
   }
 }
 

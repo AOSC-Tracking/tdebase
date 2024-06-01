@@ -1,0 +1,402 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
+]>
+
+<article lang="&language;">
+<title>Touchpad</title>
+
+<articleinfo>
+
+<authorgroup>
+<author>
+<firstname>Philippe</firstname><surname>Mavridis</surname>
+</author>
+<author>&tde-authors;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<copyright>
+<year>2024</year>
+<holder>Philippe Mavridis</holder>
+</copyright>
+<copyright>
+<year>&tde-copyright-date;</year>
+<holder>&tde-team;</holder>
+</copyright>
+
+<releaseinfo>&tde-release-version;</releaseinfo>
+<date>Reviewed: &tde-release-date;</date>
+
+<keywordset>
+<keyword>TDE</keyword>
+<keyword>KControl</keyword>
+<keyword>System Settings</keyword>
+<keyword>devices</keyword>
+<keyword>input</keyword>
+<keyword>touchpad</keyword>
+<keyword>clickpad</keyword>
+<keyword>tapping</keyword>
+<keyword>tap-to-click</keyword>
+</keywordset>
+</articleinfo>
+
+<abstract>
+<para>This is the documentation for the &tde; &kcontrol; module which configures the touchpad, if one is detected.</para>
+</abstract>
+
+<sect1 id="touchpad">
+<title>Touchpad</title>
+<para>The module automatically detects the touchpad and provides options for configuring its behaviour. The provided options are grouped into five categories:</para>
+
+<itemizedlist>
+<listitem>
+<para><link linkend="touchpad-behaviour">Behaviour</link></para>
+</listitem>
+<listitem>
+<para><link linkend="touchpad-speed">Speed</link></para>
+</listitem>
+<listitem>
+<para><link linkend="touchpad-tapping">Tapping</link></para>
+</listitem>
+<listitem>
+<para><link linkend="touchpad-scroll-options">Scrolling options</link></para>
+</listitem>
+<listitem>
+<para><link linkend="touchpad-scroll-methods">Scrolling method</link></para>
+</listitem>
+</itemizedlist>
+
+<para>The available options depend on which driver is currently in use. This module supports the modern Libinput driver, as well as the older Synaptics driver. While the Synaptics driver is considered unmaintained, one may choose it over the newer Libinput driver if some feature they need is not supported by the Libinput driver and vice versa. For an overview of features supported by each driver see <link linkend="touchpad-drivers">Driver compatibility</link>.</para>
+
+<sect2 id="touchpad-behaviour">
+<title>Behaviour</title>
+
+<variablelist>
+
+<varlistentry>
+<term><guilabel>Disable touchpad while typing</guilabel></term>
+<listitem><para>
+If this option is checked, the touchpad is disabled while you are typing, so as
+to prevent accidental cursor movement and clicks. The touchpad is enabled again
+after a short while.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Middle button emulation</guilabel></term>
+<listitem><para>
+If this option is enabled, a simultaneous left and right button click is automatically
+transformed into a middle button click. Some devices provide middle mouse button
+emulation but do not allow enabling/disabling that emulation.
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="touchpad-speed">
+<title>Speed</title>
+
+<variablelist>
+
+<varlistentry>
+<term><guilabel>Acceleration</guilabel></term>
+<listitem><para>
+With this option you can change the speed that the pointer moves on the screen.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Use adaptive profile</guilabel></term>
+<listitem><para>
+If this option is enabled, the adaptive acceleration profile is used, otherwise
+the flat profile is used.
+</para>
+<para>
+The <guilabel>adaptive</guilabel> profile is the default profile used by the Libinput driver. It takes the current speed of the device into account when deciding on acceleration.
+</para><para>
+The <guilabel>flat</guilabel> profile applies a constant factor to every pointer movement, regardless of the speed of motion, providing 1:1 movement between the
+pointer and the device. Techincally, each delta (dx, dy) results in an accelerated
+delta (dx * factor, dy * factor).
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="touchpad-tapping">
+<title>Tapping</title>
+
+<variablelist>
+
+<varlistentry>
+<term><guilabel>Tap-to-click</guilabel></term>
+<listitem><para>
+This option enables or disables the "tap-to-click" feature (also known as "tapping").
+With this option enabled, a tap on the touchpad is interpreted as a click.
+</para>
+<para>Several other features are also related to tapping, including tap-and-drag and
+multiple finger taps. These features can be configured via the rest of the options
+of this section. This option must be enabled for the rest to work.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Tap-and-drag</guilabel></term>
+<listitem><para>
+This option enables or disables the "tap-and-drag" feature. Tap-and-drag is a short
+tap which is immediately followed by a longer tap, with the finger being then held
+down. This simulates a button press and moving the finger around can thus cause the
+the object under the mouse pointer to be dragged around. When the finger is lifted,
+the dragging is completed.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Tap-and-drag lock</guilabel></term>
+<listitem><para>
+This option modifies the behaviour of the tap-and-drag feature so that lifting
+a finger while dragging will not immediately stop dragging. Therefore, if you place
+the finger down on the touchpad again before a short while has passed, the dragging
+will resume from the place it was left.
+</para>
+<para>
+This option is disabled when the tap-and-drag feature is not enabled.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Two-finger tap</guilabel></term>
+<listitem><para>
+With this option you can choose whether the two-finger tap will invoke a middle click
+or a right click action. The three-finger tap is automatically assigned the other
+action.</para>
+<para>
+The default for this option is the right click. This means that a two-finger tap will
+emulate a right button click, whereas a three-finger tap will emulate a middle button
+click.
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="touchpad-scroll-options">
+<title>Scrolling options</title>
+
+<variablelist>
+
+<varlistentry>
+<term><guilabel>Vertical scrolling</guilabel></term>
+<listitem><para>
+This option enables/disables the vertical scrolling gesture on the touchpad.
+</para>
+<para>
+The gesture used for scrolling depends on the selected scrolling method, see
+<link linkend="touchpad-scroll-methods">Scrolling method</link>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Horizontal scrolling</guilabel></term>
+<listitem><para>
+This option enables/disables the horizontal scrolling gesture on the touchpad.
+</para>
+<para>
+The gesture used for scrolling depends on the selected scrolling method, see
+<link linkend="touchpad-scroll-methods">Scrolling method</link>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Reverse scroll direction</guilabel></term>
+<listitem><para>
+If this option is checked, the scrolling direction is reversed to resemble natural
+movement of content. This feature is also known as Natural scrolling.
+</para>
+<para>
+With the Synaptics driver you can configure this option for individual directions,
+see the options <guilabel>Apply to horizontal scrolling</guilabel> and
+<guilabel>Apply to vertical scrolling</guilabel> below.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Apply to horizontal scrolling</guilabel></term>
+<listitem><para>
+If this option is checked, the horizontal scrolling direction is reversed
+(Synaptics driver only).
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Apply to vertical scrolling</guilabel></term>
+<listitem><para>
+If this option is checked, the vertical scrolling direction is reversed
+(Synaptics driver only).
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="touchpad-scroll-methods">
+<title>Scrolling method</title>
+
+<para>
+This section allows you to pick your preferred scrolling method. This will determine
+the gesture which you will use to trigger scrolling.
+</para>
+<para>
+The two most common options are <guilabel>Two-finger</guilabel> and
+<guilabel>Edge</guilabel> scrolling.</para>
+
+<orderedlist>
+<listitem><para>
+<guilabel>Two-finger</guilabel> scrolling entails a movement with two fingers vertically or horizontally upon the surface of the touchpad.
+</para></listitem>
+<listitem><para>
+<guilabel>Edge scrolling</guilabel> on the other hand tracks movements with one finger
+long the right or bottom edge of the touchpad.
+</para></listitem>
+</orderedlist>
+
+<para>
+Additionally, the Libinput driver provides the <guilabel>Button</guilabel> scrolling
+method. On-button scrolling converts the motion of a device into scroll events while a designated button is held down.
+</para>
+</sect2>
+
+<sect2 id="touchpad-drivers">
+<title>Driver compatibility</title>
+
+<informaltable>
+<tgroup cols="4">
+<thead><row>
+<entry>Group</entry>
+<entry>Feature</entry>
+<entry>LibInput driver</entry>
+<entry>Synaptics driver</entry>
+</row></thead>
+<tbody>
+<row>
+<entry>GENERIC</entry>
+<entry>Enable/disable touchpad</entry>
+<entry>YES</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>BEHAVIOUR</entry>
+<entry>Disable touchpad while typing</entry>
+<entry>YES</entry>
+<entry>YES*</entry>
+</row>
+<row>
+<entry>BEHAVIOUR</entry>
+<entry>Middle button emulation</entry>
+<entry>YES</entry>
+<entry>YES**</entry>
+</row>
+<row>
+<entry>SPEED</entry>
+<entry>Acceleration</entry>
+<entry>YES</entry>
+<entry>NO</entry>
+</row>
+<row>
+<entry>SPEED</entry>
+<entry>Acceleration profile</entry>
+<entry>YES</entry>
+<entry>NO</entry>
+</row>
+<row>
+<entry>TAPPING</entry>
+<entry>Tap-to-click</entry>
+<entry>YES</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>TAPPING</entry>
+<entry>Tap-and-drag</entry>
+<entry>YES</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>TAPPING</entry>
+<entry>Tap-and-drag lock</entry>
+<entry>YES</entry>
+<entry>NO</entry>
+</row>
+<row>
+<entry>TAPPING</entry>
+<entry>Two-finger/three-finger tap swapping</entry>
+<entry>YES</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>SCROLLING OPTIONS</entry>
+<entry>Enable/disable vertical scrolling</entry>
+<entry>YES***</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>SCROLLING OPTIONS</entry>
+<entry>Enable/disable horizontal scrolling</entry>
+<entry>YES</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>SCROLLING OPTIONS</entry>
+<entry>Enable/disable natural scrolling</entry>
+<entry>YES</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>SCROLLING OPTIONS</entry>
+<entry>Enable/disable vertical natural scrolling</entry>
+<entry>NO</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>SCROLLING OPTIONS</entry>
+<entry>Enable/disable horizontal natural scrolling</entry>
+<entry>NO</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>SCROLLING METHODS</entry>
+<entry>Two-finger</entry>
+<entry>YES</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>SCROLLING METHODS</entry>
+<entry>Edge</entry>
+<entry>YES</entry>
+<entry>YES</entry>
+</row>
+<row>
+<entry>SCROLLING METHODS</entry>
+<entry>Button</entry>
+<entry>YES</entry>
+<entry>NO</entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<para>* Synaptics supported using external <guilabel>syndaemon</guilabel> service, automatically started/stopped.</para>
+<para>** Not configurable with the Synaptics driver.</para>
+<para>*** Disabling vertical scrolling under the Libinput driver disables scrolling entirely.</para>
+
+</sect2>
+
+</sect1>
+
+</article>
