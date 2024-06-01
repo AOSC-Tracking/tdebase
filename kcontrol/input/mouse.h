@@ -83,6 +83,7 @@ public:
  bool changeCursor;
  int wheelScrollLines;
  bool reverseScrollPolarity;
+ bool reverseHistoryButtons;
 
  #ifdef HAVE_LIBUSB
  TQPtrList <LogitechMouse> logitechMouseList;
@@ -111,6 +112,7 @@ private slots:
   /** No descriptions */
   void slotHandedChanged(int val);
   void slotScrollPolarityChanged();
+  void slotRevHistButtonsChanged();
   void checkAccess();
   void slotThreshChanged(int value);
   void slotDragStartDistChanged(int value);
