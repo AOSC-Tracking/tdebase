@@ -162,7 +162,8 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
 
     // Only allow setting reversing scroll polarity if we have scroll buttons
     unsigned char map[20];
-    if ( XGetPointerMapping(kapp->getDisplay(), map, 20) >= 5 )
+    int buttonCount = XGetPointerMapping(kapp->getDisplay(), map, 20);
+    if ( buttonCount >= 5 )
     {
       tab1->cbScrollPolarity->setEnabled( true );
       tab1->cbScrollPolarity->show();
@@ -174,6 +175,20 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     }
     connect(tab1->cbScrollPolarity, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
     connect(tab1->cbScrollPolarity, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotScrollPolarityChanged()));
+
+    // Only allow setting reversing history buttons (8, 9) if we have actually have them
+    if ( buttonCount >= 9 )
+    {
+      tab1->cbRevHistButtons->setEnabled( true );
+      tab1->cbRevHistButtons->show();
+    }
+    else
+    {
+      tab1->cbRevHistButtons->setEnabled( false );
+      tab1->cbRevHistButtons->hide();
+    }
+    connect(tab1->cbRevHistButtons, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
+    connect(tab1->cbRevHistButtons, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotRevHistButtonsChanged()));
 
     // Cursor theme tab
     themetab = new ThemePage(this);
@@ -436,7 +451,7 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
   load();
 
   TDEAboutData* about = new TDEAboutData("kcmmouse", I18N_NOOP("Mouse"), 0, 0,
-        TDEAboutData::License_GPL, I18N_NOOP("(c) 1997 - 2005 Mouse developers")); 
+        TDEAboutData::License_GPL, I18N_NOOP("(c) 1997 - 2005 Mouse developers"));
   about->addAuthor("Patrick Dowler", 0, 0);
   about->addAuthor("Dirk A. Mueller", 0, 0);
   about->addAuthor("David Faure", 0, 0);
@@ -522,9 +537,12 @@ void MouseConfig::load( bool useDefaults )
 
   tab1->rightHanded->setEnabled(settings->handedEnabled);
   tab1->leftHanded->setEnabled(settings->handedEnabled);
-  if ( tab1->cbScrollPolarity->isEnabled() )
-    tab1->cbScrollPolarity->setEnabled(settings->handedEnabled);
+  if (tab1->cbScrollPolarity->isEnabled())
+      tab1->cbScrollPolarity->setEnabled(settings->handedEnabled);
+  if (tab1->cbRevHistButtons->isEnabled())
+      tab1->cbRevHistButtons->setEnabled(settings->handedEnabled);
   tab1->cbScrollPolarity->setChecked( settings->reverseScrollPolarity );
+  tab1->cbRevHistButtons->setChecked( settings->reverseHistoryButtons );
 
   setAccel(settings->accelRate);
   setThreshold(settings->thresholdMove);
@@ -597,6 +615,7 @@ void MouseConfig::save()
 //  settings->changeCursor = tab1->singleClick->isChecked();
   settings->changeCursor = tab1->cb_pointershape->isChecked();
   settings->reverseScrollPolarity = tab1->cbScrollPolarity->isChecked();
+  settings->reverseHistoryButtons = tab1->cbRevHistButtons->isChecked();
 
   settings->apply();
   TDEConfig config( "kcminputrc" );
@@ -746,6 +765,7 @@ void MouseSettings::load(TDEConfig *config)
   else if (key == NULL)
     handed = h;
   reverseScrollPolarity = config->readBoolEntry( "ReverseScrollPolarity", false );
+  reverseHistoryButtons = config->readBoolEntry( "ReverseHistoryButtons", false );
   m_handedNeedsApply = false;
 
   // SC/DC/AutoSelect/ChangeCursor
@@ -781,7 +801,7 @@ void MouseSettings::apply(bool force)
   XChangePointerControl( kapp->getDisplay(),
                          true, true, int(tqRound(accelRate*10)), 10, thresholdMove);
 
-  // 256 might seems extreme, but X has already been known to return 32, 
+  // 256 might seems extreme, but X has already been known to return 32,
   // and we don't want to truncate things. Xlib limits the table to 256 bytes,
   // so it's a good uper bound..
   unsigned char map[256];
@@ -836,6 +856,21 @@ void MouseSettings::apply(bool force)
                   map[pos+1] = reverseScrollPolarity ? (unsigned char) 4 : (unsigned char) 5;
               }
           }
+          // 8,9 => history navigation buttons
+          // Logic is same as above with buttons 4 and 5, we find the buttons
+          // in the mapping, then, if needed, reverse them.
+          if (num_buttons >= 9)
+          {
+              int pos;
+              for( pos = 0; pos < num_buttons; ++pos )
+                  if( map[pos] == 8 || map[pos] == 9 )
+                      break;
+              if( pos < num_buttons - 1 )
+              {
+                  map[pos] = reverseHistoryButtons ? (unsigned char) 9 : (unsigned char) 8;
+                  map[pos+1] = reverseHistoryButtons ? (unsigned char) 8 : (unsigned char) 9;
+              }
+          }
       }
       int retval;
       if (remap)
@@ -865,6 +900,7 @@ void MouseSettings::save(TDEConfig *config)
   else
       config->writeEntry("MouseButtonMapping",TQString("LeftHanded"));
   config->writeEntry( "ReverseScrollPolarity", reverseScrollPolarity );
+  config->writeEntry( "ReverseHistoryButtons", reverseHistoryButtons );
 
   config->setGroup("KDE");
   config->writeEntry("DoubleClickInterval", doubleClickInterval, true, true);
@@ -889,6 +925,11 @@ void MouseSettings::save(TDEConfig *config)
 void MouseConfig::slotScrollPolarityChanged()
 {
   settings->m_handedNeedsApply = true;
+}
+
+void MouseConfig::slotRevHistButtonsChanged()
+{
+    settings->m_handedNeedsApply = true;
 }
 
 TQString MouseConfig::handbookSection() const
