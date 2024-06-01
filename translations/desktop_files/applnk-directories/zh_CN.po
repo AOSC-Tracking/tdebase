@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# G-Src <diceea@foxmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-06-03 20:24+0000\n"
+"Last-Translator: G-Src <diceea@foxmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/applnk-directories/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: .directory:2
@@ -38,7 +39,7 @@ msgstr "Web 开发"
 #: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
 #: kde-utilities.directory:4
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #. Name
 #: kde-editors.directory:4 tde-editors.directory:4
@@ -48,17 +49,17 @@ msgstr "编辑器"
 #. Name
 #: kde-edu-languages.directory:4
 msgid "Languages"
-msgstr ""
+msgstr "语言"
 
 #. Name
 #: kde-edu-mathematics.directory:4
 msgid "Mathematics"
-msgstr ""
+msgstr "数学"
 
 #. Name
 #: kde-edu-miscellaneous.directory:4
 msgid "Miscellaneous"
-msgstr ""
+msgstr "杂项"
 
 #. Name
 #: kde-edu-science.directory:4 tde-science.directory:5
@@ -134,9 +135,8 @@ msgstr "寓教于乐"
 
 #. Name
 #: tde-games-logic.directory:4
-#, fuzzy
 msgid "Logic Games"
-msgstr "恶作剧游戏"
+msgstr "逻辑游戏"
 
 #. Name
 #: tde-games-roguelikes.directory:4
@@ -160,7 +160,6 @@ msgstr "终端应用程序"
 
 #. Name
 #: tde-internet.directory:4
-#, fuzzy
 msgid "Internet"
 msgstr "Internet 和网络"
 
@@ -208,7 +207,7 @@ msgstr "硬件"
 #. Name
 #: tde-settings-information.directory:4
 msgid "Device Informations"
-msgstr ""
+msgstr "设备信息"
 
 #. Name
 #: tde-settings-looknfeel.directory:4
@@ -275,7 +274,7 @@ msgstr "屏幕保护程序演示"
 #. Name
 #: tde-system-su.directory:5
 msgid "SuperUser"
-msgstr ""
+msgstr "超级用户"
 
 #. Name
 #: tde-system.directory:4
