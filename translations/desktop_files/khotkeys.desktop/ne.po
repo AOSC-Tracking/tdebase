@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 14:09+0200\n"
+"POT-Creation-Date: 2024-06-04 18:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Name
-#: khotkeys.desktop:12
+#: khotkeys.desktop:13
 msgid "Input Actions"
 msgstr "आगत कार्य"
 
 #. Comment
-#: khotkeys.desktop:14
+#: khotkeys.desktop:15
 msgid "Configure Hotkey settings"
 msgstr "हटकुञ्जी सेटिङ कन्फिगर गर्नुहोस्"
 
 #. Keywords
-#: khotkeys.desktop:16
+#: khotkeys.desktop:17
 msgid "Keys;Global key bindings;Key bindings;Gestures;Mouse gestures;"
 msgstr "कुञ्जीहरू; विश्वव्यापी कुञ्जी बाइन्डिङ; कुञ्जी बाइन्डिङ; सङ्केत; माउस सङ्केत;"
