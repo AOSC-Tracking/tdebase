@@ -135,7 +135,7 @@
                 <string>Re&amp;verse scroll direction</string>
             </property>
             <property name="whatsThis" stdset="0">
-                <string>Change the direction of scrolling for the mouse wheel or the 4th and 5th mouse buttons.</string>
+                <string>Change the direction of scrolling for the mouse wheel, if present.</string>
             </property>
         </widget>
         <widget class="TQCheckBox">
@@ -146,7 +146,7 @@
                 <string>Swap &amp;history navigation buttons</string>
             </property>
             <property name="whatsThis" stdset="0">
-                <string>Swap the two history navigation buttons on the mouse (8th and 9th mouse button).</string>
+                <string>Swap the two history navigation buttons on the mouse, if present.</string>
             </property>
         </widget>
         <widget class="TQGroupBox">
