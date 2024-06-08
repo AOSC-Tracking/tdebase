@@ -160,33 +160,16 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     connect( tab1->doubleClick, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotClick() ) );
     connect( tab1->cbAutoSelect, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotClick() ) );
 
-    // Only allow setting reversing scroll polarity if we have scroll buttons
     unsigned char map[20];
     int buttonCount = XGetPointerMapping(kapp->getDisplay(), map, 20);
-    if ( buttonCount >= 5 )
-    {
-      tab1->cbScrollPolarity->setEnabled( true );
-      tab1->cbScrollPolarity->show();
-    }
-    else
-    {
-      tab1->cbScrollPolarity->setEnabled( false );
-      tab1->cbScrollPolarity->hide();
-    }
+
+    // Only allow setting reversing scroll polarity if we have scroll buttons
+    tab1->cbScrollPolarity->setEnabled(buttonCount >= 5);
     connect(tab1->cbScrollPolarity, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
     connect(tab1->cbScrollPolarity, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotScrollPolarityChanged()));
 
     // Only allow setting reversing history buttons (8, 9) if we have actually have them
-    if ( buttonCount >= 9 )
-    {
-      tab1->cbRevHistButtons->setEnabled( true );
-      tab1->cbRevHistButtons->show();
-    }
-    else
-    {
-      tab1->cbRevHistButtons->setEnabled( false );
-      tab1->cbRevHistButtons->hide();
-    }
+    tab1->cbRevHistButtons->setEnabled(buttonCount >= 9);
     connect(tab1->cbRevHistButtons, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
     connect(tab1->cbRevHistButtons, TQ_SIGNAL(clicked()), this, TQ_SLOT(slotRevHistButtonsChanged()));
 
