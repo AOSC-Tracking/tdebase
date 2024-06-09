@@ -689,12 +689,24 @@ KSMServer::KSMServer( const TQString& windowManager, const TQString& windowManag
     connect( &restoreTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( tryRestoreNext() ) );
     connect( &shutdownTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( timeoutQuit() ) );
     connect( kapp, TQ_SIGNAL( shutDown() ), this, TQ_SLOT( cleanUp() ) );
+
+    reconfigure();
 }
 
 KSMServer::~KSMServer()
 {
     the_server = 0;
     cleanUp();
+}
+
+void KSMServer::reconfigure()
+{
+    // respect lock on resume & disable suspend/hibernate settings
+    // from power-manager
+    TDEConfig cfg("power-managerrc");
+    m_disableSuspend = cfg.readBoolEntry("disableSuspend", false);
+    m_disableHibernate = cfg.readBoolEntry("disableHibernate", false);
+    m_lockOnResume = cfg.readBoolEntry("lockOnResume", true);
 }
 
 void KSMServer::cleanUp()
@@ -919,6 +931,27 @@ void KSMServer::storeSession()
     config->sync();
 }
 
+TQStringList KSMServer::suspendOptions()
+{
+    TQStringList sopt;
+
+#ifdef WITH_TDEHWLIB
+    TDERootSystemDevice* rootDevice = hwDevices->rootSystemDevice();
+    if (rootDevice->canFreeze() && !m_disableSuspend)
+        sopt << "freeze";
+
+    if (rootDevice->canSuspend() && !m_disableSuspend)
+        sopt << "suspend";
+
+    if (rootDevice->canHibernate() && !m_disableHibernate)
+        sopt << "hibernate";
+
+    if (rootDevice->canHybridSuspend() && !m_disableSuspend && !m_disableHibernate)
+        sopt << "hybridSuspend";
+#endif
+
+    return sopt;
+}
 
 TQStringList KSMServer::sessionList()
 {

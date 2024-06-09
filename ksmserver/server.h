@@ -37,6 +37,17 @@ class KSMListener;
 class KSMConnection;
 class KSMClient;
 
+namespace SuspendType {
+    enum SuspendType {
+        NotSpecified = 0,
+        Freeze,
+        Standby, // not implemented
+        Suspend,
+        Hibernate,
+        HybridSuspend
+    };
+};
+
 enum SMType { SM_ERROR, SM_WMCOMMAND, SM_WMSAVEYOURSELF };
 struct SMData
     {
@@ -103,6 +114,7 @@ public:
 
 public slots:
     void cleanUp();
+    void reconfigure();
 
 private slots:
     void newConnection( int socket );
@@ -172,6 +184,8 @@ private:
 			   TDEApplication::ShutdownMode sdmode,
 			   TQString bootOption = TQString::null );
 
+    void suspendInternal(int state);
+
     void performLegacySessionSave();
     void storeLegacySession( TDEConfig* config );
     void restoreLegacySession( TDEConfig* config );
@@ -186,12 +200,14 @@ private:
     void resumeStartupInternal();
 
     // public dcop interface
-    void logout( int, int, int );
-    virtual void logoutTimed( int, int, TQString );
+    void logout(int, int, int);
+    virtual void logoutTimed(int, int, TQString);
+    bool suspend(int);
+    TQStringList suspendOptions();
     TQStringList sessionList();
     TQString currentSession();
     void saveCurrentSession();
-    void saveCurrentSessionAs( TQString );
+    void saveCurrentSessionAs(TQString);
 
     TQWidget* startupNotifierIPDlg;
     TQWidget* shutdownNotifierIPDlg;
@@ -239,6 +255,10 @@ private:
     TDEApplication::ShutdownConfirm pendingShutdown_confirm;
     TDEApplication::ShutdownType pendingShutdown_sdtype;
     TDEApplication::ShutdownMode pendingShutdown_sdmode;
+
+    bool m_disableSuspend;
+    bool m_disableHibernate;
+    bool m_lockOnResume;
 
     // ksplash interface
     void upAndRunning( const TQString& msg );
