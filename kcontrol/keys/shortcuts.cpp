@@ -41,6 +41,7 @@
 #include <tdeshortcutlist.h>
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
+#include <dcopref.h>
 
 ShortcutsModule::ShortcutsModule( TQWidget *parent, const char *name )
 : TQWidget( parent, name )

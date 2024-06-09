@@ -113,7 +113,7 @@ bool KRootWidget::eventFilter ( TQObject *, TQEvent * e )
      else if ( e->type() == TQEvent::Drop )
      {
        TQDropEvent* de = static_cast<TQDropEvent*>( e );
-       if ( KColorDrag::canDecode( de ) ) 
+       if ( KColorDrag::canDecode( de ) )
          emit colorDropEvent( de );
        else if ( TQImageDrag::canDecode( de ) )
          emit imageDropEvent( de );
@@ -215,7 +215,7 @@ KDesktop::initRoot()
   Display *dpy = tqt_xdisplay();
   Window root = RootWindow(dpy, kdesktop_screen_number);
   XDefineCursor(dpy, root, cursor().handle());
-  
+
   m_bDesktopEnabled = KDesktopSettings::desktopEnabled();
   if ( !m_bDesktopEnabled && !m_pRootWidget )
   {
@@ -1062,6 +1062,30 @@ void KDesktop::slotRebootNoCnf()
 {
     logout( TDEApplication::ShutdownConfirmNo,
             TDEApplication::ShutdownTypeReboot );
+}
+
+void KDesktop::slotFreeze()
+{
+    DCOPRef r("ksmserver", "ksmserver");
+    r.send("suspend", 1);
+}
+
+void KDesktop::slotSuspend()
+{
+    DCOPRef r("ksmserver", "ksmserver");
+    r.send("suspend", 3);
+}
+
+void KDesktop::slotHibernate()
+{
+    DCOPRef r("ksmserver", "ksmserver");
+    r.send("suspend", 4);
+}
+
+void KDesktop::slotHybridSuspend()
+{
+    DCOPRef r("ksmserver", "ksmserver");
+    r.send("suspend", 5);
 }
 
 void KDesktop::setVRoot( bool enable )

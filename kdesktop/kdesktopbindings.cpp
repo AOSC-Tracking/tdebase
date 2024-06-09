@@ -49,6 +49,27 @@
 	}
 #endif
 
+    // Only add these options if supported by ksmserver
+    DCOPRef ksmref("ksmserver", "ksmserver");
+    DCOPReply reply = ksmref.call("suspendOptions");
+
+    TQStringList suspendOptions;
+    if (reply.isValid()) {
+        reply.get(suspendOptions);
+    }
+
+    if (suspendOptions.contains("freeze"))
+        DEF( I18N_NOOP("Freeze"), TDEShortcut(), TDEShortcut(), slotFreeze() );
+
+    if (suspendOptions.contains("suspend"))
+        DEF( I18N_NOOP("Suspend"), TDEShortcut(TQString("XF86Sleep")), TDEShortcut(TQString("XF86Sleep")), slotSuspend() );
+
+    if (suspendOptions.contains("hibernate"))
+        DEF( I18N_NOOP("Hibernate"), TDEShortcut(), TDEShortcut(), slotHibernate() );
+
+    if (suspendOptions.contains("hybridSuspend"))
+        DEF( I18N_NOOP("Hybrid Suspend"), TDEShortcut(), TDEShortcut(), slotHybridSuspend() );
+
 #undef DEF
 #undef DEF2
 #undef WIN

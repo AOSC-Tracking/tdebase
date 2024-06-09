@@ -26,6 +26,7 @@
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <ksimpleconfig.h>
+#include <dcopref.h>
 
 #include "commandShortcuts.h"
 #include "main.h"
