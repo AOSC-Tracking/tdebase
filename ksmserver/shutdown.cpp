@@ -222,45 +222,13 @@ void KSMServer::shutdownInternal( TDEApplication::ShutdownConfirm confirm,
     if ( !logoutConfirmed ) {
         int selection;
         KSMShutdownFeedback::start(); // make the screen gray
-        logoutConfirmed =
-            KSMShutdownDlg::confirmShutdown( maysd, mayrb, sdtype, bopt, &selection );
+        logoutConfirmed = KSMShutdownDlg::confirmShutdown( maysd, mayrb, sdtype, bopt, &selection );
         // ###### We can't make the screen remain gray while talking to the apps,
         // because this prevents interaction ("do you want to save", etc.)
         // TODO: turn the feedback widget into a list of apps to be closed,
         // with an indicator of the current status for each.
         KSMShutdownFeedback::stop(); // make the screen become normal again
-        if (selection != SuspendType::NotSpecified) {
-		// respect lock on resume & disable suspend/hibernate settings
-		// from power-manager
-		TDEConfig config("power-managerrc");
-		bool lockOnResume = config.readBoolEntry("lockOnResume", true);
-		if (lockOnResume) {
-			TQCString replyType;
-			TQByteArray replyData;
-			// Block here until lock is complete
-			// If this is not done the desktop of the locked session will be shown after suspend/hibernate until the lock fully engages!
-			kapp->dcopClient()->call("kdesktop", "KScreensaverIface", "lock()", TQCString(""), replyType, replyData);
-		}
-#ifdef WITH_TDEHWLIB
-		TDERootSystemDevice* rootDevice = hwDevices->rootSystemDevice();
-		if (rootDevice) {
-			switch (selection) {
-				case SuspendType::Freeze:
-					rootDevice->setPowerState(TDESystemPowerState::Freeze);
-					break;
-				case SuspendType::Suspend:
-					rootDevice->setPowerState(TDESystemPowerState::Suspend);
-					break;
-				case SuspendType::Hibernate:
-					rootDevice->setPowerState(TDESystemPowerState::Hibernate);
-					break;
-				case SuspendType::HybridSuspend:
-					rootDevice->setPowerState(TDESystemPowerState::HybridSuspend);
-					break;
-			}
-		}
-#endif
-        }
+        suspend(selection);
     }
 
     if ( logoutConfirmed ) {
@@ -341,6 +309,66 @@ void KSMServer::shutdown( TDEApplication::ShutdownConfirm confirm,
     TDEApplication::ShutdownType sdtype, TDEApplication::ShutdownMode sdmode )
 {
     shutdownInternal( confirm, sdtype, sdmode );
+}
+
+void KSMServer::suspendInternal(int state)
+{
+    if (m_lockOnResume) {
+        TQCString replyType;
+        TQByteArray replyData;
+        // Block here until lock is complete
+        // If this is not done the desktop of the locked session will be shown after suspend/hibernate until the lock fully engages!
+        kapp->dcopClient()->call("kdesktop", "KScreensaverIface", "lock()", TQCString(""), replyType, replyData);
+    }
+
+    TDERootSystemDevice* rootDevice = hwDevices->rootSystemDevice();
+    rootDevice->setPowerState((TDESystemPowerState::TDESystemPowerState)state);
+}
+
+bool KSMServer::suspend(int stype)
+{
+    if (stype == SuspendType::NotSpecified)
+        return false;
+
+#ifdef WITH_TDEHWLIB
+    TDERootSystemDevice* rootDevice = hwDevices->rootSystemDevice();
+    if (rootDevice) {
+        switch (stype) {
+            case SuspendType::Freeze:
+                if (rootDevice->canFreeze() && !m_disableSuspend)
+                {
+                    suspendInternal(TDESystemPowerState::Freeze);
+                    return true;
+                }
+                break;
+
+            case SuspendType::Suspend:
+                if (rootDevice->canSuspend() && !m_disableSuspend)
+                {
+                    suspendInternal(TDESystemPowerState::Suspend);
+                    return true;
+                }
+                break;
+
+            case SuspendType::Hibernate:
+                if (rootDevice->canHibernate() && !m_disableHibernate)
+                {
+                    suspendInternal(TDESystemPowerState::Hibernate);
+                    return true;
+                }
+                break;
+
+            case SuspendType::HybridSuspend:
+                if (rootDevice->canHybridSuspend() && !m_disableSuspend && !m_disableHibernate)
+                {
+                    suspendInternal(TDESystemPowerState::HybridSuspend);
+                    return true;
+                }
+                break;
+        }
+    }
+#endif
+    return false;
 }
 
 #include <tdemessagebox.h>

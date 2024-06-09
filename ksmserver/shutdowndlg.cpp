@@ -11,6 +11,7 @@ Copyright (C) 2000 Matthias Ettrich <ettrich@kde.org>
 #endif
 
 #include "shutdowndlg.h"
+#include "server.h"
 
 #include <tqapplication.h>
 #include <tqlayout.h>
@@ -804,7 +805,6 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 		TDEConfig config("power-managerrc");
 		bool disableSuspend = config.readBoolEntry("disableSuspend", false);
 		bool disableHibernate = config.readBoolEntry("disableHibernate", false);
-		m_lockOnResume = config.readBoolEntry("lockOnResume", true);
 
 		bool canFreeze = false;
 		bool canSuspend = false;
@@ -892,7 +892,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				hbuttonbox->addWidget ( btnHybridSuspend );
 				connect(btnHybridSuspend, TQ_SIGNAL(clicked()), TQ_SLOT(slotHybridSuspend()));
 			}
-			
+
 			// Separator (within buttonlay)
 			vbox->addWidget( new KSeparator( frame ) );
 
@@ -1065,7 +1065,7 @@ KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 				buttonlay->addWidget( btnHybridSuspend );
 				connect(btnHybridSuspend, TQ_SIGNAL(clicked()), TQ_SLOT(slotHybridSuspend()));
 			}
-			
+
 			buttonlay->addStretch( 1 );
 
 			// Separator

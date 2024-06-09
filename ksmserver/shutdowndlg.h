@@ -34,17 +34,6 @@ class TDEAction;
 
 #include <config.h>
 
-namespace SuspendType {
-enum SuspendType {
-	NotSpecified = 0,
-	Freeze,
-	Standby,
-	Suspend,
-	Hibernate,
-	HybridSuspend
-};
-};
-
 // The (singleton) widget that makes/fades the desktop gray.
 class KSMShutdownFeedback : public TQWidget
 {
@@ -149,7 +138,6 @@ private:
 	TQString m_bootOption;
 	TQPopupMenu *targets;
 	TQStringList rebootOptions;
-	bool m_lockOnResume;
 	int* m_selection;
 };
 
