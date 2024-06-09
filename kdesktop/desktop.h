@@ -135,6 +135,10 @@ private slots:
   void slotLogoutNoCnf();
   void slotHaltNoCnf();
   void slotRebootNoCnf();
+  void slotFreeze();
+  void slotSuspend();
+  void slotHibernate();
+  void slotHybridSuspend();
 
   /** Connected to KSycoca */
   void slotDatabaseChanged();
