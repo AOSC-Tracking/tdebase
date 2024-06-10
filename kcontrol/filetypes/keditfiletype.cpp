@@ -28,6 +28,9 @@
 #include <tdecmdlineargs.h>
 #include <tdesycoca.h>
 #include <kstandarddirs.h>
+#include <tdemessagebox.h>
+
+#include <stdlib.h>
 
 #ifdef TQ_WS_X11
 #include <X11/Xlib.h>
@@ -131,7 +134,7 @@ int main(int argc, char ** argv)
   bool createType = arg.startsWith( "*" );
 
   KMimeType::Ptr mime;
-  
+
   if ( createType ) {
     TQString mimeString = "application/x-kdeuser%1";
     TQString loc;
@@ -152,10 +155,40 @@ int main(int argc, char ** argv)
     }
     mime = new KMimeType( loc, mimeString.arg( inc ), TQString::null, comment, patterns );
   }
-  else { 
-    mime = KMimeType::mimeType( arg );
-  if (!mime)
-      kdFatal() << "Mimetype " << arg << " not found" << endl;
+  else {
+    // The user has explicitly requested application/octet-stream
+    if (arg == KMimeType::defaultMimeType())
+    {
+        int res = KMessageBox::warningYesNo(nullptr, i18n(
+            "<qt>You are about to edit the fallback filetype for unknown/binary files."
+            "<br><br>This is not something you should normally do unless you know exactly"
+            " what you are doing."
+            "<br>Incautious editing of this file type may cause unexpected behaviour of"
+            " your system."
+            "<br><br>Are you sure you want to continue?</qt>"
+        ));
+
+        if (res != KMessageBox::Yes)
+        {
+            kdWarning() << "Editing of default fallback mime type prevented." << endl;
+            ::exit(0);
+        }
+
+        mime = KMimeType::defaultMimeTypePtr();
+    }
+
+    // The user has NOT explicitly requested it, so if KMimeType::mimeType(...)
+    // returns it, then it's safe to assume that the mimetype is incorrect.
+    else
+    {
+        mime = KMimeType::mimeType( arg );
+        if (mime == KMimeType::defaultMimeTypePtr())
+        {
+            KMessageBox::error(nullptr, i18n("Mimetype %1 not found!").arg(arg));
+            kdError() << "Mimetype " << arg << " not found" << endl;
+            ::exit(1);
+        }
+    }
   }
 
   FileTypeDialog dlg( mime, createType );
@@ -169,7 +202,7 @@ int main(int argc, char ** argv)
 #endif
   args->clear();
   if ( !createType )
-  dlg.setCaption( i18n("Edit File Type %1").arg(mime->name()) );
+    dlg.setCaption( i18n("Edit File Type %1").arg(mime->name()) );
   else {
     dlg.setCaption( i18n("Create New File Type %1").arg(mime->name()) );
     dlg.enableButton( KDialogBase::Apply, true );
