@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Sergio Ricardo Vicari <sercari@gmail.com>, 2020.
+# Alejo Fernández <alejofernandez@hotmail.com.ar>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-02 18:13+0000\n"
-"PO-Revision-Date: 2020-11-11 19:33+0000\n"
-"Last-Translator: Sergio Ricardo Vicari <sercari@gmail.com>\n"
+"PO-Revision-Date: 2024-06-23 16:10+0000\n"
+"Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
 "Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/color-schemes/es_AR/>\n"
 "Language: es_AR\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: AtlasGreen.kcsrc:3
@@ -65,7 +66,7 @@ msgstr "EveX"
 #. Name
 #: Human.kcsrc:2
 msgid "Human"
-msgstr ""
+msgstr "Humano"
 
 #. Name
 #: KDEOne.kcsrc:2
@@ -94,18 +95,19 @@ msgstr "Keramik Blanca"
 
 #. Name
 #: Last.fm.kcsrc:2
+#, fuzzy
 msgid "Last.fm"
-msgstr ""
+msgstr "Last.fm"
 
 #. Name
 #: Lizard.kcsrc:2
 msgid "Lizard"
-msgstr ""
+msgstr "Lagarto"
 
 #. Name
 #: MediaPeach.kcsrc:2
 msgid "Media Peach"
-msgstr ""
+msgstr "Color melocotón medio"
 
 #. Name
 #: Next.kcsrc:2
@@ -120,32 +122,34 @@ msgstr "Gris pálido"
 #. Name
 #: Plastik.kcsrc:2
 msgid "Plastik"
-msgstr ""
+msgstr "Plástiko"
 
 #. Name
 #: Platinum.kcsrc:2
 msgid "Platinum"
-msgstr ""
+msgstr "Platinum"
 
 #. Name
 #: PointReyesGreen.kcsrc:2
 msgid "Point Reyes Green"
-msgstr ""
+msgstr "Verde Point Reyes"
 
 #. Name
 #: Pumpkin.kcsrc:3
 msgid "Pumpkin"
-msgstr ""
+msgstr "Calabaza"
 
 #. Name
 #: Sienna.kcsrc:2
+#, fuzzy
 msgid "Sienna"
-msgstr ""
+msgstr "Sienna"
 
 #. Name
 #: SolarisCDE.kcsrc:2
+#, fuzzy
 msgid "Solaris"
-msgstr ""
+msgstr "Solaris"
 
 #. Name
 #: Storm.kcsrc:3
@@ -159,8 +163,9 @@ msgstr "Sistema"
 
 #. Name
 #: WedgieWeb.kcsrc:2
+#, fuzzy
 msgid "WedgieWeb"
-msgstr ""
+msgstr "WedgieWeb"
 
 #. Name
 #: WhiteOnBlack.kcsrc:2
@@ -169,18 +174,21 @@ msgstr "Texto blanco de alto contraste"
 
 #. Name
 #: Windows2000.kcsrc:2
+#, fuzzy
 msgid "Redmond 2000"
-msgstr ""
+msgstr "Redmond 2000"
 
 #. Name
 #: Windows95.kcsrc:3
+#, fuzzy
 msgid "Redmond 95"
-msgstr ""
+msgstr "Redmond 95"
 
 #. Name
 #: WindowsXP.kcsrc:2
+#, fuzzy
 msgid "Redmond XP"
-msgstr ""
+msgstr "Redmond XP"
 
 #. Name
 #: YellowOnBlue.kcsrc:2
