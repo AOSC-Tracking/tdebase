@@ -1,126 +1,130 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Slávek Banko <slavek.banko@axis.cz>, 2024.
+# Alejo Fernández <alejofernandez@hotmail.com.ar>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-06-24 19:10+0000\n"
+"Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
+"Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/klipper-desktop-files/es_AR/>\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: klipper.desktop:2
 msgid "Klipper"
-msgstr ""
+msgstr "Klipper"
 
 #. GenericName
 #: klipper.desktop:4
 msgid "Clipboard Tool"
-msgstr ""
+msgstr "Herramienta de portapapeles"
 
 #. Comment
 #: klipper.desktop:6
 msgid "A cut & paste history utility"
-msgstr ""
+msgstr "Una utilidad de historial de cortar y pegar"
 
 #. Description
 #: klipperrc.desktop:9
 msgid "Jpeg-Image"
-msgstr ""
+msgstr "Imagen Jpeg"
 
 #. Description
 #: klipperrc.desktop:14
 msgid "Launch K&View"
-msgstr ""
+msgstr "Lanzar K&View"
 
 #. Description
 #: klipperrc.desktop:19
 msgid "Web-URL"
-msgstr ""
+msgstr "URL Web"
 
 #. Description
 #: klipperrc.desktop:24 klipperrc.desktop:116
 msgid "Open with &Konqueror"
-msgstr ""
+msgstr "Abrir con &Konqueror"
 
 #. Description
 #: klipperrc.desktop:29 klipperrc.desktop:126
 msgid "Open with &Mozilla"
-msgstr ""
+msgstr "Abrir con &Mozilla"
 
 #. Description
 #: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
 #: klipperrc.desktop:131
 msgid "Send &URL"
-msgstr ""
+msgstr "Enviar &URL"
 
 #. Description
 #: klipperrc.desktop:40
 msgid "Open with &Firefox"
-msgstr ""
+msgstr "Abrir con &Firefox"
 
 #. Description
 #: klipperrc.desktop:46
 msgid "Send &Page"
-msgstr ""
+msgstr "Enviar &Página"
 
 #. Description
 #: klipperrc.desktop:51
 msgid "Mail-URL"
-msgstr ""
+msgstr "URL de correo"
 
 #. Description
 #: klipperrc.desktop:56
 msgid "Launch &Kmail"
-msgstr ""
+msgstr "Lanzar &Kmail"
 
 #. Description
 #: klipperrc.desktop:61
 msgid "Launch &mutt"
-msgstr ""
+msgstr "Lanzar &mutt"
 
 #. Description
 #: klipperrc.desktop:66
 msgid "Text File"
-msgstr ""
+msgstr "Archivo de texto"
 
 #. Description
 #: klipperrc.desktop:71
 msgid "Launch K&Edit"
-msgstr ""
+msgstr "Lanzar K&Edit"
 
 #. Description
 #: klipperrc.desktop:76
 msgid "Launch K&Write"
-msgstr ""
+msgstr "Lanzar K&Write"
 
 #. Description
 #: klipperrc.desktop:81
 msgid "Local file URL"
-msgstr ""
+msgstr "URL de archivo local"
 
 #. Description
 #: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
 msgid "Send &File"
-msgstr ""
+msgstr "Enviar &Archivo"
 
 #. Description
 #: klipperrc.desktop:96
 msgid "Gopher URL"
-msgstr ""
+msgstr "URL de Gopher"
 
 #. Description
 #: klipperrc.desktop:111
 msgid "ftp URL"
-msgstr ""
+msgstr "URL de ftp"
 
 #. Description
 #: klipperrc.desktop:121
 msgid "Open with &Netscape"
-msgstr ""
+msgstr "Abrir con &Netscape"

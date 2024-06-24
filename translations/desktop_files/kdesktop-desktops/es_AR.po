@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# Slávek Banko <slavek.banko@axis.cz>, 2024.
+# Alejo Fernández <alejofernandez@hotmail.com.ar>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-17 18:15+0000\n"
+"PO-Revision-Date: 2024-06-24 19:10+0000\n"
+"Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
+"Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/kdesktop-desktop-files/es_AR/>\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. Name
+#: kdesktop.desktop.cmake:10
+#, fuzzy
+msgid "TDE Desktop"
+msgstr "Escritorio de TDE"
+
+#. X-TDE-Submenu
+#: kdesktopSetAsBackground.desktop:4
+#, fuzzy
+msgid "Set as Background"
+msgstr "Establecer como fondo"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:7
+#, fuzzy
+msgid "Centered"
+msgstr "Centrado"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:12
+#, fuzzy
+msgid "Tiled"
+msgstr "Mosaico"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:17
+msgid "Center Tiled"
+msgstr "Centrado azulejo"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:22
+msgid "Centered Maxpect"
+msgstr "Centrado Maxspecto"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:27
+msgid "Tiled Maxpect"
+msgstr "Azulejo Maxpect"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:32
+msgid "Scaled"
+msgstr "Escalado"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:37
+msgid "Centered Auto Fit"
+msgstr "Centrado (Automático)"
+
+#. Name
+#: kdesktopSetAsBackground.desktop:42
+msgid "Scale & Crop"
+msgstr "Escalar y recortar"
+
+#. Comment
+#: kwebdesktop/kwebdesktop.desktop:2
+#, fuzzy
+msgid "TDE Web Desktop"
+msgstr "Escritorio Web para TDE"
+
+#. Comment
+#: patterns/fish.desktop:2
+#, fuzzy
+msgid "Fish Net"
+msgstr "Red de pesca"
+
+#. Comment
+#: patterns/flowers.desktop:2
+#, fuzzy
+msgid "Flowers"
+msgstr "Flores"
+
+#. Comment
+#: patterns/night-rock.desktop:2
+#, fuzzy
+msgid "Night Rock by Tigert"
+msgstr "Roca de noche de Tigert"
+
+#. Comment
+#: patterns/pavement.desktop:2
+#, fuzzy
+msgid "Pavement"
+msgstr "Pavimento"
+
+#. Comment
+#: patterns/rattan.desktop:2
+#, fuzzy
+msgid "Rattan"
+msgstr "Rota (planta)"
+
+#. Comment
+#: patterns/stonewall2.desktop:2
+#, fuzzy
+msgid "Stonewall 2 by Tigert"
+msgstr "Pared de piedra 2 de Tigert"
+
+#. Comment
+#: patterns/triangles.desktop:2
+#, fuzzy
+msgid "Triangles"
+msgstr "Triángulos"
+
+#. Comment
+#: programs/xearth.desktop:2
+#, fuzzy
+msgid "XEarth by Kirk Johnson"
+msgstr "XEarth de Kirk Johnson"
+
+#. Comment
+#: programs/xglobe.desktop:2
+#, fuzzy
+msgid "XGlobe by Thorsten Scheuermann"
+msgstr "XGlobe por Thorsten Scheuermann"
+
+#. Comment
+#: programs/xplanet.desktop:2
+#, fuzzy
+msgid "XPlanet by Hari Nair"
+msgstr "XPlanet de Hari Nair"
