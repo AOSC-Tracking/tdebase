@@ -1,370 +1,374 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Slávek Banko <slavek.banko@axis.cz>, 2024.
+# Alejo Fernández <alejofernandez@hotmail.com.ar>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 16:24+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-06-24 19:10+0000\n"
+"Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
+"Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/kicker-desktop-files/es_AR/>\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: applets/clock/clockapplet.desktop:4
 msgid "Clock"
-msgstr ""
+msgstr "Reloj"
 
 #. Comment
 #: applets/clock/clockapplet.desktop:6
 msgid "An analog and digital clock"
-msgstr ""
+msgstr "Reloj analógico/digital"
 
 #. Name
 #: applets/launcher/quicklauncher.desktop:3
 msgid "Quick Launcher"
-msgstr ""
+msgstr "Lanzador rápido"
 
 #. Comment
 #: applets/launcher/quicklauncher.desktop:5
 msgid "Directly access your frequently used applications"
-msgstr ""
+msgstr "Acceso directo a los programas usados más frecuentemente"
 
 #. Name
 #: applets/lockout/lockout.desktop:3
 msgid "Lock/Logout Buttons"
-msgstr ""
+msgstr "Botones de bloqueo/salida"
 
 #. Comment
 #: applets/lockout/lockout.desktop:5
 msgid "Adds buttons for locking screen and session logout"
-msgstr ""
+msgstr "Añade botones para bloquear la sesión y para salirse de ésta"
 
 #. Name
 #: applets/media/mediaapplet.desktop:3
 msgid "Storage Media"
-msgstr ""
+msgstr "Dispositivos de almacenamiento"
 
 #. Comment
 #: applets/media/mediaapplet.desktop:5
 msgid "Directly access your storage media"
-msgstr ""
+msgstr "Acceso directo a tus dispositivos de almacenamiento"
 
 #. Name
 #: applets/menu/menuapplet.desktop:4
 msgid "Menu"
-msgstr ""
+msgstr "Menú"
 
 #. Comment
 #: applets/menu/menuapplet.desktop:6
 msgid "Applet embedding standalone menubars"
-msgstr ""
+msgstr "Un applet que incluye barras de menú autónomas"
 
 #. Name
 #: applets/minipager/minipagerapplet.desktop:4
 msgid "Desktop Preview & Pager"
-msgstr ""
+msgstr "Paginador y previsualizador del escritorio"
 
 #. Comment
 #: applets/minipager/minipagerapplet.desktop:6
 msgid "Preview, manage and switch to multiple virtual desktops"
-msgstr ""
+msgstr "Previsualizar, gestionar y cambiar a múltiples escritorios virtuales"
 
 #. Name
 #: applets/naughty/naughtyapplet.desktop:3
 msgid "Runaway Process Catcher"
-msgstr ""
+msgstr "Capturador de procesos desbocados"
 
 #. Comment
 #: applets/naughty/naughtyapplet.desktop:5
 msgid "Detect and end broken processes which consume too much CPU time"
-msgstr ""
+msgstr "Detectar procesos rotos que consumen demasiado tiempo del procesador"
 
 #. Name
 #: applets/run/runapplet.desktop:3
 msgid "Run Command"
-msgstr ""
+msgstr "Ejecutar comando"
 
 #. Comment
 #: applets/run/runapplet.desktop:5
 msgid "Launch single commands without a terminal window"
-msgstr ""
+msgstr "Lanzar órdenes individuales sin ventana de terminal"
 
 #. Name
 #: applets/swallow/swallowapplet.desktop:3
 msgid "Swallow Applet"
-msgstr ""
+msgstr "Applet contenedor"
 
 #. Comment
 #: applets/swallow/swallowapplet.desktop:5
 msgid "The swallow panel applet"
-msgstr ""
+msgstr "El applet del panel contenedor"
 
 #. Name
 #: applets/systemtray/systemtrayapplet.desktop:3
 msgid "System Tray"
-msgstr ""
+msgstr "Bandeja del sistema"
 
 #. Comment
 #: applets/systemtray/systemtrayapplet.desktop:5
 msgid "The system tray panel applet"
-msgstr ""
+msgstr "La bandeja del sistema (applet del panel)"
 
 #. Name
 #: applets/taskbar/taskbarapplet.desktop:3
 msgid "Taskbar"
-msgstr ""
+msgstr "Barra de tareas"
 
 #. Comment
 #: applets/taskbar/taskbarapplet.desktop:5
 msgid "The default task bar for window management"
-msgstr ""
+msgstr "La barra de tareas predeterminada para gestionar las ventanas"
 
 #. Name
 #: applets/trash/trashapplet.desktop:3
 msgid "Trash"
-msgstr ""
+msgstr "Papelera de reciclaje"
 
 #. Comment
 #: applets/trash/trashapplet.desktop:5
 msgid "Displays the trashcan and allows files to be dropped onto it"
-msgstr ""
+msgstr "Muestra la papelera y permite tirar archivos en ella"
 
 #. Name
 #: extensions/dockbar/dockbarextension.desktop:2
 msgid "Dock Application Bar"
-msgstr ""
+msgstr "Barra para anclar aplicaciones"
 
 #. Comment
 #: extensions/dockbar/dockbarextension.desktop:4
 msgid "Dock application bar extension."
-msgstr ""
+msgstr "Extensión Barra para anclar programas."
 
 #. Name
 #: extensions/kasbar/kasbarextension.desktop:2
 msgid "KasBar"
-msgstr ""
+msgstr "KasBar"
 
 #. Comment
 #: extensions/kasbar/kasbarextension.desktop:4
 msgid "An alternative taskbar panel applet."
-msgstr ""
+msgstr "Barra de tareas alternativa (applets del panel)."
 
 #. Name
 #: extensions/sidebar/sidebarextension.desktop:2
 msgid "Universal Sidebar"
-msgstr ""
+msgstr "Barra lateral universal"
 
 #. Comment
 #: extensions/sidebar/sidebarextension.desktop:4
 msgid "Wrapper around Konqueror's navigation panel"
-msgstr ""
+msgstr "Envoltura para el panel de navegación de Konqueror"
 
 #. Name
 #: extensions/taskbar/taskbarextension.desktop:2
 msgid "External Taskbar"
-msgstr ""
+msgstr "Barra de tareas externa"
 
 #. Comment
 #: extensions/taskbar/taskbarextension.desktop:4
 msgid "External taskbar panel extension"
-msgstr ""
+msgstr "Extensión del panel con barra de tareas externa"
 
 #. Name
 #: kicker/buttons/bookmarks.desktop:2
 msgid "Bookmarks Menu"
-msgstr ""
+msgstr "Marcadores"
 
 #. Comment
 #: kicker/buttons/bookmarks.desktop:4
 msgid "Your Konqueror bookmarks"
-msgstr ""
+msgstr "Tus marcadores de Konqueror"
 
 #. Name
 #: kicker/buttons/browser.desktop:2
 msgid "Quick File Browser"
-msgstr ""
+msgstr "Navegador rápido de archivos"
 
 #. Comment
 #: kicker/buttons/browser.desktop:4
 msgid "A menu that lists files in a given folder"
-msgstr ""
+msgstr "Un menú que le muestra los archivos de una carpeta"
 
 #. Name
 #: kicker/buttons/desktop.desktop:2
 msgid "Show Desktop"
-msgstr ""
+msgstr "Mostrar escritorio"
 
 #. Comment
 #: kicker/buttons/desktop.desktop:4
 msgid "A button that gives quick access to the desktop when pressed"
-msgstr ""
+msgstr "Un botón que muestra rápidamente el escritorio al pulsarlo"
 
 #. Name
 #: kicker/buttons/exec.desktop:2
 msgid "Non-TDE Application Launcher"
-msgstr ""
+msgstr "Programas No-TDE"
 
 #. Comment
 #: kicker/buttons/exec.desktop:4
 msgid "A launcher for programs not in the TDE Menu"
-msgstr ""
+msgstr "Te permite ejecutar programas que no están en el Menu TDE"
 
 #. Name
 #: kicker/buttons/kmenu.desktop:2
 msgid "TDE Menu"
-msgstr ""
+msgstr "Menú de TDE"
 
 #. Comment
 #: kicker/buttons/kmenu.desktop:4
 msgid "Applications and common actions"
-msgstr ""
+msgstr "Programas y acciones comunes"
 
 #. Name
 #: kicker/buttons/windowlist.desktop:2
 msgid "Window List Menu"
-msgstr ""
+msgstr "Menú de la lista de ventanas"
 
 #. Comment
 #: kicker/buttons/windowlist.desktop:4
 msgid "A menu that lists all open windows"
-msgstr ""
+msgstr "Un menú que muestra todas las ventanas abiertas"
 
 #. Name
 #: kicker/core/childpanelextension.desktop:2
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #. Comment
 #: kicker/core/childpanelextension.desktop:4
 msgid "Child panel extension."
-msgstr ""
+msgstr "Extensión Panel hijo."
 
 #. Comment
 #: kicker/interfaces/kickoffsearchplugin.desktop:5
 msgid "A search plugin for Kickoff"
-msgstr ""
+msgstr "Un complemento de búsqueda para Kickoff"
 
 #. Name
 #: kicker/kcmkicker.desktop:10
 msgid "Configure the Panel"
-msgstr ""
+msgstr "Configuración del panel"
 
 #. Name
 #: kicker/panel.desktop:10
 msgid "Trinity Panel"
-msgstr ""
+msgstr "Panel de Trinity"
 
 #. Name
 #: menuext/find/find.desktop:2
 msgid "Find"
-msgstr ""
+msgstr "Buscar"
 
 #. Comment
 #: menuext/find/find.desktop:4
 msgid "Menu for starting a file or web search"
-msgstr ""
+msgstr "Menú para comenzar la búsqueda de un archivo o página/sitio web"
 
 #. Name
 #: menuext/find/kfind.desktop:11
 msgid "Find Files"
-msgstr ""
+msgstr "Encontrar archivos"
 
 #. Name
 #: menuext/find/websearch.desktop:8
 msgid "Web Search"
-msgstr ""
+msgstr "Búsqueda web"
 
 #. Name
 #: menuext/kate/katesessionmenu.desktop:2
 msgid "Kate Session Menu"
-msgstr ""
+msgstr "Menú de la sesión de Kate"
 
 #. Comment
 #: menuext/kate/katesessionmenu.desktop:4
 msgid "Allows you to open Kate with a specified session, or create a new one"
-msgstr ""
+msgstr "Te permite abrir Kate con una sesión específica, o crear una nueva"
 
 #. Name
 #: menuext/konq-profiles/konquerormenu.desktop:2
 msgid "Konqueror Profiles"
-msgstr ""
+msgstr "Perfiles de Konqueror"
 
 #. Comment
 #: menuext/konq-profiles/konquerormenu.desktop:4
 msgid "Menu for accessing the Konqueror profiles"
-msgstr ""
+msgstr "Menú para acceder a los perfiles de Konqueror"
 
 #. Name
 #: menuext/konsole/konsolemenu.desktop:2
 msgid "Terminal Sessions"
-msgstr ""
+msgstr "Sesiones de terminal"
 
 #. Comment
 #: menuext/konsole/konsolemenu.desktop:4
 msgid "Menu for starting a terminal emulator with a session or bookmark"
-msgstr ""
+msgstr "Menú para iniciar un emulador de terminal con una sesión o marcador"
 
 #. Name
 #: menuext/prefmenu/prefmenu.desktop:2
 msgid "Trinity Control Center"
-msgstr ""
+msgstr "Centro de control de Trinity"
 
 #. Comment
 #: menuext/prefmenu/prefmenu.desktop:4
 msgid "Trinity Control Center modules menu"
-msgstr ""
+msgstr "Menú de los módulos del Centro de control de Trinity"
 
 #. Name
 #: menuext/recentdocs/recentdocs.desktop:2
 msgid "Recent Documents"
-msgstr ""
+msgstr "Documentos recientes"
 
 #. Comment
 #: menuext/recentdocs/recentdocs.desktop:4
 msgid "Menu of documents you have used recently"
-msgstr ""
+msgstr "Menú de los documentos recientemente usados"
 
 #. Name
 #: menuext/remote/remotemenu.desktop:2
 msgid "Network Folders"
-msgstr ""
+msgstr "Carpetas de red"
 
 #. Comment
 #: menuext/remote/remotemenu.desktop:4
 msgid "Menu of network folders"
-msgstr ""
+msgstr "Menú de las carpetas de red"
 
 #. Name
 #: menuext/system/systemmenu.desktop:2
 msgid "System Menu"
-msgstr ""
+msgstr "Menú del sistema"
 
 #. Comment
 #: menuext/system/systemmenu.desktop:4
 msgid "Menu of important system places"
-msgstr ""
+msgstr "Menú de lugares importantes del sistema"
 
 #. Name
 #: menuext/tdeprint/printmenu.desktop:2
 msgid "Print System"
-msgstr ""
+msgstr "Sistema de impresión"
 
 #. Comment
 #: menuext/tdeprint/printmenu.desktop:4
 msgid "Menu for the print system"
-msgstr ""
+msgstr "Menú para el sistema de impresión"
 
 #. Name
 #: menuext/tom/tom.desktop:2
 msgid "TOM"
-msgstr ""
+msgstr "TOM"
 
 #. Comment
 #: menuext/tom/tom.desktop:4
 msgid "A task oriented menu system"
-msgstr ""
+msgstr "Un sistema de menú orientado a tareas"
