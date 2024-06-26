@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# Slávek Banko <slavek.banko@axis.cz>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-25 20:36+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: KBlankscreen.desktop:8
+msgid "Blank Screen"
+msgstr ""
+
+#. Name
+#: KBlankscreen.desktop:12 KRandom.desktop:12
+msgid "Setup..."
+msgstr ""
+
+#. Name
+#: KBlankscreen.desktop:17 KRandom.desktop:17
+msgid "Display in Specified Window"
+msgstr ""
+
+#. Name
+#: KBlankscreen.desktop:22 KRandom.desktop:22
+msgid "Display in Root Window"
+msgstr ""
+
+#. Name
+#: KRandom.desktop:8
+msgid "Random"
+msgstr ""

@@ -1,0 +1,30 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# Slávek Banko <slavek.banko@axis.cz>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-04 18:13+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: khotkeys.desktop:13
+msgid "Input Actions"
+msgstr ""
+
+#. Comment
+#: khotkeys.desktop:15
+msgid "Configure Hotkey settings"
+msgstr ""
+
+#. Keywords
+#: khotkeys.desktop:17
+msgid "Keys;Global key bindings;Key bindings;Gestures;Mouse gestures;"
+msgstr ""
