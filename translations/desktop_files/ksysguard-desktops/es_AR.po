@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# Slávek Banko <slavek.banko@axis.cz>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-21 20:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: gui/ksysguard.desktop:2
+msgid "KSysGuard"
+msgstr ""
+
+#. GenericName
+#: gui/ksysguard.desktop:4
+msgid "Performance Monitor"
+msgstr ""
+
+#. Name
+#: gui/ksysguardapplet.desktop:4
+msgid "System Guard"
+msgstr ""
+
+#. Comment
+#: gui/ksysguardapplet.desktop:6
+msgid "An advanced system monitor which allows TDE system guard displays"
+msgstr ""
+
+#. Comment
+#: gui/x-ksysguard.desktop:5
+msgid "TDE System Guard"
+msgstr ""
