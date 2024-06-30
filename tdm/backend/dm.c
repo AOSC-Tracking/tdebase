@@ -36,6 +36,13 @@ from the copyright holder.
 
 #include <tqglobal.h>
 
+#include <config.h>
+#ifdef HAVE_PTHREAD_SETNAME_NP
+#define _GNU_SOURCE
+#define __BSD_VISIBLE 1
+#include <pthread.h>
+#endif /* pthread_setname_np() */
+
 #include "dm.h"
 #include "dm_auth.h"
 #include "dm_error.h"
@@ -52,12 +59,6 @@ from the copyright holder.
 # include <sys/ioctl.h>
 # include <sys/vt.h>
 #endif
-
-#ifdef HAVE_PTHREAD_SETNAME_NP
-#define _GNU_SOURCE
-#define __BSD_VISIBLE 1
-#include <pthread.h>
-#endif /* pthread_setname_np() */
 
 // Limited by the number of VTs configured into the kernel or 256, whichever is less
 #define MAX_VT_NUMBER 48
