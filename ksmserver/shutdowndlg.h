@@ -18,7 +18,7 @@ Copyright (C) 2000 Matthias Ettrich <ettrich@kde.org>
 #include <kguiitem.h>
 #include <tqtoolbutton.h>
 #include <krootpixmap.h>
-#include <ntqprogressbar.h>
+#include <tqprogressbar.h>
 
 class TQPushButton;
 class TQVButtonGroup;

@@ -52,7 +52,7 @@
 #include <tdemessagebox.h>
 #include <kuser.h>
 #include <tqfile.h>
-#include <ntqthread.h>
+#include <tqthread.h>
 #include <tqeventloop.h>
 
 #include "krootwm.h"
