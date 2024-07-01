@@ -14,7 +14,7 @@
 #include <tqptrlist.h>
 #include <tqtimer.h>
 #include <tqmap.h>
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 #include "khotkeysglobal.h"
 #include "voicesignature.h"

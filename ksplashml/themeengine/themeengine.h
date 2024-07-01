@@ -16,7 +16,7 @@
 #include <tqvbox.h>
 #include <tqwidget.h>
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 class TDEConfig;
 class ObjKsTheme;

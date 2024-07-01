@@ -27,7 +27,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqmap.h>
 #include <tqobject.h>
 #include <tqstringlist.h>
-#include <kdemacros.h>
+#include <tdemacros.h>
 #include <kstaticdeleter.h>
 
 #include "appletinfo.h"

@@ -22,7 +22,7 @@
 #ifndef __FX_DATA
 #define __FX_DATA
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 #define SHADOW_CONFIG_ENTRY TQString("ShadowParameters")
 #define SHADOW_TEXT_COLOR TQString("ShadowTextColor")

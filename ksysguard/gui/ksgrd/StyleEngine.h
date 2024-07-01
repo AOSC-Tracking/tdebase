@@ -28,7 +28,7 @@
 #include <tqobject.h>
 #include <tqptrlist.h>
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 class TDEConfig;
 

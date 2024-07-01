@@ -57,7 +57,7 @@
 
 #include "kasbar.h"
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 #include <taskmanager.h>
 
 class TDEConfig;

@@ -3,7 +3,7 @@
 
 #include "kasitem.h"
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 /**
  * An item that displays the system load.

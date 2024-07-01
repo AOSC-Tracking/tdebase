@@ -22,7 +22,7 @@
 
 #include <tqmemarray.h>
 #include <tqstring.h>
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 /**
 @author Olivier Goffart

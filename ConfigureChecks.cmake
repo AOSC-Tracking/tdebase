@@ -144,7 +144,7 @@ endif( NOT HAVE_CRYPT )
 if( WITH_TDEHWLIB )
   tde_save_and_set( CMAKE_REQUIRED_INCLUDES "${TDE_INCLUDE_DIR}" )
   check_cxx_source_compiles( "
-    #include <kdemacros.h>
+    #include <tdemacros.h>
       #ifndef __TDE_HAVE_TDEHWLIB
       #error tdecore is not build with tdehwlib
       #endif
