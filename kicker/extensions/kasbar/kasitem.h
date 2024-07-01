@@ -64,7 +64,7 @@ class KasPopup;
 #include <tqvaluevector.h>
 #include <tqapplication.h>
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 #include "kasbar.h"
 

@@ -26,7 +26,7 @@
 #include <tqobject.h>
 #include <kurl.h>
 #include <kservice.h>
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 typedef enum {
     ACTIONS = 0,

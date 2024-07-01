@@ -22,7 +22,7 @@
 
 #include <tqobject.h>
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 class HitMenuItem;
 

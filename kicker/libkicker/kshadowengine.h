@@ -28,7 +28,7 @@
 #include <tqimage.h>
 #include <tqcolor.h>
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 class KShadowSettings;
 

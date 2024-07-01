@@ -26,7 +26,7 @@
 
 #include <tqvariant.h>
 #include <tqmessagebox.h>
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 class KdmThemer;
 

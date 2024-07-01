@@ -22,7 +22,7 @@
 #define LIBKONQ_EXPORT_H
 
 /* needed for TDE_EXPORT macros */
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 /* needed, because e.g. Q_OS_UNIX is so frequently used */
 #include <tqglobal.h>

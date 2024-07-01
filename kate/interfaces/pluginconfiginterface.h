@@ -19,7 +19,7 @@
 #ifndef __kate_pluginconfiginterface_h__
 #define __kate_pluginconfiginterface_h__
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 namespace Kate
 {

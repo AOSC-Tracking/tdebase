@@ -20,7 +20,7 @@
 #include <tqimage.h>
 #include <tqfile.h>
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 #include "cursorcreator.h"
 

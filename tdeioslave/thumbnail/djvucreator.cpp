@@ -39,7 +39,7 @@
 #include <tqfile.h>
 #include <tqimage.h>
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 #include "djvucreator.h"
 

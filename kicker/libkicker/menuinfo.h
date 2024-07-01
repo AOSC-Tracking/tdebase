@@ -26,7 +26,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <tqstring.h>
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 class KPanelMenu;
 class TQWidget;

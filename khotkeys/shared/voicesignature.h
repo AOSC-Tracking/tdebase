@@ -23,7 +23,7 @@
 
 #include <tqmemarray.h>
 #include <tqmap.h>
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 class Sound;
 class TDEConfigBase;

@@ -24,7 +24,7 @@
 #include <tqbutton.h>
 #include <tqpixmap.h>
 
-#include <kdemacros.h>
+#include <tdemacros.h>
 
 class TDE_EXPORT SimpleButton : public TQButton
 {
