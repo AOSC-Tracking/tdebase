@@ -933,6 +933,8 @@ void KSMServer::storeSession()
 
 TQStringList KSMServer::suspendOptions()
 {
+    reconfigure();
+
     TQStringList sopt;
 
 #ifdef WITH_TDEHWLIB
