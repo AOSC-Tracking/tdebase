@@ -330,6 +330,8 @@ bool KSMServer::suspend(int stype)
     if (stype == SuspendType::NotSpecified)
         return false;
 
+    reconfigure();
+
 #ifdef WITH_TDEHWLIB
     TDERootSystemDevice* rootDevice = hwDevices->rootSystemDevice();
     if (rootDevice) {
