@@ -11,4 +11,4 @@ Type=Application
 Terminal=false
 X-TDE-InitialPreference=8
 X-DCOP-ServiceType=Multi
-Categories=Qt;TDE;TextEditor;
+Categories=Qt;TDE;Utility;TextEditor;
