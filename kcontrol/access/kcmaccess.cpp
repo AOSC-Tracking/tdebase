@@ -320,7 +320,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   hbox->addSpacing(24);
 
   durationSlider = new ExtendedIntNumInput(grp);
-  durationSlider->setRange(100, 2000, 100);
+  durationSlider->setRange(10, 2000, 10);
   durationSlider->setLabel(i18n("Duration:"));
   durationSlider->setSuffix(i18n(" msec"));
   hbox->addWidget(durationSlider);
@@ -424,7 +424,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   hbox->addSpacing(24);
   slowKeysDelay = new ExtendedIntNumInput(grp);
   slowKeysDelay->setSuffix(i18n(" msec"));
-  slowKeysDelay->setRange(50, 10000, 100);
+  slowKeysDelay->setRange(10, 10000, 10);
   slowKeysDelay->setLabel(i18n("Acceptance dela&y:"));
   hbox->addWidget(slowKeysDelay);
 
@@ -456,7 +456,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   hbox->addSpacing(24);
   bounceKeysDelay = new ExtendedIntNumInput(grp);
   bounceKeysDelay->setSuffix(i18n(" msec"));
-  bounceKeysDelay->setRange(100, 5000, 100);
+  bounceKeysDelay->setRange(10, 5000, 10);
   bounceKeysDelay->setLabel(i18n("D&ebounce time:"));
   hbox->addWidget(bounceKeysDelay);
 
@@ -513,7 +513,7 @@ KAccessConfig::KAccessConfig(TQWidget *parent, const char *)
   hbox->addSpacing(24);
   timeoutDelay = new KIntNumInput(grp);
   timeoutDelay->setSuffix(i18n(" min"));
-  timeoutDelay->setRange(1, 30, 4);
+  timeoutDelay->setRange(1, 30, 1);
   timeoutDelay->setLabel(i18n("Timeout:"));
   hbox->addWidget(timeoutDelay);
 

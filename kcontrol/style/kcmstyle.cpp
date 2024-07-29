@@ -197,7 +197,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 
 	m_popupMenuDelay = new KIntNumInput(250, gbWidgetStyle);
 	m_popupMenuDelay->setLabel(i18n("Menu popup delay:"));
-	m_popupMenuDelay->setRange(0, 5000, 50);
+	m_popupMenuDelay->setRange(0, 5000, 10);
 	m_popupMenuDelay->setSuffix(i18n(" msec"));
 	m_popupMenuDelay->setSteps(50, 50);
 	gbWidgetStyleLayout->addWidget(m_popupMenuDelay);
