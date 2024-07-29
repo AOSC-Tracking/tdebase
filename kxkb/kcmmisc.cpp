@@ -61,15 +61,17 @@ KeyboardConfig::KeyboardConfig (TQWidget * parent, const char *)
   lay->addStretch();
 
   ui->click->setRange(0, 100, 10);
-  ui->delay->setRange(100, 5000, 50, false);
+  ui->delay->setRange(0, 5000, 10, false);
   ui->rate->setRange(5, 50, 5, false);
 
-  ui->delaySlider->setRange(1000, 50000);
+  // Values multiplied by 10 compated to the integer input field
+  ui->delaySlider->setRange(0, 50000);
   ui->delaySlider->setSteps(50, 500);
   ui->delaySlider->setTickInterval(2500);
 
+  // Values multiplied by 100 compated to the integer input field
   ui->rateSlider->setRange(500, 5000);
-  ui->rateSlider->setSteps(50, 500);
+  ui->rateSlider->setSteps(100, 500);
   ui->rateSlider->setTickInterval(500);
 
   connect(ui->repeatBox, TQ_SIGNAL(clicked()), this, TQ_SLOT(changed()));
