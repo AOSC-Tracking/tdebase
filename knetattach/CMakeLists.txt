@@ -9,6 +9,8 @@
 #
 #################################################
 
+add_subdirectory( tdeconf_update )
+
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
   ${TDE_INCLUDE_DIR}
