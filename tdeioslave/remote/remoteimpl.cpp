@@ -218,7 +218,8 @@ void RemoteImpl::createEntry(TDEIO::UDSEntry &entry,
 {
 	kdDebug(1220) << "RemoteImpl::createEntry" << endl;
 
-	KDesktopFile desktop(directory+file, true);
+	TQString desktopPath(directory + file);
+	KDesktopFile desktop(desktopPath, true);
 
 	kdDebug(1220) << "path = " << directory << file << endl;
 
@@ -237,6 +238,8 @@ void RemoteImpl::createEntry(TDEIO::UDSEntry &entry,
 
 	addAtom(entry, TDEIO::UDS_ICON_NAME, 0, icon);
 	addAtom(entry, TDEIO::UDS_LINK_DEST, 0, desktop.readURL());
+
+	addAtom(entry, TDEIO::UDS_LOCAL_PATH, 0, desktopPath);
 }
 
 bool RemoteImpl::statNetworkFolder(TDEIO::UDSEntry &entry, const TQString &filename) const
