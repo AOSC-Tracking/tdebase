@@ -38,7 +38,7 @@ void KNetAttach::setInformationText( const TQString &type )
     
     if (type=="WebFolder") {
 	text = i18n("Enter a name for this <i>WebFolder</i> as well as a server address, port and folder path to use and press the <b>Save & Connect</b> button.");
-    } else if (type=="Fish") {
+    } else if (type=="Fish"||type=="SFTP") {
 	text = i18n("Enter a name for this <i>Secure shell connection</i> as well as a server address, port and folder path to use and press the <b>Save & Connect</b> button.");
     } else if (type=="FTP") {
         text = i18n("Enter a name for this <i>File Transfer Protocol connection</i> as well as a server address and folder path to use and press the <b>Save & Connect</b> button.");
@@ -64,6 +64,10 @@ void KNetAttach::showPage( TQWidget *page )
 	    setInformationText("Fish");
 	    updateForProtocol("Fish");
 	    _port->setValue(22);
+    } else if (_sftp->isChecked()) {
+        setInformationText("SFTP");
+        updateForProtocol("SFTP");
+        _port->setValue(22);
 	} else if (_ftp->isChecked()) {
 	    setInformationText("FTP");
 	    updateForProtocol("FTP");
@@ -139,6 +143,9 @@ void KNetAttach::finished()
     } else if (_type == "Fish") {
 	url.setProtocol("fish");
 	url.setPort(_port->value());
+    } else if (_type == "SFTP") {
+        url.setProtocol("sftp");
+        url.setPort(_port->value());
     } else if (_type == "FTP") {
 	url.setProtocol("ftp");
 	url.setPort(_port->value());
@@ -207,7 +214,7 @@ void KNetAttach::finished()
 	}
 	recent.setGroup(name);
 	recent.writeEntry("URL", url.prettyURL());
-	if (_type == "WebFolder" || _type == "Fish" || _type == "FTP") {
+	if (_type == "WebFolder" || _type == "Fish" || _type == "SFTP" || _type == "FTP") {
 	    recent.writeEntry("Port", _port->value());
 	}
 	recent.writeEntry("Type", _type);
@@ -250,7 +257,7 @@ bool KNetAttach::updateForProtocol(const TQString& protocol)
 	_port->show();
 	_userText->show();
 	_user->show();
-    } else if (protocol == "Fish") {
+    } else if (protocol == "Fish" || protocol == "SFTP") {
 	_useEncryption->hide();
 	_portText->show();
 	_port->show();
