@@ -38,9 +38,10 @@ public:
 private:
 	void fillMenu(Task::Ptr);
 	void fillMenu();
-    TQPopupMenu* makeAdvancedMenu(Task::Ptr);
+	TQPopupMenu* makeAdvancedMenu(Task::Ptr);
 	TQPopupMenu* makeDesktopsMenu(Task::Ptr);
 	TQPopupMenu* makeDesktopsMenu();
+	TQPopupMenu* makeTileMenu(Task::Ptr);
 
 private slots:
 	void slotMinimizeAll();
@@ -48,8 +49,9 @@ private slots:
 	void slotRestoreAll();
 	void slotShadeAll();
 	void slotCloseAll();
-	void slotAllToDesktop( int desktop );
+	void slotAllToDesktop(int desktop);
 	void slotAllToCurrentDesktop();
+	void slotTileTo(int position);
 
 private:
 	Task::List tasks;

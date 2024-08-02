@@ -415,6 +415,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void writeWindowRules();
         void kipcMessage( int id, int data );
         void updateActiveBorders();
+        void tileCurrentWindowToBorder(int position);
         // kompmgr
         void setPopupClientOpacity(int v);
         void resetClientOpacity();
@@ -506,6 +507,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
 
         void calcDesktopLayout(int &x, int &y) const;
 
+        TQPopupMenu* makeTileMenu();
         TQPopupMenu* clientPopup();
         void closeActivePopup();
 
@@ -590,6 +592,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         TQPopupMenu *advanced_popup;
         TQPopupMenu *desk_popup;
         int desk_popup_index;
+        int tile_popup_index;
 
         TDEGlobalAccel *keys;
         TDEGlobalAccel *client_keys;
