@@ -423,6 +423,12 @@ public slots:
      */
     void updateThumbnail();
 
+    /**
+     * Tile the task's window to the specified position. The position is one of the
+     * valid value for ActiveBorder enum
+     */
+    void tileTo(int);
+
 signals:
     /**
      * Indicates that this task has changed in some way.

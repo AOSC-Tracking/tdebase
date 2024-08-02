@@ -68,8 +68,13 @@ void TaskRMBMenu::fillMenu(Task::Ptr t)
     int id;
     setCheckable(true);
 
-    insertItem(i18n("Ad&vanced"), makeAdvancedMenu(t));
     bool checkActions = KWin::allowedActionsSupported();
+
+    insertItem(i18n("Ad&vanced"), makeAdvancedMenu(t));
+
+    id = insertItem(i18n("T&ile"), makeTileMenu(t));
+    setItemEnabled(id, !checkActions ||
+            (t->info().actionSupported(NET::ActionMove) && t->info().actionSupported(NET::ActionResize)));
 
     if (TaskManager::the()->numberOfDesktops() > 1)
     {
@@ -280,6 +285,33 @@ TQPopupMenu* TaskRMBMenu::makeDesktopsMenu()
 	return m;
 }
 
+TQPopupMenu* TaskRMBMenu::makeTileMenu(Task::Ptr t)
+{
+    TQPopupMenu *m = new TQPopupMenu( this );
+
+    // Tile to side (the menu id matched the ActiveBorder index used for tiling)
+    int id = m->insertItem( i18n("&Left"), this, TQ_SLOT( slotTileTo(int) ) );
+    m->setItemParameter( id, 6 );
+    id = m->insertItem( i18n("&Right"), this, TQ_SLOT( slotTileTo(int) ) );
+    m->setItemParameter( id, 2 );
+    id = m->insertItem( i18n("&Top"), this, TQ_SLOT( slotTileTo(int) ) );
+    m->setItemParameter( id, 0 );
+    id = m->insertItem( i18n("&Bottom"), this, TQ_SLOT( slotTileTo(int) ) );
+    m->setItemParameter( id, 4 );
+
+    // Tile to corner (the menu id matched the ActiveBorder index used for tiling)
+    id = m->insertItem( i18n("Top &Left"), this, TQ_SLOT( slotTileTo(int) ) );
+    m->setItemParameter( id, 7 );
+    id = m->insertItem( i18n("Top &Right"), this, TQ_SLOT( slotTileTo(int) ) );
+    m->setItemParameter( id, 1 );
+    id = m->insertItem( i18n("Bottom L&eft"), this, TQ_SLOT( slotTileTo(int) ) );
+    m->setItemParameter( id, 5 );
+    id = m->insertItem( i18n("&Bottom R&ight"), this, TQ_SLOT( slotTileTo(int) ) );
+    m->setItemParameter( id, 3 );
+
+    return m;
+}
+
 void TaskRMBMenu::slotMinimizeAll()
 {
     Task::List::iterator itEnd = tasks.end();
@@ -340,5 +372,14 @@ void TaskRMBMenu::slotAllToCurrentDesktop()
     for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
     {
         (*it)->toCurrentDesktop();
+    }
+}
+
+void TaskRMBMenu::slotTileTo(int position)
+{
+    Task::List::iterator itEnd = tasks.end();
+    for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
+    {
+        (*it)->tileTo(position);
     }
 }

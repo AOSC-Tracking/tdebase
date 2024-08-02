@@ -44,6 +44,33 @@ namespace KWinInternal
 // Workspace
 //****************************************
 
+TQPopupMenu* Workspace::makeTileMenu()
+{
+    TQPopupMenu *m = new TQPopupMenu;
+
+    // Tile to side (the menu id matched the ActiveBorder index used for tiling)
+    int id = m->insertItem( i18n("&Left"), this, TQ_SLOT( tileCurrentWindowToBorder(int) ) );
+    m->setItemParameter( id, 6 );
+    id = m->insertItem( i18n("&Right"), this, TQ_SLOT( tileCurrentWindowToBorder(int) ) );
+    m->setItemParameter( id, 2 );
+    id = m->insertItem( i18n("&Top"), this, TQ_SLOT( tileCurrentWindowToBorder(int) ) );
+    m->setItemParameter( id, 0 );
+    id = m->insertItem( i18n("&Bottom"), this, TQ_SLOT( tileCurrentWindowToBorder(int) ) );
+    m->setItemParameter( id, 4 );
+
+    // Tile to corner (the menu id matched the ActiveBorder index used for tiling)
+    id = m->insertItem( i18n("Top &Left"), this, TQ_SLOT( tileCurrentWindowToBorder(int) ) );
+    m->setItemParameter( id, 7 );
+    id = m->insertItem( i18n("Top &Right"), this, TQ_SLOT( tileCurrentWindowToBorder(int) ) );
+    m->setItemParameter( id, 1 );
+    id = m->insertItem( i18n("Bottom L&eft"), this, TQ_SLOT( tileCurrentWindowToBorder(int) ) );
+    m->setItemParameter( id, 5 );
+    id = m->insertItem( i18n("&Bottom R&ight"), this, TQ_SLOT( tileCurrentWindowToBorder(int) ) );
+    m->setItemParameter( id, 3 );
+
+    return m;
+}
+
 TQPopupMenu* Workspace::clientPopup()
     {
     if ( !popup )
@@ -76,6 +103,7 @@ TQPopupMenu* Workspace::clientPopup()
         advanced_popup->insertItem( SmallIconSet( "wizard" ), i18n("&Special Application Settings…"), Options::ApplicationRulesOp );
 
         popup->insertItem(i18n("Ad&vanced"), advanced_popup );
+        tile_popup_index = popup->insertItem(i18n("T&ile"), makeTileMenu());
         desk_popup_index = popup->count();
         
         if (options->useTranslucency){
@@ -179,10 +207,11 @@ void Workspace::clientPopupAboutToShow()
     advanced_popup->setItemEnabled( Options::ResumeWindowOp, active_popup_client->isResumeable() );
     advanced_popup->setItemChecked( Options::NoBorderOp, active_popup_client->noBorder() );
     advanced_popup->setItemEnabled( Options::NoBorderOp, active_popup_client->userCanSetNoBorder() );
-    
     advanced_popup->setItemEnabled( Options::ShadowOp, (options->shadowWindowType(active_popup_client->windowType()) && options->shadowEnabled(active_popup_client->isActive())) );
     advanced_popup->setItemChecked( Options::ShadowOp, active_popup_client->isShadowed() );
     
+    popup->setItemEnabled( tile_popup_index, active_popup_client->isMovable() && active_popup_client->isResizable());
+
     popup->setItemEnabled( Options::MinimizeOp, active_popup_client->isMinimizable() );
     popup->setItemEnabled( Options::CloseOp, active_popup_client->isCloseable() );
     if (options->useTranslucency)
@@ -663,6 +692,14 @@ void Workspace::showWindowMenu( unsigned long window )
         showWindowMenu( pos, client );
         }
     }
+
+void Workspace::tileCurrentWindowToBorder(int position)
+{
+    Client *c = active_popup_client ? active_popup_client : active_client;
+    if (!c) return;
+
+    c->tileToBorder((ActiveBorder)position);
+}
 
 void Workspace::tileWindowToBorder(unsigned long w1, int location) {
     if (location < ActiveTop || location >= ACTIVE_BORDER_COUNT) return;

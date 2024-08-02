@@ -26,6 +26,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqimage.h>
 #include <tqtimer.h>
 
+#include <tdeapplication.h>
 #include <tdeconfig.h>
 #include <kdebug.h>
 #include <tdeglobal.h>
@@ -36,6 +37,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <twinmodule.h>
 #include <kxerrorhandler.h>
 #include <netwm.h>
+#include "dcopclient.h"
 
 #include "taskmanager.h"
 #include "taskmanager.moc"
@@ -1450,6 +1452,14 @@ void Task::updateWindowPixmap()
     if( err.error( true ))
         m_windowPixmap = None;
 #endif // THUMBNAILING_POSSIBLE
+}
+
+void Task::tileTo(int position)
+{
+    TQByteArray params;
+    TQDataStream stream(params, IO_WriteOnly);
+    stream << _win << position;
+    TDEApplication::kApplication()->dcopClient()->send("twin", "KWinInterface", "tileWindowToBorder(unsigned long int, int)", params);
 }
 
 Startup::Startup(const TDEStartupInfoId& id, const TDEStartupInfoData& data,
