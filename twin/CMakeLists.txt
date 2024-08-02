@@ -15,7 +15,6 @@ add_subdirectory( lib )
 add_subdirectory( killer )
 add_subdirectory( resumer )
 add_subdirectory( kcmtwin )
-add_subdirectory( pics )
 add_subdirectory( clients )
 add_subdirectory( oldheaders )
 add_subdirectory( data )
@@ -40,9 +39,17 @@ link_directories(
 install( FILES KWinInterface.h DESTINATION ${INCLUDE_INSTALL_DIR} )
 
 
-##### other data ################################
+##### icons #####################################
 
 tde_install_icons( twin )
+
+install(
+    DIRECTORY pics/
+    DESTINATION ${DATA_INSTALL_DIR}/twin/pics
+    FILES_MATCHING PATTERN *.png
+)
+
+##### other data ################################
 
 tde_create_translated_desktop(
   SOURCE eventsrc
