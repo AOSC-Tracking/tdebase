@@ -24,6 +24,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <assert.h>
 
+#include <tdeglobal.h>
 #include <kiconloader.h>
 #include <tdelocale.h>
 
@@ -44,6 +45,8 @@ TaskRMBMenu::TaskRMBMenu(const Task::List& theTasks, bool show, TQPopupMenu* mov
 	, showAll( show )
 	, taskMoveMenu( moveMenu )
 {
+    TDEGlobal::iconLoader()->addAppDir("twin");
+
     assert(tasks.count() > 0);
     if (tasks.count() == 1)
     {
@@ -290,23 +293,23 @@ TQPopupMenu* TaskRMBMenu::makeTileMenu(Task::Ptr t)
     TQPopupMenu *m = new TQPopupMenu( this );
 
     // Tile to side (the menu id matched the ActiveBorder index used for tiling)
-    int id = m->insertItem( i18n("&Left"), this, TQ_SLOT( slotTileTo(int) ) );
+    int id = m->insertItem( UserIconSet("tile_left"), i18n("&Left"), this, TQ_SLOT( slotTileTo(int) ) );
     m->setItemParameter( id, 6 );
-    id = m->insertItem( i18n("&Right"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_right"), i18n("&Right"), this, TQ_SLOT( slotTileTo(int) ) );
     m->setItemParameter( id, 2 );
-    id = m->insertItem( i18n("&Top"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_top"), i18n("&Top"), this, TQ_SLOT( slotTileTo(int) ) );
     m->setItemParameter( id, 0 );
-    id = m->insertItem( i18n("&Bottom"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_bottom"), i18n("&Bottom"), this, TQ_SLOT( slotTileTo(int) ) );
     m->setItemParameter( id, 4 );
 
     // Tile to corner (the menu id matched the ActiveBorder index used for tiling)
-    id = m->insertItem( i18n("Top &Left"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_topleft"), i18n("Top &Left"), this, TQ_SLOT( slotTileTo(int) ) );
     m->setItemParameter( id, 7 );
-    id = m->insertItem( i18n("Top &Right"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_topright"), i18n("Top &Right"), this, TQ_SLOT( slotTileTo(int) ) );
     m->setItemParameter( id, 1 );
-    id = m->insertItem( i18n("Bottom L&eft"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_bottomleft"), i18n("Bottom L&eft"), this, TQ_SLOT( slotTileTo(int) ) );
     m->setItemParameter( id, 5 );
-    id = m->insertItem( i18n("&Bottom R&ight"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_bottomright"), i18n("&Bottom R&ight"), this, TQ_SLOT( slotTileTo(int) ) );
     m->setItemParameter( id, 3 );
 
     return m;
