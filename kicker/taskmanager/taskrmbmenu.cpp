@@ -293,23 +293,23 @@ TQPopupMenu* TaskRMBMenu::makeTileMenu(Task::Ptr t)
     TQPopupMenu *m = new TQPopupMenu( this );
 
     // Tile to side (the menu id matched the ActiveBorder index used for tiling)
-    int id = m->insertItem( UserIconSet("tile_left"), i18n("&Left"), this, TQ_SLOT( slotTileTo(int) ) );
+    int id = m->insertItem( UserIconSet("tile_left"), i18n("&Left"), t, TQ_SLOT( tileTo(int) ) );
     m->setItemParameter( id, 6 );
-    id = m->insertItem( UserIconSet("tile_right"), i18n("&Right"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_right"), i18n("&Right"), t, TQ_SLOT( tileTo(int) ) );
     m->setItemParameter( id, 2 );
-    id = m->insertItem( UserIconSet("tile_top"), i18n("&Top"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_top"), i18n("&Top"), t, TQ_SLOT( tileTo(int) ) );
     m->setItemParameter( id, 0 );
-    id = m->insertItem( UserIconSet("tile_bottom"), i18n("&Bottom"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_bottom"), i18n("&Bottom"), t, TQ_SLOT( tileTo(int) ) );
     m->setItemParameter( id, 4 );
 
     // Tile to corner (the menu id matched the ActiveBorder index used for tiling)
-    id = m->insertItem( UserIconSet("tile_topleft"), i18n("Top &Left"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_topleft"), i18n("Top &Left"), t, TQ_SLOT( tileTo(int) ) );
     m->setItemParameter( id, 7 );
-    id = m->insertItem( UserIconSet("tile_topright"), i18n("Top &Right"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_topright"), i18n("Top &Right"), t, TQ_SLOT( tileTo(int) ) );
     m->setItemParameter( id, 1 );
-    id = m->insertItem( UserIconSet("tile_bottomleft"), i18n("Bottom L&eft"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_bottomleft"), i18n("Bottom L&eft"), t, TQ_SLOT( tileTo(int) ) );
     m->setItemParameter( id, 5 );
-    id = m->insertItem( UserIconSet("tile_bottomright"), i18n("&Bottom R&ight"), this, TQ_SLOT( slotTileTo(int) ) );
+    id = m->insertItem( UserIconSet("tile_bottomright"), i18n("&Bottom R&ight"), t, TQ_SLOT( tileTo(int) ) );
     m->setItemParameter( id, 3 );
 
     return m;
@@ -375,14 +375,5 @@ void TaskRMBMenu::slotAllToCurrentDesktop()
     for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
     {
         (*it)->toCurrentDesktop();
-    }
-}
-
-void TaskRMBMenu::slotTileTo(int position)
-{
-    Task::List::iterator itEnd = tasks.end();
-    for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
-    {
-        (*it)->tileTo(position);
     }
 }
