@@ -51,7 +51,6 @@ private slots:
 	void slotCloseAll();
 	void slotAllToDesktop(int desktop);
 	void slotAllToCurrentDesktop();
-	void slotTileTo(int position);
 
 private:
 	Task::List tasks;
