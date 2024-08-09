@@ -42,6 +42,13 @@ tde_create_translated_desktop(
   OUTPUT_NAME klipperrc
   PO_DIR klipper-desktops
 )
+
+tde_create_translated_desktop(
+  SOURCE copy-full-path.desktop
+  DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus
+  PO_DIR libkonq-desktops
+)
+
 install( FILES klipperrc.upd klippershortcuts.upd DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 install( PROGRAMS klipper-1-2.pl klipper-trinity1.sh DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 
