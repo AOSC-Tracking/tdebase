@@ -13,18 +13,10 @@
 #include <fnmatch.h>
 #include <ctype.h>
 
-// libpcre
-#ifdef CONFIG_REGEX_PCRE
-#include <pcre.h>
-
-// For compatiblity with <libpcre-8.20
-#ifndef PCRE_STUDY_JIT_COMPILE
-#define PCRE_STUDY_JIT_COMPILE    0
-#define LPCRE_FREE_STUDY(extra)   pcre_free(extra)
-#else
-#define LPCRE_FREE_STUDY(extra)   pcre_free_study(extra)
-#endif
-
+// libpcre2
+#ifdef CONFIG_REGEX_PCRE2
+#define PCRE2_CODE_UNIT_WIDTH 8
+#include <pcre2.h>
 #endif
 
 #define C2_MAX_LEVELS 10
@@ -139,9 +131,8 @@ struct _c2_l {
   } ptntype;
   char *ptnstr;
   long ptnint;
-#ifdef CONFIG_REGEX_PCRE
-  pcre *regex_pcre;
-  pcre_extra *regex_pcre_extra;
+#ifdef CONFIG_REGEX_PCRE2
+  pcre2_code *regex_pcre;
 #endif
 };
 

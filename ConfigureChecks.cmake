@@ -275,12 +275,12 @@ if( WITH_LIBCONFIG )
 endif( )
 
 
-# pcre (twin/compton-tde)
-if( WITH_PCRE )
-  pkg_search_module( LIBPCRE libpcre )
-  if( NOT LIBPCRE_FOUND )
-    tde_message_fatal( "pcre support is requested, but not found on your system" )
-  endif( NOT LIBPCRE_FOUND )
+# pcre2 (twin/compton-tde)
+if( WITH_PCRE2 )
+  pkg_check_modules( LIBPCRE2 libpcre2-8 libpcre2-posix )
+  if( NOT LIBPCRE2_FOUND )
+    tde_message_fatal( "pcre2 support was requested, but not found on your system" )
+  endif( )
 endif( )
 
 

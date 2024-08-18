@@ -38,12 +38,10 @@
 // #define MONITOR_REPAINT  1
 // #define DEBUG_FADE       1
 
-// Whether to enable PCRE regular expression support in blacklists, enabled
-// by default
-// #define CONFIG_REGEX_PCRE 1
-// Whether to enable JIT support of libpcre. This may cause problems on PaX
-// kernels.
-// #define CONFIG_REGEX_PCRE_JIT 1
+// Whether to enable PCRE2 regular expression support in blacklists, enabled by default
+// #define CONFIG_REGEX_PCRE2 1
+// Whether to enable JIT support of libpcre2. This may cause problems on PaX kernels.
+// #define CONFIG_REGEX_PCRE2_JIT 1
 // Whether to enable parsing of configuration files using libconfig.
 // #define CONFIG_LIBCONFIG 1
 // Whether we are using a legacy version of libconfig (1.3.x).

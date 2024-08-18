@@ -1422,7 +1422,7 @@ compton(1) Manual Page
 <div class="paragraph"><p><em>FORMAT</em> (optional) specifies the format of the property, 8, 16, or 32. On absence we use format X reports. Do not specify it for predefined or string targets.</p></div>
 <div class="paragraph"><p><em>TYPE</em> is a single character representing the type of the property to match for: <tt>c</tt> for <em>CARDINAL</em>, <tt>a</tt> for <em>ATOM</em>, <tt>w</tt> for <em>WINDOW</em>, <tt>d</tt> for <em>DRAWABLE</em>, <tt>s</tt> for <em>STRING</em> (and any other string types, such as <em>UTF8_STRING</em>). Do not specify it for predefined targets.</p></div>
 <div class="paragraph"><p><em>OP QUALIFIER</em> (optional), applicable only for equals operator, could be <tt>?</tt> (ignore-case).</p></div>
-<div class="paragraph"><p><em>MATCH TYPE</em> (optional), applicable only for equals operator, could be nothing (exact match), <tt>*</tt> (match anywhere), <tt>^</tt> (match from start), <tt>%</tt> (wildcard), or <tt>~</tt> (PCRE regular expression).</p></div>
+<div class="paragraph"><p><em>MATCH TYPE</em> (optional), applicable only for equals operator, could be nothing (exact match), <tt>*</tt> (match anywhere), <tt>^</tt> (match from start), <tt>%</tt> (wildcard), or <tt>~</tt> (PCRE2 regular expression).</p></div>
 <div class="paragraph"><p><em>OPERATOR</em> is one of <tt>=</tt> (equals), <tt>&lt;</tt>, <tt>&gt;</tt>, <tt>&lt;=</tt>, <tt>=&gt;</tt>, or nothing (exists). Exists operator checks whether a property exists on a window (but for predefined targets, exists means != 0 then).</p></div>
 <div class="paragraph"><p><em>PATTERN</em> is either an integer or a string enclosed by single or double quotes. Python-3-style escape sequences and raw string are supported in the string format.</p></div>
 <div class="paragraph"><p>Supported logical operators are <tt>&amp;&amp;</tt> (and) and <tt>||</tt> (or). <tt>&amp;&amp;</tt> has higher precedence than <tt>||</tt>, left-to-right associativity. Use parentheses to change precedence.</p></div>
@@ -1468,7 +1468,7 @@ name = r"\x64\x64\o64"</tt></pre>
 <pre><tt>condition = TARGET:TYPE[FLAGS]:PATTERN</tt></pre>
 </div></div>
 <div class="paragraph"><p><em>TARGET</em> is one of "n" (window name), "i" (window class instance), "g" (window general class), and "r" (window role).</p></div>
-<div class="paragraph"><p><em>TYPE</em> is one of "e" (exact match), "a" (match anywhere), "s" (match from start), "w" (wildcard), and "p" (PCRE regular expressions, if compiled with the support).</p></div>
+<div class="paragraph"><p><em>TYPE</em> is one of "e" (exact match), "a" (match anywhere), "s" (match from start), "w" (wildcard), and "p" (PCRE2 regular expressions, if compiled with the support).</p></div>
 <div class="paragraph"><p><em>FLAGS</em> could be a series of flags. Currently the only defined flag is "i" (ignore case).</p></div>
 <div class="paragraph"><p><em>PATTERN</em> is the actual pattern string.</p></div>
 </div>

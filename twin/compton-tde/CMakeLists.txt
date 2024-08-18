@@ -24,7 +24,7 @@ include_directories(
   ${XINERAMA_INCLUDE_DIRS}
   ${XRANDR_INCLUDE_DIRS}
   ${GL_INCLUDE_DIRS}
-  ${LIBPCRE_INCLUDE_DIRS}
+  ${LIBPCRE2_INCLUDE_DIRS}
 )
 
 link_directories(
@@ -33,7 +33,7 @@ link_directories(
   ${XINERAMA_LIBRARY_DIRS}
   ${XRANDR_LIBRARY_DIRS}
   ${GL_LIBRARY_DIRS}
-  ${LIBPCRE_LIBRARY_DIRS}
+  ${LIBPCRE2_LIBRARY_DIRS}
 )
 
 
@@ -46,8 +46,8 @@ link_directories(
 #  WITH_OPENGL            -> CONFIG_VSYNC_OPENGL
 #  WITH_OPENGL            -> CONFIG_VSYNC_OPENGL_GLSL
 #  WITH_OPENGL            -> CONFIG_VSYNC_OPENGL_FBO
-#  WITH_PCRE              -> CONFIG_REGEX_PCRE
-#  WITH_PCRE              -> CONFIG_REGEX_PCRE_JIT
+#  WITH_PCRE2             -> CONFIG_REGEX_PCRE2
+#  WITH_PCRE2             -> CONFIG_REGEX_PCRE2_JIT
 #  WITH_LIBCONFIG         -> CONFIG_LIBCONFIG
 #
 #  HAVE_LIBCONFIG_OLD_API -> CONFIG_LIBCONFIG_LEGACY (set up in compton_config.h)
@@ -90,10 +90,10 @@ if( WITH_XRANDR )
   list( APPEND compton_LIBRARIES ${XRANDR_LIBRARIES} )
 endif( )
 
-if( WITH_PCRE )
-  set( CONFIG_REGEX_PCRE        ${WITH_PCRE} )
-  set( CONFIG_REGEX_PCRE_JIT    ${WITH_PCRE} )
-  list( APPEND compton_LIBRARIES ${LIBPCRE_LIBRARIES} )
+if( WITH_PCRE2 )
+  set( CONFIG_REGEX_PCRE2        ${WITH_PCRE2} )
+  set( CONFIG_REGEX_PCRE2_JIT    ${WITH_PCRE2} )
+  list( APPEND compton_LIBRARIES ${LIBPCRE2_LIBRARIES} )
 endif( )
 
 configure_file( compton_config.h.cmake compton_config.h )
