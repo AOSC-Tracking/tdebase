@@ -99,7 +99,7 @@ option( WITH_XFIXES "Enable xfixes support" ${WITH_ALL_OPTIONS} )
 option( WITH_XRANDR "Enable xrandr support" ${WITH_ALL_OPTIONS} )
 option( WITH_XRENDER "Enable xrender support" ${WITH_ALL_OPTIONS} )
 option( WITH_LIBCONFIG "Enable libconfig support" ${WITH_ALL_OPTIONS} )
-option( WITH_PCRE "Enable pcre regex support" ON )
+option( WITH_PCRE2 "Enable pcre2 regex support" ON )
 option( WITH_XTEST "Enable xtest support" ${WITH_ALL_OPTIONS} )
 option( WITH_OPENGL "Enable openGL support" ${WITH_ALL_OPTIONS} )
 option( WITH_XSCREENSAVER "Enable xscreensaver support" ${WITH_ALL_OPTIONS} )
@@ -152,8 +152,8 @@ option( WITH_XKB_TRANSLATIONS "Use translations for xkb messages provided by xke
 # WITH_PAM          affects tdm kdesktop kcheckpass
 # WITH_SHADOW       affects tdm kcheckpass
 # WITH_UPOWER       affects ksmserver
-# WITH_LIBCONFIG    affects twin/compot-tde
-# WITH_PCRE         affects twin/compot-tde
+# WITH_LIBCONFIG    affects twin/compton-tde
+# WITH_PCRE2        affects twin/compton-tde
 # WITH_SUDO_TDESU_BACKEND affects tdesu
 # WITH_SUDO_KONSOLE_SUPER_USER_COMMAND affects launching Konsole super user sessions
 # WITH_XKB_TRANSLATIONS affects kxkb

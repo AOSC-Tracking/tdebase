@@ -1,11 +1,9 @@
 #include "config.h"
 
-// Whether to enable PCRE regular expression support in blacklists, enabled
-// by default
-#cmakedefine CONFIG_REGEX_PCRE 1
-// Whether to enable JIT support of libpcre. This may cause problems on PaX
-// kernels.
-#cmakedefine CONFIG_REGEX_PCRE_JIT 1
+// Whether to enable PCRE2 regular expression support in blacklists, enabled by default
+#cmakedefine CONFIG_REGEX_PCRE2 1
+// Whether to enable JIT support of libpcre2. This may cause problems on PaX kernels.
+#cmakedefine CONFIG_REGEX_PCRE2_JIT 1
 
 // Whether to enable parsing of configuration files using libconfig.
 #cmakedefine CONFIG_LIBCONFIG 1

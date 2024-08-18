@@ -659,7 +659,7 @@ With greater\-than/less\-than operators it looks like:
 .sp
 \fIOP QUALIFIER\fR (optional), applicable only for equals operator, could be ? (ignore\-case)\&.
 .sp
-\fIMATCH TYPE\fR (optional), applicable only for equals operator, could be nothing (exact match), * (match anywhere), ^ (match from start), % (wildcard), or ~ (PCRE regular expression)\&.
+\fIMATCH TYPE\fR (optional), applicable only for equals operator, could be nothing (exact match), * (match anywhere), ^ (match from start), % (wildcard), or ~ (PCRE2 regular expression)\&.
 .sp
 \fIOPERATOR\fR is one of = (equals), <, >, <=, =>, or nothing (exists)\&. Exists operator checks whether a property exists on a window (but for predefined targets, exists means != 0 then)\&.
 .sp
@@ -720,7 +720,7 @@ condition = TARGET:TYPE[FLAGS]:PATTERN
 .sp
 \fITARGET\fR is one of "n" (window name), "i" (window class instance), "g" (window general class), and "r" (window role)\&.
 .sp
-\fITYPE\fR is one of "e" (exact match), "a" (match anywhere), "s" (match from start), "w" (wildcard), and "p" (PCRE regular expressions, if compiled with the support)\&.
+\fITYPE\fR is one of "e" (exact match), "a" (match anywhere), "s" (match from start), "w" (wildcard), and "p" (PCRE2 regular expressions, if compiled with the support)\&.
 .sp
 \fIFLAGS\fR could be a series of flags\&. Currently the only defined flag is "i" (ignore case)\&.
 .sp

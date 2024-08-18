@@ -785,33 +785,34 @@ c2_l_postprocess(session_t *ps, c2_l_t *pleaf) {
 
   // PCRE patterns
   if (C2_L_PTSTRING == pleaf->ptntype && C2_L_MPCRE == pleaf->match) {
-#ifdef CONFIG_REGEX_PCRE
-    const char *error = NULL;
-    int erroffset = 0;
-    int options = 0;
+#ifdef CONFIG_REGEX_PCRE2
+    int errorCode;
+    PCRE2_SIZE errorOffset;
+    uint32_t options = 0;
 
     // Ignore case flag
     if (pleaf->match_ignorecase)
-      options |= PCRE_CASELESS;
+      options |= PCRE2_CASELESS;
 
-    // Compile PCRE expression
-    pleaf->regex_pcre = pcre_compile(pleaf->ptnstr, options,
-        &error, &erroffset, NULL);
+    // Compile PCRE2 expression
+    pleaf->regex_pcre = pcre2_compile((PCRE2_SPTR)pleaf->ptnstr, PCRE2_ZERO_TERMINATED,
+            options, &errorCode, &errorOffset, NULL);
     if (!pleaf->regex_pcre)
-      c2_error("Pattern \"%s\": PCRE regular expression parsing failed on "
-          "offset %d: %s", pleaf->ptnstr, erroffset, error);
-#ifdef CONFIG_REGEX_PCRE_JIT
-    pleaf->regex_pcre_extra = pcre_study(pleaf->regex_pcre,
-        PCRE_STUDY_JIT_COMPILE, &error);
-    if (!pleaf->regex_pcre_extra) {
-      printf("Pattern \"%s\": PCRE regular expression study failed: %s",
-          pleaf->ptnstr, error);
+    {
+      PCRE2_UCHAR errorMsg[256];
+      pcre2_get_error_message(errorCode, errorMsg, sizeof(errorMsg));
+      c2_error("Pattern \"%s\": PCRE2 regular expression parsing failed on "
+          "offset %zu: %s", pleaf->ptnstr, errorOffset, errorMsg);
+    }
+#ifdef CONFIG_REGEX_PCRE2_JIT
+    int jit_res = pcre2_jit_compile(pleaf->regex_pcre, PCRE2_JIT_COMPLETE);
+    if (jit_res < 0)
+    {
+      printf("Pattern \"%s\": PCRE2 regular expression JIT compilation failed with error code %d",
+          pleaf->ptnstr, jit_res);
     }
 #endif
 
-    // Free the target string
-    // free(pleaf->tgt);
-    // pleaf->tgt = NULL;
 #else
     c2_error("PCRE regular expression support not compiled in.");
 #endif
@@ -844,9 +845,8 @@ c2_free(c2_ptr_t p) {
 
     free(pleaf->tgt);
     free(pleaf->ptnstr);
-#ifdef CONFIG_REGEX_PCRE
-    pcre_free(pleaf->regex_pcre);
-    LPCRE_FREE_STUDY(pleaf->regex_pcre_extra);
+#ifdef CONFIG_REGEX_PCRE2
+    pcre2_code_free(pleaf->regex_pcre);
 #endif
     free(pleaf);
   }
@@ -1180,10 +1180,9 @@ c2_match_once_leaf(session_t *ps, win *w, const c2_l_t *pleaf,
                 }
                 break;
               case C2_L_MPCRE:
-#ifdef CONFIG_REGEX_PCRE
-                *pres = (pcre_exec(pleaf->regex_pcre,
-                      pleaf->regex_pcre_extra,
-                      tgt, strlen(tgt), 0, 0, NULL, 0) >= 0);
+#ifdef CONFIG_REGEX_PCRE2
+                *pres = (pcre2_match(pleaf->regex_pcre, (PCRE2_SPTR)tgt, PCRE2_ZERO_TERMINATED,
+                         0, 0, NULL, NULL) >= 0);
 #else
                 assert(0);
 #endif
