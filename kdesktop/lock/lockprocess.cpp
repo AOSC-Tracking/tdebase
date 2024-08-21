@@ -4,7 +4,7 @@
 //
 // Copyright (c) 1999 Martin R. Jones <mjones@kde.org>
 // Copyright (c) 2003 Oswald Buddenhagen <ossi@kde.org>
-// Copyright (c) 2010 - 2015 Timothy Pearson <kb9vqf@pearsoncomputing.net>
+// Copyright (c) 2010 - 2024 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 //
 
 //kdesktop keeps running and checks user inactivity
@@ -193,6 +193,9 @@ mHackDelayStartupTimer->stop();
 //
 LockProcess::LockProcess()
 	: TQWidget(0L, "saver window", ((WFlags)(WStyle_StaysOnTop|WStyle_Customize|WStyle_NoBorder))),
+	mInitialized(FALSE),
+	mLockPending(FALSE),
+	mLocked(FALSE),
 	mOpenGLVisual(0),
 	mParent(0),
 	mShowLockDateTime(false),
@@ -438,6 +441,8 @@ void LockProcess::init(bool child, bool useBlankOnly)
 	TQObject::connect(mControlPipeHandler, TQ_SIGNAL(processCommand(TQString)), this, TQ_SLOT(processInputPipeCommand(TQString)));
 	TQTimer::singleShot(0, mControlPipeHandler, TQ_SLOT(run()));
 	mControlPipeHandlerThread->start();
+
+	mInitialized = TRUE;
 }
 
 static int signal_pipe[2];
@@ -1477,6 +1482,13 @@ i18n("<i>kcheckpass</i> is unable to operate. Possibly it is not SetUID root.");
 //
 bool LockProcess::startLock()
 {
+	mLockPending = TRUE;
+
+	if (!mInitialized) {
+		// Don't hang if we're not even initialized yet -- startLock() was triggered prematurely
+		return false;
+	}
+
 	for (TQStringList::ConstIterator it = mPlugins.begin(); it != mPlugins.end(); ++it) {
 		GreeterPluginHandle plugin;
 		TQString path = KLibLoader::self()->findLibrary( ((*it)[0] == '/' ? *it : "kgreet_" + *it ).latin1() );
@@ -1507,6 +1519,7 @@ bool LockProcess::startLock()
 		kdDebug(KDESKTOP_DEBUG_ID) << "GreeterPlugin " << *it << " (" << plugin.info->method << ", " << plugin.info->name << ") loaded" << endl;
 		greetPlugin = plugin;
 		mLocked = true;
+		mLockPending = FALSE;
 		DM().setLock( true );
 		return true;
 	}
@@ -1971,6 +1984,11 @@ static void fakeFocusIn( WId window )
 	ev.xfocus.mode = NotifyNormal;
 	ev.xfocus.detail = NotifyAncestor;
 	XSendEvent( tqt_xdisplay(), window, False, NoEventMask, &ev );
+}
+
+bool LockProcess::lockPending()
+{
+	return mLockPending;
 }
 
 void LockProcess::resumeUnforced()

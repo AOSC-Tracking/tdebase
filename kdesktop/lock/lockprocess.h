@@ -4,7 +4,7 @@
 //
 // Copyright (c) 1999 Martin R. Jones <mjones@kde.org>
 // Copyright (c) 2003 Oswald Buddenhagen <ossi@kde.org>
-// Copyright (c) 2010 - 2015 Timothy Pearson <kb9vqf@pearsoncomputing.net>
+// Copyright (c) 2010 - 2024 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 //
 
 #ifndef __LOCKENG_H__
@@ -104,6 +104,8 @@ class LockProcess : public TQWidget
 		void msgBox( TQMessageBox::Icon type, const TQString &txt );
 		int execDialog( TQDialog* dlg );
 
+		bool lockPending();
+
 		TDECryptographicCardDevice* cryptographicCardDevice();
 
 	signals:
@@ -181,6 +183,8 @@ class LockProcess : public TQWidget
 		void generateBackingImages();
 		void fullyOnline();
 
+		bool        mInitialized;
+		bool        mLockPending;
 		bool        mLocked;
 		int         mLockGrace;
 		int         mPriority;

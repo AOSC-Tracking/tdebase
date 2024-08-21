@@ -1,7 +1,7 @@
 /* This file is part of the TDE project
    Copyright (C) 1999 David Faure
    Copyright (c) 2003 Oswald Buddenhagen <ossi@kde.org>
-   Copyright (c) 2010-2015 Timothy Pearson <kb9vqf@pearsoncomputing.net>
+   Copyright (c) 2010-2024 Timothy Pearson <kb9vqf@pearsoncomputing.net>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -100,6 +100,12 @@ static void sigusr4_handler(int)
 
 static void sigusr5_handler(int)
 {
+	signalled_run = TRUE;
+}
+
+static void sighup_handler(int)
+{
+	signalled_forcelock = TRUE;
 	signalled_run = TRUE;
 }
 
@@ -428,6 +434,12 @@ int main( int argc, char **argv )
 			sigaddset(&(act.sa_mask), SIGTTOU);
 			act.sa_flags = 0;
 			sigaction(SIGTTOU, &act, 0L);
+			// handle SIGHUP (force lock, fallback handler)
+			act.sa_handler= sighup_handler;
+			sigemptyset(&(act.sa_mask));
+			sigaddset(&(act.sa_mask), SIGHUP);
+			act.sa_flags = 0;
+			sigaction(SIGHUP, &act, 0L);
 
 			// initialize the signal masks
 			sigemptyset(&new_mask);
