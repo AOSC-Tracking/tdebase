@@ -284,9 +284,9 @@ bool ConfigModuleList::readDesktopEntriesRecursive(const TQString &path)
         KService *s = static_cast<KService*>(p);
         if (!kapp->authorizeControlModule(s->menuId()))
            continue;
-           
+
         ConfigModule *module = new ConfigModule(s);
-        if (module->library().isEmpty())
+        if (module->library().isEmpty() || (module->needsTest() && !TDECModuleLoader::testModule(*module)))
         {
            delete module;
            continue;
