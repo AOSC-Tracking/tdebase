@@ -46,7 +46,7 @@ tde_create_translated_desktop(
 tde_create_translated_desktop(
   SOURCE copy-full-path.desktop
   DESTINATION ${DATA_INSTALL_DIR}/konqueror/servicemenus
-  PO_DIR libkonq-desktops
+  PO_DIR klipper-desktops
 )
 
 install( FILES klipperrc.upd klippershortcuts.upd DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
