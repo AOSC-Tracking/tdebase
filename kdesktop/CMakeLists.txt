@@ -17,6 +17,7 @@ add_subdirectory( patterns )
 add_subdirectory( programs )
 add_subdirectory( init )
 add_subdirectory( kwebdesktop )
+add_subdirectory( dbus/screensaver )
 
 
 if( NOT BUILD_LIBKONQ )
@@ -90,13 +91,15 @@ set( ${target}_SRCS
   pixmapserver.cpp kcustommenu.cpp startupid.cpp minicli_ui.ui
   xautolock_diy.c xautolock_engine.c kshadowengine.cpp
   kshadowsettings.cpp kdesktopshadowsettings.cpp
+  dbusscreensaverservice.cpp screensaverInterfaceImpl.cpp
   tdefileividesktop.cpp kdesktopapp.cpp
 )
 
 tde_add_tdeinit_executable( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
   LINK
-    ${CMAKE_THREAD_LIBS_INIT} kdesktopsettings-static bgnd-static dmctl-static
+    pthread kdesktopsettings-static bgnd-static dmctl-static
+    screensaverinterfaces-static
     konq-shared tdeutils-shared tdesu-shared ${TDEHW_LIBRARIES}
     ${XRENDER_LIBRARIES} ${XCURSOR_LIBRARIES} Xext ${CMAKE_DL_LIBS}
     ${XSS_LIBRARIES} ${DBUS_1_TQT_LIBRARIES}

@@ -37,6 +37,7 @@
 #include "krootwm.h"
 #include "kdesktopsettings.h"
 #include "kdesktopapp.h"
+#include "dbusscreensaverservice.h"
 
 #include <signal.h>
 #include <unistd.h>
@@ -115,45 +116,45 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
         if (TDEGlobalSettings::isMultiHead())
         {
        	    Display *dpy = XOpenDisplay(NULL);
-	    if (! dpy) {
-		fprintf(stderr,
-			"%s: FATAL ERROR: couldn't open display '%s'\n",
-			argv[0], XDisplayName(NULL));
-		exit(1);
-	    }
+            if (! dpy) {
+            fprintf(stderr,
+                "%s: FATAL ERROR: couldn't open display '%s'\n",
+                argv[0], XDisplayName(NULL));
+            exit(1);
+            }
 
-	    int number_of_screens = ScreenCount(dpy);
-	    kdesktop_screen_number = DefaultScreen(dpy);
-	    int pos;
-	    TQCString display_name = XDisplayString(dpy);
-	    XCloseDisplay(dpy);
-	    dpy = 0;
+            int number_of_screens = ScreenCount(dpy);
+            kdesktop_screen_number = DefaultScreen(dpy);
+            int pos;
+            TQCString display_name = XDisplayString(dpy);
+            XCloseDisplay(dpy);
+            dpy = 0;
 
-	    if ((pos = display_name.findRev('.')) != -1)
-		display_name.remove(pos, 10);
+            if ((pos = display_name.findRev('.')) != -1)
+            display_name.remove(pos, 10);
 
-            TQCString env;
-	    if (number_of_screens != 1) {
-		for (int i = 0; i < number_of_screens; i++) {
-		    if (i != kdesktop_screen_number && fork() == 0) {
-			kdesktop_screen_number = i;
-			// break here because we are the child process, we don't
-			// want to fork() anymore
-			break;
-		    }
-		}
+                TQCString env;
+            if (number_of_screens != 1) {
+                for (int i = 0; i < number_of_screens; i++) {
+                    if (i != kdesktop_screen_number && fork() == 0) {
+                    kdesktop_screen_number = i;
+                    // break here because we are the child process, we don't
+                    // want to fork() anymore
+                    break;
+                    }
+                }
 
-		env.sprintf("DISPLAY=%s.%d", display_name.data(),
-			    kdesktop_screen_number);
+                env.sprintf("DISPLAY=%s.%d", display_name.data(),
+                        kdesktop_screen_number);
 
-		if (putenv(strdup(env.data()))) {
-		    fprintf(stderr,
-			    "%s: WARNING: unable to set DISPLAY environment variable\n",
-			    argv[0]);
-		    perror("putenv()");
-		}
-	    }
-	}
+                if (putenv(strdup(env.data()))) {
+                    fprintf(stderr,
+                        "%s: WARNING: unable to set DISPLAY environment variable\n",
+                        argv[0]);
+                    perror("putenv()");
+                }
+            }
+        }
     }
 
     TDEGlobal::locale()->setMainCatalogue("kdesktop");
@@ -289,6 +290,12 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
 
     myApp->dcopClient()->setDefaultObject( "KDesktopIface" );
 
-	
+    TDEDbusScreenSaver dbusScreenSaverInterface;
+    if (!dbusScreenSaverInterface.isConnectedToDBUS())
+    {
+        fprintf(stderr,"Can't connect to DBus!\nUnable to start tdedbusscreensaver.\n\n"
+                                     "Restart dbus and try again");
+    }
+
     return myApp->exec();
 }
