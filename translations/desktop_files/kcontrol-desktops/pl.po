@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2024-09-07 20:11+0000\n"
 "PO-Revision-Date: 2022-10-25 18:06+0000\n"
 "Last-Translator: Marek W <coronzon88@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
@@ -1588,6 +1588,29 @@ msgid ""
 "Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
 "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
 "DoubleClick;mapping;right handed;left handed;"
+msgstr ""
+"Mysz;Akceleracja myszy;Próg myszy;Przyciski myszy;Zaznaczenie;Kształt "
+"kursora;Urządzenia wejściowe;mapowanie przycisków;kliknięcie;ikony;widoczne "
+"efekty;wskaźniki;przeciąganie;podwójne kliknięcie;mapowanie;praworęczny;"
+"leworęczny;"
+
+#. Name
+#: input/touchpad.desktop:13
+msgid "Touchpad"
+msgstr ""
+
+#. Comment
+#: input/touchpad.desktop:14
+#, fuzzy
+msgid "Touchpad settings"
+msgstr "Ustawienia myszy"
+
+#. Keywords
+#: input/touchpad.desktop:15
+#, fuzzy
+msgid ""
+"Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
+"Click;mapping;right handed;left handed;"
 msgstr ""
 "Mysz;Akceleracja myszy;Próg myszy;Przyciski myszy;Zaznaczenie;Kształt "
 "kursora;Urządzenia wejściowe;mapowanie przycisków;kliknięcie;ikony;widoczne "

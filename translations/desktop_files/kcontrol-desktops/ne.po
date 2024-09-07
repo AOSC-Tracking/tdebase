@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2024-09-07 20:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1584,6 +1584,28 @@ msgid ""
 "Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
 "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
 "DoubleClick;mapping;right handed;left handed;"
+msgstr ""
+"माउस; माउस गतिवर्धन; माउस थ्रेसहोल्ड; माउस बटनहरू; चयन; कर्सर आकार; आगत यन्त्रहरू; "
+"बटन मिलाउने; क्लिक; प्रतिमा; पृष्ठपोषण; सूचक; तान्नुहोस्; डबल क्लिक गर्नुहोस्; मिलाउनुहोस्; "
+"दायाँ; बायाँ;"
+
+#. Name
+#: input/touchpad.desktop:13
+msgid "Touchpad"
+msgstr ""
+
+#. Comment
+#: input/touchpad.desktop:14
+#, fuzzy
+msgid "Touchpad settings"
+msgstr "माउस सेटिङ"
+
+#. Keywords
+#: input/touchpad.desktop:15
+#, fuzzy
+msgid ""
+"Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
+"Click;mapping;right handed;left handed;"
 msgstr ""
 "माउस; माउस गतिवर्धन; माउस थ्रेसहोल्ड; माउस बटनहरू; चयन; कर्सर आकार; आगत यन्त्रहरू; "
 "बटन मिलाउने; क्लिक; प्रतिमा; पृष्ठपोषण; सूचक; तान्नुहोस्; डबल क्लिक गर्नुहोस्; मिलाउनुहोस्; "

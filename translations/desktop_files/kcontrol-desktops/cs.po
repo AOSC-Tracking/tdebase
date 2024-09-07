@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2024-09-07 20:11+0000\n"
 "PO-Revision-Date: 2021-09-07 01:16+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
@@ -1573,6 +1573,28 @@ msgid ""
 "Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
 "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
 "DoubleClick;mapping;right handed;left handed;"
+msgstr ""
+"Myš;Akcelerace myši;Práh myši;Tlačítka myši;Výběr;Tvar kurzoru;Vstupní "
+"zařízení;Mapování tlačítek;Kurzor;Kliknutí;Odezva;Ukzatele;Poklepání;Dvojité "
+"kliknutí;Pravák;Levák;"
+
+#. Name
+#: input/touchpad.desktop:13
+msgid "Touchpad"
+msgstr ""
+
+#. Comment
+#: input/touchpad.desktop:14
+#, fuzzy
+msgid "Touchpad settings"
+msgstr "Nastavení myši"
+
+#. Keywords
+#: input/touchpad.desktop:15
+#, fuzzy
+msgid ""
+"Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
+"Click;mapping;right handed;left handed;"
 msgstr ""
 "Myš;Akcelerace myši;Práh myši;Tlačítka myši;Výběr;Tvar kurzoru;Vstupní "
 "zařízení;Mapování tlačítek;Kurzor;Kliknutí;Odezva;Ukzatele;Poklepání;Dvojité "

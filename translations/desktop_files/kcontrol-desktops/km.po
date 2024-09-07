@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2024-09-07 20:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1573,6 +1573,27 @@ msgid ""
 "Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
 "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
 "DoubleClick;mapping;right handed;left handed;"
+msgstr ""
+"កណ្ដុរ;ការ​បង្កើន​ល្បឿង​កណ្ដុរ;កម្រិត​ពន្លឺ​កណ្ដុរ;ប៊ូតុង​កណ្ដុរ;ការ​ជ្រើស;រាង​ទស្សន៍​ទ្រនិច;ឧបករណ៍​បញ្ចូល;ប្លង់​"
+"ប៊ូតុង;ចុច;រូបតំណាង;មតិ​រិះគន់;ទ្រនិច;អូស;ចុច​ទ្វេដង;ធ្វើ​ប្លង់;ដៃ​ស្ដាំ;ដៃ​ឆ្វេង;"
+
+#. Name
+#: input/touchpad.desktop:13
+msgid "Touchpad"
+msgstr ""
+
+#. Comment
+#: input/touchpad.desktop:14
+#, fuzzy
+msgid "Touchpad settings"
+msgstr "ការ​កំណត់​កណ្ដុរ"
+
+#. Keywords
+#: input/touchpad.desktop:15
+#, fuzzy
+msgid ""
+"Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
+"Click;mapping;right handed;left handed;"
 msgstr ""
 "កណ្ដុរ;ការ​បង្កើន​ល្បឿង​កណ្ដុរ;កម្រិត​ពន្លឺ​កណ្ដុរ;ប៊ូតុង​កណ្ដុរ;ការ​ជ្រើស;រាង​ទស្សន៍​ទ្រនិច;ឧបករណ៍​បញ្ចូល;ប្លង់​"
 "ប៊ូតុង;ចុច;រូបតំណាង;មតិ​រិះគន់;ទ្រនិច;អូស;ចុច​ទ្វេដង;ធ្វើ​ប្លង់;ដៃ​ស្ដាំ;ដៃ​ឆ្វេង;"
