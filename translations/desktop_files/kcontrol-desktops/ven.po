@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2024-09-08 18:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1597,6 +1597,33 @@ msgid ""
 "Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
 "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
 "DoubleClick;mapping;right handed;left handed;"
+msgstr ""
+"Mausu;U gonyisa mausu;mausu;bathene ya mausu;nanga;tshivhumbeo tsha Cursor;"
+"maano a InputSedzulusa bathene;u putedza;aikhonoPhindulo;vhasumbedzi;kokodza;"
+"uputedza luvhili;utalulusa;tshaula;tshamonde;"
+
+#. Name
+#: input/touchpad.desktop:13
+msgid "Touchpad"
+msgstr ""
+
+#. Comment
+#: input/touchpad.desktop:14
+#, fuzzy
+#| msgid "Mouse settings"
+msgid "Touchpad settings"
+msgstr "Mavhekanyele a Mausu"
+
+#. Keywords
+#: input/touchpad.desktop:15
+#, fuzzy
+#| msgid ""
+#| "Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
+#| "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
+#| "DoubleClick;mapping;right handed;left handed;"
+msgid ""
+"Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
+"Click;mapping;right handed;left handed;"
 msgstr ""
 "Mausu;U gonyisa mausu;mausu;bathene ya mausu;nanga;tshivhumbeo tsha Cursor;"
 "maano a InputSedzulusa bathene;u putedza;aikhonoPhindulo;vhasumbedzi;kokodza;"
