@@ -1177,6 +1177,7 @@ void Konsole::makeBasicGUI()
   TDEShortcut shortcut(TQt::CTRL+TQt::ALT+TQt::Key_N);
   shortcut.append(TDEShortcut(TQt::CTRL+TQt::SHIFT+TQt::Key_N));
   new TDEAction(i18n("New Session"), shortcut, this, TQ_SLOT(newSession()), m_shortcuts, "new_session");
+  new TDEAction(i18n("New &Window"), TQt::CTRL+TQt::SHIFT+TQt::Key_W, this, TQ_SLOT(newWindow()), m_shortcuts, "new_window");
   new TDEAction(i18n("Activate Menu"), TQt::CTRL+TQt::ALT+TQt::Key_M, this, TQ_SLOT(activateMenu()), m_shortcuts, "activate_menu");
   new TDEAction(i18n("List Sessions"), 0, this, TQ_SLOT(listSessions()), m_shortcuts, "list_sessions");
 
@@ -2827,6 +2828,11 @@ TQString Konsole::newSession()
 {
   KSimpleConfig *co = defaultSession();
   return newSession(co, TQString::null, TQStrList());
+}
+
+void Konsole::newWindow()
+{
+  newSession(SESSION_NEW_WINDOW_ID);
 }
 
 void Konsole::newSession(int i)

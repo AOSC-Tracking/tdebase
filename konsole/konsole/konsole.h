@@ -134,6 +134,7 @@ public slots:
 
   void makeGUI();
   TQString newSession();
+  void newWindow();
 
 protected:
 
