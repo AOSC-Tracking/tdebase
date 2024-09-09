@@ -1,6 +1,6 @@
 /*******************************************************************************
- syndaemon - daemon for the Synaptics touchpad driver which disables touchpad
-             on keyboard input
+ tdesyndaemon - daemon for the Synaptics touchpad driver which disables touchpad
+                on keyboard input
 
  Copyright © 2004 Nadeem Hasan <nhasan@kde.org>
                   Stefan Kombrink <katakombi@web.de>
@@ -20,8 +20,8 @@
 
 *******************************************************************************/
 
-#ifndef __SYNDAEMON_H__
-#define __SYNDAEMON_H__
+#ifndef __TDESYNDAEMON_H__
+#define __TDESYNDAEMON_H__
 
 // TQt
 #include <tqobject.h>
@@ -35,19 +35,19 @@
 #undef Bool /* fix problems in --enable-final mode */
 #undef None /* fix problems in --enable-final mode */
 
-// Syndaemon
-#include "syndaemon_iface.h"
+// TDESynDaemon
+#include "tdesyndaemon_iface.h"
 
 
 class TQTimer;
 
-class SynDaemon : public TQObject, public virtual SynDaemonIface
+class TDESynDaemon : public TQObject, public virtual TDESynDaemonIface
 {
     TQ_OBJECT
 
     public:
-        SynDaemon();
-        ~SynDaemon();
+        TDESynDaemon();
+        ~TDESynDaemon();
 
         bool touchpadEnabled();
 

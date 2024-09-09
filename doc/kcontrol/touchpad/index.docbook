@@ -391,7 +391,7 @@ method. On-button scrolling converts the motion of a device into scroll events w
 </tgroup>
 </informaltable>
 
-<para>* Synaptics supported using external <guilabel>syndaemon</guilabel> service, automatically started/stopped.</para>
+<para>* Synaptics supported using external <guilabel>tdesyndaemon</guilabel> service, automatically started/stopped.</para>
 <para>** Not configurable with the Synaptics driver.</para>
 <para>*** Disabling vertical scrolling under the Libinput driver disables scrolling entirely.</para>
 

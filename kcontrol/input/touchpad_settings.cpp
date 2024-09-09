@@ -339,13 +339,13 @@ void TouchpadSettings::apply(bool force)
             prop->set();
         }
 
-        // start/stop syndaemon
-        DCOPRef syndaemon("syndaemon", "syndaemon");
-        syndaemon.call("stop()");
+        // start/stop tdesyndaemon
+        DCOPRef tdesyndaemon("tdesyndaemon", "tdesyndaemon");
+        tdesyndaemon.call("stop()");
 
         if (offWhileTyping)
         {
-            kapp->tdeinitExec("syndaemon");
+            kapp->tdeinitExec("tdesyndaemon");
         }
     }
 

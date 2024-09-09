@@ -1,6 +1,6 @@
 /*******************************************************************************
- syndaemon - daemon for the Synaptics touchpad driver which disables touchpad
-             on keyboard input
+ tdesyndaemon - daemon for the Synaptics touchpad driver which disables touchpad
+                on keyboard input
 
  Copyright © 2024 Mavridis Philippe <mavridisf@gmail.com>
 
@@ -18,13 +18,13 @@
 
 *******************************************************************************/
 
-#ifndef __SYNDAEMON_IFACE_H__
-#define __SYNDAEMON_IFACE_H__
+#ifndef __TDESYNDAEMON_IFACE_H__
+#define __TDESYNDAEMON_IFACE_H__
 
 // DCOP
 #include <dcopobject.h>
 
-class SynDaemonIface : virtual public DCOPObject
+class TDESynDaemonIface : virtual public DCOPObject
 {
     K_DCOP
     k_dcop:
