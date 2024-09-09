@@ -69,11 +69,11 @@ tde_add_kpart( kcm_input AUTOMOC
 )
 
 
-##### syndaemon (executable) ####################
+##### tdesyndaemon (executable) ####################
 
-tde_add_executable( syndaemon AUTOMOC
+tde_add_executable( tdesyndaemon AUTOMOC
   SOURCES
-    syndaemon.cpp syndaemon_iface.skel
+    tdesyndaemon.cpp tdesyndaemon_iface.skel
     touchpad_settings.cpp
   LINK tdecore-shared ${XINPUT_LIBRARIES}
   DESTINATION ${BIN_INSTALL_DIR}

@@ -1,6 +1,6 @@
 /*******************************************************************************
- syndaemon - daemon for the Synaptics touchpad driver which disables touchpad
-             on keyboard input
+ tdesyndaemon - daemon for the Synaptics touchpad driver which disables touchpad
+                on keyboard input
 
  Copyright © 2004 Nadeem Hasan <nhasan@kde.org>
                   Stefan Kombrink <katakombi@web.de>
@@ -38,17 +38,17 @@
 // tdecm_touchpad
 #include "touchpad_settings.h"
 
-// SynDaemon
-#include "syndaemon.h"
-#include "syndaemon.moc"
+// TDESynDaemon
+#include "tdesyndaemon.h"
+#include "tdesyndaemon.moc"
 
-const unsigned int SynDaemon::TIME_OUT = 150;
-const unsigned int SynDaemon::POLL_INTERVAL = 100;
-const unsigned int SynDaemon::KEYMAP_SIZE = 32;
+const unsigned int TDESynDaemon::TIME_OUT = 150;
+const unsigned int TDESynDaemon::POLL_INTERVAL = 100;
+const unsigned int TDESynDaemon::KEYMAP_SIZE = 32;
 
-unsigned char* SynDaemon::m_keyboard_mask;
+unsigned char* TDESynDaemon::m_keyboard_mask;
 
-SynDaemon::SynDaemon() : DCOPObject("syndaemon"), TQObject()
+TDESynDaemon::TDESynDaemon() : DCOPObject("tdesyndaemon"), TQObject()
 {
     m_typing = false;
     m_time = new TQTime();
@@ -81,19 +81,19 @@ SynDaemon::SynDaemon() : DCOPObject("syndaemon"), TQObject()
     m_poll->start(POLL_INTERVAL);
 }
 
-SynDaemon::~SynDaemon()
+TDESynDaemon::~TDESynDaemon()
 {
     setTouchpadOn(true);
     m_poll->stop();
     delete m_keyboard_mask;
 }
 
-void SynDaemon::stop()
+void TDESynDaemon::stop()
 {
     kapp->quit();
 }
 
-void SynDaemon::poll()
+void TDESynDaemon::poll()
 {
     // do nothing if the user has explicitly disabled the touchpad in the settings
     if (!touchpadEnabled()) return;
@@ -117,7 +117,7 @@ void SynDaemon::poll()
     }
 }
 
-bool SynDaemon::touchpadEnabled()
+bool TDESynDaemon::touchpadEnabled()
 {
     // We can't read from our own TouchpadSettings
     // as it contains the currently applied value
@@ -127,7 +127,7 @@ bool SynDaemon::touchpadEnabled()
     return cfg.readBoolEntry("Enabled", true);
 }
 
-void SynDaemon::setTouchpadOn(bool on)
+void TDESynDaemon::setTouchpadOn(bool on)
 {
     m_typing = !on;
     if (!d_settings->setTouchpadEnabled(on))
@@ -136,14 +136,14 @@ void SynDaemon::setTouchpadOn(bool on)
     }
 }
 
-void SynDaemon::clearBit(unsigned char *ptr, int bit)
+void TDESynDaemon::clearBit(unsigned char *ptr, int bit)
 {
     int byteNum = bit / 8;
     int bitNum = bit % 8;
     ptr[byteNum] &= ~(1 << bitNum);
 }
 
-bool SynDaemon::hasKeyboardActivity()
+bool TDESynDaemon::hasKeyboardActivity()
 {
     static unsigned char oldKeyState[KEYMAP_SIZE];
     unsigned char keyState[KEYMAP_SIZE];
@@ -183,8 +183,8 @@ bool SynDaemon::hasKeyboardActivity()
 
 extern "C" TDE_EXPORT int main(int argc, char *argv[])
 {
-    TDEAboutData aboutData( "syndaemon", I18N_NOOP("Synaptics helper daemon"),
-        "0.1", I18N_NOOP("Synaptics helper daemon"), TDEAboutData::License_GPL_V2,
+    TDEAboutData aboutData( "tdesyndaemon", I18N_NOOP("TDE Synaptics helper daemon"),
+        "0.1", I18N_NOOP("TDE Synaptics helper daemon"), TDEAboutData::License_GPL_V2,
         "© 2024 Mavridis Philippe" );
 
     aboutData.addAuthor("Nadeem Hasan", I18N_NOOP("Author"), "nhasan@kde.org");
@@ -194,8 +194,8 @@ extern "C" TDE_EXPORT int main(int argc, char *argv[])
 
     TDEApplication app;
     app.disableSessionManagement();
-    app.dcopClient()->registerAs("syndaemon", false);
+    app.dcopClient()->registerAs("tdesyndaemon", false);
 
-    SynDaemon syndaemon;
+    TDESynDaemon tdesyndaemon;
     return app.exec();
 }
