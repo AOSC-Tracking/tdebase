@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Slávek Banko <slavek.banko@axis.cz>, 2020, 2021.
+# Slávek Banko <slavek.banko@axis.cz>, 2020, 2021, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2021-09-07 01:16+0000\n"
+"PO-Revision-Date: 2024-09-10 15:10+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kcontrol-desktop-files/cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -1575,35 +1575,27 @@ msgid ""
 "DoubleClick;mapping;right handed;left handed;"
 msgstr ""
 "Myš;Akcelerace myši;Práh myši;Tlačítka myši;Výběr;Tvar kurzoru;Vstupní "
-"zařízení;Mapování tlačítek;Kurzor;Kliknutí;Odezva;Ukzatele;Poklepání;Dvojité "
-"kliknutí;Pravák;Levák;"
+"zařízení;Mapování tlačítek;Kurzor;Kliknutí;Odezva;Ukazatele;Poklepání;"
+"Dvojité kliknutí;Pravák;Levák;"
 
 #. Name
 #: input/touchpad.desktop:13
 msgid "Touchpad"
-msgstr ""
+msgstr "Touchpad"
 
 #. Comment
 #: input/touchpad.desktop:14
-#, fuzzy
-#| msgid "Mouse settings"
 msgid "Touchpad settings"
-msgstr "Nastavení myši"
+msgstr "Nastavení touchpadu"
 
 #. Keywords
 #: input/touchpad.desktop:15
-#, fuzzy
-#| msgid ""
-#| "Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
-#| "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
-#| "DoubleClick;mapping;right handed;left handed;"
 msgid ""
 "Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
 "Click;mapping;right handed;left handed;"
 msgstr ""
-"Myš;Akcelerace myši;Práh myši;Tlačítka myši;Výběr;Tvar kurzoru;Vstupní "
-"zařízení;Mapování tlačítek;Kurzor;Kliknutí;Odezva;Ukzatele;Poklepání;Dvojité "
-"kliknutí;Pravák;Levák;"
+"Touchpad;Kliknutí klepnutím;Myš;Tlačítka myši;Vstupní zařízení;Mapování "
+"tlačítek;Klepnutí;Kliknutí;mapování; pravák;levák;"
 
 #. Name
 #: joystick/joystick.desktop:12
