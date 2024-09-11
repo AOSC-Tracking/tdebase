@@ -46,6 +46,7 @@ public:
   static TQString systemMachine() { return _imachine; }
   static IndexViewMode viewMode() { return _viewmode; }
   static TDEIcon::StdSizes iconSize() { return _iconsize; }
+  static bool showHiddenModules() { return _showhidden; }
   static TQString baseGroup();
 
   static void setIsInfoCenter(bool b) { _infocenter = b; }
@@ -60,6 +61,7 @@ public:
   static void setSystemMachine(const TQString& n){ _imachine = n; }
   static void setViewMode(IndexViewMode m) { _viewmode = m; }
   static void setIconSize(TDEIcon::StdSizes s) { _iconsize = s; }
+  static void setShowHiddenModules(bool o) { _showhidden = o; }
 
   static void repairAccels( TQWidget * tw );
 
@@ -71,6 +73,7 @@ private:
   static IndexViewMode _viewmode;
   static TDEIcon::StdSizes _iconsize;
   static TQString _baseGroup;
+  static bool _showhidden;
 };
 
 #endif

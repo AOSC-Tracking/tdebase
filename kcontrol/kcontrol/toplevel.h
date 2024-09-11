@@ -64,6 +64,7 @@ protected slots:
   void activateMediumIcons();
   void activateLargeIcons();
   void activateHugeIcons();
+  void toggleHiddenModules();
 
   void deleteDummyAbout();
 
@@ -86,6 +87,7 @@ private:
 
   TDEToggleAction *tree_view, *icon_view;
   TDEToggleAction *icon_small, *icon_medium, *icon_large, *icon_huge;
+  TDEToggleAction *show_hidden_modules;
   TDEAction *report_bug, *about_module;
 
   IndexWidget  *_index;

@@ -57,6 +57,9 @@ protected:
   void paintCell( TQPainter * p, const TQColorGroup & cg, int column, int width, int align );
 
 private:
+  void init();
+
+private:
   ConfigModule *_module;
   TQString       _tag;
   TQString       _caption;

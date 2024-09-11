@@ -25,6 +25,7 @@
 #include <kstandarddirs.h>
 #include <kservicegroup.h>
 #include <kiconloader.h>
+#include <tdecmoduleloader.h>
 
 #include <kdebug.h>
 
@@ -167,4 +168,15 @@ TQPixmap ModuleIconView::loadIcon( const TQString &name )
      icon = DesktopIcon( "folder", KCGlobal::iconSize() );
 
   return icon;
+}
+
+ModuleIconItem::ModuleIconItem(TQListView *parent, const TQString& text, const TQPixmap& pm, ConfigModule *m)
+  : TDEListViewItem(parent, text)
+  , _tag(TQString::null)
+  , _module(m)
+{
+  setPixmap(0, pm);
+
+  if (!_module) return;
+  setVisible(KCGlobal::showHiddenModules() || !_module->needsTest() || TDECModuleLoader::testModule(*_module));
 }

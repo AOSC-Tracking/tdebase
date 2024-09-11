@@ -29,13 +29,7 @@ class ModuleIconItem : public TDEListViewItem
 {
 
 public:
-  ModuleIconItem(TQListView *parent, const TQString& text, const TQPixmap& pm, ConfigModule *m = 0)
-	: TDEListViewItem(parent, text)
-	, _tag(TQString::null)
-	, _module(m)
-	{
-	  setPixmap(0, pm);
-	}
+  ModuleIconItem(TQListView *parent, const TQString& text, const TQPixmap& pm, ConfigModule *m = 0);
 
   void setConfigModule(ConfigModule* m) { _module = m; }
   void setTag(const TQString& t) { _tag = t; }

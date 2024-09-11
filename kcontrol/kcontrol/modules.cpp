@@ -286,7 +286,7 @@ bool ConfigModuleList::readDesktopEntriesRecursive(const TQString &path)
            continue;
 
         ConfigModule *module = new ConfigModule(s);
-        if (module->library().isEmpty() || (module->needsTest() && !TDECModuleLoader::testModule(*module)))
+        if (module->library().isEmpty())
         {
            delete module;
            continue;
