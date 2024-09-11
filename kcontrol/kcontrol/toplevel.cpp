@@ -267,6 +267,10 @@ actionCollection());
      actionCollection(), "activate_hugeicons");
   icon_huge->setExclusiveGroup( "iconsize" );
 
+  show_hidden_modules = new TDEToggleAction
+    (i18n("Show hidden modules"), 0, this, TQ_SLOT(toggleHiddenModules()),
+     actionCollection(), "show_hidden_modules");
+
   about_module = new TDEAction(i18n("About Current Module"), 0, this, TQ_SLOT(aboutModule()), actionCollection(), "help_about_module");
   about_module->setEnabled(false);
 
@@ -337,6 +341,12 @@ void TopLevel::activateLargeIcons()
 void TopLevel::activateHugeIcons()
 {
   KCGlobal::setIconSize(TDEIcon::SizeHuge);
+  _index->reload();
+}
+
+void TopLevel::toggleHiddenModules()
+{
+  KCGlobal::setShowHiddenModules(show_hidden_modules->isChecked());
   _index->reload();
 }
 

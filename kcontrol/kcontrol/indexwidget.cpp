@@ -42,6 +42,8 @@ void IndexWidget::reload()
 {
   if (_icon)
     _icon->fill();
+  if (_tree)
+    _tree->fill();
 }
 
 TQListViewItem *IndexWidget::firstTreeViewItem()

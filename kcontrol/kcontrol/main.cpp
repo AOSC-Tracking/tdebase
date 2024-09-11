@@ -103,7 +103,7 @@ extern "C" TDE_EXPORT int kdemain(int argc, char *argv[])
   TDELocale::setMainCatalogue("kcontrol");
   TDEAboutData aboutKControl( "kcontrol", I18N_NOOP("Trinity Control Center"),
     KCONTROL_VERSION, I18N_NOOP("The Trinity Control Center"), TDEAboutData::License_GPL,
-    I18N_NOOP("(c) 1998-2004, The Trinity Control Center Developers"));
+    I18N_NOOP("(c) 1998-2024, The Trinity Control Center Developers"));
 
   TQCString argv_0 = argv[0];
   TDEAboutData *aboutData;

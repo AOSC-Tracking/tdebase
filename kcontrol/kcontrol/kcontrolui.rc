@@ -12,6 +12,8 @@
             <Action name="activate_largeicons"/>
             <Action name="activate_hugeicons"/>
         </Menu>
+        <Separator/>
+        <Action name="show_hidden_modules"/>
     </Menu>
     <Menu name="help">
         <Action name="help_about_module" append="about_merge"/>

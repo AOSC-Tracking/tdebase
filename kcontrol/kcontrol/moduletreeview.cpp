@@ -26,6 +26,7 @@
 #include <tdelocale.h>
 #include <kiconloader.h>
 #include <kservicegroup.h>
+#include <tdecmoduleloader.h>
 #include <kdebug.h>
 #include <tqwhatsthis.h>
 #include <tqbitmap.h>
@@ -91,6 +92,14 @@ ModuleTreeView::ModuleTreeView(ConfigModuleList *list, TQWidget * parent, const 
 
 void ModuleTreeView::fill()
 {
+  // If we have a currently selected module, preserve selection
+  ConfigModule *currentModule = nullptr;
+  if (currentItem())
+  {
+    currentModule = static_cast<ModuleTreeItem*>(currentItem())->module();
+  }
+
+  // (Re)fill the tree view
   clear();
 
   TQStringList subMenus = _modules->submenus(KCGlobal::baseGroup());
@@ -107,7 +116,14 @@ void ModuleTreeView::fill()
   TQPtrList<ConfigModule> moduleList = _modules->modules(KCGlobal::baseGroup());
   for (module=moduleList.first(); module != 0; module=moduleList.next())
   {
-     new ModuleTreeItem(this, module);
+    new ModuleTreeItem(this, module);
+  }
+
+  // Restore selection
+  if (currentModule)
+  {
+    makeSelected(currentModule);
+    makeVisible(currentModule);
   }
 }
 
@@ -130,8 +146,6 @@ void ModuleTreeView::fill(ModuleTreeItem *parent, const TQString &parentPath)
      new ModuleTreeItem(parent, module);
   }
 }
-
-
 
 TQSize ModuleTreeView::sizeHint() const
 {
@@ -272,12 +286,7 @@ ModuleTreeItem::ModuleTreeItem(TQListViewItem *parent, ConfigModule *module)
   , _tag(TQString::null)
   , _maxChildIconWidth(0)
 {
-  if (_module)
-        {
-          setText(0, " " + module->moduleName());
-          _icon = module->icon();
-          setPixmap(0, appIcon(_icon));
-        }
+  init();
 }
 
 ModuleTreeItem::ModuleTreeItem(TQListView *parent, ConfigModule *module)
@@ -286,12 +295,7 @@ ModuleTreeItem::ModuleTreeItem(TQListView *parent, ConfigModule *module)
   , _tag(TQString::null)
   , _maxChildIconWidth(0)
 {
-  if (_module)
-        {
-          setText(0, " " + module->moduleName());
-          _icon = module->icon();
-          setPixmap(0, appIcon(_icon));
-        }
+  init();
 }
 
 ModuleTreeItem::ModuleTreeItem(TQListViewItem *parent, const TQString& text)
@@ -307,6 +311,18 @@ ModuleTreeItem::ModuleTreeItem(TQListView *parent, const TQString& text)
   , _tag(TQString::null)
   , _maxChildIconWidth(0)
   {}
+
+void ModuleTreeItem::init()
+{
+  if (!_module) return;
+
+  setText(0, " " + _module->moduleName());
+  _icon = _module->icon();
+  setPixmap(0, appIcon(_icon));
+
+
+  setVisible(KCGlobal::showHiddenModules() || !_module->needsTest() || TDECModuleLoader::testModule(*_module));
+}
 
 void ModuleTreeItem::setPixmap(int column, const TQPixmap& pm)
 {
