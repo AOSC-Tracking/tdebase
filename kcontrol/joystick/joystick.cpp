@@ -35,7 +35,7 @@ K_EXPORT_COMPONENT_FACTORY(kcm_joystick, JoystickFactory("joystick"))
 
 extern "C"
 {
-  TDE_EXPORT bool test_joystick()
+  TDE_EXPORT bool test_kcm_joystick()
   { /* Code stolen from JoyWidget::init() */
     int i;
     char dev[30];
