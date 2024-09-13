@@ -25,7 +25,7 @@
 #include <tqwhatsthis.h>
 #include <tqlayout.h>
 #include <tqstringlist.h>
-#include <tqucomextra_p.h>
+#include <private/tqucomextra_p.h>
 
 #include <tdelocale.h>
 #include <ksimpleconfig.h>

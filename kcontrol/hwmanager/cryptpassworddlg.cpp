@@ -31,7 +31,7 @@
 #include <tqpainter.h>
 #include <tqstyle.h>
 #include <tqfile.h>
-#include <tqinternal_p.h>
+#include <private/tqinternal_p.h>
 #undef Unsorted // Required for --enable-final (tqdir.h)
 #include <tqfiledialog.h>
 

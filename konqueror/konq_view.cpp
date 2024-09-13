@@ -45,7 +45,7 @@
 #include <tqmetaobject.h>
 #include <tqobjectlist.h>
 #include <config.h>
-#include <tqucomextra_p.h>
+#include <private/tqucomextra_p.h>
 #include <tdemessagebox.h>
 #include <tdelocale.h>
 

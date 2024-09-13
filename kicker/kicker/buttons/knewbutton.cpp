@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqtooltip.h>
 #include <tqpainter.h>
 #include <tqcursor.h>
-#include <tqeffects_p.h>
+#include <private/tqeffects_p.h>
 
 #include <tdelocale.h>
 #include <tdeapplication.h>

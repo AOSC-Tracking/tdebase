@@ -28,7 +28,7 @@
 #include <tqslider.h>
 #include <tqpainter.h>
 #include <tqstyle.h>
-#include <tqinternal_p.h>
+#include <private/tqinternal_p.h>
 #include <kprocess.h>
 #include <dcopclient.h>
 #include <dcopref.h>
