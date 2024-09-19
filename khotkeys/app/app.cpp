@@ -16,6 +16,7 @@
 
 #include "app.h"
 
+#include <dcopclient.h>
 #include <tdecmdlineargs.h>
 #include <tdeconfig.h>
 #include <tdelocale.h>
@@ -42,18 +43,16 @@ KHotKeysApp::KHotKeysApp()
         delete_helper( new TQObject )
     {
     init_global_data( true, delete_helper ); // grab keys
-    // CHECKME triggery a dalsi vytvaret az tady za inicializaci
     actions_root = NULL;
     reread_configuration();
     }
 
 KHotKeysApp::~KHotKeysApp()
     {
-    // CHECKME triggery a dalsi rusit uz tady pred cleanupem
     delete actions_root;
-// Many global data should be destroyed while the TQApplication object still
-// exists, and therefore 'this' cannot be the parent, as ~Object
-// for 'this' would be called after ~TQApplication - use proxy object
+    // Many global data should be destroyed while the TQApplication object still
+    // exists, and therefore 'this' cannot be the parent, as ~Object()
+    // for 'this' would be called after ~TQApplication() - use proxy object
     delete delete_helper;
     }
 
@@ -93,66 +92,52 @@ static int khotkeys_screen_number = 0;
 
 extern "C"
 int TDE_EXPORT kdemain( int argc, char** argv )
+{
+  // Check if khotkeys is already running as a kded module.
+  // In such case just exit.
+  DCOPClient *dcopClient = new DCOPClient;
+  if (!dcopClient->isAttached())
+  {
+    if (!dcopClient->attach())
     {
-        {
-	// multiheaded hotkeys
-        TQCString multiHead = getenv("TDE_MULTIHEAD");
-        if (multiHead.lower() == "true") {
-	    Display *dpy = XOpenDisplay(NULL);
-	    if (! dpy) {
-		fprintf(stderr, "%s: FATAL ERROR while trying to open display %s\n",
-			argv[0], XDisplayName(NULL));
-		exit(1);
-	    }
-
-	    int number_of_screens = ScreenCount(dpy);
-	    khotkeys_screen_number = DefaultScreen(dpy);
-	    int pos;
-	    TQCString displayname = XDisplayString(dpy);
-	    XCloseDisplay(dpy);
-	    dpy = 0;
-
-	    if ((pos = displayname.findRev('.')) != -1)
-		displayname.remove(pos, 10);
-
-	    TQCString env;
-	    if (number_of_screens != 1) {
-		for (int i = 0; i < number_of_screens; i++) {
-		    if (i != khotkeys_screen_number && fork() == 0) {
-			khotkeys_screen_number = i;
-			// break here because we are the child process, we don't
-			// want to fork() anymore
-			break;
-		    }
-		}
-
-		env.sprintf("DISPLAY=%s.%d", displayname.data(), khotkeys_screen_number);
-		if (putenv(strdup(env.data()))) {
-		    fprintf(stderr,
-			    "%s: WARNING: unable to set DISPLAY environment variable\n",
-			    argv[0]);
-		    perror("putenv()");
-		}
-	    }
-	}
-        }
-
-    TQCString appname;
-    if (khotkeys_screen_number == 0)
-	appname = "khotkeys";
-    else
-	appname.sprintf("khotkeys-screen-%d", khotkeys_screen_number);
-
-                             // no need to i18n these, no GUI
-    TDECmdLineArgs::init( argc, argv, appname, I18N_NOOP( "KHotKeys" ),
-        I18N_NOOP( "KHotKeys daemon" ), KHOTKEYS_VERSION );
-    KUniqueApplication::addCmdLineOptions();
-    if( !KHotKeysApp::start()) // already running
-        return 0;
-    KHotKeysApp app;
-    app.disableSessionManagement();
-    return app.exec();
+      kdWarning(1217) << "khotkeys [application]: could not register with DCOP. Exiting." << endl;
+      delete dcopClient;
+      return 1;
     }
+  }
+  TQCString replyType;
+  TQByteArray replyData;
+  if (dcopClient->call("kded", "kded", "loadedModules()",
+        TQByteArray(), replyType, replyData))
+  {
+    if (replyType == "QCStringList")
+    {
+      TQDataStream reply(replyData, IO_ReadOnly);
+      QCStringList modules;
+      reply >> modules;
+      if (modules.contains("khotkeys"))
+      {
+        // khotkeys is already running as a service, do nothing
+        kdWarning(1217) << "khotkeys is already running as a kded module. Exiting." << endl;
+        delete dcopClient;
+        return 2;
+      }
+    }
+  }
+  delete dcopClient;
+
+  // no need to i18n these, no GUI
+  TDECmdLineArgs::init( argc, argv, "khotkeys", I18N_NOOP( "KHotKeys" ),
+      I18N_NOOP( "KHotKeys daemon" ), KHOTKEYS_VERSION );
+  KUniqueApplication::addCmdLineOptions();
+  if( !KHotKeysApp::start()) // already running
+  {
+    return 0;
+  }
+  KHotKeysApp app;
+  app.disableSessionManagement();
+  return app.exec();
+}
 
 
 #include "app.moc"

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+
+Name=KHotkeys Daemon
+
+Comment=Handles input actions for the current session
+
+X-TDE-ServiceTypes=KDEDModule
+X-TDE-ModuleType=Library
+X-TDE-Library=khotkeys
+X-TDE-FactoryName=khotkeys
+X-TDE-Kded-autoload=true
+X-TDE-Kded-load-on-demand=false
