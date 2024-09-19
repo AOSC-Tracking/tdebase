@@ -12,27 +12,27 @@
 #define _KHOTKEYS_KDED_H_
 
 #include <kdedmodule.h>
-#include <dcopclient.h>
 
 namespace KHotKeys
 {
 
 class Action_data_group;
 
-class KHotKeysModule
-    : public KDEDModule
+class KHotKeysModule : public KDEDModule
     {
     TQ_OBJECT
     K_DCOP
+
     k_dcop:
         ASYNC reread_configuration();
         ASYNC quit(); 
+
     public:
         KHotKeysModule( const TQCString& obj );
         virtual ~KHotKeysModule();
+
     private:
         Action_data_group* actions_root;
-        DCOPClient client;
     };
 
 //***************************************************************************

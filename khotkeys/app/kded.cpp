@@ -16,6 +16,7 @@
 
 #include "kded.h"
 
+#include <dcopclient.h>
 #include <tdecmdlineargs.h>
 #include <tdeconfig.h>
 #include <tdelocale.h>
@@ -35,9 +36,17 @@
 
 extern "C" 
 TDE_EXPORT KDEDModule *create_khotkeys( const TQCString& obj )
-    {
-    return new KHotKeys::KHotKeysModule( obj );
-    }
+{
+  // Check if khotkeys is already running as a stand alone application.
+  // In such case just exit.
+  if (kapp->dcopClient()->isApplicationRegistered("khotkeys"))
+  {
+    kdWarning(1217) << "khotkeys [kded module] is already running as a standalone application. Exiting." << endl;
+    return nullptr;
+  }
+
+  return new KHotKeys::KHotKeysModule( obj );
+}
 
 namespace KHotKeys
 {
@@ -47,22 +56,7 @@ namespace KHotKeys
 KHotKeysModule::KHotKeysModule( const TQCString& obj )
     : KDEDModule( obj )
     {
-    for( int i = 0;
-         i < 5;
-         ++i )
-        {
-        if( kapp->dcopClient()->isApplicationRegistered( "khotkeys" ))
-            {
-            TQByteArray data, replyData;
-            TQCString reply;
-            // wait for it to finish
-            kapp->dcopClient()->call( "khotkeys*", "khotkeys", "quit()", data, reply, replyData );
-            sleep( 1 );
-            }
-        }
-    client.registerAs( "khotkeys", false ); // extra dcop connection (like if it was an app)
     init_global_data( true, this ); // grab keys
-    // CHECKME triggery a dalsi vytvaret az tady za inicializaci
     actions_root = NULL;
     reread_configuration();
     }

@@ -24,24 +24,17 @@ extern "C"
 {
     TDE_EXPORT void init_khotkeys()
     {
-    TDEConfig cfg( "khotkeysrc", true );
-    cfg.setGroup( "Main" );
-    if( !cfg.readBoolEntry( "Autostart", false ))
-        return;
-    // Non-xinerama multhead support in KDE is just a hack
-    // involving forking apps per-screen. Don't bother with
-    // kded modules in such case.
-    TQCString multiHead = getenv("TDE_MULTIHEAD");
-    if (multiHead.lower() == "true")
-        kapp->tdeinitExec( "khotkeys" );
-    else
-        {
-        DCOPRef ref( "kded", "kded" );
-        if( !ref.call( "loadModule", TQCString( "khotkeys" )))
-            {
-            kdWarning( 1217 ) << "Loading of khotkeys module failed." << endl;
-            kapp->tdeinitExec( "khotkeys" );
-            }
-        }
+	TDEConfig cfg( "khotkeysrc", true );
+	cfg.setGroup( "Main" );
+	if( !cfg.readBoolEntry( "Autostart", false ))
+	{
+	  return;
+	}
+	DCOPRef ref( "kded", "kded" );
+	if( !ref.call( "loadModule", TQCString( "khotkeys" )))
+	{
+	    kdWarning( 1217 ) << "Loading of khotkeys module failed." << endl;
+	    kapp->tdeinitExec( "khotkeys" );
+	}
     }
 }
