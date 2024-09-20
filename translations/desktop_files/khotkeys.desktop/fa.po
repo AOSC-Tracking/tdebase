@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-04 18:13+0000\n"
+"POT-Creation-Date: 2024-09-20 18:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Name
-#: khotkeys.desktop:13
+#: app/khotkeys.desktop:4
+msgid "KHotkeys Daemon"
+msgstr ""
+
+#. Comment
+#: app/khotkeys.desktop:6
+msgid "Handles input actions for the current session"
+msgstr ""
+
+#. Name
+#: kcontrol/khotkeys.desktop:13
 msgid "Input Actions"
 msgstr "کنشهای ورودی"
 
 #. Comment
-#: khotkeys.desktop:15
+#: kcontrol/khotkeys.desktop:15
 msgid "Configure Hotkey settings"
 msgstr "پیکربندی تنظیمات کلید میان‌بر"
 
 #. Keywords
-#: khotkeys.desktop:17
+#: kcontrol/khotkeys.desktop:17
 msgid "Keys;Global key bindings;Key bindings;Gestures;Mouse gestures;"
 msgstr "کلیدها، مقیدسازیهای کلید سراسری، مقیدسازیهای کلید، حرکات، حرکات موشی;"
