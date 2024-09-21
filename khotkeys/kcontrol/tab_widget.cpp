@@ -103,7 +103,6 @@ void Tab_widget::save_current_action_changes()
     if( current_type == NONE ) // info, global settings
         {
         static_cast< Gestures_settings_tab* >( pages[ TAB_GESTURES_SETTINGS ] )->write_data(); // saves
-        static_cast< General_settings_tab* >( pages[ TAB_GENERAL_SETTINGS ] )->write_data(); // saves
         static_cast< Voice_settings_tab* >( pages[ TAB_VOICE_SETTINGS ] )->write_data(); // saves
         }
     else if( current_type == GROUP )
@@ -235,7 +234,6 @@ void Tab_widget::load_current_action()
         {
         static_cast< Gestures_settings_tab* >( pages[ TAB_GESTURES_SETTINGS ] )->read_data(); // loads
         static_cast< Voice_settings_tab* >( pages[ TAB_VOICE_SETTINGS ] )->read_data(); // loads
-        static_cast< General_settings_tab* >( pages[ TAB_GENERAL_SETTINGS ] )->read_data(); // loads
         }
     else if( current_type == GROUP )
         {

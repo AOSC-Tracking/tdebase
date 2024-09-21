@@ -103,8 +103,6 @@ bool Settings::read_settings( TDEConfig& cfg_P, bool include_disabled_P, ImportT
         }
     if( import_P != ImportNone )
         return true; // don't read global settings
-    cfg_P.setGroup( "Main" ); // main group
-    daemon_disabled = cfg_P.readBoolEntry( "Disabled", false );
     cfg_P.setGroup( "Gestures" );
     gestures_disabled_globally = cfg_P.readBoolEntry( "Disabled", true );
     gesture_mouse_button = cfg_P.readNumEntry( "MouseButton", 2 );
@@ -132,9 +130,6 @@ void Settings::write_settings()
     cfg.writeEntry( "AlreadyImported", already_imported );
     cfg.setGroup( "Data" );
     int cnt = write_actions_recursively_v2( cfg, actions, true );
-    cfg.setGroup( "Main" );
-    cfg.writeEntry( "Autostart", cnt != 0 && !daemon_disabled );
-    cfg.writeEntry( "Disabled", daemon_disabled );
     cfg.setGroup( "Gestures" );
     cfg.writeEntry( "Disabled", gestures_disabled_globally );
     cfg.writeEntry( "MouseButton", gesture_mouse_button );
@@ -155,7 +150,6 @@ void Settings::write_settings()
 
 
 // return value means the number of enabled actions written in the cfg file
-// i.e. 'Autostart' for value > 0 should be on
 int Settings::write_actions_recursively_v2( TDEConfig& cfg_P, Action_data_group* parent_P, bool enabled_P )
     {
     int enabled_cnt = 0;

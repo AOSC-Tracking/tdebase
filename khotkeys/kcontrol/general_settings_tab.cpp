@@ -26,24 +26,11 @@ namespace KHotKeys
 General_settings_tab::General_settings_tab( TQWidget* parent_P, const char* name_P )
     : General_settings_tab_ui( parent_P, name_P )
     {
-    // KHotKeys::Module::changed()
-    connect( disable_daemon_checkbox, TQ_SIGNAL( clicked()),
-        module, TQ_SLOT( changed()));
     }
 
 void General_settings_tab::import_clicked()
     {
     module->import();
-    }
-
-void General_settings_tab::write_data() const
-    {
-    module->set_daemon_disabled( disable_daemon_checkbox->isChecked());
-    }
-
-void General_settings_tab::read_data()
-    {
-    disable_daemon_checkbox->setChecked( module->daemon_disabled());
     }
 
 void General_settings_tab::clear_data()

@@ -22,8 +22,6 @@ class General_settings_tab
     TQ_OBJECT
     public:
         General_settings_tab( TQWidget* parent = NULL, const char* name = NULL );
-        void read_data();
-        void write_data() const;
     public slots:
         void clear_data();
     protected slots:

@@ -16,14 +16,6 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="TQCheckBox">
-            <property name="name">
-                <cstring>disable_daemon_checkbox</cstring>
-            </property>
-            <property name="text">
-                <string>Disable KHotKeys daemon</string>
-            </property>
-        </widget>
         <widget class="TQLayoutWidget">
             <property name="name">
                 <cstring>layout1</cstring>

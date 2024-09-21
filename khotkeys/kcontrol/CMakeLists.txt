@@ -47,12 +47,3 @@ tde_add_kpart( kcm_khotkeys AUTOMOC
   LINK ui-static
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )
-
-
-##### kcm_khotkeys_init (module) ################
-
-tde_add_kpart( kcm_khotkeys_init AUTOMOC
-  SOURCES init.cpp
-  LINK tdecore-shared
-  DESTINATION ${PLUGIN_INSTALL_DIR}
-)

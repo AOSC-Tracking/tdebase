@@ -37,7 +37,6 @@ class TDE_EXPORT Settings
         bool gestures_disabled_globally;
         int gesture_mouse_button;
         int gesture_timeout;
-        bool daemon_disabled;
         Windowdef_list* gestures_exclude;
 		TDEShortcut voice_shortcut;
     protected:

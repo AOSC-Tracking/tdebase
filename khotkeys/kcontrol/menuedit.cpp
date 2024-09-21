@@ -191,16 +191,34 @@ void khotkeys_send_reread_config()
     TQByteArray data;
     if( !kapp->dcopClient()->isAttached())
         kapp->dcopClient()->attach();
-    if( !kapp->dcopClient()->isApplicationRegistered( "khotkeys" ))
+    if(kapp->dcopClient()->isApplicationRegistered( "khotkeys" ))
         {
-        kdDebug( 1217 ) << "launching new khotkeys daemon" << endl;
-        TDEApplication::tdeinitExec( "khotkeys" );
+        // khotkeys running as a standalone application
+        TQByteArray data;
+        kdDebug( 1217 ) << "telling khotkeys standalone application to reread configuration" << endl;
+        kapp->dcopClient()->send( "khotkeys", "khotkeys", "reread_configuration()", data );
         }
     else
         {
-        TQByteArray data;
-        kapp->dcopClient()->send( "khotkeys*", "khotkeys", "reread_configuration()", data );
-        kdDebug( 1217 ) << "telling khotkeys daemon to reread configuration" << endl;
+        TQCString replyType;
+        TQByteArray replyData;
+        if (kapp->dcopClient()->call("kded", "kded", "loadedModules()",
+              TQByteArray(), replyType, replyData))
+            {
+            if (replyType == "QCStringList")
+                {
+                TQDataStream reply(replyData, IO_ReadOnly);
+                QCStringList modules;
+                reply >> modules;
+                if (modules.contains("khotkeys"))
+                    {
+                    // khotkeys running as a kded service
+                    TQByteArray data;
+                    kdDebug( 1217 ) << "telling khotkeys kded daemon to reread configuration" << endl;
+                    kapp->dcopClient()->send( "kded", "khotkeys", "reread_configuration()", data );
+                    }
+                }
+            }
         }
     }
 
@@ -303,7 +321,6 @@ TQString khotkeys_change_menu_entry_shortcut( const TQString& entry_P,
         return "";
         }
     entry->reparent( khotkeys_get_menu_root( settings.actions ));
-    settings.daemon_disabled = false; // #91782
     settings.write_settings();
     khotkeys_send_reread_config();
     return shortcut;
