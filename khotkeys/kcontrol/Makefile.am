@@ -1,6 +1,6 @@
 SUBDIRS = ui
 
-kde_module_LTLIBRARIES = kcm_khotkeys.la kcm_khotkeys_init.la
+kde_module_LTLIBRARIES = kcm_khotkeys.la
 
 kcm_khotkeys_la_SOURCES = \
     menuedit.cpp window_trigger_widget.cpp tab_widget.cpp main_buttons_widget.cpp \
@@ -14,11 +14,6 @@ kcm_khotkeys_la_SOURCES = \
     
 kcm_khotkeys_la_LIBADD  = ui/libui.la $(LIB_TDEUI) $(LIB_ARTS) 
 kcm_khotkeys_la_LDFLAGS = $(all_libraries) -module -avoid-version -no-undefined
-
-kcm_khotkeys_init_la_SOURCES = init.cpp
-    
-kcm_khotkeys_init_la_LIBADD  = $(LIB_TDECORE)
-kcm_khotkeys_init_la_LDFLAGS = $(all_libraries) -module -avoid-version -no-undefined
 
 noinst_HEADERS = menuedit.h window_trigger_widget.h \
     tab_widget.h main_buttons_widget.h actions_listview_widget.h menuentry_widget.h \

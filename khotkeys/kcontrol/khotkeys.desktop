@@ -5,8 +5,6 @@ Type=Application
 X-DocPath=kcontrol/khotkeys/index.html
 X-TDE-ModuleType=Library
 X-TDE-Library=khotkeys
-X-TDE-Init-Library=khotkeys_init
-X-TDE-Init=khotkeys
 X-TDE-StartupNotify=false
 Categories=Qt;TDE;X-TDE-settings-accessibility;
 

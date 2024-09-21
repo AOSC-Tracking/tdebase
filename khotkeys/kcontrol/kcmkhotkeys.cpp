@@ -122,24 +122,33 @@ void Module::save()
     tab_widget->save_current_action_changes();
     settings.actions = _actions_root;
     settings.write_settings();
-    if( daemon_disabled())
+    if(kapp->dcopClient()->isApplicationRegistered( "khotkeys" ))
         {
+        // khotkeys running as a standalone application
         TQByteArray data;
-        kapp->dcopClient()->send( "khotkeys*", "khotkeys", "quit()", data );
-        kdDebug( 1217 ) << "disabling khotkeys daemon" << endl;
+        kdDebug( 1217 ) << "telling khotkeys standalone application to reread configuration" << endl;
+        kapp->dcopClient()->send( "khotkeys", "khotkeys", "reread_configuration()", data );
         }
     else
         {
-        if( !kapp->dcopClient()->isApplicationRegistered( "khotkeys" ))
+        TQCString replyType;
+        TQByteArray replyData;
+        if (kapp->dcopClient()->call("kded", "kded", "loadedModules()",
+              TQByteArray(), replyType, replyData))
             {
-            kdDebug( 1217 ) << "launching new khotkeys daemon" << endl;
-            TDEApplication::tdeinitExec( "khotkeys" );
-            }
-        else
-            {
-            TQByteArray data;
-            kapp->dcopClient()->send( "khotkeys*", "khotkeys", "reread_configuration()", data );
-            kdDebug( 1217 ) << "telling khotkeys daemon to reread configuration" << endl;
+            if (replyType == "QCStringList")
+                {
+                TQDataStream reply(replyData, IO_ReadOnly);
+                QCStringList modules;
+                reply >> modules;
+                if (modules.contains("khotkeys"))
+                    {
+                    // khotkeys running as a kded service
+                    TQByteArray data;
+                    kdDebug( 1217 ) << "telling khotkeys kded daemon to reread configuration" << endl;
+                    kapp->dcopClient()->send( "kded", "khotkeys", "reread_configuration()", data );
+                    }
+                }
             }
         }
     emit TDECModule::changed( false );

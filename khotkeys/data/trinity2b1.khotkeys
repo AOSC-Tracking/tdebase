@@ -395,7 +395,6 @@ MouseButton=2
 Timeout=1000
 
 [Main]
-Autostart=true
 Disabled=false
 Version=2
 ImportId=trinity2b1
