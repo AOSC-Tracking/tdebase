@@ -51,8 +51,6 @@ class Module
         int gesture_timeout() const;
         void set_gestures_exclude( Windowdef_list* windows );
         const Windowdef_list* gestures_exclude() const;
-        void set_daemon_disabled( bool disable );
-        bool daemon_disabled() const;
         void import();
 		TDEShortcut voice_shortcut() const;
 		void set_voice_shortcut( const TDEShortcut&) ;
@@ -138,19 +136,6 @@ const Windowdef_list* Module::gestures_exclude() const
     {
     return settings.gestures_exclude;
     }
-
-inline
-void Module::set_daemon_disabled( bool disabled_P )
-    {
-    settings.daemon_disabled = disabled_P;
-    }
-
-inline
-bool Module::daemon_disabled() const
-    {
-    return settings.daemon_disabled;
-    }
-
 
 inline
 void Module::set_voice_shortcut( const TDEShortcut& cut)
