@@ -42,7 +42,7 @@
 #include "tdesyndaemon.h"
 #include "tdesyndaemon.moc"
 
-const unsigned int TDESynDaemon::TIME_OUT = 150;
+const unsigned int TDESynDaemon::TIME_OUT = 300;
 const unsigned int TDESynDaemon::POLL_INTERVAL = 100;
 const unsigned int TDESynDaemon::KEYMAP_SIZE = 32;
 
