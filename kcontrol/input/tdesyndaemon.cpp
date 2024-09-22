@@ -194,7 +194,13 @@ extern "C" TDE_EXPORT int main(int argc, char *argv[])
 
     TDEApplication app;
     app.disableSessionManagement();
+    if (app.dcopClient()->isApplicationRegistered("tdesyndaemon"))
+    {
+        kdWarning() << "TDESynDaemon already running, exiting..." << endl;
+        return 255;
+    }
     app.dcopClient()->registerAs("tdesyndaemon", false);
+    app.dcopClient()->setDefaultObject("tdesyndaemon");
 
     TDESynDaemon tdesyndaemon;
     return app.exec();
