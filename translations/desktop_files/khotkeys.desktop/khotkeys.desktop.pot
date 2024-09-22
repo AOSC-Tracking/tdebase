@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-20 20:11+0000\n"
+"POT-Creation-Date: 2024-09-22 20:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,16 +27,16 @@ msgid "Handles input actions for the current session"
 msgstr ""
 
 #. Name
-#: kcontrol/khotkeys.desktop:13
+#: kcontrol/khotkeys.desktop:11
 msgid "Input Actions"
 msgstr ""
 
 #. Comment
-#: kcontrol/khotkeys.desktop:15
+#: kcontrol/khotkeys.desktop:13
 msgid "Configure Hotkey settings"
 msgstr ""
 
 #. Keywords
-#: kcontrol/khotkeys.desktop:17
+#: kcontrol/khotkeys.desktop:15
 msgid "Keys;Global key bindings;Key bindings;Gestures;Mouse gestures;"
 msgstr ""
