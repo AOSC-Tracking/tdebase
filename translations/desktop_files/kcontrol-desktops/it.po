@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Leandro Nini <drfiemost@email.it>, 2021.
-# Michele Calgaro <michele.calgaro@yahoo.it>, 2022.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2022-01-19 02:00+0000\n"
+"PO-Revision-Date: 2024-09-26 03:10+0000\n"
 "Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/it/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -1644,29 +1644,21 @@ msgstr ""
 #. Name
 #: input/touchpad.desktop:13
 msgid "Touchpad"
-msgstr ""
+msgstr "Touchpad"
 
 #. Comment
 #: input/touchpad.desktop:14
-#, fuzzy
-#| msgid "Mouse settings"
 msgid "Touchpad settings"
-msgstr "Impostazione del mouse"
+msgstr "Impostazioni del touchpad"
 
 #. Keywords
 #: input/touchpad.desktop:15
-#, fuzzy
-#| msgid ""
-#| "Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
-#| "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
-#| "DoubleClick;mapping;right handed;left handed;"
 msgid ""
 "Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
 "Click;mapping;right handed;left handed;"
 msgstr ""
-"mouse;accelerazione del mouse;soglia del mouse;tasti del mouse;selezione;"
-"forma del cursore;dispositivi di input;mappatura dei tasti;clic;icone;"
-"puntatori;trascinamento;doppio clic;mouse per mancini;mancini;"
+"touchpad;tocca per fare clic;mouse;pulsanti del mouse;dispositivi di input;"
+"mappatura pulsanti;tocca;clic;mappatura;mano destra;mano sinistra;"
 
 #. Name
 #: joystick/joystick.desktop:12
