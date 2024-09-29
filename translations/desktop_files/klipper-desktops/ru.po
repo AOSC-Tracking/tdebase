@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Andrei Stepanov <adem4ik@gmail.com>, 2023.
+# Andrei Stepanov <adem4ik@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-21 18:11+0000\n"
-"PO-Revision-Date: 2023-12-09 05:14+0000\n"
+"PO-Revision-Date: 2024-09-29 19:45+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/klipper-desktop-files/ru/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. Name
 #: copy-full-path.desktop:6
 msgid "Copy full path"
-msgstr ""
+msgstr "Копировать полный путь"
 
 #. Name
 #: klipper.desktop:2
