@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Roman Savochenko <roman@oscada.org>, 2020.
+# Roman Savochenko <roman@oscada.org>, 2020, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-07 20:11+0000\n"
-"PO-Revision-Date: 2020-07-23 00:38+0000\n"
+"POT-Creation-Date: 2024-09-08 18:11+0000\n"
+"PO-Revision-Date: 2024-10-02 18:11+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/uk/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -1638,24 +1638,21 @@ msgstr ""
 #. Name
 #: input/touchpad.desktop:13
 msgid "Touchpad"
-msgstr ""
+msgstr "Touchpad"
 
 #. Comment
 #: input/touchpad.desktop:14
-#, fuzzy
 msgid "Touchpad settings"
-msgstr "Налаштування миші"
+msgstr "Налаштування Touchpad"
 
 #. Keywords
 #: input/touchpad.desktop:15
-#, fuzzy
 msgid ""
 "Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
 "Click;mapping;right handed;left handed;"
 msgstr ""
-"Миша;Mouse;прискорення миші;поріг миші;кнопки миші;вибір;форма курсора;"
-"вхідні пристрої;відповідність клавіш;клацання;піктограми;зворотній зв'язок;"
-"вказівники;перетягнути;подвійне клацання;відображення;лівша;правша;"
+"Touchpad;Стукнути для клацання;Миша;Кнопки миші;Пристрій Вводу;Мапа Кнопок;"
+"Стукнути;Клацнути;мапування;правша;лівша;"
 
 #. Name
 #: joystick/joystick.desktop:12
