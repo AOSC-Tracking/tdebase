@@ -1,6 +1,121 @@
 <sect1 id="release-notes-r14.1.3">
-<title>R14.1.3 Release Notes (draft)</title>
+<title>R14.1.3 Release Notes</title>
 
-<para>The ongoing list of changes introduced by this release can be found <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/167">here</ulink>.</para>
+<para>This document tracks some of the most important changes introduced in release R14.1.3, the third maintenance release of the R14.1.x series.</para>
+<para>The <ulink url="https://wiki.trinitydesktop.org/Release_Notes_For_R14.1.3">full release notes</ulink> on TDE wiki contains screenshots of some of the new features.</para>
+
+<sect2 id="release-notes-r14.1.3-new-applications">
+<title>New applications</title>
+  <itemizedlist>
+    <listitem><para>xdg-desktop-portal-tde: partial implementation (Account, Email, FileChooser) of the XDG Desktop Portal API for TDE (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/xdg-desktop-portal-tde">TDE/xdg-desktop-portal-tde</ulink>)</para></listitem>
+    <listitem><para>twin-style-mallory: a twin window decoration based on the original KDE Alloyon windec theme (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/twin-style-mallory">TDE/twin-style-mallory</ulink>)</para></listitem>
+    <listitem><para>tde-ebook-reader: a modern e-book reader for TDE (TQt port of FBReader) (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde-ebook-reader">TDE/tde-ebook-reader</ulink>)</para></listitem>
+    <listitem><para>universal-indent-gui-tqt: a GUI frontend for several code formatters, beautifiers and indenters (TQt port of UniversalIndentGUI) (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/universal-indent-gui-tqt">TDE/universal-indent-gui-tqt</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+<sect2 id="release-notes-r14.1.3-new-functionalities">
+<title>New functionalities and enhancements</title>
+  <itemizedlist>
+    <listitem><para>tdebase: new touchpad module for TDE Control Centre (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/issue/481">TDE/tdebase#481</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/521">TDE/tdebase#521</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/533">TDE/tdebase#533</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/539">TDE/tdebase#539</ulink>)</para></listitem>
+    <listitem><para>konsole: add Solarized dark and light color schemes (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/486">TDE/tdebase#486</ulink>)</para></listitem>
+    <listitem><para>twin and kicker: add support for window tiling to the taskbar and window's popup menus (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/522">TDE/tdebase#522</ulink>)</para></listitem>
+    <listitem><para>khotkeys: allow to run either as kded module or standalone application (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/issue/326">TDE/tdebase#326</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/536">TDE/tdebase#536</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/issue/537">TDE/tdebase#537</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/538">TDE/tdebase#538</ulink>)</para></listitem>
+    <listitem><para>improve visibility of Control Center modules. Modules for which there is no underlying hardware can now be hidden (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/300">TDE/tdelibs#300</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/527">TDE/tdebase#527</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/534">TDE/tdebase#534</ulink>)</para></listitem>
+    <listitem><para>add support to various applications for back/forward actions using history mouse buttons (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issue/174">TDE/tde#174</ulink>)</para></listitem>
+    <listitem><para>add `Copy Full Path` action to popup menu in konqueror (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/523">TDE/tdebase#523</ulink>) and Dolphin (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/dolphin/pulls/33">TDE/dolphin#33</ulink>)</para></listitem>
+    <listitem><para>add support for Python 3.13 (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde-common-admin/pulls/34">TDE/tde-common-admin#34</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/sip4-tqt/pulls/27">TDE/sip4-tqt#27</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/pytqt/pulls/33">TDE/pytqt#33</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdeedu/pulls/47">TDE/tdeedu#47</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/koffice/pulls/80">TDE/koffice#80</ulink>)</para></listitem>
+    <listitem><para>superkaramba: add GB and percent format strings for memory sensors (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdeutils/pulls/85">TDE/tdeutils#85</ulink>) and GPU load sensor (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdeutils/pulls/86">TDE/tdeutils#86</ulink>)</para></listitem>
+    <listitem><para>tdebase: provide DCOP interface and global shortcuts for suspending the system (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/502">TDE/tdebase#502</ulink>)</para></listitem>
+    <listitem><para>tdebase: allow remote network folders to be moved to and restored from the Trash folder (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/520">TDE/tdebase#520</ulink>)</para></listitem>
+    <listitem><para>knetattach: add SFTP connection option (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/519">TDE/tdebase#519</ulink>)</para></listitem>
+    <listitem><para>kspread: add VLOOKUP/HLOOKUP functions (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/koffice/pulls/66">TDE/koffice#66</ulink>)</para></listitem>
+    <listitem><para>added support for webp images (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/277">TDE/tdelibs#277</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/digikam/pulls/25">TDE/digikam#25</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/gwenview/pulls/42">TDE/gwenview#42</ulink>)</para></listitem>
+    <listitem><para>konqueror: add support for .webp thumbnails (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/issues/380">TDE/tdebase#380</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/487">TDE/tdebase#487</ulink>)</para></listitem>
+    <listitem><para>kate: use simple paths for local files in `modified on disk` dialog (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/issues/284">TDE/tdelibs#284</ulink>)</para></listitem>
+    <listitem><para>arts: use AudioIOSun on Solaris and NetBSD (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/arts/pulls/22">TDE/arts#22</ulink>)</para></listitem>
+    <listitem><para>tdebase: improve granularity of keyboard and style related timers (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/issues/513">TDE/tdebase#513</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/518">TDE/tdebase#518</ulink>)</para></listitem>
+    <listitem><para>codeine: improve the layout of xine parameters configuration dialog (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/codeine/pulls/18">TDE/codeine#18</ulink>)</para></listitem>
+    <listitem><para>tdelibs kimgio: add support for TIFF transparency (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/issues/282">TDE/tdelibs#282</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/302">TDE/tdelibs#302</ulink>)</para></listitem>
+    <listitem><para>kate PHP syntax: allow `heredoc` closing identifiers to be indented (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/267">TDE/tdelibs#267</ulink>)</para></listitem>
+    <listitem><para>gwenview external tools: replace deprecated gimp-remote with gimp (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/gwenview/pulls/46">TDE/gwenview#46</ulink>)</para></listitem>
+    <listitem><para>improve support for JasPer 3/4 (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/306">TDE/tdelibs#306</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/libksquirrel/pulls/21">TDE/libksquirrel#21</ulink>)</para></listitem>
+    <listitem><para>switch from libpcre to libpcre2 regular expressions (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/295">TDE/tdelibs#295</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/524">TDE/tdebase#524</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kbarcode/pulls/20">TDE/kbarcode#20</ulink>)</para></listitem>
+    <listitem><para>add support for libpoppler 24.04 (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdegraphics/pulls/97">TDE/tdegraphics#97</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+<sect2 id="release-notes-r14.1.3-bug-fixes">
+<title>Bug fixes</title>
+  <itemizedlist>
+    <listitem><para>konsole: fix text width calculation (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/516">TDE/tdebase#516</ulink>)</para></listitem>
+    <listitem><para>tqt3: several memory leak fixes and other small changes (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tqt3/issues/148">TDE/tqt3#148</ulink>)</para></listitem>
+    <listitem><para>tdelibs: improve autostart support logic for KDE programs (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/issues/283">TDE/tdelibs#283</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/293">TDE/tdelibs#293</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/294">TDE/tdelibs#294</ulink>)</para></listitem>
+    <listitem><para>kmail: fix handling of attachments with a `#` in the filename (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdepim/issues/119">TDE/tdepim#119</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdepim/pulls/120">TDE/tdepim#120</ulink>)</para></listitem>
+    <listitem><para>tde-style-polyester: fix loading of twin decoration (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde-style-polyester/pulls/11">TDE/tde-style-polyester#11</ulink>)</para></listitem>
+    <listitem><para>twin-style-fahrenheit: fix loading of twin decoration (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/twin-style-fahrenheit/pulls/3">TDE/twin-style-fahrenheit#3</ulink>)</para></listitem>
+    <listitem><para>kjobviewer: fix incorrect autostart rule (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/issues/492">TDE/tdebase#492</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdebase/pulls/493">TDE/tdebase#493</ulink>)</para></listitem>
+    <listitem><para>fix compatibility with ffmpeg 7.x (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/akode/pulls/18">TDE/akode#18</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/akode/pulls/19">TDE/akode#19</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/k3b/pulls/47">TDE/k3b#47</ulink>)</para></listitem>
+    <listitem><para>tdemultimedia: fix support for libtag2 in FLAC plugin (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdemultimedia/issues/77">TDE/tdemultimedia#77</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdemultimedia/pulls/81">TDE/tdemultimedia#81</ulink>)</para></listitem>
+    <listitem><para>codeine: scale capture preview if it exceeds screen bounds (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/codeine/pulls/15">TDE/codeine#15</ulink>)</para></listitem>
+    <listitem><para>icon dialog window: fixed display of icon names for filenames with multiple dots in the icon dialog window (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/298">TDE/tdelibs#298</ulink>)</para></listitem>
+    <listitem><para>codeine: fix crash when showing context menu in DVDs (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/codeine/pulls/19">TDE/codeine#19</ulink>)</para></listitem>
+    <listitem><para>codeine: fix filter in "Open file" dialog (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/codeine/pulls/21">TDE/codeine#21</ulink>)</para></listitem>
+    <listitem><para>codeine: fix disappearing channel selection when modifying toolbar settings (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/codeine/issues/24">TDE/codeine#24</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/codeine/pulls/25">TDE/codeine#25</ulink>)</para></listitem>
+    <listitem><para>tdepim: fix import encoding for vCard v4 in KAddressBook (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdepim/pulls/130">TDE/tdepim#130</ulink>)</para></listitem>
+    <listitem><para>ksirc: fix functionality of internal perl scripts, de facto making ksirc usable again (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdenetwork/pulls/86">TDE/tdenetwork#86</ulink>)</para></listitem>
+    <listitem><para>kate syntax: highlights alerts (FIXME, TODO) for Rust language (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/308">TDE/tdelibs#308</ulink>)</para></listitem>
+    <listitem><para>tdelibs: fix crash in tdeio scheduler when job or slave are invalid (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdelibs/pulls/309">TDE/tdelibs#309</ulink>)</para></listitem>
+    <listitem><para>amarok: fix unsigned overflow in Debug::Block dtor (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/amarok/pulls/67">TDE/amarok#67</ulink>)</para></listitem>
+    <listitem><para>amarok: replace custom MP4 metadata parser with TagLib. This prevent crash when trying to play MP4 files (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tdemultimedia/issues/82">TDE/tdemultimedia#82</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/amarok/pulls/66">TDE/amarok#66</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+<sect2 id="release-notes-r14.1.3-distro-support">
+<title>Distro support</title>
+  <itemizedlist>
+    <listitem><para>OpenMandriva (OMV): add support for OMV 5 and OMV Cooker (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/pulls/171">TDE/tde#171</ulink>)</para></listitem>
+    <listitem><para>Ubuntu: add support for Oracular and dropped support for Kinetic (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde-packaging/pulls/329">TDE/tde-packaging#329</ulink>)</para></listitem>
+    <listitem><para>Fedora: add support for version 41</para></listitem>
+  </itemizedlist>
+</sect2>
+
+<sect2 id="release-notes-r14.1.3-cmake-conversions">
+<title>CMake conversions</title>
+  <itemizedlist>
+    <listitem><para>kmyfirewall (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kmyfirewall/pulls/17">TDE/kmyfirewall#17</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kmyfirewall/pulls/18">TDE/kmyfirewall#18</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kmyfirewall/pulls/19">TDE/kmyfirewall#19</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kmyfirewall/pulls/20">TDE/kmyfirewall#20</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/kmyfirewall/pulls/21">TDE/kmyfirewall#21</ulink>)</para></listitem>
+    <listitem><para>piklab (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/piklab/pulls/16">TDE/piklab#16</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/piklab/pulls/17">TDE/piklab#17</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+<sect2 id="release-notes-r14.1.3-dropped-code-applications">
+<title>Drop autotools support</title>
+  <itemizedlist>
+    <listitem><para>gwenview (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/gwenview/pulls/36">TDE/gwenview#36</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/gwenview/pulls/39">TDE/gwenview#39</ulink>)</para></listitem>
+    <listitem><para>smb4k (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/smb4k/pulls/20">TDE/smb4k#20</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/smb4k/pulls/22">TDE/smb4k#22</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/smb4k/pulls/23">TDE/smb4k#23</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/smb4k/pulls/24">TDE/smb4k#24</ulink>)</para></listitem>
+    <listitem><para>soundkonverter (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/soundkonverter/pulls/21">TDE/soundkonverter#21</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/soundkonverter/pulls/22">TDE/soundkonverter#22</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/soundkonverter/pulls/23">TDE/soundkonverter#23</ulink>)</para></listitem>
+    <listitem><para>tde-guidance (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde-guidance/pulls/19">TDE/tde-guidance#19</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+<sect2 id="release-notes-r14.1.3-info-developers">
+<title>Info for developers/packagers</title>
+  <itemizedlist>
+    <listitem><para>partial work on merging tqtinterface into TQt3 + several TQt/TDE related renamings (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/pulls/165">TDE/tde#165</ulink>)</para></listitem>
+    <listitem><para>add support for relative paths in `_tde_internal_setup_path` (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde-cmake/pulls/108">TDE/tde-cmake#108</ulink>)</para></listitem>
+    <listitem><para>add support for gcc14 builds (several PRs)</para></listitem>
+    <listitem><para>compizconfig-python-trinity, mp4v2 and pyrex have been removed from the DEB extra dependencies repository (<ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/extra-dependencies/pulls/29">TDE/extra-dependencies#29</ulink>, <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/extra-dependencies/pulls/31">TDE/extra-dependencies#31</ulink>)</para></listitem>
+  </itemizedlist>
+</sect2>
+
+<sect2 id="release-notes-r14.1.3-additional-info">
+<title>Additional info</title>
+  <itemizedlist>
+    <listitem><para><ulink url="https://wiki.trinitydesktop.org/Release_Notes_For_R14.1.3">Full release notes (with screenshots)</ulink> on TDE wiki</para></listitem>
+    <listitem><para><ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/167">This release notes</ulink> on TGW</para></listitem>
+    <listitem><para>TGW <ulink url="https://mirror.git.trinitydesktop.org/gitea/TDE/tde/issues/166">issue and PR list</ulink></para></listitem>
+    <listitem><para>Detailed commit <ulink url="https://wiki.trinitydesktop.org/Changelog_For_R14.1.3">change log</ulink></para></listitem>
+  </itemizedlist>
+</sect2>
 
 </sect1>
