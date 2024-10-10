@@ -52,10 +52,17 @@ unsigned long DiscSpaceUtil::sizeOfPath( const TQString &path )
     TQFileInfoListIterator it( *infos );
 
     unsigned long sum = 0;
-    TQFileInfo *info = 0;
-    while ( (info = it.current()) != 0 ) {
-      if ( info->fileName() != "." && info->fileName() != ".." )
-      sum += sizeOfPath( info->absFilePath() );
+    const TQFileInfo *info = nullptr;
+    while ((info = it.current()))
+    {
+      if (info->isFile())
+      {
+        sum += info->size();
+      }
+      else if (info->fileName() != "." && info->fileName() != "..")
+      {
+        sum += sizeOfPath(info->absFilePath());
+      }
       ++it;
     }
 
