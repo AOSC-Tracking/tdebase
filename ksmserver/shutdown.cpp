@@ -321,8 +321,10 @@ void KSMServer::suspendInternal(int state)
         kapp->dcopClient()->call("kdesktop", "KScreensaverIface", "lock()", TQCString(""), replyType, replyData);
     }
 
+#ifdef WITH_TDEHWLIB
     TDERootSystemDevice* rootDevice = hwDevices->rootSystemDevice();
     rootDevice->setPowerState((TDESystemPowerState::TDESystemPowerState)state);
+#endif
 }
 
 bool KSMServer::suspend(int stype)
