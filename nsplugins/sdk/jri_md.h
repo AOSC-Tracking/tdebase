@@ -52,7 +52,7 @@ extern "C" {
  * WHAT'S UP WITH THIS FILE?
  * 
  * This is where we define the mystical JRI_PUBLIC_API macro that works on all
- * platforms. If you're running with Visual C++, Symantec C, or Borland's 
+ * platforms. If you're running with Visual C++ or Symantec C
  * development environment on the PC, you're all set. Or if you're on the Mac
  * with Metrowerks, Symantec or MPW with SC you're ok too. For UNIX it shouldn't
  * matter.
@@ -105,22 +105,6 @@ extern "C" {
 #			define JRI_CALLBACK			__export
 #                   endif /* !WINDLL */
 #		endif /* !_WIN32 */
-#	elif defined(__BORLANDC__)
-#		if defined(WIN32) || defined(_WIN32)
-#			define JRI_PUBLIC_API(ResultType)	__export ResultType
-#			define JRI_PUBLIC_VAR(VarType)		VarType
-#			define JRI_PUBLIC_VAR_EXP(VarType)	__export VarType
-#			define JRI_PUBLIC_VAR_IMP(VarType)	__import VarType
-#			define JRI_NATIVE_STUB(ResultType)	 __export ResultType
-#			define JRI_CALLBACK
-#		else /* !_WIN32 */
-#			define JRI_PUBLIC_API(ResultType)	ResultType _cdecl _export _loadds 
-#			define JRI_PUBLIC_VAR(VarType)		VarType
-#			define JRI_PUBLIC_VAR_EXP(VarType)	__cdecl __export VarType
-#			define JRI_PUBLIC_VAR_IMP(VarType)	__cdecl __import VarType
-#			define JRI_NATIVE_STUB(ResultType)	ResultType _cdecl _loadds
-#			define JRI_CALLBACK			_loadds
-#		endif
 #	else
 #		error Unsupported PC development environment.	
 #	endif

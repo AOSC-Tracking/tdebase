@@ -63,7 +63,7 @@
  * WHAT'S UP WITH THIS FILE?
  * 
  * This is where we define the mystical JNI_PUBLIC_API macro that works on all
- * platforms. If you're running with Visual C++, Symantec C, or Borland's 
+ * platforms. If you're running with Visual C++ or Symantec C
  * development environment on the PC, you're all set. Or if you're on the Mac
  * with Metrowerks, Symantec or MPW with SC you're ok too. For UNIX it shouldn't
  * matter.
@@ -132,18 +132,6 @@
 #			define JNICALL			        __export
 #                   endif /* !WINDLL */
 #		endif /* !_WIN32 */
-#	elif defined(__BORLANDC__)
-#		if defined(WIN32) || defined(_WIN32)
-#			define JNI_PUBLIC_API(ResultType)	__export ResultType
-#			define JNI_PUBLIC_VAR(VarType)		VarType
-#			define JNI_NATIVE_STUB(ResultType)	 __export ResultType
-#			define JNICALL
-#		else /* !_WIN32 */
-#			define JNI_PUBLIC_API(ResultType)	ResultType _cdecl _export _loadds 
-#			define JNI_PUBLIC_VAR(VarType)		VarType
-#			define JNI_NATIVE_STUB(ResultType)	ResultType _cdecl _loadds
-#			define JNICALL			_loadds
-#		endif
 #	else
 #		error Unsupported PC development environment.	
 #	endif
