@@ -21,105 +21,97 @@
 #include "kxkbtraywindow.h"
 #include "pixmap.h"
 #include "rules.h"
-#include "kxkbconfig.h"
 
-
-KxkbLabelController::KxkbLabelController(TQLabel* label_, TDEPopupMenu* contextMenu_) :
-    label(label_),
-    contextMenu(contextMenu_),
- 	m_menuStartIndex(contextMenu_->count()),
-	m_prevLayoutCount(0)
+KxkbSystemTray::KxkbSystemTray(KxkbConfig *kxkbConfig)
+    : KSystemTray(nullptr),
+      m_prevLayoutCount(0)
 {
-// 	kdDebug() << "Creating KxkbLabelController with " << label_ << ", " << contextMenu_ << endl;
-// 	kdDebug() << "Creating KxkbLabelController with startMenuIndex " << m_menuStartIndex << endl;
+    m_icoMgr = new LayoutIconManager(kxkbConfig);
 }
 
-void KxkbLabelController::setToolTip(const TQString& tip)
+KxkbSystemTray::~KxkbSystemTray()
 {
-	TQToolTip::remove(label);
-	TQToolTip::add(label, tip);
+    delete m_icoMgr;
 }
 
-void KxkbLabelController::setPixmap(const TQPixmap& pixmap)
+void KxkbSystemTray::setToolTip(const TQString& tip)
 {
-	TDEIconEffect iconeffect;
-	label->setPixmap( iconeffect.apply(pixmap, TDEIcon::Panel, TDEIcon::DefaultState) );
+    TQToolTip::remove(this);
+    TQToolTip::add(this, tip);
 }
 
-
-void KxkbLabelController::setCurrentLayout(const LayoutUnit& layoutUnit)
+void KxkbSystemTray::setPixmap(const TQPixmap& pix)
 {
-	setToolTip(m_descriptionMap[layoutUnit.toPair()]);
-	setPixmap( LayoutIcon::getInstance().findPixmap(layoutUnit.layout, PIXMAP_STYLE_INDICATOR, layoutUnit.displayName) );
+    TDEIconEffect iconeffect;
+    KSystemTray::setPixmap(iconeffect.apply(pix, TDEIcon::Panel, TDEIcon::DefaultState));
 }
 
-
-void KxkbLabelController::setError(const TQString& layoutInfo)
+void KxkbSystemTray::setCurrentLayout(const LayoutUnit& layoutUnit)
 {
+    setToolTip(m_descriptionMap[layoutUnit.toPair()]);
+    setPixmap(m_icoMgr->find(layoutUnit.layout, PIXMAP_STYLE_INDICATOR, layoutUnit.displayName));
+}
+
+void KxkbSystemTray::setError(const TQString& layoutInfo)
+{
+    TQString layout(layoutInfo);
+    if (layout.isNull()) {
+        layout = i18n("Unknown");
+    }
+
     TQString msg = i18n("Error changing keyboard layout to '%1'").arg(layoutInfo);
-	setToolTip(msg);
-
-	label->setPixmap(LayoutIcon::getInstance().findPixmap("error", PIXMAP_STYLE_NORMAL));
+    setToolTip(msg);
+    setPixmap(m_icoMgr->find(ERROR_CODE, PIXMAP_STYLE_NORMAL));
 }
 
-
-void KxkbLabelController::initLayoutList(const TQValueList<LayoutUnit>& layouts, const XkbRules& rules)
+void KxkbSystemTray::initLayoutList(const TQValueList<LayoutUnit>& layouts, const XkbRules& rules)
 {
-	TDEPopupMenu* menu = contextMenu;
-
     m_descriptionMap.clear();
 
-	for(int ii=0; ii<m_prevLayoutCount; ++ii) {
-		menu->removeItem(START_MENU_ID + ii);
-		kdDebug() << "remove item: " << START_MENU_ID + ii << endl;
-	}
+    int i;
+    for (i = 0; i < m_prevLayoutCount; ++i) {
+        contextMenu()->removeItem(START_MENU_ID + i);
+    }
 
     TDEIconEffect iconeffect;
 
-	int cnt = 0;
+    i = 0;
     TQValueList<LayoutUnit>::ConstIterator it;
-    for (it=layouts.begin(); it != layouts.end(); ++it)
+    for (it = layouts.begin(); it != layouts.end(); ++it)
     {
-		const TQString layoutName = (*it).layout;
-		const TQString variantName = (*it).variant;
+        const TQString layoutName = (*it).layout;
+        const TQString variantName = (*it).variant;
 
-		const TQPixmap& layoutPixmap = LayoutIcon::getInstance().findPixmap(
-			(*it).layout, PIXMAP_STYLE_CONTEXTMENU, (*it).displayName);
-		const TQPixmap pix = iconeffect.apply(layoutPixmap, TDEIcon::Small,
-			TDEIcon::DefaultState);
+        const TQPixmap& layoutPixmap = m_icoMgr->find((*it).layout, PIXMAP_STYLE_CONTEXTMENU, (*it).displayName);
+        const TQPixmap pix = iconeffect.apply(layoutPixmap, TDEIcon::Small, TDEIcon::DefaultState);
 
-		TQString fullName = rules.getLayoutName((*it));
-		contextMenu->insertItem(pix, fullName, START_MENU_ID + cnt,
-			m_menuStartIndex + cnt);
+        TQString fullName = rules.getLayoutName((*it));
+        contextMenu()->insertItem(pix, fullName, START_MENU_ID + i, i + 1);
 
-		m_descriptionMap.insert((*it).toPair(), fullName);
+        m_descriptionMap.insert((*it).toPair(), fullName);
 
-		cnt++;
+        ++i;
     }
 
-	m_prevLayoutCount = cnt;
+    m_prevLayoutCount = i;
 
-	// if show config, if show help
-	if( menu->indexOf(CONFIG_MENU_ID) == -1 ) {
-		contextMenu->insertSeparator();
-		contextMenu->insertItem(SmallIcon("configure"), i18n("Configure..."), CONFIG_MENU_ID);
-		if( menu->indexOf(HELP_MENU_ID) == -1 )
-			contextMenu->insertItem(SmallIcon("help"), i18n("Help"), HELP_MENU_ID);
-	}
+    if (contextMenu()->indexOf(CONFIG_MENU_ID) == -1) {
+        contextMenu()->insertSeparator();
+        contextMenu()->insertItem(SmallIcon("configure"), i18n("Configure..."), CONFIG_MENU_ID);
 
-/*    if( index != -1 ) { //not first start
-		menu->insertSeparator();
-		TDEAction* quitAction = KStdAction::quit(this, TQ_SIGNAL(quitSelected()), actionCollection());
-        if (quitAction)
-    	    quitAction->plug(menu);
-    }*/
+        if (contextMenu()->indexOf(HELP_MENU_ID) == -1) {
+            contextMenu()->insertItem(SmallIcon("help"), i18n("Help"), HELP_MENU_ID);
+        }
+    }
+
+    connect(contextMenu(), TQ_SIGNAL(activated(int)), this, TQ_SIGNAL(menuActivated(int)));
 }
 
-// void KxkbLabelController::mouseReleaseEvent(TQMouseEvent *ev)
-// {
-//     if (ev->button() == TQMouseEvent::LeftButton)
-//         emit toggled();
-//     KSystemTray::mouseReleaseEvent(ev);
-// }
+void KxkbSystemTray::mouseReleaseEvent(TQMouseEvent *ev) {
+    if (ev->button() == TQt::LeftButton) {
+        emit toggled();
+    }
+    KSystemTray::mouseReleaseEvent(ev);
+}
 
 #include "kxkbtraywindow.moc"

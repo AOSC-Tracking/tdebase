@@ -67,5 +67,5 @@ tde_add_tdeinit_executable( kxkb AUTOMOC
     extension.cpp x11helper.cpp rules.cpp kxkbconfig.cpp
     pixmap.cpp layoutmap.cpp kxkb.cpp kxkbtraywindow.cpp
     kxkb.skel
-  LINK tdeui-shared ${XKBFILE_LIBRARIES}
+  LINK tdeui-shared ${XKBFILE_LIBRARIES} ${TDEHW_LIBRARIES}
 )

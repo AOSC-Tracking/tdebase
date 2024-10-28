@@ -11,6 +11,7 @@
 
 
 class OptionListItem;
+class LayoutIconManager;
 class LayoutConfigWidget;
 class XkbRules;
 
@@ -22,11 +23,13 @@ public:
   LayoutConfig(TQWidget *parent = 0L, const char *name = 0L);
   virtual ~LayoutConfig();
 
+  void initUI(bool modified = false);
+  virtual TQString handbookDocPath() const;
+
+public slots:
   void load();
   void save();
   void defaults();
-  void initUI();
-  virtual TQString handbookDocPath() const;
 
 protected:
   TQString createOptionString();
@@ -52,6 +55,7 @@ protected slots:
   void changed();
 
 private:
+  LayoutIconManager *m_icoMgr;
   LayoutConfigWidget* widget;
 
   XkbRules *m_rules;

@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>709</width>
-            <height>563</height>
+            <width>700</width>
+            <height>600</height>
         </rect>
     </property>
     <property name="sizePolicy">
@@ -22,8 +22,8 @@
     </property>
     <property name="minimumSize">
         <size>
-            <width>600</width>
-            <height>510</height>
+            <width>700</width>
+            <height>600</height>
         </size>
     </property>
     <grid>
@@ -904,36 +904,19 @@
                                                     </size>
                                                 </property>
                                             </spacer>
-                                            <spacer row="4" column="0">
-                                                <property name="name">
-                                                    <cstring>spacer22</cstring>
-                                                </property>
-                                                <property name="orientation">
-                                                    <enum>Horizontal</enum>
-                                                </property>
-                                                <property name="sizeType">
-                                                    <enum>Fixed</enum>
-                                                </property>
-                                                <property name="sizeHint">
-                                                    <size>
-                                                        <width>20</width>
-                                                        <height>20</height>
-                                                    </size>
-                                                </property>
-                                            </spacer>
-                                            <widget class="TQCheckBox" row="4" column="1" rowspan="1" colspan="3">
-                                                <property name="name">
-                                                    <cstring>chkBgTransparent</cstring>
-                                                </property>
-                                                <property name="text">
-                                                    <string>Transparent background</string>
-                                                </property>
-                                                <property name="whatsThis" stdset="0">
-                                                    <string>Check this to remove the indicator's background. Only applicable in "Label only" mode.</string>
-                                                </property>
-                                            </widget>
                                         </grid>
                                     </widget>
+                                    <widget class="TQCheckBox" row="4" column="0" rowspan="1" colspan="4">
+                                        <property name="name">
+                                            <cstring>chkBgTransparent</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Transparent background</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>Check this to remove the indicator's background. Only applicable in "Label only" mode.</string>
+                                        </property>
+                                            </widget>
                                     <widget class="KSeparator" row="5" column="0" rowspan="1" colspan="3">
                                         <property name="name">
                                             <cstring>separator1</cstring>
@@ -992,7 +975,8 @@
                                                 <verstretch>0</verstretch>
                                             </sizepolicy>
                                         </property>
-                                    </widget>                                           <spacer row="7" column="2">
+                                    </widget>
+                                    <spacer row="7" column="2">
                                         <property name="name">
                                             <cstring>spacer23</cstring>
                                         </property>
@@ -1011,6 +995,35 @@
                                     </spacer>
                                 </grid>
                             </widget>
+                            <widget class="TQButtonGroup" row="2" column="0" column="0" colspan="2">
+                                <property name="name">
+                                    <cstring>grpFlag</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Flag Style</string>
+                                </property>
+                                <vbox>
+                                    <widget class="TQCheckBox">
+                                        <property name="name">
+                                            <cstring>chkFitToBox</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Stretc&amp;h flag</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>If this option is enabled, the flag will be stretched to fit the tray indicator size.</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQCheckBox">
+                                        <property name="name">
+                                            <cstring>chkDimFlag</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Dim flag to make the label more visible</string>
+                                        </property>
+                                    </widget>
+                                </vbox>
+                            </widget>
                             <widget class="TQButtonGroup" row="0" column="1">
                                 <property name="name">
                                     <cstring>grpMisc</cstring>
@@ -1025,6 +1038,17 @@
                                         </property>
                                         <property name="text">
                                             <string>Show indicator for single layout</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="TQCheckBox">
+                                        <property name="name">
+                                            <cstring>chkBevel</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Show indicator bevel</string>
+                                        </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>If this option is enabled, the layout indicator will be drawn with a thin 3D bevel around it.</string>
                                         </property>
                                     </widget>
                                 </vbox>
@@ -1209,8 +1233,8 @@
         <signal>toggled(bool)</signal>
         <receiver>bgColor</receiver>
         <slot>setEnabled(bool)</slot>
-      </connection>
-      <connection>
+    </connection>
+    <connection>
         <sender>radLabelOnly</sender>
         <signal>toggled(bool)</signal>
         <receiver>labelBgColor</receiver>
@@ -1232,6 +1256,30 @@
         <sender>chkEnableNotify</sender>
         <signal>toggled(bool)</signal>
         <receiver>chkNotifyUseKMilo</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radFlagOnly</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>grpFlag</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radFlagLabel</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>grpFlag</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radLabelOnly</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>grpFlag</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>radFlagLabel</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>chkDimFlag</receiver>
         <slot>setEnabled(bool)</slot>
     </connection>
 </connections>

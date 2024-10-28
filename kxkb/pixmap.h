@@ -8,41 +8,34 @@
 
 #include "kxkbconfig.h"
 
+#define ERROR_CODE "error"
+#define ERROR_LABEL "!"
+
+#define FLAG_MAX_DIM 24
+
 enum PixmapStyle {
-  PIXMAP_STYLE_NORMAL = 0,
-  PIXMAP_STYLE_INDICATOR = 1,
-  PIXMAP_STYLE_CONTEXTMENU = 2
+    PIXMAP_STYLE_NORMAL = 0,
+    PIXMAP_STYLE_INDICATOR = 1,
+    PIXMAP_STYLE_CONTEXTMENU = 2
 };
 
-class LayoutIcon {
+class LayoutIconManager {
+    public:
+        LayoutIconManager(KxkbConfig *kxkbConfig);
+        const TQPixmap& find(const TQString& code, int pixmapStyle, const TQString& displayName = TQString::null);
 
-private:
-  static LayoutIcon* instance;
-  static const TQString flagTemplate;
+    private:
+        TQPixmap* createErrorPixmap();
+        TQString getCountryFromLayoutName(const TQString& layoutName);
 
-  KxkbConfig m_kxkbConfig;
-  bool m_showFlag;
-  bool m_showLabel;
-  TQColor m_bgColor;
-  bool m_bgTransparent;
-  TQColor m_fgColor;
-  TQFont m_labelFont;
-  bool m_labelShadow;
-  TQColor m_shColor;
-  bool m_fitToBox;
+    private:
+        KxkbConfig *m_kxkbConfig;
+        static const TQString flagTemplate;
+        bool m_showFlag, m_showLabel, m_bgTransparent, m_labelShadow, m_fitToBox, m_dimFlag, m_bevel;
+        TQColor m_bgColor, m_fgColor, m_shColor;
+        TQFont m_labelFont;
 
-  TQDict<TQPixmap> m_pixmapCache;
-
-  LayoutIcon();
-  TQPixmap* createErrorPixmap();
-  void dimPixmap(TQPixmap& pixmap);
-  TQString getCountryFromLayoutName(const TQString& layoutName);
-
-public:
-  static const TQString& ERROR_CODE;
-
-  static LayoutIcon& getInstance();
-  const TQPixmap& findPixmap(const TQString& code, int pixmapStyle, const TQString& displayName="");
+        TQDict<TQPixmap> m_pixmapCache;
 };
 
 #endif

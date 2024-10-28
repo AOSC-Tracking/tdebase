@@ -1,7 +1,7 @@
 //
 // C++ Interface: kxkbtraywindow
 //
-// Description: 
+// Description:
 //
 //
 // Author: Andriy Rysin <rysin@kde.org>, (C) 2006
@@ -17,77 +17,40 @@
 #include <tqstring.h>
 #include <tqvaluelist.h>
 
-#include "kxkbconfig.h"
+#include "layoutunit.h"
 
-
-class TQLabel;
-class TDEPopupMenu;
 class XkbRules;
-
-/* This class is responsible for displaying flag/label for the layout,
-    catching keyboard/mouse events and displaying menu when selected
-*/
-
-class KxkbLabelController: public TQObject
-{
-// 	TQ_OBJECT
-			
-public:
-	enum { START_MENU_ID = 100, CONFIG_MENU_ID = 130, HELP_MENU_ID = 131 };
-
-    KxkbLabelController(TQLabel *label, TDEPopupMenu* contextMenu);
-
-    void initLayoutList(const TQValueList<LayoutUnit>& layouts, const XkbRules& rule);
-    void setCurrentLayout(const LayoutUnit& layout);
-// 	void setCurrentLayout(const TQString& layout, const TQString &variant);
-	void setError(const TQString& layoutInfo="");
-    void setShowFlag(bool showFlag) { m_showFlag = showFlag; }
-	void show() { label->show(); }
-
-	WId winId() { return label->winId(); }
-	
-// signals:
-// 
-// 	void menuActivated(int);
-//     void toggled();
-
-// protected:
-// 
-//     void mouseReleaseEvent(TQMouseEvent *);
-
-private:
-	TQLabel* label;
-	TDEPopupMenu* contextMenu;
-	
-	const int m_menuStartIndex;
-	bool m_showFlag;
-	int m_prevLayoutCount;
-    TQMap<TQString, TQString> m_descriptionMap;
-	
-	void setToolTip(const TQString& tip);
-	void setPixmap(const TQPixmap& pixmap);
-};
-
+class KxkbConfig;
+class LayoutIconManager;
 
 class KxkbSystemTray : public KSystemTray
 {
-	TQ_OBJECT 
-			
-	public:
-	KxkbSystemTray():
-		KSystemTray(NULL)
-	{}
-	
-	void mouseReleaseEvent(TQMouseEvent *ev)
-	{
-		if (ev->button() == TQt::LeftButton)
-			emit toggled();
-		KSystemTray::mouseReleaseEvent(ev);
-	}
+    TQ_OBJECT
 
-	signals:
- 		void menuActivated(int);
-		void toggled();
+    public:
+        KxkbSystemTray(KxkbConfig *kxkbConfig);
+        ~KxkbSystemTray();
+        void initLayoutList(const TQValueList<LayoutUnit>& layouts, const XkbRules& rule);
+        void setCurrentLayout(const LayoutUnit& layout);
+        void setError(const TQString& layoutInfo = TQString::null);
+
+        enum { START_MENU_ID = 100, CONFIG_MENU_ID = 130, HELP_MENU_ID = 131 };
+
+    protected:
+        void mouseReleaseEvent(TQMouseEvent *ev);
+
+    private slots:
+        void setToolTip(const TQString& tip);
+        void setPixmap(const TQPixmap& pix);
+
+    signals:
+        void menuActivated(int);
+        void toggled();
+
+    private:
+        LayoutIconManager *m_icoMgr;
+        int m_prevLayoutCount;
+        TQMap<TQString, TQString> m_descriptionMap;
 };
 
 
