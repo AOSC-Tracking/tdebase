@@ -14,6 +14,7 @@
 #include <tqbuttongroup.h>
 #include <tqspinbox.h>
 #include <tqvbox.h>
+#include <tqtimer.h>
 
 #include <tdefontrequester.h>
 #include <kcolorbutton.h>
@@ -107,6 +108,9 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
     m_forceGrpOverwrite(false)
 {
   X11Helper::initializeTranslations();
+
+  m_icoMgr = new LayoutIconManager(&m_kxkbConfig);
+
   TQVBoxLayout *main = new TQVBoxLayout(this, 0, KDialog::spacingHint());
 
   widget = new LayoutConfigWidget(this, "widget");
@@ -143,6 +147,9 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   connect( widget->grpSwitching, TQ_SIGNAL( clicked( int ) ), TQ_SLOT(changed()));
   connect( widget->grpLabel, TQ_SIGNAL( clicked( int ) ), TQ_SLOT(changed()));
 
+  connect( widget->chkFitToBox, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(changed()));
+  connect( widget->chkDimFlag, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(changed()));
+
   connect( widget->bgColor, TQ_SIGNAL( changed(const TQColor&) ), this, TQ_SLOT(changed()));
   connect( widget->fgColor, TQ_SIGNAL( changed(const TQColor&) ), this, TQ_SLOT(changed()));
   connect( widget->chkBgTransparent, TQ_SIGNAL( toggled(bool) ), this, TQ_SLOT(changed()));
@@ -150,11 +157,14 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   connect( widget->chkLabelShadow, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT(changed()));
   connect( widget->shColor, TQ_SIGNAL( changed(const TQColor&) ), this, TQ_SLOT(changed()));
 
+  connect( widget->chkBevel, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(changed()));
+
   connect( widget->chkEnableSticky, TQ_SIGNAL(toggled(bool)), this, TQ_SLOT(changed()));
   connect( widget->spinStickyDepth, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(changed()));
 
   connect(widget->chkEnableNotify,       TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
   connect(widget->chkNotifyUseKMilo,     TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
+  connect(widget->chkEnableNotify, TQ_SIGNAL(toggled(bool)), widget->chkNotifyUseKMilo, TQ_SLOT(setEnabled(bool)));
 
   widget->listLayoutsSrc->setColumnText(LAYOUT_COLUMN_FLAG, "");
   widget->listLayoutsDst->setColumnText(LAYOUT_COLUMN_FLAG, "");
@@ -180,29 +190,39 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
 #define NOSLOTS
   keys = new TDEGlobalAccel(this);
 #include "kxkbbindings.cpp"
+  keys->readSettings();
 
   makeOptionsTab();
-  load();
   makeShortcutsTab();
+  TQTimer::singleShot(0, this, TQ_SLOT(load()));
 }
 
 
 LayoutConfig::~LayoutConfig()
 {
-	delete m_rules;
+    delete m_rules;
+    delete m_icoMgr;
 }
 
 
 void LayoutConfig::load()
 {
-	m_kxkbConfig.load(KxkbConfig::LOAD_ALL);
+	bool modified = false;
+	m_kxkbConfig.load(KxkbConfig::LOAD_ALL_OPTIONS);
 
+	// Check if the active settings are different from the saved settings
+	if (m_kxkbConfig.m_useKxkb)
+	{
+		XkbOptions options = XKBExtension::the()->getServerOptions();
+		modified = m_kxkbConfig.setFromXkbOptions(options);
+	}
+
+	m_kxkbConfig.load(KxkbConfig::LOAD_ALL_OPTIONS);
 	keys->readSettings();
-
-	initUI();
+	initUI(modified);
 }
 
-void LayoutConfig::initUI() {
+void LayoutConfig::initUI(bool modified) {
 	const char* modelName = m_rules->models()[m_kxkbConfig.m_model];
 	if( modelName == NULL )
 		modelName = DEFAULT_MODEL;
@@ -219,7 +239,6 @@ void LayoutConfig::initUI() {
 
 		for ( ; src_it.current(); ++src_it ) {
 			TQListViewItem* srcItem = src_it.current();
-
 			if ( layoutUnit.layout == src_it.current()->text(LAYOUT_COLUMN_MAP) ) {	// check if current config knows about this layout
 				TQListViewItem* newItem = copyLVI(srcItem, widget->listLayoutsDst);
 
@@ -260,6 +279,8 @@ void LayoutConfig::initUI() {
 	widget->radFlagLabel->setChecked( showFlag && showLabel );
 	widget->radFlagOnly->setChecked( showFlag && !showLabel );
 	widget->radLabelOnly->setChecked( !showFlag && showLabel );
+	widget->chkFitToBox->setChecked(m_kxkbConfig.m_fitToBox);
+	widget->chkDimFlag->setChecked(m_kxkbConfig.m_dimFlag);
 
 	widget->xkbOptsMode->setButton(m_kxkbConfig.m_resetOldOptions ? 0 : 1);
 
@@ -271,11 +292,15 @@ void LayoutConfig::initUI() {
 	widget->chkLabelShadow->setChecked( m_kxkbConfig.m_labelShadow );
 	widget->shColor->setColor( m_kxkbConfig.m_colorShadow );
 
+	widget->chkBevel->setChecked(m_kxkbConfig.m_bevel);
+
 	widget->grpLabel->setDisabled(showFlag && !showLabel);
 	widget->grpLabelColors->setDisabled(m_kxkbConfig.m_useThemeColors);
 	widget->labelBgColor->setDisabled(showFlag);
 	widget->bgColor->setDisabled(showFlag);
 	widget->chkBgTransparent->setDisabled(showFlag);
+	widget->grpFlag->setEnabled(showFlag);
+	widget->chkDimFlag->setEnabled(showFlag && showLabel);
 
 	switch( m_kxkbConfig.m_switchingPolicy ) {
 		default:
@@ -296,6 +321,7 @@ void LayoutConfig::initUI() {
 
 	widget->chkEnableNotify->setChecked(m_kxkbConfig.m_enableNotify);
 	widget->chkNotifyUseKMilo->setChecked(m_kxkbConfig.m_notifyUseKMilo);
+	widget->chkNotifyUseKMilo->setEnabled(m_kxkbConfig.m_enableNotify);
 
 	updateStickyLimit();
 
@@ -341,7 +367,7 @@ void LayoutConfig::initUI() {
 
 	updateOptionsCommand();
 	updateHotkeyCombo(true);
-	emit TDECModule::changed( false );
+	emit TDECModule::changed(modified);
 }
 
 
@@ -353,6 +379,9 @@ void LayoutConfig::save()
 	m_kxkbConfig.m_resetOldOptions = widget->radXkbOverwrite->isOn();
 	m_kxkbConfig.m_options = createOptionString();
 
+	m_kxkbConfig.m_fitToBox = widget->chkFitToBox->isChecked();
+	m_kxkbConfig.m_dimFlag = widget->chkDimFlag->isChecked();
+
 	m_kxkbConfig.m_useThemeColors = widget->radLabelUseTheme->isChecked();
 	m_kxkbConfig.m_colorBackground = widget->bgColor->color();
 	m_kxkbConfig.m_colorLabel = widget->fgColor->color();
@@ -360,6 +389,8 @@ void LayoutConfig::save()
 	m_kxkbConfig.m_labelFont = widget->labelFont->font();
 	m_kxkbConfig.m_labelShadow = widget->chkLabelShadow->isChecked();
 	m_kxkbConfig.m_colorShadow = widget->shColor->color();
+
+	m_kxkbConfig.m_bevel = widget->chkBevel->isChecked();
 
 	TQListViewItem *item = widget->listLayoutsDst->firstChild();
 	TQValueList<LayoutUnit> layouts;
@@ -415,7 +446,8 @@ void LayoutConfig::save()
 	if (m_forceGrpOverwrite)
 	{
 		// First get all the server's options
-		TQStringList srvOptions = TQStringList::split(",", XKBExtension::getServerOptions());
+		XkbOptions _opt = XKBExtension::the()->getServerOptions();
+		TQStringList srvOptions = TQStringList::split(",", _opt.options);
 		TQStringList newOptions;
 
 		// Then remove all grp: options
@@ -432,7 +464,7 @@ void LayoutConfig::save()
 		xkbOptions.options = newOptions.join(",");
 		xkbOptions.resetOld = true;
 
-		if (!XKBExtension::setXkbOptions(xkbOptions))
+		if (!XKBExtension::the()->setXkbOptions(xkbOptions))
 		{
 			kdWarning() << "[LayoutConfig::save] Could not overwrite previous grp: options!" << endl;
 		}
@@ -990,7 +1022,8 @@ void LayoutConfig::updateHotkeyCombo(bool initial) {
     // Get server options first
     if (initial || widget->xkbOptsMode->selectedId() == 1)
     {
-        TQStringList opts = TQStringList::split(",", XKBExtension::getServerOptions());
+        XkbOptions _opt = XKBExtension::the()->getServerOptions();
+		TQStringList opts = TQStringList::split(",", _opt.options);
         for (TQStringList::Iterator it = opts.begin(); it != opts.end(); ++it)
         {
             TQString option(*it);
@@ -1141,7 +1174,7 @@ void LayoutConfig::loadRules()
 		TQString layoutName = it2.current();
 		TQListViewItem *item = new TQListViewItem(widget->listLayoutsSrc);
 
-		item->setPixmap(LAYOUT_COLUMN_FLAG, LayoutIcon::getInstance().findPixmap(layout, false));
+		item->setPixmap(LAYOUT_COLUMN_FLAG, m_icoMgr->find(layout, PIXMAP_STYLE_CONTEXTMENU));
 		item->setText(LAYOUT_COLUMN_NAME, i18n(layoutName.latin1()));
 		item->setText(LAYOUT_COLUMN_MAP, layout);
 		++it2;
@@ -1250,7 +1283,7 @@ extern "C"
 			kapp->startServiceByDesktopName("kxkb");
 		}
 		else {
-			if (!XKBExtension::setXkbOptions(m_kxkbConfig.getKXkbOptions())) {
+			if (!XKBExtension::the()->setXkbOptions(m_kxkbConfig.getKXkbOptions())) {
 				kdDebug() << "Setting XKB options failed!" << endl;
 			}
 		}

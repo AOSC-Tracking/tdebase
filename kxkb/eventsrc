@@ -6,3 +6,8 @@ Comment=TDE Keyboard Tool
 Name=Keyboard layout switch
 Comment=The keyboard layout was switched
 default_presentation=16
+
+[Error]
+Name=Keyboard layout switching error
+Comment=Error while attempting to switch the keyboard layout
+default_presentation=16

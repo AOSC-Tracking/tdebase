@@ -24,16 +24,17 @@ DESCRIPTION
 */
 
 #include <unistd.h>
-#include <stdlib.h>
 #include <assert.h>
 
 #include <tqregexp.h>
 #include <tqfile.h>
 #include <tqstringlist.h>
 #include <tqimage.h>
+#include <tqtimer.h>
 
 #include <tdeaboutdata.h>
 #include <tdecmdlineargs.h>
+#include <tdehardwaredevices.h>
 #include <tdeglobal.h>
 #include <kglobalaccel.h>
 #include <tdelocale.h>
@@ -64,17 +65,14 @@ DESCRIPTION
 KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
     : KUniqueApplication(allowStyles, GUIenabled),
     m_prevWinId(X11Helper::UNKNOWN_WINDOW_ID),
-    m_rules(NULL),
-    m_tray(NULL),
-    kWinModule(NULL)
+    m_rules(nullptr),
+    m_tray(nullptr),
+    kWinModule(nullptr)
 {
-    X11Helper::initializeTranslations();
-	m_extension = new XKBExtension();
-    if( !m_extension->init() ) {
-		kdDebug() << "xkb initialization failed, exiting..." << endl;
-		::exit(1);
-    }
-    connect(m_extension, TQ_SIGNAL(groupChanged(uint)), this, TQ_SLOT(slotGroupChanged(uint)));
+	X11Helper::initializeTranslations();
+	XKBExtension *xkb = XKBExtension::the();
+	connect(xkb, TQ_SIGNAL(groupChanged(uint)), this, TQ_SLOT(slotGroupChanged(uint)));
+	connect(xkb, TQ_SIGNAL(optionsChanged()), this, TQ_SLOT(slotSyncXkbOptions()));
 
 	m_layoutOwnerMap = new LayoutMap(kxkbConfig);
 
@@ -84,14 +82,17 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
 
     connect( this, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)) );
     addKipcEventMask( KIPC::SettingsChanged );
-}
 
+    TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
+    connect(hwdevices, TQ_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQ_SLOT(hardwareChanged(TDEGenericDevice*)));
+    connect(hwdevices, TQ_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQ_SLOT(hardwareChanged(TDEGenericDevice*)));
+    connect(hwdevices, TQ_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQ_SLOT(hardwareChanged(TDEGenericDevice*)));
+}
 
 KXKBApp::~KXKBApp()
 {
 	delete m_tray;
 	delete m_rules;
-	delete m_extension;
 	delete m_layoutOwnerMap;
 	delete kWinModule;
 	delete keys;
@@ -99,231 +100,296 @@ KXKBApp::~KXKBApp()
 
 int KXKBApp::newInstance()
 {
-    if (settingsRead()) {
-        layoutApply();
-    }
-
+    readSettings();
     return 0;
 }
 
-bool KXKBApp::settingsRead()
+void KXKBApp::readSettings()
 {
-	XkbOptions options = kxkbConfig.getKXkbOptions();
-	if( !m_extension->setXkbOptions(options) ) {
-		kdDebug() << "Setting XKB options failed!" << endl;
-	}
+    // Xkb options
+    kxkbConfig.load(KxkbConfig::LOAD_INIT_OPTIONS);
 
-    if ( kxkbConfig.m_useKxkb == false ) {
-        kapp->quit();
-        return false;
+    if (!kxkbConfig.m_useKxkb)
+    {
+        kdDebug() << "kxkb is disabled, applying xkb options and exiting" << endl;
+        applyXkbOptions();
+        quit();
+        return;
     }
-	
-	m_prevWinId = X11Helper::UNKNOWN_WINDOW_ID;
-	
-	if( kxkbConfig.m_switchingPolicy == SWITCH_POLICY_GLOBAL ) {
-		delete kWinModule;
-		kWinModule = NULL;
-	}
-	else {
-		TQDesktopWidget desktopWidget;
-		if( desktopWidget.numScreens() > 1 && desktopWidget.isVirtualDesktop() == false ) {
-			kdWarning() << "With non-virtual desktop only global switching policy supported on non-primary screens" << endl;
-			//TODO: find out how to handle that
-		}
-		
-		if( kWinModule == NULL ) {
-			kWinModule = new KWinModule(0, KWinModule::INFO_DESKTOP);
-			connect(kWinModule, TQ_SIGNAL(activeWindowChanged(WId)), TQ_SLOT(windowChanged(WId)));
-		}
-		m_prevWinId = kWinModule->activeWindow();
-		kdDebug() << "Active window " << m_prevWinId << endl;
-	}
-	
-	m_layoutOwnerMap->reset();
-	m_layoutOwnerMap->setCurrentWindow( m_prevWinId );
 
-	if( m_rules == NULL )
-		m_rules = new XkbRules(false);
-	
-	for(int ii=0; ii<(int)kxkbConfig.m_layouts.count(); ii++) {
-		LayoutUnit& layoutUnit = kxkbConfig.m_layouts[ii];
-	}
-	
-	m_currentLayout = kxkbConfig.m_layouts[0];
-	kdDebug() << "default layout is " << m_currentLayout.toPair() << endl;
-	
-	if( kxkbConfig.m_layouts.count() == 1 && !kxkbConfig.m_showSingle) {
-		kapp->quit();
-		return false;
- 	}
+    kdDebug() << "applying xkb options and layouts" << endl;
+    kxkbConfig.load(KxkbConfig::LOAD_ALL_OPTIONS);
+    applyXkbOptions();
 
-	initTray();
-	
-	TDEGlobal::config()->reparseConfiguration(); // kcontrol modified kdeglobals
-	keys->readSettings();
-	keys->updateConnections();
+    // Active window watcher
+    m_prevWinId = X11Helper::UNKNOWN_WINDOW_ID;
 
-	return true;
-}
+    if (kxkbConfig.m_switchingPolicy == SWITCH_POLICY_GLOBAL)
+    {
+        delete kWinModule;
+        kWinModule = nullptr;
+    }
 
-void KXKBApp::initTray()
-{
-	if( !m_tray )
-	{
-		KSystemTray* sysTray = new KxkbSystemTray();
-		TDEPopupMenu* popupMenu = sysTray->contextMenu();
-	//	popupMenu->insertTitle( kapp->miniIcon(), kapp->caption() );
+    else
+    {
+        TQDesktopWidget desktopWidget;
+        if (desktopWidget.numScreens() > 1 && !desktopWidget.isVirtualDesktop())
+        {
+            kdWarning() << "With non-virtual desktop only global switching policy supported on non-primary screens" << endl;
+            //TODO: find out how to handle that
+        }
 
-		m_tray = new KxkbLabelController(sysTray, popupMenu);
- 		connect(popupMenu, TQ_SIGNAL(activated(int)), this, TQ_SLOT(menuActivated(int)));
-		connect(sysTray, TQ_SIGNAL(toggled()), this, TQ_SLOT(nextLayout()));
-	}
-	
-	m_tray->setShowFlag(kxkbConfig.m_showFlag);
-	m_tray->initLayoutList(kxkbConfig.m_layouts, *m_rules);
-	m_tray->setCurrentLayout(m_currentLayout);
-	m_tray->show();
-}
+        if (!kWinModule)
+        {
+            kWinModule = new KWinModule(nullptr, KWinModule::INFO_DESKTOP);
+            connect(kWinModule, TQ_SIGNAL(activeWindowChanged(WId)), TQ_SLOT(windowChanged(WId)));
+        }
 
-// This function activates the keyboard layout specified by the
-// configuration members (m_currentLayout)
-void KXKBApp::layoutApply()
-{
+        m_prevWinId = kWinModule->activeWindow();
+        kdDebug() << "Active window " << m_prevWinId << endl;
+    }
+
+    // Init layout owner map
+    m_layoutOwnerMap->reset();
+    m_layoutOwnerMap->setCurrentWindow( m_prevWinId );
+
+    // Init rules
+    if (!m_rules)
+    {
+        m_rules = new XkbRules(false);
+    }
+
+    // Init layouts
+    for (int i = 0; i < kxkbConfig.m_layouts.count(); i++)
+    {
+        LayoutUnit& layoutUnit = kxkbConfig.m_layouts[i];
+    }
+
+    m_currentLayout = kxkbConfig.m_layouts[0];
     setLayout(m_currentLayout);
+
+    kdDebug() << "default layout is " << m_currentLayout.toPair() << endl;
+
+    if (kxkbConfig.m_layouts.count() == 1 && !kxkbConfig.m_showSingle)
+    {
+        quit();
+        return;
+    }
+
+    TDEGlobal::config()->reparseConfiguration(); // kcontrol modified kdeglobals
+
+    // Init tray
+    if (!m_tray)
+    {
+        m_tray = new KxkbSystemTray(&kxkbConfig);
+        connect(m_tray, TQ_SIGNAL(menuActivated(int)), this, TQ_SLOT(menuActivated(int)));
+        connect(m_tray, TQ_SIGNAL(toggled()), this, TQ_SLOT(nextLayout()));
+    }
+
+    m_tray->initLayoutList(kxkbConfig.m_layouts, *m_rules);
+    m_tray->setCurrentLayout(m_currentLayout);
+    m_tray->show();
+
+    // Init keybindings
+    keys->readSettings();
+    keys->updateConnections();
+}
+
+void KXKBApp::applyXkbOptions()
+{
+    XkbOptions options = kxkbConfig.getKXkbOptions();
+    if (!XKBExtension::the()->setXkbOptions(options)) {
+        kdWarning() << "Setting XKB options failed!" << endl;
+    }
+}
+
+void KXKBApp::hardwareChanged(TDEGenericDevice *dev)
+{
+    if (dev->type() == TDEGenericDeviceType::Keyboard)
+    {
+        TQTimer::singleShot(500, this, TQ_SLOT(applyXkbOptions()));
+    }
 }
 
 // kdcop
 bool KXKBApp::setLayout(const TQString& layoutPair)
 {
-	const LayoutUnit layoutUnitKey(layoutPair);
-	if( kxkbConfig.m_layouts.contains(layoutUnitKey) ) {
-		return setLayout( *kxkbConfig.m_layouts.find(layoutUnitKey) );
-	}
-	return false;
+    return setLayout((LayoutUnit)layoutPair);
 }
 
 // Activates the keyboard layout specified by 'layoutUnit'
 bool KXKBApp::setLayout(const LayoutUnit& layoutUnit)
 {
-	uint group = kxkbConfig.m_layouts.findIndex(layoutUnit);
-	bool res = m_extension->setGroup(group);
-	if (res) {
-		m_currentLayout = layoutUnit;
-		maybeShowLayoutNotification();
-	}
-
-	if (m_tray) {
-		if (res) {
-			m_tray->setCurrentLayout(layoutUnit);
-		} else {
-			m_tray->setError(layoutUnit.toPair());
-		}
-	}
-
-	return res;
+    const int group = kxkbConfig.m_layouts.findIndex(layoutUnit);
+    if (group >= 0) {
+        return setLayout(group);
+    }
+    return false;
 }
+
 // Activates the keyboard layout specified by group number
 bool KXKBApp::setLayout(const uint group)
 {
-	bool res = m_extension->setGroup(group);
-	if (res) {
-		m_currentLayout = kxkbConfig.m_layouts[group];
-	}
+    // If this group is already set, just show the notification and return
+    if (XKBExtension::the()->getGroup() == group) {
+        if (kxkbConfig.m_enableNotify) {
+            showLayoutNotification();
+        }
+        return true;
+    }
 
-	if (m_tray) {
-		if (res)
-			m_tray->setCurrentLayout(m_currentLayout);
-		else
-			m_tray->setError(m_currentLayout.toPair());
-	}
+    bool ok = XKBExtension::the()->setGroup(group);
+    if (!ok) {
+        TQString layout = kxkbConfig.m_layouts[group].toPair();
+        if (m_tray) {
+            m_tray->setError(layout);
+        }
 
-	return res;
+        if (kxkbConfig.m_enableNotify) {
+            showErrorNotification(layout);
+        }
+    }
+    return ok;
 }
-
 
 void KXKBApp::nextLayout()
 {
-	const LayoutUnit& layout = m_layoutOwnerMap->getNextLayout().layoutUnit;
-	setLayout(layout);
+    const LayoutUnit& layout = m_layoutOwnerMap->getNextLayout().layoutUnit;
+    setLayout(layout);
 }
 
 void KXKBApp::prevLayout()
 {
-	const LayoutUnit& layout = m_layoutOwnerMap->getPrevLayout().layoutUnit;
-	setLayout(layout);
+    const LayoutUnit& layout = m_layoutOwnerMap->getPrevLayout().layoutUnit;
+    setLayout(layout);
 }
 
 void KXKBApp::menuActivated(int id)
 {
-	if( KxkbLabelController::START_MENU_ID <= id 
-		   && id < KxkbLabelController::START_MENU_ID + (int)kxkbConfig.m_layouts.count() )
-	{
-		const LayoutUnit& layout = kxkbConfig.m_layouts[id - KxkbLabelController::START_MENU_ID];
-		m_layoutOwnerMap->setCurrentLayout( layout );
-		setLayout( layout );
-	}
-	else if (id == KxkbLabelController::CONFIG_MENU_ID)
+    if (id >= KxkbSystemTray::START_MENU_ID &&
+        id <  KxkbSystemTray::START_MENU_ID + kxkbConfig.m_layouts.count())
+    {
+        setLayout(id - KxkbSystemTray::START_MENU_ID);
+    }
+    else if (id == KxkbSystemTray::CONFIG_MENU_ID)
     {
         TDEProcess p;
         p << "tdecmshell" << "keyboard_layout";
         p.start(TDEProcess::DontCare);
-	}
-	else if (id == KxkbLabelController::HELP_MENU_ID)
-	{
-		TDEApplication::kApplication()->invokeHelp(0, "kxkb");
-	}
-//	else
-//	{
-//		quit();
-//	}
+    }
+    else if (id == KxkbSystemTray::HELP_MENU_ID)
+    {
+        invokeHelp(0, "kxkb");
+    }
+    else
+    {
+        quit();
+    }
 }
 
 void KXKBApp::slotGroupChanged(uint group)
 {
-	if (group >= kxkbConfig.m_layouts.count())
-	{
-		group = 0;
-	}
-	m_currentLayout = kxkbConfig.m_layouts[group];
-	m_tray->setCurrentLayout(m_currentLayout);
-	maybeShowLayoutNotification();
+    if (!kxkbConfig.m_layouts.count()) {
+      kdError() << "[kxkb] no layout found!" << endl;
+      return;
+    }
+
+    if (group >= kxkbConfig.m_layouts.count()) {
+        kdError() << "[kxkb] unknown group requested: " << group << endl;
+        if (m_tray)
+        {
+            m_tray->setError(i18n("Unknown"));
+        }
+        if (kxkbConfig.m_enableNotify)
+        {
+            showErrorNotification(i18n("Unknown"));
+        }
+        return;
+    }
+
+    m_currentLayout = kxkbConfig.m_layouts[group];
+    m_layoutOwnerMap->setCurrentLayout(m_currentLayout);
+
+    if (m_tray) {
+        m_tray->setCurrentLayout(m_currentLayout);
+    }
+
+    if (kxkbConfig.m_enableNotify) {
+        showLayoutNotification();
+    }
 }
 
-void KXKBApp::maybeShowLayoutNotification() {
-	if (!kxkbConfig.m_enableNotify) return;
+void KXKBApp::slotSyncXkbOptions()
+{
+	// Make sure the X11 server has had enough time to apply the change
+	TQTimer::singleShot(100, this, TQ_SLOT(syncXkbOptions()));
+}
 
-	TQString layoutName(m_rules->getLayoutName(m_currentLayout));
-	bool useKMilo = kxkbConfig.m_notifyUseKMilo;
-	bool notificationSent = false;
-
-	// Query KDED whether KMiloD is loaded
-	if (useKMilo) {
-		QCStringList modules;
-		TQCString replyType;
-		TQByteArray replyData;
-		if (kapp->dcopClient()->call("kded", "kded", "loadedModules()",
-			TQByteArray(), replyType, replyData))
+void KXKBApp::syncXkbOptions()
+{
+	XkbOptions options = XKBExtension::the()->getServerOptions();
+	if (kxkbConfig.setFromXkbOptions(options))
+	{
+		m_layoutOwnerMap->reset();
+		if (m_tray)
 		{
-			if (replyType == "QCStringList") {
-				TQDataStream reply(replyData, IO_ReadOnly);
-				reply >> modules;
-
-				if (!modules.contains("kmilod")) {
-					useKMilo = false;
-				}
-			}
+			m_tray->initLayoutList(kxkbConfig.m_layouts, *m_rules);
 		}
 	}
+	slotGroupChanged(XKBExtension::the()->getGroup());
+}
 
-	if (useKMilo) {
-		DCOPRef kmilo("kded", "kmilod");
-		if (kmilo.send("displayText(TQString,TQPixmap)", layoutName, kapp->miniIcon()))
-			notificationSent = true;
-	}
+void KXKBApp::showLayoutNotification()
+{
+    bool useKMilo = kxkbConfig.m_notifyUseKMilo && isKMiloAvailable(),
+         notificationSent = false;
 
-	if (!notificationSent) {
-		KNotifyClient::event(m_tray->winId(), "LayoutChange", layoutName);
-	}
+    TQString layoutName(m_rules->getLayoutName(m_currentLayout));
+
+    if (useKMilo) {
+        DCOPRef kmilo("kded", "kmilod");
+        if (kmilo.send("displayText(TQString,TQPixmap)", layoutName, miniIcon())) {
+            notificationSent = true;
+        }
+    }
+
+    if (!notificationSent) {
+        WId wid = (m_tray ? m_tray->winId() : 0);
+        KNotifyClient::event(wid, "LayoutChange", layoutName);
+    }
+}
+
+void KXKBApp::showErrorNotification(TQString layout) {
+    bool useKMilo = kxkbConfig.m_notifyUseKMilo && isKMiloAvailable(),
+         notificationSent = false;
+
+    if (useKMilo) {
+        DCOPRef kmilo("kded", "kmilod");
+        if (kmilo.send("displayText(TQString,TQPixmap)", i18n("Error changing keyboard layout to '%1'").arg(layout), miniIcon())) {
+            notificationSent = true;
+        }
+    }
+
+    if (!notificationSent) {
+        WId wid = (m_tray ? m_tray->winId() : 0);
+        KNotifyClient::event(wid, "Error");
+    }
+}
+
+bool KXKBApp::isKMiloAvailable() {
+    QCStringList modules;
+    TQCString replyType;
+    TQByteArray replyData;
+    if (dcopClient()->call("kded", "kded", "loadedModules()",
+                                 TQByteArray(), replyType, replyData))
+    {
+        if (replyType == "QCStringList") {
+            TQDataStream reply(replyData, IO_ReadOnly);
+            reply >> modules;
+            return modules.contains("kmilod");
+        }
+    }
+    return false;
 }
 
 // TODO: we also have to handle deleted windows
@@ -336,25 +402,24 @@ void KXKBApp::windowChanged(WId winId)
 	}
 
 	kdDebug() << "old WinId: " << m_prevWinId << ", new WinId: " << winId << endl;
-	
+
 	if( m_prevWinId != X11Helper::UNKNOWN_WINDOW_ID ) {	// saving layout from previous window
 // 		m_layoutOwnerMap->setCurrentWindow(m_prevWinId);
 		m_layoutOwnerMap->setCurrentLayout(m_currentLayout);
 	}
- 
+
 	m_prevWinId = winId;
 
 	if( winId != X11Helper::UNKNOWN_WINDOW_ID ) {
 		m_layoutOwnerMap->setCurrentWindow(winId);
 		const LayoutState& layoutState = m_layoutOwnerMap->getCurrentLayout();
-		
+
 		if( layoutState.layoutUnit != m_currentLayout ) {
 			kdDebug() << "switching to " << layoutState.layoutUnit.toPair() << " for "  << winId << endl;
 			setLayout(layoutState.layoutUnit);
 		}
 	}
 }
-
 
 void KXKBApp::slotSettingsChanged(int category)
 {
@@ -367,7 +432,7 @@ void KXKBApp::slotSettingsChanged(int category)
 
 bool KXKBApp::x11EventFilter(XEvent *e) {
     // let the extension process the event and emit signals if necessary
-    m_extension->processXEvent(e);
+    XKBExtension::the()->processXEvent(e);
     return TDEApplication::x11EventFilter(e);
 }
 

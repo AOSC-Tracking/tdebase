@@ -32,6 +32,7 @@ DESCRIPTION
 #include <tqptrqueue.h>
 
 #include <kuniqueapplication.h>
+#include <tdegenericdevice.h>
 
 #include "kxkbtraywindow.h"
 #include "kxkbconfig.h"
@@ -72,19 +73,23 @@ public slots:
 protected slots:
     void menuActivated(int id);
     void windowChanged(WId winId);
-    void layoutApply();
     void slotGroupChanged(uint group);
 
     void slotSettingsChanged(int category);
-    void maybeShowLayoutNotification();
+    void showLayoutNotification();
+    void showErrorNotification(TQString layout);
 
-protected:
-    // Read settings, and apply them.
-    bool settingsRead();
+    void hardwareChanged(TDEGenericDevice *dev);
+
+    void readSettings();
+    void applyXkbOptions();
+    void slotSyncXkbOptions();
+    void syncXkbOptions();
 
 private:
     void initTray();
     bool x11EventFilter(XEvent *e);
+    bool isKMiloAvailable();
 
 private:
     KxkbConfig kxkbConfig;
@@ -96,7 +101,7 @@ private:
 
     XKBExtension *m_extension;
     XkbRules *m_rules;
-    KxkbLabelController *m_tray;
+    KxkbSystemTray *m_tray;
     TDEGlobalAccel *keys;
     KWinModule* kWinModule;
     bool m_forceSetXKBMap;

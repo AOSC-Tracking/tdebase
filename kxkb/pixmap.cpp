@@ -1,9 +1,11 @@
+#include <tqapplication.h>
 #include <tqimage.h>
 #include <tqbitmap.h>
 #include <tqfont.h>
 #include <tqpainter.h>
 #include <tqregexp.h>
 #include <tqdict.h>
+#include <tqdrawutil.h>
 
 #include <kstandarddirs.h>
 #include <tdeglobalsettings.h>
@@ -13,56 +15,42 @@
 #include "pixmap.h"
 #include "x11helper.h"
 
+const TQString LayoutIconManager::flagTemplate("l10n/%1/flag.png");
 
-static const int FLAG_MAX_DIM = 24;
-
-const TQString LayoutIcon::flagTemplate("l10n/%1/flag.png");
-const TQString& LayoutIcon::ERROR_CODE("error");
-LayoutIcon* LayoutIcon::instance;
-
-
-LayoutIcon& LayoutIcon::getInstance() {
-	if( instance == NULL ) {
-		instance = new LayoutIcon();
-	}
-	return *instance;
-}
-
-LayoutIcon::LayoutIcon():
-		m_pixmapCache(80)
+LayoutIconManager::LayoutIconManager(KxkbConfig *kxkbConfig)
+    : m_pixmapCache(80),
+      m_kxkbConfig(kxkbConfig)
 {
 }
 
-const TQPixmap&
-LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& displayName_)
+const TQPixmap& LayoutIconManager::find(const TQString& code_, int pixmapStyle, const TQString& displayName_)
 {
-	m_kxkbConfig.load(KxkbConfig::LOAD_ALL);  // (re)load settings
-
-	if (m_kxkbConfig.m_useThemeColors) { // use colors from color scheme
+	if (m_kxkbConfig->m_useThemeColors) { // use colors from color scheme
 		m_bgColor = TDEGlobalSettings::highlightColor();
 		m_fgColor = TDEGlobalSettings::highlightedTextColor();
 	} else {
-		m_bgColor = m_kxkbConfig.m_colorBackground;
-		m_fgColor = m_kxkbConfig.m_colorLabel;
+		m_bgColor = m_kxkbConfig->m_colorBackground;
+		m_fgColor = m_kxkbConfig->m_colorLabel;
 	}
 
-	m_labelFont = m_kxkbConfig.m_labelFont;
-	m_labelShadow = m_kxkbConfig.m_labelShadow;
-	m_shColor = m_kxkbConfig.m_colorShadow;
-	m_bgTransparent = m_kxkbConfig.m_bgTransparent;
+	m_labelFont = m_kxkbConfig->m_labelFont;
+	m_labelShadow = m_kxkbConfig->m_labelShadow;
+	m_shColor = m_kxkbConfig->m_colorShadow;
+	m_bgTransparent = m_kxkbConfig->m_bgTransparent;
+	m_fitToBox = m_kxkbConfig->m_fitToBox;
+	m_dimFlag = m_kxkbConfig->m_dimFlag;
+	m_bevel = m_kxkbConfig->m_bevel && !m_bgTransparent && pixmapStyle == PIXMAP_STYLE_INDICATOR;
 
 	// Decide on how to style the pixmap
 	switch(pixmapStyle) {
 		case PIXMAP_STYLE_NORMAL:
-			m_fitToBox = true;
 			m_showFlag = true;
 			m_showLabel = false;
 			break;
 
 		case PIXMAP_STYLE_INDICATOR:
-			m_fitToBox = true;
-			m_showFlag = m_kxkbConfig.m_showFlag;
-			m_showLabel = m_kxkbConfig.m_showLabel;
+			m_showFlag = m_kxkbConfig->m_showFlag;
+			m_showLabel = m_kxkbConfig->m_showLabel;
 			break;
 
 		case PIXMAP_STYLE_CONTEXTMENU:
@@ -73,7 +61,7 @@ LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& d
 	}
 
 	// Label only mode is always 'fit to box'
-	if( m_showLabel && !m_showFlag )
+	if (m_showLabel && !m_showFlag)
 		m_fitToBox = true;
 
 	TQPixmap* pm = NULL;
@@ -89,57 +77,92 @@ LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& d
 
 	TQString displayName(displayName_);
 
-	if( displayName.isEmpty() ) {
+	if (displayName.isEmpty()) {
 		displayName = KxkbConfig::getDefaultDisplayName(code_);
 	}
-	if( displayName.length() > 3 )
+	if (displayName.length() > 3)
 		displayName = displayName.left(3);
 
 	const TQString pixmapKey(
-		TQString( m_showFlag ? "f" : "" ) + TQString( m_showLabel ? "l" : "" ) + TQString( m_labelShadow ? "s" : "" ) + "." +
+		TQString(m_showFlag ? "f" : "") + TQString(m_showLabel ? "l" : "") + TQString(m_labelShadow ? "s" : "") + "." +
+		TQString(m_fitToBox ? "F" : "") + TQString(m_dimFlag ? "D" : "") + TQString(m_bevel ? "B" : "") + "." +
 		m_labelFont.key() + "." + ( m_bgTransparent ? "x" : m_bgColor.name() ) + "." + m_fgColor.name() + "." + m_shColor.name() + '.' + code_ + "." + displayName
 	);
 
 	// Only use cache for indicator
-	if( pixmapStyle == PIXMAP_STYLE_INDICATOR ) {
+	if (pixmapStyle == PIXMAP_STYLE_INDICATOR) {
 		pm = m_pixmapCache[pixmapKey];
-		if( pm )
+		if (pm)
 			return *pm;
 	}
 
-	// Need to create new pixmap
-	pm = new TQPixmap();
+	pm = new TQPixmap(FLAG_MAX_DIM, FLAG_MAX_DIM);
 
-	if( m_fitToBox ) // Resize to box size
-		pm->resize(FLAG_MAX_DIM, FLAG_MAX_DIM);
+	TQRect r = pm->rect();
+	TQPainter p_(pm);
 
-	if( m_showFlag ) {
-		TQString countryCode = getCountryFromLayoutName( code_ );
+	if (m_showFlag) {
+		TQString countryCode = getCountryFromLayoutName(code_);
 		TQString flag = locate("locale", flagTemplate.arg(countryCode));
 
-		if( flag.isEmpty() ) {
+		if (flag.isEmpty()) {
 			pm->fill(m_bgColor);
 			m_showLabel = true;
 		} else {
-			if( m_fitToBox ) { // Resize flag
-				TQPainter p_(pm);
-				p_.drawPixmap(TQRect(0, 0, FLAG_MAX_DIM, FLAG_MAX_DIM), flag);
-			} else { // Show the flag as is
-				pm->load(flag);
+			TQPixmap fp(flag);
+
+			if (m_dimFlag && m_showLabel)
+			{
+				TQImage image = fp.convertToImage();
+				for (int y = 0; y < image.height(); y++)
+				{
+					for(int x = 0; x < image.width(); x++)
+					{
+						TQRgb rgb = image.pixel(x,y);
+						TQRgb dimRgb(tqRgb(tqRed(rgb) * 3/4, tqGreen(rgb) * 3/4, tqBlue(rgb) * 3/4));
+						image.setPixel(x, y, dimRgb);
+					}
+				}
+				fp.convertFromImage(image);
 			}
 
-			if( m_showLabel ) // only dim for label
-				dimPixmap( *pm );
+			if (!m_fitToBox)
+			{
+				r = TQRect((FLAG_MAX_DIM - fp.width()) / 2, (FLAG_MAX_DIM - fp.height()) / 2, fp.width(), fp.height());
+			}
+
+			TQRect fr(r); // flag rect might be smaller to accomodate the bevel
+			if (m_bevel)
+			{
+				fr.setX(fr.x() + 1);
+				fr.setY(fr.y() + 1);
+				fr.setWidth(fr.width() - 1);
+				fr.setHeight(fr.height() - 1);
+			}
+
+			p_.drawPixmap(fr, fp);
+
+			// If we don't stretch the flag, we need to apply a mask to it
+			if (!m_fitToBox)
+			{
+				TQPixmap fpmask(FLAG_MAX_DIM, FLAG_MAX_DIM);
+				TQPainter fpmaskp(&fpmask);
+				fpmask.fill(TQt::white);
+				fpmaskp.fillRect(r, TQt::black);
+				TQBitmap fpmask_;
+				fpmask_ = fpmask;
+				pm->setMask((TQBitmap)fpmask_);
+			}
 		}
 	} else {
 		pm->fill(m_bgColor);
 	}
 
-	if( m_showLabel ) {
+	if (m_showLabel) {
 		TQPainter p(pm);
 		p.setFont(m_labelFont);
 
-		if( m_labelShadow ) {
+		if (m_labelShadow) {
 			p.setPen(m_shColor);
 			p.drawText(1, 1, pm->width(), pm->height(), TQt::AlignCenter, displayName);
 		}
@@ -168,8 +191,14 @@ LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& d
 		}
 	}
 
+	if (m_bevel)
+	{
+		TQPainter p_(pm);
+		qDrawShadePanel(&p_, r.x(), r.y(), r.width(), r.height(), tqApp->palette().active(), false, 1, nullptr);
+	}
 
-	if( pixmapStyle == PIXMAP_STYLE_INDICATOR )
+
+	if (pixmapStyle == PIXMAP_STYLE_INDICATOR)
 		m_pixmapCache.insert(pixmapKey, pm);
 
 	return *pm;
@@ -178,7 +207,7 @@ LayoutIcon::findPixmap(const TQString& code_, int pixmapStyle, const TQString& d
 /**
 @brief Try to get country code from layout name in xkb before xorg 6.9.0
 */
-TQString LayoutIcon::getCountryFromLayoutName(const TQString& layoutName)
+TQString LayoutIconManager::getCountryFromLayoutName(const TQString& layoutName)
 {
 	TQString flag;
 
@@ -285,24 +314,8 @@ TQString LayoutIcon::getCountryFromLayoutName(const TQString& layoutName)
     return flag;
 }
 
-
-void LayoutIcon::dimPixmap(TQPixmap& pm)
-{
-	TQImage image = pm.convertToImage();
-	for (int y=0; y<image.height(); y++)
-		for(int x=0; x<image.width(); x++)
-	{
-		TQRgb rgb = image.pixel(x,y);
-		TQRgb dimRgb(tqRgb(tqRed(rgb)*3/4, tqGreen(rgb)*3/4, tqBlue(rgb)*3/4));
-		image.setPixel(x, y, dimRgb);
-	}
-	pm.convertFromImage(image);
-}
-
-static const char* ERROR_LABEL = "err";
-
 //private
-TQPixmap* LayoutIcon::createErrorPixmap()
+TQPixmap* LayoutIconManager::createErrorPixmap()
 {
 	TQPixmap* pm = new TQPixmap(21, 14);
 	pm->fill(TQt::white);

@@ -45,12 +45,15 @@ extern const char* DEFAULT_MODEL;
 class KxkbConfig
 {
 public:
-	enum { LOAD_INIT_OPTIONS, LOAD_ACTIVE_OPTIONS, LOAD_ALL };
+	enum { LOAD_INIT_OPTIONS, LOAD_BASIC_OPTIONS, LOAD_ALL_OPTIONS };
 
 	bool m_useKxkb;
 	bool m_showSingle;
 	bool m_showFlag;
 	bool m_showLabel;
+	bool m_fitToBox;
+	bool m_dimFlag;
+	bool m_bevel;
 	bool m_enableXkbOptions;
 	bool m_resetOldOptions;
 	SwitchingPolicy m_switchingPolicy;
@@ -71,7 +74,7 @@ public:
 	TQString m_options;
 	TQValueList<LayoutUnit> m_layouts;
 
-	bool load(int loadMode);
+	void load(int loadMode);
 	void save();
 	void setDefaults();
 
@@ -79,6 +82,7 @@ public:
 	static TQString getDefaultDisplayName(const TQString& code_);
 	static TQString getDefaultDisplayName(const LayoutUnit& layoutUnit, bool single=false);
 
+	bool setFromXkbOptions(XkbOptions options);
 	const XkbOptions getKXkbOptions();
 
 private:

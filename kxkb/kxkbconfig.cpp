@@ -30,112 +30,150 @@ static const char* switchModes[SWITCH_POLICY_COUNT] = {
 const LayoutUnit DEFAULT_LAYOUT_UNIT = LayoutUnit("us", "");
 const char* DEFAULT_MODEL = "pc104";
 
-bool KxkbConfig::load(int loadMode)
+void KxkbConfig::load(int loadMode)
 {
+	// INITIAL OPTIONS (loaded regardless of whether KXkb is enabled)
+
 	TDEConfig *config = new TDEConfig("kxkbrc", true, false);
 	config->setGroup("Layout");
 
-	if( loadMode == LOAD_ALL ) {
-		m_resetOldOptions = config->readBoolEntry("ResetOldOptions", true);
-		m_options = config->readEntry("Options", "");
+	m_useKxkb = config->readBoolEntry("Use", false);
+
+	m_resetOldOptions = config->readBoolEntry("ResetOldOptions", true);
+	m_options = config->readEntry("Options", "");
+
+	if (loadMode == LOAD_INIT_OPTIONS)
+	{
+		return;
 	}
 
-	m_useKxkb = config->readBoolEntry("Use", false);
-	kdDebug() << "Use kxkb " << m_useKxkb << endl;
-
-	if( (m_useKxkb == false && loadMode == LOAD_ACTIVE_OPTIONS )
-	  		|| loadMode == LOAD_INIT_OPTIONS )
-		return true;
+	// BASIC OPTIONS (passed to setxkbmap)
 
 	m_model = config->readEntry("Model", DEFAULT_MODEL);
-	kdDebug() << "Model: " << m_model << endl;
 
+	// Layouts
 	TQStringList layoutList;
-	if( config->hasKey("LayoutList") ) {
+	if (config->hasKey("LayoutList"))
+	{
 		layoutList = config->readListEntry("LayoutList");
 	}
-	else { // old config
+	else
+	{ // old config
 		TQString mainLayout = config->readEntry("Layout", DEFAULT_LAYOUT_UNIT.toPair());
 		layoutList = config->readListEntry("Additional");
 		layoutList.prepend(mainLayout);
 	}
-	if( layoutList.count() == 0 )
+
+	if (layoutList.count() == 0)
+	{
 		layoutList.append("us");
+	}
+
+	TQStringList::ConstIterator it;
 
 	m_layouts.clear();
-	for(TQStringList::ConstIterator it = layoutList.begin(); it != layoutList.end() ; ++it) {
+	for (it = layoutList.begin(); it != layoutList.end(); ++it)
+	{
 		m_layouts.append( LayoutUnit(*it) );
-		kdDebug() << " layout " << LayoutUnit(*it).toPair() << " in list: " << m_layouts.contains( LayoutUnit(*it) ) << endl;
+		kdDebug() << " layout " << LayoutUnit(*it).toPair() << " in list: " << m_layouts.contains(LayoutUnit(*it)) << endl;
 	}
 
 	kdDebug() << "Found " << m_layouts.count() << " layouts" << endl;
 
+	// Display names
 	TQStringList displayNamesList = config->readListEntry("DisplayNames", ',');
-	for(TQStringList::ConstIterator it = displayNamesList.begin(); it != displayNamesList.end() ; ++it) {
+	for (it = displayNamesList.begin(); it != displayNamesList.end() ; ++it)
+	{
 		TQStringList displayNamePair = TQStringList::split(':', *it );
-		if( displayNamePair.count() == 2 ) {
-			LayoutUnit layoutUnit( displayNamePair[0] );
-			if( m_layouts.contains( layoutUnit ) ) {
+		if (displayNamePair.count() == 2)
+		{
+			LayoutUnit layoutUnit(displayNamePair[0]);
+			if (m_layouts.contains(layoutUnit))
+			{
 				m_layouts[m_layouts.findIndex(layoutUnit)].displayName = displayNamePair[1].left(3);
 			}
 		}
 	}
 
+	if (loadMode == LOAD_BASIC_OPTIONS)
+	{
+		return;
+	}
+
+	// ALL OTHER OPTIONS (of interest only to KXkb itself)
+
+	// Tray indicator
 	m_showSingle = config->readBoolEntry("ShowSingle", false);
+
 	m_showFlag = config->readBoolEntry("ShowFlag", true);
 	m_showLabel = config->readBoolEntry("ShowLabel", true);
+
+	m_fitToBox = config->readBoolEntry("FitFlagToBox", true);
 
 	m_useThemeColors = config->readBoolEntry("UseThemeColors", false);
 	m_colorBackground = config->readColorEntry("ColorBackground", new TQColor(TQt::gray));
 	m_bgTransparent = config->readBoolEntry("BgTransparent", false);
 	m_colorLabel = config->readColorEntry("ColorLabel", new TQColor(TQt::white));
+
 	m_labelFont = config->readFontEntry("LabelFont", new TQFont("sans", 10, TQFont::Bold));
 	m_labelShadow = config->readBoolEntry("LabelShadow", true);
 	m_colorShadow = config->readColorEntry("ColorShadow", new TQColor(TQt::black));
 
+	m_dimFlag = config->readBoolEntry("DimFlag", true);
+	m_bevel = config->readBoolEntry("IndicatorBevel", false);
+
+	// Switching policy
 	TQString layoutOwner = config->readEntry("SwitchMode", "Global");
 
-	if( layoutOwner == "WinClass" ) {
+	if (layoutOwner == "WinClass")
+	{
 		m_switchingPolicy = SWITCH_POLICY_WIN_CLASS;
 	}
-	else if( layoutOwner == "Window" ) {
+	else if (layoutOwner == "Window")
+	{
 		m_switchingPolicy = SWITCH_POLICY_WINDOW;
 	}
-	else /*if( layoutOwner == "Global" )*/ {
+	else
+	{
 		m_switchingPolicy = SWITCH_POLICY_GLOBAL;
 	}
 
-	if( m_layouts.count() < 2 && m_switchingPolicy != SWITCH_POLICY_GLOBAL ) {
+	if (m_layouts.count() < 2 && m_switchingPolicy != SWITCH_POLICY_GLOBAL)
+	{
 		kdWarning() << "Layout count is less than 2, using Global switching policy" << endl;
 		m_switchingPolicy = SWITCH_POLICY_GLOBAL;
 	}
 
 	kdDebug() << "Layout owner mode " << layoutOwner << endl;
 
+	// Sticky switching
 	m_stickySwitching = config->readBoolEntry("StickySwitching", false);
-	m_stickySwitchingDepth = config->readEntry("StickySwitchingDepth", "2").toInt();
-	if( m_stickySwitchingDepth < 2 )
+	m_stickySwitchingDepth = config->readNumEntry("StickySwitchingDepth", 2);
+	if (m_stickySwitchingDepth < 2)
+	{
 		m_stickySwitchingDepth = 2;
+	}
 
-	if( m_stickySwitching == true ) {
-		if( m_layouts.count() < 3 ) {
+	if (m_stickySwitching)
+	{
+		if (m_layouts.count() < 3)
+		{
 			kdWarning() << "Layout count is less than 3, sticky switching will be off" << endl;
 			m_stickySwitching = false;
 		}
-		else
-		if( (int)m_layouts.count() - 1 < m_stickySwitchingDepth ) {
+		else if (m_layouts.count() - 1 < m_stickySwitchingDepth)
+		{
 			kdWarning() << "Sticky switching depth is more than layout count -1, adjusting..." << endl;
 			m_stickySwitchingDepth = m_layouts.count() - 1;
 		}
 	}
 
+	// Notifications
 	config->setGroup("Notifications");
 	m_enableNotify = config->readBoolEntry("Enable", false);
 	m_notifyUseKMilo = config->readBoolEntry("UseKMilo", true);
 
 	delete config;
-
-	return true;
 }
 
 void KxkbConfig::save()
@@ -143,54 +181,64 @@ void KxkbConfig::save()
 	TDEConfig *config = new TDEConfig("kxkbrc", false, false);
 	config->setGroup("Layout");
 
-	config->writeEntry("Model", m_model);
+	config->writeEntry("Use", m_useKxkb);
 
 	config->writeEntry("ResetOldOptions", m_resetOldOptions);
 	config->writeEntry("Options", m_options );
 
+	config->writeEntry("Model", m_model);
+
+	// Layouts
 	TQStringList layoutList;
 	TQStringList displayNamesList;
 
 	TQValueList<LayoutUnit>::ConstIterator it;
-	for(it = m_layouts.begin(); it != m_layouts.end(); ++it) {
+	for (it = m_layouts.begin(); it != m_layouts.end(); ++it) {
 		const LayoutUnit& layoutUnit = *it;
+		layoutList.append(layoutUnit.toPair());
 
-		layoutList.append( layoutUnit.toPair() );
-
-		TQString displayName( layoutUnit.displayName );
-		kdDebug() << " displayName " << layoutUnit.toPair() << " : " << displayName << endl;
-		if( displayName.isEmpty() == false && displayName != layoutUnit.layout ) {
+		// Display name
+		TQString displayName(layoutUnit.displayName);
+		if (!displayName.isEmpty() && displayName != layoutUnit.layout)
+		{
 			displayName = TQString("%1:%2").arg(layoutUnit.toPair(), displayName);
-			displayNamesList.append( displayName );
+			displayNamesList.append(displayName);
 		}
 	}
-
 	config->writeEntry("LayoutList", layoutList);
-	kdDebug() << "Saving Layouts: " << layoutList << endl;
+	config->writeEntry("DisplayNames", displayNamesList);
 
-//	if( displayNamesList.empty() == false )
-		config->writeEntry("DisplayNames", displayNamesList);
-// 	else
-// 		config->deleteEntry("DisplayNames");
-
-	config->writeEntry("Use", m_useKxkb);
+	// Tray indicator
 	config->writeEntry("ShowSingle", m_showSingle);
 
 	config->writeEntry("ShowFlag", m_showFlag);
 	config->writeEntry("ShowLabel", m_showLabel);
 
+	config->writeEntry("FitFlagToBox", m_fitToBox);
+
 	config->writeEntry("UseThemeColors", m_useThemeColors);
 	config->writeEntry("ColorBackground", m_colorBackground);
 	config->writeEntry("BgTransparent", m_bgTransparent);
 	config->writeEntry("ColorLabel", m_colorLabel);
+
 	config->writeEntry("LabelFont", m_labelFont);
 	config->writeEntry("LabelShadow", m_labelShadow);
 	config->writeEntry("ColorShadow", m_colorShadow);
 
+	config->writeEntry("DimFlag", m_dimFlag);
+	config->writeEntry("IndicatorBevel", m_bevel);
+
+	// Switching policy
 	config->writeEntry("SwitchMode", switchModes[m_switchingPolicy]);
 
+	// Sticky switching
 	config->writeEntry("StickySwitching", m_stickySwitching);
 	config->writeEntry("StickySwitchingDepth", m_stickySwitchingDepth);
+
+	// Notifications
+	config->setGroup("Notifications");
+	config->writeEntry("Enable", m_enableNotify);
+	config->writeEntry("UseKMilo", m_notifyUseKMilo);
 
 	// remove old options
  	config->deleteEntry("Variants");
@@ -200,12 +248,7 @@ void KxkbConfig::save()
 	config->deleteEntry("Additional");
 	config->deleteEntry("Layout");
 
-	config->setGroup("Notifications");
-	config->writeEntry("Enable", m_enableNotify);
-	config->writeEntry("UseKMilo", m_notifyUseKMilo);
-
 	config->sync();
-
 	delete config;
 }
 
@@ -222,11 +265,83 @@ void KxkbConfig::setDefaults()
 	m_useKxkb = false;
 	m_showSingle = false;
 	m_showFlag = true;
+	m_fitToBox = true;
+	m_dimFlag = true;
+
+	m_bevel = false;
 
 	m_switchingPolicy = SWITCH_POLICY_GLOBAL;
 
 	m_stickySwitching = false;
 	m_stickySwitchingDepth = 2;
+}
+
+bool KxkbConfig::setFromXkbOptions(XkbOptions options)
+{
+	XkbOptions curOptions = getKXkbOptions();
+
+	bool modified = false;
+
+	// We need to fix the variants string if it is empty, otherwise the
+	// comparison below will often wrongly assume that the variants have
+	// changed
+	if (options.variants.isEmpty())
+	{
+		options.variants = ""; // ensure the string is empty but not null
+		for (int i = 0; i < options.layouts.contains(","); ++i)
+		{
+			options.variants += ",";
+		}
+	}
+
+	// Check if keyboard layout options have changed
+	if ((options.model != curOptions.model && !options.model.isNull()))
+	{
+		modified = true;
+		m_model = options.model;
+	}
+
+	if ((options.layouts != curOptions.layouts) || (options.variants != curOptions.variants))
+	{
+		modified = true;
+		m_layouts.clear();
+
+		TQStringList layouts = TQStringList::split(",", options.layouts, true);
+		TQStringList variants = TQStringList::split(",", options.variants, true);
+		TQStringList::Iterator lit = layouts.begin();
+		TQStringList::Iterator vit = variants.begin();
+
+		if (layouts.empty())
+		{
+			layouts << "us";
+		}
+
+		while (lit != layouts.end())
+		{
+			TQString layout = *lit;
+			TQString variant = vit != variants.end() ? *vit : TQString::null;
+			m_layouts.append(LayoutUnit(layout, variant));
+
+			++lit;
+			if (vit != variants.end())
+			{
+				++vit;
+			}
+		}
+	}
+
+	TQStringList serverOpts = TQStringList::split(",", options.options);
+	TQStringList kxkbOpts = TQStringList::split(",", curOptions.options);
+	serverOpts.sort();
+	kxkbOpts.sort();
+
+	if (serverOpts != kxkbOpts)
+	{
+		modified = true;
+		m_options = options.options;
+	}
+
+	return modified;
 }
 
 TQStringList KxkbConfig::getLayoutStringList(/*bool compact*/)
@@ -275,22 +390,25 @@ TQString KxkbConfig::getDefaultDisplayName(const LayoutUnit& layoutUnit, bool si
 }
 
 const XkbOptions KxkbConfig::getKXkbOptions() {
-	load(LOAD_ALL);
-
 	XkbOptions options;
 	TQStringList layouts;
 	TQStringList variants;
-	for(TQValueList<LayoutUnit>::ConstIterator it = m_layouts.begin(); it != m_layouts.end(); ++it) {
+	for (TQValueList<LayoutUnit>::ConstIterator it = m_layouts.begin(); it != m_layouts.end(); ++it) {
 		const LayoutUnit& layoutUnit = *it;
 		layouts << layoutUnit.layout;
 		variants << layoutUnit.variant;
 	}
 	options.layouts  = layouts.join(",");
 	options.variants = variants.join(",");
-	options.model    = m_model;
 	options.options  = m_options;
-	kdDebug() << "[getKXkbOptions] options: " << m_options << endl;
 	options.resetOld = m_resetOldOptions;
+	options.model    = m_model;
+
+	if (options.model.isEmpty())
+	{
+		options.model = DEFAULT_MODEL;
+	}
+
 	return options;
 }
 
