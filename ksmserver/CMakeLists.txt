@@ -44,7 +44,7 @@ install( FILES move_session_config.sh DESTINATION ${KCONF_UPDATE_INSTALL_DIR} )
 
 tde_add_tdeinit_executable( ksmserver AUTOMOC
   SOURCES
-    main.cpp server.cpp shutdowndlg.cpp startupdlg.cpp
+    main.cpp server.cpp shutdowndlg.cpp
     legacy.cpp startup.cpp shutdown.cpp client.cpp
     KSMServerInterface.skel server.skel timed.ui
   LINK dmctl-static tdeui-shared tdersync-shared ${TDEHW_LIBRARIES}

@@ -81,26 +81,15 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "server.h"
 #include "global.h"
-#include "startupdlg.h"
 #include "client.h"
 
 #include <kdebug.h>
-
-// shall we show a nice fancy login screen?
-bool showFancyLogin = FALSE;
-bool trinity_startup_main_sequence_done = FALSE;
 
 /*!  Restores the previous session. Ensures the window manager is
   running (if specified).
  */
 void KSMServer::restoreSession( TQString sessionName )
 {
-    showFancyLogin = TDEConfigGroup(TDEGlobal::config(), "Login").readBoolEntry("showFancyLogin", true);
-    TDEConfig ksplashcfg( "ksplashrc", true );
-    ksplashcfg.setGroup( "KSplash" );
-    if ( ksplashcfg.readEntry( "Theme", "Default" ) != TQString("Unified") )
-        showFancyLogin = false;
-
     if( state != Idle )
         return;
     state = LaunchingWM;
@@ -142,14 +131,8 @@ void KSMServer::restoreSession( TQString sessionName )
         // visually more appealing startup.
         for (uint i = 0; i < wmCommands.count(); i++)
             startApplication( wmCommands[i] );
-        if ((showFancyLogin) && (!startupNotifierIPDlg)) {
-            startupNotifierIPDlg = KSMStartupIPDlg::showStartupIP();
-        }
         TQTimer::singleShot( 4000, this, TQ_SLOT( autoStart0() ) );
     } else {
-        if ((showFancyLogin) && (!startupNotifierIPDlg)) {
-            startupNotifierIPDlg = KSMStartupIPDlg::showStartupIP();
-        }
         autoStart0();
     }
 }
@@ -161,12 +144,6 @@ void KSMServer::restoreSession( TQString sessionName )
  */
 void KSMServer::startDefaultSession()
 {
-    showFancyLogin = TDEConfigGroup(TDEGlobal::config(), "Login").readBoolEntry("showFancyLogin", true);
-    TDEConfig ksplashcfg( "ksplashrc", true );
-    ksplashcfg.setGroup( "KSplash" );
-    if ( ksplashcfg.readEntry( "Theme", "Default" ) != TQString("None") )
-        showFancyLogin = false;
-
     if( state != Idle )
         return;
 
@@ -188,9 +165,6 @@ void KSMServer::startDefaultSession()
     }
     else {
         startApplication( wm );
-    }
-    if ((showFancyLogin) && (!startupNotifierIPDlg)) {
-        startupNotifierIPDlg = KSMStartupIPDlg::showStartupIP();
     }
     TQTimer::singleShot( 4000, this, TQ_SLOT( autoStart0() ) );
 }
@@ -382,13 +356,6 @@ void KSMServer::finishStartup()
 
     state = Idle;
 
-    // [FIXME] When this fires applications are still being loaded, especially the task tray apps
-    // See if there is a way to detect when all session managed applications have been fully started and wait to fire this until that point!
-    if (startupNotifierIPDlg) {
-        static_cast<KSMStartupIPDlg*>(startupNotifierIPDlg)->closeSMDialog();
-        startupNotifierIPDlg=0;
-    }
-
     m_startupCompleted = true;
     setupXIOErrorHandler(); // From now on handle X errors as normal shutdown.
 }
@@ -459,12 +426,6 @@ void KSMServer::publishProgress( int progress, bool max  )
 
 void KSMServer::upAndRunning( const TQString& msg )
 {
-    if (startupNotifierIPDlg) {
-        static_cast<KSMStartupIPDlg*>(startupNotifierIPDlg)->setStartupPhase(msg);
-        if (msg == TQString("session ready")) {
-            trinity_startup_main_sequence_done = TRUE;
-        }
-    }
     DCOPRef( "ksplash" ).send( "upAndRunning", msg );
     XEvent e;
     e.xclient.type = ClientMessage;

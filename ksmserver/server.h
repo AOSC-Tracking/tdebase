@@ -209,7 +209,6 @@ private:
     void saveCurrentSession();
     void saveCurrentSessionAs(TQString);
 
-    TQWidget* startupNotifierIPDlg;
     TQWidget* shutdownNotifierIPDlg;
 
  private:

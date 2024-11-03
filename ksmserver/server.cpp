@@ -580,7 +580,7 @@ extern "C" int _IceTransNoListen(const char * protocol);
 #endif
 
 KSMServer::KSMServer( const TQString& windowManager, const TQString& windowManagerAddArgs, bool _only_local )
-  : DCOPObject("ksmserver"), startupNotifierIPDlg(0), shutdownNotifierIPDlg(0), sessionGroup( "" ), protectionTimerCounter(0)
+  : DCOPObject("ksmserver"), shutdownNotifierIPDlg(0), sessionGroup( "" ), protectionTimerCounter(0)
 {
     the_server = this;
     clean = false;
