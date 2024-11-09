@@ -25,7 +25,7 @@
 #include <tqtextstream.h>
 #include <tdelocale.h>
 #include <kdebug.h>
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <tdeconfig.h>
 
 #include <tqfile.h>
@@ -84,8 +84,8 @@ int main(int argc, char ** argv)
   data.addAuthor("David Faure", I18N_NOOP("Original maintainer/developer"), "faure@kde.org");
   TDECmdLineArgs::init( argc, argv, &data );
   TDECmdLineArgs::addCmdLineOptions( options );
-  KUniqueApplication::addCmdLineOptions();
-  KUniqueApplication app;
+  TDEUniqueApplication::addCmdLineOptions();
+  TDEUniqueApplication app;
   TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
 
   TQStringList areaList ( readAreaList() );

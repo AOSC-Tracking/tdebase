@@ -17,7 +17,6 @@
 #include <kiconloader.h>
 #include <tdepopupmenu.h>
 #include <tdeaction.h>
-#include <kuniqueapplication.h>
 
 #include "kxkbtraywindow.h"
 #include "pixmap.h"
@@ -67,19 +66,13 @@ void KxkbLabelController::setError(const TQString& layoutInfo)
 void KxkbLabelController::initLayoutList(const TQValueList<LayoutUnit>& layouts, const XkbRules& rules)
 {
 	TDEPopupMenu* menu = contextMenu;
-//	TQPopupMenu* menu = contextMenu;
-//	int index = menu->indexOf(0);
 
     m_descriptionMap.clear();
-//    menu->clear();
-//    menu->insertTitle( kapp->miniIcon(), kapp->caption() );
 
 	for(int ii=0; ii<m_prevLayoutCount; ++ii) {
 		menu->removeItem(START_MENU_ID + ii);
 		kdDebug() << "remove item: " << START_MENU_ID + ii << endl;
 	}
-/*	menu->removeItem(CONFIG_MENU_ID);
-	menu->removeItem(HELP_MENU_ID);*/
 
     TDEIconEffect iconeffect;
 

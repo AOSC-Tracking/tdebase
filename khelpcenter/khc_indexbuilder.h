@@ -21,9 +21,9 @@
 #ifndef KHC_INDEXBUILDER_H
 #define KHC_INDEXBUILDER_H
 
-#include <kuniqueapplication.h>
-
 #include <tqobject.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
 #include <tqtimer.h>
 
 class TDEProcess;

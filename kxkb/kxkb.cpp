@@ -62,7 +62,7 @@ DESCRIPTION
 
 
 KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
-    : KUniqueApplication(allowStyles, GUIenabled),
+    : TDEUniqueApplication(allowStyles, GUIenabled),
     m_prevWinId(X11Helper::UNKNOWN_WINDOW_ID),
     m_rules(NULL),
     m_tray(NULL),

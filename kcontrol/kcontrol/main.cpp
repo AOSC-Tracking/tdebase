@@ -50,7 +50,7 @@
 #include "version.h"
 
 KControlApp::KControlApp()
-  : KUniqueApplication()
+  : TDEUniqueApplication()
   , toplevel(0)
 {
   toplevel = new TopLevel();
@@ -58,7 +58,7 @@ KControlApp::KControlApp()
   setMainWidget(toplevel);
   TDEGlobal::setActiveInstance(this);
 
-  // KUniqueApplication does dcop regitration for us
+  // TDEUniqueApplication does dcop regitration for us
   ModuleIface *modIface = new ModuleIface(toplevel, "moduleIface");
 
   connect (modIface, TQ_SIGNAL(helpClicked()), toplevel, TQ_SLOT(slotHelpRequest()));
@@ -121,7 +121,7 @@ extern "C" TDE_EXPORT int kdemain(int argc, char *argv[])
   aboutData->addAuthor("Waldo Bastian",0, "bastian@kde.org");
 
   TDECmdLineArgs::init( argc, argv, aboutData );
-  KUniqueApplication::addCmdLineOptions();
+  TDEUniqueApplication::addCmdLineOptions();
 
   KCGlobal::init();
 

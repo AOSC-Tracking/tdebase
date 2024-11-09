@@ -25,7 +25,7 @@
 #include <tdelocale.h>
 #include <kstandarddirs.h>
 #include <ktip.h>
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <twin.h>
 #include <stdlib.h>
 
@@ -37,12 +37,12 @@ int main(int argc, char *argv[])
 				"0.3", description, TDEAboutData::License_GPL,
 				"(c) 1998-2002, KDE Developers");
 	TDECmdLineArgs::init( argc, argv, &aboutData );
-	KUniqueApplication::addCmdLineOptions();
+	TDEUniqueApplication::addCmdLineOptions();
 
-	if (!KUniqueApplication::start())
+	if (!TDEUniqueApplication::start())
 		exit(-1);
 
-	KUniqueApplication app;
+	TDEUniqueApplication app;
 
 	KTipDialog *tipDialog = new KTipDialog(new KTipDatabase(locate("data", TQString("tdewizard/tips"))));
 	TQ_CHECK_PTR(tipDialog);

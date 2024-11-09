@@ -27,7 +27,7 @@
 
 using namespace KHC;
 
-Application::Application() : KUniqueApplication(), mMainWindow( 0 )
+Application::Application() : TDEUniqueApplication(), mMainWindow( 0 )
 {
 }
 
@@ -49,7 +49,7 @@ int Application::newInstance()
 
   mMainWindow->openUrl( url );
 
-  return KUniqueApplication::newInstance();
+  return TDEUniqueApplication::newInstance();
 }
 
 static TDECmdLineOptions options[] =

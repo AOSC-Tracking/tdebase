@@ -39,7 +39,7 @@ namespace KHotKeys
 // KhotKeysApp
 
 KHotKeysApp::KHotKeysApp()
-    :   KUniqueApplication( false, true ), // no styles
+    :   TDEUniqueApplication( false, true ), // no styles
         delete_helper( new TQObject )
     {
     init_global_data( true, delete_helper ); // grab keys
@@ -129,7 +129,7 @@ int TDE_EXPORT kdemain( int argc, char** argv )
   // no need to i18n these, no GUI
   TDECmdLineArgs::init( argc, argv, "khotkeys", I18N_NOOP( "KHotKeys" ),
       I18N_NOOP( "KHotKeys daemon" ), KHOTKEYS_VERSION );
-  KUniqueApplication::addCmdLineOptions();
+  TDEUniqueApplication::addCmdLineOptions();
   if( !KHotKeysApp::start()) // already running
   {
     return 0;

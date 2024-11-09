@@ -6,7 +6,7 @@
 #include <tqcolor.h>
 
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <twinmodule.h>
 
 
@@ -19,7 +19,7 @@ class KDialogBase;
 class TQLabel;
 class KComboBox;
 
-class KAccessApp : public KUniqueApplication
+class KAccessApp : public TDEUniqueApplication
 {
   TQ_OBJECT
 

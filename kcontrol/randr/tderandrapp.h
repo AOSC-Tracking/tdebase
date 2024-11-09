@@ -20,11 +20,11 @@
 #define TDERANDRAPP_H
 
 #include <tqtimer.h>
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 
 class KRandRSystemTray;
 
-class KRandRApp : public KUniqueApplication
+class KRandRApp : public TDEUniqueApplication
 {
 	TQ_OBJECT
 

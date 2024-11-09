@@ -8,7 +8,7 @@
 
 #include <config.h>
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <tdelocale.h>
 #include <tdeaboutdata.h>
 #include <tdecmdlineargs.h>
@@ -36,15 +36,15 @@ int main(int argc, char **argv)
  
     TDECmdLineArgs::init(argc, argv, &aboutData);
     TDECmdLineArgs::addCmdLineOptions(options);
-    KUniqueApplication::addCmdLineOptions();
+    TDEUniqueApplication::addCmdLineOptions();
 
 
-    if (!KUniqueApplication::start()) {
+    if (!TDEUniqueApplication::start()) {
 	kdDebug() << "tdepasswd is already running" << endl;
 	return 0;
     }
 
-    KUniqueApplication app;
+    TDEUniqueApplication app;
 
     KUser ku;
     TQString user;

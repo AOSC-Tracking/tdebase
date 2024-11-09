@@ -92,7 +92,7 @@ static ModifierKey modifierKeys[] = {
 
 
 KAccessApp::KAccessApp(bool allowStyles, bool GUIenabled)
-  : KUniqueApplication(allowStyles, GUIenabled), _artsBellBlocked(false),
+  : TDEUniqueApplication(allowStyles, GUIenabled), _artsBellBlocked(false),
                                                  overlay(0), wm(0, KWinModule::INFO_DESKTOP)
 {
   _activeWindow = wm.activeWindow();

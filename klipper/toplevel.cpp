@@ -1184,11 +1184,11 @@ Klipper::Klipper( TQWidget* parent )
 {
 }
 
-// this sucks ... KUniqueApplication registers itself as 'klipper'
+// this sucks ... TDEUniqueApplication registers itself as 'klipper'
 // for the unique-app detection calls (and it shouldn't use that name IMHO)
-// but in Klipper it's not KUniqueApplication class who handles
+// but in Klipper it's not TDEUniqueApplication class who handles
 // the DCOP calls, but an instance of class Klipper, registered as 'klipper'
-// this below avoids a warning when KUniqueApplication wouldn't otherwise
+// this below avoids a warning when TDEUniqueApplication wouldn't otherwise
 // find newInstance()  (which doesn't do anything in Klipper anyway)
 int Klipper::newInstance()
 {

@@ -166,7 +166,7 @@ namespace KWinInternal
             be used, and it's old; also, creation timestamp is changed to
             the time the instance starts (re-)initializing the window,
             this ensures creation timestamp will still work somewhat even in this case
-    - KUniqueApplication - when the window is already visible, and the new instance
+    - TDEUniqueApplication - when the window is already visible, and the new instance
         wants it to activate
         - without focus stealing prevention - _NET_ACTIVE_WINDOW - no problem
         - with ASN - ASN is forwarded, and set on the already visible window, KWin

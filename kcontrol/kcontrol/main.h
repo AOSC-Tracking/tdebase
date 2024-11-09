@@ -21,11 +21,11 @@
 #ifndef __main_h__
 #define __main_h__
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 
 class TopLevel;
 
-class KControlApp : public KUniqueApplication
+class KControlApp : public TDEUniqueApplication
 {
   TQ_OBJECT 
 

@@ -20,7 +20,7 @@
 
 #include <unistd.h>
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <tdelocale.h>
 #include <tdecmdlineargs.h>
 #include <tdeaboutdata.h>
@@ -40,7 +40,7 @@ static const TDECmdLineOptions options[] =
 
 static KMenuEdit *menuEdit = 0;
 
-class KMenuApplication : public KUniqueApplication
+class KMenuApplication : public TDEUniqueApplication
 {
 public:
    KMenuApplication() { }
@@ -57,7 +57,7 @@ public:
               menuEdit->selectMenuEntry(TQString::fromLocal8Bit(args->arg(1)));
           }
       }
-      return KUniqueApplication::newInstance();
+      return TDEUniqueApplication::newInstance();
    }
 };
 
@@ -72,10 +72,10 @@ extern "C" int TDE_EXPORT kdemain( int argc, char **argv )
     aboutData.addAuthor("Matthias Elter", I18N_NOOP("Original Author"), "elter@kde.org");
 
     TDECmdLineArgs::init( argc, argv, &aboutData );
-    KUniqueApplication::addCmdLineOptions();
+    TDEUniqueApplication::addCmdLineOptions();
     TDECmdLineArgs::addCmdLineOptions( options );
 
-    if (!KUniqueApplication::start()) 
+    if (!TDEUniqueApplication::start()) 
 	return 1;
 
     KMenuApplication app;

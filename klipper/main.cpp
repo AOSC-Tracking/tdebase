@@ -24,7 +24,7 @@
 #include <tdecmdlineargs.h>
 #include <twin.h>
 #include <tdeaboutdata.h>
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 
 #include "toplevel.h"
 #include "version.h"
@@ -38,13 +38,13 @@ extern "C" int TDE_EXPORT kdemain(int argc, char *argv[])
 {
   Klipper::createAboutData();
   TDECmdLineArgs::init( argc, argv, Klipper::aboutData());
-  KUniqueApplication::addCmdLineOptions();
+  TDEUniqueApplication::addCmdLineOptions();
 
-  if (!KUniqueApplication::start()) {
+  if (!TDEUniqueApplication::start()) {
        fprintf(stderr, "Klipper is already running!\n");
        exit(0);
   }
-  KUniqueApplication app;
+  TDEUniqueApplication app;
   app.disableSessionManagement();
 
   Klipper *toplevel = new Klipper();

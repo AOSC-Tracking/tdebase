@@ -34,8 +34,7 @@
 #include <dcopclient.h>
 #include <tqsocketnotifier.h>
 
-// KDE 
-#include <kuniqueapplication.h>
+// TDE 
 #include <tdecmdlineargs.h>
 #include <tdelocale.h>
 #include <tdeglobalsettings.h>

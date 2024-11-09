@@ -11,7 +11,7 @@
 #ifndef _KHOTKEYS_APP_H_
 #define _KHOTKEYS_APP_H_
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 
 namespace KHotKeys
 {
@@ -19,7 +19,7 @@ namespace KHotKeys
 class Action_data_group;
 
 class KHotKeysApp
-    : public KUniqueApplication
+    : public TDEUniqueApplication
     {
     TQ_OBJECT
     K_DCOP

@@ -26,7 +26,7 @@
 #include <tdeaboutdata.h>
 #include <tdelocale.h>
 #include <tdecmdlineargs.h>
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <kdebug.h>
 #include <dcopclient.h>
 #include <kprocess.h>
@@ -181,7 +181,7 @@ int main( int argc, char **argv )
 
   TDECmdLineArgs::init( argc, argv, &aboutData );
   TDECmdLineArgs::addCmdLineOptions( options );
-  KUniqueApplication::addCmdLineOptions();
+  TDEUniqueApplication::addCmdLineOptions();
 
   TDEApplication app;
 

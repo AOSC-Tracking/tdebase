@@ -31,7 +31,7 @@ DESCRIPTION
 #include <tqdict.h>
 #include <tqptrqueue.h>
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 
 #include "kxkbtraywindow.h"
 #include "kxkbconfig.h"
@@ -47,7 +47,7 @@ class LayoutMap;
     and switching layouts
 */
 
-class KXKBApp : public KUniqueApplication
+class KXKBApp : public TDEUniqueApplication
 {
     TQ_OBJECT
     K_DCOP

@@ -20,13 +20,13 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 
 namespace KHC {
 
 class MainWindow;
 
-class Application : public KUniqueApplication
+class Application : public TDEUniqueApplication
 {
   public:
     Application();

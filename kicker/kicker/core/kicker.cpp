@@ -62,7 +62,7 @@
 Kicker* Kicker::the() { return static_cast<Kicker*>(kapp); }
 
 Kicker::Kicker()
-    : KUniqueApplication(),
+    : TDEUniqueApplication(),
       keys(0),
       m_twinModule(0),
       m_configDialog(0),

@@ -21,11 +21,11 @@
 #define TDEHWDEVICEAPP_H
 
 #include <tqtimer.h>
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 
 class HwDeviceSystemTray;
 
-class HwDeviceApp : public KUniqueApplication
+class HwDeviceApp : public TDEUniqueApplication
 {
 	TQ_OBJECT
 	

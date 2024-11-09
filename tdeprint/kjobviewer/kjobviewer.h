@@ -20,7 +20,7 @@
 #ifndef KJOBVIEWER_H
 #define KJOBVIEWER_H
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <tdeprint/kpreloadobject.h>
 #include <tqdict.h>
 
@@ -28,7 +28,7 @@ class KMJobViewer;
 class KMTimer;
 class JobTray;
 
-class KJobViewerApp : public KUniqueApplication, public KPReloadObject
+class KJobViewerApp : public TDEUniqueApplication, public KPReloadObject
 {
 	TQ_OBJECT
 	friend class JobTray;

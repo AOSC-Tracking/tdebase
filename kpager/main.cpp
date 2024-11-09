@@ -21,7 +21,7 @@
 
 ***************************************************************************/
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <tdelocale.h>
 #include <tdecmdlineargs.h>
 #include <tdeaboutdata.h>
@@ -40,10 +40,10 @@ static TDECmdLineOptions pagerOpts[] =
 
 bool closed_by_sm = false;
 
-class KPagerApplication : public KUniqueApplication
+class KPagerApplication : public TDEUniqueApplication
 {
 public:
-  KPagerApplication() : KUniqueApplication() {}
+  KPagerApplication() : TDEUniqueApplication() {}
 
   void commitData(TQSessionManager& sm) {
     if (mainWidget()->isHidden()) {
@@ -51,7 +51,7 @@ public:
       return;
     }
     closed_by_sm = true;
-    KUniqueApplication::commitData( sm );
+    TDEUniqueApplication::commitData( sm );
     closed_by_sm = false;
   }
 
@@ -78,9 +78,9 @@ int main(int argc, char **argv)
 
     TDECmdLineArgs::init(argc, argv, aboutdata);
     TDECmdLineArgs::addCmdLineOptions(pagerOpts);
-    KUniqueApplication::addCmdLineOptions();
+    TDEUniqueApplication::addCmdLineOptions();
 
-    if (!KUniqueApplication::start())
+    if (!TDEUniqueApplication::start())
     {
       kdError() << "kpager is already running!" << endl;
       return 0;

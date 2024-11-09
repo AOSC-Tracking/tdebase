@@ -16,7 +16,7 @@ Contents
 NOTE: This is the design which we are working towards, not the design as it
 currently is, but there's no point in documenting yesterday.
 
-The class Kicker is a subclass of KUniqueApplication and is where all the
+The class Kicker is a subclass of TDEUniqueApplication and is where all the
 fun begins. It is always available via the static Kicker::kicker() method.
 Upon creation, Kicker::kicker() ensures that its resources are added to the
 standard dirs. This includes tile, background and various plugin directories.

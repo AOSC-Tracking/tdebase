@@ -26,7 +26,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <tqcolor.h>
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <kicontheme.h>
 
 class KCMultiDialog;
@@ -36,7 +36,7 @@ class KWinModule;
 class PanelKMenu;
 class PanelPopupButton;
 
-class Kicker : public KUniqueApplication
+class Kicker : public TDEUniqueApplication
 {
     TQ_OBJECT
     K_DCOP

@@ -30,7 +30,7 @@
 
 #include <tdecmdlineargs.h>
 #include <tdeaboutdata.h>
-#include <kuniqueapplication.h>
+#include <tdeapplication.h>
 
 #include <tdemessagebox.h>
 #include <twin.h>

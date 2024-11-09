@@ -27,7 +27,7 @@
 // TDE
 #include <ksimpleconfig.h>
 #include <tdecmdlineargs.h>
-#include <kuniqueapplication.h>
+#include <tdeapplication.h>
 #include <tdeaboutdata.h>
 #include <tdelocale.h>
 #include <kdebug.h>

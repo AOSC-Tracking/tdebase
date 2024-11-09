@@ -21,7 +21,7 @@
 #define __kdesktopapp_h__
 
 #include <config.h>
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 
 #if defined(TQ_WS_X11) && defined(HAVE_XRENDER) && TQT_VERSION >= 0x030300
 #define COMPOSITE
@@ -33,7 +33,7 @@
 # include <fixx11h.h>
 #endif
 
-class KDesktopApp : public KUniqueApplication
+class KDesktopApp : public TDEUniqueApplication
 {
     TQ_OBJECT
     public:

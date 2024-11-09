@@ -116,7 +116,7 @@ void KlipperAppletWidget::init()
     // call() - wait for finishing
     kapp->dcopClient()->call("klipper", "klipper", "quitProcess()", arg1, str, arg2 );
     // register ourselves, so if klipper process is started,
-    // it will quit immediately (KUniqueApplication)
+    // it will quit immediately (TDEUniqueApplication)
     s_dcop = new DCOPClient;
     s_dcop->registerAs( "klipper", false );
 }
@@ -129,7 +129,7 @@ KlipperAppletWidget::~KlipperAppletWidget()
 
 DCOPClient* KlipperAppletWidget::s_dcop = 0;
 
-// this is just to make klipper process think we're KUniqueApplication
+// this is just to make klipper process think we're TDEUniqueApplication
 // (AKA ugly hack)
 int KlipperAppletWidget::newInstance()
 {

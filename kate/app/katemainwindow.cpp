@@ -70,7 +70,6 @@
 #include <kstdaction.h>
 #include <kstandarddirs.h>
 #include <ktrader.h>
-#include <kuniqueapplication.h>
 #include <kurldrag.h>
 #include <kdesktopfile.h>
 #include <khelpmenu.h>

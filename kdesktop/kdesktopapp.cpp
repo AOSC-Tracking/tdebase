@@ -20,7 +20,7 @@
 #include <kdesktopapp.h>
 
 KDesktopApp::KDesktopApp():
-KUniqueApplication()
+TDEUniqueApplication()
 {
 #ifdef COMPOSITE
     initCmBackground();
@@ -28,7 +28,7 @@ KUniqueApplication()
 }
 
 KDesktopApp::KDesktopApp(Display * dpy, TQt::HANDLE visual, TQt::HANDLE colormap):
-KUniqueApplication(dpy, visual, colormap)
+TDEUniqueApplication(dpy, visual, colormap)
 {
 #ifdef COMPOSITE
     initCmBackground();
@@ -87,7 +87,7 @@ bool KDesktopApp::x11EventFilter (XEvent * xevent)
             emit cmBackgroundChanged(supported);
         }
     }
-    return KUniqueApplication::x11EventFilter (xevent);
+    return TDEUniqueApplication::x11EventFilter (xevent);
 }
 
 #endif

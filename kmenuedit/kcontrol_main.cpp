@@ -21,7 +21,7 @@
 
 #include <unistd.h>
 
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <tdelocale.h>
 #include <tdecmdlineargs.h>
 #include <tdeaboutdata.h>
@@ -43,12 +43,12 @@ extern "C" int TDE_EXPORT kdemain( int argc, char **argv )
     aboutData.addAuthor("Matthias Elter", I18N_NOOP("Original Author"), "elter@kde.org");
 
     TDECmdLineArgs::init( argc, argv, &aboutData );
-    KUniqueApplication::addCmdLineOptions();
+    TDEUniqueApplication::addCmdLineOptions();
 
-    if (!KUniqueApplication::start()) 
+    if (!TDEUniqueApplication::start()) 
 	return 1;
 
-    KUniqueApplication app;
+    TDEUniqueApplication app;
 
     KMenuEdit *menuEdit = new KMenuEdit(true);
     menuEdit->show();

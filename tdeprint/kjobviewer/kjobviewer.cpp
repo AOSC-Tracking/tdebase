@@ -89,7 +89,7 @@ void JobTray::mousePressEvent(TQMouseEvent *e)
 
 //-------------------------------------------------------------
 
-KJobViewerApp::KJobViewerApp() : KUniqueApplication()
+KJobViewerApp::KJobViewerApp() : TDEUniqueApplication()
 {
 	m_views.setAutoDelete(true);
 	m_tray = 0;

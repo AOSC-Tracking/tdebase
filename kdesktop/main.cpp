@@ -18,7 +18,7 @@
 */
 
 #include <config.h>
-#include <kuniqueapplication.h>
+#include <tdeuniqueapplication.h>
 #include <tdelocale.h>
 #include <dcopclient.h>
 #include <tdeaboutdata.h>
@@ -184,7 +184,7 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
     TDECmdLineArgs::init( argc, argv, &aboutData );
     TDECmdLineArgs::addCmdLineOptions( options );
 
-    if (!KUniqueApplication::start()) {
+    if (!TDEUniqueApplication::start()) {
         fprintf(stderr, "kdesktop is already running!\n");
         exit(0);
     }
