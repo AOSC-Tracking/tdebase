@@ -85,6 +85,7 @@
 #define KWIN_ACTIVE_BORDERS         "ActiveBorders"
 #define KWIN_ACTIVE_BORDER_DELAY    "ActiveBorderDelay"
 #define KWIN_ACTIVE_BORDER_DISTANCE "ActiveBorderDistance"
+#define KWIN_GRID_TILING            "GridTiling"
 
 // legacy options
 #define KWIN_OLD_ACTIVE_BORDERS      "ElectricBorders"
@@ -673,6 +674,18 @@ KActiveBorderConfig::KActiveBorderConfig(bool _standAlone, TDEConfig *_config, T
        " mouse is close enough, making them easier to activate but also more prone"
        " to false activations."));
 
+    gridTiling = new TQCheckBox(i18n("Enable grid tiling"), active_box);
+    TQWhatsThis::add(gridTiling, i18n("This feature allows you to easily place your windows "
+                                      "in a grid by using the bracket keys or the history "
+                                      "navigation buttons on your mouse to manipulate the "
+                                      "count of grid tiles (the Shift key, while pressed, "
+                                      "modifies the edited orientation). "
+                                      "Unlike traditional active borders tiling, to preview "
+                                      "window placement you only need to press a mouse button "
+                                      "while dragging the window and the decision is finalized "
+                                      "once you stop dragging the window. Reducing the grid "
+                                      "size to 1x1 cancels grid tiling."));
+
     active_vbox->addSpacing(10);
     active_vbox->addWidget(active_func_label);
     active_vbox->addWidget(active_disable);
@@ -685,6 +698,8 @@ KActiveBorderConfig::KActiveBorderConfig(bool _standAlone, TDEConfig *_config, T
     active_vbox->addWidget(distance);
     active_vbox->addSpacing(15);
     active_vbox->addWidget(tilingOpaque);
+    active_vbox->addSpacing(15);
+    active_vbox->addWidget(gridTiling);
 
     connect(active_box, TQ_SIGNAL(clicked(int)), this, TQ_SLOT(updateActiveBorders()));
 
@@ -725,6 +740,8 @@ void KActiveBorderConfig::load() {
     else if (tilingMode == "Transparent")
         setTilingMode(TRANSPARENT);
 
+    setGridTiling(config->readBoolEntry(KWIN_GRID_TILING, false));
+
     emit TDECModule::changed(false);
 }
 
@@ -734,6 +751,8 @@ void KActiveBorderConfig::save() {
     config->writeEntry(KWIN_ACTIVE_BORDERS, getActiveBorders());
     config->writeEntry(KWIN_ACTIVE_BORDER_DELAY, getActiveBorderDelay());
     config->writeEntry(KWIN_ACTIVE_BORDER_DISTANCE, getActiveBorderDistance());
+
+    config->writeEntry(KWIN_GRID_TILING, getGridTiling());
 
     // remove replaced legacy entries
     config->deleteEntry(KWIN_OLD_ACTIVE_BORDERS);
@@ -760,6 +779,7 @@ void KActiveBorderConfig::defaults() {
     setActiveBorderDelay(150);
     setActiveBorderDistance(10);
     setTilingMode(TRANSPARENT);
+    setGridTiling(false);
     emit TDECModule::changed(true);
 }
 
@@ -798,6 +818,11 @@ int KActiveBorderConfig::getActiveBorderDistance() {
     return distance->value();
 }
 
+bool KActiveBorderConfig::getGridTiling()
+{
+    return gridTiling->isChecked();
+}
+
 void KActiveBorderConfig::setActiveBorders(int i) {
     switch(i)
     {
@@ -825,6 +850,11 @@ void KActiveBorderConfig::setActiveBorderDelay(int delay)
 
 void KActiveBorderConfig::setActiveBorderDistance(int d) {
     distance->setValue(d);
+}
+
+void KActiveBorderConfig::setGridTiling(bool on)
+{
+    gridTiling->setChecked(on);
 }
 
 KAdvancedConfig::~KAdvancedConfig ()

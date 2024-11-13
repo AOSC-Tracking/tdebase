@@ -154,6 +154,8 @@ class Options : public KDecorationOptions
         static MoveResizeMode stringToMoveResizeMode( const TQString& s );
         static const char* moveResizeModeToString( MoveResizeMode mode );
 
+        bool gridTiling;
+
         Placement::Policy placement;
 
         bool focusPolicyIsReasonable()

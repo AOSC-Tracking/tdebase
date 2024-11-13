@@ -212,11 +212,13 @@ class KActiveBorderConfig : public TDECModule
         int getActiveBorderDelay();
         int getActiveBorderDistance();
         int getTilingMode();
+        bool getGridTiling();
 
         void setActiveBorders(int);
         void setActiveBorderDelay(int);
         void setActiveBorderDistance(int);
         void setTilingMode(int);
+        void setGridTiling(bool);
 
         TQButtonGroup *active_box;
         TQRadioButton *active_disable;
@@ -229,6 +231,7 @@ class KActiveBorderConfig : public TDECModule
         TQWidget *active_desktop_conf;
         TQWidget *active_tile_conf;
         TQCheckBox *tilingOpaque;
+        TQCheckBox *gridTiling;
 
         TDEConfig *config;
         bool standAlone;

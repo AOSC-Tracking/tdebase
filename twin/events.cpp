@@ -228,13 +228,30 @@ bool Workspace::workspaceEvent( XEvent * e )
             {
             was_user_interaction = true;
             KKeyNative keyX( (XEvent*)e );
-            uint keyQt = keyX.keyCodeQt();
+
             kdDebug(125) << "Workspace::keyPress( " << keyX.key().toString() << " )" << endl;
             if (movingClient)
+            {
+                uint keyQt = keyX.keyCodeQt();
+                keyQt = keyQt & TQt::SHIFT ? keyQt ^ TQt::SHIFT : keyQt;
+
+                // Check for grid tiling
+                if (options->gridTiling)
                 {
-                movingClient->keyPressEvent(keyQt);
-                return true;
+                    if (keyQt == TQt::Key_BracketLeft || keyQt == TQt::Key_BracketRight)
+                    {
+                        movingClient->handleGridTilesChange(TQt::Horizontal, keyQt == Key_BracketRight ? 1 : -1);
+                        return true;
+                    }
+                    else if (keyQt == TQt::Key_BraceLeft || keyQt == TQt::Key_BraceRight)
+                    {
+                        movingClient->handleGridTilesChange(TQt::Vertical, keyQt == Key_BraceRight ? 1 : -1);
+                        return true;
+                    }
                 }
+                movingClient->keyPressEvent(keyX.keyCodeQt());
+                return true;
+            }
             if( tab_grab || control_grab )
                 {
                 tabBoxKeyPress( keyX );
@@ -1338,9 +1355,51 @@ bool Client::eventFilter( TQObject* o, TQEvent* e )
     return false;
     }
 
+void Client::handleGridTilesChange(TQt::Orientation o, int delta)
+{
+    if (!isMove() || !isResizable()) return;
+
+    int *gridTiles = (o == TQt::Horizontal ? &hGridTiles : &vGridTiles);
+    if (delta > 0)
+    {
+        if (!gridTilingMode)
+        {
+            gridTilingMode = true;
+            hGridTiles = 1;
+            vGridTiles = 1;
+        }
+    }
+
+    if ((*gridTiles) + delta > 0) (*gridTiles) += delta;
+
+    // Single big tile == cancel grid tiling
+    if (hGridTiles == 1 && vGridTiles == 1)
+    {
+        gridTilingMode = false;
+    }
+
+    // If the resulting tile is too small to accomodate the window,
+    // then undo the tile count change
+    TQSize tileSize = gridTileSize();
+    TQSize minWSize = minSize();
+    if (tileSize.width() < minWSize.width() ||
+        tileSize.height() < minWSize.height())
+    {
+        (*gridTiles) -= delta;
+    }
+
+    clearbound();
+}
+
 // return value matters only when filtering events before decoration gets them
 bool Client::buttonPressEvent( Window w, int button, int state, int x, int y, int x_root, int y_root )
     {
+    if (options->gridTiling && button > 7 && button < 10)
+    {
+        handleGridTilesChange(state & ShiftMask ? TQt::Vertical : TQt::Horizontal,
+                              button == 9 ? 1 : -1);
+    }
+
     if (buttonDown)
         {
         if( w == wrapperId())
@@ -1353,6 +1412,7 @@ bool Client::buttonPressEvent( Window w, int button, int state, int x, int y, in
           // FRAME something out of this would be processed before it gets decorations
         updateUserTime();
         workspace()->setWasUserInteraction();
+
         uint keyModX = (options->keyCmdAllModKey() == TQt::Key_Meta) ?
             KKeyNative::modX(KKey::WIN) :
             KKeyNative::modX(KKey::ALT);
@@ -1502,7 +1562,7 @@ void Client::processMousePressEvent( TQMouseEvent* e )
     }
 
 // return value matters only when filtering events before decoration gets them
-bool Client::buttonReleaseEvent( Window w, int /*button*/, int state, int x, int y, int x_root, int y_root )
+bool Client::buttonReleaseEvent( Window w, int button, int state, int x, int y, int x_root, int y_root )
     {
     if( w == decorationId() && !buttonDown)
         return false;
@@ -1511,6 +1571,13 @@ bool Client::buttonReleaseEvent( Window w, int /*button*/, int state, int x, int
         XAllowEvents(tqt_xdisplay(), SyncPointer, CurrentTime ); //tqt_x_time);
         return true;
         }
+
+    // Grid tiling
+    if (isMove() && button > 7 && button < 10)
+    {
+        return true;
+    }
+
     if( w != frameId() && w != decorationId() && w != moveResizeGrabWindow())
         return true;
     x = this->x(); // translate from grab window to local coords

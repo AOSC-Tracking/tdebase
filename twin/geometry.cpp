@@ -1360,6 +1360,20 @@ TQSize Client::maxSize() const
     return rules()->checkMaxSize( TQSize( xSizeHint.max_width, xSizeHint.max_height ));
     }
 
+TQSize Client::gridTileSize()
+{
+    TQRect max = workspace()->clientArea(MaximizeArea, TQCursor::pos(), workspace()->currentDesktop());
+    return TQSize(max.width() / hGridTiles, max.height() / vGridTiles);
+}
+
+void Client::handleGridTiling(TQRect geom)
+{
+    gridTileGeom = geom;
+    clearbound();
+    positionGeometryTip();
+    drawbound(geom);
+}
+
 /*!
   Auxiliary function to inform the client about the current window
   configuration.
@@ -2273,7 +2287,7 @@ void Client::positionGeometryTip() {
         }
 
         // position of the frame, size of the window itself
-        TQRect wgeom(isActiveBorderMaximizing() ? activeBorderMaximizeGeometry() : moveResizeGeom);
+        TQRect wgeom(gridTilingMode ? gridTileGeom : (isActiveBorderMaximizing() ? activeBorderMaximizeGeometry() : moveResizeGeom));
         wgeom.setWidth(wgeom.width() - (width() - clientSize().width()));
         wgeom.setHeight(isShade() ? 0 : wgeom.height() - (height() - clientSize().height()));
 
@@ -2402,11 +2416,15 @@ void Client::finishMoveResize( bool cancel )
 {
     leaveMoveResize();
 
-    if (!isActiveBorderMaximizing()) {
-        setGeometry(cancel ? initialMoveResizeGeom : moveResizeGeom);
+    if (gridTilingMode)
+    {
+        setGeometry(gridTileGeom);
+        gridTilingMode = false;
+        hGridTiles = 1;
+        vGridTiles = 1;
     }
 
-    else
+    else if (isActiveBorderMaximizing())
     {
         kdDebug() <<"finishing moveresize in active mode, cancel is " << cancel << endl;
         activeMaximizing = false;
@@ -2426,6 +2444,10 @@ void Client::finishMoveResize( bool cancel )
                                    : activeBorderMaximizeGeometry());
         }
         activeTiledOrigGeom.moveTopLeft(rect().topLeft());
+    }
+
+    else {
+        setGeometry(cancel ? initialMoveResizeGeom : moveResizeGeom);
     }
 
     checkMaximizeGeometry();
@@ -2690,13 +2712,21 @@ void Client::handleMoveResize(int x, int y, int x_root, int y_root) {
 
     if (update)
     {
+        if (gridTilingMode)
+        {
+            TQSize gridSize(hGridTiles, vGridTiles);
+            workspace()->checkGridTiling(globalPos, gridSize);
+        }
+
         bool active = isActiveBorderMaximizing();
-        auto mode = active ? options->tilingMode
-                  : isResize() ? options->resizeMode : options->moveMode;
+        auto mode = (gridTilingMode || active) ? options->tilingMode :
+                    (isResize() ? options->resizeMode : options->moveMode);
+
+        TQRect geom = gridTilingMode ? gridTileGeom : (active ? activeBorderMaximizeGeometry() : moveResizeGeom);
 
         if (rules()->checkMoveResizeMode(mode) == Options::Opaque)
         {
-            setGeometry(active ? activeBorderMaximizeGeometry() : moveResizeGeom);
+            setGeometry(geom);
             positionGeometryTip();
         }
         else if (rules()->checkMoveResizeMode(mode) == Options::Transparent)
@@ -2708,10 +2738,10 @@ void Client::handleMoveResize(int x, int y, int x_root, int y_root) {
          */
             clearbound();
             positionGeometryTip();
-            drawbound(active ? activeBorderMaximizeGeometry() : moveResizeGeom);
+            drawbound(geom);
         }
     }
-    if (isMove()) {
+    if (isMove() && !gridTilingMode) {
         workspace()->checkActiveBorder(globalPos, get_tqt_x_time());
     }
 }

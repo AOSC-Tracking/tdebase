@@ -123,7 +123,10 @@ Client::Client( Workspace *ws )
         opacity_( 0 ),
         demandAttentionKNotifyTimer( NULL ),
         activeMaximizing(false),
-        activeTiled(false)
+        activeTiled(false),
+        gridTilingMode(false),
+        hGridTiles(1),
+        vGridTiles(1)
 // SELI do all as initialization
     {
     autoRaiseTimer = 0;

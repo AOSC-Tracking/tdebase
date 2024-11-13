@@ -242,6 +242,11 @@ class Client : public TQObject, public KDecorationDefines
         TQRect activeBorderMaximizeGeometry();
         void tileToBorder(ActiveBorder border);
 
+        TQSize gridTileSize();
+        void handleGridTiling(TQRect geom);
+        void handleGridTilesChange(TQt::Orientation o, int delta);
+        bool isGridTiling() { return gridTilingMode; }
+
         void growHorizontal();
         void shrinkHorizontal();
         void growVertical();
@@ -617,6 +622,10 @@ class Client : public TQObject, public KDecorationDefines
         TQRect activeTiledOrigGeom;
         ActiveMaximizingMode activeMode;
         ActiveBorder currentActiveBorder;
+
+        bool gridTilingMode;
+        int vGridTiles, hGridTiles;
+        TQRect gridTileGeom;
 
         friend bool performTransiencyCheck();
         bool minimized_before_suspend;

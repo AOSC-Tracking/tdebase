@@ -2519,6 +2519,19 @@ void Workspace::unreserveActiveBorder( ActiveBorder border )
         TQTimer::singleShot(0, this, TQ_SLOT(updateActiveBorders()));
 }
 
+void Workspace::checkGridTiling(const TQPoint &pos, TQSize &gridSize)
+{
+    TQSize tileSize = movingClient->gridTileSize();
+    TQRect area = clientArea(MaximizeArea, pos, currentDesktop());
+
+    // Compute target geometry based on current pos
+    int x = 0, y = 0;
+    while (x + tileSize.width() < pos.x() && x < area.width()) x += tileSize.width();
+    while (y + tileSize.height() < pos.y() && y < area.height()) y += tileSize.height();
+
+    movingClient->handleGridTiling(TQRect(x, y, tileSize.width(), tileSize.height()));
+}
+
 void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
 {
     Time treshold_set = options->activeBorderDelay(); // set timeout

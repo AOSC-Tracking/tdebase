@@ -161,6 +161,8 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void unreserveActiveBorder(ActiveBorder border);
         void reserveActiveBorderSwitching(bool reserve);
 
+        void checkGridTiling(const TQPoint &pos, TQSize &gridSize);
+
         /**
          * Returns the current virtual desktop of this workspace
          */
