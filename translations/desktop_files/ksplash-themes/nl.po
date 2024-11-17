@@ -1,97 +1,101 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Heimen Stoffels <vistausss@outlook.com>, 2024.
+# Heimen Stoffels <vistausss@fastmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-24 18:26+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-11-18 13:11+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/ksplash-themes/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: pics/themes/TDE-Classic/Theme.rc:4
 #: pics/themes/TDE-Classic/locolor/Theme.rc:4
 msgid "TDE 3.5 Splash Screen"
-msgstr ""
+msgstr "TDE 3.5-opstartscherm"
 
 #. Description
 #: pics/themes/TDE-Classic/Theme.rc:5
 #: pics/themes/TDE-Classic/locolor/Theme.rc:5
 msgid "Waves of change"
-msgstr ""
+msgstr "Van de stroming af"
 
 #. Name
 #: pics/themes/blue-bend/Theme.rc:6
 msgid "Blue-Bend KDE Splash Theme"
-msgstr ""
+msgstr "Blauwe band - KDE-opstartscherm"
 
 #. Description
 #: pics/themes/blue-bend/Theme.rc:7
 msgid "Load Blue-Bend KDE KSplash theme."
-msgstr ""
+msgstr "Laad het Blauwe Band-opstartscherm."
 
 #. Name
 #: pics/themes/default/Theme.rc:6
 msgid "Refresh TDE Splash Theme"
-msgstr ""
+msgstr "Vernieuwing - TDE-opstartscherm"
 
 #. Description
 #: pics/themes/default/Theme.rc:7
 msgid "Load Refresh TDE KSplash theme."
-msgstr ""
+msgstr "Laad het Vernieuwing-opstartscherm."
 
 #. Name
 #: pics/themes/none/Theme.rc:4
 msgid "No Splash Screen"
-msgstr ""
+msgstr "Geen opstartscherm"
 
 #. Description
 #: pics/themes/none/Theme.rc:5
 msgid "Splash Screen Turned Off"
-msgstr ""
+msgstr "Het opstartscherm is uitgeschakeld"
 
 #. Name
 #: pics/themes/simple/Theme.rc:4
 msgid "Simple Splash Screen"
-msgstr ""
+msgstr "Eenvoudig opstartscherm"
 
 #. Description
 #: pics/themes/simple/Theme.rc:5
 msgid "Very Simple Optimized Splash Screen"
-msgstr ""
+msgstr "Zeer eenvoudig doch geoptimaliseerd opstartscherm"
 
 #. Name
 #: pics/themes/unified/Theme.rc:4
 msgid "Trinity Unified Splash Screen"
-msgstr ""
+msgstr "Trinity-eenheid - TDE-opstartscherm"
 
 #. Description
 #: pics/themes/unified/Theme.rc:5
 msgid "Unified system startup screen"
-msgstr ""
+msgstr "Eenduidig opstartscherm"
 
 #. Name
 #: themeengine/redmond/Theme.rc:2
 msgid "Redmond Splash Screen"
-msgstr ""
+msgstr "Redmond-opstartscherm"
 
 #. Description
 #: themeengine/redmond/Theme.rc:3
 msgid "KSplash theme inspired by the Microsoft Windows startup screen."
-msgstr ""
+msgstr "Een opstartscherm geïnspireerd op dat van oude Windows-versies."
 
 #. Name
 #: themeengine/standard/Theme.rc:2
 msgid "Standard Splash Screen"
-msgstr ""
+msgstr "Standaard opstartscherm"
 
 #. Description
 #: themeengine/standard/Theme.rc:3
 msgid "Standard TDE KSplash theme."
-msgstr ""
+msgstr "Het standaard TDE-opstartscherm."
