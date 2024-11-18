@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Heimen Stoffels <vistausss@fastmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-07 20:11+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2024-09-08 18:11+0000\n"
+"PO-Revision-Date: 2024-11-18 13:11+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/kcontrol-desktop-files/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -103,17 +104,17 @@ msgstr ""
 #. Name
 #: clock/clock.desktop:13
 msgid "Date & Time"
-msgstr "Datum en Tijd"
+msgstr "Datum en tijd"
 
 #. Comment
 #: clock/clock.desktop:15
 msgid "Date and time settings"
-msgstr "Instellen van datum en tijd"
+msgstr "Datum- en tijdinstellingen"
 
 #. Keywords
 #: clock/clock.desktop:17
 msgid "clock;date;time;time zone;"
-msgstr "datum;tijd;tijdszone;klok;"
+msgstr "datum;tijd;tijdzone;klok;"
 
 #. Name
 #: colors/colors.desktop:12
@@ -145,7 +146,7 @@ msgstr ""
 #. Name
 #: componentchooser/componentchooser.desktop:10
 msgid "Default Applications"
-msgstr "Standaard-toepassingen"
+msgstr "Standaardprogramma's"
 
 #. Comment
 #: componentchooser/componentchooser.desktop:12
@@ -278,7 +279,7 @@ msgstr "Beeldscherminstellingen"
 #. Name
 #: displayconfig/displayconfig.desktop:12
 msgid "Monitor & Display"
-msgstr ""
+msgstr "Beeldscherm en weergave"
 
 #. Comment
 #: displayconfig/displayconfig.desktop:14
@@ -289,7 +290,7 @@ msgstr "Dienstwaarneming instellen"
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
 msgid "monitor;resolution;display;"
-msgstr ""
+msgstr "monitor;beeldscherm;resolutie;weergave;"
 
 #. Name
 #: dnssd/kcm_tdednssd.desktop:18
@@ -1289,7 +1290,7 @@ msgstr "Energiebeheer"
 #. Comment
 #: energy/energy.desktop:13
 msgid "Settings for display power management"
-msgstr "Instellingen voor energiebesparing voor monitors/displays"
+msgstr "Instellingen omtrent energiebesparing van beeldschermen"
 
 #. Keywords
 #: energy/energy.desktop:15
@@ -1301,12 +1302,12 @@ msgstr ""
 #. Name
 #: filetypes/filetypes.desktop:12
 msgid "File Associations"
-msgstr "Bestandsassociaties"
+msgstr "Bestandstoewijzingen"
 
 #. Comment
 #: filetypes/filetypes.desktop:14
 msgid "Configure file associations"
-msgstr "Hier kunt u de bestandsassociaties instellen"
+msgstr "Bestandstoewijzingen instellen"
 
 #. Keywords
 #: filetypes/filetypes.desktop:16
@@ -1352,39 +1353,37 @@ msgstr "Meerdere monitoren"
 #. Comment
 #: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
 msgid "Monitor hardware devices from the system tray"
-msgstr ""
+msgstr "Monitor apparaten vanuit het systeemvak"
 
 #. Name
 #: hwmanager/hwmanager.desktop:11
-#, fuzzy
 msgid "Device Manager"
-msgstr "TDE-systeemdiensten"
+msgstr "Apparaatbeheer"
 
 #. Comment
 #: hwmanager/hwmanager.desktop:13
-#, fuzzy
 msgid "Configure hardware devices"
-msgstr "Hier kunt u het gedrag van de webbrowser instellen"
+msgstr "Apparaten instellen"
 
 #. Keywords
 #: hwmanager/hwmanager.desktop:15
 msgid "hardware;devices;manager;"
-msgstr ""
+msgstr "hardware;apparaten;apparaat;beheer;devices;manager;"
 
 #. Comment
 #: iccconfig/iccconfig.desktop:14
 msgid "Configure display ICC color profile"
-msgstr ""
+msgstr "Icc-kleurprofielen instellen"
 
 #. Keywords
 #: iccconfig/iccconfig.desktop:16
 msgid "ICC;display;color;profile;"
-msgstr ""
+msgstr "Icc;scherm;weergave;kleur;profiel;"
 
 #. Name
 #: iccconfig/iccconfig.desktop:18
 msgid "Color Profile"
-msgstr ""
+msgstr "Kleurprofiel"
 
 #. Name
 #: icons/icons.desktop:12
@@ -1451,27 +1450,27 @@ msgstr "dma;DMA-channels;systeeminformatie;DMA-kanalen;"
 #. Name
 #: info/interrupts.desktop:13
 msgid "Interrupts"
-msgstr ""
+msgstr "Onderbrekingen"
 
 #. Comment
 #: info/interrupts.desktop:15
 msgid "Interrupt information"
-msgstr "Interrupt-informatie"
+msgstr "Ondebrekingsinformatie"
 
 #. Keywords
 #: info/interrupts.desktop:17
 msgid "Interrupts;IRQ;System Information;"
-msgstr "interrupts;IRQ;systeeminformatie;"
+msgstr "interrupts;IRQ;systeeminformatie;onderbreking;"
 
 #. Name
 #: info/ioports.desktop:13
 msgid "IO-Ports"
-msgstr "IO-Poorten"
+msgstr "I/O-poorten"
 
 #. Comment
 #: info/ioports.desktop:15
 msgid "IO-port information"
-msgstr "IO-poortinformatie"
+msgstr "I/O-poortinformatie"
 
 #. Keywords
 #: info/ioports.desktop:17
@@ -1503,7 +1502,7 @@ msgstr ""
 #. Name
 #: info/opengl.desktop:13
 msgid "OpenGL"
-msgstr ""
+msgstr "OpenGL"
 
 #. Comment
 #: info/opengl.desktop:15
@@ -1537,12 +1536,12 @@ msgstr "partities;harddrive;HD;systeeminformatie;harde schijf;"
 #. Name
 #: info/pci.desktop:12
 msgid "PCI"
-msgstr ""
+msgstr "Pci"
 
 #. Comment
 #: info/pci.desktop:14
 msgid "PCI information"
-msgstr "PCI-informatie"
+msgstr "Pci-informatie"
 
 #. Keywords
 #: info/pci.desktop:16
@@ -1568,12 +1567,12 @@ msgstr "processor;CPU;FPU;MHz;systeeminformatie;"
 #. Name
 #: info/scsi.desktop:12
 msgid "SCSI"
-msgstr ""
+msgstr "Scsi"
 
 #. Comment
 #: info/scsi.desktop:14
 msgid "SCSI information"
-msgstr "SCSI-informatie"
+msgstr "Scsi-informatie"
 
 #. Keywords
 #: info/scsi.desktop:16
@@ -1603,7 +1602,7 @@ msgstr "X-server"
 #. Comment
 #: info/xserver.desktop:14
 msgid "X-Server information"
-msgstr "X-Server-informatie"
+msgstr "X-serverinformatie"
 
 #. Keywords
 #: info/xserver.desktop:16
@@ -1635,17 +1634,15 @@ msgstr ""
 #. Name
 #: input/touchpad.desktop:13
 msgid "Touchpad"
-msgstr ""
+msgstr "Touchpad"
 
 #. Comment
 #: input/touchpad.desktop:14
-#, fuzzy
 msgid "Touchpad settings"
-msgstr "Muisinstellingen"
+msgstr "Touchpadinstellingen"
 
 #. Keywords
 #: input/touchpad.desktop:15
-#, fuzzy
 msgid ""
 "Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
 "Click;mapping;right handed;left handed;"
@@ -1653,11 +1650,12 @@ msgstr ""
 "muis;muissnelheid;muisknoppen;selectie;cursor-uiterlijk;input devices;"
 "invoerapparaten;knopindeling;klikken;iconen;pictogrammen;icons;aanwijzers;"
 "pointers;drag;verslepen;dubbelklikken;linkshandig;rechtshandig.randapparaten;"
+"touchpad;tik om te klikken;"
 
 #. Name
 #: joystick/joystick.desktop:12
 msgid "Joystick"
-msgstr ""
+msgstr "Joystick"
 
 #. Comment
 #: joystick/joystick.desktop:14
@@ -1667,7 +1665,7 @@ msgstr "Joystick - een configuratiemodule voor het testen van Joysticks"
 #. Keywords
 #: joystick/joystick.desktop:16
 msgid "joystick;gamepad;"
-msgstr ""
+msgstr "joystick;gamepad;"
 
 #. Name
 #: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
@@ -1678,12 +1676,12 @@ msgstr "Configuratiecentrum"
 #. Name
 #: kded/kcmkded.desktop:11
 msgid "Service Manager"
-msgstr "TDE-systeemdiensten"
+msgstr "Systeemdiensten"
 
 #. Comment
 #: kded/kcmkded.desktop:13
 msgid "System Services Configuration"
-msgstr "TDE-systeemdiensten instellen"
+msgstr "Systeemdiensten instellen"
 
 #. Keywords
 #: kded/kcmkded.desktop:15
@@ -1698,7 +1696,7 @@ msgstr "Sneltoetsen"
 #. Comment
 #: keys/keys.desktop:14
 msgid "Configuration of keybindings"
-msgstr "Instellingen voor sneltoetsen"
+msgstr "Sneltoetsen instellen"
 
 #. Keywords
 #: keys/keys.desktop:16
@@ -1717,7 +1715,7 @@ msgstr "Opmaak"
 #. Comment
 #: kicker/kicker_config.desktop:13 kicker/kicker_config_arrangement.desktop:13
 msgid "Configure the arrangement of the panel"
-msgstr "U kunt hier de opmaak van het paneel instellen"
+msgstr "Paneelopmaak en -indeling instellen"
 
 #. Keywords
 #: kicker/kicker_config.desktop:15 kicker/kicker_config_appearance.desktop:15
@@ -1741,12 +1739,12 @@ msgstr ""
 #. Name
 #: kicker/kicker_config_appearance.desktop:11 konq/fileappearance.desktop:11
 msgid "Appearance"
-msgstr "Uiterlijk"
+msgstr "Vormgeving"
 
 #. Comment
 #: kicker/kicker_config_appearance.desktop:13
 msgid "Configure the appearance of the panel"
-msgstr "U kunt hier de opmaak van het paneel instellen"
+msgstr "Zet de vormgeving van het paneel naar eigen hand"
 
 #. Name
 #: kicker/kicker_config_arrangement.desktop:11
@@ -1761,7 +1759,7 @@ msgstr "Verbergwijze"
 #. Comment
 #: kicker/kicker_config_hiding.desktop:13
 msgid "Configure the hiding of the panel"
-msgstr "U kunt hier de verbergwijze van het paneel instellen"
+msgstr "Stel de verbergwijze van het paneel in"
 
 #. Name
 #: kicker/kicker_config_menus.desktop:11
@@ -1771,7 +1769,7 @@ msgstr "Menu's"
 #. Comment
 #: kicker/kicker_config_menus.desktop:13
 msgid "Configure the menus of the panel"
-msgstr "U kunt hier de menu's van het paneel instellen"
+msgstr "Stel de menu's van het paneel in"
 
 #. Name
 #: kicker/panel.desktop:10
@@ -1781,17 +1779,17 @@ msgstr "Panelen"
 #. Comment
 #: kicker/panel.desktop:12
 msgid "Configure the arrangement of the panels"
-msgstr "U kunt hier de opmaak van het paneel instellen"
+msgstr "Stel de indeling van panelen in"
 
 #. Name
 #: knotify/kcmnotify.desktop:11
 msgid "System Notifications"
-msgstr "Systeemnotificaties"
+msgstr "Systeemmeldingen"
 
 #. Comment
 #: knotify/kcmnotify.desktop:13
 msgid "System Notification Configuration"
-msgstr "Instellingen van de systeemnotificatie"
+msgstr "Systeemmeldingen instellen"
 
 #. Keywords
 #: knotify/kcmnotify.desktop:15
@@ -1802,19 +1800,19 @@ msgstr ""
 #. Name
 #: konq/desktop.desktop:11
 msgid "Multiple Desktops"
-msgstr "Virtuele bureaubladen"
+msgstr "Virtuele werkbladen"
 
 #. Comment
 #: konq/desktop.desktop:13
 msgid "You can configure how many virtual desktops there are"
-msgstr "U kunt hier bepalen hoeveel virtuele bureaubladen u wilt gebruiken"
+msgstr "Geef aan hoeveel virtuele werkbladen u wilt gebruiken"
 
 #. Keywords
 #: konq/desktop.desktop:15
 msgid "desktop;desktops;number;virtual desktop;"
 msgstr ""
 "desktop;bureaublad;bureaubladen;naam van bureaublad;nummer;bureaubladtelling;"
-"virtuele bureaubladen;"
+"virtuele bureaubladen;werkblad;"
 
 #. Name
 #: konq/desktopbehavior.desktop:12 konq/filebehavior.desktop:11
@@ -1824,7 +1822,7 @@ msgstr "Gedrag"
 #. Comment
 #: konq/desktopbehavior.desktop:14
 msgid "You can configure how the desktop behaves here"
-msgstr "Hier kunt u het gedrag van uw desktop instellen"
+msgstr "Stel het gedrag van het bureaublad in"
 
 #. Keywords
 #: konq/desktopbehavior.desktop:16
@@ -1838,13 +1836,12 @@ msgstr ""
 #. Name
 #: konq/desktoppath.desktop:11
 msgid "Paths"
-msgstr "Paden"
+msgstr "Locaties"
 
 #. Comment
 #: konq/desktoppath.desktop:13
 msgid "Change the location important files are stored"
-msgstr ""
-"Hier kunt u de locatie voor het opslaan van belangrijke bestanden wijzigen"
+msgstr "Hier kunt u de opslaglocaties van belangrijke bestanden wijzigen"
 
 #. Keywords
 #: konq/desktoppath.desktop:15
@@ -1896,13 +1893,13 @@ msgstr ""
 #. Name
 #: konq/filepreviews.desktop:11
 msgid "Previews & Metadata"
-msgstr "Voorbeelden en meta-data"
+msgstr "Voorbeelden en metagegevens"
 
 #. Comment
 #: konq/filepreviews.desktop:13
 msgid "Configure how Konqueror Previews & Meta-data work"
 msgstr ""
-"Hier kunt u instellen hoe de voorbeelden en metadata in Konqueror werken"
+"Hier kunt u instellen hoe de voorbeelden en metagegevens in Konqueror werken"
 
 #. Keywords
 #: konq/filepreviews.desktop:15
@@ -1972,26 +1969,23 @@ msgstr "konqueror;kfm;browser;html;web;www;java;javascript;internet;"
 
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
-#, fuzzy
 msgid "User Interface"
-msgstr "Netwerkinterfaces"
+msgstr "Vormgeving"
 
 #. Comment
 #: konqhtml/tdehtml_userinterface.desktop:13
-#, fuzzy
 msgid "Configure user interface options"
-msgstr "Hier kunt u de webcache instellen"
+msgstr "Zet de vormgeving naar eigen hand"
 
 #. Keywords
 #: konqhtml/tdehtml_userinterface.desktop:15
-#, fuzzy
 msgid "konqueror;kfm;user;interface;tabbed;browsing;"
-msgstr "konqueror;hergebruik;preloading;"
+msgstr "konqueror;kfm;tabblad;surfen;gebruiker;vormgeving;"
 
 #. Name
 #: konsole/kcmkonsole.desktop:10
 msgid "Konsole"
-msgstr ""
+msgstr "Konsole"
 
 #. Comment
 #: konsole/kcmkonsole.desktop:12
@@ -2023,7 +2017,7 @@ msgstr "thema's;uiterlijk en gedrag;"
 #. Name
 #: kthememanager/kthememanager.desktop:6
 msgid "Theme Manager"
-msgstr "Themabeheerder"
+msgstr "Themabeheer"
 
 #. Comment
 #: kthememanager/x-ktheme.desktop:3
@@ -2033,14 +2027,13 @@ msgstr "TDE-thema"
 #. Name
 #: launch/kcmlaunch.desktop:12
 msgid "Launch Feedback"
-msgstr "Opstartnotificatie"
+msgstr "Opstartmelding"
 
 #. Comment
 #: launch/kcmlaunch.desktop:14
 msgid "Choose application-launch feedback style"
 msgstr ""
-"Hier kunt u bepalen hoe u visueel wordt geattendeerd op het opstarten van "
-"een toepassing."
+"Geef aan op welke wijze het opstarten van programma's dient te worden getoond"
 
 #. Keywords
 #: launch/kcmlaunch.desktop:16
@@ -2052,17 +2045,17 @@ msgstr ""
 #. Name
 #: locale/default/entry.desktop:2
 msgid "English (American)"
-msgstr "VS Engels"
+msgstr "Engels (VS)"
 
 #. Name
 #: locale/language.desktop:12
 msgid "Country/Region & Language"
-msgstr "Land/regio en taal"
+msgstr "Land, regio en taal"
 
 #. Comment
 #: locale/language.desktop:14
 msgid "Language, numeric, and time settings for your particular region"
-msgstr "Taal-, numerieke, en tijdsinstelling voor uw eigen regio"
+msgstr "Taal-, numerieke en tijdsinstellingen van uw eigen regio"
 
 #. Keywords
 #: locale/language.desktop:16
@@ -2138,7 +2131,7 @@ msgstr "Grootte en oriëntatie"
 #. Comment
 #: randr/randr.desktop:11
 msgid "Resize and Rotate your display"
-msgstr "Wijzig de schermgrootte en roteer deze"
+msgstr "Wijzig de schermgrootte en/of draai het scherm"
 
 #. Keywords
 #: randr/randr.desktop:13
@@ -2150,17 +2143,17 @@ msgstr ""
 #. Name
 #: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
 msgid "TDERandRTray"
-msgstr ""
+msgstr "TDERandRTray"
 
 #. GenericName
 #: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
 msgid "Screen Resize & Rotate"
-msgstr "Scherm roteren en grootte wijzigen"
+msgstr "Schermgrootte aanpassen en draaien"
 
 #. Comment
 #: randr/tderandrtray-autostart.desktop:6 randr/tderandrtray.desktop:6
 msgid "Resize and rotate X screens."
-msgstr "Scherm roteren en van grootte veranderen"
+msgstr "Scherm draaien en van grootte veranderen."
 
 #. Name
 #: samba/smbstatus.desktop:12
@@ -2236,7 +2229,7 @@ msgstr "Hier kunt u de spellingcontrole instellen"
 #. Keywords
 #: spellchecking/spellchecking.desktop:15
 msgid "Spell;"
-msgstr ""
+msgstr "Spelling;Grammatica;"
 
 #. Name
 #: style/style.desktop:13
@@ -2248,8 +2241,8 @@ msgstr "Stijl"
 msgid ""
 "Allows the manipulation of widget behavior and changing the Style for TDE"
 msgstr ""
-"Hiermee kunt u het gedrag van de widgets aanpassen en de stijl van TDE "
-"wijzigen"
+"Hier kunt u het gedrag van de knoppen en dergelijke aanpassen, en de stijl "
+"van TDE wijzigen"
 
 #. Keywords
 #: style/style.desktop:17
@@ -2324,9 +2317,8 @@ msgstr "Lettertypebestanden"
 
 #. Name
 #: tdefontinst/viewpart/tdefontview.desktop:2
-#, fuzzy
 msgid "TDEFontView"
-msgstr "Lettertypeweergave"
+msgstr "TDEFontView"
 
 #. GenericName
 #. Name
@@ -2338,7 +2330,7 @@ msgstr "Lettertypeweergave"
 #. Name
 #: tdeio/cache.desktop:12
 msgid "Cache"
-msgstr ""
+msgstr "Cache"
 
 #. Comment
 #: tdeio/cache.desktop:14
@@ -2353,12 +2345,12 @@ msgstr "cache;historie;geschiedenis;grootte;internet;"
 #. Name
 #: tdeio/cookies.desktop:12
 msgid "Cookies"
-msgstr ""
+msgstr "Cookies"
 
 #. Comment
 #: tdeio/cookies.desktop:14
 msgid "Configure the way cookies work"
-msgstr "Hier kunt u het cookiesbeleid instellen"
+msgstr "Hier kunt u het cookiebeleid instellen"
 
 #. Keywords
 #: tdeio/cookies.desktop:16
@@ -2398,12 +2390,12 @@ msgstr "Verbindingsvoorkeuren"
 #. Name
 #: tdeio/proxy.desktop:12
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #. Comment
 #: tdeio/proxy.desktop:14
 msgid "Configure the proxy servers used"
-msgstr "Hier kunt u de Proxy-servers instellen"
+msgstr "Hier kunt u proxyservers instellen"
 
 #. Keywords
 #: tdeio/proxy.desktop:16
@@ -2547,7 +2539,7 @@ msgstr ""
 #. Name
 #: usbview/kcmusb.desktop:10
 msgid "USB Devices"
-msgstr "USB-apparaten"
+msgstr "Usb-apparaten"
 
 #. Comment
 #: usbview/kcmusb.desktop:12
@@ -2582,12 +2574,12 @@ msgstr ""
 #. Name
 #: xinerama/xinerama.desktop:10
 msgid "Multiple Monitors"
-msgstr "Meerdere monitoren"
+msgstr "Meerdere beeldschermen"
 
 #. Comment
 #: xinerama/xinerama.desktop:12
 msgid "Configure TDE for multiple monitors"
-msgstr "Hier kunt u TDE voor meerdere monitoren instellen"
+msgstr "Hier kunt u TDE voor meerdere beeldschermen instellen"
 
 #. Keywords
 #: xinerama/xinerama.desktop:14

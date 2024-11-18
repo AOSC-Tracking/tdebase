@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Heimen Stoffels <vistausss@fastmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-04 20:14+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-18 13:11+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/twin-desktop-files/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: kcmtwin/showdesktop.desktop:4
@@ -163,12 +164,12 @@ msgstr "Transparantie"
 #. Comment
 #: kcmtwin/twinoptions/twintranslucency.desktop:13
 msgid "Configure window translucency and shadow management"
-msgstr "Venstertransparantie- en -schaduwbeheer instellen"
+msgstr "Vensterdoorzichtigheid- en -schaduwbeheer instellen"
 
 #. Keywords
 #: kcmtwin/twinoptions/twintranslucency.desktop:15
 msgid "translucency;transparence;shadows;"
-msgstr "translucency;transparantie;schaduwen;"
+msgstr "transparantie;schaduwen;doorzichtigheid;"
 
 #. Name
 #: kcmtwin/twinrules/twinrules.desktop:11
