@@ -95,6 +95,7 @@ static TDECmdLineOptions options[] =
     { "separate-output", I18N_NOOP("Return list items on separate lines (for checklist option and file open with --multiple)"), 0 },
     { "print-winid", I18N_NOOP("Outputs the winId of each dialog"), 0 },
     { "embed <winid>", I18N_NOOP("Makes the dialog transient for an X app specified by winid"), 0 },
+    { "attach <winid>", I18N_NOOP("Alias for --embed <winid>"), 0 },
     { "dontagain <file:entry>", I18N_NOOP("Config file and option name for saving the \"dont-show/ask-again\" state"), 0 },
 
     { "+[arg]", I18N_NOOP("Arguments - depending on main option"), 0 },
@@ -157,7 +158,7 @@ static int directCommand(TDECmdLineArgs *args)
     TQString title;
     bool separateOutput = FALSE;
     bool printWId = args->isSet("print-winid");
-    bool embed = args->isSet("embed");
+    bool embed = args->isSet("embed") || args->isSet("attach");
     TQString defaultEntry;
 
     // --title text
@@ -176,9 +177,20 @@ static int directCommand(TDECmdLineArgs *args)
       WId id = 0;
       if (embed) {
           bool ok;
-          long l = args->getOption("embed").toLong(&ok);
+          long l = 0;
+          if (args->isSet("embed"))
+          {
+            l = args->getOption("embed").toLong(&ok);
+          }
+          else if (args->isSet("attach"))
+          {
+              l = args->getOption("attach").toLong(&ok);
+          }
+
           if (ok)
-              id = (WId)l;
+          {
+            id = (WId)l;
+          }
       }
       (void)new WinIdEmbedder(printWId, id);
     }
@@ -305,7 +317,7 @@ static int directCommand(TDECmdLineArgs *args)
 	TQObject::connect( popup, TQ_SIGNAL( clicked() ), kapp, TQ_SLOT( quit() ) );
 	timer->start( duration, TRUE );
 
-#ifdef TQ_WS_X11	
+#ifdef TQ_WS_X11
 	if ( ! kapp->geometryArgument().isEmpty()) {
 	    int x, y;
 	    int w, h;
@@ -460,7 +472,7 @@ static int directCommand(TDECmdLineArgs *args)
 	kapp->setTopWidget( &dlg );
 	dlg.setCaption(title.isNull() ? i18n("Open") : title);
 	dlg.exec();
-	
+
         if (args->isSet("multiple")) {
 	    TQStringList result = dlg.selectedFiles();
 	    if ( !result.isEmpty() ) {
@@ -572,7 +584,7 @@ static int directCommand(TDECmdLineArgs *args)
 	kapp->setTopWidget( &dlg );
 	dlg.setCaption(title.isNull() ? i18n("Open") : title);
 	dlg.exec();
-	
+
         if (args->isSet("multiple")) {
 	    KURL::List result = dlg.selectedURLs();
 	    if ( !result.isEmpty() ) {
