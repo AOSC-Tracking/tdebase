@@ -1,306 +1,354 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Slávek Banko <slavek.banko@axis.cz>, 2024.
+# Alejo Fernández <alejofernandez@hotmail.com.ar>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-11-19 14:10+0000\n"
+"Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
+"Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/applnk-directories/es_AR/>\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: .directory:2
 msgid "Default"
-msgstr ""
+msgstr "Predeterminado/a"
 
 #. Name
 #: hidden.directory:4
+#, fuzzy
 msgid "Internal Services"
-msgstr ""
+msgstr "Servicios internos"
 
 #. Name
 #: kde-development-webdevelopment.directory:4
 #: tde-development-webdevelopment.directory:4
+#, fuzzy
 msgid "Web Development"
-msgstr ""
+msgstr "Desarrollo web"
 
 #. Name
 #: kde-development.directory:4 kde-games.directory:4 kde-graphics.directory:4
 #: kde-internet.directory:4 kde-multimedia.directory:4 kde-office.directory:4
 #: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
 #: kde-utilities.directory:4
+#, fuzzy
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #. Name
 #: kde-editors.directory:4 tde-editors.directory:4
+#, fuzzy
 msgid "Editors"
-msgstr ""
+msgstr "Editores"
 
 #. Name
 #: kde-edu-languages.directory:4
 msgid "Languages"
-msgstr ""
+msgstr "Idiomas"
 
 #. Name
 #: kde-edu-mathematics.directory:4
+#, fuzzy
 msgid "Mathematics"
-msgstr ""
+msgstr "Matematicas"
 
 #. Name
 #: kde-edu-miscellaneous.directory:4
+#, fuzzy
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Miscelaneo"
 
 #. Name
 #: kde-edu-science.directory:4 tde-science.directory:5
+#, fuzzy
 msgid "Science"
-msgstr ""
+msgstr "Ciencia"
 
 #. Name
 #: kde-games-arcade.directory:4 tde-games-arcade.directory:4
+#, fuzzy
 msgid "Arcade"
-msgstr ""
+msgstr "Arcade"
 
 #. Name
 #: kde-games-board.directory:4 tde-games-board.directory:4
 msgid "Board Games"
-msgstr ""
+msgstr "Juegos de mesa"
 
 #. Name
 #: kde-games-card.directory:4 tde-games-card.directory:4
+#, fuzzy
 msgid "Card Games"
-msgstr ""
+msgstr "Juegos de cartas"
 
 #. Name
 #: kde-games-kids.directory:4 tde-games-kids.directory:4
+#, fuzzy
 msgid "Games for Kids"
-msgstr ""
+msgstr "Juegos para niños"
 
 #. Name
 #: kde-games-strategy.directory:4 tde-games-strategy.directory:4
+#, fuzzy
 msgid "Tactics & Strategy"
-msgstr ""
+msgstr "Táctica y estrategia"
 
 #. Name
 #: kde-toys.directory:4 tde-toys.directory:4
+#, fuzzy
 msgid "Toys"
-msgstr ""
+msgstr "Ocio"
 
 #. Name
 #. Comment
 #: kde-utilities-accessibility.directory:4
 #: tde-utilities-accessibility.directory:4
 #: tde-utilities-accessibility.directory:6
+#, fuzzy
 msgid "Accessibility"
-msgstr ""
+msgstr "Accesibilidad"
 
 #. Name
 #. Comment
 #: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
 #: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Escritorio"
 
 #. Name
 #. Comment
 #: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
 #: tde-utilities-pim.directory:6
+#, fuzzy
 msgid "PIM"
-msgstr ""
+msgstr "PIM"
 
 #. Name
 #: tde-development-translation.directory:4
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "Traducción"
 
 #. Name
 #: tde-development.directory:4
+#, fuzzy
 msgid "Development"
-msgstr ""
+msgstr "Desarrollo"
 
 #. Name
 #: tde-edutainment.directory:4
+#, fuzzy
 msgid "Edutainment"
-msgstr ""
+msgstr "Entretenimientos educativos"
 
 #. Name
 #: tde-games-logic.directory:4
 msgid "Logic Games"
-msgstr ""
+msgstr "Juegos de lógica"
 
 #. Name
 #: tde-games-roguelikes.directory:4
+#, fuzzy
 msgid "Rogue-like Games"
-msgstr ""
+msgstr "Juegos tipo Rogue"
 
 #. Name
 #: tde-games.directory:4
+#, fuzzy
 msgid "Games"
-msgstr ""
+msgstr "Juegos"
 
 #. Name
 #: tde-graphics.directory:4
+#, fuzzy
 msgid "Graphics"
-msgstr ""
+msgstr "Gráficos"
 
 #. Name
 #: tde-internet-terminal.directory:4 tde-system-terminal.directory:4
+#, fuzzy
 msgid "Terminal Applications"
-msgstr ""
+msgstr "Aplicaciones de terminal"
 
 #. Name
 #: tde-internet.directory:4
+#, fuzzy
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #. Name
 #: tde-main.directory:5
+#, fuzzy
 msgid "TDE Menu"
-msgstr ""
+msgstr "Menú de TDE"
 
 #. Name
 #: tde-more.directory:5
 msgid "More Applications"
-msgstr ""
+msgstr "Más programas"
 
 #. Name
 #: tde-multimedia.directory:4
+#, fuzzy
 msgid "Multimedia"
-msgstr ""
+msgstr "Multimedia"
 
 #. Name
 #. Comment
 #: tde-office-pim.directory:4 tde-office-pim.directory:6
 msgid "Personal Information Management"
-msgstr ""
+msgstr "Gestión de información personal"
 
 #. Name
 #: tde-office.directory:4
+#, fuzzy
 msgid "Office"
-msgstr ""
+msgstr "Oficina"
 
 #. Name
 #: tde-settings-accessibility.directory:4
+#, fuzzy
 msgid "Regional & Accessibility"
-msgstr ""
+msgstr "Regional y accesibilidad"
 
 #. Name
 #: tde-settings-components.directory:4
+#, fuzzy
 msgid "TDE Components"
-msgstr ""
+msgstr "Componentes de TDE"
 
 #. Name
 #: tde-settings-hardware.directory:4
+#, fuzzy
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 #. Name
 #: tde-settings-information.directory:4
+#, fuzzy
 msgid "Device Informations"
-msgstr ""
+msgstr "Información del dispositivo"
 
 #. Name
 #: tde-settings-looknfeel.directory:4
+#, fuzzy
 msgid "Appearance & Themes"
-msgstr ""
+msgstr "Aspecto y temas"
 
 #. Name
 #: tde-settings-network.directory:4
+#, fuzzy
 msgid "Internet & Network"
-msgstr ""
+msgstr "Internet y Red"
 
 #. Name
 #. Comment
 #: tde-settings-peripherals.directory:4 tde-utilities-peripherals.directory:4
 #: tde-utilities-peripherals.directory:6
+#, fuzzy
 msgid "Peripherals"
-msgstr ""
+msgstr "Periféricos"
 
 #. Name
 #: tde-settings-power.directory:4
+#, fuzzy
 msgid "Power Control"
-msgstr ""
+msgstr "Control de energía"
 
 #. Name
 #: tde-settings-security.directory:4
+#, fuzzy
 msgid "Security & Privacy"
-msgstr ""
+msgstr "Seguridad y privacidad"
 
 #. Name
 #: tde-settings-sound.directory:4
+#, fuzzy
 msgid "Sound & Multimedia"
-msgstr ""
+msgstr "Sonidos y multimedia"
 
 #. Name
 #: tde-settings-system.directory:4
 msgid "System Administration"
-msgstr ""
+msgstr "Administración y sistema"
 
 #. Name
 #: tde-settings-webbrowsing.directory:4
+#, fuzzy
 msgid "Web Browser"
-msgstr ""
+msgstr "Navegador Web"
 
 #. Name
 #: tde-settings.directory:4
+#, fuzzy
 msgid "Settings-Modules"
-msgstr ""
+msgstr "Módulos de preferencias"
 
 #. Name
 #: tde-settingsmenu.directory:4
 msgid "Settings"
-msgstr ""
+msgstr "Configuración"
 
 #. Name
 #: tde-system-screensavers.directory:4
 msgid "Screen Savers"
-msgstr ""
+msgstr "Protectores de pantalla"
 
 #. Comment
 #: tde-system-screensavers.directory:8
 msgid "Screen saver demos"
-msgstr ""
+msgstr "Demostraciones del protector de pantalla"
 
 #. Name
 #: tde-system-su.directory:5
 msgid "SuperUser"
-msgstr ""
+msgstr "Administrador (SuperUser)"
 
 #. Name
 #: tde-system.directory:4
+#, fuzzy
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #. Name
 #: tde-unknown.directory:4
+#, fuzzy
 msgid "Lost & Found"
-msgstr ""
+msgstr "Objetos perdidos"
 
 #. Name
 #. Comment
 #: tde-utilities-file.directory:4 tde-utilities-file.directory:6
+#, fuzzy
 msgid "File"
-msgstr ""
+msgstr "Archivo"
 
 #. Name
 #: tde-utilities-xutils.directory:4
+#, fuzzy
 msgid "X-Utilities"
-msgstr ""
+msgstr "Utilidades-X"
 
 #. Comment
 #: tde-utilities-xutils.directory:6
+#, fuzzy
 msgid "X Window Utilities"
-msgstr ""
+msgstr "Utilidades X Window"
 
 #. Name
 #. Comment
 #: tde-utilities.directory:4 tde-utilities.directory:6
+#, fuzzy
 msgid "Utilities"
-msgstr ""
+msgstr "Utilidades"
