@@ -1,7 +1,7 @@
 [KCM Locale]
 Name=Argentina
 Region=southamerica
-Languages=es
+Languages=es_AR
 DecimalSymbol=,
 ThousandsSeparator=
 CurrencySymbol=$
