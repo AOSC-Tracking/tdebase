@@ -1,150 +1,178 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Slávek Banko <slavek.banko@axis.cz>, 2024.
+# Alejo Fernández <alejofernandez@hotmail.com.ar>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-11-24 13:10+0000\n"
+"Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
+"Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/konqueror-desktop-files/es_AR/>\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Home.desktop:7
 msgid "Home"
-msgstr ""
+msgstr "Principal"
 
 #. GenericName
 #: Home.desktop:9
+#, fuzzy
 msgid "Personal Files"
-msgstr ""
+msgstr "Archivos personales"
 
 #. Name
 #: about/konq_aboutpage.desktop:3
+#, fuzzy
 msgid "About-Page for Konqueror"
-msgstr ""
+msgstr "Página 'Acerca de' para Konqueror"
 
 #. Name
 #: iconview/konq_iconview.desktop:3
+#, fuzzy
 msgid "Icon View"
-msgstr ""
+msgstr "Vista de iconos"
 
 #. Name
 #: iconview/konq_multicolumnview.desktop:3
+#, fuzzy
 msgid "MultiColumn View"
-msgstr ""
+msgstr "Vista multicolumna"
 
 #. Name
 #: kfmclient.desktop:9 kfmclient_dir.desktop:9 kfmclient_html.desktop:9
 #: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
 #: konquerorsu.desktop:8
+#, fuzzy
 msgid "Konqueror"
-msgstr ""
+msgstr "Konqueror"
 
 #. GenericName
 #: konqbrowser.desktop:9
+#, fuzzy
 msgid "Web Browser"
-msgstr ""
+msgstr "Navegador web"
 
 #. Name
 #: konqfilemgr.desktop:7
+#, fuzzy
 msgid "File Manager"
-msgstr ""
+msgstr "Gestor de archivos"
 
 #. Comment
 #: konqueror.desktop:8
+#, fuzzy
 msgid "TDE File Manager & Web Browser"
-msgstr ""
+msgstr "Gestor de archivos y navegador web de TDE"
 
 #. GenericName
 #: konquerorsu.desktop:10
+#, fuzzy
 msgid "File Manager - Super User Mode"
-msgstr ""
+msgstr "Gestor de archivos - modo superusuario"
 
 #. Name
 #: kttsplugin/tdehtmlkttsd.desktop:12
+#, fuzzy
 msgid "Text-to-Speech"
-msgstr ""
+msgstr "Complemento de Texto-a-Voz"
 
 #. Comment
 #: kttsplugin/tdehtmlkttsd.desktop:14
 msgid "A plugin which enables texts to be read aloud on the web with KTTS"
-msgstr ""
+msgstr "Un complemento que permite leer textos en voz alta en la web con KTTS"
 
 #. Name
 #: listview/konq_detailedlistview.desktop:3
+#, fuzzy
 msgid "Detailed List View"
-msgstr ""
+msgstr "Vista de lista detallada"
 
 #. Name
 #: listview/konq_infolistview.desktop:3
+#, fuzzy
 msgid "Info List View"
-msgstr ""
+msgstr "Vista de lista de información"
 
 #. Name
 #: listview/konq_textview.desktop:3
+#, fuzzy
 msgid "Text View"
-msgstr ""
+msgstr "Vista de texto"
 
 #. Name
 #: listview/konq_treeview.desktop:3
+#, fuzzy
 msgid "Tree View"
-msgstr ""
+msgstr "Vista en árbol"
 
 #. Name
 #: preloader/konqy_preload.desktop:4
+#, fuzzy
 msgid "Konqueror Preloading During TDE startup"
-msgstr ""
+msgstr "Precargado de Konqueror durante el arranque de TDE"
 
 #. Name
 #: preloader/konqy_preloader.desktop:4
+#, fuzzy
 msgid "KDED Konqueror Preloader Module"
-msgstr ""
+msgstr "Módulo de precarga de Konqueror KDED"
 
 #. Comment
 #: preloader/konqy_preloader.desktop:6
+#, fuzzy
 msgid "Reduces Konqueror startup time"
-msgstr ""
+msgstr "Reduce el tiempo de inicio de Konqueror"
 
 #. Name
 #: profile_filemanagement.desktop:5
+#, fuzzy
 msgid "File Management"
-msgstr ""
+msgstr "Administración de archivos"
 
 #. Name
 #: profile_filepreview.desktop:9
+#, fuzzy
 msgid "File Preview"
-msgstr ""
+msgstr "Vista previa de archivo"
 
 #. Name
 #: profile_kde_devel.desktop:3
+#, fuzzy
 msgid "TDE Development"
-msgstr ""
+msgstr "Desarrollo de TDE"
 
 #. Name
 #: profile_midnightcommander.desktop:9
+#, fuzzy
 msgid "Midnight Commander"
-msgstr ""
+msgstr "Midnight Commander"
 
 #. Name
 #: profile_simplebrowser.desktop:2
+#, fuzzy
 msgid "Simple Browser"
-msgstr ""
+msgstr "Navegador sencillo"
 
 #. Name
 #: profile_tabbedbrowsing.desktop:3
+#, fuzzy
 msgid "Tabbed Browsing"
-msgstr ""
+msgstr "Navegación con solapas"
 
 #. Name
 #: profile_webbrowsing.desktop:2
+#, fuzzy
 msgid "Web Browsing"
-msgstr ""
+msgstr "Navegación en Web"
 
 #. Name
 #: quickprint/text-ada-print.desktop:6 quickprint/text-c++-print.desktop:6
@@ -157,77 +185,89 @@ msgstr ""
 #: quickprint/text-python-print.desktop:6 quickprint/text-tcl-print.desktop:6
 #: quickprint/text-tex-print.desktop:6 quickprint/text-xml-print.desktop:6
 #: quickprint/text-xslt-print.desktop:6
+#, fuzzy
 msgid "Print..."
-msgstr ""
+msgstr "Imprimir..."
 
 #. Name
 #: remoteencodingplugin/kremoteencodingplugin.desktop:13
+#, fuzzy
 msgid "Remote Encoding"
-msgstr ""
+msgstr "Complemento de codificación remota"
 
 #. Comment
 #: remoteencodingplugin/kremoteencodingplugin.desktop:15
 msgid "A Plugin for setting the encoding of remote hosts (FTP, SSH, etc.)"
 msgstr ""
+"Un complemento para configurar la codificación de hosts remotos (FTP, SSH, "
+"etc.)"
 
 #. Name
 #: shellcmdplugin/kshellcmdplugin.desktop:15
 msgid "Run Command"
-msgstr ""
+msgstr "Ejecutar comando"
 
 #. Comment
 #: shellcmdplugin/kshellcmdplugin.desktop:17
+#, fuzzy
 msgid "A plugin which enables commands to be executed within folders"
-msgstr ""
+msgstr "Complemento para ejecutar órdenes desde Konqueror"
 
 #. Name
 #: sidebar/konq_sidebartng.desktop:4
+#, fuzzy
 msgid "Navigation Panel"
-msgstr ""
+msgstr "Panel de navegación"
 
 #. Name
 #: sidebar/test/test.desktop:5
+#, fuzzy
 msgid "Test"
-msgstr ""
+msgstr "Prueba"
 
 #. Name
 #: sidebar/trees/history_module/kcmhistory.desktop:10
+#, fuzzy
 msgid "History Sidebar"
-msgstr ""
+msgstr "Barra de historial"
 
 #. Comment
 #: sidebar/trees/history_module/kcmhistory.desktop:12
+#, fuzzy
 msgid "Configure the history sidebar"
-msgstr ""
+msgstr "Configuración de la barra del historial"
 
 #. Keywords
 #: sidebar/trees/history_module/kcmhistory.desktop:14
 msgid "history;expire;"
-msgstr ""
+msgstr "historial;expiración;"
 
 #. Name
 #: sidebar/trees/init/bookmarks.desktop:6
 #: sidebar/trees/init/bookmarks_module.desktop:6
+#, fuzzy
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcadores"
 
 #. Comment
 #: sidebar/trees/init/bookmarks.desktop:8
 #: sidebar/trees/init/bookmarks_module.desktop:8
 msgid "This is the list of your bookmarks, for a faster access"
-msgstr ""
+msgstr "Ésta es la lista de tus marcadores, para un acceso más rápido"
 
 #. Name
 #: sidebar/trees/init/dirtree_module.desktop:5
 #: sidebar/trees/init/virtualfolderadd.desktop:6
+#, fuzzy
 msgid "Folder"
-msgstr ""
+msgstr "Carpeta"
 
 #. Name
 #: sidebar/trees/init/history.desktop:6
 #: sidebar/trees/init/history_module.desktop:6
+#, fuzzy
 msgid "History"
-msgstr ""
+msgstr "Historial"
 
 #. Comment
 #: sidebar/trees/init/history.desktop:8
@@ -236,115 +276,130 @@ msgid ""
 "This is the history of the URLs you have recently visited. You can sort them "
 "in many ways."
 msgstr ""
+"Éste es el historial con las URLs que has visitado recientemente. Podés "
+"ordenarlas de diversos modos."
 
 #. Name
 #: sidebar/trees/init/home.desktop:6
+#, fuzzy
 msgid "Home Folder"
-msgstr ""
+msgstr "Carpeta personal"
 
 #. Comment
 #: sidebar/trees/init/home.desktop:8
 msgid "This folder contains your personal files"
-msgstr ""
+msgstr "Ésta carpeta contiene tus archivos personales"
 
 #. Name
 #: sidebar/trees/init/remote.desktop:2 sidebar/trees/init/remote/.directory:2
+#, fuzzy
 msgid "Network"
-msgstr ""
+msgstr "Red"
 
 #. Name
 #: sidebar/trees/init/remote/ftp/tde_ftp.desktop:5
+#, fuzzy
 msgid "TDE Official FTP"
-msgstr ""
+msgstr "FTP oficial de TDE"
 
 #. Name
 #: sidebar/trees/init/remote/web/apps_web.desktop:4
 msgid "TDE Applications"
-msgstr ""
+msgstr "Programas de TDE"
 
 #. Name
 #: sidebar/trees/init/remote/web/dot_web.desktop:4
+#, fuzzy
 msgid "TDE News"
-msgstr ""
+msgstr "Noticias de TDE"
 
 #. Name
 #: sidebar/trees/init/remote/web/tde_web.desktop:4
 msgid "TDE Home Page"
-msgstr ""
+msgstr "Página HOME de TDE"
 
 #. Name
 #: sidebar/trees/init/root.desktop:6
+#, fuzzy
 msgid "Root Folder"
-msgstr ""
+msgstr "Directorio raiz"
 
 #. Comment
 #: sidebar/trees/init/root.desktop:8
 msgid "This is the root of the filesystem"
-msgstr ""
+msgstr "Ésta es la raíz del sistema de archivos"
 
 #. Name
 #: sidebar/trees/init/services.desktop:4
 #: sidebar/trees/init/services/.directory:3
+#, fuzzy
 msgid "Services"
-msgstr ""
+msgstr "Servicios"
 
 #. Name
 #: sidebar/trees/init/services/applications.desktop:5
 msgid "Applications"
-msgstr ""
+msgstr "Programas"
 
 #. Name
 #: sidebar/trees/init/services/audiocd.desktop:6
+#, fuzzy
 msgid "Audio CD Browser"
-msgstr ""
+msgstr "Navegador de CD-Audio"
 
 #. Name
 #: sidebar/trees/init/services/media.desktop:5
+#, fuzzy
 msgid "Storage Media"
-msgstr ""
+msgstr "Dispositivos de almacenamiento"
 
 #. Name
 #: sidebar/trees/init/services/printsystem.desktop:6
+#, fuzzy
 msgid "Print System Browser"
-msgstr ""
+msgstr "Navegador del sistema de impresión"
 
 #. Name
 #: sidebar/trees/init/services/settings.desktop:5
+#, fuzzy
 msgid "Settings"
-msgstr ""
+msgstr "Preferencias"
 
 #. Name
 #: sidebar/trees/init/system.desktop:6
+#, fuzzy
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #. Comment
 #: sidebar/trees/init/system.desktop:8
 msgid "This folder allows you to access common places on your computer"
-msgstr ""
+msgstr "Ésta carpeta te permite acceder a lugares usuales en tu equipo"
 
 #. Name
 #: sidebar/trees/init/trash.desktop:9
 msgid "Trash Folder"
-msgstr ""
+msgstr "Carpeta de la Papelera"
 
 #. Comment
 #: sidebar/trees/init/trash.desktop:11
 msgid "This folder displays the contents of your Trash Bin"
-msgstr ""
+msgstr "Ésta carpeta muestra el contenido de tu papelera de reciclaje"
 
 #. Name
 #: sidebar/web_module/webmodule_add.desktop:5
 #: sidebar/web_module/websidebar.desktop:5
+#, fuzzy
 msgid "Web SideBar Module"
-msgstr ""
+msgstr "Módulo de la barra lateral de web"
 
 #. Name
 #: sidebar/trees/init/remote/ftp/.directory:2
+#, fuzzy
 msgid "FTP Archives"
-msgstr ""
+msgstr "Archivos FTP"
 
 #. Name
 #: sidebar/trees/init/remote/web/.directory:2
 msgid "Web Sites"
-msgstr ""
+msgstr "Sitios y páginas web"
