@@ -253,25 +253,28 @@ void KRandRSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu)
 	menu->setCheckable(true);
 
 	bool valid = isValid();
-
-	if (!valid) {
+	if (!valid)
+	{
 		lastIndex = menu->insertItem(i18n("Required X Extension Not Available"));
 		menu->setItemEnabled(lastIndex, false);
-
 	}
-	else {
+	else
+	{
 		m_screenPopups.clear();
-		for (int s = 0; s < numScreens() /*&& numScreens() > 1 */; s++) {
-			setCurrentScreen(s);
-			if (s == screenIndexOfWidget(this)) {
-				/*lastIndex = menu->insertItem(i18n("Screen %1").arg(s+1));
-				menu->setItemEnabled(lastIndex, false);*/
-			} else {
-				TDEPopupMenu* subMenu = new TDEPopupMenu(menu, TQString("screen%1").arg(s+1).latin1());
-				m_screenPopups.append(subMenu);
-				populateMenu(subMenu);
-				lastIndex = menu->insertItem(i18n("Screen %1").arg(s+1), subMenu);
-				connect(subMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(slotScreenActivated()));
+		if (numScreens() > 1)
+		{
+			int screenOfWidget = screenIndexOfWidget(this);
+			for (int s = 0; s < numScreens(); s++)
+			{
+				setCurrentScreen(s);
+				if (s != screenOfWidget)
+				{
+					TDEPopupMenu *subMenu = new TDEPopupMenu(menu, TQString("screen%1").arg(s+1).latin1());
+					m_screenPopups.append(subMenu);
+					populateMenu(subMenu);
+					lastIndex = menu->insertItem(i18n("Screen %1").arg(s+1), subMenu);
+					connect(subMenu, TQ_SIGNAL(activated(int)), TQ_SLOT(slotScreenActivated()));
+				}
 			}
 		}
 
@@ -282,52 +285,52 @@ void KRandRSystemTray::contextMenuAboutToShow(TDEPopupMenu* menu)
 	addOutputMenu(menu);
 
 	// Find any user ICC profiles
-	TQStringList cfgProfiles;
-	cfgProfiles = t_config->groupList();
-	if (cfgProfiles.isEmpty() == false) {
-		menu->insertTitle(SmallIcon("kcoloredit"), i18n("Color Profile"));
-	}
-	for (TQStringList::Iterator t(cfgProfiles.begin()); t != cfgProfiles.end(); ++t) {
-		lastIndex = menu->insertItem(*t);
-		if (t_config->readEntry("CurrentProfile") == (*t)) {
-			menu->setItemChecked(lastIndex, true);
-		}
-		menu->setItemEnabled(lastIndex, t_config->readBoolEntry("EnableICC", false));
-		menu->connectItem(lastIndex, this, TQ_SLOT(slotColorProfileChanged(int)));
-	}
-
-	if (valid) {
-		// Find any display profiles
-		TQStringList displayProfiles;
-		displayProfiles = getDisplayConfigurationProfiles(locateLocal("config", "/", true));
-		if (!displayProfiles.isEmpty()) {
-			menu->insertTitle(SmallIcon("background"), i18n("Display Profiles"));
-			lastIndex = menu->insertItem(SmallIcon("bookmark"), "<default>");
-			menu->connectItem(lastIndex, this, TQ_SLOT(slotDisplayProfileChanged(int)));
-			for (TQStringList::Iterator t(displayProfiles.begin()); t != displayProfiles.end(); ++t) {
-				lastIndex = menu->insertItem(SmallIcon("bookmark"), *t);
-				menu->connectItem(lastIndex, this, TQ_SLOT(slotDisplayProfileChanged(int)));
+	TQStringList cfgProfiles = t_config->groupList();
+	if (!cfgProfiles.isEmpty())
+	{
+		TDEPopupMenu *profileMenu = new TDEPopupMenu(menu);
+		for (TQStringList::Iterator t(cfgProfiles.begin()); t != cfgProfiles.end(); ++t)
+		{
+			lastIndex = profileMenu->insertItem(*t);
+			if (t_config->readEntry("CurrentProfile") == (*t))
+			{
+				profileMenu->setItemChecked(lastIndex, true);
 			}
+			profileMenu->setItemEnabled(lastIndex, t_config->readBoolEntry("EnableICC", false));
+			profileMenu->connectItem(lastIndex, this, TQ_SLOT(slotColorProfileChanged(int)));
+		}
+		menu->insertItem(SmallIcon("kcoloredit"), i18n("Color Profile"), profileMenu);
+	}
+
+	if (valid)
+	{
+		// Find any display profiles
+		TQStringList displayProfiles = getDisplayConfigurationProfiles(locateLocal("config", "/", true));
+		if (!displayProfiles.isEmpty())
+		{
+			TDEPopupMenu *displayProfileMenu = new TDEPopupMenu(menu);
+			lastIndex = displayProfileMenu->insertItem(SmallIcon("bookmark"), "<default>");
+			displayProfileMenu->connectItem(lastIndex, this, TQ_SLOT(slotDisplayProfileChanged(int)));
+			for (TQStringList::Iterator t(displayProfiles.begin()); t != displayProfiles.end(); ++t)
+			{
+				lastIndex = displayProfileMenu->insertItem(SmallIcon("bookmark"), *t);
+				displayProfileMenu->connectItem(lastIndex, this, TQ_SLOT(slotDisplayProfileChanged(int)));
+			}
+			menu->insertItem(SmallIcon("background"), i18n("Display Profiles"), displayProfileMenu);
 		}
 	}
 
-	menu->insertTitle(SmallIcon("randr"), i18n("Global Configuration"));
+	// Config menu
+	TDEPopupMenu *configMenu = new TDEPopupMenu(menu);
+	TDEAction *actColors = new TDEAction(i18n("Configure Displays..."), SmallIconSet("configure"),
+	        TDEShortcut(), this, TQ_SLOT(slotDisplayConfig()), actionCollection());
+	actColors->plug(configMenu);
+	TDEAction *actSKeys = new TDEAction(i18n("Configure Shortcut Keys..."), SmallIconSet("configure"),
+	        TDEShortcut(), this, TQ_SLOT(slotSKeys()), actionCollection());
+	actSKeys->plug(configMenu);
+	menu->insertItem(SmallIcon("randr"), i18n("Global Configuration"), configMenu);
 
-	TDEAction *actColors = new TDEAction( i18n( "Configure Displays..." ),
-		SmallIconSet( "configure" ), TDEShortcut(), this, TQ_SLOT( slotDisplayConfig() ),
-		actionCollection() );
-	actColors->plug( menu );
-
-// 	TDEAction *actPrefs = new TDEAction( i18n( "Configure Display..." ),
-// 		SmallIconSet( "configure" ), TDEShortcut(), this, TQ_SLOT( slotPrefs() ),
-// 		actionCollection() );
-// 	actPrefs->plug( menu );
-
-	TDEAction *actSKeys = new TDEAction( i18n( "Configure Shortcut Keys..." ),
-		SmallIconSet( "configure" ), TDEShortcut(), this, TQ_SLOT( slotSKeys() ),
-		actionCollection() );
-	actSKeys->plug( menu );
-
+	menu->insertSeparator();
 	menu->insertItem(SmallIcon("help"),KStdGuiItem::help().text(), m_help->menu());
 	TDEAction *quitAction = actionCollection()->action(KStdAction::name(KStdAction::Quit));
 	quitAction->plug(menu);
@@ -411,74 +414,85 @@ int KRandRSystemTray::GetHackResolutionParameter() {
 	return resparm;
 }
 
-void KRandRSystemTray::populateMenu(TDEPopupMenu* menu)
+void KRandRSystemTray::populateMenu(TDEPopupMenu *menu)
 {
-	int lastIndex = 0;
-
-	menu->insertTitle(SmallIcon("view-fullscreen"), i18n("Screen Size"));
+	int lastIndex;
 
 	int numSizes = currentScreen()->numSizes();
-	int* sizeSort = new int[numSizes];
-
-	for (int i = 0; i < numSizes; i++) {
+	int *sizeSort = new int[numSizes];
+	for (int i = 0; i < numSizes; i++)
+	{
 		sizeSort[i] = currentScreen()->pixelCount(i);
 	}
 
-	for (int j = 0; j < numSizes; j++) {
-		int highest = -1, highestIndex = -1;
-
-		for (int i = 0; i < numSizes; i++) {
-			if (sizeSort[i] && sizeSort[i] > highest) {
+	TDEPopupMenu *screenSizeMenu = new TDEPopupMenu(menu);
+	for (int j = 0; j < numSizes; j++)
+	{
+		int highest = 0, highestIndex = -1;
+		for (int i = 0; i < numSizes; i++)
+		{
+			if (sizeSort[i] > highest)
+			{
 				highest = sizeSort[i];
 				highestIndex = i;
 			}
 		}
-		sizeSort[highestIndex] = -1;
 		Q_ASSERT(highestIndex != -1);
+		sizeSort[highestIndex] = 0;
 
-		lastIndex = menu->insertItem(i18n("%1 x %2").arg(currentScreen()->pixelSize(highestIndex).width()).arg(currentScreen()->pixelSize(highestIndex).height()));
-
+		lastIndex = screenSizeMenu->insertItem(i18n("%1 x %2").arg(currentScreen()->pixelSize(highestIndex).width()).arg(currentScreen()->pixelSize(highestIndex).height()));
 		if (currentScreen()->proposedSize() == highestIndex)
-			menu->setItemChecked(lastIndex, true);
+		{
+			screenSizeMenu->setItemChecked(lastIndex, true);
+		}
 
-		menu->setItemParameter(lastIndex, highestIndex);
-		menu->connectItem(lastIndex, this, TQ_SLOT(slotResolutionChanged(int)));
+		screenSizeMenu->setItemParameter(lastIndex, highestIndex);
+		screenSizeMenu->connectItem(lastIndex, this, TQ_SLOT(slotResolutionChanged(int)));
 	}
 	delete [] sizeSort;
-	sizeSort = 0L;
+	sizeSort = nullptr;
+
+	menu->insertItem(SmallIcon("view-fullscreen"), i18n("Screen Size"), screenSizeMenu);
 
 	// Don't display the rotation options if there is no point (ie. none are supported)
 	// XFree86 4.3 does not include rotation support.
-	if (currentScreen()->rotations() != RandRScreen::Rotate0) {
-		menu->insertTitle(SmallIcon("reload"), i18n("Orientation"));
-
-		for (int i = 0; i < 6; i++) {
-			if ((1 << i) & currentScreen()->rotations()) {
-				lastIndex = menu->insertItem(currentScreen()->rotationIcon(1 << i), RandRScreen::rotationName(1 << i));
-
+	if (currentScreen()->rotations() != RandRScreen::Rotate0)
+	{
+		TDEPopupMenu *orientationMenu = new TDEPopupMenu(menu);
+		for (int i = 0; i < 6; i++)
+		{
+			if ((1 << i) & currentScreen()->rotations())
+			{
+				lastIndex = orientationMenu->insertItem(currentScreen()->rotationIcon(1 << i), RandRScreen::rotationName(1 << i));
 				if (currentScreen()->proposedRotation() & (1 << i))
-					menu->setItemChecked(lastIndex, true);
+				{
+					orientationMenu->setItemChecked(lastIndex, true);
+				}
 
-				menu->setItemParameter(lastIndex, 1 << i);
-				menu->connectItem(lastIndex, this, TQ_SLOT(slotOrientationChanged(int)));
+				orientationMenu->setItemParameter(lastIndex, 1 << i);
+				orientationMenu->connectItem(lastIndex, this, TQ_SLOT(slotOrientationChanged(int)));
 			}
 		}
+		menu->insertItem(SmallIcon("reload"), i18n("Orientation"), orientationMenu);
 	}
 
 	TQStringList rr = currentScreen()->refreshRates(currentScreen()->proposedSize());
-
 	if (rr.count())
-		menu->insertTitle(SmallIcon("clock"), i18n("Refresh Rate"));
+	{
+		TDEPopupMenu *refreshRatesMenu = new TDEPopupMenu(menu);
+		int i = 0;
+		for (TQStringList::Iterator it = rr.begin(); it != rr.end(); ++it, i++)
+		{
+			lastIndex = refreshRatesMenu->insertItem(*it);
+			if (currentScreen()->proposedRefreshRate() == i)
+			{
+				refreshRatesMenu->setItemChecked(lastIndex, true);
+			}
 
-	int i = 0;
-	for (TQStringList::Iterator it = rr.begin(); it != rr.end(); ++it, i++) {
-		lastIndex = menu->insertItem(*it);
-
-		if (currentScreen()->proposedRefreshRate() == i)
-			menu->setItemChecked(lastIndex, true);
-
-		menu->setItemParameter(lastIndex, i);
-		menu->connectItem(lastIndex, this, TQ_SLOT(slotRefreshRateChanged(int)));
+			refreshRatesMenu->setItemParameter(lastIndex, i);
+			refreshRatesMenu->connectItem(lastIndex, this, TQ_SLOT(slotRefreshRateChanged(int)));
+		}
+		menu->insertItem(SmallIcon("clock"), i18n("Refresh Rate"), refreshRatesMenu);
 	}
 }
 
@@ -738,86 +752,89 @@ void KRandRSystemTray::findPrimaryDisplay()
 	}
 }
 
-void KRandRSystemTray::addOutputMenu(TDEPopupMenu* menu)
+void KRandRSystemTray::addOutputMenu(TDEPopupMenu *menu)
 {
 	XRROutputInfo *output_info;
 	char *output_name;
-	int i;
 	int lastIndex = 0;
 	int connected_displays = 0;
 
-	if (isValid() == true) {
-		menu->insertTitle(SmallIcon("kcmkwm"), i18n("Output Port"));
+	if (isValid())
+	{
+		TDEPopupMenu *outputMenu = new TDEPopupMenu(menu);
 
-		for (i = 0; i < randr_screen_info->n_output; i++) {
+		// Look for active (i.e. switched on) outputs
+		for (int i = 0; i < randr_screen_info->n_output; i++)
+		{
 			output_info = randr_screen_info->outputs[i]->info;
-			// Look for ON outputs
-			if (!randr_screen_info->outputs[i]->cur_crtc) {
+			if (!randr_screen_info->outputs[i]->cur_crtc)
+			{
 				continue;
 			}
-			if (RR_Disconnected == randr_screen_info->outputs[i]->info->connection) {
+			if (RR_Disconnected == randr_screen_info->outputs[i]->info->connection)
+			{
 				continue;
 			}
 
 			output_name = output_info->name;
-			//printf("ON: Found output %s\n", output_name);
-
-			lastIndex = menu->insertItem(i18n("%1 (Active)").arg(output_name));
-			menu->setItemChecked(lastIndex, true);
-			menu->connectItem(lastIndex, this, TQ_SLOT(slotOutputChanged(int)));
-			menu->setItemParameter(lastIndex, i);
+			lastIndex = outputMenu->insertItem(i18n("%1 (Active)").arg(output_name));
+			outputMenu->setItemChecked(lastIndex, true);
+			outputMenu->connectItem(lastIndex, this, TQ_SLOT(slotOutputChanged(int)));
+			outputMenu->setItemParameter(lastIndex, i);
 
 			connected_displays++;
 		}
 
-		for (i = 0; i < randr_screen_info->n_output; i++) {
+		// Look for inactive (i.e. switched off) but connected outputs
+		for (int i = 0; i < randr_screen_info->n_output; i++)
+		{
 			output_info = randr_screen_info->outputs[i]->info;
-			// Look for CONNECTED outputs....
-			if (RR_Disconnected == randr_screen_info->outputs[i]->info->connection) {
+			if (RR_Disconnected == randr_screen_info->outputs[i]->info->connection)
+			{
 				continue;
 			}
-			// ...that are not ON
-			if (randr_screen_info->outputs[i]->cur_crtc) {
+			if (randr_screen_info->outputs[i]->cur_crtc)
+			{
 				continue;
 			}
 
 			output_name = output_info->name;
-			//printf("CONNECTED, NOT ON: Found output %s\n", output_name);
-
-			lastIndex = menu->insertItem(i18n("%1 (Connected, Inactive)").arg(output_name));
-			menu->setItemChecked(lastIndex, false);
-			menu->connectItem(lastIndex, this, TQ_SLOT(slotOutputChanged(int)));
-			menu->setItemParameter(lastIndex, i);
+			lastIndex = outputMenu->insertItem(i18n("%1 (Connected, Inactive)").arg(output_name));
+			outputMenu->setItemChecked(lastIndex, false);
+			outputMenu->connectItem(lastIndex, this, TQ_SLOT(slotOutputChanged(int)));
+			outputMenu->setItemParameter(lastIndex, i);
 
 			connected_displays++;
 		}
 
-		for (i = 0; i < randr_screen_info->n_output; i++) {
+		// Look for all outputs that are not connected
+		for (int i = 0; i < randr_screen_info->n_output; i++)
+		{
 			output_info = randr_screen_info->outputs[i]->info;
-			// Look for ALL outputs that are not connected....
-			if (RR_Disconnected != randr_screen_info->outputs[i]->info->connection) {
+			if (RR_Disconnected != randr_screen_info->outputs[i]->info->connection)
+			{
 				continue;
 			}
-			// ...or ON
-			if (randr_screen_info->outputs[i]->cur_crtc) {
+			if (randr_screen_info->outputs[i]->cur_crtc)
+			{
 				continue;
 			}
 
 			output_name = output_info->name;
-			//printf("DISCONNECTED, NOT ON: Found output %s\n", output_name);
-
-			lastIndex = menu->insertItem(i18n("%1 (Disconnected, Inactive)").arg(output_name));
-			menu->setItemChecked(lastIndex, false);
-			menu->setItemEnabled(lastIndex, false);
-			menu->connectItem(lastIndex, this, TQ_SLOT(slotOutputChanged(int)));
-			menu->setItemParameter(lastIndex, i);
+			lastIndex = outputMenu->insertItem(i18n("%1 (Disconnected, Inactive)").arg(output_name));
+			outputMenu->setItemChecked(lastIndex, false);
+			outputMenu->setItemEnabled(lastIndex, false);
+			outputMenu->connectItem(lastIndex, this, TQ_SLOT(slotOutputChanged(int)));
+			outputMenu->setItemParameter(lastIndex, i);
 		}
 
-		lastIndex = menu->insertItem(SmallIcon("forward"), i18n("Next available output"));
-		if (connected_displays < 2) {
-			menu->setItemEnabled(lastIndex, false);
+		if (connected_displays >= 2)
+		{
+			lastIndex = outputMenu->insertItem(SmallIcon("forward"), i18n("Next available output"));
+			outputMenu->connectItem(lastIndex, this, TQ_SLOT(slotCycleDisplays()));
 		}
-		menu->connectItem(lastIndex, this, TQ_SLOT(slotCycleDisplays()));
+
+		menu->insertItem(SmallIcon("kcmkwm"), i18n("Output Port"), outputMenu);
 	}
 }
 
