@@ -80,7 +80,7 @@ is_newer() {
 echo "[starttde] Starting starttde." 1>&2
 echo "[starttde] This script is $0" 1>&2
 
-# Avoid any possible conflict with KDE4. Therefore within this script
+# Avoid any possible conflict with KDE. Therefore within this script
 # use full path names to all binaries used.
 
 # The binaries for TDE are located in the same place as this script.
@@ -118,6 +118,9 @@ else
 fi
 unset BIN_DIR TDE_VERSION
 export TDEDIR
+
+# Add TDE folder to PKG_CONFIG_PATH to make Trinity libraries visible
+export PKG_CONFIG_PATH="`pkg-config --variable pc_path pkg-config`:${TDEDIR}/lib/pkgconfig"
 
 # When the X server dies we get a HUP signal from xinit. We must ignore it
 # because we still need to do some cleanup.
