@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/applnk-directories/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: .directory:2
@@ -38,27 +39,27 @@ msgstr "ვებ პროგრამირება"
 #: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
 #: kde-utilities.directory:4
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #. Name
 #: kde-editors.directory:4 tde-editors.directory:4
 msgid "Editors"
-msgstr "რედაქტორი"
+msgstr "რედაქტორები"
 
 #. Name
 #: kde-edu-languages.directory:4
 msgid "Languages"
-msgstr ""
+msgstr "ენები"
 
 #. Name
 #: kde-edu-mathematics.directory:4
 msgid "Mathematics"
-msgstr ""
+msgstr "მათემატიკა"
 
 #. Name
 #: kde-edu-miscellaneous.directory:4
 msgid "Miscellaneous"
-msgstr ""
+msgstr "სხვადასხვა"
 
 #. Name
 #: kde-edu-science.directory:4 tde-science.directory:5
@@ -68,12 +69,12 @@ msgstr "მეცნიერება"
 #. Name
 #: kde-games-arcade.directory:4 tde-games-arcade.directory:4
 msgid "Arcade"
-msgstr ""
+msgstr "არკადა"
 
 #. Name
 #: kde-games-board.directory:4 tde-games-board.directory:4
 msgid "Board Games"
-msgstr "მაგიდის თამაშები"
+msgstr "სამაგიდო თამაშები"
 
 #. Name
 #: kde-games-card.directory:4 tde-games-card.directory:4
@@ -101,21 +102,21 @@ msgstr "სათამაშოები"
 #: tde-utilities-accessibility.directory:4
 #: tde-utilities-accessibility.directory:6
 msgid "Accessibility"
-msgstr "სპეციალური შესაძლბლობები"
+msgstr "წვდომადობა"
 
 #. Name
 #. Comment
 #: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
 #: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
 msgid "Desktop"
-msgstr "სამუშაო დაფა"
+msgstr "სამუშაო მაგიდა"
 
 #. Name
 #. Comment
 #: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
 #: tde-utilities-pim.directory:6
 msgid "PIM"
-msgstr ""
+msgstr "პერს. ინფორმაციის მმართველი"
 
 #. Name
 #: tde-development-translation.directory:4
@@ -125,7 +126,7 @@ msgstr "თარგმნა"
 #. Name
 #: tde-development.directory:4
 msgid "Development"
-msgstr "განვითარება"
+msgstr "პროგრამირება"
 
 #. Name
 #: tde-edutainment.directory:4
@@ -134,9 +135,8 @@ msgstr "სასწავლო"
 
 #. Name
 #: tde-games-logic.directory:4
-#, fuzzy
 msgid "Logic Games"
-msgstr "Rogue ტიპის თამაშები"
+msgstr "ლოგიკური თამაშები"
 
 #. Name
 #: tde-games-roguelikes.directory:4
@@ -166,12 +166,12 @@ msgstr "ინტერნეტი"
 #. Name
 #: tde-main.directory:5
 msgid "TDE Menu"
-msgstr "TDE მენიუ"
+msgstr "TDE-ის მენიუ"
 
 #. Name
 #: tde-more.directory:5
 msgid "More Applications"
-msgstr "დამატებითი პროგრამები"
+msgstr "მეტი პროგრამა"
 
 #. Name
 #: tde-multimedia.directory:4
@@ -182,7 +182,7 @@ msgstr "მულტიმედია"
 #. Comment
 #: tde-office-pim.directory:4 tde-office-pim.directory:6
 msgid "Personal Information Management"
-msgstr ""
+msgstr "პირადი ინფორმაციის მართვა"
 
 #. Name
 #: tde-office.directory:4
@@ -192,22 +192,22 @@ msgstr "ოფისი"
 #. Name
 #: tde-settings-accessibility.directory:4
 msgid "Regional & Accessibility"
-msgstr "რეგიონალური და სეპციალური შესაძლებლობები"
+msgstr "რეგიონალური და წვდომადობა"
 
 #. Name
 #: tde-settings-components.directory:4
 msgid "TDE Components"
-msgstr "TDE კომპონენტები"
+msgstr "TDE-ის კომპონენტები"
 
 #. Name
 #: tde-settings-hardware.directory:4
 msgid "Hardware"
-msgstr "მოწყობილობები"
+msgstr "აპარატურა"
 
 #. Name
 #: tde-settings-information.directory:4
 msgid "Device Informations"
-msgstr ""
+msgstr "მოწყობილობის ინფორმაცია"
 
 #. Name
 #: tde-settings-looknfeel.directory:4
@@ -224,7 +224,7 @@ msgstr "ქსელი და ინტერნეტი"
 #: tde-settings-peripherals.directory:4 tde-utilities-peripherals.directory:4
 #: tde-utilities-peripherals.directory:6
 msgid "Peripherals"
-msgstr "პერიფერიული"
+msgstr "პერიფერია"
 
 #. Name
 #: tde-settings-power.directory:4
@@ -234,17 +234,17 @@ msgstr "კვების კონტროლი"
 #. Name
 #: tde-settings-security.directory:4
 msgid "Security & Privacy"
-msgstr "დაცვა და კონფიდენციალურობა"
+msgstr "დაცვა და კონფიდენციალობა"
 
 #. Name
 #: tde-settings-sound.directory:4
 msgid "Sound & Multimedia"
-msgstr "ხმა და მეულტიმედია"
+msgstr "ხმა და მულტიმედია"
 
 #. Name
 #: tde-settings-system.directory:4
 msgid "System Administration"
-msgstr "სისტემის ადმინისტრირება"
+msgstr "სისტემის ადმინისტრაცია"
 
 #. Name
 #: tde-settings-webbrowsing.directory:4
@@ -259,22 +259,22 @@ msgstr "მოდულები"
 #. Name
 #: tde-settingsmenu.directory:4
 msgid "Settings"
-msgstr "პარამეტრები"
+msgstr "მორგება"
 
 #. Name
 #: tde-system-screensavers.directory:4
 msgid "Screen Savers"
-msgstr ""
+msgstr "ეკრანის დამცველები"
 
 #. Comment
 #: tde-system-screensavers.directory:8
 msgid "Screen saver demos"
-msgstr ""
+msgstr "ეკრანის დამცველის მინიატურები"
 
 #. Name
 #: tde-system-su.directory:5
 msgid "SuperUser"
-msgstr ""
+msgstr "ზემომხმარებელი"
 
 #. Name
 #: tde-system.directory:4
@@ -284,7 +284,7 @@ msgstr "სისტემა"
 #. Name
 #: tde-unknown.directory:4
 msgid "Lost & Found"
-msgstr ""
+msgstr "დაკარგული და ნაპოვნი"
 
 #. Name
 #. Comment
@@ -300,10 +300,10 @@ msgstr "X-ხელსაწყოები"
 #. Comment
 #: tde-utilities-xutils.directory:6
 msgid "X Window Utilities"
-msgstr "X Window–ს ხელსაწყოები"
+msgstr "X Window–ის ხელსაწყოები"
 
 #. Name
 #. Comment
 #: tde-utilities.directory:4 tde-utilities.directory:6
 msgid "Utilities"
-msgstr "ხელსაწყოები"
+msgstr "პროგრამები"
