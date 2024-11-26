@@ -1,41 +1,41 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 20:10+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/ksysguard-events/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Comment
 #: eventsrc:3
 msgid "System Guard"
-msgstr "სისტემური მონიტორი"
+msgstr "სისტემის მცველი"
 
 #. Name
 #: eventsrc:6
-#, fuzzy
 msgid "pattern_match"
-msgstr "ძიების ნიმუშთან შესაბამისობა"
+msgstr "ნიმუშის დამთხვევა"
 
 #. Comment
 #: eventsrc:7
 msgid "Search pattern matched"
-msgstr "ძიების ნიმუშთან შესაბამისობა"
+msgstr "ძებნის ნიმუშის დამთხვევა"
 
 #. Name
 #: eventsrc:10
 msgid "sensor_alarm"
-msgstr ""
+msgstr "სენსორის განგაში"
 
 #. Comment
 #: eventsrc:11
