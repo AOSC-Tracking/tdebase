@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 19:32+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/tdepasswd-desktop-files/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: kcm/kcm_useraccount.desktop:10
@@ -24,12 +25,14 @@ msgstr "მომხმარებლის ანგარიშები დ�
 #. Comment
 #: kcm/kcm_useraccount.desktop:12
 msgid "User information such as password, name and email"
-msgstr "ცნობები მომხმარებლების შესახებ, როგორიცაა პაროლი, სახელი და ელ-ფოსტა"
+msgstr "ცნობები მომხმარებლების შესახებ, როგორიცაა პაროლი, სახელი და ელფოსტა"
 
 #. Keywords
 #: kcm/kcm_useraccount.desktop:14
 msgid "password;email;name;organization;realname;login image;face;echo mode;"
 msgstr ""
+"password;email;name;organization;realname;login image;face;echo mode;პაროლი;"
+"ელფოსტა;სახელი;"
 
 #. Name
 #: tdepasswd.desktop:9

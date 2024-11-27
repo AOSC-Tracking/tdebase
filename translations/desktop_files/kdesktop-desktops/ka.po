@@ -1,30 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-17 18:15+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kdesktop-desktop-files/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: kdesktop.desktop.cmake:10
 msgid "TDE Desktop"
-msgstr "TDE სამუშაო დაფა"
+msgstr "TDE სამუშაო მაგიდა"
 
 #. X-TDE-Submenu
 #: kdesktopSetAsBackground.desktop:4
 msgid "Set as Background"
-msgstr ""
+msgstr "ფონად დაყენება"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:7
@@ -38,41 +39,38 @@ msgstr "მოზაიკა"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:17
-#, fuzzy
 msgid "Center Tiled"
-msgstr "ცენტრზე"
+msgstr "ცენტრზე მოზაიკით"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:22
-#, fuzzy
 msgid "Centered Maxpect"
-msgstr "ცენტრზე"
+msgstr "ცენტრზე პროპორციულად"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:27
 msgid "Tiled Maxpect"
-msgstr ""
+msgstr "მოზაიკა პროპორციულად"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:32
 msgid "Scaled"
-msgstr ""
+msgstr "მასშტაბით"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:37
-#, fuzzy
 msgid "Centered Auto Fit"
-msgstr "ცენტრზე"
+msgstr "ცენტრზე, ავტოჩატევით"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:42
 msgid "Scale & Crop"
-msgstr ""
+msgstr "მასშტაბი და ამოჭრა"
 
 #. Comment
 #: kwebdesktop/kwebdesktop.desktop:2
 msgid "TDE Web Desktop"
-msgstr "TDE ვებ სამუშაო დაფა"
+msgstr "TDE ვებ სამუშაო მაგიდა"
 
 #. Comment
 #: patterns/fish.desktop:2

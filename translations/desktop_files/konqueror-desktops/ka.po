@@ -1,83 +1,83 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/konqueror-desktop-files/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Home.desktop:7
 msgid "Home"
-msgstr "სახლში"
+msgstr "საწყისი"
 
 #. GenericName
 #: Home.desktop:9
 msgid "Personal Files"
-msgstr "პირადი საქაღალდეები"
+msgstr "პირადი ფაილები"
 
 #. Name
 #: about/konq_aboutpage.desktop:3
 msgid "About-Page for Konqueror"
-msgstr "Konqueror-ის ცნობათა ფურცელი"
+msgstr "Konqueror-ის შესახებ"
 
 #. Name
 #: iconview/konq_iconview.desktop:3
 msgid "Icon View"
-msgstr "ხატულებით ჩვენება"
+msgstr "ხატულების ხედი"
 
 #. Name
 #: iconview/konq_multicolumnview.desktop:3
 msgid "MultiColumn View"
-msgstr "რამდენიმე სვეტად"
+msgstr "მრავალსვეტიანი ხედი"
 
 #. Name
 #: kfmclient.desktop:9 kfmclient_dir.desktop:9 kfmclient_html.desktop:9
 #: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
 #: konquerorsu.desktop:8
 msgid "Konqueror"
-msgstr ""
+msgstr "Konqueror"
 
 #. GenericName
 #: konqbrowser.desktop:9
 msgid "Web Browser"
-msgstr "ვებ–ბრაუზერი"
+msgstr "ვებ ბრაუზერი"
 
 #. Name
 #: konqfilemgr.desktop:7
 msgid "File Manager"
-msgstr "ფაილთა მენჯერი"
+msgstr "ფაილების მმართველი"
 
 #. Comment
 #: konqueror.desktop:8
 msgid "TDE File Manager & Web Browser"
-msgstr "ფაილური მენეჯერი და ვებ ბრაუზერი"
+msgstr "TDE-ის ფაილების მმართველი და ბრაუზერი"
 
 #. GenericName
 #: konquerorsu.desktop:10
 msgid "File Manager - Super User Mode"
-msgstr "ფაილური მენეჯერი (root-ის პრივილეგიებით)"
+msgstr "ფაილების მმართველი root-ის პრივილეგიებით"
 
 #. Name
 #: kttsplugin/tdehtmlkttsd.desktop:12
 msgid "Text-to-Speech"
-msgstr "ტექსტის გახმოვანების მოდული"
+msgstr "ტექსტის წარმოთქმა"
 
 #. Comment
 #: kttsplugin/tdehtmlkttsd.desktop:14
-#, fuzzy
 msgid "A plugin which enables texts to be read aloud on the web with KTTS"
-msgstr "გარსისს ბრძანების მოდული Konqueror-ისთვის"
+msgstr "დამატება, რომელიც ვებგვერდების KTTS-ით წარმოთქმის საშუალებას გაძლევთ"
 
 #. Name
 #: listview/konq_detailedlistview.desktop:3
@@ -92,12 +92,12 @@ msgstr "სია აღწერით"
 #. Name
 #: listview/konq_textview.desktop:3
 msgid "Text View"
-msgstr "ტექსტის სახით"
+msgstr "ტექსტის ხედი"
 
 #. Name
 #: listview/konq_treeview.desktop:3
 msgid "Tree View"
-msgstr "ხის სახით"
+msgstr "ხის ხედი"
 
 #. Name
 #: preloader/konqy_preload.desktop:4
@@ -117,12 +117,12 @@ msgstr "ამცირებს Konqueror-ის გაშვების დ�
 #. Name
 #: profile_filemanagement.desktop:5
 msgid "File Management"
-msgstr "ფაილთა მართვა"
+msgstr "ფაილების მართვა"
 
 #. Name
 #: profile_filepreview.desktop:9
 msgid "File Preview"
-msgstr "ფაილთა წინასწარ შეთვალიერება"
+msgstr "ფაილის მინიატურა"
 
 #. Name
 #: profile_kde_devel.desktop:3
@@ -131,9 +131,8 @@ msgstr "TDE-ში პროგრამირება"
 
 #. Name
 #: profile_midnightcommander.desktop:9
-#, fuzzy
 msgid "Midnight Commander"
-msgstr "გარსისს ბრძანების მოდული"
+msgstr "Midnight Commander"
 
 #. Name
 #: profile_simplebrowser.desktop:2
@@ -143,12 +142,12 @@ msgstr "მარტივი ბრაუზერი"
 #. Name
 #: profile_tabbedbrowsing.desktop:3
 msgid "Tabbed Browsing"
-msgstr "დაფებზე ჩვენება"
+msgstr "ბრაუზერი ჩანართებით"
 
 #. Name
 #: profile_webbrowsing.desktop:2
 msgid "Web Browsing"
-msgstr "ვების ჩვენება"
+msgstr "ინტერნეტში მუშაობა"
 
 #. Name
 #: quickprint/text-ada-print.desktop:6 quickprint/text-c++-print.desktop:6
@@ -167,27 +166,28 @@ msgstr "ბეჭდვა..."
 #. Name
 #: remoteencodingplugin/kremoteencodingplugin.desktop:13
 msgid "Remote Encoding"
-msgstr "კოდირების დაშორებული მოდული"
+msgstr "დაშორებული კოდირება"
 
 #. Comment
 #: remoteencodingplugin/kremoteencodingplugin.desktop:15
 msgid "A Plugin for setting the encoding of remote hosts (FTP, SSH, etc.)"
-msgstr "კოდირების დაშორებული მოდული Konqueror-ისთვის"
+msgstr ""
+"დამატება დაშორებული ჰოსტებისთვის კოდირების დასაყენებლად (FTP, SSH და ა.შ.)"
 
 #. Name
 #: shellcmdplugin/kshellcmdplugin.desktop:15
 msgid "Run Command"
-msgstr "გარსისს ბრძანების მოდული"
+msgstr "ბრძანების გაშვება"
 
 #. Comment
 #: shellcmdplugin/kshellcmdplugin.desktop:17
 msgid "A plugin which enables commands to be executed within folders"
-msgstr "გარსისს ბრძანების მოდული Konqueror-ისთვის"
+msgstr "დამატება, რომელიც საშუალებას გაძლევთ, საქაღალდეში ბრძანებები გაუშვათ"
 
 #. Name
 #: sidebar/konq_sidebartng.desktop:4
 msgid "Navigation Panel"
-msgstr "სანავიგაციო პანელი"
+msgstr "ნავიგაციის პანელი"
 
 #. Name
 #: sidebar/test/test.desktop:5
@@ -202,12 +202,12 @@ msgstr "ისტორიის გვერდითი პანელი"
 #. Comment
 #: sidebar/trees/history_module/kcmhistory.desktop:12
 msgid "Configure the history sidebar"
-msgstr "ისტორიის გვერდითი პანელის კონფიგურირება"
+msgstr "ისტორიის გვერდითი პანელის მორგება"
 
 #. Keywords
 #: sidebar/trees/history_module/kcmhistory.desktop:14
 msgid "history;expire;"
-msgstr ""
+msgstr "ისტორია;ვადა;"
 
 #. Name
 #: sidebar/trees/init/bookmarks.desktop:6
@@ -219,7 +219,7 @@ msgstr "სანიშნეები"
 #: sidebar/trees/init/bookmarks.desktop:8
 #: sidebar/trees/init/bookmarks_module.desktop:8
 msgid "This is the list of your bookmarks, for a faster access"
-msgstr "ეს არის თვენი სანიშნეების სია, რომელიც გჭირდებათ სწრაფად წვდომისთვის"
+msgstr "ეს არის თქვენი სანიშნეების სია, სწრაფი წვდომისთვის"
 
 #. Name
 #: sidebar/trees/init/dirtree_module.desktop:5
@@ -240,8 +240,8 @@ msgid ""
 "This is the history of the URLs you have recently visited. You can sort them "
 "in many ways."
 msgstr ""
-"ეს არის იმ URL-თა სია რომელიც ბოლო დროს მოინახულეთ. თქვენ შეგიძლიათ მათი "
-"დალაგება თქვენი ნებისამებრ"
+"ეს უახლესი ბმულების ისტორიაა, რომლებსაც ეწვიეთ. მათი დალაგება ბევრნაირად "
+"შეგიძლიათ."
 
 #. Name
 #: sidebar/trees/init/home.desktop:6
@@ -251,7 +251,7 @@ msgstr "საწყისი საქაღალდე"
 #. Comment
 #: sidebar/trees/init/home.desktop:8
 msgid "This folder contains your personal files"
-msgstr "თქვენი პერსონალური ფაილების შესანახი საქაღალდე"
+msgstr "ეს საქაღალდე თქვენს პირად ფაილებს შეიცავს"
 
 #. Name
 #: sidebar/trees/init/remote.desktop:2 sidebar/trees/init/remote/.directory:2
@@ -261,32 +261,32 @@ msgstr "ქსელი"
 #. Name
 #: sidebar/trees/init/remote/ftp/tde_ftp.desktop:5
 msgid "TDE Official FTP"
-msgstr "TDE-ს ძირითადი FTP სერვერი"
+msgstr "TDE-ის ოფიციალური FTP სერვერი"
 
 #. Name
 #: sidebar/trees/init/remote/web/apps_web.desktop:4
 msgid "TDE Applications"
-msgstr "TDE-ს პროგრამები"
+msgstr "TDE-ის აპლიკაციები"
 
 #. Name
 #: sidebar/trees/init/remote/web/dot_web.desktop:4
 msgid "TDE News"
-msgstr "TDE-ს სიახლეები"
+msgstr "TDE-ის სიახლეები"
 
 #. Name
 #: sidebar/trees/init/remote/web/tde_web.desktop:4
 msgid "TDE Home Page"
-msgstr "TDE-ს ვებ გვერდი"
+msgstr "TDE-ის საწყისი გვერდი"
 
 #. Name
 #: sidebar/trees/init/root.desktop:6
 msgid "Root Folder"
-msgstr "ძირეული საქაღალდე"
+msgstr "ძირითადი საქაღალდე"
 
 #. Comment
 #: sidebar/trees/init/root.desktop:8
 msgid "This is the root of the filesystem"
-msgstr "ფაილური სისტემუს ძირეული საქაღალდე"
+msgstr "ფაილური სისტემის ძირითადი საქაღალდე"
 
 #. Name
 #: sidebar/trees/init/services.desktop:4
@@ -297,27 +297,27 @@ msgstr "სერვისები"
 #. Name
 #: sidebar/trees/init/services/applications.desktop:5
 msgid "Applications"
-msgstr "პროგრამები"
+msgstr "აპლიკაციები"
 
 #. Name
 #: sidebar/trees/init/services/audiocd.desktop:6
 msgid "Audio CD Browser"
-msgstr "Audio CD-ს დათვალიერება"
+msgstr "Audio CD-ის დათვალიერება"
 
 #. Name
 #: sidebar/trees/init/services/media.desktop:5
 msgid "Storage Media"
-msgstr "მონაცემთა შენახვის მოწყობილობები"
+msgstr "საცავის მედია"
 
 #. Name
 #: sidebar/trees/init/services/printsystem.desktop:6
 msgid "Print System Browser"
-msgstr "ბეჭდვის სისტემის დათვალიერება"
+msgstr "ბეჭდვის სისტემის ბრაუზერი"
 
 #. Name
 #: sidebar/trees/init/services/settings.desktop:5
 msgid "Settings"
-msgstr "პარამეტრები"
+msgstr "მორგება"
 
 #. Name
 #: sidebar/trees/init/system.desktop:6
@@ -328,31 +328,31 @@ msgstr "სისტემა"
 #: sidebar/trees/init/system.desktop:8
 msgid "This folder allows you to access common places on your computer"
 msgstr ""
+"ეს საქაღალდე საშუალებას გაძლევთ, გქონდეთ წვდომა თქვენი კომპიუტერის ჩვეულ "
+"ადგილებთან"
 
 #. Name
 #: sidebar/trees/init/trash.desktop:9
-#, fuzzy
 msgid "Trash Folder"
-msgstr "საქაღალდე"
+msgstr "ნაგვის საქაღალდე"
 
 #. Comment
 #: sidebar/trees/init/trash.desktop:11
-#, fuzzy
 msgid "This folder displays the contents of your Trash Bin"
-msgstr "თქვენი პერსონალური ფაილების შესანახი საქაღალდე"
+msgstr "ეს საქაღალდე თქვენი ნაგვის ყუთის შემცველობას აჩვენებს"
 
 #. Name
 #: sidebar/web_module/webmodule_add.desktop:5
 #: sidebar/web_module/websidebar.desktop:5
 msgid "Web SideBar Module"
-msgstr "გვერდით Web დაფის მოდული"
+msgstr "ვების გვერდითი პანელის მოდული"
 
 #. Name
 #: sidebar/trees/init/remote/ftp/.directory:2
 msgid "FTP Archives"
-msgstr ""
+msgstr "FTP არქივები"
 
 #. Name
 #: sidebar/trees/init/remote/web/.directory:2
 msgid "Web Sites"
-msgstr ""
+msgstr "ვებგვერდები"

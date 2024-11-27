@@ -6,20 +6,23 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:05+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/tdeintegrationdesktop/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: tdeintegration.desktop:12
 msgid "TDE Integration Module"
-msgstr ""
+msgstr "TDE-ის ინტეგრაციის მოდული"
 
 #. Comment
 #: tdeintegration.desktop:14
 msgid "Module for integrating UI of non-TDE applications"
-msgstr ""
+msgstr "არა-TDE-ის აპლიკაციის ინტერფეისის ინტეგრაციის მოდული"

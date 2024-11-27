@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kdesktop-icons/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Home.desktop:2
 msgid "Home"
-msgstr "სახლში"
+msgstr "საწყისი"
 
 #. GenericName
 #: Home.desktop:4
@@ -28,39 +29,38 @@ msgstr "პირადი საქაღალდეები"
 
 #. Comment
 #: Home.desktop:6
-#, fuzzy
 msgid "Contains personal files"
-msgstr "პირადი საქაღალდეები"
+msgstr "შეიცავს პირად ფაილებს"
 
 #. Name
 #: My_Computer:5
 msgid "My Computer"
-msgstr ""
+msgstr "ჩემი კომპიუტერი"
 
 #. Comment
 #: My_Computer:7
 msgid "Access to storage media"
-msgstr ""
+msgstr "წვდომა საცავზე"
 
 #. Name
 #: My_Documents:5
 msgid "My Documents"
-msgstr ""
+msgstr "ჩემი დოკუმენტები"
 
 #. Comment
 #: My_Documents:7
 msgid "Contains personal documents"
-msgstr ""
+msgstr "შეიცავს პირად დოკუმენტებს"
 
 #. Name
 #: My_Network_Places:5
 msgid "My Network Places"
-msgstr "დაშორებული ადგილები"
+msgstr "ჩემი ქსელის მდებარეობები"
 
 #. Comment
 #: My_Network_Places:7
 msgid "Access to network places and remote hosts"
-msgstr ""
+msgstr "წვდომა ქსელის მდებარეობებთან და დაშორებულ ჰოსტებთან"
 
 #. Name
 #: Printers:5
@@ -70,7 +70,7 @@ msgstr "პრინტერები"
 #. Comment
 #: Printers:7
 msgid "Manage print jobs"
-msgstr ""
+msgstr "ბეჭდვის დავალებების მართვა"
 
 #. Name
 #: System.desktop:2
@@ -80,18 +80,18 @@ msgstr "სისტემა"
 #. GenericName
 #: System.desktop:4
 msgid "System Locations"
-msgstr "სისტემური მისამართები"
+msgstr "სისტემური მდებარეობები"
 
 #. Comment
 #: System.desktop:6
 msgid "Access to system places"
-msgstr ""
+msgstr "წვდომა სისტემურ მდებარეობებთან"
 
 #. Name
 #: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
 #: Templates/DVDROM-Device.desktop:12 Templates/ZIP-Device.desktop:12
 msgid "Eject"
-msgstr "CD-ს ამოღება"
+msgstr "CD-ის ამოღება"
 
 #. Name
 #: Templates/Directory.desktop:2
@@ -116,7 +116,7 @@ msgstr "HTML ფაილი..."
 #. Comment
 #: Templates/HTMLFile.desktop:3
 msgid "Enter HTML filename:"
-msgstr "HTML ფაილის სახელი შეიყვანეთ:"
+msgstr "შეიყვანეთ HTML ფაილის სახელი:"
 
 #. Name
 #: Templates/TextFile.desktop:2
@@ -131,7 +131,7 @@ msgstr "შეიყვანეთ ტექსტური ფაილის 
 #. Name
 #: Templates/linkCAMERA.desktop:2
 msgid "Camera Device..."
-msgstr "კამერის მოწყობილობა "
+msgstr "კამერის მოწყობილობა..."
 
 #. Comment
 #: Templates/linkCAMERA.desktop:3
@@ -141,7 +141,7 @@ msgstr "ახალი კამერა"
 #. Name
 #: Templates/linkCDROM.desktop:2
 msgid "CD-ROM Device..."
-msgstr "CD-ROM მოწყობილობა"
+msgstr "CD-ROM მოწყობილობა..."
 
 #. Comment
 #: Templates/linkCDROM.desktop:3
@@ -151,7 +151,7 @@ msgstr "ახალი CD-ROM მოწყობილობა"
 #. Name
 #: Templates/linkCDWRITER.desktop:2
 msgid "CDWRITER Device..."
-msgstr "CDWRITER მოწყობილობა"
+msgstr "CDWRITER მოწყობილობა..."
 
 #. Comment
 #: Templates/linkCDWRITER.desktop:3
@@ -161,7 +161,7 @@ msgstr "ახალი CDWRITER მოწყობილობა"
 #. Name
 #: Templates/linkDVDROM.desktop:2
 msgid "DVD-ROM Device..."
-msgstr "DVD-ROM მოწყობილობა"
+msgstr "DVD-ROM მოწყობილობა..."
 
 #. Comment
 #: Templates/linkDVDROM.desktop:3
@@ -171,27 +171,27 @@ msgstr "ახალი DVD-ROM მოწყობილობა"
 #. Name
 #: Templates/linkFloppy.desktop:2
 msgid "Floppy Device..."
-msgstr "დრეკადი დისკის წამყვანი"
+msgstr "დისკეტა..."
 
 #. Comment
 #: Templates/linkFloppy.desktop:3
 msgid "New Floppy Device"
-msgstr "ახალი დრეკადი დისკის წამყვანი"
+msgstr "ახალი დისკეტის მოწყობილობა"
 
 #. Name
 #: Templates/linkHD.desktop:2
 msgid "Hard Disc Device..."
-msgstr "ხისტი დისკი..."
+msgstr "მყარი დისკის მოწყობილობა..."
 
 #. Comment
 #: Templates/linkHD.desktop:3
 msgid "New Hard Disc"
-msgstr "ახალი ხისტი დისკი"
+msgstr "ახალი მყარი დისკი"
 
 #. Name
 #: Templates/linkMO.desktop:2
 msgid "MO Device..."
-msgstr "MO მოწყობილობა"
+msgstr "MO მოწყობილობა..."
 
 #. Comment
 #: Templates/linkMO.desktop:3
@@ -201,7 +201,7 @@ msgstr "ახალი MO მოწყობილობა"
 #. Name
 #: Templates/linkNFS.desktop:2
 msgid "NFS..."
-msgstr ""
+msgstr "NFS..."
 
 #. Comment
 #: Templates/linkNFS.desktop:3
@@ -221,12 +221,12 @@ msgstr "პროგრამის ახალი ბმული"
 #. Name
 #: Templates/linkURL.desktop:2
 msgid "Link to Location (URL)..."
-msgstr "ადგილმდებარეობის ბმული (URL)..."
+msgstr "მდებარეობის ბმული (URL)..."
 
 #. Comment
 #: Templates/linkURL.desktop:3
 msgid "Enter link to location (URL):"
-msgstr "შეიყვანეთ პროგრამის ბმული ბმული (URL)"
+msgstr "შეიყვანეთ პროგრამის ბმული (URL):"
 
 #. Name
 #: Templates/linkZIP.desktop:2
@@ -241,23 +241,23 @@ msgstr "ახალი ZIP მოწყობილობა"
 #. Name
 #: Trash:8
 msgid "Trash"
-msgstr "ურნა"
+msgstr "ნაგვის ყუთი"
 
 #. Comment
 #: Trash:10
 msgid "Contains removed files"
-msgstr ""
+msgstr "შეიცავს წაშლილ ფაილებს"
 
 #. Name
 #. GenericName
 #: Web_Browser:6 Web_Browser:8
 msgid "Web Browser"
-msgstr ""
+msgstr "ვებ ბრაუზერი"
 
 #. Comment
 #: Web_Browser:10
 msgid "Browse the World Wide Web"
-msgstr ""
+msgstr "მუშაობა ინტერნეტში"
 
 #. Name
 #: directory.autostart:3
@@ -267,7 +267,7 @@ msgstr "ავტოგაშვება"
 #. Name
 #: directory.desktop:5
 msgid "Desktop"
-msgstr "სამუშაო დაფა"
+msgstr "სამუშაო მაგიდა"
 
 #. Name
 #: directory.templates:3

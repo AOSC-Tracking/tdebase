@@ -1,40 +1,41 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-21 18:11+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/klipper-desktop-files/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: copy-full-path.desktop:6
 msgid "Copy full path"
-msgstr ""
+msgstr "სრული ბილიკის კოპირება"
 
 #. Name
 #: klipper.desktop:2
 msgid "Klipper"
-msgstr ""
+msgstr "Klipper"
 
 #. GenericName
 #: klipper.desktop:4
 msgid "Clipboard Tool"
-msgstr "გაცვლის ბუფერის უტილიტა"
+msgstr "გაცვლის ბუფერის პროგრამა"
 
 #. Comment
 #: klipper.desktop:6
 msgid "A cut & paste history utility"
-msgstr ""
+msgstr "ამოჭრის და ჩასმის ისტორიის პროგრამა"
 
 #. Description
 #: klipperrc.desktop:9
@@ -44,7 +45,7 @@ msgstr "jpeg გამოსახულება"
 #. Description
 #: klipperrc.desktop:14
 msgid "Launch K&View"
-msgstr "K&View გაშვება"
+msgstr "K&View-ის გაშვება"
 
 #. Description
 #: klipperrc.desktop:19
@@ -65,7 +66,7 @@ msgstr "&Mozilla-ში გასნა"
 #: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
 #: klipperrc.desktop:131
 msgid "Send &URL"
-msgstr "&URL-ს გაგზავნა"
+msgstr "&URL-ის გაგზავნა"
 
 #. Description
 #: klipperrc.desktop:40
@@ -80,7 +81,7 @@ msgstr "&გვერდის გაგზავნა"
 #. Description
 #: klipperrc.desktop:51
 msgid "Mail-URL"
-msgstr ""
+msgstr "ელფოსტის მისამართი"
 
 #. Description
 #: klipperrc.desktop:56
@@ -120,7 +121,7 @@ msgstr "&ფაილის გაგზავნა"
 #. Description
 #: klipperrc.desktop:96
 msgid "Gopher URL"
-msgstr "Gopher ბმული"
+msgstr "Gopher-ის ბმული"
 
 #. Description
 #: klipperrc.desktop:111
@@ -130,4 +131,4 @@ msgstr "FTP ბმული"
 #. Description
 #: klipperrc.desktop:121
 msgid "Open with &Netscape"
-msgstr "&Netscape-სი გახსნა"
+msgstr "&Netscape-ით გახსნა"

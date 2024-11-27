@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/applnk-compat/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: battery.desktop:2 bwarning.desktop:2 cwarning.desktop:2 power.desktop:2
 msgid "Laptop"
-msgstr "ლეპტოპი"
+msgstr "ნოუთბუქი"
 
 #. Name
 #: email.desktop:10
@@ -29,8 +30,7 @@ msgstr "ელფოსტა"
 #. Comment
 #: email.desktop:11
 msgid "Configure your identity, email addresses, mail servers, etc."
-msgstr ""
-"თქვენი ვინაობის, ელფოსტის მისამართის, ელფოსტის სერვერების, და ა.ს. შეყვანა"
+msgstr "მოირგეთ თქვენი ვინაობა, ელფოსტის მისამართი, ელფოსტის სერვერები და ა.შ."
 
 #. Keywords
 #: email.desktop:13
@@ -43,23 +43,23 @@ msgstr ""
 "ელ-ფოსტა; ფოსტა; ელფოსტა; მისამართი; საფოსტო სერვერი; IMAP; POP3; ლოკალური "
 "საფოსტო ყუთი; საფოსტო ყუთი; ინფორმაცია მომხმარებლის შესახებ; მიმღების "
 "მისამართი; ინფორმაცია სერველის შესახებ; მომხმარებლის სახელი; პაროლები; "
-"ჰოსტი; ახლანდელი პროფილი; პროფილი; ორგანიზაცია; შემომავალი ჰოსტი; გამავალი "
-"ჰოსტი; საფოსტო კლიენტი;"
+"ჰოსტი; ახლანდელი პროფილი; ორგანიზაცია; შემომავალი ჰოსტი; გამავალი ჰოსტი; "
+"საფოსტო კლიენტი;"
 
 #. Name
 #: kcmkonq.desktop:2
 msgid "File Manager"
-msgstr "ფაილთა მენჯერი"
+msgstr "ფაილების მმართველი"
 
 #. Name
 #: kcmkxmlrpcd.desktop:2
 msgid "XML RPC Daemon"
-msgstr "XML RPC–ის გუშაგი"
+msgstr "XML RPC–ის დემონი"
 
 #. Name
 #: konqhtml.desktop:2
 msgid "Konqueror Browser"
-msgstr "Konqueror"
+msgstr "ბრაუზერი Konqueror"
 
 #. Name
 #: passwords.desktop:11
@@ -69,7 +69,7 @@ msgstr "პაროლები"
 #. Comment
 #: passwords.desktop:13
 msgid "Configure password settings"
-msgstr "პაროლების კონფიგურაცია"
+msgstr "პაროლის პარამეტრების მორგება"
 
 #. Keywords
 #: passwords.desktop:15
@@ -80,7 +80,7 @@ msgstr ""
 #. Name
 #: socks.desktop:2
 msgid "Socks"
-msgstr ""
+msgstr "Socks"
 
 #. Name
 #: userinfo.desktop:13
@@ -103,4 +103,4 @@ msgstr ""
 #. Name
 #: virtualdesktops.desktop:2
 msgid "Virtual Desktops"
-msgstr "ვირტუალური სამუშაო დაფა"
+msgstr "ვირტუალური სამუშაო მაგიდები"

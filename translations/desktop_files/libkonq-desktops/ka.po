@@ -1,42 +1,43 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-22 18:52+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/libkonq-desktop-files/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: directory_bookmarkbar.desktop:3
 msgid "Bookmark Toolbar"
-msgstr "სანიშნეთა პანელი"
+msgstr "სანიშნეების პანელი"
 
 #. Name
 #: favicons/favicons.desktop:3
 msgid "KDED Favicon Module"
-msgstr "KDED Favicon მოდული"
+msgstr "KDED-ის Favicon მოდული"
 
 #. Comment
 #: favicons/favicons.desktop:4
 msgid "Shortcut icon support"
-msgstr "მალმხმობი ხატულების მხარდაჭერა"
+msgstr "მალსახმობის ხატულების მხარდაჭერა"
 
 #. Comment
 #: konqpopupmenuplugin.desktop:4
 msgid "Plugin for the Konqueror Popup Menu"
-msgstr "Konqueror-ის ჩამოშლადი მენიუს პლაგინი"
+msgstr "Konqueror-ის მხტუნარა მენიუს დამატება"
 
 #. Name
 #: servicemenus/edit-as-root.desktop:6
 msgid "Edit as system administrator"
-msgstr ""
+msgstr "ჩასწორება ადმინის სახელით"
