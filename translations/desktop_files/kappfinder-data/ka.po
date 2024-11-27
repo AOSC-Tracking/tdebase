@@ -1,30 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kappfinder-data/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Development/Forte.desktop:2
 msgid "Forte"
-msgstr ""
+msgstr "ფორტე"
 
 #. GenericName
 #: Development/Forte.desktop:3
 msgid "Java IDE"
-msgstr ""
+msgstr "Java IDE"
 
 #. Name
 #: Development/assistant.desktop:2
@@ -39,17 +40,17 @@ msgstr "დოკუმენტის ბრაუზერი"
 #. Name
 #: Development/ddd.desktop:2
 msgid "DDD"
-msgstr ""
+msgstr "DDD"
 
 #. GenericName
 #: Development/ddd.desktop:3
 msgid "Data Display Debugger"
-msgstr "ეკრანის მონაცემთა შემსწორებელი"
+msgstr "ეკრანის მონაცემთა გამმართავი"
 
 #. Name
 #: Development/designer.desktop:2
 msgid "Qt Designer"
-msgstr "Qt დიზაინერი"
+msgstr "Qt Designer"
 
 #. GenericName
 #: Development/designer.desktop:3
@@ -58,9 +59,8 @@ msgstr "ინტერფეისის დიზაინერი"
 
 #. Name
 #: Development/dlgedit.desktop:2
-#, fuzzy
 msgid "Qt DlgEdit"
-msgstr "დიალოგის რედაქტორი"
+msgstr "Qt-ის დიალოგების რედაქტორი"
 
 #. GenericName
 #: Development/dlgedit.desktop:3
@@ -70,22 +70,22 @@ msgstr "დიალოგის რედაქტორი"
 #. Name
 #: Development/eclipse.desktop:3
 msgid "Eclipse"
-msgstr ""
+msgstr "Eclipse"
 
 #. GenericName
 #: Development/eclipse.desktop:4
 msgid "Eclipse IDE"
-msgstr ""
+msgstr "Eclipse IDE"
 
 #. Name
 #: Development/fdesign.desktop:2
 msgid "FormDesigner"
-msgstr "ფორმათა დიზაინერი"
+msgstr "ფორმების დიზაინერი"
 
 #. Name
 #: Development/j2mewtk.desktop:2
 msgid "J2ME"
-msgstr ""
+msgstr "J2ME"
 
 #. GenericName
 #: Development/j2mewtk.desktop:3
@@ -100,12 +100,12 @@ msgstr "Qt ლინგვისტი"
 #. GenericName
 #: Development/linguist.desktop:3
 msgid "Translation Tool"
-msgstr "სათარგმნი ხელსაწყო"
+msgstr "თარგმანის პროგრამა"
 
 #. Name
 #: Development/pose.desktop:2
 msgid "Pose"
-msgstr ""
+msgstr "Pose"
 
 #. GenericName
 #: Development/pose.desktop:3
@@ -115,17 +115,17 @@ msgstr "Palm/Wireless–ის ემულატორი"
 #. Name
 #: Development/sced.desktop:2
 msgid "Sced"
-msgstr ""
+msgstr "Sced"
 
 #. GenericName
 #: Development/sced.desktop:3
 msgid "Scene Modeler"
-msgstr ""
+msgstr "სცენების მოდელერი"
 
 #. Name
 #: Games/Arcade/ClanBomber.desktop:2
 msgid "ClanBomber"
-msgstr ""
+msgstr "ClanBomber"
 
 #. GenericName
 #: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
@@ -136,42 +136,42 @@ msgstr ""
 #: Games/Board/Gataxx.desktop:3 Games/Board/Gnotravex.desktop:3
 #: Games/penguin-command.desktop:4
 msgid "Arcade Game"
-msgstr "Arcade თამაშები"
+msgstr "არკადული თამაშები"
 
 #. Name
 #: Games/Arcade/FrozenBubble.desktop:2
 msgid "Frozen Bubble"
-msgstr ""
+msgstr "გაყინული ბუშტი"
 
 #. GenericName
 #: Games/Arcade/FrozenBubble.desktop:3
 msgid "Tetris-Like Game"
-msgstr "თეთრისის მსგავსი თამაშები"
+msgstr "ტეტრისის მსგავსი თამაშები"
 
 #. Name
 #: Games/Arcade/Gnibbles.desktop:2
 msgid "Gnibbles"
-msgstr ""
+msgstr "Gnibbles"
 
 #. GenericName
 #: Games/Arcade/Gnibbles.desktop:3
 msgid "GNOME Nibbles Game"
-msgstr "თამაში GNOME  Nibbles"
+msgstr "თამაში GNOME Nibbles"
 
 #. Name
 #: Games/Arcade/GnobotsII.desktop:2
 msgid "Gnobots II"
-msgstr ""
+msgstr "Gnobots II"
 
 #. Name
 #: Games/Arcade/Mures.desktop:2
 msgid "Mures"
-msgstr ""
+msgstr "Mures"
 
 #. Name
 #: Games/Arcade/SuperMethaneBrothers.desktop:2
 msgid "Super Methane Brothers"
-msgstr ""
+msgstr "სუპერმეთანი ძმები"
 
 #. Name
 #: Games/Arcade/Trophy.desktop:2
@@ -181,32 +181,32 @@ msgstr "ჯილდო"
 #. Name
 #: Games/Arcade/TuxRacer.desktop:2
 msgid "TuxRacer"
-msgstr "Tux რბოლა"
+msgstr "TuxRacer"
 
 #. GenericName
 #: Games/Arcade/TuxRacer.desktop:3
 msgid "Racing Game"
-msgstr "თამაში რბოლა"
+msgstr "რბოლა"
 
 #. Name
 #: Games/Arcade/XKobo.desktop:2
 msgid "XKobo"
-msgstr ""
+msgstr "XKobo"
 
 #. Name
 #: Games/Arcade/XSoldier.desktop:2
 msgid "XSoldier"
-msgstr ""
+msgstr "XSoldier"
 
 #. Name
 #: Games/Arcade/alephone-nogl.desktop:2
 msgid "Alephone"
-msgstr ""
+msgstr "Alephone"
 
 #. Comment
 #: Games/Arcade/alephone-nogl.desktop:3
 msgid "An open source version of Marathon Infinity for SDL"
-msgstr "Marathon Infinity–ს ღია კოდის ვერსია SDL–ისათვის"
+msgstr "Marathon Infinity–ს ღია კოდის მქონე ვერსია SDL–ისათვის"
 
 #. Name
 #: Games/Arcade/alephone.desktop:2
@@ -229,37 +229,37 @@ msgstr "ბატალიონი"
 #. Name
 #: Games/Arcade/battleball.desktop:2
 msgid "Battleball"
-msgstr ""
+msgstr "Battleball"
 
 #. GenericName
 #: Games/Arcade/battleball.desktop:3
 msgid "Ball Game"
-msgstr "თამაშები ბურთით"
+msgstr "თამაში ბურთით"
 
 #. Name
 #: Games/Arcade/cxhextris.desktop:2
 msgid "cxhextris"
-msgstr ""
+msgstr "cxhextris"
 
 #. Name
 #: Games/Arcade/rocksndiamonds.desktop:2
 msgid "Rocks n Diamonds"
-msgstr ""
+msgstr "ქვები და ალმასები"
 
 #. GenericName
 #: Games/Arcade/rocksndiamonds.desktop:3 Games/Board/Glines.desktop:3
 msgid "Tactical Game"
-msgstr "ტაქტიკური თამაშები"
+msgstr "ტაქტიკური თამაში"
 
 #. Name
 #: Games/Arcade/scavenger.desktop:2
 msgid "Scavenger"
-msgstr ""
+msgstr "Scavenger"
 
 #. Name
 #: Games/Board/Gataxx.desktop:2
 msgid "Gataxx"
-msgstr ""
+msgstr "Gataxx"
 
 #. Name
 #: Games/Board/Gchess.desktop:2
@@ -269,7 +269,7 @@ msgstr "GNOME ჭადრაკი"
 #. Name
 #: Games/Board/Glines.desktop:2
 msgid "Glines"
-msgstr ""
+msgstr "Glines"
 
 #. Name
 #: Games/Board/Gmahjongg.desktop:2
@@ -279,7 +279,7 @@ msgstr "GNOME მა-ჯონგი"
 #. GenericName
 #: Games/Board/Gmahjongg.desktop:3
 msgid "Tile Game"
-msgstr "თამაშები ფილებით"
+msgstr "თამაში ფილებით"
 
 #. Name
 #: Games/Board/Gmines.desktop:2
@@ -289,17 +289,17 @@ msgstr "GNOME გამნაღმვნელი"
 #. GenericName
 #: Games/Board/Gmines.desktop:3
 msgid "Logic Game"
-msgstr "თამაშები ლოგიკაზე "
+msgstr "ლოგიკური თამაში"
 
 #. Name
 #: Games/Board/Gnotravex.desktop:2
 msgid "Gnotravex"
-msgstr ""
+msgstr "Gnotravex"
 
 #. Name
 #: Games/Board/Gnotski.desktop:2
 msgid "Gnotski"
-msgstr ""
+msgstr "Gnotski"
 
 #. GenericName
 #: Games/Board/Gnotski.desktop:3
@@ -314,7 +314,7 @@ msgstr "GNOME ქვები"
 #. Name
 #: Games/Board/Iagno.desktop:2
 msgid "Iagno"
-msgstr ""
+msgstr "Iagno"
 
 #. GenericName
 #: Games/Board/Iagno.desktop:3 Games/Board/SameGnome.desktop:3
@@ -325,18 +325,17 @@ msgstr "სამაგიდო თამაშები"
 #. Name
 #: Games/Board/SameGnome.desktop:2
 msgid "Same GNOME"
-msgstr ""
+msgstr "Same GNOME"
 
 #. Name
 #: Games/Board/Xgammon.desktop:2
 msgid "Xgammon"
-msgstr ""
+msgstr "Xgammon"
 
 #. Name
 #: Games/Board/xboard.desktop:2
-#, fuzzy
 msgid "Xboard"
-msgstr "X გაცვლის ბუფერი"
+msgstr "Xboard"
 
 #. GenericName
 #: Games/Board/xboard.desktop:3
@@ -346,39 +345,38 @@ msgstr "ჭადრაკი"
 #. Name
 #: Games/Card/AisleRiot.desktop:2
 msgid "AisleRiot"
-msgstr ""
+msgstr "AisleRiot"
 
 #. GenericName
 #: Games/Card/AisleRiot.desktop:3 Games/Card/FreeCell.desktop:3
 #: Games/Card/PySol.desktop:3 Games/Card/XPat2.desktop:3
 msgid "Card Game"
-msgstr "თამაშები ბანქოთი"
+msgstr "ბანქოს თამაში"
 
 #. Name
 #: Games/Card/FreeCell.desktop:2
 msgid "FreeCell"
-msgstr ""
+msgstr "FreeCell"
 
 #. Name
 #: Games/Card/PySol.desktop:2
 msgid "PySol"
-msgstr ""
+msgstr "PySol"
 
 #. Name
 #: Games/Card/XPat2.desktop:2
 msgid "XPat 2"
-msgstr ""
+msgstr "XPat 2"
 
 #. Name
 #: Games/Clanbomber.desktop:2
 msgid "Clanbomber"
-msgstr ""
+msgstr "Clanbomber"
 
 #. Name
 #: Games/Emulators/cmail.desktop:2
-#, fuzzy
 msgid "ChessMail"
-msgstr "ჭადრაკი"
+msgstr "ChessMail"
 
 #. GenericName
 #: Games/Emulators/cmail.desktop:3
@@ -388,27 +386,27 @@ msgstr "ელფოსტა ჭადრაკისათვის"
 #. Name
 #: Games/Emulators/qmamecat.desktop:2
 msgid "Qmamecat"
-msgstr ""
+msgstr "Qmamecat"
 
 #. GenericName
 #: Games/Emulators/qmamecat.desktop:3
 msgid "Arcade Emulator"
-msgstr "ემულატორი Arcade თამაშებისათვის"
+msgstr "ემულატორი არკადებისთვის"
 
 #. Name
 #: Games/GTali.desktop:2
 msgid "GTali"
-msgstr ""
+msgstr "GTali"
 
 #. GenericName
 #: Games/GTali.desktop:3
 msgid "Dice Game"
-msgstr "თამაშები კამათელით"
+msgstr "თამაშები კამათლით"
 
 #. Name
 #: Games/Roguelikes/angband.desktop:2
 msgid "Angband"
-msgstr ""
+msgstr "Angband"
 
 #. Comment
 #: Games/Roguelikes/angband.desktop:3
@@ -428,7 +426,7 @@ msgstr "გაემართეთ მორიაში და დაამა
 #. Name
 #: Games/Roguelikes/nethack.desktop:2
 msgid "NetHack"
-msgstr ""
+msgstr "NetHack"
 
 #. GenericName
 #: Games/Roguelikes/nethack.desktop:3 Games/Roguelikes/tome.desktop:3
@@ -438,23 +436,22 @@ msgstr "სათავგადასავლო თამაშები"
 #. Name
 #: Games/Roguelikes/rogue.desktop:2
 msgid "Rogue"
-msgstr ""
+msgstr "Rogue"
 
 #. GenericName
 #: Games/Roguelikes/rogue.desktop:3
-#, fuzzy
 msgid "The Original"
-msgstr "ტერმინალი"
+msgstr "ორიგინალი"
 
 #. Name
 #: Games/Roguelikes/tome.desktop:2
 msgid "ToME"
-msgstr ""
+msgstr "ToME"
 
 #. Name
 #: Games/Roguelikes/zangband.desktop:2
 msgid "ZAngband"
-msgstr ""
+msgstr "ZAngband"
 
 #. GenericName
 #: Games/Roguelikes/zangband.desktop:3
@@ -464,7 +461,7 @@ msgstr "დაამარხეთ ქაოსის გველი"
 #. Name
 #: Games/TacticStrategy/freeciv.desktop:3
 msgid "Freeciv"
-msgstr ""
+msgstr "Freeciv"
 
 #. GenericName
 #: Games/TacticStrategy/freeciv.desktop:4 Games/xshipwars.desktop:4
@@ -484,7 +481,7 @@ msgstr "სერვერი FreeCiv–ისთვის"
 #. Name
 #: Games/TacticStrategy/xscorch.desktop:3
 msgid "XScorch"
-msgstr ""
+msgstr "XScorch"
 
 #. Comment
 #: Games/TacticStrategy/xscorch.desktop:4
@@ -494,22 +491,22 @@ msgstr "თავისუფალი კლონი Scorched Earth, UNIX–�
 #. Name
 #: Games/Toys/xeyes.desktop:2
 msgid "X Eyes"
-msgstr ""
+msgstr "X Eyes"
 
 #. Name
 #: Games/Toys/xpinguin.desktop:2
 msgid "Tux"
-msgstr ""
+msgstr "Tux"
 
 #. GenericName
 #: Games/Toys/xpinguin.desktop:3
 msgid "Linux Mascot"
-msgstr ""
+msgstr "Linux-ის თილისმა"
 
 #. Name
 #: Games/defendguin.desktop:3
 msgid "Defendguin"
-msgstr ""
+msgstr "Defendguin"
 
 #. GenericName
 #: Games/defendguin.desktop:4
@@ -519,17 +516,17 @@ msgstr "თამაში"
 #. Name
 #: Games/penguin-command.desktop:3
 msgid "Penguin Command"
-msgstr ""
+msgstr "პინგვინის ბრძანება"
 
 #. Name
 #: Games/xshipwars.desktop:3
 msgid "XShipWars"
-msgstr ""
+msgstr "XShipWars"
 
 #. Name
 #: Graphics/ElectricEyes.desktop:2
 msgid "Electric Eyes"
-msgstr ""
+msgstr "ელექტროთვალები"
 
 #. GenericName
 #: Graphics/ElectricEyes.desktop:3
@@ -539,7 +536,7 @@ msgstr "გამოსახულებების სანახავი �
 #. Name
 #: Graphics/GPhoto.desktop:2
 msgid "GPhoto"
-msgstr ""
+msgstr "GPhoto"
 
 #. GenericName
 #: Graphics/GPhoto.desktop:3
@@ -559,7 +556,7 @@ msgstr "ხატულების რედაქტორი GNOME–ში"
 #. Name
 #: Graphics/Gqview.desktop:2
 msgid "Gqview"
-msgstr ""
+msgstr "Gqview"
 
 #. GenericName
 #: Graphics/Gqview.desktop:3
@@ -569,17 +566,17 @@ msgstr "ბრაუზერი გამოსახულებების �
 #. Name
 #: Graphics/Sketch.desktop:2
 msgid "Sketch"
-msgstr ""
+msgstr "Sketch"
 
 #. GenericName
 #: Graphics/Sketch.desktop:3
 msgid "Vector-based Drawing Program"
-msgstr "პროგრამა ვექტორული გრაფიკისათვის"
+msgstr "პროგრამა ვექტორული გრაფიკისთვის"
 
 #. Name
 #: Graphics/Xpcd.desktop:2
 msgid "Xpcd"
-msgstr ""
+msgstr "Xpcd"
 
 #. GenericName
 #: Graphics/Xpcd.desktop:3
@@ -589,7 +586,7 @@ msgstr "PhotoCD–ს ხელსაწყოები"
 #. Name
 #: Graphics/Xwpick.desktop:2
 msgid "Xwpick"
-msgstr ""
+msgstr "Xwpick"
 
 #. GenericName
 #: Graphics/Xwpick.desktop:3
@@ -599,7 +596,7 @@ msgstr "პროგრამა ეკრანის გადასაღე�
 #. Name
 #: Graphics/bitmap.desktop:2
 msgid "X Bitmap"
-msgstr ""
+msgstr "X Bitmap"
 
 #. GenericName
 #: Graphics/bitmap.desktop:3
@@ -609,17 +606,17 @@ msgstr "რასტრული გამოსახულებების �
 #. Name
 #: Graphics/blender.desktop:2
 msgid "Blender"
-msgstr ""
+msgstr "Blender"
 
 #. GenericName
 #: Graphics/blender.desktop:3
 msgid "3D Modeler/Renderer"
-msgstr "3D მოდელიორი/ამსახველი"
+msgstr "3D მოდელიორი/რენდერერი"
 
 #. Name
 #: Graphics/ghostview.desktop:2
 msgid "GhostView"
-msgstr ""
+msgstr "GhostView"
 
 #. GenericName
 #: Graphics/ghostview.desktop:3
@@ -629,7 +626,7 @@ msgstr "PostScript–ის სანახავი პროგრამა"
 #. Name
 #: Graphics/gimp.desktop:2
 msgid "Gimp"
-msgstr ""
+msgstr "Gimp"
 
 #. GenericName
 #: Graphics/gimp.desktop:3
@@ -639,7 +636,7 @@ msgstr "გამოსახულებებთან მუშაობი�
 #. Name
 #: Graphics/gv.desktop:2
 msgid "GV"
-msgstr ""
+msgstr "GV"
 
 #. GenericName
 #: Graphics/gv.desktop:3
@@ -649,7 +646,7 @@ msgstr "პროგრამა Postscript–ის სანახავად
 #. Name
 #: Graphics/inkscape.desktop:2
 msgid "Inkscape"
-msgstr ""
+msgstr "Inkscape"
 
 #. GenericName
 #: Graphics/inkscape.desktop:3 Graphics/sodipodi.desktop:3
@@ -659,12 +656,12 @@ msgstr "ვექტორული გრაფიკა"
 #. Name
 #: Graphics/sodipodi.desktop:2
 msgid "Sodipodi"
-msgstr ""
+msgstr "Sodipodi"
 
 #. Name
 #: Graphics/tgif.desktop:2
 msgid "TGif"
-msgstr ""
+msgstr "TGif"
 
 #. GenericName
 #: Graphics/tgif.desktop:3 Graphics/xfig.desktop:3
@@ -674,22 +671,22 @@ msgstr "სახატავი პროგრამა"
 #. Name
 #: Graphics/xdvi.desktop:2
 msgid "X DVI"
-msgstr ""
+msgstr "X DVI"
 
 #. GenericName
 #: Graphics/xdvi.desktop:3
 msgid "DVI Viewer"
-msgstr "პროგრამა DVI–ის სანახავდ"
+msgstr "პროგრამა DVI–ის სანახავად"
 
 #. Name
 #: Graphics/xfig.desktop:2
 msgid "Xfig"
-msgstr ""
+msgstr "Xfig"
 
 #. Name
 #: Graphics/xpaint.desktop:2
 msgid "X Paint"
-msgstr ""
+msgstr "X Paint"
 
 #. GenericName
 #: Graphics/xpaint.desktop:3
@@ -699,7 +696,7 @@ msgstr "სახატავი პროგრამა"
 #. Name
 #: Graphics/xv.desktop:2
 msgid "XV"
-msgstr ""
+msgstr "XV"
 
 #. GenericName
 #: Graphics/xv.desktop:3
@@ -709,7 +706,7 @@ msgstr "გამოსახულებების სანახავი �
 #. Name
 #: Internet/BlueFish.desktop:2
 msgid "BlueFish"
-msgstr ""
+msgstr "BlueFish"
 
 #. GenericName
 #: Internet/BlueFish.desktop:3
@@ -719,7 +716,7 @@ msgstr "HTML რედაქტორი"
 #. Name
 #: Internet/Dpsftp.desktop:2
 msgid "Dpsftp"
-msgstr ""
+msgstr "Dpsftp"
 
 #. GenericName
 #: Internet/Dpsftp.desktop:3 Internet/gFTP.desktop:3 Internet/xftp.desktop:3
@@ -729,17 +726,17 @@ msgstr "FTP-ბრაუზერი"
 #. Name
 #: Internet/DrakSync.desktop:2
 msgid "DrakSync"
-msgstr ""
+msgstr "DrakSync"
 
 #. GenericName
 #: Internet/DrakSync.desktop:3
 msgid "Folder Synchronization"
-msgstr "საქაღალდეთა სინქრონიზება"
+msgstr "საქაღალდის სინქრონიზება"
 
 #. Name
 #: Internet/Evolution.desktop:2
 msgid "Evolution"
-msgstr ""
+msgstr "Evolution"
 
 #. GenericName
 #: Internet/Evolution.desktop:3 Internet/Netscapemessenger.desktop:3
@@ -747,12 +744,12 @@ msgstr ""
 #: Internet/Terminal/pine.desktop:3 Internet/balsa.desktop:3
 #: Internet/mozilla-thunderbird.desktop:3 Internet/xfmail.desktop:3
 msgid "Mail Client"
-msgstr "ფოსტა"
+msgstr "ელფოსტის კლიენტი"
 
 #. Name
 #: Internet/Faces.desktop:2
 msgid "Faces"
-msgstr ""
+msgstr "Faces"
 
 #. GenericName
 #: Internet/Faces.desktop:3 Internet/coolmail.desktop:3
@@ -762,19 +759,18 @@ msgstr "ფოსტის განგაში"
 
 #. Name
 #: Internet/Fetchmailconf.desktop:2
-#, fuzzy
 msgid "Fetchmailconf"
-msgstr "fetchmai–ისl  კონფიგურაცია"
+msgstr "fetchmai–ისl მორგება"
 
 #. GenericName
 #: Internet/Fetchmailconf.desktop:3
 msgid "Fetchmail Configuration"
-msgstr "fetchmai–ისl  კონფიგურაცია"
+msgstr "Fetchmai–ისl მორგება"
 
 #. Name
 #: Internet/Gabber.desktop:2
 msgid "Gabber"
-msgstr ""
+msgstr "Gabber"
 
 #. GenericName
 #: Internet/Gabber.desktop:3 Internet/gaim.desktop:3
@@ -784,7 +780,7 @@ msgstr "მყისი შეტყობინება"
 #. Name
 #: Internet/Galeon.desktop:2
 msgid "Galeon"
-msgstr ""
+msgstr "Galeon"
 
 #. GenericName
 #: Internet/Galeon.desktop:3 Internet/Terminal/Links.desktop:3
@@ -798,14 +794,13 @@ msgstr "ვებ–ბრაუზერი"
 
 #. Name
 #: Internet/GnomeICU.desktop:2
-#, fuzzy
 msgid "GNOMEICU"
-msgstr "GNOME ჭადრაკი"
+msgstr "GNOMEICU"
 
 #. GenericName
 #: Internet/GnomeICU.desktop:3 Internet/licq.desktop:3
 msgid "ICQ Messenger"
-msgstr "ICQ შემმტყობინებელი"
+msgstr "ICQ"
 
 #. Name
 #: Internet/Netscapemessenger.desktop:2
@@ -815,7 +810,7 @@ msgstr "Netscape შემმტყობინებელი"
 #. Name
 #: Internet/Nmapfe.desktop:2
 msgid "Nmapfe"
-msgstr ""
+msgstr "Nmapfe"
 
 #. GenericName
 #: Internet/Nmapfe.desktop:3
@@ -825,27 +820,27 @@ msgstr "პორტების სკანერი"
 #. Name
 #: Internet/Pan.desktop:2
 msgid "Pan"
-msgstr ""
+msgstr "Pan"
 
 #. GenericName
 #: Internet/Pan.desktop:3 Internet/knews.desktop:3
 msgid "Usenet News Reader"
-msgstr "ახალიამბების საკითხავი პროგრამა"
+msgstr "ახალი ამბების საკითხავი პროგრამა"
 
 #. Name
 #: Internet/Sylpheed.desktop:2
 msgid "Sylpheed"
-msgstr ""
+msgstr "Sylpheed"
 
 #. Name
 #: Internet/Terminal/Links.desktop:2
 msgid "Links"
-msgstr ""
+msgstr "ბმულები"
 
 #. Name
 #: Internet/Terminal/Lynx.desktop:2
 msgid "Lynx"
-msgstr ""
+msgstr "Lynx"
 
 #. Name
 #: Internet/Terminal/btdownloadcurses.desktop:2
@@ -856,12 +851,12 @@ msgstr "BitTorrent–ის ინტერფეისი python/curses–ზ�
 #: Internet/Terminal/btdownloadcurses.desktop:3
 #: Internet/btdownloadgui.desktop:3
 msgid "BitTorrent GUI"
-msgstr "გრაფიკული BitTorrent"
+msgstr "BitTorrent-ის გრაფიკული ინტერფეისი"
 
 #. Name
 #: Internet/Terminal/lftp.desktop:2
 msgid "Lftp"
-msgstr ""
+msgstr "Lftp"
 
 #. GenericName
 #: Internet/Terminal/lftp.desktop:3 Internet/Terminal/ncftp.desktop:3
@@ -871,73 +866,72 @@ msgstr "FTP კლიენტი"
 #. Name
 #: Internet/Terminal/mutt.desktop:2
 msgid "Mutt"
-msgstr ""
+msgstr "Mutt"
 
 #. Name
 #: Internet/Terminal/ncftp.desktop:2
 msgid "NcFTP"
-msgstr ""
+msgstr "NcFTP"
 
 #. Name
 #: Internet/Terminal/pine.desktop:2
 msgid "Pine"
-msgstr ""
+msgstr "Pine"
 
 #. Name
 #: Internet/Terminal/silc.desktop:2
 msgid "Silc"
-msgstr ""
+msgstr "Silc"
 
 #. GenericName
 #: Internet/Terminal/silc.desktop:3
 msgid "SILC Client"
-msgstr "SILC  კლიენტი"
+msgstr "SILC კლიენტი"
 
 #. Name
 #: Internet/Terminal/slrn.desktop:2
 msgid "Slrn"
-msgstr ""
+msgstr "Slrn"
 
 #. GenericName
 #: Internet/Terminal/slrn.desktop:3
-#, fuzzy
 msgid "News Reader"
-msgstr "ახალიამბების საკითხავი პროგრამა"
+msgstr "ახალი ამბების საკითხავი პროგრამა"
 
 #. Name
 #: Internet/Terminal/w3m.desktop:2
 msgid "w3m"
-msgstr ""
+msgstr "w3m"
 
 #. Name
 #: Internet/arena.desktop:2
 msgid "Arena"
-msgstr ""
+msgstr "Arena"
 
 #. Name
 #: Internet/balsa.desktop:2
 msgid "Balsa"
-msgstr ""
+msgstr "Balsa"
 
 #. Name
 #: Internet/btdownloadgui.desktop:2
 msgid "BitTorrent Python wxGTK GUI"
-msgstr "გრაფიკული BitTorrent"
+msgstr "Python wxGTK-ზე დაწერილი გრაფიკული ინტერფეისი BitTorrent-სთვის"
 
 #. Name
 #: Internet/coolmail.desktop:2
 msgid "Coolmail"
-msgstr ""
+msgstr "Coolmail"
 
 #. Name
 #: Internet/dc_gui.desktop:2
 msgid "DCTC GUI"
-msgstr ""
+msgstr "DCTC GUI"
 
 #. GenericName
 #: Internet/dc_gui.desktop:3
 msgid "Direct Connect Clone"
-msgstr "კლონი Direct Connect"
+msgstr "Direct Connect-ის კლონი"
 
 #. Name
 #: Internet/ed2k_gui.desktop:2
@@ -947,83 +941,82 @@ msgstr "eDonkey2000 GTK+ ბირთვის კონტროლერი"
 #. GenericName
 #: Internet/ed2k_gui.desktop:3
 msgid "eDonkey2000 GUI"
-msgstr "გრაფიკული eDonkey2000"
+msgstr "eDonkey2000-ის გრაფიკული ინტერფეისი"
 
 #. Name
 #: Internet/epiphany.desktop:2
 msgid "Epiphany"
-msgstr ""
+msgstr "Epiphany"
 
 #. Name
 #: Internet/ethereal.desktop:2
 msgid "Ethereal"
-msgstr ""
+msgstr "Ethereal"
 
 #. GenericName
 #: Internet/ethereal.desktop:3 Internet/wireshark.desktop:3
 msgid "Network Analyzer"
-msgstr "ქსელის ანალიზატორი"
+msgstr "ქსელის ანალიზი"
 
 #. Name
 #: Internet/gFTP.desktop:2
 msgid "gFTP"
-msgstr ""
+msgstr "gFTP"
 
 #. Name
 #: Internet/gaim.desktop:2
 msgid "Gaim"
-msgstr ""
+msgstr "Gaim"
 
 #. Name
 #: Internet/gnomemeeting.desktop:2
 msgid "GnomeMeeting"
-msgstr ""
+msgstr "GnomeMeeting"
 
 #. GenericName
 #: Internet/gnomemeeting.desktop:3
 msgid "Video Conferencing"
-msgstr "ვიდეო კონფერენცია"
+msgstr "ვიდეოკონფერენცია"
 
 #. Name
 #: Internet/gnometalk.desktop:2
 msgid "GNOME Talk"
-msgstr ""
+msgstr "GNOME Talk"
 
 #. Name
 #: Internet/gtelnet.desktop:2
-#, fuzzy
 msgid "GNOME Telnet"
-msgstr "GNOME გამნაღმვნელი"
+msgstr "GNOME Telnet"
 
 #. GenericName
 #: Internet/gtelnet.desktop:3
 msgid "Remote Access"
-msgstr "შორწვდომა"
+msgstr "დაშორებული წვდომა"
 
 #. Name
 #: Internet/ickle.desktop:2
 msgid "ickle"
-msgstr ""
+msgstr "ickle"
 
 #. GenericName
 #: Internet/ickle.desktop:3
 msgid "ICQ2000 Chat"
-msgstr "ICQ2000 ჩეთი"
+msgstr "ICQ2000"
 
 #. Name
 #: Internet/javaws.desktop:2
 msgid "Java Web Start"
-msgstr "Java ვებ დასაწყისი"
+msgstr "ქსელური Java აპლიკაციების გაშვება"
 
 #. Name
 #: Internet/knews.desktop:2
 msgid "KNews"
-msgstr ""
+msgstr "KNews"
 
 #. Name
 #: Internet/licq.desktop:2
 msgid "Licq"
-msgstr ""
+msgstr "Licq"
 
 #. Name
 #: Internet/mldonkey_gui.desktop:2
@@ -1033,74 +1026,72 @@ msgstr "MLDonkey GTK+ ბირთვის კონტროლერი"
 #. GenericName
 #: Internet/mldonkey_gui.desktop:3
 msgid "MLDonkey GUI"
-msgstr "გრაფიკული ინტერფეისი MLDonkey"
+msgstr "MLDonkey-ის გრაფიკული ინტერფეისი"
 
 #. Name
 #: Internet/mozilla-firefox.desktop:2
 msgid "Firefox"
-msgstr ""
+msgstr "Firefox"
 
 #. Name
 #: Internet/mozilla-thunderbird.desktop:2
 msgid "Thunderbird"
-msgstr ""
+msgstr "Thunderbird"
 
 #. Name
 #: Internet/mozilla.desktop:2
 msgid "Mozilla"
-msgstr ""
+msgstr "Mozilla"
 
 #. Name
 #: Internet/netscape.desktop:2
-#, fuzzy
 msgid "Netscape"
-msgstr "Netscape შემმტყობინებელი"
+msgstr "Netscape"
 
 #. Name
 #: Internet/netscape6.desktop:2
 msgid "Netscape6"
-msgstr ""
+msgstr "Netscape6"
 
 #. Name
 #: Internet/opera.desktop:2
 msgid "Opera"
-msgstr ""
+msgstr "Opera"
 
 #. Name
 #: Internet/wireshark.desktop:2
 msgid "Wireshark"
-msgstr ""
+msgstr "Wireshark"
 
 #. Name
 #: Internet/xbiff.desktop:2
 msgid "X Biff"
-msgstr ""
+msgstr "X Biff"
 
 #. Name
 #: Internet/xchat.desktop:2
-#, fuzzy
 msgid "XChat"
-msgstr "IRC ჩეთი"
+msgstr "XChat"
 
 #. GenericName
 #: Internet/xchat.desktop:3
 msgid "IRC Chat"
-msgstr "IRC ჩეთი"
+msgstr "IRC საუბარი"
 
 #. Name
 #: Internet/xfmail.desktop:2
 msgid "XFMail"
-msgstr ""
+msgstr "XFMail"
 
 #. Name
 #: Internet/xftp.desktop:2
 msgid "X FTP"
-msgstr ""
+msgstr "X FTP"
 
 #. Name
 #: Multimedia/Aumix.desktop:2
 msgid "Aumix"
-msgstr ""
+msgstr "Aumix"
 
 #. GenericName
 #: Multimedia/Aumix.desktop:3
@@ -1110,11 +1101,10 @@ msgstr "აუდიო მიქსერი"
 #. Name
 #: Multimedia/Grip.desktop:2
 msgid "Grip"
-msgstr ""
+msgstr "Grip"
 
 #. GenericName
 #: Multimedia/Grip.desktop:3
-#, fuzzy
 msgid "CD Player/Ripper"
 msgstr "DVD დამკვრელი"
 
@@ -1126,19 +1116,19 @@ msgstr "MP3 ინფორმაცია"
 #. Name
 #: Multimedia/XMovie.desktop:2
 msgid "XMovie"
-msgstr ""
+msgstr "XMovie"
 
 #. GenericName
 #: Multimedia/XMovie.desktop:3 Multimedia/mplayer.desktop:3
 #: Multimedia/mtv.desktop:3 Multimedia/realplayer.desktop:3
 #: Multimedia/xine.desktop:3
 msgid "Video Player"
-msgstr "Видео Player"
+msgstr "ვიდეოდამკვრელი"
 
 #. Name
 #: Multimedia/alevt.desktop:2
 msgid "AleVT"
-msgstr ""
+msgstr "AleVT"
 
 #. GenericName
 #: Multimedia/alevt.desktop:3
@@ -1148,59 +1138,58 @@ msgstr "პროგრამა VideoText–ის სანახავად"
 #. Name
 #: Multimedia/alsamixergui.desktop:2
 msgid "AlsaMixerGui"
-msgstr ""
+msgstr "AlsaMixerGui"
 
 #. GenericName
 #: Multimedia/alsamixergui.desktop:3
 msgid "Alsa Mixer Frontend"
-msgstr "Alsa მიქსერის ინტერფეისი"
+msgstr "Alsa-ის მიქსერის ინტერფეისი"
 
 #. Name
 #: Multimedia/audacity.desktop:2
 msgid "Audacity"
-msgstr ""
+msgstr "Audacity"
 
 #. GenericName
 #: Multimedia/audacity.desktop:3 Multimedia/rezound.desktop:3
 #: Multimedia/sweep.desktop:3
 msgid "Audio Editor"
-msgstr "აუდიო რედაქტორი"
+msgstr "აუდიორედაქტორი"
 
 #. Name
 #: Multimedia/aviplay.desktop:2
 msgid "Aviplay"
-msgstr ""
+msgstr "Aviplay"
 
 #. GenericName
 #: Multimedia/aviplay.desktop:3
-#, fuzzy
 msgid "AVI Video Player"
-msgstr "MOV ვიდეო დამკვრელი"
+msgstr "AVI ვიდეოების დამკვრელი"
 
 #. Name
 #: Multimedia/bcast2000.desktop:2
 msgid "Broadcast 2000"
-msgstr ""
+msgstr "Broadcast 2000"
 
 #. GenericName
 #: Multimedia/bcast2000.desktop:3
 msgid "Audio and Video IDE"
-msgstr "აუიდიო და ვიდეო IDE"
+msgstr "აუდიოს და ვიდეოს IDE"
 
 #. Name
 #: Multimedia/enjoympeg.desktop:2
 msgid "EnjoyMPEG"
-msgstr ""
+msgstr "EnjoyMPEG"
 
 #. GenericName
 #: Multimedia/enjoympeg.desktop:3 Multimedia/gtv.desktop:3
 msgid "MPEG Player"
-msgstr "MPEG დამკვრელი"
+msgstr "MPEG ფაილების დამკვრელი"
 
 #. Name
 #: Multimedia/gtv.desktop:2
 msgid "GTV"
-msgstr ""
+msgstr "GTV"
 
 #. Name
 #: Multimedia/jazz.desktop:2
@@ -1214,51 +1203,48 @@ msgstr "ხმის პროცესორი"
 
 #. Name
 #: Multimedia/mplayer.desktop:2
-#, fuzzy
 msgid "MPlayer"
-msgstr "MPEG დამკვრელი"
+msgstr "MPlayer"
 
 #. Name
 #: Multimedia/mtv.desktop:2
 msgid "MpegTV"
-msgstr ""
+msgstr "MpegTV"
 
 #. Name
 #: Multimedia/ogle.desktop:2
 msgid "Ogle"
-msgstr ""
+msgstr "Ogle"
 
 #. GenericName
 #: Multimedia/ogle.desktop:3
 msgid "DVD Player"
-msgstr "DVD დამკვრელი"
+msgstr "DVD-ის დამკვრელი"
 
 #. Name
 #: Multimedia/oqtplayer.desktop:2
-#, fuzzy
 msgid "OQTPlayer"
-msgstr "DVD დამკვრელი"
+msgstr "OQTPlayer"
 
 #. GenericName
 #: Multimedia/oqtplayer.desktop:3
 msgid "MOV Video Player"
-msgstr "MOV ვიდეო დამკვრელი"
+msgstr "MOV ვიდეოების დამკვრელი"
 
 #. Name
 #: Multimedia/realplayer.desktop:2
-#, fuzzy
 msgid "RealPlayer"
-msgstr "Видео Player"
+msgstr "RealPlayer"
 
 #. Name
 #: Multimedia/rezound.desktop:2
 msgid "reZound"
-msgstr ""
+msgstr "reZound"
 
 #. Name
 #: Multimedia/slab.desktop:2
 msgid "Slab"
-msgstr ""
+msgstr "Slab"
 
 #. GenericName
 #: Multimedia/slab.desktop:3
@@ -1268,22 +1254,22 @@ msgstr "ხმის ჩამწერი"
 #. Name
 #: Multimedia/sweep.desktop:2
 msgid "Sweep"
-msgstr ""
+msgstr "Sweep"
 
 #. Name
 #: Multimedia/xawtv.desktop:2
 msgid "XawTV"
-msgstr ""
+msgstr "XawTV"
 
 #. GenericName
 #: Multimedia/xawtv.desktop:3
 msgid "Watch TV!"
-msgstr ""
+msgstr "ტელევიზორის ყურება!"
 
 #. Name
 #: Multimedia/xcam.desktop:2
 msgid "XCam"
-msgstr ""
+msgstr "XCam"
 
 #. GenericName
 #: Multimedia/xcam.desktop:3
@@ -1293,22 +1279,22 @@ msgstr "კამერის პროგრამა"
 #. Name
 #: Multimedia/xine.desktop:2
 msgid "Xine"
-msgstr ""
+msgstr "Xine"
 
 #. Name
 #: Multimedia/xmms-enqueue.desktop:2
 msgid "Enqueue in XMMS"
-msgstr "XMMS რიგში ჩაყენება"
+msgstr "XMMS-ის რიგში ჩაყენება"
 
 #. GenericName
 #: Multimedia/xmms-enqueue.desktop:3
 msgid "Playlist Tool"
-msgstr "რეპერტუარის პულტი"
+msgstr "დასაკრავი სიის პროგრამა"
 
 #. Name
 #: Multimedia/xmms.desktop:2
 msgid "XMMS"
-msgstr ""
+msgstr "XMMS"
 
 #. GenericName
 #: Multimedia/xmms.desktop:3
@@ -1318,7 +1304,7 @@ msgstr "მულტიმედია ცენტრი"
 #. Name
 #: Office/Applix.desktop:2
 msgid "Applix"
-msgstr ""
+msgstr "Applix"
 
 #. GenericName
 #: Office/Applix.desktop:3
@@ -1328,7 +1314,7 @@ msgstr "საოფისე პაკეტი"
 #. Name
 #: Office/Dia.desktop:2
 msgid "Dia"
-msgstr ""
+msgstr "Dia"
 
 #. GenericName
 #: Office/Dia.desktop:3 Office/Guppi.desktop:3
@@ -1337,9 +1323,8 @@ msgstr "დიაგრამებთან სამუშაო პროგ�
 
 #. Name
 #: Office/Gnome-Cal.desktop:2
-#, fuzzy
 msgid "GNOME-Cal"
-msgstr "GNOME ჭადრაკი"
+msgstr "GNOME-Cal"
 
 #. GenericName
 #: Office/Gnome-Cal.desktop:3
@@ -1349,38 +1334,37 @@ msgstr "პერსონალური კალენდარი"
 #. Name
 #: Office/Gnome-Card.desktop:2
 msgid "GNOME-Card"
-msgstr ""
+msgstr "GNOME-Card"
 
 #. GenericName
 #: Office/Gnome-Card.desktop:3
 msgid "Contact Manager"
-msgstr "კონტაქტების მენეჯერი"
+msgstr "კონტაქტების მმართველი"
 
 #. Name
 #: Office/GnomeTimeTracker.desktop:2
-#, fuzzy
 msgid "GNOME Time Tracker"
-msgstr "თამაში GNOME  Nibbles"
+msgstr "GNOME-ის ტაიმერი"
 
 #. Name
 #: Office/Gnumeric.desktop:2
 msgid "Gnumeric"
-msgstr ""
+msgstr "Gnumeric"
 
 #. GenericName
 #: Office/Gnumeric.desktop:3 Office/XsLite.desktop:3
 msgid "Spread Sheet"
-msgstr "ელექტრონული ცხრილი"
+msgstr "ელცხრილი"
 
 #. Name
 #: Office/Guppi.desktop:2
 msgid "Guppi"
-msgstr ""
+msgstr "Guppi"
 
 #. Name
 #: Office/Ical.desktop:2
 msgid "Ical"
-msgstr ""
+msgstr "Ical"
 
 #. GenericName
 #: Office/Ical.desktop:3
@@ -1390,7 +1374,7 @@ msgstr "კალენდარი"
 #. Name
 #: Office/WordPerfect.desktop:2
 msgid "WordPerfect"
-msgstr ""
+msgstr "WordPerfect"
 
 #. GenericName
 #: Office/WordPerfect.desktop:3 Office/WordPerfect2000.desktop:3
@@ -1401,32 +1385,32 @@ msgstr "ტექსტური პროცესორი"
 #. Name
 #: Office/WordPerfect2000.desktop:2
 msgid "WordPerfect 2000"
-msgstr ""
+msgstr "WordPerfect 2000"
 
 #. Name
 #: Office/XAcc.desktop:2
 msgid "xacc"
-msgstr ""
+msgstr "xacc"
 
 #. GenericName
 #: Office/XAcc.desktop:3
 msgid "Personal Accounting Tool"
-msgstr "პერსონალური ბუღალტერიის ხელსაწყო "
+msgstr "პირადი ბუღალტერიის პროგრამა"
 
 #. Name
 #: Office/XsLite.desktop:2
 msgid "XsLite"
-msgstr ""
+msgstr "XsLite"
 
 #. Name
 #: Office/abiword.desktop:2
 msgid "AbiWord"
-msgstr ""
+msgstr "AbiWord"
 
 #. Name
 #: Office/acroread.desktop:2
 msgid "Acrobat Reader"
-msgstr ""
+msgstr "Acrobat Reader"
 
 #. GenericName
 #: Office/acroread.desktop:3 Office/xpdf.desktop:3
@@ -1436,29 +1420,27 @@ msgstr "PDF დოკუმენტების სანახავი პრ
 #. Name
 #: Office/gnucash.desktop:2
 msgid "GnuCash"
-msgstr ""
+msgstr "GnuCash"
 
 #. GenericName
 #: Office/gnucash.desktop:3
-#, fuzzy
 msgid "Finance Manager"
-msgstr "კონტაქტების მენეჯერი"
+msgstr "ფინანსების მმართველი"
 
 #. Name
 #: Office/lyx.desktop:2
 msgid "LyX"
-msgstr ""
+msgstr "LyX"
 
 #. Name
 #: Office/mrproject.desktop:2
 msgid "MrProject"
-msgstr ""
+msgstr "MrProject"
 
 #. GenericName
 #: Office/mrproject.desktop:3
-#, fuzzy
 msgid "Project Manager"
-msgstr "კონტაქტების მენეჯერი"
+msgstr "პროექტის მმართველი"
 
 #. Name
 #: Office/netscapeaddressbook.desktop:2
@@ -1468,18 +1450,17 @@ msgstr "Netscape მისამართების წიგნი"
 #. Name
 #: Office/plan.desktop:2
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #. GenericName
 #: Office/plan.desktop:3
 msgid "Calendar Manager"
-msgstr "კალენდარის მენეჯერი"
+msgstr "კალენდრის მმართველი"
 
 #. Name
 #: Office/pybliographic.desktop:2
-#, fuzzy
 msgid "Pybliographic"
-msgstr "ბიბლიოგრაფიული მონაცემთა ბაზა"
+msgstr "პიბლიოგრაფიული მონაცემთა ბაზა"
 
 #. GenericName
 #: Office/pybliographic.desktop:3
@@ -1489,7 +1470,7 @@ msgstr "ბიბლიოგრაფიული მონაცემთა �
 #. Name
 #: Office/scribus.desktop:2
 msgid "Scribus"
-msgstr ""
+msgstr "Scribus"
 
 #. GenericName
 #: Office/scribus.desktop:3
@@ -1499,7 +1480,7 @@ msgstr "სამაგიდო გამომცემლობა"
 #. Name
 #: Office/xpdf.desktop:2
 msgid "X PDF"
-msgstr ""
+msgstr "X PDF"
 
 #. Name
 #: System/Terminal/aterm.desktop:2
@@ -1509,12 +1490,12 @@ msgstr "ტერმინალი"
 #. GenericName
 #: System/Terminal/aterm.desktop:3 Utilities/XUtilities/xterm.desktop:3
 msgid "Terminal Program"
-msgstr "პროგრამა ტერმინალისთვის"
+msgstr "ტერმინალის პროგრამა"
 
 #. Name
 #: System/Terminal/procinfo.desktop:2
 msgid "Procinfo"
-msgstr ""
+msgstr "Procinfo"
 
 #. GenericName
 #: System/Terminal/procinfo.desktop:3
@@ -1524,27 +1505,27 @@ msgstr "ინფორმაცია სისტემური პროც�
 #. Name
 #: System/Terminal/rxvt.desktop:2
 msgid "RXVT"
-msgstr ""
+msgstr "RXVT"
 
 #. GenericName
 #: System/Terminal/rxvt.desktop:3
 msgid "ouR eXtended Virtual Terminal"
-msgstr "გეუმჯობესებული ვირტუალური ტერმინალი"
+msgstr "ჩვენი გაუმჯობესებული ვირტუალური ტერმინალი"
 
 #. Name
 #: System/Terminal/vmstat.desktop:2
 msgid "Vmstat"
-msgstr ""
+msgstr "Vmstat"
 
 #. GenericName
 #: System/Terminal/vmstat.desktop:3
 msgid "Virtual Memory Statistics"
-msgstr "ვირტუალური მეხსიერების სტატისტიკა "
+msgstr "ვირტუალური მეხსიერების სტატისტიკა"
 
 #. Name
 #: System/citrix_ica.desktop:2
 msgid "Citrix ICA Client"
-msgstr "Citrix ICA–ს კლიენტი"
+msgstr "Citrix ICA–ის კლიენტი"
 
 #. GenericName
 #: System/citrix_ica.desktop:3
@@ -1554,7 +1535,7 @@ msgstr "WTS კლიენტი"
 #. Name
 #: System/editres.desktop:2
 msgid "EditXRes"
-msgstr ""
+msgstr "EditXRes"
 
 #. GenericName
 #: System/editres.desktop:3
@@ -1564,22 +1545,22 @@ msgstr "X რესურსების რედაქტორი"
 #. Name
 #: System/sam.desktop:2
 msgid "SAM System-Administration"
-msgstr "SAM–ის სიტემური ადმინისტრირება"
+msgstr "SAM–ის სისტემური ადმინისტრირება"
 
 #. Name
 #: System/wine.desktop:2
 msgid "Wine"
-msgstr ""
+msgstr "Wine"
 
 #. GenericName
 #: System/wine.desktop:3
 msgid "Run Windows Programs"
-msgstr "Windows–ს პროგრამების გაშვება"
+msgstr "Windows–ის პროგრამების გაშვება"
 
 #. Name
 #: System/xosview.desktop:2
 msgid "X osview"
-msgstr "Xosview"
+msgstr "X osview"
 
 #. GenericName
 #: System/xosview.desktop:3
@@ -1589,7 +1570,7 @@ msgstr "სისტემის მონიტორი"
 #. Name
 #: Utilities/Editors/emacs.desktop:2
 msgid "Emacs"
-msgstr ""
+msgstr "Emacs"
 
 #. GenericName
 #: Utilities/Editors/emacs.desktop:3 Utilities/Editors/gedit.desktop:3
@@ -1602,24 +1583,23 @@ msgstr "ტექსტური რედაქტორი"
 
 #. Name
 #: Utilities/Editors/gedit.desktop:2
-#, fuzzy
 msgid "gEdit"
-msgstr "X რედაქტორი"
+msgstr "gEdit"
 
 #. Name
 #: Utilities/Editors/gvim.desktop:2
 msgid "Vi IMproved"
-msgstr ""
+msgstr "გაუმჯობესებული Vi"
 
 #. Name
 #: Utilities/Editors/lemacs.desktop:2
 msgid "Lucid Emacs"
-msgstr ""
+msgstr "Lucid Emacs"
 
 #. Name
 #: Utilities/Editors/nano.desktop:2
 msgid "Nano"
-msgstr ""
+msgstr "Nano"
 
 #. Name
 #: Utilities/Editors/nedit.desktop:2
@@ -1629,7 +1609,7 @@ msgstr "NEdit"
 #. Name
 #: Utilities/Editors/pico.desktop:2
 msgid "Pico"
-msgstr ""
+msgstr "Pico"
 
 #. Name
 #: Utilities/Editors/xedit.desktop:2
@@ -1639,12 +1619,12 @@ msgstr "X რედაქტორი"
 #. Name
 #: Utilities/Editors/xemacs.desktop:2
 msgid "X Emacs"
-msgstr ""
+msgstr "X Emacs"
 
 #. Name
 #: Utilities/GKrellM.desktop:2
 msgid "GKrellM"
-msgstr ""
+msgstr "GKrellM"
 
 #. GenericName
 #: Utilities/GKrellM.desktop:3
@@ -1653,29 +1633,28 @@ msgstr "GNU Krell მონიტორი"
 
 #. Name
 #: Utilities/GnomeWho.desktop:2
-#, fuzzy
 msgid "GNOME Who"
-msgstr "GNOME ჭადრაკი"
+msgstr "GNOME Who"
 
 #. GenericName
 #: Utilities/GnomeWho.desktop:3
 msgid "System Info Tool"
-msgstr "ხელსაწყო სისტემის ინფორმაციის სანახავად "
+msgstr "ხელსაწყო სისტემის ინფორმაციის სანახავად"
 
 #. Name
 #: Utilities/SystemInfo.desktop:2
 msgid "System Info"
-msgstr "ინფორმაცია სისტემის შესახებ "
+msgstr "ინფორმაცია სისტემის შესახებ"
 
 #. Name
 #: Utilities/SystemLogViewer.desktop:2
 msgid "System Log Viewer"
-msgstr "სისტემური ჩანაწერების ნახვა"
+msgstr "სისტემური ჟურნალის ნახვა"
 
 #. Name
 #: Utilities/XUtilities/Xkill.desktop:2
 msgid "X Kill"
-msgstr ""
+msgstr "X Kill"
 
 #. GenericName
 #: Utilities/XUtilities/Xkill.desktop:3
@@ -1684,7 +1663,6 @@ msgstr "ფანჯრის დახურვის ხელსაწყო"
 
 #. Name
 #: Utilities/XUtilities/Xrefresh.desktop:2
-#, fuzzy
 msgid "X Refresh"
 msgstr "ეკრანის განახლება"
 
@@ -1696,7 +1674,7 @@ msgstr "ეკრანის განახლება"
 #. Name
 #: Utilities/XUtilities/Xtraceroute.desktop:2
 msgid "X Traceroute"
-msgstr ""
+msgstr "X Traceroute"
 
 #. GenericName
 #: Utilities/XUtilities/Xtraceroute.desktop:3
@@ -1706,7 +1684,7 @@ msgstr "ქსელის ხელსაწყო"
 #. Name
 #: Utilities/XUtilities/xcalc.desktop:2
 msgid "X Calc"
-msgstr ""
+msgstr "X Calc"
 
 #. GenericName
 #: Utilities/XUtilities/xcalc.desktop:3 Utilities/calctool.desktop:3
@@ -1741,17 +1719,17 @@ msgstr "X კონსოლი"
 #. GenericName
 #: Utilities/XUtilities/xconsole.desktop:3
 msgid "Console Message Viewer"
-msgstr "პროგრამა კონსოლის შეტყობინებათა სანახავად"
+msgstr "პროგრამა კონსოლის შეტყობინებების სანახავად"
 
 #. Name
 #: Utilities/XUtilities/xload.desktop:2
 msgid "X Load"
-msgstr ""
+msgstr "X Load"
 
 #. GenericName
 #: Utilities/XUtilities/xload.desktop:3
 msgid "Monitors System Load"
-msgstr "სისტემის ჩატვირთვის მონიტორი "
+msgstr "სისტემის დატვირთვის მონიტორი"
 
 #. Name
 #: Utilities/XUtilities/xmag.desktop:2
@@ -1770,14 +1748,13 @@ msgstr "X-ტერმინალი"
 
 #. Name
 #: Utilities/calctool.desktop:2
-#, fuzzy
 msgid "Calctool"
 msgstr "კალკულატორი"
 
 #. Name
 #: Utilities/e-notes.desktop:2
 msgid "E-Notes"
-msgstr ""
+msgstr "E-Notes"
 
 #. GenericName
 #: Utilities/e-notes.desktop:3
@@ -1786,16 +1763,15 @@ msgstr "პერსონალური ჩანაწერები"
 
 #. Name
 #: Utilities/oclock.desktop:2
-#, fuzzy
 msgid "OClock"
-msgstr "საათი"
+msgstr "OClock"
 
 #. Name
 #: Utilities/xgnokii.desktop:2
 msgid "X-Gnokii"
-msgstr ""
+msgstr "X-Gnokii"
 
 #. GenericName
 #: Utilities/xgnokii.desktop:3
 msgid "Mobile Phone Management Tool"
-msgstr "პროგრამა მობილური ტელეფონებისათვის"
+msgstr "პროგრამა მობილური ტელეფონისთვის"
