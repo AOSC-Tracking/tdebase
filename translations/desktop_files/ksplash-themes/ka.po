@@ -6,45 +6,48 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-24 18:26+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-11-28 06:28+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/ksplash-themes/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: pics/themes/TDE-Classic/Theme.rc:4
 #: pics/themes/TDE-Classic/locolor/Theme.rc:4
 msgid "TDE 3.5 Splash Screen"
-msgstr ""
+msgstr "TDE 3.5-ის გაშვების სურათი"
 
 #. Description
 #: pics/themes/TDE-Classic/Theme.rc:5
 #: pics/themes/TDE-Classic/locolor/Theme.rc:5
 msgid "Waves of change"
-msgstr ""
+msgstr "ცვლილების ტალღები"
 
 #. Name
 #: pics/themes/blue-bend/Theme.rc:6
 msgid "Blue-Bend KDE Splash Theme"
-msgstr ""
+msgstr "მოლურჯო TDE-ის გაშვების თემა"
 
 #. Description
 #: pics/themes/blue-bend/Theme.rc:7
 msgid "Load Blue-Bend KDE KSplash theme."
-msgstr ""
+msgstr "TDE-ის მოლურჯო გაშვების თემის ჩატვირთვა."
 
 #. Name
 #: pics/themes/default/Theme.rc:6
 msgid "Refresh TDE Splash Theme"
-msgstr ""
+msgstr "TDE-ის გაშვების სურათის თემის განახლება"
 
 #. Description
 #: pics/themes/default/Theme.rc:7
 msgid "Load Refresh TDE KSplash theme."
-msgstr ""
+msgstr "KSplash-ის თემა Load Refresh TDE."
 
 #. Name
 #: pics/themes/none/Theme.rc:4
