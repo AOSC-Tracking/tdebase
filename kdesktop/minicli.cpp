@@ -50,7 +50,7 @@
 #include <dcopclient.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kcombobox.h>
 #include <klineedit.h>
 #include <tdeapplication.h>

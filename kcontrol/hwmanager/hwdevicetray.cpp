@@ -33,7 +33,7 @@
 #include <kcmultidialog.h>
 #include <kglobalaccel.h>
 #include <khelpmenu.h>
-#include "kprocess.h"
+#include "tdeprocess.h"
 #include <kpropertiesdialog.h>
 #include <krun.h>
 #include <ksimpleconfig.h>

@@ -26,7 +26,7 @@
 #include <kdebug.h>
 #include <kstandarddirs.h>
 #include <kimageeffect.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kpixmapio.h>
 #include <tdetempfile.h>
 #include <kcursor.h>

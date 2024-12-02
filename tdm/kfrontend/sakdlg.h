@@ -12,7 +12,7 @@
 #include <tqdialog.h>
 #include <tqstringlist.h>
 
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 #include "kgreeter.h"
 

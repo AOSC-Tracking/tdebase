@@ -37,7 +37,7 @@
 #include <tdeapplication.h>
 #include <tdecmdlineargs.h>
 #include <tdeaboutdata.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdetempfile.h>
 #include <tqfile.h>
 #include <tqdom.h>

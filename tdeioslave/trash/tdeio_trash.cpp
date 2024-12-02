@@ -26,7 +26,7 @@
 #include <klargefile.h>
 #include <tdecmdlineargs.h>
 #include <kmimetype.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 #include <dcopclient.h>
 #include <tqdatastream.h>

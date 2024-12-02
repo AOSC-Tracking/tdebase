@@ -10,7 +10,7 @@
 
 #include <tqwidget.h>
 #include <tqthread.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tqvaluevector.h>
 #include "KScreensaverIface.h"
 #include "xautolock.h"

@@ -29,7 +29,7 @@
 #include <tdeuniqueapplication.h>
 #include <kdebug.h>
 #include <dcopclient.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kstandarddirs.h>
 #include <tdeconfig.h>
 

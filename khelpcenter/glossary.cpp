@@ -26,7 +26,7 @@
 #include <kiconloader.h>
 #include <tdelocale.h>
 #include <tdemainwindow.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 

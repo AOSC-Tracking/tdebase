@@ -35,7 +35,7 @@
 #include <tdeaccelmanager.h>
 #include <kbuttonbox.h>
 #include <tdefiledialog.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeapplication.h>
 #include <tdelocale.h>
 #include <kiconloader.h>

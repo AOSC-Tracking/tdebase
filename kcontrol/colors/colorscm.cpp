@@ -31,7 +31,7 @@
 #include <tdeio/netaccess.h>
 #include <kipc.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kstandarddirs.h>
 #include <tdeaboutdata.h>
 

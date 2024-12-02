@@ -30,7 +30,7 @@
 #include <tqfile.h>
 #include <tqregexp.h>
 
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kdebug.h>
 #include <kstandarddirs.h>
 #include <tdemessagebox.h>

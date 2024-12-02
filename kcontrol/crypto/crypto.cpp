@@ -62,7 +62,7 @@
 #include <kmdcodec.h>
 #include <tdemessagebox.h>
 #include <kpassdlg.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kpushbutton.h>
 #include <kresolver.h>
 #include <kseparator.h>

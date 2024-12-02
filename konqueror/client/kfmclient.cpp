@@ -30,7 +30,7 @@
 #include <kpropertiesdialog.h>
 #include <tdelocale.h>
 #include <ktrader.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kstandarddirs.h>
 #include <kopenwith.h>
 #include <kurlrequesterdlg.h>

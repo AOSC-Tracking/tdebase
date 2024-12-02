@@ -26,7 +26,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <twinmodule.h>
 #include <kdebug.h>
 #include <tdeconfig.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kshell.h>
 #include <twin.h>
 #include <kstandarddirs.h>

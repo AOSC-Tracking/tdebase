@@ -27,7 +27,7 @@
 #include <tdelocale.h>
 #include <tdeconfig.h>
 #include <tdeio/job.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kmimetype.h>
 #include <kmountpoint.h>
 #include <tdemessagebox.h>

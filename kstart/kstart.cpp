@@ -17,7 +17,7 @@
 #include <tqtimer.h>
 
 #include <kdebug.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdelocale.h>
 #include <twin.h>
 #include <twinmodule.h>

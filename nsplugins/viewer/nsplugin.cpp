@@ -49,7 +49,7 @@
 #include <tdeio/netaccess.h>
 #include <klibloader.h>
 #include <tdelocale.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeprotocolmanager.h>
 #include <kstandarddirs.h>
 #include <tdetempfile.h>

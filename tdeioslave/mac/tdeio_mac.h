@@ -19,7 +19,7 @@
 #include <tdeio/slavebase.h>
 #include <tdeio/global.h>
 #include <kurl.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 #include <tqstring.h>
 #include <tqcstring.h>

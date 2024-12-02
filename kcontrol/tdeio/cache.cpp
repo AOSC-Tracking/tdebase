@@ -29,7 +29,7 @@
 
 #include <kdebug.h>
 #include <tdelocale.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <knuminput.h>
 
 #include "ksaveioconfig.h"

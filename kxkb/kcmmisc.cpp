@@ -43,7 +43,7 @@
 #include <tdeapplication.h>
 #include <tdeglobal.h>
 #include <kstandarddirs.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kdialog.h>
 
 #include "kcmmisc.h"

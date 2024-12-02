@@ -43,7 +43,7 @@
 #include <tdeglobal.h>
 #include <kdebug.h>
 #include <tdelocale.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <krun.h>
 #include <tdemessagebox.h>
 #include <kstdguiitem.h>

@@ -25,7 +25,7 @@
 #include <tqstring.h>
 #include <tqstringlist.h>
 
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 
 class TQTimer;

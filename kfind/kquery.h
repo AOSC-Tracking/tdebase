@@ -11,7 +11,7 @@
 
 #include <tdeio/job.h>
 #include <kurl.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 class KFileItem;
 

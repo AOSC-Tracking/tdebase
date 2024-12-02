@@ -37,7 +37,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdelocale.h>
 #include <kmimetype.h>
 #include <konq_operations.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <krun.h>
 #include <ksimpleconfig.h>
 #include <kstringhandler.h>

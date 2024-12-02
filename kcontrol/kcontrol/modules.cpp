@@ -27,7 +27,7 @@
 #include <tdeapplication.h>
 #include <kdebug.h>
 #include <kservicegroup.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <qxembed.h>
 #include <tdelocale.h>
 #include <kstandarddirs.h>

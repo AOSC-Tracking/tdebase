@@ -41,7 +41,7 @@
 #include <tdeaboutdata.h>
 #include <kgenericfactory.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeio/netaccess.h>
 #include <kurl.h>
 #include <kurldrag.h>

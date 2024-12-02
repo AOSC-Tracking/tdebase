@@ -35,7 +35,7 @@
 #include <tdelocale.h>
 #include <tdeglobal.h>
 #include <tdeparts/genericfactory.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <klineedit.h>
 #include <kpassdlg.h>
 #include <ksimpleconfig.h>

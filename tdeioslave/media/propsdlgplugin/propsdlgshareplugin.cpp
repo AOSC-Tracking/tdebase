@@ -28,7 +28,7 @@
 #include <kpushbutton.h>
 #include <tdefileshare.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kstandarddirs.h>
 #include <kdialog.h>
 #include <tdeglobal.h>

@@ -23,7 +23,7 @@
 #include <kdesktopfile.h>
 #include <tdeglobalsettings.h>
 #include <tdeapplication.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdemessagebox.h>
 #include <tdelocale.h>
 #include <kdebug.h>

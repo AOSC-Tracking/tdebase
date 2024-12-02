@@ -35,7 +35,7 @@
 #include <kbugreport.h>
 #include <tdefiledialog.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeapplication.h>
 #include <dcopclient.h>
 #include <tdetempfile.h>

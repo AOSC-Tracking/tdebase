@@ -29,7 +29,7 @@
 #include <tqpainter.h>
 #include <tqstyle.h>
 #include <private/tqinternal_p.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <dcopclient.h>
 #include <dcopref.h>
 #undef Unsorted // Required for --enable-final (tqdir.h)

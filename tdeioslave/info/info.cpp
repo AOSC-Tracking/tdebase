@@ -8,7 +8,7 @@
 #include <tqregexp.h>
 
 #include <kdebug.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kstandarddirs.h>
 #include <kiconloader.h>
 #include <kinstance.h>

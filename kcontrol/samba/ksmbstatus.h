@@ -21,7 +21,7 @@
  
 #include <tqtimer.h>
 #include <tqlabel.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tqcstring.h>
 #include <tqlistview.h>
 #include <tdeconfig.h>

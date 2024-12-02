@@ -11,7 +11,7 @@
 #define __LOCKENG_H__
 
 #include <kgreeterplugin.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kpixmap.h>
 #include <krootpixmap.h>
 

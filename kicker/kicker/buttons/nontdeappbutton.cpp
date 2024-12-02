@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeapplication.h>
 #include <tdeglobal.h>
 #include <krun.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdemessagebox.h>
 #include <tdelocale.h>
 #include <kiconeffect.h>

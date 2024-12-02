@@ -22,7 +22,7 @@
 #include <tdeglobal.h>
 #include <kstandarddirs.h>
 #include <kurl.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeio/job.h>
 #include <tdeio/netaccess.h>
 #include <tdemessagebox.h>

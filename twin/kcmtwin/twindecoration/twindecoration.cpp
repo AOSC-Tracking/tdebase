@@ -54,7 +54,7 @@
 #include <kdialog.h>
 #include <kgenericfactory.h>
 #include <tdeaboutdata.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <dcopclient.h>
 
 #include "twindecoration.h"

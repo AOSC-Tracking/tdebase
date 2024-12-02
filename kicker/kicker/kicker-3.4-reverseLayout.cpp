@@ -8,7 +8,7 @@
 #include <tdecmdlineargs.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdetempfile.h>
 
 struct AppletInfo

@@ -25,7 +25,7 @@
 #include <tdelocale.h>
 #include <tdeapplication.h>
 #include <krun.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kpropertiesdialog.h>
 #include <kstandarddirs.h>
 #include <tdemessagebox.h>

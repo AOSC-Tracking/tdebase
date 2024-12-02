@@ -39,7 +39,7 @@
 #include <tdefileitem.h>
 #include <tdeio/netaccess.h>
 #include <tdepopupmenu.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kurlrequesterdlg.h>
 #include <kinputdialog.h>
 #include <tdefiledialog.h>

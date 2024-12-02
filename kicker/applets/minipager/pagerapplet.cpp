@@ -36,7 +36,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeglobal.h>
 #include <tdelocale.h>
 #include <kdebug.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdepopupmenu.h>
 #include <kstandarddirs.h>
 #include <kiconloader.h>

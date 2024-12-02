@@ -21,7 +21,7 @@
 
 #include <tdelocale.h>
 #include <kdebug.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeapplication.h>
 #include <krun.h>
 

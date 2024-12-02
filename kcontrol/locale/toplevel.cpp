@@ -33,7 +33,7 @@
 #include <kdebug.h>
 #include <kdialog.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kservice.h>
 
 #include "localenum.h"

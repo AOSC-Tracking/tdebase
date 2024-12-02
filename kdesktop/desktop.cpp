@@ -50,7 +50,7 @@
 #include <kipc.h>
 #include <tdelocale.h>
 #include <tdeio/netaccess.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdesycoca.h>
 #include <tdetempfile.h>
 #include <tdemessagebox.h>

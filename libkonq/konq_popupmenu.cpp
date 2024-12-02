@@ -38,7 +38,7 @@
 #include <assert.h>
 
 #include <tdefileshare.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 #include "kpropertiesdialog.h"
 #include "knewmenu.h"

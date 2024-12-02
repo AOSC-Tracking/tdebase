@@ -23,7 +23,7 @@
 
 #include <config.h>
 
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tqsocketnotifier.h>
 #include <tqstrlist.h>
 #include <tqvaluelist.h>

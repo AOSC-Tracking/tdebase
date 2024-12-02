@@ -21,7 +21,7 @@
 #include <tdelocale.h>
 #include <tdeconfig.h>
 #include <tdeglobal.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdestartupinfo.h>
 #include <stdlib.h>
 

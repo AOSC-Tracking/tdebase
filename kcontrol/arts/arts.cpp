@@ -43,7 +43,7 @@
 #include <kdialog.h>
 #include <klineedit.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <krichtextlabel.h>
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>

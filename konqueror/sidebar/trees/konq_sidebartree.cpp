@@ -40,7 +40,7 @@
 #include <kinputdialog.h>
 #include <tdeio/netaccess.h>
 #include <kmimetype.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kpropertiesdialog.h>
 #include <kprotocolinfo.h>
 #include <kstandarddirs.h>

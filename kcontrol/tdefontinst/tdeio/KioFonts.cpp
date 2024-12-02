@@ -52,7 +52,7 @@
 #include <tqtextstream.h>
 #include <kmimetype.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tqdir.h>
 #include <tqdatastream.h>
 #include <tqregexp.h>
@@ -60,7 +60,7 @@
 #include <klargefile.h>
 #include <tdetempfile.h>
 #include <tdesu/su.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kdebug.h>
 #include <ktar.h>
 #include <kxftconfig.h>

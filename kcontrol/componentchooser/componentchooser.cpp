@@ -37,7 +37,7 @@
 #include <kstandarddirs.h>
 #include <ktrader.h>
 #include <kurlrequester.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 class MyListBoxItem: public TQListBoxText
 {

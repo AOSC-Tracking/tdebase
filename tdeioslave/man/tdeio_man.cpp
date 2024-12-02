@@ -35,7 +35,7 @@
 #include <kinstance.h>
 #include <tdeglobal.h>
 #include <kstandarddirs.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdelocale.h>
 #include <kmimetype.h>
 

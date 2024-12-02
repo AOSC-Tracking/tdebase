@@ -38,7 +38,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kiconloader.h>
 #include <tdelocale.h>
 #include <kmimetype.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <krun.h>
 #include <kservicegroup.h>
 #include <tdesycoca.h>

@@ -98,7 +98,7 @@
 #include <tdelocale.h>
 #include <kiconloader.h>
 #include <tdepopupmenu.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeio/scheduler.h>
 #include <tdeio/netaccess.h>
 #include <tdeaccelmanager.h>

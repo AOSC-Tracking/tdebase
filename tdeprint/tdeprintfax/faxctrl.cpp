@@ -35,7 +35,7 @@
 #include <tqvaluestack.h>
 #include <tqstylesheet.h>
 
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeglobal.h>
 #include <tdeconfig.h>
 #include <tdelocale.h>

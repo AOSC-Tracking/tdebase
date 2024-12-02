@@ -5,7 +5,7 @@
 #include <tdecmdlineargs.h>
 #include <kdebug.h>
 #include <tdelocale.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 #include "ksystraycmd.h"
 

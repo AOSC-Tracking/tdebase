@@ -26,7 +26,7 @@
 #include <kstandarddirs.h>
 #include <kiconloader.h>
 #include <dcopclient.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <klanguagebutton.h>
 
 #include "kfindlanguage.h"

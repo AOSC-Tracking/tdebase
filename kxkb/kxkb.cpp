@@ -37,7 +37,7 @@ DESCRIPTION
 #include <tdeglobal.h>
 #include <kglobalaccel.h>
 #include <tdelocale.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <twinmodule.h>
 #include <twin.h>
 #include <tdetempfile.h>

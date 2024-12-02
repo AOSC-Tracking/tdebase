@@ -29,7 +29,7 @@
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kshell.h>
 #include <twin.h>
 #include <twinmodule.h>

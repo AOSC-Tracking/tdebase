@@ -24,7 +24,7 @@
 #include <tqcstring.h>
 
 #include <kurl.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeio/global.h>
 #include <tdeio/slavebase.h>
 

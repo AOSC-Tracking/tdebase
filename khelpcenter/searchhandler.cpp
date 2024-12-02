@@ -25,7 +25,7 @@
 #include "docentry.h"
 
 #include <kdesktopfile.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kdebug.h>
 #include <tdemessagebox.h>
 #include <tdelocale.h>

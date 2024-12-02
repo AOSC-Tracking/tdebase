@@ -24,7 +24,7 @@
 #include <tdeglobalsettings.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
 #include <ktar.h>

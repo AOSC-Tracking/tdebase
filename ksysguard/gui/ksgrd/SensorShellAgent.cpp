@@ -22,7 +22,7 @@
 
 #include <kdebug.h>
 #include <kpassdlg.h> 
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 #include "SensorClient.h"
 #include "SensorManager.h"

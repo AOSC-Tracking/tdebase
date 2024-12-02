@@ -5,7 +5,7 @@
 #include <tdeconfig.h>
 #include <kdebug.h>
 #include <kstandarddirs.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 

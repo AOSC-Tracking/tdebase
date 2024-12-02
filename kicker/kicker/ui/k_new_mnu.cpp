@@ -81,7 +81,7 @@
 #include <kurifilter.h>
 #include <kbookmarkmanager.h>
 #include <kbookmark.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeio/jobclasses.h>
 #include <tdeio/job.h>
 #include <dcopref.h>

@@ -43,7 +43,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kiconloader.h>
 #include <kstandarddirs.h>
 #include <tdeapplication.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdelocale.h>
 #include <tdepopupmenu.h>
 #include <kstringhandler.h>

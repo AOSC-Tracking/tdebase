@@ -45,7 +45,7 @@
 #include <kdialog.h>
 #include <dcopclient.h>
 #include <tdeglobal.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tqtabwidget.h>
 
 #include <X11/X.h>

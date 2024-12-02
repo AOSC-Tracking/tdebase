@@ -26,7 +26,7 @@
 #include <dcopclient.h>
 #include <tqdatastream.h>
 #include <time.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kservice.h>
 #include <kservicegroup.h>
 #include <kstandarddirs.h>

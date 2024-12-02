@@ -34,7 +34,7 @@
 
 #include <kdebug.h>
 #include <tdelocale.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdemessagebox.h>
 #include <kdialog.h>
 #include <tdeconfig.h>

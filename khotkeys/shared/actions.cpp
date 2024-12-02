@@ -28,7 +28,7 @@
 #include <tdelocale.h>
 #include <tdeaccel.h>
 #include <kservice.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdemessagebox.h>
 
 #include "windows.h"

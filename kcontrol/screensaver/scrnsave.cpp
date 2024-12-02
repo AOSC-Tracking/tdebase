@@ -40,7 +40,7 @@
 #include <kgenericfactory.h>
 #include <kiconloader.h>
 #include <knuminput.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kservicegroup.h>
 #include <kstandarddirs.h>
 #include <ksimpleconfig.h>

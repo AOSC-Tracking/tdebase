@@ -18,7 +18,7 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <tqdatetime.h>
 #include <tqimage.h>
 #include <tqfile.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <unistd.h>
 #include <kstandarddirs.h>
 #include <tqwhatsthis.h>

@@ -41,7 +41,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kdesktopfile.h>
 #include <kiconloader.h>
 #include <kmimetype.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <krootpixmap.h>
 #include <kpixmap.h>
 #include <tdelocale.h>

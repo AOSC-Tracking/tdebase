@@ -28,7 +28,7 @@
 
 
 #include <tdeapplication.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kdebug.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>

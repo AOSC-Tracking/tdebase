@@ -39,7 +39,7 @@
 #include <tdefiledialog.h>
 #include <kcombobox.h>
 #include <kkeydialog.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include "khotkeys.h"
 
 #include "menuinfo.h"

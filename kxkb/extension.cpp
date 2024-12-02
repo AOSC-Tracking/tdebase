@@ -8,7 +8,7 @@
 
 #include <kdebug.h>
 #include <kstandarddirs.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 #include <X11/Xatom.h>
 #include <X11/Xos.h>

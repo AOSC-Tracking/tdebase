@@ -23,7 +23,7 @@
 #include <tqcstring.h>
 #include <unistd.h>
 #include <tqdir.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 
 void SMBSlave::readOutput(TDEProcess *, char *buffer, int buflen)
 {

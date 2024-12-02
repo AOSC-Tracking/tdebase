@@ -23,7 +23,7 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <tqbitmap.h>
 #include <tqclipboard.h>
 #include <tdemenubar.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kglobalaccel.h>
 #include <dcopclient.h>
 #include <kipc.h>

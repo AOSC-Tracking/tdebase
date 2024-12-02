@@ -54,7 +54,7 @@
 #include <konq_drag.h>
 #include <konq_iconviewwidget.h>
 #include <kprotocolinfo.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kstringhandler.h>
 #include <tqpopupmenu.h>
 #include <unistd.h>

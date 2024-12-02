@@ -73,7 +73,7 @@
 #include <tdelocale.h>
 #include <kpassivepopup.h>
 #include <tdepopupmenu.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <dcopclient.h>
 #include <tdeapplication.h>
 

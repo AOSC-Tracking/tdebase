@@ -23,7 +23,7 @@
 #include "docentry.h"
 
 #include <kiconloader.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kstandarddirs.h>
 #include <kdebug.h>
 

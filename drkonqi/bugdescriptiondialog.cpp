@@ -31,7 +31,7 @@
 #include <klineedit.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <kstandarddirs.h>
 #include <kstdguiitem.h>
 #include <kurl.h>

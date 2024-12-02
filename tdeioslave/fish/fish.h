@@ -23,7 +23,7 @@
 #include <kurl.h>
 #include <tdeio/global.h>
 #include <tdeio/slavebase.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <tdeio/authinfo.h>
 #include <time.h>
 

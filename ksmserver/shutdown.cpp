@@ -74,7 +74,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeapplication.h>
 #include <kstaticdeleter.h>
 #include <tdetempfile.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <dcopclient.h>
 #include <dcopref.h>
 #include <dmctl.h>

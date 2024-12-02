@@ -28,7 +28,7 @@
 
 #include "Misc.h"
 #include <tqfile.h>
-#include <kprocess.h> 
+#include <tdeprocess.h> 
 #include <kstandarddirs.h>
 #include <klargefile.h>
 #include <tdeio/netaccess.h>

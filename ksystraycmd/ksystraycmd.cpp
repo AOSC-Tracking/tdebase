@@ -9,7 +9,7 @@
 #include <kiconloader.h>
 #include <tdelocale.h>
 #include <tdepopupmenu.h>
-#include <kprocess.h>
+#include <tdeprocess.h>
 #include <twinmodule.h>
 #include <tdeconfig.h>
 #include <ksystemtray.h>
