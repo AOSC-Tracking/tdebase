@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-24 18:26+0100\n"
-"PO-Revision-Date: 2024-11-28 06:28+0000\n"
+"PO-Revision-Date: 2024-12-07 03:11+0000\n"
 "Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
 "Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/ksplash-themes/ka/>\n"
@@ -52,49 +52,49 @@ msgstr "KSplash-ის თემა Load Refresh TDE."
 #. Name
 #: pics/themes/none/Theme.rc:4
 msgid "No Splash Screen"
-msgstr ""
+msgstr "გაშვების ეკრანის გარეშე"
 
 #. Description
 #: pics/themes/none/Theme.rc:5
 msgid "Splash Screen Turned Off"
-msgstr ""
+msgstr "გაშვების სურათი გამორთულია"
 
 #. Name
 #: pics/themes/simple/Theme.rc:4
 msgid "Simple Splash Screen"
-msgstr ""
+msgstr "მარტივი გაშვების სურათი"
 
 #. Description
 #: pics/themes/simple/Theme.rc:5
 msgid "Very Simple Optimized Splash Screen"
-msgstr ""
+msgstr "ძალიან მარტივი ოპტიმიზებული გაშვების სურათი"
 
 #. Name
 #: pics/themes/unified/Theme.rc:4
 msgid "Trinity Unified Splash Screen"
-msgstr ""
+msgstr "Trinity-ის გაშვების სურათი"
 
 #. Description
 #: pics/themes/unified/Theme.rc:5
 msgid "Unified system startup screen"
-msgstr ""
+msgstr "გაერთიანებული სისტემის გაშვების ეკრანი"
 
 #. Name
 #: themeengine/redmond/Theme.rc:2
 msgid "Redmond Splash Screen"
-msgstr ""
+msgstr "რედმონდული გაშვების ეკრანი"
 
 #. Description
 #: themeengine/redmond/Theme.rc:3
 msgid "KSplash theme inspired by the Microsoft Windows startup screen."
-msgstr ""
+msgstr "KSplash-ის თემა, რომელიც Microsoft Windows-ის გაშვების ეკრანს წააგავს."
 
 #. Name
 #: themeengine/standard/Theme.rc:2
 msgid "Standard Splash Screen"
-msgstr ""
+msgstr "სტანდარტული გაშვების ეკრანი"
 
 #. Description
 #: themeengine/standard/Theme.rc:3
 msgid "Standard TDE KSplash theme."
-msgstr ""
+msgstr "სტანდარტული TDE KSplash-ის თემა."
