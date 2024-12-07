@@ -39,7 +39,7 @@
 #include <krun.h>
 #include <kstdaction.h>
 #include <tqlabel.h>
-#include <kprocctrl.h>
+#include <tdeprocctrl.h>
 
 #include <tqcheckbox.h>
 #include <tqspinbox.h>

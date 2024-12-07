@@ -132,7 +132,7 @@ Time to start a requirement list.
 #include <kiconloader.h>
 #include <kstringhandler.h>
 #include <ktip.h>
-#include <kprocctrl.h>
+#include <tdeprocctrl.h>
 #include <ktabwidget.h>
 #include <kregexpeditorinterface.h>
 #include <tdeparts/componentfactory.h>
