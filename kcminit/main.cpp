@@ -112,16 +112,25 @@ void KCMInit::runModules( int phase )
 
       TQString libName = TQString("kcm_%1").arg(library);
 
+      TQString factoryName = service->property("X-TDE-FactoryName", TQVariant::String).toString();
+      if (!factoryName.isEmpty())
+      {
+          factoryName = ":" + factoryName;
+      }
+      TQString libFactoryName = libName + factoryName;
+
       // try to load the library
-      if (! alreadyInitialized.contains( libName.ascii() )) {
+      if (!alreadyInitialized.contains( libFactoryName.ascii() )) {
 	  if (!runModule(libName, service)) {
 	      libName = TQString("libkcm_%1").arg(library);
-	      if (! alreadyInitialized.contains( libName.ascii() )) {
+	      libFactoryName = libName + factoryName;
+	      if (!alreadyInitialized.contains( libFactoryName.ascii() )) {
 		  runModule(libName, service);
-		  alreadyInitialized.append( libName.ascii() );
+		  alreadyInitialized.append( libFactoryName.ascii() );
 	      }
-	  } else 
-	      alreadyInitialized.append( libName.ascii() );
+	  } else {
+	      alreadyInitialized.append( libFactoryName.ascii() );
+	  }
       }
   }
 }
