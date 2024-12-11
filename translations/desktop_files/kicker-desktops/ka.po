@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 16:24+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-12-10 22:12+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kicker-desktop-files/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: applets/clock/clockapplet.desktop:4
@@ -29,13 +30,12 @@ msgstr "ანალოგური და ციფრული საათი
 #. Name
 #: applets/launcher/quicklauncher.desktop:3
 msgid "Quick Launcher"
-msgstr "სწრაფი დაწყება"
+msgstr "სწრაფი გამშვები"
 
 #. Comment
 #: applets/launcher/quicklauncher.desktop:5
-#, fuzzy
 msgid "Directly access your frequently used applications"
-msgstr "თქვენი შენახვის მედიის პირდაპირი წვდომა"
+msgstr "პირდაპირი წვდომა თქვენს ხშირად გამოყენებულ აპლიკაციებთან"
 
 #. Name
 #: applets/lockout/lockout.desktop:3
@@ -45,17 +45,17 @@ msgstr "დაბლოკვის/გამოსვლის ღილაკ�
 #. Comment
 #: applets/lockout/lockout.desktop:5
 msgid "Adds buttons for locking screen and session logout"
-msgstr ""
+msgstr "დაამატებს ღილაკებს ეკრანის დაბლოკვისა და სესიიდან გასვლისთვის"
 
 #. Name
 #: applets/media/mediaapplet.desktop:3
 msgid "Storage Media"
-msgstr "მონაცემთა შენახვის მოწყობილობები"
+msgstr "საცავის მედია"
 
 #. Comment
 #: applets/media/mediaapplet.desktop:5
 msgid "Directly access your storage media"
-msgstr "თქვენი შენახვის მედიის პირდაპირი წვდომა"
+msgstr "პირდაპირ წვდომა თქვენი საცავის მედიაზე"
 
 #. Name
 #: applets/menu/menuapplet.desktop:4
@@ -76,26 +76,29 @@ msgstr "სამუშაო დაფისა და გვერდები
 #: applets/minipager/minipagerapplet.desktop:6
 msgid "Preview, manage and switch to multiple virtual desktops"
 msgstr ""
+"ერთზე მეტი ვირტუალური სამუშაო მაგიდის გადახედვა, მართვა და მათ შორის გადართვა"
 
 #. Name
 #: applets/naughty/naughtyapplet.desktop:3
 msgid "Runaway Process Catcher"
-msgstr ""
+msgstr "გაქცეული პროცესის დამჭერი"
 
 #. Comment
 #: applets/naughty/naughtyapplet.desktop:5
 msgid "Detect and end broken processes which consume too much CPU time"
 msgstr ""
+"აღმოაჩინეთ და დაასრულეთ დაკიდებული პროცესები, რომლებიც მეტისმეტად ბევრ CPU-"
+"ის დროს იყენებენ"
 
 #. Name
 #: applets/run/runapplet.desktop:3
 msgid "Run Command"
-msgstr "ბრძანების შესრულება"
+msgstr "ბრძანების გაშვება"
 
 #. Comment
 #: applets/run/runapplet.desktop:5
 msgid "Launch single commands without a terminal window"
-msgstr ""
+msgstr "გაუშვით ერთი ბრძანება ტერმინალის ფანჯრის გარეშე"
 
 #. Name
 #: applets/swallow/swallowapplet.desktop:3
@@ -120,43 +123,42 @@ msgstr "სისტემური პანელის აპლეტი"
 #. Name
 #: applets/taskbar/taskbarapplet.desktop:3
 msgid "Taskbar"
-msgstr "ამოცანათა პანელი"
+msgstr "ამოცანების პანელი"
 
 #. Comment
 #: applets/taskbar/taskbarapplet.desktop:5
 msgid "The default task bar for window management"
-msgstr "ფანჯრის მართვის ძირითადი პულტი"
+msgstr "ნაგულისხმევი ამოცანის პანელი ფანჯრის მართვისთვის"
 
 #. Name
 #: applets/trash/trashapplet.desktop:3
 msgid "Trash"
-msgstr "ურნა"
+msgstr "ნაგვის ყუთი"
 
 #. Comment
 #: applets/trash/trashapplet.desktop:5
 msgid "Displays the trashcan and allows files to be dropped onto it"
-msgstr ""
+msgstr "აჩვენებს ნაგვის ყუთს და საშუალებას გაძლევთ, მასში ფაილები ჩაყაროთ"
 
 #. Name
 #: extensions/dockbar/dockbarextension.desktop:2
-#, fuzzy
 msgid "Dock Application Bar"
-msgstr "არა TDE-ს პროგრამების"
+msgstr "აპლიკაციების პანელის მიმაგრება"
 
 #. Comment
 #: extensions/dockbar/dockbarextension.desktop:4
 msgid "Dock application bar extension."
-msgstr ""
+msgstr "აპლიკაციის პანელის გაფართოების მიმაგრება."
 
 #. Name
 #: extensions/kasbar/kasbarextension.desktop:2
 msgid "KasBar"
-msgstr ""
+msgstr "KasBar"
 
 #. Comment
 #: extensions/kasbar/kasbarextension.desktop:4
 msgid "An alternative taskbar panel applet."
-msgstr "ალტერნატიული ამოცანათა პანელის აპლეტი"
+msgstr "ალტერნატიული ამოცანათა პანელის აპლეტი."
 
 #. Name
 #: extensions/sidebar/sidebarextension.desktop:2
@@ -171,12 +173,12 @@ msgstr "Konqueror -ის პანელის დამმუშავებ�
 #. Name
 #: extensions/taskbar/taskbarextension.desktop:2
 msgid "External Taskbar"
-msgstr "გაფართოვებული ამოცანათა პანელი"
+msgstr "გარე ამოცანების პანელი"
 
 #. Comment
 #: extensions/taskbar/taskbarextension.desktop:4
 msgid "External taskbar panel extension"
-msgstr "გარე პულტისა და პანელის გაფართოება"
+msgstr "გარე ამოცანების პანელის გაფართოება"
 
 #. Name
 #: kicker/buttons/bookmarks.desktop:2
@@ -191,43 +193,44 @@ msgstr "Konqueror-ის თქვენი სანიშნეები"
 #. Name
 #: kicker/buttons/browser.desktop:2
 msgid "Quick File Browser"
-msgstr "ფაილების სწრაფი ნუსხა"
+msgstr "სწრაფი ფაილების ბრაუზერი"
 
 #. Comment
 #: kicker/buttons/browser.desktop:4
-#, fuzzy
 msgid "A menu that lists files in a given folder"
-msgstr "ყველა გახსნილი ფანჯრის სიის მენიუ"
+msgstr "მენიუ, რომელიც მითითებული საქაღალდის ფაილებს შეიცავს"
 
 #. Name
 #: kicker/buttons/desktop.desktop:2
 msgid "Show Desktop"
-msgstr "სამუშაო დაფის ჩვენება"
+msgstr "სამუშაო მაგიდის ჩვენება"
 
 #. Comment
 #: kicker/buttons/desktop.desktop:4
 msgid "A button that gives quick access to the desktop when pressed"
 msgstr ""
+"ღილაკი, რომელიც, როცა დააწვებით, სამუშაო მაგიდასთან სწრაფი წვდომის "
+"საშუალებას მოგცემთ"
 
 #. Name
 #: kicker/buttons/exec.desktop:2
 msgid "Non-TDE Application Launcher"
-msgstr "არა TDE-ს პროგრამების"
+msgstr "არა TDE-ს პროგრამების გამშვები"
 
 #. Comment
 #: kicker/buttons/exec.desktop:4
 msgid "A launcher for programs not in the TDE Menu"
-msgstr ""
+msgstr "გამშვები პროგრამებითვის, რომლებიც TDE-ის მენიუში არაა"
 
 #. Name
 #: kicker/buttons/kmenu.desktop:2
 msgid "TDE Menu"
-msgstr "TDE მენიუ"
+msgstr "TDE-ის მენიუ"
 
 #. Comment
 #: kicker/buttons/kmenu.desktop:4
 msgid "Applications and common actions"
-msgstr "პროგრამები და საზოგადო ქმედებები"
+msgstr "პროგრამები და ზოგადი ქმედებები"
 
 #. Name
 #: kicker/buttons/windowlist.desktop:2
@@ -247,52 +250,52 @@ msgstr "პანელი"
 #. Comment
 #: kicker/core/childpanelextension.desktop:4
 msgid "Child panel extension."
-msgstr "შვილეული პანელის გაფართოვება"
+msgstr "შვილი პანელის გაფართოვება."
 
 #. Comment
 #: kicker/interfaces/kickoffsearchplugin.desktop:5
 msgid "A search plugin for Kickoff"
-msgstr ""
+msgstr "ძებნის დამატება Kickoff-სთვის"
 
 #. Name
 #: kicker/kcmkicker.desktop:10
 msgid "Configure the Panel"
-msgstr "პანელის კონფიგურირება"
+msgstr "პანელის მორგება"
 
 #. Name
 #: kicker/panel.desktop:10
 msgid "Trinity Panel"
-msgstr "Trinity-ს პანელი"
+msgstr "Trinity-ის პანელი"
 
 #. Name
 #: menuext/find/find.desktop:2
 msgid "Find"
-msgstr "ძიება"
+msgstr "ძებნა"
 
 #. Comment
 #: menuext/find/find.desktop:4
 msgid "Menu for starting a file or web search"
-msgstr "ფაილში ან ვებში ძიების დაწყების მენიუ"
+msgstr "ფაილის ან ვებში ძებნის დაწყების მენიუ"
 
 #. Name
 #: menuext/find/kfind.desktop:11
 msgid "Find Files"
-msgstr "ფაილთა ძიება"
+msgstr "ფაილების ძებნა"
 
 #. Name
 #: menuext/find/websearch.desktop:8
 msgid "Web Search"
-msgstr "ვებ ძიება"
+msgstr "ძებნა ინტერნეტში"
 
 #. Name
 #: menuext/kate/katesessionmenu.desktop:2
 msgid "Kate Session Menu"
-msgstr ""
+msgstr "Kate-ის სესიის მენიუ"
 
 #. Comment
 #: menuext/kate/katesessionmenu.desktop:4
 msgid "Allows you to open Kate with a specified session, or create a new one"
-msgstr ""
+msgstr "საშუალებას გაძლევთ, გახსნათ Kate მითითებული სესიით, ან ახალი შექმნათ"
 
 #. Name
 #: menuext/konq-profiles/konquerormenu.desktop:2
@@ -302,34 +305,32 @@ msgstr "Konqueror-ის პროფილები"
 #. Comment
 #: menuext/konq-profiles/konquerormenu.desktop:4
 msgid "Menu for accessing the Konqueror profiles"
-msgstr "Konqueror-ის პროფილების წვდომის მენიუ"
+msgstr "Konqueror-ის პროფილებთან წვდომის მენიუ"
 
 #. Name
 #: menuext/konsole/konsolemenu.desktop:2
 msgid "Terminal Sessions"
-msgstr "სერმინალის სეანსები"
+msgstr "ტერმინალის სესიები"
 
 #. Comment
 #: menuext/konsole/konsolemenu.desktop:4
-#, fuzzy
 msgid "Menu for starting a terminal emulator with a session or bookmark"
-msgstr "ფაილში ან ვებში ძიების დაწყების მენიუ"
+msgstr "მენუ ტერმინალის ემულატორის სესიით ან სანიშნეთი გასაშვებად"
 
 #. Name
 #: menuext/prefmenu/prefmenu.desktop:2
 msgid "Trinity Control Center"
-msgstr "საკონტროლო ცენტრი"
+msgstr "Trinity-ის კონტროლის ცენტრი"
 
 #. Comment
 #: menuext/prefmenu/prefmenu.desktop:4
-#, fuzzy
 msgid "Trinity Control Center modules menu"
-msgstr "საკონტროლო ცენტრი"
+msgstr "Trinity-ის კონტროლის ცენტრის მოდულების მენიუ"
 
 #. Name
 #: menuext/recentdocs/recentdocs.desktop:2
 msgid "Recent Documents"
-msgstr "ბოლო დოკუმენტები"
+msgstr "უახლესი დოკუმენტები"
 
 #. Comment
 #: menuext/recentdocs/recentdocs.desktop:4
@@ -344,17 +345,17 @@ msgstr "ქსელური საქაღალდეები"
 #. Comment
 #: menuext/remote/remotemenu.desktop:4
 msgid "Menu of network folders"
-msgstr "ქსელური დასტების მენიუ"
+msgstr "ქსელური საქაღალდეების მენიუ"
 
 #. Name
 #: menuext/system/systemmenu.desktop:2
 msgid "System Menu"
-msgstr "სისტემის მენიუ"
+msgstr "სისტემური მენიუ"
 
 #. Comment
 #: menuext/system/systemmenu.desktop:4
 msgid "Menu of important system places"
-msgstr "სისტემის მნიშვნელოვან ადგილთა მენიუ"
+msgstr "სისტემის მნიშვნელოვანი ადგილების მენიუ"
 
 #. Name
 #: menuext/tdeprint/printmenu.desktop:2
@@ -369,7 +370,7 @@ msgstr "ბეჭდვის სისტემის მენიუ"
 #. Name
 #: menuext/tom/tom.desktop:2
 msgid "TOM"
-msgstr ""
+msgstr "TOM"
 
 #. Comment
 #: menuext/tom/tom.desktop:4
