@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"PO-Revision-Date: 2024-12-13 07:11+0000\n"
 "Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
 "Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ka/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. Name
 #: access/kaccess.desktop:3
 msgid "Accessibility Tool"
-msgstr "ს სპეცეციალური შესაძლებლობების ხელსაწყოები"
+msgstr "წვდომადობის პროგრამა"
 
 #. Name
 #: access/kcmaccess.desktop:12
@@ -30,7 +30,7 @@ msgstr "წვდომადობა"
 #. Comment
 #: access/kcmaccess.desktop:14
 msgid "Improve accessibility for disabled persons"
-msgstr "ფიზიკური ნაკლოვანებბის მქონი ხალხისთვის სპეციალური შესაძლბლობები"
+msgstr "წვდომადობის გაუმჯობესება შშმ პირებისთვის"
 
 #. Keywords
 #: access/kcmaccess.desktop:16
@@ -38,6 +38,9 @@ msgid ""
 "access;accessibility;deaf;impaired;bell;audible bell;visible bell;Keyboard;"
 "keys;sticky keys;bounce keys;slow keys;mouse navigation;num pad;"
 msgstr ""
+"access;accessibility;deaf;impaired;bell;audible bell;visible "
+"bell;Keyboard;keys;sticky keys;bounce keys;slow keys;mouse navigation;num "
+"pad;წვდომადობა;შშმ;ზარი;კლავიატურა;"
 
 #. Name
 #: arts/arts.desktop:12
@@ -47,7 +50,7 @@ msgstr "ხმის სისტემა"
 #. Comment
 #: arts/arts.desktop:14
 msgid "Sound System Configuration"
-msgstr "ხმის სისტემის კონფიგურაცია "
+msgstr "ხმის სისტემის მორგება"
 
 #. Keywords
 #: arts/arts.desktop:16
@@ -76,6 +79,8 @@ msgid ""
 "background;desktops;colors;colours;images;wallpapers;blending;balance;cache;"
 "multiple wallpapers;pixmap;"
 msgstr ""
+"background;desktops;colors;colours;images;wallpapers;blending;balance;cache;"
+"multiple wallpapers;pixmap;ფონი;ფონისსურათი;კეში;"
 
 #. Name
 #: bell/bell.desktop:13
@@ -85,12 +90,12 @@ msgstr "სისტემური ზარი"
 #. Comment
 #: bell/bell.desktop:15
 msgid "System Bell Configuration"
-msgstr "სისტემის ხმოვანი სიგნალის კონფიგურაცია"
+msgstr "სისტემური ზარის მორგება"
 
 #. Keywords
 #: bell/bell.desktop:17
 msgid "Bell;Audio;Sound;Volume;Pitch;Duration;"
-msgstr "ზარი; აუდიო; ხმა; ხმა; მიწოდება; ხანგრძლივობა;"
+msgstr "ზარი;აუდიო;ხმა;მიწოდება;ხანგრძლივობა;"
 
 #. Name
 #: clock/clock.desktop:13
@@ -100,12 +105,12 @@ msgstr "დრო და თარიღი"
 #. Comment
 #: clock/clock.desktop:15
 msgid "Date and time settings"
-msgstr "თარიღისა და დროის კონფიგურაცია"
+msgstr "თარიღისა და დროის მორგება"
 
 #. Keywords
 #: clock/clock.desktop:17
 msgid "clock;date;time;time zone;"
-msgstr "საათი; თარიღი; დრო; დროიტი სარტყელი;"
+msgstr "საათი; თარიღი; დრო; დროის სარტყელი;"
 
 #. Name
 #: colors/colors.desktop:12
@@ -121,6 +126,8 @@ msgstr "ფერის მორგება"
 #: colors/colors.desktop:16
 msgid "colors;colours;scheme;contrast;Widget colors;Color Scheme;"
 msgstr ""
+"colors;colours;scheme;contrast;Widget colors;Color Scheme;კონტრასტი;ფერები;"
+"ფერის სქემა;"
 
 #. Name
 #: componentchooser/EXAMPLE.desktop:1
@@ -131,6 +138,8 @@ msgstr "მშვენიერი სახელია ინტერფე�
 #: componentchooser/EXAMPLE.desktop:2
 msgid "A helpful description of the interface for the top right info box"
 msgstr ""
+"სასარგებლო ინტერფეისის აღწერა რომელიც ინფორმაციის ფანჯრის ზედა მარჯვენა "
+"კუთხეში გამოჩნდება"
 
 #. Name
 #: componentchooser/componentchooser.desktop:10
@@ -140,7 +149,7 @@ msgstr "ნაგულისხმევი აპლიკაციები"
 #. Comment
 #: componentchooser/componentchooser.desktop:12
 msgid "Choose the default components for various services"
-msgstr "თავდაპირველი კომპონენტების არჩევა სხვა და სხვა მომსახურეობებისთვის"
+msgstr "აირჩიეთ ნაგულისხმევი კომპონენტები სხვადასხვა სერვისებისთვის"
 
 #. Keywords
 #: componentchooser/componentchooser.desktop:14
@@ -149,11 +158,15 @@ msgid ""
 "client;text editor;instant messenger;terminal emulator;web browser;file "
 "manager;URL;hyperlinks;"
 msgstr ""
+"default applications;components;component chooser;resources;e-mail;email "
+"client;text editor;instant messenger;terminal emulator;web browser;file "
+"manager;URL;hyperlinks;ჰიპერბმულები;აპლიკაცია;ნაგულისხმევი "
+"აპლიკაცია;კომპონენტები;ტექსტური რედაქტორი;"
 
 #. Name
 #: componentchooser/componentservices/kcm_browser.desktop:1
 msgid "Web Browser"
-msgstr "ვებ-ბრაუზერი"
+msgstr "ვებ ბრაუზერი"
 
 #. Comment
 #: componentchooser/componentservices/kcm_browser.desktop:3
@@ -161,8 +174,8 @@ msgid ""
 "Here you can configure your default web browser. All TDE applications in "
 "which you can select hyperlinks should honor this setting."
 msgstr ""
-"აქ შეიძლება სტანდარტული ვებ ბრაუზერის დაკონფიგურირება. TDE-ს ყველა პროგრამა, "
-"ვისაც შეუძლია ბმულების გამოძახება, გაითვალისწინებენ ამ პარამეტრს"
+"აქ შეგიძლიათ, თქვენი ნაგულისხმევი ბრაუზერი მიუთითოთ. ყველა TDE-ის აპლიკაცია, "
+"სადაც ჰიპერბმულებზე დაწკაპუნება შეგიძლიათ, იყენებს ამ პარამეტრს."
 
 #. Name
 #: componentchooser/componentservices/kcm_filemanager.desktop:1
@@ -172,14 +185,14 @@ msgstr "ფაილების მმართველი"
 
 #. Comment
 #: componentchooser/componentservices/kcm_filemanager.desktop:3
-#, fuzzy
 msgid ""
 "This service allows you to configure your default file manager. All TDE "
 "applications which invoke a file manager application should honor this "
 "setting."
 msgstr ""
-"Comment=აქ შეიძლება სტანდარტული ტერმინალის ემულატორის დაკონფიგურირება. TDE-ს "
-"ყველა პროგრამა, ვისაც სჭირდება ფოსტა, გაითვალისწინებენ ამ პარამეტრს"
+"ეს სერვისის საშუალებას გაძლევთ, თქვენი ნაგულისხმევი ფაილების მმართველი "
+"მოირგოთ. ყველა TDE-ის აპლიკაცია, რომელიც ფაილების მმართველს იყენებს, "
+"ითვალისწინებს ამ პარამეტრს."
 
 #. Name
 #: componentchooser/componentservices/kcm_kemail.desktop:1
@@ -193,8 +206,8 @@ msgid ""
 "applications which need access to an email client application should honor "
 "this setting."
 msgstr ""
-"აქ შეიძლება სტანდარტული საფოსტო კლიენტის დაკონფიგურირება. TDE-ს ყველა "
-"პროგრამა, ვისაც სჭირდება ფოსტა, გაითვალისწინებენ ამ პარამეტრს"
+"აქ ნაგულისხმევი ელფოსტის კლიენტის მორგება შეგიძლიათ. TDE-ს ყველა პროგრამა, "
+"ვისაც სჭირდება ფოსტა, გაითვალისწინებენ ამ პარამეტრს."
 
 #. Name
 #: componentchooser/componentservices/kcm_terminal.desktop:1
@@ -208,8 +221,9 @@ msgid ""
 "applications which invoke a terminal emulator application should honor this "
 "setting."
 msgstr ""
-"Comment=აქ შეიძლება სტანდარტული ტერმინალის ემულატორის დაკონფიგურირება. TDE-ს "
-"ყველა პროგრამა, ვისაც სჭირდება ფოსტა, გაითვალისწინებენ ამ პარამეტრს"
+"ეს სერვისი საშუალებას გაძლევთ, ნაგულისხმევი ტერმინალის ემულატორი მოირგოთ. "
+"ყველა TDE-ის აპლიკაცია, რომელსაც კონსოლი სჭირდება, ითვალისწინებს ამ "
+"პარამეტრს."
 
 #. Name
 #: crypto/crypto.desktop:10
@@ -219,9 +233,7 @@ msgstr "კრიპტოგრაფია"
 #. Comment
 #: crypto/crypto.desktop:12
 msgid "Configure SSL, manage certificates, and other cryptography settings"
-msgstr ""
-"SSL კონფიგურაცია, სერთიფიკატის მენეჯმენტი და სხვა კრიპტოგრაფიული ელემენტების "
-"კონფიგურაცია"
+msgstr "მოირგეთ SSL, მართეთ სერტიფიკატები და სხვა კრიპტოგრაფიის პარამეტრები"
 
 #. Keywords
 #: crypto/crypto.desktop:14
@@ -229,11 +241,13 @@ msgid ""
 "Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;"
 "secure;security;"
 msgstr ""
+"Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;secu"
+"re;security;უსაფრთხოება;კრიპტოგრაფია;"
 
 #. Name
 #: css/kcmcss.desktop:12
 msgid "Stylesheets"
-msgstr "სტილის ფურცლები"
+msgstr "სტილის ცხრილები"
 
 #. Comment
 #: css/kcmcss.desktop:14
@@ -244,11 +258,13 @@ msgstr "ვებგვერდების რენდერისთვი�
 #: css/kcmcss.desktop:16
 msgid "CSS;HTML;style;stylesheet;accessibility;"
 msgstr ""
+"CSS;HTML;style;stylesheet;accessibility;სტილების ცხრილი;სტილის "
+"ცხრილები;წვდომადობა;"
 
 #. Name
 #: display/display.desktop:11
 msgid "Display"
-msgstr "ჩვენება"
+msgstr "ეკრანი"
 
 #. Comment
 #: display/display.desktop:13
@@ -258,27 +274,27 @@ msgstr "ეკრანის მორგება"
 #. Name
 #: displayconfig/displayconfig.desktop:12
 msgid "Monitor & Display"
-msgstr ""
+msgstr "ეკრანი & ჩვენება"
 
 #. Comment
 #: displayconfig/displayconfig.desktop:14
 msgid "Configure display"
-msgstr "ეკრანის გამართვა"
+msgstr "ეკრანის მორგება"
 
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
 msgid "monitor;resolution;display;"
-msgstr ""
+msgstr "monitor;resolution;display;ეკრანი;გაფართოება;"
 
 #. Name
 #: dnssd/kcm_tdednssd.desktop:18
 msgid "Zeroconf Service Discovery"
-msgstr "სერვისის აღმოჩენა"
+msgstr "Zeroconf-ის სერვისის აღმოჩენა"
 
 #. Comment
 #: dnssd/kcm_tdednssd.desktop:20
 msgid "Configure service discovery"
-msgstr "სერვისის არმოჩენის კონფიგურირება"
+msgstr "სერვისის აღმოჩენის მორგება"
 
 #. Name
 #: ebrowsing/ebrowsing.desktop:12
@@ -287,9 +303,8 @@ msgstr "ვების მალსახმობები"
 
 #. Comment
 #: ebrowsing/ebrowsing.desktop:14
-#, fuzzy
 msgid "Configure enhanced browsing"
-msgstr "ვებ კეშის პარამეტრების კონფიგურაცია"
+msgstr "ბრაუზერის დამატებითი კონფიგურაცია"
 
 #. Keywords
 #: ebrowsing/ebrowsing.desktop:16
@@ -297,11 +312,14 @@ msgid ""
 "Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet Filters;"
 "Network;Search Engines;Shortcuts;"
 msgstr ""
+"Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet "
+"Filters;Network;Search "
+"Engines;Shortcuts;მალსახმობები;ქსელი;ძებნა;ბრაუზერი;ინტერნეტი;"
 
 #. Name
 #: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
 msgid "InternetKeywordsFilter"
-msgstr "ინტერნეტ საკვანძო სიტყვების ფილტრი"
+msgstr "ინტერნეტის საკვანძო სიტყვების ფილტრი"
 
 #. Name
 #: ebrowsing/plugins/ikws/kurisearchfilter.desktop:3
@@ -311,7 +329,7 @@ msgstr "ძიების საკვანძო სიტყვების 
 #. Comment
 #: ebrowsing/plugins/ikws/searchprovider.desktop:4
 msgid "Search Engine"
-msgstr "ძებნის ძრავი"
+msgstr "საძიებო სისტემა"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
@@ -321,93 +339,94 @@ msgstr "აკრონიმების ბაზა"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
 msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
-msgstr ""
+msgstr "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
 msgid "Alexa"
-msgstr ""
+msgstr "ალექსა"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
 msgid "http://info.alexa.com/search?q=\\{@}"
-msgstr ""
+msgstr "http://info.alexa.com/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
 msgid "Alexa URL"
-msgstr ""
+msgstr "Alexa-ის ბმული"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
 msgid "http://info.alexa.com/data/details?url=\\{@}"
-msgstr ""
+msgstr "http://info.alexa.com/data/details?url=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
 msgid "AllTheWeb fast"
-msgstr ""
+msgstr "AllTheWeb სწრაფი"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:6
 msgid ""
 "http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
 msgstr ""
+"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:3
 msgid "AltaVista"
-msgstr ""
+msgstr "AltaVista"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:6
 msgid "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
-msgstr ""
+msgstr "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
 msgid "All Music Guide"
-msgstr "All Music Guide"
+msgstr "ყველა მუსიკის გიდი"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
 msgid "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
-msgstr ""
+msgstr "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:3
 msgid "KDE App Search"
-msgstr "KDE App ძებნა"
+msgstr "KDE-ის აპის ძებნა"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:6
 msgid "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
-msgstr ""
+msgstr "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:3
 msgid "AustroNaut"
-msgstr ""
+msgstr "AustroNaut"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:6
 msgid "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
-msgstr ""
+msgstr "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
 msgid "Debian Backports Search"
-msgstr "Debian Backports-ში ძებნა"
+msgstr "ძებნა Debian Backports-ში"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
 msgid "http://www.backports.org/package.php?search=\\{@}"
-msgstr ""
+msgstr "http://www.backports.org/package.php?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
 msgid "KDE Bug Database Fulltext Search"
-msgstr "KDE–ს შეცდომების ძებნა სრული ტექსტით"
+msgstr "ძებნა KDE–ის შეცდომებში სრული ტექსტით"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:4
@@ -415,16 +434,18 @@ msgid ""
 "http://bugs.trinitydesktop.org/simple_search.cgi?id=\\{1}+\\{2}+\\{3}+\\{4}+"
 "\\{5}+\\{6}+\\{7}+\\{8}+\\{9}"
 msgstr ""
+"http://bugs.trinitydesktop.org/simple_search.cgi?id=\\{1}+\\{2}+\\{3}+\\{4}+"
+"\\{5}+\\{6}+\\{7}+\\{8}+\\{9}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
 msgid "TDE Bug Database Bug Number Search"
-msgstr "TDE–ს შეცდომების ძებნა ნომრების მიხედვით"
+msgstr "TDE–ის შეცდომების ძებნა ნომრების მიხედვით"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:4
 msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
-msgstr ""
+msgstr "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/call.desktop:5
@@ -434,12 +455,12 @@ msgstr "QRZ.com-ის Callsign ბაზა"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/call.desktop:6
 msgid "http://www.qrz.com/database?callsign=\\{@}"
-msgstr ""
+msgstr "http://www.qrz.com/database?callsign=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/cia.desktop:4
 msgid "CIA World Factbook"
-msgstr "CIA მსოფლიო ფაქტები"
+msgstr "CIA-ის მსოფლიო ფაქტები"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/cia.desktop:5
@@ -448,27 +469,30 @@ msgid ""
 "http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
 "cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
 msgstr ""
+"http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
+"cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
 msgid "CiteSeer: Scientific Literature Digital Library"
-msgstr "CiteSeer: Scientific Literature Digital Library"
+msgstr "CiteSeer: სამეცნიერო ლიტერატორის ციფრული ბიბლიოთეკა"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
 msgid "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
-msgstr ""
+msgstr "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:3
 msgid "CPAN - Comprehensive Perl Archive Network"
-msgstr "CPAN - Comprehensive Perl Archive Network"
+msgstr "CPAN - ყოვლისმომცველი Perl-ის არქივის ქსელი"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
 msgid ""
 "http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
 msgstr ""
+"http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:3
@@ -481,6 +505,8 @@ msgid ""
 "http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
 "\\{ at }"
 msgstr ""
+"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename=\\{ "
+"at }"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:3
@@ -492,38 +518,39 @@ msgstr "CTAN კატალოგი"
 msgid ""
 "http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
 msgstr ""
+"http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
 msgid "Debian BTS Bug Search"
-msgstr "შეცდომის Debian BTS-ში ძებნა"
+msgstr "შეცდომის ძებნა Debian BTS-ში"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:4
 msgid "http://bugs.debian.org/\\{@}"
-msgstr ""
+msgstr "http://bugs.debian.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:5
 msgid "dict.cc Translation: German to English"
-msgstr "dict.cc-ის თარგმანი. გერმანულიდან ინგლისურზე"
+msgstr "dict.cc-ის თარგმანი: გერმანულიდან ინგლისურზე"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:6
 #: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:6
 msgid "http://www.dict.cc/?s=\\{@}"
-msgstr ""
+msgstr "http://www.dict.cc/?s=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:3
 msgid "LEO - Translate Between German and French"
-msgstr "LEO - გადათარგმნეთ გერმანულსა და ფრანგულს შორის"
+msgstr "LEO - თარგმანი გერმანულსა და ფრანგულს შორის"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:6
 #: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:6
 msgid "http://dict.leo.org/?lp=frde&search=\\{@}"
-msgstr ""
+msgstr "http://dict.leo.org/?lp=frde&search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/deb.desktop:3
@@ -533,7 +560,7 @@ msgstr "Debian-ის პაკეტების ძებნა"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/deb.desktop:4
 msgid "http://packages.debian.org/\\{@}"
-msgstr ""
+msgstr "http://packages.debian.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:3
@@ -543,27 +570,27 @@ msgstr "საქაღალდის გახსნა"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
 msgid "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
-msgstr ""
+msgstr "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
 msgid "DocBook - The Definitive Guide"
-msgstr "DocBook - The Definitive Guide"
+msgstr "DocBook - სრული სახელმძღვანელო"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:6
 msgid "http://www.docbook.org/tdg/en/html/\\{1}.html"
-msgstr ""
+msgstr "http://www.docbook.org/tdg/en/html/\\{1}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/doi.desktop:5
 msgid "Digital Object Identifier"
-msgstr "Digital Object Identifier"
+msgstr "ციფრული ობიექტის იდენტიფიკატორი"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/doi.desktop:6
 msgid "http://dx.doi.org/\\{@}"
-msgstr ""
+msgstr "http://dx.doi.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:5
@@ -578,7 +605,7 @@ msgstr "WordReference.com თარგმანი: ინგლისური�
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:6
 msgid "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:5
@@ -588,7 +615,7 @@ msgstr "WordReference.com თარგმანი: ინგლისური�
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:6
 msgid "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:5
@@ -598,7 +625,7 @@ msgstr "WordReference.com თარგმანი: ინგლისური�
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:6
 msgid "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:5
@@ -608,17 +635,17 @@ msgstr "WordReference.com თარგმანი: ესპანურიდ�
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:6
 msgid "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/excite.desktop:3
 msgid "Excite"
-msgstr ""
+msgstr "Excite"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/excite.desktop:6
 msgid "http://search.excite.com/search.gw?search=\\{@}"
-msgstr ""
+msgstr "http://search.excite.com/search.gw?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:3
@@ -628,22 +655,22 @@ msgstr "Feedster"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
 msgid "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
-msgstr ""
+msgstr "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
 msgid "Free On-Line Dictionary of Computing"
-msgstr "გამოთვლითი ტექნიკის უფასო ონლაინ ლექსიკონი"
+msgstr "გამოთვლითი ტექნიკის უფასო ონლაინ-ლექსიკონი"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
 msgid "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
-msgstr ""
+msgstr "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
 msgid "LEO - Translate Between French and German"
-msgstr "LEO - თარგმანი ფრანგულიდან გერმანულზე"
+msgstr "LEO - თარგმანი ფრანგულსა და გერმანულს შორის"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:5
@@ -653,7 +680,7 @@ msgstr "WordReference.com თარგმანი: ფრანგულიდ�
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:6
 msgid "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:3
@@ -663,37 +690,37 @@ msgstr "FreeDB"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:6
 msgid "http://www.freedb.org/freedb_search.php?words=\\{@}"
-msgstr ""
+msgstr "http://www.freedb.org/freedb_search.php?words=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:3
 msgid "Freshmeat"
-msgstr ""
+msgstr "Freshmeat"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:6
 msgid "http://freshmeat.net/search/?q=\\{@}"
-msgstr ""
+msgstr "http://freshmeat.net/search/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:3
 msgid "Froogle"
-msgstr ""
+msgstr "Froogle"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
 msgid "http://froogle.google.com/froogle?q=\\{@}"
-msgstr ""
+msgstr "http://froogle.google.com/froogle?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:3
 msgid "FSF/UNESCO Free Software Directory"
-msgstr "FSF/UNESCO უფასო პროგრამული უზრუნველყოფის სია"
+msgstr "FSF/UNESCO უფასო პროგრამული უზრუნველყოფის კატალოგი"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:6
 msgid "http://directory.fsf.org/search/?query=\\{@}"
-msgstr ""
+msgstr "http://directory.fsf.org/search/?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
@@ -703,12 +730,12 @@ msgstr "Google"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:6
 msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
-msgstr ""
+msgstr "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:3
 msgid "Google Advanced Search"
-msgstr "Google გაფართოებულ ძებნა"
+msgstr "Google გაფართოებული ძებნა"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:4
@@ -719,6 +746,11 @@ msgid ""
 "\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
 "&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
 msgstr ""
+"http://www.google.com/search?as_q=\\{all,@}&num=\\{num,\"10\""
+"}&btnG=Google+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\"
+"{without,\"\"}&lr=\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\""
+"\"}&as_qdr=\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\""
+"}&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
@@ -728,7 +760,7 @@ msgstr "Google ჯგუფები"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:6
 msgid "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
-msgstr ""
+msgstr "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:3
@@ -738,12 +770,12 @@ msgstr "Google სურათების ძებნა"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:6
 msgid "http://images.google.com/images?q=\\{@}"
-msgstr ""
+msgstr "http://images.google.com/images?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:3
 msgid "Google (I'm Feeling Lucky)"
-msgstr "Google (გავრისკავ)"
+msgstr "Google (იღბალა ვარ)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:6
@@ -752,6 +784,8 @@ msgid ""
 "http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling"
 "+Lucky&ie=UTF-8&oe=UTF-8"
 msgstr ""
+"http://www.google.com/search?q=\\"
+"{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
@@ -761,7 +795,7 @@ msgstr "Google ფილმები"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:6
 msgid "http://www.google.com/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
-msgstr ""
+msgstr "http://www.google.com/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:3
@@ -771,37 +805,37 @@ msgstr "Google სიახლეები"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:6
 msgid "http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
-msgstr ""
+msgstr "http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:3
 msgid "Gracenote"
-msgstr ""
+msgstr "Gracenote"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:6
 msgid "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
-msgstr ""
+msgstr "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:5
 msgid "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
-msgstr ""
+msgstr "კატალანური ენი დიდი ლექსიკონი (GRan Enciclopèdia  Catalana)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:6
 msgid "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
-msgstr ""
+msgstr "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:3
 msgid "Hotbot"
-msgstr ""
+msgstr "Hotbot"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:6
 msgid "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
-msgstr ""
+msgstr "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
@@ -811,17 +845,17 @@ msgstr "HyperDictionary.com"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
 msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
-msgstr ""
+msgstr "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:3
 msgid "HyperDictionary.com Thesaurus"
-msgstr "HyperDictionary.com ლექსიკონი"
+msgstr "თეზაურუსი HyperDictionary.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:6
 msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
-msgstr ""
+msgstr "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
@@ -831,7 +865,7 @@ msgstr "ინტერნეტის ფილმების ბაზა"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:6
 msgid "http://imdb.com/Find?\\{@}"
-msgstr ""
+msgstr "http://imdb.com/Find?\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:5
@@ -841,12 +875,12 @@ msgstr "WordReference.com თარგმანი: იტალიურიდ�
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:6
 msgid "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:3
 msgid "Ask Jeeves"
-msgstr "Ask Jeeves"
+msgstr "ჰკითხეთ Jeeves-ს"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:6
@@ -854,36 +888,38 @@ msgid ""
 "http://www.ask.com/main/askJeeves.asp?"
 "origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
 msgstr ""
+"http://www.ask.com/main/askJeeves."
+"asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:3
 msgid "KataTudo"
-msgstr ""
+msgstr "KataTudo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:6
 msgid "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
-msgstr ""
+msgstr "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kde.desktop:5
 msgid "KDE API Documentation"
-msgstr "KDE API დოკუმენტაცია"
+msgstr "KDE API-ის დოკუმენტაცია"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kde.desktop:6
 msgid "http://api.kde.org/classmapper.php?class=\\{@}"
-msgstr ""
+msgstr "http://api.kde.org/classmapper.php?class=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:3
 msgid "KDE WebSVN"
-msgstr ""
+msgstr "KDE WebSVN"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:6
 msgid "http://websvn.kde.org/\\{@}"
-msgstr ""
+msgstr "http://websvn.kde.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
@@ -893,27 +929,27 @@ msgstr "LEO-თარგმანი"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:6
 msgid "http://dict.leo.org/?search=\\{@}"
-msgstr ""
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:3
 msgid "Lycos"
-msgstr ""
+msgstr "Lycos"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:6
 msgid "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
-msgstr ""
+msgstr "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:3
 msgid "Mamma - Mother of all Search Engines"
-msgstr ""
+msgstr "Mamma - ყველა საძიებო სისტემის მშობელი"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:6
 msgid "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
-msgstr ""
+msgstr "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
@@ -927,11 +963,14 @@ msgid ""
 "&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
 "search&refer=mc-search"
 msgstr ""
+"http://search.metacrawler.com/crawler?general=\\{@}&method=0&cat=Web&target=m"
+"etaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&t"
+"heme=classic&refer=mc-search&refer=mc-search"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
 msgid "Microsoft Developer Network Search"
-msgstr "Microsoft Developer Network-ში ძებნა"
+msgstr "ძებნა Microsoft Developer Network-ში"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:6
@@ -940,6 +979,9 @@ msgid ""
 "handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
 "asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
 msgstr ""
+"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff."
+"asp?handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
+"asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:3
@@ -949,12 +991,12 @@ msgstr "Netcraft"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:6
 msgid "http://uptime.netcraft.com/up/graph?site=\\{@}"
-msgstr ""
+msgstr "http://uptime.netcraft.com/up/graph?site=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:2
 msgid "Telephonebook Search Provider"
-msgstr "Telephonebook-ით ძებნა"
+msgstr "საძიებო სისტემა Telephonebook"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:6
@@ -965,16 +1007,20 @@ msgid ""
 "&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
 "\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
 msgstr ""
+"http://www.detelefoongids.nl/tginl.dll?action=white&type=search&resultsperpag"
+"e=25&pagestart=1&source=searchcategory&name2=\\{1}&name=&initials=&city=\\{2}"
+"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription="
+"&country=&catcode=&dcity=\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:2
 msgid "Teletekst Search Provider"
-msgstr "Teletekst -ით ძებნა"
+msgstr "საძიებო სისტემა Teletekst"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:6
 msgid "http://teletekst.nos.nl/gif/\\{@}-01.html"
-msgstr ""
+msgstr "http://teletekst.nos.nl/gif/\\{@}-01.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
@@ -984,7 +1030,7 @@ msgstr "OpenPGP გასაღების ძებნა"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
 msgid "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
-msgstr ""
+msgstr "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
@@ -994,7 +1040,7 @@ msgstr "PHP ძებნა"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
 msgid "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
-msgstr ""
+msgstr "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/python.desktop:5
@@ -1008,16 +1054,18 @@ msgid ""
 "http://www.google.com/search?sourceid=python-search&q=\\{@}"
 "&submit=Search&q=site%3Apython.org"
 msgstr ""
+"http://www.google.com/search?sourceid=python-search&q=\\"
+"{@}&submit=Search&q=site%3Apython.org"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt.desktop:5
 msgid "Latest Qt Online Documentation"
-msgstr "Qt5-ის ონლაინ დოკუმენტაცია"
+msgstr "Qt-ის ონლაინ დოკუმენტაცია"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt.desktop:6
 msgid "http://doc.trolltech.com/latest/\\{@}.html"
-msgstr ""
+msgstr "http://doc.trolltech.com/latest/\\{@}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:5
@@ -1027,7 +1075,7 @@ msgstr "Qt3 ინტერნეტ დოკუმენტაცია"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:6
 msgid "http://doc.trolltech.com/3.3/\\{@}.html"
-msgstr ""
+msgstr "http://doc.trolltech.com/3.3/\\{@}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rae.desktop:5
@@ -1040,16 +1088,18 @@ msgid ""
 "http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
 "&FORMATO=ampliado"
 msgstr ""
+"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\"
+"{@}&FORMATO=ampliado"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
 msgid "IETF Requests for Comments"
-msgstr "IETF Requests for Comments"
+msgstr "IETF კომენტარების მოთხოვნა"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:4
 msgid "http://www.ietf.org/rfc/rfc\\{@}.txt"
-msgstr ""
+msgstr "http://www.ietf.org/rfc/rfc\\{@}.txt"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:3
@@ -1059,22 +1109,22 @@ msgstr "RPM-Find"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:6
 msgid "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
-msgstr ""
+msgstr "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:3
 msgid "Ruby Application Archive"
-msgstr "Ruby-ის აპლიკაციის არქივი"
+msgstr "Ruby-ის აპლიკაციების არქივი"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:6
 msgid "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
-msgstr ""
+msgstr "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/seek.desktop:3
 msgid "GO.com"
-msgstr ""
+msgstr "GO.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/seek.desktop:6
@@ -1082,6 +1132,8 @@ msgid ""
 "http://www.go.com/Titles?col=WW&qt=\\{@}"
 "&svx=home_searchbox&sv=IS&lk=noframeso"
 msgstr ""
+"http://www.go.com/Titles?col=WW&qt=\\"
+"{@}&svx=home_searchbox&sv=IS&lk=noframeso"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
@@ -1094,36 +1146,38 @@ msgid ""
 "http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
 "\\{exact,\"0\"}&words=\\{@}"
 msgstr ""
+"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact=\\"
+"{exact,\"0\"}&words=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
 msgid "Technorati"
-msgstr "Technorati"
+msgstr "სტატიები Technorati-ზე"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:6
 msgid "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
-msgstr ""
+msgstr "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:3
 msgid "Technorati Tags"
-msgstr "Technorati ჭდეები"
+msgstr "Technorati-ის ჭდეები"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:6
 msgid "http://technorati.com/tag/\\{@}?sourceid=kde-search"
-msgstr ""
+msgstr "http://technorati.com/tag/\\{@}?sourceid=kde-search"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:3
 msgid "Merriam-Webster Thesaurus"
-msgstr "Merriam-Webster Thesaurus"
+msgstr "თეზაურუსი Merriam-Webster"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:6
 msgid "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
-msgstr ""
+msgstr "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:4
@@ -1133,7 +1187,7 @@ msgstr "TV Tome"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:6
 msgid "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
-msgstr ""
+msgstr "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:5
@@ -1146,11 +1200,13 @@ msgid ""
 "http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
 "&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
 msgstr ""
+"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\"
+"{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
 msgid "Vivisimo"
-msgstr "ვივისიმო"
+msgstr "Vivisimo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:6
@@ -1159,6 +1215,8 @@ msgid ""
 "http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
 "%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
 msgstr ""
+"http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
+"%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/voila.desktop:3
@@ -1171,6 +1229,8 @@ msgid ""
 "http://search.ke.voila.fr/S/voila?"
 "lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
 msgstr ""
+"http://search.ke.voila.fr/S/"
+"voila?lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/webster.desktop:3
@@ -1180,18 +1240,19 @@ msgstr "Merriam-Webster-ის ლექსიკონი"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/webster.desktop:6
 msgid "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
-msgstr ""
+msgstr "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:3
 msgid "Whatis Query"
-msgstr "მოთხოვნა - რა არის"
+msgstr "Whatis მოთხოვნა"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:6
 msgid ""
 "http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
 msgstr ""
+"http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:3
@@ -1201,7 +1262,7 @@ msgstr "Wikipedia - უფასო ენციკლოპედია"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:6
 msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr ""
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:3
@@ -1211,7 +1272,7 @@ msgstr "Wiktionary - უფასო ლექსიკონი"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:6
 msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr ""
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:5
@@ -1221,17 +1282,17 @@ msgstr "WordReference.com ინგლისური ლექსიკონ�
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:6
 msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
-msgstr ""
+msgstr "http://www.wordreference.com/english/definition.asp?en=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/localdomain/localdomainurifilter.desktop:3
 msgid "LocalDomainFilter"
-msgstr ""
+msgstr "გაფილტვრა დომენით local"
 
 #. Name
 #: ebrowsing/plugins/shorturi/tdeshorturifilter.desktop:3
 msgid "ShortURIFilter"
-msgstr ""
+msgstr "მოკლე URL-ის ფილტრი"
 
 #. Name
 #: energy/energy.desktop:11
@@ -1241,7 +1302,7 @@ msgstr "კვების კონტროლი"
 #. Comment
 #: energy/energy.desktop:13
 msgid "Settings for display power management"
-msgstr "დისპლეის კვების მონეჯმენტის კონფიგურაცია"
+msgstr "პარამეტრები ეკრანის კვების სამართავად"
 
 #. Keywords
 #: energy/energy.desktop:15
@@ -1253,17 +1314,19 @@ msgstr ""
 #. Name
 #: filetypes/filetypes.desktop:12
 msgid "File Associations"
-msgstr "ფაილების ასოციაციები"
+msgstr "ფაილის ასოციაციები"
 
 #. Comment
 #: filetypes/filetypes.desktop:14
 msgid "Configure file associations"
-msgstr "ფაილების ასოციაციების მორგება"
+msgstr "ფაილის ასოციაციების მორგება"
 
 #. Keywords
 #: filetypes/filetypes.desktop:16
 msgid "Filetypes;File Associations;Mime Types;File Patterns;Files;Pattern;"
 msgstr ""
+"Filetypes;File Associations;Mime Types;File Patterns;Files;Pattern;ნიმუში;"
+"ფაილის ნიმუშები;ფაილის ასოციაცია;"
 
 #. Name
 #: fonts/fonts.desktop:12 konqhtml/tdehtml_fonts.desktop:11
@@ -1289,20 +1352,19 @@ msgstr ""
 #. Name
 #: hwmanager/hwdevicetray-autostart.desktop:2
 msgid "tdehwdevicetray"
-msgstr ""
+msgstr "tdehwdevicetray"
 
 #. GenericName
 #. Name
 #: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
 #: hwmanager/hwdevicetray.desktop:4
-#, fuzzy
 msgid "Device Monitor"
-msgstr "რამდენიმე მონიტორი"
+msgstr "მოწყობილობის მონიტორი"
 
 #. Comment
 #: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
 msgid "Monitor hardware devices from the system tray"
-msgstr ""
+msgstr "აპარატურული მოწყობილობების მონიტორინგი სისტემურ საათთან"
 
 #. Name
 #: hwmanager/hwmanager.desktop:11
@@ -1311,24 +1373,23 @@ msgstr "მოწყობილობის მმართველი"
 
 #. Comment
 #: hwmanager/hwmanager.desktop:13
-#, fuzzy
 msgid "Configure hardware devices"
-msgstr "ბრაუზერის ქცევის კონფიგურაცია"
+msgstr "აპარატურული მოწყობილობების მორგება"
 
 #. Keywords
 #: hwmanager/hwmanager.desktop:15
 msgid "hardware;devices;manager;"
-msgstr ""
+msgstr "hardware;devices;manager;აპარატურა;მართვა;მოწყობილობა;"
 
 #. Comment
 #: iccconfig/iccconfig.desktop:14
 msgid "Configure display ICC color profile"
-msgstr ""
+msgstr "ეკრანის ICC ფერი პროფილის მორგება"
 
 #. Keywords
 #: iccconfig/iccconfig.desktop:16
 msgid "ICC;display;color;profile;"
-msgstr ""
+msgstr "ICC;display;color;profile;ეკრანი;ფერი;პროფილი;"
 
 #. Name
 #: iccconfig/iccconfig.desktop:18
@@ -1343,7 +1404,7 @@ msgstr "ხატულები"
 #. Comment
 #: icons/icons.desktop:14
 msgid "Customize TDE Icons"
-msgstr "TDE–ს ხატულების კონფიგურაცია"
+msgstr "TDE–ის ხატულების მორგება"
 
 #. Keywords
 #: icons/icons.desktop:16
@@ -1352,35 +1413,37 @@ msgstr "ხატულები;ეფექტები;ზომა;მაღ
 
 #. Name
 #: info/cdinfo.desktop:12
-#, fuzzy
 msgid "CD-ROM Information"
-msgstr "ინფორმაცია DMA–ს შესახებ"
+msgstr "ინფორმაცია CD-ROM–ის შესახებ"
 
 #. Comment
 #: info/cdinfo.desktop:14
 msgid "CD/DVD Drive Capabilites"
-msgstr ""
+msgstr "CD/DVD ამძრავის შესაძლებლობები"
 
 #. Keywords
 #: info/cdinfo.desktop:16
 msgid "CD-ROM Information;CD-ROM;CD;CD Drive;Writer Capabilities;"
 msgstr ""
+"CD-ROM Information;CD-ROM;CD;CD Drive;Writer "
+"Capabilities;შესაძლებლობა;ჩამწერი;"
 
 #. Name
 #: info/devices.desktop:13
 msgid "Devices"
-msgstr "მოწყობილობა"
+msgstr "მოწყობილობები"
 
 #. Comment
 #: info/devices.desktop:15
 msgid "Attached devices information"
-msgstr "ცნობები მიერთებულ მოწყობილობებზე"
+msgstr "ინფორმაცია მიერთებულ მოწყობილობებზე"
 
 #. Keywords
 #: info/devices.desktop:17
-#, fuzzy
 msgid "dev;Devices;System Information;Information;"
-msgstr "dma;DMA-არხები;ინფორმაცია სისტემის შესახებ;"
+msgstr ""
+"dev;Devices;System Information;Information;ინფორმაცია სისტემის "
+"შესახებ;ინფორმაცია;"
 
 #. Name
 #: info/dma.desktop:13
@@ -1390,7 +1453,7 @@ msgstr "DMA არხები"
 #. Comment
 #: info/dma.desktop:15
 msgid "DMA information"
-msgstr "ინფორმაცია DMA–ს შესახებ"
+msgstr "ინფორმაცია DMA–ის შესახებ"
 
 #. Keywords
 #: info/dma.desktop:17
@@ -1410,7 +1473,7 @@ msgstr "ინფორმაცია წყვეტებზე"
 #. Keywords
 #: info/interrupts.desktop:17
 msgid "Interrupts;IRQ;System Information;"
-msgstr "წყვიტავს;IRQ;ინფორმაცია სისტემის შესახებ;"
+msgstr "წყვეტები;IRQ;ინფორმაცია სისტემის შესახებ;"
 
 #. Name
 #: info/ioports.desktop:13
@@ -1426,11 +1489,13 @@ msgstr "ინფორმაცია IO–პორტების შეს�
 #: info/ioports.desktop:17
 msgid "IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System Information;"
 msgstr ""
+"IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System "
+"Information;IO-შუალედი;IO პორტები;ინფორმაცია სისტემის შესახებ;"
 
 #. Name
 #: info/memory.desktop:12
 msgid "Memory"
-msgstr "მეხსიერება:"
+msgstr "მეხსიერება"
 
 #. Comment
 #: info/memory.desktop:14
@@ -1454,7 +1519,7 @@ msgstr "OpenGL"
 #. Comment
 #: info/opengl.desktop:15
 msgid "OpenGL information"
-msgstr "OpenGL -ის ინფორმაცია"
+msgstr "ინფორმაცია OpenGL ის შესახებ"
 
 #. Keywords
 #: info/opengl.desktop:17
@@ -1473,13 +1538,12 @@ msgstr "დანაყოფები"
 #. Comment
 #: info/partitions.desktop:15
 msgid "Partition information"
-msgstr "ცნობები გამოყენებული რესურსების შესახებ"
+msgstr "ცნობები დანაყოფების შესახებ"
 
 #. Keywords
 #: info/partitions.desktop:17
-#, fuzzy
 msgid "Partitions;Harddrive;HD;System Information;"
-msgstr "პროცესორი;CPU;FPU;MHz;ინფორმაცია სისტემის შესახებ;"
+msgstr "დანაყოფი;მყარი დისკი;ინფორმაცია სისტემის შესახებ;"
 
 #. Name
 #: info/pci.desktop:12
@@ -1489,13 +1553,14 @@ msgstr "PCI"
 #. Comment
 #: info/pci.desktop:14
 msgid "PCI information"
-msgstr "PCI მოწყობილობები"
+msgstr "ინფორმაცია PCI მოწყობილობების შესახებ"
 
 #. Keywords
 #: info/pci.desktop:16
-#, fuzzy
 msgid "PCI;PCI-Devices;PCI-Bus;System Information;"
-msgstr "წყვიტავს;IRQ;ინფორმაცია სისტემის შესახებ;"
+msgstr ""
+"PCI;PCI-Devices;PCI-Bus;System Information;ინფორმაცია სისტემის შესახებ;PCI "
+"მოწყობილობები;"
 
 #. Name
 #: info/processor.desktop:12
@@ -1520,18 +1585,17 @@ msgstr "SCSI"
 #. Comment
 #: info/scsi.desktop:14
 msgid "SCSI information"
-msgstr "ინფორმაცია SCSI–ს შესახებ"
+msgstr "ინფორმაცია SCSI–ის შესახებ"
 
 #. Keywords
 #: info/scsi.desktop:16
-#, fuzzy
 msgid "SCSI;SCSI-Bus;System Information;"
-msgstr "წყვიტავს;IRQ;ინფორმაცია სისტემის შესახებ;"
+msgstr "SCSI;SCSI-Bus;ინფორმაცია სისტემის შესახებ;"
 
 #. Name
 #: info/sound.desktop:12
 msgid "Sound"
-msgstr "ხმები"
+msgstr "ხმა"
 
 #. Comment
 #: info/sound.desktop:14
@@ -1567,7 +1631,7 @@ msgstr "თაგუნა"
 #. Comment
 #: input/mouse.desktop:15
 msgid "Mouse settings"
-msgstr "თაგვის კონფიგურაცია"
+msgstr "თაგუნას მორგება"
 
 #. Keywords
 #: input/mouse.desktop:17
@@ -1576,6 +1640,11 @@ msgid ""
 "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
 "DoubleClick;mapping;right handed;left handed;"
 msgstr ""
+"Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
+"Shape;Input Devices;Button "
+"Mapping;Click;icons;feedback;Pointers;Drag;DoubleClick;mapping;right handed;"
+"left handed;ცაცია;თაგუნა;თაგუნას აჩქარება;თაგუნას პარამეტრები;მონიშვნა;"
+"კურსორის ფორმა;ღილაკების მინიჭება;დაწკაპუნება;უკუკავშირი;კურსორი;"
 
 #. Name
 #: input/touchpad.desktop:13
@@ -1593,6 +1662,9 @@ msgid ""
 "Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
 "Click;mapping;right handed;left handed;"
 msgstr ""
+"Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button "
+"Mapping;Tap;Click;mapping;right handed;left handed;ცაცია;თაჩპედი;შეყვანის "
+"მოწყობილობები;თაგუნა;მარცხენა წკაპი;"
 
 #. Name
 #: joystick/joystick.desktop:12
@@ -1602,33 +1674,33 @@ msgstr "ჯოისტიკი"
 #. Comment
 #: joystick/joystick.desktop:14
 msgid "Joystick - a kcontrol module to test Joysticks"
-msgstr "Joystick -  kcontrol მოდული ჯოისტიკის ტესტირებისთვის"
+msgstr "Joystick - kcontrol მოდული ჯოისტიკის დასატესტად"
 
 #. Keywords
 #: joystick/joystick.desktop:16
 msgid "joystick;gamepad;"
-msgstr ""
+msgstr "joystick;gamepad;ჯოისტიკი;გეიმპადი;"
 
 #. Name
 #: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
 #: kcontrol/tde-kcontrol.desktop:8
 msgid "Trinity Control Center"
-msgstr "საკონტროლო ცენტრი"
+msgstr "Trinity-ის კონტროლის ცენტრი"
 
 #. Name
 #: kded/kcmkded.desktop:11
 msgid "Service Manager"
-msgstr "სერვის მენეჯერი"
+msgstr "სერვისების მმართველი"
 
 #. Comment
 #: kded/kcmkded.desktop:13
 msgid "System Services Configuration"
-msgstr "სისტემური სერვისების კონფიგურაცია"
+msgstr "სისტემური სერვისების მორგება"
 
 #. Keywords
 #: kded/kcmkded.desktop:15
 msgid "KDED;Daemon;Services;"
-msgstr ""
+msgstr "KDED;Daemon;Services;დემონი;სერვისები;"
 
 #. Name
 #: keys/keys.desktop:12
@@ -1638,7 +1710,7 @@ msgstr "კლავიატურის მალსახმობები"
 #. Comment
 #: keys/keys.desktop:14
 msgid "Configuration of keybindings"
-msgstr "კლავიშთა წყვილების კონფიგურაცია"
+msgstr "ღილაკების ასახვის მორგება"
 
 #. Keywords
 #: keys/keys.desktop:16
@@ -1646,6 +1718,8 @@ msgid ""
 "Keys;Global key bindings;Key scheme;Key bindings;shortcuts;application "
 "shortcuts;"
 msgstr ""
+"Keys;Global key bindings;Key scheme;Key bindings;shortcuts;application "
+"shortcuts;მალსახმობები;ღილაკები;ღილაკების სქემა;"
 
 #. Name
 #: kicker/kicker_config.desktop:11
@@ -1655,7 +1729,7 @@ msgstr "განლაგება"
 #. Comment
 #: kicker/kicker_config.desktop:13 kicker/kicker_config_arrangement.desktop:13
 msgid "Configure the arrangement of the panel"
-msgstr "აქ შეგიძლიათ პანელის თანმიმდევრულობის კონფიგურაცია"
+msgstr "პანელის განლაგების მორგება"
 
 #. Keywords
 #: kicker/kicker_config.desktop:15 kicker/kicker_config_appearance.desktop:15
@@ -1668,6 +1742,11 @@ msgid ""
 "bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;"
 "applets;startup;highlight;handles;zooming icons;"
 msgstr ""
+"kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto "
+"hide;hide;buttons;animation;background;themes;menu cache;cache;hidden;TDE "
+"Menu;bookmarks;recent documents;quickbrowser;browser "
+"menu;menu;icons;tiles;applets;startup;highlight;handles;zooming icons;ხატულებ"
+"ი;პანელი;ანიმაცია;ფონი;მენიუ;სანიშნეები;ბრაუზერი;ავტოდამალვა;მდებარეობა;"
 
 #. Name
 #: kicker/kicker_config_appearance.desktop:11 konq/fileappearance.desktop:11
@@ -1677,22 +1756,22 @@ msgstr "გარეგნობა"
 #. Comment
 #: kicker/kicker_config_appearance.desktop:13
 msgid "Configure the appearance of the panel"
-msgstr "აქ შეგიძლიათ პანელის გარეგნობის კონფიგურაცია"
+msgstr "პანელის გარეგნობის მორგება"
 
 #. Name
 #: kicker/kicker_config_arrangement.desktop:11
 msgid "Arrangement"
-msgstr "განთავსება"
+msgstr "განლაგება"
 
 #. Name
 #: kicker/kicker_config_hiding.desktop:11
 msgid "Hiding"
-msgstr "დამალვა"
+msgstr "დამალული"
 
 #. Comment
 #: kicker/kicker_config_hiding.desktop:13
 msgid "Configure the hiding of the panel"
-msgstr "აქ შეგიძლიათ პანელის დამალვის მითითება"
+msgstr "პანელის დამალვის მორგება"
 
 #. Name
 #: kicker/kicker_config_menus.desktop:11
@@ -1702,7 +1781,7 @@ msgstr "მენიუები"
 #. Comment
 #: kicker/kicker_config_menus.desktop:13
 msgid "Configure the menus of the panel"
-msgstr "აქ შეგიძლიათ პანელის მენიუების გამართვა"
+msgstr "პანელის მენიუების მორგება"
 
 #. Name
 #: kicker/panel.desktop:10
@@ -1712,7 +1791,7 @@ msgstr "პანელები"
 #. Comment
 #: kicker/panel.desktop:12
 msgid "Configure the arrangement of the panels"
-msgstr "პანელის თანმიმდევრულობის კონფიგურაცია"
+msgstr "პანელები განლაგების მორგება"
 
 #. Name
 #: knotify/kcmnotify.desktop:11
@@ -1722,7 +1801,7 @@ msgstr "სისტემური შეტყობინებები"
 #. Comment
 #: knotify/kcmnotify.desktop:13
 msgid "System Notification Configuration"
-msgstr "სისტემური შეტყობინებების კონფიგურაცია"
+msgstr "სისტემური შეტყობინებების მორგება"
 
 #. Keywords
 #: knotify/kcmnotify.desktop:15
@@ -1732,12 +1811,12 @@ msgstr "სისტემის ხმები;აუდიო;ხმა;შ�
 #. Name
 #: konq/desktop.desktop:11
 msgid "Multiple Desktops"
-msgstr "მრავალ დაფიანი რეჟიმი"
+msgstr "ერთზე მეტი სამუშაო მაგიდა"
 
 #. Comment
 #: konq/desktop.desktop:13
 msgid "You can configure how many virtual desktops there are"
-msgstr "თქვენ შეგიძლიათ ვირტუალური სამუშაო მაგიდების რაოდენობის კონფიგურაცია"
+msgstr "შეგიძლიათ, მოირგოთ, რამდენი ვირტუალური სამუშაო მაგიდა არსებობს"
 
 #. Keywords
 #: konq/desktop.desktop:15
@@ -1752,7 +1831,7 @@ msgstr "ქცევა"
 #. Comment
 #: konq/desktopbehavior.desktop:14
 msgid "You can configure how the desktop behaves here"
-msgstr "სამუშაო დაფის ქცვის კონფიგურაცია"
+msgstr "აქ შეგიძლიათ, მოირგოთ, როგორ იქცევა სამუშაო მაგიდა"
 
 #. Keywords
 #: konq/desktopbehavior.desktop:16
@@ -1760,6 +1839,9 @@ msgid ""
 "konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
 "behavior;behaviour;memory usage;Home URL;"
 msgstr ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn "
+"windows;behavior;behaviour;memory usage;Home URL;საწყისი ბმული;ქცევა;"
+"მეხსიერების გამოყენება;ფაილების მართვა;"
 
 #. Name
 #: konq/desktoppath.desktop:11
@@ -1769,17 +1851,19 @@ msgstr "ბილიკები"
 #. Comment
 #: konq/desktoppath.desktop:13
 msgid "Change the location important files are stored"
-msgstr "მნიშვნელოვანი ფაილბის გეზის ცვლილება შენახულია"
+msgstr "მნიშვნელოვანი ფაილების მდებარეობის შეცვლა"
 
 #. Keywords
 #: konq/desktoppath.desktop:15
 msgid "konqueror;filemanager;paths;desktop;directories;autostart;"
 msgstr ""
+"konqueror;filemanager;paths;desktop;directories;autostart;ფაილების "
+"მმართველი;ბილიკები;საქაღალდეები;ავტოგაშვება;"
 
 #. Comment
 #: konq/fileappearance.desktop:13
 msgid "Configure how Konqueror looks as a file manager"
-msgstr "Konqueror-ის, როგორც ფაილური მენეჯერის, იერის კონფიგურირება"
+msgstr "მოირგეთ, როგორ გამოიყურება Konqueror ფაილების მმართველის როლში"
 
 #. Keywords
 #: konq/fileappearance.desktop:15 konq/filebrowser.desktop:16
@@ -1787,11 +1871,14 @@ msgid ""
 "konqueror;filemanager;word wrap;wrap;underline;display;filesize;bytes;font;"
 "color;colour;"
 msgstr ""
+"konqueror;filemanager;word "
+"wrap;wrap;underline;display;filesize;bytes;font;color;colour;ფერები;ეკრანი;"
+"ფაილის ზომა;ხაზგასმა;ხაზის გადატანა;"
 
 #. Comment
 #: konq/filebehavior.desktop:13
 msgid "Configure how Konqueror behaves as a file manager"
-msgstr "Konqueror-ის, როგორც ფაილური მენეჯერის, ქცევის კონფიგურირება"
+msgstr "მოირგეთ, როგორ იქცევა Konqueror, როგორც ფაილების მმართველი"
 
 #. Keywords
 #: konq/filebehavior.desktop:15
@@ -1800,26 +1887,32 @@ msgid ""
 "behavior;behaviour;memory usage;Home URL;network operations;progress dialog;"
 "trash can;delete;confirmation;"
 msgstr ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn "
+"windows;behavior;behaviour;memory usage;Home URL;network operations;progress "
+"dialog;trash can;delete;confirmation;დადასტურება;წაშლა;ქცევა;მეხსიერება;"
+"ფაილების მართვა;"
 
 #. Comment
 #: konq/filebrowser.desktop:14
 msgid "You can configure Konqueror's file manager mode here"
-msgstr "აქ შეგიძლიათ დააკონფიგურიროთ Konqueror ფაილური მენეჯერის რეჟიმი"
+msgstr "აქ შეგიძლიათ, Konqueror-ის ფაილების მმართველის რეჟიმი მოირგოთ"
 
 #. Name
 #: konq/filepreviews.desktop:11
 msgid "Previews & Metadata"
-msgstr "წინასწარ ხედვა და მეტა მონაცემები"
+msgstr "მინიატურები და მეტამონაცემები"
 
 #. Comment
 #: konq/filepreviews.desktop:13
 msgid "Configure how Konqueror Previews & Meta-data work"
-msgstr "წინასწარ ხედვის და მეტა მონაცემების კონფიგურირება Konqueror-ში"
+msgstr "მოირგეთ, როგორ მუშაობს მინიატურები და მეტამონაცემები Konqueror-ში"
 
 #. Keywords
 #: konq/filepreviews.desktop:15
 msgid "konqueror;filemanager;previews;file previews;maximum size;"
 msgstr ""
+"konqueror;filemanager;previews;file previews;maximum size;მაქსიმალური "
+"ზომა;მინიატურა;ფაილების მართვა;"
 
 #. Name
 #: konqhtml/tdehtml_behavior.desktop:11
@@ -1837,6 +1930,9 @@ msgid ""
 "konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;"
 "cursor;links;images;charsets;character sets;encoding;"
 msgstr ""
+"konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;curso"
+"r;links;images;charsets;character "
+"sets;encoding;კოდირება;სიმბოლოები;კურსორი;ფონტები;ვები;ბრაუზერი;ბმულები;"
 
 #. Name
 #: konqhtml/tdehtml_filter.desktop:10
@@ -1851,13 +1947,15 @@ msgstr "Konqueror-ის AdBlock-ის ფილტრების მორგ
 #. Comment
 #: konqhtml/tdehtml_fonts.desktop:13
 msgid "Configure the fonts used on web pages"
-msgstr "ვებ გვერდების შრიფტების კონფიგურაცია"
+msgstr "ვებგვერდების გამოყენებული ფონტების მორგება"
 
 #. Keywords
 #: konqhtml/tdehtml_fonts.desktop:15
 msgid ""
 "konqueror;kfm;browser;html;web;www;fonts;charsets;character sets;encoding;"
 msgstr ""
+"konqueror;kfm;browser;html;web;www;fonts;charsets;character "
+"sets;encoding;კოდირება;ფონტები;ვები;"
 
 #. Name
 #: konqhtml/tdehtml_java_js.desktop:11
@@ -1872,23 +1970,24 @@ msgstr "Java-ის და JavaScript-ის ქცევის მორგე�
 #. Keywords
 #: konqhtml/tdehtml_java_js.desktop:15
 msgid "konqueror;kfm;browser;html;web;www;java;javascript;"
-msgstr ""
+msgstr "konqueror;kfm;browser;html;web;www;java;javascript;ვები;"
 
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
 msgid "User Interface"
-msgstr "სამომხმარებლო ინტერფეისი"
+msgstr "მომხმარებლის ინტერფეისი"
 
 #. Comment
 #: konqhtml/tdehtml_userinterface.desktop:13
-#, fuzzy
 msgid "Configure user interface options"
-msgstr "ვებ კეშის პარამეტრების კონფიგურაცია"
+msgstr "მომხმარებლის ინტერფეისის მორგება"
 
 #. Keywords
 #: konqhtml/tdehtml_userinterface.desktop:15
 msgid "konqueror;kfm;user;interface;tabbed;browsing;"
 msgstr ""
+"konqueror;kfm;user;interface;tabbed;browsing;ბრაუზერი;მომხმარებელი;ინტერფეისი"
+";"
 
 #. Name
 #: konsole/kcmkonsole.desktop:10
@@ -1898,7 +1997,7 @@ msgstr "Konsole"
 #. Comment
 #: konsole/kcmkonsole.desktop:12
 msgid "Konsole configuration module"
-msgstr "კონსოლის კონფიგურაციის მოდული"
+msgstr "Konsole-ის კონფიგურაციის მოდული"
 
 #. Keywords
 #: konsole/kcmkonsole.desktop:14
@@ -1906,6 +2005,8 @@ msgid ""
 "konsole;schema;konsole background;colors;background;terminal application;"
 "terminal;"
 msgstr ""
+"konsole;schema;konsole background;colors;background;terminal "
+"application;terminal;ტერმინალი;ფერები;ფონი;ტერმინალის აპლიკაცია;"
 
 #. Name
 #: kthememanager/installktheme.desktop:2
@@ -1915,22 +2016,22 @@ msgstr "TDE-ს თემების დაყენება"
 #. Comment
 #: kthememanager/kthememanager.desktop:2
 msgid "Manage global TDE visual themes"
-msgstr "TDE-ს ვიზუალური თემბის გლობალური მენეჯმენტი"
+msgstr "გლობალური TDE-ს ვიზუალური თემების მართვა"
 
 #. Keywords
 #: kthememanager/kthememanager.desktop:5
 msgid "themes;look and feel;"
-msgstr ""
+msgstr "themes;look and feel;თემა;გარეგნობა;"
 
 #. Name
 #: kthememanager/kthememanager.desktop:6
 msgid "Theme Manager"
-msgstr "თემების მენეჯერი"
+msgstr "თემების მმართველი"
 
 #. Comment
 #: kthememanager/x-ktheme.desktop:3
 msgid "TDE Theme"
-msgstr "TDE-ს თემა"
+msgstr "TDE-ის თემა"
 
 #. Name
 #: launch/kcmlaunch.desktop:12
@@ -1948,6 +2049,9 @@ msgid ""
 "application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
 "spinning;disk;startup;program;report;"
 msgstr ""
+"application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;spinning"
+";disk;startup;program;report;ანგარიში;შებრუნება;გაშვება;პროგრამა;დაკავებული;კ"
+"ურსორი;უკუკავშირი;თაგუნა;კურსორი;"
 
 #. Name
 #: locale/default/entry.desktop:2
@@ -1962,7 +2066,7 @@ msgstr "ქვეყანა/რეგიონი და ენა"
 #. Comment
 #: locale/language.desktop:14
 msgid "Language, numeric, and time settings for your particular region"
-msgstr "თქვენი რეგიონისთვის ენის, თარიღის და ციფრული ფორმატის კონფიგურაცია"
+msgstr "ენის, თარიღის და რიცხვის ფორმატის მორგება თქვენი რეგიონისთვის"
 
 #. Keywords
 #: locale/language.desktop:16
@@ -1971,6 +2075,12 @@ msgid ""
 "charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
 "sign;positive;negative;fractional digits;week;week start;"
 msgstr ""
+"language;translation;number "
+"format;currency;time;date;formats;locale;Country;charsets;character sets;"
+"Decimal symbol;Thousands separator;symbol;separator;sign;positive;negative;"
+"fractional digits;week;week start;ენა;თარგმანი;რიცხვის "
+"ფორმატი;ვალუტა;დრო;თარიღი;ფორმატი;ქვეყანა;კოდირება;წილადის გამყოფი;ათასების "
+"გამყოფი;გამყოფი სიმბოლო;"
 
 #. Name
 #: nics/nic.desktop:12
@@ -1980,7 +2090,7 @@ msgstr "ქსელის ინტერფეისები"
 #. Comment
 #: nics/nic.desktop:14
 msgid "Network interface information"
-msgstr "ინფორმაცია ინტერფეისის შესახებ"
+msgstr "ინფორმაცია ქსელის ინტერფეისის შესახებ"
 
 #. Name
 #: performance/kcmkonqyperformance.desktop:11
@@ -1996,7 +2106,7 @@ msgstr "Konqueror-ის წარმადობის პარამეტრ
 #. Keywords
 #: performance/kcmkonqyperformance.desktop:15
 msgid "konqueror;reuse;preloading;"
-msgstr ""
+msgstr "konqueror;reuse;preloading;წინასწარ ჩატვირთვა;"
 
 #. Comment
 #: performance/kcmperformance.desktop:13
@@ -2007,11 +2117,12 @@ msgstr "TDE-ს სისწრაფეზე მოქმედი პარ�
 #: performance/kcmperformance.desktop:15
 msgid "performance;speed;memory;improve;"
 msgstr ""
+"performance;speed;memory;improve;წარმადობა;სიჩქარე;მეხსიერება;გაუმჯობესება;"
 
 #. Name
 #: privacy/privacy.desktop:11
 msgid "Privacy"
-msgstr "პირადი ინფორმაცია"
+msgstr "კონფიდენციალობა"
 
 #. Comment
 #: privacy/privacy.desktop:13
@@ -2020,9 +2131,8 @@ msgstr "წმენდს მომხმარებლის არასა�
 
 #. Keywords
 #: privacy/privacy.desktop:15
-#, fuzzy
 msgid "Privacy;privacy;"
-msgstr "კონფიდენციალურობა"
+msgstr "კონფიდენციალობა;პირადი;"
 
 #. Name
 #: randr/randr.desktop:9
@@ -2032,43 +2142,45 @@ msgstr "ზომა და ორიენტაცია"
 #. Comment
 #: randr/randr.desktop:11
 msgid "Resize and Rotate your display"
-msgstr "ეკრანის ზომის და ორიენტაციის შეცვლა"
+msgstr "ეკრანის ზომისა და ორიენტაციის შეცვლა"
 
 #. Keywords
 #: randr/randr.desktop:13
 msgid "resize;rotate;display;color;depth;size;horizontal;vertical;"
 msgstr ""
+"resize;rotate;display;color;depth;size;horizontal;vertical;ზომის "
+"შეცვლა;შებრუნება;ეკრანი;ფერი;ზომა;სიღრმე;ჰორიზონტალური;ვერტიკალური;"
 
 #. Name
 #: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
 msgid "TDERandRTray"
-msgstr ""
+msgstr "TDERandRTray"
 
 #. GenericName
 #: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
 msgid "Screen Resize & Rotate"
-msgstr "ეკრანის ზომა და ორიენტაცია"
+msgstr "ეკრანის ზომის შეცვლა და შებრუნება"
 
 #. Comment
 #: randr/tderandrtray-autostart.desktop:6 randr/tderandrtray.desktop:6
 msgid "Resize and rotate X screens."
-msgstr "ეკრანის ზომის და ორიენტაციის შეცვლა"
+msgstr "X-ის ეკრანის ზომის შეცვლა და შებრუნება."
 
 #. Name
 #: samba/smbstatus.desktop:12
 msgid "Samba Status"
-msgstr "Samba-ს სტატუსი"
+msgstr "Samba-ის სტატუსი"
 
 #. Comment
 #: samba/smbstatus.desktop:14
 msgid "Samba status monitor"
-msgstr "Samba-ს სტატუსის მონიტორი"
+msgstr "Samba-ის სტატუსის მონიტორი"
 
 #. Keywords
 #: samba/smbstatus.desktop:16
-#, fuzzy
 msgid "SMB;SAMBA;Windows network;LAN;System Information;"
-msgstr "dma;DMA-არხები;ინფორმაცია სისტემის შესახებ;"
+msgstr ""
+"SMB;SAMBA;Windows network;LAN;System Information;ინფორმაცია სისტემის შესახებ;"
 
 #. Name
 #: screensaver/screensaver.desktop:12
@@ -2078,12 +2190,12 @@ msgstr "ეკრანის დაცვა"
 #. Comment
 #: screensaver/screensaver.desktop:14
 msgid "Screen Saver Settings"
-msgstr "Screen Saver-ის კონფიგურაცია"
+msgstr "ეკრანის დაცვის მორგება"
 
 #. Keywords
 #: screensaver/screensaver.desktop:16
 msgid "screensavers;Priority;"
-msgstr ""
+msgstr "screensavers;Priority;ეკრანის დაცვა;პრიორიტეტი;"
 
 #. Name
 #: smartcard/smartcard.desktop:11
@@ -2092,29 +2204,30 @@ msgstr "სმარტ ბარათები"
 
 #. Comment
 #: smartcard/smartcard.desktop:13
-#, fuzzy
 msgid "Configure smartcard support"
-msgstr "სერვისის არმოჩენის კონფიგურირება"
+msgstr "სმარტ ბარათების მხარდაჭერის მორგება"
 
 #. Keywords
 #: smartcard/smartcard.desktop:15
 msgid "Smartcard;PKCS;SSL;reader;smart;card;"
-msgstr ""
+msgstr "Smartcard;PKCS;SSL;reader;smart;card;სმარტ;ბარათი;"
 
 #. Name
 #: smserver/kcmsmserver.desktop:12
 msgid "Session Manager"
-msgstr "სესსის მმართველი"
+msgstr "სესიები მმართველი"
 
 #. Comment
 #: smserver/kcmsmserver.desktop:14
 msgid "Configure the session manager and logout settings"
-msgstr "სეანსების მენეჯერის და სისტემიდან გამოსვლის კონფიგურაცია"
+msgstr "სესიების მმართველისა და გასვლის პარამეტრების მორგება"
 
 #. Keywords
 #: smserver/kcmsmserver.desktop:16
 msgid "ksmserver;session;logout;confirmation;save;restore;"
 msgstr ""
+"ksmserver;session;logout;confirmation;save;restore;სესია;შენახვა;გასვლა;აღდგე"
+"ნა;"
 
 #. Name
 #: spellchecking/spellchecking.desktop:11
@@ -2124,12 +2237,12 @@ msgstr "მართლწერის შემოწმება"
 #. Comment
 #: spellchecking/spellchecking.desktop:13
 msgid "Configure the spell checker"
-msgstr "მარლთწერის სემოწმების კონფიგურაცია"
+msgstr "მართლწერის შემოწმების მორგება"
 
 #. Keywords
 #: spellchecking/spellchecking.desktop:15
 msgid "Spell;"
-msgstr ""
+msgstr "მართლწერა;"
 
 #. Name
 #: style/style.desktop:13
@@ -2140,28 +2253,30 @@ msgstr "სტილი"
 #: style/style.desktop:15
 msgid ""
 "Allows the manipulation of widget behavior and changing the Style for TDE"
-msgstr "TDE-ს ელემენტების სტილი და იერსახე"
+msgstr "საშუალებას გაძლევთ, შეცვალოთ ვიჯეტის ქცევა და მისი სტილი TDE-სთვის"
 
 #. Keywords
 #: style/style.desktop:17
 msgid ""
 "style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE applications;"
 msgstr ""
+"style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE "
+"applications;სტილები;გარეგნობა;პანელები;გამოკვეთა;აპები;აპლიკაციები;"
 
 #. Name
 #: taskbar/kcmtaskbar.desktop:11
 msgid "Taskbar"
-msgstr "ამოცანათა პანელი"
+msgstr "ამოცანების პანელი"
 
 #. Comment
 #: taskbar/kcmtaskbar.desktop:13
 msgid "Configure the selected taskbar"
-msgstr "ამოცანათა პანელის კონფიგურაცია"
+msgstr "ამოცანების პანელის მორგება"
 
 #. Keywords
 #: taskbar/kcmtaskbar.desktop:15
 msgid "kicker;panel;kpanel;taskbar;startbar;launchbar;windows;"
-msgstr ""
+msgstr "kicker;panel;kpanel;taskbar;startbar;launchbar;windows;პანელი;ფანჯრები;"
 
 #. Name
 #: tdefontinst/installfont.desktop:6
@@ -2196,7 +2311,7 @@ msgstr "ფონტების საქაღალდე"
 #. Comment
 #: tdefontinst/tdeio/package.desktop:6
 msgid "Fonts Package"
-msgstr "შრიფტების პაკეტი"
+msgstr "ფონტების პაკეტი"
 
 #. Comment
 #: tdefontinst/tdeio/system-folder.desktop:2
@@ -2210,9 +2325,8 @@ msgstr "ფონტის ფაილები"
 
 #. Name
 #: tdefontinst/viewpart/tdefontview.desktop:2
-#, fuzzy
 msgid "TDEFontView"
-msgstr "პროგრამა ფონტების სანახავად"
+msgstr "TDEFontView"
 
 #. GenericName
 #. Name
@@ -2229,7 +2343,7 @@ msgstr "კეში"
 #. Comment
 #: tdeio/cache.desktop:14
 msgid "Configure web cache settings"
-msgstr "ვებ კეშის პარამეტრების კონფიგურაცია"
+msgstr "ვებ კეშის პარამეტრების მორგება"
 
 #. Keywords
 #: tdeio/cache.desktop:16
@@ -2254,7 +2368,7 @@ msgstr "ქუქები;მიმოხილვა;ინტერნეტ�
 #. Name
 #: tdeio/lanbrowser.desktop:11
 msgid "Local Network Browsing"
-msgstr "ლოკალური ქსელის მიმოხილვა"
+msgstr "ლოკალური ქსელის დათვალიერება"
 
 #. Comment
 #: tdeio/lanbrowser.desktop:13
@@ -2264,17 +2378,18 @@ msgstr "lisa, reslisa და ioslaves -ს კონფიგურაცია"
 #. Keywords
 #: tdeio/lanbrowser.desktop:15
 msgid "samba;smb;windows;network;"
-msgstr ""
+msgstr "samba;smb;windows;network;ქსელი;"
 
 #. Comment
 #: tdeio/netpref.desktop:2
 msgid "Configure generic network preferences, like timeout values"
-msgstr "ქსელის ზოგადი პარამეტრების მორგება"
+msgstr "ქსელის ზოგადი პარამეტრების მორგება. მაგ: მოლოდინის ვადის მნიშვნელობები"
 
 #. Keywords
 #: tdeio/netpref.desktop:5
 msgid "timeout;iopref;netpref;network preferences;ftp;"
 msgstr ""
+"timeout;iopref;netpref;network preferences;ftp;მოლოდინისდრო;ქსელის მორგება;"
 
 #. Name
 #: tdeio/netpref.desktop:6
@@ -2284,7 +2399,7 @@ msgstr "კავშირის პარამეტრები"
 #. Name
 #: tdeio/proxy.desktop:12
 msgid "Proxy"
-msgstr "პროექსი"
+msgstr "პროქსი"
 
 #. Comment
 #: tdeio/proxy.desktop:14
@@ -2304,7 +2419,9 @@ msgstr "Windows-ის ზიარები"
 #. Comment
 #: tdeio/smb.desktop:14
 msgid "Use to configure which windows (SMB) filesystems you can browse"
-msgstr "გამოიყენება windows (SMB) ფაილური სისტემების ჩვენების მისათითებლად"
+msgstr ""
+"გამოიყენეთ, რომ მიუთითოთ, რომელი Windows (SMB) ფაილური სისტემების "
+"დათვალიერება შეგიძლიათ"
 
 #. Keywords
 #: tdeio/smb.desktop:16
@@ -2312,11 +2429,13 @@ msgid ""
 "SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;"
 "Broadcast;WINS;Share;Login;Passwords;"
 msgstr ""
+"SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;Broadcas"
+"t;WINS;Share;Login;Passwords;შესვლა;პაროლი;სერვერი;მაუწყებლობა;ქსელი;"
 
 #. Comment
 #: tdeio/uasprovider.desktop:4
 msgid "UserAgent Strings"
-msgstr "Строки UserAgent"
+msgstr "მომხმარებლის აგენტის სტრიქონები"
 
 #. Name
 #: tdeio/uasproviders/ie401onwinnt4.desktop:2
@@ -2356,7 +2475,7 @@ msgstr "UADescription (IE 6.0 მიმდინარე სისტემა�
 #. Name
 #: tdeio/uasproviders/ie60onwinnt51.desktop:2
 msgid "UADescription (IE 6.0 on Win XP)"
-msgstr "UADescription (IE 5.0 Win 95-ში)"
+msgstr "UADescription (IE 6.0 Win XP-ზე)"
 
 #. Name
 #: tdeio/uasproviders/lynxoncurrent.desktop:2
@@ -2371,7 +2490,7 @@ msgstr "UADescription (Netscape 7.1 მიმდინარე სისტე�
 #. Name
 #: tdeio/uasproviders/ns71onwinnt51.desktop:2
 msgid "UADescription (Netscape 7.1 on XP)"
-msgstr "UADescription (Netscape 7.1 XP-ში)"
+msgstr "UADescription (Netscape 7.1 XP-ზე)"
 
 #. Name
 #: tdeio/uasproviders/op75oncurrent.desktop:2
@@ -2385,34 +2504,35 @@ msgstr "UADescription (w3m 0.1.9)"
 
 #. Name
 #: tdeio/uasproviders/wgetoncurrent.desktop:2
-#, fuzzy
 msgid "UADescription (Wget 1.11.4)"
-msgstr "UADescription (w3m 0.1.9)"
+msgstr "UADescription (wget 1.11.4)"
 
 #. Name
 #: tdeio/useragent.desktop:12
 msgid "Browser Identification"
-msgstr "ბრაუზერის იდენტიფიკაცია"
+msgstr "ბრაუზერის იდენტიფიკატორი"
 
 #. Comment
 #: tdeio/useragent.desktop:14
 msgid "Configure the way Konqueror reports itself"
-msgstr "Konqueror-ის იდენტიფიკაციის კონფიგურირება"
+msgstr "Konqueror-ის იდენტიფიკაციის მორგება"
 
 #. Keywords
 #: tdeio/useragent.desktop:16
 msgid "User Agent;Browser;Internet;WWW;Network;agent;bindings;server;login;"
 msgstr ""
+"User Agent;Browser;Internet;WWW;Network;agent;bindings;server;login;"
+"მომხმარებლის აგენტი;სერვერი;შესვლა;"
 
 #. Name
 #: tdm/tdm.desktop:14
 msgid "Login Manager"
-msgstr "შესვლის მენეჯერი"
+msgstr "შესვლის მმართველი"
 
 #. Comment
 #: tdm/tdm.desktop:16
 msgid "Configure the login manager (TDM)"
-msgstr "შევლის მენეჯერის კონფიგურირება (TDM)"
+msgstr "შევლის მმართველის მორგება (TDM)"
 
 #. Keywords
 #: tdm/tdm.desktop:18
@@ -2420,6 +2540,9 @@ msgid ""
 "tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;"
 "fonts;background;wallpapers;sessions;shutdown;restart;"
 msgstr ""
+"tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;fon"
+"ts;background;wallpapers;sessions;shutdown;restart;გადატვირთვა;გასვლა;გამორთვ"
+"ა;ენა;ქვეყანა;მისალმება;"
 
 #. Name
 #: usbview/kcmusb.desktop:10
@@ -2429,12 +2552,12 @@ msgstr "USB მოწყობილობები"
 #. Comment
 #: usbview/kcmusb.desktop:12
 msgid "View the USB devices attached to this computer"
-msgstr "თქვენი კომპიუტერის USB მოწყობილობები"
+msgstr "თქვენს კომპიუტერზე მიერთებული USB მოწყობილობები"
 
 #. Keywords
 #: usbview/kcmusb.desktop:14
 msgid "USB;devices;viewer;control;"
-msgstr ""
+msgstr "USB;მოწყობილობები;მართვა;"
 
 #. Name
 #: view1394/kcmview1394.desktop:10
@@ -2449,7 +2572,7 @@ msgstr "ამ კომპიუტერზე შეერთებული 
 #. Keywords
 #: view1394/kcmview1394.desktop:14
 msgid "1394;Firewire;devices;viewer;control;"
-msgstr ""
+msgstr "1394;Firewire;devices;viewer;control;მართვა;მოწყობილობა;"
 
 #. Name
 #: xinerama/xinerama.desktop:10
@@ -2459,9 +2582,9 @@ msgstr "რამდენიმე მონიტორი"
 #. Comment
 #: xinerama/xinerama.desktop:12
 msgid "Configure TDE for multiple monitors"
-msgstr "რამდენიმე მონიტორისთვის TDE -ს კონფიგურაცია"
+msgstr "TDE -ის მორგება რამდენიმე მონიტორისთვის"
 
 #. Keywords
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
-msgstr ""
+msgstr "Xinerama;dual head;multihead;monitor;ორი ეკრანი;"
