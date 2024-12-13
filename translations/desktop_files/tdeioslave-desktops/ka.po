@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-12-13 07:11+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/tdeioslave-desktop-files/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: cgi/kcmcgi/kcmcgi.desktop:9
@@ -29,7 +30,7 @@ msgstr "CGI TDEIO slave-ის კონფიგურაცია"
 #. Keywords
 #: cgi/kcmcgi/kcmcgi.desktop:13
 msgid "CGI;TDEIO;Slave;Paths;"
-msgstr ""
+msgstr "CGI;TDEIO;Slave;Paths;ბილიკები;"
 
 #. Name
 #: home/kdedmodule/homedirnotify.desktop:4
@@ -40,43 +41,43 @@ msgstr "KDED ძირითადი თავფურცლის URL შე�
 #: home/kdedmodule/homedirnotify.desktop:6
 msgid "Provides change notification for user's home folder ($HOME)"
 msgstr ""
+"მოგაწოდებთ ცვლილების გაფრთხილებას მომხმარებლის საწყისი საქაღალდის შესახებ "
+"($HOME)"
 
 #. Name
 #: man/kmanpart.desktop:4
 msgid "KManPart"
-msgstr ""
+msgstr "KManPart"
 
 #. Comment
 #: man/kmanpart.desktop:6
 msgid "Embeddable Troff Viewer"
-msgstr "ჩაშენებული დამთვალიერებელი პროგრამა Troff"
+msgstr "ჩაშენებადი დამთვალიერებელი პროგრამა Troff"
 
 #. Name
 #: media/mediamanager/mediamanager.desktop:4
 msgid "KDED Media Manager"
-msgstr "მატარებლების მმართველი KDED"
+msgstr "KDED მედიის მმართველი"
 
 #. Comment
 #: media/mediamanager/mediamanager.desktop:6
 msgid "Keep track of media activities and allow to (un)mount (media:/)"
-msgstr ""
-"თვალყურს ადევნებს მედიის აქტიურობას და საშუალებას აძლევს (დე)მონტირების "
-"გაკეთებას (media:/)"
+msgstr "მედიის აქტივობების ტრეკინგი და მიმაგრების/მოხსნის (media:/) დაშვება"
 
 #. Name
 #: media/medianotifier/medianotifier.desktop:4
 msgid "Media Notifier Daemon"
-msgstr "მედიის შემტყობინებელი"
+msgstr "მედიის შეტყობინების დემონი"
 
 #. Comment
 #: media/medianotifier/medianotifier.desktop:6
 msgid "A media plugged notifier"
-msgstr "მედიის ჩადგმის შემტყობინებელი"
+msgstr "მედიის მიერთების შეტყობინება"
 
 #. Comment
 #: media/mimetypes/audiocd.desktop:6
 msgid "Audio CD"
-msgstr ""
+msgstr "აუდიო CD"
 
 #. Comment
 #: media/mimetypes/blankbluray.desktop:6
@@ -96,22 +97,22 @@ msgstr "სუფთა DVD"
 #. Comment
 #: media/mimetypes/bluray_encrypted_locked.desktop:7
 msgid "Encrypted Locked BLURAY"
-msgstr ""
+msgstr "დაშიფრული დაბლოკილი BLURAY"
 
 #. Comment
 #: media/mimetypes/bluray_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked BLURAY"
-msgstr ""
+msgstr "დაშიფრული განბლოკილი BLURAY"
 
 #. Comment
 #: media/mimetypes/bluray_mounted.desktop:6
 msgid "Mounted BLURAY"
-msgstr "მონტირებული BLURAY"
+msgstr "მიმაგრებული BLURAY"
 
 #. Comment
 #: media/mimetypes/bluray_unmounted.desktop:6
 msgid "Unmounted BLURAY"
-msgstr "დემონტირებული BLURAY"
+msgstr "მოხსნილი BLURAY"
 
 #. Comment
 #: media/mimetypes/blurayvideo.desktop:6
@@ -121,92 +122,92 @@ msgstr "ვიდეო BLURAY დისკი"
 #. Comment
 #: media/mimetypes/camera_mounted.desktop:6
 msgid "Mounted Camera"
-msgstr "მონტირებული კამერა"
+msgstr "მიმაგრებული კამერა"
 
 #. Comment
 #: media/mimetypes/camera_unmounted.desktop:6
 msgid "Unmounted Camera"
-msgstr "დემონტირებული კამერა"
+msgstr "მოხსნილი კამერა"
 
 #. Comment
 #: media/mimetypes/cd-r_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-R"
-msgstr ""
+msgstr "დაშიფრული დაბლოკილი CD-R"
 
 #. Comment
 #: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-R"
-msgstr ""
+msgstr "დაშიფრული განბლოკილი CD-R"
 
 #. Comment
 #: media/mimetypes/cd-r_mounted.desktop:6
 msgid "Mounted CD-R"
-msgstr "მონტირებული CD-R"
+msgstr "მიმაგრებული CD-R"
 
 #. Comment
 #: media/mimetypes/cd-r_unmounted.desktop:6
 msgid "Unmounted CD-R"
-msgstr "დემონტირებული CD-R"
+msgstr "მოხსნილი CD-R"
 
 #. Comment
 #: media/mimetypes/cd-rw_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-RW"
-msgstr ""
+msgstr "დაშიფრული დაბლოკილი CD-RW"
 
 #. Comment
 #: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-RW"
-msgstr ""
+msgstr "დაშიფრული განბლოკილი CD-RW"
 
 #. Comment
 #: media/mimetypes/cd-rw_mounted.desktop:6
 msgid "Mounted CD-RW"
-msgstr "მონტირებული CD-RW"
+msgstr "მიმაგრებული CD-RW"
 
 #. Comment
 #: media/mimetypes/cd-rw_unmounted.desktop:6
 msgid "Unmounted CD-RW"
-msgstr "დემონტირებული CD-RW"
+msgstr "მოხსნილი CD-RW"
 
 #. Comment
 #: media/mimetypes/cdrom_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-ROM"
-msgstr ""
+msgstr "დაშიფრული დაბლოკილი CD-ROM"
 
 #. Comment
 #: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-ROM"
-msgstr ""
+msgstr "დაშიფრული განბლოკილი CD-ROM"
 
 #. Comment
 #: media/mimetypes/cdrom_mounted.desktop:6
 msgid "Mounted CD-ROM"
-msgstr "მონტირებული CD-ROM"
+msgstr "მიმაგრებული CD-ROM"
 
 #. Comment
 #: media/mimetypes/cdrom_unmounted.desktop:6
 msgid "Unmounted CD-ROM"
-msgstr "დემონტირებული CD-ROM"
+msgstr "მოხსნილი CD-ROM"
 
 #. Comment
 #: media/mimetypes/dvd_encrypted_locked.desktop:7
 msgid "Encrypted Locked DVD"
-msgstr ""
+msgstr "დაშიფრული დაბლოკილი DVD"
 
 #. Comment
 #: media/mimetypes/dvd_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked DVD"
-msgstr ""
+msgstr "დაშიფრული განბლოკილი DVD"
 
 #. Comment
 #: media/mimetypes/dvd_mounted.desktop:6
 msgid "Mounted DVD"
-msgstr "მონტირებული DVD"
+msgstr "მიმაგრებული DVD"
 
 #. Comment
 #: media/mimetypes/dvd_unmounted.desktop:6
 msgid "Unmounted DVD"
-msgstr "დემონტირებული DVD"
+msgstr "მოხსნილი DVD"
 
 #. Comment
 #: media/mimetypes/dvdvideo.desktop:6
@@ -216,22 +217,22 @@ msgstr "ვიდეო DVD დისკი"
 #. Comment
 #: media/mimetypes/floppy5_mounted.desktop:6
 msgid "Mounted 5¼\" Floppy"
-msgstr "მონტირებული დისკწამყვანი 5¼\""
+msgstr "მიმაგრებული 5¼\" დისკეტა"
 
 #. Comment
 #: media/mimetypes/floppy5_unmounted.desktop:6
 msgid "Unmounted 5¼\" Floppy"
-msgstr "დემონტირებული დისკწამყვანი 5¼\""
+msgstr "მოხსნილი 5¼\" დისკეტა"
 
 #. Comment
 #: media/mimetypes/floppy_mounted.desktop:6
 msgid "Mounted Floppy"
-msgstr "მონტირებული დრეკადი დისკი"
+msgstr "მიმაგრებული დისკეტა"
 
 #. Comment
 #: media/mimetypes/floppy_unmounted.desktop:6
 msgid "Unmounted Floppy"
-msgstr "დემონტირებული დრეკადი დისკი"
+msgstr "მოხსნილი დისკეტა"
 
 #. Comment
 #: media/mimetypes/gphoto2camera.desktop:6
@@ -240,88 +241,83 @@ msgstr "კამერა"
 
 #. Comment
 #: media/mimetypes/hdd_encrypted_locked.desktop:7
-#, fuzzy
 msgid "Encrypted Locked Hard Disk Volume"
-msgstr "მონტირებული ხისტი დისკის ტომი"
+msgstr "დაშიფრული მიმაგრებული მყარი დისკის ტომი"
 
 #. Comment
 #: media/mimetypes/hdd_encrypted_unlocked.desktop:7
-#, fuzzy
 msgid "Encrypted Unlocked Hard Disk Volume"
-msgstr "დემონტირებული ხისტი დისკის ტომი"
+msgstr "დაშიფრული მოხსნილი მყარი დისკის ტომი"
 
 #. Comment
 #: media/mimetypes/hdd_mounted.desktop:6
 msgid "Mounted Hard Disk Volume"
-msgstr "მონტირებული ხისტი დისკის ტომი"
+msgstr "მიმაგრებული მყარი დისკის ტომი"
 
 #. Comment
 #: media/mimetypes/hdd_unmounted.desktop:6
 msgid "Unmounted Hard Disk Volume"
-msgstr "დემონტირებული ხისტი დისკის ტომი"
+msgstr "მოხსნილი მყარი დისკის ტომი"
 
 #. Comment
 #: media/mimetypes/mycomputer.desktop:6
 msgid "My Computer"
-msgstr ""
+msgstr "ჩემი კომპიუტერი"
 
 #. Comment
 #: media/mimetypes/mydocuments.desktop:6
 msgid "My Documents"
-msgstr ""
+msgstr "ჩემი დოკუმენტები"
 
 #. Comment
 #: media/mimetypes/mynetworkplaces.desktop:6
-#, fuzzy
 msgid "My Network Places"
-msgstr "დაშორებული ადგილები"
+msgstr "ჩემი ქსელის მდებარეობები"
 
 #. Comment
 #: media/mimetypes/nfs_mounted.desktop:6
 msgid "Mounted NFS Share"
-msgstr "მონტირებული NFS რესურსი"
+msgstr "მიმაგრებული NFS რესურსი"
 
 #. Comment
 #: media/mimetypes/nfs_unmounted.desktop:6
 msgid "Unmounted NFS Share"
-msgstr "დემონტირებული NFS რესურსი"
+msgstr "მოხსნილი NFS რესურსი"
 
 #. Comment
 #: media/mimetypes/printers.desktop:6
 msgid "Printers"
-msgstr ""
+msgstr "პრინტერები"
 
 #. Comment
 #: media/mimetypes/removable_encrypted_locked.desktop:7
-#, fuzzy
 msgid "Encrypted Locked Removable Medium"
-msgstr "მონტირებული პორტატიული მოწყობილობა"
+msgstr "დაშიფრული დაბლოკილი მოხსნადი მედია"
 
 #. Comment
 #: media/mimetypes/removable_encrypted_unlocked.desktop:7
-#, fuzzy
 msgid "Encrypted Unlocked Removable Medium"
-msgstr "დემონტირებული პორტატიული მოწყობილობა"
+msgstr "დაშიფრული განბლოკილი მოხსნადი მედია"
 
 #. Comment
 #: media/mimetypes/removable_mounted.desktop:6
 msgid "Mounted Removable Medium"
-msgstr "მონტირებული პორტატიული მოწყობილობა"
+msgstr "მიმაგრებული მოხსნადი მედია"
 
 #. Comment
 #: media/mimetypes/removable_unmounted.desktop:6
 msgid "Unmounted Removable Medium"
-msgstr "დემონტირებული პორტატიული მოწყობილობა"
+msgstr "მოხსნილი მოხსნადი მედია"
 
 #. Comment
 #: media/mimetypes/smb_mounted.desktop:6
 msgid "Mounted Samba (Microsoft Network) Share"
-msgstr "მონტირებული Samba რესურსი (Microsoft-ის ქსელი)"
+msgstr "მიმაგრებული Samba-ის(Microsoft-ის ქსელი) გაზიარებული"
 
 #. Comment
 #: media/mimetypes/smb_unmounted.desktop:6
 msgid "Unmounted Samba (Microsoft Network) Share"
-msgstr "დემონტირებული Samba რესურსი (Microsoft-ის ქსელი)"
+msgstr "მოხსნილი Samba-ის (Microsoft-ის ქსელი) გაზიარებული"
 
 #. Comment
 #: media/mimetypes/svcd.desktop:6
@@ -333,110 +329,107 @@ msgstr "სუპერ ვიდეო CD"
 #: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
 #: trash/kcmtrash.desktop:11
 msgid "Trash"
-msgstr "ურნა"
+msgstr "ნაგვის ყუთი"
 
 #. Comment
 #: media/mimetypes/vcd.desktop:6
-#, fuzzy
 msgid "Video CD"
-msgstr "სუპერ ვიდეო CD"
+msgstr "ვიდეო CD"
 
 #. Comment
 #: media/mimetypes/webbrowser.desktop:6
 msgid "Web Browser"
-msgstr ""
+msgstr "ვებ ბრაუზერი"
 
 #. Comment
 #: media/mimetypes/zip_mounted.desktop:6
 msgid "Mounted Zip Disk"
-msgstr "მონტირებული диск Zip"
+msgstr "მიმაგრებული Zip დისკი"
 
 #. Comment
 #: media/mimetypes/zip_unmounted.desktop:6
 msgid "Unmounted Zip Disk"
-msgstr "დემონტირებული диск Zip"
+msgstr "მოხსნილი Zip დისკი"
 
 #. Name
 #: media/propsdlgplugin/media_propsdlgplugin.desktop:6
-#, fuzzy
 msgid "Media Properties Page"
-msgstr "მედიის შემტყობინებელი"
+msgstr "მედიის თვისებების გვერდი"
 
 #. Comment
 #: media/propsdlgplugin/media_propsdlgplugin.desktop:8
 msgid "Konqueror properties dialog plugin to configure mount behaviour"
-msgstr ""
+msgstr "Konqueror-ის თვისებების დიალოგის დამატება მიმაგრების ქცევის მოსარგებად"
 
 #. Name
 #: media/services/media_eject.desktop:10
 msgid "Eject"
-msgstr "CD-ს ამოღება"
+msgstr "ამოღება"
 
 #. Name
 #: media/services/media_lock.desktop:10
 msgid "Lock"
-msgstr ""
+msgstr "დაბლოკვა"
 
 #. Name
 #: media/services/media_mount.desktop:10
 msgid "Mount"
-msgstr "მონტირება"
+msgstr "მიმაგრება"
 
 #. Name
 #: media/services/media_realfolder.desktop:10
 msgid "Open Medium System Folder"
-msgstr "მედიუმის სისტემური საქაღალდის გახსნა"
+msgstr "მედიის სისტემური საქაღალდის გახსნა"
 
 #. Name
 #: media/services/media_safelyremove.desktop:10
 msgid "Safely Remove"
-msgstr "უსაფრთხოდ გამორთვა"
+msgstr "უსაფრთხოდ მოხსნა"
 
 #. Name
 #: media/services/media_unlock.desktop:10
 msgid "Unlock"
-msgstr ""
+msgstr "განბლოკვა"
 
 #. Name
 #: media/services/media_unmount.desktop:10
 msgid "Unmount"
-msgstr "დემონტირება"
+msgstr "მოხსნა"
 
 #. Name
 #: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
 msgid "Storage Media"
-msgstr "მონაცემთა შენახვის მოწყობილობები"
+msgstr "საცავის მედია"
 
 #. Comment
 #: media/tdecmodule/media.desktop:12
 msgid "Configure Storage Media"
-msgstr "შენახვის მედიის გამართვა"
+msgstr "საცავის მედიის მორგება"
 
 #. Keywords
 #: media/tdecmodule/media.desktop:14
 msgid "storage;media;usb;cdrom;device;"
-msgstr ""
+msgstr "storage;media;usb;cdrom;device;საცავი;მედია;მოწყობილობა;"
 
 #. Name
 #: media/tdefile-plugin/tdefile_media.desktop:6
 msgid "Medium Information"
-msgstr "ცნობები მატარებლის შესახებ"
+msgstr "მედიის ინფორმაცია"
 
 #. Name
 #: remote/kdedmodule/remotedirnotify.desktop:4
-#, fuzzy
 msgid "KDED Remote Base URL Notifier"
-msgstr "KDED ძირითადი თავფურცლის URL შემტყობინებელი"
+msgstr "KDED დაშორებული საბაზისო ბმულის გაფრთხილება"
 
 #. Comment
 #: remote/kdedmodule/remotedirnotify.desktop:6
 msgid "Provides change notification for network folders"
-msgstr ""
+msgstr "მოგაწვდით ცვლილების გაფრთხილებას ქსელის საქაღალდეებისთვის"
 
 #. Name
 #: smb/smb-network.desktop:4
 msgid "Samba Shares"
-msgstr "Samba-ს საზიაროები"
+msgstr "Samba-ს გაზიარებულები"
 
 #. Comment
 #: smb/x-smb-server.desktop:2
@@ -450,9 +443,8 @@ msgstr "Windows სამუშაო გჯუფი"
 
 #. Name
 #: system/entries/documents.desktop:6
-#, fuzzy
 msgid "Documents Folder"
-msgstr "საწყისი საქაღალდე"
+msgstr "დოკუმენტების საქაღალდე"
 
 #. Name
 #: system/entries/home.desktop:6
@@ -467,13 +459,12 @@ msgstr "დაშორებული ადგილები"
 #. Name
 #: system/entries/users.desktop:6
 msgid "Users Folders"
-msgstr "მომხმარებლის დასტები"
+msgstr "მომხმარებლის საქაღალდეები"
 
 #. Name
 #: system/kdedmodule/systemdirnotify.desktop:4
-#, fuzzy
 msgid "KDED System Base URL Notifier"
-msgstr "KDED ძირითადი თავფურცლის URL შემტყობინებელი"
+msgstr "KDED სისტემის საბაზისო ბმულის გაფრთხილება"
 
 #. Comment
 #: system/kdedmodule/systemdirnotify.desktop:6
@@ -481,6 +472,8 @@ msgid ""
 "Provides change notification for folders monitored by the system:/ tdeio "
 "plugin"
 msgstr ""
+"მოგაწვდით ცვლილების გაფრთხილებას tdeio-ის დამატების მიერ მონიტორინგის ქვეშ "
+"system:/ მდებარეობებისთვის"
 
 #. Comment
 #: system/mimetypes/system_directory.desktop:6
@@ -490,7 +483,7 @@ msgstr "სისტემური საქაღალდე"
 #. Name
 #: thumbnail/cursorthumbnail.desktop:4
 msgid "Cursor Files"
-msgstr "კურსორთა ფაილები"
+msgstr "კურსორის ფაილები"
 
 #. Name
 #: thumbnail/djvuthumbnail.desktop:4
@@ -520,24 +513,24 @@ msgstr "ტექსტური ფაილები"
 #. Comment
 #: thumbnail/thumbcreator.desktop:5
 msgid "Thumbnail Handler"
-msgstr "მინი-გამოსახულების დამმუშავებელი"
+msgstr "მინიატურების დამმუშავებელი"
 
 #. Comment
 #. Name
 #: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
 msgid "Trash Properties"
-msgstr ""
+msgstr "ნაგვის ყუთის თვისებები"
 
 #. Keywords
 #: trash/kcmtrash.desktop:15
 msgid "trash;properties;size;limits;delete"
-msgstr ""
+msgstr "trash;properties;size;limits;deleteნაგვის ყუთი;ზომა;საზღვრები;თვისებები"
 
 #. Name
 #: trash/tdefile-plugin/tdefile_trash.desktop:4
 #: trash/tdefile-plugin/tdefile_trash_system.desktop:4
 msgid "Trash File Info"
-msgstr "ურნაში არსებული ფაილის შესახებ ცნობი"
+msgstr "ინფორმაცია ნაგვის ყუთის ფაილის შესახებ"
 
 #. Description
 #: fish/fish.protocol:14
@@ -552,15 +545,14 @@ msgstr "tdeioslave NXFISH ოქმისთვის"
 #. Description
 #: mac/mac.protocol:9
 msgid "A tdeioslave for MacOS HFS+ partitions"
-msgstr "tdeioslave MacOS HFS+ პარტიციებისთვის"
+msgstr "tdeioslave MacOS HFS+ დანაყოფებისთვის"
 
 #. Description
 #: sftp/sftp.protocol:15
-#, fuzzy
 msgid "A tdeioslave for sftp"
-msgstr "tdeioslave FISH პროტოკოლისთვის"
+msgstr "tdeioslave SFTP პროტოკოლისთვის"
 
 #. ExtraNames
 #: trash/trash.protocol:25
 msgid "Original Path,Deletion Date"
-msgstr "საწყისი გეზი, წაშლის თარიღი"
+msgstr "საწყისი ბილიკი, წაშლის თარიღი"
