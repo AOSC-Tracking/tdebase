@@ -1,40 +1,43 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-04 18:14+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-12-13 07:11+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/twin-desktop-files/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: kcmtwin/showdesktop.desktop:4
 msgid "Show Desktop"
-msgstr "სამუშაო დაფის ჩვენება"
+msgstr "სამუშაო მაგიდის ჩვენება"
 
 #. Comment
 #: kcmtwin/showdesktop.desktop:6
 msgid "A button that gives quick access to the desktop when pressed"
 msgstr ""
+"ღილაკი, რომელიც, როცა დააწვებით, სამუშაო მაგიდასთან სწრაფი წვდომის "
+"საშუალებას მოგცემთ"
 
 #. Name
 #: kcmtwin/twindecoration/twindecoration.desktop:11
 msgid "Window Decorations"
-msgstr "ფანჯრის დეკორაცია"
+msgstr "ფანჯრის დეკორაციები"
 
 #. Comment
 #: kcmtwin/twindecoration/twindecoration.desktop:13
 msgid "Configure the look and feel of window titles"
-msgstr "ფანჯრის სათაურის იერსახის კონფიგურაცია"
+msgstr "ფანჯრის სათაურის იერსახის მორგება"
 
 #. Keywords
 #: kcmtwin/twindecoration/twindecoration.desktop:15
@@ -42,16 +45,19 @@ msgid ""
 "twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;"
 "kwm;decoration;"
 msgstr ""
+"twin;window;manager;border;style;theme;look;feel;layout;button;handle;edge;kw"
+"m;decoration;დეკორაცია;ღილაკი;საზღვარი;სტილი;ფანჯარა;მართვა;განლაგება;შეგრძნე"
+"ბა;თემა;"
 
 #. Name
 #: kcmtwin/twinoptions/twinactions.desktop:11
 msgid "Actions"
-msgstr "ქცევა"
+msgstr "ქმედებები"
 
 #. Comment
 #: kcmtwin/twinoptions/twinactions.desktop:13
 msgid "Configure keyboard and mouse settings"
-msgstr "კლავიატურის და თაგუნას პარამეტრების კონფიგურაცია"
+msgstr "კლავიატურის და თაგუნას მორგება"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinactions.desktop:15
@@ -59,18 +65,18 @@ msgid ""
 "shade;maximise;maximize;minimize;minimise;lower;operations menu;titlebar;"
 "resize;"
 msgstr ""
+"shade;maximise;maximize;minimize;minimise;lower;operations "
+"menu;titlebar;resize;ზომა;მენიუ;დაჩრდილვა;გაშლა;ჩაკეცვა;"
 
 #. Name
 #: kcmtwin/twinoptions/twinactiveborders.desktop:11
 msgid "Active Borders"
-msgstr ""
+msgstr "აქტიური საზღვრები"
 
 #. Comment
 #: kcmtwin/twinoptions/twinactiveborders.desktop:13
-#, fuzzy
-#| msgid "Configure advanced window management features"
 msgid "Configure active borders/corners feature"
-msgstr "ფანჯრების მენეჯერის დამატებითი ფუნქციების კონფიგურაცია"
+msgstr "აქტიური საზღვრების/კუთხეების თვისების მორგება"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinactiveborders.desktop:15
@@ -78,6 +84,8 @@ msgid ""
 "window behavior;windows;frame;titlebar;borders;corners;active borders;"
 "aerosnap;"
 msgstr ""
+"window behavior;windows;frame;titlebar;borders;corners;active "
+"borders;aerosnap;ფანჯრის ქცევა;ფანჯრები;ჩარჩო;კუთხეები;აქტიური კუთხეები;"
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
@@ -87,12 +95,12 @@ msgstr "დამატებით"
 #. Comment
 #: kcmtwin/twinoptions/twinadvanced.desktop:13
 msgid "Configure advanced window management features"
-msgstr "ფანჯრების მენეჯერის დამატებითი ფუნქციების კონფიგურაცია"
+msgstr "ფანჯრების მმართველის დამატებითი ფუნქციების მორგება"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinadvanced.desktop:15
 msgid "shading;border;hover;active borders;"
-msgstr ""
+msgstr "shading;border;hover;active borders;დაჩრდილვა;გადატარება;"
 
 #. Name
 #: kcmtwin/twinoptions/twinfocus.desktop:11
@@ -101,9 +109,8 @@ msgstr "ფოკუსი"
 
 #. Comment
 #: kcmtwin/twinoptions/twinfocus.desktop:13
-#, fuzzy
 msgid "Configure the window focus policy"
-msgstr "ბრაუზერის ქცევის კონფიგურაცია"
+msgstr "ფანჯრის ფოკუსის პოლიტიკის მორგება"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinfocus.desktop:15
@@ -111,6 +118,8 @@ msgid ""
 "focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
 "desktop;"
 msgstr ""
+"focus;placement;auto raise;raise;click raise;keyboard;CDE;alt-tab;all "
+"desktop;ფოკუსი;მოთავსება;ავტოამოწევა;კლავიატურა;"
 
 #. Name
 #: kcmtwin/twinoptions/twinmoving.desktop:11
@@ -120,12 +129,14 @@ msgstr "გადაადგილება"
 #. Comment
 #: kcmtwin/twinoptions/twinmoving.desktop:13
 msgid "Configure the way that windows are moved"
-msgstr "ფანჯრების გადაადგილების კონფიგურაცია"
+msgstr "ფანჯრების გადაადგილების გზის მორგება"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinmoving.desktop:15
 msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
 msgstr ""
+"moving;smart;cascade;maximize;maximise;snap "
+"zone;snap;border;გადაადგილება;ჭკვიანი;გაშლა;მიმაგრება;"
 
 #. Name
 #: kcmtwin/twinoptions/twinoptions.desktop:11
@@ -135,7 +146,7 @@ msgstr "ფანჯრის ქცევა"
 #. Comment
 #: kcmtwin/twinoptions/twinoptions.desktop:13
 msgid "Configure the window behavior"
-msgstr "ბრაუზერის ქცევის კონფიგურაცია"
+msgstr "ფანჯრის ქცევის მორგება"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinoptions.desktop:15
@@ -143,21 +154,26 @@ msgid ""
 "focus;placement;window behavior;animation;raise;auto raise;windows;frame;"
 "titlebar;doubleclick;"
 msgstr ""
+"focus;placement;window behavior;animation;raise;auto "
+"raise;windows;frame;titlebar;doubleclick;ორიწკაპი;ფოკუსი;მოთავსება;ფანჯრის "
+"ქცევა;ანიმაცია;ამოწევა;ჩარჩო;სათაურის ზოლი;"
 
 #. Name
 #: kcmtwin/twinoptions/twintranslucency.desktop:11
 msgid "Translucency"
-msgstr "ნახევრადგამჭირვალეობა"
+msgstr "ნახევრადგამჭირვალობა"
 
 #. Comment
 #: kcmtwin/twinoptions/twintranslucency.desktop:13
 msgid "Configure window translucency and shadow management"
-msgstr "ფანჯრების გამჭირვალობის და ჩრდილების კონფიგურაცია"
+msgstr "ფანჯრის გამჭირვალობის და ჩრდილის მორგება"
 
 #. Keywords
 #: kcmtwin/twinoptions/twintranslucency.desktop:15
 msgid "translucency;transparence;shadows;"
 msgstr ""
+"translucency;transparence;shadows;ნახევრადგამჭვირვალობა;გამჭვირვალობა;ჩრდილებ"
+"ი;"
 
 #. Name
 #: kcmtwin/twinrules/twinrules.desktop:11
@@ -175,28 +191,33 @@ msgid ""
 "size;position;state;window behavior;windows;specific;workarounds;remember;"
 "rules;"
 msgstr ""
+"size;position;state;window behavior;windows;specific;workarounds;remember;rul"
+"es;წესები;ზომა;მდებარეობა;მდგომარეობა;ფანჯრის ქცევა;ფანჯრები;დაიმახსოვრეთ;"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:2
 msgid "(Default) Disable focus stealing prevention for XV"
-msgstr ""
+msgstr "(ნაგულისხმევი) ფოკუსის მოპარვის თავიდან აცილების გამორთვა XV-სთვის"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:10
 msgid "(Default) Allow focus stealing by the screen locker"
-msgstr ""
+msgstr "(ნაგულისხმევი) ეკრანის დამბლოკის მაგიერ ფოკუსის მოპარვის დაშვება"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:21
 msgid "(Default) Allow focus stealing by the kdesktop run dialog"
 msgstr ""
+"(ნაგულისხმევი) ფოკუსის მოპარვის დაშვება kdestop-ის გაშვების დიალოგისთვის"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:32
 msgid "(Default) Allow focus stealing by the settings test dialog"
 msgstr ""
+"(ნაგულისხმევი) ფოკუსის მოპარვის დაშვება პარამეტრების შემოწმების დიალოგი მიერ"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:45
 msgid "(Default) Hide system modal dialog class from taskbar"
 msgstr ""
+"(ნაგულისხმევი) სისტემური მოდალის დიალოგის კლასის დამალვა ამოცანების პანელიდან"
