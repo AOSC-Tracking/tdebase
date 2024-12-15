@@ -35,8 +35,14 @@ tde_create_translated_desktop(
 ##### tdeio_fish (module) #########################
 
 add_custom_command( OUTPUT fishcode.h
-  COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/genfishcode.pl ${CMAKE_CURRENT_SOURCE_DIR}/fish.pl > fishcode.h
-  DEPENDS fish.pl )
+  COMMAND ${CMAKE_COMMAND}
+    -DMASTER_CURRENT_SOURCE_DIR:FILEPATH="${CMAKE_CURRENT_SOURCE_DIR}"
+    -DFISH_CODE_SOURCE:FILEPATH="fish.pl"
+    -DFISH_CODE_OUTPUT:FILEPATH="fishcode.h"
+    -P "${CMAKE_CURRENT_SOURCE_DIR}/genfishcode.cmake"
+  COMMENT "Generate fishcode.h"
+  DEPENDS fish.pl
+)
 
 set_property( SOURCE fish.cpp APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/fishcode.h )
 
