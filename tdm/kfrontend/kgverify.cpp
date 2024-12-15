@@ -301,7 +301,7 @@ void
 KGVerify::setInfoMessageDisplay(bool on)
 {
 	// assert( fixedEntity.isEmpty() );
-	Debug( "%s->setInfoMessageDisplay(%\"s)\n", pName.data(), on );
+	Debug( "%s->setInfoMessageDisplay(%\"d)\n", pName.data(), on );
 	greet->setInfoMessageDisplay(on);
 }
 
