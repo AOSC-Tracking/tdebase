@@ -31,7 +31,7 @@
 
 #include "sessioniface.h"
 
-class KProcIO;
+class TDEProcIO;
 class TDEProcess;
 class ZModemDialog;
 
@@ -222,7 +222,7 @@ private:
 
   // ZModem
   bool           zmodemBusy;
-  KProcIO*       zmodemProc;
+  TDEProcIO*     zmodemProc;
   ZModemDialog*  zmodemProgress;
 
   // Color/Font Changes by ESC Sequences

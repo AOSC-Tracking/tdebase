@@ -47,7 +47,7 @@
 #include <tdelistview.h>
 #include <tdemessagebox.h>
 #include <kiconloader.h>
-#include <kprocio.h>
+#include <tdeprocio.h>
 #include <kcharsets.h>
 #include <kdialog.h>
 #include <kdesktopfile.h>

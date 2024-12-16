@@ -30,7 +30,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <tdelocale.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
-#include <kprocio.h>
+#include <tdeprocio.h>
 #include <kdialog.h>
 #include <kstandarddirs.h>
 #include <kuser.h>
@@ -327,7 +327,7 @@ TDMShutdown::TDMShutdown( int _uid, TQWidget *_parent )
 static int
 get_date( const char *str )
 {
-	KProcIO prc;
+	TDEProcIO prc;
 	prc << "/bin/date" << "+%s" << "-d" << str;
 	prc.start( TDEProcess::Block, false );
 	TQString dstr;

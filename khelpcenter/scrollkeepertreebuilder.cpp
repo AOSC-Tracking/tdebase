@@ -28,7 +28,7 @@
 #include <kdebug.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>
-#include <kprocio.h>
+#include <tdeprocio.h>
 
 #include <tqdom.h>
 #include <tqfile.h>
@@ -58,10 +58,10 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
 
   kdDebug(1400) << "ScrollKeeper language: " << lang << endl;
 
-  KProcIO proc;
+  TDEProcIO proc;
   proc << "scrollkeeper-get-content-list";
   proc << lang;
-  connect(&proc,TQ_SIGNAL(readReady(KProcIO *)),TQ_SLOT(getContentsList(KProcIO *)));
+  connect(&proc,TQ_SIGNAL(readReady(TDEProcIO *)),TQ_SLOT(getContentsList(TDEProcIO *)));
   if (!proc.start(TDEProcess::Block)) {
     kdDebug(1400) << "Could not execute scrollkeeper-get-content-list" << endl;
     return 0;
@@ -106,7 +106,7 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
   return result;
 }
 
-void ScrollKeeperTreeBuilder::getContentsList( KProcIO *proc )
+void ScrollKeeperTreeBuilder::getContentsList( TDEProcIO *proc )
 {
   TQString filename;
   proc->readln( filename, true );

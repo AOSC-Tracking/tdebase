@@ -32,7 +32,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <klineedit.h>
 #include <kpassdlg.h>
 #include <kuser.h>
-#include <kprocio.h>
+#include <tdeprocio.h>
 
 #include <tqregexp.h>
 #include <tqlayout.h>
@@ -612,8 +612,8 @@ KWinbindGreeter::slotStartDomainList()
     mDomainListTimer.stop();
     mDomainListing.clear();
 
-    m_domainLister = new KProcIO;
-    connect(m_domainLister, TQ_SIGNAL(readReady(KProcIO*)), TQ_SLOT(slotReadDomainList()));
+    m_domainLister = new TDEProcIO;
+    connect(m_domainLister, TQ_SIGNAL(readReady(TDEProcIO*)), TQ_SLOT(slotReadDomainList()));
     connect(m_domainLister, TQ_SIGNAL(processExited(TDEProcess*)), TQ_SLOT(slotEndDomainList()));
 
     (*m_domainLister) << "wbinfo" << "--own-domain" << "--trusted-domains";

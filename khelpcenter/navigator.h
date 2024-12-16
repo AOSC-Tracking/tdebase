@@ -39,7 +39,7 @@ class TQPushButton;
 class TDEListView;
 class KService;
 class TDEProcess;
-class KProcIO;
+class TDEProcIO;
 
 class KCMHelpCenter;
 

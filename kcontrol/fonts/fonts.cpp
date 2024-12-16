@@ -28,7 +28,7 @@
 #include <kipc.h>
 #include <tdemessagebox.h>
 #include <knuminput.h>
-#include <kprocio.h>
+#include <tdeprocio.h>
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
 #include <stdlib.h>
@@ -736,7 +736,7 @@ void TDEFonts::save()
   // otherwise don't explicitly remove it and leave any possible system-wide value
   if(dpi == DPINone)
   {
-      KProcIO proc;
+      TDEProcIO proc;
       proc << "xrdb" << "-quiet" << "-remove" << "-nocpp";
       proc.writeStdin( TQCString( "Xft.dpi" ), true );
       proc.closeWhenDone();

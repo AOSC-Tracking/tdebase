@@ -34,7 +34,7 @@
 #include <kdebug.h>
 #include <tdeglobalsettings.h>
 #include <kstandarddirs.h>
-#include <kprocio.h>
+#include <tdeprocio.h>
 #include <ksavefile.h>
 #include <tdetempfile.h>
 #include <tdelocale.h>

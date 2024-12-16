@@ -38,7 +38,7 @@ class KSimpleConfig;
 class TQGridLayout;
 class TQLabel;
 class KdmThemer;
-class KProcIO;
+class TDEProcIO;
 
 class KWinbindGreeter : public TQObject, public KGreeterPlugin {
 	TQ_OBJECT
@@ -92,7 +92,7 @@ class KWinbindGreeter : public TQObject, public KGreeterPlugin {
 	KSimpleConfig *stsFile;
 	TQString fixedDomain, fixedUser, curUser;
 	TQStringList allUsers, mDomainListing;
-	KProcIO* m_domainLister;
+	TDEProcIO* m_domainLister;
         TQTimer mDomainListTimer;
 
 	Function func;

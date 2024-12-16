@@ -28,7 +28,7 @@ class TQProgressDialog;
 class TQSlider;
 class KDialogBase;
 class KPluginOptions;
-class KProcIO;
+class TDEProcIO;
 
 /** policies with plugin-specific constructor
   */
@@ -118,7 +118,7 @@ private:
 
 
  protected slots:
-  void progress(KProcIO *);
+  void progress(TDEProcIO *);
   void updatePLabel(int);
   void change() { change( true ); };
   void change( bool c ) { emit changed(c); m_changed = c; };
@@ -130,7 +130,7 @@ private:
   NSConfigWidget *m_widget;
   bool m_changed;
   TQProgressDialog *m_progress;
-  KProcIO* m_nspluginscan;
+  TDEProcIO* m_nspluginscan;
   TQSlider *priority;
   TQLabel *priorityLabel;
   PluginPolicies global_policies;

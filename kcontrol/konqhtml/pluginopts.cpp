@@ -22,7 +22,7 @@
 #include <tdelistview.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kprocio.h>
+#include <tdeprocio.h>
 #include <kstandarddirs.h>
 #include <kurlrequester.h>
 
@@ -291,7 +291,7 @@ void KPluginOptions::scan()
              save();
     }
 
-    m_nspluginscan = new KProcIO;
+    m_nspluginscan = new TDEProcIO;
     TQString scanExe = TDEGlobal::dirs()->findExe("nspluginscan");
     if (!scanExe) {
         kdDebug() << "can't find nspluginviewer" << endl;
@@ -312,8 +312,8 @@ void KPluginOptions::scan()
     // start nspluginscan
     *m_nspluginscan << scanExe << "--verbose";
     kdDebug() << "Running nspluginscan" << endl;
-    connect(m_nspluginscan, TQ_SIGNAL(readReady(KProcIO*)),
-            this, TQ_SLOT(progress(KProcIO*)));
+    connect(m_nspluginscan, TQ_SIGNAL(readReady(TDEProcIO*)),
+            this, TQ_SLOT(progress(TDEProcIO*)));
     connect(m_nspluginscan, TQ_SIGNAL(processExited(TDEProcess *)),
             this, TQ_SLOT(scanDone()));
     connect(m_progress, TQ_SIGNAL(cancelled()), this, TQ_SLOT(scanDone()));
@@ -321,7 +321,7 @@ void KPluginOptions::scan()
     m_nspluginscan->start();
 }
 
-void KPluginOptions::progress(KProcIO *proc)
+void KPluginOptions::progress(TDEProcIO *proc)
 {
     TQString line;
     while(proc->readln(line) > 0)

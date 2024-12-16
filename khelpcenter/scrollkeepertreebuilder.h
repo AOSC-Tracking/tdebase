@@ -25,7 +25,7 @@
 
 #include "navigatoritem.h"
 
-class KProcIO;
+class TDEProcIO;
 
 class TQDomNode;
 
@@ -40,7 +40,7 @@ class ScrollKeeperTreeBuilder : public TQObject
     NavigatorItem *build( NavigatorItem *parent, NavigatorItem *after );
 
   private slots:
-    void getContentsList( KProcIO *proc );
+    void getContentsList( TDEProcIO *proc );
 
   private:
     void loadConfig();

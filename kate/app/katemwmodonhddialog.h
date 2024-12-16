@@ -25,7 +25,7 @@
 #include <kate/document.h>
 
 typedef  TQPtrVector<Kate::Document> DocVector;
-class KProcIO;
+class TDEProcIO;
 class TDEProcess;
 /**
  * A dialog for handling multiple documents modified on disk
@@ -46,7 +46,7 @@ class KateMwModOnHdDialog : public KDialogBase
   private slots:
     void slotDiff();
     void slotSelectionChanged();
-    void slotPRead(KProcIO*);
+    void slotPRead(TDEProcIO*);
     void slotPDone(TDEProcess*);
 
   private:

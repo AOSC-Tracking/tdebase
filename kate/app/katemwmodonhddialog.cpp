@@ -28,7 +28,7 @@
 #include <tdelistview.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kprocio.h>
+#include <tdeprocio.h>
 #include <krun.h>
 #include <tdetempfile.h>
 #include <kpushbutton.h>
@@ -213,11 +213,11 @@ void KateMwModOnHdDialog::slotDiff()
     return;
 
   // Start a TDEProcess that creates a diff
-  KProcIO *p = new KProcIO();
+  TDEProcIO *p = new TDEProcIO();
   p->setComm( TDEProcess::All );
   *p << "diff" << "-u" << "-" <<  doc->url().path();
   connect( p, TQ_SIGNAL(processExited(TDEProcess*)), this, TQ_SLOT(slotPDone(TDEProcess*)) );
-  connect( p, TQ_SIGNAL(readReady(KProcIO*)), this, TQ_SLOT(slotPRead(KProcIO*)) );
+  connect( p, TQ_SIGNAL(readReady(TDEProcIO*)), this, TQ_SLOT(slotPRead(TDEProcIO*)) );
 
   setCursor( WaitCursor );
 
@@ -230,7 +230,7 @@ void KateMwModOnHdDialog::slotDiff()
   p->closeWhenDone();
 }
 
-void KateMwModOnHdDialog::slotPRead( KProcIO *p)
+void KateMwModOnHdDialog::slotPRead( TDEProcIO *p)
 {
   // create a file for the diff if we haven't one allready
   if ( ! m_tmpfile )

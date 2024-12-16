@@ -34,7 +34,7 @@
 
 #include <tdeapplication.h>
 #include <dcopclient.h>
-#include <kprocio.h>
+#include <tdeprocio.h>
 
 #include "plugin_paths.h"
 

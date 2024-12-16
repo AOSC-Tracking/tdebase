@@ -26,7 +26,7 @@
 #include <tdemessagebox.h>
 #include <knotifyclient.h>
 #include <tdelocale.h>
-#include <kprocio.h>
+#include <tdeprocio.h>
 #include <krun.h>
 #include <kshell.h>
 #include <kstandarddirs.h>
@@ -624,7 +624,7 @@ void TESession::cancelZModem()
 void TESession::startZModem(const TQString &zmodem, const TQString &dir, const TQStringList &list)
 {
   zmodemBusy = true;
-  zmodemProc = new KProcIO;
+  zmodemProc = new TDEProcIO;
 
   (*zmodemProc) << zmodem << "-v";
   for(TQStringList::ConstIterator it = list.begin();
@@ -636,9 +636,9 @@ void TESession::startZModem(const TQString &zmodem, const TQString &dir, const T
 
   if (!dir.isEmpty())
      zmodemProc->setWorkingDirectory(dir);
-  zmodemProc->start(KProcIO::NotifyOnExit, false);
+  zmodemProc->start(TDEProcIO::NotifyOnExit, false);
 
-  // Override the read-processing of KProcIO
+  // Override the read-processing of TDEProcIO
   disconnect(zmodemProc,TQ_SIGNAL (receivedStdout (TDEProcess *, char *, int)), 0, 0);
   connect(zmodemProc,TQ_SIGNAL (receivedStdout (TDEProcess *, char *, int)),
           this, TQ_SLOT(zmodemSendBlock(TDEProcess *, char *, int)));
