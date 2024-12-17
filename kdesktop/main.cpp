@@ -1,21 +1,21 @@
 /* This file is part of the KDE project
-   Copyright (C) 1999 David Faure (maintainer)
+ Copyright (C) 1999 David Faure (maintainer)
 
-   This library is free software; you can redistribute it and/or
-   modify it under the terms of the GNU Library General Public
-   License as published by the Free Software Foundation; either
-   version 2 of the License, or (at your option) any later version.
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
 
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
 
-   You should have received a copy of the GNU Library General Public License
-   along with this library; see the file COPYING.LIB.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
-*/
+ You should have received a copy of the GNU Library General Public License
+ along with this library; see the file COPYING.LIB.  If not, write to
+ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ Boston, MA 02110-1301, USA.
+ */
 
 #include <config.h>
 #include <tdeuniqueapplication.h>
@@ -37,7 +37,7 @@
 #include "krootwm.h"
 #include "kdesktopsettings.h"
 #include "kdesktopapp.h"
-#include "dbusscreensaverservice.h"
+#include "dbus/screensaver/dbusscreensaverservice.h"
 
 #include <signal.h>
 #include <unistd.h>
@@ -55,20 +55,19 @@
 # include <dlfcn.h>
 #endif
 
-static const char description[] =
-        I18N_NOOP("The TDE desktop");
+static const char description[] = I18N_NOOP("The TDE desktop");
 
 static const char version[] = VERSION;
 
 static TDECmdLineOptions options[] =
 {
-   { "x-root", I18N_NOOP("Use this if the desktop window appears as a real window"), 0 },
-   { "noautostart", I18N_NOOP("Obsolete"), 0 },
-   { "waitforkded", I18N_NOOP("Wait for kded to finish building database"), 0 },
+    { "x-root", I18N_NOOP("Use this if the desktop window appears as a real window"), 0 },
+    { "noautostart", I18N_NOOP("Obsolete"), 0 },
+    { "waitforkded", I18N_NOOP("Wait for kded to finish building database"), 0 },
 #ifdef COMPOSITE
-   { "bg-transparency",  I18N_NOOP("Enable background transparency"), 0 },
+    { "bg-transparency", I18N_NOOP("Enable background transparency"), 0},
 #endif
-   TDECmdLineLastOption
+    TDECmdLineLastOption
 };
 
 bool argb_visual = false;
@@ -82,7 +81,7 @@ TQCString kdesktop_name, kicker_name, twin_name;
 static void crashHandler(int sigId)
 {
     DCOPClient::emergencyClose(); // unregister DCOP
-    sleep( 1 );
+    sleep(1);
     system("kdesktop &"); // try to restart
     fprintf(stderr, "*** kdesktop (%ld) got signal %d\n", (long) getpid(), sigId);
     ::exit(1);
@@ -106,21 +105,20 @@ void KDesktop::slotUpAndRunning()
         TDECrash::setEmergencySaveFunction(crashHandler); // Try to restart on crash
 }
 
-extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
+extern "C" TDE_EXPORT int kdemain(int argc, char **argv)
 {
     //setup signal handling
     signal(SIGTERM, signalHandler);
-    signal(SIGHUP,  signalHandler);
+    signal(SIGHUP, signalHandler);
 
     {
         if (TDEGlobalSettings::isMultiHead())
         {
-       	    Display *dpy = XOpenDisplay(NULL);
-            if (! dpy) {
-            fprintf(stderr,
-                "%s: FATAL ERROR: couldn't open display '%s'\n",
-                argv[0], XDisplayName(NULL));
-            exit(1);
+            Display *dpy = XOpenDisplay(NULL);
+            if (!dpy)
+            {
+                fprintf(stderr, "%s: FATAL ERROR: couldn't open display '%s'\n", argv[0], XDisplayName(NULL));
+                exit(1);
             }
 
             int number_of_screens = ScreenCount(dpy);
@@ -131,26 +129,27 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
             dpy = 0;
 
             if ((pos = display_name.findRev('.')) != -1)
-            display_name.remove(pos, 10);
+                display_name.remove(pos, 10);
 
-                TQCString env;
-            if (number_of_screens != 1) {
-                for (int i = 0; i < number_of_screens; i++) {
-                    if (i != kdesktop_screen_number && fork() == 0) {
-                    kdesktop_screen_number = i;
-                    // break here because we are the child process, we don't
-                    // want to fork() anymore
-                    break;
+            TQCString env;
+            if (number_of_screens != 1)
+            {
+                for (int i = 0; i < number_of_screens; i++)
+                {
+                    if (i != kdesktop_screen_number && fork() == 0)
+                    {
+                        kdesktop_screen_number = i;
+                        // break here because we are the child process, we don't
+                        // want to fork() anymore
+                        break;
                     }
                 }
 
-                env.sprintf("DISPLAY=%s.%d", display_name.data(),
-                        kdesktop_screen_number);
+                env.sprintf("DISPLAY=%s.%d", display_name.data(), kdesktop_screen_number);
 
-                if (putenv(strdup(env.data()))) {
-                    fprintf(stderr,
-                        "%s: WARNING: unable to set DISPLAY environment variable\n",
-                        argv[0]);
+                if (putenv(strdup(env.data())))
+                {
+                    fprintf(stderr, "%s: WARNING: unable to set DISPLAY environment variable\n", argv[0]);
                     perror("putenv()");
                 }
             }
@@ -159,19 +158,20 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
 
     TDEGlobal::locale()->setMainCatalogue("kdesktop");
 
-    if (kdesktop_screen_number == 0) {
+    if (kdesktop_screen_number == 0)
+    {
         kdesktop_name = "kdesktop";
         kicker_name = "kicker";
         twin_name = "twin";
-    } else {
+    }
+    else
+    {
         kdesktop_name.sprintf("kdesktop-screen-%d", kdesktop_screen_number);
         kicker_name.sprintf("kicker-screen-%d", kdesktop_screen_number);
         twin_name.sprintf("twin-screen-%d", kdesktop_screen_number);
     }
 
-    TDEAboutData aboutData( kdesktop_name, I18N_NOOP("KDesktop"),
-			  version, description, TDEAboutData::License_GPL,
-			  "(c) 1998-2000, The KDesktop Authors");
+    TDEAboutData aboutData(kdesktop_name, I18N_NOOP("KDesktop"), version, description, TDEAboutData::License_GPL, "(c) 1998-2000, The KDesktop Authors");
     aboutData.addAuthor("David Faure", 0, "faure@kde.org");
     aboutData.addAuthor("Martin Koller", 0, "m.koller@surfeu.at");
     aboutData.addAuthor("Waldo Bastian", 0, "bastian@kde.org");
@@ -182,18 +182,19 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
     aboutData.addAuthor("Torben Weis", 0, "weis@kde.org");
     aboutData.addAuthor("Matthias Ettrich", 0, "ettrich@kde.org");
 
-    TDECmdLineArgs::init( argc, argv, &aboutData );
-    TDECmdLineArgs::addCmdLineOptions( options );
+    TDECmdLineArgs::init(argc, argv, &aboutData);
+    TDECmdLineArgs::addCmdLineOptions(options);
 
-    if (!TDEUniqueApplication::start()) {
+    if (!TDEUniqueApplication::start())
+    {
         fprintf(stderr, "kdesktop is already running!\n");
         exit(0);
     }
-    DCOPClient* cl = new DCOPClient;
+    DCOPClient *cl = new DCOPClient;
     cl->attach();
-    DCOPRef r( "ksmserver", "ksmserver" );
-    r.setDCOPClient( cl );
-    r.send( "suspendStartup", TQCString( "kdesktop" ));
+    DCOPRef r("ksmserver", "ksmserver");
+    r.setDCOPClient(cl);
+    r.send("suspendStartup", TQCString("kdesktop"));
     delete cl;
 
     TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
@@ -224,12 +225,10 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
             templ.screen  = screen;
             templ.depth   = 32;
             templ.c_class = TrueColor;
-            XVisualInfo *xvi = XGetVisualInfo( dpy, VisualScreenMask
-                    | VisualDepthMask | VisualClassMask, &templ, &nvi );
+            XVisualInfo *xvi = XGetVisualInfo( dpy, VisualScreenMask | VisualDepthMask | VisualClassMask, &templ, &nvi );
 
             for ( int i = 0; i < nvi; i++ ) {
-                XRenderPictFormat *format =
-                        XRenderFindVisualFormat( dpy, xvi[i].visual );
+                XRenderPictFormat *format = XRenderFindVisualFormat( dpy, xvi[i].visual );
                 if ( format->type == PictTypeDirect && format->direct.alphaMask ) {
                     visual = xvi[i].visual;
                     kdDebug() << "[kdesktop] Found visual with alpha support" << endl;
@@ -242,8 +241,7 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
         // as the primary toolkit (e.g. Motif apps also using Qt), with some slightly
         // unpleasant side effects (e.g. #83974). This code checks if qt-copy patch #0078
         // is applied, which allows turning this off.
-        bool* qt_no_foreign_hack =
-                static_cast< bool* >( dlsym( RTLD_DEFAULT, "qt_no_foreign_hack" ));
+        bool* qt_no_foreign_hack = static_cast< bool* >( dlsym( RTLD_DEFAULT, "qt_no_foreign_hack" ));
         if( qt_no_foreign_hack )
             *qt_no_foreign_hack = true;
         // else argb_visual = false ... ? *shrug*
@@ -276,25 +274,25 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
     if (!myApp->config()->isImmutable() &&
         tdeApp->authorizeControlModules(KRootWm::configModules()).isEmpty())
     {
-       myApp->config()->setReadOnly(true);
-       myApp->config()->reparseConfiguration();
+        myApp->config()->setReadOnly(true);
+        myApp->config()->reparseConfiguration();
     }
 
     // for the KDE-already-running check in starttde
-    TDESelectionOwner kde_running( "_KDE_RUNNING", 0 );
-    kde_running.claim( false );
+    TDESelectionOwner kde_running("_KDE_RUNNING", 0);
+    kde_running.claim(false);
 
-    KDesktop desktop( &saver, x_root_hack, wait_for_kded );
+    KDesktop desktop(&saver, x_root_hack, wait_for_kded);
 
     args->clear();
 
-    myApp->dcopClient()->setDefaultObject( "KDesktopIface" );
+    myApp->dcopClient()->setDefaultObject("KDesktopIface");
 
     TDEDbusScreenSaver dbusScreenSaverInterface;
     if (!dbusScreenSaverInterface.isConnectedToDBUS())
     {
-        fprintf(stderr,"Can't connect to DBus!\nUnable to start tdedbusscreensaver.\n\n"
-                                     "Restart dbus and try again");
+        fprintf(stderr, "Can't connect to DBus!\nUnable to start tdedbusscreensaver.\n\n"
+                "Restart dbus and try again");
     }
 
     return myApp->exec();
