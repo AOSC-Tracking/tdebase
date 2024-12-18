@@ -1,52 +1,53 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2024-12-19 05:12+0000\n"
+"Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/khotkeys-data/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:5
 msgid "Basic Konqueror gestures."
-msgstr ""
+msgstr "Konqueror-ის საბაზისო ჟესტები."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:8
 msgid "Konqueror Gestures"
-msgstr ""
+msgstr "Konqueror -ის ჟესტები"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:13 trinity2b1.khotkeys:219
 msgid "Konqueror window"
-msgstr ""
+msgstr "Konqueror -ის ფანჯარა"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:20
 #: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
 #: trinity2b1.khotkeys:232
 msgid "Konqueror"
-msgstr ""
+msgstr "Konqueror"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:35
 msgid "Press, move left, release."
-msgstr ""
+msgstr "დააწექით, გადაიტანეთ მარცხნივ, გაუშვით."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:37 trinity2b1.khotkeys:242
 msgid "Back"
-msgstr ""
+msgstr "უკან"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:41
@@ -54,11 +55,14 @@ msgid ""
 "Opera-style: Press, move up, release.\n"
 "NOTE: Conflicts with 'New Tab', and as such is disabled by default."
 msgstr ""
+"Opera-ის სტილი. დაწოლა, მაღლა, გაუშვით\n"
+"შენიშვნა: კონფლიქტშია ჟესტთან 'ახალი ჩანართი', ამიტომ ნაგულისხმევად "
+"გამორთულია."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:43
 msgid "Stop Loading"
-msgstr ""
+msgstr "ჩატვირთვის გაჩერება"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:58
@@ -77,7 +81,7 @@ msgstr ""
 #: konqueror_gestures_trinity21.khotkeys:385 trinity2b1.khotkeys:257
 #: trinity2b1.khotkeys:289 trinity2b1.khotkeys:321 trinity2b1.khotkeys:353
 msgid "Gesture_triggers"
-msgstr ""
+msgstr "Gesture_triggers"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:66
@@ -85,11 +89,14 @@ msgid ""
 "Going up in URL/directory structure.\n"
 "Mozilla-style: Press, move up, move left, move up, release."
 msgstr ""
+"URL/საქაღალდეების სტრუქტურაში მაღლა ასვლა.\n"
+"Mozilla-ის სტილი: დააჭირეთ, მაღლა ასვლა, მარცხნივ გასვლა, მაღლა ასვლა, "
+"გაუშვით."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:68 trinity2b1.khotkeys:306
 msgid "Up"
-msgstr ""
+msgstr "ჩართული"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:91
@@ -99,62 +106,65 @@ msgid ""
 "NOTE: Conflicts with  \"Activate Previous Tab\", and as such is disabled by "
 "default."
 msgstr ""
+"მაღლა ასვლა URL-ის/საქაღალდის სტრუქტურაში.\n"
+"Opera-ის სტილი. დააჭირეთ, მაღლა, მარცხნივ, მაღლა, გაუშვით.\n"
+"შენიშვნა: კონფლიქტშია   \"წინა ჩანართის გააქტიურებასთან\"; და ამიტომ "
+"ნაგულისხმევად გათიშულია."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:93
 msgid "Up #2"
-msgstr ""
+msgstr "მაღლა #2"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:116
 msgid "Press, move up, move right, release."
-msgstr ""
+msgstr "დააწექით, მაღლა აიტანეთ, მარჯვნივ გაიტანეთ, გაუშვით."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:118
 msgid "Activate Next Tab"
-msgstr ""
+msgstr "შემდეგი ჩანართის გააქტიურება"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:141
 msgid "Press, move up, move left, release."
-msgstr ""
+msgstr "დააწექით, მაღლა აიტანეთ, მარივ გაიტანეთ, გაუშვით."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:143
 msgid "Activate Previous Tab"
-msgstr ""
+msgstr "წინა ჩანართის გააქტიურება"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:185
 msgid "Press, move down, move up, move down, release."
-msgstr ""
+msgstr "დააწექით, დაბლა ჩამოიტანეთ, მაღლა აიტანეთ, დაბლა ჩამოიტანეთ, გაუშვით."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:187
 msgid "Duplicate Tab"
-msgstr ""
+msgstr "ჩანართის დუბლირება"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:210
 msgid "Press, move down, move up, release."
-msgstr ""
+msgstr "დააწექით, დაბლა ჩამოიტანეთ, მაღლა აიტანეთ, გაუშვით."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:212
-#, fuzzy
 msgid "Duplicate Window"
-msgstr "ახალი ფანჯარა"
+msgstr "ფანჯრის დუბლირება"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:235
 msgid "Press, move right, release."
-msgstr ""
+msgstr "დააწექით, მარჯვნივ გაიტანეთ, გაუშვით."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:237 trinity2b1.khotkeys:274
 msgid "Forward"
-msgstr ""
+msgstr "წინ"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:260
@@ -162,6 +172,8 @@ msgid ""
 "Press, move down, move half up, move right, move down, release.\n"
 "(Drawing a lowercase 'h'.)"
 msgstr ""
+"დააჭირეთ, ქვემოთ, ნახევრად ზემოთ, მარჯვნივ, ქვემოთ, გაუსვით\n"
+"(დახატეთ პატარა ასო 'h'.)"
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:262
@@ -174,11 +186,13 @@ msgid ""
 "Press, move right, move down, move right, release.\n"
 "Mozilla-style: Press, move down, move right, release."
 msgstr ""
+"დააჭირეთ, მარჯვნივ, ქვემოთ, მარჯვნივ, გაუშვით\n"
+"Mozilla-ის სტილი: დააჭირეთ, ქვემოთ, მარჯვნივ, გაუშვით."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:291
 msgid "Close Tab"
-msgstr ""
+msgstr "ჩანართის დახურვა"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:318
@@ -186,16 +200,18 @@ msgid ""
 "Press, move up, release.\n"
 "Conflicts with Opera-style 'Up #2', which is disabled by default."
 msgstr ""
+"დააჭირეთ, ზემოთ, გაუშვით.\n"
+"კონფლიქტშია Opera-ის სტილთან 'მაღლა #2', რომელიც ნაგულისხმევად გამორთულია."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:320
 msgid "New Tab"
-msgstr ""
+msgstr "ახალი ჩანართი"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:343
 msgid "Press, move down, release."
-msgstr ""
+msgstr "დააწექით, დაბლა ჩამოიტანეთ, გაუშვით."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:345
@@ -205,50 +221,52 @@ msgstr "ახალი ფანჯარა"
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:368
 msgid "Press, move up, move down, release."
-msgstr ""
+msgstr "დააწექით, მაღლა აიტანეთ, დაბლა ჩამოიტანეთ, გაუშვით."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:370 trinity2b1.khotkeys:338
 msgid "Reload"
-msgstr ""
+msgstr "თავიდან ჩატვირთვა"
 
 #. Comment
 #: printscreen.khotkeys:5
 msgid "This group contains actions that are set up by default."
-msgstr ""
+msgstr "ეს ჯგუფი შეიცავს ქმედებებს, რომლებიც ნაგულისხმევად სრულდება."
 
 #. Name
 #: printscreen.khotkeys:8
 msgid "Preset Actions"
-msgstr ""
+msgstr "ქმედების მაგალითები"
 
 #. Comment
 #: printscreen.khotkeys:17
 msgid "Launches KSnapShot when PrintScrn is pressed."
-msgstr ""
+msgstr "გაუშვებს KSnapShot-ს, როცა ღილაკს PrintScrn დააჭერთ."
 
 #. Name
 #: printscreen.khotkeys:19
 msgid "PrintScreen"
-msgstr ""
+msgstr "PrintScreen"
 
 #. Comment
 #: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
 #: trinity2b1.khotkeys:71 trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
 #: trinity2b1.khotkeys:203 trinity2b1.khotkeys:385
 msgid "Simple_action"
-msgstr ""
+msgstr "Simple_action"
 
 #. Comment
 #: printscreen.khotkeys:41
 msgid ""
 "Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
 msgstr ""
+"გაუშვებს KSnapShot-ს ფანჯრის გადაღების რეჟიმში, როცა დააწვებით ღილაკებს "
+"Alt+PrintScrn.\n"
 
 #. Name
 #: printscreen.khotkeys:43
 msgid "PrintWindow"
-msgstr ""
+msgstr "ფანჯრის სურათი"
 
 #. Comment
 #: trinity2b1.khotkeys:5
@@ -256,11 +274,14 @@ msgid ""
 "This group contains various examples demonstrating most of the features of "
 "KHotkeys. (Note that this group and all its actions are disabled by default.)"
 msgstr ""
+"ეს ჯგუფი შეიცავს სხვადასხვა მაგალითებს KHotkeys-ის უმეტესი ფუნქციების "
+"სადემონსტრაციოდ. (დაიმახსოვრეთ, რომ ეს ჯგუფი და მისი ქმედებები ნაგულისხმებად "
+"გათიშულია.)"
 
 #. Name
 #: trinity2b1.khotkeys:8
 msgid "Examples"
-msgstr ""
+msgstr "მაგალითები"
 
 #. Comment
 #: trinity2b1.khotkeys:16
@@ -268,21 +289,23 @@ msgid ""
 "After pressing Ctrl+Alt+I, the KSIRC window will be activated, if it exists. "
 "Simple."
 msgstr ""
+"Ctrl+Alt+I-ის დაწოლის შემდეგ KSIRC-ის ფანჯარა გააქტიურდება, თუ არსებობს. "
+"მარტივია."
 
 #. Name
 #: trinity2b1.khotkeys:18
 msgid "Activate KSIRC Window"
-msgstr ""
+msgstr "KSIRC ფანჯრის გააქტიურება"
 
 #. Comment
 #: trinity2b1.khotkeys:28
 msgid "KSIRC window"
-msgstr ""
+msgstr "KSIRC -ის ფანჯარა"
 
 #. Comment
 #: trinity2b1.khotkeys:34
 msgid "KSIRC"
-msgstr ""
+msgstr "KSIRC"
 
 #. Comment
 #: trinity2b1.khotkeys:54
@@ -300,21 +323,33 @@ msgid ""
 ": (colon)                                  Shift+;\n"
 "' '  (space)                              Space"
 msgstr ""
+"Alt+Ctrl+H-ის დაჭერის შემდეგ მოხდება 'Hello'-ის შეყვანა, თითქოს ის აკრიფეთ. "
+"განსაკუთრებით სასარგებლოა, თუ გეზარებათ ისეთ სიტყვების კრეფა, როგორიცაა "
+"'unsigned'. თითოეული ღილაკის დაჭერა გამოიყოფა ორი წერტილით ':' . "
+"დაიმახსოვრეთ, რომ ღილაკის დაჭერა ამას პირდაპირი გაგებით ნიშნავს, ასე რომ, თუ "
+"აკრეფა გნებავთ, ღილაკს კლავიატურაზე მართლა უნდა დააჭიროთ. ქვედა ცხრილში "
+"მარცხნივ შეგიძლიათ, იხილოთ, რა შეგყავთ და მარჯვენაში, რას აკრეფთ.\n"
+"\n"
+"\"enter\" (ანუ ახალი ხაზი)                შესვლა ან ხაზის გადატანა\n"
+"a (ანუ პატარა a)                          A\n"
+"A (ანუ დიდი a)                       Shift+A\n"
+": (ორიწერტილი)                                  Shift+;\n"
+"' '  (ჰარე)                              გამოტოვება"
 
 #. Name
 #: trinity2b1.khotkeys:56
 msgid "Type 'Hello'"
-msgstr ""
+msgstr "აკრიფეთ 'Hello'"
 
 #. Comment
 #: trinity2b1.khotkeys:79
 msgid "This action runs Konsole, after pressing Ctrl+Alt+T."
-msgstr ""
+msgstr "ეს ქმედება გაუშვებს კონსოლს, როცა დააწვებით Ctrl+Alt+T-ს."
 
 #. Name
 #: trinity2b1.khotkeys:81
 msgid "Run Konsole"
-msgstr ""
+msgstr "Konsole-ის გაშვება"
 
 #. Comment
 #: trinity2b1.khotkeys:103
@@ -337,16 +372,33 @@ msgid ""
 "Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
 "condition will check for the active window having that title."
 msgstr ""
+"ჯერ წაიკითხეთ კომენტარი მოქმედებაზე \"აკრიფეთ \"გამარჯობა\".\n"
+"\n"
+"Qt Designer იყენებს Ctrl+F4 ფანჯრების დახურვისთვის (შეიძლება იმიტომ, რომ MS "
+"Windows ასე აკეთებს *მხრები*). მაგრამ Ctrl+F4 TDE-ში ნიშნავს გადასვლას "
+"ვირტუალურ დესკტოპზე 4, ამიტომ ის არ მუშაობს Qt Designer-ში და ასევე, Qt "
+"Designer არ იყენებს TDE-ის სტანდარტულ Ctrl+W-ს ფანჯრის დახურვისთვის.\n"
+"\n"
+"მაგრამ პრობლემის მოგვარება შესაძლებელია Ctrl+W-ზე Ctrl+F4-ზე გადატანით, "
+"როდესაც აქტიური ფანჯარა არის Qt Designer. როდესაც Qt Designer აქტიურია, "
+"ყოველ ჯერზე Ctrl+W დაჭერისას, Ctrl+F4 გადაეგზავნება Qt Designer-ს. სხვა "
+"აპლიკაციებში, Ctrl+W მუშაობს ჩვეულებრივად, რა თქმა უნდა.\n"
+"\n"
+"ახლა ჩვენ უნდა დავაკონკრეტოთ სამი რამ: ახალი მალსახმობის ტრიგერი 'Ctrl+W'-"
+"ზე, კლავიატურის შეყვანის ახალი მოქმედება Ctrl+F4-ის გაგზავნით და ახალი "
+"პირობა, რომ აქტიური ფანჯარა არის Qt Designer.\n"
+"Qt Designer-ს, როგორც ჩანს, ყოველთვის აქვს სათაური „Qt Designer by Trolltech“"
+", ასე რომ, პირობა შეამოწმებს ამ სათაურის მქონე აქტიურ ფანჯარას."
 
 #. Name
 #: trinity2b1.khotkeys:105
 msgid "Remap Ctrl+W to Ctrl+F4 in Qt Designer"
-msgstr ""
+msgstr "Qt Designer-ში Ctrl+W -ის Ctrl+F4 -ზე გადართვა"
 
 #. Comment
 #: trinity2b1.khotkeys:123
 msgid "Qt Designer"
-msgstr ""
+msgstr "Qt Designer"
 
 #. Comment
 #: trinity2b1.khotkeys:144
@@ -355,11 +407,15 @@ msgid ""
 "minicli. You can use any kind of DCOP call, just like using the command line "
 "'dcop' tool."
 msgstr ""
+"Alt+Ctrl+W-ის დაჭერა მოახდენს DCOP-ის ფუნქციის გამოძახებას, რომელიც minicli-"
+"ის აჩვენებთ. შეგიძლიათ, გამოიყენოთ DCOP-ის გამოძახების ნებისმიერი ფუნქცია, "
+"როგორც ეს ბრძანების სტრიქონში, 'dcop' ბრძანებით ხდება."
 
 #. Name
 #: trinity2b1.khotkeys:146
 msgid "Perform DCOP call 'kdesktop KDesktopIface popupExecuteCommand()'"
 msgstr ""
+"DCOP-ის ფუნქცია 'kdesktop KDesktopIface popupExecuteCommand()' გამოძახება"
 
 #. Comment
 #: trinity2b1.khotkeys:171
@@ -376,21 +432,33 @@ msgid ""
 "(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
 "'XMMS_Player')."
 msgstr ""
+"ჯერ წაიკითხეთ კომენტარი მოქმედებაზე \"აკრიფეთ \"გამარჯობა\".\n"
+"\n"
+"ისევე, როგორც \"აკრიფეთ \"Hello\" მოქმედება, ეს კლავიატურაზე შეყვანის "
+"სიმულაციას ახდენს, კერძოდ, Ctrl+Alt+B დაჭერის შემდეგ, ის აგზავნის B-ს XMMS-"
+"ში (B in XMMS გადადის შემდეგ სიმღერაზე). „კონკრეტულ ფანჯარაში გაგზავნა“ "
+"მონიშნულია და მითითებულია ფანჯარა თავისი კლასით, რომელიც შეიცავს "
+"„XMMS_Player“; ეს გახდის, რომ შეყვანა ყოველთვის გაიგზავნება ამ ფანჯარაში. ამ "
+"გზით, თქვენ შეგიძლიათ მართოთ XMMS მაშინაც კი, თუ ეს არის მაგ. სხვა ვირტუალურ "
+"სამუშაო მაგიდაზე.\n"
+"\n"
+"(გაუშვით 'xprop' და დააწკაპუნეთ XMMS ფანჯარაზე და მოძებნეთ WM_CLASS, რომ "
+"ნახოთ 'XMMS_Player')."
 
 #. Name
 #: trinity2b1.khotkeys:173
 msgid "Next in XMMS"
-msgstr ""
+msgstr "შემდეგი XMMS_ში"
 
 #. Comment
 #: trinity2b1.khotkeys:185
 msgid "XMMS window"
-msgstr ""
+msgstr "XMMS -ის ფანჯარა"
 
 #. Comment
 #: trinity2b1.khotkeys:191
 msgid "XMMS Player window"
-msgstr ""
+msgstr "XMMS -ის დამკვრელის ფანჯარა"
 
 #. Comment
 #: trinity2b1.khotkeys:211
@@ -427,11 +495,43 @@ msgid ""
 "are active only if the active window is Konqueror (class contains "
 "'konqueror')."
 msgstr ""
+"კარგი, Konqi-ს TDE-ში აქვს ჩანართები და ახლა შეგიძლიათ ჟესტებიც. არ არის "
+"საჭირო სხვა ბრაუზერების გამოყენება >;).\n"
+"\n"
+"უბრალოდ დააჭირეთ მაუსის შუა ღილაკს და დაიწყეთ ერთ-ერთი ჟესტის დახატვა, ხოლო "
+"დასრულების შემდეგ გაათავისუფლეთ მაუსის ღილაკი. თუ მხოლოდ არჩევანის ჩასმა "
+"გჭირდებათ, ის მაინც მუშაობს, უბრალოდ დააჭირეთ მაუსის შუა ღილაკს. (შეგიძლიათ "
+"შეცვალოთ მაუსის ღილაკი გლობალურ პარამეტრებში გამოსაყენებლად).\n"
+"\n"
+"ამჟამად ხელმისაწვდომია ეს ჟესტები:\n"
+"გადაადგილება მარჯვნივ და უკან მარცხნივ - წინ (ALt+მარჯვნივ)\n"
+"გადაადგილება მარცხნივ და უკან მარჯვნივ - უკან (Alt+მარცხნივ)\n"
+"გადაადგილება ზევით და ქვევით - ზემოთ (Alt+Up)\n"
+"წრე საათის ისრის საწინააღმდეგო მიმართულებით - გადატვირთვა (F5)\n"
+" (როგორც კი გავარკვევ რომელია ოპერაში ან მოზილაში, კიდევ დავამატებ და "
+"დავრწმუნდები, რომ იგივეა. ან თუ თქვენ თვითონ გააკეთებთ ამას, თავისუფლად "
+"დამეხმარეთ და გამომიგზავნეთ თქვენი khotkeysrc.)\n"
+"\n"
+"ჟესტების ფორმები (ზოგიერთი დიალოგი არის KGesture-დან, მაიკ პილონის წყალობით) "
+"შეიძლება უბრალოდ შეიყვანოთ კონფიგურაციის დიალოგში მათი შესრულებით. თქვენ "
+"ასევე შეგიძლიათ დაათვალიეროთ თქვენი რიცხვითი პანელი, რომელიც დაგეხმარებათ, "
+"ჟესტები აღიარებულია ველების 3x3 ბადის მსგავსად, დანომრილი 1-დან 9-მდე.\n"
+"\n"
+"გაითვალისწინეთ, რომ მოქმედების გასააქტიურებლად ზუსტად უნდა შეასრულოთ ჟესტი. "
+"ამის გამო, შესაძლებელია მოქმედებისთვის მეტი ჟესტების შეყვანა. თქვენ უნდა "
+"შეეცადოთ თავიდან აიცილოთ რთული ჟესტები, როდესაც მაუსის გადაადგილების "
+"მიმართულებას არაერთხელ შეცვლით (ანუ გააკეთეთ მაგ. 45654 ან 74123, რადგან "
+"ისინი მარტივი შესასრულებელია, მაგრამ მაგ. 1236987 შეიძლება უკვე საკმაოდ "
+"რთული იყოს).\n"
+"\n"
+"ამ ჯგუფში განსაზღვრულია ყველა ჟესტის პირობა. ყველა ეს ჟესტი აქტიურია მხოლოდ "
+"იმ შემთხვევაში, თუ აქტიური ფანჯარა არის Konqueror (კლასი შეიცავს "
+"'konqueror')."
 
 #. Name
 #: trinity2b1.khotkeys:214
 msgid "Konqi Gestures"
-msgstr ""
+msgstr "Konqi -ის ჟესტები"
 
 #. Comment
 #: trinity2b1.khotkeys:369
@@ -440,8 +540,11 @@ msgid ""
 "http://www.trinitydesktop.org . You may run all kind of commands you can run "
 "in minicli (Alt+F2)."
 msgstr ""
+"Win+E (Tux+E) დაჭერის შემდეგ ამოქმედდება WWW ბრაუზერი და გაიხსნება http://"
+"www.trinitydesktop.org . თქვენ შეგიძლიათ გაუშვათ ყველა სახის ბრძანება, "
+"რომლის გაშვებაც შეგიძლიათ minicli-ში (Alt+F2)."
 
 #. Name
 #: trinity2b1.khotkeys:371
 msgid "Go to TDE Website"
-msgstr ""
+msgstr "TDE-ის ვებგვერდზე გადასვლა"
